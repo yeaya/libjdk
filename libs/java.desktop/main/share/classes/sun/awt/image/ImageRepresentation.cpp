@@ -1,9 +1,7 @@
 #include <sun/awt/image/ImageRepresentation.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Transparency.h>
@@ -55,7 +53,6 @@
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $Transparency = ::java::awt::Transparency;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
@@ -66,7 +63,6 @@ using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $ImageProducer = ::java::awt::image::ImageProducer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
@@ -89,92 +85,6 @@ using $ToolkitImage = ::sun::awt::image::ToolkitImage;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _ImageRepresentation_FieldInfo_[] = {
-	{"src", "Lsun/awt/image/InputStreamImageSource;", nullptr, 0, $field(ImageRepresentation, src)},
-	{"image", "Lsun/awt/image/ToolkitImage;", nullptr, 0, $field(ImageRepresentation, image)},
-	{"tag", "I", nullptr, 0, $field(ImageRepresentation, tag)},
-	{"pData", "J", nullptr, 0, $field(ImageRepresentation, pData)},
-	{"width", "I", nullptr, 0, $field(ImageRepresentation, width)},
-	{"height", "I", nullptr, 0, $field(ImageRepresentation, height)},
-	{"hints", "I", nullptr, 0, $field(ImageRepresentation, hints)},
-	{"availinfo", "I", nullptr, 0, $field(ImageRepresentation, availinfo)},
-	{"newbits", "Ljava/awt/Rectangle;", nullptr, 0, $field(ImageRepresentation, newbits)},
-	{"bimage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(ImageRepresentation, bimage)},
-	{"biRaster", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(ImageRepresentation, biRaster)},
-	{"cmodel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(ImageRepresentation, cmodel)},
-	{"srcModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(ImageRepresentation, srcModel)},
-	{"srcLUT", "[I", nullptr, 0, $field(ImageRepresentation, srcLUT)},
-	{"srcLUTtransIndex", "I", nullptr, 0, $field(ImageRepresentation, srcLUTtransIndex)},
-	{"numSrcLUT", "I", nullptr, 0, $field(ImageRepresentation, numSrcLUT)},
-	{"forceCMhint", "Z", nullptr, 0, $field(ImageRepresentation, forceCMhint)},
-	{"sstride", "I", nullptr, 0, $field(ImageRepresentation, sstride)},
-	{"isDefaultBI", "Z", nullptr, 0, $field(ImageRepresentation, isDefaultBI)},
-	{"isSameCM", "Z", nullptr, 0, $field(ImageRepresentation, isSameCM)},
-	{"s_useNative", "Z", nullptr, $STATIC, $staticField(ImageRepresentation, s_useNative)},
-	{"consuming", "Z", nullptr, $PRIVATE, $field(ImageRepresentation, consuming)},
-	{"numWaiters", "I", nullptr, $PRIVATE, $field(ImageRepresentation, numWaiters)},
-	{}
-};
-
-$MethodInfo _ImageRepresentation_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/image/ToolkitImage;Ljava/awt/image/ColorModel;Z)V", nullptr, $PUBLIC, $method(ImageRepresentation, init$, void, $ToolkitImage*, $ColorModel*, bool)},
-	{"abort", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ImageRepresentation, abort, void)},
-	{"check", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, check, int32_t, $ImageObserver*)},
-	{"checkConsumption", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ImageRepresentation, checkConsumption, void)},
-	{"convertToRGB", "()V", nullptr, $PRIVATE, $method(ImageRepresentation, convertToRGB, void)},
-	{"createBufferedImage", "()V", nullptr, 0, $virtualMethod(ImageRepresentation, createBufferedImage, void)},
-	{"createImage", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable;)Ljava/awt/image/BufferedImage;", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable<**>;)Ljava/awt/image/BufferedImage;", $PROTECTED, $virtualMethod(ImageRepresentation, createImage, $BufferedImage*, $ColorModel*, $WritableRaster*, bool, $Hashtable*)},
-	{"decrementWaiters", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ImageRepresentation, decrementWaiters, void)},
-	{"dispose", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ImageRepresentation, dispose, void)},
-	{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, $AffineTransform*, $ImageObserver*)},
-	{"getBufferedImage", "()Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(ImageRepresentation, getBufferedImage, $BufferedImage*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, 0, $virtualMethod(ImageRepresentation, getColorModel, $ColorModel*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, getHeight, int32_t)},
-	{"getOpaqueRGBImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, getOpaqueRGBImage, $BufferedImage*)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, getWidth, int32_t)},
-	{"imageComplete", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, imageComplete, void, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ImageRepresentation, initIDs, void)},
-	{"notifyWatcherListEmpty", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageRepresentation, notifyWatcherListEmpty, void)},
-	{"prepare", "(Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, prepare, bool, $ImageObserver*)},
-	{"reconstruct", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageRepresentation, reconstruct, void, int32_t)},
-	{"setAccelerationPriority", "(F)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setAccelerationPriority, void, float)},
-	{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setColorModel, void, $ColorModel*)},
-	{"setDiffICM", "(IIII[IIILjava/awt/image/IndexColorModel;[BIILsun/awt/image/ByteComponentRaster;I)Z", nullptr, $PRIVATE | $NATIVE, $method(ImageRepresentation, setDiffICM, bool, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, $IndexColorModel*, $bytes*, int32_t, int32_t, $ByteComponentRaster*, int32_t)},
-	{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setDimensions, void, int32_t, int32_t)},
-	{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setHints, void, int32_t)},
-	{"setICMpixels", "(IIII[I[BIILsun/awt/image/IntegerComponentRaster;)Z", nullptr, $PRIVATE | $NATIVE, $method(ImageRepresentation, setICMpixels, bool, int32_t, int32_t, int32_t, int32_t, $ints*, $bytes*, int32_t, int32_t, $IntegerComponentRaster*)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(ImageRepresentation, setProperties, void, $Hashtable*)},
-	{"startProduction", "()V", nullptr, 0, $virtualMethod(ImageRepresentation, startProduction, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 23
-#define _METHOD_INDEX_setDiffICM 29
-#define _METHOD_INDEX_setICMpixels 32
-
-$ClassInfo _ImageRepresentation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ImageRepresentation",
-	"sun.awt.image.ImageWatched",
-	"java.awt.image.ImageConsumer",
-	_ImageRepresentation_FieldInfo_,
-	_ImageRepresentation_MethodInfo_
-};
-
-$Object* allocate$ImageRepresentation($Class* clazz) {
-	return $of($alloc(ImageRepresentation));
-}
 
 int32_t ImageRepresentation::hashCode() {
 	 return this->$ImageWatched::hashCode();
@@ -200,7 +110,7 @@ bool ImageRepresentation::s_useNative = false;
 
 void ImageRepresentation::initIDs() {
 	$init(ImageRepresentation);
-	$prepareNativeStatic(ImageRepresentation, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -226,40 +136,38 @@ void ImageRepresentation::init$($ToolkitImage* im, $ColorModel* cmodel, bool for
 
 void ImageRepresentation::reconstruct(int32_t flags) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->src != nullptr) {
-			$nc(this->src)->checkSecurity(nullptr, false);
+			this->src->checkSecurity(nullptr, false);
 		}
-		int32_t missinginfo = (int32_t)(flags & (uint32_t)~this->availinfo);
-		if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) == 0 && missinginfo != 0) {
+		int32_t missinginfo = flags & ~this->availinfo;
+		if ((this->availinfo & $ImageObserver::ERROR) == 0 && missinginfo != 0) {
 			++this->numWaiters;
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				try {
-					startProduction();
-					missinginfo = (int32_t)(flags & (uint32_t)~this->availinfo);
-					while (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) == 0 && missinginfo != 0) {
-						try {
-							$of(this)->wait();
-						} catch ($InterruptedException& e) {
-							$($Thread::currentThread())->interrupt();
-							return$1 = true;
-							goto $finally;
-						}
-						missinginfo = (int32_t)(flags & (uint32_t)~this->availinfo);
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			try {
+				startProduction();
+				missinginfo = flags & ~this->availinfo;
+				while ((this->availinfo & $ImageObserver::ERROR) == 0 && missinginfo != 0) {
+					try {
+						$of(this)->wait();
+					} catch ($InterruptedException& e) {
+						$($Thread::currentThread())->interrupt();
+						return$1 = true;
+						goto $finally;
 					}
-				} catch ($Throwable& var$2) {
-					$assign(var$0, var$2);
-				} $finally: {
-					decrementWaiters();
+					missinginfo = flags & ~this->availinfo;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$2) {
+				$assign(var$0, var$2);
+			} $finally: {
+				decrementWaiters();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	}
@@ -267,7 +175,7 @@ void ImageRepresentation::reconstruct(int32_t flags) {
 
 void ImageRepresentation::setDimensions(int32_t w, int32_t h) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	$nc(this->image)->setDimensions(w, h);
 	newInfo(this->image, ($ImageObserver::WIDTH | $ImageObserver::HEIGHT), 0, 0, w, h);
@@ -300,27 +208,27 @@ $BufferedImage* ImageRepresentation::getBufferedImage() {
 }
 
 $BufferedImage* ImageRepresentation::createImage($ColorModel* cm, $WritableRaster* raster, bool isRasterPremultiplied, $Hashtable* properties) {
-	$var($BufferedImage, bi, $new($BufferedImage, cm, raster, isRasterPremultiplied, ($Hashtable*)nullptr));
+	$var($BufferedImage, bi, $new($BufferedImage, cm, raster, isRasterPremultiplied, nullptr));
 	bi->setAccelerationPriority($nc(this->image)->getAccelerationPriority());
 	return bi;
 }
 
 void ImageRepresentation::setProperties($Hashtable* props) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	$nc(this->image)->setProperties(props);
 	newInfo(this->image, $ImageObserver::PROPERTIES, 0, 0, 0, 0);
 }
 
 void ImageRepresentation::setColorModel($ColorModel* model) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	$set(this, srcModel, model);
 	if ($instanceOf($IndexColorModel, model)) {
-		if ($nc(model)->getTransparency() == $Transparency::TRANSLUCENT) {
+		if (model->getTransparency() == $Transparency::TRANSLUCENT) {
 			$set(this, cmodel, $ColorModel::getRGBdefault());
 			$set(this, srcLUT, nullptr);
 		} else {
@@ -336,8 +244,8 @@ void ImageRepresentation::setColorModel($ColorModel* model) {
 		$set(this, srcLUT, nullptr);
 	} else if ($instanceOf($DirectColorModel, model)) {
 		$var($DirectColorModel, dcm, $cast($DirectColorModel, model));
-		bool var$1 = ($nc(dcm)->getRedMask() == 0x00FF0000);
-		bool var$0 = var$1 && (dcm->getGreenMask() == 0x0000FF00);
+		bool var$1 = dcm->getRedMask() == 0x00ff0000;
+		bool var$0 = var$1 && (dcm->getGreenMask() == 0x0000ff00);
 		if (var$0 && (dcm->getBlueMask() == 255)) {
 			$set(this, cmodel, model);
 			$set(this, srcLUT, nullptr);
@@ -361,8 +269,8 @@ void ImageRepresentation::createBufferedImage() {
 		this->isDefaultBI = true;
 	} else if ($instanceOf($DirectColorModel, this->cmodel)) {
 		$var($DirectColorModel, dcm, $cast($DirectColorModel, this->cmodel));
-		bool var$1 = $nc(dcm)->getRedMask() == 0x00FF0000;
-		bool var$0 = var$1 && dcm->getGreenMask() == 0x0000FF00;
+		bool var$1 = $nc(dcm)->getRedMask() == 0x00ff0000;
+		bool var$0 = var$1 && dcm->getGreenMask() == 0x0000ff00;
 		if (var$0 && dcm->getBlueMask() == 255) {
 			this->isDefaultBI = true;
 		}
@@ -370,18 +278,18 @@ void ImageRepresentation::createBufferedImage() {
 }
 
 void ImageRepresentation::convertToRGB() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = $nc(this->bimage)->getWidth();
 	int32_t h = $nc(this->bimage)->getHeight();
 	int32_t size = w * h;
 	$var($DataBufferInt, dbi, $new($DataBufferInt, size));
 	$var($ints, newpixels, $SunWritableRaster::stealData(dbi, 0));
-	if ($instanceOf($IndexColorModel, this->cmodel) && $instanceOf($ByteComponentRaster, this->biRaster) && $nc(this->biRaster)->getNumDataElements() == 1) {
+	if ($instanceOf($IndexColorModel, this->cmodel) && $instanceOf($ByteComponentRaster, this->biRaster) && this->biRaster->getNumDataElements() == 1) {
 		$var($ByteComponentRaster, bct, $cast($ByteComponentRaster, this->biRaster));
 		$var($bytes, data, $nc(bct)->getDataStorage());
 		int32_t coff = bct->getDataOffset(0);
 		for (int32_t i = 0; i < size; ++i) {
-			$nc(newpixels)->set(i, $nc(this->srcLUT)->get((int32_t)($nc(data)->get(coff + i) & (uint32_t)255)));
+			$nc(newpixels)->set(i, $nc(this->srcLUT)->get($nc(data)->get(coff + i) & 0xff));
 		}
 	} else {
 		$var($Object, srcpixels, nullptr);
@@ -393,16 +301,16 @@ void ImageRepresentation::convertToRGB() {
 			}
 		}
 	}
-	$SunWritableRaster::markDirty(static_cast<$DataBuffer*>(dbi));
+	$SunWritableRaster::markDirty(dbi);
 	this->isSameCM = false;
 	$set(this, cmodel, $ColorModel::getRGBdefault());
 	$var($ints, bandMasks, $new($ints, {
-		0x00FF0000,
-		0x0000FF00,
-		255,
-		(int32_t)0xFF000000
+		0x00ff0000,
+		0x0000ff00,
+		0x000000ff,
+		(int32_t)0xff000000
 	}));
-	$set(this, biRaster, $Raster::createPackedRaster(static_cast<$DataBuffer*>(dbi), w, h, w, bandMasks, ($Point*)nullptr));
+	$set(this, biRaster, $Raster::createPackedRaster(dbi, w, h, w, bandMasks, nullptr));
 	$set(this, bimage, createImage(this->cmodel, this->biRaster, $nc(this->cmodel)->isAlphaPremultiplied(), nullptr));
 	$set(this, srcLUT, nullptr);
 	this->isDefaultBI = true;
@@ -410,34 +318,32 @@ void ImageRepresentation::convertToRGB() {
 
 void ImageRepresentation::setHints(int32_t h) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	this->hints = h;
 }
 
 bool ImageRepresentation::setICMpixels(int32_t x, int32_t y, int32_t w, int32_t h, $ints* lut, $bytes* pix, int32_t off, int32_t scansize, $IntegerComponentRaster* ict) {
-	bool $ret = false;
-	$prepareNative(ImageRepresentation, setICMpixels, bool, int32_t x, int32_t y, int32_t w, int32_t h, $ints* lut, $bytes* pix, int32_t off, int32_t scansize, $IntegerComponentRaster* ict);
-	$ret = $invokeNative(x, y, w, h, lut, pix, off, scansize, ict);
+	$prepareNative(setICMpixels, bool, int32_t x, int32_t y, int32_t w, int32_t h, $ints* lut, $bytes* pix, int32_t off, int32_t scansize, $IntegerComponentRaster* ict);
+	bool $ret = $invokeNative(x, y, w, h, lut, pix, off, scansize, ict);
 	$finishNative();
 	return $ret;
 }
 
 bool ImageRepresentation::setDiffICM(int32_t x, int32_t y, int32_t w, int32_t h, $ints* lut, int32_t transPix, int32_t numLut, $IndexColorModel* icm, $bytes* pix, int32_t off, int32_t scansize, $ByteComponentRaster* bct, int32_t chanOff) {
-	bool $ret = false;
-	$prepareNative(ImageRepresentation, setDiffICM, bool, int32_t x, int32_t y, int32_t w, int32_t h, $ints* lut, int32_t transPix, int32_t numLut, $IndexColorModel* icm, $bytes* pix, int32_t off, int32_t scansize, $ByteComponentRaster* bct, int32_t chanOff);
-	$ret = $invokeNative(x, y, w, h, lut, transPix, numLut, icm, pix, off, scansize, bct, chanOff);
+	$prepareNative(setDiffICM, bool, int32_t x, int32_t y, int32_t w, int32_t h, $ints* lut, int32_t transPix, int32_t numLut, $IndexColorModel* icm, $bytes* pix, int32_t off, int32_t scansize, $ByteComponentRaster* bct, int32_t chanOff);
+	bool $ret = $invokeNative(x, y, w, h, lut, transPix, numLut, icm, pix, off, scansize, bct, chanOff);
 	$finishNative();
 	return $ret;
 }
 
 void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, $ColorModel* model, $bytes* pix, int32_t off, int32_t scansize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lineOff = off;
 	int32_t poff = 0;
 	$var($ints, newLUT, nullptr);
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	$synchronized(this) {
 		if (this->bimage == nullptr) {
@@ -501,9 +407,9 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 			if (!setDiffICM(x, y, w, h, this->srcLUT, this->srcLUTtransIndex, this->numSrcLUT, icm, pix, off, scansize, bct, $nc(bct)->getDataOffset(0))) {
 				convertToRGB();
 			} else {
-				$nc(bct)->markDirty();
+				bct->markDirty();
 				if (numlut != this->numSrcLUT) {
-					bool hasAlpha = $nc(icm)->hasAlpha();
+					bool hasAlpha = icm->hasAlpha();
 					if (this->srcLUTtransIndex != -1) {
 						hasAlpha = true;
 					}
@@ -520,7 +426,7 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 			$var($IntegerComponentRaster, iraster, $cast($IntegerComponentRaster, this->biRaster));
 			if (this->srcLUT != nullptr && $instanceOf($IndexColorModel, model)) {
 				if (model != this->srcModel) {
-					$nc(($cast($IndexColorModel, model)))->getRGBs(this->srcLUT);
+					$cast($IndexColorModel, model)->getRGBs(this->srcLUT);
 					$set(this, srcModel, model);
 				}
 				if (ImageRepresentation::s_useNative) {
@@ -536,23 +442,23 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 					for (int32_t yoff = 0; yoff < h; ++yoff, lineOff += scansize) {
 						poff = lineOff;
 						for (int32_t i = 0; i < w; ++i) {
-							storage->set(soff++, $nc(this->srcLUT)->get((int32_t)(pix->get(poff++) & (uint32_t)255)));
+							storage->set(soff++, $nc(this->srcLUT)->get(pix->get(poff++) & 0xff));
 						}
 					}
-					$nc(iraster)->setDataElements(x, y, w, h, $of(storage));
+					$nc(iraster)->setDataElements(x, y, w, h, storage);
 				}
 			} else {
 				$var($ints, storage, $new($ints, w));
 				for (int32_t yoff = y; yoff < y + h; ++yoff, lineOff += scansize) {
 					poff = lineOff;
 					for (int32_t i = 0; i < w; ++i) {
-						storage->set(i, $nc(model)->getRGB((int32_t)(pix->get(poff++) & (uint32_t)255)));
+						storage->set(i, $nc(model)->getRGB(pix->get(poff++) & 0xff));
 					}
-					$nc(iraster)->setDataElements(x, yoff, w, 1, $of(storage));
+					$nc(iraster)->setDataElements(x, yoff, w, 1, storage);
 				}
 				this->availinfo |= $ImageObserver::SOMEBITS;
 			}
-		} else if ((this->cmodel == model) && ($instanceOf($ByteComponentRaster, this->biRaster)) && ($nc(this->biRaster)->getNumDataElements() == 1)) {
+		} else if ((this->cmodel == model) && ($instanceOf($ByteComponentRaster, this->biRaster)) && (this->biRaster->getNumDataElements() == 1)) {
 			$var($ByteComponentRaster, bt, $cast($ByteComponentRaster, this->biRaster));
 			if (off == 0 && scansize == w) {
 				$nc(bt)->putByteData(x, y, w, h, pix);
@@ -569,23 +475,23 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 			for (int32_t yoff = y; yoff < y + h; ++yoff, lineOff += scansize) {
 				poff = lineOff;
 				for (int32_t xoff = x; xoff < x + w; ++xoff) {
-					$nc(this->bimage)->setRGB(xoff, yoff, $nc(model)->getRGB((int32_t)(pix->get(poff++) & (uint32_t)255)));
+					$nc(this->bimage)->setRGB(xoff, yoff, $nc(model)->getRGB(pix->get(poff++) & 0xff));
 				}
 			}
 			this->availinfo |= $ImageObserver::SOMEBITS;
 		}
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::FRAMEBITS)) == 0) {
+	if ((this->availinfo & $ImageObserver::FRAMEBITS) == 0) {
 		newInfo(this->image, $ImageObserver::SOMEBITS, x, y, w, h);
 	}
 }
 
 void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, $ColorModel* model, $ints* pix, int32_t off, int32_t scansize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lineOff = off;
 	int32_t poff = 0;
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	$synchronized(this) {
 		if (this->bimage == nullptr) {
@@ -603,11 +509,11 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 		if ((model == this->cmodel) && ($instanceOf($IntegerComponentRaster, this->biRaster))) {
 			$var($IntegerComponentRaster, iraster, $cast($IntegerComponentRaster, this->biRaster));
 			if (off == 0 && scansize == w) {
-				$nc(iraster)->setDataElements(x, y, w, h, $of(pix));
+				$nc(iraster)->setDataElements(x, y, w, h, pix);
 			} else {
 				for (yoff = y; yoff < y + h; ++yoff, lineOff += scansize) {
 					$System::arraycopy(pix, lineOff, storage, 0, w);
-					$nc(iraster)->setDataElements(x, yoff, w, 1, $of(storage));
+					$nc(iraster)->setDataElements(x, yoff, w, 1, storage);
 				}
 			}
 		} else {
@@ -630,9 +536,9 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 					for (yoff = y; yoff < y + h; ++yoff, lineOff += scansize) {
 						poff = lineOff;
 						for (int32_t i = 0; i < w; ++i) {
-							storage->set(i, $nc(model)->getRGB($nc(pix)->get(poff++)));
+							storage->set(i, model->getRGB($nc(pix)->get(poff++)));
 						}
-						iraster->setDataElements(x, yoff, w, 1, $of(storage));
+						iraster->setDataElements(x, yoff, w, 1, storage);
 					}
 				}
 				this->availinfo |= $ImageObserver::SOMEBITS;
@@ -641,7 +547,7 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 				for (yoff = y; yoff < y + h; ++yoff, lineOff += scansize) {
 					poff = lineOff;
 					for (int32_t xoff = x; xoff < x + w; ++xoff) {
-						pixel = $nc(model)->getRGB($nc(pix)->get(poff++));
+						pixel = model->getRGB($nc(pix)->get(poff++));
 						$assign(tmp, $nc(this->cmodel)->getDataElements(pixel, tmp));
 						$nc(this->biRaster)->setDataElements(xoff, yoff, tmp);
 					}
@@ -650,13 +556,13 @@ void ImageRepresentation::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 			}
 		}
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::FRAMEBITS)) == 0) {
+	if ((this->availinfo & $ImageObserver::FRAMEBITS) == 0) {
 		newInfo(this->image, $ImageObserver::SOMEBITS, x, y, w, h);
 	}
 }
 
 $BufferedImage* ImageRepresentation::getOpaqueRGBImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->bimage)->getType() == $BufferedImage::TYPE_INT_ARGB) {
 		int32_t w = $nc(this->bimage)->getWidth();
 		int32_t h = $nc(this->bimage)->getHeight();
@@ -668,13 +574,13 @@ $BufferedImage* ImageRepresentation::getOpaqueRGBImage() {
 				return this->bimage;
 			}
 		}
-		$var($ColorModel, opModel, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+		$var($ColorModel, opModel, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 		$var($ints, bandmasks, $new($ints, {
-			0x00FF0000,
-			0x0000FF00,
-			255
+			0x00ff0000,
+			0x0000ff00,
+			0x000000ff
 		}));
-		$var($WritableRaster, opRaster, $Raster::createPackedRaster(static_cast<$DataBuffer*>(db), w, h, w, bandmasks, ($Point*)nullptr));
+		$var($WritableRaster, opRaster, $Raster::createPackedRaster(db, w, h, w, bandmasks, nullptr));
 		try {
 			$var($BufferedImage, opImage, createImage(opModel, opRaster, false, nullptr));
 			return opImage;
@@ -687,43 +593,34 @@ $BufferedImage* ImageRepresentation::getOpaqueRGBImage() {
 
 void ImageRepresentation::imageComplete(int32_t status) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
 	bool done = false;
 	int32_t info = 0;
 	switch (status) {
 	default:
-		{}
 	case $ImageConsumer::IMAGEABORTED:
-		{
-			done = true;
-			info = $ImageObserver::ABORT;
-			break;
-		}
+		done = true;
+		info = $ImageObserver::ABORT;
+		break;
 	case $ImageConsumer::IMAGEERROR:
-		{
-			$nc(this->image)->addInfo($ImageObserver::ERROR);
-			done = true;
-			info = $ImageObserver::ERROR;
-			dispose();
-			break;
-		}
+		$nc(this->image)->addInfo($ImageObserver::ERROR);
+		done = true;
+		info = $ImageObserver::ERROR;
+		dispose();
+		break;
 	case $ImageConsumer::STATICIMAGEDONE:
-		{
-			done = true;
-			info = $ImageObserver::ALLBITS;
-			break;
-		}
+		done = true;
+		info = $ImageObserver::ALLBITS;
+		break;
 	case $ImageConsumer::SINGLEFRAMEDONE:
-		{
-			done = false;
-			info = $ImageObserver::FRAMEBITS;
-			break;
-		}
+		done = false;
+		info = $ImageObserver::FRAMEBITS;
+		break;
 	}
 	$synchronized(this) {
 		if (done) {
-			$nc($($nc(this->image)->getSource()))->removeConsumer(this);
+			$$nc($nc(this->image)->getSource())->removeConsumer(this);
 			this->consuming = false;
 			$set(this, newbits, nullptr);
 			if (this->bimage != nullptr) {
@@ -740,13 +637,13 @@ void ImageRepresentation::imageComplete(int32_t status) {
 void ImageRepresentation::startProduction() {
 	if (!this->consuming) {
 		this->consuming = true;
-		$nc($($nc(this->image)->getSource()))->startProduction(this);
+		$$nc($nc(this->image)->getSource())->startProduction(this);
 	}
 }
 
 void ImageRepresentation::checkConsumption() {
 	$synchronized(this) {
-		if (isWatcherListEmpty() && this->numWaiters == 0 && (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) == 0)) {
+		if (isWatcherListEmpty() && this->numWaiters == 0 && ((this->availinfo & $ImageObserver::ALLBITS) == 0)) {
 			dispose();
 		}
 	}
@@ -767,28 +664,28 @@ void ImageRepresentation::decrementWaiters() {
 
 bool ImageRepresentation::prepare($ImageObserver* iw) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+	if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 		if (iw != nullptr) {
 			iw->imageUpdate(this->image, $ImageObserver::ERROR | $ImageObserver::ABORT, -1, -1, -1, -1);
 		}
 		return false;
 	}
-	bool done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
+	bool done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
 	if (!done) {
 		addWatcher(iw);
 		startProduction();
-		done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
+		done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
 	}
 	return done;
 }
 
 int32_t ImageRepresentation::check($ImageObserver* iw) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)($ImageObserver::ERROR | $ImageObserver::ALLBITS))) == 0) {
+	if ((this->availinfo & ($ImageObserver::ERROR | $ImageObserver::ALLBITS)) == 0) {
 		addWatcher(iw);
 	}
 	return this->availinfo;
@@ -796,22 +693,22 @@ int32_t ImageRepresentation::check($ImageObserver* iw) {
 
 bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, int32_t x, int32_t y, $Color* bg, $ImageObserver* iw) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+	if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 		if (iw != nullptr) {
 			iw->imageUpdate(this->image, $ImageObserver::ERROR | $ImageObserver::ABORT, -1, -1, -1, -1);
 		}
 		return false;
 	}
-	bool done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
-	bool abort = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ABORT)) != 0);
+	bool done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
+	bool abort = ((this->availinfo & $ImageObserver::ABORT) != 0);
 	if (!done && !abort) {
 		addWatcher(iw);
 		startProduction();
-		done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
+		done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
 	}
-	if (done || (0 != ((int32_t)(this->availinfo & (uint32_t)$ImageObserver::FRAMEBITS)))) {
+	if (done || (0 != (this->availinfo & $ImageObserver::FRAMEBITS))) {
 		$nc(g)->drawImage(this->bimage, x, y, bg, nullptr);
 	}
 	return done;
@@ -819,22 +716,22 @@ bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, int32
 
 bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, int32_t x, int32_t y, int32_t w, int32_t h, $Color* bg, $ImageObserver* iw) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+	if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 		if (iw != nullptr) {
 			iw->imageUpdate(this->image, $ImageObserver::ERROR | $ImageObserver::ABORT, -1, -1, -1, -1);
 		}
 		return false;
 	}
-	bool done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
-	bool abort = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ABORT)) != 0);
+	bool done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
+	bool abort = ((this->availinfo & $ImageObserver::ABORT) != 0);
 	if (!done && !abort) {
 		addWatcher(iw);
 		startProduction();
-		done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
+		done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
 	}
-	if (done || (0 != ((int32_t)(this->availinfo & (uint32_t)$ImageObserver::FRAMEBITS)))) {
+	if (done || (0 != (this->availinfo & $ImageObserver::FRAMEBITS))) {
 		$nc(g)->drawImage(this->bimage, x, y, w, h, bg, nullptr);
 	}
 	return done;
@@ -842,22 +739,22 @@ bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, int32
 
 bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bg, $ImageObserver* iw) {
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+	if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 		if (iw != nullptr) {
 			iw->imageUpdate(this->image, $ImageObserver::ERROR | $ImageObserver::ABORT, -1, -1, -1, -1);
 		}
 		return false;
 	}
-	bool done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
-	bool abort = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ABORT)) != 0);
+	bool done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
+	bool abort = ((this->availinfo & $ImageObserver::ABORT) != 0);
 	if (!done && !abort) {
 		addWatcher(iw);
 		startProduction();
-		done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
+		done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
 	}
-	if (done || (0 != ((int32_t)(this->availinfo & (uint32_t)$ImageObserver::FRAMEBITS)))) {
+	if (done || (0 != (this->availinfo & $ImageObserver::FRAMEBITS))) {
 		$nc(g)->drawImage(this->bimage, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bg, nullptr);
 	}
 	return done;
@@ -866,22 +763,22 @@ bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, int32
 bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, $AffineTransform* xform, $ImageObserver* iw) {
 	$var($Graphics2D, g2, $cast($Graphics2D, g));
 	if (this->src != nullptr) {
-		$nc(this->src)->checkSecurity(nullptr, false);
+		this->src->checkSecurity(nullptr, false);
 	}
-	if (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ERROR)) != 0) {
+	if ((this->availinfo & $ImageObserver::ERROR) != 0) {
 		if (iw != nullptr) {
 			iw->imageUpdate(this->image, $ImageObserver::ERROR | $ImageObserver::ABORT, -1, -1, -1, -1);
 		}
 		return false;
 	}
-	bool done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
-	bool abort = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ABORT)) != 0);
+	bool done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
+	bool abort = ((this->availinfo & $ImageObserver::ABORT) != 0);
 	if (!done && !abort) {
 		addWatcher(iw);
 		startProduction();
-		done = (((int32_t)(this->availinfo & (uint32_t)$ImageObserver::ALLBITS)) != 0);
+		done = ((this->availinfo & $ImageObserver::ALLBITS) != 0);
 	}
-	if (done || (0 != ((int32_t)(this->availinfo & (uint32_t)$ImageObserver::FRAMEBITS)))) {
+	if (done || (0 != (this->availinfo & $ImageObserver::FRAMEBITS))) {
 		$nc(g2)->drawImage(this->bimage, xform, nullptr);
 	}
 	return done;
@@ -889,7 +786,7 @@ bool ImageRepresentation::drawToBufImage($Graphics* g, $ToolkitImage* img, $Affi
 
 void ImageRepresentation::abort() {
 	$synchronized(this) {
-		$nc($($nc(this->image)->getSource()))->removeConsumer(this);
+		$$nc($nc(this->image)->getSource())->removeConsumer(this);
 		this->consuming = false;
 		$set(this, newbits, nullptr);
 		$set(this, bimage, nullptr);
@@ -905,7 +802,7 @@ void ImageRepresentation::abort() {
 
 void ImageRepresentation::dispose() {
 	$synchronized(this) {
-		$nc($($nc(this->image)->getSource()))->removeConsumer(this);
+		$$nc($nc(this->image)->getSource())->removeConsumer(this);
 		this->consuming = false;
 		$set(this, newbits, nullptr);
 		this->availinfo &= (uint32_t)~(($ImageObserver::SOMEBITS | $ImageObserver::FRAMEBITS) | $ImageObserver::ALLBITS);
@@ -914,11 +811,11 @@ void ImageRepresentation::dispose() {
 
 void ImageRepresentation::setAccelerationPriority(float priority) {
 	if (this->bimage != nullptr) {
-		$nc(this->bimage)->setAccelerationPriority(priority);
+		this->bimage->setAccelerationPriority(priority);
 	}
 }
 
-void clinit$ImageRepresentation($Class* class$) {
+void ImageRepresentation::clinit$($Class* clazz) {
 	{
 		$NativeLibLoader::loadLibraries();
 		ImageRepresentation::initIDs();
@@ -930,7 +827,84 @@ ImageRepresentation::ImageRepresentation() {
 }
 
 $Class* ImageRepresentation::load$($String* name, bool initialize) {
-	$loadClass(ImageRepresentation, name, initialize, &_ImageRepresentation_ClassInfo_, clinit$ImageRepresentation, allocate$ImageRepresentation);
+	$FieldInfo fieldInfos$$[] = {
+		{"src", "Lsun/awt/image/InputStreamImageSource;", nullptr, 0, $field(ImageRepresentation, src)},
+		{"image", "Lsun/awt/image/ToolkitImage;", nullptr, 0, $field(ImageRepresentation, image)},
+		{"tag", "I", nullptr, 0, $field(ImageRepresentation, tag)},
+		{"pData", "J", nullptr, 0, $field(ImageRepresentation, pData)},
+		{"width", "I", nullptr, 0, $field(ImageRepresentation, width)},
+		{"height", "I", nullptr, 0, $field(ImageRepresentation, height)},
+		{"hints", "I", nullptr, 0, $field(ImageRepresentation, hints)},
+		{"availinfo", "I", nullptr, 0, $field(ImageRepresentation, availinfo)},
+		{"newbits", "Ljava/awt/Rectangle;", nullptr, 0, $field(ImageRepresentation, newbits)},
+		{"bimage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(ImageRepresentation, bimage)},
+		{"biRaster", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(ImageRepresentation, biRaster)},
+		{"cmodel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(ImageRepresentation, cmodel)},
+		{"srcModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(ImageRepresentation, srcModel)},
+		{"srcLUT", "[I", nullptr, 0, $field(ImageRepresentation, srcLUT)},
+		{"srcLUTtransIndex", "I", nullptr, 0, $field(ImageRepresentation, srcLUTtransIndex)},
+		{"numSrcLUT", "I", nullptr, 0, $field(ImageRepresentation, numSrcLUT)},
+		{"forceCMhint", "Z", nullptr, 0, $field(ImageRepresentation, forceCMhint)},
+		{"sstride", "I", nullptr, 0, $field(ImageRepresentation, sstride)},
+		{"isDefaultBI", "Z", nullptr, 0, $field(ImageRepresentation, isDefaultBI)},
+		{"isSameCM", "Z", nullptr, 0, $field(ImageRepresentation, isSameCM)},
+		{"s_useNative", "Z", nullptr, $STATIC, $staticField(ImageRepresentation, s_useNative)},
+		{"consuming", "Z", nullptr, $PRIVATE, $field(ImageRepresentation, consuming)},
+		{"numWaiters", "I", nullptr, $PRIVATE, $field(ImageRepresentation, numWaiters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/image/ToolkitImage;Ljava/awt/image/ColorModel;Z)V", nullptr, $PUBLIC, $method(ImageRepresentation, init$, void, $ToolkitImage*, $ColorModel*, bool)},
+		{"abort", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ImageRepresentation, abort, void)},
+		{"check", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, check, int32_t, $ImageObserver*)},
+		{"checkConsumption", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ImageRepresentation, checkConsumption, void)},
+		{"convertToRGB", "()V", nullptr, $PRIVATE, $method(ImageRepresentation, convertToRGB, void)},
+		{"createBufferedImage", "()V", nullptr, 0, $virtualMethod(ImageRepresentation, createBufferedImage, void)},
+		{"createImage", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable;)Ljava/awt/image/BufferedImage;", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable<**>;)Ljava/awt/image/BufferedImage;", $PROTECTED, $virtualMethod(ImageRepresentation, createImage, $BufferedImage*, $ColorModel*, $WritableRaster*, bool, $Hashtable*)},
+		{"decrementWaiters", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ImageRepresentation, decrementWaiters, void)},
+		{"dispose", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ImageRepresentation, dispose, void)},
+		{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawToBufImage", "(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, drawToBufImage, bool, $Graphics*, $ToolkitImage*, $AffineTransform*, $ImageObserver*)},
+		{"getBufferedImage", "()Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(ImageRepresentation, getBufferedImage, $BufferedImage*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, 0, $virtualMethod(ImageRepresentation, getColorModel, $ColorModel*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, getHeight, int32_t)},
+		{"getOpaqueRGBImage", "()Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, getOpaqueRGBImage, $BufferedImage*)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, getWidth, int32_t)},
+		{"imageComplete", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, imageComplete, void, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ImageRepresentation, initIDs, void)},
+		{"notifyWatcherListEmpty", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageRepresentation, notifyWatcherListEmpty, void)},
+		{"prepare", "(Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, prepare, bool, $ImageObserver*)},
+		{"reconstruct", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageRepresentation, reconstruct, void, int32_t)},
+		{"setAccelerationPriority", "(F)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setAccelerationPriority, void, float)},
+		{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setColorModel, void, $ColorModel*)},
+		{"setDiffICM", "(IIII[IIILjava/awt/image/IndexColorModel;[BIILsun/awt/image/ByteComponentRaster;I)Z", nullptr, $PRIVATE | $NATIVE, $method(ImageRepresentation, setDiffICM, bool, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t, $IndexColorModel*, $bytes*, int32_t, int32_t, $ByteComponentRaster*, int32_t)},
+		{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setDimensions, void, int32_t, int32_t)},
+		{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setHints, void, int32_t)},
+		{"setICMpixels", "(IIII[I[BIILsun/awt/image/IntegerComponentRaster;)Z", nullptr, $PRIVATE | $NATIVE, $method(ImageRepresentation, setICMpixels, bool, int32_t, int32_t, int32_t, int32_t, $ints*, $bytes*, int32_t, int32_t, $IntegerComponentRaster*)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(ImageRepresentation, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(ImageRepresentation, setProperties, void, $Hashtable*)},
+		{"startProduction", "()V", nullptr, 0, $virtualMethod(ImageRepresentation, startProduction, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ImageRepresentation",
+		"sun.awt.image.ImageWatched",
+		"java.awt.image.ImageConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageRepresentation, name, initialize, &classInfo$$, ImageRepresentation::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageRepresentation));
+	});
 	return class$;
 }
 

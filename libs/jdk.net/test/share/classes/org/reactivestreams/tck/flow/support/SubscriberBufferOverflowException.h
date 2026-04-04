@@ -27,7 +27,10 @@ public:
 	void init$($Throwable* cause);
 	SubscriberBufferOverflowException(const SubscriberBufferOverflowException& e);
 	virtual void throw$() override;
-	inline SubscriberBufferOverflowException* operator ->() {
+	inline SubscriberBufferOverflowException* operator ->() const {
+		return (SubscriberBufferOverflowException*)throwing$;
+	}
+	inline operator SubscriberBufferOverflowException*() const {
 		return (SubscriberBufferOverflowException*)throwing$;
 	}
 };

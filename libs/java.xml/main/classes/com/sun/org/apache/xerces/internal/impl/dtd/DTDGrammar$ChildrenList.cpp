@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar$ChildrenList.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/DTDGrammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <jcpp.h>
@@ -19,43 +18,6 @@ namespace com {
 						namespace impl {
 							namespace dtd {
 
-$FieldInfo _DTDGrammar$ChildrenList_FieldInfo_[] = {
-	{"length", "I", nullptr, $PUBLIC, $field(DTDGrammar$ChildrenList, length)},
-	{"qname", "[Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $field(DTDGrammar$ChildrenList, qname)},
-	{"type", "[I", nullptr, $PUBLIC, $field(DTDGrammar$ChildrenList, type)},
-	{}
-};
-
-$MethodInfo _DTDGrammar$ChildrenList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DTDGrammar$ChildrenList, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DTDGrammar$ChildrenList_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar$ChildrenList", "com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar", "ChildrenList", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DTDGrammar$ChildrenList_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar$ChildrenList",
-	"java.lang.Object",
-	nullptr,
-	_DTDGrammar$ChildrenList_FieldInfo_,
-	_DTDGrammar$ChildrenList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTDGrammar$ChildrenList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar"
-};
-
-$Object* allocate$DTDGrammar$ChildrenList($Class* clazz) {
-	return $of($alloc(DTDGrammar$ChildrenList));
-}
-
 void DTDGrammar$ChildrenList::init$() {
 	this->length = 0;
 	$set(this, qname, $new($QNameArray, 2));
@@ -66,7 +28,38 @@ DTDGrammar$ChildrenList::DTDGrammar$ChildrenList() {
 }
 
 $Class* DTDGrammar$ChildrenList::load$($String* name, bool initialize) {
-	$loadClass(DTDGrammar$ChildrenList, name, initialize, &_DTDGrammar$ChildrenList_ClassInfo_, allocate$DTDGrammar$ChildrenList);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "I", nullptr, $PUBLIC, $field(DTDGrammar$ChildrenList, length)},
+		{"qname", "[Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $field(DTDGrammar$ChildrenList, qname)},
+		{"type", "[I", nullptr, $PUBLIC, $field(DTDGrammar$ChildrenList, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DTDGrammar$ChildrenList, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar$ChildrenList", "com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar", "ChildrenList", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar$ChildrenList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dtd.DTDGrammar"
+	};
+	$loadClass(DTDGrammar$ChildrenList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTDGrammar$ChildrenList);
+	});
 	return class$;
 }
 

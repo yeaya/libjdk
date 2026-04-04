@@ -31,7 +31,7 @@ public:
 	void makeUnmodifiable();
 	$Object* maps(Object$* key, Object$* value);
 	::java::util::Set* put(Object$* key, Object$* value);
-	static const int64_t serialVersionUID = (int64_t)0xAAA118DA36CD2D5C;
+	static const int64_t serialVersionUID = (int64_t)0xaaa118da36cd2d5c;
 	::java::util::Map* map = nullptr;
 	bool modifiable = false;
 };

@@ -1,7 +1,5 @@
 #include <com/sun/jmx/mbeanserver/PerInterface.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
-#include <com/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor.h>
 #include <com/sun/jmx/mbeanserver/MBeanAnalyzer.h>
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector.h>
 #include <com/sun/jmx/mbeanserver/PerInterface$InitMaps.h>
@@ -9,7 +7,6 @@
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -21,7 +18,6 @@
 
 using $GetPropertyAction = ::com::sun::jmx::mbeanserver::GetPropertyAction;
 using $MBeanAnalyzer = ::com::sun::jmx::mbeanserver::MBeanAnalyzer;
-using $MBeanAnalyzer$MBeanVisitor = ::com::sun::jmx::mbeanserver::MBeanAnalyzer$MBeanVisitor;
 using $MBeanIntrospector = ::com::sun::jmx::mbeanserver::MBeanIntrospector;
 using $PerInterface$InitMaps = ::com::sun::jmx::mbeanserver::PerInterface$InitMaps;
 using $PerInterface$MethodAndSig = ::com::sun::jmx::mbeanserver::PerInterface$MethodAndSig;
@@ -33,7 +29,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -46,54 +41,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _PerInterface_FieldInfo_[] = {
-	{"mbeanInterface", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(PerInterface, mbeanInterface)},
-	{"introspector", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;", $PRIVATE | $FINAL, $field(PerInterface, introspector)},
-	{"mbeanInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $FINAL, $field(PerInterface, mbeanInfo)},
-	{"getters", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;TM;>;", $PRIVATE | $FINAL, $field(PerInterface, getters)},
-	{"setters", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;TM;>;", $PRIVATE | $FINAL, $field(PerInterface, setters)},
-	{"ops", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Lcom/sun/jmx/mbeanserver/PerInterface<TM;>.MethodAndSig;>;>;", $PRIVATE | $FINAL, $field(PerInterface, ops)},
-	{}
-};
-
-$MethodInfo _PerInterface_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;Ljavax/management/MBeanInfo;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;Ljavax/management/MBeanInfo;)V", 0, $method(PerInterface, init$, void, $Class*, $MBeanIntrospector*, $MBeanAnalyzer*, $MBeanInfo*)},
-	{"getAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(PerInterface, getAttribute, $Object*, Object$*, $String*, Object$*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, 0, $method(PerInterface, getMBeanInfo, $MBeanInfo*)},
-	{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(PerInterface, getMBeanInterface, $Class*)},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(PerInterface, invoke, $Object*, Object$*, $String*, $ObjectArray*, $StringArray*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"isMXBean", "()Z", nullptr, 0, $method(PerInterface, isMXBean, bool)},
-	{"noSuchMethod", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(PerInterface, noSuchMethod, $Object*, $String*, Object$*, $String*, $ObjectArray*, $StringArray*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(PerInterface, setAttribute, void, Object$*, $String*, Object$*, Object$*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"sigString", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PerInterface, sigString, $String*, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _PerInterface_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.PerInterface$MethodAndSig", "com.sun.jmx.mbeanserver.PerInterface", "MethodAndSig", $PRIVATE},
-	{"com.sun.jmx.mbeanserver.PerInterface$InitMaps", "com.sun.jmx.mbeanserver.PerInterface", "InitMaps", $PRIVATE},
-	{}
-};
-
-$ClassInfo _PerInterface_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.PerInterface",
-	"java.lang.Object",
-	nullptr,
-	_PerInterface_FieldInfo_,
-	_PerInterface_MethodInfo_,
-	"<M:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_PerInterface_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.PerInterface$MethodAndSig,com.sun.jmx.mbeanserver.PerInterface$InitMaps"
-};
-
-$Object* allocate$PerInterface($Class* clazz) {
-	return $of($alloc(PerInterface));
-}
 
 void PerInterface::init$($Class* mbeanInterface, $MBeanIntrospector* introspector, $MBeanAnalyzer* analyzer, $MBeanInfo* mbeanInfo) {
 	$set(this, getters, $Util::newMap());
@@ -118,7 +65,7 @@ bool PerInterface::isMXBean() {
 }
 
 $Object* PerInterface::getAttribute(Object$* resource, $String* attribute, Object$* cookie) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, cm, $nc(this->getters)->get(attribute));
 	if (cm == nullptr) {
 		$var($String, msg, nullptr);
@@ -129,11 +76,11 @@ $Object* PerInterface::getAttribute(Object$* resource, $String* attribute, Objec
 		}
 		$throwNew($AttributeNotFoundException, msg);
 	}
-	return $of($nc(this->introspector)->invokeM(cm, resource, ($ObjectArray*)nullptr, cookie));
+	return $nc(this->introspector)->invokeM(cm, resource, ($ObjectArray*)nullptr, cookie);
 }
 
 void PerInterface::setAttribute(Object$* resource, $String* attribute, Object$* value, Object$* cookie) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, cm, $nc(this->setters)->get(attribute));
 	if (cm == nullptr) {
 		$var($String, msg, nullptr);
@@ -148,12 +95,12 @@ void PerInterface::setAttribute(Object$* resource, $String* attribute, Object$* 
 }
 
 $Object* PerInterface::invoke(Object$* resource, $String* operation, $ObjectArray* params, $StringArray* signature$renamed, Object$* cookie) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, signature, signature$renamed);
 	$var($List, list, $cast($List, $nc(this->ops)->get(operation)));
 	if (list == nullptr) {
 		$var($String, msg, $str({"No such operation: "_s, operation}));
-		return $of(noSuchMethod(msg, resource, operation, params, signature, cookie));
+		return noSuchMethod(msg, resource, operation, params, signature, cookie);
 	}
 	if (signature == nullptr) {
 		$assign(signature, $new($StringArray, 0));
@@ -163,11 +110,9 @@ $Object* PerInterface::invoke(Object$* resource, $String* operation, $ObjectArra
 		$var($Iterator, i$, $nc(list)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($PerInterface$MethodAndSig, mas, $cast($PerInterface$MethodAndSig, i$->next()));
-			{
-				if ($Arrays::equals($nc(mas)->signature, signature)) {
-					$assign(found, mas);
-					break;
-				}
+			if ($Arrays::equals($nc(mas)->signature, signature)) {
+				$assign(found, mas);
+				break;
 			}
 		}
 	}
@@ -175,17 +120,17 @@ $Object* PerInterface::invoke(Object$* resource, $String* operation, $ObjectArra
 		$var($String, badSig, sigString(signature));
 		$var($String, msg, nullptr);
 		if (list->size() == 1) {
-			$assign(msg, $str({"Signature mismatch for operation "_s, operation, ": "_s, badSig, " should be "_s, $(sigString($nc(($cast($PerInterface$MethodAndSig, $(list->get(0)))))->signature))}));
+			$assign(msg, $str({"Signature mismatch for operation "_s, operation, ": "_s, badSig, " should be "_s, $(sigString($nc(($$cast($PerInterface$MethodAndSig, list->get(0))))->signature))}));
 		} else {
 			$assign(msg, $str({"Operation "_s, operation, " exists but not with this signature: "_s, badSig}));
 		}
-		return $of(noSuchMethod(msg, resource, operation, params, signature, cookie));
+		return noSuchMethod(msg, resource, operation, params, signature, cookie);
 	}
-	return $of($nc(this->introspector)->invokeM($nc(found)->method, resource, params, cookie));
+	return $nc(this->introspector)->invokeM($nc(found)->method, resource, params, cookie);
 }
 
 $Object* PerInterface::noSuchMethod($String* msg, Object$* resource, $String* operation, $ObjectArray* params, $StringArray* signature, Object$* cookie) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($NoSuchMethodException, nsme, $new($NoSuchMethodException, $$str({operation, $(sigString(signature))})));
 	$var($ReflectionException, exception, $new($ReflectionException, nsme, msg));
@@ -195,7 +140,7 @@ $Object* PerInterface::noSuchMethod($String* msg, Object$* resource, $String* op
 	$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.invoke.getters"_s));
 	$var($String, invokeGettersS, nullptr);
 	try {
-		$assign(invokeGettersS, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+		$assign(invokeGettersS, $cast($String, $AccessController::doPrivileged(act)));
 	} catch ($Exception& e) {
 		$assign(invokeGettersS, nullptr);
 	}
@@ -204,7 +149,7 @@ $Object* PerInterface::noSuchMethod($String* msg, Object$* resource, $String* op
 	}
 	int32_t rest = 0;
 	$var($Map, methods, nullptr);
-	if (signature == nullptr || $nc(signature)->length == 0) {
+	if (signature == nullptr || signature->length == 0) {
 		if ($nc(operation)->startsWith("get"_s)) {
 			rest = 3;
 		} else if (operation->startsWith("is"_s)) {
@@ -220,10 +165,10 @@ $Object* PerInterface::noSuchMethod($String* msg, Object$* resource, $String* op
 	if (rest != 0) {
 		$var($String, attrName, $nc(operation)->substring(rest));
 		$var($Object, method, $nc(methods)->get(attrName));
-		if (method != nullptr && $nc($($nc(this->introspector)->getName(method)))->equals(operation)) {
-			$var($StringArray, msig, $nc(this->introspector)->getSignature(method));
+		if (method != nullptr && $$nc(this->introspector->getName(method))->equals(operation)) {
+			$var($StringArray, msig, this->introspector->getSignature(method));
 			if ((signature == nullptr && $nc(msig)->length == 0) || $Arrays::equals(signature, msig)) {
-				return $of($nc(this->introspector)->invokeM(method, resource, params, cookie));
+				return this->introspector->invokeM(method, resource, params, cookie);
 			}
 		}
 	}
@@ -231,21 +176,17 @@ $Object* PerInterface::noSuchMethod($String* msg, Object$* resource, $String* op
 }
 
 $String* PerInterface::sigString($StringArray* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, b, $new($StringBuilder, "("_s));
 	if (signature != nullptr) {
-		{
-			$var($StringArray, arr$, signature);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, s, arr$->get(i$));
-				{
-					if (b->length() > 1) {
-						b->append(", "_s);
-					}
-					b->append(s);
+		$var($StringArray, arr$, signature);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, s, arr$->get(i$));
+			{
+				if (b->length() > 1) {
+					b->append(", "_s);
 				}
+				b->append(s);
 			}
 		}
 	}
@@ -256,7 +197,49 @@ PerInterface::PerInterface() {
 }
 
 $Class* PerInterface::load$($String* name, bool initialize) {
-	$loadClass(PerInterface, name, initialize, &_PerInterface_ClassInfo_, allocate$PerInterface);
+	$FieldInfo fieldInfos$$[] = {
+		{"mbeanInterface", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(PerInterface, mbeanInterface)},
+		{"introspector", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;", $PRIVATE | $FINAL, $field(PerInterface, introspector)},
+		{"mbeanInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $FINAL, $field(PerInterface, mbeanInfo)},
+		{"getters", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;TM;>;", $PRIVATE | $FINAL, $field(PerInterface, getters)},
+		{"setters", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;TM;>;", $PRIVATE | $FINAL, $field(PerInterface, setters)},
+		{"ops", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Lcom/sun/jmx/mbeanserver/PerInterface<TM;>.MethodAndSig;>;>;", $PRIVATE | $FINAL, $field(PerInterface, ops)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;Ljavax/management/MBeanInfo;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;Ljavax/management/MBeanInfo;)V", 0, $method(PerInterface, init$, void, $Class*, $MBeanIntrospector*, $MBeanAnalyzer*, $MBeanInfo*)},
+		{"getAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(PerInterface, getAttribute, $Object*, Object$*, $String*, Object$*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, 0, $method(PerInterface, getMBeanInfo, $MBeanInfo*)},
+		{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(PerInterface, getMBeanInterface, $Class*)},
+		{"invoke", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(PerInterface, invoke, $Object*, Object$*, $String*, $ObjectArray*, $StringArray*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"isMXBean", "()Z", nullptr, 0, $method(PerInterface, isMXBean, bool)},
+		{"noSuchMethod", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(PerInterface, noSuchMethod, $Object*, $String*, Object$*, $String*, $ObjectArray*, $StringArray*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(PerInterface, setAttribute, void, Object$*, $String*, Object$*, Object$*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"sigString", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PerInterface, sigString, $String*, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.PerInterface$MethodAndSig", "com.sun.jmx.mbeanserver.PerInterface", "MethodAndSig", $PRIVATE},
+		{"com.sun.jmx.mbeanserver.PerInterface$InitMaps", "com.sun.jmx.mbeanserver.PerInterface", "InitMaps", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.PerInterface",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.PerInterface$MethodAndSig,com.sun.jmx.mbeanserver.PerInterface$InitMaps"
+	};
+	$loadClass(PerInterface, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PerInterface);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/FrameView.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/event/HyperlinkEvent$EventType.h>
 #include <javax/swing/event/HyperlinkEvent.h>
-#include <javax/swing/event/HyperlinkListener.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/ComponentView.h>
 #include <javax/swing/text/Document.h>
@@ -70,7 +68,6 @@ using $Border = ::javax::swing::border::Border;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $HyperlinkEvent = ::javax::swing::event::HyperlinkEvent;
 using $HyperlinkEvent$EventType = ::javax::swing::event::HyperlinkEvent$EventType;
-using $HyperlinkListener = ::javax::swing::event::HyperlinkListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $ComponentView = ::javax::swing::text::ComponentView;
 using $Document = ::javax::swing::text::Document;
@@ -91,65 +88,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _FrameView_FieldInfo_[] = {
-	{"htmlPane", "Ljavax/swing/JEditorPane;", nullptr, 0, $field(FrameView, htmlPane)},
-	{"scroller", "Ljavax/swing/JScrollPane;", nullptr, 0, $field(FrameView, scroller)},
-	{"editable", "Z", nullptr, 0, $field(FrameView, editable)},
-	{"width", "F", nullptr, 0, $field(FrameView, width)},
-	{"height", "F", nullptr, 0, $field(FrameView, height)},
-	{"src", "Ljava/net/URL;", nullptr, 0, $field(FrameView, src)},
-	{"createdComponent", "Z", nullptr, $PRIVATE, $field(FrameView, createdComponent)},
-	{}
-};
-
-$MethodInfo _FrameView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FrameView, init$, void, $Element*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(FrameView, createComponent, $Component*)},
-	{"createScrollPane", "()V", nullptr, $PRIVATE, $method(FrameView, createScrollPane, void)},
-	{"getHostPane", "()Ljavax/swing/JEditorPane;", nullptr, 0, $virtualMethod(FrameView, getHostPane, $JEditorPane*)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FrameView, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FrameView, getMinimumSpan, float, int32_t)},
-	{"getOutermostJEditorPane", "()Ljavax/swing/JEditorPane;", nullptr, 0, $virtualMethod(FrameView, getOutermostJEditorPane, $JEditorPane*)},
-	{"hyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, hyperlinkUpdate, void, $HyperlinkEvent*)},
-	{"inNestedFrameSet", "()Z", nullptr, $PRIVATE, $method(FrameView, inNestedFrameSet, bool)},
-	{"movePostData", "(Ljavax/swing/JEditorPane;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(FrameView, movePostData, $Object*, $JEditorPane*, $String*)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, paint, void, $Graphics*, $Shape*)},
-	{"setBorder", "()V", nullptr, $PRIVATE, $method(FrameView, setBorder, void)},
-	{"setMargin", "()V", nullptr, $PRIVATE, $method(FrameView, setMargin, void)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, setParent, void, $View*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FrameView_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.FrameView$FrameEditorPane", "javax.swing.text.html.FrameView", "FrameEditorPane", 0},
-	{}
-};
-
-$ClassInfo _FrameView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.FrameView",
-	"javax.swing.text.ComponentView",
-	"javax.swing.event.HyperlinkListener",
-	_FrameView_FieldInfo_,
-	_FrameView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FrameView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.FrameView$FrameEditorPane"
-};
-
-$Object* allocate$FrameView($Class* clazz) {
-	return $of($alloc(FrameView));
-}
 
 int32_t FrameView::hashCode() {
 	 return this->$ComponentView::hashCode();
@@ -176,17 +114,17 @@ void FrameView::init$($Element* elem) {
 }
 
 $Component* FrameView::createComponent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, getElement());
 	$var($AttributeSet, attributes, $nc(elem)->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, srcAtt, $cast($String, $nc(attributes)->getAttribute($HTML$Attribute::SRC)));
 	if (srcAtt != nullptr && !srcAtt->isEmpty()) {
 		try {
-			$var($URL, base, $nc(($cast($HTMLDocument, $(elem->getDocument()))))->getBase());
+			$var($URL, base, $$sure($HTMLDocument, elem->getDocument())->getBase());
 			$set(this, src, $new($URL, base, srcAtt));
 			$set(this, htmlPane, $new($FrameView$FrameEditorPane, this));
-			$nc(this->htmlPane)->addHyperlinkListener(this);
+			this->htmlPane->addHyperlinkListener(this);
 			$var($JEditorPane, host, getHostPane());
 			bool isAutoFormSubmission = true;
 			if (host != nullptr) {
@@ -207,7 +145,7 @@ $Component* FrameView::createComponent() {
 			}
 			$var($Document, doc, $nc(this->htmlPane)->getDocument());
 			if ($instanceOf($HTMLDocument, doc)) {
-				$nc(($cast($HTMLDocument, doc)))->setFrameDocumentState(true);
+				$cast($HTMLDocument, doc)->setFrameDocumentState(true);
 			}
 			setMargin();
 			createScrollPane();
@@ -242,23 +180,23 @@ void FrameView::paint($Graphics* g, $Shape* allocation) {
 	$var($Container, host, getContainer());
 	bool var$0 = host != nullptr && this->htmlPane != nullptr;
 	if (var$0) {
-		bool var$1 = $nc(this->htmlPane)->isEditable();
-		var$0 = var$1 != $nc(($cast($JTextComponent, host)))->isEditable();
+		bool var$1 = this->htmlPane->isEditable();
+		var$0 = var$1 != $cast($JTextComponent, host)->isEditable();
 	}
 	if (var$0) {
-		this->editable = $nc(($cast($JTextComponent, host)))->isEditable();
+		this->editable = $nc($cast($JTextComponent, host))->isEditable();
 		$nc(this->htmlPane)->setEditable(this->editable);
 	}
 	$ComponentView::paint(g, allocation);
 }
 
 void FrameView::setMargin() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t margin = 0;
 	$var($Insets, in, $nc(this->htmlPane)->getMargin());
 	$var($Insets, newInsets, nullptr);
 	bool modified = false;
-	$var($AttributeSet, attributes, $nc($(getElement()))->getAttributes());
+	$var($AttributeSet, attributes, $$nc(getElement())->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, marginStr, $cast($String, $nc(attributes)->getAttribute($HTML$Attribute::MARGINWIDTH)));
 	if (in != nullptr) {
@@ -289,14 +227,14 @@ void FrameView::setMargin() {
 }
 
 void FrameView::setBorder() {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, attributes, $nc($(getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, attributes, $$nc(getElement())->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, frameBorder, $cast($String, $nc(attributes)->getAttribute($HTML$Attribute::FRAMEBORDER)));
-	bool var$0 = (frameBorder != nullptr);
+	bool var$0 = frameBorder != nullptr;
 	if (var$0) {
 		bool var$1 = frameBorder->equals("no"_s);
-		var$0 = (var$1 || frameBorder->equals("0"_s));
+		var$0 = var$1 || frameBorder->equals("0"_s);
 	}
 	if (var$0) {
 		$nc(this->scroller)->setBorder(nullptr);
@@ -304,8 +242,8 @@ void FrameView::setBorder() {
 }
 
 void FrameView::createScrollPane() {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, attributes, $nc($(getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, attributes, $$nc(getElement())->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, scrolling, $cast($String, $nc(attributes)->getAttribute($HTML$Attribute::SCROLLING)));
 	if (scrolling == nullptr) {
@@ -321,14 +259,14 @@ void FrameView::createScrollPane() {
 		$set(this, scroller, $new($JScrollPane, $JScrollPane::VERTICAL_SCROLLBAR_NEVER, $JScrollPane::HORIZONTAL_SCROLLBAR_NEVER));
 	}
 	$var($JViewport, vp, $nc(this->scroller)->getViewport());
-	$nc(vp)->add(static_cast<$Component*>(this->htmlPane));
+	$nc(vp)->add(this->htmlPane);
 	vp->setBackingStoreEnabled(true);
 	$nc(this->scroller)->setMinimumSize($$new($Dimension, 5, 5));
 	$nc(this->scroller)->setMaximumSize($$new($Dimension, $Integer::MAX_VALUE, $Integer::MAX_VALUE));
 }
 
 $JEditorPane* FrameView::getOutermostJEditorPane() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, parent, getParent());
 	$var($FrameSetView, frameSetView, nullptr);
 	while (parent != nullptr) {
@@ -344,13 +282,13 @@ $JEditorPane* FrameView::getOutermostJEditorPane() {
 }
 
 bool FrameView::inNestedFrameSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FrameSetView, parent, $cast($FrameSetView, getParent()));
 	return ($instanceOf($FrameSetView, $($nc(parent)->getParent())));
 }
 
 void FrameView::hyperlinkUpdate($HyperlinkEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, c, getOutermostJEditorPane());
 	if (c == nullptr) {
 		return;
@@ -371,7 +309,7 @@ void FrameView::hyperlinkUpdate($HyperlinkEvent* evt) {
 		if ($instanceOf($FormSubmitEvent, evt)) {
 			$var($HTMLEditorKit, kit, $cast($HTMLEditorKit, $nc(c)->getEditorKit()));
 			if (kit != nullptr && kit->isAutoFormSubmission()) {
-				if ($nc(target)->equals("_top"_s)) {
+				if (target->equals("_top"_s)) {
 					try {
 						movePostData(c, postTarget);
 						c->setPage($(e->getURL()));
@@ -386,31 +324,30 @@ void FrameView::hyperlinkUpdate($HyperlinkEvent* evt) {
 			}
 			return;
 		}
-		if ($nc(target)->equals("_top"_s)) {
+		if (target->equals("_top"_s)) {
 			try {
 				$nc(c)->setPage($(e->getURL()));
 			} catch ($IOException& ex) {
 			}
 		}
 		if (!$nc(c)->isEditable()) {
-			$var($Object, var$1, $of(c));
-			$var($HyperlinkEvent$EventType, var$2, e->getEventType());
-			$var($URL, var$3, e->getURL());
-			$var($String, var$4, e->getDescription());
-			$var($Element, var$5, getElement());
-			c->fireHyperlinkUpdate($$new($HTMLFrameHyperlinkEvent, var$1, var$2, var$3, var$4, var$5, $(e->getInputEvent()), target));
+			$var($HyperlinkEvent$EventType, var$1, e->getEventType());
+			$var($URL, var$2, e->getURL());
+			$var($String, var$3, e->getDescription());
+			$var($Element, var$4, getElement());
+			c->fireHyperlinkUpdate($$new($HTMLFrameHyperlinkEvent, c, var$1, var$2, var$3, var$4, $(e->getInputEvent()), target));
 		}
 	}
 }
 
 void FrameView::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, getElement());
 	$var($AttributeSet, attributes, $nc(elem)->getAttributes());
 	$var($URL, oldPage, this->src);
 	$init($HTML$Attribute);
 	$var($String, srcAtt, $cast($String, $nc(attributes)->getAttribute($HTML$Attribute::SRC)));
-	$var($URL, base, $nc(($cast($HTMLDocument, $(elem->getDocument()))))->getBase());
+	$var($URL, base, $$sure($HTMLDocument, elem->getDocument())->getBase());
 	try {
 		if (!this->createdComponent) {
 			return;
@@ -418,13 +355,13 @@ void FrameView::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 		$var($Object, postData, movePostData(this->htmlPane, nullptr));
 		$set(this, src, $new($URL, base, srcAtt));
 		bool var$0 = $nc(oldPage)->equals(this->src);
-		if (var$0 && ($nc(this->src)->getRef() == nullptr) && (postData == nullptr)) {
+		if (var$0 && (this->src->getRef() == nullptr) && (postData == nullptr)) {
 			return;
 		}
 		$nc(this->htmlPane)->setPage(this->src);
 		$var($Document, newDoc, $nc(this->htmlPane)->getDocument());
 		if ($instanceOf($HTMLDocument, newDoc)) {
-			$nc(($cast($HTMLDocument, newDoc)))->setFrameDocumentState(true);
+			$cast($HTMLDocument, newDoc)->setFrameDocumentState(true);
 		}
 	} catch ($MalformedURLException& e1) {
 	} catch ($IOException& e2) {
@@ -432,14 +369,14 @@ void FrameView::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 }
 
 $Object* FrameView::movePostData($JEditorPane* targetPane, $String* frameName$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, frameName, frameName$renamed);
 	$var($Object, postData, nullptr);
 	$var($JEditorPane, p, getOutermostJEditorPane());
 	if (p != nullptr) {
 		if (frameName == nullptr) {
 			$init($HTML$Attribute);
-			$assign(frameName, $cast($String, $nc($($nc($(getElement()))->getAttributes()))->getAttribute($HTML$Attribute::NAME)));
+			$assign(frameName, $cast($String, $$nc($$nc(getElement())->getAttributes())->getAttribute($HTML$Attribute::NAME)));
 		}
 		if (frameName != nullptr) {
 			$init($FormView);
@@ -447,16 +384,16 @@ $Object* FrameView::movePostData($JEditorPane* targetPane, $String* frameName$re
 			$var($Document, d, p->getDocument());
 			$assign(postData, $nc(d)->getProperty(propName));
 			if (postData != nullptr) {
-				$nc($($nc(targetPane)->getDocument()))->putProperty($FormView::PostDataProperty, postData);
+				$$nc($nc(targetPane)->getDocument())->putProperty($FormView::PostDataProperty, postData);
 				d->putProperty(propName, nullptr);
 			}
 		}
 	}
-	return $of(postData);
+	return postData;
 }
 
 float FrameView::getMinimumSpan(int32_t axis) {
-	return (float)5;
+	return 5;
 }
 
 float FrameView::getMaximumSpan(int32_t axis) {
@@ -467,7 +404,60 @@ FrameView::FrameView() {
 }
 
 $Class* FrameView::load$($String* name, bool initialize) {
-	$loadClass(FrameView, name, initialize, &_FrameView_ClassInfo_, allocate$FrameView);
+	$FieldInfo fieldInfos$$[] = {
+		{"htmlPane", "Ljavax/swing/JEditorPane;", nullptr, 0, $field(FrameView, htmlPane)},
+		{"scroller", "Ljavax/swing/JScrollPane;", nullptr, 0, $field(FrameView, scroller)},
+		{"editable", "Z", nullptr, 0, $field(FrameView, editable)},
+		{"width", "F", nullptr, 0, $field(FrameView, width)},
+		{"height", "F", nullptr, 0, $field(FrameView, height)},
+		{"src", "Ljava/net/URL;", nullptr, 0, $field(FrameView, src)},
+		{"createdComponent", "Z", nullptr, $PRIVATE, $field(FrameView, createdComponent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FrameView, init$, void, $Element*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(FrameView, createComponent, $Component*)},
+		{"createScrollPane", "()V", nullptr, $PRIVATE, $method(FrameView, createScrollPane, void)},
+		{"getHostPane", "()Ljavax/swing/JEditorPane;", nullptr, 0, $virtualMethod(FrameView, getHostPane, $JEditorPane*)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FrameView, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FrameView, getMinimumSpan, float, int32_t)},
+		{"getOutermostJEditorPane", "()Ljavax/swing/JEditorPane;", nullptr, 0, $virtualMethod(FrameView, getOutermostJEditorPane, $JEditorPane*)},
+		{"hyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, hyperlinkUpdate, void, $HyperlinkEvent*)},
+		{"inNestedFrameSet", "()Z", nullptr, $PRIVATE, $method(FrameView, inNestedFrameSet, bool)},
+		{"movePostData", "(Ljavax/swing/JEditorPane;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(FrameView, movePostData, $Object*, $JEditorPane*, $String*)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, paint, void, $Graphics*, $Shape*)},
+		{"setBorder", "()V", nullptr, $PRIVATE, $method(FrameView, setBorder, void)},
+		{"setMargin", "()V", nullptr, $PRIVATE, $method(FrameView, setMargin, void)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(FrameView, setParent, void, $View*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.FrameView$FrameEditorPane", "javax.swing.text.html.FrameView", "FrameEditorPane", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.FrameView",
+		"javax.swing.text.ComponentView",
+		"javax.swing.event.HyperlinkListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.FrameView$FrameEditorPane"
+	};
+	$loadClass(FrameView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FrameView));
+	});
 	return class$;
 }
 

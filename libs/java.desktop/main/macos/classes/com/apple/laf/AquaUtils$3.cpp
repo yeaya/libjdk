@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtils$3.h>
-
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
@@ -20,52 +19,14 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaUtils$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaUtils$3, init$, void)},
-	{"getInstance", "()Ljava/lang/Boolean;", nullptr, $PROTECTED, $virtualMethod(AquaUtils$3, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaUtils$3_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaUtils",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaUtils$3_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtils$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaUtils$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaUtils$3",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaUtils$3_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/Boolean;>;",
-	&_AquaUtils$3_EnclosingMethodInfo_,
-	_AquaUtils$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtils"
-};
-
-$Object* allocate$AquaUtils$3($Class* clazz) {
-	return $of($alloc(AquaUtils$3));
-}
-
 void AquaUtils$3::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
 
 $Object* AquaUtils$3::getInstance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, sizeProperty, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.enableAnimations"_s)))));
+	$var($String, sizeProperty, $cast($String, $AccessController::doPrivileged($$cast($PrivilegedAction, $new($GetPropertyAction, "swing.enableAnimations"_s)))));
 	return $of($Boolean::valueOf(!"false"_s->equals(sizeProperty)));
 }
 
@@ -73,7 +34,39 @@ AquaUtils$3::AquaUtils$3() {
 }
 
 $Class* AquaUtils$3::load$($String* name, bool initialize) {
-	$loadClass(AquaUtils$3, name, initialize, &_AquaUtils$3_ClassInfo_, allocate$AquaUtils$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaUtils$3, init$, void)},
+		{"getInstance", "()Ljava/lang/Boolean;", nullptr, $PROTECTED, $virtualMethod(AquaUtils$3, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaUtils",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtils$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaUtils$3",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtils"
+	};
+	$loadClass(AquaUtils$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtils$3);
+	});
 	return class$;
 }
 

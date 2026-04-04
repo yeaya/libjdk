@@ -28,6 +28,7 @@ class $import Main$Result : public ::java::lang::Enum {
 public:
 	Main$Result();
 	static $Array<::com::sun::tools::javac::main::Main$Result>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t exitCode);
 	virtual bool isOK();
 	static ::com::sun::tools::javac::main::Main$Result* valueOf($String* name);

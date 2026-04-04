@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/hw/ExtendedBufferCapabilities.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/ImageCapabilities.h>
@@ -22,48 +21,8 @@ namespace sun {
 		namespace pipe {
 			namespace hw {
 
-$FieldInfo _ExtendedBufferCapabilities_FieldInfo_[] = {
-	{"vsync", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE, $field(ExtendedBufferCapabilities, vsync)},
-	{}
-};
-
-$MethodInfo _ExtendedBufferCapabilities_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $BufferCapabilities*)},
-	{"<init>", "(Ljava/awt/ImageCapabilities;Ljava/awt/ImageCapabilities;Ljava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $ImageCapabilities*, $ImageCapabilities*, $BufferCapabilities$FlipContents*)},
-	{"<init>", "(Ljava/awt/ImageCapabilities;Ljava/awt/ImageCapabilities;Ljava/awt/BufferCapabilities$FlipContents;Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $ImageCapabilities*, $ImageCapabilities*, $BufferCapabilities$FlipContents*, $ExtendedBufferCapabilities$VSyncType*)},
-	{"<init>", "(Ljava/awt/BufferCapabilities;Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $BufferCapabilities*, $ExtendedBufferCapabilities$VSyncType*)},
-	{"derive", "(Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;)Lsun/java2d/pipe/hw/ExtendedBufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(ExtendedBufferCapabilities, derive, ExtendedBufferCapabilities*, $ExtendedBufferCapabilities$VSyncType*)},
-	{"getVSync", "()Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC, $virtualMethod(ExtendedBufferCapabilities, getVSync, $ExtendedBufferCapabilities$VSyncType*)},
-	{"isPageFlipping", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ExtendedBufferCapabilities, isPageFlipping, bool)},
-	{}
-};
-
-$InnerClassInfo _ExtendedBufferCapabilities_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType", "sun.java2d.pipe.hw.ExtendedBufferCapabilities", "VSyncType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ExtendedBufferCapabilities_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.hw.ExtendedBufferCapabilities",
-	"java.awt.BufferCapabilities",
-	nullptr,
-	_ExtendedBufferCapabilities_FieldInfo_,
-	_ExtendedBufferCapabilities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedBufferCapabilities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType"
-};
-
-$Object* allocate$ExtendedBufferCapabilities($Class* clazz) {
-	return $of($alloc(ExtendedBufferCapabilities));
-}
-
 void ExtendedBufferCapabilities::init$($BufferCapabilities* caps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageCapabilities, var$0, $nc(caps)->getFrontBufferCapabilities());
 	$var($ImageCapabilities, var$1, caps->getBackBufferCapabilities());
 	$BufferCapabilities::init$(var$0, var$1, $(caps->getFlipContents()));
@@ -83,7 +42,7 @@ void ExtendedBufferCapabilities::init$($ImageCapabilities* front, $ImageCapabili
 }
 
 void ExtendedBufferCapabilities::init$($BufferCapabilities* caps, $ExtendedBufferCapabilities$VSyncType* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageCapabilities, var$0, $nc(caps)->getFrontBufferCapabilities());
 	$var($ImageCapabilities, var$1, caps->getBackBufferCapabilities());
 	$BufferCapabilities::init$(var$0, var$1, $(caps->getFlipContents()));
@@ -106,7 +65,41 @@ ExtendedBufferCapabilities::ExtendedBufferCapabilities() {
 }
 
 $Class* ExtendedBufferCapabilities::load$($String* name, bool initialize) {
-	$loadClass(ExtendedBufferCapabilities, name, initialize, &_ExtendedBufferCapabilities_ClassInfo_, allocate$ExtendedBufferCapabilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"vsync", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE, $field(ExtendedBufferCapabilities, vsync)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $BufferCapabilities*)},
+		{"<init>", "(Ljava/awt/ImageCapabilities;Ljava/awt/ImageCapabilities;Ljava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $ImageCapabilities*, $ImageCapabilities*, $BufferCapabilities$FlipContents*)},
+		{"<init>", "(Ljava/awt/ImageCapabilities;Ljava/awt/ImageCapabilities;Ljava/awt/BufferCapabilities$FlipContents;Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $ImageCapabilities*, $ImageCapabilities*, $BufferCapabilities$FlipContents*, $ExtendedBufferCapabilities$VSyncType*)},
+		{"<init>", "(Ljava/awt/BufferCapabilities;Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;)V", nullptr, $PUBLIC, $method(ExtendedBufferCapabilities, init$, void, $BufferCapabilities*, $ExtendedBufferCapabilities$VSyncType*)},
+		{"derive", "(Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;)Lsun/java2d/pipe/hw/ExtendedBufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(ExtendedBufferCapabilities, derive, ExtendedBufferCapabilities*, $ExtendedBufferCapabilities$VSyncType*)},
+		{"getVSync", "()Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PUBLIC, $virtualMethod(ExtendedBufferCapabilities, getVSync, $ExtendedBufferCapabilities$VSyncType*)},
+		{"isPageFlipping", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ExtendedBufferCapabilities, isPageFlipping, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType", "sun.java2d.pipe.hw.ExtendedBufferCapabilities", "VSyncType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.hw.ExtendedBufferCapabilities",
+		"java.awt.BufferCapabilities",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.hw.ExtendedBufferCapabilities$VSyncType"
+	};
+	$loadClass(ExtendedBufferCapabilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedBufferCapabilities);
+	});
 	return class$;
 }
 

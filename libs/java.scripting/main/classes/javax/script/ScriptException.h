@@ -20,13 +20,16 @@ public:
 	virtual $String* getFileName();
 	virtual int32_t getLineNumber();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x72B36E5166B03F29;
+	static const int64_t serialVersionUID = (int64_t)0x72b36e5166b03f29;
 	$String* fileName = nullptr;
 	int32_t lineNumber = 0;
 	int32_t columnNumber = 0;
 	ScriptException(const ScriptException& e);
 	virtual void throw$() override;
-	inline ScriptException* operator ->() {
+	inline ScriptException* operator ->() const {
+		return (ScriptException*)throwing$;
+	}
+	inline operator ScriptException*() const {
 		return (ScriptException*)throwing$;
 	}
 };

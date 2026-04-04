@@ -1,5 +1,4 @@
 #include <javax/management/MBeanServerInvocationHandler.h>
-
 #include <com/sun/jmx/mbeanserver/MXBeanProxy.h>
 #include <java/lang/Error.h>
 #include <java/lang/NoSuchMethodException.h>
@@ -59,43 +58,6 @@ using $RuntimeMBeanException = ::javax::management::RuntimeMBeanException;
 namespace javax {
 	namespace management {
 
-$FieldInfo _MBeanServerInvocationHandler_FieldInfo_[] = {
-	{"mxbeanProxies", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljava/lang/Class<*>;Ljava/lang/ref/WeakReference<Lcom/sun/jmx/mbeanserver/MXBeanProxy;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerInvocationHandler, mxbeanProxies)},
-	{"connection", "Ljavax/management/MBeanServerConnection;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerInvocationHandler, connection)},
-	{"objectName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerInvocationHandler, objectName)},
-	{"isMXBean", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanServerInvocationHandler, isMXBean$)},
-	{}
-};
-
-$MethodInfo _MBeanServerInvocationHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(MBeanServerInvocationHandler, init$, void, $MBeanServerConnection*, $ObjectName*)},
-	{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Z)V", nullptr, $PUBLIC, $method(MBeanServerInvocationHandler, init$, void, $MBeanServerConnection*, $ObjectName*, bool)},
-	{"doLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, doLocally, $Object*, Object$*, $Method*, $ObjectArray*)},
-	{"findMXBeanProxy", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", $PRIVATE | $STATIC, $staticMethod(MBeanServerInvocationHandler, findMXBeanProxy, $MXBeanProxy*, $Class*)},
-	{"getMBeanServerConnection", "()Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, getMBeanServerConnection, $MBeanServerConnection*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, getObjectName, $ObjectName*)},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
-	{"invokeBroadcasterMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, invokeBroadcasterMethod, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Exception"},
-	{"isLocal", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerInvocationHandler, isLocal, bool, Object$*, $Method*)},
-	{"isMXBean", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, isMXBean, bool)},
-	{"newProxyInstance", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;Z)TT;", $PUBLIC | $STATIC, $staticMethod(MBeanServerInvocationHandler, newProxyInstance, $Object*, $MBeanServerConnection*, $ObjectName*, $Class*, bool)},
-	{"shouldDoLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, shouldDoLocally, bool, Object$*, $Method*)},
-	{}
-};
-
-$ClassInfo _MBeanServerInvocationHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanServerInvocationHandler",
-	"java.lang.Object",
-	"java.lang.reflect.InvocationHandler",
-	_MBeanServerInvocationHandler_FieldInfo_,
-	_MBeanServerInvocationHandler_MethodInfo_
-};
-
-$Object* allocate$MBeanServerInvocationHandler($Class* clazz) {
-	return $of($alloc(MBeanServerInvocationHandler));
-}
-
 $WeakHashMap* MBeanServerInvocationHandler::mxbeanProxies = nullptr;
 
 void MBeanServerInvocationHandler::init$($MBeanServerConnection* connection, $ObjectName* objectName) {
@@ -108,7 +70,7 @@ void MBeanServerInvocationHandler::init$($MBeanServerConnection* connection, $Ob
 		$throwNew($IllegalArgumentException, "Null connection"_s);
 	}
 	if ($Proxy::isProxyClass($nc($of(connection))->getClass())) {
-		if (MBeanServerInvocationHandler::class$->isAssignableFrom($nc($of($($Proxy::getInvocationHandler(connection))))->getClass())) {
+		if (MBeanServerInvocationHandler::class$->isAssignableFrom($$nc($Proxy::getInvocationHandler(connection))->getClass())) {
 			$throwNew($IllegalArgumentException, "Wrapping MBeanServerInvocationHandler"_s);
 		}
 	}
@@ -134,58 +96,56 @@ bool MBeanServerInvocationHandler::isMXBean() {
 
 $Object* MBeanServerInvocationHandler::newProxyInstance($MBeanServerConnection* connection, $ObjectName* objectName, $Class* interfaceClass, bool notificationBroadcaster) {
 	$init(MBeanServerInvocationHandler);
-	return $of($JMX::newMBeanProxy(connection, objectName, interfaceClass, notificationBroadcaster));
+	return $JMX::newMBeanProxy(connection, objectName, interfaceClass, notificationBroadcaster);
 }
 
 $Object* MBeanServerInvocationHandler::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* methodClass = $nc(method)->getDeclaringClass();
 	$load($NotificationBroadcaster);
-	bool var$0 = $nc($of(methodClass))->equals($NotificationBroadcaster::class$);
+	bool var$0 = $nc(methodClass)->equals($NotificationBroadcaster::class$);
 	$load($NotificationEmitter);
-	if (var$0 || $nc($of(methodClass))->equals($NotificationEmitter::class$)) {
-		return $of(invokeBroadcasterMethod(proxy, method, args));
+	if (var$0 || methodClass->equals($NotificationEmitter::class$)) {
+		return invokeBroadcasterMethod(proxy, method, args);
 	}
 	if (shouldDoLocally(proxy, method)) {
-		return $of(doLocally(proxy, method, args));
+		return doLocally(proxy, method, args);
 	}
 	try {
 		if (isMXBean()) {
 			$var($MXBeanProxy, p, findMXBeanProxy(methodClass));
-			return $of($nc(p)->invoke(this->connection, this->objectName, method, args));
+			return $nc(p)->invoke(this->connection, this->objectName, method, args);
 		} else {
 			$var($String, methodName, method->getName());
 			$var($ClassArray, paramTypes, method->getParameterTypes());
 			$Class* returnType = method->getReturnType();
-			int32_t nargs = (args == nullptr) ? 0 : $nc(args)->length;
+			int32_t nargs = (args == nullptr) ? 0 : args->length;
 			bool var$2 = $nc(methodName)->startsWith("get"_s);
 			bool var$1 = var$2 && methodName->length() > 3 && nargs == 0;
-			$init($Void);
-			if (var$1 && !$nc($of(returnType))->equals($Void::TYPE)) {
-				return $of($nc(this->connection)->getAttribute(this->objectName, $(methodName->substring(3))));
+			if (var$1 && !$nc(returnType)->equals($Void::TYPE)) {
+				return $nc(this->connection)->getAttribute(this->objectName, $(methodName->substring(3)));
 			}
-			bool var$4 = $nc(methodName)->startsWith("is"_s);
+			bool var$4 = methodName->startsWith("is"_s);
 			bool var$3 = var$4 && methodName->length() > 2 && nargs == 0;
 			if (var$3) {
-				$init($Boolean);
-				bool var$5 = $nc($of(returnType))->equals($Boolean::TYPE);
-				var$3 = (var$5 || $nc($of(returnType))->equals($Boolean::class$));
+				bool var$5 = $nc(returnType)->equals($Boolean::TYPE);
+				var$3 = var$5 || returnType->equals($Boolean::class$);
 			}
 			if (var$3) {
-				return $of($nc(this->connection)->getAttribute(this->objectName, $($nc(methodName)->substring(2))));
+				return $nc(this->connection)->getAttribute(this->objectName, $(methodName->substring(2)));
 			}
-			bool var$7 = $nc(methodName)->startsWith("set"_s);
+			bool var$7 = methodName->startsWith("set"_s);
 			bool var$6 = var$7 && methodName->length() > 3 && nargs == 1;
-			if (var$6 && $nc($of(returnType))->equals($Void::TYPE)) {
-				$var($Attribute, attr, $new($Attribute, $(methodName->substring(3)), args->get(0)));
+			if (var$6 && $nc(returnType)->equals($Void::TYPE)) {
+				$var($Attribute, attr, $new($Attribute, $(methodName->substring(3)), $nc(args)->get(0)));
 				$nc(this->connection)->setAttribute(this->objectName, attr);
-				return $of(nullptr);
+				return nullptr;
 			}
 			$var($StringArray, signature, $new($StringArray, $nc(paramTypes)->length));
 			for (int32_t i = 0; i < paramTypes->length; ++i) {
 				signature->set(i, $($nc(paramTypes->get(i))->getName()));
 			}
-			return $of($nc(this->connection)->invoke(this->objectName, methodName, args, signature));
+			return $nc(this->connection)->invoke(this->objectName, methodName, args, signature);
 		}
 	} catch ($MBeanException& e) {
 		$throw($(e->getTargetException()));
@@ -199,64 +159,62 @@ $Object* MBeanServerInvocationHandler::invoke(Object$* proxy, $Method* method, $
 
 $MXBeanProxy* MBeanServerInvocationHandler::findMXBeanProxy($Class* mxbeanInterface) {
 	$init(MBeanServerInvocationHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(MBeanServerInvocationHandler::mxbeanProxies) {
-		$var($WeakReference, proxyRef, $cast($WeakReference, $nc(MBeanServerInvocationHandler::mxbeanProxies)->get(mxbeanInterface)));
-		$var($MXBeanProxy, p, (proxyRef == nullptr) ? ($MXBeanProxy*)nullptr : $cast($MXBeanProxy, $nc(proxyRef)->get()));
+		$var($WeakReference, proxyRef, $cast($WeakReference, MBeanServerInvocationHandler::mxbeanProxies->get(mxbeanInterface)));
+		$var($MXBeanProxy, p, (proxyRef == nullptr) ? ($MXBeanProxy*)nullptr : $cast($MXBeanProxy, proxyRef->get()));
 		if (p == nullptr) {
 			try {
 				$assign(p, $new($MXBeanProxy, mxbeanInterface));
 			} catch ($IllegalArgumentException& e) {
-				$var($String, var$0, $$str({"Cannot make MXBean proxy for "_s, $($nc(mxbeanInterface)->getName()), ": "_s}));
-				$var($String, msg, $concat(var$0, $(e->getMessage())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("Cannot make MXBean proxy for "_s);
+				var$0->append($($nc(mxbeanInterface)->getName()));
+				var$0->append(": "_s);
+				var$0->append($(e->getMessage()));
+				$var($String, msg, $str(var$0));
 				$var($IllegalArgumentException, iae, $new($IllegalArgumentException, msg, $(e->getCause())));
 				iae->setStackTrace($(e->getStackTrace()));
 				$throw(iae);
 			}
-			$nc(MBeanServerInvocationHandler::mxbeanProxies)->put(mxbeanInterface, $$new($WeakReference, p));
+			MBeanServerInvocationHandler::mxbeanProxies->put(mxbeanInterface, $$new($WeakReference, p));
 		}
 		return p;
 	}
 }
 
 $Object* MBeanServerInvocationHandler::invokeBroadcasterMethod(Object$* proxy, $Method* method, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, methodName, $nc(method)->getName());
-	int32_t nargs = (args == nullptr) ? 0 : $nc(args)->length;
+	int32_t nargs = (args == nullptr) ? 0 : args->length;
 	if ($nc(methodName)->equals("addNotificationListener"_s)) {
 		if (nargs != 3) {
 			$var($String, msg, $str({"Bad arg count to addNotificationListener: "_s, $$str(nargs)}));
 			$throwNew($IllegalArgumentException, msg);
 		}
-		$var($NotificationListener, listener, $cast($NotificationListener, args->get(0)));
+		$var($NotificationListener, listener, $cast($NotificationListener, $nc(args)->get(0)));
 		$var($NotificationFilter, filter, $cast($NotificationFilter, args->get(1)));
 		$var($Object0, handback, args->get(2));
 		$nc(this->connection)->addNotificationListener(this->objectName, listener, filter, handback);
-		return $of(nullptr);
+		return nullptr;
 	} else if (methodName->equals("removeNotificationListener"_s)) {
-		$var($NotificationListener, listener, $cast($NotificationListener, args->get(0)));
+		$var($NotificationListener, listener, $cast($NotificationListener, $nc(args)->get(0)));
 		{
-			$var($NotificationFilter, filter, nullptr)
-			$var($Object, handback, nullptr)
-			$var($String, msg, nullptr)
+			$var($NotificationFilter, filter, nullptr);
+			$var($Object, handback, nullptr);
+			$var($String, msg, nullptr);
 			switch (nargs) {
 			case 1:
-				{
-					$nc(this->connection)->removeNotificationListener(this->objectName, listener);
-					return $of(nullptr);
-				}
+				$nc(this->connection)->removeNotificationListener(this->objectName, listener);
+				return nullptr;
 			case 3:
-				{
-					$assign(filter, $cast($NotificationFilter, args->get(1)));
-					$assign(handback, args->get(2));
-					$nc(this->connection)->removeNotificationListener(this->objectName, listener, filter, handback);
-					return $of(nullptr);
-				}
+				$assign(filter, $cast($NotificationFilter, args->get(1)));
+				$assign(handback, args->get(2));
+				$nc(this->connection)->removeNotificationListener(this->objectName, listener, filter, handback);
+				return nullptr;
 			default:
-				{
-					$assign(msg, $str({"Bad arg count to removeNotificationListener: "_s, $$str(nargs)}));
-					$throwNew($IllegalArgumentException, msg);
-				}
+				$assign(msg, $str({"Bad arg count to removeNotificationListener: "_s, $$str(nargs)}));
+				$throwNew($IllegalArgumentException, msg);
 			}
 		}
 	} else if (methodName->equals("getNotificationInfo"_s)) {
@@ -264,27 +222,27 @@ $Object* MBeanServerInvocationHandler::invokeBroadcasterMethod(Object$* proxy, $
 			$throwNew($IllegalArgumentException, "getNotificationInfo has args"_s);
 		}
 		$var($MBeanInfo, info, $nc(this->connection)->getMBeanInfo(this->objectName));
-		return $of($nc(info)->getNotifications());
+		return $nc(info)->getNotifications();
 	} else {
 		$throwNew($IllegalArgumentException, $$str({"Bad method name: "_s, methodName}));
 	}
 }
 
 bool MBeanServerInvocationHandler::shouldDoLocally(Object$* proxy, $Method* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, methodName, $nc(method)->getName());
 	bool var$2 = $nc(methodName)->equals("hashCode"_s);
-	bool var$1 = (var$2 || $nc(methodName)->equals("toString"_s));
+	bool var$1 = var$2 || methodName->equals("toString"_s);
 	bool var$0 = var$1 && $nc($(method->getParameterTypes()))->length == 0;
 	if (var$0 && isLocal(proxy, method)) {
 		return true;
 	}
-	bool var$4 = $nc(methodName)->equals("equals"_s);
+	bool var$4 = methodName->equals("equals"_s);
 	bool var$3 = var$4 && $Arrays::equals($(method->getParameterTypes()), $$new($ClassArray, {$Object::class$}));
 	if (var$3 && isLocal(proxy, method)) {
 		return true;
 	}
-	bool var$5 = $nc(methodName)->equals("finalize"_s);
+	bool var$5 = methodName->equals("finalize"_s);
 	if (var$5 && $nc($(method->getParameterTypes()))->length == 0) {
 		return true;
 	}
@@ -292,38 +250,38 @@ bool MBeanServerInvocationHandler::shouldDoLocally(Object$* proxy, $Method* meth
 }
 
 $Object* MBeanServerInvocationHandler::doLocally(Object$* proxy, $Method* method, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, methodName, $nc(method)->getName());
 	if ($nc(methodName)->equals("equals"_s)) {
 		if ($equals(this, $nc(args)->get(0))) {
 			return $of($Boolean::valueOf(true));
 		}
-		if (!($instanceOf($Proxy, $nc(args)->get(0)))) {
+		if (!($instanceOf($Proxy, args->get(0)))) {
 			return $of($Boolean::valueOf(false));
 		}
-		$var($InvocationHandler, ihandler, $Proxy::getInvocationHandler($nc(args)->get(0)));
+		$var($InvocationHandler, ihandler, $Proxy::getInvocationHandler(args->get(0)));
 		if (ihandler == nullptr || !($instanceOf(MBeanServerInvocationHandler, ihandler))) {
 			return $of($Boolean::valueOf(false));
 		}
 		$var(MBeanServerInvocationHandler, handler, $cast(MBeanServerInvocationHandler, ihandler));
-		bool var$1 = $nc($of(this->connection))->equals($nc(handler)->connection);
-		bool var$0 = var$1 && $nc(this->objectName)->equals($nc(handler)->objectName);
-		return $of($Boolean::valueOf(var$0 && $of($nc($of(proxy))->getClass())->equals($nc($of($nc(args)->get(0)))->getClass())));
+		bool var$1 = $nc(this->connection)->equals($nc(handler)->connection);
+		bool var$0 = var$1 && $nc(this->objectName)->equals(handler->objectName);
+		return $of($Boolean::valueOf(var$0 && $nc($of(proxy))->getClass()->equals($nc(args->get(0))->getClass())));
 	} else if (methodName->equals("toString"_s)) {
 		return $of($str({(isMXBean() ? "MX"_s : "M"_s), "BeanProxy("_s, this->connection, "["_s, this->objectName, "])"_s}));
 	} else if (methodName->equals("hashCode"_s)) {
 		int32_t var$2 = $nc(this->objectName)->hashCode();
-		return $of($Integer::valueOf(var$2 + $nc($of(this->connection))->hashCode()));
+		return $of($Integer::valueOf(var$2 + $nc(this->connection)->hashCode()));
 	} else if (methodName->equals("finalize"_s)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$throwNew($RuntimeException, $$str({"Unexpected method name: "_s, methodName}));
 }
 
 bool MBeanServerInvocationHandler::isLocal(Object$* proxy, $Method* method) {
 	$init(MBeanServerInvocationHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassArray, interfaces, $nc($of(proxy))->getClass()->getInterfaces());
 	if (interfaces == nullptr) {
@@ -333,23 +291,19 @@ bool MBeanServerInvocationHandler::isLocal(Object$* proxy, $Method* method) {
 	$var($ClassArray, params, method->getParameterTypes());
 	{
 		$var($ClassArray, arr$, interfaces);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* intf = arr$->get(i$);
-			{
-				try {
-					$nc(intf)->getMethod(methodName, params);
-					return false;
-				} catch ($NoSuchMethodException& nsme) {
-				}
+			try {
+				$nc(intf)->getMethod(methodName, params);
+				return false;
+			} catch ($NoSuchMethodException& nsme) {
 			}
 		}
 	}
 	return true;
 }
 
-void clinit$MBeanServerInvocationHandler($Class* class$) {
+void MBeanServerInvocationHandler::clinit$($Class* clazz) {
 	$assignStatic(MBeanServerInvocationHandler::mxbeanProxies, $new($WeakHashMap));
 }
 
@@ -357,7 +311,39 @@ MBeanServerInvocationHandler::MBeanServerInvocationHandler() {
 }
 
 $Class* MBeanServerInvocationHandler::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerInvocationHandler, name, initialize, &_MBeanServerInvocationHandler_ClassInfo_, clinit$MBeanServerInvocationHandler, allocate$MBeanServerInvocationHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"mxbeanProxies", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljava/lang/Class<*>;Ljava/lang/ref/WeakReference<Lcom/sun/jmx/mbeanserver/MXBeanProxy;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerInvocationHandler, mxbeanProxies)},
+		{"connection", "Ljavax/management/MBeanServerConnection;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerInvocationHandler, connection)},
+		{"objectName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerInvocationHandler, objectName)},
+		{"isMXBean", "Z", nullptr, $PRIVATE | $FINAL, $field(MBeanServerInvocationHandler, isMXBean$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(MBeanServerInvocationHandler, init$, void, $MBeanServerConnection*, $ObjectName*)},
+		{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Z)V", nullptr, $PUBLIC, $method(MBeanServerInvocationHandler, init$, void, $MBeanServerConnection*, $ObjectName*, bool)},
+		{"doLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, doLocally, $Object*, Object$*, $Method*, $ObjectArray*)},
+		{"findMXBeanProxy", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", $PRIVATE | $STATIC, $staticMethod(MBeanServerInvocationHandler, findMXBeanProxy, $MXBeanProxy*, $Class*)},
+		{"getMBeanServerConnection", "()Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, getMBeanServerConnection, $MBeanServerConnection*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, getObjectName, $ObjectName*)},
+		{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
+		{"invokeBroadcasterMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, invokeBroadcasterMethod, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Exception"},
+		{"isLocal", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerInvocationHandler, isLocal, bool, Object$*, $Method*)},
+		{"isMXBean", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, isMXBean, bool)},
+		{"newProxyInstance", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;Z)TT;", $PUBLIC | $STATIC, $staticMethod(MBeanServerInvocationHandler, newProxyInstance, $Object*, $MBeanServerConnection*, $ObjectName*, $Class*, bool)},
+		{"shouldDoLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, shouldDoLocally, bool, Object$*, $Method*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanServerInvocationHandler",
+		"java.lang.Object",
+		"java.lang.reflect.InvocationHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanServerInvocationHandler, name, initialize, &classInfo$$, MBeanServerInvocationHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanServerInvocationHandler);
+	});
 	return class$;
 }
 

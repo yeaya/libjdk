@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$CroppedEdge.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$TabContainer.h>
@@ -17,7 +16,6 @@
 #include <jcpp.h>
 
 using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
-using $AquaTabbedPaneCopyFromBasicUI$CroppedEdge = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$CroppedEdge;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
@@ -28,54 +26,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPanel = ::javax::swing::JPanel;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $UIManager = ::javax::swing::UIManager;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, this$0)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;)V", nullptr, $PUBLIC, $method(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, init$, void, $AquaTabbedPaneCopyFromBasicUI*)},
-	{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, doLayout, void)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, paintComponent, void, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel",
-	"javax.swing.JPanel",
-	"javax.swing.plaf.UIResource",
-	_AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_FieldInfo_,
-	_AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
-};
-
-$Object* allocate$AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel));
-}
 
 $String* AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel::toString() {
 	 return this->$JPanel::toString();
@@ -99,7 +54,7 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel::finalize() {
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel::init$($AquaTabbedPaneCopyFromBasicUI* this$0) {
 	$set(this, this$0, this$0);
-	$JPanel::init$(($LayoutManager*)nullptr);
+	$JPanel::init$(nullptr);
 	setOpaque($nc(this$0->tabPane)->isOpaque());
 	$var($Color, bgColor, $UIManager::getColor("TabbedPane.tabAreaBackground"_s));
 	if (bgColor == nullptr) {
@@ -109,16 +64,14 @@ void AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel::init$($AquaTabbedPaneCopy
 }
 
 void AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
 	$JPanel::paintComponent(g);
-	$var($Graphics, var$0, g);
-	int32_t var$1 = $nc(this->this$0->tabPane)->getTabPlacement();
-	this->this$0->paintTabArea(var$0, var$1, $nc(this->this$0->tabPane)->getSelectedIndex());
+	int32_t var$0 = $nc(this->this$0->tabPane)->getTabPlacement();
+	this->this$0->paintTabArea(g, var$0, this->this$0->tabPane->getSelectedIndex());
 	if ($nc($nc(this->this$0->tabScroller)->croppedEdge)->isParamsSet() && this->this$0->tabContainer == nullptr) {
 		$var($Rectangle, croppedRect, $nc(this->this$0->rects)->get($nc($nc(this->this$0->tabScroller)->croppedEdge)->getTabIndex()));
-		$nc(g)->translate($nc(croppedRect)->x, croppedRect->y);
+		$nc(g)->translate($nc(croppedRect)->x, $nc(croppedRect)->y);
 		$nc($nc(this->this$0->tabScroller)->croppedEdge)->paintComponent(g);
-		g->translate(-$nc(croppedRect)->x, -croppedRect->y);
+		g->translate(-croppedRect->x, -croppedRect->y);
 	}
 }
 
@@ -134,7 +87,43 @@ AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel::AquaTabbedPaneCopyFromBasicUI$
 }
 
 $Class* AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, name, initialize, &_AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel_ClassInfo_, allocate$AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;)V", nullptr, $PUBLIC, $method(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, init$, void, $AquaTabbedPaneCopyFromBasicUI*)},
+		{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, doLayout, void)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, paintComponent, void, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel",
+		"javax.swing.JPanel",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
+	};
+	$loadClass(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel));
+	});
 	return class$;
 }
 

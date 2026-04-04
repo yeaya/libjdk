@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXServiceURL.h>
-
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/io/InvalidObjectException.h>
@@ -51,59 +50,6 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$FieldInfo _JMXServiceURL_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXServiceURL, serialVersionUID)},
-	{"INVALID_INSTANCE_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, INVALID_INSTANCE_MSG)},
-	{"randomException", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, randomException)},
-	{"alphaBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, alphaBitSet)},
-	{"numericBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, numericBitSet)},
-	{"alphaNumericBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, alphaNumericBitSet)},
-	{"protocolBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, protocolBitSet)},
-	{"hostNameBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, hostNameBitSet)},
-	{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXServiceURL, protocol)},
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXServiceURL, host)},
-	{"port", "I", nullptr, $PRIVATE, $field(JMXServiceURL, port)},
-	{"urlPath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXServiceURL, urlPath)},
-	{"toString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(JMXServiceURL, toString$)},
-	{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, logger)},
-	{}
-};
-
-$MethodInfo _JMXServiceURL_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXServiceURL, init$, void, $String*), "java.net.MalformedURLException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JMXServiceURL, init$, void, $String*, $String*, int32_t), "java.net.MalformedURLException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(JMXServiceURL, init$, void, $String*, $String*, int32_t, $String*), "java.net.MalformedURLException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, equals, bool, Object$*)},
-	{"getActiveNetworkInterfaceIP", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JMXServiceURL, getActiveNetworkInterfaceIP, $String*), "java.net.SocketException"},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getHost, $String*)},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getPort, int32_t)},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getProtocol, $String*)},
-	{"getURLPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getURLPath, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, hashCode, int32_t)},
-	{"indexOf", "(Ljava/lang/String;CI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, indexOf, int32_t, $String*, char16_t, int32_t)},
-	{"indexOfFirstNotInSet", "(Ljava/lang/String;Ljava/util/BitSet;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, indexOfFirstNotInSet, int32_t, $String*, $BitSet*, int32_t)},
-	{"isNumericIPv6Address", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, isNumericIPv6Address, bool, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JMXServiceURL, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, toString, $String*)},
-	{"validate", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(JMXServiceURL, validate, void, $String*, $String*, int32_t, $String*), "java.net.MalformedURLException"},
-	{"validate", "()V", nullptr, $PRIVATE, $method(JMXServiceURL, validate, void), "java.net.MalformedURLException"},
-	{"validateHost", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, validateHost, void, $String*, int32_t), "java.net.MalformedURLException"},
-	{}
-};
-
-$ClassInfo _JMXServiceURL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.JMXServiceURL",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_JMXServiceURL_FieldInfo_,
-	_JMXServiceURL_MethodInfo_
-};
-
-$Object* allocate$JMXServiceURL($Class* clazz) {
-	return $of($alloc(JMXServiceURL));
-}
-
 $String* JMXServiceURL::INVALID_INSTANCE_MSG = nullptr;
 $Exception* JMXServiceURL::randomException = nullptr;
 $BitSet* JMXServiceURL::alphaBitSet = nullptr;
@@ -114,7 +60,7 @@ $BitSet* JMXServiceURL::hostNameBitSet = nullptr;
 $ClassLogger* JMXServiceURL::logger = nullptr;
 
 void JMXServiceURL::init$($String* serviceURL) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t serviceURLLength = $nc(serviceURL)->length();
 	for (int32_t i = 0; i < serviceURLLength; ++i) {
 		char16_t c = serviceURL->charAt(i);
@@ -137,7 +83,7 @@ void JMXServiceURL::init$($String* serviceURL) {
 	int32_t hostStart = protoEnd + 3;
 	int32_t hostEnd = 0;
 	if (hostStart < serviceURLLength && serviceURL->charAt(hostStart) == u'[') {
-		hostEnd = serviceURL->indexOf((int32_t)u']', hostStart) + 1;
+		hostEnd = serviceURL->indexOf(u']', hostStart) + 1;
 		if (hostEnd == 0) {
 			$throwNew($MalformedURLException, "Bad host name: [ without ]"_s);
 		}
@@ -180,7 +126,7 @@ void JMXServiceURL::init$($String* protocol, $String* host, int32_t port) {
 }
 
 void JMXServiceURL::init$($String* protocol$renamed, $String* host$renamed, int32_t port, $String* urlPath$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, protocol, protocol$renamed);
 	$var($String, host, host$renamed);
 	$var($String, urlPath, urlPath$renamed);
@@ -195,8 +141,8 @@ void JMXServiceURL::init$($String* protocol$renamed, $String* host$renamed, int3
 			try {
 				validateHost(host, port);
 			} catch ($MalformedURLException& e) {
-				if ($nc(JMXServiceURL::logger)->fineOn()) {
-					$nc(JMXServiceURL::logger)->fine("JMXServiceURL"_s, $$str({"Replacing illegal local host name "_s, host, " with numeric IP address (see RFC 1034)"_s}), e);
+				if (JMXServiceURL::logger->fineOn()) {
+					JMXServiceURL::logger->fine("JMXServiceURL"_s, $$str({"Replacing illegal local host name "_s, host, " with numeric IP address (see RFC 1034)"_s}), e);
 				}
 				$assign(host, local->getHostAddress());
 			}
@@ -235,7 +181,7 @@ void JMXServiceURL::init$($String* protocol$renamed, $String* host$renamed, int3
 }
 
 $String* JMXServiceURL::getActiveNetworkInterfaceIP() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, networkInterface, $NetworkInterface::getNetworkInterfaces());
 	$var($String, ipv6AddrStr, nullptr);
 	while ($nc(networkInterface)->hasMoreElements()) {
@@ -245,7 +191,7 @@ $String* JMXServiceURL::getActiveNetworkInterfaceIP() {
 			$var($Enumeration, inet, nic->getInetAddresses());
 			while ($nc(inet)->hasMoreElements()) {
 				$var($InetAddress, addr, $cast($InetAddress, inet->nextElement()));
-				if ($instanceOf($Inet4Address, addr) && !$nc(addr)->isLinkLocalAddress()) {
+				if ($instanceOf($Inet4Address, addr) && !addr->isLinkLocalAddress()) {
 					return addr->getHostAddress();
 				} else if ($instanceOf($Inet6Address, addr) && !addr->isLinkLocalAddress()) {
 					$assign(ipv6AddrStr, addr->getHostAddress());
@@ -257,12 +203,12 @@ $String* JMXServiceURL::getActiveNetworkInterfaceIP() {
 }
 
 void JMXServiceURL::readObject($ObjectInputStream* inputStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gf, $nc(inputStream)->readFields());
-	$var($String, h, $cast($String, $nc(gf)->get("host"_s, ($Object*)nullptr)));
+	$var($String, h, $cast($String, $nc(gf)->get("host"_s, nullptr)));
 	int32_t p = gf->get("port"_s, -1);
-	$var($String, proto, $cast($String, gf->get("protocol"_s, ($Object*)nullptr)));
-	$var($String, url, $cast($String, gf->get("urlPath"_s, ($Object*)nullptr)));
+	$var($String, proto, $cast($String, gf->get("protocol"_s, nullptr)));
+	$var($String, url, $cast($String, gf->get("urlPath"_s, nullptr)));
 	if (proto == nullptr || url == nullptr || h == nullptr) {
 		$var($StringBuilder, sb, $$new($StringBuilder, JMXServiceURL::INVALID_INSTANCE_MSG)->append(u'['));
 		bool empty = true;
@@ -281,7 +227,7 @@ void JMXServiceURL::readObject($ObjectInputStream* inputStream) {
 		$throwNew($InvalidObjectException, $(sb->toString()));
 	}
 	bool var$0 = $nc(h)->contains("["_s);
-	if (var$0 || $nc(h)->contains("]"_s)) {
+	if (var$0 || h->contains("]"_s)) {
 		$throwNew($InvalidObjectException, $$str({"Invalid host name: "_s, h}));
 	}
 	try {
@@ -296,10 +242,10 @@ void JMXServiceURL::readObject($ObjectInputStream* inputStream) {
 }
 
 void JMXServiceURL::validate($String* proto, $String* h, int32_t p, $String* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t protoEnd = indexOfFirstNotInSet(proto, JMXServiceURL::protocolBitSet, 0);
 	bool var$0 = protoEnd == 0 || protoEnd < $nc(proto)->length();
-	if (var$0 || !$nc(JMXServiceURL::alphaBitSet)->get($nc(proto)->charAt(0))) {
+	if (var$0 || !JMXServiceURL::alphaBitSet->get($nc(proto)->charAt(0))) {
 		$throwNew($MalformedURLException, $$str({"Missing or invalid protocol name: \""_s, proto, "\""_s}));
 	}
 	validateHost(h, p);
@@ -320,7 +266,7 @@ void JMXServiceURL::validate() {
 
 void JMXServiceURL::validateHost($String* h, int32_t port) {
 	$init(JMXServiceURL);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(h)->length() == 0) {
 		if (port != 0) {
 			$throwNew($MalformedURLException, "Cannot give port number without host name"_s);
@@ -336,13 +282,13 @@ void JMXServiceURL::validateHost($String* h, int32_t port) {
 			$throw(bad);
 		}
 	} else {
-		int32_t hostLen = $nc(h)->length();
+		int32_t hostLen = h->length();
 		char16_t lastc = u'.';
 		bool sawDot = false;
-		char16_t componentStart = (char16_t)0;
+		char16_t componentStart = 0;
 		for (int32_t i = 0; i < hostLen; ++i) {
 			char16_t c = h->charAt(i);
-			bool isAlphaNumeric = $nc(JMXServiceURL::alphaNumericBitSet)->get(c);
+			bool isAlphaNumeric = JMXServiceURL::alphaNumericBitSet->get(c);
 			if (lastc == u'.') {
 				componentStart = c;
 			}
@@ -368,7 +314,7 @@ void JMXServiceURL::validateHost($String* h, int32_t port) {
 			if (lastc != u'a') {
 				$throw(JMXServiceURL::randomException);
 			}
-			if (sawDot && !$nc(JMXServiceURL::alphaBitSet)->get(componentStart)) {
+			if (sawDot && !JMXServiceURL::alphaBitSet->get(componentStart)) {
 				$var($StringTokenizer, tok, $new($StringTokenizer, h, "."_s, true));
 				for (int32_t i = 0; i < 4; ++i) {
 					$var($String, ns, tok->nextToken());
@@ -376,7 +322,7 @@ void JMXServiceURL::validateHost($String* h, int32_t port) {
 					if (n < 0 || n > 255) {
 						$throw(JMXServiceURL::randomException);
 					}
-					if (i < 3 && !$nc($(tok->nextToken()))->equals("."_s)) {
+					if (i < 3 && !$$nc(tok->nextToken())->equals("."_s)) {
 						$throw(JMXServiceURL::randomException);
 					}
 				}
@@ -407,7 +353,7 @@ $String* JMXServiceURL::getURLPath() {
 }
 
 $String* JMXServiceURL::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->toString$ != nullptr) {
 		return this->toString$;
 	}
@@ -429,33 +375,33 @@ $String* JMXServiceURL::toString() {
 }
 
 bool JMXServiceURL::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(JMXServiceURL, obj))) {
 		return false;
 	}
 	$var(JMXServiceURL, u, $cast(JMXServiceURL, obj));
-	bool var$2 = $nc($($nc(u)->getProtocol()))->equalsIgnoreCase($(getProtocol()));
-	bool var$1 = var$2 && $nc($(u->getHost()))->equalsIgnoreCase($(getHost()));
+	bool var$2 = $$nc($nc(u)->getProtocol())->equalsIgnoreCase($(getProtocol()));
+	bool var$1 = var$2 && $$nc(u->getHost())->equalsIgnoreCase($(getHost()));
 	if (var$1) {
 		int32_t var$3 = u->getPort();
 		var$1 = var$3 == getPort();
 	}
 	bool var$0 = var$1;
-	return (var$0 && $nc($(u->getURLPath()))->equals($(getURLPath())));
+	return (var$0 && $$nc(u->getURLPath())->equals($(getURLPath())));
 }
 
 int32_t JMXServiceURL::hashCode() {
-	return $nc($(toString()))->hashCode();
+	return $$nc(toString())->hashCode();
 }
 
 bool JMXServiceURL::isNumericIPv6Address($String* s) {
 	$init(JMXServiceURL);
-	return ($nc(s)->indexOf((int32_t)u':') >= 0);
+	return ($nc(s)->indexOf(u':') >= 0);
 }
 
 int32_t JMXServiceURL::indexOf($String* s, char16_t c, int32_t fromIndex) {
 	$init(JMXServiceURL);
-	int32_t index = $nc(s)->indexOf((int32_t)c, fromIndex);
+	int32_t index = $nc(s)->indexOf(c, fromIndex);
 	if (index < 0) {
 		return s->length();
 	} else {
@@ -483,7 +429,7 @@ int32_t JMXServiceURL::indexOfFirstNotInSet($String* s, $BitSet* set, int32_t fr
 	return i;
 }
 
-void clinit$JMXServiceURL($Class* class$) {
+void JMXServiceURL::clinit$($Class* clazz) {
 	$assignStatic(JMXServiceURL::INVALID_INSTANCE_MSG, "Trying to deserialize an invalid instance of JMXServiceURL"_s);
 	$assignStatic(JMXServiceURL::randomException, $new($Exception));
 	$assignStatic(JMXServiceURL::alphaBitSet, $new($BitSet, 128));
@@ -493,22 +439,22 @@ void clinit$JMXServiceURL($Class* class$) {
 	$assignStatic(JMXServiceURL::hostNameBitSet, $new($BitSet, 128));
 	{
 		for (char16_t c = u'0'; c <= u'9'; ++c) {
-			$nc(JMXServiceURL::numericBitSet)->set(c);
+			JMXServiceURL::numericBitSet->set(c);
 		}
 		for (char16_t c = u'A'; c <= u'Z'; ++c) {
-			$nc(JMXServiceURL::alphaBitSet)->set(c);
+			JMXServiceURL::alphaBitSet->set(c);
 		}
 		for (char16_t c = u'a'; c <= u'z'; ++c) {
-			$nc(JMXServiceURL::alphaBitSet)->set(c);
+			JMXServiceURL::alphaBitSet->set(c);
 		}
-		$nc(JMXServiceURL::alphaNumericBitSet)->or$(JMXServiceURL::alphaBitSet);
-		$nc(JMXServiceURL::alphaNumericBitSet)->or$(JMXServiceURL::numericBitSet);
-		$nc(JMXServiceURL::protocolBitSet)->or$(JMXServiceURL::alphaNumericBitSet);
-		$nc(JMXServiceURL::protocolBitSet)->set(u'+');
-		$nc(JMXServiceURL::protocolBitSet)->set(u'-');
-		$nc(JMXServiceURL::hostNameBitSet)->or$(JMXServiceURL::alphaNumericBitSet);
-		$nc(JMXServiceURL::hostNameBitSet)->set(u'-');
-		$nc(JMXServiceURL::hostNameBitSet)->set(u'.');
+		JMXServiceURL::alphaNumericBitSet->or$(JMXServiceURL::alphaBitSet);
+		JMXServiceURL::alphaNumericBitSet->or$(JMXServiceURL::numericBitSet);
+		JMXServiceURL::protocolBitSet->or$(JMXServiceURL::alphaNumericBitSet);
+		JMXServiceURL::protocolBitSet->set(u'+');
+		JMXServiceURL::protocolBitSet->set(u'-');
+		JMXServiceURL::hostNameBitSet->or$(JMXServiceURL::alphaNumericBitSet);
+		JMXServiceURL::hostNameBitSet->set(u'-');
+		JMXServiceURL::hostNameBitSet->set(u'.');
 	}
 	$assignStatic(JMXServiceURL::logger, $new($ClassLogger, "javax.management.remote.misc"_s, "JMXServiceURL"_s));
 }
@@ -517,7 +463,55 @@ JMXServiceURL::JMXServiceURL() {
 }
 
 $Class* JMXServiceURL::load$($String* name, bool initialize) {
-	$loadClass(JMXServiceURL, name, initialize, &_JMXServiceURL_ClassInfo_, clinit$JMXServiceURL, allocate$JMXServiceURL);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXServiceURL, serialVersionUID)},
+		{"INVALID_INSTANCE_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, INVALID_INSTANCE_MSG)},
+		{"randomException", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, randomException)},
+		{"alphaBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, alphaBitSet)},
+		{"numericBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, numericBitSet)},
+		{"alphaNumericBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, alphaNumericBitSet)},
+		{"protocolBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, protocolBitSet)},
+		{"hostNameBitSet", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, hostNameBitSet)},
+		{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXServiceURL, protocol)},
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXServiceURL, host)},
+		{"port", "I", nullptr, $PRIVATE, $field(JMXServiceURL, port)},
+		{"urlPath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JMXServiceURL, urlPath)},
+		{"toString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(JMXServiceURL, toString$)},
+		{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXServiceURL, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXServiceURL, init$, void, $String*), "java.net.MalformedURLException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JMXServiceURL, init$, void, $String*, $String*, int32_t), "java.net.MalformedURLException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(JMXServiceURL, init$, void, $String*, $String*, int32_t, $String*), "java.net.MalformedURLException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, equals, bool, Object$*)},
+		{"getActiveNetworkInterfaceIP", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(JMXServiceURL, getActiveNetworkInterfaceIP, $String*), "java.net.SocketException"},
+		{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getHost, $String*)},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getPort, int32_t)},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getProtocol, $String*)},
+		{"getURLPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, getURLPath, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, hashCode, int32_t)},
+		{"indexOf", "(Ljava/lang/String;CI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, indexOf, int32_t, $String*, char16_t, int32_t)},
+		{"indexOfFirstNotInSet", "(Ljava/lang/String;Ljava/util/BitSet;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, indexOfFirstNotInSet, int32_t, $String*, $BitSet*, int32_t)},
+		{"isNumericIPv6Address", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, isNumericIPv6Address, bool, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JMXServiceURL, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXServiceURL, toString, $String*)},
+		{"validate", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(JMXServiceURL, validate, void, $String*, $String*, int32_t, $String*), "java.net.MalformedURLException"},
+		{"validate", "()V", nullptr, $PRIVATE, $method(JMXServiceURL, validate, void), "java.net.MalformedURLException"},
+		{"validateHost", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXServiceURL, validateHost, void, $String*, int32_t), "java.net.MalformedURLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.JMXServiceURL",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXServiceURL, name, initialize, &classInfo$$, JMXServiceURL::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXServiceURL);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/Component$FlipBufferStrategy.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
@@ -41,7 +40,6 @@ using $Window = ::java::awt::Window;
 using $BufferStrategy = ::java::awt::image::BufferStrategy;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $VolatileImage = ::java::awt::image::VolatileImage;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -56,63 +54,6 @@ using $ExtendedBufferCapabilities$VSyncType = ::sun::java2d::pipe::hw::ExtendedB
 namespace java {
 	namespace awt {
 
-$FieldInfo _Component$FlipBufferStrategy_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$FlipBufferStrategy, this$0)},
-	{"numBuffers", "I", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, numBuffers)},
-	{"caps", "Ljava/awt/BufferCapabilities;", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, caps)},
-	{"drawBuffer", "Ljava/awt/Image;", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, drawBuffer)},
-	{"drawVBuffer", "Ljava/awt/image/VolatileImage;", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, drawVBuffer)},
-	{"validatedContents", "Z", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, validatedContents)},
-	{"width", "I", nullptr, $PRIVATE, $field(Component$FlipBufferStrategy, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(Component$FlipBufferStrategy, height)},
-	{}
-};
-
-$MethodInfo _Component$FlipBufferStrategy_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $method(Component$FlipBufferStrategy, init$, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"contentsLost", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, contentsLost, bool)},
-	{"contentsRestored", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, contentsRestored, bool)},
-	{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"destroyBuffers", "()V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, destroyBuffers, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, dispose, void)},
-	{"flip", "(Ljava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, flip, void, $BufferCapabilities$FlipContents*)},
-	{"flipSubRegion", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, 0, $virtualMethod(Component$FlipBufferStrategy, flipSubRegion, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, getBackBuffer, $Image*)},
-	{"getCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, getCapabilities, $BufferCapabilities*)},
-	{"getDrawGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, getDrawGraphics, $Graphics*)},
-	{"invalidate", "()V", nullptr, $PRIVATE, $method(Component$FlipBufferStrategy, invalidate, void)},
-	{"revalidate", "()V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, revalidate, void)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, show, void)},
-	{"showSubRegion", "(IIII)V", nullptr, 0, $virtualMethod(Component$FlipBufferStrategy, showSubRegion, void, int32_t, int32_t, int32_t, int32_t)},
-	{"updateInternalBuffers", "()V", nullptr, $PRIVATE, $method(Component$FlipBufferStrategy, updateInternalBuffers, void)},
-	{}
-};
-
-$InnerClassInfo _Component$FlipBufferStrategy_InnerClassesInfo_[] = {
-	{"java.awt.Component$FlipBufferStrategy", "java.awt.Component", "FlipBufferStrategy", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Component$FlipBufferStrategy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Component$FlipBufferStrategy",
-	"java.awt.image.BufferStrategy",
-	nullptr,
-	_Component$FlipBufferStrategy_FieldInfo_,
-	_Component$FlipBufferStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$FlipBufferStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$FlipBufferStrategy($Class* clazz) {
-	return $of($alloc(Component$FlipBufferStrategy));
-}
-
 void Component$FlipBufferStrategy::init$($Component* this$0, int32_t numBuffers, $BufferCapabilities* caps) {
 	$set(this, this$0, this$0);
 	$BufferStrategy::init$();
@@ -125,13 +66,13 @@ void Component$FlipBufferStrategy::init$($Component* this$0, int32_t numBuffers,
 }
 
 void Component$FlipBufferStrategy::createBuffers(int32_t numBuffers, $BufferCapabilities* caps$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferCapabilities, caps, caps$renamed);
 	if (numBuffers < 2) {
 		$throwNew($IllegalArgumentException, "Number of buffers cannot be less than two"_s);
 	} else if (this->this$0->peer == nullptr) {
 		$throwNew($IllegalStateException, "Component must have a valid peer"_s);
-	} else if (caps == nullptr || !$nc(caps)->isPageFlipping()) {
+	} else if (caps == nullptr || !caps->isPageFlipping()) {
 		$throwNew($IllegalArgumentException, "Page flipping capabilities must be specified"_s);
 	}
 	this->width = this->this$0->getWidth();
@@ -142,7 +83,7 @@ void Component$FlipBufferStrategy::createBuffers(int32_t numBuffers, $BufferCapa
 	if ($instanceOf($ExtendedBufferCapabilities, caps)) {
 		$var($ExtendedBufferCapabilities, ebc, $cast($ExtendedBufferCapabilities, caps));
 		$init($ExtendedBufferCapabilities$VSyncType);
-		if ($nc(ebc)->getVSync() == $ExtendedBufferCapabilities$VSyncType::VSYNC_ON) {
+		if (ebc->getVSync() == $ExtendedBufferCapabilities$VSyncType::VSYNC_ON) {
 			if (!$VSyncedBSManager::vsyncAllowed(this)) {
 				$assign(caps, ebc->derive($ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT));
 			}
@@ -206,7 +147,7 @@ void Component$FlipBufferStrategy::destroyBuffers() {
 
 $BufferCapabilities* Component$FlipBufferStrategy::getCapabilities() {
 	if ($instanceOf($Component$ProxyCapabilities, this->caps)) {
-		return $nc(($cast($Component$ProxyCapabilities, this->caps)))->orig;
+		return $cast($Component$ProxyCapabilities, this->caps)->orig;
 	} else {
 		return this->caps;
 	}
@@ -237,7 +178,7 @@ void Component$FlipBufferStrategy::revalidate() {
 			} catch ($AWTException& e) {
 			}
 			if (this->drawVBuffer != nullptr) {
-				$nc(this->drawVBuffer)->validate(gc);
+				this->drawVBuffer->validate(gc);
 			}
 			this->validatedContents = true;
 		} else if (returnCode == $VolatileImage::IMAGE_RESTORED) {
@@ -278,7 +219,58 @@ Component$FlipBufferStrategy::Component$FlipBufferStrategy() {
 }
 
 $Class* Component$FlipBufferStrategy::load$($String* name, bool initialize) {
-	$loadClass(Component$FlipBufferStrategy, name, initialize, &_Component$FlipBufferStrategy_ClassInfo_, allocate$Component$FlipBufferStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$FlipBufferStrategy, this$0)},
+		{"numBuffers", "I", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, numBuffers)},
+		{"caps", "Ljava/awt/BufferCapabilities;", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, caps)},
+		{"drawBuffer", "Ljava/awt/Image;", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, drawBuffer)},
+		{"drawVBuffer", "Ljava/awt/image/VolatileImage;", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, drawVBuffer)},
+		{"validatedContents", "Z", nullptr, $PROTECTED, $field(Component$FlipBufferStrategy, validatedContents)},
+		{"width", "I", nullptr, $PRIVATE, $field(Component$FlipBufferStrategy, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(Component$FlipBufferStrategy, height)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $method(Component$FlipBufferStrategy, init$, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"contentsLost", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, contentsLost, bool)},
+		{"contentsRestored", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, contentsRestored, bool)},
+		{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"destroyBuffers", "()V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, destroyBuffers, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, dispose, void)},
+		{"flip", "(Ljava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, flip, void, $BufferCapabilities$FlipContents*)},
+		{"flipSubRegion", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, 0, $virtualMethod(Component$FlipBufferStrategy, flipSubRegion, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, getBackBuffer, $Image*)},
+		{"getCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, getCapabilities, $BufferCapabilities*)},
+		{"getDrawGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, getDrawGraphics, $Graphics*)},
+		{"invalidate", "()V", nullptr, $PRIVATE, $method(Component$FlipBufferStrategy, invalidate, void)},
+		{"revalidate", "()V", nullptr, $PROTECTED, $virtualMethod(Component$FlipBufferStrategy, revalidate, void)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Component$FlipBufferStrategy, show, void)},
+		{"showSubRegion", "(IIII)V", nullptr, 0, $virtualMethod(Component$FlipBufferStrategy, showSubRegion, void, int32_t, int32_t, int32_t, int32_t)},
+		{"updateInternalBuffers", "()V", nullptr, $PRIVATE, $method(Component$FlipBufferStrategy, updateInternalBuffers, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$FlipBufferStrategy", "java.awt.Component", "FlipBufferStrategy", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Component$FlipBufferStrategy",
+		"java.awt.image.BufferStrategy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$FlipBufferStrategy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Component$FlipBufferStrategy);
+	});
 	return class$;
 }
 

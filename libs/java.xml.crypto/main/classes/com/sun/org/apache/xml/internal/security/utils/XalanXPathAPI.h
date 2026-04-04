@@ -100,6 +100,7 @@ class XalanXPathAPI : public ::com::sun::org::apache::xml::internal::security::u
 	$class(XalanXPathAPI, 0, ::com::sun::org::apache::xml::internal::security::utils::XPathAPI)
 public:
 	XalanXPathAPI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void clear() override;
 	::com::sun::org::apache::xpath::internal::XPath* createXPath($String* str, ::com::sun::org::apache::xml::internal::utils::PrefixResolver* prefixResolver);

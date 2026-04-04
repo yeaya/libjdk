@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/StringListImpl.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/reflect/Array.h>
 #include <java/util/AbstractList.h>
@@ -45,74 +44,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace util {
-
-$FieldInfo _StringListImpl_FieldInfo_[] = {
-	{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/StringListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StringListImpl, EMPTY_LIST)},
-	{"fArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringListImpl, fArray)},
-	{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(StringListImpl, fLength)},
-	{"fVector", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(StringListImpl, fVector)},
-	{}
-};
-
-$MethodInfo _StringListImpl_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(StringListImpl, init$, void, $List*)},
-	{"<init>", "([Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StringListImpl, init$, void, $StringArray*, int32_t)},
-	{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(StringListImpl, contains, bool, $String*)},
-	{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, get, $Object*, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(StringListImpl, getLength, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, item, $String*, int32_t)},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(StringListImpl, size, int32_t)},
-	{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(StringListImpl, toArray0, void, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _StringListImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.StringListImpl",
-	"java.util.AbstractList",
-	"com.sun.org.apache.xerces.internal.xs.StringList",
-	_StringListImpl_FieldInfo_,
-	_StringListImpl_MethodInfo_,
-	"Ljava/util/AbstractList<Ljava/lang/String;>;Lcom/sun/org/apache/xerces/internal/xs/StringList;"
-};
-
-$Object* allocate$StringListImpl($Class* clazz) {
-	return $of($alloc(StringListImpl));
-}
 
 bool StringListImpl::add(Object$* arg0) {
 	 return this->$AbstractList::add(arg0);
@@ -247,7 +178,7 @@ StringListImpl* StringListImpl::EMPTY_LIST = nullptr;
 void StringListImpl::init$($List* v) {
 	$AbstractList::init$();
 	$set(this, fVector, v);
-	this->fLength = (v == nullptr) ? 0 : $nc(v)->size();
+	this->fLength = (v == nullptr) ? 0 : v->size();
 	$set(this, fArray, nullptr);
 }
 
@@ -264,7 +195,7 @@ int32_t StringListImpl::getLength() {
 
 bool StringListImpl::contains($String* item) {
 	if (this->fVector != nullptr) {
-		return $nc(this->fVector)->contains(item);
+		return this->fVector->contains(item);
 	}
 	if (item == nullptr) {
 		for (int32_t i = 0; i < this->fLength; ++i) {
@@ -274,7 +205,7 @@ bool StringListImpl::contains($String* item) {
 		}
 	} else {
 		for (int32_t i = 0; i < this->fLength; ++i) {
-			if ($nc(item)->equals($nc(this->fArray)->get(i))) {
+			if (item->equals($nc(this->fArray)->get(i))) {
 				return true;
 			}
 		}
@@ -287,16 +218,16 @@ $String* StringListImpl::item(int32_t index) {
 		return nullptr;
 	}
 	if (this->fVector != nullptr) {
-		return $cast($String, $nc(this->fVector)->get(index));
+		return $cast($String, this->fVector->get(index));
 	}
 	return $nc(this->fArray)->get(index);
 }
 
 $Object* StringListImpl::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fLength) {
 		if (this->fVector != nullptr) {
-			return $of($cast($String, $nc(this->fVector)->get(index)));
+			return $of($cast($String, this->fVector->get(index)));
 		}
 		return $of($nc(this->fArray)->get(index));
 	}
@@ -309,7 +240,7 @@ int32_t StringListImpl::size() {
 
 $ObjectArray* StringListImpl::toArray() {
 	if (this->fVector != nullptr) {
-		return $nc(this->fVector)->toArray();
+		return this->fVector->toArray();
 	}
 	$var($ObjectArray, a, $new($ObjectArray, this->fLength));
 	toArray0(a);
@@ -319,15 +250,15 @@ $ObjectArray* StringListImpl::toArray() {
 $ObjectArray* StringListImpl::toArray($ObjectArray* a$renamed) {
 	$var($ObjectArray, a, a$renamed);
 	if (this->fVector != nullptr) {
-		return $nc(this->fVector)->toArray(a);
+		return this->fVector->toArray(a);
 	}
 	if ($nc(a)->length < this->fLength) {
 		$Class* arrayClass = $of(a)->getClass();
-		$Class* componentType = $nc(arrayClass)->getComponentType();
+		$Class* componentType = arrayClass->getComponentType();
 		$assign(a, $cast($ObjectArray, $1Array::newInstance(componentType, this->fLength)));
 	}
 	toArray0(a);
-	if ($nc(a)->length > this->fLength) {
+	if (a->length > this->fLength) {
 		a->set(this->fLength, nullptr);
 	}
 	return a;
@@ -339,7 +270,7 @@ void StringListImpl::toArray0($ObjectArray* a) {
 	}
 }
 
-void clinit$StringListImpl($Class* class$) {
+void StringListImpl::clinit$($Class* clazz) {
 	$assignStatic(StringListImpl::EMPTY_LIST, $new(StringListImpl, $$new($StringArray, 0), 0));
 }
 
@@ -347,7 +278,70 @@ StringListImpl::StringListImpl() {
 }
 
 $Class* StringListImpl::load$($String* name, bool initialize) {
-	$loadClass(StringListImpl, name, initialize, &_StringListImpl_ClassInfo_, clinit$StringListImpl, allocate$StringListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/StringListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StringListImpl, EMPTY_LIST)},
+		{"fArray", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(StringListImpl, fArray)},
+		{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(StringListImpl, fLength)},
+		{"fVector", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(StringListImpl, fVector)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(StringListImpl, init$, void, $List*)},
+		{"<init>", "([Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StringListImpl, init$, void, $StringArray*, int32_t)},
+		{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(StringListImpl, contains, bool, $String*)},
+		{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, get, $Object*, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(StringListImpl, getLength, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, item, $String*, int32_t)},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(StringListImpl, size, int32_t)},
+		{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringListImpl, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(StringListImpl, toArray0, void, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.StringListImpl",
+		"java.util.AbstractList",
+		"com.sun.org.apache.xerces.internal.xs.StringList",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Ljava/lang/String;>;Lcom/sun/org/apache/xerces/internal/xs/StringList;"
+	};
+	$loadClass(StringListImpl, name, initialize, &classInfo$$, StringListImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringListImpl));
+	});
 	return class$;
 }
 

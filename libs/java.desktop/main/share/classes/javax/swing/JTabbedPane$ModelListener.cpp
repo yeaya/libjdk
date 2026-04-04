@@ -1,5 +1,4 @@
 #include <javax/swing/JTabbedPane$ModelListener.h>
-
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -15,47 +14,6 @@ using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTabbedPane$ModelListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTabbedPane;", nullptr, $FINAL | $SYNTHETIC, $field(JTabbedPane$ModelListener, this$0)},
-	{}
-};
-
-$MethodInfo _JTabbedPane$ModelListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTabbedPane;)V", nullptr, $PROTECTED, $method(JTabbedPane$ModelListener, init$, void, $JTabbedPane*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$ModelListener, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JTabbedPane$ModelListener_InnerClassesInfo_[] = {
-	{"javax.swing.JTabbedPane$ModelListener", "javax.swing.JTabbedPane", "ModelListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTabbedPane$ModelListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTabbedPane$ModelListener",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.io.Serializable",
-	_JTabbedPane$ModelListener_FieldInfo_,
-	_JTabbedPane$ModelListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTabbedPane$ModelListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTabbedPane"
-};
-
-$Object* allocate$JTabbedPane$ModelListener($Class* clazz) {
-	return $of($alloc(JTabbedPane$ModelListener));
-}
 
 int32_t JTabbedPane$ModelListener::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -89,7 +47,42 @@ JTabbedPane$ModelListener::JTabbedPane$ModelListener() {
 }
 
 $Class* JTabbedPane$ModelListener::load$($String* name, bool initialize) {
-	$loadClass(JTabbedPane$ModelListener, name, initialize, &_JTabbedPane$ModelListener_ClassInfo_, allocate$JTabbedPane$ModelListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTabbedPane;", nullptr, $FINAL | $SYNTHETIC, $field(JTabbedPane$ModelListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTabbedPane;)V", nullptr, $PROTECTED, $method(JTabbedPane$ModelListener, init$, void, $JTabbedPane*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTabbedPane$ModelListener, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTabbedPane$ModelListener", "javax.swing.JTabbedPane", "ModelListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTabbedPane$ModelListener",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTabbedPane"
+	};
+	$loadClass(JTabbedPane$ModelListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTabbedPane$ModelListener));
+	});
 	return class$;
 }
 

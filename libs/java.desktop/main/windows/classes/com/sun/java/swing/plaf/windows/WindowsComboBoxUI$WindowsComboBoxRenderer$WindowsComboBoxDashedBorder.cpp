@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$DashedBorder.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer.h>
 #include <java/awt/Color.h>
@@ -24,45 +23,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, init$, void, $WindowsComboBoxUI$WindowsComboBoxRenderer*, $Color*, int32_t)},
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, init$, void, $WindowsComboBoxUI$WindowsComboBoxRenderer*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{}
-};
-
-$InnerClassInfo _WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxRenderer", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "WindowsComboBoxDashedBorder", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "DashedBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder",
-	"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder",
-	nullptr,
-	_WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_FieldInfo_,
-	_WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
-};
-
-$Object* allocate$WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder($Class* clazz) {
-	return $of($alloc(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder));
-}
-
 void WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder::init$($WindowsComboBoxUI$WindowsComboBoxRenderer* this$0, $Color* color, int32_t thickness) {
 	$set(this, this$0, this$0);
 	$WindowsBorders$DashedBorder::init$(color, thickness);
@@ -81,7 +41,40 @@ WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder::WindowsCo
 }
 
 $Class* WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder::load$($String* name, bool initialize) {
-	$loadClass(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, name, initialize, &_WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder_ClassInfo_, allocate$WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, init$, void, $WindowsComboBoxUI$WindowsComboBoxRenderer*, $Color*, int32_t)},
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, init$, void, $WindowsComboBoxUI$WindowsComboBoxRenderer*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxRenderer", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "WindowsComboBoxDashedBorder", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "DashedBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder",
+		"com.sun.java.swing.plaf.windows.WindowsBorders$DashedBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
+	};
+	$loadClass(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder));
+	});
 	return class$;
 }
 

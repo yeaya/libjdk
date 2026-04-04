@@ -25,6 +25,7 @@ class $export LineAdaptersCompileOnly : public ::java::lang::Object {
 	$class(LineAdaptersCompileOnly, 0, ::java::lang::Object)
 public:
 	LineAdaptersCompileOnly();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Integer* lambda$makesSureDifferentGenericFunctionSignaturesCompile$4(::LineAdaptersCompileOnly$StringSubscriber* s);
 	static ::java::lang::Number* lambda$makesSureDifferentGenericFunctionSignaturesCompile$5(::LineAdaptersCompileOnly$StringSubscriber* s);

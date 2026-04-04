@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$18.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
@@ -32,56 +31,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$18_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$18, this$0)},
-	{}
-};
-
-$MethodInfo _Types$18_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$18, init$, void, $Types*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitClassType, $Type*, $Type$ClassType*, $Void*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitErrorType, $Type*, $Type$ErrorType*, $Void*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitType, $Type*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$18_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$18_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$18", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$18_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$18",
-	"com.sun.tools.javac.code.Types$UnaryVisitor",
-	nullptr,
-	_Types$18_FieldInfo_,
-	_Types$18_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Lcom/sun/tools/javac/code/Type;>;",
-	&_Types$18_EnclosingMethodInfo_,
-	_Types$18_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$18($Class* clazz) {
-	return $of($alloc(Types$18));
-}
-
 void Types$18::init$($Types* this$0) {
 	$set(this, this$0, this$0);
 	$Types$UnaryVisitor::init$();
@@ -92,13 +41,12 @@ $Type* Types$18::visitType($Type* t, $Void* ignored) {
 }
 
 $Type* Types$18::visitClassType($Type$ClassType* t, $Void* ignored) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, outer1, this->this$0->classBound($($nc(t)->getEnclosingType())));
-	if (outer1 != $nc(t)->getEnclosingType()) {
-		$var($Type, var$0, outer1);
-		$var($List, var$1, t->getTypeArguments());
-		$var($Symbol$TypeSymbol, var$2, t->tsym);
-		return $new($Type$ClassType, var$0, var$1, var$2, $(t->getMetadata()));
+	if (outer1 != t->getEnclosingType()) {
+		$var($List, var$0, t->getTypeArguments());
+		$var($Symbol$TypeSymbol, var$1, t->tsym);
+		return $new($Type$ClassType, outer1, var$0, var$1, $(t->getMetadata()));
 	} else {
 		return t;
 	}
@@ -132,7 +80,50 @@ Types$18::Types$18() {
 }
 
 $Class* Types$18::load$($String* name, bool initialize) {
-	$loadClass(Types$18, name, initialize, &_Types$18_ClassInfo_, allocate$Types$18);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$18, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$18, init$, void, $Types*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitClassType, $Type*, $Type$ClassType*, $Void*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitErrorType, $Type*, $Type$ErrorType*, $Void*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitType, $Type*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$18, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$18, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$18", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$18",
+		"com.sun.tools.javac.code.Types$UnaryVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Lcom/sun/tools/javac/code/Type;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$18);
+	});
 	return class$;
 }
 

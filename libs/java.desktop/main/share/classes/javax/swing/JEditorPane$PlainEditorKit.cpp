@@ -1,5 +1,4 @@
 #include <javax/swing/JEditorPane$PlainEditorKit.h>
-
 #include <javax/swing/JEditorPane$PlainEditorKit$PlainParagraph.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/text/AbstractDocument.h>
@@ -32,45 +31,6 @@ using $WrappedPlainView = ::javax::swing::text::WrappedPlainView;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JEditorPane$PlainEditorKit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(JEditorPane$PlainEditorKit, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit, create, $View*, $Element*)},
-	{"createI18N", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(JEditorPane$PlainEditorKit, createI18N, $View*, $Element*)},
-	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit, getViewFactory, $ViewFactory*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JEditorPane$PlainEditorKit_InnerClassesInfo_[] = {
-	{"javax.swing.JEditorPane$PlainEditorKit", "javax.swing.JEditorPane", "PlainEditorKit", $STATIC},
-	{"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph", "javax.swing.JEditorPane$PlainEditorKit", "PlainParagraph", $STATIC},
-	{}
-};
-
-$ClassInfo _JEditorPane$PlainEditorKit_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JEditorPane$PlainEditorKit",
-	"javax.swing.text.DefaultEditorKit",
-	"javax.swing.text.ViewFactory",
-	nullptr,
-	_JEditorPane$PlainEditorKit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JEditorPane$PlainEditorKit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JEditorPane"
-};
-
-$Object* allocate$JEditorPane$PlainEditorKit($Class* clazz) {
-	return $of($alloc(JEditorPane$PlainEditorKit));
-}
-
 $Object* JEditorPane$PlainEditorKit::clone() {
 	 return this->$DefaultEditorKit::clone();
 }
@@ -100,11 +60,10 @@ $ViewFactory* JEditorPane$PlainEditorKit::getViewFactory() {
 }
 
 $View* JEditorPane$PlainEditorKit::create($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(elem)->getDocument());
 	$var($Object, i18nFlag, $nc(doc)->getProperty("i18n"_s));
-	$init($Boolean);
-	if ((i18nFlag != nullptr) && $of(i18nFlag)->equals($Boolean::TRUE)) {
+	if ((i18nFlag != nullptr) && i18nFlag->equals($Boolean::TRUE)) {
 		return createI18N(elem);
 	} else {
 		return $new($WrappedPlainView, elem);
@@ -117,10 +76,8 @@ $View* JEditorPane$PlainEditorKit::createI18N($Element* elem) {
 		$init($AbstractDocument);
 		if (kind->equals($AbstractDocument::ContentElementName)) {
 			return $new($JEditorPane$PlainEditorKit$PlainParagraph, elem);
-		} else {
-			if (kind->equals($AbstractDocument::ParagraphElementName)) {
-				return $new($BoxView, elem, $View::Y_AXIS);
-			}
+		} else if (kind->equals($AbstractDocument::ParagraphElementName)) {
+			return $new($BoxView, elem, $View::Y_AXIS);
 		}
 	}
 	return nullptr;
@@ -130,7 +87,41 @@ JEditorPane$PlainEditorKit::JEditorPane$PlainEditorKit() {
 }
 
 $Class* JEditorPane$PlainEditorKit::load$($String* name, bool initialize) {
-	$loadClass(JEditorPane$PlainEditorKit, name, initialize, &_JEditorPane$PlainEditorKit_ClassInfo_, allocate$JEditorPane$PlainEditorKit);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(JEditorPane$PlainEditorKit, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit, create, $View*, $Element*)},
+		{"createI18N", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(JEditorPane$PlainEditorKit, createI18N, $View*, $Element*)},
+		{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$PlainEditorKit, getViewFactory, $ViewFactory*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JEditorPane$PlainEditorKit", "javax.swing.JEditorPane", "PlainEditorKit", $STATIC},
+		{"javax.swing.JEditorPane$PlainEditorKit$PlainParagraph", "javax.swing.JEditorPane$PlainEditorKit", "PlainParagraph", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JEditorPane$PlainEditorKit",
+		"javax.swing.text.DefaultEditorKit",
+		"javax.swing.text.ViewFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JEditorPane"
+	};
+	$loadClass(JEditorPane$PlainEditorKit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JEditorPane$PlainEditorKit));
+	});
 	return class$;
 }
 

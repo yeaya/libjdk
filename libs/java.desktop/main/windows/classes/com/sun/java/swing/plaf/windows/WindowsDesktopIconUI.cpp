@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopIconUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/BorderLayout.h>
@@ -20,14 +19,11 @@
 using $WindowsInternalFrameTitlePane = ::com::sun::java::swing::plaf::windows::WindowsInternalFrameTitlePane;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -39,36 +35,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsDesktopIconUI_FieldInfo_[] = {
-	{"width", "I", nullptr, $PRIVATE, $field(WindowsDesktopIconUI, width)},
-	{}
-};
-
-$MethodInfo _WindowsDesktopIconUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsDesktopIconUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopIconUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, installDefaults, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, installUI, void, $JComponent*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsDesktopIconUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsDesktopIconUI",
-	"javax.swing.plaf.basic.BasicDesktopIconUI",
-	nullptr,
-	_WindowsDesktopIconUI_FieldInfo_,
-	_WindowsDesktopIconUI_MethodInfo_
-};
-
-$Object* allocate$WindowsDesktopIconUI($Class* clazz) {
-	return $of($alloc(WindowsDesktopIconUI));
-}
 
 void WindowsDesktopIconUI::init$() {
 	$BasicDesktopIconUI::init$();
@@ -98,8 +64,7 @@ void WindowsDesktopIconUI::uninstallUI($JComponent* c) {
 void WindowsDesktopIconUI::installComponents() {
 	$set(this, iconPane, $new($WindowsInternalFrameTitlePane, this->frame));
 	$nc(this->desktopIcon)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	$nc(this->desktopIcon)->add(static_cast<$Component*>(this->iconPane), $of($BorderLayout::CENTER));
+	$nc(this->desktopIcon)->add(this->iconPane, $BorderLayout::CENTER);
 	if ($XPStyle::getXP() != nullptr) {
 		$nc(this->desktopIcon)->setBorder(nullptr);
 	}
@@ -119,7 +84,32 @@ WindowsDesktopIconUI::WindowsDesktopIconUI() {
 }
 
 $Class* WindowsDesktopIconUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsDesktopIconUI, name, initialize, &_WindowsDesktopIconUI_ClassInfo_, allocate$WindowsDesktopIconUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, $PRIVATE, $field(WindowsDesktopIconUI, width)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsDesktopIconUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopIconUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, installDefaults, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, installUI, void, $JComponent*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopIconUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsDesktopIconUI",
+		"javax.swing.plaf.basic.BasicDesktopIconUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsDesktopIconUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsDesktopIconUI);
+	});
 	return class$;
 }
 

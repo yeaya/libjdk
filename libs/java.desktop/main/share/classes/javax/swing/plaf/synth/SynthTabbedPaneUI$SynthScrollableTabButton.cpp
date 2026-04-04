@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI$SynthScrollableTabButton.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/plaf/synth/SynthArrowButton.h>
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI.h>
@@ -17,41 +16,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthTabbedPaneUI$SynthScrollableTabButton_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTabbedPaneUI$SynthScrollableTabButton, this$0)},
-	{}
-};
-
-$MethodInfo _SynthTabbedPaneUI$SynthScrollableTabButton_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;I)V", nullptr, $PUBLIC, $method(SynthTabbedPaneUI$SynthScrollableTabButton, init$, void, $SynthTabbedPaneUI*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SynthTabbedPaneUI$SynthScrollableTabButton_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton", "javax.swing.plaf.synth.SynthTabbedPaneUI", "SynthScrollableTabButton", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthTabbedPaneUI$SynthScrollableTabButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton",
-	"javax.swing.plaf.synth.SynthArrowButton",
-	nullptr,
-	_SynthTabbedPaneUI$SynthScrollableTabButton_FieldInfo_,
-	_SynthTabbedPaneUI$SynthScrollableTabButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTabbedPaneUI$SynthScrollableTabButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTabbedPaneUI"
-};
-
-$Object* allocate$SynthTabbedPaneUI$SynthScrollableTabButton($Class* clazz) {
-	return $of($alloc(SynthTabbedPaneUI$SynthScrollableTabButton));
-}
-
 void SynthTabbedPaneUI$SynthScrollableTabButton::init$($SynthTabbedPaneUI* this$0, int32_t direction) {
 	$set(this, this$0, this$0);
 	$SynthArrowButton::init$(direction);
@@ -62,7 +26,36 @@ SynthTabbedPaneUI$SynthScrollableTabButton::SynthTabbedPaneUI$SynthScrollableTab
 }
 
 $Class* SynthTabbedPaneUI$SynthScrollableTabButton::load$($String* name, bool initialize) {
-	$loadClass(SynthTabbedPaneUI$SynthScrollableTabButton, name, initialize, &_SynthTabbedPaneUI$SynthScrollableTabButton_ClassInfo_, allocate$SynthTabbedPaneUI$SynthScrollableTabButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTabbedPaneUI$SynthScrollableTabButton, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;I)V", nullptr, $PUBLIC, $method(SynthTabbedPaneUI$SynthScrollableTabButton, init$, void, $SynthTabbedPaneUI*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton", "javax.swing.plaf.synth.SynthTabbedPaneUI", "SynthScrollableTabButton", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTabbedPaneUI$SynthScrollableTabButton",
+		"javax.swing.plaf.synth.SynthArrowButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTabbedPaneUI"
+	};
+	$loadClass(SynthTabbedPaneUI$SynthScrollableTabButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTabbedPaneUI$SynthScrollableTabButton));
+	});
 	return class$;
 }
 

@@ -19,6 +19,7 @@ class XResources_ja_JP_HA : public ::com::sun::org::apache::xml::internal::utils
 	$class(XResources_ja_JP_HA, 0, ::com::sun::org::apache::xml::internal::utils::res::XResourceBundle)
 public:
 	XResources_ja_JP_HA();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* _contents;

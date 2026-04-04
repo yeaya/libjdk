@@ -92,6 +92,7 @@ class XMLVersionDetector : public ::java::lang::Object {
 	$class(XMLVersionDetector, 0, ::java::lang::Object)
 public:
 	XMLVersionDetector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int16_t determineDocVersion(::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource* inputSource);
 	void fixupCurrentEntity(::com::sun::org::apache::xerces::internal::impl::XMLEntityManager* manager, $chars* scannedChars, int32_t length);

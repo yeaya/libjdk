@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/JRTIndex$Entry.h>
-
 #include <com/sun/tools/javac/file/JRTIndex$CtSym.h>
 #include <com/sun/tools/javac/file/JRTIndex.h>
 #include <java/util/Map.h>
@@ -21,44 +20,6 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _JRTIndex$Entry_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $FINAL | $SYNTHETIC, $field(JRTIndex$Entry, this$0)},
-	{"files", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/nio/file/Path;>;", $FINAL, $field(JRTIndex$Entry, files)},
-	{"subdirs", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $FINAL, $field(JRTIndex$Entry, subdirs)},
-	{"ctSym", "Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $FINAL, $field(JRTIndex$Entry, ctSym)},
-	{}
-};
-
-$MethodInfo _JRTIndex$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JRTIndex;Ljava/util/Map;Ljava/util/Set;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/nio/file/Path;>;Ljava/util/Set<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", $PRIVATE, $method(JRTIndex$Entry, init$, void, $JRTIndex*, $Map*, $Set*, $JRTIndex$CtSym*)},
-	{}
-};
-
-$InnerClassInfo _JRTIndex$Entry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JRTIndex$Entry", "com.sun.tools.javac.file.JRTIndex", "Entry", 0},
-	{}
-};
-
-$ClassInfo _JRTIndex$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.JRTIndex$Entry",
-	"java.lang.Object",
-	nullptr,
-	_JRTIndex$Entry_FieldInfo_,
-	_JRTIndex$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRTIndex$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JRTIndex"
-};
-
-$Object* allocate$JRTIndex$Entry($Class* clazz) {
-	return $of($alloc(JRTIndex$Entry));
-}
-
 void JRTIndex$Entry::init$($JRTIndex* this$0, $Map* files, $Set* subdirs, $JRTIndex$CtSym* ctSym) {
 	$set(this, this$0, this$0);
 	$set(this, files, files);
@@ -70,7 +31,39 @@ JRTIndex$Entry::JRTIndex$Entry() {
 }
 
 $Class* JRTIndex$Entry::load$($String* name, bool initialize) {
-	$loadClass(JRTIndex$Entry, name, initialize, &_JRTIndex$Entry_ClassInfo_, allocate$JRTIndex$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $FINAL | $SYNTHETIC, $field(JRTIndex$Entry, this$0)},
+		{"files", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/nio/file/Path;>;", $FINAL, $field(JRTIndex$Entry, files)},
+		{"subdirs", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $FINAL, $field(JRTIndex$Entry, subdirs)},
+		{"ctSym", "Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $FINAL, $field(JRTIndex$Entry, ctSym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/JRTIndex;Ljava/util/Map;Ljava/util/Set;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/nio/file/Path;>;Ljava/util/Set<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", $PRIVATE, $method(JRTIndex$Entry, init$, void, $JRTIndex*, $Map*, $Set*, $JRTIndex$CtSym*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JRTIndex$Entry", "com.sun.tools.javac.file.JRTIndex", "Entry", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.JRTIndex$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JRTIndex"
+	};
+	$loadClass(JRTIndex$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRTIndex$Entry);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerForEach.h>
-
 #include <com/sun/tools/javac/comp/Analyzer$AnalyzerCopier.h>
 #include <com/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerBase.h>
 #include <com/sun/tools/javac/comp/Analyzer.h>
@@ -11,21 +10,16 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeCopier.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
-#include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
 #undef FOREACHLOOP
 
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
-using $Analyzer$AnalyzerCopier = ::com::sun::tools::javac::comp::Analyzer$AnalyzerCopier;
 using $Analyzer$RedundantLocalVarTypeAnalyzerBase = ::com::sun::tools::javac::comp::Analyzer$RedundantLocalVarTypeAnalyzerBase;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCEnhancedForLoop = ::com::sun::tools::javac::tree::JCTree$JCEnhancedForLoop;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,49 +32,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Analyzer$RedundantLocalVarTypeAnalyzerForEach_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RedundantLocalVarTypeAnalyzerForEach, this$0)},
-	{}
-};
-
-$MethodInfo _Analyzer$RedundantLocalVarTypeAnalyzerForEach_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantLocalVarTypeAnalyzerForEach, init$, void, $Analyzer*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, match, bool, $JCTree$JCEnhancedForLoop*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, match, bool, $JCTree*)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, process, void, $JCTree$JCEnhancedForLoop*, $JCTree$JCEnhancedForLoop*, bool)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, process, void, $JCTree*, $JCTree*, bool)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;>;", 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, rewrite, $List*, $JCTree$JCEnhancedForLoop*)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, rewrite, $List*, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$RedundantLocalVarTypeAnalyzerForEach_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerForEach", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzerForEach", 0},
-	{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzerBase", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop", "com.sun.tools.javac.tree.JCTree", "JCEnhancedForLoop", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Analyzer$RedundantLocalVarTypeAnalyzerForEach_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerForEach",
-	"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase",
-	nullptr,
-	_Analyzer$RedundantLocalVarTypeAnalyzerForEach_FieldInfo_,
-	_Analyzer$RedundantLocalVarTypeAnalyzerForEach_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerBase<Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;>;",
-	nullptr,
-	_Analyzer$RedundantLocalVarTypeAnalyzerForEach_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$RedundantLocalVarTypeAnalyzerForEach($Class* clazz) {
-	return $of($alloc(Analyzer$RedundantLocalVarTypeAnalyzerForEach));
-}
-
 void Analyzer$RedundantLocalVarTypeAnalyzerForEach::init$($Analyzer* this$0) {
 	$set(this, this$0, this$0);
 	$init($JCTree$Tag);
@@ -92,10 +43,10 @@ bool Analyzer$RedundantLocalVarTypeAnalyzerForEach::match($JCTree$JCEnhancedForL
 }
 
 $List* Analyzer$RedundantLocalVarTypeAnalyzerForEach::rewrite($JCTree$JCEnhancedForLoop* oldTree) {
-	$useLocalCurrentObjectStackCache();
-	$var($JCTree$JCEnhancedForLoop, newTree, $cast($JCTree$JCEnhancedForLoop, $nc(this->this$0->copier)->copy(static_cast<$JCTree*>(oldTree))));
+	$useLocalObjectStack();
+	$var($JCTree$JCEnhancedForLoop, newTree, $cast($JCTree$JCEnhancedForLoop, $nc(this->this$0->copier)->copy(oldTree)));
 	$set($nc(newTree), var, rewriteVarType($nc(oldTree)->var));
-	$set(newTree, body, $nc($($nc(this->this$0->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>($nc(oldTree)->body))))->Block(0, $($List::nil())));
+	$set(newTree, body, $$nc($nc(this->this$0->make)->at(oldTree->body))->Block(0, $($List::nil())));
 	return $List::of(newTree);
 }
 
@@ -119,7 +70,44 @@ Analyzer$RedundantLocalVarTypeAnalyzerForEach::Analyzer$RedundantLocalVarTypeAna
 }
 
 $Class* Analyzer$RedundantLocalVarTypeAnalyzerForEach::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$RedundantLocalVarTypeAnalyzerForEach, name, initialize, &_Analyzer$RedundantLocalVarTypeAnalyzerForEach_ClassInfo_, allocate$Analyzer$RedundantLocalVarTypeAnalyzerForEach);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RedundantLocalVarTypeAnalyzerForEach, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantLocalVarTypeAnalyzerForEach, init$, void, $Analyzer*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, match, bool, $JCTree$JCEnhancedForLoop*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, match, bool, $JCTree*)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, process, void, $JCTree$JCEnhancedForLoop*, $JCTree$JCEnhancedForLoop*, bool)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, process, void, $JCTree*, $JCTree*, bool)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;>;", 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, rewrite, $List*, $JCTree$JCEnhancedForLoop*)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, rewrite, $List*, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerForEach", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzerForEach", 0},
+		{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzerBase", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop", "com.sun.tools.javac.tree.JCTree", "JCEnhancedForLoop", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerForEach",
+		"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerBase<Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$RedundantLocalVarTypeAnalyzerForEach, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$RedundantLocalVarTypeAnalyzerForEach);
+	});
 	return class$;
 }
 

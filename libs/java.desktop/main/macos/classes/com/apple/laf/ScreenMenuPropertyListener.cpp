@@ -1,5 +1,4 @@
 #include <com/apple/laf/ScreenMenuPropertyListener.h>
-
 #include <com/apple/laf/AquaMenuItemUI$IndeterminateListener.h>
 #include <com/apple/laf/ScreenMenuPropertyHandler.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -38,39 +37,15 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _ScreenMenuPropertyListener_FieldInfo_[] = {
-	{"fMenu", "Lcom/apple/laf/ScreenMenuPropertyHandler;", nullptr, 0, $field(ScreenMenuPropertyListener, fMenu)},
-	{}
-};
-
-$MethodInfo _ScreenMenuPropertyListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/ScreenMenuPropertyHandler;)V", nullptr, 0, $method(ScreenMenuPropertyListener, init$, void, $ScreenMenuPropertyHandler*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuPropertyListener, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$ClassInfo _ScreenMenuPropertyListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.ScreenMenuPropertyListener",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_ScreenMenuPropertyListener_FieldInfo_,
-	_ScreenMenuPropertyListener_MethodInfo_
-};
-
-$Object* allocate$ScreenMenuPropertyListener($Class* clazz) {
-	return $of($alloc(ScreenMenuPropertyListener));
-}
-
 void ScreenMenuPropertyListener::init$($ScreenMenuPropertyHandler* mc) {
 	$set(this, fMenu, mc);
 }
 
 void ScreenMenuPropertyListener::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	if ("enabled"_s->equals(propertyName)) {
-		$nc(this->fMenu)->setEnabled($nc(($cast($Boolean, $(e->getNewValue()))))->booleanValue());
+		$nc(this->fMenu)->setEnabled($$sure($Boolean, e->getNewValue())->booleanValue());
 		return;
 	}
 	$init($AccessibleContext);
@@ -84,26 +59,26 @@ void ScreenMenuPropertyListener::propertyChange($PropertyChangeEvent* e) {
 		return;
 	}
 	if ("accelerator"_s->equals(propertyName)) {
-		$nc(this->fMenu)->setAccelerator($cast($KeyStroke, $(e->getNewValue())));
+		$nc(this->fMenu)->setAccelerator($$cast($KeyStroke, e->getNewValue()));
 		return;
 	}
 	$init($AbstractButton);
 	if ($nc($AbstractButton::TEXT_CHANGED_PROPERTY)->equals(propertyName)) {
-		$nc(this->fMenu)->setLabel($cast($String, $(e->getNewValue())));
+		$nc(this->fMenu)->setLabel($$cast($String, e->getNewValue()));
 		return;
 	}
 	if ($nc($AbstractButton::ICON_CHANGED_PROPERTY)->equals(propertyName)) {
-		$nc(this->fMenu)->setIcon($cast($Icon, $(e->getNewValue())));
+		$nc(this->fMenu)->setIcon($$cast($Icon, e->getNewValue()));
 		return;
 	}
 	$init($JComponent);
 	if ($nc($JComponent::TOOL_TIP_TEXT_KEY)->equals(propertyName)) {
-		$nc(this->fMenu)->setToolTipText($cast($String, $(e->getNewValue())));
+		$nc(this->fMenu)->setToolTipText($$cast($String, e->getNewValue()));
 		return;
 	}
 	$init($AquaMenuItemUI$IndeterminateListener);
 	if ($nc($AquaMenuItemUI$IndeterminateListener::CLIENT_PROPERTY_KEY)->equals(propertyName)) {
-		$nc(this->fMenu)->setIndeterminate($AquaMenuItemUI$IndeterminateListener::isIndeterminate($cast($JMenuItem, $(e->getSource()))));
+		$nc(this->fMenu)->setIndeterminate($AquaMenuItemUI$IndeterminateListener::isIndeterminate($$cast($JMenuItem, e->getSource())));
 		return;
 	}
 }
@@ -112,7 +87,26 @@ ScreenMenuPropertyListener::ScreenMenuPropertyListener() {
 }
 
 $Class* ScreenMenuPropertyListener::load$($String* name, bool initialize) {
-	$loadClass(ScreenMenuPropertyListener, name, initialize, &_ScreenMenuPropertyListener_ClassInfo_, allocate$ScreenMenuPropertyListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"fMenu", "Lcom/apple/laf/ScreenMenuPropertyHandler;", nullptr, 0, $field(ScreenMenuPropertyListener, fMenu)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/ScreenMenuPropertyHandler;)V", nullptr, 0, $method(ScreenMenuPropertyListener, init$, void, $ScreenMenuPropertyHandler*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuPropertyListener, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.ScreenMenuPropertyListener",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScreenMenuPropertyListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScreenMenuPropertyListener);
+	});
 	return class$;
 }
 

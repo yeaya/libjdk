@@ -1,5 +1,4 @@
 #include <java/awt/ColorPaintContext.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
@@ -19,34 +18,6 @@ using $IntegerComponentRaster = ::sun::awt::image::IntegerComponentRaster;
 namespace java {
 	namespace awt {
 
-$FieldInfo _ColorPaintContext_FieldInfo_[] = {
-	{"color", "I", nullptr, 0, $field(ColorPaintContext, color)},
-	{"savedTile", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(ColorPaintContext, savedTile)},
-	{}
-};
-
-$MethodInfo _ColorPaintContext_MethodInfo_[] = {
-	{"<init>", "(ILjava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(ColorPaintContext, init$, void, int32_t, $ColorModel*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ColorPaintContext, dispose, void)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(ColorPaintContext, getColorModel, $ColorModel*)},
-	{"getRGB", "()I", nullptr, 0, $virtualMethod(ColorPaintContext, getRGB, int32_t)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ColorPaintContext, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ColorPaintContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.ColorPaintContext",
-	"java.lang.Object",
-	"java.awt.PaintContext",
-	_ColorPaintContext_FieldInfo_,
-	_ColorPaintContext_MethodInfo_
-};
-
-$Object* allocate$ColorPaintContext($Class* clazz) {
-	return $of($alloc(ColorPaintContext));
-}
-
 void ColorPaintContext::init$(int32_t color, $ColorModel* cm) {
 	this->color = color;
 }
@@ -64,14 +35,14 @@ $ColorModel* ColorPaintContext::getColorModel() {
 
 $Raster* ColorPaintContext::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($WritableRaster, t, this->savedTile);
-		bool var$0 = t == nullptr || w > $nc(t)->getWidth();
-		if (var$0 || h > $nc(t)->getHeight()) {
-			$assign(t, $nc($(getColorModel()))->createCompatibleWritableRaster(w, h));
+		bool var$0 = t == nullptr || w > t->getWidth();
+		if (var$0 || h > t->getHeight()) {
+			$assign(t, $$nc(getColorModel())->createCompatibleWritableRaster(w, h));
 			$var($IntegerComponentRaster, icr, $cast($IntegerComponentRaster, t));
 			$Arrays::fill($($nc(icr)->getDataStorage()), this->color);
-			$nc(icr)->markDirty();
+			icr->markDirty();
 			if (w <= 64 && h <= 64) {
 				$set(this, savedTile, t);
 			}
@@ -84,7 +55,30 @@ ColorPaintContext::ColorPaintContext() {
 }
 
 $Class* ColorPaintContext::load$($String* name, bool initialize) {
-	$loadClass(ColorPaintContext, name, initialize, &_ColorPaintContext_ClassInfo_, allocate$ColorPaintContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"color", "I", nullptr, 0, $field(ColorPaintContext, color)},
+		{"savedTile", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(ColorPaintContext, savedTile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/awt/image/ColorModel;)V", nullptr, $PROTECTED, $method(ColorPaintContext, init$, void, int32_t, $ColorModel*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ColorPaintContext, dispose, void)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(ColorPaintContext, getColorModel, $ColorModel*)},
+		{"getRGB", "()I", nullptr, 0, $virtualMethod(ColorPaintContext, getRGB, int32_t)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ColorPaintContext, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.ColorPaintContext",
+		"java.lang.Object",
+		"java.awt.PaintContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorPaintContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorPaintContext);
+	});
 	return class$;
 }
 

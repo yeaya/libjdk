@@ -1,9 +1,7 @@
 #include <sun/lwawt/macosx/CMenuBar.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Menu.h>
 #include <java/awt/MenuBar.h>
-#include <java/awt/MenuComponent.h>
 #include <java/awt/peer/MenuComponentPeer.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -22,14 +20,12 @@
 using $Font = ::java::awt::Font;
 using $Menu = ::java::awt::Menu;
 using $MenuBar = ::java::awt::MenuBar;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $CFRetainedResource$CFNativeAction = ::sun::lwawt::macosx::CFRetainedResource$CFNativeAction;
 using $CMenu = ::sun::lwawt::macosx::CMenu;
 using $CMenuComponent = ::sun::lwawt::macosx::CMenuComponent;
@@ -48,35 +44,31 @@ public:
 	virtual void run(int64_t parentPtr) override {
 		$nc(inst$)->lambda$addHelpMenu$1(cMenu, parentPtr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CMenuBar$$Lambda$lambda$addHelpMenu$1>());
-	}
 	CMenuBar* inst$ = nullptr;
 	$CMenu* cMenu = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CMenuBar$$Lambda$lambda$addHelpMenu$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$1, inst$)},
-	{"cMenu", "Lsun/lwawt/macosx/CMenu;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$1, cMenu)},
-	{}
-};
-$MethodInfo CMenuBar$$Lambda$lambda$addHelpMenu$1::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CMenuBar;Lsun/lwawt/macosx/CMenu;)V", nullptr, $PUBLIC, $method(CMenuBar$$Lambda$lambda$addHelpMenu$1, init$, void, CMenuBar*, $CMenu*)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar$$Lambda$lambda$addHelpMenu$1, run, void, int64_t)},
-	{}
-};
-$ClassInfo CMenuBar$$Lambda$lambda$addHelpMenu$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CMenuBar$$Lambda$lambda$addHelpMenu$1",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CMenuBar$$Lambda$lambda$addHelpMenu$1::load$($String* name, bool initialize) {
-	$loadClass(CMenuBar$$Lambda$lambda$addHelpMenu$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$1, inst$)},
+		{"cMenu", "Lsun/lwawt/macosx/CMenu;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$1, cMenu)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CMenuBar;Lsun/lwawt/macosx/CMenu;)V", nullptr, $PUBLIC, $method(CMenuBar$$Lambda$lambda$addHelpMenu$1, init$, void, CMenuBar*, $CMenu*)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar$$Lambda$lambda$addHelpMenu$1, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CMenuBar$$Lambda$lambda$addHelpMenu$1",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMenuBar$$Lambda$lambda$addHelpMenu$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMenuBar$$Lambda$lambda$addHelpMenu$1);
+	});
 	return class$;
 }
 $Class* CMenuBar$$Lambda$lambda$addHelpMenu$1::class$ = nullptr;
@@ -91,35 +83,31 @@ public:
 	virtual void run(int64_t ptr) override {
 		$nc(inst$)->lambda$delMenu$2(index, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CMenuBar$$Lambda$lambda$delMenu$2$1>());
-	}
 	CMenuBar* inst$ = nullptr;
 	int32_t index = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CMenuBar$$Lambda$lambda$delMenu$2$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$delMenu$2$1, inst$)},
-	{"index", "I", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$delMenu$2$1, index)},
-	{}
-};
-$MethodInfo CMenuBar$$Lambda$lambda$delMenu$2$1::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CMenuBar;I)V", nullptr, $PUBLIC, $method(CMenuBar$$Lambda$lambda$delMenu$2$1, init$, void, CMenuBar*, int32_t)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar$$Lambda$lambda$delMenu$2$1, run, void, int64_t)},
-	{}
-};
-$ClassInfo CMenuBar$$Lambda$lambda$delMenu$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CMenuBar$$Lambda$lambda$delMenu$2$1",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CMenuBar$$Lambda$lambda$delMenu$2$1::load$($String* name, bool initialize) {
-	$loadClass(CMenuBar$$Lambda$lambda$delMenu$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$delMenu$2$1, inst$)},
+		{"index", "I", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$delMenu$2$1, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CMenuBar;I)V", nullptr, $PUBLIC, $method(CMenuBar$$Lambda$lambda$delMenu$2$1, init$, void, CMenuBar*, int32_t)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar$$Lambda$lambda$delMenu$2$1, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CMenuBar$$Lambda$lambda$delMenu$2$1",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMenuBar$$Lambda$lambda$delMenu$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMenuBar$$Lambda$lambda$delMenu$2$1);
+	});
 	return class$;
 }
 $Class* CMenuBar$$Lambda$lambda$delMenu$2$1::class$ = nullptr;
@@ -134,84 +122,34 @@ public:
 	virtual void run(int64_t menuPtr) override {
 		$nc(inst$)->lambda$addHelpMenu$0(parentPtr, menuPtr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CMenuBar$$Lambda$lambda$addHelpMenu$0$2>());
-	}
 	CMenuBar* inst$ = nullptr;
 	int64_t parentPtr = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CMenuBar$$Lambda$lambda$addHelpMenu$0$2::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, inst$)},
-	{"parentPtr", "J", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, parentPtr)},
-	{}
-};
-$MethodInfo CMenuBar$$Lambda$lambda$addHelpMenu$0$2::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CMenuBar;J)V", nullptr, $PUBLIC, $method(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, init$, void, CMenuBar*, int64_t)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, run, void, int64_t)},
-	{}
-};
-$ClassInfo CMenuBar$$Lambda$lambda$addHelpMenu$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CMenuBar$$Lambda$lambda$addHelpMenu$0$2",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CMenuBar$$Lambda$lambda$addHelpMenu$0$2::load$($String* name, bool initialize) {
-	$loadClass(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, inst$)},
+		{"parentPtr", "J", nullptr, $PUBLIC, $field(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, parentPtr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CMenuBar;J)V", nullptr, $PUBLIC, $method(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, init$, void, CMenuBar*, int64_t)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CMenuBar$$Lambda$lambda$addHelpMenu$0$2",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMenuBar$$Lambda$lambda$addHelpMenu$0$2);
+	});
 	return class$;
 }
 $Class* CMenuBar$$Lambda$lambda$addHelpMenu$0$2::class$ = nullptr;
-
-$FieldInfo _CMenuBar_FieldInfo_[] = {
-	{"nextInsertionIndex", "I", nullptr, $PRIVATE, $field(CMenuBar, nextInsertionIndex)},
-	{}
-};
-
-$MethodInfo _CMenuBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $method(CMenuBar, init$, void, $MenuBar*)},
-	{"addHelpMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar, addHelpMenu, void, $Menu*)},
-	{"addMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar, addMenu, void, $Menu*)},
-	{"createModel", "()J", nullptr, 0, $virtualMethod(CMenuBar, createModel, int64_t)},
-	{"delMenu", "(I)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar, delMenu, void, int32_t)},
-	{"getNextInsertionIndex", "()I", nullptr, $PUBLIC, $method(CMenuBar, getNextInsertionIndex, int32_t)},
-	{"lambda$addHelpMenu$0", "(JJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CMenuBar, lambda$addHelpMenu$0, void, int64_t, int64_t)},
-	{"lambda$addHelpMenu$1", "(Lsun/lwawt/macosx/CMenu;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CMenuBar, lambda$addHelpMenu$1, void, $CMenu*, int64_t)},
-	{"lambda$delMenu$2", "(IJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CMenuBar, lambda$delMenu$2, void, int32_t, int64_t)},
-	{"nativeCreateMenuBar", "()J", nullptr, $PRIVATE | $NATIVE, $method(CMenuBar, nativeCreateMenuBar, int64_t)},
-	{"nativeDelMenu", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(CMenuBar, nativeDelMenu, void, int64_t, int32_t)},
-	{"nativeSetHelpMenu", "(JJ)V", nullptr, $PRIVATE | $NATIVE, $method(CMenuBar, nativeSetHelpMenu, void, int64_t, int64_t)},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $FINAL},
-	{"setNextInsertionIndex", "(I)V", nullptr, $PUBLIC, $method(CMenuBar, setNextInsertionIndex, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_nativeCreateMenuBar 14
-#define _METHOD_INDEX_nativeDelMenu 15
-#define _METHOD_INDEX_nativeSetHelpMenu 16
-
-$ClassInfo _CMenuBar_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CMenuBar",
-	"sun.lwawt.macosx.CMenuComponent",
-	"java.awt.peer.MenuBarPeer",
-	_CMenuBar_FieldInfo_,
-	_CMenuBar_MethodInfo_
-};
-
-$Object* allocate$CMenuBar($Class* clazz) {
-	return $of($alloc(CMenuBar));
-}
 
 void CMenuBar::dispose() {
 	this->$CMenuComponent::dispose();
@@ -251,9 +189,9 @@ int64_t CMenuBar::createModel() {
 }
 
 void CMenuBar::addHelpMenu($Menu* m) {
-	$useLocalCurrentObjectStackCache();
-	$var($CMenu, cMenu, $cast($CMenu, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(m)));
-	execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CMenuBar$$Lambda$lambda$addHelpMenu$1, this, cMenu)));
+	$useLocalObjectStack();
+	$var($CMenu, cMenu, $cast($CMenu, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(m)));
+	execute($$new(CMenuBar$$Lambda$lambda$addHelpMenu$1, this, cMenu));
 }
 
 int32_t CMenuBar::getNextInsertionIndex() {
@@ -268,25 +206,24 @@ void CMenuBar::addMenu($Menu* m) {
 }
 
 void CMenuBar::delMenu(int32_t index) {
-	execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CMenuBar$$Lambda$lambda$delMenu$2$1, this, index)));
+	execute($$new(CMenuBar$$Lambda$lambda$delMenu$2$1, this, index));
 }
 
 int64_t CMenuBar::nativeCreateMenuBar() {
-	int64_t $ret = 0;
-	$prepareNative(CMenuBar, nativeCreateMenuBar, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(nativeCreateMenuBar, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void CMenuBar::nativeSetHelpMenu(int64_t menuBarPtr, int64_t menuPtr) {
-	$prepareNative(CMenuBar, nativeSetHelpMenu, void, int64_t menuBarPtr, int64_t menuPtr);
+	$prepareNative(nativeSetHelpMenu, void, int64_t menuBarPtr, int64_t menuPtr);
 	$invokeNative(menuBarPtr, menuPtr);
 	$finishNative();
 }
 
 void CMenuBar::nativeDelMenu(int64_t menuBarPtr, int32_t index) {
-	$prepareNative(CMenuBar, nativeDelMenu, void, int64_t menuBarPtr, int32_t index);
+	$prepareNative(nativeDelMenu, void, int64_t menuBarPtr, int32_t index);
 	$invokeNative(menuBarPtr, index);
 	$finishNative();
 }
@@ -296,7 +233,7 @@ void CMenuBar::lambda$delMenu$2(int32_t index, int64_t ptr) {
 }
 
 void CMenuBar::lambda$addHelpMenu$1($CMenu* cMenu, int64_t parentPtr) {
-	$nc(cMenu)->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, this, parentPtr)));
+	$nc(cMenu)->execute($$new(CMenuBar$$Lambda$lambda$addHelpMenu$0$2, this, parentPtr));
 }
 
 void CMenuBar::lambda$addHelpMenu$0(int64_t parentPtr, int64_t menuPtr) {
@@ -308,17 +245,54 @@ CMenuBar::CMenuBar() {
 
 $Class* CMenuBar::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CMenuBar$$Lambda$lambda$addHelpMenu$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CMenuBar$$Lambda$lambda$addHelpMenu$1")) {
 			return CMenuBar$$Lambda$lambda$addHelpMenu$1::load$(name, initialize);
 		}
-		if (name->equals(CMenuBar$$Lambda$lambda$delMenu$2$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CMenuBar$$Lambda$lambda$delMenu$2$1")) {
 			return CMenuBar$$Lambda$lambda$delMenu$2$1::load$(name, initialize);
 		}
-		if (name->equals(CMenuBar$$Lambda$lambda$addHelpMenu$0$2::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CMenuBar$$Lambda$lambda$addHelpMenu$0$2")) {
 			return CMenuBar$$Lambda$lambda$addHelpMenu$0$2::load$(name, initialize);
 		}
 	}
-	$loadClass(CMenuBar, name, initialize, &_CMenuBar_ClassInfo_, allocate$CMenuBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"nextInsertionIndex", "I", nullptr, $PRIVATE, $field(CMenuBar, nextInsertionIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $method(CMenuBar, init$, void, $MenuBar*)},
+		{"addHelpMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar, addHelpMenu, void, $Menu*)},
+		{"addMenu", "(Ljava/awt/Menu;)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar, addMenu, void, $Menu*)},
+		{"createModel", "()J", nullptr, 0, $virtualMethod(CMenuBar, createModel, int64_t)},
+		{"delMenu", "(I)V", nullptr, $PUBLIC, $virtualMethod(CMenuBar, delMenu, void, int32_t)},
+		{"getNextInsertionIndex", "()I", nullptr, $PUBLIC, $method(CMenuBar, getNextInsertionIndex, int32_t)},
+		{"lambda$addHelpMenu$0", "(JJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CMenuBar, lambda$addHelpMenu$0, void, int64_t, int64_t)},
+		{"lambda$addHelpMenu$1", "(Lsun/lwawt/macosx/CMenu;J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CMenuBar, lambda$addHelpMenu$1, void, $CMenu*, int64_t)},
+		{"lambda$delMenu$2", "(IJ)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CMenuBar, lambda$delMenu$2, void, int32_t, int64_t)},
+		{"nativeCreateMenuBar", "()J", nullptr, $PRIVATE | $NATIVE, $method(CMenuBar, nativeCreateMenuBar, int64_t)},
+		{"nativeDelMenu", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(CMenuBar, nativeDelMenu, void, int64_t, int32_t)},
+		{"nativeSetHelpMenu", "(JJ)V", nullptr, $PRIVATE | $NATIVE, $method(CMenuBar, nativeSetHelpMenu, void, int64_t, int64_t)},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $FINAL},
+		{"setNextInsertionIndex", "(I)V", nullptr, $PUBLIC, $method(CMenuBar, setNextInsertionIndex, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CMenuBar",
+		"sun.lwawt.macosx.CMenuComponent",
+		"java.awt.peer.MenuBarPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMenuBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CMenuBar));
+	});
 	return class$;
 }
 

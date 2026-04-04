@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/CompileStates.h>
-
 #include <com/sun/tools/javac/comp/CompileStates$CompileState.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
@@ -23,44 +22,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _CompileStates_FieldInfo_[] = {
-	{"compileStatesKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/CompileStates;>;", $PROTECTED | $STATIC | $FINAL, $staticField(CompileStates, compileStatesKey)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompileStates, serialVersionUID)},
-	{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, $PROTECTED | $TRANSIENT, $field(CompileStates, context)},
-	{}
-};
-
-$MethodInfo _CompileStates_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(CompileStates, init$, void, $Context*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/CompileStates;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates, instance, CompileStates*, $Context*)},
-	{"isDone", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", $PUBLIC, $virtualMethod(CompileStates, isDone, bool, $Env*, $CompileStates$CompileState*)},
-	{}
-};
-
-$InnerClassInfo _CompileStates_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.CompileStates$CompileState", "com.sun.tools.javac.comp.CompileStates", "CompileState", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CompileStates_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.CompileStates",
-	"java.util.HashMap",
-	nullptr,
-	_CompileStates_FieldInfo_,
-	_CompileStates_MethodInfo_,
-	"Ljava/util/HashMap<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/CompileStates$CompileState;>;",
-	nullptr,
-	_CompileStates_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.CompileStates$CompileState"
-};
-
-$Object* allocate$CompileStates($Class* clazz) {
-	return $of($alloc(CompileStates));
-}
-
 $Context$Key* CompileStates::compileStatesKey = nullptr;
 
 CompileStates* CompileStates::instance($Context* context) {
@@ -75,7 +36,7 @@ CompileStates* CompileStates::instance($Context* context) {
 void CompileStates::init$($Context* context) {
 	$HashMap::init$();
 	$set(this, context, context);
-	$nc(context)->put(CompileStates::compileStatesKey, $of(this));
+	$nc(context)->put(CompileStates::compileStatesKey, this);
 }
 
 bool CompileStates::isDone($Env* env, $CompileStates$CompileState* cs) {
@@ -83,7 +44,7 @@ bool CompileStates::isDone($Env* env, $CompileStates$CompileState* cs) {
 	return (ecs != nullptr) && !$nc(cs)->isAfter(ecs);
 }
 
-void clinit$CompileStates($Class* class$) {
+void CompileStates::clinit$($Class* clazz) {
 	$assignStatic(CompileStates::compileStatesKey, $new($Context$Key));
 }
 
@@ -91,7 +52,39 @@ CompileStates::CompileStates() {
 }
 
 $Class* CompileStates::load$($String* name, bool initialize) {
-	$loadClass(CompileStates, name, initialize, &_CompileStates_ClassInfo_, clinit$CompileStates, allocate$CompileStates);
+	$FieldInfo fieldInfos$$[] = {
+		{"compileStatesKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/CompileStates;>;", $PROTECTED | $STATIC | $FINAL, $staticField(CompileStates, compileStatesKey)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompileStates, serialVersionUID)},
+		{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, $PROTECTED | $TRANSIENT, $field(CompileStates, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(CompileStates, init$, void, $Context*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/CompileStates;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates, instance, CompileStates*, $Context*)},
+		{"isDone", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", $PUBLIC, $virtualMethod(CompileStates, isDone, bool, $Env*, $CompileStates$CompileState*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.CompileStates$CompileState", "com.sun.tools.javac.comp.CompileStates", "CompileState", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.CompileStates",
+		"java.util.HashMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/HashMap<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/CompileStates$CompileState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.CompileStates$CompileState"
+	};
+	$loadClass(CompileStates, name, initialize, &classInfo$$, CompileStates::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompileStates));
+	});
 	return class$;
 }
 

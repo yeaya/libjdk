@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$ComponentsConfiguration.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$ComponentsConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ComponentsConfiguration, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$ComponentsConfiguration_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ComponentsConfiguration", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ComponentsConfiguration", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$ComponentsConfiguration_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$ComponentsConfiguration",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ComponentsConfiguration_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ComponentsConfiguration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$ComponentsConfiguration($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$ComponentsConfiguration));
-}
-
 void ExifTIFFTagSet$ComponentsConfiguration::init$() {
 	$TIFFTag::init$("ComponentsConfiguration"_s, 0x00009101, $sl(1, $TIFFTag::TIFF_UNDEFINED), 4);
 	addValueName(0, "DoesNotExist"_s);
@@ -61,7 +30,32 @@ ExifTIFFTagSet$ComponentsConfiguration::ExifTIFFTagSet$ComponentsConfiguration()
 }
 
 $Class* ExifTIFFTagSet$ComponentsConfiguration::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$ComponentsConfiguration, name, initialize, &_ExifTIFFTagSet$ComponentsConfiguration_ClassInfo_, allocate$ExifTIFFTagSet$ComponentsConfiguration);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ComponentsConfiguration, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ComponentsConfiguration", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ComponentsConfiguration", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$ComponentsConfiguration",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$ComponentsConfiguration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$ComponentsConfiguration);
+	});
 	return class$;
 }
 

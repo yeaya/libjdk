@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/ProgressBarIndeterminateState.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/plaf/nimbus/State.h>
@@ -16,39 +15,35 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _ProgressBarIndeterminateState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProgressBarIndeterminateState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ProgressBarIndeterminateState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _ProgressBarIndeterminateState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.ProgressBarIndeterminateState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_ProgressBarIndeterminateState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$ProgressBarIndeterminateState($Class* clazz) {
-	return $of($alloc(ProgressBarIndeterminateState));
-}
-
 void ProgressBarIndeterminateState::init$() {
 	$State::init$("Indeterminate"_s);
 }
 
 bool ProgressBarIndeterminateState::isInState($JComponent* c) {
-	return $instanceOf($JProgressBar, c) && $nc(($cast($JProgressBar, c)))->isIndeterminate();
+	return $instanceOf($JProgressBar, c) && $cast($JProgressBar, c)->isIndeterminate();
 }
 
 ProgressBarIndeterminateState::ProgressBarIndeterminateState() {
 }
 
 $Class* ProgressBarIndeterminateState::load$($String* name, bool initialize) {
-	$loadClass(ProgressBarIndeterminateState, name, initialize, &_ProgressBarIndeterminateState_ClassInfo_, allocate$ProgressBarIndeterminateState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProgressBarIndeterminateState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ProgressBarIndeterminateState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.ProgressBarIndeterminateState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(ProgressBarIndeterminateState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressBarIndeterminateState);
+	});
 	return class$;
 }
 

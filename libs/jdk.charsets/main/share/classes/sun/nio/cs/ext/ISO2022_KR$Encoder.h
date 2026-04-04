@@ -27,6 +27,7 @@ class ISO2022_KR$Encoder : public ::sun::nio::cs::ext::ISO2022$Encoder {
 public:
 	ISO2022_KR$Encoder();
 	using ::sun::nio::cs::ext::ISO2022$Encoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual bool canEncode(char16_t c) override;
 	static $bytes* SOD;

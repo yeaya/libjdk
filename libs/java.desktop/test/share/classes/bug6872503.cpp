@@ -1,16 +1,13 @@
 #include <bug6872503.h>
-
 #include <bug6872503$1.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/AWTEventListener.h>
 #include <java/awt/event/AWTEventListenerProxy.h>
-#include <java/lang/Runnable.h>
 #include <java/util/EventListener.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLayer.h>
@@ -24,61 +21,18 @@
 using $AWTEventListenerArray = $Array<::java::awt::event::AWTEventListener>;
 using $bug6872503$1 = ::bug6872503$1;
 using $AWTEvent = ::java::awt::AWTEvent;
-using $Component = ::java::awt::Component;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Toolkit = ::java::awt::Toolkit;
 using $AWTEventListener = ::java::awt::event::AWTEventListener;
 using $AWTEventListenerProxy = ::java::awt::event::AWTEventListenerProxy;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JFrame = ::javax::swing::JFrame;
 using $JLayer = ::javax::swing::JLayer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _bug6872503_FieldInfo_[] = {
-	{"l1", "Ljavax/swing/JLayer;", "Ljavax/swing/JLayer<Ljava/awt/Component;>;", $STATIC, $staticField(bug6872503, l1)},
-	{"l2", "Ljavax/swing/JLayer;", "Ljavax/swing/JLayer<Ljava/awt/Component;>;", $STATIC, $staticField(bug6872503, l2)},
-	{}
-};
-
-$MethodInfo _bug6872503_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6872503, init$, void)},
-	{"createGui", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6872503, createGui, void)},
-	{"isLayerEventControllerAdded", "()Z", nullptr, $STATIC, $staticMethod(bug6872503, isLayerEventControllerAdded, bool)},
-	{"layerEventControllerMaskEquals", "(J)Z", nullptr, $STATIC, $staticMethod(bug6872503, layerEventControllerMaskEquals, bool, int64_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6872503, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6872503_InnerClassesInfo_[] = {
-	{"bug6872503$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6872503_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6872503",
-	"java.lang.Object",
-	nullptr,
-	_bug6872503_FieldInfo_,
-	_bug6872503_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6872503_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6872503$1"
-};
-
-$Object* allocate$bug6872503($Class* clazz) {
-	return $of($alloc(bug6872503));
-}
 
 $JLayer* bug6872503::l1 = nullptr;
 $JLayer* bug6872503::l2 = nullptr;
@@ -87,21 +41,21 @@ void bug6872503::init$() {
 }
 
 void bug6872503::createGui() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	int32_t length = $nc($($nc(toolkit)->getAWTEventListeners()))->length;
 	$init(bug6872503);
 	$assignStatic(bug6872503::l1, $new($JLayer));
-	$nc(bug6872503::l1)->setLayerEventMask($AWTEvent::MOUSE_EVENT_MASK | $AWTEvent::FOCUS_EVENT_MASK);
+	bug6872503::l1->setLayerEventMask($AWTEvent::MOUSE_EVENT_MASK | $AWTEvent::FOCUS_EVENT_MASK);
 	$assignStatic(bug6872503::l2, $new($JLayer));
-	$nc(bug6872503::l2)->setLayerEventMask($AWTEvent::MOUSE_EVENT_MASK | $AWTEvent::KEY_EVENT_MASK);
+	bug6872503::l2->setLayerEventMask($AWTEvent::MOUSE_EVENT_MASK | $AWTEvent::KEY_EVENT_MASK);
 	if (isLayerEventControllerAdded()) {
 		$throwNew($RuntimeException, "Unexpected AWTEventListener was added"_s);
 	}
 	$var($JFrame, frame, $new($JFrame));
 	frame->setLayout($$new($FlowLayout));
-	frame->add(static_cast<$Component*>(bug6872503::l1));
-	frame->add(static_cast<$Component*>(bug6872503::l2));
+	frame->add(bug6872503::l1);
+	frame->add(bug6872503::l2);
 	if (isLayerEventControllerAdded()) {
 		$throwNew($RuntimeException, "Unexpected AWTEventListener was added"_s);
 	}
@@ -120,20 +74,18 @@ void bug6872503::createGui() {
 }
 
 bool bug6872503::isLayerEventControllerAdded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	$var($AWTEventListener, layerEventController, nullptr);
 	{
 		$var($AWTEventListenerArray, arr$, $nc(toolkit)->getAWTEventListeners());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AWTEventListener, listener, arr$->get(i$));
 			{
 				if ($instanceOf($AWTEventListenerProxy, listener)) {
-					$assign(listener, $cast($AWTEventListener, $nc(($cast($AWTEventListenerProxy, listener)))->getListener()));
+					$assign(listener, $cast($AWTEventListener, $cast($AWTEventListenerProxy, listener)->getListener()));
 				}
-				if ("LayerEventController"_s->equals($($nc($of(listener))->getClass()->getSimpleName()))) {
+				if ("LayerEventController"_s->equals($($nc(listener)->getClass()->getSimpleName()))) {
 					if (layerEventController != nullptr) {
 						$throwNew($RuntimeException, "Duplicated LayerEventController"_s);
 					}
@@ -152,20 +104,18 @@ bool bug6872503::isLayerEventControllerAdded() {
 }
 
 bool bug6872503::layerEventControllerMaskEquals(int64_t mask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	$var($AWTEventListener, layerEventController, nullptr);
 	{
 		$var($AWTEventListenerArray, arr$, $nc(toolkit)->getAWTEventListeners(mask));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AWTEventListener, listener, arr$->get(i$));
 			{
 				if ($instanceOf($AWTEventListenerProxy, listener)) {
-					$assign(listener, $cast($AWTEventListener, $nc(($cast($AWTEventListenerProxy, listener)))->getListener()));
+					$assign(listener, $cast($AWTEventListener, $cast($AWTEventListenerProxy, listener)->getListener()));
 				}
-				if ("LayerEventController"_s->equals($($nc($of(listener))->getClass()->getSimpleName()))) {
+				if ("LayerEventController"_s->equals($($nc(listener)->getClass()->getSimpleName()))) {
 					if (layerEventController != nullptr) {
 						$throwNew($RuntimeException, "Duplicated LayerEventController"_s);
 					}
@@ -191,7 +141,40 @@ bug6872503::bug6872503() {
 }
 
 $Class* bug6872503::load$($String* name, bool initialize) {
-	$loadClass(bug6872503, name, initialize, &_bug6872503_ClassInfo_, allocate$bug6872503);
+	$FieldInfo fieldInfos$$[] = {
+		{"l1", "Ljavax/swing/JLayer;", "Ljavax/swing/JLayer<Ljava/awt/Component;>;", $STATIC, $staticField(bug6872503, l1)},
+		{"l2", "Ljavax/swing/JLayer;", "Ljavax/swing/JLayer<Ljava/awt/Component;>;", $STATIC, $staticField(bug6872503, l2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6872503, init$, void)},
+		{"createGui", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6872503, createGui, void)},
+		{"isLayerEventControllerAdded", "()Z", nullptr, $STATIC, $staticMethod(bug6872503, isLayerEventControllerAdded, bool)},
+		{"layerEventControllerMaskEquals", "(J)Z", nullptr, $STATIC, $staticMethod(bug6872503, layerEventControllerMaskEquals, bool, int64_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6872503, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6872503$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6872503",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6872503$1"
+	};
+	$loadClass(bug6872503, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6872503);
+	});
 	return class$;
 }
 

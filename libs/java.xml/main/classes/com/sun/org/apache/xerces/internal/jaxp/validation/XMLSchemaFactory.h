@@ -154,6 +154,7 @@ class XMLSchemaFactory : public ::javax::xml::validation::SchemaFactory {
 	$class(XMLSchemaFactory, 0, ::javax::xml::validation::SchemaFactory)
 public:
 	XMLSchemaFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::org::xml::sax::ErrorHandler* getErrorHandler() override;
 	virtual bool getFeature($String* name) override;

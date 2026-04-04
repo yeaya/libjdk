@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/ReferenceUriSchemesSupported.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -23,48 +22,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _ReferenceUriSchemesSupported_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceUriSchemesSupported, serialVersionUID)},
-	{"FTP", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, FTP)},
-	{"HTTP", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, HTTP)},
-	{"HTTPS", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, HTTPS)},
-	{"GOPHER", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, GOPHER)},
-	{"NEWS", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, NEWS)},
-	{"NNTP", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, NNTP)},
-	{"WAIS", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, WAIS)},
-	{"FILE", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, FILE)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _ReferenceUriSchemesSupported_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(ReferenceUriSchemesSupported, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(ReferenceUriSchemesSupported, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(ReferenceUriSchemesSupported, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReferenceUriSchemesSupported, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ReferenceUriSchemesSupported, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ReferenceUriSchemesSupported_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.ReferenceUriSchemesSupported",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.Attribute",
-	_ReferenceUriSchemesSupported_FieldInfo_,
-	_ReferenceUriSchemesSupported_MethodInfo_
-};
-
-$Object* allocate$ReferenceUriSchemesSupported($Class* clazz) {
-	return $of($alloc(ReferenceUriSchemesSupported));
-}
 
 $Object* ReferenceUriSchemesSupported::clone() {
 	 return this->$EnumSyntax::clone();
@@ -102,11 +59,11 @@ void ReferenceUriSchemesSupported::init$(int32_t value) {
 }
 
 $StringArray* ReferenceUriSchemesSupported::getStringTable() {
-	return $cast($StringArray, $nc(ReferenceUriSchemesSupported::myStringTable)->clone());
+	return $cast($StringArray, ReferenceUriSchemesSupported::myStringTable->clone());
 }
 
 $EnumSyntaxArray* ReferenceUriSchemesSupported::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(ReferenceUriSchemesSupported::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, ReferenceUriSchemesSupported::myEnumValueTable->clone());
 }
 
 $Class* ReferenceUriSchemesSupported::getCategory() {
@@ -117,7 +74,7 @@ $String* ReferenceUriSchemesSupported::getName() {
 	return "reference-uri-schemes-supported"_s;
 }
 
-void clinit$ReferenceUriSchemesSupported($Class* class$) {
+void ReferenceUriSchemesSupported::clinit$($Class* clazz) {
 	$assignStatic(ReferenceUriSchemesSupported::FTP, $new(ReferenceUriSchemesSupported, 0));
 	$assignStatic(ReferenceUriSchemesSupported::HTTP, $new(ReferenceUriSchemesSupported, 1));
 	$assignStatic(ReferenceUriSchemesSupported::HTTPS, $new(ReferenceUriSchemesSupported, 2));
@@ -152,7 +109,44 @@ ReferenceUriSchemesSupported::ReferenceUriSchemesSupported() {
 }
 
 $Class* ReferenceUriSchemesSupported::load$($String* name, bool initialize) {
-	$loadClass(ReferenceUriSchemesSupported, name, initialize, &_ReferenceUriSchemesSupported_ClassInfo_, clinit$ReferenceUriSchemesSupported, allocate$ReferenceUriSchemesSupported);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceUriSchemesSupported, serialVersionUID)},
+		{"FTP", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, FTP)},
+		{"HTTP", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, HTTP)},
+		{"HTTPS", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, HTTPS)},
+		{"GOPHER", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, GOPHER)},
+		{"NEWS", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, NEWS)},
+		{"NNTP", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, NNTP)},
+		{"WAIS", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, WAIS)},
+		{"FILE", "Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, FILE)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/ReferenceUriSchemesSupported;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ReferenceUriSchemesSupported, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(ReferenceUriSchemesSupported, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(ReferenceUriSchemesSupported, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(ReferenceUriSchemesSupported, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReferenceUriSchemesSupported, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ReferenceUriSchemesSupported, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.ReferenceUriSchemesSupported",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.Attribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReferenceUriSchemesSupported, name, initialize, &classInfo$$, ReferenceUriSchemesSupported::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReferenceUriSchemesSupported));
+	});
 	return class$;
 }
 

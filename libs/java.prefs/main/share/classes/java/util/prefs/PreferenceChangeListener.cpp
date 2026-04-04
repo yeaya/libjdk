@@ -1,5 +1,4 @@
 #include <java/util/prefs/PreferenceChangeListener.h>
-
 #include <java/util/prefs/PreferenceChangeEvent.h>
 #include <jcpp.h>
 
@@ -12,35 +11,30 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$CompoundAttribute _PreferenceChangeListener_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _PreferenceChangeListener_MethodInfo_[] = {
-	{"preferenceChange", "(Ljava/util/prefs/PreferenceChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreferenceChangeListener, preferenceChange, void, $PreferenceChangeEvent*)},
-	{}
-};
-
-$ClassInfo _PreferenceChangeListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.prefs.PreferenceChangeListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_PreferenceChangeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_PreferenceChangeListener_Annotations_
-};
-
-$Object* allocate$PreferenceChangeListener($Class* clazz) {
-	return $of($alloc(PreferenceChangeListener));
-}
-
 $Class* PreferenceChangeListener::load$($String* name, bool initialize) {
-	$loadClass(PreferenceChangeListener, name, initialize, &_PreferenceChangeListener_ClassInfo_, allocate$PreferenceChangeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"preferenceChange", "(Ljava/util/prefs/PreferenceChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreferenceChangeListener, preferenceChange, void, $PreferenceChangeEvent*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.prefs.PreferenceChangeListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(PreferenceChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreferenceChangeListener);
+	});
 	return class$;
 }
 

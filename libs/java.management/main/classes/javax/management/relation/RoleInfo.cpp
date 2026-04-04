@@ -1,5 +1,4 @@
 #include <javax/management/relation/RoleInfo.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -7,7 +6,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/management/relation/InvalidRoleInfoException.h>
 #include <jcpp.h>
 
@@ -30,65 +28,11 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $InvalidRoleInfoException = ::javax::management::relation::InvalidRoleInfoException;
 
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _RoleInfo_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleInfo, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleInfo, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RoleInfo, compat)},
-	{"ROLE_CARDINALITY_INFINITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleInfo, ROLE_CARDINALITY_INFINITY)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RoleInfo, name)},
-	{"isReadable", "Z", nullptr, $PRIVATE, $field(RoleInfo, isReadable$)},
-	{"isWritable", "Z", nullptr, $PRIVATE, $field(RoleInfo, isWritable$)},
-	{"description", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RoleInfo, description)},
-	{"minDegree", "I", nullptr, $PRIVATE, $field(RoleInfo, minDegree)},
-	{"maxDegree", "I", nullptr, $PRIVATE, $field(RoleInfo, maxDegree)},
-	{"referencedMBeanClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RoleInfo, referencedMBeanClassName)},
-	{}
-};
-
-$MethodInfo _RoleInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ZZIILjava/lang/String;)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, $String*, $String*, bool, bool, int32_t, int32_t, $String*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRoleInfoException,java.lang.ClassNotFoundException,javax.management.NotCompliantMBeanException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, $String*, $String*, bool, bool), "java.lang.IllegalArgumentException,java.lang.ClassNotFoundException,javax.management.NotCompliantMBeanException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, $String*, $String*), "java.lang.IllegalArgumentException,java.lang.ClassNotFoundException,javax.management.NotCompliantMBeanException"},
-	{"<init>", "(Ljavax/management/relation/RoleInfo;)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, RoleInfo*), "java.lang.IllegalArgumentException"},
-	{"checkMaxDegree", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, checkMaxDegree, bool, int32_t)},
-	{"checkMinDegree", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, checkMinDegree, bool, int32_t)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getDescription, $String*)},
-	{"getMaxDegree", "()I", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getMaxDegree, int32_t)},
-	{"getMinDegree", "()I", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getMinDegree, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getName, $String*)},
-	{"getRefMBeanClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getRefMBeanClassName, $String*)},
-	{"init", "(Ljava/lang/String;Ljava/lang/String;ZZIILjava/lang/String;)V", nullptr, $PRIVATE, $method(RoleInfo, init, void, $String*, $String*, bool, bool, int32_t, int32_t, $String*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRoleInfoException"},
-	{"isReadable", "()Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, isReadable, bool)},
-	{"isWritable", "()Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, isWritable, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RoleInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RoleInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RoleInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RoleInfo",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_RoleInfo_FieldInfo_,
-	_RoleInfo_MethodInfo_
-};
-
-$Object* allocate$RoleInfo($Class* clazz) {
-	return $of($alloc(RoleInfo));
-}
 
 $ObjectStreamFieldArray* RoleInfo::oldSerialPersistentFields = nullptr;
 $ObjectStreamFieldArray* RoleInfo::newSerialPersistentFields = nullptr;
@@ -127,7 +71,7 @@ void RoleInfo::init$($String* roleName, $String* mbeanClassName) {
 }
 
 void RoleInfo::init$(RoleInfo* roleInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, name, nullptr);
 	$set(this, description, nullptr);
 	$set(this, referencedMBeanClassName, nullptr);
@@ -192,7 +136,7 @@ bool RoleInfo::checkMaxDegree(int32_t value) {
 }
 
 $String* RoleInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, result, $new($StringBuilder));
 	result->append($$str({"role info name: "_s, this->name}));
 	result->append($$str({"; isReadable: "_s, $$str(this->isReadable$)}));
@@ -205,7 +149,7 @@ $String* RoleInfo::toString() {
 }
 
 void RoleInfo::init($String* roleName, $String* mbeanClassName, bool read, bool write, int32_t min, int32_t max, $String* descr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (roleName == nullptr || mbeanClassName == nullptr) {
 		$var($String, excMsg, "Invalid parameter."_s);
 		$throwNew($IllegalArgumentException, excMsg);
@@ -240,7 +184,7 @@ void RoleInfo::init($String* roleName, $String* mbeanClassName, bool read, bool 
 void RoleInfo::readObject($ObjectInputStream* in) {
 	if (RoleInfo::compat) {
 		$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-		$set(this, name, $cast($String, $nc(fields)->get("myName"_s, ($Object*)nullptr)));
+		$set(this, name, $cast($String, $nc(fields)->get("myName"_s, nullptr)));
 		if (fields->defaulted("myName"_s)) {
 			$throwNew($NullPointerException, "myName"_s);
 		}
@@ -252,7 +196,7 @@ void RoleInfo::readObject($ObjectInputStream* in) {
 		if (fields->defaulted("myIsWritableFlg"_s)) {
 			$throwNew($NullPointerException, "myIsWritableFlg"_s);
 		}
-		$set(this, description, $cast($String, fields->get("myDescription"_s, ($Object*)nullptr)));
+		$set(this, description, $cast($String, fields->get("myDescription"_s, nullptr)));
 		if (fields->defaulted("myDescription"_s)) {
 			$throwNew($NullPointerException, "myDescription"_s);
 		}
@@ -264,7 +208,7 @@ void RoleInfo::readObject($ObjectInputStream* in) {
 		if (fields->defaulted("myMaxDegree"_s)) {
 			$throwNew($NullPointerException, "myMaxDegree"_s);
 		}
-		$set(this, referencedMBeanClassName, $cast($String, fields->get("myRefMBeanClassName"_s, ($Object*)nullptr)));
+		$set(this, referencedMBeanClassName, $cast($String, fields->get("myRefMBeanClassName"_s, nullptr)));
 		if (fields->defaulted("myRefMBeanClassName"_s)) {
 			$throwNew($NullPointerException, "myRefMBeanClassName"_s);
 		}
@@ -276,24 +220,22 @@ void RoleInfo::readObject($ObjectInputStream* in) {
 void RoleInfo::writeObject($ObjectOutputStream* out) {
 	if (RoleInfo::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("myName"_s, $of(this->name));
+		$nc(fields)->put("myName"_s, this->name);
 		fields->put("myIsReadableFlg"_s, this->isReadable$);
 		fields->put("myIsWritableFlg"_s, this->isWritable$);
-		fields->put("myDescription"_s, $of(this->description));
+		fields->put("myDescription"_s, this->description);
 		fields->put("myMinDegree"_s, this->minDegree);
 		fields->put("myMaxDegree"_s, this->maxDegree);
-		fields->put("myRefMBeanClassName"_s, $of(this->referencedMBeanClassName));
+		fields->put("myRefMBeanClassName"_s, this->referencedMBeanClassName);
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$RoleInfo($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RoleInfo::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$init($Boolean);
-	$init($Integer);
 	$assignStatic(RoleInfo::oldSerialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "myName"_s, $String::class$),
 		$$new($ObjectStreamField, "myIsReadableFlg"_s, $Boolean::TYPE),
@@ -316,7 +258,7 @@ void clinit$RoleInfo($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			RoleInfo::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -334,7 +276,55 @@ RoleInfo::RoleInfo() {
 }
 
 $Class* RoleInfo::load$($String* name, bool initialize) {
-	$loadClass(RoleInfo, name, initialize, &_RoleInfo_ClassInfo_, clinit$RoleInfo, allocate$RoleInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleInfo, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleInfo, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoleInfo, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(RoleInfo, compat)},
+		{"ROLE_CARDINALITY_INFINITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleInfo, ROLE_CARDINALITY_INFINITY)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RoleInfo, name)},
+		{"isReadable", "Z", nullptr, $PRIVATE, $field(RoleInfo, isReadable$)},
+		{"isWritable", "Z", nullptr, $PRIVATE, $field(RoleInfo, isWritable$)},
+		{"description", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RoleInfo, description)},
+		{"minDegree", "I", nullptr, $PRIVATE, $field(RoleInfo, minDegree)},
+		{"maxDegree", "I", nullptr, $PRIVATE, $field(RoleInfo, maxDegree)},
+		{"referencedMBeanClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RoleInfo, referencedMBeanClassName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ZZIILjava/lang/String;)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, $String*, $String*, bool, bool, int32_t, int32_t, $String*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRoleInfoException,java.lang.ClassNotFoundException,javax.management.NotCompliantMBeanException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, $String*, $String*, bool, bool), "java.lang.IllegalArgumentException,java.lang.ClassNotFoundException,javax.management.NotCompliantMBeanException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, $String*, $String*), "java.lang.IllegalArgumentException,java.lang.ClassNotFoundException,javax.management.NotCompliantMBeanException"},
+		{"<init>", "(Ljavax/management/relation/RoleInfo;)V", nullptr, $PUBLIC, $method(RoleInfo, init$, void, RoleInfo*), "java.lang.IllegalArgumentException"},
+		{"checkMaxDegree", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, checkMaxDegree, bool, int32_t)},
+		{"checkMinDegree", "(I)Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, checkMinDegree, bool, int32_t)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getDescription, $String*)},
+		{"getMaxDegree", "()I", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getMaxDegree, int32_t)},
+		{"getMinDegree", "()I", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getMinDegree, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getName, $String*)},
+		{"getRefMBeanClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, getRefMBeanClassName, $String*)},
+		{"init", "(Ljava/lang/String;Ljava/lang/String;ZZIILjava/lang/String;)V", nullptr, $PRIVATE, $method(RoleInfo, init, void, $String*, $String*, bool, bool, int32_t, int32_t, $String*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRoleInfoException"},
+		{"isReadable", "()Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, isReadable, bool)},
+		{"isWritable", "()Z", nullptr, $PUBLIC, $virtualMethod(RoleInfo, isWritable, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RoleInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleInfo, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RoleInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RoleInfo",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RoleInfo, name, initialize, &classInfo$$, RoleInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RoleInfo);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/prefs/FileSystemPreferences$8.h>
-
 #include <java/io/File.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -9,7 +8,6 @@
 #undef EMPTY_STRING_ARRAY
 
 using $FileArray = $Array<::java::io::File>;
-using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,54 +21,12 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$FieldInfo _FileSystemPreferences$8_FieldInfo_[] = {
-	{"this$0", "Ljava/util/prefs/FileSystemPreferences;", nullptr, $FINAL | $SYNTHETIC, $field(FileSystemPreferences$8, this$0)},
-	{}
-};
-
-$MethodInfo _FileSystemPreferences$8_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, 0, $method(FileSystemPreferences$8, init$, void, $FileSystemPreferences*)},
-	{"run", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$8, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _FileSystemPreferences$8_EnclosingMethodInfo_ = {
-	"java.util.prefs.FileSystemPreferences",
-	"childrenNamesSpi",
-	"()[Ljava/lang/String;"
-};
-
-$InnerClassInfo _FileSystemPreferences$8_InnerClassesInfo_[] = {
-	{"java.util.prefs.FileSystemPreferences$8", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileSystemPreferences$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.FileSystemPreferences$8",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_FileSystemPreferences$8_FieldInfo_,
-	_FileSystemPreferences$8_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<[Ljava/lang/String;>;",
-	&_FileSystemPreferences$8_EnclosingMethodInfo_,
-	_FileSystemPreferences$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.FileSystemPreferences"
-};
-
-$Object* allocate$FileSystemPreferences$8($Class* clazz) {
-	return $of($alloc(FileSystemPreferences$8));
-}
-
 void FileSystemPreferences$8::init$($FileSystemPreferences* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* FileSystemPreferences$8::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	$var($FileArray, dirContents, $nc(this->this$0->dir)->listFiles());
 	if (dirContents != nullptr) {
@@ -80,15 +36,49 @@ $Object* FileSystemPreferences$8::run() {
 			}
 		}
 	}
-	$init($FileSystemPreferences);
-	return $of($fcast($StringArray, result->toArray($FileSystemPreferences::EMPTY_STRING_ARRAY)));
+	return $cast($StringArray, result->toArray($FileSystemPreferences::EMPTY_STRING_ARRAY));
 }
 
 FileSystemPreferences$8::FileSystemPreferences$8() {
 }
 
 $Class* FileSystemPreferences$8::load$($String* name, bool initialize) {
-	$loadClass(FileSystemPreferences$8, name, initialize, &_FileSystemPreferences$8_ClassInfo_, allocate$FileSystemPreferences$8);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/prefs/FileSystemPreferences;", nullptr, $FINAL | $SYNTHETIC, $field(FileSystemPreferences$8, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, 0, $method(FileSystemPreferences$8, init$, void, $FileSystemPreferences*)},
+		{"run", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$8, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.prefs.FileSystemPreferences",
+		"childrenNamesSpi",
+		"()[Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.FileSystemPreferences$8", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.FileSystemPreferences$8",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<[Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.FileSystemPreferences"
+	};
+	$loadClass(FileSystemPreferences$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemPreferences$8);
+	});
 	return class$;
 }
 

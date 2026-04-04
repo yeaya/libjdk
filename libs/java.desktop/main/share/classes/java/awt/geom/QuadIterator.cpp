@@ -1,5 +1,4 @@
 #include <java/awt/geom/QuadIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/QuadCurve2D.h>
@@ -21,36 +20,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _QuadIterator_FieldInfo_[] = {
-	{"quad", "Ljava/awt/geom/QuadCurve2D;", nullptr, 0, $field(QuadIterator, quad)},
-	{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(QuadIterator, affine)},
-	{"index", "I", nullptr, 0, $field(QuadIterator, index)},
-	{}
-};
-
-$MethodInfo _QuadIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(QuadIterator, init$, void, $QuadCurve2D*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(QuadIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(QuadIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(QuadIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(QuadIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(QuadIterator, next, void)},
-	{}
-};
-
-$ClassInfo _QuadIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.QuadIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_QuadIterator_FieldInfo_,
-	_QuadIterator_MethodInfo_
-};
-
-$Object* allocate$QuadIterator($Class* clazz) {
-	return $of($alloc(QuadIterator));
-}
 
 void QuadIterator::init$($QuadCurve2D* q, $AffineTransform* at) {
 	$set(this, quad, q);
@@ -86,7 +55,7 @@ int32_t QuadIterator::currentSegment($floats* coords) {
 		type = $PathIterator::SEG_QUADTO;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 2);
+		this->affine->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 2);
 	}
 	return type;
 }
@@ -108,7 +77,7 @@ int32_t QuadIterator::currentSegment($doubles* coords) {
 		type = $PathIterator::SEG_QUADTO;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 2);
+		this->affine->transform(coords, 0, coords, 0, this->index == 0 ? 1 : 2);
 	}
 	return type;
 }
@@ -117,7 +86,32 @@ QuadIterator::QuadIterator() {
 }
 
 $Class* QuadIterator::load$($String* name, bool initialize) {
-	$loadClass(QuadIterator, name, initialize, &_QuadIterator_ClassInfo_, allocate$QuadIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"quad", "Ljava/awt/geom/QuadCurve2D;", nullptr, 0, $field(QuadIterator, quad)},
+		{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(QuadIterator, affine)},
+		{"index", "I", nullptr, 0, $field(QuadIterator, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(QuadIterator, init$, void, $QuadCurve2D*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(QuadIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(QuadIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(QuadIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(QuadIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(QuadIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.QuadIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QuadIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QuadIterator);
+	});
 	return class$;
 }
 

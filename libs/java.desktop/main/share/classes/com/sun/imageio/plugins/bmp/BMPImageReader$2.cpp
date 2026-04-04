@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$2.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageReader.h>
 #include <java/awt/image/BufferedImage.h>
 #include <javax/imageio/ImageReader.h>
@@ -19,53 +18,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace bmp {
-
-$FieldInfo _BMPImageReader$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/imageio/plugins/bmp/BMPImageReader;", nullptr, $FINAL | $SYNTHETIC, $field(BMPImageReader$2, this$0)},
-	{}
-};
-
-$MethodInfo _BMPImageReader$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;)V", nullptr, 0, $method(BMPImageReader$2, init$, void, $BMPImageReader*)},
-	{"imageUpdate", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, imageUpdate, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"passComplete", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, passComplete, void, $ImageReader*, $BufferedImage*)},
-	{"passStarted", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, passStarted, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"thumbnailPassComplete", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, thumbnailPassComplete, void, $ImageReader*, $BufferedImage*)},
-	{"thumbnailPassStarted", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, thumbnailPassStarted, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"thumbnailUpdate", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, thumbnailUpdate, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{}
-};
-
-$EnclosingMethodInfo _BMPImageReader$2_EnclosingMethodInfo_ = {
-	"com.sun.imageio.plugins.bmp.BMPImageReader",
-	"readEmbedded",
-	"(ILjava/awt/image/BufferedImage;Ljavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;"
-};
-
-$InnerClassInfo _BMPImageReader$2_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BMPImageReader$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageReader$2",
-	"java.lang.Object",
-	"javax.imageio.event.IIOReadUpdateListener",
-	_BMPImageReader$2_FieldInfo_,
-	_BMPImageReader$2_MethodInfo_,
-	nullptr,
-	&_BMPImageReader$2_EnclosingMethodInfo_,
-	_BMPImageReader$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.bmp.BMPImageReader"
-};
-
-$Object* allocate$BMPImageReader$2($Class* clazz) {
-	return $of($alloc(BMPImageReader$2));
-}
 
 void BMPImageReader$2::init$($BMPImageReader* this$0) {
 	$set(this, this$0, this$0);
@@ -96,7 +48,47 @@ BMPImageReader$2::BMPImageReader$2() {
 }
 
 $Class* BMPImageReader$2::load$($String* name, bool initialize) {
-	$loadClass(BMPImageReader$2, name, initialize, &_BMPImageReader$2_ClassInfo_, allocate$BMPImageReader$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/imageio/plugins/bmp/BMPImageReader;", nullptr, $FINAL | $SYNTHETIC, $field(BMPImageReader$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/bmp/BMPImageReader;)V", nullptr, 0, $method(BMPImageReader$2, init$, void, $BMPImageReader*)},
+		{"imageUpdate", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, imageUpdate, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"passComplete", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, passComplete, void, $ImageReader*, $BufferedImage*)},
+		{"passStarted", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, passStarted, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"thumbnailPassComplete", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, thumbnailPassComplete, void, $ImageReader*, $BufferedImage*)},
+		{"thumbnailPassStarted", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, thumbnailPassStarted, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"thumbnailUpdate", "(Ljavax/imageio/ImageReader;Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$2, thumbnailUpdate, void, $ImageReader*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.imageio.plugins.bmp.BMPImageReader",
+		"readEmbedded",
+		"(ILjava/awt/image/BufferedImage;Ljavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageReader$2",
+		"java.lang.Object",
+		"javax.imageio.event.IIOReadUpdateListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.bmp.BMPImageReader"
+	};
+	$loadClass(BMPImageReader$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageReader$2);
+	});
 	return class$;
 }
 

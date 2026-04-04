@@ -28,6 +28,7 @@ class WBMPMetadataFormat : public ::javax::imageio::metadata::IIOMetadataFormatI
 	$class(WBMPMetadataFormat, 0, ::javax::imageio::metadata::IIOMetadataFormatImpl)
 public:
 	WBMPMetadataFormat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canNodeAppear($String* elementName, ::javax::imageio::ImageTypeSpecifier* imageType) override;
 	static ::javax::imageio::metadata::IIOMetadataFormat* getInstance();

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$MaximizeAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/beans/PropertyVetoException.h>
 #include <javax/swing/AbstractAction.h>
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 
@@ -23,42 +21,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicInternalFrameTitlePane$MaximizeAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$MaximizeAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicInternalFrameTitlePane$MaximizeAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$MaximizeAction, init$, void, $BasicInternalFrameTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$MaximizeAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicInternalFrameTitlePane$MaximizeAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "MaximizeAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameTitlePane$MaximizeAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicInternalFrameTitlePane$MaximizeAction_FieldInfo_,
-	_BasicInternalFrameTitlePane$MaximizeAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicInternalFrameTitlePane$MaximizeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
-};
-
-$Object* allocate$BasicInternalFrameTitlePane$MaximizeAction($Class* clazz) {
-	return $of($alloc(BasicInternalFrameTitlePane$MaximizeAction));
-}
 
 void BasicInternalFrameTitlePane$MaximizeAction::init$($BasicInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
@@ -68,7 +30,7 @@ void BasicInternalFrameTitlePane$MaximizeAction::init$($BasicInternalFrameTitleP
 void BasicInternalFrameTitlePane$MaximizeAction::actionPerformed($ActionEvent* evt) {
 	if ($nc(this->this$0->frame)->isMaximizable()) {
 		bool var$0 = $nc(this->this$0->frame)->isMaximum();
-		if (var$0 && $nc(this->this$0->frame)->isIcon()) {
+		if (var$0 && this->this$0->frame->isIcon()) {
 			try {
 				$nc(this->this$0->frame)->setIcon(false);
 			} catch ($PropertyVetoException& e) {
@@ -91,7 +53,37 @@ BasicInternalFrameTitlePane$MaximizeAction::BasicInternalFrameTitlePane$Maximize
 }
 
 $Class* BasicInternalFrameTitlePane$MaximizeAction::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameTitlePane$MaximizeAction, name, initialize, &_BasicInternalFrameTitlePane$MaximizeAction_ClassInfo_, allocate$BasicInternalFrameTitlePane$MaximizeAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$MaximizeAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$MaximizeAction, init$, void, $BasicInternalFrameTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$MaximizeAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "MaximizeAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane$MaximizeAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
+	};
+	$loadClass(BasicInternalFrameTitlePane$MaximizeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicInternalFrameTitlePane$MaximizeAction));
+	});
 	return class$;
 }
 

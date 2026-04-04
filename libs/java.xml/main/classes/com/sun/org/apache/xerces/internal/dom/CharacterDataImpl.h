@@ -40,6 +40,7 @@ class CharacterDataImpl : public ::com::sun::org::apache::xerces::internal::dom:
 	$class(CharacterDataImpl, 0, ::com::sun::org::apache::xerces::internal::dom::ChildNode)
 public:
 	CharacterDataImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument, $String* data);
 	virtual void appendData($String* data);
@@ -57,7 +58,7 @@ public:
 	virtual void setNodeValueInternal($String* value);
 	virtual void setNodeValueInternal($String* value, bool replace);
 	virtual $String* substringData(int32_t offset, int32_t count);
-	static const int64_t serialVersionUID = (int64_t)0x6E112D3B0D787B76;
+	static const int64_t serialVersionUID = (int64_t)0x6e112d3b0d787b76;
 	$String* data = nullptr;
 	static ::org::w3c::dom::NodeList* singletonNodeList;
 };

@@ -43,7 +43,7 @@ public:
 	void init$(int32_t port, ::java::rmi::server::RMIClientSocketFactory* csf, ::java::rmi::server::RMIServerSocketFactory* ssf, ::java::io::ObjectInputFilter* filter);
 	virtual ::java::rmi::server::RemoteRef* getClientRef() override;
 	virtual $String* getRefClass(::java::io::ObjectOutput* out) override;
-	static const int64_t serialVersionUID = (int64_t)0xE0395683857F5482;
+	static const int64_t serialVersionUID = (int64_t)0xe0395683857f5482;
 };
 
 		} // server

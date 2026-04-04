@@ -1,15 +1,10 @@
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$EXCS.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
-#include <com/sun/org/apache/bcel/internal/generic/AllocationInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadClass.h>
 #include <com/sun/org/apache/bcel/internal/generic/ObjectType.h>
-#include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -23,15 +18,10 @@
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ExceptionConst = ::com::sun::org::apache::bcel::internal::ExceptionConst;
 using $ExceptionConst$EXCS = ::com::sun::org::apache::bcel::internal::ExceptionConst$EXCS;
-using $AllocationInstruction = ::com::sun::org::apache::bcel::internal::generic::AllocationInstruction;
 using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
-using $LoadClass = ::com::sun::org::apache::bcel::internal::generic::LoadClass;
 using $ObjectType = ::com::sun::org::apache::bcel::internal::generic::ObjectType;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -43,35 +33,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _NEW_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(NEW, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(NEW, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(NEW, accept, void, $Visitor*)},
-	{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(NEW, getExceptions, $ClassArray*)},
-	{"getLoadClassType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/ObjectType;", nullptr, $PUBLIC, $virtualMethod(NEW, getLoadClassType, $ObjectType*, $ConstantPoolGen*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NEW_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.NEW",
-	"com.sun.org.apache.bcel.internal.generic.CPInstruction",
-	"com.sun.org.apache.bcel.internal.generic.LoadClass,com.sun.org.apache.bcel.internal.generic.AllocationInstruction,com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.StackProducer",
-	nullptr,
-	_NEW_MethodInfo_
-};
-
-$Object* allocate$NEW($Class* clazz) {
-	return $of($alloc(NEW));
-}
 
 $Type* NEW::getType($ConstantPoolGen* cpg) {
 	 return this->$CPInstruction::getType(cpg);
@@ -136,7 +97,32 @@ NEW::NEW() {
 }
 
 $Class* NEW::load$($String* name, bool initialize) {
-	$loadClass(NEW, name, initialize, &_NEW_ClassInfo_, allocate$NEW);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(NEW, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(NEW, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(NEW, accept, void, $Visitor*)},
+		{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(NEW, getExceptions, $ClassArray*)},
+		{"getLoadClassType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/ObjectType;", nullptr, $PUBLIC, $virtualMethod(NEW, getLoadClassType, $ObjectType*, $ConstantPoolGen*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.NEW",
+		"com.sun.org.apache.bcel.internal.generic.CPInstruction",
+		"com.sun.org.apache.bcel.internal.generic.LoadClass,com.sun.org.apache.bcel.internal.generic.AllocationInstruction,com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.StackProducer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NEW, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NEW));
+	});
 	return class$;
 }
 

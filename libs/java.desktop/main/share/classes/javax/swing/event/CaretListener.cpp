@@ -1,5 +1,4 @@
 #include <javax/swing/event/CaretListener.h>
-
 #include <javax/swing/event/CaretEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _CaretListener_MethodInfo_[] = {
-	{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CaretListener, caretUpdate, void, $CaretEvent*)},
-	{}
-};
-
-$ClassInfo _CaretListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.CaretListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_CaretListener_MethodInfo_
-};
-
-$Object* allocate$CaretListener($Class* clazz) {
-	return $of($alloc(CaretListener));
-}
-
 $Class* CaretListener::load$($String* name, bool initialize) {
-	$loadClass(CaretListener, name, initialize, &_CaretListener_ClassInfo_, allocate$CaretListener);
+	$MethodInfo methodInfos$$[] = {
+		{"caretUpdate", "(Ljavax/swing/event/CaretEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CaretListener, caretUpdate, void, $CaretEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.CaretListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CaretListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CaretListener);
+	});
 	return class$;
 }
 

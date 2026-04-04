@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/QName.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <jcpp.h>
 
@@ -18,42 +17,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _QName_FieldInfo_[] = {
-	{"_localname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(QName, _localname)},
-	{"_prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(QName, _prefix)},
-	{"_namespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(QName, _namespace)},
-	{"_stringRep", "Ljava/lang/String;", nullptr, $PRIVATE, $field(QName, _stringRep)},
-	{"_hashCode", "I", nullptr, $PRIVATE, $field(QName, _hashCode)},
-	{}
-};
-
-$MethodInfo _QName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*)},
-	{"clearNamespace", "()V", nullptr, $PUBLIC, $method(QName, clearNamespace, void)},
-	{"dump", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, dump, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, Object$*)},
-	{"getLocalPart", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getLocalPart, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getNamespace, $String*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getPrefix, $String*)},
-	{"getStringRep", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getStringRep, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(QName, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _QName_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.QName",
-	"java.lang.Object",
-	nullptr,
-	_QName_FieldInfo_,
-	_QName_MethodInfo_
-};
-
-$Object* allocate$QName($Class* clazz) {
-	return $of($alloc(QName));
-}
 
 void QName::init$($String* namespace$, $String* prefix, $String* localname) {
 	$set(this, _namespace, namespace$);
@@ -78,7 +41,7 @@ $String* QName::getStringRep() {
 }
 
 bool QName::equals(Object$* other) {
-	return ($equals(this, other)) || ($instanceOf(QName, other) && $nc(this->_stringRep)->equals($($nc(($cast(QName, other)))->getStringRep())));
+	return ($equals(this, other)) || ($instanceOf(QName, other) && $nc(this->_stringRep)->equals($($cast(QName, other)->getStringRep())));
 }
 
 $String* QName::getLocalPart() {
@@ -105,7 +68,38 @@ QName::QName() {
 }
 
 $Class* QName::load$($String* name, bool initialize) {
-	$loadClass(QName, name, initialize, &_QName_ClassInfo_, allocate$QName);
+	$FieldInfo fieldInfos$$[] = {
+		{"_localname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(QName, _localname)},
+		{"_prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(QName, _prefix)},
+		{"_namespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(QName, _namespace)},
+		{"_stringRep", "Ljava/lang/String;", nullptr, $PRIVATE, $field(QName, _stringRep)},
+		{"_hashCode", "I", nullptr, $PRIVATE, $field(QName, _hashCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QName, init$, void, $String*, $String*, $String*)},
+		{"clearNamespace", "()V", nullptr, $PUBLIC, $method(QName, clearNamespace, void)},
+		{"dump", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, dump, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(QName, equals, bool, Object$*)},
+		{"getLocalPart", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getLocalPart, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getNamespace, $String*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getPrefix, $String*)},
+		{"getStringRep", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(QName, getStringRep, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(QName, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.QName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QName);
+	});
 	return class$;
 }
 

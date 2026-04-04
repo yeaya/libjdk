@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Constants$1.h>
-
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/util/Constants.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -26,73 +25,37 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Constants$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Constants$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{}
-};
-
-$EnclosingMethodInfo _Constants$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.Constants",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Constants$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Constants$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Constants$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.util.Constants$1",
-	"java.lang.Object",
-	nullptr,
-	_Constants$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Constants$1_EnclosingMethodInfo_,
-	_Constants$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Constants"
-};
-
-$Object* allocate$Constants$1($Class* clazz) {
-	return $of($alloc(Constants$1));
-}
-
 $ints* Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 
-void clinit$Constants$1($Class* class$) {
+void Constants$1::clinit$($Class* clazz) {
 	$assignStatic(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 1);
+			Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 2);
+			Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 3);
+			Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 4);
+			Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::LONG->ordinal(), 5);
+			Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::LONG->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FLOAT->ordinal(), 6);
+			Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FLOAT->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::DOUBLE->ordinal(), 7);
+			Constants$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::DOUBLE->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -102,7 +65,37 @@ Constants$1::Constants$1() {
 }
 
 $Class* Constants$1::load$($String* name, bool initialize) {
-	$loadClass(Constants$1, name, initialize, &_Constants$1_ClassInfo_, clinit$Constants$1, allocate$Constants$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Constants$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.Constants",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Constants$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.util.Constants$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Constants"
+	};
+	$loadClass(Constants$1, name, initialize, &classInfo$$, Constants$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Constants$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMCanonicalXMLC14NMethod.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -34,26 +33,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMCanonicalXMLC14NMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMCanonicalXMLC14NMethod, init$, void)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14NMethod, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14NMethod, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
-	{}
-};
-
-$ClassInfo _DOMCanonicalXMLC14NMethod_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMCanonicalXMLC14NMethod",
-	"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
-	nullptr,
-	nullptr,
-	_DOMCanonicalXMLC14NMethod_MethodInfo_
-};
-
-$Object* allocate$DOMCanonicalXMLC14NMethod($Class* clazz) {
-	return $of($alloc(DOMCanonicalXMLC14NMethod));
-}
-
 void DOMCanonicalXMLC14NMethod::init$() {
 	$ApacheCanonicalizer::init$();
 }
@@ -65,10 +44,10 @@ void DOMCanonicalXMLC14NMethod::init($TransformParameterSpec* params) {
 }
 
 $Data* DOMCanonicalXMLC14NMethod::transform($Data* data, $XMLCryptoContext* xc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DOMSubTreeData, data)) {
 		$var($DOMSubTreeData, subTree, $cast($DOMSubTreeData, data));
-		if ($nc(subTree)->excludeComments()) {
+		if (subTree->excludeComments()) {
 			try {
 				$init($CanonicalizationMethod);
 				$set(this, canonicalizer, $Canonicalizer::getInstance($CanonicalizationMethod::INCLUSIVE));
@@ -85,7 +64,23 @@ DOMCanonicalXMLC14NMethod::DOMCanonicalXMLC14NMethod() {
 }
 
 $Class* DOMCanonicalXMLC14NMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMCanonicalXMLC14NMethod, name, initialize, &_DOMCanonicalXMLC14NMethod_ClassInfo_, allocate$DOMCanonicalXMLC14NMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMCanonicalXMLC14NMethod, init$, void)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14NMethod, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14NMethod, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMCanonicalXMLC14NMethod",
+		"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMCanonicalXMLC14NMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMCanonicalXMLC14NMethod));
+	});
 	return class$;
 }
 

@@ -40,6 +40,7 @@ class $import SocketTube$SocketFlowTask : public ::jdk::internal::net::http::com
 	$class(SocketTube$SocketFlowTask, 0, ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask)
 public:
 	SocketTube$SocketFlowTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Runnable* task);
 	virtual void run(::jdk::internal::net::http::common::SequentialScheduler$DeferredCompleter* taskCompleter) override;
 	static bool $assertionsDisabled;

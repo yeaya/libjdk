@@ -1,5 +1,4 @@
 #include <DummySecureWebSocketServer$WebSocketChannel.h>
-
 #include <DummySecureWebSocketServer$WebSocketChannel$Closer.h>
 #include <DummySecureWebSocketServer$WebSocketChannel$Config.h>
 #include <DummySecureWebSocketServer$WebSocketChannel$Reader.h>
@@ -44,33 +43,29 @@ public:
 	virtual int32_t read($ByteBuffer* bb) override {
 		 return DummySecureWebSocketServer$WebSocketChannel::lambda$of$0(s, bb);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0>());
-	}
 	$Socket* s = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0::fieldInfos[2] = {
-	{"s", "Ljava/net/Socket;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, s)},
-	{}
-};
-$MethodInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0::methodInfos[3] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, init$, void, $Socket*)},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, read, int32_t, $ByteBuffer*)},
-	{}
-};
-$ClassInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0",
-	"java.lang.Object",
-	"DummySecureWebSocketServer$WebSocketChannel$Reader",
-	fieldInfos,
-	methodInfos
 };
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0::load$($String* name, bool initialize) {
-	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/net/Socket;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, init$, void, $Socket*)},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, read, int32_t, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0",
+		"java.lang.Object",
+		"DummySecureWebSocketServer$WebSocketChannel$Reader",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0);
+	});
 	return class$;
 }
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0::class$ = nullptr;
@@ -84,33 +79,29 @@ public:
 	virtual void write($ByteBuffer* bb) override {
 		DummySecureWebSocketServer$WebSocketChannel::lambda$of$1(s, bb);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1>());
-	}
 	$Socket* s = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1::fieldInfos[2] = {
-	{"s", "Ljava/net/Socket;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, s)},
-	{}
-};
-$MethodInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, init$, void, $Socket*)},
-	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, write, void, $ByteBuffer*)},
-	{}
-};
-$ClassInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1",
-	"java.lang.Object",
-	"DummySecureWebSocketServer$WebSocketChannel$Writer",
-	fieldInfos,
-	methodInfos
 };
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1::load$($String* name, bool initialize) {
-	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/net/Socket;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, init$, void, $Socket*)},
+		{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, write, void, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1",
+		"java.lang.Object",
+		"DummySecureWebSocketServer$WebSocketChannel$Writer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1);
+	});
 	return class$;
 }
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1::class$ = nullptr;
@@ -124,33 +115,29 @@ public:
 	virtual void setOption($SocketOption* arg0, Object$* arg1) override {
 		$nc(inst$)->setOption(arg0, arg1);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2>());
-	}
 	$Socket* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, inst$)},
-	{}
-};
-$MethodInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2::methodInfos[3] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, init$, void, $Socket*)},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, setOption, void, $SocketOption*, Object$*)},
-	{}
-};
-$ClassInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2",
-	"java.lang.Object",
-	"DummySecureWebSocketServer$WebSocketChannel$Config",
-	fieldInfos,
-	methodInfos
 };
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2::load$($String* name, bool initialize) {
-	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, init$, void, $Socket*)},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, setOption, void, $SocketOption*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2",
+		"java.lang.Object",
+		"DummySecureWebSocketServer$WebSocketChannel$Config",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2);
+	});
 	return class$;
 }
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2::class$ = nullptr;
@@ -164,87 +151,32 @@ public:
 	virtual void close() override {
 		$nc(inst$)->close();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3>());
-	}
 	$Socket* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, inst$)},
-	{}
-};
-$MethodInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3::methodInfos[3] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, init$, void, $Socket*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, close, void)},
-	{}
-};
-$ClassInfo DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3",
-	"java.lang.Object",
-	"DummySecureWebSocketServer$WebSocketChannel$Closer",
-	fieldInfos,
-	methodInfos
 };
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3::load$($String* name, bool initialize) {
-	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, init$, void, $Socket*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, close, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3",
+		"java.lang.Object",
+		"DummySecureWebSocketServer$WebSocketChannel$Closer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3);
+	});
 	return class$;
 }
 $Class* DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3::class$ = nullptr;
-
-$FieldInfo _DummySecureWebSocketServer$WebSocketChannel_FieldInfo_[] = {
-	{"channel", "Ljava/lang/AutoCloseable;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, channel)},
-	{"reader", "LDummySecureWebSocketServer$WebSocketChannel$Reader;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, reader)},
-	{"writer", "LDummySecureWebSocketServer$WebSocketChannel$Writer;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, writer)},
-	{"config", "LDummySecureWebSocketServer$WebSocketChannel$Config;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, config)},
-	{"closer", "LDummySecureWebSocketServer$WebSocketChannel$Closer;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, closer)},
-	{}
-};
-
-$MethodInfo _DummySecureWebSocketServer$WebSocketChannel_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/AutoCloseable;LDummySecureWebSocketServer$WebSocketChannel$Reader;LDummySecureWebSocketServer$WebSocketChannel$Writer;LDummySecureWebSocketServer$WebSocketChannel$Config;LDummySecureWebSocketServer$WebSocketChannel$Closer;)V", nullptr, 0, $method(DummySecureWebSocketServer$WebSocketChannel, init$, void, $AutoCloseable*, $DummySecureWebSocketServer$WebSocketChannel$Reader*, $DummySecureWebSocketServer$WebSocketChannel$Writer*, $DummySecureWebSocketServer$WebSocketChannel$Config*, $DummySecureWebSocketServer$WebSocketChannel$Closer*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, close, void), "java.io.IOException"},
-	{"lambda$of$0", "(Ljava/net/Socket;Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DummySecureWebSocketServer$WebSocketChannel, lambda$of$0, int32_t, $Socket*, $ByteBuffer*), "java.io.IOException"},
-	{"lambda$of$1", "(Ljava/net/Socket;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DummySecureWebSocketServer$WebSocketChannel, lambda$of$1, void, $Socket*, $ByteBuffer*), "java.io.IOException"},
-	{"of", "(Ljava/net/Socket;)LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(DummySecureWebSocketServer$WebSocketChannel, of, DummySecureWebSocketServer$WebSocketChannel*, $Socket*)},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, toString, $String*)},
-	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, write, void, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DummySecureWebSocketServer$WebSocketChannel_InnerClassesInfo_[] = {
-	{"DummySecureWebSocketServer$WebSocketChannel", "DummySecureWebSocketServer", "WebSocketChannel", $PUBLIC | $STATIC},
-	{"DummySecureWebSocketServer$WebSocketChannel$Closer", "DummySecureWebSocketServer$WebSocketChannel", "Closer", $STATIC | $INTERFACE | $ABSTRACT},
-	{"DummySecureWebSocketServer$WebSocketChannel$Config", "DummySecureWebSocketServer$WebSocketChannel", "Config", $STATIC | $INTERFACE | $ABSTRACT},
-	{"DummySecureWebSocketServer$WebSocketChannel$Writer", "DummySecureWebSocketServer$WebSocketChannel", "Writer", $STATIC | $INTERFACE | $ABSTRACT},
-	{"DummySecureWebSocketServer$WebSocketChannel$Reader", "DummySecureWebSocketServer$WebSocketChannel", "Reader", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DummySecureWebSocketServer$WebSocketChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DummySecureWebSocketServer$WebSocketChannel",
-	"java.lang.Object",
-	"java.lang.AutoCloseable",
-	_DummySecureWebSocketServer$WebSocketChannel_FieldInfo_,
-	_DummySecureWebSocketServer$WebSocketChannel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DummySecureWebSocketServer$WebSocketChannel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DummySecureWebSocketServer"
-};
-
-$Object* allocate$DummySecureWebSocketServer$WebSocketChannel($Class* clazz) {
-	return $of($alloc(DummySecureWebSocketServer$WebSocketChannel));
-}
 
 void DummySecureWebSocketServer$WebSocketChannel::init$($AutoCloseable* channel, $DummySecureWebSocketServer$WebSocketChannel$Reader* reader, $DummySecureWebSocketServer$WebSocketChannel$Writer* writer, $DummySecureWebSocketServer$WebSocketChannel$Config* config, $DummySecureWebSocketServer$WebSocketChannel$Closer* closer) {
 	$set(this, channel, channel);
@@ -259,7 +191,7 @@ void DummySecureWebSocketServer$WebSocketChannel::close() {
 }
 
 $String* DummySecureWebSocketServer$WebSocketChannel::toString() {
-	return $nc($of(this->channel))->toString();
+	return $nc(this->channel)->toString();
 }
 
 int32_t DummySecureWebSocketServer$WebSocketChannel::read($ByteBuffer* bb) {
@@ -276,14 +208,11 @@ void DummySecureWebSocketServer$WebSocketChannel::setOption($SocketOption* optio
 
 DummySecureWebSocketServer$WebSocketChannel* DummySecureWebSocketServer$WebSocketChannel::of($Socket* s) {
 	$init(DummySecureWebSocketServer$WebSocketChannel);
-	$useLocalCurrentObjectStackCache();
-	$var($DummySecureWebSocketServer$WebSocketChannel$Reader, reader, static_cast<$DummySecureWebSocketServer$WebSocketChannel$Reader*>($new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, s)));
-	$var($DummySecureWebSocketServer$WebSocketChannel$Writer, writer, static_cast<$DummySecureWebSocketServer$WebSocketChannel$Writer*>($new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, s)));
-	$var($AutoCloseable, var$0, static_cast<$AutoCloseable*>(s));
-	$var($DummySecureWebSocketServer$WebSocketChannel$Reader, var$1, reader);
-	$var($DummySecureWebSocketServer$WebSocketChannel$Writer, var$2, writer);
-	$var($DummySecureWebSocketServer$WebSocketChannel$Config, var$3, static_cast<$DummySecureWebSocketServer$WebSocketChannel$Config*>($new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, static_cast<$Socket*>($nc(s)))));
-	return $new(DummySecureWebSocketServer$WebSocketChannel, var$0, var$1, var$2, var$3, static_cast<$DummySecureWebSocketServer$WebSocketChannel$Closer*>($$new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, static_cast<$Socket*>($nc(s)))));
+	$useLocalObjectStack();
+	$var($DummySecureWebSocketServer$WebSocketChannel$Reader, reader, $new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0, s));
+	$var($DummySecureWebSocketServer$WebSocketChannel$Writer, writer, $new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1, s));
+	$var($DummySecureWebSocketServer$WebSocketChannel$Config, var$0, $new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, $nc(s)));
+	return $new(DummySecureWebSocketServer$WebSocketChannel, s, reader, writer, var$0, $$new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, s));
 }
 
 void DummySecureWebSocketServer$WebSocketChannel::lambda$of$1($Socket* s, $ByteBuffer* bb) {
@@ -301,20 +230,65 @@ DummySecureWebSocketServer$WebSocketChannel::DummySecureWebSocketServer$WebSocke
 
 $Class* DummySecureWebSocketServer$WebSocketChannel::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0::classInfo$.name)) {
+		if (name->equals("DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0")) {
 			return DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$0::load$(name, initialize);
 		}
-		if (name->equals(DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1::classInfo$.name)) {
+		if (name->equals("DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1")) {
 			return DummySecureWebSocketServer$WebSocketChannel$$Lambda$lambda$of$1$1::load$(name, initialize);
 		}
-		if (name->equals(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2::classInfo$.name)) {
+		if (name->equals("DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2")) {
 			return DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2::load$(name, initialize);
 		}
-		if (name->equals(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3::classInfo$.name)) {
+		if (name->equals("DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3")) {
 			return DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3::load$(name, initialize);
 		}
 	}
-	$loadClass(DummySecureWebSocketServer$WebSocketChannel, name, initialize, &_DummySecureWebSocketServer$WebSocketChannel_ClassInfo_, allocate$DummySecureWebSocketServer$WebSocketChannel);
+	$FieldInfo fieldInfos$$[] = {
+		{"channel", "Ljava/lang/AutoCloseable;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, channel)},
+		{"reader", "LDummySecureWebSocketServer$WebSocketChannel$Reader;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, reader)},
+		{"writer", "LDummySecureWebSocketServer$WebSocketChannel$Writer;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, writer)},
+		{"config", "LDummySecureWebSocketServer$WebSocketChannel$Config;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, config)},
+		{"closer", "LDummySecureWebSocketServer$WebSocketChannel$Closer;", nullptr, $FINAL, $field(DummySecureWebSocketServer$WebSocketChannel, closer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/AutoCloseable;LDummySecureWebSocketServer$WebSocketChannel$Reader;LDummySecureWebSocketServer$WebSocketChannel$Writer;LDummySecureWebSocketServer$WebSocketChannel$Config;LDummySecureWebSocketServer$WebSocketChannel$Closer;)V", nullptr, 0, $method(DummySecureWebSocketServer$WebSocketChannel, init$, void, $AutoCloseable*, $DummySecureWebSocketServer$WebSocketChannel$Reader*, $DummySecureWebSocketServer$WebSocketChannel$Writer*, $DummySecureWebSocketServer$WebSocketChannel$Config*, $DummySecureWebSocketServer$WebSocketChannel$Closer*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, close, void), "java.io.IOException"},
+		{"lambda$of$0", "(Ljava/net/Socket;Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DummySecureWebSocketServer$WebSocketChannel, lambda$of$0, int32_t, $Socket*, $ByteBuffer*), "java.io.IOException"},
+		{"lambda$of$1", "(Ljava/net/Socket;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DummySecureWebSocketServer$WebSocketChannel, lambda$of$1, void, $Socket*, $ByteBuffer*), "java.io.IOException"},
+		{"of", "(Ljava/net/Socket;)LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(DummySecureWebSocketServer$WebSocketChannel, of, DummySecureWebSocketServer$WebSocketChannel*, $Socket*)},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, toString, $String*)},
+		{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel, write, void, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DummySecureWebSocketServer$WebSocketChannel", "DummySecureWebSocketServer", "WebSocketChannel", $PUBLIC | $STATIC},
+		{"DummySecureWebSocketServer$WebSocketChannel$Closer", "DummySecureWebSocketServer$WebSocketChannel", "Closer", $STATIC | $INTERFACE | $ABSTRACT},
+		{"DummySecureWebSocketServer$WebSocketChannel$Config", "DummySecureWebSocketServer$WebSocketChannel", "Config", $STATIC | $INTERFACE | $ABSTRACT},
+		{"DummySecureWebSocketServer$WebSocketChannel$Writer", "DummySecureWebSocketServer$WebSocketChannel", "Writer", $STATIC | $INTERFACE | $ABSTRACT},
+		{"DummySecureWebSocketServer$WebSocketChannel$Reader", "DummySecureWebSocketServer$WebSocketChannel", "Reader", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DummySecureWebSocketServer$WebSocketChannel",
+		"java.lang.Object",
+		"java.lang.AutoCloseable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DummySecureWebSocketServer"
+	};
+	$loadClass(DummySecureWebSocketServer$WebSocketChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummySecureWebSocketServer$WebSocketChannel);
+	});
 	return class$;
 }
 

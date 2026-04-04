@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltCommon.h>
-
 #include <com/sun/org/apache/xalan/internal/extensions/ExpressionContext.h>
 #include <com/sun/org/apache/xalan/internal/lib/Extensions.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
@@ -28,26 +27,6 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$MethodInfo _ExsltCommon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltCommon, init$, void)},
-	{"nodeSet", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/NodeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltCommon, nodeSet, $NodeSet*, $ExpressionContext*, Object$*)},
-	{"objectType", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltCommon, objectType, $String*, Object$*)},
-	{}
-};
-
-$ClassInfo _ExsltCommon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.lib.ExsltCommon",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ExsltCommon_MethodInfo_
-};
-
-$Object* allocate$ExsltCommon($Class* clazz) {
-	return $of($alloc(ExsltCommon));
-}
-
 void ExsltCommon::init$() {
 }
 
@@ -59,7 +38,7 @@ $String* ExsltCommon::objectType(Object$* obj) {
 	} else if ($instanceOf($Number, obj)) {
 		return "number"_s;
 	} else if ($instanceOf($DTMNodeIterator, obj)) {
-		$var($DTMIterator, dtmI, $nc(($cast($DTMNodeIterator, obj)))->getDTMIterator());
+		$var($DTMIterator, dtmI, $cast($DTMNodeIterator, obj)->getDTMIterator());
 		if ($instanceOf($RTFIterator, dtmI)) {
 			return "RTF"_s;
 		} else {
@@ -78,7 +57,23 @@ ExsltCommon::ExsltCommon() {
 }
 
 $Class* ExsltCommon::load$($String* name, bool initialize) {
-	$loadClass(ExsltCommon, name, initialize, &_ExsltCommon_ClassInfo_, allocate$ExsltCommon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltCommon, init$, void)},
+		{"nodeSet", "(Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/NodeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltCommon, nodeSet, $NodeSet*, $ExpressionContext*, Object$*)},
+		{"objectType", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltCommon, objectType, $String*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.lib.ExsltCommon",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExsltCommon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExsltCommon);
+	});
 	return class$;
 }
 

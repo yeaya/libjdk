@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWContainerPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -73,86 +72,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWContainerPeer_FieldInfo_[] = {
-	{"childPeers", "Ljava/util/List;", "Ljava/util/List<Lsun/lwawt/LWComponentPeer<**>;>;", $PRIVATE | $FINAL, $field(LWContainerPeer, childPeers)},
-	{}
-};
-
-$MethodInfo _LWContainerPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Container;Lsun/lwawt/PlatformComponent;)V", "(TT;Lsun/lwawt/PlatformComponent;)V", 0, $method(LWContainerPeer, init$, void, $Container*, $PlatformComponent*)},
-	{"addChildPeer", "(Lsun/lwawt/LWComponentPeer;)V", "(Lsun/lwawt/LWComponentPeer<**>;)V", $FINAL, $method(LWContainerPeer, addChildPeer, void, $LWComponentPeer*)},
-	{"beginLayout", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, beginLayout, void)},
-	{"beginValidate", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, beginValidate, void)},
-	{"cutChildren", "(Lsun/java2d/pipe/Region;Lsun/lwawt/LWComponentPeer;)Lsun/java2d/pipe/Region;", "(Lsun/java2d/pipe/Region;Lsun/lwawt/LWComponentPeer<**>;)Lsun/java2d/pipe/Region;", $FINAL, $method(LWContainerPeer, cutChildren, $Region*, $Region*, $LWComponentPeer*)},
-	{"endLayout", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, endLayout, void)},
-	{"endValidate", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, endValidate, void)},
-	{"findPeerAt", "(II)Lsun/lwawt/LWComponentPeer;", "(II)Lsun/lwawt/LWComponentPeer<**>;", $FINAL, $virtualMethod(LWContainerPeer, findPeerAt, $LWComponentPeer*, int32_t, int32_t)},
-	{"getChildren", "()Ljava/util/List;", "()Ljava/util/List<Lsun/lwawt/LWComponentPeer<**>;>;", $FINAL, $method(LWContainerPeer, getChildren, $List*)},
-	{"getContentSize", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(LWContainerPeer, getContentSize, $Rectangle*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, getInsets, $Insets*)},
-	{"getVisibleRegion", "()Lsun/java2d/pipe/Region;", nullptr, $FINAL, $virtualMethod(LWContainerPeer, getVisibleRegion, $Region*)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, paint, void, $Graphics*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, print, void, $Graphics*)},
-	{"removeChildPeer", "(Lsun/lwawt/LWComponentPeer;)V", "(Lsun/lwawt/LWComponentPeer<**>;)V", $FINAL, $method(LWContainerPeer, removeChildPeer, void, $LWComponentPeer*)},
-	{"repaintChildren", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(LWContainerPeer, repaintChildren, void, $Rectangle*)},
-	{"repaintPeer", "(Ljava/awt/Rectangle;)V", nullptr, $FINAL, $virtualMethod(LWContainerPeer, repaintPeer, void, $Rectangle*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setBackground, void, $Color*)},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setChildPeerZOrder", "(Lsun/lwawt/LWComponentPeer;Lsun/lwawt/LWComponentPeer;)V", "(Lsun/lwawt/LWComponentPeer<**>;Lsun/lwawt/LWComponentPeer<**>;)V", $FINAL, $method(LWContainerPeer, setChildPeerZOrder, void, $LWComponentPeer*, $LWComponentPeer*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setForeground, void, $Color*)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LWContainerPeer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.lwawt.LWContainerPeer",
-	"sun.lwawt.LWCanvasPeer",
-	"java.awt.peer.ContainerPeer",
-	_LWContainerPeer_FieldInfo_,
-	_LWContainerPeer_MethodInfo_,
-	"<T:Ljava/awt/Container;D:Ljavax/swing/JComponent;>Lsun/lwawt/LWCanvasPeer<TT;TD;>;Ljava/awt/peer/ContainerPeer;"
-};
-
-$Object* allocate$LWContainerPeer($Class* clazz) {
-	return $of($alloc(LWContainerPeer));
-}
 
 $Dimension* LWContainerPeer::getPreferredSize() {
 	 return this->$LWCanvasPeer::getPreferredSize();
@@ -301,22 +220,22 @@ void LWContainerPeer::init$($Container* target, $PlatformComponent* platformComp
 
 void LWContainerPeer::addChildPeer($LWComponentPeer* child) {
 	$synchronized(getPeerTreeLock()) {
-		$nc(this->childPeers)->add($nc(this->childPeers)->size(), child);
+		this->childPeers->add(this->childPeers->size(), child);
 	}
 }
 
 void LWContainerPeer::removeChildPeer($LWComponentPeer* child) {
 	$synchronized(getPeerTreeLock()) {
-		$nc(this->childPeers)->remove($of(child));
+		this->childPeers->remove(child);
 	}
 }
 
 void LWContainerPeer::setChildPeerZOrder($LWComponentPeer* peer, $LWComponentPeer* above) {
 	$synchronized(getPeerTreeLock()) {
-		$nc(this->childPeers)->remove($of(peer));
-		int32_t index = (above != nullptr) ? $nc(this->childPeers)->indexOf(above) : $nc(this->childPeers)->size();
+		this->childPeers->remove(peer);
+		int32_t index = (above != nullptr) ? this->childPeers->indexOf(above) : this->childPeers->size();
 		if (index >= 0) {
-			$nc(this->childPeers)->add(index, peer);
+			this->childPeers->add(index, peer);
 		} else {
 		}
 	}
@@ -343,7 +262,7 @@ void LWContainerPeer::endLayout() {
 
 $List* LWContainerPeer::getChildren() {
 	$synchronized(getPeerTreeLock()) {
-		$var($Object, copy, $nc(($cast($LinkedList, this->childPeers)))->clone());
+		$var($Object, copy, $cast($LinkedList, this->childPeers)->clone());
 		return $cast($List, copy);
 	}
 }
@@ -353,11 +272,11 @@ $Region* LWContainerPeer::getVisibleRegion() {
 }
 
 $Region* LWContainerPeer::cutChildren($Region* r$renamed, $LWComponentPeer* above) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, r, r$renamed);
 	bool aboveFound = above == nullptr;
 	{
-		$var($Iterator, i$, $nc($(getChildren()))->iterator());
+		$var($Iterator, i$, $$nc(getChildren())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($LWComponentPeer, child, $cast($LWComponentPeer, i$->next()));
 			{
@@ -369,7 +288,7 @@ $Region* LWContainerPeer::cutChildren($Region* r$renamed, $LWComponentPeer* abov
 					if ($nc(child)->isVisible()) {
 						$var($Rectangle, cb, child->getBounds());
 						$var($Region, cr, child->getRegion());
-						$var($Region, tr, $nc(cr)->getTranslatedRegion($nc(cb)->x, cb->y));
+						$var($Region, tr, $nc(cr)->getTranslatedRegion($nc(cb)->x, $nc(cb)->y));
 						$assign(r, $nc(r)->getDifference($($nc(tr)->getIntersection($(getContentSize())))));
 					}
 				}
@@ -380,15 +299,15 @@ $Region* LWContainerPeer::cutChildren($Region* r$renamed, $LWComponentPeer* abov
 }
 
 $LWComponentPeer* LWContainerPeer::findPeerAt(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LWComponentPeer, peer, $LWCanvasPeer::findPeerAt(x, y));
 	$var($Rectangle, r, getBounds());
 	x -= $nc(r)->x;
 	y -= r->y;
-	if (peer != nullptr && $nc($(getContentSize()))->contains(x, y)) {
+	if (peer != nullptr && $$nc(getContentSize())->contains(x, y)) {
 		$synchronized(getPeerTreeLock()) {
-			for (int32_t i = $nc(this->childPeers)->size() - 1; i >= 0; --i) {
-				$var($LWComponentPeer, p, $nc(($cast($LWComponentPeer, $($nc(this->childPeers)->get(i)))))->findPeerAt(x, y));
+			for (int32_t i = this->childPeers->size() - 1; i >= 0; --i) {
+				$var($LWComponentPeer, p, $$sure($LWComponentPeer, this->childPeers->get(i))->findPeerAt(x, y));
 				if (p != nullptr) {
 					$assign(peer, p);
 					break;
@@ -400,8 +319,8 @@ $LWComponentPeer* LWContainerPeer::findPeerAt(int32_t x, int32_t y) {
 }
 
 void LWContainerPeer::repaintPeer($Rectangle* r) {
-	$useLocalCurrentObjectStackCache();
-	$var($Rectangle, toPaint, $nc($(getSize()))->intersection(r));
+	$useLocalObjectStack();
+	$var($Rectangle, toPaint, $$nc(getSize())->intersection(r));
 	bool var$0 = !isShowing();
 	if (var$0 || $nc(toPaint)->isEmpty()) {
 		return;
@@ -411,17 +330,17 @@ void LWContainerPeer::repaintPeer($Rectangle* r) {
 }
 
 void LWContainerPeer::repaintChildren($Rectangle* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, content, getContentSize());
 	{
-		$var($Iterator, i$, $nc($(getChildren()))->iterator());
+		$var($Iterator, i$, $$nc(getChildren())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($LWComponentPeer, child, $cast($LWComponentPeer, i$->next()));
 			{
 				$var($Rectangle, childBounds, $nc(child)->getBounds());
 				$var($Rectangle, toPaint, $nc(r)->intersection(childBounds));
 				$assign(toPaint, $nc(toPaint)->intersection(content));
-				toPaint->translate(-$nc(childBounds)->x, -childBounds->y);
+				$nc(toPaint)->translate(-$nc(childBounds)->x, -$nc(childBounds)->y);
 				child->repaintPeer(toPaint);
 			}
 		}
@@ -433,29 +352,27 @@ $Rectangle* LWContainerPeer::getContentSize() {
 }
 
 void LWContainerPeer::setEnabled(bool e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWCanvasPeer::setEnabled(e);
 	{
-		$var($Iterator, i$, $nc($(getChildren()))->iterator());
+		$var($Iterator, i$, $$nc(getChildren())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($LWComponentPeer, child, $cast($LWComponentPeer, i$->next()));
 			{
-				$nc(child)->setEnabled(e && $nc($(child->getTarget()))->isEnabled());
+				$nc(child)->setEnabled(e && $$nc($nc(child)->getTarget())->isEnabled());
 			}
 		}
 	}
 }
 
 void LWContainerPeer::setBackground($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($(getChildren()))->iterator());
+		$var($Iterator, i$, $$nc(getChildren())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($LWComponentPeer, child, $cast($LWComponentPeer, i$->next()));
-			{
-				if (!$nc($($nc(child)->getTarget()))->isBackgroundSet()) {
-					child->setBackground(c);
-				}
+			if (!$$nc($nc(child)->getTarget())->isBackgroundSet()) {
+				child->setBackground(c);
 			}
 		}
 	}
@@ -463,15 +380,13 @@ void LWContainerPeer::setBackground($Color* c) {
 }
 
 void LWContainerPeer::setForeground($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($(getChildren()))->iterator());
+		$var($Iterator, i$, $$nc(getChildren())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($LWComponentPeer, child, $cast($LWComponentPeer, i$->next()));
-			{
-				if (!$nc($($nc(child)->getTarget()))->isForegroundSet()) {
-					child->setForeground(c);
-				}
+			if (!$$nc($nc(child)->getTarget())->isForegroundSet()) {
+				child->setForeground(c);
 			}
 		}
 	}
@@ -479,15 +394,13 @@ void LWContainerPeer::setForeground($Color* c) {
 }
 
 void LWContainerPeer::setFont($Font* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($(getChildren()))->iterator());
+		$var($Iterator, i$, $$nc(getChildren())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($LWComponentPeer, child, $cast($LWComponentPeer, i$->next()));
-			{
-				if (!$nc($($nc(child)->getTarget()))->isFontSet()) {
-					child->setFont(f);
-				}
+			if (!$$nc($nc(child)->getTarget())->isFontSet()) {
+				child->setFont(f);
 			}
 		}
 	}
@@ -495,22 +408,97 @@ void LWContainerPeer::setFont($Font* f) {
 }
 
 void LWContainerPeer::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWCanvasPeer::paint(g);
-	$nc($($SunGraphicsCallback$PaintHeavyweightComponentsCallback::getInstance()))->runComponents($($nc(($cast($Container, $(getTarget()))))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
+	$$nc($SunGraphicsCallback$PaintHeavyweightComponentsCallback::getInstance())->runComponents($($$sure($Container, getTarget())->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
 }
 
 void LWContainerPeer::print($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWCanvasPeer::print(g);
-	$nc($($SunGraphicsCallback$PrintHeavyweightComponentsCallback::getInstance()))->runComponents($($nc(($cast($Container, $(getTarget()))))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
+	$$nc($SunGraphicsCallback$PrintHeavyweightComponentsCallback::getInstance())->runComponents($($$sure($Container, getTarget())->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
 }
 
 LWContainerPeer::LWContainerPeer() {
 }
 
 $Class* LWContainerPeer::load$($String* name, bool initialize) {
-	$loadClass(LWContainerPeer, name, initialize, &_LWContainerPeer_ClassInfo_, allocate$LWContainerPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"childPeers", "Ljava/util/List;", "Ljava/util/List<Lsun/lwawt/LWComponentPeer<**>;>;", $PRIVATE | $FINAL, $field(LWContainerPeer, childPeers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Container;Lsun/lwawt/PlatformComponent;)V", "(TT;Lsun/lwawt/PlatformComponent;)V", 0, $method(LWContainerPeer, init$, void, $Container*, $PlatformComponent*)},
+		{"addChildPeer", "(Lsun/lwawt/LWComponentPeer;)V", "(Lsun/lwawt/LWComponentPeer<**>;)V", $FINAL, $method(LWContainerPeer, addChildPeer, void, $LWComponentPeer*)},
+		{"beginLayout", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, beginLayout, void)},
+		{"beginValidate", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, beginValidate, void)},
+		{"cutChildren", "(Lsun/java2d/pipe/Region;Lsun/lwawt/LWComponentPeer;)Lsun/java2d/pipe/Region;", "(Lsun/java2d/pipe/Region;Lsun/lwawt/LWComponentPeer<**>;)Lsun/java2d/pipe/Region;", $FINAL, $method(LWContainerPeer, cutChildren, $Region*, $Region*, $LWComponentPeer*)},
+		{"endLayout", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, endLayout, void)},
+		{"endValidate", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, endValidate, void)},
+		{"findPeerAt", "(II)Lsun/lwawt/LWComponentPeer;", "(II)Lsun/lwawt/LWComponentPeer<**>;", $FINAL, $virtualMethod(LWContainerPeer, findPeerAt, $LWComponentPeer*, int32_t, int32_t)},
+		{"getChildren", "()Ljava/util/List;", "()Ljava/util/List<Lsun/lwawt/LWComponentPeer<**>;>;", $FINAL, $method(LWContainerPeer, getChildren, $List*)},
+		{"getContentSize", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(LWContainerPeer, getContentSize, $Rectangle*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, getInsets, $Insets*)},
+		{"getVisibleRegion", "()Lsun/java2d/pipe/Region;", nullptr, $FINAL, $virtualMethod(LWContainerPeer, getVisibleRegion, $Region*)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, paint, void, $Graphics*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LWContainerPeer, print, void, $Graphics*)},
+		{"removeChildPeer", "(Lsun/lwawt/LWComponentPeer;)V", "(Lsun/lwawt/LWComponentPeer<**>;)V", $FINAL, $method(LWContainerPeer, removeChildPeer, void, $LWComponentPeer*)},
+		{"repaintChildren", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(LWContainerPeer, repaintChildren, void, $Rectangle*)},
+		{"repaintPeer", "(Ljava/awt/Rectangle;)V", nullptr, $FINAL, $virtualMethod(LWContainerPeer, repaintPeer, void, $Rectangle*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setBackground, void, $Color*)},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setChildPeerZOrder", "(Lsun/lwawt/LWComponentPeer;Lsun/lwawt/LWComponentPeer;)V", "(Lsun/lwawt/LWComponentPeer<**>;Lsun/lwawt/LWComponentPeer<**>;)V", $FINAL, $method(LWContainerPeer, setChildPeerZOrder, void, $LWComponentPeer*, $LWComponentPeer*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(LWContainerPeer, setForeground, void, $Color*)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.lwawt.LWContainerPeer",
+		"sun.lwawt.LWCanvasPeer",
+		"java.awt.peer.ContainerPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/awt/Container;D:Ljavax/swing/JComponent;>Lsun/lwawt/LWCanvasPeer<TT;TD;>;Ljava/awt/peer/ContainerPeer;"
+	};
+	$loadClass(LWContainerPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWContainerPeer));
+	});
 	return class$;
 }
 

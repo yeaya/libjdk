@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMLeaf.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLContentSpec.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMNode.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet.h>
@@ -26,43 +25,11 @@ namespace com {
 							namespace dtd {
 								namespace models {
 
-$FieldInfo _CMLeaf_FieldInfo_[] = {
-	{"fElement", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(CMLeaf, fElement)},
-	{"fPosition", "I", nullptr, $PRIVATE, $field(CMLeaf, fPosition)},
-	{}
-};
-
-$MethodInfo _CMLeaf_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/QName;I)V", nullptr, $PUBLIC, $method(CMLeaf, init$, void, $QName*, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $method(CMLeaf, init$, void, $QName*)},
-	{"calcFirstPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMLeaf, calcFirstPos, void, $CMStateSet*)},
-	{"calcLastPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMLeaf, calcLastPos, void, $CMStateSet*)},
-	{"getElement", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $FINAL, $method(CMLeaf, getElement, $QName*)},
-	{"getPosition", "()I", nullptr, $FINAL, $method(CMLeaf, getPosition, int32_t)},
-	{"isNullable", "()Z", nullptr, $PUBLIC, $virtualMethod(CMLeaf, isNullable, bool)},
-	{"setPosition", "(I)V", nullptr, $FINAL, $method(CMLeaf, setPosition, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CMLeaf, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CMLeaf_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.CMLeaf",
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.CMNode",
-	nullptr,
-	_CMLeaf_FieldInfo_,
-	_CMLeaf_MethodInfo_
-};
-
-$Object* allocate$CMLeaf($Class* clazz) {
-	return $of($alloc(CMLeaf));
-}
-
 void CMLeaf::init$($QName* element, int32_t position) {
 	$CMNode::init$($XMLContentSpec::CONTENTSPECNODE_LEAF);
 	$set(this, fElement, $new($QName));
 	this->fPosition = -1;
-	$nc(this->fElement)->setValues(element);
+	this->fElement->setValues(element);
 	this->fPosition = position;
 }
 
@@ -70,7 +37,7 @@ void CMLeaf::init$($QName* element) {
 	$CMNode::init$($XMLContentSpec::CONTENTSPECNODE_LEAF);
 	$set(this, fElement, $new($QName));
 	this->fPosition = -1;
-	$nc(this->fElement)->setValues(element);
+	this->fElement->setValues(element);
 }
 
 $QName* CMLeaf::getElement() {
@@ -90,12 +57,12 @@ bool CMLeaf::isNullable() {
 }
 
 $String* CMLeaf::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, strRet, $new($StringBuilder, $($nc(this->fElement)->toString())));
 	strRet->append(" ("_s);
 	strRet->append($nc(this->fElement)->uri);
 	strRet->append(u',');
-	strRet->append($nc(this->fElement)->localpart);
+	strRet->append(this->fElement->localpart);
 	strRet->append(u')');
 	if (this->fPosition >= 0) {
 		strRet->append($$str({" (Pos:"_s, $$str(this->fPosition), ")"_s}));
@@ -123,7 +90,34 @@ CMLeaf::CMLeaf() {
 }
 
 $Class* CMLeaf::load$($String* name, bool initialize) {
-	$loadClass(CMLeaf, name, initialize, &_CMLeaf_ClassInfo_, allocate$CMLeaf);
+	$FieldInfo fieldInfos$$[] = {
+		{"fElement", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(CMLeaf, fElement)},
+		{"fPosition", "I", nullptr, $PRIVATE, $field(CMLeaf, fPosition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/QName;I)V", nullptr, $PUBLIC, $method(CMLeaf, init$, void, $QName*, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, $PUBLIC, $method(CMLeaf, init$, void, $QName*)},
+		{"calcFirstPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMLeaf, calcFirstPos, void, $CMStateSet*)},
+		{"calcLastPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMLeaf, calcLastPos, void, $CMStateSet*)},
+		{"getElement", "()Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $FINAL, $method(CMLeaf, getElement, $QName*)},
+		{"getPosition", "()I", nullptr, $FINAL, $method(CMLeaf, getPosition, int32_t)},
+		{"isNullable", "()Z", nullptr, $PUBLIC, $virtualMethod(CMLeaf, isNullable, bool)},
+		{"setPosition", "(I)V", nullptr, $FINAL, $method(CMLeaf, setPosition, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CMLeaf, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.CMLeaf",
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.CMNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMLeaf, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMLeaf);
+	});
 	return class$;
 }
 

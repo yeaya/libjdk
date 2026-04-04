@@ -52,6 +52,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* actionName);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	virtual void caretUpdate(::javax::swing::event::CaretEvent* e) override;

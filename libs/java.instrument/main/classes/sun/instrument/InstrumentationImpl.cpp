@@ -1,5 +1,4 @@
 #include <sun/instrument/InstrumentationImpl.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
@@ -19,7 +18,6 @@
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
@@ -61,7 +59,6 @@ using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
@@ -93,35 +90,31 @@ public:
 	virtual void accept(Object$* p) override {
 		InstrumentationImpl::lambda$redefineModule$0(module, service, $cast($Class, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InstrumentationImpl$$Lambda$lambda$redefineModule$0>());
-	}
 	$Module* module = nullptr;
 	$Class* service = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InstrumentationImpl$$Lambda$lambda$redefineModule$0::fieldInfos[3] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$0, module)},
-	{"service", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$0, service)},
-	{}
-};
-$MethodInfo InstrumentationImpl$$Lambda$lambda$redefineModule$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$0, init$, void, $Module*, $Class*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo InstrumentationImpl$$Lambda$lambda$redefineModule$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$0::load$($String* name, bool initialize) {
-	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$0, module)},
+		{"service", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$0, service)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$0, init$, void, $Module*, $Class*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationImpl$$Lambda$lambda$redefineModule$0);
+	});
 	return class$;
 }
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$0::class$ = nullptr;
@@ -135,33 +128,29 @@ public:
 	virtual void accept(Object$* m) override {
 		InstrumentationImpl::lambda$redefineModule$1(module, $cast($Module, m));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InstrumentationImpl$$Lambda$lambda$redefineModule$1$1>());
-	}
 	$Module* module = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InstrumentationImpl$$Lambda$lambda$redefineModule$1$1::fieldInfos[2] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, module)},
-	{}
-};
-$MethodInfo InstrumentationImpl$$Lambda$lambda$redefineModule$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, init$, void, $Module*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo InstrumentationImpl$$Lambda$lambda$redefineModule$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$1$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$1$1::load$($String* name, bool initialize) {
-	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, module)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, init$, void, $Module*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$1$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1);
+	});
 	return class$;
 }
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$1$1::class$ = nullptr;
@@ -176,35 +165,31 @@ public:
 	virtual void accept(Object$* m) override {
 		InstrumentationImpl::lambda$redefineModule$2(module, pkg, $cast($Module, m));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InstrumentationImpl$$Lambda$lambda$redefineModule$2$2>());
-	}
 	$Module* module = nullptr;
 	$String* pkg = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InstrumentationImpl$$Lambda$lambda$redefineModule$2$2::fieldInfos[3] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, module)},
-	{"pkg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, pkg)},
-	{}
-};
-$MethodInfo InstrumentationImpl$$Lambda$lambda$redefineModule$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, init$, void, $Module*, $String*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo InstrumentationImpl$$Lambda$lambda$redefineModule$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$2$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$2$2::load$($String* name, bool initialize) {
-	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, module)},
+		{"pkg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, pkg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, init$, void, $Module*, $String*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$2$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2);
+	});
 	return class$;
 }
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$2$2::class$ = nullptr;
@@ -219,35 +204,31 @@ public:
 	virtual void accept(Object$* m) override {
 		InstrumentationImpl::lambda$redefineModule$3(module, pkg, $cast($Module, m));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InstrumentationImpl$$Lambda$lambda$redefineModule$3$3>());
-	}
 	$Module* module = nullptr;
 	$String* pkg = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InstrumentationImpl$$Lambda$lambda$redefineModule$3$3::fieldInfos[3] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, module)},
-	{"pkg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, pkg)},
-	{}
-};
-$MethodInfo InstrumentationImpl$$Lambda$lambda$redefineModule$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, init$, void, $Module*, $String*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, accept, void, Object$*)},
-	{}
-};
-$ClassInfo InstrumentationImpl$$Lambda$lambda$redefineModule$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$3$3",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$3$3::load$($String* name, bool initialize) {
-	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, module)},
+		{"pkg", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, pkg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, init$, void, $Module*, $String*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$3$3",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3);
+	});
 	return class$;
 }
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$3$3::class$ = nullptr;
@@ -261,33 +242,29 @@ public:
 	virtual void accept(Object$* service) override {
 		InstrumentationImpl::lambda$redefineModule$4(module, $cast($Class, service));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InstrumentationImpl$$Lambda$lambda$redefineModule$4$4>());
-	}
 	$Module* module = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InstrumentationImpl$$Lambda$lambda$redefineModule$4$4::fieldInfos[2] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, module)},
-	{}
-};
-$MethodInfo InstrumentationImpl$$Lambda$lambda$redefineModule$4$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, init$, void, $Module*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, accept, void, Object$*)},
-	{}
-};
-$ClassInfo InstrumentationImpl$$Lambda$lambda$redefineModule$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$4$4",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$4$4::load$($String* name, bool initialize) {
-	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, module)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, init$, void, $Module*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$4$4",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4);
+	});
 	return class$;
 }
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$4$4::class$ = nullptr;
@@ -302,139 +279,34 @@ public:
 	virtual void accept(Object$* p) override {
 		InstrumentationImpl::lambda$redefineModule$5(module, service, $cast($Class, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InstrumentationImpl$$Lambda$lambda$redefineModule$5$5>());
-	}
 	$Module* module = nullptr;
 	$Class* service = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InstrumentationImpl$$Lambda$lambda$redefineModule$5$5::fieldInfos[3] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, module)},
-	{"service", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, service)},
-	{}
-};
-$MethodInfo InstrumentationImpl$$Lambda$lambda$redefineModule$5$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, init$, void, $Module*, $Class*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, accept, void, Object$*)},
-	{}
-};
-$ClassInfo InstrumentationImpl$$Lambda$lambda$redefineModule$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$5$5",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$5$5::load$($String* name, bool initialize) {
-	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, module)},
+		{"service", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, service)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, init$, void, $Module*, $Class*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$5$5",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5);
+	});
 	return class$;
 }
 $Class* InstrumentationImpl$$Lambda$lambda$redefineModule$5$5::class$ = nullptr;
-
-$CompoundAttribute _InstrumentationImpl_MethodAnnotations_getObjectSize013[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _InstrumentationImpl_FieldInfo_[] = {
-	{"mTransformerManager", "Lsun/instrument/TransformerManager;", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mTransformerManager)},
-	{"mRetransfomableTransformerManager", "Lsun/instrument/TransformerManager;", nullptr, $PRIVATE, $field(InstrumentationImpl, mRetransfomableTransformerManager)},
-	{"mNativeAgent", "J", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mNativeAgent)},
-	{"mEnvironmentSupportsRedefineClasses", "Z", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mEnvironmentSupportsRedefineClasses)},
-	{"mEnvironmentSupportsRetransformClassesKnown", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InstrumentationImpl, mEnvironmentSupportsRetransformClassesKnown)},
-	{"mEnvironmentSupportsRetransformClasses", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InstrumentationImpl, mEnvironmentSupportsRetransformClasses)},
-	{"mEnvironmentSupportsNativeMethodPrefix", "Z", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mEnvironmentSupportsNativeMethodPrefix)},
-	{}
-};
-
-$MethodInfo _InstrumentationImpl_MethodInfo_[] = {
-	{"<init>", "(JZZ)V", nullptr, $PRIVATE, $method(InstrumentationImpl, init$, void, int64_t, bool, bool)},
-	{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, addTransformer, void, $ClassFileTransformer*)},
-	{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InstrumentationImpl, addTransformer, void, $ClassFileTransformer*, bool)},
-	{"appendToBootstrapClassLoaderSearch", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, appendToBootstrapClassLoaderSearch, void, $JarFile*)},
-	{"appendToClassLoaderSearch0", "(JLjava/lang/String;Z)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, appendToClassLoaderSearch0, void, int64_t, $String*, bool)},
-	{"appendToSystemClassLoaderSearch", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, appendToSystemClassLoaderSearch, void, $JarFile*)},
-	{"cloneAndCheckMap", "(Ljava/lang/Module;Ljava/util/Map;)Ljava/util/Map;", "(Ljava/lang/Module;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;)Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;", $PRIVATE, $method(InstrumentationImpl, cloneAndCheckMap, $Map*, $Module*, $Map*)},
-	{"findTransformerManager", "(Ljava/lang/instrument/ClassFileTransformer;)Lsun/instrument/TransformerManager;", nullptr, $PRIVATE, $method(InstrumentationImpl, findTransformerManager, $TransformerManager*, $ClassFileTransformer*)},
-	{"getAllLoadedClasses", "()[Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, getAllLoadedClasses, $ClassArray*)},
-	{"getAllLoadedClasses0", "(J)[Ljava/lang/Class;", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, getAllLoadedClasses0, $ClassArray*, int64_t)},
-	{"getInitiatedClasses", "(Ljava/lang/ClassLoader;)[Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, getInitiatedClasses, $ClassArray*, $ClassLoader*)},
-	{"getInitiatedClasses0", "(JLjava/lang/ClassLoader;)[Ljava/lang/Class;", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, getInitiatedClasses0, $ClassArray*, int64_t, $ClassLoader*)},
-	{"getObjectSize", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, getObjectSize, int64_t, Object$*)},
-	{"getObjectSize0", "(JLjava/lang/Object;)J", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, getObjectSize0, int64_t, int64_t, Object$*), nullptr, nullptr, _InstrumentationImpl_MethodAnnotations_getObjectSize013},
-	{"isModifiableClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(InstrumentationImpl, isModifiableClass, bool, $Class*)},
-	{"isModifiableClass0", "(JLjava/lang/Class;)Z", "(JLjava/lang/Class<*>;)Z", $PRIVATE | $NATIVE, $method(InstrumentationImpl, isModifiableClass0, bool, int64_t, $Class*)},
-	{"isModifiableModule", "(Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isModifiableModule, bool, $Module*)},
-	{"isNativeMethodPrefixSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isNativeMethodPrefixSupported, bool)},
-	{"isRedefineClassesSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isRedefineClassesSupported, bool)},
-	{"isRetransformClassesSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isRetransformClassesSupported, bool)},
-	{"isRetransformClassesSupported0", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, isRetransformClassesSupported0, bool, int64_t)},
-	{"lambda$redefineModule$0", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$0, void, $Module*, $Class*, $Class*)},
-	{"lambda$redefineModule$1", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$1, void, $Module*, $Module*)},
-	{"lambda$redefineModule$2", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$2, void, $Module*, $String*, $Module*)},
-	{"lambda$redefineModule$3", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$3, void, $Module*, $String*, $Module*)},
-	{"lambda$redefineModule$4", "(Ljava/lang/Module;Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$4, void, $Module*, $Class*)},
-	{"lambda$redefineModule$5", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$5, void, $Module*, $Class*, $Class*)},
-	{"loadAgent", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InstrumentationImpl, loadAgent, void, $String*)},
-	{"loadAgent0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(InstrumentationImpl, loadAgent0, void, $String*)},
-	{"loadClassAndCallAgentmain", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InstrumentationImpl, loadClassAndCallAgentmain, void, $String*, $String*), "java.lang.Throwable"},
-	{"loadClassAndCallPremain", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InstrumentationImpl, loadClassAndCallPremain, void, $String*, $String*), "java.lang.Throwable"},
-	{"loadClassAndStartAgent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InstrumentationImpl, loadClassAndStartAgent, void, $String*, $String*, $String*), "java.lang.Throwable"},
-	{"redefineClasses", "([Ljava/lang/instrument/ClassDefinition;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstrumentationImpl, redefineClasses, void, $ClassDefinitionArray*), "java.lang.ClassNotFoundException"},
-	{"redefineClasses0", "(J[Ljava/lang/instrument/ClassDefinition;)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, redefineClasses0, void, int64_t, $ClassDefinitionArray*), "java.lang.ClassNotFoundException"},
-	{"redefineModule", "(Ljava/lang/Module;Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/lang/Module;Ljava/util/Set<Ljava/lang/Module;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;Ljava/util/Set<Ljava/lang/Class<*>;>;Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;>;)V", $PUBLIC, $virtualMethod(InstrumentationImpl, redefineModule, void, $Module*, $Set*, $Map*, $Map*, $Set*, $Map*)},
-	{"removeTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InstrumentationImpl, removeTransformer, bool, $ClassFileTransformer*)},
-	{"retransformClasses", "([Ljava/lang/Class;)V", "([Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(InstrumentationImpl, retransformClasses, void, $ClassArray*)},
-	{"retransformClasses0", "(J[Ljava/lang/Class;)V", "(J[Ljava/lang/Class<*>;)V", $PRIVATE | $NATIVE, $method(InstrumentationImpl, retransformClasses0, void, int64_t, $ClassArray*)},
-	{"setAccessible", "(Ljava/lang/reflect/AccessibleObject;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InstrumentationImpl, setAccessible, void, $AccessibleObject*, bool)},
-	{"setHasRetransformableTransformers", "(JZ)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, setHasRetransformableTransformers, void, int64_t, bool)},
-	{"setHasTransformers", "(JZ)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, setHasTransformers, void, int64_t, bool)},
-	{"setNativeMethodPrefix", "(Ljava/lang/instrument/ClassFileTransformer;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InstrumentationImpl, setNativeMethodPrefix, void, $ClassFileTransformer*, $String*)},
-	{"setNativeMethodPrefixes", "(J[Ljava/lang/String;Z)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, setNativeMethodPrefixes, void, int64_t, $StringArray*, bool)},
-	{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[BZ)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[BZ)[B", $PRIVATE, $method(InstrumentationImpl, transform, $bytes*, $Module*, $ClassLoader*, $String*, $Class*, $ProtectionDomain*, $bytes*, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_appendToClassLoaderSearch0 4
-#define _METHOD_INDEX_getAllLoadedClasses0 9
-#define _METHOD_INDEX_getInitiatedClasses0 11
-#define _METHOD_INDEX_getObjectSize0 13
-#define _METHOD_INDEX_isModifiableClass0 15
-#define _METHOD_INDEX_isRetransformClassesSupported0 20
-#define _METHOD_INDEX_loadAgent0 28
-#define _METHOD_INDEX_redefineClasses0 33
-#define _METHOD_INDEX_retransformClasses0 37
-#define _METHOD_INDEX_setHasRetransformableTransformers 39
-#define _METHOD_INDEX_setHasTransformers 40
-#define _METHOD_INDEX_setNativeMethodPrefixes 42
-
-$InnerClassInfo _InstrumentationImpl_InnerClassesInfo_[] = {
-	{"sun.instrument.InstrumentationImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InstrumentationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.instrument.InstrumentationImpl",
-	"java.lang.Object",
-	"java.lang.instrument.Instrumentation",
-	_InstrumentationImpl_FieldInfo_,
-	_InstrumentationImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InstrumentationImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.instrument.InstrumentationImpl$1"
-};
-
-$Object* allocate$InstrumentationImpl($Class* clazz) {
-	return $of($alloc(InstrumentationImpl));
-}
 
 void InstrumentationImpl::init$(int64_t nativeAgent, bool environmentSupportsRedefineClasses, bool environmentSupportsNativeMethodPrefix) {
 	$set(this, mTransformerManager, $new($TransformerManager, false));
@@ -467,8 +339,8 @@ void InstrumentationImpl::addTransformer($ClassFileTransformer* transformer, boo
 				setHasRetransformableTransformers(this->mNativeAgent, true);
 			}
 		} else {
-			$nc(this->mTransformerManager)->addTransformer(transformer);
-			if ($nc(this->mTransformerManager)->getTransformerCount() == 1) {
+			this->mTransformerManager->addTransformer(transformer);
+			if (this->mTransformerManager->getTransformerCount() == 1) {
 				setHasTransformers(this->mNativeAgent, true);
 			}
 		}
@@ -544,7 +416,7 @@ void InstrumentationImpl::redefineClasses($ClassDefinitionArray* definitions) {
 			$throwNew($NullPointerException, "element of \'definitions\' is null in redefineClasses"_s);
 		}
 	}
-	if ($nc(definitions)->length == 0) {
+	if (definitions->length == 0) {
 		return;
 	}
 	redefineClasses0(this->mNativeAgent, definitions);
@@ -579,7 +451,7 @@ bool InstrumentationImpl::isNativeMethodPrefixSupported() {
 
 void InstrumentationImpl::setNativeMethodPrefix($ClassFileTransformer* transformer, $String* prefix) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!isNativeMethodPrefixSupported()) {
 			$throwNew($UnsupportedOperationException, "setNativeMethodPrefix is not supported in this environment"_s);
 		}
@@ -597,7 +469,7 @@ void InstrumentationImpl::setNativeMethodPrefix($ClassFileTransformer* transform
 }
 
 void InstrumentationImpl::redefineModule($Module* module, $Set* extraReads$renamed, $Map* extraExports$renamed, $Map* extraOpens$renamed, $Set* extraUses$renamed, $Map* extraProvides$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, extraExports, extraExports$renamed);
 	$var($Set, extraReads, extraReads$renamed);
 	$var($Map, extraOpens, extraOpens$renamed);
@@ -607,21 +479,21 @@ void InstrumentationImpl::redefineModule($Module* module, $Set* extraReads$renam
 		return;
 	}
 	if (!isModifiableModule(module)) {
-		$throwNew($UnmodifiableModuleException, $($nc(module)->getName()));
+		$throwNew($UnmodifiableModuleException, $(module->getName()));
 	}
-	$assign(extraReads, $new($HashSet, static_cast<$Collection*>(extraReads)));
+	$assign(extraReads, $new($HashSet, extraReads));
 	if (extraReads->contains(nullptr)) {
 		$throwNew($NullPointerException, "\'extraReads\' contains null"_s);
 	}
 	$assign(extraExports, cloneAndCheckMap(module, extraExports));
 	$assign(extraOpens, cloneAndCheckMap(module, extraOpens));
-	$assign(extraUses, $new($HashSet, static_cast<$Collection*>(extraUses)));
+	$assign(extraUses, $new($HashSet, extraUses));
 	if (extraUses->contains(nullptr)) {
 		$throwNew($NullPointerException, "\'extraUses\' contains null"_s);
 	}
 	$var($Map, tmpProvides, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($($nc(extraProvides)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(extraProvides)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
@@ -629,62 +501,62 @@ void InstrumentationImpl::redefineModule($Module* module, $Set* extraReads$renam
 				if (service == nullptr) {
 					$throwNew($NullPointerException, "\'extraProvides\' contains null"_s);
 				}
-				$var($List, providers, $new($ArrayList, $cast($Collection, $(e->getValue()))));
+				$var($List, providers, $new($ArrayList, $$cast($Collection, e->getValue())));
 				if (providers->isEmpty()) {
 					$throwNew($IllegalArgumentException, "list of providers is empty"_s);
 				}
-				providers->forEach(static_cast<$Consumer*>($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$0, module, service)));
+				providers->forEach($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$0, module, service));
 				tmpProvides->put(service, providers);
 			}
 		}
 	}
 	$assign(extraProvides, tmpProvides);
-	extraReads->forEach(static_cast<$Consumer*>($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, module)));
+	extraReads->forEach($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1, module));
 	{
-		$var($Iterator, i$, $nc($($nc(extraExports)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(extraExports)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				$var($String, pkg, $cast($String, $nc(e)->getKey()));
 				$var($Set, targets, $cast($Set, e->getValue()));
-				$nc(targets)->forEach(static_cast<$Consumer*>($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, module, pkg)));
+				$nc(targets)->forEach($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2, module, pkg));
 			}
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(extraOpens)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(extraOpens)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				$var($String, pkg, $cast($String, $nc(e)->getKey()));
 				$var($Set, targets, $cast($Set, e->getValue()));
-				$nc(targets)->forEach(static_cast<$Consumer*>($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, module, pkg)));
+				$nc(targets)->forEach($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3, module, pkg));
 			}
 		}
 	}
-	extraUses->forEach(static_cast<$Consumer*>($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, module)));
+	extraUses->forEach($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4, module));
 	{
-		$var($Iterator, i$, $nc($(extraProvides->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(extraProvides->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
 				$Class* service = $cast($Class, $nc(e)->getKey());
 				$var($List, providers, $cast($List, e->getValue()));
-				$nc(providers)->forEach(static_cast<$Consumer*>($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, module, service)));
+				$nc(providers)->forEach($$new(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5, module, service));
 			}
 		}
 	}
 }
 
 $Map* InstrumentationImpl::cloneAndCheckMap($Module* module, $Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(map)->isEmpty()) {
 		return $Collections::emptyMap();
 	}
 	$var($Map, result, $new($HashMap));
 	$var($Set, packages, $nc(module)->getPackages());
 	{
-		$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(map->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
@@ -695,7 +567,7 @@ $Map* InstrumentationImpl::cloneAndCheckMap($Module* module, $Map* map) {
 				if (!$nc(packages)->contains(pkg)) {
 					$throwNew($IllegalArgumentException, $$str({pkg, " not in module"_s}));
 				}
-				$var($Set, targets, $new($HashSet, $cast($Collection, $(e->getValue()))));
+				$var($Set, targets, $new($HashSet, $$cast($Collection, e->getValue())));
 				if (targets->isEmpty()) {
 					$throwNew($IllegalArgumentException, "set of targets is empty"_s);
 				}
@@ -710,87 +582,82 @@ $Map* InstrumentationImpl::cloneAndCheckMap($Module* module, $Map* map) {
 }
 
 $TransformerManager* InstrumentationImpl::findTransformerManager($ClassFileTransformer* transformer) {
-	if ($nc(this->mTransformerManager)->includesTransformer(transformer)) {
+	if (this->mTransformerManager->includesTransformer(transformer)) {
 		return this->mTransformerManager;
 	}
-	if (this->mRetransfomableTransformerManager != nullptr && $nc(this->mRetransfomableTransformerManager)->includesTransformer(transformer)) {
+	if (this->mRetransfomableTransformerManager != nullptr && this->mRetransfomableTransformerManager->includesTransformer(transformer)) {
 		return this->mRetransfomableTransformerManager;
 	}
 	return nullptr;
 }
 
 bool InstrumentationImpl::isModifiableClass0(int64_t nativeAgent, $Class* theClass) {
-	bool $ret = false;
-	$prepareNative(InstrumentationImpl, isModifiableClass0, bool, int64_t nativeAgent, $Class* theClass);
-	$ret = $invokeNative(nativeAgent, theClass);
+	$prepareNative(isModifiableClass0, bool, int64_t nativeAgent, $Class* theClass);
+	bool $ret = $invokeNative(nativeAgent, theClass);
 	$finishNative();
 	return $ret;
 }
 
 bool InstrumentationImpl::isRetransformClassesSupported0(int64_t nativeAgent) {
-	bool $ret = false;
-	$prepareNative(InstrumentationImpl, isRetransformClassesSupported0, bool, int64_t nativeAgent);
-	$ret = $invokeNative(nativeAgent);
+	$prepareNative(isRetransformClassesSupported0, bool, int64_t nativeAgent);
+	bool $ret = $invokeNative(nativeAgent);
 	$finishNative();
 	return $ret;
 }
 
 void InstrumentationImpl::setHasTransformers(int64_t nativeAgent, bool has) {
-	$prepareNative(InstrumentationImpl, setHasTransformers, void, int64_t nativeAgent, bool has);
+	$prepareNative(setHasTransformers, void, int64_t nativeAgent, bool has);
 	$invokeNative(nativeAgent, has);
 	$finishNative();
 }
 
 void InstrumentationImpl::setHasRetransformableTransformers(int64_t nativeAgent, bool has) {
-	$prepareNative(InstrumentationImpl, setHasRetransformableTransformers, void, int64_t nativeAgent, bool has);
+	$prepareNative(setHasRetransformableTransformers, void, int64_t nativeAgent, bool has);
 	$invokeNative(nativeAgent, has);
 	$finishNative();
 }
 
 void InstrumentationImpl::retransformClasses0(int64_t nativeAgent, $ClassArray* classes) {
-	$prepareNative(InstrumentationImpl, retransformClasses0, void, int64_t nativeAgent, $ClassArray* classes);
+	$prepareNative(retransformClasses0, void, int64_t nativeAgent, $ClassArray* classes);
 	$invokeNative(nativeAgent, classes);
 	$finishNative();
 }
 
 void InstrumentationImpl::redefineClasses0(int64_t nativeAgent, $ClassDefinitionArray* definitions) {
-	$prepareNative(InstrumentationImpl, redefineClasses0, void, int64_t nativeAgent, $ClassDefinitionArray* definitions);
+	$prepareNative(redefineClasses0, void, int64_t nativeAgent, $ClassDefinitionArray* definitions);
 	$invokeNative(nativeAgent, definitions);
 	$finishNative();
 }
 
 $ClassArray* InstrumentationImpl::getAllLoadedClasses0(int64_t nativeAgent) {
-	$var($ClassArray, $ret, nullptr);
-	$prepareNative(InstrumentationImpl, getAllLoadedClasses0, $ClassArray*, int64_t nativeAgent);
-	$assign($ret, $invokeNativeObject(nativeAgent));
+	$prepareNative(getAllLoadedClasses0, $ClassArray*, int64_t nativeAgent);
+	$var($ClassArray, $ret, $invokeNativeObject(nativeAgent));
 	$finishNative();
 	return $ret;
 }
 
 $ClassArray* InstrumentationImpl::getInitiatedClasses0(int64_t nativeAgent, $ClassLoader* loader) {
-	$var($ClassArray, $ret, nullptr);
-	$prepareNative(InstrumentationImpl, getInitiatedClasses0, $ClassArray*, int64_t nativeAgent, $ClassLoader* loader);
-	$assign($ret, $invokeNativeObject(nativeAgent, loader));
+	$prepareNative(getInitiatedClasses0, $ClassArray*, int64_t nativeAgent, $ClassLoader* loader);
+	$var($ClassArray, $ret, $invokeNativeObject(nativeAgent, loader));
 	$finishNative();
 	return $ret;
 }
 
 int64_t InstrumentationImpl::getObjectSize0(int64_t nativeAgent, Object$* objectToSize) {
-	int64_t $ret = 0;
-	$prepareNative(InstrumentationImpl, getObjectSize0, int64_t, int64_t nativeAgent, Object$* objectToSize);
-	$ret = $invokeNative(nativeAgent, objectToSize);
+	$prepareNative(getObjectSize0, int64_t, int64_t nativeAgent, Object$* objectToSize);
+	int64_t $ret = $invokeNative(nativeAgent, objectToSize);
 	$finishNative();
 	return $ret;
 }
 
 void InstrumentationImpl::appendToClassLoaderSearch0(int64_t nativeAgent, $String* jarfile, bool bootLoader) {
-	$prepareNative(InstrumentationImpl, appendToClassLoaderSearch0, void, int64_t nativeAgent, $String* jarfile, bool bootLoader);
+	$prepareNative(appendToClassLoaderSearch0, void, int64_t nativeAgent, $String* jarfile, bool bootLoader);
 	$invokeNative(nativeAgent, jarfile, bootLoader);
 	$finishNative();
 }
 
 void InstrumentationImpl::setNativeMethodPrefixes(int64_t nativeAgent, $StringArray* prefixes, bool isRetransformable) {
-	$prepareNative(InstrumentationImpl, setNativeMethodPrefixes, void, int64_t nativeAgent, $StringArray* prefixes, bool isRetransformable);
+	$prepareNative(setNativeMethodPrefixes, void, int64_t nativeAgent, $StringArray* prefixes, bool isRetransformable);
 	$invokeNative(nativeAgent, prefixes, isRetransformable);
 	$finishNative();
 }
@@ -798,11 +665,11 @@ void InstrumentationImpl::setNativeMethodPrefixes(int64_t nativeAgent, $StringAr
 void InstrumentationImpl::setAccessible($AccessibleObject* ao, bool accessible) {
 	$init(InstrumentationImpl);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($InstrumentationImpl$1, ao, accessible)));
+	$AccessController::doPrivileged($$new($InstrumentationImpl$1, ao, accessible));
 }
 
 void InstrumentationImpl::loadClassAndStartAgent($String* classname, $String* methodname, $String* optionsString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, mainAppLoader, $ClassLoader::getSystemClassLoader());
 	$Class* javaAgentClass = $nc(mainAppLoader)->loadClass(classname);
@@ -831,16 +698,16 @@ void InstrumentationImpl::loadClassAndStartAgent($String* classname, $String* me
 		$throwNew($IllegalAccessException, msg);
 	}
 	bool var$0 = !$Modifier::isPublic($nc(javaAgentClass)->getModifiers());
-	if (var$0 && !$nc($($nc(javaAgentClass)->getModule()))->isNamed()) {
+	if (var$0 && !$$nc(javaAgentClass->getModule())->isNamed()) {
 		setAccessible(m, true);
 	}
 	if (twoArgAgent) {
-		$nc(m)->invoke(nullptr, $$new($ObjectArray, {
-			$of(optionsString),
-			$of(this)
+		m->invoke(nullptr, $$new($ObjectArray, {
+			optionsString,
+			this
 		}));
 	} else {
-		$nc(m)->invoke(nullptr, $$new($ObjectArray, {$of(optionsString)}));
+		m->invoke(nullptr, $$new($ObjectArray, {optionsString}));
 	}
 }
 
@@ -853,20 +720,20 @@ void InstrumentationImpl::loadClassAndCallAgentmain($String* classname, $String*
 }
 
 $bytes* InstrumentationImpl::transform($Module* module$renamed, $ClassLoader* loader, $String* classname, $Class* classBeingRedefined, $ProtectionDomain* protectionDomain, $bytes* classfileBuffer, bool isRetransformer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, module, module$renamed);
 	$var($TransformerManager, mgr, isRetransformer ? this->mRetransfomableTransformerManager : this->mTransformerManager);
 	if (module == nullptr) {
 		if (classBeingRedefined != nullptr) {
 			$assign(module, classBeingRedefined->getModule());
 		} else {
-			$assign(module, (loader == nullptr) ? $BootLoader::getUnnamedModule() : $nc(loader)->getUnnamedModule());
+			$assign(module, (loader == nullptr) ? $BootLoader::getUnnamedModule() : loader->getUnnamedModule());
 		}
 	}
 	if (mgr == nullptr) {
 		return nullptr;
 	} else {
-		return $nc(mgr)->transform(module, loader, classname, classBeingRedefined, protectionDomain, classfileBuffer);
+		return mgr->transform(module, loader, classname, classBeingRedefined, protectionDomain, classfileBuffer);
 	}
 }
 
@@ -877,7 +744,7 @@ void InstrumentationImpl::loadAgent($String* path) {
 
 void InstrumentationImpl::loadAgent0($String* path) {
 	$init(InstrumentationImpl);
-	$prepareNativeStatic(InstrumentationImpl, loadAgent0, void, $String* path);
+	$prepareNativeStatic(loadAgent0, void, $String* path);
 	$invokeNativeStatic(path);
 	$finishNativeStatic();
 }
@@ -909,7 +776,7 @@ void InstrumentationImpl::lambda$redefineModule$1($Module* module, $Module* m) {
 
 void InstrumentationImpl::lambda$redefineModule$0($Module* module, $Class* service, $Class* p) {
 	$init(InstrumentationImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(p)->getModule() != module) {
 		$throwNew($IllegalArgumentException, $$str({p, " not in "_s, module}));
 	}
@@ -918,7 +785,7 @@ void InstrumentationImpl::lambda$redefineModule$0($Module* module, $Class* servi
 	}
 }
 
-void clinit$InstrumentationImpl($Class* class$) {
+void InstrumentationImpl::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		$System::loadLibrary("instrument"_s);
@@ -930,26 +797,107 @@ InstrumentationImpl::InstrumentationImpl() {
 
 $Class* InstrumentationImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(InstrumentationImpl$$Lambda$lambda$redefineModule$0::classInfo$.name)) {
+		if (name->equals("sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$0")) {
 			return InstrumentationImpl$$Lambda$lambda$redefineModule$0::load$(name, initialize);
 		}
-		if (name->equals(InstrumentationImpl$$Lambda$lambda$redefineModule$1$1::classInfo$.name)) {
+		if (name->equals("sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$1$1")) {
 			return InstrumentationImpl$$Lambda$lambda$redefineModule$1$1::load$(name, initialize);
 		}
-		if (name->equals(InstrumentationImpl$$Lambda$lambda$redefineModule$2$2::classInfo$.name)) {
+		if (name->equals("sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$2$2")) {
 			return InstrumentationImpl$$Lambda$lambda$redefineModule$2$2::load$(name, initialize);
 		}
-		if (name->equals(InstrumentationImpl$$Lambda$lambda$redefineModule$3$3::classInfo$.name)) {
+		if (name->equals("sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$3$3")) {
 			return InstrumentationImpl$$Lambda$lambda$redefineModule$3$3::load$(name, initialize);
 		}
-		if (name->equals(InstrumentationImpl$$Lambda$lambda$redefineModule$4$4::classInfo$.name)) {
+		if (name->equals("sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$4$4")) {
 			return InstrumentationImpl$$Lambda$lambda$redefineModule$4$4::load$(name, initialize);
 		}
-		if (name->equals(InstrumentationImpl$$Lambda$lambda$redefineModule$5$5::classInfo$.name)) {
+		if (name->equals("sun.instrument.InstrumentationImpl$$Lambda$lambda$redefineModule$5$5")) {
 			return InstrumentationImpl$$Lambda$lambda$redefineModule$5$5::load$(name, initialize);
 		}
 	}
-	$loadClass(InstrumentationImpl, name, initialize, &_InstrumentationImpl_ClassInfo_, clinit$InstrumentationImpl, allocate$InstrumentationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"mTransformerManager", "Lsun/instrument/TransformerManager;", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mTransformerManager)},
+		{"mRetransfomableTransformerManager", "Lsun/instrument/TransformerManager;", nullptr, $PRIVATE, $field(InstrumentationImpl, mRetransfomableTransformerManager)},
+		{"mNativeAgent", "J", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mNativeAgent)},
+		{"mEnvironmentSupportsRedefineClasses", "Z", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mEnvironmentSupportsRedefineClasses)},
+		{"mEnvironmentSupportsRetransformClassesKnown", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InstrumentationImpl, mEnvironmentSupportsRetransformClassesKnown)},
+		{"mEnvironmentSupportsRetransformClasses", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InstrumentationImpl, mEnvironmentSupportsRetransformClasses)},
+		{"mEnvironmentSupportsNativeMethodPrefix", "Z", nullptr, $PRIVATE | $FINAL, $field(InstrumentationImpl, mEnvironmentSupportsNativeMethodPrefix)},
+		{}
+	};
+	$CompoundAttribute getObjectSize0methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JZZ)V", nullptr, $PRIVATE, $method(InstrumentationImpl, init$, void, int64_t, bool, bool)},
+		{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, addTransformer, void, $ClassFileTransformer*)},
+		{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InstrumentationImpl, addTransformer, void, $ClassFileTransformer*, bool)},
+		{"appendToBootstrapClassLoaderSearch", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, appendToBootstrapClassLoaderSearch, void, $JarFile*)},
+		{"appendToClassLoaderSearch0", "(JLjava/lang/String;Z)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, appendToClassLoaderSearch0, void, int64_t, $String*, bool)},
+		{"appendToSystemClassLoaderSearch", "(Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, appendToSystemClassLoaderSearch, void, $JarFile*)},
+		{"cloneAndCheckMap", "(Ljava/lang/Module;Ljava/util/Map;)Ljava/util/Map;", "(Ljava/lang/Module;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;)Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;", $PRIVATE, $method(InstrumentationImpl, cloneAndCheckMap, $Map*, $Module*, $Map*)},
+		{"findTransformerManager", "(Ljava/lang/instrument/ClassFileTransformer;)Lsun/instrument/TransformerManager;", nullptr, $PRIVATE, $method(InstrumentationImpl, findTransformerManager, $TransformerManager*, $ClassFileTransformer*)},
+		{"getAllLoadedClasses", "()[Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, getAllLoadedClasses, $ClassArray*)},
+		{"getAllLoadedClasses0", "(J)[Ljava/lang/Class;", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, getAllLoadedClasses0, $ClassArray*, int64_t)},
+		{"getInitiatedClasses", "(Ljava/lang/ClassLoader;)[Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, getInitiatedClasses, $ClassArray*, $ClassLoader*)},
+		{"getInitiatedClasses0", "(JLjava/lang/ClassLoader;)[Ljava/lang/Class;", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, getInitiatedClasses0, $ClassArray*, int64_t, $ClassLoader*)},
+		{"getObjectSize", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, getObjectSize, int64_t, Object$*)},
+		{"getObjectSize0", "(JLjava/lang/Object;)J", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, getObjectSize0, int64_t, int64_t, Object$*), nullptr, nullptr, getObjectSize0methodAnnotations$$},
+		{"isModifiableClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(InstrumentationImpl, isModifiableClass, bool, $Class*)},
+		{"isModifiableClass0", "(JLjava/lang/Class;)Z", "(JLjava/lang/Class<*>;)Z", $PRIVATE | $NATIVE, $method(InstrumentationImpl, isModifiableClass0, bool, int64_t, $Class*)},
+		{"isModifiableModule", "(Ljava/lang/Module;)Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isModifiableModule, bool, $Module*)},
+		{"isNativeMethodPrefixSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isNativeMethodPrefixSupported, bool)},
+		{"isRedefineClassesSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isRedefineClassesSupported, bool)},
+		{"isRetransformClassesSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl, isRetransformClassesSupported, bool)},
+		{"isRetransformClassesSupported0", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, isRetransformClassesSupported0, bool, int64_t)},
+		{"lambda$redefineModule$0", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$0, void, $Module*, $Class*, $Class*)},
+		{"lambda$redefineModule$1", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$1, void, $Module*, $Module*)},
+		{"lambda$redefineModule$2", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$2, void, $Module*, $String*, $Module*)},
+		{"lambda$redefineModule$3", "(Ljava/lang/Module;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$3, void, $Module*, $String*, $Module*)},
+		{"lambda$redefineModule$4", "(Ljava/lang/Module;Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$4, void, $Module*, $Class*)},
+		{"lambda$redefineModule$5", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InstrumentationImpl, lambda$redefineModule$5, void, $Module*, $Class*, $Class*)},
+		{"loadAgent", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InstrumentationImpl, loadAgent, void, $String*)},
+		{"loadAgent0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(InstrumentationImpl, loadAgent0, void, $String*)},
+		{"loadClassAndCallAgentmain", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InstrumentationImpl, loadClassAndCallAgentmain, void, $String*, $String*), "java.lang.Throwable"},
+		{"loadClassAndCallPremain", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InstrumentationImpl, loadClassAndCallPremain, void, $String*, $String*), "java.lang.Throwable"},
+		{"loadClassAndStartAgent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InstrumentationImpl, loadClassAndStartAgent, void, $String*, $String*, $String*), "java.lang.Throwable"},
+		{"redefineClasses", "([Ljava/lang/instrument/ClassDefinition;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(InstrumentationImpl, redefineClasses, void, $ClassDefinitionArray*), "java.lang.ClassNotFoundException"},
+		{"redefineClasses0", "(J[Ljava/lang/instrument/ClassDefinition;)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, redefineClasses0, void, int64_t, $ClassDefinitionArray*), "java.lang.ClassNotFoundException"},
+		{"redefineModule", "(Ljava/lang/Module;Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/lang/Module;Ljava/util/Set<Ljava/lang/Module;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/Module;>;>;Ljava/util/Set<Ljava/lang/Class<*>;>;Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;>;)V", $PUBLIC, $virtualMethod(InstrumentationImpl, redefineModule, void, $Module*, $Set*, $Map*, $Map*, $Set*, $Map*)},
+		{"removeTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InstrumentationImpl, removeTransformer, bool, $ClassFileTransformer*)},
+		{"retransformClasses", "([Ljava/lang/Class;)V", "([Ljava/lang/Class<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(InstrumentationImpl, retransformClasses, void, $ClassArray*)},
+		{"retransformClasses0", "(J[Ljava/lang/Class;)V", "(J[Ljava/lang/Class<*>;)V", $PRIVATE | $NATIVE, $method(InstrumentationImpl, retransformClasses0, void, int64_t, $ClassArray*)},
+		{"setAccessible", "(Ljava/lang/reflect/AccessibleObject;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InstrumentationImpl, setAccessible, void, $AccessibleObject*, bool)},
+		{"setHasRetransformableTransformers", "(JZ)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, setHasRetransformableTransformers, void, int64_t, bool)},
+		{"setHasTransformers", "(JZ)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, setHasTransformers, void, int64_t, bool)},
+		{"setNativeMethodPrefix", "(Ljava/lang/instrument/ClassFileTransformer;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InstrumentationImpl, setNativeMethodPrefix, void, $ClassFileTransformer*, $String*)},
+		{"setNativeMethodPrefixes", "(J[Ljava/lang/String;Z)V", nullptr, $PRIVATE | $NATIVE, $method(InstrumentationImpl, setNativeMethodPrefixes, void, int64_t, $StringArray*, bool)},
+		{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[BZ)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[BZ)[B", $PRIVATE, $method(InstrumentationImpl, transform, $bytes*, $Module*, $ClassLoader*, $String*, $Class*, $ProtectionDomain*, $bytes*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.instrument.InstrumentationImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.instrument.InstrumentationImpl",
+		"java.lang.Object",
+		"java.lang.instrument.Instrumentation",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.instrument.InstrumentationImpl$1"
+	};
+	$loadClass(InstrumentationImpl, name, initialize, &classInfo$$, InstrumentationImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationImpl);
+	});
 	return class$;
 }
 

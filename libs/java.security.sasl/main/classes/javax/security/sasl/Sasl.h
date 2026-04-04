@@ -82,6 +82,7 @@ class $export Sasl : public ::java::lang::Object {
 	$class(Sasl, 0, ::java::lang::Object)
 public:
 	Sasl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::security::sasl::SaslClient* createSaslClient($StringArray* mechanisms, $String* authorizationId, $String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh);
 	static ::javax::security::sasl::SaslServer* createSaslServer($String* mechanism, $String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh);

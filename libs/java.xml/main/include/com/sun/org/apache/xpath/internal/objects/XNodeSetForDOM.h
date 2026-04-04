@@ -76,7 +76,7 @@ public:
 	using ::com::sun::org::apache::xpath::internal::objects::XNodeSet::num;
 	virtual $Object* object() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XNodeSet::xstr;
-	static const int64_t serialVersionUID = (int64_t)0x8B7ABD07E038DD80;
+	static const int64_t serialVersionUID = (int64_t)0x8b7abd07e038dd80;
 	$Object* m_origObj = nullptr;
 };
 

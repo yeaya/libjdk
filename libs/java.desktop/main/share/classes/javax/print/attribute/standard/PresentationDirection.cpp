@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PresentationDirection.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -23,48 +22,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PresentationDirection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PresentationDirection, serialVersionUID)},
-	{"TOBOTTOM_TORIGHT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOBOTTOM_TORIGHT)},
-	{"TOBOTTOM_TOLEFT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOBOTTOM_TOLEFT)},
-	{"TOTOP_TORIGHT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOTOP_TORIGHT)},
-	{"TOTOP_TOLEFT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOTOP_TOLEFT)},
-	{"TORIGHT_TOBOTTOM", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TORIGHT_TOBOTTOM)},
-	{"TORIGHT_TOTOP", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TORIGHT_TOTOP)},
-	{"TOLEFT_TOBOTTOM", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOLEFT_TOBOTTOM)},
-	{"TOLEFT_TOTOP", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOLEFT_TOTOP)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PresentationDirection, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PresentationDirection, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _PresentationDirection_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(PresentationDirection, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PresentationDirection, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PresentationDirection, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PresentationDirection, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PresentationDirection, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PresentationDirection_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.PresentationDirection",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintJobAttribute,javax.print.attribute.PrintRequestAttribute",
-	_PresentationDirection_FieldInfo_,
-	_PresentationDirection_MethodInfo_
-};
-
-$Object* allocate$PresentationDirection($Class* clazz) {
-	return $of($alloc(PresentationDirection));
-}
 
 $Object* PresentationDirection::clone() {
 	 return this->$EnumSyntax::clone();
@@ -106,7 +63,7 @@ $StringArray* PresentationDirection::getStringTable() {
 }
 
 $EnumSyntaxArray* PresentationDirection::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, PresentationDirection::myEnumValueTable);
+	return $cast($EnumSyntaxArray, PresentationDirection::myEnumValueTable);
 }
 
 $Class* PresentationDirection::getCategory() {
@@ -117,7 +74,7 @@ $String* PresentationDirection::getName() {
 	return "presentation-direction"_s;
 }
 
-void clinit$PresentationDirection($Class* class$) {
+void PresentationDirection::clinit$($Class* clazz) {
 	$assignStatic(PresentationDirection::TOBOTTOM_TORIGHT, $new(PresentationDirection, 0));
 	$assignStatic(PresentationDirection::TOBOTTOM_TOLEFT, $new(PresentationDirection, 1));
 	$assignStatic(PresentationDirection::TOTOP_TORIGHT, $new(PresentationDirection, 2));
@@ -152,7 +109,44 @@ PresentationDirection::PresentationDirection() {
 }
 
 $Class* PresentationDirection::load$($String* name, bool initialize) {
-	$loadClass(PresentationDirection, name, initialize, &_PresentationDirection_ClassInfo_, clinit$PresentationDirection, allocate$PresentationDirection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PresentationDirection, serialVersionUID)},
+		{"TOBOTTOM_TORIGHT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOBOTTOM_TORIGHT)},
+		{"TOBOTTOM_TOLEFT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOBOTTOM_TOLEFT)},
+		{"TOTOP_TORIGHT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOTOP_TORIGHT)},
+		{"TOTOP_TOLEFT", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOTOP_TOLEFT)},
+		{"TORIGHT_TOBOTTOM", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TORIGHT_TOBOTTOM)},
+		{"TORIGHT_TOTOP", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TORIGHT_TOTOP)},
+		{"TOLEFT_TOBOTTOM", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOLEFT_TOBOTTOM)},
+		{"TOLEFT_TOTOP", "Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PresentationDirection, TOLEFT_TOTOP)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PresentationDirection, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/PresentationDirection;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PresentationDirection, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(PresentationDirection, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PresentationDirection, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PresentationDirection, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PresentationDirection, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PresentationDirection, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.PresentationDirection",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintJobAttribute,javax.print.attribute.PrintRequestAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PresentationDirection, name, initialize, &classInfo$$, PresentationDirection::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PresentationDirection));
+	});
 	return class$;
 }
 

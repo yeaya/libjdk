@@ -1,5 +1,4 @@
 #include <com/sun/accessibility/internal/resources/accessibility_sv.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,423 +13,404 @@ namespace com {
 			namespace internal {
 				namespace resources {
 
-$MethodInfo _accessibility_sv_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(accessibility_sv, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(accessibility_sv, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _accessibility_sv_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.accessibility.internal.resources.accessibility_sv",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_accessibility_sv_MethodInfo_
-};
-
-$Object* allocate$accessibility_sv($Class* clazz) {
-	return $of($alloc(accessibility_sv));
-}
-
 void accessibility_sv::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* accessibility_sv::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("active"_s),
-			$of("aktiv"_s)
+			"active"_s,
+			"aktiv"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alert"_s),
-			$of("avisering"_s)
+			"alert"_s,
+			"avisering"_s
 		}),
 		$$new($ObjectArray, {
-			$of("armed"_s),
-			$of("redo"_s)
+			"armed"_s,
+			"redo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awtcomponent"_s),
-			$of("AWT-komponent"_s)
+			"awtcomponent"_s,
+			"AWT-komponent"_s
 		}),
 		$$new($ObjectArray, {
-			$of("busy"_s),
-			$of("upptagen"_s)
+			"busy"_s,
+			"upptagen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("canvas"_s),
-			$of("rityta"_s)
+			"canvas"_s,
+			"rityta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checkbox"_s),
-			$of("kryssruta"_s)
+			"checkbox"_s,
+			"kryssruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checked"_s),
-			$of("markerad"_s)
+			"checked"_s,
+			"markerad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("childNodeOf"_s),
-			$of(u"underordnad nod för"_s)
+			"childNodeOf"_s,
+			u"underordnad nod för"_s
 		}),
 		$$new($ObjectArray, {
-			$of("collapsed"_s),
-			$of("komprimerad"_s)
+			"collapsed"_s,
+			"komprimerad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("colorchooser"_s),
-			$of(u"färgväljare"_s)
+			"colorchooser"_s,
+			u"färgväljare"_s
 		}),
 		$$new($ObjectArray, {
-			$of("columnheader"_s),
-			$of("kolumnrubrik"_s)
+			"columnheader"_s,
+			"kolumnrubrik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("combobox"_s),
-			$of("kombinationsruta"_s)
+			"combobox"_s,
+			"kombinationsruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("controlledBy"_s),
-			$of("controlledBy"_s)
+			"controlledBy"_s,
+			"controlledBy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("controllerFor"_s),
-			$of("controllerFor"_s)
+			"controllerFor"_s,
+			"controllerFor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("desktopicon"_s),
-			$of("skrivbordsikon"_s)
+			"desktopicon"_s,
+			"skrivbordsikon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("desktoppane"_s),
-			$of("skrivbordsruta"_s)
+			"desktoppane"_s,
+			"skrivbordsruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog"_s),
-			$of("dialogruta"_s)
+			"dialog"_s,
+			"dialogruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("directorypane"_s),
-			$of("katalogruta"_s)
+			"directorypane"_s,
+			"katalogruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("editable"_s),
-			$of("redigerbar"_s)
+			"editable"_s,
+			"redigerbar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("editbar"_s),
-			$of("redigeringslist"_s)
+			"editbar"_s,
+			"redigeringslist"_s
 		}),
 		$$new($ObjectArray, {
-			$of("embeddedBy"_s),
-			$of(u"bäddas in av"_s)
+			"embeddedBy"_s,
+			u"bäddas in av"_s
 		}),
 		$$new($ObjectArray, {
-			$of("embeds"_s),
-			$of(u"bäddar in"_s)
+			"embeds"_s,
+			u"bäddar in"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enabled"_s),
-			$of("aktiverad"_s)
+			"enabled"_s,
+			"aktiverad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("expandable"_s),
-			$of(u"utökningsbar"_s)
+			"expandable"_s,
+			u"utökningsbar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("expanded"_s),
-			$of(u"utökad"_s)
+			"expanded"_s,
+			u"utökad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("filechooser"_s),
-			$of(u"filväljare"_s)
+			"filechooser"_s,
+			u"filväljare"_s
 		}),
 		$$new($ObjectArray, {
-			$of("filler"_s),
-			$of("utfyllnad"_s)
+			"filler"_s,
+			"utfyllnad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("flowsFrom"_s),
-			$of(u"flödar från"_s)
+			"flowsFrom"_s,
+			u"flödar från"_s
 		}),
 		$$new($ObjectArray, {
-			$of("flowsTo"_s),
-			$of(u"flödar till"_s)
+			"flowsTo"_s,
+			u"flödar till"_s
 		}),
 		$$new($ObjectArray, {
-			$of("focusable"_s),
-			$of("fokuseringsbar"_s)
+			"focusable"_s,
+			"fokuseringsbar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("focused"_s),
-			$of("fokuserad"_s)
+			"focused"_s,
+			"fokuserad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("footer"_s),
-			$of("sidfot"_s)
+			"footer"_s,
+			"sidfot"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frame"_s),
-			$of("ram"_s)
+			"frame"_s,
+			"ram"_s
 		}),
 		$$new($ObjectArray, {
-			$of("glasspane"_s),
-			$of("glasruta"_s)
+			"glasspane"_s,
+			"glasruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("header"_s),
-			$of("sidhuvud"_s)
+			"header"_s,
+			"sidhuvud"_s
 		}),
 		$$new($ObjectArray, {
-			$of("horizontal"_s),
-			$of("horisontell"_s)
+			"horizontal"_s,
+			"horisontell"_s
 		}),
 		$$new($ObjectArray, {
-			$of("htmlcontainer"_s),
-			$of("HTML-container"_s)
+			"htmlcontainer"_s,
+			"HTML-container"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iconified"_s),
-			$of("minimerad"_s)
+			"iconified"_s,
+			"minimerad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("indeterminate"_s),
-			$of(u"obestämt"_s)
+			"indeterminate"_s,
+			u"obestämt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("internalframe"_s),
-			$of("intern ram"_s)
+			"internalframe"_s,
+			"intern ram"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label"_s),
-			$of("etikett"_s)
+			"label"_s,
+			"etikett"_s
 		}),
 		$$new($ObjectArray, {
-			$of("labelFor"_s),
-			$of(u"etikett för"_s)
+			"labelFor"_s,
+			u"etikett för"_s
 		}),
 		$$new($ObjectArray, {
-			$of("labeledBy"_s),
-			$of("etikett av"_s)
+			"labeledBy"_s,
+			"etikett av"_s
 		}),
 		$$new($ObjectArray, {
-			$of("layeredpane"_s),
-			$of("staplad ruta"_s)
+			"layeredpane"_s,
+			"staplad ruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("list"_s),
-			$of("lista"_s)
+			"list"_s,
+			"lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("listitem"_s),
-			$of("listobjekt"_s)
+			"listitem"_s,
+			"listobjekt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("managesDescendants"_s),
-			$of("hanterar underordnade"_s)
+			"managesDescendants"_s,
+			"hanterar underordnade"_s
 		}),
 		$$new($ObjectArray, {
-			$of("memberOf"_s),
-			$of("medlem i"_s)
+			"memberOf"_s,
+			"medlem i"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menu"_s),
-			$of("meny"_s)
+			"menu"_s,
+			"meny"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menubar"_s),
-			$of("menyrad"_s)
+			"menubar"_s,
+			"menyrad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menuitem"_s),
-			$of("menyalternativ"_s)
+			"menuitem"_s,
+			"menyalternativ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("modal"_s),
-			$of("modal"_s)
+			"modal"_s,
+			"modal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiline"_s),
-			$of("flera rader"_s)
+			"multiline"_s,
+			"flera rader"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiselectable"_s),
-			$of("flerval"_s)
+			"multiselectable"_s,
+			"flerval"_s
 		}),
 		$$new($ObjectArray, {
-			$of("opaque"_s),
-			$of("ogenomskinlig"_s)
+			"opaque"_s,
+			"ogenomskinlig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionpane"_s),
-			$of("alternativruta"_s)
+			"optionpane"_s,
+			"alternativruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pagetab"_s),
-			$of("sidflik"_s)
+			"pagetab"_s,
+			"sidflik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pagetablist"_s),
-			$of("sidflikslista"_s)
+			"pagetablist"_s,
+			"sidflikslista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("panel"_s),
-			$of("panel"_s)
+			"panel"_s,
+			"panel"_s
 		}),
 		$$new($ObjectArray, {
-			$of("paragraph"_s),
-			$of("stycke"_s)
+			"paragraph"_s,
+			"stycke"_s
 		}),
 		$$new($ObjectArray, {
-			$of("parentWindowOf"_s),
-			$of(u"överordnat fönster för"_s)
+			"parentWindowOf"_s,
+			u"överordnat fönster för"_s
 		}),
 		$$new($ObjectArray, {
-			$of("passwordtext"_s),
-			$of(u"lösenordstext"_s)
+			"passwordtext"_s,
+			u"lösenordstext"_s
 		}),
 		$$new($ObjectArray, {
-			$of("popupmenu"_s),
-			$of("snabbmeny"_s)
+			"popupmenu"_s,
+			"snabbmeny"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pressed"_s),
-			$of("nedtryckt"_s)
+			"pressed"_s,
+			"nedtryckt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("progressMonitor"_s),
-			$of(u"förloppsövervakare"_s)
+			"progressMonitor"_s,
+			u"förloppsövervakare"_s
 		}),
 		$$new($ObjectArray, {
-			$of("progressbar"_s),
-			$of("statusrad"_s)
+			"progressbar"_s,
+			"statusrad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pushbutton"_s),
-			$of("knapp"_s)
+			"pushbutton"_s,
+			"knapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton"_s),
-			$of("alternativknapp"_s)
+			"radiobutton"_s,
+			"alternativknapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("resizable"_s),
-			$of(u"storleksändringsbar"_s)
+			"resizable"_s,
+			u"storleksändringsbar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rootpane"_s),
-			$of("grundruta"_s)
+			"rootpane"_s,
+			"grundruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rowheader"_s),
-			$of("radrubrik"_s)
+			"rowheader"_s,
+			"radrubrik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ruler"_s),
-			$of("linjal"_s)
+			"ruler"_s,
+			"linjal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scrollbar"_s),
-			$of("rullningslist"_s)
+			"scrollbar"_s,
+			"rullningslist"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scrollpane"_s),
-			$of("rullningsruta"_s)
+			"scrollpane"_s,
+			"rullningsruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("selectable"_s),
-			$of("valbar"_s)
+			"selectable"_s,
+			"valbar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("selected"_s),
-			$of("vald"_s)
+			"selected"_s,
+			"vald"_s
 		}),
 		$$new($ObjectArray, {
-			$of("separator"_s),
-			$of("avskiljare"_s)
+			"separator"_s,
+			"avskiljare"_s
 		}),
 		$$new($ObjectArray, {
-			$of("showing"_s),
-			$of("visar"_s)
+			"showing"_s,
+			"visar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("singleline"_s),
-			$of("en rad"_s)
+			"singleline"_s,
+			"en rad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("slider"_s),
-			$of("skjutreglage"_s)
+			"slider"_s,
+			"skjutreglage"_s
 		}),
 		$$new($ObjectArray, {
-			$of("splitpane"_s),
-			$of("delad ruta"_s)
+			"splitpane"_s,
+			"delad ruta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("subwindowOf"_s),
-			$of(u"delfönster av"_s)
+			"subwindowOf"_s,
+			u"delfönster av"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swingcomponent"_s),
-			$of("swing-komponent"_s)
+			"swingcomponent"_s,
+			"swing-komponent"_s
 		}),
 		$$new($ObjectArray, {
-			$of("table"_s),
-			$of("tabell"_s)
+			"table"_s,
+			"tabell"_s
 		}),
 		$$new($ObjectArray, {
-			$of("text"_s),
-			$of("text"_s)
+			"text"_s,
+			"text"_s
 		}),
 		$$new($ObjectArray, {
-			$of("togglebutton"_s),
-			$of(u"växlingsknapp"_s)
+			"togglebutton"_s,
+			u"växlingsknapp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("toggleexpand"_s),
-			$of(u"växla expandering"_s)
+			"toggleexpand"_s,
+			u"växla expandering"_s
 		}),
 		$$new($ObjectArray, {
-			$of("toolbar"_s),
-			$of("verktygsrad"_s)
+			"toolbar"_s,
+			"verktygsrad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tooltip"_s),
-			$of("knappbeskrivning"_s)
+			"tooltip"_s,
+			"knappbeskrivning"_s
 		}),
 		$$new($ObjectArray, {
-			$of("transient"_s),
-			$of(u"tillfällig"_s)
+			"transient"_s,
+			u"tillfällig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tree"_s),
-			$of(u"träd"_s)
+			"tree"_s,
+			u"träd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("truncated"_s),
-			$of("kapad"_s)
+			"truncated"_s,
+			"kapad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("unknown"_s),
-			$of(u"okänd"_s)
+			"unknown"_s,
+			u"okänd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vertical"_s),
-			$of("vertikal"_s)
+			"vertical"_s,
+			"vertikal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("viewport"_s),
-			$of("vyport"_s)
+			"viewport"_s,
+			"vyport"_s
 		}),
 		$$new($ObjectArray, {
-			$of("visible"_s),
-			$of("synlig"_s)
+			"visible"_s,
+			"synlig"_s
 		}),
 		$$new($ObjectArray, {
-			$of("window"_s),
-			$of(u"fönster"_s)
+			"window"_s,
+			u"fönster"_s
 		})
 	});
 }
@@ -439,7 +419,22 @@ accessibility_sv::accessibility_sv() {
 }
 
 $Class* accessibility_sv::load$($String* name, bool initialize) {
-	$loadClass(accessibility_sv, name, initialize, &_accessibility_sv_ClassInfo_, allocate$accessibility_sv);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(accessibility_sv, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(accessibility_sv, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.accessibility.internal.resources.accessibility_sv",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(accessibility_sv, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(accessibility_sv);
+	});
 	return class$;
 }
 

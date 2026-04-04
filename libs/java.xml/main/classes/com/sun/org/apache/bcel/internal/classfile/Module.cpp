@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Module.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -43,47 +42,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _Module_FieldInfo_[] = {
-	{"moduleNameIndex", "I", nullptr, $PRIVATE | $FINAL, $field(Module, moduleNameIndex)},
-	{"moduleFlags", "I", nullptr, $PRIVATE | $FINAL, $field(Module, moduleFlags)},
-	{"moduleVersionIndex", "I", nullptr, $PRIVATE | $FINAL, $field(Module, moduleVersionIndex)},
-	{"requiresTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleRequires;", nullptr, $PRIVATE, $field(Module, requiresTable)},
-	{"exportsTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleExports;", nullptr, $PRIVATE, $field(Module, exportsTable)},
-	{"opensTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleOpens;", nullptr, $PRIVATE, $field(Module, opensTable)},
-	{"usesCount", "I", nullptr, $PRIVATE | $FINAL, $field(Module, usesCount)},
-	{"usesIndex", "[I", nullptr, $PRIVATE | $FINAL, $field(Module, usesIndex)},
-	{"providesTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleProvides;", nullptr, $PRIVATE, $field(Module, providesTable)},
-	{}
-};
-
-$MethodInfo _Module_MethodInfo_[] = {
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Module, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Module, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Module, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Module, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getExportsTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleExports;", nullptr, $PUBLIC, $method(Module, getExportsTable, $ModuleExportsArray*)},
-	{"getOpensTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleOpens;", nullptr, $PUBLIC, $method(Module, getOpensTable, $ModuleOpensArray*)},
-	{"getProvidesTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleProvides;", nullptr, $PUBLIC, $method(Module, getProvidesTable, $ModuleProvidesArray*)},
-	{"getRequiresTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleRequires;", nullptr, $PUBLIC, $method(Module, getRequiresTable, $ModuleRequiresArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Module, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Module_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Module",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_Module_FieldInfo_,
-	_Module_MethodInfo_
-};
-
-$Object* allocate$Module($Class* clazz) {
-	return $of($alloc(Module));
-}
-
 void Module::init$(int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute::init$($Const::ATTR_MODULE, name_index, length, constant_pool);
 	this->moduleNameIndex = $nc(input)->readUnsignedShort();
 	this->moduleFlags = input->readUnsignedShort();
@@ -91,27 +51,27 @@ void Module::init$(int32_t name_index, int32_t length, $DataInput* input, $Const
 	int32_t requires_count = input->readUnsignedShort();
 	$set(this, requiresTable, $new($ModuleRequiresArray, requires_count));
 	for (int32_t i = 0; i < requires_count; ++i) {
-		$nc(this->requiresTable)->set(i, $$new($ModuleRequires, input));
+		this->requiresTable->set(i, $$new($ModuleRequires, input));
 	}
 	int32_t exports_count = input->readUnsignedShort();
 	$set(this, exportsTable, $new($ModuleExportsArray, exports_count));
 	for (int32_t i = 0; i < exports_count; ++i) {
-		$nc(this->exportsTable)->set(i, $$new($ModuleExports, input));
+		this->exportsTable->set(i, $$new($ModuleExports, input));
 	}
 	int32_t opens_count = input->readUnsignedShort();
 	$set(this, opensTable, $new($ModuleOpensArray, opens_count));
 	for (int32_t i = 0; i < opens_count; ++i) {
-		$nc(this->opensTable)->set(i, $$new($ModuleOpens, input));
+		this->opensTable->set(i, $$new($ModuleOpens, input));
 	}
 	this->usesCount = input->readUnsignedShort();
 	$set(this, usesIndex, $new($ints, this->usesCount));
 	for (int32_t i = 0; i < this->usesCount; ++i) {
-		$nc(this->usesIndex)->set(i, input->readUnsignedShort());
+		this->usesIndex->set(i, input->readUnsignedShort());
 	}
 	int32_t provides_count = input->readUnsignedShort();
 	$set(this, providesTable, $new($ModuleProvidesArray, provides_count));
 	for (int32_t i = 0; i < provides_count; ++i) {
-		$nc(this->providesTable)->set(i, $$new($ModuleProvides, input));
+		this->providesTable->set(i, $$new($ModuleProvides, input));
 	}
 }
 
@@ -136,7 +96,7 @@ $ModuleProvidesArray* Module::getProvidesTable() {
 }
 
 void Module::dump($DataOutputStream* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute::dump(file);
 	$nc(file)->writeShort(this->moduleNameIndex);
 	file->writeShort(this->moduleFlags);
@@ -144,9 +104,7 @@ void Module::dump($DataOutputStream* file) {
 	file->writeShort($nc(this->requiresTable)->length);
 	{
 		$var($ModuleRequiresArray, arr$, this->requiresTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleRequires, entry, arr$->get(i$));
 			{
 				$nc(entry)->dump(file);
@@ -156,9 +114,7 @@ void Module::dump($DataOutputStream* file) {
 	file->writeShort($nc(this->exportsTable)->length);
 	{
 		$var($ModuleExportsArray, arr$, this->exportsTable);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleExports, entry, arr$->get(i$));
 			{
 				$nc(entry)->dump(file);
@@ -168,21 +124,17 @@ void Module::dump($DataOutputStream* file) {
 	file->writeShort($nc(this->opensTable)->length);
 	{
 		$var($ModuleOpensArray, arr$, this->opensTable);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleOpens, entry, arr$->get(i$));
 			{
 				$nc(entry)->dump(file);
 			}
 		}
 	}
-	file->writeShort($nc(this->usesIndex)->length);
+	file->writeShort(this->usesIndex->length);
 	{
 		$var($ints, arr$, this->usesIndex);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t entry = arr$->get(i$);
 			{
 				file->writeShort(entry);
@@ -192,9 +144,7 @@ void Module::dump($DataOutputStream* file) {
 	file->writeShort($nc(this->providesTable)->length);
 	{
 		$var($ModuleProvidesArray, arr$, this->providesTable);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleProvides, entry, arr$->get(i$));
 			{
 				$nc(entry)->dump(file);
@@ -204,20 +154,18 @@ void Module::dump($DataOutputStream* file) {
 }
 
 $String* Module::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPool, cp, $Attribute::getConstantPool());
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append("Module:\n"_s);
-	buf->append("  name:    "_s)->append($($nc($($nc(cp)->getConstantString(this->moduleNameIndex, $Const::CONSTANT_Module)))->replace(u'/', u'.')))->append("\n"_s);
-	buf->append("  flags:   "_s)->append($($String::format("%04x"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->moduleFlags)))}))))->append("\n"_s);
-	$var($String, version, this->moduleVersionIndex == 0 ? "0"_s : $nc(cp)->getConstantString(this->moduleVersionIndex, $Const::CONSTANT_Utf8));
+	buf->append("  name:    "_s)->append($($$nc($nc(cp)->getConstantString(this->moduleNameIndex, $Const::CONSTANT_Module))->replace(u'/', u'.')))->append("\n"_s);
+	buf->append("  flags:   "_s)->append($($String::format("%04x"_s, $$new($ObjectArray, {$($Integer::valueOf(this->moduleFlags))}))))->append("\n"_s);
+	$var($String, version, this->moduleVersionIndex == 0 ? "0"_s : cp->getConstantString(this->moduleVersionIndex, $Const::CONSTANT_Utf8));
 	buf->append("  version: "_s)->append(version)->append("\n"_s);
 	buf->append("  requires("_s)->append($nc(this->requiresTable)->length)->append("):\n"_s);
 	{
 		$var($ModuleRequiresArray, arr$, this->requiresTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleRequires, module, arr$->get(i$));
 			{
 				buf->append("    "_s)->append($($nc(module)->toString(cp)))->append("\n"_s);
@@ -227,9 +175,7 @@ $String* Module::toString() {
 	buf->append("  exports("_s)->append($nc(this->exportsTable)->length)->append("):\n"_s);
 	{
 		$var($ModuleExportsArray, arr$, this->exportsTable);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleExports, module, arr$->get(i$));
 			{
 				buf->append("    "_s)->append($($nc(module)->toString(cp)))->append("\n"_s);
@@ -239,21 +185,17 @@ $String* Module::toString() {
 	buf->append("  opens("_s)->append($nc(this->opensTable)->length)->append("):\n"_s);
 	{
 		$var($ModuleOpensArray, arr$, this->opensTable);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleOpens, module, arr$->get(i$));
 			{
 				buf->append("    "_s)->append($($nc(module)->toString(cp)))->append("\n"_s);
 			}
 		}
 	}
-	buf->append("  uses("_s)->append($nc(this->usesIndex)->length)->append("):\n"_s);
+	buf->append("  uses("_s)->append(this->usesIndex->length)->append("):\n"_s);
 	{
 		$var($ints, arr$, this->usesIndex);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t index = arr$->get(i$);
 			{
 				$var($String, class_name, cp->getConstantString(index, $Const::CONSTANT_Class));
@@ -264,9 +206,7 @@ $String* Module::toString() {
 	buf->append("  provides("_s)->append($nc(this->providesTable)->length)->append("):\n"_s);
 	{
 		$var($ModuleProvidesArray, arr$, this->providesTable);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleProvides, module, arr$->get(i$));
 			{
 				buf->append("    "_s)->append($($nc(module)->toString(cp)))->append("\n"_s);
@@ -277,23 +217,23 @@ $String* Module::toString() {
 }
 
 $Attribute* Module::copy($ConstantPool* _constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Module, c, $cast(Module, clone()));
 	$set($nc(c), requiresTable, $new($ModuleRequiresArray, $nc(this->requiresTable)->length));
 	for (int32_t i = 0; i < $nc(this->requiresTable)->length; ++i) {
-		$nc(c->requiresTable)->set(i, $($nc($nc(this->requiresTable)->get(i))->copy()));
+		$nc(c->requiresTable)->set(i, $($nc(this->requiresTable->get(i))->copy()));
 	}
 	$set(c, exportsTable, $new($ModuleExportsArray, $nc(this->exportsTable)->length));
 	for (int32_t i = 0; i < $nc(this->exportsTable)->length; ++i) {
-		$nc(c->exportsTable)->set(i, $($nc($nc(this->exportsTable)->get(i))->copy()));
+		$nc(c->exportsTable)->set(i, $($nc(this->exportsTable->get(i))->copy()));
 	}
 	$set(c, opensTable, $new($ModuleOpensArray, $nc(this->opensTable)->length));
 	for (int32_t i = 0; i < $nc(this->opensTable)->length; ++i) {
-		$nc(c->opensTable)->set(i, $($nc($nc(this->opensTable)->get(i))->copy()));
+		$nc(c->opensTable)->set(i, $($nc(this->opensTable->get(i))->copy()));
 	}
 	$set(c, providesTable, $new($ModuleProvidesArray, $nc(this->providesTable)->length));
 	for (int32_t i = 0; i < $nc(this->providesTable)->length; ++i) {
-		$nc(c->providesTable)->set(i, $($nc($nc(this->providesTable)->get(i))->copy()));
+		$nc(c->providesTable)->set(i, $($nc(this->providesTable->get(i))->copy()));
 	}
 	c->setConstantPool(_constant_pool);
 	return c;
@@ -303,7 +243,41 @@ Module::Module() {
 }
 
 $Class* Module::load$($String* name, bool initialize) {
-	$loadClass(Module, name, initialize, &_Module_ClassInfo_, allocate$Module);
+	$FieldInfo fieldInfos$$[] = {
+		{"moduleNameIndex", "I", nullptr, $PRIVATE | $FINAL, $field(Module, moduleNameIndex)},
+		{"moduleFlags", "I", nullptr, $PRIVATE | $FINAL, $field(Module, moduleFlags)},
+		{"moduleVersionIndex", "I", nullptr, $PRIVATE | $FINAL, $field(Module, moduleVersionIndex)},
+		{"requiresTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleRequires;", nullptr, $PRIVATE, $field(Module, requiresTable)},
+		{"exportsTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleExports;", nullptr, $PRIVATE, $field(Module, exportsTable)},
+		{"opensTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleOpens;", nullptr, $PRIVATE, $field(Module, opensTable)},
+		{"usesCount", "I", nullptr, $PRIVATE | $FINAL, $field(Module, usesCount)},
+		{"usesIndex", "[I", nullptr, $PRIVATE | $FINAL, $field(Module, usesIndex)},
+		{"providesTable", "[Lcom/sun/org/apache/bcel/internal/classfile/ModuleProvides;", nullptr, $PRIVATE, $field(Module, providesTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Module, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Module, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Module, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Module, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getExportsTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleExports;", nullptr, $PUBLIC, $method(Module, getExportsTable, $ModuleExportsArray*)},
+		{"getOpensTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleOpens;", nullptr, $PUBLIC, $method(Module, getOpensTable, $ModuleOpensArray*)},
+		{"getProvidesTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleProvides;", nullptr, $PUBLIC, $method(Module, getProvidesTable, $ModuleProvidesArray*)},
+		{"getRequiresTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/ModuleRequires;", nullptr, $PUBLIC, $method(Module, getRequiresTable, $ModuleRequiresArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Module, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Module",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Module, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Module));
+	});
 	return class$;
 }
 

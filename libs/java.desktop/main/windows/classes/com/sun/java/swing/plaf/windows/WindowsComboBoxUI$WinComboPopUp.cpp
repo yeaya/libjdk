@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WinComboPopUp.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler.h>
@@ -24,7 +23,6 @@ using $WindowsComboBoxUI = ::com::sun::java::swing::plaf::windows::WindowsComboB
 using $WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler = ::com::sun::java::swing::plaf::windows::WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,7 +30,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 
@@ -43,54 +40,14 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsComboBoxUI$WinComboPopUp_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsComboBoxUI$WinComboPopUp, this$0)},
-	{"listBoxBorder", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, $PRIVATE, $field(WindowsComboBoxUI$WinComboPopUp, listBoxBorder)},
-	{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $PRIVATE, $field(WindowsComboBoxUI$WinComboPopUp, xp)},
-	{}
-};
-
-$MethodInfo _WindowsComboBoxUI$WinComboPopUp_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(WindowsComboBoxUI$WinComboPopUp, init$, void, $WindowsComboBoxUI*, $JComboBox*)},
-	{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI$WinComboPopUp, createKeyListener, $KeyListener*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI$WinComboPopUp, paintComponent, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _WindowsComboBoxUI$WinComboPopUp_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WinComboPopUp", $PROTECTED},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp", "InvocationKeyHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _WindowsComboBoxUI$WinComboPopUp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp",
-	"javax.swing.plaf.basic.BasicComboPopup",
-	nullptr,
-	_WindowsComboBoxUI$WinComboPopUp_FieldInfo_,
-	_WindowsComboBoxUI$WinComboPopUp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsComboBoxUI$WinComboPopUp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
-};
-
-$Object* allocate$WindowsComboBoxUI$WinComboPopUp($Class* clazz) {
-	return $of($alloc(WindowsComboBoxUI$WinComboPopUp));
-}
-
 void WindowsComboBoxUI$WinComboPopUp::init$($WindowsComboBoxUI* this$0, $JComboBox* combo) {
 	$set(this, this$0, this$0);
 	$BasicComboPopup::init$(combo);
 	$set(this, listBoxBorder, nullptr);
 	$set(this, xp, $XPStyle::getXP());
 	$init($TMSchema$Part);
-	if (this->xp != nullptr && $nc(this->xp)->isSkinDefined(combo, $TMSchema$Part::LBCP_BORDER_NOSCROLL)) {
-		$set(this, listBoxBorder, $new($XPStyle$Skin, static_cast<$Component*>(combo), $TMSchema$Part::LBCP_BORDER_NOSCROLL));
+	if (this->xp != nullptr && this->xp->isSkinDefined(combo, $TMSchema$Part::LBCP_BORDER_NOSCROLL)) {
+		$set(this, listBoxBorder, $new($XPStyle$Skin, combo, $TMSchema$Part::LBCP_BORDER_NOSCROLL));
 		this->setBorder($$new($EmptyBorder, 1, 1, 1, 1));
 	}
 }
@@ -102,12 +59,11 @@ $KeyListener* WindowsComboBoxUI$WinComboPopUp::createKeyListener() {
 void WindowsComboBoxUI$WinComboPopUp::paintComponent($Graphics* g) {
 	$BasicComboPopup::paintComponent(g);
 	if (this->listBoxBorder != nullptr) {
-		$var($Graphics, var$0, g);
-		int32_t var$1 = this->getX();
-		int32_t var$2 = this->getY();
-		int32_t var$3 = this->getWidth();
+		int32_t var$0 = this->getX();
+		int32_t var$1 = this->getY();
+		int32_t var$2 = this->getWidth();
 		$init($TMSchema$State);
-		$nc(this->listBoxBorder)->paintSkinRaw(var$0, var$1, var$2, var$3, this->getHeight(), $TMSchema$State::HOT);
+		this->listBoxBorder->paintSkinRaw(g, var$0, var$1, var$2, this->getHeight(), $TMSchema$State::HOT);
 	}
 }
 
@@ -115,7 +71,41 @@ WindowsComboBoxUI$WinComboPopUp::WindowsComboBoxUI$WinComboPopUp() {
 }
 
 $Class* WindowsComboBoxUI$WinComboPopUp::load$($String* name, bool initialize) {
-	$loadClass(WindowsComboBoxUI$WinComboPopUp, name, initialize, &_WindowsComboBoxUI$WinComboPopUp_ClassInfo_, allocate$WindowsComboBoxUI$WinComboPopUp);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsComboBoxUI$WinComboPopUp, this$0)},
+		{"listBoxBorder", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, $PRIVATE, $field(WindowsComboBoxUI$WinComboPopUp, listBoxBorder)},
+		{"xp", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $PRIVATE, $field(WindowsComboBoxUI$WinComboPopUp, xp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsComboBoxUI;Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(WindowsComboBoxUI$WinComboPopUp, init$, void, $WindowsComboBoxUI*, $JComboBox*)},
+		{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI$WinComboPopUp, createKeyListener, $KeyListener*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsComboBoxUI$WinComboPopUp, paintComponent, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WinComboPopUp", $PROTECTED},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp", "InvocationKeyHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WinComboPopUp",
+		"javax.swing.plaf.basic.BasicComboPopup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
+	};
+	$loadClass(WindowsComboBoxUI$WinComboPopUp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsComboBoxUI$WinComboPopUp));
+	});
 	return class$;
 }
 

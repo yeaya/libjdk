@@ -65,6 +65,7 @@ class $import SSLFlowDelegate$Reader : public ::jdk::internal::net::http::common
 	$class(SSLFlowDelegate$Reader, 0, ::jdk::internal::net::http::common::SubscriberWrapper)
 public:
 	SSLFlowDelegate$Reader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::common::SSLFlowDelegate* this$0);
 	void addToReadBuf(::java::util::List* buffers, bool complete);
 	virtual $String* dbgString() override;

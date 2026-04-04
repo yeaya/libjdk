@@ -47,6 +47,7 @@ namespace com {
 class SerializerConstants : public ::java::lang::Object {
 	$interface(SerializerConstants, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static $String* CDATA_CONTINUE;
 	static $String* CDATA_DELIMITER_CLOSE;
 	static $String* CDATA_DELIMITER_OPEN;

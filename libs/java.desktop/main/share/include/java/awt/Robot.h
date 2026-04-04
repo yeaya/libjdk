@@ -41,6 +41,7 @@ class $import Robot : public ::java::lang::Object {
 	$class(Robot, 0, ::java::lang::Object)
 public:
 	Robot();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::GraphicsDevice* screen);
 	void afterEvent();
@@ -74,7 +75,7 @@ public:
 	virtual void setAutoWaitForIdle(bool isOn);
 	virtual $String* toString() override;
 	virtual void waitForIdle();
-	static const int32_t MAX_DELAY = 0x0000EA60;
+	static const int32_t MAX_DELAY = 0x0000ea60;
 	::java::awt::peer::RobotPeer* peer = nullptr;
 	bool isAutoWaitForIdle$ = false;
 	int32_t autoDelay$ = 0;

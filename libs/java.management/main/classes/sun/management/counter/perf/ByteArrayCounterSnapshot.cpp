@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/ByteArrayCounterSnapshot.h>
-
 #include <sun/management/counter/AbstractCounter.h>
 #include <sun/management/counter/Units.h>
 #include <sun/management/counter/Variability.h>
@@ -16,45 +15,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _ByteArrayCounterSnapshot_FieldInfo_[] = {
-	{"value", "[B", nullptr, 0, $field(ByteArrayCounterSnapshot, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ByteArrayCounterSnapshot, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ByteArrayCounterSnapshot_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFlags", "()I", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"*getVectorLength", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II[B)V", nullptr, 0, $method(ByteArrayCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $bytes*)},
-	{"byteArrayValue", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteArrayCounterSnapshot, byteArrayValue, $bytes*)},
-	{"byteAt", "(I)B", nullptr, $PUBLIC, $virtualMethod(ByteArrayCounterSnapshot, byteAt, int8_t, int32_t)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteArrayCounterSnapshot, getValue, $Object*)},
-	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ByteArrayCounterSnapshot_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.ByteArrayCounterSnapshot",
-	"sun.management.counter.AbstractCounter",
-	"sun.management.counter.ByteArrayCounter",
-	_ByteArrayCounterSnapshot_FieldInfo_,
-	_ByteArrayCounterSnapshot_MethodInfo_
-};
-
-$Object* allocate$ByteArrayCounterSnapshot($Class* clazz) {
-	return $of($alloc(ByteArrayCounterSnapshot));
-}
 
 $String* ByteArrayCounterSnapshot::getName() {
 	 return this->$AbstractCounter::getName();
@@ -110,7 +70,7 @@ void ByteArrayCounterSnapshot::init$($String* name, $Units* u, $Variability* v, 
 }
 
 $Object* ByteArrayCounterSnapshot::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $bytes* ByteArrayCounterSnapshot::byteArrayValue() {
@@ -125,7 +85,41 @@ ByteArrayCounterSnapshot::ByteArrayCounterSnapshot() {
 }
 
 $Class* ByteArrayCounterSnapshot::load$($String* name, bool initialize) {
-	$loadClass(ByteArrayCounterSnapshot, name, initialize, &_ByteArrayCounterSnapshot_ClassInfo_, allocate$ByteArrayCounterSnapshot);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "[B", nullptr, 0, $field(ByteArrayCounterSnapshot, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ByteArrayCounterSnapshot, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFlags", "()I", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
+		{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
+		{"*getVectorLength", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II[B)V", nullptr, 0, $method(ByteArrayCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $bytes*)},
+		{"byteArrayValue", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteArrayCounterSnapshot, byteArrayValue, $bytes*)},
+		{"byteAt", "(I)B", nullptr, $PUBLIC, $virtualMethod(ByteArrayCounterSnapshot, byteAt, int8_t, int32_t)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteArrayCounterSnapshot, getValue, $Object*)},
+		{"*isVector", "()Z", nullptr, $PUBLIC},
+		{"*isInternal", "()Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.ByteArrayCounterSnapshot",
+		"sun.management.counter.AbstractCounter",
+		"sun.management.counter.ByteArrayCounter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteArrayCounterSnapshot, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteArrayCounterSnapshot));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/ENTITYDatatypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <jcpp.h>
@@ -19,31 +18,12 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$MethodInfo _ENTITYDatatypeValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ENTITYDatatypeValidator, init$, void)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(ENTITYDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _ENTITYDatatypeValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.ENTITYDatatypeValidator",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
-	nullptr,
-	_ENTITYDatatypeValidator_MethodInfo_
-};
-
-$Object* allocate$ENTITYDatatypeValidator($Class* clazz) {
-	return $of($alloc(ENTITYDatatypeValidator));
-}
-
 void ENTITYDatatypeValidator::init$() {
 }
 
 void ENTITYDatatypeValidator::validate($String* content, $ValidationContext* context) {
 	if (!$nc(context)->isEntityUnparsed(content)) {
-		$throwNew($InvalidDatatypeValueException, "ENTITYNotUnparsed"_s, $$new($ObjectArray, {$of(content)}));
+		$throwNew($InvalidDatatypeValueException, "ENTITYNotUnparsed"_s, $$new($ObjectArray, {content}));
 	}
 }
 
@@ -51,7 +31,22 @@ ENTITYDatatypeValidator::ENTITYDatatypeValidator() {
 }
 
 $Class* ENTITYDatatypeValidator::load$($String* name, bool initialize) {
-	$loadClass(ENTITYDatatypeValidator, name, initialize, &_ENTITYDatatypeValidator_ClassInfo_, allocate$ENTITYDatatypeValidator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ENTITYDatatypeValidator, init$, void)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(ENTITYDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.ENTITYDatatypeValidator",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ENTITYDatatypeValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ENTITYDatatypeValidator);
+	});
 	return class$;
 }
 

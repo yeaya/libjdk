@@ -42,6 +42,7 @@ class $import ResponseSubscribers$ByteArraySubscriber : public ::jdk::internal::
 	$class(ResponseSubscribers$ByteArraySubscriber, 0, ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber)
 public:
 	ResponseSubscribers$ByteArraySubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::function::Function* finisher);
 	virtual ::java::util::concurrent::CompletionStage* getBody() override;
 	static $bytes* join(::java::util::List* bytes);

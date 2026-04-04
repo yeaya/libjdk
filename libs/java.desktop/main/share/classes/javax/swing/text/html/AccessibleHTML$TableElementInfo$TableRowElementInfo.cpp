@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$TableElementInfo$TableRowElementInfo.h>
-
 #include <java/lang/Math.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleTable.h>
@@ -22,7 +21,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleTable = ::javax::accessibility::AccessibleTable;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Element = ::javax::swing::text::Element;
@@ -38,51 +36,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _AccessibleHTML$TableElementInfo$TableRowElementInfo_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TableElementInfo$TableRowElementInfo, this$1)},
-	{"parent", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;", nullptr, $PRIVATE, $field(AccessibleHTML$TableElementInfo$TableRowElementInfo, parent)},
-	{"rowNumber", "I", nullptr, $PRIVATE, $field(AccessibleHTML$TableElementInfo$TableRowElementInfo, rowNumber)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$TableElementInfo$TableRowElementInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;Ljavax/swing/text/Element;Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;I)V", nullptr, 0, $method(AccessibleHTML$TableElementInfo$TableRowElementInfo, init$, void, $AccessibleHTML$TableElementInfo*, $Element*, $AccessibleHTML$TableElementInfo*, int32_t)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, getColumnCount, int32_t)},
-	{"getColumnCount", "(I)I", nullptr, $PRIVATE, $method(AccessibleHTML$TableElementInfo$TableRowElementInfo, getColumnCount, int32_t, int32_t)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, getRowCount, int32_t)},
-	{"invalidate", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, invalidate, void, bool)},
-	{"loadChildren", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, loadChildren, void, $Element*)},
-	{"updateGrid", "(I)V", nullptr, $PRIVATE, $method(AccessibleHTML$TableElementInfo$TableRowElementInfo, updateGrid, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$TableElementInfo$TableRowElementInfo_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$TableElementInfo", "javax.swing.text.html.AccessibleHTML", "TableElementInfo", $PRIVATE},
-	{"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableRowElementInfo", "javax.swing.text.html.AccessibleHTML$TableElementInfo", "TableRowElementInfo", $PRIVATE},
-	{"javax.swing.text.html.AccessibleHTML$ElementInfo", "javax.swing.text.html.AccessibleHTML", "ElementInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$TableElementInfo$TableRowElementInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableRowElementInfo",
-	"javax.swing.text.html.AccessibleHTML$ElementInfo",
-	nullptr,
-	_AccessibleHTML$TableElementInfo$TableRowElementInfo_FieldInfo_,
-	_AccessibleHTML$TableElementInfo$TableRowElementInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$TableElementInfo$TableRowElementInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$TableElementInfo$TableRowElementInfo($Class* clazz) {
-	return $of($alloc(AccessibleHTML$TableElementInfo$TableRowElementInfo));
-}
-
 void AccessibleHTML$TableElementInfo$TableRowElementInfo::init$($AccessibleHTML$TableElementInfo* this$1, $Element* e, $AccessibleHTML$TableElementInfo* parent, int32_t rowNumber) {
 	$set(this, this$1, this$1);
 	$AccessibleHTML$ElementInfo::init$(this$1->this$0, e, parent);
@@ -91,27 +44,25 @@ void AccessibleHTML$TableElementInfo$TableRowElementInfo::init$($AccessibleHTML$
 }
 
 void AccessibleHTML$TableElementInfo$TableRowElementInfo::loadChildren($Element* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t x = 0; x < $nc(e)->getElementCount(); ++x) {
-		$var($AttributeSet, attrs, $nc($(e->getElement(x)))->getAttributes());
+		$var($AttributeSet, attrs, $$nc(e->getElement(x))->getAttributes());
 		$init($StyleConstants);
 		$init($HTML$Tag);
 		if ($equals($nc(attrs)->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::TH)) {
 			$var($AccessibleHTML$TableElementInfo$TableCellElementInfo, headerElementInfo, $new($AccessibleHTML$TableElementInfo$TableCellElementInfo, this->this$1, $(e->getElement(x)), this, true));
 			addChild(headerElementInfo);
-			$var($AccessibleTable, at, $nc($($nc(this->parent)->getAccessibleContext()))->getAccessibleTable());
+			$var($AccessibleTable, at, $$nc($nc(this->parent)->getAccessibleContext())->getAccessibleTable());
 			$var($AccessibleHTML$TableElementInfo$TableAccessibleContext, tableElement, $cast($AccessibleHTML$TableElementInfo$TableAccessibleContext, at));
 			$nc(tableElement)->addRowHeader(headerElementInfo, this->rowNumber);
-		} else {
-			if ($equals(attrs->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::TD)) {
-				addChild($$new($AccessibleHTML$TableElementInfo$TableCellElementInfo, this->this$1, $(e->getElement(x)), this, false));
-			}
+		} else if ($equals(attrs->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::TD)) {
+			addChild($$new($AccessibleHTML$TableElementInfo$TableCellElementInfo, this->this$1, $(e->getElement(x)), this, false));
 		}
 	}
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableRowElementInfo::getRowCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rowCount = 1;
 	if (validateIfNecessary()) {
 		for (int32_t counter = 0; counter < getChildCount(); ++counter) {
@@ -125,7 +76,7 @@ int32_t AccessibleHTML$TableElementInfo$TableRowElementInfo::getRowCount() {
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableRowElementInfo::getColumnCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t colCount = 0;
 	if (validateIfNecessary()) {
 		for (int32_t counter = 0; counter < getChildCount(); ++counter) {
@@ -140,16 +91,16 @@ int32_t AccessibleHTML$TableElementInfo$TableRowElementInfo::getColumnCount() {
 
 void AccessibleHTML$TableElementInfo$TableRowElementInfo::invalidate(bool first) {
 	$AccessibleHTML$ElementInfo::invalidate(first);
-	$nc($(getParent()))->invalidate(true);
+	$$nc(getParent())->invalidate(true);
 }
 
 void AccessibleHTML$TableElementInfo$TableRowElementInfo::updateGrid(int32_t row) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (validateIfNecessary()) {
 		bool emptyRow = false;
 		while (!emptyRow) {
 			for (int32_t counter = 0; counter < $nc($nc(this->this$1->grid)->get(row))->length; ++counter) {
-				if ($nc($nc(this->this$1->grid)->get(row))->get(counter) == nullptr) {
+				if ($nc(this->this$1->grid->get(row))->get(counter) == nullptr) {
 					emptyRow = true;
 					break;
 				}
@@ -158,27 +109,23 @@ void AccessibleHTML$TableElementInfo$TableRowElementInfo::updateGrid(int32_t row
 				++row;
 			}
 		}
-		{
-			int32_t col = 0;
-			int32_t counter = 0;
-			for (; counter < getChildCount(); ++counter) {
-				$var($AccessibleHTML$TableElementInfo$TableCellElementInfo, cell, $cast($AccessibleHTML$TableElementInfo$TableCellElementInfo, getChild(counter)));
-				while ($nc($nc(this->this$1->grid)->get(row))->get(col) != nullptr) {
-					++col;
-				}
-				for (int32_t rowCount = $nc(cell)->getRowCount() - 1; rowCount >= 0; --rowCount) {
-					for (int32_t colCount = cell->getColumnCount() - 1; colCount >= 0; --colCount) {
-						$nc($nc(this->this$1->grid)->get(row + rowCount))->set(col + colCount, cell);
-					}
-				}
-				col += cell->getColumnCount();
+		for (int32_t col = 0, counter = 0; counter < getChildCount(); ++counter) {
+			$var($AccessibleHTML$TableElementInfo$TableCellElementInfo, cell, $cast($AccessibleHTML$TableElementInfo$TableCellElementInfo, getChild(counter)));
+			while ($nc($nc(this->this$1->grid)->get(row))->get(col) != nullptr) {
+				++col;
 			}
+			for (int32_t rowCount = $nc(cell)->getRowCount() - 1; rowCount >= 0; --rowCount) {
+				for (int32_t colCount = cell->getColumnCount() - 1; colCount >= 0; --colCount) {
+					$nc($nc(this->this$1->grid)->get(row + rowCount))->set(col + colCount, cell);
+				}
+			}
+			col += cell->getColumnCount();
 		}
 	}
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableRowElementInfo::getColumnCount(int32_t rowspan) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (validateIfNecessary()) {
 		int32_t cols = 0;
 		for (int32_t counter = 0; counter < getChildCount(); ++counter) {
@@ -196,7 +143,46 @@ AccessibleHTML$TableElementInfo$TableRowElementInfo::AccessibleHTML$TableElement
 }
 
 $Class* AccessibleHTML$TableElementInfo$TableRowElementInfo::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$TableElementInfo$TableRowElementInfo, name, initialize, &_AccessibleHTML$TableElementInfo$TableRowElementInfo_ClassInfo_, allocate$AccessibleHTML$TableElementInfo$TableRowElementInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TableElementInfo$TableRowElementInfo, this$1)},
+		{"parent", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;", nullptr, $PRIVATE, $field(AccessibleHTML$TableElementInfo$TableRowElementInfo, parent)},
+		{"rowNumber", "I", nullptr, $PRIVATE, $field(AccessibleHTML$TableElementInfo$TableRowElementInfo, rowNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;Ljavax/swing/text/Element;Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;I)V", nullptr, 0, $method(AccessibleHTML$TableElementInfo$TableRowElementInfo, init$, void, $AccessibleHTML$TableElementInfo*, $Element*, $AccessibleHTML$TableElementInfo*, int32_t)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, getColumnCount, int32_t)},
+		{"getColumnCount", "(I)I", nullptr, $PRIVATE, $method(AccessibleHTML$TableElementInfo$TableRowElementInfo, getColumnCount, int32_t, int32_t)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, getRowCount, int32_t)},
+		{"invalidate", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, invalidate, void, bool)},
+		{"loadChildren", "(Ljavax/swing/text/Element;)V", nullptr, $PROTECTED, $virtualMethod(AccessibleHTML$TableElementInfo$TableRowElementInfo, loadChildren, void, $Element*)},
+		{"updateGrid", "(I)V", nullptr, $PRIVATE, $method(AccessibleHTML$TableElementInfo$TableRowElementInfo, updateGrid, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$TableElementInfo", "javax.swing.text.html.AccessibleHTML", "TableElementInfo", $PRIVATE},
+		{"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableRowElementInfo", "javax.swing.text.html.AccessibleHTML$TableElementInfo", "TableRowElementInfo", $PRIVATE},
+		{"javax.swing.text.html.AccessibleHTML$ElementInfo", "javax.swing.text.html.AccessibleHTML", "ElementInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableRowElementInfo",
+		"javax.swing.text.html.AccessibleHTML$ElementInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$TableElementInfo$TableRowElementInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleHTML$TableElementInfo$TableRowElementInfo);
+	});
 	return class$;
 }
 

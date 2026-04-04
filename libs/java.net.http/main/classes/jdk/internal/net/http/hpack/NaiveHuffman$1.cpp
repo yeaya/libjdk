@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/NaiveHuffman$1.h>
-
 #include <jdk/internal/net/http/hpack/NaiveHuffman$Node.h>
 #include <jdk/internal/net/http/hpack/NaiveHuffman.h>
 #include <jcpp.h>
@@ -18,49 +17,6 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _NaiveHuffman$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/hpack/NaiveHuffman;", nullptr, $FINAL | $SYNTHETIC, $field(NaiveHuffman$1, this$0)},
-	{}
-};
-
-$MethodInfo _NaiveHuffman$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/NaiveHuffman;)V", nullptr, 0, $method(NaiveHuffman$1, init$, void, $NaiveHuffman*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _NaiveHuffman$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.hpack.NaiveHuffman",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _NaiveHuffman$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.NaiveHuffman$1", nullptr, nullptr, 0},
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Node", "jdk.internal.net.http.hpack.NaiveHuffman", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _NaiveHuffman$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.hpack.NaiveHuffman$1",
-	"jdk.internal.net.http.hpack.NaiveHuffman$Node",
-	nullptr,
-	_NaiveHuffman$1_FieldInfo_,
-	_NaiveHuffman$1_MethodInfo_,
-	nullptr,
-	&_NaiveHuffman$1_EnclosingMethodInfo_,
-	_NaiveHuffman$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.NaiveHuffman"
-};
-
-$Object* allocate$NaiveHuffman$1($Class* clazz) {
-	return $of($alloc(NaiveHuffman$1));
-}
-
 void NaiveHuffman$1::init$($NaiveHuffman* this$0) {
 	$set(this, this$0, this$0);
 	$NaiveHuffman$Node::init$();
@@ -74,7 +30,43 @@ NaiveHuffman$1::NaiveHuffman$1() {
 }
 
 $Class* NaiveHuffman$1::load$($String* name, bool initialize) {
-	$loadClass(NaiveHuffman$1, name, initialize, &_NaiveHuffman$1_ClassInfo_, allocate$NaiveHuffman$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/hpack/NaiveHuffman;", nullptr, $FINAL | $SYNTHETIC, $field(NaiveHuffman$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/hpack/NaiveHuffman;)V", nullptr, 0, $method(NaiveHuffman$1, init$, void, $NaiveHuffman*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.hpack.NaiveHuffman",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.NaiveHuffman$1", nullptr, nullptr, 0},
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Node", "jdk.internal.net.http.hpack.NaiveHuffman", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.hpack.NaiveHuffman$1",
+		"jdk.internal.net.http.hpack.NaiveHuffman$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.NaiveHuffman"
+	};
+	$loadClass(NaiveHuffman$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NaiveHuffman$1);
+	});
 	return class$;
 }
 

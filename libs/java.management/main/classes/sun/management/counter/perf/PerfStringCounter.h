@@ -45,6 +45,7 @@ public:
 	virtual ::sun::management::counter::Variability* getVariability() override;
 	virtual int32_t hashCode() override;
 	virtual bool isInternal() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::sun::management::counter::Variability* v, int32_t flags, ::java::nio::ByteBuffer* bb);
 	void init$($String* name, ::sun::management::counter::Variability* v, int32_t flags, int32_t maxLength, ::java::nio::ByteBuffer* bb);
 	virtual $Object* getValue() override;
@@ -54,7 +55,7 @@ public:
 	virtual $String* toString() override;
 	virtual $Object* writeReplace() override;
 	static ::java::nio::charset::Charset* defaultCharset;
-	static const int64_t serialVersionUID = (int64_t)0x5E68CDB969603BA4;
+	static const int64_t serialVersionUID = (int64_t)0x5e68cdb969603ba4;
 };
 
 			} // perf

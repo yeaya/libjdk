@@ -1,11 +1,9 @@
 #include <com/sun/tools/javac/jvm/Items$SelfItem.h>
-
 #include <com/sun/tools/javac/jvm/Code.h>
 #include <com/sun/tools/javac/jvm/Items$Item.h>
 #include <com/sun/tools/javac/jvm/Items.h>
 #include <jcpp.h>
 
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -18,45 +16,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Items$SelfItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$SelfItem, this$0)},
-	{"isSuper", "Z", nullptr, 0, $field(Items$SelfItem, isSuper)},
-	{}
-};
-
-$MethodInfo _Items$SelfItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Z)V", nullptr, 0, $method(Items$SelfItem, init$, void, $Items*, bool)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$SelfItem, load, $Items$Item*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$SelfItem, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Items$SelfItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$SelfItem", "com.sun.tools.javac.jvm.Items", "SelfItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$SelfItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$SelfItem",
-	"com.sun.tools.javac.jvm.Items$Item",
-	nullptr,
-	_Items$SelfItem_FieldInfo_,
-	_Items$SelfItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$SelfItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$SelfItem($Class* clazz) {
-	return $of($alloc(Items$SelfItem));
-}
 
 void Items$SelfItem::init$($Items* this$0, bool isSuper) {
 	$set(this, this$0, this$0);
@@ -77,7 +36,40 @@ Items$SelfItem::Items$SelfItem() {
 }
 
 $Class* Items$SelfItem::load$($String* name, bool initialize) {
-	$loadClass(Items$SelfItem, name, initialize, &_Items$SelfItem_ClassInfo_, allocate$Items$SelfItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$SelfItem, this$0)},
+		{"isSuper", "Z", nullptr, 0, $field(Items$SelfItem, isSuper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Z)V", nullptr, 0, $method(Items$SelfItem, init$, void, $Items*, bool)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$SelfItem, load, $Items$Item*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$SelfItem, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$SelfItem", "com.sun.tools.javac.jvm.Items", "SelfItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$SelfItem",
+		"com.sun.tools.javac.jvm.Items$Item",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$SelfItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$SelfItem);
+	});
 	return class$;
 }
 

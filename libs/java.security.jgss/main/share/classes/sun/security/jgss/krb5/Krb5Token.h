@@ -35,6 +35,7 @@ class Krb5Token : public ::sun::security::jgss::GSSToken {
 	$class(Krb5Token, 0, ::sun::security::jgss::GSSToken)
 public:
 	Krb5Token();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getTokenName(int32_t tokenId);
 	static const int32_t AP_REQ_ID = 256;

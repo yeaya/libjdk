@@ -71,6 +71,7 @@ class $import ArrayNotificationBuffer : public ::com::sun::jmx::remote::internal
 	$class(ArrayNotificationBuffer, 0, ::com::sun::jmx::remote::internal::NotificationBuffer)
 public:
 	ArrayNotificationBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::MBeanServer* mbs, int32_t queueSize);
 	void addBufferListener(::javax::management::ObjectName* name);
 	virtual void addNotification(::com::sun::jmx::remote::internal::ArrayNotificationBuffer$NamedNotification* notif);

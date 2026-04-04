@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifGPSTagSet$GPSAltitudeRef.h>
-
 #include <javax/imageio/plugins/tiff/ExifGPSTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifGPSTagSet$GPSAltitudeRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifGPSTagSet$GPSAltitudeRef, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifGPSTagSet$GPSAltitudeRef_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAltitudeRef", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifGPSTagSet$GPSAltitudeRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifGPSTagSet$GPSAltitudeRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifGPSTagSet$GPSAltitudeRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifGPSTagSet"
-};
-
-$Object* allocate$ExifGPSTagSet$GPSAltitudeRef($Class* clazz) {
-	return $of($alloc(ExifGPSTagSet$GPSAltitudeRef));
-}
-
 void ExifGPSTagSet$GPSAltitudeRef::init$() {
 	$TIFFTag::init$("GPSAltitudeRef"_s, 5, $sl(1, $TIFFTag::TIFF_BYTE));
 	addValueName(0, "Sea level"_s);
@@ -56,7 +25,32 @@ ExifGPSTagSet$GPSAltitudeRef::ExifGPSTagSet$GPSAltitudeRef() {
 }
 
 $Class* ExifGPSTagSet$GPSAltitudeRef::load$($String* name, bool initialize) {
-	$loadClass(ExifGPSTagSet$GPSAltitudeRef, name, initialize, &_ExifGPSTagSet$GPSAltitudeRef_ClassInfo_, allocate$ExifGPSTagSet$GPSAltitudeRef);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifGPSTagSet$GPSAltitudeRef, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAltitudeRef", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifGPSTagSet"
+	};
+	$loadClass(ExifGPSTagSet$GPSAltitudeRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifGPSTagSet$GPSAltitudeRef);
+	});
 	return class$;
 }
 

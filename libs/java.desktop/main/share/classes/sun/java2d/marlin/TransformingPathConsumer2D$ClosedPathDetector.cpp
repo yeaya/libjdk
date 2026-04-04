@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/TransformingPathConsumer2D$ClosedPathDetector.h>
-
 #include <java/lang/InternalError.h>
 #include <sun/java2d/marlin/DPathConsumer2D.h>
 #include <sun/java2d/marlin/Helpers$PolyStack.h>
@@ -23,56 +22,9 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _TransformingPathConsumer2D$ClosedPathDetector_FieldInfo_[] = {
-	{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$ClosedPathDetector, rdrCtx)},
-	{"stack", "Lsun/java2d/marlin/Helpers$PolyStack;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$ClosedPathDetector, stack)},
-	{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$ClosedPathDetector, out)},
-	{}
-};
-
-$MethodInfo _TransformingPathConsumer2D$ClosedPathDetector_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D$ClosedPathDetector, init$, void, $RendererContext*)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, curveTo, void, double, double, double, double, double, double)},
-	{"dispose", "()V", nullptr, 0, $method(TransformingPathConsumer2D$ClosedPathDetector, dispose, void)},
-	{"finish", "(Z)V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$ClosedPathDetector, finish, void, bool)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, getNativeConsumer, int64_t)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/TransformingPathConsumer2D$ClosedPathDetector;", nullptr, 0, $method(TransformingPathConsumer2D$ClosedPathDetector, init, TransformingPathConsumer2D$ClosedPathDetector*, $DPathConsumer2D*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _TransformingPathConsumer2D$ClosedPathDetector_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector", "sun.java2d.marlin.TransformingPathConsumer2D", "ClosedPathDetector", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TransformingPathConsumer2D$ClosedPathDetector_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_TransformingPathConsumer2D$ClosedPathDetector_FieldInfo_,
-	_TransformingPathConsumer2D$ClosedPathDetector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformingPathConsumer2D$ClosedPathDetector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.TransformingPathConsumer2D"
-};
-
-$Object* allocate$TransformingPathConsumer2D$ClosedPathDetector($Class* clazz) {
-	return $of($alloc(TransformingPathConsumer2D$ClosedPathDetector));
-}
-
 void TransformingPathConsumer2D$ClosedPathDetector::init$($RendererContext* rdrCtx) {
 	$set(this, rdrCtx, rdrCtx);
-	$set(this, stack, ($nc(rdrCtx)->stats$ != nullptr) ? $new($Helpers$PolyStack, rdrCtx, $nc($nc(rdrCtx)->stats$)->stat_cpd_polystack_types, $nc(rdrCtx->stats$)->stat_cpd_polystack_curves, $nc(rdrCtx->stats$)->hist_cpd_polystack_curves, $nc(rdrCtx->stats$)->stat_array_cpd_polystack_curves, $nc(rdrCtx->stats$)->stat_array_cpd_polystack_types) : $new($Helpers$PolyStack, rdrCtx));
+	$set(this, stack, ($nc(rdrCtx)->stats$ != nullptr) ? $new($Helpers$PolyStack, rdrCtx, rdrCtx->stats$->stat_cpd_polystack_types, rdrCtx->stats$->stat_cpd_polystack_curves, rdrCtx->stats$->hist_cpd_polystack_curves, rdrCtx->stats$->stat_array_cpd_polystack_curves, rdrCtx->stats$->stat_array_cpd_polystack_types) : $new($Helpers$PolyStack, rdrCtx));
 }
 
 TransformingPathConsumer2D$ClosedPathDetector* TransformingPathConsumer2D$ClosedPathDetector::init($DPathConsumer2D* out) {
@@ -126,7 +78,48 @@ TransformingPathConsumer2D$ClosedPathDetector::TransformingPathConsumer2D$Closed
 }
 
 $Class* TransformingPathConsumer2D$ClosedPathDetector::load$($String* name, bool initialize) {
-	$loadClass(TransformingPathConsumer2D$ClosedPathDetector, name, initialize, &_TransformingPathConsumer2D$ClosedPathDetector_ClassInfo_, allocate$TransformingPathConsumer2D$ClosedPathDetector);
+	$FieldInfo fieldInfos$$[] = {
+		{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$ClosedPathDetector, rdrCtx)},
+		{"stack", "Lsun/java2d/marlin/Helpers$PolyStack;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$ClosedPathDetector, stack)},
+		{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$ClosedPathDetector, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D$ClosedPathDetector, init$, void, $RendererContext*)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, curveTo, void, double, double, double, double, double, double)},
+		{"dispose", "()V", nullptr, 0, $method(TransformingPathConsumer2D$ClosedPathDetector, dispose, void)},
+		{"finish", "(Z)V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$ClosedPathDetector, finish, void, bool)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, getNativeConsumer, int64_t)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/TransformingPathConsumer2D$ClosedPathDetector;", nullptr, 0, $method(TransformingPathConsumer2D$ClosedPathDetector, init, TransformingPathConsumer2D$ClosedPathDetector*, $DPathConsumer2D*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$ClosedPathDetector, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector", "sun.java2d.marlin.TransformingPathConsumer2D", "ClosedPathDetector", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.TransformingPathConsumer2D$ClosedPathDetector",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.TransformingPathConsumer2D"
+	};
+	$loadClass(TransformingPathConsumer2D$ClosedPathDetector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformingPathConsumer2D$ClosedPathDetector);
+	});
 	return class$;
 }
 

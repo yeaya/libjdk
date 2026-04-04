@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonRadioUI.h>
-
 #include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaButtonLabeledUI.h>
 #include <com/apple/laf/AquaButtonRadioUI$1.h>
@@ -29,46 +28,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaButtonRadioUI_FieldInfo_[] = {
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonRadioUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonRadioUI, instance)},
-	{"sizingIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/ImageIcon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonRadioUI, sizingIcon)},
-	{}
-};
-
-$MethodInfo _AquaButtonRadioUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonRadioUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonRadioUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPainter", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PROTECTED, $virtualMethod(AquaButtonRadioUI, getPainter, $AquaButtonBorder*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaButtonRadioUI, getPropertyPrefix, $String*)},
-	{"getSizingRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonRadioUI, getSizingRadioButtonIcon, $Icon*)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonRadioUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonRadioUI$RadioButtonBorder", "com.apple.laf.AquaButtonRadioUI", "RadioButtonBorder", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonRadioUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaButtonRadioUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonRadioUI",
-	"com.apple.laf.AquaButtonLabeledUI",
-	nullptr,
-	_AquaButtonRadioUI_FieldInfo_,
-	_AquaButtonRadioUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonRadioUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonRadioUI$RadioButtonBorder,com.apple.laf.AquaButtonRadioUI$1"
-};
-
-$Object* allocate$AquaButtonRadioUI($Class* clazz) {
-	return $of($alloc(AquaButtonRadioUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaButtonRadioUI::instance = nullptr;
 $AquaUtils$RecyclableSingleton* AquaButtonRadioUI::sizingIcon = nullptr;
 
@@ -78,12 +37,12 @@ void AquaButtonRadioUI::init$() {
 
 $ComponentUI* AquaButtonRadioUI::createUI($JComponent* b) {
 	$init(AquaButtonRadioUI);
-	return $cast($ComponentUI, $nc(AquaButtonRadioUI::instance)->get());
+	return $cast($ComponentUI, AquaButtonRadioUI::instance->get());
 }
 
 $Icon* AquaButtonRadioUI::getSizingRadioButtonIcon() {
 	$init(AquaButtonRadioUI);
-	return $cast($Icon, $nc(AquaButtonRadioUI::sizingIcon)->get());
+	return $cast($Icon, AquaButtonRadioUI::sizingIcon->get());
 }
 
 $String* AquaButtonRadioUI::getPropertyPrefix() {
@@ -94,7 +53,7 @@ $AquaButtonBorder* AquaButtonRadioUI::getPainter() {
 	return $new($AquaButtonRadioUI$RadioButtonBorder);
 }
 
-void clinit$AquaButtonRadioUI($Class* class$) {
+void AquaButtonRadioUI::clinit$($Class* clazz) {
 	$assignStatic(AquaButtonRadioUI::instance, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaButtonRadioUI::class$));
 	$assignStatic(AquaButtonRadioUI::sizingIcon, $new($AquaButtonRadioUI$1));
 }
@@ -103,7 +62,41 @@ AquaButtonRadioUI::AquaButtonRadioUI() {
 }
 
 $Class* AquaButtonRadioUI::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonRadioUI, name, initialize, &_AquaButtonRadioUI_ClassInfo_, clinit$AquaButtonRadioUI, allocate$AquaButtonRadioUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonRadioUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonRadioUI, instance)},
+		{"sizingIcon", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/ImageIcon;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonRadioUI, sizingIcon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonRadioUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonRadioUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPainter", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PROTECTED, $virtualMethod(AquaButtonRadioUI, getPainter, $AquaButtonBorder*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaButtonRadioUI, getPropertyPrefix, $String*)},
+		{"getSizingRadioButtonIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonRadioUI, getSizingRadioButtonIcon, $Icon*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonRadioUI$RadioButtonBorder", "com.apple.laf.AquaButtonRadioUI", "RadioButtonBorder", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonRadioUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonRadioUI",
+		"com.apple.laf.AquaButtonLabeledUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonRadioUI$RadioButtonBorder,com.apple.laf.AquaButtonRadioUI$1"
+	};
+	$loadClass(AquaButtonRadioUI, name, initialize, &classInfo$$, AquaButtonRadioUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonRadioUI));
+	});
 	return class$;
 }
 

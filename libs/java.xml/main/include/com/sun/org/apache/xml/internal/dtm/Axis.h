@@ -60,6 +60,7 @@ class $import Axis : public ::java::lang::Object {
 	$class(Axis, 0, ::java::lang::Object)
 public:
 	Axis();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getNames(int32_t index);
 	static int32_t getNamesLength();

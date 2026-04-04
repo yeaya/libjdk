@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFWritableStreamMetadata.h>
-
 #include <com/sun/imageio/plugins/gif/GIFMetadata.h>
 #include <com/sun/imageio/plugins/gif/GIFStreamMetadata.h>
 #include <java/lang/Math.h>
@@ -26,35 +25,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace gif {
-
-$FieldInfo _GIFWritableStreamMetadata_FieldInfo_[] = {
-	{"NATIVE_FORMAT_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFWritableStreamMetadata, NATIVE_FORMAT_NAME)},
-	{}
-};
-
-$MethodInfo _GIFWritableStreamMetadata_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GIFWritableStreamMetadata, init$, void)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, isReadOnly, bool)},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableStreamMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableStreamMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, reset, void)},
-	{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{}
-};
-
-$ClassInfo _GIFWritableStreamMetadata_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFWritableStreamMetadata",
-	"com.sun.imageio.plugins.gif.GIFStreamMetadata",
-	nullptr,
-	_GIFWritableStreamMetadata_FieldInfo_,
-	_GIFWritableStreamMetadata_MethodInfo_
-};
-
-$Object* allocate$GIFWritableStreamMetadata($Class* clazz) {
-	return $of($alloc(GIFWritableStreamMetadata));
-}
 
 $String* GIFWritableStreamMetadata::NATIVE_FORMAT_NAME = nullptr;
 
@@ -99,20 +69,20 @@ void GIFWritableStreamMetadata::reset() {
 }
 
 void GIFWritableStreamMetadata::mergeNativeTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
 	$init($GIFStreamMetadata);
-	if (!$nc($($nc(node)->getNodeName()))->equals($GIFStreamMetadata::nativeMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals($GIFStreamMetadata::nativeMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, $GIFStreamMetadata::nativeMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		if ($nc(name)->equals("Version"_s)) {
 			$set(this, version, getStringAttribute(node, "value"_s, nullptr, true, $GIFStreamMetadata::versionStrings));
 		} else if (name->equals("LogicalScreenDescriptor"_s)) {
-			this->logicalScreenWidth = getIntAttribute(node, "logicalScreenWidth"_s, $GIFMetadata::UNDEFINED_INTEGER_VALUE, true, true, 1, 0x0000FFFF);
-			this->logicalScreenHeight = getIntAttribute(node, "logicalScreenHeight"_s, $GIFMetadata::UNDEFINED_INTEGER_VALUE, true, true, 1, 0x0000FFFF);
+			this->logicalScreenWidth = getIntAttribute(node, "logicalScreenWidth"_s, $GIFMetadata::UNDEFINED_INTEGER_VALUE, true, true, 1, 0x0000ffff);
+			this->logicalScreenHeight = getIntAttribute(node, "logicalScreenHeight"_s, $GIFMetadata::UNDEFINED_INTEGER_VALUE, true, true, 1, 0x0000ffff);
 			this->colorResolution = getIntAttribute(node, "colorResolution"_s, $GIFMetadata::UNDEFINED_INTEGER_VALUE, true, true, 1, 8);
 			this->pixelAspectRatio = getIntAttribute(node, "pixelAspectRatio"_s, 0, true, true, 0, 255);
 		} else if (name->equals("GlobalColorTable"_s)) {
@@ -131,13 +101,13 @@ void GIFWritableStreamMetadata::mergeNativeTree($Node* root) {
 }
 
 void GIFWritableStreamMetadata::mergeStandardTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
 	$init($IIOMetadataFormatImpl);
-	if (!$nc($($nc(node)->getNodeName()))->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, $IIOMetadataFormatImpl::standardMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		if ($nc(name)->equals("Chroma"_s)) {
@@ -174,9 +144,9 @@ void GIFWritableStreamMetadata::mergeStandardTree($Node* root) {
 						this->pixelAspectRatio = $Math::max($Math::min(ratio, 255), 0);
 					}
 				} else if (childName->equals("HorizontalScreenSize"_s)) {
-					this->logicalScreenWidth = getIntAttribute(childNode, "value"_s, -1, true, true, 1, 0x0000FFFF);
+					this->logicalScreenWidth = getIntAttribute(childNode, "value"_s, -1, true, true, 1, 0x0000ffff);
 				} else if (childName->equals("VerticalScreenSize"_s)) {
-					this->logicalScreenHeight = getIntAttribute(childNode, "value"_s, -1, true, true, 1, 0x0000FFFF);
+					this->logicalScreenHeight = getIntAttribute(childNode, "value"_s, -1, true, true, 1, 0x0000ffff);
 				}
 				$assign(childNode, childNode->getNextSibling());
 			}
@@ -188,7 +158,7 @@ void GIFWritableStreamMetadata::mergeStandardTree($Node* root) {
 					$var($String, formatVersion, getStringAttribute(childNode, "value"_s, nullptr, true, nullptr));
 					$init($GIFStreamMetadata);
 					for (int32_t i = 0; i < $nc($GIFStreamMetadata::versionStrings)->length; ++i) {
-						if ($nc(formatVersion)->equals($nc($GIFStreamMetadata::versionStrings)->get(i))) {
+						if ($nc(formatVersion)->equals($GIFStreamMetadata::versionStrings->get(i))) {
 							$set(this, version, formatVersion);
 							break;
 						}
@@ -210,12 +180,36 @@ void GIFWritableStreamMetadata::setFromTree($String* formatName, $Node* root) {
 GIFWritableStreamMetadata::GIFWritableStreamMetadata() {
 }
 
-void clinit$GIFWritableStreamMetadata($Class* class$) {
+void GIFWritableStreamMetadata::clinit$($Class* clazz) {
 	$assignStatic(GIFWritableStreamMetadata::NATIVE_FORMAT_NAME, "javax_imageio_gif_stream_1.0"_s);
 }
 
 $Class* GIFWritableStreamMetadata::load$($String* name, bool initialize) {
-	$loadClass(GIFWritableStreamMetadata, name, initialize, &_GIFWritableStreamMetadata_ClassInfo_, clinit$GIFWritableStreamMetadata, allocate$GIFWritableStreamMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"NATIVE_FORMAT_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFWritableStreamMetadata, NATIVE_FORMAT_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GIFWritableStreamMetadata, init$, void)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, isReadOnly, bool)},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableStreamMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableStreamMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, reset, void)},
+		{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFWritableStreamMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFWritableStreamMetadata",
+		"com.sun.imageio.plugins.gif.GIFStreamMetadata",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFWritableStreamMetadata, name, initialize, &classInfo$$, GIFWritableStreamMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFWritableStreamMetadata);
+	});
 	return class$;
 }
 

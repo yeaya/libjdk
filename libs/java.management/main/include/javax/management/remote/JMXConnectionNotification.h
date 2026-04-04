@@ -22,10 +22,11 @@ class $import JMXConnectionNotification : public ::javax::management::Notificati
 	$class(JMXConnectionNotification, 0, ::javax::management::Notification)
 public:
 	JMXConnectionNotification();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type, Object$* source, $String* connectionId, int64_t sequenceNumber, $String* message, Object$* userData);
 	virtual $String* getConnectionId();
 	static $Object* nonNull(Object$* arg);
-	static const int64_t serialVersionUID = (int64_t)0xDFA58710C7D33CAE;
+	static const int64_t serialVersionUID = (int64_t)0xdfa58710c7d33cae;
 	static $String* OPENED;
 	static $String* CLOSED;
 	static $String* FAILED;

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbTgsRep.h>
-
 #include <sun/security/krb5/Asn1Exception.h>
 #include <sun/security/krb5/Credentials.h>
 #include <sun/security/krb5/EncryptedData.h>
@@ -8,11 +7,8 @@
 #include <sun/security/krb5/KrbKdcRep.h>
 #include <sun/security/krb5/KrbTgsReq.h>
 #include <sun/security/krb5/PrincipalName.h>
-#include <sun/security/krb5/internal/EncKDCRepPart.h>
 #include <sun/security/krb5/internal/EncTGSRepPart.h>
 #include <sun/security/krb5/internal/HostAddresses.h>
-#include <sun/security/krb5/internal/KDCRep.h>
-#include <sun/security/krb5/internal/KDCReq.h>
 #include <sun/security/krb5/internal/KDCReqBody.h>
 #include <sun/security/krb5/internal/KRBError.h>
 #include <sun/security/krb5/internal/KerberosTime.h>
@@ -34,15 +30,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Credentials = ::sun::security::krb5::Credentials;
-using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $KrbKdcRep = ::sun::security::krb5::KrbKdcRep;
 using $KrbTgsReq = ::sun::security::krb5::KrbTgsReq;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $EncKDCRepPart = ::sun::security::krb5::internal::EncKDCRepPart;
 using $EncTGSRepPart = ::sun::security::krb5::internal::EncTGSRepPart;
-using $KDCRep = ::sun::security::krb5::internal::KDCRep;
-using $KDCReq = ::sun::security::krb5::internal::KDCReq;
 using $KRBError = ::sun::security::krb5::internal::KRBError;
 using $TGSRep = ::sun::security::krb5::internal::TGSRep;
 using $TGSReq = ::sun::security::krb5::internal::TGSReq;
@@ -54,36 +46,8 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbTgsRep_FieldInfo_[] = {
-	{"rep", "Lsun/security/krb5/internal/TGSRep;", nullptr, $PRIVATE, $field(KrbTgsRep, rep)},
-	{"creds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(KrbTgsRep, creds)},
-	{"secondTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KrbTgsRep, secondTicket)},
-	{}
-};
-
-$MethodInfo _KrbTgsRep_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/krb5/KrbTgsReq;)V", nullptr, 0, $method(KrbTgsRep, init$, void, $bytes*, $KrbTgsReq*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbTgsRep, getCreds, $Credentials*)},
-	{"isReferralSname", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbTgsRep, isReferralSname, bool, $PrincipalName*)},
-	{"setCredentials", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, 0, $virtualMethod(KrbTgsRep, setCredentials, $1Credentials*)},
-	{}
-};
-
-$ClassInfo _KrbTgsRep_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.KrbTgsRep",
-	"sun.security.krb5.KrbKdcRep",
-	nullptr,
-	_KrbTgsRep_FieldInfo_,
-	_KrbTgsRep_MethodInfo_
-};
-
-$Object* allocate$KrbTgsRep($Class* clazz) {
-	return $of($alloc(KrbTgsRep));
-}
-
 void KrbTgsRep::init$($bytes* ibuf, $KrbTgsReq* tgsReq) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$KrbKdcRep::init$();
 	$var($DerValue, ref, $new($DerValue, ibuf));
 	$var($TGSReq, req, $nc(tgsReq)->getMessage());
@@ -157,7 +121,30 @@ KrbTgsRep::KrbTgsRep() {
 }
 
 $Class* KrbTgsRep::load$($String* name, bool initialize) {
-	$loadClass(KrbTgsRep, name, initialize, &_KrbTgsRep_ClassInfo_, allocate$KrbTgsRep);
+	$FieldInfo fieldInfos$$[] = {
+		{"rep", "Lsun/security/krb5/internal/TGSRep;", nullptr, $PRIVATE, $field(KrbTgsRep, rep)},
+		{"creds", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(KrbTgsRep, creds)},
+		{"secondTicket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KrbTgsRep, secondTicket)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BLsun/security/krb5/KrbTgsReq;)V", nullptr, 0, $method(KrbTgsRep, init$, void, $bytes*, $KrbTgsReq*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbTgsRep, getCreds, $Credentials*)},
+		{"isReferralSname", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbTgsRep, isReferralSname, bool, $PrincipalName*)},
+		{"setCredentials", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, 0, $virtualMethod(KrbTgsRep, setCredentials, $1Credentials*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.KrbTgsRep",
+		"sun.security.krb5.KrbKdcRep",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbTgsRep, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbTgsRep);
+	});
 	return class$;
 }
 

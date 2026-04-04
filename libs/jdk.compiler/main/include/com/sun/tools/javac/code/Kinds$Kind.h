@@ -68,6 +68,7 @@ class $import Kinds$Kind : public ::java::lang::Enum {
 public:
 	Kinds$Kind();
 	static $Array<::com::sun::tools::javac::code::Kinds$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::code::Kinds$Kind$Category* category);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::code::Kinds$Kind$Category* category, ::com::sun::tools::javac::code::Kinds$KindSelector* selector);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::code::Kinds$Kind$Category* category, ::com::sun::tools::javac::code::Kinds$KindName* absentKind);

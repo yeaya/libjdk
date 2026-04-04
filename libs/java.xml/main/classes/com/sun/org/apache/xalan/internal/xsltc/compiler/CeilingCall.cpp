@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CeilingCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -18,10 +17,8 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -39,43 +36,39 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _CeilingCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(CeilingCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(CeilingCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _CeilingCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.CeilingCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	nullptr,
-	_CeilingCall_MethodInfo_
-};
-
-$Object* allocate$CeilingCall($Class* clazz) {
-	return $of($alloc(CeilingCall));
-}
-
 void CeilingCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 }
 
 void CeilingCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$nc($(argument(0)))->translate(classGen, methodGen);
+	$$nc(argument(0))->translate(classGen, methodGen);
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($INVOKESTATIC, $nc(cpg)->addMethodref($Constants::MATH_CLASS, "ceil"_s, "(D)D"_s))));
+	$nc(il)->append($$new($INVOKESTATIC, $nc(cpg)->addMethodref($Constants::MATH_CLASS, "ceil"_s, "(D)D"_s)));
 }
 
 CeilingCall::CeilingCall() {
 }
 
 $Class* CeilingCall::load$($String* name, bool initialize) {
-	$loadClass(CeilingCall, name, initialize, &_CeilingCall_ClassInfo_, allocate$CeilingCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(CeilingCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(CeilingCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.CeilingCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CeilingCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CeilingCall);
+	});
 	return class$;
 }
 

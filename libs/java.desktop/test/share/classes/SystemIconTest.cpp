@@ -1,5 +1,4 @@
 #include <SystemIconTest.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/MultiResolutionImage.h>
 #include <java/io/File.h>
@@ -19,33 +18,6 @@ using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 
-$FieldInfo _SystemIconTest_FieldInfo_[] = {
-	{"fsv", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC | $FINAL, $staticField(SystemIconTest, fsv)},
-	{}
-};
-
-$MethodInfo _SystemIconTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemIconTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIconTest, main, void, $StringArray*)},
-	{"negativeTests", "()V", nullptr, $STATIC, $staticMethod(SystemIconTest, negativeTests, void)},
-	{"testSystemIcon", "()V", nullptr, $STATIC, $staticMethod(SystemIconTest, testSystemIcon, void)},
-	{"testSystemIcon", "(Ljava/io/File;Z)V", nullptr, $STATIC, $staticMethod(SystemIconTest, testSystemIcon, void, $File*, bool)},
-	{}
-};
-
-$ClassInfo _SystemIconTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SystemIconTest",
-	"java.lang.Object",
-	nullptr,
-	_SystemIconTest_FieldInfo_,
-	_SystemIconTest_MethodInfo_
-};
-
-$Object* allocate$SystemIconTest($Class* clazz) {
-	return $of($alloc(SystemIconTest));
-}
-
 $FileSystemView* SystemIconTest::fsv = nullptr;
 
 void SystemIconTest::init$() {
@@ -59,7 +31,7 @@ void SystemIconTest::main($StringArray* args) {
 
 void SystemIconTest::testSystemIcon() {
 	$init(SystemIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, os, $System::getProperty("os.name"_s));
 	if ($nc(os)->startsWith("Windows"_s)) {
 		$var($String, windir, $System::getenv("windir"_s));
@@ -73,7 +45,7 @@ void SystemIconTest::testSystemIcon() {
 
 void SystemIconTest::negativeTests() {
 	$init(SystemIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, nullptr);
 	try {
 		$assign(icon, $nc(SystemIconTest::fsv)->getSystemIcon($$new($File, "."_s), -1, 16));
@@ -88,7 +60,7 @@ void SystemIconTest::negativeTests() {
 
 void SystemIconTest::testSystemIcon($File* file, bool implComplete) {
 	$init(SystemIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, sizes, $new($ints, {
 		16,
 		32,
@@ -98,9 +70,7 @@ void SystemIconTest::testSystemIcon($File* file, bool implComplete) {
 	}));
 	{
 		$var($ints, arr$, sizes);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t size = arr$->get(i$);
 			{
 				$var($ImageIcon, icon, $cast($ImageIcon, $nc(SystemIconTest::fsv)->getSystemIcon(file, size, size)));
@@ -123,7 +93,7 @@ void SystemIconTest::testSystemIcon($File* file, bool implComplete) {
 	}
 }
 
-void clinit$SystemIconTest($Class* class$) {
+void SystemIconTest::clinit$($Class* clazz) {
 	$assignStatic(SystemIconTest::fsv, $FileSystemView::getFileSystemView());
 }
 
@@ -131,7 +101,29 @@ SystemIconTest::SystemIconTest() {
 }
 
 $Class* SystemIconTest::load$($String* name, bool initialize) {
-	$loadClass(SystemIconTest, name, initialize, &_SystemIconTest_ClassInfo_, clinit$SystemIconTest, allocate$SystemIconTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"fsv", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC | $FINAL, $staticField(SystemIconTest, fsv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SystemIconTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIconTest, main, void, $StringArray*)},
+		{"negativeTests", "()V", nullptr, $STATIC, $staticMethod(SystemIconTest, negativeTests, void)},
+		{"testSystemIcon", "()V", nullptr, $STATIC, $staticMethod(SystemIconTest, testSystemIcon, void)},
+		{"testSystemIcon", "(Ljava/io/File;Z)V", nullptr, $STATIC, $staticMethod(SystemIconTest, testSystemIcon, void, $File*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SystemIconTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SystemIconTest, name, initialize, &classInfo$$, SystemIconTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemIconTest);
+	});
 	return class$;
 }
 

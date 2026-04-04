@@ -1,5 +1,4 @@
 #include <javax/swing/ColorTracker.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -16,37 +15,6 @@ using $JColorChooser = ::javax::swing::JColorChooser;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ColorTracker_FieldInfo_[] = {
-	{"chooser", "Ljavax/swing/JColorChooser;", nullptr, 0, $field(ColorTracker, chooser)},
-	{"color", "Ljava/awt/Color;", nullptr, 0, $field(ColorTracker, color)},
-	{}
-};
-
-$MethodInfo _ColorTracker_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $method(ColorTracker, init$, void, $JColorChooser*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorTracker, actionPerformed, void, $ActionEvent*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ColorTracker, getColor, $Color*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ColorTracker_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ColorTracker",
-	"java.lang.Object",
-	"java.awt.event.ActionListener,java.io.Serializable",
-	_ColorTracker_FieldInfo_,
-	_ColorTracker_MethodInfo_
-};
-
-$Object* allocate$ColorTracker($Class* clazz) {
-	return $of($alloc(ColorTracker));
-}
 
 int32_t ColorTracker::hashCode() {
 	 return this->$ActionListener::hashCode();
@@ -84,7 +52,33 @@ ColorTracker::ColorTracker() {
 }
 
 $Class* ColorTracker::load$($String* name, bool initialize) {
-	$loadClass(ColorTracker, name, initialize, &_ColorTracker_ClassInfo_, allocate$ColorTracker);
+	$FieldInfo fieldInfos$$[] = {
+		{"chooser", "Ljavax/swing/JColorChooser;", nullptr, 0, $field(ColorTracker, chooser)},
+		{"color", "Ljava/awt/Color;", nullptr, 0, $field(ColorTracker, color)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $method(ColorTracker, init$, void, $JColorChooser*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorTracker, actionPerformed, void, $ActionEvent*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ColorTracker, getColor, $Color*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ColorTracker",
+		"java.lang.Object",
+		"java.awt.event.ActionListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorTracker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorTracker));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTabbedPaneUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
@@ -44,7 +43,6 @@ using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
@@ -60,7 +58,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $JComponent = ::javax::swing::JComponent;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
@@ -74,39 +71,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsTabbedPaneUI_FieldInfo_[] = {
-	{"managingFocusForwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE | $STATIC, $staticField(WindowsTabbedPaneUI, managingFocusForwardTraversalKeys)},
-	{"managingFocusBackwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE | $STATIC, $staticField(WindowsTabbedPaneUI, managingFocusBackwardTraversalKeys)},
-	{"contentOpaque", "Z", nullptr, $PRIVATE, $field(WindowsTabbedPaneUI, contentOpaque)},
-	{}
-};
-
-$MethodInfo _WindowsTabbedPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTabbedPaneUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTabbedPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, installDefaults, void)},
-	{"paintContentBorder", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, paintContentBorder, void, $Graphics*, int32_t, int32_t)},
-	{"paintRotatedSkin", "(Ljava/awt/Graphics;Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;IIIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, $PRIVATE, $method(WindowsTabbedPaneUI, paintRotatedSkin, void, $Graphics*, $XPStyle$Skin*, int32_t, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
-	{"paintTabBackground", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, paintTabBackground, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintTabBorder", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, paintTabBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"setRolloverTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, setRolloverTab, void, int32_t)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, uninstallDefaults, void)},
-	{}
-};
-
-$ClassInfo _WindowsTabbedPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTabbedPaneUI",
-	"javax.swing.plaf.basic.BasicTabbedPaneUI",
-	nullptr,
-	_WindowsTabbedPaneUI_FieldInfo_,
-	_WindowsTabbedPaneUI_MethodInfo_
-};
-
-$Object* allocate$WindowsTabbedPaneUI($Class* clazz) {
-	return $of($alloc(WindowsTabbedPaneUI));
-}
-
 $Set* WindowsTabbedPaneUI::managingFocusForwardTraversalKeys = nullptr;
 $Set* WindowsTabbedPaneUI::managingFocusBackwardTraversalKeys = nullptr;
 
@@ -116,17 +80,17 @@ void WindowsTabbedPaneUI::init$() {
 }
 
 void WindowsTabbedPaneUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTabbedPaneUI::installDefaults();
 	this->contentOpaque = $UIManager::getBoolean("TabbedPane.contentOpaque"_s);
 	if (WindowsTabbedPaneUI::managingFocusForwardTraversalKeys == nullptr) {
 		$assignStatic(WindowsTabbedPaneUI::managingFocusForwardTraversalKeys, $new($HashSet));
-		$nc(WindowsTabbedPaneUI::managingFocusForwardTraversalKeys)->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)));
+		WindowsTabbedPaneUI::managingFocusForwardTraversalKeys->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)));
 	}
 	$nc(this->tabPane)->setFocusTraversalKeys($KeyboardFocusManager::FORWARD_TRAVERSAL_KEYS, WindowsTabbedPaneUI::managingFocusForwardTraversalKeys);
 	if (WindowsTabbedPaneUI::managingFocusBackwardTraversalKeys == nullptr) {
 		$assignStatic(WindowsTabbedPaneUI::managingFocusBackwardTraversalKeys, $new($HashSet));
-		$nc(WindowsTabbedPaneUI::managingFocusBackwardTraversalKeys)->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, $InputEvent::SHIFT_MASK)));
+		WindowsTabbedPaneUI::managingFocusBackwardTraversalKeys->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, $InputEvent::SHIFT_MASK)));
 	}
 	$nc(this->tabPane)->setFocusTraversalKeys($KeyboardFocusManager::BACKWARD_TRAVERSAL_KEYS, WindowsTabbedPaneUI::managingFocusBackwardTraversalKeys);
 }
@@ -143,7 +107,7 @@ $ComponentUI* WindowsTabbedPaneUI::createUI($JComponent* c) {
 }
 
 void WindowsTabbedPaneUI::setRolloverTab(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XPStyle::getXP() != nullptr) {
 		int32_t oldRolloverTab = getRolloverTab();
 		$BasicTabbedPaneUI::setRolloverTab(index);
@@ -168,11 +132,11 @@ void WindowsTabbedPaneUI::setRolloverTab(int32_t index) {
 }
 
 void WindowsTabbedPaneUI::paintContentBorder($Graphics* g, int32_t tabPlacement, int32_t selectedIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr && (this->contentOpaque || $nc(this->tabPane)->isOpaque())) {
 		$init($TMSchema$Part);
-		$var($XPStyle$Skin, skin, $nc(xp)->getSkin(this->tabPane, $TMSchema$Part::TABP_PANE));
+		$var($XPStyle$Skin, skin, xp->getSkin(this->tabPane, $TMSchema$Part::TABP_PANE));
 		if (skin != nullptr) {
 			$var($Insets, insets, $nc(this->tabPane)->getInsets());
 			$var($Insets, tabAreaInsets, $UIManager::getInsets("TabbedPane.tabAreaInsets"_s));
@@ -207,7 +171,7 @@ void WindowsTabbedPaneUI::paintTabBackground($Graphics* g, int32_t tabPlacement,
 }
 
 void WindowsTabbedPaneUI::paintTabBorder($Graphics* g, int32_t tabPlacement, int32_t tabIndex, int32_t x, int32_t y, int32_t w, int32_t h, bool isSelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$TMSchema$Part* part = nullptr;
@@ -248,33 +212,24 @@ void WindowsTabbedPaneUI::paintRotatedSkin($Graphics* g, $XPStyle$Skin* skin, in
 	$nc(g2d)->translate(x, y);
 	switch (tabPlacement) {
 	case $SwingConstants::RIGHT:
-		{
-			g2d->translate(w, 0);
-			g2d->rotate($Math::toRadians(90.0));
-			$nc(skin)->paintSkin(g2d, 0, 0, h, w, state);
-			break;
-		}
+		g2d->translate(w, 0);
+		g2d->rotate($Math::toRadians(90.0));
+		$nc(skin)->paintSkin(g2d, 0, 0, h, w, state);
+		break;
 	case $SwingConstants::LEFT:
-		{
-			g2d->scale(-1.0, 1.0);
-			g2d->rotate($Math::toRadians(90.0));
-			$nc(skin)->paintSkin(g2d, 0, 0, h, w, state);
-			break;
-		}
+		g2d->scale(-1.0, 1.0);
+		g2d->rotate($Math::toRadians(90.0));
+		$nc(skin)->paintSkin(g2d, 0, 0, h, w, state);
+		break;
 	case $SwingConstants::BOTTOM:
-		{
-			g2d->translate(0, h);
-			g2d->scale(-1.0, 1.0);
-			g2d->rotate($Math::toRadians(180.0));
-			$nc(skin)->paintSkin(g2d, 0, 0, w, h, state);
-			break;
-		}
+		g2d->translate(0, h);
+		g2d->scale(-1.0, 1.0);
+		g2d->rotate($Math::toRadians(180.0));
+		$nc(skin)->paintSkin(g2d, 0, 0, w, h, state);
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			$nc(skin)->paintSkin(g2d, 0, 0, w, h, state);
-		}
+		$nc(skin)->paintSkin(g2d, 0, 0, w, h, state);
 	}
 	g2d->dispose();
 }
@@ -283,7 +238,35 @@ WindowsTabbedPaneUI::WindowsTabbedPaneUI() {
 }
 
 $Class* WindowsTabbedPaneUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsTabbedPaneUI, name, initialize, &_WindowsTabbedPaneUI_ClassInfo_, allocate$WindowsTabbedPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"managingFocusForwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE | $STATIC, $staticField(WindowsTabbedPaneUI, managingFocusForwardTraversalKeys)},
+		{"managingFocusBackwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE | $STATIC, $staticField(WindowsTabbedPaneUI, managingFocusBackwardTraversalKeys)},
+		{"contentOpaque", "Z", nullptr, $PRIVATE, $field(WindowsTabbedPaneUI, contentOpaque)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTabbedPaneUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTabbedPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, installDefaults, void)},
+		{"paintContentBorder", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, paintContentBorder, void, $Graphics*, int32_t, int32_t)},
+		{"paintRotatedSkin", "(Ljava/awt/Graphics;Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;IIIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, $PRIVATE, $method(WindowsTabbedPaneUI, paintRotatedSkin, void, $Graphics*, $XPStyle$Skin*, int32_t, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
+		{"paintTabBackground", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, paintTabBackground, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintTabBorder", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, paintTabBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"setRolloverTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, setRolloverTab, void, int32_t)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsTabbedPaneUI, uninstallDefaults, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTabbedPaneUI",
+		"javax.swing.plaf.basic.BasicTabbedPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsTabbedPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTabbedPaneUI));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <HeadersTest.h>
-
 #include <HeadersTest$1.h>
 #include <HeadersTest$10.h>
 #include <HeadersTest$11.h>
@@ -48,7 +47,6 @@ using $HeadersTest$6 = ::HeadersTest$6;
 using $HeadersTest$7 = ::HeadersTest$7;
 using $HeadersTest$8 = ::HeadersTest$8;
 using $HeadersTest$9 = ::HeadersTest$9;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -78,89 +76,27 @@ public:
 	virtual bool test(Object$* x, Object$* y) override {
 		 return HeadersTest::lambda$static$0($cast($String, x), $cast($String, y));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HeadersTest$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HeadersTest$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest$$Lambda$lambda$static$0, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$$Lambda$lambda$static$0, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo HeadersTest$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HeadersTest$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* HeadersTest$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(HeadersTest$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest$$Lambda$lambda$static$0, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$$Lambda$lambda$static$0, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HeadersTest$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadersTest$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadersTest$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* HeadersTest$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _HeadersTest_FieldInfo_[] = {
-	{"ACCEPT_ALL", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(HeadersTest, ACCEPT_ALL)},
-	{"TEST_URI", "Ljava/net/URI;", nullptr, $STATIC | $FINAL, $staticField(HeadersTest, TEST_URI)},
-	{"client", "Ljava/net/http/HttpClient;", nullptr, $STATIC | $FINAL, $staticField(HeadersTest, client)},
-	{}
-};
-
-$MethodInfo _HeadersTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest, init$, void)},
-	{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, bad, void, $String*), "java.lang.Exception"},
-	{"badTimeout", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, badTimeout, void), "java.lang.Exception"},
-	{"badURI", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, badURI, void), "java.lang.Exception"},
-	{"badValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, badValue, void, $String*), "java.lang.Exception"},
-	{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, good, void, $String*)},
-	{"goodValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, goodValue, void, $String*)},
-	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HeadersTest, lambda$static$0, bool, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadersTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"nullHeaders", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullHeaders, void), "java.lang.Exception"},
-	{"nullName", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullName, void), "java.lang.Exception"},
-	{"nullTimeout", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullTimeout, void), "java.lang.Exception"},
-	{"nullURI", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullURI, void), "java.lang.Exception"},
-	{"nullValue", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullValue, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _HeadersTest_InnerClassesInfo_[] = {
-	{"HeadersTest$11", nullptr, nullptr, 0},
-	{"HeadersTest$10", nullptr, nullptr, 0},
-	{"HeadersTest$9", nullptr, nullptr, 0},
-	{"HeadersTest$8", nullptr, nullptr, 0},
-	{"HeadersTest$7", nullptr, nullptr, 0},
-	{"HeadersTest$6", nullptr, nullptr, 0},
-	{"HeadersTest$5", nullptr, nullptr, 0},
-	{"HeadersTest$4", nullptr, nullptr, 0},
-	{"HeadersTest$3", nullptr, nullptr, 0},
-	{"HeadersTest$2", nullptr, nullptr, 0},
-	{"HeadersTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadersTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadersTest",
-	"java.lang.Object",
-	nullptr,
-	_HeadersTest_FieldInfo_,
-	_HeadersTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadersTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadersTest$11,HeadersTest$10,HeadersTest$9,HeadersTest$8,HeadersTest$7,HeadersTest$6,HeadersTest$5,HeadersTest$4,HeadersTest$3,HeadersTest$2,HeadersTest$1"
-};
-
-$Object* allocate$HeadersTest($Class* clazz) {
-	return $of($alloc(HeadersTest));
-}
 
 $BiPredicate* HeadersTest::ACCEPT_ALL = nullptr;
 $URI* HeadersTest::TEST_URI = nullptr;
@@ -171,7 +107,7 @@ void HeadersTest::init$() {
 
 void HeadersTest::bad($String* name) {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	try {
 		$nc(builder)->header(name, "foo"_s);
@@ -190,18 +126,18 @@ void HeadersTest::bad($String* name) {
 
 void HeadersTest::badValue($String* value) {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	try {
 		$nc(builder)->header("x-bad"_s, value);
-		$throwNew($RuntimeException, $$str({"Expected IAE for header x-bad: "_s, $($($nc(value)->replace(static_cast<$CharSequence*>("\r"_s), static_cast<$CharSequence*>("\\r"_s)))->replace(static_cast<$CharSequence*>("\n"_s), static_cast<$CharSequence*>("\\n"_s)))}));
+		$throwNew($RuntimeException, $$str({"Expected IAE for header x-bad: "_s, $($($nc(value)->replace("\r"_s, "\\r"_s))->replace("\n"_s, "\\n"_s))}));
 	} catch ($IllegalArgumentException& expected) {
 		$nc($System::out)->println($$str({"Got expected IAE: "_s, expected}));
 	}
 	try {
 		$var($HttpRequest, req, $new($HeadersTest$2, value));
 		$nc(HeadersTest::client)->send(req, $($HttpResponse$BodyHandlers::ofString()));
-		$throwNew($RuntimeException, $$str({"Expected IAE for header x-bad:"_s, $($($nc(value)->replace(static_cast<$CharSequence*>("\r"_s), static_cast<$CharSequence*>("\\r"_s)))->replace(static_cast<$CharSequence*>("\n"_s), static_cast<$CharSequence*>("\\n"_s)))}));
+		$throwNew($RuntimeException, $$str({"Expected IAE for header x-bad:"_s, $($($nc(value)->replace("\r"_s, "\\r"_s))->replace("\n"_s, "\\n"_s))}));
 	} catch ($IllegalArgumentException& expected) {
 		$nc($System::out)->println($$str({"Got expected IAE: "_s, expected}));
 	}
@@ -209,7 +145,7 @@ void HeadersTest::badValue($String* value) {
 
 void HeadersTest::nullName() {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	try {
 		$nc(builder)->header(nullptr, "foo"_s);
@@ -228,7 +164,7 @@ void HeadersTest::nullName() {
 
 void HeadersTest::nullValue() {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	try {
 		$nc(builder)->header("x-bar"_s, nullptr);
@@ -254,7 +190,7 @@ void HeadersTest::nullValue() {
 
 void HeadersTest::nullHeaders() {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($HttpRequest, req, $new($HeadersTest$6));
 		$nc(HeadersTest::client)->send(req, $($HttpResponse$BodyHandlers::ofString()));
@@ -273,7 +209,7 @@ void HeadersTest::nullHeaders() {
 
 void HeadersTest::good($String* name) {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	try {
 		$nc(builder)->header(name, "foo"_s);
@@ -284,7 +220,7 @@ void HeadersTest::good($String* name) {
 
 void HeadersTest::goodValue($String* value) {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	try {
 		$nc(builder)->header("x-good"_s, value);
@@ -295,9 +231,9 @@ void HeadersTest::goodValue($String* value) {
 
 void HeadersTest::badURI() {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder());
-	$var($URI, uri, $URI::create($($nc($($nc(HeadersTest::TEST_URI)->toString()))->replace(static_cast<$CharSequence*>("http"_s), static_cast<$CharSequence*>("ftp"_s)))));
+	$var($URI, uri, $URI::create($($$nc($nc(HeadersTest::TEST_URI)->toString())->replace("http"_s, "ftp"_s))));
 	try {
 		$nc(builder)->uri(uri);
 		$throwNew($RuntimeException, $$str({"Expected IAE for uri: "_s, uri}));
@@ -321,7 +257,7 @@ void HeadersTest::badURI() {
 
 void HeadersTest::nullURI() {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder());
 	try {
 		$nc(builder)->uri(nullptr);
@@ -346,12 +282,12 @@ void HeadersTest::nullURI() {
 
 void HeadersTest::badTimeout() {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	$var($Duration, zero, $Duration::ofSeconds(0));
 	$var($Duration, negative, $Duration::ofSeconds(-10));
 	{
-		$var($Iterator, i$, $nc($($List::of(zero, negative)))->iterator());
+		$var($Iterator, i$, $$nc($List::of(zero, negative))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Duration, bad, $cast($Duration, i$->next()));
 			{
@@ -375,7 +311,7 @@ void HeadersTest::badTimeout() {
 
 void HeadersTest::nullTimeout() {
 	$init(HeadersTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(HeadersTest::TEST_URI));
 	try {
 		$nc(builder)->timeout(nullptr);
@@ -419,12 +355,12 @@ bool HeadersTest::lambda$static$0($String* x, $String* y) {
 	return true;
 }
 
-void clinit$HeadersTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(HeadersTest::ACCEPT_ALL, static_cast<$BiPredicate*>($new(HeadersTest$$Lambda$lambda$static$0)));
+void HeadersTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(HeadersTest::ACCEPT_ALL, $new(HeadersTest$$Lambda$lambda$static$0));
 	$assignStatic(HeadersTest::TEST_URI, $URI::create("http://www.foo.com/"_s));
 	$init($HttpClient$Builder);
-	$assignStatic(HeadersTest::client, $nc($($nc($($HttpClient::newBuilder()))->proxy($HttpClient$Builder::NO_PROXY)))->build());
+	$assignStatic(HeadersTest::client, $$nc($$nc($HttpClient::newBuilder())->proxy($HttpClient$Builder::NO_PROXY))->build());
 }
 
 HeadersTest::HeadersTest() {
@@ -432,11 +368,64 @@ HeadersTest::HeadersTest() {
 
 $Class* HeadersTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HeadersTest$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("HeadersTest$$Lambda$lambda$static$0")) {
 			return HeadersTest$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(HeadersTest, name, initialize, &_HeadersTest_ClassInfo_, clinit$HeadersTest, allocate$HeadersTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACCEPT_ALL", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(HeadersTest, ACCEPT_ALL)},
+		{"TEST_URI", "Ljava/net/URI;", nullptr, $STATIC | $FINAL, $staticField(HeadersTest, TEST_URI)},
+		{"client", "Ljava/net/http/HttpClient;", nullptr, $STATIC | $FINAL, $staticField(HeadersTest, client)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest, init$, void)},
+		{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, bad, void, $String*), "java.lang.Exception"},
+		{"badTimeout", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, badTimeout, void), "java.lang.Exception"},
+		{"badURI", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, badURI, void), "java.lang.Exception"},
+		{"badValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, badValue, void, $String*), "java.lang.Exception"},
+		{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, good, void, $String*)},
+		{"goodValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, goodValue, void, $String*)},
+		{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HeadersTest, lambda$static$0, bool, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadersTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"nullHeaders", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullHeaders, void), "java.lang.Exception"},
+		{"nullName", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullName, void), "java.lang.Exception"},
+		{"nullTimeout", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullTimeout, void), "java.lang.Exception"},
+		{"nullURI", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullURI, void), "java.lang.Exception"},
+		{"nullValue", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullValue, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadersTest$11", nullptr, nullptr, 0},
+		{"HeadersTest$10", nullptr, nullptr, 0},
+		{"HeadersTest$9", nullptr, nullptr, 0},
+		{"HeadersTest$8", nullptr, nullptr, 0},
+		{"HeadersTest$7", nullptr, nullptr, 0},
+		{"HeadersTest$6", nullptr, nullptr, 0},
+		{"HeadersTest$5", nullptr, nullptr, 0},
+		{"HeadersTest$4", nullptr, nullptr, 0},
+		{"HeadersTest$3", nullptr, nullptr, 0},
+		{"HeadersTest$2", nullptr, nullptr, 0},
+		{"HeadersTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadersTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadersTest$11,HeadersTest$10,HeadersTest$9,HeadersTest$8,HeadersTest$7,HeadersTest$6,HeadersTest$5,HeadersTest$4,HeadersTest$3,HeadersTest$2,HeadersTest$1"
+	};
+	$loadClass(HeadersTest, name, initialize, &classInfo$$, HeadersTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadersTest);
+	});
 	return class$;
 }
 

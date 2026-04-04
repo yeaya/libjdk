@@ -1,5 +1,4 @@
 #include <java/awt/JobAttributes.h>
-
 #include <java/awt/JobAttributes$DefaultSelectionType.h>
 #include <java/awt/JobAttributes$DestinationType.h>
 #include <java/awt/JobAttributes$DialogType.h>
@@ -36,94 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _JobAttributes_FieldInfo_[] = {
-	{"copies", "I", nullptr, $PRIVATE, $field(JobAttributes, copies)},
-	{"defaultSelection", "Ljava/awt/JobAttributes$DefaultSelectionType;", nullptr, $PRIVATE, $field(JobAttributes, defaultSelection)},
-	{"destination", "Ljava/awt/JobAttributes$DestinationType;", nullptr, $PRIVATE, $field(JobAttributes, destination)},
-	{"dialog", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PRIVATE, $field(JobAttributes, dialog)},
-	{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JobAttributes, fileName)},
-	{"fromPage", "I", nullptr, $PRIVATE, $field(JobAttributes, fromPage)},
-	{"maxPage", "I", nullptr, $PRIVATE, $field(JobAttributes, maxPage)},
-	{"minPage", "I", nullptr, $PRIVATE, $field(JobAttributes, minPage)},
-	{"multipleDocumentHandling", "Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PRIVATE, $field(JobAttributes, multipleDocumentHandling)},
-	{"pageRanges", "[[I", nullptr, $PRIVATE, $field(JobAttributes, pageRanges)},
-	{"prFirst", "I", nullptr, $PRIVATE, $field(JobAttributes, prFirst)},
-	{"prLast", "I", nullptr, $PRIVATE, $field(JobAttributes, prLast)},
-	{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JobAttributes, printer)},
-	{"sides", "Ljava/awt/JobAttributes$SidesType;", nullptr, $PRIVATE, $field(JobAttributes, sides)},
-	{"toPage", "I", nullptr, $PRIVATE, $field(JobAttributes, toPage)},
-	{}
-};
-
-$MethodInfo _JobAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JobAttributes, init$, void)},
-	{"<init>", "(Ljava/awt/JobAttributes;)V", nullptr, $PUBLIC, $method(JobAttributes, init$, void, JobAttributes*)},
-	{"<init>", "(ILjava/awt/JobAttributes$DefaultSelectionType;Ljava/awt/JobAttributes$DestinationType;Ljava/awt/JobAttributes$DialogType;Ljava/lang/String;IILjava/awt/JobAttributes$MultipleDocumentHandlingType;[[ILjava/lang/String;Ljava/awt/JobAttributes$SidesType;)V", nullptr, $PUBLIC, $method(JobAttributes, init$, void, int32_t, $JobAttributes$DefaultSelectionType*, $JobAttributes$DestinationType*, $JobAttributes$DialogType*, $String*, int32_t, int32_t, $JobAttributes$MultipleDocumentHandlingType*, $intArray2*, $String*, $JobAttributes$SidesType*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JobAttributes, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobAttributes, equals, bool, Object$*)},
-	{"getCopies", "()I", nullptr, $PUBLIC, $method(JobAttributes, getCopies, int32_t)},
-	{"getDefaultSelection", "()Ljava/awt/JobAttributes$DefaultSelectionType;", nullptr, $PUBLIC, $method(JobAttributes, getDefaultSelection, $JobAttributes$DefaultSelectionType*)},
-	{"getDestination", "()Ljava/awt/JobAttributes$DestinationType;", nullptr, $PUBLIC, $method(JobAttributes, getDestination, $JobAttributes$DestinationType*)},
-	{"getDialog", "()Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC, $method(JobAttributes, getDialog, $JobAttributes$DialogType*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JobAttributes, getFileName, $String*)},
-	{"getFromPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getFromPage, int32_t)},
-	{"getMaxPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getMaxPage, int32_t)},
-	{"getMinPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getMinPage, int32_t)},
-	{"getMultipleDocumentHandling", "()Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PUBLIC, $method(JobAttributes, getMultipleDocumentHandling, $JobAttributes$MultipleDocumentHandlingType*)},
-	{"getPageRanges", "()[[I", nullptr, $PUBLIC, $method(JobAttributes, getPageRanges, $intArray2*)},
-	{"getPrinter", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JobAttributes, getPrinter, $String*)},
-	{"getSides", "()Ljava/awt/JobAttributes$SidesType;", nullptr, $PUBLIC, $method(JobAttributes, getSides, $JobAttributes$SidesType*)},
-	{"getToPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getToPage, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JobAttributes, hashCode, int32_t)},
-	{"set", "(Ljava/awt/JobAttributes;)V", nullptr, $PUBLIC, $method(JobAttributes, set, void, JobAttributes*)},
-	{"setCopies", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setCopies, void, int32_t)},
-	{"setCopiesToDefault", "()V", nullptr, $PUBLIC, $method(JobAttributes, setCopiesToDefault, void)},
-	{"setDefaultSelection", "(Ljava/awt/JobAttributes$DefaultSelectionType;)V", nullptr, $PUBLIC, $method(JobAttributes, setDefaultSelection, void, $JobAttributes$DefaultSelectionType*)},
-	{"setDestination", "(Ljava/awt/JobAttributes$DestinationType;)V", nullptr, $PUBLIC, $method(JobAttributes, setDestination, void, $JobAttributes$DestinationType*)},
-	{"setDialog", "(Ljava/awt/JobAttributes$DialogType;)V", nullptr, $PUBLIC, $method(JobAttributes, setDialog, void, $JobAttributes$DialogType*)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JobAttributes, setFileName, void, $String*)},
-	{"setFromPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setFromPage, void, int32_t)},
-	{"setMaxPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setMaxPage, void, int32_t)},
-	{"setMinPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setMinPage, void, int32_t)},
-	{"setMultipleDocumentHandling", "(Ljava/awt/JobAttributes$MultipleDocumentHandlingType;)V", nullptr, $PUBLIC, $method(JobAttributes, setMultipleDocumentHandling, void, $JobAttributes$MultipleDocumentHandlingType*)},
-	{"setMultipleDocumentHandlingToDefault", "()V", nullptr, $PUBLIC, $method(JobAttributes, setMultipleDocumentHandlingToDefault, void)},
-	{"setPageRanges", "([[I)V", nullptr, $PUBLIC, $method(JobAttributes, setPageRanges, void, $intArray2*)},
-	{"setPrinter", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JobAttributes, setPrinter, void, $String*)},
-	{"setSides", "(Ljava/awt/JobAttributes$SidesType;)V", nullptr, $PUBLIC, $method(JobAttributes, setSides, void, $JobAttributes$SidesType*)},
-	{"setSidesToDefault", "()V", nullptr, $PUBLIC, $method(JobAttributes, setSidesToDefault, void)},
-	{"setToPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setToPage, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JobAttributes, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JobAttributes_InnerClassesInfo_[] = {
-	{"java.awt.JobAttributes$SidesType", "java.awt.JobAttributes", "SidesType", $PUBLIC | $STATIC | $FINAL},
-	{"java.awt.JobAttributes$MultipleDocumentHandlingType", "java.awt.JobAttributes", "MultipleDocumentHandlingType", $PUBLIC | $STATIC | $FINAL},
-	{"java.awt.JobAttributes$DialogType", "java.awt.JobAttributes", "DialogType", $PUBLIC | $STATIC | $FINAL},
-	{"java.awt.JobAttributes$DestinationType", "java.awt.JobAttributes", "DestinationType", $PUBLIC | $STATIC | $FINAL},
-	{"java.awt.JobAttributes$DefaultSelectionType", "java.awt.JobAttributes", "DefaultSelectionType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JobAttributes_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.JobAttributes",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_JobAttributes_FieldInfo_,
-	_JobAttributes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JobAttributes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.JobAttributes$SidesType,java.awt.JobAttributes$MultipleDocumentHandlingType,java.awt.JobAttributes$DialogType,java.awt.JobAttributes$DestinationType,java.awt.JobAttributes$DefaultSelectionType"
-};
-
-$Object* allocate$JobAttributes($Class* clazz) {
-	return $of($alloc(JobAttributes));
-}
-
 void JobAttributes::init$() {
 	setCopiesToDefault();
 	$init($JobAttributes$DefaultSelectionType);
@@ -158,9 +69,9 @@ void JobAttributes::init$(int32_t copies, $JobAttributes$DefaultSelectionType* d
 
 $Object* JobAttributes::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -297,12 +208,12 @@ void JobAttributes::setMultipleDocumentHandlingToDefault() {
 }
 
 $intArray2* JobAttributes::getPageRanges() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pageRanges != nullptr) {
-		$var($intArray2, copy, $new($intArray2, $nc(this->pageRanges)->length, 2));
-		for (int32_t i = 0; i < $nc(this->pageRanges)->length; ++i) {
-			$nc(copy->get(i))->set(0, $nc($nc(this->pageRanges)->get(i))->get(0));
-			$nc(copy->get(i))->set(1, $nc($nc(this->pageRanges)->get(i))->get(1));
+		$var($intArray2, copy, $new($intArray2, this->pageRanges->length, 2));
+		for (int32_t i = 0; i < this->pageRanges->length; ++i) {
+			$nc(copy->get(i))->set(0, $nc(this->pageRanges->get(i))->get(0));
+			$nc(copy->get(i))->set(1, $nc(this->pageRanges->get(i))->get(1));
 		}
 		return copy;
 	} else if (this->fromPage != 0 || this->toPage != 0) {
@@ -322,7 +233,7 @@ $intArray2* JobAttributes::getPageRanges() {
 }
 
 void JobAttributes::setPageRanges($intArray2* pageRanges) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, xcp, "Invalid value for attribute pageRanges"_s);
 	int32_t first = 0;
 	int32_t last = 0;
@@ -341,7 +252,7 @@ void JobAttributes::setPageRanges($intArray2* pageRanges) {
 	if (first < this->minPage || last > this->maxPage) {
 		$throwNew($IllegalArgumentException, xcp);
 	}
-	$var($intArray2, copy, $new($intArray2, $nc(pageRanges)->length, 2));
+	$var($intArray2, copy, $new($intArray2, pageRanges->length, 2));
 	for (int32_t i = 0; i < pageRanges->length; ++i) {
 		$nc(copy->get(i))->set(0, $nc(pageRanges->get(i))->get(0));
 		$nc(copy->get(i))->set(1, $nc(pageRanges->get(i))->get(1));
@@ -403,7 +314,7 @@ bool JobAttributes::equals(Object$* obj) {
 		if ($nc(rhs)->fileName != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->fileName)->equals($nc(rhs)->fileName)) {
+	} else if (!this->fileName->equals($nc(rhs)->fileName)) {
 		return false;
 	}
 	if (this->pageRanges == nullptr) {
@@ -411,11 +322,11 @@ bool JobAttributes::equals(Object$* obj) {
 			return false;
 		}
 	} else {
-		if ($nc(rhs)->pageRanges == nullptr || $nc(this->pageRanges)->length != $nc($nc(rhs)->pageRanges)->length) {
+		if ($nc(rhs)->pageRanges == nullptr || this->pageRanges->length != rhs->pageRanges->length) {
 			return false;
 		}
-		for (int32_t i = 0; i < $nc(this->pageRanges)->length; ++i) {
-			if ($nc($nc(this->pageRanges)->get(i))->get(0) != $nc($nc($nc(rhs)->pageRanges)->get(i))->get(0) || $nc($nc(this->pageRanges)->get(i))->get(1) != $nc($nc($nc(rhs)->pageRanges)->get(i))->get(1)) {
+		for (int32_t i = 0; i < this->pageRanges->length; ++i) {
+			if ($nc(this->pageRanges->get(i))->get(0) != $nc($nc(rhs->pageRanges)->get(i))->get(0) || $nc(this->pageRanges->get(i))->get(1) != $nc(rhs->pageRanges->get(i))->get(1)) {
 				return false;
 			}
 		}
@@ -424,7 +335,7 @@ bool JobAttributes::equals(Object$* obj) {
 		if ($nc(rhs)->printer != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->printer)->equals($nc(rhs)->printer)) {
+	} else if (!this->printer->equals($nc(rhs)->printer)) {
 		return false;
 	}
 	return (this->copies == $nc(rhs)->copies && this->defaultSelection == rhs->defaultSelection && this->destination == rhs->destination && this->dialog == rhs->dialog && this->fromPage == rhs->fromPage && this->maxPage == rhs->maxPage && this->minPage == rhs->minPage && this->multipleDocumentHandling == rhs->multipleDocumentHandling && this->prFirst == rhs->prFirst && this->prLast == rhs->prLast && this->sides == rhs->sides && this->toPage == rhs->toPage);
@@ -434,16 +345,16 @@ int32_t JobAttributes::hashCode() {
 	int32_t rest = ((this->copies + this->fromPage + this->maxPage + this->minPage + this->prFirst + this->prLast + this->toPage) * 31) << 21;
 	if (this->pageRanges != nullptr) {
 		int32_t sum = 0;
-		for (int32_t i = 0; i < $nc(this->pageRanges)->length; ++i) {
-			sum += $nc($nc(this->pageRanges)->get(i))->get(0) + $nc($nc(this->pageRanges)->get(i))->get(1);
+		for (int32_t i = 0; i < this->pageRanges->length; ++i) {
+			sum += $nc(this->pageRanges->get(i))->get(0) + $nc(this->pageRanges->get(i))->get(1);
 		}
 		rest ^= (sum * 31) << 11;
 	}
 	if (this->fileName != nullptr) {
-		rest ^= $nc(this->fileName)->hashCode();
+		rest ^= this->fileName->hashCode();
 	}
 	if (this->printer != nullptr) {
-		rest ^= $nc(this->printer)->hashCode();
+		rest ^= this->printer->hashCode();
 	}
 	int32_t var$3 = $nc(this->defaultSelection)->hashCode() << 6;
 	int32_t var$2 = var$3 ^ ($nc(this->destination)->hashCode() << 5);
@@ -453,7 +364,7 @@ int32_t JobAttributes::hashCode() {
 }
 
 $String* JobAttributes::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($intArray2, pageRanges, getPageRanges());
 	$var($String, prStr, "["_s);
 	bool first = true;
@@ -466,37 +377,123 @@ $String* JobAttributes::toString() {
 		$plusAssign(prStr, $$str({$$str($nc(pageRanges->get(i))->get(0)), ":"_s, $$str($nc(pageRanges->get(i))->get(1))}));
 	}
 	$plusAssign(prStr, "]"_s);
-	$var($String, var$22, $$str({"copies="_s, $$str(getCopies()), ",defaultSelection="_s}));
-	$var($String, var$21, $$concat(var$22, $(getDefaultSelection())));
-	$var($String, var$20, $$concat(var$21, ",destination="_s));
-	$var($String, var$19, $$concat(var$20, $(getDestination())));
-	$var($String, var$18, $$concat(var$19, ",dialog="_s));
-	$var($String, var$17, $$concat(var$18, $(getDialog())));
-	$var($String, var$16, $$concat(var$17, ",fileName="_s));
-	$var($String, var$15, $$concat(var$16, $(getFileName())));
-	$var($String, var$14, $$concat(var$15, ",fromPage="_s));
-	$var($String, var$13, $$concat(var$14, $$str(getFromPage())));
-	$var($String, var$12, $$concat(var$13, ",maxPage="_s));
-	$var($String, var$11, $$concat(var$12, $$str(getMaxPage())));
-	$var($String, var$10, $$concat(var$11, ",minPage="_s));
-	$var($String, var$9, $$concat(var$10, $$str(getMinPage())));
-	$var($String, var$8, $$concat(var$9, ",multiple-document-handling="_s));
-	$var($String, var$7, $$concat(var$8, $(getMultipleDocumentHandling())));
-	$var($String, var$6, $$concat(var$7, ",page-ranges="_s));
-	$var($String, var$5, $$concat(var$6, prStr));
-	$var($String, var$4, $$concat(var$5, ",printer="_s));
-	$var($String, var$3, $$concat(var$4, $(getPrinter())));
-	$var($String, var$2, $$concat(var$3, ",sides="_s));
-	$var($String, var$1, $$concat(var$2, $(getSides())));
-	$var($String, var$0, $$concat(var$1, ",toPage="_s));
-	return $concat(var$0, $$str(getToPage()));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("copies="_s);
+	var$0->append(getCopies());
+	var$0->append(",defaultSelection="_s);
+	var$0->append($(getDefaultSelection()));
+	var$0->append(",destination="_s);
+	var$0->append($(getDestination()));
+	var$0->append(",dialog="_s);
+	var$0->append($(getDialog()));
+	var$0->append(",fileName="_s);
+	var$0->append($(getFileName()));
+	var$0->append(",fromPage="_s);
+	var$0->append(getFromPage());
+	var$0->append(",maxPage="_s);
+	var$0->append(getMaxPage());
+	var$0->append(",minPage="_s);
+	var$0->append(getMinPage());
+	var$0->append(",multiple-document-handling="_s);
+	var$0->append($(getMultipleDocumentHandling()));
+	var$0->append(",page-ranges="_s);
+	var$0->append(prStr);
+	var$0->append(",printer="_s);
+	var$0->append($(getPrinter()));
+	var$0->append(",sides="_s);
+	var$0->append($(getSides()));
+	var$0->append(",toPage="_s);
+	var$0->append(getToPage());
+	return $str(var$0);
 }
 
 JobAttributes::JobAttributes() {
 }
 
 $Class* JobAttributes::load$($String* name, bool initialize) {
-	$loadClass(JobAttributes, name, initialize, &_JobAttributes_ClassInfo_, allocate$JobAttributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"copies", "I", nullptr, $PRIVATE, $field(JobAttributes, copies)},
+		{"defaultSelection", "Ljava/awt/JobAttributes$DefaultSelectionType;", nullptr, $PRIVATE, $field(JobAttributes, defaultSelection)},
+		{"destination", "Ljava/awt/JobAttributes$DestinationType;", nullptr, $PRIVATE, $field(JobAttributes, destination)},
+		{"dialog", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PRIVATE, $field(JobAttributes, dialog)},
+		{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JobAttributes, fileName)},
+		{"fromPage", "I", nullptr, $PRIVATE, $field(JobAttributes, fromPage)},
+		{"maxPage", "I", nullptr, $PRIVATE, $field(JobAttributes, maxPage)},
+		{"minPage", "I", nullptr, $PRIVATE, $field(JobAttributes, minPage)},
+		{"multipleDocumentHandling", "Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PRIVATE, $field(JobAttributes, multipleDocumentHandling)},
+		{"pageRanges", "[[I", nullptr, $PRIVATE, $field(JobAttributes, pageRanges)},
+		{"prFirst", "I", nullptr, $PRIVATE, $field(JobAttributes, prFirst)},
+		{"prLast", "I", nullptr, $PRIVATE, $field(JobAttributes, prLast)},
+		{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JobAttributes, printer)},
+		{"sides", "Ljava/awt/JobAttributes$SidesType;", nullptr, $PRIVATE, $field(JobAttributes, sides)},
+		{"toPage", "I", nullptr, $PRIVATE, $field(JobAttributes, toPage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JobAttributes, init$, void)},
+		{"<init>", "(Ljava/awt/JobAttributes;)V", nullptr, $PUBLIC, $method(JobAttributes, init$, void, JobAttributes*)},
+		{"<init>", "(ILjava/awt/JobAttributes$DefaultSelectionType;Ljava/awt/JobAttributes$DestinationType;Ljava/awt/JobAttributes$DialogType;Ljava/lang/String;IILjava/awt/JobAttributes$MultipleDocumentHandlingType;[[ILjava/lang/String;Ljava/awt/JobAttributes$SidesType;)V", nullptr, $PUBLIC, $method(JobAttributes, init$, void, int32_t, $JobAttributes$DefaultSelectionType*, $JobAttributes$DestinationType*, $JobAttributes$DialogType*, $String*, int32_t, int32_t, $JobAttributes$MultipleDocumentHandlingType*, $intArray2*, $String*, $JobAttributes$SidesType*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JobAttributes, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobAttributes, equals, bool, Object$*)},
+		{"getCopies", "()I", nullptr, $PUBLIC, $method(JobAttributes, getCopies, int32_t)},
+		{"getDefaultSelection", "()Ljava/awt/JobAttributes$DefaultSelectionType;", nullptr, $PUBLIC, $method(JobAttributes, getDefaultSelection, $JobAttributes$DefaultSelectionType*)},
+		{"getDestination", "()Ljava/awt/JobAttributes$DestinationType;", nullptr, $PUBLIC, $method(JobAttributes, getDestination, $JobAttributes$DestinationType*)},
+		{"getDialog", "()Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC, $method(JobAttributes, getDialog, $JobAttributes$DialogType*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JobAttributes, getFileName, $String*)},
+		{"getFromPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getFromPage, int32_t)},
+		{"getMaxPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getMaxPage, int32_t)},
+		{"getMinPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getMinPage, int32_t)},
+		{"getMultipleDocumentHandling", "()Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PUBLIC, $method(JobAttributes, getMultipleDocumentHandling, $JobAttributes$MultipleDocumentHandlingType*)},
+		{"getPageRanges", "()[[I", nullptr, $PUBLIC, $method(JobAttributes, getPageRanges, $intArray2*)},
+		{"getPrinter", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JobAttributes, getPrinter, $String*)},
+		{"getSides", "()Ljava/awt/JobAttributes$SidesType;", nullptr, $PUBLIC, $method(JobAttributes, getSides, $JobAttributes$SidesType*)},
+		{"getToPage", "()I", nullptr, $PUBLIC, $method(JobAttributes, getToPage, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JobAttributes, hashCode, int32_t)},
+		{"set", "(Ljava/awt/JobAttributes;)V", nullptr, $PUBLIC, $method(JobAttributes, set, void, JobAttributes*)},
+		{"setCopies", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setCopies, void, int32_t)},
+		{"setCopiesToDefault", "()V", nullptr, $PUBLIC, $method(JobAttributes, setCopiesToDefault, void)},
+		{"setDefaultSelection", "(Ljava/awt/JobAttributes$DefaultSelectionType;)V", nullptr, $PUBLIC, $method(JobAttributes, setDefaultSelection, void, $JobAttributes$DefaultSelectionType*)},
+		{"setDestination", "(Ljava/awt/JobAttributes$DestinationType;)V", nullptr, $PUBLIC, $method(JobAttributes, setDestination, void, $JobAttributes$DestinationType*)},
+		{"setDialog", "(Ljava/awt/JobAttributes$DialogType;)V", nullptr, $PUBLIC, $method(JobAttributes, setDialog, void, $JobAttributes$DialogType*)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JobAttributes, setFileName, void, $String*)},
+		{"setFromPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setFromPage, void, int32_t)},
+		{"setMaxPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setMaxPage, void, int32_t)},
+		{"setMinPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setMinPage, void, int32_t)},
+		{"setMultipleDocumentHandling", "(Ljava/awt/JobAttributes$MultipleDocumentHandlingType;)V", nullptr, $PUBLIC, $method(JobAttributes, setMultipleDocumentHandling, void, $JobAttributes$MultipleDocumentHandlingType*)},
+		{"setMultipleDocumentHandlingToDefault", "()V", nullptr, $PUBLIC, $method(JobAttributes, setMultipleDocumentHandlingToDefault, void)},
+		{"setPageRanges", "([[I)V", nullptr, $PUBLIC, $method(JobAttributes, setPageRanges, void, $intArray2*)},
+		{"setPrinter", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JobAttributes, setPrinter, void, $String*)},
+		{"setSides", "(Ljava/awt/JobAttributes$SidesType;)V", nullptr, $PUBLIC, $method(JobAttributes, setSides, void, $JobAttributes$SidesType*)},
+		{"setSidesToDefault", "()V", nullptr, $PUBLIC, $method(JobAttributes, setSidesToDefault, void)},
+		{"setToPage", "(I)V", nullptr, $PUBLIC, $method(JobAttributes, setToPage, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JobAttributes, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.JobAttributes$SidesType", "java.awt.JobAttributes", "SidesType", $PUBLIC | $STATIC | $FINAL},
+		{"java.awt.JobAttributes$MultipleDocumentHandlingType", "java.awt.JobAttributes", "MultipleDocumentHandlingType", $PUBLIC | $STATIC | $FINAL},
+		{"java.awt.JobAttributes$DialogType", "java.awt.JobAttributes", "DialogType", $PUBLIC | $STATIC | $FINAL},
+		{"java.awt.JobAttributes$DestinationType", "java.awt.JobAttributes", "DestinationType", $PUBLIC | $STATIC | $FINAL},
+		{"java.awt.JobAttributes$DefaultSelectionType", "java.awt.JobAttributes", "DefaultSelectionType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.JobAttributes",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.JobAttributes$SidesType,java.awt.JobAttributes$MultipleDocumentHandlingType,java.awt.JobAttributes$DialogType,java.awt.JobAttributes$DestinationType,java.awt.JobAttributes$DefaultSelectionType"
+	};
+	$loadClass(JobAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JobAttributes);
+	});
 	return class$;
 }
 

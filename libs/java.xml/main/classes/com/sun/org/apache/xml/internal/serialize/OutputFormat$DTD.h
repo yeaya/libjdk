@@ -17,6 +17,7 @@ class OutputFormat$DTD : public ::java::lang::Object {
 	$class(OutputFormat$DTD, 0, ::java::lang::Object)
 public:
 	OutputFormat$DTD();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* HTMLPublicId;
 	static $String* HTMLSystemId;

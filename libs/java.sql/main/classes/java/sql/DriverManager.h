@@ -60,6 +60,7 @@ class $export DriverManager : public ::java::lang::Object {
 	$class(DriverManager, 0, ::java::lang::Object)
 public:
 	DriverManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void deregisterDriver(::java::sql::Driver* driver);
 	static ::java::util::stream::Stream* drivers();

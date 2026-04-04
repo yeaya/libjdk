@@ -1,12 +1,8 @@
 #include <javax/swing/plaf/synth/SynthScrollPaneUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ContainerListener.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JViewport.h>
@@ -22,7 +18,6 @@
 #include <javax/swing/plaf/synth/SynthScrollPaneUI$ViewportBorder.h>
 #include <javax/swing/plaf/synth/SynthScrollPaneUI$ViewportViewFocusHandler.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
@@ -32,10 +27,7 @@
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
-using $ContainerListener = ::java::awt::event::ContainerListener;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -51,76 +43,15 @@ using $BasicScrollPaneUI = ::javax::swing::plaf::basic::BasicScrollPaneUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthScrollPaneUI$ViewportBorder = ::javax::swing::plaf::synth::SynthScrollPaneUI$ViewportBorder;
 using $SynthScrollPaneUI$ViewportViewFocusHandler = ::javax::swing::plaf::synth::SynthScrollPaneUI$ViewportViewFocusHandler;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthScrollPaneUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollPaneUI, style)},
-	{"viewportViewHasFocus", "Z", nullptr, $PRIVATE, $field(SynthScrollPaneUI, viewportViewHasFocus)},
-	{"viewportViewFocusHandler", "Ljavax/swing/plaf/synth/SynthScrollPaneUI$ViewportViewFocusHandler;", nullptr, $PRIVATE, $field(SynthScrollPaneUI, viewportViewFocusHandler)},
-	{}
-};
-
-$MethodInfo _SynthScrollPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthScrollPaneUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)Ljavax/swing/JScrollPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollPaneUI, access$000, $JScrollPane*, SynthScrollPaneUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)Ljavax/swing/JScrollPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollPaneUI, access$100, $JScrollPane*, SynthScrollPaneUI*)},
-	{"access$200", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)Ljavax/swing/JScrollPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollPaneUI, access$200, $JScrollPane*, SynthScrollPaneUI*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthScrollPaneUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, installDefaults, void, $JScrollPane*)},
-	{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, installListeners, void, $JScrollPane*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, uninstallDefaults, void, $JScrollPane*)},
-	{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, uninstallListeners, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JScrollPane;)V", nullptr, $PRIVATE, $method(SynthScrollPaneUI, updateStyle, void, $JScrollPane*)},
-	{}
-};
-
-$InnerClassInfo _SynthScrollPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportViewFocusHandler", $PRIVATE},
-	{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthScrollPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthScrollPaneUI",
-	"javax.swing.plaf.basic.BasicScrollPaneUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthScrollPaneUI_FieldInfo_,
-	_SynthScrollPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthScrollPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler,javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder"
-};
-
-$Object* allocate$SynthScrollPaneUI($Class* clazz) {
-	return $of($alloc(SynthScrollPaneUI));
-}
 
 int32_t SynthScrollPaneUI::hashCode() {
 	 return this->$BasicScrollPaneUI::hashCode();
@@ -168,13 +99,11 @@ $ComponentUI* SynthScrollPaneUI::createUI($JComponent* x) {
 }
 
 void SynthScrollPaneUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintScrollPaneBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintScrollPaneBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -184,16 +113,16 @@ void SynthScrollPaneUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthScrollPaneUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Border, vpBorder, $nc(this->scrollpane)->getViewportBorder());
 	if (vpBorder != nullptr) {
 		$var($Rectangle, r, $nc(this->scrollpane)->getViewportBorderBounds());
-		vpBorder->paintBorder(this->scrollpane, g, $nc(r)->x, r->y, r->width, r->height);
+		vpBorder->paintBorder(this->scrollpane, g, $nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	}
 }
 
 void SynthScrollPaneUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintScrollPaneBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintScrollPaneBorder(context, g, x, y, w, h);
 }
 
 void SynthScrollPaneUI::installDefaults($JScrollPane* scrollpane) {
@@ -201,7 +130,7 @@ void SynthScrollPaneUI::installDefaults($JScrollPane* scrollpane) {
 }
 
 void SynthScrollPaneUI::updateStyle($JScrollPane* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -218,21 +147,21 @@ void SynthScrollPaneUI::updateStyle($JScrollPane* c) {
 }
 
 void SynthScrollPaneUI::installListeners($JScrollPane* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicScrollPaneUI::installListeners(c);
 	$nc(c)->addPropertyChangeListener(this);
 	if ($UIManager::getBoolean("ScrollPane.useChildTextComponentFocus"_s)) {
 		$set(this, viewportViewFocusHandler, $new($SynthScrollPaneUI$ViewportViewFocusHandler, this));
-		$nc($(c->getViewport()))->addContainerListener(this->viewportViewFocusHandler);
-		$var($Component, view, $nc($(c->getViewport()))->getView());
+		$$nc(c->getViewport())->addContainerListener(this->viewportViewFocusHandler);
+		$var($Component, view, $$nc(c->getViewport())->getView());
 		if ($instanceOf($JTextComponent, view)) {
-			$nc(view)->addFocusListener(this->viewportViewFocusHandler);
+			view->addFocusListener(this->viewportViewFocusHandler);
 		}
 	}
 }
 
 void SynthScrollPaneUI::uninstallDefaults($JScrollPane* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$nc(this->style)->uninstallDefaults(context);
 	if ($instanceOf($UIResource, $($nc(this->scrollpane)->getViewportBorder()))) {
@@ -241,14 +170,14 @@ void SynthScrollPaneUI::uninstallDefaults($JScrollPane* c) {
 }
 
 void SynthScrollPaneUI::uninstallListeners($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicScrollPaneUI::uninstallListeners(c);
 	$nc(c)->removePropertyChangeListener(this);
 	if (this->viewportViewFocusHandler != nullptr) {
-		$var($JViewport, viewport, $nc(($cast($JScrollPane, c)))->getViewport());
+		$var($JViewport, viewport, $cast($JScrollPane, c)->getViewport());
 		$nc(viewport)->removeContainerListener(this->viewportViewFocusHandler);
 		if (viewport->getView() != nullptr) {
-			$nc($(viewport->getView()))->removeFocusListener(this->viewportViewFocusHandler);
+			$$nc(viewport->getView())->removeFocusListener(this->viewportViewFocusHandler);
 		}
 		$set(this, viewportViewFocusHandler, nullptr);
 	}
@@ -280,7 +209,60 @@ SynthScrollPaneUI::SynthScrollPaneUI() {
 }
 
 $Class* SynthScrollPaneUI::load$($String* name, bool initialize) {
-	$loadClass(SynthScrollPaneUI, name, initialize, &_SynthScrollPaneUI_ClassInfo_, allocate$SynthScrollPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthScrollPaneUI, style)},
+		{"viewportViewHasFocus", "Z", nullptr, $PRIVATE, $field(SynthScrollPaneUI, viewportViewHasFocus)},
+		{"viewportViewFocusHandler", "Ljavax/swing/plaf/synth/SynthScrollPaneUI$ViewportViewFocusHandler;", nullptr, $PRIVATE, $field(SynthScrollPaneUI, viewportViewFocusHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthScrollPaneUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)Ljavax/swing/JScrollPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollPaneUI, access$000, $JScrollPane*, SynthScrollPaneUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)Ljavax/swing/JScrollPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollPaneUI, access$100, $JScrollPane*, SynthScrollPaneUI*)},
+		{"access$200", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;)Ljavax/swing/JScrollPane;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthScrollPaneUI, access$200, $JScrollPane*, SynthScrollPaneUI*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthScrollPaneUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthScrollPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, installDefaults, void, $JScrollPane*)},
+		{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, installListeners, void, $JScrollPane*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, uninstallDefaults, void, $JScrollPane*)},
+		{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthScrollPaneUI, uninstallListeners, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JScrollPane;)V", nullptr, $PRIVATE, $method(SynthScrollPaneUI, updateStyle, void, $JScrollPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportViewFocusHandler", $PRIVATE},
+		{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthScrollPaneUI",
+		"javax.swing.plaf.basic.BasicScrollPaneUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportViewFocusHandler,javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder"
+	};
+	$loadClass(SynthScrollPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthScrollPaneUI));
+	});
 	return class$;
 }
 

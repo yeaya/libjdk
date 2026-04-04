@@ -21,6 +21,7 @@ class $export SampleModel : public ::java::lang::Object {
 	$class(SampleModel, 0, ::java::lang::Object)
 public:
 	SampleModel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t dataType, int32_t w, int32_t h, int32_t numBands);
 	virtual ::java::awt::image::SampleModel* createCompatibleSampleModel(int32_t w, int32_t h) {return nullptr;}
 	virtual ::java::awt::image::DataBuffer* createDataBuffer() {return nullptr;}

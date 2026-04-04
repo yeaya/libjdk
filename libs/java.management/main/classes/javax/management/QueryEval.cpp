@@ -1,5 +1,4 @@
 #include <javax/management/QueryEval.h>
-
 #include <java/lang/InheritableThreadLocal.h>
 #include <java/lang/ThreadLocal.h>
 #include <javax/management/MBeanServer.h>
@@ -15,32 +14,6 @@ using $MBeanServer = ::javax::management::MBeanServer;
 namespace javax {
 	namespace management {
 
-$FieldInfo _QueryEval_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QueryEval, serialVersionUID)},
-	{"server", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljavax/management/MBeanServer;>;", $PRIVATE | $STATIC, $staticField(QueryEval, server)},
-	{}
-};
-
-$MethodInfo _QueryEval_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(QueryEval, init$, void)},
-	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(QueryEval, getMBeanServer, $MBeanServer*)},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $virtualMethod(QueryEval, setMBeanServer, void, $MBeanServer*)},
-	{}
-};
-
-$ClassInfo _QueryEval_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.management.QueryEval",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_QueryEval_FieldInfo_,
-	_QueryEval_MethodInfo_
-};
-
-$Object* allocate$QueryEval($Class* clazz) {
-	return $of($alloc(QueryEval));
-}
-
 $ThreadLocal* QueryEval::server = nullptr;
 
 void QueryEval::init$() {
@@ -55,7 +28,7 @@ $MBeanServer* QueryEval::getMBeanServer() {
 	return $cast($MBeanServer, $nc(QueryEval::server)->get());
 }
 
-void clinit$QueryEval($Class* class$) {
+void QueryEval::clinit$($Class* clazz) {
 	$assignStatic(QueryEval::server, $new($InheritableThreadLocal));
 }
 
@@ -63,7 +36,28 @@ QueryEval::QueryEval() {
 }
 
 $Class* QueryEval::load$($String* name, bool initialize) {
-	$loadClass(QueryEval, name, initialize, &_QueryEval_ClassInfo_, clinit$QueryEval, allocate$QueryEval);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QueryEval, serialVersionUID)},
+		{"server", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljavax/management/MBeanServer;>;", $PRIVATE | $STATIC, $staticField(QueryEval, server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(QueryEval, init$, void)},
+		{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(QueryEval, getMBeanServer, $MBeanServer*)},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $virtualMethod(QueryEval, setMBeanServer, void, $MBeanServer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.management.QueryEval",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QueryEval, name, initialize, &classInfo$$, QueryEval::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(QueryEval);
+	});
 	return class$;
 }
 

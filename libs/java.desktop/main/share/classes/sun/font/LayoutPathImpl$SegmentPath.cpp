@@ -1,5 +1,4 @@
 #include <sun/font/LayoutPathImpl$SegmentPath.h>
-
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Point2D$Double.h>
 #include <java/awt/geom/Point2D.h>
@@ -30,58 +29,6 @@ using $LayoutPathImpl$SegmentPathBuilder = ::sun::font::LayoutPathImpl$SegmentPa
 namespace sun {
 	namespace font {
 
-$FieldInfo _LayoutPathImpl$SegmentPath_FieldInfo_[] = {
-	{"data", "[D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPath, data)},
-	{"etype", "Lsun/font/LayoutPathImpl$EndType;", nullptr, 0, $field(LayoutPathImpl$SegmentPath, etype)},
-	{}
-};
-
-$MethodInfo _LayoutPathImpl$SegmentPath_MethodInfo_[] = {
-	{"<init>", "([DLsun/font/LayoutPathImpl$EndType;)V", nullptr, 0, $method(LayoutPathImpl$SegmentPath, init$, void, $doubles*, $LayoutPathImpl$EndType*)},
-	{"calcoffset", "(IZLjava/awt/geom/Point2D;)V", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, calcoffset, void, int32_t, bool, $Point2D*)},
-	{"end", "()D", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, end, double)},
-	{"get", "(Lsun/font/LayoutPathImpl$EndType;[D)Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LayoutPathImpl$SegmentPath, get, LayoutPathImpl$SegmentPath*, $LayoutPathImpl$EndType*, $doubles*)},
-	{"getClosedAdvance", "(DZ)D", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, getClosedAdvance, double, double, bool)},
-	{"getSegmentIndexForAdvance", "(DZ)I", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, getSegmentIndexForAdvance, int32_t, double, bool)},
-	{"length", "()D", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, length, double)},
-	{"locateAndGetIndex", "(Ljava/awt/geom/Point2D;ZLjava/awt/geom/Point2D;)I", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, locateAndGetIndex, int32_t, $Point2D*, bool, $Point2D*)},
-	{"map", "(IDDLjava/awt/geom/Point2D;)V", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, map, void, int32_t, double, double, $Point2D*)},
-	{"mapShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, mapShape, $Shape*, $Shape*)},
-	{"pathToPoint", "(Ljava/awt/geom/Point2D;ZLjava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, pathToPoint, void, $Point2D*, bool, $Point2D*)},
-	{"pointToPath", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, pointToPath, bool, $Point2D*, $Point2D*)},
-	{"start", "()D", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, start, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LayoutPathImpl$SegmentPath_InnerClassesInfo_[] = {
-	{"sun.font.LayoutPathImpl$SegmentPath", "sun.font.LayoutPathImpl", "SegmentPath", $PUBLIC | $STATIC | $FINAL},
-	{"sun.font.LayoutPathImpl$SegmentPath$Mapper", "sun.font.LayoutPathImpl$SegmentPath", "Mapper", 0},
-	{"sun.font.LayoutPathImpl$SegmentPath$Segment", "sun.font.LayoutPathImpl$SegmentPath", "Segment", 0},
-	{"sun.font.LayoutPathImpl$SegmentPath$LineInfo", "sun.font.LayoutPathImpl$SegmentPath", "LineInfo", 0},
-	{}
-};
-
-$ClassInfo _LayoutPathImpl$SegmentPath_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.LayoutPathImpl$SegmentPath",
-	"sun.font.LayoutPathImpl",
-	nullptr,
-	_LayoutPathImpl$SegmentPath_FieldInfo_,
-	_LayoutPathImpl$SegmentPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LayoutPathImpl$SegmentPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.LayoutPathImpl"
-};
-
-$Object* allocate$LayoutPathImpl$SegmentPath($Class* clazz) {
-	return $of($alloc(LayoutPathImpl$SegmentPath));
-}
-
 LayoutPathImpl$SegmentPath* LayoutPathImpl$SegmentPath::get($LayoutPathImpl$EndType* etype, $doubles* pts) {
 	$init(LayoutPathImpl$SegmentPath);
 	return $$new($LayoutPathImpl$SegmentPathBuilder)->build(etype, pts);
@@ -98,22 +45,21 @@ void LayoutPathImpl$SegmentPath::pathToPoint($Point2D* location, bool preceding,
 }
 
 bool LayoutPathImpl$SegmentPath::pointToPath($Point2D* pt, $Point2D* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double x = $nc(pt)->getX();
 	double y = pt->getY();
 	double bx = $nc(this->data)->get(0);
-	double by = $nc(this->data)->get(1);
-	double bl = $nc(this->data)->get(2);
-	$init($Double);
+	double by = this->data->get(1);
+	double bl = this->data->get(2);
 	double cd2 = $Double::MAX_VALUE;
-	double cx = (double)0;
-	double cy = (double)0;
-	double cl = (double)0;
+	double cx = 0;
+	double cy = 0;
+	double cl = 0;
 	int32_t ci = 0;
 	for (int32_t i = 3; i < $nc(this->data)->length; i += 3) {
-		double nx = $nc(this->data)->get(i);
-		double ny = $nc(this->data)->get(i + 1);
-		double nl = $nc(this->data)->get(i + 2);
+		double nx = this->data->get(i);
+		double ny = this->data->get(i + 1);
+		double nl = this->data->get(i + 2);
 		double dx = nx - bx;
 		double dy = ny - by;
 		double dl = nl - bl;
@@ -142,7 +88,7 @@ bool LayoutPathImpl$SegmentPath::pointToPath($Point2D* pt, $Point2D* result) {
 					vcx = nx;
 					vcy = ny;
 					vcl = nl;
-					vi = $nc(this->data)->length;
+					vi = this->data->length;
 				} else {
 					break;
 				}
@@ -163,10 +109,10 @@ bool LayoutPathImpl$SegmentPath::pointToPath($Point2D* pt, $Point2D* result) {
 		bl = nl;
 	}
 	bx = $nc(this->data)->get(ci - 3);
-	by = $nc(this->data)->get(ci - 2);
+	by = this->data->get(ci - 2);
 	if (cx != bx || cy != by) {
-		double nx = $nc(this->data)->get(ci);
-		double ny = $nc(this->data)->get(ci + 1);
+		double nx = this->data->get(ci);
+		double ny = this->data->get(ci + 1);
 		double co = $Math::sqrt(cd2);
 		if ((x - cx) * (ny - by) > (y - cy) * (nx - bx)) {
 			co = -co;
@@ -175,8 +121,8 @@ bool LayoutPathImpl$SegmentPath::pointToPath($Point2D* pt, $Point2D* result) {
 		return false;
 	} else {
 		bool havePrev = ci != 3 && $nc(this->data)->get(ci - 1) != $nc(this->data)->get(ci - 4);
-		bool haveFoll = ci != $nc(this->data)->length && $nc(this->data)->get(ci - 1) != $nc(this->data)->get(ci + 2);
-		bool doExtend = $nc(this->etype)->isExtended() && (ci == 3 || ci == $nc(this->data)->length);
+		bool haveFoll = ci != $nc(this->data)->length && this->data->get(ci - 1) != this->data->get(ci + 2);
+		bool doExtend = $nc(this->etype)->isExtended() && (ci == 3 || ci == this->data->length);
 		if (havePrev && haveFoll) {
 			$var($Point2D$Double, pp, $new($Point2D$Double, x, y));
 			calcoffset(ci - 3, doExtend, pp);
@@ -204,22 +150,22 @@ bool LayoutPathImpl$SegmentPath::pointToPath($Point2D* pt, $Point2D* result) {
 
 void LayoutPathImpl$SegmentPath::calcoffset(int32_t index, bool doExtend, $Point2D* result) {
 	double bx = $nc(this->data)->get(index - 3);
-	double by = $nc(this->data)->get(index - 2);
+	double by = this->data->get(index - 2);
 	double px = $nc(result)->getX() - bx;
 	double py = result->getY() - by;
 	double dx = $nc(this->data)->get(index) - bx;
-	double dy = $nc(this->data)->get(index + 1) - by;
-	double l = $nc(this->data)->get(index + 2) - $nc(this->data)->get(index - 1);
+	double dy = this->data->get(index + 1) - by;
+	double l = this->data->get(index + 2) - this->data->get(index - 1);
 	double rx = (px * dx + py * dy) / l;
 	double ry = (px * -dy + py * dx) / l;
 	if (!doExtend) {
 		if (rx < 0) {
-			rx = (double)0;
+			rx = 0;
 		} else if (rx > l) {
 			rx = l;
 		}
 	}
-	rx += $nc(this->data)->get(index - 1);
+	rx += this->data->get(index - 1);
 	result->setLocation(rx, ry);
 }
 
@@ -257,7 +203,7 @@ int32_t LayoutPathImpl$SegmentPath::getSegmentIndexForAdvance(double a, bool pre
 	int32_t i = 0;
 	int32_t lim = 0;
 	for (i = 5, lim = $nc(this->data)->length - 1; i < lim; i += 3) {
-		double v = $nc(this->data)->get(i);
+		double v = this->data->get(i);
 		if (a < v || (a == v && preceding)) {
 			break;
 		}
@@ -267,12 +213,12 @@ int32_t LayoutPathImpl$SegmentPath::getSegmentIndexForAdvance(double a, bool pre
 
 void LayoutPathImpl$SegmentPath::map(int32_t seg, double a, double o, $Point2D* pt) {
 	double dx = $nc(this->data)->get(seg) - $nc(this->data)->get(seg - 3);
-	double dy = $nc(this->data)->get(seg + 1) - $nc(this->data)->get(seg - 2);
-	double dl = $nc(this->data)->get(seg + 2) - $nc(this->data)->get(seg - 1);
+	double dy = this->data->get(seg + 1) - this->data->get(seg - 2);
+	double dl = this->data->get(seg + 2) - this->data->get(seg - 1);
 	double ux = dx / dl;
 	double uy = dy / dl;
-	a -= $nc(this->data)->get(seg - 1);
-	$nc(pt)->setLocation($nc(this->data)->get(seg - 3) + a * ux - o * uy, $nc(this->data)->get(seg - 2) + a * uy + o * ux);
+	a -= this->data->get(seg - 1);
+	$nc(pt)->setLocation(this->data->get(seg - 3) + a * ux - o * uy, this->data->get(seg - 2) + a * uy + o * ux);
 }
 
 int32_t LayoutPathImpl$SegmentPath::locateAndGetIndex($Point2D* loc, bool preceding, $Point2D* result) {
@@ -284,7 +230,7 @@ int32_t LayoutPathImpl$SegmentPath::locateAndGetIndex($Point2D* loc, bool preced
 }
 
 $String* LayoutPathImpl$SegmentPath::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, b, $new($StringBuilder));
 	b->append("{"_s);
 	b->append($($nc(this->etype)->toString()));
@@ -293,9 +239,9 @@ $String* LayoutPathImpl$SegmentPath::toString() {
 		if (i > 0) {
 			b->append(","_s);
 		}
-		float x = ($cast(int32_t, ($nc(this->data)->get(i) * 100))) / 100.0f;
-		float y = ($cast(int32_t, ($nc(this->data)->get(i + 1) * 100))) / 100.0f;
-		float l = ($cast(int32_t, ($nc(this->data)->get(i + 2) * 10))) / 10.0f;
+		float x = ($cast(int32_t, (this->data->get(i) * 100))) / 100.0f;
+		float y = ($cast(int32_t, (this->data->get(i + 1) * 100))) / 100.0f;
+		float l = ($cast(int32_t, (this->data->get(i + 2) * 10))) / 10.0f;
 		b->append("{"_s);
 		b->append(x);
 		b->append(","_s);
@@ -312,7 +258,53 @@ LayoutPathImpl$SegmentPath::LayoutPathImpl$SegmentPath() {
 }
 
 $Class* LayoutPathImpl$SegmentPath::load$($String* name, bool initialize) {
-	$loadClass(LayoutPathImpl$SegmentPath, name, initialize, &_LayoutPathImpl$SegmentPath_ClassInfo_, allocate$LayoutPathImpl$SegmentPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "[D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPath, data)},
+		{"etype", "Lsun/font/LayoutPathImpl$EndType;", nullptr, 0, $field(LayoutPathImpl$SegmentPath, etype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([DLsun/font/LayoutPathImpl$EndType;)V", nullptr, 0, $method(LayoutPathImpl$SegmentPath, init$, void, $doubles*, $LayoutPathImpl$EndType*)},
+		{"calcoffset", "(IZLjava/awt/geom/Point2D;)V", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, calcoffset, void, int32_t, bool, $Point2D*)},
+		{"end", "()D", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, end, double)},
+		{"get", "(Lsun/font/LayoutPathImpl$EndType;[D)Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LayoutPathImpl$SegmentPath, get, LayoutPathImpl$SegmentPath*, $LayoutPathImpl$EndType*, $doubles*)},
+		{"getClosedAdvance", "(DZ)D", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, getClosedAdvance, double, double, bool)},
+		{"getSegmentIndexForAdvance", "(DZ)I", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, getSegmentIndexForAdvance, int32_t, double, bool)},
+		{"length", "()D", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, length, double)},
+		{"locateAndGetIndex", "(Ljava/awt/geom/Point2D;ZLjava/awt/geom/Point2D;)I", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, locateAndGetIndex, int32_t, $Point2D*, bool, $Point2D*)},
+		{"map", "(IDDLjava/awt/geom/Point2D;)V", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPath, map, void, int32_t, double, double, $Point2D*)},
+		{"mapShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, mapShape, $Shape*, $Shape*)},
+		{"pathToPoint", "(Ljava/awt/geom/Point2D;ZLjava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, pathToPoint, void, $Point2D*, bool, $Point2D*)},
+		{"pointToPath", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, pointToPath, bool, $Point2D*, $Point2D*)},
+		{"start", "()D", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, start, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl$SegmentPath, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.LayoutPathImpl$SegmentPath", "sun.font.LayoutPathImpl", "SegmentPath", $PUBLIC | $STATIC | $FINAL},
+		{"sun.font.LayoutPathImpl$SegmentPath$Mapper", "sun.font.LayoutPathImpl$SegmentPath", "Mapper", 0},
+		{"sun.font.LayoutPathImpl$SegmentPath$Segment", "sun.font.LayoutPathImpl$SegmentPath", "Segment", 0},
+		{"sun.font.LayoutPathImpl$SegmentPath$LineInfo", "sun.font.LayoutPathImpl$SegmentPath", "LineInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.LayoutPathImpl$SegmentPath",
+		"sun.font.LayoutPathImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.LayoutPathImpl"
+	};
+	$loadClass(LayoutPathImpl$SegmentPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LayoutPathImpl$SegmentPath);
+	});
 	return class$;
 }
 

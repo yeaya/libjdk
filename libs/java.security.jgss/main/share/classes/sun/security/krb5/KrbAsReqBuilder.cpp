@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbAsReqBuilder.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
@@ -40,7 +39,6 @@
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
 using $PADataArray = $Array<::sun::security::krb5::internal::PAData>;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -49,7 +47,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
-using $1Credentials = ::sun::security::krb5::Credentials;
+using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KdcComm = ::sun::security::krb5::KdcComm;
@@ -66,76 +64,12 @@ using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $PAData = ::sun::security::krb5::internal::PAData;
 using $PAData$SaltAndParams = ::sun::security::krb5::internal::PAData$SaltAndParams;
-using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
+using $1Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
 
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$FieldInfo _KrbAsReqBuilder_FieldInfo_[] = {
-	{"options", "Lsun/security/krb5/internal/KDCOptions;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, options)},
-	{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, cname)},
-	{"refCname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, refCname)},
-	{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, sname)},
-	{"from", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, from)},
-	{"till", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, till)},
-	{"rtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, rtime)},
-	{"addresses", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, addresses)},
-	{"password", "[C", nullptr, $PRIVATE | $FINAL, $field(KrbAsReqBuilder, password)},
-	{"ktab", "Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PRIVATE | $FINAL, $field(KrbAsReqBuilder, ktab)},
-	{"paList", "[Lsun/security/krb5/internal/PAData;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, paList)},
-	{"req", "Lsun/security/krb5/KrbAsReq;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, req)},
-	{"rep", "Lsun/security/krb5/KrbAsRep;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, rep)},
-	{"state", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, state)},
-	{}
-};
-
-$MethodInfo _KrbAsReqBuilder_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Ljavax/security/auth/kerberos/KeyTab;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, init$, void, $PrincipalName*, $KeyTab*), "sun.security.krb5.KrbException"},
-	{"<init>", "(Lsun/security/krb5/PrincipalName;[C)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, init$, void, $PrincipalName*, $chars*), "sun.security.krb5.KrbException"},
-	{"action", "()Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, action, KrbAsReqBuilder*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"build", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/KrbAsReqBuilder$ReferralsState;)Lsun/security/krb5/KrbAsReq;", nullptr, $PRIVATE, $method(KrbAsReqBuilder, build, $KrbAsReq*, $EncryptionKey*, $KrbAsReqBuilder$ReferralsState*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"checkState", "(Lsun/security/krb5/KrbAsReqBuilder$State;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KrbAsReqBuilder, checkState, void, $KrbAsReqBuilder$State*, $String*)},
-	{"destroy", "()V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, destroy, void)},
-	{"getCCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, getCCreds, $Credentials*)},
-	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, getCreds, $1Credentials*)},
-	{"getKeys", "(Z)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, getKeys, $EncryptionKeyArray*, bool), "sun.security.krb5.KrbException"},
-	{"init", "(Lsun/security/krb5/PrincipalName;)V", nullptr, $PRIVATE, $method(KrbAsReqBuilder, init, void, $PrincipalName*), "sun.security.krb5.KrbException"},
-	{"resolve", "()Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PRIVATE, $method(KrbAsReqBuilder, resolve, KrbAsReqBuilder*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"send", "()Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PRIVATE, $method(KrbAsReqBuilder, send, KrbAsReqBuilder*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"setAddresses", "(Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setAddresses, void, $HostAddresses*)},
-	{"setOptions", "(Lsun/security/krb5/internal/KDCOptions;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setOptions, void, $KDCOptions*)},
-	{"setRTime", "(Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setRTime, void, $KerberosTime*)},
-	{"setTarget", "(Lsun/security/krb5/PrincipalName;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setTarget, void, $PrincipalName*)},
-	{"setTill", "(Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setTill, void, $KerberosTime*)},
-	{}
-};
-
-$InnerClassInfo _KrbAsReqBuilder_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KrbAsReqBuilder$ReferralsState", "sun.security.krb5.KrbAsReqBuilder", "ReferralsState", $STATIC | $FINAL},
-	{"sun.security.krb5.KrbAsReqBuilder$State", "sun.security.krb5.KrbAsReqBuilder", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _KrbAsReqBuilder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.krb5.KrbAsReqBuilder",
-	"java.lang.Object",
-	nullptr,
-	_KrbAsReqBuilder_FieldInfo_,
-	_KrbAsReqBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KrbAsReqBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KrbAsReqBuilder$ReferralsState,sun.security.krb5.KrbAsReqBuilder$State"
-};
-
-$Object* allocate$KrbAsReqBuilder($Class* clazz) {
-	return $of($alloc(KrbAsReqBuilder));
-}
 
 void KrbAsReqBuilder::init($PrincipalName* cname) {
 	$set(this, cname, cname);
@@ -157,7 +91,7 @@ void KrbAsReqBuilder::init$($PrincipalName* cname, $chars* pass) {
 }
 
 $EncryptionKeyArray* KrbAsReqBuilder::getKeys(bool isInitiator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($KrbAsReqBuilder$State);
 	checkState(isInitiator ? $KrbAsReqBuilder$State::REQ_OK : $KrbAsReqBuilder$State::INIT, "Cannot get keys"_s);
 	if (this->password != nullptr) {
@@ -179,7 +113,7 @@ $EncryptionKeyArray* KrbAsReqBuilder::getKeys(bool isInitiator) {
 			}
 			for (int32_t i = 0; i < eTypes->length; ++i) {
 				if (result->get(i) == nullptr) {
-					result->set(i, $($EncryptionKey::acquireSecretKey(this->password, salt, eTypes->get(i), ($bytes*)nullptr)));
+					result->set(i, $($EncryptionKey::acquireSecretKey(this->password, salt, eTypes->get(i), nullptr)));
 				}
 			}
 		} catch ($IOException& ioe) {
@@ -224,7 +158,7 @@ void KrbAsReqBuilder::setAddresses($HostAddresses* addresses) {
 }
 
 $KrbAsReq* KrbAsReqBuilder::build($EncryptionKey* key, $KrbAsReqBuilder$ReferralsState* referralsState) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PADataArray, extraPAs, nullptr);
 	$var($ints, eTypes, nullptr);
 	if (this->password != nullptr) {
@@ -234,9 +168,7 @@ $KrbAsReq* KrbAsReqBuilder::build($EncryptionKey* key, $KrbAsReqBuilder$Referral
 		$assign(eTypes, $EType::getDefaults("default_tkt_enctypes"_s, ks));
 		{
 			$var($EncryptionKeyArray, arr$, ks);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($EncryptionKey, k, arr$->get(i$));
 				$nc(k)->destroy();
 			}
@@ -255,20 +187,20 @@ $KrbAsReq* KrbAsReqBuilder::build($EncryptionKey* key, $KrbAsReqBuilder$Referral
 }
 
 KrbAsReqBuilder* KrbAsReqBuilder::resolve() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ktab != nullptr) {
 		$nc(this->rep)->decryptUsingKeyTab(this->ktab, this->req, this->cname);
 	} else {
 		$nc(this->rep)->decryptUsingPassword(this->password, this->req, this->cname);
 	}
 	if ($nc(this->rep)->getPA() != nullptr) {
-		if (this->paList == nullptr || $nc(this->paList)->length == 0) {
+		if (this->paList == nullptr || this->paList->length == 0) {
 			$set(this, paList, $nc(this->rep)->getPA());
 		} else {
 			int32_t extraLen = $nc($($nc(this->rep)->getPA()))->length;
 			if (extraLen > 0) {
 				int32_t oldLen = $nc(this->paList)->length;
-				$set(this, paList, $fcast($PADataArray, $Arrays::copyOf(this->paList, $nc(this->paList)->length + extraLen)));
+				$set(this, paList, $cast($PADataArray, $Arrays::copyOf(this->paList, this->paList->length + extraLen)));
 				$System::arraycopy($($nc(this->rep)->getPA()), 0, this->paList, oldLen, extraLen);
 			}
 		}
@@ -277,7 +209,7 @@ KrbAsReqBuilder* KrbAsReqBuilder::resolve() {
 }
 
 KrbAsReqBuilder* KrbAsReqBuilder::send() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool preAuthFailedOnce = false;
 	$var($KdcComm, comm, nullptr);
 	$var($EncryptionKey, pakey, nullptr);
@@ -294,7 +226,7 @@ KrbAsReqBuilder* KrbAsReqBuilder::send() {
 			bool var$0 = !preAuthFailedOnce;
 			if (var$0) {
 				bool var$1 = ke->returnCode() == $Krb5::KDC_ERR_PREAUTH_FAILED;
-				var$0 = (var$1 || ke->returnCode() == $Krb5::KDC_ERR_PREAUTH_REQUIRED);
+				var$0 = var$1 || ke->returnCode() == $Krb5::KDC_ERR_PREAUTH_REQUIRED;
 			}
 			if (var$0) {
 				$init($Krb5);
@@ -313,17 +245,15 @@ KrbAsReqBuilder* KrbAsReqBuilder::send() {
 					}
 					{
 						$var($EncryptionKeyArray, arr$, ks);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($EncryptionKey, k, arr$->get(i$));
 							$nc(k)->destroy();
 						}
 					}
 				} else {
-					$assign(pakey, $EncryptionKey::acquireSecretKey(this->cname, this->password, paEType, $($PAData::getSaltAndParams(paEType, $($nc(kerr)->getPA())))));
+					$assign(pakey, $EncryptionKey::acquireSecretKey(this->cname, this->password, paEType, $($PAData::getSaltAndParams(paEType, $(kerr->getPA())))));
 				}
-				$set(this, paList, $nc(kerr)->getPA());
+				$set(this, paList, kerr->getPA());
 			} else {
 				if (referralsState->handleError(ke)) {
 					$assign(pakey, nullptr);
@@ -341,16 +271,16 @@ KrbAsReqBuilder* KrbAsReqBuilder::action() {
 	$init($KrbAsReqBuilder$State);
 	checkState($KrbAsReqBuilder$State::INIT, "Cannot call action"_s);
 	$set(this, state, $KrbAsReqBuilder$State::REQ_OK);
-	return $nc($(send()))->resolve();
+	return $$nc(send())->resolve();
 }
 
-$1Credentials* KrbAsReqBuilder::getCreds() {
+$Credentials* KrbAsReqBuilder::getCreds() {
 	$init($KrbAsReqBuilder$State);
 	checkState($KrbAsReqBuilder$State::REQ_OK, "Cannot retrieve creds"_s);
 	return $nc(this->rep)->getCreds();
 }
 
-$Credentials* KrbAsReqBuilder::getCCreds() {
+$1Credentials* KrbAsReqBuilder::getCCreds() {
 	$init($KrbAsReqBuilder$State);
 	checkState($KrbAsReqBuilder$State::REQ_OK, "Cannot retrieve CCreds"_s);
 	return $nc(this->rep)->getCCreds();
@@ -374,7 +304,65 @@ KrbAsReqBuilder::KrbAsReqBuilder() {
 }
 
 $Class* KrbAsReqBuilder::load$($String* name, bool initialize) {
-	$loadClass(KrbAsReqBuilder, name, initialize, &_KrbAsReqBuilder_ClassInfo_, allocate$KrbAsReqBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"options", "Lsun/security/krb5/internal/KDCOptions;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, options)},
+		{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, cname)},
+		{"refCname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, refCname)},
+		{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, sname)},
+		{"from", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, from)},
+		{"till", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, till)},
+		{"rtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, rtime)},
+		{"addresses", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, addresses)},
+		{"password", "[C", nullptr, $PRIVATE | $FINAL, $field(KrbAsReqBuilder, password)},
+		{"ktab", "Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PRIVATE | $FINAL, $field(KrbAsReqBuilder, ktab)},
+		{"paList", "[Lsun/security/krb5/internal/PAData;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, paList)},
+		{"req", "Lsun/security/krb5/KrbAsReq;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, req)},
+		{"rep", "Lsun/security/krb5/KrbAsRep;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, rep)},
+		{"state", "Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE, $field(KrbAsReqBuilder, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/PrincipalName;Ljavax/security/auth/kerberos/KeyTab;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, init$, void, $PrincipalName*, $KeyTab*), "sun.security.krb5.KrbException"},
+		{"<init>", "(Lsun/security/krb5/PrincipalName;[C)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, init$, void, $PrincipalName*, $chars*), "sun.security.krb5.KrbException"},
+		{"action", "()Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, action, KrbAsReqBuilder*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"build", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/KrbAsReqBuilder$ReferralsState;)Lsun/security/krb5/KrbAsReq;", nullptr, $PRIVATE, $method(KrbAsReqBuilder, build, $KrbAsReq*, $EncryptionKey*, $KrbAsReqBuilder$ReferralsState*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"checkState", "(Lsun/security/krb5/KrbAsReqBuilder$State;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KrbAsReqBuilder, checkState, void, $KrbAsReqBuilder$State*, $String*)},
+		{"destroy", "()V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, destroy, void)},
+		{"getCCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, getCCreds, $1Credentials*)},
+		{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, getCreds, $Credentials*)},
+		{"getKeys", "(Z)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $method(KrbAsReqBuilder, getKeys, $EncryptionKeyArray*, bool), "sun.security.krb5.KrbException"},
+		{"init", "(Lsun/security/krb5/PrincipalName;)V", nullptr, $PRIVATE, $method(KrbAsReqBuilder, init, void, $PrincipalName*), "sun.security.krb5.KrbException"},
+		{"resolve", "()Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PRIVATE, $method(KrbAsReqBuilder, resolve, KrbAsReqBuilder*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"send", "()Lsun/security/krb5/KrbAsReqBuilder;", nullptr, $PRIVATE, $method(KrbAsReqBuilder, send, KrbAsReqBuilder*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"setAddresses", "(Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setAddresses, void, $HostAddresses*)},
+		{"setOptions", "(Lsun/security/krb5/internal/KDCOptions;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setOptions, void, $KDCOptions*)},
+		{"setRTime", "(Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setRTime, void, $KerberosTime*)},
+		{"setTarget", "(Lsun/security/krb5/PrincipalName;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setTarget, void, $PrincipalName*)},
+		{"setTill", "(Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(KrbAsReqBuilder, setTill, void, $KerberosTime*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KrbAsReqBuilder$ReferralsState", "sun.security.krb5.KrbAsReqBuilder", "ReferralsState", $STATIC | $FINAL},
+		{"sun.security.krb5.KrbAsReqBuilder$State", "sun.security.krb5.KrbAsReqBuilder", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.krb5.KrbAsReqBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KrbAsReqBuilder$ReferralsState,sun.security.krb5.KrbAsReqBuilder$State"
+	};
+	$loadClass(KrbAsReqBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbAsReqBuilder);
+	});
 	return class$;
 }
 

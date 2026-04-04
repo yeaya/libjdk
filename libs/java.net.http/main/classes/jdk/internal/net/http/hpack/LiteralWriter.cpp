@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/LiteralWriter.h>
-
 #include <jdk/internal/net/http/hpack/IndexNameValueWriter.h>
 #include <jcpp.h>
 
@@ -13,24 +12,6 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$MethodInfo _LiteralWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LiteralWriter, init$, void)},
-	{}
-};
-
-$ClassInfo _LiteralWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.LiteralWriter",
-	"jdk.internal.net.http.hpack.IndexNameValueWriter",
-	nullptr,
-	nullptr,
-	_LiteralWriter_MethodInfo_
-};
-
-$Object* allocate$LiteralWriter($Class* clazz) {
-	return $of($alloc(LiteralWriter));
-}
-
 void LiteralWriter::init$() {
 	$IndexNameValueWriter::init$(0, 4);
 }
@@ -39,7 +20,21 @@ LiteralWriter::LiteralWriter() {
 }
 
 $Class* LiteralWriter::load$($String* name, bool initialize) {
-	$loadClass(LiteralWriter, name, initialize, &_LiteralWriter_ClassInfo_, allocate$LiteralWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LiteralWriter, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.LiteralWriter",
+		"jdk.internal.net.http.hpack.IndexNameValueWriter",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LiteralWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LiteralWriter);
+	});
 	return class$;
 }
 

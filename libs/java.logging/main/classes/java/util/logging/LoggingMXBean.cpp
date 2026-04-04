@@ -1,5 +1,4 @@
 #include <java/util/logging/LoggingMXBean.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -13,43 +12,37 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$NamedAttribute LoggingMXBean_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _LoggingMXBean_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", LoggingMXBean_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _LoggingMXBean_MethodInfo_[] = {
-	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getLoggerLevel, $String*, $String*)},
-	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getLoggerNames, $List*)},
-	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getParentLoggerName, $String*, $String*)},
-	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, setLoggerLevel, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _LoggingMXBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.logging.LoggingMXBean",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LoggingMXBean_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_LoggingMXBean_Annotations_
-};
-
-$Object* allocate$LoggingMXBean($Class* clazz) {
-	return $of($alloc(LoggingMXBean));
-}
-
 $Class* LoggingMXBean::load$($String* name, bool initialize) {
-	$loadClass(LoggingMXBean, name, initialize, &_LoggingMXBean_ClassInfo_, allocate$LoggingMXBean);
+	$MethodInfo methodInfos$$[] = {
+		{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getLoggerLevel, $String*, $String*)},
+		{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getLoggerNames, $List*)},
+		{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getParentLoggerName, $String*, $String*)},
+		{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, setLoggerLevel, void, $String*, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.logging.LoggingMXBean",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(LoggingMXBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoggingMXBean);
+	});
 	return class$;
 }
 

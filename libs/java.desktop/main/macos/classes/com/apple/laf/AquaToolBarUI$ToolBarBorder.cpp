@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaToolBarUI$ToolBarBorder.h>
-
 #include <com/apple/laf/AquaToolBarUI.h>
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Color.h>
@@ -32,46 +31,6 @@ using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaToolBarUI$ToolBarBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(AquaToolBarUI$ToolBarBorder, init$, void)},
-	{"fillHandle", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI$ToolBarBorder, fillHandle, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaToolBarUI$ToolBarBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaToolBarUI$ToolBarBorder", "com.apple.laf.AquaToolBarUI", "ToolBarBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaToolBarUI$ToolBarBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaToolBarUI$ToolBarBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource,javax.swing.SwingConstants",
-	nullptr,
-	_AquaToolBarUI$ToolBarBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaToolBarUI$ToolBarBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaToolBarUI"
-};
-
-$Object* allocate$AquaToolBarUI$ToolBarBorder($Class* clazz) {
-	return $of($alloc(AquaToolBarUI$ToolBarBorder));
-}
 
 int32_t AquaToolBarUI$ToolBarBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -111,14 +70,14 @@ void AquaToolBarUI$ToolBarBorder::fillHandle($Graphics* g, int32_t x1, int32_t y
 }
 
 void AquaToolBarUI$ToolBarBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->translate(x, y);
 	if ($nc(c)->isOpaque()) {
 		$AquaUtils::fillRect(g, c, $(c->getBackground()), 0, 0, w - 1, h - 1);
 	}
 	$var($Color, oldColor, g->getColor());
 	$var($JToolBar, jtb, $cast($JToolBar, c));
-	$var($ComponentOrientation, orient, $nc(jtb)->getComponentOrientation());
+	$var($ComponentOrientation, orient, jtb->getComponentOrientation());
 	bool horizontal = jtb->getOrientation() == $SwingConstants::HORIZONTAL;
 	if (jtb->isFloatable()) {
 		if (horizontal) {
@@ -145,14 +104,14 @@ $Insets* AquaToolBarUI$ToolBarBorder::getBorderInsets($Component* c, $Insets* bo
 	borderInsets->right = 4;
 	borderInsets->top = 2;
 	borderInsets->bottom = 2;
-	if ($nc(($cast($JToolBar, c)))->isFloatable()) {
-		if (($cast($JToolBar, c))->getOrientation() == $SwingConstants::HORIZONTAL) {
+	if ($nc($cast($JToolBar, c))->isFloatable()) {
+		if ($cast($JToolBar, c)->getOrientation() == $SwingConstants::HORIZONTAL) {
 			borderInsets->left = 12;
 		} else {
 			borderInsets->top = 12;
 		}
 	}
-	$var($Insets, margin, $nc(($cast($JToolBar, c)))->getMargin());
+	$var($Insets, margin, $cast($JToolBar, c)->getMargin());
 	if (margin != nullptr) {
 		borderInsets->left += margin->left;
 		borderInsets->top += margin->top;
@@ -170,7 +129,42 @@ AquaToolBarUI$ToolBarBorder::AquaToolBarUI$ToolBarBorder() {
 }
 
 $Class* AquaToolBarUI$ToolBarBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaToolBarUI$ToolBarBorder, name, initialize, &_AquaToolBarUI$ToolBarBorder_ClassInfo_, allocate$AquaToolBarUI$ToolBarBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(AquaToolBarUI$ToolBarBorder, init$, void)},
+		{"fillHandle", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $PROTECTED, $virtualMethod(AquaToolBarUI$ToolBarBorder, fillHandle, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaToolBarUI$ToolBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaToolBarUI$ToolBarBorder", "com.apple.laf.AquaToolBarUI", "ToolBarBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaToolBarUI$ToolBarBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource,javax.swing.SwingConstants",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaToolBarUI"
+	};
+	$loadClass(AquaToolBarUI$ToolBarBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaToolBarUI$ToolBarBorder));
+	});
 	return class$;
 }
 

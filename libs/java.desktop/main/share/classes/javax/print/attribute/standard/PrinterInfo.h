@@ -30,7 +30,7 @@ public:
 	virtual $Class* getCategory() override;
 	virtual $String* getName() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6BC3D1949F76DEEF;
+	static const int64_t serialVersionUID = (int64_t)0x6bc3d1949f76deef;
 };
 
 			} // standard

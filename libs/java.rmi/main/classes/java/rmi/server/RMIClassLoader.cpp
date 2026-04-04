@@ -1,5 +1,4 @@
 #include <java/rmi/server/RMIClassLoader.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -18,7 +17,6 @@
 #include <java/rmi/server/RMIClassLoaderSpi.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/ServiceLoader.h>
 #include <sun/rmi/server/LoaderHandler.h>
@@ -46,8 +44,6 @@ using $RMIClassLoader$1 = ::java::rmi::server::RMIClassLoader$1;
 using $RMIClassLoader$2 = ::java::rmi::server::RMIClassLoader$2;
 using $RMIClassLoaderSpi = ::java::rmi::server::RMIClassLoaderSpi;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $LoaderHandler = ::sun::rmi::server::LoaderHandler;
@@ -55,63 +51,6 @@ using $LoaderHandler = ::sun::rmi::server::LoaderHandler;
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$CompoundAttribute _RMIClassLoader_MethodAnnotations_getSecurityContext4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RMIClassLoader_MethodAnnotations_loadClass6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RMIClassLoader_FieldInfo_[] = {
-	{"defaultProvider", "Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RMIClassLoader, defaultProvider)},
-	{"provider", "Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RMIClassLoader, provider)},
-	{}
-};
-
-$MethodInfo _RMIClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RMIClassLoader, init$, void)},
-	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getClassAnnotation, $String*, $Class*)},
-	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException,java.lang.SecurityException"},
-	{"getDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getDefaultProviderInstance, $RMIClassLoaderSpi*)},
-	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(RMIClassLoader, getSecurityContext, $Object*, $ClassLoader*), nullptr, nullptr, _RMIClassLoader_MethodAnnotations_getSecurityContext4},
-	{"initializeProvider", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIClassLoader, initializeProvider, $RMIClassLoaderSpi*)},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, _RMIClassLoader_MethodAnnotations_loadClass6},
-	{"loadClass", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $URL*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
-	{"newDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIClassLoader, newDefaultProviderInstance, $RMIClassLoaderSpi*)},
-	{}
-};
-
-$InnerClassInfo _RMIClassLoader_InnerClassesInfo_[] = {
-	{"java.rmi.server.RMIClassLoader$2", nullptr, nullptr, 0},
-	{"java.rmi.server.RMIClassLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RMIClassLoader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.server.RMIClassLoader",
-	"java.lang.Object",
-	nullptr,
-	_RMIClassLoader_FieldInfo_,
-	_RMIClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RMIClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.rmi.server.RMIClassLoader$2,java.rmi.server.RMIClassLoader$1"
-};
-
-$Object* allocate$RMIClassLoader($Class* clazz) {
-	return $of($alloc(RMIClassLoader));
-}
 
 $RMIClassLoaderSpi* RMIClassLoader::defaultProvider = nullptr;
 $RMIClassLoaderSpi* RMIClassLoader::provider = nullptr;
@@ -126,7 +65,7 @@ $Class* RMIClassLoader::loadClass($String* name) {
 
 $Class* RMIClassLoader::loadClass($URL* codebase, $String* name) {
 	$init(RMIClassLoader);
-	return $nc(RMIClassLoader::provider)->loadClass(codebase != nullptr ? $($nc(codebase)->toString()) : ($String*)nullptr, name, nullptr);
+	return $nc(RMIClassLoader::provider)->loadClass(codebase != nullptr ? $(codebase->toString()) : ($String*)nullptr, name, nullptr);
 }
 
 $Class* RMIClassLoader::loadClass($String* codebase, $String* name) {
@@ -156,7 +95,7 @@ $String* RMIClassLoader::getClassAnnotation($Class* cl) {
 
 $RMIClassLoaderSpi* RMIClassLoader::getDefaultProviderInstance() {
 	$init(RMIClassLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setFactory"_s));
@@ -166,7 +105,7 @@ $RMIClassLoaderSpi* RMIClassLoader::getDefaultProviderInstance() {
 
 $Object* RMIClassLoader::getSecurityContext($ClassLoader* loader) {
 	$init(RMIClassLoader);
-	return $of($LoaderHandler::getSecurityContext(loader));
+	return $LoaderHandler::getSecurityContext(loader);
 }
 
 $RMIClassLoaderSpi* RMIClassLoader::newDefaultProviderInstance() {
@@ -176,7 +115,7 @@ $RMIClassLoaderSpi* RMIClassLoader::newDefaultProviderInstance() {
 
 $RMIClassLoaderSpi* RMIClassLoader::initializeProvider() {
 	$init(RMIClassLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, providerClassName, $System::getProperty("java.rmi.server.RMIClassLoaderSpi"_s));
 	if (providerClassName != nullptr) {
@@ -201,7 +140,7 @@ $RMIClassLoaderSpi* RMIClassLoader::initializeProvider() {
 		}
 	}
 	$load($RMIClassLoaderSpi);
-	$var($Iterator, iter, $nc($($ServiceLoader::load($RMIClassLoaderSpi::class$, $($ClassLoader::getSystemClassLoader()))))->iterator());
+	$var($Iterator, iter, $$nc($ServiceLoader::load($RMIClassLoaderSpi::class$, $($ClassLoader::getSystemClassLoader())))->iterator());
 	if ($nc(iter)->hasNext()) {
 		try {
 			return $cast($RMIClassLoaderSpi, iter->next());
@@ -214,17 +153,66 @@ $RMIClassLoaderSpi* RMIClassLoader::initializeProvider() {
 	return RMIClassLoader::defaultProvider;
 }
 
-void clinit$RMIClassLoader($Class* class$) {
+void RMIClassLoader::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(RMIClassLoader::defaultProvider, RMIClassLoader::newDefaultProviderInstance());
-	$assignStatic(RMIClassLoader::provider, $cast($RMIClassLoaderSpi, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RMIClassLoader$1)))));
+	$assignStatic(RMIClassLoader::provider, $cast($RMIClassLoaderSpi, $AccessController::doPrivileged($$new($RMIClassLoader$1))));
 }
 
 RMIClassLoader::RMIClassLoader() {
 }
 
 $Class* RMIClassLoader::load$($String* name, bool initialize) {
-	$loadClass(RMIClassLoader, name, initialize, &_RMIClassLoader_ClassInfo_, clinit$RMIClassLoader, allocate$RMIClassLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultProvider", "Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RMIClassLoader, defaultProvider)},
+		{"provider", "Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RMIClassLoader, provider)},
+		{}
+	};
+	$CompoundAttribute getSecurityContextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute loadClassmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RMIClassLoader, init$, void)},
+		{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getClassAnnotation, $String*, $Class*)},
+		{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException,java.lang.SecurityException"},
+		{"getDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getDefaultProviderInstance, $RMIClassLoaderSpi*)},
+		{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(RMIClassLoader, getSecurityContext, $Object*, $ClassLoader*), nullptr, nullptr, getSecurityContextmethodAnnotations$$},
+		{"initializeProvider", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIClassLoader, initializeProvider, $RMIClassLoaderSpi*)},
+		{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, loadClassmethodAnnotations$$},
+		{"loadClass", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $URL*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+		{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+		{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+		{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
+		{"newDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIClassLoader, newDefaultProviderInstance, $RMIClassLoaderSpi*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.rmi.server.RMIClassLoader$2", nullptr, nullptr, 0},
+		{"java.rmi.server.RMIClassLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.server.RMIClassLoader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.rmi.server.RMIClassLoader$2,java.rmi.server.RMIClassLoader$1"
+	};
+	$loadClass(RMIClassLoader, name, initialize, &classInfo$$, RMIClassLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIClassLoader);
+	});
 	return class$;
 }
 

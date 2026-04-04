@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/RecentSwatchPanel.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -20,27 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace colorchooser {
 
-$MethodInfo _RecentSwatchPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RecentSwatchPanel, init$, void)},
-	{"initColors", "()V", nullptr, $PROTECTED, $virtualMethod(RecentSwatchPanel, initColors, void)},
-	{"initValues", "()V", nullptr, $PROTECTED, $virtualMethod(RecentSwatchPanel, initValues, void)},
-	{"setMostRecentColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(RecentSwatchPanel, setMostRecentColor, void, $Color*)},
-	{}
-};
-
-$ClassInfo _RecentSwatchPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.RecentSwatchPanel",
-	"javax.swing.colorchooser.SwatchPanel",
-	nullptr,
-	nullptr,
-	_RecentSwatchPanel_MethodInfo_
-};
-
-$Object* allocate$RecentSwatchPanel($Class* clazz) {
-	return $of($alloc(RecentSwatchPanel));
-}
-
 void RecentSwatchPanel::init$() {
 	$SwatchPanel::init$();
 }
@@ -52,18 +30,18 @@ void RecentSwatchPanel::initValues() {
 }
 
 void RecentSwatchPanel::initColors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, defaultRecentColor, $UIManager::getColor("ColorChooser.swatchesDefaultRecentColor"_s, $(getLocale())));
 	int32_t numColors = $nc(this->numSwatches)->width * $nc(this->numSwatches)->height;
 	$set(this, colors, $new($ColorArray, numColors));
 	for (int32_t i = 0; i < numColors; ++i) {
-		$nc(this->colors)->set(i, defaultRecentColor);
+		this->colors->set(i, defaultRecentColor);
 	}
 }
 
 void RecentSwatchPanel::setMostRecentColor($Color* c) {
 	$System::arraycopy(this->colors, 0, this->colors, 1, $nc(this->colors)->length - 1);
-	$nc(this->colors)->set(0, c);
+	this->colors->set(0, c);
 	repaint();
 }
 
@@ -71,7 +49,24 @@ RecentSwatchPanel::RecentSwatchPanel() {
 }
 
 $Class* RecentSwatchPanel::load$($String* name, bool initialize) {
-	$loadClass(RecentSwatchPanel, name, initialize, &_RecentSwatchPanel_ClassInfo_, allocate$RecentSwatchPanel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RecentSwatchPanel, init$, void)},
+		{"initColors", "()V", nullptr, $PROTECTED, $virtualMethod(RecentSwatchPanel, initColors, void)},
+		{"initValues", "()V", nullptr, $PROTECTED, $virtualMethod(RecentSwatchPanel, initValues, void)},
+		{"setMostRecentColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(RecentSwatchPanel, setMostRecentColor, void, $Color*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.RecentSwatchPanel",
+		"javax.swing.colorchooser.SwatchPanel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RecentSwatchPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RecentSwatchPanel));
+	});
 	return class$;
 }
 

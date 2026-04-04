@@ -20,7 +20,7 @@ public:
 	virtual void add(int64_t v);
 	virtual int64_t getValue();
 	virtual void setValue(int64_t value);
-	static const int64_t MAX_UINT = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t MAX_UINT = (int64_t)0x00000000ffffffff;
 	int64_t value = 0;
 };
 

@@ -33,11 +33,14 @@ public:
 	virtual void printStackTrace() override;
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
-	static const int64_t serialVersionUID = (int64_t)0xF4055949BD088B25;
+	static const int64_t serialVersionUID = (int64_t)0xf4055949bd088b25;
 	$Throwable* cause = nullptr;
 	MarshalException(const MarshalException& e);
 	virtual void throw$() override;
-	inline MarshalException* operator ->() {
+	inline MarshalException* operator ->() const {
+		return (MarshalException*)throwing$;
+	}
+	inline operator MarshalException*() const {
 		return (MarshalException*)throwing$;
 	}
 };

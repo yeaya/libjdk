@@ -1,5 +1,4 @@
 #include <javax/lang/model/type/WildcardType.h>
-
 #include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace javax {
 		namespace model {
 			namespace type {
 
-$MethodInfo _WildcardType_MethodInfo_[] = {
-	{"getExtendsBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getExtendsBound, $TypeMirror*)},
-	{"getSuperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getSuperBound, $TypeMirror*)},
-	{}
-};
-
-$ClassInfo _WildcardType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.type.WildcardType",
-	nullptr,
-	"javax.lang.model.type.TypeMirror",
-	nullptr,
-	_WildcardType_MethodInfo_
-};
-
-$Object* allocate$WildcardType($Class* clazz) {
-	return $of($alloc(WildcardType));
-}
-
 $Class* WildcardType::load$($String* name, bool initialize) {
-	$loadClass(WildcardType, name, initialize, &_WildcardType_ClassInfo_, allocate$WildcardType);
+	$MethodInfo methodInfos$$[] = {
+		{"getExtendsBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getExtendsBound, $TypeMirror*)},
+		{"getSuperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getSuperBound, $TypeMirror*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.type.WildcardType",
+		nullptr,
+		"javax.lang.model.type.TypeMirror",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WildcardType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WildcardType);
+	});
 	return class$;
 }
 

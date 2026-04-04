@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/Filter.h>
-
 #include <com/sun/net/httpserver/Filter$1.h>
 #include <com/sun/net/httpserver/Filter$2.h>
 #include <com/sun/net/httpserver/Filter$Chain.h>
@@ -23,41 +22,6 @@ namespace com {
 		namespace net {
 			namespace httpserver {
 
-$MethodInfo _Filter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Filter, init$, void)},
-	{"afterHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $staticMethod(Filter, afterHandler, Filter*, $String*, $Consumer*)},
-	{"beforeHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $staticMethod(Filter, beforeHandler, Filter*, $String*, $Consumer*)},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, description, $String*)},
-	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, doFilter, void, $HttpExchange*, $Filter$Chain*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Filter_InnerClassesInfo_[] = {
-	{"com.sun.net.httpserver.Filter$Chain", "com.sun.net.httpserver.Filter", "Chain", $PUBLIC | $STATIC},
-	{"com.sun.net.httpserver.Filter$2", nullptr, nullptr, 0},
-	{"com.sun.net.httpserver.Filter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Filter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.net.httpserver.Filter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Filter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Filter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.net.httpserver.Filter$Chain,com.sun.net.httpserver.Filter$2,com.sun.net.httpserver.Filter$1"
-};
-
-$Object* allocate$Filter($Class* clazz) {
-	return $of($alloc(Filter));
-}
-
 void Filter::init$() {
 }
 
@@ -77,7 +41,37 @@ Filter::Filter() {
 }
 
 $Class* Filter::load$($String* name, bool initialize) {
-	$loadClass(Filter, name, initialize, &_Filter_ClassInfo_, allocate$Filter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Filter, init$, void)},
+		{"afterHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $staticMethod(Filter, afterHandler, Filter*, $String*, $Consumer*)},
+		{"beforeHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $staticMethod(Filter, beforeHandler, Filter*, $String*, $Consumer*)},
+		{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, description, $String*)},
+		{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, doFilter, void, $HttpExchange*, $Filter$Chain*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.net.httpserver.Filter$Chain", "com.sun.net.httpserver.Filter", "Chain", $PUBLIC | $STATIC},
+		{"com.sun.net.httpserver.Filter$2", nullptr, nullptr, 0},
+		{"com.sun.net.httpserver.Filter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.net.httpserver.Filter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.net.httpserver.Filter$Chain,com.sun.net.httpserver.Filter$2,com.sun.net.httpserver.Filter$1"
+	};
+	$loadClass(Filter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Filter);
+	});
 	return class$;
 }
 

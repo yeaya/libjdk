@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$StackItem.h>
-
 #include <com/sun/tools/javac/jvm/ByteCodes.h>
 #include <com/sun/tools/javac/jvm/Code.h>
 #include <com/sun/tools/javac/jvm/Items$Item.h>
@@ -21,48 +20,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _Items$StackItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$StackItem, this$0)},
-	{}
-};
-
-$MethodInfo _Items$StackItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(Items$StackItem, init$, void, $Items*, int32_t)},
-	{"drop", "()V", nullptr, 0, $virtualMethod(Items$StackItem, drop, void)},
-	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$StackItem, duplicate, void)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$StackItem, load, $Items$Item*)},
-	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$StackItem, stash, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$StackItem, toString, $String*)},
-	{"width", "()I", nullptr, 0, $virtualMethod(Items$StackItem, width, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Items$StackItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$StackItem", "com.sun.tools.javac.jvm.Items", "StackItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$StackItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$StackItem",
-	"com.sun.tools.javac.jvm.Items$Item",
-	nullptr,
-	_Items$StackItem_FieldInfo_,
-	_Items$StackItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$StackItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$StackItem($Class* clazz) {
-	return $of($alloc(Items$StackItem));
-}
-
 void Items$StackItem::init$($Items* this$0, int32_t typecode) {
 	$set(this, this$0, this$0);
 	$Items$Item::init$(this$0, typecode);
@@ -81,7 +38,7 @@ void Items$StackItem::drop() {
 }
 
 void Items$StackItem::stash(int32_t toscode) {
-	int32_t var$0 = (width() == 2 ? 91 : 90);
+	int32_t var$0 = width() == 2 ? 91 : 90;
 	$nc(this->this$0->code)->emitop0(var$0 + 3 * ($Code::width(toscode) - 1));
 }
 
@@ -98,7 +55,43 @@ Items$StackItem::Items$StackItem() {
 }
 
 $Class* Items$StackItem::load$($String* name, bool initialize) {
-	$loadClass(Items$StackItem, name, initialize, &_Items$StackItem_ClassInfo_, allocate$Items$StackItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$StackItem, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(Items$StackItem, init$, void, $Items*, int32_t)},
+		{"drop", "()V", nullptr, 0, $virtualMethod(Items$StackItem, drop, void)},
+		{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$StackItem, duplicate, void)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$StackItem, load, $Items$Item*)},
+		{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$StackItem, stash, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$StackItem, toString, $String*)},
+		{"width", "()I", nullptr, 0, $virtualMethod(Items$StackItem, width, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$StackItem", "com.sun.tools.javac.jvm.Items", "StackItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$StackItem",
+		"com.sun.tools.javac.jvm.Items$Item",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$StackItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$StackItem);
+	});
 	return class$;
 }
 

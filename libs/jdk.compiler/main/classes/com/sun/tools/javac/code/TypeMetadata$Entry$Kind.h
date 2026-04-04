@@ -20,6 +20,7 @@ class $export TypeMetadata$Entry$Kind : public ::java::lang::Enum {
 public:
 	TypeMetadata$Entry$Kind();
 	static $Array<::com::sun::tools::javac::code::TypeMetadata$Entry$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::TypeMetadata$Entry$Kind>* values();

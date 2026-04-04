@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaIcon$FileIcon.h>
-
 #include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
 #include <com/apple/laf/AquaIcon.h>
 #include <java/awt/Image.h>
@@ -20,44 +19,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaIcon$FileIcon_FieldInfo_[] = {
-	{"file", "Ljava/io/File;", nullptr, $FINAL, $field(AquaIcon$FileIcon, file)},
-	{}
-};
-
-$MethodInfo _AquaIcon$FileIcon_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;II)V", nullptr, $PUBLIC, $method(AquaIcon$FileIcon, init$, void, $File*, int32_t, int32_t)},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(AquaIcon$FileIcon, init$, void, $File*)},
-	{"createImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaIcon$FileIcon, createImage, $Image*)},
-	{}
-};
-
-$InnerClassInfo _AquaIcon$FileIcon_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaIcon$FileIcon", "com.apple.laf.AquaIcon", "FileIcon", $STATIC},
-	{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaIcon$FileIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaIcon$FileIcon",
-	"com.apple.laf.AquaIcon$CachingScalingIcon",
-	nullptr,
-	_AquaIcon$FileIcon_FieldInfo_,
-	_AquaIcon$FileIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaIcon$FileIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaIcon"
-};
-
-$Object* allocate$AquaIcon$FileIcon($Class* clazz) {
-	return $of($alloc(AquaIcon$FileIcon));
-}
-
 void AquaIcon$FileIcon::init$($File* file, int32_t width, int32_t height) {
 	$AquaIcon$CachingScalingIcon::init$(width, height);
 	$set(this, file, file);
@@ -77,7 +38,39 @@ AquaIcon$FileIcon::AquaIcon$FileIcon() {
 }
 
 $Class* AquaIcon$FileIcon::load$($String* name, bool initialize) {
-	$loadClass(AquaIcon$FileIcon, name, initialize, &_AquaIcon$FileIcon_ClassInfo_, allocate$AquaIcon$FileIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"file", "Ljava/io/File;", nullptr, $FINAL, $field(AquaIcon$FileIcon, file)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;II)V", nullptr, $PUBLIC, $method(AquaIcon$FileIcon, init$, void, $File*, int32_t, int32_t)},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(AquaIcon$FileIcon, init$, void, $File*)},
+		{"createImage", "()Ljava/awt/Image;", nullptr, 0, $virtualMethod(AquaIcon$FileIcon, createImage, $Image*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaIcon$FileIcon", "com.apple.laf.AquaIcon", "FileIcon", $STATIC},
+		{"com.apple.laf.AquaIcon$CachingScalingIcon", "com.apple.laf.AquaIcon", "CachingScalingIcon", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaIcon$FileIcon",
+		"com.apple.laf.AquaIcon$CachingScalingIcon",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaIcon"
+	};
+	$loadClass(AquaIcon$FileIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaIcon$FileIcon));
+	});
 	return class$;
 }
 

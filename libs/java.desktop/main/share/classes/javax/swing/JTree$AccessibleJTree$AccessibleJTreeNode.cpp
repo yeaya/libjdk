@@ -1,5 +1,4 @@
 #include <javax/swing/JTree$AccessibleJTree$AccessibleJTreeNode.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -77,114 +76,6 @@ using $TreePath = ::javax::swing::tree::TreePath;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JTree$AccessibleJTree$AccessibleJTreeNode_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JTree$AccessibleJTree;", nullptr, $FINAL | $SYNTHETIC, $field(JTree$AccessibleJTree$AccessibleJTreeNode, this$1)},
-	{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, tree)},
-	{"treeModel", "Ljavax/swing/tree/TreeModel;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, treeModel)},
-	{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, obj)},
-	{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, path)},
-	{"accessibleParent", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, accessibleParent)},
-	{"index", "I", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, index)},
-	{"isLeaf", "Z", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, isLeaf)},
-	{}
-};
-
-$MethodInfo _JTree$AccessibleJTree$AccessibleJTreeNode_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTree$AccessibleJTree;Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $method(JTree$AccessibleJTree$AccessibleJTreeNode, init$, void, $JTree$AccessibleJTree*, $JTree*, $TreePath*, $Accessible*)},
-	{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, addAccessibleSelection, void, int32_t)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, addFocusListener, void, $FocusListener*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, clearAccessibleSelection, void)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, contains, bool, $Point*)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleContext, $AccessibleContext*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleDescription, $String*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleSelection, $AccessibleSelection*)},
-	{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleSelection, $Accessible*, int32_t)},
-	{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleSelectionCount, int32_t)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleText, $AccessibleText*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleValue, $AccessibleValue*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getBackground, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getBounds, $Rectangle*)},
-	{"getChildTreePath", "(I)Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(JTree$AccessibleJTree$AccessibleJTreeNode, getChildTreePath, $TreePath*, int32_t)},
-	{"getCurrentAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $method(JTree$AccessibleJTree$AccessibleJTreeNode, getCurrentAccessibleContext, $AccessibleContext*)},
-	{"getCurrentComponent", "()Ljava/awt/Component;", nullptr, $PRIVATE, $method(JTree$AccessibleJTree$AccessibleJTreeNode, getCurrentComponent, $Component*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getCursor, $Cursor*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocale, $Locale*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocation, $Point*)},
-	{"getLocationInJTree", "()Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocationInJTree, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocationOnScreen, $Point*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getSize, $Dimension*)},
-	{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isAccessibleChildSelected, bool, int32_t)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isVisible, bool)},
-	{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, removeAccessibleSelection, void, int32_t)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, removeFocusListener, void, $FocusListener*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, requestFocus, void)},
-	{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, selectAllAccessibleSelection, void)},
-	{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setAccessibleDescription, void, $String*)},
-	{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setAccessibleName, void, $String*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setLocation, void, $Point*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JTree$AccessibleJTree$AccessibleJTreeNode_InnerClassesInfo_[] = {
-	{"javax.swing.JTree$AccessibleJTree", "javax.swing.JTree", "AccessibleJTree", $PROTECTED},
-	{"javax.swing.JTree$AccessibleJTree$AccessibleJTreeNode", "javax.swing.JTree$AccessibleJTree", "AccessibleJTreeNode", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTree$AccessibleJTree$AccessibleJTreeNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTree$AccessibleJTree$AccessibleJTreeNode",
-	"javax.accessibility.AccessibleContext",
-	"javax.accessibility.Accessible,javax.accessibility.AccessibleComponent,javax.accessibility.AccessibleSelection,javax.accessibility.AccessibleAction",
-	_JTree$AccessibleJTree$AccessibleJTreeNode_FieldInfo_,
-	_JTree$AccessibleJTree$AccessibleJTreeNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTree$AccessibleJTree$AccessibleJTreeNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTree"
-};
-
-$Object* allocate$JTree$AccessibleJTree$AccessibleJTreeNode($Class* clazz) {
-	return $of($alloc(JTree$AccessibleJTree$AccessibleJTreeNode));
-}
-
 int32_t JTree$AccessibleJTree$AccessibleJTreeNode::hashCode() {
 	 return this->$AccessibleContext::hashCode();
 }
@@ -221,12 +112,12 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::init$($JTree$AccessibleJTree* th
 	$set(this, treeModel, $nc(t)->getModel());
 	$set(this, obj, $nc(p)->getLastPathComponent());
 	if (this->treeModel != nullptr) {
-		this->isLeaf = $nc(this->treeModel)->isLeaf(this->obj);
+		this->isLeaf = this->treeModel->isLeaf(this->obj);
 	}
 }
 
 $TreePath* JTree$AccessibleJTree$AccessibleJTreeNode::getChildTreePath(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < 0 || i >= getAccessibleChildrenCount()) {
 		return nullptr;
 	} else {
@@ -246,14 +137,14 @@ $AccessibleContext* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleCont
 $AccessibleContext* JTree$AccessibleJTree$AccessibleJTreeNode::getCurrentAccessibleContext() {
 	$var($Component, c, getCurrentComponent());
 	if ($instanceOf($Accessible, c)) {
-		return $nc(c)->getAccessibleContext();
+		return c->getAccessibleContext();
 	} else {
 		return nullptr;
 	}
 }
 
 $Component* JTree$AccessibleJTree$AccessibleJTreeNode::getCurrentComponent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->tree)->isVisible(this->path)) {
 		$var($TreeCellRenderer, r, $nc(this->tree)->getCellRenderer());
 		if (r == nullptr) {
@@ -272,7 +163,7 @@ $Component* JTree$AccessibleJTree$AccessibleJTreeNode::getCurrentComponent() {
 }
 
 $String* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (ac != nullptr) {
 		$var($String, name, ac->getAccessibleName());
@@ -328,7 +219,7 @@ $AccessibleRole* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleRole() 
 }
 
 $AccessibleStateSet* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleStateSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	$var($AccessibleStateSet, states, nullptr);
 	if (ac != nullptr) {
@@ -381,13 +272,13 @@ $AccessibleStateSet* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleSta
 }
 
 $Accessible* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->accessibleParent == nullptr) {
 		$var($ObjectArray, objPath, $nc(this->path)->getPath());
 		if ($nc(objPath)->length > 1) {
 			$var($Object0, objParent, objPath->get(objPath->length - 2));
 			if (this->treeModel != nullptr) {
-				this->index = $nc(this->treeModel)->getIndexOfChild(objParent, this->obj);
+				this->index = this->treeModel->getIndexOfChild(objParent, this->obj);
 			}
 			$var($ObjectArray, objParentPath, $new($ObjectArray, objPath->length - 1));
 			$System::arraycopy(objPath, 0, objParentPath, 0, objPath->length - 1);
@@ -404,7 +295,7 @@ $Accessible* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleParent() {
 }
 
 int32_t JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleIndexInParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->accessibleParent == nullptr) {
 		getAccessibleParent();
 	}
@@ -412,7 +303,7 @@ int32_t JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleIndexInParent() 
 	if ($nc(objPath)->length > 1) {
 		$var($Object0, objParent, objPath->get(objPath->length - 2));
 		if (this->treeModel != nullptr) {
-			this->index = $nc(this->treeModel)->getIndexOfChild(objParent, this->obj);
+			this->index = this->treeModel->getIndexOfChild(objParent, this->obj);
 		}
 	}
 	return this->index;
@@ -423,7 +314,7 @@ int32_t JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleChildrenCount() 
 }
 
 $Accessible* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleChild(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < 0 || i >= getAccessibleChildrenCount()) {
 		return nullptr;
 	} else {
@@ -473,40 +364,40 @@ $AccessibleComponent* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleCo
 }
 
 $AccessibleSelection* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleSelection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (ac != nullptr && this->isLeaf) {
-		return $nc($(getCurrentAccessibleContext()))->getAccessibleSelection();
+		return $$nc(getCurrentAccessibleContext())->getAccessibleSelection();
 	} else {
 		return this;
 	}
 }
 
 $AccessibleText* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (ac != nullptr) {
-		return $nc($(getCurrentAccessibleContext()))->getAccessibleText();
+		return $$nc(getCurrentAccessibleContext())->getAccessibleText();
 	} else {
 		return nullptr;
 	}
 }
 
 $AccessibleValue* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (ac != nullptr) {
-		return $nc($(getCurrentAccessibleContext()))->getAccessibleValue();
+		return $$nc(getCurrentAccessibleContext())->getAccessibleValue();
 	} else {
 		return nullptr;
 	}
 }
 
 $Color* JTree$AccessibleJTree$AccessibleJTreeNode::getBackground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getBackground();
+		return $cast($AccessibleComponent, ac)->getBackground();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -518,10 +409,10 @@ $Color* JTree$AccessibleJTree$AccessibleJTreeNode::getBackground() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::setBackground($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setBackground(c);
+		$cast($AccessibleComponent, ac)->setBackground(c);
 	} else {
 		$var($Component, cp, getCurrentComponent());
 		if (cp != nullptr) {
@@ -531,10 +422,10 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setBackground($Color* c) {
 }
 
 $Color* JTree$AccessibleJTree$AccessibleJTreeNode::getForeground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getForeground();
+		return $cast($AccessibleComponent, ac)->getForeground();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -546,10 +437,10 @@ $Color* JTree$AccessibleJTree$AccessibleJTreeNode::getForeground() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::setForeground($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setForeground(c);
+		$cast($AccessibleComponent, ac)->setForeground(c);
 	} else {
 		$var($Component, cp, getCurrentComponent());
 		if (cp != nullptr) {
@@ -559,10 +450,10 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setForeground($Color* c) {
 }
 
 $Cursor* JTree$AccessibleJTree$AccessibleJTreeNode::getCursor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getCursor();
+		return $cast($AccessibleComponent, ac)->getCursor();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -570,7 +461,7 @@ $Cursor* JTree$AccessibleJTree$AccessibleJTreeNode::getCursor() {
 		} else {
 			$var($Accessible, ap, getAccessibleParent());
 			if ($instanceOf($AccessibleComponent, ap)) {
-				return $nc(($cast($AccessibleComponent, ap)))->getCursor();
+				return $cast($AccessibleComponent, ap)->getCursor();
 			} else {
 				return nullptr;
 			}
@@ -579,10 +470,10 @@ $Cursor* JTree$AccessibleJTree$AccessibleJTreeNode::getCursor() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::setCursor($Cursor* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setCursor(c);
+		$cast($AccessibleComponent, ac)->setCursor(c);
 	} else {
 		$var($Component, cp, getCurrentComponent());
 		if (cp != nullptr) {
@@ -592,10 +483,10 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setCursor($Cursor* c) {
 }
 
 $Font* JTree$AccessibleJTree$AccessibleJTreeNode::getFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getFont();
+		return $cast($AccessibleComponent, ac)->getFont();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -607,10 +498,10 @@ $Font* JTree$AccessibleJTree$AccessibleJTreeNode::getFont() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::setFont($Font* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setFont(f);
+		$cast($AccessibleComponent, ac)->setFont(f);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -620,10 +511,10 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setFont($Font* f) {
 }
 
 $FontMetrics* JTree$AccessibleJTree$AccessibleJTreeNode::getFontMetrics($Font* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getFontMetrics(f);
+		return $cast($AccessibleComponent, ac)->getFontMetrics(f);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -635,10 +526,10 @@ $FontMetrics* JTree$AccessibleJTree$AccessibleJTreeNode::getFontMetrics($Font* f
 }
 
 bool JTree$AccessibleJTree$AccessibleJTreeNode::isEnabled() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->isEnabled();
+		return $cast($AccessibleComponent, ac)->isEnabled();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -650,10 +541,10 @@ bool JTree$AccessibleJTree$AccessibleJTreeNode::isEnabled() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::setEnabled(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setEnabled(b);
+		$cast($AccessibleComponent, ac)->setEnabled(b);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -663,7 +554,7 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setEnabled(bool b) {
 }
 
 bool JTree$AccessibleJTree$AccessibleJTreeNode::isVisible() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, pathBounds, $nc(this->tree)->getPathBounds(this->path));
 	$var($Rectangle, parentBounds, $nc(this->tree)->getVisibleRect());
 	return pathBounds != nullptr && parentBounds != nullptr && parentBounds->intersects(pathBounds);
@@ -678,10 +569,10 @@ bool JTree$AccessibleJTree$AccessibleJTreeNode::isShowing() {
 }
 
 bool JTree$AccessibleJTree$AccessibleJTreeNode::contains($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$var($Rectangle, r, $nc(($cast($AccessibleComponent, ac)))->getBounds());
+		$var($Rectangle, r, $cast($AccessibleComponent, ac)->getBounds());
 		return $nc(r)->contains(p);
 	} else {
 		$var($Component, c, getCurrentComponent());
@@ -689,15 +580,15 @@ bool JTree$AccessibleJTree$AccessibleJTreeNode::contains($Point* p) {
 			$var($Rectangle, r, c->getBounds());
 			return $nc(r)->contains(p);
 		} else {
-			return $nc($(getBounds()))->contains(p);
+			return $$nc(getBounds())->contains(p);
 		}
 	}
 }
 
 $Point* JTree$AccessibleJTree$AccessibleJTreeNode::getLocationOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tree != nullptr) {
-		$var($Point, treeLocation, $nc(this->tree)->getLocationOnScreen());
+		$var($Point, treeLocation, this->tree->getLocationOnScreen());
 		$var($Rectangle, pathBounds, $nc(this->tree)->getPathBounds(this->path));
 		if (treeLocation != nullptr && pathBounds != nullptr) {
 			$var($Point, nodeLocation, $new($Point, pathBounds->x, pathBounds->y));
@@ -733,12 +624,12 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setLocation($Point* p) {
 }
 
 $Rectangle* JTree$AccessibleJTree$AccessibleJTreeNode::getBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $nc(this->tree)->getPathBounds(this->path));
 	$var($Accessible, parent, getAccessibleParent());
 	if (parent != nullptr) {
 		if ($instanceOf(JTree$AccessibleJTree$AccessibleJTreeNode, parent)) {
-			$var($Point, parentLoc, $nc(($cast(JTree$AccessibleJTree$AccessibleJTreeNode, parent)))->getLocationInJTree());
+			$var($Point, parentLoc, $cast(JTree$AccessibleJTree$AccessibleJTreeNode, parent)->getLocationInJTree());
 			if (parentLoc != nullptr && r != nullptr) {
 				r->translate(-parentLoc->x, -parentLoc->y);
 			} else {
@@ -750,10 +641,10 @@ $Rectangle* JTree$AccessibleJTree$AccessibleJTreeNode::getBounds() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::setBounds($Rectangle* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setBounds(r);
+		$cast($AccessibleComponent, ac)->setBounds(r);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -763,14 +654,14 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setBounds($Rectangle* r) {
 }
 
 $Dimension* JTree$AccessibleJTree$AccessibleJTreeNode::getSize() {
-	return $nc($(getBounds()))->getSize();
+	return $$nc(getBounds())->getSize();
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::setSize($Dimension* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setSize(d);
+		$cast($AccessibleComponent, ac)->setSize(d);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -782,17 +673,17 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::setSize($Dimension* d) {
 $Accessible* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleAt($Point* p) {
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getAccessibleAt(p);
+		return $cast($AccessibleComponent, ac)->getAccessibleAt(p);
 	} else {
 		return nullptr;
 	}
 }
 
 bool JTree$AccessibleJTree$AccessibleJTreeNode::isFocusTraversable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->isFocusTraversable();
+		return $cast($AccessibleComponent, ac)->isFocusTraversable();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -804,10 +695,10 @@ bool JTree$AccessibleJTree$AccessibleJTreeNode::isFocusTraversable() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::requestFocus() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->requestFocus();
+		$cast($AccessibleComponent, ac)->requestFocus();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -817,10 +708,10 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::requestFocus() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::addFocusListener($FocusListener* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->addFocusListener(l);
+		$cast($AccessibleComponent, ac)->addFocusListener(l);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -830,10 +721,10 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::addFocusListener($FocusListener*
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::removeFocusListener($FocusListener* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->removeFocusListener(l);
+		$cast($AccessibleComponent, ac)->removeFocusListener(l);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -843,7 +734,7 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::removeFocusListener($FocusListen
 }
 
 int32_t JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleSelectionCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	int32_t childCount = getAccessibleChildrenCount();
 	for (int32_t i = 0; i < childCount; ++i) {
@@ -856,7 +747,7 @@ int32_t JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleSelectionCount()
 }
 
 $Accessible* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleSelection(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t childCount = getAccessibleChildrenCount();
 	if (i < 0 || i >= childCount) {
 		return nullptr;
@@ -886,23 +777,23 @@ bool JTree$AccessibleJTree$AccessibleJTreeNode::isAccessibleChildSelected(int32_
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::addAccessibleSelection(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeModel, model, $nc(this->this$1->this$0)->getModel());
 	if (model != nullptr) {
 		if (i >= 0 && i < getAccessibleChildrenCount()) {
 			$var($TreePath, path, getChildTreePath(i));
-			$nc(this->this$1->this$0)->addSelectionPath(path);
+			this->this$1->this$0->addSelectionPath(path);
 		}
 	}
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::removeAccessibleSelection(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeModel, model, $nc(this->this$1->this$0)->getModel());
 	if (model != nullptr) {
 		if (i >= 0 && i < getAccessibleChildrenCount()) {
 			$var($TreePath, path, getChildTreePath(i));
-			$nc(this->this$1->this$0)->removeSelectionPath(path);
+			this->this$1->this$0->removeSelectionPath(path);
 		}
 	}
 }
@@ -915,20 +806,20 @@ void JTree$AccessibleJTree$AccessibleJTreeNode::clearAccessibleSelection() {
 }
 
 void JTree$AccessibleJTree$AccessibleJTreeNode::selectAllAccessibleSelection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeModel, model, $nc(this->this$1->this$0)->getModel());
 	if (model != nullptr) {
 		int32_t childCount = getAccessibleChildrenCount();
 		$var($TreePath, path, nullptr);
 		for (int32_t i = 0; i < childCount; ++i) {
 			$assign(path, getChildTreePath(i));
-			$nc(this->this$1->this$0)->addSelectionPath(path);
+			this->this$1->this$0->addSelectionPath(path);
 		}
 	}
 }
 
 int32_t JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleActionCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (ac != nullptr) {
 		$var($AccessibleAction, aa, ac->getAccessibleAction());
@@ -940,7 +831,7 @@ int32_t JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleActionCount() {
 }
 
 $String* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleActionDescription(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < 0 || i >= getAccessibleActionCount()) {
 		return nullptr;
 	}
@@ -958,16 +849,16 @@ $String* JTree$AccessibleJTree$AccessibleJTreeNode::getAccessibleActionDescripti
 }
 
 bool JTree$AccessibleJTree$AccessibleJTreeNode::doAccessibleAction(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < 0 || i >= getAccessibleActionCount()) {
 		return false;
 	}
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (i == 0) {
 		if ($nc(this->this$1->this$0)->isExpanded(this->path)) {
-			$nc(this->this$1->this$0)->collapsePath(this->path);
+			this->this$1->this$0->collapsePath(this->path);
 		} else {
-			$nc(this->this$1->this$0)->expandPath(this->path);
+			this->this$1->this$0->expandPath(this->path);
 		}
 		return true;
 	} else if (ac != nullptr) {
@@ -983,7 +874,109 @@ JTree$AccessibleJTree$AccessibleJTreeNode::JTree$AccessibleJTree$AccessibleJTree
 }
 
 $Class* JTree$AccessibleJTree$AccessibleJTreeNode::load$($String* name, bool initialize) {
-	$loadClass(JTree$AccessibleJTree$AccessibleJTreeNode, name, initialize, &_JTree$AccessibleJTree$AccessibleJTreeNode_ClassInfo_, allocate$JTree$AccessibleJTree$AccessibleJTreeNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JTree$AccessibleJTree;", nullptr, $FINAL | $SYNTHETIC, $field(JTree$AccessibleJTree$AccessibleJTreeNode, this$1)},
+		{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, tree)},
+		{"treeModel", "Ljavax/swing/tree/TreeModel;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, treeModel)},
+		{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, obj)},
+		{"path", "Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, path)},
+		{"accessibleParent", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, accessibleParent)},
+		{"index", "I", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, index)},
+		{"isLeaf", "Z", nullptr, $PRIVATE, $field(JTree$AccessibleJTree$AccessibleJTreeNode, isLeaf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTree$AccessibleJTree;Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $method(JTree$AccessibleJTree$AccessibleJTreeNode, init$, void, $JTree$AccessibleJTree*, $JTree*, $TreePath*, $Accessible*)},
+		{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, addAccessibleSelection, void, int32_t)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, addFocusListener, void, $FocusListener*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, clearAccessibleSelection, void)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, contains, bool, $Point*)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleContext, $AccessibleContext*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleDescription, $String*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleSelection, $AccessibleSelection*)},
+		{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleSelection, $Accessible*, int32_t)},
+		{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleSelectionCount, int32_t)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleText, $AccessibleText*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getAccessibleValue, $AccessibleValue*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getBackground, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getBounds, $Rectangle*)},
+		{"getChildTreePath", "(I)Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(JTree$AccessibleJTree$AccessibleJTreeNode, getChildTreePath, $TreePath*, int32_t)},
+		{"getCurrentAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PRIVATE, $method(JTree$AccessibleJTree$AccessibleJTreeNode, getCurrentAccessibleContext, $AccessibleContext*)},
+		{"getCurrentComponent", "()Ljava/awt/Component;", nullptr, $PRIVATE, $method(JTree$AccessibleJTree$AccessibleJTreeNode, getCurrentComponent, $Component*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getCursor, $Cursor*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocale, $Locale*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocation, $Point*)},
+		{"getLocationInJTree", "()Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocationInJTree, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getLocationOnScreen, $Point*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, getSize, $Dimension*)},
+		{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isAccessibleChildSelected, bool, int32_t)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, isVisible, bool)},
+		{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, removeAccessibleSelection, void, int32_t)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, removeFocusListener, void, $FocusListener*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, requestFocus, void)},
+		{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, selectAllAccessibleSelection, void)},
+		{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setAccessibleDescription, void, $String*)},
+		{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setAccessibleName, void, $String*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setLocation, void, $Point*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTree$AccessibleJTree$AccessibleJTreeNode, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTree$AccessibleJTree", "javax.swing.JTree", "AccessibleJTree", $PROTECTED},
+		{"javax.swing.JTree$AccessibleJTree$AccessibleJTreeNode", "javax.swing.JTree$AccessibleJTree", "AccessibleJTreeNode", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTree$AccessibleJTree$AccessibleJTreeNode",
+		"javax.accessibility.AccessibleContext",
+		"javax.accessibility.Accessible,javax.accessibility.AccessibleComponent,javax.accessibility.AccessibleSelection,javax.accessibility.AccessibleAction",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTree"
+	};
+	$loadClass(JTree$AccessibleJTree$AccessibleJTreeNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTree$AccessibleJTree$AccessibleJTreeNode));
+	});
 	return class$;
 }
 

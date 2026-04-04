@@ -21,6 +21,7 @@ class PixelConverter$RgbaPre : public ::sun::awt::image::PixelConverter {
 	$class(PixelConverter$RgbaPre, 0, ::sun::awt::image::PixelConverter)
 public:
 	PixelConverter$RgbaPre();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t pixelToRgb(int32_t pixel, ::java::awt::image::ColorModel* cm) override;
 	virtual int32_t rgbToPixel(int32_t rgb, ::java::awt::image::ColorModel* cm) override;

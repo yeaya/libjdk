@@ -1,5 +1,4 @@
 #include <java/awt/Container.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/Color.h>
@@ -71,7 +70,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/EventListener.h>
 #include <java/util/HashSet.h>
@@ -82,7 +80,6 @@
 #include <javax/accessibility/AccessibleComponent.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JInternalFrame.h>
-#include <sun/awt/AWTAccessor$ContainerAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/PeerEvent.h>
@@ -151,7 +148,6 @@ using $GraphicsCallback$PrintAllCallback = ::java::awt::GraphicsCallback$PrintAl
 using $GraphicsCallback$PrintCallback = ::java::awt::GraphicsCallback$PrintCallback;
 using $GraphicsCallback$PrintHeavyweightComponentsCallback = ::java::awt::GraphicsCallback$PrintHeavyweightComponentsCallback;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Insets = ::java::awt::Insets;
@@ -199,7 +195,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $EventListener = ::java::util::EventListener;
 using $HashSet = ::java::util::HashSet;
@@ -211,7 +206,6 @@ using $AccessibleComponent = ::javax::accessibility::AccessibleComponent;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ContainerAccessor = ::sun::awt::AWTAccessor$ContainerAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $PeerEvent = ::sun::awt::PeerEvent;
 using $SunToolkit = ::sun::awt::SunToolkit;
@@ -233,35 +227,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$startLWModal$1(nativeContainer);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Container$$Lambda$lambda$startLWModal$1>());
-	}
 	Container* inst$ = nullptr;
 	Container* nativeContainer = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Container$$Lambda$lambda$startLWModal$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Container$$Lambda$lambda$startLWModal$1, inst$)},
-	{"nativeContainer", "Ljava/awt/Container;", nullptr, $PUBLIC, $field(Container$$Lambda$lambda$startLWModal$1, nativeContainer)},
-	{}
-};
-$MethodInfo Container$$Lambda$lambda$startLWModal$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Container;Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(Container$$Lambda$lambda$startLWModal$1, init$, void, Container*, Container*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Container$$Lambda$lambda$startLWModal$1, run, void)},
-	{}
-};
-$ClassInfo Container$$Lambda$lambda$startLWModal$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.Container$$Lambda$lambda$startLWModal$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Container$$Lambda$lambda$startLWModal$1::load$($String* name, bool initialize) {
-	$loadClass(Container$$Lambda$lambda$startLWModal$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Container$$Lambda$lambda$startLWModal$1, inst$)},
+		{"nativeContainer", "Ljava/awt/Container;", nullptr, $PUBLIC, $field(Container$$Lambda$lambda$startLWModal$1, nativeContainer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Container;Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(Container$$Lambda$lambda$startLWModal$1, init$, void, Container*, Container*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Container$$Lambda$lambda$startLWModal$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.Container$$Lambda$lambda$startLWModal$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Container$$Lambda$lambda$startLWModal$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Container$$Lambda$lambda$startLWModal$1);
+	});
 	return class$;
 }
 $Class* Container$$Lambda$lambda$startLWModal$1::class$ = nullptr;
@@ -275,295 +265,32 @@ public:
 	virtual bool evaluate() override {
 		 return Container::lambda$startLWModal$0(nativeContainer);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Container$$Lambda$lambda$startLWModal$0$1>());
-	}
 	Container* nativeContainer = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Container$$Lambda$lambda$startLWModal$0$1::fieldInfos[2] = {
-	{"nativeContainer", "Ljava/awt/Container;", nullptr, $PUBLIC, $field(Container$$Lambda$lambda$startLWModal$0$1, nativeContainer)},
-	{}
-};
-$MethodInfo Container$$Lambda$lambda$startLWModal$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(Container$$Lambda$lambda$startLWModal$0$1, init$, void, Container*)},
-	{"evaluate", "()Z", nullptr, $PUBLIC, $virtualMethod(Container$$Lambda$lambda$startLWModal$0$1, evaluate, bool)},
-	{}
-};
-$ClassInfo Container$$Lambda$lambda$startLWModal$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.Container$$Lambda$lambda$startLWModal$0$1",
-	"java.lang.Object",
-	"java.awt.Conditional",
-	fieldInfos,
-	methodInfos
 };
 $Class* Container$$Lambda$lambda$startLWModal$0$1::load$($String* name, bool initialize) {
-	$loadClass(Container$$Lambda$lambda$startLWModal$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeContainer", "Ljava/awt/Container;", nullptr, $PUBLIC, $field(Container$$Lambda$lambda$startLWModal$0$1, nativeContainer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(Container$$Lambda$lambda$startLWModal$0$1, init$, void, Container*)},
+		{"evaluate", "()Z", nullptr, $PUBLIC, $virtualMethod(Container$$Lambda$lambda$startLWModal$0$1, evaluate, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.Container$$Lambda$lambda$startLWModal$0$1",
+		"java.lang.Object",
+		"java.awt.Conditional",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Container$$Lambda$lambda$startLWModal$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Container$$Lambda$lambda$startLWModal$0$1);
+	});
 	return class$;
 }
 $Class* Container$$Lambda$lambda$startLWModal$0$1::class$ = nullptr;
-
-$CompoundAttribute _Container_MethodAnnotations_countComponents25[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Container_MethodAnnotations_deliverEvent30[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Container_MethodAnnotations_insets79[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Container_MethodAnnotations_layout95[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Container_MethodAnnotations_locate100[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Container_MethodAnnotations_minimumSize101[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Container_MethodAnnotations_preferredSize115[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Container_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, log)},
-	{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, eventLog)},
-	{"EMPTY_ARRAY", "[Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, EMPTY_ARRAY)},
-	{"component", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $field(Container, component)},
-	{"layoutMgr", "Ljava/awt/LayoutManager;", nullptr, 0, $field(Container, layoutMgr)},
-	{"dispatcher", "Ljava/awt/LightweightDispatcher;", nullptr, $PRIVATE, $field(Container, dispatcher)},
-	{"focusTraversalPolicy", "Ljava/awt/FocusTraversalPolicy;", nullptr, $PRIVATE | $TRANSIENT, $field(Container, focusTraversalPolicy)},
-	{"focusCycleRoot", "Z", nullptr, $PRIVATE, $field(Container, focusCycleRoot)},
-	{"focusTraversalPolicyProvider", "Z", nullptr, $PRIVATE, $field(Container, focusTraversalPolicyProvider)},
-	{"printingThreads", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Thread;>;", $PRIVATE | $TRANSIENT, $field(Container, printingThreads)},
-	{"printing", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Container, printing)},
-	{"containerListener", "Ljava/awt/event/ContainerListener;", nullptr, $TRANSIENT, $field(Container, containerListener)},
-	{"listeningChildren", "I", nullptr, $TRANSIENT, $field(Container, listeningChildren)},
-	{"listeningBoundsChildren", "I", nullptr, $TRANSIENT, $field(Container, listeningBoundsChildren)},
-	{"descendantsCount", "I", nullptr, $TRANSIENT, $field(Container, descendantsCount)},
-	{"preserveBackgroundColor", "Ljava/awt/Color;", nullptr, $TRANSIENT, $field(Container, preserveBackgroundColor)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Container, serialVersionUID)},
-	{"INCLUDE_SELF", "Z", nullptr, $STATIC | $FINAL, $constField(Container, INCLUDE_SELF)},
-	{"SEARCH_HEAVYWEIGHTS", "Z", nullptr, $STATIC | $FINAL, $constField(Container, SEARCH_HEAVYWEIGHTS)},
-	{"numOfHWComponents", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Container, numOfHWComponents)},
-	{"numOfLWComponents", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Container, numOfLWComponents)},
-	{"mixingLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, mixingLog)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, serialPersistentFields)},
-	{"isJavaAwtSmartInvalidate", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, isJavaAwtSmartInvalidate)},
-	{"descendUnconditionallyWhenValidating", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Container, descendUnconditionallyWhenValidating)},
-	{"modalComp", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(Container, modalComp)},
-	{"modalAppContext", "Lsun/awt/AppContext;", nullptr, $TRANSIENT, $field(Container, modalAppContext)},
-	{"containerSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Container, containerSerializedDataVersion)},
-	{}
-};
-
-$MethodInfo _Container_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Container, init$, void)},
-	{"add", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, add, $Component*, $Component*)},
-	{"add", "(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, add, $Component*, $String*, $Component*)},
-	{"add", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, add, $Component*, $Component*, int32_t)},
-	{"add", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Container, add, void, $Component*, Object$*)},
-	{"add", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(Container, add, void, $Component*, Object$*, int32_t)},
-	{"addContainerListener", "(Ljava/awt/event/ContainerListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Container, addContainerListener, void, $ContainerListener*)},
-	{"addDelicately", "(Ljava/awt/Component;Ljava/awt/Container;I)V", nullptr, $PRIVATE, $method(Container, addDelicately, void, $Component*, Container*, int32_t)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(Container, addImpl, void, $Component*, Object$*, int32_t)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Container, addNotify, void)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"adjustDescendants", "(I)V", nullptr, 0, $virtualMethod(Container, adjustDescendants, void, int32_t)},
-	{"adjustDescendantsOnParent", "(I)V", nullptr, 0, $virtualMethod(Container, adjustDescendantsOnParent, void, int32_t)},
-	{"adjustListeningChildren", "(JI)V", nullptr, 0, $virtualMethod(Container, adjustListeningChildren, void, int64_t, int32_t)},
-	{"applyComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $virtualMethod(Container, applyComponentOrientation, void, $ComponentOrientation*)},
-	{"areFocusTraversalKeysSet", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Container, areFocusTraversalKeysSet, bool, int32_t)},
-	{"canContainFocusOwner", "(Ljava/awt/Component;)Z", nullptr, 0, $virtualMethod(Container, canContainFocusOwner, bool, $Component*)},
-	{"checkAddToSelf", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(Container, checkAddToSelf, void, $Component*)},
-	{"checkAdding", "(Ljava/awt/Component;I)V", nullptr, $PRIVATE, $method(Container, checkAdding, void, $Component*, int32_t)},
-	{"checkGD", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Container, checkGD, void, $String*)},
-	{"checkNotAWindow", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(Container, checkNotAWindow, void, $Component*)},
-	{"clearCurrentFocusCycleRootOnHide", "()V", nullptr, 0, $virtualMethod(Container, clearCurrentFocusCycleRootOnHide, void)},
-	{"clearMostRecentFocusOwnerOnHide", "()V", nullptr, 0, $virtualMethod(Container, clearMostRecentFocusOwnerOnHide, void)},
-	{"containsFocus", "()Z", nullptr, $FINAL, $virtualMethod(Container, containsFocus, bool)},
-	{"countComponents", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, countComponents, int32_t), nullptr, nullptr, _Container_MethodAnnotations_countComponents25},
-	{"countHierarchyMembers", "()I", nullptr, 0, $virtualMethod(Container, countHierarchyMembers, int32_t)},
-	{"createChildHierarchyEvents", "(IJZ)V", nullptr, $FINAL, $method(Container, createChildHierarchyEvents, void, int32_t, int64_t, bool)},
-	{"createHierarchyEvents", "(ILjava/awt/Component;Ljava/awt/Container;JZ)I", nullptr, $FINAL, $virtualMethod(Container, createHierarchyEvents, int32_t, int32_t, $Component*, Container*, int64_t, bool)},
-	{"decreaseComponentCount", "(Ljava/awt/Component;)V", nullptr, $FINAL, $method(Container, decreaseComponentCount, void, $Component*)},
-	{"deliverEvent", "(Ljava/awt/Event;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, deliverEvent, void, $Event*), nullptr, nullptr, _Container_MethodAnnotations_deliverEvent30},
-	{"dispatchEventImpl", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(Container, dispatchEventImpl, void, $AWTEvent*)},
-	{"dispatchEventToSelf", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(Container, dispatchEventToSelf, void, $AWTEvent*)},
-	{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(Container, doLayout, void)},
-	{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(Container, eventEnabled, bool, $AWTEvent*)},
-	{"findComponentAt", "(II)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, findComponentAt, $Component*, int32_t, int32_t)},
-	{"findComponentAt", "(IIZ)Ljava/awt/Component;", nullptr, $FINAL, $method(Container, findComponentAt, $Component*, int32_t, int32_t, bool)},
-	{"findComponentAt", "(Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, findComponentAt, $Component*, $Point*)},
-	{"findComponentAtImpl", "(IIZ)Ljava/awt/Component;", nullptr, $FINAL, $method(Container, findComponentAtImpl, $Component*, int32_t, int32_t, bool)},
-	{"findTraversalRoot", "()Ljava/awt/Container;", nullptr, $PRIVATE, $method(Container, findTraversalRoot, Container*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, 0, $virtualMethod(Container, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, 0, $virtualMethod(Container, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, 0, $virtualMethod(Container, getAccessibleChildrenCount, int32_t)},
-	{"getAlignmentX", "()F", nullptr, $PUBLIC, $virtualMethod(Container, getAlignmentX, float)},
-	{"getAlignmentY", "()F", nullptr, $PUBLIC, $virtualMethod(Container, getAlignmentY, float)},
-	{"getBottommostComponentIndex", "()I", nullptr, $PRIVATE, $method(Container, getBottommostComponentIndex, int32_t)},
-	{"getChildAt", "(Ljava/awt/Component;IIZ)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(Container, getChildAt, $Component*, $Component*, int32_t, int32_t, bool)},
-	{"getComponent", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponent, $Component*, int32_t)},
-	{"getComponentAt", "(II)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponentAt, $Component*, int32_t, int32_t)},
-	{"getComponentAt", "(Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponentAt, $Component*, $Point*)},
-	{"getComponentCount", "()I", nullptr, $PUBLIC, $virtualMethod(Container, getComponentCount, int32_t)},
-	{"getComponentZOrder", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(Container, getComponentZOrder, int32_t, $Component*)},
-	{"getComponents", "()[Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponents, $ComponentArray*)},
-	{"getComponentsSync", "()[Ljava/awt/Component;", nullptr, 0, $virtualMethod(Container, getComponentsSync, $ComponentArray*)},
-	{"getComponents_NoClientCode", "()[Ljava/awt/Component;", nullptr, $FINAL, $method(Container, getComponents_NoClientCode, $ComponentArray*)},
-	{"getContainerListeners", "()[Ljava/awt/event/ContainerListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Container, getContainerListeners, $ContainerListenerArray*)},
-	{"getDropTargetEventTarget", "(IIZ)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Container, getDropTargetEventTarget, $Component*, int32_t, int32_t, bool)},
-	{"getFocusTraversalKeys", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PUBLIC, $virtualMethod(Container, getFocusTraversalKeys, $Set*, int32_t)},
-	{"getFocusTraversalPolicy", "()Ljava/awt/FocusTraversalPolicy;", nullptr, $PUBLIC, $virtualMethod(Container, getFocusTraversalPolicy, $FocusTraversalPolicy*)},
-	{"getHeavyweightContainer", "()Ljava/awt/Container;", nullptr, 0, $virtualMethod(Container, getHeavyweightContainer, Container*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(Container, getInsets, $Insets*)},
-	{"getLayout", "()Ljava/awt/LayoutManager;", nullptr, $PUBLIC, $virtualMethod(Container, getLayout, $LayoutManager*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Container, getListeners, $EventListenerArray*, $Class*)},
-	{"getListenersCount", "(IZ)I", nullptr, $PRIVATE, $method(Container, getListenersCount, int32_t, int32_t, bool)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Container, getMaximumSize, $Dimension*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Container, getMinimumSize, $Dimension*)},
-	{"getMouseEventTarget", "(IIZ)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Container, getMouseEventTarget, $Component*, int32_t, int32_t, bool)},
-	{"getMouseEventTarget", "(IIZLjava/awt/Container$EventTargetFilter;Z)Ljava/awt/Component;", nullptr, $PRIVATE, $method(Container, getMouseEventTarget, $Component*, int32_t, int32_t, bool, $Container$EventTargetFilter*, bool)},
-	{"getMouseEventTargetImpl", "(IIZLjava/awt/Container$EventTargetFilter;ZZ)Ljava/awt/Component;", nullptr, $PRIVATE, $method(Container, getMouseEventTargetImpl, $Component*, int32_t, int32_t, bool, $Container$EventTargetFilter*, bool, bool)},
-	{"getMousePosition", "(Z)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Container, getMousePosition, $Point*, bool), "java.awt.HeadlessException"},
-	{"getOpaqueShape", "()Lsun/java2d/pipe/Region;", nullptr, $FINAL, $virtualMethod(Container, getOpaqueShape, $Region*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Container, getPreferredSize, $Dimension*)},
-	{"getTopmostComponentIndex", "()I", nullptr, $PRIVATE, $method(Container, getTopmostComponentIndex, int32_t)},
-	{"getTraversalRoot", "()Ljava/awt/Container;", nullptr, $FINAL, $virtualMethod(Container, getTraversalRoot, Container*)},
-	{"hasHeavyweightDescendants", "()Z", nullptr, $FINAL, $method(Container, hasHeavyweightDescendants, bool)},
-	{"hasLightweightDescendants", "()Z", nullptr, $FINAL, $method(Container, hasLightweightDescendants, bool)},
-	{"increaseComponentCount", "(Ljava/awt/Component;)V", nullptr, $FINAL, $method(Container, increaseComponentCount, void, $Component*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Container, initIDs, void)},
-	{"initializeFocusTraversalKeys", "()V", nullptr, 0, $virtualMethod(Container, initializeFocusTraversalKeys, void)},
-	{"insets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, insets, $Insets*), nullptr, nullptr, _Container_MethodAnnotations_insets79},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(Container, invalidate, void)},
-	{"invalidateParent", "()V", nullptr, 0, $virtualMethod(Container, invalidateParent, void)},
-	{"invalidateTree", "()V", nullptr, 0, $virtualMethod(Container, invalidateTree, void)},
-	{"isAncestorOf", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(Container, isAncestorOf, bool, $Component*)},
-	{"isFocusCycleRoot", "(Ljava/awt/Container;)Z", nullptr, $PUBLIC, $virtualMethod(Container, isFocusCycleRoot, bool, Container*)},
-	{"isFocusCycleRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Container, isFocusCycleRoot, bool)},
-	{"isFocusTraversalPolicyProvider", "()Z", nullptr, $PUBLIC | $FINAL, $method(Container, isFocusTraversalPolicyProvider, bool)},
-	{"isFocusTraversalPolicySet", "()Z", nullptr, $PUBLIC, $virtualMethod(Container, isFocusTraversalPolicySet, bool)},
-	{"isParentOf", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(Container, isParentOf, bool, $Component*)},
-	{"isRecursivelyVisibleUpToHeavyweightContainer", "()Z", nullptr, $FINAL, $method(Container, isRecursivelyVisibleUpToHeavyweightContainer, bool)},
-	{"isRemoveNotifyNeeded", "(Ljava/awt/Component;Ljava/awt/Container;Ljava/awt/Container;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Container, isRemoveNotifyNeeded, bool, $Component*, Container*, Container*)},
-	{"isSameOrAncestorOf", "(Ljava/awt/Component;Z)Z", nullptr, 0, $virtualMethod(Container, isSameOrAncestorOf, bool, $Component*, bool)},
-	{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Container, isValidateRoot, bool)},
-	{"lambda$startLWModal$0", "(Ljava/awt/Container;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Container, lambda$startLWModal$0, bool, Container*)},
-	{"lambda$startLWModal$1", "(Ljava/awt/Container;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Container, lambda$startLWModal$1, void, Container*)},
-	{"layout", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, layout, void), nullptr, nullptr, _Container_MethodAnnotations_layout95},
-	{"lightweightPaint", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, lightweightPaint, void, $Graphics*)},
-	{"lightweightPrint", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, lightweightPrint, void, $Graphics*)},
-	{"list", "(Ljava/io/PrintStream;I)V", nullptr, $PUBLIC, $virtualMethod(Container, list, void, $PrintStream*, int32_t)},
-	{"list", "(Ljava/io/PrintWriter;I)V", nullptr, $PUBLIC, $virtualMethod(Container, list, void, $PrintWriter*, int32_t)},
-	{"locate", "(II)Ljava/awt/Component;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, locate, $Component*, int32_t, int32_t), nullptr, nullptr, _Container_MethodAnnotations_locate100},
-	{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, minimumSize, $Dimension*), nullptr, nullptr, _Container_MethodAnnotations_minimumSize101},
-	{"mixOnHiding", "(Z)V", nullptr, 0, $virtualMethod(Container, mixOnHiding, void, bool)},
-	{"mixOnReshaping", "()V", nullptr, 0, $virtualMethod(Container, mixOnReshaping, void)},
-	{"mixOnShowing", "()V", nullptr, 0, $virtualMethod(Container, mixOnShowing, void)},
-	{"mixOnValidating", "()V", nullptr, 0, $virtualMethod(Container, mixOnValidating, void)},
-	{"mixOnZOrderChanging", "(II)V", nullptr, 0, $virtualMethod(Container, mixOnZOrderChanging, void, int32_t, int32_t)},
-	{"numListening", "(J)I", nullptr, 0, $virtualMethod(Container, numListening, int32_t, int64_t)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, paint, void, $Graphics*)},
-	{"paintComponents", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, paintComponents, void, $Graphics*)},
-	{"paintHeavyweightComponents", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, paintHeavyweightComponents, void, $Graphics*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Container, paramString, $String*)},
-	{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Container, postProcessKeyEvent, void, $KeyEvent*)},
-	{"postsOldMouseEvents", "()Z", nullptr, 0, $virtualMethod(Container, postsOldMouseEvents, bool)},
-	{"preProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Container, preProcessKeyEvent, void, $KeyEvent*)},
-	{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, preferredSize, $Dimension*), nullptr, nullptr, _Container_MethodAnnotations_preferredSize115},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, print, void, $Graphics*)},
-	{"printComponents", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, printComponents, void, $Graphics*)},
-	{"printHeavyweightComponents", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, printHeavyweightComponents, void, $Graphics*)},
-	{"processContainerEvent", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PROTECTED, $virtualMethod(Container, processContainerEvent, void, $ContainerEvent*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(Container, processEvent, void, $AWTEvent*)},
-	{"proxyEnableEvents", "(J)V", nullptr, 0, $virtualMethod(Container, proxyEnableEvents, void, int64_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Container, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"recursiveApplyCurrentShape", "()V", nullptr, $FINAL, $method(Container, recursiveApplyCurrentShape, void)},
-	{"recursiveApplyCurrentShape", "(I)V", nullptr, $FINAL, $method(Container, recursiveApplyCurrentShape, void, int32_t)},
-	{"recursiveApplyCurrentShape", "(II)V", nullptr, $FINAL, $method(Container, recursiveApplyCurrentShape, void, int32_t, int32_t)},
-	{"recursiveHideHeavyweightChildren", "()V", nullptr, $PRIVATE, $method(Container, recursiveHideHeavyweightChildren, void)},
-	{"recursiveRelocateHeavyweightChildren", "(Ljava/awt/Point;)V", nullptr, $PRIVATE, $method(Container, recursiveRelocateHeavyweightChildren, void, $Point*)},
-	{"recursiveShowHeavyweightChildren", "()V", nullptr, $PRIVATE, $method(Container, recursiveShowHeavyweightChildren, void)},
-	{"recursiveSubtractAndApplyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $FINAL, $method(Container, recursiveSubtractAndApplyShape, void, $Region*)},
-	{"recursiveSubtractAndApplyShape", "(Lsun/java2d/pipe/Region;I)V", nullptr, $FINAL, $method(Container, recursiveSubtractAndApplyShape, void, $Region*, int32_t)},
-	{"recursiveSubtractAndApplyShape", "(Lsun/java2d/pipe/Region;II)V", nullptr, $FINAL, $method(Container, recursiveSubtractAndApplyShape, void, $Region*, int32_t, int32_t)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(Container, remove, void, int32_t)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Container, remove, void, $Component*)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(Container, removeAll, void)},
-	{"removeContainerListener", "(Ljava/awt/event/ContainerListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Container, removeContainerListener, void, $ContainerListener*)},
-	{"removeDelicately", "(Ljava/awt/Component;Ljava/awt/Container;I)Z", nullptr, $PRIVATE, $method(Container, removeDelicately, bool, $Component*, Container*, int32_t)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Container, removeNotify, void)},
-	{"reparentChild", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(Container, reparentChild, void, $Component*)},
-	{"reparentTraverse", "(Ljava/awt/peer/ContainerPeer;Ljava/awt/Container;)V", nullptr, $PRIVATE, $method(Container, reparentTraverse, void, $ContainerPeer*, Container*)},
-	{"setComponentZOrder", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(Container, setComponentZOrder, void, $Component*, int32_t)},
-	{"setFocusCycleRoot", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Container, setFocusCycleRoot, void, bool)},
-	{"setFocusTraversalKeys", "(ILjava/util/Set;)V", "(ILjava/util/Set<+Ljava/awt/AWTKeyStroke;>;)V", $PUBLIC, $virtualMethod(Container, setFocusTraversalKeys, void, int32_t, $Set*)},
-	{"setFocusTraversalPolicy", "(Ljava/awt/FocusTraversalPolicy;)V", nullptr, $PUBLIC, $virtualMethod(Container, setFocusTraversalPolicy, void, $FocusTraversalPolicy*)},
-	{"setFocusTraversalPolicyProvider", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(Container, setFocusTraversalPolicyProvider, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(Container, setFont, void, $Font*)},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(Container, setLayout, void, $LayoutManager*)},
-	{"startLWModal", "()V", nullptr, $PRIVATE, $method(Container, startLWModal, void)},
-	{"stopLWModal", "()V", nullptr, $PRIVATE, $method(Container, stopLWModal, void)},
-	{"transferFocusDownCycle", "()V", nullptr, $PUBLIC, $virtualMethod(Container, transferFocusDownCycle, void)},
-	{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, update, void, $Graphics*)},
-	{"updateChildGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $FINAL, $virtualMethod(Container, updateChildGraphicsData, bool, $GraphicsConfiguration*)},
-	{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(Container, validate, void)},
-	{"validateTree", "()V", nullptr, $PROTECTED, $virtualMethod(Container, validateTree, void)},
-	{"validateUnconditionally", "()V", nullptr, $FINAL, $method(Container, validateUnconditionally, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Container, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 77
-
-$InnerClassInfo _Container_InnerClassesInfo_[] = {
-	{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
-	{"java.awt.Container$WakingRunnable", "java.awt.Container", "WakingRunnable", $STATIC | $FINAL},
-	{"java.awt.Container$DropTargetEventTargetFilter", "java.awt.Container", "DropTargetEventTargetFilter", $STATIC},
-	{"java.awt.Container$MouseEventTargetFilter", "java.awt.Container", "MouseEventTargetFilter", $STATIC},
-	{"java.awt.Container$EventTargetFilter", "java.awt.Container", "EventTargetFilter", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.awt.Container$2", nullptr, nullptr, 0},
-	{"java.awt.Container$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Container_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Container",
-	"java.awt.Component",
-	nullptr,
-	_Container_FieldInfo_,
-	_Container_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Container_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Container$AccessibleAWTContainer,java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler,java.awt.Container$WakingRunnable,java.awt.Container$DropTargetEventTargetFilter,java.awt.Container$MouseEventTargetFilter,java.awt.Container$EventTargetFilter,java.awt.Container$2,java.awt.Container$1"
-};
-
-$Object* allocate$Container($Class* clazz) {
-	return $of($alloc(Container));
-}
 
 $PlatformLogger* Container::log = nullptr;
 $PlatformLogger* Container::eventLog = nullptr;
@@ -575,7 +302,7 @@ bool Container::descendUnconditionallyWhenValidating = false;
 
 void Container::initIDs() {
 	$init(Container);
-	$prepareNativeStatic(Container, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -604,7 +331,7 @@ int32_t Container::countComponents() {
 }
 
 $Component* Container::getComponent(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $cast($Component, $nc(this->component)->get(n));
 	} catch ($IndexOutOfBoundsException& z) {
@@ -618,7 +345,7 @@ $ComponentArray* Container::getComponents() {
 }
 
 $ComponentArray* Container::getComponents_NoClientCode() {
-	return $fcast($ComponentArray, $nc(this->component)->toArray(Container::EMPTY_ARRAY));
+	return $cast($ComponentArray, $nc(this->component)->toArray(Container::EMPTY_ARRAY));
 }
 
 $ComponentArray* Container::getComponentsSync() {
@@ -632,11 +359,11 @@ $Insets* Container::getInsets() {
 }
 
 $Insets* Container::insets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentPeer, peer, this->peer);
 	if ($instanceOf($ContainerPeer, peer)) {
 		$var($ContainerPeer, cpeer, $cast($ContainerPeer, peer));
-		return $cast($Insets, $nc($($nc(cpeer)->getInsets()))->clone());
+		return $cast($Insets, $$nc(cpeer->getInsets())->clone());
 	}
 	return $new($Insets, 0, 0, 0, 0);
 }
@@ -658,12 +385,10 @@ $Component* Container::add($Component* comp, int32_t index) {
 
 void Container::checkAddToSelf($Component* comp) {
 	if ($instanceOf(Container, comp)) {
-		{
-			$var(Container, cn, this);
-			for (; cn != nullptr; $assign(cn, cn->parent)) {
-				if ($equals(cn, comp)) {
-					$throwNew($IllegalArgumentException, "adding container\'s parent to itself"_s);
-				}
+		$var(Container, cn, this);
+		for (; cn != nullptr; $assign(cn, cn->parent)) {
+			if ($equals(cn, comp)) {
+				$throwNew($IllegalArgumentException, "adding container\'s parent to itself"_s);
 			}
 		}
 	}
@@ -676,26 +401,26 @@ void Container::checkNotAWindow($Component* comp) {
 }
 
 void Container::checkAdding($Component* comp, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	$var($GraphicsConfiguration, thisGC, getGraphicsConfiguration());
 	if (index > $nc(this->component)->size() || index < 0) {
 		$throwNew($IllegalArgumentException, "illegal component position"_s);
 	}
 	if ($nc(comp)->parent == this) {
-		if (index == $nc(this->component)->size()) {
-			$throwNew($IllegalArgumentException, $$str({"illegal component position "_s, $$str(index), " should be less than "_s, $$str($nc(this->component)->size())}));
+		if (index == this->component->size()) {
+			$throwNew($IllegalArgumentException, $$str({"illegal component position "_s, $$str(index), " should be less than "_s, $$str(this->component->size())}));
 		}
 	}
 	checkAddToSelf(comp);
 	checkNotAWindow(comp);
 	$var($Window, thisTopLevel, getContainingWindow());
-	$var($Window, compTopLevel, $nc(comp)->getContainingWindow());
+	$var($Window, compTopLevel, comp->getContainingWindow());
 	if (thisTopLevel != compTopLevel) {
 		$throwNew($IllegalArgumentException, "component and container should be in the same top-level window"_s);
 	}
 	if (thisGC != nullptr) {
-		comp->checkGD($($nc($(thisGC->getDevice()))->getIDstring()));
+		comp->checkGD($($$nc(thisGC->getDevice())->getIDstring()));
 	}
 }
 
@@ -708,12 +433,12 @@ bool Container::removeDelicately($Component* comp, Container* newParent, int32_t
 	}
 	if (newParent != this) {
 		if (this->layoutMgr != nullptr) {
-			$nc(this->layoutMgr)->removeLayoutComponent(comp);
+			this->layoutMgr->removeLayoutComponent(comp);
 		}
 		adjustListeningChildren($AWTEvent::HIERARCHY_EVENT_MASK, -$nc(comp)->numListening($AWTEvent::HIERARCHY_EVENT_MASK));
-		adjustListeningChildren($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK, -$nc(comp)->numListening($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
-		adjustDescendants(-($nc(comp)->countHierarchyMembers()));
-		$set($nc(comp), parent, nullptr);
+		adjustListeningChildren($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK, -comp->numListening($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
+		adjustDescendants(-(comp->countHierarchyMembers()));
+		$set(comp, parent, nullptr);
 		if (needRemoveNotify) {
 			comp->setGraphicsConfiguration(nullptr);
 		}
@@ -721,10 +446,10 @@ bool Container::removeDelicately($Component* comp, Container* newParent, int32_t
 		invalidateIfValid();
 	} else {
 		$nc(this->component)->remove(index);
-		$nc(this->component)->add(newIndex, comp);
+		this->component->add(newIndex, comp);
 	}
 	if ($nc(comp)->parent == nullptr) {
-		if (this->containerListener != nullptr || ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
+		if (this->containerListener != nullptr || (this->eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
 			$var($ContainerEvent, e, $new($ContainerEvent, this, $ContainerEvent::COMPONENT_REMOVED, comp));
 			dispatchEvent(e);
 		}
@@ -746,14 +471,14 @@ bool Container::canContainFocusOwner($Component* focusOwnerCandidate) {
 	if (isFocusCycleRoot()) {
 		$var($FocusTraversalPolicy, policy, getFocusTraversalPolicy());
 		if ($instanceOf($DefaultFocusTraversalPolicy, policy)) {
-			if (!$nc(($cast($DefaultFocusTraversalPolicy, policy)))->accept(focusOwnerCandidate)) {
+			if (!$cast($DefaultFocusTraversalPolicy, policy)->accept(focusOwnerCandidate)) {
 				return false;
 			}
 		}
 	}
 	$synchronized(getTreeLock()) {
 		if (this->parent != nullptr) {
-			return $nc(this->parent)->canContainFocusOwner(focusOwnerCandidate);
+			return this->parent->canContainFocusOwner(focusOwnerCandidate);
 		}
 	}
 	return true;
@@ -780,7 +505,7 @@ Container* Container::getHeavyweightContainer() {
 
 bool Container::isRemoveNotifyNeeded($Component* comp, Container* oldContainer, Container* newContainer) {
 	$init(Container);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldContainer == nullptr) {
 		return false;
 	}
@@ -790,16 +515,16 @@ bool Container::isRemoveNotifyNeeded($Component* comp, Container* oldContainer, 
 	if ($nc(newContainer)->peer == nullptr) {
 		return true;
 	}
-	if ($nc(comp)->isLightweight()) {
+	if (comp->isLightweight()) {
 		bool isContainer = $instanceOf(Container, comp);
-		if (!isContainer || (isContainer && !$nc(($cast(Container, comp)))->hasHeavyweightDescendants())) {
+		if (!isContainer || (isContainer && !$cast(Container, comp)->hasHeavyweightDescendants())) {
 			return false;
 		}
 	}
 	$var(Container, newNativeContainer, $nc(oldContainer)->getHeavyweightContainer());
-	$var(Container, oldNativeContainer, $nc(newContainer)->getHeavyweightContainer());
+	$var(Container, oldNativeContainer, newContainer->getHeavyweightContainer());
 	if (newNativeContainer != oldNativeContainer) {
-		return !$nc($nc(comp)->peer)->isReparentSupported();
+		return !$nc(comp->peer)->isReparentSupported();
 	} else {
 		return false;
 	}
@@ -813,7 +538,7 @@ void Container::setComponentZOrder($Component* comp, int32_t index) {
 			return;
 		}
 		checkAdding(comp, index);
-		bool peerRecreated = (curParent != nullptr) ? $nc(curParent)->removeDelicately(comp, this, index) : false;
+		bool peerRecreated = (curParent != nullptr) ? curParent->removeDelicately(comp, this, index) : false;
 		addDelicately(comp, curParent, index);
 		if (!peerRecreated && oldZindex != -1) {
 			comp->mixOnZOrderChanging(oldZindex, index);
@@ -822,7 +547,7 @@ void Container::setComponentZOrder($Component* comp, int32_t index) {
 }
 
 void Container::reparentTraverse($ContainerPeer* parentPeer, Container* child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	for (int32_t i = 0; i < $nc(child)->getComponentCount(); ++i) {
 		$var($Component, comp, child->getComponent(i));
@@ -851,7 +576,7 @@ void Container::reparentChild($Component* comp) {
 }
 
 void Container::addDelicately($Component* comp, Container* curParent, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	if (curParent != this) {
 		if (index == -1) {
@@ -865,7 +590,7 @@ void Container::addDelicately($Component* comp, Container* curParent, int32_t in
 		adjustListeningChildren($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK, comp->numListening($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
 		adjustDescendants(comp->countHierarchyMembers());
 	} else if (index < $nc(this->component)->size()) {
-		$nc(this->component)->set(index, comp);
+		this->component->set(index, comp);
 	}
 	invalidateIfValid();
 	if (this->peer != nullptr) {
@@ -887,12 +612,12 @@ void Container::addDelicately($Component* comp, Container* curParent, int32_t in
 	if (curParent != this) {
 		if (this->layoutMgr != nullptr) {
 			if ($instanceOf($LayoutManager2, this->layoutMgr)) {
-				$nc(($cast($LayoutManager2, this->layoutMgr)))->addLayoutComponent(comp, ($Object*)nullptr);
+				$cast($LayoutManager2, this->layoutMgr)->addLayoutComponent(comp, nullptr);
 			} else {
 				$nc(this->layoutMgr)->addLayoutComponent(nullptr, comp);
 			}
 		}
-		if (this->containerListener != nullptr || ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
+		if (this->containerListener != nullptr || (this->eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
 			$var($ContainerEvent, e, $new($ContainerEvent, this, $ContainerEvent::COMPONENT_ADDED, comp));
 			dispatchEvent(e);
 		}
@@ -901,7 +626,7 @@ void Container::addDelicately($Component* comp, Container* curParent, int32_t in
 		if (var$1 && !comp->canBeFocusOwnerRecursively()) {
 			comp->transferFocus();
 		} else if ($instanceOf(Container, comp)) {
-			$var($Component, focusOwner, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+			$var($Component, focusOwner, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 			bool var$2 = focusOwner != nullptr && isParentOf(focusOwner);
 			if (var$2 && !focusOwner->canBeFocusOwnerRecursively()) {
 				focusOwner->transferFocus();
@@ -936,7 +661,7 @@ void Container::add($Component* comp, Object$* constraints, int32_t index) {
 }
 
 void Container::addImpl($Component* comp, Object$* constraints, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$var($GraphicsConfiguration, thisGC, this->getGraphicsConfiguration());
 		if (index > $nc(this->component)->size() || (index < 0 && index != -1)) {
@@ -945,20 +670,20 @@ void Container::addImpl($Component* comp, Object$* constraints, int32_t index) {
 		checkAddToSelf(comp);
 		checkNotAWindow(comp);
 		if ($nc(comp)->parent != nullptr) {
-			$nc(comp->parent)->remove(comp);
+			comp->parent->remove(comp);
 			if (index > $nc(this->component)->size()) {
 				$throwNew($IllegalArgumentException, "illegal component position"_s);
 			}
 		}
 		if (thisGC != nullptr) {
-			$nc(comp)->checkGD($($nc($(thisGC->getDevice()))->getIDstring()));
+			comp->checkGD($($$nc(thisGC->getDevice())->getIDstring()));
 		}
 		if (index == -1) {
 			$nc(this->component)->add(comp);
 		} else {
 			$nc(this->component)->add(index, comp);
 		}
-		$set($nc(comp), parent, this);
+		$set(comp, parent, this);
 		comp->setGraphicsConfiguration(thisGC);
 		adjustListeningChildren($AWTEvent::HIERARCHY_EVENT_MASK, comp->numListening($AWTEvent::HIERARCHY_EVENT_MASK));
 		adjustListeningChildren($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK, comp->numListening($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
@@ -969,12 +694,12 @@ void Container::addImpl($Component* comp, Object$* constraints, int32_t index) {
 		}
 		if (this->layoutMgr != nullptr) {
 			if ($instanceOf($LayoutManager2, this->layoutMgr)) {
-				$nc(($cast($LayoutManager2, this->layoutMgr)))->addLayoutComponent(comp, constraints);
+				$cast($LayoutManager2, this->layoutMgr)->addLayoutComponent(comp, constraints);
 			} else if ($instanceOf($String, constraints)) {
 				$nc(this->layoutMgr)->addLayoutComponent($cast($String, constraints), comp);
 			}
 		}
-		if (this->containerListener != nullptr || ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
+		if (this->containerListener != nullptr || (this->eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
 			$var($ContainerEvent, e, $new($ContainerEvent, this, $ContainerEvent::COMPONENT_ADDED, comp));
 			dispatchEvent(e);
 		}
@@ -986,17 +711,15 @@ void Container::addImpl($Component* comp, Object$* constraints, int32_t index) {
 }
 
 bool Container::updateChildGraphicsData($GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	bool ret = false;
 	{
 		$var($Iterator, i$, $nc(this->component)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Component, comp, $cast($Component, i$->next()));
-			{
-				if (comp != nullptr) {
-					ret |= comp->updateGraphicsData(gc);
-				}
+			if (comp != nullptr) {
+				ret |= comp->updateGraphicsData(gc);
 			}
 		}
 	}
@@ -1004,22 +727,18 @@ bool Container::updateChildGraphicsData($GraphicsConfiguration* gc) {
 }
 
 void Container::checkGD($String* stringID) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->component)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Component, comp, $cast($Component, i$->next()));
-			{
-				if (comp != nullptr) {
-					comp->checkGD(stringID);
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->component)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Component, comp, $cast($Component, i$->next()));
+		if (comp != nullptr) {
+			comp->checkGD(stringID);
 		}
 	}
 }
 
 void Container::remove(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (index < 0 || index >= $nc(this->component)->size()) {
 			$throwNew($ArrayIndexOutOfBoundsException, index);
@@ -1029,16 +748,16 @@ void Container::remove(int32_t index) {
 			$nc(comp)->removeNotify();
 		}
 		if (this->layoutMgr != nullptr) {
-			$nc(this->layoutMgr)->removeLayoutComponent(comp);
+			this->layoutMgr->removeLayoutComponent(comp);
 		}
 		adjustListeningChildren($AWTEvent::HIERARCHY_EVENT_MASK, -$nc(comp)->numListening($AWTEvent::HIERARCHY_EVENT_MASK));
-		adjustListeningChildren($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK, -$nc(comp)->numListening($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
-		adjustDescendants(-($nc(comp)->countHierarchyMembers()));
-		$set($nc(comp), parent, nullptr);
+		adjustListeningChildren($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK, -comp->numListening($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
+		adjustDescendants(-(comp->countHierarchyMembers()));
+		$set(comp, parent, nullptr);
 		$nc(this->component)->remove(index);
 		comp->setGraphicsConfiguration(nullptr);
 		invalidateIfValid();
-		if (this->containerListener != nullptr || ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
+		if (this->containerListener != nullptr || (this->eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
 			$var($ContainerEvent, e, $new($ContainerEvent, this, $ContainerEvent::COMPONENT_REMOVED, comp));
 			dispatchEvent(e);
 		}
@@ -1061,22 +780,22 @@ void Container::remove($Component* comp) {
 }
 
 void Container::removeAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		adjustListeningChildren($AWTEvent::HIERARCHY_EVENT_MASK, -this->listeningChildren);
 		adjustListeningChildren($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK, -this->listeningBoundsChildren);
 		adjustDescendants(-this->descendantsCount);
 		while (!$nc(this->component)->isEmpty()) {
-			$var($Component, comp, $cast($Component, $nc(this->component)->remove($nc(this->component)->size() - 1)));
+			$var($Component, comp, $cast($Component, this->component->remove(this->component->size() - 1)));
 			if (this->peer != nullptr) {
 				$nc(comp)->removeNotify();
 			}
 			if (this->layoutMgr != nullptr) {
-				$nc(this->layoutMgr)->removeLayoutComponent(comp);
+				this->layoutMgr->removeLayoutComponent(comp);
 			}
 			$set($nc(comp), parent, nullptr);
 			comp->setGraphicsConfiguration(nullptr);
-			if (this->containerListener != nullptr || ((int64_t)(this->eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
+			if (this->containerListener != nullptr || (this->eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 || $Toolkit::enabledOnToolkit($AWTEvent::CONTAINER_EVENT_MASK)) {
 				$var($ContainerEvent, e, $new($ContainerEvent, this, $ContainerEvent::COMPONENT_REMOVED, comp));
 				dispatchEvent(e);
 			}
@@ -1090,7 +809,7 @@ void Container::removeAll() {
 }
 
 int32_t Container::numListening(int64_t mask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t superListening = $Component::numListening(mask);
 	if (mask == $AWTEvent::HIERARCHY_EVENT_MASK) {
 		$init($PlatformLogger$Level);
@@ -1106,7 +825,7 @@ int32_t Container::numListening(int64_t mask) {
 				}
 			}
 			if (this->listeningChildren != sum) {
-				$nc(Container::eventLog)->fine("Assertion (listeningChildren == sum) failed"_s);
+				Container::eventLog->fine("Assertion (listeningChildren == sum) failed"_s);
 			}
 		}
 		return this->listeningChildren + superListening;
@@ -1124,14 +843,14 @@ int32_t Container::numListening(int64_t mask) {
 				}
 			}
 			if (this->listeningBoundsChildren != sum) {
-				$nc(Container::eventLog)->fine("Assertion (listeningBoundsChildren == sum) failed"_s);
+				Container::eventLog->fine("Assertion (listeningBoundsChildren == sum) failed"_s);
 			}
 		}
 		return this->listeningBoundsChildren + superListening;
 	} else {
 		$init($PlatformLogger$Level);
 		if ($nc(Container::eventLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(Container::eventLog)->fine("This code must never be reached"_s);
+			Container::eventLog->fine("This code must never be reached"_s);
 		}
 		return superListening;
 	}
@@ -1142,16 +861,16 @@ void Container::adjustListeningChildren(int64_t mask, int32_t num) {
 	if ($nc(Container::eventLog)->isLoggable($PlatformLogger$Level::FINE)) {
 		bool toAssert = (mask == $AWTEvent::HIERARCHY_EVENT_MASK || mask == $AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK || mask == ($AWTEvent::HIERARCHY_EVENT_MASK | $AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
 		if (!toAssert) {
-			$nc(Container::eventLog)->fine("Assertion failed"_s);
+			Container::eventLog->fine("Assertion failed"_s);
 		}
 	}
 	if (num == 0) {
 		return;
 	}
-	if (((int64_t)(mask & (uint64_t)$AWTEvent::HIERARCHY_EVENT_MASK)) != 0) {
+	if ((mask & $AWTEvent::HIERARCHY_EVENT_MASK) != 0) {
 		this->listeningChildren += num;
 	}
-	if (((int64_t)(mask & (uint64_t)$AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK)) != 0) {
+	if ((mask & $AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK) != 0) {
 		this->listeningBoundsChildren += num;
 	}
 	adjustListeningChildrenOnParent(mask, num);
@@ -1167,12 +886,12 @@ void Container::adjustDescendants(int32_t num) {
 
 void Container::adjustDescendantsOnParent(int32_t num) {
 	if (this->parent != nullptr) {
-		$nc(this->parent)->adjustDescendants(num);
+		this->parent->adjustDescendants(num);
 	}
 }
 
 int32_t Container::countHierarchyMembers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(Container::log)->isLoggable($PlatformLogger$Level::FINE)) {
 		int32_t sum = 0;
@@ -1186,7 +905,7 @@ int32_t Container::countHierarchyMembers() {
 			}
 		}
 		if (this->descendantsCount != sum) {
-			$nc(Container::log)->fine("Assertion (descendantsCount == sum) failed"_s);
+			Container::log->fine("Assertion (descendantsCount == sum) failed"_s);
 		}
 	}
 	return this->descendantsCount + 1;
@@ -1199,49 +918,34 @@ int32_t Container::getListenersCount(int32_t id, bool enabledOnToolkit) {
 	}
 	switch (id) {
 	case $HierarchyEvent::HIERARCHY_CHANGED:
-		{
-			return this->listeningChildren;
-		}
+		return this->listeningChildren;
 	case $HierarchyEvent::ANCESTOR_MOVED:
-		{}
 	case $HierarchyEvent::ANCESTOR_RESIZED:
-		{
-			return this->listeningBoundsChildren;
-		}
+		return this->listeningBoundsChildren;
 	default:
-		{
-			return 0;
-		}
+		return 0;
 	}
 }
 
 int32_t Container::createHierarchyEvents(int32_t id, $Component* changed, Container* changedParent, int64_t changeFlags, bool enabledOnToolkit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	int32_t listeners = getListenersCount(id, enabledOnToolkit);
-	{
-		int32_t count = listeners;
-		int32_t i = 0;
-		for (; count > 0; ++i) {
-			count -= $nc(($cast($Component, $($nc(this->component)->get(i)))))->createHierarchyEvents(id, changed, changedParent, changeFlags, enabledOnToolkit);
-		}
+	for (int32_t count = listeners, i = 0; count > 0; ++i) {
+		count -= $$sure($Component, $nc(this->component)->get(i))->createHierarchyEvents(id, changed, changedParent, changeFlags, enabledOnToolkit);
 	}
 	return listeners + $Component::createHierarchyEvents(id, changed, changedParent, changeFlags, enabledOnToolkit);
 }
 
 void Container::createChildHierarchyEvents(int32_t id, int64_t changeFlags, bool enabledOnToolkit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	if ($nc(this->component)->isEmpty()) {
 		return;
 	}
 	int32_t listeners = getListenersCount(id, enabledOnToolkit);
-	{
-		int32_t count = listeners;
-		int32_t i = 0;
-		for (; count > 0; ++i) {
-			count -= $nc(($cast($Component, $($nc(this->component)->get(i)))))->createHierarchyEvents(id, this, this->parent, changeFlags, enabledOnToolkit);
-		}
+	for (int32_t count = listeners, i = 0; count > 0; ++i) {
+		count -= $$sure($Component, $nc(this->component)->get(i))->createHierarchyEvents(id, this, this->parent, changeFlags, enabledOnToolkit);
 	}
 }
 
@@ -1276,11 +980,11 @@ void Container::invalidateParent() {
 }
 
 void Container::invalidate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LayoutManager, layoutMgr, this->layoutMgr);
 	if ($instanceOf($LayoutManager2, layoutMgr)) {
 		$var($LayoutManager2, lm, $cast($LayoutManager2, layoutMgr));
-		$nc(lm)->invalidateLayout(this);
+		lm->invalidateLayout(this);
 	}
 	$Component::invalidate();
 }
@@ -1326,37 +1030,37 @@ void Container::validateUnconditionally() {
 }
 
 void Container::validateTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	if (!isValid() || Container::descendUnconditionallyWhenValidating) {
 		if ($instanceOf($ContainerPeer, this->peer)) {
-			$nc(($cast($ContainerPeer, this->peer)))->beginLayout();
+			$nc($cast($ContainerPeer, this->peer))->beginLayout();
 		}
 		if (!isValid()) {
 			doLayout();
 		}
 		for (int32_t i = 0; i < $nc(this->component)->size(); ++i) {
-			$var($Component, comp, $cast($Component, $nc(this->component)->get(i)));
-			if (($instanceOf(Container, comp)) && !($instanceOf($Window, comp)) && (!$nc(comp)->isValid() || Container::descendUnconditionallyWhenValidating)) {
-				$nc(($cast(Container, comp)))->validateTree();
+			$var($Component, comp, $cast($Component, this->component->get(i)));
+			if (($instanceOf(Container, comp)) && !($instanceOf($Window, comp)) && (!comp->isValid() || Container::descendUnconditionallyWhenValidating)) {
+				$cast(Container, comp)->validateTree();
 			} else {
 				$nc(comp)->validate();
 			}
 		}
 		if ($instanceOf($ContainerPeer, this->peer)) {
-			$nc(($cast($ContainerPeer, this->peer)))->endLayout();
+			$nc($cast($ContainerPeer, this->peer))->endLayout();
 		}
 	}
 	$Component::validate();
 }
 
 void Container::invalidateTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		for (int32_t i = 0; i < $nc(this->component)->size(); ++i) {
-			$var($Component, comp, $cast($Component, $nc(this->component)->get(i)));
+			$var($Component, comp, $cast($Component, this->component->get(i)));
 			if ($instanceOf(Container, comp)) {
-				$nc(($cast(Container, comp)))->invalidateTree();
+				$cast(Container, comp)->invalidateTree();
 			} else {
 				$nc(comp)->invalidateIfValid();
 			}
@@ -1366,12 +1070,12 @@ void Container::invalidateTree() {
 }
 
 void Container::setFont($Font* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool shouldinvalidate = false;
 	$var($Font, oldfont, getFont());
 	$Component::setFont(f);
 	$var($Font, newfont, getFont());
-	if (newfont != oldfont && (oldfont == nullptr || !$nc(oldfont)->equals(newfont))) {
+	if (newfont != oldfont && (oldfont == nullptr || !oldfont->equals(newfont))) {
 		invalidateTree();
 	}
 }
@@ -1389,7 +1093,7 @@ $Dimension* Container::preferredSize() {
 	}
 	if (var$0) {
 		$synchronized(getTreeLock()) {
-			$set(this, prefSize, (this->layoutMgr != nullptr) ? $nc(this->layoutMgr)->preferredLayoutSize(this) : $Component::preferredSize());
+			$set(this, prefSize, (this->layoutMgr != nullptr) ? this->layoutMgr->preferredLayoutSize(this) : $Component::preferredSize());
 			$assign(dim, this->prefSize);
 		}
 	}
@@ -1413,7 +1117,7 @@ $Dimension* Container::minimumSize() {
 	}
 	if (var$0) {
 		$synchronized(getTreeLock()) {
-			$set(this, minSize, (this->layoutMgr != nullptr) ? $nc(this->layoutMgr)->minimumLayoutSize(this) : $Component::minimumSize());
+			$set(this, minSize, (this->layoutMgr != nullptr) ? this->layoutMgr->minimumLayoutSize(this) : $Component::minimumSize());
 			$assign(dim, this->minSize);
 		}
 	}
@@ -1425,7 +1129,7 @@ $Dimension* Container::minimumSize() {
 }
 
 $Dimension* Container::getMaximumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, dim, this->maxSize);
 	bool var$0 = dim == nullptr;
 	if (!var$0) {
@@ -1477,7 +1181,7 @@ float Container::getAlignmentY() {
 }
 
 void Container::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
 		$synchronized(getObjectLock()) {
 			if (this->printing) {
@@ -1486,7 +1190,7 @@ void Container::paint($Graphics* g) {
 				}
 			}
 		}
-		$nc($($GraphicsCallback$PaintCallback::getInstance()))->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS);
+		$$nc($GraphicsCallback$PaintCallback::getInstance())->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS);
 	}
 }
 
@@ -1500,40 +1204,38 @@ void Container::update($Graphics* g) {
 }
 
 void Container::print($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
 		$var($Thread, t, $Thread::currentThread());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$synchronized(getObjectLock()) {
-					if (this->printingThreads == nullptr) {
-						$set(this, printingThreads, $new($HashSet));
-					}
-					$nc(this->printingThreads)->add(t);
-					this->printing = true;
+		$var($Throwable, var$0, nullptr);
+		try {
+			$synchronized(getObjectLock()) {
+				if (this->printingThreads == nullptr) {
+					$set(this, printingThreads, $new($HashSet));
 				}
-				$Component::print(g);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$synchronized(getObjectLock()) {
-					$nc(this->printingThreads)->remove(t);
-					this->printing = !$nc(this->printingThreads)->isEmpty();
-				}
+				$nc(this->printingThreads)->add(t);
+				this->printing = true;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			$Component::print(g);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$synchronized(getObjectLock()) {
+				$nc(this->printingThreads)->remove(t);
+				this->printing = !this->printingThreads->isEmpty();
 			}
 		}
-		$nc($($GraphicsCallback$PrintCallback::getInstance()))->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS);
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		$$nc($GraphicsCallback$PrintCallback::getInstance())->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS);
 	}
 }
 
 void Container::paintComponents($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
-		$nc($($GraphicsCallback$PaintAllCallback::getInstance()))->runComponents($(getComponentsSync()), g, $GraphicsCallback::TWO_PASSES);
+		$$nc($GraphicsCallback$PaintAllCallback::getInstance())->runComponents($(getComponentsSync()), g, $GraphicsCallback::TWO_PASSES);
 	}
 }
 
@@ -1543,16 +1245,16 @@ void Container::lightweightPaint($Graphics* g) {
 }
 
 void Container::paintHeavyweightComponents($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
-		$nc($($GraphicsCallback$PaintHeavyweightComponentsCallback::getInstance()))->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS | $GraphicsCallback::HEAVYWEIGHTS);
+		$$nc($GraphicsCallback$PaintHeavyweightComponentsCallback::getInstance())->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS | $GraphicsCallback::HEAVYWEIGHTS);
 	}
 }
 
 void Container::printComponents($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
-		$nc($($GraphicsCallback$PrintAllCallback::getInstance()))->runComponents($(getComponentsSync()), g, $GraphicsCallback::TWO_PASSES);
+		$$nc($GraphicsCallback$PrintAllCallback::getInstance())->runComponents($(getComponentsSync()), g, $GraphicsCallback::TWO_PASSES);
 	}
 }
 
@@ -1562,9 +1264,9 @@ void Container::lightweightPrint($Graphics* g) {
 }
 
 void Container::printHeavyweightComponents($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
-		$nc($($GraphicsCallback$PrintHeavyweightComponentsCallback::getInstance()))->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS | $GraphicsCallback::HEAVYWEIGHTS);
+		$$nc($GraphicsCallback$PrintHeavyweightComponentsCallback::getInstance())->runComponents($(getComponentsSync()), g, $GraphicsCallback::LIGHTWEIGHTS | $GraphicsCallback::HEAVYWEIGHTS);
 	}
 }
 
@@ -1590,7 +1292,7 @@ void Container::removeContainerListener($ContainerListener* l) {
 $ContainerListenerArray* Container::getContainerListeners() {
 	$synchronized(this) {
 		$load($ContainerListener);
-		return $fcast($ContainerListenerArray, getListeners($ContainerListener::class$));
+		return $cast($ContainerListenerArray, getListeners($ContainerListener::class$));
 	}
 }
 
@@ -1608,7 +1310,7 @@ $EventListenerArray* Container::getListeners($Class* listenerType) {
 bool Container::eventEnabled($AWTEvent* e) {
 	int32_t id = $nc(e)->getID();
 	if (id == $ContainerEvent::COMPONENT_ADDED || id == $ContainerEvent::COMPONENT_REMOVED) {
-		if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 || this->containerListener != nullptr) {
+		if ((this->eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 || this->containerListener != nullptr) {
 			return true;
 		}
 		return false;
@@ -1629,21 +1331,17 @@ void Container::processContainerEvent($ContainerEvent* e) {
 	if (listener != nullptr) {
 		switch ($nc(e)->getID()) {
 		case $ContainerEvent::COMPONENT_ADDED:
-			{
-				listener->componentAdded(e);
-				break;
-			}
+			listener->componentAdded(e);
+			break;
 		case $ContainerEvent::COMPONENT_REMOVED:
-			{
-				listener->componentRemoved(e);
-				break;
-			}
+			listener->componentRemoved(e);
+			break;
 		}
 	}
 }
 
 void Container::dispatchEventImpl($AWTEvent* e) {
-	if ((this->dispatcher != nullptr) && $nc(this->dispatcher)->dispatchEvent(e)) {
+	if ((this->dispatcher != nullptr) && this->dispatcher->dispatchEvent(e)) {
 		$nc(e)->consume();
 		if (this->peer != nullptr) {
 			$nc(this->peer)->handleEvent(e);
@@ -1654,19 +1352,13 @@ void Container::dispatchEventImpl($AWTEvent* e) {
 	$synchronized(getTreeLock()) {
 		switch ($nc(e)->getID()) {
 		case $ComponentEvent::COMPONENT_RESIZED:
-			{
-				createChildHierarchyEvents($HierarchyEvent::ANCESTOR_RESIZED, 0, $Toolkit::enabledOnToolkit($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
-				break;
-			}
+			createChildHierarchyEvents($HierarchyEvent::ANCESTOR_RESIZED, 0, $Toolkit::enabledOnToolkit($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
+			break;
 		case $ComponentEvent::COMPONENT_MOVED:
-			{
-				createChildHierarchyEvents($HierarchyEvent::ANCESTOR_MOVED, 0, $Toolkit::enabledOnToolkit($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
-				break;
-			}
+			createChildHierarchyEvents($HierarchyEvent::ANCESTOR_MOVED, 0, $Toolkit::enabledOnToolkit($AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK));
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 }
@@ -1697,11 +1389,11 @@ $Component* Container::getMouseEventTarget(int32_t x, int32_t y, bool includeSel
 }
 
 $Component* Container::getMouseEventTargetImpl(int32_t x, int32_t y, bool includeSelf, $Container$EventTargetFilter* filter, bool searchHeavyweightChildren, bool searchHeavyweightDescendants) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		for (int32_t i = 0; i < $nc(this->component)->size(); ++i) {
-			$var($Component, comp, $cast($Component, $nc(this->component)->get(i)));
-			if (comp != nullptr && comp->visible && ((!searchHeavyweightChildren && $instanceOf($LightweightPeer, comp->peer)) || (searchHeavyweightChildren && !($instanceOf($LightweightPeer, $nc(comp)->peer)))) && comp->contains(x - comp->x, y - comp->y)) {
+			$var($Component, comp, $cast($Component, this->component->get(i)));
+			if (comp != nullptr && comp->visible && ((!searchHeavyweightChildren && $instanceOf($LightweightPeer, comp->peer)) || (searchHeavyweightChildren && !($instanceOf($LightweightPeer, comp->peer)))) && comp->contains(x - comp->x, y - comp->y)) {
 				if ($instanceOf(Container, comp)) {
 					$var(Container, child, $cast(Container, comp));
 					$var($Component, deeper, child->getMouseEventTarget(x - child->x, y - child->y, includeSelf, filter, searchHeavyweightDescendants));
@@ -1727,17 +1419,17 @@ $Component* Container::getMouseEventTargetImpl(int32_t x, int32_t y, bool includ
 void Container::proxyEnableEvents(int64_t events) {
 	if ($instanceOf($LightweightPeer, this->peer)) {
 		if (this->parent != nullptr) {
-			$nc(this->parent)->proxyEnableEvents(events);
+			this->parent->proxyEnableEvents(events);
 		}
 	} else if (this->dispatcher != nullptr) {
-		$nc(this->dispatcher)->enableEvents(events);
+		this->dispatcher->enableEvents(events);
 	}
 }
 
 void Container::deliverEvent($Event* e) {
-	$var($Component, comp, getComponentAt($nc(e)->x, e->y));
+	$var($Component, comp, getComponentAt($nc(e)->x, $nc(e)->y));
 	if ((comp != nullptr) && (!$equals(comp, this))) {
-		$nc(e)->translate(-comp->x, -comp->y);
+		e->translate(-comp->x, -comp->y);
 		comp->deliverEvent(e);
 	} else {
 		postEvent(e);
@@ -1749,43 +1441,39 @@ $Component* Container::getComponentAt(int32_t x, int32_t y) {
 }
 
 $Component* Container::locate(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!contains(x, y)) {
 		return nullptr;
 	}
 	$var($Component, lightweight, nullptr);
 	$synchronized(getTreeLock()) {
-		{
-			$var($Iterator, i$, $nc(this->component)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Component, comp, $cast($Component, i$->next()));
-				{
-					if ($nc(comp)->contains(x - comp->x, y - comp->y)) {
-						if (!comp->isLightweight()) {
-							return comp;
-						}
-						if (lightweight == nullptr) {
-							$assign(lightweight, comp);
-						}
-					}
+		$var($Iterator, i$, $nc(this->component)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Component, comp, $cast($Component, i$->next()));
+			if ($nc(comp)->contains(x - $nc(comp)->x, y - $nc(comp)->y)) {
+				if (!comp->isLightweight()) {
+					return comp;
+				}
+				if (lightweight == nullptr) {
+					$assign(lightweight, comp);
 				}
 			}
 		}
 	}
-	return lightweight != nullptr ? lightweight : static_cast<$Component*>(this);
+	return lightweight != nullptr ? lightweight : $cast($Component, this);
 }
 
 $Component* Container::getComponentAt($Point* p) {
-	return getComponentAt($nc(p)->x, p->y);
+	return getComponentAt($nc(p)->x, $nc(p)->y);
 }
 
 $Point* Container::getMousePosition(bool allowChildren) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
 	}
-	$var($PointerInfo, pi, $cast($PointerInfo, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Container$2, this)))));
+	$var($PointerInfo, pi, $cast($PointerInfo, $AccessController::doPrivileged($$new($Container$2, this))));
 	$synchronized(getTreeLock()) {
 		$var($Component, inTheSameWindow, findUnderMouseInWindow(pi));
 		if (isSameOrAncestorOf(inTheSameWindow, allowChildren)) {
@@ -1813,7 +1501,7 @@ $Component* Container::findComponentAt(int32_t x, int32_t y, bool ignoreEnabled)
 }
 
 $Component* Container::findComponentAtImpl(int32_t x, int32_t y, bool ignoreEnabled) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!(contains(x, y) && this->visible && (ignoreEnabled || this->enabled))) {
 		return nullptr;
 	}
@@ -1839,42 +1527,42 @@ $Component* Container::findComponentAtImpl(int32_t x, int32_t y, bool ignoreEnab
 			}
 		}
 	}
-	return lightweight != nullptr ? lightweight : static_cast<$Component*>(this);
+	return lightweight != nullptr ? lightweight : $cast($Component, this);
 }
 
 $Component* Container::getChildAt($Component* comp$renamed, int32_t x, int32_t y, bool ignoreEnabled) {
 	$init(Container);
 	$var($Component, comp, comp$renamed);
 	if ($instanceOf(Container, comp)) {
-		$assign(comp, $nc(($cast(Container, comp)))->findComponentAtImpl(x, y, ignoreEnabled));
+		$assign(comp, $cast(Container, comp)->findComponentAtImpl(x, y, ignoreEnabled));
 	} else {
 		$assign(comp, $nc(comp)->getComponentAt(x, y));
 	}
-	if (comp != nullptr && comp->visible && (ignoreEnabled || $nc(comp)->enabled)) {
+	if (comp != nullptr && comp->visible && (ignoreEnabled || comp->enabled)) {
 		return comp;
 	}
 	return nullptr;
 }
 
 $Component* Container::findComponentAt($Point* p) {
-	return findComponentAt($nc(p)->x, p->y);
+	return findComponentAt($nc(p)->x, $nc(p)->y);
 }
 
 void Container::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$Component::addNotify();
 		if (!($instanceOf($LightweightPeer, this->peer))) {
 			$set(this, dispatcher, $new($LightweightDispatcher, this));
 		}
 		for (int32_t i = 0; i < $nc(this->component)->size(); ++i) {
-			$nc(($cast($Component, $($nc(this->component)->get(i)))))->addNotify();
+			$$sure($Component, this->component->get(i))->addNotify();
 		}
 	}
 }
 
 void Container::removeNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		for (int32_t i = $nc(this->component)->size() - 1; i >= 0; --i) {
 			$var($Component, comp, $cast($Component, $nc(this->component)->get(i)));
@@ -1891,7 +1579,7 @@ void Container::removeNotify() {
 			}
 		}
 		if (this->dispatcher != nullptr) {
-			$nc(this->dispatcher)->dispose();
+			this->dispatcher->dispose();
 			$set(this, dispatcher, nullptr);
 		}
 		$Component::removeNotify();
@@ -1900,7 +1588,7 @@ void Container::removeNotify() {
 
 bool Container::isAncestorOf($Component* c) {
 	$var(Container, p, nullptr);
-	if (c == nullptr || (($assign(p, $nc(c)->getParent())) == nullptr)) {
+	if (c == nullptr || (($assign(p, c->getParent())) == nullptr)) {
 		return false;
 	}
 	while (p != nullptr) {
@@ -1913,12 +1601,12 @@ bool Container::isAncestorOf($Component* c) {
 }
 
 void Container::startLWModal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, modalAppContext, $AppContext::getAppContext());
-	int64_t time = $nc($($Toolkit::getEventQueue()))->getMostRecentKeyEventTime();
-	$var($Component, predictedFocusOwner, ($Component::isInstanceOf(this, "javax.swing.JInternalFrame"_s)) ? $nc((($cast($JInternalFrame, this))))->getMostRecentFocusOwner() : ($Component*)nullptr);
+	int64_t time = $$nc($Toolkit::getEventQueue())->getMostRecentKeyEventTime();
+	$var($Component, predictedFocusOwner, ($Component::isInstanceOf(this, "javax.swing.JInternalFrame"_s)) ? $cast($JInternalFrame, this)->getMostRecentFocusOwner() : ($Component*)nullptr);
 	if (predictedFocusOwner != nullptr) {
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->enqueueKeyEvents(time, predictedFocusOwner);
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->enqueueKeyEvents(time, predictedFocusOwner);
 	}
 	$var(Container, nativeContainer, nullptr);
 	$synchronized(getTreeLock()) {
@@ -1931,19 +1619,19 @@ void Container::startLWModal() {
 			$set(nativeContainer, modalComp, this);
 		}
 	}
-	$var($Runnable, pumpEventsForHierarchy, static_cast<$Runnable*>($new(Container$$Lambda$lambda$startLWModal$1, this, nativeContainer)));
+	$var($Runnable, pumpEventsForHierarchy, $new(Container$$Lambda$lambda$startLWModal$1, this, nativeContainer));
 	if ($EventQueue::isDispatchThread()) {
-		$var($SequencedEvent, currentSequencedEvent, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getCurrentSequencedEvent());
+		$var($SequencedEvent, currentSequencedEvent, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getCurrentSequencedEvent());
 		if (currentSequencedEvent != nullptr) {
 			currentSequencedEvent->dispose();
 		}
 		$nc(pumpEventsForHierarchy)->run();
 	} else {
 		$synchronized(getTreeLock()) {
-			$nc($($Toolkit::getEventQueue()))->postEvent($$new($PeerEvent, this, pumpEventsForHierarchy, $PeerEvent::PRIORITY_EVENT));
-			while ($nc(nativeContainer)->modalComp != nullptr) {
+			$$nc($Toolkit::getEventQueue())->postEvent($$new($PeerEvent, this, pumpEventsForHierarchy, $PeerEvent::PRIORITY_EVENT));
+			while (nativeContainer->modalComp != nullptr) {
 				try {
-					$nc($of($(getTreeLock())))->wait();
+					$$nc(getTreeLock())->wait();
 				} catch ($InterruptedException& e) {
 					break;
 				}
@@ -1951,12 +1639,12 @@ void Container::startLWModal() {
 		}
 	}
 	if (predictedFocusOwner != nullptr) {
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->dequeueKeyEvents(time, predictedFocusOwner);
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->dequeueKeyEvents(time, predictedFocusOwner);
 	}
 }
 
 void Container::stopLWModal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (this->modalAppContext != nullptr) {
 			$var(Container, nativeContainer, getHeavyweightContainer());
@@ -1972,26 +1660,26 @@ void Container::stopLWModal() {
 			$SunToolkit::postEvent(this->modalAppContext, $$new($PeerEvent, this, $$new($Container$WakingRunnable), $PeerEvent::PRIORITY_EVENT));
 		}
 		$EventQueue::invokeLater($$new($Container$WakingRunnable));
-		$nc($of($(getTreeLock())))->notifyAll();
+		$$nc(getTreeLock())->notifyAll();
 	}
 }
 
 $String* Container::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $Component::paramString());
 	$var($LayoutManager, layoutMgr, this->layoutMgr);
 	if (layoutMgr != nullptr) {
-		$plusAssign(str, $$str({",layout="_s, $($of(layoutMgr)->getClass()->getName())}));
+		$plusAssign(str, $$str({",layout="_s, $(layoutMgr->getClass()->getName())}));
 	}
 	return str;
 }
 
 void Container::list($PrintStream* out, int32_t indent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Component::list(out, indent);
 	$synchronized(getTreeLock()) {
 		for (int32_t i = 0; i < $nc(this->component)->size(); ++i) {
-			$var($Component, comp, $cast($Component, $nc(this->component)->get(i)));
+			$var($Component, comp, $cast($Component, this->component->get(i)));
 			if (comp != nullptr) {
 				comp->list(out, indent + 1);
 			}
@@ -2000,11 +1688,11 @@ void Container::list($PrintStream* out, int32_t indent) {
 }
 
 void Container::list($PrintWriter* out, int32_t indent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Component::list(out, indent);
 	$synchronized(getTreeLock()) {
 		for (int32_t i = 0; i < $nc(this->component)->size(); ++i) {
-			$var($Component, comp, $cast($Component, $nc(this->component)->get(i)));
+			$var($Component, comp, $cast($Component, this->component->get(i)));
 			if (comp != nullptr) {
 				comp->list(out, indent + 1);
 			}
@@ -2030,7 +1718,7 @@ bool Container::areFocusTraversalKeysSet(int32_t id) {
 	if (id < 0 || id >= $KeyboardFocusManager::TRAVERSAL_KEY_LENGTH) {
 		$throwNew($IllegalArgumentException, "invalid focus traversal key identifier"_s);
 	}
-	return (this->focusTraversalKeys != nullptr && $nc(this->focusTraversalKeys)->get(id) != nullptr);
+	return (this->focusTraversalKeys != nullptr && this->focusTraversalKeys->get(id) != nullptr);
 }
 
 bool Container::isFocusCycleRoot(Container* container) {
@@ -2042,8 +1730,8 @@ bool Container::isFocusCycleRoot(Container* container) {
 }
 
 Container* Container::findTraversalRoot() {
-	$useLocalCurrentObjectStackCache();
-	$var(Container, currentFocusCycleRoot, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getCurrentFocusCycleRoot());
+	$useLocalObjectStack();
+	$var(Container, currentFocusCycleRoot, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getCurrentFocusCycleRoot());
 	$var(Container, root, nullptr);
 	if (currentFocusCycleRoot == this) {
 		$assign(root, this);
@@ -2054,14 +1742,14 @@ Container* Container::findTraversalRoot() {
 		}
 	}
 	if (root != currentFocusCycleRoot) {
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->setGlobalCurrentFocusCycleRootPriv(root);
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->setGlobalCurrentFocusCycleRootPriv(root);
 	}
 	return root;
 }
 
 bool Container::containsFocus() {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, focusOwner, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$useLocalObjectStack();
+	$var($Component, focusOwner, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	return isParentOf(focusOwner);
 }
 
@@ -2076,7 +1764,7 @@ bool Container::isParentOf($Component* comp$renamed) {
 }
 
 void Container::clearMostRecentFocusOwnerOnHide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool reset = false;
 	$var($Window, window, nullptr);
 	$synchronized(getTreeLock()) {
@@ -2098,7 +1786,7 @@ void Container::clearMostRecentFocusOwnerOnHide() {
 }
 
 void Container::clearCurrentFocusCycleRootOnHide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyboardFocusManager, kfm, $KeyboardFocusManager::getCurrentKeyboardFocusManager());
 	$var(Container, cont, $nc(kfm)->getCurrentFocusCycleRoot());
 	if (cont == this || isParentOf(cont)) {
@@ -2119,11 +1807,11 @@ void Container::setFocusTraversalPolicy($FocusTraversalPolicy* policy) {
 		$assign(oldPolicy, this->focusTraversalPolicy);
 		$set(this, focusTraversalPolicy, policy);
 	}
-	firePropertyChange("focusTraversalPolicy"_s, $of(oldPolicy), $of(policy));
+	firePropertyChange("focusTraversalPolicy"_s, oldPolicy, policy);
 }
 
 $FocusTraversalPolicy* Container::getFocusTraversalPolicy() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !isFocusTraversalPolicyProvider();
 	if (var$0 && !isFocusCycleRoot()) {
 		return nullptr;
@@ -2136,7 +1824,7 @@ $FocusTraversalPolicy* Container::getFocusTraversalPolicy() {
 	if (rootAncestor != nullptr) {
 		return rootAncestor->getFocusTraversalPolicy();
 	} else {
-		return $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getDefaultFocusTraversalPolicy();
+		return $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getDefaultFocusTraversalPolicy();
 	}
 }
 
@@ -2171,10 +1859,10 @@ bool Container::isFocusTraversalPolicyProvider() {
 }
 
 void Container::transferFocusDownCycle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isFocusCycleRoot()) {
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->setGlobalCurrentFocusCycleRootPriv(this);
-		$var($Component, toFocus, $nc($(getFocusTraversalPolicy()))->getDefaultComponent(this));
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->setGlobalCurrentFocusCycleRootPriv(this);
+		$var($Component, toFocus, $$nc(getFocusTraversalPolicy())->getDefaultComponent(this));
 		if (toFocus != nullptr) {
 			$init($FocusEvent$Cause);
 			toFocus->requestFocus($FocusEvent$Cause::TRAVERSAL_DOWN);
@@ -2201,11 +1889,11 @@ bool Container::postsOldMouseEvents() {
 }
 
 void Container::applyComponentOrientation($ComponentOrientation* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Component::applyComponentOrientation(o);
 	$synchronized(getTreeLock()) {
 		for (int32_t i = 0; i < $nc(this->component)->size(); ++i) {
-			$var($Component, comp, $cast($Component, $nc(this->component)->get(i)));
+			$var($Component, comp, $cast($Component, this->component->get(i)));
 			$nc(comp)->applyComponentOrientation(o);
 		}
 	}
@@ -2220,13 +1908,13 @@ void Container::addPropertyChangeListener($String* propertyName, $PropertyChange
 }
 
 void Container::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream$PutField, f, $nc(s)->putFields());
 	$nc(f)->put("ncomponents"_s, $nc(this->component)->size());
-	f->put("component"_s, $($of($nc(this->component)->toArray(Container::EMPTY_ARRAY))));
-	f->put("layoutMgr"_s, $of(this->layoutMgr));
-	f->put("dispatcher"_s, $of(this->dispatcher));
-	f->put("maxSize"_s, $of(this->maxSize));
+	f->put("component"_s, $(this->component->toArray(Container::EMPTY_ARRAY)));
+	f->put("layoutMgr"_s, this->layoutMgr);
+	f->put("dispatcher"_s, this->dispatcher);
+	f->put("maxSize"_s, this->maxSize);
 	f->put("focusCycleRoot"_s, this->focusCycleRoot);
 	f->put("containerSerializedDataVersion"_s, this->containerSerializedDataVersion);
 	f->put("focusTraversalPolicyProvider"_s, this->focusTraversalPolicyProvider);
@@ -2242,24 +1930,24 @@ void Container::writeObject($ObjectOutputStream* s) {
 }
 
 void Container::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$var($ComponentArray, tmpComponent, $cast($ComponentArray, $nc(f)->get("component"_s, ($Object*)nullptr)));
+	$var($ComponentArray, tmpComponent, $cast($ComponentArray, $nc(f)->get("component"_s, nullptr)));
 	if (tmpComponent == nullptr) {
 		$assign(tmpComponent, Container::EMPTY_ARRAY);
 	}
-	int32_t ncomponents = $nc(($($Integer::valueOf(f->get("ncomponents"_s, 0)))))->intValue();
+	int32_t ncomponents = $($Integer::valueOf(f->get("ncomponents"_s, 0)))->intValue();
 	if (ncomponents < 0 || ncomponents > $nc(tmpComponent)->length) {
 		$throwNew($InvalidObjectException, "Incorrect number of components"_s);
 	}
 	$set(this, component, $new($ArrayList, ncomponents));
 	for (int32_t i = 0; i < ncomponents; ++i) {
-		$nc(this->component)->add($nc(tmpComponent)->get(i));
+		this->component->add($nc(tmpComponent)->get(i));
 	}
-	$set(this, layoutMgr, $cast($LayoutManager, f->get("layoutMgr"_s, ($Object*)nullptr)));
-	$set(this, dispatcher, $cast($LightweightDispatcher, f->get("dispatcher"_s, ($Object*)nullptr)));
+	$set(this, layoutMgr, $cast($LayoutManager, f->get("layoutMgr"_s, nullptr)));
+	$set(this, dispatcher, $cast($LightweightDispatcher, f->get("dispatcher"_s, nullptr)));
 	if (this->maxSize == nullptr) {
-		$set(this, maxSize, $cast($Dimension, f->get("maxSize"_s, ($Object*)nullptr)));
+		$set(this, maxSize, $cast($Dimension, f->get("maxSize"_s, nullptr)));
 	}
 	this->focusCycleRoot = f->get("focusCycleRoot"_s, false);
 	this->containerSerializedDataVersion = f->get("containerSerializedDataVersion"_s, 1);
@@ -2279,10 +1967,10 @@ void Container::readObject($ObjectInputStream* s) {
 	}
 	$var($Object, keyOrNull, nullptr);
 	while (nullptr != ($assign(keyOrNull, s->readObject()))) {
-		$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		$var($String, key, $nc($cast($String, keyOrNull))->intern());
 		$init($Component);
 		if ($Component::containerListenerK == key) {
-			addContainerListener(($cast($ContainerListener, $(s->readObject()))));
+			addContainerListener($$cast($ContainerListener, s->readObject()));
 		} else {
 			s->readObject();
 		}
@@ -2300,7 +1988,7 @@ void Container::readObject($ObjectInputStream* s) {
 }
 
 $Accessible* Container::getAccessibleAt($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if ($instanceOf($Accessible, this)) {
 			$var($Accessible, a, $cast($Accessible, this));
@@ -2317,7 +2005,7 @@ $Accessible* Container::getAccessibleAt($Point* p) {
 							$assign(acmp, ac->getAccessibleComponent());
 							if ((acmp != nullptr) && (acmp->isShowing())) {
 								$assign(location, acmp->getLocation());
-								$var($Point, np, $new($Point, $nc(p)->x - $nc(location)->x, p->y - location->y));
+								$var($Point, np, $new($Point, $nc(p)->x - $nc(location)->x, $nc(p)->y - $nc(location)->y));
 								if (acmp->contains(np)) {
 									return a;
 								}
@@ -2329,7 +2017,7 @@ $Accessible* Container::getAccessibleAt($Point* p) {
 			return $cast($Accessible, this);
 		} else {
 			$var($Component, ret, this);
-			if (!this->contains($nc(p)->x, p->y)) {
+			if (!this->contains($nc(p)->x, $nc(p)->y)) {
 				$assign(ret, nullptr);
 			} else {
 				int32_t ncomponents = this->getComponentCount();
@@ -2337,7 +2025,7 @@ $Accessible* Container::getAccessibleAt($Point* p) {
 					$var($Component, comp, this->getComponent(i));
 					if ((comp != nullptr) && comp->isShowing()) {
 						$var($Point, location, comp->getLocation());
-						if (comp->contains($nc(p)->x - $nc(location)->x, p->y - location->y)) {
+						if (comp->contains(p->x - $nc(location)->x, p->y - $nc(location)->y)) {
 							$assign(ret, comp);
 						}
 					}
@@ -2389,10 +2077,10 @@ void Container::increaseComponentCount($Component* c) {
 		int32_t addHW = 0;
 		int32_t addLW = 0;
 		if ($instanceOf(Container, c)) {
-			addLW = $nc(($cast(Container, c)))->numOfLWComponents;
-			addHW = ($cast(Container, c))->numOfHWComponents;
+			addLW = $cast(Container, c)->numOfLWComponents;
+			addHW = $cast(Container, c)->numOfHWComponents;
 		}
-		if ($nc(c)->isLightweight()) {
+		if (c->isLightweight()) {
 			++addLW;
 		} else {
 			++addHW;
@@ -2400,7 +2088,7 @@ void Container::increaseComponentCount($Component* c) {
 		{
 			$var(Container, cont, this);
 			for (; cont != nullptr; $assign(cont, cont->getContainer())) {
-				$nc(cont)->numOfLWComponents += addLW;
+				cont->numOfLWComponents += addLW;
 				cont->numOfHWComponents += addHW;
 			}
 		}
@@ -2415,10 +2103,10 @@ void Container::decreaseComponentCount($Component* c) {
 		int32_t subHW = 0;
 		int32_t subLW = 0;
 		if ($instanceOf(Container, c)) {
-			subLW = $nc(($cast(Container, c)))->numOfLWComponents;
-			subHW = ($cast(Container, c))->numOfHWComponents;
+			subLW = $cast(Container, c)->numOfLWComponents;
+			subHW = $cast(Container, c)->numOfHWComponents;
 		}
-		if ($nc(c)->isLightweight()) {
+		if (c->isLightweight()) {
 			++subLW;
 		} else {
 			++subHW;
@@ -2426,7 +2114,7 @@ void Container::decreaseComponentCount($Component* c) {
 		{
 			$var(Container, cont, this);
 			for (; cont != nullptr; $assign(cont, cont->getContainer())) {
-				$nc(cont)->numOfLWComponents -= subLW;
+				cont->numOfLWComponents -= subLW;
 				cont->numOfHWComponents -= subHW;
 			}
 		}
@@ -2450,7 +2138,7 @@ int32_t Container::getBottommostComponentIndex() {
 }
 
 $Region* Container::getOpaqueShape() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	bool var$1 = isLightweight();
 	bool var$0 = var$1 && isNonOpaqueForMixing();
@@ -2470,9 +2158,8 @@ $Region* Container::getOpaqueShape() {
 }
 
 void Container::recursiveSubtractAndApplyShape($Region* shape) {
-	$var($Region, var$0, shape);
-	int32_t var$1 = getTopmostComponentIndex();
-	recursiveSubtractAndApplyShape(var$0, var$1, getBottommostComponentIndex());
+	int32_t var$0 = getTopmostComponentIndex();
+	recursiveSubtractAndApplyShape(shape, var$0, getBottommostComponentIndex());
 }
 
 void Container::recursiveSubtractAndApplyShape($Region* shape, int32_t fromZorder) {
@@ -2480,11 +2167,11 @@ void Container::recursiveSubtractAndApplyShape($Region* shape, int32_t fromZorde
 }
 
 void Container::recursiveSubtractAndApplyShape($Region* shape, int32_t fromZorder, int32_t toZorder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	$init($PlatformLogger$Level);
 	if ($nc(Container::mixingLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(Container::mixingLog)->fine($$str({"this = "_s, this, "; shape="_s, shape, "; fromZ="_s, $$str(fromZorder), "; toZ="_s, $$str(toZorder)}));
+		Container::mixingLog->fine($$str({"this = "_s, this, "; shape="_s, shape, "; fromZ="_s, $$str(fromZorder), "; toZ="_s, $$str(toZorder)}));
 	}
 	if (fromZorder == -1) {
 		return;
@@ -2501,9 +2188,9 @@ void Container::recursiveSubtractAndApplyShape($Region* shape, int32_t fromZorde
 		if (!$nc(comp)->isLightweight()) {
 			comp->subtractAndApplyShape(shape);
 		} else {
-			bool var$2 = $instanceOf(Container, comp) && $nc(($cast(Container, comp)))->hasHeavyweightDescendants();
-			if (var$2 && comp->isShowing()) {
-				$nc(($cast(Container, comp)))->recursiveSubtractAndApplyShape(shape);
+			bool var$1 = $instanceOf(Container, comp) && $cast(Container, comp)->hasHeavyweightDescendants();
+			if (var$1 && comp->isShowing()) {
+				$cast(Container, comp)->recursiveSubtractAndApplyShape(shape);
 			}
 		}
 	}
@@ -2519,11 +2206,11 @@ void Container::recursiveApplyCurrentShape(int32_t fromZorder) {
 }
 
 void Container::recursiveApplyCurrentShape(int32_t fromZorder, int32_t toZorder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkTreeLock();
 	$init($PlatformLogger$Level);
 	if ($nc(Container::mixingLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(Container::mixingLog)->fine($$str({"this = "_s, this, "; fromZ="_s, $$str(fromZorder), "; toZ="_s, $$str(toZorder)}));
+		Container::mixingLog->fine($$str({"this = "_s, this, "; fromZ="_s, $$str(fromZorder), "; toZ="_s, $$str(toZorder)}));
 	}
 	if (fromZorder == -1) {
 		return;
@@ -2537,14 +2224,14 @@ void Container::recursiveApplyCurrentShape(int32_t fromZorder, int32_t toZorder)
 		if (!$nc(comp)->isLightweight()) {
 			comp->applyCurrentShape();
 		}
-		if ($instanceOf(Container, comp) && $nc(($cast(Container, comp)))->hasHeavyweightDescendants()) {
-			$nc(($cast(Container, comp)))->recursiveApplyCurrentShape();
+		if ($instanceOf(Container, comp) && $cast(Container, comp)->hasHeavyweightDescendants()) {
+			$cast(Container, comp)->recursiveApplyCurrentShape();
 		}
 	}
 }
 
 void Container::recursiveShowHeavyweightChildren() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !hasHeavyweightDescendants();
 	if (var$0 || !isVisible()) {
 		return;
@@ -2553,7 +2240,7 @@ void Container::recursiveShowHeavyweightChildren() {
 		$var($Component, comp, getComponent(index));
 		if ($nc(comp)->isLightweight()) {
 			if ($instanceOf(Container, comp)) {
-				$nc(($cast(Container, comp)))->recursiveShowHeavyweightChildren();
+				$cast(Container, comp)->recursiveShowHeavyweightChildren();
 			}
 		} else if (comp->isVisible()) {
 			$var($ComponentPeer, peer, comp->peer);
@@ -2565,7 +2252,7 @@ void Container::recursiveShowHeavyweightChildren() {
 }
 
 void Container::recursiveHideHeavyweightChildren() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasHeavyweightDescendants()) {
 		return;
 	}
@@ -2573,7 +2260,7 @@ void Container::recursiveHideHeavyweightChildren() {
 		$var($Component, comp, getComponent(index));
 		if ($nc(comp)->isLightweight()) {
 			if ($instanceOf(Container, comp)) {
-				$nc(($cast(Container, comp)))->recursiveHideHeavyweightChildren();
+				$cast(Container, comp)->recursiveHideHeavyweightChildren();
 			}
 		} else if (comp->isVisible()) {
 			$var($ComponentPeer, peer, comp->peer);
@@ -2585,15 +2272,15 @@ void Container::recursiveHideHeavyweightChildren() {
 }
 
 void Container::recursiveRelocateHeavyweightChildren($Point* origin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t index = 0; index < getComponentCount(); ++index) {
 		$var($Component, comp, getComponent(index));
 		if ($nc(comp)->isLightweight()) {
-			if ($instanceOf(Container, comp) && $nc(($cast(Container, comp)))->hasHeavyweightDescendants()) {
+			if ($instanceOf(Container, comp) && $cast(Container, comp)->hasHeavyweightDescendants()) {
 				$var($Point, newOrigin, $new($Point, origin));
 				int32_t var$0 = comp->getX();
 				newOrigin->translate(var$0, comp->getY());
-				$nc(($cast(Container, comp)))->recursiveRelocateHeavyweightChildren(newOrigin);
+				$cast(Container, comp)->recursiveRelocateHeavyweightChildren(newOrigin);
 			}
 		} else {
 			$var($ComponentPeer, peer, comp->peer);
@@ -2614,7 +2301,7 @@ bool Container::isRecursivelyVisibleUpToHeavyweightContainer() {
 	{
 		$var(Container, cont, this);
 		for (; cont != nullptr && cont->isLightweight(); $assign(cont, cont->getContainer())) {
-			if (!$nc(cont)->isVisible()) {
+			if (!cont->isVisible()) {
 				return false;
 			}
 		}
@@ -2626,7 +2313,7 @@ void Container::mixOnShowing() {
 	$synchronized(getTreeLock()) {
 		$init($PlatformLogger$Level);
 		if ($nc(Container::mixingLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(Container::mixingLog)->fine($$str({"this = "_s, this}));
+			Container::mixingLog->fine($$str({"this = "_s, this}));
 		}
 		bool isLightweight = this->isLightweight();
 		if (isLightweight && isRecursivelyVisibleUpToHeavyweightContainer()) {
@@ -2643,11 +2330,11 @@ void Container::mixOnShowing() {
 }
 
 void Container::mixOnHiding(bool isLightweight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$init($PlatformLogger$Level);
 		if ($nc(Container::mixingLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(Container::mixingLog)->fine($$str({"this = "_s, this, "; isLightweight="_s, $$str(isLightweight)}));
+			Container::mixingLog->fine($$str({"this = "_s, this, "; isLightweight="_s, $$str(isLightweight)}));
 		}
 		if (isLightweight) {
 			recursiveHideHeavyweightChildren();
@@ -2657,11 +2344,11 @@ void Container::mixOnHiding(bool isLightweight) {
 }
 
 void Container::mixOnReshaping() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$init($PlatformLogger$Level);
 		if ($nc(Container::mixingLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(Container::mixingLog)->fine($$str({"this = "_s, this}));
+			Container::mixingLog->fine($$str({"this = "_s, this}));
 		}
 		bool isMixingNeeded = this->isMixingNeeded();
 		bool var$0 = isLightweight();
@@ -2670,7 +2357,7 @@ void Container::mixOnReshaping() {
 			$var($Point, origin, $new($Point, var$1, getY()));
 			{
 				$var(Container, cont, getContainer());
-				for (; cont != nullptr && cont->isLightweight(); $assign(cont, $nc(cont)->getContainer())) {
+				for (; cont != nullptr && cont->isLightweight(); $assign(cont, cont->getContainer())) {
 					int32_t var$2 = cont->getX();
 					origin->translate(var$2, cont->getY());
 				}
@@ -2689,11 +2376,11 @@ void Container::mixOnReshaping() {
 }
 
 void Container::mixOnZOrderChanging(int32_t oldZorder, int32_t newZorder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$init($PlatformLogger$Level);
 		if ($nc(Container::mixingLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(Container::mixingLog)->fine($$str({"this = "_s, this, "; oldZ="_s, $$str(oldZorder), "; newZ="_s, $$str(newZorder)}));
+			Container::mixingLog->fine($$str({"this = "_s, this, "; oldZ="_s, $$str(oldZorder), "; newZ="_s, $$str(newZorder)}));
 		}
 		if (!isMixingNeeded()) {
 			return;
@@ -2711,7 +2398,7 @@ void Container::mixOnValidating() {
 	$synchronized(getTreeLock()) {
 		$init($PlatformLogger$Level);
 		if ($nc(Container::mixingLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(Container::mixingLog)->fine($$str({"this = "_s, this}));
+			Container::mixingLog->fine($$str({"this = "_s, this}));
 		}
 		if (!isMixingNeeded()) {
 			return;
@@ -2728,9 +2415,9 @@ void Container::mixOnValidating() {
 }
 
 void Container::lambda$startLWModal$1(Container* nativeContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EventDispatchThread, dispatchThread, $cast($EventDispatchThread, $Thread::currentThread()));
-	dispatchThread->pumpEventsForHierarchy(static_cast<$Conditional*>($$new(Container$$Lambda$lambda$startLWModal$0$1, nativeContainer)), this);
+	dispatchThread->pumpEventsForHierarchy($$new(Container$$Lambda$lambda$startLWModal$0$1, nativeContainer), this);
 }
 
 bool Container::lambda$startLWModal$0(Container* nativeContainer) {
@@ -2738,19 +2425,16 @@ bool Container::lambda$startLWModal$0(Container* nativeContainer) {
 	return $nc(nativeContainer)->modalComp != nullptr;
 }
 
-void clinit$Container($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Container::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(Container::log, $PlatformLogger::getLogger("java.awt.Container"_s));
 	$assignStatic(Container::eventLog, $PlatformLogger::getLogger("java.awt.event.Container"_s));
 	$assignStatic(Container::EMPTY_ARRAY, $new($ComponentArray, 0));
 	$assignStatic(Container::mixingLog, $PlatformLogger::getLogger("java.awt.mixing.Container"_s));
-	$init($Integer);
-	$load($ComponentArray);
 	$load($LayoutManager);
 	$load($LightweightDispatcher);
 	$load($Dimension);
-	$init($Boolean);
 	$assignStatic(Container::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "ncomponents"_s, $Integer::TYPE),
 		$$new($ObjectStreamField, "component"_s, $getClass($ComponentArray)),
@@ -2768,7 +2452,7 @@ void clinit$Container($Class* class$) {
 		}
 		$AWTAccessor::setContainerAccessor($$new($Container$1));
 	}
-	Container::isJavaAwtSmartInvalidate = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "java.awt.smartInvalidate"_s)))))))->booleanValue();
+	Container::isJavaAwtSmartInvalidate = $$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "java.awt.smartInvalidate"_s)))->booleanValue();
 	Container::descendUnconditionallyWhenValidating = false;
 }
 
@@ -2777,14 +2461,258 @@ Container::Container() {
 
 $Class* Container::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Container$$Lambda$lambda$startLWModal$1::classInfo$.name)) {
+		if (name->equals("java.awt.Container$$Lambda$lambda$startLWModal$1")) {
 			return Container$$Lambda$lambda$startLWModal$1::load$(name, initialize);
 		}
-		if (name->equals(Container$$Lambda$lambda$startLWModal$0$1::classInfo$.name)) {
+		if (name->equals("java.awt.Container$$Lambda$lambda$startLWModal$0$1")) {
 			return Container$$Lambda$lambda$startLWModal$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Container, name, initialize, &_Container_ClassInfo_, clinit$Container, allocate$Container);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, log)},
+		{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, eventLog)},
+		{"EMPTY_ARRAY", "[Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, EMPTY_ARRAY)},
+		{"component", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $field(Container, component)},
+		{"layoutMgr", "Ljava/awt/LayoutManager;", nullptr, 0, $field(Container, layoutMgr)},
+		{"dispatcher", "Ljava/awt/LightweightDispatcher;", nullptr, $PRIVATE, $field(Container, dispatcher)},
+		{"focusTraversalPolicy", "Ljava/awt/FocusTraversalPolicy;", nullptr, $PRIVATE | $TRANSIENT, $field(Container, focusTraversalPolicy)},
+		{"focusCycleRoot", "Z", nullptr, $PRIVATE, $field(Container, focusCycleRoot)},
+		{"focusTraversalPolicyProvider", "Z", nullptr, $PRIVATE, $field(Container, focusTraversalPolicyProvider)},
+		{"printingThreads", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Thread;>;", $PRIVATE | $TRANSIENT, $field(Container, printingThreads)},
+		{"printing", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Container, printing)},
+		{"containerListener", "Ljava/awt/event/ContainerListener;", nullptr, $TRANSIENT, $field(Container, containerListener)},
+		{"listeningChildren", "I", nullptr, $TRANSIENT, $field(Container, listeningChildren)},
+		{"listeningBoundsChildren", "I", nullptr, $TRANSIENT, $field(Container, listeningBoundsChildren)},
+		{"descendantsCount", "I", nullptr, $TRANSIENT, $field(Container, descendantsCount)},
+		{"preserveBackgroundColor", "Ljava/awt/Color;", nullptr, $TRANSIENT, $field(Container, preserveBackgroundColor)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Container, serialVersionUID)},
+		{"INCLUDE_SELF", "Z", nullptr, $STATIC | $FINAL, $constField(Container, INCLUDE_SELF)},
+		{"SEARCH_HEAVYWEIGHTS", "Z", nullptr, $STATIC | $FINAL, $constField(Container, SEARCH_HEAVYWEIGHTS)},
+		{"numOfHWComponents", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Container, numOfHWComponents)},
+		{"numOfLWComponents", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Container, numOfLWComponents)},
+		{"mixingLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, mixingLog)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, serialPersistentFields)},
+		{"isJavaAwtSmartInvalidate", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Container, isJavaAwtSmartInvalidate)},
+		{"descendUnconditionallyWhenValidating", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Container, descendUnconditionallyWhenValidating)},
+		{"modalComp", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(Container, modalComp)},
+		{"modalAppContext", "Lsun/awt/AppContext;", nullptr, $TRANSIENT, $field(Container, modalAppContext)},
+		{"containerSerializedDataVersion", "I", nullptr, $PRIVATE, $field(Container, containerSerializedDataVersion)},
+		{}
+	};
+	$CompoundAttribute countComponentsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute deliverEventmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute insetsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute layoutmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute locatemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute minimumSizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute preferredSizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Container, init$, void)},
+		{"add", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, add, $Component*, $Component*)},
+		{"add", "(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, add, $Component*, $String*, $Component*)},
+		{"add", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, add, $Component*, $Component*, int32_t)},
+		{"add", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Container, add, void, $Component*, Object$*)},
+		{"add", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(Container, add, void, $Component*, Object$*, int32_t)},
+		{"addContainerListener", "(Ljava/awt/event/ContainerListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Container, addContainerListener, void, $ContainerListener*)},
+		{"addDelicately", "(Ljava/awt/Component;Ljava/awt/Container;I)V", nullptr, $PRIVATE, $method(Container, addDelicately, void, $Component*, Container*, int32_t)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(Container, addImpl, void, $Component*, Object$*, int32_t)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Container, addNotify, void)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(Container, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"adjustDescendants", "(I)V", nullptr, 0, $virtualMethod(Container, adjustDescendants, void, int32_t)},
+		{"adjustDescendantsOnParent", "(I)V", nullptr, 0, $virtualMethod(Container, adjustDescendantsOnParent, void, int32_t)},
+		{"adjustListeningChildren", "(JI)V", nullptr, 0, $virtualMethod(Container, adjustListeningChildren, void, int64_t, int32_t)},
+		{"applyComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, $PUBLIC, $virtualMethod(Container, applyComponentOrientation, void, $ComponentOrientation*)},
+		{"areFocusTraversalKeysSet", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Container, areFocusTraversalKeysSet, bool, int32_t)},
+		{"canContainFocusOwner", "(Ljava/awt/Component;)Z", nullptr, 0, $virtualMethod(Container, canContainFocusOwner, bool, $Component*)},
+		{"checkAddToSelf", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(Container, checkAddToSelf, void, $Component*)},
+		{"checkAdding", "(Ljava/awt/Component;I)V", nullptr, $PRIVATE, $method(Container, checkAdding, void, $Component*, int32_t)},
+		{"checkGD", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Container, checkGD, void, $String*)},
+		{"checkNotAWindow", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(Container, checkNotAWindow, void, $Component*)},
+		{"clearCurrentFocusCycleRootOnHide", "()V", nullptr, 0, $virtualMethod(Container, clearCurrentFocusCycleRootOnHide, void)},
+		{"clearMostRecentFocusOwnerOnHide", "()V", nullptr, 0, $virtualMethod(Container, clearMostRecentFocusOwnerOnHide, void)},
+		{"containsFocus", "()Z", nullptr, $FINAL, $virtualMethod(Container, containsFocus, bool)},
+		{"countComponents", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, countComponents, int32_t), nullptr, nullptr, countComponentsmethodAnnotations$$},
+		{"countHierarchyMembers", "()I", nullptr, 0, $virtualMethod(Container, countHierarchyMembers, int32_t)},
+		{"createChildHierarchyEvents", "(IJZ)V", nullptr, $FINAL, $method(Container, createChildHierarchyEvents, void, int32_t, int64_t, bool)},
+		{"createHierarchyEvents", "(ILjava/awt/Component;Ljava/awt/Container;JZ)I", nullptr, $FINAL, $virtualMethod(Container, createHierarchyEvents, int32_t, int32_t, $Component*, Container*, int64_t, bool)},
+		{"decreaseComponentCount", "(Ljava/awt/Component;)V", nullptr, $FINAL, $method(Container, decreaseComponentCount, void, $Component*)},
+		{"deliverEvent", "(Ljava/awt/Event;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, deliverEvent, void, $Event*), nullptr, nullptr, deliverEventmethodAnnotations$$},
+		{"dispatchEventImpl", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(Container, dispatchEventImpl, void, $AWTEvent*)},
+		{"dispatchEventToSelf", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(Container, dispatchEventToSelf, void, $AWTEvent*)},
+		{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(Container, doLayout, void)},
+		{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(Container, eventEnabled, bool, $AWTEvent*)},
+		{"findComponentAt", "(II)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, findComponentAt, $Component*, int32_t, int32_t)},
+		{"findComponentAt", "(IIZ)Ljava/awt/Component;", nullptr, $FINAL, $method(Container, findComponentAt, $Component*, int32_t, int32_t, bool)},
+		{"findComponentAt", "(Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, findComponentAt, $Component*, $Point*)},
+		{"findComponentAtImpl", "(IIZ)Ljava/awt/Component;", nullptr, $FINAL, $method(Container, findComponentAtImpl, $Component*, int32_t, int32_t, bool)},
+		{"findTraversalRoot", "()Ljava/awt/Container;", nullptr, $PRIVATE, $method(Container, findTraversalRoot, Container*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, 0, $virtualMethod(Container, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, 0, $virtualMethod(Container, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, 0, $virtualMethod(Container, getAccessibleChildrenCount, int32_t)},
+		{"getAlignmentX", "()F", nullptr, $PUBLIC, $virtualMethod(Container, getAlignmentX, float)},
+		{"getAlignmentY", "()F", nullptr, $PUBLIC, $virtualMethod(Container, getAlignmentY, float)},
+		{"getBottommostComponentIndex", "()I", nullptr, $PRIVATE, $method(Container, getBottommostComponentIndex, int32_t)},
+		{"getChildAt", "(Ljava/awt/Component;IIZ)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(Container, getChildAt, $Component*, $Component*, int32_t, int32_t, bool)},
+		{"getComponent", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponent, $Component*, int32_t)},
+		{"getComponentAt", "(II)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponentAt, $Component*, int32_t, int32_t)},
+		{"getComponentAt", "(Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponentAt, $Component*, $Point*)},
+		{"getComponentCount", "()I", nullptr, $PUBLIC, $virtualMethod(Container, getComponentCount, int32_t)},
+		{"getComponentZOrder", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(Container, getComponentZOrder, int32_t, $Component*)},
+		{"getComponents", "()[Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(Container, getComponents, $ComponentArray*)},
+		{"getComponentsSync", "()[Ljava/awt/Component;", nullptr, 0, $virtualMethod(Container, getComponentsSync, $ComponentArray*)},
+		{"getComponents_NoClientCode", "()[Ljava/awt/Component;", nullptr, $FINAL, $method(Container, getComponents_NoClientCode, $ComponentArray*)},
+		{"getContainerListeners", "()[Ljava/awt/event/ContainerListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Container, getContainerListeners, $ContainerListenerArray*)},
+		{"getDropTargetEventTarget", "(IIZ)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Container, getDropTargetEventTarget, $Component*, int32_t, int32_t, bool)},
+		{"getFocusTraversalKeys", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Ljava/awt/AWTKeyStroke;>;", $PUBLIC, $virtualMethod(Container, getFocusTraversalKeys, $Set*, int32_t)},
+		{"getFocusTraversalPolicy", "()Ljava/awt/FocusTraversalPolicy;", nullptr, $PUBLIC, $virtualMethod(Container, getFocusTraversalPolicy, $FocusTraversalPolicy*)},
+		{"getHeavyweightContainer", "()Ljava/awt/Container;", nullptr, 0, $virtualMethod(Container, getHeavyweightContainer, Container*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(Container, getInsets, $Insets*)},
+		{"getLayout", "()Ljava/awt/LayoutManager;", nullptr, $PUBLIC, $virtualMethod(Container, getLayout, $LayoutManager*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Container, getListeners, $EventListenerArray*, $Class*)},
+		{"getListenersCount", "(IZ)I", nullptr, $PRIVATE, $method(Container, getListenersCount, int32_t, int32_t, bool)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Container, getMaximumSize, $Dimension*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Container, getMinimumSize, $Dimension*)},
+		{"getMouseEventTarget", "(IIZ)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Container, getMouseEventTarget, $Component*, int32_t, int32_t, bool)},
+		{"getMouseEventTarget", "(IIZLjava/awt/Container$EventTargetFilter;Z)Ljava/awt/Component;", nullptr, $PRIVATE, $method(Container, getMouseEventTarget, $Component*, int32_t, int32_t, bool, $Container$EventTargetFilter*, bool)},
+		{"getMouseEventTargetImpl", "(IIZLjava/awt/Container$EventTargetFilter;ZZ)Ljava/awt/Component;", nullptr, $PRIVATE, $method(Container, getMouseEventTargetImpl, $Component*, int32_t, int32_t, bool, $Container$EventTargetFilter*, bool, bool)},
+		{"getMousePosition", "(Z)Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(Container, getMousePosition, $Point*, bool), "java.awt.HeadlessException"},
+		{"getOpaqueShape", "()Lsun/java2d/pipe/Region;", nullptr, $FINAL, $virtualMethod(Container, getOpaqueShape, $Region*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Container, getPreferredSize, $Dimension*)},
+		{"getTopmostComponentIndex", "()I", nullptr, $PRIVATE, $method(Container, getTopmostComponentIndex, int32_t)},
+		{"getTraversalRoot", "()Ljava/awt/Container;", nullptr, $FINAL, $virtualMethod(Container, getTraversalRoot, Container*)},
+		{"hasHeavyweightDescendants", "()Z", nullptr, $FINAL, $method(Container, hasHeavyweightDescendants, bool)},
+		{"hasLightweightDescendants", "()Z", nullptr, $FINAL, $method(Container, hasLightweightDescendants, bool)},
+		{"increaseComponentCount", "(Ljava/awt/Component;)V", nullptr, $FINAL, $method(Container, increaseComponentCount, void, $Component*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Container, initIDs, void)},
+		{"initializeFocusTraversalKeys", "()V", nullptr, 0, $virtualMethod(Container, initializeFocusTraversalKeys, void)},
+		{"insets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, insets, $Insets*), nullptr, nullptr, insetsmethodAnnotations$$},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(Container, invalidate, void)},
+		{"invalidateParent", "()V", nullptr, 0, $virtualMethod(Container, invalidateParent, void)},
+		{"invalidateTree", "()V", nullptr, 0, $virtualMethod(Container, invalidateTree, void)},
+		{"isAncestorOf", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(Container, isAncestorOf, bool, $Component*)},
+		{"isFocusCycleRoot", "(Ljava/awt/Container;)Z", nullptr, $PUBLIC, $virtualMethod(Container, isFocusCycleRoot, bool, Container*)},
+		{"isFocusCycleRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Container, isFocusCycleRoot, bool)},
+		{"isFocusTraversalPolicyProvider", "()Z", nullptr, $PUBLIC | $FINAL, $method(Container, isFocusTraversalPolicyProvider, bool)},
+		{"isFocusTraversalPolicySet", "()Z", nullptr, $PUBLIC, $virtualMethod(Container, isFocusTraversalPolicySet, bool)},
+		{"isParentOf", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(Container, isParentOf, bool, $Component*)},
+		{"isRecursivelyVisibleUpToHeavyweightContainer", "()Z", nullptr, $FINAL, $method(Container, isRecursivelyVisibleUpToHeavyweightContainer, bool)},
+		{"isRemoveNotifyNeeded", "(Ljava/awt/Component;Ljava/awt/Container;Ljava/awt/Container;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Container, isRemoveNotifyNeeded, bool, $Component*, Container*, Container*)},
+		{"isSameOrAncestorOf", "(Ljava/awt/Component;Z)Z", nullptr, 0, $virtualMethod(Container, isSameOrAncestorOf, bool, $Component*, bool)},
+		{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Container, isValidateRoot, bool)},
+		{"lambda$startLWModal$0", "(Ljava/awt/Container;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Container, lambda$startLWModal$0, bool, Container*)},
+		{"lambda$startLWModal$1", "(Ljava/awt/Container;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Container, lambda$startLWModal$1, void, Container*)},
+		{"layout", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, layout, void), nullptr, nullptr, layoutmethodAnnotations$$},
+		{"lightweightPaint", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, lightweightPaint, void, $Graphics*)},
+		{"lightweightPrint", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, lightweightPrint, void, $Graphics*)},
+		{"list", "(Ljava/io/PrintStream;I)V", nullptr, $PUBLIC, $virtualMethod(Container, list, void, $PrintStream*, int32_t)},
+		{"list", "(Ljava/io/PrintWriter;I)V", nullptr, $PUBLIC, $virtualMethod(Container, list, void, $PrintWriter*, int32_t)},
+		{"locate", "(II)Ljava/awt/Component;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, locate, $Component*, int32_t, int32_t), nullptr, nullptr, locatemethodAnnotations$$},
+		{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, minimumSize, $Dimension*), nullptr, nullptr, minimumSizemethodAnnotations$$},
+		{"mixOnHiding", "(Z)V", nullptr, 0, $virtualMethod(Container, mixOnHiding, void, bool)},
+		{"mixOnReshaping", "()V", nullptr, 0, $virtualMethod(Container, mixOnReshaping, void)},
+		{"mixOnShowing", "()V", nullptr, 0, $virtualMethod(Container, mixOnShowing, void)},
+		{"mixOnValidating", "()V", nullptr, 0, $virtualMethod(Container, mixOnValidating, void)},
+		{"mixOnZOrderChanging", "(II)V", nullptr, 0, $virtualMethod(Container, mixOnZOrderChanging, void, int32_t, int32_t)},
+		{"numListening", "(J)I", nullptr, 0, $virtualMethod(Container, numListening, int32_t, int64_t)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, paint, void, $Graphics*)},
+		{"paintComponents", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, paintComponents, void, $Graphics*)},
+		{"paintHeavyweightComponents", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, paintHeavyweightComponents, void, $Graphics*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Container, paramString, $String*)},
+		{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Container, postProcessKeyEvent, void, $KeyEvent*)},
+		{"postsOldMouseEvents", "()Z", nullptr, 0, $virtualMethod(Container, postsOldMouseEvents, bool)},
+		{"preProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(Container, preProcessKeyEvent, void, $KeyEvent*)},
+		{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Container, preferredSize, $Dimension*), nullptr, nullptr, preferredSizemethodAnnotations$$},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, print, void, $Graphics*)},
+		{"printComponents", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, printComponents, void, $Graphics*)},
+		{"printHeavyweightComponents", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(Container, printHeavyweightComponents, void, $Graphics*)},
+		{"processContainerEvent", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PROTECTED, $virtualMethod(Container, processContainerEvent, void, $ContainerEvent*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(Container, processEvent, void, $AWTEvent*)},
+		{"proxyEnableEvents", "(J)V", nullptr, 0, $virtualMethod(Container, proxyEnableEvents, void, int64_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Container, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"recursiveApplyCurrentShape", "()V", nullptr, $FINAL, $method(Container, recursiveApplyCurrentShape, void)},
+		{"recursiveApplyCurrentShape", "(I)V", nullptr, $FINAL, $method(Container, recursiveApplyCurrentShape, void, int32_t)},
+		{"recursiveApplyCurrentShape", "(II)V", nullptr, $FINAL, $method(Container, recursiveApplyCurrentShape, void, int32_t, int32_t)},
+		{"recursiveHideHeavyweightChildren", "()V", nullptr, $PRIVATE, $method(Container, recursiveHideHeavyweightChildren, void)},
+		{"recursiveRelocateHeavyweightChildren", "(Ljava/awt/Point;)V", nullptr, $PRIVATE, $method(Container, recursiveRelocateHeavyweightChildren, void, $Point*)},
+		{"recursiveShowHeavyweightChildren", "()V", nullptr, $PRIVATE, $method(Container, recursiveShowHeavyweightChildren, void)},
+		{"recursiveSubtractAndApplyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $FINAL, $method(Container, recursiveSubtractAndApplyShape, void, $Region*)},
+		{"recursiveSubtractAndApplyShape", "(Lsun/java2d/pipe/Region;I)V", nullptr, $FINAL, $method(Container, recursiveSubtractAndApplyShape, void, $Region*, int32_t)},
+		{"recursiveSubtractAndApplyShape", "(Lsun/java2d/pipe/Region;II)V", nullptr, $FINAL, $method(Container, recursiveSubtractAndApplyShape, void, $Region*, int32_t, int32_t)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(Container, remove, void, int32_t)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Container, remove, void, $Component*)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(Container, removeAll, void)},
+		{"removeContainerListener", "(Ljava/awt/event/ContainerListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Container, removeContainerListener, void, $ContainerListener*)},
+		{"removeDelicately", "(Ljava/awt/Component;Ljava/awt/Container;I)Z", nullptr, $PRIVATE, $method(Container, removeDelicately, bool, $Component*, Container*, int32_t)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Container, removeNotify, void)},
+		{"reparentChild", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(Container, reparentChild, void, $Component*)},
+		{"reparentTraverse", "(Ljava/awt/peer/ContainerPeer;Ljava/awt/Container;)V", nullptr, $PRIVATE, $method(Container, reparentTraverse, void, $ContainerPeer*, Container*)},
+		{"setComponentZOrder", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(Container, setComponentZOrder, void, $Component*, int32_t)},
+		{"setFocusCycleRoot", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Container, setFocusCycleRoot, void, bool)},
+		{"setFocusTraversalKeys", "(ILjava/util/Set;)V", "(ILjava/util/Set<+Ljava/awt/AWTKeyStroke;>;)V", $PUBLIC, $virtualMethod(Container, setFocusTraversalKeys, void, int32_t, $Set*)},
+		{"setFocusTraversalPolicy", "(Ljava/awt/FocusTraversalPolicy;)V", nullptr, $PUBLIC, $virtualMethod(Container, setFocusTraversalPolicy, void, $FocusTraversalPolicy*)},
+		{"setFocusTraversalPolicyProvider", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(Container, setFocusTraversalPolicyProvider, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(Container, setFont, void, $Font*)},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(Container, setLayout, void, $LayoutManager*)},
+		{"startLWModal", "()V", nullptr, $PRIVATE, $method(Container, startLWModal, void)},
+		{"stopLWModal", "()V", nullptr, $PRIVATE, $method(Container, stopLWModal, void)},
+		{"transferFocusDownCycle", "()V", nullptr, $PUBLIC, $virtualMethod(Container, transferFocusDownCycle, void)},
+		{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Container, update, void, $Graphics*)},
+		{"updateChildGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $FINAL, $virtualMethod(Container, updateChildGraphicsData, bool, $GraphicsConfiguration*)},
+		{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(Container, validate, void)},
+		{"validateTree", "()V", nullptr, $PROTECTED, $virtualMethod(Container, validateTree, void)},
+		{"validateUnconditionally", "()V", nullptr, $FINAL, $method(Container, validateUnconditionally, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Container, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
+		{"java.awt.Container$WakingRunnable", "java.awt.Container", "WakingRunnable", $STATIC | $FINAL},
+		{"java.awt.Container$DropTargetEventTargetFilter", "java.awt.Container", "DropTargetEventTargetFilter", $STATIC},
+		{"java.awt.Container$MouseEventTargetFilter", "java.awt.Container", "MouseEventTargetFilter", $STATIC},
+		{"java.awt.Container$EventTargetFilter", "java.awt.Container", "EventTargetFilter", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.awt.Container$2", nullptr, nullptr, 0},
+		{"java.awt.Container$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Container",
+		"java.awt.Component",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Container$AccessibleAWTContainer,java.awt.Container$AccessibleAWTContainer$AccessibleContainerHandler,java.awt.Container$WakingRunnable,java.awt.Container$DropTargetEventTargetFilter,java.awt.Container$MouseEventTargetFilter,java.awt.Container$EventTargetFilter,java.awt.Container$2,java.awt.Container$1"
+	};
+	$loadClass(Container, name, initialize, &classInfo$$, Container::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Container));
+	});
 	return class$;
 }
 

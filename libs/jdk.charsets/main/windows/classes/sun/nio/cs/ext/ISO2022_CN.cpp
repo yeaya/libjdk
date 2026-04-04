@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_CN.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -37,58 +36,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$FieldInfo _ISO2022_CN_FieldInfo_[] = {
-	{"ISO_ESC", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_ESC)},
-	{"ISO_SI", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SI)},
-	{"ISO_SO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SO)},
-	{"ISO_SS2_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SS2_7)},
-	{"ISO_SS3_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SS3_7)},
-	{"MSB", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, MSB)},
-	{"REPLACE_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, REPLACE_CHAR)},
-	{"SODesigGB", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, SODesigGB)},
-	{"SODesigCNS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, SODesigCNS)},
-	{}
-};
-
-$MethodInfo _ISO2022_CN_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_CN, init$, void)},
-	{"canEncode", "()Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, canEncode, bool)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _ISO2022_CN_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_CN$Decoder", "sun.nio.cs.ext.ISO2022_CN", "Decoder", $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_CN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_CN",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	_ISO2022_CN_FieldInfo_,
-	_ISO2022_CN_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_CN_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_CN$Decoder"
-};
-
-$Object* allocate$ISO2022_CN($Class* clazz) {
-	return $of($alloc(ISO2022_CN));
-}
 
 int32_t ISO2022_CN::hashCode() {
 	 return this->$Charset::hashCode();
@@ -139,7 +86,53 @@ ISO2022_CN::ISO2022_CN() {
 }
 
 $Class* ISO2022_CN::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_CN, name, initialize, &_ISO2022_CN_ClassInfo_, allocate$ISO2022_CN);
+	$FieldInfo fieldInfos$$[] = {
+		{"ISO_ESC", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_ESC)},
+		{"ISO_SI", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SI)},
+		{"ISO_SO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SO)},
+		{"ISO_SS2_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SS2_7)},
+		{"ISO_SS3_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, ISO_SS3_7)},
+		{"MSB", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, MSB)},
+		{"REPLACE_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, REPLACE_CHAR)},
+		{"SODesigGB", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, SODesigGB)},
+		{"SODesigCNS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_CN, SODesigCNS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_CN, init$, void)},
+		{"canEncode", "()Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, canEncode, bool)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_CN$Decoder", "sun.nio.cs.ext.ISO2022_CN", "Decoder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_CN",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_CN$Decoder"
+	};
+	$loadClass(ISO2022_CN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISO2022_CN));
+	});
 	return class$;
 }
 

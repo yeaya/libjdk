@@ -12,6 +12,7 @@ class RowFilter$1 : public ::java::lang::Object {
 	$class(RowFilter$1, 0, ::java::lang::Object)
 public:
 	RowFilter$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$RowFilter$ComparisonType;
 };
 

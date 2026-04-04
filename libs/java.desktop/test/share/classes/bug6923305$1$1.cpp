@@ -1,5 +1,4 @@
 #include <bug6923305$1$1.h>
-
 #include <bug6923305$1.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -21,49 +20,6 @@ using $JSlider = ::javax::swing::JSlider;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthSliderUI = ::javax::swing::plaf::synth::SynthSliderUI;
 
-$FieldInfo _bug6923305$1$1_FieldInfo_[] = {
-	{"this$0", "Lbug6923305$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug6923305$1$1, this$0)},
-	{}
-};
-
-$MethodInfo _bug6923305$1$1_MethodInfo_[] = {
-	{"<init>", "(Lbug6923305$1;Ljavax/swing/JSlider;)V", nullptr, 0, $method(bug6923305$1$1, init$, void, $bug6923305$1*, $JSlider*)},
-	{"paintTrack", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(bug6923305$1$1, paintTrack, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6923305$1$1_EnclosingMethodInfo_ = {
-	"bug6923305$1",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _bug6923305$1$1_InnerClassesInfo_[] = {
-	{"bug6923305$1", nullptr, nullptr, 0},
-	{"bug6923305$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6923305$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6923305$1$1",
-	"javax.swing.plaf.synth.SynthSliderUI",
-	nullptr,
-	_bug6923305$1$1_FieldInfo_,
-	_bug6923305$1$1_MethodInfo_,
-	nullptr,
-	&_bug6923305$1$1_EnclosingMethodInfo_,
-	_bug6923305$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6923305"
-};
-
-$Object* allocate$bug6923305$1$1($Class* clazz) {
-	return $of($alloc(bug6923305$1$1));
-}
-
 void bug6923305$1$1::init$($bug6923305$1* this$0, $JSlider* arg0) {
 	$set(this, this$0, this$0);
 	$SynthSliderUI::init$(arg0);
@@ -77,7 +33,43 @@ bug6923305$1$1::bug6923305$1$1() {
 }
 
 $Class* bug6923305$1$1::load$($String* name, bool initialize) {
-	$loadClass(bug6923305$1$1, name, initialize, &_bug6923305$1$1_ClassInfo_, allocate$bug6923305$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug6923305$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug6923305$1$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6923305$1;Ljavax/swing/JSlider;)V", nullptr, 0, $method(bug6923305$1$1, init$, void, $bug6923305$1*, $JSlider*)},
+		{"paintTrack", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(bug6923305$1$1, paintTrack, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6923305$1",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6923305$1", nullptr, nullptr, 0},
+		{"bug6923305$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6923305$1$1",
+		"javax.swing.plaf.synth.SynthSliderUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6923305"
+	};
+	$loadClass(bug6923305$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6923305$1$1));
+	});
 	return class$;
 }
 

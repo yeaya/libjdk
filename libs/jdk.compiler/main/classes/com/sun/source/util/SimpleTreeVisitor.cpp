@@ -1,5 +1,4 @@
 #include <com/sun/source/util/SimpleTreeVisitor.h>
-
 #include <com/sun/source/tree/AnnotatedTypeTree.h>
 #include <com/sun/source/tree/AnnotationTree.h>
 #include <com/sun/source/tree/ArrayAccessTree.h>
@@ -56,7 +55,6 @@
 #include <com/sun/source/tree/SynchronizedTree.h>
 #include <com/sun/source/tree/ThrowTree.h>
 #include <com/sun/source/tree/Tree.h>
-#include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/source/tree/TryTree.h>
 #include <com/sun/source/tree/TypeCastTree.h>
 #include <com/sun/source/tree/TypeParameterTree.h>
@@ -129,7 +127,6 @@ using $SwitchTree = ::com::sun::source::tree::SwitchTree;
 using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;
 using $ThrowTree = ::com::sun::source::tree::ThrowTree;
 using $Tree = ::com::sun::source::tree::Tree;
-using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $TryTree = ::com::sun::source::tree::TryTree;
 using $TypeCastTree = ::com::sun::source::tree::TypeCastTree;
 using $TypeParameterTree = ::com::sun::source::tree::TypeParameterTree;
@@ -152,112 +149,6 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$CompoundAttribute _SimpleTreeVisitor_MethodAnnotations_visitDefaultCaseLabel22[] = {
-	{}
-};
-
-$CompoundAttribute _SimpleTreeVisitor_MethodAnnotations_visitGuardedPattern30[] = {
-	{}
-};
-
-$CompoundAttribute _SimpleTreeVisitor_MethodAnnotations_visitParenthesizedPattern52[] = {
-	{}
-};
-
-$FieldInfo _SimpleTreeVisitor_FieldInfo_[] = {
-	{"DEFAULT_VALUE", "Ljava/lang/Object;", "TR;", $PROTECTED | $FINAL, $field(SimpleTreeVisitor, DEFAULT_VALUE)},
-	{}
-};
-
-$MethodInfo _SimpleTreeVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleTreeVisitor, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(SimpleTreeVisitor, init$, void, Object$*)},
-	{"defaultAction", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PROTECTED, $virtualMethod(SimpleTreeVisitor, defaultAction, $Object*, $Tree*, Object$*)},
-	{"visit", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC | $FINAL, $method(SimpleTreeVisitor, visit, $Object*, $Tree*, Object$*)},
-	{"visit", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;TP;)TR;", $PUBLIC | $FINAL, $method(SimpleTreeVisitor, visit, $Object*, $Iterable*, Object$*)},
-	{"visitAnnotatedType", "(Lcom/sun/source/tree/AnnotatedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotatedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAnnotatedType, $Object*, $AnnotatedTypeTree*, Object$*)},
-	{"visitAnnotation", "(Lcom/sun/source/tree/AnnotationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotationTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAnnotation, $Object*, $AnnotationTree*, Object$*)},
-	{"visitArrayAccess", "(Lcom/sun/source/tree/ArrayAccessTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayAccessTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitArrayAccess, $Object*, $ArrayAccessTree*, Object$*)},
-	{"visitArrayType", "(Lcom/sun/source/tree/ArrayTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitArrayType, $Object*, $ArrayTypeTree*, Object$*)},
-	{"visitAssert", "(Lcom/sun/source/tree/AssertTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssertTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAssert, $Object*, $AssertTree*, Object$*)},
-	{"visitAssignment", "(Lcom/sun/source/tree/AssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAssignment, $Object*, $AssignmentTree*, Object$*)},
-	{"visitBinary", "(Lcom/sun/source/tree/BinaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BinaryTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBinary, $Object*, $BinaryTree*, Object$*)},
-	{"visitBindingPattern", "(Lcom/sun/source/tree/BindingPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BindingPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBindingPattern, $Object*, $BindingPatternTree*, Object$*)},
-	{"visitBlock", "(Lcom/sun/source/tree/BlockTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BlockTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBlock, $Object*, $BlockTree*, Object$*)},
-	{"visitBreak", "(Lcom/sun/source/tree/BreakTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BreakTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBreak, $Object*, $BreakTree*, Object$*)},
-	{"visitCase", "(Lcom/sun/source/tree/CaseTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CaseTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCase, $Object*, $CaseTree*, Object$*)},
-	{"visitCatch", "(Lcom/sun/source/tree/CatchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CatchTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCatch, $Object*, $CatchTree*, Object$*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ClassTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitClass, $Object*, $ClassTree*, Object$*)},
-	{"visitCompilationUnit", "(Lcom/sun/source/tree/CompilationUnitTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompilationUnitTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCompilationUnit, $Object*, $CompilationUnitTree*, Object$*)},
-	{"visitCompoundAssignment", "(Lcom/sun/source/tree/CompoundAssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompoundAssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCompoundAssignment, $Object*, $CompoundAssignmentTree*, Object$*)},
-	{"visitConditionalExpression", "(Lcom/sun/source/tree/ConditionalExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ConditionalExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitConditionalExpression, $Object*, $ConditionalExpressionTree*, Object$*)},
-	{"visitContinue", "(Lcom/sun/source/tree/ContinueTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ContinueTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitContinue, $Object*, $ContinueTree*, Object$*)},
-	{"visitDefaultCaseLabel", "(Lcom/sun/source/tree/DefaultCaseLabelTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DefaultCaseLabelTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitDefaultCaseLabel, $Object*, $DefaultCaseLabelTree*, Object$*), nullptr, nullptr, _SimpleTreeVisitor_MethodAnnotations_visitDefaultCaseLabel22},
-	{"visitDoWhileLoop", "(Lcom/sun/source/tree/DoWhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DoWhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitDoWhileLoop, $Object*, $DoWhileLoopTree*, Object$*)},
-	{"visitEmptyStatement", "(Lcom/sun/source/tree/EmptyStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EmptyStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitEmptyStatement, $Object*, $EmptyStatementTree*, Object$*)},
-	{"visitEnhancedForLoop", "(Lcom/sun/source/tree/EnhancedForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EnhancedForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitEnhancedForLoop, $Object*, $EnhancedForLoopTree*, Object$*)},
-	{"visitErroneous", "(Lcom/sun/source/tree/ErroneousTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ErroneousTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitErroneous, $Object*, $ErroneousTree*, Object$*)},
-	{"visitExports", "(Lcom/sun/source/tree/ExportsTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExportsTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitExports, $Object*, $ExportsTree*, Object$*)},
-	{"visitExpressionStatement", "(Lcom/sun/source/tree/ExpressionStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExpressionStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitExpressionStatement, $Object*, $ExpressionStatementTree*, Object$*)},
-	{"visitForLoop", "(Lcom/sun/source/tree/ForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitForLoop, $Object*, $ForLoopTree*, Object$*)},
-	{"visitGuardedPattern", "(Lcom/sun/source/tree/GuardedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/GuardedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitGuardedPattern, $Object*, $GuardedPatternTree*, Object$*), nullptr, nullptr, _SimpleTreeVisitor_MethodAnnotations_visitGuardedPattern30},
-	{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IdentifierTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitIdentifier, $Object*, $IdentifierTree*, Object$*)},
-	{"visitIf", "(Lcom/sun/source/tree/IfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IfTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitIf, $Object*, $IfTree*, Object$*)},
-	{"visitImport", "(Lcom/sun/source/tree/ImportTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ImportTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitImport, $Object*, $ImportTree*, Object$*)},
-	{"visitInstanceOf", "(Lcom/sun/source/tree/InstanceOfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/InstanceOfTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitInstanceOf, $Object*, $InstanceOfTree*, Object$*)},
-	{"visitIntersectionType", "(Lcom/sun/source/tree/IntersectionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IntersectionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitIntersectionType, $Object*, $IntersectionTypeTree*, Object$*)},
-	{"visitLabeledStatement", "(Lcom/sun/source/tree/LabeledStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LabeledStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitLabeledStatement, $Object*, $LabeledStatementTree*, Object$*)},
-	{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LambdaExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitLambdaExpression, $Object*, $LambdaExpressionTree*, Object$*)},
-	{"visitLiteral", "(Lcom/sun/source/tree/LiteralTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LiteralTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitLiteral, $Object*, $LiteralTree*, Object$*)},
-	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberReferenceTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
-	{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberSelectTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMemberSelect, $Object*, $MemberSelectTree*, Object$*)},
-	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMethod, $Object*, $MethodTree*, Object$*)},
-	{"visitMethodInvocation", "(Lcom/sun/source/tree/MethodInvocationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodInvocationTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMethodInvocation, $Object*, $MethodInvocationTree*, Object$*)},
-	{"visitModifiers", "(Lcom/sun/source/tree/ModifiersTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModifiersTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitModifiers, $Object*, $ModifiersTree*, Object$*)},
-	{"visitModule", "(Lcom/sun/source/tree/ModuleTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModuleTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitModule, $Object*, $ModuleTree*, Object$*)},
-	{"visitNewArray", "(Lcom/sun/source/tree/NewArrayTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewArrayTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitNewArray, $Object*, $NewArrayTree*, Object$*)},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewClassTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitNewClass, $Object*, $NewClassTree*, Object$*)},
-	{"visitOpens", "(Lcom/sun/source/tree/OpensTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/OpensTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitOpens, $Object*, $OpensTree*, Object$*)},
-	{"visitOther", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitOther, $Object*, $Tree*, Object$*)},
-	{"visitPackage", "(Lcom/sun/source/tree/PackageTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PackageTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitPackage, $Object*, $PackageTree*, Object$*)},
-	{"visitParameterizedType", "(Lcom/sun/source/tree/ParameterizedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParameterizedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitParameterizedType, $Object*, $ParameterizedTypeTree*, Object$*)},
-	{"visitParenthesized", "(Lcom/sun/source/tree/ParenthesizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitParenthesized, $Object*, $ParenthesizedTree*, Object$*)},
-	{"visitParenthesizedPattern", "(Lcom/sun/source/tree/ParenthesizedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitParenthesizedPattern, $Object*, $ParenthesizedPatternTree*, Object$*), nullptr, nullptr, _SimpleTreeVisitor_MethodAnnotations_visitParenthesizedPattern52},
-	{"visitPrimitiveType", "(Lcom/sun/source/tree/PrimitiveTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PrimitiveTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitPrimitiveType, $Object*, $PrimitiveTypeTree*, Object$*)},
-	{"visitProvides", "(Lcom/sun/source/tree/ProvidesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ProvidesTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitProvides, $Object*, $ProvidesTree*, Object$*)},
-	{"visitRequires", "(Lcom/sun/source/tree/RequiresTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/RequiresTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitRequires, $Object*, $RequiresTree*, Object$*)},
-	{"visitReturn", "(Lcom/sun/source/tree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ReturnTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitReturn, $Object*, $ReturnTree*, Object$*)},
-	{"visitSwitch", "(Lcom/sun/source/tree/SwitchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitSwitch, $Object*, $SwitchTree*, Object$*)},
-	{"visitSwitchExpression", "(Lcom/sun/source/tree/SwitchExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitSwitchExpression, $Object*, $SwitchExpressionTree*, Object$*)},
-	{"visitSynchronized", "(Lcom/sun/source/tree/SynchronizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SynchronizedTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitSynchronized, $Object*, $SynchronizedTree*, Object$*)},
-	{"visitThrow", "(Lcom/sun/source/tree/ThrowTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ThrowTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitThrow, $Object*, $ThrowTree*, Object$*)},
-	{"visitTry", "(Lcom/sun/source/tree/TryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TryTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitTry, $Object*, $TryTree*, Object$*)},
-	{"visitTypeCast", "(Lcom/sun/source/tree/TypeCastTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeCastTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitTypeCast, $Object*, $TypeCastTree*, Object$*)},
-	{"visitTypeParameter", "(Lcom/sun/source/tree/TypeParameterTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeParameterTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitTypeParameter, $Object*, $TypeParameterTree*, Object$*)},
-	{"visitUnary", "(Lcom/sun/source/tree/UnaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnaryTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitUnary, $Object*, $UnaryTree*, Object$*)},
-	{"visitUnionType", "(Lcom/sun/source/tree/UnionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitUnionType, $Object*, $UnionTypeTree*, Object$*)},
-	{"visitUses", "(Lcom/sun/source/tree/UsesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UsesTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitUses, $Object*, $UsesTree*, Object$*)},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/VariableTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitVariable, $Object*, $VariableTree*, Object$*)},
-	{"visitWhileLoop", "(Lcom/sun/source/tree/WhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitWhileLoop, $Object*, $WhileLoopTree*, Object$*)},
-	{"visitWildcard", "(Lcom/sun/source/tree/WildcardTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WildcardTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitWildcard, $Object*, $WildcardTree*, Object$*)},
-	{"visitYield", "(Lcom/sun/source/tree/YieldTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/YieldTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitYield, $Object*, $YieldTree*, Object$*)},
-	{}
-};
-
-$ClassInfo _SimpleTreeVisitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.source.util.SimpleTreeVisitor",
-	"java.lang.Object",
-	"com.sun.source.tree.TreeVisitor",
-	_SimpleTreeVisitor_FieldInfo_,
-	_SimpleTreeVisitor_MethodInfo_,
-	"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/source/tree/TreeVisitor<TR;TP;>;"
-};
-
-$Object* allocate$SimpleTreeVisitor($Class* clazz) {
-	return $of($alloc(SimpleTreeVisitor));
-}
-
 void SimpleTreeVisitor::init$() {
 	$set(this, DEFAULT_VALUE, nullptr);
 }
@@ -267,297 +158,393 @@ void SimpleTreeVisitor::init$(Object$* defaultValue) {
 }
 
 $Object* SimpleTreeVisitor::defaultAction($Tree* node, Object$* p) {
-	return $of(this->DEFAULT_VALUE);
+	return this->DEFAULT_VALUE;
 }
 
 $Object* SimpleTreeVisitor::visit($Tree* node, Object$* p) {
-	return $of((node == nullptr) ? ($Object*)nullptr : $nc(node)->accept(this, p));
+	return (node == nullptr) ? ($Object*)nullptr : node->accept(this, p);
 }
 
 $Object* SimpleTreeVisitor::visit($Iterable* nodes, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, r, nullptr);
 	if (nodes != nullptr) {
-		{
-			$var($Iterator, i$, nodes->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Tree, node, $cast($Tree, i$->next()));
-				$assign(r, visit(node, p));
-			}
+		$var($Iterator, i$, nodes->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Tree, node, $cast($Tree, i$->next()));
+			$assign(r, visit(node, p));
 		}
 	}
-	return $of(r);
+	return r;
 }
 
 $Object* SimpleTreeVisitor::visitCompilationUnit($CompilationUnitTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitPackage($PackageTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitImport($ImportTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitClass($ClassTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitMethod($MethodTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitVariable($VariableTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitEmptyStatement($EmptyStatementTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitBlock($BlockTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitDoWhileLoop($DoWhileLoopTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitWhileLoop($WhileLoopTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitForLoop($ForLoopTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitEnhancedForLoop($EnhancedForLoopTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitLabeledStatement($LabeledStatementTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitSwitch($SwitchTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitSwitchExpression($SwitchExpressionTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitCase($CaseTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitSynchronized($SynchronizedTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitTry($TryTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitCatch($CatchTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitConditionalExpression($ConditionalExpressionTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitIf($IfTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitExpressionStatement($ExpressionStatementTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitBreak($BreakTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitContinue($ContinueTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitReturn($ReturnTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitThrow($ThrowTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitAssert($AssertTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitMethodInvocation($MethodInvocationTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitNewClass($NewClassTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitNewArray($NewArrayTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitLambdaExpression($LambdaExpressionTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitParenthesized($ParenthesizedTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitAssignment($AssignmentTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitCompoundAssignment($CompoundAssignmentTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitUnary($UnaryTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitBinary($BinaryTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitTypeCast($TypeCastTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitInstanceOf($InstanceOfTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitBindingPattern($BindingPatternTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitDefaultCaseLabel($DefaultCaseLabelTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitArrayAccess($ArrayAccessTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitMemberSelect($MemberSelectTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitParenthesizedPattern($ParenthesizedPatternTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitGuardedPattern($GuardedPatternTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitMemberReference($MemberReferenceTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitIdentifier($IdentifierTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitLiteral($LiteralTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitPrimitiveType($PrimitiveTypeTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitArrayType($ArrayTypeTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitParameterizedType($ParameterizedTypeTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitUnionType($UnionTypeTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitIntersectionType($IntersectionTypeTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitTypeParameter($TypeParameterTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitWildcard($WildcardTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitModifiers($ModifiersTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitAnnotation($AnnotationTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitAnnotatedType($AnnotatedTypeTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitModule($ModuleTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitExports($ExportsTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitOpens($OpensTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitProvides($ProvidesTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitRequires($RequiresTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitUses($UsesTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitErroneous($ErroneousTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitOther($Tree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 $Object* SimpleTreeVisitor::visitYield($YieldTree* node, Object$* p) {
-	return $of(defaultAction(node, p));
+	return defaultAction(node, p);
 }
 
 SimpleTreeVisitor::SimpleTreeVisitor() {
 }
 
 $Class* SimpleTreeVisitor::load$($String* name, bool initialize) {
-	$loadClass(SimpleTreeVisitor, name, initialize, &_SimpleTreeVisitor_ClassInfo_, allocate$SimpleTreeVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_VALUE", "Ljava/lang/Object;", "TR;", $PROTECTED | $FINAL, $field(SimpleTreeVisitor, DEFAULT_VALUE)},
+		{}
+	};
+	$CompoundAttribute visitDefaultCaseLabelmethodAnnotations$$[] = {
+		{}
+	};
+	$CompoundAttribute visitGuardedPatternmethodAnnotations$$[] = {
+		{}
+	};
+	$CompoundAttribute visitParenthesizedPatternmethodAnnotations$$[] = {
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleTreeVisitor, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(SimpleTreeVisitor, init$, void, Object$*)},
+		{"defaultAction", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PROTECTED, $virtualMethod(SimpleTreeVisitor, defaultAction, $Object*, $Tree*, Object$*)},
+		{"visit", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC | $FINAL, $method(SimpleTreeVisitor, visit, $Object*, $Tree*, Object$*)},
+		{"visit", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;TP;)TR;", $PUBLIC | $FINAL, $method(SimpleTreeVisitor, visit, $Object*, $Iterable*, Object$*)},
+		{"visitAnnotatedType", "(Lcom/sun/source/tree/AnnotatedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotatedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAnnotatedType, $Object*, $AnnotatedTypeTree*, Object$*)},
+		{"visitAnnotation", "(Lcom/sun/source/tree/AnnotationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AnnotationTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAnnotation, $Object*, $AnnotationTree*, Object$*)},
+		{"visitArrayAccess", "(Lcom/sun/source/tree/ArrayAccessTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayAccessTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitArrayAccess, $Object*, $ArrayAccessTree*, Object$*)},
+		{"visitArrayType", "(Lcom/sun/source/tree/ArrayTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ArrayTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitArrayType, $Object*, $ArrayTypeTree*, Object$*)},
+		{"visitAssert", "(Lcom/sun/source/tree/AssertTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssertTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAssert, $Object*, $AssertTree*, Object$*)},
+		{"visitAssignment", "(Lcom/sun/source/tree/AssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/AssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitAssignment, $Object*, $AssignmentTree*, Object$*)},
+		{"visitBinary", "(Lcom/sun/source/tree/BinaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BinaryTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBinary, $Object*, $BinaryTree*, Object$*)},
+		{"visitBindingPattern", "(Lcom/sun/source/tree/BindingPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BindingPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBindingPattern, $Object*, $BindingPatternTree*, Object$*)},
+		{"visitBlock", "(Lcom/sun/source/tree/BlockTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BlockTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBlock, $Object*, $BlockTree*, Object$*)},
+		{"visitBreak", "(Lcom/sun/source/tree/BreakTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/BreakTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitBreak, $Object*, $BreakTree*, Object$*)},
+		{"visitCase", "(Lcom/sun/source/tree/CaseTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CaseTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCase, $Object*, $CaseTree*, Object$*)},
+		{"visitCatch", "(Lcom/sun/source/tree/CatchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CatchTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCatch, $Object*, $CatchTree*, Object$*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ClassTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitClass, $Object*, $ClassTree*, Object$*)},
+		{"visitCompilationUnit", "(Lcom/sun/source/tree/CompilationUnitTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompilationUnitTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCompilationUnit, $Object*, $CompilationUnitTree*, Object$*)},
+		{"visitCompoundAssignment", "(Lcom/sun/source/tree/CompoundAssignmentTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/CompoundAssignmentTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitCompoundAssignment, $Object*, $CompoundAssignmentTree*, Object$*)},
+		{"visitConditionalExpression", "(Lcom/sun/source/tree/ConditionalExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ConditionalExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitConditionalExpression, $Object*, $ConditionalExpressionTree*, Object$*)},
+		{"visitContinue", "(Lcom/sun/source/tree/ContinueTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ContinueTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitContinue, $Object*, $ContinueTree*, Object$*)},
+		{"visitDefaultCaseLabel", "(Lcom/sun/source/tree/DefaultCaseLabelTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DefaultCaseLabelTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitDefaultCaseLabel, $Object*, $DefaultCaseLabelTree*, Object$*), nullptr, nullptr, visitDefaultCaseLabelmethodAnnotations$$},
+		{"visitDoWhileLoop", "(Lcom/sun/source/tree/DoWhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/DoWhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitDoWhileLoop, $Object*, $DoWhileLoopTree*, Object$*)},
+		{"visitEmptyStatement", "(Lcom/sun/source/tree/EmptyStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EmptyStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitEmptyStatement, $Object*, $EmptyStatementTree*, Object$*)},
+		{"visitEnhancedForLoop", "(Lcom/sun/source/tree/EnhancedForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/EnhancedForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitEnhancedForLoop, $Object*, $EnhancedForLoopTree*, Object$*)},
+		{"visitErroneous", "(Lcom/sun/source/tree/ErroneousTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ErroneousTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitErroneous, $Object*, $ErroneousTree*, Object$*)},
+		{"visitExports", "(Lcom/sun/source/tree/ExportsTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExportsTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitExports, $Object*, $ExportsTree*, Object$*)},
+		{"visitExpressionStatement", "(Lcom/sun/source/tree/ExpressionStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ExpressionStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitExpressionStatement, $Object*, $ExpressionStatementTree*, Object$*)},
+		{"visitForLoop", "(Lcom/sun/source/tree/ForLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ForLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitForLoop, $Object*, $ForLoopTree*, Object$*)},
+		{"visitGuardedPattern", "(Lcom/sun/source/tree/GuardedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/GuardedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitGuardedPattern, $Object*, $GuardedPatternTree*, Object$*), nullptr, nullptr, visitGuardedPatternmethodAnnotations$$},
+		{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IdentifierTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitIdentifier, $Object*, $IdentifierTree*, Object$*)},
+		{"visitIf", "(Lcom/sun/source/tree/IfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IfTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitIf, $Object*, $IfTree*, Object$*)},
+		{"visitImport", "(Lcom/sun/source/tree/ImportTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ImportTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitImport, $Object*, $ImportTree*, Object$*)},
+		{"visitInstanceOf", "(Lcom/sun/source/tree/InstanceOfTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/InstanceOfTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitInstanceOf, $Object*, $InstanceOfTree*, Object$*)},
+		{"visitIntersectionType", "(Lcom/sun/source/tree/IntersectionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/IntersectionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitIntersectionType, $Object*, $IntersectionTypeTree*, Object$*)},
+		{"visitLabeledStatement", "(Lcom/sun/source/tree/LabeledStatementTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LabeledStatementTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitLabeledStatement, $Object*, $LabeledStatementTree*, Object$*)},
+		{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LambdaExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitLambdaExpression, $Object*, $LambdaExpressionTree*, Object$*)},
+		{"visitLiteral", "(Lcom/sun/source/tree/LiteralTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/LiteralTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitLiteral, $Object*, $LiteralTree*, Object$*)},
+		{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberReferenceTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
+		{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MemberSelectTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMemberSelect, $Object*, $MemberSelectTree*, Object$*)},
+		{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMethod, $Object*, $MethodTree*, Object$*)},
+		{"visitMethodInvocation", "(Lcom/sun/source/tree/MethodInvocationTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/MethodInvocationTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitMethodInvocation, $Object*, $MethodInvocationTree*, Object$*)},
+		{"visitModifiers", "(Lcom/sun/source/tree/ModifiersTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModifiersTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitModifiers, $Object*, $ModifiersTree*, Object$*)},
+		{"visitModule", "(Lcom/sun/source/tree/ModuleTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ModuleTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitModule, $Object*, $ModuleTree*, Object$*)},
+		{"visitNewArray", "(Lcom/sun/source/tree/NewArrayTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewArrayTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitNewArray, $Object*, $NewArrayTree*, Object$*)},
+		{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/NewClassTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitNewClass, $Object*, $NewClassTree*, Object$*)},
+		{"visitOpens", "(Lcom/sun/source/tree/OpensTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/OpensTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitOpens, $Object*, $OpensTree*, Object$*)},
+		{"visitOther", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitOther, $Object*, $Tree*, Object$*)},
+		{"visitPackage", "(Lcom/sun/source/tree/PackageTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PackageTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitPackage, $Object*, $PackageTree*, Object$*)},
+		{"visitParameterizedType", "(Lcom/sun/source/tree/ParameterizedTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParameterizedTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitParameterizedType, $Object*, $ParameterizedTypeTree*, Object$*)},
+		{"visitParenthesized", "(Lcom/sun/source/tree/ParenthesizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitParenthesized, $Object*, $ParenthesizedTree*, Object$*)},
+		{"visitParenthesizedPattern", "(Lcom/sun/source/tree/ParenthesizedPatternTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ParenthesizedPatternTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitParenthesizedPattern, $Object*, $ParenthesizedPatternTree*, Object$*), nullptr, nullptr, visitParenthesizedPatternmethodAnnotations$$},
+		{"visitPrimitiveType", "(Lcom/sun/source/tree/PrimitiveTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/PrimitiveTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitPrimitiveType, $Object*, $PrimitiveTypeTree*, Object$*)},
+		{"visitProvides", "(Lcom/sun/source/tree/ProvidesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ProvidesTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitProvides, $Object*, $ProvidesTree*, Object$*)},
+		{"visitRequires", "(Lcom/sun/source/tree/RequiresTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/RequiresTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitRequires, $Object*, $RequiresTree*, Object$*)},
+		{"visitReturn", "(Lcom/sun/source/tree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ReturnTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitReturn, $Object*, $ReturnTree*, Object$*)},
+		{"visitSwitch", "(Lcom/sun/source/tree/SwitchTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitSwitch, $Object*, $SwitchTree*, Object$*)},
+		{"visitSwitchExpression", "(Lcom/sun/source/tree/SwitchExpressionTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SwitchExpressionTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitSwitchExpression, $Object*, $SwitchExpressionTree*, Object$*)},
+		{"visitSynchronized", "(Lcom/sun/source/tree/SynchronizedTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/SynchronizedTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitSynchronized, $Object*, $SynchronizedTree*, Object$*)},
+		{"visitThrow", "(Lcom/sun/source/tree/ThrowTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/ThrowTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitThrow, $Object*, $ThrowTree*, Object$*)},
+		{"visitTry", "(Lcom/sun/source/tree/TryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TryTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitTry, $Object*, $TryTree*, Object$*)},
+		{"visitTypeCast", "(Lcom/sun/source/tree/TypeCastTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeCastTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitTypeCast, $Object*, $TypeCastTree*, Object$*)},
+		{"visitTypeParameter", "(Lcom/sun/source/tree/TypeParameterTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/TypeParameterTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitTypeParameter, $Object*, $TypeParameterTree*, Object$*)},
+		{"visitUnary", "(Lcom/sun/source/tree/UnaryTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnaryTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitUnary, $Object*, $UnaryTree*, Object$*)},
+		{"visitUnionType", "(Lcom/sun/source/tree/UnionTypeTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UnionTypeTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitUnionType, $Object*, $UnionTypeTree*, Object$*)},
+		{"visitUses", "(Lcom/sun/source/tree/UsesTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/UsesTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitUses, $Object*, $UsesTree*, Object$*)},
+		{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/VariableTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitVariable, $Object*, $VariableTree*, Object$*)},
+		{"visitWhileLoop", "(Lcom/sun/source/tree/WhileLoopTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WhileLoopTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitWhileLoop, $Object*, $WhileLoopTree*, Object$*)},
+		{"visitWildcard", "(Lcom/sun/source/tree/WildcardTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/WildcardTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitWildcard, $Object*, $WildcardTree*, Object$*)},
+		{"visitYield", "(Lcom/sun/source/tree/YieldTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/YieldTree;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTreeVisitor, visitYield, $Object*, $YieldTree*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.source.util.SimpleTreeVisitor",
+		"java.lang.Object",
+		"com.sun.source.tree.TreeVisitor",
+		fieldInfos$$,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/source/tree/TreeVisitor<TR;TP;>;"
+	};
+	$loadClass(SimpleTreeVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleTreeVisitor);
+	});
 	return class$;
 }
 

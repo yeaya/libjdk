@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/SpanClipRenderer.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -27,61 +26,12 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _SpanClipRenderer_FieldInfo_[] = {
-	{"outpipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, 0, $field(SpanClipRenderer, outpipe)},
-	{"RegionClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(SpanClipRenderer, RegionClass)},
-	{"RegionIteratorClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(SpanClipRenderer, RegionIteratorClass)},
-	{}
-};
-
-$MethodInfo _SpanClipRenderer_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/CompositePipe;)V", nullptr, $PUBLIC, $method(SpanClipRenderer, init$, void, $CompositePipe*)},
-	{"endSequence", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, endSequence, void, Object$*)},
-	{"eraseTile", "(Lsun/java2d/pipe/RegionIterator;[BII[I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(SpanClipRenderer, eraseTile, void, $RegionIterator*, $bytes*, int32_t, int32_t, $ints*)},
-	{"fillTile", "(Lsun/java2d/pipe/RegionIterator;[BII[I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(SpanClipRenderer, fillTile, void, $RegionIterator*, $bytes*, int32_t, int32_t, $ints*)},
-	{"initIDs", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $STATIC | $NATIVE, $staticMethod(SpanClipRenderer, initIDs, void, $Class*, $Class*)},
-	{"needTile", "(Ljava/lang/Object;IIII)Z", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, needTile, bool, Object$*, int32_t, int32_t, int32_t, int32_t)},
-	{"renderPathTile", "(Ljava/lang/Object;[BIIIIIILsun/java2d/pipe/ShapeSpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, renderPathTile, void, Object$*, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ShapeSpanIterator*)},
-	{"renderPathTile", "(Ljava/lang/Object;[BIIIIII)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, renderPathTile, void, Object$*, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"skipTile", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, skipTile, void, Object$*, int32_t, int32_t)},
-	{"startSequence", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;Ljava/awt/Rectangle;[I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, startSequence, $Object*, $SunGraphics2D*, $Shape*, $Rectangle*, $ints*)},
-	{}
-};
-
-#define _METHOD_INDEX_eraseTile 2
-#define _METHOD_INDEX_fillTile 3
-#define _METHOD_INDEX_initIDs 4
-
-$InnerClassInfo _SpanClipRenderer_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.SpanClipRenderer$SCRcontext", "sun.java2d.pipe.SpanClipRenderer", "SCRcontext", 0},
-	{}
-};
-
-$ClassInfo _SpanClipRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.SpanClipRenderer",
-	"java.lang.Object",
-	"sun.java2d.pipe.CompositePipe",
-	_SpanClipRenderer_FieldInfo_,
-	_SpanClipRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SpanClipRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.SpanClipRenderer$SCRcontext"
-};
-
-$Object* allocate$SpanClipRenderer($Class* clazz) {
-	return $of($alloc(SpanClipRenderer));
-}
-
 $Class* SpanClipRenderer::RegionClass = nullptr;
 $Class* SpanClipRenderer::RegionIteratorClass = nullptr;
 
 void SpanClipRenderer::initIDs($Class* rc, $Class* ric) {
 	$init(SpanClipRenderer);
-	$prepareNativeStatic(SpanClipRenderer, initIDs, void, $Class* rc, $Class* ric);
+	$prepareNativeStatic(initIDs, void, $Class* rc, $Class* ric);
 	$invokeNativeStatic(rc, ric);
 	$finishNativeStatic();
 }
@@ -91,9 +41,9 @@ void SpanClipRenderer::init$($CompositePipe* pipe) {
 }
 
 $Object* SpanClipRenderer::startSequence($SunGraphics2D* sg, $Shape* s, $Rectangle* devR, $ints* abox) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RegionIterator, ri, $nc($nc(sg)->clipRegion)->getIterator());
-	return $of($new($SpanClipRenderer$SCRcontext, this, ri, $($nc(this->outpipe)->startSequence(sg, s, devR, abox))));
+	return $new($SpanClipRenderer$SCRcontext, this, ri, $($nc(this->outpipe)->startSequence(sg, s, devR, abox)));
 }
 
 bool SpanClipRenderer::needTile(Object$* ctx, int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -106,7 +56,7 @@ void SpanClipRenderer::renderPathTile(Object$* ctx, $bytes* atile, int32_t offse
 }
 
 void SpanClipRenderer::renderPathTile(Object$* ctx, $bytes* atile$renamed, int32_t offset, int32_t tsize, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, atile, atile$renamed);
 	$var($SpanClipRenderer$SCRcontext, context, $cast($SpanClipRenderer$SCRcontext, ctx));
 	$var($RegionIterator, ri, $nc($nc(context)->iterator)->createCopy());
@@ -138,13 +88,13 @@ void SpanClipRenderer::renderPathTile(Object$* ctx, $bytes* atile$renamed, int32
 }
 
 void SpanClipRenderer::fillTile($RegionIterator* ri, $bytes* alpha, int32_t offset, int32_t tsize, $ints* band) {
-	$prepareNative(SpanClipRenderer, fillTile, void, $RegionIterator* ri, $bytes* alpha, int32_t offset, int32_t tsize, $ints* band);
+	$prepareNative(fillTile, void, $RegionIterator* ri, $bytes* alpha, int32_t offset, int32_t tsize, $ints* band);
 	$invokeNative(ri, alpha, offset, tsize, band);
 	$finishNative();
 }
 
 void SpanClipRenderer::eraseTile($RegionIterator* ri, $bytes* alpha, int32_t offset, int32_t tsize, $ints* band) {
-	$prepareNative(SpanClipRenderer, eraseTile, void, $RegionIterator* ri, $bytes* alpha, int32_t offset, int32_t tsize, $ints* band);
+	$prepareNative(eraseTile, void, $RegionIterator* ri, $bytes* alpha, int32_t offset, int32_t tsize, $ints* band);
 	$invokeNative(ri, alpha, offset, tsize, band);
 	$finishNative();
 }
@@ -159,7 +109,7 @@ void SpanClipRenderer::endSequence(Object$* ctx) {
 	$nc(this->outpipe)->endSequence($nc(context)->outcontext);
 }
 
-void clinit$SpanClipRenderer($Class* class$) {
+void SpanClipRenderer::clinit$($Class* clazz) {
 	$load($Region);
 	$assignStatic(SpanClipRenderer::RegionClass, $Region::class$);
 	$load($RegionIterator);
@@ -173,7 +123,46 @@ SpanClipRenderer::SpanClipRenderer() {
 }
 
 $Class* SpanClipRenderer::load$($String* name, bool initialize) {
-	$loadClass(SpanClipRenderer, name, initialize, &_SpanClipRenderer_ClassInfo_, clinit$SpanClipRenderer, allocate$SpanClipRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"outpipe", "Lsun/java2d/pipe/CompositePipe;", nullptr, 0, $field(SpanClipRenderer, outpipe)},
+		{"RegionClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(SpanClipRenderer, RegionClass)},
+		{"RegionIteratorClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(SpanClipRenderer, RegionIteratorClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/CompositePipe;)V", nullptr, $PUBLIC, $method(SpanClipRenderer, init$, void, $CompositePipe*)},
+		{"endSequence", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, endSequence, void, Object$*)},
+		{"eraseTile", "(Lsun/java2d/pipe/RegionIterator;[BII[I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(SpanClipRenderer, eraseTile, void, $RegionIterator*, $bytes*, int32_t, int32_t, $ints*)},
+		{"fillTile", "(Lsun/java2d/pipe/RegionIterator;[BII[I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(SpanClipRenderer, fillTile, void, $RegionIterator*, $bytes*, int32_t, int32_t, $ints*)},
+		{"initIDs", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $STATIC | $NATIVE, $staticMethod(SpanClipRenderer, initIDs, void, $Class*, $Class*)},
+		{"needTile", "(Ljava/lang/Object;IIII)Z", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, needTile, bool, Object$*, int32_t, int32_t, int32_t, int32_t)},
+		{"renderPathTile", "(Ljava/lang/Object;[BIIIIIILsun/java2d/pipe/ShapeSpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, renderPathTile, void, Object$*, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ShapeSpanIterator*)},
+		{"renderPathTile", "(Ljava/lang/Object;[BIIIIII)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, renderPathTile, void, Object$*, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"skipTile", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, skipTile, void, Object$*, int32_t, int32_t)},
+		{"startSequence", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;Ljava/awt/Rectangle;[I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpanClipRenderer, startSequence, $Object*, $SunGraphics2D*, $Shape*, $Rectangle*, $ints*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.SpanClipRenderer$SCRcontext", "sun.java2d.pipe.SpanClipRenderer", "SCRcontext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.SpanClipRenderer",
+		"java.lang.Object",
+		"sun.java2d.pipe.CompositePipe",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.SpanClipRenderer$SCRcontext"
+	};
+	$loadClass(SpanClipRenderer, name, initialize, &classInfo$$, SpanClipRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SpanClipRenderer);
+	});
 	return class$;
 }
 

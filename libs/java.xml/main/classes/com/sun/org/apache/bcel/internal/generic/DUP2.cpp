@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/DUP2.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/PushInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -12,9 +10,7 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $PushInstruction = ::com::sun::org::apache::bcel::internal::generic::PushInstruction;
 using $StackInstruction = ::com::sun::org::apache::bcel::internal::generic::StackInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,31 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _DUP2_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DUP2, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DUP2, accept, void, $Visitor*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DUP2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.DUP2",
-	"com.sun.org.apache.bcel.internal.generic.StackInstruction",
-	"com.sun.org.apache.bcel.internal.generic.PushInstruction",
-	nullptr,
-	_DUP2_MethodInfo_
-};
-
-$Object* allocate$DUP2($Class* clazz) {
-	return $of($alloc(DUP2));
-}
 
 $String* DUP2::toString() {
 	 return this->$StackInstruction::toString();
@@ -91,7 +62,28 @@ DUP2::DUP2() {
 }
 
 $Class* DUP2::load$($String* name, bool initialize) {
-	$loadClass(DUP2, name, initialize, &_DUP2_ClassInfo_, allocate$DUP2);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DUP2, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DUP2, accept, void, $Visitor*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.DUP2",
+		"com.sun.org.apache.bcel.internal.generic.StackInstruction",
+		"com.sun.org.apache.bcel.internal.generic.PushInstruction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DUP2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DUP2));
+	});
 	return class$;
 }
 

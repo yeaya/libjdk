@@ -15,10 +15,13 @@ public:
 	InvalidSearchControlsException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xB8E38210910FE94F;
+	static const int64_t serialVersionUID = (int64_t)0xb8e38210910fe94f;
 	InvalidSearchControlsException(const InvalidSearchControlsException& e);
 	virtual void throw$() override;
-	inline InvalidSearchControlsException* operator ->() {
+	inline InvalidSearchControlsException* operator ->() const {
+		return (InvalidSearchControlsException*)throwing$;
+	}
+	inline operator InvalidSearchControlsException*() const {
 		return (InvalidSearchControlsException*)throwing$;
 	}
 };

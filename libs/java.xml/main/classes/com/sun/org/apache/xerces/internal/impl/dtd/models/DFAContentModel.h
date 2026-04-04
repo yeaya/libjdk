@@ -60,6 +60,7 @@ class DFAContentModel : public ::com::sun::org::apache::xerces::internal::impl::
 	$class(DFAContentModel, 0, ::com::sun::org::apache::xerces::internal::impl::dtd::models::ContentModelValidator)
 public:
 	DFAContentModel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* syntaxTree, int32_t leafCount, bool mixed);
 	void buildDFA(::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* syntaxTree);
 	void calcFollowList(::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* nodeCur);

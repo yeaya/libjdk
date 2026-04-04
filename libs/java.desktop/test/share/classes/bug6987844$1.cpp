@@ -1,5 +1,4 @@
 #include <bug6987844$1.h>
-
 #include <bug6987844.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JFrame.h>
@@ -20,57 +19,20 @@ using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;
 
-$MethodInfo _bug6987844$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6987844$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6987844$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6987844$1_EnclosingMethodInfo_ = {
-	"bug6987844",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6987844$1_InnerClassesInfo_[] = {
-	{"bug6987844$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6987844$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6987844$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6987844$1_MethodInfo_,
-	nullptr,
-	&_bug6987844$1_EnclosingMethodInfo_,
-	_bug6987844$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6987844"
-};
-
-$Object* allocate$bug6987844$1($Class* clazz) {
-	return $of($alloc(bug6987844$1));
-}
-
 void bug6987844$1::init$() {
 }
 
 void bug6987844$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($bug6987844);
 	$assignStatic($bug6987844::frame, $new($JFrame));
-	$nc($bug6987844::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	$bug6987844::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JMenuBar, bar, $new($JMenuBar));
 	$assignStatic($bug6987844::menu1, $new($JMenu, "Menu1"_s));
-	$nc($bug6987844::menu1)->add($$new($JMenuItem, "item"_s));
+	$bug6987844::menu1->add($$new($JMenuItem, "item"_s));
 	bar->add($bug6987844::menu1);
 	$assignStatic($bug6987844::menu2, $new($JMenu, "Menu2"_s));
-	$nc($bug6987844::menu2)->add($$new($JMenuItem, "item"_s));
+	$bug6987844::menu2->add($$new($JMenuItem, "item"_s));
 	$nc($bug6987844::menu2)->add($$new($JMenuItem, "item"_s));
 	bar->add($bug6987844::menu2);
 	$nc($bug6987844::frame)->setJMenuBar(bar);
@@ -82,7 +44,38 @@ bug6987844$1::bug6987844$1() {
 }
 
 $Class* bug6987844$1::load$($String* name, bool initialize) {
-	$loadClass(bug6987844$1, name, initialize, &_bug6987844$1_ClassInfo_, allocate$bug6987844$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6987844$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6987844$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6987844",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6987844$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6987844$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6987844"
+	};
+	$loadClass(bug6987844$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6987844$1);
+	});
 	return class$;
 }
 

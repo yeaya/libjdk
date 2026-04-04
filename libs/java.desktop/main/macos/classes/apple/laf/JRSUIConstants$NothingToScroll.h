@@ -29,6 +29,7 @@ class JRSUIConstants$NothingToScroll : public ::apple::laf::JRSUIConstants$Prope
 	$class(JRSUIConstants$NothingToScroll, 0, ::apple::laf::JRSUIConstants$Property)
 public:
 	JRSUIConstants$NothingToScroll();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t value);
 	virtual int64_t apply(int64_t encodedState) override;
 	virtual $String* toString() override;

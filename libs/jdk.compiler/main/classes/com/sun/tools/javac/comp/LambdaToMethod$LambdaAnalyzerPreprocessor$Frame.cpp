@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$Frame.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -21,45 +20,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, this$1)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, tree)},
-	{"locals", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", 0, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, locals)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree*)},
-	{"addLocal", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, addLocal, void, $Symbol*)},
-	{}
-};
-
-$InnerClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$Frame", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "Frame", $PRIVATE},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$Frame",
-	"java.lang.Object",
-	nullptr,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_FieldInfo_,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$Frame($Class* clazz) {
-	return $of($alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame));
-}
-
 void LambdaToMethod$LambdaAnalyzerPreprocessor$Frame::init$($LambdaToMethod$LambdaAnalyzerPreprocessor* this$1, $JCTree* tree) {
 	$set(this, this$1, this$1);
 	$set(this, tree, tree);
@@ -76,7 +36,40 @@ LambdaToMethod$LambdaAnalyzerPreprocessor$Frame::LambdaToMethod$LambdaAnalyzerPr
 }
 
 $Class* LambdaToMethod$LambdaAnalyzerPreprocessor$Frame::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, name, initialize, &_LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_ClassInfo_, allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$Frame);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, this$1)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, tree)},
+		{"locals", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", 0, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, locals)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree*)},
+		{"addLocal", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, addLocal, void, $Symbol*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$Frame", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "Frame", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$Frame",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame);
+	});
 	return class$;
 }
 

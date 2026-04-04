@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/IfTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/StatementTree.h>
 #include <jcpp.h>
@@ -14,28 +13,24 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _IfTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getCondition, $ExpressionTree*)},
-	{"getElseStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getElseStatement, $StatementTree*)},
-	{"getThenStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getThenStatement, $StatementTree*)},
-	{}
-};
-
-$ClassInfo _IfTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.IfTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_IfTree_MethodInfo_
-};
-
-$Object* allocate$IfTree($Class* clazz) {
-	return $of($alloc(IfTree));
-}
-
 $Class* IfTree::load$($String* name, bool initialize) {
-	$loadClass(IfTree, name, initialize, &_IfTree_ClassInfo_, allocate$IfTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getCondition, $ExpressionTree*)},
+		{"getElseStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getElseStatement, $StatementTree*)},
+		{"getThenStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getThenStatement, $StatementTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.IfTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IfTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IfTree);
+	});
 	return class$;
 }
 

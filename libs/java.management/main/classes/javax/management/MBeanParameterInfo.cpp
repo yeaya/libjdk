@@ -1,5 +1,4 @@
 #include <javax/management/MBeanParameterInfo.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/util/Objects.h>
 #include <javax/management/Descriptor.h>
@@ -20,38 +19,6 @@ using $MBeanFeatureInfo = ::javax::management::MBeanFeatureInfo;
 namespace javax {
 	namespace management {
 
-$FieldInfo _MBeanParameterInfo_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(MBeanParameterInfo, serialVersionUID)},
-	{"NO_PARAMS", "[Ljavax/management/MBeanParameterInfo;", nullptr, $STATIC | $FINAL, $staticField(MBeanParameterInfo, NO_PARAMS)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanParameterInfo, type)},
-	{}
-};
-
-$MethodInfo _MBeanParameterInfo_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanParameterInfo, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanParameterInfo, init$, void, $String*, $String*, $String*, $Descriptor*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, equals, bool, Object$*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, getType, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MBeanParameterInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanParameterInfo",
-	"javax.management.MBeanFeatureInfo",
-	"java.lang.Cloneable",
-	_MBeanParameterInfo_FieldInfo_,
-	_MBeanParameterInfo_MethodInfo_
-};
-
-$Object* allocate$MBeanParameterInfo($Class* clazz) {
-	return $of($alloc(MBeanParameterInfo));
-}
-
 void MBeanParameterInfo::finalize() {
 	this->$MBeanFeatureInfo::finalize();
 }
@@ -69,9 +36,9 @@ void MBeanParameterInfo::init$($String* name, $String* type, $String* descriptio
 
 $Object* MBeanParameterInfo::clone() {
 	try {
-		return $of($MBeanFeatureInfo::clone());
+		return $MBeanFeatureInfo::clone();
 	} catch ($CloneNotSupportedException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -81,20 +48,23 @@ $String* MBeanParameterInfo::getType() {
 }
 
 $String* MBeanParameterInfo::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$7, $$str({$($of(this)->getClass()->getName()), "[description="_s}));
-	$var($String, var$6, $$concat(var$7, $(getDescription())));
-	$var($String, var$5, $$concat(var$6, ", name="_s));
-	$var($String, var$4, $$concat(var$5, $(getName())));
-	$var($String, var$3, $$concat(var$4, ", type="_s));
-	$var($String, var$2, $$concat(var$3, $(getType())));
-	$var($String, var$1, $$concat(var$2, ", descriptor="_s));
-	$var($String, var$0, $$concat(var$1, $(getDescriptor())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[description="_s);
+	var$0->append($(getDescription()));
+	var$0->append(", name="_s);
+	var$0->append($(getName()));
+	var$0->append(", type="_s);
+	var$0->append($(getType()));
+	var$0->append(", descriptor="_s);
+	var$0->append($(getDescriptor()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 bool MBeanParameterInfo::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -102,34 +72,34 @@ bool MBeanParameterInfo::equals(Object$* o) {
 		return false;
 	}
 	$var(MBeanParameterInfo, p, $cast(MBeanParameterInfo, o));
-	$var($Object, var$3, $of($nc(p)->getName()));
+	$var($Object, var$3, $nc(p)->getName());
 	bool var$2 = $Objects::equals(var$3, $(getName()));
 	if (var$2) {
-		$var($Object, var$4, $of($nc(p)->getType()));
+		$var($Object, var$4, p->getType());
 		var$2 = $Objects::equals(var$4, $(getType()));
 	}
 	bool var$1 = var$2;
 	if (var$1) {
-		$var($Object, var$5, $of($nc(p)->getDescription()));
+		$var($Object, var$5, p->getDescription());
 		var$1 = $Objects::equals(var$5, $(getDescription()));
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		$var($Object, var$6, $of($nc(p)->getDescriptor()));
+		$var($Object, var$6, p->getDescriptor());
 		var$0 = $Objects::equals(var$6, $(getDescriptor()));
 	}
 	return (var$0);
 }
 
 int32_t MBeanParameterInfo::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Objects::hash($$new($ObjectArray, {
-		$($of(getName())),
-		$($of(getType()))
+		$(getName()),
+		$(getType())
 	}));
 }
 
-void clinit$MBeanParameterInfo($Class* class$) {
+void MBeanParameterInfo::clinit$($Class* clazz) {
 	$assignStatic(MBeanParameterInfo::NO_PARAMS, $new($MBeanParameterInfoArray, 0));
 }
 
@@ -137,7 +107,34 @@ MBeanParameterInfo::MBeanParameterInfo() {
 }
 
 $Class* MBeanParameterInfo::load$($String* name, bool initialize) {
-	$loadClass(MBeanParameterInfo, name, initialize, &_MBeanParameterInfo_ClassInfo_, clinit$MBeanParameterInfo, allocate$MBeanParameterInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(MBeanParameterInfo, serialVersionUID)},
+		{"NO_PARAMS", "[Ljavax/management/MBeanParameterInfo;", nullptr, $STATIC | $FINAL, $staticField(MBeanParameterInfo, NO_PARAMS)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MBeanParameterInfo, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanParameterInfo, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanParameterInfo, init$, void, $String*, $String*, $String*, $Descriptor*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, equals, bool, Object$*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, getType, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanParameterInfo",
+		"javax.management.MBeanFeatureInfo",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanParameterInfo, name, initialize, &classInfo$$, MBeanParameterInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanParameterInfo));
+	});
 	return class$;
 }
 

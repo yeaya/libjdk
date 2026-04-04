@@ -52,6 +52,7 @@ class $import Scope : public ::java::lang::Object {
 	$class(Scope, 0, ::java::lang::Object)
 public:
 	Scope();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::Symbol* owner);
 	virtual bool anyMatch(::java::util::function::Predicate* filter);
 	::com::sun::tools::javac::code::Symbol* findFirst(::com::sun::tools::javac::util::Name* name);

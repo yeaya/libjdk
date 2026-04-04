@@ -51,6 +51,7 @@ class Region : public ::java::lang::Object {
 	$class(Region, 0, ::java::lang::Object)
 public:
 	Region();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t lox, int32_t loy, int32_t hix, int32_t hiy);
 	void init$(int32_t lox, int32_t loy, int32_t hix, int32_t hiy, $ints* bands, int32_t end);
 	void appendSpan($ints* box);

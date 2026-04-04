@@ -58,6 +58,7 @@ class $export InstrumentationImpl : public ::java::lang::instrument::Instrumenta
 	$class(InstrumentationImpl, 0, ::java::lang::instrument::Instrumentation)
 public:
 	InstrumentationImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t nativeAgent, bool environmentSupportsRedefineClasses, bool environmentSupportsNativeMethodPrefix);
 	virtual void addTransformer(::java::lang::instrument::ClassFileTransformer* transformer) override;
 	virtual void addTransformer(::java::lang::instrument::ClassFileTransformer* transformer, bool canRetransform) override;

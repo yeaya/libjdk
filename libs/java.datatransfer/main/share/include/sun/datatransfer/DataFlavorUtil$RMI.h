@@ -21,6 +21,7 @@ class $import DataFlavorUtil$RMI : public ::java::lang::Object {
 	$class(DataFlavorUtil$RMI, 0, ::java::lang::Object)
 public:
 	DataFlavorUtil$RMI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* getClass($String* name);
 	static ::java::lang::reflect::Constructor* getConstructor($Class* c, $ClassArray* types);

@@ -26,11 +26,14 @@ public:
 	void init$(::java::lang::Exception* e);
 	void init$($String* msg, ::java::lang::Exception* e);
 	virtual ::java::lang::Exception* getException();
-	static const int64_t serialVersionUID = (int64_t)0x6317D91DE98A8119;
+	static const int64_t serialVersionUID = (int64_t)0x6317d91de98a8119;
 	::java::lang::Exception* m_exception = nullptr;
 	WrappedRuntimeException(const WrappedRuntimeException& e);
 	virtual void throw$() override;
-	inline WrappedRuntimeException* operator ->() {
+	inline WrappedRuntimeException* operator ->() const {
+		return (WrappedRuntimeException*)throwing$;
+	}
+	inline operator WrappedRuntimeException*() const {
 		return (WrappedRuntimeException*)throwing$;
 	}
 };

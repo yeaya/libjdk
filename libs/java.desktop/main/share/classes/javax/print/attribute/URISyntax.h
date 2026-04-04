@@ -29,7 +29,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
 	static ::java::net::URI* verify(::java::net::URI* uri);
-	static const int64_t serialVersionUID = (int64_t)0x9329452E67391572;
+	static const int64_t serialVersionUID = (int64_t)0x9329452e67391572;
 	::java::net::URI* uri = nullptr;
 };
 

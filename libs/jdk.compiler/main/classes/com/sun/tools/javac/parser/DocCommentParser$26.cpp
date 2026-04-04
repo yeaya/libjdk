@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/DocCommentParser$26.h>
-
 #include <com/sun/tools/javac/parser/DocCommentParser$Phase.h>
 #include <com/sun/tools/javac/parser/DocCommentParser$TagParser$Kind.h>
 #include <com/sun/tools/javac/parser/DocCommentParser$TagParser.h>
@@ -31,84 +30,46 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _DocCommentParser$26_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$26, $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind)},
-	{"$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$26, $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy)},
-	{"$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$26, $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase)},
-	{}
-};
-
-$EnclosingMethodInfo _DocCommentParser$26_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.parser.DocCommentParser",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DocCommentParser$26_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.DocCommentParser$26", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _DocCommentParser$26_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.parser.DocCommentParser$26",
-	"java.lang.Object",
-	nullptr,
-	_DocCommentParser$26_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_DocCommentParser$26_EnclosingMethodInfo_,
-	_DocCommentParser$26_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.DocCommentParser"
-};
-
-$Object* allocate$DocCommentParser$26($Class* clazz) {
-	return $of($alloc(DocCommentParser$26));
-}
-
 $ints* DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind = nullptr;
 $ints* DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy = nullptr;
 $ints* DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase = nullptr;
 
-void clinit$DocCommentParser$26($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DocCommentParser$26::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind, $new($ints, $($DocCommentParser$TagParser$Kind::values())->length));
 	{
 		try {
-			$nc(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind)->set($DocCommentParser$TagParser$Kind::BLOCK->ordinal(), 1);
+			DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind->set($DocCommentParser$TagParser$Kind::BLOCK->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind)->set($DocCommentParser$TagParser$Kind::INLINE->ordinal(), 2);
+			DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind->set($DocCommentParser$TagParser$Kind::INLINE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy, $new($ints, $($DocCommentParser$WhitespaceRetentionPolicy::values())->length));
 	{
 		try {
-			$nc(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy)->set($DocCommentParser$WhitespaceRetentionPolicy::REMOVE_ALL->ordinal(), 1);
+			DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy->set($DocCommentParser$WhitespaceRetentionPolicy::REMOVE_ALL->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy)->set($DocCommentParser$WhitespaceRetentionPolicy::REMOVE_FIRST_SPACE->ordinal(), 2);
+			DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy->set($DocCommentParser$WhitespaceRetentionPolicy::REMOVE_FIRST_SPACE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy)->set($DocCommentParser$WhitespaceRetentionPolicy::RETAIN_ALL->ordinal(), 3);
+			DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy->set($DocCommentParser$WhitespaceRetentionPolicy::RETAIN_ALL->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase, $new($ints, $($DocCommentParser$Phase::values())->length));
 	{
 		try {
-			$nc(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase)->set($DocCommentParser$Phase::PREAMBLE->ordinal(), 1);
+			DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase->set($DocCommentParser$Phase::PREAMBLE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase)->set($DocCommentParser$Phase::BODY->ordinal(), 2);
+			DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase->set($DocCommentParser$Phase::BODY->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -118,7 +79,39 @@ DocCommentParser$26::DocCommentParser$26() {
 }
 
 $Class* DocCommentParser$26::load$($String* name, bool initialize) {
-	$loadClass(DocCommentParser$26, name, initialize, &_DocCommentParser$26_ClassInfo_, clinit$DocCommentParser$26, allocate$DocCommentParser$26);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$26, $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind)},
+		{"$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$26, $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy)},
+		{"$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$26, $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.parser.DocCommentParser",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.DocCommentParser$26", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.parser.DocCommentParser$26",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.DocCommentParser"
+	};
+	$loadClass(DocCommentParser$26, name, initialize, &classInfo$$, DocCommentParser$26::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DocCommentParser$26);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/JSlider$AccessibleJSlider.h>
-
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleAction.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -9,10 +8,8 @@
 #include <javax/accessibility/AccessibleValue.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <jcpp.h>
 
 #undef ACCESSIBLE_VALUE_PROPERTY
@@ -37,68 +34,12 @@ using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JSlider$AccessibleJSlider_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JSlider;", nullptr, $FINAL | $SYNTHETIC, $field(JSlider$AccessibleJSlider, this$0)},
-	{"oldModelValue", "I", nullptr, $PRIVATE, $field(JSlider$AccessibleJSlider, oldModelValue)},
-	{}
-};
-
-$MethodInfo _JSlider$AccessibleJSlider_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $method(JSlider$AccessibleJSlider, init$, void, $JSlider*)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, setCurrentAccessibleValue, bool, $Number*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JSlider$AccessibleJSlider_InnerClassesInfo_[] = {
-	{"javax.swing.JSlider$AccessibleJSlider", "javax.swing.JSlider", "AccessibleJSlider", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JSlider$AccessibleJSlider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JSlider$AccessibleJSlider",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.accessibility.AccessibleValue,javax.swing.event.ChangeListener,javax.accessibility.AccessibleAction",
-	_JSlider$AccessibleJSlider_FieldInfo_,
-	_JSlider$AccessibleJSlider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSlider$AccessibleJSlider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JSlider"
-};
-
-$Object* allocate$JSlider$AccessibleJSlider($Class* clazz) {
-	return $of($alloc(JSlider$AccessibleJSlider));
-}
 
 int32_t JSlider$AccessibleJSlider::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -123,7 +64,7 @@ void JSlider$AccessibleJSlider::finalize() {
 void JSlider$AccessibleJSlider::init$($JSlider* this$0) {
 	$set(this, this$0, this$0);
 	$JComponent$AccessibleJComponent::init$(this$0);
-	this->oldModelValue = $nc($(this$0->getModel()))->getValue();
+	this->oldModelValue = $$nc(this$0->getModel())->getValue();
 	this$0->addChangeListener(this);
 }
 
@@ -144,14 +85,14 @@ $AccessibleStateSet* JSlider$AccessibleJSlider::getAccessibleStateSet() {
 }
 
 void JSlider$AccessibleJSlider::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	int32_t newModelValue = $nc($(this->this$0->getModel()))->getValue();
+	int32_t newModelValue = $$nc(this->this$0->getModel())->getValue();
 	$init($AccessibleContext);
 	$var($String, var$0, $AccessibleContext::ACCESSIBLE_VALUE_PROPERTY);
-	$var($Object, var$1, $of($Integer::valueOf(this->oldModelValue)));
+	$var($Object, var$1, $Integer::valueOf(this->oldModelValue));
 	firePropertyChange(var$0, var$1, $($Integer::valueOf(newModelValue)));
 	this->oldModelValue = newModelValue;
 }
@@ -219,7 +160,55 @@ JSlider$AccessibleJSlider::JSlider$AccessibleJSlider() {
 }
 
 $Class* JSlider$AccessibleJSlider::load$($String* name, bool initialize) {
-	$loadClass(JSlider$AccessibleJSlider, name, initialize, &_JSlider$AccessibleJSlider_ClassInfo_, allocate$JSlider$AccessibleJSlider);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JSlider;", nullptr, $FINAL | $SYNTHETIC, $field(JSlider$AccessibleJSlider, this$0)},
+		{"oldModelValue", "I", nullptr, $PRIVATE, $field(JSlider$AccessibleJSlider, oldModelValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $method(JSlider$AccessibleJSlider, init$, void, $JSlider*)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, setCurrentAccessibleValue, bool, $Number*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSlider$AccessibleJSlider, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSlider$AccessibleJSlider", "javax.swing.JSlider", "AccessibleJSlider", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JSlider$AccessibleJSlider",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.accessibility.AccessibleValue,javax.swing.event.ChangeListener,javax.accessibility.AccessibleAction",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JSlider"
+	};
+	$loadClass(JSlider$AccessibleJSlider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSlider$AccessibleJSlider));
+	});
 	return class$;
 }
 

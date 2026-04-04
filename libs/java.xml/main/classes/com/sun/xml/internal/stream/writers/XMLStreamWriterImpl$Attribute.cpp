@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/writers/XMLStreamWriterImpl$Attribute.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <com/sun/xml/internal/stream/writers/XMLStreamWriterImpl.h>
 #include <jcpp.h>
@@ -18,42 +17,6 @@ namespace com {
 				namespace stream {
 					namespace writers {
 
-$FieldInfo _XMLStreamWriterImpl$Attribute_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XMLStreamWriterImpl$Attribute, this$0)},
-	{"value", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamWriterImpl$Attribute, value)},
-	{}
-};
-
-$MethodInfo _XMLStreamWriterImpl$Attribute_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl;Ljava/lang/String;)V", nullptr, 0, $method(XMLStreamWriterImpl$Attribute, init$, void, $XMLStreamWriterImpl*, $String*)},
-	{}
-};
-
-$InnerClassInfo _XMLStreamWriterImpl$Attribute_InnerClassesInfo_[] = {
-	{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "Attribute", 0},
-	{}
-};
-
-$ClassInfo _XMLStreamWriterImpl$Attribute_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute",
-	"com.sun.org.apache.xerces.internal.xni.QName",
-	nullptr,
-	_XMLStreamWriterImpl$Attribute_FieldInfo_,
-	_XMLStreamWriterImpl$Attribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLStreamWriterImpl$Attribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl"
-};
-
-$Object* allocate$XMLStreamWriterImpl$Attribute($Class* clazz) {
-	return $of($alloc(XMLStreamWriterImpl$Attribute));
-}
-
 void XMLStreamWriterImpl$Attribute::init$($XMLStreamWriterImpl* this$0, $String* value) {
 	$set(this, this$0, this$0);
 	$QName::init$();
@@ -64,7 +27,37 @@ XMLStreamWriterImpl$Attribute::XMLStreamWriterImpl$Attribute() {
 }
 
 $Class* XMLStreamWriterImpl$Attribute::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamWriterImpl$Attribute, name, initialize, &_XMLStreamWriterImpl$Attribute_ClassInfo_, allocate$XMLStreamWriterImpl$Attribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XMLStreamWriterImpl$Attribute, this$0)},
+		{"value", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamWriterImpl$Attribute, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl;Ljava/lang/String;)V", nullptr, 0, $method(XMLStreamWriterImpl$Attribute, init$, void, $XMLStreamWriterImpl*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "Attribute", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute",
+		"com.sun.org.apache.xerces.internal.xni.QName",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl"
+	};
+	$loadClass(XMLStreamWriterImpl$Attribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStreamWriterImpl$Attribute);
+	});
 	return class$;
 }
 

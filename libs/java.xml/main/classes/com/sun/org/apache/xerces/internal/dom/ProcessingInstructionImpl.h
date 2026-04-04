@@ -84,7 +84,7 @@ public:
 	virtual void setTextContent($String* textContent) override;
 	virtual $Object* setUserData($String* key, Object$* data, ::org::w3c::dom::UserDataHandler* handler) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x68D6BEC406F214C6;
+	static const int64_t serialVersionUID = (int64_t)0x68d6bec406f214c6;
 	$String* target = nullptr;
 };
 

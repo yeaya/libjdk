@@ -1,5 +1,4 @@
 #include <HeadlessTimer.h>
-
 #include <java/awt/event/ActionListener.h>
 #include <javax/swing/Timer.h>
 #include <jcpp.h>
@@ -8,25 +7,6 @@ using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Timer = ::javax::swing::Timer;
-
-$MethodInfo _HeadlessTimer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessTimer, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessTimer, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessTimer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessTimer",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessTimer_MethodInfo_
-};
-
-$Object* allocate$HeadlessTimer($Class* clazz) {
-	return $of($alloc(HeadlessTimer));
-}
 
 void HeadlessTimer::init$() {
 }
@@ -39,7 +19,22 @@ HeadlessTimer::HeadlessTimer() {
 }
 
 $Class* HeadlessTimer::load$($String* name, bool initialize) {
-	$loadClass(HeadlessTimer, name, initialize, &_HeadlessTimer_ClassInfo_, allocate$HeadlessTimer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessTimer, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessTimer, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessTimer",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessTimer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessTimer);
+	});
 	return class$;
 }
 

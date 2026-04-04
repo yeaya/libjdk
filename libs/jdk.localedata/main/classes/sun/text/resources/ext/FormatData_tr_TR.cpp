@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_tr_TR.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_tr_TR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_tr_TR, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_tr_TR, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_tr_TR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_tr_TR",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_tr_TR_MethodInfo_
-};
-
-$Object* allocate$FormatData_tr_TR($Class* clazz) {
-	return $of($alloc(FormatData_tr_TR));
-}
-
 void FormatData_tr_TR::init$() {
 	$ParallelListResourceBundle::init$();
 }
@@ -44,7 +24,22 @@ FormatData_tr_TR::FormatData_tr_TR() {
 }
 
 $Class* FormatData_tr_TR::load$($String* name, bool initialize) {
-	$loadClass(FormatData_tr_TR, name, initialize, &_FormatData_tr_TR_ClassInfo_, allocate$FormatData_tr_TR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_tr_TR, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_tr_TR, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_tr_TR",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_tr_TR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_tr_TR);
+	});
 	return class$;
 }
 

@@ -41,6 +41,7 @@ class $import TextMeasurer : public ::java::lang::Cloneable {
 	$class(TextMeasurer, 0, ::java::lang::Cloneable)
 public:
 	TextMeasurer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::text::AttributedCharacterIterator* text, ::java::awt::font::FontRenderContext* frc);
 	int32_t calcLineBreak(int32_t pos, float maxAdvance);
 	virtual $Object* clone() override;

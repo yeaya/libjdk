@@ -42,6 +42,7 @@ class XIntPool : public ::java::lang::Object {
 	$class(XIntPool, 0, ::java::lang::Object)
 public:
 	XIntPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::com::sun::org::apache::xerces::internal::impl::xs::util::XInt* getXInt(int32_t value);
 	static const int16_t POOL_SIZE = 10;

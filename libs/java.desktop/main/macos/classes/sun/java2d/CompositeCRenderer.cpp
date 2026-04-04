@@ -1,5 +1,4 @@
 #include <sun/java2d/CompositeCRenderer.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
@@ -30,10 +29,8 @@
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageObserver.h>
-#include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/Math.h>
-#include <java/util/Map.h>
 #include <sun/awt/image/BufImgSurfaceData.h>
 #include <sun/java2d/CRenderer.h>
 #include <sun/java2d/OSXSurfaceData.h>
@@ -53,29 +50,23 @@ using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
 using $Composite = ::java::awt::Composite;
 using $CompositeContext = ::java::awt::CompositeContext;
-using $Font = ::java::awt::Font;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
 using $Shape = ::java::awt::Shape;
-using $Stroke = ::java::awt::Stroke;
 using $GlyphVector = ::java::awt::font::GlyphVector;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Arc2D = ::java::awt::geom::Arc2D;
 using $Arc2D$Float = ::java::awt::geom::Arc2D$Float;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -83,7 +74,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $BufImgSurfaceData = ::sun::awt::image::BufImgSurfaceData;
 using $CRenderer = ::sun::java2d::CRenderer;
 using $OSXSurfaceData = ::sun::java2d::OSXSurfaceData;
@@ -93,68 +83,6 @@ using $Region = ::sun::java2d::pipe::Region;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _CompositeCRenderer_FieldInfo_[] = {
-	{"fPadding", "I", nullptr, $STATIC | $FINAL, $constField(CompositeCRenderer, fPadding)},
-	{"fPaddingHalf", "I", nullptr, $STATIC | $FINAL, $constField(CompositeCRenderer, fPaddingHalf)},
-	{"sIdentityMatrix", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticField(CompositeCRenderer, sIdentityMatrix)},
-	{"ShapeTM", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(CompositeCRenderer, ShapeTM)},
-	{"ShapeBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(CompositeCRenderer, ShapeBounds)},
-	{"line", "Ljava/awt/geom/Line2D;", nullptr, 0, $field(CompositeCRenderer, line)},
-	{"rectangle", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(CompositeCRenderer, rectangle)},
-	{"roundrectangle", "Ljava/awt/geom/RoundRectangle2D;", nullptr, 0, $field(CompositeCRenderer, roundrectangle)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, 0, $field(CompositeCRenderer, ellipse)},
-	{"arc", "Ljava/awt/geom/Arc2D;", nullptr, 0, $field(CompositeCRenderer, arc)},
-	{}
-};
-
-$MethodInfo _CompositeCRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompositeCRenderer, init$, void)},
-	{"blitImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;ZZIIIIIIIILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CompositeCRenderer, blitImage, bool, $SunGraphics2D*, $Image*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"clipBounds", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, 0, $virtualMethod(CompositeCRenderer, clipBounds, void, $SunGraphics2D*, $Rectangle2D*)},
-	{"composite", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/OSXSurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/geom/Rectangle2D;)V", nullptr, 0, $virtualMethod(CompositeCRenderer, composite, void, $SunGraphics2D*, $OSXSurfaceData*, $BufferedImage*, $Rectangle2D*)},
-	{"doPolygon", "(Lsun/java2d/SunGraphics2D;[I[IIZZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, doPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t, bool, bool)},
-	{"doShape", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/OSXSurfaceData;Ljava/awt/Shape;Z)V", nullptr, 0, $virtualMethod(CompositeCRenderer, doShape, void, $SunGraphics2D*, $OSXSurfaceData*, $Shape*, bool)},
-	{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, draw, void, $SunGraphics2D*, $Shape*)},
-	{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawChars", "(Lsun/java2d/SunGraphics2D;[CIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawChars, void, $SunGraphics2D*, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;DD)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, double, double)},
-	{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, float, float)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Lsun/java2d/SunGraphics2D;Ljava/lang/String;DD)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawString, void, $SunGraphics2D*, $String*, double, double)},
-	{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fill, void, $SunGraphics2D*, $Shape*)},
-	{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getSurfacePixels", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/OSXSurfaceData;IIII)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(CompositeCRenderer, getSurfacePixels, $BufferedImage*, $SunGraphics2D*, $OSXSurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{"padBounds", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $virtualMethod(CompositeCRenderer, padBounds, $Rectangle2D*, $SunGraphics2D*, $Shape*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CompositeCRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.CompositeCRenderer",
-	"sun.java2d.CRenderer",
-	"sun.java2d.pipe.TextPipe",
-	_CompositeCRenderer_FieldInfo_,
-	_CompositeCRenderer_MethodInfo_
-};
-
-$Object* allocate$CompositeCRenderer($Class* clazz) {
-	return $of($alloc(CompositeCRenderer));
-}
 
 int32_t CompositeCRenderer::hashCode() {
 	 return this->$CRenderer::hashCode();
@@ -272,38 +200,38 @@ void CompositeCRenderer::fillPolygon($SunGraphics2D* sg2d, $ints* xpoints, $ints
 
 void CompositeCRenderer::doPolygon($SunGraphics2D* sg2d, $ints* xpoints, $ints* ypoints, int32_t npoints, bool ispolygon, bool isfill) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($GeneralPath, gp, $new($GeneralPath, $Path2D::WIND_NON_ZERO, npoints));
 		gp->moveTo((float)$nc(xpoints)->get(0), (float)$nc(ypoints)->get(0));
 		for (int32_t i = 1; i < npoints; ++i) {
-			gp->lineTo((float)$nc(xpoints)->get(i), (float)$nc(ypoints)->get(i));
+			gp->lineTo((float)xpoints->get(i), (float)ypoints->get(i));
 		}
 		if (ispolygon) {
-			if (($nc(xpoints)->get(0) != xpoints->get(npoints - 1)) || ($nc(ypoints)->get(0) != ypoints->get(npoints - 1))) {
-				gp->lineTo((float)$nc(xpoints)->get(0), (float)ypoints->get(0));
+			if ((xpoints->get(0) != xpoints->get(npoints - 1)) || (ypoints->get(0) != ypoints->get(npoints - 1))) {
+				gp->lineTo((float)xpoints->get(0), (float)ypoints->get(0));
 			}
 		}
-		doShape(sg2d, $cast($OSXSurfaceData, $($nc(sg2d)->getSurfaceData())), static_cast<$Shape*>(gp), isfill);
+		doShape(sg2d, $$cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()), $cast($Shape, gp), isfill);
 	}
 }
 
 void CompositeCRenderer::draw($SunGraphics2D* sg2d, $Shape* shape) {
 	$synchronized(this) {
-		doShape(sg2d, $cast($OSXSurfaceData, $($nc(sg2d)->getSurfaceData())), shape, false);
+		doShape(sg2d, $$cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()), shape, false);
 	}
 }
 
 void CompositeCRenderer::fill($SunGraphics2D* sg2d, $Shape* shape) {
 	$synchronized(this) {
-		doShape(sg2d, $cast($OSXSurfaceData, $($nc(sg2d)->getSurfaceData())), shape, true);
+		doShape(sg2d, $$cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()), shape, true);
 	}
 }
 
 void CompositeCRenderer::doShape($SunGraphics2D* sg2d, $OSXSurfaceData* surfaceData, $Shape* shape, bool isfill) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, shapeBounds, $nc(shape)->getBounds2D());
-	bool var$0 = ($nc(shapeBounds)->getWidth() < 0);
-	if (var$0 || ($nc(shapeBounds)->getHeight() < 0)) {
+	bool var$0 = $nc(shapeBounds)->getWidth() < 0;
+	if (var$0 || (shapeBounds->getHeight() < 0)) {
 		return;
 	}
 	$var($Rectangle2D, compositingBounds, padBounds(sg2d, shape));
@@ -317,9 +245,9 @@ void CompositeCRenderer::doShape($SunGraphics2D* sg2d, $OSXSurfaceData* surfaceD
 		$nc(this->ShapeTM)->setToTranslation(var$2, -compositingBounds->getY());
 		$nc(this->ShapeTM)->concatenate($nc(sg2d)->transform$);
 		$nc(g)->setTransform(this->ShapeTM);
-		g->setRenderingHints($($nc(sg2d)->getRenderingHints()));
-		g->setPaint($($nc(sg2d)->getPaint()));
-		g->setStroke($($nc(sg2d)->getStroke()));
+		g->setRenderingHints($(sg2d->getRenderingHints()));
+		g->setPaint($(sg2d->getPaint()));
+		g->setStroke($(sg2d->getStroke()));
 		if (isfill) {
 			g->fill(shape);
 		} else {
@@ -332,8 +260,8 @@ void CompositeCRenderer::doShape($SunGraphics2D* sg2d, $OSXSurfaceData* surfaceD
 
 void CompositeCRenderer::drawString($SunGraphics2D* sg2d, $String* str, double x, double y) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		drawGlyphVector(sg2d, $($nc($($nc(sg2d)->getFont()))->createGlyphVector($(sg2d->getFontRenderContext()), str)), x, y);
+		$useLocalObjectStack();
+		drawGlyphVector(sg2d, $($$nc($nc(sg2d)->getFont())->createGlyphVector($($nc(sg2d)->getFontRenderContext()), str)), x, y);
 	}
 }
 
@@ -351,7 +279,7 @@ void CompositeCRenderer::drawGlyphVector($SunGraphics2D* sg2d, $GlyphVector* gly
 
 void CompositeCRenderer::drawGlyphVector($SunGraphics2D* sg2d, $GlyphVector* glyphVector, float x, float y) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($OSXSurfaceData, surfaceData, $cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()));
 		$var($Shape, shape, $nc(glyphVector)->getOutline(x, y));
 		$var($Rectangle2D, compositingBounds, padBounds(sg2d, shape));
@@ -379,7 +307,7 @@ void CompositeCRenderer::drawGlyphVector($SunGraphics2D* sg2d, $GlyphVector* gly
 }
 
 bool CompositeCRenderer::blitImage($SunGraphics2D* sg2d, $Image* img, bool fliph, bool flipv, int32_t sx, int32_t sy, int32_t sw, int32_t sh, int32_t dx, int32_t dy, int32_t dw, int32_t dh, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OSXSurfaceData, surfaceData, $cast($OSXSurfaceData, $nc(sg2d)->getSurfaceData()));
 	dx = (flipv == false) ? dx : dx - dw;
 	dy = (fliph == false) ? dy : dy - dh;
@@ -388,22 +316,22 @@ bool CompositeCRenderer::blitImage($SunGraphics2D* sg2d, $Image* img, bool fliph
 	bool complexTransform = (sg2d->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE);
 	if (complexTransform == false) {
 		double newX = $Math::floor($nc(compositingBounds)->getX() + sg2d->transX);
-		double newY = $Math::floor($nc(compositingBounds)->getY() + sg2d->transY);
-		double var$0 = $Math::ceil($nc(compositingBounds)->getWidth());
-		double newW = var$0 + (newX < $nc(compositingBounds)->getX() ? 1 : 0);
-		double var$1 = $Math::ceil($nc(compositingBounds)->getHeight());
-		double newH = var$1 + (newY < $nc(compositingBounds)->getY() ? 1 : 0);
-		$nc(compositingBounds)->setRect(newX, newY, newW, newH);
+		double newY = $Math::floor(compositingBounds->getY() + sg2d->transY);
+		double var$0 = $Math::ceil(compositingBounds->getWidth());
+		double newW = var$0 + (newX < compositingBounds->getX() ? 1 : 0);
+		double var$1 = $Math::ceil(compositingBounds->getHeight());
+		double newH = var$1 + (newY < compositingBounds->getY() ? 1 : 0);
+		compositingBounds->setRect(newX, newY, newW, newH);
 	} else {
 		$var($Shape, transformedShape, $nc(sg2d->transform$)->createTransformedShape(compositingBounds));
 		$assign(compositingBounds, $nc(transformedShape)->getBounds2D());
 		double newX = $Math::floor($nc(compositingBounds)->getX());
-		double newY = $Math::floor($nc(compositingBounds)->getY());
-		double var$2 = $Math::ceil($nc(compositingBounds)->getWidth());
-		double newW = var$2 + (newX < $nc(compositingBounds)->getX() ? 1 : 0);
-		double var$3 = $Math::ceil($nc(compositingBounds)->getHeight());
-		double newH = var$3 + (newY < $nc(compositingBounds)->getY() ? 1 : 0);
-		$nc(compositingBounds)->setRect(newX, newY, newW, newH);
+		double newY = $Math::floor(compositingBounds->getY());
+		double var$2 = $Math::ceil(compositingBounds->getWidth());
+		double newW = var$2 + (newX < compositingBounds->getX() ? 1 : 0);
+		double var$3 = $Math::ceil(compositingBounds->getHeight());
+		double newH = var$3 + (newY < compositingBounds->getY() ? 1 : 0);
+		compositingBounds->setRect(newX, newY, newW, newH);
 	}
 	clipBounds(sg2d, compositingBounds);
 	if ($nc(compositingBounds)->isEmpty() == false) {
@@ -430,14 +358,14 @@ bool CompositeCRenderer::blitImage($SunGraphics2D* sg2d, $Image* img, bool fliph
 }
 
 $Rectangle2D* CompositeCRenderer::padBounds($SunGraphics2D* sg2d, $Shape* shape$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, shape, shape$renamed);
 	$assign(shape, $nc(sg2d)->transformShape(shape));
 	int32_t paddingHalf = CompositeCRenderer::fPaddingHalf;
 	int32_t padding = CompositeCRenderer::fPadding;
 	if (sg2d->stroke != nullptr) {
 		if ($instanceOf($BasicStroke, sg2d->stroke)) {
-			int32_t width = $cast(int32_t, ($nc(($cast($BasicStroke, sg2d->stroke)))->getLineWidth() + 0.5f));
+			int32_t width = $cast(int32_t, ($cast($BasicStroke, sg2d->stroke)->getLineWidth() + 0.5f));
 			int32_t widthHalf = width / 2 + 1;
 			paddingHalf += widthHalf;
 			padding += 2 * widthHalf;
@@ -446,7 +374,7 @@ $Rectangle2D* CompositeCRenderer::padBounds($SunGraphics2D* sg2d, $Shape* shape$
 		}
 	}
 	$var($Rectangle2D, bounds, $nc(shape)->getBounds2D());
-	double var$0 = bounds->getX() - paddingHalf;
+	double var$0 = $nc(bounds)->getX() - paddingHalf;
 	double var$1 = bounds->getY() - paddingHalf;
 	double var$2 = bounds->getWidth() + padding;
 	$nc(bounds)->setRect(var$0, var$1, var$2, bounds->getHeight() + padding);
@@ -468,7 +396,7 @@ void CompositeCRenderer::clipBounds($SunGraphics2D* sg2d, $Rectangle2D* bounds) 
 	double var$3 = (double)$nc(intersection)->getLoX();
 	double var$4 = (double)intersection->getLoY();
 	double var$5 = (double)intersection->getWidth();
-	$nc(bounds)->setRect(var$3, var$4, var$5, (double)intersection->getHeight());
+	bounds->setRect(var$3, var$4, var$5, (double)intersection->getHeight());
 }
 
 $BufferedImage* CompositeCRenderer::getSurfacePixels($SunGraphics2D* sg2d, $OSXSurfaceData* surfaceData, int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -477,7 +405,7 @@ $BufferedImage* CompositeCRenderer::getSurfacePixels($SunGraphics2D* sg2d, $OSXS
 }
 
 void CompositeCRenderer::composite($SunGraphics2D* sg2d, $OSXSurfaceData* surfaceData, $BufferedImage* srcPixels, $Rectangle2D* compositingBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = $cast(int32_t, $nc(compositingBounds)->getX());
 	int32_t y = $cast(int32_t, compositingBounds->getY());
 	int32_t w = $cast(int32_t, compositingBounds->getWidth());
@@ -486,7 +414,7 @@ void CompositeCRenderer::composite($SunGraphics2D* sg2d, $OSXSurfaceData* surfac
 	$var($Composite, composite, $nc(sg2d)->getComposite());
 	if ($instanceOf($XORComposite, composite)) {
 		try {
-			succeded = $nc(surfaceData)->xorSurfacePixels(sg2d, srcPixels, x, y, w, h, $nc($($nc(($cast($XORComposite, composite)))->getXorColor()))->getRGB());
+			succeded = $nc(surfaceData)->xorSurfacePixels(sg2d, srcPixels, x, y, w, h, $$nc($cast($XORComposite, composite)->getXorColor())->getRGB());
 		} catch ($Exception& e) {
 			succeded = false;
 		}
@@ -496,8 +424,8 @@ void CompositeCRenderer::composite($SunGraphics2D* sg2d, $OSXSurfaceData* surfac
 		$var($BufferedImage, dstOutPixels, nullptr);
 		if ($instanceOf($XORComposite, composite)) {
 			try {
-				$var($OSXSurfaceData, osxsd, ($cast($OSXSurfaceData, $BufImgSurfaceData::createData(dstInPixels))));
-				succeded = $nc(osxsd)->xorSurfacePixels(sg2d, srcPixels, 0, 0, w, h, $nc($($nc(($cast($XORComposite, composite)))->getXorColor()))->getRGB());
+				$var($OSXSurfaceData, osxsd, $cast($OSXSurfaceData, $BufImgSurfaceData::createData(dstInPixels)));
+				succeded = $nc(osxsd)->xorSurfacePixels(sg2d, srcPixels, 0, 0, w, h, $$nc($cast($XORComposite, composite)->getXorColor())->getRGB());
 				$assign(dstOutPixels, dstInPixels);
 			} catch ($Exception& e) {
 				succeded = false;
@@ -533,7 +461,7 @@ void CompositeCRenderer::composite($SunGraphics2D* sg2d, $OSXSurfaceData* surfac
 	}
 }
 
-void clinit$CompositeCRenderer($Class* class$) {
+void CompositeCRenderer::clinit$($Class* clazz) {
 	$assignStatic(CompositeCRenderer::sIdentityMatrix, $new($AffineTransform));
 }
 
@@ -541,7 +469,64 @@ CompositeCRenderer::CompositeCRenderer() {
 }
 
 $Class* CompositeCRenderer::load$($String* name, bool initialize) {
-	$loadClass(CompositeCRenderer, name, initialize, &_CompositeCRenderer_ClassInfo_, clinit$CompositeCRenderer, allocate$CompositeCRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fPadding", "I", nullptr, $STATIC | $FINAL, $constField(CompositeCRenderer, fPadding)},
+		{"fPaddingHalf", "I", nullptr, $STATIC | $FINAL, $constField(CompositeCRenderer, fPaddingHalf)},
+		{"sIdentityMatrix", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticField(CompositeCRenderer, sIdentityMatrix)},
+		{"ShapeTM", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(CompositeCRenderer, ShapeTM)},
+		{"ShapeBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(CompositeCRenderer, ShapeBounds)},
+		{"line", "Ljava/awt/geom/Line2D;", nullptr, 0, $field(CompositeCRenderer, line)},
+		{"rectangle", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(CompositeCRenderer, rectangle)},
+		{"roundrectangle", "Ljava/awt/geom/RoundRectangle2D;", nullptr, 0, $field(CompositeCRenderer, roundrectangle)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, 0, $field(CompositeCRenderer, ellipse)},
+		{"arc", "Ljava/awt/geom/Arc2D;", nullptr, 0, $field(CompositeCRenderer, arc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompositeCRenderer, init$, void)},
+		{"blitImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;ZZIIIIIIIILjava/awt/Color;)Z", nullptr, $PROTECTED, $virtualMethod(CompositeCRenderer, blitImage, bool, $SunGraphics2D*, $Image*, bool, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"clipBounds", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, 0, $virtualMethod(CompositeCRenderer, clipBounds, void, $SunGraphics2D*, $Rectangle2D*)},
+		{"composite", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/OSXSurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/geom/Rectangle2D;)V", nullptr, 0, $virtualMethod(CompositeCRenderer, composite, void, $SunGraphics2D*, $OSXSurfaceData*, $BufferedImage*, $Rectangle2D*)},
+		{"doPolygon", "(Lsun/java2d/SunGraphics2D;[I[IIZZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, doPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t, bool, bool)},
+		{"doShape", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/OSXSurfaceData;Ljava/awt/Shape;Z)V", nullptr, 0, $virtualMethod(CompositeCRenderer, doShape, void, $SunGraphics2D*, $OSXSurfaceData*, $Shape*, bool)},
+		{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, draw, void, $SunGraphics2D*, $Shape*)},
+		{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawChars", "(Lsun/java2d/SunGraphics2D;[CIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawChars, void, $SunGraphics2D*, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;DD)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, double, double)},
+		{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, float, float)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Lsun/java2d/SunGraphics2D;Ljava/lang/String;DD)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, drawString, void, $SunGraphics2D*, $String*, double, double)},
+		{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fill, void, $SunGraphics2D*, $Shape*)},
+		{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CompositeCRenderer, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getSurfacePixels", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/OSXSurfaceData;IIII)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(CompositeCRenderer, getSurfacePixels, $BufferedImage*, $SunGraphics2D*, $OSXSurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{"padBounds", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $virtualMethod(CompositeCRenderer, padBounds, $Rectangle2D*, $SunGraphics2D*, $Shape*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.CompositeCRenderer",
+		"sun.java2d.CRenderer",
+		"sun.java2d.pipe.TextPipe",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompositeCRenderer, name, initialize, &classInfo$$, CompositeCRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompositeCRenderer));
+	});
 	return class$;
 }
 

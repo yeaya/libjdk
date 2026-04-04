@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
@@ -54,38 +53,6 @@ namespace com {
 					namespace internal {
 						namespace parsers {
 
-$FieldInfo _SAXParser_FieldInfo_[] = {
-	{"NOTIFY_BUILTIN_REFS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, NOTIFY_BUILTIN_REFS)},
-	{"REPORT_WHITESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, REPORT_WHITESPACE)},
-	{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParser, RECOGNIZED_FEATURES)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, SYMBOL_TABLE)},
-	{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, XMLGRAMMAR_POOL)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParser, RECOGNIZED_PROPERTIES)},
-	{}
-};
-
-$MethodInfo _SAXParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(SAXParser, init$, void, $XMLParserConfiguration*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXParser, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(SAXParser, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(SAXParser, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SAXParser, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{}
-};
-
-$ClassInfo _SAXParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.SAXParser",
-	"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser",
-	nullptr,
-	_SAXParser_FieldInfo_,
-	_SAXParser_MethodInfo_
-};
-
-$Object* allocate$SAXParser($Class* clazz) {
-	return $of($alloc(SAXParser));
-}
-
 $String* SAXParser::NOTIFY_BUILTIN_REFS = nullptr;
 $String* SAXParser::REPORT_WHITESPACE = nullptr;
 $StringArray* SAXParser::RECOGNIZED_FEATURES = nullptr;
@@ -126,7 +93,7 @@ void SAXParser::setProperty($String* name, Object$* value) {
 		return;
 	}
 	$init($JdkConstants);
-	if ($nc(name)->equals($JdkConstants::XML_SECURITY_PROPERTY_MANAGER)) {
+	if (name->equals($JdkConstants::XML_SECURITY_PROPERTY_MANAGER)) {
 		if (value == nullptr) {
 			$set(this, securityPropertyManager, $new($XMLSecurityPropertyManager));
 		} else {
@@ -155,7 +122,7 @@ void SAXParser::setProperty($String* name, Object$* value) {
 	}
 }
 
-void clinit$SAXParser($Class* class$) {
+void SAXParser::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(SAXParser::NOTIFY_BUILTIN_REFS, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::NOTIFY_BUILTIN_REFS_FEATURE}));
 	$assignStatic(SAXParser::REPORT_WHITESPACE, $str({$Constants::SUN_SCHEMA_FEATURE_PREFIX, $Constants::SUN_REPORT_IGNORED_ELEMENT_CONTENT_WHITESPACE}));
@@ -175,7 +142,34 @@ SAXParser::SAXParser() {
 }
 
 $Class* SAXParser::load$($String* name, bool initialize) {
-	$loadClass(SAXParser, name, initialize, &_SAXParser_ClassInfo_, clinit$SAXParser, allocate$SAXParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOTIFY_BUILTIN_REFS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, NOTIFY_BUILTIN_REFS)},
+		{"REPORT_WHITESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, REPORT_WHITESPACE)},
+		{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParser, RECOGNIZED_FEATURES)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, SYMBOL_TABLE)},
+		{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SAXParser, XMLGRAMMAR_POOL)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAXParser, RECOGNIZED_PROPERTIES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(SAXParser, init$, void, $XMLParserConfiguration*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAXParser, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(SAXParser, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(SAXParser, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SAXParser, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.SAXParser",
+		"com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAXParser, name, initialize, &classInfo$$, SAXParser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SAXParser));
+	});
 	return class$;
 }
 

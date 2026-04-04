@@ -22,6 +22,7 @@ class WClipboard : public ::sun::awt::datatransfer::SunClipboard {
 	$class(WClipboard, 0, ::sun::awt::datatransfer::SunClipboard)
 public:
 	WClipboard();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void clearNativeContext() override;
 	virtual void closeClipboard() override;

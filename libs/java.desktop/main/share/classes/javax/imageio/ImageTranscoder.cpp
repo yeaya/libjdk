@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageTranscoder.h>
-
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <javax/imageio/ImageWriteParam.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
@@ -14,27 +13,23 @@ using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 namespace javax {
 	namespace imageio {
 
-$MethodInfo _ImageTranscoder_MethodInfo_[] = {
-	{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoder, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoder, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
-	{}
-};
-
-$ClassInfo _ImageTranscoder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.imageio.ImageTranscoder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ImageTranscoder_MethodInfo_
-};
-
-$Object* allocate$ImageTranscoder($Class* clazz) {
-	return $of($alloc(ImageTranscoder));
-}
-
 $Class* ImageTranscoder::load$($String* name, bool initialize) {
-	$loadClass(ImageTranscoder, name, initialize, &_ImageTranscoder_ClassInfo_, allocate$ImageTranscoder);
+	$MethodInfo methodInfos$$[] = {
+		{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoder, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoder, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.imageio.ImageTranscoder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageTranscoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageTranscoder);
+	});
 	return class$;
 }
 

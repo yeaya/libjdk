@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ForEach.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -41,16 +40,13 @@
 #undef WARNING
 
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $IFGT = ::com::sun::org::apache::bcel::internal::generic::IFGT;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Sort = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Sort;
@@ -83,41 +79,12 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _ForEach_FieldInfo_[] = {
-	{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ForEach, _select)},
-	{"_type", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(ForEach, _type)},
-	{}
-};
-
-$MethodInfo _ForEach_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ForEach, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(ForEach, display, void, int32_t)},
-	{"initializeVariables", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(ForEach, initializeVariables, void, $ClassGenerator*, $MethodGenerator*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ForEach, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ForEach, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ForEach, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ForEach_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ForEach",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_ForEach_FieldInfo_,
-	_ForEach_MethodInfo_
-};
-
-$Object* allocate$ForEach($Class* clazz) {
-	return $of($alloc(ForEach));
-}
-
 void ForEach::init$() {
 	$Instruction::init$();
 }
 
 void ForEach::display(int32_t indent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->indent(indent);
 	$Util::println("ForEach"_s);
 	this->indent(indent + $SyntaxTreeNode::IndentIncrement);
@@ -147,11 +114,11 @@ $Type* ForEach::typeCheck($SymbolTable* stable) {
 		$init($Type);
 		return $Type::Void;
 	}
-	$throwNew($TypeCheckError, static_cast<$SyntaxTreeNode*>(this));
+	$throwNew($TypeCheckError, this);
 }
 
 void ForEach::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$nc(il)->append($(methodGen->loadCurrentNode()));
@@ -168,14 +135,14 @@ void ForEach::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) 
 		il->append($(methodGen->loadDOM()));
 		if (sortObjects->size() > 0) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::RESULT_TREE_SORT_ERR, static_cast<$SyntaxTreeNode*>(this)));
-			$nc($(getParser()))->reportError($Constants::WARNING, msg);
+			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::RESULT_TREE_SORT_ERR, this));
+			$$nc(getParser())->reportError($Constants::WARNING, msg);
 		}
 		$nc(this->_select)->translate(classGen, methodGen);
 		$init($Type);
 		$nc(this->_type)->translateTo(classGen, methodGen, $Type::NodeSet);
 		$init($Constants);
-		il->append(static_cast<$1Instruction*>($Constants::SWAP));
+		il->append($Constants::SWAP);
 		il->append($(methodGen->storeDOM()));
 	} else {
 		if (sortObjects->size() > 0) {
@@ -190,15 +157,15 @@ void ForEach::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) 
 	}
 	il->append($(methodGen->storeIterator()));
 	initializeVariables(classGen, methodGen);
-	$var($BranchHandle, nextNode, il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+	$var($BranchHandle, nextNode, il->append($$new($GOTO, nullptr)));
 	$init($Constants);
 	$var($InstructionHandle, loop, il->append($Constants::NOP));
 	translateContents(classGen, methodGen);
 	$nc(nextNode)->setTarget($(il->append($(methodGen->loadIterator()))));
 	il->append($(methodGen->nextNode()));
-	il->append(static_cast<$1Instruction*>($Constants::DUP));
+	il->append($Constants::DUP);
 	il->append($(methodGen->storeCurrentNode()));
-	il->append(static_cast<$BranchInstruction*>($$new($IFGT, loop)));
+	il->append($$new($IFGT, loop));
 	if ((this->_type != nullptr) && ($instanceOf($ResultTreeType, this->_type))) {
 		il->append($(methodGen->storeDOM()));
 	}
@@ -207,13 +174,13 @@ void ForEach::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) 
 }
 
 void ForEach::initializeVariables($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = elementCount();
 	for (int32_t i = 0; i < n; ++i) {
-		$var($Object, child, $nc($(getContents()))->get(i));
+		$var($Object, child, $$nc(getContents())->get(i));
 		if ($instanceOf($Variable, child)) {
 			$var($Variable, var, $cast($Variable, child));
-			$nc(var)->initialize(classGen, methodGen);
+			var->initialize(classGen, methodGen);
 		}
 	}
 }
@@ -222,7 +189,31 @@ ForEach::ForEach() {
 }
 
 $Class* ForEach::load$($String* name, bool initialize) {
-	$loadClass(ForEach, name, initialize, &_ForEach_ClassInfo_, allocate$ForEach);
+	$FieldInfo fieldInfos$$[] = {
+		{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ForEach, _select)},
+		{"_type", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(ForEach, _type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ForEach, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(ForEach, display, void, int32_t)},
+		{"initializeVariables", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(ForEach, initializeVariables, void, $ClassGenerator*, $MethodGenerator*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ForEach, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ForEach, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ForEach, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ForEach",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ForEach, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForEach);
+	});
 	return class$;
 }
 

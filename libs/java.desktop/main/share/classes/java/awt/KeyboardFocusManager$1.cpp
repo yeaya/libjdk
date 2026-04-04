@@ -1,5 +1,4 @@
 #include <java/awt/KeyboardFocusManager$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/KeyboardFocusManager.h>
@@ -21,50 +20,6 @@ using $AppContext = ::sun::awt::AppContext;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _KeyboardFocusManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KeyboardFocusManager$1, init$, void)},
-	{"getCurrentFocusCycleRoot", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, getCurrentFocusCycleRoot, $Container*)},
-	{"getCurrentKeyboardFocusManager", "(Lsun/awt/AppContext;)Ljava/awt/KeyboardFocusManager;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, getCurrentKeyboardFocusManager, $KeyboardFocusManager*, $AppContext*)},
-	{"getMostRecentFocusOwner", "(Ljava/awt/Window;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, getMostRecentFocusOwner, $Component*, $Window*)},
-	{"processSynchronousLightweightTransfer", "(Ljava/awt/Component;Ljava/awt/Component;ZZJ)Z", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, processSynchronousLightweightTransfer, bool, $Component*, $Component*, bool, bool, int64_t)},
-	{"removeLastFocusRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, removeLastFocusRequest, void, $Component*)},
-	{"setMostRecentFocusOwner", "(Ljava/awt/Window;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, setMostRecentFocusOwner, void, $Window*, $Component*)},
-	{"shouldNativelyFocusHeavyweight", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)I", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, shouldNativelyFocusHeavyweight, int32_t, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{}
-};
-
-$EnclosingMethodInfo _KeyboardFocusManager$1_EnclosingMethodInfo_ = {
-	"java.awt.KeyboardFocusManager",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _KeyboardFocusManager$1_InnerClassesInfo_[] = {
-	{"java.awt.KeyboardFocusManager$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$KeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "KeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyboardFocusManager$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.KeyboardFocusManager$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$KeyboardFocusManagerAccessor",
-	nullptr,
-	_KeyboardFocusManager$1_MethodInfo_,
-	nullptr,
-	&_KeyboardFocusManager$1_EnclosingMethodInfo_,
-	_KeyboardFocusManager$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.KeyboardFocusManager"
-};
-
-$Object* allocate$KeyboardFocusManager$1($Class* clazz) {
-	return $of($alloc(KeyboardFocusManager$1));
-}
 
 void KeyboardFocusManager$1::init$() {
 }
@@ -102,7 +57,45 @@ KeyboardFocusManager$1::KeyboardFocusManager$1() {
 }
 
 $Class* KeyboardFocusManager$1::load$($String* name, bool initialize) {
-	$loadClass(KeyboardFocusManager$1, name, initialize, &_KeyboardFocusManager$1_ClassInfo_, allocate$KeyboardFocusManager$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KeyboardFocusManager$1, init$, void)},
+		{"getCurrentFocusCycleRoot", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, getCurrentFocusCycleRoot, $Container*)},
+		{"getCurrentKeyboardFocusManager", "(Lsun/awt/AppContext;)Ljava/awt/KeyboardFocusManager;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, getCurrentKeyboardFocusManager, $KeyboardFocusManager*, $AppContext*)},
+		{"getMostRecentFocusOwner", "(Ljava/awt/Window;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, getMostRecentFocusOwner, $Component*, $Window*)},
+		{"processSynchronousLightweightTransfer", "(Ljava/awt/Component;Ljava/awt/Component;ZZJ)Z", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, processSynchronousLightweightTransfer, bool, $Component*, $Component*, bool, bool, int64_t)},
+		{"removeLastFocusRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, removeLastFocusRequest, void, $Component*)},
+		{"setMostRecentFocusOwner", "(Ljava/awt/Window;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, setMostRecentFocusOwner, void, $Window*, $Component*)},
+		{"shouldNativelyFocusHeavyweight", "(Ljava/awt/Component;Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)I", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$1, shouldNativelyFocusHeavyweight, int32_t, $Component*, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.KeyboardFocusManager",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.KeyboardFocusManager$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$KeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "KeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.KeyboardFocusManager$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$KeyboardFocusManagerAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.KeyboardFocusManager"
+	};
+	$loadClass(KeyboardFocusManager$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyboardFocusManager$1);
+	});
 	return class$;
 }
 

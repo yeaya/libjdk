@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Image.h>
@@ -98,14 +97,11 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Map = ::java::util::Map;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
 using $JTextField = ::javax::swing::JTextField;
 using $LayoutStyle = ::javax::swing::LayoutStyle;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyInputMap = ::javax::swing::UIDefaults$LazyInputMap;
 using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
@@ -147,7 +143,6 @@ using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$UIDefaultsAccessor = ::sun::swing::SwingAccessor$UIDefaultsAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
@@ -163,27 +158,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0::class$ = nullptr;
@@ -196,27 +188,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$1(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::class$ = nullptr;
@@ -229,27 +218,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$2(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::class$ = nullptr;
@@ -262,27 +248,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$3(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::class$ = nullptr;
@@ -295,27 +278,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$4(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::class$ = nullptr;
@@ -328,27 +308,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$5(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::class$ = nullptr;
@@ -362,33 +339,29 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$6(controlShadow, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6>());
-	}
 	$Color* controlShadow = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::fieldInfos[2] = {
-	{"controlShadow", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, controlShadow)},
-	{}
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, init$, void, $Color*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"controlShadow", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, controlShadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, init$, void, $Color*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::class$ = nullptr;
@@ -401,27 +374,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$7(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::class$ = nullptr;
@@ -434,27 +404,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$8(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::class$ = nullptr;
@@ -467,27 +434,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$9(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::class$ = nullptr;
@@ -500,27 +464,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$10(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::class$ = nullptr;
@@ -533,27 +494,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$11(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::class$ = nullptr;
@@ -567,33 +525,29 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$12(controlDarkShadow, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12>());
-	}
 	$Color* controlDarkShadow = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::fieldInfos[2] = {
-	{"controlDarkShadow", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, controlDarkShadow)},
-	{}
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, init$, void, $Color*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"controlDarkShadow", "Ljava/awt/Color;", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, controlDarkShadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, init$, void, $Color*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::class$ = nullptr;
@@ -606,27 +560,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$16(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13::class$ = nullptr;
@@ -639,27 +590,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$17(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14::class$ = nullptr;
@@ -672,27 +620,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$18(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15::class$ = nullptr;
@@ -705,27 +650,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$19(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16::class$ = nullptr;
@@ -738,27 +680,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$20(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17::class$ = nullptr;
@@ -771,27 +710,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$21(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18::class$ = nullptr;
@@ -804,27 +740,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$22(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19::class$ = nullptr;
@@ -837,27 +770,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$23(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20::class$ = nullptr;
@@ -870,27 +800,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$24(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21::class$ = nullptr;
@@ -903,27 +830,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$25(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22::class$ = nullptr;
@@ -936,27 +860,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$26(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23::class$ = nullptr;
@@ -969,27 +890,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$27(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24::class$ = nullptr;
@@ -1002,27 +920,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$28(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25::class$ = nullptr;
@@ -1035,27 +950,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$29(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26::class$ = nullptr;
@@ -1068,27 +980,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$30(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27::class$ = nullptr;
@@ -1101,27 +1010,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$31(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28::class$ = nullptr;
@@ -1134,27 +1040,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$32(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29::class$ = nullptr;
@@ -1167,27 +1070,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$33(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30::class$ = nullptr;
@@ -1200,27 +1100,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$34(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31::class$ = nullptr;
@@ -1234,33 +1131,29 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$35(internalFrameIconSize, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32>());
-	}
 	int32_t internalFrameIconSize = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::fieldInfos[2] = {
-	{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, internalFrameIconSize)},
-	{}
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, init$, void, int32_t)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, internalFrameIconSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, init$, void, int32_t)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::class$ = nullptr;
@@ -1274,33 +1167,29 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$36(internalFrameIconSize, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33>());
-	}
 	int32_t internalFrameIconSize = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33::fieldInfos[2] = {
-	{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, internalFrameIconSize)},
-	{}
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, init$, void, int32_t)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, internalFrameIconSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, init$, void, int32_t)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33::class$ = nullptr;
@@ -1314,33 +1203,29 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$37(internalFrameIconSize, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34>());
-	}
 	int32_t internalFrameIconSize = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34::fieldInfos[2] = {
-	{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, internalFrameIconSize)},
-	{}
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, init$, void, int32_t)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, internalFrameIconSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, init$, void, int32_t)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34::class$ = nullptr;
@@ -1354,33 +1239,29 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$38(internalFrameIconSize, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35>());
-	}
 	int32_t internalFrameIconSize = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35::fieldInfos[2] = {
-	{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, internalFrameIconSize)},
-	{}
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, init$, void, int32_t)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	fieldInfos,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"internalFrameIconSize", "I", nullptr, $PUBLIC, $field(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, internalFrameIconSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, init$, void, int32_t)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35::class$ = nullptr;
@@ -1393,27 +1274,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$39(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36::class$ = nullptr;
@@ -1426,27 +1304,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$40(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37::class$ = nullptr;
@@ -1459,27 +1334,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$41(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38::class$ = nullptr;
@@ -1492,27 +1364,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$43(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::class$ = nullptr;
@@ -1525,27 +1394,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$44(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40::class$ = nullptr;
@@ -1558,27 +1424,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$46(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41::class$ = nullptr;
@@ -1591,27 +1454,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$51(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42::class$ = nullptr;
@@ -1624,27 +1484,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$52(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43::class$ = nullptr;
@@ -1657,27 +1514,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$53(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44::class$ = nullptr;
@@ -1690,27 +1544,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$54(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45::class$ = nullptr;
@@ -1723,27 +1574,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$55(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46::class$ = nullptr;
@@ -1756,27 +1604,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$56(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47::class$ = nullptr;
@@ -1789,186 +1634,27 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return MetalLookAndFeel::lambda$initComponentDefaults$57(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48);
+	});
 	return class$;
 }
 $Class* MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48::class$ = nullptr;
-
-$FieldInfo _MetalLookAndFeel_FieldInfo_[] = {
-	{"METAL_LOOK_AND_FEEL_INITED", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, METAL_LOOK_AND_FEEL_INITED)},
-	{"checkedWindows", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, checkedWindows)},
-	{"isWindows", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, isWindows$)},
-	{"checkedSystemFontSettings", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, checkedSystemFontSettings)},
-	{"useSystemFonts", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, useSystemFonts$)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljavax/swing/LookAndFeel;>;", $STATIC, $staticField(MetalLookAndFeel, queue)},
-	{}
-};
-
-$MethodInfo _MetalLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel, init$, void)},
-	{"createDefaultTheme", "()V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, createDefaultTheme, void)},
-	{"flushUnreferenced", "()V", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, flushUnreferenced, void)},
-	{"getAcceleratorForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getAcceleratorForeground, $ColorUIResource*)},
-	{"getAcceleratorSelectedForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getAcceleratorSelectedForeground, $ColorUIResource*)},
-	{"getBlack", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getBlack, $ColorUIResource*)},
-	{"getControl", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControl, $ColorUIResource*)},
-	{"getControlDarkShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlDarkShadow, $ColorUIResource*)},
-	{"getControlDisabled", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlDisabled, $ColorUIResource*)},
-	{"getControlHighlight", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlHighlight, $ColorUIResource*)},
-	{"getControlInfo", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlInfo, $ColorUIResource*)},
-	{"getControlShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlShadow, $ColorUIResource*)},
-	{"getControlTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlTextColor, $ColorUIResource*)},
-	{"getControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlTextFont, $FontUIResource*)},
-	{"getCurrentTheme", "()Ljavax/swing/plaf/metal/MetalTheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getCurrentTheme, $MetalTheme*)},
-	{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDefaults, $UIDefaults*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDescription, $String*)},
-	{"getDesktopColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getDesktopColor, $ColorUIResource*)},
-	{"getDisabledIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDisabledIcon, $Icon*, $JComponent*, $Icon*)},
-	{"getDisabledSelectedIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDisabledSelectedIcon, $Icon*, $JComponent*, $Icon*)},
-	{"getFocusColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getFocusColor, $ColorUIResource*)},
-	{"getHighlightedTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getHighlightedTextColor, $ColorUIResource*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getID, $String*)},
-	{"getInactiveControlTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getInactiveControlTextColor, $ColorUIResource*)},
-	{"getInactiveSystemTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getInactiveSystemTextColor, $ColorUIResource*)},
-	{"getLayoutStyle", "()Ljavax/swing/LayoutStyle;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getLayoutStyle, $LayoutStyle*)},
-	{"getMenuBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuBackground, $ColorUIResource*)},
-	{"getMenuDisabledForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuDisabledForeground, $ColorUIResource*)},
-	{"getMenuForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuForeground, $ColorUIResource*)},
-	{"getMenuSelectedBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuSelectedBackground, $ColorUIResource*)},
-	{"getMenuSelectedForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuSelectedForeground, $ColorUIResource*)},
-	{"getMenuTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuTextFont, $FontUIResource*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getName, $String*)},
-	{"getPrimaryControl", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControl, $ColorUIResource*)},
-	{"getPrimaryControlDarkShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlDarkShadow, $ColorUIResource*)},
-	{"getPrimaryControlHighlight", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlHighlight, $ColorUIResource*)},
-	{"getPrimaryControlInfo", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlInfo, $ColorUIResource*)},
-	{"getPrimaryControlShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlShadow, $ColorUIResource*)},
-	{"getSeparatorBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSeparatorBackground, $ColorUIResource*)},
-	{"getSeparatorForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSeparatorForeground, $ColorUIResource*)},
-	{"getSubTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSubTextFont, $FontUIResource*)},
-	{"getSupportsWindowDecorations", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getSupportsWindowDecorations, bool)},
-	{"getSystemTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSystemTextColor, $ColorUIResource*)},
-	{"getSystemTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSystemTextFont, $FontUIResource*)},
-	{"getTextHighlightColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getTextHighlightColor, $ColorUIResource*)},
-	{"getUserTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getUserTextColor, $ColorUIResource*)},
-	{"getUserTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getUserTextFont, $FontUIResource*)},
-	{"getWhite", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWhite, $ColorUIResource*)},
-	{"getWindowBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowBackground, $ColorUIResource*)},
-	{"getWindowTitleBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleBackground, $ColorUIResource*)},
-	{"getWindowTitleFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleFont, $FontUIResource*)},
-	{"getWindowTitleForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleForeground, $ColorUIResource*)},
-	{"getWindowTitleInactiveBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleInactiveBackground, $ColorUIResource*)},
-	{"getWindowTitleInactiveForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleInactiveForeground, $ColorUIResource*)},
-	{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, initClassDefaults, void, $UIDefaults*)},
-	{"initComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, initComponentDefaults, void, $UIDefaults*)},
-	{"initResourceBundle", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(MetalLookAndFeel, initResourceBundle, void, $UIDefaults*)},
-	{"initSystemColorDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, initSystemColorDefaults, void, $UIDefaults*)},
-	{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, isNativeLookAndFeel, bool)},
-	{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, isSupportedLookAndFeel, bool)},
-	{"isWindows", "()Z", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, isWindows, bool)},
-	{"lambda$initComponentDefaults$0", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$0, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$1", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$1, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$10", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$10, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$11", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$11, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$12", "(Ljava/awt/Color;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$12, $Object*, $Color*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$16", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$16, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$17", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$17, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$18", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$18, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$19", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$19, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$2", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$2, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$20", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$20, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$21", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$21, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$22", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$22, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$23", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$23, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$24", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$24, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$25", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$25, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$26", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$26, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$27", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$27, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$28", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$28, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$29", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$29, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$3", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$3, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$30", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$30, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$31", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$31, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$32", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$32, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$33", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$33, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$34", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$34, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$35", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$35, $Object*, int32_t, $UIDefaults*)},
-	{"lambda$initComponentDefaults$36", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$36, $Object*, int32_t, $UIDefaults*)},
-	{"lambda$initComponentDefaults$37", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$37, $Object*, int32_t, $UIDefaults*)},
-	{"lambda$initComponentDefaults$38", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$38, $Object*, int32_t, $UIDefaults*)},
-	{"lambda$initComponentDefaults$39", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$39, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$4", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$4, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$40", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$40, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$41", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$41, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$43", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$43, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$44", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$44, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$46", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$46, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$5", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$5, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$51", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$51, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$52", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$52, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$53", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$53, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$54", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$54, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$55", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$55, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$56", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$56, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$57", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$57, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$6", "(Ljava/awt/Color;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$6, $Object*, $Color*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$7", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$7, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$8", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$8, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$9", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$9, $Object*, $UIDefaults*)},
-	{"provideErrorFeedback", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, provideErrorFeedback, void, $Component*)},
-	{"setCurrentTheme", "(Ljavax/swing/plaf/metal/MetalTheme;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, setCurrentTheme, void, $MetalTheme*)},
-	{"useHighContrastTheme", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalLookAndFeel, useHighContrastTheme, bool)},
-	{"useSystemFonts", "()Z", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, useSystemFonts, bool)},
-	{"usingOcean", "()Z", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, usingOcean, bool)},
-	{}
-};
-
-$InnerClassInfo _MetalLookAndFeel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalLookAndFeel$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle", "javax.swing.plaf.metal.MetalLookAndFeel", "MetalLayoutStyle", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener", "javax.swing.plaf.metal.MetalLookAndFeel", "AATextListener", $STATIC},
-	{"javax.swing.plaf.metal.MetalLookAndFeel$FontActiveValue", "javax.swing.plaf.metal.MetalLookAndFeel", "FontActiveValue", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalLookAndFeel",
-	"javax.swing.plaf.basic.BasicLookAndFeel",
-	nullptr,
-	_MetalLookAndFeel_FieldInfo_,
-	_MetalLookAndFeel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalLookAndFeel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalLookAndFeel$1,javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle,javax.swing.plaf.metal.MetalLookAndFeel$AATextListener,javax.swing.plaf.metal.MetalLookAndFeel$AATextListener$1,javax.swing.plaf.metal.MetalLookAndFeel$FontActiveValue"
-};
-
-$Object* allocate$MetalLookAndFeel($Class* clazz) {
-	return $of($alloc(MetalLookAndFeel));
-}
 
 bool MetalLookAndFeel::METAL_LOOK_AND_FEEL_INITED = false;
 bool MetalLookAndFeel::checkedWindows = false;
@@ -1983,15 +1669,15 @@ void MetalLookAndFeel::init$() {
 
 bool MetalLookAndFeel::isWindows() {
 	$init(MetalLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!MetalLookAndFeel::checkedWindows) {
 		$OSInfo$OSType* osType = $cast($OSInfo$OSType, $AccessController::doPrivileged($($OSInfo::getOSTypeAction())));
 		$init($OSInfo$OSType);
 		if (osType == $OSInfo$OSType::WINDOWS) {
 			MetalLookAndFeel::isWindows$ = true;
-			$var($String, systemFonts, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.useSystemFontSettings"_s)))));
-			MetalLookAndFeel::useSystemFonts$ = (systemFonts != nullptr && ($nc($($Boolean::valueOf(systemFonts)))->booleanValue()));
+			$var($String, systemFonts, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.useSystemFontSettings"_s))));
+			MetalLookAndFeel::useSystemFonts$ = (systemFonts != nullptr && ($($Boolean::valueOf(systemFonts))->booleanValue()));
 		}
 		MetalLookAndFeel::checkedWindows = true;
 	}
@@ -2003,7 +1689,6 @@ bool MetalLookAndFeel::useSystemFonts() {
 	if (isWindows() && MetalLookAndFeel::useSystemFonts$) {
 		if (MetalLookAndFeel::METAL_LOOK_AND_FEEL_INITED) {
 			$var($Object, value, $UIManager::get("Application.useSystemFontSettings"_s));
-			$init($Boolean);
 			return (value == nullptr || $nc($Boolean::TRUE)->equals(value));
 		}
 		return true;
@@ -2013,11 +1698,11 @@ bool MetalLookAndFeel::useSystemFonts() {
 
 bool MetalLookAndFeel::useHighContrastTheme() {
 	$init(MetalLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isWindows();
 	if (var$0 && useSystemFonts()) {
-		$var($Boolean, highContrast, $cast($Boolean, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("win.highContrast.on"_s)));
-		return (highContrast == nullptr) ? false : $nc(highContrast)->booleanValue();
+		$var($Boolean, highContrast, $cast($Boolean, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("win.highContrast.on"_s)));
+		return (highContrast == nullptr) ? false : highContrast->booleanValue();
 	}
 	return false;
 }
@@ -2052,125 +1737,125 @@ bool MetalLookAndFeel::getSupportsWindowDecorations() {
 }
 
 void MetalLookAndFeel::initClassDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicLookAndFeel::initClassDefaults(table);
 	$var($String, metalPackageName, "javax.swing.plaf.metal."_s);
 	$var($ObjectArray, uiDefaults, $new($ObjectArray, {
-		$of("ButtonUI"_s),
-		$of($$str({metalPackageName, "MetalButtonUI"_s})),
-		$of("CheckBoxUI"_s),
-		$of($$str({metalPackageName, "MetalCheckBoxUI"_s})),
-		$of("ComboBoxUI"_s),
-		$of($$str({metalPackageName, "MetalComboBoxUI"_s})),
-		$of("DesktopIconUI"_s),
-		$of($$str({metalPackageName, "MetalDesktopIconUI"_s})),
-		$of("FileChooserUI"_s),
-		$of($$str({metalPackageName, "MetalFileChooserUI"_s})),
-		$of("InternalFrameUI"_s),
-		$of($$str({metalPackageName, "MetalInternalFrameUI"_s})),
-		$of("LabelUI"_s),
-		$of($$str({metalPackageName, "MetalLabelUI"_s})),
-		$of("PopupMenuSeparatorUI"_s),
-		$of($$str({metalPackageName, "MetalPopupMenuSeparatorUI"_s})),
-		$of("ProgressBarUI"_s),
-		$of($$str({metalPackageName, "MetalProgressBarUI"_s})),
-		$of("RadioButtonUI"_s),
-		$of($$str({metalPackageName, "MetalRadioButtonUI"_s})),
-		$of("ScrollBarUI"_s),
-		$of($$str({metalPackageName, "MetalScrollBarUI"_s})),
-		$of("ScrollPaneUI"_s),
-		$of($$str({metalPackageName, "MetalScrollPaneUI"_s})),
-		$of("SeparatorUI"_s),
-		$of($$str({metalPackageName, "MetalSeparatorUI"_s})),
-		$of("SliderUI"_s),
-		$of($$str({metalPackageName, "MetalSliderUI"_s})),
-		$of("SplitPaneUI"_s),
-		$of($$str({metalPackageName, "MetalSplitPaneUI"_s})),
-		$of("TabbedPaneUI"_s),
-		$of($$str({metalPackageName, "MetalTabbedPaneUI"_s})),
-		$of("TextFieldUI"_s),
-		$of($$str({metalPackageName, "MetalTextFieldUI"_s})),
-		$of("ToggleButtonUI"_s),
-		$of($$str({metalPackageName, "MetalToggleButtonUI"_s})),
-		$of("ToolBarUI"_s),
-		$of($$str({metalPackageName, "MetalToolBarUI"_s})),
-		$of("ToolTipUI"_s),
-		$of($$str({metalPackageName, "MetalToolTipUI"_s})),
-		$of("TreeUI"_s),
-		$of($$str({metalPackageName, "MetalTreeUI"_s})),
-		$of("RootPaneUI"_s),
-		$of($$str({metalPackageName, "MetalRootPaneUI"_s}))
+		"ButtonUI"_s,
+		$$str({metalPackageName, "MetalButtonUI"_s}),
+		"CheckBoxUI"_s,
+		$$str({metalPackageName, "MetalCheckBoxUI"_s}),
+		"ComboBoxUI"_s,
+		$$str({metalPackageName, "MetalComboBoxUI"_s}),
+		"DesktopIconUI"_s,
+		$$str({metalPackageName, "MetalDesktopIconUI"_s}),
+		"FileChooserUI"_s,
+		$$str({metalPackageName, "MetalFileChooserUI"_s}),
+		"InternalFrameUI"_s,
+		$$str({metalPackageName, "MetalInternalFrameUI"_s}),
+		"LabelUI"_s,
+		$$str({metalPackageName, "MetalLabelUI"_s}),
+		"PopupMenuSeparatorUI"_s,
+		$$str({metalPackageName, "MetalPopupMenuSeparatorUI"_s}),
+		"ProgressBarUI"_s,
+		$$str({metalPackageName, "MetalProgressBarUI"_s}),
+		"RadioButtonUI"_s,
+		$$str({metalPackageName, "MetalRadioButtonUI"_s}),
+		"ScrollBarUI"_s,
+		$$str({metalPackageName, "MetalScrollBarUI"_s}),
+		"ScrollPaneUI"_s,
+		$$str({metalPackageName, "MetalScrollPaneUI"_s}),
+		"SeparatorUI"_s,
+		$$str({metalPackageName, "MetalSeparatorUI"_s}),
+		"SliderUI"_s,
+		$$str({metalPackageName, "MetalSliderUI"_s}),
+		"SplitPaneUI"_s,
+		$$str({metalPackageName, "MetalSplitPaneUI"_s}),
+		"TabbedPaneUI"_s,
+		$$str({metalPackageName, "MetalTabbedPaneUI"_s}),
+		"TextFieldUI"_s,
+		$$str({metalPackageName, "MetalTextFieldUI"_s}),
+		"ToggleButtonUI"_s,
+		$$str({metalPackageName, "MetalToggleButtonUI"_s}),
+		"ToolBarUI"_s,
+		$$str({metalPackageName, "MetalToolBarUI"_s}),
+		"ToolTipUI"_s,
+		$$str({metalPackageName, "MetalToolTipUI"_s}),
+		"TreeUI"_s,
+		$$str({metalPackageName, "MetalTreeUI"_s}),
+		"RootPaneUI"_s,
+		$$str({metalPackageName, "MetalRootPaneUI"_s})
 	}));
 	$nc(table)->putDefaults(uiDefaults);
 }
 
 void MetalLookAndFeel::initSystemColorDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MetalTheme, theme, getCurrentTheme());
 	$var($Color, control, $nc(theme)->getControl());
 	$var($ObjectArray, systemColors, $new($ObjectArray, {
-		$of("desktop"_s),
-		$($of(theme->getDesktopColor())),
-		$of("activeCaption"_s),
-		$($of(theme->getWindowTitleBackground())),
-		$of("activeCaptionText"_s),
-		$($of(theme->getWindowTitleForeground())),
-		$of("activeCaptionBorder"_s),
-		$($of(theme->getPrimaryControlShadow())),
-		$of("inactiveCaption"_s),
-		$($of(theme->getWindowTitleInactiveBackground())),
-		$of("inactiveCaptionText"_s),
-		$($of(theme->getWindowTitleInactiveForeground())),
-		$of("inactiveCaptionBorder"_s),
-		$($of(theme->getControlShadow())),
-		$of("window"_s),
-		$($of(theme->getWindowBackground())),
-		$of("windowBorder"_s),
-		$of(control),
-		$of("windowText"_s),
-		$($of(theme->getUserTextColor())),
-		$of("menu"_s),
-		$($of(theme->getMenuBackground())),
-		$of("menuText"_s),
-		$($of(theme->getMenuForeground())),
-		$of("text"_s),
-		$($of(theme->getWindowBackground())),
-		$of("textText"_s),
-		$($of(theme->getUserTextColor())),
-		$of("textHighlight"_s),
-		$($of(theme->getTextHighlightColor())),
-		$of("textHighlightText"_s),
-		$($of(theme->getHighlightedTextColor())),
-		$of("textInactiveText"_s),
-		$($of(theme->getInactiveSystemTextColor())),
-		$of("control"_s),
-		$of(control),
-		$of("controlText"_s),
-		$($of(theme->getControlTextColor())),
-		$of("controlHighlight"_s),
-		$($of(theme->getControlHighlight())),
-		$of("controlLtHighlight"_s),
-		$($of(theme->getControlHighlight())),
-		$of("controlShadow"_s),
-		$($of(theme->getControlShadow())),
-		$of("controlDkShadow"_s),
-		$($of(theme->getControlDarkShadow())),
-		$of("scrollbar"_s),
-		$of(control),
-		$of("info"_s),
-		$($of(theme->getPrimaryControl())),
-		$of("infoText"_s),
-		$($of(theme->getPrimaryControlInfo()))
+		"desktop"_s,
+		$(theme->getDesktopColor()),
+		"activeCaption"_s,
+		$(theme->getWindowTitleBackground()),
+		"activeCaptionText"_s,
+		$(theme->getWindowTitleForeground()),
+		"activeCaptionBorder"_s,
+		$(theme->getPrimaryControlShadow()),
+		"inactiveCaption"_s,
+		$(theme->getWindowTitleInactiveBackground()),
+		"inactiveCaptionText"_s,
+		$(theme->getWindowTitleInactiveForeground()),
+		"inactiveCaptionBorder"_s,
+		$(theme->getControlShadow()),
+		"window"_s,
+		$(theme->getWindowBackground()),
+		"windowBorder"_s,
+		control,
+		"windowText"_s,
+		$(theme->getUserTextColor()),
+		"menu"_s,
+		$(theme->getMenuBackground()),
+		"menuText"_s,
+		$(theme->getMenuForeground()),
+		"text"_s,
+		$(theme->getWindowBackground()),
+		"textText"_s,
+		$(theme->getUserTextColor()),
+		"textHighlight"_s,
+		$(theme->getTextHighlightColor()),
+		"textHighlightText"_s,
+		$(theme->getHighlightedTextColor()),
+		"textInactiveText"_s,
+		$(theme->getInactiveSystemTextColor()),
+		"control"_s,
+		control,
+		"controlText"_s,
+		$(theme->getControlTextColor()),
+		"controlHighlight"_s,
+		$(theme->getControlHighlight()),
+		"controlLtHighlight"_s,
+		$(theme->getControlHighlight()),
+		"controlShadow"_s,
+		$(theme->getControlShadow()),
+		"controlDkShadow"_s,
+		$(theme->getControlDarkShadow()),
+		"scrollbar"_s,
+		control,
+		"info"_s,
+		$(theme->getPrimaryControl()),
+		"infoText"_s,
+		$(theme->getPrimaryControlInfo())
 	}));
 	$nc(table)->putDefaults(systemColors);
 }
 
 void MetalLookAndFeel::initResourceBundle($UIDefaults* table) {
-	$nc($($SwingAccessor::getUIDefaultsAccessor()))->addInternalBundle(table, "com.sun.swing.internal.plaf.metal.resources.metal"_s);
+	$$nc($SwingAccessor::getUIDefaultsAccessor())->addInternalBundle(table, "com.sun.swing.internal.plaf.metal.resources.metal"_s);
 }
 
 void MetalLookAndFeel::initComponentDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicLookAndFeel::initComponentDefaults(table);
 	initResourceBundle(table);
 	$var($Color, acceleratorForeground, getAcceleratorForeground());
@@ -2192,313 +1877,313 @@ void MetalLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	$var($Color, systemTextColor, getSystemTextColor());
 	$var($Insets, zeroInsets, $new($InsetsUIResource, 0, 0, 0, 0));
 	$var($Integer, zero, $Integer::valueOf(0));
-	$var($UIDefaults$LazyValue, textFieldBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0)));
-	$var($UIDefaults$LazyValue, dialogBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1)));
-	$var($UIDefaults$LazyValue, questionDialogBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2)));
+	$var($UIDefaults$LazyValue, textFieldBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0));
+	$var($UIDefaults$LazyValue, dialogBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1));
+	$var($UIDefaults$LazyValue, questionDialogBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2));
 	$init($DefaultEditorKit);
 	$init($JTextField);
 	$var($Object, fieldInputMap, $new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-		$of("ctrl C"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("ctrl V"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("ctrl X"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("COPY"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("PASTE"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("CUT"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control INSERT"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("shift INSERT"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("shift DELETE"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift KP_LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("shift KP_RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("ctrl LEFT"_s),
-		$of($DefaultEditorKit::previousWordAction),
-		$of("ctrl KP_LEFT"_s),
-		$of($DefaultEditorKit::previousWordAction),
-		$of("ctrl RIGHT"_s),
-		$of($DefaultEditorKit::nextWordAction),
-		$of("ctrl KP_RIGHT"_s),
-		$of($DefaultEditorKit::nextWordAction),
-		$of("ctrl shift LEFT"_s),
-		$of($DefaultEditorKit::selectionPreviousWordAction),
-		$of("ctrl shift KP_LEFT"_s),
-		$of($DefaultEditorKit::selectionPreviousWordAction),
-		$of("ctrl shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionNextWordAction),
-		$of("ctrl shift KP_RIGHT"_s),
-		$of($DefaultEditorKit::selectionNextWordAction),
-		$of("ctrl A"_s),
-		$of($DefaultEditorKit::selectAllAction),
-		$of("HOME"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("END"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("shift END"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("shift BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("ctrl H"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("DELETE"_s),
-		$of($DefaultEditorKit::deleteNextCharAction),
-		$of("ctrl DELETE"_s),
-		$of($DefaultEditorKit::deleteNextWordAction),
-		$of("ctrl BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevWordAction),
-		$of("RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("KP_RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("KP_LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("ENTER"_s),
-		$of($JTextField::notifyAction),
-		$of("ctrl BACK_SLASH"_s),
-		$of("unselect"_s),
-		$of("control shift O"_s),
-		$of("toggle-componentOrientation"_s)
+		"ctrl C"_s,
+		$DefaultEditorKit::copyAction,
+		"ctrl V"_s,
+		$DefaultEditorKit::pasteAction,
+		"ctrl X"_s,
+		$DefaultEditorKit::cutAction,
+		"COPY"_s,
+		$DefaultEditorKit::copyAction,
+		"PASTE"_s,
+		$DefaultEditorKit::pasteAction,
+		"CUT"_s,
+		$DefaultEditorKit::cutAction,
+		"control INSERT"_s,
+		$DefaultEditorKit::copyAction,
+		"shift INSERT"_s,
+		$DefaultEditorKit::pasteAction,
+		"shift DELETE"_s,
+		$DefaultEditorKit::cutAction,
+		"shift LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift KP_LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"shift KP_RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"ctrl LEFT"_s,
+		$DefaultEditorKit::previousWordAction,
+		"ctrl KP_LEFT"_s,
+		$DefaultEditorKit::previousWordAction,
+		"ctrl RIGHT"_s,
+		$DefaultEditorKit::nextWordAction,
+		"ctrl KP_RIGHT"_s,
+		$DefaultEditorKit::nextWordAction,
+		"ctrl shift LEFT"_s,
+		$DefaultEditorKit::selectionPreviousWordAction,
+		"ctrl shift KP_LEFT"_s,
+		$DefaultEditorKit::selectionPreviousWordAction,
+		"ctrl shift RIGHT"_s,
+		$DefaultEditorKit::selectionNextWordAction,
+		"ctrl shift KP_RIGHT"_s,
+		$DefaultEditorKit::selectionNextWordAction,
+		"ctrl A"_s,
+		$DefaultEditorKit::selectAllAction,
+		"HOME"_s,
+		$DefaultEditorKit::beginLineAction,
+		"END"_s,
+		$DefaultEditorKit::endLineAction,
+		"shift HOME"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"shift END"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"shift BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"ctrl H"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"DELETE"_s,
+		$DefaultEditorKit::deleteNextCharAction,
+		"ctrl DELETE"_s,
+		$DefaultEditorKit::deleteNextWordAction,
+		"ctrl BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevWordAction,
+		"RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"KP_RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"KP_LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"ENTER"_s,
+		$JTextField::notifyAction,
+		"ctrl BACK_SLASH"_s,
+		"unselect"_s,
+		"control shift O"_s,
+		"toggle-componentOrientation"_s
 	})));
 	$var($Object, passwordInputMap, $new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-		$of("ctrl C"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("ctrl V"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("ctrl X"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("COPY"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("PASTE"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("CUT"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control INSERT"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("shift INSERT"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("shift DELETE"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift KP_LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("shift KP_RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("ctrl LEFT"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("ctrl KP_LEFT"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("ctrl RIGHT"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("ctrl KP_RIGHT"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("ctrl shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("ctrl shift KP_LEFT"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("ctrl shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("ctrl shift KP_RIGHT"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("ctrl A"_s),
-		$of($DefaultEditorKit::selectAllAction),
-		$of("HOME"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("END"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("shift END"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("shift BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("ctrl H"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("DELETE"_s),
-		$of($DefaultEditorKit::deleteNextCharAction),
-		$of("RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("KP_RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("KP_LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("ENTER"_s),
-		$of($JTextField::notifyAction),
-		$of("ctrl BACK_SLASH"_s),
-		$of("unselect"_s),
-		$of("control shift O"_s),
-		$of("toggle-componentOrientation"_s)
+		"ctrl C"_s,
+		$DefaultEditorKit::copyAction,
+		"ctrl V"_s,
+		$DefaultEditorKit::pasteAction,
+		"ctrl X"_s,
+		$DefaultEditorKit::cutAction,
+		"COPY"_s,
+		$DefaultEditorKit::copyAction,
+		"PASTE"_s,
+		$DefaultEditorKit::pasteAction,
+		"CUT"_s,
+		$DefaultEditorKit::cutAction,
+		"control INSERT"_s,
+		$DefaultEditorKit::copyAction,
+		"shift INSERT"_s,
+		$DefaultEditorKit::pasteAction,
+		"shift DELETE"_s,
+		$DefaultEditorKit::cutAction,
+		"shift LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift KP_LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"shift KP_RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"ctrl LEFT"_s,
+		$DefaultEditorKit::beginLineAction,
+		"ctrl KP_LEFT"_s,
+		$DefaultEditorKit::beginLineAction,
+		"ctrl RIGHT"_s,
+		$DefaultEditorKit::endLineAction,
+		"ctrl KP_RIGHT"_s,
+		$DefaultEditorKit::endLineAction,
+		"ctrl shift LEFT"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"ctrl shift KP_LEFT"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"ctrl shift RIGHT"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"ctrl shift KP_RIGHT"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"ctrl A"_s,
+		$DefaultEditorKit::selectAllAction,
+		"HOME"_s,
+		$DefaultEditorKit::beginLineAction,
+		"END"_s,
+		$DefaultEditorKit::endLineAction,
+		"shift HOME"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"shift END"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"shift BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"ctrl H"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"DELETE"_s,
+		$DefaultEditorKit::deleteNextCharAction,
+		"RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"KP_RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"KP_LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"ENTER"_s,
+		$JTextField::notifyAction,
+		"ctrl BACK_SLASH"_s,
+		"unselect"_s,
+		"control shift O"_s,
+		"toggle-componentOrientation"_s
 	})));
 	$var($Object, multilineInputMap, $new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-		$of("ctrl C"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("ctrl V"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("ctrl X"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("COPY"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("PASTE"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("CUT"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("control INSERT"_s),
-		$of($DefaultEditorKit::copyAction),
-		$of("shift INSERT"_s),
-		$of($DefaultEditorKit::pasteAction),
-		$of("shift DELETE"_s),
-		$of($DefaultEditorKit::cutAction),
-		$of("shift LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift KP_LEFT"_s),
-		$of($DefaultEditorKit::selectionBackwardAction),
-		$of("shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("shift KP_RIGHT"_s),
-		$of($DefaultEditorKit::selectionForwardAction),
-		$of("ctrl LEFT"_s),
-		$of($DefaultEditorKit::previousWordAction),
-		$of("ctrl KP_LEFT"_s),
-		$of($DefaultEditorKit::previousWordAction),
-		$of("ctrl RIGHT"_s),
-		$of($DefaultEditorKit::nextWordAction),
-		$of("ctrl KP_RIGHT"_s),
-		$of($DefaultEditorKit::nextWordAction),
-		$of("ctrl shift LEFT"_s),
-		$of($DefaultEditorKit::selectionPreviousWordAction),
-		$of("ctrl shift KP_LEFT"_s),
-		$of($DefaultEditorKit::selectionPreviousWordAction),
-		$of("ctrl shift RIGHT"_s),
-		$of($DefaultEditorKit::selectionNextWordAction),
-		$of("ctrl shift KP_RIGHT"_s),
-		$of($DefaultEditorKit::selectionNextWordAction),
-		$of("ctrl A"_s),
-		$of($DefaultEditorKit::selectAllAction),
-		$of("HOME"_s),
-		$of($DefaultEditorKit::beginLineAction),
-		$of("END"_s),
-		$of($DefaultEditorKit::endLineAction),
-		$of("shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginLineAction),
-		$of("shift END"_s),
-		$of($DefaultEditorKit::selectionEndLineAction),
-		$of("UP"_s),
-		$of($DefaultEditorKit::upAction),
-		$of("KP_UP"_s),
-		$of($DefaultEditorKit::upAction),
-		$of("DOWN"_s),
-		$of($DefaultEditorKit::downAction),
-		$of("KP_DOWN"_s),
-		$of($DefaultEditorKit::downAction),
-		$of("PAGE_UP"_s),
-		$of($DefaultEditorKit::pageUpAction),
-		$of("PAGE_DOWN"_s),
-		$of($DefaultEditorKit::pageDownAction),
-		$of("shift PAGE_UP"_s),
-		$of("selection-page-up"_s),
-		$of("shift PAGE_DOWN"_s),
-		$of("selection-page-down"_s),
-		$of("ctrl shift PAGE_UP"_s),
-		$of("selection-page-left"_s),
-		$of("ctrl shift PAGE_DOWN"_s),
-		$of("selection-page-right"_s),
-		$of("shift UP"_s),
-		$of($DefaultEditorKit::selectionUpAction),
-		$of("shift KP_UP"_s),
-		$of($DefaultEditorKit::selectionUpAction),
-		$of("shift DOWN"_s),
-		$of($DefaultEditorKit::selectionDownAction),
-		$of("shift KP_DOWN"_s),
-		$of($DefaultEditorKit::selectionDownAction),
-		$of("ENTER"_s),
-		$of($DefaultEditorKit::insertBreakAction),
-		$of("BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("shift BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("ctrl H"_s),
-		$of($DefaultEditorKit::deletePrevCharAction),
-		$of("DELETE"_s),
-		$of($DefaultEditorKit::deleteNextCharAction),
-		$of("ctrl DELETE"_s),
-		$of($DefaultEditorKit::deleteNextWordAction),
-		$of("ctrl BACK_SPACE"_s),
-		$of($DefaultEditorKit::deletePrevWordAction),
-		$of("RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("KP_RIGHT"_s),
-		$of($DefaultEditorKit::forwardAction),
-		$of("KP_LEFT"_s),
-		$of($DefaultEditorKit::backwardAction),
-		$of("TAB"_s),
-		$of($DefaultEditorKit::insertTabAction),
-		$of("ctrl BACK_SLASH"_s),
-		$of("unselect"_s),
-		$of("ctrl HOME"_s),
-		$of($DefaultEditorKit::beginAction),
-		$of("ctrl END"_s),
-		$of($DefaultEditorKit::endAction),
-		$of("ctrl shift HOME"_s),
-		$of($DefaultEditorKit::selectionBeginAction),
-		$of("ctrl shift END"_s),
-		$of($DefaultEditorKit::selectionEndAction),
-		$of("ctrl T"_s),
-		$of("next-link-action"_s),
-		$of("ctrl shift T"_s),
-		$of("previous-link-action"_s),
-		$of("ctrl SPACE"_s),
-		$of("activate-link-action"_s),
-		$of("control shift O"_s),
-		$of("toggle-componentOrientation"_s)
+		"ctrl C"_s,
+		$DefaultEditorKit::copyAction,
+		"ctrl V"_s,
+		$DefaultEditorKit::pasteAction,
+		"ctrl X"_s,
+		$DefaultEditorKit::cutAction,
+		"COPY"_s,
+		$DefaultEditorKit::copyAction,
+		"PASTE"_s,
+		$DefaultEditorKit::pasteAction,
+		"CUT"_s,
+		$DefaultEditorKit::cutAction,
+		"control INSERT"_s,
+		$DefaultEditorKit::copyAction,
+		"shift INSERT"_s,
+		$DefaultEditorKit::pasteAction,
+		"shift DELETE"_s,
+		$DefaultEditorKit::cutAction,
+		"shift LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift KP_LEFT"_s,
+		$DefaultEditorKit::selectionBackwardAction,
+		"shift RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"shift KP_RIGHT"_s,
+		$DefaultEditorKit::selectionForwardAction,
+		"ctrl LEFT"_s,
+		$DefaultEditorKit::previousWordAction,
+		"ctrl KP_LEFT"_s,
+		$DefaultEditorKit::previousWordAction,
+		"ctrl RIGHT"_s,
+		$DefaultEditorKit::nextWordAction,
+		"ctrl KP_RIGHT"_s,
+		$DefaultEditorKit::nextWordAction,
+		"ctrl shift LEFT"_s,
+		$DefaultEditorKit::selectionPreviousWordAction,
+		"ctrl shift KP_LEFT"_s,
+		$DefaultEditorKit::selectionPreviousWordAction,
+		"ctrl shift RIGHT"_s,
+		$DefaultEditorKit::selectionNextWordAction,
+		"ctrl shift KP_RIGHT"_s,
+		$DefaultEditorKit::selectionNextWordAction,
+		"ctrl A"_s,
+		$DefaultEditorKit::selectAllAction,
+		"HOME"_s,
+		$DefaultEditorKit::beginLineAction,
+		"END"_s,
+		$DefaultEditorKit::endLineAction,
+		"shift HOME"_s,
+		$DefaultEditorKit::selectionBeginLineAction,
+		"shift END"_s,
+		$DefaultEditorKit::selectionEndLineAction,
+		"UP"_s,
+		$DefaultEditorKit::upAction,
+		"KP_UP"_s,
+		$DefaultEditorKit::upAction,
+		"DOWN"_s,
+		$DefaultEditorKit::downAction,
+		"KP_DOWN"_s,
+		$DefaultEditorKit::downAction,
+		"PAGE_UP"_s,
+		$DefaultEditorKit::pageUpAction,
+		"PAGE_DOWN"_s,
+		$DefaultEditorKit::pageDownAction,
+		"shift PAGE_UP"_s,
+		"selection-page-up"_s,
+		"shift PAGE_DOWN"_s,
+		"selection-page-down"_s,
+		"ctrl shift PAGE_UP"_s,
+		"selection-page-left"_s,
+		"ctrl shift PAGE_DOWN"_s,
+		"selection-page-right"_s,
+		"shift UP"_s,
+		$DefaultEditorKit::selectionUpAction,
+		"shift KP_UP"_s,
+		$DefaultEditorKit::selectionUpAction,
+		"shift DOWN"_s,
+		$DefaultEditorKit::selectionDownAction,
+		"shift KP_DOWN"_s,
+		$DefaultEditorKit::selectionDownAction,
+		"ENTER"_s,
+		$DefaultEditorKit::insertBreakAction,
+		"BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"shift BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"ctrl H"_s,
+		$DefaultEditorKit::deletePrevCharAction,
+		"DELETE"_s,
+		$DefaultEditorKit::deleteNextCharAction,
+		"ctrl DELETE"_s,
+		$DefaultEditorKit::deleteNextWordAction,
+		"ctrl BACK_SPACE"_s,
+		$DefaultEditorKit::deletePrevWordAction,
+		"RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"KP_RIGHT"_s,
+		$DefaultEditorKit::forwardAction,
+		"KP_LEFT"_s,
+		$DefaultEditorKit::backwardAction,
+		"TAB"_s,
+		$DefaultEditorKit::insertTabAction,
+		"ctrl BACK_SLASH"_s,
+		"unselect"_s,
+		"ctrl HOME"_s,
+		$DefaultEditorKit::beginAction,
+		"ctrl END"_s,
+		$DefaultEditorKit::endAction,
+		"ctrl shift HOME"_s,
+		$DefaultEditorKit::selectionBeginAction,
+		"ctrl shift END"_s,
+		$DefaultEditorKit::selectionEndAction,
+		"ctrl T"_s,
+		"next-link-action"_s,
+		"ctrl shift T"_s,
+		"previous-link-action"_s,
+		"ctrl SPACE"_s,
+		"activate-link-action"_s,
+		"control shift O"_s,
+		"toggle-componentOrientation"_s
 	})));
-	$var($UIDefaults$LazyValue, scrollPaneBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3)));
-	$var($UIDefaults$LazyValue, buttonBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4)));
-	$var($UIDefaults$LazyValue, toggleButtonBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5)));
-	$var($UIDefaults$LazyValue, titledBorderBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, controlShadow)));
-	$var($UIDefaults$LazyValue, desktopIconBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7)));
-	$var($UIDefaults$LazyValue, menuBarBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8)));
-	$var($UIDefaults$LazyValue, popupMenuBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9)));
-	$var($UIDefaults$LazyValue, menuItemBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10)));
+	$var($UIDefaults$LazyValue, scrollPaneBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3));
+	$var($UIDefaults$LazyValue, buttonBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4));
+	$var($UIDefaults$LazyValue, toggleButtonBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5));
+	$var($UIDefaults$LazyValue, titledBorderBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, controlShadow));
+	$var($UIDefaults$LazyValue, desktopIconBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7));
+	$var($UIDefaults$LazyValue, menuBarBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8));
+	$var($UIDefaults$LazyValue, popupMenuBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9));
+	$var($UIDefaults$LazyValue, menuItemBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10));
 	$var($Object, menuItemAcceleratorDelimiter, "-"_s);
-	$var($UIDefaults$LazyValue, toolBarBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11)));
-	$var($UIDefaults$LazyValue, progressBarBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, controlDarkShadow)));
-	$var($UIDefaults$LazyValue, toolTipBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, primaryControlDarkShadow)));
-	$var($UIDefaults$LazyValue, toolTipBorderInactive, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, controlDarkShadow)));
-	$var($UIDefaults$LazyValue, focusCellHighlightBorder, static_cast<$UIDefaults$LazyValue*>($new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, focusColor)));
+	$var($UIDefaults$LazyValue, toolBarBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11));
+	$var($UIDefaults$LazyValue, progressBarBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, controlDarkShadow));
+	$var($UIDefaults$LazyValue, toolTipBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, primaryControlDarkShadow));
+	$var($UIDefaults$LazyValue, toolTipBorderInactive, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, controlDarkShadow));
+	$var($UIDefaults$LazyValue, focusCellHighlightBorder, $new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, focusColor));
 	$var($Object, tabbedPaneTabAreaInsets, $new($InsetsUIResource, 4, 2, 0, 6));
 	$var($Object, tabbedPaneTabInsets, $new($InsetsUIResource, 0, 9, 1, 9));
 	int32_t internalFrameIconSize = 16;
 	$var($ObjectArray, defaultCueList, $new($ObjectArray, {
-		$of("OptionPane.errorSound"_s),
-		$of("OptionPane.informationSound"_s),
-		$of("OptionPane.questionSound"_s),
-		$of("OptionPane.warningSound"_s)
+		"OptionPane.errorSound"_s,
+		"OptionPane.informationSound"_s,
+		"OptionPane.questionSound"_s,
+		"OptionPane.warningSound"_s
 	}));
 	$var($MetalTheme, theme, getCurrentTheme());
 	$var($Object, menuTextValue, $new($MetalLookAndFeel$FontActiveValue, theme, $MetalTheme::MENU_TEXT_FONT));
@@ -2507,1339 +2192,1338 @@ void MetalLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	$var($Object, windowTitleValue, $new($MetalLookAndFeel$FontActiveValue, theme, $MetalTheme::WINDOW_TITLE_FONT));
 	$var($Object, subTextValue, $new($MetalLookAndFeel$FontActiveValue, theme, $MetalTheme::SUB_TEXT_FONT));
 	$var($Object, systemTextValue, $new($MetalLookAndFeel$FontActiveValue, theme, $MetalTheme::SYSTEM_TEXT_FONT));
-	$init($Boolean);
 	$var($ObjectArray, defaults, $new($ObjectArray, {
-		$of("AuditoryCues.defaultCueList"_s),
-		$of(defaultCueList),
-		$of("AuditoryCues.playList"_s),
-		($Object*)nullptr,
-		$of("TextField.border"_s),
-		$of(textFieldBorder),
-		$of("TextField.font"_s),
+		"AuditoryCues.defaultCueList"_s,
+		defaultCueList,
+		"AuditoryCues.playList"_s,
+		nullptr,
+		"TextField.border"_s,
+		textFieldBorder,
+		"TextField.font"_s,
 		userTextValue,
-		$of("PasswordField.border"_s),
-		$of(textFieldBorder),
-		$of("PasswordField.font"_s),
+		"PasswordField.border"_s,
+		textFieldBorder,
+		"PasswordField.font"_s,
 		userTextValue,
-		$of("PasswordField.echoChar"_s),
-		$($of($Character::valueOf((char16_t)8226))),
-		$of("TextArea.font"_s),
+		"PasswordField.echoChar"_s,
+		$($Character::valueOf((char16_t)8226)),
+		"TextArea.font"_s,
 		userTextValue,
-		$of("TextPane.background"_s),
+		"TextPane.background"_s,
 		$($nc(table)->get("window"_s)),
-		$of("TextPane.font"_s),
+		"TextPane.font"_s,
 		userTextValue,
-		$of("EditorPane.background"_s),
-		$(table->get("window"_s)),
-		$of("EditorPane.font"_s),
+		"EditorPane.background"_s,
+		$($nc(table)->get("window"_s)),
+		"EditorPane.font"_s,
 		userTextValue,
-		$of("TextField.focusInputMap"_s),
+		"TextField.focusInputMap"_s,
 		fieldInputMap,
-		$of("PasswordField.focusInputMap"_s),
+		"PasswordField.focusInputMap"_s,
 		passwordInputMap,
-		$of("TextArea.focusInputMap"_s),
+		"TextArea.focusInputMap"_s,
 		multilineInputMap,
-		$of("TextPane.focusInputMap"_s),
+		"TextPane.focusInputMap"_s,
 		multilineInputMap,
-		$of("EditorPane.focusInputMap"_s),
+		"EditorPane.focusInputMap"_s,
 		multilineInputMap,
-		$of("FormattedTextField.border"_s),
-		$of(textFieldBorder),
-		$of("FormattedTextField.font"_s),
+		"FormattedTextField.border"_s,
+		textFieldBorder,
+		"FormattedTextField.font"_s,
 		userTextValue,
-		$of("FormattedTextField.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl C"_s),
-			$of($DefaultEditorKit::copyAction),
-			$of("ctrl V"_s),
-			$of($DefaultEditorKit::pasteAction),
-			$of("ctrl X"_s),
-			$of($DefaultEditorKit::cutAction),
-			$of("COPY"_s),
-			$of($DefaultEditorKit::copyAction),
-			$of("PASTE"_s),
-			$of($DefaultEditorKit::pasteAction),
-			$of("CUT"_s),
-			$of($DefaultEditorKit::cutAction),
-			$of("control INSERT"_s),
-			$of($DefaultEditorKit::copyAction),
-			$of("shift INSERT"_s),
-			$of($DefaultEditorKit::pasteAction),
-			$of("shift DELETE"_s),
-			$of($DefaultEditorKit::cutAction),
-			$of("shift LEFT"_s),
-			$of($DefaultEditorKit::selectionBackwardAction),
-			$of("shift KP_LEFT"_s),
-			$of($DefaultEditorKit::selectionBackwardAction),
-			$of("shift RIGHT"_s),
-			$of($DefaultEditorKit::selectionForwardAction),
-			$of("shift KP_RIGHT"_s),
-			$of($DefaultEditorKit::selectionForwardAction),
-			$of("ctrl LEFT"_s),
-			$of($DefaultEditorKit::previousWordAction),
-			$of("ctrl KP_LEFT"_s),
-			$of($DefaultEditorKit::previousWordAction),
-			$of("ctrl RIGHT"_s),
-			$of($DefaultEditorKit::nextWordAction),
-			$of("ctrl KP_RIGHT"_s),
-			$of($DefaultEditorKit::nextWordAction),
-			$of("ctrl shift LEFT"_s),
-			$of($DefaultEditorKit::selectionPreviousWordAction),
-			$of("ctrl shift KP_LEFT"_s),
-			$of($DefaultEditorKit::selectionPreviousWordAction),
-			$of("ctrl shift RIGHT"_s),
-			$of($DefaultEditorKit::selectionNextWordAction),
-			$of("ctrl shift KP_RIGHT"_s),
-			$of($DefaultEditorKit::selectionNextWordAction),
-			$of("ctrl A"_s),
-			$of($DefaultEditorKit::selectAllAction),
-			$of("HOME"_s),
-			$of($DefaultEditorKit::beginLineAction),
-			$of("END"_s),
-			$of($DefaultEditorKit::endLineAction),
-			$of("shift HOME"_s),
-			$of($DefaultEditorKit::selectionBeginLineAction),
-			$of("shift END"_s),
-			$of($DefaultEditorKit::selectionEndLineAction),
-			$of("BACK_SPACE"_s),
-			$of($DefaultEditorKit::deletePrevCharAction),
-			$of("shift BACK_SPACE"_s),
-			$of($DefaultEditorKit::deletePrevCharAction),
-			$of("ctrl H"_s),
-			$of($DefaultEditorKit::deletePrevCharAction),
-			$of("DELETE"_s),
-			$of($DefaultEditorKit::deleteNextCharAction),
-			$of("ctrl DELETE"_s),
-			$of($DefaultEditorKit::deleteNextWordAction),
-			$of("ctrl BACK_SPACE"_s),
-			$of($DefaultEditorKit::deletePrevWordAction),
-			$of("RIGHT"_s),
-			$of($DefaultEditorKit::forwardAction),
-			$of("LEFT"_s),
-			$of($DefaultEditorKit::backwardAction),
-			$of("KP_RIGHT"_s),
-			$of($DefaultEditorKit::forwardAction),
-			$of("KP_LEFT"_s),
-			$of($DefaultEditorKit::backwardAction),
-			$of("ENTER"_s),
-			$of($JTextField::notifyAction),
-			$of("ctrl BACK_SLASH"_s),
-			$of("unselect"_s),
-			$of("control shift O"_s),
-			$of("toggle-componentOrientation"_s),
-			$of("ESCAPE"_s),
-			$of("reset-field-edit"_s),
-			$of("UP"_s),
-			$of("increment"_s),
-			$of("KP_UP"_s),
-			$of("increment"_s),
-			$of("DOWN"_s),
-			$of("decrement"_s),
-			$of("KP_DOWN"_s),
-			$of("decrement"_s)
-		}))),
-		$of("Button.defaultButtonFollowsFocus"_s),
-		$of($Boolean::FALSE),
-		$of("Button.disabledText"_s),
-		$of(inactiveControlTextColor),
-		$of("Button.select"_s),
-		$of(controlShadow),
-		$of("Button.border"_s),
-		$of(buttonBorder),
-		$of("Button.font"_s),
+		"FormattedTextField.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl C"_s,
+			$DefaultEditorKit::copyAction,
+			"ctrl V"_s,
+			$DefaultEditorKit::pasteAction,
+			"ctrl X"_s,
+			$DefaultEditorKit::cutAction,
+			"COPY"_s,
+			$DefaultEditorKit::copyAction,
+			"PASTE"_s,
+			$DefaultEditorKit::pasteAction,
+			"CUT"_s,
+			$DefaultEditorKit::cutAction,
+			"control INSERT"_s,
+			$DefaultEditorKit::copyAction,
+			"shift INSERT"_s,
+			$DefaultEditorKit::pasteAction,
+			"shift DELETE"_s,
+			$DefaultEditorKit::cutAction,
+			"shift LEFT"_s,
+			$DefaultEditorKit::selectionBackwardAction,
+			"shift KP_LEFT"_s,
+			$DefaultEditorKit::selectionBackwardAction,
+			"shift RIGHT"_s,
+			$DefaultEditorKit::selectionForwardAction,
+			"shift KP_RIGHT"_s,
+			$DefaultEditorKit::selectionForwardAction,
+			"ctrl LEFT"_s,
+			$DefaultEditorKit::previousWordAction,
+			"ctrl KP_LEFT"_s,
+			$DefaultEditorKit::previousWordAction,
+			"ctrl RIGHT"_s,
+			$DefaultEditorKit::nextWordAction,
+			"ctrl KP_RIGHT"_s,
+			$DefaultEditorKit::nextWordAction,
+			"ctrl shift LEFT"_s,
+			$DefaultEditorKit::selectionPreviousWordAction,
+			"ctrl shift KP_LEFT"_s,
+			$DefaultEditorKit::selectionPreviousWordAction,
+			"ctrl shift RIGHT"_s,
+			$DefaultEditorKit::selectionNextWordAction,
+			"ctrl shift KP_RIGHT"_s,
+			$DefaultEditorKit::selectionNextWordAction,
+			"ctrl A"_s,
+			$DefaultEditorKit::selectAllAction,
+			"HOME"_s,
+			$DefaultEditorKit::beginLineAction,
+			"END"_s,
+			$DefaultEditorKit::endLineAction,
+			"shift HOME"_s,
+			$DefaultEditorKit::selectionBeginLineAction,
+			"shift END"_s,
+			$DefaultEditorKit::selectionEndLineAction,
+			"BACK_SPACE"_s,
+			$DefaultEditorKit::deletePrevCharAction,
+			"shift BACK_SPACE"_s,
+			$DefaultEditorKit::deletePrevCharAction,
+			"ctrl H"_s,
+			$DefaultEditorKit::deletePrevCharAction,
+			"DELETE"_s,
+			$DefaultEditorKit::deleteNextCharAction,
+			"ctrl DELETE"_s,
+			$DefaultEditorKit::deleteNextWordAction,
+			"ctrl BACK_SPACE"_s,
+			$DefaultEditorKit::deletePrevWordAction,
+			"RIGHT"_s,
+			$DefaultEditorKit::forwardAction,
+			"LEFT"_s,
+			$DefaultEditorKit::backwardAction,
+			"KP_RIGHT"_s,
+			$DefaultEditorKit::forwardAction,
+			"KP_LEFT"_s,
+			$DefaultEditorKit::backwardAction,
+			"ENTER"_s,
+			$JTextField::notifyAction,
+			"ctrl BACK_SLASH"_s,
+			"unselect"_s,
+			"control shift O"_s,
+			"toggle-componentOrientation"_s,
+			"ESCAPE"_s,
+			"reset-field-edit"_s,
+			"UP"_s,
+			"increment"_s,
+			"KP_UP"_s,
+			"increment"_s,
+			"DOWN"_s,
+			"decrement"_s,
+			"KP_DOWN"_s,
+			"decrement"_s
+		})),
+		"Button.defaultButtonFollowsFocus"_s,
+		$Boolean::FALSE,
+		"Button.disabledText"_s,
+		inactiveControlTextColor,
+		"Button.select"_s,
+		controlShadow,
+		"Button.border"_s,
+		buttonBorder,
+		"Button.font"_s,
 		controlTextValue,
-		$of("Button.focus"_s),
-		$of(focusColor),
-		$of("Button.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("CheckBox.disabledText"_s),
-		$of(inactiveControlTextColor),
-		$of("Checkbox.select"_s),
-		$of(controlShadow),
-		$of("CheckBox.font"_s),
+		"Button.focus"_s,
+		focusColor,
+		"Button.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"CheckBox.disabledText"_s,
+		inactiveControlTextColor,
+		"Checkbox.select"_s,
+		controlShadow,
+		"CheckBox.font"_s,
 		controlTextValue,
-		$of("CheckBox.focus"_s),
-		$of(focusColor),
-		$of("CheckBox.icon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13)),
-		$of("CheckBox.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("CheckBox.totalInsets"_s),
-		$of($$new($Insets, 4, 4, 4, 4)),
-		$of("RadioButton.disabledText"_s),
-		$of(inactiveControlTextColor),
-		$of("RadioButton.select"_s),
-		$of(controlShadow),
-		$of("RadioButton.icon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14)),
-		$of("RadioButton.font"_s),
+		"CheckBox.focus"_s,
+		focusColor,
+		"CheckBox.icon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13)),
+		"CheckBox.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"CheckBox.totalInsets"_s,
+		$$new($Insets, 4, 4, 4, 4),
+		"RadioButton.disabledText"_s,
+		inactiveControlTextColor,
+		"RadioButton.select"_s,
+		controlShadow,
+		"RadioButton.icon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14)),
+		"RadioButton.font"_s,
 		controlTextValue,
-		$of("RadioButton.focus"_s),
-		$of(focusColor),
-		$of("RadioButton.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("RadioButton.totalInsets"_s),
-		$of($$new($Insets, 4, 4, 4, 4)),
-		$of("ToggleButton.select"_s),
-		$of(controlShadow),
-		$of("ToggleButton.disabledText"_s),
-		$of(inactiveControlTextColor),
-		$of("ToggleButton.focus"_s),
-		$of(focusColor),
-		$of("ToggleButton.border"_s),
-		$of(toggleButtonBorder),
-		$of("ToggleButton.font"_s),
+		"RadioButton.focus"_s,
+		focusColor,
+		"RadioButton.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"RadioButton.totalInsets"_s,
+		$$new($Insets, 4, 4, 4, 4),
+		"ToggleButton.select"_s,
+		controlShadow,
+		"ToggleButton.disabledText"_s,
+		inactiveControlTextColor,
+		"ToggleButton.focus"_s,
+		focusColor,
+		"ToggleButton.border"_s,
+		toggleButtonBorder,
+		"ToggleButton.font"_s,
 		controlTextValue,
-		$of("ToggleButton.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("SPACE"_s),
-			$of("pressed"_s),
-			$of("released SPACE"_s),
-			$of("released"_s)
-		}))),
-		$of("FileView.directoryIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15)),
-		$of("FileView.fileIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16)),
-		$of("FileView.computerIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17)),
-		$of("FileView.hardDriveIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18)),
-		$of("FileView.floppyDriveIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19)),
-		$of("FileChooser.detailsViewIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20)),
-		$of("FileChooser.homeFolderIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21)),
-		$of("FileChooser.listViewIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22)),
-		$of("FileChooser.newFolderIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23)),
-		$of("FileChooser.upFolderIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24)),
-		$of("FileChooser.usesSingleFilePane"_s),
-		$of($Boolean::TRUE),
-		$of("FileChooser.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("cancelSelection"_s),
-			$of("F2"_s),
-			$of("editFileName"_s),
-			$of("F5"_s),
-			$of("refresh"_s),
-			$of("BACK_SPACE"_s),
-			$of("Go Up"_s)
-		}))),
-		$of("ToolTip.font"_s),
+		"ToggleButton.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"SPACE"_s,
+			"pressed"_s,
+			"released SPACE"_s,
+			"released"_s
+		})),
+		"FileView.directoryIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15)),
+		"FileView.fileIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16)),
+		"FileView.computerIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17)),
+		"FileView.hardDriveIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18)),
+		"FileView.floppyDriveIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19)),
+		"FileChooser.detailsViewIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20)),
+		"FileChooser.homeFolderIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21)),
+		"FileChooser.listViewIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22)),
+		"FileChooser.newFolderIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23)),
+		"FileChooser.upFolderIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24)),
+		"FileChooser.usesSingleFilePane"_s,
+		$Boolean::TRUE,
+		"FileChooser.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ESCAPE"_s,
+			"cancelSelection"_s,
+			"F2"_s,
+			"editFileName"_s,
+			"F5"_s,
+			"refresh"_s,
+			"BACK_SPACE"_s,
+			"Go Up"_s
+		})),
+		"ToolTip.font"_s,
 		systemTextValue,
-		$of("ToolTip.border"_s),
-		$of(toolTipBorder),
-		$of("ToolTip.borderInactive"_s),
-		$of(toolTipBorderInactive),
-		$of("ToolTip.backgroundInactive"_s),
-		$of(control),
-		$of("ToolTip.foregroundInactive"_s),
-		$of(controlDarkShadow),
-		$of("ToolTip.hideAccelerator"_s),
-		$of($Boolean::FALSE),
-		$of("ToolTipManager.enableToolTipMode"_s),
-		$of("activeApplication"_s),
-		$of("Slider.font"_s),
+		"ToolTip.border"_s,
+		toolTipBorder,
+		"ToolTip.borderInactive"_s,
+		toolTipBorderInactive,
+		"ToolTip.backgroundInactive"_s,
+		control,
+		"ToolTip.foregroundInactive"_s,
+		controlDarkShadow,
+		"ToolTip.hideAccelerator"_s,
+		$Boolean::FALSE,
+		"ToolTipManager.enableToolTipMode"_s,
+		"activeApplication"_s,
+		"Slider.font"_s,
 		controlTextValue,
-		$of("Slider.border"_s),
-		($Object*)nullptr,
-		$of("Slider.foreground"_s),
-		$of(primaryControlShadow),
-		$of("Slider.focus"_s),
-		$of(focusColor),
-		$of("Slider.focusInsets"_s),
-		$of(zeroInsets),
-		$of("Slider.trackWidth"_s),
-		$($of($Integer::valueOf(7))),
-		$of("Slider.majorTickLength"_s),
-		$($of($Integer::valueOf(6))),
-		$of("Slider.horizontalThumbIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25)),
-		$of("Slider.verticalThumbIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26)),
-		$of("Slider.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("DOWN"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_DOWN"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("PAGE_DOWN"_s),
-			$of("negativeBlockIncrement"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("negativeBlockIncrement"_s),
-			$of("LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("UP"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_UP"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("PAGE_UP"_s),
-			$of("positiveBlockIncrement"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("positiveBlockIncrement"_s),
-			$of("HOME"_s),
-			$of("minScroll"_s),
-			$of("END"_s),
-			$of("maxScroll"_s)
-		}))),
-		$of("ProgressBar.font"_s),
+		"Slider.border"_s,
+		nullptr,
+		"Slider.foreground"_s,
+		primaryControlShadow,
+		"Slider.focus"_s,
+		focusColor,
+		"Slider.focusInsets"_s,
+		zeroInsets,
+		"Slider.trackWidth"_s,
+		$($Integer::valueOf(7)),
+		"Slider.majorTickLength"_s,
+		$($Integer::valueOf(6)),
+		"Slider.horizontalThumbIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25)),
+		"Slider.verticalThumbIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26)),
+		"Slider.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"KP_RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"DOWN"_s,
+			"negativeUnitIncrement"_s,
+			"KP_DOWN"_s,
+			"negativeUnitIncrement"_s,
+			"PAGE_DOWN"_s,
+			"negativeBlockIncrement"_s,
+			"ctrl PAGE_DOWN"_s,
+			"negativeBlockIncrement"_s,
+			"LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"KP_LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"UP"_s,
+			"positiveUnitIncrement"_s,
+			"KP_UP"_s,
+			"positiveUnitIncrement"_s,
+			"PAGE_UP"_s,
+			"positiveBlockIncrement"_s,
+			"ctrl PAGE_UP"_s,
+			"positiveBlockIncrement"_s,
+			"HOME"_s,
+			"minScroll"_s,
+			"END"_s,
+			"maxScroll"_s
+		})),
+		"ProgressBar.font"_s,
 		controlTextValue,
-		$of("ProgressBar.foreground"_s),
-		$of(primaryControlShadow),
-		$of("ProgressBar.selectionBackground"_s),
-		$of(primaryControlDarkShadow),
-		$of("ProgressBar.border"_s),
-		$of(progressBarBorder),
-		$of("ProgressBar.cellSpacing"_s),
-		$of(zero),
-		$of("ProgressBar.cellLength"_s),
-		$($of($Integer::valueOf(1))),
-		$of("ComboBox.background"_s),
-		$of(control),
-		$of("ComboBox.foreground"_s),
-		$of(controlTextColor),
-		$of("ComboBox.selectionBackground"_s),
-		$of(primaryControlShadow),
-		$of("ComboBox.selectionForeground"_s),
-		$of(controlTextColor),
-		$of("ComboBox.font"_s),
+		"ProgressBar.foreground"_s,
+		primaryControlShadow,
+		"ProgressBar.selectionBackground"_s,
+		primaryControlDarkShadow,
+		"ProgressBar.border"_s,
+		progressBarBorder,
+		"ProgressBar.cellSpacing"_s,
+		zero,
+		"ProgressBar.cellLength"_s,
+		$($Integer::valueOf(1)),
+		"ComboBox.background"_s,
+		control,
+		"ComboBox.foreground"_s,
+		controlTextColor,
+		"ComboBox.selectionBackground"_s,
+		primaryControlShadow,
+		"ComboBox.selectionForeground"_s,
+		controlTextColor,
+		"ComboBox.font"_s,
 		controlTextValue,
-		$of("ComboBox.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("hidePopup"_s),
-			$of("PAGE_UP"_s),
-			$of("pageUpPassThrough"_s),
-			$of("PAGE_DOWN"_s),
-			$of("pageDownPassThrough"_s),
-			$of("HOME"_s),
-			$of("homePassThrough"_s),
-			$of("END"_s),
-			$of("endPassThrough"_s),
-			$of("DOWN"_s),
-			$of("selectNext"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNext"_s),
-			$of("alt DOWN"_s),
-			$of("togglePopup"_s),
-			$of("alt KP_DOWN"_s),
-			$of("togglePopup"_s),
-			$of("alt UP"_s),
-			$of("togglePopup"_s),
-			$of("alt KP_UP"_s),
-			$of("togglePopup"_s),
-			$of("SPACE"_s),
-			$of("spacePopup"_s),
-			$of("ENTER"_s),
-			$of("enterPressed"_s),
-			$of("UP"_s),
-			$of("selectPrevious"_s),
-			$of("KP_UP"_s),
-			$of("selectPrevious"_s)
-		}))),
-		$of("InternalFrame.icon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27)),
-		$of("InternalFrame.border"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28)),
-		$of("InternalFrame.optionDialogBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29)),
-		$of("InternalFrame.paletteBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30)),
-		$of("InternalFrame.paletteTitleHeight"_s),
-		$($of($Integer::valueOf(11))),
-		$of("InternalFrame.paletteCloseIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31)),
-		$of("InternalFrame.closeIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, internalFrameIconSize)),
-		$of("InternalFrame.maximizeIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, internalFrameIconSize)),
-		$of("InternalFrame.iconifyIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, internalFrameIconSize)),
-		$of("InternalFrame.minimizeIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, internalFrameIconSize)),
-		$of("InternalFrame.titleFont"_s),
+		"ComboBox.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ESCAPE"_s,
+			"hidePopup"_s,
+			"PAGE_UP"_s,
+			"pageUpPassThrough"_s,
+			"PAGE_DOWN"_s,
+			"pageDownPassThrough"_s,
+			"HOME"_s,
+			"homePassThrough"_s,
+			"END"_s,
+			"endPassThrough"_s,
+			"DOWN"_s,
+			"selectNext"_s,
+			"KP_DOWN"_s,
+			"selectNext"_s,
+			"alt DOWN"_s,
+			"togglePopup"_s,
+			"alt KP_DOWN"_s,
+			"togglePopup"_s,
+			"alt UP"_s,
+			"togglePopup"_s,
+			"alt KP_UP"_s,
+			"togglePopup"_s,
+			"SPACE"_s,
+			"spacePopup"_s,
+			"ENTER"_s,
+			"enterPressed"_s,
+			"UP"_s,
+			"selectPrevious"_s,
+			"KP_UP"_s,
+			"selectPrevious"_s
+		})),
+		"InternalFrame.icon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27)),
+		"InternalFrame.border"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28)),
+		"InternalFrame.optionDialogBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29)),
+		"InternalFrame.paletteBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30)),
+		"InternalFrame.paletteTitleHeight"_s,
+		$($Integer::valueOf(11)),
+		"InternalFrame.paletteCloseIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31)),
+		"InternalFrame.closeIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, internalFrameIconSize)),
+		"InternalFrame.maximizeIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33, internalFrameIconSize)),
+		"InternalFrame.iconifyIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34, internalFrameIconSize)),
+		"InternalFrame.minimizeIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35, internalFrameIconSize)),
+		"InternalFrame.titleFont"_s,
 		windowTitleValue,
-		$of("InternalFrame.windowBindings"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.closeSound"_s),
-		$of("sounds/FrameClose.wav"_s),
-		$of("InternalFrame.maximizeSound"_s),
-		$of("sounds/FrameMaximize.wav"_s),
-		$of("InternalFrame.minimizeSound"_s),
-		$of("sounds/FrameMinimize.wav"_s),
-		$of("InternalFrame.restoreDownSound"_s),
-		$of("sounds/FrameRestoreDown.wav"_s),
-		$of("InternalFrame.restoreUpSound"_s),
-		$of("sounds/FrameRestoreUp.wav"_s),
-		$of("DesktopIcon.border"_s),
-		$of(desktopIconBorder),
-		$of("DesktopIcon.font"_s),
+		"InternalFrame.windowBindings"_s,
+		nullptr,
+		"InternalFrame.closeSound"_s,
+		"sounds/FrameClose.wav"_s,
+		"InternalFrame.maximizeSound"_s,
+		"sounds/FrameMaximize.wav"_s,
+		"InternalFrame.minimizeSound"_s,
+		"sounds/FrameMinimize.wav"_s,
+		"InternalFrame.restoreDownSound"_s,
+		"sounds/FrameRestoreDown.wav"_s,
+		"InternalFrame.restoreUpSound"_s,
+		"sounds/FrameRestoreUp.wav"_s,
+		"DesktopIcon.border"_s,
+		desktopIconBorder,
+		"DesktopIcon.font"_s,
 		controlTextValue,
-		$of("DesktopIcon.foreground"_s),
-		$of(controlTextColor),
-		$of("DesktopIcon.background"_s),
-		$of(control),
-		$of("DesktopIcon.width"_s),
-		$($of($Integer::valueOf(160))),
-		$of("Desktop.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl F5"_s),
-			$of("restore"_s),
-			$of("ctrl F4"_s),
-			$of("close"_s),
-			$of("ctrl F7"_s),
-			$of("move"_s),
-			$of("ctrl F8"_s),
-			$of("resize"_s),
-			$of("RIGHT"_s),
-			$of("right"_s),
-			$of("KP_RIGHT"_s),
-			$of("right"_s),
-			$of("shift RIGHT"_s),
-			$of("shrinkRight"_s),
-			$of("shift KP_RIGHT"_s),
-			$of("shrinkRight"_s),
-			$of("LEFT"_s),
-			$of("left"_s),
-			$of("KP_LEFT"_s),
-			$of("left"_s),
-			$of("shift LEFT"_s),
-			$of("shrinkLeft"_s),
-			$of("shift KP_LEFT"_s),
-			$of("shrinkLeft"_s),
-			$of("UP"_s),
-			$of("up"_s),
-			$of("KP_UP"_s),
-			$of("up"_s),
-			$of("shift UP"_s),
-			$of("shrinkUp"_s),
-			$of("shift KP_UP"_s),
-			$of("shrinkUp"_s),
-			$of("DOWN"_s),
-			$of("down"_s),
-			$of("KP_DOWN"_s),
-			$of("down"_s),
-			$of("shift DOWN"_s),
-			$of("shrinkDown"_s),
-			$of("shift KP_DOWN"_s),
-			$of("shrinkDown"_s),
-			$of("ESCAPE"_s),
-			$of("escape"_s),
-			$of("ctrl F9"_s),
-			$of("minimize"_s),
-			$of("ctrl F10"_s),
-			$of("maximize"_s),
-			$of("ctrl F6"_s),
-			$of("selectNextFrame"_s),
-			$of("ctrl TAB"_s),
-			$of("selectNextFrame"_s),
-			$of("ctrl alt F6"_s),
-			$of("selectNextFrame"_s),
-			$of("shift ctrl alt F6"_s),
-			$of("selectPreviousFrame"_s),
-			$of("ctrl F12"_s),
-			$of("navigateNext"_s),
-			$of("shift ctrl F12"_s),
-			$of("navigatePrevious"_s)
-		}))),
-		$of("TitledBorder.font"_s),
+		"DesktopIcon.foreground"_s,
+		controlTextColor,
+		"DesktopIcon.background"_s,
+		control,
+		"DesktopIcon.width"_s,
+		$($Integer::valueOf(160)),
+		"Desktop.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl F5"_s,
+			"restore"_s,
+			"ctrl F4"_s,
+			"close"_s,
+			"ctrl F7"_s,
+			"move"_s,
+			"ctrl F8"_s,
+			"resize"_s,
+			"RIGHT"_s,
+			"right"_s,
+			"KP_RIGHT"_s,
+			"right"_s,
+			"shift RIGHT"_s,
+			"shrinkRight"_s,
+			"shift KP_RIGHT"_s,
+			"shrinkRight"_s,
+			"LEFT"_s,
+			"left"_s,
+			"KP_LEFT"_s,
+			"left"_s,
+			"shift LEFT"_s,
+			"shrinkLeft"_s,
+			"shift KP_LEFT"_s,
+			"shrinkLeft"_s,
+			"UP"_s,
+			"up"_s,
+			"KP_UP"_s,
+			"up"_s,
+			"shift UP"_s,
+			"shrinkUp"_s,
+			"shift KP_UP"_s,
+			"shrinkUp"_s,
+			"DOWN"_s,
+			"down"_s,
+			"KP_DOWN"_s,
+			"down"_s,
+			"shift DOWN"_s,
+			"shrinkDown"_s,
+			"shift KP_DOWN"_s,
+			"shrinkDown"_s,
+			"ESCAPE"_s,
+			"escape"_s,
+			"ctrl F9"_s,
+			"minimize"_s,
+			"ctrl F10"_s,
+			"maximize"_s,
+			"ctrl F6"_s,
+			"selectNextFrame"_s,
+			"ctrl TAB"_s,
+			"selectNextFrame"_s,
+			"ctrl alt F6"_s,
+			"selectNextFrame"_s,
+			"shift ctrl alt F6"_s,
+			"selectPreviousFrame"_s,
+			"ctrl F12"_s,
+			"navigateNext"_s,
+			"shift ctrl F12"_s,
+			"navigatePrevious"_s
+		})),
+		"TitledBorder.font"_s,
 		controlTextValue,
-		$of("TitledBorder.titleColor"_s),
-		$of(systemTextColor),
-		$of("TitledBorder.border"_s),
-		$of(titledBorderBorder),
-		$of("Label.font"_s),
+		"TitledBorder.titleColor"_s,
+		systemTextColor,
+		"TitledBorder.border"_s,
+		titledBorderBorder,
+		"Label.font"_s,
 		controlTextValue,
-		$of("Label.foreground"_s),
-		$of(systemTextColor),
-		$of("Label.disabledForeground"_s),
-		$($of(getInactiveSystemTextColor())),
-		$of("List.font"_s),
+		"Label.foreground"_s,
+		systemTextColor,
+		"Label.disabledForeground"_s,
+		$(getInactiveSystemTextColor()),
+		"List.font"_s,
 		controlTextValue,
-		$of("List.focusCellHighlightBorder"_s),
-		$of(focusCellHighlightBorder),
-		$of("List.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl C"_s),
-			$of("copy"_s),
-			$of("ctrl V"_s),
-			$of("paste"_s),
-			$of("ctrl X"_s),
-			$of("cut"_s),
-			$of("COPY"_s),
-			$of("copy"_s),
-			$of("PASTE"_s),
-			$of("paste"_s),
-			$of("CUT"_s),
-			$of("cut"_s),
-			$of("control INSERT"_s),
-			$of("copy"_s),
-			$of("shift INSERT"_s),
-			$of("paste"_s),
-			$of("shift DELETE"_s),
-			$of("cut"_s),
-			$of("UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("KP_UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("ctrl KP_UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("KP_LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("ctrl KP_LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("KP_RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("ctrl KP_RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("HOME"_s),
-			$of("selectFirstRow"_s),
-			$of("shift HOME"_s),
-			$of("selectFirstRowExtendSelection"_s),
-			$of("ctrl shift HOME"_s),
-			$of("selectFirstRowExtendSelection"_s),
-			$of("ctrl HOME"_s),
-			$of("selectFirstRowChangeLead"_s),
-			$of("END"_s),
-			$of("selectLastRow"_s),
-			$of("shift END"_s),
-			$of("selectLastRowExtendSelection"_s),
-			$of("ctrl shift END"_s),
-			$of("selectLastRowExtendSelection"_s),
-			$of("ctrl END"_s),
-			$of("selectLastRowChangeLead"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUp"_s),
-			$of("shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollUpChangeLead"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDown"_s),
-			$of("shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollDownChangeLead"_s),
-			$of("ctrl A"_s),
-			$of("selectAll"_s),
-			$of("ctrl SLASH"_s),
-			$of("selectAll"_s),
-			$of("ctrl BACK_SLASH"_s),
-			$of("clearSelection"_s),
-			$of("SPACE"_s),
-			$of("addToSelection"_s),
-			$of("ctrl SPACE"_s),
-			$of("toggleAndAnchor"_s),
-			$of("shift SPACE"_s),
-			$of("extendTo"_s),
-			$of("ctrl shift SPACE"_s),
-			$of("moveSelectionTo"_s)
-		}))),
-		$of("ScrollBar.background"_s),
-		$of(control),
-		$of("ScrollBar.highlight"_s),
-		$of(controlHighlight),
-		$of("ScrollBar.shadow"_s),
-		$of(controlShadow),
-		$of("ScrollBar.darkShadow"_s),
-		$of(controlDarkShadow),
-		$of("ScrollBar.thumb"_s),
-		$of(primaryControlShadow),
-		$of("ScrollBar.thumbShadow"_s),
-		$of(primaryControlDarkShadow),
-		$of("ScrollBar.thumbHighlight"_s),
-		$of(primaryControl),
-		$of("ScrollBar.width"_s),
-		$($of($Integer::valueOf(17))),
-		$of("ScrollBar.allowsAbsolutePositioning"_s),
-		$of($Boolean::TRUE),
-		$of("ScrollBar.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_RIGHT"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("DOWN"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("KP_DOWN"_s),
-			$of("positiveUnitIncrement"_s),
-			$of("PAGE_DOWN"_s),
-			$of("positiveBlockIncrement"_s),
-			$of("LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_LEFT"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("UP"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("KP_UP"_s),
-			$of("negativeUnitIncrement"_s),
-			$of("PAGE_UP"_s),
-			$of("negativeBlockIncrement"_s),
-			$of("HOME"_s),
-			$of("minScroll"_s),
-			$of("END"_s),
-			$of("maxScroll"_s)
-		}))),
-		$of("ScrollPane.border"_s),
-		$of(scrollPaneBorder),
-		$of("ScrollPane.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("unitScrollRight"_s),
-			$of("KP_RIGHT"_s),
-			$of("unitScrollRight"_s),
-			$of("DOWN"_s),
-			$of("unitScrollDown"_s),
-			$of("KP_DOWN"_s),
-			$of("unitScrollDown"_s),
-			$of("LEFT"_s),
-			$of("unitScrollLeft"_s),
-			$of("KP_LEFT"_s),
-			$of("unitScrollLeft"_s),
-			$of("UP"_s),
-			$of("unitScrollUp"_s),
-			$of("KP_UP"_s),
-			$of("unitScrollUp"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUp"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDown"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollLeft"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollRight"_s),
-			$of("ctrl HOME"_s),
-			$of("scrollHome"_s),
-			$of("ctrl END"_s),
-			$of("scrollEnd"_s)
-		}))),
-		$of("TabbedPane.font"_s),
+		"List.focusCellHighlightBorder"_s,
+		focusCellHighlightBorder,
+		"List.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl C"_s,
+			"copy"_s,
+			"ctrl V"_s,
+			"paste"_s,
+			"ctrl X"_s,
+			"cut"_s,
+			"COPY"_s,
+			"copy"_s,
+			"PASTE"_s,
+			"paste"_s,
+			"CUT"_s,
+			"cut"_s,
+			"control INSERT"_s,
+			"copy"_s,
+			"shift INSERT"_s,
+			"paste"_s,
+			"shift DELETE"_s,
+			"cut"_s,
+			"UP"_s,
+			"selectPreviousRow"_s,
+			"KP_UP"_s,
+			"selectPreviousRow"_s,
+			"shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"ctrl KP_UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"DOWN"_s,
+			"selectNextRow"_s,
+			"KP_DOWN"_s,
+			"selectNextRow"_s,
+			"shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"ctrl KP_DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"LEFT"_s,
+			"selectPreviousColumn"_s,
+			"KP_LEFT"_s,
+			"selectPreviousColumn"_s,
+			"shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"ctrl KP_LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"RIGHT"_s,
+			"selectNextColumn"_s,
+			"KP_RIGHT"_s,
+			"selectNextColumn"_s,
+			"shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"ctrl KP_RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"HOME"_s,
+			"selectFirstRow"_s,
+			"shift HOME"_s,
+			"selectFirstRowExtendSelection"_s,
+			"ctrl shift HOME"_s,
+			"selectFirstRowExtendSelection"_s,
+			"ctrl HOME"_s,
+			"selectFirstRowChangeLead"_s,
+			"END"_s,
+			"selectLastRow"_s,
+			"shift END"_s,
+			"selectLastRowExtendSelection"_s,
+			"ctrl shift END"_s,
+			"selectLastRowExtendSelection"_s,
+			"ctrl END"_s,
+			"selectLastRowChangeLead"_s,
+			"PAGE_UP"_s,
+			"scrollUp"_s,
+			"shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollUpChangeLead"_s,
+			"PAGE_DOWN"_s,
+			"scrollDown"_s,
+			"shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollDownChangeLead"_s,
+			"ctrl A"_s,
+			"selectAll"_s,
+			"ctrl SLASH"_s,
+			"selectAll"_s,
+			"ctrl BACK_SLASH"_s,
+			"clearSelection"_s,
+			"SPACE"_s,
+			"addToSelection"_s,
+			"ctrl SPACE"_s,
+			"toggleAndAnchor"_s,
+			"shift SPACE"_s,
+			"extendTo"_s,
+			"ctrl shift SPACE"_s,
+			"moveSelectionTo"_s
+		})),
+		"ScrollBar.background"_s,
+		control,
+		"ScrollBar.highlight"_s,
+		controlHighlight,
+		"ScrollBar.shadow"_s,
+		controlShadow,
+		"ScrollBar.darkShadow"_s,
+		controlDarkShadow,
+		"ScrollBar.thumb"_s,
+		primaryControlShadow,
+		"ScrollBar.thumbShadow"_s,
+		primaryControlDarkShadow,
+		"ScrollBar.thumbHighlight"_s,
+		primaryControl,
+		"ScrollBar.width"_s,
+		$($Integer::valueOf(17)),
+		"ScrollBar.allowsAbsolutePositioning"_s,
+		$Boolean::TRUE,
+		"ScrollBar.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"KP_RIGHT"_s,
+			"positiveUnitIncrement"_s,
+			"DOWN"_s,
+			"positiveUnitIncrement"_s,
+			"KP_DOWN"_s,
+			"positiveUnitIncrement"_s,
+			"PAGE_DOWN"_s,
+			"positiveBlockIncrement"_s,
+			"LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"KP_LEFT"_s,
+			"negativeUnitIncrement"_s,
+			"UP"_s,
+			"negativeUnitIncrement"_s,
+			"KP_UP"_s,
+			"negativeUnitIncrement"_s,
+			"PAGE_UP"_s,
+			"negativeBlockIncrement"_s,
+			"HOME"_s,
+			"minScroll"_s,
+			"END"_s,
+			"maxScroll"_s
+		})),
+		"ScrollPane.border"_s,
+		scrollPaneBorder,
+		"ScrollPane.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"unitScrollRight"_s,
+			"KP_RIGHT"_s,
+			"unitScrollRight"_s,
+			"DOWN"_s,
+			"unitScrollDown"_s,
+			"KP_DOWN"_s,
+			"unitScrollDown"_s,
+			"LEFT"_s,
+			"unitScrollLeft"_s,
+			"KP_LEFT"_s,
+			"unitScrollLeft"_s,
+			"UP"_s,
+			"unitScrollUp"_s,
+			"KP_UP"_s,
+			"unitScrollUp"_s,
+			"PAGE_UP"_s,
+			"scrollUp"_s,
+			"PAGE_DOWN"_s,
+			"scrollDown"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollLeft"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollRight"_s,
+			"ctrl HOME"_s,
+			"scrollHome"_s,
+			"ctrl END"_s,
+			"scrollEnd"_s
+		})),
+		"TabbedPane.font"_s,
 		controlTextValue,
-		$of("TabbedPane.tabAreaBackground"_s),
-		$of(control),
-		$of("TabbedPane.background"_s),
-		$of(controlShadow),
-		$of("TabbedPane.light"_s),
-		$of(control),
-		$of("TabbedPane.focus"_s),
-		$of(primaryControlDarkShadow),
-		$of("TabbedPane.selected"_s),
-		$of(control),
-		$of("TabbedPane.selectHighlight"_s),
-		$of(controlHighlight),
-		$of("TabbedPane.tabAreaInsets"_s),
+		"TabbedPane.tabAreaBackground"_s,
+		control,
+		"TabbedPane.background"_s,
+		controlShadow,
+		"TabbedPane.light"_s,
+		control,
+		"TabbedPane.focus"_s,
+		primaryControlDarkShadow,
+		"TabbedPane.selected"_s,
+		control,
+		"TabbedPane.selectHighlight"_s,
+		controlHighlight,
+		"TabbedPane.tabAreaInsets"_s,
 		tabbedPaneTabAreaInsets,
-		$of("TabbedPane.tabInsets"_s),
+		"TabbedPane.tabInsets"_s,
 		tabbedPaneTabInsets,
-		$of("TabbedPane.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("RIGHT"_s),
-			$of("navigateRight"_s),
-			$of("KP_RIGHT"_s),
-			$of("navigateRight"_s),
-			$of("LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("KP_LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("UP"_s),
-			$of("navigateUp"_s),
-			$of("KP_UP"_s),
-			$of("navigateUp"_s),
-			$of("DOWN"_s),
-			$of("navigateDown"_s),
-			$of("KP_DOWN"_s),
-			$of("navigateDown"_s),
-			$of("ctrl DOWN"_s),
-			$of("requestFocusForVisibleComponent"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("requestFocusForVisibleComponent"_s)
-		}))),
-		$of("TabbedPane.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl PAGE_DOWN"_s),
-			$of("navigatePageDown"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("navigatePageUp"_s),
-			$of("ctrl UP"_s),
-			$of("requestFocus"_s),
-			$of("ctrl KP_UP"_s),
-			$of("requestFocus"_s)
-		}))),
-		$of("Table.font"_s),
+		"TabbedPane.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"RIGHT"_s,
+			"navigateRight"_s,
+			"KP_RIGHT"_s,
+			"navigateRight"_s,
+			"LEFT"_s,
+			"navigateLeft"_s,
+			"KP_LEFT"_s,
+			"navigateLeft"_s,
+			"UP"_s,
+			"navigateUp"_s,
+			"KP_UP"_s,
+			"navigateUp"_s,
+			"DOWN"_s,
+			"navigateDown"_s,
+			"KP_DOWN"_s,
+			"navigateDown"_s,
+			"ctrl DOWN"_s,
+			"requestFocusForVisibleComponent"_s,
+			"ctrl KP_DOWN"_s,
+			"requestFocusForVisibleComponent"_s
+		})),
+		"TabbedPane.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl PAGE_DOWN"_s,
+			"navigatePageDown"_s,
+			"ctrl PAGE_UP"_s,
+			"navigatePageUp"_s,
+			"ctrl UP"_s,
+			"requestFocus"_s,
+			"ctrl KP_UP"_s,
+			"requestFocus"_s
+		})),
+		"Table.font"_s,
 		userTextValue,
-		$of("Table.focusCellHighlightBorder"_s),
-		$of(focusCellHighlightBorder),
-		$of("Table.scrollPaneBorder"_s),
-		$of(scrollPaneBorder),
-		$of("Table.dropLineColor"_s),
-		$of(focusColor),
-		$of("Table.dropLineShortColor"_s),
-		$of(primaryControlDarkShadow),
-		$of("Table.gridColor"_s),
-		$of(controlShadow),
-		$of("Table.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ctrl C"_s),
-			$of("copy"_s),
-			$of("ctrl V"_s),
-			$of("paste"_s),
-			$of("ctrl X"_s),
-			$of("cut"_s),
-			$of("COPY"_s),
-			$of("copy"_s),
-			$of("PASTE"_s),
-			$of("paste"_s),
-			$of("CUT"_s),
-			$of("cut"_s),
-			$of("control INSERT"_s),
-			$of("copy"_s),
-			$of("shift INSERT"_s),
-			$of("paste"_s),
-			$of("shift DELETE"_s),
-			$of("cut"_s),
-			$of("RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("KP_RIGHT"_s),
-			$of("selectNextColumn"_s),
-			$of("shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl shift KP_RIGHT"_s),
-			$of("selectNextColumnExtendSelection"_s),
-			$of("ctrl RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("ctrl KP_RIGHT"_s),
-			$of("selectNextColumnChangeLead"_s),
-			$of("LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("KP_LEFT"_s),
-			$of("selectPreviousColumn"_s),
-			$of("shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl shift KP_LEFT"_s),
-			$of("selectPreviousColumnExtendSelection"_s),
-			$of("ctrl LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("ctrl KP_LEFT"_s),
-			$of("selectPreviousColumnChangeLead"_s),
-			$of("DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNextRow"_s),
-			$of("shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl shift KP_DOWN"_s),
-			$of("selectNextRowExtendSelection"_s),
-			$of("ctrl DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("selectNextRowChangeLead"_s),
-			$of("UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("KP_UP"_s),
-			$of("selectPreviousRow"_s),
-			$of("shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl shift KP_UP"_s),
-			$of("selectPreviousRowExtendSelection"_s),
-			$of("ctrl UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("ctrl KP_UP"_s),
-			$of("selectPreviousRowChangeLead"_s),
-			$of("HOME"_s),
-			$of("selectFirstColumn"_s),
-			$of("shift HOME"_s),
-			$of("selectFirstColumnExtendSelection"_s),
-			$of("ctrl shift HOME"_s),
-			$of("selectFirstRowExtendSelection"_s),
-			$of("ctrl HOME"_s),
-			$of("selectFirstRow"_s),
-			$of("END"_s),
-			$of("selectLastColumn"_s),
-			$of("shift END"_s),
-			$of("selectLastColumnExtendSelection"_s),
-			$of("ctrl shift END"_s),
-			$of("selectLastRowExtendSelection"_s),
-			$of("ctrl END"_s),
-			$of("selectLastRow"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUpChangeSelection"_s),
-			$of("shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl shift PAGE_UP"_s),
-			$of("scrollLeftExtendSelection"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollLeftChangeSelection"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDownChangeSelection"_s),
-			$of("shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl shift PAGE_DOWN"_s),
-			$of("scrollRightExtendSelection"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollRightChangeSelection"_s),
-			$of("TAB"_s),
-			$of("selectNextColumnCell"_s),
-			$of("shift TAB"_s),
-			$of("selectPreviousColumnCell"_s),
-			$of("ENTER"_s),
-			$of("selectNextRowCell"_s),
-			$of("shift ENTER"_s),
-			$of("selectPreviousRowCell"_s),
-			$of("ctrl A"_s),
-			$of("selectAll"_s),
-			$of("ctrl SLASH"_s),
-			$of("selectAll"_s),
-			$of("ctrl BACK_SLASH"_s),
-			$of("clearSelection"_s),
-			$of("ESCAPE"_s),
-			$of("cancel"_s),
-			$of("F2"_s),
-			$of("startEditing"_s),
-			$of("SPACE"_s),
-			$of("addToSelection"_s),
-			$of("ctrl SPACE"_s),
-			$of("toggleAndAnchor"_s),
-			$of("shift SPACE"_s),
-			$of("extendTo"_s),
-			$of("ctrl shift SPACE"_s),
-			$of("moveSelectionTo"_s),
-			$of("F8"_s),
-			$of("focusHeader"_s)
-		}))),
-		$of("Table.ascendingSortIcon"_s),
+		"Table.focusCellHighlightBorder"_s,
+		focusCellHighlightBorder,
+		"Table.scrollPaneBorder"_s,
+		scrollPaneBorder,
+		"Table.dropLineColor"_s,
+		focusColor,
+		"Table.dropLineShortColor"_s,
+		primaryControlDarkShadow,
+		"Table.gridColor"_s,
+		controlShadow,
+		"Table.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ctrl C"_s,
+			"copy"_s,
+			"ctrl V"_s,
+			"paste"_s,
+			"ctrl X"_s,
+			"cut"_s,
+			"COPY"_s,
+			"copy"_s,
+			"PASTE"_s,
+			"paste"_s,
+			"CUT"_s,
+			"cut"_s,
+			"control INSERT"_s,
+			"copy"_s,
+			"shift INSERT"_s,
+			"paste"_s,
+			"shift DELETE"_s,
+			"cut"_s,
+			"RIGHT"_s,
+			"selectNextColumn"_s,
+			"KP_RIGHT"_s,
+			"selectNextColumn"_s,
+			"shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl shift KP_RIGHT"_s,
+			"selectNextColumnExtendSelection"_s,
+			"ctrl RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"ctrl KP_RIGHT"_s,
+			"selectNextColumnChangeLead"_s,
+			"LEFT"_s,
+			"selectPreviousColumn"_s,
+			"KP_LEFT"_s,
+			"selectPreviousColumn"_s,
+			"shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl shift KP_LEFT"_s,
+			"selectPreviousColumnExtendSelection"_s,
+			"ctrl LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"ctrl KP_LEFT"_s,
+			"selectPreviousColumnChangeLead"_s,
+			"DOWN"_s,
+			"selectNextRow"_s,
+			"KP_DOWN"_s,
+			"selectNextRow"_s,
+			"shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl shift KP_DOWN"_s,
+			"selectNextRowExtendSelection"_s,
+			"ctrl DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"ctrl KP_DOWN"_s,
+			"selectNextRowChangeLead"_s,
+			"UP"_s,
+			"selectPreviousRow"_s,
+			"KP_UP"_s,
+			"selectPreviousRow"_s,
+			"shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl shift KP_UP"_s,
+			"selectPreviousRowExtendSelection"_s,
+			"ctrl UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"ctrl KP_UP"_s,
+			"selectPreviousRowChangeLead"_s,
+			"HOME"_s,
+			"selectFirstColumn"_s,
+			"shift HOME"_s,
+			"selectFirstColumnExtendSelection"_s,
+			"ctrl shift HOME"_s,
+			"selectFirstRowExtendSelection"_s,
+			"ctrl HOME"_s,
+			"selectFirstRow"_s,
+			"END"_s,
+			"selectLastColumn"_s,
+			"shift END"_s,
+			"selectLastColumnExtendSelection"_s,
+			"ctrl shift END"_s,
+			"selectLastRowExtendSelection"_s,
+			"ctrl END"_s,
+			"selectLastRow"_s,
+			"PAGE_UP"_s,
+			"scrollUpChangeSelection"_s,
+			"shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl shift PAGE_UP"_s,
+			"scrollLeftExtendSelection"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollLeftChangeSelection"_s,
+			"PAGE_DOWN"_s,
+			"scrollDownChangeSelection"_s,
+			"shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl shift PAGE_DOWN"_s,
+			"scrollRightExtendSelection"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollRightChangeSelection"_s,
+			"TAB"_s,
+			"selectNextColumnCell"_s,
+			"shift TAB"_s,
+			"selectPreviousColumnCell"_s,
+			"ENTER"_s,
+			"selectNextRowCell"_s,
+			"shift ENTER"_s,
+			"selectPreviousRowCell"_s,
+			"ctrl A"_s,
+			"selectAll"_s,
+			"ctrl SLASH"_s,
+			"selectAll"_s,
+			"ctrl BACK_SLASH"_s,
+			"clearSelection"_s,
+			"ESCAPE"_s,
+			"cancel"_s,
+			"F2"_s,
+			"startEditing"_s,
+			"SPACE"_s,
+			"addToSelection"_s,
+			"ctrl SPACE"_s,
+			"toggleAndAnchor"_s,
+			"shift SPACE"_s,
+			"extendTo"_s,
+			"ctrl shift SPACE"_s,
+			"moveSelectionTo"_s,
+			"F8"_s,
+			"focusHeader"_s
+		})),
+		"Table.ascendingSortIcon"_s,
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), MetalLookAndFeel::class$, "icons/sortUp.png"_s)),
-		$of("Table.descendingSortIcon"_s),
+		"Table.descendingSortIcon"_s,
 		$($SwingUtilities2::makeIcon($of(this)->getClass(), MetalLookAndFeel::class$, "icons/sortDown.png"_s)),
-		$of("TableHeader.font"_s),
+		"TableHeader.font"_s,
 		userTextValue,
-		$of("TableHeader.cellBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36)),
-		$of("MenuBar.border"_s),
-		$of(menuBarBorder),
-		$of("MenuBar.font"_s),
+		"TableHeader.cellBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36)),
+		"MenuBar.border"_s,
+		menuBarBorder,
+		"MenuBar.font"_s,
 		menuTextValue,
-		$of("MenuBar.windowBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("F10"_s),
-			$of("takeFocus"_s)
-		})),
-		$of("Menu.border"_s),
-		$of(menuItemBorder),
-		$of("Menu.borderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("Menu.menuPopupOffsetX"_s),
-		$of(zero),
-		$of("Menu.menuPopupOffsetY"_s),
-		$of(zero),
-		$of("Menu.submenuPopupOffsetX"_s),
-		$($of($Integer::valueOf(-4))),
-		$of("Menu.submenuPopupOffsetY"_s),
-		$($of($Integer::valueOf(-3))),
-		$of("Menu.font"_s),
+		"MenuBar.windowBindings"_s,
+		$$new($ObjectArray, {
+			"F10"_s,
+			"takeFocus"_s
+		}),
+		"Menu.border"_s,
+		menuItemBorder,
+		"Menu.borderPainted"_s,
+		$Boolean::TRUE,
+		"Menu.menuPopupOffsetX"_s,
+		zero,
+		"Menu.menuPopupOffsetY"_s,
+		zero,
+		"Menu.submenuPopupOffsetX"_s,
+		$($Integer::valueOf(-4)),
+		"Menu.submenuPopupOffsetY"_s,
+		$($Integer::valueOf(-3)),
+		"Menu.font"_s,
 		menuTextValue,
-		$of("Menu.selectionForeground"_s),
-		$of(menuSelectedForeground),
-		$of("Menu.selectionBackground"_s),
-		$of(menuSelectedBackground),
-		$of("Menu.disabledForeground"_s),
-		$of(menuDisabledForeground),
-		$of("Menu.acceleratorFont"_s),
+		"Menu.selectionForeground"_s,
+		menuSelectedForeground,
+		"Menu.selectionBackground"_s,
+		menuSelectedBackground,
+		"Menu.disabledForeground"_s,
+		menuDisabledForeground,
+		"Menu.acceleratorFont"_s,
 		subTextValue,
-		$of("Menu.acceleratorForeground"_s),
-		$of(acceleratorForeground),
-		$of("Menu.acceleratorSelectionForeground"_s),
-		$of(acceleratorSelectedForeground),
-		$of("Menu.checkIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37)),
-		$of("Menu.arrowIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38)),
-		$of("MenuItem.border"_s),
-		$of(menuItemBorder),
-		$of("MenuItem.borderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("MenuItem.font"_s),
+		"Menu.acceleratorForeground"_s,
+		acceleratorForeground,
+		"Menu.acceleratorSelectionForeground"_s,
+		acceleratorSelectedForeground,
+		"Menu.checkIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37)),
+		"Menu.arrowIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38)),
+		"MenuItem.border"_s,
+		menuItemBorder,
+		"MenuItem.borderPainted"_s,
+		$Boolean::TRUE,
+		"MenuItem.font"_s,
 		menuTextValue,
-		$of("MenuItem.selectionForeground"_s),
-		$of(menuSelectedForeground),
-		$of("MenuItem.selectionBackground"_s),
-		$of(menuSelectedBackground),
-		$of("MenuItem.disabledForeground"_s),
-		$of(menuDisabledForeground),
-		$of("MenuItem.acceleratorFont"_s),
+		"MenuItem.selectionForeground"_s,
+		menuSelectedForeground,
+		"MenuItem.selectionBackground"_s,
+		menuSelectedBackground,
+		"MenuItem.disabledForeground"_s,
+		menuDisabledForeground,
+		"MenuItem.acceleratorFont"_s,
 		subTextValue,
-		$of("MenuItem.acceleratorForeground"_s),
-		$of(acceleratorForeground),
-		$of("MenuItem.acceleratorSelectionForeground"_s),
-		$of(acceleratorSelectedForeground),
-		$of("MenuItem.acceleratorDelimiter"_s),
+		"MenuItem.acceleratorForeground"_s,
+		acceleratorForeground,
+		"MenuItem.acceleratorSelectionForeground"_s,
+		acceleratorSelectedForeground,
+		"MenuItem.acceleratorDelimiter"_s,
 		menuItemAcceleratorDelimiter,
-		$of("MenuItem.checkIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37)),
-		$of("MenuItem.arrowIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
-		$of("MenuItem.commandSound"_s),
-		$of("sounds/MenuItemCommand.wav"_s),
-		$of("OptionPane.windowBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("close"_s)
+		"MenuItem.checkIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37)),
+		"MenuItem.arrowIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
+		"MenuItem.commandSound"_s,
+		"sounds/MenuItemCommand.wav"_s,
+		"OptionPane.windowBindings"_s,
+		$$new($ObjectArray, {
+			"ESCAPE"_s,
+			"close"_s
+		}),
+		"OptionPane.informationSound"_s,
+		"sounds/OptionPaneInformation.wav"_s,
+		"OptionPane.warningSound"_s,
+		"sounds/OptionPaneWarning.wav"_s,
+		"OptionPane.errorSound"_s,
+		"sounds/OptionPaneError.wav"_s,
+		"OptionPane.questionSound"_s,
+		"sounds/OptionPaneQuestion.wav"_s,
+		"OptionPane.errorDialog.border.background"_s,
+		$$new($ColorUIResource, 153, 51, 51),
+		"OptionPane.errorDialog.titlePane.foreground"_s,
+		$$new($ColorUIResource, 51, 0, 0),
+		"OptionPane.errorDialog.titlePane.background"_s,
+		$$new($ColorUIResource, 255, 153, 153),
+		"OptionPane.errorDialog.titlePane.shadow"_s,
+		$$new($ColorUIResource, 204, 102, 102),
+		"OptionPane.questionDialog.border.background"_s,
+		$$new($ColorUIResource, 51, 102, 51),
+		"OptionPane.questionDialog.titlePane.foreground"_s,
+		$$new($ColorUIResource, 0, 51, 0),
+		"OptionPane.questionDialog.titlePane.background"_s,
+		$$new($ColorUIResource, 153, 204, 153),
+		"OptionPane.questionDialog.titlePane.shadow"_s,
+		$$new($ColorUIResource, 102, 153, 102),
+		"OptionPane.warningDialog.border.background"_s,
+		$$new($ColorUIResource, 153, 102, 51),
+		"OptionPane.warningDialog.titlePane.foreground"_s,
+		$$new($ColorUIResource, 102, 51, 0),
+		"OptionPane.warningDialog.titlePane.background"_s,
+		$$new($ColorUIResource, 255, 204, 153),
+		"OptionPane.warningDialog.titlePane.shadow"_s,
+		$$new($ColorUIResource, 204, 153, 102),
+		"Separator.background"_s,
+		$(getSeparatorBackground()),
+		"Separator.foreground"_s,
+		$(getSeparatorForeground()),
+		"PopupMenu.border"_s,
+		popupMenuBorder,
+		"PopupMenu.popupSound"_s,
+		"sounds/PopupMenuPopup.wav"_s,
+		"PopupMenu.font"_s,
+		menuTextValue,
+		"CheckBoxMenuItem.border"_s,
+		menuItemBorder,
+		"CheckBoxMenuItem.borderPainted"_s,
+		$Boolean::TRUE,
+		"CheckBoxMenuItem.font"_s,
+		menuTextValue,
+		"CheckBoxMenuItem.selectionForeground"_s,
+		menuSelectedForeground,
+		"CheckBoxMenuItem.selectionBackground"_s,
+		menuSelectedBackground,
+		"CheckBoxMenuItem.disabledForeground"_s,
+		menuDisabledForeground,
+		"CheckBoxMenuItem.acceleratorFont"_s,
+		subTextValue,
+		"CheckBoxMenuItem.acceleratorForeground"_s,
+		acceleratorForeground,
+		"CheckBoxMenuItem.acceleratorSelectionForeground"_s,
+		acceleratorSelectedForeground,
+		"CheckBoxMenuItem.checkIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40)),
+		"CheckBoxMenuItem.arrowIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
+		"CheckBoxMenuItem.commandSound"_s,
+		"sounds/MenuItemCommand.wav"_s,
+		"RadioButtonMenuItem.border"_s,
+		menuItemBorder,
+		"RadioButtonMenuItem.borderPainted"_s,
+		$Boolean::TRUE,
+		"RadioButtonMenuItem.font"_s,
+		menuTextValue,
+		"RadioButtonMenuItem.selectionForeground"_s,
+		menuSelectedForeground,
+		"RadioButtonMenuItem.selectionBackground"_s,
+		menuSelectedBackground,
+		"RadioButtonMenuItem.disabledForeground"_s,
+		menuDisabledForeground,
+		"RadioButtonMenuItem.acceleratorFont"_s,
+		subTextValue,
+		"RadioButtonMenuItem.acceleratorForeground"_s,
+		acceleratorForeground,
+		"RadioButtonMenuItem.acceleratorSelectionForeground"_s,
+		acceleratorSelectedForeground,
+		"RadioButtonMenuItem.checkIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41)),
+		"RadioButtonMenuItem.arrowIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
+		"RadioButtonMenuItem.commandSound"_s,
+		"sounds/MenuItemCommand.wav"_s,
+		"Spinner.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"UP"_s,
+			"increment"_s,
+			"KP_UP"_s,
+			"increment"_s,
+			"DOWN"_s,
+			"decrement"_s,
+			"KP_DOWN"_s,
+			"decrement"_s
 		})),
-		$of("OptionPane.informationSound"_s),
-		$of("sounds/OptionPaneInformation.wav"_s),
-		$of("OptionPane.warningSound"_s),
-		$of("sounds/OptionPaneWarning.wav"_s),
-		$of("OptionPane.errorSound"_s),
-		$of("sounds/OptionPaneError.wav"_s),
-		$of("OptionPane.questionSound"_s),
-		$of("sounds/OptionPaneQuestion.wav"_s),
-		$of("OptionPane.errorDialog.border.background"_s),
-		$of($$new($ColorUIResource, 153, 51, 51)),
-		$of("OptionPane.errorDialog.titlePane.foreground"_s),
-		$of($$new($ColorUIResource, 51, 0, 0)),
-		$of("OptionPane.errorDialog.titlePane.background"_s),
-		$of($$new($ColorUIResource, 255, 153, 153)),
-		$of("OptionPane.errorDialog.titlePane.shadow"_s),
-		$of($$new($ColorUIResource, 204, 102, 102)),
-		$of("OptionPane.questionDialog.border.background"_s),
-		$of($$new($ColorUIResource, 51, 102, 51)),
-		$of("OptionPane.questionDialog.titlePane.foreground"_s),
-		$of($$new($ColorUIResource, 0, 51, 0)),
-		$of("OptionPane.questionDialog.titlePane.background"_s),
-		$of($$new($ColorUIResource, 153, 204, 153)),
-		$of("OptionPane.questionDialog.titlePane.shadow"_s),
-		$of($$new($ColorUIResource, 102, 153, 102)),
-		$of("OptionPane.warningDialog.border.background"_s),
-		$of($$new($ColorUIResource, 153, 102, 51)),
-		$of("OptionPane.warningDialog.titlePane.foreground"_s),
-		$of($$new($ColorUIResource, 102, 51, 0)),
-		$of("OptionPane.warningDialog.titlePane.background"_s),
-		$of($$new($ColorUIResource, 255, 204, 153)),
-		$of("OptionPane.warningDialog.titlePane.shadow"_s),
-		$of($$new($ColorUIResource, 204, 153, 102)),
-		$of("Separator.background"_s),
-		$($of(getSeparatorBackground())),
-		$of("Separator.foreground"_s),
-		$($of(getSeparatorForeground())),
-		$of("PopupMenu.border"_s),
-		$of(popupMenuBorder),
-		$of("PopupMenu.popupSound"_s),
-		$of("sounds/PopupMenuPopup.wav"_s),
-		$of("PopupMenu.font"_s),
-		menuTextValue,
-		$of("CheckBoxMenuItem.border"_s),
-		$of(menuItemBorder),
-		$of("CheckBoxMenuItem.borderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("CheckBoxMenuItem.font"_s),
-		menuTextValue,
-		$of("CheckBoxMenuItem.selectionForeground"_s),
-		$of(menuSelectedForeground),
-		$of("CheckBoxMenuItem.selectionBackground"_s),
-		$of(menuSelectedBackground),
-		$of("CheckBoxMenuItem.disabledForeground"_s),
-		$of(menuDisabledForeground),
-		$of("CheckBoxMenuItem.acceleratorFont"_s),
-		subTextValue,
-		$of("CheckBoxMenuItem.acceleratorForeground"_s),
-		$of(acceleratorForeground),
-		$of("CheckBoxMenuItem.acceleratorSelectionForeground"_s),
-		$of(acceleratorSelectedForeground),
-		$of("CheckBoxMenuItem.checkIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40)),
-		$of("CheckBoxMenuItem.arrowIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
-		$of("CheckBoxMenuItem.commandSound"_s),
-		$of("sounds/MenuItemCommand.wav"_s),
-		$of("RadioButtonMenuItem.border"_s),
-		$of(menuItemBorder),
-		$of("RadioButtonMenuItem.borderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("RadioButtonMenuItem.font"_s),
-		menuTextValue,
-		$of("RadioButtonMenuItem.selectionForeground"_s),
-		$of(menuSelectedForeground),
-		$of("RadioButtonMenuItem.selectionBackground"_s),
-		$of(menuSelectedBackground),
-		$of("RadioButtonMenuItem.disabledForeground"_s),
-		$of(menuDisabledForeground),
-		$of("RadioButtonMenuItem.acceleratorFont"_s),
-		subTextValue,
-		$of("RadioButtonMenuItem.acceleratorForeground"_s),
-		$of(acceleratorForeground),
-		$of("RadioButtonMenuItem.acceleratorSelectionForeground"_s),
-		$of(acceleratorSelectedForeground),
-		$of("RadioButtonMenuItem.checkIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41)),
-		$of("RadioButtonMenuItem.arrowIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
-		$of("RadioButtonMenuItem.commandSound"_s),
-		$of("sounds/MenuItemCommand.wav"_s),
-		$of("Spinner.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("UP"_s),
-			$of("increment"_s),
-			$of("KP_UP"_s),
-			$of("increment"_s),
-			$of("DOWN"_s),
-			$of("decrement"_s),
-			$of("KP_DOWN"_s),
-			$of("decrement"_s)
-		}))),
-		$of("Spinner.arrowButtonInsets"_s),
-		$of(zeroInsets),
-		$of("Spinner.border"_s),
-		$of(textFieldBorder),
-		$of("Spinner.arrowButtonBorder"_s),
-		$of(buttonBorder),
-		$of("Spinner.font"_s),
+		"Spinner.arrowButtonInsets"_s,
+		zeroInsets,
+		"Spinner.border"_s,
+		textFieldBorder,
+		"Spinner.arrowButtonBorder"_s,
+		buttonBorder,
+		"Spinner.font"_s,
 		controlTextValue,
-		$of("SplitPane.dividerSize"_s),
-		$($of($Integer::valueOf(10))),
-		$of("SplitPane.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("UP"_s),
-			$of("negativeIncrement"_s),
-			$of("DOWN"_s),
-			$of("positiveIncrement"_s),
-			$of("LEFT"_s),
-			$of("negativeIncrement"_s),
-			$of("RIGHT"_s),
-			$of("positiveIncrement"_s),
-			$of("KP_UP"_s),
-			$of("negativeIncrement"_s),
-			$of("KP_DOWN"_s),
-			$of("positiveIncrement"_s),
-			$of("KP_LEFT"_s),
-			$of("negativeIncrement"_s),
-			$of("KP_RIGHT"_s),
-			$of("positiveIncrement"_s),
-			$of("HOME"_s),
-			$of("selectMin"_s),
-			$of("END"_s),
-			$of("selectMax"_s),
-			$of("F8"_s),
-			$of("startResize"_s),
-			$of("F6"_s),
-			$of("toggleFocus"_s),
-			$of("ctrl TAB"_s),
-			$of("focusOutForward"_s),
-			$of("ctrl shift TAB"_s),
-			$of("focusOutBackward"_s)
-		}))),
-		$of("SplitPane.centerOneTouchButtons"_s),
-		$of($Boolean::FALSE),
-		$of("SplitPane.dividerFocusColor"_s),
-		$of(primaryControl),
-		$of("Tree.font"_s),
+		"SplitPane.dividerSize"_s,
+		$($Integer::valueOf(10)),
+		"SplitPane.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"UP"_s,
+			"negativeIncrement"_s,
+			"DOWN"_s,
+			"positiveIncrement"_s,
+			"LEFT"_s,
+			"negativeIncrement"_s,
+			"RIGHT"_s,
+			"positiveIncrement"_s,
+			"KP_UP"_s,
+			"negativeIncrement"_s,
+			"KP_DOWN"_s,
+			"positiveIncrement"_s,
+			"KP_LEFT"_s,
+			"negativeIncrement"_s,
+			"KP_RIGHT"_s,
+			"positiveIncrement"_s,
+			"HOME"_s,
+			"selectMin"_s,
+			"END"_s,
+			"selectMax"_s,
+			"F8"_s,
+			"startResize"_s,
+			"F6"_s,
+			"toggleFocus"_s,
+			"ctrl TAB"_s,
+			"focusOutForward"_s,
+			"ctrl shift TAB"_s,
+			"focusOutBackward"_s
+		})),
+		"SplitPane.centerOneTouchButtons"_s,
+		$Boolean::FALSE,
+		"SplitPane.dividerFocusColor"_s,
+		primaryControl,
+		"Tree.font"_s,
 		userTextValue,
-		$of("Tree.textBackground"_s),
-		$($of(getWindowBackground())),
-		$of("Tree.selectionBorderColor"_s),
-		$of(focusColor),
-		$of("Tree.openIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15)),
-		$of("Tree.closedIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15)),
-		$of("Tree.leafIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16)),
-		$of("Tree.expandedIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42)),
-		$of("Tree.collapsedIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43)),
-		$of("Tree.line"_s),
-		$of(primaryControl),
-		$of("Tree.hash"_s),
-		$of(primaryControl),
-		$of("Tree.rowHeight"_s),
-		$of(zero),
-		$of("Tree.focusInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ADD"_s),
-			$of("expand"_s),
-			$of("SUBTRACT"_s),
-			$of("collapse"_s),
-			$of("ctrl C"_s),
-			$of("copy"_s),
-			$of("ctrl V"_s),
-			$of("paste"_s),
-			$of("ctrl X"_s),
-			$of("cut"_s),
-			$of("COPY"_s),
-			$of("copy"_s),
-			$of("PASTE"_s),
-			$of("paste"_s),
-			$of("CUT"_s),
-			$of("cut"_s),
-			$of("control INSERT"_s),
-			$of("copy"_s),
-			$of("shift INSERT"_s),
-			$of("paste"_s),
-			$of("shift DELETE"_s),
-			$of("cut"_s),
-			$of("UP"_s),
-			$of("selectPrevious"_s),
-			$of("KP_UP"_s),
-			$of("selectPrevious"_s),
-			$of("shift UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("shift KP_UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("ctrl shift UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("ctrl shift KP_UP"_s),
-			$of("selectPreviousExtendSelection"_s),
-			$of("ctrl UP"_s),
-			$of("selectPreviousChangeLead"_s),
-			$of("ctrl KP_UP"_s),
-			$of("selectPreviousChangeLead"_s),
-			$of("DOWN"_s),
-			$of("selectNext"_s),
-			$of("KP_DOWN"_s),
-			$of("selectNext"_s),
-			$of("shift DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("shift KP_DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("ctrl shift DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("ctrl shift KP_DOWN"_s),
-			$of("selectNextExtendSelection"_s),
-			$of("ctrl DOWN"_s),
-			$of("selectNextChangeLead"_s),
-			$of("ctrl KP_DOWN"_s),
-			$of("selectNextChangeLead"_s),
-			$of("RIGHT"_s),
-			$of("selectChild"_s),
-			$of("KP_RIGHT"_s),
-			$of("selectChild"_s),
-			$of("LEFT"_s),
-			$of("selectParent"_s),
-			$of("KP_LEFT"_s),
-			$of("selectParent"_s),
-			$of("PAGE_UP"_s),
-			$of("scrollUpChangeSelection"_s),
-			$of("shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl shift PAGE_UP"_s),
-			$of("scrollUpExtendSelection"_s),
-			$of("ctrl PAGE_UP"_s),
-			$of("scrollUpChangeLead"_s),
-			$of("PAGE_DOWN"_s),
-			$of("scrollDownChangeSelection"_s),
-			$of("shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl shift PAGE_DOWN"_s),
-			$of("scrollDownExtendSelection"_s),
-			$of("ctrl PAGE_DOWN"_s),
-			$of("scrollDownChangeLead"_s),
-			$of("HOME"_s),
-			$of("selectFirst"_s),
-			$of("shift HOME"_s),
-			$of("selectFirstExtendSelection"_s),
-			$of("ctrl shift HOME"_s),
-			$of("selectFirstExtendSelection"_s),
-			$of("ctrl HOME"_s),
-			$of("selectFirstChangeLead"_s),
-			$of("END"_s),
-			$of("selectLast"_s),
-			$of("shift END"_s),
-			$of("selectLastExtendSelection"_s),
-			$of("ctrl shift END"_s),
-			$of("selectLastExtendSelection"_s),
-			$of("ctrl END"_s),
-			$of("selectLastChangeLead"_s),
-			$of("F2"_s),
-			$of("startEditing"_s),
-			$of("ctrl A"_s),
-			$of("selectAll"_s),
-			$of("ctrl SLASH"_s),
-			$of("selectAll"_s),
-			$of("ctrl BACK_SLASH"_s),
-			$of("clearSelection"_s),
-			$of("ctrl LEFT"_s),
-			$of("scrollLeft"_s),
-			$of("ctrl KP_LEFT"_s),
-			$of("scrollLeft"_s),
-			$of("ctrl RIGHT"_s),
-			$of("scrollRight"_s),
-			$of("ctrl KP_RIGHT"_s),
-			$of("scrollRight"_s),
-			$of("SPACE"_s),
-			$of("addToSelection"_s),
-			$of("ctrl SPACE"_s),
-			$of("toggleAndAnchor"_s),
-			$of("shift SPACE"_s),
-			$of("extendTo"_s),
-			$of("ctrl shift SPACE"_s),
-			$of("moveSelectionTo"_s)
-		}))),
-		$of("Tree.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("cancel"_s)
-		}))),
-		$of("ToolBar.border"_s),
-		$of(toolBarBorder),
-		$of("ToolBar.background"_s),
-		$of(menuBackground),
-		$of("ToolBar.foreground"_s),
-		$($of(getMenuForeground())),
-		$of("ToolBar.font"_s),
+		"Tree.textBackground"_s,
+		$(getWindowBackground()),
+		"Tree.selectionBorderColor"_s,
+		focusColor,
+		"Tree.openIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15)),
+		"Tree.closedIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15)),
+		"Tree.leafIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16)),
+		"Tree.expandedIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42)),
+		"Tree.collapsedIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43)),
+		"Tree.line"_s,
+		primaryControl,
+		"Tree.hash"_s,
+		primaryControl,
+		"Tree.rowHeight"_s,
+		zero,
+		"Tree.focusInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ADD"_s,
+			"expand"_s,
+			"SUBTRACT"_s,
+			"collapse"_s,
+			"ctrl C"_s,
+			"copy"_s,
+			"ctrl V"_s,
+			"paste"_s,
+			"ctrl X"_s,
+			"cut"_s,
+			"COPY"_s,
+			"copy"_s,
+			"PASTE"_s,
+			"paste"_s,
+			"CUT"_s,
+			"cut"_s,
+			"control INSERT"_s,
+			"copy"_s,
+			"shift INSERT"_s,
+			"paste"_s,
+			"shift DELETE"_s,
+			"cut"_s,
+			"UP"_s,
+			"selectPrevious"_s,
+			"KP_UP"_s,
+			"selectPrevious"_s,
+			"shift UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"shift KP_UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"ctrl shift UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"ctrl shift KP_UP"_s,
+			"selectPreviousExtendSelection"_s,
+			"ctrl UP"_s,
+			"selectPreviousChangeLead"_s,
+			"ctrl KP_UP"_s,
+			"selectPreviousChangeLead"_s,
+			"DOWN"_s,
+			"selectNext"_s,
+			"KP_DOWN"_s,
+			"selectNext"_s,
+			"shift DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"shift KP_DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"ctrl shift DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"ctrl shift KP_DOWN"_s,
+			"selectNextExtendSelection"_s,
+			"ctrl DOWN"_s,
+			"selectNextChangeLead"_s,
+			"ctrl KP_DOWN"_s,
+			"selectNextChangeLead"_s,
+			"RIGHT"_s,
+			"selectChild"_s,
+			"KP_RIGHT"_s,
+			"selectChild"_s,
+			"LEFT"_s,
+			"selectParent"_s,
+			"KP_LEFT"_s,
+			"selectParent"_s,
+			"PAGE_UP"_s,
+			"scrollUpChangeSelection"_s,
+			"shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl shift PAGE_UP"_s,
+			"scrollUpExtendSelection"_s,
+			"ctrl PAGE_UP"_s,
+			"scrollUpChangeLead"_s,
+			"PAGE_DOWN"_s,
+			"scrollDownChangeSelection"_s,
+			"shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl shift PAGE_DOWN"_s,
+			"scrollDownExtendSelection"_s,
+			"ctrl PAGE_DOWN"_s,
+			"scrollDownChangeLead"_s,
+			"HOME"_s,
+			"selectFirst"_s,
+			"shift HOME"_s,
+			"selectFirstExtendSelection"_s,
+			"ctrl shift HOME"_s,
+			"selectFirstExtendSelection"_s,
+			"ctrl HOME"_s,
+			"selectFirstChangeLead"_s,
+			"END"_s,
+			"selectLast"_s,
+			"shift END"_s,
+			"selectLastExtendSelection"_s,
+			"ctrl shift END"_s,
+			"selectLastExtendSelection"_s,
+			"ctrl END"_s,
+			"selectLastChangeLead"_s,
+			"F2"_s,
+			"startEditing"_s,
+			"ctrl A"_s,
+			"selectAll"_s,
+			"ctrl SLASH"_s,
+			"selectAll"_s,
+			"ctrl BACK_SLASH"_s,
+			"clearSelection"_s,
+			"ctrl LEFT"_s,
+			"scrollLeft"_s,
+			"ctrl KP_LEFT"_s,
+			"scrollLeft"_s,
+			"ctrl RIGHT"_s,
+			"scrollRight"_s,
+			"ctrl KP_RIGHT"_s,
+			"scrollRight"_s,
+			"SPACE"_s,
+			"addToSelection"_s,
+			"ctrl SPACE"_s,
+			"toggleAndAnchor"_s,
+			"shift SPACE"_s,
+			"extendTo"_s,
+			"ctrl shift SPACE"_s,
+			"moveSelectionTo"_s
+		})),
+		"Tree.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ESCAPE"_s,
+			"cancel"_s
+		})),
+		"ToolBar.border"_s,
+		toolBarBorder,
+		"ToolBar.background"_s,
+		menuBackground,
+		"ToolBar.foreground"_s,
+		$(getMenuForeground()),
+		"ToolBar.font"_s,
 		menuTextValue,
-		$of("ToolBar.dockingBackground"_s),
-		$of(menuBackground),
-		$of("ToolBar.floatingBackground"_s),
-		$of(menuBackground),
-		$of("ToolBar.dockingForeground"_s),
-		$of(primaryControlDarkShadow),
-		$of("ToolBar.floatingForeground"_s),
-		$of(primaryControl),
-		$of("ToolBar.rolloverBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44)),
-		$of("ToolBar.nonrolloverBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45)),
-		$of("ToolBar.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("UP"_s),
-			$of("navigateUp"_s),
-			$of("KP_UP"_s),
-			$of("navigateUp"_s),
-			$of("DOWN"_s),
-			$of("navigateDown"_s),
-			$of("KP_DOWN"_s),
-			$of("navigateDown"_s),
-			$of("LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("KP_LEFT"_s),
-			$of("navigateLeft"_s),
-			$of("RIGHT"_s),
-			$of("navigateRight"_s),
-			$of("KP_RIGHT"_s),
-			$of("navigateRight"_s)
-		}))),
-		$of("RootPane.frameBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46)),
-		$of("RootPane.plainDialogBorder"_s),
-		$of(dialogBorder),
-		$of("RootPane.informationDialogBorder"_s),
-		$of(dialogBorder),
-		$of("RootPane.errorDialogBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47)),
-		$of("RootPane.colorChooserDialogBorder"_s),
-		$of(questionDialogBorder),
-		$of("RootPane.fileChooserDialogBorder"_s),
-		$of(questionDialogBorder),
-		$of("RootPane.questionDialogBorder"_s),
-		$of(questionDialogBorder),
-		$of("RootPane.warningDialogBorder"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48)),
-		$of("RootPane.defaultButtonWindowKeyBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("ENTER"_s),
-			$of("press"_s),
-			$of("released ENTER"_s),
-			$of("release"_s),
-			$of("ctrl ENTER"_s),
-			$of("press"_s),
-			$of("ctrl released ENTER"_s),
-			$of("release"_s)
-		}))
+		"ToolBar.dockingBackground"_s,
+		menuBackground,
+		"ToolBar.floatingBackground"_s,
+		menuBackground,
+		"ToolBar.dockingForeground"_s,
+		primaryControlDarkShadow,
+		"ToolBar.floatingForeground"_s,
+		primaryControl,
+		"ToolBar.rolloverBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44)),
+		"ToolBar.nonrolloverBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45)),
+		"ToolBar.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"UP"_s,
+			"navigateUp"_s,
+			"KP_UP"_s,
+			"navigateUp"_s,
+			"DOWN"_s,
+			"navigateDown"_s,
+			"KP_DOWN"_s,
+			"navigateDown"_s,
+			"LEFT"_s,
+			"navigateLeft"_s,
+			"KP_LEFT"_s,
+			"navigateLeft"_s,
+			"RIGHT"_s,
+			"navigateRight"_s,
+			"KP_RIGHT"_s,
+			"navigateRight"_s
+		})),
+		"RootPane.frameBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46)),
+		"RootPane.plainDialogBorder"_s,
+		dialogBorder,
+		"RootPane.informationDialogBorder"_s,
+		dialogBorder,
+		"RootPane.errorDialogBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47)),
+		"RootPane.colorChooserDialogBorder"_s,
+		questionDialogBorder,
+		"RootPane.fileChooserDialogBorder"_s,
+		questionDialogBorder,
+		"RootPane.questionDialogBorder"_s,
+		questionDialogBorder,
+		"RootPane.warningDialogBorder"_s,
+		$cast($UIDefaults$LazyValue, $$new(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48)),
+		"RootPane.defaultButtonWindowKeyBindings"_s,
+		$$new($ObjectArray, {
+			"ENTER"_s,
+			"press"_s,
+			"released ENTER"_s,
+			"release"_s,
+			"ctrl ENTER"_s,
+			"press"_s,
+			"ctrl released ENTER"_s,
+			"release"_s
+		})
 	}));
 	table->putDefaults(defaults);
 	bool var$1 = isWindows();
@@ -3847,9 +3531,9 @@ void MetalLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	if (var$0 && $nc(theme)->isSystemTheme()) {
 		$var($Object, messageFont, $new($MetalFontDesktopProperty, "win.messagebox.font.height"_s, $MetalTheme::CONTROL_TEXT_FONT));
 		$assign(defaults, $new($ObjectArray, {
-			$of("OptionPane.messageFont"_s),
+			"OptionPane.messageFont"_s,
 			messageFont,
-			$of("OptionPane.buttonFont"_s),
+			"OptionPane.buttonFont"_s,
 			messageFont
 		}));
 		table->putDefaults(defaults);
@@ -3865,7 +3549,7 @@ void MetalLookAndFeel::createDefaultTheme() {
 }
 
 $UIDefaults* MetalLookAndFeel::getDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	MetalLookAndFeel::METAL_LOOK_AND_FEEL_INITED = true;
 	createDefaultTheme();
 	$var($UIDefaults, table, $BasicLookAndFeel::getDefaults());
@@ -3884,12 +3568,12 @@ void MetalLookAndFeel::setCurrentTheme($MetalTheme* theme) {
 	if (theme == nullptr) {
 		$throwNew($NullPointerException, "Can\'t have null theme"_s);
 	}
-	$nc($($AppContext::getAppContext()))->put("currentMetalTheme"_s, theme);
+	$$nc($AppContext::getAppContext())->put("currentMetalTheme"_s, theme);
 }
 
 $MetalTheme* MetalLookAndFeel::getCurrentTheme() {
 	$init(MetalLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($MetalTheme, currentTheme, nullptr);
 	$var($AppContext, context, $AppContext::getAppContext());
@@ -3898,7 +3582,7 @@ $MetalTheme* MetalLookAndFeel::getCurrentTheme() {
 		if (useHighContrastTheme()) {
 			$assign(currentTheme, $new($MetalHighContrastTheme));
 		} else {
-			$var($String, theme, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.metalTheme"_s)))));
+			$var($String, theme, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.metalTheme"_s))));
 			if ("steel"_s->equals(theme)) {
 				$assign(currentTheme, $new($DefaultMetalTheme));
 			} else {
@@ -3912,226 +3596,226 @@ $MetalTheme* MetalLookAndFeel::getCurrentTheme() {
 
 $Icon* MetalLookAndFeel::getDisabledIcon($JComponent* component, $Icon* icon) {
 	if (($instanceOf($ImageIcon, icon)) && MetalLookAndFeel::usingOcean()) {
-		return $MetalUtils::getOceanDisabledButtonIcon($($nc(($cast($ImageIcon, icon)))->getImage()));
+		return $MetalUtils::getOceanDisabledButtonIcon($($cast($ImageIcon, icon)->getImage()));
 	}
 	return $BasicLookAndFeel::getDisabledIcon(component, icon);
 }
 
 $Icon* MetalLookAndFeel::getDisabledSelectedIcon($JComponent* component, $Icon* icon) {
 	if (($instanceOf($ImageIcon, icon)) && MetalLookAndFeel::usingOcean()) {
-		return $MetalUtils::getOceanDisabledButtonIcon($($nc(($cast($ImageIcon, icon)))->getImage()));
+		return $MetalUtils::getOceanDisabledButtonIcon($($cast($ImageIcon, icon)->getImage()));
 	}
 	return $BasicLookAndFeel::getDisabledSelectedIcon(component, icon);
 }
 
 $FontUIResource* MetalLookAndFeel::getControlTextFont() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControlTextFont();
+	return $$nc(getCurrentTheme())->getControlTextFont();
 }
 
 $FontUIResource* MetalLookAndFeel::getSystemTextFont() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getSystemTextFont();
+	return $$nc(getCurrentTheme())->getSystemTextFont();
 }
 
 $FontUIResource* MetalLookAndFeel::getUserTextFont() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getUserTextFont();
+	return $$nc(getCurrentTheme())->getUserTextFont();
 }
 
 $FontUIResource* MetalLookAndFeel::getMenuTextFont() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getMenuTextFont();
+	return $$nc(getCurrentTheme())->getMenuTextFont();
 }
 
 $FontUIResource* MetalLookAndFeel::getWindowTitleFont() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getWindowTitleFont();
+	return $$nc(getCurrentTheme())->getWindowTitleFont();
 }
 
 $FontUIResource* MetalLookAndFeel::getSubTextFont() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getSubTextFont();
+	return $$nc(getCurrentTheme())->getSubTextFont();
 }
 
 $ColorUIResource* MetalLookAndFeel::getDesktopColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getDesktopColor();
+	return $$nc(getCurrentTheme())->getDesktopColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getFocusColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getFocusColor();
+	return $$nc(getCurrentTheme())->getFocusColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getWhite() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getWhite();
+	return $$nc(getCurrentTheme())->getWhite();
 }
 
 $ColorUIResource* MetalLookAndFeel::getBlack() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getBlack();
+	return $$nc(getCurrentTheme())->getBlack();
 }
 
 $ColorUIResource* MetalLookAndFeel::getControl() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControl();
+	return $$nc(getCurrentTheme())->getControl();
 }
 
 $ColorUIResource* MetalLookAndFeel::getControlShadow() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControlShadow();
+	return $$nc(getCurrentTheme())->getControlShadow();
 }
 
 $ColorUIResource* MetalLookAndFeel::getControlDarkShadow() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControlDarkShadow();
+	return $$nc(getCurrentTheme())->getControlDarkShadow();
 }
 
 $ColorUIResource* MetalLookAndFeel::getControlInfo() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControlInfo();
+	return $$nc(getCurrentTheme())->getControlInfo();
 }
 
 $ColorUIResource* MetalLookAndFeel::getControlHighlight() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControlHighlight();
+	return $$nc(getCurrentTheme())->getControlHighlight();
 }
 
 $ColorUIResource* MetalLookAndFeel::getControlDisabled() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControlDisabled();
+	return $$nc(getCurrentTheme())->getControlDisabled();
 }
 
 $ColorUIResource* MetalLookAndFeel::getPrimaryControl() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getPrimaryControl();
+	return $$nc(getCurrentTheme())->getPrimaryControl();
 }
 
 $ColorUIResource* MetalLookAndFeel::getPrimaryControlShadow() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getPrimaryControlShadow();
+	return $$nc(getCurrentTheme())->getPrimaryControlShadow();
 }
 
 $ColorUIResource* MetalLookAndFeel::getPrimaryControlDarkShadow() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getPrimaryControlDarkShadow();
+	return $$nc(getCurrentTheme())->getPrimaryControlDarkShadow();
 }
 
 $ColorUIResource* MetalLookAndFeel::getPrimaryControlInfo() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getPrimaryControlInfo();
+	return $$nc(getCurrentTheme())->getPrimaryControlInfo();
 }
 
 $ColorUIResource* MetalLookAndFeel::getPrimaryControlHighlight() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getPrimaryControlHighlight();
+	return $$nc(getCurrentTheme())->getPrimaryControlHighlight();
 }
 
 $ColorUIResource* MetalLookAndFeel::getSystemTextColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getSystemTextColor();
+	return $$nc(getCurrentTheme())->getSystemTextColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getControlTextColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getControlTextColor();
+	return $$nc(getCurrentTheme())->getControlTextColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getInactiveControlTextColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getInactiveControlTextColor();
+	return $$nc(getCurrentTheme())->getInactiveControlTextColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getInactiveSystemTextColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getInactiveSystemTextColor();
+	return $$nc(getCurrentTheme())->getInactiveSystemTextColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getUserTextColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getUserTextColor();
+	return $$nc(getCurrentTheme())->getUserTextColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getTextHighlightColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getTextHighlightColor();
+	return $$nc(getCurrentTheme())->getTextHighlightColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getHighlightedTextColor() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getHighlightedTextColor();
+	return $$nc(getCurrentTheme())->getHighlightedTextColor();
 }
 
 $ColorUIResource* MetalLookAndFeel::getWindowBackground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getWindowBackground();
+	return $$nc(getCurrentTheme())->getWindowBackground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getWindowTitleBackground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getWindowTitleBackground();
+	return $$nc(getCurrentTheme())->getWindowTitleBackground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getWindowTitleForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getWindowTitleForeground();
+	return $$nc(getCurrentTheme())->getWindowTitleForeground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getWindowTitleInactiveBackground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getWindowTitleInactiveBackground();
+	return $$nc(getCurrentTheme())->getWindowTitleInactiveBackground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getWindowTitleInactiveForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getWindowTitleInactiveForeground();
+	return $$nc(getCurrentTheme())->getWindowTitleInactiveForeground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getMenuBackground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getMenuBackground();
+	return $$nc(getCurrentTheme())->getMenuBackground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getMenuForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getMenuForeground();
+	return $$nc(getCurrentTheme())->getMenuForeground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getMenuSelectedBackground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getMenuSelectedBackground();
+	return $$nc(getCurrentTheme())->getMenuSelectedBackground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getMenuSelectedForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getMenuSelectedForeground();
+	return $$nc(getCurrentTheme())->getMenuSelectedForeground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getMenuDisabledForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getMenuDisabledForeground();
+	return $$nc(getCurrentTheme())->getMenuDisabledForeground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getSeparatorBackground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getSeparatorBackground();
+	return $$nc(getCurrentTheme())->getSeparatorBackground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getSeparatorForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getSeparatorForeground();
+	return $$nc(getCurrentTheme())->getSeparatorForeground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getAcceleratorForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getAcceleratorForeground();
+	return $$nc(getCurrentTheme())->getAcceleratorForeground();
 }
 
 $ColorUIResource* MetalLookAndFeel::getAcceleratorSelectedForeground() {
 	$init(MetalLookAndFeel);
-	return $nc($(getCurrentTheme()))->getAcceleratorSelectedForeground();
+	return $$nc(getCurrentTheme())->getAcceleratorSelectedForeground();
 }
 
 $LayoutStyle* MetalLookAndFeel::getLayoutStyle() {
@@ -4164,47 +3848,47 @@ $Object* MetalLookAndFeel::lambda$initComponentDefaults$55($UIDefaults* t) {
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$54($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalBorders::getToolBarNonrolloverBorder());
+	return $MetalBorders::getToolBarNonrolloverBorder();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$53($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalBorders::getToolBarRolloverBorder());
+	return $MetalBorders::getToolBarRolloverBorder();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$52($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getTreeControlIcon($nc($($Boolean::valueOf($MetalIconFactory::LIGHT)))->booleanValue()));
+	return $MetalIconFactory::getTreeControlIcon($($Boolean::valueOf($MetalIconFactory::LIGHT))->booleanValue());
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$51($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getTreeControlIcon($nc($($Boolean::valueOf($MetalIconFactory::DARK)))->booleanValue()));
+	return $MetalIconFactory::getTreeControlIcon($($Boolean::valueOf($MetalIconFactory::DARK))->booleanValue());
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$46($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getRadioButtonMenuItemIcon());
+	return $MetalIconFactory::getRadioButtonMenuItemIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$44($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getCheckBoxMenuItemIcon());
+	return $MetalIconFactory::getCheckBoxMenuItemIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$43($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getMenuItemArrowIcon());
+	return $MetalIconFactory::getMenuItemArrowIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$41($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getMenuArrowIcon());
+	return $MetalIconFactory::getMenuArrowIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$40($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getMenuItemCheckIcon());
+	return $MetalIconFactory::getMenuItemCheckIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$39($UIDefaults* t) {
@@ -4214,22 +3898,22 @@ $Object* MetalLookAndFeel::lambda$initComponentDefaults$39($UIDefaults* t) {
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$38(int32_t internalFrameIconSize, $UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getInternalFrameAltMaximizeIcon(internalFrameIconSize));
+	return $MetalIconFactory::getInternalFrameAltMaximizeIcon(internalFrameIconSize);
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$37(int32_t internalFrameIconSize, $UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getInternalFrameMinimizeIcon(internalFrameIconSize));
+	return $MetalIconFactory::getInternalFrameMinimizeIcon(internalFrameIconSize);
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$36(int32_t internalFrameIconSize, $UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getInternalFrameMaximizeIcon(internalFrameIconSize));
+	return $MetalIconFactory::getInternalFrameMaximizeIcon(internalFrameIconSize);
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$35(int32_t internalFrameIconSize, $UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getInternalFrameCloseIcon(internalFrameIconSize));
+	return $MetalIconFactory::getInternalFrameCloseIcon(internalFrameIconSize);
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$34($UIDefaults* t) {
@@ -4254,77 +3938,77 @@ $Object* MetalLookAndFeel::lambda$initComponentDefaults$31($UIDefaults* t) {
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$30($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getInternalFrameDefaultMenuIcon());
+	return $MetalIconFactory::getInternalFrameDefaultMenuIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$29($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getVerticalSliderThumbIcon());
+	return $MetalIconFactory::getVerticalSliderThumbIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$28($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getHorizontalSliderThumbIcon());
+	return $MetalIconFactory::getHorizontalSliderThumbIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$27($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getFileChooserUpFolderIcon());
+	return $MetalIconFactory::getFileChooserUpFolderIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$26($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getFileChooserNewFolderIcon());
+	return $MetalIconFactory::getFileChooserNewFolderIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$25($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getFileChooserListViewIcon());
+	return $MetalIconFactory::getFileChooserListViewIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$24($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getFileChooserHomeFolderIcon());
+	return $MetalIconFactory::getFileChooserHomeFolderIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$23($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getFileChooserDetailViewIcon());
+	return $MetalIconFactory::getFileChooserDetailViewIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$22($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getTreeFloppyDriveIcon());
+	return $MetalIconFactory::getTreeFloppyDriveIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$21($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getTreeHardDriveIcon());
+	return $MetalIconFactory::getTreeHardDriveIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$20($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getTreeComputerIcon());
+	return $MetalIconFactory::getTreeComputerIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$19($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getTreeLeafIcon());
+	return $MetalIconFactory::getTreeLeafIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$18($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getTreeFolderIcon());
+	return $MetalIconFactory::getTreeFolderIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$17($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getRadioButtonIcon());
+	return $MetalIconFactory::getRadioButtonIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$16($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalIconFactory::getCheckBoxIcon());
+	return $MetalIconFactory::getCheckBoxIcon();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$12($Color* controlDarkShadow, $UIDefaults* t) {
@@ -4354,7 +4038,7 @@ $Object* MetalLookAndFeel::lambda$initComponentDefaults$8($UIDefaults* t) {
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$7($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalBorders::getDesktopIconBorder());
+	return $MetalBorders::getDesktopIconBorder();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$6($Color* controlShadow, $UIDefaults* t) {
@@ -4364,12 +4048,12 @@ $Object* MetalLookAndFeel::lambda$initComponentDefaults$6($Color* controlShadow,
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$5($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalBorders::getToggleButtonBorder());
+	return $MetalBorders::getToggleButtonBorder();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$4($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalBorders::getButtonBorder());
+	return $MetalBorders::getButtonBorder();
 }
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$3($UIDefaults* t) {
@@ -4389,10 +4073,10 @@ $Object* MetalLookAndFeel::lambda$initComponentDefaults$1($UIDefaults* t) {
 
 $Object* MetalLookAndFeel::lambda$initComponentDefaults$0($UIDefaults* t) {
 	$init(MetalLookAndFeel);
-	return $of($MetalBorders::getTextFieldBorder());
+	return $MetalBorders::getTextFieldBorder();
 }
 
-void clinit$MetalLookAndFeel($Class* class$) {
+void MetalLookAndFeel::clinit$($Class* clazz) {
 	MetalLookAndFeel::METAL_LOOK_AND_FEEL_INITED = false;
 	$assignStatic(MetalLookAndFeel::queue, $new($ReferenceQueue));
 }
@@ -4402,155 +4086,305 @@ MetalLookAndFeel::MetalLookAndFeel() {
 
 $Class* MetalLookAndFeel::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$16$13::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$17$14::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$18$15::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$19$16::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$20$17::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$21$18::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$22$19::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$23$20::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$24$21::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$25$22::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$26$23::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$27$24::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$28$25::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$29$26::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$30$27::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$31$28::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$32$29::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$33$30::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$34$31::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$36$33::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$37$34::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$38$35::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$39$36::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$40$37::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$41$38::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$44$40::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$46$41::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$51$42::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$52$43::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$53$44::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$54$45::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$55$46::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$56$47::load$(name, initialize);
 		}
-		if (name->equals(MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48::classInfo$.name)) {
+		if (name->equals("javax.swing.plaf.metal.MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48")) {
 			return MetalLookAndFeel$$Lambda$lambda$initComponentDefaults$57$48::load$(name, initialize);
 		}
 	}
-	$loadClass(MetalLookAndFeel, name, initialize, &_MetalLookAndFeel_ClassInfo_, clinit$MetalLookAndFeel, allocate$MetalLookAndFeel);
+	$FieldInfo fieldInfos$$[] = {
+		{"METAL_LOOK_AND_FEEL_INITED", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, METAL_LOOK_AND_FEEL_INITED)},
+		{"checkedWindows", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, checkedWindows)},
+		{"isWindows", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, isWindows$)},
+		{"checkedSystemFontSettings", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, checkedSystemFontSettings)},
+		{"useSystemFonts", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel, useSystemFonts$)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljavax/swing/LookAndFeel;>;", $STATIC, $staticField(MetalLookAndFeel, queue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalLookAndFeel, init$, void)},
+		{"createDefaultTheme", "()V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, createDefaultTheme, void)},
+		{"flushUnreferenced", "()V", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, flushUnreferenced, void)},
+		{"getAcceleratorForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getAcceleratorForeground, $ColorUIResource*)},
+		{"getAcceleratorSelectedForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getAcceleratorSelectedForeground, $ColorUIResource*)},
+		{"getBlack", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getBlack, $ColorUIResource*)},
+		{"getControl", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControl, $ColorUIResource*)},
+		{"getControlDarkShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlDarkShadow, $ColorUIResource*)},
+		{"getControlDisabled", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlDisabled, $ColorUIResource*)},
+		{"getControlHighlight", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlHighlight, $ColorUIResource*)},
+		{"getControlInfo", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlInfo, $ColorUIResource*)},
+		{"getControlShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlShadow, $ColorUIResource*)},
+		{"getControlTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlTextColor, $ColorUIResource*)},
+		{"getControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getControlTextFont, $FontUIResource*)},
+		{"getCurrentTheme", "()Ljavax/swing/plaf/metal/MetalTheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getCurrentTheme, $MetalTheme*)},
+		{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDefaults, $UIDefaults*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDescription, $String*)},
+		{"getDesktopColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getDesktopColor, $ColorUIResource*)},
+		{"getDisabledIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDisabledIcon, $Icon*, $JComponent*, $Icon*)},
+		{"getDisabledSelectedIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getDisabledSelectedIcon, $Icon*, $JComponent*, $Icon*)},
+		{"getFocusColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getFocusColor, $ColorUIResource*)},
+		{"getHighlightedTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getHighlightedTextColor, $ColorUIResource*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getID, $String*)},
+		{"getInactiveControlTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getInactiveControlTextColor, $ColorUIResource*)},
+		{"getInactiveSystemTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getInactiveSystemTextColor, $ColorUIResource*)},
+		{"getLayoutStyle", "()Ljavax/swing/LayoutStyle;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getLayoutStyle, $LayoutStyle*)},
+		{"getMenuBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuBackground, $ColorUIResource*)},
+		{"getMenuDisabledForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuDisabledForeground, $ColorUIResource*)},
+		{"getMenuForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuForeground, $ColorUIResource*)},
+		{"getMenuSelectedBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuSelectedBackground, $ColorUIResource*)},
+		{"getMenuSelectedForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuSelectedForeground, $ColorUIResource*)},
+		{"getMenuTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getMenuTextFont, $FontUIResource*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getName, $String*)},
+		{"getPrimaryControl", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControl, $ColorUIResource*)},
+		{"getPrimaryControlDarkShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlDarkShadow, $ColorUIResource*)},
+		{"getPrimaryControlHighlight", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlHighlight, $ColorUIResource*)},
+		{"getPrimaryControlInfo", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlInfo, $ColorUIResource*)},
+		{"getPrimaryControlShadow", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getPrimaryControlShadow, $ColorUIResource*)},
+		{"getSeparatorBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSeparatorBackground, $ColorUIResource*)},
+		{"getSeparatorForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSeparatorForeground, $ColorUIResource*)},
+		{"getSubTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSubTextFont, $FontUIResource*)},
+		{"getSupportsWindowDecorations", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, getSupportsWindowDecorations, bool)},
+		{"getSystemTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSystemTextColor, $ColorUIResource*)},
+		{"getSystemTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getSystemTextFont, $FontUIResource*)},
+		{"getTextHighlightColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getTextHighlightColor, $ColorUIResource*)},
+		{"getUserTextColor", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getUserTextColor, $ColorUIResource*)},
+		{"getUserTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getUserTextFont, $FontUIResource*)},
+		{"getWhite", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWhite, $ColorUIResource*)},
+		{"getWindowBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowBackground, $ColorUIResource*)},
+		{"getWindowTitleBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleBackground, $ColorUIResource*)},
+		{"getWindowTitleFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleFont, $FontUIResource*)},
+		{"getWindowTitleForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleForeground, $ColorUIResource*)},
+		{"getWindowTitleInactiveBackground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleInactiveBackground, $ColorUIResource*)},
+		{"getWindowTitleInactiveForeground", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, getWindowTitleInactiveForeground, $ColorUIResource*)},
+		{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, initClassDefaults, void, $UIDefaults*)},
+		{"initComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, initComponentDefaults, void, $UIDefaults*)},
+		{"initResourceBundle", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(MetalLookAndFeel, initResourceBundle, void, $UIDefaults*)},
+		{"initSystemColorDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel, initSystemColorDefaults, void, $UIDefaults*)},
+		{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, isNativeLookAndFeel, bool)},
+		{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, isSupportedLookAndFeel, bool)},
+		{"isWindows", "()Z", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, isWindows, bool)},
+		{"lambda$initComponentDefaults$0", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$0, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$1", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$1, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$10", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$10, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$11", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$11, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$12", "(Ljava/awt/Color;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$12, $Object*, $Color*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$16", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$16, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$17", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$17, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$18", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$18, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$19", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$19, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$2", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$2, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$20", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$20, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$21", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$21, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$22", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$22, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$23", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$23, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$24", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$24, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$25", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$25, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$26", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$26, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$27", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$27, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$28", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$28, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$29", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$29, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$3", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$3, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$30", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$30, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$31", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$31, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$32", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$32, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$33", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$33, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$34", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$34, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$35", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$35, $Object*, int32_t, $UIDefaults*)},
+		{"lambda$initComponentDefaults$36", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$36, $Object*, int32_t, $UIDefaults*)},
+		{"lambda$initComponentDefaults$37", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$37, $Object*, int32_t, $UIDefaults*)},
+		{"lambda$initComponentDefaults$38", "(ILjavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$38, $Object*, int32_t, $UIDefaults*)},
+		{"lambda$initComponentDefaults$39", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$39, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$4", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$4, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$40", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$40, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$41", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$41, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$43", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$43, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$44", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$44, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$46", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$46, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$5", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$5, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$51", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$51, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$52", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$52, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$53", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$53, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$54", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$54, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$55", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$55, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$56", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$56, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$57", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$57, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$6", "(Ljava/awt/Color;Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$6, $Object*, $Color*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$7", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$7, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$8", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$8, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$9", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalLookAndFeel, lambda$initComponentDefaults$9, $Object*, $UIDefaults*)},
+		{"provideErrorFeedback", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel, provideErrorFeedback, void, $Component*)},
+		{"setCurrentTheme", "(Ljavax/swing/plaf/metal/MetalTheme;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalLookAndFeel, setCurrentTheme, void, $MetalTheme*)},
+		{"useHighContrastTheme", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalLookAndFeel, useHighContrastTheme, bool)},
+		{"useSystemFonts", "()Z", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, useSystemFonts, bool)},
+		{"usingOcean", "()Z", nullptr, $STATIC, $staticMethod(MetalLookAndFeel, usingOcean, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalLookAndFeel$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle", "javax.swing.plaf.metal.MetalLookAndFeel", "MetalLayoutStyle", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalLookAndFeel$AATextListener", "javax.swing.plaf.metal.MetalLookAndFeel", "AATextListener", $STATIC},
+		{"javax.swing.plaf.metal.MetalLookAndFeel$FontActiveValue", "javax.swing.plaf.metal.MetalLookAndFeel", "FontActiveValue", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalLookAndFeel",
+		"javax.swing.plaf.basic.BasicLookAndFeel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalLookAndFeel$1,javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle,javax.swing.plaf.metal.MetalLookAndFeel$AATextListener,javax.swing.plaf.metal.MetalLookAndFeel$AATextListener$1,javax.swing.plaf.metal.MetalLookAndFeel$FontActiveValue"
+	};
+	$loadClass(MetalLookAndFeel, name, initialize, &classInfo$$, MetalLookAndFeel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalLookAndFeel));
+	});
 	return class$;
 }
 

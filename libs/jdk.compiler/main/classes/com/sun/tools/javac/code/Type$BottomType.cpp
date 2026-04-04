@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$BottomType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeMetadata.h>
@@ -8,7 +7,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/util/List.h>
-#include <javax/lang/model/type/NullType.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/type/TypeVisitor.h>
 #include <jcpp.h>
@@ -28,7 +26,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $List = ::java::util::List;
-using $NullType = ::javax::lang::model::type::NullType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
@@ -37,52 +34,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$MethodInfo _Type$BottomType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Type$BottomType, init$, void)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$BottomType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$BottomType;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, cloneWithMetadata, Type$BottomType*, $TypeMetadata*)},
-	{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, constType, $Type*, Object$*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$BottomType, getAnnotationMirrors, $List*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, getKind, $TypeKind*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, getTag, $TypeTag*)},
-	{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, isCompound, bool)},
-	{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, isNullOrReference, bool)},
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, stringValue, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Type$BottomType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$BottomType", "com.sun.tools.javac.code.Type", "BottomType", $STATIC},
-	{}
-};
-
-$ClassInfo _Type$BottomType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$BottomType",
-	"com.sun.tools.javac.code.Type",
-	"javax.lang.model.type.NullType",
-	nullptr,
-	_Type$BottomType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$BottomType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$BottomType($Class* clazz) {
-	return $of($alloc(Type$BottomType));
-}
 
 $Annotation* Type$BottomType::getAnnotation($Class* annotationType) {
 	 return this->$Type::getAnnotation(annotationType);
@@ -137,7 +88,7 @@ bool Type$BottomType::isCompound() {
 }
 
 $Object* Type$BottomType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitNull(this, p));
+	return $nc(v)->visitNull(this, p);
 }
 
 $Type* Type$BottomType::constType(Object$* value) {
@@ -160,7 +111,48 @@ Type$BottomType::Type$BottomType() {
 }
 
 $Class* Type$BottomType::load$($String* name, bool initialize) {
-	$loadClass(Type$BottomType, name, initialize, &_Type$BottomType_ClassInfo_, allocate$Type$BottomType);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Type$BottomType, init$, void)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$BottomType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$BottomType;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, cloneWithMetadata, Type$BottomType*, $TypeMetadata*)},
+		{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, constType, $Type*, Object$*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$BottomType, getAnnotationMirrors, $List*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, getKind, $TypeKind*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, getTag, $TypeTag*)},
+		{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, isCompound, bool)},
+		{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, isNullOrReference, bool)},
+		{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$BottomType, stringValue, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$BottomType", "com.sun.tools.javac.code.Type", "BottomType", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$BottomType",
+		"com.sun.tools.javac.code.Type",
+		"javax.lang.model.type.NullType",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$BottomType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$BottomType));
+	});
 	return class$;
 }
 

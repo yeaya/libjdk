@@ -28,6 +28,7 @@ class $export LocaleUtility : public ::java::lang::Object {
 	$class(LocaleUtility, 0, ::java::lang::Object)
 public:
 	LocaleUtility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Locale* langToLocale($String* lang);
 	static const char16_t IETF_SEPARATOR = ((char16_t)45);

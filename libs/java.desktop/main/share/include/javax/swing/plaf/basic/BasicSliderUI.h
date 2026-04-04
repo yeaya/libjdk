@@ -90,6 +90,7 @@ class $import BasicSliderUI : public ::javax::swing::plaf::SliderUI {
 	$class(BasicSliderUI, 0, ::javax::swing::plaf::SliderUI)
 public:
 	BasicSliderUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::swing::JSlider* b);
 	virtual void calculateContentRect();

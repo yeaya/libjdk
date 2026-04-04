@@ -1,5 +1,4 @@
 #include <sun/awt/SunToolkit.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Button.h>
@@ -58,7 +57,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassCastException.h>
-#include <java/lang/Enum.h>
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -75,7 +73,6 @@
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -194,7 +191,6 @@ using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Image = ::java::awt::Image;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
@@ -202,7 +198,6 @@ using $Label = ::java::awt::Label;
 using $1List = ::java::awt::List;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $Panel = ::java::awt::Panel;
-using $Rectangle = ::java::awt::Rectangle;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $ScrollPane = ::java::awt::ScrollPane;
 using $Scrollbar = ::java::awt::Scrollbar;
@@ -234,7 +229,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Enum = ::java::lang::Enum;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -255,7 +249,6 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
@@ -268,13 +261,8 @@ using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $Condition = ::java::util::concurrent::locks::Condition;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AWTEventAccessor = ::sun::awt::AWTAccessor$AWTEventAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$DefaultKeyboardFocusManagerAccessor = ::sun::awt::AWTAccessor$DefaultKeyboardFocusManagerAccessor;
 using $AWTAccessor$EventQueueAccessor = ::sun::awt::AWTAccessor$EventQueueAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $AWTAccessor$SequencedEventAccessor = ::sun::awt::AWTAccessor$SequencedEventAccessor;
-using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
 using $AWTAutoShutdown = ::sun::awt::AWTAutoShutdown;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
@@ -318,242 +306,27 @@ public:
 	virtual void run() override {
 		SunToolkit::lambda$realSync$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SunToolkit$$Lambda$lambda$realSync$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SunToolkit$$Lambda$lambda$realSync$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunToolkit$$Lambda$lambda$realSync$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit$$Lambda$lambda$realSync$0, run, void)},
-	{}
-};
-$ClassInfo SunToolkit$$Lambda$lambda$realSync$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.SunToolkit$$Lambda$lambda$realSync$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SunToolkit$$Lambda$lambda$realSync$0::load$($String* name, bool initialize) {
-	$loadClass(SunToolkit$$Lambda$lambda$realSync$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunToolkit$$Lambda$lambda$realSync$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit$$Lambda$lambda$realSync$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.SunToolkit$$Lambda$lambda$realSync$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SunToolkit$$Lambda$lambda$realSync$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunToolkit$$Lambda$lambda$realSync$0);
+	});
 	return class$;
 }
 $Class* SunToolkit$$Lambda$lambda$realSync$0::class$ = nullptr;
-
-$FieldInfo _SunToolkit_FieldInfo_[] = {
-	{"GRAB_EVENT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunToolkit, GRAB_EVENT_MASK)},
-	{"POST_EVENT_QUEUE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, POST_EVENT_QUEUE_KEY)},
-	{"numberOfButtons", "I", nullptr, $PROTECTED | $STATIC, $staticField(SunToolkit, numberOfButtons)},
-	{"MAX_BUTTONS_SUPPORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunToolkit, MAX_BUTTONS_SUPPORTED)},
-	{"AWT_LOCK", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, AWT_LOCK)},
-	{"AWT_LOCK_COND", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, AWT_LOCK_COND)},
-	{"appContextMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Lsun/awt/AppContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, appContextMap)},
-	{"fileImgCache", "Lsun/awt/SoftCache;", nullptr, $STATIC | $FINAL, $staticField(SunToolkit, fileImgCache)},
-	{"urlImgCache", "Lsun/awt/SoftCache;", nullptr, $STATIC | $FINAL, $staticField(SunToolkit, urlImgCache)},
-	{"startupLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, startupLocale)},
-	{"DEFAULT_MODAL_EXCLUSION_TYPE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, DEFAULT_MODAL_EXCLUSION_TYPE)},
-	{"modalityListeners", "Lsun/awt/SunToolkit$ModalityListenerList;", nullptr, $PRIVATE, $field(SunToolkit, modalityListeners)},
-	{"DEFAULT_WAIT_TIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunToolkit, DEFAULT_WAIT_TIME)},
-	{"MAX_ITERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunToolkit, MAX_ITERS)},
-	{"MIN_ITERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunToolkit, MIN_ITERS)},
-	{"MINIMAL_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunToolkit, MINIMAL_DELAY)},
-	{"waitLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SunToolkit, waitLock)},
-	{"touchKeyboardAutoShowIsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, touchKeyboardAutoShowIsEnabled)},
-	{"checkedSystemAAFontSettings", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, checkedSystemAAFontSettings)},
-	{"useSystemAAFontSettings", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, useSystemAAFontSettings$)},
-	{"lastExtraCondition", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, lastExtraCondition)},
-	{"desktopFontHints", "Ljava/awt/RenderingHints;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, desktopFontHints)},
-	{"DESKTOPFONTHINTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunToolkit, DESKTOPFONTHINTS)},
-	{"sunAwtDisableMixing", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, sunAwtDisableMixing)},
-	{"DEACTIVATION_TIMES_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, DEACTIVATION_TIMES_MAP_KEY)},
-	{}
-};
-
-$MethodInfo _SunToolkit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunToolkit, init$, void)},
-	{"addModalityListener", "(Lsun/awt/ModalityListener;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, addModalityListener, void, $ModalityListener*)},
-	{"awtLock", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLock, void)},
-	{"awtLockNotify", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockNotify, void)},
-	{"awtLockNotifyAll", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockNotifyAll, void)},
-	{"awtLockWait", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockWait, void), "java.lang.InterruptedException"},
-	{"awtLockWait", "(J)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockWait, void, int64_t), "java.lang.InterruptedException"},
-	{"awtTryLock", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtTryLock, bool)},
-	{"awtUnlock", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtUnlock, void)},
-	{"canPopupOverlapTaskBar", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, canPopupOverlapTaskBar, bool)},
-	{"checkAndSetPolicy", "(Ljava/awt/Container;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, checkAndSetPolicy, void, $Container*)},
-	{"checkImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(SunToolkit, checkImage, int32_t, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"checkPermissions", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, checkPermissions, void, $String*)},
-	{"checkPermissions", "(Ljava/net/URL;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, checkPermissions, void, $URL*)},
-	{"checkResolutionVariant", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)I", nullptr, $PRIVATE, $method(SunToolkit, checkResolutionVariant, int32_t, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"closeSplashScreen", "()V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(SunToolkit, closeSplashScreen, void)},
-	{"consumeNextKeyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SunToolkit, consumeNextKeyTyped, void, $KeyEvent*)},
-	{"createImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $String*)},
-	{"createImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $URL*)},
-	{"createImage", "([BII)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $bytes*, int32_t, int32_t)},
-	{"createImage", "(Ljava/awt/image/ImageProducer;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $ImageProducer*)},
-	{"createImageWithResolutionVariant", "(Ljava/awt/Image;Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, createImageWithResolutionVariant, $Image*, $Image*, $Image*)},
-	{"createInputMethodWindow", "(Ljava/lang/String;Lsun/awt/im/InputContext;)Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createInputMethodWindow, $Window*, $String*, $InputContext*)},
-	{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*), "java.awt.HeadlessException"},
-	{"createNewAppContext", "()Lsun/awt/AppContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, createNewAppContext, $AppContext*)},
-	{"createNewAppContext", "(Ljava/lang/ThreadGroup;)Lsun/awt/AppContext;", nullptr, $STATIC | $FINAL, $staticMethod(SunToolkit, createNewAppContext, $AppContext*, $ThreadGroup*)},
-	{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*)},
-	{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*), "java.awt.HeadlessException,java.awt.AWTException"},
-	{"disableBackgroundErase", "(Ljava/awt/Canvas;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, disableBackgroundErase, void, $Canvas*)},
-	{"disableBackgroundErase", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, disableBackgroundErase, void, $Component*)},
-	{"disableBackgroundEraseImpl", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(SunToolkit, disableBackgroundEraseImpl, void, $Component*)},
-	{"dumpPeers", "(Lsun/util/logging/PlatformLogger;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, dumpPeers, void, $PlatformLogger*)},
-	{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, enableInputMethodsForTextComponent, bool)},
-	{"executeOnEDTAndWait", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEDTAndWait, void, Object$*, $Runnable*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
-	{"executeOnEventHandlerThread", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEventHandlerThread, void, Object$*, $Runnable*)},
-	{"executeOnEventHandlerThread", "(Ljava/lang/Object;Ljava/lang/Runnable;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEventHandlerThread, void, Object$*, $Runnable*, int64_t)},
-	{"executeOnEventHandlerThread", "(Lsun/awt/PeerEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEventHandlerThread, void, $PeerEvent*)},
-	{"fireDesktopFontPropertyChanges", "()V", nullptr, $PRIVATE, $method(SunToolkit, fireDesktopFontPropertyChanges, void)},
-	{"flushPendingEvents", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, flushPendingEvents, void)},
-	{"flushPendingEvents", "(Lsun/awt/AppContext;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, flushPendingEvents, void, $AppContext*)},
-	{"getAppContext", "(Ljava/lang/Object;)Lsun/awt/AppContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getAppContext, $AppContext*, Object$*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getColorModel, $ColorModel*), "java.awt.HeadlessException"},
-	{"getContainingWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getContainingWindow, $Window*, $Component*)},
-	{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getDefaultKeyboardLocale, $Locale*)},
-	{"getDesktop", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getDesktop, $String*)},
-	{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getDesktopAAHints, $RenderingHints*)},
-	{"getDesktopAAHintsByName", "(Ljava/lang/String;)Ljava/awt/RenderingHints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getDesktopAAHintsByName, $RenderingHints*, $String*)},
-	{"getDesktopFontHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getDesktopFontHints, $RenderingHints*)},
-	{"getFocusAcceleratorKeyMask", "()I", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getFocusAcceleratorKeyMask, int32_t)},
-	{"getFontList", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getFontList, $StringArray*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getHeavyweightComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getHeavyweightComponent, $Component*, $Component*)},
-	{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getImage, $Image*, $String*)},
-	{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getImage, $Image*, $URL*)},
-	{"getImageFromHash", "(Ljava/awt/Toolkit;Ljava/net/URL;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(SunToolkit, getImageFromHash, $Image*, $Toolkit*, $URL*)},
-	{"getImageFromHash", "(Ljava/awt/Toolkit;Ljava/lang/String;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(SunToolkit, getImageFromHash, $Image*, $Toolkit*, $String*)},
-	{"getImageWithResolutionVariant", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getImageWithResolutionVariant, $Image*, $String*, $String*)},
-	{"getImageWithResolutionVariant", "(Ljava/net/URL;Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getImageWithResolutionVariant, $Image*, $URL*, $URL*)},
-	{"getLightweightFrame", "(Ljava/awt/Component;)Lsun/awt/LightweightFrame;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, getLightweightFrame, $LightweightFrame*, $Component*)},
-	{"getNativeContainer", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getNativeContainer, $Container*, $Component*)},
-	{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getNumberOfButtons, int32_t)},
-	{"getRVSize", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getRVSize, int32_t, int32_t)},
-	{"getResolutionVariant", "(Ljava/awt/Image;)Lsun/awt/image/ToolkitImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getResolutionVariant, $ToolkitImage*, $Image*)},
-	{"getScaledIconData", "(Ljava/util/List;II)Ljava/awt/image/DataBufferInt;", "(Ljava/util/List<Ljava/awt/Image;>;II)Ljava/awt/image/DataBufferInt;", $PUBLIC | $STATIC, $staticMethod(SunToolkit, getScaledIconData, $DataBufferInt*, $List*, int32_t, int32_t)},
-	{"getScaledIconImage", "(Ljava/util/List;II)Ljava/awt/image/BufferedImage;", "(Ljava/util/List<Ljava/awt/Image;>;II)Ljava/awt/image/BufferedImage;", $PUBLIC | $STATIC, $staticMethod(SunToolkit, getScaledIconImage, $BufferedImage*, $List*, int32_t, int32_t)},
-	{"getScreenSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getScreenSize, $Dimension*)},
-	{"getStartupLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getStartupLocale, $Locale*)},
-	{"getSunAwtDisableMixing", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SunToolkit, getSunAwtDisableMixing, bool)},
-	{"getSunAwtErasebackgroundonresize", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getSunAwtErasebackgroundonresize, bool)},
-	{"getSunAwtNoerasebackground", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getSunAwtNoerasebackground, bool)},
-	{"getSystemEventQueueImpl", "()Ljava/awt/EventQueue;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getSystemEventQueueImpl, $EventQueue*)},
-	{"getSystemEventQueueImplPP", "()Ljava/awt/EventQueue;", nullptr, $STATIC, $staticMethod(SunToolkit, getSystemEventQueueImplPP, $EventQueue*)},
-	{"getSystemEventQueueImplPP", "(Lsun/awt/AppContext;)Ljava/awt/EventQueue;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getSystemEventQueueImplPP, $EventQueue*, $AppContext*)},
-	{"getWindowDeactivationTime", "(Ljava/awt/Window;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunToolkit, getWindowDeactivationTime, int64_t, $Window*)},
-	{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, grab, void, $Window*)},
-	{"imageCached", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageCached, bool, $String*)},
-	{"imageCached", "(Ljava/net/URL;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageCached, bool, $URL*)},
-	{"imageExists", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageExists, bool, $String*)},
-	{"imageExists", "(Ljava/net/URL;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageExists, bool, $URL*)},
-	{"initEQ", "(Lsun/awt/AppContext;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, initEQ, void, $AppContext*)},
-	{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, initStatic, void)},
-	{"insertTargetMapping", "(Ljava/lang/Object;Lsun/awt/AppContext;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, insertTargetMapping, void, Object$*, $AppContext*)},
-	{"invokeLaterOnAppContext", "(Lsun/awt/AppContext;Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, invokeLaterOnAppContext, void, $AppContext*, $Runnable*)},
-	{"isAWTLockHeldByCurrentThread", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, isAWTLockHeldByCurrentThread, bool)},
-	{"isContainingTopLevelOpaque", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isContainingTopLevelOpaque, bool, $Component*)},
-	{"isContainingTopLevelTranslucent", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isContainingTopLevelTranslucent, bool, $Component*)},
-	{"isDesktopSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, isDesktopSupported, bool)},
-	{"isDispatchThreadForAppContext", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isDispatchThreadForAppContext, bool, Object$*)},
-	{"isEQEmpty", "()Z", nullptr, $PRIVATE, $method(SunToolkit, isEQEmpty, bool)},
-	{"isInstanceOf", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isInstanceOf, bool, Object$*, $String*)},
-	{"isInstanceOf", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(SunToolkit, isInstanceOf, bool, $Class*, $String*)},
-	{"isLightweightOrUnknown", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isLightweightOrUnknown, bool, $Component*)},
-	{"isModalExcluded", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isModalExcluded, bool, $Window*)},
-	{"isModalExcludedSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isModalExcludedSupported, bool)},
-	{"isModalExcludedSupportedImpl", "()Z", nullptr, $PROTECTED, $virtualMethod(SunToolkit, isModalExcludedSupportedImpl, bool)},
-	{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
-	{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
-	{"isNativeGTKAvailable", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isNativeGTKAvailable, bool)},
-	{"isPrintableCharacterModifiersMask", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isPrintableCharacterModifiersMask, bool, int32_t)},
-	{"isSwingBackbufferTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isSwingBackbufferTranslucencySupported, bool)},
-	{"isSystemGenerated", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isSystemGenerated, bool, $AWTEvent*)},
-	{"isTaskbarSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, isTaskbarSupported, bool)},
-	{"isTouchKeyboardAutoShowEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isTouchKeyboardAutoShowEnabled, bool)},
-	{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
-	{"isTraySupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, isTraySupported, bool)},
-	{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isWindowOpacitySupported, bool)},
-	{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isWindowShapingSupported, bool)},
-	{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isWindowTranslucencySupported, bool)},
-	{"isXEmbedServerRequested", "()Z", nullptr, $PROTECTED | $FINAL, $method(SunToolkit, isXEmbedServerRequested, bool)},
-	{"lambda$realSync$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SunToolkit, lambda$realSync$0, void)},
-	{"needUpdateWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, needUpdateWindow, bool)},
-	{"needsXEmbed", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, needsXEmbed, bool)},
-	{"needsXEmbedImpl", "()Z", nullptr, $PROTECTED, $virtualMethod(SunToolkit, needsXEmbedImpl, bool)},
-	{"notifyModalityChange", "(ILjava/awt/Dialog;)V", nullptr, $FINAL, $method(SunToolkit, notifyModalityChange, void, int32_t, $Dialog*)},
-	{"notifyModalityPopped", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, notifyModalityPopped, void, $Dialog*)},
-	{"notifyModalityPushed", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, notifyModalityPushed, void, $Dialog*)},
-	{"postEvent", "(Lsun/awt/AppContext;Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, postEvent, void, $AppContext*, $AWTEvent*)},
-	{"postPriorityEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, postPriorityEvent, void, $AWTEvent*)},
-	{"prepareImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, prepareImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"prepareResolutionVariant", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PRIVATE, $method(SunToolkit, prepareResolutionVariant, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"realSync", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, realSync, void)},
-	{"realSync", "(J)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, realSync, void, int64_t)},
-	{"removeModalityListener", "(Lsun/awt/ModalityListener;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, removeModalityListener, void, $ModalityListener*)},
-	{"setAAFontSettingsCondition", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setAAFontSettingsCondition, void, bool)},
-	{"setAppContext", "(Ljava/lang/Object;Lsun/awt/AppContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, setAppContext, bool, Object$*, $AppContext*)},
-	{"setLWRequestStatus", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setLWRequestStatus, void, $Window*, bool)},
-	{"setModalExcluded", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setModalExcluded, void, $Window*)},
-	{"setSystemGenerated", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setSystemGenerated, void, $AWTEvent*)},
-	{"setWindowDeactivationTime", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunToolkit, setWindowDeactivationTime, void, $Window*, int64_t)},
-	{"showOrHideTouchKeyboard", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, showOrHideTouchKeyboard, void, $Component*, $AWTEvent*)},
-	{"syncNativeQueue", "(J)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunToolkit, syncNativeQueue, bool, int64_t)},
-	{"targetCreatedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, targetCreatedPeer, void, Object$*, Object$*)},
-	{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, targetDisposedPeer, void, Object$*, Object$*)},
-	{"targetToAppContext", "(Ljava/lang/Object;)Lsun/awt/AppContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, targetToAppContext, $AppContext*, Object$*)},
-	{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, targetToPeer, $Object*, Object$*)},
-	{"timeout", "(J)J", nullptr, $PROTECTED, $virtualMethod(SunToolkit, timeout, int64_t, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, ungrab, void, $Window*)},
-	{"updateScreenMenuBarUI", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, updateScreenMenuBarUI, void)},
-	{"useBufferPerWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, useBufferPerWindow, bool)},
-	{"useSystemAAFontSettings", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, useSystemAAFontSettings, bool)},
-	{"waitForIdle", "(J)Z", nullptr, $PRIVATE | $FINAL, $method(SunToolkit, waitForIdle, bool, int64_t)},
-	{"wakeupEventQueue", "(Ljava/awt/EventQueue;Z)V", nullptr, $STATIC, $staticMethod(SunToolkit, wakeupEventQueue, void, $EventQueue*, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_closeSplashScreen 20
-
-$InnerClassInfo _SunToolkit_InnerClassesInfo_[] = {
-	{"sun.awt.SunToolkit$IllegalThreadException", "sun.awt.SunToolkit", "IllegalThreadException", $PUBLIC | $STATIC},
-	{"sun.awt.SunToolkit$ModalityListenerList", "sun.awt.SunToolkit", "ModalityListenerList", $STATIC},
-	{"sun.awt.SunToolkit$3", nullptr, nullptr, 0},
-	{"sun.awt.SunToolkit$1AWTInvocationLock", nullptr, "AWTInvocationLock", 0},
-	{"sun.awt.SunToolkit$2", nullptr, nullptr, 0},
-	{"sun.awt.SunToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunToolkit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.SunToolkit",
-	"java.awt.Toolkit",
-	"sun.awt.ComponentFactory,sun.awt.InputMethodSupport,sun.awt.KeyboardFocusManagerPeerProvider",
-	_SunToolkit_FieldInfo_,
-	_SunToolkit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunToolkit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.SunToolkit$IllegalThreadException,sun.awt.SunToolkit$ModalityListenerList,sun.awt.SunToolkit$3,sun.awt.SunToolkit$1AWTInvocationLock,sun.awt.SunToolkit$2,sun.awt.SunToolkit$1"
-};
-
-$Object* allocate$SunToolkit($Class* clazz) {
-	return $of($alloc(SunToolkit));
-}
 
 int32_t SunToolkit::hashCode() {
 	 return this->$Toolkit::hashCode();
@@ -595,17 +368,17 @@ $Object* SunToolkit::DEACTIVATION_TIMES_MAP_KEY = nullptr;
 
 void SunToolkit::initStatic() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	if ($nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.nativedebug"_s)))))))->booleanValue()) {
+	if ($$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.nativedebug"_s)))->booleanValue()) {
 		$DebugSettings::init();
 	}
-	SunToolkit::touchKeyboardAutoShowIsEnabled = $nc($($Boolean::valueOf($($GetPropertyAction::privilegedGetProperty("awt.touchKeyboardAutoShowIsEnabled"_s, "true"_s)))))->booleanValue();
+	SunToolkit::touchKeyboardAutoShowIsEnabled = $($Boolean::valueOf($($GetPropertyAction::privilegedGetProperty("awt.touchKeyboardAutoShowIsEnabled"_s, "true"_s))))->booleanValue();
 }
 
 void SunToolkit::initEQ($AppContext* appContext) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EventQueue, eventQueue, $new($EventQueue));
 	$init($AppContext);
 	$nc(appContext)->put($AppContext::EVENT_QUEUE_KEY, eventQueue);
@@ -625,17 +398,17 @@ bool SunToolkit::useBufferPerWindow() {
 
 void SunToolkit::awtLock() {
 	$init(SunToolkit);
-	$nc(SunToolkit::AWT_LOCK)->lock();
+	SunToolkit::AWT_LOCK->lock();
 }
 
 bool SunToolkit::awtTryLock() {
 	$init(SunToolkit);
-	return $nc(SunToolkit::AWT_LOCK)->tryLock();
+	return SunToolkit::AWT_LOCK->tryLock();
 }
 
 void SunToolkit::awtUnlock() {
 	$init(SunToolkit);
-	$nc(SunToolkit::AWT_LOCK)->unlock();
+	SunToolkit::AWT_LOCK->unlock();
 }
 
 void SunToolkit::awtLockWait() {
@@ -661,12 +434,12 @@ void SunToolkit::awtLockNotifyAll() {
 
 bool SunToolkit::isAWTLockHeldByCurrentThread() {
 	$init(SunToolkit);
-	return $nc(SunToolkit::AWT_LOCK)->isHeldByCurrentThread();
+	return SunToolkit::AWT_LOCK->isHeldByCurrentThread();
 }
 
 $AppContext* SunToolkit::createNewAppContext() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, threadGroup, $($Thread::currentThread())->getThreadGroup());
 	return createNewAppContext(threadGroup);
 }
@@ -680,38 +453,38 @@ $AppContext* SunToolkit::createNewAppContext($ThreadGroup* threadGroup) {
 
 void SunToolkit::wakeupEventQueue($EventQueue* q, bool isShutdown) {
 	$init(SunToolkit);
-	$nc($($AWTAccessor::getEventQueueAccessor()))->wakeup(q, isShutdown);
+	$$nc($AWTAccessor::getEventQueueAccessor())->wakeup(q, isShutdown);
 }
 
 $Object* SunToolkit::targetToPeer(Object$* target) {
 	$init(SunToolkit);
 	if (target != nullptr && !$GraphicsEnvironment::isHeadless()) {
-		return $of($nc($($AWTAutoShutdown::getInstance()))->getPeer(target));
+		return $$nc($AWTAutoShutdown::getInstance())->getPeer(target);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void SunToolkit::targetCreatedPeer(Object$* target, Object$* peer) {
 	$init(SunToolkit);
 	if (target != nullptr && peer != nullptr && !$GraphicsEnvironment::isHeadless()) {
-		$nc($($AWTAutoShutdown::getInstance()))->registerPeer(target, peer);
+		$$nc($AWTAutoShutdown::getInstance())->registerPeer(target, peer);
 	}
 }
 
 void SunToolkit::targetDisposedPeer(Object$* target, Object$* peer) {
 	$init(SunToolkit);
 	if (target != nullptr && peer != nullptr && !$GraphicsEnvironment::isHeadless()) {
-		$nc($($AWTAutoShutdown::getInstance()))->unregisterPeer(target, peer);
+		$$nc($AWTAutoShutdown::getInstance())->unregisterPeer(target, peer);
 	}
 }
 
 bool SunToolkit::setAppContext(Object$* target, $AppContext* context) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Component, target)) {
-		$nc($($AWTAccessor::getComponentAccessor()))->setAppContext($cast($Component, target), context);
+		$$nc($AWTAccessor::getComponentAccessor())->setAppContext($cast($Component, target), context);
 	} else if ($instanceOf($MenuComponent, target)) {
-		$nc($($AWTAccessor::getMenuComponentAccessor()))->setAppContext($cast($MenuComponent, target), context);
+		$$nc($AWTAccessor::getMenuComponentAccessor())->setAppContext($cast($MenuComponent, target), context);
 	} else {
 		return false;
 	}
@@ -720,11 +493,11 @@ bool SunToolkit::setAppContext(Object$* target, $AppContext* context) {
 
 $AppContext* SunToolkit::getAppContext(Object$* target) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Component, target)) {
-		return $nc($($AWTAccessor::getComponentAccessor()))->getAppContext($cast($Component, target));
+		return $$nc($AWTAccessor::getComponentAccessor())->getAppContext($cast($Component, target));
 	} else if ($instanceOf($MenuComponent, target)) {
-		return $nc($($AWTAccessor::getMenuComponentAccessor()))->getAppContext($cast($MenuComponent, target));
+		return $$nc($AWTAccessor::getMenuComponentAccessor())->getAppContext($cast($MenuComponent, target));
 	} else {
 		return nullptr;
 	}
@@ -744,13 +517,13 @@ $AppContext* SunToolkit::targetToAppContext(Object$* target) {
 
 void SunToolkit::setLWRequestStatus($Window* changed, bool status) {
 	$init(SunToolkit);
-	$nc($($AWTAccessor::getWindowAccessor()))->setLWRequestStatus(changed, status);
+	$$nc($AWTAccessor::getWindowAccessor())->setLWRequestStatus(changed, status);
 }
 
 void SunToolkit::checkAndSetPolicy($Container* cont) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
-	$var($FocusTraversalPolicy, defaultPolicy, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getDefaultFocusTraversalPolicy());
+	$useLocalObjectStack();
+	$var($FocusTraversalPolicy, defaultPolicy, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getDefaultFocusTraversalPolicy());
 	$nc(cont)->setFocusTraversalPolicy(defaultPolicy);
 }
 
@@ -763,7 +536,7 @@ void SunToolkit::insertTargetMapping(Object$* target, $AppContext* appContext) {
 
 void SunToolkit::postEvent($AppContext* appContext, $AWTEvent* event) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (event == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -773,12 +546,12 @@ void SunToolkit::postEvent($AppContext* appContext, $AWTEvent* event) {
 		if ($nc(nested)->getID() == $WindowEvent::WINDOW_LOST_FOCUS && $instanceOf($TimedWindowEvent, nested)) {
 			$var($TimedWindowEvent, twe, $cast($TimedWindowEvent, nested));
 			$var($Window, var$0, $cast($Window, twe->getSource()));
-			$nc(($cast(SunToolkit, $($Toolkit::getDefaultToolkit()))))->setWindowDeactivationTime(var$0, twe->getWhen());
+			$$sure(SunToolkit, $Toolkit::getDefaultToolkit())->setWindowDeactivationTime(var$0, twe->getWhen());
 		}
 	}
 	setSystemGenerated(event);
 	$var($AppContext, eventContext, targetToAppContext($($nc(event)->getSource())));
-	if (eventContext != nullptr && !$of(eventContext)->equals(appContext)) {
+	if (eventContext != nullptr && !eventContext->equals(appContext)) {
 		$throwNew($RuntimeException, $$str({"Event posted on wrong app context : "_s, event}));
 	}
 	$var($PostEventQueue, postEventQueue, $cast($PostEventQueue, $nc(appContext)->get(SunToolkit::POST_EVENT_QUEUE_KEY)));
@@ -789,8 +562,8 @@ void SunToolkit::postEvent($AppContext* appContext, $AWTEvent* event) {
 
 void SunToolkit::postPriorityEvent($AWTEvent* e) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of($Toolkit::getDefaultToolkit()));
+	$useLocalObjectStack();
+	$var($Object, var$0, $Toolkit::getDefaultToolkit());
 	$var($PeerEvent, pe, $new($PeerEvent, var$0, $$new($SunToolkit$1, e), $PeerEvent::ULTIMATE_PRIORITY_EVENT));
 	postEvent($(targetToAppContext($($nc(e)->getSource()))), pe);
 }
@@ -821,19 +594,19 @@ void SunToolkit::executeOnEventHandlerThread(Object$* target, $Runnable* runnabl
 
 void SunToolkit::executeOnEventHandlerThread($PeerEvent* peerEvent) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($(targetToAppContext($($nc(peerEvent)->getSource()))), peerEvent);
 }
 
 void SunToolkit::invokeLaterOnAppContext($AppContext* appContext, $Runnable* dispatcher) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent(appContext, $$new($PeerEvent, $($Toolkit::getDefaultToolkit()), dispatcher, $PeerEvent::PRIORITY_EVENT));
 }
 
 void SunToolkit::executeOnEDTAndWait(Object$* target, $Runnable* runnable) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($EventQueue::isDispatchThread()) {
 		$throwNew($Error, "Cannot call executeOnEDTAndWait from any event dispatcher thread"_s);
 	}
@@ -844,7 +617,7 @@ void SunToolkit::executeOnEDTAndWait(Object$* target, $Runnable* runnable) {
 	$synchronized(lock) {
 		executeOnEventHandlerThread(event);
 		while (!event->isDispatched()) {
-			$of(lock)->wait();
+			lock->wait();
 		}
 	}
 	$var($Throwable, eventThrowable, event->getThrowable());
@@ -855,7 +628,7 @@ void SunToolkit::executeOnEDTAndWait(Object$* target, $Runnable* runnable) {
 
 bool SunToolkit::isDispatchThreadForAppContext(Object$* target) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, targetToAppContext(target));
 	$init($AppContext);
 	$var($EventQueue, eq, $cast($EventQueue, $nc(appContext)->get($AppContext::EVENT_QUEUE_KEY)));
@@ -864,13 +637,13 @@ bool SunToolkit::isDispatchThreadForAppContext(Object$* target) {
 }
 
 $Dimension* SunToolkit::getScreenSize() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration()))->getBounds()))->getSize();
+	$useLocalObjectStack();
+	return $$nc($$nc($$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration())->getBounds())->getSize();
 }
 
 $ColorModel* SunToolkit::getColorModel() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration()))->getColorModel();
+	$useLocalObjectStack();
+	return $$nc($$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration())->getColorModel();
 }
 
 $FontMetrics* SunToolkit::getFontMetrics($Font* font) {
@@ -898,34 +671,34 @@ void SunToolkit::disableBackgroundErase($Component* component) {
 }
 
 void SunToolkit::disableBackgroundEraseImpl($Component* component) {
-	$nc($($AWTAccessor::getComponentAccessor()))->setBackgroundEraseDisabled(component, true);
+	$$nc($AWTAccessor::getComponentAccessor())->setBackgroundEraseDisabled(component, true);
 }
 
 bool SunToolkit::getSunAwtNoerasebackground() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.noerasebackground"_s)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.noerasebackground"_s)))->booleanValue();
 }
 
 bool SunToolkit::getSunAwtErasebackgroundonresize() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.erasebackgroundonresize"_s)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.erasebackgroundonresize"_s)))->booleanValue();
 }
 
 $Image* SunToolkit::getImageFromHash($Toolkit* tk, $URL* url) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkPermissions(url);
 	$synchronized(SunToolkit::urlImgCache) {
 		$var($String, key, $nc(url)->toString());
-		$var($Image, img, $cast($Image, $nc(SunToolkit::urlImgCache)->get(key)));
+		$var($Image, img, $cast($Image, SunToolkit::urlImgCache->get(key)));
 		if (img == nullptr) {
 			try {
-				$assign(img, $nc(tk)->createImage(static_cast<$ImageProducer*>($$new($URLImageSource, url))));
-				$nc(SunToolkit::urlImgCache)->put(key, img);
+				$assign(img, $nc(tk)->createImage($$new($URLImageSource, url)));
+				SunToolkit::urlImgCache->put(key, img);
 			} catch ($Exception& e) {
 			}
 		}
@@ -935,14 +708,14 @@ $Image* SunToolkit::getImageFromHash($Toolkit* tk, $URL* url) {
 
 $Image* SunToolkit::getImageFromHash($Toolkit* tk, $String* filename) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkPermissions(filename);
 	$synchronized(SunToolkit::fileImgCache) {
-		$var($Image, img, $cast($Image, $nc(SunToolkit::fileImgCache)->get(filename)));
+		$var($Image, img, $cast($Image, SunToolkit::fileImgCache->get(filename)));
 		if (img == nullptr) {
 			try {
-				$assign(img, $nc(tk)->createImage(static_cast<$ImageProducer*>($$new($FileImageSource, filename))));
-				$nc(SunToolkit::fileImgCache)->put(filename, img);
+				$assign(img, $nc(tk)->createImage($$new($FileImageSource, filename)));
+				SunToolkit::fileImgCache->put(filename, img);
 			} catch ($Exception& e) {
 			}
 		}
@@ -951,54 +724,54 @@ $Image* SunToolkit::getImageFromHash($Toolkit* tk, $String* filename) {
 }
 
 $Image* SunToolkit::getImage($String* filename) {
-	return getImageFromHash(static_cast<$Toolkit*>(this), filename);
+	return getImageFromHash(this, filename);
 }
 
 $Image* SunToolkit::getImage($URL* url) {
-	return getImageFromHash(static_cast<$Toolkit*>(this), url);
+	return getImageFromHash(this, url);
 }
 
 $Image* SunToolkit::getImageWithResolutionVariant($String* fileName, $String* resolutionVariantName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(SunToolkit::fileImgCache) {
-		$var($Image, image, getImageFromHash(static_cast<$Toolkit*>(this), fileName));
+		$var($Image, image, getImageFromHash(this, fileName));
 		if ($instanceOf($MultiResolutionImage, image)) {
 			return image;
 		}
-		$var($Image, resolutionVariant, getImageFromHash(static_cast<$Toolkit*>(this), resolutionVariantName));
+		$var($Image, resolutionVariant, getImageFromHash(this, resolutionVariantName));
 		$assign(image, createImageWithResolutionVariant(image, resolutionVariant));
-		$nc(SunToolkit::fileImgCache)->put(fileName, image);
+		SunToolkit::fileImgCache->put(fileName, image);
 		return image;
 	}
 }
 
 $Image* SunToolkit::getImageWithResolutionVariant($URL* url, $URL* resolutionVariantURL) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(SunToolkit::urlImgCache) {
-		$var($Image, image, getImageFromHash(static_cast<$Toolkit*>(this), url));
+		$var($Image, image, getImageFromHash(this, url));
 		if ($instanceOf($MultiResolutionImage, image)) {
 			return image;
 		}
-		$var($Image, resolutionVariant, getImageFromHash(static_cast<$Toolkit*>(this), resolutionVariantURL));
+		$var($Image, resolutionVariant, getImageFromHash(this, resolutionVariantURL));
 		$assign(image, createImageWithResolutionVariant(image, resolutionVariant));
 		$var($String, key, $nc(url)->toString());
-		$nc(SunToolkit::urlImgCache)->put(key, image);
+		SunToolkit::urlImgCache->put(key, image);
 		return image;
 	}
 }
 
 $Image* SunToolkit::createImage($String* filename) {
 	checkPermissions(filename);
-	return createImage(static_cast<$ImageProducer*>($$new($FileImageSource, filename)));
+	return createImage($$new($FileImageSource, filename));
 }
 
 $Image* SunToolkit::createImage($URL* url) {
 	checkPermissions(url);
-	return createImage(static_cast<$ImageProducer*>($$new($URLImageSource, url)));
+	return createImage($$new($URLImageSource, url));
 }
 
 $Image* SunToolkit::createImage($bytes* data, int32_t offset, int32_t length) {
-	return createImage(static_cast<$ImageProducer*>($$new($ByteArrayImageSource, data, offset, length)));
+	return createImage($$new($ByteArrayImageSource, data, offset, length));
 }
 
 $Image* SunToolkit::createImage($ImageProducer* producer) {
@@ -1011,7 +784,7 @@ $Image* SunToolkit::createImageWithResolutionVariant($Image* image, $Image* reso
 }
 
 int32_t SunToolkit::checkImage($Image* img, int32_t w, int32_t h, $ImageObserver* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ToolkitImage, img))) {
 		return $ImageObserver::ALLBITS;
 	}
@@ -1020,14 +793,14 @@ int32_t SunToolkit::checkImage($Image* img, int32_t w, int32_t h, $ImageObserver
 	if (w == 0 || h == 0) {
 		repbits = $ImageObserver::ALLBITS;
 	} else {
-		repbits = $nc($($nc(tkimg)->getImageRep()))->check(o);
+		repbits = $$nc($nc(tkimg)->getImageRep())->check(o);
 	}
-	int32_t var$0 = ($nc(tkimg)->check(o) | repbits);
-	return (int32_t)(var$0 & (uint32_t)checkResolutionVariant(img, w, h, o));
+	int32_t var$0 = $nc(tkimg)->check(o) | repbits;
+	return var$0 & checkResolutionVariant(img, w, h, o);
 }
 
 bool SunToolkit::prepareImage($Image* img, int32_t w, int32_t h, $ImageObserver* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w == 0 || h == 0) {
 		return true;
 	}
@@ -1041,25 +814,25 @@ bool SunToolkit::prepareImage($Image* img, int32_t w, int32_t h, $ImageObserver*
 		}
 		return false;
 	}
-	$var($ImageRepresentation, ir, $nc(tkimg)->getImageRep());
+	$var($ImageRepresentation, ir, tkimg->getImageRep());
 	bool var$0 = $nc(ir)->prepare(o);
 	return var$0 & prepareResolutionVariant(img, w, h, o);
 }
 
 int32_t SunToolkit::checkResolutionVariant($Image* img, int32_t w, int32_t h, $ImageObserver* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ToolkitImage, rvImage, getResolutionVariant(img));
 	int32_t rvw = getRVSize(w);
 	int32_t rvh = getRVSize(h);
-	return (rvImage == nullptr || $nc(rvImage)->hasError()) ? 0x0000FFFF : checkImage(rvImage, rvw, rvh, $($MultiResolutionToolkitImage::getResolutionVariantObserver(img, o, w, h, rvw, rvh, true)));
+	return (rvImage == nullptr || rvImage->hasError()) ? 0x0000ffff : checkImage(rvImage, rvw, rvh, $($MultiResolutionToolkitImage::getResolutionVariantObserver(img, o, w, h, rvw, rvh, true)));
 }
 
 bool SunToolkit::prepareResolutionVariant($Image* img, int32_t w, int32_t h, $ImageObserver* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ToolkitImage, rvImage, getResolutionVariant(img));
 	int32_t rvw = getRVSize(w);
 	int32_t rvh = getRVSize(h);
-	bool var$0 = rvImage == nullptr || $nc(rvImage)->hasError();
+	bool var$0 = rvImage == nullptr || rvImage->hasError();
 	return var$0 || prepareImage(rvImage, rvw, rvh, $($MultiResolutionToolkitImage::getResolutionVariantObserver(img, o, w, h, rvw, rvh, true)));
 }
 
@@ -1071,7 +844,7 @@ int32_t SunToolkit::getRVSize(int32_t size) {
 $ToolkitImage* SunToolkit::getResolutionVariant($Image* image) {
 	$init(SunToolkit);
 	if ($instanceOf($MultiResolutionToolkitImage, image)) {
-		$var($Image, resolutionVariant, $nc(($cast($MultiResolutionToolkitImage, image)))->getResolutionVariant());
+		$var($Image, resolutionVariant, $cast($MultiResolutionToolkitImage, image)->getResolutionVariant());
 		if ($instanceOf($ToolkitImage, resolutionVariant)) {
 			return $cast($ToolkitImage, resolutionVariant);
 		}
@@ -1081,13 +854,13 @@ $ToolkitImage* SunToolkit::getResolutionVariant($Image* image) {
 
 bool SunToolkit::imageCached($String* fileName) {
 	$init(SunToolkit);
-	return $nc(SunToolkit::fileImgCache)->containsKey(fileName);
+	return SunToolkit::fileImgCache->containsKey(fileName);
 }
 
 bool SunToolkit::imageCached($URL* url) {
 	$init(SunToolkit);
 	$var($String, key, $nc(url)->toString());
-	return $nc(SunToolkit::urlImgCache)->containsKey(key);
+	return SunToolkit::urlImgCache->containsKey(key);
 }
 
 bool SunToolkit::imageExists($String* filename) {
@@ -1101,43 +874,41 @@ bool SunToolkit::imageExists($String* filename) {
 
 bool SunToolkit::imageExists($URL* url) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (url != nullptr) {
 		checkPermissions(url);
 		try {
 			$var($InputStream, is, url->openStream());
-			{
-				$var($Throwable, var$0, nullptr);
-				bool var$2 = false;
-				bool return$1 = false;
+			$var($Throwable, var$0, nullptr);
+			bool var$2 = false;
+			bool return$1 = false;
+			try {
 				try {
-					try {
-						var$2 = true;
-						return$1 = true;
-						goto $finally;
-					} catch ($Throwable& t$) {
-						if (is != nullptr) {
-							try {
-								is->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
+					var$2 = true;
+					return$1 = true;
+					goto $finally;
+				} catch ($Throwable& t$) {
 					if (is != nullptr) {
-						is->close();
+						try {
+							is->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				if (is != nullptr) {
+					is->close();
 				}
-				if (return$1) {
-					return var$2;
-				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (return$1) {
+				return var$2;
 			}
 		} catch ($IOException& e) {
 			return false;
@@ -1156,7 +927,7 @@ void SunToolkit::checkPermissions($String* filename) {
 
 void SunToolkit::checkPermissions($URL* url) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		try {
@@ -1173,30 +944,28 @@ void SunToolkit::checkPermissions($URL* url) {
 
 $BufferedImage* SunToolkit::getScaledIconImage($List* imageList, int32_t width, int32_t height) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (width == 0 || height == 0) {
 		return nullptr;
 	}
 	$var($List, multiResAndnormalImages, $new($ArrayList, $nc(imageList)->size()));
 	{
-		$var($Iterator, i$, $nc(imageList)->iterator());
+		$var($Iterator, i$, imageList->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Image, image, $cast($Image, i$->next()));
-			{
-				if ($instanceOf($MultiResolutionImage, image)) {
-					$var($Image, im, $nc(($cast($MultiResolutionImage, image)))->getResolutionVariant((double)width, (double)height));
-					multiResAndnormalImages->add(im);
-				} else {
-					multiResAndnormalImages->add(image);
-				}
+			if ($instanceOf($MultiResolutionImage, image)) {
+				$var($Image, im, $cast($MultiResolutionImage, image)->getResolutionVariant((double)width, (double)height));
+				multiResAndnormalImages->add(im);
+			} else {
+				multiResAndnormalImages->add(image);
 			}
 		}
 	}
 	$var($Image, bestImage, nullptr);
 	int32_t bestWidth = 0;
 	int32_t bestHeight = 0;
-	double bestSimilarity = (double)3;
-	double bestScaleFactor = (double)0;
+	double bestSimilarity = 3;
+	double bestScaleFactor = 0;
 	{
 		$var($Iterator, i, multiResAndnormalImages->iterator());
 		for (; $nc(i)->hasNext();) {
@@ -1205,7 +974,7 @@ $BufferedImage* SunToolkit::getScaledIconImage($List* imageList, int32_t width, 
 				continue;
 			}
 			if ($instanceOf($ToolkitImage, im)) {
-				$var($ImageRepresentation, ir, $nc(($cast($ToolkitImage, im)))->getImageRep());
+				$var($ImageRepresentation, ir, $cast($ToolkitImage, im)->getImageRep());
 				$nc(ir)->reconstruct($ImageObserver::ALLBITS);
 			}
 			int32_t iw = 0;
@@ -1220,7 +989,7 @@ $BufferedImage* SunToolkit::getScaledIconImage($List* imageList, int32_t width, 
 				double scaleFactor = $Math::min((double)width / (double)iw, (double)height / (double)ih);
 				int32_t adjw = 0;
 				int32_t adjh = 0;
-				double scaleMeasure = (double)1;
+				double scaleMeasure = 1;
 				if (scaleFactor >= 2) {
 					scaleFactor = $Math::floor(scaleFactor);
 					adjw = iw * $cast(int32_t, scaleFactor);
@@ -1230,7 +999,7 @@ $BufferedImage* SunToolkit::getScaledIconImage($List* imageList, int32_t width, 
 					scaleFactor = 1.0;
 					adjw = iw;
 					adjh = ih;
-					scaleMeasure = (double)0;
+					scaleMeasure = 0;
 				} else if (scaleFactor >= 0.75) {
 					scaleFactor = 0.75;
 					adjw = iw * 3 / 4;
@@ -1269,27 +1038,25 @@ $BufferedImage* SunToolkit::getScaledIconImage($List* imageList, int32_t width, 
 	$var($Graphics2D, g, bimage->createGraphics());
 	$init($RenderingHints);
 	$nc(g)->setRenderingHint($RenderingHints::KEY_INTERPOLATION, $RenderingHints::VALUE_INTERPOLATION_BILINEAR);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int32_t x = (width - bestWidth) / 2;
-			int32_t y = (height - bestHeight) / 2;
-			g->drawImage(bestImage, x, y, bestWidth, bestHeight, nullptr);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			g->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t x = (width - bestWidth) / 2;
+		int32_t y = (height - bestHeight) / 2;
+		g->drawImage(bestImage, x, y, bestWidth, bestHeight, nullptr);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		g->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return bimage;
 }
 
 $DataBufferInt* SunToolkit::getScaledIconData($List* imageList, int32_t width, int32_t height) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bimage, getScaledIconImage(imageList, width, height));
 	if (bimage == nullptr) {
 		return nullptr;
@@ -1322,10 +1089,10 @@ $Container* SunToolkit::getNativeContainer($Component* c) {
 
 $Component* SunToolkit::getHeavyweightComponent($Component* c$renamed) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, c$renamed);
-	while (c != nullptr && $nc($($AWTAccessor::getComponentAccessor()))->isLightweight(c)) {
-		$assign(c, $nc($($AWTAccessor::getComponentAccessor()))->getParent(c));
+	while (c != nullptr && $$nc($AWTAccessor::getComponentAccessor())->isLightweight(c)) {
+		$assign(c, $$nc($AWTAccessor::getComponentAccessor())->getParent(c));
 	}
 	return c;
 }
@@ -1335,7 +1102,7 @@ int32_t SunToolkit::getFocusAcceleratorKeyMask() {
 }
 
 bool SunToolkit::isPrintableCharacterModifiersMask(int32_t mods) {
-	return (((int32_t)(mods & (uint32_t)$InputEvent::ALT_MASK)) == ((int32_t)(mods & (uint32_t)$InputEvent::CTRL_MASK)));
+	return ((mods & $InputEvent::ALT_MASK) == (mods & $InputEvent::CTRL_MASK));
 }
 
 bool SunToolkit::canPopupOverlapTaskBar() {
@@ -1362,17 +1129,17 @@ bool SunToolkit::enableInputMethodsForTextComponent() {
 
 $Locale* SunToolkit::getStartupLocale() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (SunToolkit::startupLocale == nullptr) {
 		$var($String, language, nullptr);
 		$var($String, region, nullptr);
 		$var($String, country, nullptr);
 		$var($String, variant, nullptr);
-		$assign(language, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "user.language"_s, "en"_s)))));
-		$assign(region, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "user.region"_s)))));
+		$assign(language, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "user.language"_s, "en"_s))));
+		$assign(region, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "user.region"_s))));
 		if (region != nullptr) {
-			int32_t i = region->indexOf((int32_t)u'_');
+			int32_t i = region->indexOf(u'_');
 			if (i >= 0) {
 				$assign(country, region->substring(0, i));
 				$assign(variant, region->substring(i + 1));
@@ -1381,8 +1148,8 @@ $Locale* SunToolkit::getStartupLocale() {
 				$assign(variant, ""_s);
 			}
 		} else {
-			$assign(country, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "user.country"_s, ""_s)))));
-			$assign(variant, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "user.variant"_s, ""_s)))));
+			$assign(country, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "user.country"_s, ""_s))));
+			$assign(variant, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "user.variant"_s, ""_s))));
 		}
 		$assignStatic(SunToolkit::startupLocale, $new($Locale, language, country, variant));
 	}
@@ -1395,15 +1162,15 @@ $Locale* SunToolkit::getDefaultKeyboardLocale() {
 
 bool SunToolkit::needsXEmbed() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, noxembed, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.awt.noxembed"_s, "false"_s)))));
+	$var($String, noxembed, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.awt.noxembed"_s, "false"_s))));
 	if ("true"_s->equals(noxembed)) {
 		return false;
 	}
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	if ($instanceOf(SunToolkit, tk)) {
-		return $nc(($cast(SunToolkit, tk)))->needsXEmbedImpl();
+		return $cast(SunToolkit, tk)->needsXEmbedImpl();
 	} else {
 		return false;
 	}
@@ -1414,9 +1181,9 @@ bool SunToolkit::needsXEmbedImpl() {
 }
 
 bool SunToolkit::isXEmbedServerRequested() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.xembedserver"_s)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.xembedserver"_s)))->booleanValue();
 }
 
 bool SunToolkit::isModalExcludedSupported() {
@@ -1444,7 +1211,7 @@ bool SunToolkit::isModalExcluded($Window* window) {
 		$init($Dialog$ModalExclusionType);
 		$assignStatic(SunToolkit::DEFAULT_MODAL_EXCLUSION_TYPE, $Dialog$ModalExclusionType::APPLICATION_EXCLUDE);
 	}
-	return $nc($($nc(window)->getModalExclusionType()))->compareTo(static_cast<$Enum*>(SunToolkit::DEFAULT_MODAL_EXCLUSION_TYPE)) >= 0;
+	return $$nc($nc(window)->getModalExclusionType())->compareTo(SunToolkit::DEFAULT_MODAL_EXCLUSION_TYPE) >= 0;
 }
 
 bool SunToolkit::isModalityTypeSupported($Dialog$ModalityType* modalityType) {
@@ -1496,7 +1263,7 @@ void SunToolkit::realSync(int64_t timeout) {
 		$throwNew($SunToolkit$IllegalThreadException, "The SunToolkit.realSync() method cannot be used on the event dispatch thread (EDT)."_s);
 	}
 	try {
-		$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(SunToolkit$$Lambda$lambda$realSync$0)));
+		$EventQueue::invokeAndWait($$new(SunToolkit$$Lambda$lambda$realSync$0));
 	} catch ($InterruptedException& ignored) {
 	} catch ($InvocationTargetException& ignored) {
 	}
@@ -1536,13 +1303,13 @@ int64_t SunToolkit::timeout(int64_t end) {
 }
 
 bool SunToolkit::isEQEmpty() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EventQueue, queue, getSystemEventQueueImpl());
-	return $nc($($AWTAccessor::getEventQueueAccessor()))->noEvents(queue);
+	return $$nc($AWTAccessor::getEventQueueAccessor())->noEvents(queue);
 }
 
 bool SunToolkit::waitForIdle(int64_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (timeout(end) <= 0) {
 		return false;
 	}
@@ -1561,7 +1328,7 @@ bool SunToolkit::waitForIdle(int64_t end) {
 					break;
 				}
 				{
-					$nc($of(this->waitLock))->wait(timeout(end));
+					this->waitLock->wait(timeout(end));
 				}
 			}
 		} catch ($InterruptedException& ie) {
@@ -1590,7 +1357,7 @@ bool SunToolkit::isTouchKeyboardAutoShowEnabled() {
 
 void SunToolkit::closeSplashScreen() {
 	$init(SunToolkit);
-	$prepareNativeStatic(SunToolkit, closeSplashScreen, void);
+	$prepareNativeStatic(closeSplashScreen, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -1607,7 +1374,7 @@ void SunToolkit::setAAFontSettingsCondition(bool extraCondition) {
 			SunToolkit::checkedSystemAAFontSettings = false;
 			$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 			if ($instanceOf(SunToolkit, tk)) {
-				$nc(($cast(SunToolkit, tk)))->fireDesktopFontPropertyChanges();
+				$cast(SunToolkit, tk)->fireDesktopFontPropertyChanges();
 			}
 		}
 	}
@@ -1615,7 +1382,7 @@ void SunToolkit::setAAFontSettingsCondition(bool extraCondition) {
 
 $RenderingHints* SunToolkit::getDesktopAAHintsByName($String* hintname$renamed) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hintname, hintname$renamed);
 	$var($Object, aaHint, nullptr);
 	$init($Locale);
@@ -1627,8 +1394,8 @@ $RenderingHints* SunToolkit::getDesktopAAHintsByName($String* hintname$renamed) 
 		$init($RenderingHints);
 		$assign(aaHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_GASP);
 	} else {
-		bool var$1 = hintname->equals("lcd"_s);
-		if (var$1 || hintname->equals("lcd_hrgb"_s)) {
+		bool var$0 = hintname->equals("lcd"_s);
+		if (var$0 || hintname->equals("lcd_hrgb"_s)) {
 			$init($RenderingHints);
 			$assign(aaHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_LCD_HRGB);
 		} else if (hintname->equals("lcd_hbgr"_s)) {
@@ -1644,7 +1411,6 @@ $RenderingHints* SunToolkit::getDesktopAAHintsByName($String* hintname$renamed) 
 	}
 	if (aaHint != nullptr) {
 		$var($RenderingHints, map, $new($RenderingHints, nullptr));
-		$init($RenderingHints);
 		map->put($RenderingHints::KEY_TEXT_ANTIALIASING, aaHint);
 		return map;
 	} else {
@@ -1654,17 +1420,17 @@ $RenderingHints* SunToolkit::getDesktopAAHintsByName($String* hintname$renamed) 
 
 bool SunToolkit::useSystemAAFontSettings() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!SunToolkit::checkedSystemAAFontSettings) {
 		SunToolkit::useSystemAAFontSettings$ = true;
 		$var($String, systemAAFonts, nullptr);
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 		if ($instanceOf(SunToolkit, tk)) {
-			$assign(systemAAFonts, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "awt.useSystemAAFontSettings"_s)))));
+			$assign(systemAAFonts, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "awt.useSystemAAFontSettings"_s))));
 		}
 		if (systemAAFonts != nullptr) {
-			SunToolkit::useSystemAAFontSettings$ = $nc($($Boolean::valueOf(systemAAFonts)))->booleanValue();
+			SunToolkit::useSystemAAFontSettings$ = $($Boolean::valueOf(systemAAFonts))->booleanValue();
 			if (!SunToolkit::useSystemAAFontSettings$) {
 				$assignStatic(SunToolkit::desktopFontHints, getDesktopAAHintsByName(systemAAFonts));
 			}
@@ -1683,31 +1449,28 @@ $RenderingHints* SunToolkit::getDesktopAAHints() {
 
 $RenderingHints* SunToolkit::getDesktopFontHints() {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (useSystemAAFontSettings()) {
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 		if ($instanceOf(SunToolkit, tk)) {
-			$var($Object, map, $nc(($cast(SunToolkit, tk)))->getDesktopAAHints());
+			$var($Object, map, $cast(SunToolkit, tk)->getDesktopAAHints());
 			return $cast($RenderingHints, map);
 		} else {
 			return nullptr;
 		}
+	} else if (SunToolkit::desktopFontHints != nullptr) {
+		return $cast($RenderingHints, SunToolkit::desktopFontHints->clone());
 	} else {
-		if (SunToolkit::desktopFontHints != nullptr) {
-			return ($cast($RenderingHints, $nc(SunToolkit::desktopFontHints)->clone()));
-		} else {
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 void SunToolkit::consumeNextKeyTyped($KeyEvent* keyEvent) {
-	$load(SunToolkit);
+	$init(SunToolkit);
 	$synchronized(class$) {
-		$init(SunToolkit);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		try {
-			$nc($($AWTAccessor::getDefaultKeyboardFocusManagerAccessor()))->consumeNextKeyTyped($cast($DefaultKeyboardFocusManager, $($KeyboardFocusManager::getCurrentKeyboardFocusManager())), keyEvent);
+			$$nc($AWTAccessor::getDefaultKeyboardFocusManagerAccessor())->consumeNextKeyTyped($$cast($DefaultKeyboardFocusManager, $KeyboardFocusManager::getCurrentKeyboardFocusManager()), keyEvent);
 		} catch ($ClassCastException& cce) {
 			cce->printStackTrace();
 		}
@@ -1716,7 +1479,7 @@ void SunToolkit::consumeNextKeyTyped($KeyEvent* keyEvent) {
 
 void SunToolkit::dumpPeers($PlatformLogger* aLog) {
 	$init(SunToolkit);
-	$nc($($AWTAutoShutdown::getInstance()))->dumpPeers(aLog);
+	$$nc($AWTAutoShutdown::getInstance())->dumpPeers(aLog);
 }
 
 $Window* SunToolkit::getContainingWindow($Component* comp$renamed) {
@@ -1729,12 +1492,11 @@ $Window* SunToolkit::getContainingWindow($Component* comp$renamed) {
 }
 
 bool SunToolkit::getSunAwtDisableMixing() {
-	$load(SunToolkit);
+	$init(SunToolkit);
 	$synchronized(class$) {
-		$init(SunToolkit);
 		$beforeCallerSensitive();
 		if (SunToolkit::sunAwtDisableMixing == nullptr) {
-			$assignStatic(SunToolkit::sunAwtDisableMixing, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.disableMixing"_s)))));
+			$assignStatic(SunToolkit::sunAwtDisableMixing, $cast($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.disableMixing"_s))));
 		}
 		return $nc(SunToolkit::sunAwtDisableMixing)->booleanValue();
 	}
@@ -1750,7 +1512,7 @@ bool SunToolkit::isNativeGTKAvailable() {
 
 void SunToolkit::setWindowDeactivationTime($Window* w, int64_t time) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AppContext, ctx, getAppContext(w));
 		if (ctx == nullptr) {
 			return;
@@ -1766,7 +1528,7 @@ void SunToolkit::setWindowDeactivationTime($Window* w, int64_t time) {
 
 int64_t SunToolkit::getWindowDeactivationTime($Window* w) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AppContext, ctx, getAppContext(w));
 		if (ctx == nullptr) {
 			return -1;
@@ -1776,7 +1538,7 @@ int64_t SunToolkit::getWindowDeactivationTime($Window* w) {
 			return -1;
 		}
 		$var($Long, time, $cast($Long, $nc(map)->get(w)));
-		return time == nullptr ? (int64_t)-1 : $nc(time)->longValue();
+		return time == nullptr ? -1 : time->longValue();
 	}
 }
 
@@ -1836,23 +1598,19 @@ bool SunToolkit::isInstanceOf(Object$* obj, $String* type) {
 
 bool SunToolkit::isInstanceOf($Class* cls, $String* type) {
 	$init(SunToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cls == nullptr) {
 		return false;
 	}
-	if ($nc($($nc(cls)->getName()))->equals(type)) {
+	if ($$nc($nc(cls)->getName())->equals(type)) {
 		return true;
 	}
 	{
-		$var($ClassArray, arr$, $nc(cls)->getInterfaces());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($ClassArray, arr$, cls->getInterfaces());
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* c = arr$->get(i$);
-			{
-				if ($nc($($nc(c)->getName()))->equals(type)) {
-					return true;
-				}
+			if ($$nc($nc(c)->getName())->equals(type)) {
+				return true;
 			}
 		}
 	}
@@ -1862,7 +1620,7 @@ bool SunToolkit::isInstanceOf($Class* cls, $String* type) {
 $LightweightFrame* SunToolkit::getLightweightFrame($Component* c$renamed) {
 	$init(SunToolkit);
 	$var($Component, c, c$renamed);
-	for (; c != nullptr; $assign(c, $nc(c)->getParent())) {
+	for (; c != nullptr; $assign(c, c->getParent())) {
 		if ($instanceOf($LightweightFrame, c)) {
 			return $cast($LightweightFrame, c);
 		}
@@ -1875,19 +1633,19 @@ $LightweightFrame* SunToolkit::getLightweightFrame($Component* c$renamed) {
 
 void SunToolkit::setSystemGenerated($AWTEvent* e) {
 	$init(SunToolkit);
-	$nc($($AWTAccessor::getAWTEventAccessor()))->setSystemGenerated(e);
+	$$nc($AWTAccessor::getAWTEventAccessor())->setSystemGenerated(e);
 }
 
 bool SunToolkit::isSystemGenerated($AWTEvent* e) {
 	$init(SunToolkit);
-	return $nc($($AWTAccessor::getAWTEventAccessor()))->isSystemGenerated(e);
+	return $$nc($AWTAccessor::getAWTEventAccessor())->isSystemGenerated(e);
 }
 
 void SunToolkit::lambda$realSync$0() {
 	$init(SunToolkit);
 }
 
-void clinit$SunToolkit($Class* class$) {
+void SunToolkit::clinit$($Class* clazz) {
 	$assignStatic(SunToolkit::POST_EVENT_QUEUE_KEY, "PostEventQueue"_s);
 	$assignStatic(SunToolkit::DESKTOPFONTHINTS, "awt.font.desktophints"_s);
 	{
@@ -1895,7 +1653,7 @@ void clinit$SunToolkit($Class* class$) {
 	}
 	SunToolkit::numberOfButtons = 0;
 	$assignStatic(SunToolkit::AWT_LOCK, $new($ReentrantLock));
-	$assignStatic(SunToolkit::AWT_LOCK_COND, $nc(SunToolkit::AWT_LOCK)->newCondition());
+	$assignStatic(SunToolkit::AWT_LOCK_COND, SunToolkit::AWT_LOCK->newCondition());
 	$assignStatic(SunToolkit::appContextMap, $Collections::synchronizedMap($$new($WeakIdentityHashMap)));
 	$assignStatic(SunToolkit::fileImgCache, $new($SoftCache));
 	$assignStatic(SunToolkit::urlImgCache, $new($SoftCache));
@@ -1911,11 +1669,215 @@ SunToolkit::SunToolkit() {
 
 $Class* SunToolkit::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SunToolkit$$Lambda$lambda$realSync$0::classInfo$.name)) {
+		if (name->equals("sun.awt.SunToolkit$$Lambda$lambda$realSync$0")) {
 			return SunToolkit$$Lambda$lambda$realSync$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SunToolkit, name, initialize, &_SunToolkit_ClassInfo_, clinit$SunToolkit, allocate$SunToolkit);
+	$FieldInfo fieldInfos$$[] = {
+		{"GRAB_EVENT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunToolkit, GRAB_EVENT_MASK)},
+		{"POST_EVENT_QUEUE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, POST_EVENT_QUEUE_KEY)},
+		{"numberOfButtons", "I", nullptr, $PROTECTED | $STATIC, $staticField(SunToolkit, numberOfButtons)},
+		{"MAX_BUTTONS_SUPPORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunToolkit, MAX_BUTTONS_SUPPORTED)},
+		{"AWT_LOCK", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, AWT_LOCK)},
+		{"AWT_LOCK_COND", "Ljava/util/concurrent/locks/Condition;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, AWT_LOCK_COND)},
+		{"appContextMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Lsun/awt/AppContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, appContextMap)},
+		{"fileImgCache", "Lsun/awt/SoftCache;", nullptr, $STATIC | $FINAL, $staticField(SunToolkit, fileImgCache)},
+		{"urlImgCache", "Lsun/awt/SoftCache;", nullptr, $STATIC | $FINAL, $staticField(SunToolkit, urlImgCache)},
+		{"startupLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, startupLocale)},
+		{"DEFAULT_MODAL_EXCLUSION_TYPE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, DEFAULT_MODAL_EXCLUSION_TYPE)},
+		{"modalityListeners", "Lsun/awt/SunToolkit$ModalityListenerList;", nullptr, $PRIVATE, $field(SunToolkit, modalityListeners)},
+		{"DEFAULT_WAIT_TIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunToolkit, DEFAULT_WAIT_TIME)},
+		{"MAX_ITERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunToolkit, MAX_ITERS)},
+		{"MIN_ITERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunToolkit, MIN_ITERS)},
+		{"MINIMAL_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunToolkit, MINIMAL_DELAY)},
+		{"waitLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(SunToolkit, waitLock)},
+		{"touchKeyboardAutoShowIsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, touchKeyboardAutoShowIsEnabled)},
+		{"checkedSystemAAFontSettings", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, checkedSystemAAFontSettings)},
+		{"useSystemAAFontSettings", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, useSystemAAFontSettings$)},
+		{"lastExtraCondition", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, lastExtraCondition)},
+		{"desktopFontHints", "Ljava/awt/RenderingHints;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, desktopFontHints)},
+		{"DESKTOPFONTHINTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SunToolkit, DESKTOPFONTHINTS)},
+		{"sunAwtDisableMixing", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(SunToolkit, sunAwtDisableMixing)},
+		{"DEACTIVATION_TIMES_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunToolkit, DEACTIVATION_TIMES_MAP_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunToolkit, init$, void)},
+		{"addModalityListener", "(Lsun/awt/ModalityListener;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, addModalityListener, void, $ModalityListener*)},
+		{"awtLock", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLock, void)},
+		{"awtLockNotify", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockNotify, void)},
+		{"awtLockNotifyAll", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockNotifyAll, void)},
+		{"awtLockWait", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockWait, void), "java.lang.InterruptedException"},
+		{"awtLockWait", "(J)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtLockWait, void, int64_t), "java.lang.InterruptedException"},
+		{"awtTryLock", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtTryLock, bool)},
+		{"awtUnlock", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, awtUnlock, void)},
+		{"canPopupOverlapTaskBar", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, canPopupOverlapTaskBar, bool)},
+		{"checkAndSetPolicy", "(Ljava/awt/Container;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, checkAndSetPolicy, void, $Container*)},
+		{"checkImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(SunToolkit, checkImage, int32_t, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"checkPermissions", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, checkPermissions, void, $String*)},
+		{"checkPermissions", "(Ljava/net/URL;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, checkPermissions, void, $URL*)},
+		{"checkResolutionVariant", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)I", nullptr, $PRIVATE, $method(SunToolkit, checkResolutionVariant, int32_t, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"closeSplashScreen", "()V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(SunToolkit, closeSplashScreen, void)},
+		{"consumeNextKeyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SunToolkit, consumeNextKeyTyped, void, $KeyEvent*)},
+		{"createImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $String*)},
+		{"createImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $URL*)},
+		{"createImage", "([BII)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $bytes*, int32_t, int32_t)},
+		{"createImage", "(Ljava/awt/image/ImageProducer;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createImage, $Image*, $ImageProducer*)},
+		{"createImageWithResolutionVariant", "(Ljava/awt/Image;Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, createImageWithResolutionVariant, $Image*, $Image*, $Image*)},
+		{"createInputMethodWindow", "(Ljava/lang/String;Lsun/awt/im/InputContext;)Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, createInputMethodWindow, $Window*, $String*, $InputContext*)},
+		{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*), "java.awt.HeadlessException"},
+		{"createNewAppContext", "()Lsun/awt/AppContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, createNewAppContext, $AppContext*)},
+		{"createNewAppContext", "(Ljava/lang/ThreadGroup;)Lsun/awt/AppContext;", nullptr, $STATIC | $FINAL, $staticMethod(SunToolkit, createNewAppContext, $AppContext*, $ThreadGroup*)},
+		{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*)},
+		{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*), "java.awt.HeadlessException,java.awt.AWTException"},
+		{"disableBackgroundErase", "(Ljava/awt/Canvas;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, disableBackgroundErase, void, $Canvas*)},
+		{"disableBackgroundErase", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, disableBackgroundErase, void, $Component*)},
+		{"disableBackgroundEraseImpl", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(SunToolkit, disableBackgroundEraseImpl, void, $Component*)},
+		{"dumpPeers", "(Lsun/util/logging/PlatformLogger;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, dumpPeers, void, $PlatformLogger*)},
+		{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, enableInputMethodsForTextComponent, bool)},
+		{"executeOnEDTAndWait", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEDTAndWait, void, Object$*, $Runnable*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
+		{"executeOnEventHandlerThread", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEventHandlerThread, void, Object$*, $Runnable*)},
+		{"executeOnEventHandlerThread", "(Ljava/lang/Object;Ljava/lang/Runnable;J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEventHandlerThread, void, Object$*, $Runnable*, int64_t)},
+		{"executeOnEventHandlerThread", "(Lsun/awt/PeerEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, executeOnEventHandlerThread, void, $PeerEvent*)},
+		{"fireDesktopFontPropertyChanges", "()V", nullptr, $PRIVATE, $method(SunToolkit, fireDesktopFontPropertyChanges, void)},
+		{"flushPendingEvents", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, flushPendingEvents, void)},
+		{"flushPendingEvents", "(Lsun/awt/AppContext;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, flushPendingEvents, void, $AppContext*)},
+		{"getAppContext", "(Ljava/lang/Object;)Lsun/awt/AppContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getAppContext, $AppContext*, Object$*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getColorModel, $ColorModel*), "java.awt.HeadlessException"},
+		{"getContainingWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getContainingWindow, $Window*, $Component*)},
+		{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getDefaultKeyboardLocale, $Locale*)},
+		{"getDesktop", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getDesktop, $String*)},
+		{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getDesktopAAHints, $RenderingHints*)},
+		{"getDesktopAAHintsByName", "(Ljava/lang/String;)Ljava/awt/RenderingHints;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getDesktopAAHintsByName, $RenderingHints*, $String*)},
+		{"getDesktopFontHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getDesktopFontHints, $RenderingHints*)},
+		{"getFocusAcceleratorKeyMask", "()I", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getFocusAcceleratorKeyMask, int32_t)},
+		{"getFontList", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getFontList, $StringArray*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getHeavyweightComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getHeavyweightComponent, $Component*, $Component*)},
+		{"getImage", "(Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getImage, $Image*, $String*)},
+		{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getImage, $Image*, $URL*)},
+		{"getImageFromHash", "(Ljava/awt/Toolkit;Ljava/net/URL;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(SunToolkit, getImageFromHash, $Image*, $Toolkit*, $URL*)},
+		{"getImageFromHash", "(Ljava/awt/Toolkit;Ljava/lang/String;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(SunToolkit, getImageFromHash, $Image*, $Toolkit*, $String*)},
+		{"getImageWithResolutionVariant", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getImageWithResolutionVariant, $Image*, $String*, $String*)},
+		{"getImageWithResolutionVariant", "(Ljava/net/URL;Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getImageWithResolutionVariant, $Image*, $URL*, $URL*)},
+		{"getLightweightFrame", "(Ljava/awt/Component;)Lsun/awt/LightweightFrame;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, getLightweightFrame, $LightweightFrame*, $Component*)},
+		{"getNativeContainer", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getNativeContainer, $Container*, $Component*)},
+		{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getNumberOfButtons, int32_t)},
+		{"getRVSize", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getRVSize, int32_t, int32_t)},
+		{"getResolutionVariant", "(Ljava/awt/Image;)Lsun/awt/image/ToolkitImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, getResolutionVariant, $ToolkitImage*, $Image*)},
+		{"getScaledIconData", "(Ljava/util/List;II)Ljava/awt/image/DataBufferInt;", "(Ljava/util/List<Ljava/awt/Image;>;II)Ljava/awt/image/DataBufferInt;", $PUBLIC | $STATIC, $staticMethod(SunToolkit, getScaledIconData, $DataBufferInt*, $List*, int32_t, int32_t)},
+		{"getScaledIconImage", "(Ljava/util/List;II)Ljava/awt/image/BufferedImage;", "(Ljava/util/List<Ljava/awt/Image;>;II)Ljava/awt/image/BufferedImage;", $PUBLIC | $STATIC, $staticMethod(SunToolkit, getScaledIconImage, $BufferedImage*, $List*, int32_t, int32_t)},
+		{"getScreenSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SunToolkit, getScreenSize, $Dimension*)},
+		{"getStartupLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getStartupLocale, $Locale*)},
+		{"getSunAwtDisableMixing", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SunToolkit, getSunAwtDisableMixing, bool)},
+		{"getSunAwtErasebackgroundonresize", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getSunAwtErasebackgroundonresize, bool)},
+		{"getSunAwtNoerasebackground", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getSunAwtNoerasebackground, bool)},
+		{"getSystemEventQueueImpl", "()Ljava/awt/EventQueue;", nullptr, $PROTECTED, $virtualMethod(SunToolkit, getSystemEventQueueImpl, $EventQueue*)},
+		{"getSystemEventQueueImplPP", "()Ljava/awt/EventQueue;", nullptr, $STATIC, $staticMethod(SunToolkit, getSystemEventQueueImplPP, $EventQueue*)},
+		{"getSystemEventQueueImplPP", "(Lsun/awt/AppContext;)Ljava/awt/EventQueue;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, getSystemEventQueueImplPP, $EventQueue*, $AppContext*)},
+		{"getWindowDeactivationTime", "(Ljava/awt/Window;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunToolkit, getWindowDeactivationTime, int64_t, $Window*)},
+		{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, grab, void, $Window*)},
+		{"imageCached", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageCached, bool, $String*)},
+		{"imageCached", "(Ljava/net/URL;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageCached, bool, $URL*)},
+		{"imageExists", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageExists, bool, $String*)},
+		{"imageExists", "(Ljava/net/URL;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, imageExists, bool, $URL*)},
+		{"initEQ", "(Lsun/awt/AppContext;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, initEQ, void, $AppContext*)},
+		{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, initStatic, void)},
+		{"insertTargetMapping", "(Ljava/lang/Object;Lsun/awt/AppContext;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, insertTargetMapping, void, Object$*, $AppContext*)},
+		{"invokeLaterOnAppContext", "(Lsun/awt/AppContext;Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, invokeLaterOnAppContext, void, $AppContext*, $Runnable*)},
+		{"isAWTLockHeldByCurrentThread", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunToolkit, isAWTLockHeldByCurrentThread, bool)},
+		{"isContainingTopLevelOpaque", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isContainingTopLevelOpaque, bool, $Component*)},
+		{"isContainingTopLevelTranslucent", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isContainingTopLevelTranslucent, bool, $Component*)},
+		{"isDesktopSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, isDesktopSupported, bool)},
+		{"isDispatchThreadForAppContext", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isDispatchThreadForAppContext, bool, Object$*)},
+		{"isEQEmpty", "()Z", nullptr, $PRIVATE, $method(SunToolkit, isEQEmpty, bool)},
+		{"isInstanceOf", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isInstanceOf, bool, Object$*, $String*)},
+		{"isInstanceOf", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(SunToolkit, isInstanceOf, bool, $Class*, $String*)},
+		{"isLightweightOrUnknown", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isLightweightOrUnknown, bool, $Component*)},
+		{"isModalExcluded", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isModalExcluded, bool, $Window*)},
+		{"isModalExcludedSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isModalExcludedSupported, bool)},
+		{"isModalExcludedSupportedImpl", "()Z", nullptr, $PROTECTED, $virtualMethod(SunToolkit, isModalExcludedSupportedImpl, bool)},
+		{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
+		{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
+		{"isNativeGTKAvailable", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isNativeGTKAvailable, bool)},
+		{"isPrintableCharacterModifiersMask", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isPrintableCharacterModifiersMask, bool, int32_t)},
+		{"isSwingBackbufferTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isSwingBackbufferTranslucencySupported, bool)},
+		{"isSystemGenerated", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isSystemGenerated, bool, $AWTEvent*)},
+		{"isTaskbarSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, isTaskbarSupported, bool)},
+		{"isTouchKeyboardAutoShowEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, isTouchKeyboardAutoShowEnabled, bool)},
+		{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
+		{"isTraySupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, isTraySupported, bool)},
+		{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isWindowOpacitySupported, bool)},
+		{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isWindowShapingSupported, bool)},
+		{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, isWindowTranslucencySupported, bool)},
+		{"isXEmbedServerRequested", "()Z", nullptr, $PROTECTED | $FINAL, $method(SunToolkit, isXEmbedServerRequested, bool)},
+		{"lambda$realSync$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SunToolkit, lambda$realSync$0, void)},
+		{"needUpdateWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, needUpdateWindow, bool)},
+		{"needsXEmbed", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, needsXEmbed, bool)},
+		{"needsXEmbedImpl", "()Z", nullptr, $PROTECTED, $virtualMethod(SunToolkit, needsXEmbedImpl, bool)},
+		{"notifyModalityChange", "(ILjava/awt/Dialog;)V", nullptr, $FINAL, $method(SunToolkit, notifyModalityChange, void, int32_t, $Dialog*)},
+		{"notifyModalityPopped", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, notifyModalityPopped, void, $Dialog*)},
+		{"notifyModalityPushed", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, notifyModalityPushed, void, $Dialog*)},
+		{"postEvent", "(Lsun/awt/AppContext;Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, postEvent, void, $AppContext*, $AWTEvent*)},
+		{"postPriorityEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, postPriorityEvent, void, $AWTEvent*)},
+		{"prepareImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, prepareImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"prepareResolutionVariant", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PRIVATE, $method(SunToolkit, prepareResolutionVariant, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"realSync", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, realSync, void)},
+		{"realSync", "(J)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, realSync, void, int64_t)},
+		{"removeModalityListener", "(Lsun/awt/ModalityListener;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, removeModalityListener, void, $ModalityListener*)},
+		{"setAAFontSettingsCondition", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setAAFontSettingsCondition, void, bool)},
+		{"setAppContext", "(Ljava/lang/Object;Lsun/awt/AppContext;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, setAppContext, bool, Object$*, $AppContext*)},
+		{"setLWRequestStatus", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setLWRequestStatus, void, $Window*, bool)},
+		{"setModalExcluded", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setModalExcluded, void, $Window*)},
+		{"setSystemGenerated", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, setSystemGenerated, void, $AWTEvent*)},
+		{"setWindowDeactivationTime", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunToolkit, setWindowDeactivationTime, void, $Window*, int64_t)},
+		{"showOrHideTouchKeyboard", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, showOrHideTouchKeyboard, void, $Component*, $AWTEvent*)},
+		{"syncNativeQueue", "(J)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunToolkit, syncNativeQueue, bool, int64_t)},
+		{"targetCreatedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, targetCreatedPeer, void, Object$*, Object$*)},
+		{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, targetDisposedPeer, void, Object$*, Object$*)},
+		{"targetToAppContext", "(Ljava/lang/Object;)Lsun/awt/AppContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunToolkit, targetToAppContext, $AppContext*, Object$*)},
+		{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC, $staticMethod(SunToolkit, targetToPeer, $Object*, Object$*)},
+		{"timeout", "(J)J", nullptr, $PROTECTED, $virtualMethod(SunToolkit, timeout, int64_t, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunToolkit, ungrab, void, $Window*)},
+		{"updateScreenMenuBarUI", "()V", nullptr, $PUBLIC, $virtualMethod(SunToolkit, updateScreenMenuBarUI, void)},
+		{"useBufferPerWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(SunToolkit, useBufferPerWindow, bool)},
+		{"useSystemAAFontSettings", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunToolkit, useSystemAAFontSettings, bool)},
+		{"waitForIdle", "(J)Z", nullptr, $PRIVATE | $FINAL, $method(SunToolkit, waitForIdle, bool, int64_t)},
+		{"wakeupEventQueue", "(Ljava/awt/EventQueue;Z)V", nullptr, $STATIC, $staticMethod(SunToolkit, wakeupEventQueue, void, $EventQueue*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.SunToolkit$IllegalThreadException", "sun.awt.SunToolkit", "IllegalThreadException", $PUBLIC | $STATIC},
+		{"sun.awt.SunToolkit$ModalityListenerList", "sun.awt.SunToolkit", "ModalityListenerList", $STATIC},
+		{"sun.awt.SunToolkit$3", nullptr, nullptr, 0},
+		{"sun.awt.SunToolkit$1AWTInvocationLock", nullptr, "AWTInvocationLock", 0},
+		{"sun.awt.SunToolkit$2", nullptr, nullptr, 0},
+		{"sun.awt.SunToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.SunToolkit",
+		"java.awt.Toolkit",
+		"sun.awt.ComponentFactory,sun.awt.InputMethodSupport,sun.awt.KeyboardFocusManagerPeerProvider",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.SunToolkit$IllegalThreadException,sun.awt.SunToolkit$ModalityListenerList,sun.awt.SunToolkit$3,sun.awt.SunToolkit$1AWTInvocationLock,sun.awt.SunToolkit$2,sun.awt.SunToolkit$1"
+	};
+	$loadClass(SunToolkit, name, initialize, &classInfo$$, SunToolkit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunToolkit));
+	});
 	return class$;
 }
 

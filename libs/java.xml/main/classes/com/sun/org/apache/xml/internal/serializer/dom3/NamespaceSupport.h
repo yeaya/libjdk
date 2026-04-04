@@ -33,6 +33,7 @@ class NamespaceSupport : public ::java::lang::Object {
 	$class(NamespaceSupport, 0, ::java::lang::Object)
 public:
 	NamespaceSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool declarePrefix($String* prefix, $String* uri);
 	virtual ::java::util::Enumeration* getAllPrefixes();

@@ -31,7 +31,7 @@ public:
 	virtual $String* getName() override;
 	void myPageRanges();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x77E712E7F8E5E9A8;
+	static const int64_t serialVersionUID = (int64_t)0x77e712e7f8e5e9a8;
 };
 
 			} // standard

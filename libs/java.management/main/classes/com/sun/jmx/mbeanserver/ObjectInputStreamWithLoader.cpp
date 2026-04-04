@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/ObjectInputStreamWithLoader.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamClass.h>
@@ -21,30 +20,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _ObjectInputStreamWithLoader_FieldInfo_[] = {
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(ObjectInputStreamWithLoader, loader)},
-	{}
-};
-
-$MethodInfo _ObjectInputStreamWithLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ObjectInputStreamWithLoader, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ObjectInputStreamWithLoader, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _ObjectInputStreamWithLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.ObjectInputStreamWithLoader",
-	"java.io.ObjectInputStream",
-	nullptr,
-	_ObjectInputStreamWithLoader_FieldInfo_,
-	_ObjectInputStreamWithLoader_MethodInfo_
-};
-
-$Object* allocate$ObjectInputStreamWithLoader($Class* clazz) {
-	return $of($alloc(ObjectInputStreamWithLoader));
-}
-
 void ObjectInputStreamWithLoader::init$($InputStream* in, $ClassLoader* theLoader) {
 	$ObjectInputStream::init$(in);
 	$set(this, loader, theLoader);
@@ -65,7 +40,26 @@ ObjectInputStreamWithLoader::ObjectInputStreamWithLoader() {
 }
 
 $Class* ObjectInputStreamWithLoader::load$($String* name, bool initialize) {
-	$loadClass(ObjectInputStreamWithLoader, name, initialize, &_ObjectInputStreamWithLoader_ClassInfo_, allocate$ObjectInputStreamWithLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(ObjectInputStreamWithLoader, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ObjectInputStreamWithLoader, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException"},
+		{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ObjectInputStreamWithLoader, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.ObjectInputStreamWithLoader",
+		"java.io.ObjectInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectInputStreamWithLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ObjectInputStreamWithLoader));
+	});
 	return class$;
 }
 

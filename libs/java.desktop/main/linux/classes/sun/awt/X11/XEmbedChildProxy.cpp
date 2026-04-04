@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEmbedChildProxy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/peer/ComponentPeer.h>
@@ -12,45 +11,16 @@
 
 using $Component = ::java::awt::Component;
 using $Toolkit = ::java::awt::Toolkit;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XEmbeddingContainer = ::sun::awt::X11::XEmbeddingContainer;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEmbedChildProxy_FieldInfo_[] = {
-	{"handle", "J", nullptr, 0, $field(XEmbedChildProxy, handle)},
-	{"container", "Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $field(XEmbedChildProxy, container)},
-	{}
-};
-
-$MethodInfo _XEmbedChildProxy_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XEmbeddingContainer;J)V", nullptr, $PUBLIC, $method(XEmbedChildProxy, init$, void, $XEmbeddingContainer*, int64_t)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxy, addNotify, void)},
-	{"getEmbeddingContainer", "()Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $virtualMethod(XEmbedChildProxy, getEmbeddingContainer, $XEmbeddingContainer*)},
-	{"getHandle", "()J", nullptr, 0, $virtualMethod(XEmbedChildProxy, getHandle, int64_t)},
-	{}
-};
-
-$ClassInfo _XEmbedChildProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XEmbedChildProxy",
-	"java.awt.Component",
-	nullptr,
-	_XEmbedChildProxy_FieldInfo_,
-	_XEmbedChildProxy_MethodInfo_
-};
-
-$Object* allocate$XEmbedChildProxy($Class* clazz) {
-	return $of($alloc(XEmbedChildProxy));
-}
 
 void XEmbedChildProxy::init$($XEmbeddingContainer* container, int64_t handle) {
 	$Component::init$();
@@ -59,10 +29,10 @@ void XEmbedChildProxy::init$($XEmbeddingContainer* container, int64_t handle) {
 }
 
 void XEmbedChildProxy::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
-		if ($nc($($AWTAccessor::getComponentAccessor()))->getPeer(this) == nullptr) {
-			$nc($($AWTAccessor::getComponentAccessor()))->setPeer(this, $($nc(($cast($XToolkit, $($Toolkit::getDefaultToolkit()))))->createEmbedProxy(this)));
+		if ($$nc($AWTAccessor::getComponentAccessor())->getPeer(this) == nullptr) {
+			$$nc($AWTAccessor::getComponentAccessor())->setPeer(this, $($$sure($XToolkit, $Toolkit::getDefaultToolkit())->createEmbedProxy(this)));
 		}
 		$Component::addNotify();
 	}
@@ -80,7 +50,29 @@ XEmbedChildProxy::XEmbedChildProxy() {
 }
 
 $Class* XEmbedChildProxy::load$($String* name, bool initialize) {
-	$loadClass(XEmbedChildProxy, name, initialize, &_XEmbedChildProxy_ClassInfo_, allocate$XEmbedChildProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"handle", "J", nullptr, 0, $field(XEmbedChildProxy, handle)},
+		{"container", "Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $field(XEmbedChildProxy, container)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XEmbeddingContainer;J)V", nullptr, $PUBLIC, $method(XEmbedChildProxy, init$, void, $XEmbeddingContainer*, int64_t)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedChildProxy, addNotify, void)},
+		{"getEmbeddingContainer", "()Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $virtualMethod(XEmbedChildProxy, getEmbeddingContainer, $XEmbeddingContainer*)},
+		{"getHandle", "()J", nullptr, 0, $virtualMethod(XEmbedChildProxy, getHandle, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XEmbedChildProxy",
+		"java.awt.Component",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XEmbedChildProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XEmbedChildProxy));
+	});
 	return class$;
 }
 

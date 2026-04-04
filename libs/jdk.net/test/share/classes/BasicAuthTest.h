@@ -14,6 +14,7 @@ class $export BasicAuthTest : public ::java::lang::Object {
 	$class(BasicAuthTest, 0, ::java::lang::Object)
 public:
 	BasicAuthTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $volatile(bool) ok;

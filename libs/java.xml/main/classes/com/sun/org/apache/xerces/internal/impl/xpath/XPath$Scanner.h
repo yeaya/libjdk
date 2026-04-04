@@ -104,6 +104,7 @@ class XPath$Scanner : public ::java::lang::Object {
 	$class(XPath$Scanner, 0, ::java::lang::Object)
 public:
 	XPath$Scanner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	virtual void addToken(::com::sun::org::apache::xerces::internal::impl::xpath::XPath$Tokens* tokens, int32_t token);
 	virtual bool scanExpr(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable, ::com::sun::org::apache::xerces::internal::impl::xpath::XPath$Tokens* tokens, $String* data, int32_t currentOffset, int32_t endOffset);

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFImageReader.h>
-
 #include <com/sun/imageio/plugins/common/ReaderUtil.h>
 #include <com/sun/imageio/plugins/gif/GIFImageMetadata.h>
 #include <com/sun/imageio/plugins/gif/GIFStreamMetadata.h>
@@ -48,7 +47,6 @@ using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $SampleModel = ::java::awt::image::SampleModel;
-using $WritableRaster = ::java::awt::image::WritableRaster;
 using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -78,96 +76,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace gif {
-
-$FieldInfo _GIFImageReader_FieldInfo_[] = {
-	{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(GIFImageReader, stream)},
-	{"gotHeader", "Z", nullptr, 0, $field(GIFImageReader, gotHeader)},
-	{"streamMetadata", "Lcom/sun/imageio/plugins/gif/GIFStreamMetadata;", nullptr, 0, $field(GIFImageReader, streamMetadata)},
-	{"currIndex", "I", nullptr, 0, $field(GIFImageReader, currIndex)},
-	{"imageMetadata", "Lcom/sun/imageio/plugins/gif/GIFImageMetadata;", nullptr, 0, $field(GIFImageReader, imageMetadata)},
-	{"imageStartPosition", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Long;>;", 0, $field(GIFImageReader, imageStartPosition)},
-	{"imageMetadataLength", "I", nullptr, 0, $field(GIFImageReader, imageMetadataLength)},
-	{"numImages", "I", nullptr, 0, $field(GIFImageReader, numImages)},
-	{"block", "[B", nullptr, 0, $field(GIFImageReader, block)},
-	{"blockLength", "I", nullptr, 0, $field(GIFImageReader, blockLength)},
-	{"bitPos", "I", nullptr, 0, $field(GIFImageReader, bitPos)},
-	{"nextByte", "I", nullptr, 0, $field(GIFImageReader, nextByte)},
-	{"initCodeSize", "I", nullptr, 0, $field(GIFImageReader, initCodeSize)},
-	{"clearCode", "I", nullptr, 0, $field(GIFImageReader, clearCode)},
-	{"eofCode", "I", nullptr, 0, $field(GIFImageReader, eofCode)},
-	{"next32Bits", "I", nullptr, 0, $field(GIFImageReader, next32Bits)},
-	{"lastBlockFound", "Z", nullptr, 0, $field(GIFImageReader, lastBlockFound)},
-	{"theImage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(GIFImageReader, theImage)},
-	{"theTile", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(GIFImageReader, theTile)},
-	{"width", "I", nullptr, 0, $field(GIFImageReader, width)},
-	{"height", "I", nullptr, 0, $field(GIFImageReader, height)},
-	{"streamX", "I", nullptr, 0, $field(GIFImageReader, streamX)},
-	{"streamY", "I", nullptr, 0, $field(GIFImageReader, streamY)},
-	{"rowsDone", "I", nullptr, 0, $field(GIFImageReader, rowsDone)},
-	{"interlacePass", "I", nullptr, 0, $field(GIFImageReader, interlacePass)},
-	{"fallbackColorTable", "[B", nullptr, $PRIVATE, $field(GIFImageReader, fallbackColorTable)},
-	{"interlaceIncrement", "[I", nullptr, $STATIC | $FINAL, $staticField(GIFImageReader, interlaceIncrement)},
-	{"interlaceOffset", "[I", nullptr, $STATIC | $FINAL, $staticField(GIFImageReader, interlaceOffset)},
-	{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, 0, $field(GIFImageReader, sourceRegion)},
-	{"sourceXSubsampling", "I", nullptr, 0, $field(GIFImageReader, sourceXSubsampling)},
-	{"sourceYSubsampling", "I", nullptr, 0, $field(GIFImageReader, sourceYSubsampling)},
-	{"sourceMinProgressivePass", "I", nullptr, 0, $field(GIFImageReader, sourceMinProgressivePass)},
-	{"sourceMaxProgressivePass", "I", nullptr, 0, $field(GIFImageReader, sourceMaxProgressivePass)},
-	{"destinationOffset", "Ljava/awt/Point;", nullptr, 0, $field(GIFImageReader, destinationOffset)},
-	{"destinationRegion", "Ljava/awt/Rectangle;", nullptr, 0, $field(GIFImageReader, destinationRegion)},
-	{"updateMinY", "I", nullptr, 0, $field(GIFImageReader, updateMinY)},
-	{"updateYStep", "I", nullptr, 0, $field(GIFImageReader, updateYStep)},
-	{"decodeThisRow", "Z", nullptr, 0, $field(GIFImageReader, decodeThisRow)},
-	{"destY", "I", nullptr, 0, $field(GIFImageReader, destY)},
-	{"rowBuf", "[B", nullptr, 0, $field(GIFImageReader, rowBuf)},
-	{"defaultPalette", "[B", nullptr, $PRIVATE | $STATIC, $staticField(GIFImageReader, defaultPalette)},
-	{}
-};
-
-$MethodInfo _GIFImageReader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(GIFImageReader, init$, void, $ImageReaderSpi*)},
-	{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(GIFImageReader, checkIndex, void, int32_t)},
-	{"computeDecodeThisRow", "()V", nullptr, $PRIVATE, $method(GIFImageReader, computeDecodeThisRow, void)},
-	{"concatenateBlocks", "()[B", nullptr, $PRIVATE, $method(GIFImageReader, concatenateBlocks, $bytes*), "java.io.IOException"},
-	{"copyData", "([BI[B)I", nullptr, $PRIVATE, $method(GIFImageReader, copyData, int32_t, $bytes*, int32_t, $bytes*)},
-	{"createIndexed", "([B[B[BI)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $method(GIFImageReader, createIndexed, $ImageTypeSpecifier*, $bytes*, $bytes*, $bytes*, int32_t)},
-	{"getCode", "(II)I", nullptr, $PRIVATE, $method(GIFImageReader, getCode, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"getDefaultPalette", "()[B", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(GIFImageReader, getDefaultPalette, $bytes*)},
-	{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getDefaultReadParam, $ImageReadParam*)},
-	{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getHeight, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getImageMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
-	{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(GIFImageReader, getImageTypes, $Iterator*, int32_t), "javax.imageio.IIOException"},
-	{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getNumImages, int32_t, bool), "javax.imageio.IIOException"},
-	{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getStreamMetadata, $IIOMetadata*), "javax.imageio.IIOException"},
-	{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getWidth, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"initNext32Bits", "()V", nullptr, $PRIVATE, $method(GIFImageReader, initNext32Bits, void)},
-	{"initializeStringTable", "([I[B[B[I)V", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, initializeStringTable, void, $ints*, $bytes*, $bytes*, $ints*)},
-	{"locateImage", "(I)I", nullptr, $PRIVATE, $method(GIFImageReader, locateImage, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"outputPixels", "([BI)V", nullptr, $PRIVATE, $method(GIFImageReader, outputPixels, void, $bytes*, int32_t)},
-	{"outputRow", "()V", nullptr, $PRIVATE, $method(GIFImageReader, outputRow, void)},
-	{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "javax.imageio.IIOException"},
-	{"readHeader", "()V", nullptr, $PRIVATE, $method(GIFImageReader, readHeader, void), "javax.imageio.IIOException"},
-	{"readMetadata", "()V", nullptr, $PRIVATE, $method(GIFImageReader, readMetadata, void), "javax.imageio.IIOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, reset, void)},
-	{"resetStreamSettings", "()V", nullptr, $PRIVATE, $method(GIFImageReader, resetStreamSettings, void)},
-	{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, setInput, void, Object$*, bool, bool)},
-	{"skipImage", "()Z", nullptr, $PRIVATE, $method(GIFImageReader, skipImage, bool), "javax.imageio.IIOException"},
-	{"startPass", "(I)V", nullptr, $PRIVATE, $method(GIFImageReader, startPass, void, int32_t)},
-	{}
-};
-
-$ClassInfo _GIFImageReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFImageReader",
-	"javax.imageio.ImageReader",
-	nullptr,
-	_GIFImageReader_FieldInfo_,
-	_GIFImageReader_MethodInfo_
-};
-
-$Object* allocate$GIFImageReader($Class* clazz) {
-	return $of($alloc(GIFImageReader));
-}
 
 $ints* GIFImageReader::interlaceIncrement = nullptr;
 $ints* GIFImageReader::interlaceOffset = nullptr;
@@ -260,11 +168,11 @@ int32_t GIFImageReader::getHeight(int32_t imageIndex) {
 }
 
 $ImageTypeSpecifier* GIFImageReader::createIndexed($bytes* r, $bytes* g, $bytes* b, int32_t bits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, colorModel, nullptr);
 	if ($nc(this->imageMetadata)->transparentColorFlag) {
-		int32_t idx = $Math::min($nc(this->imageMetadata)->transparentColorIndex, $nc(r)->length - 1);
-		$assign(colorModel, $new($IndexColorModel, bits, $nc(r)->length, r, g, b, idx));
+		int32_t idx = $Math::min(this->imageMetadata->transparentColorIndex, $nc(r)->length - 1);
+		$assign(colorModel, $new($IndexColorModel, bits, r->length, r, g, b, idx));
 	} else {
 		$assign(colorModel, $new($IndexColorModel, bits, $nc(r)->length, r, g, b));
 	}
@@ -279,7 +187,7 @@ $ImageTypeSpecifier* GIFImageReader::createIndexed($bytes* r, $bytes* g, $bytes*
 }
 
 $Iterator* GIFImageReader::getImageTypes(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIndex(imageIndex);
 	int32_t index = locateImage(imageIndex);
 	if (index != imageIndex) {
@@ -289,8 +197,8 @@ $Iterator* GIFImageReader::getImageTypes(int32_t imageIndex) {
 	$var($List, l, $new($ArrayList, 1));
 	$var($bytes, colorTable, nullptr);
 	if ($nc(this->imageMetadata)->localColorTable != nullptr) {
-		$assign(colorTable, $nc(this->imageMetadata)->localColorTable);
-		$set(this, fallbackColorTable, $nc(this->imageMetadata)->localColorTable);
+		$assign(colorTable, this->imageMetadata->localColorTable);
+		$set(this, fallbackColorTable, this->imageMetadata->localColorTable);
 	} else {
 		$assign(colorTable, $nc(this->streamMetadata)->globalColorTable);
 	}
@@ -346,10 +254,10 @@ $IIOMetadata* GIFImageReader::getImageMetadata(int32_t imageIndex) {
 }
 
 void GIFImageReader::initNext32Bits() {
-	this->next32Bits = (int32_t)($nc(this->block)->get(0) & (uint32_t)255);
-	this->next32Bits |= ((int32_t)($nc(this->block)->get(1) & (uint32_t)255)) << 8;
-	this->next32Bits |= ((int32_t)($nc(this->block)->get(2) & (uint32_t)255)) << 16;
-	this->next32Bits |= $nc(this->block)->get(3) << 24;
+	this->next32Bits = $nc(this->block)->get(0) & 0xff;
+	this->next32Bits |= (this->block->get(1) & 0xff) << 8;
+	this->next32Bits |= (this->block->get(2) & 0xff) << 16;
+	this->next32Bits |= this->block->get(3) << 24;
 	this->nextByte = 4;
 }
 
@@ -357,7 +265,7 @@ int32_t GIFImageReader::getCode(int32_t codeSize, int32_t codeMask) {
 	if (this->bitPos + codeSize > 32) {
 		return this->eofCode;
 	}
-	int32_t code = (int32_t)(($sr(this->next32Bits, this->bitPos)) & (uint32_t)codeMask);
+	int32_t code = ($sr(this->next32Bits, this->bitPos)) & codeMask;
 	this->bitPos += codeSize;
 	while (this->bitPos >= 8 && !this->lastBlockFound) {
 		$usrAssign(this->next32Bits, 8);
@@ -402,12 +310,12 @@ void GIFImageReader::initializeStringTable($ints* prefix, $bytes* suffix, $bytes
 
 void GIFImageReader::outputRow() {
 	int32_t width = $Math::min($nc(this->sourceRegion)->width, $nc(this->destinationRegion)->width * this->sourceXSubsampling);
-	int32_t destX = $nc(this->destinationRegion)->x;
+	int32_t destX = this->destinationRegion->x;
 	if (this->sourceXSubsampling == 1) {
 		$nc(this->theTile)->setDataElements(destX, this->destY, width, 1, this->rowBuf);
 	} else {
 		for (int32_t x = 0; x < width; x += this->sourceXSubsampling, ++destX) {
-			$nc(this->theTile)->setSample(destX, this->destY, 0, (int32_t)($nc(this->rowBuf)->get(x) & (uint32_t)255));
+			$nc(this->theTile)->setSample(destX, this->destY, 0, $nc(this->rowBuf)->get(x) & 0xff);
 		}
 	}
 	if (this->updateListeners != nullptr) {
@@ -417,7 +325,7 @@ void GIFImageReader::outputRow() {
 }
 
 void GIFImageReader::computeDecodeThisRow() {
-	this->decodeThisRow = (this->destY < $nc(this->destinationRegion)->y + $nc(this->destinationRegion)->height) && (this->streamY >= $nc(this->sourceRegion)->y) && (this->streamY < $nc(this->sourceRegion)->y + $nc(this->sourceRegion)->height) && (($mod((this->streamY - $nc(this->sourceRegion)->y), this->sourceYSubsampling)) == 0);
+	this->decodeThisRow = (this->destY < $nc(this->destinationRegion)->y + $nc(this->destinationRegion)->height) && (this->streamY >= $nc(this->sourceRegion)->y) && (this->streamY < this->sourceRegion->y + this->sourceRegion->height) && (($mod((this->streamY - this->sourceRegion->y), this->sourceYSubsampling)) == 0);
 }
 
 void GIFImageReader::outputPixels($bytes* string, int32_t len) {
@@ -426,7 +334,7 @@ void GIFImageReader::outputPixels($bytes* string, int32_t len) {
 	}
 	for (int32_t i = 0; i < len; ++i) {
 		if (this->streamX >= $nc(this->sourceRegion)->x) {
-			$nc(this->rowBuf)->set(this->streamX - $nc(this->sourceRegion)->x, $nc(string)->get(i));
+			$nc(this->rowBuf)->set(this->streamX - this->sourceRegion->x, $nc(string)->get(i));
 		}
 		++this->streamX;
 		if (this->streamX == this->width) {
@@ -440,7 +348,7 @@ void GIFImageReader::outputPixels($bytes* string, int32_t len) {
 			}
 			this->streamX = 0;
 			if ($nc(this->imageMetadata)->interlaceFlag) {
-				this->streamY += $nc(GIFImageReader::interlaceIncrement)->get(this->interlacePass);
+				this->streamY += GIFImageReader::interlaceIncrement->get(this->interlacePass);
 				if (this->streamY >= this->height) {
 					if (this->updateListeners != nullptr) {
 						processPassComplete(this->theImage);
@@ -449,7 +357,7 @@ void GIFImageReader::outputPixels($bytes* string, int32_t len) {
 					if (this->interlacePass > this->sourceMaxProgressivePass) {
 						return;
 					}
-					this->streamY = $nc(GIFImageReader::interlaceOffset)->get(this->interlacePass);
+					this->streamY = GIFImageReader::interlaceOffset->get(this->interlacePass);
 					startPass(this->interlacePass);
 				}
 			} else {
@@ -462,7 +370,7 @@ void GIFImageReader::outputPixels($bytes* string, int32_t len) {
 }
 
 void GIFImageReader::readHeader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->gotHeader) {
 		return;
 	}
@@ -480,18 +388,18 @@ void GIFImageReader::readHeader() {
 		version->append((char16_t)signature->get(4));
 		version->append((char16_t)signature->get(5));
 		$set($nc(this->streamMetadata), version, version->toString());
-		$nc(this->streamMetadata)->logicalScreenWidth = $nc(this->stream)->readUnsignedShort();
+		this->streamMetadata->logicalScreenWidth = $nc(this->stream)->readUnsignedShort();
 		$nc(this->streamMetadata)->logicalScreenHeight = $nc(this->stream)->readUnsignedShort();
 		int32_t packedFields = $nc(this->stream)->readUnsignedByte();
-		bool globalColorTableFlag = ((int32_t)(packedFields & (uint32_t)128)) != 0;
-		$nc(this->streamMetadata)->colorResolution = ((int32_t)((packedFields >> 4) & (uint32_t)7)) + 1;
-		$nc(this->streamMetadata)->sortFlag = ((int32_t)(packedFields & (uint32_t)8)) != 0;
-		int32_t numGCTEntries = $sl(1, ((int32_t)(packedFields & (uint32_t)7)) + 1);
-		$nc(this->streamMetadata)->backgroundColorIndex = $nc(this->stream)->readUnsignedByte();
+		bool globalColorTableFlag = (packedFields & 0x80) != 0;
+		$nc(this->streamMetadata)->colorResolution = ((packedFields >> 4) & 7) + 1;
+		this->streamMetadata->sortFlag = (packedFields & 8) != 0;
+		int32_t numGCTEntries = $sl(1, (packedFields & 7) + 1);
+		this->streamMetadata->backgroundColorIndex = $nc(this->stream)->readUnsignedByte();
 		$nc(this->streamMetadata)->pixelAspectRatio = $nc(this->stream)->readUnsignedByte();
 		if (globalColorTableFlag) {
 			$set($nc(this->streamMetadata), globalColorTable, $new($bytes, 3 * numGCTEntries));
-			$nc(this->stream)->readFully($nc(this->streamMetadata)->globalColorTable);
+			$nc(this->stream)->readFully(this->streamMetadata->globalColorTable);
 		} else {
 			$set($nc(this->streamMetadata), globalColorTable, nullptr);
 		}
@@ -509,8 +417,8 @@ bool GIFImageReader::skipImage() {
 			if (blockType == 44) {
 				$nc(this->stream)->skipBytes(8);
 				int32_t packedFields = $nc(this->stream)->readUnsignedByte();
-				if (((int32_t)(packedFields & (uint32_t)128)) != 0) {
-					int32_t bits = ((int32_t)(packedFields & (uint32_t)7)) + 1;
+				if ((packedFields & 0x80) != 0) {
+					int32_t bits = (packedFields & 7) + 1;
 					$nc(this->stream)->skipBytes(3 * ($sl(1, bits)));
 				}
 				$nc(this->stream)->skipBytes(1);
@@ -548,11 +456,11 @@ bool GIFImageReader::skipImage() {
 }
 
 int32_t GIFImageReader::locateImage(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	readHeader();
 	try {
 		int32_t index = $Math::min(imageIndex, $nc(this->imageStartPosition)->size() - 1);
-		$var($Long, l, $cast($Long, $nc(this->imageStartPosition)->get(index)));
+		$var($Long, l, $cast($Long, this->imageStartPosition->get(index)));
 		$nc(this->stream)->seek($nc(l)->longValue());
 		while (index < imageIndex) {
 			if (!skipImage()) {
@@ -574,7 +482,7 @@ int32_t GIFImageReader::locateImage(int32_t imageIndex) {
 }
 
 $bytes* GIFImageReader::concatenateBlocks() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, data, $new($bytes, 0));
 	while (true) {
 		int32_t length = $nc(this->stream)->readUnsignedByte();
@@ -590,7 +498,7 @@ $bytes* GIFImageReader::concatenateBlocks() {
 }
 
 void GIFImageReader::readMetadata() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "Input not set!"_s);
 	}
@@ -605,13 +513,13 @@ void GIFImageReader::readMetadata() {
 				$nc(this->imageMetadata)->imageWidth = $nc(this->stream)->readUnsignedShort();
 				$nc(this->imageMetadata)->imageHeight = $nc(this->stream)->readUnsignedShort();
 				int32_t idPackedFields = $nc(this->stream)->readUnsignedByte();
-				bool localColorTableFlag = ((int32_t)(idPackedFields & (uint32_t)128)) != 0;
-				$nc(this->imageMetadata)->interlaceFlag = ((int32_t)(idPackedFields & (uint32_t)64)) != 0;
-				$nc(this->imageMetadata)->sortFlag = ((int32_t)(idPackedFields & (uint32_t)32)) != 0;
-				int32_t numLCTEntries = $sl(1, ((int32_t)(idPackedFields & (uint32_t)7)) + 1);
+				bool localColorTableFlag = (idPackedFields & 0x80) != 0;
+				$nc(this->imageMetadata)->interlaceFlag = (idPackedFields & 0x40) != 0;
+				this->imageMetadata->sortFlag = (idPackedFields & 0x20) != 0;
+				int32_t numLCTEntries = $sl(1, (idPackedFields & 7) + 1);
 				if (localColorTableFlag) {
-					$set($nc(this->imageMetadata), localColorTable, $new($bytes, 3 * numLCTEntries));
-					$nc(this->stream)->readFully($nc(this->imageMetadata)->localColorTable);
+					$set(this->imageMetadata, localColorTable, $new($bytes, 3 * numLCTEntries));
+					$nc(this->stream)->readFully(this->imageMetadata->localColorTable);
 				} else {
 					$set($nc(this->imageMetadata), localColorTable, nullptr);
 				}
@@ -622,16 +530,16 @@ void GIFImageReader::readMetadata() {
 				if (label == 249) {
 					int32_t gceLength = $nc(this->stream)->readUnsignedByte();
 					int32_t gcePackedFields = $nc(this->stream)->readUnsignedByte();
-					$nc(this->imageMetadata)->disposalMethod = (int32_t)((gcePackedFields >> 2) & (uint32_t)3);
-					$nc(this->imageMetadata)->userInputFlag = ((int32_t)(gcePackedFields & (uint32_t)2)) != 0;
-					$nc(this->imageMetadata)->transparentColorFlag = ((int32_t)(gcePackedFields & (uint32_t)1)) != 0;
-					$nc(this->imageMetadata)->delayTime = $nc(this->stream)->readUnsignedShort();
+					$nc(this->imageMetadata)->disposalMethod = (gcePackedFields >> 2) & 3;
+					this->imageMetadata->userInputFlag = (gcePackedFields & 2) != 0;
+					this->imageMetadata->transparentColorFlag = (gcePackedFields & 1) != 0;
+					this->imageMetadata->delayTime = $nc(this->stream)->readUnsignedShort();
 					$nc(this->imageMetadata)->transparentColorIndex = $nc(this->stream)->readUnsignedByte();
 					int32_t terminator = $nc(this->stream)->readUnsignedByte();
 				} else if (label == 1) {
 					int32_t length = $nc(this->stream)->readUnsignedByte();
 					$nc(this->imageMetadata)->hasPlainTextExtension = true;
-					$nc(this->imageMetadata)->textGridLeft = $nc(this->stream)->readUnsignedShort();
+					this->imageMetadata->textGridLeft = $nc(this->stream)->readUnsignedShort();
 					$nc(this->imageMetadata)->textGridTop = $nc(this->stream)->readUnsignedShort();
 					$nc(this->imageMetadata)->textGridWidth = $nc(this->stream)->readUnsignedShort();
 					$nc(this->imageMetadata)->textGridHeight = $nc(this->stream)->readUnsignedShort();
@@ -643,9 +551,9 @@ void GIFImageReader::readMetadata() {
 				} else if (label == 254) {
 					$var($bytes, comment, concatenateBlocks());
 					if ($nc(this->imageMetadata)->comments == nullptr) {
-						$set($nc(this->imageMetadata), comments, $new($ArrayList));
+						$set(this->imageMetadata, comments, $new($ArrayList));
 					}
-					$nc($nc(this->imageMetadata)->comments)->add(comment);
+					$nc(this->imageMetadata->comments)->add(comment);
 				} else if (label == 255) {
 					int32_t blockSize = $nc(this->stream)->readUnsignedByte();
 					$var($bytes, applicationID, $new($bytes, 8));
@@ -663,13 +571,13 @@ void GIFImageReader::readMetadata() {
 						$assign(applicationData, data);
 					}
 					if ($nc(this->imageMetadata)->applicationIDs == nullptr) {
-						$set($nc(this->imageMetadata), applicationIDs, $new($ArrayList));
-						$set($nc(this->imageMetadata), authenticationCodes, $new($ArrayList));
-						$set($nc(this->imageMetadata), applicationData, $new($ArrayList));
+						$set(this->imageMetadata, applicationIDs, $new($ArrayList));
+						$set(this->imageMetadata, authenticationCodes, $new($ArrayList));
+						$set(this->imageMetadata, applicationData, $new($ArrayList));
 					}
-					$nc($nc(this->imageMetadata)->applicationIDs)->add(applicationID);
-					$nc($nc(this->imageMetadata)->authenticationCodes)->add(authCode);
-					$nc($nc(this->imageMetadata)->applicationData)->add(applicationData);
+					$nc(this->imageMetadata->applicationIDs)->add(applicationID);
+					$nc(this->imageMetadata->authenticationCodes)->add(authCode);
+					$nc(this->imageMetadata->applicationData)->add(applicationData);
 				} else {
 					int32_t length = 0;
 					do {
@@ -701,12 +609,12 @@ int32_t GIFImageReader::copyData($bytes* src, int32_t offset, $bytes* dst) {
 }
 
 void GIFImageReader::startPass(int32_t pass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->updateListeners == nullptr || !$nc(this->imageMetadata)->interlaceFlag) {
 		return;
 	}
-	int32_t y = $nc(GIFImageReader::interlaceOffset)->get(this->interlacePass);
-	int32_t yStep = $nc(GIFImageReader::interlaceIncrement)->get(this->interlacePass);
+	int32_t y = GIFImageReader::interlaceOffset->get(this->interlacePass);
+	int32_t yStep = GIFImageReader::interlaceIncrement->get(this->interlacePass);
 	$var($ints, vals, $ReaderUtil::computeUpdatedPixels(this->sourceRegion, this->destinationOffset, $nc(this->destinationRegion)->x, $nc(this->destinationRegion)->y, $nc(this->destinationRegion)->x + $nc(this->destinationRegion)->width - 1, $nc(this->destinationRegion)->y + $nc(this->destinationRegion)->height - 1, this->sourceXSubsampling, this->sourceYSubsampling, 0, y, $nc(this->destinationRegion)->width, $div(($nc(this->destinationRegion)->height + yStep - 1), yStep), 1, yStep));
 	this->updateMinY = $nc(vals)->get(1);
 	this->updateYStep = vals->get(5);
@@ -715,7 +623,7 @@ void GIFImageReader::startPass(int32_t pass) {
 }
 
 $BufferedImage* GIFImageReader::read(int32_t imageIndex, $ImageReadParam* param$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageReadParam, param, param$renamed);
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "Input not set!"_s);
@@ -733,7 +641,7 @@ $BufferedImage* GIFImageReader::read(int32_t imageIndex, $ImageReadParam* param$
 	$set(this, theImage, getDestination(param, imageTypes, $nc(this->imageMetadata)->imageWidth, $nc(this->imageMetadata)->imageHeight));
 	$set(this, theTile, $nc(this->theImage)->getWritableTile(0, 0));
 	this->width = $nc(this->imageMetadata)->imageWidth;
-	this->height = $nc(this->imageMetadata)->imageHeight;
+	this->height = this->imageMetadata->imageHeight;
 	this->streamX = 0;
 	this->streamY = 0;
 	this->rowsDone = 0;
@@ -873,10 +781,9 @@ void GIFImageReader::resetStreamSettings() {
 }
 
 $bytes* GIFImageReader::getDefaultPalette() {
-	$load(GIFImageReader);
+	$init(GIFImageReader);
 	$synchronized(class$) {
-		$init(GIFImageReader);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (GIFImageReader::defaultPalette == nullptr) {
 			$var($BufferedImage, img, $new($BufferedImage, 1, 1, $BufferedImage::TYPE_BYTE_INDEXED));
 			$var($IndexColorModel, icm, $cast($IndexColorModel, img->getColorModel()));
@@ -889,16 +796,16 @@ $bytes* GIFImageReader::getDefaultPalette() {
 			icm->getBlues(b);
 			$assignStatic(GIFImageReader::defaultPalette, $new($bytes, size * 3));
 			for (int32_t i = 0; i < size; ++i) {
-				$nc(GIFImageReader::defaultPalette)->set(3 * i + 0, r->get(i));
-				$nc(GIFImageReader::defaultPalette)->set(3 * i + 1, g->get(i));
-				$nc(GIFImageReader::defaultPalette)->set(3 * i + 2, b->get(i));
+				GIFImageReader::defaultPalette->set(3 * i + 0, r->get(i));
+				GIFImageReader::defaultPalette->set(3 * i + 1, g->get(i));
+				GIFImageReader::defaultPalette->set(3 * i + 2, b->get(i));
 			}
 		}
 		return GIFImageReader::defaultPalette;
 	}
 }
 
-void clinit$GIFImageReader($Class* class$) {
+void GIFImageReader::clinit$($Class* clazz) {
 	$assignStatic(GIFImageReader::interlaceIncrement, $new($ints, {
 		8,
 		8,
@@ -920,7 +827,92 @@ GIFImageReader::GIFImageReader() {
 }
 
 $Class* GIFImageReader::load$($String* name, bool initialize) {
-	$loadClass(GIFImageReader, name, initialize, &_GIFImageReader_ClassInfo_, clinit$GIFImageReader, allocate$GIFImageReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(GIFImageReader, stream)},
+		{"gotHeader", "Z", nullptr, 0, $field(GIFImageReader, gotHeader)},
+		{"streamMetadata", "Lcom/sun/imageio/plugins/gif/GIFStreamMetadata;", nullptr, 0, $field(GIFImageReader, streamMetadata)},
+		{"currIndex", "I", nullptr, 0, $field(GIFImageReader, currIndex)},
+		{"imageMetadata", "Lcom/sun/imageio/plugins/gif/GIFImageMetadata;", nullptr, 0, $field(GIFImageReader, imageMetadata)},
+		{"imageStartPosition", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Long;>;", 0, $field(GIFImageReader, imageStartPosition)},
+		{"imageMetadataLength", "I", nullptr, 0, $field(GIFImageReader, imageMetadataLength)},
+		{"numImages", "I", nullptr, 0, $field(GIFImageReader, numImages)},
+		{"block", "[B", nullptr, 0, $field(GIFImageReader, block)},
+		{"blockLength", "I", nullptr, 0, $field(GIFImageReader, blockLength)},
+		{"bitPos", "I", nullptr, 0, $field(GIFImageReader, bitPos)},
+		{"nextByte", "I", nullptr, 0, $field(GIFImageReader, nextByte)},
+		{"initCodeSize", "I", nullptr, 0, $field(GIFImageReader, initCodeSize)},
+		{"clearCode", "I", nullptr, 0, $field(GIFImageReader, clearCode)},
+		{"eofCode", "I", nullptr, 0, $field(GIFImageReader, eofCode)},
+		{"next32Bits", "I", nullptr, 0, $field(GIFImageReader, next32Bits)},
+		{"lastBlockFound", "Z", nullptr, 0, $field(GIFImageReader, lastBlockFound)},
+		{"theImage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(GIFImageReader, theImage)},
+		{"theTile", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(GIFImageReader, theTile)},
+		{"width", "I", nullptr, 0, $field(GIFImageReader, width)},
+		{"height", "I", nullptr, 0, $field(GIFImageReader, height)},
+		{"streamX", "I", nullptr, 0, $field(GIFImageReader, streamX)},
+		{"streamY", "I", nullptr, 0, $field(GIFImageReader, streamY)},
+		{"rowsDone", "I", nullptr, 0, $field(GIFImageReader, rowsDone)},
+		{"interlacePass", "I", nullptr, 0, $field(GIFImageReader, interlacePass)},
+		{"fallbackColorTable", "[B", nullptr, $PRIVATE, $field(GIFImageReader, fallbackColorTable)},
+		{"interlaceIncrement", "[I", nullptr, $STATIC | $FINAL, $staticField(GIFImageReader, interlaceIncrement)},
+		{"interlaceOffset", "[I", nullptr, $STATIC | $FINAL, $staticField(GIFImageReader, interlaceOffset)},
+		{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, 0, $field(GIFImageReader, sourceRegion)},
+		{"sourceXSubsampling", "I", nullptr, 0, $field(GIFImageReader, sourceXSubsampling)},
+		{"sourceYSubsampling", "I", nullptr, 0, $field(GIFImageReader, sourceYSubsampling)},
+		{"sourceMinProgressivePass", "I", nullptr, 0, $field(GIFImageReader, sourceMinProgressivePass)},
+		{"sourceMaxProgressivePass", "I", nullptr, 0, $field(GIFImageReader, sourceMaxProgressivePass)},
+		{"destinationOffset", "Ljava/awt/Point;", nullptr, 0, $field(GIFImageReader, destinationOffset)},
+		{"destinationRegion", "Ljava/awt/Rectangle;", nullptr, 0, $field(GIFImageReader, destinationRegion)},
+		{"updateMinY", "I", nullptr, 0, $field(GIFImageReader, updateMinY)},
+		{"updateYStep", "I", nullptr, 0, $field(GIFImageReader, updateYStep)},
+		{"decodeThisRow", "Z", nullptr, 0, $field(GIFImageReader, decodeThisRow)},
+		{"destY", "I", nullptr, 0, $field(GIFImageReader, destY)},
+		{"rowBuf", "[B", nullptr, 0, $field(GIFImageReader, rowBuf)},
+		{"defaultPalette", "[B", nullptr, $PRIVATE | $STATIC, $staticField(GIFImageReader, defaultPalette)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(GIFImageReader, init$, void, $ImageReaderSpi*)},
+		{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(GIFImageReader, checkIndex, void, int32_t)},
+		{"computeDecodeThisRow", "()V", nullptr, $PRIVATE, $method(GIFImageReader, computeDecodeThisRow, void)},
+		{"concatenateBlocks", "()[B", nullptr, $PRIVATE, $method(GIFImageReader, concatenateBlocks, $bytes*), "java.io.IOException"},
+		{"copyData", "([BI[B)I", nullptr, $PRIVATE, $method(GIFImageReader, copyData, int32_t, $bytes*, int32_t, $bytes*)},
+		{"createIndexed", "([B[B[BI)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $method(GIFImageReader, createIndexed, $ImageTypeSpecifier*, $bytes*, $bytes*, $bytes*, int32_t)},
+		{"getCode", "(II)I", nullptr, $PRIVATE, $method(GIFImageReader, getCode, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"getDefaultPalette", "()[B", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(GIFImageReader, getDefaultPalette, $bytes*)},
+		{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getDefaultReadParam, $ImageReadParam*)},
+		{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getHeight, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getImageMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
+		{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(GIFImageReader, getImageTypes, $Iterator*, int32_t), "javax.imageio.IIOException"},
+		{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getNumImages, int32_t, bool), "javax.imageio.IIOException"},
+		{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getStreamMetadata, $IIOMetadata*), "javax.imageio.IIOException"},
+		{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, getWidth, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"initNext32Bits", "()V", nullptr, $PRIVATE, $method(GIFImageReader, initNext32Bits, void)},
+		{"initializeStringTable", "([I[B[B[I)V", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, initializeStringTable, void, $ints*, $bytes*, $bytes*, $ints*)},
+		{"locateImage", "(I)I", nullptr, $PRIVATE, $method(GIFImageReader, locateImage, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"outputPixels", "([BI)V", nullptr, $PRIVATE, $method(GIFImageReader, outputPixels, void, $bytes*, int32_t)},
+		{"outputRow", "()V", nullptr, $PRIVATE, $method(GIFImageReader, outputRow, void)},
+		{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "javax.imageio.IIOException"},
+		{"readHeader", "()V", nullptr, $PRIVATE, $method(GIFImageReader, readHeader, void), "javax.imageio.IIOException"},
+		{"readMetadata", "()V", nullptr, $PRIVATE, $method(GIFImageReader, readMetadata, void), "javax.imageio.IIOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, reset, void)},
+		{"resetStreamSettings", "()V", nullptr, $PRIVATE, $method(GIFImageReader, resetStreamSettings, void)},
+		{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(GIFImageReader, setInput, void, Object$*, bool, bool)},
+		{"skipImage", "()Z", nullptr, $PRIVATE, $method(GIFImageReader, skipImage, bool), "javax.imageio.IIOException"},
+		{"startPass", "(I)V", nullptr, $PRIVATE, $method(GIFImageReader, startPass, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFImageReader",
+		"javax.imageio.ImageReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFImageReader, name, initialize, &classInfo$$, GIFImageReader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFImageReader);
+	});
 	return class$;
 }
 

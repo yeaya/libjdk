@@ -42,12 +42,15 @@ public:
 	virtual void printStackTrace() override;
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
-	static const int64_t serialVersionUID = (int64_t)0x638D48B065ED480B;
+	static const int64_t serialVersionUID = (int64_t)0x638d48b065ed480b;
 	$Throwable* cause = nullptr;
 	::javax::xml::crypto::URIReference* uriReference = nullptr;
 	URIReferenceException(const URIReferenceException& e);
 	virtual void throw$() override;
-	inline URIReferenceException* operator ->() {
+	inline URIReferenceException* operator ->() const {
+		return (URIReferenceException*)throwing$;
+	}
+	inline operator URIReferenceException*() const {
 		return (URIReferenceException*)throwing$;
 	}
 };

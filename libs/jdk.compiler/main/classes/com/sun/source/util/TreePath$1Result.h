@@ -25,11 +25,14 @@ class TreePath$1Result : public ::java::lang::Error {
 public:
 	TreePath$1Result();
 	void init$(::com::sun::source::util::TreePath* path);
-	static const int64_t serialVersionUID = (int64_t)0xAD89763BB0F151E7;
+	static const int64_t serialVersionUID = (int64_t)0xad89763bb0f151e7;
 	::com::sun::source::util::TreePath* path = nullptr;
 	TreePath$1Result(const TreePath$1Result& e);
 	virtual void throw$() override;
-	inline TreePath$1Result* operator ->() {
+	inline TreePath$1Result* operator ->() const {
+		return (TreePath$1Result*)throwing$;
+	}
+	inline operator TreePath$1Result*() const {
 		return (TreePath$1Result*)throwing$;
 	}
 };

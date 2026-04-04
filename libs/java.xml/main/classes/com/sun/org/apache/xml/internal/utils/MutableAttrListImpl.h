@@ -37,7 +37,7 @@ public:
 	virtual void addAttributes(::org::xml::sax::Attributes* atts);
 	virtual bool contains($String* name);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x57489F488521A6C6;
+	static const int64_t serialVersionUID = (int64_t)0x57489f488521a6c6;
 };
 
 						} // utils

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneContrastUI.h>
-
 #include <apple/laf/JRSUIConstants$SegmentLeadingSeparator.h>
 #include <apple/laf/JRSUIConstants$SegmentTrailingSeparator.h>
 #include <apple/laf/JRSUIConstants$State.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -41,14 +39,11 @@ using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $Color = ::java::awt::Color;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -58,34 +53,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaTabbedPaneContrastUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTabbedPaneContrastUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getNonSelectedTabTitleColor", "()Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, getNonSelectedTabTitleColor, $Color*)},
-	{"getSegmentLeadingSeparator", "(IIZ)Lapple/laf/JRSUIConstants$SegmentLeadingSeparator;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, getSegmentLeadingSeparator, $JRSUIConstants$SegmentLeadingSeparator*, int32_t, int32_t, bool)},
-	{"getSegmentTrailingSeparator", "(IIZ)Lapple/laf/JRSUIConstants$SegmentTrailingSeparator;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, getSegmentTrailingSeparator, $JRSUIConstants$SegmentTrailingSeparator*, int32_t, int32_t, bool)},
-	{"getSelectedTabTitleColor", "(ZZ)Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, getSelectedTabTitleColor, $Color*, bool, bool)},
-	{"getSelectedTabTitleShadowColor", "(Z)Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, getSelectedTabTitleShadowColor, $Color*, bool)},
-	{"getState", "(IZZ)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, getState, $JRSUIConstants$State*, int32_t, bool, bool)},
-	{"isPressedAt", "(I)Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, isPressedAt, bool, int32_t)},
-	{"paintTitle", "(Ljava/awt/Graphics2D;Ljava/awt/Font;Ljava/awt/FontMetrics;Ljava/awt/Rectangle;ILjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, paintTitle, void, $Graphics2D*, $Font*, $FontMetrics*, $Rectangle*, int32_t, $String*)},
-	{"shouldRepaintSelectedTabOnMouseDown", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, shouldRepaintSelectedTabOnMouseDown, bool)},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneContrastUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneContrastUI",
-	"com.apple.laf.AquaTabbedPaneUI",
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneContrastUI_MethodInfo_
-};
-
-$Object* allocate$AquaTabbedPaneContrastUI($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneContrastUI));
-}
 
 $ComponentUI* AquaTabbedPaneContrastUI::createUI($JComponent* c) {
 	$init(AquaTabbedPaneContrastUI);
@@ -97,7 +64,7 @@ void AquaTabbedPaneContrastUI::init$() {
 }
 
 void AquaTabbedPaneContrastUI::paintTitle($Graphics2D* g2d, $Font* font, $FontMetrics* metrics, $Rectangle* textRect, int32_t tabIndex, $String* title) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, v, getTextViewForTab(tabIndex));
 	if (v != nullptr) {
 		v->paint(g2d, textRect);
@@ -112,17 +79,17 @@ void AquaTabbedPaneContrastUI::paintTitle($Graphics2D* g2d, $Font* font, $FontMe
 		if ($nc(this->tabPane)->getSelectedIndex() == tabIndex) {
 			bool pressed = isPressedAt(tabIndex);
 			bool var$0 = $nc(this->tabPane)->isEnabled();
-			bool enabled = var$0 && $nc(this->tabPane)->isEnabledAt(tabIndex);
+			bool enabled = var$0 && this->tabPane->isEnabledAt(tabIndex);
 			$var($Color, textColor, getSelectedTabTitleColor(enabled, pressed));
 			$var($Color, shadowColor, getSelectedTabTitleShadowColor(enabled));
-			$AquaUtils::paintDropShadowText(g2d, this->tabPane, font, metrics, $nc(textRect)->x, textRect->y, 0, 1, textColor, shadowColor, title);
+			$AquaUtils::paintDropShadowText(g2d, this->tabPane, font, metrics, $nc(textRect)->x, $nc(textRect)->y, 0, 1, textColor, shadowColor, title);
 			return;
 		}
 	} else {
 		$nc(g2d)->setColor(color);
 	}
 	$nc(g2d)->setFont(font);
-	$SwingUtilities2::drawString(static_cast<$JComponent*>(this->tabPane), static_cast<$Graphics*>(g2d), title, $nc(textRect)->x, textRect->y + $nc(metrics)->getAscent());
+	$SwingUtilities2::drawString(this->tabPane, g2d, title, $nc(textRect)->x, $nc(textRect)->y + $nc(metrics)->getAscent());
 }
 
 $Color* AquaTabbedPaneContrastUI::getSelectedTabTitleColor(bool enabled, bool pressed) {
@@ -147,7 +114,7 @@ $Color* AquaTabbedPaneContrastUI::getNonSelectedTabTitleColor() {
 }
 
 bool AquaTabbedPaneContrastUI::isPressedAt(int32_t index) {
-	return $nc(($cast($AquaTabbedPaneUI$MouseHandler, this->mouseListener)))->trackingTab == index;
+	return $nc($cast($AquaTabbedPaneUI$MouseHandler, this->mouseListener))->trackingTab == index;
 }
 
 bool AquaTabbedPaneContrastUI::shouldRepaintSelectedTabOnMouseDown() {
@@ -193,7 +160,31 @@ AquaTabbedPaneContrastUI::AquaTabbedPaneContrastUI() {
 }
 
 $Class* AquaTabbedPaneContrastUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneContrastUI, name, initialize, &_AquaTabbedPaneContrastUI_ClassInfo_, allocate$AquaTabbedPaneContrastUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTabbedPaneContrastUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getNonSelectedTabTitleColor", "()Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, getNonSelectedTabTitleColor, $Color*)},
+		{"getSegmentLeadingSeparator", "(IIZ)Lapple/laf/JRSUIConstants$SegmentLeadingSeparator;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, getSegmentLeadingSeparator, $JRSUIConstants$SegmentLeadingSeparator*, int32_t, int32_t, bool)},
+		{"getSegmentTrailingSeparator", "(IIZ)Lapple/laf/JRSUIConstants$SegmentTrailingSeparator;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, getSegmentTrailingSeparator, $JRSUIConstants$SegmentTrailingSeparator*, int32_t, int32_t, bool)},
+		{"getSelectedTabTitleColor", "(ZZ)Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, getSelectedTabTitleColor, $Color*, bool, bool)},
+		{"getSelectedTabTitleShadowColor", "(Z)Ljava/awt/Color;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneContrastUI, getSelectedTabTitleShadowColor, $Color*, bool)},
+		{"getState", "(IZZ)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, getState, $JRSUIConstants$State*, int32_t, bool, bool)},
+		{"isPressedAt", "(I)Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, isPressedAt, bool, int32_t)},
+		{"paintTitle", "(Ljava/awt/Graphics2D;Ljava/awt/Font;Ljava/awt/FontMetrics;Ljava/awt/Rectangle;ILjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, paintTitle, void, $Graphics2D*, $Font*, $FontMetrics*, $Rectangle*, int32_t, $String*)},
+		{"shouldRepaintSelectedTabOnMouseDown", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneContrastUI, shouldRepaintSelectedTabOnMouseDown, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneContrastUI",
+		"com.apple.laf.AquaTabbedPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaTabbedPaneContrastUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneContrastUI));
+	});
 	return class$;
 }
 

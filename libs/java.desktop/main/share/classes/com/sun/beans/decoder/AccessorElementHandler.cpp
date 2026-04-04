@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/AccessorElementHandler.h>
-
 #include <com/sun/beans/decoder/ElementHandler.h>
 #include <com/sun/beans/decoder/ValueObject.h>
 #include <com/sun/beans/decoder/ValueObjectImpl.h>
@@ -20,35 +19,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$FieldInfo _AccessorElementHandler_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AccessorElementHandler, name)},
-	{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(AccessorElementHandler, value)},
-	{}
-};
-
-$MethodInfo _AccessorElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AccessorElementHandler, init$, void)},
-	{"addArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AccessorElementHandler, addArgument, void, Object$*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessorElementHandler, addAttribute, void, $String*, $String*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AccessorElementHandler, getValue, $Object*, $String*)},
-	{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(AccessorElementHandler, getValueObject, $ValueObject*)},
-	{"setValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AccessorElementHandler, setValue, void, $String*, Object$*)},
-	{}
-};
-
-$ClassInfo _AccessorElementHandler_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.beans.decoder.AccessorElementHandler",
-	"com.sun.beans.decoder.ElementHandler",
-	nullptr,
-	_AccessorElementHandler_FieldInfo_,
-	_AccessorElementHandler_MethodInfo_
-};
-
-$Object* allocate$AccessorElementHandler($Class* clazz) {
-	return $of($alloc(AccessorElementHandler));
-}
 
 void AccessorElementHandler::init$() {
 	$ElementHandler::init$();
@@ -82,7 +52,31 @@ AccessorElementHandler::AccessorElementHandler() {
 }
 
 $Class* AccessorElementHandler::load$($String* name, bool initialize) {
-	$loadClass(AccessorElementHandler, name, initialize, &_AccessorElementHandler_ClassInfo_, allocate$AccessorElementHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AccessorElementHandler, name)},
+		{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(AccessorElementHandler, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AccessorElementHandler, init$, void)},
+		{"addArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AccessorElementHandler, addArgument, void, Object$*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessorElementHandler, addAttribute, void, $String*, $String*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AccessorElementHandler, getValue, $Object*, $String*)},
+		{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED | $FINAL, $virtualMethod(AccessorElementHandler, getValueObject, $ValueObject*)},
+		{"setValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AccessorElementHandler, setValue, void, $String*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.beans.decoder.AccessorElementHandler",
+		"com.sun.beans.decoder.ElementHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccessorElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessorElementHandler);
+	});
 	return class$;
 }
 

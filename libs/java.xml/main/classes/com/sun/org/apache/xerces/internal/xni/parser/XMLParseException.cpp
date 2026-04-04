@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <java/lang/StringBuffer.h>
@@ -21,45 +20,6 @@ namespace com {
 					namespace internal {
 						namespace xni {
 							namespace parser {
-
-$FieldInfo _XMLParseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XMLParseException, serialVersionUID)},
-	{"fPublicId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fPublicId)},
-	{"fLiteralSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fLiteralSystemId)},
-	{"fExpandedSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fExpandedSystemId)},
-	{"fBaseSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fBaseSystemId)},
-	{"fLineNumber", "I", nullptr, $PROTECTED, $field(XMLParseException, fLineNumber)},
-	{"fColumnNumber", "I", nullptr, $PROTECTED, $field(XMLParseException, fColumnNumber)},
-	{"fCharacterOffset", "I", nullptr, $PROTECTED, $field(XMLParseException, fCharacterOffset)},
-	{}
-};
-
-$MethodInfo _XMLParseException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParseException, init$, void, $XMLLocator*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLParseException, init$, void, $XMLLocator*, $String*, $Exception*)},
-	{"getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getBaseSystemId, $String*)},
-	{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getCharacterOffset, int32_t)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getColumnNumber, int32_t)},
-	{"getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getExpandedSystemId, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getLineNumber, int32_t)},
-	{"getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getLiteralSystemId, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getPublicId, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _XMLParseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLParseException",
-	"com.sun.org.apache.xerces.internal.xni.XNIException",
-	nullptr,
-	_XMLParseException_FieldInfo_,
-	_XMLParseException_MethodInfo_
-};
-
-$Object* allocate$XMLParseException($Class* clazz) {
-	return $of($alloc(XMLParseException));
-}
 
 void XMLParseException::init$($XMLLocator* locator, $String* message) {
 	$XNIException::init$(message);
@@ -122,7 +82,7 @@ int32_t XMLParseException::getCharacterOffset() {
 }
 
 $String* XMLParseException::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, str, $new($StringBuffer));
 	if (this->fPublicId != nullptr) {
 		str->append(this->fPublicId);
@@ -170,7 +130,41 @@ void XMLParseException::throw$() {
 }
 
 $Class* XMLParseException::load$($String* name, bool initialize) {
-	$loadClass(XMLParseException, name, initialize, &_XMLParseException_ClassInfo_, allocate$XMLParseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XMLParseException, serialVersionUID)},
+		{"fPublicId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fPublicId)},
+		{"fLiteralSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fLiteralSystemId)},
+		{"fExpandedSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fExpandedSystemId)},
+		{"fBaseSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLParseException, fBaseSystemId)},
+		{"fLineNumber", "I", nullptr, $PROTECTED, $field(XMLParseException, fLineNumber)},
+		{"fColumnNumber", "I", nullptr, $PROTECTED, $field(XMLParseException, fColumnNumber)},
+		{"fCharacterOffset", "I", nullptr, $PROTECTED, $field(XMLParseException, fCharacterOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParseException, init$, void, $XMLLocator*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLParseException, init$, void, $XMLLocator*, $String*, $Exception*)},
+		{"getBaseSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getBaseSystemId, $String*)},
+		{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getCharacterOffset, int32_t)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getColumnNumber, int32_t)},
+		{"getExpandedSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getExpandedSystemId, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getLineNumber, int32_t)},
+		{"getLiteralSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getLiteralSystemId, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, getPublicId, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLParseException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLParseException",
+		"com.sun.org.apache.xerces.internal.xni.XNIException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLParseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLParseException);
+	});
 	return class$;
 }
 

@@ -61,6 +61,7 @@ class $import Http1HeaderParser : public ::java::lang::Object {
 	$class(Http1HeaderParser, 0, ::java::lang::Object)
 public:
 	Http1HeaderParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addHeaderFromString($String* headerString);
 	bool canContinueParsing(::java::nio::ByteBuffer* buffer);

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbServiceLocator$SrvRecord.h>
-
 #include <java/util/StringTokenizer.h>
 #include <sun/security/krb5/KrbServiceLocator.h>
 #include <jcpp.h>
@@ -16,48 +15,8 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbServiceLocator$SrvRecord_FieldInfo_[] = {
-	{"priority", "I", nullptr, 0, $field(KrbServiceLocator$SrvRecord, priority)},
-	{"weight", "I", nullptr, 0, $field(KrbServiceLocator$SrvRecord, weight)},
-	{"sum", "I", nullptr, 0, $field(KrbServiceLocator$SrvRecord, sum)},
-	{"hostport", "Ljava/lang/String;", nullptr, 0, $field(KrbServiceLocator$SrvRecord, hostport)},
-	{}
-};
-
-$MethodInfo _KrbServiceLocator$SrvRecord_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(KrbServiceLocator$SrvRecord, init$, void, $String*), "java.lang.Exception"},
-	{"compareTo", "(Lsun/security/krb5/KrbServiceLocator$SrvRecord;)I", nullptr, $PUBLIC, $virtualMethod(KrbServiceLocator$SrvRecord, compareTo, int32_t, KrbServiceLocator$SrvRecord*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KrbServiceLocator$SrvRecord, compareTo, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _KrbServiceLocator$SrvRecord_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KrbServiceLocator$SrvRecord", "sun.security.krb5.KrbServiceLocator", "SrvRecord", $STATIC},
-	{}
-};
-
-$ClassInfo _KrbServiceLocator$SrvRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.KrbServiceLocator$SrvRecord",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_KrbServiceLocator$SrvRecord_FieldInfo_,
-	_KrbServiceLocator$SrvRecord_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/security/krb5/KrbServiceLocator$SrvRecord;>;",
-	nullptr,
-	_KrbServiceLocator$SrvRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KrbServiceLocator"
-};
-
-$Object* allocate$KrbServiceLocator$SrvRecord($Class* clazz) {
-	return $of($alloc(KrbServiceLocator$SrvRecord));
-}
-
 void KrbServiceLocator$SrvRecord::init$($String* srvRecord) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, srvRecord, " "_s));
 	$var($String, port, nullptr);
 	if (tokenizer->countTokens() == 4) {
@@ -92,7 +51,41 @@ KrbServiceLocator$SrvRecord::KrbServiceLocator$SrvRecord() {
 }
 
 $Class* KrbServiceLocator$SrvRecord::load$($String* name, bool initialize) {
-	$loadClass(KrbServiceLocator$SrvRecord, name, initialize, &_KrbServiceLocator$SrvRecord_ClassInfo_, allocate$KrbServiceLocator$SrvRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"priority", "I", nullptr, 0, $field(KrbServiceLocator$SrvRecord, priority)},
+		{"weight", "I", nullptr, 0, $field(KrbServiceLocator$SrvRecord, weight)},
+		{"sum", "I", nullptr, 0, $field(KrbServiceLocator$SrvRecord, sum)},
+		{"hostport", "Ljava/lang/String;", nullptr, 0, $field(KrbServiceLocator$SrvRecord, hostport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(KrbServiceLocator$SrvRecord, init$, void, $String*), "java.lang.Exception"},
+		{"compareTo", "(Lsun/security/krb5/KrbServiceLocator$SrvRecord;)I", nullptr, $PUBLIC, $virtualMethod(KrbServiceLocator$SrvRecord, compareTo, int32_t, KrbServiceLocator$SrvRecord*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KrbServiceLocator$SrvRecord, compareTo, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KrbServiceLocator$SrvRecord", "sun.security.krb5.KrbServiceLocator", "SrvRecord", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.KrbServiceLocator$SrvRecord",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/security/krb5/KrbServiceLocator$SrvRecord;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KrbServiceLocator"
+	};
+	$loadClass(KrbServiceLocator$SrvRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbServiceLocator$SrvRecord);
+	});
 	return class$;
 }
 

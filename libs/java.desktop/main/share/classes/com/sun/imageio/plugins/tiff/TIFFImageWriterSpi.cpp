@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriterSpi.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
 #include <com/sun/imageio/plugins/tiff/TIFFStreamMetadata.h>
@@ -32,35 +31,8 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFImageWriterSpi_FieldInfo_[] = {
-	{"registered", "Z", nullptr, $PRIVATE, $field(TIFFImageWriterSpi, registered)},
-	{}
-};
-
-$MethodInfo _TIFFImageWriterSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFImageWriterSpi, init$, void)},
-	{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
-	{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*)},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriterSpi, getDescription, $String*, $Locale*)},
-	{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(TIFFImageWriterSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
-	{}
-};
-
-$ClassInfo _TIFFImageWriterSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFImageWriterSpi",
-	"javax.imageio.spi.ImageWriterSpi",
-	nullptr,
-	_TIFFImageWriterSpi_FieldInfo_,
-	_TIFFImageWriterSpi_MethodInfo_
-};
-
-$Object* allocate$TIFFImageWriterSpi($Class* clazz) {
-	return $of($alloc(TIFFImageWriterSpi));
-}
-
 void TIFFImageWriterSpi::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($ImageOutputStream);
 	$init($TIFFStreamMetadata);
 	$init($TIFFImageMetadata);
@@ -99,7 +71,29 @@ TIFFImageWriterSpi::TIFFImageWriterSpi() {
 }
 
 $Class* TIFFImageWriterSpi::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageWriterSpi, name, initialize, &_TIFFImageWriterSpi_ClassInfo_, allocate$TIFFImageWriterSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"registered", "Z", nullptr, $PRIVATE, $field(TIFFImageWriterSpi, registered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFImageWriterSpi, init$, void)},
+		{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
+		{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*)},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriterSpi, getDescription, $String*, $Locale*)},
+		{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(TIFFImageWriterSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFImageWriterSpi",
+		"javax.imageio.spi.ImageWriterSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageWriterSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageWriterSpi);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/PathAndPackageVerifier.h>
-
 #include <com/sun/source/tree/CompilationUnitTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/util/TaskEvent$Kind.h>
@@ -35,7 +34,6 @@ using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
@@ -44,50 +42,12 @@ namespace com {
 			namespace sjavac {
 				namespace comp {
 
-$FieldInfo _PathAndPackageVerifier_FieldInfo_[] = {
-	{"misplacedCompilationUnits", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/source/tree/CompilationUnitTree;>;", 0, $field(PathAndPackageVerifier, misplacedCompilationUnits)},
-	{}
-};
-
-$MethodInfo _PathAndPackageVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PathAndPackageVerifier, init$, void)},
-	{"checkPathAndPackage", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(PathAndPackageVerifier, checkPathAndPackage, bool, $Path*, $JCTree*)},
-	{"errorsDiscovered", "()Z", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier, errorsDiscovered, bool)},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier, finished, void, $TaskEvent*)},
-	{}
-};
-
-$InnerClassInfo _PathAndPackageVerifier_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator", "com.sun.tools.sjavac.comp.PathAndPackageVerifier", "EnclosingPkgIterator", $PRIVATE | $STATIC},
-	{"com.sun.tools.sjavac.comp.PathAndPackageVerifier$ParentIterator", "com.sun.tools.sjavac.comp.PathAndPackageVerifier", "ParentIterator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PathAndPackageVerifier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.PathAndPackageVerifier",
-	"java.lang.Object",
-	"com.sun.source.util.TaskListener",
-	_PathAndPackageVerifier_FieldInfo_,
-	_PathAndPackageVerifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PathAndPackageVerifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator,com.sun.tools.sjavac.comp.PathAndPackageVerifier$ParentIterator"
-};
-
-$Object* allocate$PathAndPackageVerifier($Class* clazz) {
-	return $of($alloc(PathAndPackageVerifier));
-}
-
 void PathAndPackageVerifier::init$() {
 	$set(this, misplacedCompilationUnits, $new($HashSet));
 }
 
 void PathAndPackageVerifier::finished($TaskEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TaskEvent$Kind);
 	if ($nc(e)->getKind() == $TaskEvent$Kind::ANALYZE) {
 		$var($CompilationUnitTree, cu, e->getCompilationUnit());
@@ -102,21 +62,19 @@ void PathAndPackageVerifier::finished($TaskEvent* e) {
 		if (pkg == nullptr) {
 			return;
 		}
-		$var($Path, dir, $nc($($nc($($Paths::get($($nc(jfo)->toUri()))))->normalize()))->getParent());
+		$var($Path, dir, $$nc($$nc($Paths::get($($nc(jfo)->toUri())))->normalize())->getParent());
 		if (!checkPathAndPackage(dir, pkg)) {
 			$nc(this->misplacedCompilationUnits)->add(cu);
 		}
 	}
-	if ($nc(e)->getKind() == $TaskEvent$Kind::COMPILATION) {
-		{
-			$var($Iterator, i$, $nc(this->misplacedCompilationUnits)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($CompilationUnitTree, cu, $cast($CompilationUnitTree, i$->next()));
-				{
-					$Log::error("Misplaced compilation unit."_s);
-					$Log::error($$str({"    Directory: "_s, $($nc($($Paths::get($($nc($($nc(cu)->getSourceFile()))->toUri()))))->getParent())}));
-					$Log::error($$str({"    Package:   "_s, $($nc(cu)->getPackageName())}));
-				}
+	if (e->getKind() == $TaskEvent$Kind::COMPILATION) {
+		$var($Iterator, i$, $nc(this->misplacedCompilationUnits)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($CompilationUnitTree, cu, $cast($CompilationUnitTree, i$->next()));
+			{
+				$Log::error("Misplaced compilation unit."_s);
+				$Log::error($$str({"    Directory: "_s, $($$nc($Paths::get($($$nc($nc(cu)->getSourceFile())->toUri())))->getParent())}));
+				$Log::error($$str({"    Package:   "_s, $(cu->getPackageName())}));
 			}
 		}
 	}
@@ -127,7 +85,7 @@ bool PathAndPackageVerifier::errorsDiscovered() {
 }
 
 bool PathAndPackageVerifier::checkPathAndPackage($Path* dir, $JCTree* pkgName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, pathIter, $new($PathAndPackageVerifier$ParentIterator, dir));
 	$var($Iterator, pkgIter, $new($PathAndPackageVerifier$EnclosingPkgIterator, pkgName));
 	while (true) {
@@ -136,7 +94,7 @@ bool PathAndPackageVerifier::checkPathAndPackage($Path* dir, $JCTree* pkgName) {
 			break;
 		}
 		{
-			if (!$nc(($cast($String, $(pathIter->next()))))->equals($(pkgIter->next()))) {
+			if (!$$sure($String, pathIter->next())->equals($(pkgIter->next()))) {
 				return false;
 			}
 		}
@@ -148,7 +106,39 @@ PathAndPackageVerifier::PathAndPackageVerifier() {
 }
 
 $Class* PathAndPackageVerifier::load$($String* name, bool initialize) {
-	$loadClass(PathAndPackageVerifier, name, initialize, &_PathAndPackageVerifier_ClassInfo_, allocate$PathAndPackageVerifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"misplacedCompilationUnits", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/source/tree/CompilationUnitTree;>;", 0, $field(PathAndPackageVerifier, misplacedCompilationUnits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PathAndPackageVerifier, init$, void)},
+		{"checkPathAndPackage", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(PathAndPackageVerifier, checkPathAndPackage, bool, $Path*, $JCTree*)},
+		{"errorsDiscovered", "()Z", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier, errorsDiscovered, bool)},
+		{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier, finished, void, $TaskEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator", "com.sun.tools.sjavac.comp.PathAndPackageVerifier", "EnclosingPkgIterator", $PRIVATE | $STATIC},
+		{"com.sun.tools.sjavac.comp.PathAndPackageVerifier$ParentIterator", "com.sun.tools.sjavac.comp.PathAndPackageVerifier", "ParentIterator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.PathAndPackageVerifier",
+		"java.lang.Object",
+		"com.sun.source.util.TaskListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator,com.sun.tools.sjavac.comp.PathAndPackageVerifier$ParentIterator"
+	};
+	$loadClass(PathAndPackageVerifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathAndPackageVerifier);
+	});
 	return class$;
 }
 

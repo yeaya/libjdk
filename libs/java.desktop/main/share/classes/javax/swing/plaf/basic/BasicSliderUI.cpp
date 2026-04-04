@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSliderUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
@@ -13,15 +12,12 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Polygon.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Shape.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/image/ImageObserver.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/util/Dictionary.h>
@@ -40,7 +36,6 @@
 #include <javax/swing/Timer.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/ChangeListener.h>
-#include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/InsetsUIResource.h>
 #include <javax/swing/plaf/SliderUI.h>
@@ -75,7 +70,6 @@
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -83,15 +77,10 @@ using $IllegalComponentStateException = ::java::awt::IllegalComponentStateExcept
 using $Insets = ::java::awt::Insets;
 using $Polygon = ::java::awt::Polygon;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $ImageObserver = ::java::awt::image::ImageObserver;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -104,9 +93,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $Dictionary = ::java::util::Dictionary;
 using $Enumeration = ::java::util::Enumeration;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $InputMap = ::javax::swing::InputMap;
@@ -118,7 +105,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $InsetsUIResource = ::javax::swing::plaf::InsetsUIResource;
 using $SliderUI = ::javax::swing::plaf::SliderUI;
@@ -134,159 +120,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSliderUI_FieldInfo_[] = {
-	{"SHARED_ACTION", "Ljavax/swing/plaf/basic/BasicSliderUI$Actions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSliderUI, SHARED_ACTION)},
-	{"POSITIVE_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, POSITIVE_SCROLL)},
-	{"NEGATIVE_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, NEGATIVE_SCROLL)},
-	{"MIN_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, MIN_SCROLL)},
-	{"MAX_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, MAX_SCROLL)},
-	{"scrollTimer", "Ljavax/swing/Timer;", nullptr, $PROTECTED, $field(BasicSliderUI, scrollTimer)},
-	{"slider", "Ljavax/swing/JSlider;", nullptr, $PROTECTED, $field(BasicSliderUI, slider)},
-	{"focusInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(BasicSliderUI, focusInsets)},
-	{"insetCache", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(BasicSliderUI, insetCache)},
-	{"leftToRightCache", "Z", nullptr, $PROTECTED, $field(BasicSliderUI, leftToRightCache)},
-	{"focusRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, focusRect)},
-	{"contentRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, contentRect)},
-	{"labelRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, labelRect)},
-	{"tickRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, tickRect)},
-	{"trackRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, trackRect)},
-	{"thumbRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, thumbRect)},
-	{"trackBuffer", "I", nullptr, $PROTECTED, $field(BasicSliderUI, trackBuffer)},
-	{"isDragging", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(BasicSliderUI, isDragging$)},
-	{"trackListener", "Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $field(BasicSliderUI, trackListener)},
-	{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicSliderUI, changeListener)},
-	{"componentListener", "Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $field(BasicSliderUI, componentListener)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicSliderUI, focusListener)},
-	{"scrollListener", "Ljavax/swing/plaf/basic/BasicSliderUI$ScrollListener;", nullptr, $PROTECTED, $field(BasicSliderUI, scrollListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicSliderUI, propertyChangeListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicSliderUI$Handler;", nullptr, $PRIVATE, $field(BasicSliderUI, handler)},
-	{"lastValue", "I", nullptr, $PRIVATE, $field(BasicSliderUI, lastValue)},
-	{"shadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSliderUI, shadowColor)},
-	{"highlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSliderUI, highlightColor)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSliderUI, focusColor)},
-	{"checkedLabelBaselines", "Z", nullptr, $PRIVATE, $field(BasicSliderUI, checkedLabelBaselines)},
-	{"sameLabelBaselines", "Z", nullptr, $PRIVATE, $field(BasicSliderUI, sameLabelBaselines)},
-	{"unionRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicSliderUI, unionRect)},
-	{}
-};
-
-$MethodInfo _BasicSliderUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicSliderUI, init$, void)},
-	{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(BasicSliderUI, init$, void, $JSlider*)},
-	{"calculateContentRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateContentRect, void)},
-	{"calculateFocusRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateFocusRect, void)},
-	{"calculateGeometry", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateGeometry, void)},
-	{"calculateLabelRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateLabelRect, void)},
-	{"calculateThumbLocation", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateThumbLocation, void)},
-	{"calculateThumbSize", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateThumbSize, void)},
-	{"calculateTickRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateTickRect, void)},
-	{"calculateTrackBuffer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateTrackBuffer, void)},
-	{"calculateTrackRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateTrackRect, void)},
-	{"createChangeListener", "(Ljavax/swing/JSlider;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createChangeListener, $ChangeListener*, $JSlider*)},
-	{"createComponentListener", "(Ljavax/swing/JSlider;)Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createComponentListener, $ComponentListener*, $JSlider*)},
-	{"createFocusListener", "(Ljavax/swing/JSlider;)Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createFocusListener, $FocusListener*, $JSlider*)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JSlider;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createPropertyChangeListener, $PropertyChangeListener*, $JSlider*)},
-	{"createScrollListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$ScrollListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createScrollListener, $BasicSliderUI$ScrollListener*, $JSlider*)},
-	{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicSliderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"drawInverted", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, drawInverted, bool)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getFocusColor, $Color*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicSliderUI$Handler;", nullptr, $PRIVATE, $method(BasicSliderUI, getHandler, $BasicSliderUI$Handler*)},
-	{"getHeightOfHighValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHeightOfHighValueLabel, int32_t)},
-	{"getHeightOfLowValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHeightOfLowValueLabel, int32_t)},
-	{"getHeightOfTallestLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHeightOfTallestLabel, int32_t)},
-	{"getHighestValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHighestValue, $Integer*)},
-	{"getHighestValueLabel", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHighestValueLabel, $Component*)},
-	{"getHighlightColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHighlightColor, $Color*)},
-	{"getInputMap", "(ILjavax/swing/JSlider;)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicSliderUI, getInputMap, $InputMap*, int32_t, $JSlider*)},
-	{"getLowestValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getLowestValue, $Integer*)},
-	{"getLowestValueLabel", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getLowestValueLabel, $Component*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMinimumHorizontalSize, $Dimension*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getMinimumVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMinimumVerticalSize, $Dimension*)},
-	{"getPreferredHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getPreferredHorizontalSize, $Dimension*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPreferredVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getPreferredVerticalSize, $Dimension*)},
-	{"getShadowColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getShadowColor, $Color*)},
-	{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getThumbSize, $Dimension*)},
-	{"getTickLength", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getTickLength, int32_t)},
-	{"getTickSpacing", "()I", nullptr, $PRIVATE, $method(BasicSliderUI, getTickSpacing, int32_t)},
-	{"getWidthOfHighValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getWidthOfHighValueLabel, int32_t)},
-	{"getWidthOfLowValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getWidthOfLowValueLabel, int32_t)},
-	{"getWidthOfWidestLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getWidthOfWidestLabel, int32_t)},
-	{"installDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, installDefaults, void, $JSlider*)},
-	{"installKeyboardActions", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, installKeyboardActions, void, $JSlider*)},
-	{"installListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, installListeners, void, $JSlider*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, installUI, void, $JComponent*)},
-	{"isDragging", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, isDragging, bool)},
-	{"labelsHaveSameBaselines", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, labelsHaveSameBaselines, bool)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicSliderUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintFocus", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintFocus, void, $Graphics*)},
-	{"paintHorizontalLabel", "(Ljava/awt/Graphics;ILjava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintHorizontalLabel, void, $Graphics*, int32_t, $Component*)},
-	{"paintLabels", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintLabels, void, $Graphics*)},
-	{"paintMajorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMajorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMajorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMajorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMinorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMinorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMinorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMinorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintThumb, void, $Graphics*)},
-	{"paintTicks", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintTicks, void, $Graphics*)},
-	{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintTrack, void, $Graphics*)},
-	{"paintVerticalLabel", "(Ljava/awt/Graphics;ILjava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintVerticalLabel, void, $Graphics*, int32_t, $Component*)},
-	{"recalculateIfInsetsChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, recalculateIfInsetsChanged, void)},
-	{"recalculateIfOrientationChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, recalculateIfOrientationChanged, void)},
-	{"scrollByBlock", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, scrollByBlock, void, int32_t)},
-	{"scrollByUnit", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, scrollByUnit, void, int32_t)},
-	{"scrollDueToClickInTrack", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, scrollDueToClickInTrack, void, int32_t)},
-	{"setThumbLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, setThumbLocation, void, int32_t, int32_t)},
-	{"uninstallDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, uninstallDefaults, void, $JSlider*)},
-	{"uninstallKeyboardActions", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, uninstallKeyboardActions, void, $JSlider*)},
-	{"uninstallListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, uninstallListeners, void, $JSlider*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, uninstallUI, void, $JComponent*)},
-	{"valueForXPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, valueForXPosition, int32_t, int32_t)},
-	{"valueForYPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, valueForYPosition, int32_t, int32_t)},
-	{"xPositionForValue", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, xPositionForValue, int32_t, int32_t)},
-	{"yPositionForValue", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, yPositionForValue, int32_t, int32_t)},
-	{"yPositionForValue", "(III)I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, yPositionForValue, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicSliderUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSliderUI$Actions", "javax.swing.plaf.basic.BasicSliderUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$SharedActionScroller", "javax.swing.plaf.basic.BasicSliderUI", "SharedActionScroller", $STATIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$ActionScroller", "javax.swing.plaf.basic.BasicSliderUI", "ActionScroller", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$FocusHandler", "javax.swing.plaf.basic.BasicSliderUI", "FocusHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$ComponentHandler", "javax.swing.plaf.basic.BasicSliderUI", "ComponentHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$ScrollListener", "javax.swing.plaf.basic.BasicSliderUI", "ScrollListener", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$TrackListener", "javax.swing.plaf.basic.BasicSliderUI", "TrackListener", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$ChangeHandler", "javax.swing.plaf.basic.BasicSliderUI", "ChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSliderUI$Handler", "javax.swing.plaf.basic.BasicSliderUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicSliderUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicSliderUI", "PropertyChangeHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicSliderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSliderUI",
-	"javax.swing.plaf.SliderUI",
-	nullptr,
-	_BasicSliderUI_FieldInfo_,
-	_BasicSliderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSliderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSliderUI$Actions,javax.swing.plaf.basic.BasicSliderUI$SharedActionScroller,javax.swing.plaf.basic.BasicSliderUI$ActionScroller,javax.swing.plaf.basic.BasicSliderUI$FocusHandler,javax.swing.plaf.basic.BasicSliderUI$ComponentHandler,javax.swing.plaf.basic.BasicSliderUI$ScrollListener,javax.swing.plaf.basic.BasicSliderUI$TrackListener,javax.swing.plaf.basic.BasicSliderUI$ChangeHandler,javax.swing.plaf.basic.BasicSliderUI$Handler,javax.swing.plaf.basic.BasicSliderUI$PropertyChangeHandler"
-};
-
-$Object* allocate$BasicSliderUI($Class* clazz) {
-	return $of($alloc(BasicSliderUI));
-}
 
 $BasicSliderUI$Actions* BasicSliderUI::SHARED_ACTION = nullptr;
 $Rectangle* BasicSliderUI::unionRect = nullptr;
@@ -344,7 +177,6 @@ void BasicSliderUI::installUI($JComponent* c) {
 	$set(this, slider, $cast($JSlider, c));
 	this->checkedLabelBaselines = false;
 	$nc(this->slider)->setEnabled($nc(this->slider)->isEnabled());
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->slider, "opaque"_s, $Boolean::TRUE);
 	this->isDragging$ = false;
 	$set(this, trackListener, createTrackListener(this->slider));
@@ -357,7 +189,7 @@ void BasicSliderUI::installUI($JComponent* c) {
 	installListeners(this->slider);
 	installKeyboardActions(this->slider);
 	$set(this, scrollTimer, $new($Timer, 100, this->scrollListener));
-	$nc(this->scrollTimer)->setInitialDelay(300);
+	this->scrollTimer->setInitialDelay(300);
 	$set(this, insetCache, $nc(this->slider)->getInsets());
 	this->leftToRightCache = $BasicGraphicsUtils::isLeftToRight(this->slider);
 	$set(this, focusRect, $new($Rectangle));
@@ -445,21 +277,21 @@ $BasicSliderUI$Handler* BasicSliderUI::getHandler() {
 }
 
 void BasicSliderUI::installListeners($JSlider* slider) {
-	$nc(slider)->addMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->trackListener))));
-	slider->addMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->trackListener))));
+	$nc(slider)->addMouseListener($cast($MouseAdapter, this->trackListener));
+	slider->addMouseMotionListener($cast($MouseAdapter, this->trackListener));
 	slider->addFocusListener(this->focusListener);
 	slider->addComponentListener(this->componentListener);
 	slider->addPropertyChangeListener(this->propertyChangeListener);
-	$nc($(slider->getModel()))->addChangeListener(this->changeListener);
+	$$nc(slider->getModel())->addChangeListener(this->changeListener);
 }
 
 void BasicSliderUI::uninstallListeners($JSlider* slider) {
-	$nc(slider)->removeMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->trackListener))));
-	slider->removeMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->trackListener))));
+	$nc(slider)->removeMouseListener($cast($MouseAdapter, this->trackListener));
+	slider->removeMouseMotionListener($cast($MouseAdapter, this->trackListener));
 	slider->removeFocusListener(this->focusListener);
 	slider->removeComponentListener(this->componentListener);
 	slider->removePropertyChangeListener(this->propertyChangeListener);
-	$nc($(slider->getModel()))->removeChangeListener(this->changeListener);
+	$$nc(slider->getModel())->removeChangeListener(this->changeListener);
 	$set(this, handler, nullptr);
 }
 
@@ -470,11 +302,11 @@ void BasicSliderUI::installKeyboardActions($JSlider* slider) {
 }
 
 $InputMap* BasicSliderUI::getInputMap(int32_t condition, $JSlider* slider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (condition == $JComponent::WHEN_FOCUSED) {
 		$var($InputMap, keyMap, $cast($InputMap, $DefaultLookup::get(slider, this, "Slider.focusInputMap"_s)));
 		$var($InputMap, rtlKeyMap, nullptr);
-		bool var$0 = $nc($($nc(slider)->getComponentOrientation()))->isLeftToRight();
+		bool var$0 = $$nc($nc(slider)->getComponentOrientation())->isLeftToRight();
 		if (var$0 || (($assign(rtlKeyMap, $cast($InputMap, $DefaultLookup::get(slider, this, "Slider.focusInputMap.RightToLeft"_s)))) == nullptr)) {
 			return keyMap;
 		} else {
@@ -487,7 +319,7 @@ $InputMap* BasicSliderUI::getInputMap(int32_t condition, $JSlider* slider) {
 
 void BasicSliderUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicSliderUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicSliderUI$Actions);
 	$nc(map)->put($$new($BasicSliderUI$Actions, $BasicSliderUI$Actions::POSITIVE_UNIT_INCREMENT));
 	map->put($$new($BasicSliderUI$Actions, $BasicSliderUI$Actions::POSITIVE_BLOCK_INCREMENT));
@@ -503,7 +335,7 @@ void BasicSliderUI::uninstallKeyboardActions($JSlider* slider) {
 }
 
 int32_t BasicSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SliderUI::getBaseline(c, width, height);
 	bool var$0 = $nc(this->slider)->getPaintLabels();
 	if (var$0 && labelsHaveSameBaselines()) {
@@ -512,7 +344,7 @@ int32_t BasicSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height
 		$var($Dimension, thumbSize, getThumbSize());
 		if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 			int32_t tickLength = getTickLength();
-			int32_t contentHeight = height - $nc(insets)->top - insets->bottom - $nc(this->focusInsets)->top - $nc(this->focusInsets)->bottom;
+			int32_t contentHeight = height - $nc(insets)->top - $nc(insets)->bottom - $nc(this->focusInsets)->top - $nc(this->focusInsets)->bottom;
 			int32_t thumbHeight = $nc(thumbSize)->height;
 			int32_t centerSpacing = thumbHeight;
 			if ($nc(this->slider)->getPaintTicks()) {
@@ -536,9 +368,9 @@ int32_t BasicSliderUI::getBaseline($JComponent* c, int32_t width, int32_t height
 				int32_t trackBuffer = $Math::max($nc(metrics)->getHeight() / 2, thumbHeight / 2);
 				int32_t contentY = $nc(this->focusInsets)->top + $nc(insets)->top;
 				int32_t trackY = contentY + trackBuffer;
-				int32_t trackHeight = height - $nc(this->focusInsets)->top - $nc(this->focusInsets)->bottom - insets->top - insets->bottom - trackBuffer - trackBuffer;
+				int32_t trackHeight = height - this->focusInsets->top - this->focusInsets->bottom - insets->top - insets->bottom - trackBuffer - trackBuffer;
 				int32_t yPosition = yPositionForValue(value->intValue(), trackY, trackHeight);
-				int32_t var$1 = yPosition - $nc(metrics)->getHeight() / 2;
+				int32_t var$1 = yPosition - metrics->getHeight() / 2;
 				return var$1 + metrics->getAscent();
 			}
 		}
@@ -553,7 +385,7 @@ $Component$BaselineResizeBehavior* BasicSliderUI::getBaselineResizeBehavior($JCo
 }
 
 bool BasicSliderUI::labelsHaveSameBaselines() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->checkedLabelBaselines) {
 		this->checkedLabelBaselines = true;
 		$var($Dictionary, dictionary, $nc(this->slider)->getLabelTable());
@@ -564,7 +396,7 @@ bool BasicSliderUI::labelsHaveSameBaselines() {
 			while ($nc(elements)->hasMoreElements()) {
 				$var($JComponent, label, $cast($JComponent, elements->nextElement()));
 				$var($Dimension, pref, $nc(label)->getPreferredSize());
-				int32_t labelBaseline = label->getBaseline($nc(pref)->width, pref->height);
+				int32_t labelBaseline = label->getBaseline($nc(pref)->width, $nc(pref)->height);
 				if (labelBaseline >= 0) {
 					if (baseline == -1) {
 						baseline = labelBaseline;
@@ -617,7 +449,7 @@ $Dimension* BasicSliderUI::getMinimumVerticalSize() {
 }
 
 $Dimension* BasicSliderUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	recalculateIfInsetsChanged();
 	$var($Dimension, d, nullptr);
 	if ($nc(this->slider)->getOrientation() == $JSlider::VERTICAL) {
@@ -635,7 +467,7 @@ $Dimension* BasicSliderUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* BasicSliderUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	recalculateIfInsetsChanged();
 	$var($Dimension, d, nullptr);
 	if ($nc(this->slider)->getOrientation() == $JSlider::VERTICAL) {
@@ -675,21 +507,21 @@ void BasicSliderUI::calculateGeometry() {
 
 void BasicSliderUI::calculateFocusRect() {
 	$nc(this->focusRect)->x = $nc(this->insetCache)->left;
-	$nc(this->focusRect)->y = $nc(this->insetCache)->top;
-	$nc(this->focusRect)->width = $nc(this->slider)->getWidth() - ($nc(this->insetCache)->left + $nc(this->insetCache)->right);
+	this->focusRect->y = this->insetCache->top;
+	this->focusRect->width = $nc(this->slider)->getWidth() - (this->insetCache->left + this->insetCache->right);
 	$nc(this->focusRect)->height = $nc(this->slider)->getHeight() - ($nc(this->insetCache)->top + $nc(this->insetCache)->bottom);
 }
 
 void BasicSliderUI::calculateThumbSize() {
 	$var($Dimension, size, getThumbSize());
-	$nc(this->thumbRect)->setSize($nc(size)->width, size->height);
+	$nc(this->thumbRect)->setSize($nc(size)->width, $nc(size)->height);
 }
 
 void BasicSliderUI::calculateContentRect() {
 	$nc(this->contentRect)->x = $nc(this->focusRect)->x + $nc(this->focusInsets)->left;
-	$nc(this->contentRect)->y = $nc(this->focusRect)->y + $nc(this->focusInsets)->top;
-	$nc(this->contentRect)->width = $nc(this->focusRect)->width - ($nc(this->focusInsets)->left + $nc(this->focusInsets)->right);
-	$nc(this->contentRect)->height = $nc(this->focusRect)->height - ($nc(this->focusInsets)->top + $nc(this->focusInsets)->bottom);
+	this->contentRect->y = this->focusRect->y + this->focusInsets->top;
+	this->contentRect->width = this->focusRect->width - (this->focusInsets->left + this->focusInsets->right);
+	this->contentRect->height = this->focusRect->height - (this->focusInsets->top + this->focusInsets->bottom);
 }
 
 int32_t BasicSliderUI::getTickSpacing() {
@@ -728,18 +560,18 @@ void BasicSliderUI::calculateThumbLocation() {
 	if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 		int32_t valuePosition = xPositionForValue($nc(this->slider)->getValue());
 		$nc(this->thumbRect)->x = valuePosition - ($nc(this->thumbRect)->width / 2);
-		$nc(this->thumbRect)->y = $nc(this->trackRect)->y;
+		this->thumbRect->y = $nc(this->trackRect)->y;
 	} else {
 		int32_t valuePosition = yPositionForValue($nc(this->slider)->getValue());
 		$nc(this->thumbRect)->x = $nc(this->trackRect)->x;
-		$nc(this->thumbRect)->y = valuePosition - ($nc(this->thumbRect)->height / 2);
+		this->thumbRect->y = valuePosition - (this->thumbRect->height / 2);
 	}
 }
 
 void BasicSliderUI::calculateTrackBuffer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->slider)->getPaintLabels();
-	if (var$0 && $nc(this->slider)->getLabelTable() != nullptr) {
+	if (var$0 && this->slider->getLabelTable() != nullptr) {
 		$var($Component, highLabel, getHighestValueLabel());
 		$var($Component, lowLabel, getLowestValueLabel());
 		if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
@@ -769,9 +601,9 @@ void BasicSliderUI::calculateTrackRect() {
 			centerSpacing += getHeightOfTallestLabel();
 		}
 		$nc(this->trackRect)->x = $nc(this->contentRect)->x + this->trackBuffer;
-		$nc(this->trackRect)->y = $nc(this->contentRect)->y + ($nc(this->contentRect)->height - centerSpacing - 1) / 2;
-		$nc(this->trackRect)->width = $nc(this->contentRect)->width - (this->trackBuffer * 2);
-		$nc(this->trackRect)->height = $nc(this->thumbRect)->height;
+		this->trackRect->y = this->contentRect->y + (this->contentRect->height - centerSpacing - 1) / 2;
+		this->trackRect->width = this->contentRect->width - (this->trackBuffer * 2);
+		this->trackRect->height = $nc(this->thumbRect)->height;
 	} else {
 		centerSpacing = $nc(this->thumbRect)->width;
 		if ($BasicGraphicsUtils::isLeftToRight(this->slider)) {
@@ -790,9 +622,9 @@ void BasicSliderUI::calculateTrackRect() {
 			}
 		}
 		$nc(this->trackRect)->x = $nc(this->contentRect)->x + ($nc(this->contentRect)->width - centerSpacing - 1) / 2;
-		$nc(this->trackRect)->y = $nc(this->contentRect)->y + this->trackBuffer;
-		$nc(this->trackRect)->width = $nc(this->thumbRect)->width;
-		$nc(this->trackRect)->height = $nc(this->contentRect)->height - (this->trackBuffer * 2);
+		this->trackRect->y = this->contentRect->y + this->trackBuffer;
+		this->trackRect->width = $nc(this->thumbRect)->width;
+		this->trackRect->height = this->contentRect->height - (this->trackBuffer * 2);
 	}
 }
 
@@ -803,9 +635,9 @@ int32_t BasicSliderUI::getTickLength() {
 void BasicSliderUI::calculateTickRect() {
 	if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 		$nc(this->tickRect)->x = $nc(this->trackRect)->x;
-		$nc(this->tickRect)->y = $nc(this->trackRect)->y + $nc(this->trackRect)->height;
-		$nc(this->tickRect)->width = $nc(this->trackRect)->width;
-		$nc(this->tickRect)->height = ($nc(this->slider)->getPaintTicks()) ? getTickLength() : 0;
+		this->tickRect->y = this->trackRect->y + this->trackRect->height;
+		this->tickRect->width = this->trackRect->width;
+		this->tickRect->height = ($nc(this->slider)->getPaintTicks()) ? getTickLength() : 0;
 	} else {
 		$nc(this->tickRect)->width = ($nc(this->slider)->getPaintTicks()) ? getTickLength() : 0;
 		if ($BasicGraphicsUtils::isLeftToRight(this->slider)) {
@@ -814,7 +646,7 @@ void BasicSliderUI::calculateTickRect() {
 			$nc(this->tickRect)->x = $nc(this->trackRect)->x - $nc(this->tickRect)->width;
 		}
 		$nc(this->tickRect)->y = $nc(this->trackRect)->y;
-		$nc(this->tickRect)->height = $nc(this->trackRect)->height;
+		this->tickRect->height = this->trackRect->height;
 	}
 }
 
@@ -822,25 +654,25 @@ void BasicSliderUI::calculateLabelRect() {
 	if ($nc(this->slider)->getPaintLabels()) {
 		if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 			$nc(this->labelRect)->x = $nc(this->tickRect)->x - this->trackBuffer;
-			$nc(this->labelRect)->y = $nc(this->tickRect)->y + $nc(this->tickRect)->height;
-			$nc(this->labelRect)->width = $nc(this->tickRect)->width + (this->trackBuffer * 2);
-			$nc(this->labelRect)->height = getHeightOfTallestLabel();
+			this->labelRect->y = this->tickRect->y + this->tickRect->height;
+			this->labelRect->width = this->tickRect->width + (this->trackBuffer * 2);
+			this->labelRect->height = getHeightOfTallestLabel();
 		} else {
 			if ($BasicGraphicsUtils::isLeftToRight(this->slider)) {
 				$nc(this->labelRect)->x = $nc(this->tickRect)->x + $nc(this->tickRect)->width;
-				$nc(this->labelRect)->width = getWidthOfWidestLabel();
+				this->labelRect->width = getWidthOfWidestLabel();
 			} else {
 				$nc(this->labelRect)->width = getWidthOfWidestLabel();
 				$nc(this->labelRect)->x = $nc(this->tickRect)->x - $nc(this->labelRect)->width;
 			}
 			$nc(this->labelRect)->y = $nc(this->tickRect)->y - this->trackBuffer;
-			$nc(this->labelRect)->height = $nc(this->tickRect)->height + (this->trackBuffer * 2);
+			this->labelRect->height = this->tickRect->height + (this->trackBuffer * 2);
 		}
 	} else if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 		$nc(this->labelRect)->x = $nc(this->tickRect)->x;
-		$nc(this->labelRect)->y = $nc(this->tickRect)->y + $nc(this->tickRect)->height;
-		$nc(this->labelRect)->width = $nc(this->tickRect)->width;
-		$nc(this->labelRect)->height = 0;
+		this->labelRect->y = this->tickRect->y + this->tickRect->height;
+		this->labelRect->width = this->tickRect->width;
+		this->labelRect->height = 0;
 	} else {
 		if ($BasicGraphicsUtils::isLeftToRight(this->slider)) {
 			$nc(this->labelRect)->x = $nc(this->tickRect)->x + $nc(this->tickRect)->width;
@@ -848,8 +680,8 @@ void BasicSliderUI::calculateLabelRect() {
 			$nc(this->labelRect)->x = $nc(this->tickRect)->x;
 		}
 		$nc(this->labelRect)->y = $nc(this->tickRect)->y;
-		$nc(this->labelRect)->width = 0;
-		$nc(this->labelRect)->height = $nc(this->tickRect)->height;
+		this->labelRect->width = 0;
+		this->labelRect->height = this->tickRect->height;
 	}
 }
 
@@ -866,7 +698,7 @@ $Dimension* BasicSliderUI::getThumbSize() {
 }
 
 int32_t BasicSliderUI::getWidthOfWidestLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dictionary, dictionary, $nc(this->slider)->getLabelTable());
 	int32_t widest = 0;
 	if (dictionary != nullptr) {
@@ -880,7 +712,7 @@ int32_t BasicSliderUI::getWidthOfWidestLabel() {
 }
 
 int32_t BasicSliderUI::getHeightOfTallestLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dictionary, dictionary, $nc(this->slider)->getLabelTable());
 	int32_t tallest = 0;
 	if (dictionary != nullptr) {
@@ -894,7 +726,7 @@ int32_t BasicSliderUI::getHeightOfTallestLabel() {
 }
 
 int32_t BasicSliderUI::getWidthOfHighValueLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, label, getHighestValueLabel());
 	int32_t width = 0;
 	if (label != nullptr) {
@@ -904,7 +736,7 @@ int32_t BasicSliderUI::getWidthOfHighValueLabel() {
 }
 
 int32_t BasicSliderUI::getWidthOfLowValueLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, label, getLowestValueLabel());
 	int32_t width = 0;
 	if (label != nullptr) {
@@ -914,7 +746,7 @@ int32_t BasicSliderUI::getWidthOfLowValueLabel() {
 }
 
 int32_t BasicSliderUI::getHeightOfHighValueLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, label, getHighestValueLabel());
 	int32_t height = 0;
 	if (label != nullptr) {
@@ -924,7 +756,7 @@ int32_t BasicSliderUI::getHeightOfHighValueLabel() {
 }
 
 int32_t BasicSliderUI::getHeightOfLowValueLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, label, getLowestValueLabel());
 	int32_t height = 0;
 	if (label != nullptr) {
@@ -946,7 +778,7 @@ bool BasicSliderUI::drawInverted() {
 }
 
 $Integer* BasicSliderUI::getHighestValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dictionary, dictionary, $nc(this->slider)->getLabelTable());
 	if (dictionary == nullptr) {
 		return nullptr;
@@ -958,7 +790,7 @@ $Integer* BasicSliderUI::getHighestValue() {
 		bool var$0 = max == nullptr;
 		if (!var$0) {
 			int32_t var$1 = $nc(i)->intValue();
-			var$0 = var$1 > $nc(max)->intValue();
+			var$0 = var$1 > max->intValue();
 		}
 		if (var$0) {
 			$assign(max, i);
@@ -968,7 +800,7 @@ $Integer* BasicSliderUI::getHighestValue() {
 }
 
 $Integer* BasicSliderUI::getLowestValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dictionary, dictionary, $nc(this->slider)->getLabelTable());
 	if (dictionary == nullptr) {
 		return nullptr;
@@ -980,7 +812,7 @@ $Integer* BasicSliderUI::getLowestValue() {
 		bool var$0 = min == nullptr;
 		if (!var$0) {
 			int32_t var$1 = $nc(i)->intValue();
-			var$0 = var$1 < $nc(min)->intValue();
+			var$0 = var$1 < min->intValue();
 		}
 		if (var$0) {
 			$assign(min, i);
@@ -990,19 +822,19 @@ $Integer* BasicSliderUI::getLowestValue() {
 }
 
 $Component* BasicSliderUI::getLowestValueLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, min, getLowestValue());
 	if (min != nullptr) {
-		return $cast($Component, $nc($($nc(this->slider)->getLabelTable()))->get(min));
+		return $cast($Component, $$nc($nc(this->slider)->getLabelTable())->get(min));
 	}
 	return nullptr;
 }
 
 $Component* BasicSliderUI::getHighestValueLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, max, getHighestValue());
 	if (max != nullptr) {
-		return $cast($Component, $nc($($nc(this->slider)->getLabelTable()))->get(max));
+		return $cast($Component, $$nc($nc(this->slider)->getLabelTable())->get(max));
 	}
 	return nullptr;
 }
@@ -1016,22 +848,22 @@ void BasicSliderUI::paint($Graphics* g, $JComponent* c) {
 		calculateGeometry();
 	}
 	bool var$1 = $nc(this->slider)->getPaintTrack();
-	if (var$1 && $nc(clip)->intersects(this->trackRect)) {
+	if (var$1 && clip->intersects(this->trackRect)) {
 		paintTrack(g);
 	}
 	bool var$2 = $nc(this->slider)->getPaintTicks();
-	if (var$2 && $nc(clip)->intersects(this->tickRect)) {
+	if (var$2 && clip->intersects(this->tickRect)) {
 		paintTicks(g);
 	}
 	bool var$3 = $nc(this->slider)->getPaintLabels();
-	if (var$3 && $nc(clip)->intersects(this->labelRect)) {
+	if (var$3 && clip->intersects(this->labelRect)) {
 		paintLabels(g);
 	}
 	bool var$4 = $nc(this->slider)->hasFocus();
-	if (var$4 && $nc(clip)->intersects(this->focusRect)) {
+	if (var$4 && clip->intersects(this->focusRect)) {
 		paintFocus(g);
 	}
-	if ($nc(clip)->intersects(this->thumbRect)) {
+	if (clip->intersects(this->thumbRect)) {
 		paintThumb(g);
 	}
 }
@@ -1058,7 +890,7 @@ void BasicSliderUI::paintFocus($Graphics* g) {
 }
 
 void BasicSliderUI::paintTrack($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, trackBounds, this->trackRect);
 	if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 		int32_t cy = ($nc(trackBounds)->height / 2) - 2;
@@ -1092,7 +924,7 @@ void BasicSliderUI::paintTrack($Graphics* g) {
 }
 
 void BasicSliderUI::paintTicks($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, tickBounds, this->tickRect);
 	$init($Color);
 	$nc(g)->setColor($($DefaultLookup::getColor(this->slider, this, "Slider.tickColor"_s, $Color::black)));
@@ -1120,13 +952,13 @@ void BasicSliderUI::paintTicks($Graphics* g) {
 				value += $nc(this->slider)->getMajorTickSpacing();
 			}
 		}
-		g->translate(0, -$nc(tickBounds)->y);
+		g->translate(0, -tickBounds->y);
 	} else {
 		g->translate($nc(tickBounds)->x, 0);
 		if ($nc(this->slider)->getMinorTickSpacing() > 0) {
 			int32_t offset = 0;
 			if (!$BasicGraphicsUtils::isLeftToRight(this->slider)) {
-				offset = $nc(tickBounds)->width - tickBounds->width / 2;
+				offset = tickBounds->width - tickBounds->width / 2;
 				g->translate(offset, 0);
 			}
 			int32_t value = $nc(this->slider)->getMinimum();
@@ -1159,7 +991,7 @@ void BasicSliderUI::paintTicks($Graphics* g) {
 				g->translate(-2, 0);
 			}
 		}
-		g->translate(-$nc(tickBounds)->x, 0);
+		g->translate(-tickBounds->x, 0);
 	}
 }
 
@@ -1180,7 +1012,7 @@ void BasicSliderUI::paintMajorTickForVertSlider($Graphics* g, $Rectangle* tickBo
 }
 
 void BasicSliderUI::paintLabels($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, labelBounds, this->labelRect);
 	$var($Dictionary, dictionary, $nc(this->slider)->getLabelTable());
 	if (dictionary != nullptr) {
@@ -1195,15 +1027,15 @@ void BasicSliderUI::paintLabels($Graphics* g) {
 				$var($JComponent, label, $cast($JComponent, dictionary->get(key)));
 				$nc(label)->setEnabled(enabled);
 				if ($instanceOf($JLabel, label)) {
-					$var($Icon, icon, label->isEnabled() ? $nc(($cast($JLabel, label)))->getIcon() : $nc(($cast($JLabel, label)))->getDisabledIcon());
+					$var($Icon, icon, label->isEnabled() ? $cast($JLabel, label)->getIcon() : $cast($JLabel, label)->getDisabledIcon());
 					if ($instanceOf($ImageIcon, icon)) {
-						$nc($($Toolkit::getDefaultToolkit()))->checkImage($($nc(($cast($ImageIcon, icon)))->getImage()), -1, -1, this->slider);
+						$$nc($Toolkit::getDefaultToolkit())->checkImage($($cast($ImageIcon, icon)->getImage()), -1, -1, this->slider);
 					}
 				}
 				if ($nc(this->slider)->getOrientation() == $JSlider::HORIZONTAL) {
 					$nc(g)->translate(0, $nc(labelBounds)->y);
 					paintHorizontalLabel(g, value, label);
-					g->translate(0, -$nc(labelBounds)->y);
+					g->translate(0, -labelBounds->y);
 				} else {
 					int32_t offset = 0;
 					if (!$BasicGraphicsUtils::isLeftToRight(this->slider)) {
@@ -1211,7 +1043,7 @@ void BasicSliderUI::paintLabels($Graphics* g) {
 					}
 					$nc(g)->translate($nc(labelBounds)->x + offset, 0);
 					paintVerticalLabel(g, value, label);
-					g->translate(-$nc(labelBounds)->x - offset, 0);
+					g->translate(-labelBounds->x - offset, 0);
 				}
 			}
 		}
@@ -1235,7 +1067,7 @@ void BasicSliderUI::paintVerticalLabel($Graphics* g, int32_t value, $Component* 
 }
 
 void BasicSliderUI::paintThumb($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, knobBounds, this->thumbRect);
 	int32_t w = $nc(knobBounds)->width;
 	int32_t h = knobBounds->height;
@@ -1245,10 +1077,9 @@ void BasicSliderUI::paintThumb($Graphics* g) {
 	if ($nc(this->slider)->isEnabled()) {
 		g->setColor($($nc(this->slider)->getBackground()));
 	} else {
-		g->setColor($($nc($($nc(this->slider)->getBackground()))->darker()));
+		g->setColor($($$nc($nc(this->slider)->getBackground())->darker()));
 	}
 	$var($Boolean, paintThumbArrowShape, $cast($Boolean, $nc(this->slider)->getClientProperty("Slider.paintThumbArrowShape"_s)));
-	$init($Boolean);
 	if ((!$nc(this->slider)->getPaintTicks() && paintThumbArrowShape == nullptr) || paintThumbArrowShape == $Boolean::FALSE) {
 		g->fillRect(0, 0, w, h);
 		$init($Color);
@@ -1332,8 +1163,8 @@ void BasicSliderUI::setThumbLocation(int32_t x, int32_t y) {
 
 void BasicSliderUI::scrollByBlock(int32_t direction) {
 	$synchronized(this->slider) {
-		int32_t var$0 = $nc(this->slider)->getMaximum();
-		int32_t blockIncrement = (var$0 - $nc(this->slider)->getMinimum()) / 10;
+		int32_t var$0 = this->slider->getMaximum();
+		int32_t blockIncrement = (var$0 - this->slider->getMinimum()) / 10;
 		if (blockIncrement == 0) {
 			blockIncrement = 1;
 		}
@@ -1353,7 +1184,7 @@ void BasicSliderUI::scrollByBlock(int32_t direction) {
 void BasicSliderUI::scrollByUnit(int32_t direction) {
 	$synchronized(this->slider) {
 		int32_t delta = ((direction > 0) ? BasicSliderUI::POSITIVE_SCROLL : BasicSliderUI::NEGATIVE_SCROLL);
-		if ($nc(this->slider)->getSnapToTicks()) {
+		if (this->slider->getSnapToTicks()) {
 			delta *= getTickSpacing();
 		}
 		$nc(this->slider)->setValue($nc(this->slider)->getValue() + delta);
@@ -1370,8 +1201,8 @@ int32_t BasicSliderUI::xPositionForValue(int32_t value) {
 	int32_t trackLength = $nc(this->trackRect)->width;
 	double valueRange = (double)max - (double)min;
 	double pixelsPerValue = (double)trackLength / valueRange;
-	int32_t trackLeft = $nc(this->trackRect)->x;
-	int32_t trackRight = $nc(this->trackRect)->x + ($nc(this->trackRect)->width - 1);
+	int32_t trackLeft = this->trackRect->x;
+	int32_t trackRight = this->trackRect->x + (this->trackRect->width - 1);
 	int32_t xPosition = 0;
 	if (!drawInverted()) {
 		xPosition = trackLeft;
@@ -1413,8 +1244,8 @@ int32_t BasicSliderUI::valueForYPosition(int32_t yPos) {
 	int32_t minValue = $nc(this->slider)->getMinimum();
 	int32_t maxValue = $nc(this->slider)->getMaximum();
 	int32_t trackLength = $nc(this->trackRect)->height;
-	int32_t trackTop = $nc(this->trackRect)->y;
-	int32_t trackBottom = $nc(this->trackRect)->y + ($nc(this->trackRect)->height - 1);
+	int32_t trackTop = this->trackRect->y;
+	int32_t trackBottom = this->trackRect->y + (this->trackRect->height - 1);
 	if (yPos <= trackTop) {
 		value = drawInverted() ? minValue : maxValue;
 	} else if (yPos >= trackBottom) {
@@ -1434,8 +1265,8 @@ int32_t BasicSliderUI::valueForXPosition(int32_t xPos) {
 	int32_t minValue = $nc(this->slider)->getMinimum();
 	int32_t maxValue = $nc(this->slider)->getMaximum();
 	int32_t trackLength = $nc(this->trackRect)->width;
-	int32_t trackLeft = $nc(this->trackRect)->x;
-	int32_t trackRight = $nc(this->trackRect)->x + ($nc(this->trackRect)->width - 1);
+	int32_t trackLeft = this->trackRect->x;
+	int32_t trackRight = this->trackRect->x + (this->trackRect->width - 1);
 	if (xPos <= trackLeft) {
 		value = drawInverted() ? maxValue : minValue;
 	} else if (xPos >= trackRight) {
@@ -1450,7 +1281,7 @@ int32_t BasicSliderUI::valueForXPosition(int32_t xPos) {
 	return value;
 }
 
-void clinit$BasicSliderUI($Class* class$) {
+void BasicSliderUI::clinit$($Class* clazz) {
 	$assignStatic(BasicSliderUI::SHARED_ACTION, $new($BasicSliderUI$Actions));
 	$assignStatic(BasicSliderUI::unionRect, $new($Rectangle));
 }
@@ -1459,7 +1290,154 @@ BasicSliderUI::BasicSliderUI() {
 }
 
 $Class* BasicSliderUI::load$($String* name, bool initialize) {
-	$loadClass(BasicSliderUI, name, initialize, &_BasicSliderUI_ClassInfo_, clinit$BasicSliderUI, allocate$BasicSliderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHARED_ACTION", "Ljavax/swing/plaf/basic/BasicSliderUI$Actions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSliderUI, SHARED_ACTION)},
+		{"POSITIVE_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, POSITIVE_SCROLL)},
+		{"NEGATIVE_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, NEGATIVE_SCROLL)},
+		{"MIN_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, MIN_SCROLL)},
+		{"MAX_SCROLL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicSliderUI, MAX_SCROLL)},
+		{"scrollTimer", "Ljavax/swing/Timer;", nullptr, $PROTECTED, $field(BasicSliderUI, scrollTimer)},
+		{"slider", "Ljavax/swing/JSlider;", nullptr, $PROTECTED, $field(BasicSliderUI, slider)},
+		{"focusInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(BasicSliderUI, focusInsets)},
+		{"insetCache", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(BasicSliderUI, insetCache)},
+		{"leftToRightCache", "Z", nullptr, $PROTECTED, $field(BasicSliderUI, leftToRightCache)},
+		{"focusRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, focusRect)},
+		{"contentRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, contentRect)},
+		{"labelRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, labelRect)},
+		{"tickRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, tickRect)},
+		{"trackRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, trackRect)},
+		{"thumbRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicSliderUI, thumbRect)},
+		{"trackBuffer", "I", nullptr, $PROTECTED, $field(BasicSliderUI, trackBuffer)},
+		{"isDragging", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(BasicSliderUI, isDragging$)},
+		{"trackListener", "Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $field(BasicSliderUI, trackListener)},
+		{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicSliderUI, changeListener)},
+		{"componentListener", "Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $field(BasicSliderUI, componentListener)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicSliderUI, focusListener)},
+		{"scrollListener", "Ljavax/swing/plaf/basic/BasicSliderUI$ScrollListener;", nullptr, $PROTECTED, $field(BasicSliderUI, scrollListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicSliderUI, propertyChangeListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicSliderUI$Handler;", nullptr, $PRIVATE, $field(BasicSliderUI, handler)},
+		{"lastValue", "I", nullptr, $PRIVATE, $field(BasicSliderUI, lastValue)},
+		{"shadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSliderUI, shadowColor)},
+		{"highlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSliderUI, highlightColor)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSliderUI, focusColor)},
+		{"checkedLabelBaselines", "Z", nullptr, $PRIVATE, $field(BasicSliderUI, checkedLabelBaselines)},
+		{"sameLabelBaselines", "Z", nullptr, $PRIVATE, $field(BasicSliderUI, sameLabelBaselines)},
+		{"unionRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicSliderUI, unionRect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicSliderUI, init$, void)},
+		{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(BasicSliderUI, init$, void, $JSlider*)},
+		{"calculateContentRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateContentRect, void)},
+		{"calculateFocusRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateFocusRect, void)},
+		{"calculateGeometry", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateGeometry, void)},
+		{"calculateLabelRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateLabelRect, void)},
+		{"calculateThumbLocation", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateThumbLocation, void)},
+		{"calculateThumbSize", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateThumbSize, void)},
+		{"calculateTickRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateTickRect, void)},
+		{"calculateTrackBuffer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateTrackBuffer, void)},
+		{"calculateTrackRect", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, calculateTrackRect, void)},
+		{"createChangeListener", "(Ljavax/swing/JSlider;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createChangeListener, $ChangeListener*, $JSlider*)},
+		{"createComponentListener", "(Ljavax/swing/JSlider;)Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createComponentListener, $ComponentListener*, $JSlider*)},
+		{"createFocusListener", "(Ljavax/swing/JSlider;)Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createFocusListener, $FocusListener*, $JSlider*)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JSlider;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createPropertyChangeListener, $PropertyChangeListener*, $JSlider*)},
+		{"createScrollListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$ScrollListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createScrollListener, $BasicSliderUI$ScrollListener*, $JSlider*)},
+		{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicSliderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"drawInverted", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, drawInverted, bool)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getFocusColor, $Color*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicSliderUI$Handler;", nullptr, $PRIVATE, $method(BasicSliderUI, getHandler, $BasicSliderUI$Handler*)},
+		{"getHeightOfHighValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHeightOfHighValueLabel, int32_t)},
+		{"getHeightOfLowValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHeightOfLowValueLabel, int32_t)},
+		{"getHeightOfTallestLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHeightOfTallestLabel, int32_t)},
+		{"getHighestValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHighestValue, $Integer*)},
+		{"getHighestValueLabel", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHighestValueLabel, $Component*)},
+		{"getHighlightColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getHighlightColor, $Color*)},
+		{"getInputMap", "(ILjavax/swing/JSlider;)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicSliderUI, getInputMap, $InputMap*, int32_t, $JSlider*)},
+		{"getLowestValue", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getLowestValue, $Integer*)},
+		{"getLowestValueLabel", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getLowestValueLabel, $Component*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMinimumHorizontalSize, $Dimension*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getMinimumVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getMinimumVerticalSize, $Dimension*)},
+		{"getPreferredHorizontalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getPreferredHorizontalSize, $Dimension*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPreferredVerticalSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, getPreferredVerticalSize, $Dimension*)},
+		{"getShadowColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getShadowColor, $Color*)},
+		{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getThumbSize, $Dimension*)},
+		{"getTickLength", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getTickLength, int32_t)},
+		{"getTickSpacing", "()I", nullptr, $PRIVATE, $method(BasicSliderUI, getTickSpacing, int32_t)},
+		{"getWidthOfHighValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getWidthOfHighValueLabel, int32_t)},
+		{"getWidthOfLowValueLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getWidthOfLowValueLabel, int32_t)},
+		{"getWidthOfWidestLabel", "()I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, getWidthOfWidestLabel, int32_t)},
+		{"installDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, installDefaults, void, $JSlider*)},
+		{"installKeyboardActions", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, installKeyboardActions, void, $JSlider*)},
+		{"installListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, installListeners, void, $JSlider*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, installUI, void, $JComponent*)},
+		{"isDragging", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, isDragging, bool)},
+		{"labelsHaveSameBaselines", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, labelsHaveSameBaselines, bool)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicSliderUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintFocus", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintFocus, void, $Graphics*)},
+		{"paintHorizontalLabel", "(Ljava/awt/Graphics;ILjava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintHorizontalLabel, void, $Graphics*, int32_t, $Component*)},
+		{"paintLabels", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintLabels, void, $Graphics*)},
+		{"paintMajorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMajorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMajorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMajorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMinorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMinorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMinorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintMinorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintThumb, void, $Graphics*)},
+		{"paintTicks", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintTicks, void, $Graphics*)},
+		{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, paintTrack, void, $Graphics*)},
+		{"paintVerticalLabel", "(Ljava/awt/Graphics;ILjava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, paintVerticalLabel, void, $Graphics*, int32_t, $Component*)},
+		{"recalculateIfInsetsChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, recalculateIfInsetsChanged, void)},
+		{"recalculateIfOrientationChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, recalculateIfOrientationChanged, void)},
+		{"scrollByBlock", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, scrollByBlock, void, int32_t)},
+		{"scrollByUnit", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, scrollByUnit, void, int32_t)},
+		{"scrollDueToClickInTrack", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, scrollDueToClickInTrack, void, int32_t)},
+		{"setThumbLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, setThumbLocation, void, int32_t, int32_t)},
+		{"uninstallDefaults", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, uninstallDefaults, void, $JSlider*)},
+		{"uninstallKeyboardActions", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, uninstallKeyboardActions, void, $JSlider*)},
+		{"uninstallListeners", "(Ljavax/swing/JSlider;)V", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, uninstallListeners, void, $JSlider*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, uninstallUI, void, $JComponent*)},
+		{"valueForXPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, valueForXPosition, int32_t, int32_t)},
+		{"valueForYPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(BasicSliderUI, valueForYPosition, int32_t, int32_t)},
+		{"xPositionForValue", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, xPositionForValue, int32_t, int32_t)},
+		{"yPositionForValue", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, yPositionForValue, int32_t, int32_t)},
+		{"yPositionForValue", "(III)I", nullptr, $PROTECTED, $virtualMethod(BasicSliderUI, yPositionForValue, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSliderUI$Actions", "javax.swing.plaf.basic.BasicSliderUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$SharedActionScroller", "javax.swing.plaf.basic.BasicSliderUI", "SharedActionScroller", $STATIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$ActionScroller", "javax.swing.plaf.basic.BasicSliderUI", "ActionScroller", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$FocusHandler", "javax.swing.plaf.basic.BasicSliderUI", "FocusHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$ComponentHandler", "javax.swing.plaf.basic.BasicSliderUI", "ComponentHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$ScrollListener", "javax.swing.plaf.basic.BasicSliderUI", "ScrollListener", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$TrackListener", "javax.swing.plaf.basic.BasicSliderUI", "TrackListener", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$ChangeHandler", "javax.swing.plaf.basic.BasicSliderUI", "ChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSliderUI$Handler", "javax.swing.plaf.basic.BasicSliderUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicSliderUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicSliderUI", "PropertyChangeHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSliderUI",
+		"javax.swing.plaf.SliderUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSliderUI$Actions,javax.swing.plaf.basic.BasicSliderUI$SharedActionScroller,javax.swing.plaf.basic.BasicSliderUI$ActionScroller,javax.swing.plaf.basic.BasicSliderUI$FocusHandler,javax.swing.plaf.basic.BasicSliderUI$ComponentHandler,javax.swing.plaf.basic.BasicSliderUI$ScrollListener,javax.swing.plaf.basic.BasicSliderUI$TrackListener,javax.swing.plaf.basic.BasicSliderUI$ChangeHandler,javax.swing.plaf.basic.BasicSliderUI$Handler,javax.swing.plaf.basic.BasicSliderUI$PropertyChangeHandler"
+	};
+	$loadClass(BasicSliderUI, name, initialize, &classInfo$$, BasicSliderUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSliderUI);
+	});
 	return class$;
 }
 

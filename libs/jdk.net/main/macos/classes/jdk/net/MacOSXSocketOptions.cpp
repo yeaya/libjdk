@@ -1,5 +1,4 @@
 #include <jdk/net/MacOSXSocketOptions.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/invoke/CallSite.h>
@@ -41,85 +40,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(MacOSXSocketOptions::lambda$static$0());
+		 return MacOSXSocketOptions::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MacOSXSocketOptions$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MacOSXSocketOptions$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSXSocketOptions$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MacOSXSocketOptions$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo MacOSXSocketOptions$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.net.MacOSXSocketOptions$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* MacOSXSocketOptions$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(MacOSXSocketOptions$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSXSocketOptions$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MacOSXSocketOptions$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.net.MacOSXSocketOptions$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MacOSXSocketOptions$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXSocketOptions$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* MacOSXSocketOptions$$Lambda$lambda$static$0::class$ = nullptr;
-
-$MethodInfo _MacOSXSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSXSocketOptions, init$, void)},
-	{"getSoPeerCred", "(I)Ljdk/net/UnixDomainPrincipal;", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getSoPeerCred, $UnixDomainPrincipal*, int32_t), "java.net.SocketException"},
-	{"getSoPeerCred0", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getSoPeerCred0, int64_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpKeepAliveIntvl, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveTime", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpKeepAliveTime, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpKeepAliveTime0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpkeepAliveProbes", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpkeepAliveProbes, int32_t, int32_t), "java.net.SocketException"},
-	{"getTcpkeepAliveProbes0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t), "java.net.SocketException"},
-	{"keepAliveOptionsSupported", "()Z", nullptr, 0, $virtualMethod(MacOSXSocketOptions, keepAliveOptionsSupported, bool)},
-	{"keepAliveOptionsSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, keepAliveOptionsSupported0, bool)},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MacOSXSocketOptions, lambda$static$0, $Void*)},
-	{"peerCredentialsSupported", "()Z", nullptr, 0, $virtualMethod(MacOSXSocketOptions, peerCredentialsSupported, bool)},
-	{"setTcpKeepAliveIntvl", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpKeepAliveIntvl, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpKeepAliveIntvl0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpKeepAliveIntvl0, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpKeepAliveTime", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpKeepAliveTime, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpKeepAliveTime0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpKeepAliveTime0, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpkeepAliveProbes", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpkeepAliveProbes, void, int32_t, int32_t), "java.net.SocketException"},
-	{"setTcpkeepAliveProbes0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpkeepAliveProbes0, void, int32_t, int32_t), "java.net.SocketException"},
-	{}
-};
-
-#define _METHOD_INDEX_getSoPeerCred0 2
-#define _METHOD_INDEX_getTcpKeepAliveIntvl0 4
-#define _METHOD_INDEX_getTcpKeepAliveTime0 6
-#define _METHOD_INDEX_getTcpkeepAliveProbes0 8
-#define _METHOD_INDEX_keepAliveOptionsSupported0 10
-#define _METHOD_INDEX_setTcpKeepAliveIntvl0 14
-#define _METHOD_INDEX_setTcpKeepAliveTime0 16
-#define _METHOD_INDEX_setTcpkeepAliveProbes0 18
-
-$InnerClassInfo _MacOSXSocketOptions_InnerClassesInfo_[] = {
-	{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
-	{}
-};
-
-$ClassInfo _MacOSXSocketOptions_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.net.MacOSXSocketOptions",
-	"jdk.net.ExtendedSocketOptions$PlatformSocketOptions",
-	nullptr,
-	nullptr,
-	_MacOSXSocketOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MacOSXSocketOptions_InnerClassesInfo_
-};
-
-$Object* allocate$MacOSXSocketOptions($Class* clazz) {
-	return $of($alloc(MacOSXSocketOptions));
-}
 
 void MacOSXSocketOptions::init$() {
 	$ExtendedSocketOptions$PlatformSocketOptions::init$();
@@ -158,7 +101,7 @@ int32_t MacOSXSocketOptions::getTcpKeepAliveIntvl(int32_t fd) {
 }
 
 $UnixDomainPrincipal* MacOSXSocketOptions::getSoPeerCred(int32_t fd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t l = getSoPeerCred0(fd);
 	int32_t uid = (int32_t)(l >> 32);
 	int32_t gid = (int32_t)l;
@@ -169,66 +112,61 @@ $UnixDomainPrincipal* MacOSXSocketOptions::getSoPeerCred(int32_t fd) {
 
 void MacOSXSocketOptions::setTcpkeepAliveProbes0(int32_t fd, int32_t value) {
 	$init(MacOSXSocketOptions);
-	$prepareNativeStatic(MacOSXSocketOptions, setTcpkeepAliveProbes0, void, int32_t fd, int32_t value);
+	$prepareNativeStatic(setTcpkeepAliveProbes0, void, int32_t fd, int32_t value);
 	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void MacOSXSocketOptions::setTcpKeepAliveTime0(int32_t fd, int32_t value) {
 	$init(MacOSXSocketOptions);
-	$prepareNativeStatic(MacOSXSocketOptions, setTcpKeepAliveTime0, void, int32_t fd, int32_t value);
+	$prepareNativeStatic(setTcpKeepAliveTime0, void, int32_t fd, int32_t value);
 	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void MacOSXSocketOptions::setTcpKeepAliveIntvl0(int32_t fd, int32_t value) {
 	$init(MacOSXSocketOptions);
-	$prepareNativeStatic(MacOSXSocketOptions, setTcpKeepAliveIntvl0, void, int32_t fd, int32_t value);
+	$prepareNativeStatic(setTcpKeepAliveIntvl0, void, int32_t fd, int32_t value);
 	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 int32_t MacOSXSocketOptions::getTcpkeepAliveProbes0(int32_t fd) {
 	$init(MacOSXSocketOptions);
-	int32_t $ret = 0;
-	$prepareNativeStatic(MacOSXSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getTcpkeepAliveProbes0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t MacOSXSocketOptions::getTcpKeepAliveTime0(int32_t fd) {
 	$init(MacOSXSocketOptions);
-	int32_t $ret = 0;
-	$prepareNativeStatic(MacOSXSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getTcpKeepAliveTime0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t MacOSXSocketOptions::getTcpKeepAliveIntvl0(int32_t fd) {
 	$init(MacOSXSocketOptions);
-	int32_t $ret = 0;
-	$prepareNativeStatic(MacOSXSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getTcpKeepAliveIntvl0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t MacOSXSocketOptions::getSoPeerCred0(int32_t fd) {
 	$init(MacOSXSocketOptions);
-	int64_t $ret = 0;
-	$prepareNativeStatic(MacOSXSocketOptions, getSoPeerCred0, int64_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(getSoPeerCred0, int64_t, int32_t fd);
+	int64_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool MacOSXSocketOptions::keepAliveOptionsSupported0() {
 	$init(MacOSXSocketOptions);
-	bool $ret = false;
-	$prepareNativeStatic(MacOSXSocketOptions, keepAliveOptionsSupported0, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(keepAliveOptionsSupported0, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -240,13 +178,13 @@ $Void* MacOSXSocketOptions::lambda$static$0() {
 	return nullptr;
 }
 
-void clinit$MacOSXSocketOptions($Class* class$) {
+void MacOSXSocketOptions::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		if ($System::getSecurityManager() == nullptr) {
 			$System::loadLibrary("extnet"_s);
 		} else {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(MacOSXSocketOptions$$Lambda$lambda$static$0)));
+			$AccessController::doPrivileged($cast($PrivilegedAction, $$new(MacOSXSocketOptions$$Lambda$lambda$static$0)));
 		}
 	}
 }
@@ -256,11 +194,50 @@ MacOSXSocketOptions::MacOSXSocketOptions() {
 
 $Class* MacOSXSocketOptions::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MacOSXSocketOptions$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("jdk.net.MacOSXSocketOptions$$Lambda$lambda$static$0")) {
 			return MacOSXSocketOptions$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MacOSXSocketOptions, name, initialize, &_MacOSXSocketOptions_ClassInfo_, clinit$MacOSXSocketOptions, allocate$MacOSXSocketOptions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSXSocketOptions, init$, void)},
+		{"getSoPeerCred", "(I)Ljdk/net/UnixDomainPrincipal;", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getSoPeerCred, $UnixDomainPrincipal*, int32_t), "java.net.SocketException"},
+		{"getSoPeerCred0", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getSoPeerCred0, int64_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveIntvl", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpKeepAliveIntvl, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveIntvl0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveTime", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpKeepAliveTime, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpKeepAliveTime0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpkeepAliveProbes", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpkeepAliveProbes, int32_t, int32_t), "java.net.SocketException"},
+		{"getTcpkeepAliveProbes0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t), "java.net.SocketException"},
+		{"keepAliveOptionsSupported", "()Z", nullptr, 0, $virtualMethod(MacOSXSocketOptions, keepAliveOptionsSupported, bool)},
+		{"keepAliveOptionsSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, keepAliveOptionsSupported0, bool)},
+		{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MacOSXSocketOptions, lambda$static$0, $Void*)},
+		{"peerCredentialsSupported", "()Z", nullptr, 0, $virtualMethod(MacOSXSocketOptions, peerCredentialsSupported, bool)},
+		{"setTcpKeepAliveIntvl", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpKeepAliveIntvl, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpKeepAliveIntvl0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpKeepAliveIntvl0, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpKeepAliveTime", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpKeepAliveTime, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpKeepAliveTime0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpKeepAliveTime0, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpkeepAliveProbes", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpkeepAliveProbes, void, int32_t, int32_t), "java.net.SocketException"},
+		{"setTcpkeepAliveProbes0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpkeepAliveProbes0, void, int32_t, int32_t), "java.net.SocketException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.net.MacOSXSocketOptions",
+		"jdk.net.ExtendedSocketOptions$PlatformSocketOptions",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(MacOSXSocketOptions, name, initialize, &classInfo$$, MacOSXSocketOptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXSocketOptions);
+	});
 	return class$;
 }
 

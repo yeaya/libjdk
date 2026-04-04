@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RIFFInvalidDataException.h>
-
 #include <com/sun/media/sound/InvalidDataException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _RIFFInvalidDataException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RIFFInvalidDataException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RIFFInvalidDataException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RIFFInvalidDataException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFInvalidDataException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _RIFFInvalidDataException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RIFFInvalidDataException",
-	"com.sun.media.sound.InvalidDataException",
-	nullptr,
-	_RIFFInvalidDataException_FieldInfo_,
-	_RIFFInvalidDataException_MethodInfo_
-};
-
-$Object* allocate$RIFFInvalidDataException($Class* clazz) {
-	return $of($alloc(RIFFInvalidDataException));
-}
 
 void RIFFInvalidDataException::init$() {
 	$InvalidDataException::init$("Invalid Data!"_s);
@@ -56,7 +31,26 @@ void RIFFInvalidDataException::throw$() {
 }
 
 $Class* RIFFInvalidDataException::load$($String* name, bool initialize) {
-	$loadClass(RIFFInvalidDataException, name, initialize, &_RIFFInvalidDataException_ClassInfo_, allocate$RIFFInvalidDataException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RIFFInvalidDataException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RIFFInvalidDataException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFInvalidDataException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RIFFInvalidDataException",
+		"com.sun.media.sound.InvalidDataException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RIFFInvalidDataException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RIFFInvalidDataException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/logging/Formatter.h>
-
 #include <java/text/MessageFormat.h>
 #include <java/util/MissingResourceException.h>
 #include <java/util/ResourceBundle.h>
@@ -20,28 +19,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$MethodInfo _Formatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Formatter, init$, void)},
-	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter, format, $String*, $LogRecord*)},
-	{"formatMessage", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, formatMessage, $String*, $LogRecord*)},
-	{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, getHead, $String*, $Handler*)},
-	{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, getTail, $String*, $Handler*)},
-	{}
-};
-
-$ClassInfo _Formatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.logging.Formatter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Formatter_MethodInfo_
-};
-
-$Object* allocate$Formatter($Class* clazz) {
-	return $of($alloc(Formatter));
-}
-
 void Formatter::init$() {
 }
 
@@ -54,7 +31,7 @@ $String* Formatter::getTail($Handler* h) {
 }
 
 $String* Formatter::formatMessage($LogRecord* record) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, format, $nc(record)->getMessage());
 	$var($ResourceBundle, catalog, record->getResourceBundle());
 	if (catalog != nullptr) {
@@ -65,12 +42,12 @@ $String* Formatter::formatMessage($LogRecord* record) {
 	}
 	try {
 		$var($ObjectArray, parameters, record->getParameters());
-		if (parameters == nullptr || $nc(parameters)->length == 0) {
+		if (parameters == nullptr || parameters->length == 0) {
 			return format;
 		}
 		int32_t index = -1;
 		int32_t fence = $nc(format)->length() - 1;
-		while ((index = format->indexOf((int32_t)u'{', index + 1)) > -1) {
+		while ((index = format->indexOf(u'{', index + 1)) > -1) {
 			if (index >= fence) {
 				break;
 			}
@@ -90,7 +67,25 @@ Formatter::Formatter() {
 }
 
 $Class* Formatter::load$($String* name, bool initialize) {
-	$loadClass(Formatter, name, initialize, &_Formatter_ClassInfo_, allocate$Formatter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Formatter, init$, void)},
+		{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter, format, $String*, $LogRecord*)},
+		{"formatMessage", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, formatMessage, $String*, $LogRecord*)},
+		{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, getHead, $String*, $Handler*)},
+		{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, getTail, $String*, $Handler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.logging.Formatter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Formatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Formatter);
+	});
 	return class$;
 }
 

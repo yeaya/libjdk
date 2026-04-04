@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKPainter$ListTableFocusBorder.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKPainter.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -37,7 +36,6 @@ using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 
 namespace com {
@@ -46,54 +44,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKPainter$ListTableFocusBorder_FieldInfo_[] = {
-	{"selectedCell", "Z", nullptr, $PRIVATE, $field(GTKPainter$ListTableFocusBorder, selectedCell)},
-	{"focusedCell", "Z", nullptr, $PRIVATE, $field(GTKPainter$ListTableFocusBorder, focusedCell)},
-	{}
-};
-
-$MethodInfo _GTKPainter$ListTableFocusBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(GTKPainter$ListTableFocusBorder, init$, void, bool, bool)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(GTKPainter$ListTableFocusBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getContext", "(Ljava/awt/Component;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(GTKPainter$ListTableFocusBorder, getContext, $SynthContext*, $Component*)},
-	{"getNoFocusCellBorder", "()Lcom/sun/java/swing/plaf/gtk/GTKPainter$ListTableFocusBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKPainter$ListTableFocusBorder, getNoFocusCellBorder, GTKPainter$ListTableFocusBorder*)},
-	{"getSelectedCellBorder", "()Lcom/sun/java/swing/plaf/gtk/GTKPainter$ListTableFocusBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKPainter$ListTableFocusBorder, getSelectedCellBorder, GTKPainter$ListTableFocusBorder*)},
-	{"getUnselectedCellBorder", "()Lcom/sun/java/swing/plaf/gtk/GTKPainter$ListTableFocusBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKPainter$ListTableFocusBorder, getUnselectedCellBorder, GTKPainter$ListTableFocusBorder*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(GTKPainter$ListTableFocusBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter$ListTableFocusBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _GTKPainter$ListTableFocusBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "ListTableFocusBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _GTKPainter$ListTableFocusBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_GTKPainter$ListTableFocusBorder_FieldInfo_,
-	_GTKPainter$ListTableFocusBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKPainter$ListTableFocusBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKPainter"
-};
-
-$Object* allocate$GTKPainter$ListTableFocusBorder($Class* clazz) {
-	return $of($alloc(GTKPainter$ListTableFocusBorder));
-}
 
 int32_t GTKPainter$ListTableFocusBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -137,14 +87,14 @@ void GTKPainter$ListTableFocusBorder::init$(bool selectedCell, bool focusedCell)
 }
 
 $SynthContext* GTKPainter$ListTableFocusBorder::getContext($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, nullptr);
 	$var($ComponentUI, ui, nullptr);
 	if ($instanceOf($JLabel, c)) {
-		$assign(ui, $nc(($cast($JLabel, c)))->getUI());
+		$assign(ui, $cast($JLabel, c)->getUI());
 	}
 	if ($instanceOf($SynthUI, ui)) {
-		$assign(context, $nc(($cast($SynthUI, ui)))->getContext($cast($JComponent, c)));
+		$assign(context, $cast($SynthUI, ui)->getContext($cast($JComponent, c)));
 	}
 	return context;
 }
@@ -162,11 +112,11 @@ void GTKPainter$ListTableFocusBorder::paintBorder($Component* c, $Graphics* g, i
 }
 
 $Insets* GTKPainter$ListTableFocusBorder::getBorderInsets($Component* c, $Insets* i$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, i, i$renamed);
 	$var($SynthContext, context, getContext(c));
 	if (context != nullptr) {
-		$assign(i, $nc($(context->getStyle()))->getInsets(context, i));
+		$assign(i, $$nc(context->getStyle())->getInsets(context, i));
 	}
 	return i;
 }
@@ -179,7 +129,49 @@ GTKPainter$ListTableFocusBorder::GTKPainter$ListTableFocusBorder() {
 }
 
 $Class* GTKPainter$ListTableFocusBorder::load$($String* name, bool initialize) {
-	$loadClass(GTKPainter$ListTableFocusBorder, name, initialize, &_GTKPainter$ListTableFocusBorder_ClassInfo_, allocate$GTKPainter$ListTableFocusBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"selectedCell", "Z", nullptr, $PRIVATE, $field(GTKPainter$ListTableFocusBorder, selectedCell)},
+		{"focusedCell", "Z", nullptr, $PRIVATE, $field(GTKPainter$ListTableFocusBorder, focusedCell)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(GTKPainter$ListTableFocusBorder, init$, void, bool, bool)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(GTKPainter$ListTableFocusBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getContext", "(Ljava/awt/Component;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(GTKPainter$ListTableFocusBorder, getContext, $SynthContext*, $Component*)},
+		{"getNoFocusCellBorder", "()Lcom/sun/java/swing/plaf/gtk/GTKPainter$ListTableFocusBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKPainter$ListTableFocusBorder, getNoFocusCellBorder, GTKPainter$ListTableFocusBorder*)},
+		{"getSelectedCellBorder", "()Lcom/sun/java/swing/plaf/gtk/GTKPainter$ListTableFocusBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKPainter$ListTableFocusBorder, getSelectedCellBorder, GTKPainter$ListTableFocusBorder*)},
+		{"getUnselectedCellBorder", "()Lcom/sun/java/swing/plaf/gtk/GTKPainter$ListTableFocusBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKPainter$ListTableFocusBorder, getUnselectedCellBorder, GTKPainter$ListTableFocusBorder*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(GTKPainter$ListTableFocusBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter$ListTableFocusBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "ListTableFocusBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKPainter$ListTableFocusBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKPainter"
+	};
+	$loadClass(GTKPainter$ListTableFocusBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKPainter$ListTableFocusBorder));
+	});
 	return class$;
 }
 

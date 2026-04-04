@@ -1,5 +1,4 @@
 #include <bug7165725$1.h>
-
 #include <bug7165725$1$1.h>
 #include <bug7165725.h>
 #include <java/awt/BorderLayout.h>
@@ -31,52 +30,6 @@ using $URL = ::java::net::URL;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
-using $EditorKit = ::javax::swing::text::EditorKit;
-
-$FieldInfo _bug7165725$1_FieldInfo_[] = {
-	{"this$0", "Lbug7165725;", nullptr, $FINAL | $SYNTHETIC, $field(bug7165725$1, this$0)},
-	{"val$urlStr", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(bug7165725$1, val$urlStr)},
-	{}
-};
-
-$MethodInfo _bug7165725$1_MethodInfo_[] = {
-	{"<init>", "(Lbug7165725;Ljava/lang/String;)V", "()V", 0, $method(bug7165725$1, init$, void, $bug7165725*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7165725$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug7165725$1_EnclosingMethodInfo_ = {
-	"bug7165725",
-	"execute",
-	"(Ljava/lang/String;Lbug7165725$GoldenElement;)V"
-};
-
-$InnerClassInfo _bug7165725$1_InnerClassesInfo_[] = {
-	{"bug7165725$1", nullptr, nullptr, 0},
-	{"bug7165725$1$1", nullptr, nullptr, 0},
-	{"bug7165725$GoldenElement", "bug7165725", "GoldenElement", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug7165725$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7165725$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug7165725$1_FieldInfo_,
-	_bug7165725$1_MethodInfo_,
-	nullptr,
-	&_bug7165725$1_EnclosingMethodInfo_,
-	_bug7165725$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7165725"
-};
-
-$Object* allocate$bug7165725$1($Class* clazz) {
-	return $of($alloc(bug7165725$1));
-}
 
 void bug7165725$1::init$($bug7165725* this$0, $String* val$urlStr) {
 	$set(this, this$0, this$0);
@@ -84,10 +37,10 @@ void bug7165725$1::init$($bug7165725* this$0, $String* val$urlStr) {
 }
 
 void bug7165725$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$set(this->this$0, editorPane, $new($JEditorPane));
-		$nc(this->this$0->editorPane)->setEditorKit($$new($bug7165725$1$1, this));
+		this->this$0->editorPane->setEditorKit($$new($bug7165725$1$1, this));
 		$nc(this->this$0->editorPane)->setPage($$new($URL, this->val$urlStr));
 	} catch ($IOException& ex) {
 		$throwNew($RuntimeException, "Test failed"_s, ex);
@@ -95,9 +48,9 @@ void bug7165725$1::run() {
 	$nc(this->this$0->editorPane)->setEditable(false);
 	$var($JScrollPane, scroller, $new($JScrollPane));
 	$var($JViewport, vp, scroller->getViewport());
-	$nc(vp)->add(static_cast<$Component*>(this->this$0->editorPane));
+	$nc(vp)->add(this->this$0->editorPane);
 	$init($BorderLayout);
-	this->this$0->add(static_cast<$Component*>(scroller), $of($BorderLayout::CENTER));
+	this->this$0->add(scroller, $BorderLayout::CENTER);
 	this->this$0->setDefaultCloseOperation(3);
 	this->this$0->setSize(400, 400);
 	this->this$0->setLocationRelativeTo(nullptr);
@@ -108,7 +61,45 @@ bug7165725$1::bug7165725$1() {
 }
 
 $Class* bug7165725$1::load$($String* name, bool initialize) {
-	$loadClass(bug7165725$1, name, initialize, &_bug7165725$1_ClassInfo_, allocate$bug7165725$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug7165725;", nullptr, $FINAL | $SYNTHETIC, $field(bug7165725$1, this$0)},
+		{"val$urlStr", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(bug7165725$1, val$urlStr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug7165725;Ljava/lang/String;)V", "()V", 0, $method(bug7165725$1, init$, void, $bug7165725*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7165725$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug7165725",
+		"execute",
+		"(Ljava/lang/String;Lbug7165725$GoldenElement;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7165725$1", nullptr, nullptr, 0},
+		{"bug7165725$1$1", nullptr, nullptr, 0},
+		{"bug7165725$GoldenElement", "bug7165725", "GoldenElement", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7165725$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7165725"
+	};
+	$loadClass(bug7165725$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7165725$1);
+	});
 	return class$;
 }
 

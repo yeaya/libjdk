@@ -1,5 +1,4 @@
 #include <java/awt/Dialog$ModalExclusionType.h>
-
 #include <java/awt/Dialog.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Dialog$ModalExclusionType_FieldInfo_[] = {
-	{"NO_EXCLUDE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalExclusionType, NO_EXCLUDE)},
-	{"APPLICATION_EXCLUDE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalExclusionType, APPLICATION_EXCLUDE)},
-	{"TOOLKIT_EXCLUDE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalExclusionType, TOOLKIT_EXCLUDE)},
-	{"$VALUES", "[Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dialog$ModalExclusionType, $VALUES)},
-	{}
-};
-
-$MethodInfo _Dialog$ModalExclusionType_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog$ModalExclusionType, $values, $Dialog$ModalExclusionTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Dialog$ModalExclusionType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalExclusionType, valueOf, Dialog$ModalExclusionType*, $String*)},
-	{"values", "()[Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalExclusionType, values, $Dialog$ModalExclusionTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _Dialog$ModalExclusionType_InnerClassesInfo_[] = {
-	{"java.awt.Dialog$ModalExclusionType", "java.awt.Dialog", "ModalExclusionType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Dialog$ModalExclusionType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.Dialog$ModalExclusionType",
-	"java.lang.Enum",
-	nullptr,
-	_Dialog$ModalExclusionType_FieldInfo_,
-	_Dialog$ModalExclusionType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/Dialog$ModalExclusionType;>;",
-	nullptr,
-	_Dialog$ModalExclusionType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Dialog"
-};
-
-$Object* allocate$Dialog$ModalExclusionType($Class* clazz) {
-	return $of($alloc(Dialog$ModalExclusionType));
-}
 
 Dialog$ModalExclusionType* Dialog$ModalExclusionType::NO_EXCLUDE = nullptr;
 Dialog$ModalExclusionType* Dialog$ModalExclusionType::APPLICATION_EXCLUDE = nullptr;
@@ -87,7 +45,7 @@ void Dialog$ModalExclusionType::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Dialog$ModalExclusionType($Class* class$) {
+void Dialog$ModalExclusionType::clinit$($Class* clazz) {
 	$assignStatic(Dialog$ModalExclusionType::NO_EXCLUDE, $new(Dialog$ModalExclusionType, "NO_EXCLUDE"_s, 0));
 	$assignStatic(Dialog$ModalExclusionType::APPLICATION_EXCLUDE, $new(Dialog$ModalExclusionType, "APPLICATION_EXCLUDE"_s, 1));
 	$assignStatic(Dialog$ModalExclusionType::TOOLKIT_EXCLUDE, $new(Dialog$ModalExclusionType, "TOOLKIT_EXCLUDE"_s, 2));
@@ -98,7 +56,42 @@ Dialog$ModalExclusionType::Dialog$ModalExclusionType() {
 }
 
 $Class* Dialog$ModalExclusionType::load$($String* name, bool initialize) {
-	$loadClass(Dialog$ModalExclusionType, name, initialize, &_Dialog$ModalExclusionType_ClassInfo_, clinit$Dialog$ModalExclusionType, allocate$Dialog$ModalExclusionType);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_EXCLUDE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalExclusionType, NO_EXCLUDE)},
+		{"APPLICATION_EXCLUDE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalExclusionType, APPLICATION_EXCLUDE)},
+		{"TOOLKIT_EXCLUDE", "Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dialog$ModalExclusionType, TOOLKIT_EXCLUDE)},
+		{"$VALUES", "[Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dialog$ModalExclusionType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dialog$ModalExclusionType, $values, $Dialog$ModalExclusionTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Dialog$ModalExclusionType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalExclusionType, valueOf, Dialog$ModalExclusionType*, $String*)},
+		{"values", "()[Ljava/awt/Dialog$ModalExclusionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dialog$ModalExclusionType, values, $Dialog$ModalExclusionTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Dialog$ModalExclusionType", "java.awt.Dialog", "ModalExclusionType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.Dialog$ModalExclusionType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/Dialog$ModalExclusionType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Dialog"
+	};
+	$loadClass(Dialog$ModalExclusionType, name, initialize, &classInfo$$, Dialog$ModalExclusionType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dialog$ModalExclusionType));
+	});
 	return class$;
 }
 

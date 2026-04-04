@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/ReferenceParser.h>
-
 #include <com/sun/tools/javac/parser/JavacParser.h>
 #include <com/sun/tools/javac/parser/ParserFactory.h>
 #include <com/sun/tools/javac/parser/ReferenceParser$ParseException.h>
@@ -11,7 +10,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <com/sun/tools/javac/util/Log$DeferredDiagnosticHandler.h>
-#include <com/sun/tools/javac/util/Log$DiagnosticHandler.h>
 #include <com/sun/tools/javac/util/Log.h>
 #include <com/sun/tools/javac/util/Name.h>
 #include <java/lang/CharSequence.h>
@@ -32,9 +30,7 @@ using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$DeferredDiagnosticHandler = ::com::sun::tools::javac::util::Log$DeferredDiagnosticHandler;
-using $Log$DiagnosticHandler = ::com::sun::tools::javac::util::Log$DiagnosticHandler;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -42,7 +38,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Queue = ::java::util::Queue;
 
 namespace com {
 	namespace sun {
@@ -50,113 +45,71 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _ReferenceParser_FieldInfo_[] = {
-	{"fac", "Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PRIVATE | $FINAL, $field(ReferenceParser, fac)},
-	{}
-};
-
-$MethodInfo _ReferenceParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, $PUBLIC, $method(ReferenceParser, init$, void, $ParserFactory*)},
-	{"parse", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/ReferenceParser$Reference;", nullptr, $PUBLIC, $virtualMethod(ReferenceParser, parse, $ReferenceParser$Reference*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseMember", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(ReferenceParser, parseMember, $Name*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseModule", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(ReferenceParser, parseModule, $JCTree$JCExpression*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseParams", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(ReferenceParser, parseParams, $List*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseType", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(ReferenceParser, parseType, $JCTree*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{}
-};
-
-$InnerClassInfo _ReferenceParser_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.ReferenceParser$ParseException", "com.sun.tools.javac.parser.ReferenceParser", "ParseException", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.parser.ReferenceParser$Reference", "com.sun.tools.javac.parser.ReferenceParser", "Reference", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.ReferenceParser",
-	"java.lang.Object",
-	nullptr,
-	_ReferenceParser_FieldInfo_,
-	_ReferenceParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReferenceParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.ReferenceParser$ParseException,com.sun.tools.javac.parser.ReferenceParser$Reference"
-};
-
-$Object* allocate$ReferenceParser($Class* clazz) {
-	return $of($alloc(ReferenceParser));
-}
-
 void ReferenceParser::init$($ParserFactory* fac) {
 	$set(this, fac, fac);
 }
 
 $ReferenceParser$Reference* ReferenceParser::parse($String* sig) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, moduleName, nullptr);
 	$var($JCTree, qualExpr, nullptr);
 	$var($Name, member, nullptr);
 	$var($List, paramTypes, nullptr);
 	$var($Log$DeferredDiagnosticHandler, deferredDiagnosticHandler, $new($Log$DeferredDiagnosticHandler, $nc(this->fac)->log));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int32_t slash = $nc(sig)->indexOf("/"_s);
-			int32_t hash = sig->indexOf("#"_s, slash + 1);
-			int32_t lparen = sig->indexOf("("_s, $Math::max(slash, hash) + 1);
-			if (slash > -1) {
-				$assign(moduleName, parseModule($(sig->substring(0, slash))));
-			} else {
-				$assign(moduleName, nullptr);
-			}
-			if (slash > 0 && sig->length() == slash + 1) {
-				$assign(qualExpr, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t slash = $nc(sig)->indexOf("/"_s);
+		int32_t hash = sig->indexOf("#"_s, slash + 1);
+		int32_t lparen = sig->indexOf("("_s, $Math::max(slash, hash) + 1);
+		if (slash > -1) {
+			$assign(moduleName, parseModule($(sig->substring(0, slash))));
+		} else {
+			$assign(moduleName, nullptr);
+		}
+		if (slash > 0 && sig->length() == slash + 1) {
+			$assign(qualExpr, nullptr);
+			$assign(member, nullptr);
+		} else if (hash == -1) {
+			if (lparen == -1) {
+				$assign(qualExpr, parseType($(sig->substring(slash + 1))));
 				$assign(member, nullptr);
-			} else if (hash == -1) {
-				if (lparen == -1) {
-					$assign(qualExpr, parseType($(sig->substring(slash + 1))));
-					$assign(member, nullptr);
-				} else {
-					$assign(qualExpr, nullptr);
-					$assign(member, parseMember($(sig->substring(slash + 1, lparen))));
-				}
 			} else {
-				$assign(qualExpr, (hash == slash + 1) ? ($JCTree*)nullptr : parseType($(sig->substring(slash + 1, hash))));
-				if (lparen == -1) {
-					$assign(member, parseMember($(sig->substring(hash + 1))));
-				} else {
-					$assign(member, parseMember($(sig->substring(hash + 1, lparen))));
-				}
+				$assign(qualExpr, nullptr);
+				$assign(member, parseMember($(sig->substring(slash + 1, lparen))));
 			}
-			if (lparen < 0) {
-				$assign(paramTypes, nullptr);
+		} else {
+			$assign(qualExpr, (hash == slash + 1) ? ($JCTree*)nullptr : parseType($(sig->substring(slash + 1, hash))));
+			if (lparen == -1) {
+				$assign(member, parseMember($(sig->substring(hash + 1))));
 			} else {
-				int32_t rparen = sig->indexOf(")"_s, lparen);
-				if (rparen != sig->length() - 1) {
-					$throwNew($ReferenceParser$ParseException, "dc.ref.bad.parens"_s);
-				}
-				$assign(paramTypes, parseParams($(sig->substring(lparen + 1, rparen))));
+				$assign(member, parseMember($(sig->substring(hash + 1, lparen))));
 			}
-			if (!$nc($(deferredDiagnosticHandler->getDiagnostics()))->isEmpty()) {
-				$throwNew($ReferenceParser$ParseException, "dc.ref.syntax.error"_s);
+		}
+		if (lparen < 0) {
+			$assign(paramTypes, nullptr);
+		} else {
+			int32_t rparen = sig->indexOf(")"_s, lparen);
+			if (rparen != sig->length() - 1) {
+				$throwNew($ReferenceParser$ParseException, "dc.ref.bad.parens"_s);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($nc(this->fac)->log)->popDiagnosticHandler(deferredDiagnosticHandler);
+			$assign(paramTypes, parseParams($(sig->substring(lparen + 1, rparen))));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (!$$nc(deferredDiagnosticHandler->getDiagnostics())->isEmpty()) {
+			$throwNew($ReferenceParser$ParseException, "dc.ref.syntax.error"_s);
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->fac->log)->popDiagnosticHandler(deferredDiagnosticHandler);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return $new($ReferenceParser$Reference, moduleName, qualExpr, member, paramTypes);
 }
 
 $JCTree$JCExpression* ReferenceParser::parseModule($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavacParser, p, $nc(this->fac)->newParser(s, false, false, false));
 	$var($JCTree$JCExpression, expr, $nc(p)->qualident(false));
 	$init($Tokens$TokenKind);
@@ -167,7 +120,7 @@ $JCTree$JCExpression* ReferenceParser::parseModule($String* s) {
 }
 
 $JCTree* ReferenceParser::parseType($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavacParser, p, $nc(this->fac)->newParser(s, false, false, false));
 	$var($JCTree, tree, $nc(p)->parseType());
 	$init($Tokens$TokenKind);
@@ -178,7 +131,7 @@ $JCTree* ReferenceParser::parseType($String* s) {
 }
 
 $Name* ReferenceParser::parseMember($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavacParser, p, $nc(this->fac)->newParser(s, false, false, false));
 	$var($Name, name, $nc(p)->ident());
 	$init($Tokens$TokenKind);
@@ -189,25 +142,25 @@ $Name* ReferenceParser::parseMember($String* s) {
 }
 
 $List* ReferenceParser::parseParams($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($($nc(s)->trim())->isEmpty()) {
 		return $List::nil();
 	}
-	$var($JavacParser, p, $nc(this->fac)->newParser($($nc(s)->replace(static_cast<$CharSequence*>("..."_s), static_cast<$CharSequence*>("[]"_s))), false, false, false));
+	$var($JavacParser, p, $nc(this->fac)->newParser($(s->replace("..."_s, "[]"_s)), false, false, false));
 	$var($ListBuffer, paramTypes, $new($ListBuffer));
 	paramTypes->add($($nc(p)->parseType()));
 	$init($Tokens$TokenKind);
-	if ($nc($($nc(p)->token()))->kind == $Tokens$TokenKind::IDENTIFIER) {
+	if ($nc($(p->token()))->kind == $Tokens$TokenKind::IDENTIFIER) {
 		p->nextToken();
 	}
-	while ($nc($($nc(p)->token()))->kind == $Tokens$TokenKind::COMMA) {
+	while ($nc($(p->token()))->kind == $Tokens$TokenKind::COMMA) {
 		p->nextToken();
 		paramTypes->add($(p->parseType()));
 		if ($nc($(p->token()))->kind == $Tokens$TokenKind::IDENTIFIER) {
 			p->nextToken();
 		}
 	}
-	if ($nc($($nc(p)->token()))->kind != $Tokens$TokenKind::EOF) {
+	if ($nc($(p->token()))->kind != $Tokens$TokenKind::EOF) {
 		$throwNew($ReferenceParser$ParseException, "dc.ref.unexpected.input"_s);
 	}
 	return paramTypes->toList();
@@ -217,7 +170,41 @@ ReferenceParser::ReferenceParser() {
 }
 
 $Class* ReferenceParser::load$($String* name, bool initialize) {
-	$loadClass(ReferenceParser, name, initialize, &_ReferenceParser_ClassInfo_, allocate$ReferenceParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"fac", "Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PRIVATE | $FINAL, $field(ReferenceParser, fac)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, $PUBLIC, $method(ReferenceParser, init$, void, $ParserFactory*)},
+		{"parse", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/ReferenceParser$Reference;", nullptr, $PUBLIC, $virtualMethod(ReferenceParser, parse, $ReferenceParser$Reference*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+		{"parseMember", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(ReferenceParser, parseMember, $Name*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+		{"parseModule", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(ReferenceParser, parseModule, $JCTree$JCExpression*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+		{"parseParams", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(ReferenceParser, parseParams, $List*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+		{"parseType", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(ReferenceParser, parseType, $JCTree*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.ReferenceParser$ParseException", "com.sun.tools.javac.parser.ReferenceParser", "ParseException", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.parser.ReferenceParser$Reference", "com.sun.tools.javac.parser.ReferenceParser", "Reference", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.ReferenceParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.ReferenceParser$ParseException,com.sun.tools.javac.parser.ReferenceParser$Reference"
+	};
+	$loadClass(ReferenceParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceParser);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/Box$Filler.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -25,62 +24,6 @@ using $JComponent = ::javax::swing::JComponent;
 
 namespace javax {
 	namespace swing {
-
-$Attribute Box$Filler_Attribute_var$1[] = {
-	{'s', "minimumSize"},
-	{'s', "preferredSize"},
-	{'s', "maximumSize"},
-	{'-'}
-};
-
-$NamedAttribute Box$Filler_Attribute_var$0[] = {
-	{"value", '[', Box$Filler_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Box$Filler_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", Box$Filler_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _Box$Filler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Dimension;Ljava/awt/Dimension;Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Box$Filler, init$, void, $Dimension*, $Dimension*, $Dimension*), nullptr, nullptr, _Box$Filler_MethodAnnotations_init$0},
-	{"changeShape", "(Ljava/awt/Dimension;Ljava/awt/Dimension;Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Box$Filler, changeShape, void, $Dimension*, $Dimension*, $Dimension*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Box$Filler, getAccessibleContext, $AccessibleContext*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Box$Filler, paintComponent, void, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Box$Filler_InnerClassesInfo_[] = {
-	{"javax.swing.Box$Filler", "javax.swing.Box", "Filler", $PUBLIC | $STATIC},
-	{"javax.swing.Box$Filler$AccessibleBoxFiller", "javax.swing.Box$Filler", "AccessibleBoxFiller", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Box$Filler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.Box$Filler",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	nullptr,
-	_Box$Filler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Box$Filler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Box"
-};
-
-$Object* allocate$Box$Filler($Class* clazz) {
-	return $of($alloc(Box$Filler));
-}
 
 $String* Box$Filler::toString() {
 	 return this->$JComponent::toString();
@@ -138,7 +81,55 @@ Box$Filler::Box$Filler() {
 }
 
 $Class* Box$Filler::load$($String* name, bool initialize) {
-	$loadClass(Box$Filler, name, initialize, &_Box$Filler_ClassInfo_, allocate$Box$Filler);
+	$Attribute $attribute[] = {
+		{'s', "minimumSize"},
+		{'s', "preferredSize"},
+		{'s', "maximumSize"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Dimension;Ljava/awt/Dimension;Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Box$Filler, init$, void, $Dimension*, $Dimension*, $Dimension*), nullptr, nullptr, init$methodAnnotations$$},
+		{"changeShape", "(Ljava/awt/Dimension;Ljava/awt/Dimension;Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Box$Filler, changeShape, void, $Dimension*, $Dimension*, $Dimension*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Box$Filler, getAccessibleContext, $AccessibleContext*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(Box$Filler, paintComponent, void, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Box$Filler", "javax.swing.Box", "Filler", $PUBLIC | $STATIC},
+		{"javax.swing.Box$Filler$AccessibleBoxFiller", "javax.swing.Box$Filler", "AccessibleBoxFiller", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.Box$Filler",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Box"
+	};
+	$loadClass(Box$Filler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Box$Filler));
+	});
 	return class$;
 }
 

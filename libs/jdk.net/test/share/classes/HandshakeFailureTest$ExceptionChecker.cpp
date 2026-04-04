@@ -1,5 +1,4 @@
 #include <HandshakeFailureTest$ExceptionChecker.h>
-
 #include <HandshakeFailureTest$ExpectedExceptionType.h>
 #include <HandshakeFailureTest.h>
 #include <java/lang/AssertionError.h>
@@ -9,50 +8,11 @@
 
 using $HandshakeFailureTest = ::HandshakeFailureTest;
 using $HandshakeFailureTest$ExpectedExceptionType = ::HandshakeFailureTest$ExpectedExceptionType;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _HandshakeFailureTest$ExceptionChecker_FieldInfo_[] = {
-	{"count", "I", nullptr, 0, $field(HandshakeFailureTest$ExceptionChecker, count)},
-	{"aborted", "Ljava/lang/Throwable;", nullptr, 0, $field(HandshakeFailureTest$ExceptionChecker, aborted)},
-	{}
-};
-
-$MethodInfo _HandshakeFailureTest$ExceptionChecker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HandshakeFailureTest$ExceptionChecker, init$, void)},
-	{"check", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(HandshakeFailureTest$ExceptionChecker, check, void, $Throwable*)},
-	{"check", "(I)V", nullptr, $PUBLIC, $method(HandshakeFailureTest$ExceptionChecker, check, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _HandshakeFailureTest$ExceptionChecker_InnerClassesInfo_[] = {
-	{"HandshakeFailureTest$ExceptionChecker", "HandshakeFailureTest", "ExceptionChecker", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HandshakeFailureTest$ExceptionChecker_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"HandshakeFailureTest$ExceptionChecker",
-	"java.lang.Object",
-	nullptr,
-	_HandshakeFailureTest$ExceptionChecker_FieldInfo_,
-	_HandshakeFailureTest$ExceptionChecker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandshakeFailureTest$ExceptionChecker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HandshakeFailureTest"
-};
-
-$Object* allocate$HandshakeFailureTest$ExceptionChecker($Class* clazz) {
-	return $of($alloc(HandshakeFailureTest$ExceptionChecker));
-}
 
 void HandshakeFailureTest$ExceptionChecker::init$() {
 	$set(this, aborted, nullptr);
@@ -67,7 +27,7 @@ void HandshakeFailureTest$ExceptionChecker::check($Throwable* expected) {
 }
 
 void HandshakeFailureTest$ExceptionChecker::check(int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->count > max) {
 		$nc($System::out)->println($$str({"WSAECONNABORTED received too many times: "_s, $$str(this->count)}));
 		$nc(this->aborted)->printStackTrace($System::out);
@@ -79,7 +39,39 @@ HandshakeFailureTest$ExceptionChecker::HandshakeFailureTest$ExceptionChecker() {
 }
 
 $Class* HandshakeFailureTest$ExceptionChecker::load$($String* name, bool initialize) {
-	$loadClass(HandshakeFailureTest$ExceptionChecker, name, initialize, &_HandshakeFailureTest$ExceptionChecker_ClassInfo_, allocate$HandshakeFailureTest$ExceptionChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "I", nullptr, 0, $field(HandshakeFailureTest$ExceptionChecker, count)},
+		{"aborted", "Ljava/lang/Throwable;", nullptr, 0, $field(HandshakeFailureTest$ExceptionChecker, aborted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HandshakeFailureTest$ExceptionChecker, init$, void)},
+		{"check", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(HandshakeFailureTest$ExceptionChecker, check, void, $Throwable*)},
+		{"check", "(I)V", nullptr, $PUBLIC, $method(HandshakeFailureTest$ExceptionChecker, check, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HandshakeFailureTest$ExceptionChecker", "HandshakeFailureTest", "ExceptionChecker", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"HandshakeFailureTest$ExceptionChecker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HandshakeFailureTest"
+	};
+	$loadClass(HandshakeFailureTest$ExceptionChecker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandshakeFailureTest$ExceptionChecker);
+	});
 	return class$;
 }
 

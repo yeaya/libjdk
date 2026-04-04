@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LoadClass.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ObjectType.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
@@ -19,27 +18,23 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _LoadClass_MethodInfo_[] = {
-	{"getLoadClassType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/ObjectType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoadClass, getLoadClassType, $ObjectType*, $ConstantPoolGen*)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoadClass, getType, $Type*, $ConstantPoolGen*)},
-	{}
-};
-
-$ClassInfo _LoadClass_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.LoadClass",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LoadClass_MethodInfo_
-};
-
-$Object* allocate$LoadClass($Class* clazz) {
-	return $of($alloc(LoadClass));
-}
-
 $Class* LoadClass::load$($String* name, bool initialize) {
-	$loadClass(LoadClass, name, initialize, &_LoadClass_ClassInfo_, allocate$LoadClass);
+	$MethodInfo methodInfos$$[] = {
+		{"getLoadClassType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/ObjectType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoadClass, getLoadClassType, $ObjectType*, $ConstantPoolGen*)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoadClass, getType, $Type*, $ConstantPoolGen*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.LoadClass",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LoadClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoadClass);
+	});
 	return class$;
 }
 

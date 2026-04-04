@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/Encodings.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/EncodingInfo.h>
 #include <com/sun/org/apache/xml/internal/serializer/Encodings$EncodingInfos.h>
 #include <java/io/BufferedWriter.h>
@@ -43,56 +42,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$FieldInfo _Encodings_FieldInfo_[] = {
-	{"m_defaultLastPrintable", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Encodings, m_defaultLastPrintable)},
-	{"ENCODINGS_FILE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encodings, ENCODINGS_FILE)},
-	{"ENCODINGS_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encodings, ENCODINGS_PROP)},
-	{"DEFAULT_MIME_ENCODING", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Encodings, DEFAULT_MIME_ENCODING)},
-	{"_encodingInfos", "Lcom/sun/org/apache/xml/internal/serializer/Encodings$EncodingInfos;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encodings, _encodingInfos)},
-	{}
-};
-
-$MethodInfo _Encodings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Encodings, init$, void)},
-	{"convertJava2MimeEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Encodings, convertJava2MimeEncoding, $String*, $String*)},
-	{"convertMime2JavaEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, convertMime2JavaEncoding, $String*, $String*)},
-	{"getEncodingInfo", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/EncodingInfo;", nullptr, $STATIC, $staticMethod(Encodings, getEncodingInfo, $EncodingInfo*, $String*)},
-	{"getLastPrintable", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, getLastPrintable, int32_t)},
-	{"getMimeEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Encodings, getMimeEncoding, $String*, $String*)},
-	{"getWriter", "(Ljava/io/OutputStream;Ljava/lang/String;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(Encodings, getWriter, $Writer*, $OutputStream*, $String*), "java.io.UnsupportedEncodingException"},
-	{"isHighUTF16Surrogate", "(C)Z", nullptr, $STATIC, $staticMethod(Encodings, isHighUTF16Surrogate, bool, char16_t)},
-	{"isLowUTF16Surrogate", "(C)Z", nullptr, $STATIC, $staticMethod(Encodings, isLowUTF16Surrogate, bool, char16_t)},
-	{"isRecognizedEncoding", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, isRecognizedEncoding, bool, $String*)},
-	{"toCodePoint", "(CC)I", nullptr, $STATIC, $staticMethod(Encodings, toCodePoint, int32_t, char16_t, char16_t)},
-	{"toCodePoint", "(C)I", nullptr, $STATIC, $staticMethod(Encodings, toCodePoint, int32_t, char16_t)},
-	{"toUpperCaseFast", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Encodings, toUpperCaseFast, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Encodings_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.Encodings$EncodingInfos", "com.sun.org.apache.xml.internal.serializer.Encodings", "EncodingInfos", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Encodings_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.Encodings",
-	"java.lang.Object",
-	nullptr,
-	_Encodings_FieldInfo_,
-	_Encodings_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Encodings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.Encodings$EncodingInfos"
-};
-
-$Object* allocate$Encodings($Class* clazz) {
-	return $of($alloc(Encodings));
-}
-
 $String* Encodings::ENCODINGS_FILE = nullptr;
 $String* Encodings::ENCODINGS_PROP = nullptr;
 $String* Encodings::DEFAULT_MIME_ENCODING = nullptr;
@@ -103,8 +52,8 @@ void Encodings::init$() {
 
 $Writer* Encodings::getWriter($OutputStream* output, $String* encoding) {
 	$init(Encodings);
-	$useLocalCurrentObjectStackCache();
-	$var($EncodingInfo, ei, $nc(Encodings::_encodingInfos)->findEncoding($(toUpperCaseFast(encoding))));
+	$useLocalObjectStack();
+	$var($EncodingInfo, ei, Encodings::_encodingInfos->findEncoding($(toUpperCaseFast(encoding))));
 	if (ei != nullptr) {
 		try {
 			return $new($BufferedWriter, $$new($OutputStreamWriter, output, ei->javaName));
@@ -121,16 +70,16 @@ int32_t Encodings::getLastPrintable() {
 
 $EncodingInfo* Encodings::getEncodingInfo($String* encoding) {
 	$init(Encodings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EncodingInfo, ei, nullptr);
 	$var($String, normalizedEncoding, toUpperCaseFast(encoding));
-	$assign(ei, $nc(Encodings::_encodingInfos)->findEncoding(normalizedEncoding));
+	$assign(ei, Encodings::_encodingInfos->findEncoding(normalizedEncoding));
 	if (ei == nullptr) {
 		try {
 			$var($Charset, c, $Charset::forName(encoding));
 			$var($String, name, $nc(c)->name());
 			$assign(ei, $new($EncodingInfo, name, name));
-			$nc(Encodings::_encodingInfos)->putEncoding(normalizedEncoding, ei);
+			Encodings::_encodingInfos->putEncoding(normalizedEncoding, ei);
 		} catch ($IllegalCharsetNameException& x) {
 			$assign(ei, $new($EncodingInfo, nullptr, nullptr));
 		} catch ($UnsupportedCharsetException& x) {
@@ -142,10 +91,10 @@ $EncodingInfo* Encodings::getEncodingInfo($String* encoding) {
 
 bool Encodings::isRecognizedEncoding($String* encoding) {
 	$init(Encodings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EncodingInfo, ei, nullptr);
 	$var($String, normalizedEncoding, toUpperCaseFast(encoding));
-	$assign(ei, $nc(Encodings::_encodingInfos)->findEncoding(normalizedEncoding));
+	$assign(ei, Encodings::_encodingInfos->findEncoding(normalizedEncoding));
 	if (ei != nullptr) {
 		return true;
 	}
@@ -154,7 +103,7 @@ bool Encodings::isRecognizedEncoding($String* encoding) {
 
 $String* Encodings::toUpperCaseFast($String* s) {
 	$init(Encodings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool different = false;
 	int32_t mx = $nc(s)->length();
 	$var($chars, chars, $new($chars, mx));
@@ -177,7 +126,7 @@ $String* Encodings::toUpperCaseFast($String* s) {
 
 $String* Encodings::getMimeEncoding($String* encoding$renamed) {
 	$init(Encodings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encoding, encoding$renamed);
 	if (nullptr == encoding) {
 		try {
@@ -202,8 +151,8 @@ $String* Encodings::getMimeEncoding($String* encoding$renamed) {
 
 $String* Encodings::convertJava2MimeEncoding($String* encoding) {
 	$init(Encodings);
-	$useLocalCurrentObjectStackCache();
-	$var($EncodingInfo, enc, $nc(Encodings::_encodingInfos)->getEncodingFromJavaKey($(toUpperCaseFast(encoding))));
+	$useLocalObjectStack();
+	$var($EncodingInfo, enc, Encodings::_encodingInfos->getEncodingFromJavaKey($(toUpperCaseFast(encoding))));
 	if (nullptr != enc) {
 		return enc->name;
 	}
@@ -212,24 +161,24 @@ $String* Encodings::convertJava2MimeEncoding($String* encoding) {
 
 $String* Encodings::convertMime2JavaEncoding($String* encoding) {
 	$init(Encodings);
-	$useLocalCurrentObjectStackCache();
-	$var($EncodingInfo, info, $nc(Encodings::_encodingInfos)->findEncoding($(toUpperCaseFast(encoding))));
-	return info != nullptr ? $nc(info)->javaName : encoding;
+	$useLocalObjectStack();
+	$var($EncodingInfo, info, Encodings::_encodingInfos->findEncoding($(toUpperCaseFast(encoding))));
+	return info != nullptr ? info->javaName : encoding;
 }
 
 bool Encodings::isHighUTF16Surrogate(char16_t ch) {
 	$init(Encodings);
-	return ((char16_t)0xD800 <= ch && ch <= (char16_t)0xDBFF);
+	return ((char16_t)0xd800 <= ch && ch <= (char16_t)0xdbff);
 }
 
 bool Encodings::isLowUTF16Surrogate(char16_t ch) {
 	$init(Encodings);
-	return ((char16_t)0xDC00 <= ch && ch <= (char16_t)0xDFFF);
+	return ((char16_t)0xdc00 <= ch && ch <= (char16_t)0xdfff);
 }
 
 int32_t Encodings::toCodePoint(char16_t highSurrogate, char16_t lowSurrogate) {
 	$init(Encodings);
-	int32_t codePoint = ((highSurrogate - 0x0000D800) << 10) + (lowSurrogate - 0x0000DC00) + 0x00010000;
+	int32_t codePoint = ((highSurrogate - 0x0000d800) << 10) + (lowSurrogate - 0x0000dc00) + 0x00010000;
 	return codePoint;
 }
 
@@ -239,7 +188,7 @@ int32_t Encodings::toCodePoint(char16_t ch) {
 	return codePoint;
 }
 
-void clinit$Encodings($Class* class$) {
+void Encodings::clinit$($Class* clazz) {
 	$assignStatic(Encodings::ENCODINGS_FILE, "com/sun/org/apache/xml/internal/serializer/Encodings.properties"_s);
 	$assignStatic(Encodings::ENCODINGS_PROP, "com.sun.org.apache.xalan.internal.serialize.encodings"_s);
 	$assignStatic(Encodings::DEFAULT_MIME_ENCODING, "UTF-8"_s);
@@ -250,7 +199,51 @@ Encodings::Encodings() {
 }
 
 $Class* Encodings::load$($String* name, bool initialize) {
-	$loadClass(Encodings, name, initialize, &_Encodings_ClassInfo_, clinit$Encodings, allocate$Encodings);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_defaultLastPrintable", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Encodings, m_defaultLastPrintable)},
+		{"ENCODINGS_FILE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encodings, ENCODINGS_FILE)},
+		{"ENCODINGS_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encodings, ENCODINGS_PROP)},
+		{"DEFAULT_MIME_ENCODING", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Encodings, DEFAULT_MIME_ENCODING)},
+		{"_encodingInfos", "Lcom/sun/org/apache/xml/internal/serializer/Encodings$EncodingInfos;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encodings, _encodingInfos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Encodings, init$, void)},
+		{"convertJava2MimeEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Encodings, convertJava2MimeEncoding, $String*, $String*)},
+		{"convertMime2JavaEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, convertMime2JavaEncoding, $String*, $String*)},
+		{"getEncodingInfo", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/EncodingInfo;", nullptr, $STATIC, $staticMethod(Encodings, getEncodingInfo, $EncodingInfo*, $String*)},
+		{"getLastPrintable", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, getLastPrintable, int32_t)},
+		{"getMimeEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Encodings, getMimeEncoding, $String*, $String*)},
+		{"getWriter", "(Ljava/io/OutputStream;Ljava/lang/String;)Ljava/io/Writer;", nullptr, $STATIC, $staticMethod(Encodings, getWriter, $Writer*, $OutputStream*, $String*), "java.io.UnsupportedEncodingException"},
+		{"isHighUTF16Surrogate", "(C)Z", nullptr, $STATIC, $staticMethod(Encodings, isHighUTF16Surrogate, bool, char16_t)},
+		{"isLowUTF16Surrogate", "(C)Z", nullptr, $STATIC, $staticMethod(Encodings, isLowUTF16Surrogate, bool, char16_t)},
+		{"isRecognizedEncoding", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, isRecognizedEncoding, bool, $String*)},
+		{"toCodePoint", "(CC)I", nullptr, $STATIC, $staticMethod(Encodings, toCodePoint, int32_t, char16_t, char16_t)},
+		{"toCodePoint", "(C)I", nullptr, $STATIC, $staticMethod(Encodings, toCodePoint, int32_t, char16_t)},
+		{"toUpperCaseFast", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Encodings, toUpperCaseFast, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.Encodings$EncodingInfos", "com.sun.org.apache.xml.internal.serializer.Encodings", "EncodingInfos", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.Encodings",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.Encodings$EncodingInfos"
+	};
+	$loadClass(Encodings, name, initialize, &classInfo$$, Encodings::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Encodings);
+	});
 	return class$;
 }
 

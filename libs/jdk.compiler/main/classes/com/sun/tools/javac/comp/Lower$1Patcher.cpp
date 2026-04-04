@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Lower$1Patcher.h>
-
 #include <com/sun/tools/javac/comp/Lower.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBreak.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
@@ -29,53 +28,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Lower$1Patcher_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$1Patcher, this$0)},
-	{"val$dest", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$1Patcher, val$dest)},
-	{"val$src", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$1Patcher, val$src)},
-	{}
-};
-
-$MethodInfo _Lower$1Patcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)V", "()V", 0, $method(Lower$1Patcher, init$, void, $Lower*, $JCTree*, $JCTree*)},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitBreak, void, $JCTree$JCBreak*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitContinue, void, $JCTree$JCContinue*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitYield, void, $JCTree$JCYield*)},
-	{}
-};
-
-$EnclosingMethodInfo _Lower$1Patcher_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Lower",
-	"patchTargets",
-	"(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)V"
-};
-
-$InnerClassInfo _Lower$1Patcher_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Lower$1Patcher", nullptr, "Patcher", 0},
-	{}
-};
-
-$ClassInfo _Lower$1Patcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Lower$1Patcher",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Lower$1Patcher_FieldInfo_,
-	_Lower$1Patcher_MethodInfo_,
-	nullptr,
-	&_Lower$1Patcher_EnclosingMethodInfo_,
-	_Lower$1Patcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Lower"
-};
-
-$Object* allocate$Lower$1Patcher($Class* clazz) {
-	return $of($alloc(Lower$1Patcher));
-}
-
 void Lower$1Patcher::init$($Lower* this$0, $JCTree* val$src, $JCTree* val$dest) {
 	$set(this, this$0, this$0);
 	$set(this, val$src, val$src);
@@ -93,7 +45,7 @@ void Lower$1Patcher::visitYield($JCTree$JCYield* tree) {
 	if ($nc(tree)->target == this->val$src) {
 		$set(tree, target, this->val$dest);
 	}
-	scan(static_cast<$JCTree*>($nc(tree)->value));
+	scan(tree->value);
 }
 
 void Lower$1Patcher::visitContinue($JCTree$JCContinue* tree) {
@@ -109,7 +61,47 @@ Lower$1Patcher::Lower$1Patcher() {
 }
 
 $Class* Lower$1Patcher::load$($String* name, bool initialize) {
-	$loadClass(Lower$1Patcher, name, initialize, &_Lower$1Patcher_ClassInfo_, allocate$Lower$1Patcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$1Patcher, this$0)},
+		{"val$dest", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$1Patcher, val$dest)},
+		{"val$src", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$1Patcher, val$src)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)V", "()V", 0, $method(Lower$1Patcher, init$, void, $Lower*, $JCTree*, $JCTree*)},
+		{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitBreak, void, $JCTree$JCBreak*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitContinue, void, $JCTree$JCContinue*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitYield, void, $JCTree$JCYield*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Lower",
+		"patchTargets",
+		"(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Lower$1Patcher", nullptr, "Patcher", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Lower$1Patcher",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Lower"
+	};
+	$loadClass(Lower$1Patcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lower$1Patcher);
+	});
 	return class$;
 }
 

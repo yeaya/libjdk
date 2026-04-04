@@ -19,6 +19,7 @@ class $import SunGraphicsCallback$PaintHeavyweightComponentsCallback : public ::
 	$class(SunGraphicsCallback$PaintHeavyweightComponentsCallback, 0, ::sun::awt::SunGraphicsCallback)
 public:
 	SunGraphicsCallback$PaintHeavyweightComponentsCallback();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::SunGraphicsCallback$PaintHeavyweightComponentsCallback* getInstance();
 	virtual void run(::java::awt::Component* comp, ::java::awt::Graphics* cg) override;

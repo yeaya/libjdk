@@ -574,6 +574,7 @@ namespace com {
 class Constants : public ::java::lang::Object {
 	$interface(Constants, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static ::com::sun::org::apache::bcel::internal::generic::Instruction* ACONST_NULL;
 	static ::com::sun::org::apache::bcel::internal::generic::Instruction* ATHROW;
 	static ::com::sun::org::apache::bcel::internal::generic::Instruction* DCMPG;

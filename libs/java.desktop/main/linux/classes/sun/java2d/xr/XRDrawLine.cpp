@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRDrawLine.h>
-
 #include <java/lang/Math.h>
 #include <sun/java2d/xr/DirtyRegion.h>
 #include <sun/java2d/xr/GrowableRectArray.h>
@@ -25,51 +24,6 @@ using $GrowableRectArray = ::sun::java2d::xr::GrowableRectArray;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$FieldInfo _XRDrawLine_FieldInfo_[] = {
-	{"BIG_MAX", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, BIG_MAX)},
-	{"BIG_MIN", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, BIG_MIN)},
-	{"OUTCODE_TOP", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_TOP)},
-	{"OUTCODE_BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_BOTTOM)},
-	{"OUTCODE_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_LEFT)},
-	{"OUTCODE_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_RIGHT)},
-	{"x1", "I", nullptr, 0, $field(XRDrawLine, x1)},
-	{"y1", "I", nullptr, 0, $field(XRDrawLine, y1)},
-	{"x2", "I", nullptr, 0, $field(XRDrawLine, x2)},
-	{"y2", "I", nullptr, 0, $field(XRDrawLine, y2)},
-	{"ucX1", "I", nullptr, 0, $field(XRDrawLine, ucX1)},
-	{"ucY1", "I", nullptr, 0, $field(XRDrawLine, ucY1)},
-	{"ucX2", "I", nullptr, 0, $field(XRDrawLine, ucX2)},
-	{"ucY2", "I", nullptr, 0, $field(XRDrawLine, ucY2)},
-	{"region", "Lsun/java2d/xr/DirtyRegion;", nullptr, 0, $field(XRDrawLine, region)},
-	{}
-};
-
-$MethodInfo _XRDrawLine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XRDrawLine, init$, void)},
-	{"OverflowsBig", "(I)Z", nullptr, $PRIVATE, $method(XRDrawLine, OverflowsBig, bool, int32_t)},
-	{"clipCoordinates", "(IIIIZIIII)Z", nullptr, $PRIVATE, $method(XRDrawLine, clipCoordinates, bool, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"initCoordinates", "(IIIIZ)V", nullptr, $PRIVATE, $method(XRDrawLine, initCoordinates, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"lineToPoints", "(Lsun/java2d/xr/GrowableRectArray;IIIIIIII)V", nullptr, $PRIVATE, $method(XRDrawLine, lineToPoints, void, $GrowableRectArray*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"lineToRects", "(Lsun/java2d/xr/GrowableRectArray;IIIIIIII)V", nullptr, $PRIVATE, $method(XRDrawLine, lineToRects, void, $GrowableRectArray*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"out", "(IIIII)I", nullptr, $PRIVATE, $method(XRDrawLine, out, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"outcode", "(IIIIII)I", nullptr, $PRIVATE, $method(XRDrawLine, outcode, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"rasterizeLine", "(Lsun/java2d/xr/GrowableRectArray;IIIIIIIIZZ)V", nullptr, $PROTECTED, $virtualMethod(XRDrawLine, rasterizeLine, void, $GrowableRectArray*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool)},
-	{}
-};
-
-$ClassInfo _XRDrawLine_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRDrawLine",
-	"java.lang.Object",
-	nullptr,
-	_XRDrawLine_FieldInfo_,
-	_XRDrawLine_MethodInfo_
-};
-
-$Object* allocate$XRDrawLine($Class* clazz) {
-	return $of($alloc(XRDrawLine));
-}
 
 void XRDrawLine::init$() {
 	$set(this, region, $new($DirtyRegion));
@@ -98,9 +52,9 @@ void XRDrawLine::rasterizeLine($GrowableRectArray* rectBuffer, int32_t _x1, int3
 	}
 	$nc(this->region)->setDirtyLineRegion(this->x1, this->y1, this->x2, this->y2);
 	int32_t xDiff = $nc(this->region)->x2 - $nc(this->region)->x;
-	int32_t yDiff = $nc(this->region)->y2 - $nc(this->region)->y;
+	int32_t yDiff = this->region->y2 - this->region->y;
 	if (xDiff == 0 || yDiff == 0) {
-		$nc(rectBuffer)->pushRectValues($nc(this->region)->x, $nc(this->region)->y, $nc(this->region)->x2 - $nc(this->region)->x + 1, $nc(this->region)->y2 - $nc(this->region)->y + 1);
+		$nc(rectBuffer)->pushRectValues(this->region->x, this->region->y, this->region->x2 - this->region->x + 1, this->region->y2 - this->region->y + 1);
 		return;
 	}
 	if (xmajor) {
@@ -213,12 +167,12 @@ bool XRDrawLine::clipCoordinates(int32_t cxmin, int32_t cymin, int32_t cxmax, in
 	while ((outcode1 | outcode2) != 0) {
 		int64_t xsteps = 0;
 		int64_t ysteps = 0;
-		if (((int32_t)(outcode1 & (uint32_t)outcode2)) != 0) {
+		if ((outcode1 & outcode2) != 0) {
 			return false;
 		}
 		if (outcode1 != 0) {
-			if (((int32_t)(outcode1 & (uint32_t)(XRDrawLine::OUTCODE_TOP | XRDrawLine::OUTCODE_BOTTOM))) != 0) {
-				if (((int32_t)(outcode1 & (uint32_t)XRDrawLine::OUTCODE_TOP)) != 0) {
+			if ((outcode1 & (XRDrawLine::OUTCODE_TOP | XRDrawLine::OUTCODE_BOTTOM)) != 0) {
+				if ((outcode1 & XRDrawLine::OUTCODE_TOP) != 0) {
 					this->y1 = cymin;
 				} else {
 					this->y1 = cymax;
@@ -236,8 +190,8 @@ bool XRDrawLine::clipCoordinates(int32_t cxmin, int32_t cymin, int32_t cxmax, in
 					xsteps = -xsteps;
 				}
 				this->x1 = this->ucX1 + (int32_t)xsteps;
-			} else if (((int32_t)(outcode1 & (uint32_t)(XRDrawLine::OUTCODE_LEFT | XRDrawLine::OUTCODE_RIGHT))) != 0) {
-				if (((int32_t)(outcode1 & (uint32_t)XRDrawLine::OUTCODE_LEFT)) != 0) {
+			} else if ((outcode1 & (XRDrawLine::OUTCODE_LEFT | XRDrawLine::OUTCODE_RIGHT)) != 0) {
+				if ((outcode1 & XRDrawLine::OUTCODE_LEFT) != 0) {
 					this->x1 = cxmin;
 				} else {
 					this->x1 = cxmax;
@@ -258,8 +212,8 @@ bool XRDrawLine::clipCoordinates(int32_t cxmin, int32_t cymin, int32_t cxmax, in
 			}
 			outcode1 = outcode(this->x1, this->y1, cxmin, cymin, cxmax, cymax);
 		} else {
-			if (((int32_t)(outcode2 & (uint32_t)(XRDrawLine::OUTCODE_TOP | XRDrawLine::OUTCODE_BOTTOM))) != 0) {
-				if (((int32_t)(outcode2 & (uint32_t)XRDrawLine::OUTCODE_TOP)) != 0) {
+			if ((outcode2 & (XRDrawLine::OUTCODE_TOP | XRDrawLine::OUTCODE_BOTTOM)) != 0) {
+				if ((outcode2 & XRDrawLine::OUTCODE_TOP) != 0) {
 					this->y2 = cymin;
 				} else {
 					this->y2 = cymax;
@@ -279,8 +233,8 @@ bool XRDrawLine::clipCoordinates(int32_t cxmin, int32_t cymin, int32_t cxmax, in
 					xsteps = -xsteps;
 				}
 				this->x2 = this->ucX2 + (int32_t)xsteps;
-			} else if (((int32_t)(outcode2 & (uint32_t)(XRDrawLine::OUTCODE_LEFT | XRDrawLine::OUTCODE_RIGHT))) != 0) {
-				if (((int32_t)(outcode2 & (uint32_t)XRDrawLine::OUTCODE_LEFT)) != 0) {
+			} else if ((outcode2 & (XRDrawLine::OUTCODE_LEFT | XRDrawLine::OUTCODE_RIGHT)) != 0) {
+				if ((outcode2 & XRDrawLine::OUTCODE_LEFT) != 0) {
 					this->x2 = cxmin;
 				} else {
 					this->x2 = cxmax;
@@ -313,7 +267,7 @@ void XRDrawLine::initCoordinates(int32_t x1, int32_t y1, int32_t x2, int32_t y2,
 		bool var$3 = OverflowsBig(x1);
 		bool var$2 = var$3 || OverflowsBig(y1);
 		bool var$1 = var$2 || OverflowsBig(x2);
-		var$0 = (var$1 || OverflowsBig(y2));
+		var$0 = var$1 || OverflowsBig(y2);
 	}
 	if (var$0) {
 		double x1d = (double)x1;
@@ -378,7 +332,47 @@ XRDrawLine::XRDrawLine() {
 }
 
 $Class* XRDrawLine::load$($String* name, bool initialize) {
-	$loadClass(XRDrawLine, name, initialize, &_XRDrawLine_ClassInfo_, allocate$XRDrawLine);
+	$FieldInfo fieldInfos$$[] = {
+		{"BIG_MAX", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, BIG_MAX)},
+		{"BIG_MIN", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, BIG_MIN)},
+		{"OUTCODE_TOP", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_TOP)},
+		{"OUTCODE_BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_BOTTOM)},
+		{"OUTCODE_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_LEFT)},
+		{"OUTCODE_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(XRDrawLine, OUTCODE_RIGHT)},
+		{"x1", "I", nullptr, 0, $field(XRDrawLine, x1)},
+		{"y1", "I", nullptr, 0, $field(XRDrawLine, y1)},
+		{"x2", "I", nullptr, 0, $field(XRDrawLine, x2)},
+		{"y2", "I", nullptr, 0, $field(XRDrawLine, y2)},
+		{"ucX1", "I", nullptr, 0, $field(XRDrawLine, ucX1)},
+		{"ucY1", "I", nullptr, 0, $field(XRDrawLine, ucY1)},
+		{"ucX2", "I", nullptr, 0, $field(XRDrawLine, ucX2)},
+		{"ucY2", "I", nullptr, 0, $field(XRDrawLine, ucY2)},
+		{"region", "Lsun/java2d/xr/DirtyRegion;", nullptr, 0, $field(XRDrawLine, region)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XRDrawLine, init$, void)},
+		{"OverflowsBig", "(I)Z", nullptr, $PRIVATE, $method(XRDrawLine, OverflowsBig, bool, int32_t)},
+		{"clipCoordinates", "(IIIIZIIII)Z", nullptr, $PRIVATE, $method(XRDrawLine, clipCoordinates, bool, int32_t, int32_t, int32_t, int32_t, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"initCoordinates", "(IIIIZ)V", nullptr, $PRIVATE, $method(XRDrawLine, initCoordinates, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"lineToPoints", "(Lsun/java2d/xr/GrowableRectArray;IIIIIIII)V", nullptr, $PRIVATE, $method(XRDrawLine, lineToPoints, void, $GrowableRectArray*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"lineToRects", "(Lsun/java2d/xr/GrowableRectArray;IIIIIIII)V", nullptr, $PRIVATE, $method(XRDrawLine, lineToRects, void, $GrowableRectArray*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"out", "(IIIII)I", nullptr, $PRIVATE, $method(XRDrawLine, out, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"outcode", "(IIIIII)I", nullptr, $PRIVATE, $method(XRDrawLine, outcode, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"rasterizeLine", "(Lsun/java2d/xr/GrowableRectArray;IIIIIIIIZZ)V", nullptr, $PROTECTED, $virtualMethod(XRDrawLine, rasterizeLine, void, $GrowableRectArray*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRDrawLine",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRDrawLine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XRDrawLine);
+	});
 	return class$;
 }
 

@@ -34,6 +34,7 @@ class $export XPathConstants : public ::java::lang::Object {
 	$class(XPathConstants, 0, ::java::lang::Object)
 public:
 	XPathConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::xml::namespace$::QName* NUMBER;
 	static ::javax::xml::namespace$::QName* STRING;

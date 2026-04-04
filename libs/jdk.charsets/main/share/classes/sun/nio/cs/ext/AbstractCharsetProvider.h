@@ -29,6 +29,7 @@ class AbstractCharsetProvider : public ::java::nio::charset::spi::CharsetProvide
 	$class(AbstractCharsetProvider, 0, ::java::nio::charset::spi::CharsetProvider)
 public:
 	AbstractCharsetProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* pkgPrefixName);
 	$StringArray* aliases($String* charsetName);

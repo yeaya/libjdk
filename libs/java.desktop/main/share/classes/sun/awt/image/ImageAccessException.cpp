@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageAccessException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,24 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$MethodInfo _ImageAccessException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageAccessException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ImageAccessException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ImageAccessException",
-	"java.lang.Exception",
-	nullptr,
-	nullptr,
-	_ImageAccessException_MethodInfo_
-};
-
-$Object* allocate$ImageAccessException($Class* clazz) {
-	return $of($alloc(ImageAccessException));
-}
 
 void ImageAccessException::init$($String* s) {
 	$Exception::init$(s);
@@ -43,7 +24,21 @@ void ImageAccessException::throw$() {
 }
 
 $Class* ImageAccessException::load$($String* name, bool initialize) {
-	$loadClass(ImageAccessException, name, initialize, &_ImageAccessException_ClassInfo_, allocate$ImageAccessException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageAccessException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ImageAccessException",
+		"java.lang.Exception",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageAccessException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageAccessException);
+	});
 	return class$;
 }
 

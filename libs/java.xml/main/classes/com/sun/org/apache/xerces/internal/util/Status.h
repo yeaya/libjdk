@@ -32,6 +32,7 @@ class Status : public ::java::lang::Enum {
 public:
 	Status();
 	static $Array<::com::sun::org::apache::xerces::internal::util::Status>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int16_t type, bool isExceptional);
 	virtual int16_t getType();
 	virtual bool isExceptional();

@@ -1,5 +1,4 @@
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace com {
 			namespace slf4j {
 				namespace internal {
 
-$MethodInfo _LoggerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFactory, init$, void)},
-	{"getLogger", "(Ljava/lang/Class;)Lcom/sun/org/slf4j/internal/Logger;", "(Ljava/lang/Class<*>;)Lcom/sun/org/slf4j/internal/Logger;", $PUBLIC | $STATIC, $staticMethod(LoggerFactory, getLogger, $Logger*, $Class*)},
-	{}
-};
-
-$ClassInfo _LoggerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.slf4j.internal.LoggerFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_LoggerFactory_MethodInfo_
-};
-
-$Object* allocate$LoggerFactory($Class* clazz) {
-	return $of($alloc(LoggerFactory));
-}
-
 void LoggerFactory::init$() {
 }
 
@@ -43,7 +23,22 @@ LoggerFactory::LoggerFactory() {
 }
 
 $Class* LoggerFactory::load$($String* name, bool initialize) {
-	$loadClass(LoggerFactory, name, initialize, &_LoggerFactory_ClassInfo_, allocate$LoggerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFactory, init$, void)},
+		{"getLogger", "(Ljava/lang/Class;)Lcom/sun/org/slf4j/internal/Logger;", "(Ljava/lang/Class<*>;)Lcom/sun/org/slf4j/internal/Logger;", $PUBLIC | $STATIC, $staticMethod(LoggerFactory, getLogger, $Logger*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.slf4j.internal.LoggerFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LoggerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoggerFactory);
+	});
 	return class$;
 }
 

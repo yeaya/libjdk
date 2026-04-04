@@ -57,6 +57,7 @@ class $export KRBError : public ::java::io::Serializable {
 	$class(KRBError, 0, ::java::io::Serializable)
 public:
 	KRBError();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::krb5::internal::APOptions* new_apOptions, ::sun::security::krb5::internal::KerberosTime* new_cTime, ::java::lang::Integer* new_cuSec, ::sun::security::krb5::internal::KerberosTime* new_sTime, ::java::lang::Integer* new_suSec, int32_t new_errorCode, ::sun::security::krb5::PrincipalName* new_cname, ::sun::security::krb5::PrincipalName* new_sname, $String* new_eText, $bytes* new_eData);
 	void init$(::sun::security::krb5::internal::APOptions* new_apOptions, ::sun::security::krb5::internal::KerberosTime* new_cTime, ::java::lang::Integer* new_cuSec, ::sun::security::krb5::internal::KerberosTime* new_sTime, ::java::lang::Integer* new_suSec, int32_t new_errorCode, ::sun::security::krb5::PrincipalName* new_cname, ::sun::security::krb5::PrincipalName* new_sname, $String* new_eText, $bytes* new_eData, ::sun::security::krb5::Checksum* new_eCksum);
 	void init$($bytes* data);
@@ -79,7 +80,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* is);
 	void showDebug();
 	void writeObject(::java::io::ObjectOutputStream* os);
-	static const int64_t serialVersionUID = (int64_t)0x3291694965773E17;
+	static const int64_t serialVersionUID = (int64_t)0x3291694965773e17;
 	int32_t pvno = 0;
 	int32_t msgType = 0;
 	::sun::security::krb5::internal::KerberosTime* cTime = nullptr;

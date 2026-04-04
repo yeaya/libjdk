@@ -38,6 +38,7 @@ class $import Rdn : public ::java::io::Serializable, public ::java::lang::Compar
 	$class(Rdn, 0, ::java::io::Serializable, ::java::lang::Comparable)
 public:
 	Rdn();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::javax::naming::directory::Attributes* attrSet);
@@ -67,7 +68,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	::java::util::ArrayList* entries = nullptr;
 	static const int32_t DEFAULT_SIZE = 1;
-	static const int64_t serialVersionUID = (int64_t)0xACCF61C80A7593C8;
+	static const int64_t serialVersionUID = (int64_t)0xaccf61c80a7593c8;
 	static $String* escapees;
 };
 

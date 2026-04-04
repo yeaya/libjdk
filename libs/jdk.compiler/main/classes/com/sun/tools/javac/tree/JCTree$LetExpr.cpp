@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$LetExpr.h>
-
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -30,48 +29,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _JCTree$LetExpr_FieldInfo_[] = {
-	{"defs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC, $field(JCTree$LetExpr, defs)},
-	{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$LetExpr, expr)},
-	{"needsCond", "Z", nullptr, $PUBLIC, $field(JCTree$LetExpr, needsCond)},
-	{}
-};
-
-$MethodInfo _JCTree$LetExpr_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", $PROTECTED, $method(JCTree$LetExpr, init$, void, $List*, $JCTree$JCExpression*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$LetExpr, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$LetExpr, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$LetExpr, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$LetExpr, getTag, $JCTree$Tag*)},
-	{}
-};
-
-$InnerClassInfo _JCTree$LetExpr_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$LetExpr", "com.sun.tools.javac.tree.JCTree", "LetExpr", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$LetExpr_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$LetExpr",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	nullptr,
-	_JCTree$LetExpr_FieldInfo_,
-	_JCTree$LetExpr_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$LetExpr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$LetExpr($Class* clazz) {
-	return $of($alloc(JCTree$LetExpr));
-}
-
 void JCTree$LetExpr::init$($List* defs, $JCTree$JCExpression* expr) {
 	$JCTree$JCExpression::init$();
 	$set(this, defs, defs);
@@ -101,7 +58,43 @@ JCTree$LetExpr::JCTree$LetExpr() {
 }
 
 $Class* JCTree$LetExpr::load$($String* name, bool initialize) {
-	$loadClass(JCTree$LetExpr, name, initialize, &_JCTree$LetExpr_ClassInfo_, allocate$JCTree$LetExpr);
+	$FieldInfo fieldInfos$$[] = {
+		{"defs", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC, $field(JCTree$LetExpr, defs)},
+		{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$LetExpr, expr)},
+		{"needsCond", "Z", nullptr, $PUBLIC, $field(JCTree$LetExpr, needsCond)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", $PROTECTED, $method(JCTree$LetExpr, init$, void, $List*, $JCTree$JCExpression*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$LetExpr, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$LetExpr, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$LetExpr, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$LetExpr, getTag, $JCTree$Tag*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$LetExpr", "com.sun.tools.javac.tree.JCTree", "LetExpr", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$LetExpr",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$LetExpr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$LetExpr));
+	});
 	return class$;
 }
 

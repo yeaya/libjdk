@@ -1,5 +1,4 @@
 #include <java/awt/desktop/PrintFilesHandler.h>
-
 #include <java/awt/desktop/PrintFilesEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _PrintFilesHandler_MethodInfo_[] = {
-	{"printFiles", "(Ljava/awt/desktop/PrintFilesEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintFilesHandler, printFiles, void, $PrintFilesEvent*)},
-	{}
-};
-
-$ClassInfo _PrintFilesHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.PrintFilesHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PrintFilesHandler_MethodInfo_
-};
-
-$Object* allocate$PrintFilesHandler($Class* clazz) {
-	return $of($alloc(PrintFilesHandler));
-}
-
 $Class* PrintFilesHandler::load$($String* name, bool initialize) {
-	$loadClass(PrintFilesHandler, name, initialize, &_PrintFilesHandler_ClassInfo_, allocate$PrintFilesHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"printFiles", "(Ljava/awt/desktop/PrintFilesEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintFilesHandler, printFiles, void, $PrintFilesEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.PrintFilesHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PrintFilesHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintFilesHandler);
+	});
 	return class$;
 }
 

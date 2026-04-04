@@ -40,6 +40,7 @@ class $export FlowView$FlowStrategy : public ::java::lang::Object {
 	$class(FlowView$FlowStrategy, 0, ::java::lang::Object)
 public:
 	FlowView$FlowStrategy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addDamage(::javax::swing::text::FlowView* fv, int32_t offset);
 	virtual void adjustRow(::javax::swing::text::FlowView* fv, int32_t rowIndex, int32_t desiredSpan, int32_t x);

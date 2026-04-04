@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifCheckBoxUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonUI.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
@@ -29,35 +28,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifCheckBoxUI_FieldInfo_[] = {
-	{"MOTIF_CHECK_BOX_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifCheckBoxUI, MOTIF_CHECK_BOX_UI_KEY)},
-	{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifCheckBoxUI, propertyPrefix)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MotifCheckBoxUI, defaults_initialized)},
-	{}
-};
-
-$MethodInfo _MotifCheckBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifCheckBoxUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxUI, getPropertyPrefix, $String*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxUI, installDefaults, void, $AbstractButton*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifCheckBoxUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _MotifCheckBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifCheckBoxUI",
-	"com.sun.java.swing.plaf.motif.MotifRadioButtonUI",
-	nullptr,
-	_MotifCheckBoxUI_FieldInfo_,
-	_MotifCheckBoxUI_MethodInfo_
-};
-
-$Object* allocate$MotifCheckBoxUI($Class* clazz) {
-	return $of($alloc(MotifCheckBoxUI));
-}
-
 $Object* MotifCheckBoxUI::MOTIF_CHECK_BOX_UI_KEY = nullptr;
 $String* MotifCheckBoxUI::propertyPrefix = nullptr;
 
@@ -68,7 +38,7 @@ void MotifCheckBoxUI::init$() {
 
 $ComponentUI* MotifCheckBoxUI::createUI($JComponent* c) {
 	$init(MotifCheckBoxUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(MotifCheckBoxUI, motifCheckBoxUI, $cast(MotifCheckBoxUI, $nc(appContext)->get(MotifCheckBoxUI::MOTIF_CHECK_BOX_UI_KEY)));
 	if (motifCheckBoxUI == nullptr) {
@@ -83,7 +53,7 @@ $String* MotifCheckBoxUI::getPropertyPrefix() {
 }
 
 void MotifCheckBoxUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MotifRadioButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$set(this, icon, $UIManager::getIcon($$str({$(getPropertyPrefix()), "icon"_s})));
@@ -96,7 +66,7 @@ void MotifCheckBoxUI::uninstallDefaults($AbstractButton* b) {
 	this->defaults_initialized = false;
 }
 
-void clinit$MotifCheckBoxUI($Class* class$) {
+void MotifCheckBoxUI::clinit$($Class* clazz) {
 	$assignStatic(MotifCheckBoxUI::propertyPrefix, "CheckBox."_s);
 	$assignStatic(MotifCheckBoxUI::MOTIF_CHECK_BOX_UI_KEY, $new($Object));
 }
@@ -105,7 +75,31 @@ MotifCheckBoxUI::MotifCheckBoxUI() {
 }
 
 $Class* MotifCheckBoxUI::load$($String* name, bool initialize) {
-	$loadClass(MotifCheckBoxUI, name, initialize, &_MotifCheckBoxUI_ClassInfo_, clinit$MotifCheckBoxUI, allocate$MotifCheckBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOTIF_CHECK_BOX_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifCheckBoxUI, MOTIF_CHECK_BOX_UI_KEY)},
+		{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifCheckBoxUI, propertyPrefix)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MotifCheckBoxUI, defaults_initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifCheckBoxUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxUI, getPropertyPrefix, $String*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxUI, installDefaults, void, $AbstractButton*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifCheckBoxUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifCheckBoxUI",
+		"com.sun.java.swing.plaf.motif.MotifRadioButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MotifCheckBoxUI, name, initialize, &classInfo$$, MotifCheckBoxUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifCheckBoxUI);
+	});
 	return class$;
 }
 

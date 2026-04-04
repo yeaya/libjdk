@@ -14,10 +14,13 @@ public:
 	InterruptedNamingException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x58E169F5A75AA1E8;
+	static const int64_t serialVersionUID = (int64_t)0x58e169f5a75aa1e8;
 	InterruptedNamingException(const InterruptedNamingException& e);
 	virtual void throw$() override;
-	inline InterruptedNamingException* operator ->() {
+	inline InterruptedNamingException* operator ->() const {
+		return (InterruptedNamingException*)throwing$;
+	}
+	inline operator InterruptedNamingException*() const {
 		return (InterruptedNamingException*)throwing$;
 	}
 };

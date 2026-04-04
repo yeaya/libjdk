@@ -57,6 +57,7 @@ class XWarningWindow : public ::sun::awt::X11::XWindow {
 	$class(XWarningWindow, 0, ::sun::awt::X11::XWindow)
 public:
 	XWarningWindow();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::awt::X11::XWindow::getGraphics;
 	void init$(::java::awt::Window* ownerWindow, int64_t parentWindow, ::sun::awt::X11::XWindowPeer* ownerPeer);
 	virtual void enterNotify(int64_t window) override;

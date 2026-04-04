@@ -83,6 +83,7 @@ class ZipPath : public ::java::nio::file::Path {
 	$class(ZipPath, 0, ::java::nio::file::Path)
 public:
 	ZipPath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::nio::zipfs::ZipFileSystem* zfs, $bytes* path);
 	void init$(::jdk::nio::zipfs::ZipFileSystem* zfs, $bytes* path, bool normalized);
 	void init$(::jdk::nio::zipfs::ZipFileSystem* zfs, $String* path);

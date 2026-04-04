@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/XMLGrammarParser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
@@ -15,7 +14,6 @@ using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XIncludeAwareParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XIncludeAwareParserConfiguration;
 using $XMLParser = ::com::sun::org::apache::xerces::internal::parsers::XMLParser;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
-using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -28,31 +26,8 @@ namespace com {
 					namespace internal {
 						namespace parsers {
 
-$FieldInfo _XMLGrammarParser_FieldInfo_[] = {
-	{"fDatatypeValidatorFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XMLGrammarParser, fDatatypeValidatorFactory)},
-	{}
-};
-
-$MethodInfo _XMLGrammarParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PROTECTED, $method(XMLGrammarParser, init$, void, $SymbolTable*)},
-	{}
-};
-
-$ClassInfo _XMLGrammarParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.parsers.XMLGrammarParser",
-	"com.sun.org.apache.xerces.internal.parsers.XMLParser",
-	nullptr,
-	_XMLGrammarParser_FieldInfo_,
-	_XMLGrammarParser_MethodInfo_
-};
-
-$Object* allocate$XMLGrammarParser($Class* clazz) {
-	return $of($alloc(XMLGrammarParser));
-}
-
 void XMLGrammarParser::init$($SymbolTable* symbolTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLParser::init$($$new($XIncludeAwareParserConfiguration));
 	$init($Constants);
 	$nc(this->fConfiguration)->setProperty($$str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SYMBOL_TABLE_PROPERTY}), symbolTable);
@@ -62,7 +37,25 @@ XMLGrammarParser::XMLGrammarParser() {
 }
 
 $Class* XMLGrammarParser::load$($String* name, bool initialize) {
-	$loadClass(XMLGrammarParser, name, initialize, &_XMLGrammarParser_ClassInfo_, allocate$XMLGrammarParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDatatypeValidatorFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(XMLGrammarParser, fDatatypeValidatorFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PROTECTED, $method(XMLGrammarParser, init$, void, $SymbolTable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.parsers.XMLGrammarParser",
+		"com.sun.org.apache.xerces.internal.parsers.XMLParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLGrammarParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLGrammarParser);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/SizeSequence.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,48 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _SizeSequence_FieldInfo_[] = {
-	{"emptyArray", "[I", nullptr, $PRIVATE | $STATIC, $staticField(SizeSequence, emptyArray)},
-	{"a", "[I", nullptr, $PRIVATE, $field(SizeSequence, a)},
-	{}
-};
-
-$MethodInfo _SizeSequence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SizeSequence, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SizeSequence, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(SizeSequence, init$, void, int32_t, int32_t)},
-	{"<init>", "([I)V", nullptr, $PUBLIC, $method(SizeSequence, init$, void, $ints*)},
-	{"changeSize", "(IIII)V", nullptr, $PRIVATE, $method(SizeSequence, changeSize, void, int32_t, int32_t, int32_t, int32_t)},
-	{"getIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getIndex, int32_t, int32_t)},
-	{"getIndex", "(III)I", nullptr, $PRIVATE, $method(SizeSequence, getIndex, int32_t, int32_t, int32_t, int32_t)},
-	{"getPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getPosition, int32_t, int32_t)},
-	{"getPosition", "(III)I", nullptr, $PRIVATE, $method(SizeSequence, getPosition, int32_t, int32_t, int32_t, int32_t)},
-	{"getSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getSize, int32_t, int32_t)},
-	{"getSizes", "()[I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getSizes, $ints*)},
-	{"getSizes", "(II[I)I", nullptr, $PRIVATE, $method(SizeSequence, getSizes, int32_t, int32_t, int32_t, $ints*)},
-	{"insertEntries", "(III)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, insertEntries, void, int32_t, int32_t, int32_t)},
-	{"removeEntries", "(II)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, removeEntries, void, int32_t, int32_t)},
-	{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, setSize, void, int32_t, int32_t)},
-	{"setSizes", "(II)V", nullptr, 0, $virtualMethod(SizeSequence, setSizes, void, int32_t, int32_t)},
-	{"setSizes", "(III)I", nullptr, $PRIVATE, $method(SizeSequence, setSizes, int32_t, int32_t, int32_t, int32_t)},
-	{"setSizes", "([I)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, setSizes, void, $ints*)},
-	{"setSizes", "(II[I)I", nullptr, $PRIVATE, $method(SizeSequence, setSizes, int32_t, int32_t, int32_t, $ints*)},
-	{}
-};
-
-$ClassInfo _SizeSequence_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SizeSequence",
-	"java.lang.Object",
-	nullptr,
-	_SizeSequence_FieldInfo_,
-	_SizeSequence_MethodInfo_
-};
-
-$Object* allocate$SizeSequence($Class* clazz) {
-	return $of($alloc(SizeSequence));
-}
 
 $ints* SizeSequence::emptyArray = nullptr;
 
@@ -91,7 +48,7 @@ void SizeSequence::setSizes($ints* sizes) {
 	if ($nc(this->a)->length != $nc(sizes)->length) {
 		$set(this, a, $new($ints, sizes->length));
 	}
-	setSizes(0, $nc(this->a)->length, sizes);
+	setSizes(0, this->a->length, sizes);
 }
 
 int32_t SizeSequence::setSizes(int32_t from, int32_t to, $ints* sizes) {
@@ -180,13 +137,13 @@ void SizeSequence::insertEntries(int32_t start, int32_t length, int32_t value) {
 	int32_t n = $nc(this->a)->length + length;
 	$set(this, a, $new($ints, n));
 	for (int32_t i = 0; i < start; ++i) {
-		$nc(this->a)->set(i, $nc(sizes)->get(i));
+		this->a->set(i, $nc(sizes)->get(i));
 	}
 	for (int32_t i = start; i < end; ++i) {
-		$nc(this->a)->set(i, value);
+		this->a->set(i, value);
 	}
 	for (int32_t i = end; i < n; ++i) {
-		$nc(this->a)->set(i, $nc(sizes)->get(i - length));
+		this->a->set(i, $nc(sizes)->get(i - length));
 	}
 	setSizes(this->a);
 }
@@ -197,15 +154,15 @@ void SizeSequence::removeEntries(int32_t start, int32_t length) {
 	int32_t n = $nc(this->a)->length - length;
 	$set(this, a, $new($ints, n));
 	for (int32_t i = 0; i < start; ++i) {
-		$nc(this->a)->set(i, $nc(sizes)->get(i));
+		this->a->set(i, $nc(sizes)->get(i));
 	}
 	for (int32_t i = start; i < n; ++i) {
-		$nc(this->a)->set(i, $nc(sizes)->get(i + length));
+		this->a->set(i, $nc(sizes)->get(i + length));
 	}
 	setSizes(this->a);
 }
 
-void clinit$SizeSequence($Class* class$) {
+void SizeSequence::clinit$($Class* clazz) {
 	$assignStatic(SizeSequence::emptyArray, $new($ints, 0));
 }
 
@@ -213,7 +170,44 @@ SizeSequence::SizeSequence() {
 }
 
 $Class* SizeSequence::load$($String* name, bool initialize) {
-	$loadClass(SizeSequence, name, initialize, &_SizeSequence_ClassInfo_, clinit$SizeSequence, allocate$SizeSequence);
+	$FieldInfo fieldInfos$$[] = {
+		{"emptyArray", "[I", nullptr, $PRIVATE | $STATIC, $staticField(SizeSequence, emptyArray)},
+		{"a", "[I", nullptr, $PRIVATE, $field(SizeSequence, a)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SizeSequence, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SizeSequence, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(SizeSequence, init$, void, int32_t, int32_t)},
+		{"<init>", "([I)V", nullptr, $PUBLIC, $method(SizeSequence, init$, void, $ints*)},
+		{"changeSize", "(IIII)V", nullptr, $PRIVATE, $method(SizeSequence, changeSize, void, int32_t, int32_t, int32_t, int32_t)},
+		{"getIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getIndex, int32_t, int32_t)},
+		{"getIndex", "(III)I", nullptr, $PRIVATE, $method(SizeSequence, getIndex, int32_t, int32_t, int32_t, int32_t)},
+		{"getPosition", "(I)I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getPosition, int32_t, int32_t)},
+		{"getPosition", "(III)I", nullptr, $PRIVATE, $method(SizeSequence, getPosition, int32_t, int32_t, int32_t, int32_t)},
+		{"getSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getSize, int32_t, int32_t)},
+		{"getSizes", "()[I", nullptr, $PUBLIC, $virtualMethod(SizeSequence, getSizes, $ints*)},
+		{"getSizes", "(II[I)I", nullptr, $PRIVATE, $method(SizeSequence, getSizes, int32_t, int32_t, int32_t, $ints*)},
+		{"insertEntries", "(III)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, insertEntries, void, int32_t, int32_t, int32_t)},
+		{"removeEntries", "(II)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, removeEntries, void, int32_t, int32_t)},
+		{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, setSize, void, int32_t, int32_t)},
+		{"setSizes", "(II)V", nullptr, 0, $virtualMethod(SizeSequence, setSizes, void, int32_t, int32_t)},
+		{"setSizes", "(III)I", nullptr, $PRIVATE, $method(SizeSequence, setSizes, int32_t, int32_t, int32_t, int32_t)},
+		{"setSizes", "([I)V", nullptr, $PUBLIC, $virtualMethod(SizeSequence, setSizes, void, $ints*)},
+		{"setSizes", "(II[I)I", nullptr, $PRIVATE, $method(SizeSequence, setSizes, int32_t, int32_t, int32_t, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SizeSequence",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SizeSequence, name, initialize, &classInfo$$, SizeSequence::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SizeSequence);
+	});
 	return class$;
 }
 

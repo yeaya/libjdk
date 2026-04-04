@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/KerberosTicket.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
@@ -41,7 +40,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetAddress = ::java::net::InetAddress;
 using $Arrays = ::java::util::Arrays;
 using $Date = ::java::util::Date;
 using $Objects = ::java::util::Objects;
@@ -53,90 +51,13 @@ using $EncryptionKey = ::javax::security::auth::kerberos::EncryptionKey;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $KeyImpl = ::javax::security::auth::kerberos::KeyImpl;
 using $Credentials = ::sun::security::krb5::Credentials;
-using $1EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbException = ::sun::security::krb5::KrbException;
-using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
 namespace javax {
 	namespace security {
 		namespace auth {
 			namespace kerberos {
-
-$FieldInfo _KerberosTicket_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, serialVersionUID)},
-	{"FORWARDABLE_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, FORWARDABLE_TICKET_FLAG)},
-	{"FORWARDED_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, FORWARDED_TICKET_FLAG)},
-	{"PROXIABLE_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, PROXIABLE_TICKET_FLAG)},
-	{"PROXY_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, PROXY_TICKET_FLAG)},
-	{"POSTDATED_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, POSTDATED_TICKET_FLAG)},
-	{"RENEWABLE_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, RENEWABLE_TICKET_FLAG)},
-	{"INITIAL_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, INITIAL_TICKET_FLAG)},
-	{"NUM_FLAGS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, NUM_FLAGS)},
-	{"asn1Encoding", "[B", nullptr, $PRIVATE, $field(KerberosTicket, asn1Encoding)},
-	{"sessionKey", "Ljavax/security/auth/kerberos/KeyImpl;", nullptr, $PRIVATE, $field(KerberosTicket, sessionKey)},
-	{"flags", "[Z", nullptr, $PRIVATE, $field(KerberosTicket, flags)},
-	{"authTime", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, authTime)},
-	{"startTime", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, startTime)},
-	{"endTime", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, endTime)},
-	{"renewTill", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, renewTill)},
-	{"client", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(KerberosTicket, client)},
-	{"server", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(KerberosTicket, server)},
-	{"clientAddresses", "[Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(KerberosTicket, clientAddresses)},
-	{"proxy", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, 0, $field(KerberosTicket, proxy)},
-	{"destroyed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosTicket, destroyed)},
-	{"clientAlias", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $TRANSIENT, $field(KerberosTicket, clientAlias)},
-	{"serverAlias", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $TRANSIENT, $field(KerberosTicket, serverAlias)},
-	{}
-};
-
-$MethodInfo _KerberosTicket_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "([BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(KerberosTicket, init$, void, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, destroy, void), "javax.security.auth.DestroyFailedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, equals, bool, Object$*)},
-	{"getAuthTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getAuthTime, $Date*)},
-	{"getClient", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getClient, $KerberosPrincipal*)},
-	{"getClientAddresses", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getClientAddresses, $InetAddressArray*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getEncoded, $bytes*)},
-	{"getEndTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getEndTime, $Date*)},
-	{"getFlags", "()[Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getFlags, $booleans*)},
-	{"getRenewTill", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getRenewTill, $Date*)},
-	{"getServer", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getServer, $KerberosPrincipal*)},
-	{"getSessionKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getSessionKey, $SecretKey*)},
-	{"getSessionKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getSessionKeyType, int32_t)},
-	{"getStartTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getStartTime, $Date*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, hashCode, int32_t)},
-	{"init", "([BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(KerberosTicket, init, void, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*)},
-	{"init", "([BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KeyImpl;[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(KerberosTicket, init, void, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $KeyImpl*, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*)},
-	{"isCurrent", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, isCurrent, bool)},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, isDestroyed, bool)},
-	{"isForwardable", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isForwardable, bool)},
-	{"isForwarded", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isForwarded, bool)},
-	{"isInitial", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isInitial, bool)},
-	{"isPostdated", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isPostdated, bool)},
-	{"isProxiable", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isProxiable, bool)},
-	{"isProxy", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isProxy, bool)},
-	{"isRenewable", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isRenewable, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KerberosTicket, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, refresh, void), "javax.security.auth.RefreshFailedException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, toString, $String*)},
-	{}
-};
-
-$ClassInfo _KerberosTicket_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.kerberos.KerberosTicket",
-	"java.lang.Object",
-	"javax.security.auth.Destroyable,javax.security.auth.Refreshable,java.io.Serializable",
-	_KerberosTicket_FieldInfo_,
-	_KerberosTicket_MethodInfo_
-};
-
-$Object* allocate$KerberosTicket($Class* clazz) {
-	return $of($alloc(KerberosTicket));
-}
 
 $Object* KerberosTicket::clone() {
 	 return this->$Destroyable::clone();
@@ -181,7 +102,7 @@ void KerberosTicket::init($bytes* asn1Encoding, $KerberosPrincipal* client, $Ker
 		} else {
 			$set(this, flags, $new($booleans, KerberosTicket::NUM_FLAGS));
 			for (int32_t i = 0; i < flags->length; ++i) {
-				$nc(this->flags)->set(i, flags->get(i));
+				this->flags->set(i, flags->get(i));
 			}
 		}
 	} else {
@@ -220,7 +141,7 @@ $SecretKey* KerberosTicket::getSessionKey() {
 		$throwNew($IllegalStateException, "This ticket is no longer valid"_s);
 	}
 	$var($bytes, var$0, $nc(this->sessionKey)->getEncoded());
-	return $new($EncryptionKey, var$0, $nc(this->sessionKey)->getKeyType());
+	return $new($EncryptionKey, var$0, this->sessionKey->getKeyType());
 }
 
 int32_t KerberosTicket::getSessionKeyType() {
@@ -231,55 +152,55 @@ int32_t KerberosTicket::getSessionKeyType() {
 }
 
 bool KerberosTicket::isForwardable() {
-	return this->flags == nullptr ? false : $nc(this->flags)->get(KerberosTicket::FORWARDABLE_TICKET_FLAG);
+	return this->flags == nullptr ? false : this->flags->get(KerberosTicket::FORWARDABLE_TICKET_FLAG);
 }
 
 bool KerberosTicket::isForwarded() {
-	return this->flags == nullptr ? false : $nc(this->flags)->get(KerberosTicket::FORWARDED_TICKET_FLAG);
+	return this->flags == nullptr ? false : this->flags->get(KerberosTicket::FORWARDED_TICKET_FLAG);
 }
 
 bool KerberosTicket::isProxiable() {
-	return this->flags == nullptr ? false : $nc(this->flags)->get(KerberosTicket::PROXIABLE_TICKET_FLAG);
+	return this->flags == nullptr ? false : this->flags->get(KerberosTicket::PROXIABLE_TICKET_FLAG);
 }
 
 bool KerberosTicket::isProxy() {
-	return this->flags == nullptr ? false : $nc(this->flags)->get(KerberosTicket::PROXY_TICKET_FLAG);
+	return this->flags == nullptr ? false : this->flags->get(KerberosTicket::PROXY_TICKET_FLAG);
 }
 
 bool KerberosTicket::isPostdated() {
-	return this->flags == nullptr ? false : $nc(this->flags)->get(KerberosTicket::POSTDATED_TICKET_FLAG);
+	return this->flags == nullptr ? false : this->flags->get(KerberosTicket::POSTDATED_TICKET_FLAG);
 }
 
 bool KerberosTicket::isRenewable() {
-	return this->flags == nullptr ? false : $nc(this->flags)->get(KerberosTicket::RENEWABLE_TICKET_FLAG);
+	return this->flags == nullptr ? false : this->flags->get(KerberosTicket::RENEWABLE_TICKET_FLAG);
 }
 
 bool KerberosTicket::isInitial() {
-	return this->flags == nullptr ? false : $nc(this->flags)->get(KerberosTicket::INITIAL_TICKET_FLAG);
+	return this->flags == nullptr ? false : this->flags->get(KerberosTicket::INITIAL_TICKET_FLAG);
 }
 
 $booleans* KerberosTicket::getFlags() {
-	return (this->flags == nullptr ? ($booleans*)nullptr : $cast($booleans, $nc(this->flags)->clone()));
+	return (this->flags == nullptr ? ($booleans*)nullptr : $cast($booleans, this->flags->clone()));
 }
 
 $Date* KerberosTicket::getAuthTime() {
-	return (this->authTime == nullptr) ? ($Date*)nullptr : $cast($Date, $nc(this->authTime)->clone());
+	return (this->authTime == nullptr) ? ($Date*)nullptr : $cast($Date, this->authTime->clone());
 }
 
 $Date* KerberosTicket::getStartTime() {
-	return (this->startTime == nullptr) ? ($Date*)nullptr : $cast($Date, $nc(this->startTime)->clone());
+	return (this->startTime == nullptr) ? ($Date*)nullptr : $cast($Date, this->startTime->clone());
 }
 
 $Date* KerberosTicket::getEndTime() {
-	return (this->endTime == nullptr) ? ($Date*)nullptr : $cast($Date, $nc(this->endTime)->clone());
+	return (this->endTime == nullptr) ? ($Date*)nullptr : $cast($Date, this->endTime->clone());
 }
 
 $Date* KerberosTicket::getRenewTill() {
-	return (this->renewTill == nullptr) ? ($Date*)nullptr : $cast($Date, $nc(this->renewTill)->clone());
+	return (this->renewTill == nullptr) ? ($Date*)nullptr : $cast($Date, this->renewTill->clone());
 }
 
 $InetAddressArray* KerberosTicket::getClientAddresses() {
-	return (this->clientAddresses == nullptr) ? ($InetAddressArray*)nullptr : $cast($InetAddressArray, $nc(this->clientAddresses)->clone());
+	return (this->clientAddresses == nullptr) ? ($InetAddressArray*)nullptr : $cast($InetAddressArray, this->clientAddresses->clone());
 }
 
 $bytes* KerberosTicket::getEncoded() {
@@ -301,7 +222,7 @@ bool KerberosTicket::isCurrent() {
 }
 
 void KerberosTicket::refresh() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($RefreshFailedException, "A destroyed ticket cannot be renewd."_s);
 	}
@@ -312,7 +233,7 @@ void KerberosTicket::refresh() {
 		return;
 	}
 	int64_t var$0 = $System::currentTimeMillis();
-	if (var$0 > $nc($(getRenewTill()))->getTime()) {
+	if (var$0 > $$nc(getRenewTill())->getTime()) {
 		$throwNew($RefreshFailedException, "This ticket is past its last renewal time."_s);
 	}
 	$var($Throwable, e, nullptr);
@@ -320,11 +241,11 @@ void KerberosTicket::refresh() {
 	try {
 		$var($bytes, var$1, this->asn1Encoding);
 		$var($String, var$2, $nc(this->client)->getName());
-		$var($String, var$3, (this->clientAlias != nullptr ? $nc(this->clientAlias)->getName() : ($String*)nullptr));
+		$var($String, var$3, this->clientAlias != nullptr ? this->clientAlias->getName() : ($String*)nullptr);
 		$var($String, var$4, $nc(this->server)->getName());
-		$var($String, var$5, (this->serverAlias != nullptr ? $nc(this->serverAlias)->getName() : ($String*)nullptr));
+		$var($String, var$5, this->serverAlias != nullptr ? this->serverAlias->getName() : ($String*)nullptr);
 		$var($bytes, var$6, $nc(this->sessionKey)->getEncoded());
-		$assign(krb5Creds, $new($Credentials, var$1, var$2, var$3, var$4, var$5, var$6, $nc(this->sessionKey)->getKeyType(), this->flags, this->authTime, this->startTime, this->endTime, this->renewTill, this->clientAddresses));
+		$assign(krb5Creds, $new($Credentials, var$1, var$2, var$3, var$4, var$5, var$6, this->sessionKey->getKeyType(), this->flags, this->authTime, this->startTime, this->endTime, this->renewTill, this->clientAddresses));
 		$assign(krb5Creds, krb5Creds->renew());
 	} catch ($KrbException& krbException) {
 		$assign(e, krbException);
@@ -332,8 +253,14 @@ void KerberosTicket::refresh() {
 		$assign(e, ioException);
 	}
 	if (e != nullptr) {
-		$var($String, var$7, $$str({"Failed to renew Kerberos Ticket for client "_s, this->client, " and server "_s, this->server, " - "_s}));
-		$var($RefreshFailedException, rfException, $new($RefreshFailedException, $$concat(var$7, $(e->getMessage()))));
+		$var($StringBuilder, var$7, $new($StringBuilder));
+		var$7->append("Failed to renew Kerberos Ticket for client "_s);
+		var$7->append(this->client);
+		var$7->append(" and server "_s);
+		var$7->append(this->server);
+		var$7->append(" - "_s);
+		var$7->append($(e->getMessage()));
+		$var($RefreshFailedException, rfException, $new($RefreshFailedException, $$str(var$7)));
 		rfException->initCause(e);
 		$throw(rfException);
 	}
@@ -343,10 +270,10 @@ void KerberosTicket::refresh() {
 		} catch ($DestroyFailedException& dfException) {
 		}
 		$var($bytes, var$8, $nc(krb5Creds)->getEncoded());
-		$var($KerberosPrincipal, var$9, $new($KerberosPrincipal, $($nc($(krb5Creds->getClient()))->getName())));
-		$var($KerberosPrincipal, var$10, $new($KerberosPrincipal, $($nc($(krb5Creds->getServer()))->getName()), $KerberosPrincipal::KRB_NT_SRV_INST));
-		$var($bytes, var$11, $nc($(krb5Creds->getSessionKey()))->getBytes());
-		int32_t var$12 = $nc($(krb5Creds->getSessionKey()))->getEType();
+		$var($KerberosPrincipal, var$9, $new($KerberosPrincipal, $($$nc(krb5Creds->getClient())->getName())));
+		$var($KerberosPrincipal, var$10, $new($KerberosPrincipal, $($$nc(krb5Creds->getServer())->getName()), $KerberosPrincipal::KRB_NT_SRV_INST));
+		$var($bytes, var$11, $$nc(krb5Creds->getSessionKey())->getBytes());
+		int32_t var$12 = $$nc(krb5Creds->getSessionKey())->getEType();
 		$var($booleans, var$13, krb5Creds->getFlags());
 		$var($Date, var$14, krb5Creds->getAuthTime());
 		$var($Date, var$15, krb5Creds->getStartTime());
@@ -378,46 +305,50 @@ bool KerberosTicket::isDestroyed() {
 }
 
 $String* KerberosTicket::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		return "Destroyed KerberosTicket"_s;
 	}
 	$var($StringBuilder, caddrString, $new($StringBuilder));
 	if (this->clientAddresses != nullptr) {
-		for (int32_t i = 0; i < $nc(this->clientAddresses)->length; ++i) {
-			caddrString->append($$str({"clientAddresses["_s, $$str(i), "] = "_s, $($nc($nc(this->clientAddresses)->get(i))->toString())}));
+		for (int32_t i = 0; i < this->clientAddresses->length; ++i) {
+			caddrString->append($$str({"clientAddresses["_s, $$str(i), "] = "_s, $($nc(this->clientAddresses->get(i))->toString())}));
 		}
 	}
-	$var($String, var$28, $$str({"Ticket (hex) = \n"_s, $(($$new($HexDumpEncoder))->encodeBuffer(this->asn1Encoding)), "\nClient Principal = "_s}));
-	$var($String, var$27, $$concat(var$28, $($nc(this->client)->toString())));
-	$var($String, var$26, $$concat(var$27, "\nServer Principal = "_s));
-	$var($String, var$25, $$concat(var$26, $($nc(this->server)->toString())));
-	$var($String, var$24, $$concat(var$25, "\nSession Key = "_s));
-	$var($String, var$23, $$concat(var$24, $($nc(this->sessionKey)->toString())));
-	$var($String, var$22, $$concat(var$23, "\nForwardable Ticket "_s));
-	$var($String, var$21, $$concat(var$22, $$str($nc(this->flags)->get(KerberosTicket::FORWARDABLE_TICKET_FLAG))));
-	$var($String, var$20, $$concat(var$21, "\nForwarded Ticket "_s));
-	$var($String, var$19, $$concat(var$20, $$str($nc(this->flags)->get(KerberosTicket::FORWARDED_TICKET_FLAG))));
-	$var($String, var$18, $$concat(var$19, "\nProxiable Ticket "_s));
-	$var($String, var$17, $$concat(var$18, $$str($nc(this->flags)->get(KerberosTicket::PROXIABLE_TICKET_FLAG))));
-	$var($String, var$16, $$concat(var$17, "\nProxy Ticket "_s));
-	$var($String, var$15, $$concat(var$16, $$str($nc(this->flags)->get(KerberosTicket::PROXY_TICKET_FLAG))));
-	$var($String, var$14, $$concat(var$15, "\nPostdated Ticket "_s));
-	$var($String, var$13, $$concat(var$14, $$str($nc(this->flags)->get(KerberosTicket::POSTDATED_TICKET_FLAG))));
-	$var($String, var$12, $$concat(var$13, "\nRenewable Ticket "_s));
-	$var($String, var$11, $$concat(var$12, $$str($nc(this->flags)->get(KerberosTicket::RENEWABLE_TICKET_FLAG))));
-	$var($String, var$10, $$concat(var$11, "\nInitial Ticket "_s));
-	$var($String, var$9, $$concat(var$10, $$str($nc(this->flags)->get(KerberosTicket::INITIAL_TICKET_FLAG))));
-	$var($String, var$8, $$concat(var$9, "\nAuth Time = "_s));
-	$var($String, var$7, $$concat(var$8, $($String::valueOf($of(this->authTime)))));
-	$var($String, var$6, $$concat(var$7, "\nStart Time = "_s));
-	$var($String, var$5, $$concat(var$6, $($String::valueOf($of(this->startTime)))));
-	$var($String, var$4, $$concat(var$5, "\nEnd Time = "_s));
-	$var($String, var$3, $$concat(var$4, $($nc(this->endTime)->toString())));
-	$var($String, var$2, $$concat(var$3, "\nRenew Till = "_s));
-	$var($String, var$1, $$concat(var$2, $($String::valueOf($of(this->renewTill)))));
-	$var($String, var$0, $$concat(var$1, "\nClient Addresses "_s));
-	return ($concat(var$0, (this->clientAddresses == nullptr ? " Null "_s : $$str({$(caddrString->toString()), (this->proxy == nullptr ? ""_s : "\nwith a proxy ticket"_s), "\n"_s}))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Ticket (hex) = \n"_s);
+	var$0->append($(($$new($HexDumpEncoder))->encodeBuffer(this->asn1Encoding)));
+	var$0->append("\nClient Principal = "_s);
+	var$0->append($($nc(this->client)->toString()));
+	var$0->append("\nServer Principal = "_s);
+	var$0->append($($nc(this->server)->toString()));
+	var$0->append("\nSession Key = "_s);
+	var$0->append($($nc(this->sessionKey)->toString()));
+	var$0->append("\nForwardable Ticket "_s);
+	var$0->append($nc(this->flags)->get(KerberosTicket::FORWARDABLE_TICKET_FLAG));
+	var$0->append("\nForwarded Ticket "_s);
+	var$0->append(this->flags->get(KerberosTicket::FORWARDED_TICKET_FLAG));
+	var$0->append("\nProxiable Ticket "_s);
+	var$0->append(this->flags->get(KerberosTicket::PROXIABLE_TICKET_FLAG));
+	var$0->append("\nProxy Ticket "_s);
+	var$0->append(this->flags->get(KerberosTicket::PROXY_TICKET_FLAG));
+	var$0->append("\nPostdated Ticket "_s);
+	var$0->append(this->flags->get(KerberosTicket::POSTDATED_TICKET_FLAG));
+	var$0->append("\nRenewable Ticket "_s);
+	var$0->append(this->flags->get(KerberosTicket::RENEWABLE_TICKET_FLAG));
+	var$0->append("\nInitial Ticket "_s);
+	var$0->append(this->flags->get(KerberosTicket::INITIAL_TICKET_FLAG));
+	var$0->append("\nAuth Time = "_s);
+	var$0->append($($String::valueOf(this->authTime)));
+	var$0->append("\nStart Time = "_s);
+	var$0->append($($String::valueOf(this->startTime)));
+	var$0->append("\nEnd Time = "_s);
+	var$0->append($($nc(this->endTime)->toString()));
+	var$0->append("\nRenew Till = "_s);
+	var$0->append($($String::valueOf(this->renewTill)));
+	var$0->append("\nClient Addresses "_s);
+	var$0->append(this->clientAddresses == nullptr ? " Null "_s : $$str({$(caddrString->toString()), (this->proxy == nullptr ? ""_s : "\nwith a proxy ticket"_s), "\n"_s}));
+	return ($str(var$0));
 }
 
 int32_t KerberosTicket::hashCode() {
@@ -431,23 +362,23 @@ int32_t KerberosTicket::hashCode() {
 	result = result * 37 + $nc(this->server)->hashCode();
 	result = result * 37 + $nc(this->sessionKey)->hashCode();
 	if (this->authTime != nullptr) {
-		result = result * 37 + $nc(this->authTime)->hashCode();
+		result = result * 37 + this->authTime->hashCode();
 	}
 	if (this->startTime != nullptr) {
-		result = result * 37 + $nc(this->startTime)->hashCode();
+		result = result * 37 + this->startTime->hashCode();
 	}
 	if (this->renewTill != nullptr) {
-		result = result * 37 + $nc(this->renewTill)->hashCode();
+		result = result * 37 + this->renewTill->hashCode();
 	}
 	result = result * 37 + $Arrays::hashCode(this->clientAddresses);
 	if (this->proxy != nullptr) {
-		result = result * 37 + $nc(this->proxy)->hashCode();
+		result = result * 37 + this->proxy->hashCode();
 	}
 	return result * 37 + $Arrays::hashCode(this->flags);
 }
 
 bool KerberosTicket::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(other, this)) {
 		return true;
 	}
@@ -461,43 +392,43 @@ bool KerberosTicket::equals(Object$* other) {
 	}
 	$var($bytes, var$7, getEncoded());
 	bool var$6 = !$Arrays::equals(var$7, $($nc(otherTicket)->getEncoded()));
-	bool var$5 = var$6 || !$nc(this->endTime)->equals($($nc(otherTicket)->getEndTime()));
-	bool var$4 = var$5 || !$nc(this->server)->equals($($nc(otherTicket)->getServer()));
-	bool var$3 = var$4 || !$nc(this->client)->equals($($nc(otherTicket)->getClient()));
-	bool var$2 = var$3 || !$nc(this->sessionKey)->equals($nc(otherTicket)->sessionKey);
-	bool var$1 = var$2 || !$Arrays::equals(this->clientAddresses, $($nc(otherTicket)->getClientAddresses()));
-	if (var$1 || !$Arrays::equals(this->flags, $($nc(otherTicket)->getFlags()))) {
+	bool var$5 = var$6 || !$nc(this->endTime)->equals($(otherTicket->getEndTime()));
+	bool var$4 = var$5 || !$nc(this->server)->equals($(otherTicket->getServer()));
+	bool var$3 = var$4 || !$nc(this->client)->equals($(otherTicket->getClient()));
+	bool var$2 = var$3 || !$nc(this->sessionKey)->equals(otherTicket->sessionKey);
+	bool var$1 = var$2 || !$Arrays::equals(this->clientAddresses, $(otherTicket->getClientAddresses()));
+	if (var$1 || !$Arrays::equals(this->flags, $(otherTicket->getFlags()))) {
 		return false;
 	}
 	if (this->authTime == nullptr) {
-		if ($nc(otherTicket)->getAuthTime() != nullptr) {
+		if (otherTicket->getAuthTime() != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->authTime)->equals($($nc(otherTicket)->getAuthTime()))) {
+	} else if (!this->authTime->equals($(otherTicket->getAuthTime()))) {
 		return false;
 	}
 	if (this->startTime == nullptr) {
-		if ($nc(otherTicket)->getStartTime() != nullptr) {
+		if (otherTicket->getStartTime() != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->startTime)->equals($($nc(otherTicket)->getStartTime()))) {
+	} else if (!this->startTime->equals($(otherTicket->getStartTime()))) {
 		return false;
 	}
 	if (this->renewTill == nullptr) {
-		if ($nc(otherTicket)->getRenewTill() != nullptr) {
+		if (otherTicket->getRenewTill() != nullptr) {
 			return false;
 		}
-	} else if (!$nc(this->renewTill)->equals($($nc(otherTicket)->getRenewTill()))) {
+	} else if (!this->renewTill->equals($(otherTicket->getRenewTill()))) {
 		return false;
 	}
-	if (!$Objects::equals(this->proxy, $nc(otherTicket)->proxy)) {
+	if (!$Objects::equals(this->proxy, otherTicket->proxy)) {
 		return false;
 	}
 	return true;
 }
 
 void KerberosTicket::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	if (this->sessionKey == nullptr) {
 		$throwNew($InvalidObjectException, "Session key cannot be null"_s);
@@ -505,7 +436,7 @@ void KerberosTicket::readObject($ObjectInputStream* s) {
 	try {
 		init(this->asn1Encoding, this->client, this->server, this->sessionKey, this->flags, this->authTime, this->startTime, this->endTime, this->renewTill, this->clientAddresses);
 	} catch ($IllegalArgumentException& iae) {
-		$throw($cast($InvalidObjectException, $($$new($InvalidObjectException, $(iae->getMessage()))->initCause(iae))));
+		$throw($$cast($InvalidObjectException, $$new($InvalidObjectException, $(iae->getMessage()))->initCause(iae)));
 	}
 }
 
@@ -513,7 +444,77 @@ KerberosTicket::KerberosTicket() {
 }
 
 $Class* KerberosTicket::load$($String* name, bool initialize) {
-	$loadClass(KerberosTicket, name, initialize, &_KerberosTicket_ClassInfo_, allocate$KerberosTicket);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, serialVersionUID)},
+		{"FORWARDABLE_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, FORWARDABLE_TICKET_FLAG)},
+		{"FORWARDED_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, FORWARDED_TICKET_FLAG)},
+		{"PROXIABLE_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, PROXIABLE_TICKET_FLAG)},
+		{"PROXY_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, PROXY_TICKET_FLAG)},
+		{"POSTDATED_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, POSTDATED_TICKET_FLAG)},
+		{"RENEWABLE_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, RENEWABLE_TICKET_FLAG)},
+		{"INITIAL_TICKET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, INITIAL_TICKET_FLAG)},
+		{"NUM_FLAGS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KerberosTicket, NUM_FLAGS)},
+		{"asn1Encoding", "[B", nullptr, $PRIVATE, $field(KerberosTicket, asn1Encoding)},
+		{"sessionKey", "Ljavax/security/auth/kerberos/KeyImpl;", nullptr, $PRIVATE, $field(KerberosTicket, sessionKey)},
+		{"flags", "[Z", nullptr, $PRIVATE, $field(KerberosTicket, flags)},
+		{"authTime", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, authTime)},
+		{"startTime", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, startTime)},
+		{"endTime", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, endTime)},
+		{"renewTill", "Ljava/util/Date;", nullptr, $PRIVATE, $field(KerberosTicket, renewTill)},
+		{"client", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(KerberosTicket, client)},
+		{"server", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PRIVATE, $field(KerberosTicket, server)},
+		{"clientAddresses", "[Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(KerberosTicket, clientAddresses)},
+		{"proxy", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, 0, $field(KerberosTicket, proxy)},
+		{"destroyed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(KerberosTicket, destroyed)},
+		{"clientAlias", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $TRANSIENT, $field(KerberosTicket, clientAlias)},
+		{"serverAlias", "Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $TRANSIENT, $field(KerberosTicket, serverAlias)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "([BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(KerberosTicket, init$, void, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, destroy, void), "javax.security.auth.DestroyFailedException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, equals, bool, Object$*)},
+		{"getAuthTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getAuthTime, $Date*)},
+		{"getClient", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getClient, $KerberosPrincipal*)},
+		{"getClientAddresses", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getClientAddresses, $InetAddressArray*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getEncoded, $bytes*)},
+		{"getEndTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getEndTime, $Date*)},
+		{"getFlags", "()[Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getFlags, $booleans*)},
+		{"getRenewTill", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getRenewTill, $Date*)},
+		{"getServer", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getServer, $KerberosPrincipal*)},
+		{"getSessionKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getSessionKey, $SecretKey*)},
+		{"getSessionKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getSessionKeyType, int32_t)},
+		{"getStartTime", "()Ljava/util/Date;", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, getStartTime, $Date*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, hashCode, int32_t)},
+		{"init", "([BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(KerberosTicket, init, void, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*)},
+		{"init", "([BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KeyImpl;[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(KerberosTicket, init, void, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $KeyImpl*, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*)},
+		{"isCurrent", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, isCurrent, bool)},
+		{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, isDestroyed, bool)},
+		{"isForwardable", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isForwardable, bool)},
+		{"isForwarded", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isForwarded, bool)},
+		{"isInitial", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isInitial, bool)},
+		{"isPostdated", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isPostdated, bool)},
+		{"isProxiable", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isProxiable, bool)},
+		{"isProxy", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isProxy, bool)},
+		{"isRenewable", "()Z", nullptr, $PUBLIC | $FINAL, $method(KerberosTicket, isRenewable, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KerberosTicket, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, refresh, void), "javax.security.auth.RefreshFailedException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosTicket, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.kerberos.KerberosTicket",
+		"java.lang.Object",
+		"javax.security.auth.Destroyable,javax.security.auth.Refreshable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KerberosTicket, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KerberosTicket));
+	});
 	return class$;
 }
 

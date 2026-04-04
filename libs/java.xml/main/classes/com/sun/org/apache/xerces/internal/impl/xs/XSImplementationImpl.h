@@ -48,6 +48,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::xs::XSLoader* createXSLoader(::com::sun::org::apache::xerces::internal::xs::StringList* versions) override;
 	static ::org::w3c::dom::DOMImplementation* getDOMImplementation();

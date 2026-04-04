@@ -1,5 +1,4 @@
 #include <javax/naming/NameAlreadyBoundException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _NameAlreadyBoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameAlreadyBoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NameAlreadyBoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameAlreadyBoundException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NameAlreadyBoundException, init$, void)},
-	{}
-};
-
-$ClassInfo _NameAlreadyBoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.NameAlreadyBoundException",
-	"javax.naming.NamingException",
-	nullptr,
-	_NameAlreadyBoundException_FieldInfo_,
-	_NameAlreadyBoundException_MethodInfo_
-};
-
-$Object* allocate$NameAlreadyBoundException($Class* clazz) {
-	return $of($alloc(NameAlreadyBoundException));
-}
 
 void NameAlreadyBoundException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void NameAlreadyBoundException::throw$() {
 }
 
 $Class* NameAlreadyBoundException::load$($String* name, bool initialize) {
-	$loadClass(NameAlreadyBoundException, name, initialize, &_NameAlreadyBoundException_ClassInfo_, allocate$NameAlreadyBoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameAlreadyBoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameAlreadyBoundException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NameAlreadyBoundException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.NameAlreadyBoundException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameAlreadyBoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameAlreadyBoundException);
+	});
 	return class$;
 }
 

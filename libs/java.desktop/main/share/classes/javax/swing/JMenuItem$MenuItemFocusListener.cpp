@@ -1,5 +1,4 @@
 #include <javax/swing/JMenuItem$MenuItemFocusListener.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/FocusListener.h>
@@ -16,43 +15,6 @@ using $JMenuItem = ::javax::swing::JMenuItem;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _JMenuItem$MenuItemFocusListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JMenuItem$MenuItemFocusListener, init$, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem$MenuItemFocusListener, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem$MenuItemFocusListener, focusLost, void, $FocusEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JMenuItem$MenuItemFocusListener_InnerClassesInfo_[] = {
-	{"javax.swing.JMenuItem$MenuItemFocusListener", "javax.swing.JMenuItem", "MenuItemFocusListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JMenuItem$MenuItemFocusListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JMenuItem$MenuItemFocusListener",
-	"java.lang.Object",
-	"java.awt.event.FocusListener,java.io.Serializable",
-	nullptr,
-	_JMenuItem$MenuItemFocusListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JMenuItem$MenuItemFocusListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JMenuItem"
-};
-
-$Object* allocate$JMenuItem$MenuItemFocusListener($Class* clazz) {
-	return $of($alloc(JMenuItem$MenuItemFocusListener));
-}
 
 int32_t JMenuItem$MenuItemFocusListener::hashCode() {
 	 return this->$FocusListener::hashCode();
@@ -91,7 +53,39 @@ JMenuItem$MenuItemFocusListener::JMenuItem$MenuItemFocusListener() {
 }
 
 $Class* JMenuItem$MenuItemFocusListener::load$($String* name, bool initialize) {
-	$loadClass(JMenuItem$MenuItemFocusListener, name, initialize, &_JMenuItem$MenuItemFocusListener_ClassInfo_, allocate$JMenuItem$MenuItemFocusListener);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JMenuItem$MenuItemFocusListener, init$, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem$MenuItemFocusListener, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem$MenuItemFocusListener, focusLost, void, $FocusEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JMenuItem$MenuItemFocusListener", "javax.swing.JMenuItem", "MenuItemFocusListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JMenuItem$MenuItemFocusListener",
+		"java.lang.Object",
+		"java.awt.event.FocusListener,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JMenuItem"
+	};
+	$loadClass(JMenuItem$MenuItemFocusListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JMenuItem$MenuItemFocusListener));
+	});
 	return class$;
 }
 

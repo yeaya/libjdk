@@ -46,7 +46,7 @@ public:
 	virtual $Object* set(int32_t ix, Object$* attrVal) {return nullptr;}
 	virtual int32_t size() {return 0;}
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x78D7EE3675A55244;
+	static const int64_t serialVersionUID = (int64_t)0x78d7ee3675a55244;
 };
 
 		} // directory

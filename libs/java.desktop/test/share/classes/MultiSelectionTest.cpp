@@ -1,9 +1,7 @@
 #include <MultiSelectionTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
@@ -30,10 +28,7 @@
 
 #undef BUTTON1_DOWN_MASK
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
@@ -65,27 +60,24 @@ public:
 	virtual void run() override {
 		MultiSelectionTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MultiSelectionTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -98,27 +90,24 @@ public:
 	virtual void run() override {
 		MultiSelectionTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MultiSelectionTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -132,33 +121,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->requestFocus();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$requestFocus$2>());
-	}
 	$JComponent* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MultiSelectionTest$$Lambda$requestFocus$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$requestFocus$2, inst$)},
-	{}
-};
-$MethodInfo MultiSelectionTest$$Lambda$requestFocus$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$requestFocus$2, init$, void, $JComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$requestFocus$2, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$requestFocus$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$requestFocus$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$requestFocus$2::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$requestFocus$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$requestFocus$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$requestFocus$2, init$, void, $JComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$requestFocus$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$requestFocus$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$requestFocus$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$requestFocus$2);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$requestFocus$2::class$ = nullptr;
@@ -172,33 +157,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->selectAll();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$selectAll$3>());
-	}
 	$JTextComponent* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MultiSelectionTest$$Lambda$selectAll$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$selectAll$3, inst$)},
-	{}
-};
-$MethodInfo MultiSelectionTest$$Lambda$selectAll$3::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$selectAll$3, init$, void, $JTextComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$selectAll$3, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$selectAll$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$selectAll$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$selectAll$3::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$selectAll$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$selectAll$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$selectAll$3, init$, void, $JTextComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$selectAll$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$selectAll$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$selectAll$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$selectAll$3);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$selectAll$3::class$ = nullptr;
@@ -211,27 +192,24 @@ public:
 	virtual void run() override {
 		MultiSelectionTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$lambda$main$2$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MultiSelectionTest$$Lambda$lambda$main$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$2$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$2$4, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$lambda$main$2$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$lambda$main$2$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$lambda$main$2$4::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$lambda$main$2$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$2$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$2$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$lambda$main$2$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$lambda$main$2$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$lambda$main$2$4);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$lambda$main$2$4::class$ = nullptr;
@@ -245,33 +223,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->clearSelectedPath();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$clearSelectedPath$5>());
-	}
 	$MenuSelectionManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MultiSelectionTest$$Lambda$clearSelectedPath$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$clearSelectedPath$5, inst$)},
-	{}
-};
-$MethodInfo MultiSelectionTest$$Lambda$clearSelectedPath$5::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$clearSelectedPath$5, init$, void, $MenuSelectionManager*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$clearSelectedPath$5, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$clearSelectedPath$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$clearSelectedPath$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$clearSelectedPath$5::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$clearSelectedPath$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$clearSelectedPath$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$clearSelectedPath$5, init$, void, $MenuSelectionManager*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$clearSelectedPath$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$clearSelectedPath$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$clearSelectedPath$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$clearSelectedPath$5);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$clearSelectedPath$5::class$ = nullptr;
@@ -284,27 +258,24 @@ public:
 	virtual void run() override {
 		MultiSelectionTest::lambda$main$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$lambda$main$3$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MultiSelectionTest$$Lambda$lambda$main$3$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$3$6, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$3$6, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$lambda$main$3$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$lambda$main$3$6",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$lambda$main$3$6::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$lambda$main$3$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$lambda$main$3$6, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$lambda$main$3$6, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$lambda$main$3$6",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$lambda$main$3$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$lambda$main$3$6);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$lambda$main$3$6::class$ = nullptr;
@@ -318,72 +289,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MultiSelectionTest$$Lambda$dispose$7>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MultiSelectionTest$$Lambda$dispose$7::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$dispose$7, inst$)},
-	{}
-};
-$MethodInfo MultiSelectionTest$$Lambda$dispose$7::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$dispose$7, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$dispose$7, run, void)},
-	{}
-};
-$ClassInfo MultiSelectionTest$$Lambda$dispose$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MultiSelectionTest$$Lambda$dispose$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* MultiSelectionTest$$Lambda$dispose$7::load$($String* name, bool initialize) {
-	$loadClass(MultiSelectionTest$$Lambda$dispose$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MultiSelectionTest$$Lambda$dispose$7, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(MultiSelectionTest$$Lambda$dispose$7, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiSelectionTest$$Lambda$dispose$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MultiSelectionTest$$Lambda$dispose$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest$$Lambda$dispose$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest$$Lambda$dispose$7);
+	});
 	return class$;
 }
 $Class* MultiSelectionTest$$Lambda$dispose$7::class$ = nullptr;
-
-$FieldInfo _MultiSelectionTest_FieldInfo_[] = {
-	{"field1", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, field1)},
-	{"field2", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, field2)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, frame)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, bounds)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, menu)},
-	{"anotherWindow", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, anotherWindow)},
-	{"menuLoc", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, menuLoc)},
-	{"frame2", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, frame2)},
-	{}
-};
-
-$MethodInfo _MultiSelectionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest, init$, void)},
-	{"biEqual", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $STATIC, $staticMethod(MultiSelectionTest, biEqual, bool, $BufferedImage*, $BufferedImage*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$2, void)},
-	{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$3, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MultiSelectionTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MultiSelectionTest",
-	"java.lang.Object",
-	nullptr,
-	_MultiSelectionTest_FieldInfo_,
-	_MultiSelectionTest_MethodInfo_
-};
-
-$Object* allocate$MultiSelectionTest($Class* clazz) {
-	return $of($alloc(MultiSelectionTest));
-}
 
 $JTextField* MultiSelectionTest::field1 = nullptr;
 $JTextField* MultiSelectionTest::field2 = nullptr;
@@ -398,20 +329,20 @@ void MultiSelectionTest::init$() {
 }
 
 void MultiSelectionTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$lambda$main$0)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$lambda$main$0));
 	$var($Robot, robot, $new($Robot));
 	robot->waitForIdle();
 	robot->delay(200);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$lambda$main$1$1)));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$lambda$main$1$1));
 	$init(MultiSelectionTest);
 	$var($BufferedImage, nosel, robot->createScreenCapture(MultiSelectionTest::bounds));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(MultiSelectionTest::field2)))));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$selectAll$3, static_cast<$JTextField*>($nc(MultiSelectionTest::field2)))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$requestFocus$2, $nc(MultiSelectionTest::field2)));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$selectAll$3, $nc(MultiSelectionTest::field2)));
 	robot->waitForIdle();
 	robot->delay(200);
 	$var($BufferedImage, sel, robot->createScreenCapture(MultiSelectionTest::bounds));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$lambda$main$2$4)));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$lambda$main$2$4));
 	robot->mouseMove($nc(MultiSelectionTest::menuLoc)->x, $nc(MultiSelectionTest::menuLoc)->y);
 	robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
 	robot->delay(50);
@@ -421,43 +352,43 @@ void MultiSelectionTest::main($StringArray* args) {
 	if (!biEqual($(robot->createScreenCapture(MultiSelectionTest::bounds)), sel)) {
 		$throwNew($RuntimeException, "Test fails: menu hides selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$clearSelectedPath$5, static_cast<$MenuSelectionManager*>($nc($($MenuSelectionManager::defaultManager()))))));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(MultiSelectionTest::field1)))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$clearSelectedPath$5, $nc($($MenuSelectionManager::defaultManager()))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$requestFocus$2, $nc(MultiSelectionTest::field1)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (!biEqual($(robot->createScreenCapture(MultiSelectionTest::bounds)), sel)) {
 		$throwNew($RuntimeException, "Test fails: focus lost hides single selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$selectAll$3, static_cast<$JTextField*>($nc(MultiSelectionTest::field1)))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$selectAll$3, $nc(MultiSelectionTest::field1)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (!biEqual($(robot->createScreenCapture(MultiSelectionTest::bounds)), nosel)) {
 		$throwNew($RuntimeException, "Test fails: focus lost doesn\'t hide selection upon multi selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(MultiSelectionTest::field2)))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$requestFocus$2, $nc(MultiSelectionTest::field2)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (!biEqual($(robot->createScreenCapture(MultiSelectionTest::bounds)), sel)) {
 		$throwNew($RuntimeException, "Test fails: focus gain hides selection upon multi selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(MultiSelectionTest::field2)))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$requestFocus$2, $nc(MultiSelectionTest::field2)));
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$lambda$main$3$6)));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$lambda$main$3$6));
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(MultiSelectionTest::anotherWindow)))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$requestFocus$2, $nc(MultiSelectionTest::anotherWindow)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (biEqual($(robot->createScreenCapture(MultiSelectionTest::bounds)), nosel)) {
 		$throwNew($RuntimeException, "Test fails: switch window hides selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$selectAll$3, static_cast<$JTextField*>($nc(MultiSelectionTest::anotherWindow)))));
+	$SwingUtilities::invokeAndWait($$new(MultiSelectionTest$$Lambda$selectAll$3, $nc(MultiSelectionTest::anotherWindow)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (biEqual($(robot->createScreenCapture(MultiSelectionTest::bounds)), sel)) {
 		$throwNew($RuntimeException, "Test fails: selection ownership is lost selection is shown"_s);
 	}
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$dispose$7, static_cast<$JFrame*>($nc(MultiSelectionTest::frame2)))));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(MultiSelectionTest$$Lambda$dispose$7, static_cast<$JFrame*>($nc(MultiSelectionTest::frame)))));
+	$SwingUtilities::invokeLater($$new(MultiSelectionTest$$Lambda$dispose$7, $nc(MultiSelectionTest::frame2)));
+	$SwingUtilities::invokeLater($$new(MultiSelectionTest$$Lambda$dispose$7, $nc(MultiSelectionTest::frame)));
 }
 
 bool MultiSelectionTest::biEqual($BufferedImage* i1, $BufferedImage* i2) {
@@ -488,7 +419,7 @@ void MultiSelectionTest::lambda$main$3() {
 	$nc(loc)->translate(0, $nc(MultiSelectionTest::frame)->getHeight());
 	$nc(MultiSelectionTest::frame2)->setLocation(loc);
 	$assignStatic(MultiSelectionTest::anotherWindow, $new($JTextField, "textField3"_s));
-	$nc(MultiSelectionTest::frame2)->add(static_cast<$Component*>(MultiSelectionTest::anotherWindow));
+	$nc(MultiSelectionTest::frame2)->add(MultiSelectionTest::anotherWindow);
 	$nc(MultiSelectionTest::frame2)->pack();
 	$nc(MultiSelectionTest::frame2)->setVisible(true);
 }
@@ -506,19 +437,19 @@ void MultiSelectionTest::lambda$main$1() {
 }
 
 void MultiSelectionTest::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(MultiSelectionTest);
 	$assignStatic(MultiSelectionTest::frame, $new($JFrame));
 	$assignStatic(MultiSelectionTest::field1, $new($JTextField, "field1                       "_s));
 	$assignStatic(MultiSelectionTest::field2, $new($JTextField, "field2                       "_s));
-	$nc(MultiSelectionTest::field1)->setEditable(false);
+	MultiSelectionTest::field1->setEditable(false);
 	$nc(MultiSelectionTest::field2)->setEditable(false);
-	$nc($($nc(MultiSelectionTest::frame)->getContentPane()))->setLayout($$new($FlowLayout));
-	$nc($($nc(MultiSelectionTest::frame)->getContentPane()))->add(static_cast<$Component*>(MultiSelectionTest::field1));
-	$nc($($nc(MultiSelectionTest::frame)->getContentPane()))->add(static_cast<$Component*>(MultiSelectionTest::field2));
+	$$nc($nc(MultiSelectionTest::frame)->getContentPane())->setLayout($$new($FlowLayout));
+	$$nc($nc(MultiSelectionTest::frame)->getContentPane())->add(MultiSelectionTest::field1);
+	$$nc($nc(MultiSelectionTest::frame)->getContentPane())->add(MultiSelectionTest::field2);
 	$var($JMenuBar, menuBar, $new($JMenuBar));
 	$assignStatic(MultiSelectionTest::menu, $new($JMenu, "menu"_s));
-	$nc(MultiSelectionTest::menu)->add($$new($JMenuItem, "item"_s));
+	MultiSelectionTest::menu->add($$new($JMenuItem, "item"_s));
 	menuBar->add(MultiSelectionTest::menu);
 	$nc(MultiSelectionTest::frame)->setJMenuBar(menuBar);
 	$nc(MultiSelectionTest::frame)->pack();
@@ -530,32 +461,63 @@ MultiSelectionTest::MultiSelectionTest() {
 
 $Class* MultiSelectionTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MultiSelectionTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$lambda$main$0")) {
 			return MultiSelectionTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(MultiSelectionTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$lambda$main$1$1")) {
 			return MultiSelectionTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(MultiSelectionTest$$Lambda$requestFocus$2::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$requestFocus$2")) {
 			return MultiSelectionTest$$Lambda$requestFocus$2::load$(name, initialize);
 		}
-		if (name->equals(MultiSelectionTest$$Lambda$selectAll$3::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$selectAll$3")) {
 			return MultiSelectionTest$$Lambda$selectAll$3::load$(name, initialize);
 		}
-		if (name->equals(MultiSelectionTest$$Lambda$lambda$main$2$4::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$lambda$main$2$4")) {
 			return MultiSelectionTest$$Lambda$lambda$main$2$4::load$(name, initialize);
 		}
-		if (name->equals(MultiSelectionTest$$Lambda$clearSelectedPath$5::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$clearSelectedPath$5")) {
 			return MultiSelectionTest$$Lambda$clearSelectedPath$5::load$(name, initialize);
 		}
-		if (name->equals(MultiSelectionTest$$Lambda$lambda$main$3$6::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$lambda$main$3$6")) {
 			return MultiSelectionTest$$Lambda$lambda$main$3$6::load$(name, initialize);
 		}
-		if (name->equals(MultiSelectionTest$$Lambda$dispose$7::classInfo$.name)) {
+		if (name->equals("MultiSelectionTest$$Lambda$dispose$7")) {
 			return MultiSelectionTest$$Lambda$dispose$7::load$(name, initialize);
 		}
 	}
-	$loadClass(MultiSelectionTest, name, initialize, &_MultiSelectionTest_ClassInfo_, allocate$MultiSelectionTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"field1", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, field1)},
+		{"field2", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, field2)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, frame)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, bounds)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, menu)},
+		{"anotherWindow", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, anotherWindow)},
+		{"menuLoc", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, menuLoc)},
+		{"frame2", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(MultiSelectionTest, frame2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSelectionTest, init$, void)},
+		{"biEqual", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $STATIC, $staticMethod(MultiSelectionTest, biEqual, bool, $BufferedImage*, $BufferedImage*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$2, void)},
+		{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiSelectionTest, lambda$main$3, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MultiSelectionTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiSelectionTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSelectionTest);
+	});
 	return class$;
 }
 

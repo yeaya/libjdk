@@ -1,9 +1,7 @@
 #include <com/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI$1.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
-#include <com/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor.h>
 #include <com/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI.h>
 #include <javax/swing/JMenuItem.h>
 #include <jcpp.h>
@@ -11,7 +9,6 @@
 using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $WindowsMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUI;
-using $WindowsMenuItemUIAccessor = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUIAccessor;
 using $WindowsRadioButtonMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsRadioButtonMenuItemUI;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -26,50 +23,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsRadioButtonMenuItemUI$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsRadioButtonMenuItemUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsRadioButtonMenuItemUI$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI;)V", nullptr, 0, $method(WindowsRadioButtonMenuItemUI$1, init$, void, $WindowsRadioButtonMenuItemUI*)},
-	{"getMenuItem", "()Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonMenuItemUI$1, getMenuItem, $JMenuItem*)},
-	{"getPart", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonMenuItemUI$1, getPart, $TMSchema$Part*, $JMenuItem*)},
-	{"getState", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonMenuItemUI$1, getState, $TMSchema$State*, $JMenuItem*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsRadioButtonMenuItemUI$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _WindowsRadioButtonMenuItemUI$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsRadioButtonMenuItemUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1",
-	"java.lang.Object",
-	"com.sun.java.swing.plaf.windows.WindowsMenuItemUIAccessor",
-	_WindowsRadioButtonMenuItemUI$1_FieldInfo_,
-	_WindowsRadioButtonMenuItemUI$1_MethodInfo_,
-	nullptr,
-	&_WindowsRadioButtonMenuItemUI$1_EnclosingMethodInfo_,
-	_WindowsRadioButtonMenuItemUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI"
-};
-
-$Object* allocate$WindowsRadioButtonMenuItemUI$1($Class* clazz) {
-	return $of($alloc(WindowsRadioButtonMenuItemUI$1));
-}
 
 void WindowsRadioButtonMenuItemUI$1::init$($WindowsRadioButtonMenuItemUI* this$0) {
 	$set(this, this$0, this$0);
@@ -91,7 +44,44 @@ WindowsRadioButtonMenuItemUI$1::WindowsRadioButtonMenuItemUI$1() {
 }
 
 $Class* WindowsRadioButtonMenuItemUI$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsRadioButtonMenuItemUI$1, name, initialize, &_WindowsRadioButtonMenuItemUI$1_ClassInfo_, allocate$WindowsRadioButtonMenuItemUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsRadioButtonMenuItemUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsRadioButtonMenuItemUI;)V", nullptr, 0, $method(WindowsRadioButtonMenuItemUI$1, init$, void, $WindowsRadioButtonMenuItemUI*)},
+		{"getMenuItem", "()Ljavax/swing/JMenuItem;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonMenuItemUI$1, getMenuItem, $JMenuItem*)},
+		{"getPart", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonMenuItemUI$1, getPart, $TMSchema$Part*, $JMenuItem*)},
+		{"getState", "(Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PUBLIC, $virtualMethod(WindowsRadioButtonMenuItemUI$1, getState, $TMSchema$State*, $JMenuItem*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI$1",
+		"java.lang.Object",
+		"com.sun.java.swing.plaf.windows.WindowsMenuItemUIAccessor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsRadioButtonMenuItemUI"
+	};
+	$loadClass(WindowsRadioButtonMenuItemUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsRadioButtonMenuItemUI$1);
+	});
 	return class$;
 }
 

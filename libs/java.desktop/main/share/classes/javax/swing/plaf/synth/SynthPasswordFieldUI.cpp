@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthPasswordFieldUI.h>
-
 #include <java/awt/Graphics.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
@@ -26,7 +25,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthTextFieldUI = ::javax::swing::plaf::synth::SynthTextFieldUI;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Element = ::javax::swing::text::Element;
@@ -37,30 +35,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$MethodInfo _SynthPasswordFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthPasswordFieldUI, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(SynthPasswordFieldUI, create, $View*, $Element*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthPasswordFieldUI, getPropertyPrefix, $String*)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(SynthPasswordFieldUI, installKeyboardActions, void)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthPasswordFieldUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthPasswordFieldUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SynthPasswordFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthPasswordFieldUI",
-	"javax.swing.plaf.synth.SynthTextFieldUI",
-	nullptr,
-	nullptr,
-	_SynthPasswordFieldUI_MethodInfo_
-};
-
-$Object* allocate$SynthPasswordFieldUI($Class* clazz) {
-	return $of($alloc(SynthPasswordFieldUI));
-}
 
 void SynthPasswordFieldUI::init$() {
 	$SynthTextFieldUI::init$();
@@ -80,19 +54,16 @@ $View* SynthPasswordFieldUI::create($Element* elem) {
 }
 
 void SynthPasswordFieldUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintPasswordFieldBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintPasswordFieldBackground(context, g, 0, 0, var$0, c->getHeight());
 }
 
 void SynthPasswordFieldUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintPasswordFieldBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintPasswordFieldBorder(context, g, x, y, w, h);
 }
 
 void SynthPasswordFieldUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthTextFieldUI::installKeyboardActions();
 	$var($ActionMap, map, $SwingUtilities::getUIActionMap($(getComponent())));
 	$init($DefaultEditorKit);
@@ -108,7 +79,27 @@ SynthPasswordFieldUI::SynthPasswordFieldUI() {
 }
 
 $Class* SynthPasswordFieldUI::load$($String* name, bool initialize) {
-	$loadClass(SynthPasswordFieldUI, name, initialize, &_SynthPasswordFieldUI_ClassInfo_, allocate$SynthPasswordFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthPasswordFieldUI, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(SynthPasswordFieldUI, create, $View*, $Element*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthPasswordFieldUI, getPropertyPrefix, $String*)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(SynthPasswordFieldUI, installKeyboardActions, void)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthPasswordFieldUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthPasswordFieldUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthPasswordFieldUI",
+		"javax.swing.plaf.synth.SynthTextFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthPasswordFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthPasswordFieldUI));
+	});
 	return class$;
 }
 

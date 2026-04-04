@@ -65,7 +65,7 @@ public:
 	virtual void setValue(Object$* o) override;
 	virtual bool supportsCustomEditor() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x18B84BF8EF5AE816;
+	static const int64_t serialVersionUID = (int64_t)0x18b84bf8ef5ae816;
 	$StringArray* colorNames = nullptr;
 	$Array<::java::awt::Color>* colors = nullptr;
 	::java::awt::Canvas* sample = nullptr;

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTextFieldSearch$SearchFieldPropertyListener.h>
-
 #include <com/apple/laf/AquaTextFieldSearch.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -16,42 +15,11 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaTextFieldSearch$SearchFieldPropertyListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaTextFieldSearch$SearchFieldPropertyListener, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldPropertyListener, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaTextFieldSearch$SearchFieldPropertyListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener", "com.apple.laf.AquaTextFieldSearch", "SearchFieldPropertyListener", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaTextFieldSearch$SearchFieldPropertyListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	_AquaTextFieldSearch$SearchFieldPropertyListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTextFieldSearch$SearchFieldPropertyListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTextFieldSearch"
-};
-
-$Object* allocate$AquaTextFieldSearch$SearchFieldPropertyListener($Class* clazz) {
-	return $of($alloc(AquaTextFieldSearch$SearchFieldPropertyListener));
-}
-
 void AquaTextFieldSearch$SearchFieldPropertyListener::init$() {
 }
 
 void AquaTextFieldSearch$SearchFieldPropertyListener::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, source, $nc(evt)->getSource());
 	if (!($instanceOf($JTextComponent, source))) {
 		return;
@@ -77,7 +45,33 @@ AquaTextFieldSearch$SearchFieldPropertyListener::AquaTextFieldSearch$SearchField
 }
 
 $Class* AquaTextFieldSearch$SearchFieldPropertyListener::load$($String* name, bool initialize) {
-	$loadClass(AquaTextFieldSearch$SearchFieldPropertyListener, name, initialize, &_AquaTextFieldSearch$SearchFieldPropertyListener_ClassInfo_, allocate$AquaTextFieldSearch$SearchFieldPropertyListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaTextFieldSearch$SearchFieldPropertyListener, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldPropertyListener, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener", "com.apple.laf.AquaTextFieldSearch", "SearchFieldPropertyListener", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTextFieldSearch$SearchFieldPropertyListener",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTextFieldSearch"
+	};
+	$loadClass(AquaTextFieldSearch$SearchFieldPropertyListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTextFieldSearch$SearchFieldPropertyListener);
+	});
 	return class$;
 }
 

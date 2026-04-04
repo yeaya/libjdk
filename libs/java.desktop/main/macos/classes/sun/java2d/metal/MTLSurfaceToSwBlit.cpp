@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLSurfaceToSwBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/ref/WeakReference.h>
@@ -13,7 +12,6 @@
 #include <sun/java2d/metal/MTLSurfaceData.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
-#include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
 #undef PF_INT_ARGB_PRE
@@ -35,37 +33,10 @@ using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;
 using $MTLSurfaceData = ::sun::java2d::metal::MTLSurfaceData;
 using $Region = ::sun::java2d::pipe::Region;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace metal {
-
-$FieldInfo _MTLSurfaceToSwBlit_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE | $FINAL, $field(MTLSurfaceToSwBlit, typeval)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(MTLSurfaceToSwBlit, srcTmp)},
-	{}
-};
-
-$MethodInfo _MTLSurfaceToSwBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSurfaceToSwBlit, init$, void, $SurfaceType*, int32_t)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceToSwBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"complexClipBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MTLSurfaceToSwBlit, complexClipBlit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLSurfaceToSwBlit_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.metal.MTLSurfaceToSwBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_MTLSurfaceToSwBlit_FieldInfo_,
-	_MTLSurfaceToSwBlit_MethodInfo_
-};
-
-$Object* allocate$MTLSurfaceToSwBlit($Class* clazz) {
-	return $of($alloc(MTLSurfaceToSwBlit));
-}
 
 void MTLSurfaceToSwBlit::init$($SurfaceType* dstType, int32_t typeval) {
 	$init($MTLSurfaceData);
@@ -76,11 +47,11 @@ void MTLSurfaceToSwBlit::init$($SurfaceType* dstType, int32_t typeval) {
 
 void MTLSurfaceToSwBlit::complexClipBlit($SurfaceData* src$renamed, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, src$renamed);
 		$var($SurfaceData, cachedSrc, nullptr);
 		if (this->srcTmp != nullptr) {
-			$assign(cachedSrc, $cast($SurfaceData, $nc(this->srcTmp)->get()));
+			$assign(cachedSrc, $cast($SurfaceData, this->srcTmp->get()));
 		}
 		int32_t type = this->typeval == $MTLSurfaceData::PF_INT_ARGB_PRE ? $BufferedImage::TYPE_INT_ARGB_PRE : $BufferedImage::TYPE_INT_ARGB;
 		$assign(src, convertFrom(this, src, sx, sy, w, h, cachedSrc, type));
@@ -96,14 +67,14 @@ void MTLSurfaceToSwBlit::complexClipBlit($SurfaceData* src$renamed, $SurfaceData
 }
 
 void MTLSurfaceToSwBlit::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip$renamed, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, clip, clip$renamed);
 	if (clip != nullptr) {
 		$assign(clip, clip->getIntersectionXYWH(dx, dy, w, h));
 		if ($nc(clip)->isEmpty()) {
 			return;
 		}
-		sx += $nc(clip)->getLoX() - dx;
+		sx += clip->getLoX() - dx;
 		sy += clip->getLoY() - dy;
 		dx = clip->getLoX();
 		dy = clip->getLoY();
@@ -116,29 +87,27 @@ void MTLSurfaceToSwBlit::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite*
 	}
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->addReference(dst);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			$MTLContext::validateContext($cast($MTLSurfaceData, src));
-			rq->ensureCapacityAndAlignment(48, 32);
-			$nc(buf)->putInt(34);
-			$nc($(buf->putInt(sx)))->putInt(sy);
-			$nc($(buf->putInt(dx)))->putInt(dy);
-			$nc($(buf->putInt(w)))->putInt(h);
-			buf->putInt(this->typeval);
-			buf->putLong($nc(src)->getNativeOps());
-			buf->putLong($nc(dst)->getNativeOps());
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->addReference(dst);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		$MTLContext::validateContext($cast($MTLSurfaceData, src));
+		rq->ensureCapacityAndAlignment(48, 32);
+		$nc(buf)->putInt(34);
+		$$nc(buf->putInt(sx))->putInt(sy);
+		$$nc(buf->putInt(dx))->putInt(dy);
+		$$nc(buf->putInt(w))->putInt(h);
+		buf->putInt(this->typeval);
+		buf->putLong($nc(src)->getNativeOps());
+		buf->putLong($nc(dst)->getNativeOps());
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -146,7 +115,28 @@ MTLSurfaceToSwBlit::MTLSurfaceToSwBlit() {
 }
 
 $Class* MTLSurfaceToSwBlit::load$($String* name, bool initialize) {
-	$loadClass(MTLSurfaceToSwBlit, name, initialize, &_MTLSurfaceToSwBlit_ClassInfo_, allocate$MTLSurfaceToSwBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE | $FINAL, $field(MTLSurfaceToSwBlit, typeval)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(MTLSurfaceToSwBlit, srcTmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(MTLSurfaceToSwBlit, init$, void, $SurfaceType*, int32_t)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceToSwBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"complexClipBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MTLSurfaceToSwBlit, complexClipBlit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.metal.MTLSurfaceToSwBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLSurfaceToSwBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLSurfaceToSwBlit);
+	});
 	return class$;
 }
 

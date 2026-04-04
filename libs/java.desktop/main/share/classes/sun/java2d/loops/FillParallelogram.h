@@ -28,6 +28,7 @@ class FillParallelogram : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(FillParallelogram, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	FillParallelogram();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void FillParallelogram$(::sun::java2d::SunGraphics2D* sg2d, ::sun::java2d::SurfaceData* dest, double x0, double y0, double dx1, double dy1, double dx2, double dy2);

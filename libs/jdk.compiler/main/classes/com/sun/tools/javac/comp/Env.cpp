@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Env.h>
-
 #include <com/sun/tools/javac/comp/Env$1.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
@@ -23,53 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Env_FieldInfo_[] = {
-	{"next", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $field(Env, next)},
-	{"outer", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $field(Env, outer)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(Env, tree)},
-	{"toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(Env, toplevel)},
-	{"enclClass", "Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PUBLIC, $field(Env, enclClass)},
-	{"enclMethod", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $field(Env, enclMethod)},
-	{"info", "Ljava/lang/Object;", "TA;", $PUBLIC, $field(Env, info)},
-	{"baseClause", "Z", nullptr, $PUBLIC, $field(Env, baseClause)},
-	{}
-};
-
-$MethodInfo _Env_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/tree/JCTree;TA;)V", $PUBLIC, $method(Env, init$, void, $JCTree*, Object$*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;TA;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dup, Env*, $JCTree*, Object$*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dup, Env*, $JCTree*)},
-	{"dupto", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/comp/Env<TA;>;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dupto, Env*, Env*)},
-	{"enclosing", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, enclosing, Env*, $JCTree$Tag*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<TA;>;>;", $PUBLIC, $virtualMethod(Env, iterator, $Iterator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Env, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Env_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Env$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Env_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Env",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	_Env_FieldInfo_,
-	_Env_MethodInfo_,
-	"<A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/tools/javac/comp/Env<TA;>;>;",
-	nullptr,
-	_Env_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Env$1"
-};
-
-$Object* allocate$Env($Class* clazz) {
-	return $of($alloc(Env));
-}
 
 void Env::init$($JCTree* tree, Object$* info) {
 	this->baseClause = false;
@@ -111,7 +63,7 @@ $String* Env::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("Env["_s)->append(this->info);
 	if (this->outer != nullptr) {
-		sb->append(",outer="_s)->append($of(this->outer));
+		sb->append(",outer="_s)->append(this->outer);
 	}
 	sb->append("]"_s);
 	return sb->toString();
@@ -125,7 +77,48 @@ Env::Env() {
 }
 
 $Class* Env::load$($String* name, bool initialize) {
-	$loadClass(Env, name, initialize, &_Env_ClassInfo_, allocate$Env);
+	$FieldInfo fieldInfos$$[] = {
+		{"next", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $field(Env, next)},
+		{"outer", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $field(Env, outer)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(Env, tree)},
+		{"toplevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(Env, toplevel)},
+		{"enclClass", "Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PUBLIC, $field(Env, enclClass)},
+		{"enclMethod", "Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $field(Env, enclMethod)},
+		{"info", "Ljava/lang/Object;", "TA;", $PUBLIC, $field(Env, info)},
+		{"baseClause", "Z", nullptr, $PUBLIC, $field(Env, baseClause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/tree/JCTree;TA;)V", $PUBLIC, $method(Env, init$, void, $JCTree*, Object$*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;TA;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dup, Env*, $JCTree*, Object$*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dup, Env*, $JCTree*)},
+		{"dupto", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/comp/Env<TA;>;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dupto, Env*, Env*)},
+		{"enclosing", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, enclosing, Env*, $JCTree$Tag*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<TA;>;>;", $PUBLIC, $virtualMethod(Env, iterator, $Iterator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Env, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Env$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Env",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/tools/javac/comp/Env<TA;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Env$1"
+	};
+	$loadClass(Env, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Env);
+	});
 	return class$;
 }
 

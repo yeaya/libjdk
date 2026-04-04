@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
@@ -16,7 +15,6 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
-using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $DeferredAttr$DeferredType$SpeculativeCache$Entry = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType$SpeculativeCache$Entry;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
@@ -27,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 
 namespace com {
@@ -36,53 +33,13 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$DeferredType$SpeculativeCache_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredType$SpeculativeCache, this$1)},
-	{"cache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache$Entry;>;>;", $PRIVATE, $field(DeferredAttr$DeferredType$SpeculativeCache, cache)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$DeferredType$SpeculativeCache_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, 0, $method(DeferredAttr$DeferredType$SpeculativeCache, init$, void, $DeferredAttr$DeferredType*)},
-	{"get", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache$Entry;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType$SpeculativeCache, get, $DeferredAttr$DeferredType$SpeculativeCache$Entry*, $Symbol*, $Resolve$MethodResolutionPhase*)},
-	{"put", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType$SpeculativeCache, put, void, $JCTree*, $Attr$ResultInfo*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$DeferredType$SpeculativeCache_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredType", "com.sun.tools.javac.comp.DeferredAttr", "DeferredType", $PUBLIC},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache", "com.sun.tools.javac.comp.DeferredAttr$DeferredType", "SpeculativeCache", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache$Entry", "com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache", "Entry", 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredType$SpeculativeCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache",
-	"java.lang.Object",
-	nullptr,
-	_DeferredAttr$DeferredType$SpeculativeCache_FieldInfo_,
-	_DeferredAttr$DeferredType$SpeculativeCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$DeferredType$SpeculativeCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredType$SpeculativeCache($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredType$SpeculativeCache));
-}
-
 void DeferredAttr$DeferredType$SpeculativeCache::init$($DeferredAttr$DeferredType* this$1) {
 	$set(this, this$1, this$1);
 	$set(this, cache, $new($WeakHashMap));
 }
 
 $DeferredAttr$DeferredType$SpeculativeCache$Entry* DeferredAttr$DeferredType$SpeculativeCache::get($Symbol* msym, $Resolve$MethodResolutionPhase* phase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, entries, $cast($List, $nc(this->cache)->get(msym)));
 	if (entries == nullptr) {
 		return nullptr;
@@ -91,10 +48,8 @@ $DeferredAttr$DeferredType$SpeculativeCache$Entry* DeferredAttr$DeferredType$Spe
 		$var($Iterator, i$, $nc(entries)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DeferredAttr$DeferredType$SpeculativeCache$Entry, e, $cast($DeferredAttr$DeferredType$SpeculativeCache$Entry, i$->next()));
-			{
-				if ($nc(e)->matches(phase)) {
-					return e;
-				}
+			if ($nc(e)->matches(phase)) {
+				return e;
 			}
 		}
 	}
@@ -102,7 +57,7 @@ $DeferredAttr$DeferredType$SpeculativeCache$Entry* DeferredAttr$DeferredType$Spe
 }
 
 void DeferredAttr$DeferredType$SpeculativeCache::put($JCTree* speculativeTree, $Attr$ResultInfo* resultInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, msym, $nc($($nc($nc(resultInfo)->checkContext)->deferredAttrContext()))->msym);
 	$var($List, entries, $cast($List, $nc(this->cache)->get(msym)));
 	if (entries == nullptr) {
@@ -115,7 +70,41 @@ DeferredAttr$DeferredType$SpeculativeCache::DeferredAttr$DeferredType$Speculativ
 }
 
 $Class* DeferredAttr$DeferredType$SpeculativeCache::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredType$SpeculativeCache, name, initialize, &_DeferredAttr$DeferredType$SpeculativeCache_ClassInfo_, allocate$DeferredAttr$DeferredType$SpeculativeCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredType$SpeculativeCache, this$1)},
+		{"cache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache$Entry;>;>;", $PRIVATE, $field(DeferredAttr$DeferredType$SpeculativeCache, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, 0, $method(DeferredAttr$DeferredType$SpeculativeCache, init$, void, $DeferredAttr$DeferredType*)},
+		{"get", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache$Entry;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType$SpeculativeCache, get, $DeferredAttr$DeferredType$SpeculativeCache$Entry*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+		{"put", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType$SpeculativeCache, put, void, $JCTree*, $Attr$ResultInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredType", "com.sun.tools.javac.comp.DeferredAttr", "DeferredType", $PUBLIC},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache", "com.sun.tools.javac.comp.DeferredAttr$DeferredType", "SpeculativeCache", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache$Entry", "com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache", "Entry", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredType$SpeculativeCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredType$SpeculativeCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredType$SpeculativeCache);
+	});
 	return class$;
 }
 

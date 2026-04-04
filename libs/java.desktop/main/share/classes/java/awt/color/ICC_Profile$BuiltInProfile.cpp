@@ -1,5 +1,4 @@
 #include <java/awt/color/ICC_Profile$BuiltInProfile.h>
-
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/color/ICC_Profile.h>
 #include <java/awt/color/ICC_ProfileGray.h>
@@ -30,48 +29,14 @@ namespace java {
 	namespace awt {
 		namespace color {
 
-$FieldInfo _ICC_Profile$BuiltInProfile_FieldInfo_[] = {
-	{"SRGB", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, SRGB)},
-	{"LRGB", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, LRGB)},
-	{"XYZ", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, XYZ)},
-	{"PYCC", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, PYCC)},
-	{"GRAY", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, GRAY)},
-	{}
-};
-
-$InnerClassInfo _ICC_Profile$BuiltInProfile_InnerClassesInfo_[] = {
-	{"java.awt.color.ICC_Profile$BuiltInProfile", "java.awt.color.ICC_Profile", "BuiltInProfile", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ICC_Profile$BuiltInProfile_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.awt.color.ICC_Profile$BuiltInProfile",
-	nullptr,
-	nullptr,
-	_ICC_Profile$BuiltInProfile_FieldInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ICC_Profile$BuiltInProfile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.color.ICC_Profile"
-};
-
-$Object* allocate$ICC_Profile$BuiltInProfile($Class* clazz) {
-	return $of($alloc(ICC_Profile$BuiltInProfile));
-}
-
 $ICC_Profile* ICC_Profile$BuiltInProfile::SRGB = nullptr;
 $ICC_Profile* ICC_Profile$BuiltInProfile::LRGB = nullptr;
 $ICC_Profile* ICC_Profile$BuiltInProfile::XYZ = nullptr;
 $ICC_Profile* ICC_Profile$BuiltInProfile::PYCC = nullptr;
 $ICC_Profile* ICC_Profile$BuiltInProfile::GRAY = nullptr;
 
-void clinit$ICC_Profile$BuiltInProfile($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ICC_Profile$BuiltInProfile::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ICC_Profile$BuiltInProfile::SRGB, $new($ICC_ProfileRGB, $$new($ProfileDeferralInfo, "sRGB.pf"_s, $ColorSpace::TYPE_RGB, 3, 1)));
 	$assignStatic(ICC_Profile$BuiltInProfile::LRGB, $new($ICC_ProfileRGB, $$new($ProfileDeferralInfo, "LINEAR_RGB.pf"_s, $ColorSpace::TYPE_RGB, 3, 1)));
 	$assignStatic(ICC_Profile$BuiltInProfile::XYZ, $new($ICC_Profile, $$new($ProfileDeferralInfo, "CIEXYZ.pf"_s, $ColorSpace::TYPE_XYZ, 3, 5)));
@@ -80,7 +45,36 @@ void clinit$ICC_Profile$BuiltInProfile($Class* class$) {
 }
 
 $Class* ICC_Profile$BuiltInProfile::load$($String* name, bool initialize) {
-	$loadClass(ICC_Profile$BuiltInProfile, name, initialize, &_ICC_Profile$BuiltInProfile_ClassInfo_, clinit$ICC_Profile$BuiltInProfile, allocate$ICC_Profile$BuiltInProfile);
+	$FieldInfo fieldInfos$$[] = {
+		{"SRGB", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, SRGB)},
+		{"LRGB", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, LRGB)},
+		{"XYZ", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, XYZ)},
+		{"PYCC", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, PYCC)},
+		{"GRAY", "Ljava/awt/color/ICC_Profile;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ICC_Profile$BuiltInProfile, GRAY)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.color.ICC_Profile$BuiltInProfile", "java.awt.color.ICC_Profile", "BuiltInProfile", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.awt.color.ICC_Profile$BuiltInProfile",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.color.ICC_Profile"
+	};
+	$loadClass(ICC_Profile$BuiltInProfile, name, initialize, &classInfo$$, ICC_Profile$BuiltInProfile::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ICC_Profile$BuiltInProfile);
+	});
 	return class$;
 }
 

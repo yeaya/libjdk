@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyName.h>
-
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dsig/XMLSignature.h>
 #include <javax/xml/crypto/dsig/keyinfo/KeyName.h>
@@ -33,38 +32,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMKeyName_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyName, name)},
-	{}
-};
-
-$MethodInfo _DOMKeyName_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMKeyName, init$, void, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMKeyName, init$, void, $Element*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, getName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMKeyName_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyName",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.keyinfo.KeyName",
-	_DOMKeyName_FieldInfo_,
-	_DOMKeyName_MethodInfo_
-};
-
-$Object* allocate$DOMKeyName($Class* clazz) {
-	return $of($alloc(DOMKeyName));
-}
-
 bool DOMKeyName::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -91,7 +58,7 @@ void DOMKeyName::init$($String* name) {
 
 void DOMKeyName::init$($Element* knElem) {
 	$DOMStructure::init$();
-	$set(this, name, $nc($($nc(knElem)->getFirstChild()))->getNodeValue());
+	$set(this, name, $$nc($nc(knElem)->getFirstChild())->getNodeValue());
 }
 
 $String* DOMKeyName::getName() {
@@ -99,7 +66,7 @@ $String* DOMKeyName::getName() {
 }
 
 void DOMKeyName::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, knElem, $DOMUtils::createElement(ownerDoc, "KeyName"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -108,7 +75,7 @@ void DOMKeyName::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* co
 }
 
 bool DOMKeyName::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -129,7 +96,34 @@ DOMKeyName::DOMKeyName() {
 }
 
 $Class* DOMKeyName::load$($String* name, bool initialize) {
-	$loadClass(DOMKeyName, name, initialize, &_DOMKeyName_ClassInfo_, allocate$DOMKeyName);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyName, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMKeyName, init$, void, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMKeyName, init$, void, $Element*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, getName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMKeyName, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyName",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.keyinfo.KeyName",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMKeyName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMKeyName));
+	});
 	return class$;
 }
 

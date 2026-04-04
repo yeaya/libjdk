@@ -33,6 +33,7 @@ class $export TooMuchWheelRotationEventsTest : public ::java::lang::Object {
 	$class(TooMuchWheelRotationEventsTest, 0, ::java::lang::Object)
 public:
 	TooMuchWheelRotationEventsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JPanel* createTestPanel();
 	static void createUI();

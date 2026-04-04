@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/GeneralRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/image/ColorModel.h>
@@ -48,7 +47,6 @@
 #undef TYPE_USHORT
 
 using $GraphicsPrimitiveArray = $Array<::sun::java2d::loops::GraphicsPrimitive>;
-using $Color = ::java::awt::Color;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $WritableRaster = ::java::awt::image::WritableRaster;
@@ -70,7 +68,6 @@ using $DrawRect = ::sun::java2d::loops::DrawRect;
 using $FillPath = ::sun::java2d::loops::FillPath;
 using $FillRect = ::sun::java2d::loops::FillRect;
 using $FillSpans = ::sun::java2d::loops::FillSpans;
-using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $GraphicsPrimitiveProxy = ::sun::java2d::loops::GraphicsPrimitiveProxy;
 using $PixelWriter = ::sun::java2d::loops::PixelWriter;
@@ -88,47 +85,11 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _GeneralRenderer_FieldInfo_[] = {
-	{"OUTCODE_TOP", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_TOP)},
-	{"OUTCODE_BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_BOTTOM)},
-	{"OUTCODE_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_LEFT)},
-	{"OUTCODE_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_RIGHT)},
-	{}
-};
-
-$MethodInfo _GeneralRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GeneralRenderer, init$, void)},
-	{"adjustLine", "([IIIII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GeneralRenderer, adjustLine, bool, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{"createSolidPixelWriter", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;)Lsun/java2d/loops/PixelWriter;", nullptr, $STATIC, $staticMethod(GeneralRenderer, createSolidPixelWriter, $PixelWriter*, $SunGraphics2D*, $SurfaceData*)},
-	{"createXorPixelWriter", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;)Lsun/java2d/loops/PixelWriter;", nullptr, $STATIC, $staticMethod(GeneralRenderer, createXorPixelWriter, $PixelWriter*, $SunGraphics2D*, $SurfaceData*)},
-	{"doDrawGlyphList", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;Lsun/font/GlyphList;IILsun/java2d/pipe/Region;)V", nullptr, $STATIC, $staticMethod(GeneralRenderer, doDrawGlyphList, void, $SurfaceData*, $PixelWriter*, $GlyphList*, int32_t, int32_t, $Region*)},
-	{"doDrawLine", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;[ILsun/java2d/pipe/Region;IIII)[I", nullptr, $STATIC, $staticMethod(GeneralRenderer, doDrawLine, $ints*, $SurfaceData*, $PixelWriter*, $ints*, $Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"doDrawPoly", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;[I[IIILsun/java2d/pipe/Region;IIZ)V", nullptr, $STATIC, $staticMethod(GeneralRenderer, doDrawPoly, void, $SurfaceData*, $PixelWriter*, $ints*, $ints*, int32_t, int32_t, $Region*, int32_t, int32_t, bool)},
-	{"doDrawRect", "(Lsun/java2d/loops/PixelWriter;Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GeneralRenderer, doDrawRect, void, $PixelWriter*, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{"doSetRect", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;IIII)V", nullptr, $STATIC, $staticMethod(GeneralRenderer, doSetRect, void, $SurfaceData*, $PixelWriter*, int32_t, int32_t, int32_t, int32_t)},
-	{"outcode", "(IIIIII)I", nullptr, $STATIC, $staticMethod(GeneralRenderer, outcode, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"register", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GeneralRenderer, register$, void)},
-	{}
-};
-
-$ClassInfo _GeneralRenderer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.loops.GeneralRenderer",
-	"java.lang.Object",
-	nullptr,
-	_GeneralRenderer_FieldInfo_,
-	_GeneralRenderer_MethodInfo_
-};
-
-$Object* allocate$GeneralRenderer($Class* clazz) {
-	return $of($alloc(GeneralRenderer));
-}
-
 void GeneralRenderer::init$() {
 }
 
 void GeneralRenderer::register$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load(GeneralRenderer);
 	$Class* owner = GeneralRenderer::class$;
 	$init($FillRect);
@@ -143,22 +104,22 @@ void GeneralRenderer::register$() {
 	$init($DrawGlyphList);
 	$init($DrawGlyphListAA);
 	$var($GraphicsPrimitiveArray, primitives, $new($GraphicsPrimitiveArray, {
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "SetFillRectANY"_s, $FillRect::methodSignature, $FillRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "SetFillPathANY"_s, $FillPath::methodSignature, $FillPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "SetFillSpansANY"_s, $FillSpans::methodSignature, $FillSpans::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "SetDrawLineANY"_s, $DrawLine::methodSignature, $DrawLine::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "SetDrawPolygonsANY"_s, $DrawPolygons::methodSignature, $DrawPolygons::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "SetDrawPathANY"_s, $DrawPath::methodSignature, $DrawPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "SetDrawRectANY"_s, $DrawRect::methodSignature, $DrawRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorFillRectANY"_s, $FillRect::methodSignature, $FillRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorFillPathANY"_s, $FillPath::methodSignature, $FillPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorFillSpansANY"_s, $FillSpans::methodSignature, $FillSpans::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorDrawLineANY"_s, $DrawLine::methodSignature, $DrawLine::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorDrawPolygonsANY"_s, $DrawPolygons::methodSignature, $DrawPolygons::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorDrawPathANY"_s, $DrawPath::methodSignature, $DrawPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorDrawRectANY"_s, $DrawRect::methodSignature, $DrawRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorDrawGlyphListANY"_s, $DrawGlyphList::methodSignature, $DrawGlyphList::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)),
-		static_cast<$GraphicsPrimitive*>($$new($GraphicsPrimitiveProxy, owner, "XorDrawGlyphListAAANY"_s, $DrawGlyphListAA::methodSignature, $DrawGlyphListAA::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any))
+		$$new($GraphicsPrimitiveProxy, owner, "SetFillRectANY"_s, $FillRect::methodSignature, $FillRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "SetFillPathANY"_s, $FillPath::methodSignature, $FillPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "SetFillSpansANY"_s, $FillSpans::methodSignature, $FillSpans::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "SetDrawLineANY"_s, $DrawLine::methodSignature, $DrawLine::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "SetDrawPolygonsANY"_s, $DrawPolygons::methodSignature, $DrawPolygons::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "SetDrawPathANY"_s, $DrawPath::methodSignature, $DrawPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "SetDrawRectANY"_s, $DrawRect::methodSignature, $DrawRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::SrcNoEa, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorFillRectANY"_s, $FillRect::methodSignature, $FillRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorFillPathANY"_s, $FillPath::methodSignature, $FillPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorFillSpansANY"_s, $FillSpans::methodSignature, $FillSpans::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorDrawLineANY"_s, $DrawLine::methodSignature, $DrawLine::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorDrawPolygonsANY"_s, $DrawPolygons::methodSignature, $DrawPolygons::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorDrawPathANY"_s, $DrawPath::methodSignature, $DrawPath::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorDrawRectANY"_s, $DrawRect::methodSignature, $DrawRect::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorDrawGlyphListANY"_s, $DrawGlyphList::methodSignature, $DrawGlyphList::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any),
+		$$new($GraphicsPrimitiveProxy, owner, "XorDrawGlyphListAAANY"_s, $DrawGlyphListAA::methodSignature, $DrawGlyphListAA::primTypeID, $SurfaceType::AnyColor, $CompositeType::Xor, $SurfaceType::Any)
 	}));
 	$GraphicsPrimitiveMgr::register$(primitives);
 }
@@ -199,7 +160,7 @@ void GeneralRenderer::doSetRect($SurfaceData* sData, $PixelWriter* pw, int32_t x
 }
 
 $ints* GeneralRenderer::doDrawLine($SurfaceData* sData, $PixelWriter* pw, $ints* boundPts$renamed, $Region* clip, int32_t origx1, int32_t origy1, int32_t origx2, int32_t origy2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, boundPts, boundPts$renamed);
 	if (boundPts == nullptr) {
 		$assign(boundPts, $new($ints, 8));
@@ -208,21 +169,20 @@ $ints* GeneralRenderer::doDrawLine($SurfaceData* sData, $PixelWriter* pw, $ints*
 	boundPts->set(1, origy1);
 	boundPts->set(2, origx2);
 	boundPts->set(3, origy2);
-	$var($ints, var$0, boundPts);
-	int32_t var$1 = $nc(clip)->getLoX();
-	int32_t var$2 = clip->getLoY();
-	int32_t var$3 = clip->getHiX();
-	if (!adjustLine(var$0, var$1, var$2, var$3, clip->getHiY())) {
+	int32_t var$0 = $nc(clip)->getLoX();
+	int32_t var$1 = clip->getLoY();
+	int32_t var$2 = clip->getHiX();
+	if (!adjustLine(boundPts, var$0, var$1, var$2, clip->getHiY())) {
 		return boundPts;
 	}
 	int32_t x1 = boundPts->get(0);
 	int32_t y1 = boundPts->get(1);
 	int32_t x2 = boundPts->get(2);
 	int32_t y2 = boundPts->get(3);
-	int32_t var$4 = $Math::min(x1, x2);
-	int32_t var$5 = $Math::min(y1, y2);
-	int32_t var$6 = $Math::abs(x1 - x2) + 1;
-	$var($WritableRaster, dstRast, $cast($WritableRaster, $nc(sData)->getRaster(var$4, var$5, var$6, $Math::abs(y1 - y2) + 1)));
+	int32_t var$3 = $Math::min(x1, x2);
+	int32_t var$4 = $Math::min(y1, y2);
+	int32_t var$5 = $Math::abs(x1 - x2) + 1;
+	$var($WritableRaster, dstRast, $cast($WritableRaster, $nc(sData)->getRaster(var$3, var$4, var$5, $Math::abs(y1 - y2) + 1)));
 	$nc(pw)->setRaster(dstRast);
 	if (x1 == x2) {
 		if (y1 > y2) {
@@ -321,17 +281,17 @@ $ints* GeneralRenderer::doDrawLine($SurfaceData* sData, $PixelWriter* pw, $ints*
 }
 
 void GeneralRenderer::doDrawRect($PixelWriter* pw, $SunGraphics2D* sg2d, $SurfaceData* sData, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w < 0 || h < 0) {
 		return;
 	}
 	int32_t x2 = $Region::dimAdd($Region::dimAdd(x, w), 1);
 	int32_t y2 = $Region::dimAdd($Region::dimAdd(y, h), 1);
-	$var($Region, r, $nc($($nc(sg2d)->getCompClip()))->getBoundsIntersectionXYXY(x, y, x2, y2));
+	$var($Region, r, $$nc($nc(sg2d)->getCompClip())->getBoundsIntersectionXYXY(x, y, x2, y2));
 	if ($nc(r)->isEmpty()) {
 		return;
 	}
-	int32_t cx1 = $nc(r)->getLoX();
+	int32_t cx1 = r->getLoX();
 	int32_t cy1 = r->getLoY();
 	int32_t cx2 = r->getHiX();
 	int32_t cy2 = r->getHiY();
@@ -354,7 +314,7 @@ void GeneralRenderer::doDrawRect($PixelWriter* pw, $SunGraphics2D* sg2d, $Surfac
 }
 
 void GeneralRenderer::doDrawGlyphList($SurfaceData* sData, $PixelWriter* pw, $GlyphList* gl, int32_t fromGlyph, int32_t toGlyph, $Region* clip) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, bounds, $nc(gl)->getBounds(toGlyph));
 	$nc(clip)->clipBoxToBounds(bounds);
 	int32_t cx1 = $nc(bounds)->get(0);
@@ -481,12 +441,12 @@ bool GeneralRenderer::adjustLine($ints* boundPts, int32_t cxmin, int32_t cymin, 
 		while ((outcode1 | outcode2) != 0) {
 			int32_t xsteps = 0;
 			int32_t ysteps = 0;
-			if (((int32_t)(outcode1 & (uint32_t)outcode2)) != 0) {
+			if ((outcode1 & outcode2) != 0) {
 				return false;
 			}
 			if (outcode1 != 0) {
-				if (0 != ((int32_t)(outcode1 & (uint32_t)(GeneralRenderer::OUTCODE_TOP | GeneralRenderer::OUTCODE_BOTTOM)))) {
-					if (0 != ((int32_t)(outcode1 & (uint32_t)GeneralRenderer::OUTCODE_TOP))) {
+				if (0 != (outcode1 & (GeneralRenderer::OUTCODE_TOP | GeneralRenderer::OUTCODE_BOTTOM))) {
+					if (0 != (outcode1 & GeneralRenderer::OUTCODE_TOP)) {
 						y1 = cymin;
 					} else {
 						y1 = cymax;
@@ -504,8 +464,8 @@ bool GeneralRenderer::adjustLine($ints* boundPts, int32_t cxmin, int32_t cymin, 
 						xsteps = -xsteps;
 					}
 					x1 = boundPts->get(0) + xsteps;
-				} else if (0 != ((int32_t)(outcode1 & (uint32_t)(GeneralRenderer::OUTCODE_LEFT | GeneralRenderer::OUTCODE_RIGHT)))) {
-					if (0 != ((int32_t)(outcode1 & (uint32_t)GeneralRenderer::OUTCODE_LEFT))) {
+				} else if (0 != (outcode1 & (GeneralRenderer::OUTCODE_LEFT | GeneralRenderer::OUTCODE_RIGHT))) {
+					if (0 != (outcode1 & GeneralRenderer::OUTCODE_LEFT)) {
 						x1 = cxmin;
 					} else {
 						x1 = cxmax;
@@ -526,8 +486,8 @@ bool GeneralRenderer::adjustLine($ints* boundPts, int32_t cxmin, int32_t cymin, 
 				}
 				outcode1 = outcode(x1, y1, cxmin, cymin, cxmax, cymax);
 			} else {
-				if (0 != ((int32_t)(outcode2 & (uint32_t)(GeneralRenderer::OUTCODE_TOP | GeneralRenderer::OUTCODE_BOTTOM)))) {
-					if (0 != ((int32_t)(outcode2 & (uint32_t)GeneralRenderer::OUTCODE_TOP))) {
+				if (0 != (outcode2 & (GeneralRenderer::OUTCODE_TOP | GeneralRenderer::OUTCODE_BOTTOM))) {
+					if (0 != (outcode2 & GeneralRenderer::OUTCODE_TOP)) {
 						y2 = cymin;
 					} else {
 						y2 = cymax;
@@ -547,8 +507,8 @@ bool GeneralRenderer::adjustLine($ints* boundPts, int32_t cxmin, int32_t cymin, 
 						xsteps = -xsteps;
 					}
 					x2 = boundPts->get(2) + xsteps;
-				} else if (0 != ((int32_t)(outcode2 & (uint32_t)(GeneralRenderer::OUTCODE_LEFT | GeneralRenderer::OUTCODE_RIGHT)))) {
-					if (0 != ((int32_t)(outcode2 & (uint32_t)GeneralRenderer::OUTCODE_LEFT))) {
+				} else if (0 != (outcode2 & (GeneralRenderer::OUTCODE_LEFT | GeneralRenderer::OUTCODE_RIGHT))) {
+					if (0 != (outcode2 & GeneralRenderer::OUTCODE_LEFT)) {
 						x2 = cxmin;
 					} else {
 						x2 = cxmax;
@@ -585,46 +545,33 @@ bool GeneralRenderer::adjustLine($ints* boundPts, int32_t cxmin, int32_t cymin, 
 }
 
 $PixelWriter* GeneralRenderer::createSolidPixelWriter($SunGraphics2D* sg2d, $SurfaceData* sData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, dstCM, $nc(sData)->getColorModel());
 	$var($Object, srcPixel, $nc(dstCM)->getDataElements($nc(sg2d)->eargb, nullptr));
 	return $new($SolidPixelWriter, srcPixel);
 }
 
 $PixelWriter* GeneralRenderer::createXorPixelWriter($SunGraphics2D* sg2d, $SurfaceData* sData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, dstCM, $nc(sData)->getColorModel());
 	$var($Object, srcPixel, $nc(dstCM)->getDataElements($nc(sg2d)->eargb, nullptr));
-	$var($XORComposite, comp, $cast($XORComposite, $nc(sg2d)->getComposite()));
-	int32_t xorrgb = $nc($($nc(comp)->getXorColor()))->getRGB();
+	$var($XORComposite, comp, $cast($XORComposite, sg2d->getComposite()));
+	int32_t xorrgb = $$nc($nc(comp)->getXorColor())->getRGB();
 	$var($Object, xorPixel, dstCM->getDataElements(xorrgb, nullptr));
 	switch (dstCM->getTransferType()) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			return $new($XorPixelWriter$ByteData, srcPixel, xorPixel);
-		}
+		return $new($XorPixelWriter$ByteData, srcPixel, xorPixel);
 	case $DataBuffer::TYPE_SHORT:
-		{}
 	case $DataBuffer::TYPE_USHORT:
-		{
-			return $new($XorPixelWriter$ShortData, srcPixel, xorPixel);
-		}
+		return $new($XorPixelWriter$ShortData, srcPixel, xorPixel);
 	case $DataBuffer::TYPE_INT:
-		{
-			return $new($XorPixelWriter$IntData, srcPixel, xorPixel);
-		}
+		return $new($XorPixelWriter$IntData, srcPixel, xorPixel);
 	case $DataBuffer::TYPE_FLOAT:
-		{
-			return $new($XorPixelWriter$FloatData, srcPixel, xorPixel);
-		}
+		return $new($XorPixelWriter$FloatData, srcPixel, xorPixel);
 	case $DataBuffer::TYPE_DOUBLE:
-		{
-			return $new($XorPixelWriter$DoubleData, srcPixel, xorPixel);
-		}
+		return $new($XorPixelWriter$DoubleData, srcPixel, xorPixel);
 	default:
-		{
-			$throwNew($InternalError, "Unsupported XOR pixel type"_s);
-		}
+		$throwNew($InternalError, "Unsupported XOR pixel type"_s);
 	}
 }
 
@@ -632,7 +579,38 @@ GeneralRenderer::GeneralRenderer() {
 }
 
 $Class* GeneralRenderer::load$($String* name, bool initialize) {
-	$loadClass(GeneralRenderer, name, initialize, &_GeneralRenderer_ClassInfo_, allocate$GeneralRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"OUTCODE_TOP", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_TOP)},
+		{"OUTCODE_BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_BOTTOM)},
+		{"OUTCODE_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_LEFT)},
+		{"OUTCODE_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(GeneralRenderer, OUTCODE_RIGHT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GeneralRenderer, init$, void)},
+		{"adjustLine", "([IIIII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GeneralRenderer, adjustLine, bool, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{"createSolidPixelWriter", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;)Lsun/java2d/loops/PixelWriter;", nullptr, $STATIC, $staticMethod(GeneralRenderer, createSolidPixelWriter, $PixelWriter*, $SunGraphics2D*, $SurfaceData*)},
+		{"createXorPixelWriter", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;)Lsun/java2d/loops/PixelWriter;", nullptr, $STATIC, $staticMethod(GeneralRenderer, createXorPixelWriter, $PixelWriter*, $SunGraphics2D*, $SurfaceData*)},
+		{"doDrawGlyphList", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;Lsun/font/GlyphList;IILsun/java2d/pipe/Region;)V", nullptr, $STATIC, $staticMethod(GeneralRenderer, doDrawGlyphList, void, $SurfaceData*, $PixelWriter*, $GlyphList*, int32_t, int32_t, $Region*)},
+		{"doDrawLine", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;[ILsun/java2d/pipe/Region;IIII)[I", nullptr, $STATIC, $staticMethod(GeneralRenderer, doDrawLine, $ints*, $SurfaceData*, $PixelWriter*, $ints*, $Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"doDrawPoly", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;[I[IIILsun/java2d/pipe/Region;IIZ)V", nullptr, $STATIC, $staticMethod(GeneralRenderer, doDrawPoly, void, $SurfaceData*, $PixelWriter*, $ints*, $ints*, int32_t, int32_t, $Region*, int32_t, int32_t, bool)},
+		{"doDrawRect", "(Lsun/java2d/loops/PixelWriter;Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GeneralRenderer, doDrawRect, void, $PixelWriter*, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{"doSetRect", "(Lsun/java2d/SurfaceData;Lsun/java2d/loops/PixelWriter;IIII)V", nullptr, $STATIC, $staticMethod(GeneralRenderer, doSetRect, void, $SurfaceData*, $PixelWriter*, int32_t, int32_t, int32_t, int32_t)},
+		{"outcode", "(IIIIII)I", nullptr, $STATIC, $staticMethod(GeneralRenderer, outcode, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"register", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GeneralRenderer, register$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.loops.GeneralRenderer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GeneralRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeneralRenderer);
+	});
 	return class$;
 }
 

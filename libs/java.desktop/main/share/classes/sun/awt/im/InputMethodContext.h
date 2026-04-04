@@ -70,6 +70,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::text::AttributedCharacterIterator* cancelLatestCommittedText($Array<::java::text::AttributedCharacterIterator$Attribute>* attributes) override;
 	virtual ::javax::swing::JFrame* createInputMethodJFrame($String* title, bool attachToInputContext) override;

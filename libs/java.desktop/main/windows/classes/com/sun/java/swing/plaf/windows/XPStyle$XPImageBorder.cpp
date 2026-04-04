@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$XPImageBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
@@ -16,7 +15,6 @@
 using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
-using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -35,49 +33,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _XPStyle$XPImageBorder_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $FINAL | $SYNTHETIC, $field(XPStyle$XPImageBorder, this$0)},
-	{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $field(XPStyle$XPImageBorder, skin)},
-	{}
-};
-
-$MethodInfo _XPStyle$XPImageBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/XPStyle;Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, 0, $method(XPStyle$XPImageBorder, init$, void, $XPStyle*, $Component*, $TMSchema$Part*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XPStyle$XPImageBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XPStyle$XPImageBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XPStyle$XPImageBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPImageBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _XPStyle$XPImageBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_XPStyle$XPImageBorder_FieldInfo_,
-	_XPStyle$XPImageBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPStyle$XPImageBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.XPStyle"
-};
-
-$Object* allocate$XPStyle$XPImageBorder($Class* clazz) {
-	return $of($alloc(XPStyle$XPImageBorder));
-}
 
 int32_t XPStyle$XPImageBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -110,20 +65,20 @@ void XPStyle$XPImageBorder::paintBorder($Component* c, $Graphics* g, int32_t x, 
 }
 
 $Insets* XPStyle$XPImageBorder::getBorderInsets($Component* c, $Insets* insets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, margin, nullptr);
 	$var($Insets, borderInsets, $nc(this->skin)->getContentMargin());
 	if (borderInsets == nullptr) {
 		$assign(borderInsets, $new($Insets, 0, 0, 0, 0));
 	}
 	if ($instanceOf($AbstractButton, c)) {
-		$assign(margin, $nc(($cast($AbstractButton, c)))->getMargin());
+		$assign(margin, $cast($AbstractButton, c)->getMargin());
 	} else if ($instanceOf($JToolBar, c)) {
-		$assign(margin, $nc(($cast($JToolBar, c)))->getMargin());
+		$assign(margin, $cast($JToolBar, c)->getMargin());
 	} else if ($instanceOf($JTextComponent, c)) {
-		$assign(margin, $nc(($cast($JTextComponent, c)))->getMargin());
+		$assign(margin, $cast($JTextComponent, c)->getMargin());
 	}
-	$nc(insets)->top = (margin != nullptr ? $nc(margin)->top : 0) + $nc(borderInsets)->top;
+	$nc(insets)->top = (margin != nullptr ? margin->top : 0) + $nc(borderInsets)->top;
 	insets->left = (margin != nullptr ? margin->left : 0) + borderInsets->left;
 	insets->bottom = (margin != nullptr ? margin->bottom : 0) + borderInsets->bottom;
 	insets->right = (margin != nullptr ? margin->right : 0) + borderInsets->right;
@@ -134,7 +89,44 @@ XPStyle$XPImageBorder::XPStyle$XPImageBorder() {
 }
 
 $Class* XPStyle$XPImageBorder::load$($String* name, bool initialize) {
-	$loadClass(XPStyle$XPImageBorder, name, initialize, &_XPStyle$XPImageBorder_ClassInfo_, allocate$XPStyle$XPImageBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $FINAL | $SYNTHETIC, $field(XPStyle$XPImageBorder, this$0)},
+		{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $field(XPStyle$XPImageBorder, skin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/XPStyle;Ljava/awt/Component;Lcom/sun/java/swing/plaf/windows/TMSchema$Part;)V", nullptr, 0, $method(XPStyle$XPImageBorder, init$, void, $XPStyle*, $Component*, $TMSchema$Part*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XPStyle$XPImageBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(XPStyle$XPImageBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPImageBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.XPStyle$XPImageBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.XPStyle"
+	};
+	$loadClass(XPStyle$XPImageBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPStyle$XPImageBorder));
+	});
 	return class$;
 }
 

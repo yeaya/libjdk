@@ -1,5 +1,4 @@
 #include <java/awt/KeyEventPostProcessor.h>
-
 #include <java/awt/event/KeyEvent.h>
 #include <jcpp.h>
 
@@ -11,35 +10,30 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$CompoundAttribute _KeyEventPostProcessor_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _KeyEventPostProcessor_MethodInfo_[] = {
-	{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyEventPostProcessor, postProcessKeyEvent, bool, $KeyEvent*)},
-	{}
-};
-
-$ClassInfo _KeyEventPostProcessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.KeyEventPostProcessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_KeyEventPostProcessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_KeyEventPostProcessor_Annotations_
-};
-
-$Object* allocate$KeyEventPostProcessor($Class* clazz) {
-	return $of($alloc(KeyEventPostProcessor));
-}
-
 $Class* KeyEventPostProcessor::load$($String* name, bool initialize) {
-	$loadClass(KeyEventPostProcessor, name, initialize, &_KeyEventPostProcessor_ClassInfo_, allocate$KeyEventPostProcessor);
+	$MethodInfo methodInfos$$[] = {
+		{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyEventPostProcessor, postProcessKeyEvent, bool, $KeyEvent*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.KeyEventPostProcessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(KeyEventPostProcessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyEventPostProcessor);
+	});
 	return class$;
 }
 

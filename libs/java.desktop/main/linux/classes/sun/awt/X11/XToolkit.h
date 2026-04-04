@@ -248,6 +248,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void XSync();
 	static void addEventDispatcher(int64_t window, ::sun::awt::X11::XEventDispatcher* dispatcher);

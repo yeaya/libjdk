@@ -1,5 +1,4 @@
 #include <TestBrowserBGColor.h>
-
 #include <TestBrowserBGColor$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -25,7 +24,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/HyperlinkEvent$EventType.h>
 #include <javax/swing/event/HyperlinkEvent.h>
-#include <javax/swing/event/HyperlinkListener.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/html/HTMLDocument.h>
 #include <javax/swing/text/html/HTMLFrameHyperlinkEvent.h>
@@ -37,13 +35,10 @@
 
 using $TestBrowserBGColor$1 = ::TestBrowserBGColor$1;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $Toolkit = ::java::awt::Toolkit;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -59,7 +54,6 @@ using $JScrollPane = ::javax::swing::JScrollPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $HyperlinkEvent = ::javax::swing::event::HyperlinkEvent;
 using $HyperlinkEvent$EventType = ::javax::swing::event::HyperlinkEvent$EventType;
-using $HyperlinkListener = ::javax::swing::event::HyperlinkListener;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $HTMLFrameHyperlinkEvent = ::javax::swing::text::html::HTMLFrameHyperlinkEvent;
 
@@ -71,27 +65,24 @@ public:
 	virtual void run() override {
 		TestBrowserBGColor::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBrowserBGColor$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestBrowserBGColor$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBrowserBGColor$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBrowserBGColor$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestBrowserBGColor$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBrowserBGColor$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestBrowserBGColor$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestBrowserBGColor$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBrowserBGColor$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBrowserBGColor$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBrowserBGColor$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestBrowserBGColor$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBrowserBGColor$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestBrowserBGColor$$Lambda$lambda$main$0::class$ = nullptr;
@@ -105,81 +96,32 @@ public:
 	virtual void run() override {
 		TestBrowserBGColor::lambda$main$1(r);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBrowserBGColor$$Lambda$lambda$main$1$1>());
-	}
 	$Robot* r = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestBrowserBGColor$$Lambda$lambda$main$1$1::fieldInfos[2] = {
-	{"r", "Ljava/awt/Robot;", nullptr, $PUBLIC, $field(TestBrowserBGColor$$Lambda$lambda$main$1$1, r)},
-	{}
-};
-$MethodInfo TestBrowserBGColor$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC, $method(TestBrowserBGColor$$Lambda$lambda$main$1$1, init$, void, $Robot*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBrowserBGColor$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo TestBrowserBGColor$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBrowserBGColor$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestBrowserBGColor$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestBrowserBGColor$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"r", "Ljava/awt/Robot;", nullptr, $PUBLIC, $field(TestBrowserBGColor$$Lambda$lambda$main$1$1, r)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC, $method(TestBrowserBGColor$$Lambda$lambda$main$1$1, init$, void, $Robot*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBrowserBGColor$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBrowserBGColor$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestBrowserBGColor$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBrowserBGColor$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* TestBrowserBGColor$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _TestBrowserBGColor_FieldInfo_[] = {
-	{"b", "LTestBrowserBGColor;", nullptr, $PRIVATE | $STATIC, $staticField(TestBrowserBGColor, b)},
-	{"browser", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticField(TestBrowserBGColor, browser)},
-	{"htmlDoc", "Ljava/lang/String;", nullptr, 0, $field(TestBrowserBGColor, htmlDoc)},
-	{}
-};
-
-$MethodInfo _TestBrowserBGColor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBrowserBGColor, init$, void), "java.io.IOException,java.net.MalformedURLException"},
-	{"hyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestBrowserBGColor, hyperlinkUpdate, void, $HyperlinkEvent*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBrowserBGColor, lambda$main$0, void)},
-	{"lambda$main$1", "(Ljava/awt/Robot;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBrowserBGColor, lambda$main$1, void, $Robot*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBrowserBGColor, main, void, $StringArray*), "java.lang.Exception"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TestBrowserBGColor_InnerClassesInfo_[] = {
-	{"TestBrowserBGColor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestBrowserBGColor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestBrowserBGColor",
-	"javax.swing.JFrame",
-	"javax.swing.event.HyperlinkListener",
-	_TestBrowserBGColor_FieldInfo_,
-	_TestBrowserBGColor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestBrowserBGColor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestBrowserBGColor$1"
-};
-
-$Object* allocate$TestBrowserBGColor($Class* clazz) {
-	return $of($alloc(TestBrowserBGColor));
-}
 
 $String* TestBrowserBGColor::toString() {
 	 return this->$JFrame::toString();
@@ -206,27 +148,27 @@ $JEditorPane* TestBrowserBGColor::browser = nullptr;
 
 void TestBrowserBGColor::main($StringArray* args) {
 	$init(TestBrowserBGColor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, r, $new($Robot));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBrowserBGColor$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(TestBrowserBGColor$$Lambda$lambda$main$0));
 	r->waitForIdle();
 	r->delay(500);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBrowserBGColor$$Lambda$lambda$main$1$1, r)));
+	$SwingUtilities::invokeAndWait($$new(TestBrowserBGColor$$Lambda$lambda$main$1$1, r));
 }
 
 void TestBrowserBGColor::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFrame::init$();
 	$set(this, htmlDoc, " <!DOCTYPE html> <html><style> body { background: #FFF; } </style> <head> <title>Title</title> </head> <body> </body> </html>"_s);
 	$assignStatic(TestBrowserBGColor::browser, $new($JEditorPane, "text/html"_s, this->htmlDoc));
-	$nc(TestBrowserBGColor::browser)->setEditable(false);
+	TestBrowserBGColor::browser->setEditable(false);
 	$nc(TestBrowserBGColor::browser)->addHyperlinkListener(this);
 	$var($JScrollPane, scroll, $new($JScrollPane, TestBrowserBGColor::browser));
-	$nc($(getContentPane()))->add(static_cast<$Component*>(scroll));
+	$$nc(getContentPane())->add(scroll);
 }
 
 void TestBrowserBGColor::hyperlinkUpdate($HyperlinkEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HyperlinkEvent$EventType);
 	if ($nc(e)->getEventType() == $HyperlinkEvent$EventType::ACTIVATED) {
 		$var($JEditorPane, pane, $cast($JEditorPane, e->getSource()));
@@ -246,10 +188,10 @@ void TestBrowserBGColor::hyperlinkUpdate($HyperlinkEvent* e) {
 
 void TestBrowserBGColor::lambda$main$1($Robot* r) {
 	$init(TestBrowserBGColor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $nc(TestBrowserBGColor::browser)->getInsets());
 	$var($Point, loc, $nc(TestBrowserBGColor::browser)->getLocationOnScreen());
-	$var($Color, c, $nc(r)->getPixelColor($nc(loc)->x + $nc(insets)->left + 100, loc->y + insets->top + 100));
+	$var($Color, c, $nc(r)->getPixelColor($nc(loc)->x + $nc(insets)->left + 100, $nc(loc)->y + $nc(insets)->top + 100));
 	$nc(TestBrowserBGColor::b)->dispose();
 	$init($Color);
 	if (!$nc(c)->equals($Color::WHITE)) {
@@ -259,13 +201,13 @@ void TestBrowserBGColor::lambda$main$1($Robot* r) {
 
 void TestBrowserBGColor::lambda$main$0() {
 	$init(TestBrowserBGColor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$assignStatic(TestBrowserBGColor::b, $new(TestBrowserBGColor));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
-	$nc(TestBrowserBGColor::b)->setSize($($nc($($Toolkit::getDefaultToolkit()))->getScreenSize()));
+	$nc(TestBrowserBGColor::b)->setSize($($$nc($Toolkit::getDefaultToolkit())->getScreenSize()));
 	$nc(TestBrowserBGColor::b)->setVisible(true);
 	$nc(TestBrowserBGColor::b)->setDefaultCloseOperation($JFrame::DO_NOTHING_ON_CLOSE);
 	$nc(TestBrowserBGColor::b)->addWindowListener($$new($TestBrowserBGColor$1));
@@ -276,14 +218,53 @@ TestBrowserBGColor::TestBrowserBGColor() {
 
 $Class* TestBrowserBGColor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestBrowserBGColor$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestBrowserBGColor$$Lambda$lambda$main$0")) {
 			return TestBrowserBGColor$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestBrowserBGColor$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("TestBrowserBGColor$$Lambda$lambda$main$1$1")) {
 			return TestBrowserBGColor$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestBrowserBGColor, name, initialize, &_TestBrowserBGColor_ClassInfo_, allocate$TestBrowserBGColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"b", "LTestBrowserBGColor;", nullptr, $PRIVATE | $STATIC, $staticField(TestBrowserBGColor, b)},
+		{"browser", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticField(TestBrowserBGColor, browser)},
+		{"htmlDoc", "Ljava/lang/String;", nullptr, 0, $field(TestBrowserBGColor, htmlDoc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBrowserBGColor, init$, void), "java.io.IOException,java.net.MalformedURLException"},
+		{"hyperlinkUpdate", "(Ljavax/swing/event/HyperlinkEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestBrowserBGColor, hyperlinkUpdate, void, $HyperlinkEvent*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBrowserBGColor, lambda$main$0, void)},
+		{"lambda$main$1", "(Ljava/awt/Robot;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBrowserBGColor, lambda$main$1, void, $Robot*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBrowserBGColor, main, void, $StringArray*), "java.lang.Exception"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestBrowserBGColor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestBrowserBGColor",
+		"javax.swing.JFrame",
+		"javax.swing.event.HyperlinkListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestBrowserBGColor$1"
+	};
+	$loadClass(TestBrowserBGColor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestBrowserBGColor));
+	});
 	return class$;
 }
 

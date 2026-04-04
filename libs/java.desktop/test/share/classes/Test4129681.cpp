@@ -1,10 +1,8 @@
 #include <Test4129681.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JApplet.h>
@@ -19,9 +17,7 @@
 #undef NORTH
 
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -29,37 +25,6 @@ using $BorderFactory = ::javax::swing::BorderFactory;
 using $JApplet = ::javax::swing::JApplet;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JLabel = ::javax::swing::JLabel;
-using $Border = ::javax::swing::border::Border;
-
-$FieldInfo _Test4129681_FieldInfo_[] = {
-	{"label", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(Test4129681, label)},
-	{}
-};
-
-$MethodInfo _Test4129681_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4129681, init$, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4129681, init, void)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4129681, itemStateChanged, void, $ItemEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Test4129681_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4129681",
-	"javax.swing.JApplet",
-	"java.awt.event.ItemListener",
-	_Test4129681_FieldInfo_,
-	_Test4129681_MethodInfo_
-};
-
-$Object* allocate$Test4129681($Class* clazz) {
-	return $of($alloc(Test4129681));
-}
 
 $String* Test4129681::toString() {
 	 return this->$JApplet::toString();
@@ -86,15 +51,15 @@ void Test4129681::init$() {
 }
 
 void Test4129681::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCheckBox, check, $new($JCheckBox, "disable"_s));
 	check->addItemListener(this);
 	$set(this, label, $new($JLabel, "message"_s));
-	$nc(this->label)->setBorder($($BorderFactory::createTitledBorder("label"_s)));
+	this->label->setBorder($($BorderFactory::createTitledBorder("label"_s)));
 	$nc(this->label)->setEnabled(!check->isSelected());
 	$init($BorderLayout);
-	add($BorderLayout::NORTH, static_cast<$Component*>(check));
-	add($BorderLayout::CENTER, static_cast<$Component*>(this->label));
+	add($BorderLayout::NORTH, check);
+	add($BorderLayout::CENTER, this->label);
 }
 
 void Test4129681::itemStateChanged($ItemEvent* event) {
@@ -105,7 +70,32 @@ Test4129681::Test4129681() {
 }
 
 $Class* Test4129681::load$($String* name, bool initialize) {
-	$loadClass(Test4129681, name, initialize, &_Test4129681_ClassInfo_, allocate$Test4129681);
+	$FieldInfo fieldInfos$$[] = {
+		{"label", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(Test4129681, label)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4129681, init$, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4129681, init, void)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4129681, itemStateChanged, void, $ItemEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4129681",
+		"javax.swing.JApplet",
+		"java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test4129681, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test4129681));
+	});
 	return class$;
 }
 

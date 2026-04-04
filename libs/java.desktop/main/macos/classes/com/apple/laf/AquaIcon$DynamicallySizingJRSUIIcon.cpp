@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaIcon$JRSUIIcon.h>
@@ -16,9 +14,7 @@
 
 #undef REGULAR
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaIcon$JRSUIIcon = ::com::apple::laf::AquaIcon$JRSUIIcon;
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
@@ -34,47 +30,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaIcon$DynamicallySizingJRSUIIcon_FieldInfo_[] = {
-	{"sizeDescriptor", "Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;", nullptr, $PROTECTED | $FINAL, $field(AquaIcon$DynamicallySizingJRSUIIcon, sizeDescriptor)},
-	{"sizeVariant", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PROTECTED, $field(AquaIcon$DynamicallySizingJRSUIIcon, sizeVariant)},
-	{}
-};
-
-$MethodInfo _AquaIcon$DynamicallySizingJRSUIIcon_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PUBLIC, $method(AquaIcon$DynamicallySizingJRSUIIcon, init$, void, $AquaUtilControlSize$SizeDescriptor*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, getIconWidth, int32_t)},
-	{"initJRSUIState", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, initJRSUIState, void)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaIcon$DynamicallySizingJRSUIIcon_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon", "com.apple.laf.AquaIcon", "DynamicallySizingJRSUIIcon", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaIcon$JRSUIIcon", "com.apple.laf.AquaIcon", "JRSUIIcon", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaIcon$DynamicallySizingJRSUIIcon_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon",
-	"com.apple.laf.AquaIcon$JRSUIIcon",
-	nullptr,
-	_AquaIcon$DynamicallySizingJRSUIIcon_FieldInfo_,
-	_AquaIcon$DynamicallySizingJRSUIIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaIcon$DynamicallySizingJRSUIIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaIcon"
-};
-
-$Object* allocate$AquaIcon$DynamicallySizingJRSUIIcon($Class* clazz) {
-	return $of($alloc(AquaIcon$DynamicallySizingJRSUIIcon));
-}
-
 void AquaIcon$DynamicallySizingJRSUIIcon::init$($AquaUtilControlSize$SizeDescriptor* sizeDescriptor) {
 	$AquaIcon$JRSUIIcon::init$();
 	$set(this, sizeDescriptor, sizeDescriptor);
@@ -83,11 +38,11 @@ void AquaIcon$DynamicallySizingJRSUIIcon::init$($AquaUtilControlSize$SizeDescrip
 }
 
 int32_t AquaIcon$DynamicallySizingJRSUIIcon::getIconHeight() {
-	return this->sizeVariant == nullptr ? 0 : $nc(this->sizeVariant)->h;
+	return this->sizeVariant == nullptr ? 0 : this->sizeVariant->h;
 }
 
 int32_t AquaIcon$DynamicallySizingJRSUIIcon::getIconWidth() {
-	return this->sizeVariant == nullptr ? 0 : $nc(this->sizeVariant)->w;
+	return this->sizeVariant == nullptr ? 0 : this->sizeVariant->w;
 }
 
 void AquaIcon$DynamicallySizingJRSUIIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
@@ -102,7 +57,42 @@ AquaIcon$DynamicallySizingJRSUIIcon::AquaIcon$DynamicallySizingJRSUIIcon() {
 }
 
 $Class* AquaIcon$DynamicallySizingJRSUIIcon::load$($String* name, bool initialize) {
-	$loadClass(AquaIcon$DynamicallySizingJRSUIIcon, name, initialize, &_AquaIcon$DynamicallySizingJRSUIIcon_ClassInfo_, allocate$AquaIcon$DynamicallySizingJRSUIIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"sizeDescriptor", "Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;", nullptr, $PROTECTED | $FINAL, $field(AquaIcon$DynamicallySizingJRSUIIcon, sizeDescriptor)},
+		{"sizeVariant", "Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PROTECTED, $field(AquaIcon$DynamicallySizingJRSUIIcon, sizeVariant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PUBLIC, $method(AquaIcon$DynamicallySizingJRSUIIcon, init$, void, $AquaUtilControlSize$SizeDescriptor*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, getIconWidth, int32_t)},
+		{"initJRSUIState", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, initJRSUIState, void)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaIcon$DynamicallySizingJRSUIIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon", "com.apple.laf.AquaIcon", "DynamicallySizingJRSUIIcon", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaIcon$JRSUIIcon", "com.apple.laf.AquaIcon", "JRSUIIcon", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaIcon$DynamicallySizingJRSUIIcon",
+		"com.apple.laf.AquaIcon$JRSUIIcon",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaIcon"
+	};
+	$loadClass(AquaIcon$DynamicallySizingJRSUIIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaIcon$DynamicallySizingJRSUIIcon));
+	});
 	return class$;
 }
 

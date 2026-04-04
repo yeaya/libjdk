@@ -15,6 +15,7 @@ class RMIConnector$1 : public ::java::security::PrivilegedExceptionAction {
 	$class(RMIConnector$1, 0, ::java::security::PrivilegedExceptionAction)
 public:
 	RMIConnector$1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* val$pRefByteCode);
 	virtual $Object* run() override;
 	$bytes* val$pRefByteCode = nullptr;

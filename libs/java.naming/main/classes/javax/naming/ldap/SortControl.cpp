@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/SortControl.h>
-
 #include <com/sun/jndi/ldap/Ber.h>
 #include <com/sun/jndi/ldap/BerEncoder.h>
 #include <javax/naming/ldap/BasicControl.h>
@@ -24,43 +23,16 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$FieldInfo _SortControl_FieldInfo_[] = {
-	{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SortControl, OID)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortControl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SortControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $String*, bool), "java.io.IOException"},
-	{"<init>", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $StringArray*, bool), "java.io.IOException"},
-	{"<init>", "([Ljavax/naming/ldap/SortKey;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $SortKeyArray*, bool), "java.io.IOException"},
-	{"setEncodedValue", "([Ljavax/naming/ldap/SortKey;)[B", nullptr, $PRIVATE, $method(SortControl, setEncodedValue, $bytes*, $SortKeyArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SortControl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.naming.ldap.SortControl",
-	"javax.naming.ldap.BasicControl",
-	nullptr,
-	_SortControl_FieldInfo_,
-	_SortControl_MethodInfo_
-};
-
-$Object* allocate$SortControl($Class* clazz) {
-	return $of($alloc(SortControl));
-}
-
 $String* SortControl::OID = nullptr;
 
 void SortControl::init$($String* sortBy, bool criticality) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicControl::init$(SortControl::OID, criticality, nullptr);
 	$set(this, value, setEncodedValue($$new($SortKeyArray, {$$new($SortKey, sortBy)})));
 }
 
 void SortControl::init$($StringArray* sortBy, bool criticality) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicControl::init$(SortControl::OID, criticality, nullptr);
 	$var($SortKeyArray, sortKeys, $new($SortKeyArray, $nc(sortBy)->length));
 	for (int32_t i = 0; i < sortBy->length; ++i) {
@@ -75,11 +47,11 @@ void SortControl::init$($SortKeyArray* sortBy, bool criticality) {
 }
 
 $bytes* SortControl::setEncodedValue($SortKeyArray* sortKeys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BerEncoder, ber, $new($BerEncoder, 30 * $nc(sortKeys)->length + 10));
 	$var($String, matchingRule, nullptr);
 	ber->beginSeq($Ber::ASN_SEQUENCE | $Ber::ASN_CONSTRUCTOR);
-	for (int32_t i = 0; i < $nc(sortKeys)->length; ++i) {
+	for (int32_t i = 0; i < sortKeys->length; ++i) {
 		ber->beginSeq($Ber::ASN_SEQUENCE | $Ber::ASN_CONSTRUCTOR);
 		ber->encodeString($($nc(sortKeys->get(i))->getAttributeID()), true);
 		if (($assign(matchingRule, $nc(sortKeys->get(i))->getMatchingRuleID())) != nullptr) {
@@ -97,12 +69,34 @@ $bytes* SortControl::setEncodedValue($SortKeyArray* sortKeys) {
 SortControl::SortControl() {
 }
 
-void clinit$SortControl($Class* class$) {
+void SortControl::clinit$($Class* clazz) {
 	$assignStatic(SortControl::OID, "1.2.840.113556.1.4.473"_s);
 }
 
 $Class* SortControl::load$($String* name, bool initialize) {
-	$loadClass(SortControl, name, initialize, &_SortControl_ClassInfo_, clinit$SortControl, allocate$SortControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SortControl, OID)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortControl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $String*, bool), "java.io.IOException"},
+		{"<init>", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $StringArray*, bool), "java.io.IOException"},
+		{"<init>", "([Ljavax/naming/ldap/SortKey;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $SortKeyArray*, bool), "java.io.IOException"},
+		{"setEncodedValue", "([Ljavax/naming/ldap/SortKey;)[B", nullptr, $PRIVATE, $method(SortControl, setEncodedValue, $bytes*, $SortKeyArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.naming.ldap.SortControl",
+		"javax.naming.ldap.BasicControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortControl, name, initialize, &classInfo$$, SortControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SortControl);
+	});
 	return class$;
 }
 

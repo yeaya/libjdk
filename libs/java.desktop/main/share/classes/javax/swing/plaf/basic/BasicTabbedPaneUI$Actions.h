@@ -51,6 +51,7 @@ class BasicTabbedPaneUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicTabbedPaneUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicTabbedPaneUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	static $String* NEXT;

@@ -27,11 +27,14 @@ public:
 	virtual $Throwable* getCause() override;
 	virtual ::java::lang::Exception* getException();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0xA568E268AC6C4354;
+	static const int64_t serialVersionUID = (int64_t)0xa568e268ac6c4354;
 	::java::lang::Exception* exception = nullptr;
 	TransformerFactoryConfigurationError(const TransformerFactoryConfigurationError& e);
 	virtual void throw$() override;
-	inline TransformerFactoryConfigurationError* operator ->() {
+	inline TransformerFactoryConfigurationError* operator ->() const {
+		return (TransformerFactoryConfigurationError*)throwing$;
+	}
+	inline operator TransformerFactoryConfigurationError*() const {
 		return (TransformerFactoryConfigurationError*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPrinterPageDialog.h>
-
 #include <java/awt/Frame.h>
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Printable.h>
@@ -20,33 +19,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CPrinterPageDialog_FieldInfo_[] = {
-	{"fPage", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(CPrinterPageDialog, fPage)},
-	{"fPainter", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(CPrinterPageDialog, fPainter)},
-	{}
-};
-
-$MethodInfo _CPrinterPageDialog_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Frame;Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(CPrinterPageDialog, init$, void, $Frame*, $CPrinterJob*, $PageFormat*, $Printable*)},
-	{"showDialog", "()Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterPageDialog, showDialog, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_showDialog 1
-
-$ClassInfo _CPrinterPageDialog_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterPageDialog",
-	"sun.lwawt.macosx.CPrinterDialog",
-	nullptr,
-	_CPrinterPageDialog_FieldInfo_,
-	_CPrinterPageDialog_MethodInfo_
-};
-
-$Object* allocate$CPrinterPageDialog($Class* clazz) {
-	return $of($alloc(CPrinterPageDialog));
-}
-
 void CPrinterPageDialog::init$($Frame* parent, $CPrinterJob* printerJob, $PageFormat* page, $Printable* painter) {
 	$CPrinterDialog::init$(parent, printerJob);
 	$set(this, fPage, page);
@@ -54,9 +26,8 @@ void CPrinterPageDialog::init$($Frame* parent, $CPrinterJob* printerJob, $PageFo
 }
 
 bool CPrinterPageDialog::showDialog() {
-	bool $ret = false;
-	$prepareNative(CPrinterPageDialog, showDialog, bool);
-	$ret = $invokeNative();
+	$prepareNative(showDialog, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -65,7 +36,27 @@ CPrinterPageDialog::CPrinterPageDialog() {
 }
 
 $Class* CPrinterPageDialog::load$($String* name, bool initialize) {
-	$loadClass(CPrinterPageDialog, name, initialize, &_CPrinterPageDialog_ClassInfo_, allocate$CPrinterPageDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"fPage", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(CPrinterPageDialog, fPage)},
+		{"fPainter", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(CPrinterPageDialog, fPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Frame;Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(CPrinterPageDialog, init$, void, $Frame*, $CPrinterJob*, $PageFormat*, $Printable*)},
+		{"showDialog", "()Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterPageDialog, showDialog, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterPageDialog",
+		"sun.lwawt.macosx.CPrinterDialog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPrinterPageDialog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CPrinterPageDialog));
+	});
 	return class$;
 }
 

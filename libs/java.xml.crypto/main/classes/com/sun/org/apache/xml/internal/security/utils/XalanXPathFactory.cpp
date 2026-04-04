@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/XalanXPathFactory.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/XPathAPI.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XPathFactory.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XalanXPathAPI.h>
@@ -20,25 +19,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$MethodInfo _XalanXPathFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XalanXPathFactory, init$, void)},
-	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC, $virtualMethod(XalanXPathFactory, newXPathAPI, $XPathAPI*)},
-	{}
-};
-
-$ClassInfo _XalanXPathFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.XalanXPathFactory",
-	"com.sun.org.apache.xml.internal.security.utils.XPathFactory",
-	nullptr,
-	nullptr,
-	_XalanXPathFactory_MethodInfo_
-};
-
-$Object* allocate$XalanXPathFactory($Class* clazz) {
-	return $of($alloc(XalanXPathFactory));
-}
-
 void XalanXPathFactory::init$() {
 	$XPathFactory::init$();
 }
@@ -51,7 +31,22 @@ XalanXPathFactory::XalanXPathFactory() {
 }
 
 $Class* XalanXPathFactory::load$($String* name, bool initialize) {
-	$loadClass(XalanXPathFactory, name, initialize, &_XalanXPathFactory_ClassInfo_, allocate$XalanXPathFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XalanXPathFactory, init$, void)},
+		{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC, $virtualMethod(XalanXPathFactory, newXPathAPI, $XPathAPI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.XalanXPathFactory",
+		"com.sun.org.apache.xml.internal.security.utils.XPathFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XalanXPathFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XalanXPathFactory);
+	});
 	return class$;
 }
 

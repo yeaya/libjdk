@@ -1,5 +1,4 @@
 #include <javax/swing/ImageIcon$3.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/ImageIcon.h>
 #include <jcpp.h>
@@ -15,47 +14,6 @@ using $ImageIcon = ::javax::swing::ImageIcon;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _ImageIcon$3_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/ImageIcon;", nullptr, $FINAL | $SYNTHETIC, $field(ImageIcon$3, this$0)},
-	{}
-};
-
-$MethodInfo _ImageIcon$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/ImageIcon;)V", nullptr, 0, $method(ImageIcon$3, init$, void, $ImageIcon*)},
-	{}
-};
-
-$EnclosingMethodInfo _ImageIcon$3_EnclosingMethodInfo_ = {
-	"javax.swing.ImageIcon",
-	"getTracker",
-	"()Ljava/awt/MediaTracker;"
-};
-
-$InnerClassInfo _ImageIcon$3_InnerClassesInfo_[] = {
-	{"javax.swing.ImageIcon$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImageIcon$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ImageIcon$3",
-	"java.awt.Component",
-	nullptr,
-	_ImageIcon$3_FieldInfo_,
-	_ImageIcon$3_MethodInfo_,
-	nullptr,
-	&_ImageIcon$3_EnclosingMethodInfo_,
-	_ImageIcon$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ImageIcon"
-};
-
-$Object* allocate$ImageIcon$3($Class* clazz) {
-	return $of($alloc(ImageIcon$3));
-}
-
 void ImageIcon$3::init$($ImageIcon* this$0) {
 	$set(this, this$0, this$0);
 	$Component::init$();
@@ -65,7 +23,41 @@ ImageIcon$3::ImageIcon$3() {
 }
 
 $Class* ImageIcon$3::load$($String* name, bool initialize) {
-	$loadClass(ImageIcon$3, name, initialize, &_ImageIcon$3_ClassInfo_, allocate$ImageIcon$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/ImageIcon;", nullptr, $FINAL | $SYNTHETIC, $field(ImageIcon$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/ImageIcon;)V", nullptr, 0, $method(ImageIcon$3, init$, void, $ImageIcon*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.ImageIcon",
+		"getTracker",
+		"()Ljava/awt/MediaTracker;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ImageIcon$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ImageIcon$3",
+		"java.awt.Component",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ImageIcon"
+	};
+	$loadClass(ImageIcon$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageIcon$3));
+	});
 	return class$;
 }
 

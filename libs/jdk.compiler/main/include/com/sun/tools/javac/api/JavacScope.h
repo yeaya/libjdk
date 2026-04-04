@@ -63,6 +63,7 @@ class $import JavacScope : public ::com::sun::source::tree::Scope {
 	$class(JavacScope, 0, ::com::sun::source::tree::Scope)
 public:
 	JavacScope();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::comp::Env* env);
 	static ::com::sun::tools::javac::api::JavacScope* create(::com::sun::tools::javac::comp::Env* env);
 	virtual bool equals(Object$* other) override;

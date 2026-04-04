@@ -1,5 +1,4 @@
 #include <NormalBoundsTest.h>
-
 #include <NormalBoundsTest$1.h>
 #include <NormalBoundsTest$10.h>
 #include <NormalBoundsTest$2.h>
@@ -21,7 +20,6 @@
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JInternalFrame.h>
@@ -50,8 +48,6 @@ using $NormalBoundsTest$7 = ::NormalBoundsTest$7;
 using $NormalBoundsTest$8 = ::NormalBoundsTest$8;
 using $NormalBoundsTest$9 = ::NormalBoundsTest$9;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
@@ -65,7 +61,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
@@ -75,58 +70,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 using $WindowConstants = ::javax::swing::WindowConstants;
-
-$FieldInfo _NormalBoundsTest_FieldInfo_[] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(NormalBoundsTest, mainFrame)},
-	{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(NormalBoundsTest, internalFrame)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(NormalBoundsTest, bounds)},
-	{}
-};
-
-$MethodInfo _NormalBoundsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NormalBoundsTest, init$, void)},
-	{"createUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, createUI, void, $String*)},
-	{"drag", "(Ljava/awt/Robot;Ljava/awt/Point;Ljava/awt/Point;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, drag, void, $Robot*, $Point*, $Point*, int32_t)},
-	{"executeTest", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalBoundsTest, executeTest, void, $Robot*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalBoundsTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"mouseMove", "(Ljava/awt/Robot;Ljava/awt/Point;Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, mouseMove, void, $Robot*, $Point*, $Point*)},
-	{"signWOZero", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, signWOZero, int32_t, int32_t)},
-	{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, tryLookAndFeel, bool, $String*)},
-	{}
-};
-
-$InnerClassInfo _NormalBoundsTest_InnerClassesInfo_[] = {
-	{"NormalBoundsTest$10", nullptr, nullptr, 0},
-	{"NormalBoundsTest$9", nullptr, nullptr, 0},
-	{"NormalBoundsTest$8", nullptr, nullptr, 0},
-	{"NormalBoundsTest$7", nullptr, nullptr, 0},
-	{"NormalBoundsTest$6", nullptr, nullptr, 0},
-	{"NormalBoundsTest$5", nullptr, nullptr, 0},
-	{"NormalBoundsTest$4", nullptr, nullptr, 0},
-	{"NormalBoundsTest$3", nullptr, nullptr, 0},
-	{"NormalBoundsTest$2", nullptr, nullptr, 0},
-	{"NormalBoundsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NormalBoundsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NormalBoundsTest",
-	"java.lang.Object",
-	nullptr,
-	_NormalBoundsTest_FieldInfo_,
-	_NormalBoundsTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalBoundsTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NormalBoundsTest$10,NormalBoundsTest$9,NormalBoundsTest$8,NormalBoundsTest$7,NormalBoundsTest$6,NormalBoundsTest$5,NormalBoundsTest$4,NormalBoundsTest$3,NormalBoundsTest$2,NormalBoundsTest$1"
-};
-
-$Object* allocate$NormalBoundsTest($Class* clazz) {
-	return $of($alloc(NormalBoundsTest));
-}
 
 $JFrame* NormalBoundsTest::mainFrame = nullptr;
 $JInternalFrame* NormalBoundsTest::internalFrame = nullptr;
@@ -138,13 +81,13 @@ void NormalBoundsTest::init$() {
 void NormalBoundsTest::createUI($String* lookAndFeelString) {
 	$init(NormalBoundsTest);
 	$assignStatic(NormalBoundsTest::internalFrame, $new($JInternalFrame, "Internal"_s, true, true, true, true));
-	$nc(NormalBoundsTest::internalFrame)->setDefaultCloseOperation($WindowConstants::DO_NOTHING_ON_CLOSE);
+	NormalBoundsTest::internalFrame->setDefaultCloseOperation($WindowConstants::DO_NOTHING_ON_CLOSE);
 	$nc(NormalBoundsTest::internalFrame)->setSize(200, 200);
 	$var($JDesktopPane, desktopPane, $new($JDesktopPane));
 	desktopPane->setDragMode($JDesktopPane::OUTLINE_DRAG_MODE);
-	desktopPane->add(static_cast<$Component*>(NormalBoundsTest::internalFrame));
+	desktopPane->add(NormalBoundsTest::internalFrame);
 	$assignStatic(NormalBoundsTest::mainFrame, $new($JFrame, lookAndFeelString));
-	$nc(NormalBoundsTest::mainFrame)->setSize(640, 480);
+	NormalBoundsTest::mainFrame->setSize(640, 480);
 	$nc(NormalBoundsTest::mainFrame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(NormalBoundsTest::mainFrame)->setContentPane(desktopPane);
 	$nc(NormalBoundsTest::mainFrame)->setVisible(true);
@@ -202,20 +145,18 @@ void NormalBoundsTest::drag($Robot* r, $Point* startPt, $Point* endPt, int32_t b
 	if (!(button == $InputEvent::BUTTON1_MASK || button == $InputEvent::BUTTON2_MASK || button == $InputEvent::BUTTON3_MASK)) {
 		$throwNew($IllegalArgumentException, "invalid mouse button"_s);
 	}
-	$nc(r)->mouseMove($nc(startPt)->x, startPt->y);
+	$nc(r)->mouseMove($nc(startPt)->x, $nc(startPt)->y);
 	r->mousePress(button);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			mouseMove(r, startPt, endPt);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			r->mouseRelease(button);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		mouseMove(r, startPt, endPt);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		r->mouseRelease(button);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -236,7 +177,7 @@ bool NormalBoundsTest::tryLookAndFeel($String* lookAndFeelString) {
 }
 
 void NormalBoundsTest::executeTest($Robot* robot) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SwingUtilities::invokeAndWait($$new($NormalBoundsTest$1));
 	$nc(robot)->waitForIdle();
 	$SwingUtilities::invokeAndWait($$new($NormalBoundsTest$2));
@@ -260,14 +201,12 @@ void NormalBoundsTest::executeTest($Robot* robot) {
 }
 
 void NormalBoundsTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	$var($UIManager$LookAndFeelInfoArray, lookAndFeelArray, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, lookAndFeelArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelItem, arr$->get(i$));
 			{
 				$var($String, lookAndFeelString, $nc(lookAndFeelItem)->getClassName());
@@ -287,7 +226,53 @@ NormalBoundsTest::NormalBoundsTest() {
 }
 
 $Class* NormalBoundsTest::load$($String* name, bool initialize) {
-	$loadClass(NormalBoundsTest, name, initialize, &_NormalBoundsTest_ClassInfo_, allocate$NormalBoundsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(NormalBoundsTest, mainFrame)},
+		{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(NormalBoundsTest, internalFrame)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(NormalBoundsTest, bounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NormalBoundsTest, init$, void)},
+		{"createUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, createUI, void, $String*)},
+		{"drag", "(Ljava/awt/Robot;Ljava/awt/Point;Ljava/awt/Point;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, drag, void, $Robot*, $Point*, $Point*, int32_t)},
+		{"executeTest", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalBoundsTest, executeTest, void, $Robot*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NormalBoundsTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"mouseMove", "(Ljava/awt/Robot;Ljava/awt/Point;Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, mouseMove, void, $Robot*, $Point*, $Point*)},
+		{"signWOZero", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, signWOZero, int32_t, int32_t)},
+		{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NormalBoundsTest, tryLookAndFeel, bool, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NormalBoundsTest$10", nullptr, nullptr, 0},
+		{"NormalBoundsTest$9", nullptr, nullptr, 0},
+		{"NormalBoundsTest$8", nullptr, nullptr, 0},
+		{"NormalBoundsTest$7", nullptr, nullptr, 0},
+		{"NormalBoundsTest$6", nullptr, nullptr, 0},
+		{"NormalBoundsTest$5", nullptr, nullptr, 0},
+		{"NormalBoundsTest$4", nullptr, nullptr, 0},
+		{"NormalBoundsTest$3", nullptr, nullptr, 0},
+		{"NormalBoundsTest$2", nullptr, nullptr, 0},
+		{"NormalBoundsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NormalBoundsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NormalBoundsTest$10,NormalBoundsTest$9,NormalBoundsTest$8,NormalBoundsTest$7,NormalBoundsTest$6,NormalBoundsTest$5,NormalBoundsTest$4,NormalBoundsTest$3,NormalBoundsTest$2,NormalBoundsTest$1"
+	};
+	$loadClass(NormalBoundsTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalBoundsTest);
+	});
 	return class$;
 }
 

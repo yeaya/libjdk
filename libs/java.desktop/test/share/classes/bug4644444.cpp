@@ -1,5 +1,4 @@
 #include <bug4644444.h>
-
 #include <Sysout4bug4644444.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -18,8 +17,6 @@
 
 using $Sysout4bug4644444 = ::Sysout4bug4644444;
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -41,72 +38,40 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4644444$$Lambda$lambda$new$0>());
-	}
 	bug4644444* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4644444$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4644444$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo bug4644444$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lbug4644444;)V", nullptr, $PUBLIC, $method(bug4644444$$Lambda$lambda$new$0, init$, void, bug4644444*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444$$Lambda$lambda$new$0, run, void)},
-	{}
-};
-$ClassInfo bug4644444$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4644444$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4644444$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(bug4644444$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4644444$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4644444;)V", nullptr, $PUBLIC, $method(bug4644444$$Lambda$lambda$new$0, init$, void, bug4644444*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444$$Lambda$lambda$new$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4644444$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4644444$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4644444$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* bug4644444$$Lambda$lambda$new$0::class$ = nullptr;
 
-$FieldInfo _bug4644444_FieldInfo_[] = {
-	{"panel", "Ljavax/swing/JPanel;", nullptr, 0, $field(bug4644444, panel)},
-	{"button", "Ljavax/swing/JButton;", nullptr, 0, $field(bug4644444, button)},
-	{}
-};
-
-$MethodInfo _bug4644444_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4644444, init$, void), "java.lang.Exception"},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444, destroy, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444, init, void)},
-	{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug4644444, lambda$new$0, void)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444, start, void)},
-	{}
-};
-
-$ClassInfo _bug4644444_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4644444",
-	"javax.swing.JApplet",
-	nullptr,
-	_bug4644444_FieldInfo_,
-	_bug4644444_MethodInfo_
-};
-
-$Object* allocate$bug4644444($Class* clazz) {
-	return $of($alloc(bug4644444));
-}
-
 void bug4644444::init$() {
 	$JApplet::init$();
-	$EventQueue::invokeLater(static_cast<$Runnable*>($$new(bug4644444$$Lambda$lambda$new$0, this)));
+	$EventQueue::invokeLater($$new(bug4644444$$Lambda$lambda$new$0, this));
 }
 
 void bug4644444::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray2, instructionsSet, $new($StringArray2, {$$new($StringArray, {
 		" Note : Incase of Assertion failure,user can enter"_s,
 		" remarks by pressing \'Assertion Fail Remarks \' button"_s,
@@ -141,9 +106,9 @@ void bug4644444::destroy() {
 void bug4644444::lambda$new$0() {
 	$set(this, panel, $new($JPanel));
 	$set(this, button, $new($JButton, "whooo"_s));
-	$nc(this->button)->setToolTipText("Somthing really long 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890"_s);
-	$nc(this->panel)->add(static_cast<$Component*>(this->button));
-	$nc($(getContentPane()))->add(static_cast<$Component*>(this->panel));
+	this->button->setToolTipText("Somthing really long 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890"_s);
+	$nc(this->panel)->add(this->button);
+	$$nc(getContentPane())->add(this->panel);
 }
 
 bug4644444::bug4644444() {
@@ -151,11 +116,34 @@ bug4644444::bug4644444() {
 
 $Class* bug4644444::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4644444$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("bug4644444$$Lambda$lambda$new$0")) {
 			return bug4644444$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4644444, name, initialize, &_bug4644444_ClassInfo_, allocate$bug4644444);
+	$FieldInfo fieldInfos$$[] = {
+		{"panel", "Ljavax/swing/JPanel;", nullptr, 0, $field(bug4644444, panel)},
+		{"button", "Ljavax/swing/JButton;", nullptr, 0, $field(bug4644444, button)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4644444, init$, void), "java.lang.Exception"},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444, destroy, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444, init, void)},
+		{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug4644444, lambda$new$0, void)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(bug4644444, start, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4644444",
+		"javax.swing.JApplet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4644444, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4644444));
+	});
 	return class$;
 }
 

@@ -32,10 +32,13 @@ public:
 	void init$($String* msg, $Throwable* e);
 	void init$($String* message, ::javax::xml::transform::SourceLocator* locator);
 	void init$($String* message, ::javax::xml::transform::SourceLocator* locator, $Throwable* e);
-	static const int64_t serialVersionUID = (int64_t)0x11D72E9C68A35261;
+	static const int64_t serialVersionUID = (int64_t)0x11d72e9c68a35261;
 	TransformerConfigurationException(const TransformerConfigurationException& e);
 	virtual void throw$() override;
-	inline TransformerConfigurationException* operator ->() {
+	inline TransformerConfigurationException* operator ->() const {
+		return (TransformerConfigurationException*)throwing$;
+	}
+	inline operator TransformerConfigurationException*() const {
 		return (TransformerConfigurationException*)throwing$;
 	}
 };

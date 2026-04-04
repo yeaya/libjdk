@@ -1,5 +1,4 @@
 #include <sun/awt/AWTCharset.h>
-
 #include <java/lang/Error.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -21,45 +20,6 @@ using $AWTCharset$Encoder = ::sun::awt::AWTCharset$Encoder;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _AWTCharset_FieldInfo_[] = {
-	{"awtCs", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(AWTCharset, awtCs)},
-	{"javaCs", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(AWTCharset, javaCs)},
-	{}
-};
-
-$MethodInfo _AWTCharset_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(AWTCharset, init$, void, $String*, $Charset*)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(AWTCharset, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(AWTCharset, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _AWTCharset_InnerClassesInfo_[] = {
-	{"sun.awt.AWTCharset$Decoder", "sun.awt.AWTCharset", "Decoder", $PUBLIC},
-	{"sun.awt.AWTCharset$Encoder", "sun.awt.AWTCharset", "Encoder", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AWTCharset_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.AWTCharset",
-	"java.nio.charset.Charset",
-	nullptr,
-	_AWTCharset_FieldInfo_,
-	_AWTCharset_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTCharset_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTCharset$Decoder,sun.awt.AWTCharset$Encoder"
-};
-
-$Object* allocate$AWTCharset($Class* clazz) {
-	return $of($alloc(AWTCharset));
-}
 
 void AWTCharset::init$($String* awtCsName, $Charset* javaCs) {
 	$Charset::init$(awtCsName, nullptr);
@@ -92,7 +52,40 @@ AWTCharset::AWTCharset() {
 }
 
 $Class* AWTCharset::load$($String* name, bool initialize) {
-	$loadClass(AWTCharset, name, initialize, &_AWTCharset_ClassInfo_, allocate$AWTCharset);
+	$FieldInfo fieldInfos$$[] = {
+		{"awtCs", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(AWTCharset, awtCs)},
+		{"javaCs", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(AWTCharset, javaCs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(AWTCharset, init$, void, $String*, $Charset*)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(AWTCharset, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(AWTCharset, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(AWTCharset, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTCharset$Decoder", "sun.awt.AWTCharset", "Decoder", $PUBLIC},
+		{"sun.awt.AWTCharset$Encoder", "sun.awt.AWTCharset", "Encoder", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.AWTCharset",
+		"java.nio.charset.Charset",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTCharset$Decoder,sun.awt.AWTCharset$Encoder"
+	};
+	$loadClass(AWTCharset, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTCharset);
+	});
 	return class$;
 }
 

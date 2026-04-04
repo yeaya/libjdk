@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/util/KerberosFlags.h>
-
 #include <java/util/Arrays.h>
 #include <sun/security/krb5/internal/Krb5.h>
 #include <sun/security/util/BitArray.h>
@@ -23,46 +22,15 @@ namespace sun {
 			namespace internal {
 				namespace util {
 
-$FieldInfo _KerberosFlags_FieldInfo_[] = {
-	{"bits", "Lsun/security/util/BitArray;", nullptr, 0, $field(KerberosFlags, bits)},
-	{"BITS_PER_UNIT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(KerberosFlags, BITS_PER_UNIT)},
-	{}
-};
-
-$MethodInfo _KerberosFlags_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, int32_t), "java.lang.IllegalArgumentException"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, int32_t, $bytes*), "java.lang.IllegalArgumentException"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, $booleans*)},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, asn1Encode, $bytes*), "java.io.IOException"},
-	{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, get, bool, int32_t)},
-	{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, set, void, int32_t, bool)},
-	{"toBooleanArray", "()[Z", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, toBooleanArray, $booleans*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, toString, $String*)},
-	{}
-};
-
-$ClassInfo _KerberosFlags_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.util.KerberosFlags",
-	"java.lang.Object",
-	nullptr,
-	_KerberosFlags_FieldInfo_,
-	_KerberosFlags_MethodInfo_
-};
-
-$Object* allocate$KerberosFlags($Class* clazz) {
-	return $of($alloc(KerberosFlags));
-}
-
 void KerberosFlags::init$(int32_t length) {
 	$set(this, bits, $new($BitArray, length));
 }
 
 void KerberosFlags::init$(int32_t length, $bytes* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, bits, $new($BitArray, length, a));
 	if (length != $Krb5::KRB_FLAGS_MAX + 1) {
-		$set(this, bits, $new($BitArray, $($Arrays::copyOf($($nc(this->bits)->toBooleanArray()), $Krb5::KRB_FLAGS_MAX + 1))));
+		$set(this, bits, $new($BitArray, $($Arrays::copyOf($(this->bits->toBooleanArray()), $Krb5::KRB_FLAGS_MAX + 1))));
 	}
 }
 
@@ -96,7 +64,33 @@ KerberosFlags::KerberosFlags() {
 }
 
 $Class* KerberosFlags::load$($String* name, bool initialize) {
-	$loadClass(KerberosFlags, name, initialize, &_KerberosFlags_ClassInfo_, allocate$KerberosFlags);
+	$FieldInfo fieldInfos$$[] = {
+		{"bits", "Lsun/security/util/BitArray;", nullptr, 0, $field(KerberosFlags, bits)},
+		{"BITS_PER_UNIT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(KerberosFlags, BITS_PER_UNIT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, int32_t), "java.lang.IllegalArgumentException"},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, int32_t, $bytes*), "java.lang.IllegalArgumentException"},
+		{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, $booleans*)},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, asn1Encode, $bytes*), "java.io.IOException"},
+		{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, get, bool, int32_t)},
+		{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, set, void, int32_t, bool)},
+		{"toBooleanArray", "()[Z", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, toBooleanArray, $booleans*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.util.KerberosFlags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KerberosFlags, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KerberosFlags);
+	});
 	return class$;
 }
 

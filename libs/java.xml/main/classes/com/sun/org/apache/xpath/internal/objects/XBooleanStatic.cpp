@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XBooleanStatic.h>
-
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <com/sun/org/apache/xpath/internal/objects/XBoolean.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
@@ -10,7 +9,6 @@ using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::
 using $XBoolean = ::com::sun::org::apache::xpath::internal::objects::XBoolean;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TransformerException = ::javax::xml::transform::TransformerException;
@@ -22,31 +20,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$FieldInfo _XBooleanStatic_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XBooleanStatic, serialVersionUID)},
-	{"m_val", "Z", nullptr, $PRIVATE | $FINAL, $field(XBooleanStatic, m_val)},
-	{}
-};
-
-$MethodInfo _XBooleanStatic_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(XBooleanStatic, init$, void, bool)},
-	{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XBooleanStatic, equals, bool, $XObject*)},
-	{}
-};
-
-$ClassInfo _XBooleanStatic_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XBooleanStatic",
-	"com.sun.org.apache.xpath.internal.objects.XBoolean",
-	nullptr,
-	_XBooleanStatic_FieldInfo_,
-	_XBooleanStatic_MethodInfo_
-};
-
-$Object* allocate$XBooleanStatic($Class* clazz) {
-	return $of($alloc(XBooleanStatic));
-}
 
 void XBooleanStatic::init$(bool b) {
 	$XBoolean::init$(b);
@@ -66,7 +39,27 @@ XBooleanStatic::XBooleanStatic() {
 }
 
 $Class* XBooleanStatic::load$($String* name, bool initialize) {
-	$loadClass(XBooleanStatic, name, initialize, &_XBooleanStatic_ClassInfo_, allocate$XBooleanStatic);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XBooleanStatic, serialVersionUID)},
+		{"m_val", "Z", nullptr, $PRIVATE | $FINAL, $field(XBooleanStatic, m_val)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(XBooleanStatic, init$, void, bool)},
+		{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XBooleanStatic, equals, bool, $XObject*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XBooleanStatic",
+		"com.sun.org.apache.xpath.internal.objects.XBoolean",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XBooleanStatic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XBooleanStatic));
+	});
 	return class$;
 }
 

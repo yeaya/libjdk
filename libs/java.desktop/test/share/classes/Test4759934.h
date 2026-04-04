@@ -34,6 +34,7 @@ class $export Test4759934 : public ::javax::swing::JApplet, public ::java::awt::
 	$class(Test4759934, 0, ::javax::swing::JApplet, ::java::awt::event::ActionListener)
 public:
 	Test4759934();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JApplet::add;
 	using ::javax::swing::JApplet::getMousePosition;
 	virtual $Object* clone() override;

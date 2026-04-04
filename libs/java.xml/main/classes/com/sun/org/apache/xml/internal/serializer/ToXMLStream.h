@@ -44,6 +44,7 @@ public:
 	using ::com::sun::org::apache::xml::internal::serializer::ToStream::endElement;
 	using ::com::sun::org::apache::xml::internal::serializer::ToStream::comment;
 	using ::com::sun::org::apache::xml::internal::serializer::ToStream::addAttribute;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::xml::transform::ErrorListener* l);
 	void CopyFrom(::com::sun::org::apache::xml::internal::serializer::ToXMLStream* xmlListener);

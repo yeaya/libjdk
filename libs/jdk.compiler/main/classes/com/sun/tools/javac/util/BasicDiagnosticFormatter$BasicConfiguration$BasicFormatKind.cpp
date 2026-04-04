@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind.h>
-
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,48 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_FieldInfo_[] = {
-	{"DEFAULT_POS_FORMAT", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, DEFAULT_POS_FORMAT)},
-	{"DEFAULT_NO_POS_FORMAT", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, DEFAULT_NO_POS_FORMAT)},
-	{"DEFAULT_CLASS_FORMAT", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, DEFAULT_CLASS_FORMAT)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, $values, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, valueOf, BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, values, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*)},
-	{}
-};
-
-$InnerClassInfo _BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "com.sun.tools.javac.util.BasicDiagnosticFormatter", "BasicConfiguration", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind", "com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "BasicFormatKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind",
-	"java.lang.Enum",
-	nullptr,
-	_BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_FieldInfo_,
-	_BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;>;",
-	nullptr,
-	_BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.BasicDiagnosticFormatter"
-};
-
-$Object* allocate$BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind($Class* clazz) {
-	return $of($alloc(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind));
-}
 
 BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind* BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_POS_FORMAT = nullptr;
 BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind* BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_NO_POS_FORMAT = nullptr;
@@ -91,7 +48,7 @@ void BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::init$($String*
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind($Class* class$) {
+void BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::clinit$($Class* clazz) {
 	$assignStatic(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_POS_FORMAT, $new(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, "DEFAULT_POS_FORMAT"_s, 0));
 	$assignStatic(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_NO_POS_FORMAT, $new(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, "DEFAULT_NO_POS_FORMAT"_s, 1));
 	$assignStatic(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::DEFAULT_CLASS_FORMAT, $new(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, "DEFAULT_CLASS_FORMAT"_s, 2));
@@ -102,7 +59,43 @@ BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::BasicDiagnosticForm
 }
 
 $Class* BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::load$($String* name, bool initialize) {
-	$loadClass(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, name, initialize, &_BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_ClassInfo_, clinit$BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, allocate$BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_POS_FORMAT", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, DEFAULT_POS_FORMAT)},
+		{"DEFAULT_NO_POS_FORMAT", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, DEFAULT_NO_POS_FORMAT)},
+		{"DEFAULT_CLASS_FORMAT", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, DEFAULT_CLASS_FORMAT)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, $values, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, valueOf, BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, values, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "com.sun.tools.javac.util.BasicDiagnosticFormatter", "BasicConfiguration", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind", "com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "BasicFormatKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.BasicDiagnosticFormatter"
+	};
+	$loadClass(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, name, initialize, &classInfo$$, BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind));
+	});
 	return class$;
 }
 

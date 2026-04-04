@@ -30,6 +30,7 @@ class $import LdapDnsProvider : public ::java::lang::Object {
 	$class(LdapDnsProvider, 0, ::java::lang::Object)
 public:
 	LdapDnsProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::Void* unused);
 	static ::java::lang::Void* checkPermission();

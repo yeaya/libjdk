@@ -1,5 +1,4 @@
 #include <javax/swing/JSpinner$ModelListener.h>
-
 #include <javax/swing/JSpinner.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -15,47 +14,6 @@ using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JSpinner$ModelListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JSpinner;", nullptr, $FINAL | $SYNTHETIC, $field(JSpinner$ModelListener, this$0)},
-	{}
-};
-
-$MethodInfo _JSpinner$ModelListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(JSpinner$ModelListener, init$, void, $JSpinner*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$ModelListener, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JSpinner$ModelListener_InnerClassesInfo_[] = {
-	{"javax.swing.JSpinner$ModelListener", "javax.swing.JSpinner", "ModelListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JSpinner$ModelListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JSpinner$ModelListener",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.io.Serializable",
-	_JSpinner$ModelListener_FieldInfo_,
-	_JSpinner$ModelListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSpinner$ModelListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JSpinner"
-};
-
-$Object* allocate$JSpinner$ModelListener($Class* clazz) {
-	return $of($alloc(JSpinner$ModelListener));
-}
 
 int32_t JSpinner$ModelListener::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -89,7 +47,42 @@ JSpinner$ModelListener::JSpinner$ModelListener() {
 }
 
 $Class* JSpinner$ModelListener::load$($String* name, bool initialize) {
-	$loadClass(JSpinner$ModelListener, name, initialize, &_JSpinner$ModelListener_ClassInfo_, allocate$JSpinner$ModelListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JSpinner;", nullptr, $FINAL | $SYNTHETIC, $field(JSpinner$ModelListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(JSpinner$ModelListener, init$, void, $JSpinner*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$ModelListener, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSpinner$ModelListener", "javax.swing.JSpinner", "ModelListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JSpinner$ModelListener",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JSpinner"
+	};
+	$loadClass(JSpinner$ModelListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSpinner$ModelListener));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/Formattable.h>
-
 #include <com/sun/tools/javac/api/Messages.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -16,38 +15,33 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$MethodInfo _Formattable_MethodInfo_[] = {
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, getKind, $String*)},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, toString, $String*, $Locale*, $Messages*)},
-	{}
-};
-
-$InnerClassInfo _Formattable_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.Formattable$LocalizedString", "com.sun.tools.javac.api.Formattable", "LocalizedString", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Formattable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.api.Formattable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Formattable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Formattable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.Formattable$LocalizedString"
-};
-
-$Object* allocate$Formattable($Class* clazz) {
-	return $of($alloc(Formattable));
-}
-
 $Class* Formattable::load$($String* name, bool initialize) {
-	$loadClass(Formattable, name, initialize, &_Formattable_ClassInfo_, allocate$Formattable);
+	$MethodInfo methodInfos$$[] = {
+		{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, getKind, $String*)},
+		{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, toString, $String*, $Locale*, $Messages*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.Formattable$LocalizedString", "com.sun.tools.javac.api.Formattable", "LocalizedString", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.api.Formattable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.Formattable$LocalizedString"
+	};
+	$loadClass(Formattable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Formattable);
+	});
 	return class$;
 }
 

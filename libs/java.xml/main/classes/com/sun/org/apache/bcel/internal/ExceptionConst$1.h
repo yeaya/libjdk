@@ -16,6 +16,7 @@ class ExceptionConst$1 : public ::java::lang::Object {
 	$class(ExceptionConst$1, 0, ::java::lang::Object)
 public:
 	ExceptionConst$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$org$apache$bcel$internal$ExceptionConst$EXCS;
 };
 

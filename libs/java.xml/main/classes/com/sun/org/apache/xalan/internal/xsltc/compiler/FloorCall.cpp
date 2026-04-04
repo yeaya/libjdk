@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FloorCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -16,12 +15,8 @@
 
 #undef MATH_CLASS
 
-using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -39,41 +34,37 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _FloorCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FloorCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FloorCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _FloorCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FloorCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	nullptr,
-	_FloorCall_MethodInfo_
-};
-
-$Object* allocate$FloorCall($Class* clazz) {
-	return $of($alloc(FloorCall));
-}
-
 void FloorCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 }
 
 void FloorCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(argument()))->translate(classGen, methodGen);
+	$useLocalObjectStack();
+	$$nc(argument())->translate(classGen, methodGen);
 	$init($Constants);
-	$nc($($nc(methodGen)->getInstructionList()))->append(static_cast<$Instruction*>($$new($INVOKESTATIC, $nc($($nc(classGen)->getConstantPool()))->addMethodref($Constants::MATH_CLASS, "floor"_s, "(D)D"_s))));
+	$$nc($nc(methodGen)->getInstructionList())->append($$new($INVOKESTATIC, $$nc($nc(classGen)->getConstantPool())->addMethodref($Constants::MATH_CLASS, "floor"_s, "(D)D"_s)));
 }
 
 FloorCall::FloorCall() {
 }
 
 $Class* FloorCall::load$($String* name, bool initialize) {
-	$loadClass(FloorCall, name, initialize, &_FloorCall_ClassInfo_, allocate$FloorCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FloorCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FloorCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FloorCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FloorCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FloorCall);
+	});
 	return class$;
 }
 

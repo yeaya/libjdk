@@ -1,5 +1,4 @@
 #include <java/util/prefs/Preferences$2.h>
-
 #include <java/util/prefs/Preferences.h>
 #include <java/util/prefs/PreferencesFactory.h>
 #include <jcpp.h>
@@ -14,55 +13,49 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$MethodInfo _Preferences$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Preferences$2, init$, void)},
-	{"run", "()Ljava/util/prefs/PreferencesFactory;", nullptr, $PUBLIC, $virtualMethod(Preferences$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Preferences$2_EnclosingMethodInfo_ = {
-	"java.util.prefs.Preferences",
-	"factory",
-	"()Ljava/util/prefs/PreferencesFactory;"
-};
-
-$InnerClassInfo _Preferences$2_InnerClassesInfo_[] = {
-	{"java.util.prefs.Preferences$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Preferences$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.Preferences$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Preferences$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/prefs/PreferencesFactory;>;",
-	&_Preferences$2_EnclosingMethodInfo_,
-	_Preferences$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.Preferences"
-};
-
-$Object* allocate$Preferences$2($Class* clazz) {
-	return $of($alloc(Preferences$2));
-}
-
 void Preferences$2::init$() {
 }
 
 $Object* Preferences$2::run() {
-	return $of($Preferences::factory1());
+	return $Preferences::factory1();
 }
 
 Preferences$2::Preferences$2() {
 }
 
 $Class* Preferences$2::load$($String* name, bool initialize) {
-	$loadClass(Preferences$2, name, initialize, &_Preferences$2_ClassInfo_, allocate$Preferences$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Preferences$2, init$, void)},
+		{"run", "()Ljava/util/prefs/PreferencesFactory;", nullptr, $PUBLIC, $virtualMethod(Preferences$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.prefs.Preferences",
+		"factory",
+		"()Ljava/util/prefs/PreferencesFactory;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.Preferences$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.Preferences$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/prefs/PreferencesFactory;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.Preferences"
+	};
+	$loadClass(Preferences$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Preferences$2);
+	});
 	return class$;
 }
 

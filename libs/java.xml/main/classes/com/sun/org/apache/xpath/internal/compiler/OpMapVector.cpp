@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/compiler/OpMapVector.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,35 +12,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace compiler {
-
-$FieldInfo _OpMapVector_FieldInfo_[] = {
-	{"m_blocksize", "I", nullptr, $PROTECTED, $field(OpMapVector, m_blocksize)},
-	{"m_map", "[I", nullptr, $PROTECTED, $field(OpMapVector, m_map)},
-	{"m_lengthPos", "I", nullptr, $PROTECTED, $field(OpMapVector, m_lengthPos)},
-	{"m_mapSize", "I", nullptr, $PROTECTED, $field(OpMapVector, m_mapSize)},
-	{}
-};
-
-$MethodInfo _OpMapVector_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(OpMapVector, init$, void, int32_t, int32_t, int32_t)},
-	{"elementAt", "(I)I", nullptr, $PUBLIC | $FINAL, $method(OpMapVector, elementAt, int32_t, int32_t)},
-	{"setElementAt", "(II)V", nullptr, $PUBLIC | $FINAL, $method(OpMapVector, setElementAt, void, int32_t, int32_t)},
-	{"setToSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(OpMapVector, setToSize, void, int32_t)},
-	{}
-};
-
-$ClassInfo _OpMapVector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.compiler.OpMapVector",
-	"java.lang.Object",
-	nullptr,
-	_OpMapVector_FieldInfo_,
-	_OpMapVector_MethodInfo_
-};
-
-$Object* allocate$OpMapVector($Class* clazz) {
-	return $of($alloc(OpMapVector));
-}
 
 void OpMapVector::init$(int32_t blocksize, int32_t increaseSize, int32_t lengthPos) {
 	this->m_lengthPos = 0;
@@ -77,7 +47,31 @@ OpMapVector::OpMapVector() {
 }
 
 $Class* OpMapVector::load$($String* name, bool initialize) {
-	$loadClass(OpMapVector, name, initialize, &_OpMapVector_ClassInfo_, allocate$OpMapVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_blocksize", "I", nullptr, $PROTECTED, $field(OpMapVector, m_blocksize)},
+		{"m_map", "[I", nullptr, $PROTECTED, $field(OpMapVector, m_map)},
+		{"m_lengthPos", "I", nullptr, $PROTECTED, $field(OpMapVector, m_lengthPos)},
+		{"m_mapSize", "I", nullptr, $PROTECTED, $field(OpMapVector, m_mapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(OpMapVector, init$, void, int32_t, int32_t, int32_t)},
+		{"elementAt", "(I)I", nullptr, $PUBLIC | $FINAL, $method(OpMapVector, elementAt, int32_t, int32_t)},
+		{"setElementAt", "(II)V", nullptr, $PUBLIC | $FINAL, $method(OpMapVector, setElementAt, void, int32_t, int32_t)},
+		{"setToSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(OpMapVector, setToSize, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.compiler.OpMapVector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpMapVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpMapVector);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser$PatternResult.h>
-
 #include <com/sun/tools/javac/parser/JavacParser.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,46 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _JavacParser$PatternResult_FieldInfo_[] = {
-	{"EXPRESSION", "Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$PatternResult, EXPRESSION)},
-	{"PATTERN", "Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$PatternResult, PATTERN)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$PatternResult, $VALUES)},
-	{}
-};
-
-$MethodInfo _JavacParser$PatternResult_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$PatternResult, $values, $JavacParser$PatternResultArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$PatternResult, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$PatternResult, valueOf, JavacParser$PatternResult*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$PatternResult, values, $JavacParser$PatternResultArray*)},
-	{}
-};
-
-$InnerClassInfo _JavacParser$PatternResult_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$PatternResult", "com.sun.tools.javac.parser.JavacParser", "PatternResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavacParser$PatternResult_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.JavacParser$PatternResult",
-	"java.lang.Enum",
-	nullptr,
-	_JavacParser$PatternResult_FieldInfo_,
-	_JavacParser$PatternResult_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$PatternResult;>;",
-	nullptr,
-	_JavacParser$PatternResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser"
-};
-
-$Object* allocate$JavacParser$PatternResult($Class* clazz) {
-	return $of($alloc(JavacParser$PatternResult));
-}
 
 JavacParser$PatternResult* JavacParser$PatternResult::EXPRESSION = nullptr;
 JavacParser$PatternResult* JavacParser$PatternResult::PATTERN = nullptr;
@@ -86,7 +45,7 @@ void JavacParser$PatternResult::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JavacParser$PatternResult($Class* class$) {
+void JavacParser$PatternResult::clinit$($Class* clazz) {
 	$assignStatic(JavacParser$PatternResult::EXPRESSION, $new(JavacParser$PatternResult, "EXPRESSION"_s, 0));
 	$assignStatic(JavacParser$PatternResult::PATTERN, $new(JavacParser$PatternResult, "PATTERN"_s, 1));
 	$assignStatic(JavacParser$PatternResult::$VALUES, JavacParser$PatternResult::$values());
@@ -96,7 +55,41 @@ JavacParser$PatternResult::JavacParser$PatternResult() {
 }
 
 $Class* JavacParser$PatternResult::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$PatternResult, name, initialize, &_JavacParser$PatternResult_ClassInfo_, clinit$JavacParser$PatternResult, allocate$JavacParser$PatternResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXPRESSION", "Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$PatternResult, EXPRESSION)},
+		{"PATTERN", "Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$PatternResult, PATTERN)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$PatternResult, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$PatternResult, $values, $JavacParser$PatternResultArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$PatternResult, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$PatternResult, valueOf, JavacParser$PatternResult*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$PatternResult, values, $JavacParser$PatternResultArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$PatternResult", "com.sun.tools.javac.parser.JavacParser", "PatternResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.JavacParser$PatternResult",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$PatternResult;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser"
+	};
+	$loadClass(JavacParser$PatternResult, name, initialize, &classInfo$$, JavacParser$PatternResult::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacParser$PatternResult));
+	});
 	return class$;
 }
 

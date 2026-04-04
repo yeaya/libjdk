@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobSheets.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobSheets_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobSheets, serialVersionUID)},
-	{"NONE", "Ljavax/print/attribute/standard/JobSheets;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobSheets, NONE)},
-	{"STANDARD", "Ljavax/print/attribute/standard/JobSheets;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobSheets, STANDARD)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobSheets, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/JobSheets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobSheets, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _JobSheets_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(JobSheets, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobSheets, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(JobSheets, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobSheets, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JobSheets, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobSheets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.JobSheets",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_JobSheets_FieldInfo_,
-	_JobSheets_MethodInfo_
-};
-
-$Object* allocate$JobSheets($Class* clazz) {
-	return $of($alloc(JobSheets));
-}
 
 $Object* JobSheets::clone() {
 	 return this->$EnumSyntax::clone();
@@ -84,11 +47,11 @@ void JobSheets::init$(int32_t value) {
 }
 
 $StringArray* JobSheets::getStringTable() {
-	return $cast($StringArray, $nc(JobSheets::myStringTable)->clone());
+	return $cast($StringArray, JobSheets::myStringTable->clone());
 }
 
 $EnumSyntaxArray* JobSheets::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(JobSheets::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, JobSheets::myEnumValueTable->clone());
 }
 
 $Class* JobSheets::getCategory() {
@@ -99,7 +62,7 @@ $String* JobSheets::getName() {
 	return "job-sheets"_s;
 }
 
-void clinit$JobSheets($Class* class$) {
+void JobSheets::clinit$($Class* clazz) {
 	$assignStatic(JobSheets::NONE, $new(JobSheets, 0));
 	$assignStatic(JobSheets::STANDARD, $new(JobSheets, 1));
 	$assignStatic(JobSheets::myStringTable, $new($StringArray, {
@@ -116,7 +79,38 @@ JobSheets::JobSheets() {
 }
 
 $Class* JobSheets::load$($String* name, bool initialize) {
-	$loadClass(JobSheets, name, initialize, &_JobSheets_ClassInfo_, clinit$JobSheets, allocate$JobSheets);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobSheets, serialVersionUID)},
+		{"NONE", "Ljavax/print/attribute/standard/JobSheets;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobSheets, NONE)},
+		{"STANDARD", "Ljavax/print/attribute/standard/JobSheets;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobSheets, STANDARD)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobSheets, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/JobSheets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobSheets, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(JobSheets, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobSheets, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(JobSheets, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobSheets, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JobSheets, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.JobSheets",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobSheets, name, initialize, &classInfo$$, JobSheets::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobSheets));
+	});
 	return class$;
 }
 

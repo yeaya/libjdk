@@ -55,12 +55,12 @@ public:
 	int32_t slot = 0;
 	int32_t pos = 0;
 	static const int32_t SURROGATE_START = 0x00010000;
-	static const int32_t LEAD_START = 0x0000D800;
-	static const int32_t LEAD_LIMIT = 0x0000DC00;
-	static const int32_t TAIL_START = 0x0000DC00;
-	static const int32_t TAIL_LIMIT = 0x0000E000;
+	static const int32_t LEAD_START = 0x0000d800;
+	static const int32_t LEAD_LIMIT = 0x0000dc00;
+	static const int32_t TAIL_START = 0x0000dc00;
+	static const int32_t TAIL_LIMIT = 0x0000e000;
 	static const int32_t LEAD_SURROGATE_SHIFT = 10;
-	static const int32_t SURROGATE_OFFSET = 0xFCA02400; // SURROGATE_START - (LEAD_START << LEAD_SURROGATE_SHIFT) - TAIL_START
+	static const int32_t SURROGATE_OFFSET = 0xfca02400; // SURROGATE_START - (LEAD_START << LEAD_SURROGATE_SHIFT) - TAIL_START
 	static const int32_t DONE = (-1);
 };
 

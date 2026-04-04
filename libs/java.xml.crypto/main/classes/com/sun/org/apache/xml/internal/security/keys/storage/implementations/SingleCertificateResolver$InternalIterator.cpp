@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/storage/implementations/SingleCertificateResolver$InternalIterator.h>
-
 #include <com/sun/org/apache/xml/internal/security/keys/storage/implementations/SingleCertificateResolver.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/cert/X509Certificate.h>
@@ -25,45 +24,6 @@ namespace com {
 								namespace storage {
 									namespace implementations {
 
-$FieldInfo _SingleCertificateResolver$InternalIterator_FieldInfo_[] = {
-	{"alreadyReturned", "Z", nullptr, $PRIVATE, $field(SingleCertificateResolver$InternalIterator, alreadyReturned)},
-	{"certificate", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(SingleCertificateResolver$InternalIterator, certificate)},
-	{}
-};
-
-$MethodInfo _SingleCertificateResolver$InternalIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(SingleCertificateResolver$InternalIterator, init$, void, $X509Certificate*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, hasNext, bool)},
-	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _SingleCertificateResolver$InternalIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver$InternalIterator", "com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver", "InternalIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _SingleCertificateResolver$InternalIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver$InternalIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_SingleCertificateResolver$InternalIterator_FieldInfo_,
-	_SingleCertificateResolver$InternalIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/security/cert/Certificate;>;",
-	nullptr,
-	_SingleCertificateResolver$InternalIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver"
-};
-
-$Object* allocate$SingleCertificateResolver$InternalIterator($Class* clazz) {
-	return $of($alloc(SingleCertificateResolver$InternalIterator));
-}
-
 void SingleCertificateResolver$InternalIterator::init$($X509Certificate* x509cert) {
 	$set(this, certificate, x509cert);
 }
@@ -88,7 +48,40 @@ SingleCertificateResolver$InternalIterator::SingleCertificateResolver$InternalIt
 }
 
 $Class* SingleCertificateResolver$InternalIterator::load$($String* name, bool initialize) {
-	$loadClass(SingleCertificateResolver$InternalIterator, name, initialize, &_SingleCertificateResolver$InternalIterator_ClassInfo_, allocate$SingleCertificateResolver$InternalIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"alreadyReturned", "Z", nullptr, $PRIVATE, $field(SingleCertificateResolver$InternalIterator, alreadyReturned)},
+		{"certificate", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE | $FINAL, $field(SingleCertificateResolver$InternalIterator, certificate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(SingleCertificateResolver$InternalIterator, init$, void, $X509Certificate*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, hasNext, bool)},
+		{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver$InternalIterator", "com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver", "InternalIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver$InternalIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/security/cert/Certificate;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.keys.storage.implementations.SingleCertificateResolver"
+	};
+	$loadClass(SingleCertificateResolver$InternalIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleCertificateResolver$InternalIterator);
+	});
 	return class$;
 }
 

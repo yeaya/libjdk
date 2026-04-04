@@ -36,6 +36,7 @@ class TypeResolver : public ::java::lang::Object {
 	$class(TypeResolver, 0, ::java::lang::Object)
 public:
 	TypeResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* erase(::java::lang::reflect::Type* type);
 	static $ClassArray* erase($Array<::java::lang::reflect::Type>* types);

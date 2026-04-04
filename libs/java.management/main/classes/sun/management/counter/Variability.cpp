@@ -1,5 +1,4 @@
 #include <sun/management/counter/Variability.h>
-
 #include <jcpp.h>
 
 #undef CONSTANT
@@ -16,40 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace management {
 		namespace counter {
-
-$FieldInfo _Variability_FieldInfo_[] = {
-	{"NATTRIBUTES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Variability, NATTRIBUTES)},
-	{"map", "[Lsun/management/counter/Variability;", nullptr, $PRIVATE | $STATIC, $staticField(Variability, map)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Variability, name)},
-	{"value", "I", nullptr, $PRIVATE, $field(Variability, value)},
-	{"INVALID", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, INVALID)},
-	{"CONSTANT", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, CONSTANT)},
-	{"MONOTONIC", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, MONOTONIC)},
-	{"VARIABLE", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, VARIABLE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Variability, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Variability_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Variability, init$, void, $String*, int32_t)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Variability, intValue, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Variability, toString, $String*)},
-	{"toVariability", "(I)Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC, $staticMethod(Variability, toVariability, Variability*, int32_t)},
-	{}
-};
-
-$ClassInfo _Variability_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.counter.Variability",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Variability_FieldInfo_,
-	_Variability_MethodInfo_
-};
-
-$Object* allocate$Variability($Class* clazz) {
-	return $of($alloc(Variability));
-}
 
 $VariabilityArray* Variability::map = nullptr;
 Variability* Variability::INVALID = nullptr;
@@ -79,7 +44,7 @@ void Variability::init$($String* name, int32_t value) {
 	$nc(Variability::map)->set(value, this);
 }
 
-void clinit$Variability($Class* class$) {
+void Variability::clinit$($Class* clazz) {
 	$assignStatic(Variability::map, $new($VariabilityArray, Variability::NATTRIBUTES));
 	$assignStatic(Variability::INVALID, $new(Variability, "Invalid"_s, 0));
 	$assignStatic(Variability::CONSTANT, $new(Variability, "Constant"_s, 1));
@@ -91,7 +56,36 @@ Variability::Variability() {
 }
 
 $Class* Variability::load$($String* name, bool initialize) {
-	$loadClass(Variability, name, initialize, &_Variability_ClassInfo_, clinit$Variability, allocate$Variability);
+	$FieldInfo fieldInfos$$[] = {
+		{"NATTRIBUTES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Variability, NATTRIBUTES)},
+		{"map", "[Lsun/management/counter/Variability;", nullptr, $PRIVATE | $STATIC, $staticField(Variability, map)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Variability, name)},
+		{"value", "I", nullptr, $PRIVATE, $field(Variability, value)},
+		{"INVALID", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, INVALID)},
+		{"CONSTANT", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, CONSTANT)},
+		{"MONOTONIC", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, MONOTONIC)},
+		{"VARIABLE", "Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Variability, VARIABLE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Variability, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Variability, init$, void, $String*, int32_t)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Variability, intValue, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Variability, toString, $String*)},
+		{"toVariability", "(I)Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC, $staticMethod(Variability, toVariability, Variability*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.counter.Variability",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Variability, name, initialize, &classInfo$$, Variability::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Variability);
+	});
 	return class$;
 }
 

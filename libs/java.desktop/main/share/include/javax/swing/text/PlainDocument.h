@@ -31,6 +31,7 @@ class $import PlainDocument : public ::javax::swing::text::AbstractDocument {
 	$class(PlainDocument, 0, ::javax::swing::text::AbstractDocument)
 public:
 	PlainDocument();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::swing::text::AbstractDocument$Content* c);
 	virtual ::javax::swing::text::AbstractDocument$AbstractElement* createDefaultRoot();

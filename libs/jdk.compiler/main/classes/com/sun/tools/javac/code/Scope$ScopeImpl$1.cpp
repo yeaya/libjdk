@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$ScopeImpl$1.h>
-
 #include <com/sun/tools/javac/code/Scope$Entry.h>
 #include <com/sun/tools/javac/code/Scope$LookupKind.h>
 #include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
@@ -27,59 +26,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Scope$ScopeImpl$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Scope$ScopeImpl;", nullptr, $FINAL | $SYNTHETIC, $field(Scope$ScopeImpl$1, this$0)},
-	{"val$sf", "Ljava/util/function/Predicate;", nullptr, $FINAL | $SYNTHETIC, $field(Scope$ScopeImpl$1, val$sf)},
-	{"val$lookupKind", "Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $FINAL | $SYNTHETIC, $field(Scope$ScopeImpl$1, val$lookupKind)},
-	{"currScope", "Lcom/sun/tools/javac/code/Scope$ScopeImpl;", nullptr, $PRIVATE, $field(Scope$ScopeImpl$1, currScope)},
-	{"currEntry", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PRIVATE, $field(Scope$ScopeImpl$1, currEntry)},
-	{"seenRemoveCount", "I", nullptr, $PRIVATE, $field(Scope$ScopeImpl$1, seenRemoveCount)},
-	{}
-};
-
-$MethodInfo _Scope$ScopeImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)V", "()V", 0, $method(Scope$ScopeImpl$1, init$, void, $Scope$ScopeImpl*, $Scope$LookupKind*, $Predicate*)},
-	{"doNext", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Scope$ScopeImpl$1, doNext, $Symbol*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$1, hasNext, bool)},
-	{"next", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$1, next, $Object*)},
-	{"skipToNextMatchingEntry", "()V", nullptr, 0, $virtualMethod(Scope$ScopeImpl$1, skipToNextMatchingEntry, void)},
-	{"update", "()V", nullptr, $PRIVATE, $method(Scope$ScopeImpl$1, update, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Scope$ScopeImpl$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Scope$ScopeImpl",
-	"getSymbols",
-	"(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;"
-};
-
-$InnerClassInfo _Scope$ScopeImpl$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$ScopeImpl", "com.sun.tools.javac.code.Scope", "ScopeImpl", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.code.Scope$ScopeImpl$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Scope$LookupKind", "com.sun.tools.javac.code.Scope", "LookupKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Scope$ScopeImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Scope$ScopeImpl$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Scope$ScopeImpl$1_FieldInfo_,
-	_Scope$ScopeImpl$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol;>;",
-	&_Scope$ScopeImpl$1_EnclosingMethodInfo_,
-	_Scope$ScopeImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$ScopeImpl$1($Class* clazz) {
-	return $of($alloc(Scope$ScopeImpl$1));
-}
-
 void Scope$ScopeImpl$1::init$($Scope$ScopeImpl* this$0, $Scope$LookupKind* val$lookupKind, $Predicate* val$sf) {
 	$set(this, this$0, this$0);
 	$set(this, val$lookupKind, val$lookupKind);
@@ -93,7 +39,7 @@ void Scope$ScopeImpl$1::init$($Scope$ScopeImpl* this$0, $Scope$LookupKind* val$l
 }
 
 bool Scope$ScopeImpl$1::hasNext() {
-	if (this->seenRemoveCount != $nc(this->currScope)->removeCount && this->currEntry != nullptr && !$nc($nc(this->currEntry)->scope)->includes($nc(this->currEntry)->sym)) {
+	if (this->seenRemoveCount != $nc(this->currScope)->removeCount && this->currEntry != nullptr && !$nc(this->currEntry->scope)->includes(this->currEntry->sym)) {
 		doNext();
 		this->seenRemoveCount = $nc(this->currScope)->removeCount;
 	}
@@ -108,9 +54,9 @@ $Object* Scope$ScopeImpl$1::next() {
 }
 
 $Symbol* Scope$ScopeImpl$1::doNext() {
-	$var($Symbol, sym, this->currEntry == nullptr ? ($Symbol*)nullptr : $nc(this->currEntry)->sym);
+	$var($Symbol, sym, this->currEntry == nullptr ? ($Symbol*)nullptr : this->currEntry->sym);
 	if (this->currEntry != nullptr) {
-		$set(this, currEntry, $nc(this->currEntry)->nextSibling);
+		$set(this, currEntry, this->currEntry->nextSibling);
 	}
 	update();
 	return sym;
@@ -121,17 +67,17 @@ void Scope$ScopeImpl$1::update() {
 	$init($Scope$LookupKind);
 	if (this->val$lookupKind == $Scope$LookupKind::RECURSIVE) {
 		while (this->currEntry == nullptr && $nc(this->currScope)->next != nullptr) {
-			$set(this, currScope, $nc(this->currScope)->next);
+			$set(this, currScope, this->currScope->next);
 			$set(this, currEntry, $nc(this->currScope)->elems);
-			this->seenRemoveCount = $nc(this->currScope)->removeCount;
+			this->seenRemoveCount = this->currScope->removeCount;
 			skipToNextMatchingEntry();
 		}
 	}
 }
 
 void Scope$ScopeImpl$1::skipToNextMatchingEntry() {
-	while (this->currEntry != nullptr && this->val$sf != nullptr && !$nc(this->val$sf)->test($nc(this->currEntry)->sym)) {
-		$set(this, currEntry, $nc(this->currEntry)->nextSibling);
+	while (this->currEntry != nullptr && this->val$sf != nullptr && !this->val$sf->test(this->currEntry->sym)) {
+		$set(this, currEntry, this->currEntry->nextSibling);
 	}
 }
 
@@ -139,7 +85,53 @@ Scope$ScopeImpl$1::Scope$ScopeImpl$1() {
 }
 
 $Class* Scope$ScopeImpl$1::load$($String* name, bool initialize) {
-	$loadClass(Scope$ScopeImpl$1, name, initialize, &_Scope$ScopeImpl$1_ClassInfo_, allocate$Scope$ScopeImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Scope$ScopeImpl;", nullptr, $FINAL | $SYNTHETIC, $field(Scope$ScopeImpl$1, this$0)},
+		{"val$sf", "Ljava/util/function/Predicate;", nullptr, $FINAL | $SYNTHETIC, $field(Scope$ScopeImpl$1, val$sf)},
+		{"val$lookupKind", "Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $FINAL | $SYNTHETIC, $field(Scope$ScopeImpl$1, val$lookupKind)},
+		{"currScope", "Lcom/sun/tools/javac/code/Scope$ScopeImpl;", nullptr, $PRIVATE, $field(Scope$ScopeImpl$1, currScope)},
+		{"currEntry", "Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PRIVATE, $field(Scope$ScopeImpl$1, currEntry)},
+		{"seenRemoveCount", "I", nullptr, $PRIVATE, $field(Scope$ScopeImpl$1, seenRemoveCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)V", "()V", 0, $method(Scope$ScopeImpl$1, init$, void, $Scope$ScopeImpl*, $Scope$LookupKind*, $Predicate*)},
+		{"doNext", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Scope$ScopeImpl$1, doNext, $Symbol*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$1, hasNext, bool)},
+		{"next", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$1, next, $Object*)},
+		{"skipToNextMatchingEntry", "()V", nullptr, 0, $virtualMethod(Scope$ScopeImpl$1, skipToNextMatchingEntry, void)},
+		{"update", "()V", nullptr, $PRIVATE, $method(Scope$ScopeImpl$1, update, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Scope$ScopeImpl",
+		"getSymbols",
+		"(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$ScopeImpl", "com.sun.tools.javac.code.Scope", "ScopeImpl", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.code.Scope$ScopeImpl$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Scope$LookupKind", "com.sun.tools.javac.code.Scope", "LookupKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Scope$ScopeImpl$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$ScopeImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scope$ScopeImpl$1);
+	});
 	return class$;
 }
 

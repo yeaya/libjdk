@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod$SHA512.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/xml/crypto/dsig/DigestMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod.h>
@@ -20,39 +19,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMDigestMethod$SHA512_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMDigestMethod$SHA512, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMDigestMethod$SHA512, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod$SHA512, getAlgorithm, $String*)},
-	{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMDigestMethod$SHA512, getMessageDigestAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMDigestMethod$SHA512_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA512", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMDigestMethod$SHA512_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512",
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod",
-	nullptr,
-	nullptr,
-	_DOMDigestMethod$SHA512_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMDigestMethod$SHA512_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod"
-};
-
-$Object* allocate$DOMDigestMethod$SHA512($Class* clazz) {
-	return $of($alloc(DOMDigestMethod$SHA512));
-}
 
 void DOMDigestMethod$SHA512::init$($AlgorithmParameterSpec* params) {
 	$DOMDigestMethod::init$(params);
@@ -75,7 +41,35 @@ DOMDigestMethod$SHA512::DOMDigestMethod$SHA512() {
 }
 
 $Class* DOMDigestMethod$SHA512::load$($String* name, bool initialize) {
-	$loadClass(DOMDigestMethod$SHA512, name, initialize, &_DOMDigestMethod$SHA512_ClassInfo_, allocate$DOMDigestMethod$SHA512);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMDigestMethod$SHA512, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMDigestMethod$SHA512, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod$SHA512, getAlgorithm, $String*)},
+		{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMDigestMethod$SHA512, getMessageDigestAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA512", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512",
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod"
+	};
+	$loadClass(DOMDigestMethod$SHA512, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMDigestMethod$SHA512));
+	});
 	return class$;
 }
 

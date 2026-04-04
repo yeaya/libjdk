@@ -1,5 +1,4 @@
 #include <javax/management/modelmbean/InvalidTargetObjectTypeException.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -7,7 +6,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jcpp.h>
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
@@ -23,45 +21,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace javax {
 	namespace management {
 		namespace modelmbean {
-
-$FieldInfo _InvalidTargetObjectTypeException_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidTargetObjectTypeException, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidTargetObjectTypeException, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(InvalidTargetObjectTypeException, compat)},
-	{"exception", "Ljava/lang/Exception;", nullptr, 0, $field(InvalidTargetObjectTypeException, exception)},
-	{}
-};
-
-$MethodInfo _InvalidTargetObjectTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void, $Exception*, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InvalidTargetObjectTypeException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InvalidTargetObjectTypeException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _InvalidTargetObjectTypeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.modelmbean.InvalidTargetObjectTypeException",
-	"java.lang.Exception",
-	nullptr,
-	_InvalidTargetObjectTypeException_FieldInfo_,
-	_InvalidTargetObjectTypeException_MethodInfo_
-};
-
-$Object* allocate$InvalidTargetObjectTypeException($Class* clazz) {
-	return $of($alloc(InvalidTargetObjectTypeException));
-}
 
 $ObjectStreamFieldArray* InvalidTargetObjectTypeException::oldSerialPersistentFields = nullptr;
 $ObjectStreamFieldArray* InvalidTargetObjectTypeException::newSerialPersistentFields = nullptr;
@@ -80,15 +43,15 @@ void InvalidTargetObjectTypeException::init$($String* s) {
 }
 
 void InvalidTargetObjectTypeException::init$($Exception* e, $String* s) {
-	$useLocalCurrentObjectStackCache();
-	$Exception::init$($$str({"InvalidTargetObjectTypeException: "_s, s, ((e != nullptr) ? ($$str({"\n\t triggered by:"_s, $($nc(e)->toString())})) : ""_s)}));
+	$useLocalObjectStack();
+	$Exception::init$($$str({"InvalidTargetObjectTypeException: "_s, s, ((e != nullptr) ? ($$str({"\n\t triggered by:"_s, $(e->toString())})) : ""_s)}));
 	$set(this, exception, e);
 }
 
 void InvalidTargetObjectTypeException::readObject($ObjectInputStream* in) {
 	if (InvalidTargetObjectTypeException::compat) {
 		$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-		$set(this, exception, $cast($Exception, $nc(fields)->get("relatedExcept"_s, ($Object*)nullptr)));
+		$set(this, exception, $cast($Exception, $nc(fields)->get("relatedExcept"_s, nullptr)));
 		if (fields->defaulted("relatedExcept"_s)) {
 			$throwNew($NullPointerException, "relatedExcept"_s);
 		}
@@ -98,21 +61,20 @@ void InvalidTargetObjectTypeException::readObject($ObjectInputStream* in) {
 }
 
 void InvalidTargetObjectTypeException::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (InvalidTargetObjectTypeException::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("relatedExcept"_s, $of(this->exception));
-		fields->put("msgStr"_s, ((this->exception != nullptr) ? $($of($nc(this->exception)->getMessage())) : $of(""_s)));
+		$nc(fields)->put("relatedExcept"_s, this->exception);
+		fields->put("msgStr"_s, ((this->exception != nullptr) ? $(this->exception->getMessage()) : ""_s));
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$InvalidTargetObjectTypeException($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void InvalidTargetObjectTypeException::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$load($Exception);
 	$assignStatic(InvalidTargetObjectTypeException::oldSerialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "msgStr"_s, $String::class$),
 		$$new($ObjectStreamField, "relatedExcept"_s, $Exception::class$)
@@ -122,7 +84,7 @@ void clinit$InvalidTargetObjectTypeException($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			InvalidTargetObjectTypeException::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -147,7 +109,36 @@ void InvalidTargetObjectTypeException::throw$() {
 }
 
 $Class* InvalidTargetObjectTypeException::load$($String* name, bool initialize) {
-	$loadClass(InvalidTargetObjectTypeException, name, initialize, &_InvalidTargetObjectTypeException_ClassInfo_, clinit$InvalidTargetObjectTypeException, allocate$InvalidTargetObjectTypeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidTargetObjectTypeException, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidTargetObjectTypeException, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InvalidTargetObjectTypeException, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(InvalidTargetObjectTypeException, compat)},
+		{"exception", "Ljava/lang/Exception;", nullptr, 0, $field(InvalidTargetObjectTypeException, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void, $Exception*, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InvalidTargetObjectTypeException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InvalidTargetObjectTypeException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.modelmbean.InvalidTargetObjectTypeException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidTargetObjectTypeException, name, initialize, &classInfo$$, InvalidTargetObjectTypeException::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidTargetObjectTypeException);
+	});
 	return class$;
 }
 

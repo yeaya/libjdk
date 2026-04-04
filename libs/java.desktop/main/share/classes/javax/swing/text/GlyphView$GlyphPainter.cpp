@@ -1,5 +1,4 @@
 #include <javax/swing/text/GlyphView$GlyphPainter.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Point.h>
@@ -30,7 +29,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Caret = ::javax::swing::text::Caret;
-using $Document = ::javax::swing::text::Document;
 using $GlyphView = ::javax::swing::text::GlyphView;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
@@ -42,46 +40,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _GlyphView$GlyphPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(GlyphView$GlyphPainter, init$, void)},
-	{"getAscent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getAscent, float, $GlyphView*)},
-	{"getBoundedPosition", "(Ljavax/swing/text/GlyphView;IFF)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getBoundedPosition, int32_t, $GlyphView*, int32_t, float, float)},
-	{"getDescent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getDescent, float, $GlyphView*)},
-	{"getHeight", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getHeight, float, $GlyphView*)},
-	{"getNextVisualPositionFrom", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphView$GlyphPainter, getNextVisualPositionFrom, int32_t, $GlyphView*, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getPainter", "(Ljavax/swing/text/GlyphView;II)Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $PUBLIC, $virtualMethod(GlyphView$GlyphPainter, getPainter, GlyphView$GlyphPainter*, $GlyphView*, int32_t, int32_t)},
-	{"getSpan", "(Ljavax/swing/text/GlyphView;IILjavax/swing/text/TabExpander;F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getSpan, float, $GlyphView*, int32_t, int32_t, $TabExpander*, float)},
-	{"modelToView", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, modelToView, $Shape*, $GlyphView*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljavax/swing/text/GlyphView;Ljava/awt/Graphics;Ljava/awt/Shape;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, paint, void, $GlyphView*, $Graphics*, $Shape*, int32_t, int32_t)},
-	{"viewToModel", "(Ljavax/swing/text/GlyphView;FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, viewToModel, int32_t, $GlyphView*, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _GlyphView$GlyphPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GlyphView$GlyphPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.GlyphView$GlyphPainter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GlyphView$GlyphPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphView$GlyphPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GlyphView"
-};
-
-$Object* allocate$GlyphView$GlyphPainter($Class* clazz) {
-	return $of($alloc(GlyphView$GlyphPainter));
-}
-
 void GlyphView$GlyphPainter::init$() {
 }
 
@@ -90,87 +48,78 @@ GlyphView$GlyphPainter* GlyphView$GlyphPainter::getPainter($GlyphView* v, int32_
 }
 
 int32_t GlyphView$GlyphPainter::getNextVisualPositionFrom($GlyphView* v, int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startOffset = $nc(v)->getStartOffset();
 	int32_t endOffset = v->getEndOffset();
 	$var($Segment, text, nullptr);
 	{
-		$var($Container, container, nullptr)
+		$var($Container, container, nullptr);
 		switch (direction) {
 		case $View::NORTH:
-			{}
 		case $View::SOUTH:
-			{
-				if (pos != -1) {
-					return -1;
-				}
-				$assign(container, v->getContainer());
-				if ($instanceOf($JTextComponent, container)) {
-					$var($Caret, c, $nc(($cast($JTextComponent, container)))->getCaret());
-					$var($Point, magicPoint, nullptr);
-					$assign(magicPoint, (c != nullptr) ? $nc(c)->getMagicCaretPosition() : ($Point*)nullptr);
-					if (magicPoint == nullptr) {
-						$init($Position$Bias);
-						$nc(biasRet)->set(0, $Position$Bias::Forward);
-						return startOffset;
-					}
-					int32_t value = v->viewToModel((float)$nc(magicPoint)->x, 0.0f, a, biasRet);
-					return value;
-				}
-				break;
+			if (pos != -1) {
+				return -1;
 			}
-		case $View::EAST:
-			{
-				if (startOffset == $nc($(v->getDocument()))->getLength()) {
-					if (pos == -1) {
-						$init($Position$Bias);
-						$nc(biasRet)->set(0, $Position$Bias::Forward);
-						return startOffset;
-					}
-					return -1;
+			$assign(container, v->getContainer());
+			if ($instanceOf($JTextComponent, container)) {
+				$var($Caret, c, $cast($JTextComponent, container)->getCaret());
+				$var($Point, magicPoint, nullptr);
+				$assign(magicPoint, (c != nullptr) ? c->getMagicCaretPosition() : ($Point*)nullptr);
+				if (magicPoint == nullptr) {
+					$init($Position$Bias);
+					$nc(biasRet)->set(0, $Position$Bias::Forward);
+					return startOffset;
 				}
+				int32_t value = v->viewToModel((float)$nc(magicPoint)->x, 0.0f, a, biasRet);
+				return value;
+			}
+			break;
+		case $View::EAST:
+			if (startOffset == $$nc(v->getDocument())->getLength()) {
 				if (pos == -1) {
 					$init($Position$Bias);
 					$nc(biasRet)->set(0, $Position$Bias::Forward);
 					return startOffset;
 				}
-				if (pos == endOffset) {
-					return -1;
-				}
-				if (++pos == endOffset) {
-					return -1;
-				} else {
-					$init($Position$Bias);
-					$nc(biasRet)->set(0, $Position$Bias::Forward);
-				}
-				return pos;
+				return -1;
 			}
+			if (pos == -1) {
+				$init($Position$Bias);
+				$nc(biasRet)->set(0, $Position$Bias::Forward);
+				return startOffset;
+			}
+			if (pos == endOffset) {
+				return -1;
+			}
+			if (++pos == endOffset) {
+				return -1;
+			} else {
+				$init($Position$Bias);
+				$nc(biasRet)->set(0, $Position$Bias::Forward);
+			}
+			return pos;
 		case $View::WEST:
-			{
-				if (startOffset == $nc($(v->getDocument()))->getLength()) {
-					if (pos == -1) {
-						$init($Position$Bias);
-						$nc(biasRet)->set(0, $Position$Bias::Forward);
-						return startOffset;
-					}
-					return -1;
-				}
+			if (startOffset == $$nc(v->getDocument())->getLength()) {
 				if (pos == -1) {
 					$init($Position$Bias);
 					$nc(biasRet)->set(0, $Position$Bias::Forward);
-					return endOffset - 1;
+					return startOffset;
 				}
-				if (pos == startOffset) {
-					return -1;
-				}
+				return -1;
+			}
+			if (pos == -1) {
 				$init($Position$Bias);
 				$nc(biasRet)->set(0, $Position$Bias::Forward);
-				return (pos - 1);
+				return endOffset - 1;
 			}
+			if (pos == startOffset) {
+				return -1;
+			}
+			$init($Position$Bias);
+			$nc(biasRet)->set(0, $Position$Bias::Forward);
+			return (pos - 1);
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
 		}
 	}
 	return pos;
@@ -180,7 +129,42 @@ GlyphView$GlyphPainter::GlyphView$GlyphPainter() {
 }
 
 $Class* GlyphView$GlyphPainter::load$($String* name, bool initialize) {
-	$loadClass(GlyphView$GlyphPainter, name, initialize, &_GlyphView$GlyphPainter_ClassInfo_, allocate$GlyphView$GlyphPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(GlyphView$GlyphPainter, init$, void)},
+		{"getAscent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getAscent, float, $GlyphView*)},
+		{"getBoundedPosition", "(Ljavax/swing/text/GlyphView;IFF)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getBoundedPosition, int32_t, $GlyphView*, int32_t, float, float)},
+		{"getDescent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getDescent, float, $GlyphView*)},
+		{"getHeight", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getHeight, float, $GlyphView*)},
+		{"getNextVisualPositionFrom", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphView$GlyphPainter, getNextVisualPositionFrom, int32_t, $GlyphView*, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getPainter", "(Ljavax/swing/text/GlyphView;II)Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $PUBLIC, $virtualMethod(GlyphView$GlyphPainter, getPainter, GlyphView$GlyphPainter*, $GlyphView*, int32_t, int32_t)},
+		{"getSpan", "(Ljavax/swing/text/GlyphView;IILjavax/swing/text/TabExpander;F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, getSpan, float, $GlyphView*, int32_t, int32_t, $TabExpander*, float)},
+		{"modelToView", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, modelToView, $Shape*, $GlyphView*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljavax/swing/text/GlyphView;Ljava/awt/Graphics;Ljava/awt/Shape;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, paint, void, $GlyphView*, $Graphics*, $Shape*, int32_t, int32_t)},
+		{"viewToModel", "(Ljavax/swing/text/GlyphView;FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GlyphView$GlyphPainter, viewToModel, int32_t, $GlyphView*, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.GlyphView$GlyphPainter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GlyphView"
+	};
+	$loadClass(GlyphView$GlyphPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphView$GlyphPainter);
+	});
 	return class$;
 }
 

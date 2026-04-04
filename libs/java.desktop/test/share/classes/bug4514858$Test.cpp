@@ -1,5 +1,4 @@
 #include <bug4514858$Test.h>
-
 #include <bug4514858$Test$1.h>
 #include <bug4514858.h>
 #include <java/awt/BorderLayout.h>
@@ -27,7 +26,6 @@ using $bug4514858$Test$1 = ::bug4514858$Test$1;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,50 +38,11 @@ using $JPanel = ::javax::swing::JPanel;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 
-$FieldInfo _bug4514858$Test_FieldInfo_[] = {
-	{"pass", "Z", nullptr, $PRIVATE, $field(bug4514858$Test, pass$)},
-	{}
-};
-
-$MethodInfo _bug4514858$Test_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug4514858$Test, init$, void)},
-	{"createTestFrame", "(Ljava/lang/String;Ljava/awt/Component;Ljava/lang/String;I)Ljavax/swing/JFrame;", nullptr, 0, $virtualMethod(bug4514858$Test, createTestFrame, $JFrame*, $String*, $Component*, $String*, int32_t)},
-	{"pass", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(bug4514858$Test, pass, void)},
-	{"waitTestResult", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(bug4514858$Test, waitTestResult, void), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _bug4514858$Test_InnerClassesInfo_[] = {
-	{"bug4514858$Test", "bug4514858", "Test", $STATIC},
-	{"bug4514858$Test$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4514858$Test_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4514858$Test",
-	"java.lang.Object",
-	nullptr,
-	_bug4514858$Test_FieldInfo_,
-	_bug4514858$Test_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4514858$Test_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4514858"
-};
-
-$Object* allocate$bug4514858$Test($Class* clazz) {
-	return $of($alloc(bug4514858$Test));
-}
-
 void bug4514858$Test::init$() {
 }
 
 $JFrame* bug4514858$Test::createTestFrame($String* name, $Component* topComponent, $String* instructions, int32_t instrHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, PASS, "Pass"_s);
 	$var($String, FAIL, "Fail"_s);
 	$var($JFrame, frame, $new($JFrame, name));
@@ -97,9 +56,8 @@ $JFrame* bug4514858$Test::createTestFrame($String* name, $Component* topComponen
 	$var($JButton, failBtn, $new($JButton, FAIL));
 	failBtn->addActionListener(btnAL);
 	failBtn->setActionCommand(FAIL);
-	$init($BorderLayout);
-	testButtonsPanel->add($BorderLayout::WEST, static_cast<$Component*>(passBtn));
-	testButtonsPanel->add($BorderLayout::EAST, static_cast<$Component*>(failBtn));
+	testButtonsPanel->add($BorderLayout::WEST, passBtn);
+	testButtonsPanel->add($BorderLayout::EAST, failBtn);
 	$var($JTextArea, instrText, $new($JTextArea));
 	instrText->setLineWrap(true);
 	instrText->setEditable(false);
@@ -109,13 +67,13 @@ $JFrame* bug4514858$Test::createTestFrame($String* name, $Component* topComponen
 	$var($JPanel, servicePanel, $new($JPanel));
 	servicePanel->setLayout($$new($BorderLayout));
 	if (topComponent == nullptr) {
-		frame->add($BorderLayout::CENTER, static_cast<$Component*>(instrScrollPane));
+		frame->add($BorderLayout::CENTER, instrScrollPane);
 	} else {
-		servicePanel->add($BorderLayout::CENTER, static_cast<$Component*>(instrScrollPane));
+		servicePanel->add($BorderLayout::CENTER, instrScrollPane);
 		frame->add($BorderLayout::CENTER, topComponent);
 	}
-	servicePanel->add($BorderLayout::SOUTH, static_cast<$Component*>(testButtonsPanel));
-	frame->add($BorderLayout::SOUTH, static_cast<$Component*>(servicePanel));
+	servicePanel->add($BorderLayout::SOUTH, testButtonsPanel);
+	frame->add($BorderLayout::SOUTH, servicePanel);
 	return frame;
 }
 
@@ -138,7 +96,40 @@ bug4514858$Test::bug4514858$Test() {
 }
 
 $Class* bug4514858$Test::load$($String* name, bool initialize) {
-	$loadClass(bug4514858$Test, name, initialize, &_bug4514858$Test_ClassInfo_, allocate$bug4514858$Test);
+	$FieldInfo fieldInfos$$[] = {
+		{"pass", "Z", nullptr, $PRIVATE, $field(bug4514858$Test, pass$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug4514858$Test, init$, void)},
+		{"createTestFrame", "(Ljava/lang/String;Ljava/awt/Component;Ljava/lang/String;I)Ljavax/swing/JFrame;", nullptr, 0, $virtualMethod(bug4514858$Test, createTestFrame, $JFrame*, $String*, $Component*, $String*, int32_t)},
+		{"pass", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(bug4514858$Test, pass, void)},
+		{"waitTestResult", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(bug4514858$Test, waitTestResult, void), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4514858$Test", "bug4514858", "Test", $STATIC},
+		{"bug4514858$Test$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4514858$Test",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4514858"
+	};
+	$loadClass(bug4514858$Test, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4514858$Test);
+	});
 	return class$;
 }
 

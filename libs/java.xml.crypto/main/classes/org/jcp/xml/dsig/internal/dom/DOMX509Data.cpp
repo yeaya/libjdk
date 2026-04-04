@@ -1,9 +1,7 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMX509Data.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/lang/ClassCastException.h>
 #include <java/security/cert/CRL.h>
 #include <java/security/cert/CRLException.h>
@@ -15,7 +13,6 @@
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <javax/security/auth/x500/X500Principal.h>
@@ -41,7 +38,6 @@
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -56,7 +52,6 @@ using $X509CRL = ::java::security::cert::X509CRL;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $X500Principal = ::javax::security::auth::x500::X500Principal;
@@ -81,46 +76,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMX509Data_FieldInfo_[] = {
-	{"content", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(DOMX509Data, content)},
-	{"cf", "Ljava/security/cert/CertificateFactory;", nullptr, $PRIVATE, $field(DOMX509Data, cf)},
-	{}
-};
-
-$MethodInfo _DOMX509Data_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<*>;)V", $PUBLIC, $method(DOMX509Data, init$, void, $List*)},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMX509Data, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMX509Data, equals, bool, Object$*)},
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(DOMX509Data, getContent, $List*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMX509Data, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMX509Data, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshalCRL", "(Ljava/security/cert/X509CRL;Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalCRL, void, $X509CRL*, $Node*, $Document*, $String*), "javax.xml.crypto.MarshalException"},
-	{"marshalCert", "(Ljava/security/cert/X509Certificate;Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalCert, void, $X509Certificate*, $Node*, $Document*, $String*), "javax.xml.crypto.MarshalException"},
-	{"marshalSKI", "([BLorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalSKI, void, $bytes*, $Node*, $Document*, $String*)},
-	{"marshalSubjectName", "(Ljava/lang/String;Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalSubjectName, void, $String*, $Node*, $Document*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unmarshalBase64Binary", "(Lorg/w3c/dom/Element;)Ljava/io/ByteArrayInputStream;", nullptr, $PRIVATE, $method(DOMX509Data, unmarshalBase64Binary, $ByteArrayInputStream*, $Element*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalX509CRL", "(Lorg/w3c/dom/Element;)Ljava/security/cert/X509CRL;", nullptr, $PRIVATE, $method(DOMX509Data, unmarshalX509CRL, $X509CRL*, $Element*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalX509Certificate", "(Lorg/w3c/dom/Element;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(DOMX509Data, unmarshalX509Certificate, $X509Certificate*, $Element*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$ClassInfo _DOMX509Data_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMX509Data",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.keyinfo.X509Data",
-	_DOMX509Data_FieldInfo_,
-	_DOMX509Data_MethodInfo_
-};
-
-$Object* allocate$DOMX509Data($Class* clazz) {
-	return $of($alloc(DOMX509Data));
-}
-
 bool DOMX509Data::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -138,32 +93,28 @@ void DOMX509Data::finalize() {
 }
 
 void DOMX509Data::init$($List* content) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	if (content == nullptr) {
 		$throwNew($NullPointerException, "content cannot be null"_s);
 	}
-	$var($List, contentCopy, $new($ArrayList, static_cast<$Collection*>(content)));
+	$var($List, contentCopy, $new($ArrayList, content));
 	if (contentCopy->isEmpty()) {
 		$throwNew($IllegalArgumentException, "content cannot be empty"_s);
 	}
-	{
-		int32_t i = 0;
-		int32_t size = contentCopy->size();
-		for (; i < size; ++i) {
-			$var($Object, x509Type, contentCopy->get(i));
-			if ($instanceOf($String, x509Type)) {
-				$new($X500Principal, $cast($String, x509Type));
-			} else if (!($instanceOf($bytes, x509Type)) && !($instanceOf($X509Certificate, x509Type)) && !($instanceOf($X509CRL, x509Type)) && !($instanceOf($XMLStructure, x509Type))) {
-				$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid X509Data type"_s}));
-			}
+	for (int32_t i = 0, size = contentCopy->size(); i < size; ++i) {
+		$var($Object, x509Type, contentCopy->get(i));
+		if ($instanceOf($String, x509Type)) {
+			$new($X500Principal, $cast($String, x509Type));
+		} else if (!($instanceOf($bytes, x509Type)) && !($instanceOf($X509Certificate, x509Type)) && !($instanceOf($X509CRL, x509Type)) && !($instanceOf($XMLStructure, x509Type))) {
+			$throwNew($ClassCastException, $$str({"content["_s, $$str(i), "] is not a valid X509Data type"_s}));
 		}
 	}
 	$set(this, content, $Collections::unmodifiableList(contentCopy));
 }
 
 void DOMX509Data::init$($Element* xdElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$var($List, newContent, $new($ArrayList));
 	$var($Node, firstChild, $nc(xdElem)->getFirstChild());
@@ -177,21 +128,21 @@ void DOMX509Data::init$($Element* xdElem) {
 			if (var$0 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 				newContent->add($(unmarshalX509Certificate(childElem)));
 			} else {
-				bool var$2 = "X509IssuerSerial"_s->equals(localName);
-				if (var$2 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+				bool var$1 = "X509IssuerSerial"_s->equals(localName);
+				if (var$1 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 					newContent->add($$new($DOMX509IssuerSerial, childElem));
 				} else {
-					bool var$4 = "X509SubjectName"_s->equals(localName);
-					if (var$4 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
-						newContent->add($($nc($(childElem->getFirstChild()))->getNodeValue()));
+					bool var$2 = "X509SubjectName"_s->equals(localName);
+					if (var$2 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+						newContent->add($($$nc(childElem->getFirstChild())->getNodeValue()));
 					} else {
-						bool var$6 = "X509SKI"_s->equals(localName);
-						if (var$6 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+						bool var$3 = "X509SKI"_s->equals(localName);
+						if (var$3 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 							$var($String, content, $XMLUtils::getFullTextChildrenFromNode(childElem));
 							newContent->add($($XMLUtils::decode(content)));
 						} else {
-							bool var$8 = "X509CRL"_s->equals(localName);
-							if (var$8 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+							bool var$4 = "X509CRL"_s->equals(localName);
+							if (var$4 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 								newContent->add($(unmarshalX509CRL(childElem)));
 							} else {
 								newContent->add($$new($1DOMStructure, childElem));
@@ -211,38 +162,34 @@ $List* DOMX509Data::getContent() {
 }
 
 void DOMX509Data::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, xdElem, $DOMUtils::createElement(ownerDoc, "X509Data"_s, $XMLSignature::XMLNS, dsPrefix));
-	{
-		int32_t i = 0;
-		int32_t size = $nc(this->content)->size();
-		for (; i < size; ++i) {
-			$var($Object, object, $nc(this->content)->get(i));
-			if ($instanceOf($X509Certificate, object)) {
-				marshalCert($cast($X509Certificate, object), xdElem, ownerDoc, dsPrefix);
-			} else if ($instanceOf($XMLStructure, object)) {
-				if ($instanceOf($X509IssuerSerial, object)) {
-					$nc(($cast($DOMX509IssuerSerial, object)))->marshal(xdElem, dsPrefix, context);
-				} else {
-					$var($1DOMStructure, domContent, $cast($1DOMStructure, object));
-					$DOMUtils::appendChild(xdElem, $($nc(domContent)->getNode()));
-				}
-			} else if ($instanceOf($bytes, object)) {
-				marshalSKI($cast($bytes, object), xdElem, ownerDoc, dsPrefix);
-			} else if ($instanceOf($String, object)) {
-				marshalSubjectName($cast($String, object), xdElem, ownerDoc, dsPrefix);
-			} else if ($instanceOf($X509CRL, object)) {
-				marshalCRL($cast($X509CRL, object), xdElem, ownerDoc, dsPrefix);
+	for (int32_t i = 0, size = $nc(this->content)->size(); i < size; ++i) {
+		$var($Object, object, this->content->get(i));
+		if ($instanceOf($X509Certificate, object)) {
+			marshalCert($cast($X509Certificate, object), xdElem, ownerDoc, dsPrefix);
+		} else if ($instanceOf($XMLStructure, object)) {
+			if ($instanceOf($X509IssuerSerial, object)) {
+				$cast($DOMX509IssuerSerial, object)->marshal(xdElem, dsPrefix, context);
+			} else {
+				$var($1DOMStructure, domContent, $cast($1DOMStructure, object));
+				$DOMUtils::appendChild(xdElem, $(domContent->getNode()));
 			}
+		} else if ($instanceOf($bytes, object)) {
+			marshalSKI($cast($bytes, object), xdElem, ownerDoc, dsPrefix);
+		} else if ($instanceOf($String, object)) {
+			marshalSubjectName($cast($String, object), xdElem, ownerDoc, dsPrefix);
+		} else if ($instanceOf($X509CRL, object)) {
+			marshalCRL($cast($X509CRL, object), xdElem, ownerDoc, dsPrefix);
 		}
 	}
 	$nc(parent)->appendChild(xdElem);
 }
 
 void DOMX509Data::marshalSKI($bytes* skid, $Node* parent, $Document* doc, $String* dsPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XMLSignature);
 	$var($Element, skidElem, $DOMUtils::createElement(doc, "X509SKI"_s, $XMLSignature::XMLNS, dsPrefix));
 	$nc(skidElem)->appendChild($($nc(doc)->createTextNode($($XMLUtils::encodeToString(skid)))));
@@ -250,7 +197,7 @@ void DOMX509Data::marshalSKI($bytes* skid, $Node* parent, $Document* doc, $Strin
 }
 
 void DOMX509Data::marshalSubjectName($String* name, $Node* parent, $Document* doc, $String* dsPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XMLSignature);
 	$var($Element, snElem, $DOMUtils::createElement(doc, "X509SubjectName"_s, $XMLSignature::XMLNS, dsPrefix));
 	$nc(snElem)->appendChild($($nc(doc)->createTextNode(name)));
@@ -258,7 +205,7 @@ void DOMX509Data::marshalSubjectName($String* name, $Node* parent, $Document* do
 }
 
 void DOMX509Data::marshalCert($X509Certificate* cert, $Node* parent, $Document* doc, $String* dsPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XMLSignature);
 	$var($Element, certElem, $DOMUtils::createElement(doc, "X509Certificate"_s, $XMLSignature::XMLNS, dsPrefix));
 	try {
@@ -270,7 +217,7 @@ void DOMX509Data::marshalCert($X509Certificate* cert, $Node* parent, $Document* 
 }
 
 void DOMX509Data::marshalCRL($X509CRL* crl, $Node* parent, $Document* doc, $String* dsPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XMLSignature);
 	$var($Element, crlElem, $DOMUtils::createElement(doc, "X509CRL"_s, $XMLSignature::XMLNS, dsPrefix));
 	try {
@@ -282,41 +229,39 @@ void DOMX509Data::marshalCRL($X509CRL* crl, $Node* parent, $Document* doc, $Stri
 }
 
 $X509Certificate* DOMX509Data::unmarshalX509Certificate($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ByteArrayInputStream, bs, unmarshalBase64Binary(elem));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($X509Certificate, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($X509Certificate, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$assign(var$2, $cast($X509Certificate, $nc(this->cf)->generateCertificate(bs)));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (bs != nullptr) {
-						try {
-							bs->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$assign(var$2, $cast($X509Certificate, $nc(this->cf)->generateCertificate(bs)));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (bs != nullptr) {
-					bs->close();
+					try {
+						bs->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (bs != nullptr) {
+				bs->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($CertificateException& e) {
 		$throwNew($MarshalException, "Cannot create X509Certificate"_s, e);
@@ -327,41 +272,39 @@ $X509Certificate* DOMX509Data::unmarshalX509Certificate($Element* elem) {
 }
 
 $X509CRL* DOMX509Data::unmarshalX509CRL($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ByteArrayInputStream, bs, unmarshalBase64Binary(elem));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($X509CRL, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($X509CRL, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$assign(var$2, $cast($X509CRL, $nc(this->cf)->generateCRL(bs)));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (bs != nullptr) {
-						try {
-							bs->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$assign(var$2, $cast($X509CRL, $nc(this->cf)->generateCRL(bs)));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (bs != nullptr) {
-					bs->close();
+					try {
+						bs->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (bs != nullptr) {
+				bs->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($CRLException& e) {
 		$throwNew($MarshalException, "Cannot create X509CRL"_s, e);
@@ -372,7 +315,7 @@ $X509CRL* DOMX509Data::unmarshalX509CRL($Element* elem) {
 }
 
 $ByteArrayInputStream* DOMX509Data::unmarshalBase64Binary($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->cf == nullptr) {
 			$set(this, cf, $CertificateFactory::getInstance("X.509"_s));
@@ -386,7 +329,7 @@ $ByteArrayInputStream* DOMX509Data::unmarshalBase64Binary($Element* elem) {
 }
 
 bool DOMX509Data::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -400,13 +343,13 @@ bool DOMX509Data::equals(Object$* o) {
 		return false;
 	}
 	for (int32_t i = 0; i < size; ++i) {
-		$var($Object, x, $nc(this->content)->get(i));
-		$var($Object, ox, $nc(ocontent)->get(i));
+		$var($Object, x, this->content->get(i));
+		$var($Object, ox, ocontent->get(i));
 		if ($instanceOf($bytes, x)) {
 			if (!($instanceOf($bytes, ox)) || !$Arrays::equals($cast($bytes, x), $cast($bytes, ox))) {
 				return false;
 			}
-		} else if (!($nc($of(x))->equals(ox))) {
+		} else if (!($nc(x)->equals(ox))) {
 			return false;
 		}
 	}
@@ -423,7 +366,42 @@ DOMX509Data::DOMX509Data() {
 }
 
 $Class* DOMX509Data::load$($String* name, bool initialize) {
-	$loadClass(DOMX509Data, name, initialize, &_DOMX509Data_ClassInfo_, allocate$DOMX509Data);
+	$FieldInfo fieldInfos$$[] = {
+		{"content", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(DOMX509Data, content)},
+		{"cf", "Ljava/security/cert/CertificateFactory;", nullptr, $PRIVATE, $field(DOMX509Data, cf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<*>;)V", $PUBLIC, $method(DOMX509Data, init$, void, $List*)},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMX509Data, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMX509Data, equals, bool, Object$*)},
+		{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(DOMX509Data, getContent, $List*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMX509Data, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMX509Data, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshalCRL", "(Ljava/security/cert/X509CRL;Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalCRL, void, $X509CRL*, $Node*, $Document*, $String*), "javax.xml.crypto.MarshalException"},
+		{"marshalCert", "(Ljava/security/cert/X509Certificate;Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalCert, void, $X509Certificate*, $Node*, $Document*, $String*), "javax.xml.crypto.MarshalException"},
+		{"marshalSKI", "([BLorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalSKI, void, $bytes*, $Node*, $Document*, $String*)},
+		{"marshalSubjectName", "(Ljava/lang/String;Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMX509Data, marshalSubjectName, void, $String*, $Node*, $Document*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unmarshalBase64Binary", "(Lorg/w3c/dom/Element;)Ljava/io/ByteArrayInputStream;", nullptr, $PRIVATE, $method(DOMX509Data, unmarshalBase64Binary, $ByteArrayInputStream*, $Element*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalX509CRL", "(Lorg/w3c/dom/Element;)Ljava/security/cert/X509CRL;", nullptr, $PRIVATE, $method(DOMX509Data, unmarshalX509CRL, $X509CRL*, $Element*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalX509Certificate", "(Lorg/w3c/dom/Element;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(DOMX509Data, unmarshalX509Certificate, $X509Certificate*, $Element*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMX509Data",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.keyinfo.X509Data",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMX509Data, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMX509Data));
+	});
 	return class$;
 }
 

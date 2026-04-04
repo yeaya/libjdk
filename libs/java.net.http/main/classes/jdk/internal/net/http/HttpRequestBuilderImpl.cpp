@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpRequestBuilderImpl.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
@@ -45,7 +44,6 @@ using $Duration = ::java::time::Duration;
 using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
-using $BiPredicate = ::java::util::function::BiPredicate;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $ImmutableHttpRequest = ::jdk::internal::net::http::ImmutableHttpRequest;
 using $HttpHeadersBuilder = ::jdk::internal::net::http::common::HttpHeadersBuilder;
@@ -56,74 +54,10 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _HttpRequestBuilderImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpRequestBuilderImpl, $assertionsDisabled)},
-	{"headersBuilder", "Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, headersBuilder$)},
-	{"uri", "Ljava/net/URI;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, uri$)},
-	{"method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, method$)},
-	{"expectContinue", "Z", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, expectContinue$)},
-	{"bodyPublisher", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, bodyPublisher$)},
-	{"version", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PRIVATE | $VOLATILE, $field(HttpRequestBuilderImpl, version$)},
-	{"duration", "Ljava/time/Duration;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, duration)},
-	{}
-};
-
-$MethodInfo _HttpRequestBuilderImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(HttpRequestBuilderImpl, init$, void, $URI*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestBuilderImpl, init$, void)},
-	{"DELETE", "()Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, DELETE, $HttpRequest$Builder*)},
-	{"GET", "()Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, GET, $HttpRequest$Builder*)},
-	{"POST", "(Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, POST, $HttpRequest$Builder*, $HttpRequest$BodyPublisher*)},
-	{"PUT", "(Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, PUT, $HttpRequest$Builder*, $HttpRequest$BodyPublisher*)},
-	{"bodyPublisher", "()Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, bodyPublisher, $HttpRequest$BodyPublisher*)},
-	{"build", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, build, $HttpRequest*)},
-	{"buildForWebSocket", "()Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, buildForWebSocket, $HttpRequestImpl*)},
-	{"checkNameAndValue", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HttpRequestBuilderImpl, checkNameAndValue, void, $String*, $String*)},
-	{"checkURI", "(Ljava/net/URI;)V", nullptr, $STATIC, $staticMethod(HttpRequestBuilderImpl, checkURI, void, $URI*)},
-	{"copy", "()Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, copy, HttpRequestBuilderImpl*)},
-	{"expectContinue", "(Z)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, expectContinue, HttpRequestBuilderImpl*, bool)},
-	{"expectContinue", "()Z", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, expectContinue, bool)},
-	{"header", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, header, HttpRequestBuilderImpl*, $String*, $String*)},
-	{"headers", "([Ljava/lang/String;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(HttpRequestBuilderImpl, headers, HttpRequestBuilderImpl*, $StringArray*)},
-	{"headersBuilder", "()Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, headersBuilder, $HttpHeadersBuilder*)},
-	{"method", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, method, $String*)},
-	{"method", "(Ljava/lang/String;Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, method, $HttpRequest$Builder*, $String*, $HttpRequest$BodyPublisher*)},
-	{"method0", "(Ljava/lang/String;Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PRIVATE, $method(HttpRequestBuilderImpl, method0, $HttpRequest$Builder*, $String*, $HttpRequest$BodyPublisher*)},
-	{"setHeader", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, setHeader, HttpRequestBuilderImpl*, $String*, $String*)},
-	{"timeout", "(Ljava/time/Duration;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, timeout, $HttpRequest$Builder*, $Duration*)},
-	{"timeout", "()Ljava/time/Duration;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, timeout, $Duration*)},
-	{"uri", "(Ljava/net/URI;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, uri, HttpRequestBuilderImpl*, $URI*)},
-	{"uri", "()Ljava/net/URI;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, uri, $URI*)},
-	{"version", "(Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, version, HttpRequestBuilderImpl*, $HttpClient$Version*)},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", 0, $virtualMethod(HttpRequestBuilderImpl, version, $Optional*)},
-	{}
-};
-
-$InnerClassInfo _HttpRequestBuilderImpl_InnerClassesInfo_[] = {
-	{"java.net.http.HttpRequest$Builder", "java.net.http.HttpRequest", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpRequestBuilderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.HttpRequestBuilderImpl",
-	"java.lang.Object",
-	"java.net.http.HttpRequest$Builder",
-	_HttpRequestBuilderImpl_FieldInfo_,
-	_HttpRequestBuilderImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpRequestBuilderImpl_InnerClassesInfo_
-};
-
-$Object* allocate$HttpRequestBuilderImpl($Class* clazz) {
-	return $of($alloc(HttpRequestBuilderImpl));
-}
-
 bool HttpRequestBuilderImpl::$assertionsDisabled = false;
 
 void HttpRequestBuilderImpl::init$($URI* uri) {
-	$Objects::requireNonNull($of(uri), "uri must be non-null"_s);
+	$Objects::requireNonNull(uri, "uri must be non-null"_s);
 	checkURI(uri);
 	$set(this, uri$, uri);
 	$set(this, headersBuilder$, $new($HttpHeadersBuilder));
@@ -138,7 +72,7 @@ void HttpRequestBuilderImpl::init$() {
 }
 
 HttpRequestBuilderImpl* HttpRequestBuilderImpl::uri($URI* uri) {
-	$Objects::requireNonNull($of(uri), "uri must be non-null"_s);
+	$Objects::requireNonNull(uri, "uri must be non-null"_s);
 	checkURI(uri);
 	$set(this, uri$, uri);
 	return this;
@@ -146,7 +80,7 @@ HttpRequestBuilderImpl* HttpRequestBuilderImpl::uri($URI* uri) {
 
 void HttpRequestBuilderImpl::checkURI($URI* uri) {
 	$init(HttpRequestBuilderImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, scheme, $nc(uri)->getScheme());
 	if (scheme == nullptr) {
 		$throw($($Utils::newIAE("URI with undefined scheme"_s, $$new($ObjectArray, 0))));
@@ -155,10 +89,10 @@ void HttpRequestBuilderImpl::checkURI($URI* uri) {
 	$assign(scheme, $nc(scheme)->toLowerCase($Locale::US));
 	bool var$0 = scheme->equals("https"_s);
 	if (!(var$0 || scheme->equals("http"_s))) {
-		$throw($($Utils::newIAE("invalid URI scheme %s"_s, $$new($ObjectArray, {$of(scheme)}))));
+		$throw($($Utils::newIAE("invalid URI scheme %s"_s, $$new($ObjectArray, {scheme}))));
 	}
 	if (uri->getHost() == nullptr) {
-		$throw($($Utils::newIAE("unsupported URI %s"_s, $$new($ObjectArray, {$of(uri)}))));
+		$throw($($Utils::newIAE("unsupported URI %s"_s, $$new($ObjectArray, {uri}))));
 	}
 }
 
@@ -176,17 +110,17 @@ HttpRequestBuilderImpl* HttpRequestBuilderImpl::copy() {
 }
 
 void HttpRequestBuilderImpl::checkNameAndValue($String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(name), "name"_s);
-	$Objects::requireNonNull($of(value), "value"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(name, "name"_s);
+	$Objects::requireNonNull(value, "value"_s);
 	if (!$Utils::isValidName(name)) {
-		$throw($($Utils::newIAE("invalid header name: \"%s\""_s, $$new($ObjectArray, {$of(name)}))));
+		$throw($($Utils::newIAE("invalid header name: \"%s\""_s, $$new($ObjectArray, {name}))));
 	}
 	if (!$nc($Utils::ALLOWED_HEADERS)->test(name, nullptr)) {
-		$throw($($Utils::newIAE("restricted header name: \"%s\""_s, $$new($ObjectArray, {$of(name)}))));
+		$throw($($Utils::newIAE("restricted header name: \"%s\""_s, $$new($ObjectArray, {name}))));
 	}
 	if (!$Utils::isValidValue(value)) {
-		$throw($($Utils::newIAE("invalid header value: \"%s\""_s, $$new($ObjectArray, {$of(value)}))));
+		$throw($($Utils::newIAE("invalid header value: \"%s\""_s, $$new($ObjectArray, {value}))));
 	}
 }
 
@@ -203,10 +137,10 @@ HttpRequestBuilderImpl* HttpRequestBuilderImpl::header($String* name, $String* v
 }
 
 HttpRequestBuilderImpl* HttpRequestBuilderImpl::headers($StringArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(params);
 	if (params->length == 0 || params->length % 2 != 0) {
-		$throw($($Utils::newIAE("wrong number, %d, of parameters"_s, $$new($ObjectArray, {$($of($Integer::valueOf(params->length)))}))));
+		$throw($($Utils::newIAE("wrong number, %d, of parameters"_s, $$new($ObjectArray, {$($Integer::valueOf(params->length))}))));
 	}
 	for (int32_t i = 0; i < params->length; i += 2) {
 		$var($String, name, params->get(i));
@@ -268,7 +202,7 @@ $HttpRequest$Builder* HttpRequestBuilderImpl::PUT($HttpRequest$BodyPublisher* bo
 }
 
 $HttpRequest$Builder* HttpRequestBuilderImpl::method($String* method, $HttpRequest$BodyPublisher* body) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(method);
 	if (method->isEmpty()) {
 		$throw($($Utils::newIAE("illegal method <empty string>"_s, $$new($ObjectArray, 0))));
@@ -277,7 +211,7 @@ $HttpRequest$Builder* HttpRequestBuilderImpl::method($String* method, $HttpReque
 		$throw($($Utils::newIAE("method CONNECT is not supported"_s, $$new($ObjectArray, 0))));
 	}
 	if (!$Utils::isValidName(method)) {
-		$throw($($Utils::newIAE($$str({"illegal method \""_s, $($($(method->replace(static_cast<$CharSequence*>("\n"_s), static_cast<$CharSequence*>("\\n"_s)))->replace(static_cast<$CharSequence*>("\r"_s), static_cast<$CharSequence*>("\\r"_s)))->replace(static_cast<$CharSequence*>("\t"_s), static_cast<$CharSequence*>("\\t"_s))), "\""_s}), $$new($ObjectArray, 0))));
+		$throw($($Utils::newIAE($$str({"illegal method \""_s, $($($(method->replace("\n"_s, "\\n"_s))->replace("\r"_s, "\\r"_s))->replace("\t"_s, "\\t"_s)), "\""_s}), $$new($ObjectArray, 0))));
 	}
 	return method0(method, $cast($HttpRequest$BodyPublisher, $Objects::requireNonNull(body)));
 }
@@ -328,7 +262,7 @@ $Duration* HttpRequestBuilderImpl::timeout() {
 	return this->duration;
 }
 
-void clinit$HttpRequestBuilderImpl($Class* class$) {
+void HttpRequestBuilderImpl::clinit$($Class* clazz) {
 	HttpRequestBuilderImpl::$assertionsDisabled = !HttpRequestBuilderImpl::class$->desiredAssertionStatus();
 }
 
@@ -336,7 +270,65 @@ HttpRequestBuilderImpl::HttpRequestBuilderImpl() {
 }
 
 $Class* HttpRequestBuilderImpl::load$($String* name, bool initialize) {
-	$loadClass(HttpRequestBuilderImpl, name, initialize, &_HttpRequestBuilderImpl_ClassInfo_, clinit$HttpRequestBuilderImpl, allocate$HttpRequestBuilderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpRequestBuilderImpl, $assertionsDisabled)},
+		{"headersBuilder", "Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, headersBuilder$)},
+		{"uri", "Ljava/net/URI;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, uri$)},
+		{"method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, method$)},
+		{"expectContinue", "Z", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, expectContinue$)},
+		{"bodyPublisher", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, bodyPublisher$)},
+		{"version", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PRIVATE | $VOLATILE, $field(HttpRequestBuilderImpl, version$)},
+		{"duration", "Ljava/time/Duration;", nullptr, $PRIVATE, $field(HttpRequestBuilderImpl, duration)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(HttpRequestBuilderImpl, init$, void, $URI*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestBuilderImpl, init$, void)},
+		{"DELETE", "()Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, DELETE, $HttpRequest$Builder*)},
+		{"GET", "()Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, GET, $HttpRequest$Builder*)},
+		{"POST", "(Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, POST, $HttpRequest$Builder*, $HttpRequest$BodyPublisher*)},
+		{"PUT", "(Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, PUT, $HttpRequest$Builder*, $HttpRequest$BodyPublisher*)},
+		{"bodyPublisher", "()Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, bodyPublisher, $HttpRequest$BodyPublisher*)},
+		{"build", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, build, $HttpRequest*)},
+		{"buildForWebSocket", "()Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, buildForWebSocket, $HttpRequestImpl*)},
+		{"checkNameAndValue", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HttpRequestBuilderImpl, checkNameAndValue, void, $String*, $String*)},
+		{"checkURI", "(Ljava/net/URI;)V", nullptr, $STATIC, $staticMethod(HttpRequestBuilderImpl, checkURI, void, $URI*)},
+		{"copy", "()Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, copy, HttpRequestBuilderImpl*)},
+		{"expectContinue", "(Z)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, expectContinue, HttpRequestBuilderImpl*, bool)},
+		{"expectContinue", "()Z", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, expectContinue, bool)},
+		{"header", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, header, HttpRequestBuilderImpl*, $String*, $String*)},
+		{"headers", "([Ljava/lang/String;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(HttpRequestBuilderImpl, headers, HttpRequestBuilderImpl*, $StringArray*)},
+		{"headersBuilder", "()Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, headersBuilder, $HttpHeadersBuilder*)},
+		{"method", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, method, $String*)},
+		{"method", "(Ljava/lang/String;Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, method, $HttpRequest$Builder*, $String*, $HttpRequest$BodyPublisher*)},
+		{"method0", "(Ljava/lang/String;Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PRIVATE, $method(HttpRequestBuilderImpl, method0, $HttpRequest$Builder*, $String*, $HttpRequest$BodyPublisher*)},
+		{"setHeader", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, setHeader, HttpRequestBuilderImpl*, $String*, $String*)},
+		{"timeout", "(Ljava/time/Duration;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, timeout, $HttpRequest$Builder*, $Duration*)},
+		{"timeout", "()Ljava/time/Duration;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, timeout, $Duration*)},
+		{"uri", "(Ljava/net/URI;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, uri, HttpRequestBuilderImpl*, $URI*)},
+		{"uri", "()Ljava/net/URI;", nullptr, 0, $virtualMethod(HttpRequestBuilderImpl, uri, $URI*)},
+		{"version", "(Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpRequestBuilderImpl;", nullptr, $PUBLIC, $virtualMethod(HttpRequestBuilderImpl, version, HttpRequestBuilderImpl*, $HttpClient$Version*)},
+		{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", 0, $virtualMethod(HttpRequestBuilderImpl, version, $Optional*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpRequest$Builder", "java.net.http.HttpRequest", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.HttpRequestBuilderImpl",
+		"java.lang.Object",
+		"java.net.http.HttpRequest$Builder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(HttpRequestBuilderImpl, name, initialize, &classInfo$$, HttpRequestBuilderImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequestBuilderImpl);
+	});
 	return class$;
 }
 

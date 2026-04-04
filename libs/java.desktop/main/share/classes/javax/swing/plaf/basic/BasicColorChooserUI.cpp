@@ -1,11 +1,8 @@
 #include <javax/swing/plaf/basic/BasicColorChooserUI.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/LayoutManager.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -36,16 +33,12 @@
 
 using $AbstractColorChooserPanelArray = $Array<::javax::swing::colorchooser::AbstractColorChooserPanel>;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JColorChooser = ::javax::swing::JColorChooser;
 using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
@@ -53,12 +46,10 @@ using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorChooserPanel;
 using $ColorChooserComponentFactory = ::javax::swing::colorchooser::ColorChooserComponentFactory;
 using $ColorSelectionModel = ::javax::swing::colorchooser::ColorSelectionModel;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ColorChooserUI = ::javax::swing::plaf::ColorChooserUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -71,66 +62,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicColorChooserUI_FieldInfo_[] = {
-	{"chooser", "Ljavax/swing/JColorChooser;", nullptr, $PROTECTED, $field(BasicColorChooserUI, chooser)},
-	{"tabbedPane", "Ljavax/swing/JTabbedPane;", nullptr, 0, $field(BasicColorChooserUI, tabbedPane)},
-	{"singlePanel", "Ljavax/swing/JPanel;", nullptr, 0, $field(BasicColorChooserUI, singlePanel)},
-	{"previewPanelHolder", "Ljavax/swing/JPanel;", nullptr, 0, $field(BasicColorChooserUI, previewPanelHolder)},
-	{"previewPanel", "Ljavax/swing/JComponent;", nullptr, 0, $field(BasicColorChooserUI, previewPanel)},
-	{"isMultiPanel", "Z", nullptr, 0, $field(BasicColorChooserUI, isMultiPanel)},
-	{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC, $staticField(BasicColorChooserUI, defaultTransferHandler)},
-	{"defaultChoosers", "[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PROTECTED, $field(BasicColorChooserUI, defaultChoosers)},
-	{"previewListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicColorChooserUI, previewListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicColorChooserUI, propertyChangeListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicColorChooserUI$Handler;", nullptr, $PRIVATE, $field(BasicColorChooserUI, handler)},
-	{}
-};
-
-$MethodInfo _BasicColorChooserUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicColorChooserUI, init$, void)},
-	{"createDefaultChoosers", "()[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, createDefaultChoosers, $AbstractColorChooserPanelArray*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicColorChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicColorChooserUI$Handler;", nullptr, $PRIVATE, $method(BasicColorChooserUI, getHandler, $BasicColorChooserUI$Handler*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, installListeners, void)},
-	{"installPreviewPanel", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, installPreviewPanel, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicColorChooserUI, installUI, void, $JComponent*)},
-	{"selectionChanged", "(Ljavax/swing/colorchooser/ColorSelectionModel;)V", nullptr, $PRIVATE, $method(BasicColorChooserUI, selectionChanged, void, $ColorSelectionModel*)},
-	{"uninstallDefaultChoosers", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallDefaultChoosers, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallListeners, void)},
-	{"uninstallPreviewPanel", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallPreviewPanel, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicColorChooserUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicColorChooserUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler", "javax.swing.plaf.basic.BasicColorChooserUI", "ColorTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicColorChooserUI$PropertyHandler", "javax.swing.plaf.basic.BasicColorChooserUI", "PropertyHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicColorChooserUI$Handler", "javax.swing.plaf.basic.BasicColorChooserUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicColorChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicColorChooserUI",
-	"javax.swing.plaf.ColorChooserUI",
-	nullptr,
-	_BasicColorChooserUI_FieldInfo_,
-	_BasicColorChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicColorChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler,javax.swing.plaf.basic.BasicColorChooserUI$PropertyHandler,javax.swing.plaf.basic.BasicColorChooserUI$Handler"
-};
-
-$Object* allocate$BasicColorChooserUI($Class* clazz) {
-	return $of($alloc(BasicColorChooserUI));
-}
 
 $TransferHandler* BasicColorChooserUI::defaultTransferHandler = nullptr;
 
@@ -157,25 +88,25 @@ void BasicColorChooserUI::uninstallDefaultChoosers() {
 }
 
 void BasicColorChooserUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, chooser, $cast($JColorChooser, c));
 	$ColorChooserUI::installUI(c);
 	installDefaults();
 	installListeners();
 	$set(this, tabbedPane, $new($JTabbedPane));
-	$nc(this->tabbedPane)->setName("ColorChooser.tabPane"_s);
+	this->tabbedPane->setName("ColorChooser.tabPane"_s);
 	$nc(this->tabbedPane)->setInheritsPopupMenu(true);
-	$nc($($nc(this->tabbedPane)->getAccessibleContext()))->setAccessibleDescription($($nc(this->tabbedPane)->getName()));
-	$set(this, singlePanel, $new($JPanel, static_cast<$LayoutManager*>($$new($CenterLayout))));
-	$nc(this->singlePanel)->setName("ColorChooser.panel"_s);
+	$$nc($nc(this->tabbedPane)->getAccessibleContext())->setAccessibleDescription($($nc(this->tabbedPane)->getName()));
+	$set(this, singlePanel, $new($JPanel, $$new($CenterLayout)));
+	this->singlePanel->setName("ColorChooser.panel"_s);
 	$nc(this->singlePanel)->setInheritsPopupMenu(true);
 	$nc(this->chooser)->setLayout($$new($BorderLayout));
 	$set(this, defaultChoosers, createDefaultChoosers());
 	$nc(this->chooser)->setChooserPanels(this->defaultChoosers);
-	$set(this, previewPanelHolder, $new($JPanel, static_cast<$LayoutManager*>($$new($CenterLayout))));
-	$nc(this->previewPanelHolder)->setName("ColorChooser.previewPanelHolder"_s);
+	$set(this, previewPanelHolder, $new($JPanel, $$new($CenterLayout)));
+	this->previewPanelHolder->setName("ColorChooser.previewPanelHolder"_s);
 	if ($DefaultLookup::getBoolean(this->chooser, this, "ColorChooser.showPreviewPanelText"_s, true)) {
-		$var($String, previewString, $UIManager::getString($of("ColorChooser.previewText"_s), $($nc(this->chooser)->getLocale())));
+		$var($String, previewString, $UIManager::getString("ColorChooser.previewText"_s, $($nc(this->chooser)->getLocale())));
 		$nc(this->previewPanelHolder)->setBorder($$new($TitledBorder, previewString));
 	}
 	$nc(this->previewPanelHolder)->setInheritsPopupMenu(true);
@@ -184,9 +115,9 @@ void BasicColorChooserUI::installUI($JComponent* c) {
 }
 
 void BasicColorChooserUI::uninstallUI($JComponent* c) {
-	$nc(this->chooser)->remove(static_cast<$Component*>(this->tabbedPane));
-	$nc(this->chooser)->remove(static_cast<$Component*>(this->singlePanel));
-	$nc(this->chooser)->remove(static_cast<$Component*>(this->previewPanelHolder));
+	$nc(this->chooser)->remove(this->tabbedPane);
+	$nc(this->chooser)->remove(this->singlePanel);
+	$nc(this->chooser)->remove(this->previewPanelHolder);
 	uninstallDefaultChoosers();
 	uninstallListeners();
 	uninstallPreviewPanel();
@@ -200,23 +131,23 @@ void BasicColorChooserUI::uninstallUI($JComponent* c) {
 }
 
 void BasicColorChooserUI::installPreviewPanel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, previewPanel, $nc(this->chooser)->getPreviewPanel());
 	if (previewPanel == nullptr) {
 		$assign(previewPanel, $ColorChooserComponentFactory::getPreviewPanel());
 	} else {
 		$load($JPanel);
-		bool var$1 = $of($JPanel::class$)->equals($nc($of(previewPanel))->getClass());
-		if (var$1 && (0 == $nc(previewPanel)->getComponentCount())) {
+		bool var$0 = $JPanel::class$->equals($of(previewPanel)->getClass());
+		if (var$0 && (0 == previewPanel->getComponentCount())) {
 			$assign(previewPanel, nullptr);
 		}
 	}
 	$set(this, previewPanel, previewPanel);
 	if (previewPanel != nullptr) {
 		$init($BorderLayout);
-		$nc(this->chooser)->add(static_cast<$Component*>(this->previewPanelHolder), $of($BorderLayout::SOUTH));
+		$nc(this->chooser)->add(this->previewPanelHolder, $BorderLayout::SOUTH);
 		previewPanel->setForeground($($nc(this->chooser)->getColor()));
-		$nc(this->previewPanelHolder)->add(static_cast<$Component*>(previewPanel));
+		$nc(this->previewPanelHolder)->add(previewPanel);
 		previewPanel->addMouseListener($(getHandler()));
 		previewPanel->setInheritsPopupMenu(true);
 	}
@@ -224,15 +155,14 @@ void BasicColorChooserUI::installPreviewPanel() {
 
 void BasicColorChooserUI::uninstallPreviewPanel() {
 	if (this->previewPanel != nullptr) {
-		$nc(this->previewPanel)->removeMouseListener($(getHandler()));
-		$nc(this->previewPanelHolder)->remove(static_cast<$Component*>(this->previewPanel));
+		this->previewPanel->removeMouseListener($(getHandler()));
+		$nc(this->previewPanelHolder)->remove(this->previewPanel);
 	}
-	$nc(this->chooser)->remove(static_cast<$Component*>(this->previewPanelHolder));
+	$nc(this->chooser)->remove(this->previewPanelHolder);
 }
 
 void BasicColorChooserUI::installDefaults() {
 	$LookAndFeel::installColorsAndFont(this->chooser, "ColorChooser.background"_s, "ColorChooser.foreground"_s, "ColorChooser.font"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->chooser, "opaque"_s, $Boolean::TRUE);
 	$var($TransferHandler, th, $nc(this->chooser)->getTransferHandler());
 	if (th == nullptr || $instanceOf($UIResource, th)) {
@@ -250,7 +180,7 @@ void BasicColorChooserUI::installListeners() {
 	$set(this, propertyChangeListener, createPropertyChangeListener());
 	$nc(this->chooser)->addPropertyChangeListener(this->propertyChangeListener);
 	$set(this, previewListener, getHandler());
-	$nc($($nc(this->chooser)->getSelectionModel()))->addChangeListener(this->previewListener);
+	$$nc($nc(this->chooser)->getSelectionModel())->addChangeListener(this->previewListener);
 }
 
 $BasicColorChooserUI$Handler* BasicColorChooserUI::getHandler() {
@@ -266,12 +196,12 @@ $PropertyChangeListener* BasicColorChooserUI::createPropertyChangeListener() {
 
 void BasicColorChooserUI::uninstallListeners() {
 	$nc(this->chooser)->removePropertyChangeListener(this->propertyChangeListener);
-	$nc($($nc(this->chooser)->getSelectionModel()))->removeChangeListener(this->previewListener);
+	$$nc($nc(this->chooser)->getSelectionModel())->removeChangeListener(this->previewListener);
 	$set(this, previewListener, nullptr);
 }
 
 void BasicColorChooserUI::selectionChanged($ColorSelectionModel* model) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, previewPanel, $nc(this->chooser)->getPreviewPanel());
 	if (previewPanel != nullptr) {
 		previewPanel->setForeground($($nc(model)->getSelectedColor()));
@@ -279,23 +209,17 @@ void BasicColorChooserUI::selectionChanged($ColorSelectionModel* model) {
 	}
 	$var($AbstractColorChooserPanelArray, panels, $nc(this->chooser)->getChooserPanels());
 	if (panels != nullptr) {
-		{
-			$var($AbstractColorChooserPanelArray, arr$, panels);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($AbstractColorChooserPanel, panel, arr$->get(i$));
-				{
-					if (panel != nullptr) {
-						panel->updateChooser();
-					}
-				}
+		$var($AbstractColorChooserPanelArray, arr$, panels);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($AbstractColorChooserPanel, panel, arr$->get(i$));
+			if (panel != nullptr) {
+				panel->updateChooser();
 			}
 		}
 	}
 }
 
-void clinit$BasicColorChooserUI($Class* class$) {
+void BasicColorChooserUI::clinit$($Class* clazz) {
 	$assignStatic(BasicColorChooserUI::defaultTransferHandler, $new($BasicColorChooserUI$ColorTransferHandler));
 }
 
@@ -303,7 +227,61 @@ BasicColorChooserUI::BasicColorChooserUI() {
 }
 
 $Class* BasicColorChooserUI::load$($String* name, bool initialize) {
-	$loadClass(BasicColorChooserUI, name, initialize, &_BasicColorChooserUI_ClassInfo_, clinit$BasicColorChooserUI, allocate$BasicColorChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"chooser", "Ljavax/swing/JColorChooser;", nullptr, $PROTECTED, $field(BasicColorChooserUI, chooser)},
+		{"tabbedPane", "Ljavax/swing/JTabbedPane;", nullptr, 0, $field(BasicColorChooserUI, tabbedPane)},
+		{"singlePanel", "Ljavax/swing/JPanel;", nullptr, 0, $field(BasicColorChooserUI, singlePanel)},
+		{"previewPanelHolder", "Ljavax/swing/JPanel;", nullptr, 0, $field(BasicColorChooserUI, previewPanelHolder)},
+		{"previewPanel", "Ljavax/swing/JComponent;", nullptr, 0, $field(BasicColorChooserUI, previewPanel)},
+		{"isMultiPanel", "Z", nullptr, 0, $field(BasicColorChooserUI, isMultiPanel)},
+		{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC, $staticField(BasicColorChooserUI, defaultTransferHandler)},
+		{"defaultChoosers", "[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PROTECTED, $field(BasicColorChooserUI, defaultChoosers)},
+		{"previewListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicColorChooserUI, previewListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicColorChooserUI, propertyChangeListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicColorChooserUI$Handler;", nullptr, $PRIVATE, $field(BasicColorChooserUI, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicColorChooserUI, init$, void)},
+		{"createDefaultChoosers", "()[Ljavax/swing/colorchooser/AbstractColorChooserPanel;", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, createDefaultChoosers, $AbstractColorChooserPanelArray*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicColorChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicColorChooserUI$Handler;", nullptr, $PRIVATE, $method(BasicColorChooserUI, getHandler, $BasicColorChooserUI$Handler*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, installListeners, void)},
+		{"installPreviewPanel", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, installPreviewPanel, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicColorChooserUI, installUI, void, $JComponent*)},
+		{"selectionChanged", "(Ljavax/swing/colorchooser/ColorSelectionModel;)V", nullptr, $PRIVATE, $method(BasicColorChooserUI, selectionChanged, void, $ColorSelectionModel*)},
+		{"uninstallDefaultChoosers", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallDefaultChoosers, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallListeners, void)},
+		{"uninstallPreviewPanel", "()V", nullptr, $PROTECTED, $virtualMethod(BasicColorChooserUI, uninstallPreviewPanel, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicColorChooserUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler", "javax.swing.plaf.basic.BasicColorChooserUI", "ColorTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicColorChooserUI$PropertyHandler", "javax.swing.plaf.basic.BasicColorChooserUI", "PropertyHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicColorChooserUI$Handler", "javax.swing.plaf.basic.BasicColorChooserUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicColorChooserUI",
+		"javax.swing.plaf.ColorChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicColorChooserUI$ColorTransferHandler,javax.swing.plaf.basic.BasicColorChooserUI$PropertyHandler,javax.swing.plaf.basic.BasicColorChooserUI$Handler"
+	};
+	$loadClass(BasicColorChooserUI, name, initialize, &classInfo$$, BasicColorChooserUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicColorChooserUI);
+	});
 	return class$;
 }
 

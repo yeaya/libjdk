@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$CaptureAnalyzer.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
@@ -48,7 +47,6 @@
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Flow = ::com::sun::tools::javac::comp::Flow;
@@ -71,11 +69,8 @@ using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
-using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -89,60 +84,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Flow$CaptureAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$CaptureAnalyzer, this$0)},
-	{"currentTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Flow$CaptureAnalyzer, currentTree)},
-	{}
-};
-
-$MethodInfo _Flow$CaptureAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$CaptureAnalyzer, init$, void, $Flow*)},
-	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, analyzeTree, void, $Env*, $TreeMaker*)},
-	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, analyzeTree, void, $Env*, $JCTree*, $TreeMaker*)},
-	{"checkEffectivelyFinal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, checkEffectivelyFinal, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$VarSymbol*)},
-	{"letInit", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, letInit, void, $JCTree*)},
-	{"markDead", "()V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, markDead, void)},
-	{"reportEffectivelyFinalError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, reportEffectivelyFinalError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"reportInnerClsNeedsFinalError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, reportInnerClsNeedsFinalError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitAssign, void, $JCTree$JCAssign*)},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitAssignop, void, $JCTree$JCAssignOp*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitGuardPattern, void, $JCTree$JCGuardPattern*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitModuleDef, void, $JCTree$JCModuleDecl*)},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitTry, void, $JCTree$JCTry*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitUnary, void, $JCTree$JCUnary*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitYield, void, $JCTree$JCYield*)},
-	{}
-};
-
-$InnerClassInfo _Flow$CaptureAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$CaptureAnalyzer", "com.sun.tools.javac.comp.Flow", "CaptureAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Flow$CaptureAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$CaptureAnalyzer",
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer",
-	nullptr,
-	_Flow$CaptureAnalyzer_FieldInfo_,
-	_Flow$CaptureAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$CaptureAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$CaptureAnalyzer($Class* clazz) {
-	return $of($alloc(Flow$CaptureAnalyzer));
-}
-
 void Flow$CaptureAnalyzer::init$($Flow* this$0) {
 	$set(this, this$0, this$0);
 	$Flow$BaseAnalyzer::init$();
@@ -153,88 +94,69 @@ void Flow$CaptureAnalyzer::markDead() {
 
 void Flow$CaptureAnalyzer::checkEffectivelyFinal($JCDiagnostic$DiagnosticPosition* pos, $Symbol$VarSymbol* sym) {
 	$init($Kinds$Kind);
-	if (this->currentTree != nullptr && $nc($nc(sym)->owner)->kind == $Kinds$Kind::MTH && sym->pos < $nc(this->currentTree)->getStartPosition()) {
+	if (this->currentTree != nullptr && $nc($nc(sym)->owner)->kind == $Kinds$Kind::MTH && sym->pos < this->currentTree->getStartPosition()) {
 		$init($Flow$1);
-		switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(this->currentTree)->getTag())))->ordinal())) {
+		switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc(this->currentTree->getTag()))->ordinal())) {
 		case 8:
-			{
-				if (!this->this$0->allowEffectivelyFinalInInnerClasses) {
-					if (((int64_t)(sym->flags() & (uint64_t)(int64_t)16)) == 0) {
-						reportInnerClsNeedsFinalError(pos, sym);
-					}
-					break;
+			if (!this->this$0->allowEffectivelyFinalInInnerClasses) {
+				if ((sym->flags() & 0x10) == 0) {
+					reportInnerClsNeedsFinalError(pos, sym);
 				}
+				break;
 			}
 		case 9:
-			{}
 		case 10:
-			{
-				if (((int64_t)(sym->flags() & (uint64_t)((int64_t)0x0000020000000000 | 16))) == 0) {
-					reportEffectivelyFinalError(pos, sym);
-				}
+			if ((sym->flags() & ((int64_t)0x0000020000000000 | 0x10)) == 0) {
+				reportEffectivelyFinalError(pos, sym);
 			}
 		}
 	}
 }
 
 void Flow$CaptureAnalyzer::letInit($JCTree* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	$assign(tree, $TreeInfo::skipParens(tree));
 	$init($JCTree$Tag);
 	bool var$0 = $nc(tree)->hasTag($JCTree$Tag::IDENT);
-	if (var$0 || $nc(tree)->hasTag($JCTree$Tag::SELECT)) {
+	if (var$0 || tree->hasTag($JCTree$Tag::SELECT)) {
 		$var($Symbol, sym, $TreeInfo::symbol(tree));
 		$init($Kinds$Kind);
-		if (this->currentTree != nullptr && $nc(sym)->kind == $Kinds$Kind::VAR && $nc(sym->owner)->kind == $Kinds$Kind::MTH && $nc(($cast($Symbol$VarSymbol, sym)))->pos < $nc(this->currentTree)->getStartPosition()) {
+		if (this->currentTree != nullptr && $nc(sym)->kind == $Kinds$Kind::VAR && $nc(sym->owner)->kind == $Kinds$Kind::MTH && $cast($Symbol$VarSymbol, sym)->pos < this->currentTree->getStartPosition()) {
 			$init($Flow$1);
-			switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(this->currentTree)->getTag())))->ordinal())) {
+			switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc(this->currentTree->getTag()))->ordinal())) {
 			case 8:
-				{
-					if (!this->this$0->allowEffectivelyFinalInInnerClasses) {
-						reportInnerClsNeedsFinalError(tree, sym);
-						break;
-					}
+				if (!this->this$0->allowEffectivelyFinalInInnerClasses) {
+					reportInnerClsNeedsFinalError(tree, sym);
+					break;
 				}
 			case 9:
-				{}
 			case 10:
-				{
-					reportEffectivelyFinalError(tree, sym);
-				}
+				reportEffectivelyFinalError(tree, sym);
 			}
 		}
 	}
 }
 
 void Flow$CaptureAnalyzer::reportEffectivelyFinalError($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Flow$1);
-
-	$var($JCDiagnostic$Fragment, var$0, nullptr)
-	switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(this->currentTree)->getTag())))->ordinal())) {
+	$var($JCDiagnostic$Fragment, var$0, nullptr);
+	switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(this->currentTree)->getTag()))->ordinal())) {
 	case 10:
-		{
-			$init($CompilerProperties$Fragments);
-			$assign(var$0, $CompilerProperties$Fragments::Lambda);
-			break;
-		}
+		$init($CompilerProperties$Fragments);
+		$assign(var$0, $CompilerProperties$Fragments::Lambda);
+		break;
 	case 9:
-		{
-			$init($CompilerProperties$Fragments);
-			$assign(var$0, $CompilerProperties$Fragments::Guard);
-			break;
-		}
+		$init($CompilerProperties$Fragments);
+		$assign(var$0, $CompilerProperties$Fragments::Guard);
+		break;
 	case 8:
-		{
-			$init($CompilerProperties$Fragments);
-			$assign(var$0, $CompilerProperties$Fragments::InnerCls);
-			break;
-		}
+		$init($CompilerProperties$Fragments);
+		$assign(var$0, $CompilerProperties$Fragments::InnerCls);
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unexpected tree kind: "_s, $($nc(this->currentTree)->getTag())})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unexpected tree kind: "_s, $(this->currentTree->getTag())})));
 	}
 	$var($JCDiagnostic$Fragment, subKey, var$0);
 	$nc(this->this$0->log)->error(pos, $($CompilerProperties$Errors::CantRefNonEffectivelyFinalVar(sym, $($nc(this->this$0->diags)->fragment(subKey)))));
@@ -245,60 +167,54 @@ void Flow$CaptureAnalyzer::reportInnerClsNeedsFinalError($JCDiagnostic$Diagnosti
 }
 
 void Flow$CaptureAnalyzer::visitClassDef($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, prevTree, this->currentTree);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, currentTree, $nc($nc(tree)->sym)->isDirectlyOrIndirectlyLocal() ? static_cast<$JCTree*>(tree) : ($JCTree*)nullptr);
-			$Flow$BaseAnalyzer::visitClassDef(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, currentTree, prevTree);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, currentTree, $nc($nc(tree)->sym)->isDirectlyOrIndirectlyLocal() ? $cast($JCTree, tree) : ($JCTree*)nullptr);
+		$Flow$BaseAnalyzer::visitClassDef(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, currentTree, prevTree);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Flow$CaptureAnalyzer::visitLambda($JCTree$JCLambda* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, prevTree, this->currentTree);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, currentTree, tree);
-			$Flow$BaseAnalyzer::visitLambda(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, currentTree, prevTree);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, currentTree, tree);
+		$Flow$BaseAnalyzer::visitLambda(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, currentTree, prevTree);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Flow$CaptureAnalyzer::visitGuardPattern($JCTree$JCGuardPattern* tree) {
-	$useLocalCurrentObjectStackCache();
-	scan(static_cast<$JCTree*>($nc(tree)->patt));
+	$useLocalObjectStack();
+	scan($nc(tree)->patt);
 	$var($JCTree, prevTree, this->currentTree);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, currentTree, tree);
-			scan(static_cast<$JCTree*>($nc(tree)->expr));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, currentTree, prevTree);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, currentTree, tree);
+		scan(tree->expr);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, currentTree, prevTree);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -314,52 +230,43 @@ void Flow$CaptureAnalyzer::visitAssign($JCTree$JCAssign* tree) {
 	if (!($instanceOf($JCTree$JCIdent, lhs))) {
 		scan(lhs);
 	}
-	scan(static_cast<$JCTree*>($nc(tree)->rhs));
+	scan(tree->rhs);
 	letInit(lhs);
 }
 
 void Flow$CaptureAnalyzer::visitAssignop($JCTree$JCAssignOp* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->lhs));
-	scan(static_cast<$JCTree*>($nc(tree)->rhs));
-	letInit($nc(tree)->lhs);
+	scan($nc(tree)->lhs);
+	scan(tree->rhs);
+	letInit(tree->lhs);
 }
 
 void Flow$CaptureAnalyzer::visitUnary($JCTree$JCUnary* tree) {
 	$init($Flow$1);
-	switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{
-			scan(static_cast<$JCTree*>(tree->arg));
-			letInit(tree->arg);
-			break;
-		}
+		scan(tree->arg);
+		letInit(tree->arg);
+		break;
 	default:
-		{
-			scan(static_cast<$JCTree*>(tree->arg));
-		}
+		scan(tree->arg);
 	}
 }
 
 void Flow$CaptureAnalyzer::visitTry($JCTree$JCTry* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(tree)->resources)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree, resource, $cast($JCTree, i$->next()));
-			{
-				$init($JCTree$Tag);
-				if (!$nc(resource)->hasTag($JCTree$Tag::VARDEF)) {
-					$var($Symbol, var, $TreeInfo::symbol(resource));
-					if (var != nullptr && ((int64_t)(var->flags() & (uint64_t)(16 | (int64_t)0x0000020000000000))) == 0) {
-						$var($JCDiagnostic$DiagnosticPosition, var$0, resource->pos());
-						$nc(this->this$0->log)->error(var$0, $($CompilerProperties$Errors::TryWithResourcesExprEffectivelyFinalVar(var)));
-					}
+			$init($JCTree$Tag);
+			if (!$nc(resource)->hasTag($JCTree$Tag::VARDEF)) {
+				$var($Symbol, var, $TreeInfo::symbol(resource));
+				if (var != nullptr && (var->flags() & (0x10 | (int64_t)0x0000020000000000)) == 0) {
+					$var($JCDiagnostic$DiagnosticPosition, var$0, resource->pos());
+					$nc(this->this$0->log)->error(var$0, $($CompilerProperties$Errors::TryWithResourcesExprEffectivelyFinalVar(var)));
 				}
 			}
 		}
@@ -368,7 +275,7 @@ void Flow$CaptureAnalyzer::visitTry($JCTree$JCTry* tree) {
 }
 
 void Flow$CaptureAnalyzer::visitYield($JCTree$JCYield* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->value));
+	scan($nc(tree)->value);
 }
 
 void Flow$CaptureAnalyzer::visitModuleDef($JCTree$JCModuleDecl* tree) {
@@ -379,22 +286,20 @@ void Flow$CaptureAnalyzer::analyzeTree($Env* env, $TreeMaker* make) {
 }
 
 void Flow$CaptureAnalyzer::analyzeTree($Env* env, $JCTree* tree, $TreeMaker* make) {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this->this$0, attrEnv, env);
-			$set(this->this$0, make, make);
-			$set(this, pendingExits, $new($ListBuffer));
-			scan(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, pendingExits, nullptr);
-			$set(this->this$0, make, nullptr);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this->this$0, attrEnv, env);
+		$set(this->this$0, make, make);
+		$set(this, pendingExits, $new($ListBuffer));
+		scan(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, pendingExits, nullptr);
+		$set(this->this$0, make, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -402,7 +307,55 @@ Flow$CaptureAnalyzer::Flow$CaptureAnalyzer() {
 }
 
 $Class* Flow$CaptureAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Flow$CaptureAnalyzer, name, initialize, &_Flow$CaptureAnalyzer_ClassInfo_, allocate$Flow$CaptureAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$CaptureAnalyzer, this$0)},
+		{"currentTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Flow$CaptureAnalyzer, currentTree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$CaptureAnalyzer, init$, void, $Flow*)},
+		{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, analyzeTree, void, $Env*, $TreeMaker*)},
+		{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, analyzeTree, void, $Env*, $JCTree*, $TreeMaker*)},
+		{"checkEffectivelyFinal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, checkEffectivelyFinal, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$VarSymbol*)},
+		{"letInit", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, letInit, void, $JCTree*)},
+		{"markDead", "()V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, markDead, void)},
+		{"reportEffectivelyFinalError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, reportEffectivelyFinalError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"reportInnerClsNeedsFinalError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Flow$CaptureAnalyzer, reportInnerClsNeedsFinalError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitAssign, void, $JCTree$JCAssign*)},
+		{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitAssignop, void, $JCTree$JCAssignOp*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitGuardPattern, void, $JCTree$JCGuardPattern*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+		{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitTry, void, $JCTree$JCTry*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitUnary, void, $JCTree$JCUnary*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Flow$CaptureAnalyzer, visitYield, void, $JCTree$JCYield*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$CaptureAnalyzer", "com.sun.tools.javac.comp.Flow", "CaptureAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$CaptureAnalyzer",
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$CaptureAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$CaptureAnalyzer);
+	});
 	return class$;
 }
 

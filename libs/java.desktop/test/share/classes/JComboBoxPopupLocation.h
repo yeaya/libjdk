@@ -29,6 +29,7 @@ class $export JComboBoxPopupLocation : public ::java::lang::Object {
 	$class(JComboBoxPopupLocation, 0, ::java::lang::Object)
 public:
 	JComboBoxPopupLocation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void dispose();
 	static void lambda$dispose$2();

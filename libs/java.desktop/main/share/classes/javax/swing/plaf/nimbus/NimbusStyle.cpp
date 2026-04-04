@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/NimbusStyle.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -78,7 +77,6 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $TreeMap = ::java::util::TreeMap;
 using $JComponent = ::javax::swing::JComponent;
 using $Painter = ::javax::swing::Painter;
@@ -103,74 +101,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _NimbusStyle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NimbusStyle, $assertionsDisabled)},
-	{"LARGE_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, LARGE_KEY)},
-	{"SMALL_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, SMALL_KEY)},
-	{"MINI_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, MINI_KEY)},
-	{"LARGE_SCALE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, LARGE_SCALE)},
-	{"SMALL_SCALE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, SMALL_SCALE)},
-	{"MINI_SCALE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, MINI_SCALE)},
-	{"NULL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NimbusStyle, NULL)},
-	{"DEFAULT_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NimbusStyle, DEFAULT_COLOR)},
-	{"STATE_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NimbusStyle, STATE_COMPARATOR)},
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusStyle, prefix)},
-	{"painter", "Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $field(NimbusStyle, painter)},
-	{"values", "Ljavax/swing/plaf/nimbus/NimbusStyle$Values;", nullptr, $PRIVATE, $field(NimbusStyle, values)},
-	{"tmpKey", "Ljavax/swing/plaf/nimbus/NimbusStyle$CacheKey;", nullptr, $PRIVATE, $field(NimbusStyle, tmpKey)},
-	{"component", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljavax/swing/JComponent;>;", $PRIVATE, $field(NimbusStyle, component)},
-	{}
-};
-
-$MethodInfo _NimbusStyle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/JComponent;)V", nullptr, 0, $method(NimbusStyle, init$, void, $String*, $JComponent*)},
-	{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(NimbusStyle, contains, bool, $StringArray*, $String*)},
-	{"get", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, get, $Object*, $SynthContext*, Object$*)},
-	{"getBackgroundPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter;", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PUBLIC, $method(NimbusStyle, getBackgroundPainter, $Painter*, $SynthContext*)},
-	{"getBorderPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter;", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PUBLIC, $method(NimbusStyle, getBorderPainter, $Painter*, $SynthContext*)},
-	{"getColorForState", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(NimbusStyle, getColorForState, $Color*, $SynthContext*, $ColorType*)},
-	{"getExtendedState", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/nimbus/NimbusStyle$Values;)I", nullptr, $PRIVATE, $method(NimbusStyle, getExtendedState, int32_t, $SynthContext*, $NimbusStyle$Values*)},
-	{"getFontForState", "(Ljavax/swing/plaf/synth/SynthContext;)Ljava/awt/Font;", nullptr, $PROTECTED, $virtualMethod(NimbusStyle, getFontForState, $Font*, $SynthContext*)},
-	{"getForegroundPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter;", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PUBLIC, $method(NimbusStyle, getForegroundPainter, $Painter*, $SynthContext*)},
-	{"getInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, getInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getNextState", "([Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;[II)Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;", nullptr, $PRIVATE, $method(NimbusStyle, getNextState, $NimbusStyle$RuntimeState*, $NimbusStyle$RuntimeStateArray*, $ints*, int32_t)},
-	{"getPainter", "(Ljava/util/Map;Ljava/lang/String;)Ljavax/swing/Painter;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/lang/String;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PRIVATE, $method(NimbusStyle, getPainter, $Painter*, $Map*, $String*)},
-	{"getPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, getPainter, $SynthPainter*, $SynthContext*)},
-	{"getValues", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/nimbus/NimbusStyle$Values;", nullptr, $PRIVATE, $method(NimbusStyle, getValues, $NimbusStyle$Values*, $SynthContext*)},
-	{"installDefaults", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, installDefaults, void, $SynthContext*)},
-	{"isOpaque", "(Ljavax/swing/plaf/synth/SynthContext;)Z", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, isOpaque, bool, $SynthContext*)},
-	{"paintFilter", "(Ljavax/swing/Painter;)Ljavax/swing/Painter;", "(Ljavax/swing/Painter;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(NimbusStyle, paintFilter, $Painter*, $Painter*)},
-	{"validate", "()V", nullptr, $PRIVATE, $method(NimbusStyle, validate, void)},
-	{}
-};
-
-$InnerClassInfo _NimbusStyle_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusStyle$CacheKey", "javax.swing.plaf.nimbus.NimbusStyle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
-	{"javax.swing.plaf.nimbus.NimbusStyle$Values", "javax.swing.plaf.nimbus.NimbusStyle", "Values", $PRIVATE | $STATIC | $FINAL},
-	{"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState", "javax.swing.plaf.nimbus.NimbusStyle", "RuntimeState", $PRIVATE | $FINAL},
-	{"javax.swing.plaf.nimbus.NimbusStyle$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NimbusStyle_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusStyle",
-	"javax.swing.plaf.synth.SynthStyle",
-	nullptr,
-	_NimbusStyle_FieldInfo_,
-	_NimbusStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusStyle$CacheKey,javax.swing.plaf.nimbus.NimbusStyle$Values,javax.swing.plaf.nimbus.NimbusStyle$RuntimeState,javax.swing.plaf.nimbus.NimbusStyle$1"
-};
-
-$Object* allocate$NimbusStyle($Class* clazz) {
-	return $of($alloc(NimbusStyle));
-}
 
 bool NimbusStyle::$assertionsDisabled = false;
 $String* NimbusStyle::LARGE_KEY = nullptr;
@@ -199,37 +129,35 @@ void NimbusStyle::installDefaults($SynthContext* ctx) {
 }
 
 void NimbusStyle::validate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->values != nullptr) {
 		return;
 	}
 	$set(this, values, $new($NimbusStyle$Values));
-	$var($Map, defaults, $nc(($cast($NimbusLookAndFeel, $($UIManager::getLookAndFeel()))))->getDefaultsForPrefix(this->prefix));
+	$var($Map, defaults, $$sure($NimbusLookAndFeel, $UIManager::getLookAndFeel())->getDefaultsForPrefix(this->prefix));
 	if (this->component != nullptr) {
-		$var($Object, o, $nc(($cast($JComponent, $($nc(this->component)->get()))))->getClientProperty("Nimbus.Overrides"_s));
+		$var($Object, o, $$sure($JComponent, this->component->get())->getClientProperty("Nimbus.Overrides"_s));
 		if ($instanceOf($UIDefaults, o)) {
-			$var($Object, i, $nc(($cast($JComponent, $($nc(this->component)->get()))))->getClientProperty("Nimbus.Overrides.InheritDefaults"_s));
-			bool inherit = $instanceOf($Boolean, i) ? $nc(($cast($Boolean, i)))->booleanValue() : true;
+			$var($Object, i, $$sure($JComponent, $nc(this->component)->get())->getClientProperty("Nimbus.Overrides.InheritDefaults"_s));
+			bool inherit = $instanceOf($Boolean, i) ? $cast($Boolean, i)->booleanValue() : true;
 			$var($UIDefaults, d, $cast($UIDefaults, o));
 			$var($TreeMap, map, $new($TreeMap));
 			{
-				$var($Iterator, i$, $nc($($nc(d)->keySet()))->iterator());
+				$var($Iterator, i$, $$nc(d->keySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Object, obj, i$->next());
-					{
-						if ($instanceOf($String, obj)) {
-							$var($String, key, $cast($String, obj));
-							if ($nc(key)->startsWith(this->prefix)) {
-								map->put(key, $(d->get(key)));
-							}
+					if ($instanceOf($String, obj)) {
+						$var($String, key, $cast($String, obj));
+						if (key->startsWith(this->prefix)) {
+							map->put(key, $(d->get(key)));
 						}
 					}
 				}
 			}
 			if (inherit) {
-				$nc(defaults)->putAll(static_cast<$Map*>(static_cast<$AbstractMap*>(map)));
+				$nc(defaults)->putAll($cast($AbstractMap, map));
 			} else {
-				$assign(defaults, static_cast<$Map*>(static_cast<$AbstractMap*>(map)));
+				$assign(defaults, $cast($AbstractMap, map));
 			}
 		}
 	}
@@ -252,7 +180,7 @@ void NimbusStyle::validate() {
 			}
 		}
 		if (states->size() > 0) {
-			$set($nc(this->values), stateTypes, $fcast($StateArray, states->toArray($$new($StateArray, states->size()))));
+			$set($nc(this->values), stateTypes, $cast($StateArray, states->toArray($$new($StateArray, states->size()))));
 		}
 		int32_t code = 1;
 		{
@@ -260,7 +188,7 @@ void NimbusStyle::validate() {
 			for (; $nc(i$)->hasNext();) {
 				$var($State, state, $cast($State, i$->next()));
 				{
-					$var($Object, var$0, $of($nc(state)->getName()));
+					$var($Object, var$0, $nc(state)->getName());
 					stateCodes->put(var$0, $($Integer::valueOf(code)));
 					code <<= 1;
 				}
@@ -284,19 +212,19 @@ void NimbusStyle::validate() {
 		stateCodes->put("Default"_s, $($Integer::valueOf(1024)));
 	}
 	{
-		$var($Iterator, i$, $nc($(defaults->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(defaults->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, key, $cast($String, i$->next()));
 			{
 				$var($String, temp, $nc(key)->substring($nc(this->prefix)->length()));
-				bool var$1 = temp->indexOf((int32_t)u'\"') != -1;
-				if (var$1 || temp->indexOf((int32_t)u':') != -1) {
+				bool var$1 = temp->indexOf(u'\"') != -1;
+				if (var$1 || temp->indexOf(u':') != -1) {
 					continue;
 				}
 				$assign(temp, temp->substring(1));
 				$var($String, stateString, nullptr);
 				$var($String, property, nullptr);
-				int32_t bracketIndex = temp->indexOf((int32_t)u']');
+				int32_t bracketIndex = temp->indexOf(u']');
 				if (bracketIndex < 0) {
 					$assign(property, temp);
 				} else {
@@ -313,20 +241,16 @@ void NimbusStyle::validate() {
 				} else {
 					bool skip = false;
 					int32_t componentState = 0;
-					$var($StringArray, stateParts, $nc(stateString)->split("\\+"_s));
+					$var($StringArray, stateParts, stateString->split("\\+"_s));
 					{
 						$var($StringArray, arr$, stateParts);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 							$var($String, s, arr$->get(i$));
-							{
-								if (stateCodes->containsKey(s)) {
-									componentState |= $nc(($cast($Integer, $(stateCodes->get(s)))))->intValue();
-								} else {
-									skip = true;
-									break;
-								}
+							if (stateCodes->containsKey(s)) {
+								componentState |= $$sure($Integer, stateCodes->get(s))->intValue();
+							} else {
+								skip = true;
+								break;
 							}
 						}
 					}
@@ -338,11 +262,9 @@ void NimbusStyle::validate() {
 						$var($Iterator, i$, runtimeStates->iterator());
 						for (; $nc(i$)->hasNext();) {
 							$var($NimbusStyle$RuntimeState, s, $cast($NimbusStyle$RuntimeState, i$->next()));
-							{
-								if ($nc(s)->state == componentState) {
-									$assign(rs, s);
-									break;
-								}
+							if ($nc(s)->state == componentState) {
+								$assign(rs, s);
+								break;
 							}
 						}
 					}
@@ -364,47 +286,47 @@ void NimbusStyle::validate() {
 		}
 	}
 	$Collections::sort(runtimeStates, NimbusStyle::STATE_COMPARATOR);
-	$set($nc(this->values), states, $fcast($NimbusStyle$RuntimeStateArray, runtimeStates->toArray($$new($NimbusStyle$RuntimeStateArray, runtimeStates->size()))));
+	$set($nc(this->values), states, $cast($NimbusStyle$RuntimeStateArray, runtimeStates->toArray($$new($NimbusStyle$RuntimeStateArray, runtimeStates->size()))));
 }
 
 $Painter* NimbusStyle::getPainter($Map* defaults, $String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, p, $nc(defaults)->get(key));
 	if ($instanceOf($UIDefaults$LazyValue, p)) {
-		$assign(p, $nc(($cast($UIDefaults$LazyValue, p)))->createValue($($UIManager::getDefaults())));
+		$assign(p, $cast($UIDefaults$LazyValue, p)->createValue($($UIManager::getDefaults())));
 	}
 	$var($Painter, tmp, $instanceOf($Painter, p) ? $cast($Painter, p) : ($Painter*)nullptr);
 	return tmp;
 }
 
 $Insets* NimbusStyle::getInsets($SynthContext* ctx, $Insets* in$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, in, in$renamed);
 	if (in == nullptr) {
 		$assign(in, $new($Insets, 0, 0, 0, 0));
 	}
 	$var($NimbusStyle$Values, v, getValues(ctx));
 	if ($nc(v)->contentMargins == nullptr) {
-		$nc(in)->bottom = (in->top = (in->left = (in->right = 0)));
+		$nc(in)->bottom = ($nc(in)->top = ($nc(in)->left = ($nc(in)->right = 0)));
 		return in;
 	} else {
-		$nc(in)->bottom = $nc(v->contentMargins)->bottom;
-		in->top = $nc(v->contentMargins)->top;
-		in->left = $nc(v->contentMargins)->left;
-		in->right = $nc(v->contentMargins)->right;
-		$var($String, scaleKey, $cast($String, $nc($($nc(ctx)->getComponent()))->getClientProperty("JComponent.sizeVariant"_s)));
+		$nc(in)->bottom = v->contentMargins->bottom;
+		in->top = v->contentMargins->top;
+		in->left = v->contentMargins->left;
+		in->right = v->contentMargins->right;
+		$var($String, scaleKey, $cast($String, $$nc($nc(ctx)->getComponent())->getClientProperty("JComponent.sizeVariant"_s)));
 		if (scaleKey != nullptr) {
-			if ($nc(NimbusStyle::LARGE_KEY)->equals(scaleKey)) {
+			if (NimbusStyle::LARGE_KEY->equals(scaleKey)) {
 				in->bottom *= NimbusStyle::LARGE_SCALE;
 				in->top *= NimbusStyle::LARGE_SCALE;
 				in->left *= NimbusStyle::LARGE_SCALE;
 				in->right *= NimbusStyle::LARGE_SCALE;
-			} else if ($nc(NimbusStyle::SMALL_KEY)->equals(scaleKey)) {
+			} else if (NimbusStyle::SMALL_KEY->equals(scaleKey)) {
 				in->bottom *= NimbusStyle::SMALL_SCALE;
 				in->top *= NimbusStyle::SMALL_SCALE;
 				in->left *= NimbusStyle::SMALL_SCALE;
 				in->right *= NimbusStyle::SMALL_SCALE;
-			} else if ($nc(NimbusStyle::MINI_KEY)->equals(scaleKey)) {
+			} else if (NimbusStyle::MINI_KEY->equals(scaleKey)) {
 				in->bottom *= NimbusStyle::MINI_SCALE;
 				in->top *= NimbusStyle::MINI_SCALE;
 				in->left *= NimbusStyle::MINI_SCALE;
@@ -416,31 +338,23 @@ $Insets* NimbusStyle::getInsets($SynthContext* ctx, $Insets* in$renamed) {
 }
 
 $Color* NimbusStyle::getColorForState($SynthContext* ctx, $ColorType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, nullptr);
 	$init($ColorType);
 	if (type == $ColorType::BACKGROUND) {
 		$assign(key, "background"_s);
+	} else if (type == $ColorType::FOREGROUND) {
+		$assign(key, "textForeground"_s);
+	} else if (type == $ColorType::TEXT_BACKGROUND) {
+		$assign(key, "textBackground"_s);
+	} else if (type == $ColorType::TEXT_FOREGROUND) {
+		$assign(key, "textForeground"_s);
+	} else if (type == $ColorType::FOCUS) {
+		$assign(key, "focus"_s);
+	} else if (type != nullptr) {
+		$assign(key, type->toString());
 	} else {
-		if (type == $ColorType::FOREGROUND) {
-			$assign(key, "textForeground"_s);
-		} else {
-			if (type == $ColorType::TEXT_BACKGROUND) {
-				$assign(key, "textBackground"_s);
-			} else {
-				if (type == $ColorType::TEXT_FOREGROUND) {
-					$assign(key, "textForeground"_s);
-				} else {
-					if (type == $ColorType::FOCUS) {
-						$assign(key, "focus"_s);
-					} else if (type != nullptr) {
-						$assign(key, type->toString());
-					} else {
-						return NimbusStyle::DEFAULT_COLOR;
-					}
-				}
-			}
-		}
+		return NimbusStyle::DEFAULT_COLOR;
 	}
 	$var($Color, c, $cast($Color, get(ctx, key)));
 	if (c == nullptr) {
@@ -450,19 +364,19 @@ $Color* NimbusStyle::getColorForState($SynthContext* ctx, $ColorType* type) {
 }
 
 $Font* NimbusStyle::getFontForState($SynthContext* ctx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, f, $cast($Font, get(ctx, "font"_s)));
 	if (f == nullptr) {
 		$assign(f, $UIManager::getFont("defaultFont"_s));
 	}
-	$var($String, scaleKey, $cast($String, $nc($($nc(ctx)->getComponent()))->getClientProperty("JComponent.sizeVariant"_s)));
+	$var($String, scaleKey, $cast($String, $$nc($nc(ctx)->getComponent())->getClientProperty("JComponent.sizeVariant"_s)));
 	if (scaleKey != nullptr) {
-		if ($nc(NimbusStyle::LARGE_KEY)->equals(scaleKey)) {
-			$assign(f, $nc(f)->deriveFont((float)$Math::round(f->getSize2D() * NimbusStyle::LARGE_SCALE)));
-		} else if ($nc(NimbusStyle::SMALL_KEY)->equals(scaleKey)) {
-			$assign(f, $nc(f)->deriveFont((float)$Math::round(f->getSize2D() * NimbusStyle::SMALL_SCALE)));
-		} else if ($nc(NimbusStyle::MINI_KEY)->equals(scaleKey)) {
-			$assign(f, $nc(f)->deriveFont((float)$Math::round(f->getSize2D() * NimbusStyle::MINI_SCALE)));
+		if (NimbusStyle::LARGE_KEY->equals(scaleKey)) {
+			$assign(f, $nc(f)->deriveFont((float)$Math::round($nc(f)->getSize2D() * NimbusStyle::LARGE_SCALE)));
+		} else if (NimbusStyle::SMALL_KEY->equals(scaleKey)) {
+			$assign(f, $nc(f)->deriveFont((float)$Math::round($nc(f)->getSize2D() * NimbusStyle::SMALL_SCALE)));
+		} else if (NimbusStyle::MINI_KEY->equals(scaleKey)) {
+			$assign(f, $nc(f)->deriveFont((float)$Math::round($nc(f)->getSize2D() * NimbusStyle::MINI_SCALE)));
 		}
 	}
 	return f;
@@ -473,19 +387,19 @@ $SynthPainter* NimbusStyle::getPainter($SynthContext* ctx) {
 }
 
 bool NimbusStyle::isOpaque($SynthContext* ctx) {
-	$useLocalCurrentObjectStackCache();
-	if ("Table.cellRenderer"_s->equals($($nc($($nc(ctx)->getComponent()))->getName()))) {
+	$useLocalObjectStack();
+	if ("Table.cellRenderer"_s->equals($($$nc($nc(ctx)->getComponent())->getName()))) {
 		return true;
 	}
 	$var($Boolean, opaque, $cast($Boolean, get(ctx, "opaque"_s)));
-	return opaque == nullptr ? false : $nc(opaque)->booleanValue();
+	return opaque == nullptr ? false : opaque->booleanValue();
 }
 
 $Object* NimbusStyle::get($SynthContext* ctx, Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NimbusStyle$Values, v, getValues(ctx));
 	$var($String, fullKey, $nc($of(key))->toString());
-	$var($String, partialKey, $nc(fullKey)->substring(fullKey->indexOf((int32_t)u'.') + 1));
+	$var($String, partialKey, $nc(fullKey)->substring($nc(fullKey)->indexOf(u'.') + 1));
 	$var($Object, obj, nullptr);
 	int32_t xstate = getExtendedState(ctx, v);
 	$nc(this->tmpKey)->init(partialKey, xstate);
@@ -498,7 +412,7 @@ $Object* NimbusStyle::get($SynthContext* ctx, Object$* key) {
 			$assign(obj, $nc($nc(s)->defaults)->get(partialKey));
 		}
 		if (obj == nullptr && v->defaults != nullptr) {
-			$assign(obj, $nc(v->defaults)->get(partialKey));
+			$assign(obj, v->defaults->get(partialKey));
 		}
 		if (obj == nullptr) {
 			$assign(obj, $UIManager::get(fullKey));
@@ -508,7 +422,7 @@ $Object* NimbusStyle::get($SynthContext* ctx, Object$* key) {
 		}
 		$nc(v->cache)->put($$new($NimbusStyle$CacheKey, partialKey, xstate), obj == nullptr ? NimbusStyle::NULL : obj);
 	}
-	return $of($equals(obj, NimbusStyle::NULL) ? ($Object*)nullptr : obj);
+	return $equals(obj, NimbusStyle::NULL) ? ($Object*)nullptr : obj;
 }
 
 $Painter* NimbusStyle::paintFilter($Painter* painter) {
@@ -517,82 +431,82 @@ $Painter* NimbusStyle::paintFilter($Painter* painter) {
 }
 
 $Painter* NimbusStyle::getBackgroundPainter($SynthContext* ctx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NimbusStyle$Values, v, getValues(ctx));
 	int32_t xstate = getExtendedState(ctx, v);
 	$var($Painter, p, nullptr);
 	$nc(this->tmpKey)->init("backgroundPainter$$instance"_s, xstate);
-	$assign(p, paintFilter($cast($Painter, $($nc($nc(v)->cache)->get(this->tmpKey)))));
+	$assign(p, paintFilter($$cast($Painter, $nc($nc(v)->cache)->get(this->tmpKey))));
 	if (p != nullptr) {
 		return p;
 	}
 	$var($NimbusStyle$RuntimeState, s, nullptr);
 	$var($ints, lastIndex, $new($ints, {-1}));
-	while (($assign(s, getNextState($nc(v)->states, lastIndex, xstate))) != nullptr) {
+	while (($assign(s, getNextState(v->states, lastIndex, xstate))) != nullptr) {
 		if ($nc(s)->backgroundPainter != nullptr) {
 			$assign(p, paintFilter(s->backgroundPainter));
 			break;
 		}
 	}
 	if (p == nullptr) {
-		$assign(p, paintFilter($cast($Painter, $(get(ctx, "backgroundPainter"_s)))));
+		$assign(p, paintFilter($$cast($Painter, get(ctx, "backgroundPainter"_s))));
 	}
 	if (p != nullptr) {
-		$nc($nc(v)->cache)->put($$new($NimbusStyle$CacheKey, "backgroundPainter$$instance"_s, xstate), p);
+		$nc(v->cache)->put($$new($NimbusStyle$CacheKey, "backgroundPainter$$instance"_s, xstate), p);
 	}
 	return p;
 }
 
 $Painter* NimbusStyle::getForegroundPainter($SynthContext* ctx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NimbusStyle$Values, v, getValues(ctx));
 	int32_t xstate = getExtendedState(ctx, v);
 	$var($Painter, p, nullptr);
 	$nc(this->tmpKey)->init("foregroundPainter$$instance"_s, xstate);
-	$assign(p, paintFilter($cast($Painter, $($nc($nc(v)->cache)->get(this->tmpKey)))));
+	$assign(p, paintFilter($$cast($Painter, $nc($nc(v)->cache)->get(this->tmpKey))));
 	if (p != nullptr) {
 		return p;
 	}
 	$var($NimbusStyle$RuntimeState, s, nullptr);
 	$var($ints, lastIndex, $new($ints, {-1}));
-	while (($assign(s, getNextState($nc(v)->states, lastIndex, xstate))) != nullptr) {
+	while (($assign(s, getNextState(v->states, lastIndex, xstate))) != nullptr) {
 		if ($nc(s)->foregroundPainter != nullptr) {
 			$assign(p, paintFilter(s->foregroundPainter));
 			break;
 		}
 	}
 	if (p == nullptr) {
-		$assign(p, paintFilter($cast($Painter, $(get(ctx, "foregroundPainter"_s)))));
+		$assign(p, paintFilter($$cast($Painter, get(ctx, "foregroundPainter"_s))));
 	}
 	if (p != nullptr) {
-		$nc($nc(v)->cache)->put($$new($NimbusStyle$CacheKey, "foregroundPainter$$instance"_s, xstate), p);
+		$nc(v->cache)->put($$new($NimbusStyle$CacheKey, "foregroundPainter$$instance"_s, xstate), p);
 	}
 	return p;
 }
 
 $Painter* NimbusStyle::getBorderPainter($SynthContext* ctx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NimbusStyle$Values, v, getValues(ctx));
 	int32_t xstate = getExtendedState(ctx, v);
 	$var($Painter, p, nullptr);
 	$nc(this->tmpKey)->init("borderPainter$$instance"_s, xstate);
-	$assign(p, paintFilter($cast($Painter, $($nc($nc(v)->cache)->get(this->tmpKey)))));
+	$assign(p, paintFilter($$cast($Painter, $nc($nc(v)->cache)->get(this->tmpKey))));
 	if (p != nullptr) {
 		return p;
 	}
 	$var($NimbusStyle$RuntimeState, s, nullptr);
 	$var($ints, lastIndex, $new($ints, {-1}));
-	while (($assign(s, getNextState($nc(v)->states, lastIndex, xstate))) != nullptr) {
+	while (($assign(s, getNextState(v->states, lastIndex, xstate))) != nullptr) {
 		if ($nc(s)->borderPainter != nullptr) {
 			$assign(p, paintFilter(s->borderPainter));
 			break;
 		}
 	}
 	if (p == nullptr) {
-		$assign(p, paintFilter($cast($Painter, $(get(ctx, "borderPainter"_s)))));
+		$assign(p, paintFilter($$cast($Painter, get(ctx, "borderPainter"_s))));
 	}
 	if (p != nullptr) {
-		$nc($nc(v)->cache)->put($$new($NimbusStyle$CacheKey, "borderPainter$$instance"_s, xstate), p);
+		$nc(v->cache)->put($$new($NimbusStyle$CacheKey, "borderPainter$$instance"_s, xstate), p);
 	}
 	return p;
 }
@@ -615,42 +529,34 @@ bool NimbusStyle::contains($StringArray* names, $String* name) {
 }
 
 int32_t NimbusStyle::getExtendedState($SynthContext* ctx, $NimbusStyle$Values* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, c, $nc(ctx)->getComponent());
 	int32_t xstate = 0;
 	int32_t mask = 1;
 	$var($Object, property, $nc(c)->getClientProperty("Nimbus.State"_s));
 	if (property != nullptr) {
-		$var($String, stateNames, $of(property)->toString());
+		$var($String, stateNames, property->toString());
 		$var($StringArray, states, $nc(stateNames)->split("\\+"_s));
 		if ($nc(v)->stateTypes == nullptr) {
-			{
-				$var($StringArray, arr$, states);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, stateStr, arr$->get(i$));
-					{
-						$var($State$StandardState, s, $State::getStandardState(stateStr));
-						if (s != nullptr) {
-							xstate |= s->getState();
-						}
+			$var($StringArray, arr$, states);
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($String, stateStr, arr$->get(i$));
+				{
+					$var($State$StandardState, s, $State::getStandardState(stateStr));
+					if (s != nullptr) {
+						xstate |= s->getState();
 					}
 				}
 			}
 		} else {
-			{
-				$var($StateArray, arr$, v->stateTypes);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($State, s, arr$->get(i$));
-					{
-						if (contains(states, $($nc(s)->getName()))) {
-							xstate |= mask;
-						}
-						mask <<= 1;
+			$var($StateArray, arr$, v->stateTypes);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($State, s, arr$->get(i$));
+				{
+					if (contains(states, $($nc(s)->getName()))) {
+						xstate |= mask;
 					}
+					mask <<= 1;
 				}
 			}
 		}
@@ -660,10 +566,8 @@ int32_t NimbusStyle::getExtendedState($SynthContext* ctx, $NimbusStyle$Values* v
 		}
 		int32_t state = ctx->getComponentState();
 		{
-			$var($StateArray, arr$, $nc(v)->stateTypes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($StateArray, arr$, v->stateTypes);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($State, s, arr$->get(i$));
 				{
 					if ($nc(s)->isInState(c, state)) {
@@ -692,14 +596,14 @@ $NimbusStyle$RuntimeState* NimbusStyle::getNextState($NimbusStyle$RuntimeStateAr
 			$nc(lastState)->set(0, -1);
 			return nullptr;
 		}
-		int32_t lastStateIndex = lastState == nullptr || $nc(lastState)->get(0) == -1 ? states->length : $nc(lastState)->get(0);
+		int32_t lastStateIndex = lastState == nullptr || lastState->get(0) == -1 ? states->length : lastState->get(0);
 		for (int32_t counter = lastStateIndex - 1; counter >= 0; --counter) {
 			int32_t oState = $nc(states->get(counter))->state;
 			if (oState == 0) {
 				if (wildIndex == -1) {
 					wildIndex = counter;
 				}
-			} else if (((int32_t)(xstate & (uint32_t)oState)) == oState) {
+			} else if ((xstate & oState) == oState) {
 				int32_t bitCount = $Integer::bitCount(oState);
 				if (bitCount > bestCount) {
 					bestIndex = counter;
@@ -708,11 +612,11 @@ $NimbusStyle$RuntimeState* NimbusStyle::getNextState($NimbusStyle$RuntimeStateAr
 			}
 		}
 		if (bestIndex != -1) {
-			lastState->set(0, bestIndex);
+			$nc(lastState)->set(0, bestIndex);
 			return states->get(bestIndex);
 		}
 		if (wildIndex != -1) {
-			lastState->set(0, wildIndex);
+			$nc(lastState)->set(0, wildIndex);
 			return states->get(wildIndex);
 		}
 	}
@@ -720,7 +624,7 @@ $NimbusStyle$RuntimeState* NimbusStyle::getNextState($NimbusStyle$RuntimeStateAr
 	return nullptr;
 }
 
-void clinit$NimbusStyle($Class* class$) {
+void NimbusStyle::clinit$($Class* clazz) {
 	$assignStatic(NimbusStyle::LARGE_KEY, "large"_s);
 	$assignStatic(NimbusStyle::SMALL_KEY, "small"_s);
 	$assignStatic(NimbusStyle::MINI_KEY, "mini"_s);
@@ -738,7 +642,69 @@ NimbusStyle::NimbusStyle() {
 }
 
 $Class* NimbusStyle::load$($String* name, bool initialize) {
-	$loadClass(NimbusStyle, name, initialize, &_NimbusStyle_ClassInfo_, clinit$NimbusStyle, allocate$NimbusStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NimbusStyle, $assertionsDisabled)},
+		{"LARGE_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, LARGE_KEY)},
+		{"SMALL_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, SMALL_KEY)},
+		{"MINI_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, MINI_KEY)},
+		{"LARGE_SCALE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, LARGE_SCALE)},
+		{"SMALL_SCALE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, SMALL_SCALE)},
+		{"MINI_SCALE", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NimbusStyle, MINI_SCALE)},
+		{"NULL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NimbusStyle, NULL)},
+		{"DEFAULT_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NimbusStyle, DEFAULT_COLOR)},
+		{"STATE_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NimbusStyle, STATE_COMPARATOR)},
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusStyle, prefix)},
+		{"painter", "Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $field(NimbusStyle, painter)},
+		{"values", "Ljavax/swing/plaf/nimbus/NimbusStyle$Values;", nullptr, $PRIVATE, $field(NimbusStyle, values)},
+		{"tmpKey", "Ljavax/swing/plaf/nimbus/NimbusStyle$CacheKey;", nullptr, $PRIVATE, $field(NimbusStyle, tmpKey)},
+		{"component", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljavax/swing/JComponent;>;", $PRIVATE, $field(NimbusStyle, component)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/JComponent;)V", nullptr, 0, $method(NimbusStyle, init$, void, $String*, $JComponent*)},
+		{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(NimbusStyle, contains, bool, $StringArray*, $String*)},
+		{"get", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, get, $Object*, $SynthContext*, Object$*)},
+		{"getBackgroundPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter;", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PUBLIC, $method(NimbusStyle, getBackgroundPainter, $Painter*, $SynthContext*)},
+		{"getBorderPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter;", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PUBLIC, $method(NimbusStyle, getBorderPainter, $Painter*, $SynthContext*)},
+		{"getColorForState", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/ColorType;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(NimbusStyle, getColorForState, $Color*, $SynthContext*, $ColorType*)},
+		{"getExtendedState", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/nimbus/NimbusStyle$Values;)I", nullptr, $PRIVATE, $method(NimbusStyle, getExtendedState, int32_t, $SynthContext*, $NimbusStyle$Values*)},
+		{"getFontForState", "(Ljavax/swing/plaf/synth/SynthContext;)Ljava/awt/Font;", nullptr, $PROTECTED, $virtualMethod(NimbusStyle, getFontForState, $Font*, $SynthContext*)},
+		{"getForegroundPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter;", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PUBLIC, $method(NimbusStyle, getForegroundPainter, $Painter*, $SynthContext*)},
+		{"getInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, getInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getNextState", "([Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;[II)Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;", nullptr, $PRIVATE, $method(NimbusStyle, getNextState, $NimbusStyle$RuntimeState*, $NimbusStyle$RuntimeStateArray*, $ints*, int32_t)},
+		{"getPainter", "(Ljava/util/Map;Ljava/lang/String;)Ljavax/swing/Painter;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/lang/String;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PRIVATE, $method(NimbusStyle, getPainter, $Painter*, $Map*, $String*)},
+		{"getPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, getPainter, $SynthPainter*, $SynthContext*)},
+		{"getValues", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/nimbus/NimbusStyle$Values;", nullptr, $PRIVATE, $method(NimbusStyle, getValues, $NimbusStyle$Values*, $SynthContext*)},
+		{"installDefaults", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, installDefaults, void, $SynthContext*)},
+		{"isOpaque", "(Ljavax/swing/plaf/synth/SynthContext;)Z", nullptr, $PUBLIC, $virtualMethod(NimbusStyle, isOpaque, bool, $SynthContext*)},
+		{"paintFilter", "(Ljavax/swing/Painter;)Ljavax/swing/Painter;", "(Ljavax/swing/Painter;)Ljavax/swing/Painter<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(NimbusStyle, paintFilter, $Painter*, $Painter*)},
+		{"validate", "()V", nullptr, $PRIVATE, $method(NimbusStyle, validate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusStyle$CacheKey", "javax.swing.plaf.nimbus.NimbusStyle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
+		{"javax.swing.plaf.nimbus.NimbusStyle$Values", "javax.swing.plaf.nimbus.NimbusStyle", "Values", $PRIVATE | $STATIC | $FINAL},
+		{"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState", "javax.swing.plaf.nimbus.NimbusStyle", "RuntimeState", $PRIVATE | $FINAL},
+		{"javax.swing.plaf.nimbus.NimbusStyle$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusStyle",
+		"javax.swing.plaf.synth.SynthStyle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusStyle$CacheKey,javax.swing.plaf.nimbus.NimbusStyle$Values,javax.swing.plaf.nimbus.NimbusStyle$RuntimeState,javax.swing.plaf.nimbus.NimbusStyle$1"
+	};
+	$loadClass(NimbusStyle, name, initialize, &classInfo$$, NimbusStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NimbusStyle);
+	});
 	return class$;
 }
 

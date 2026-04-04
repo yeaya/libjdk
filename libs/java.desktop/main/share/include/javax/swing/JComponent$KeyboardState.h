@@ -25,6 +25,7 @@ class $import JComponent$KeyboardState : public ::java::io::Serializable {
 	$class(JComponent$KeyboardState, 0, ::java::io::Serializable)
 public:
 	JComponent$KeyboardState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JComponent$IntVector* getKeyCodeArray();
 	static bool keyIsPressed(int32_t keyCode);

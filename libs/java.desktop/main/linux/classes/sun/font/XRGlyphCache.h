@@ -60,7 +60,7 @@ public:
 	int32_t lcdGlyphSet = 0;
 	int32_t time = 0;
 	int32_t cachedPixels = 0;
-	static const int32_t MAX_CACHED_PIXELS = 0x000186A0;
+	static const int32_t MAX_CACHED_PIXELS = 0x000186a0;
 	::java::util::ArrayList* freeGlyphIDs = nullptr;
 	static const bool batchGlyphUpload = true;
 };

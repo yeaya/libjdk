@@ -1,5 +1,4 @@
 #include <java/awt/TexturePaintContext$ByteFilter.h>
-
 #include <java/awt/TexturePaintContext.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -32,67 +31,21 @@ using $IntegerInterleavedRaster = ::sun::awt::image::IntegerInterleavedRaster;
 namespace java {
 	namespace awt {
 
-$FieldInfo _TexturePaintContext$ByteFilter_FieldInfo_[] = {
-	{"srcRas", "Lsun/awt/image/ByteInterleavedRaster;", nullptr, 0, $field(TexturePaintContext$ByteFilter, srcRas)},
-	{"inPalette", "[I", nullptr, 0, $field(TexturePaintContext$ByteFilter, inPalette)},
-	{"inData", "[B", nullptr, 0, $field(TexturePaintContext$ByteFilter, inData)},
-	{"inOff", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, inOff)},
-	{"inSpan", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, inSpan)},
-	{"outData", "[I", nullptr, 0, $field(TexturePaintContext$ByteFilter, outData)},
-	{"outOff", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, outOff)},
-	{"outSpan", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, outSpan)},
-	{}
-};
-
-$MethodInfo _TexturePaintContext$ByteFilter_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/ByteInterleavedRaster;Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;I)V", nullptr, $PUBLIC, $method(TexturePaintContext$ByteFilter, init$, void, $ByteInterleavedRaster*, $ColorModel*, $AffineTransform*, int32_t)},
-	{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$ByteFilter, makeRaster, $WritableRaster*, int32_t, int32_t)},
-	{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$ByteFilter, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TexturePaintContext$ByteFilter_InnerClassesInfo_[] = {
-	{"java.awt.TexturePaintContext$ByteFilter", "java.awt.TexturePaintContext", "ByteFilter", $STATIC},
-	{}
-};
-
-$ClassInfo _TexturePaintContext$ByteFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.TexturePaintContext$ByteFilter",
-	"java.awt.TexturePaintContext",
-	nullptr,
-	_TexturePaintContext$ByteFilter_FieldInfo_,
-	_TexturePaintContext$ByteFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TexturePaintContext$ByteFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.TexturePaintContext"
-};
-
-$Object* allocate$TexturePaintContext$ByteFilter($Class* clazz) {
-	return $of($alloc(TexturePaintContext$ByteFilter));
-}
-
 void TexturePaintContext$ByteFilter::init$($ByteInterleavedRaster* srcRas, $ColorModel* cm, $AffineTransform* xform, int32_t maxw) {
-	$useLocalCurrentObjectStackCache();
 	$init($TexturePaintContext);
-	$var($ColorModel, var$0, ($nc(cm)->getTransparency() == $Transparency::OPAQUE ? $TexturePaintContext::xrgbmodel : $TexturePaintContext::argbmodel));
-	$var($AffineTransform, var$1, xform);
-	int32_t var$2 = $nc(srcRas)->getWidth();
-	$TexturePaintContext::init$(var$0, var$1, var$2, srcRas->getHeight(), maxw);
+	$var($ColorModel, var$0, $nc(cm)->getTransparency() == $Transparency::OPAQUE ? $TexturePaintContext::xrgbmodel : $TexturePaintContext::argbmodel);
+	int32_t var$1 = $nc(srcRas)->getWidth();
+	$TexturePaintContext::init$(var$0, xform, var$1, srcRas->getHeight(), maxw);
 	$set(this, inPalette, $new($ints, 256));
-	$nc(($cast($IndexColorModel, cm)))->getRGBs(this->inPalette);
+	$cast($IndexColorModel, cm)->getRGBs(this->inPalette);
 	$set(this, srcRas, srcRas);
-	$set(this, inData, $nc(srcRas)->getDataStorage());
+	$set(this, inData, srcRas->getDataStorage());
 	this->inSpan = srcRas->getScanlineStride();
 	this->inOff = srcRas->getDataOffset(0);
 }
 
 $WritableRaster* TexturePaintContext$ByteFilter::makeRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, ras, $TexturePaintContext::makeRaster(this->colorModel, nullptr, w, h));
 	$var($IntegerInterleavedRaster, iiRas, $cast($IntegerInterleavedRaster, ras));
 	$set(this, outData, $nc(iiRas)->getDataStorage());
@@ -102,7 +55,7 @@ $WritableRaster* TexturePaintContext$ByteFilter::makeRaster(int32_t w, int32_t h
 }
 
 void TexturePaintContext$ByteFilter::setRaster(int32_t x, int32_t y, int32_t xerr, int32_t yerr, int32_t w, int32_t h, int32_t bWidth, int32_t bHeight, int32_t colincx, int32_t colincxerr, int32_t colincy, int32_t colincyerr, int32_t rowincx, int32_t rowincxerr, int32_t rowincy, int32_t rowincyerr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, inData, this->inData);
 	$var($ints, outData, this->outData);
 	int32_t out = this->outOff;
@@ -128,10 +81,10 @@ void TexturePaintContext$ByteFilter::setRaster(int32_t x, int32_t y, int32_t xer
 			if ((nexty = y + 1) >= bHeight) {
 				nexty = 0;
 			}
-			rgbs->set(0, $nc(this->inPalette)->get((int32_t)(255 & (uint32_t)(int32_t)$nc(inData)->get(inOff + x + inSpan * y))));
-			rgbs->set(1, $nc(this->inPalette)->get((int32_t)(255 & (uint32_t)(int32_t)inData->get(inOff + nextx + inSpan * y))));
-			rgbs->set(2, $nc(this->inPalette)->get((int32_t)(255 & (uint32_t)(int32_t)inData->get(inOff + x + inSpan * nexty))));
-			rgbs->set(3, $nc(this->inPalette)->get((int32_t)(255 & (uint32_t)(int32_t)inData->get(inOff + nextx + inSpan * nexty))));
+			rgbs->set(0, $nc(this->inPalette)->get(0xff & $nc(inData)->get(inOff + x + inSpan * y)));
+			rgbs->set(1, this->inPalette->get(0xff & inData->get(inOff + nextx + inSpan * y)));
+			rgbs->set(2, this->inPalette->get(0xff & inData->get(inOff + x + inSpan * nexty)));
+			rgbs->set(3, this->inPalette->get(0xff & inData->get(inOff + nextx + inSpan * nexty)));
 			$nc(outData)->set(out + i, $TexturePaintContext::blend(rgbs, xerr, yerr));
 			if ((xerr += colincxerr) < 0) {
 				xerr &= (uint32_t)$Integer::MAX_VALUE;
@@ -170,7 +123,45 @@ TexturePaintContext$ByteFilter::TexturePaintContext$ByteFilter() {
 }
 
 $Class* TexturePaintContext$ByteFilter::load$($String* name, bool initialize) {
-	$loadClass(TexturePaintContext$ByteFilter, name, initialize, &_TexturePaintContext$ByteFilter_ClassInfo_, allocate$TexturePaintContext$ByteFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"srcRas", "Lsun/awt/image/ByteInterleavedRaster;", nullptr, 0, $field(TexturePaintContext$ByteFilter, srcRas)},
+		{"inPalette", "[I", nullptr, 0, $field(TexturePaintContext$ByteFilter, inPalette)},
+		{"inData", "[B", nullptr, 0, $field(TexturePaintContext$ByteFilter, inData)},
+		{"inOff", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, inOff)},
+		{"inSpan", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, inSpan)},
+		{"outData", "[I", nullptr, 0, $field(TexturePaintContext$ByteFilter, outData)},
+		{"outOff", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, outOff)},
+		{"outSpan", "I", nullptr, 0, $field(TexturePaintContext$ByteFilter, outSpan)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/ByteInterleavedRaster;Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;I)V", nullptr, $PUBLIC, $method(TexturePaintContext$ByteFilter, init$, void, $ByteInterleavedRaster*, $ColorModel*, $AffineTransform*, int32_t)},
+		{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$ByteFilter, makeRaster, $WritableRaster*, int32_t, int32_t)},
+		{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$ByteFilter, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TexturePaintContext$ByteFilter", "java.awt.TexturePaintContext", "ByteFilter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.TexturePaintContext$ByteFilter",
+		"java.awt.TexturePaintContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.TexturePaintContext"
+	};
+	$loadClass(TexturePaintContext$ByteFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TexturePaintContext$ByteFilter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java.desktop.h>
-
 #include <java.prefs.h>
 #include <java.datatransfer.h>
 #include <java.xml.h>
@@ -11838,9 +11837,10 @@ void java$desktop::init() {
 	::java$datatransfer::init();
 	::java$xml::init();
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.desktop", "17.35", "",
-		nullptr,
+		&_java$desktop_ModuleInfo_,
 		java$desktop$LibEventAction,
 		java$desktop$GetPackages,
 		java$desktop$GetClassEntry,

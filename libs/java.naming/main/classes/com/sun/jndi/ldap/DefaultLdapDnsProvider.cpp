@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/DefaultLdapDnsProvider.h>
-
 #include <com/sun/jndi/ldap/LdapURL.h>
 #include <com/sun/jndi/ldap/ServiceLocator.h>
 #include <java/util/ArrayList.h>
@@ -25,30 +24,11 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$MethodInfo _DefaultLdapDnsProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLdapDnsProvider, init$, void)},
-	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC, $virtualMethod(DefaultLdapDnsProvider, lookupEndpoints, $Optional*, $String*, $Map*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _DefaultLdapDnsProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.ldap.DefaultLdapDnsProvider",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DefaultLdapDnsProvider_MethodInfo_
-};
-
-$Object* allocate$DefaultLdapDnsProvider($Class* clazz) {
-	return $of($alloc(DefaultLdapDnsProvider));
-}
-
 void DefaultLdapDnsProvider::init$() {
 }
 
 $Optional* DefaultLdapDnsProvider::lookupEndpoints($String* url, $Map* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (url == nullptr || env == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -66,9 +46,7 @@ $Optional* DefaultLdapDnsProvider::lookupEndpoints($String* url, $Map* env) {
 		$var($String, urlSuffix, $str({$(ldapUrl->getPath()), (query != nullptr ? query : ""_s)}));
 		{
 			$var($StringArray, arr$, hostports);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, hostPort, arr$->get(i$));
 				{
 					endpoints->add($$str({scheme, hostPort, urlSuffix}));
@@ -80,8 +58,8 @@ $Optional* DefaultLdapDnsProvider::lookupEndpoints($String* url, $Map* env) {
 		endpoints->add(url);
 	}
 	$var($LdapDnsProviderResult, res, $new($LdapDnsProviderResult, domainName, endpoints));
-	bool var$1 = $nc($(res->getEndpoints()))->isEmpty();
-	if (var$1 && $nc($(res->getDomainName()))->isEmpty()) {
+	bool var$1 = $$nc(res->getEndpoints())->isEmpty();
+	if (var$1 && $$nc(res->getDomainName())->isEmpty()) {
 		return $Optional::empty();
 	} else {
 		return $Optional::of(res);
@@ -92,7 +70,22 @@ DefaultLdapDnsProvider::DefaultLdapDnsProvider() {
 }
 
 $Class* DefaultLdapDnsProvider::load$($String* name, bool initialize) {
-	$loadClass(DefaultLdapDnsProvider, name, initialize, &_DefaultLdapDnsProvider_ClassInfo_, allocate$DefaultLdapDnsProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLdapDnsProvider, init$, void)},
+		{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC, $virtualMethod(DefaultLdapDnsProvider, lookupEndpoints, $Optional*, $String*, $Map*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.ldap.DefaultLdapDnsProvider",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultLdapDnsProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultLdapDnsProvider);
+	});
 	return class$;
 }
 

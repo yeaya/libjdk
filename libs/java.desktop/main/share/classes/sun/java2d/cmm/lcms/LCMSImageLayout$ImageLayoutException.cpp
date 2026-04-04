@@ -1,5 +1,4 @@
 #include <sun/java2d/cmm/lcms/LCMSImageLayout$ImageLayoutException.h>
-
 #include <sun/java2d/cmm/lcms/LCMSImageLayout.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ namespace sun {
 	namespace java2d {
 		namespace cmm {
 			namespace lcms {
-
-$MethodInfo _LCMSImageLayout$ImageLayoutException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LCMSImageLayout$ImageLayoutException, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _LCMSImageLayout$ImageLayoutException_InnerClassesInfo_[] = {
-	{"sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException", "sun.java2d.cmm.lcms.LCMSImageLayout", "ImageLayoutException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _LCMSImageLayout$ImageLayoutException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException",
-	"java.lang.Exception",
-	nullptr,
-	nullptr,
-	_LCMSImageLayout$ImageLayoutException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LCMSImageLayout$ImageLayoutException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.cmm.lcms.LCMSImageLayout"
-};
-
-$Object* allocate$LCMSImageLayout$ImageLayoutException($Class* clazz) {
-	return $of($alloc(LCMSImageLayout$ImageLayoutException));
-}
 
 void LCMSImageLayout$ImageLayoutException::init$($String* message) {
 	$Exception::init$(message);
@@ -58,7 +27,32 @@ void LCMSImageLayout$ImageLayoutException::throw$() {
 }
 
 $Class* LCMSImageLayout$ImageLayoutException::load$($String* name, bool initialize) {
-	$loadClass(LCMSImageLayout$ImageLayoutException, name, initialize, &_LCMSImageLayout$ImageLayoutException_ClassInfo_, allocate$LCMSImageLayout$ImageLayoutException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LCMSImageLayout$ImageLayoutException, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException", "sun.java2d.cmm.lcms.LCMSImageLayout", "ImageLayoutException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.cmm.lcms.LCMSImageLayout$ImageLayoutException",
+		"java.lang.Exception",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.cmm.lcms.LCMSImageLayout"
+	};
+	$loadClass(LCMSImageLayout$ImageLayoutException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LCMSImageLayout$ImageLayoutException);
+	});
 	return class$;
 }
 

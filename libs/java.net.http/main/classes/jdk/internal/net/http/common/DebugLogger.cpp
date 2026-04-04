@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/DebugLogger.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/System$Logger$Level.h>
@@ -58,88 +57,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DebugLogger$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DebugLogger$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DebugLogger$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo DebugLogger$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DebugLogger$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DebugLogger$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo DebugLogger$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.DebugLogger$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* DebugLogger$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(DebugLogger$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DebugLogger$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DebugLogger$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DebugLogger$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.DebugLogger$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DebugLogger$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DebugLogger$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* DebugLogger$$Lambda$toString::class$ = nullptr;
-
-$FieldInfo _DebugLogger_FieldInfo_[] = {
-	{"HTTP_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HTTP_NAME)},
-	{"WS_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, WS_NAME)},
-	{"HPACK_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HPACK_NAME)},
-	{"HTTP", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HTTP)},
-	{"WS", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, WS)},
-	{"HPACK", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HPACK)},
-	{"NO_HTTP_LOGGER", "Ljdk/internal/net/http/common/DebugLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugLogger, NO_HTTP_LOGGER)},
-	{"NO_WS_LOGGER", "Ljdk/internal/net/http/common/DebugLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugLogger, NO_WS_LOGGER)},
-	{"NO_HPACK_LOGGER", "Ljdk/internal/net/http/common/DebugLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugLogger, NO_HPACK_LOGGER)},
-	{"START_NANOS", "J", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, START_NANOS)},
-	{"dbgTag", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DebugLogger, dbgTag)},
-	{"errLevel", "Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, errLevel)},
-	{"outLevel", "Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, outLevel)},
-	{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, logger)},
-	{"debugOn", "Z", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, debugOn)},
-	{"traceOn", "Z", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, traceOn)},
-	{}
-};
-
-$MethodInfo _DebugLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/System$Logger;Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)V", "(Ljava/lang/System$Logger;Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)V", $PRIVATE, $method(DebugLogger, init$, void, $System$Logger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
-	{"createHpackLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", $PUBLIC | $STATIC, $staticMethod(DebugLogger, createHpackLogger, DebugLogger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
-	{"createHttpLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", $PUBLIC | $STATIC, $staticMethod(DebugLogger, createHttpLogger, DebugLogger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
-	{"createWebSocketLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", $PUBLIC | $STATIC, $staticMethod(DebugLogger, createWebSocketLogger, DebugLogger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
-	{"decorate", "(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(DebugLogger, decorate, $StringBuilder*, $StringBuilder*, $String*)},
-	{"format", "(Ljava/lang/StringBuilder;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(DebugLogger, format, $StringBuilder*, $StringBuilder*, $String*, $ObjectArray*)},
-	{"getFormat", "(Ljava/lang/StringBuilder;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(DebugLogger, getFormat, $StringBuilder*, $StringBuilder*, $String*, $ObjectArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DebugLogger, getName, $String*)},
-	{"isEnabled", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PRIVATE, $method(DebugLogger, isEnabled, bool, $System$Logger$Level*)},
-	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(DebugLogger, isLoggable, bool, $System$Logger$Level*)},
-	{"levelEnabledFor", "(Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger;)Z", nullptr, $STATIC, $staticMethod(DebugLogger, levelEnabledFor, bool, $System$Logger$Level*, $System$Logger$Level*, $System$Logger$Level*, $System$Logger*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DebugLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(DebugLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"on", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DebugLogger, on, bool)},
-	{"print", "(Ljava/io/PrintStream;Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(DebugLogger, print, void, $PrintStream*, $System$Logger$Level*, $String*, $ObjectArray*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _DebugLogger_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.DebugLogger",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.Logger",
-	_DebugLogger_FieldInfo_,
-	_DebugLogger_MethodInfo_
-};
-
-$Object* allocate$DebugLogger($Class* clazz) {
-	return $of($alloc(DebugLogger));
-}
 
 $String* DebugLogger::HTTP_NAME = nullptr;
 $String* DebugLogger::WS_NAME = nullptr;
@@ -198,7 +141,7 @@ bool DebugLogger::isLoggable($System$Logger$Level* level) {
 }
 
 void DebugLogger::log($System$Logger$Level* level, $ResourceBundle* unused, $String* format, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($System$Logger$Level);
 	if (level == $System$Logger$Level::DEBUG && !this->debugOn) {
 		return;
@@ -214,12 +157,12 @@ void DebugLogger::log($System$Logger$Level* level, $ResourceBundle* unused, $Str
 		print($System::out, level, format, params, nullptr);
 	}
 	if ($nc(this->logger)->isLoggable(level)) {
-		$nc(this->logger)->log(level, unused, $($nc($(getFormat($$new($StringBuilder), format, params)))->toString()), params);
+		this->logger->log(level, unused, $($$nc(getFormat($$new($StringBuilder), format, params))->toString()), params);
 	}
 }
 
 void DebugLogger::log($System$Logger$Level* level, $ResourceBundle* unused, $String* msg, $Throwable* thrown) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($System$Logger$Level);
 	if (level == $System$Logger$Level::DEBUG && !this->debugOn) {
 		return;
@@ -244,12 +187,12 @@ void DebugLogger::log($System$Logger$Level* level, $ResourceBundle* unused, $Str
 		print($System::out, level, msg, nullptr, thrown);
 	}
 	if ($nc(this->logger)->isLoggable(level)) {
-		$nc(this->logger)->log(level, unused, $($nc($(getFormat($$new($StringBuilder), msg, nullptr)))->toString()), thrown);
+		this->logger->log(level, unused, $($$nc(getFormat($$new($StringBuilder), msg, nullptr))->toString()), thrown);
 	}
 }
 
 void DebugLogger::print($PrintStream* out, $System$Logger$Level* level, $String* msg, $ObjectArray* params, $Throwable* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($nc(level)->name()))->append(u':')->append(u' ');
 	$assign(sb, format(sb, msg, params));
@@ -263,11 +206,11 @@ void DebugLogger::print($PrintStream* out, $System$Logger$Level* level, $String*
 }
 
 $StringBuilder* DebugLogger::decorate($StringBuilder* sb, $String* msg) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, tag, this->dbgTag == nullptr ? ($String*)nullptr : $cast($String, $nc(this->dbgTag)->get()));
+	$useLocalObjectStack();
+	$var($String, tag, this->dbgTag == nullptr ? ($String*)nullptr : $cast($String, this->dbgTag->get()));
 	$var($String, res, msg == nullptr ? ""_s : msg);
 	int64_t elapsed = $System::nanoTime() - DebugLogger::START_NANOS;
-	int64_t millis = elapsed / 0x000F4240;
+	int64_t millis = elapsed / 1000000;
 	int64_t secs = millis / 1000;
 	$nc(sb)->append(u'[')->append($($($Thread::currentThread())->getName()))->append(u']')->append(u' ')->append(u'[');
 	if (secs > 0) {
@@ -289,15 +232,15 @@ $StringBuilder* DebugLogger::decorate($StringBuilder* sb, $String* msg) {
 }
 
 $StringBuilder* DebugLogger::getFormat($StringBuilder* sb, $String* format, $ObjectArray* params) {
-	if (format == nullptr || params == nullptr || $nc(params)->length == 0) {
+	if (format == nullptr || params == nullptr || params->length == 0) {
 		return decorate(sb, format);
 	} else {
-		bool var$1 = $nc(format)->contains("{0}"_s);
-		if (var$1 || $nc(format)->contains("{1}"_s)) {
+		bool var$0 = format->contains("{0}"_s);
+		if (var$0 || format->contains("{1}"_s)) {
 			return decorate(sb, format);
 		} else {
-			bool var$3 = format->contains("%s"_s);
-			if (var$3 || format->contains("%d"_s)) {
+			bool var$1 = format->contains("%s"_s);
+			if (var$1 || format->contains("%d"_s)) {
 				try {
 					return decorate(sb, $($String::format(format, params)));
 				} catch ($Throwable& t) {
@@ -311,16 +254,16 @@ $StringBuilder* DebugLogger::getFormat($StringBuilder* sb, $String* format, $Obj
 }
 
 $StringBuilder* DebugLogger::format($StringBuilder* sb, $String* format, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
-	if (format == nullptr || params == nullptr || $nc(params)->length == 0) {
+	$useLocalObjectStack();
+	if (format == nullptr || params == nullptr || params->length == 0) {
 		return decorate(sb, format);
 	} else {
-		bool var$1 = $nc(format)->contains("{0}"_s);
-		if (var$1 || $nc(format)->contains("{1}"_s)) {
+		bool var$0 = format->contains("{0}"_s);
+		if (var$0 || format->contains("{1}"_s)) {
 			return decorate(sb, $($MessageFormat::format(format, params)));
 		} else {
-			bool var$3 = format->contains("%s"_s);
-			if (var$3 || format->contains("%d"_s)) {
+			bool var$1 = format->contains("%s"_s);
+			if (var$1 || format->contains("%d"_s)) {
 				try {
 					return decorate(sb, $($String::format(format, params)));
 				} catch ($Throwable& t) {
@@ -363,8 +306,8 @@ DebugLogger* DebugLogger::createHpackLogger($Supplier* dbgTag, $System$Logger$Le
 	}
 }
 
-void clinit$DebugLogger($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DebugLogger::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DebugLogger::HTTP_NAME, "jdk.internal.httpclient.debug"_s);
 	$assignStatic(DebugLogger::WS_NAME, "jdk.internal.httpclient.websocket.debug"_s);
 	$assignStatic(DebugLogger::HPACK_NAME, "jdk.internal.httpclient.hpack.debug"_s);
@@ -373,9 +316,9 @@ void clinit$DebugLogger($Class* class$) {
 	$assignStatic(DebugLogger::WS, $System::getLogger(DebugLogger::WS_NAME));
 	$assignStatic(DebugLogger::HPACK, $System::getLogger(DebugLogger::HPACK_NAME));
 	$init($System$Logger$Level);
-	$assignStatic(DebugLogger::NO_HTTP_LOGGER, $new(DebugLogger, DebugLogger::HTTP, static_cast<$Supplier*>($$new(DebugLogger$$Lambda$toString, static_cast<$String*>("HTTP"_s))), $System$Logger$Level::OFF, $System$Logger$Level::OFF));
-	$assignStatic(DebugLogger::NO_WS_LOGGER, $new(DebugLogger, DebugLogger::HTTP, static_cast<$Supplier*>($$new(DebugLogger$$Lambda$toString, static_cast<$String*>("WS"_s))), $System$Logger$Level::OFF, $System$Logger$Level::OFF));
-	$assignStatic(DebugLogger::NO_HPACK_LOGGER, $new(DebugLogger, DebugLogger::HTTP, static_cast<$Supplier*>($$new(DebugLogger$$Lambda$toString, static_cast<$String*>("HPACK"_s))), $System$Logger$Level::OFF, $System$Logger$Level::OFF));
+	$assignStatic(DebugLogger::NO_HTTP_LOGGER, $new(DebugLogger, DebugLogger::HTTP, $$new(DebugLogger$$Lambda$toString, "HTTP"_s), $System$Logger$Level::OFF, $System$Logger$Level::OFF));
+	$assignStatic(DebugLogger::NO_WS_LOGGER, $new(DebugLogger, DebugLogger::HTTP, $$new(DebugLogger$$Lambda$toString, "WS"_s), $System$Logger$Level::OFF, $System$Logger$Level::OFF));
+	$assignStatic(DebugLogger::NO_HPACK_LOGGER, $new(DebugLogger, DebugLogger::HTTP, $$new(DebugLogger$$Lambda$toString, "HPACK"_s), $System$Logger$Level::OFF, $System$Logger$Level::OFF));
 	DebugLogger::START_NANOS = $System::nanoTime();
 }
 
@@ -384,11 +327,58 @@ DebugLogger::DebugLogger() {
 
 $Class* DebugLogger::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DebugLogger$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.DebugLogger$$Lambda$toString")) {
 			return DebugLogger$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(DebugLogger, name, initialize, &_DebugLogger_ClassInfo_, clinit$DebugLogger, allocate$DebugLogger);
+	$FieldInfo fieldInfos$$[] = {
+		{"HTTP_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HTTP_NAME)},
+		{"WS_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, WS_NAME)},
+		{"HPACK_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HPACK_NAME)},
+		{"HTTP", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HTTP)},
+		{"WS", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, WS)},
+		{"HPACK", "Ljava/lang/System$Logger;", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, HPACK)},
+		{"NO_HTTP_LOGGER", "Ljdk/internal/net/http/common/DebugLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugLogger, NO_HTTP_LOGGER)},
+		{"NO_WS_LOGGER", "Ljdk/internal/net/http/common/DebugLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugLogger, NO_WS_LOGGER)},
+		{"NO_HPACK_LOGGER", "Ljdk/internal/net/http/common/DebugLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugLogger, NO_HPACK_LOGGER)},
+		{"START_NANOS", "J", nullptr, $STATIC | $FINAL, $staticField(DebugLogger, START_NANOS)},
+		{"dbgTag", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DebugLogger, dbgTag)},
+		{"errLevel", "Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, errLevel)},
+		{"outLevel", "Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, outLevel)},
+		{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, logger)},
+		{"debugOn", "Z", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, debugOn)},
+		{"traceOn", "Z", nullptr, $PRIVATE | $FINAL, $field(DebugLogger, traceOn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/System$Logger;Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)V", "(Ljava/lang/System$Logger;Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)V", $PRIVATE, $method(DebugLogger, init$, void, $System$Logger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
+		{"createHpackLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", $PUBLIC | $STATIC, $staticMethod(DebugLogger, createHpackLogger, DebugLogger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
+		{"createHttpLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", $PUBLIC | $STATIC, $staticMethod(DebugLogger, createHttpLogger, DebugLogger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
+		{"createWebSocketLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/DebugLogger;", $PUBLIC | $STATIC, $staticMethod(DebugLogger, createWebSocketLogger, DebugLogger*, $Supplier*, $System$Logger$Level*, $System$Logger$Level*)},
+		{"decorate", "(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(DebugLogger, decorate, $StringBuilder*, $StringBuilder*, $String*)},
+		{"format", "(Ljava/lang/StringBuilder;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(DebugLogger, format, $StringBuilder*, $StringBuilder*, $String*, $ObjectArray*)},
+		{"getFormat", "(Ljava/lang/StringBuilder;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $method(DebugLogger, getFormat, $StringBuilder*, $StringBuilder*, $String*, $ObjectArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DebugLogger, getName, $String*)},
+		{"isEnabled", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PRIVATE, $method(DebugLogger, isEnabled, bool, $System$Logger$Level*)},
+		{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(DebugLogger, isLoggable, bool, $System$Logger$Level*)},
+		{"levelEnabledFor", "(Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger$Level;Ljava/lang/System$Logger;)Z", nullptr, $STATIC, $staticMethod(DebugLogger, levelEnabledFor, bool, $System$Logger$Level*, $System$Logger$Level*, $System$Logger$Level*, $System$Logger*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DebugLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(DebugLogger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"on", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DebugLogger, on, bool)},
+		{"print", "(Ljava/io/PrintStream;Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(DebugLogger, print, void, $PrintStream*, $System$Logger$Level*, $String*, $ObjectArray*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.DebugLogger",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.Logger",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DebugLogger, name, initialize, &classInfo$$, DebugLogger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DebugLogger);
+	});
 	return class$;
 }
 

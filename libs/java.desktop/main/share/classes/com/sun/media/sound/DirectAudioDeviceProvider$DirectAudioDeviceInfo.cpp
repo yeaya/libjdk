@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DirectAudioDeviceProvider$DirectAudioDeviceInfo.h>
-
 #include <com/sun/media/sound/DirectAudioDeviceProvider.h>
 #include <javax/sound/sampled/Mixer$Info.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DirectAudioDeviceProvider$DirectAudioDeviceInfo_FieldInfo_[] = {
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(DirectAudioDeviceProvider$DirectAudioDeviceInfo, index)},
-	{"maxSimulLines", "I", nullptr, $PRIVATE | $FINAL, $field(DirectAudioDeviceProvider$DirectAudioDeviceInfo, maxSimulLines)},
-	{"deviceID", "I", nullptr, $PRIVATE | $FINAL, $field(DirectAudioDeviceProvider$DirectAudioDeviceInfo, deviceID)},
-	{}
-};
-
-$MethodInfo _DirectAudioDeviceProvider$DirectAudioDeviceInfo_MethodInfo_[] = {
-	{"<init>", "(IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, init$, void, int32_t, int32_t, int32_t, $String*, $String*, $String*, $String*)},
-	{"getDeviceID", "()I", nullptr, 0, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, getDeviceID, int32_t)},
-	{"getIndex", "()I", nullptr, 0, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, getIndex, int32_t)},
-	{"getMaxSimulLines", "()I", nullptr, 0, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, getMaxSimulLines, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DirectAudioDeviceProvider$DirectAudioDeviceInfo_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DirectAudioDeviceProvider$DirectAudioDeviceInfo", "com.sun.media.sound.DirectAudioDeviceProvider", "DirectAudioDeviceInfo", $STATIC | $FINAL},
-	{"javax.sound.sampled.Mixer$Info", "javax.sound.sampled.Mixer", "Info", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DirectAudioDeviceProvider$DirectAudioDeviceInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DirectAudioDeviceProvider$DirectAudioDeviceInfo",
-	"javax.sound.sampled.Mixer$Info",
-	nullptr,
-	_DirectAudioDeviceProvider$DirectAudioDeviceInfo_FieldInfo_,
-	_DirectAudioDeviceProvider$DirectAudioDeviceInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectAudioDeviceProvider$DirectAudioDeviceInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DirectAudioDeviceProvider"
-};
-
-$Object* allocate$DirectAudioDeviceProvider$DirectAudioDeviceInfo($Class* clazz) {
-	return $of($alloc(DirectAudioDeviceProvider$DirectAudioDeviceInfo));
-}
 
 void DirectAudioDeviceProvider$DirectAudioDeviceInfo::init$(int32_t index, int32_t deviceID, int32_t maxSimulLines, $String* name, $String* vendor, $String* description, $String* version) {
 	$Mixer$Info::init$(name, vendor, $$str({"Direct Audio Device: "_s, description}), version);
@@ -79,7 +37,42 @@ DirectAudioDeviceProvider$DirectAudioDeviceInfo::DirectAudioDeviceProvider$Direc
 }
 
 $Class* DirectAudioDeviceProvider$DirectAudioDeviceInfo::load$($String* name, bool initialize) {
-	$loadClass(DirectAudioDeviceProvider$DirectAudioDeviceInfo, name, initialize, &_DirectAudioDeviceProvider$DirectAudioDeviceInfo_ClassInfo_, allocate$DirectAudioDeviceProvider$DirectAudioDeviceInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(DirectAudioDeviceProvider$DirectAudioDeviceInfo, index)},
+		{"maxSimulLines", "I", nullptr, $PRIVATE | $FINAL, $field(DirectAudioDeviceProvider$DirectAudioDeviceInfo, maxSimulLines)},
+		{"deviceID", "I", nullptr, $PRIVATE | $FINAL, $field(DirectAudioDeviceProvider$DirectAudioDeviceInfo, deviceID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, init$, void, int32_t, int32_t, int32_t, $String*, $String*, $String*, $String*)},
+		{"getDeviceID", "()I", nullptr, 0, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, getDeviceID, int32_t)},
+		{"getIndex", "()I", nullptr, 0, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, getIndex, int32_t)},
+		{"getMaxSimulLines", "()I", nullptr, 0, $method(DirectAudioDeviceProvider$DirectAudioDeviceInfo, getMaxSimulLines, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DirectAudioDeviceProvider$DirectAudioDeviceInfo", "com.sun.media.sound.DirectAudioDeviceProvider", "DirectAudioDeviceInfo", $STATIC | $FINAL},
+		{"javax.sound.sampled.Mixer$Info", "javax.sound.sampled.Mixer", "Info", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DirectAudioDeviceProvider$DirectAudioDeviceInfo",
+		"javax.sound.sampled.Mixer$Info",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DirectAudioDeviceProvider"
+	};
+	$loadClass(DirectAudioDeviceProvider$DirectAudioDeviceInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectAudioDeviceProvider$DirectAudioDeviceInfo);
+	});
 	return class$;
 }
 

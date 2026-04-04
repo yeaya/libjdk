@@ -1,5 +1,4 @@
 #include <java/awt/MultipleGradientPaintContext.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
@@ -58,67 +57,6 @@ using $WeakReference = ::java::lang::ref::WeakReference;
 namespace java {
 	namespace awt {
 
-$FieldInfo _MultipleGradientPaintContext_FieldInfo_[] = {
-	{"model", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, model)},
-	{"xrgbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(MultipleGradientPaintContext, xrgbmodel)},
-	{"cachedModel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED | $STATIC, $staticField(MultipleGradientPaintContext, cachedModel)},
-	{"cached", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PROTECTED | $STATIC, $staticField(MultipleGradientPaintContext, cached)},
-	{"saved", "Ljava/awt/image/Raster;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, saved)},
-	{"cycleMethod", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, cycleMethod)},
-	{"colorSpace", "Ljava/awt/MultipleGradientPaint$ColorSpaceType;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, colorSpace)},
-	{"a00", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a00)},
-	{"a01", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a01)},
-	{"a10", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a10)},
-	{"a11", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a11)},
-	{"a02", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a02)},
-	{"a12", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a12)},
-	{"isSimpleLookup", "Z", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, isSimpleLookup)},
-	{"fastGradientArraySize", "I", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, fastGradientArraySize)},
-	{"gradient", "[I", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, gradient)},
-	{"gradients", "[[I", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, gradients)},
-	{"normalizedIntervals", "[F", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, normalizedIntervals)},
-	{"fractions", "[F", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, fractions)},
-	{"transparencyTest", "I", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, transparencyTest)},
-	{"SRGBtoLinearRGB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleGradientPaintContext, SRGBtoLinearRGB)},
-	{"LinearRGBtoSRGB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleGradientPaintContext, LinearRGBtoSRGB)},
-	{"GRADIENT_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MultipleGradientPaintContext, GRADIENT_SIZE)},
-	{"GRADIENT_SIZE_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MultipleGradientPaintContext, GRADIENT_SIZE_INDEX)},
-	{"MAX_GRADIENT_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MultipleGradientPaintContext, MAX_GRADIENT_ARRAY_SIZE)},
-	{}
-};
-
-$MethodInfo _MultipleGradientPaintContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/MultipleGradientPaint;Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;)V", nullptr, $PROTECTED, $method(MultipleGradientPaintContext, init$, void, $MultipleGradientPaint*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*)},
-	{"calculateLookupData", "([Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, calculateLookupData, void, $ColorArray*)},
-	{"calculateMultipleArrayGradient", "([Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, calculateMultipleArrayGradient, void, $ColorArray*)},
-	{"calculateSingleArrayGradient", "([Ljava/awt/Color;F)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, calculateSingleArrayGradient, void, $ColorArray*, float)},
-	{"convertEntireColorLinearRGBtoSRGB", "(I)I", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, convertEntireColorLinearRGBtoSRGB, int32_t, int32_t)},
-	{"convertLinearRGBtoSRGB", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MultipleGradientPaintContext, convertLinearRGBtoSRGB, int32_t, int32_t)},
-	{"convertSRGBtoLinearRGB", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MultipleGradientPaintContext, convertSRGBtoLinearRGB, int32_t, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaintContext, dispose, void)},
-	{"fillRaster", "([IIIIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MultipleGradientPaintContext, fillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getCachedRaster", "(Ljava/awt/image/ColorModel;II)Ljava/awt/image/Raster;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MultipleGradientPaintContext, getCachedRaster, $Raster*, $ColorModel*, int32_t, int32_t)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaintContext, getColorModel, $ColorModel*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaintContext, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"indexIntoGradientsArrays", "(F)I", nullptr, $PROTECTED | $FINAL, $method(MultipleGradientPaintContext, indexIntoGradientsArrays, int32_t, float)},
-	{"interpolate", "(II[I)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, interpolate, void, int32_t, int32_t, $ints*)},
-	{"putCachedRaster", "(Ljava/awt/image/ColorModel;Ljava/awt/image/Raster;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MultipleGradientPaintContext, putCachedRaster, void, $ColorModel*, $Raster*)},
-	{}
-};
-
-$ClassInfo _MultipleGradientPaintContext_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.awt.MultipleGradientPaintContext",
-	"java.lang.Object",
-	"java.awt.PaintContext",
-	_MultipleGradientPaintContext_FieldInfo_,
-	_MultipleGradientPaintContext_MethodInfo_
-};
-
-$Object* allocate$MultipleGradientPaintContext($Class* clazz) {
-	return $of($alloc(MultipleGradientPaintContext));
-}
-
 $ColorModel* MultipleGradientPaintContext::xrgbmodel = nullptr;
 $ColorModel* MultipleGradientPaintContext::cachedModel = nullptr;
 $WeakReference* MultipleGradientPaintContext::cached = nullptr;
@@ -126,7 +64,7 @@ $ints* MultipleGradientPaintContext::SRGBtoLinearRGB = nullptr;
 $ints* MultipleGradientPaintContext::LinearRGBtoSRGB = nullptr;
 
 void MultipleGradientPaintContext::init$($MultipleGradientPaint* mgp, $ColorModel* cm, $Rectangle* deviceBounds, $Rectangle2D* userBounds, $AffineTransform* t, $RenderingHints* hints, $floats* fractions, $ColorArray* colors, $MultipleGradientPaint$CycleMethod* cycleMethod, $MultipleGradientPaint$ColorSpaceType* colorSpace) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (deviceBounds == nullptr) {
 		$throwNew($NullPointerException, "Device bounds cannot be null"_s);
 	}
@@ -157,8 +95,8 @@ void MultipleGradientPaintContext::init$($MultipleGradientPaint* mgp, $ColorMode
 	$set(this, cycleMethod, cycleMethod);
 	$set(this, colorSpace, colorSpace);
 	$set(this, fractions, fractions);
-	$var($ints, gradient, ($nc(mgp)->gradient != nullptr) ? $cast($ints, $nc($nc(mgp)->gradient)->get()) : ($ints*)nullptr);
-	$var($intArray2, gradients, (mgp->gradients != nullptr) ? $cast($intArray2, $nc(mgp->gradients)->get()) : ($intArray2*)nullptr);
+	$var($ints, gradient, ($nc(mgp)->gradient != nullptr) ? $cast($ints, mgp->gradient->get()) : ($ints*)nullptr);
+	$var($intArray2, gradients, (mgp->gradients != nullptr) ? $cast($intArray2, mgp->gradients->get()) : ($intArray2*)nullptr);
 	if (gradient == nullptr && gradients == nullptr) {
 		calculateLookupData(colors);
 		$set(mgp, model, this->model);
@@ -181,7 +119,7 @@ void MultipleGradientPaintContext::init$($MultipleGradientPaint* mgp, $ColorMode
 }
 
 void MultipleGradientPaintContext::calculateLookupData($ColorArray* colors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorArray, normalizedColors, nullptr);
 	$init($MultipleGradientPaint$ColorSpaceType);
 	if (this->colorSpace == $MultipleGradientPaint$ColorSpaceType::LINEAR_RGB) {
@@ -189,27 +127,27 @@ void MultipleGradientPaintContext::calculateLookupData($ColorArray* colors) {
 		for (int32_t i = 0; i < colors->length; ++i) {
 			int32_t argb = $nc(colors->get(i))->getRGB();
 			int32_t a = (int32_t)((uint32_t)argb >> 24);
-			int32_t r = $nc(MultipleGradientPaintContext::SRGBtoLinearRGB)->get((int32_t)((argb >> 16) & (uint32_t)255));
-			int32_t g = $nc(MultipleGradientPaintContext::SRGBtoLinearRGB)->get((int32_t)((argb >> 8) & (uint32_t)255));
-			int32_t b = $nc(MultipleGradientPaintContext::SRGBtoLinearRGB)->get((int32_t)((argb) & (uint32_t)255));
+			int32_t r = MultipleGradientPaintContext::SRGBtoLinearRGB->get((argb >> 16) & 0xff);
+			int32_t g = MultipleGradientPaintContext::SRGBtoLinearRGB->get((argb >> 8) & 0xff);
+			int32_t b = MultipleGradientPaintContext::SRGBtoLinearRGB->get((argb) & 0xff);
 			normalizedColors->set(i, $$new($Color, r, g, b, a));
 		}
 	} else {
 		$assign(normalizedColors, colors);
 	}
 	$set(this, normalizedIntervals, $new($floats, $nc(this->fractions)->length - 1));
-	for (int32_t i = 0; i < $nc(this->normalizedIntervals)->length; ++i) {
-		$nc(this->normalizedIntervals)->set(i, $nc(this->fractions)->get(i + 1) - $nc(this->fractions)->get(i));
+	for (int32_t i = 0; i < this->normalizedIntervals->length; ++i) {
+		this->normalizedIntervals->set(i, $nc(this->fractions)->get(i + 1) - $nc(this->fractions)->get(i));
 	}
-	this->transparencyTest = (int32_t)0xFF000000;
-	$set(this, gradients, $new($intArray2, $nc(this->normalizedIntervals)->length));
-	float Imin = (float)1;
-	for (int32_t i = 0; i < $nc(this->normalizedIntervals)->length; ++i) {
-		Imin = (Imin > $nc(this->normalizedIntervals)->get(i)) ? $nc(this->normalizedIntervals)->get(i) : Imin;
+	this->transparencyTest = (int32_t)0xff000000;
+	$set(this, gradients, $new($intArray2, this->normalizedIntervals->length));
+	float Imin = 1;
+	for (int32_t i = 0; i < this->normalizedIntervals->length; ++i) {
+		Imin = (Imin > this->normalizedIntervals->get(i)) ? this->normalizedIntervals->get(i) : Imin;
 	}
 	int32_t estimatedSize = 0;
-	for (int32_t i = 0; i < $nc(this->normalizedIntervals)->length; ++i) {
-		estimatedSize += ($nc(this->normalizedIntervals)->get(i) / Imin) * MultipleGradientPaintContext::GRADIENT_SIZE;
+	for (int32_t i = 0; i < this->normalizedIntervals->length; ++i) {
+		estimatedSize += (this->normalizedIntervals->get(i) / Imin) * MultipleGradientPaintContext::GRADIENT_SIZE;
 	}
 	if (estimatedSize > MultipleGradientPaintContext::MAX_GRADIENT_ARRAY_SIZE) {
 		calculateMultipleArrayGradient(normalizedColors);
@@ -224,7 +162,7 @@ void MultipleGradientPaintContext::calculateLookupData($ColorArray* colors) {
 }
 
 void MultipleGradientPaintContext::calculateSingleArrayGradient($ColorArray* colors, float Imin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isSimpleLookup = true;
 	int32_t rgb1 = 0;
 	int32_t rgb2 = 0;
@@ -232,7 +170,7 @@ void MultipleGradientPaintContext::calculateSingleArrayGradient($ColorArray* col
 	for (int32_t i = 0; i < $nc(this->gradients)->length; ++i) {
 		int32_t nGradients = $cast(int32_t, (($nc(this->normalizedIntervals)->get(i) / Imin) * 255.0f));
 		gradientsTot += nGradients;
-		$nc(this->gradients)->set(i, $$new($ints, nGradients));
+		this->gradients->set(i, $$new($ints, nGradients));
 		rgb1 = $nc($nc(colors)->get(i))->getRGB();
 		rgb2 = $nc(colors->get(i + 1))->getRGB();
 		interpolate(rgb1, rgb2, $nc(this->gradients)->get(i));
@@ -242,26 +180,26 @@ void MultipleGradientPaintContext::calculateSingleArrayGradient($ColorArray* col
 	$set(this, gradient, $new($ints, gradientsTot));
 	int32_t curOffset = 0;
 	for (int32_t i = 0; i < $nc(this->gradients)->length; ++i) {
-		$System::arraycopy($nc(this->gradients)->get(i), 0, this->gradient, curOffset, $nc($nc(this->gradients)->get(i))->length);
-		curOffset += $nc($nc(this->gradients)->get(i))->length;
+		$System::arraycopy(this->gradients->get(i), 0, this->gradient, curOffset, $nc(this->gradients->get(i))->length);
+		curOffset += $nc(this->gradients->get(i))->length;
 	}
-	$nc(this->gradient)->set($nc(this->gradient)->length - 1, $nc($nc(colors)->get(colors->length - 1))->getRGB());
+	this->gradient->set(this->gradient->length - 1, $nc($nc(colors)->get($nc(colors)->length - 1))->getRGB());
 	$init($MultipleGradientPaint$ColorSpaceType);
 	if (this->colorSpace == $MultipleGradientPaint$ColorSpaceType::LINEAR_RGB) {
 		for (int32_t i = 0; i < $nc(this->gradient)->length; ++i) {
-			$nc(this->gradient)->set(i, convertEntireColorLinearRGBtoSRGB($nc(this->gradient)->get(i)));
+			this->gradient->set(i, convertEntireColorLinearRGBtoSRGB(this->gradient->get(i)));
 		}
 	}
 	this->fastGradientArraySize = $nc(this->gradient)->length - 1;
 }
 
 void MultipleGradientPaintContext::calculateMultipleArrayGradient($ColorArray* colors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isSimpleLookup = false;
 	int32_t rgb1 = 0;
 	int32_t rgb2 = 0;
 	for (int32_t i = 0; i < $nc(this->gradients)->length; ++i) {
-		$nc(this->gradients)->set(i, $$new($ints, MultipleGradientPaintContext::GRADIENT_SIZE));
+		this->gradients->set(i, $$new($ints, MultipleGradientPaintContext::GRADIENT_SIZE));
 		rgb1 = $nc($nc(colors)->get(i))->getRGB();
 		rgb2 = $nc(colors->get(i + 1))->getRGB();
 		interpolate(rgb1, rgb2, $nc(this->gradients)->get(i));
@@ -272,7 +210,7 @@ void MultipleGradientPaintContext::calculateMultipleArrayGradient($ColorArray* c
 	if (this->colorSpace == $MultipleGradientPaint$ColorSpaceType::LINEAR_RGB) {
 		for (int32_t j = 0; j < $nc(this->gradients)->length; ++j) {
 			for (int32_t i = 0; i < $nc($nc(this->gradients)->get(j))->length; ++i) {
-				$nc($nc(this->gradients)->get(j))->set(i, convertEntireColorLinearRGBtoSRGB($nc($nc(this->gradients)->get(j))->get(i)));
+				$nc(this->gradients->get(j))->set(i, convertEntireColorLinearRGBtoSRGB($nc(this->gradients->get(j))->get(i)));
 			}
 		}
 	}
@@ -288,14 +226,14 @@ void MultipleGradientPaintContext::interpolate(int32_t rgb1, int32_t rgb2, $ints
 	int32_t dg = 0;
 	int32_t db = 0;
 	float stepSize = 1.0f / $nc(output)->length;
-	a1 = (int32_t)((rgb1 >> 24) & (uint32_t)255);
-	r1 = (int32_t)((rgb1 >> 16) & (uint32_t)255);
-	g1 = (int32_t)((rgb1 >> 8) & (uint32_t)255);
-	b1 = (int32_t)((rgb1) & (uint32_t)255);
-	da = ((int32_t)((rgb2 >> 24) & (uint32_t)255)) - a1;
-	dr = ((int32_t)((rgb2 >> 16) & (uint32_t)255)) - r1;
-	dg = ((int32_t)((rgb2 >> 8) & (uint32_t)255)) - g1;
-	db = ((int32_t)((rgb2) & (uint32_t)255)) - b1;
+	a1 = (rgb1 >> 24) & 0xff;
+	r1 = (rgb1 >> 16) & 0xff;
+	g1 = (rgb1 >> 8) & 0xff;
+	b1 = (rgb1) & 0xff;
+	da = ((rgb2 >> 24) & 0xff) - a1;
+	dr = ((rgb2 >> 16) & 0xff) - r1;
+	dg = ((rgb2 >> 8) & 0xff) - g1;
+	db = ((rgb2) & 0xff) - b1;
 	for (int32_t i = 0; i < output->length; ++i) {
 		output->set(i, ((($cast(int32_t, ((a1 + i * da * stepSize) + 0.5)) << 24) | ($cast(int32_t, ((r1 + i * dr * stepSize) + 0.5)) << 16)) | ($cast(int32_t, ((g1 + i * dg * stepSize) + 0.5)) << 8)) | ($cast(int32_t, ((b1 + i * db * stepSize) + 0.5))));
 	}
@@ -306,13 +244,13 @@ int32_t MultipleGradientPaintContext::convertEntireColorLinearRGBtoSRGB(int32_t 
 	int32_t r1 = 0;
 	int32_t g1 = 0;
 	int32_t b1 = 0;
-	a1 = (int32_t)((rgb >> 24) & (uint32_t)255);
-	r1 = (int32_t)((rgb >> 16) & (uint32_t)255);
-	g1 = (int32_t)((rgb >> 8) & (uint32_t)255);
-	b1 = (int32_t)((rgb) & (uint32_t)255);
-	r1 = $nc(MultipleGradientPaintContext::LinearRGBtoSRGB)->get(r1);
-	g1 = $nc(MultipleGradientPaintContext::LinearRGBtoSRGB)->get(g1);
-	b1 = $nc(MultipleGradientPaintContext::LinearRGBtoSRGB)->get(b1);
+	a1 = (rgb >> 24) & 0xff;
+	r1 = (rgb >> 16) & 0xff;
+	g1 = (rgb >> 8) & 0xff;
+	b1 = (rgb) & 0xff;
+	r1 = MultipleGradientPaintContext::LinearRGBtoSRGB->get(r1);
+	g1 = MultipleGradientPaintContext::LinearRGBtoSRGB->get(g1);
+	b1 = MultipleGradientPaintContext::LinearRGBtoSRGB->get(b1);
 	return ((((a1 << 24) | (r1 << 16)) | (g1 << 8)) | (b1));
 }
 
@@ -320,25 +258,23 @@ int32_t MultipleGradientPaintContext::indexIntoGradientsArrays(float position) {
 	$init($MultipleGradientPaint$CycleMethod);
 	if (this->cycleMethod == $MultipleGradientPaint$CycleMethod::NO_CYCLE) {
 		if (position > 1) {
-			position = (float)1;
+			position = 1;
 		} else if (position < 0) {
-			position = (float)0;
+			position = 0;
+		}
+	} else if (this->cycleMethod == $MultipleGradientPaint$CycleMethod::REPEAT) {
+		position = position - $cast(int32_t, position);
+		if (position < 0) {
+			position = position + 1;
 		}
 	} else {
-		if (this->cycleMethod == $MultipleGradientPaint$CycleMethod::REPEAT) {
-			position = position - $cast(int32_t, position);
-			if (position < 0) {
-				position = position + 1;
-			}
-		} else {
-			if (position < 0) {
-				position = -position;
-			}
-			int32_t part = $cast(int32_t, position);
-			position = position - part;
-			if (((int32_t)(part & (uint32_t)1)) == 1) {
-				position = 1 - position;
-			}
+		if (position < 0) {
+			position = -position;
+		}
+		int32_t part = $cast(int32_t, position);
+		position = position - part;
+		if ((part & 1) == 1) {
+			position = 1 - position;
 		}
 	}
 	if (this->isSimpleLookup) {
@@ -346,9 +282,9 @@ int32_t MultipleGradientPaintContext::indexIntoGradientsArrays(float position) {
 	} else {
 		for (int32_t i = 0; i < $nc(this->gradients)->length; ++i) {
 			if (position < $nc(this->fractions)->get(i + 1)) {
-				float delta = position - $nc(this->fractions)->get(i);
+				float delta = position - this->fractions->get(i);
 				int32_t index = $cast(int32_t, ((delta / $nc(this->normalizedIntervals)->get(i)) * (MultipleGradientPaintContext::GRADIENT_SIZE_INDEX)));
-				return $nc($nc(this->gradients)->get(i))->get(index);
+				return $nc(this->gradients->get(i))->get(index);
 			}
 		}
 	}
@@ -382,29 +318,28 @@ int32_t MultipleGradientPaintContext::convertLinearRGBtoSRGB(int32_t color) {
 }
 
 $Raster* MultipleGradientPaintContext::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Raster, raster, this->saved);
-	bool var$0 = raster == nullptr || $nc(raster)->getWidth() < w;
-	if (var$0 || $nc(raster)->getHeight() < h) {
+	bool var$0 = raster == nullptr || raster->getWidth() < w;
+	if (var$0 || raster->getHeight() < h) {
 		$assign(raster, getCachedRaster(this->model, w, h));
 		$set(this, saved, raster);
 	}
 	$var($DataBufferInt, rasterDB, $cast($DataBufferInt, $nc(raster)->getDataBuffer()));
 	$var($ints, pixels, $nc(rasterDB)->getData(0));
 	int32_t off = rasterDB->getOffset();
-	int32_t scanlineStride = $nc(($cast($SinglePixelPackedSampleModel, $(raster->getSampleModel()))))->getScanlineStride();
+	int32_t scanlineStride = $$sure($SinglePixelPackedSampleModel, raster->getSampleModel())->getScanlineStride();
 	int32_t adjust = scanlineStride - w;
 	fillRaster(pixels, off, adjust, x, y, w, h);
 	return raster;
 }
 
 $Raster* MultipleGradientPaintContext::getCachedRaster($ColorModel* cm, int32_t w, int32_t h) {
-	$load(MultipleGradientPaintContext);
+	$init(MultipleGradientPaintContext);
 	$synchronized(class$) {
-		$init(MultipleGradientPaintContext);
 		if (cm == MultipleGradientPaintContext::cachedModel) {
 			if (MultipleGradientPaintContext::cached != nullptr) {
-				$var($Raster, ras, $cast($Raster, $nc(MultipleGradientPaintContext::cached)->get()));
+				$var($Raster, ras, $cast($Raster, MultipleGradientPaintContext::cached->get()));
 				bool var$0 = ras != nullptr && ras->getWidth() >= w;
 				if (var$0 && ras->getHeight() >= h) {
 					$assignStatic(MultipleGradientPaintContext::cached, nullptr);
@@ -417,11 +352,10 @@ $Raster* MultipleGradientPaintContext::getCachedRaster($ColorModel* cm, int32_t 
 }
 
 void MultipleGradientPaintContext::putCachedRaster($ColorModel* cm, $Raster* ras) {
-	$load(MultipleGradientPaintContext);
+	$init(MultipleGradientPaintContext);
 	$synchronized(class$) {
-		$init(MultipleGradientPaintContext);
 		if (MultipleGradientPaintContext::cached != nullptr) {
-			$var($Raster, cras, $cast($Raster, $nc(MultipleGradientPaintContext::cached)->get()));
+			$var($Raster, cras, $cast($Raster, MultipleGradientPaintContext::cached->get()));
 			if (cras != nullptr) {
 				int32_t cw = cras->getWidth();
 				int32_t ch = cras->getHeight();
@@ -451,14 +385,14 @@ $ColorModel* MultipleGradientPaintContext::getColorModel() {
 	return this->model;
 }
 
-void clinit$MultipleGradientPaintContext($Class* class$) {
-	$assignStatic(MultipleGradientPaintContext::xrgbmodel, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+void MultipleGradientPaintContext::clinit$($Class* clazz) {
+	$assignStatic(MultipleGradientPaintContext::xrgbmodel, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 	$assignStatic(MultipleGradientPaintContext::SRGBtoLinearRGB, $new($ints, 256));
 	$assignStatic(MultipleGradientPaintContext::LinearRGBtoSRGB, $new($ints, 256));
 	{
 		for (int32_t k = 0; k < 256; ++k) {
-			$nc(MultipleGradientPaintContext::SRGBtoLinearRGB)->set(k, MultipleGradientPaintContext::convertSRGBtoLinearRGB(k));
-			$nc(MultipleGradientPaintContext::LinearRGBtoSRGB)->set(k, MultipleGradientPaintContext::convertLinearRGBtoSRGB(k));
+			MultipleGradientPaintContext::SRGBtoLinearRGB->set(k, MultipleGradientPaintContext::convertSRGBtoLinearRGB(k));
+			MultipleGradientPaintContext::LinearRGBtoSRGB->set(k, MultipleGradientPaintContext::convertLinearRGBtoSRGB(k));
 		}
 	}
 }
@@ -467,7 +401,63 @@ MultipleGradientPaintContext::MultipleGradientPaintContext() {
 }
 
 $Class* MultipleGradientPaintContext::load$($String* name, bool initialize) {
-	$loadClass(MultipleGradientPaintContext, name, initialize, &_MultipleGradientPaintContext_ClassInfo_, clinit$MultipleGradientPaintContext, allocate$MultipleGradientPaintContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"model", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, model)},
+		{"xrgbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC, $staticField(MultipleGradientPaintContext, xrgbmodel)},
+		{"cachedModel", "Ljava/awt/image/ColorModel;", nullptr, $PROTECTED | $STATIC, $staticField(MultipleGradientPaintContext, cachedModel)},
+		{"cached", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PROTECTED | $STATIC, $staticField(MultipleGradientPaintContext, cached)},
+		{"saved", "Ljava/awt/image/Raster;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, saved)},
+		{"cycleMethod", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, cycleMethod)},
+		{"colorSpace", "Ljava/awt/MultipleGradientPaint$ColorSpaceType;", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, colorSpace)},
+		{"a00", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a00)},
+		{"a01", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a01)},
+		{"a10", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a10)},
+		{"a11", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a11)},
+		{"a02", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a02)},
+		{"a12", "F", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, a12)},
+		{"isSimpleLookup", "Z", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, isSimpleLookup)},
+		{"fastGradientArraySize", "I", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, fastGradientArraySize)},
+		{"gradient", "[I", nullptr, $PROTECTED, $field(MultipleGradientPaintContext, gradient)},
+		{"gradients", "[[I", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, gradients)},
+		{"normalizedIntervals", "[F", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, normalizedIntervals)},
+		{"fractions", "[F", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, fractions)},
+		{"transparencyTest", "I", nullptr, $PRIVATE, $field(MultipleGradientPaintContext, transparencyTest)},
+		{"SRGBtoLinearRGB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleGradientPaintContext, SRGBtoLinearRGB)},
+		{"LinearRGBtoSRGB", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleGradientPaintContext, LinearRGBtoSRGB)},
+		{"GRADIENT_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MultipleGradientPaintContext, GRADIENT_SIZE)},
+		{"GRADIENT_SIZE_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MultipleGradientPaintContext, GRADIENT_SIZE_INDEX)},
+		{"MAX_GRADIENT_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MultipleGradientPaintContext, MAX_GRADIENT_ARRAY_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/MultipleGradientPaint;Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;)V", nullptr, $PROTECTED, $method(MultipleGradientPaintContext, init$, void, $MultipleGradientPaint*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*)},
+		{"calculateLookupData", "([Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, calculateLookupData, void, $ColorArray*)},
+		{"calculateMultipleArrayGradient", "([Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, calculateMultipleArrayGradient, void, $ColorArray*)},
+		{"calculateSingleArrayGradient", "([Ljava/awt/Color;F)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, calculateSingleArrayGradient, void, $ColorArray*, float)},
+		{"convertEntireColorLinearRGBtoSRGB", "(I)I", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, convertEntireColorLinearRGBtoSRGB, int32_t, int32_t)},
+		{"convertLinearRGBtoSRGB", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MultipleGradientPaintContext, convertLinearRGBtoSRGB, int32_t, int32_t)},
+		{"convertSRGBtoLinearRGB", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MultipleGradientPaintContext, convertSRGBtoLinearRGB, int32_t, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaintContext, dispose, void)},
+		{"fillRaster", "([IIIIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MultipleGradientPaintContext, fillRaster, void, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getCachedRaster", "(Ljava/awt/image/ColorModel;II)Ljava/awt/image/Raster;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MultipleGradientPaintContext, getCachedRaster, $Raster*, $ColorModel*, int32_t, int32_t)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaintContext, getColorModel, $ColorModel*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaintContext, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"indexIntoGradientsArrays", "(F)I", nullptr, $PROTECTED | $FINAL, $method(MultipleGradientPaintContext, indexIntoGradientsArrays, int32_t, float)},
+		{"interpolate", "(II[I)V", nullptr, $PRIVATE, $method(MultipleGradientPaintContext, interpolate, void, int32_t, int32_t, $ints*)},
+		{"putCachedRaster", "(Ljava/awt/image/ColorModel;Ljava/awt/image/Raster;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MultipleGradientPaintContext, putCachedRaster, void, $ColorModel*, $Raster*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.awt.MultipleGradientPaintContext",
+		"java.lang.Object",
+		"java.awt.PaintContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultipleGradientPaintContext, name, initialize, &classInfo$$, MultipleGradientPaintContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MultipleGradientPaintContext);
+	});
 	return class$;
 }
 

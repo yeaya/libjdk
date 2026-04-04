@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI$WindowsCaret.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI.h>
 #include <javax/swing/text/DefaultCaret.h>
 #include <javax/swing/text/Highlighter$HighlightPainter.h>
@@ -19,42 +18,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsTextUI$WindowsCaret_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(WindowsTextUI$WindowsCaret, init$, void)},
-	{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(WindowsTextUI$WindowsCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsTextUI$WindowsCaret_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsCaret", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTextUI$WindowsCaret_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret",
-	"javax.swing.text.DefaultCaret",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_WindowsTextUI$WindowsCaret_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTextUI$WindowsCaret_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTextUI"
-};
-
-$Object* allocate$WindowsTextUI$WindowsCaret($Class* clazz) {
-	return $of($alloc(WindowsTextUI$WindowsCaret));
-}
 
 bool WindowsTextUI$WindowsCaret::equals(Object$* obj) {
 	 return this->$DefaultCaret::equals(obj);
@@ -89,7 +52,38 @@ WindowsTextUI$WindowsCaret::WindowsTextUI$WindowsCaret() {
 }
 
 $Class* WindowsTextUI$WindowsCaret::load$($String* name, bool initialize) {
-	$loadClass(WindowsTextUI$WindowsCaret, name, initialize, &_WindowsTextUI$WindowsCaret_ClassInfo_, allocate$WindowsTextUI$WindowsCaret);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(WindowsTextUI$WindowsCaret, init$, void)},
+		{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(WindowsTextUI$WindowsCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsCaret", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret",
+		"javax.swing.text.DefaultCaret",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTextUI"
+	};
+	$loadClass(WindowsTextUI$WindowsCaret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTextUI$WindowsCaret));
+	});
 	return class$;
 }
 

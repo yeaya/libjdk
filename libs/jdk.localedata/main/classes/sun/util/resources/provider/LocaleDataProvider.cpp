@@ -1,5 +1,4 @@
 #include <sun/util/resources/provider/LocaleDataProvider.h>
-
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/InternalError.h>
@@ -17,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Locale = ::java::util::Locale;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $LocaleData$CommonResourceBundleProvider = ::sun::util::resources::LocaleData$CommonResourceBundleProvider;
@@ -27,40 +25,12 @@ namespace sun {
 		namespace resources {
 			namespace provider {
 
-$MethodInfo _LocaleDataProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleDataProvider, init$, void)},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleDataProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
-	{"loadResourceBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $staticMethod(LocaleDataProvider, loadResourceBundle, $ResourceBundle*, $String*)},
-	{}
-};
-
-$InnerClassInfo _LocaleDataProvider_InnerClassesInfo_[] = {
-	{"sun.util.resources.LocaleData$CommonResourceBundleProvider", "sun.util.resources.LocaleData", "CommonResourceBundleProvider", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LocaleDataProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.provider.LocaleDataProvider",
-	"sun.util.resources.LocaleData$CommonResourceBundleProvider",
-	nullptr,
-	nullptr,
-	_LocaleDataProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocaleDataProvider_InnerClassesInfo_
-};
-
-$Object* allocate$LocaleDataProvider($Class* clazz) {
-	return $of($alloc(LocaleDataProvider));
-}
-
 void LocaleDataProvider::init$() {
 	$LocaleData$CommonResourceBundleProvider::init$();
 }
 
 $ResourceBundle* LocaleDataProvider::getBundle($String* baseName, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, bundleName, toBundleName(baseName, locale));
 	$var($ResourceBundle, rb, loadResourceBundle(bundleName));
 	if (rb == nullptr) {
@@ -74,18 +44,18 @@ $ResourceBundle* LocaleDataProvider::getBundle($String* baseName, $Locale* local
 
 $ResourceBundle* LocaleDataProvider::loadResourceBundle($String* bundleName) {
 	$init(LocaleDataProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName($(LocaleDataProvider::class$->getModule()), bundleName);
 	$load($ResourceBundle);
 	if (c != nullptr && $ResourceBundle::class$->isAssignableFrom(c)) {
 		try {
-			$var($ResourceBundle, rb, $cast($ResourceBundle, $nc((c))->newInstance()));
+			$var($ResourceBundle, rb, $cast($ResourceBundle, (c)->newInstance()));
 			return rb;
 		} catch ($InstantiationException& e) {
-			$throwNew($InternalError, static_cast<$Throwable*>(e));
+			$throwNew($InternalError, e);
 		} catch ($IllegalAccessException& e) {
-			$throwNew($InternalError, static_cast<$Throwable*>(e));
+			$throwNew($InternalError, e);
 		}
 	}
 	return nullptr;
@@ -95,7 +65,30 @@ LocaleDataProvider::LocaleDataProvider() {
 }
 
 $Class* LocaleDataProvider::load$($String* name, bool initialize) {
-	$loadClass(LocaleDataProvider, name, initialize, &_LocaleDataProvider_ClassInfo_, allocate$LocaleDataProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleDataProvider, init$, void)},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LocaleDataProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
+		{"loadResourceBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $staticMethod(LocaleDataProvider, loadResourceBundle, $ResourceBundle*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.resources.LocaleData$CommonResourceBundleProvider", "sun.util.resources.LocaleData", "CommonResourceBundleProvider", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.provider.LocaleDataProvider",
+		"sun.util.resources.LocaleData$CommonResourceBundleProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(LocaleDataProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleDataProvider);
+	});
 	return class$;
 }
 

@@ -53,7 +53,7 @@ public:
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
 	::javax::naming::NameImpl* impl = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x17251A4B93D67AFE;
+	static const int64_t serialVersionUID = (int64_t)0x17251a4b93d67afe;
 };
 
 	} // naming

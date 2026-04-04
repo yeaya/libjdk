@@ -94,6 +94,7 @@ class $export SocketTube : public ::jdk::internal::net::http::common::FlowTube {
 	$class(SocketTube, 0, ::jdk::internal::net::http::common::FlowTube)
 public:
 	SocketTube();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpClientImpl* client, ::java::nio::channels::SocketChannel* channel, ::java::util::function::Supplier* buffersFactory);
 	$String* channelDescr();
 	virtual void connectFlows(::jdk::internal::net::http::common::FlowTube$TubePublisher* writePublisher, ::jdk::internal::net::http::common::FlowTube$TubeSubscriber* readSubscriber) override;

@@ -86,6 +86,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void close() override;
 	::com::sun::media::sound::SoftInstrument* findInstrument(int32_t program, int32_t bank, int32_t channel);

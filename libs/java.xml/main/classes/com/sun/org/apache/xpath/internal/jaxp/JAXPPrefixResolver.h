@@ -35,6 +35,7 @@ class JAXPPrefixResolver : public ::com::sun::org::apache::xml::internal::utils:
 	$class(JAXPPrefixResolver, 0, ::com::sun::org::apache::xml::internal::utils::PrefixResolver)
 public:
 	JAXPPrefixResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::xml::namespace$::NamespaceContext* nsContext);
 	virtual $String* getBaseIdentifier() override;
 	virtual $String* getNamespaceForPrefix($String* prefix) override;

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/ComboBoxEditableState.h>
-
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/State.h>
@@ -16,39 +15,35 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _ComboBoxEditableState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ComboBoxEditableState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ComboBoxEditableState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _ComboBoxEditableState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.ComboBoxEditableState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_ComboBoxEditableState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$ComboBoxEditableState($Class* clazz) {
-	return $of($alloc(ComboBoxEditableState));
-}
-
 void ComboBoxEditableState::init$() {
 	$State::init$("Editable"_s);
 }
 
 bool ComboBoxEditableState::isInState($JComponent* c) {
-	return $instanceOf($JComboBox, c) && $nc(($cast($JComboBox, c)))->isEditable();
+	return $instanceOf($JComboBox, c) && $cast($JComboBox, c)->isEditable();
 }
 
 ComboBoxEditableState::ComboBoxEditableState() {
 }
 
 $Class* ComboBoxEditableState::load$($String* name, bool initialize) {
-	$loadClass(ComboBoxEditableState, name, initialize, &_ComboBoxEditableState_ClassInfo_, allocate$ComboBoxEditableState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ComboBoxEditableState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(ComboBoxEditableState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.ComboBoxEditableState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(ComboBoxEditableState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboBoxEditableState);
+	});
 	return class$;
 }
 

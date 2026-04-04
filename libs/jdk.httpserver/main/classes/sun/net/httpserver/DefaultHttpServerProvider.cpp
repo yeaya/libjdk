@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/DefaultHttpServerProvider.h>
-
 #include <com/sun/net/httpserver/HttpServer.h>
 #include <com/sun/net/httpserver/HttpsServer.h>
 #include <com/sun/net/httpserver/spi/HttpServerProvider.h>
@@ -21,26 +20,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$MethodInfo _DefaultHttpServerProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultHttpServerProvider, init$, void)},
-	{"createHttpServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC, $virtualMethod(DefaultHttpServerProvider, createHttpServer, $HttpServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
-	{"createHttpsServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC, $virtualMethod(DefaultHttpServerProvider, createHttpsServer, $HttpsServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DefaultHttpServerProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.httpserver.DefaultHttpServerProvider",
-	"com.sun.net.httpserver.spi.HttpServerProvider",
-	nullptr,
-	nullptr,
-	_DefaultHttpServerProvider_MethodInfo_
-};
-
-$Object* allocate$DefaultHttpServerProvider($Class* clazz) {
-	return $of($alloc(DefaultHttpServerProvider));
-}
-
 void DefaultHttpServerProvider::init$() {
 	$HttpServerProvider::init$();
 }
@@ -57,7 +36,23 @@ DefaultHttpServerProvider::DefaultHttpServerProvider() {
 }
 
 $Class* DefaultHttpServerProvider::load$($String* name, bool initialize) {
-	$loadClass(DefaultHttpServerProvider, name, initialize, &_DefaultHttpServerProvider_ClassInfo_, allocate$DefaultHttpServerProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultHttpServerProvider, init$, void)},
+		{"createHttpServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC, $virtualMethod(DefaultHttpServerProvider, createHttpServer, $HttpServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+		{"createHttpsServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC, $virtualMethod(DefaultHttpServerProvider, createHttpsServer, $HttpsServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.httpserver.DefaultHttpServerProvider",
+		"com.sun.net.httpserver.spi.HttpServerProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultHttpServerProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultHttpServerProvider);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/InferenceContext$ReachabilityVisitor.h>
-
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
@@ -18,7 +17,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
@@ -51,15 +49,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -76,89 +71,32 @@ public:
 	virtual void accept(Object$* t) override {
 		$nc(inst$)->visit($cast($Type, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InferenceContext$ReachabilityVisitor$$Lambda$visit>());
-	}
 	$Types$UnaryVisitor* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InferenceContext$ReachabilityVisitor$$Lambda$visit::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$ReachabilityVisitor$$Lambda$visit, inst$)},
-	{}
-};
-$MethodInfo InferenceContext$ReachabilityVisitor$$Lambda$visit::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$UnaryVisitor;)V", nullptr, $PUBLIC, $method(InferenceContext$ReachabilityVisitor$$Lambda$visit, init$, void, $Types$UnaryVisitor*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor$$Lambda$visit, accept, void, Object$*)},
-	{}
-};
-$ClassInfo InferenceContext$ReachabilityVisitor$$Lambda$visit::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor$$Lambda$visit",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* InferenceContext$ReachabilityVisitor$$Lambda$visit::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$ReachabilityVisitor$$Lambda$visit, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(InferenceContext$ReachabilityVisitor$$Lambda$visit, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$UnaryVisitor;)V", nullptr, $PUBLIC, $method(InferenceContext$ReachabilityVisitor$$Lambda$visit, init$, void, $Types$UnaryVisitor*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor$$Lambda$visit, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor$$Lambda$visit",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InferenceContext$ReachabilityVisitor$$Lambda$visit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$ReachabilityVisitor$$Lambda$visit);
+	});
 	return class$;
 }
 $Class* InferenceContext$ReachabilityVisitor$$Lambda$visit::class$ = nullptr;
-
-$FieldInfo _InferenceContext$ReachabilityVisitor_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $FINAL | $SYNTHETIC, $field(InferenceContext$ReachabilityVisitor, this$0)},
-	{"equiv", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext$ReachabilityVisitor, equiv)},
-	{"min", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext$ReachabilityVisitor, min)},
-	{"minMap", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(InferenceContext$ReachabilityVisitor, minMap)},
-	{}
-};
-
-$MethodInfo _InferenceContext$ReachabilityVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(InferenceContext$ReachabilityVisitor, init$, void, $InferenceContext*)},
-	{"isEquiv", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, 0, $virtualMethod(InferenceContext$ReachabilityVisitor, isEquiv, bool, $Type$UndetVar*, $Type*, $Type$UndetVar$InferenceBound*)},
-	{"scan", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(InferenceContext$ReachabilityVisitor, scan, void, $List*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitArrayType, $Void*, $Type$ArrayType*, $Void*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitClassType, $Void*, $Type$ClassType*, $Void*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitType, $Void*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitTypeVar, $Void*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitUndetVar, $Void*, $Type$UndetVar*, $Void*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitWildcardType, $Void*, $Type$WildcardType*, $Void*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _InferenceContext$ReachabilityVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor", "com.sun.tools.javac.comp.InferenceContext", "ReachabilityVisitor", 0},
-	{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InferenceContext$ReachabilityVisitor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor",
-	"com.sun.tools.javac.code.Types$UnaryVisitor",
-	nullptr,
-	_InferenceContext$ReachabilityVisitor_FieldInfo_,
-	_InferenceContext$ReachabilityVisitor_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Void;>;",
-	nullptr,
-	_InferenceContext$ReachabilityVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.InferenceContext"
-};
-
-$Object* allocate$InferenceContext$ReachabilityVisitor($Class* clazz) {
-	return $of($alloc(InferenceContext$ReachabilityVisitor));
-}
 
 void InferenceContext$ReachabilityVisitor::init$($InferenceContext* this$0) {
 	$set(this, this$0, this$0);
@@ -169,8 +107,8 @@ void InferenceContext$ReachabilityVisitor::init$($InferenceContext* this$0) {
 }
 
 void InferenceContext$ReachabilityVisitor::scan($List* roots) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(roots)->stream()))->forEach(static_cast<$Consumer*>($$new(InferenceContext$ReachabilityVisitor$$Lambda$visit, this)));
+	$useLocalObjectStack();
+	$$nc($nc(roots)->stream())->forEach($$new(InferenceContext$ReachabilityVisitor$$Lambda$visit, this));
 }
 
 $Void* InferenceContext$ReachabilityVisitor::visitType($Type* t, $Void* _unused) {
@@ -178,38 +116,36 @@ $Void* InferenceContext$ReachabilityVisitor::visitType($Type* t, $Void* _unused)
 }
 
 $Void* InferenceContext$ReachabilityVisitor::visitUndetVar($Type$UndetVar* t, $Void* _unused) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->min)->add($nc(t)->qtype)) {
-		$var($Set, deps, $cast($Set, $nc(this->minMap)->getOrDefault($nc(t)->qtype, $$new($LinkedHashSet, $(static_cast<$Collection*>($Collections::singleton(t->qtype)))))));
+		$var($Set, deps, $cast($Set, $nc(this->minMap)->getOrDefault(t->qtype, $$new($LinkedHashSet, $($Collections::singleton(t->qtype))))));
 		{
 			$var($Type$UndetVar$InferenceBoundArray, arr$, $Type$UndetVar$InferenceBound::values());
-			int32_t len$ = $nc(arr$)->length;
+			int32_t len$ = arr$->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				$Type$UndetVar$InferenceBound* boundKind = arr$->get(i$);
 				{
-					{
-						$var($Iterator, i$, $nc($($nc(t)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {boundKind}))))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Type, b, $cast($Type, i$->next()));
-							{
-								$var($Type, undet, this->this$0->asUndetVar(b));
-								$init($TypeTag);
-								if (!$nc(undet)->hasTag($TypeTag::UNDETVAR)) {
-									visit(undet);
-								} else if (isEquiv(t, b, boundKind)) {
-									$nc(deps)->add(b);
-									$nc(this->equiv)->add(b);
-								} else {
-									visit(undet);
-								}
+					$var($Iterator, i$, $$nc(t->getBounds($$new($Type$UndetVar$InferenceBoundArray, {boundKind})))->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Type, b, $cast($Type, i$->next()));
+						{
+							$var($Type, undet, this->this$0->asUndetVar(b));
+							$init($TypeTag);
+							if (!$nc(undet)->hasTag($TypeTag::UNDETVAR)) {
+								visit(undet);
+							} else if (isEquiv(t, b, boundKind)) {
+								$nc(deps)->add(b);
+								$nc(this->equiv)->add(b);
+							} else {
+								visit(undet);
 							}
 						}
 					}
 				}
 			}
 		}
-		$nc(this->minMap)->put($nc(t)->qtype, deps);
+		$nc(this->minMap)->put(t->qtype, deps);
 	}
 	return nullptr;
 }
@@ -232,10 +168,10 @@ $Void* InferenceContext$ReachabilityVisitor::visitArrayType($Type$ArrayType* t, 
 }
 
 $Void* InferenceContext$ReachabilityVisitor::visitClassType($Type$ClassType* t, $Void* _unused) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	visit($($nc(t)->getEnclosingType()));
 	{
-		$var($Iterator, i$, $nc($($nc(t)->getTypeArguments()))->iterator());
+		$var($Iterator, i$, $$nc(t->getTypeArguments())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, targ, $cast($Type, i$->next()));
 			{
@@ -247,13 +183,11 @@ $Void* InferenceContext$ReachabilityVisitor::visitClassType($Type$ClassType* t, 
 }
 
 bool InferenceContext$ReachabilityVisitor::isEquiv($Type$UndetVar* from, $Type* t, $Type$UndetVar$InferenceBound* boundKind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$UndetVar, uv, $cast($Type$UndetVar, this->this$0->asUndetVar(t)));
 	{
 		$var($Type$UndetVar$InferenceBoundArray, arr$, $Type$UndetVar$InferenceBound::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Type$UndetVar$InferenceBound* ib = arr$->get(i$);
 			{
 				$var($List, b1, $nc(from)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {ib})));
@@ -264,8 +198,8 @@ bool InferenceContext$ReachabilityVisitor::isEquiv($Type$UndetVar* from, $Type* 
 				if (ib == $nc(boundKind)->complement()) {
 					$assign(b2, $nc(b2)->diff($($List::of(from->qtype))));
 				}
-				bool var$0 = !$nc(b1)->containsAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(b2)));
-				if (var$0 || !$nc(b2)->containsAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(b1)))) {
+				bool var$0 = !$nc(b1)->containsAll($cast($AbstractCollection, b2));
+				if (var$0 || !$nc(b2)->containsAll($cast($AbstractCollection, b1))) {
 					return false;
 				}
 			}
@@ -275,27 +209,27 @@ bool InferenceContext$ReachabilityVisitor::isEquiv($Type$UndetVar* from, $Type* 
 }
 
 $Object* InferenceContext$ReachabilityVisitor::visitUndetVar($Type$UndetVar* t, Object$* _unused) {
-	return $of(this->visitUndetVar(t, $cast($Void, _unused)));
+	return this->visitUndetVar(t, $cast($Void, _unused));
 }
 
 $Object* InferenceContext$ReachabilityVisitor::visitTypeVar($Type$TypeVar* t, Object$* aVoid) {
-	return $of(this->visitTypeVar(t, $cast($Void, aVoid)));
+	return this->visitTypeVar(t, $cast($Void, aVoid));
 }
 
 $Object* InferenceContext$ReachabilityVisitor::visitArrayType($Type$ArrayType* t, Object$* _unused) {
-	return $of(this->visitArrayType(t, $cast($Void, _unused)));
+	return this->visitArrayType(t, $cast($Void, _unused));
 }
 
 $Object* InferenceContext$ReachabilityVisitor::visitWildcardType($Type$WildcardType* t, Object$* _unused) {
-	return $of(this->visitWildcardType(t, $cast($Void, _unused)));
+	return this->visitWildcardType(t, $cast($Void, _unused));
 }
 
 $Object* InferenceContext$ReachabilityVisitor::visitClassType($Type$ClassType* t, Object$* _unused) {
-	return $of(this->visitClassType(t, $cast($Void, _unused)));
+	return this->visitClassType(t, $cast($Void, _unused));
 }
 
 $Object* InferenceContext$ReachabilityVisitor::visitType($Type* t, Object$* _unused) {
-	return $of(this->visitType(t, $cast($Void, _unused)));
+	return this->visitType(t, $cast($Void, _unused));
 }
 
 InferenceContext$ReachabilityVisitor::InferenceContext$ReachabilityVisitor() {
@@ -303,11 +237,58 @@ InferenceContext$ReachabilityVisitor::InferenceContext$ReachabilityVisitor() {
 
 $Class* InferenceContext$ReachabilityVisitor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(InferenceContext$ReachabilityVisitor$$Lambda$visit::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor$$Lambda$visit")) {
 			return InferenceContext$ReachabilityVisitor$$Lambda$visit::load$(name, initialize);
 		}
 	}
-	$loadClass(InferenceContext$ReachabilityVisitor, name, initialize, &_InferenceContext$ReachabilityVisitor_ClassInfo_, allocate$InferenceContext$ReachabilityVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $FINAL | $SYNTHETIC, $field(InferenceContext$ReachabilityVisitor, this$0)},
+		{"equiv", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext$ReachabilityVisitor, equiv)},
+		{"min", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", 0, $field(InferenceContext$ReachabilityVisitor, min)},
+		{"minMap", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(InferenceContext$ReachabilityVisitor, minMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(InferenceContext$ReachabilityVisitor, init$, void, $InferenceContext*)},
+		{"isEquiv", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, 0, $virtualMethod(InferenceContext$ReachabilityVisitor, isEquiv, bool, $Type$UndetVar*, $Type*, $Type$UndetVar$InferenceBound*)},
+		{"scan", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(InferenceContext$ReachabilityVisitor, scan, void, $List*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitArrayType, $Void*, $Type$ArrayType*, $Void*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitClassType, $Void*, $Type$ClassType*, $Void*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitType, $Void*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitTypeVar, $Void*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitUndetVar, $Void*, $Type$UndetVar*, $Void*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitWildcardType, $Void*, $Type$WildcardType*, $Void*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor", "com.sun.tools.javac.comp.InferenceContext", "ReachabilityVisitor", 0},
+		{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.InferenceContext$ReachabilityVisitor",
+		"com.sun.tools.javac.code.Types$UnaryVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.InferenceContext"
+	};
+	$loadClass(InferenceContext$ReachabilityVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$ReachabilityVisitor);
+	});
 	return class$;
 }
 

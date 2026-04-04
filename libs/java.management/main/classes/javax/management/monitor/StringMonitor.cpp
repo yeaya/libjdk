@@ -1,5 +1,4 @@
 #include <javax/management/monitor/StringMonitor.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <java/lang/Comparable.h>
 #include <java/lang/System$Logger$Level.h>
@@ -31,10 +30,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $ObjectName = ::javax::management::ObjectName;
 using $Monitor = ::javax::management::monitor::Monitor;
@@ -46,90 +43,6 @@ using $StringMonitorMBean = ::javax::management::monitor::StringMonitorMBean;
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$CompoundAttribute _StringMonitor_MethodAnnotations_getDerivedGauge4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringMonitor_MethodAnnotations_getDerivedGaugeTimeStamp6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _StringMonitor_FieldInfo_[] = {
-	{"stringToCompare", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringMonitor, stringToCompare)},
-	{"notifyMatch", "Z", nullptr, $PRIVATE, $field(StringMonitor, notifyMatch)},
-	{"notifyDiffer", "Z", nullptr, $PRIVATE, $field(StringMonitor, notifyDiffer)},
-	{"types", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringMonitor, types)},
-	{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringMonitor, notifsInfo)},
-	{"MATCHING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringMonitor, MATCHING)},
-	{"DIFFERING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringMonitor, DIFFERING)},
-	{"MATCHING_OR_DIFFERING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringMonitor, MATCHING_OR_DIFFERING)},
-	{}
-};
-
-$MethodInfo _StringMonitor_MethodInfo_[] = {
-	{"*addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
-	{"*getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringMonitor, init$, void)},
-	{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", $SYNCHRONIZED, $virtualMethod(StringMonitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
-	{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(StringMonitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
-	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getDerivedGauge, $Object*, $ObjectName*)},
-	{"getDerivedGauge", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(StringMonitor, getDerivedGauge, $String*), nullptr, nullptr, _StringMonitor_MethodAnnotations_getDerivedGauge4},
-	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
-	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(StringMonitor, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, _StringMonitor_MethodAnnotations_getDerivedGaugeTimeStamp6},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(StringMonitor, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getNotifyDiffer", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getNotifyDiffer, bool)},
-	{"getNotifyMatch", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getNotifyMatch, bool)},
-	{"getStringToCompare", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getStringToCompare, $String*)},
-	{"*isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(StringMonitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
-	{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, $SYNCHRONIZED, $virtualMethod(StringMonitor, onErrorNotification, void, $MonitorNotification*)},
-	{"*removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setNotifyDiffer", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, setNotifyDiffer, void, bool)},
-	{"setNotifyMatch", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, setNotifyMatch, void, bool)},
-	{"*setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
-	{"setStringToCompare", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, setStringToCompare, void, $String*), "java.lang.IllegalArgumentException"},
-	{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, stop, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StringMonitor_InnerClassesInfo_[] = {
-	{"javax.management.monitor.StringMonitor$StringMonitorObservedObject", "javax.management.monitor.StringMonitor", "StringMonitorObservedObject", $STATIC},
-	{}
-};
-
-$ClassInfo _StringMonitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.monitor.StringMonitor",
-	"javax.management.monitor.Monitor",
-	"javax.management.monitor.StringMonitorMBean",
-	_StringMonitor_FieldInfo_,
-	_StringMonitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringMonitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.StringMonitor$StringMonitorObservedObject"
-};
-
-$Object* allocate$StringMonitor($Class* clazz) {
-	return $of($alloc(StringMonitor));
-}
 
 $ObjectName* StringMonitor::getObservedObject() {
 	 return this->$Monitor::getObservedObject();
@@ -323,7 +236,7 @@ void StringMonitor::init$() {
 
 void StringMonitor::start() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isActive()) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
@@ -367,7 +280,7 @@ $String* StringMonitor::getDerivedGauge() {
 		if ($nc(this->observedObjects)->isEmpty()) {
 			return nullptr;
 		} else {
-			return $cast($String, $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(0)))))->getDerivedGauge());
+			return $cast($String, $$sure($Monitor$ObservedObject, this->observedObjects->get(0))->getDerivedGauge());
 		}
 	}
 }
@@ -377,7 +290,7 @@ int64_t StringMonitor::getDerivedGaugeTimeStamp() {
 		if ($nc(this->observedObjects)->isEmpty()) {
 			return 0;
 		} else {
-			return $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(0)))))->getDerivedGaugeTimeStamp();
+			return $$sure($Monitor$ObservedObject, this->observedObjects->get(0))->getDerivedGaugeTimeStamp();
 		}
 	}
 }
@@ -390,7 +303,7 @@ $String* StringMonitor::getStringToCompare() {
 
 void StringMonitor::setStringToCompare($String* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (value == nullptr) {
 			$throwNew($IllegalArgumentException, "Null string to compare"_s);
 		}
@@ -442,7 +355,7 @@ void StringMonitor::setNotifyDiffer(bool value) {
 }
 
 $MBeanNotificationInfoArray* StringMonitor::getNotificationInfo() {
-	return $cast($MBeanNotificationInfoArray, $nc(StringMonitor::notifsInfo)->clone());
+	return $cast($MBeanNotificationInfoArray, StringMonitor::notifsInfo->clone());
 }
 
 $Monitor$ObservedObject* StringMonitor::createObservedObject($ObjectName* object) {
@@ -462,7 +375,7 @@ bool StringMonitor::isComparableTypeValid($ObjectName* object, $String* attribut
 
 void StringMonitor::onErrorNotification($MonitorNotification* notification) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringMonitor$StringMonitorObservedObject, o, $cast($StringMonitor$StringMonitorObservedObject, getObservedObject($($nc(notification)->getObservedObject()))));
 		if (o == nullptr) {
 			return;
@@ -473,7 +386,7 @@ void StringMonitor::onErrorNotification($MonitorNotification* notification) {
 
 $MonitorNotification* StringMonitor::buildAlarmNotification($ObjectName* object, $String* attribute, $Comparable* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, type, nullptr);
 		$var($String, msg, nullptr);
 		$var($Object, trigger, nullptr);
@@ -482,7 +395,7 @@ $MonitorNotification* StringMonitor::buildAlarmNotification($ObjectName* object,
 			return nullptr;
 		}
 		if ($nc(o)->getStatus() == StringMonitor::MATCHING_OR_DIFFERING) {
-			if ($nc($of($(o->getDerivedGauge())))->equals(this->stringToCompare)) {
+			if ($$nc(o->getDerivedGauge())->equals(this->stringToCompare)) {
 				if (this->notifyMatch) {
 					$assign(type, "jmx.monitor.string.matches"_s);
 					$assign(msg, ""_s);
@@ -498,7 +411,7 @@ $MonitorNotification* StringMonitor::buildAlarmNotification($ObjectName* object,
 				o->setStatus(StringMonitor::MATCHING);
 			}
 		} else if (o->getStatus() == StringMonitor::MATCHING) {
-			if ($nc($of($(o->getDerivedGauge())))->equals(this->stringToCompare)) {
+			if ($$nc(o->getDerivedGauge())->equals(this->stringToCompare)) {
 				if (this->notifyMatch) {
 					$assign(type, "jmx.monitor.string.matches"_s);
 					$assign(msg, ""_s);
@@ -507,7 +420,7 @@ $MonitorNotification* StringMonitor::buildAlarmNotification($ObjectName* object,
 				o->setStatus(StringMonitor::DIFFERING);
 			}
 		} else if (o->getStatus() == StringMonitor::DIFFERING) {
-			if (!$nc($of($(o->getDerivedGauge())))->equals(this->stringToCompare)) {
+			if (!$$nc(o->getDerivedGauge())->equals(this->stringToCompare)) {
 				if (this->notifyDiffer) {
 					$assign(type, "jmx.monitor.string.differs"_s);
 					$assign(msg, ""_s);
@@ -520,7 +433,7 @@ $MonitorNotification* StringMonitor::buildAlarmNotification($ObjectName* object,
 	}
 }
 
-void clinit$StringMonitor($Class* class$) {
+void StringMonitor::clinit$($Class* clazz) {
 	$assignStatic(StringMonitor::types, $new($StringArray, {
 		"jmx.monitor.error.runtime"_s,
 		"jmx.monitor.error.mbean"_s,
@@ -536,7 +449,83 @@ StringMonitor::StringMonitor() {
 }
 
 $Class* StringMonitor::load$($String* name, bool initialize) {
-	$loadClass(StringMonitor, name, initialize, &_StringMonitor_ClassInfo_, clinit$StringMonitor, allocate$StringMonitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"stringToCompare", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringMonitor, stringToCompare)},
+		{"notifyMatch", "Z", nullptr, $PRIVATE, $field(StringMonitor, notifyMatch)},
+		{"notifyDiffer", "Z", nullptr, $PRIVATE, $field(StringMonitor, notifyDiffer)},
+		{"types", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringMonitor, types)},
+		{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringMonitor, notifsInfo)},
+		{"MATCHING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringMonitor, MATCHING)},
+		{"DIFFERING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringMonitor, DIFFERING)},
+		{"MATCHING_OR_DIFFERING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringMonitor, MATCHING_OR_DIFFERING)},
+		{}
+	};
+	$CompoundAttribute getDerivedGaugemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDerivedGaugeTimeStampmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
+		{"*getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringMonitor, init$, void)},
+		{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", $SYNCHRONIZED, $virtualMethod(StringMonitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
+		{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(StringMonitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
+		{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getDerivedGauge, $Object*, $ObjectName*)},
+		{"getDerivedGauge", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(StringMonitor, getDerivedGauge, $String*), nullptr, nullptr, getDerivedGaugemethodAnnotations$$$1},
+		{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
+		{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(StringMonitor, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, getDerivedGaugeTimeStampmethodAnnotations$$$1},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(StringMonitor, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getNotifyDiffer", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getNotifyDiffer, bool)},
+		{"getNotifyMatch", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getNotifyMatch, bool)},
+		{"getStringToCompare", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, getStringToCompare, $String*)},
+		{"*isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(StringMonitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
+		{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, $SYNCHRONIZED, $virtualMethod(StringMonitor, onErrorNotification, void, $MonitorNotification*)},
+		{"*removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setNotifyDiffer", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, setNotifyDiffer, void, bool)},
+		{"setNotifyMatch", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, setNotifyMatch, void, bool)},
+		{"*setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
+		{"setStringToCompare", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, setStringToCompare, void, $String*), "java.lang.IllegalArgumentException"},
+		{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StringMonitor, stop, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.StringMonitor$StringMonitorObservedObject", "javax.management.monitor.StringMonitor", "StringMonitorObservedObject", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.monitor.StringMonitor",
+		"javax.management.monitor.Monitor",
+		"javax.management.monitor.StringMonitorMBean",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.StringMonitor$StringMonitorObservedObject"
+	};
+	$loadClass(StringMonitor, name, initialize, &classInfo$$, StringMonitor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringMonitor));
+	});
 	return class$;
 }
 

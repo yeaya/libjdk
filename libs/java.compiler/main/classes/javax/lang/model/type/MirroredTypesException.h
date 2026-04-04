@@ -42,7 +42,10 @@ public:
 	::java::util::List* types = nullptr;
 	MirroredTypesException(const MirroredTypesException& e);
 	virtual void throw$() override;
-	inline MirroredTypesException* operator ->() {
+	inline MirroredTypesException* operator ->() const {
+		return (MirroredTypesException*)throwing$;
+	}
+	inline operator MirroredTypesException*() const {
 		return (MirroredTypesException*)throwing$;
 	}
 };

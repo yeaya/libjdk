@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$InapplicableMethodException.h>
-
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$InapplicableMethodException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Resolve$InapplicableMethodException, serialVersionUID)},
-	{"diagnostic", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $TRANSIENT, $field(Resolve$InapplicableMethodException, diagnostic)},
-	{}
-};
-
-$MethodInfo _Resolve$InapplicableMethodException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(Resolve$InapplicableMethodException, init$, void, $JCDiagnostic*)},
-	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableMethodException, getDiagnostic, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$InapplicableMethodException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$InapplicableMethodException", "com.sun.tools.javac.comp.Resolve", "InapplicableMethodException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Resolve$InapplicableMethodException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$InapplicableMethodException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Resolve$InapplicableMethodException_FieldInfo_,
-	_Resolve$InapplicableMethodException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$InapplicableMethodException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$InapplicableMethodException($Class* clazz) {
-	return $of($alloc(Resolve$InapplicableMethodException));
-}
 
 void Resolve$InapplicableMethodException::init$($JCDiagnostic* diag) {
 	$RuntimeException::init$();
@@ -74,7 +36,38 @@ void Resolve$InapplicableMethodException::throw$() {
 }
 
 $Class* Resolve$InapplicableMethodException::load$($String* name, bool initialize) {
-	$loadClass(Resolve$InapplicableMethodException, name, initialize, &_Resolve$InapplicableMethodException_ClassInfo_, allocate$Resolve$InapplicableMethodException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Resolve$InapplicableMethodException, serialVersionUID)},
+		{"diagnostic", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $TRANSIENT, $field(Resolve$InapplicableMethodException, diagnostic)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(Resolve$InapplicableMethodException, init$, void, $JCDiagnostic*)},
+		{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableMethodException, getDiagnostic, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$InapplicableMethodException", "com.sun.tools.javac.comp.Resolve", "InapplicableMethodException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$InapplicableMethodException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$InapplicableMethodException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$InapplicableMethodException);
+	});
 	return class$;
 }
 

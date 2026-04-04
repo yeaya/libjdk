@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType.h>
-
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,48 +20,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace security {
-
-$FieldInfo _MBeanServerFileAccessController$AccessType_FieldInfo_[] = {
-	{"READ", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, READ)},
-	{"WRITE", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, WRITE)},
-	{"CREATE", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, CREATE)},
-	{"UNREGISTER", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, UNREGISTER)},
-	{"$VALUES", "[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MBeanServerFileAccessController$AccessType, $VALUES)},
-	{}
-};
-
-$MethodInfo _MBeanServerFileAccessController$AccessType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MBeanServerFileAccessController$AccessType, $values, $MBeanServerFileAccessController$AccessTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MBeanServerFileAccessController$AccessType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFileAccessController$AccessType, valueOf, MBeanServerFileAccessController$AccessType*, $String*)},
-	{"values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFileAccessController$AccessType, values, $MBeanServerFileAccessController$AccessTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _MBeanServerFileAccessController$AccessType_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.security.MBeanServerFileAccessController$AccessType", "com.sun.jmx.remote.security.MBeanServerFileAccessController", "AccessType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MBeanServerFileAccessController$AccessType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.jmx.remote.security.MBeanServerFileAccessController$AccessType",
-	"java.lang.Enum",
-	nullptr,
-	_MBeanServerFileAccessController$AccessType_FieldInfo_,
-	_MBeanServerFileAccessController$AccessType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;>;",
-	nullptr,
-	_MBeanServerFileAccessController$AccessType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.security.MBeanServerFileAccessController"
-};
-
-$Object* allocate$MBeanServerFileAccessController$AccessType($Class* clazz) {
-	return $of($alloc(MBeanServerFileAccessController$AccessType));
-}
 
 MBeanServerFileAccessController$AccessType* MBeanServerFileAccessController$AccessType::READ = nullptr;
 MBeanServerFileAccessController$AccessType* MBeanServerFileAccessController$AccessType::WRITE = nullptr;
@@ -94,7 +51,7 @@ void MBeanServerFileAccessController$AccessType::init$($String* $enum$name, int3
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$MBeanServerFileAccessController$AccessType($Class* class$) {
+void MBeanServerFileAccessController$AccessType::clinit$($Class* clazz) {
 	$assignStatic(MBeanServerFileAccessController$AccessType::READ, $new(MBeanServerFileAccessController$AccessType, "READ"_s, 0));
 	$assignStatic(MBeanServerFileAccessController$AccessType::WRITE, $new(MBeanServerFileAccessController$AccessType, "WRITE"_s, 1));
 	$assignStatic(MBeanServerFileAccessController$AccessType::CREATE, $new(MBeanServerFileAccessController$AccessType, "CREATE"_s, 2));
@@ -106,7 +63,43 @@ MBeanServerFileAccessController$AccessType::MBeanServerFileAccessController$Acce
 }
 
 $Class* MBeanServerFileAccessController$AccessType::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerFileAccessController$AccessType, name, initialize, &_MBeanServerFileAccessController$AccessType_ClassInfo_, clinit$MBeanServerFileAccessController$AccessType, allocate$MBeanServerFileAccessController$AccessType);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, READ)},
+		{"WRITE", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, WRITE)},
+		{"CREATE", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, CREATE)},
+		{"UNREGISTER", "Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MBeanServerFileAccessController$AccessType, UNREGISTER)},
+		{"$VALUES", "[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MBeanServerFileAccessController$AccessType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MBeanServerFileAccessController$AccessType, $values, $MBeanServerFileAccessController$AccessTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MBeanServerFileAccessController$AccessType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFileAccessController$AccessType, valueOf, MBeanServerFileAccessController$AccessType*, $String*)},
+		{"values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFileAccessController$AccessType, values, $MBeanServerFileAccessController$AccessTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.security.MBeanServerFileAccessController$AccessType", "com.sun.jmx.remote.security.MBeanServerFileAccessController", "AccessType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.jmx.remote.security.MBeanServerFileAccessController$AccessType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.security.MBeanServerFileAccessController"
+	};
+	$loadClass(MBeanServerFileAccessController$AccessType, name, initialize, &classInfo$$, MBeanServerFileAccessController$AccessType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanServerFileAccessController$AccessType));
+	});
 	return class$;
 }
 

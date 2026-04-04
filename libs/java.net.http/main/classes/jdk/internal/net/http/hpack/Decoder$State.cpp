@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/Decoder$State.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/hpack/Decoder.h>
 #include <jcpp.h>
@@ -23,50 +22,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace hpack {
-
-$FieldInfo _Decoder$State_FieldInfo_[] = {
-	{"READY", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, READY)},
-	{"INDEXED", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, INDEXED)},
-	{"LITERAL_NEVER_INDEXED", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, LITERAL_NEVER_INDEXED)},
-	{"LITERAL", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, LITERAL)},
-	{"LITERAL_WITH_INDEXING", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, LITERAL_WITH_INDEXING)},
-	{"SIZE_UPDATE", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, SIZE_UPDATE)},
-	{"$VALUES", "[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Decoder$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _Decoder$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Decoder$State, $values, $Decoder$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Decoder$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoder$State, valueOf, Decoder$State*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoder$State, values, $Decoder$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _Decoder$State_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.Decoder$State", "jdk.internal.net.http.hpack.Decoder", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Decoder$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.hpack.Decoder$State",
-	"java.lang.Enum",
-	nullptr,
-	_Decoder$State_FieldInfo_,
-	_Decoder$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/hpack/Decoder$State;>;",
-	nullptr,
-	_Decoder$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.Decoder"
-};
-
-$Object* allocate$Decoder$State($Class* clazz) {
-	return $of($alloc(Decoder$State));
-}
 
 Decoder$State* Decoder$State::READY = nullptr;
 Decoder$State* Decoder$State::INDEXED = nullptr;
@@ -102,7 +57,7 @@ void Decoder$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Decoder$State($Class* class$) {
+void Decoder$State::clinit$($Class* clazz) {
 	$assignStatic(Decoder$State::READY, $new(Decoder$State, "READY"_s, 0));
 	$assignStatic(Decoder$State::INDEXED, $new(Decoder$State, "INDEXED"_s, 1));
 	$assignStatic(Decoder$State::LITERAL_NEVER_INDEXED, $new(Decoder$State, "LITERAL_NEVER_INDEXED"_s, 2));
@@ -116,7 +71,45 @@ Decoder$State::Decoder$State() {
 }
 
 $Class* Decoder$State::load$($String* name, bool initialize) {
-	$loadClass(Decoder$State, name, initialize, &_Decoder$State_ClassInfo_, clinit$Decoder$State, allocate$Decoder$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"READY", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, READY)},
+		{"INDEXED", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, INDEXED)},
+		{"LITERAL_NEVER_INDEXED", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, LITERAL_NEVER_INDEXED)},
+		{"LITERAL", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, LITERAL)},
+		{"LITERAL_WITH_INDEXING", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, LITERAL_WITH_INDEXING)},
+		{"SIZE_UPDATE", "Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Decoder$State, SIZE_UPDATE)},
+		{"$VALUES", "[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Decoder$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Decoder$State, $values, $Decoder$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Decoder$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoder$State, valueOf, Decoder$State*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoder$State, values, $Decoder$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.Decoder$State", "jdk.internal.net.http.hpack.Decoder", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.hpack.Decoder$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/hpack/Decoder$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.Decoder"
+	};
+	$loadClass(Decoder$State, name, initialize, &classInfo$$, Decoder$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Decoder$State));
+	});
 	return class$;
 }
 

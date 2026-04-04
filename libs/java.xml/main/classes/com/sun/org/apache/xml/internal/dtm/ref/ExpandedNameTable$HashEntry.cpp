@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable$HashEntry.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/ExtendedType.h>
 #include <jcpp.h>
@@ -19,44 +18,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _ExpandedNameTable$HashEntry_FieldInfo_[] = {
-	{"key", "Lcom/sun/org/apache/xml/internal/dtm/ref/ExtendedType;", nullptr, 0, $field(ExpandedNameTable$HashEntry, key)},
-	{"value", "I", nullptr, 0, $field(ExpandedNameTable$HashEntry, value)},
-	{"hash", "I", nullptr, 0, $field(ExpandedNameTable$HashEntry, hash)},
-	{"next", "Lcom/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable$HashEntry;", nullptr, 0, $field(ExpandedNameTable$HashEntry, next)},
-	{}
-};
-
-$MethodInfo _ExpandedNameTable$HashEntry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/ExtendedType;IILcom/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable$HashEntry;)V", nullptr, $PROTECTED, $method(ExpandedNameTable$HashEntry, init$, void, $ExtendedType*, int32_t, int32_t, ExpandedNameTable$HashEntry*)},
-	{}
-};
-
-$InnerClassInfo _ExpandedNameTable$HashEntry_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable$HashEntry", "com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable", "HashEntry", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ExpandedNameTable$HashEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable$HashEntry",
-	"java.lang.Object",
-	nullptr,
-	_ExpandedNameTable$HashEntry_FieldInfo_,
-	_ExpandedNameTable$HashEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExpandedNameTable$HashEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable"
-};
-
-$Object* allocate$ExpandedNameTable$HashEntry($Class* clazz) {
-	return $of($alloc(ExpandedNameTable$HashEntry));
-}
-
 void ExpandedNameTable$HashEntry::init$($ExtendedType* key, int32_t value, int32_t hash, ExpandedNameTable$HashEntry* next) {
 	$set(this, key, key);
 	this->value = value;
@@ -68,7 +29,39 @@ ExpandedNameTable$HashEntry::ExpandedNameTable$HashEntry() {
 }
 
 $Class* ExpandedNameTable$HashEntry::load$($String* name, bool initialize) {
-	$loadClass(ExpandedNameTable$HashEntry, name, initialize, &_ExpandedNameTable$HashEntry_ClassInfo_, allocate$ExpandedNameTable$HashEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Lcom/sun/org/apache/xml/internal/dtm/ref/ExtendedType;", nullptr, 0, $field(ExpandedNameTable$HashEntry, key)},
+		{"value", "I", nullptr, 0, $field(ExpandedNameTable$HashEntry, value)},
+		{"hash", "I", nullptr, 0, $field(ExpandedNameTable$HashEntry, hash)},
+		{"next", "Lcom/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable$HashEntry;", nullptr, 0, $field(ExpandedNameTable$HashEntry, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/ExtendedType;IILcom/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable$HashEntry;)V", nullptr, $PROTECTED, $method(ExpandedNameTable$HashEntry, init$, void, $ExtendedType*, int32_t, int32_t, ExpandedNameTable$HashEntry*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable$HashEntry", "com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable", "HashEntry", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable$HashEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.ExpandedNameTable"
+	};
+	$loadClass(ExpandedNameTable$HashEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExpandedNameTable$HashEntry);
+	});
 	return class$;
 }
 

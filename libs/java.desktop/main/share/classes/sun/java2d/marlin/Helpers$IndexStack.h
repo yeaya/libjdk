@@ -36,6 +36,7 @@ class Helpers$IndexStack : public ::java::lang::Object {
 	$class(Helpers$IndexStack, 0, ::java::lang::Object)
 public:
 	Helpers$IndexStack();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx, ::sun::java2d::marlin::stats::StatLong* stat_idxstack_indices, ::sun::java2d::marlin::stats::Histogram* hist_idxstack_indices, ::sun::java2d::marlin::stats::StatLong* stat_array_idxstack_indices);
 	void dispose();

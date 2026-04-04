@@ -1,5 +1,4 @@
 #include <sun/awt/Win32FontManager$4.h>
-
 #include <java/io/File.h>
 #include <java/io/FilenameFilter.h>
 #include <sun/awt/Win32FontManager.h>
@@ -18,71 +17,64 @@ using $SunFontManager = ::sun::font::SunFontManager;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _Win32FontManager$4_FieldInfo_[] = {
-	{"val$pathName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Win32FontManager$4, val$pathName)},
-	{}
-};
-
-$MethodInfo _Win32FontManager$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(Win32FontManager$4, init$, void, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager$4, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Win32FontManager$4_EnclosingMethodInfo_ = {
-	"sun.awt.Win32FontManager",
-	"registerJREFontsForPrinting",
-	"()V"
-};
-
-$InnerClassInfo _Win32FontManager$4_InnerClassesInfo_[] = {
-	{"sun.awt.Win32FontManager$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32FontManager$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.Win32FontManager$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Win32FontManager$4_FieldInfo_,
-	_Win32FontManager$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_Win32FontManager$4_EnclosingMethodInfo_,
-	_Win32FontManager$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.Win32FontManager"
-};
-
-$Object* allocate$Win32FontManager$4($Class* clazz) {
-	return $of($alloc(Win32FontManager$4));
-}
-
 void Win32FontManager$4::init$($String* val$pathName) {
 	$set(this, val$pathName, val$pathName);
 }
 
 $Object* Win32FontManager$4::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f1, $new($File, this->val$pathName));
-	$var($StringArray, ls, f1->list($($nc($($SunFontManager::getInstance()))->getTrueTypeFilter())));
+	$var($StringArray, ls, f1->list($($$nc($SunFontManager::getInstance())->getTrueTypeFilter())));
 	if (ls == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	for (int32_t i = 0; i < $nc(ls)->length; ++i) {
 		$var($File, fontFile, $new($File, f1, ls->get(i)));
 		$Win32FontManager::registerFontWithPlatform($(fontFile->getAbsolutePath()));
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Win32FontManager$4::Win32FontManager$4() {
 }
 
 $Class* Win32FontManager$4::load$($String* name, bool initialize) {
-	$loadClass(Win32FontManager$4, name, initialize, &_Win32FontManager$4_ClassInfo_, allocate$Win32FontManager$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$pathName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Win32FontManager$4, val$pathName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(Win32FontManager$4, init$, void, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager$4, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.Win32FontManager",
+		"registerJREFontsForPrinting",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.Win32FontManager$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.Win32FontManager$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.Win32FontManager"
+	};
+	$loadClass(Win32FontManager$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32FontManager$4);
+	});
 	return class$;
 }
 

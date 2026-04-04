@@ -34,6 +34,7 @@ class $import MBeanServerNotificationFilter : public ::javax::management::Notifi
 	$class(MBeanServerNotificationFilter, 0, ::javax::management::NotificationFilterSupport)
 public:
 	MBeanServerNotificationFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void disableAllObjectNames();
 	virtual void disableObjectName(::javax::management::ObjectName* objectName);
@@ -44,8 +45,8 @@ public:
 	virtual bool isNotificationEnabled(::javax::management::Notification* notif) override;
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x534A9D90E596CB55;
-	static const int64_t newSerialVersionUID = (int64_t)0x242A04BBEE3F8828;
+	static const int64_t oldSerialVersionUID = (int64_t)0x534a9d90e596cb55;
+	static const int64_t newSerialVersionUID = (int64_t)0x242a04bbee3f8828;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

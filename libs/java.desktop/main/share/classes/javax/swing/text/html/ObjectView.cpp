@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/ObjectView.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/beans/BeanInfo.h>
@@ -26,8 +25,6 @@ using $Component = ::java::awt::Component;
 using $BeanInfo = ::java::beans::BeanInfo;
 using $IntrospectionException = ::java::beans::IntrospectionException;
 using $Introspector = ::java::beans::Introspector;
-using $PropertyDescriptor = ::java::beans::PropertyDescriptor;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -45,41 +42,20 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _ObjectView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ObjectView, init$, void, $Element*)},
-	{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(ObjectView, createComponent, $Component*)},
-	{"getUnloadableRepresentation", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(ObjectView, getUnloadableRepresentation, $Component*)},
-	{"setParameters", "(Ljava/awt/Component;Ljavax/swing/text/AttributeSet;)V", nullptr, $PRIVATE, $method(ObjectView, setParameters, void, $Component*, $AttributeSet*)},
-	{}
-};
-
-$ClassInfo _ObjectView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.ObjectView",
-	"javax.swing.text.ComponentView",
-	nullptr,
-	nullptr,
-	_ObjectView_MethodInfo_
-};
-
-$Object* allocate$ObjectView($Class* clazz) {
-	return $of($alloc(ObjectView));
-}
-
 void ObjectView::init$($Element* elem) {
 	$ComponentView::init$(elem);
 }
 
 $Component* ObjectView::createComponent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($AttributeSet, attr, $nc($(getElement()))->getAttributes());
+	$var($AttributeSet, attr, $$nc(getElement())->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, classname, $cast($String, $nc(attr)->getAttribute($HTML$Attribute::CLASSID)));
 	try {
 		$ReflectUtil::checkPackageAccess(classname);
 		$Class* c = $Class::forName(classname, true, $($($Thread::currentThread())->getContextClassLoader()));
-		$var($Object, o, $nc(c)->newInstance());
+		$var($Object, o, c->newInstance());
 		if ($instanceOf($Component, o)) {
 			$var($Component, comp, $cast($Component, o));
 			setParameters(comp, attr);
@@ -98,7 +74,7 @@ $Component* ObjectView::getUnloadableRepresentation() {
 }
 
 void ObjectView::setParameters($Component* comp, $AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* k = $nc($of(comp))->getClass();
 	$var($BeanInfo, bi, nullptr);
 	try {
@@ -120,7 +96,7 @@ void ObjectView::setParameters($Component* comp, $AttributeSet* attr) {
 			if ($nc(params)->length != 1) {
 				return;
 			}
-			$var($ObjectArray, args, $new($ObjectArray, {$of(value)}));
+			$var($ObjectArray, args, $new($ObjectArray, {value}));
 			try {
 				$MethodUtil::invoke(writer, comp, args);
 			} catch ($Exception& ex) {
@@ -134,7 +110,24 @@ ObjectView::ObjectView() {
 }
 
 $Class* ObjectView::load$($String* name, bool initialize) {
-	$loadClass(ObjectView, name, initialize, &_ObjectView_ClassInfo_, allocate$ObjectView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ObjectView, init$, void, $Element*)},
+		{"createComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(ObjectView, createComponent, $Component*)},
+		{"getUnloadableRepresentation", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(ObjectView, getUnloadableRepresentation, $Component*)},
+		{"setParameters", "(Ljava/awt/Component;Ljavax/swing/text/AttributeSet;)V", nullptr, $PRIVATE, $method(ObjectView, setParameters, void, $Component*, $AttributeSet*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.ObjectView",
+		"javax.swing.text.ComponentView",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjectView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectView);
+	});
 	return class$;
 }
 

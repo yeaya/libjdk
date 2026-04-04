@@ -15,6 +15,7 @@ class Type$5 : public ::java::lang::Object {
 	$class(Type$5, 0, ::java::lang::Object)
 public:
 	Type$5();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 };

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
@@ -239,7 +238,6 @@ using $TABLESWITCH = ::com::sun::org::apache::bcel::internal::generic::TABLESWIT
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -256,74 +254,16 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$CompoundAttribute _Instruction_MethodAnnotations_getComparator8[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Instruction_MethodAnnotations_setComparator18[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Instruction_FieldInfo_[] = {
-	{"length", "S", nullptr, $PRIVATE, $field(Instruction, length)},
-	{"opcode", "S", nullptr, $PRIVATE, $field(Instruction, opcode)},
-	{"cmp", "Lcom/sun/org/apache/bcel/internal/generic/InstructionComparator;", nullptr, $PRIVATE | $STATIC, $staticField(Instruction, cmp)},
-	{}
-};
-
-$MethodInfo _Instruction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Instruction, init$, void)},
-	{"<init>", "(SS)V", nullptr, $PUBLIC, $method(Instruction, init$, void, int16_t, int16_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Instruction, accept, void, $Visitor*)},
-	{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(Instruction, consumeStack, int32_t, $ConstantPoolGen*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(Instruction, copy, Instruction*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(Instruction, dispose, void)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Instruction, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Instruction, equals, bool, Object$*)},
-	{"getComparator", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionComparator;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Instruction, getComparator, $InstructionComparator*), nullptr, nullptr, _Instruction_MethodAnnotations_getComparator8},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Instruction, getLength, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, getName, $String*)},
-	{"getOpcode", "()S", nullptr, $PUBLIC, $virtualMethod(Instruction, getOpcode, int16_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Instruction, hashCode, int32_t)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(Instruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"isValidByte", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Instruction, isValidByte, bool, int32_t)},
-	{"isValidShort", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Instruction, isValidShort, bool, int32_t)},
-	{"produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(Instruction, produceStack, int32_t, $ConstantPoolGen*)},
-	{"readInstruction", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC, $staticMethod(Instruction, readInstruction, Instruction*, $ByteSequence*), "java.io.IOException"},
-	{"setComparator", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionComparator;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Instruction, setComparator, void, $InstructionComparator*), nullptr, nullptr, _Instruction_MethodAnnotations_setComparator18},
-	{"setLength", "(I)V", nullptr, $FINAL, $method(Instruction, setLength, void, int32_t)},
-	{"setOpcode", "(S)V", nullptr, 0, $virtualMethod(Instruction, setOpcode, void, int16_t)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, toString, $String*, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, toString, $String*)},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, toString, $String*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _Instruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_Instruction_FieldInfo_,
-	_Instruction_MethodInfo_
-};
-
-$Object* allocate$Instruction($Class* clazz) {
-	return $of($alloc(Instruction));
-}
-
 $InstructionComparator* Instruction::cmp = nullptr;
 
 void Instruction::init$() {
-	this->length = (int16_t)1;
-	this->opcode = (int16_t)-1;
+	this->length = 1;
+	this->opcode = -1;
 }
 
 void Instruction::init$(int16_t opcode, int16_t length) {
-	this->length = (int16_t)1;
-	this->opcode = (int16_t)-1;
+	this->length = 1;
+	this->opcode = -1;
 	this->length = length;
 	this->opcode = opcode;
 }
@@ -337,7 +277,7 @@ $String* Instruction::getName() {
 }
 
 $String* Instruction::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (verbose) {
 		return $str({$(getName()), "["_s, $$str(this->opcode), "]("_s, $$str(this->length), ")"_s});
 	}
@@ -371,7 +311,7 @@ void Instruction::initFromFile($ByteSequence* bytes, bool wide) {
 
 Instruction* Instruction::readInstruction($ByteSequence* bytes) {
 	$init(Instruction);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool wide = false;
 	int16_t opcode = (int16_t)$nc(bytes)->readUnsignedByte();
 	$var(Instruction, obj, nullptr);
@@ -385,494 +325,298 @@ Instruction* Instruction::readInstruction($ByteSequence* bytes) {
 	}
 	switch (opcode) {
 	case $Const::BIPUSH:
-		{
-			$assign(obj, $new($BIPUSH));
-			break;
-		}
+		$assign(obj, $new($BIPUSH));
+		break;
 	case $Const::SIPUSH:
-		{
-			$assign(obj, $new($SIPUSH));
-			break;
-		}
+		$assign(obj, $new($SIPUSH));
+		break;
 	case $Const::LDC:
-		{
-			$assign(obj, $new($LDC));
-			break;
-		}
+		$assign(obj, $new($LDC));
+		break;
 	case $Const::LDC_W:
-		{
-			$assign(obj, $new($LDC_W));
-			break;
-		}
+		$assign(obj, $new($LDC_W));
+		break;
 	case $Const::LDC2_W:
-		{
-			$assign(obj, $new($LDC2_W));
-			break;
-		}
+		$assign(obj, $new($LDC2_W));
+		break;
 	case $Const::ILOAD:
-		{
-			$assign(obj, $new($ILOAD));
-			break;
-		}
+		$assign(obj, $new($ILOAD));
+		break;
 	case $Const::LLOAD:
-		{
-			$assign(obj, $new($LLOAD));
-			break;
-		}
+		$assign(obj, $new($LLOAD));
+		break;
 	case $Const::FLOAD:
-		{
-			$assign(obj, $new($FLOAD));
-			break;
-		}
+		$assign(obj, $new($FLOAD));
+		break;
 	case $Const::DLOAD:
-		{
-			$assign(obj, $new($DLOAD));
-			break;
-		}
+		$assign(obj, $new($DLOAD));
+		break;
 	case $Const::ALOAD:
-		{
-			$assign(obj, $new($ALOAD));
-			break;
-		}
+		$assign(obj, $new($ALOAD));
+		break;
 	case $Const::ILOAD_0:
-		{
-			$assign(obj, $new($ILOAD, 0));
-			break;
-		}
+		$assign(obj, $new($ILOAD, 0));
+		break;
 	case $Const::ILOAD_1:
-		{
-			$assign(obj, $new($ILOAD, 1));
-			break;
-		}
+		$assign(obj, $new($ILOAD, 1));
+		break;
 	case $Const::ILOAD_2:
-		{
-			$assign(obj, $new($ILOAD, 2));
-			break;
-		}
+		$assign(obj, $new($ILOAD, 2));
+		break;
 	case $Const::ILOAD_3:
-		{
-			$assign(obj, $new($ILOAD, 3));
-			break;
-		}
+		$assign(obj, $new($ILOAD, 3));
+		break;
 	case $Const::LLOAD_0:
-		{
-			$assign(obj, $new($LLOAD, 0));
-			break;
-		}
+		$assign(obj, $new($LLOAD, 0));
+		break;
 	case $Const::LLOAD_1:
-		{
-			$assign(obj, $new($LLOAD, 1));
-			break;
-		}
+		$assign(obj, $new($LLOAD, 1));
+		break;
 	case $Const::LLOAD_2:
-		{
-			$assign(obj, $new($LLOAD, 2));
-			break;
-		}
+		$assign(obj, $new($LLOAD, 2));
+		break;
 	case $Const::LLOAD_3:
-		{
-			$assign(obj, $new($LLOAD, 3));
-			break;
-		}
+		$assign(obj, $new($LLOAD, 3));
+		break;
 	case $Const::FLOAD_0:
-		{
-			$assign(obj, $new($FLOAD, 0));
-			break;
-		}
+		$assign(obj, $new($FLOAD, 0));
+		break;
 	case $Const::FLOAD_1:
-		{
-			$assign(obj, $new($FLOAD, 1));
-			break;
-		}
+		$assign(obj, $new($FLOAD, 1));
+		break;
 	case $Const::FLOAD_2:
-		{
-			$assign(obj, $new($FLOAD, 2));
-			break;
-		}
+		$assign(obj, $new($FLOAD, 2));
+		break;
 	case $Const::FLOAD_3:
-		{
-			$assign(obj, $new($FLOAD, 3));
-			break;
-		}
+		$assign(obj, $new($FLOAD, 3));
+		break;
 	case $Const::DLOAD_0:
-		{
-			$assign(obj, $new($DLOAD, 0));
-			break;
-		}
+		$assign(obj, $new($DLOAD, 0));
+		break;
 	case $Const::DLOAD_1:
-		{
-			$assign(obj, $new($DLOAD, 1));
-			break;
-		}
+		$assign(obj, $new($DLOAD, 1));
+		break;
 	case $Const::DLOAD_2:
-		{
-			$assign(obj, $new($DLOAD, 2));
-			break;
-		}
+		$assign(obj, $new($DLOAD, 2));
+		break;
 	case $Const::DLOAD_3:
-		{
-			$assign(obj, $new($DLOAD, 3));
-			break;
-		}
+		$assign(obj, $new($DLOAD, 3));
+		break;
 	case $Const::ALOAD_0:
-		{
-			$assign(obj, $new($ALOAD, 0));
-			break;
-		}
+		$assign(obj, $new($ALOAD, 0));
+		break;
 	case $Const::ALOAD_1:
-		{
-			$assign(obj, $new($ALOAD, 1));
-			break;
-		}
+		$assign(obj, $new($ALOAD, 1));
+		break;
 	case $Const::ALOAD_2:
-		{
-			$assign(obj, $new($ALOAD, 2));
-			break;
-		}
+		$assign(obj, $new($ALOAD, 2));
+		break;
 	case $Const::ALOAD_3:
-		{
-			$assign(obj, $new($ALOAD, 3));
-			break;
-		}
+		$assign(obj, $new($ALOAD, 3));
+		break;
 	case $Const::ISTORE:
-		{
-			$assign(obj, $new($ISTORE));
-			break;
-		}
+		$assign(obj, $new($ISTORE));
+		break;
 	case $Const::LSTORE:
-		{
-			$assign(obj, $new($LSTORE));
-			break;
-		}
+		$assign(obj, $new($LSTORE));
+		break;
 	case $Const::FSTORE:
-		{
-			$assign(obj, $new($FSTORE));
-			break;
-		}
+		$assign(obj, $new($FSTORE));
+		break;
 	case $Const::DSTORE:
-		{
-			$assign(obj, $new($DSTORE));
-			break;
-		}
+		$assign(obj, $new($DSTORE));
+		break;
 	case $Const::ASTORE:
-		{
-			$assign(obj, $new($ASTORE));
-			break;
-		}
+		$assign(obj, $new($ASTORE));
+		break;
 	case $Const::ISTORE_0:
-		{
-			$assign(obj, $new($ISTORE, 0));
-			break;
-		}
+		$assign(obj, $new($ISTORE, 0));
+		break;
 	case $Const::ISTORE_1:
-		{
-			$assign(obj, $new($ISTORE, 1));
-			break;
-		}
+		$assign(obj, $new($ISTORE, 1));
+		break;
 	case $Const::ISTORE_2:
-		{
-			$assign(obj, $new($ISTORE, 2));
-			break;
-		}
+		$assign(obj, $new($ISTORE, 2));
+		break;
 	case $Const::ISTORE_3:
-		{
-			$assign(obj, $new($ISTORE, 3));
-			break;
-		}
+		$assign(obj, $new($ISTORE, 3));
+		break;
 	case $Const::LSTORE_0:
-		{
-			$assign(obj, $new($LSTORE, 0));
-			break;
-		}
+		$assign(obj, $new($LSTORE, 0));
+		break;
 	case $Const::LSTORE_1:
-		{
-			$assign(obj, $new($LSTORE, 1));
-			break;
-		}
+		$assign(obj, $new($LSTORE, 1));
+		break;
 	case $Const::LSTORE_2:
-		{
-			$assign(obj, $new($LSTORE, 2));
-			break;
-		}
+		$assign(obj, $new($LSTORE, 2));
+		break;
 	case $Const::LSTORE_3:
-		{
-			$assign(obj, $new($LSTORE, 3));
-			break;
-		}
+		$assign(obj, $new($LSTORE, 3));
+		break;
 	case $Const::FSTORE_0:
-		{
-			$assign(obj, $new($FSTORE, 0));
-			break;
-		}
+		$assign(obj, $new($FSTORE, 0));
+		break;
 	case $Const::FSTORE_1:
-		{
-			$assign(obj, $new($FSTORE, 1));
-			break;
-		}
+		$assign(obj, $new($FSTORE, 1));
+		break;
 	case $Const::FSTORE_2:
-		{
-			$assign(obj, $new($FSTORE, 2));
-			break;
-		}
+		$assign(obj, $new($FSTORE, 2));
+		break;
 	case $Const::FSTORE_3:
-		{
-			$assign(obj, $new($FSTORE, 3));
-			break;
-		}
+		$assign(obj, $new($FSTORE, 3));
+		break;
 	case $Const::DSTORE_0:
-		{
-			$assign(obj, $new($DSTORE, 0));
-			break;
-		}
+		$assign(obj, $new($DSTORE, 0));
+		break;
 	case $Const::DSTORE_1:
-		{
-			$assign(obj, $new($DSTORE, 1));
-			break;
-		}
+		$assign(obj, $new($DSTORE, 1));
+		break;
 	case $Const::DSTORE_2:
-		{
-			$assign(obj, $new($DSTORE, 2));
-			break;
-		}
+		$assign(obj, $new($DSTORE, 2));
+		break;
 	case $Const::DSTORE_3:
-		{
-			$assign(obj, $new($DSTORE, 3));
-			break;
-		}
+		$assign(obj, $new($DSTORE, 3));
+		break;
 	case $Const::ASTORE_0:
-		{
-			$assign(obj, $new($ASTORE, 0));
-			break;
-		}
+		$assign(obj, $new($ASTORE, 0));
+		break;
 	case $Const::ASTORE_1:
-		{
-			$assign(obj, $new($ASTORE, 1));
-			break;
-		}
+		$assign(obj, $new($ASTORE, 1));
+		break;
 	case $Const::ASTORE_2:
-		{
-			$assign(obj, $new($ASTORE, 2));
-			break;
-		}
+		$assign(obj, $new($ASTORE, 2));
+		break;
 	case $Const::ASTORE_3:
-		{
-			$assign(obj, $new($ASTORE, 3));
-			break;
-		}
+		$assign(obj, $new($ASTORE, 3));
+		break;
 	case $Const::IINC:
-		{
-			$assign(obj, $new($IINC));
-			break;
-		}
+		$assign(obj, $new($IINC));
+		break;
 	case $Const::IFEQ:
-		{
-			$assign(obj, $new($IFEQ));
-			break;
-		}
+		$assign(obj, $new($IFEQ));
+		break;
 	case $Const::IFNE:
-		{
-			$assign(obj, $new($IFNE));
-			break;
-		}
+		$assign(obj, $new($IFNE));
+		break;
 	case $Const::IFLT:
-		{
-			$assign(obj, $new($IFLT));
-			break;
-		}
+		$assign(obj, $new($IFLT));
+		break;
 	case $Const::IFGE:
-		{
-			$assign(obj, $new($IFGE));
-			break;
-		}
+		$assign(obj, $new($IFGE));
+		break;
 	case $Const::IFGT:
-		{
-			$assign(obj, $new($IFGT));
-			break;
-		}
+		$assign(obj, $new($IFGT));
+		break;
 	case $Const::IFLE:
-		{
-			$assign(obj, $new($IFLE));
-			break;
-		}
+		$assign(obj, $new($IFLE));
+		break;
 	case $Const::IF_ICMPEQ:
-		{
-			$assign(obj, $new($IF_ICMPEQ));
-			break;
-		}
+		$assign(obj, $new($IF_ICMPEQ));
+		break;
 	case $Const::IF_ICMPNE:
-		{
-			$assign(obj, $new($IF_ICMPNE));
-			break;
-		}
+		$assign(obj, $new($IF_ICMPNE));
+		break;
 	case $Const::IF_ICMPLT:
-		{
-			$assign(obj, $new($IF_ICMPLT));
-			break;
-		}
+		$assign(obj, $new($IF_ICMPLT));
+		break;
 	case $Const::IF_ICMPGE:
-		{
-			$assign(obj, $new($IF_ICMPGE));
-			break;
-		}
+		$assign(obj, $new($IF_ICMPGE));
+		break;
 	case $Const::IF_ICMPGT:
-		{
-			$assign(obj, $new($IF_ICMPGT));
-			break;
-		}
+		$assign(obj, $new($IF_ICMPGT));
+		break;
 	case $Const::IF_ICMPLE:
-		{
-			$assign(obj, $new($IF_ICMPLE));
-			break;
-		}
+		$assign(obj, $new($IF_ICMPLE));
+		break;
 	case $Const::IF_ACMPEQ:
-		{
-			$assign(obj, $new($IF_ACMPEQ));
-			break;
-		}
+		$assign(obj, $new($IF_ACMPEQ));
+		break;
 	case $Const::IF_ACMPNE:
-		{
-			$assign(obj, $new($IF_ACMPNE));
-			break;
-		}
+		$assign(obj, $new($IF_ACMPNE));
+		break;
 	case $Const::GOTO:
-		{
-			$assign(obj, $new($GOTO));
-			break;
-		}
+		$assign(obj, $new($GOTO));
+		break;
 	case $Const::JSR:
-		{
-			$assign(obj, $new($JSR));
-			break;
-		}
+		$assign(obj, $new($JSR));
+		break;
 	case $Const::RET:
-		{
-			$assign(obj, $new($RET));
-			break;
-		}
+		$assign(obj, $new($RET));
+		break;
 	case $Const::TABLESWITCH:
-		{
-			$assign(obj, $new($TABLESWITCH));
-			break;
-		}
+		$assign(obj, $new($TABLESWITCH));
+		break;
 	case $Const::LOOKUPSWITCH:
-		{
-			$assign(obj, $new($LOOKUPSWITCH));
-			break;
-		}
+		$assign(obj, $new($LOOKUPSWITCH));
+		break;
 	case $Const::GETSTATIC:
-		{
-			$assign(obj, $new($GETSTATIC));
-			break;
-		}
+		$assign(obj, $new($GETSTATIC));
+		break;
 	case $Const::PUTSTATIC:
-		{
-			$assign(obj, $new($PUTSTATIC));
-			break;
-		}
+		$assign(obj, $new($PUTSTATIC));
+		break;
 	case $Const::GETFIELD:
-		{
-			$assign(obj, $new($GETFIELD));
-			break;
-		}
+		$assign(obj, $new($GETFIELD));
+		break;
 	case $Const::PUTFIELD:
-		{
-			$assign(obj, $new($PUTFIELD));
-			break;
-		}
+		$assign(obj, $new($PUTFIELD));
+		break;
 	case $Const::INVOKEVIRTUAL:
-		{
-			$assign(obj, $new($INVOKEVIRTUAL));
-			break;
-		}
+		$assign(obj, $new($INVOKEVIRTUAL));
+		break;
 	case $Const::INVOKESPECIAL:
-		{
-			$assign(obj, $new($INVOKESPECIAL));
-			break;
-		}
+		$assign(obj, $new($INVOKESPECIAL));
+		break;
 	case $Const::INVOKESTATIC:
-		{
-			$assign(obj, $new($INVOKESTATIC));
-			break;
-		}
+		$assign(obj, $new($INVOKESTATIC));
+		break;
 	case $Const::INVOKEINTERFACE:
-		{
-			$assign(obj, $new($INVOKEINTERFACE));
-			break;
-		}
+		$assign(obj, $new($INVOKEINTERFACE));
+		break;
 	case $Const::INVOKEDYNAMIC:
-		{
-			$assign(obj, $new($INVOKEDYNAMIC));
-			break;
-		}
+		$assign(obj, $new($INVOKEDYNAMIC));
+		break;
 	case $Const::NEW:
-		{
-			$assign(obj, $new($NEW));
-			break;
-		}
+		$assign(obj, $new($NEW));
+		break;
 	case $Const::NEWARRAY:
-		{
-			$assign(obj, $new($NEWARRAY));
-			break;
-		}
+		$assign(obj, $new($NEWARRAY));
+		break;
 	case $Const::ANEWARRAY:
-		{
-			$assign(obj, $new($ANEWARRAY));
-			break;
-		}
+		$assign(obj, $new($ANEWARRAY));
+		break;
 	case $Const::CHECKCAST:
-		{
-			$assign(obj, $new($CHECKCAST));
-			break;
-		}
+		$assign(obj, $new($CHECKCAST));
+		break;
 	case $Const::INSTANCEOF:
-		{
-			$assign(obj, $new($INSTANCEOF));
-			break;
-		}
+		$assign(obj, $new($INSTANCEOF));
+		break;
 	case $Const::MULTIANEWARRAY:
-		{
-			$assign(obj, $new($MULTIANEWARRAY));
-			break;
-		}
+		$assign(obj, $new($MULTIANEWARRAY));
+		break;
 	case $Const::IFNULL:
-		{
-			$assign(obj, $new($IFNULL));
-			break;
-		}
+		$assign(obj, $new($IFNULL));
+		break;
 	case $Const::IFNONNULL:
-		{
-			$assign(obj, $new($IFNONNULL));
-			break;
-		}
+		$assign(obj, $new($IFNONNULL));
+		break;
 	case $Const::GOTO_W:
-		{
-			$assign(obj, $new($GOTO_W));
-			break;
-		}
+		$assign(obj, $new($GOTO_W));
+		break;
 	case $Const::JSR_W:
-		{
-			$assign(obj, $new($JSR_W));
-			break;
-		}
+		$assign(obj, $new($JSR_W));
+		break;
 	case $Const::BREAKPOINT:
-		{
-			$assign(obj, $new($BREAKPOINT));
-			break;
-		}
+		$assign(obj, $new($BREAKPOINT));
+		break;
 	case $Const::IMPDEP1:
-		{
-			$assign(obj, $new($IMPDEP1));
-			break;
-		}
+		$assign(obj, $new($IMPDEP1));
+		break;
 	case $Const::IMPDEP2:
-		{
-			$assign(obj, $new($IMPDEP2));
-			break;
-		}
+		$assign(obj, $new($IMPDEP2));
+		break;
 	default:
-		{
-			$throwNew($ClassGenException, $$str({"Illegal opcode detected: "_s, $$str(opcode)}));
-		}
+		$throwNew($ClassGenException, $$str({"Illegal opcode detected: "_s, $$str(opcode)}));
 	}
 	if (wide && !(($instanceOf($LocalVariableInstruction, obj)) || ($instanceOf($IINC, obj)) || ($instanceOf($RET, obj)))) {
 		$throwNew($ClassGenException, $$str({"Illegal opcode after wide: "_s, $$str(opcode)}));
@@ -937,7 +681,7 @@ bool Instruction::isValidShort(int32_t value) {
 	return value >= $Short::MIN_VALUE && value <= $Short::MAX_VALUE;
 }
 
-void clinit$Instruction($Class* class$) {
+void Instruction::clinit$($Class* clazz) {
 	$init($InstructionComparator);
 	$assignStatic(Instruction::cmp, $InstructionComparator::DEFAULT);
 }
@@ -946,7 +690,58 @@ Instruction::Instruction() {
 }
 
 $Class* Instruction::load$($String* name, bool initialize) {
-	$loadClass(Instruction, name, initialize, &_Instruction_ClassInfo_, clinit$Instruction, allocate$Instruction);
+	$FieldInfo fieldInfos$$[] = {
+		{"length", "S", nullptr, $PRIVATE, $field(Instruction, length)},
+		{"opcode", "S", nullptr, $PRIVATE, $field(Instruction, opcode)},
+		{"cmp", "Lcom/sun/org/apache/bcel/internal/generic/InstructionComparator;", nullptr, $PRIVATE | $STATIC, $staticField(Instruction, cmp)},
+		{}
+	};
+	$CompoundAttribute getComparatormethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setComparatormethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Instruction, init$, void)},
+		{"<init>", "(SS)V", nullptr, $PUBLIC, $method(Instruction, init$, void, int16_t, int16_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Instruction, accept, void, $Visitor*)},
+		{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(Instruction, consumeStack, int32_t, $ConstantPoolGen*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(Instruction, copy, Instruction*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(Instruction, dispose, void)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Instruction, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Instruction, equals, bool, Object$*)},
+		{"getComparator", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionComparator;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Instruction, getComparator, $InstructionComparator*), nullptr, nullptr, getComparatormethodAnnotations$$},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Instruction, getLength, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, getName, $String*)},
+		{"getOpcode", "()S", nullptr, $PUBLIC, $virtualMethod(Instruction, getOpcode, int16_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Instruction, hashCode, int32_t)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(Instruction, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"isValidByte", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Instruction, isValidByte, bool, int32_t)},
+		{"isValidShort", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Instruction, isValidShort, bool, int32_t)},
+		{"produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(Instruction, produceStack, int32_t, $ConstantPoolGen*)},
+		{"readInstruction", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC, $staticMethod(Instruction, readInstruction, Instruction*, $ByteSequence*), "java.io.IOException"},
+		{"setComparator", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionComparator;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(Instruction, setComparator, void, $InstructionComparator*), nullptr, nullptr, setComparatormethodAnnotations$$},
+		{"setLength", "(I)V", nullptr, $FINAL, $method(Instruction, setLength, void, int32_t)},
+		{"setOpcode", "(S)V", nullptr, 0, $virtualMethod(Instruction, setOpcode, void, int16_t)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, toString, $String*, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, toString, $String*)},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Instruction, toString, $String*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Instruction, name, initialize, &classInfo$$, Instruction::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Instruction);
+	});
 	return class$;
 }
 

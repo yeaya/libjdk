@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField.h>
-
 #include <jdk/internal/net/http/hpack/SimpleHeaderTable.h>
 #include <jcpp.h>
 
@@ -13,44 +12,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace hpack {
-
-$FieldInfo _SimpleHeaderTable$HeaderField_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SimpleHeaderTable$HeaderField, name)},
-	{"value", "Ljava/lang/String;", nullptr, $FINAL, $field(SimpleHeaderTable$HeaderField, value)},
-	{}
-};
-
-$MethodInfo _SimpleHeaderTable$HeaderField_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$HeaderField, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$HeaderField, init$, void, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$HeaderField, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _SimpleHeaderTable$HeaderField_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.SimpleHeaderTable$HeaderField", "jdk.internal.net.http.hpack.SimpleHeaderTable", "HeaderField", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SimpleHeaderTable$HeaderField_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.SimpleHeaderTable$HeaderField",
-	"java.lang.Object",
-	nullptr,
-	_SimpleHeaderTable$HeaderField_FieldInfo_,
-	_SimpleHeaderTable$HeaderField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SimpleHeaderTable$HeaderField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.SimpleHeaderTable"
-};
-
-$Object* allocate$SimpleHeaderTable$HeaderField($Class* clazz) {
-	return $of($alloc(SimpleHeaderTable$HeaderField));
-}
 
 void SimpleHeaderTable$HeaderField::init$($String* name) {
 	SimpleHeaderTable$HeaderField::init$(name, ""_s);
@@ -69,7 +30,39 @@ SimpleHeaderTable$HeaderField::SimpleHeaderTable$HeaderField() {
 }
 
 $Class* SimpleHeaderTable$HeaderField::load$($String* name, bool initialize) {
-	$loadClass(SimpleHeaderTable$HeaderField, name, initialize, &_SimpleHeaderTable$HeaderField_ClassInfo_, allocate$SimpleHeaderTable$HeaderField);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SimpleHeaderTable$HeaderField, name)},
+		{"value", "Ljava/lang/String;", nullptr, $FINAL, $field(SimpleHeaderTable$HeaderField, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$HeaderField, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$HeaderField, init$, void, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$HeaderField, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.SimpleHeaderTable$HeaderField", "jdk.internal.net.http.hpack.SimpleHeaderTable", "HeaderField", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.SimpleHeaderTable$HeaderField",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.SimpleHeaderTable"
+	};
+	$loadClass(SimpleHeaderTable$HeaderField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleHeaderTable$HeaderField);
+	});
 	return class$;
 }
 

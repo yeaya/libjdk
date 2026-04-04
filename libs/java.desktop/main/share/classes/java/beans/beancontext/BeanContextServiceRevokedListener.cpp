@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextServiceRevokedListener.h>
-
 #include <java/beans/beancontext/BeanContextServiceRevokedEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$MethodInfo _BeanContextServiceRevokedListener_MethodInfo_[] = {
-	{"serviceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextServiceRevokedListener, serviceRevoked, void, $BeanContextServiceRevokedEvent*)},
-	{}
-};
-
-$ClassInfo _BeanContextServiceRevokedListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.beans.beancontext.BeanContextServiceRevokedListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_BeanContextServiceRevokedListener_MethodInfo_
-};
-
-$Object* allocate$BeanContextServiceRevokedListener($Class* clazz) {
-	return $of($alloc(BeanContextServiceRevokedListener));
-}
-
 $Class* BeanContextServiceRevokedListener::load$($String* name, bool initialize) {
-	$loadClass(BeanContextServiceRevokedListener, name, initialize, &_BeanContextServiceRevokedListener_ClassInfo_, allocate$BeanContextServiceRevokedListener);
+	$MethodInfo methodInfos$$[] = {
+		{"serviceRevoked", "(Ljava/beans/beancontext/BeanContextServiceRevokedEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextServiceRevokedListener, serviceRevoked, void, $BeanContextServiceRevokedEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.beans.beancontext.BeanContextServiceRevokedListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BeanContextServiceRevokedListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextServiceRevokedListener);
+	});
 	return class$;
 }
 

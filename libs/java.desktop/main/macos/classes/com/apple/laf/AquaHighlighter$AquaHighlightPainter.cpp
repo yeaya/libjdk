@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaHighlighter$AquaHighlightPainter.h>
-
 #include <com/apple/laf/AquaHighlighter.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -14,7 +13,6 @@
 #include <jcpp.h>
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Shape = ::java::awt::Shape;
 using $Window = ::java::awt::Window;
@@ -31,48 +29,6 @@ using $View = ::javax::swing::text::View;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaHighlighter$AquaHighlightPainter_FieldInfo_[] = {
-	{"selectionColor", "Ljava/awt/Color;", nullptr, 0, $field(AquaHighlighter$AquaHighlightPainter, selectionColor)},
-	{"disabledSelectionColor", "Ljava/awt/Color;", nullptr, 0, $field(AquaHighlighter$AquaHighlightPainter, disabledSelectionColor)},
-	{}
-};
-
-$MethodInfo _AquaHighlighter$AquaHighlightPainter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(AquaHighlighter$AquaHighlightPainter, init$, void, $Color*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(AquaHighlighter$AquaHighlightPainter, getColor, $Color*)},
-	{"getInactiveSelectionColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AquaHighlighter$AquaHighlightPainter, getInactiveSelectionColor, $Color*)},
-	{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaHighlighter$AquaHighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
-	{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(AquaHighlighter$AquaHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
-	{"setColor", "(Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $virtualMethod(AquaHighlighter$AquaHighlightPainter, setColor, void, $JTextComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaHighlighter$AquaHighlightPainter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaHighlighter$AquaHighlightPainter", "com.apple.laf.AquaHighlighter", "AquaHighlightPainter", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaHighlighter$AquaHighlightPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaHighlighter$AquaHighlightPainter",
-	"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
-	nullptr,
-	_AquaHighlighter$AquaHighlightPainter_FieldInfo_,
-	_AquaHighlighter$AquaHighlightPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaHighlighter$AquaHighlightPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaHighlighter"
-};
-
-$Object* allocate$AquaHighlighter$AquaHighlightPainter($Class* clazz) {
-	return $of($alloc(AquaHighlighter$AquaHighlightPainter));
-}
 
 void AquaHighlighter$AquaHighlightPainter::init$($Color* c) {
 	$DefaultHighlighter$DefaultHighlightPainter::init$(c);
@@ -117,7 +73,43 @@ AquaHighlighter$AquaHighlightPainter::AquaHighlighter$AquaHighlightPainter() {
 }
 
 $Class* AquaHighlighter$AquaHighlightPainter::load$($String* name, bool initialize) {
-	$loadClass(AquaHighlighter$AquaHighlightPainter, name, initialize, &_AquaHighlighter$AquaHighlightPainter_ClassInfo_, allocate$AquaHighlighter$AquaHighlightPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"selectionColor", "Ljava/awt/Color;", nullptr, 0, $field(AquaHighlighter$AquaHighlightPainter, selectionColor)},
+		{"disabledSelectionColor", "Ljava/awt/Color;", nullptr, 0, $field(AquaHighlighter$AquaHighlightPainter, disabledSelectionColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(AquaHighlighter$AquaHighlightPainter, init$, void, $Color*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(AquaHighlighter$AquaHighlightPainter, getColor, $Color*)},
+		{"getInactiveSelectionColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AquaHighlighter$AquaHighlightPainter, getInactiveSelectionColor, $Color*)},
+		{"paint", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaHighlighter$AquaHighlightPainter, paint, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*)},
+		{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(AquaHighlighter$AquaHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
+		{"setColor", "(Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $virtualMethod(AquaHighlighter$AquaHighlightPainter, setColor, void, $JTextComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaHighlighter$AquaHighlightPainter", "com.apple.laf.AquaHighlighter", "AquaHighlightPainter", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaHighlighter$AquaHighlightPainter",
+		"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaHighlighter"
+	};
+	$loadClass(AquaHighlighter$AquaHighlightPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaHighlighter$AquaHighlightPainter);
+	});
 	return class$;
 }
 

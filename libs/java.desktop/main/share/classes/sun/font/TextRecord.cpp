@@ -1,5 +1,4 @@
 #include <sun/font/TextRecord.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,34 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _TextRecord_FieldInfo_[] = {
-	{"text", "[C", nullptr, $PUBLIC, $field(TextRecord, text)},
-	{"start", "I", nullptr, $PUBLIC, $field(TextRecord, start)},
-	{"limit", "I", nullptr, $PUBLIC, $field(TextRecord, limit)},
-	{"min", "I", nullptr, $PUBLIC, $field(TextRecord, min)},
-	{"max", "I", nullptr, $PUBLIC, $field(TextRecord, max)},
-	{}
-};
-
-$MethodInfo _TextRecord_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextRecord, init$, void)},
-	{"init", "([CIIII)V", nullptr, $PUBLIC, $method(TextRecord, init, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _TextRecord_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.TextRecord",
-	"java.lang.Object",
-	nullptr,
-	_TextRecord_FieldInfo_,
-	_TextRecord_MethodInfo_
-};
-
-$Object* allocate$TextRecord($Class* clazz) {
-	return $of($alloc(TextRecord));
-}
 
 void TextRecord::init$() {
 }
@@ -52,7 +23,30 @@ TextRecord::TextRecord() {
 }
 
 $Class* TextRecord::load$($String* name, bool initialize) {
-	$loadClass(TextRecord, name, initialize, &_TextRecord_ClassInfo_, allocate$TextRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"text", "[C", nullptr, $PUBLIC, $field(TextRecord, text)},
+		{"start", "I", nullptr, $PUBLIC, $field(TextRecord, start)},
+		{"limit", "I", nullptr, $PUBLIC, $field(TextRecord, limit)},
+		{"min", "I", nullptr, $PUBLIC, $field(TextRecord, min)},
+		{"max", "I", nullptr, $PUBLIC, $field(TextRecord, max)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextRecord, init$, void)},
+		{"init", "([CIIII)V", nullptr, $PUBLIC, $method(TextRecord, init, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.TextRecord",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextRecord);
+	});
 	return class$;
 }
 

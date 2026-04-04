@@ -34,6 +34,7 @@ class KeyboardFocusManager$HeavyweightFocusRequest : public ::java::lang::Object
 	$class(KeyboardFocusManager$HeavyweightFocusRequest, 0, ::java::lang::Object)
 public:
 	KeyboardFocusManager$HeavyweightFocusRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::Component* heavyweight, ::java::awt::Component* descendant, bool temporary, ::java::awt::event::FocusEvent$Cause* cause);
 	bool addLightweightRequest(::java::awt::Component* descendant, bool temporary, ::java::awt::event::FocusEvent$Cause* cause);

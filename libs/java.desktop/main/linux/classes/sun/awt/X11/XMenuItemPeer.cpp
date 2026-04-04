@@ -1,11 +1,8 @@
 #include <sun/awt/X11/XMenuItemPeer.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/MenuComponent.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/MenuShortcut.h>
 #include <java/awt/Point.h>
@@ -24,12 +21,10 @@
 #undef SEPARATOR_HEIGHT
 #undef SEPARATOR_WIDTH
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuItem = ::java::awt::MenuItem;
 using $MenuShortcut = ::java::awt::MenuShortcut;
 using $Point = ::java::awt::Point;
@@ -40,8 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
-using $AWTAccessor$MenuItemAccessor = ::sun::awt::AWTAccessor$MenuItemAccessor;
 using $XBaseMenuWindow = ::sun::awt::X11::XBaseMenuWindow;
 using $XMenuItemPeer$TextMetrics = ::sun::awt::X11::XMenuItemPeer$TextMetrics;
 using $XPopupMenuPeer = ::sun::awt::X11::XPopupMenuPeer;
@@ -50,70 +43,6 @@ using $XWindow = ::sun::awt::X11::XWindow;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XMenuItemPeer_FieldInfo_[] = {
-	{"container", "Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PRIVATE, $field(XMenuItemPeer, container)},
-	{"target", "Ljava/awt/MenuItem;", nullptr, $PRIVATE, $field(XMenuItemPeer, target)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XMenuItemPeer, bounds)},
-	{"textOrigin", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(XMenuItemPeer, textOrigin)},
-	{"SEPARATOR_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuItemPeer, SEPARATOR_WIDTH)},
-	{"SEPARATOR_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuItemPeer, SEPARATOR_HEIGHT)},
-	{"textMetrics", "Lsun/awt/X11/XMenuItemPeer$TextMetrics;", nullptr, $PRIVATE, $field(XMenuItemPeer, textMetrics)},
-	{}
-};
-
-$MethodInfo _XMenuItemPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/MenuItem;)V", nullptr, 0, $method(XMenuItemPeer, init$, void, $MenuItem*)},
-	{"action", "(JI)V", nullptr, 0, $virtualMethod(XMenuItemPeer, action, void, int64_t, int32_t)},
-	{"calcTextMetrics", "()Lsun/awt/X11/XMenuItemPeer$TextMetrics;", nullptr, 0, $virtualMethod(XMenuItemPeer, calcTextMetrics, $XMenuItemPeer$TextMetrics*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, dispose, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XMenuItemPeer, getBounds, $Rectangle*)},
-	{"getContainer", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XMenuItemPeer, getContainer, $XBaseMenuWindow*)},
-	{"getShortcutText", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMenuItemPeer, getShortcutText, $String*)},
-	{"getTarget", "()Ljava/awt/MenuItem;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTarget, $MenuItem*)},
-	{"getTargetActionCommand", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetActionCommand, $String*)},
-	{"getTargetFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetFont, $Font*)},
-	{"getTargetLabel", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetLabel, $String*)},
-	{"getTargetShortcut", "()Ljava/awt/MenuShortcut;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetShortcut, $MenuShortcut*)},
-	{"getTextMetrics", "()Lsun/awt/X11/XMenuItemPeer$TextMetrics;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTextMetrics, $XMenuItemPeer$TextMetrics*)},
-	{"getTextOrigin", "()Ljava/awt/Point;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTextOrigin, $Point*)},
-	{"isContainerShowing", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isContainerShowing, bool)},
-	{"isSeparator", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isSeparator, bool)},
-	{"isTargetEnabled", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isTargetEnabled, bool)},
-	{"isTargetItemEnabled", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isTargetItemEnabled, bool)},
-	{"map", "(Ljava/awt/Rectangle;Ljava/awt/Point;)V", nullptr, 0, $virtualMethod(XMenuItemPeer, map, void, $Rectangle*, $Point*)},
-	{"repaintIfShowing", "()V", nullptr, 0, $virtualMethod(XMenuItemPeer, repaintIfShowing, void)},
-	{"resetTextMetrics", "()V", nullptr, 0, $virtualMethod(XMenuItemPeer, resetTextMetrics, void)},
-	{"setContainer", "(Lsun/awt/X11/XBaseMenuWindow;)V", nullptr, 0, $virtualMethod(XMenuItemPeer, setContainer, void, $XBaseMenuWindow*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, setFont, void, $Font*)},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, setLabel, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _XMenuItemPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XMenuItemPeer$TextMetrics", "sun.awt.X11.XMenuItemPeer", "TextMetrics", $STATIC},
-	{}
-};
-
-$ClassInfo _XMenuItemPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XMenuItemPeer",
-	"java.lang.Object",
-	"java.awt.peer.MenuItemPeer",
-	_XMenuItemPeer_FieldInfo_,
-	_XMenuItemPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMenuItemPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XMenuItemPeer$TextMetrics"
-};
-
-$Object* allocate$XMenuItemPeer($Class* clazz) {
-	return $of($alloc(XMenuItemPeer));
-}
 
 void XMenuItemPeer::init$($MenuItem* target) {
 	$set(this, target, target);
@@ -144,15 +73,15 @@ $Font* XMenuItemPeer::getTargetFont() {
 	if (this->target == nullptr) {
 		return $XWindow::getDefaultFont();
 	}
-	return $nc($($AWTAccessor::getMenuComponentAccessor()))->getFont_NoClientCode(this->target);
+	return $$nc($AWTAccessor::getMenuComponentAccessor())->getFont_NoClientCode(this->target);
 }
 
 $String* XMenuItemPeer::getTargetLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->target == nullptr) {
 		return ""_s;
 	}
-	$var($String, label, $nc($($AWTAccessor::getMenuItemAccessor()))->getLabel(this->target));
+	$var($String, label, $$nc($AWTAccessor::getMenuItemAccessor())->getLabel(this->target));
 	return (label == nullptr) ? ""_s : label;
 }
 
@@ -160,32 +89,32 @@ bool XMenuItemPeer::isTargetEnabled() {
 	if (this->target == nullptr) {
 		return false;
 	}
-	return $nc($($AWTAccessor::getMenuItemAccessor()))->isEnabled(this->target);
+	return $$nc($AWTAccessor::getMenuItemAccessor())->isEnabled(this->target);
 }
 
 bool XMenuItemPeer::isTargetItemEnabled() {
 	if (this->target == nullptr) {
 		return false;
 	}
-	return $nc($($AWTAccessor::getMenuItemAccessor()))->isItemEnabled(this->target);
+	return $$nc($AWTAccessor::getMenuItemAccessor())->isItemEnabled(this->target);
 }
 
 $String* XMenuItemPeer::getTargetActionCommand() {
 	if (this->target == nullptr) {
 		return ""_s;
 	}
-	return $nc($($AWTAccessor::getMenuItemAccessor()))->getActionCommandImpl(this->target);
+	return $$nc($AWTAccessor::getMenuItemAccessor())->getActionCommandImpl(this->target);
 }
 
 $MenuShortcut* XMenuItemPeer::getTargetShortcut() {
 	if (this->target == nullptr) {
 		return nullptr;
 	}
-	return $nc($($AWTAccessor::getMenuItemAccessor()))->getShortcut(this->target);
+	return $$nc($AWTAccessor::getMenuItemAccessor())->getShortcut(this->target);
 }
 
 $String* XMenuItemPeer::getShortcutText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->container == nullptr) {
 		return nullptr;
 	}
@@ -193,7 +122,7 @@ $String* XMenuItemPeer::getShortcutText() {
 		return nullptr;
 	}
 	$var($MenuShortcut, sc, getTargetShortcut());
-	return (sc == nullptr) ? ($String*)nullptr : $nc(sc)->toString();
+	return (sc == nullptr) ? ($String*)nullptr : sc->toString();
 }
 
 void XMenuItemPeer::setContainer($XBaseMenuWindow* container) {
@@ -207,7 +136,7 @@ $XBaseMenuWindow* XMenuItemPeer::getContainer() {
 }
 
 bool XMenuItemPeer::isSeparator() {
-	bool r = ($nc($(getTargetLabel()))->equals("-"_s));
+	bool r = ($$nc(getTargetLabel())->equals("-"_s));
 	return r;
 }
 
@@ -225,7 +154,7 @@ void XMenuItemPeer::repaintIfShowing() {
 }
 
 void XMenuItemPeer::action(int64_t when, int32_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !isSeparator();
 	if (var$0 && isTargetItemEnabled()) {
 		$XWindow::postEventStatic($$new($ActionEvent, this->target, $ActionEvent::ACTION_PERFORMED, $(getTargetActionCommand()), when, modifiers));
@@ -242,7 +171,7 @@ $XMenuItemPeer$TextMetrics* XMenuItemPeer::getTextMetrics() {
 }
 
 $XMenuItemPeer$TextMetrics* XMenuItemPeer::calcTextMetrics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->container == nullptr) {
 		return nullptr;
 	}
@@ -253,35 +182,33 @@ $XMenuItemPeer$TextMetrics* XMenuItemPeer::calcTextMetrics() {
 	if (g == nullptr) {
 		return nullptr;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($XMenuItemPeer$TextMetrics, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$nc(g)->setFont($(getTargetFont()));
-			$var($FontMetrics, fm, g->getFontMetrics());
-			$var($String, str, getTargetLabel());
-			int32_t width = $nc(fm)->stringWidth(str);
-			int32_t height = fm->getHeight();
-			$var($Dimension, textDimension, $new($Dimension, width, height));
-			int32_t var$3 = fm->getHeight();
-			int32_t textBaseline = var$3 - fm->getAscent();
-			$var($String, sc, getShortcutText());
-			int32_t shortcutWidth = (sc == nullptr) ? 0 : fm->stringWidth(sc);
-			$assign(var$2, $new($XMenuItemPeer$TextMetrics, textDimension, shortcutWidth, textBaseline));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($XMenuItemPeer$TextMetrics, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$nc(g)->setFont($(getTargetFont()));
+		$var($FontMetrics, fm, g->getFontMetrics());
+		$var($String, str, getTargetLabel());
+		int32_t width = $nc(fm)->stringWidth(str);
+		int32_t height = fm->getHeight();
+		$var($Dimension, textDimension, $new($Dimension, width, height));
+		int32_t var$3 = fm->getHeight();
+		int32_t textBaseline = var$3 - fm->getAscent();
+		$var($String, sc, getShortcutText());
+		int32_t shortcutWidth = (sc == nullptr) ? 0 : fm->stringWidth(sc);
+		$assign(var$2, $new($XMenuItemPeer$TextMetrics, textDimension, shortcutWidth, textBaseline));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -289,7 +216,7 @@ $XMenuItemPeer$TextMetrics* XMenuItemPeer::calcTextMetrics() {
 void XMenuItemPeer::resetTextMetrics() {
 	$set(this, textMetrics, nullptr);
 	if (this->container != nullptr) {
-		$nc(this->container)->updateSize();
+		this->container->updateSize();
 	}
 }
 
@@ -310,7 +237,65 @@ XMenuItemPeer::XMenuItemPeer() {
 }
 
 $Class* XMenuItemPeer::load$($String* name, bool initialize) {
-	$loadClass(XMenuItemPeer, name, initialize, &_XMenuItemPeer_ClassInfo_, allocate$XMenuItemPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"container", "Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PRIVATE, $field(XMenuItemPeer, container)},
+		{"target", "Ljava/awt/MenuItem;", nullptr, $PRIVATE, $field(XMenuItemPeer, target)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XMenuItemPeer, bounds)},
+		{"textOrigin", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(XMenuItemPeer, textOrigin)},
+		{"SEPARATOR_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuItemPeer, SEPARATOR_WIDTH)},
+		{"SEPARATOR_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuItemPeer, SEPARATOR_HEIGHT)},
+		{"textMetrics", "Lsun/awt/X11/XMenuItemPeer$TextMetrics;", nullptr, $PRIVATE, $field(XMenuItemPeer, textMetrics)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/MenuItem;)V", nullptr, 0, $method(XMenuItemPeer, init$, void, $MenuItem*)},
+		{"action", "(JI)V", nullptr, 0, $virtualMethod(XMenuItemPeer, action, void, int64_t, int32_t)},
+		{"calcTextMetrics", "()Lsun/awt/X11/XMenuItemPeer$TextMetrics;", nullptr, 0, $virtualMethod(XMenuItemPeer, calcTextMetrics, $XMenuItemPeer$TextMetrics*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, dispose, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XMenuItemPeer, getBounds, $Rectangle*)},
+		{"getContainer", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, 0, $virtualMethod(XMenuItemPeer, getContainer, $XBaseMenuWindow*)},
+		{"getShortcutText", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMenuItemPeer, getShortcutText, $String*)},
+		{"getTarget", "()Ljava/awt/MenuItem;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTarget, $MenuItem*)},
+		{"getTargetActionCommand", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetActionCommand, $String*)},
+		{"getTargetFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetFont, $Font*)},
+		{"getTargetLabel", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetLabel, $String*)},
+		{"getTargetShortcut", "()Ljava/awt/MenuShortcut;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTargetShortcut, $MenuShortcut*)},
+		{"getTextMetrics", "()Lsun/awt/X11/XMenuItemPeer$TextMetrics;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTextMetrics, $XMenuItemPeer$TextMetrics*)},
+		{"getTextOrigin", "()Ljava/awt/Point;", nullptr, 0, $virtualMethod(XMenuItemPeer, getTextOrigin, $Point*)},
+		{"isContainerShowing", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isContainerShowing, bool)},
+		{"isSeparator", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isSeparator, bool)},
+		{"isTargetEnabled", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isTargetEnabled, bool)},
+		{"isTargetItemEnabled", "()Z", nullptr, 0, $virtualMethod(XMenuItemPeer, isTargetItemEnabled, bool)},
+		{"map", "(Ljava/awt/Rectangle;Ljava/awt/Point;)V", nullptr, 0, $virtualMethod(XMenuItemPeer, map, void, $Rectangle*, $Point*)},
+		{"repaintIfShowing", "()V", nullptr, 0, $virtualMethod(XMenuItemPeer, repaintIfShowing, void)},
+		{"resetTextMetrics", "()V", nullptr, 0, $virtualMethod(XMenuItemPeer, resetTextMetrics, void)},
+		{"setContainer", "(Lsun/awt/X11/XBaseMenuWindow;)V", nullptr, 0, $virtualMethod(XMenuItemPeer, setContainer, void, $XBaseMenuWindow*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, setFont, void, $Font*)},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMenuItemPeer, setLabel, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XMenuItemPeer$TextMetrics", "sun.awt.X11.XMenuItemPeer", "TextMetrics", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XMenuItemPeer",
+		"java.lang.Object",
+		"java.awt.peer.MenuItemPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XMenuItemPeer$TextMetrics"
+	};
+	$loadClass(XMenuItemPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMenuItemPeer);
+	});
 	return class$;
 }
 

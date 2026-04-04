@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/NamedEvent.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
 #include <javax/xml/namespace/QName.h>
@@ -18,37 +17,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _NamedEvent_FieldInfo_[] = {
-	{"name", "Ljavax/xml/namespace/QName;", nullptr, $PRIVATE, $field(NamedEvent, name)},
-	{}
-};
-
-$MethodInfo _NamedEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamedEvent, init$, void)},
-	{"<init>", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $method(NamedEvent, init$, void, $QName*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamedEvent, init$, void, $String*, $String*, $String*)},
-	{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, getName, $QName*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, getNamespace, $String*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, getPrefix, $String*)},
-	{"nameAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, nameAsString, $String*)},
-	{"setName", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $virtualMethod(NamedEvent, setName, void, $QName*)},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(NamedEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _NamedEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.NamedEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	nullptr,
-	_NamedEvent_FieldInfo_,
-	_NamedEvent_MethodInfo_
-};
-
-$Object* allocate$NamedEvent($Class* clazz) {
-	return $of($alloc(NamedEvent));
-}
 
 void NamedEvent::init$() {
 	$DummyEvent::init$();
@@ -77,18 +45,26 @@ void NamedEvent::setName($QName* qname) {
 }
 
 $String* NamedEvent::nameAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (""_s->equals($($nc(this->name)->getNamespaceURI()))) {
 		return $nc(this->name)->getLocalPart();
 	}
 	if ($nc(this->name)->getPrefix() != nullptr) {
-		$var($String, var$2, $$str({"[\'"_s, $($nc(this->name)->getNamespaceURI()), "\']:"_s}));
-		$var($String, var$1, $$concat(var$2, $(getPrefix())));
-		$var($String, var$0, $$concat(var$1, ":"_s));
-		return $concat(var$0, $($nc(this->name)->getLocalPart()));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("[\'"_s);
+		var$0->append($($nc(this->name)->getNamespaceURI()));
+		var$0->append("\']:"_s);
+		var$0->append($(getPrefix()));
+		var$0->append(":"_s);
+		var$0->append($(this->name->getLocalPart()));
+		return $str(var$0);
 	} else {
-		$var($String, var$3, $$str({"[\'"_s, $($nc(this->name)->getNamespaceURI()), "\']:"_s}));
-		return $concat(var$3, $($nc(this->name)->getLocalPart()));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("[\'"_s);
+		var$1->append($($nc(this->name)->getNamespaceURI()));
+		var$1->append("\']:"_s);
+		var$1->append($(this->name->getLocalPart()));
+		return $str(var$1);
 	}
 }
 
@@ -104,7 +80,33 @@ NamedEvent::NamedEvent() {
 }
 
 $Class* NamedEvent::load$($String* name, bool initialize) {
-	$loadClass(NamedEvent, name, initialize, &_NamedEvent_ClassInfo_, allocate$NamedEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljavax/xml/namespace/QName;", nullptr, $PRIVATE, $field(NamedEvent, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamedEvent, init$, void)},
+		{"<init>", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $method(NamedEvent, init$, void, $QName*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamedEvent, init$, void, $String*, $String*, $String*)},
+		{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, getName, $QName*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, getNamespace, $String*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, getPrefix, $String*)},
+		{"nameAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamedEvent, nameAsString, $String*)},
+		{"setName", "(Ljavax/xml/namespace/QName;)V", nullptr, $PUBLIC, $virtualMethod(NamedEvent, setName, void, $QName*)},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(NamedEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.NamedEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamedEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamedEvent);
+	});
 	return class$;
 }
 

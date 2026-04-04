@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCContinue.h>
-
-#include <com/sun/source/tree/ContinueTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
@@ -13,7 +11,6 @@
 
 #undef CONTINUE
 
-using $ContinueTree = ::com::sun::source::tree::ContinueTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -32,53 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCContinue_FieldInfo_[] = {
-	{"label", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCContinue, label)},
-	{"target", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCContinue, target)},
-	{}
-};
-
-$MethodInfo _JCTree$JCContinue_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $method(JCTree$JCContinue, init$, void, $Name*, $JCTree*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCContinue, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, getKind, $Tree$Kind*)},
-	{"getLabel", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, getLabel, $1Name*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCContinue_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCContinue", "com.sun.tools.javac.tree.JCTree", "JCContinue", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCContinue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCContinue",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.ContinueTree",
-	_JCTree$JCContinue_FieldInfo_,
-	_JCTree$JCContinue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCContinue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCContinue($Class* clazz) {
-	return $of($alloc(JCTree$JCContinue));
-}
 
 $String* JCTree$JCContinue::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -120,7 +70,7 @@ $1Name* JCTree$JCContinue::getLabel() {
 }
 
 $Object* JCTree$JCContinue::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitContinue(this, d));
+	return $nc(v)->visitContinue(this, d);
 }
 
 $JCTree$Tag* JCTree$JCContinue::getTag() {
@@ -132,7 +82,48 @@ JCTree$JCContinue::JCTree$JCContinue() {
 }
 
 $Class* JCTree$JCContinue::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCContinue, name, initialize, &_JCTree$JCContinue_ClassInfo_, allocate$JCTree$JCContinue);
+	$FieldInfo fieldInfos$$[] = {
+		{"label", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCContinue, label)},
+		{"target", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(JCTree$JCContinue, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $method(JCTree$JCContinue, init$, void, $Name*, $JCTree*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCContinue, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, getKind, $Tree$Kind*)},
+		{"getLabel", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, getLabel, $1Name*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCContinue, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCContinue", "com.sun.tools.javac.tree.JCTree", "JCContinue", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCContinue",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.ContinueTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCContinue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCContinue));
+	});
 	return class$;
 }
 

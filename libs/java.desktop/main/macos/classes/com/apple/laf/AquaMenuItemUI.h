@@ -53,6 +53,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	static ::javax::swing::JMenuItem* access$000(::com::apple::laf::AquaMenuItemUI* x0);
 	static ::javax::swing::JMenuItem* access$100(::com::apple::laf::AquaMenuItemUI* x0);

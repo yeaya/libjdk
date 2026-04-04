@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/LongCounterSnapshot.h>
-
 #include <sun/management/counter/AbstractCounter.h>
 #include <sun/management/counter/Units.h>
 #include <sun/management/counter/Variability.h>
@@ -17,44 +16,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _LongCounterSnapshot_FieldInfo_[] = {
-	{"value", "J", nullptr, 0, $field(LongCounterSnapshot, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongCounterSnapshot, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LongCounterSnapshot_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFlags", "()I", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"*getVectorLength", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IJ)V", nullptr, 0, $method(LongCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, int64_t)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LongCounterSnapshot, getValue, $Object*)},
-	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LongCounterSnapshot, longValue, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LongCounterSnapshot_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.LongCounterSnapshot",
-	"sun.management.counter.AbstractCounter",
-	"sun.management.counter.LongCounter",
-	_LongCounterSnapshot_FieldInfo_,
-	_LongCounterSnapshot_MethodInfo_
-};
-
-$Object* allocate$LongCounterSnapshot($Class* clazz) {
-	return $of($alloc(LongCounterSnapshot));
-}
 
 $String* LongCounterSnapshot::getName() {
 	 return this->$AbstractCounter::getName();
@@ -121,7 +82,40 @@ LongCounterSnapshot::LongCounterSnapshot() {
 }
 
 $Class* LongCounterSnapshot::load$($String* name, bool initialize) {
-	$loadClass(LongCounterSnapshot, name, initialize, &_LongCounterSnapshot_ClassInfo_, allocate$LongCounterSnapshot);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "J", nullptr, 0, $field(LongCounterSnapshot, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongCounterSnapshot, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFlags", "()I", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
+		{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
+		{"*getVectorLength", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IJ)V", nullptr, 0, $method(LongCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, int64_t)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LongCounterSnapshot, getValue, $Object*)},
+		{"*isInternal", "()Z", nullptr, $PUBLIC},
+		{"*isVector", "()Z", nullptr, $PUBLIC},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LongCounterSnapshot, longValue, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.LongCounterSnapshot",
+		"sun.management.counter.AbstractCounter",
+		"sun.management.counter.LongCounter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LongCounterSnapshot, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LongCounterSnapshot));
+	});
 	return class$;
 }
 

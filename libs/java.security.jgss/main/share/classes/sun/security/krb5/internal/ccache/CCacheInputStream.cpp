@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ccache/CCacheInputStream.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -49,14 +48,12 @@ using $AuthorizationDataEntryArray = $Array<::sun::security::krb5::internal::Aut
 using $HostAddressArray = $Array<::sun::security::krb5::internal::HostAddress>;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Date = ::java::util::Date;
 using $List = ::java::util::List;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
@@ -83,45 +80,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ccache {
-
-$FieldInfo _CCacheInputStream_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CCacheInputStream, DEBUG)},
-	{}
-};
-
-$MethodInfo _CCacheInputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CCacheInputStream, init$, void, $InputStream*)},
-	{"isRealm", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(CCacheInputStream, isRealm, bool, $String*)},
-	{"readAddr", "()[Lsun/security/krb5/internal/HostAddress;", nullptr, 0, $virtualMethod(CCacheInputStream, readAddr, $HostAddressArray*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
-	{"readAuth", "()[Lsun/security/krb5/internal/AuthorizationDataEntry;", nullptr, 0, $virtualMethod(CCacheInputStream, readAuth, $AuthorizationDataEntryArray*), "java.io.IOException"},
-	{"readCred", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CCacheInputStream, readCred, $Object*, int32_t), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.Asn1Exception"},
-	{"readData", "()[B", nullptr, 0, $virtualMethod(CCacheInputStream, readData, $bytes*), "java.io.IOException"},
-	{"readFlags", "()[Z", nullptr, 0, $virtualMethod(CCacheInputStream, readFlags, $booleans*), "java.io.IOException"},
-	{"readKey", "(I)Lsun/security/krb5/EncryptionKey;", nullptr, 0, $virtualMethod(CCacheInputStream, readKey, $EncryptionKey*, int32_t), "java.io.IOException"},
-	{"readPrincipal", "(I)Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(CCacheInputStream, readPrincipal, $PrincipalName*, int32_t), "java.io.IOException,sun.security.krb5.RealmException"},
-	{"readTag", "()Lsun/security/krb5/internal/ccache/Tag;", nullptr, $PUBLIC, $virtualMethod(CCacheInputStream, readTag, $Tag*), "java.io.IOException"},
-	{"readTimes", "()[J", nullptr, 0, $virtualMethod(CCacheInputStream, readTimes, $longs*), "java.io.IOException"},
-	{"readskey", "()Z", nullptr, 0, $virtualMethod(CCacheInputStream, readskey, bool), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CCacheInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ccache.CCacheInputStream",
-	"sun.security.krb5.internal.util.KrbDataInputStream",
-	"sun.security.krb5.internal.ccache.FileCCacheConstants",
-	_CCacheInputStream_FieldInfo_,
-	_CCacheInputStream_MethodInfo_
-};
-
-$Object* allocate$CCacheInputStream($Class* clazz) {
-	return $of($alloc(CCacheInputStream));
-}
 
 int32_t CCacheInputStream::hashCode() {
 	 return this->$KrbDataInputStream::hashCode();
@@ -150,7 +108,7 @@ void CCacheInputStream::init$($InputStream* is) {
 }
 
 $Tag* CCacheInputStream::readTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, buf, $new($chars, 1024));
 	int32_t len = 0;
 	int32_t tag = -1;
@@ -169,13 +127,11 @@ $Tag* CCacheInputStream::readTag() {
 		taglen = read(2);
 		switch (tag) {
 		case $FileCCacheConstants::FCC_TAG_DELTATIME:
-			{
-				$assign(time_offset, $Integer::valueOf(read(4)));
-				$assign(usec_offset, $Integer::valueOf(read(4)));
-				break;
-			}
+			$assign(time_offset, $Integer::valueOf(read(4)));
+			$assign(usec_offset, $Integer::valueOf(read(4)));
+			break;
 		default:
-			{}
+			break;
 		}
 		len = len - (4 + taglen);
 	}
@@ -183,7 +139,7 @@ $Tag* CCacheInputStream::readTag() {
 }
 
 $PrincipalName* CCacheInputStream::readPrincipal(int32_t version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t type = 0;
 	int32_t length = 0;
 	int32_t namelength = 0;
@@ -208,19 +164,17 @@ $PrincipalName* CCacheInputStream::readPrincipal(int32_t version) {
 	if (result->isEmpty()) {
 		$throwNew($IOException, "No realm or principal"_s);
 	}
-	if (isRealm($cast($String, $(result->get(0))))) {
+	if (isRealm($$cast($String, result->get(0)))) {
 		$assign(realm, $cast($String, result->remove(0)));
 		if (result->isEmpty()) {
 			$throwNew($IOException, "No principal name components"_s);
 		}
-		int32_t var$0 = type;
-		$var($StringArray, var$1, $fcast($StringArray, result->toArray($$new($StringArray, result->size()))));
-		return $new($PrincipalName, var$0, var$1, $$new($Realm, realm));
+		$var($StringArray, var$0, $cast($StringArray, result->toArray($$new($StringArray, result->size()))));
+		return $new($PrincipalName, type, var$0, $$new($Realm, realm));
 	}
 	try {
-		int32_t var$2 = type;
-		$var($StringArray, var$3, $fcast($StringArray, result->toArray($$new($StringArray, result->size()))));
-		return $new($PrincipalName, var$2, var$3, $($Realm::getDefault()));
+		$var($StringArray, var$1, $cast($StringArray, result->toArray($$new($StringArray, result->size()))));
+		return $new($PrincipalName, type, var$1, $($Realm::getDefault()));
 	} catch ($RealmException& re) {
 		return nullptr;
 	}
@@ -228,7 +182,7 @@ $PrincipalName* CCacheInputStream::readPrincipal(int32_t version) {
 }
 
 bool CCacheInputStream::isRealm($String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Realm, r, $new($Realm, str));
 	} catch ($Exception& e) {
@@ -248,7 +202,7 @@ bool CCacheInputStream::isRealm($String* str) {
 }
 
 $EncryptionKey* CCacheInputStream::readKey(int32_t version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t keyType = 0;
 	int32_t keyLen = 0;
 	keyType = read(2);
@@ -278,7 +232,7 @@ bool CCacheInputStream::readskey() {
 }
 
 $HostAddressArray* CCacheInputStream::readAddr() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numAddrs = 0;
 	int32_t addrType = 0;
 	int32_t addrLength = 0;
@@ -300,13 +254,13 @@ $HostAddressArray* CCacheInputStream::readAddr() {
 			}
 			addrs->add($$new($HostAddress, addrType, result));
 		}
-		return $fcast($HostAddressArray, addrs->toArray($$new($HostAddressArray, addrs->size())));
+		return $cast($HostAddressArray, addrs->toArray($$new($HostAddressArray, addrs->size())));
 	}
 	return nullptr;
 }
 
 $AuthorizationDataEntryArray* CCacheInputStream::readAuth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t num = 0;
 	int32_t adtype = 0;
 	int32_t adlength = 0;
@@ -320,7 +274,7 @@ $AuthorizationDataEntryArray* CCacheInputStream::readAuth() {
 			$assign(data, $IOUtils::readExactlyNBytes(this, adlength));
 			auData->add($$new($AuthorizationDataEntry, adtype, data));
 		}
-		return $fcast($AuthorizationDataEntryArray, auData->toArray($$new($AuthorizationDataEntryArray, auData->size())));
+		return $cast($AuthorizationDataEntryArray, auData->toArray($$new($AuthorizationDataEntryArray, auData->size())));
 	} else {
 		return nullptr;
 	}
@@ -337,41 +291,41 @@ $bytes* CCacheInputStream::readData() {
 }
 
 $booleans* CCacheInputStream::readFlags() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($booleans, flags, $new($booleans, $Krb5::TKT_OPTS_MAX + 1));
 	int32_t ticketFlags = 0;
 	ticketFlags = read(4);
-	if (((int32_t)(ticketFlags & (uint32_t)0x40000000)) == $FileCCacheConstants::TKT_FLG_FORWARDABLE) {
+	if ((ticketFlags & 0x40000000) == $FileCCacheConstants::TKT_FLG_FORWARDABLE) {
 		flags->set(1, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x20000000)) == $FileCCacheConstants::TKT_FLG_FORWARDED) {
+	if ((ticketFlags & 0x20000000) == $FileCCacheConstants::TKT_FLG_FORWARDED) {
 		flags->set(2, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x10000000)) == $FileCCacheConstants::TKT_FLG_PROXIABLE) {
+	if ((ticketFlags & 0x10000000) == $FileCCacheConstants::TKT_FLG_PROXIABLE) {
 		flags->set(3, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x08000000)) == $FileCCacheConstants::TKT_FLG_PROXY) {
+	if ((ticketFlags & 0x08000000) == $FileCCacheConstants::TKT_FLG_PROXY) {
 		flags->set(4, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x04000000)) == $FileCCacheConstants::TKT_FLG_MAY_POSTDATE) {
+	if ((ticketFlags & 0x04000000) == $FileCCacheConstants::TKT_FLG_MAY_POSTDATE) {
 		flags->set(5, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x02000000)) == $FileCCacheConstants::TKT_FLG_POSTDATED) {
+	if ((ticketFlags & 0x02000000) == $FileCCacheConstants::TKT_FLG_POSTDATED) {
 		flags->set(6, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x01000000)) == $FileCCacheConstants::TKT_FLG_INVALID) {
+	if ((ticketFlags & 0x01000000) == $FileCCacheConstants::TKT_FLG_INVALID) {
 		flags->set(7, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x00800000)) == $FileCCacheConstants::TKT_FLG_RENEWABLE) {
+	if ((ticketFlags & 0x00800000) == $FileCCacheConstants::TKT_FLG_RENEWABLE) {
 		flags->set(8, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x00400000)) == $FileCCacheConstants::TKT_FLG_INITIAL) {
+	if ((ticketFlags & 0x00400000) == $FileCCacheConstants::TKT_FLG_INITIAL) {
 		flags->set(9, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x00200000)) == $FileCCacheConstants::TKT_FLG_PRE_AUTH) {
+	if ((ticketFlags & 0x00200000) == $FileCCacheConstants::TKT_FLG_PRE_AUTH) {
 		flags->set(10, true);
 	}
-	if (((int32_t)(ticketFlags & (uint32_t)0x00100000)) == $FileCCacheConstants::TKT_FLG_HW_AUTH) {
+	if ((ticketFlags & 0x00100000) == $FileCCacheConstants::TKT_FLG_HW_AUTH) {
 		flags->set(11, true);
 	}
 	if (CCacheInputStream::DEBUG) {
@@ -415,7 +369,7 @@ $booleans* CCacheInputStream::readFlags() {
 }
 
 $Object* CCacheInputStream::readCred(int32_t version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrincipalName, cpname, nullptr);
 	try {
 		$assign(cpname, readPrincipal(version));
@@ -438,14 +392,14 @@ $Object* CCacheInputStream::readCred(int32_t version) {
 	}
 	$var($longs, times, readTimes());
 	$var($KerberosTime, authtime, $new($KerberosTime, $nc(times)->get(0)));
-	$var($KerberosTime, starttime, ($nc(times)->get(1) == 0) ? ($KerberosTime*)nullptr : $new($KerberosTime, $nc(times)->get(1)));
-	$var($KerberosTime, endtime, $new($KerberosTime, $nc(times)->get(2)));
-	$var($KerberosTime, renewTill, ($nc(times)->get(3) == 0) ? ($KerberosTime*)nullptr : $new($KerberosTime, $nc(times)->get(3)));
+	$var($KerberosTime, starttime, (times->get(1) == 0) ? ($KerberosTime*)nullptr : $new($KerberosTime, times->get(1)));
+	$var($KerberosTime, endtime, $new($KerberosTime, times->get(2)));
+	$var($KerberosTime, renewTill, (times->get(3) == 0) ? ($KerberosTime*)nullptr : $new($KerberosTime, times->get(3)));
 	if (CCacheInputStream::DEBUG) {
-		$nc($System::out)->println($$str({">>>DEBUG <CCacheInputStream> auth time: "_s, $($nc($(authtime->toDate()))->toString())}));
-		$nc($System::out)->println($$str({">>>DEBUG <CCacheInputStream> start time: "_s, ((starttime == nullptr) ? "null"_s : $($nc($($nc(starttime)->toDate()))->toString()))}));
-		$nc($System::out)->println($$str({">>>DEBUG <CCacheInputStream> end time: "_s, $($nc($(endtime->toDate()))->toString())}));
-		$nc($System::out)->println($$str({">>>DEBUG <CCacheInputStream> renew_till time: "_s, ((renewTill == nullptr) ? "null"_s : $($nc($($nc(renewTill)->toDate()))->toString()))}));
+		$nc($System::out)->println($$str({">>>DEBUG <CCacheInputStream> auth time: "_s, $($$nc(authtime->toDate())->toString())}));
+		$System::out->println($$str({">>>DEBUG <CCacheInputStream> start time: "_s, ((starttime == nullptr) ? "null"_s : $($$nc(starttime->toDate())->toString()))}));
+		$System::out->println($$str({">>>DEBUG <CCacheInputStream> end time: "_s, $($$nc(endtime->toDate())->toString())}));
+		$System::out->println($$str({">>>DEBUG <CCacheInputStream> renew_till time: "_s, ((renewTill == nullptr) ? "null"_s : $($$nc(renewTill->toDate())->toString()))}));
 	}
 	bool skey = readskey();
 	$var($booleans, flags, readFlags());
@@ -463,38 +417,27 @@ $Object* CCacheInputStream::readCred(int32_t version) {
 	$var($bytes, ticketData, readData());
 	$var($bytes, ticketData2, readData());
 	if (cpname == nullptr || spname == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	try {
-		if ($nc($($nc(spname)->getRealmString()))->equals("X-CACHECONF:"_s)) {
+		if ($$nc($nc(spname)->getRealmString())->equals("X-CACHECONF:"_s)) {
 			$var($StringArray, nameParts, spname->getNameStrings());
 			if ($nc($nc(nameParts)->get(0))->equals("krb5_ccache_conf_data"_s)) {
-				return $of($new($CredentialsCache$ConfigEntry, nameParts->get(1), nameParts->length > 2 ? $$new($PrincipalName, nameParts->get(2)) : ($PrincipalName*)nullptr, ticketData));
+				return $new($CredentialsCache$ConfigEntry, nameParts->get(1), nameParts->length > 2 ? $$new($PrincipalName, nameParts->get(2)) : ($PrincipalName*)nullptr, ticketData);
 			}
 		}
-		$var($PrincipalName, var$0, cpname);
-		$var($PrincipalName, var$1, spname);
-		$var($EncryptionKey, var$2, key);
-		$var($KerberosTime, var$3, authtime);
-		$var($KerberosTime, var$4, starttime);
-		$var($KerberosTime, var$5, endtime);
-		$var($KerberosTime, var$6, renewTill);
-		bool var$7 = skey;
-		$var($TicketFlags, var$8, tFlags);
-		$var($HostAddresses, var$9, addrs);
-		$var($AuthorizationData, var$10, auData);
-		$var($Ticket, var$11, ticketData != nullptr ? $new($Ticket, ticketData) : ($Ticket*)nullptr);
-		return $of($new($Credentials, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, ticketData2 != nullptr ? $$new($Ticket, ticketData2) : ($Ticket*)nullptr));
+		$var($Ticket, var$0, ticketData != nullptr ? $new($Ticket, ticketData) : ($Ticket*)nullptr);
+		return $new($Credentials, cpname, spname, key, authtime, starttime, endtime, renewTill, skey, tFlags, addrs, auData, var$0, ticketData2 != nullptr ? $$new($Ticket, ticketData2) : ($Ticket*)nullptr);
 	} catch ($Exception& e) {
 		if (CCacheInputStream::DEBUG) {
 			e->printStackTrace($System::out);
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$CCacheInputStream($Class* class$) {
+void CCacheInputStream::clinit$($Class* clazz) {
 	$init($Krb5);
 	CCacheInputStream::DEBUG = $Krb5::DEBUG;
 }
@@ -503,7 +446,41 @@ CCacheInputStream::CCacheInputStream() {
 }
 
 $Class* CCacheInputStream::load$($String* name, bool initialize) {
-	$loadClass(CCacheInputStream, name, initialize, &_CCacheInputStream_ClassInfo_, clinit$CCacheInputStream, allocate$CCacheInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CCacheInputStream, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CCacheInputStream, init$, void, $InputStream*)},
+		{"isRealm", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(CCacheInputStream, isRealm, bool, $String*)},
+		{"readAddr", "()[Lsun/security/krb5/internal/HostAddress;", nullptr, 0, $virtualMethod(CCacheInputStream, readAddr, $HostAddressArray*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
+		{"readAuth", "()[Lsun/security/krb5/internal/AuthorizationDataEntry;", nullptr, 0, $virtualMethod(CCacheInputStream, readAuth, $AuthorizationDataEntryArray*), "java.io.IOException"},
+		{"readCred", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CCacheInputStream, readCred, $Object*, int32_t), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.Asn1Exception"},
+		{"readData", "()[B", nullptr, 0, $virtualMethod(CCacheInputStream, readData, $bytes*), "java.io.IOException"},
+		{"readFlags", "()[Z", nullptr, 0, $virtualMethod(CCacheInputStream, readFlags, $booleans*), "java.io.IOException"},
+		{"readKey", "(I)Lsun/security/krb5/EncryptionKey;", nullptr, 0, $virtualMethod(CCacheInputStream, readKey, $EncryptionKey*, int32_t), "java.io.IOException"},
+		{"readPrincipal", "(I)Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(CCacheInputStream, readPrincipal, $PrincipalName*, int32_t), "java.io.IOException,sun.security.krb5.RealmException"},
+		{"readTag", "()Lsun/security/krb5/internal/ccache/Tag;", nullptr, $PUBLIC, $virtualMethod(CCacheInputStream, readTag, $Tag*), "java.io.IOException"},
+		{"readTimes", "()[J", nullptr, 0, $virtualMethod(CCacheInputStream, readTimes, $longs*), "java.io.IOException"},
+		{"readskey", "()Z", nullptr, 0, $virtualMethod(CCacheInputStream, readskey, bool), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ccache.CCacheInputStream",
+		"sun.security.krb5.internal.util.KrbDataInputStream",
+		"sun.security.krb5.internal.ccache.FileCCacheConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CCacheInputStream, name, initialize, &classInfo$$, CCacheInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CCacheInputStream));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaEditorPaneUI.h>
-
 #include <com/apple/laf/AquaCaret.h>
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaHighlighter.h>
@@ -36,39 +35,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaEditorPaneUI_FieldInfo_[] = {
-	{"oldDragState", "Z", nullptr, 0, $field(AquaEditorPaneUI, oldDragState)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, 0, $field(AquaEditorPaneUI, focusListener)},
-	{}
-};
-
-$MethodInfo _AquaEditorPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaEditorPaneUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, createCaret, $Caret*)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, createFocusListener, $FocusListener*)},
-	{"createHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, createHighlighter, $Highlighter*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, installListeners, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, uninstallListeners, void)},
-	{}
-};
-
-$ClassInfo _AquaEditorPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaEditorPaneUI",
-	"javax.swing.plaf.basic.BasicEditorPaneUI",
-	nullptr,
-	_AquaEditorPaneUI_FieldInfo_,
-	_AquaEditorPaneUI_MethodInfo_
-};
-
-$Object* allocate$AquaEditorPaneUI($Class* clazz) {
-	return $of($alloc(AquaEditorPaneUI));
-}
-
 void AquaEditorPaneUI::init$() {
 	$BasicEditorPaneUI::init$();
 	this->oldDragState = false;
@@ -80,17 +46,17 @@ $ComponentUI* AquaEditorPaneUI::createUI($JComponent* c) {
 }
 
 void AquaEditorPaneUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicEditorPaneUI::installDefaults();
 	if (!$GraphicsEnvironment::isHeadless()) {
-		this->oldDragState = $nc($(getComponent()))->getDragEnabled();
-		$nc($(getComponent()))->setDragEnabled(true);
+		this->oldDragState = $$nc(getComponent())->getDragEnabled();
+		$$nc(getComponent())->setDragEnabled(true);
 	}
 }
 
 void AquaEditorPaneUI::uninstallDefaults() {
 	if (!$GraphicsEnvironment::isHeadless()) {
-		$nc($(getComponent()))->setDragEnabled(this->oldDragState);
+		$$nc(getComponent())->setDragEnabled(this->oldDragState);
 	}
 	$BasicEditorPaneUI::uninstallDefaults();
 }
@@ -98,11 +64,11 @@ void AquaEditorPaneUI::uninstallDefaults() {
 void AquaEditorPaneUI::installListeners() {
 	$BasicEditorPaneUI::installListeners();
 	$set(this, focusListener, createFocusListener());
-	$nc($(getComponent()))->addFocusListener(this->focusListener);
+	$$nc(getComponent())->addFocusListener(this->focusListener);
 }
 
 void AquaEditorPaneUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicEditorPaneUI::installKeyboardActions();
 	$var($AquaKeyBindings, bindings, $AquaKeyBindings::instance());
 	$nc(bindings)->setDefaultAction($(getKeymapName()));
@@ -111,7 +77,7 @@ void AquaEditorPaneUI::installKeyboardActions() {
 }
 
 void AquaEditorPaneUI::uninstallListeners() {
-	$nc($(getComponent()))->removeFocusListener(this->focusListener);
+	$$nc(getComponent())->removeFocusListener(this->focusListener);
 	$BasicEditorPaneUI::uninstallListeners();
 }
 
@@ -131,7 +97,35 @@ AquaEditorPaneUI::AquaEditorPaneUI() {
 }
 
 $Class* AquaEditorPaneUI::load$($String* name, bool initialize) {
-	$loadClass(AquaEditorPaneUI, name, initialize, &_AquaEditorPaneUI_ClassInfo_, allocate$AquaEditorPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldDragState", "Z", nullptr, 0, $field(AquaEditorPaneUI, oldDragState)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, 0, $field(AquaEditorPaneUI, focusListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaEditorPaneUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, createCaret, $Caret*)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, createFocusListener, $FocusListener*)},
+		{"createHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, createHighlighter, $Highlighter*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, installListeners, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaEditorPaneUI, uninstallListeners, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaEditorPaneUI",
+		"javax.swing.plaf.basic.BasicEditorPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaEditorPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaEditorPaneUI));
+	});
 	return class$;
 }
 

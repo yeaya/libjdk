@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DPaints$LinearGradient.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/LinearGradientPaint.h>
@@ -17,7 +16,6 @@
 #undef LINEAR_RGB
 #undef REPEAT
 
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $LinearGradientPaint = ::java::awt::LinearGradientPaint;
 using $MultipleGradientPaint$ColorSpaceType = ::java::awt::MultipleGradientPaint$ColorSpaceType;
 using $MultipleGradientPaint$CycleMethod = ::java::awt::MultipleGradientPaint$CycleMethod;
@@ -33,44 +31,12 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DPaints$LinearGradient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$LinearGradient, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(D3DPaints$LinearGradient, isPaintValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _D3DPaints$LinearGradient_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DPaints$LinearGradient", "sun.java2d.d3d.D3DPaints", "LinearGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.d3d.D3DPaints$MultiGradient", "sun.java2d.d3d.D3DPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _D3DPaints$LinearGradient_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DPaints$LinearGradient",
-	"sun.java2d.d3d.D3DPaints$MultiGradient",
-	nullptr,
-	nullptr,
-	_D3DPaints$LinearGradient_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DPaints$LinearGradient_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DPaints"
-};
-
-$Object* allocate$D3DPaints$LinearGradient($Class* clazz) {
-	return $of($alloc(D3DPaints$LinearGradient));
-}
-
 void D3DPaints$LinearGradient::init$() {
 	$D3DPaints$MultiGradient::init$();
 }
 
 bool D3DPaints$LinearGradient::isPaintValid($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinearGradientPaint, paint, $cast($LinearGradientPaint, $nc(sg2d)->paint));
 	bool var$1 = $nc($($nc(paint)->getFractions()))->length == 2;
 	$init($MultipleGradientPaint$CycleMethod);
@@ -78,7 +44,7 @@ bool D3DPaints$LinearGradient::isPaintValid($SunGraphics2D* sg2d) {
 	$init($MultipleGradientPaint$ColorSpaceType);
 	if (var$0 && paint->getColorSpace() != $MultipleGradientPaint$ColorSpaceType::LINEAR_RGB) {
 		$var($D3DSurfaceData, dstData, $cast($D3DSurfaceData, sg2d->surfaceData));
-		$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $nc($($nc(dstData)->getDeviceConfiguration()))->getDevice()));
+		$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $$nc($nc(dstData)->getDeviceConfiguration())->getDevice()));
 		if ($nc(gd)->isCapPresent(0x00010000)) {
 			return true;
 		}
@@ -90,7 +56,34 @@ D3DPaints$LinearGradient::D3DPaints$LinearGradient() {
 }
 
 $Class* D3DPaints$LinearGradient::load$($String* name, bool initialize) {
-	$loadClass(D3DPaints$LinearGradient, name, initialize, &_D3DPaints$LinearGradient_ClassInfo_, allocate$D3DPaints$LinearGradient);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$LinearGradient, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(D3DPaints$LinearGradient, isPaintValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DPaints$LinearGradient", "sun.java2d.d3d.D3DPaints", "LinearGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.d3d.D3DPaints$MultiGradient", "sun.java2d.d3d.D3DPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DPaints$LinearGradient",
+		"sun.java2d.d3d.D3DPaints$MultiGradient",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DPaints"
+	};
+	$loadClass(D3DPaints$LinearGradient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DPaints$LinearGradient);
+	});
 	return class$;
 }
 

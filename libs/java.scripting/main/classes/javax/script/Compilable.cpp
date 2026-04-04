@@ -1,5 +1,4 @@
 #include <javax/script/Compilable.h>
-
 #include <java/io/Reader.h>
 #include <javax/script/CompiledScript.h>
 #include <jcpp.h>
@@ -12,27 +11,23 @@ using $CompiledScript = ::javax::script::CompiledScript;
 namespace javax {
 	namespace script {
 
-$MethodInfo _Compilable_MethodInfo_[] = {
-	{"compile", "(Ljava/lang/String;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Compilable, compile, $CompiledScript*, $String*), "javax.script.ScriptException"},
-	{"compile", "(Ljava/io/Reader;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Compilable, compile, $CompiledScript*, $Reader*), "javax.script.ScriptException"},
-	{}
-};
-
-$ClassInfo _Compilable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.script.Compilable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Compilable_MethodInfo_
-};
-
-$Object* allocate$Compilable($Class* clazz) {
-	return $of($alloc(Compilable));
-}
-
 $Class* Compilable::load$($String* name, bool initialize) {
-	$loadClass(Compilable, name, initialize, &_Compilable_ClassInfo_, allocate$Compilable);
+	$MethodInfo methodInfos$$[] = {
+		{"compile", "(Ljava/lang/String;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Compilable, compile, $CompiledScript*, $String*), "javax.script.ScriptException"},
+		{"compile", "(Ljava/io/Reader;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Compilable, compile, $CompiledScript*, $Reader*), "javax.script.ScriptException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.script.Compilable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Compilable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Compilable);
+	});
 	return class$;
 }
 

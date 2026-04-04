@@ -1,5 +1,4 @@
 #include <java.management.rmi.h>
-
 #include <java.naming.h>
 #include <java.management.h>
 #include <java.rmi.h>
@@ -9,8 +8,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/jmx/remote/internal/rmi/ProxyRef.h>
 #include <com/sun/jmx/remote/internal/rmi/RMIExporter.h>
 #include <com/sun/jmx/remote/protocol/rmi/ClientProvider.h>
@@ -156,6 +153,7 @@ void java$management$rmi::init() {
 	::java$management::init();
 	::java$rmi::init();
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.management.rmi", "17.35", "",
 		&_java$management$rmi_ModuleInfo_,

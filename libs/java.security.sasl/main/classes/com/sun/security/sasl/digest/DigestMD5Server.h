@@ -83,6 +83,7 @@ public:
 	virtual $Object* getNegotiatedProperty($String* propName) override;
 	virtual int32_t hashCode() override;
 	virtual bool isComplete() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh);
 	virtual $bytes* evaluateResponse($bytes* response) override;
 	$bytes* generateChallenge(::java::util::List* realms, $String* qopStr, $String* cipherStr);

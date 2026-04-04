@@ -1,44 +1,22 @@
 #include <com/sun/beans/finder/FinderUtils.h>
-
 #include <java/lang/Module.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 
 namespace com {
 	namespace sun {
 		namespace beans {
 			namespace finder {
 
-$MethodInfo _FinderUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FinderUtils, init$, void)},
-	{"isExported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(FinderUtils, isExported, bool, $Class*)},
-	{"packageName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(FinderUtils, packageName, $String*, $Class*)},
-	{}
-};
-
-$ClassInfo _FinderUtils_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.finder.FinderUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FinderUtils_MethodInfo_
-};
-
-$Object* allocate$FinderUtils($Class* clazz) {
-	return $of($alloc(FinderUtils));
-}
-
 void FinderUtils::init$() {
 }
 
 bool FinderUtils::isExported($Class* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pn, packageName(c));
-	return $nc($($nc(c)->getModule()))->isExported(pn);
+	return $$nc($nc(c)->getModule())->isExported(pn);
 }
 
 $String* FinderUtils::packageName($Class* c) {
@@ -46,7 +24,7 @@ $String* FinderUtils::packageName($Class* c) {
 		return packageName(c->getComponentType());
 	} else {
 		$var($String, name, c->getName());
-		int32_t dot = $nc(name)->lastIndexOf((int32_t)u'.');
+		int32_t dot = $nc(name)->lastIndexOf(u'.');
 		if (dot == -1) {
 			return ""_s;
 		}
@@ -58,7 +36,23 @@ FinderUtils::FinderUtils() {
 }
 
 $Class* FinderUtils::load$($String* name, bool initialize) {
-	$loadClass(FinderUtils, name, initialize, &_FinderUtils_ClassInfo_, allocate$FinderUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FinderUtils, init$, void)},
+		{"isExported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(FinderUtils, isExported, bool, $Class*)},
+		{"packageName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(FinderUtils, packageName, $String*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.finder.FinderUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FinderUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FinderUtils);
+	});
 	return class$;
 }
 

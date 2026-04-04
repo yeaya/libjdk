@@ -38,13 +38,14 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Class* getCategory() override;
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $String* getName() override;
 	virtual $StringArray* getStringTable() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x058EBCCE0FA09168;
+	static const int64_t serialVersionUID = (int64_t)0x058ebcce0fa09168;
 	static ::javax::print::attribute::standard::JobState* UNKNOWN;
 	static ::javax::print::attribute::standard::JobState* PENDING;
 	static ::javax::print::attribute::standard::JobState* PENDING_HELD;

@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_ce.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_ce_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ce, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ce, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ce_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_ce",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_ce_MethodInfo_
-};
-
-$Object* allocate$FormatData_ce($Class* clazz) {
-	return $of($alloc(FormatData_ce));
-}
-
 void FormatData_ce::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_ce::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_MonthNames, $new($StringArray, {
 		u"январь"_s,
 		u"февраль"_s,
@@ -127,24 +107,24 @@ $ObjectArray2* FormatData_ce::getContents() {
 	$var($String, metaValue_calendarname_gregorian, u"григорианан"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.year"_s),
-			$of(u"шо"_s)
+			"field.year"_s,
+			u"шо"_s
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"islamic.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"roc.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.DayNarrows"_s,
+			$$new($StringArray, {
 				u"кӀ"_s,
 				u"о"_s,
 				u"ш"_s,
@@ -152,94 +132,94 @@ $ObjectArray2* FormatData_ce::getContents() {
 				u"е"_s,
 				u"пӀ"_s,
 				u"ш"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"standalone.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"roc.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNarrows"_s),
-			$of(metaValue_DayAbbreviations)
+			"islamic.DayNarrows"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("field.zone"_s),
-			$of(u"сахьтан аса"_s)
+			"field.zone"_s,
+			u"сахьтан аса"_s
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"roc.MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"japanese.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.Eras"_s),
-			$of(metaValue_Eras)
+			"narrow.Eras"_s,
+			metaValue_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.japanese"_s),
-			$of(u"японийн"_s)
+			"calendarname.japanese"_s,
+			u"японийн"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of(metaValue_Eras)
+			"Eras"_s,
+			metaValue_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"japanese.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNames"_s),
-			$of(metaValue_DayNames)
+			"roc.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"standalone.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"roc.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"islamic.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("long.Eras"_s),
-			$of($$new($StringArray, {
+			"long.Eras"_s,
+			$$new($StringArray, {
 				u"Ӏийса пайхамар вина де кхачале"_s,
 				u"Ӏийса пайхамар вина дийнахь дуьйна"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"roc.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNames"_s),
-			$of(metaValue_DayNames)
+			"islamic.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"buddhist.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("field.weekday"_s),
-			$of(u"кӀиранан де"_s)
+			"field.weekday"_s,
+			u"кӀиранан де"_s
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"buddhist.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -253,115 +233,115 @@ $ObjectArray2* FormatData_ce::getContents() {
 				u"Терхьаш дац"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"japanese.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayNames"_s),
-			$of(metaValue_DayNames)
+			"buddhist.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.minute"_s),
-			$of(u"минот"_s)
+			"field.minute"_s,
+			u"минот"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.era"_s),
-			$of(u"мур"_s)
+			"field.era"_s,
+			u"мур"_s
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"islamic.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("field.dayperiod"_s),
-			$of(u"делкъал тӀехьа"_s)
+			"field.dayperiod"_s,
+			u"делкъал тӀехьа"_s
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"standalone.MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"japanese.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"buddhist.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"japanese.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"roc.QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayNames"_s),
-			$of(metaValue_DayNames)
+			"japanese.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"japanese.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of(metaValue_DayNames)
+			"DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.month"_s),
-			$of(u"бутт"_s)
+			"field.month"_s,
+			u"бутт"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.second"_s),
-			$of(u"секунд"_s)
+			"field.second"_s,
+			u"секунд"_s
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"roc.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.week"_s),
-			$of(u"кӀира"_s)
+			"field.week"_s,
+			u"кӀира"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of(metaValue_DayAbbreviations)
+			"DayNarrows"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"buddhist.MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"buddhist.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"islamic.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic"_s),
-			$of(u"исламан"_s)
+			"calendarname.islamic"_s,
+			u"исламан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNarrows"_s),
-			$of(metaValue_DayAbbreviations)
+			"roc.DayNarrows"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("short.CompactNumberPatterns"_s),
-			$of($$new($StringArray, {
+			"short.CompactNumberPatterns"_s,
+			$$new($StringArray, {
 				""_s,
 				""_s,
 				""_s,
@@ -377,52 +357,52 @@ $ObjectArray2* FormatData_ce::getContents() {
 				u"{one:0 трлн other:0 трлн}"_s,
 				u"{one:00 трлн other:00 трлн}"_s,
 				u"{one:000 трлн other:000 трлн}"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregorian"_s),
-			$of(metaValue_calendarname_gregorian)
+			"calendarname.gregorian"_s,
+			metaValue_calendarname_gregorian
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"buddhist.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNames"_s),
-			$of(metaValue_DayNames)
+			"standalone.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("PluralRules"_s),
-			$of("one:n = 1"_s)
+			"PluralRules"_s,
+			"one:n = 1"_s
 		}),
 		$$new($ObjectArray, {
-			$of("field.hour"_s),
-			$of(u"сахьт"_s)
+			"field.hour"_s,
+			u"сахьт"_s
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"standalone.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of(metaValue_MonthAbbreviations)
+			"standalone.MonthAbbreviations"_s,
+			metaValue_MonthAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"latn.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"#,##0.00 ¤"_s,
 				u"#,##0 %"_s,
 				u"#,##0.00 ¤"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("long.CompactNumberPatterns"_s),
-			$of($$new($StringArray, {
+			"long.CompactNumberPatterns"_s,
+			$$new($StringArray, {
 				""_s,
 				""_s,
 				""_s,
@@ -438,39 +418,39 @@ $ObjectArray2* FormatData_ce::getContents() {
 				u"{one:0\' \'триллион other:0\' \'триллион}"_s,
 				u"{one:00\' \'триллион other:00\' \'триллион}"_s,
 				u"{one:000\' \'триллион other:000\' \'триллион}"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayNarrows"_s),
-			$of(metaValue_DayAbbreviations)
+			"buddhist.DayNarrows"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterNarrows"_s),
-			$of(metaValue_buddhist_QuarterNarrows)
+			"buddhist.QuarterNarrows"_s,
+			metaValue_buddhist_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayNarrows"_s),
-			$of(metaValue_DayAbbreviations)
+			"japanese.DayNarrows"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterAbbreviations"_s),
-			$of(metaValue_QuarterAbbreviations)
+			"QuarterAbbreviations"_s,
+			metaValue_QuarterAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"standalone.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"japanese.MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregory"_s),
-			$of(metaValue_calendarname_gregorian)
+			"calendarname.gregory"_s,
+			metaValue_calendarname_gregorian
 		})
 	}));
 	return data;
@@ -480,7 +460,22 @@ FormatData_ce::FormatData_ce() {
 }
 
 $Class* FormatData_ce::load$($String* name, bool initialize) {
-	$loadClass(FormatData_ce, name, initialize, &_FormatData_ce_ClassInfo_, allocate$FormatData_ce);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ce, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ce, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_ce",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_ce, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_ce);
+	});
 	return class$;
 }
 

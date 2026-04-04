@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextFieldUI.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -48,41 +47,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicTextFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextFieldUI, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI, create, $View*, $Element*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextFieldUI, getPropertyPrefix, $String*)},
-	{}
-};
-
-$InnerClassInfo _BasicTextFieldUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextFieldUI$I18nFieldView", "javax.swing.plaf.basic.BasicTextFieldUI", "I18nFieldView", $STATIC},
-	{"javax.swing.plaf.basic.BasicTextFieldUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicTextFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	"javax.swing.plaf.basic.BasicTextUI",
-	nullptr,
-	nullptr,
-	_BasicTextFieldUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextFieldUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextFieldUI$I18nFieldView,javax.swing.plaf.basic.BasicTextFieldUI$1"
-};
-
-$Object* allocate$BasicTextFieldUI($Class* clazz) {
-	return $of($alloc(BasicTextFieldUI));
-}
-
 $ComponentUI* BasicTextFieldUI::createUI($JComponent* c) {
 	$init(BasicTextFieldUI);
 	return $new(BasicTextFieldUI);
@@ -97,20 +61,17 @@ $String* BasicTextFieldUI::getPropertyPrefix() {
 }
 
 $View* BasicTextFieldUI::create($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(elem)->getDocument());
 	$var($Object, i18nFlag, $nc(doc)->getProperty("i18n"_s));
-	$init($Boolean);
 	if ($nc($Boolean::TRUE)->equals(i18nFlag)) {
 		$var($String, kind, elem->getName());
 		if (kind != nullptr) {
 			$init($AbstractDocument);
 			if (kind->equals($AbstractDocument::ContentElementName)) {
 				return $new($BasicTextFieldUI$1, this, elem);
-			} else {
-				if (kind->equals($AbstractDocument::ParagraphElementName)) {
-					return $new($BasicTextFieldUI$I18nFieldView, elem);
-				}
+			} else if (kind->equals($AbstractDocument::ParagraphElementName)) {
+				return $new($BasicTextFieldUI$I18nFieldView, elem);
 			}
 		}
 	}
@@ -118,12 +79,12 @@ $View* BasicTextFieldUI::create($Element* elem) {
 }
 
 int32_t BasicTextFieldUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextUI::getBaseline(c, width, height);
 	$var($View, rootView, getRootView($cast($JTextComponent, c)));
 	if ($nc(rootView)->getViewCount() > 0) {
 		$var($Insets, insets, $nc(c)->getInsets());
-		height = height - $nc(insets)->top - insets->bottom;
+		height = height - $nc(insets)->top - $nc(insets)->bottom;
 		if (height > 0) {
 			int32_t baseline = insets->top;
 			$var($View, fieldView, rootView->getView(0));
@@ -158,7 +119,37 @@ BasicTextFieldUI::BasicTextFieldUI() {
 }
 
 $Class* BasicTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(BasicTextFieldUI, name, initialize, &_BasicTextFieldUI_ClassInfo_, allocate$BasicTextFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextFieldUI, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI, create, $View*, $Element*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextFieldUI, getPropertyPrefix, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextFieldUI$I18nFieldView", "javax.swing.plaf.basic.BasicTextFieldUI", "I18nFieldView", $STATIC},
+		{"javax.swing.plaf.basic.BasicTextFieldUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		"javax.swing.plaf.basic.BasicTextUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextFieldUI$I18nFieldView,javax.swing.plaf.basic.BasicTextFieldUI$1"
+	};
+	$loadClass(BasicTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextFieldUI));
+	});
 	return class$;
 }
 

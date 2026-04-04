@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CAccessibility$23.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
@@ -27,50 +26,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CAccessibility$23_FieldInfo_[] = {
-	{"val$hitPointY", "F", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$23, val$hitPointY)},
-	{"val$hitPointX", "F", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$23, val$hitPointX)},
-	{"val$parent", "Ljava/awt/Container;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$23, val$parent)},
-	{}
-};
-
-$MethodInfo _CAccessibility$23_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Container;FF)V", "()V", 0, $method(CAccessibility$23, init$, void, $Container*, float, float)},
-	{"call", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$23, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _CAccessibility$23_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CAccessibility",
-	"accessibilityHitTest",
-	"(Ljava/awt/Container;FF)Ljavax/accessibility/Accessible;"
-};
-
-$InnerClassInfo _CAccessibility$23_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessibility$23", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CAccessibility$23_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessibility$23",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_CAccessibility$23_FieldInfo_,
-	_CAccessibility$23_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/accessibility/Accessible;>;",
-	&_CAccessibility$23_EnclosingMethodInfo_,
-	_CAccessibility$23_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessibility"
-};
-
-$Object* allocate$CAccessibility$23($Class* clazz) {
-	return $of($alloc(CAccessibility$23));
-}
-
 void CAccessibility$23::init$($Container* val$parent, float val$hitPointX, float val$hitPointY) {
 	$set(this, val$parent, val$parent);
 	this->val$hitPointX = val$hitPointX;
@@ -78,21 +33,21 @@ void CAccessibility$23::init$($Container* val$parent, float val$hitPointX, float
 }
 
 $Object* CAccessibility$23::call() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, p, $nc(this->val$parent)->getLocationOnScreen());
 	int32_t var$0 = $cast(int32_t, (this->val$hitPointX - $nc(p)->getX()));
 	$var($Point, localPoint, $new($Point, var$0, $cast(int32_t, (this->val$hitPointY - p->getY()))));
-	$var($Component, component, $nc(this->val$parent)->findComponentAt(localPoint));
+	$var($Component, component, this->val$parent->findComponentAt(localPoint));
 	if (component == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($AccessibleContext, axContext, $nc(component)->getAccessibleContext());
 	if (axContext == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($AccessibleComponent, axComponent, $nc(axContext)->getAccessibleComponent());
 	if (axComponent == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	int32_t numChildren = axContext->getAccessibleChildrenCount();
 	if (numChildren > 0) {
@@ -102,7 +57,7 @@ $Object* CAccessibility$23::call() {
 		return $of($CAccessible::getCAccessible($(axComponent->getAccessibleAt(localP2))));
 	}
 	if (!($instanceOf($Accessible, component))) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	return $of($CAccessible::getCAccessible($cast($Accessible, component)));
 }
@@ -111,7 +66,44 @@ CAccessibility$23::CAccessibility$23() {
 }
 
 $Class* CAccessibility$23::load$($String* name, bool initialize) {
-	$loadClass(CAccessibility$23, name, initialize, &_CAccessibility$23_ClassInfo_, allocate$CAccessibility$23);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$hitPointY", "F", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$23, val$hitPointY)},
+		{"val$hitPointX", "F", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$23, val$hitPointX)},
+		{"val$parent", "Ljava/awt/Container;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$23, val$parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Container;FF)V", "()V", 0, $method(CAccessibility$23, init$, void, $Container*, float, float)},
+		{"call", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$23, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CAccessibility",
+		"accessibilityHitTest",
+		"(Ljava/awt/Container;FF)Ljavax/accessibility/Accessible;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessibility$23", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessibility$23",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/accessibility/Accessible;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessibility"
+	};
+	$loadClass(CAccessibility$23, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibility$23);
+	});
 	return class$;
 }
 

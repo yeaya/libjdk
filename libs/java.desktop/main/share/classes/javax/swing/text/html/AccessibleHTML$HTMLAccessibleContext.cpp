@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$HTMLAccessibleContext.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -53,7 +52,6 @@ using $AccessibleComponent = ::javax::accessibility::AccessibleComponent;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
-using $JEditorPane = ::javax::swing::JEditorPane;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AccessibleHTML = ::javax::swing::text::html::AccessibleHTML;
@@ -64,82 +62,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _AccessibleHTML$HTMLAccessibleContext_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$HTMLAccessibleContext, this$0)},
-	{"elementInfo", "Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PROTECTED, $field(AccessibleHTML$HTMLAccessibleContext, elementInfo)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$HTMLAccessibleContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PUBLIC, $method(AccessibleHTML$HTMLAccessibleContext, init$, void, $AccessibleHTML*, $AccessibleHTML$ElementInfo*)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, addFocusListener, void, $FocusListener*)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, contains, bool, $Point*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleContext, $AccessibleContext*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getBackground, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getBounds, $Rectangle*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getCursor, $Cursor*)},
-	{"getElementInfoAt", "(Ljavax/swing/text/html/AccessibleHTML$ElementInfo;Ljava/awt/Point;)Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PRIVATE, $method(AccessibleHTML$HTMLAccessibleContext, getElementInfoAt, $AccessibleHTML$ElementInfo*, $AccessibleHTML$ElementInfo*, $Point*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getLocationOnScreen, $Point*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getSize, $Dimension*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isVisible, bool)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, removeFocusListener, void, $FocusListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, requestFocus, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setLocation, void, $Point*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$HTMLAccessibleContext_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext", "javax.swing.text.html.AccessibleHTML", "HTMLAccessibleContext", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$HTMLAccessibleContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext",
-	"javax.accessibility.AccessibleContext",
-	"javax.accessibility.Accessible,javax.accessibility.AccessibleComponent",
-	_AccessibleHTML$HTMLAccessibleContext_FieldInfo_,
-	_AccessibleHTML$HTMLAccessibleContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$HTMLAccessibleContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$HTMLAccessibleContext($Class* clazz) {
-	return $of($alloc(AccessibleHTML$HTMLAccessibleContext));
-}
 
 int32_t AccessibleHTML$HTMLAccessibleContext::hashCode() {
 	 return this->$AccessibleContext::hashCode();
@@ -172,23 +94,23 @@ $AccessibleContext* AccessibleHTML$HTMLAccessibleContext::getAccessibleContext()
 }
 
 $AccessibleStateSet* AccessibleHTML$HTMLAccessibleContext::getAccessibleStateSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleStateSet, states, $new($AccessibleStateSet));
 	$var($Component, comp, this->this$0->getTextComponent());
 	if ($nc(comp)->isEnabled()) {
 		$init($AccessibleState);
 		states->add($AccessibleState::ENABLED);
 	}
-	if ($instanceOf($JTextComponent, comp) && $nc(($cast($JTextComponent, comp)))->isEditable()) {
+	if ($instanceOf($JTextComponent, comp) && $cast($JTextComponent, comp)->isEditable()) {
 		$init($AccessibleState);
 		states->add($AccessibleState::EDITABLE);
 		states->add($AccessibleState::FOCUSABLE);
 	}
-	if ($nc(comp)->isVisible()) {
+	if (comp->isVisible()) {
 		$init($AccessibleState);
 		states->add($AccessibleState::VISIBLE);
 	}
-	if ($nc(comp)->isShowing()) {
+	if (comp->isShowing()) {
 		$init($AccessibleState);
 		states->add($AccessibleState::SHOWING);
 	}
@@ -221,76 +143,76 @@ $AccessibleComponent* AccessibleHTML$HTMLAccessibleContext::getAccessibleCompone
 }
 
 $Color* AccessibleHTML$HTMLAccessibleContext::getBackground() {
-	return $nc($(this->this$0->getTextComponent()))->getBackground();
+	return $$nc(this->this$0->getTextComponent())->getBackground();
 }
 
 void AccessibleHTML$HTMLAccessibleContext::setBackground($Color* c) {
-	$nc($(this->this$0->getTextComponent()))->setBackground(c);
+	$$nc(this->this$0->getTextComponent())->setBackground(c);
 }
 
 $Color* AccessibleHTML$HTMLAccessibleContext::getForeground() {
-	return $nc($(this->this$0->getTextComponent()))->getForeground();
+	return $$nc(this->this$0->getTextComponent())->getForeground();
 }
 
 void AccessibleHTML$HTMLAccessibleContext::setForeground($Color* c) {
-	$nc($(this->this$0->getTextComponent()))->setForeground(c);
+	$$nc(this->this$0->getTextComponent())->setForeground(c);
 }
 
 $Cursor* AccessibleHTML$HTMLAccessibleContext::getCursor() {
-	return $nc($(this->this$0->getTextComponent()))->getCursor();
+	return $$nc(this->this$0->getTextComponent())->getCursor();
 }
 
 void AccessibleHTML$HTMLAccessibleContext::setCursor($Cursor* cursor) {
-	$nc($(this->this$0->getTextComponent()))->setCursor(cursor);
+	$$nc(this->this$0->getTextComponent())->setCursor(cursor);
 }
 
 $Font* AccessibleHTML$HTMLAccessibleContext::getFont() {
-	return $nc($(this->this$0->getTextComponent()))->getFont();
+	return $$nc(this->this$0->getTextComponent())->getFont();
 }
 
 void AccessibleHTML$HTMLAccessibleContext::setFont($Font* f) {
-	$nc($(this->this$0->getTextComponent()))->setFont(f);
+	$$nc(this->this$0->getTextComponent())->setFont(f);
 }
 
 $FontMetrics* AccessibleHTML$HTMLAccessibleContext::getFontMetrics($Font* f) {
-	return $nc($(this->this$0->getTextComponent()))->getFontMetrics(f);
+	return $$nc(this->this$0->getTextComponent())->getFontMetrics(f);
 }
 
 bool AccessibleHTML$HTMLAccessibleContext::isEnabled() {
-	return $nc($(this->this$0->getTextComponent()))->isEnabled();
+	return $$nc(this->this$0->getTextComponent())->isEnabled();
 }
 
 void AccessibleHTML$HTMLAccessibleContext::setEnabled(bool b) {
-	$nc($(this->this$0->getTextComponent()))->setEnabled(b);
+	$$nc(this->this$0->getTextComponent())->setEnabled(b);
 }
 
 bool AccessibleHTML$HTMLAccessibleContext::isVisible() {
-	return $nc($(this->this$0->getTextComponent()))->isVisible();
+	return $$nc(this->this$0->getTextComponent())->isVisible();
 }
 
 void AccessibleHTML$HTMLAccessibleContext::setVisible(bool b) {
-	$nc($(this->this$0->getTextComponent()))->setVisible(b);
+	$$nc(this->this$0->getTextComponent())->setVisible(b);
 }
 
 bool AccessibleHTML$HTMLAccessibleContext::isShowing() {
-	return $nc($(this->this$0->getTextComponent()))->isShowing();
+	return $$nc(this->this$0->getTextComponent())->isShowing();
 }
 
 bool AccessibleHTML$HTMLAccessibleContext::contains($Point* p) {
 	$var($Rectangle, r, getBounds());
 	if (r != nullptr) {
-		return r->contains($nc(p)->x, p->y);
+		return r->contains($nc(p)->x, $nc(p)->y);
 	} else {
 		return false;
 	}
 }
 
 $Point* AccessibleHTML$HTMLAccessibleContext::getLocationOnScreen() {
-	$useLocalCurrentObjectStackCache();
-	$var($Point, editorLocation, $nc($(this->this$0->getTextComponent()))->getLocationOnScreen());
+	$useLocalObjectStack();
+	$var($Point, editorLocation, $$nc(this->this$0->getTextComponent())->getLocationOnScreen());
 	$var($Rectangle, r, getBounds());
 	if (r != nullptr) {
-		return $new($Point, $nc(editorLocation)->x + r->x, editorLocation->y + r->y);
+		return $new($Point, $nc(editorLocation)->x + r->x, $nc(editorLocation)->y + r->y);
 	} else {
 		return nullptr;
 	}
@@ -339,16 +261,16 @@ $Accessible* AccessibleHTML$HTMLAccessibleContext::getAccessibleAt($Point* p) {
 }
 
 $AccessibleHTML$ElementInfo* AccessibleHTML$HTMLAccessibleContext::getElementInfoAt($AccessibleHTML$ElementInfo* elementInfo, $Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(elementInfo)->getBounds() == nullptr) {
 		return nullptr;
 	}
-	bool var$0 = $nc(elementInfo)->getChildCount() == 0;
-	if (var$0 && $nc($(elementInfo->getBounds()))->contains(p)) {
+	bool var$0 = elementInfo->getChildCount() == 0;
+	if (var$0 && $$nc(elementInfo->getBounds())->contains(p)) {
 		return elementInfo;
 	} else {
 		if ($instanceOf($AccessibleHTML$TableElementInfo, elementInfo)) {
-			$var($AccessibleHTML$ElementInfo, captionInfo, $nc(($cast($AccessibleHTML$TableElementInfo, elementInfo)))->getCaptionInfo());
+			$var($AccessibleHTML$ElementInfo, captionInfo, $cast($AccessibleHTML$TableElementInfo, elementInfo)->getCaptionInfo());
 			if (captionInfo != nullptr) {
 				$var($Rectangle, bounds, captionInfo->getBounds());
 				if (bounds != nullptr && bounds->contains(p)) {
@@ -370,7 +292,7 @@ $AccessibleHTML$ElementInfo* AccessibleHTML$HTMLAccessibleContext::getElementInf
 bool AccessibleHTML$HTMLAccessibleContext::isFocusTraversable() {
 	$var($Component, comp, this->this$0->getTextComponent());
 	if ($instanceOf($JTextComponent, comp)) {
-		if ($nc(($cast($JTextComponent, comp)))->isEditable()) {
+		if ($cast($JTextComponent, comp)->isEditable()) {
 			return true;
 		}
 	}
@@ -378,17 +300,17 @@ bool AccessibleHTML$HTMLAccessibleContext::isFocusTraversable() {
 }
 
 void AccessibleHTML$HTMLAccessibleContext::requestFocus() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isFocusTraversable()) {
 		return;
 	}
 	$var($Component, comp, this->this$0->getTextComponent());
 	if ($instanceOf($JTextComponent, comp)) {
-		$nc(comp)->requestFocusInWindow();
+		comp->requestFocusInWindow();
 		try {
 			if ($nc(this->elementInfo)->validateIfNecessary()) {
 				$var($Element, elem, $nc(this->elementInfo)->getElement());
-				$nc(($cast($JTextComponent, comp)))->setCaretPosition($nc(elem)->getStartOffset());
+				$cast($JTextComponent, comp)->setCaretPosition($nc(elem)->getStartOffset());
 				$var($AccessibleContext, ac, $nc(this->this$0->editor)->getAccessibleContext());
 				$init($AccessibleContext);
 				$init($AccessibleState);
@@ -401,18 +323,88 @@ void AccessibleHTML$HTMLAccessibleContext::requestFocus() {
 }
 
 void AccessibleHTML$HTMLAccessibleContext::addFocusListener($FocusListener* l) {
-	$nc($(this->this$0->getTextComponent()))->addFocusListener(l);
+	$$nc(this->this$0->getTextComponent())->addFocusListener(l);
 }
 
 void AccessibleHTML$HTMLAccessibleContext::removeFocusListener($FocusListener* l) {
-	$nc($(this->this$0->getTextComponent()))->removeFocusListener(l);
+	$$nc(this->this$0->getTextComponent())->removeFocusListener(l);
 }
 
 AccessibleHTML$HTMLAccessibleContext::AccessibleHTML$HTMLAccessibleContext() {
 }
 
 $Class* AccessibleHTML$HTMLAccessibleContext::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$HTMLAccessibleContext, name, initialize, &_AccessibleHTML$HTMLAccessibleContext_ClassInfo_, allocate$AccessibleHTML$HTMLAccessibleContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/AccessibleHTML;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$HTMLAccessibleContext, this$0)},
+		{"elementInfo", "Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PROTECTED, $field(AccessibleHTML$HTMLAccessibleContext, elementInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PUBLIC, $method(AccessibleHTML$HTMLAccessibleContext, init$, void, $AccessibleHTML*, $AccessibleHTML$ElementInfo*)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, addFocusListener, void, $FocusListener*)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, contains, bool, $Point*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleContext, $AccessibleContext*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getBackground, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getBounds, $Rectangle*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getCursor, $Cursor*)},
+		{"getElementInfoAt", "(Ljavax/swing/text/html/AccessibleHTML$ElementInfo;Ljava/awt/Point;)Ljavax/swing/text/html/AccessibleHTML$ElementInfo;", nullptr, $PRIVATE, $method(AccessibleHTML$HTMLAccessibleContext, getElementInfoAt, $AccessibleHTML$ElementInfo*, $AccessibleHTML$ElementInfo*, $Point*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getLocationOnScreen, $Point*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, getSize, $Dimension*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, isVisible, bool)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, removeFocusListener, void, $FocusListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, requestFocus, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setLocation, void, $Point*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$HTMLAccessibleContext, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext", "javax.swing.text.html.AccessibleHTML", "HTMLAccessibleContext", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext",
+		"javax.accessibility.AccessibleContext",
+		"javax.accessibility.Accessible,javax.accessibility.AccessibleComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$HTMLAccessibleContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AccessibleHTML$HTMLAccessibleContext));
+	});
 	return class$;
 }
 

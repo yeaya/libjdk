@@ -40,6 +40,7 @@ class KrbAppMessage : public ::java::lang::Object {
 	$class(KrbAppMessage, 0, ::java::lang::Object)
 public:
 	KrbAppMessage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void check(::sun::security::krb5::internal::KerberosTime* packetTimestamp, ::java::lang::Integer* packetUsec, ::java::lang::Integer* packetSeqNumber, ::sun::security::krb5::internal::HostAddress* packetSAddress, ::sun::security::krb5::internal::HostAddress* packetRAddress, ::sun::security::krb5::internal::SeqNumber* seqNumber, ::sun::security::krb5::internal::HostAddress* sAddress, ::sun::security::krb5::internal::HostAddress* rAddress, bool timestampRequired, bool seqNumberRequired, ::sun::security::krb5::PrincipalName* packetPrincipal);
 	static bool DEBUG;

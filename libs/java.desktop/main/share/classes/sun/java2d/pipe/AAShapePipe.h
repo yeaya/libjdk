@@ -48,6 +48,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::pipe::CompositePipe* pipe);
 	virtual void draw(::sun::java2d::SunGraphics2D* sg, ::java::awt::Shape* s) override;
 	virtual void drawParallelogram(::sun::java2d::SunGraphics2D* sg, double ux1, double uy1, double ux2, double uy2, double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2) override;

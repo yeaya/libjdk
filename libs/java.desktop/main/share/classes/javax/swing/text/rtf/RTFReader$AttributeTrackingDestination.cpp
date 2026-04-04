@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFReader$AttributeTrackingDestination.h>
-
 #include <java/awt/Color.h>
 #include <java/lang/Number.h>
 #include <java/util/Dictionary.h>
@@ -47,7 +46,6 @@ using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $Style = ::javax::swing::text::Style;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyleContext = ::javax::swing::text::StyleContext;
-using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $TabStop = ::javax::swing::text::TabStop;
 using $Constants = ::javax::swing::text::rtf::Constants;
 using $RTFAttribute = ::javax::swing::text::rtf::RTFAttribute;
@@ -57,61 +55,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _RTFReader$AttributeTrackingDestination_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$AttributeTrackingDestination, this$0)},
-	{"characterAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFReader$AttributeTrackingDestination, characterAttributes)},
-	{"paragraphAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFReader$AttributeTrackingDestination, paragraphAttributes)},
-	{"sectionAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFReader$AttributeTrackingDestination, sectionAttributes)},
-	{}
-};
-
-$MethodInfo _RTFReader$AttributeTrackingDestination_MethodInfo_[] = {
-	{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, $PUBLIC, $method(RTFReader$AttributeTrackingDestination, init$, void, $RTFReader*)},
-	{"begingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, begingroup, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, close, void)},
-	{"currentParagraphAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(RTFReader$AttributeTrackingDestination, currentParagraphAttributes, $MutableAttributeSet*)},
-	{"currentSectionAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, currentSectionAttributes, $AttributeSet*)},
-	{"currentTextAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(RTFReader$AttributeTrackingDestination, currentTextAttributes, $MutableAttributeSet*)},
-	{"endgroup", "(Ljava/util/Dictionary;)V", "(Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, endgroup, void, $Dictionary*)},
-	{"handleBinaryBlob", "([B)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, handleBinaryBlob, void, $bytes*)},
-	{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, handleKeyword, bool, $String*)},
-	{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, handleKeyword, bool, $String*, int32_t)},
-	{"resetCharacterAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, resetCharacterAttributes, void)},
-	{"resetParagraphAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, resetParagraphAttributes, void)},
-	{"resetSectionAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, resetSectionAttributes, void)},
-	{"rootCharacterAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, rootCharacterAttributes, $MutableAttributeSet*)},
-	{"rootParagraphAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, rootParagraphAttributes, $MutableAttributeSet*)},
-	{"rootSectionAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, rootSectionAttributes, $MutableAttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _RTFReader$AttributeTrackingDestination_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination", "javax.swing.text.rtf.RTFReader", "AttributeTrackingDestination", $ABSTRACT},
-	{"javax.swing.text.rtf.RTFReader$Destination", "javax.swing.text.rtf.RTFReader", "Destination", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFReader$AttributeTrackingDestination_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination",
-	"java.lang.Object",
-	"javax.swing.text.rtf.RTFReader$Destination",
-	_RTFReader$AttributeTrackingDestination_FieldInfo_,
-	_RTFReader$AttributeTrackingDestination_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFReader$AttributeTrackingDestination_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFReader"
-};
-
-$Object* allocate$RTFReader$AttributeTrackingDestination($Class* clazz) {
-	return $of($alloc(RTFReader$AttributeTrackingDestination));
-}
 
 void RTFReader$AttributeTrackingDestination::init$($RTFReader* this$0) {
 	$set(this, this$0, this$0);
@@ -128,25 +71,25 @@ void RTFReader$AttributeTrackingDestination::handleBinaryBlob($bytes* data) {
 }
 
 void RTFReader$AttributeTrackingDestination::begingroup() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, characterParent, currentTextAttributes());
 	$var($AttributeSet, paragraphParent, currentParagraphAttributes());
 	$var($AttributeSet, sectionParent, currentSectionAttributes());
 	$set(this, characterAttributes, $new($SimpleAttributeSet));
-	$nc(this->characterAttributes)->addAttributes(characterParent);
+	this->characterAttributes->addAttributes(characterParent);
 	$nc(this->this$0->parserState)->put("chr"_s, this->characterAttributes);
 	$set(this, paragraphAttributes, $new($SimpleAttributeSet));
-	$nc(this->paragraphAttributes)->addAttributes(paragraphParent);
+	this->paragraphAttributes->addAttributes(paragraphParent);
 	$nc(this->this$0->parserState)->put("pgf"_s, this->paragraphAttributes);
 	$set(this, sectionAttributes, $new($SimpleAttributeSet));
-	$nc(this->sectionAttributes)->addAttributes(sectionParent);
+	this->sectionAttributes->addAttributes(sectionParent);
 	$nc(this->this$0->parserState)->put("sec"_s, this->sectionAttributes);
 }
 
 void RTFReader$AttributeTrackingDestination::endgroup($Dictionary* oldState) {
 	$set(this, characterAttributes, $cast($MutableAttributeSet, $nc(this->this$0->parserState)->get("chr"_s)));
-	$set(this, paragraphAttributes, $cast($MutableAttributeSet, $nc(this->this$0->parserState)->get("pgf"_s)));
-	$set(this, sectionAttributes, $cast($MutableAttributeSet, $nc(this->this$0->parserState)->get("sec"_s)));
+	$set(this, paragraphAttributes, $cast($MutableAttributeSet, this->this$0->parserState->get("pgf"_s)));
+	$set(this, sectionAttributes, $cast($MutableAttributeSet, this->this$0->parserState->get("sec"_s)));
 }
 
 void RTFReader$AttributeTrackingDestination::close() {
@@ -163,52 +106,40 @@ bool RTFReader$AttributeTrackingDestination::handleKeyword($String* keyword) {
 			bool ok = false;
 			switch (attr->domain()) {
 			case $RTFAttribute::D_CHARACTER:
-				{
-					ok = attr->set(this->characterAttributes);
-					break;
-				}
+				ok = attr->set(this->characterAttributes);
+				break;
 			case $RTFAttribute::D_PARAGRAPH:
-				{
-					ok = attr->set(this->paragraphAttributes);
-					break;
-				}
+				ok = attr->set(this->paragraphAttributes);
+				break;
 			case $RTFAttribute::D_SECTION:
-				{
-					ok = attr->set(this->sectionAttributes);
-					break;
-				}
+				ok = attr->set(this->sectionAttributes);
+				break;
 			case $RTFAttribute::D_META:
-				{
-					$set($nc(this->this$0->mockery), backing, this->this$0->parserState);
-					ok = attr->set(this->this$0->mockery);
-					$set($nc(this->this$0->mockery), backing, nullptr);
-					break;
-				}
+				$set($nc(this->this$0->mockery), backing, this->this$0->parserState);
+				ok = attr->set(this->this$0->mockery);
+				$set($nc(this->this$0->mockery), backing, nullptr);
+				break;
 			case $RTFAttribute::D_DOCUMENT:
-				{
-					ok = attr->set(this->this$0->documentAttributes);
-					break;
-				}
+				ok = attr->set(this->this$0->documentAttributes);
+				break;
 			default:
-				{
-					ok = false;
-					break;
-				}
+				ok = false;
+				break;
 			}
 			if (ok) {
 				return true;
 			}
 		}
 	}
-	if ($nc(keyword)->equals("plain"_s)) {
+	if (keyword->equals("plain"_s)) {
 		resetCharacterAttributes();
 		return true;
 	}
-	if ($nc(keyword)->equals("pard"_s)) {
+	if (keyword->equals("pard"_s)) {
 		resetParagraphAttributes();
 		return true;
 	}
-	if ($nc(keyword)->equals("sectd"_s)) {
+	if (keyword->equals("sectd"_s)) {
 		resetSectionAttributes();
 		return true;
 	}
@@ -216,21 +147,21 @@ bool RTFReader$AttributeTrackingDestination::handleKeyword($String* keyword) {
 }
 
 bool RTFReader$AttributeTrackingDestination::handleKeyword($String* keyword$renamed, int32_t parameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyword, keyword$renamed);
 	bool booleanParameter = (parameter != 0);
 	if ($nc(keyword)->equals("fc"_s)) {
 		$assign(keyword, "cf"_s);
 	}
-	if ($nc(keyword)->equals("f"_s)) {
+	if (keyword->equals("f"_s)) {
 		$nc(this->this$0->parserState)->put(keyword, $($Integer::valueOf(parameter)));
 		return true;
 	}
-	if ($nc(keyword)->equals("cf"_s)) {
+	if (keyword->equals("cf"_s)) {
 		$nc(this->this$0->parserState)->put(keyword, $($Integer::valueOf(parameter)));
 		return true;
 	}
-	if ($nc(keyword)->equals("cb"_s)) {
+	if (keyword->equals("cb"_s)) {
 		$nc(this->this$0->parserState)->put(keyword, $($Integer::valueOf(parameter)));
 		return true;
 	}
@@ -241,48 +172,36 @@ bool RTFReader$AttributeTrackingDestination::handleKeyword($String* keyword$rena
 			bool ok = false;
 			switch (attr->domain()) {
 			case $RTFAttribute::D_CHARACTER:
-				{
-					ok = attr->set(this->characterAttributes, parameter);
-					break;
-				}
+				ok = attr->set(this->characterAttributes, parameter);
+				break;
 			case $RTFAttribute::D_PARAGRAPH:
-				{
-					ok = attr->set(this->paragraphAttributes, parameter);
-					break;
-				}
+				ok = attr->set(this->paragraphAttributes, parameter);
+				break;
 			case $RTFAttribute::D_SECTION:
-				{
-					ok = attr->set(this->sectionAttributes, parameter);
-					break;
-				}
+				ok = attr->set(this->sectionAttributes, parameter);
+				break;
 			case $RTFAttribute::D_META:
-				{
-					$set($nc(this->this$0->mockery), backing, this->this$0->parserState);
-					ok = attr->set(this->this$0->mockery, parameter);
-					$set($nc(this->this$0->mockery), backing, nullptr);
-					break;
-				}
+				$set($nc(this->this$0->mockery), backing, this->this$0->parserState);
+				ok = attr->set(this->this$0->mockery, parameter);
+				$set($nc(this->this$0->mockery), backing, nullptr);
+				break;
 			case $RTFAttribute::D_DOCUMENT:
-				{
-					ok = attr->set(this->this$0->documentAttributes, parameter);
-					break;
-				}
+				ok = attr->set(this->this$0->documentAttributes, parameter);
+				break;
 			default:
-				{
-					ok = false;
-					break;
-				}
+				ok = false;
+				break;
 			}
 			if (ok) {
 				return true;
 			}
 		}
 	}
-	if ($nc(keyword)->equals("fs"_s)) {
+	if (keyword->equals("fs"_s)) {
 		$StyleConstants::setFontSize(this->characterAttributes, (parameter / 2));
 		return true;
 	}
-	if ($nc(keyword)->equals("sl"_s)) {
+	if (keyword->equals("sl"_s)) {
 		if (parameter == 1000) {
 			$init($StyleConstants);
 			$nc(this->characterAttributes)->removeAttribute($StyleConstants::LineSpacing);
@@ -291,62 +210,62 @@ bool RTFReader$AttributeTrackingDestination::handleKeyword($String* keyword$rena
 		}
 		return true;
 	}
-	bool var$0 = $nc(keyword)->equals("tx"_s);
-	if (var$0 || $nc(keyword)->equals("tb"_s)) {
+	bool var$0 = keyword->equals("tx"_s);
+	if (var$0 || keyword->equals("tb"_s)) {
 		float tabPosition = parameter / 20.0f;
 		int32_t tabAlignment = 0;
 		int32_t tabLeader = 0;
 		$var($Number, item, nullptr);
 		tabAlignment = $TabStop::ALIGN_LEFT;
-		$assign(item, ($cast($Number, $nc(this->this$0->parserState)->get("tab_alignment"_s))));
+		$assign(item, $cast($Number, $nc(this->this$0->parserState)->get("tab_alignment"_s)));
 		if (item != nullptr) {
 			tabAlignment = item->intValue();
 		}
 		tabLeader = $TabStop::LEAD_NONE;
-		$assign(item, ($cast($Number, $nc(this->this$0->parserState)->get("tab_leader"_s))));
+		$assign(item, $cast($Number, this->this$0->parserState->get("tab_leader"_s)));
 		if (item != nullptr) {
 			tabLeader = item->intValue();
 		}
 		if (keyword->equals("tb"_s)) {
 			tabAlignment = $TabStop::ALIGN_BAR;
 		}
-		$nc(this->this$0->parserState)->remove("tab_alignment"_s);
-		$nc(this->this$0->parserState)->remove("tab_leader"_s);
+		this->this$0->parserState->remove("tab_alignment"_s);
+		this->this$0->parserState->remove("tab_leader"_s);
 		$var($TabStop, newStop, $new($TabStop, tabPosition, tabAlignment, tabLeader));
 		$var($Dictionary, tabs, nullptr);
 		$var($Integer, stopCount, nullptr);
-		$var($Dictionary, tmp, $cast($Dictionary, $nc(this->this$0->parserState)->get("_tabs"_s)));
+		$var($Dictionary, tmp, $cast($Dictionary, this->this$0->parserState->get("_tabs"_s)));
 		$assign(tabs, tmp);
 		if (tabs == nullptr) {
 			$assign(tabs, $new($Hashtable));
-			$nc(this->this$0->parserState)->put("_tabs"_s, tabs);
+			this->this$0->parserState->put("_tabs"_s, tabs);
 			$assign(stopCount, $Integer::valueOf(1));
 		} else {
-			$assign(stopCount, $cast($Integer, $nc(tabs)->get("stop count"_s)));
+			$assign(stopCount, $cast($Integer, tabs->get("stop count"_s)));
 			$assign(stopCount, $Integer::valueOf(1 + $nc(stopCount)->intValue()));
 		}
 		$nc(tabs)->put(stopCount, newStop);
 		tabs->put("stop count"_s, stopCount);
-		$nc(this->this$0->parserState)->remove("_tabs_immutable"_s);
+		this->this$0->parserState->remove("_tabs_immutable"_s);
 		return true;
 	}
-	if ($nc(keyword)->equals("s"_s) && this->this$0->paragraphStyles != nullptr) {
-		$nc(this->this$0->parserState)->put("paragraphStyle"_s, $nc(this->this$0->paragraphStyles)->get(parameter));
+	if (keyword->equals("s"_s) && this->this$0->paragraphStyles != nullptr) {
+		$nc(this->this$0->parserState)->put("paragraphStyle"_s, this->this$0->paragraphStyles->get(parameter));
 		return true;
 	}
-	if ($nc(keyword)->equals("cs"_s) && this->this$0->characterStyles != nullptr) {
-		$nc(this->this$0->parserState)->put("characterStyle"_s, $nc(this->this$0->characterStyles)->get(parameter));
+	if (keyword->equals("cs"_s) && this->this$0->characterStyles != nullptr) {
+		$nc(this->this$0->parserState)->put("characterStyle"_s, this->this$0->characterStyles->get(parameter));
 		return true;
 	}
-	if ($nc(keyword)->equals("ds"_s) && this->this$0->sectionStyles != nullptr) {
-		$nc(this->this$0->parserState)->put("sectionStyle"_s, $nc(this->this$0->sectionStyles)->get(parameter));
+	if (keyword->equals("ds"_s) && this->this$0->sectionStyles != nullptr) {
+		$nc(this->this$0->parserState)->put("sectionStyle"_s, this->this$0->sectionStyles->get(parameter));
 		return true;
 	}
 	return false;
 }
 
 $MutableAttributeSet* RTFReader$AttributeTrackingDestination::rootCharacterAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MutableAttributeSet, set, $new($SimpleAttributeSet));
 	$StyleConstants::setItalic(set, false);
 	$StyleConstants::setBold(set, false);
@@ -356,7 +275,7 @@ $MutableAttributeSet* RTFReader$AttributeTrackingDestination::rootCharacterAttri
 }
 
 $MutableAttributeSet* RTFReader$AttributeTrackingDestination::rootParagraphAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MutableAttributeSet, set, $new($SimpleAttributeSet));
 	$StyleConstants::setLeftIndent(set, 0.0f);
 	$StyleConstants::setRightIndent(set, 0.0f);
@@ -372,7 +291,7 @@ $MutableAttributeSet* RTFReader$AttributeTrackingDestination::rootSectionAttribu
 }
 
 $MutableAttributeSet* RTFReader$AttributeTrackingDestination::currentTextAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MutableAttributeSet, attributes, $new($SimpleAttributeSet, this->characterAttributes));
 	$var($Integer, fontnum, nullptr);
 	$var($Integer, stateItem, nullptr);
@@ -392,7 +311,7 @@ $MutableAttributeSet* RTFReader$AttributeTrackingDestination::currentTextAttribu
 	if (this->this$0->colorTable != nullptr) {
 		$assign(stateItem, $cast($Integer, $nc(this->this$0->parserState)->get("cf"_s)));
 		if (stateItem != nullptr) {
-			$var($Color, fg, $nc(this->this$0->colorTable)->get(stateItem->intValue()));
+			$var($Color, fg, this->this$0->colorTable->get(stateItem->intValue()));
 			$StyleConstants::setForeground(attributes, fg);
 		} else {
 			$init($StyleConstants);
@@ -402,7 +321,7 @@ $MutableAttributeSet* RTFReader$AttributeTrackingDestination::currentTextAttribu
 	if (this->this$0->colorTable != nullptr) {
 		$assign(stateItem, $cast($Integer, $nc(this->this$0->parserState)->get("cb"_s)));
 		if (stateItem != nullptr) {
-			$var($Color, bg, $nc(this->this$0->colorTable)->get(stateItem->intValue()));
+			$var($Color, bg, this->this$0->colorTable->get(stateItem->intValue()));
 			$init($StyleConstants);
 			attributes->addAttribute($StyleConstants::Background, bg);
 		} else {
@@ -418,20 +337,20 @@ $MutableAttributeSet* RTFReader$AttributeTrackingDestination::currentTextAttribu
 }
 
 $MutableAttributeSet* RTFReader$AttributeTrackingDestination::currentParagraphAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MutableAttributeSet, bld, $new($SimpleAttributeSet, this->paragraphAttributes));
 	$var($Integer, stateItem, nullptr);
 	$var($TabStopArray, tabs, nullptr);
 	$assign(tabs, $cast($TabStopArray, $nc(this->this$0->parserState)->get("_tabs_immutable"_s)));
 	if (tabs == nullptr) {
-		$var($Dictionary, workingTabs, $cast($Dictionary, $nc(this->this$0->parserState)->get("_tabs"_s)));
+		$var($Dictionary, workingTabs, $cast($Dictionary, this->this$0->parserState->get("_tabs"_s)));
 		if (workingTabs != nullptr) {
-			int32_t count = $nc(($cast($Integer, $(workingTabs->get("stop count"_s)))))->intValue();
+			int32_t count = $$sure($Integer, workingTabs->get("stop count"_s))->intValue();
 			$assign(tabs, $new($TabStopArray, count));
 			for (int32_t ix = 1; ix <= count; ++ix) {
-				tabs->set(ix - 1, $cast($TabStop, $(workingTabs->get($($Integer::valueOf(ix))))));
+				tabs->set(ix - 1, $$cast($TabStop, workingTabs->get($($Integer::valueOf(ix)))));
 			}
-			$nc(this->this$0->parserState)->put("_tabs_immutable"_s, tabs);
+			this->this$0->parserState->put("_tabs_immutable"_s, tabs);
 		}
 	}
 	if (tabs != nullptr) {
@@ -446,7 +365,7 @@ $MutableAttributeSet* RTFReader$AttributeTrackingDestination::currentParagraphAt
 }
 
 $AttributeSet* RTFReader$AttributeTrackingDestination::currentSectionAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MutableAttributeSet, attributes, $new($SimpleAttributeSet, this->sectionAttributes));
 	$var($Style, sectionStyle, $cast($Style, $nc(this->this$0->parserState)->get("sectionStyle"_s)));
 	if (sectionStyle != nullptr) {
@@ -456,7 +375,7 @@ $AttributeSet* RTFReader$AttributeTrackingDestination::currentSectionAttributes(
 }
 
 void RTFReader$AttributeTrackingDestination::resetCharacterAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	handleKeyword("f"_s, 0);
 	handleKeyword("cf"_s, 0);
 	handleKeyword("fs"_s, 24);
@@ -473,12 +392,11 @@ void RTFReader$AttributeTrackingDestination::resetCharacterAttributes() {
 }
 
 void RTFReader$AttributeTrackingDestination::resetParagraphAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->this$0->parserState)->remove("_tabs"_s);
-	$nc(this->this$0->parserState)->remove("_tabs_immutable"_s);
-	$nc(this->this$0->parserState)->remove("paragraphStyle"_s);
+	this->this$0->parserState->remove("_tabs_immutable"_s);
+	this->this$0->parserState->remove("paragraphStyle"_s);
 	$StyleConstants::setAlignment(this->paragraphAttributes, $StyleConstants::ALIGN_LEFT);
-	$init($RTFReader);
 	$var($Enumeration, attributes, $nc($RTFReader::straightforwardAttributes)->elements());
 	while ($nc(attributes)->hasMoreElements()) {
 		$var($RTFAttribute, attr, $cast($RTFAttribute, attributes->nextElement()));
@@ -489,7 +407,7 @@ void RTFReader$AttributeTrackingDestination::resetParagraphAttributes() {
 }
 
 void RTFReader$AttributeTrackingDestination::resetSectionAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($RTFReader);
 	$var($Enumeration, attributes, $nc($RTFReader::straightforwardAttributes)->elements());
 	while ($nc(attributes)->hasMoreElements()) {
@@ -505,7 +423,56 @@ RTFReader$AttributeTrackingDestination::RTFReader$AttributeTrackingDestination()
 }
 
 $Class* RTFReader$AttributeTrackingDestination::load$($String* name, bool initialize) {
-	$loadClass(RTFReader$AttributeTrackingDestination, name, initialize, &_RTFReader$AttributeTrackingDestination_ClassInfo_, allocate$RTFReader$AttributeTrackingDestination);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$AttributeTrackingDestination, this$0)},
+		{"characterAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFReader$AttributeTrackingDestination, characterAttributes)},
+		{"paragraphAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFReader$AttributeTrackingDestination, paragraphAttributes)},
+		{"sectionAttributes", "Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $field(RTFReader$AttributeTrackingDestination, sectionAttributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, $PUBLIC, $method(RTFReader$AttributeTrackingDestination, init$, void, $RTFReader*)},
+		{"begingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, begingroup, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, close, void)},
+		{"currentParagraphAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(RTFReader$AttributeTrackingDestination, currentParagraphAttributes, $MutableAttributeSet*)},
+		{"currentSectionAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, currentSectionAttributes, $AttributeSet*)},
+		{"currentTextAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(RTFReader$AttributeTrackingDestination, currentTextAttributes, $MutableAttributeSet*)},
+		{"endgroup", "(Ljava/util/Dictionary;)V", "(Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, endgroup, void, $Dictionary*)},
+		{"handleBinaryBlob", "([B)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, handleBinaryBlob, void, $bytes*)},
+		{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, handleKeyword, bool, $String*)},
+		{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$AttributeTrackingDestination, handleKeyword, bool, $String*, int32_t)},
+		{"resetCharacterAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, resetCharacterAttributes, void)},
+		{"resetParagraphAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, resetParagraphAttributes, void)},
+		{"resetSectionAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, resetSectionAttributes, void)},
+		{"rootCharacterAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, rootCharacterAttributes, $MutableAttributeSet*)},
+		{"rootParagraphAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, rootParagraphAttributes, $MutableAttributeSet*)},
+		{"rootSectionAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(RTFReader$AttributeTrackingDestination, rootSectionAttributes, $MutableAttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination", "javax.swing.text.rtf.RTFReader", "AttributeTrackingDestination", $ABSTRACT},
+		{"javax.swing.text.rtf.RTFReader$Destination", "javax.swing.text.rtf.RTFReader", "Destination", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.rtf.RTFReader$AttributeTrackingDestination",
+		"java.lang.Object",
+		"javax.swing.text.rtf.RTFReader$Destination",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFReader"
+	};
+	$loadClass(RTFReader$AttributeTrackingDestination, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFReader$AttributeTrackingDestination);
+	});
 	return class$;
 }
 

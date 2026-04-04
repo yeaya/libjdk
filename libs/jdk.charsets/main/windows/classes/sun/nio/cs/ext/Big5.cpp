@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/Big5.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -26,45 +25,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$MethodInfo _Big5_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Big5, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Big5, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _Big5_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.Big5$EncodeHolder", "sun.nio.cs.ext.Big5", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.ext.Big5$DecodeHolder", "sun.nio.cs.ext.Big5", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _Big5_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.Big5",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_Big5_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Big5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.Big5$EncodeHolder,sun.nio.cs.ext.Big5$DecodeHolder"
-};
-
-$Object* allocate$Big5($Class* clazz) {
-	return $of($alloc(Big5));
-}
 
 int32_t Big5::hashCode() {
 	 return this->$Charset::hashCode();
@@ -95,7 +55,7 @@ $String* Big5::historicalName() {
 }
 
 bool Big5::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(Big5, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(Big5, cs)));
 }
 
 $CharsetDecoder* Big5::newDecoder() {
@@ -112,7 +72,41 @@ Big5::Big5() {
 }
 
 $Class* Big5::load$($String* name, bool initialize) {
-	$loadClass(Big5, name, initialize, &_Big5_ClassInfo_, allocate$Big5);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Big5, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Big5, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.Big5$EncodeHolder", "sun.nio.cs.ext.Big5", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.ext.Big5$DecodeHolder", "sun.nio.cs.ext.Big5", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.Big5",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.Big5$EncodeHolder,sun.nio.cs.ext.Big5$DecodeHolder"
+	};
+	$loadClass(Big5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Big5));
+	});
 	return class$;
 }
 

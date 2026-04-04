@@ -56,7 +56,7 @@ public:
 	void setNewRdn($String* newRdn);
 	void setReferralInfo(::java::util::Vector* referrals, bool continuationRef);
 	virtual bool skipReferral() override;
-	static const int64_t serialVersionUID = (int64_t)0x08B3C2E85B701D9F;
+	static const int64_t serialVersionUID = (int64_t)0x08b3c2e85b701d9f;
 	int32_t handleReferrals = 0;
 	::java::util::Hashtable* envprops = nullptr;
 	$String* nextName = nullptr;
@@ -73,7 +73,10 @@ public:
 	::com::sun::jndi::ldap::LdapReferralException* nextReferralEx = nullptr;
 	LdapReferralException(const LdapReferralException& e);
 	virtual void throw$() override;
-	inline LdapReferralException* operator ->() {
+	inline LdapReferralException* operator ->() const {
+		return (LdapReferralException*)throwing$;
+	}
+	inline operator LdapReferralException*() const {
 		return (LdapReferralException*)throwing$;
 	}
 };

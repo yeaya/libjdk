@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/CDATASectionImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/TextImpl.h>
 #include <org/w3c/dom/Document.h>
@@ -31,83 +30,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _CDATASectionImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CDATASectionImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CDATASectionImpl_MethodInfo_[] = {
-	{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*appendData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
-	{"*deleteData", "(II)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
-	{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
-	{"*getData", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLength", "()I", nullptr, $PUBLIC},
-	{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
-	{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getWholeText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hasAttributes", "()Z", nullptr, $PUBLIC},
-	{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CDATASectionImpl, init$, void, $CoreDocumentImpl*, $String*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CDATASectionImpl, getNodeName, $String*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(CDATASectionImpl, getNodeType, int16_t)},
-	{"*isElementContentWhitespace", "()Z", nullptr, $PUBLIC},
-	{"*replaceWholeText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC},
-	{"*splitText", "(I)Lorg/w3c/dom/Text;", nullptr, $PUBLIC},
-	{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*insertData", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"*replaceData", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*substringData", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*normalize", "()V", nullptr, $PUBLIC},
-	{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CDATASectionImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.CDATASectionImpl",
-	"com.sun.org.apache.xerces.internal.dom.TextImpl",
-	"org.w3c.dom.CDATASection",
-	_CDATASectionImpl_FieldInfo_,
-	_CDATASectionImpl_MethodInfo_
-};
-
-$Object* allocate$CDATASectionImpl($Class* clazz) {
-	return $of($alloc(CDATASectionImpl));
-}
 
 bool CDATASectionImpl::isElementContentWhitespace() {
 	 return this->$TextImpl::isElementContentWhitespace();
@@ -333,7 +255,79 @@ CDATASectionImpl::CDATASectionImpl() {
 }
 
 $Class* CDATASectionImpl::load$($String* name, bool initialize) {
-	$loadClass(CDATASectionImpl, name, initialize, &_CDATASectionImpl_ClassInfo_, allocate$CDATASectionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CDATASectionImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*appendData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
+		{"*deleteData", "(II)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
+		{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
+		{"*getData", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLength", "()I", nullptr, $PUBLIC},
+		{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
+		{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getWholeText", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hasAttributes", "()Z", nullptr, $PUBLIC},
+		{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CDATASectionImpl, init$, void, $CoreDocumentImpl*, $String*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CDATASectionImpl, getNodeName, $String*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(CDATASectionImpl, getNodeType, int16_t)},
+		{"*isElementContentWhitespace", "()Z", nullptr, $PUBLIC},
+		{"*replaceWholeText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC},
+		{"*splitText", "(I)Lorg/w3c/dom/Text;", nullptr, $PUBLIC},
+		{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*insertData", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"*replaceData", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*substringData", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*normalize", "()V", nullptr, $PUBLIC},
+		{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.CDATASectionImpl",
+		"com.sun.org.apache.xerces.internal.dom.TextImpl",
+		"org.w3c.dom.CDATASection",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CDATASectionImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CDATASectionImpl));
+	});
 	return class$;
 }
 

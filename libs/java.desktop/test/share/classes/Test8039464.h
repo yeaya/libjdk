@@ -19,6 +19,7 @@ public:
 	using ::javax::swing::JApplet::add;
 	using ::javax::swing::JApplet::getMousePosition;
 	using ::javax::swing::JApplet::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void init() override;
 	static void init(::java::awt::Container* container);

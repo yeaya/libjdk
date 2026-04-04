@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Tokens$NamedToken.h>
-
 #include <com/sun/tools/javac/parser/Tokens$Token$Tag.h>
 #include <com/sun/tools/javac/parser/Tokens$Token.h>
 #include <com/sun/tools/javac/parser/Tokens$TokenKind.h>
@@ -28,44 +27,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _Tokens$NamedToken_FieldInfo_[] = {
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(Tokens$NamedToken, name$)},
-	{}
-};
-
-$MethodInfo _Tokens$NamedToken_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", $PUBLIC, $method(Tokens$NamedToken, init$, void, $Tokens$TokenKind*, int32_t, int32_t, $Name*, $List*)},
-	{"checkKind", "()V", nullptr, $PROTECTED, $virtualMethod(Tokens$NamedToken, checkKind, void)},
-	{"name", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Tokens$NamedToken, name, $Name*)},
-	{}
-};
-
-$InnerClassInfo _Tokens$NamedToken_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.Tokens$NamedToken", "com.sun.tools.javac.parser.Tokens", "NamedToken", $STATIC | $FINAL},
-	{"com.sun.tools.javac.parser.Tokens$Token", "com.sun.tools.javac.parser.Tokens", "Token", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Tokens$NamedToken_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.parser.Tokens$NamedToken",
-	"com.sun.tools.javac.parser.Tokens$Token",
-	nullptr,
-	_Tokens$NamedToken_FieldInfo_,
-	_Tokens$NamedToken_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Tokens$NamedToken_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.Tokens"
-};
-
-$Object* allocate$Tokens$NamedToken($Class* clazz) {
-	return $of($alloc(Tokens$NamedToken));
-}
-
 void Tokens$NamedToken::init$($Tokens$TokenKind* kind, int32_t pos, int32_t endPos, $Name* name, $List* comments) {
 	$Tokens$Token::init$(kind, pos, endPos, comments);
 	$set(this, name$, name);
@@ -74,7 +35,7 @@ void Tokens$NamedToken::init$($Tokens$TokenKind* kind, int32_t pos, int32_t endP
 void Tokens$NamedToken::checkKind() {
 	$init($Tokens$Token$Tag);
 	if (this->kind->tag != $Tokens$Token$Tag::NAMED) {
-		$throwNew($AssertionError, $of($$str({"Bad token kind - expected "_s, $Tokens$Token$Tag::NAMED})));
+		$throwNew($AssertionError, $$of($str({"Bad token kind - expected "_s, $Tokens$Token$Tag::NAMED})));
 	}
 }
 
@@ -86,7 +47,39 @@ Tokens$NamedToken::Tokens$NamedToken() {
 }
 
 $Class* Tokens$NamedToken::load$($String* name, bool initialize) {
-	$loadClass(Tokens$NamedToken, name, initialize, &_Tokens$NamedToken_ClassInfo_, allocate$Tokens$NamedToken);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(Tokens$NamedToken, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", $PUBLIC, $method(Tokens$NamedToken, init$, void, $Tokens$TokenKind*, int32_t, int32_t, $Name*, $List*)},
+		{"checkKind", "()V", nullptr, $PROTECTED, $virtualMethod(Tokens$NamedToken, checkKind, void)},
+		{"name", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Tokens$NamedToken, name, $Name*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.Tokens$NamedToken", "com.sun.tools.javac.parser.Tokens", "NamedToken", $STATIC | $FINAL},
+		{"com.sun.tools.javac.parser.Tokens$Token", "com.sun.tools.javac.parser.Tokens", "Token", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.parser.Tokens$NamedToken",
+		"com.sun.tools.javac.parser.Tokens$Token",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.Tokens"
+	};
+	$loadClass(Tokens$NamedToken, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Tokens$NamedToken);
+	});
 	return class$;
 }
 

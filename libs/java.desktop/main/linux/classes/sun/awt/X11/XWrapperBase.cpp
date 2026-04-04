@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWrapperBase.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/XBaseWindow.h>
 #include <sun/awt/X11/XEvent.h>
@@ -12,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XToolkit = ::sun::awt::X11::XToolkit;
@@ -23,47 +21,19 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XWrapperBase_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $STATIC | $FINAL, $staticField(XWrapperBase, log)},
-	{}
-};
-
-$MethodInfo _XWrapperBase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XWrapperBase, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC, $virtualMethod(XWrapperBase, clone, $Object*)},
-	{"getDataSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XWrapperBase, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWrapperBase, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWrapperBase, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XWrapperBase, getPData, int64_t)},
-	{"getWindow", "(J)Ljava/lang/String;", nullptr, 0, $virtualMethod(XWrapperBase, getWindow, $String*, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XWrapperBase, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC, $virtualMethod(XWrapperBase, zero, void)},
-	{}
-};
-
-$ClassInfo _XWrapperBase_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11.XWrapperBase",
-	"java.lang.Object",
-	nullptr,
-	_XWrapperBase_FieldInfo_,
-	_XWrapperBase_MethodInfo_
-};
-
-$Object* allocate$XWrapperBase($Class* clazz) {
-	return $of($alloc(XWrapperBase));
-}
-
 $PlatformLogger* XWrapperBase::log = nullptr;
 
 void XWrapperBase::init$() {
 }
 
 $String* XWrapperBase::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ret, ""_s);
-	$var($String, var$0, $$str({$(getName()), " = "_s}));
-	$plusAssign(ret, $$concat(var$0, $(getFieldsAsString())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getName()));
+	var$0->append(" = "_s);
+	var$0->append($(getFieldsAsString()));
+	$plusAssign(ret, $$str(var$0));
 	return ret;
 }
 
@@ -89,7 +59,7 @@ $String* XWrapperBase::getWindow(int64_t window) {
 	if (w == nullptr) {
 		return $Long::toHexString(window);
 	} else {
-		return $nc(w)->toString();
+		return w->toString();
 	}
 }
 
@@ -97,12 +67,11 @@ $Object* XWrapperBase::clone() {
 	$init($XlibWrapper);
 	int64_t copy = $nc($XlibWrapper::unsafe)->allocateMemory(getDataSize());
 	int64_t var$0 = getPData();
-	int64_t var$1 = copy;
-	$nc($XlibWrapper::unsafe)->copyMemory(var$0, var$1, getDataSize());
-	return $of($new($XEvent, copy));
+	$nc($XlibWrapper::unsafe)->copyMemory(var$0, copy, getDataSize());
+	return $new($XEvent, copy);
 }
 
-void clinit$XWrapperBase($Class* class$) {
+void XWrapperBase::clinit$($Class* clazz) {
 	$assignStatic(XWrapperBase::log, $PlatformLogger::getLogger("sun.awt.X11.wrappers"_s));
 }
 
@@ -110,7 +79,33 @@ XWrapperBase::XWrapperBase() {
 }
 
 $Class* XWrapperBase::load$($String* name, bool initialize) {
-	$loadClass(XWrapperBase, name, initialize, &_XWrapperBase_ClassInfo_, clinit$XWrapperBase, allocate$XWrapperBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $STATIC | $FINAL, $staticField(XWrapperBase, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XWrapperBase, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC, $virtualMethod(XWrapperBase, clone, $Object*)},
+		{"getDataSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XWrapperBase, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWrapperBase, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWrapperBase, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XWrapperBase, getPData, int64_t)},
+		{"getWindow", "(J)Ljava/lang/String;", nullptr, 0, $virtualMethod(XWrapperBase, getWindow, $String*, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XWrapperBase, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC, $virtualMethod(XWrapperBase, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11.XWrapperBase",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XWrapperBase, name, initialize, &classInfo$$, XWrapperBase::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XWrapperBase);
+	});
 	return class$;
 }
 

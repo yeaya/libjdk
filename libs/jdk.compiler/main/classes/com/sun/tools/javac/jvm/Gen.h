@@ -148,6 +148,7 @@ class $export Gen : public ::com::sun::tools::javac::tree::JCTree$Visitor {
 	$class(Gen, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	Gen();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::code::Symbol* binaryQualifier(::com::sun::tools::javac::code::Symbol* sym, ::com::sun::tools::javac::code::Type* site);
 	virtual void callMethod(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::code::Type* site, ::com::sun::tools::javac::util::Name* name, ::com::sun::tools::javac::util::List* argtypes, bool isStatic);

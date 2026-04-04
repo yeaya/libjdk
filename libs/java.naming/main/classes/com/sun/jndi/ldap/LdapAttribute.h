@@ -48,7 +48,7 @@ public:
 	void setBaseCtxInfo();
 	void setParent(::javax::naming::directory::DirContext* baseCtx, ::javax::naming::Name* rdn);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0xC47B6B02A60583C0;
+	static const int64_t serialVersionUID = (int64_t)0xc47b6b02a60583c0;
 	::javax::naming::directory::DirContext* baseCtx = nullptr;
 	::javax::naming::Name* rdn = nullptr;
 	$String* baseCtxURL = nullptr;

@@ -23,6 +23,7 @@ class $import JavaFileObject$Kind : public ::java::lang::Enum {
 public:
 	JavaFileObject$Kind();
 	static $Array<::javax::tools::JavaFileObject$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* extension);
 	static ::javax::tools::JavaFileObject$Kind* valueOf($String* name);
 	static $Array<::javax::tools::JavaFileObject$Kind>* values();

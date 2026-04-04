@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel$LinkProperty.h>
-
 #include <javax/swing/UIDefaults$ActiveValue.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
@@ -19,49 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _NimbusLookAndFeel$LinkProperty_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/nimbus/NimbusLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(NimbusLookAndFeel$LinkProperty, this$0)},
-	{"dstPropName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusLookAndFeel$LinkProperty, dstPropName)},
-	{}
-};
-
-$MethodInfo _NimbusLookAndFeel$LinkProperty_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/nimbus/NimbusLookAndFeel;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(NimbusLookAndFeel$LinkProperty, init$, void, $NimbusLookAndFeel*, $String*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel$LinkProperty, createValue, $Object*, $UIDefaults*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _NimbusLookAndFeel$LinkProperty_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "LinkProperty", $PRIVATE},
-	{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NimbusLookAndFeel$LinkProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$ActiveValue,javax.swing.plaf.UIResource",
-	_NimbusLookAndFeel$LinkProperty_FieldInfo_,
-	_NimbusLookAndFeel$LinkProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusLookAndFeel$LinkProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusLookAndFeel"
-};
-
-$Object* allocate$NimbusLookAndFeel$LinkProperty($Class* clazz) {
-	return $of($alloc(NimbusLookAndFeel$LinkProperty));
-}
 
 int32_t NimbusLookAndFeel$LinkProperty::hashCode() {
 	 return this->$UIDefaults$ActiveValue::hashCode();
@@ -89,14 +45,51 @@ void NimbusLookAndFeel$LinkProperty::init$($NimbusLookAndFeel* this$0, $String* 
 }
 
 $Object* NimbusLookAndFeel$LinkProperty::createValue($UIDefaults* table) {
-	return $of($UIManager::get(this->dstPropName));
+	return $UIManager::get(this->dstPropName);
 }
 
 NimbusLookAndFeel$LinkProperty::NimbusLookAndFeel$LinkProperty() {
 }
 
 $Class* NimbusLookAndFeel$LinkProperty::load$($String* name, bool initialize) {
-	$loadClass(NimbusLookAndFeel$LinkProperty, name, initialize, &_NimbusLookAndFeel$LinkProperty_ClassInfo_, allocate$NimbusLookAndFeel$LinkProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/nimbus/NimbusLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(NimbusLookAndFeel$LinkProperty, this$0)},
+		{"dstPropName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusLookAndFeel$LinkProperty, dstPropName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/nimbus/NimbusLookAndFeel;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(NimbusLookAndFeel$LinkProperty, init$, void, $NimbusLookAndFeel*, $String*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel$LinkProperty, createValue, $Object*, $UIDefaults*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "LinkProperty", $PRIVATE},
+		{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$ActiveValue,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusLookAndFeel"
+	};
+	$loadClass(NimbusLookAndFeel$LinkProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NimbusLookAndFeel$LinkProperty));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$CheckInst.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -20,7 +19,6 @@ using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$CheckBounds = ::com::sun::tools::javac::comp::Infer$CheckBounds;
 using $Infer$IncorporationAction = ::com::sun::tools::javac::comp::Infer$IncorporationAction;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -32,49 +30,8 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$CheckInst_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$CheckInst, this$0)},
-	{"to", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0, $field(Infer$CheckInst, to)},
-	{}
-};
-
-$MethodInfo _Infer$CheckInst_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $TRANSIENT, $method(Infer$CheckInst, init$, void, $Infer*, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type$UndetVar$InferenceBoundArray*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;)V", 0, $method(Infer$CheckInst, init$, void, $Infer*, $Type$UndetVar*, $EnumSet*)},
-	{"boundsToCheck", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0, $virtualMethod(Infer$CheckInst, boundsToCheck, $EnumSet*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$CheckInst, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
-	{"report", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, 0, $virtualMethod(Infer$CheckInst, report, void, $Type$UndetVar$InferenceBound*, $Type$UndetVar$InferenceBound*)},
-	{}
-};
-
-$InnerClassInfo _Infer$CheckInst_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$CheckInst", "com.sun.tools.javac.comp.Infer", "CheckInst", 0},
-	{"com.sun.tools.javac.comp.Infer$CheckBounds", "com.sun.tools.javac.comp.Infer", "CheckBounds", 0},
-	{}
-};
-
-$ClassInfo _Infer$CheckInst_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$CheckInst",
-	"com.sun.tools.javac.comp.Infer$CheckBounds",
-	nullptr,
-	_Infer$CheckInst_FieldInfo_,
-	_Infer$CheckInst_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$CheckInst_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$CheckInst($Class* clazz) {
-	return $of($alloc(Infer$CheckInst));
-}
-
 void Infer$CheckInst::init$($Infer* this$0, $Type$UndetVar* uv, $Type$UndetVar$InferenceBound* ib, $Type$UndetVar$InferenceBoundArray* rest) {
-	Infer$CheckInst::init$(this$0, uv, $($EnumSet::of(static_cast<$Enum*>(ib), $fcast($EnumArray, rest))));
+	Infer$CheckInst::init$(this$0, uv, $($EnumSet::of(ib, $cast($EnumArray, rest))));
 }
 
 void Infer$CheckInst::init$($Infer* this$0, $Type$UndetVar* uv, $EnumSet* to) {
@@ -100,7 +57,42 @@ Infer$CheckInst::Infer$CheckInst() {
 }
 
 $Class* Infer$CheckInst::load$($String* name, bool initialize) {
-	$loadClass(Infer$CheckInst, name, initialize, &_Infer$CheckInst_ClassInfo_, allocate$Infer$CheckInst);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$CheckInst, this$0)},
+		{"to", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0, $field(Infer$CheckInst, to)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $TRANSIENT, $method(Infer$CheckInst, init$, void, $Infer*, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type$UndetVar$InferenceBoundArray*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;)V", 0, $method(Infer$CheckInst, init$, void, $Infer*, $Type$UndetVar*, $EnumSet*)},
+		{"boundsToCheck", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0, $virtualMethod(Infer$CheckInst, boundsToCheck, $EnumSet*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$CheckInst, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
+		{"report", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, 0, $virtualMethod(Infer$CheckInst, report, void, $Type$UndetVar$InferenceBound*, $Type$UndetVar$InferenceBound*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$CheckInst", "com.sun.tools.javac.comp.Infer", "CheckInst", 0},
+		{"com.sun.tools.javac.comp.Infer$CheckBounds", "com.sun.tools.javac.comp.Infer", "CheckBounds", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$CheckInst",
+		"com.sun.tools.javac.comp.Infer$CheckBounds",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$CheckInst, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$CheckInst);
+	});
 	return class$;
 }
 

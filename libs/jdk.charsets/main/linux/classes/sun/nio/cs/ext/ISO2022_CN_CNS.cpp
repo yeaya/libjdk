@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_CN_CNS.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -27,44 +26,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$MethodInfo _ISO2022_CN_CNS_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_CN_CNS, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _ISO2022_CN_CNS_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder", "sun.nio.cs.ext.ISO2022_CN_CNS", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_CN_CNS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_CN_CNS",
-	"sun.nio.cs.ext.ISO2022",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_ISO2022_CN_CNS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_CN_CNS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder"
-};
-
-$Object* allocate$ISO2022_CN_CNS($Class* clazz) {
-	return $of($alloc(ISO2022_CN_CNS));
-}
-
 int32_t ISO2022_CN_CNS::hashCode() {
 	 return this->$ISO2022::hashCode();
 }
@@ -90,7 +51,7 @@ void ISO2022_CN_CNS::init$() {
 }
 
 bool ISO2022_CN_CNS::contains($Charset* cs) {
-	return (($instanceOf($EUC_TW, cs)) || ($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(ISO2022_CN_CNS, cs)));
+	return (($instanceOf($EUC_TW, cs)) || ($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(ISO2022_CN_CNS, cs)));
 }
 
 $String* ISO2022_CN_CNS::historicalName() {
@@ -109,7 +70,40 @@ ISO2022_CN_CNS::ISO2022_CN_CNS() {
 }
 
 $Class* ISO2022_CN_CNS::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_CN_CNS, name, initialize, &_ISO2022_CN_CNS_ClassInfo_, allocate$ISO2022_CN_CNS);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_CN_CNS, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder", "sun.nio.cs.ext.ISO2022_CN_CNS", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_CN_CNS",
+		"sun.nio.cs.ext.ISO2022",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder"
+	};
+	$loadClass(ISO2022_CN_CNS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISO2022_CN_CNS));
+	});
 	return class$;
 }
 

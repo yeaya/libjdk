@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI$1.h>
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
@@ -18,7 +16,6 @@
 using $WindowsCheckBoxMenuItemUI$1 = ::com::sun::java::swing::plaf::windows::WindowsCheckBoxMenuItemUI$1;
 using $WindowsGraphicsUtils = ::com::sun::java::swing::plaf::windows::WindowsGraphicsUtils;
 using $WindowsMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUI;
-using $WindowsMenuItemUIAccessor = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUIAccessor;
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -26,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
@@ -39,44 +35,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsCheckBoxMenuItemUI_FieldInfo_[] = {
-	{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsCheckBoxMenuItemUI, accessor)},
-	{}
-};
-
-$MethodInfo _WindowsCheckBoxMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsCheckBoxMenuItemUI, init$, void)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsCheckBoxMenuItemUI, access$000, $JMenuItem*, WindowsCheckBoxMenuItemUI*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsCheckBoxMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsCheckBoxMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsCheckBoxMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
-	{}
-};
-
-$InnerClassInfo _WindowsCheckBoxMenuItemUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsCheckBoxMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI",
-	"javax.swing.plaf.basic.BasicCheckBoxMenuItemUI",
-	nullptr,
-	_WindowsCheckBoxMenuItemUI_FieldInfo_,
-	_WindowsCheckBoxMenuItemUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsCheckBoxMenuItemUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1"
-};
-
-$Object* allocate$WindowsCheckBoxMenuItemUI($Class* clazz) {
-	return $of($alloc(WindowsCheckBoxMenuItemUI));
-}
 
 $JMenuItem* WindowsCheckBoxMenuItemUI::access$000(WindowsCheckBoxMenuItemUI* x0) {
 	$init(WindowsCheckBoxMenuItemUI);
@@ -102,7 +60,7 @@ void WindowsCheckBoxMenuItemUI::paintBackground($Graphics* g, $JMenuItem* menuIt
 }
 
 void WindowsCheckBoxMenuItemUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($WindowsMenuItemUI::isVistaPainting()) {
 		$WindowsMenuItemUI::paintText(this->accessor, g, menuItem, textRect, text);
 		return;
@@ -121,7 +79,39 @@ WindowsCheckBoxMenuItemUI::WindowsCheckBoxMenuItemUI() {
 }
 
 $Class* WindowsCheckBoxMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsCheckBoxMenuItemUI, name, initialize, &_WindowsCheckBoxMenuItemUI_ClassInfo_, allocate$WindowsCheckBoxMenuItemUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsCheckBoxMenuItemUI, accessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsCheckBoxMenuItemUI, init$, void)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsCheckBoxMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsCheckBoxMenuItemUI, access$000, $JMenuItem*, WindowsCheckBoxMenuItemUI*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsCheckBoxMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsCheckBoxMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsCheckBoxMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI",
+		"javax.swing.plaf.basic.BasicCheckBoxMenuItemUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsCheckBoxMenuItemUI$1"
+	};
+	$loadClass(WindowsCheckBoxMenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsCheckBoxMenuItemUI);
+	});
 	return class$;
 }
 

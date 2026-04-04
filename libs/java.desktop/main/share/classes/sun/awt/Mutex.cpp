@@ -1,5 +1,4 @@
 #include <sun/awt/Mutex.h>
-
 #include <java/lang/IllegalMonitorStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <jcpp.h>
@@ -12,33 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _Mutex_FieldInfo_[] = {
-	{"locked", "Z", nullptr, $PRIVATE, $field(Mutex, locked)},
-	{"owner", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(Mutex, owner)},
-	{}
-};
-
-$MethodInfo _Mutex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Mutex, init$, void)},
-	{"isOwned", "()Z", nullptr, $PROTECTED, $virtualMethod(Mutex, isOwned, bool)},
-	{"lock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Mutex, lock, void)},
-	{"unlock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Mutex, unlock, void)},
-	{}
-};
-
-$ClassInfo _Mutex_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.Mutex",
-	"java.lang.Object",
-	nullptr,
-	_Mutex_FieldInfo_,
-	_Mutex_MethodInfo_
-};
-
-$Object* allocate$Mutex($Class* clazz) {
-	return $of($alloc(Mutex));
-}
 
 void Mutex::init$() {
 }
@@ -81,7 +53,29 @@ Mutex::Mutex() {
 }
 
 $Class* Mutex::load$($String* name, bool initialize) {
-	$loadClass(Mutex, name, initialize, &_Mutex_ClassInfo_, allocate$Mutex);
+	$FieldInfo fieldInfos$$[] = {
+		{"locked", "Z", nullptr, $PRIVATE, $field(Mutex, locked)},
+		{"owner", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(Mutex, owner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Mutex, init$, void)},
+		{"isOwned", "()Z", nullptr, $PROTECTED, $virtualMethod(Mutex, isOwned, bool)},
+		{"lock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Mutex, lock, void)},
+		{"unlock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Mutex, unlock, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.Mutex",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Mutex, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Mutex);
+	});
 	return class$;
 }
 

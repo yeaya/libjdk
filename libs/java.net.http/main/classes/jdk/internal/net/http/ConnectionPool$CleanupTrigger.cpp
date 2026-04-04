@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ConnectionPool$CleanupTrigger.h>
-
 #include <java/io/IOException.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
@@ -26,61 +25,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _ConnectionPool$CleanupTrigger_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/ConnectionPool;", nullptr, $FINAL | $SYNTHETIC, $field(ConnectionPool$CleanupTrigger, this$0)},
-	{"connection", "Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $FINAL, $field(ConnectionPool$CleanupTrigger, connection)},
-	{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ConnectionPool$CleanupTrigger, done)},
-	{}
-};
-
-$MethodInfo _ConnectionPool$CleanupTrigger_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/internal/net/http/ConnectionPool;Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(ConnectionPool$CleanupTrigger, init$, void, $ConnectionPool*, $HttpConnection*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, cancel, void)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $method(ConnectionPool$CleanupTrigger, isDone, bool)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ConnectionPool$CleanupTrigger, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ConnectionPool$CleanupTrigger, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, onSubscribe, void, $Flow$Subscription*)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, request, void, int64_t)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, subscribe, void, $Flow$Subscriber*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, toString, $String*)},
-	{"triggerCleanup", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(ConnectionPool$CleanupTrigger, triggerCleanup, void, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _ConnectionPool$CleanupTrigger_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ConnectionPool$CleanupTrigger", "jdk.internal.net.http.ConnectionPool", "CleanupTrigger", $PRIVATE | $FINAL},
-	{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConnectionPool$CleanupTrigger_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.ConnectionPool$CleanupTrigger",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.FlowTube$TubeSubscriber,jdk.internal.net.http.common.FlowTube$TubePublisher,java.util.concurrent.Flow$Subscription",
-	_ConnectionPool$CleanupTrigger_FieldInfo_,
-	_ConnectionPool$CleanupTrigger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConnectionPool$CleanupTrigger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ConnectionPool"
-};
-
-$Object* allocate$ConnectionPool$CleanupTrigger($Class* clazz) {
-	return $of($alloc(ConnectionPool$CleanupTrigger));
-}
 
 int32_t ConnectionPool$CleanupTrigger::hashCode() {
 	 return this->$FlowTube$TubeSubscriber::hashCode();
@@ -150,7 +94,56 @@ ConnectionPool$CleanupTrigger::ConnectionPool$CleanupTrigger() {
 }
 
 $Class* ConnectionPool$CleanupTrigger::load$($String* name, bool initialize) {
-	$loadClass(ConnectionPool$CleanupTrigger, name, initialize, &_ConnectionPool$CleanupTrigger_ClassInfo_, allocate$ConnectionPool$CleanupTrigger);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/ConnectionPool;", nullptr, $FINAL | $SYNTHETIC, $field(ConnectionPool$CleanupTrigger, this$0)},
+		{"connection", "Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $FINAL, $field(ConnectionPool$CleanupTrigger, connection)},
+		{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ConnectionPool$CleanupTrigger, done)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljdk/internal/net/http/ConnectionPool;Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(ConnectionPool$CleanupTrigger, init$, void, $ConnectionPool*, $HttpConnection*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, cancel, void)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $method(ConnectionPool$CleanupTrigger, isDone, bool)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ConnectionPool$CleanupTrigger, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ConnectionPool$CleanupTrigger, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, onSubscribe, void, $Flow$Subscription*)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, request, void, int64_t)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, subscribe, void, $Flow$Subscriber*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CleanupTrigger, toString, $String*)},
+		{"triggerCleanup", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(ConnectionPool$CleanupTrigger, triggerCleanup, void, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ConnectionPool$CleanupTrigger", "jdk.internal.net.http.ConnectionPool", "CleanupTrigger", $PRIVATE | $FINAL},
+		{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.ConnectionPool$CleanupTrigger",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.FlowTube$TubeSubscriber,jdk.internal.net.http.common.FlowTube$TubePublisher,java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ConnectionPool"
+	};
+	$loadClass(ConnectionPool$CleanupTrigger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConnectionPool$CleanupTrigger));
+	});
 	return class$;
 }
 

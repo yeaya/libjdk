@@ -1,5 +1,4 @@
 #include <java.desktop.test.h>
-
 #include <java.desktop.h>
 #include <java.logging.h>
 #include <jdk.httpserver.h>

@@ -78,6 +78,7 @@ public:
 	using ::javax::swing::JComponent::add;
 	using ::javax::swing::JComponent::getMousePosition;
 	using ::javax::swing::JComponent::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JRootPane* root, ::javax::swing::plaf::metal::MetalRootPaneUI* ui);
 	void addMenuItems(::javax::swing::JMenu* menu);
 	virtual void addNotify() override;

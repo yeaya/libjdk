@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsSplitPaneUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsSplitPaneDivider.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsSplitPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSplitPaneUI, init$, void)},
-	{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(WindowsSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsSplitPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsSplitPaneUI",
-	"javax.swing.plaf.basic.BasicSplitPaneUI",
-	nullptr,
-	nullptr,
-	_WindowsSplitPaneUI_MethodInfo_
-};
-
-$Object* allocate$WindowsSplitPaneUI($Class* clazz) {
-	return $of($alloc(WindowsSplitPaneUI));
-}
-
 void WindowsSplitPaneUI::init$() {
 	$BasicSplitPaneUI::init$();
 }
@@ -59,7 +38,23 @@ WindowsSplitPaneUI::WindowsSplitPaneUI() {
 }
 
 $Class* WindowsSplitPaneUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsSplitPaneUI, name, initialize, &_WindowsSplitPaneUI_ClassInfo_, allocate$WindowsSplitPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSplitPaneUI, init$, void)},
+		{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(WindowsSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsSplitPaneUI",
+		"javax.swing.plaf.basic.BasicSplitPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsSplitPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSplitPaneUI);
+	});
 	return class$;
 }
 

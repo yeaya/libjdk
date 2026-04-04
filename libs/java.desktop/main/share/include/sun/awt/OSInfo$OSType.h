@@ -25,6 +25,7 @@ class $import OSInfo$OSType : public ::java::lang::Enum {
 public:
 	OSInfo$OSType();
 	static $Array<::sun::awt::OSInfo$OSType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::awt::OSInfo$OSType* valueOf($String* name);
 	static $Array<::sun::awt::OSInfo$OSType>* values();

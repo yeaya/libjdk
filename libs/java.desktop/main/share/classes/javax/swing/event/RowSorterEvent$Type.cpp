@@ -1,5 +1,4 @@
 #include <javax/swing/event/RowSorterEvent$Type.h>
-
 #include <java/lang/Enum.h>
 #include <javax/swing/event/RowSorterEvent.h>
 #include <jcpp.h>
@@ -17,46 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace event {
-
-$FieldInfo _RowSorterEvent$Type_FieldInfo_[] = {
-	{"SORT_ORDER_CHANGED", "Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowSorterEvent$Type, SORT_ORDER_CHANGED)},
-	{"SORTED", "Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowSorterEvent$Type, SORTED)},
-	{"$VALUES", "[Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RowSorterEvent$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _RowSorterEvent$Type_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RowSorterEvent$Type, $values, $RowSorterEvent$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RowSorterEvent$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSorterEvent$Type, valueOf, RowSorterEvent$Type*, $String*)},
-	{"values", "()[Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSorterEvent$Type, values, $RowSorterEvent$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _RowSorterEvent$Type_InnerClassesInfo_[] = {
-	{"javax.swing.event.RowSorterEvent$Type", "javax.swing.event.RowSorterEvent", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RowSorterEvent$Type_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.event.RowSorterEvent$Type",
-	"java.lang.Enum",
-	nullptr,
-	_RowSorterEvent$Type_FieldInfo_,
-	_RowSorterEvent$Type_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/event/RowSorterEvent$Type;>;",
-	nullptr,
-	_RowSorterEvent$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.event.RowSorterEvent"
-};
-
-$Object* allocate$RowSorterEvent$Type($Class* clazz) {
-	return $of($alloc(RowSorterEvent$Type));
-}
 
 RowSorterEvent$Type* RowSorterEvent$Type::SORT_ORDER_CHANGED = nullptr;
 RowSorterEvent$Type* RowSorterEvent$Type::SORTED = nullptr;
@@ -84,7 +43,7 @@ void RowSorterEvent$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$RowSorterEvent$Type($Class* class$) {
+void RowSorterEvent$Type::clinit$($Class* clazz) {
 	$assignStatic(RowSorterEvent$Type::SORT_ORDER_CHANGED, $new(RowSorterEvent$Type, "SORT_ORDER_CHANGED"_s, 0));
 	$assignStatic(RowSorterEvent$Type::SORTED, $new(RowSorterEvent$Type, "SORTED"_s, 1));
 	$assignStatic(RowSorterEvent$Type::$VALUES, RowSorterEvent$Type::$values());
@@ -94,7 +53,41 @@ RowSorterEvent$Type::RowSorterEvent$Type() {
 }
 
 $Class* RowSorterEvent$Type::load$($String* name, bool initialize) {
-	$loadClass(RowSorterEvent$Type, name, initialize, &_RowSorterEvent$Type_ClassInfo_, clinit$RowSorterEvent$Type, allocate$RowSorterEvent$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"SORT_ORDER_CHANGED", "Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowSorterEvent$Type, SORT_ORDER_CHANGED)},
+		{"SORTED", "Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowSorterEvent$Type, SORTED)},
+		{"$VALUES", "[Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RowSorterEvent$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RowSorterEvent$Type, $values, $RowSorterEvent$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RowSorterEvent$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSorterEvent$Type, valueOf, RowSorterEvent$Type*, $String*)},
+		{"values", "()[Ljavax/swing/event/RowSorterEvent$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSorterEvent$Type, values, $RowSorterEvent$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.event.RowSorterEvent$Type", "javax.swing.event.RowSorterEvent", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.event.RowSorterEvent$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/event/RowSorterEvent$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.event.RowSorterEvent"
+	};
+	$loadClass(RowSorterEvent$Type, name, initialize, &classInfo$$, RowSorterEvent$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RowSorterEvent$Type));
+	});
 	return class$;
 }
 

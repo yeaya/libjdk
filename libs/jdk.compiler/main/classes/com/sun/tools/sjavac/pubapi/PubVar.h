@@ -39,7 +39,7 @@ public:
 	virtual $String* getIdentifier();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x5094F5C8848AF16F;
+	static const int64_t serialVersionUID = (int64_t)0x5094f5c8848af16f;
 	::java::util::Set* modifiers = nullptr;
 	::com::sun::tools::sjavac::pubapi::TypeDesc* type = nullptr;
 	$String* identifier = nullptr;

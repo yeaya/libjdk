@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFStreamMetadataFormatResources.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -15,30 +14,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFStreamMetadataFormatResources_FieldInfo_[] = {
-	{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFStreamMetadataFormatResources, contents)},
-	{}
-};
-
-$MethodInfo _TIFFStreamMetadataFormatResources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFStreamMetadataFormatResources, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadataFormatResources, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _TIFFStreamMetadataFormatResources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFStreamMetadataFormatResources",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_TIFFStreamMetadataFormatResources_FieldInfo_,
-	_TIFFStreamMetadataFormatResources_MethodInfo_
-};
-
-$Object* allocate$TIFFStreamMetadataFormatResources($Class* clazz) {
-	return $of($alloc(TIFFStreamMetadataFormatResources));
-}
-
 $ObjectArray2* TIFFStreamMetadataFormatResources::contents = nullptr;
 
 void TIFFStreamMetadataFormatResources::init$() {
@@ -46,19 +21,19 @@ void TIFFStreamMetadataFormatResources::init$() {
 }
 
 $ObjectArray2* TIFFStreamMetadataFormatResources::getContents() {
-	return $cast($ObjectArray2, $nc(TIFFStreamMetadataFormatResources::contents)->clone());
+	return $cast($ObjectArray2, TIFFStreamMetadataFormatResources::contents->clone());
 }
 
-void clinit$TIFFStreamMetadataFormatResources($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TIFFStreamMetadataFormatResources::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TIFFStreamMetadataFormatResources::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ByteOrder"_s),
-			$of("The stream byte order"_s)
+			"ByteOrder"_s,
+			"The stream byte order"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ByteOrder/value"_s),
-			$of("One of \"BIG_ENDIAN\" or \"LITTLE_ENDIAN\""_s)
+			"ByteOrder/value"_s,
+			"One of \"BIG_ENDIAN\" or \"LITTLE_ENDIAN\""_s
 		})
 	}));
 }
@@ -67,7 +42,26 @@ TIFFStreamMetadataFormatResources::TIFFStreamMetadataFormatResources() {
 }
 
 $Class* TIFFStreamMetadataFormatResources::load$($String* name, bool initialize) {
-	$loadClass(TIFFStreamMetadataFormatResources, name, initialize, &_TIFFStreamMetadataFormatResources_ClassInfo_, clinit$TIFFStreamMetadataFormatResources, allocate$TIFFStreamMetadataFormatResources);
+	$FieldInfo fieldInfos$$[] = {
+		{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFStreamMetadataFormatResources, contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFStreamMetadataFormatResources, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFStreamMetadataFormatResources, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFStreamMetadataFormatResources",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFStreamMetadataFormatResources, name, initialize, &classInfo$$, TIFFStreamMetadataFormatResources::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFStreamMetadataFormatResources);
+	});
 	return class$;
 }
 

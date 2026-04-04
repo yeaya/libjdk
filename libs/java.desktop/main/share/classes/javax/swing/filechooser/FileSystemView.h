@@ -49,6 +49,7 @@ class $export FileSystemView : public ::java::lang::Object {
 	$class(FileSystemView, 0, ::java::lang::Object)
 public:
 	FileSystemView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::io::File* createFileObject(::java::io::File* dir, $String* filename);
 	virtual ::java::io::File* createFileObject($String* path);

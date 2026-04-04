@@ -1,5 +1,4 @@
 #include <java/awt/font/GlyphJustificationInfo.h>
-
 #include <jcpp.h>
 
 #undef PRIORITY_INTERCHAR
@@ -15,42 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace font {
-
-$FieldInfo _GlyphJustificationInfo_FieldInfo_[] = {
-	{"PRIORITY_KASHIDA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_KASHIDA)},
-	{"PRIORITY_WHITESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_WHITESPACE)},
-	{"PRIORITY_INTERCHAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_INTERCHAR)},
-	{"PRIORITY_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_NONE)},
-	{"weight", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, weight)},
-	{"growPriority", "I", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growPriority)},
-	{"growAbsorb", "Z", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growAbsorb)},
-	{"growLeftLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growLeftLimit)},
-	{"growRightLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growRightLimit)},
-	{"shrinkPriority", "I", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkPriority)},
-	{"shrinkAbsorb", "Z", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkAbsorb)},
-	{"shrinkLeftLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkLeftLimit)},
-	{"shrinkRightLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkRightLimit)},
-	{}
-};
-
-$MethodInfo _GlyphJustificationInfo_MethodInfo_[] = {
-	{"<init>", "(FZIFFZIFF)V", nullptr, $PUBLIC, $method(GlyphJustificationInfo, init$, void, float, bool, int32_t, float, float, bool, int32_t, float, float)},
-	{"priorityIsValid", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(GlyphJustificationInfo, priorityIsValid, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _GlyphJustificationInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.GlyphJustificationInfo",
-	"java.lang.Object",
-	nullptr,
-	_GlyphJustificationInfo_FieldInfo_,
-	_GlyphJustificationInfo_MethodInfo_
-};
-
-$Object* allocate$GlyphJustificationInfo($Class* clazz) {
-	return $of($alloc(GlyphJustificationInfo));
-}
 
 void GlyphJustificationInfo::init$(float weight, bool growAbsorb, int32_t growPriority, float growLeftLimit, float growRightLimit, bool shrinkAbsorb, int32_t shrinkPriority, float shrinkLeftLimit, float shrinkRightLimit) {
 	if (weight < 0) {
@@ -93,7 +56,38 @@ GlyphJustificationInfo::GlyphJustificationInfo() {
 }
 
 $Class* GlyphJustificationInfo::load$($String* name, bool initialize) {
-	$loadClass(GlyphJustificationInfo, name, initialize, &_GlyphJustificationInfo_ClassInfo_, allocate$GlyphJustificationInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRIORITY_KASHIDA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_KASHIDA)},
+		{"PRIORITY_WHITESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_WHITESPACE)},
+		{"PRIORITY_INTERCHAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_INTERCHAR)},
+		{"PRIORITY_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphJustificationInfo, PRIORITY_NONE)},
+		{"weight", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, weight)},
+		{"growPriority", "I", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growPriority)},
+		{"growAbsorb", "Z", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growAbsorb)},
+		{"growLeftLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growLeftLimit)},
+		{"growRightLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, growRightLimit)},
+		{"shrinkPriority", "I", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkPriority)},
+		{"shrinkAbsorb", "Z", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkAbsorb)},
+		{"shrinkLeftLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkLeftLimit)},
+		{"shrinkRightLimit", "F", nullptr, $PUBLIC | $FINAL, $field(GlyphJustificationInfo, shrinkRightLimit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FZIFFZIFF)V", nullptr, $PUBLIC, $method(GlyphJustificationInfo, init$, void, float, bool, int32_t, float, float, bool, int32_t, float, float)},
+		{"priorityIsValid", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(GlyphJustificationInfo, priorityIsValid, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.GlyphJustificationInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GlyphJustificationInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphJustificationInfo);
+	});
 	return class$;
 }
 

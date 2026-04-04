@@ -12,6 +12,7 @@ class Dialog$1 : public ::java::lang::Object {
 	$class(Dialog$1, 0, ::java::lang::Object)
 public:
 	Dialog$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$awt$Dialog$ModalityType;
 };
 

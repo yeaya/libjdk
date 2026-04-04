@@ -30,6 +30,7 @@ class JdkProperty$State : public ::java::lang::Enum {
 public:
 	JdkProperty$State();
 	static $Array<::jdk::xml::internal::JdkProperty$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* literal);
 	virtual $String* literal();
 	static ::jdk::xml::internal::JdkProperty$State* valueOf($String* name);

@@ -1,5 +1,4 @@
 #include <sun/awt/image/GifImageDecoder.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/IndexColorModel.h>
@@ -50,68 +49,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _GifImageDecoder_FieldInfo_[] = {
-	{"verbose", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, verbose)},
-	{"IMAGESEP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, IMAGESEP)},
-	{"EXBLOCK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EXBLOCK)},
-	{"EX_GRAPHICS_CONTROL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EX_GRAPHICS_CONTROL)},
-	{"EX_COMMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EX_COMMENT)},
-	{"EX_APPLICATION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EX_APPLICATION)},
-	{"TERMINATOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, TERMINATOR)},
-	{"TRANSPARENCYMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, TRANSPARENCYMASK)},
-	{"INTERLACEMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, INTERLACEMASK)},
-	{"COLORMAPMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, COLORMAPMASK)},
-	{"num_global_colors", "I", nullptr, 0, $field(GifImageDecoder, num_global_colors)},
-	{"global_colormap", "[B", nullptr, 0, $field(GifImageDecoder, global_colormap)},
-	{"trans_pixel", "I", nullptr, 0, $field(GifImageDecoder, trans_pixel)},
-	{"global_model", "Ljava/awt/image/IndexColorModel;", nullptr, 0, $field(GifImageDecoder, global_model)},
-	{"props", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(GifImageDecoder, props)},
-	{"saved_image", "[B", nullptr, 0, $field(GifImageDecoder, saved_image)},
-	{"saved_model", "Ljava/awt/image/IndexColorModel;", nullptr, 0, $field(GifImageDecoder, saved_model)},
-	{"global_width", "I", nullptr, 0, $field(GifImageDecoder, global_width)},
-	{"global_height", "I", nullptr, 0, $field(GifImageDecoder, global_height)},
-	{"global_bgpixel", "I", nullptr, 0, $field(GifImageDecoder, global_bgpixel)},
-	{"curframe", "Lsun/awt/image/GifFrame;", nullptr, 0, $field(GifImageDecoder, curframe)},
-	{"normalflags", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, normalflags)},
-	{"interlaceflags", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, interlaceflags)},
-	{"prefix", "[S", nullptr, $PRIVATE, $field(GifImageDecoder, prefix)},
-	{"suffix", "[B", nullptr, $PRIVATE, $field(GifImageDecoder, suffix)},
-	{"outCode", "[B", nullptr, $PRIVATE, $field(GifImageDecoder, outCode)},
-	{}
-};
-
-$MethodInfo _GifImageDecoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(GifImageDecoder, init$, void, $InputStreamImageSource*, $InputStream*)},
-	{"ExtractByte", "([BI)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(GifImageDecoder, ExtractByte, int32_t, $bytes*, int32_t)},
-	{"ExtractWord", "([BI)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(GifImageDecoder, ExtractWord, int32_t, $bytes*, int32_t)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GifImageDecoder, error, void, $String*), "sun.awt.image.ImageFormatException"},
-	{"grow_colormap", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(GifImageDecoder, grow_colormap, $bytes*, $bytes*, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GifImageDecoder, initIDs, void)},
-	{"parseImage", "(IIIIZI[B[BLjava/awt/image/IndexColorModel;)Z", nullptr, $PRIVATE | $NATIVE, $method(GifImageDecoder, parseImage, bool, int32_t, int32_t, int32_t, int32_t, bool, int32_t, $bytes*, $bytes*, $IndexColorModel*)},
-	{"produceImage", "()V", nullptr, $PUBLIC, $virtualMethod(GifImageDecoder, produceImage, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
-	{"readBytes", "([BII)I", nullptr, $PRIVATE, $method(GifImageDecoder, readBytes, int32_t, $bytes*, int32_t, int32_t)},
-	{"readHeader", "()V", nullptr, $PRIVATE, $method(GifImageDecoder, readHeader, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
-	{"readImage", "(ZII)Z", nullptr, $PRIVATE, $method(GifImageDecoder, readImage, bool, bool, int32_t, int32_t), "java.io.IOException"},
-	{"sendPixels", "(IIII[BLjava/awt/image/ColorModel;)I", nullptr, $PRIVATE, $method(GifImageDecoder, sendPixels, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*, $ColorModel*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 5
-#define _METHOD_INDEX_parseImage 6
-
-$ClassInfo _GifImageDecoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.GifImageDecoder",
-	"sun.awt.image.ImageDecoder",
-	nullptr,
-	_GifImageDecoder_FieldInfo_,
-	_GifImageDecoder_MethodInfo_
-};
-
-$Object* allocate$GifImageDecoder($Class* clazz) {
-	return $of($alloc(GifImageDecoder));
-}
-
 void GifImageDecoder::init$($InputStreamImageSource* src, $InputStream* is) {
 	$ImageDecoder::init$(src, is);
 	this->trans_pixel = -1;
@@ -144,187 +81,173 @@ int32_t GifImageDecoder::readBytes($bytes* buf, int32_t off, int32_t len) {
 
 int32_t GifImageDecoder::ExtractByte($bytes* buf, int32_t off) {
 	$init(GifImageDecoder);
-	return ((int32_t)($nc(buf)->get(off) & (uint32_t)255));
+	return ($nc(buf)->get(off) & 0xff);
 }
 
 int32_t GifImageDecoder::ExtractWord($bytes* buf, int32_t off) {
 	$init(GifImageDecoder);
-	return ((int32_t)($nc(buf)->get(off) & (uint32_t)255)) | (((int32_t)(buf->get(off + 1) & (uint32_t)255)) << 8);
+	return ($nc(buf)->get(off) & 0xff) | (($nc(buf)->get(off + 1) & 0xff) << 8);
 }
 
 void GifImageDecoder::produceImage() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			readHeader();
-			int32_t totalframes = 0;
-			int32_t frameno = 0;
-			int32_t nloops = -1;
-			int32_t disposal_method = 0;
-			int32_t delay = -1;
-			bool loopsRead = false;
-			bool isAnimation = false;
-			while (!this->aborted) {
-				int32_t code = 0;
-				switch (code = $nc(this->input)->read()) {
-				case GifImageDecoder::EXBLOCK:
-					{
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		readHeader();
+		int32_t totalframes = 0;
+		int32_t frameno = 0;
+		int32_t nloops = -1;
+		int32_t disposal_method = 0;
+		int32_t delay = -1;
+		bool loopsRead = false;
+		bool isAnimation = false;
+		while (!this->aborted) {
+			int32_t code = 0;
+			switch (code = $nc(this->input)->read()) {
+			case GifImageDecoder::EXBLOCK:
+				{
+					bool loop_tag = false;
+					$var($String, comment, nullptr);
+					switch (code = this->input->read()) {
+					case GifImageDecoder::EX_GRAPHICS_CONTROL:
 						{
-							bool loop_tag = false;
-							$var($String, comment, nullptr)
-							switch (code = $nc(this->input)->read()) {
-							case GifImageDecoder::EX_GRAPHICS_CONTROL:
-								{
-									{
-										$var($bytes, buf, $new($bytes, 6));
-										if (readBytes(buf, 0, 6) != 0) {
-											return$1 = true;
-											goto $finally;
-										}
-										if ((buf->get(0) != 4) || (buf->get(5) != 0)) {
-											return$1 = true;
-											goto $finally;
-										}
-										delay = ExtractWord(buf, 2) * 10;
-										if (delay > 0 && !isAnimation) {
-											isAnimation = true;
-											$ImageFetcher::startingAnimation();
-										}
-										disposal_method = (int32_t)((buf->get(1) >> 2) & (uint32_t)7);
-										if (((int32_t)(buf->get(1) & (uint32_t)GifImageDecoder::TRANSPARENCYMASK)) != 0) {
-											this->trans_pixel = ExtractByte(buf, 4);
-										} else {
-											this->trans_pixel = -1;
-										}
-										break;
-									}
-								}
-							case GifImageDecoder::EX_COMMENT:
-								{}
-							case GifImageDecoder::EX_APPLICATION:
-								{}
-							default:
-								{
-									loop_tag = false;
-									$assign(comment, ""_s);
-									while (true) {
-										int32_t n = $nc(this->input)->read();
-										if (n <= 0) {
-											break;
-										}
-										$var($bytes, buf, $new($bytes, n));
-										if (readBytes(buf, 0, n) != 0) {
-											return$1 = true;
-											goto $finally;
-										}
-										if (code == GifImageDecoder::EX_COMMENT) {
-											$plusAssign(comment, $$new($String, buf, 0));
-										} else if (code == GifImageDecoder::EX_APPLICATION) {
-											if (loop_tag) {
-												if (n == 3 && buf->get(0) == 1) {
-													if (loopsRead) {
-														ExtractWord(buf, 1);
-													} else {
-														nloops = ExtractWord(buf, 1);
-														loopsRead = true;
-													}
-												} else {
-													loop_tag = false;
-												}
-											}
-											if ("NETSCAPE2.0"_s->equals($$new($String, buf, 0))) {
-												loop_tag = true;
-											}
-										}
-									}
-									if (code == GifImageDecoder::EX_COMMENT) {
-										$nc(this->props)->put("comment"_s, comment);
-									}
-									if (loop_tag && !isAnimation) {
-										isAnimation = true;
-										$ImageFetcher::startingAnimation();
-									}
-									break;
-								}
-							case -1:
-								{
-									return$1 = true;
-									goto $finally;
-								}
-							}
-						}
-						break;
-					}
-				case GifImageDecoder::IMAGESEP:
-					{
-						if (!isAnimation) {
-							$nc(this->input)->mark(0);
-						}
-						try {
-							if (!readImage(totalframes == 0, disposal_method, delay)) {
+							$var($bytes, buf, $new($bytes, 6));
+							if (readBytes(buf, 0, 6) != 0) {
 								return$1 = true;
 								goto $finally;
 							}
-						} catch ($Exception& e) {
-							return$1 = true;
-							goto $finally;
+							if ((buf->get(0) != 4) || (buf->get(5) != 0)) {
+								return$1 = true;
+								goto $finally;
+							}
+							delay = ExtractWord(buf, 2) * 10;
+							if (delay > 0 && !isAnimation) {
+								isAnimation = true;
+								$ImageFetcher::startingAnimation();
+							}
+							disposal_method = (buf->get(1) >> 2) & 7;
+							if ((buf->get(1) & GifImageDecoder::TRANSPARENCYMASK) != 0) {
+								this->trans_pixel = ExtractByte(buf, 4);
+							} else {
+								this->trans_pixel = -1;
+							}
+							break;
 						}
-						++frameno;
-						++totalframes;
-						break;
-					}
-				default:
-					{}
-				case -1:
-					{
-						if (frameno == 0) {
-							return$1 = true;
-							goto $finally;
-						}
-					}
-				case GifImageDecoder::TERMINATOR:
-					{
-						bool var$2 = nloops == 0;
-						if (var$2 || nloops-- >= 0) {
-							try {
-								if (this->curframe != nullptr) {
-									$nc(this->curframe)->dispose();
-									$set(this, curframe, nullptr);
-								}
-								$nc(this->input)->reset();
-								$set(this, saved_image, nullptr);
-								$set(this, saved_model, nullptr);
-								frameno = 0;
+					case GifImageDecoder::EX_COMMENT:
+					case GifImageDecoder::EX_APPLICATION:
+					default:
+						loop_tag = false;
+						$assign(comment, ""_s);
+						while (true) {
+							int32_t n = $nc(this->input)->read();
+							if (n <= 0) {
 								break;
-							} catch ($IOException& e) {
+							}
+							$var($bytes, buf, $new($bytes, n));
+							if (readBytes(buf, 0, n) != 0) {
 								return$1 = true;
 								goto $finally;
 							}
+							if (code == GifImageDecoder::EX_COMMENT) {
+								$plusAssign(comment, $$new($String, buf, 0));
+							} else if (code == GifImageDecoder::EX_APPLICATION) {
+								if (loop_tag) {
+									if (n == 3 && buf->get(0) == 1) {
+										if (loopsRead) {
+											ExtractWord(buf, 1);
+										} else {
+											nloops = ExtractWord(buf, 1);
+											loopsRead = true;
+										}
+									} else {
+										loop_tag = false;
+									}
+								}
+								if ("NETSCAPE2.0"_s->equals($$new($String, buf, 0))) {
+									loop_tag = true;
+								}
+							}
 						}
-						imageComplete($ImageConsumer::STATICIMAGEDONE, true);
+						if (code == GifImageDecoder::EX_COMMENT) {
+							$nc(this->props)->put("comment"_s, comment);
+						}
+						if (loop_tag && !isAnimation) {
+							isAnimation = true;
+							$ImageFetcher::startingAnimation();
+						}
+						break;
+					case -1:
 						return$1 = true;
 						goto $finally;
 					}
+					break;
+				}
+			case GifImageDecoder::IMAGESEP:
+				if (!isAnimation) {
+					$nc(this->input)->mark(0);
+				}
+				try {
+					if (!readImage(totalframes == 0, disposal_method, delay)) {
+						return$1 = true;
+						goto $finally;
+					}
+				} catch ($Exception& e) {
+					;
+					return$1 = true;
+					goto $finally;
+				}
+				++frameno;
+				++totalframes;
+				break;
+			default:
+			case -1:
+				;
+				if (frameno == 0) {
+					return$1 = true;
+					goto $finally;
+				}
+			case GifImageDecoder::TERMINATOR:
+				{
+					bool var$2 = nloops == 0;
+					if (var$2 || nloops-- >= 0) {
+						try {
+							if (this->curframe != nullptr) {
+								this->curframe->dispose();
+								$set(this, curframe, nullptr);
+							}
+							$nc(this->input)->reset();
+							$set(this, saved_image, nullptr);
+							$set(this, saved_model, nullptr);
+							frameno = 0;
+							break;
+						} catch ($IOException& e) {
+							return$1 = true;
+							goto $finally;
+						}
+					}
+					;
+					imageComplete($ImageConsumer::STATICIMAGEDONE, true);
+					return$1 = true;
+					goto $finally;
 				}
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			close();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void GifImageDecoder::readHeader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buf, $new($bytes, 13));
 	if (readBytes(buf, 0, 13) != 0) {
 		$throwNew($IOException);
@@ -335,14 +258,14 @@ void GifImageDecoder::readHeader() {
 	this->global_width = ExtractWord(buf, 6);
 	this->global_height = ExtractWord(buf, 8);
 	int32_t ch = ExtractByte(buf, 10);
-	if (((int32_t)(ch & (uint32_t)GifImageDecoder::COLORMAPMASK)) == 0) {
+	if ((ch & GifImageDecoder::COLORMAPMASK) == 0) {
 		this->num_global_colors = 2;
 		this->global_bgpixel = 0;
 		$set(this, global_colormap, $new($bytes, 2 * 3));
-		$nc(this->global_colormap)->set(0, $nc(this->global_colormap)->set(1, $nc(this->global_colormap)->set(2, (int8_t)0)));
-		$nc(this->global_colormap)->set(3, $nc(this->global_colormap)->set(4, $nc(this->global_colormap)->set(5, (int8_t)255)));
+		this->global_colormap->set(0, this->global_colormap->set(1, this->global_colormap->set(2, (int8_t)0)));
+		this->global_colormap->set(3, this->global_colormap->set(4, this->global_colormap->set(5, (int8_t)255)));
 	} else {
-		this->num_global_colors = $sl(1, ((int32_t)(ch & (uint32_t)7)) + 1);
+		this->num_global_colors = $sl(1, (ch & 7) + 1);
 		this->global_bgpixel = ExtractByte(buf, 11);
 		if (buf->get(12) != 0) {
 			$nc(this->props)->put("aspectratio"_s, $$str({""_s, $$str(((ExtractByte(buf, 12) + 15) / 64.0))}));
@@ -357,15 +280,14 @@ void GifImageDecoder::readHeader() {
 
 void GifImageDecoder::initIDs() {
 	$init(GifImageDecoder);
-	$prepareNativeStatic(GifImageDecoder, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 bool GifImageDecoder::parseImage(int32_t x, int32_t y, int32_t width, int32_t height, bool interlace, int32_t initCodeSize, $bytes* block, $bytes* rasline, $IndexColorModel* model) {
-	bool $ret = false;
-	$prepareNative(GifImageDecoder, parseImage, bool, int32_t x, int32_t y, int32_t width, int32_t height, bool interlace, int32_t initCodeSize, $bytes* block, $bytes* rasline, $IndexColorModel* model);
-	$ret = $invokeNative(x, y, width, height, interlace, initCodeSize, block, rasline, model);
+	$prepareNative(parseImage, bool, int32_t x, int32_t y, int32_t width, int32_t height, bool interlace, int32_t initCodeSize, $bytes* block, $bytes* rasline, $IndexColorModel* model);
+	bool $ret = $invokeNative(x, y, width, height, interlace, initCodeSize, block, rasline, model);
 	$finishNative();
 	return $ret;
 }
@@ -401,14 +323,14 @@ int32_t GifImageDecoder::sendPixels(int32_t x, int32_t y, int32_t width, int32_t
 	rasend = rasbeg + width;
 	int32_t off = y * this->global_width + x2;
 	bool save = ($nc(this->curframe)->disposal_method == $GifFrame::DISPOSAL_SAVE);
-	if (this->trans_pixel >= 0 && !$nc(this->curframe)->initialframe) {
+	if (this->trans_pixel >= 0 && !this->curframe->initialframe) {
 		if (this->saved_image != nullptr && $nc(model)->equals(this->saved_model)) {
 			for (int32_t i = rasbeg; i < rasend; ++i, ++off) {
 				int8_t pixel = $nc(rasline)->get(i);
-				if (((int32_t)(pixel & (uint32_t)255)) == this->trans_pixel) {
-					rasline->set(i, $nc(this->saved_image)->get(off));
+				if ((pixel & 0xff) == this->trans_pixel) {
+					rasline->set(i, this->saved_image->get(off));
 				} else if (save) {
-					$nc(this->saved_image)->set(off, pixel);
+					this->saved_image->set(off, pixel);
 				}
 			}
 		} else {
@@ -416,7 +338,7 @@ int32_t GifImageDecoder::sendPixels(int32_t x, int32_t y, int32_t width, int32_t
 			int32_t count = 1;
 			for (int32_t i = rasbeg; i < rasend; ++i, ++off) {
 				int8_t pixel = $nc(rasline)->get(i);
-				if (((int32_t)(pixel & (uint32_t)255)) == this->trans_pixel) {
+				if ((pixel & 0xff) == this->trans_pixel) {
 					if (runstart >= 0) {
 						count = setPixels(x + runstart, y, i - runstart, 1, model, rasline, runstart, 0);
 						if (count == 0) {
@@ -446,12 +368,13 @@ int32_t GifImageDecoder::sendPixels(int32_t x, int32_t y, int32_t width, int32_t
 }
 
 bool GifImageDecoder::readImage(bool first, int32_t disposal_method, int32_t delay) {
-	$useLocalCurrentObjectStackCache();
-	if (this->curframe != nullptr && !$nc(this->curframe)->dispose()) {
+	$useLocalObjectStack();
+	if (this->curframe != nullptr && !this->curframe->dispose()) {
 		abort();
 		return false;
 	}
 	int64_t tm = 0;
+	;
 	$var($bytes, block, $new($bytes, 256 + 3));
 	if (readBytes(block, 0, 10) != 0) {
 		$throwNew($IOException);
@@ -466,10 +389,10 @@ bool GifImageDecoder::readImage(bool first, int32_t disposal_method, int32_t del
 	if (height == 0 && this->global_height != 0) {
 		height = this->global_height - y;
 	}
-	bool interlace = ((int32_t)(block->get(8) & (uint32_t)GifImageDecoder::INTERLACEMASK)) != 0;
+	bool interlace = (block->get(8) & GifImageDecoder::INTERLACEMASK) != 0;
 	$var($IndexColorModel, model, this->global_model);
-	if (((int32_t)(block->get(8) & (uint32_t)GifImageDecoder::COLORMAPMASK)) != 0) {
-		int32_t num_local_colors = $sl(1, ((int32_t)(block->get(8) & (uint32_t)7)) + 1);
+	if ((block->get(8) & GifImageDecoder::COLORMAPMASK) != 0) {
+		int32_t num_local_colors = $sl(1, (block->get(8) & 7) + 1);
 		$var($bytes, local_colormap, $new($bytes, num_local_colors * 3));
 		local_colormap->set(0, block->get(9));
 		if (readBytes(local_colormap, 1, num_local_colors * 3 - 1) != 0) {
@@ -483,7 +406,7 @@ bool GifImageDecoder::readImage(bool first, int32_t disposal_method, int32_t del
 			$assign(local_colormap, grow_colormap(local_colormap, num_local_colors));
 		}
 		$assign(model, $new($IndexColorModel, 8, num_local_colors, local_colormap, 0, false, this->trans_pixel));
-	} else if (model == nullptr || this->trans_pixel != $nc(model)->getTransparentPixel()) {
+	} else if (model == nullptr || this->trans_pixel != model->getTransparentPixel()) {
 		if (this->trans_pixel >= this->num_global_colors) {
 			this->num_global_colors = this->trans_pixel + 1;
 			$set(this, global_colormap, grow_colormap(this->global_colormap, this->num_global_colors));
@@ -512,8 +435,8 @@ bool GifImageDecoder::readImage(bool first, int32_t disposal_method, int32_t del
 				for (int32_t i = 0; i < this->global_width; ++i) {
 					trans_rasline->set(i, tpix);
 				}
-				setPixels(0, 0, this->global_width, y, static_cast<$ColorModel*>(model), trans_rasline, 0, 0);
-				setPixels(0, y + height, this->global_width, this->global_height - height - y, static_cast<$ColorModel*>(model), trans_rasline, 0, 0);
+				setPixels(0, 0, this->global_width, y, model, trans_rasline, 0, 0);
+				setPixels(0, y + height, this->global_width, this->global_height - height - y, model, trans_rasline, 0, 0);
 			}
 		}
 	}
@@ -521,14 +444,17 @@ bool GifImageDecoder::readImage(bool first, int32_t disposal_method, int32_t del
 	setHints(hints);
 	$set(this, curframe, $new($GifFrame, this, disposal_method, delay, (this->curframe == nullptr), model, x, y, width, height));
 	$var($bytes, rasline, $new($bytes, width));
+	;
 	int32_t initCodeSize = ExtractByte(block, 9);
 	if (initCodeSize >= 12) {
+		;
 		return false;
 	}
 	bool ret = parseImage(x, y, width, height, interlace, initCodeSize, block, rasline, model);
 	if (!ret) {
 		abort();
 	}
+	;
 	return ret;
 }
 
@@ -539,7 +465,7 @@ $bytes* GifImageDecoder::grow_colormap($bytes* colormap, int32_t newlen) {
 	return newcm;
 }
 
-void clinit$GifImageDecoder($Class* class$) {
+void GifImageDecoder::clinit$($Class* clazz) {
 	{
 		$NativeLibLoader::loadLibraries();
 		GifImageDecoder::initIDs();
@@ -550,7 +476,61 @@ GifImageDecoder::GifImageDecoder() {
 }
 
 $Class* GifImageDecoder::load$($String* name, bool initialize) {
-	$loadClass(GifImageDecoder, name, initialize, &_GifImageDecoder_ClassInfo_, clinit$GifImageDecoder, allocate$GifImageDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"verbose", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, verbose)},
+		{"IMAGESEP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, IMAGESEP)},
+		{"EXBLOCK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EXBLOCK)},
+		{"EX_GRAPHICS_CONTROL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EX_GRAPHICS_CONTROL)},
+		{"EX_COMMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EX_COMMENT)},
+		{"EX_APPLICATION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, EX_APPLICATION)},
+		{"TERMINATOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, TERMINATOR)},
+		{"TRANSPARENCYMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, TRANSPARENCYMASK)},
+		{"INTERLACEMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, INTERLACEMASK)},
+		{"COLORMAPMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, COLORMAPMASK)},
+		{"num_global_colors", "I", nullptr, 0, $field(GifImageDecoder, num_global_colors)},
+		{"global_colormap", "[B", nullptr, 0, $field(GifImageDecoder, global_colormap)},
+		{"trans_pixel", "I", nullptr, 0, $field(GifImageDecoder, trans_pixel)},
+		{"global_model", "Ljava/awt/image/IndexColorModel;", nullptr, 0, $field(GifImageDecoder, global_model)},
+		{"props", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(GifImageDecoder, props)},
+		{"saved_image", "[B", nullptr, 0, $field(GifImageDecoder, saved_image)},
+		{"saved_model", "Ljava/awt/image/IndexColorModel;", nullptr, 0, $field(GifImageDecoder, saved_model)},
+		{"global_width", "I", nullptr, 0, $field(GifImageDecoder, global_width)},
+		{"global_height", "I", nullptr, 0, $field(GifImageDecoder, global_height)},
+		{"global_bgpixel", "I", nullptr, 0, $field(GifImageDecoder, global_bgpixel)},
+		{"curframe", "Lsun/awt/image/GifFrame;", nullptr, 0, $field(GifImageDecoder, curframe)},
+		{"normalflags", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, normalflags)},
+		{"interlaceflags", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GifImageDecoder, interlaceflags)},
+		{"prefix", "[S", nullptr, $PRIVATE, $field(GifImageDecoder, prefix)},
+		{"suffix", "[B", nullptr, $PRIVATE, $field(GifImageDecoder, suffix)},
+		{"outCode", "[B", nullptr, $PRIVATE, $field(GifImageDecoder, outCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(GifImageDecoder, init$, void, $InputStreamImageSource*, $InputStream*)},
+		{"ExtractByte", "([BI)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(GifImageDecoder, ExtractByte, int32_t, $bytes*, int32_t)},
+		{"ExtractWord", "([BI)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(GifImageDecoder, ExtractWord, int32_t, $bytes*, int32_t)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GifImageDecoder, error, void, $String*), "sun.awt.image.ImageFormatException"},
+		{"grow_colormap", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(GifImageDecoder, grow_colormap, $bytes*, $bytes*, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GifImageDecoder, initIDs, void)},
+		{"parseImage", "(IIIIZI[B[BLjava/awt/image/IndexColorModel;)Z", nullptr, $PRIVATE | $NATIVE, $method(GifImageDecoder, parseImage, bool, int32_t, int32_t, int32_t, int32_t, bool, int32_t, $bytes*, $bytes*, $IndexColorModel*)},
+		{"produceImage", "()V", nullptr, $PUBLIC, $virtualMethod(GifImageDecoder, produceImage, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
+		{"readBytes", "([BII)I", nullptr, $PRIVATE, $method(GifImageDecoder, readBytes, int32_t, $bytes*, int32_t, int32_t)},
+		{"readHeader", "()V", nullptr, $PRIVATE, $method(GifImageDecoder, readHeader, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
+		{"readImage", "(ZII)Z", nullptr, $PRIVATE, $method(GifImageDecoder, readImage, bool, bool, int32_t, int32_t), "java.io.IOException"},
+		{"sendPixels", "(IIII[BLjava/awt/image/ColorModel;)I", nullptr, $PRIVATE, $method(GifImageDecoder, sendPixels, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*, $ColorModel*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.GifImageDecoder",
+		"sun.awt.image.ImageDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GifImageDecoder, name, initialize, &classInfo$$, GifImageDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GifImageDecoder);
+	});
 	return class$;
 }
 

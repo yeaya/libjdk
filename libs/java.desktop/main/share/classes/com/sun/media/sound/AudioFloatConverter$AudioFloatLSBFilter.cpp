@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AudioFloatConverter$AudioFloatLSBFilter.h>
-
 #include <com/sun/media/sound/AudioFloatConverter.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <jcpp.h>
@@ -15,47 +14,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _AudioFloatConverter$AudioFloatLSBFilter_FieldInfo_[] = {
-	{"converter", "Lcom/sun/media/sound/AudioFloatConverter;", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, converter)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, offset)},
-	{"stepsize", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, stepsize)},
-	{"mask", "B", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, mask)},
-	{"mask_buffer", "[B", nullptr, $PRIVATE, $field(AudioFloatConverter$AudioFloatLSBFilter, mask_buffer)},
-	{}
-};
-
-$MethodInfo _AudioFloatConverter$AudioFloatLSBFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/AudioFloatConverter;Ljavax/sound/sampled/AudioFormat;)V", nullptr, 0, $method(AudioFloatConverter$AudioFloatLSBFilter, init$, void, $AudioFloatConverter*, $AudioFormat*)},
-	{"toByteArray", "([FII[BI)[B", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatLSBFilter, toByteArray, $bytes*, $floats*, int32_t, int32_t, $bytes*, int32_t)},
-	{"toFloatArray", "([BI[FII)[F", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatLSBFilter, toFloatArray, $floats*, $bytes*, int32_t, $floats*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AudioFloatConverter$AudioFloatLSBFilter_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AudioFloatConverter$AudioFloatLSBFilter", "com.sun.media.sound.AudioFloatConverter", "AudioFloatLSBFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AudioFloatConverter$AudioFloatLSBFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.AudioFloatConverter$AudioFloatLSBFilter",
-	"com.sun.media.sound.AudioFloatConverter",
-	nullptr,
-	_AudioFloatConverter$AudioFloatLSBFilter_FieldInfo_,
-	_AudioFloatConverter$AudioFloatLSBFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioFloatConverter$AudioFloatLSBFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AudioFloatConverter"
-};
-
-$Object* allocate$AudioFloatConverter$AudioFloatLSBFilter($Class* clazz) {
-	return $of($alloc(AudioFloatConverter$AudioFloatLSBFilter));
-}
 
 void AudioFloatConverter$AudioFloatLSBFilter::init$($AudioFloatConverter* converter, $AudioFormat* format) {
 	$AudioFloatConverter::init$();
@@ -90,19 +48,19 @@ $bytes* AudioFloatConverter$AudioFloatLSBFilter::toByteArray($floats* in_buff, i
 	$var($bytes, ret, $nc(this->converter)->toByteArray(in_buff, in_offset, in_len, out_buff, out_offset));
 	int32_t out_offset_end = in_len * this->stepsize;
 	for (int32_t i = out_offset + this->offset; i < out_offset_end; i += this->stepsize) {
-		$nc(out_buff)->set(i, (int8_t)((int32_t)(out_buff->get(i) & (uint32_t)(int32_t)this->mask)));
+		$nc(out_buff)->set(i, (int8_t)($nc(out_buff)->get(i) & this->mask));
 	}
 	return ret;
 }
 
 $floats* AudioFloatConverter$AudioFloatLSBFilter::toFloatArray($bytes* in_buff, int32_t in_offset, $floats* out_buff, int32_t out_offset, int32_t out_len) {
-	if (this->mask_buffer == nullptr || $nc(this->mask_buffer)->length < $nc(in_buff)->length) {
-		$set(this, mask_buffer, $new($bytes, in_buff->length));
+	if (this->mask_buffer == nullptr || this->mask_buffer->length < $nc(in_buff)->length) {
+		$set(this, mask_buffer, $new($bytes, $nc(in_buff)->length));
 	}
 	$System::arraycopy(in_buff, 0, this->mask_buffer, 0, $nc(in_buff)->length);
 	int32_t in_offset_end = out_len * this->stepsize;
 	for (int32_t i = in_offset + this->offset; i < in_offset_end; i += this->stepsize) {
-		$nc(this->mask_buffer)->set(i, (int8_t)((int32_t)($nc(this->mask_buffer)->get(i) & (uint32_t)(int32_t)this->mask)));
+		$nc(this->mask_buffer)->set(i, (int8_t)($nc(this->mask_buffer)->get(i) & this->mask));
 	}
 	$var($floats, ret, $nc(this->converter)->toFloatArray(this->mask_buffer, in_offset, out_buff, out_offset, out_len));
 	return ret;
@@ -112,7 +70,42 @@ AudioFloatConverter$AudioFloatLSBFilter::AudioFloatConverter$AudioFloatLSBFilter
 }
 
 $Class* AudioFloatConverter$AudioFloatLSBFilter::load$($String* name, bool initialize) {
-	$loadClass(AudioFloatConverter$AudioFloatLSBFilter, name, initialize, &_AudioFloatConverter$AudioFloatLSBFilter_ClassInfo_, allocate$AudioFloatConverter$AudioFloatLSBFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"converter", "Lcom/sun/media/sound/AudioFloatConverter;", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, converter)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, offset)},
+		{"stepsize", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, stepsize)},
+		{"mask", "B", nullptr, $PRIVATE | $FINAL, $field(AudioFloatConverter$AudioFloatLSBFilter, mask)},
+		{"mask_buffer", "[B", nullptr, $PRIVATE, $field(AudioFloatConverter$AudioFloatLSBFilter, mask_buffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/AudioFloatConverter;Ljavax/sound/sampled/AudioFormat;)V", nullptr, 0, $method(AudioFloatConverter$AudioFloatLSBFilter, init$, void, $AudioFloatConverter*, $AudioFormat*)},
+		{"toByteArray", "([FII[BI)[B", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatLSBFilter, toByteArray, $bytes*, $floats*, int32_t, int32_t, $bytes*, int32_t)},
+		{"toFloatArray", "([BI[FII)[F", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatLSBFilter, toFloatArray, $floats*, $bytes*, int32_t, $floats*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AudioFloatConverter$AudioFloatLSBFilter", "com.sun.media.sound.AudioFloatConverter", "AudioFloatLSBFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.AudioFloatConverter$AudioFloatLSBFilter",
+		"com.sun.media.sound.AudioFloatConverter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AudioFloatConverter"
+	};
+	$loadClass(AudioFloatConverter$AudioFloatLSBFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFloatConverter$AudioFloatLSBFilter);
+	});
 	return class$;
 }
 

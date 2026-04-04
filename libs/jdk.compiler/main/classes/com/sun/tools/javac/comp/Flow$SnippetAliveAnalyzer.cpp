@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$SnippetAliveAnalyzer.h>
-
 #include <com/sun/tools/javac/comp/Flow$AliveAnalyzer.h>
 #include <com/sun/tools/javac/comp/Flow$Liveness.h>
 #include <com/sun/tools/javac/comp/Flow.h>
@@ -25,45 +24,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Flow$SnippetAliveAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$SnippetAliveAnalyzer, this$0)},
-	{}
-};
-
-$MethodInfo _Flow$SnippetAliveAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$SnippetAliveAnalyzer, init$, void, $Flow*)},
-	{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, isAlive, bool)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
-	{}
-};
-
-$InnerClassInfo _Flow$SnippetAliveAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetAliveAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
-	{}
-};
-
-$ClassInfo _Flow$SnippetAliveAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer",
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
-	nullptr,
-	_Flow$SnippetAliveAnalyzer_FieldInfo_,
-	_Flow$SnippetAliveAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$SnippetAliveAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$SnippetAliveAnalyzer($Class* clazz) {
-	return $of($alloc(Flow$SnippetAliveAnalyzer));
-}
-
 void Flow$SnippetAliveAnalyzer::init$($Flow* this$0) {
 	$set(this, this$0, this$0);
 	$Flow$AliveAnalyzer::init$(this$0);
@@ -84,7 +44,40 @@ Flow$SnippetAliveAnalyzer::Flow$SnippetAliveAnalyzer() {
 }
 
 $Class* Flow$SnippetAliveAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Flow$SnippetAliveAnalyzer, name, initialize, &_Flow$SnippetAliveAnalyzer_ClassInfo_, allocate$Flow$SnippetAliveAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$SnippetAliveAnalyzer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$SnippetAliveAnalyzer, init$, void, $Flow*)},
+		{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, isAlive, bool)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetAliveAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$SnippetAliveAnalyzer",
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$SnippetAliveAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$SnippetAliveAnalyzer);
+	});
 	return class$;
 }
 

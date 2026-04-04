@@ -1,5 +1,4 @@
 #include <sun/print/PSPrinterJob$PluginPrinter.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
@@ -28,57 +27,8 @@ using $PSPrinterJob$EPSPrinter = ::sun::print::PSPrinterJob$EPSPrinter;
 namespace sun {
 	namespace print {
 
-$FieldInfo _PSPrinterJob$PluginPrinter_FieldInfo_[] = {
-	{"epsPrinter", "Lsun/print/PSPrinterJob$EPSPrinter;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, epsPrinter)},
-	{"applet", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, applet)},
-	{"stream", "Ljava/io/PrintStream;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, stream)},
-	{"epsTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, epsTitle)},
-	{"bx", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, bx)},
-	{"by", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, by)},
-	{"bw", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, bw)},
-	{"bh", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, bh)},
-	{"width", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, height)},
-	{}
-};
-
-$MethodInfo _PSPrinterJob$PluginPrinter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/io/PrintStream;IIII)V", nullptr, $PUBLIC, $method(PSPrinterJob$PluginPrinter, init$, void, $Component*, $PrintStream*, int32_t, int32_t, int32_t, int32_t)},
-	{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, print, int32_t, $Graphics*, $PageFormat*, int32_t)},
-	{"printAll", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printAll, void)},
-	{"printPluginApplet", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printPluginApplet, void)},
-	{"printPluginPSHeader", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printPluginPSHeader, void)},
-	{"printPluginPSTrailer", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printPluginPSTrailer, void)},
-	{}
-};
-
-$InnerClassInfo _PSPrinterJob$PluginPrinter_InnerClassesInfo_[] = {
-	{"sun.print.PSPrinterJob$PluginPrinter", "sun.print.PSPrinterJob", "PluginPrinter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PSPrinterJob$PluginPrinter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PSPrinterJob$PluginPrinter",
-	"java.lang.Object",
-	"java.awt.print.Printable",
-	_PSPrinterJob$PluginPrinter_FieldInfo_,
-	_PSPrinterJob$PluginPrinter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PSPrinterJob$PluginPrinter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.PSPrinterJob"
-};
-
-$Object* allocate$PSPrinterJob$PluginPrinter($Class* clazz) {
-	return $of($alloc(PSPrinterJob$PluginPrinter));
-}
-
 void PSPrinterJob$PluginPrinter::init$($Component* applet, $PrintStream* stream, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, applet, applet);
 	$set(this, epsTitle, "Java Plugin Applet"_s);
 	$set(this, stream, stream);
@@ -104,7 +54,7 @@ void PSPrinterJob$PluginPrinter::printPluginApplet() {
 
 void PSPrinterJob$PluginPrinter::printPluginPSTrailer() {
 	$nc(this->stream)->println("%%EndDocument: JavaPluginApplet"_s);
-	$nc(this->stream)->flush();
+	this->stream->flush();
 }
 
 void PSPrinterJob$PluginPrinter::printAll() {
@@ -126,7 +76,50 @@ PSPrinterJob$PluginPrinter::PSPrinterJob$PluginPrinter() {
 }
 
 $Class* PSPrinterJob$PluginPrinter::load$($String* name, bool initialize) {
-	$loadClass(PSPrinterJob$PluginPrinter, name, initialize, &_PSPrinterJob$PluginPrinter_ClassInfo_, allocate$PSPrinterJob$PluginPrinter);
+	$FieldInfo fieldInfos$$[] = {
+		{"epsPrinter", "Lsun/print/PSPrinterJob$EPSPrinter;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, epsPrinter)},
+		{"applet", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, applet)},
+		{"stream", "Ljava/io/PrintStream;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, stream)},
+		{"epsTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, epsTitle)},
+		{"bx", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, bx)},
+		{"by", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, by)},
+		{"bw", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, bw)},
+		{"bh", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, bh)},
+		{"width", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(PSPrinterJob$PluginPrinter, height)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/io/PrintStream;IIII)V", nullptr, $PUBLIC, $method(PSPrinterJob$PluginPrinter, init$, void, $Component*, $PrintStream*, int32_t, int32_t, int32_t, int32_t)},
+		{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, print, int32_t, $Graphics*, $PageFormat*, int32_t)},
+		{"printAll", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printAll, void)},
+		{"printPluginApplet", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printPluginApplet, void)},
+		{"printPluginPSHeader", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printPluginPSHeader, void)},
+		{"printPluginPSTrailer", "()V", nullptr, $PUBLIC, $virtualMethod(PSPrinterJob$PluginPrinter, printPluginPSTrailer, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.PSPrinterJob$PluginPrinter", "sun.print.PSPrinterJob", "PluginPrinter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PSPrinterJob$PluginPrinter",
+		"java.lang.Object",
+		"java.awt.print.Printable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.PSPrinterJob"
+	};
+	$loadClass(PSPrinterJob$PluginPrinter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PSPrinterJob$PluginPrinter);
+	});
 	return class$;
 }
 

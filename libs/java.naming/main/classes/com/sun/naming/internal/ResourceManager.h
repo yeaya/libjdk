@@ -54,6 +54,7 @@ class ResourceManager : public ::java::lang::Object {
 	$class(ResourceManager, 0, ::java::lang::Object)
 public:
 	ResourceManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Hashtable* getApplicationResources();
 	static ::com::sun::naming::internal::FactoryEnumeration* getFactories($String* propName, ::java::util::Hashtable* env, ::javax::naming::Context* ctx);

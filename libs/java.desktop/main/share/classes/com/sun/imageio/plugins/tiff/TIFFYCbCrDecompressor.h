@@ -48,6 +48,7 @@ class TIFFYCbCrDecompressor : public ::com::sun::imageio::plugins::tiff::TIFFDec
 	$class(TIFFYCbCrDecompressor, 0, ::com::sun::imageio::plugins::tiff::TIFFDecompressor)
 public:
 	TIFFYCbCrDecompressor();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::imageio::plugins::tiff::TIFFDecompressor::decodeRaw;
 	void init$(::com::sun::imageio::plugins::tiff::TIFFDecompressor* decompressor, bool colorConvert);
 	virtual void beginDecoding() override;

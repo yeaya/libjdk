@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PDLOverrideSupported.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PDLOverrideSupported_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PDLOverrideSupported, serialVersionUID)},
-	{"NOT_ATTEMPTED", "Ljavax/print/attribute/standard/PDLOverrideSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PDLOverrideSupported, NOT_ATTEMPTED)},
-	{"ATTEMPTED", "Ljavax/print/attribute/standard/PDLOverrideSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PDLOverrideSupported, ATTEMPTED)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PDLOverrideSupported, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/PDLOverrideSupported;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PDLOverrideSupported, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _PDLOverrideSupported_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(PDLOverrideSupported, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PDLOverrideSupported, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PDLOverrideSupported, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PDLOverrideSupported, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PDLOverrideSupported, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PDLOverrideSupported_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.PDLOverrideSupported",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintServiceAttribute",
-	_PDLOverrideSupported_FieldInfo_,
-	_PDLOverrideSupported_MethodInfo_
-};
-
-$Object* allocate$PDLOverrideSupported($Class* clazz) {
-	return $of($alloc(PDLOverrideSupported));
-}
 
 $Object* PDLOverrideSupported::clone() {
 	 return this->$EnumSyntax::clone();
@@ -84,11 +47,11 @@ void PDLOverrideSupported::init$(int32_t value) {
 }
 
 $StringArray* PDLOverrideSupported::getStringTable() {
-	return $cast($StringArray, $nc(PDLOverrideSupported::myStringTable)->clone());
+	return $cast($StringArray, PDLOverrideSupported::myStringTable->clone());
 }
 
 $EnumSyntaxArray* PDLOverrideSupported::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(PDLOverrideSupported::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, PDLOverrideSupported::myEnumValueTable->clone());
 }
 
 $Class* PDLOverrideSupported::getCategory() {
@@ -99,7 +62,7 @@ $String* PDLOverrideSupported::getName() {
 	return "pdl-override-supported"_s;
 }
 
-void clinit$PDLOverrideSupported($Class* class$) {
+void PDLOverrideSupported::clinit$($Class* clazz) {
 	$assignStatic(PDLOverrideSupported::NOT_ATTEMPTED, $new(PDLOverrideSupported, 0));
 	$assignStatic(PDLOverrideSupported::ATTEMPTED, $new(PDLOverrideSupported, 1));
 	$assignStatic(PDLOverrideSupported::myStringTable, $new($StringArray, {
@@ -116,7 +79,38 @@ PDLOverrideSupported::PDLOverrideSupported() {
 }
 
 $Class* PDLOverrideSupported::load$($String* name, bool initialize) {
-	$loadClass(PDLOverrideSupported, name, initialize, &_PDLOverrideSupported_ClassInfo_, clinit$PDLOverrideSupported, allocate$PDLOverrideSupported);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PDLOverrideSupported, serialVersionUID)},
+		{"NOT_ATTEMPTED", "Ljavax/print/attribute/standard/PDLOverrideSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PDLOverrideSupported, NOT_ATTEMPTED)},
+		{"ATTEMPTED", "Ljavax/print/attribute/standard/PDLOverrideSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PDLOverrideSupported, ATTEMPTED)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PDLOverrideSupported, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/PDLOverrideSupported;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PDLOverrideSupported, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(PDLOverrideSupported, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PDLOverrideSupported, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PDLOverrideSupported, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PDLOverrideSupported, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PDLOverrideSupported, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.PDLOverrideSupported",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintServiceAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PDLOverrideSupported, name, initialize, &classInfo$$, PDLOverrideSupported::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PDLOverrideSupported));
+	});
 	return class$;
 }
 

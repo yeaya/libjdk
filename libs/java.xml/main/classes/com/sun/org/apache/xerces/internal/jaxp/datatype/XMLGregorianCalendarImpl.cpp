@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/XMLGregorianCalendarImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/DurationImpl.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/XMLGregorianCalendarImpl$Parser.h>
@@ -131,155 +130,6 @@ namespace com {
 						namespace jaxp {
 							namespace datatype {
 
-$FieldInfo _XMLGregorianCalendarImpl_FieldInfo_[] = {
-	{"orig_eon", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_eon)},
-	{"orig_year", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_year)},
-	{"orig_month", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_month)},
-	{"orig_day", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_day)},
-	{"orig_hour", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_hour)},
-	{"orig_minute", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_minute)},
-	{"orig_second", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_second)},
-	{"orig_fracSeconds", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_fracSeconds)},
-	{"orig_timezone", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_timezone)},
-	{"eon", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, eon)},
-	{"year", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, year)},
-	{"month", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, month)},
-	{"day", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, day)},
-	{"timezone", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, timezone)},
-	{"hour", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, hour)},
-	{"minute", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, minute)},
-	{"second", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, second)},
-	{"fractionalSecond", "Ljava/math/BigDecimal;", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, fractionalSecond)},
-	{"BILLION_B", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, BILLION_B)},
-	{"BILLION_I", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, BILLION_I)},
-	{"PURE_GREGORIAN_CHANGE", "Ljava/util/Date;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, PURE_GREGORIAN_CHANGE)},
-	{"YEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, YEAR)},
-	{"MONTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, MONTH)},
-	{"DAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, DAY)},
-	{"HOUR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, HOUR)},
-	{"MINUTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, MINUTE)},
-	{"SECOND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, SECOND)},
-	{"MILLISECOND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, MILLISECOND)},
-	{"TIMEZONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, TIMEZONE)},
-	{"FIELD_NAME", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, FIELD_NAME)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, serialVersionUID)},
-	{"LEAP_YEAR_DEFAULT", "Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, LEAP_YEAR_DEFAULT)},
-	{"FOUR", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, FOUR)},
-	{"HUNDRED", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, HUNDRED)},
-	{"FOUR_HUNDRED", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, FOUR_HUNDRED)},
-	{"SIXTY", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, SIXTY)},
-	{"TWENTY_FOUR", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, TWENTY_FOUR)},
-	{"TWELVE", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, TWELVE)},
-	{"DECIMAL_ZERO", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_ZERO)},
-	{"DECIMAL_ONE", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_ONE)},
-	{"DECIMAL_TWELVE", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_TWELVE)},
-	{"DECIMAL_TWENTY_FOUR", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_TWENTY_FOUR)},
-	{"DECIMAL_SIXTY", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_SIXTY)},
-	{}
-};
-
-$MethodInfo _XMLGregorianCalendarImpl_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(XMLGregorianCalendarImpl, init$, void, $String*), "java.lang.IllegalArgumentException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLGregorianCalendarImpl, init$, void)},
-	{"<init>", "(Ljava/math/BigInteger;IIIIILjava/math/BigDecimal;I)V", nullptr, $PROTECTED, $method(XMLGregorianCalendarImpl, init$, void, $BigInteger*, int32_t, int32_t, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
-	{"<init>", "(IIIIIIII)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/util/GregorianCalendar;)V", nullptr, $PUBLIC, $method(XMLGregorianCalendarImpl, init$, void, $GregorianCalendar*)},
-	{"add", "(Ljavax/xml/datatype/Duration;)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, add, void, $Duration*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, clone, $Object*)},
-	{"compare", "(Ljavax/xml/datatype/XMLGregorianCalendar;)I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, compare, int32_t, $XMLGregorianCalendar*)},
-	{"compareField", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, compareField, int32_t, int32_t, int32_t)},
-	{"compareField", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, compareField, int32_t, $BigInteger*, $BigInteger*)},
-	{"compareField", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, compareField, int32_t, $BigDecimal*, $BigDecimal*)},
-	{"createDate", "(IIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDate, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t)},
-	{"createDateTime", "(Ljava/math/BigInteger;IIIIILjava/math/BigDecimal;I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDateTime, $XMLGregorianCalendar*, $BigInteger*, int32_t, int32_t, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
-	{"createDateTime", "(IIIIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDateTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createDateTime", "(IIIIIIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDateTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createTime", "(IIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t)},
-	{"createTime", "(IIILjava/math/BigDecimal;I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
-	{"createTime", "(IIIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"format", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, format, $String*, $String*)},
-	{"getDay", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getDay, int32_t)},
-	{"getDefaultLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, getDefaultLocale, $Locale*)},
-	{"getEon", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getEon, $BigInteger*)},
-	{"getEonAndYear", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getEonAndYear, $BigInteger*)},
-	{"getFractionalSecond", "()Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getFractionalSecond, $BigDecimal*)},
-	{"getHour", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getHour, int32_t)},
-	{"getMillisecond", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getMillisecond, int32_t)},
-	{"getMinute", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getMinute, int32_t)},
-	{"getMonth", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getMonth, int32_t)},
-	{"getSecond", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getSecond, int32_t)},
-	{"getSeconds", "()Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, getSeconds, $BigDecimal*)},
-	{"getTimeZone", "(I)Ljava/util/TimeZone;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getTimeZone, $TimeZone*, int32_t)},
-	{"getTimezone", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getTimezone, int32_t)},
-	{"getXMLSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getXMLSchemaType, $QName*)},
-	{"getYear", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getYear, int32_t)},
-	{"internalCompare", "(Ljavax/xml/datatype/XMLGregorianCalendar;Ljavax/xml/datatype/XMLGregorianCalendar;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, internalCompare, int32_t, $XMLGregorianCalendar*, $XMLGregorianCalendar*)},
-	{"invalidFieldValue", "(II)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, invalidFieldValue, void, int32_t, int32_t)},
-	{"isDigit", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, isDigit, bool, char16_t)},
-	{"isValid", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, isValid, bool)},
-	{"maximumDayInMonthFor", "(Ljava/math/BigInteger;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, maximumDayInMonthFor, int32_t, $BigInteger*, int32_t)},
-	{"maximumDayInMonthFor", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, maximumDayInMonthFor, int32_t, int32_t, int32_t)},
-	{"normalize", "()Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, normalize, $XMLGregorianCalendar*)},
-	{"normalizeToTimezone", "(I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, normalizeToTimezone, $XMLGregorianCalendar*, int32_t)},
-	{"parse", "(Ljava/lang/String;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, parse, $XMLGregorianCalendar*, $String*)},
-	{"printNumber", "(Ljava/lang/StringBuilder;II)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, printNumber, void, $StringBuilder*, int32_t, int32_t)},
-	{"printNumber", "(Ljava/lang/StringBuilder;Ljava/math/BigInteger;I)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, printNumber, void, $StringBuilder*, $BigInteger*, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, reset, void)},
-	{"sanitize", "(Ljava/lang/Number;I)Ljava/math/BigInteger;", nullptr, $STATIC, $staticMethod(XMLGregorianCalendarImpl, sanitize, $BigInteger*, $Number*, int32_t)},
-	{"save", "()V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, save, void)},
-	{"setDay", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setDay, void, int32_t)},
-	{"setEon", "(Ljava/math/BigInteger;)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, setEon, void, $BigInteger*)},
-	{"setFractionalSecond", "(Ljava/math/BigDecimal;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setFractionalSecond, void, $BigDecimal*)},
-	{"setHour", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setHour, void, int32_t)},
-	{"setHour", "(IZ)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, setHour, void, int32_t, bool)},
-	{"setMillisecond", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setMillisecond, void, int32_t)},
-	{"setMinute", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setMinute, void, int32_t)},
-	{"setMonth", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setMonth, void, int32_t)},
-	{"setSecond", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setSecond, void, int32_t)},
-	{"setTime", "(III)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTime, void, int32_t, int32_t, int32_t)},
-	{"setTime", "(IIILjava/math/BigDecimal;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTime, void, int32_t, int32_t, int32_t, $BigDecimal*)},
-	{"setTime", "(IIII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTime, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setTimezone", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTimezone, void, int32_t)},
-	{"setYear", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setYear, void, $BigInteger*)},
-	{"setYear", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setYear, void, int32_t)},
-	{"testHour", "()V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, testHour, void)},
-	{"toGregorianCalendar", "()Ljava/util/GregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, toGregorianCalendar, $GregorianCalendar*)},
-	{"toGregorianCalendar", "(Ljava/util/TimeZone;Ljava/util/Locale;Ljavax/xml/datatype/XMLGregorianCalendar;)Ljava/util/GregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, toGregorianCalendar, $GregorianCalendar*, $TimeZone*, $Locale*, $XMLGregorianCalendar*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toXMLFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, toXMLFormat, $String*)},
-	{}
-};
-
-$InnerClassInfo _XMLGregorianCalendarImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$Parser", "com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl", "Parser", $PRIVATE | $FINAL},
-	{"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$DaysInMonth", "com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl", "DaysInMonth", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XMLGregorianCalendarImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl",
-	"javax.xml.datatype.XMLGregorianCalendar",
-	"java.io.Serializable",
-	_XMLGregorianCalendarImpl_FieldInfo_,
-	_XMLGregorianCalendarImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLGregorianCalendarImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$Parser,com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$DaysInMonth"
-};
-
-$Object* allocate$XMLGregorianCalendarImpl($Class* clazz) {
-	return $of($alloc(XMLGregorianCalendarImpl));
-}
-
 bool XMLGregorianCalendarImpl::equals(Object$* obj) {
 	 return this->$XMLGregorianCalendar::equals(obj);
 }
@@ -313,7 +163,7 @@ $BigDecimal* XMLGregorianCalendarImpl::DECIMAL_TWENTY_FOUR = nullptr;
 $BigDecimal* XMLGregorianCalendarImpl::DECIMAL_SIXTY = nullptr;
 
 void XMLGregorianCalendarImpl::init$($String* lexicalRepresentation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLGregorianCalendar::init$();
 	this->orig_year = $DatatypeConstants::FIELD_UNDEFINED;
 	this->orig_month = $DatatypeConstants::FIELD_UNDEFINED;
@@ -335,7 +185,7 @@ void XMLGregorianCalendarImpl::init$($String* lexicalRepresentation) {
 	$var($String, lexRep, lexicalRepresentation);
 	int32_t NOT_FOUND = -1;
 	int32_t lexRepLength = $nc(lexRep)->length();
-	if (lexRep->indexOf((int32_t)u'T') != NOT_FOUND) {
+	if (lexRep->indexOf(u'T') != NOT_FOUND) {
 		$assign(format, "%Y-%M-%DT%h:%m:%s%z"_s);
 	} else if (lexRepLength >= 3 && lexRep->charAt(2) == u':') {
 		$assign(format, "%h:%m:%s%z"_s);
@@ -349,7 +199,7 @@ void XMLGregorianCalendarImpl::init$($String* lexicalRepresentation) {
 		}
 	} else {
 		int32_t countSeparator = 0;
-		int32_t timezoneOffset = lexRep->indexOf((int32_t)u':');
+		int32_t timezoneOffset = lexRep->indexOf(u':');
 		if (timezoneOffset != NOT_FOUND) {
 			lexRepLength -= 6;
 		}
@@ -369,7 +219,7 @@ void XMLGregorianCalendarImpl::init$($String* lexicalRepresentation) {
 	$var($XMLGregorianCalendarImpl$Parser, p, $new($XMLGregorianCalendarImpl$Parser, this, format, lexRep));
 	p->parse();
 	if (!isValid()) {
-		$throwNew($IllegalArgumentException, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidXGCRepresentation"_s, $$new($ObjectArray, {$of(lexicalRepresentation)}))));
+		$throwNew($IllegalArgumentException, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidXGCRepresentation"_s, $$new($ObjectArray, {lexicalRepresentation}))));
 	}
 	save();
 }
@@ -407,7 +257,7 @@ void XMLGregorianCalendarImpl::init$() {
 }
 
 void XMLGregorianCalendarImpl::init$($BigInteger* year, int32_t month, int32_t day, int32_t hour, int32_t minute, int32_t second, $BigDecimal* fractionalSecond, int32_t timezone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLGregorianCalendar::init$();
 	this->orig_year = $DatatypeConstants::FIELD_UNDEFINED;
 	this->orig_month = $DatatypeConstants::FIELD_UNDEFINED;
@@ -432,21 +282,21 @@ void XMLGregorianCalendarImpl::init$($BigInteger* year, int32_t month, int32_t d
 	setTimezone(timezone);
 	if (!isValid()) {
 		$throwNew($IllegalArgumentException, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidXGCValue-fractional"_s, $$new($ObjectArray, {
-			$of(year),
-			$($of($Integer::valueOf(month))),
-			$($of($Integer::valueOf(day))),
-			$($of($Integer::valueOf(hour))),
-			$($of($Integer::valueOf(minute))),
-			$($of($Integer::valueOf(second))),
-			$of(fractionalSecond),
-			$($of($Integer::valueOf(timezone)))
+			year,
+			$($Integer::valueOf(month)),
+			$($Integer::valueOf(day)),
+			$($Integer::valueOf(hour)),
+			$($Integer::valueOf(minute)),
+			$($Integer::valueOf(second)),
+			fractionalSecond,
+			$($Integer::valueOf(timezone))
 		}))));
 	}
 	save();
 }
 
 void XMLGregorianCalendarImpl::init$(int32_t year, int32_t month, int32_t day, int32_t hour, int32_t minute, int32_t second, int32_t millisecond, int32_t timezone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLGregorianCalendar::init$();
 	this->orig_year = $DatatypeConstants::FIELD_UNDEFINED;
 	this->orig_month = $DatatypeConstants::FIELD_UNDEFINED;
@@ -476,14 +326,14 @@ void XMLGregorianCalendarImpl::init$(int32_t year, int32_t month, int32_t day, i
 	setFractionalSecond(realMilliseconds);
 	if (!isValid()) {
 		$throwNew($IllegalArgumentException, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidXGCValue-milli"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(year))),
-			$($of($Integer::valueOf(month))),
-			$($of($Integer::valueOf(day))),
-			$($of($Integer::valueOf(hour))),
-			$($of($Integer::valueOf(minute))),
-			$($of($Integer::valueOf(second))),
-			$($of($Integer::valueOf(millisecond))),
-			$($of($Integer::valueOf(timezone)))
+			$($Integer::valueOf(year)),
+			$($Integer::valueOf(month)),
+			$($Integer::valueOf(day)),
+			$($Integer::valueOf(hour)),
+			$($Integer::valueOf(minute)),
+			$($Integer::valueOf(second)),
+			$($Integer::valueOf(millisecond)),
+			$($Integer::valueOf(timezone))
 		}))));
 	}
 	save();
@@ -551,7 +401,7 @@ $XMLGregorianCalendar* XMLGregorianCalendarImpl::createTime(int32_t hours, int32
 
 $XMLGregorianCalendar* XMLGregorianCalendarImpl::createTime(int32_t hours, int32_t minutes, int32_t seconds, $BigDecimal* fractionalSecond, int32_t timezone) {
 	$init(XMLGregorianCalendarImpl);
-	return $new(XMLGregorianCalendarImpl, ($BigInteger*)nullptr, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, hours, minutes, seconds, fractionalSecond, timezone);
+	return $new(XMLGregorianCalendarImpl, nullptr, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED, hours, minutes, seconds, fractionalSecond, timezone);
 }
 
 $XMLGregorianCalendar* XMLGregorianCalendarImpl::createTime(int32_t hours, int32_t minutes, int32_t seconds, int32_t milliseconds, int32_t timezone) {
@@ -569,7 +419,7 @@ int32_t XMLGregorianCalendarImpl::getYear() {
 
 $BigInteger* XMLGregorianCalendarImpl::getEonAndYear() {
 	if (this->year != $DatatypeConstants::FIELD_UNDEFINED && this->eon != nullptr) {
-		return $nc(this->eon)->add($($BigInteger::valueOf((int64_t)this->year)));
+		return this->eon->add($($BigInteger::valueOf((int64_t)this->year)));
 	}
 	if (this->year != $DatatypeConstants::FIELD_UNDEFINED && this->eon == nullptr) {
 		return $BigInteger::valueOf((int64_t)this->year);
@@ -607,7 +457,7 @@ $BigDecimal* XMLGregorianCalendarImpl::getSeconds() {
 	}
 	$var($BigDecimal, result, $BigDecimal::valueOf((int64_t)this->second));
 	if (this->fractionalSecond != nullptr) {
-		return $nc(result)->add(this->fractionalSecond);
+		return result->add(this->fractionalSecond);
 	} else {
 		return result;
 	}
@@ -617,7 +467,7 @@ int32_t XMLGregorianCalendarImpl::getMillisecond() {
 	if (this->fractionalSecond == nullptr) {
 		return $DatatypeConstants::FIELD_UNDEFINED;
 	} else {
-		return $nc($($nc(this->fractionalSecond)->movePointRight(3)))->intValue();
+		return $(this->fractionalSecond->movePointRight(3))->intValue();
 	}
 }
 
@@ -626,19 +476,19 @@ $BigDecimal* XMLGregorianCalendarImpl::getFractionalSecond() {
 }
 
 void XMLGregorianCalendarImpl::setYear($BigInteger* year) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (year == nullptr) {
 		$set(this, eon, nullptr);
 		this->year = $DatatypeConstants::FIELD_UNDEFINED;
 	} else {
-		$var($BigInteger, temp, $nc(year)->remainder(XMLGregorianCalendarImpl::BILLION_B));
-		this->year = $nc(temp)->intValue();
+		$var($BigInteger, temp, year->remainder(XMLGregorianCalendarImpl::BILLION_B));
+		this->year = temp->intValue();
 		setEon($(year->subtract(temp)));
 	}
 }
 
 void XMLGregorianCalendarImpl::setYear(int32_t year) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (year == $DatatypeConstants::FIELD_UNDEFINED) {
 		this->year = $DatatypeConstants::FIELD_UNDEFINED;
 		$set(this, eon, nullptr);
@@ -647,8 +497,8 @@ void XMLGregorianCalendarImpl::setYear(int32_t year) {
 		$set(this, eon, nullptr);
 	} else {
 		$var($BigInteger, theYear, $BigInteger::valueOf((int64_t)year));
-		$var($BigInteger, remainder, $nc(theYear)->remainder(XMLGregorianCalendarImpl::BILLION_B));
-		this->year = $nc(remainder)->intValue();
+		$var($BigInteger, remainder, theYear->remainder(XMLGregorianCalendarImpl::BILLION_B));
+		this->year = remainder->intValue();
 		setEon($(theYear->subtract(remainder)));
 	}
 }
@@ -690,14 +540,14 @@ void XMLGregorianCalendarImpl::setTimezone(int32_t offset) {
 }
 
 void XMLGregorianCalendarImpl::setTime(int32_t hour, int32_t minute, int32_t second) {
-	setTime(hour, minute, second, ($BigDecimal*)nullptr);
+	setTime(hour, minute, second, nullptr);
 }
 
 void XMLGregorianCalendarImpl::invalidFieldValue(int32_t field, int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($IllegalArgumentException, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidFieldValue"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(value))),
-		$of($nc(XMLGregorianCalendarImpl::FIELD_NAME)->get(field))
+		$($Integer::valueOf(value)),
+		XMLGregorianCalendarImpl::FIELD_NAME->get(field)
 	}))));
 }
 
@@ -775,7 +625,7 @@ void XMLGregorianCalendarImpl::setTime(int32_t hour, int32_t minute, int32_t sec
 }
 
 int32_t XMLGregorianCalendarImpl::compare($XMLGregorianCalendar* rhs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLGregorianCalendar, lhs, this);
 	int32_t result = $DatatypeConstants::INDETERMINATE;
 	$var(XMLGregorianCalendarImpl, P, $cast(XMLGregorianCalendarImpl, lhs));
@@ -784,8 +634,8 @@ int32_t XMLGregorianCalendarImpl::compare($XMLGregorianCalendar* rhs) {
 	if (var$0 == $nc(Q)->getTimezone()) {
 		return internalCompare(P, Q);
 	} else {
-		bool var$2 = P->getTimezone() != $DatatypeConstants::FIELD_UNDEFINED;
-		if (var$2 && Q->getTimezone() != $DatatypeConstants::FIELD_UNDEFINED) {
+		bool var$1 = P->getTimezone() != $DatatypeConstants::FIELD_UNDEFINED;
+		if (var$1 && Q->getTimezone() != $DatatypeConstants::FIELD_UNDEFINED) {
 			$assign(P, $cast(XMLGregorianCalendarImpl, P->normalize()));
 			$assign(Q, $cast(XMLGregorianCalendarImpl, Q->normalize()));
 			return internalCompare(P, Q);
@@ -809,7 +659,7 @@ int32_t XMLGregorianCalendarImpl::compare($XMLGregorianCalendar* rhs) {
 			if (Q->getTimezone() != 0) {
 				$assign(Q, $cast(XMLGregorianCalendarImpl, Q->normalizeToTimezone(Q->getTimezone())));
 			}
-			$var($XMLGregorianCalendar, MaxP, P->normalizeToTimezone($DatatypeConstants::MAX_TIMEZONE_OFFSET));
+			$var($XMLGregorianCalendar, MaxP, $nc(P)->normalizeToTimezone($DatatypeConstants::MAX_TIMEZONE_OFFSET));
 			result = internalCompare(MaxP, Q);
 			if (result == $DatatypeConstants::LESSER) {
 				return result;
@@ -837,7 +687,7 @@ $XMLGregorianCalendar* XMLGregorianCalendarImpl::normalize() {
 }
 
 $XMLGregorianCalendar* XMLGregorianCalendarImpl::normalizeToTimezone(int32_t timezone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t minutes = timezone;
 	$var($XMLGregorianCalendar, result, $cast($XMLGregorianCalendar, this->clone()));
 	minutes = -minutes;
@@ -849,7 +699,7 @@ $XMLGregorianCalendar* XMLGregorianCalendarImpl::normalizeToTimezone(int32_t tim
 
 int32_t XMLGregorianCalendarImpl::internalCompare($XMLGregorianCalendar* P, $XMLGregorianCalendar* Q) {
 	$init(XMLGregorianCalendarImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 0;
 	if ($nc(P)->getEon() == $nc(Q)->getEon()) {
 		int32_t var$0 = P->getYear();
@@ -864,33 +714,33 @@ int32_t XMLGregorianCalendarImpl::internalCompare($XMLGregorianCalendar* P, $XML
 			return result;
 		}
 	}
-	int32_t var$2 = $nc(P)->getMonth();
-	result = compareField(var$2, $nc(Q)->getMonth());
+	int32_t var$2 = P->getMonth();
+	result = compareField(var$2, Q->getMonth());
 	if (result != $DatatypeConstants::EQUAL) {
 		return result;
 	}
-	int32_t var$3 = $nc(P)->getDay();
-	result = compareField(var$3, $nc(Q)->getDay());
+	int32_t var$3 = P->getDay();
+	result = compareField(var$3, Q->getDay());
 	if (result != $DatatypeConstants::EQUAL) {
 		return result;
 	}
-	int32_t var$4 = $nc(P)->getHour();
-	result = compareField(var$4, $nc(Q)->getHour());
+	int32_t var$4 = P->getHour();
+	result = compareField(var$4, Q->getHour());
 	if (result != $DatatypeConstants::EQUAL) {
 		return result;
 	}
-	int32_t var$5 = $nc(P)->getMinute();
-	result = compareField(var$5, $nc(Q)->getMinute());
+	int32_t var$5 = P->getMinute();
+	result = compareField(var$5, Q->getMinute());
 	if (result != $DatatypeConstants::EQUAL) {
 		return result;
 	}
-	int32_t var$6 = $nc(P)->getSecond();
-	result = compareField(var$6, $nc(Q)->getSecond());
+	int32_t var$6 = P->getSecond();
+	result = compareField(var$6, Q->getSecond());
 	if (result != $DatatypeConstants::EQUAL) {
 		return result;
 	}
-	$var($BigDecimal, var$7, $nc(P)->getFractionalSecond());
-	result = compareField(var$7, $($nc(Q)->getFractionalSecond()));
+	$var($BigDecimal, var$7, P->getFractionalSecond());
+	result = compareField(var$7, $(Q->getFractionalSecond()));
 	return result;
 }
 
@@ -918,7 +768,7 @@ int32_t XMLGregorianCalendarImpl::compareField($BigInteger* Pfield, $BigInteger*
 
 int32_t XMLGregorianCalendarImpl::compareField($BigDecimal* Pfield$renamed, $BigDecimal* Qfield$renamed) {
 	$init(XMLGregorianCalendarImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigDecimal, Pfield, Pfield$renamed);
 	$var($BigDecimal, Qfield, Qfield$renamed);
 	if (Pfield == Qfield) {
@@ -939,98 +789,70 @@ $XMLGregorianCalendar* XMLGregorianCalendarImpl::parse($String* lexicalRepresent
 }
 
 $String* XMLGregorianCalendarImpl::toXMLFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($QName, typekind, getXMLSchemaType());
 	$var($String, formatString, nullptr);
 	$init($DatatypeConstants);
 	if (typekind == $DatatypeConstants::DATETIME) {
 		$assign(formatString, "%Y-%M-%DT%h:%m:%s%z"_s);
-	} else {
-		if (typekind == $DatatypeConstants::DATE) {
-			$assign(formatString, "%Y-%M-%D%z"_s);
-		} else {
-			if (typekind == $DatatypeConstants::TIME) {
-				$assign(formatString, "%h:%m:%s%z"_s);
-			} else {
-				if (typekind == $DatatypeConstants::GMONTH) {
-					$assign(formatString, "--%M%z"_s);
-				} else {
-					if (typekind == $DatatypeConstants::GDAY) {
-						$assign(formatString, "---%D%z"_s);
-					} else {
-						if (typekind == $DatatypeConstants::GYEAR) {
-							$assign(formatString, "%Y%z"_s);
-						} else {
-							if (typekind == $DatatypeConstants::GYEARMONTH) {
-								$assign(formatString, "%Y-%M%z"_s);
-							} else {
-								if (typekind == $DatatypeConstants::GMONTHDAY) {
-									$assign(formatString, "--%M-%D%z"_s);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+	} else if (typekind == $DatatypeConstants::DATE) {
+		$assign(formatString, "%Y-%M-%D%z"_s);
+	} else if (typekind == $DatatypeConstants::TIME) {
+		$assign(formatString, "%h:%m:%s%z"_s);
+	} else if (typekind == $DatatypeConstants::GMONTH) {
+		$assign(formatString, "--%M%z"_s);
+	} else if (typekind == $DatatypeConstants::GDAY) {
+		$assign(formatString, "---%D%z"_s);
+	} else if (typekind == $DatatypeConstants::GYEAR) {
+		$assign(formatString, "%Y%z"_s);
+	} else if (typekind == $DatatypeConstants::GYEARMONTH) {
+		$assign(formatString, "%Y-%M%z"_s);
+	} else if (typekind == $DatatypeConstants::GMONTHDAY) {
+		$assign(formatString, "--%M-%D%z"_s);
 	}
 	return format(formatString);
 }
 
 $QName* XMLGregorianCalendarImpl::getXMLSchemaType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mask = (((((this->year != $DatatypeConstants::FIELD_UNDEFINED ? 32 : 0) | (this->month != $DatatypeConstants::FIELD_UNDEFINED ? 16 : 0)) | (this->day != $DatatypeConstants::FIELD_UNDEFINED ? 8 : 0)) | (this->hour != $DatatypeConstants::FIELD_UNDEFINED ? 4 : 0)) | (this->minute != $DatatypeConstants::FIELD_UNDEFINED ? 2 : 0)) | (this->second != $DatatypeConstants::FIELD_UNDEFINED ? 1 : 0);
 	switch (mask) {
 	case 63:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::DATETIME;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::DATETIME;
 	case 56:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::DATE;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::DATE;
 	case 7:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::TIME;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::TIME;
 	case 48:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::GYEARMONTH;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::GYEARMONTH;
 	case 24:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::GMONTHDAY;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::GMONTHDAY;
 	case 32:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::GYEAR;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::GYEAR;
 	case 16:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::GMONTH;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::GMONTH;
 	case 8:
-		{
-			$init($DatatypeConstants);
-			return $DatatypeConstants::GDAY;
-		}
+		$init($DatatypeConstants);
+		return $DatatypeConstants::GDAY;
 	default:
 		{
-			$var($String, var$0, $$str({$($of(this)->getClass()->getName()), "#getXMLSchemaType() :"_s}));
-			$throwNew($IllegalStateException, $$concat(var$0, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidXGCFields"_s, nullptr))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($of(this)->getClass()->getName()));
+			var$0->append("#getXMLSchemaType() :"_s);
+			var$0->append($($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidXGCFields"_s, nullptr)));
+			$throwNew($IllegalStateException, $$str(var$0));
 		}
 	}
 }
 
 bool XMLGregorianCalendarImpl::isValid() {
-	$useLocalCurrentObjectStackCache();
 	if (this->month != $DatatypeConstants::FIELD_UNDEFINED && this->day != $DatatypeConstants::FIELD_UNDEFINED) {
 		if (this->year != $DatatypeConstants::FIELD_UNDEFINED) {
 			if (this->eon == nullptr) {
@@ -1044,7 +866,7 @@ bool XMLGregorianCalendarImpl::isValid() {
 			return false;
 		}
 	}
-	if (this->hour == 24 && (this->minute != 0 || this->second != 0 || (this->fractionalSecond != nullptr && $nc(this->fractionalSecond)->compareTo(XMLGregorianCalendarImpl::DECIMAL_ZERO) != 0))) {
+	if (this->hour == 24 && (this->minute != 0 || this->second != 0 || (this->fractionalSecond != nullptr && this->fractionalSecond->compareTo(XMLGregorianCalendarImpl::DECIMAL_ZERO) != 0))) {
 		return false;
 	}
 	if (this->eon == nullptr && this->year == 0) {
@@ -1054,7 +876,7 @@ bool XMLGregorianCalendarImpl::isValid() {
 }
 
 void XMLGregorianCalendarImpl::add($Duration* duration) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($booleans, fieldUndefined, $new($booleans, {
 		false,
 		false,
@@ -1071,17 +893,17 @@ void XMLGregorianCalendarImpl::add($Duration* duration) {
 	}
 	$init($DatatypeConstants);
 	$var($BigInteger, dMonths, sanitize($(duration->getField($DatatypeConstants::MONTHS)), signum));
-	$var($BigInteger, temp, $nc($($BigInteger::valueOf((int64_t)startMonth)))->add(dMonths));
-	setMonth($nc($($nc($($nc(temp)->subtract($BigInteger::ONE)))->mod(XMLGregorianCalendarImpl::TWELVE)))->intValue() + 1);
+	$var($BigInteger, temp, $($BigInteger::valueOf((int64_t)startMonth))->add(dMonths));
+	setMonth($($(temp->subtract($BigInteger::ONE))->mod(XMLGregorianCalendarImpl::TWELVE))->intValue() + 1);
 	$init($RoundingMode);
-	$var($BigInteger, carry, $nc($($$new($BigDecimal, $($nc(temp)->subtract($BigInteger::ONE)))->divide(XMLGregorianCalendarImpl::DECIMAL_TWELVE, $RoundingMode::FLOOR)))->toBigInteger());
+	$var($BigInteger, carry, $($$new($BigDecimal, $(temp->subtract($BigInteger::ONE)))->divide(XMLGregorianCalendarImpl::DECIMAL_TWELVE, $RoundingMode::FLOOR))->toBigInteger());
 	$var($BigInteger, startYear, getEonAndYear());
 	if (startYear == nullptr) {
 		fieldUndefined->set(XMLGregorianCalendarImpl::YEAR, true);
 		$assign(startYear, $BigInteger::ZERO);
 	}
 	$var($BigInteger, dYears, sanitize($(duration->getField($DatatypeConstants::YEARS)), signum));
-	$var($BigInteger, endYear, $nc($($nc(startYear)->add(dYears)))->add(carry));
+	$var($BigInteger, endYear, $($nc(startYear)->add(dYears))->add(carry));
 	setYear(endYear);
 	$var($BigDecimal, startSeconds, nullptr);
 	if (getSecond() == $DatatypeConstants::FIELD_UNDEFINED) {
@@ -1090,18 +912,18 @@ void XMLGregorianCalendarImpl::add($Duration* duration) {
 	} else {
 		$assign(startSeconds, getSeconds());
 	}
-	$var($BigDecimal, dSeconds, $DurationImpl::sanitize($cast($BigDecimal, $(duration->getField($DatatypeConstants::SECONDS))), signum));
+	$var($BigDecimal, dSeconds, $DurationImpl::sanitize($$cast($BigDecimal, duration->getField($DatatypeConstants::SECONDS)), signum));
 	$var($BigDecimal, tempBD, $nc(startSeconds)->add(dSeconds));
-	$var($BigDecimal, fQuotient, $new($BigDecimal, $($nc($($$new($BigDecimal, $($nc(tempBD)->toBigInteger()))->divide(XMLGregorianCalendarImpl::DECIMAL_SIXTY, $RoundingMode::FLOOR)))->toBigInteger())));
-	$var($BigDecimal, endSeconds, $nc(tempBD)->subtract($(fQuotient->multiply(XMLGregorianCalendarImpl::DECIMAL_SIXTY))));
+	$var($BigDecimal, fQuotient, $new($BigDecimal, $($($$new($BigDecimal, $(tempBD->toBigInteger()))->divide(XMLGregorianCalendarImpl::DECIMAL_SIXTY, $RoundingMode::FLOOR))->toBigInteger())));
+	$var($BigDecimal, endSeconds, tempBD->subtract($(fQuotient->multiply(XMLGregorianCalendarImpl::DECIMAL_SIXTY))));
 	$assign(carry, fQuotient->toBigInteger());
-	setSecond($nc(endSeconds)->intValue());
-	$var($BigDecimal, tempFracSeconds, $nc(endSeconds)->subtract($$new($BigDecimal, $($BigInteger::valueOf((int64_t)getSecond())))));
-	if ($nc(tempFracSeconds)->compareTo(XMLGregorianCalendarImpl::DECIMAL_ZERO) < 0) {
-		setFractionalSecond($($nc(XMLGregorianCalendarImpl::DECIMAL_ONE)->add(tempFracSeconds)));
+	setSecond(endSeconds->intValue());
+	$var($BigDecimal, tempFracSeconds, endSeconds->subtract($$new($BigDecimal, $($BigInteger::valueOf((int64_t)getSecond())))));
+	if (tempFracSeconds->compareTo(XMLGregorianCalendarImpl::DECIMAL_ZERO) < 0) {
+		setFractionalSecond($(XMLGregorianCalendarImpl::DECIMAL_ONE->add(tempFracSeconds)));
 		if (getSecond() == 0) {
 			setSecond(59);
-			$assign(carry, $nc(carry)->subtract($BigInteger::ONE));
+			$assign(carry, carry->subtract($BigInteger::ONE));
 		} else {
 			setSecond(getSecond() - 1);
 		}
@@ -1114,18 +936,18 @@ void XMLGregorianCalendarImpl::add($Duration* duration) {
 		startMinutes = 0;
 	}
 	$var($BigInteger, dMinutes, sanitize($(duration->getField($DatatypeConstants::MINUTES)), signum));
-	$assign(temp, $nc($($nc($($BigInteger::valueOf((int64_t)startMinutes)))->add(dMinutes)))->add(carry));
-	setMinute($nc($($nc(temp)->mod(XMLGregorianCalendarImpl::SIXTY)))->intValue());
-	$assign(carry, $nc($($$new($BigDecimal, temp)->divide(XMLGregorianCalendarImpl::DECIMAL_SIXTY, $RoundingMode::FLOOR)))->toBigInteger());
+	$assign(temp, $($($BigInteger::valueOf(startMinutes))->add(dMinutes))->add(carry));
+	setMinute($(temp->mod(XMLGregorianCalendarImpl::SIXTY))->intValue());
+	$assign(carry, $($$new($BigDecimal, temp)->divide(XMLGregorianCalendarImpl::DECIMAL_SIXTY, $RoundingMode::FLOOR))->toBigInteger());
 	int32_t startHours = getHour();
 	if (startHours == $DatatypeConstants::FIELD_UNDEFINED) {
 		fieldUndefined->set(XMLGregorianCalendarImpl::HOUR, true);
 		startHours = 0;
 	}
 	$var($BigInteger, dHours, sanitize($(duration->getField($DatatypeConstants::HOURS)), signum));
-	$assign(temp, $nc($($nc($($BigInteger::valueOf((int64_t)startHours)))->add(dHours)))->add(carry));
-	setHour($nc($($nc(temp)->mod(XMLGregorianCalendarImpl::TWENTY_FOUR)))->intValue(), false);
-	$assign(carry, $nc($($$new($BigDecimal, temp)->divide(XMLGregorianCalendarImpl::DECIMAL_TWENTY_FOUR, $RoundingMode::FLOOR)))->toBigInteger());
+	$assign(temp, $($($BigInteger::valueOf(startHours))->add(dHours))->add(carry));
+	setHour($(temp->mod(XMLGregorianCalendarImpl::TWENTY_FOUR))->intValue(), false);
+	$assign(carry, $($$new($BigDecimal, temp)->divide(XMLGregorianCalendarImpl::DECIMAL_TWENTY_FOUR, $RoundingMode::FLOOR))->toBigInteger());
 	$var($BigInteger, tempDays, nullptr);
 	int32_t startDay = getDay();
 	if (startDay == $DatatypeConstants::FIELD_UNDEFINED) {
@@ -1136,31 +958,31 @@ void XMLGregorianCalendarImpl::add($Duration* duration) {
 	$var($BigInteger, var$0, getEonAndYear());
 	int32_t maxDayInMonth = maximumDayInMonthFor(var$0, getMonth());
 	if (startDay > maxDayInMonth) {
-		$assign(tempDays, $BigInteger::valueOf((int64_t)maxDayInMonth));
+		$assign(tempDays, $BigInteger::valueOf(maxDayInMonth));
 	} else if (startDay < 1) {
 		$assign(tempDays, $BigInteger::ONE);
 	} else {
-		$assign(tempDays, $BigInteger::valueOf((int64_t)startDay));
+		$assign(tempDays, $BigInteger::valueOf(startDay));
 	}
-	$var($BigInteger, endDays, $nc($($nc(tempDays)->add(dDays)))->add(carry));
+	$var($BigInteger, endDays, $($nc(tempDays)->add(dDays))->add(carry));
 	int32_t monthCarry = 0;
 	int32_t intTemp = 0;
 	while (true) {
-		if ($nc(endDays)->compareTo($BigInteger::ONE) < 0) {
+		if (endDays->compareTo($BigInteger::ONE) < 0) {
 			$var($BigInteger, mdimf, nullptr);
 			if (this->month >= 2) {
 				$var($BigInteger, var$1, getEonAndYear());
-				$assign(mdimf, $BigInteger::valueOf((int64_t)maximumDayInMonthFor(var$1, getMonth() - 1)));
+				$assign(mdimf, $BigInteger::valueOf(maximumDayInMonthFor(var$1, getMonth() - 1)));
 			} else {
-				$assign(mdimf, $BigInteger::valueOf((int64_t)maximumDayInMonthFor($($nc($(getEonAndYear()))->subtract($BigInteger::ONE)), 12)));
+				$assign(mdimf, $BigInteger::valueOf(maximumDayInMonthFor($($$nc(getEonAndYear())->subtract($BigInteger::ONE)), 12)));
 			}
 			$assign(endDays, endDays->add(mdimf));
 			monthCarry = -1;
 		} else {
-			$var($BigInteger, var$3, getEonAndYear());
-			if (endDays->compareTo($($BigInteger::valueOf((int64_t)maximumDayInMonthFor(var$3, getMonth())))) > 0) {
-				$var($BigInteger, var$4, getEonAndYear());
-				$assign(endDays, endDays->add($($BigInteger::valueOf((int64_t)(-(int64_t)maximumDayInMonthFor(var$4, getMonth()))))));
+			$var($BigInteger, var$2, getEonAndYear());
+			if (endDays->compareTo($($BigInteger::valueOf(maximumDayInMonthFor(var$2, getMonth())))) > 0) {
+				$var($BigInteger, var$3, getEonAndYear());
+				$assign(endDays, endDays->add($($BigInteger::valueOf(-maximumDayInMonthFor(var$3, getMonth())))));
 				monthCarry = 1;
 			} else {
 				break;
@@ -1171,51 +993,39 @@ void XMLGregorianCalendarImpl::add($Duration* duration) {
 		int32_t quotient = 0;
 		if (endMonth < 0) {
 			endMonth = (13 - 1) + endMonth + 1;
-			quotient = $nc($($nc($($BigDecimal::valueOf((int64_t)(intTemp - 1))))->divide(XMLGregorianCalendarImpl::DECIMAL_TWELVE, $RoundingMode::UP)))->intValue();
+			quotient = $($($BigDecimal::valueOf((int64_t)(intTemp - 1)))->divide(XMLGregorianCalendarImpl::DECIMAL_TWELVE, $RoundingMode::UP))->intValue();
 		} else {
 			quotient = $div((intTemp - 1), (13 - 1));
 			endMonth += 1;
 		}
 		setMonth(endMonth);
 		if (quotient != 0) {
-			setYear($($nc($(getEonAndYear()))->add($($BigInteger::valueOf((int64_t)quotient)))));
+			setYear($($$nc(getEonAndYear())->add($($BigInteger::valueOf(quotient)))));
 		}
 	}
-	setDay($nc(endDays)->intValue());
+	setDay(endDays->intValue());
 	for (int32_t i = XMLGregorianCalendarImpl::YEAR; i <= XMLGregorianCalendarImpl::SECOND; ++i) {
 		if (fieldUndefined->get(i)) {
 			switch (i) {
 			case XMLGregorianCalendarImpl::YEAR:
-				{
-					setYear($DatatypeConstants::FIELD_UNDEFINED);
-					break;
-				}
+				setYear($DatatypeConstants::FIELD_UNDEFINED);
+				break;
 			case XMLGregorianCalendarImpl::MONTH:
-				{
-					setMonth($DatatypeConstants::FIELD_UNDEFINED);
-					break;
-				}
+				setMonth($DatatypeConstants::FIELD_UNDEFINED);
+				break;
 			case XMLGregorianCalendarImpl::DAY:
-				{
-					setDay($DatatypeConstants::FIELD_UNDEFINED);
-					break;
-				}
+				setDay($DatatypeConstants::FIELD_UNDEFINED);
+				break;
 			case XMLGregorianCalendarImpl::HOUR:
-				{
-					setHour($DatatypeConstants::FIELD_UNDEFINED, false);
-					break;
-				}
+				setHour($DatatypeConstants::FIELD_UNDEFINED, false);
+				break;
 			case XMLGregorianCalendarImpl::MINUTE:
-				{
-					setMinute($DatatypeConstants::FIELD_UNDEFINED);
-					break;
-				}
+				setMinute($DatatypeConstants::FIELD_UNDEFINED);
+				break;
 			case XMLGregorianCalendarImpl::SECOND:
-				{
-					setSecond($DatatypeConstants::FIELD_UNDEFINED);
-					setFractionalSecond(nullptr);
-					break;
-				}
+				setSecond($DatatypeConstants::FIELD_UNDEFINED);
+				setFractionalSecond(nullptr);
+				break;
 			}
 		}
 	}
@@ -1223,18 +1033,18 @@ void XMLGregorianCalendarImpl::add($Duration* duration) {
 
 int32_t XMLGregorianCalendarImpl::maximumDayInMonthFor($BigInteger* year, int32_t month) {
 	$init(XMLGregorianCalendarImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (month != $DatatypeConstants::FEBRUARY) {
 		$init($XMLGregorianCalendarImpl$DaysInMonth);
 		return $nc($XMLGregorianCalendarImpl$DaysInMonth::table)->get(month);
 	} else {
 		$init($BigInteger);
-		bool var$2 = $nc($($nc(year)->mod(XMLGregorianCalendarImpl::FOUR_HUNDRED)))->equals($BigInteger::ZERO);
-		if (!var$2) {
-			bool var$3 = !$nc($($nc(year)->mod(XMLGregorianCalendarImpl::HUNDRED)))->equals($BigInteger::ZERO);
-			var$2 = (var$3 && $nc($(year->mod(XMLGregorianCalendarImpl::FOUR)))->equals($BigInteger::ZERO));
+		bool var$0 = $($nc(year)->mod(XMLGregorianCalendarImpl::FOUR_HUNDRED))->equals($BigInteger::ZERO);
+		if (!var$0) {
+			bool var$1 = !$(year->mod(XMLGregorianCalendarImpl::HUNDRED))->equals($BigInteger::ZERO);
+			var$0 = var$1 && $(year->mod(XMLGregorianCalendarImpl::FOUR))->equals($BigInteger::ZERO);
 		}
-		if (var$2) {
+		if (var$0) {
 			return 29;
 		} else {
 			$init($XMLGregorianCalendarImpl$DaysInMonth);
@@ -1257,7 +1067,7 @@ int32_t XMLGregorianCalendarImpl::maximumDayInMonthFor(int32_t year, int32_t mon
 }
 
 $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GregorianCalendar, result, nullptr);
 	int32_t DEFAULT_TIMEZONE_OFFSET = $DatatypeConstants::FIELD_UNDEFINED;
 	$var($TimeZone, tz, getTimeZone(DEFAULT_TIMEZONE_OFFSET));
@@ -1272,7 +1082,7 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar() {
 		} else {
 			$var($BigInteger, eonAndYear, getEonAndYear());
 			result->set($Calendar::ERA, $nc(eonAndYear)->signum() == -1 ? $GregorianCalendar::BC : $GregorianCalendar::AD);
-			result->set($Calendar::YEAR, $nc($($nc(eonAndYear)->abs()))->intValue());
+			result->set($Calendar::YEAR, $(eonAndYear->abs())->intValue());
 		}
 	}
 	if (this->month != $DatatypeConstants::FIELD_UNDEFINED) {
@@ -1297,7 +1107,7 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar() {
 }
 
 $Locale* XMLGregorianCalendarImpl::getDefaultLocale() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, lang, $SecuritySupport::getSystemProperty("user.language.format"_s));
 	$var($String, country, $SecuritySupport::getSystemProperty("user.country.format"_s));
 	$var($String, variant, $SecuritySupport::getSystemProperty("user.variant.format"_s));
@@ -1320,7 +1130,7 @@ $Locale* XMLGregorianCalendarImpl::getDefaultLocale() {
 }
 
 $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* timezone, $Locale* aLocale$renamed, $XMLGregorianCalendar* defaults) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, aLocale, aLocale$renamed);
 	$var($GregorianCalendar, result, nullptr);
 	$var($TimeZone, tz, timezone);
@@ -1344,7 +1154,7 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* tim
 		} else {
 			$var($BigInteger, eonAndYear, getEonAndYear());
 			result->set($Calendar::ERA, $nc(eonAndYear)->signum() == -1 ? $GregorianCalendar::BC : $GregorianCalendar::AD);
-			result->set($Calendar::YEAR, $nc($($nc(eonAndYear)->abs()))->intValue());
+			result->set($Calendar::YEAR, $(eonAndYear->abs())->intValue());
 		}
 	} else if (defaults != nullptr) {
 		int32_t defaultYear = defaults->getYear();
@@ -1355,14 +1165,14 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* tim
 			} else {
 				$var($BigInteger, defaultEonAndYear, defaults->getEonAndYear());
 				result->set($Calendar::ERA, $nc(defaultEonAndYear)->signum() == -1 ? $GregorianCalendar::BC : $GregorianCalendar::AD);
-				result->set($Calendar::YEAR, $nc($($nc(defaultEonAndYear)->abs()))->intValue());
+				result->set($Calendar::YEAR, $(defaultEonAndYear->abs())->intValue());
 			}
 		}
 	}
 	if (this->month != $DatatypeConstants::FIELD_UNDEFINED) {
 		result->set($Calendar::MONTH, this->month - 1);
 	} else {
-		int32_t defaultMonth = (defaults != nullptr) ? $nc(defaults)->getMonth() : $DatatypeConstants::FIELD_UNDEFINED;
+		int32_t defaultMonth = (defaults != nullptr) ? defaults->getMonth() : $DatatypeConstants::FIELD_UNDEFINED;
 		if (defaultMonth != $DatatypeConstants::FIELD_UNDEFINED) {
 			result->set($Calendar::MONTH, defaultMonth - 1);
 		}
@@ -1370,7 +1180,7 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* tim
 	if (this->day != $DatatypeConstants::FIELD_UNDEFINED) {
 		result->set($Calendar::DAY_OF_MONTH, this->day);
 	} else {
-		int32_t defaultDay = (defaults != nullptr) ? $nc(defaults)->getDay() : $DatatypeConstants::FIELD_UNDEFINED;
+		int32_t defaultDay = (defaults != nullptr) ? defaults->getDay() : $DatatypeConstants::FIELD_UNDEFINED;
 		if (defaultDay != $DatatypeConstants::FIELD_UNDEFINED) {
 			result->set($Calendar::DAY_OF_MONTH, defaultDay);
 		}
@@ -1378,7 +1188,7 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* tim
 	if (this->hour != $DatatypeConstants::FIELD_UNDEFINED) {
 		result->set($Calendar::HOUR_OF_DAY, this->hour);
 	} else {
-		int32_t defaultHour = (defaults != nullptr) ? $nc(defaults)->getHour() : $DatatypeConstants::FIELD_UNDEFINED;
+		int32_t defaultHour = (defaults != nullptr) ? defaults->getHour() : $DatatypeConstants::FIELD_UNDEFINED;
 		if (defaultHour != $DatatypeConstants::FIELD_UNDEFINED) {
 			result->set($Calendar::HOUR_OF_DAY, defaultHour);
 		}
@@ -1386,7 +1196,7 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* tim
 	if (this->minute != $DatatypeConstants::FIELD_UNDEFINED) {
 		result->set($Calendar::MINUTE, this->minute);
 	} else {
-		int32_t defaultMinute = (defaults != nullptr) ? $nc(defaults)->getMinute() : $DatatypeConstants::FIELD_UNDEFINED;
+		int32_t defaultMinute = (defaults != nullptr) ? defaults->getMinute() : $DatatypeConstants::FIELD_UNDEFINED;
 		if (defaultMinute != $DatatypeConstants::FIELD_UNDEFINED) {
 			result->set($Calendar::MINUTE, defaultMinute);
 		}
@@ -1394,7 +1204,7 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* tim
 	if (this->second != $DatatypeConstants::FIELD_UNDEFINED) {
 		result->set($Calendar::SECOND, this->second);
 	} else {
-		int32_t defaultSecond = (defaults != nullptr) ? $nc(defaults)->getSecond() : $DatatypeConstants::FIELD_UNDEFINED;
+		int32_t defaultSecond = (defaults != nullptr) ? defaults->getSecond() : $DatatypeConstants::FIELD_UNDEFINED;
 		if (defaultSecond != $DatatypeConstants::FIELD_UNDEFINED) {
 			result->set($Calendar::SECOND, defaultSecond);
 		}
@@ -1402,16 +1212,16 @@ $GregorianCalendar* XMLGregorianCalendarImpl::toGregorianCalendar($TimeZone* tim
 	if (this->fractionalSecond != nullptr) {
 		result->set($Calendar::MILLISECOND, getMillisecond());
 	} else {
-		$var($BigDecimal, defaultFractionalSecond, (defaults != nullptr) ? $nc(defaults)->getFractionalSecond() : ($BigDecimal*)nullptr);
+		$var($BigDecimal, defaultFractionalSecond, (defaults != nullptr) ? defaults->getFractionalSecond() : ($BigDecimal*)nullptr);
 		if (defaultFractionalSecond != nullptr) {
-			result->set($Calendar::MILLISECOND, defaults->getMillisecond());
+			result->set($Calendar::MILLISECOND, $nc(defaults)->getMillisecond());
 		}
 	}
 	return result;
 }
 
 $TimeZone* XMLGregorianCalendarImpl::getTimeZone(int32_t defaultZoneoffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TimeZone, result, nullptr);
 	int32_t zoneoffset = getTimezone();
 	if (zoneoffset == $DatatypeConstants::FIELD_UNDEFINED) {
@@ -1471,11 +1281,11 @@ void XMLGregorianCalendarImpl::setMillisecond(int32_t millisecond) {
 }
 
 void XMLGregorianCalendarImpl::setFractionalSecond($BigDecimal* fractional) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fractional != nullptr) {
-		bool var$0 = (fractional->compareTo(XMLGregorianCalendarImpl::DECIMAL_ZERO) < 0);
+		bool var$0 = fractional->compareTo(XMLGregorianCalendarImpl::DECIMAL_ZERO) < 0;
 		if (var$0 || (fractional->compareTo(XMLGregorianCalendarImpl::DECIMAL_ONE) > 0)) {
-			$throwNew($IllegalArgumentException, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidFractional"_s, $$new($ObjectArray, {$($of(fractional->toString()))}))));
+			$throwNew($IllegalArgumentException, $($DatatypeMessageFormatter::formatMessage(nullptr, "InvalidFractional"_s, $$new($ObjectArray, {$(fractional->toString())}))));
 		}
 	}
 	$set(this, fractionalSecond, fractional);
@@ -1487,7 +1297,7 @@ bool XMLGregorianCalendarImpl::isDigit(char16_t ch) {
 }
 
 $String* XMLGregorianCalendarImpl::format($String* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	int32_t fidx = 0;
 	int32_t flen = $nc(format)->length();
@@ -1501,70 +1311,54 @@ $String* XMLGregorianCalendarImpl::format($String* format) {
 			int32_t offset = 0;
 			switch (format->charAt(fidx++)) {
 			case u'Y':
-				{
-					if (this->eon == nullptr) {
-						int32_t absYear = this->year;
-						if (absYear < 0) {
-							buf->append(u'-');
-							absYear = -this->year;
-						}
-						printNumber(buf, absYear, 4);
-					} else {
-						printNumber(buf, $(getEonAndYear()), 4);
+				if (this->eon == nullptr) {
+					int32_t absYear = this->year;
+					if (absYear < 0) {
+						buf->append(u'-');
+						absYear = -this->year;
 					}
-					break;
+					printNumber(buf, absYear, 4);
+				} else {
+					printNumber(buf, $(getEonAndYear()), 4);
 				}
+				break;
 			case u'M':
-				{
-					printNumber(buf, getMonth(), 2);
-					break;
-				}
+				printNumber(buf, getMonth(), 2);
+				break;
 			case u'D':
-				{
-					printNumber(buf, getDay(), 2);
-					break;
-				}
+				printNumber(buf, getDay(), 2);
+				break;
 			case u'h':
-				{
-					printNumber(buf, getHour(), 2);
-					break;
-				}
+				printNumber(buf, getHour(), 2);
+				break;
 			case u'm':
-				{
-					printNumber(buf, getMinute(), 2);
-					break;
-				}
+				printNumber(buf, getMinute(), 2);
+				break;
 			case u's':
-				{
-					printNumber(buf, getSecond(), 2);
-					if (getFractionalSecond() != nullptr) {
-						$var($String, frac, $nc($(getFractionalSecond()))->toPlainString());
-						buf->append($($nc(frac)->substring(1, frac->length())));
-					}
-					break;
+				printNumber(buf, getSecond(), 2);
+				if (getFractionalSecond() != nullptr) {
+					$var($String, frac, $$nc(getFractionalSecond())->toPlainString());
+					buf->append($(frac->substring(1, frac->length())));
 				}
+				break;
 			case u'z':
-				{
-					offset = getTimezone();
-					if (offset == 0) {
-						buf->append(u'Z');
-					} else if (offset != $DatatypeConstants::FIELD_UNDEFINED) {
-						if (offset < 0) {
-							buf->append(u'-');
-							offset *= -1;
-						} else {
-							buf->append(u'+');
-						}
-						printNumber(buf, offset / 60, 2);
-						buf->append(u':');
-						printNumber(buf, offset % 60, 2);
+				offset = getTimezone();
+				if (offset == 0) {
+					buf->append(u'Z');
+				} else if (offset != $DatatypeConstants::FIELD_UNDEFINED) {
+					if (offset < 0) {
+						buf->append(u'-');
+						offset *= -1;
+					} else {
+						buf->append(u'+');
 					}
-					break;
+					printNumber(buf, offset / 60, 2);
+					buf->append(u':');
+					printNumber(buf, offset % 60, 2);
 				}
+				break;
 			default:
-				{
-					$throwNew($InternalError);
-				}
+				$throwNew($InternalError);
 			}
 		}
 	}
@@ -1581,7 +1375,7 @@ void XMLGregorianCalendarImpl::printNumber($StringBuilder* out, int32_t number, 
 
 void XMLGregorianCalendarImpl::printNumber($StringBuilder* out, $BigInteger* number, int32_t nDigits) {
 	$var($String, s, $nc(number)->toString());
-	for (int32_t i = $nc(s)->length(); i < nDigits; ++i) {
+	for (int32_t i = s->length(); i < nDigits; ++i) {
 		$nc(out)->append(u'0');
 	}
 	$nc(out)->append(s);
@@ -1593,7 +1387,7 @@ $BigInteger* XMLGregorianCalendarImpl::sanitize($Number* value, int32_t signum) 
 		$init($BigInteger);
 		return $BigInteger::ZERO;
 	}
-	return (signum < 0) ? $nc(($cast($BigInteger, value)))->negate() : $cast($BigInteger, value);
+	return (signum < 0) ? $nc($cast($BigInteger, value))->negate() : $cast($BigInteger, value);
 }
 
 void XMLGregorianCalendarImpl::reset() {
@@ -1613,7 +1407,7 @@ void XMLGregorianCalendarImpl::readObject($ObjectInputStream* ois) {
 	save();
 }
 
-void clinit$XMLGregorianCalendarImpl($Class* class$) {
+void XMLGregorianCalendarImpl::clinit$($Class* clazz) {
 	$assignStatic(XMLGregorianCalendarImpl::BILLION_B, $new($BigInteger, "1000000000"_s));
 	$assignStatic(XMLGregorianCalendarImpl::PURE_GREGORIAN_CHANGE, $new($Date, $Long::MIN_VALUE));
 	$assignStatic(XMLGregorianCalendarImpl::FIELD_NAME, $new($StringArray, {
@@ -1627,12 +1421,12 @@ void clinit$XMLGregorianCalendarImpl($Class* class$) {
 		"Timezone"_s
 	}));
 	$assignStatic(XMLGregorianCalendarImpl::LEAP_YEAR_DEFAULT, XMLGregorianCalendarImpl::createDateTime(400, $DatatypeConstants::JANUARY, 1, 0, 0, 0, $DatatypeConstants::FIELD_UNDEFINED, $DatatypeConstants::FIELD_UNDEFINED));
-	$assignStatic(XMLGregorianCalendarImpl::FOUR, $BigInteger::valueOf((int64_t)4));
-	$assignStatic(XMLGregorianCalendarImpl::HUNDRED, $BigInteger::valueOf((int64_t)100));
-	$assignStatic(XMLGregorianCalendarImpl::FOUR_HUNDRED, $BigInteger::valueOf((int64_t)400));
-	$assignStatic(XMLGregorianCalendarImpl::SIXTY, $BigInteger::valueOf((int64_t)60));
-	$assignStatic(XMLGregorianCalendarImpl::TWENTY_FOUR, $BigInteger::valueOf((int64_t)24));
-	$assignStatic(XMLGregorianCalendarImpl::TWELVE, $BigInteger::valueOf((int64_t)12));
+	$assignStatic(XMLGregorianCalendarImpl::FOUR, $BigInteger::valueOf(4));
+	$assignStatic(XMLGregorianCalendarImpl::HUNDRED, $BigInteger::valueOf(100));
+	$assignStatic(XMLGregorianCalendarImpl::FOUR_HUNDRED, $BigInteger::valueOf(400));
+	$assignStatic(XMLGregorianCalendarImpl::SIXTY, $BigInteger::valueOf(60));
+	$assignStatic(XMLGregorianCalendarImpl::TWENTY_FOUR, $BigInteger::valueOf(24));
+	$assignStatic(XMLGregorianCalendarImpl::TWELVE, $BigInteger::valueOf(12));
 	$assignStatic(XMLGregorianCalendarImpl::DECIMAL_ZERO, $BigDecimal::valueOf((int64_t)0));
 	$assignStatic(XMLGregorianCalendarImpl::DECIMAL_ONE, $BigDecimal::valueOf((int64_t)1));
 	$assignStatic(XMLGregorianCalendarImpl::DECIMAL_TWELVE, $BigDecimal::valueOf((int64_t)12));
@@ -1644,7 +1438,150 @@ XMLGregorianCalendarImpl::XMLGregorianCalendarImpl() {
 }
 
 $Class* XMLGregorianCalendarImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLGregorianCalendarImpl, name, initialize, &_XMLGregorianCalendarImpl_ClassInfo_, clinit$XMLGregorianCalendarImpl, allocate$XMLGregorianCalendarImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"orig_eon", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_eon)},
+		{"orig_year", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_year)},
+		{"orig_month", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_month)},
+		{"orig_day", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_day)},
+		{"orig_hour", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_hour)},
+		{"orig_minute", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_minute)},
+		{"orig_second", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_second)},
+		{"orig_fracSeconds", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_fracSeconds)},
+		{"orig_timezone", "I", nullptr, $PRIVATE | $TRANSIENT, $field(XMLGregorianCalendarImpl, orig_timezone)},
+		{"eon", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, eon)},
+		{"year", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, year)},
+		{"month", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, month)},
+		{"day", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, day)},
+		{"timezone", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, timezone)},
+		{"hour", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, hour)},
+		{"minute", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, minute)},
+		{"second", "I", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, second)},
+		{"fractionalSecond", "Ljava/math/BigDecimal;", nullptr, $PRIVATE, $field(XMLGregorianCalendarImpl, fractionalSecond)},
+		{"BILLION_B", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, BILLION_B)},
+		{"BILLION_I", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, BILLION_I)},
+		{"PURE_GREGORIAN_CHANGE", "Ljava/util/Date;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, PURE_GREGORIAN_CHANGE)},
+		{"YEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, YEAR)},
+		{"MONTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, MONTH)},
+		{"DAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, DAY)},
+		{"HOUR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, HOUR)},
+		{"MINUTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, MINUTE)},
+		{"SECOND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, SECOND)},
+		{"MILLISECOND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, MILLISECOND)},
+		{"TIMEZONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, TIMEZONE)},
+		{"FIELD_NAME", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, FIELD_NAME)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGregorianCalendarImpl, serialVersionUID)},
+		{"LEAP_YEAR_DEFAULT", "Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, LEAP_YEAR_DEFAULT)},
+		{"FOUR", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, FOUR)},
+		{"HUNDRED", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, HUNDRED)},
+		{"FOUR_HUNDRED", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, FOUR_HUNDRED)},
+		{"SIXTY", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, SIXTY)},
+		{"TWENTY_FOUR", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, TWENTY_FOUR)},
+		{"TWELVE", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, TWELVE)},
+		{"DECIMAL_ZERO", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_ZERO)},
+		{"DECIMAL_ONE", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_ONE)},
+		{"DECIMAL_TWELVE", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_TWELVE)},
+		{"DECIMAL_TWENTY_FOUR", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_TWENTY_FOUR)},
+		{"DECIMAL_SIXTY", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLGregorianCalendarImpl, DECIMAL_SIXTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(XMLGregorianCalendarImpl, init$, void, $String*), "java.lang.IllegalArgumentException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLGregorianCalendarImpl, init$, void)},
+		{"<init>", "(Ljava/math/BigInteger;IIIIILjava/math/BigDecimal;I)V", nullptr, $PROTECTED, $method(XMLGregorianCalendarImpl, init$, void, $BigInteger*, int32_t, int32_t, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
+		{"<init>", "(IIIIIIII)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/util/GregorianCalendar;)V", nullptr, $PUBLIC, $method(XMLGregorianCalendarImpl, init$, void, $GregorianCalendar*)},
+		{"add", "(Ljavax/xml/datatype/Duration;)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, add, void, $Duration*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, clone, $Object*)},
+		{"compare", "(Ljavax/xml/datatype/XMLGregorianCalendar;)I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, compare, int32_t, $XMLGregorianCalendar*)},
+		{"compareField", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, compareField, int32_t, int32_t, int32_t)},
+		{"compareField", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, compareField, int32_t, $BigInteger*, $BigInteger*)},
+		{"compareField", "(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, compareField, int32_t, $BigDecimal*, $BigDecimal*)},
+		{"createDate", "(IIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDate, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t)},
+		{"createDateTime", "(Ljava/math/BigInteger;IIIIILjava/math/BigDecimal;I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDateTime, $XMLGregorianCalendar*, $BigInteger*, int32_t, int32_t, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
+		{"createDateTime", "(IIIIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDateTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createDateTime", "(IIIIIIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createDateTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createTime", "(IIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t)},
+		{"createTime", "(IIILjava/math/BigDecimal;I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, $BigDecimal*, int32_t)},
+		{"createTime", "(IIIII)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, createTime, $XMLGregorianCalendar*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"format", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, format, $String*, $String*)},
+		{"getDay", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getDay, int32_t)},
+		{"getDefaultLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, getDefaultLocale, $Locale*)},
+		{"getEon", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getEon, $BigInteger*)},
+		{"getEonAndYear", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getEonAndYear, $BigInteger*)},
+		{"getFractionalSecond", "()Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getFractionalSecond, $BigDecimal*)},
+		{"getHour", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getHour, int32_t)},
+		{"getMillisecond", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getMillisecond, int32_t)},
+		{"getMinute", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getMinute, int32_t)},
+		{"getMonth", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getMonth, int32_t)},
+		{"getSecond", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getSecond, int32_t)},
+		{"getSeconds", "()Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, getSeconds, $BigDecimal*)},
+		{"getTimeZone", "(I)Ljava/util/TimeZone;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getTimeZone, $TimeZone*, int32_t)},
+		{"getTimezone", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getTimezone, int32_t)},
+		{"getXMLSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getXMLSchemaType, $QName*)},
+		{"getYear", "()I", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, getYear, int32_t)},
+		{"internalCompare", "(Ljavax/xml/datatype/XMLGregorianCalendar;Ljavax/xml/datatype/XMLGregorianCalendar;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, internalCompare, int32_t, $XMLGregorianCalendar*, $XMLGregorianCalendar*)},
+		{"invalidFieldValue", "(II)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, invalidFieldValue, void, int32_t, int32_t)},
+		{"isDigit", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, isDigit, bool, char16_t)},
+		{"isValid", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, isValid, bool)},
+		{"maximumDayInMonthFor", "(Ljava/math/BigInteger;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, maximumDayInMonthFor, int32_t, $BigInteger*, int32_t)},
+		{"maximumDayInMonthFor", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLGregorianCalendarImpl, maximumDayInMonthFor, int32_t, int32_t, int32_t)},
+		{"normalize", "()Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, normalize, $XMLGregorianCalendar*)},
+		{"normalizeToTimezone", "(I)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, normalizeToTimezone, $XMLGregorianCalendar*, int32_t)},
+		{"parse", "(Ljava/lang/String;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLGregorianCalendarImpl, parse, $XMLGregorianCalendar*, $String*)},
+		{"printNumber", "(Ljava/lang/StringBuilder;II)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, printNumber, void, $StringBuilder*, int32_t, int32_t)},
+		{"printNumber", "(Ljava/lang/StringBuilder;Ljava/math/BigInteger;I)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, printNumber, void, $StringBuilder*, $BigInteger*, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, reset, void)},
+		{"sanitize", "(Ljava/lang/Number;I)Ljava/math/BigInteger;", nullptr, $STATIC, $staticMethod(XMLGregorianCalendarImpl, sanitize, $BigInteger*, $Number*, int32_t)},
+		{"save", "()V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, save, void)},
+		{"setDay", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setDay, void, int32_t)},
+		{"setEon", "(Ljava/math/BigInteger;)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, setEon, void, $BigInteger*)},
+		{"setFractionalSecond", "(Ljava/math/BigDecimal;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setFractionalSecond, void, $BigDecimal*)},
+		{"setHour", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setHour, void, int32_t)},
+		{"setHour", "(IZ)V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, setHour, void, int32_t, bool)},
+		{"setMillisecond", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setMillisecond, void, int32_t)},
+		{"setMinute", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setMinute, void, int32_t)},
+		{"setMonth", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setMonth, void, int32_t)},
+		{"setSecond", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, setSecond, void, int32_t)},
+		{"setTime", "(III)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTime, void, int32_t, int32_t, int32_t)},
+		{"setTime", "(IIILjava/math/BigDecimal;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTime, void, int32_t, int32_t, int32_t, $BigDecimal*)},
+		{"setTime", "(IIII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTime, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setTimezone", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setTimezone, void, int32_t)},
+		{"setYear", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setYear, void, $BigInteger*)},
+		{"setYear", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(XMLGregorianCalendarImpl, setYear, void, int32_t)},
+		{"testHour", "()V", nullptr, $PRIVATE, $method(XMLGregorianCalendarImpl, testHour, void)},
+		{"toGregorianCalendar", "()Ljava/util/GregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, toGregorianCalendar, $GregorianCalendar*)},
+		{"toGregorianCalendar", "(Ljava/util/TimeZone;Ljava/util/Locale;Ljavax/xml/datatype/XMLGregorianCalendar;)Ljava/util/GregorianCalendar;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, toGregorianCalendar, $GregorianCalendar*, $TimeZone*, $Locale*, $XMLGregorianCalendar*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toXMLFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLGregorianCalendarImpl, toXMLFormat, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$Parser", "com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl", "Parser", $PRIVATE | $FINAL},
+		{"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$DaysInMonth", "com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl", "DaysInMonth", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl",
+		"javax.xml.datatype.XMLGregorianCalendar",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$Parser,com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl$DaysInMonth"
+	};
+	$loadClass(XMLGregorianCalendarImpl, name, initialize, &classInfo$$, XMLGregorianCalendarImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLGregorianCalendarImpl));
+	});
 	return class$;
 }
 

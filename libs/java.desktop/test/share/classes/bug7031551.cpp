@@ -1,5 +1,4 @@
 #include <bug7031551.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/DefaultComboBoxModel.h>
@@ -23,35 +22,6 @@ using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $JComboBox = ::javax::swing::JComboBox;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 
-$FieldInfo _bug7031551_FieldInfo_[] = {
-	{"TEST_ELEMENT1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug7031551, TEST_ELEMENT1)},
-	{"TEST_ELEMENT2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug7031551, TEST_ELEMENT2)},
-	{"TEST_ELEMENT3", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug7031551, TEST_ELEMENT3)},
-	{}
-};
-
-$MethodInfo _bug7031551_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7031551, init$, void)},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7031551, assertEquals, void, Object$*, Object$*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7031551, main, void, $StringArray*)},
-	{"testGenericSignatures", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7031551, testGenericSignatures, void)},
-	{"testRawSignatures", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7031551, testRawSignatures, void)},
-	{}
-};
-
-$ClassInfo _bug7031551_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7031551",
-	"java.lang.Object",
-	nullptr,
-	_bug7031551_FieldInfo_,
-	_bug7031551_MethodInfo_
-};
-
-$Object* allocate$bug7031551($Class* clazz) {
-	return $of($alloc(bug7031551));
-}
-
 $String* bug7031551::TEST_ELEMENT1 = nullptr;
 $String* bug7031551::TEST_ELEMENT2 = nullptr;
 $String* bug7031551::TEST_ELEMENT3 = nullptr;
@@ -67,11 +37,11 @@ void bug7031551::main($StringArray* args) {
 
 void bug7031551::testRawSignatures() {
 	$init(bug7031551);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComboBoxModel, rawTestModel, $new($DefaultComboBoxModel));
 	$var($JComboBox, rawTestComboBox, $new($JComboBox));
 	$assign(rawTestComboBox, $new($JComboBox, rawTestModel));
-	$assign(rawTestComboBox, $new($JComboBox, $$new($ObjectArray, {$of(bug7031551::TEST_ELEMENT1)})));
+	$assign(rawTestComboBox, $new($JComboBox, $$new($ObjectArray, {bug7031551::TEST_ELEMENT1})));
 	$assign(rawTestComboBox, $new($JComboBox, $$new($Vector)));
 	$var($Object, unused1, rawTestComboBox->getPrototypeDisplayValue());
 	rawTestComboBox->setPrototypeDisplayValue(bug7031551::TEST_ELEMENT1);
@@ -86,7 +56,7 @@ void bug7031551::testRawSignatures() {
 	rawTestComboBox->removeAllItems();
 	$var($DefaultComboBoxModel, testModel, $new($DefaultComboBoxModel));
 	$assign(testModel, $new($DefaultComboBoxModel, $$new($Vector)));
-	$assign(testModel, $new($DefaultComboBoxModel, $$new($ObjectArray, {$of(bug7031551::TEST_ELEMENT1)})));
+	$assign(testModel, $new($DefaultComboBoxModel, $$new($ObjectArray, {bug7031551::TEST_ELEMENT1})));
 	testModel->addElement(bug7031551::TEST_ELEMENT2);
 	testModel->insertElementAt(bug7031551::TEST_ELEMENT3, 1);
 	assertEquals($(testModel->getElementAt(2)), bug7031551::TEST_ELEMENT2);
@@ -94,7 +64,7 @@ void bug7031551::testRawSignatures() {
 
 void bug7031551::testGenericSignatures() {
 	$init(bug7031551);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComboBoxModel, stringTestModel, $new($DefaultComboBoxModel));
 	$var($JComboBox, stringTestComboBox, $new($JComboBox));
 	$assign(stringTestComboBox, $new($JComboBox, stringTestModel));
@@ -129,14 +99,38 @@ void bug7031551::assertEquals(Object$* expectedObject, Object$* actualObject) {
 bug7031551::bug7031551() {
 }
 
-void clinit$bug7031551($Class* class$) {
+void bug7031551::clinit$($Class* clazz) {
 	$assignStatic(bug7031551::TEST_ELEMENT1, "Test1"_s);
 	$assignStatic(bug7031551::TEST_ELEMENT2, "Test2"_s);
 	$assignStatic(bug7031551::TEST_ELEMENT3, "Test3"_s);
 }
 
 $Class* bug7031551::load$($String* name, bool initialize) {
-	$loadClass(bug7031551, name, initialize, &_bug7031551_ClassInfo_, clinit$bug7031551, allocate$bug7031551);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_ELEMENT1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug7031551, TEST_ELEMENT1)},
+		{"TEST_ELEMENT2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug7031551, TEST_ELEMENT2)},
+		{"TEST_ELEMENT3", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug7031551, TEST_ELEMENT3)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7031551, init$, void)},
+		{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7031551, assertEquals, void, Object$*, Object$*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7031551, main, void, $StringArray*)},
+		{"testGenericSignatures", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7031551, testGenericSignatures, void)},
+		{"testRawSignatures", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug7031551, testRawSignatures, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7031551",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug7031551, name, initialize, &classInfo$$, bug7031551::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7031551);
+	});
 	return class$;
 }
 

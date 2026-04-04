@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$12.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,50 +23,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$12_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$12, this$0)},
-	{"val$spMethod", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$12, val$spMethod)},
-	{}
-};
-
-$MethodInfo _Resolve$12_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Resolve$12, init$, void, $Resolve*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$12, baseSymbol, $Symbol*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$12_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve",
-	"findPolymorphicSignatureInstance",
-	"(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;"
-};
-
-$InnerClassInfo _Resolve$12_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$12", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Resolve$12_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$12",
-	"com.sun.tools.javac.code.Symbol$MethodSymbol",
-	nullptr,
-	_Resolve$12_FieldInfo_,
-	_Resolve$12_MethodInfo_,
-	nullptr,
-	&_Resolve$12_EnclosingMethodInfo_,
-	_Resolve$12_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$12($Class* clazz) {
-	return $of($alloc(Resolve$12));
-}
-
 void Resolve$12::init$($Resolve* this$0, int64_t flags, $Name* name, $Type* type, $Symbol* owner, $Symbol* val$spMethod) {
 	$set(this, this$0, this$0);
 	$set(this, val$spMethod, val$spMethod);
@@ -82,7 +37,44 @@ Resolve$12::Resolve$12() {
 }
 
 $Class* Resolve$12::load$($String* name, bool initialize) {
-	$loadClass(Resolve$12, name, initialize, &_Resolve$12_ClassInfo_, allocate$Resolve$12);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$12, this$0)},
+		{"val$spMethod", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$12, val$spMethod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Resolve$12, init$, void, $Resolve*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
+		{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$12, baseSymbol, $Symbol*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve",
+		"findPolymorphicSignatureInstance",
+		"(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$12", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$12",
+		"com.sun.tools.javac.code.Symbol$MethodSymbol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$12));
+	});
 	return class$;
 }
 

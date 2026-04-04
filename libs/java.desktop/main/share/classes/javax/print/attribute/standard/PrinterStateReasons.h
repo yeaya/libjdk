@@ -47,7 +47,7 @@ public:
 	::javax::print::attribute::standard::Severity* put(::javax::print::attribute::standard::PrinterStateReason* reason, ::javax::print::attribute::standard::Severity* severity);
 	virtual $Object* put(Object$* reason, Object$* severity) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xCC3603C7A8DA5B7F;
+	static const int64_t serialVersionUID = (int64_t)0xcc3603c7a8da5b7f;
 };
 
 			} // standard

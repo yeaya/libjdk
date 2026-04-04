@@ -27,12 +27,13 @@ class $export RemoteServer : public ::java::rmi::server::RemoteObject {
 	$class(RemoteServer, 0, ::java::rmi::server::RemoteObject)
 public:
 	RemoteServer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::rmi::server::RemoteRef* ref);
 	static $String* getClientHost();
 	static ::java::io::PrintStream* getLog();
 	static void setLog(::java::io::OutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0xC719071268F339FB;
+	static const int64_t serialVersionUID = (int64_t)0xc719071268f339fb;
 	static bool logNull;
 };
 

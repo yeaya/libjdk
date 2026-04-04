@@ -31,6 +31,7 @@ class $import DropMode : public ::java::lang::Enum {
 public:
 	DropMode();
 	static $Array<::javax::swing::DropMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::DropMode* valueOf($String* name);
 	static $Array<::javax::swing::DropMode>* values();

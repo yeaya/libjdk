@@ -1,5 +1,4 @@
 #include <javax/management/relation/InvalidRelationServiceException.h>
-
 #include <javax/management/relation/RelationException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RelationException = ::javax::management::relation::RelationException;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _InvalidRelationServiceException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidRelationServiceException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidRelationServiceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRelationServiceException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRelationServiceException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidRelationServiceException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.InvalidRelationServiceException",
-	"javax.management.relation.RelationException",
-	nullptr,
-	_InvalidRelationServiceException_FieldInfo_,
-	_InvalidRelationServiceException_MethodInfo_
-};
-
-$Object* allocate$InvalidRelationServiceException($Class* clazz) {
-	return $of($alloc(InvalidRelationServiceException));
-}
 
 void InvalidRelationServiceException::init$() {
 	$RelationException::init$();
@@ -55,7 +30,26 @@ void InvalidRelationServiceException::throw$() {
 }
 
 $Class* InvalidRelationServiceException::load$($String* name, bool initialize) {
-	$loadClass(InvalidRelationServiceException, name, initialize, &_InvalidRelationServiceException_ClassInfo_, allocate$InvalidRelationServiceException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidRelationServiceException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRelationServiceException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRelationServiceException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.InvalidRelationServiceException",
+		"javax.management.relation.RelationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidRelationServiceException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidRelationServiceException);
+	});
 	return class$;
 }
 

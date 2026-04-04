@@ -135,6 +135,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* target);
 	void init$(::sun::awt::X11::XCreateWindowParams* params);
 	virtual void changeState(int32_t newState);

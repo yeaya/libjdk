@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/SecureClassLoaderRepository.h>
-
 #include <java/lang/ClassLoader.h>
 #include <javax/management/loading/ClassLoaderRepository.h>
 #include <jcpp.h>
@@ -14,32 +13,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _SecureClassLoaderRepository_FieldInfo_[] = {
-	{"clr", "Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PRIVATE | $FINAL, $field(SecureClassLoaderRepository, clr)},
-	{}
-};
-
-$MethodInfo _SecureClassLoaderRepository_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;)V", nullptr, $PUBLIC, $method(SecureClassLoaderRepository, init$, void, $ClassLoaderRepository*)},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"loadClassBefore", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClassBefore, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
-	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClassWithout, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _SecureClassLoaderRepository_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.SecureClassLoaderRepository",
-	"java.lang.Object",
-	"javax.management.loading.ClassLoaderRepository",
-	_SecureClassLoaderRepository_FieldInfo_,
-	_SecureClassLoaderRepository_MethodInfo_
-};
-
-$Object* allocate$SecureClassLoaderRepository($Class* clazz) {
-	return $of($alloc(SecureClassLoaderRepository));
-}
 
 void SecureClassLoaderRepository::init$($ClassLoaderRepository* clr) {
 	$set(this, clr, clr);
@@ -61,7 +34,28 @@ SecureClassLoaderRepository::SecureClassLoaderRepository() {
 }
 
 $Class* SecureClassLoaderRepository::load$($String* name, bool initialize) {
-	$loadClass(SecureClassLoaderRepository, name, initialize, &_SecureClassLoaderRepository_ClassInfo_, allocate$SecureClassLoaderRepository);
+	$FieldInfo fieldInfos$$[] = {
+		{"clr", "Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PRIVATE | $FINAL, $field(SecureClassLoaderRepository, clr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;)V", nullptr, $PUBLIC, $method(SecureClassLoaderRepository, init$, void, $ClassLoaderRepository*)},
+		{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"loadClassBefore", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClassBefore, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+		{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClassWithout, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.SecureClassLoaderRepository",
+		"java.lang.Object",
+		"javax.management.loading.ClassLoaderRepository",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecureClassLoaderRepository, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecureClassLoaderRepository);
+	});
 	return class$;
 }
 

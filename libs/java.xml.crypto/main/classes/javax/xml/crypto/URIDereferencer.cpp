@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/URIDereferencer.h>
-
 #include <javax/xml/crypto/Data.h>
 #include <javax/xml/crypto/URIReference.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
@@ -15,26 +14,22 @@ namespace javax {
 	namespace xml {
 		namespace crypto {
 
-$MethodInfo _URIDereferencer_MethodInfo_[] = {
-	{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIDereferencer, dereference, $Data*, $URIReference*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
-	{}
-};
-
-$ClassInfo _URIDereferencer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.URIDereferencer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_URIDereferencer_MethodInfo_
-};
-
-$Object* allocate$URIDereferencer($Class* clazz) {
-	return $of($alloc(URIDereferencer));
-}
-
 $Class* URIDereferencer::load$($String* name, bool initialize) {
-	$loadClass(URIDereferencer, name, initialize, &_URIDereferencer_ClassInfo_, allocate$URIDereferencer);
+	$MethodInfo methodInfos$$[] = {
+		{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIDereferencer, dereference, $Data*, $URIReference*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.URIDereferencer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(URIDereferencer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URIDereferencer);
+	});
 	return class$;
 }
 

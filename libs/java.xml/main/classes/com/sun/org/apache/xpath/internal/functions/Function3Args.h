@@ -47,7 +47,7 @@ public:
 	virtual ::com::sun::org::apache::xpath::internal::Expression* getArg2();
 	virtual void reportWrongNumberArgs() override;
 	virtual void setArg(::com::sun::org::apache::xpath::internal::Expression* arg, int32_t argNum) override;
-	static const int64_t serialVersionUID = (int64_t)0x6DD89585D6425356;
+	static const int64_t serialVersionUID = (int64_t)0x6dd89585d6425356;
 	::com::sun::org::apache::xpath::internal::Expression* m_arg2 = nullptr;
 };
 

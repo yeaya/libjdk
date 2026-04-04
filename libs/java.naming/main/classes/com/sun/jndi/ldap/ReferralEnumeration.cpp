@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/ReferralEnumeration.h>
-
 #include <com/sun/jndi/ldap/LdapReferralException.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$MethodInfo _ReferralEnumeration_MethodInfo_[] = {
-	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferralEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
-	{}
-};
-
-$ClassInfo _ReferralEnumeration_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.jndi.ldap.ReferralEnumeration",
-	nullptr,
-	"javax.naming.NamingEnumeration",
-	nullptr,
-	_ReferralEnumeration_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/naming/NamingEnumeration<TT;>;"
-};
-
-$Object* allocate$ReferralEnumeration($Class* clazz) {
-	return $of($alloc(ReferralEnumeration));
-}
-
 $Class* ReferralEnumeration::load$($String* name, bool initialize) {
-	$loadClass(ReferralEnumeration, name, initialize, &_ReferralEnumeration_ClassInfo_, allocate$ReferralEnumeration);
+	$MethodInfo methodInfos$$[] = {
+		{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferralEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.jndi.ldap.ReferralEnumeration",
+		nullptr,
+		"javax.naming.NamingEnumeration",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/naming/NamingEnumeration<TT;>;"
+	};
+	$loadClass(ReferralEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferralEnumeration);
+	});
 	return class$;
 }
 

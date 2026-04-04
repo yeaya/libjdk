@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/PangoFonts.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -19,7 +18,6 @@
 
 using $Font = ::java::awt::Font;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Toolkit = ::java::awt::Toolkit;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
@@ -40,32 +38,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _PangoFonts_FieldInfo_[] = {
-	{"CHARS_DIGITS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PangoFonts, CHARS_DIGITS)},
-	{"fontScale", "D", nullptr, $PRIVATE | $STATIC, $staticField(PangoFonts, fontScale)},
-	{}
-};
-
-$MethodInfo _PangoFonts_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PangoFonts, init$, void)},
-	{"getFontSize", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(PangoFonts, getFontSize, int32_t, $String*)},
-	{"lookupFont", "(Ljava/lang/String;)Ljava/awt/Font;", nullptr, $STATIC, $staticMethod(PangoFonts, lookupFont, $Font*, $String*)},
-	{}
-};
-
-$ClassInfo _PangoFonts_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.PangoFonts",
-	"java.lang.Object",
-	nullptr,
-	_PangoFonts_FieldInfo_,
-	_PangoFonts_MethodInfo_
-};
-
-$Object* allocate$PangoFonts($Class* clazz) {
-	return $of($alloc(PangoFonts));
-}
-
 $String* PangoFonts::CHARS_DIGITS = nullptr;
 double PangoFonts::fontScale = 0.0;
 
@@ -74,7 +46,7 @@ void PangoFonts::init$() {
 
 $Font* PangoFonts::lookupFont($String* pangoName) {
 	$init(PangoFonts);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, family, ""_s);
 	int32_t style = $Font::PLAIN;
 	int32_t size = 10;
@@ -85,25 +57,23 @@ $Font* PangoFonts::lookupFont($String* pangoName) {
 			style |= $Font::ITALIC;
 		} else if (word->equalsIgnoreCase("bold"_s)) {
 			style |= $Font::BOLD;
-		} else {
-			if ($nc(PangoFonts::CHARS_DIGITS)->indexOf((int32_t)word->charAt(0)) != -1) {
-				try {
-					size = $Integer::parseInt(word);
-				} catch ($NumberFormatException& ex) {
-				}
-			} else {
-				if (family->length() > 0) {
-					$plusAssign(family, " "_s);
-				}
-				$plusAssign(family, word);
+		} else if (PangoFonts::CHARS_DIGITS->indexOf(word->charAt(0)) != -1) {
+			try {
+				size = $Integer::parseInt(word);
+			} catch ($NumberFormatException& ex) {
 			}
+		} else {
+			if (family->length() > 0) {
+				$plusAssign(family, " "_s);
+			}
+			$plusAssign(family, word);
 		}
 	}
 	double dsize = (double)size;
 	int32_t dpi = 96;
-	$var($Object, value, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("gnome.Xft/DPI"_s));
+	$var($Object, value, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("gnome.Xft/DPI"_s));
 	if ($instanceOf($Integer, value)) {
-		dpi = $nc(($cast($Integer, value)))->intValue() / 1024;
+		dpi = $cast($Integer, value)->intValue() / 1024;
 		if (dpi == -1) {
 			dpi = 96;
 		}
@@ -133,12 +103,12 @@ $Font* PangoFonts::lookupFont($String* pangoName) {
 
 int32_t PangoFonts::getFontSize($String* pangoName) {
 	$init(PangoFonts);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 10;
 	$var($StringTokenizer, tok, $new($StringTokenizer, pangoName));
 	while (tok->hasMoreTokens()) {
 		$var($String, word, tok->nextToken());
-		if ($nc(PangoFonts::CHARS_DIGITS)->indexOf((int32_t)$nc(word)->charAt(0)) != -1) {
+		if (PangoFonts::CHARS_DIGITS->indexOf($nc(word)->charAt(0)) != -1) {
 			try {
 				size = $Integer::parseInt(word);
 			} catch ($NumberFormatException& ex) {
@@ -148,14 +118,14 @@ int32_t PangoFonts::getFontSize($String* pangoName) {
 	return size;
 }
 
-void clinit$PangoFonts($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PangoFonts::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(PangoFonts::CHARS_DIGITS, "0123456789"_s);
 	{
 		PangoFonts::fontScale = 1.0;
 		$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 		if (!$GraphicsEnvironment::isHeadless()) {
-			$var($GraphicsConfiguration, gc, $nc($($nc(ge)->getDefaultScreenDevice()))->getDefaultConfiguration());
+			$var($GraphicsConfiguration, gc, $$nc($nc(ge)->getDefaultScreenDevice())->getDefaultConfiguration());
 			$var($AffineTransform, at, $nc(gc)->getNormalizingTransform());
 			PangoFonts::fontScale = $nc(at)->getScaleY();
 		}
@@ -166,7 +136,28 @@ PangoFonts::PangoFonts() {
 }
 
 $Class* PangoFonts::load$($String* name, bool initialize) {
-	$loadClass(PangoFonts, name, initialize, &_PangoFonts_ClassInfo_, clinit$PangoFonts, allocate$PangoFonts);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARS_DIGITS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PangoFonts, CHARS_DIGITS)},
+		{"fontScale", "D", nullptr, $PRIVATE | $STATIC, $staticField(PangoFonts, fontScale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PangoFonts, init$, void)},
+		{"getFontSize", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(PangoFonts, getFontSize, int32_t, $String*)},
+		{"lookupFont", "(Ljava/lang/String;)Ljava/awt/Font;", nullptr, $STATIC, $staticMethod(PangoFonts, lookupFont, $Font*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.PangoFonts",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PangoFonts, name, initialize, &classInfo$$, PangoFonts::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PangoFonts);
+	});
 	return class$;
 }
 

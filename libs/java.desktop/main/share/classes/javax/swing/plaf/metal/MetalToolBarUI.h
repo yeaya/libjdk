@@ -66,6 +66,7 @@ class $export MetalToolBarUI : public ::javax::swing::plaf::basic::BasicToolBarU
 	$class(MetalToolBarUI, 0, ::javax::swing::plaf::basic::BasicToolBarUI)
 public:
 	MetalToolBarUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::event::ContainerListener* createContainerListener();
 	virtual ::javax::swing::event::MouseInputListener* createDockingListener() override;

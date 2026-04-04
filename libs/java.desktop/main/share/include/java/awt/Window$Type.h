@@ -21,6 +21,7 @@ class $import Window$Type : public ::java::lang::Enum {
 public:
 	Window$Type();
 	static $Array<::java::awt::Window$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::Window$Type* valueOf($String* name);
 	static $Array<::java::awt::Window$Type>* values();

@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ClientNotifForwarder$LinearExecutor.h>
-
 #include <com/sun/jmx/remote/internal/ClientNotifForwarder.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -37,97 +36,57 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$execute$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0>());
-	}
 	ClientNotifForwarder$LinearExecutor* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, inst$)},
-	{}
-};
-$MethodInfo ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder$LinearExecutor;)V", nullptr, $PUBLIC, $method(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, init$, void, ClientNotifForwarder$LinearExecutor*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, run, void)},
-	{}
-};
-$ClassInfo ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::load$($String* name, bool initialize) {
-	$loadClass(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder$LinearExecutor;)V", nullptr, $PUBLIC, $method(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, init$, void, ClientNotifForwarder$LinearExecutor*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0);
+	});
 	return class$;
 }
 $Class* ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::class$ = nullptr;
-
-$FieldInfo _ClientNotifForwarder$LinearExecutor_FieldInfo_[] = {
-	{"command", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(ClientNotifForwarder$LinearExecutor, command)},
-	{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ClientNotifForwarder$LinearExecutor, thread)},
-	{}
-};
-
-$MethodInfo _ClientNotifForwarder$LinearExecutor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClientNotifForwarder$LinearExecutor, init$, void)},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder$LinearExecutor, execute, void, $Runnable*)},
-	{"lambda$execute$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClientNotifForwarder$LinearExecutor, lambda$execute$0, void)},
-	{}
-};
-
-$InnerClassInfo _ClientNotifForwarder$LinearExecutor_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor", "com.sun.jmx.remote.internal.ClientNotifForwarder", "LinearExecutor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ClientNotifForwarder$LinearExecutor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor",
-	"java.lang.Object",
-	"java.util.concurrent.Executor",
-	_ClientNotifForwarder$LinearExecutor_FieldInfo_,
-	_ClientNotifForwarder$LinearExecutor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientNotifForwarder$LinearExecutor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ClientNotifForwarder"
-};
-
-$Object* allocate$ClientNotifForwarder$LinearExecutor($Class* clazz) {
-	return $of($alloc(ClientNotifForwarder$LinearExecutor));
-}
 
 void ClientNotifForwarder$LinearExecutor::init$() {
 }
 
 void ClientNotifForwarder$LinearExecutor::execute($Runnable* command) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->command != nullptr) {
 			$throwNew($IllegalArgumentException, "More than one command"_s);
 		}
 		$set(this, command, command);
 		if (this->thread == nullptr) {
-			$var($String, var$0, "ClientNotifForwarder-"_s);
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("ClientNotifForwarder-"_s);
 			$init($ClientNotifForwarder);
-			$set(this, thread, $new($Thread, nullptr, static_cast<$Runnable*>($$new(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, this)), $$concat(var$0, $$str(++$ClientNotifForwarder::threadId)), 0, false));
-			$nc(this->thread)->setDaemon(true);
-			$nc(this->thread)->start();
+			var$0->append(++$ClientNotifForwarder::threadId);
+			$set(this, thread, $new($Thread, nullptr, $$new(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, this), $$str(var$0), 0, false));
+			this->thread->setDaemon(true);
+			this->thread->start();
 		}
 	}
 }
 
 void ClientNotifForwarder$LinearExecutor::lambda$execute$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		$var($Runnable, r, nullptr);
 		$synchronized(this) {
@@ -148,11 +107,43 @@ ClientNotifForwarder$LinearExecutor::ClientNotifForwarder$LinearExecutor() {
 
 $Class* ClientNotifForwarder$LinearExecutor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::classInfo$.name)) {
+		if (name->equals("com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0")) {
 			return ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ClientNotifForwarder$LinearExecutor, name, initialize, &_ClientNotifForwarder$LinearExecutor_ClassInfo_, allocate$ClientNotifForwarder$LinearExecutor);
+	$FieldInfo fieldInfos$$[] = {
+		{"command", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(ClientNotifForwarder$LinearExecutor, command)},
+		{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ClientNotifForwarder$LinearExecutor, thread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClientNotifForwarder$LinearExecutor, init$, void)},
+		{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder$LinearExecutor, execute, void, $Runnable*)},
+		{"lambda$execute$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClientNotifForwarder$LinearExecutor, lambda$execute$0, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor", "com.sun.jmx.remote.internal.ClientNotifForwarder", "LinearExecutor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.internal.ClientNotifForwarder$LinearExecutor",
+		"java.lang.Object",
+		"java.util.concurrent.Executor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ClientNotifForwarder"
+	};
+	$loadClass(ClientNotifForwarder$LinearExecutor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientNotifForwarder$LinearExecutor);
+	});
 	return class$;
 }
 

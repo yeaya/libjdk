@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor$AWTEventAccessor.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/security/AccessControlContext.h>
 #include <sun/awt/AWTAccessor.h>
@@ -14,43 +13,38 @@ using $AccessControlContext = ::java::security::AccessControlContext;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AWTAccessor$AWTEventAccessor_MethodInfo_[] = {
-	{"getAccessControlContext", "(Ljava/awt/AWTEvent;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, getAccessControlContext, $AccessControlContext*, $AWTEvent*)},
-	{"getBData", "(Ljava/awt/AWTEvent;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, getBData, $bytes*, $AWTEvent*)},
-	{"isSystemGenerated", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, isSystemGenerated, bool, $AWTEvent*)},
-	{"setBData", "(Ljava/awt/AWTEvent;[B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, setBData, void, $AWTEvent*, $bytes*)},
-	{"setPosted", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, setPosted, void, $AWTEvent*)},
-	{"setSystemGenerated", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, setSystemGenerated, void, $AWTEvent*)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor$AWTEventAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$AWTEventAccessor", "sun.awt.AWTAccessor", "AWTEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor$AWTEventAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.AWTAccessor$AWTEventAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AWTAccessor$AWTEventAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor$AWTEventAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor"
-};
-
-$Object* allocate$AWTAccessor$AWTEventAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor$AWTEventAccessor));
-}
-
 $Class* AWTAccessor$AWTEventAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor$AWTEventAccessor, name, initialize, &_AWTAccessor$AWTEventAccessor_ClassInfo_, allocate$AWTAccessor$AWTEventAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"getAccessControlContext", "(Ljava/awt/AWTEvent;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, getAccessControlContext, $AccessControlContext*, $AWTEvent*)},
+		{"getBData", "(Ljava/awt/AWTEvent;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, getBData, $bytes*, $AWTEvent*)},
+		{"isSystemGenerated", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, isSystemGenerated, bool, $AWTEvent*)},
+		{"setBData", "(Ljava/awt/AWTEvent;[B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, setBData, void, $AWTEvent*, $bytes*)},
+		{"setPosted", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, setPosted, void, $AWTEvent*)},
+		{"setSystemGenerated", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AWTEventAccessor, setSystemGenerated, void, $AWTEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$AWTEventAccessor", "sun.awt.AWTAccessor", "AWTEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.AWTAccessor$AWTEventAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor"
+	};
+	$loadClass(AWTAccessor$AWTEventAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor$AWTEventAccessor);
+	});
 	return class$;
 }
 

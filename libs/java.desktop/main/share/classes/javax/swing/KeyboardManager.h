@@ -37,6 +37,7 @@ class KeyboardManager : public ::java::lang::Object {
 	$class(KeyboardManager, 0, ::java::lang::Object)
 public:
 	KeyboardManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void fireBinding(::javax::swing::JComponent* c, ::javax::swing::KeyStroke* ks, ::java::awt::event::KeyEvent* e, bool pressed);
 	virtual bool fireKeyboardAction(::java::awt::event::KeyEvent* e, bool pressed, ::java::awt::Container* topAncestor);

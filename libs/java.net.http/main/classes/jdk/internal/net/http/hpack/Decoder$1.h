@@ -15,6 +15,7 @@ class Decoder$1 : public ::java::lang::Object {
 	$class(Decoder$1, 0, ::java::lang::Object)
 public:
 	Decoder$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$net$http$hpack$Decoder$State;
 };
 

@@ -1,5 +1,4 @@
 #include <sun/util/logging/internal/LoggingProviderImpl$LogManagerAccess.h>
-
 #include <java/lang/Module.h>
 #include <java/util/logging/LogManager.h>
 #include <java/util/logging/Logger.h>
@@ -18,38 +17,33 @@ namespace sun {
 		namespace logging {
 			namespace internal {
 
-$MethodInfo _LoggingProviderImpl$LogManagerAccess_MethodInfo_[] = {
-	{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingProviderImpl$LogManagerAccess, demandLoggerFor, $Logger*, $LogManager*, $String*, $Module*)},
-	{}
-};
-
-$InnerClassInfo _LoggingProviderImpl$LogManagerAccess_InnerClassesInfo_[] = {
-	{"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess", "sun.util.logging.internal.LoggingProviderImpl", "LogManagerAccess", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LoggingProviderImpl$LogManagerAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LoggingProviderImpl$LogManagerAccess_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoggingProviderImpl$LogManagerAccess_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.logging.internal.LoggingProviderImpl"
-};
-
-$Object* allocate$LoggingProviderImpl$LogManagerAccess($Class* clazz) {
-	return $of($alloc(LoggingProviderImpl$LogManagerAccess));
-}
-
 $Class* LoggingProviderImpl$LogManagerAccess::load$($String* name, bool initialize) {
-	$loadClass(LoggingProviderImpl$LogManagerAccess, name, initialize, &_LoggingProviderImpl$LogManagerAccess_ClassInfo_, allocate$LoggingProviderImpl$LogManagerAccess);
+	$MethodInfo methodInfos$$[] = {
+		{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingProviderImpl$LogManagerAccess, demandLoggerFor, $Logger*, $LogManager*, $String*, $Module*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess", "sun.util.logging.internal.LoggingProviderImpl", "LogManagerAccess", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.logging.internal.LoggingProviderImpl"
+	};
+	$loadClass(LoggingProviderImpl$LogManagerAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoggingProviderImpl$LogManagerAccess);
+	});
 	return class$;
 }
 

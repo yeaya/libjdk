@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/Utils$ProxyHeaders.h>
-
 #include <java/lang/Record.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -21,47 +20,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _Utils$ProxyHeaders_FieldInfo_[] = {
-	{"userHeaders", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(Utils$ProxyHeaders, userHeaders$)},
-	{"systemHeaders", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(Utils$ProxyHeaders, systemHeaders$)},
-	{}
-};
-
-$MethodInfo _Utils$ProxyHeaders_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, init$, void, $HttpHeaders*, $HttpHeaders*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, hashCode, int32_t)},
-	{"systemHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, systemHeaders, $HttpHeaders*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, toString, $String*)},
-	{"userHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, userHeaders, $HttpHeaders*)},
-	{}
-};
-
-$InnerClassInfo _Utils$ProxyHeaders_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.Utils$ProxyHeaders", "jdk.internal.net.http.common.Utils", "ProxyHeaders", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Utils$ProxyHeaders_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.Utils$ProxyHeaders",
-	"java.lang.Record",
-	nullptr,
-	_Utils$ProxyHeaders_FieldInfo_,
-	_Utils$ProxyHeaders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Utils$ProxyHeaders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.Utils"
-};
-
-$Object* allocate$Utils$ProxyHeaders($Class* clazz) {
-	return $of($alloc(Utils$ProxyHeaders));
-}
 
 void Utils$ProxyHeaders::init$($HttpHeaders* userHeaders, $HttpHeaders* systemHeaders) {
 	$Record::init$();
@@ -93,7 +51,42 @@ Utils$ProxyHeaders::Utils$ProxyHeaders() {
 }
 
 $Class* Utils$ProxyHeaders::load$($String* name, bool initialize) {
-	$loadClass(Utils$ProxyHeaders, name, initialize, &_Utils$ProxyHeaders_ClassInfo_, allocate$Utils$ProxyHeaders);
+	$FieldInfo fieldInfos$$[] = {
+		{"userHeaders", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(Utils$ProxyHeaders, userHeaders$)},
+		{"systemHeaders", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(Utils$ProxyHeaders, systemHeaders$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, init$, void, $HttpHeaders*, $HttpHeaders*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, hashCode, int32_t)},
+		{"systemHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, systemHeaders, $HttpHeaders*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, toString, $String*)},
+		{"userHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, userHeaders, $HttpHeaders*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.Utils$ProxyHeaders", "jdk.internal.net.http.common.Utils", "ProxyHeaders", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.Utils$ProxyHeaders",
+		"java.lang.Record",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.Utils"
+	};
+	$loadClass(Utils$ProxyHeaders, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils$ProxyHeaders);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <HeadersTest$8.h>
-
 #include <HeadersTest.h>
 #include <java/net/URI.h>
 #include <java/net/http/HttpHeaders.h>
@@ -27,54 +26,6 @@ using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublisher
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
-
-$FieldInfo _HeadersTest$8_FieldInfo_[] = {
-	{"val$uri", "Ljava/net/URI;", nullptr, $FINAL | $SYNTHETIC, $field(HeadersTest$8, val$uri)},
-	{}
-};
-
-$MethodInfo _HeadersTest$8_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;)V", nullptr, 0, $method(HeadersTest$8, init$, void, $URI*)},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HeadersTest$8, bodyPublisher, $Optional*)},
-	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, expectContinue, bool)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, headers, $HttpHeaders*)},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, method, $String*)},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HeadersTest$8, timeout, $Optional*)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, uri, $URI*)},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HeadersTest$8, version, $Optional*)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadersTest$8_EnclosingMethodInfo_ = {
-	"HeadersTest",
-	"badURI",
-	"()V"
-};
-
-$InnerClassInfo _HeadersTest$8_InnerClassesInfo_[] = {
-	{"HeadersTest$8", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadersTest$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadersTest$8",
-	"java.net.http.HttpRequest",
-	nullptr,
-	_HeadersTest$8_FieldInfo_,
-	_HeadersTest$8_MethodInfo_,
-	nullptr,
-	&_HeadersTest$8_EnclosingMethodInfo_,
-	_HeadersTest$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadersTest"
-};
-
-$Object* allocate$HeadersTest$8($Class* clazz) {
-	return $of($alloc(HeadersTest$8));
-}
 
 void HeadersTest$8::init$($URI* val$uri) {
 	$set(this, val$uri, val$uri);
@@ -106,8 +57,8 @@ $Optional* HeadersTest$8::version() {
 }
 
 $HttpHeaders* HeadersTest$8::headers() {
-	$useLocalCurrentObjectStackCache();
-	$var($Map, map, $Map::of("x-good"_s, $($List::of($of("foo"_s)))));
+	$useLocalObjectStack();
+	$var($Map, map, $Map::of("x-good"_s, $($List::of("foo"_s))));
 	$init($HeadersTest);
 	return $HttpHeaders::of(map, $HeadersTest::ACCEPT_ALL);
 }
@@ -116,7 +67,48 @@ HeadersTest$8::HeadersTest$8() {
 }
 
 $Class* HeadersTest$8::load$($String* name, bool initialize) {
-	$loadClass(HeadersTest$8, name, initialize, &_HeadersTest$8_ClassInfo_, allocate$HeadersTest$8);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$uri", "Ljava/net/URI;", nullptr, $FINAL | $SYNTHETIC, $field(HeadersTest$8, val$uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URI;)V", nullptr, 0, $method(HeadersTest$8, init$, void, $URI*)},
+		{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HeadersTest$8, bodyPublisher, $Optional*)},
+		{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, expectContinue, bool)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, headers, $HttpHeaders*)},
+		{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, method, $String*)},
+		{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HeadersTest$8, timeout, $Optional*)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$8, uri, $URI*)},
+		{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HeadersTest$8, version, $Optional*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadersTest",
+		"badURI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadersTest$8", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadersTest$8",
+		"java.net.http.HttpRequest",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadersTest"
+	};
+	$loadClass(HeadersTest$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadersTest$8);
+	});
 	return class$;
 }
 

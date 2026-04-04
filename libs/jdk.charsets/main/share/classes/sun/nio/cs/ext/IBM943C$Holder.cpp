@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM943C$Holder.h>
-
 #include <java/util/Arrays.h>
 #include <sun/nio/cs/ext/IBM943$DecodeHolder.h>
 #include <sun/nio/cs/ext/IBM943$EncodeHolder.h>
@@ -19,43 +18,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _IBM943C$Holder_FieldInfo_[] = {
-	{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM943C$Holder, b2cSB)},
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM943C$Holder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM943C$Holder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _IBM943C$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IBM943C$Holder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _IBM943C$Holder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM943C$Holder", "sun.nio.cs.ext.IBM943C", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _IBM943C$Holder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.IBM943C$Holder",
-	"java.lang.Object",
-	nullptr,
-	_IBM943C$Holder_FieldInfo_,
-	_IBM943C$Holder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM943C$Holder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM943C"
-};
-
-$Object* allocate$IBM943C$Holder($Class* clazz) {
-	return $of($alloc(IBM943C$Holder));
-}
-
 $chars* IBM943C$Holder::b2cSB = nullptr;
 $chars* IBM943C$Holder::c2b = nullptr;
 $chars* IBM943C$Holder::c2bIndex = nullptr;
@@ -63,22 +25,22 @@ $chars* IBM943C$Holder::c2bIndex = nullptr;
 void IBM943C$Holder::init$() {
 }
 
-void clinit$IBM943C$Holder($Class* class$) {
+void IBM943C$Holder::clinit$($Class* clazz) {
 	{
 		$assignStatic(IBM943C$Holder::b2cSB, $new($chars, 256));
 		for (int32_t i = 0; i < 128; ++i) {
-			$nc(IBM943C$Holder::b2cSB)->set(i, (char16_t)i);
+			IBM943C$Holder::b2cSB->set(i, (char16_t)i);
 		}
 		for (int32_t i = 128; i < 256; ++i) {
 			$init($IBM943$DecodeHolder);
-			$nc(IBM943C$Holder::b2cSB)->set(i, $nc($IBM943$DecodeHolder::b2cSB)->get(i));
+			IBM943C$Holder::b2cSB->set(i, $nc($IBM943$DecodeHolder::b2cSB)->get(i));
 		}
 		$init($IBM943$EncodeHolder);
 		$assignStatic(IBM943C$Holder::c2b, $Arrays::copyOf($IBM943$EncodeHolder::c2b, $nc($IBM943$EncodeHolder::c2b)->length));
 		$assignStatic(IBM943C$Holder::c2bIndex, $Arrays::copyOf($IBM943$EncodeHolder::c2bIndex, $nc($IBM943$EncodeHolder::c2bIndex)->length));
 		for (char16_t c = u'\0'; c < (char16_t)0x80; ++c) {
-			int32_t index = $nc(IBM943C$Holder::c2bIndex)->get(c >> 8);
-			$nc(IBM943C$Holder::c2b)->set(index + ((int32_t)(c & (uint32_t)255)), c);
+			int32_t index = IBM943C$Holder::c2bIndex->get(c >> 8);
+			IBM943C$Holder::c2b->set(index + (c & 0xff), c);
 		}
 	}
 }
@@ -87,7 +49,38 @@ IBM943C$Holder::IBM943C$Holder() {
 }
 
 $Class* IBM943C$Holder::load$($String* name, bool initialize) {
-	$loadClass(IBM943C$Holder, name, initialize, &_IBM943C$Holder_ClassInfo_, clinit$IBM943C$Holder, allocate$IBM943C$Holder);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM943C$Holder, b2cSB)},
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM943C$Holder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM943C$Holder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IBM943C$Holder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM943C$Holder", "sun.nio.cs.ext.IBM943C", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.IBM943C$Holder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM943C"
+	};
+	$loadClass(IBM943C$Holder, name, initialize, &classInfo$$, IBM943C$Holder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IBM943C$Holder);
+	});
 	return class$;
 }
 

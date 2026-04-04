@@ -15,6 +15,7 @@ class MessageDecoder$1 : public ::java::lang::Object {
 	$class(MessageDecoder$1, 0, ::java::lang::Object)
 public:
 	MessageDecoder$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$net$http$websocket$Frame$Opcode;
 };
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$16.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/jvm/ClassFile$Version.h>
 #include <com/sun/tools/javac/jvm/ClassReader$AttributeReader.h>
@@ -26,49 +25,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$16_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$16, this$0)},
-	{}
-};
-
-$MethodInfo _ClassReader$16_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$16, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
-	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$16, read, void, $Symbol*, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _ClassReader$16_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.jvm.ClassReader",
-	"initAttributeReaders",
-	"()V"
-};
-
-$InnerClassInfo _ClassReader$16_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$16", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.jvm.ClassReader$AttributeReader", "com.sun.tools.javac.jvm.ClassReader", "AttributeReader", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClassReader$16_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$16",
-	"com.sun.tools.javac.jvm.ClassReader$AttributeReader",
-	nullptr,
-	_ClassReader$16_FieldInfo_,
-	_ClassReader$16_MethodInfo_,
-	nullptr,
-	&_ClassReader$16_EnclosingMethodInfo_,
-	_ClassReader$16_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$16($Class* clazz) {
-	return $of($alloc(ClassReader$16));
-}
-
 void ClassReader$16::init$($ClassReader* this$0, $Name* name, $ClassFile$Version* version, $Set* kinds) {
 	$set(this, this$0, this$0);
 	$ClassReader$AttributeReader::init$(this$0, name, version, kinds);
@@ -82,7 +38,43 @@ ClassReader$16::ClassReader$16() {
 }
 
 $Class* ClassReader$16::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$16, name, initialize, &_ClassReader$16_ClassInfo_, allocate$ClassReader$16);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$16, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$16, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
+		{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$16, read, void, $Symbol*, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.jvm.ClassReader",
+		"initAttributeReaders",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$16", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.jvm.ClassReader$AttributeReader", "com.sun.tools.javac.jvm.ClassReader", "AttributeReader", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$16",
+		"com.sun.tools.javac.jvm.ClassReader$AttributeReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$16);
+	});
 	return class$;
 }
 

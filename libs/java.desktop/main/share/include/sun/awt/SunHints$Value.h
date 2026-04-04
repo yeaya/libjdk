@@ -18,6 +18,7 @@ class $import SunHints$Value : public ::java::lang::Object {
 	$class(SunHints$Value, 0, ::java::lang::Object)
 public:
 	SunHints$Value();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::SunHints$Key* key, int32_t index, $String* description);
 	virtual bool equals(Object$* o) override;
 	static ::sun::awt::SunHints$Value* get(int32_t keyindex, int32_t valueindex);

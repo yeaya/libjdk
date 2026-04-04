@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XFramePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -15,7 +14,6 @@
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/MenuBar.h>
-#include <java/awt/MenuComponent.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window.h>
@@ -26,7 +24,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/awt/peer/MenuComponentPeer.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
 #include <sun/awt/AWTAccessor$FrameAccessor.h>
@@ -121,7 +118,6 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $MenuBar = ::java::awt::MenuBar;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Window = ::java::awt::Window;
@@ -137,16 +133,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Iterator = ::java::util::Iterator;
-using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$FrameAccessor = ::sun::awt::AWTAccessor$FrameAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $MWMConstants = ::sun::awt::X11::MWMConstants;
 using $ToplevelStateListener = ::sun::awt::X11::ToplevelStateListener;
-using $WindowDimensions = ::sun::awt::X11::WindowDimensions;
-using $XContentWindow = ::sun::awt::X11::XContentWindow;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XDecoratedPeer = ::sun::awt::X11::XDecoratedPeer;
 using $XEvent = ::sun::awt::X11::XEvent;
@@ -160,7 +150,6 @@ using $XUtilConstants = ::sun::awt::X11::XUtilConstants;
 using $XWM = ::sun::awt::X11::XWM;
 using $XWMHints = ::sun::awt::X11::XWMHints;
 using $XWindowAttributesData = ::sun::awt::X11::XWindowAttributesData;
-using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 using $Region = ::sun::java2d::pipe::Region;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -169,155 +158,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XFramePeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XFramePeer, log)},
-	{"stateLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XFramePeer, stateLog)},
-	{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XFramePeer, insLog)},
-	{"menubarPeer", "Lsun/awt/X11/XMenuBarPeer;", nullptr, 0, $field(XFramePeer, menubarPeer)},
-	{"menubar", "Ljava/awt/MenuBar;", nullptr, 0, $field(XFramePeer, menubar)},
-	{"state", "I", nullptr, 0, $field(XFramePeer, state)},
-	{"undecorated", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(XFramePeer, undecorated)},
-	{"MENUBAR_HEIGHT_IF_NO_MENUBAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XFramePeer, MENUBAR_HEIGHT_IF_NO_MENUBAR)},
-	{"lastAppliedMenubarHeight", "I", nullptr, $PRIVATE, $field(XFramePeer, lastAppliedMenubarHeight)},
-	{"CROSSHAIR_INSET", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, CROSSHAIR_INSET)},
-	{"BUTTON_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, BUTTON_Y)},
-	{"BUTTON_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, BUTTON_W)},
-	{"BUTTON_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, BUTTON_H)},
-	{"SYS_MENU_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_X)},
-	{"SYS_MENU_CONTAINED_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_X)},
-	{"SYS_MENU_CONTAINED_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_Y)},
-	{"SYS_MENU_CONTAINED_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_W)},
-	{"SYS_MENU_CONTAINED_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_H)},
-	{"MAXIMIZE_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_X_DIFF)},
-	{"MAXIMIZE_CONTAINED_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_X_DIFF)},
-	{"MAXIMIZE_CONTAINED_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_Y)},
-	{"MAXIMIZE_CONTAINED_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_W)},
-	{"MAXIMIZE_CONTAINED_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_H)},
-	{"MINIMIZE_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_X_DIFF)},
-	{"MINIMIZE_CONTAINED_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_X_DIFF)},
-	{"MINIMIZE_CONTAINED_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_Y)},
-	{"MINIMIZE_CONTAINED_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_W)},
-	{"MINIMIZE_CONTAINED_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_H)},
-	{"TITLE_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, TITLE_X)},
-	{"TITLE_W_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, TITLE_W_DIFF)},
-	{"TITLE_MID_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, TITLE_MID_Y)},
-	{"MENUBAR_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MENUBAR_X)},
-	{"MENUBAR_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MENUBAR_Y)},
-	{"HORIZ_RESIZE_INSET", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, HORIZ_RESIZE_INSET)},
-	{"VERT_RESIZE_INSET", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, VERT_RESIZE_INSET)},
-	{}
-};
-
-$MethodInfo _XFramePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Frame;)V", nullptr, 0, $method(XFramePeer, init$, void, $Frame*)},
-	{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XFramePeer, init$, void, $XCreateWindowParams*)},
-	{"changeState", "(I)V", nullptr, 0, $virtualMethod(XFramePeer, changeState, void, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, dispose, void)},
-	{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, emulateActivation, void, bool)},
-	{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XFramePeer, getBoundsPrivate, $Rectangle*)},
-	{"getMenuBarHeight", "()I", nullptr, 0, $virtualMethod(XFramePeer, getMenuBarHeight, int32_t)},
-	{"getMenubarPeer", "()Lsun/awt/X11/XMenuBarPeer;", nullptr, 0, $virtualMethod(XFramePeer, getMenubarPeer, $XMenuBarPeer*)},
-	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(XFramePeer, getState, int32_t)},
-	{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, handlePropertyNotify, void, $XEvent*)},
-	{"handleStateChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, handleStateChange, void, int32_t, int32_t)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"isMaximized", "()Z", nullptr, 0, $virtualMethod(XFramePeer, isMaximized, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(XFramePeer, isTargetUndecorated, bool)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XFramePeer, postInit, void, $XCreateWindowParams*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XFramePeer, preInit, void, $XCreateWindowParams*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, print, void, $Graphics*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"reshapeMenubarPeer", "()V", nullptr, $FINAL, $method(XFramePeer, reshapeMenubarPeer, void)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setExtendedState", "(I)V", nullptr, 0, $virtualMethod(XFramePeer, setExtendedState, void, int32_t)},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setInitialState", "(I)V", nullptr, 0, $virtualMethod(XFramePeer, setInitialState, void, int32_t)},
-	{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setMaximizedBounds, void, $Rectangle*)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setMenuBar, void, $MenuBar*)},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"*setOpacity", "(F)V", nullptr, $PUBLIC},
-	{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
-	{"*setResizable", "(Z)V", nullptr, $PUBLIC},
-	{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setState, void, int32_t)},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setVisible, void, bool)},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"setupState", "(Z)V", nullptr, 0, $virtualMethod(XFramePeer, setupState, void, bool)},
-	{"*toBack", "()V", nullptr, $PUBLIC},
-	{"*toFront", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
-	{"updateChildrenSizes", "()V", nullptr, 0, $virtualMethod(XFramePeer, updateChildrenSizes, void)},
-	{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
-	{"*updateIconImages", "()V", nullptr, $PUBLIC},
-	{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XFramePeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XFramePeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XFramePeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XFramePeer",
-	"sun.awt.X11.XDecoratedPeer",
-	"java.awt.peer.FramePeer",
-	_XFramePeer_FieldInfo_,
-	_XFramePeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XFramePeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XFramePeer$1"
-};
-
-$Object* allocate$XFramePeer($Class* clazz) {
-	return $of($alloc(XFramePeer));
-}
 
 void XFramePeer::updateMinimumSize() {
 	this->$XDecoratedPeer::updateMinimumSize();
@@ -548,7 +388,7 @@ $PlatformLogger* XFramePeer::stateLog = nullptr;
 $PlatformLogger* XFramePeer::insLog = nullptr;
 
 void XFramePeer::init$($Frame* target) {
-	$XDecoratedPeer::init$(static_cast<$Window*>(target));
+	$XDecoratedPeer::init$(target);
 	this->lastAppliedMenubarHeight = XFramePeer::MENUBAR_HEIGHT_IF_NO_MENUBAR;
 }
 
@@ -558,31 +398,29 @@ void XFramePeer::init$($XCreateWindowParams* params) {
 }
 
 void XFramePeer::preInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XDecoratedPeer::preInit(params);
-	$var($Frame, target, ($cast($Frame, this->target)));
+	$var($Frame, target, $cast($Frame, this->target));
 	$nc(this->winAttr)->initialState = $nc(target)->getExtendedState();
 	this->state = 0;
 	$set(this, undecorated, $Boolean::valueOf(target->isUndecorated()));
 	$nc(this->winAttr)->nativeDecor = !target->isUndecorated();
 	if ($nc(this->winAttr)->nativeDecor) {
-		$init($XWindowAttributesData);
-		$nc(this->winAttr)->decorations = $XWindowAttributesData::AWT_DECOR_ALL;
+		this->winAttr->decorations = $XWindowAttributesData::AWT_DECOR_ALL;
 	} else {
-		$init($XWindowAttributesData);
-		$nc(this->winAttr)->decorations = $XWindowAttributesData::AWT_DECOR_NONE;
+		this->winAttr->decorations = $XWindowAttributesData::AWT_DECOR_NONE;
 	}
-	$nc(this->winAttr)->functions = $MWMConstants::MWM_FUNC_ALL;
-	$nc(this->winAttr)->isResizable = true;
-	$set($nc(this->winAttr), title, target->getTitle());
+	this->winAttr->functions = $MWMConstants::MWM_FUNC_ALL;
+	this->winAttr->isResizable = true;
+	$set(this->winAttr, title, target->getTitle());
 	$nc(this->winAttr)->initialResizability = target->isResizable();
 	$init($PlatformLogger$Level);
 	if ($nc(XFramePeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
 		$nc(XFramePeer::log)->fine("Frame\'\'s initial attributes: decor {0}, resizable {1}, undecorated {2}, initial state {3}"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf($nc(this->winAttr)->decorations))),
-			$($of($Boolean::valueOf($nc(this->winAttr)->initialResizability))),
-			$($of($Boolean::valueOf(!$nc(this->winAttr)->nativeDecor))),
-			$($of($Integer::valueOf($nc(this->winAttr)->initialState)))
+			$($Integer::valueOf($nc(this->winAttr)->decorations)),
+			$($Boolean::valueOf($nc(this->winAttr)->initialResizability)),
+			$($Boolean::valueOf(!$nc(this->winAttr)->nativeDecor)),
+			$($Integer::valueOf($nc(this->winAttr)->initialState))
 		}));
 	}
 }
@@ -594,9 +432,9 @@ void XFramePeer::postInit($XCreateWindowParams* params) {
 
 bool XFramePeer::isTargetUndecorated() {
 	if (this->undecorated != nullptr) {
-		return $nc(this->undecorated)->booleanValue();
+		return this->undecorated->booleanValue();
 	} else {
-		return $nc(($cast($Frame, this->target)))->isUndecorated();
+		return $nc($cast($Frame, this->target))->isUndecorated();
 	}
 }
 
@@ -604,7 +442,7 @@ void XFramePeer::setupState(bool onInit) {
 	if (onInit) {
 		this->state = $nc(this->winAttr)->initialState;
 	}
-	if (((int32_t)(this->state & (uint32_t)$Frame::ICONIFIED)) != 0) {
+	if ((this->state & $Frame::ICONIFIED) != 0) {
 		setInitialState($XUtilConstants::IconicState);
 	} else {
 		setInitialState($XUtilConstants::NormalState);
@@ -613,43 +451,41 @@ void XFramePeer::setupState(bool onInit) {
 }
 
 void XFramePeer::setMenuBar($MenuBar* mb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			$synchronized(getStateLock()) {
-				if (mb == this->menubar) {
-					return$1 = true;
-					goto $finally;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		$synchronized(getStateLock()) {
+			if (mb == this->menubar) {
+				return$1 = true;
+				goto $finally;
+			}
+			if (mb == nullptr) {
+				if (this->menubar != nullptr) {
+					$nc(this->menubarPeer)->xSetVisible(false);
+					$set(this, menubar, nullptr);
+					$nc(this->menubarPeer)->dispose();
+					$set(this, menubarPeer, nullptr);
 				}
-				if (mb == nullptr) {
-					if (this->menubar != nullptr) {
-						$nc(this->menubarPeer)->xSetVisible(false);
-						$set(this, menubar, nullptr);
-						$nc(this->menubarPeer)->dispose();
-						$set(this, menubarPeer, nullptr);
-					}
-				} else {
-					$set(this, menubar, mb);
-					$set(this, menubarPeer, $cast($XMenuBarPeer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(mb)));
-					if (this->menubarPeer != nullptr) {
-						$nc(this->menubarPeer)->init($cast($Frame, this->target));
-					}
+			} else {
+				$set(this, menubar, mb);
+				$set(this, menubarPeer, $cast($XMenuBarPeer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(mb)));
+				if (this->menubarPeer != nullptr) {
+					this->menubarPeer->init($cast($Frame, this->target));
 				}
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	reshapeMenubarPeer();
 }
@@ -660,34 +496,32 @@ $XMenuBarPeer* XFramePeer::getMenubarPeer() {
 
 int32_t XFramePeer::getMenuBarHeight() {
 	if (this->menubarPeer != nullptr) {
-		return $nc(this->menubarPeer)->getDesiredHeight();
+		return this->menubarPeer->getDesiredHeight();
 	} else {
 		return XFramePeer::MENUBAR_HEIGHT_IF_NO_MENUBAR;
 	}
 }
 
 void XFramePeer::updateChildrenSizes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XDecoratedPeer::updateChildrenSizes();
 	int32_t height = getMenuBarHeight();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$synchronized(getStateLock()) {
-				int32_t width = $nc($($nc(this->dimensions)->getClientSize()))->width;
-				if (this->menubarPeer != nullptr) {
-					$nc(this->menubarPeer)->reshape(0, 0, width, height);
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$synchronized(getStateLock()) {
+			int32_t width = $nc($($nc(this->dimensions)->getClientSize()))->width;
+			if (this->menubarPeer != nullptr) {
+				this->menubarPeer->reshape(0, 0, width, height);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -696,7 +530,7 @@ void XFramePeer::reshapeMenubarPeer() {
 }
 
 void XFramePeer::setMaximizedBounds($Rectangle* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XFramePeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
 		$nc(XFramePeer::insLog)->fine($$str({"Setting maximized bounds to "_s, b}));
@@ -706,35 +540,33 @@ void XFramePeer::setMaximizedBounds($Rectangle* b) {
 	}
 	$set(this, maxBounds, $new($Rectangle, b));
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($XSizeHints, hints, getHints());
-			$nc(hints)->set_flags(hints->get_flags() | (int32_t)$XUtilConstants::PMaxSize);
-			if ($nc(b)->width != $Integer::MAX_VALUE) {
-				hints->set_max_width(b->width);
-			} else {
-				int64_t var$1 = $XToolkit::getDisplay();
-				hints->set_max_width((int32_t)$XlibWrapper::DisplayWidth(var$1, $XlibWrapper::DefaultScreen($XToolkit::getDisplay())));
-			}
-			if ($nc(b)->height != $Integer::MAX_VALUE) {
-				hints->set_max_height(b->height);
-			} else {
-				int64_t var$2 = $XToolkit::getDisplay();
-				hints->set_max_height((int32_t)$XlibWrapper::DisplayHeight(var$2, $XlibWrapper::DefaultScreen($XToolkit::getDisplay())));
-			}
-			if ($nc(XFramePeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XFramePeer::insLog)->finer($$str({"Setting hints, flags "_s, $($XlibWrapper::hintsToString(hints->get_flags()))}));
-			}
-			$XlibWrapper::XSetWMNormalHints($XToolkit::getDisplay(), this->window, hints->pData);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($XSizeHints, hints, getHints());
+		$nc(hints)->set_flags($nc(hints)->get_flags() | (int32_t)$XUtilConstants::PMaxSize);
+		if ($nc(b)->width != $Integer::MAX_VALUE) {
+			hints->set_max_width(b->width);
+		} else {
+			int64_t var$1 = $XToolkit::getDisplay();
+			hints->set_max_width((int32_t)$XlibWrapper::DisplayWidth(var$1, $XlibWrapper::DefaultScreen($XToolkit::getDisplay())));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (b->height != $Integer::MAX_VALUE) {
+			hints->set_max_height(b->height);
+		} else {
+			int64_t var$2 = $XToolkit::getDisplay();
+			hints->set_max_height((int32_t)$XlibWrapper::DisplayHeight(var$2, $XlibWrapper::DefaultScreen($XToolkit::getDisplay())));
 		}
+		if ($nc(XFramePeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
+			$nc(XFramePeer::insLog)->finer($$str({"Setting hints, flags "_s, $($XlibWrapper::hintsToString(hints->get_flags()))}));
+		}
+		$XlibWrapper::XSetWMNormalHints($XToolkit::getDisplay(), this->window, hints->pData);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -756,51 +588,55 @@ void XFramePeer::setState(int32_t newState) {
 }
 
 void XFramePeer::changeState(int32_t newState) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t changed = this->state ^ newState;
-	int32_t changeIconic = (int32_t)(changed & (uint32_t)$Frame::ICONIFIED);
-	bool iconic = ((int32_t)(newState & (uint32_t)$Frame::ICONIFIED)) != 0;
+	int32_t changeIconic = changed & $Frame::ICONIFIED;
+	bool iconic = (newState & $Frame::ICONIFIED) != 0;
 	$init($PlatformLogger$Level);
 	if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
 		$nc(XFramePeer::stateLog)->finer("Changing state, old state {0}, new state {1}(iconic {2})"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->state))),
-			$($of($Integer::valueOf(newState))),
-			$($of($Boolean::valueOf(iconic)))
+			$($Integer::valueOf(this->state)),
+			$($Integer::valueOf(newState)),
+			$($Boolean::valueOf(iconic))
 		}));
 	}
 	if (changeIconic != 0 && iconic) {
 		if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$var($String, var$0, $$str({"Iconifying shell "_s, $$str(getShell()), ", this "_s, this, ", screen "_s}));
-			$nc(XFramePeer::stateLog)->finer($$concat(var$0, $$str(getScreenNumber())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Iconifying shell "_s);
+			var$0->append(getShell());
+			var$0->append(", this "_s);
+			var$0->append(this);
+			var$0->append(", screen "_s);
+			var$0->append(getScreenNumber());
+			$nc(XFramePeer::stateLog)->finer($$str(var$0));
 		}
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				int64_t var$2 = $XToolkit::getDisplay();
-				int64_t var$3 = getShell();
-				int32_t res = $XlibWrapper::XIconifyWindow(var$2, var$3, getScreenNumber());
-				if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XFramePeer::stateLog)->finer($$str({"XIconifyWindow returned "_s, $$str(res)}));
-				}
-			} catch ($Throwable& var$4) {
-				$assign(var$1, var$4);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
+		$var($Throwable, var$1, nullptr);
+		try {
+			int64_t var$2 = $XToolkit::getDisplay();
+			int64_t var$3 = getShell();
+			int32_t res = $XlibWrapper::XIconifyWindow(var$2, var$3, getScreenNumber());
+			if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
+				$nc(XFramePeer::stateLog)->finer($$str({"XIconifyWindow returned "_s, $$str(res)}));
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
+		} catch ($Throwable& var$4) {
+			$assign(var$1, var$4);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 	}
-	if (((int32_t)(changed & (uint32_t)~$Frame::ICONIFIED)) != 0) {
+	if ((changed & ~$Frame::ICONIFIED) != 0) {
 		setExtendedState(newState);
 	}
 	if (changeIconic != 0 && !iconic) {
 		if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
 			$nc(XFramePeer::stateLog)->finer($$str({"DeIconifying "_s, this}));
 		}
-		$var($XNETProtocol, net_protocol, $nc($($XWM::getWM()))->getNETProtocol());
+		$var($XNETProtocol, net_protocol, $$nc($XWM::getWM())->getNETProtocol());
 		if (net_protocol != nullptr) {
 			net_protocol->setActiveWindow(getWindow());
 		}
@@ -809,22 +645,22 @@ void XFramePeer::changeState(int32_t newState) {
 }
 
 void XFramePeer::setExtendedState(int32_t newState) {
-	$nc($($XWM::getWM()))->setExtendedState(this, newState);
+	$$nc($XWM::getWM())->setExtendedState(this, newState);
 }
 
 void XFramePeer::handlePropertyNotify($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XDecoratedPeer::handlePropertyNotify(xev);
 	$var($XPropertyEvent, ev, $nc(xev)->get_xproperty());
 	$init($PlatformLogger$Level);
 	if ($nc(XFramePeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XFramePeer::log)->finer("Property change {0}"_s, $$new($ObjectArray, {$of(ev)}));
+		$nc(XFramePeer::log)->finer("Property change {0}"_s, $$new($ObjectArray, {ev}));
 	}
-	if (!$nc($($XWM::getWM()))->isStateChange(this, ev)) {
+	if (!$$nc($XWM::getWM())->isStateChange(this, ev)) {
 		$nc(XFramePeer::stateLog)->finer("either not a state atom or state has not been changed"_s);
 		return;
 	}
-	int32_t newState = $nc($($XWM::getWM()))->getState(this);
+	int32_t newState = $$nc($XWM::getWM())->getState(this);
 	int32_t changed = this->state ^ newState;
 	if (changed == 0) {
 		if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
@@ -834,9 +670,9 @@ void XFramePeer::handlePropertyNotify($XEvent* xev) {
 	}
 	int32_t old_state = this->state;
 	this->state = newState;
-	$nc($($AWTAccessor::getFrameAccessor()))->setExtendedState($cast($Frame, this->target), this->state);
-	if (((int32_t)(changed & (uint32_t)$Frame::ICONIFIED)) != 0) {
-		if (((int32_t)(this->state & (uint32_t)$Frame::ICONIFIED)) != 0) {
+	$$nc($AWTAccessor::getFrameAccessor())->setExtendedState($cast($Frame, this->target), this->state);
+	if ((changed & $Frame::ICONIFIED) != 0) {
+		if ((this->state & $Frame::ICONIFIED) != 0) {
 			$nc(XFramePeer::stateLog)->finer("Iconified"_s);
 			handleIconify();
 		} else {
@@ -846,13 +682,13 @@ void XFramePeer::handlePropertyNotify($XEvent* xev) {
 		}
 	}
 	handleStateChange(old_state, this->state);
-	if ((((int32_t)(changed & (uint32_t)$Frame::ICONIFIED)) != 0) && (((int32_t)(this->state & (uint32_t)$Frame::ICONIFIED)) == 0)) {
+	if (((changed & $Frame::ICONIFIED) != 0) && ((this->state & $Frame::ICONIFIED) == 0)) {
 		repaint();
 	}
 }
 
 void XFramePeer::handleStateChange(int32_t oldState, int32_t newState) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XDecoratedPeer::handleStateChange(oldState, newState);
 	{
 		$var($Iterator, i$, $nc(this->toplevelStateListeners)->iterator());
@@ -868,8 +704,8 @@ void XFramePeer::handleStateChange(int32_t oldState, int32_t newState) {
 void XFramePeer::setVisible(bool vis) {
 	if (vis) {
 		setupState(false);
-	} else if (((int32_t)(this->state & (uint32_t)$Frame::MAXIMIZED_BOTH)) != 0) {
-		$nc($($XWM::getWM()))->setExtendedState(this, (int32_t)(this->state & (uint32_t)~$Frame::MAXIMIZED_BOTH));
+	} else if ((this->state & $Frame::MAXIMIZED_BOTH) != 0) {
+		$$nc($XWM::getWM())->setExtendedState(this, this->state & ~$Frame::MAXIMIZED_BOTH);
 	}
 	$XDecoratedPeer::setVisible(vis);
 	if (vis && this->maxBounds != nullptr) {
@@ -878,44 +714,42 @@ void XFramePeer::setVisible(bool vis) {
 }
 
 void XFramePeer::setInitialState(int32_t wm_state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($XWMHints, hints, getWMHints());
-			$nc(hints)->set_flags((int32_t)$XUtilConstants::StateHint | hints->get_flags());
-			hints->set_initial_state(wm_state);
-			$init($PlatformLogger$Level);
-			if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(XFramePeer::stateLog)->fine($$str({"Setting initial WM state on "_s, this, " to "_s, $$str(wm_state)}));
-			}
-			int64_t var$1 = $XToolkit::getDisplay();
-			$XlibWrapper::XSetWMHints(var$1, getWindow(), hints->pData);
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($XWMHints, hints, getWMHints());
+		$nc(hints)->set_flags((int32_t)$XUtilConstants::StateHint | $nc(hints)->get_flags());
+		hints->set_initial_state(wm_state);
+		$init($PlatformLogger$Level);
+		if ($nc(XFramePeer::stateLog)->isLoggable($PlatformLogger$Level::FINE)) {
+			$nc(XFramePeer::stateLog)->fine($$str({"Setting initial WM state on "_s, this, " to "_s, $$str(wm_state)}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		int64_t var$1 = $XToolkit::getDisplay();
+		$XlibWrapper::XSetWMHints(var$1, getWindow(), hints->pData);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XFramePeer::dispose() {
 	if (this->menubarPeer != nullptr) {
-		$nc(this->menubarPeer)->dispose();
+		this->menubarPeer->dispose();
 	}
 	$XDecoratedPeer::dispose();
 }
 
 bool XFramePeer::isMaximized() {
-	return ((int32_t)(this->state & (uint32_t)($Frame::MAXIMIZED_VERT | $Frame::MAXIMIZED_HORIZ))) != 0;
+	return (this->state & ($Frame::MAXIMIZED_VERT | $Frame::MAXIMIZED_HORIZ)) != 0;
 }
 
 void XFramePeer::print($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XDecoratedPeer::print(g);
 	$var($Frame, f, $cast($Frame, this->target));
 	$var($Insets, finsets, $nc(f)->getInsets());
@@ -932,19 +766,19 @@ void XFramePeer::print($Graphics* g) {
 			$nc(g)->setColor(highlight);
 		}
 		$nc(g)->drawLine(0, 0, $nc(fsize)->width, 0);
-		g->drawLine(0, 1, $nc(fsize)->width - 1, 1);
-		g->drawLine(0, 0, 0, $nc(fsize)->height);
-		g->drawLine(1, 0, 1, $nc(fsize)->height - 1);
+		g->drawLine(0, 1, fsize->width - 1, 1);
+		g->drawLine(0, 0, 0, fsize->height);
+		g->drawLine(1, 0, 1, fsize->height - 1);
 		g->setColor(highlight);
-		g->drawLine(XFramePeer::CROSSHAIR_INSET + 1, $nc(fsize)->height - XFramePeer::CROSSHAIR_INSET, fsize->width - XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET);
-		g->drawLine($nc(fsize)->width - XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET + 1, fsize->width - XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET);
+		g->drawLine(XFramePeer::CROSSHAIR_INSET + 1, fsize->height - XFramePeer::CROSSHAIR_INSET, fsize->width - XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET);
+		g->drawLine(fsize->width - XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET + 1, fsize->width - XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET);
 		g->setColor(shadow);
-		g->drawLine(1, $nc(fsize)->height, fsize->width, fsize->height);
-		g->drawLine(2, $nc(fsize)->height - 1, fsize->width, fsize->height - 1);
-		g->drawLine($nc(fsize)->width, 1, fsize->width, fsize->height);
-		g->drawLine($nc(fsize)->width - 1, 2, fsize->width - 1, fsize->height);
-		g->drawLine(XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET, $nc(fsize)->width - XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET);
-		g->drawLine(XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET, $nc(fsize)->height - XFramePeer::CROSSHAIR_INSET);
+		g->drawLine(1, fsize->height, fsize->width, fsize->height);
+		g->drawLine(2, fsize->height - 1, fsize->width, fsize->height - 1);
+		g->drawLine(fsize->width, 1, fsize->width, fsize->height);
+		g->drawLine(fsize->width - 1, 2, fsize->width - 1, fsize->height);
+		g->drawLine(XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET, fsize->width - XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET);
+		g->drawLine(XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET, XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET);
 	}
 	if (hasDecorations($XWindowAttributesData::AWT_DECOR_TITLE)) {
 		if (hasDecorations($XWindowAttributesData::AWT_DECOR_MENU)) {
@@ -954,12 +788,12 @@ void XFramePeer::print($Graphics* g) {
 		}
 		$nc(g)->fill3DRect(XFramePeer::TITLE_X, XFramePeer::BUTTON_Y, $nc(fsize)->width - XFramePeer::TITLE_W_DIFF, XFramePeer::BUTTON_H, true);
 		if (hasDecorations($XWindowAttributesData::AWT_DECOR_MINIMIZE)) {
-			g->fill3DRect($nc(fsize)->width - XFramePeer::MINIMIZE_X_DIFF, XFramePeer::BUTTON_Y, XFramePeer::BUTTON_W, XFramePeer::BUTTON_H, true);
-			g->fill3DRect($nc(fsize)->width - XFramePeer::MINIMIZE_CONTAINED_X_DIFF, XFramePeer::MINIMIZE_CONTAINED_Y, XFramePeer::MINIMIZE_CONTAINED_W, XFramePeer::MINIMIZE_CONTAINED_H, true);
+			g->fill3DRect(fsize->width - XFramePeer::MINIMIZE_X_DIFF, XFramePeer::BUTTON_Y, XFramePeer::BUTTON_W, XFramePeer::BUTTON_H, true);
+			g->fill3DRect(fsize->width - XFramePeer::MINIMIZE_CONTAINED_X_DIFF, XFramePeer::MINIMIZE_CONTAINED_Y, XFramePeer::MINIMIZE_CONTAINED_W, XFramePeer::MINIMIZE_CONTAINED_H, true);
 		}
 		if (hasDecorations($XWindowAttributesData::AWT_DECOR_MAXIMIZE)) {
-			g->fill3DRect($nc(fsize)->width - XFramePeer::MAXIMIZE_X_DIFF, XFramePeer::BUTTON_Y, XFramePeer::BUTTON_W, XFramePeer::BUTTON_H, true);
-			g->fill3DRect($nc(fsize)->width - XFramePeer::MAXIMIZE_CONTAINED_X_DIFF, XFramePeer::MAXIMIZE_CONTAINED_Y, XFramePeer::MAXIMIZE_CONTAINED_W, XFramePeer::MAXIMIZE_CONTAINED_H, true);
+			g->fill3DRect(fsize->width - XFramePeer::MAXIMIZE_X_DIFF, XFramePeer::BUTTON_Y, XFramePeer::BUTTON_W, XFramePeer::BUTTON_H, true);
+			g->fill3DRect(fsize->width - XFramePeer::MAXIMIZE_CONTAINED_X_DIFF, XFramePeer::MAXIMIZE_CONTAINED_Y, XFramePeer::MAXIMIZE_CONTAINED_W, XFramePeer::MAXIMIZE_CONTAINED_H, true);
 		}
 		g->setColor(fg);
 		$init($Font);
@@ -967,30 +801,29 @@ void XFramePeer::print($Graphics* g) {
 		g->setFont(sysfont);
 		$var($FontMetrics, sysfm, g->getFontMetrics());
 		$var($String, ftitle, f->getTitle());
-		$var($String, var$0, ftitle);
-		int32_t var$1 = ((XFramePeer::TITLE_X + XFramePeer::TITLE_X + $nc(fsize)->width - XFramePeer::TITLE_W_DIFF) / 2) - ($nc(sysfm)->stringWidth(ftitle) / 2);
-		g->drawString(var$0, var$1, XFramePeer::TITLE_MID_Y + sysfm->getMaxDescent());
+		int32_t var$0 = ((XFramePeer::TITLE_X + XFramePeer::TITLE_X + fsize->width - XFramePeer::TITLE_W_DIFF) / 2) - ($nc(sysfm)->stringWidth(ftitle) / 2);
+		g->drawString(ftitle, var$0, XFramePeer::TITLE_MID_Y + sysfm->getMaxDescent());
 	}
-	bool var$2 = f->isResizable();
-	if (var$2 && hasDecorations($XWindowAttributesData::AWT_DECOR_RESIZEH)) {
+	bool var$1 = f->isResizable();
+	if (var$1 && hasDecorations($XWindowAttributesData::AWT_DECOR_RESIZEH)) {
 		$nc(g)->setColor(shadow);
 		g->drawLine(1, XFramePeer::HORIZ_RESIZE_INSET, XFramePeer::CROSSHAIR_INSET, XFramePeer::HORIZ_RESIZE_INSET);
 		g->drawLine(XFramePeer::VERT_RESIZE_INSET, 1, XFramePeer::VERT_RESIZE_INSET, XFramePeer::CROSSHAIR_INSET);
-		g->drawLine($nc(fsize)->width - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::HORIZ_RESIZE_INSET, fsize->width, XFramePeer::HORIZ_RESIZE_INSET);
-		g->drawLine($nc(fsize)->width - XFramePeer::VERT_RESIZE_INSET - 1, 2, fsize->width - XFramePeer::VERT_RESIZE_INSET - 1, XFramePeer::CROSSHAIR_INSET + 1);
-		g->drawLine(1, $nc(fsize)->height - XFramePeer::HORIZ_RESIZE_INSET - 1, XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::HORIZ_RESIZE_INSET - 1);
-		g->drawLine(XFramePeer::VERT_RESIZE_INSET, $nc(fsize)->height - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::VERT_RESIZE_INSET, fsize->height);
-		g->drawLine($nc(fsize)->width - XFramePeer::CROSSHAIR_INSET + 1, fsize->height - XFramePeer::HORIZ_RESIZE_INSET - 1, fsize->width, fsize->height - XFramePeer::HORIZ_RESIZE_INSET - 1);
-		g->drawLine($nc(fsize)->width - XFramePeer::VERT_RESIZE_INSET - 1, fsize->height - XFramePeer::CROSSHAIR_INSET + 1, fsize->width - XFramePeer::VERT_RESIZE_INSET - 1, fsize->height);
+		g->drawLine($nc(fsize)->width - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::HORIZ_RESIZE_INSET, $nc(fsize)->width, XFramePeer::HORIZ_RESIZE_INSET);
+		g->drawLine(fsize->width - XFramePeer::VERT_RESIZE_INSET - 1, 2, fsize->width - XFramePeer::VERT_RESIZE_INSET - 1, XFramePeer::CROSSHAIR_INSET + 1);
+		g->drawLine(1, fsize->height - XFramePeer::HORIZ_RESIZE_INSET - 1, XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::HORIZ_RESIZE_INSET - 1);
+		g->drawLine(XFramePeer::VERT_RESIZE_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::VERT_RESIZE_INSET, fsize->height);
+		g->drawLine(fsize->width - XFramePeer::CROSSHAIR_INSET + 1, fsize->height - XFramePeer::HORIZ_RESIZE_INSET - 1, fsize->width, fsize->height - XFramePeer::HORIZ_RESIZE_INSET - 1);
+		g->drawLine(fsize->width - XFramePeer::VERT_RESIZE_INSET - 1, fsize->height - XFramePeer::CROSSHAIR_INSET + 1, fsize->width - XFramePeer::VERT_RESIZE_INSET - 1, fsize->height);
 		g->setColor(highlight);
 		g->drawLine(2, XFramePeer::HORIZ_RESIZE_INSET + 1, XFramePeer::CROSSHAIR_INSET, XFramePeer::HORIZ_RESIZE_INSET + 1);
 		g->drawLine(XFramePeer::VERT_RESIZE_INSET + 1, 2, XFramePeer::VERT_RESIZE_INSET + 1, XFramePeer::CROSSHAIR_INSET);
-		g->drawLine($nc(fsize)->width - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::HORIZ_RESIZE_INSET + 1, fsize->width - 1, XFramePeer::HORIZ_RESIZE_INSET + 1);
-		g->drawLine($nc(fsize)->width - XFramePeer::VERT_RESIZE_INSET, 2, fsize->width - XFramePeer::VERT_RESIZE_INSET, XFramePeer::CROSSHAIR_INSET);
-		g->drawLine(2, $nc(fsize)->height - XFramePeer::HORIZ_RESIZE_INSET, XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::HORIZ_RESIZE_INSET);
-		g->drawLine(XFramePeer::VERT_RESIZE_INSET + 1, $nc(fsize)->height - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::VERT_RESIZE_INSET + 1, fsize->height - 1);
-		g->drawLine($nc(fsize)->width - XFramePeer::CROSSHAIR_INSET + 1, fsize->height - XFramePeer::HORIZ_RESIZE_INSET, fsize->width - 1, fsize->height - XFramePeer::HORIZ_RESIZE_INSET);
-		g->drawLine($nc(fsize)->width - XFramePeer::VERT_RESIZE_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET + 1, fsize->width - XFramePeer::VERT_RESIZE_INSET, fsize->height - 1);
+		g->drawLine(fsize->width - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::HORIZ_RESIZE_INSET + 1, fsize->width - 1, XFramePeer::HORIZ_RESIZE_INSET + 1);
+		g->drawLine(fsize->width - XFramePeer::VERT_RESIZE_INSET, 2, fsize->width - XFramePeer::VERT_RESIZE_INSET, XFramePeer::CROSSHAIR_INSET);
+		g->drawLine(2, fsize->height - XFramePeer::HORIZ_RESIZE_INSET, XFramePeer::CROSSHAIR_INSET, fsize->height - XFramePeer::HORIZ_RESIZE_INSET);
+		g->drawLine(XFramePeer::VERT_RESIZE_INSET + 1, fsize->height - XFramePeer::CROSSHAIR_INSET + 1, XFramePeer::VERT_RESIZE_INSET + 1, fsize->height - 1);
+		g->drawLine(fsize->width - XFramePeer::CROSSHAIR_INSET + 1, fsize->height - XFramePeer::HORIZ_RESIZE_INSET, fsize->width - 1, fsize->height - XFramePeer::HORIZ_RESIZE_INSET);
+		g->drawLine(fsize->width - XFramePeer::VERT_RESIZE_INSET, fsize->height - XFramePeer::CROSSHAIR_INSET + 1, fsize->width - XFramePeer::VERT_RESIZE_INSET, fsize->height - 1);
 	}
 	$var($XMenuBarPeer, peer, this->menubarPeer);
 	if (peer != nullptr) {
@@ -1005,19 +838,17 @@ void XFramePeer::print($Graphics* g) {
 		if (hasDecorations($XWindowAttributesData::AWT_DECOR_TITLE)) {
 			menubarY += XFramePeer::BUTTON_H;
 		}
-		{
-			$var($Throwable, var$3, nullptr);
-			try {
-				$nc(ng)->translate(menubarX, menubarY);
-				peer->print(ng);
-			} catch ($Throwable& var$4) {
-				$assign(var$3, var$4);
-			} /*finally*/ {
-				$nc(ng)->dispose();
-			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$nc(ng)->translate(menubarX, menubarY);
+			peer->print(ng);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			$nc(ng)->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
@@ -1038,7 +869,7 @@ void XFramePeer::emulateActivation(bool doActivate) {
 	}
 }
 
-void clinit$XFramePeer($Class* class$) {
+void XFramePeer::clinit$($Class* clazz) {
 	$assignStatic(XFramePeer::log, $PlatformLogger::getLogger("sun.awt.X11.XFramePeer"_s));
 	$assignStatic(XFramePeer::stateLog, $PlatformLogger::getLogger("sun.awt.X11.states"_s));
 	$assignStatic(XFramePeer::insLog, $PlatformLogger::getLogger("sun.awt.X11.insets.XFramePeer"_s));
@@ -1048,7 +879,150 @@ XFramePeer::XFramePeer() {
 }
 
 $Class* XFramePeer::load$($String* name, bool initialize) {
-	$loadClass(XFramePeer, name, initialize, &_XFramePeer_ClassInfo_, clinit$XFramePeer, allocate$XFramePeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XFramePeer, log)},
+		{"stateLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XFramePeer, stateLog)},
+		{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XFramePeer, insLog)},
+		{"menubarPeer", "Lsun/awt/X11/XMenuBarPeer;", nullptr, 0, $field(XFramePeer, menubarPeer)},
+		{"menubar", "Ljava/awt/MenuBar;", nullptr, 0, $field(XFramePeer, menubar)},
+		{"state", "I", nullptr, 0, $field(XFramePeer, state)},
+		{"undecorated", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(XFramePeer, undecorated)},
+		{"MENUBAR_HEIGHT_IF_NO_MENUBAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XFramePeer, MENUBAR_HEIGHT_IF_NO_MENUBAR)},
+		{"lastAppliedMenubarHeight", "I", nullptr, $PRIVATE, $field(XFramePeer, lastAppliedMenubarHeight)},
+		{"CROSSHAIR_INSET", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, CROSSHAIR_INSET)},
+		{"BUTTON_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, BUTTON_Y)},
+		{"BUTTON_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, BUTTON_W)},
+		{"BUTTON_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, BUTTON_H)},
+		{"SYS_MENU_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_X)},
+		{"SYS_MENU_CONTAINED_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_X)},
+		{"SYS_MENU_CONTAINED_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_Y)},
+		{"SYS_MENU_CONTAINED_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_W)},
+		{"SYS_MENU_CONTAINED_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, SYS_MENU_CONTAINED_H)},
+		{"MAXIMIZE_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_X_DIFF)},
+		{"MAXIMIZE_CONTAINED_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_X_DIFF)},
+		{"MAXIMIZE_CONTAINED_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_Y)},
+		{"MAXIMIZE_CONTAINED_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_W)},
+		{"MAXIMIZE_CONTAINED_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MAXIMIZE_CONTAINED_H)},
+		{"MINIMIZE_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_X_DIFF)},
+		{"MINIMIZE_CONTAINED_X_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_X_DIFF)},
+		{"MINIMIZE_CONTAINED_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_Y)},
+		{"MINIMIZE_CONTAINED_W", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_W)},
+		{"MINIMIZE_CONTAINED_H", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MINIMIZE_CONTAINED_H)},
+		{"TITLE_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, TITLE_X)},
+		{"TITLE_W_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, TITLE_W_DIFF)},
+		{"TITLE_MID_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, TITLE_MID_Y)},
+		{"MENUBAR_X", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MENUBAR_X)},
+		{"MENUBAR_Y", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, MENUBAR_Y)},
+		{"HORIZ_RESIZE_INSET", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, HORIZ_RESIZE_INSET)},
+		{"VERT_RESIZE_INSET", "I", nullptr, $STATIC | $FINAL, $constField(XFramePeer, VERT_RESIZE_INSET)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Frame;)V", nullptr, 0, $method(XFramePeer, init$, void, $Frame*)},
+		{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XFramePeer, init$, void, $XCreateWindowParams*)},
+		{"changeState", "(I)V", nullptr, 0, $virtualMethod(XFramePeer, changeState, void, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, dispose, void)},
+		{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, emulateActivation, void, bool)},
+		{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XFramePeer, getBoundsPrivate, $Rectangle*)},
+		{"getMenuBarHeight", "()I", nullptr, 0, $virtualMethod(XFramePeer, getMenuBarHeight, int32_t)},
+		{"getMenubarPeer", "()Lsun/awt/X11/XMenuBarPeer;", nullptr, 0, $virtualMethod(XFramePeer, getMenubarPeer, $XMenuBarPeer*)},
+		{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(XFramePeer, getState, int32_t)},
+		{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, handlePropertyNotify, void, $XEvent*)},
+		{"handleStateChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, handleStateChange, void, int32_t, int32_t)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"isMaximized", "()Z", nullptr, 0, $virtualMethod(XFramePeer, isMaximized, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(XFramePeer, isTargetUndecorated, bool)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XFramePeer, postInit, void, $XCreateWindowParams*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XFramePeer, preInit, void, $XCreateWindowParams*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, print, void, $Graphics*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"reshapeMenubarPeer", "()V", nullptr, $FINAL, $method(XFramePeer, reshapeMenubarPeer, void)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setExtendedState", "(I)V", nullptr, 0, $virtualMethod(XFramePeer, setExtendedState, void, int32_t)},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setInitialState", "(I)V", nullptr, 0, $virtualMethod(XFramePeer, setInitialState, void, int32_t)},
+		{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setMaximizedBounds, void, $Rectangle*)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setMenuBar, void, $MenuBar*)},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"*setOpacity", "(F)V", nullptr, $PUBLIC},
+		{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
+		{"*setResizable", "(Z)V", nullptr, $PUBLIC},
+		{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setState, void, int32_t)},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFramePeer, setVisible, void, bool)},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"setupState", "(Z)V", nullptr, 0, $virtualMethod(XFramePeer, setupState, void, bool)},
+		{"*toBack", "()V", nullptr, $PUBLIC},
+		{"*toFront", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
+		{"updateChildrenSizes", "()V", nullptr, 0, $virtualMethod(XFramePeer, updateChildrenSizes, void)},
+		{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
+		{"*updateIconImages", "()V", nullptr, $PUBLIC},
+		{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XFramePeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XFramePeer",
+		"sun.awt.X11.XDecoratedPeer",
+		"java.awt.peer.FramePeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XFramePeer$1"
+	};
+	$loadClass(XFramePeer, name, initialize, &classInfo$$, XFramePeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XFramePeer));
+	});
 	return class$;
 }
 

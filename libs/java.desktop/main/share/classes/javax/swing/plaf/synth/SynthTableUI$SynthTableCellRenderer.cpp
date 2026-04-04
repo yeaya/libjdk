@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTableUI$SynthTableCellRenderer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/lang/Number.h>
@@ -55,51 +54,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthTableUI$SynthTableCellRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthTableUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTableUI$SynthTableCellRenderer, this$0)},
-	{"numberFormat", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SynthTableUI$SynthTableCellRenderer, numberFormat)},
-	{"dateFormat", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SynthTableUI$SynthTableCellRenderer, dateFormat)},
-	{"opaque", "Z", nullptr, $PRIVATE, $field(SynthTableUI$SynthTableCellRenderer, opaque)},
-	{}
-};
-
-$MethodInfo _SynthTableUI$SynthTableCellRenderer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthTableUI;)V", nullptr, $PRIVATE, $method(SynthTableUI$SynthTableCellRenderer, init$, void, $SynthTableUI*)},
-	{"configureValue", "(Ljava/lang/Object;Ljava/lang/Class;)V", "(Ljava/lang/Object;Ljava/lang/Class<*>;)V", $PRIVATE, $method(SynthTableUI$SynthTableCellRenderer, configureValue, void, Object$*, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, getName, $String*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, isOpaque, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, paint, void, $Graphics*)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, setBorder, void, $Border*)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, setOpaque, void, bool)},
-	{}
-};
-
-$InnerClassInfo _SynthTableUI$SynthTableCellRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthTableCellRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthTableUI$SynthTableCellRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer",
-	"javax.swing.table.DefaultTableCellRenderer",
-	nullptr,
-	_SynthTableUI$SynthTableCellRenderer_FieldInfo_,
-	_SynthTableUI$SynthTableCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTableUI$SynthTableCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTableUI"
-};
-
-$Object* allocate$SynthTableUI$SynthTableCellRenderer($Class* clazz) {
-	return $of($alloc(SynthTableUI$SynthTableCellRenderer));
-}
-
 void SynthTableUI$SynthTableCellRenderer::init$($SynthTableUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultTableCellRenderer::init$();
@@ -128,13 +82,11 @@ void SynthTableUI$SynthTableCellRenderer::setBorder($Border* b) {
 }
 
 $Component* SynthTableUI$SynthTableCellRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->this$0->useTableColors && (isSelected || hasFocus)) {
 		$load($SynthLabelUI);
 		$var($ComponentUI, var$0, $cast($SynthLabelUI, $SynthLookAndFeel::getUIOfType($(getUI()), $SynthLabelUI::class$)));
-		bool var$1 = isSelected;
-		bool var$2 = hasFocus;
-		$SynthLookAndFeel::setSelectedUI(var$0, var$1, var$2, $nc(table)->isEnabled(), false);
+		$SynthLookAndFeel::setSelectedUI(var$0, isSelected, hasFocus, $nc(table)->isEnabled(), false);
 	} else {
 		$SynthLookAndFeel::resetSelectedUI();
 	}
@@ -147,41 +99,34 @@ $Component* SynthTableUI$SynthTableCellRenderer::getTableCellRendererComponent($
 }
 
 void SynthTableUI$SynthTableCellRenderer::configureValue(Object$* value, $Class* columnClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (columnClass == $Object::class$ || columnClass == nullptr) {
 		setHorizontalAlignment($JLabel::LEADING);
+	} else if (columnClass == $Float::class$ || columnClass == $Double::class$) {
+		if (this->numberFormat == nullptr) {
+			$set(this, numberFormat, $NumberFormat::getInstance());
+		}
+		setHorizontalAlignment($JLabel::TRAILING);
+		setText((value == nullptr) ? ""_s : $($nc($cast($NumberFormat, this->numberFormat))->format(value)));
+	} else if (columnClass == $Number::class$) {
+		setHorizontalAlignment($JLabel::TRAILING);
 	} else {
-		$load($Float);
-		$load($Double);
-		if (columnClass == $Float::class$ || columnClass == $Double::class$) {
-			if (this->numberFormat == nullptr) {
-				$set(this, numberFormat, $NumberFormat::getInstance());
-			}
-			setHorizontalAlignment($JLabel::TRAILING);
-			setText((value == nullptr) ? ""_s : $($nc(($cast($NumberFormat, this->numberFormat)))->format(value)));
+		$load($Icon);
+		$load($ImageIcon);
+		if (columnClass == $Icon::class$ || columnClass == $ImageIcon::class$) {
+			setHorizontalAlignment($JLabel::CENTER);
+			setIcon(($instanceOf($Icon, value)) ? $cast($Icon, value) : ($Icon*)nullptr);
+			setText(""_s);
 		} else {
-			$load($Number);
-			if (columnClass == $Number::class$) {
-				setHorizontalAlignment($JLabel::TRAILING);
-			} else {
-				$load($Icon);
-				$load($ImageIcon);
-				if (columnClass == $Icon::class$ || columnClass == $ImageIcon::class$) {
-					setHorizontalAlignment($JLabel::CENTER);
-					setIcon(($instanceOf($Icon, value)) ? $cast($Icon, value) : ($Icon*)nullptr);
-					setText(""_s);
-				} else {
-					$load($Date);
-					if (columnClass == $Date::class$) {
-						if (this->dateFormat == nullptr) {
-							$set(this, dateFormat, $DateFormat::getDateInstance());
-						}
-						setHorizontalAlignment($JLabel::LEADING);
-						setText((value == nullptr) ? ""_s : $($nc(($cast($Format, this->dateFormat)))->format(value)));
-					} else {
-						configureValue(value, columnClass->getSuperclass());
-					}
+			$load($Date);
+			if (columnClass == $Date::class$) {
+				if (this->dateFormat == nullptr) {
+					$set(this, dateFormat, $DateFormat::getDateInstance());
 				}
+				setHorizontalAlignment($JLabel::LEADING);
+				setText((value == nullptr) ? ""_s : $($nc($cast($Format, this->dateFormat))->format(value)));
+			} else {
+				configureValue(value, columnClass->getSuperclass());
 			}
 		}
 	}
@@ -196,7 +141,46 @@ SynthTableUI$SynthTableCellRenderer::SynthTableUI$SynthTableCellRenderer() {
 }
 
 $Class* SynthTableUI$SynthTableCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(SynthTableUI$SynthTableCellRenderer, name, initialize, &_SynthTableUI$SynthTableCellRenderer_ClassInfo_, allocate$SynthTableUI$SynthTableCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthTableUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTableUI$SynthTableCellRenderer, this$0)},
+		{"numberFormat", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SynthTableUI$SynthTableCellRenderer, numberFormat)},
+		{"dateFormat", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SynthTableUI$SynthTableCellRenderer, dateFormat)},
+		{"opaque", "Z", nullptr, $PRIVATE, $field(SynthTableUI$SynthTableCellRenderer, opaque)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthTableUI;)V", nullptr, $PRIVATE, $method(SynthTableUI$SynthTableCellRenderer, init$, void, $SynthTableUI*)},
+		{"configureValue", "(Ljava/lang/Object;Ljava/lang/Class;)V", "(Ljava/lang/Object;Ljava/lang/Class<*>;)V", $PRIVATE, $method(SynthTableUI$SynthTableCellRenderer, configureValue, void, Object$*, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, getName, $String*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, isOpaque, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, paint, void, $Graphics*)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, setBorder, void, $Border*)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthTableCellRenderer, setOpaque, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthTableCellRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTableUI$SynthTableCellRenderer",
+		"javax.swing.table.DefaultTableCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTableUI"
+	};
+	$loadClass(SynthTableUI$SynthTableCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTableUI$SynthTableCellRenderer));
+	});
 	return class$;
 }
 

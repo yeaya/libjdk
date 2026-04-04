@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTitlePane$IconifyAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/Locale.h>
@@ -22,46 +21,10 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTitlePane$IconifyAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$IconifyAction, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTitlePane$IconifyAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$IconifyAction, init$, void, $MetalTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$IconifyAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTitlePane$IconifyAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTitlePane$IconifyAction", "javax.swing.plaf.metal.MetalTitlePane", "IconifyAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalTitlePane$IconifyAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTitlePane$IconifyAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_MetalTitlePane$IconifyAction_FieldInfo_,
-	_MetalTitlePane$IconifyAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTitlePane$IconifyAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTitlePane"
-};
-
-$Object* allocate$MetalTitlePane$IconifyAction($Class* clazz) {
-	return $of($alloc(MetalTitlePane$IconifyAction));
-}
-
 void MetalTitlePane$IconifyAction::init$($MetalTitlePane* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$AbstractAction::init$($($UIManager::getString($of("MetalTitlePane.iconifyTitle"_s), $(this$0->getLocale()))));
+	$AbstractAction::init$($($UIManager::getString("MetalTitlePane.iconifyTitle"_s, $(this$0->getLocale()))));
 }
 
 void MetalTitlePane$IconifyAction::actionPerformed($ActionEvent* e) {
@@ -72,7 +35,37 @@ MetalTitlePane$IconifyAction::MetalTitlePane$IconifyAction() {
 }
 
 $Class* MetalTitlePane$IconifyAction::load$($String* name, bool initialize) {
-	$loadClass(MetalTitlePane$IconifyAction, name, initialize, &_MetalTitlePane$IconifyAction_ClassInfo_, allocate$MetalTitlePane$IconifyAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$IconifyAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$IconifyAction, init$, void, $MetalTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$IconifyAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTitlePane$IconifyAction", "javax.swing.plaf.metal.MetalTitlePane", "IconifyAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTitlePane$IconifyAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTitlePane"
+	};
+	$loadClass(MetalTitlePane$IconifyAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTitlePane$IconifyAction));
+	});
 	return class$;
 }
 

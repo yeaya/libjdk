@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/StepIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
@@ -26,38 +25,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _StepIterator_FieldInfo_[] = {
-	{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PROTECTED, $field(StepIterator, _source)},
-	{"_iterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PROTECTED, $field(StepIterator, _iterator)},
-	{"_pos", "I", nullptr, $PRIVATE, $field(StepIterator, _pos)},
-	{}
-};
-
-$MethodInfo _StepIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(StepIterator, init$, void, $DTMAxisIterator*, $DTMAxisIterator*)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(StepIterator, cloneIterator, $DTMAxisIterator*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(StepIterator, gotoMark, void)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(StepIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(StepIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(StepIterator, setMark, void)},
-	{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StepIterator, setRestartable, void, bool)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(StepIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$ClassInfo _StepIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.StepIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_StepIterator_FieldInfo_,
-	_StepIterator_MethodInfo_
-};
-
-$Object* allocate$StepIterator($Class* clazz) {
-	return $of($alloc(StepIterator));
-}
-
 void StepIterator::init$($DTMAxisIterator* source, $DTMAxisIterator* iterator) {
 	$DTMAxisIteratorBase::init$();
 	this->_pos = -1;
@@ -72,7 +39,7 @@ void StepIterator::setRestartable(bool isRestartable) {
 }
 
 $DTMAxisIterator* StepIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->_isRestartable = false;
 	try {
 		$var(StepIterator, clone, $cast(StepIterator, $DTMAxisIteratorBase::clone()));
@@ -83,7 +50,7 @@ $DTMAxisIterator* StepIterator::cloneIterator() {
 		return clone->reset();
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -130,7 +97,34 @@ StepIterator::StepIterator() {
 }
 
 $Class* StepIterator::load$($String* name, bool initialize) {
-	$loadClass(StepIterator, name, initialize, &_StepIterator_ClassInfo_, allocate$StepIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PROTECTED, $field(StepIterator, _source)},
+		{"_iterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PROTECTED, $field(StepIterator, _iterator)},
+		{"_pos", "I", nullptr, $PRIVATE, $field(StepIterator, _pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(StepIterator, init$, void, $DTMAxisIterator*, $DTMAxisIterator*)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(StepIterator, cloneIterator, $DTMAxisIterator*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(StepIterator, gotoMark, void)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(StepIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(StepIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(StepIterator, setMark, void)},
+		{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(StepIterator, setRestartable, void, bool)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(StepIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.StepIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StepIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StepIterator);
+	});
 	return class$;
 }
 

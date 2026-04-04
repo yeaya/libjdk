@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TransformerHandlerImpl.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
@@ -34,15 +33,11 @@
 #undef ER_RESULT_NULL
 #undef JAXP_SET_RESULT_ERR
 
-using $DOM = ::com::sun::org::apache::xalan::internal::xsltc::DOM;
 using $StripFilter = ::com::sun::org::apache::xalan::internal::xsltc::StripFilter;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $DOMWSFilter = ::com::sun::org::apache::xalan::internal::xsltc::dom::DOMWSFilter;
 using $SAXImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl;
 using $XSLTCDTMManager = ::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager;
-using $AbstractTranslet = ::com::sun::org::apache::xalan::internal::xsltc::runtime::AbstractTranslet;
-using $TransletOutputHandlerFactory = ::com::sun::org::apache::xalan::internal::xsltc::runtime::output::TransletOutputHandlerFactory;
-using $TransformerFactoryImpl = ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerFactoryImpl;
 using $TransformerImpl = ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerImpl;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
@@ -58,7 +53,6 @@ using $TransformerException = ::javax::xml::transform::TransformerException;
 using $DOMResult = ::javax::xml::transform::dom::DOMResult;
 using $TransformerHandler = ::javax::xml::transform::sax::TransformerHandler;
 using $Attributes = ::org::xml::sax::Attributes;
-using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $DTDHandler = ::org::xml::sax::DTDHandler;
 using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
@@ -74,74 +68,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _TransformerHandlerImpl_FieldInfo_[] = {
-	{"_transformer", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _transformer)},
-	{"_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _translet)},
-	{"_systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _systemId)},
-	{"_dom", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _dom)},
-	{"_handler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _handler)},
-	{"_lexHandler", "Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _lexHandler)},
-	{"_dtdHandler", "Lorg/xml/sax/DTDHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _dtdHandler)},
-	{"_declHandler", "Lorg/xml/sax/ext/DeclHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _declHandler)},
-	{"_result", "Ljavax/xml/transform/Result;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _result)},
-	{"_locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _locator)},
-	{"_done", "Z", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _done)},
-	{"_isIdentity", "Z", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _isIdentity)},
-	{}
-};
-
-$MethodInfo _TransformerHandlerImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl;)V", nullptr, $PUBLIC, $method(TransformerHandlerImpl, init$, void, $TransformerImpl*)},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, getSystemId, $String*)},
-	{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, getTransformer, $Transformer*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, reset, void)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, setDocumentLocator, void, $Locator*)},
-	{"setResult", "(Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, setResult, void, $Result*), "java.lang.IllegalArgumentException"},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, setSystemId, void, $String*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _TransformerHandlerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerHandlerImpl",
-	"java.lang.Object",
-	"javax.xml.transform.sax.TransformerHandler,org.xml.sax.ext.DeclHandler",
-	_TransformerHandlerImpl_FieldInfo_,
-	_TransformerHandlerImpl_MethodInfo_
-};
-
-$Object* allocate$TransformerHandlerImpl($Class* clazz) {
-	return $of($alloc(TransformerHandlerImpl));
-}
 
 int32_t TransformerHandlerImpl::hashCode() {
 	 return this->$TransformerHandler::hashCode();
@@ -196,7 +122,7 @@ $Transformer* TransformerHandlerImpl::getTransformer() {
 }
 
 void TransformerHandlerImpl::setResult($Result* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, _result, result);
 	if (nullptr == result) {
 		$init($ErrorMsg);
@@ -227,19 +153,19 @@ void TransformerHandlerImpl::characters($chars* ch, int32_t start, int32_t lengt
 }
 
 void TransformerHandlerImpl::startDocument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_result == nullptr) {
 		$init($ErrorMsg);
 		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_SET_RESULT_ERR));
 		$throwNew($SAXException, $(err->toString()));
 	}
 	if (!this->_isIdentity) {
-		bool hasIdCall = (this->_translet != nullptr) ? $nc(this->_translet)->hasIdCall() : false;
+		bool hasIdCall = (this->_translet != nullptr) ? this->_translet->hasIdCall() : false;
 		$var($XSLTCDTMManager, dtmManager, nullptr);
 		try {
-			$assign(dtmManager, $nc($($nc(this->_transformer)->getTransformerFactory()))->createNewDTMManagerInstance());
+			$assign(dtmManager, $$nc($nc(this->_transformer)->getTransformerFactory())->createNewDTMManagerInstance());
 		} catch ($Exception& e) {
-			$throwNew($SAXException, $cast($Exception, e));
+			$throwNew($SAXException, e);
 		}
 		$var($DTMWSFilter, wsFilter, nullptr);
 		if (this->_translet != nullptr && $instanceOf($StripFilter, this->_translet)) {
@@ -261,7 +187,7 @@ void TransformerHandlerImpl::startDocument() {
 }
 
 void TransformerHandlerImpl::endDocument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->_handler)->endDocument();
 	if (!this->_isIdentity) {
 		if (this->_result != nullptr) {
@@ -269,14 +195,14 @@ void TransformerHandlerImpl::endDocument() {
 				$nc(this->_transformer)->setDOM(this->_dom);
 				$nc(this->_transformer)->transform(nullptr, this->_result);
 			} catch ($TransformerException& e) {
-				$throwNew($SAXException, static_cast<$Exception*>(e));
+				$throwNew($SAXException, e);
 			}
 		}
 		this->_done = true;
 		$nc(this->_transformer)->setDOM(this->_dom);
 	}
 	if (this->_isIdentity && $instanceOf($DOMResult, this->_result)) {
-		$nc(($cast($DOMResult, this->_result)))->setNode($($nc($($nc(this->_transformer)->getTransletOutputHandlerFactory()))->getNode()));
+		$cast($DOMResult, this->_result)->setNode($($$nc($nc(this->_transformer)->getTransletOutputHandlerFactory())->getNode()));
 	}
 }
 
@@ -294,19 +220,19 @@ void TransformerHandlerImpl::processingInstruction($String* target, $String* dat
 
 void TransformerHandlerImpl::startCDATA() {
 	if (this->_lexHandler != nullptr) {
-		$nc(this->_lexHandler)->startCDATA();
+		this->_lexHandler->startCDATA();
 	}
 }
 
 void TransformerHandlerImpl::endCDATA() {
 	if (this->_lexHandler != nullptr) {
-		$nc(this->_lexHandler)->endCDATA();
+		this->_lexHandler->endCDATA();
 	}
 }
 
 void TransformerHandlerImpl::comment($chars* ch, int32_t start, int32_t length) {
 	if (this->_lexHandler != nullptr) {
-		$nc(this->_lexHandler)->comment(ch, start, length);
+		this->_lexHandler->comment(ch, start, length);
 	}
 }
 
@@ -317,7 +243,7 @@ void TransformerHandlerImpl::ignorableWhitespace($chars* ch, int32_t start, int3
 void TransformerHandlerImpl::setDocumentLocator($Locator* locator) {
 	$set(this, _locator, locator);
 	if (this->_handler != nullptr) {
-		$nc(this->_handler)->setDocumentLocator(locator);
+		this->_handler->setDocumentLocator(locator);
 	}
 }
 
@@ -335,61 +261,61 @@ void TransformerHandlerImpl::endPrefixMapping($String* prefix) {
 
 void TransformerHandlerImpl::startDTD($String* name, $String* publicId, $String* systemId) {
 	if (this->_lexHandler != nullptr) {
-		$nc(this->_lexHandler)->startDTD(name, publicId, systemId);
+		this->_lexHandler->startDTD(name, publicId, systemId);
 	}
 }
 
 void TransformerHandlerImpl::endDTD() {
 	if (this->_lexHandler != nullptr) {
-		$nc(this->_lexHandler)->endDTD();
+		this->_lexHandler->endDTD();
 	}
 }
 
 void TransformerHandlerImpl::startEntity($String* name) {
 	if (this->_lexHandler != nullptr) {
-		$nc(this->_lexHandler)->startEntity(name);
+		this->_lexHandler->startEntity(name);
 	}
 }
 
 void TransformerHandlerImpl::endEntity($String* name) {
 	if (this->_lexHandler != nullptr) {
-		$nc(this->_lexHandler)->endEntity(name);
+		this->_lexHandler->endEntity(name);
 	}
 }
 
 void TransformerHandlerImpl::unparsedEntityDecl($String* name, $String* publicId, $String* systemId, $String* notationName) {
 	if (this->_dtdHandler != nullptr) {
-		$nc(this->_dtdHandler)->unparsedEntityDecl(name, publicId, systemId, notationName);
+		this->_dtdHandler->unparsedEntityDecl(name, publicId, systemId, notationName);
 	}
 }
 
 void TransformerHandlerImpl::notationDecl($String* name, $String* publicId, $String* systemId) {
 	if (this->_dtdHandler != nullptr) {
-		$nc(this->_dtdHandler)->notationDecl(name, publicId, systemId);
+		this->_dtdHandler->notationDecl(name, publicId, systemId);
 	}
 }
 
 void TransformerHandlerImpl::attributeDecl($String* eName, $String* aName, $String* type, $String* valueDefault, $String* value) {
 	if (this->_declHandler != nullptr) {
-		$nc(this->_declHandler)->attributeDecl(eName, aName, type, valueDefault, value);
+		this->_declHandler->attributeDecl(eName, aName, type, valueDefault, value);
 	}
 }
 
 void TransformerHandlerImpl::elementDecl($String* name, $String* model) {
 	if (this->_declHandler != nullptr) {
-		$nc(this->_declHandler)->elementDecl(name, model);
+		this->_declHandler->elementDecl(name, model);
 	}
 }
 
 void TransformerHandlerImpl::externalEntityDecl($String* name, $String* publicId, $String* systemId) {
 	if (this->_declHandler != nullptr) {
-		$nc(this->_declHandler)->externalEntityDecl(name, publicId, systemId);
+		this->_declHandler->externalEntityDecl(name, publicId, systemId);
 	}
 }
 
 void TransformerHandlerImpl::internalEntityDecl($String* name, $String* value) {
 	if (this->_declHandler != nullptr) {
-		$nc(this->_declHandler)->internalEntityDecl(name, value);
+		this->_declHandler->internalEntityDecl(name, value);
 	}
 }
 
@@ -408,7 +334,70 @@ TransformerHandlerImpl::TransformerHandlerImpl() {
 }
 
 $Class* TransformerHandlerImpl::load$($String* name, bool initialize) {
-	$loadClass(TransformerHandlerImpl, name, initialize, &_TransformerHandlerImpl_ClassInfo_, allocate$TransformerHandlerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"_transformer", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _transformer)},
+		{"_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _translet)},
+		{"_systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _systemId)},
+		{"_dom", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _dom)},
+		{"_handler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _handler)},
+		{"_lexHandler", "Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _lexHandler)},
+		{"_dtdHandler", "Lorg/xml/sax/DTDHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _dtdHandler)},
+		{"_declHandler", "Lorg/xml/sax/ext/DeclHandler;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _declHandler)},
+		{"_result", "Ljavax/xml/transform/Result;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _result)},
+		{"_locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _locator)},
+		{"_done", "Z", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _done)},
+		{"_isIdentity", "Z", nullptr, $PRIVATE, $field(TransformerHandlerImpl, _isIdentity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl;)V", nullptr, $PUBLIC, $method(TransformerHandlerImpl, init$, void, $TransformerImpl*)},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, getSystemId, $String*)},
+		{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, getTransformer, $Transformer*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, reset, void)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, setDocumentLocator, void, $Locator*)},
+		{"setResult", "(Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, setResult, void, $Result*), "java.lang.IllegalArgumentException"},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, setSystemId, void, $String*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransformerHandlerImpl, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TransformerHandlerImpl",
+		"java.lang.Object",
+		"javax.xml.transform.sax.TransformerHandler,org.xml.sax.ext.DeclHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TransformerHandlerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TransformerHandlerImpl));
+	});
 	return class$;
 }
 

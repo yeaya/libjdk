@@ -22,6 +22,7 @@ class $export Win32ShellFolder2$KnownLibraries : public ::java::lang::Object {
 	$class(Win32ShellFolder2$KnownLibraries, 0, ::java::lang::Object)
 public:
 	Win32ShellFolder2$KnownLibraries();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* INSTANCE;
 };

@@ -1,5 +1,4 @@
 #include <TestButtonGroupFocusTraversal$1$4.h>
-
 #include <TestButtonGroupFocusTraversal$1.h>
 #include <TestButtonGroupFocusTraversal.h>
 #include <java/awt/event/ActionEvent.h>
@@ -16,49 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 
-$FieldInfo _TestButtonGroupFocusTraversal$1$4_FieldInfo_[] = {
-	{"this$0", "LTestButtonGroupFocusTraversal$1;", nullptr, $FINAL | $SYNTHETIC, $field(TestButtonGroupFocusTraversal$1$4, this$0)},
-	{}
-};
-
-$MethodInfo _TestButtonGroupFocusTraversal$1$4_MethodInfo_[] = {
-	{"<init>", "(LTestButtonGroupFocusTraversal$1;)V", nullptr, 0, $method(TestButtonGroupFocusTraversal$1$4, init$, void, $TestButtonGroupFocusTraversal$1*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestButtonGroupFocusTraversal$1$4, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _TestButtonGroupFocusTraversal$1$4_EnclosingMethodInfo_ = {
-	"TestButtonGroupFocusTraversal$1",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _TestButtonGroupFocusTraversal$1$4_InnerClassesInfo_[] = {
-	{"TestButtonGroupFocusTraversal$1", nullptr, nullptr, 0},
-	{"TestButtonGroupFocusTraversal$1$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestButtonGroupFocusTraversal$1$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestButtonGroupFocusTraversal$1$4",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_TestButtonGroupFocusTraversal$1$4_FieldInfo_,
-	_TestButtonGroupFocusTraversal$1$4_MethodInfo_,
-	nullptr,
-	&_TestButtonGroupFocusTraversal$1$4_EnclosingMethodInfo_,
-	_TestButtonGroupFocusTraversal$1$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestButtonGroupFocusTraversal"
-};
-
-$Object* allocate$TestButtonGroupFocusTraversal$1$4($Class* clazz) {
-	return $of($alloc(TestButtonGroupFocusTraversal$1$4));
-}
-
 void TestButtonGroupFocusTraversal$1$4::init$($TestButtonGroupFocusTraversal$1* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$();
@@ -73,7 +29,43 @@ TestButtonGroupFocusTraversal$1$4::TestButtonGroupFocusTraversal$1$4() {
 }
 
 $Class* TestButtonGroupFocusTraversal$1$4::load$($String* name, bool initialize) {
-	$loadClass(TestButtonGroupFocusTraversal$1$4, name, initialize, &_TestButtonGroupFocusTraversal$1$4_ClassInfo_, allocate$TestButtonGroupFocusTraversal$1$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTestButtonGroupFocusTraversal$1;", nullptr, $FINAL | $SYNTHETIC, $field(TestButtonGroupFocusTraversal$1$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestButtonGroupFocusTraversal$1;)V", nullptr, 0, $method(TestButtonGroupFocusTraversal$1$4, init$, void, $TestButtonGroupFocusTraversal$1*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestButtonGroupFocusTraversal$1$4, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestButtonGroupFocusTraversal$1",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestButtonGroupFocusTraversal$1", nullptr, nullptr, 0},
+		{"TestButtonGroupFocusTraversal$1$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestButtonGroupFocusTraversal$1$4",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestButtonGroupFocusTraversal"
+	};
+	$loadClass(TestButtonGroupFocusTraversal$1$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestButtonGroupFocusTraversal$1$4));
+	});
 	return class$;
 }
 

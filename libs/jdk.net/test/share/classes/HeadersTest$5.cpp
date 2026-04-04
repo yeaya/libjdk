@@ -1,5 +1,4 @@
 #include <HeadersTest$5.h>
-
 #include <HeadersTest.h>
 #include <java/net/URI.h>
 #include <java/net/http/HttpHeaders.h>
@@ -29,49 +28,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
-
-$MethodInfo _HeadersTest$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadersTest$5, init$, void)},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HeadersTest$5, bodyPublisher, $Optional*)},
-	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, expectContinue, bool)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, headers, $HttpHeaders*)},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, method, $String*)},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HeadersTest$5, timeout, $Optional*)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, uri, $URI*)},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HeadersTest$5, version, $Optional*)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadersTest$5_EnclosingMethodInfo_ = {
-	"HeadersTest",
-	"nullValue",
-	"()V"
-};
-
-$InnerClassInfo _HeadersTest$5_InnerClassesInfo_[] = {
-	{"HeadersTest$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadersTest$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadersTest$5",
-	"java.net.http.HttpRequest",
-	nullptr,
-	nullptr,
-	_HeadersTest$5_MethodInfo_,
-	nullptr,
-	&_HeadersTest$5_EnclosingMethodInfo_,
-	_HeadersTest$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadersTest"
-};
-
-$Object* allocate$HeadersTest$5($Class* clazz) {
-	return $of($alloc(HeadersTest$5));
-}
 
 void HeadersTest$5::init$() {
 	$HttpRequest::init$();
@@ -103,7 +59,7 @@ $Optional* HeadersTest$5::version() {
 }
 
 $HttpHeaders* HeadersTest$5::headers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, values, $new($ArrayList));
 	values->add("foo"_s);
 	values->add(nullptr);
@@ -115,7 +71,44 @@ HeadersTest$5::HeadersTest$5() {
 }
 
 $Class* HeadersTest$5::load$($String* name, bool initialize) {
-	$loadClass(HeadersTest$5, name, initialize, &_HeadersTest$5_ClassInfo_, allocate$HeadersTest$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadersTest$5, init$, void)},
+		{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HeadersTest$5, bodyPublisher, $Optional*)},
+		{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, expectContinue, bool)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, headers, $HttpHeaders*)},
+		{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, method, $String*)},
+		{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HeadersTest$5, timeout, $Optional*)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$5, uri, $URI*)},
+		{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HeadersTest$5, version, $Optional*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadersTest",
+		"nullValue",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadersTest$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadersTest$5",
+		"java.net.http.HttpRequest",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadersTest"
+	};
+	$loadClass(HeadersTest$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadersTest$5);
+	});
 	return class$;
 }
 

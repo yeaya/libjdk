@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/CatalogResolver.h>
-
 #include <org/xml/sax/EntityResolver.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $EntityResolver = ::org::xml::sax::EntityResolver;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$MethodInfo _CatalogResolver_MethodInfo_[] = {
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC | $ABSTRACT},
-	{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC | $ABSTRACT},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"resolveResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _CatalogResolver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.catalog.CatalogResolver",
-	nullptr,
-	"org.xml.sax.EntityResolver,javax.xml.stream.XMLResolver,javax.xml.transform.URIResolver,org.w3c.dom.ls.LSResourceResolver",
-	nullptr,
-	_CatalogResolver_MethodInfo_
-};
-
-$Object* allocate$CatalogResolver($Class* clazz) {
-	return $of($alloc(CatalogResolver));
-}
 
 int32_t CatalogResolver::hashCode() {
 	 return this->$EntityResolver::hashCode();
@@ -58,7 +31,29 @@ void CatalogResolver::finalize() {
 }
 
 $Class* CatalogResolver::load$($String* name, bool initialize) {
-	$loadClass(CatalogResolver, name, initialize, &_CatalogResolver_ClassInfo_, allocate$CatalogResolver);
+	$MethodInfo methodInfos$$[] = {
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC | $ABSTRACT},
+		{"resolve", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Source;", nullptr, $PUBLIC | $ABSTRACT},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"resolveResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.catalog.CatalogResolver",
+		nullptr,
+		"org.xml.sax.EntityResolver,javax.xml.stream.XMLResolver,javax.xml.transform.URIResolver,org.w3c.dom.ls.LSResourceResolver",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CatalogResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CatalogResolver));
+	});
 	return class$;
 }
 

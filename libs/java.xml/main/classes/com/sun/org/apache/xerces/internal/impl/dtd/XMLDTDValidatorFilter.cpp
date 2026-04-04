@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,27 +13,23 @@ namespace com {
 						namespace impl {
 							namespace dtd {
 
-$MethodInfo _XMLDTDValidatorFilter_MethodInfo_[] = {
-	{"hasGrammar", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDValidatorFilter, hasGrammar, bool)},
-	{"validate", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDValidatorFilter, validate, bool)},
-	{}
-};
-
-$ClassInfo _XMLDTDValidatorFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidatorFilter",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentFilter",
-	nullptr,
-	_XMLDTDValidatorFilter_MethodInfo_
-};
-
-$Object* allocate$XMLDTDValidatorFilter($Class* clazz) {
-	return $of($alloc(XMLDTDValidatorFilter));
-}
-
 $Class* XMLDTDValidatorFilter::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDValidatorFilter, name, initialize, &_XMLDTDValidatorFilter_ClassInfo_, allocate$XMLDTDValidatorFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"hasGrammar", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDValidatorFilter, hasGrammar, bool)},
+		{"validate", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDValidatorFilter, validate, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidatorFilter",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentFilter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDValidatorFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDTDValidatorFilter));
+	});
 	return class$;
 }
 

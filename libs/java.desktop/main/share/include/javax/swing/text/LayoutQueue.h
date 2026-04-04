@@ -28,6 +28,7 @@ class $import LayoutQueue : public ::java::lang::Object {
 	$class(LayoutQueue, 0, ::java::lang::Object)
 public:
 	LayoutQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addTask(::java::lang::Runnable* task);
 	static ::javax::swing::text::LayoutQueue* getDefaultQueue();

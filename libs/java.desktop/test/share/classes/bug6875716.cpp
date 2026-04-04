@@ -1,5 +1,4 @@
 #include <bug6875716.h>
-
 #include <bug6875716$1.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JLayer.h>
@@ -16,41 +15,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $JLayer = ::javax::swing::JLayer;
 using $JPanel = ::javax::swing::JPanel;
 
-$MethodInfo _bug6875716_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6875716, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6875716, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6875716_InnerClassesInfo_[] = {
-	{"bug6875716$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6875716_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6875716",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6875716_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6875716_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6875716$1"
-};
-
-$Object* allocate$bug6875716($Class* clazz) {
-	return $of($alloc(bug6875716));
-}
-
 void bug6875716::init$() {
 }
 
 void bug6875716::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayer, layer, $new($JLayer, $$new($bug6875716$1)));
 	layer->setGlassPane(nullptr);
 	try {
@@ -65,7 +34,32 @@ bug6875716::bug6875716() {
 }
 
 $Class* bug6875716::load$($String* name, bool initialize) {
-	$loadClass(bug6875716, name, initialize, &_bug6875716_ClassInfo_, allocate$bug6875716);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6875716, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6875716, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6875716$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6875716",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6875716$1"
+	};
+	$loadClass(bug6875716, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6875716);
+	});
 	return class$;
 }
 

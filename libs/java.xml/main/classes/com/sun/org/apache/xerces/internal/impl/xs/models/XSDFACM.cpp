@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSDFACM.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMNode.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
@@ -61,7 +60,6 @@ using $XSCMUniOp = ::com::sun::org::apache::xerces::internal::impl::xs::models::
 using $XSCMValidator = ::com::sun::org::apache::xerces::internal::impl::xs::models::XSCMValidator;
 using $XSDFACM$Occurence = ::com::sun::org::apache::xerces::internal::impl::xs::models::XSDFACM$Occurence;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -84,76 +82,6 @@ namespace com {
 							namespace xs {
 								namespace models {
 
-$FieldInfo _XSDFACM_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDFACM, DEBUG)},
-	{"DEBUG_VALIDATE_CONTENT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDFACM, DEBUG_VALIDATE_CONTENT)},
-	{"fElemMap", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSDFACM, fElemMap)},
-	{"fElemMapType", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapType)},
-	{"fElemMapId", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapId)},
-	{"fElemMapSize", "I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapSize)},
-	{"fFinalStateFlags", "[Z", nullptr, $PRIVATE, $field(XSDFACM, fFinalStateFlags)},
-	{"fFollowList", "[Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;", nullptr, $PRIVATE, $field(XSDFACM, fFollowList)},
-	{"fHeadNode", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(XSDFACM, fHeadNode)},
-	{"fLeafCount", "I", nullptr, $PRIVATE, $field(XSDFACM, fLeafCount)},
-	{"fLeafList", "[Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMLeaf;", nullptr, $PRIVATE, $field(XSDFACM, fLeafList)},
-	{"fLeafListType", "[I", nullptr, $PRIVATE, $field(XSDFACM, fLeafListType)},
-	{"fTransTable", "[[I", nullptr, $PRIVATE, $field(XSDFACM, fTransTable)},
-	{"fCountingStates", "[Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSDFACM$Occurence;", nullptr, $PRIVATE, $field(XSDFACM, fCountingStates)},
-	{"fTransTableSize", "I", nullptr, $PRIVATE, $field(XSDFACM, fTransTableSize)},
-	{"fIsCompactedForUPA", "Z", nullptr, $PRIVATE, $field(XSDFACM, fIsCompactedForUPA)},
-	{"fElemMapCounter", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapCounter)},
-	{"fElemMapCounterLowerBound", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapCounterLowerBound)},
-	{"fElemMapCounterUpperBound", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapCounterUpperBound)},
-	{"time", "J", nullptr, $PRIVATE | $STATIC, $staticField(XSDFACM, time)},
-	{}
-};
-
-$MethodInfo _XSDFACM_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)V", nullptr, $PUBLIC, $method(XSDFACM, init$, void, $CMNode*, int32_t)},
-	{"buildDFA", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(XSDFACM, buildDFA, void, $CMNode*)},
-	{"calcFollowList", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(XSDFACM, calcFollowList, void, $CMNode*)},
-	{"checkMinMaxBounds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XSDFACM, checkMinMaxBounds, $List*)},
-	{"checkUniqueParticleAttribution", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, checkUniqueParticleAttribution, bool, $SubstitutionGroupHandler*), "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException"},
-	{"dumpTree", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)V", nullptr, $PRIVATE, $method(XSDFACM, dumpTree, void, $CMNode*, int32_t)},
-	{"endContentModel", "([I)Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, endContentModel, bool, $ints*)},
-	{"findMatchingDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSDFACM, findMatchingDecl, $Object*, $QName*, $SubstitutionGroupHandler*)},
-	{"findMatchingDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSDFACM, findMatchingDecl, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*, int32_t)},
-	{"getTermName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSDFACM, getTermName, $String*, int32_t)},
-	{"isCompactedForUPA", "()Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, isCompactedForUPA, bool)},
-	{"isFinalState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, isFinalState, bool, int32_t)},
-	{"makeDefStateList", "()[I", nullptr, $PRIVATE, $method(XSDFACM, makeDefStateList, $ints*)},
-	{"occurenceInfo", "([I)[I", nullptr, $PUBLIC, $virtualMethod(XSDFACM, occurenceInfo, $ints*, $ints*)},
-	{"oneTransition", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSDFACM, oneTransition, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*)},
-	{"postTreeBuildInit", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(XSDFACM, postTreeBuildInit, void, $CMNode*), "java.lang.RuntimeException"},
-	{"startContentModel", "()[I", nullptr, $PUBLIC, $virtualMethod(XSDFACM, startContentModel, $ints*)},
-	{"whatCanGoHere", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSDFACM, whatCanGoHere, $List*, $ints*)},
-	{}
-};
-
-$InnerClassInfo _XSDFACM_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence", "com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM", "Occurence", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XSDFACM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMValidator",
-	_XSDFACM_FieldInfo_,
-	_XSDFACM_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSDFACM_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence"
-};
-
-$Object* allocate$XSDFACM($Class* clazz) {
-	return $of($alloc(XSDFACM));
-}
-
 int64_t XSDFACM::time = 0;
 
 void XSDFACM::init$($CMNode* syntaxTree, int32_t leafCount) {
@@ -172,7 +100,9 @@ void XSDFACM::init$($CMNode* syntaxTree, int32_t leafCount) {
 	this->fTransTableSize = 0;
 	this->fLeafCount = leafCount;
 	this->fIsCompactedForUPA = $nc(syntaxTree)->isCompactedForUPA();
+	;
 	buildDFA(syntaxTree);
+	;
 }
 
 bool XSDFACM::isFinalState(int32_t state) {
@@ -180,13 +110,13 @@ bool XSDFACM::isFinalState(int32_t state) {
 }
 
 $Object* XSDFACM::oneTransition($QName* curElem, $ints* state, $SubstitutionGroupHandler* subGroupHandler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t curState = $nc(state)->get(0);
 	if (curState == $XSCMValidator::FIRST_ERROR || curState == $XSCMValidator::SUBSEQUENT_ERROR) {
 		if (curState == $XSCMValidator::FIRST_ERROR) {
 			state->set(0, $XSCMValidator::SUBSEQUENT_ERROR);
 		}
-		return $of(findMatchingDecl(curElem, subGroupHandler));
+		return findMatchingDecl(curElem, subGroupHandler);
 	}
 	int32_t nextState = 0;
 	int32_t elemIndex = 0;
@@ -201,15 +131,15 @@ $Object* XSDFACM::oneTransition($QName* curElem, $ints* state, $SubstitutionGrou
 			$assign(matchingDecl, $nc(subGroupHandler)->getMatchingElemDecl(curElem, $cast($XSElementDecl, $nc(this->fElemMap)->get(elemIndex))));
 			if (matchingDecl != nullptr) {
 				if ($nc(this->fElemMapCounter)->get(elemIndex) >= 0) {
-					++(*$nc(this->fElemMapCounter))[elemIndex];
+					++(*this->fElemMapCounter)[elemIndex];
 				}
 				break;
 			}
 		} else if (type == $XSParticleDecl::PARTICLE_WILDCARD) {
-			if ($nc(($cast($XSWildcardDecl, $nc(this->fElemMap)->get(elemIndex))))->allowNamespace($nc(curElem)->uri)) {
+			if ($nc($cast($XSWildcardDecl, $nc(this->fElemMap)->get(elemIndex)))->allowNamespace($nc(curElem)->uri)) {
 				$assign(matchingDecl, $nc(this->fElemMap)->get(elemIndex));
 				if ($nc(this->fElemMapCounter)->get(elemIndex) >= 0) {
-					++(*$nc(this->fElemMapCounter))[elemIndex];
+					++(*this->fElemMapCounter)[elemIndex];
 				}
 				break;
 			}
@@ -218,34 +148,34 @@ $Object* XSDFACM::oneTransition($QName* curElem, $ints* state, $SubstitutionGrou
 	if (elemIndex == this->fElemMapSize) {
 		state->set(1, state->get(0));
 		state->set(0, $XSCMValidator::FIRST_ERROR);
-		return $of(findMatchingDecl(curElem, subGroupHandler));
+		return findMatchingDecl(curElem, subGroupHandler);
 	}
 	if (this->fCountingStates != nullptr) {
-		$var($XSDFACM$Occurence, o, $nc(this->fCountingStates)->get(curState));
+		$var($XSDFACM$Occurence, o, this->fCountingStates->get(curState));
 		if (o != nullptr) {
 			if (curState == nextState) {
 				if (++(*state)[2] > o->maxOccurs && o->maxOccurs != $SchemaSymbols::OCCURRENCE_UNBOUNDED) {
-					return $of(findMatchingDecl(curElem, state, subGroupHandler, elemIndex));
+					return findMatchingDecl(curElem, state, subGroupHandler, elemIndex);
 				}
 			} else if (state->get(2) < o->minOccurs) {
 				state->set(1, state->get(0));
 				state->set(0, $XSCMValidator::FIRST_ERROR);
-				return $of(findMatchingDecl(curElem, subGroupHandler));
+				return findMatchingDecl(curElem, subGroupHandler);
 			} else {
-				$assign(o, $nc(this->fCountingStates)->get(nextState));
+				$assign(o, this->fCountingStates->get(nextState));
 				if (o != nullptr) {
 					state->set(2, (elemIndex == o->elemIndex) ? 1 : 0);
 				}
 			}
 		} else {
-			$assign(o, $nc(this->fCountingStates)->get(nextState));
+			$assign(o, this->fCountingStates->get(nextState));
 			if (o != nullptr) {
 				state->set(2, (elemIndex == o->elemIndex) ? 1 : 0);
 			}
 		}
 	}
 	state->set(0, nextState);
-	return $of(matchingDecl);
+	return matchingDecl;
 }
 
 $Object* XSDFACM::findMatchingDecl($QName* curElem, $SubstitutionGroupHandler* subGroupHandler) {
@@ -255,19 +185,19 @@ $Object* XSDFACM::findMatchingDecl($QName* curElem, $SubstitutionGroupHandler* s
 		if (type == $XSParticleDecl::PARTICLE_ELEMENT) {
 			$assign(matchingDecl, $nc(subGroupHandler)->getMatchingElemDecl(curElem, $cast($XSElementDecl, $nc(this->fElemMap)->get(elemIndex))));
 			if (matchingDecl != nullptr) {
-				return $of(matchingDecl);
+				return matchingDecl;
 			}
 		} else if (type == $XSParticleDecl::PARTICLE_WILDCARD) {
-			if ($nc(($cast($XSWildcardDecl, $nc(this->fElemMap)->get(elemIndex))))->allowNamespace($nc(curElem)->uri)) {
-				return $of($nc(this->fElemMap)->get(elemIndex));
+			if ($nc($cast($XSWildcardDecl, $nc(this->fElemMap)->get(elemIndex)))->allowNamespace($nc(curElem)->uri)) {
+				return $nc(this->fElemMap)->get(elemIndex);
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* XSDFACM::findMatchingDecl($QName* curElem, $ints* state, $SubstitutionGroupHandler* subGroupHandler, int32_t elemIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t curState = $nc(state)->get(0);
 	int32_t nextState = 0;
 	$var($Object, matchingDecl, nullptr);
@@ -283,7 +213,7 @@ $Object* XSDFACM::findMatchingDecl($QName* curElem, $ints* state, $SubstitutionG
 				break;
 			}
 		} else if (type == $XSParticleDecl::PARTICLE_WILDCARD) {
-			if ($nc(($cast($XSWildcardDecl, $nc(this->fElemMap)->get(elemIndex))))->allowNamespace($nc(curElem)->uri)) {
+			if ($nc($cast($XSWildcardDecl, $nc(this->fElemMap)->get(elemIndex)))->allowNamespace($nc(curElem)->uri)) {
 				$assign(matchingDecl, $nc(this->fElemMap)->get(elemIndex));
 				break;
 			}
@@ -292,20 +222,20 @@ $Object* XSDFACM::findMatchingDecl($QName* curElem, $ints* state, $SubstitutionG
 	if (elemIndex == this->fElemMapSize) {
 		state->set(1, state->get(0));
 		state->set(0, $XSCMValidator::FIRST_ERROR);
-		return $of(findMatchingDecl(curElem, subGroupHandler));
+		return findMatchingDecl(curElem, subGroupHandler);
 	}
 	state->set(0, nextState);
 	$var($XSDFACM$Occurence, o, $nc(this->fCountingStates)->get(nextState));
 	if (o != nullptr) {
 		state->set(2, (elemIndex == o->elemIndex) ? 1 : 0);
 	}
-	return $of(matchingDecl);
+	return matchingDecl;
 }
 
 $ints* XSDFACM::startContentModel() {
 	for (int32_t elemIndex = 0; elemIndex < this->fElemMapSize; ++elemIndex) {
 		if ($nc(this->fElemMapCounter)->get(elemIndex) != -1) {
-			$nc(this->fElemMapCounter)->set(elemIndex, 0);
+			this->fElemMapCounter->set(elemIndex, 0);
 		}
 	}
 	return $new($ints, 3);
@@ -315,7 +245,7 @@ bool XSDFACM::endContentModel($ints* state) {
 	int32_t curState = $nc(state)->get(0);
 	if ($nc(this->fFinalStateFlags)->get(curState)) {
 		if (this->fCountingStates != nullptr) {
-			$var($XSDFACM$Occurence, o, $nc(this->fCountingStates)->get(curState));
+			$var($XSDFACM$Occurence, o, this->fCountingStates->get(curState));
 			if (o != nullptr && state->get(2) < o->minOccurs) {
 				return false;
 			}
@@ -326,7 +256,7 @@ bool XSDFACM::endContentModel($ints* state) {
 }
 
 void XSDFACM::buildDFA($CMNode* syntaxTree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t EOCPos = this->fLeafCount;
 	$var($XSCMLeaf, nodeEOC, $new($XSCMLeaf, $XSParticleDecl::PARTICLE_ELEMENT, nullptr, -1, this->fLeafCount++));
 	$set(this, fHeadNode, $new($XSCMBinOp, $XSModelGroupImpl::MODELGROUP_SEQUENCE, syntaxTree, nodeEOC));
@@ -335,7 +265,7 @@ void XSDFACM::buildDFA($CMNode* syntaxTree) {
 	postTreeBuildInit(this->fHeadNode);
 	$set(this, fFollowList, $new($CMStateSetArray, this->fLeafCount));
 	for (int32_t index = 0; index < this->fLeafCount; ++index) {
-		$nc(this->fFollowList)->set(index, $$new($CMStateSet, this->fLeafCount));
+		this->fFollowList->set(index, $$new($CMStateSet, this->fLeafCount));
 	}
 	calcFollowList(this->fHeadNode);
 	$set(this, fElemMap, $new($ObjectArray, this->fLeafCount));
@@ -379,6 +309,7 @@ void XSDFACM::buildDFA($CMNode* syntaxTree) {
 			++this->fElemMapSize;
 		}
 	}
+	;
 	--this->fElemMapSize;
 	$var($ints, fLeafSorter, $new($ints, this->fLeafCount + this->fElemMapSize));
 	int32_t fSortCount = 0;
@@ -413,7 +344,7 @@ void XSDFACM::buildDFA($CMNode* syntaxTree) {
 			if (newSet == nullptr) {
 				$assign(newSet, $new($CMStateSet, this->fLeafCount));
 			} else {
-				$nc(newSet)->zeroBits();
+				newSet->zeroBits();
 			}
 			int32_t leafIndex = fLeafSorter->get(sorterIndex++);
 			while (leafIndex != -1) {
@@ -424,9 +355,9 @@ void XSDFACM::buildDFA($CMNode* syntaxTree) {
 			}
 			if (!$nc(newSet)->isEmpty()) {
 				$var($Integer, stateObj, $cast($Integer, stateTable->get(newSet)));
-				int32_t stateIndex = (stateObj == nullptr ? curState : $nc(stateObj)->intValue());
+				int32_t stateIndex = (stateObj == nullptr ? curState : stateObj->intValue());
 				if (stateIndex == curState) {
-					statesToDo->set(curState, newSet);
+					$nc(statesToDo)->set(curState, newSet);
 					$nc(this->fTransTable)->set(curState, $(makeDefStateList()));
 					stateTable->put(newSet, $($Integer::valueOf(curState)));
 					++curState;
@@ -455,12 +386,13 @@ void XSDFACM::buildDFA($CMNode* syntaxTree) {
 			$var($ints, transitions, $nc(this->fTransTable)->get(i));
 			for (int32_t j = 0; j < $nc(transitions)->length; ++j) {
 				if (i == transitions->get(j)) {
-					$nc(this->fCountingStates)->set(i, elemOccurenceMap->get(j));
+					this->fCountingStates->set(i, elemOccurenceMap->get(j));
 					break;
 				}
 			}
 		}
 	}
+	;
 	$set(this, fHeadNode, nullptr);
 	$set(this, fLeafList, nullptr);
 	$set(this, fFollowList, nullptr);
@@ -469,24 +401,24 @@ void XSDFACM::buildDFA($CMNode* syntaxTree) {
 }
 
 void XSDFACM::calcFollowList($CMNode* nodeCur) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(nodeCur)->type() == $XSModelGroupImpl::MODELGROUP_CHOICE) {
-		calcFollowList($($nc(($cast($XSCMBinOp, nodeCur)))->getLeft()));
-		calcFollowList($($nc(($cast($XSCMBinOp, nodeCur)))->getRight()));
+		calcFollowList($($cast($XSCMBinOp, nodeCur)->getLeft()));
+		calcFollowList($($cast($XSCMBinOp, nodeCur)->getRight()));
 	} else if (nodeCur->type() == $XSModelGroupImpl::MODELGROUP_SEQUENCE) {
-		calcFollowList($($nc(($cast($XSCMBinOp, nodeCur)))->getLeft()));
-		calcFollowList($($nc(($cast($XSCMBinOp, nodeCur)))->getRight()));
-		$var($CMStateSet, last, $nc($($nc(($cast($XSCMBinOp, nodeCur)))->getLeft()))->lastPos());
-		$var($CMStateSet, first, $nc($(($cast($XSCMBinOp, nodeCur))->getRight()))->firstPos());
+		calcFollowList($($cast($XSCMBinOp, nodeCur)->getLeft()));
+		calcFollowList($($cast($XSCMBinOp, nodeCur)->getRight()));
+		$var($CMStateSet, last, $$nc($cast($XSCMBinOp, nodeCur)->getLeft())->lastPos());
+		$var($CMStateSet, first, $$nc($cast($XSCMBinOp, nodeCur)->getRight())->firstPos());
 		for (int32_t index = 0; index < this->fLeafCount; ++index) {
 			if ($nc(last)->getBit(index)) {
 				$nc($nc(this->fFollowList)->get(index))->union$(first);
 			}
 		}
 	} else {
-		bool var$1 = nodeCur->type() == $XSParticleDecl::PARTICLE_ZERO_OR_MORE;
-		if (var$1 || nodeCur->type() == $XSParticleDecl::PARTICLE_ONE_OR_MORE) {
-			calcFollowList($($nc(($cast($XSCMUniOp, nodeCur)))->getChild()));
+		bool var$0 = nodeCur->type() == $XSParticleDecl::PARTICLE_ZERO_OR_MORE;
+		if (var$0 || nodeCur->type() == $XSParticleDecl::PARTICLE_ONE_OR_MORE) {
+			calcFollowList($($cast($XSCMUniOp, nodeCur)->getChild()));
 			$var($CMStateSet, first, nodeCur->firstPos());
 			$var($CMStateSet, last, nodeCur->lastPos());
 			for (int32_t index = 0; index < this->fLeafCount; ++index) {
@@ -495,89 +427,80 @@ void XSDFACM::calcFollowList($CMNode* nodeCur) {
 				}
 			}
 		} else if (nodeCur->type() == $XSParticleDecl::PARTICLE_ZERO_OR_ONE) {
-			calcFollowList($($nc(($cast($XSCMUniOp, nodeCur)))->getChild()));
+			calcFollowList($($cast($XSCMUniOp, nodeCur)->getChild()));
 		}
 	}
 }
 
 void XSDFACM::dumpTree($CMNode* nodeCur, int32_t level) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t index = 0; index < level; ++index) {
 		$nc($System::out)->print("   "_s);
 	}
 	int32_t type = $nc(nodeCur)->type();
 	switch (type) {
 	case $XSModelGroupImpl::MODELGROUP_CHOICE:
-		{}
 	case $XSModelGroupImpl::MODELGROUP_SEQUENCE:
 		{
-			{
-				if (type == $XSModelGroupImpl::MODELGROUP_CHOICE) {
-					$nc($System::out)->print("Choice Node "_s);
-				} else {
-					$nc($System::out)->print("Seq Node "_s);
-				}
-				if (nodeCur->isNullable()) {
-					$nc($System::out)->print("Nullable "_s);
-				}
-				$nc($System::out)->print("firstPos="_s);
-				$nc($System::out)->print($($nc($(nodeCur->firstPos()))->toString()));
-				$nc($System::out)->print(" lastPos="_s);
-				$nc($System::out)->println($($nc($(nodeCur->lastPos()))->toString()));
-				dumpTree($($nc(($cast($XSCMBinOp, nodeCur)))->getLeft()), level + 1);
-				dumpTree($($nc(($cast($XSCMBinOp, nodeCur)))->getRight()), level + 1);
-				break;
+			if (type == $XSModelGroupImpl::MODELGROUP_CHOICE) {
+				$nc($System::out)->print("Choice Node "_s);
+			} else {
+				$nc($System::out)->print("Seq Node "_s);
 			}
+			if (nodeCur->isNullable()) {
+				$nc($System::out)->print("Nullable "_s);
+			}
+			$nc($System::out)->print("firstPos="_s);
+			$System::out->print($($$nc(nodeCur->firstPos())->toString()));
+			$System::out->print(" lastPos="_s);
+			$System::out->println($($$nc(nodeCur->lastPos())->toString()));
+			dumpTree($($cast($XSCMBinOp, nodeCur)->getLeft()), level + 1);
+			dumpTree($($cast($XSCMBinOp, nodeCur)->getRight()), level + 1);
+			break;
 		}
 	case $XSParticleDecl::PARTICLE_ZERO_OR_MORE:
-		{}
 	case $XSParticleDecl::PARTICLE_ONE_OR_MORE:
-		{}
 	case $XSParticleDecl::PARTICLE_ZERO_OR_ONE:
 		{
-			{
-				$nc($System::out)->print("Rep Node "_s);
-				if (nodeCur->isNullable()) {
-					$nc($System::out)->print("Nullable "_s);
-				}
-				$nc($System::out)->print("firstPos="_s);
-				$nc($System::out)->print($($nc($(nodeCur->firstPos()))->toString()));
-				$nc($System::out)->print(" lastPos="_s);
-				$nc($System::out)->println($($nc($(nodeCur->lastPos()))->toString()));
-				dumpTree($($nc(($cast($XSCMUniOp, nodeCur)))->getChild()), level + 1);
-				break;
+			$nc($System::out)->print("Rep Node "_s);
+			if (nodeCur->isNullable()) {
+				$System::out->print("Nullable "_s);
 			}
+			$System::out->print("firstPos="_s);
+			$System::out->print($($$nc(nodeCur->firstPos())->toString()));
+			$System::out->print(" lastPos="_s);
+			$System::out->println($($$nc(nodeCur->lastPos())->toString()));
+			dumpTree($($cast($XSCMUniOp, nodeCur)->getChild()), level + 1);
+			break;
 		}
 	case $XSParticleDecl::PARTICLE_ELEMENT:
 		{
-			{
-				$var($String, var$1, $$str({"Leaf: (pos="_s, $$str($nc(($cast($XSCMLeaf, nodeCur)))->getPosition()), "), (elemIndex="_s}));
-				$var($String, var$0, $$concat(var$1, $(($cast($XSCMLeaf, nodeCur))->getLeaf())));
-				$nc($System::out)->print($$concat(var$0, ") "_s));
-				if (nodeCur->isNullable()) {
-					$nc($System::out)->print(" Nullable "_s);
-				}
-				$nc($System::out)->print("firstPos="_s);
-				$nc($System::out)->print($($nc($(nodeCur->firstPos()))->toString()));
-				$nc($System::out)->print(" lastPos="_s);
-				$nc($System::out)->println($($nc($(nodeCur->lastPos()))->toString()));
-				break;
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Leaf: (pos="_s);
+			var$0->append($cast($XSCMLeaf, nodeCur)->getPosition());
+			var$0->append("), (elemIndex="_s);
+			var$0->append($($cast($XSCMLeaf, nodeCur)->getLeaf()));
+			var$0->append(") "_s);
+			$nc($System::out)->print($$str(var$0));
+			if (nodeCur->isNullable()) {
+				$System::out->print(" Nullable "_s);
 			}
-		}
-	case $XSParticleDecl::PARTICLE_WILDCARD:
-		{
-			$nc($System::out)->print("Any Node: "_s);
-			$nc($System::out)->print("firstPos="_s);
-			$nc($System::out)->print($($nc($(nodeCur->firstPos()))->toString()));
-			$nc($System::out)->print(" lastPos="_s);
-			$nc($System::out)->println($($nc($(nodeCur->lastPos()))->toString()));
+			$System::out->print("firstPos="_s);
+			$System::out->print($($$nc(nodeCur->firstPos())->toString()));
+			$System::out->print(" lastPos="_s);
+			$System::out->println($($$nc(nodeCur->lastPos())->toString()));
 			break;
 		}
+	case $XSParticleDecl::PARTICLE_WILDCARD:
+		$nc($System::out)->print("Any Node: "_s);
+		$System::out->print("firstPos="_s);
+		$System::out->print($($$nc(nodeCur->firstPos())->toString()));
+		$System::out->print(" lastPos="_s);
+		$System::out->println($($$nc(nodeCur->lastPos())->toString()));
+		break;
 	default:
 		{
-			{
-				$throwNew($RuntimeException, "ImplementationMessages.VAL_NIICM"_s);
-			}
+			$throwNew($RuntimeException, "ImplementationMessages.VAL_NIICM"_s);
 		}
 	}
 }
@@ -591,7 +514,7 @@ $ints* XSDFACM::makeDefStateList() {
 }
 
 void XSDFACM::postTreeBuildInit($CMNode* nodeCur) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(nodeCur)->setMaxStates(this->fLeafCount);
 	$var($XSCMLeaf, leaf, nullptr);
 	int32_t pos = 0;
@@ -601,15 +524,15 @@ void XSDFACM::postTreeBuildInit($CMNode* nodeCur) {
 		$nc(this->fLeafList)->set(pos, leaf);
 		$nc(this->fLeafListType)->set(pos, $XSParticleDecl::PARTICLE_WILDCARD);
 	} else {
-		bool var$1 = (nodeCur->type() == $XSModelGroupImpl::MODELGROUP_CHOICE);
-		if (var$1 || (nodeCur->type() == $XSModelGroupImpl::MODELGROUP_SEQUENCE)) {
-			postTreeBuildInit($($nc(($cast($XSCMBinOp, nodeCur)))->getLeft()));
-			postTreeBuildInit($($nc(($cast($XSCMBinOp, nodeCur)))->getRight()));
+		bool var$0 = nodeCur->type() == $XSModelGroupImpl::MODELGROUP_CHOICE;
+		if (var$0 || (nodeCur->type() == $XSModelGroupImpl::MODELGROUP_SEQUENCE)) {
+			postTreeBuildInit($($cast($XSCMBinOp, nodeCur)->getLeft()));
+			postTreeBuildInit($($cast($XSCMBinOp, nodeCur)->getRight()));
 		} else {
-			bool var$5 = nodeCur->type() == $XSParticleDecl::PARTICLE_ZERO_OR_MORE;
-			bool var$4 = var$5 || nodeCur->type() == $XSParticleDecl::PARTICLE_ONE_OR_MORE;
-			if (var$4 || nodeCur->type() == $XSParticleDecl::PARTICLE_ZERO_OR_ONE) {
-				postTreeBuildInit($($nc(($cast($XSCMUniOp, nodeCur)))->getChild()));
+			bool var$2 = nodeCur->type() == $XSParticleDecl::PARTICLE_ZERO_OR_MORE;
+			bool var$1 = var$2 || nodeCur->type() == $XSParticleDecl::PARTICLE_ONE_OR_MORE;
+			if (var$1 || nodeCur->type() == $XSParticleDecl::PARTICLE_ZERO_OR_ONE) {
+				postTreeBuildInit($($cast($XSCMUniOp, nodeCur)->getChild()));
 			} else if (nodeCur->type() == $XSParticleDecl::PARTICLE_ELEMENT) {
 				$assign(leaf, $cast($XSCMLeaf, nodeCur));
 				pos = leaf->getPosition();
@@ -623,16 +546,16 @@ void XSDFACM::postTreeBuildInit($CMNode* nodeCur) {
 }
 
 bool XSDFACM::checkUniqueParticleAttribution($SubstitutionGroupHandler* subGroupHandler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($byteArray2, conflictTable, $new($byteArray2, this->fElemMapSize, this->fElemMapSize));
-	for (int32_t i = 0; i < $nc(this->fTransTable)->length && $nc(this->fTransTable)->get(i) != nullptr; ++i) {
+	for (int32_t i = 0; i < $nc(this->fTransTable)->length && this->fTransTable->get(i) != nullptr; ++i) {
 		for (int32_t j = 0; j < this->fElemMapSize; ++j) {
 			for (int32_t k = j + 1; k < this->fElemMapSize; ++k) {
-				if ($nc($nc(this->fTransTable)->get(i))->get(j) != -1 && $nc($nc(this->fTransTable)->get(i))->get(k) != -1) {
+				if ($nc($nc(this->fTransTable)->get(i))->get(j) != -1 && $nc(this->fTransTable->get(i))->get(k) != -1) {
 					if ($nc(conflictTable->get(j))->get(k) == 0) {
 						if ($XSConstraints::overlapUPA($nc(this->fElemMap)->get(j), $nc(this->fElemMap)->get(k), subGroupHandler)) {
 							if (this->fCountingStates != nullptr) {
-								$var($XSDFACM$Occurence, o, $nc(this->fCountingStates)->get(i));
+								$var($XSDFACM$Occurence, o, this->fCountingStates->get(i));
 								if (o != nullptr && ($nc($nc(this->fTransTable)->get(i))->get(j) == i) ^ ($nc($nc(this->fTransTable)->get(i))->get(k) == i) && o->minOccurs == o->maxOccurs) {
 									$nc(conflictTable->get(j))->set(k, (int8_t)-1);
 									continue;
@@ -651,8 +574,8 @@ bool XSDFACM::checkUniqueParticleAttribution($SubstitutionGroupHandler* subGroup
 		for (int32_t j = 0; j < this->fElemMapSize; ++j) {
 			if ($nc(conflictTable->get(i))->get(j) == 1) {
 				$throwNew($XMLSchemaException, "cos-nonambig"_s, $$new($ObjectArray, {
-					$($of($nc($of($nc(this->fElemMap)->get(i)))->toString())),
-					$($of($nc($of($nc(this->fElemMap)->get(j)))->toString()))
+					$($nc($nc(this->fElemMap)->get(i))->toString()),
+					$($nc($nc(this->fElemMap)->get(j))->toString())
 				}));
 			}
 		}
@@ -660,7 +583,7 @@ bool XSDFACM::checkUniqueParticleAttribution($SubstitutionGroupHandler* subGroup
 	for (int32_t i = 0; i < this->fElemMapSize; ++i) {
 		if ($nc(this->fElemMapType)->get(i) == $XSParticleDecl::PARTICLE_WILDCARD) {
 			$var($XSWildcardDecl, wildcard, $cast($XSWildcardDecl, $nc(this->fElemMap)->get(i)));
-			if ($nc(wildcard)->fType == $XSWildcardDecl::NSCONSTRAINT_LIST || $nc(wildcard)->fType == $XSWildcardDecl::NSCONSTRAINT_NOT) {
+			if ($nc(wildcard)->fType == $XSWildcardDecl::NSCONSTRAINT_LIST || wildcard->fType == $XSWildcardDecl::NSCONSTRAINT_NOT) {
 				return true;
 			}
 		}
@@ -669,12 +592,12 @@ bool XSDFACM::checkUniqueParticleAttribution($SubstitutionGroupHandler* subGroup
 }
 
 $List* XSDFACM::whatCanGoHere($ints* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t curState = $nc(state)->get(0);
 	if (curState < 0) {
 		curState = state->get(1);
 	}
-	$var($XSDFACM$Occurence, o, (this->fCountingStates != nullptr) ? $nc(this->fCountingStates)->get(curState) : ($XSDFACM$Occurence*)nullptr);
+	$var($XSDFACM$Occurence, o, (this->fCountingStates != nullptr) ? this->fCountingStates->get(curState) : ($XSDFACM$Occurence*)nullptr);
 	int32_t count = state->get(2);
 	$var($List, ret, $new($ArrayList));
 	for (int32_t elemIndex = 0; elemIndex < this->fElemMapSize; ++elemIndex) {
@@ -696,7 +619,7 @@ $List* XSDFACM::whatCanGoHere($ints* state) {
 }
 
 $List* XSDFACM::checkMinMaxBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, nullptr);
 	for (int32_t elemIndex = 0; elemIndex < this->fElemMapSize; ++elemIndex) {
 		int32_t count = $nc(this->fElemMapCounter)->get(elemIndex);
@@ -724,13 +647,13 @@ $List* XSDFACM::checkMinMaxBounds() {
 }
 
 $ints* XSDFACM::occurenceInfo($ints* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fCountingStates != nullptr) {
 		int32_t curState = $nc(state)->get(0);
 		if (curState < 0) {
 			curState = state->get(1);
 		}
-		$var($XSDFACM$Occurence, o, $nc(this->fCountingStates)->get(curState));
+		$var($XSDFACM$Occurence, o, this->fCountingStates->get(curState));
 		if (o != nullptr) {
 			$var($ints, occurenceInfo, $new($ints, 4));
 			occurenceInfo->set(0, o->minOccurs);
@@ -745,14 +668,14 @@ $ints* XSDFACM::occurenceInfo($ints* state) {
 
 $String* XSDFACM::getTermName(int32_t termId) {
 	$var($Object0, term, $nc(this->fElemMap)->get(termId));
-	return (term != nullptr) ? $nc($of(term))->toString() : ($String*)nullptr;
+	return (term != nullptr) ? term->toString() : ($String*)nullptr;
 }
 
 bool XSDFACM::isCompactedForUPA() {
 	return this->fIsCompactedForUPA;
 }
 
-void clinit$XSDFACM($Class* class$) {
+void XSDFACM::clinit$($Class* clazz) {
 	XSDFACM::time = 0;
 }
 
@@ -760,7 +683,71 @@ XSDFACM::XSDFACM() {
 }
 
 $Class* XSDFACM::load$($String* name, bool initialize) {
-	$loadClass(XSDFACM, name, initialize, &_XSDFACM_ClassInfo_, clinit$XSDFACM, allocate$XSDFACM);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDFACM, DEBUG)},
+		{"DEBUG_VALIDATE_CONTENT", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDFACM, DEBUG_VALIDATE_CONTENT)},
+		{"fElemMap", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSDFACM, fElemMap)},
+		{"fElemMapType", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapType)},
+		{"fElemMapId", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapId)},
+		{"fElemMapSize", "I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapSize)},
+		{"fFinalStateFlags", "[Z", nullptr, $PRIVATE, $field(XSDFACM, fFinalStateFlags)},
+		{"fFollowList", "[Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;", nullptr, $PRIVATE, $field(XSDFACM, fFollowList)},
+		{"fHeadNode", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(XSDFACM, fHeadNode)},
+		{"fLeafCount", "I", nullptr, $PRIVATE, $field(XSDFACM, fLeafCount)},
+		{"fLeafList", "[Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMLeaf;", nullptr, $PRIVATE, $field(XSDFACM, fLeafList)},
+		{"fLeafListType", "[I", nullptr, $PRIVATE, $field(XSDFACM, fLeafListType)},
+		{"fTransTable", "[[I", nullptr, $PRIVATE, $field(XSDFACM, fTransTable)},
+		{"fCountingStates", "[Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSDFACM$Occurence;", nullptr, $PRIVATE, $field(XSDFACM, fCountingStates)},
+		{"fTransTableSize", "I", nullptr, $PRIVATE, $field(XSDFACM, fTransTableSize)},
+		{"fIsCompactedForUPA", "Z", nullptr, $PRIVATE, $field(XSDFACM, fIsCompactedForUPA)},
+		{"fElemMapCounter", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapCounter)},
+		{"fElemMapCounterLowerBound", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapCounterLowerBound)},
+		{"fElemMapCounterUpperBound", "[I", nullptr, $PRIVATE, $field(XSDFACM, fElemMapCounterUpperBound)},
+		{"time", "J", nullptr, $PRIVATE | $STATIC, $staticField(XSDFACM, time)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)V", nullptr, $PUBLIC, $method(XSDFACM, init$, void, $CMNode*, int32_t)},
+		{"buildDFA", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(XSDFACM, buildDFA, void, $CMNode*)},
+		{"calcFollowList", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(XSDFACM, calcFollowList, void, $CMNode*)},
+		{"checkMinMaxBounds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XSDFACM, checkMinMaxBounds, $List*)},
+		{"checkUniqueParticleAttribution", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, checkUniqueParticleAttribution, bool, $SubstitutionGroupHandler*), "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException"},
+		{"dumpTree", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;I)V", nullptr, $PRIVATE, $method(XSDFACM, dumpTree, void, $CMNode*, int32_t)},
+		{"endContentModel", "([I)Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, endContentModel, bool, $ints*)},
+		{"findMatchingDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSDFACM, findMatchingDecl, $Object*, $QName*, $SubstitutionGroupHandler*)},
+		{"findMatchingDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSDFACM, findMatchingDecl, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*, int32_t)},
+		{"getTermName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSDFACM, getTermName, $String*, int32_t)},
+		{"isCompactedForUPA", "()Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, isCompactedForUPA, bool)},
+		{"isFinalState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XSDFACM, isFinalState, bool, int32_t)},
+		{"makeDefStateList", "()[I", nullptr, $PRIVATE, $method(XSDFACM, makeDefStateList, $ints*)},
+		{"occurenceInfo", "([I)[I", nullptr, $PUBLIC, $virtualMethod(XSDFACM, occurenceInfo, $ints*, $ints*)},
+		{"oneTransition", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSDFACM, oneTransition, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*)},
+		{"postTreeBuildInit", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PRIVATE, $method(XSDFACM, postTreeBuildInit, void, $CMNode*), "java.lang.RuntimeException"},
+		{"startContentModel", "()[I", nullptr, $PUBLIC, $virtualMethod(XSDFACM, startContentModel, $ints*)},
+		{"whatCanGoHere", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSDFACM, whatCanGoHere, $List*, $ints*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence", "com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM", "Occurence", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMValidator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence"
+	};
+	$loadClass(XSDFACM, name, initialize, &classInfo$$, XSDFACM::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDFACM);
+	});
 	return class$;
 }
 

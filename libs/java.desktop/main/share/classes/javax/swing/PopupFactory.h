@@ -32,6 +32,7 @@ class $export PopupFactory : public ::java::lang::Object {
 	$class(PopupFactory, 0, ::java::lang::Object)
 public:
 	PopupFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::javax::swing::Popup* getHeadlessPopup(::java::awt::Component* owner, ::java::awt::Component* contents, int32_t ownerX, int32_t ownerY);
 	::javax::swing::Popup* getHeavyWeightPopup(::java::awt::Component* owner, ::java::awt::Component* contents, int32_t ownerX, int32_t ownerY);

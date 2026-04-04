@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_su.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_su_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_su, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_su, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_su_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_su",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_su_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_su($Class* clazz) {
-	return $of($alloc(LocaleNames_su));
-}
-
 void LocaleNames_su::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_su::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_CN, "Tiongkok"_s);
 	$var($String, metaValue_DE, u"Jérman"_s);
 	$var($String, metaValue_FR, "Prancis"_s);
@@ -47,184 +27,184 @@ $ObjectArray2* LocaleNames_su::getContents() {
 	$var($String, metaValue_RU, "Rusia"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of("Wilayah Teu Dikenal"_s)
+			"ZZ"_s,
+			"Wilayah Teu Dikenal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(metaValue_DE)
+			"de"_s,
+			metaValue_DE
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(metaValue_DE)
+			"DE"_s,
+			metaValue_DE
 		}),
 		$$new($ObjectArray, {
-			$of("de_AT"_s),
-			$of(u"Jérman Austria"_s)
+			"de_AT"_s,
+			u"Jérman Austria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of("Tiongkok Sederhana"_s)
+			"zh_Hans"_s,
+			"Tiongkok Sederhana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(metaValue_RU)
+			"ru"_s,
+			metaValue_RU
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(metaValue_RU)
+			"RU"_s,
+			metaValue_RU
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of("Portugis"_s)
+			"pt"_s,
+			"Portugis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(metaValue_JP)
+			"JP"_s,
+			metaValue_JP
 		}),
 		$$new($ObjectArray, {
-			$of("en_AU"_s),
-			$of("Inggris Australia"_s)
+			"en_AU"_s,
+			"Inggris Australia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of("Tulisan Teu Dikenal"_s)
+			"Zzzz"_s,
+			"Tulisan Teu Dikenal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of("Portugis Brasil"_s)
+			"pt_BR"_s,
+			"Portugis Brasil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(metaValue_FR)
+			"fr"_s,
+			metaValue_FR
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(metaValue_FR)
+			"FR"_s,
+			metaValue_FR
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of("Aturan Runtuyan Standar"_s)
+			"type.co.standard"_s,
+			"Aturan Runtuyan Standar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of("Brasil"_s)
+			"BR"_s,
+			"Brasil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"Spanyol Amérika Latin"_s)
+			"es_419"_s,
+			u"Spanyol Amérika Latin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of(u"Jérman Swiss Luhur"_s)
+			"de_CH"_s,
+			u"Jérman Swiss Luhur"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_MX"_s),
-			$of(u"Spanyol Méksiko"_s)
+			"es_MX"_s,
+			u"Spanyol Méksiko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of("Britania Raya"_s)
+			"GB"_s,
+			"Britania Raya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of(u"Spanyol Éropa"_s)
+			"es_ES"_s,
+			u"Spanyol Éropa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of("Tiongkok Tradisional"_s)
+			"zh_Hant"_s,
+			"Tiongkok Tradisional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"Amérika Sarikat"_s)
+			"US"_s,
+			u"Amérika Sarikat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of("Basa Sunda"_s)
+			"su"_s,
+			"Basa Sunda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of("Prancis Kanada"_s)
+			"fr_CA"_s,
+			"Prancis Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of("India"_s)
+			"IN"_s,
+			"India"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of("Inggris"_s)
+			"en"_s,
+			"Inggris"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of("Basa teu dikenal"_s)
+			"und"_s,
+			"Basa teu dikenal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CH"_s),
-			$of("Prancis Swiss"_s)
+			"fr_CH"_s,
+			"Prancis Swiss"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(metaValue_CN)
+			"CN"_s,
+			metaValue_CN
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(metaValue_IT)
+			"it"_s,
+			metaValue_IT
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(metaValue_IT)
+			"IT"_s,
+			metaValue_IT
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of("Latin"_s)
+			"Latn"_s,
+			"Latin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(metaValue_CN)
+			"zh"_s,
+			metaValue_CN
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of("Spanyol"_s)
+			"es"_s,
+			"Spanyol"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of("Sirilik"_s)
+			"Cyrl"_s,
+			"Sirilik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of(u"Kalénder Grégorian"_s)
+			"type.ca.gregorian"_s,
+			u"Kalénder Grégorian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of("Non-tulisan"_s)
+			"Zxxx"_s,
+			"Non-tulisan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of("Inggris Kanada"_s)
+			"en_CA"_s,
+			"Inggris Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of("Inggris Amerika"_s)
+			"en_US"_s,
+			"Inggris Amerika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(metaValue_JP)
+			"ja"_s,
+			metaValue_JP
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of("Sederhana"_s)
+			"Hans"_s,
+			"Sederhana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of("Digit Barat"_s)
+			"type.nu.latn"_s,
+			"Digit Barat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of("Tradisional"_s)
+			"Hant"_s,
+			"Tradisional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"Portugis Éropa"_s)
+			"pt_PT"_s,
+			u"Portugis Éropa"_s
 		})
 	}));
 	return data;
@@ -234,7 +214,22 @@ LocaleNames_su::LocaleNames_su() {
 }
 
 $Class* LocaleNames_su::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_su, name, initialize, &_LocaleNames_su_ClassInfo_, allocate$LocaleNames_su);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_su, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_su, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_su",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_su, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_su);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/Transforms.h>
@@ -30,11 +29,9 @@ using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::
 using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureException;
 using $Transforms = ::com::sun::org::apache::xml::internal::security::transforms::Transforms;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Attr = ::org::w3c::dom::Attr;
@@ -50,46 +47,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$FieldInfo _RetrievalMethod_FieldInfo_[] = {
-	{"TYPE_DSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_DSA)},
-	{"TYPE_RSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_RSA)},
-	{"TYPE_PGP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_PGP)},
-	{"TYPE_SPKI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_SPKI)},
-	{"TYPE_MGMT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_MGMT)},
-	{"TYPE_X509", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_X509)},
-	{"TYPE_RAWX509", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_RAWX509)},
-	{}
-};
-
-$MethodInfo _RetrievalMethod_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RetrievalMethod, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RetrievalMethod, init$, void, $Document*, $String*, $Transforms*, $String*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getBaseLocalName, $String*)},
-	{"getTransforms", "()Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getTransforms, $Transforms*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getType, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getURI, $String*)},
-	{"getURIAttr", "()Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getURIAttr, $Attr*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _RetrievalMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.RetrievalMethod",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	_RetrievalMethod_FieldInfo_,
-	_RetrievalMethod_MethodInfo_
-};
-
-$Object* allocate$RetrievalMethod($Class* clazz) {
-	return $of($alloc(RetrievalMethod));
-}
 
 int32_t RetrievalMethod::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -131,14 +88,14 @@ void RetrievalMethod::init$($Document* doc, $String* URI, $Transforms* transform
 		setLocalAttribute($Constants::_ATT_TYPE, Type);
 	}
 	if (transforms != nullptr) {
-		appendSelf(static_cast<$ElementProxy*>(transforms));
+		appendSelf(transforms);
 		addReturnToSelf();
 	}
 }
 
 $Attr* RetrievalMethod::getURIAttr() {
 	$init($Constants);
-	return $nc($(getElement()))->getAttributeNodeNS(nullptr, $Constants::_ATT_URI);
+	return $$nc(getElement())->getAttributeNodeNS(nullptr, $Constants::_ATT_URI);
 }
 
 $String* RetrievalMethod::getURI() {
@@ -152,7 +109,7 @@ $String* RetrievalMethod::getType() {
 }
 
 $Transforms* RetrievalMethod::getTransforms() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Constants);
 		$var($Element, transformsElem, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_TRANSFORMS, 0));
@@ -161,7 +118,7 @@ $Transforms* RetrievalMethod::getTransforms() {
 		}
 		return nullptr;
 	} catch ($XMLSignatureException& ex) {
-		$throwNew($XMLSecurityException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSecurityException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -174,7 +131,7 @@ $String* RetrievalMethod::getBaseLocalName() {
 RetrievalMethod::RetrievalMethod() {
 }
 
-void clinit$RetrievalMethod($Class* class$) {
+void RetrievalMethod::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(RetrievalMethod::TYPE_DSA, $str({$Constants::SignatureSpecNS, "DSAKeyValue"_s}));
 	$assignStatic(RetrievalMethod::TYPE_RSA, $str({$Constants::SignatureSpecNS, "RSAKeyValue"_s}));
@@ -186,7 +143,42 @@ void clinit$RetrievalMethod($Class* class$) {
 }
 
 $Class* RetrievalMethod::load$($String* name, bool initialize) {
-	$loadClass(RetrievalMethod, name, initialize, &_RetrievalMethod_ClassInfo_, clinit$RetrievalMethod, allocate$RetrievalMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE_DSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_DSA)},
+		{"TYPE_RSA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_RSA)},
+		{"TYPE_PGP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_PGP)},
+		{"TYPE_SPKI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_SPKI)},
+		{"TYPE_MGMT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_MGMT)},
+		{"TYPE_X509", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_X509)},
+		{"TYPE_RAWX509", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RetrievalMethod, TYPE_RAWX509)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RetrievalMethod, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RetrievalMethod, init$, void, $Document*, $String*, $Transforms*, $String*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getBaseLocalName, $String*)},
+		{"getTransforms", "()Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getTransforms, $Transforms*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getType, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getURI, $String*)},
+		{"getURIAttr", "()Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(RetrievalMethod, getURIAttr, $Attr*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.RetrievalMethod",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RetrievalMethod, name, initialize, &classInfo$$, RetrievalMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RetrievalMethod));
+	});
 	return class$;
 }
 

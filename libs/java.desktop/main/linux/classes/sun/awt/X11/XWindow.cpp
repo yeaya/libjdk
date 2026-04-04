@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWindow.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Color.h>
@@ -26,7 +25,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ref/WeakReference.h>
 #include <sun/awt/AWTAccessor$AWTEventAccessor.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -74,7 +72,6 @@
 #include <sun/awt/X11/XWindowPeer.h>
 #include <sun/awt/X11/XlibUtil.h>
 #include <sun/awt/X11/XlibWrapper.h>
-#include <sun/awt/X11ComponentPeer.h>
 #include <sun/awt/X11GraphicsConfig.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -155,7 +152,6 @@ using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
-using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -182,10 +178,8 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AWTEventAccessor = ::sun::awt::AWTAccessor$AWTEventAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AWTAccessor$KeyEventAccessor = ::sun::awt::AWTAccessor$KeyEventAccessor;
 using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
@@ -198,7 +192,6 @@ using $MWMConstants = ::sun::awt::X11::MWMConstants;
 using $Native = ::sun::awt::X11::Native;
 using $PropMwmHints = ::sun::awt::X11::PropMwmHints;
 using $WindowPropertyGetter = ::sun::awt::X11::WindowPropertyGetter;
-using $XAnyEvent = ::sun::awt::X11::XAnyEvent;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XAtomList = ::sun::awt::X11::XAtomList;
 using $XAwtState = ::sun::awt::X11::XAwtState;
@@ -228,7 +221,6 @@ using $XWindowAttributesData = ::sun::awt::X11::XWindowAttributesData;
 using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $XlibUtil = ::sun::awt::X11::XlibUtil;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $X11ComponentPeer = ::sun::awt::X11ComponentPeer;
 using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $SurfaceData = ::sun::java2d::SurfaceData;
@@ -238,201 +230,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XWindow_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, log)},
-	{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, insLog)},
-	{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, eventLog)},
-	{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWindow, focusLog)},
-	{"keyEventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, keyEventLog)},
-	{"AWT_MULTICLICK_SMUDGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XWindow, AWT_MULTICLICK_SMUDGE)},
-	{"lastX", "I", nullptr, $STATIC, $staticField(XWindow, lastX)},
-	{"lastY", "I", nullptr, $STATIC, $staticField(XWindow, lastY)},
-	{"lastTime", "J", nullptr, $STATIC, $staticField(XWindow, lastTime)},
-	{"lastButton", "J", nullptr, $STATIC, $staticField(XWindow, lastButton)},
-	{"lastWindowRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/awt/X11/XWindow;>;", $STATIC, $staticField(XWindow, lastWindowRef)},
-	{"clickCount", "I", nullptr, $STATIC, $staticField(XWindow, clickCount)},
-	{"oldWidth", "I", nullptr, 0, $field(XWindow, oldWidth)},
-	{"oldHeight", "I", nullptr, 0, $field(XWindow, oldHeight)},
-	{"mwm_hints", "Lsun/awt/X11/PropMwmHints;", nullptr, $PROTECTED, $field(XWindow, mwm_hints)},
-	{"wm_protocols", "Lsun/awt/X11/XAtom;", nullptr, $PROTECTED | $STATIC, $staticField(XWindow, wm_protocols)},
-	{"wm_delete_window", "Lsun/awt/X11/XAtom;", nullptr, $PROTECTED | $STATIC, $staticField(XWindow, wm_delete_window)},
-	{"wm_take_focus", "Lsun/awt/X11/XAtom;", nullptr, $PROTECTED | $STATIC, $staticField(XWindow, wm_take_focus)},
-	{"stateChanged", "Z", nullptr, $PRIVATE, $field(XWindow, stateChanged$)},
-	{"savedState", "I", nullptr, $PRIVATE, $field(XWindow, savedState)},
-	{"winAttr", "Lsun/awt/X11/XWindowAttributesData;", nullptr, 0, $field(XWindow, winAttr)},
-	{"graphicsConfig", "Lsun/awt/X11GraphicsConfig;", nullptr, $PROTECTED, $field(XWindow, graphicsConfig)},
-	{"graphicsConfigData", "Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PROTECTED, $field(XWindow, graphicsConfigData)},
-	{"reparented", "Z", nullptr, $PRIVATE, $field(XWindow, reparented)},
-	{"parent", "Lsun/awt/X11/XWindow;", nullptr, 0, $field(XWindow, parent)},
-	{"target", "Ljava/awt/Component;", nullptr, 0, $field(XWindow, target)},
-	{"JAWT_LOCK_ERROR", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_ERROR)},
-	{"JAWT_LOCK_CLIP_CHANGED", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_CLIP_CHANGED)},
-	{"JAWT_LOCK_BOUNDS_CHANGED", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_BOUNDS_CHANGED)},
-	{"JAWT_LOCK_SURFACE_CHANGED", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_SURFACE_CHANGED)},
-	{"drawState", "I", nullptr, $PRIVATE, $field(XWindow, drawState)},
-	{"TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XWindow, TARGET)},
-	{"REPARENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XWindow, REPARENTED)},
-	{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(XWindow, surfaceData)},
-	{"paintArea", "Lsun/awt/X11/XRepaintArea;", nullptr, 0, $field(XWindow, paintArea)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, defaultFont)},
-	{"mouseButtonClickAllowed", "I", nullptr, $PRIVATE, $field(XWindow, mouseButtonClickAllowed)},
-	{"backgroundColor", "Ljava/awt/Color;", nullptr, 0, $field(XWindow, backgroundColor)},
-	{"mouseAboveMe", "Z", nullptr, $PRIVATE, $field(XWindow, mouseAboveMe)},
-	{"fullScreenExclusiveModeState", "Z", nullptr, $PRIVATE, $field(XWindow, fullScreenExclusiveModeState)},
-	{}
-};
-
-$MethodInfo _XWindow_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC},
-	{"*getContentWindow", "()J", nullptr, $PUBLIC},
-	{"*getWindow", "()J", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XWindow, init$, void, $XCreateWindowParams*)},
-	{"<init>", "()V", nullptr, 0, $method(XWindow, init$, void)},
-	{"<init>", "(JLjava/awt/Rectangle;)V", nullptr, 0, $method(XWindow, init$, void, int64_t, $Rectangle*)},
-	{"<init>", "(Ljava/awt/Component;JLjava/awt/Rectangle;)V", nullptr, 0, $method(XWindow, init$, void, $Component*, int64_t, $Rectangle*)},
-	{"<init>", "(Ljava/awt/Component;J)V", nullptr, 0, $method(XWindow, init$, void, $Component*, int64_t)},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XWindow, init$, void, $Component*)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(XWindow, init$, void, Object$*)},
-	{"<init>", "(J)V", nullptr, 0, $method(XWindow, init$, void, int64_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XWindow, dispose, void)},
-	{"doEraseBackground", "()Z", nullptr, $PROTECTED, $virtualMethod(XWindow, doEraseBackground, bool)},
-	{"doLayout", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, doLayout, void, int32_t, int32_t, int32_t, int32_t)},
-	{"doValidateSurface", "()V", nullptr, $FINAL, $method(XWindow, doValidateSurface, void)},
-	{"dumpKeysymArray", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, $PRIVATE, $method(XWindow, dumpKeysymArray, void, $XKeyEvent*)},
-	{"enterNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWindow, enterNotify, void, int64_t)},
-	{"flush", "()V", nullptr, $PROTECTED, $virtualMethod(XWindow, flush, void)},
-	{"getAWTKeyCodeForKeySym", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(XWindow, getAWTKeyCodeForKeySym, int32_t, int32_t)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(XWindow, getColorModel, $ColorModel*, int32_t)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(XWindow, getColorModel, $ColorModel*)},
-	{"getDefaultFont", "()Ljava/awt/Font;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XWindow, getDefaultFont, $Font*)},
-	{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(XWindow, getEventSource, $Component*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(XWindow, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphics", "(Lsun/java2d/SurfaceData;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)Ljava/awt/Graphics;", nullptr, 0, $virtualMethod(XWindow, getGraphics, $Graphics*, $SurfaceData*, $Color*, $Color*, $Font*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XWindow, getGraphics, $Graphics*)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XWindow, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getGraphicsConfigurationData", "()Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC, $virtualMethod(XWindow, getGraphicsConfigurationData, $AwtGraphicsConfigData*)},
-	{"getKeySymForAWTKeyCode", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(XWindow, getKeySymForAWTKeyCode, int32_t, int32_t)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XWindow, getLocationOnScreen, $Point*)},
-	{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC, $virtualMethod(XWindow, getMWMHints, $PropMwmHints*)},
-	{"getModifiers", "(III)I", nullptr, $STATIC, $staticMethod(XWindow, getModifiers, int32_t, int32_t, int32_t, int32_t)},
-	{"getModifiers", "(IIIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XWindow, getModifiers, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"getMouseMovementSmudge", "()I", nullptr, $STATIC, $staticMethod(XWindow, getMouseMovementSmudge, int32_t)},
-	{"getParentWindowID", "(Ljava/awt/Component;)J", nullptr, $STATIC, $staticMethod(XWindow, getParentWindowID, int64_t, $Component*)},
-	{"getParentXWindowObject", "(Ljava/awt/Component;)Lsun/awt/X11/XWindow;", nullptr, $STATIC, $staticMethod(XWindow, getParentXWindowObject, XWindow*, $Component*)},
-	{"getScale", "()I", nullptr, $PROTECTED, $virtualMethod(XWindow, getScale, int32_t)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XWindow, getSurfaceData, $SurfaceData*)},
-	{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XWindow, getTarget, $Object*)},
-	{"getTargetBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XWindow, getTargetBounds, $Rectangle*)},
-	{"getWMClass", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XWindow, getWMClass, $StringArray*)},
-	{"getWMProtocols", "()Lsun/awt/X11/XAtomList;", nullptr, $PROTECTED, $virtualMethod(XWindow, getWMProtocols, $XAtomList*)},
-	{"getWMState", "()I", nullptr, 0, $virtualMethod(XWindow, getWMState, int32_t)},
-	{"getWheelModifiers", "(II)I", nullptr, $STATIC, $staticMethod(XWindow, getWheelModifiers, int32_t, int32_t, int32_t)},
-	{"getWinBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(XWindow, getWinBackground, $Color*)},
-	{"getXModifiers", "(Ljava/awt/AWTKeyStroke;)I", nullptr, $STATIC, $staticMethod(XWindow, getXModifiers, int32_t, $AWTKeyStroke*)},
-	{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleButtonPressRelease, void, $XEvent*)},
-	{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleConfigureNotifyEvent, void, $XEvent*)},
-	{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleExposeEvent, void, $XEvent*)},
-	{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleKeyPress, void, $XEvent*)},
-	{"handleKeyPress", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, $FINAL, $method(XWindow, handleKeyPress, void, $XKeyEvent*)},
-	{"handleKeyRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleKeyRelease, void, $XEvent*)},
-	{"handleKeyRelease", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, $PRIVATE, $method(XWindow, handleKeyRelease, void, $XKeyEvent*)},
-	{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleMapNotifyEvent, void, $XEvent*)},
-	{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleMotionNotify, void, $XEvent*)},
-	{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handlePropertyNotify, void, $XEvent*)},
-	{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleUnmapNotifyEvent, void, $XEvent*)},
-	{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleXCrossingEvent, void, $XEvent*)},
-	{"haveCurrentX11InputMethodInstance", "()Z", nullptr, $PRIVATE | $NATIVE, $method(XWindow, haveCurrentX11InputMethodInstance, bool)},
-	{"initGraphicsConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(XWindow, initGraphicsConfiguration, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XWindow, initIDs, void)},
-	{"initWMProtocols", "()V", nullptr, $PROTECTED | $FINAL, $method(XWindow, initWMProtocols, void)},
-	{"isDeadKey", "(J)Z", nullptr, $PRIVATE, $method(XWindow, isDeadKey, bool, int64_t)},
-	{"isEmbedded", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindow, isEmbedded, bool)},
-	{"isFullScreenExclusiveMode", "()Z", nullptr, $PUBLIC | $FINAL, $method(XWindow, isFullScreenExclusiveMode, bool)},
-	{"isLocationByPlatform", "()Z", nullptr, 0, $virtualMethod(XWindow, isLocationByPlatform, bool)},
-	{"isMouseAbove", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindow, isMouseAbove, bool)},
-	{"isParentOf", "(Lsun/awt/X11/XWindow;)Z", nullptr, 0, $virtualMethod(XWindow, isParentOf, bool, XWindow*)},
-	{"isReparented", "()Z", nullptr, 0, $virtualMethod(XWindow, isReparented, bool)},
-	{"isResizable", "()Z", nullptr, 0, $virtualMethod(XWindow, isResizable, bool)},
-	{"isShowing", "()Z", nullptr, 0, $virtualMethod(XWindow, isShowing, bool)},
-	{"isWheel", "(I)Z", nullptr, $STATIC, $staticMethod(XWindow, isWheel, bool, int32_t)},
-	{"keyEventType2Id", "(I)I", nullptr, 0, $virtualMethod(XWindow, keyEventType2Id, int32_t, int32_t)},
-	{"keysymToUnicode", "(JI)I", nullptr, 0, $virtualMethod(XWindow, keysymToUnicode, int32_t, int64_t, int32_t)},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XWindow, layout, void)},
-	{"leaveNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWindow, leaveNotify, void, int64_t)},
-	{"logIncomingKeyEvent", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, 0, $virtualMethod(XWindow, logIncomingKeyEvent, void, $XKeyEvent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, paint, void, $Graphics*)},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XWindow, paintPeer, void, $Graphics*)},
-	{"popup", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, popup, void, int32_t, int32_t, int32_t, int32_t)},
-	{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(XWindow, postEvent, void, $AWTEvent*)},
-	{"postEventStatic", "(Ljava/awt/AWTEvent;)V", nullptr, $STATIC, $staticMethod(XWindow, postEventStatic, void, $AWTEvent*)},
-	{"postEventToEventQueue", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, postEventToEventQueue, void, $AWTEvent*)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XWindow, postInit, void, $XCreateWindowParams*)},
-	{"postKeyEvent", "(IIIIIJIJII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, postKeyEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int64_t, int32_t, int64_t, int32_t, int32_t)},
-	{"postPaintEvent", "(Ljava/awt/Component;IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, postPaintEvent, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XWindow, preInit, void, $XCreateWindowParams*)},
-	{"prePostEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(XWindow, prePostEvent, bool, $AWTEvent*)},
-	{"primaryUnicode2JavaKeycode", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XWindow, primaryUnicode2JavaKeycode, int32_t, int32_t)},
-	{"repaint", "(IIII)V", nullptr, $PUBLIC | $FINAL, $method(XWindow, repaint, void, int32_t, int32_t, int32_t, int32_t)},
-	{"repaint", "()V", nullptr, 0, $virtualMethod(XWindow, repaint, void)},
-	{"reshape", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, reshape, void, $Rectangle*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"scaleDown", "(I)I", nullptr, $PROTECTED, $virtualMethod(XWindow, scaleDown, int32_t, int32_t)},
-	{"scaleUp", "(I)I", nullptr, $PROTECTED, $virtualMethod(XWindow, scaleUp, int32_t, int32_t)},
-	{"sendEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $STATIC, $staticMethod(XWindow, sendEvent, void, $AWTEvent*)},
-	{"setBData", "(Ljava/awt/event/KeyEvent;[B)V", nullptr, $STATIC, $staticMethod(XWindow, setBData, void, $KeyEvent*, $bytes*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, setBackground, void, $Color*)},
-	{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindow, setFullScreenExclusiveModeState, void, bool)},
-	{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, setMWMHints, void, $PropMwmHints*)},
-	{"setMouseAbove", "(Z)V", nullptr, $PROTECTED, $virtualMethod(XWindow, setMouseAbove, void, bool)},
-	{"setReparented", "(Z)V", nullptr, 0, $virtualMethod(XWindow, setReparented, void, bool)},
-	{"stateChanged", "(JII)V", nullptr, $PROTECTED, $virtualMethod(XWindow, stateChanged, void, int64_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSizeHints", "()V", nullptr, 0, $virtualMethod(XWindow, updateSizeHints, void)},
-	{"updateSizeHints", "(IIII)V", nullptr, 0, $virtualMethod(XWindow, updateSizeHints, void, int32_t, int32_t, int32_t, int32_t)},
-	{"updateSizeHints", "(II)V", nullptr, 0, $virtualMethod(XWindow, updateSizeHints, void, int32_t, int32_t)},
-	{"validateSurface", "()V", nullptr, 0, $virtualMethod(XWindow, validateSurface, void)},
-	{"winBackground", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(XWindow, winBackground, void, $Color*)},
-	{"x11inputMethodLookupString", "(J[J)Z", nullptr, $PRIVATE | $NATIVE, $method(XWindow, x11inputMethodLookupString, bool, int64_t, $longs*)},
-	{"xSetBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $FINAL, $method(XWindow, xSetBackground, void, $Color*)},
-	{"xkeycodeToKeysym", "(Lsun/awt/X11/XKeyEvent;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(XWindow, xkeycodeToKeysym, int64_t, $XKeyEvent*)},
-	{"xkeycodeToPrimaryKeysym", "(Lsun/awt/X11/XKeyEvent;)J", nullptr, $PRIVATE, $method(XWindow, xkeycodeToPrimaryKeysym, int64_t, $XKeyEvent*)},
-	{}
-};
-
-#define _METHOD_INDEX_getAWTKeyCodeForKeySym 22
-#define _METHOD_INDEX_getKeySymForAWTKeyCode 32
-#define _METHOD_INDEX_haveCurrentX11InputMethodInstance 62
-#define _METHOD_INDEX_initIDs 64
-#define _METHOD_INDEX_x11inputMethodLookupString 113
-
-$InnerClassInfo _XWindow_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XWindow_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XWindow",
-	"sun.awt.X11.XBaseWindow",
-	"sun.awt.X11ComponentPeer",
-	_XWindow_FieldInfo_,
-	_XWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XWindow$1"
-};
-
-$Object* allocate$XWindow($Class* clazz) {
-	return $of($alloc(XWindow));
-}
 
 int64_t XWindow::getWindow() {
 	 return this->$XBaseWindow::getWindow();
@@ -489,9 +286,8 @@ $String* XWindow::REPARENTED = nullptr;
 $Font* XWindow::defaultFont = nullptr;
 
 $Font* XWindow::getDefaultFont() {
-	$load(XWindow);
+	$init(XWindow);
 	$synchronized(class$) {
-		$init(XWindow);
 		if (nullptr == XWindow::defaultFont) {
 			$init($Font);
 			$assignStatic(XWindow::defaultFont, $new($Font, $Font::DIALOG, $Font::PLAIN, 12));
@@ -502,7 +298,7 @@ $Font* XWindow::getDefaultFont() {
 
 void XWindow::initIDs() {
 	$init(XWindow);
-	$prepareNativeStatic(XWindow, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -526,13 +322,13 @@ void XWindow::init$() {
 }
 
 void XWindow::init$(int64_t parentWindow, $Rectangle* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XBaseWindow);
 	$XBaseWindow::init$($$new($XCreateWindowParams, $$new($ObjectArray, {
-		$of($XBaseWindow::BOUNDS),
-		$of(bounds),
-		$of($XBaseWindow::PARENT_WINDOW),
-		$($of($Long::valueOf(parentWindow)))
+		$XBaseWindow::BOUNDS,
+		bounds,
+		$XBaseWindow::PARENT_WINDOW,
+		$($Long::valueOf(parentWindow))
 	})));
 	this->oldWidth = -1;
 	this->oldHeight = -1;
@@ -542,15 +338,15 @@ void XWindow::init$(int64_t parentWindow, $Rectangle* bounds) {
 }
 
 void XWindow::init$($Component* target, int64_t parentWindow, $Rectangle* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XBaseWindow);
 	$XBaseWindow::init$($$new($XCreateWindowParams, $$new($ObjectArray, {
-		$of($XBaseWindow::BOUNDS),
-		$of(bounds),
-		$of($XBaseWindow::PARENT_WINDOW),
-		$($of($Long::valueOf(parentWindow))),
-		$of(XWindow::TARGET),
-		$of(target)
+		$XBaseWindow::BOUNDS,
+		bounds,
+		$XBaseWindow::PARENT_WINDOW,
+		$($Long::valueOf(parentWindow)),
+		XWindow::TARGET,
+		target
 	})));
 	this->oldWidth = -1;
 	this->oldHeight = -1;
@@ -560,15 +356,14 @@ void XWindow::init$($Component* target, int64_t parentWindow, $Rectangle* bounds
 }
 
 void XWindow::init$($Component* target, int64_t parentWindow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	XWindow::init$(target, parentWindow, $$new($Rectangle, $($nc(target)->getBounds())));
 }
 
 void XWindow::init$($Component* target) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, var$0, target);
-	int64_t var$1 = ($nc(target)->getParent() == nullptr) ? (int64_t)0 : getParentWindowID(target);
-	XWindow::init$(var$0, var$1, $$new($Rectangle, $($nc(target)->getBounds())));
+	$useLocalObjectStack();
+	int64_t var$0 = ($nc(target)->getParent() == nullptr) ? 0 : getParentWindowID(target);
+	XWindow::init$(target, var$0, $$new($Rectangle, $(target->getBounds())));
 }
 
 void XWindow::init$(Object$* target) {
@@ -576,16 +371,15 @@ void XWindow::init$(Object$* target) {
 }
 
 void XWindow::init$(int64_t parentWindow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XBaseWindow);
-	$init($Boolean);
 	$XBaseWindow::init$($$new($XCreateWindowParams, $$new($ObjectArray, {
-		$of($XBaseWindow::PARENT_WINDOW),
-		$($of($Long::valueOf(parentWindow))),
-		$of(XWindow::REPARENTED),
-		$of($Boolean::TRUE),
-		$of($XBaseWindow::EMBEDDED),
-		$of($Boolean::TRUE)
+		$XBaseWindow::PARENT_WINDOW,
+		$($Long::valueOf(parentWindow)),
+		XWindow::REPARENTED,
+		$Boolean::TRUE,
+		$XBaseWindow::EMBEDDED,
+		$Boolean::TRUE
 	})));
 	this->oldWidth = -1;
 	this->oldHeight = -1;
@@ -600,84 +394,79 @@ void XWindow::initGraphicsConfiguration() {
 }
 
 void XWindow::preInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::preInit(params);
-	$init($Boolean);
 	this->reparented = $nc($Boolean::TRUE)->equals($($nc(params)->get(XWindow::REPARENTED)));
-	$set(this, target, $cast($Component, $nc(params)->get(XWindow::TARGET)));
+	$set(this, target, $cast($Component, params->get(XWindow::TARGET)));
 	initGraphicsConfiguration();
 	$var($AwtGraphicsConfigData, gData, getGraphicsConfigurationData());
 	$var($X11GraphicsConfig, config, $cast($X11GraphicsConfig, getGraphicsConfiguration()));
 	$var($XVisualInfo, visInfo, $nc(gData)->get_awt_visInfo());
-	params->putIfNull($of($XBaseWindow::EVENT_MASK), ((((((((($XConstants::KeyPressMask | $XConstants::KeyReleaseMask) | $XConstants::FocusChangeMask) | $XConstants::ButtonPressMask) | $XConstants::ButtonReleaseMask) | $XConstants::EnterWindowMask) | $XConstants::LeaveWindowMask) | $XConstants::PointerMotionMask) | $XConstants::ButtonMotionMask) | $XConstants::ExposureMask) | $XConstants::StructureNotifyMask);
+	params->putIfNull($XBaseWindow::EVENT_MASK, ((((((((($XConstants::KeyPressMask | $XConstants::KeyReleaseMask) | $XConstants::FocusChangeMask) | $XConstants::ButtonPressMask) | $XConstants::ButtonReleaseMask) | $XConstants::EnterWindowMask) | $XConstants::LeaveWindowMask) | $XConstants::PointerMotionMask) | $XConstants::ButtonMotionMask) | $XConstants::ExposureMask) | $XConstants::StructureNotifyMask);
 	if (this->target != nullptr) {
-		params->putIfNull($of($XBaseWindow::BOUNDS), $of($$new($Rectangle, $($nc(this->target)->getBounds()))));
+		params->putIfNull($XBaseWindow::BOUNDS, $$new($Rectangle, $(this->target->getBounds())));
 	} else {
-		params->putIfNull($of($XBaseWindow::BOUNDS), $of($$new($Rectangle, 0, 0, $XBaseWindow::MIN_SIZE, $XBaseWindow::MIN_SIZE)));
+		params->putIfNull($XBaseWindow::BOUNDS, $$new($Rectangle, 0, 0, $XBaseWindow::MIN_SIZE, $XBaseWindow::MIN_SIZE));
 	}
-	params->putIfNull($of($XBaseWindow::BORDER_PIXEL), $($of($Long::valueOf((int64_t)0))));
+	params->putIfNull($XBaseWindow::BORDER_PIXEL, $($Long::valueOf((int64_t)0)));
 	getColorModel();
-	params->putIfNull($of($XBaseWindow::COLORMAP), gData->get_awt_cmap());
-	params->putIfNull($of($XBaseWindow::DEPTH), gData->get_awt_depth());
-	params->putIfNull($of($XBaseWindow::VISUAL_CLASS), $($of($Integer::valueOf($XConstants::InputOutput))));
-	params->putIfNull($of($XBaseWindow::VISUAL), $nc(visInfo)->get_visual());
-	params->putIfNull($of($XBaseWindow::VALUE_MASK), ($XConstants::CWBorderPixel | $XConstants::CWEventMask) | $XConstants::CWColormap);
+	params->putIfNull($XBaseWindow::COLORMAP, gData->get_awt_cmap());
+	params->putIfNull($XBaseWindow::DEPTH, gData->get_awt_depth());
+	params->putIfNull($XBaseWindow::VISUAL_CLASS, $($Integer::valueOf($XConstants::InputOutput)));
+	params->putIfNull($XBaseWindow::VISUAL, $nc(visInfo)->get_visual());
+	params->putIfNull($XBaseWindow::VALUE_MASK, ($XConstants::CWBorderPixel | $XConstants::CWEventMask) | $XConstants::CWColormap);
 	$var($Long, parentWindow, $cast($Long, params->get($XBaseWindow::PARENT_WINDOW)));
-	if (parentWindow == nullptr || $nc(parentWindow)->longValue() == 0) {
+	if (parentWindow == nullptr || parentWindow->longValue() == 0) {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				int32_t screen = $nc(visInfo)->get_screen();
-				if (screen != -1) {
-					params->add($of($XBaseWindow::PARENT_WINDOW), $XlibWrapper::RootWindow($XToolkit::getDisplay(), screen));
-				} else {
-					params->add($of($XBaseWindow::PARENT_WINDOW), $XToolkit::getDefaultRootWindow());
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			int32_t screen = visInfo->get_screen();
+			if (screen != -1) {
+				params->add($XBaseWindow::PARENT_WINDOW, $XlibWrapper::RootWindow($XToolkit::getDisplay(), screen));
+			} else {
+				params->add($XBaseWindow::PARENT_WINDOW, $XToolkit::getDefaultRootWindow());
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$set(this, paintArea, $new($XRepaintArea));
 	if (this->target != nullptr) {
-		$set(this, parent, getParentXWindowObject($($nc(this->target)->getParent())));
+		$set(this, parent, getParentXWindowObject($(this->target->getParent())));
 	}
-	params->putIfNull($of($XBaseWindow::BACKING_STORE), $XToolkit::getBackingStoreType());
+	params->putIfNull($XBaseWindow::BACKING_STORE, $XToolkit::getBackingStoreType());
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$2, nullptr);
-		try {
-			if (XWindow::wm_protocols == nullptr) {
-				$assignStatic(XWindow::wm_protocols, $XAtom::get("WM_PROTOCOLS"_s));
-				$assignStatic(XWindow::wm_delete_window, $XAtom::get("WM_DELETE_WINDOW"_s));
-				$assignStatic(XWindow::wm_take_focus, $XAtom::get("WM_TAKE_FOCUS"_s));
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$2, var$3);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$2, nullptr);
+	try {
+		if (XWindow::wm_protocols == nullptr) {
+			$assignStatic(XWindow::wm_protocols, $XAtom::get("WM_PROTOCOLS"_s));
+			$assignStatic(XWindow::wm_delete_window, $XAtom::get("WM_DELETE_WINDOW"_s));
+			$assignStatic(XWindow::wm_take_focus, $XAtom::get("WM_TAKE_FOCUS"_s));
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$2, var$3);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
 	}
 	$set(this, winAttr, $new($XWindowAttributesData));
 	this->savedState = $XUtilConstants::WithdrawnState;
 }
 
 void XWindow::postInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::postInit(params);
 	setWMClass($(getWMClass()));
 	$set(this, surfaceData, $nc(this->graphicsConfig)->createSurfaceData(this));
 	$var($Color, c, nullptr);
-	if (this->target != nullptr && ($assign(c, $nc(this->target)->getBackground())) != nullptr) {
+	if (this->target != nullptr && ($assign(c, this->target->getBackground())) != nullptr) {
 		xSetBackground(c);
 	}
 }
@@ -697,7 +486,7 @@ $AwtGraphicsConfigData* XWindow::getGraphicsConfigurationData() {
 }
 
 $StringArray* XWindow::getWMClass() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($StringArray, {
 		$($XToolkit::getAWTAppClassName()),
 		$($XToolkit::getAWTAppClassName())
@@ -714,7 +503,7 @@ bool XWindow::isReparented() {
 
 int64_t XWindow::getParentWindowID($Component* target) {
 	$init(XWindow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, temp, $nc(target)->getParent());
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 	$var($ComponentPeer, peer, $nc(acc)->getPeer(temp));
@@ -723,7 +512,7 @@ int64_t XWindow::getParentWindowID($Component* target) {
 		$assign(peer, acc->getPeer(temp));
 	}
 	if (peer != nullptr && $instanceOf(XWindow, peer)) {
-		return $nc(($cast(XWindow, peer)))->getContentWindow();
+		return $cast(XWindow, peer)->getContentWindow();
 	} else {
 		return 0;
 	}
@@ -731,7 +520,7 @@ int64_t XWindow::getParentWindowID($Component* target) {
 
 XWindow* XWindow::getParentXWindowObject($Component* target) {
 	$init(XWindow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (target == nullptr) {
 		return nullptr;
 	}
@@ -756,13 +545,13 @@ XWindow* XWindow::getParentXWindowObject($Component* target) {
 }
 
 bool XWindow::isParentOf(XWindow* win) {
-	$useLocalCurrentObjectStackCache();
-	if (!($instanceOf($Container, this->target)) || win == nullptr || $nc(win)->getTarget() == nullptr) {
+	$useLocalObjectStack();
+	if (!($instanceOf($Container, this->target)) || win == nullptr || win->getTarget() == nullptr) {
 		return false;
 	}
-	$var($Container, parent, $nc($($AWTAccessor::getComponentAccessor()))->getParent($nc(win)->target));
+	$var($Container, parent, $$nc($AWTAccessor::getComponentAccessor())->getParent($nc(win)->target));
 	while (parent != nullptr && !$equals(parent, this->target)) {
-		$assign(parent, $nc($($AWTAccessor::getComponentAccessor()))->getParent(parent));
+		$assign(parent, $$nc($AWTAccessor::getComponentAccessor())->getParent(parent));
 	}
 	return ($equals(parent, this->target));
 }
@@ -781,14 +570,14 @@ $ColorModel* XWindow::getColorModel(int32_t transparency) {
 
 $ColorModel* XWindow::getColorModel() {
 	if (this->graphicsConfig != nullptr) {
-		return $nc(this->graphicsConfig)->getColorModel();
+		return this->graphicsConfig->getColorModel();
 	} else {
-		return $nc($($Toolkit::getDefaultToolkit()))->getColorModel();
+		return $$nc($Toolkit::getDefaultToolkit())->getColorModel();
 	}
 }
 
 $Graphics* XWindow::getGraphics($SurfaceData* surfData, $Color* afore, $Color* aback, $Font* afont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (surfData == nullptr) {
 		return nullptr;
 	}
@@ -811,15 +600,15 @@ $Graphics* XWindow::getGraphics($SurfaceData* surfData, $Color* afore, $Color* a
 }
 
 $Graphics* XWindow::getGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, var$0, this->surfaceData);
 	$var($Color, var$1, $nc(this->target)->getForeground());
-	$var($Color, var$2, $nc(this->target)->getBackground());
-	return getGraphics(var$0, var$1, var$2, $($nc(this->target)->getFont()));
+	$var($Color, var$2, this->target->getBackground());
+	return getGraphics(var$0, var$1, var$2, $(this->target->getFont()));
 }
 
 $FontMetrics* XWindow::getFontMetrics($Font* font) {
-	return $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics(font);
+	return $$nc($Toolkit::getDefaultToolkit())->getFontMetrics(font);
 }
 
 $Rectangle* XWindow::getTargetBounds() {
@@ -832,25 +621,25 @@ bool XWindow::prePostEvent($AWTEvent* e) {
 
 void XWindow::sendEvent($AWTEvent* e) {
 	$init(XWindow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunToolkit::setSystemGenerated(e);
-	$var($Object, var$0, $of($Toolkit::getDefaultToolkit()));
+	$var($Object, var$0, $Toolkit::getDefaultToolkit());
 	$var($PeerEvent, pe, $new($PeerEvent, var$0, $$new($XWindow$1, e), $PeerEvent::ULTIMATE_PRIORITY_EVENT));
 	$init($PlatformLogger$Level);
 	if ($nc(XWindow::focusLog)->isLoggable($PlatformLogger$Level::FINER) && ($instanceOf($FocusEvent, e))) {
-		$nc(XWindow::focusLog)->finer($$str({"Sending "_s, e}));
+		XWindow::focusLog->finer($$str({"Sending "_s, e}));
 	}
 	$XToolkit::postEvent($($XToolkit::targetToAppContext($($nc(e)->getSource()))), pe);
 }
 
 void XWindow::postEvent($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::postEvent($($XToolkit::targetToAppContext($($nc(event)->getSource()))), event);
 }
 
 void XWindow::postEventStatic($AWTEvent* event) {
 	$init(XWindow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::postEvent($($XToolkit::targetToAppContext($($nc(event)->getSource()))), event);
 }
 
@@ -866,31 +655,29 @@ bool XWindow::doEraseBackground() {
 
 void XWindow::xSetBackground($Color* c) {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			winBackground(c);
-			if (!doEraseBackground()) {
-				return$1 = true;
-				goto $finally;
-			}
-			int32_t pixel = $nc(this->surfaceData)->pixelFor($nc(c)->getRGB());
-			int64_t var$2 = $XToolkit::getDisplay();
-			$XlibWrapper::XSetWindowBackground(var$2, getContentWindow(), pixel);
-			int64_t var$3 = $XToolkit::getDisplay();
-			$XlibWrapper::XClearWindow(var$3, getContentWindow());
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		winBackground(c);
+		if (!doEraseBackground()) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+		int32_t pixel = $nc(this->surfaceData)->pixelFor($nc(c)->getRGB());
+		int64_t var$2 = $XToolkit::getDisplay();
+		$XlibWrapper::XSetWindowBackground(var$2, getContentWindow(), pixel);
+		int64_t var$3 = $XToolkit::getDisplay();
+		$XlibWrapper::XClearWindow(var$3, getContentWindow());
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -907,10 +694,10 @@ $Color* XWindow::getWinBackground() {
 	if (this->backgroundColor != nullptr) {
 		$assign(c, this->backgroundColor);
 	} else if (this->parent != nullptr) {
-		$assign(c, $nc(this->parent)->getWinBackground());
+		$assign(c, this->parent->getWinBackground());
 	}
 	if ($instanceOf($SystemColor, c)) {
-		$assign(c, $new($Color, $nc(c)->getRGB()));
+		$assign(c, $new($Color, c->getRGB()));
 	}
 	return c;
 }
@@ -920,7 +707,7 @@ bool XWindow::isEmbedded() {
 }
 
 void XWindow::repaint(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = !isVisible();
 	bool var$0 = var$1 || getWidth() == 0;
 	if (var$0 || getHeight() == 0) {
@@ -928,24 +715,22 @@ void XWindow::repaint(int32_t x, int32_t y, int32_t width, int32_t height) {
 	}
 	$var($Graphics, g, getGraphics());
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				g->setClip(x, y, width, height);
-				if ($SunToolkit::isDispatchThreadForAppContext($(getTarget()))) {
-					paint(g);
-				} else {
-					paintPeer(g);
-					postPaintEvent(this->target, x, y, width, height);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				g->dispose();
+		$var($Throwable, var$2, nullptr);
+		try {
+			g->setClip(x, y, width, height);
+			if ($SunToolkit::isDispatchThreadForAppContext($(getTarget()))) {
+				paint(g);
+			} else {
+				paintPeer(g);
+				postPaintEvent(this->target, x, y, width, height);
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
@@ -964,18 +749,16 @@ void XWindow::paintPeer($Graphics* g) {
 
 void XWindow::flush() {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XFlush($XToolkit::getDisplay());
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XFlush($XToolkit::getDisplay());
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -984,16 +767,16 @@ void XWindow::popup(int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 void XWindow::handleExposeEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::handleExposeEvent(xev);
 	$var($XExposeEvent, xe, $nc(xev)->get_xexpose());
 	if (isEventDisabled(xev)) {
 		return;
 	}
 	int32_t x = scaleDown($nc(xe)->get_x());
-	int32_t y = scaleDown($nc(xe)->get_y());
-	int32_t w = scaleDown($nc(xe)->get_width());
-	int32_t h = scaleDown($nc(xe)->get_height());
+	int32_t y = scaleDown(xe->get_y());
+	int32_t w = scaleDown(xe->get_width());
+	int32_t h = scaleDown(xe->get_height());
 	$var($Component, target, getEventSource());
 	$var($AWTAccessor$ComponentAccessor, compAccessor, $AWTAccessor::getComponentAccessor());
 	bool var$1 = !$nc(compAccessor)->getIgnoreRepaint(target);
@@ -1004,8 +787,8 @@ void XWindow::handleExposeEvent($XEvent* xev) {
 }
 
 void XWindow::postPaintEvent($Component* target, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	$var($PaintEvent, event, $nc($($PaintEventDispatcher::getPaintEventDispatcher()))->createPaintEvent(target, x, y, w, h));
+	$useLocalObjectStack();
+	$var($PaintEvent, event, $$nc($PaintEventDispatcher::getPaintEventDispatcher())->createPaintEvent(target, x, y, w, h));
 	if (event != nullptr) {
 		postEventToEventQueue(event);
 	}
@@ -1024,26 +807,26 @@ int32_t XWindow::getWheelModifiers(int32_t state, int32_t button) {
 int32_t XWindow::getModifiers(int32_t state, int32_t button, int32_t keyCode, bool isWheelMouse) {
 	$init(XWindow);
 	int32_t modifiers = 0;
-	if ((((int32_t)(state & (uint32_t)$XConstants::ShiftMask)) != 0) ^ (keyCode == $KeyEvent::VK_SHIFT)) {
+	if (((state & $XConstants::ShiftMask) != 0) ^ (keyCode == $KeyEvent::VK_SHIFT)) {
 		modifiers |= $InputEvent::SHIFT_DOWN_MASK;
 	}
-	if ((((int32_t)(state & (uint32_t)$XConstants::ControlMask)) != 0) ^ (keyCode == $KeyEvent::VK_CONTROL)) {
+	if (((state & $XConstants::ControlMask) != 0) ^ (keyCode == $KeyEvent::VK_CONTROL)) {
 		modifiers |= $InputEvent::CTRL_DOWN_MASK;
 	}
 	$init($XToolkit);
-	if ((((int32_t)(state & (uint32_t)$XToolkit::metaMask)) != 0) ^ (keyCode == $KeyEvent::VK_META)) {
+	if (((state & $XToolkit::metaMask) != 0) ^ (keyCode == $KeyEvent::VK_META)) {
 		modifiers |= $InputEvent::META_DOWN_MASK;
 	}
-	if ((((int32_t)(state & (uint32_t)$XToolkit::altMask)) != 0) ^ (keyCode == $KeyEvent::VK_ALT)) {
+	if (((state & $XToolkit::altMask) != 0) ^ (keyCode == $KeyEvent::VK_ALT)) {
 		modifiers |= $InputEvent::ALT_DOWN_MASK;
 	}
-	if ((((int32_t)(state & (uint32_t)$XToolkit::modeSwitchMask)) != 0) ^ (keyCode == $KeyEvent::VK_ALT_GRAPH)) {
+	if (((state & $XToolkit::modeSwitchMask) != 0) ^ (keyCode == $KeyEvent::VK_ALT_GRAPH)) {
 		modifiers |= $InputEvent::ALT_GRAPH_DOWN_MASK;
 	}
 	$init($XConstants);
 	for (int32_t i = 0; i < $nc($XConstants::buttons)->length; ++i) {
-		if ((((int32_t)(state & (uint32_t)$XlibUtil::getButtonMask(i + 1))) != 0) != (button == $nc($XConstants::buttons)->get(i))) {
-			if (!isWheelMouse || !isWheel($nc($XConstants::buttons)->get(i))) {
+		if (((state & $XlibUtil::getButtonMask(i + 1)) != 0) != (button == $XConstants::buttons->get(i))) {
+			if (!isWheelMouse || !isWheel($XConstants::buttons->get(i))) {
 				modifiers |= $InputEvent::getMaskForButton(i + 1);
 			}
 		}
@@ -1054,28 +837,28 @@ int32_t XWindow::getModifiers(int32_t state, int32_t button, int32_t keyCode, bo
 bool XWindow::isWheel(int32_t button) {
 	$init(XWindow);
 	$init($XConstants);
-	return button == $nc($XConstants::buttons)->get(3) || button == $nc($XConstants::buttons)->get(4);
+	return button == $nc($XConstants::buttons)->get(3) || button == $XConstants::buttons->get(4);
 }
 
 int32_t XWindow::getXModifiers($AWTKeyStroke* stroke) {
 	$init(XWindow);
 	int32_t mods = $nc(stroke)->getModifiers();
 	int32_t res = 0;
-	if (((int32_t)(mods & (uint32_t)($InputEvent::SHIFT_DOWN_MASK | $InputEvent::SHIFT_MASK))) != 0) {
+	if ((mods & ($InputEvent::SHIFT_DOWN_MASK | $InputEvent::SHIFT_MASK)) != 0) {
 		res |= $XConstants::ShiftMask;
 	}
-	if (((int32_t)(mods & (uint32_t)($InputEvent::CTRL_DOWN_MASK | $InputEvent::CTRL_MASK))) != 0) {
+	if ((mods & ($InputEvent::CTRL_DOWN_MASK | $InputEvent::CTRL_MASK)) != 0) {
 		res |= $XConstants::ControlMask;
 	}
-	if (((int32_t)(mods & (uint32_t)($InputEvent::ALT_DOWN_MASK | $InputEvent::ALT_MASK))) != 0) {
+	if ((mods & ($InputEvent::ALT_DOWN_MASK | $InputEvent::ALT_MASK)) != 0) {
 		$init($XToolkit);
 		res |= $XToolkit::altMask;
 	}
-	if (((int32_t)(mods & (uint32_t)($InputEvent::META_DOWN_MASK | $InputEvent::META_MASK))) != 0) {
+	if ((mods & ($InputEvent::META_DOWN_MASK | $InputEvent::META_MASK)) != 0) {
 		$init($XToolkit);
 		res |= $XToolkit::metaMask;
 	}
-	if (((int32_t)(mods & (uint32_t)($InputEvent::ALT_GRAPH_DOWN_MASK | $InputEvent::ALT_GRAPH_MASK))) != 0) {
+	if ((mods & ($InputEvent::ALT_GRAPH_DOWN_MASK | $InputEvent::ALT_GRAPH_MASK)) != 0) {
 		$init($XToolkit);
 		res |= $XToolkit::modeSwitchMask;
 	}
@@ -1088,7 +871,7 @@ int32_t XWindow::getMouseMovementSmudge() {
 }
 
 void XWindow::handleButtonPressRelease($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::handleButtonPressRelease(xev);
 	$var($XButtonEvent, xbe, $nc(xev)->get_xbutton());
 	if (isEventDisabled(xev)) {
@@ -1111,7 +894,7 @@ void XWindow::handleButtonPressRelease($XEvent* xev) {
 	int64_t jWhen = $System::currentTimeMillis();
 	int32_t x = scaleDown(xbe->get_x());
 	int32_t y = scaleDown(xbe->get_y());
-	if ($nc($(xev->get_xany()))->get_window() != this->window) {
+	if ($$nc(xev->get_xany())->get_window() != this->window) {
 		int32_t var$0 = scaleDown(xbe->get_x_root());
 		$var($Point, localXY, toLocal(var$0, scaleDown(xbe->get_y_root())));
 		x = $nc(localXY)->x;
@@ -1119,10 +902,18 @@ void XWindow::handleButtonPressRelease($XEvent* xev) {
 	}
 	if (type == $XConstants::ButtonPress) {
 		this->mouseButtonClickAllowed |= $XlibUtil::getButtonMask(lbutton);
-		$var(XWindow, lastWindow, (XWindow::lastWindowRef != nullptr) ? ($cast(XWindow, $nc(XWindow::lastWindowRef)->get())) : ((XWindow*)nullptr));
+		$var(XWindow, lastWindow, (XWindow::lastWindowRef != nullptr) ? $cast(XWindow, XWindow::lastWindowRef->get()) : ((XWindow*)nullptr));
 		if ($nc(XWindow::eventLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-			$var($String, var$1, $$str({"lastWindow = "_s, lastWindow, ", lastButton "_s, $$str(XWindow::lastButton), ", lastTime "_s, $$str(XWindow::lastTime), ", multiClickTime "_s}));
-			$nc(XWindow::eventLog)->finest($$concat(var$1, $$str($XToolkit::getMultiClickTime())));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("lastWindow = "_s);
+			var$1->append(lastWindow);
+			var$1->append(", lastButton "_s);
+			var$1->append(XWindow::lastButton);
+			var$1->append(", lastTime "_s);
+			var$1->append(XWindow::lastTime);
+			var$1->append(", multiClickTime "_s);
+			var$1->append($XToolkit::getMultiClickTime());
+			$nc(XWindow::eventLog)->finest($$str(var$1));
 		}
 		if (lastWindow == this && XWindow::lastButton == lbutton && (when - XWindow::lastTime) < $XToolkit::getMultiClickTime()) {
 			++XWindow::clickCount;
@@ -1138,42 +929,30 @@ void XWindow::handleButtonPressRelease($XEvent* xev) {
 	}
 	$init($XConstants);
 	button = $nc($XConstants::buttons)->get(lbutton - 1);
-	if ((button > $nc($XConstants::buttons)->get(4)) && (!$nc($($Toolkit::getDefaultToolkit()))->areExtraMouseButtonsEnabled())) {
+	if ((button > $XConstants::buttons->get(4)) && (!$$nc($Toolkit::getDefaultToolkit())->areExtraMouseButtonsEnabled())) {
 		return;
 	}
-	if (button > $nc($XConstants::buttons)->get(4)) {
+	if (button > $XConstants::buttons->get(4)) {
 		button -= 2;
 	}
 	if (!isWheel(lbutton)) {
 		modifiers = getModifiers(xbe->get_state(), button, 0);
 		$var($Component, var$2, getEventSource());
 		int32_t var$3 = type == $XConstants::ButtonPress ? $MouseEvent::MOUSE_PRESSED : $MouseEvent::MOUSE_RELEASED;
-		int64_t var$4 = jWhen;
-		int32_t var$5 = modifiers;
-		int32_t var$6 = x;
-		int32_t var$7 = y;
-		int32_t var$8 = scaleDown(xbe->get_x_root());
-		$var($MouseEvent, me, $new($MouseEvent, var$2, var$3, var$4, var$5, var$6, var$7, var$8, scaleDown(xbe->get_y_root()), XWindow::clickCount, popupTrigger, button));
+		int32_t var$4 = scaleDown(xbe->get_x_root());
+		$var($MouseEvent, me, $new($MouseEvent, var$2, var$3, jWhen, modifiers, x, y, var$4, scaleDown(xbe->get_y_root()), XWindow::clickCount, popupTrigger, button));
 		postEventToEventQueue(me);
-		if ((type == $XConstants::ButtonRelease) && (((int32_t)(this->mouseButtonClickAllowed & (uint32_t)$XlibUtil::getButtonMask(lbutton))) != 0)) {
-			$var($Component, var$9, getEventSource());
-			int64_t var$10 = jWhen;
-			int32_t var$11 = modifiers;
-			int32_t var$12 = x;
-			int32_t var$13 = y;
-			int32_t var$14 = scaleDown(xbe->get_x_root());
-			postEventToEventQueue(($assign(me, $new($MouseEvent, var$9, $MouseEvent::MOUSE_CLICKED, var$10, var$11, var$12, var$13, var$14, scaleDown(xbe->get_y_root()), XWindow::clickCount, false, button))));
+		if ((type == $XConstants::ButtonRelease) && ((this->mouseButtonClickAllowed & $XlibUtil::getButtonMask(lbutton)) != 0)) {
+			$var($Component, var$5, getEventSource());
+			int32_t var$6 = scaleDown(xbe->get_x_root());
+			postEventToEventQueue($assign(me, $new($MouseEvent, var$5, $MouseEvent::MOUSE_CLICKED, jWhen, modifiers, x, y, var$6, scaleDown(xbe->get_y_root()), XWindow::clickCount, false, button)));
 		}
 	} else {
 		modifiers = getWheelModifiers(xbe->get_state(), button);
 		if (xev->get_type() == $XConstants::ButtonPress) {
-			$var($Component, var$15, getEventSource());
-			int64_t var$16 = jWhen;
-			int32_t var$17 = modifiers;
-			int32_t var$18 = x;
-			int32_t var$19 = y;
-			int32_t var$20 = scaleDown(xbe->get_x_root());
-			$var($MouseWheelEvent, mwe, $new($MouseWheelEvent, var$15, $MouseEvent::MOUSE_WHEEL, var$16, var$17, var$18, var$19, var$20, scaleDown(xbe->get_y_root()), 1, false, $MouseWheelEvent::WHEEL_UNIT_SCROLL, 3, button == 4 ? -1 : 1));
+			$var($Component, var$7, getEventSource());
+			int32_t var$8 = scaleDown(xbe->get_x_root());
+			$var($MouseWheelEvent, mwe, $new($MouseWheelEvent, var$7, $MouseEvent::MOUSE_WHEEL, jWhen, modifiers, x, y, var$8, scaleDown(xbe->get_y_root()), 1, false, $MouseWheelEvent::WHEEL_UNIT_SCROLL, 3, button == 4 ? -1 : 1));
 			postEventToEventQueue(mwe);
 		}
 	}
@@ -1183,7 +962,7 @@ void XWindow::handleButtonPressRelease($XEvent* xev) {
 }
 
 void XWindow::handleMotionNotify($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::handleMotionNotify(xev);
 	$var($XMotionEvent, xme, $nc(xev)->get_xmotion());
 	if (isEventDisabled(xev)) {
@@ -1195,7 +974,7 @@ void XWindow::handleMotionNotify($XEvent* xev) {
 		if ((i != 4) && (i != 5)) {
 			int32_t var$0 = mouseKeyState;
 			int32_t var$2 = $nc(xme)->get_state();
-			int32_t var$1 = ((int32_t)(var$2 & (uint32_t)$XlibUtil::getButtonMask(i + 1)));
+			int32_t var$1 = (var$2 & $XlibUtil::getButtonMask(i + 1));
 			mouseKeyState = var$0 | var$1;
 		}
 	}
@@ -1207,17 +986,17 @@ void XWindow::handleMotionNotify($XEvent* xev) {
 		mouseEventType = $MouseEvent::MOUSE_MOVED;
 	}
 	int32_t x = scaleDown($nc(xme)->get_x());
-	int32_t y = scaleDown($nc(xme)->get_y());
-	$var(XWindow, lastWindow, (XWindow::lastWindowRef != nullptr) ? ($cast(XWindow, $nc(XWindow::lastWindowRef)->get())) : ((XWindow*)nullptr));
+	int32_t y = scaleDown(xme->get_y());
+	$var(XWindow, lastWindow, (XWindow::lastWindowRef != nullptr) ? $cast(XWindow, XWindow::lastWindowRef->get()) : ((XWindow*)nullptr));
 	bool var$4 = lastWindow == this;
 	if (var$4) {
-		int64_t var$5 = ($nc(xme)->get_time() - XWindow::lastTime);
+		int64_t var$5 = xme->get_time() - XWindow::lastTime;
 		var$4 = var$5 < $XToolkit::getMultiClickTime();
 	}
 	bool var$3 = var$4;
 	if (var$3) {
 		bool var$6 = $Math::abs(XWindow::lastX - x) < XWindow::AWT_MULTICLICK_SMUDGE;
-		var$3 = (var$6 && $Math::abs(XWindow::lastY - y) < XWindow::AWT_MULTICLICK_SMUDGE);
+		var$3 = var$6 && $Math::abs(XWindow::lastY - y) < XWindow::AWT_MULTICLICK_SMUDGE;
 	}
 	if (!(var$3)) {
 		XWindow::clickCount = 0;
@@ -1228,40 +1007,32 @@ void XWindow::handleMotionNotify($XEvent* xev) {
 		XWindow::lastY = 0;
 	}
 	int64_t jWhen = $System::currentTimeMillis();
-	int32_t modifiers = getModifiers($nc(xme)->get_state(), 0, 0);
+	int32_t modifiers = getModifiers(xme->get_state(), 0, 0);
 	bool popupTrigger = false;
 	$var($Component, source, getEventSource());
-	if ($nc(xme)->get_window() != this->window) {
+	if (xme->get_window() != this->window) {
 		int32_t var$7 = scaleDown(xme->get_x_root());
 		$var($Point, localXY, toLocal(var$7, scaleDown(xme->get_y_root())));
 		x = $nc(localXY)->x;
 		y = localXY->y;
 	}
 	if ((isDragging && XWindow::clickCount == 0) || !isDragging) {
-		$var($Component, var$8, source);
-		int32_t var$9 = mouseEventType;
-		int64_t var$10 = jWhen;
-		int32_t var$11 = modifiers;
-		int32_t var$12 = x;
-		int32_t var$13 = y;
-		int32_t var$14 = scaleDown($nc(xme)->get_x_root());
-		$var($MouseEvent, mme, $new($MouseEvent, var$8, var$9, var$10, var$11, var$12, var$13, var$14, scaleDown($nc(xme)->get_y_root()), XWindow::clickCount, popupTrigger, $MouseEvent::NOBUTTON));
+		int32_t var$8 = scaleDown(xme->get_x_root());
+		$var($MouseEvent, mme, $new($MouseEvent, source, mouseEventType, jWhen, modifiers, x, y, var$8, scaleDown(xme->get_y_root()), XWindow::clickCount, popupTrigger, $MouseEvent::NOBUTTON));
 		postEventToEventQueue(mme);
 	}
 }
 
 bool XWindow::x11inputMethodLookupString(int64_t event, $longs* keysymArray) {
-	bool $ret = false;
-	$prepareNative(XWindow, x11inputMethodLookupString, bool, int64_t event, $longs* keysymArray);
-	$ret = $invokeNative(event, keysymArray);
+	$prepareNative(x11inputMethodLookupString, bool, int64_t event, $longs* keysymArray);
+	bool $ret = $invokeNative(event, keysymArray);
 	$finishNative();
 	return $ret;
 }
 
 bool XWindow::haveCurrentX11InputMethodInstance() {
-	bool $ret = false;
-	$prepareNative(XWindow, haveCurrentX11InputMethodInstance, bool);
-	$ret = $invokeNative();
+	$prepareNative(haveCurrentX11InputMethodInstance, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -1291,7 +1062,7 @@ void XWindow::leaveNotify(int64_t window) {
 }
 
 void XWindow::handleXCrossingEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::handleXCrossingEvent(xev);
 	$var($XCrossingEvent, xce, $nc(xev)->get_xcrossing());
 	$init($PlatformLogger$Level);
@@ -1305,7 +1076,7 @@ void XWindow::handleXCrossingEvent($XEvent* xev) {
 	}
 	$var($XWindowPeer, toplevel, getToplevelXWindow());
 	if (toplevel != nullptr && !toplevel->isModalBlocked()) {
-		if ($nc(xce)->get_mode() != $XConstants::NotifyNormal) {
+		if (xce->get_mode() != $XConstants::NotifyNormal) {
 			if (xce->get_type() == $XConstants::EnterNotify) {
 				$XAwtState::setComponentMouseEntered($(getEventSource()));
 				$XGlobalCursorManager::nativeUpdateCursor($(getEventSource()));
@@ -1315,7 +1086,7 @@ void XWindow::handleXCrossingEvent($XEvent* xev) {
 			return;
 		}
 	}
-	int64_t childWnd = $nc(xce)->get_subwindow();
+	int64_t childWnd = xce->get_subwindow();
 	if (childWnd != $XConstants::None) {
 		$var($XBaseWindow, child, $XToolkit::windowToXWindow(childWnd));
 		if (child != nullptr && $instanceOf(XWindow, child) && !child->isEventDisabled(xev)) {
@@ -1332,7 +1103,7 @@ void XWindow::handleXCrossingEvent($XEvent* xev) {
 				$XAwtState::setComponentMouseEntered(nullptr);
 			}
 		} else {
-			$nc(($cast($XComponentPeer, $($nc($($AWTAccessor::getComponentAccessor()))->getPeer(this->target)))))->pSetCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
+			$$sure($XComponentPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this->target))->pSetCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
 		}
 	}
 	if (isEventDisabled(xev)) {
@@ -1351,25 +1122,20 @@ void XWindow::handleXCrossingEvent($XEvent* xev) {
 		y = localXY->y;
 	}
 	if (compWithMouse != nullptr) {
-		$var($Component, var$1, compWithMouse);
-		int64_t var$2 = jWhen;
-		int32_t var$3 = modifiers;
-		int32_t var$4 = scaleDown(xce->get_x());
-		int32_t var$5 = scaleDown(xce->get_y());
-		int32_t var$6 = scaleDown(xce->get_x_root());
-		$var($MouseEvent, me, $new($MouseEvent, var$1, $MouseEvent::MOUSE_EXITED, var$2, var$3, var$4, var$5, var$6, scaleDown(xce->get_y_root()), clickCount, popupTrigger, $MouseEvent::NOBUTTON));
+		int32_t var$1 = scaleDown(xce->get_x());
+		int32_t var$2 = scaleDown(xce->get_y());
+		int32_t var$3 = scaleDown(xce->get_x_root());
+		$var($MouseEvent, me, $new($MouseEvent, compWithMouse, $MouseEvent::MOUSE_EXITED, jWhen, modifiers, var$1, var$2, var$3, scaleDown(xce->get_y_root()), clickCount, popupTrigger, $MouseEvent::NOBUTTON));
 		postEventToEventQueue(me);
 		$nc(XWindow::eventLog)->finest("Clearing last window ref"_s);
 		$assignStatic(XWindow::lastWindowRef, nullptr);
 	}
 	if (xce->get_type() == $XConstants::EnterNotify) {
-		$var($Component, var$7, getEventSource());
-		int64_t var$8 = jWhen;
-		int32_t var$9 = modifiers;
-		int32_t var$10 = scaleDown(xce->get_x());
-		int32_t var$11 = scaleDown(xce->get_y());
-		int32_t var$12 = scaleDown(xce->get_x_root());
-		$var($MouseEvent, me, $new($MouseEvent, var$7, $MouseEvent::MOUSE_ENTERED, var$8, var$9, var$10, var$11, var$12, scaleDown(xce->get_y_root()), clickCount, popupTrigger, $MouseEvent::NOBUTTON));
+		$var($Component, var$4, getEventSource());
+		int32_t var$5 = scaleDown(xce->get_x());
+		int32_t var$6 = scaleDown(xce->get_y());
+		int32_t var$7 = scaleDown(xce->get_x_root());
+		$var($MouseEvent, me, $new($MouseEvent, var$4, $MouseEvent::MOUSE_ENTERED, jWhen, modifiers, var$5, var$6, var$7, scaleDown(xce->get_y_root()), clickCount, popupTrigger, $MouseEvent::NOBUTTON));
 		postEventToEventQueue(me);
 	}
 }
@@ -1378,34 +1144,34 @@ void XWindow::doLayout(int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 void XWindow::handleConfigureNotifyEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, oldBounds, getBounds());
 	$XBaseWindow::handleConfigureNotifyEvent(xev);
 	$init($PlatformLogger$Level);
 	if ($nc(XWindow::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
 		$nc(XWindow::insLog)->finer("Configure, {0}, event disabled: {1}"_s, $$new($ObjectArray, {
-			$($of($nc(xev)->get_xconfigure())),
-			$($of($Boolean::valueOf(isEventDisabled(xev))))
+			$($nc(xev)->get_xconfigure()),
+			$($Boolean::valueOf(isEventDisabled(xev)))
 		}));
 	}
 	if (isEventDisabled(xev)) {
 		return;
 	}
 	$var($Rectangle, bounds, getBounds());
-	if (!$nc($($nc(bounds)->getSize()))->equals($($nc(oldBounds)->getSize()))) {
+	if (!$$nc($nc(bounds)->getSize())->equals($($nc(oldBounds)->getSize()))) {
 		postEventToEventQueue($$new($ComponentEvent, $(getEventSource()), $ComponentEvent::COMPONENT_RESIZED));
 	}
-	if (!$nc($($nc(bounds)->getLocation()))->equals($($nc(oldBounds)->getLocation()))) {
+	if (!$$nc(bounds->getLocation())->equals($(oldBounds->getLocation()))) {
 		postEventToEventQueue($$new($ComponentEvent, $(getEventSource()), $ComponentEvent::COMPONENT_MOVED));
 	}
 }
 
 void XWindow::handleMapNotifyEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::handleMapNotifyEvent(xev);
 	$init($PlatformLogger$Level);
 	if ($nc(XWindow::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XWindow::log)->fine("Mapped {0}"_s, $$new($ObjectArray, {$of(this)}));
+		$nc(XWindow::log)->fine("Mapped {0}"_s, $$new($ObjectArray, {this}));
 	}
 	if (isEventDisabled(xev)) {
 		return;
@@ -1426,21 +1192,23 @@ void XWindow::handleUnmapNotifyEvent($XEvent* xev) {
 }
 
 void XWindow::dumpKeysymArray($XKeyEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$var($String, var$6, "  "_s);
-		int64_t var$7 = $XToolkit::getDisplay();
-		$var($String, var$5, $$concat(var$6, $($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$7, $nc(ev)->get_keycode(), 0)))));
-		$var($String, var$4, $$concat(var$5, "\n        "_s));
-		int64_t var$8 = $XToolkit::getDisplay();
-		$var($String, var$3, $$concat(var$4, $($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$8, $nc(ev)->get_keycode(), 1)))));
-		$var($String, var$2, $$concat(var$3, "\n        "_s));
-		int64_t var$9 = $XToolkit::getDisplay();
-		$var($String, var$1, $$concat(var$2, $($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$9, $nc(ev)->get_keycode(), 2)))));
-		$var($String, var$0, $$concat(var$1, "\n        "_s));
-		int64_t var$10 = $XToolkit::getDisplay();
-		$nc(XWindow::keyEventLog)->fine($$concat(var$0, $($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$10, $nc(ev)->get_keycode(), 3)))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("  "_s);
+		int64_t var$1 = $XToolkit::getDisplay();
+		var$0->append($($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$1, $nc(ev)->get_keycode(), 0))));
+		var$0->append("\n        "_s);
+		int64_t var$2 = $XToolkit::getDisplay();
+		var$0->append($($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$2, ev->get_keycode(), 1))));
+		var$0->append("\n        "_s);
+		int64_t var$3 = $XToolkit::getDisplay();
+		var$0->append($($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$3, ev->get_keycode(), 2))));
+		var$0->append("\n        "_s);
+		int64_t var$4 = $XToolkit::getDisplay();
+		var$0->append($($Long::toHexString($XlibWrapper::XKeycodeToKeysym(var$4, ev->get_keycode(), 3))));
+		$nc(XWindow::keyEventLog)->fine($$str(var$0));
 	}
 }
 
@@ -1467,7 +1235,7 @@ int32_t XWindow::primaryUnicode2JavaKeycode(int32_t uni) {
 }
 
 void XWindow::logIncomingKeyEvent($XKeyEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
 		$nc(XWindow::keyEventLog)->fine($$str({"--XWindow.java:handleKeyEvent:"_s, ev}));
@@ -1479,7 +1247,7 @@ void XWindow::logIncomingKeyEvent($XKeyEvent* ev) {
 }
 
 void XWindow::handleKeyPress($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::handleKeyPress(xev);
 	$var($XKeyEvent, ev, $nc(xev)->get_xkey());
 	$init($PlatformLogger$Level);
@@ -1493,7 +1261,7 @@ void XWindow::handleKeyPress($XEvent* xev) {
 }
 
 void XWindow::handleKeyPress($XKeyEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, keysym, $new($longs, 2));
 	int32_t unicodeKey = 0;
 	keysym->set(0, $XConstants::NoSymbol);
@@ -1508,18 +1276,26 @@ void XWindow::handleKeyPress($XKeyEvent* ev) {
 			}
 			return;
 		} else {
-			unicodeKey = keysymToUnicode(keysym->get(0), $nc(ev)->get_state());
+			unicodeKey = keysymToUnicode(keysym->get(0), ev->get_state());
 			if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$var($String, var$0, $$str({"--XWindow.java XIM did NOT process event, hex keysym:"_s, $($Long::toHexString(keysym->get(0))), "\n                                         unicode key:"_s}));
-				$nc(XWindow::keyEventLog)->fine($$concat(var$0, $($Integer::toHexString(unicodeKey))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("--XWindow.java XIM did NOT process event, hex keysym:"_s);
+				var$0->append($($Long::toHexString(keysym->get(0))));
+				var$0->append("\n                                         unicode key:"_s);
+				var$0->append($($Integer::toHexString(unicodeKey)));
+				$nc(XWindow::keyEventLog)->fine($$str(var$0));
 			}
 		}
 	} else {
 		keysym->set(0, xkeycodeToKeysym(ev));
 		unicodeKey = keysymToUnicode(keysym->get(0), $nc(ev)->get_state());
 		if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$var($String, var$1, $$str({"--XWindow.java XIM is absent;             hex keysym:"_s, $($Long::toHexString(keysym->get(0))), "\n                                         unicode key:"_s}));
-			$nc(XWindow::keyEventLog)->fine($$concat(var$1, $($Integer::toHexString(unicodeKey))));
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("--XWindow.java XIM is absent;             hex keysym:"_s);
+			var$1->append($($Long::toHexString(keysym->get(0))));
+			var$1->append("\n                                         unicode key:"_s);
+			var$1->append($($Integer::toHexString(unicodeKey)));
+			$nc(XWindow::keyEventLog)->fine($$str(var$1));
 		}
 	}
 	bool isDeadKey = this->isDeadKey(keysym->get(0));
@@ -1529,38 +1305,41 @@ void XWindow::handleKeyPress($XKeyEvent* ev) {
 	}
 	int32_t unicodeFromPrimaryKeysym = keysymToUnicode(xkeycodeToPrimaryKeysym(ev), 0);
 	if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$var($String, var$9, $$str({">>>Fire Event:"_s, ($nc(ev)->get_type() == $XConstants::KeyPress ? "KEY_PRESSED; "_s : "KEY_RELEASED; "_s), "jkeycode:decimal="_s}));
-		$var($String, var$8, $$concat(var$9, $$str($nc(jkc)->getJavaKeycode())));
-		$var($String, var$7, $$concat(var$8, ", hex=0x"_s));
-		$var($String, var$6, $$concat(var$7, $($Integer::toHexString(jkc->getJavaKeycode()))));
-		$var($String, var$5, $$concat(var$6, ";  legacy jkeycode: decimal="_s));
-		$var($String, var$4, $$concat(var$5, $$str($XKeysym::getLegacyJavaKeycodeOnly(ev))));
-		$var($String, var$3, $$concat(var$4, ", hex=0x"_s));
-		$var($String, var$2, $$concat(var$3, $($Integer::toHexString($XKeysym::getLegacyJavaKeycodeOnly(ev)))));
-		$nc(XWindow::keyEventLog)->fine($$concat(var$2, "; "_s));
+		$var($StringBuilder, var$2, $new($StringBuilder));
+		var$2->append(">>>Fire Event:"_s);
+		var$2->append($nc(ev)->get_type() == $XConstants::KeyPress ? "KEY_PRESSED; "_s : "KEY_RELEASED; "_s);
+		var$2->append("jkeycode:decimal="_s);
+		var$2->append($nc(jkc)->getJavaKeycode());
+		var$2->append(", hex=0x"_s);
+		var$2->append($($Integer::toHexString(jkc->getJavaKeycode())));
+		var$2->append(";  legacy jkeycode: decimal="_s);
+		var$2->append($XKeysym::getLegacyJavaKeycodeOnly(ev));
+		var$2->append(", hex=0x"_s);
+		var$2->append($($Integer::toHexString($XKeysym::getLegacyJavaKeycodeOnly(ev))));
+		var$2->append("; "_s);
+		$nc(XWindow::keyEventLog)->fine($$str(var$2));
 	}
 	int32_t jkeyToReturn = $XKeysym::getLegacyJavaKeycodeOnly(ev);
-	int32_t jkeyExtended = $nc(jkc)->getJavaKeycode() == $KeyEvent::VK_UNDEFINED ? primaryUnicode2JavaKeycode(unicodeFromPrimaryKeysym) : $nc(jkc)->getJavaKeycode();
-	int32_t var$10 = isDeadKey ? jkeyExtended : jkeyToReturn;
-	int32_t var$11 = (unicodeKey == 0 ? (int32_t)$KeyEvent::CHAR_UNDEFINED : unicodeKey);
-	int32_t var$12 = jkc->getKeyLocation();
-	int32_t var$13 = $nc(ev)->get_state();
-	int64_t var$14 = ev->getPData();
-	int32_t var$15 = $XKeyEvent::getSize();
-	postKeyEvent($KeyEvent::KEY_PRESSED, var$10, var$11, var$12, var$13, var$14, var$15, (int64_t)(ev->get_keycode()), unicodeFromPrimaryKeysym, jkeyExtended);
+	int32_t jkeyExtended = $nc(jkc)->getJavaKeycode() == $KeyEvent::VK_UNDEFINED ? primaryUnicode2JavaKeycode(unicodeFromPrimaryKeysym) : jkc->getJavaKeycode();
+	int32_t var$3 = isDeadKey ? jkeyExtended : jkeyToReturn;
+	int32_t var$4 = unicodeKey == 0 ? $KeyEvent::CHAR_UNDEFINED : unicodeKey;
+	int32_t var$5 = jkc->getKeyLocation();
+	int32_t var$6 = $nc(ev)->get_state();
+	int64_t var$7 = ev->getPData();
+	int32_t var$8 = $XKeyEvent::getSize();
+	postKeyEvent($KeyEvent::KEY_PRESSED, var$3, var$4, var$5, var$6, var$7, var$8, (int64_t)(ev->get_keycode()), unicodeFromPrimaryKeysym, jkeyExtended);
 	if (unicodeKey > 0 && !isDeadKey) {
 		if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
 			$nc(XWindow::keyEventLog)->fine($$str({"fire _TYPED on "_s, $$str(unicodeKey)}));
 		}
-		int32_t var$16 = unicodeKey;
-		int32_t var$17 = $nc(ev)->get_state();
-		int64_t var$18 = ev->getPData();
-		postKeyEvent($KeyEvent::KEY_TYPED, $KeyEvent::VK_UNDEFINED, var$16, $KeyEvent::KEY_LOCATION_UNKNOWN, var$17, var$18, $XKeyEvent::getSize(), (int64_t)0, unicodeFromPrimaryKeysym, $KeyEvent::VK_UNDEFINED);
+		int32_t var$9 = ev->get_state();
+		int64_t var$10 = ev->getPData();
+		postKeyEvent($KeyEvent::KEY_TYPED, $KeyEvent::VK_UNDEFINED, unicodeKey, $KeyEvent::KEY_LOCATION_UNKNOWN, var$9, var$10, $XKeyEvent::getSize(), (int64_t)0, unicodeFromPrimaryKeysym, $KeyEvent::VK_UNDEFINED);
 	}
 }
 
 void XWindow::handleKeyRelease($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseWindow::handleKeyRelease(xev);
 	$var($XKeyEvent, ev, $nc(xev)->get_xkey());
 	$init($PlatformLogger$Level);
@@ -1574,7 +1353,7 @@ void XWindow::handleKeyRelease($XEvent* xev) {
 }
 
 void XWindow::handleKeyRelease($XKeyEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t unicodeKey = 0;
 	$init($PlatformLogger$Level);
 	if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
@@ -1587,28 +1366,32 @@ void XWindow::handleKeyRelease($XKeyEvent* ev) {
 		$assign(jkc, $new($XKeysym$Keysym2JavaKeycode, $KeyEvent::VK_UNDEFINED, $KeyEvent::KEY_LOCATION_UNKNOWN));
 	}
 	if ($nc(XWindow::keyEventLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$var($String, var$7, $$str({">>>Fire Event:"_s, ($nc(ev)->get_type() == $XConstants::KeyPress ? "KEY_PRESSED; "_s : "KEY_RELEASED; "_s), "jkeycode:decimal="_s}));
-		$var($String, var$6, $$concat(var$7, $$str($nc(jkc)->getJavaKeycode())));
-		$var($String, var$5, $$concat(var$6, ", hex=0x"_s));
-		$var($String, var$4, $$concat(var$5, $($Integer::toHexString(jkc->getJavaKeycode()))));
-		$var($String, var$3, $$concat(var$4, ";  legacy jkeycode: decimal="_s));
-		$var($String, var$2, $$concat(var$3, $$str($XKeysym::getLegacyJavaKeycodeOnly(ev))));
-		$var($String, var$1, $$concat(var$2, ", hex=0x"_s));
-		$var($String, var$0, $$concat(var$1, $($Integer::toHexString($XKeysym::getLegacyJavaKeycodeOnly(ev)))));
-		$nc(XWindow::keyEventLog)->fine($$concat(var$0, "; "_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(">>>Fire Event:"_s);
+		var$0->append($nc(ev)->get_type() == $XConstants::KeyPress ? "KEY_PRESSED; "_s : "KEY_RELEASED; "_s);
+		var$0->append("jkeycode:decimal="_s);
+		var$0->append($nc(jkc)->getJavaKeycode());
+		var$0->append(", hex=0x"_s);
+		var$0->append($($Integer::toHexString(jkc->getJavaKeycode())));
+		var$0->append(";  legacy jkeycode: decimal="_s);
+		var$0->append($XKeysym::getLegacyJavaKeycodeOnly(ev));
+		var$0->append(", hex=0x"_s);
+		var$0->append($($Integer::toHexString($XKeysym::getLegacyJavaKeycodeOnly(ev))));
+		var$0->append("; "_s);
+		$nc(XWindow::keyEventLog)->fine($$str(var$0));
 	}
-	int64_t var$8 = xkeycodeToKeysym(ev);
-	unicodeKey = keysymToUnicode(var$8, $nc(ev)->get_state());
+	int64_t var$1 = xkeycodeToKeysym(ev);
+	unicodeKey = keysymToUnicode(var$1, $nc(ev)->get_state());
 	int32_t unicodeFromPrimaryKeysym = keysymToUnicode(xkeycodeToPrimaryKeysym(ev), 0);
 	int32_t jkeyToReturn = $XKeysym::getLegacyJavaKeycodeOnly(ev);
-	int32_t jkeyExtended = $nc(jkc)->getJavaKeycode() == $KeyEvent::VK_UNDEFINED ? primaryUnicode2JavaKeycode(unicodeFromPrimaryKeysym) : $nc(jkc)->getJavaKeycode();
-	int32_t var$9 = isDeadKey ? jkeyExtended : jkeyToReturn;
-	int32_t var$10 = (unicodeKey == 0 ? (int32_t)$KeyEvent::CHAR_UNDEFINED : unicodeKey);
-	int32_t var$11 = jkc->getKeyLocation();
-	int32_t var$12 = $nc(ev)->get_state();
-	int64_t var$13 = ev->getPData();
-	int32_t var$14 = $XKeyEvent::getSize();
-	postKeyEvent($KeyEvent::KEY_RELEASED, var$9, var$10, var$11, var$12, var$13, var$14, (int64_t)(ev->get_keycode()), unicodeFromPrimaryKeysym, jkeyExtended);
+	int32_t jkeyExtended = $nc(jkc)->getJavaKeycode() == $KeyEvent::VK_UNDEFINED ? primaryUnicode2JavaKeycode(unicodeFromPrimaryKeysym) : jkc->getJavaKeycode();
+	int32_t var$2 = isDeadKey ? jkeyExtended : jkeyToReturn;
+	int32_t var$3 = unicodeKey == 0 ? $KeyEvent::CHAR_UNDEFINED : unicodeKey;
+	int32_t var$4 = jkc->getKeyLocation();
+	int32_t var$5 = ev->get_state();
+	int64_t var$6 = ev->getPData();
+	int32_t var$7 = $XKeyEvent::getSize();
+	postKeyEvent($KeyEvent::KEY_RELEASED, var$2, var$3, var$4, var$5, var$6, var$7, (int64_t)(ev->get_keycode()), unicodeFromPrimaryKeysym, jkeyExtended);
 }
 
 bool XWindow::isDeadKey(int64_t keysym) {
@@ -1616,41 +1399,39 @@ bool XWindow::isDeadKey(int64_t keysym) {
 }
 
 int32_t XWindow::getWMState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stateChanged$) {
 		this->stateChanged$ = false;
 		$init($XWM);
-		$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, this->window, $XWM::XA_WM_STATE, (int64_t)0, (int64_t)1, false, $XWM::XA_WM_STATE));
-		{
-			$var($Throwable, var$0, nullptr);
-			int32_t var$2 = 0;
-			bool return$1 = false;
-			try {
-				int32_t status = getter->execute();
-				if (status != $XConstants::Success || getter->getData() == 0) {
-					var$2 = this->savedState = $XUtilConstants::WithdrawnState;
-					return$1 = true;
-					goto $finally;
-				}
-				int64_t var$4 = getter->getActualType();
-				bool var$3 = var$4 != $nc($XWM::XA_WM_STATE)->getAtom();
-				if (var$3 && getter->getActualFormat() != 32) {
-					var$2 = this->savedState = $XUtilConstants::WithdrawnState;
-					return$1 = true;
-					goto $finally;
-				}
-				this->savedState = (int32_t)$Native::getCard32(getter->getData());
-			} catch ($Throwable& var$5) {
-				$assign(var$0, var$5);
-			} $finally: {
-				getter->dispose();
+		$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, this->window, $XWM::XA_WM_STATE, 0, 1, false, $XWM::XA_WM_STATE));
+		$var($Throwable, var$0, nullptr);
+		int32_t var$2 = 0;
+		bool return$1 = false;
+		try {
+			int32_t status = getter->execute();
+			if (status != $XConstants::Success || getter->getData() == 0) {
+				var$2 = this->savedState = $XUtilConstants::WithdrawnState;
+				return$1 = true;
+				goto $finally;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			int64_t var$4 = getter->getActualType();
+			bool var$3 = var$4 != $nc($XWM::XA_WM_STATE)->getAtom();
+			if (var$3 && getter->getActualFormat() != 32) {
+				var$2 = this->savedState = $XUtilConstants::WithdrawnState;
+				return$1 = true;
+				goto $finally;
 			}
-			if (return$1) {
-				return var$2;
-			}
+			this->savedState = (int32_t)$Native::getCard32(getter->getData());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
+		} $finally: {
+			getter->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	return this->savedState;
@@ -1673,7 +1454,7 @@ void XWindow::handlePropertyNotify($XEvent* xev) {
 }
 
 void XWindow::reshape($Rectangle* bounds) {
-	reshape($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
+	reshape($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
 }
 
 void XWindow::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -1712,36 +1493,36 @@ void XWindow::updateSizeHints() {
 }
 
 void XWindow::updateSizeHints(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	int64_t flags = $XUtilConstants::PSize | (isLocationByPlatform() ? (int64_t)0 : ($XUtilConstants::PPosition | $XUtilConstants::USPosition));
+	$useLocalObjectStack();
+	int64_t flags = $XUtilConstants::PSize | (isLocationByPlatform() ? 0 : ($XUtilConstants::PPosition | $XUtilConstants::USPosition));
 	if (!isResizable()) {
 		$init($PlatformLogger$Level);
 		if ($nc(XWindow::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWindow::log)->finer("Window {0} is not resizable"_s, $$new($ObjectArray, {$of(this)}));
+			$nc(XWindow::log)->finer("Window {0} is not resizable"_s, $$new($ObjectArray, {this}));
 		}
 		flags |= $XUtilConstants::PMinSize | $XUtilConstants::PMaxSize;
 	} else {
 		$init($PlatformLogger$Level);
 		if ($nc(XWindow::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWindow::log)->finer("Window {0} is resizable"_s, $$new($ObjectArray, {$of(this)}));
+			$nc(XWindow::log)->finer("Window {0} is resizable"_s, $$new($ObjectArray, {this}));
 		}
 	}
 	setSizeHints(flags, x, y, width, height);
 }
 
 void XWindow::updateSizeHints(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	int64_t flags = isLocationByPlatform() ? (int64_t)0 : ($XUtilConstants::PPosition | $XUtilConstants::USPosition);
+	$useLocalObjectStack();
+	int64_t flags = isLocationByPlatform() ? 0 : ($XUtilConstants::PPosition | $XUtilConstants::USPosition);
 	if (!isResizable()) {
 		$init($PlatformLogger$Level);
 		if ($nc(XWindow::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWindow::log)->finer("Window {0} is not resizable"_s, $$new($ObjectArray, {$of(this)}));
+			$nc(XWindow::log)->finer("Window {0} is not resizable"_s, $$new($ObjectArray, {this}));
 		}
 		flags |= ($XUtilConstants::PMinSize | $XUtilConstants::PMaxSize) | $XUtilConstants::PSize;
 	} else {
 		$init($PlatformLogger$Level);
 		if ($nc(XWindow::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWindow::log)->finer("Window {0} is resizable"_s, $$new($ObjectArray, {$of(this)}));
+			$nc(XWindow::log)->finer("Window {0} is resizable"_s, $$new($ObjectArray, {this}));
 		}
 	}
 	setSizeHints(flags, x, y, this->width, this->height);
@@ -1778,49 +1559,47 @@ void XWindow::dispose() {
 }
 
 $Point* XWindow::getLocationOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(this->target)->getTreeLock()) {
 		$var($Component, comp, this->target);
 		while (comp != nullptr && !($instanceOf($Window, comp))) {
-			$assign(comp, $nc($($AWTAccessor::getComponentAccessor()))->getParent(comp));
+			$assign(comp, $$nc($AWTAccessor::getComponentAccessor())->getParent(comp));
 		}
 		if (comp == nullptr || $instanceOf($EmbeddedFrame, comp)) {
 			return toGlobal(0, 0);
 		}
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Point, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$var($Object, wpeer, $XToolkit::targetToPeer(comp));
-				if (wpeer == nullptr || !($instanceOf($XDecoratedPeer, wpeer)) || $nc(($cast($XDecoratedPeer, wpeer)))->configure_seen) {
-					$assign(var$2, toGlobal(0, 0));
-					return$1 = true;
-					goto $finally;
-				}
-				int64_t var$3 = getContentWindow();
-				$var($Point, pt, toOtherWindow(var$3, $nc(($cast($XDecoratedPeer, wpeer)))->getContentWindow(), 0, 0));
-				if (pt == nullptr) {
-					int32_t var$4 = $nc(($cast($XBaseWindow, wpeer)))->getAbsoluteX();
-					$assign(pt, $new($Point, var$4, $nc(($cast($XBaseWindow, wpeer)))->getAbsoluteY()));
-				}
-				$nc(pt)->x += $nc(comp)->getX();
-				pt->y += comp->getY();
-				$assign(var$2, pt);
+		$var($Throwable, var$0, nullptr);
+		$var($Point, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			$var($Object, wpeer, $XToolkit::targetToPeer(comp));
+			if (wpeer == nullptr || !($instanceOf($XDecoratedPeer, wpeer)) || $cast($XDecoratedPeer, wpeer)->configure_seen) {
+				$assign(var$2, toGlobal(0, 0));
 				return$1 = true;
 				goto $finally;
-			} catch ($Throwable& var$5) {
-				$assign(var$0, var$5);
-			} $finally: {
-				$XToolkit::awtUnlock();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			int64_t var$3 = getContentWindow();
+			$var($Point, pt, toOtherWindow(var$3, $nc($cast($XDecoratedPeer, wpeer))->getContentWindow(), 0, 0));
+			if (pt == nullptr) {
+				int32_t var$4 = $cast($XBaseWindow, wpeer)->getAbsoluteX();
+				$assign(pt, $new($Point, var$4, $cast($XBaseWindow, wpeer)->getAbsoluteY()));
 			}
-			if (return$1) {
-				return var$2;
-			}
+			$nc(pt)->x += $nc(comp)->getX();
+			pt->y += comp->getY();
+			$assign(var$2, pt);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
+		} $finally: {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -1828,11 +1607,11 @@ $Point* XWindow::getLocationOnScreen() {
 
 void XWindow::setBData($KeyEvent* e, $bytes* data) {
 	$init(XWindow);
-	$nc($($AWTAccessor::getAWTEventAccessor()))->setBData(e, data);
+	$$nc($AWTAccessor::getAWTEventAccessor())->setBData(e, data);
 }
 
 void XWindow::postKeyEvent(int32_t id, int32_t keyCode, int32_t keyChar, int32_t keyLocation, int32_t state, int64_t event, int32_t eventSize, int64_t rawCode, int32_t unicodeFromPrimaryKeysym, int32_t extendedKeyCode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t jWhen = $System::currentTimeMillis();
 	int32_t modifiers = getModifiers(state, 0, keyCode);
 	$var($KeyEvent, ke, $new($KeyEvent, $(getEventSource()), id, jWhen, modifiers, keyCode, (char16_t)keyChar, keyLocation));
@@ -1849,18 +1628,16 @@ void XWindow::postKeyEvent(int32_t id, int32_t keyCode, int32_t keyChar, int32_t
 
 int32_t XWindow::getAWTKeyCodeForKeySym(int32_t keysym) {
 	$init(XWindow);
-	int32_t $ret = 0;
-	$prepareNativeStatic(XWindow, getAWTKeyCodeForKeySym, int32_t, int32_t keysym);
-	$ret = $invokeNativeStatic(keysym);
+	$prepareNativeStatic(getAWTKeyCodeForKeySym, int32_t, int32_t keysym);
+	int32_t $ret = $invokeNativeStatic(keysym);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t XWindow::getKeySymForAWTKeyCode(int32_t keycode) {
 	$init(XWindow);
-	int32_t $ret = 0;
-	$prepareNativeStatic(XWindow, getKeySymForAWTKeyCode, int32_t, int32_t keycode);
-	$ret = $invokeNativeStatic(keycode);
+	$prepareNativeStatic(getKeySymForAWTKeyCode, int32_t, int32_t keycode);
+	int32_t $ret = $invokeNativeStatic(keycode);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1869,7 +1646,7 @@ $PropMwmHints* XWindow::getMWMHints() {
 	if (this->mwm_hints == nullptr) {
 		$set(this, mwm_hints, $new($PropMwmHints));
 		$init($XWM);
-		if (!$nc($XWM::XA_MWM_HINTS)->getAtomData(getWindow(), $nc(this->mwm_hints)->pData, $MWMConstants::PROP_MWM_HINTS_ELEMENTS)) {
+		if (!$nc($XWM::XA_MWM_HINTS)->getAtomData(getWindow(), this->mwm_hints->pData, $MWMConstants::PROP_MWM_HINTS_ELEMENTS)) {
 			$nc(this->mwm_hints)->zero();
 		}
 	}
@@ -1885,7 +1662,7 @@ void XWindow::setMWMHints($PropMwmHints* hints) {
 }
 
 void XWindow::initWMProtocols() {
-	$nc(XWindow::wm_protocols)->setAtomListProperty(static_cast<$XBaseWindow*>(this), $(getWMProtocols()));
+	$nc(XWindow::wm_protocols)->setAtomListProperty(this, $(getWMProtocols()));
 }
 
 $XAtomList* XWindow::getWMProtocols() {
@@ -1916,7 +1693,7 @@ int32_t XWindow::scaleDown(int32_t x) {
 	return $nc(this->graphicsConfig)->scaleDown(x);
 }
 
-void clinit$XWindow($Class* class$) {
+void XWindow::clinit$($Class* clazz) {
 	$assignStatic(XWindow::TARGET, "target"_s);
 	$assignStatic(XWindow::REPARENTED, "reparented"_s);
 	$assignStatic(XWindow::log, $PlatformLogger::getLogger("sun.awt.X11.XWindow"_s));
@@ -1943,7 +1720,190 @@ XWindow::XWindow() {
 }
 
 $Class* XWindow::load$($String* name, bool initialize) {
-	$loadClass(XWindow, name, initialize, &_XWindow_ClassInfo_, clinit$XWindow, allocate$XWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, log)},
+		{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, insLog)},
+		{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, eventLog)},
+		{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWindow, focusLog)},
+		{"keyEventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, keyEventLog)},
+		{"AWT_MULTICLICK_SMUDGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XWindow, AWT_MULTICLICK_SMUDGE)},
+		{"lastX", "I", nullptr, $STATIC, $staticField(XWindow, lastX)},
+		{"lastY", "I", nullptr, $STATIC, $staticField(XWindow, lastY)},
+		{"lastTime", "J", nullptr, $STATIC, $staticField(XWindow, lastTime)},
+		{"lastButton", "J", nullptr, $STATIC, $staticField(XWindow, lastButton)},
+		{"lastWindowRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/awt/X11/XWindow;>;", $STATIC, $staticField(XWindow, lastWindowRef)},
+		{"clickCount", "I", nullptr, $STATIC, $staticField(XWindow, clickCount)},
+		{"oldWidth", "I", nullptr, 0, $field(XWindow, oldWidth)},
+		{"oldHeight", "I", nullptr, 0, $field(XWindow, oldHeight)},
+		{"mwm_hints", "Lsun/awt/X11/PropMwmHints;", nullptr, $PROTECTED, $field(XWindow, mwm_hints)},
+		{"wm_protocols", "Lsun/awt/X11/XAtom;", nullptr, $PROTECTED | $STATIC, $staticField(XWindow, wm_protocols)},
+		{"wm_delete_window", "Lsun/awt/X11/XAtom;", nullptr, $PROTECTED | $STATIC, $staticField(XWindow, wm_delete_window)},
+		{"wm_take_focus", "Lsun/awt/X11/XAtom;", nullptr, $PROTECTED | $STATIC, $staticField(XWindow, wm_take_focus)},
+		{"stateChanged", "Z", nullptr, $PRIVATE, $field(XWindow, stateChanged$)},
+		{"savedState", "I", nullptr, $PRIVATE, $field(XWindow, savedState)},
+		{"winAttr", "Lsun/awt/X11/XWindowAttributesData;", nullptr, 0, $field(XWindow, winAttr)},
+		{"graphicsConfig", "Lsun/awt/X11GraphicsConfig;", nullptr, $PROTECTED, $field(XWindow, graphicsConfig)},
+		{"graphicsConfigData", "Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PROTECTED, $field(XWindow, graphicsConfigData)},
+		{"reparented", "Z", nullptr, $PRIVATE, $field(XWindow, reparented)},
+		{"parent", "Lsun/awt/X11/XWindow;", nullptr, 0, $field(XWindow, parent)},
+		{"target", "Ljava/awt/Component;", nullptr, 0, $field(XWindow, target)},
+		{"JAWT_LOCK_ERROR", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_ERROR)},
+		{"JAWT_LOCK_CLIP_CHANGED", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_CLIP_CHANGED)},
+		{"JAWT_LOCK_BOUNDS_CHANGED", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_BOUNDS_CHANGED)},
+		{"JAWT_LOCK_SURFACE_CHANGED", "I", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, JAWT_LOCK_SURFACE_CHANGED)},
+		{"drawState", "I", nullptr, $PRIVATE, $field(XWindow, drawState)},
+		{"TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XWindow, TARGET)},
+		{"REPARENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XWindow, REPARENTED)},
+		{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(XWindow, surfaceData)},
+		{"paintArea", "Lsun/awt/X11/XRepaintArea;", nullptr, 0, $field(XWindow, paintArea)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(XWindow, defaultFont)},
+		{"mouseButtonClickAllowed", "I", nullptr, $PRIVATE, $field(XWindow, mouseButtonClickAllowed)},
+		{"backgroundColor", "Ljava/awt/Color;", nullptr, 0, $field(XWindow, backgroundColor)},
+		{"mouseAboveMe", "Z", nullptr, $PRIVATE, $field(XWindow, mouseAboveMe)},
+		{"fullScreenExclusiveModeState", "Z", nullptr, $PRIVATE, $field(XWindow, fullScreenExclusiveModeState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC},
+		{"*getContentWindow", "()J", nullptr, $PUBLIC},
+		{"*getWindow", "()J", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XWindow, init$, void, $XCreateWindowParams*)},
+		{"<init>", "()V", nullptr, 0, $method(XWindow, init$, void)},
+		{"<init>", "(JLjava/awt/Rectangle;)V", nullptr, 0, $method(XWindow, init$, void, int64_t, $Rectangle*)},
+		{"<init>", "(Ljava/awt/Component;JLjava/awt/Rectangle;)V", nullptr, 0, $method(XWindow, init$, void, $Component*, int64_t, $Rectangle*)},
+		{"<init>", "(Ljava/awt/Component;J)V", nullptr, 0, $method(XWindow, init$, void, $Component*, int64_t)},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XWindow, init$, void, $Component*)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(XWindow, init$, void, Object$*)},
+		{"<init>", "(J)V", nullptr, 0, $method(XWindow, init$, void, int64_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XWindow, dispose, void)},
+		{"doEraseBackground", "()Z", nullptr, $PROTECTED, $virtualMethod(XWindow, doEraseBackground, bool)},
+		{"doLayout", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, doLayout, void, int32_t, int32_t, int32_t, int32_t)},
+		{"doValidateSurface", "()V", nullptr, $FINAL, $method(XWindow, doValidateSurface, void)},
+		{"dumpKeysymArray", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, $PRIVATE, $method(XWindow, dumpKeysymArray, void, $XKeyEvent*)},
+		{"enterNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWindow, enterNotify, void, int64_t)},
+		{"flush", "()V", nullptr, $PROTECTED, $virtualMethod(XWindow, flush, void)},
+		{"getAWTKeyCodeForKeySym", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(XWindow, getAWTKeyCodeForKeySym, int32_t, int32_t)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(XWindow, getColorModel, $ColorModel*, int32_t)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(XWindow, getColorModel, $ColorModel*)},
+		{"getDefaultFont", "()Ljava/awt/Font;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XWindow, getDefaultFont, $Font*)},
+		{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(XWindow, getEventSource, $Component*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(XWindow, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphics", "(Lsun/java2d/SurfaceData;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)Ljava/awt/Graphics;", nullptr, 0, $virtualMethod(XWindow, getGraphics, $Graphics*, $SurfaceData*, $Color*, $Color*, $Font*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XWindow, getGraphics, $Graphics*)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XWindow, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getGraphicsConfigurationData", "()Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC, $virtualMethod(XWindow, getGraphicsConfigurationData, $AwtGraphicsConfigData*)},
+		{"getKeySymForAWTKeyCode", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(XWindow, getKeySymForAWTKeyCode, int32_t, int32_t)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XWindow, getLocationOnScreen, $Point*)},
+		{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC, $virtualMethod(XWindow, getMWMHints, $PropMwmHints*)},
+		{"getModifiers", "(III)I", nullptr, $STATIC, $staticMethod(XWindow, getModifiers, int32_t, int32_t, int32_t, int32_t)},
+		{"getModifiers", "(IIIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XWindow, getModifiers, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"getMouseMovementSmudge", "()I", nullptr, $STATIC, $staticMethod(XWindow, getMouseMovementSmudge, int32_t)},
+		{"getParentWindowID", "(Ljava/awt/Component;)J", nullptr, $STATIC, $staticMethod(XWindow, getParentWindowID, int64_t, $Component*)},
+		{"getParentXWindowObject", "(Ljava/awt/Component;)Lsun/awt/X11/XWindow;", nullptr, $STATIC, $staticMethod(XWindow, getParentXWindowObject, XWindow*, $Component*)},
+		{"getScale", "()I", nullptr, $PROTECTED, $virtualMethod(XWindow, getScale, int32_t)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XWindow, getSurfaceData, $SurfaceData*)},
+		{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XWindow, getTarget, $Object*)},
+		{"getTargetBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XWindow, getTargetBounds, $Rectangle*)},
+		{"getWMClass", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XWindow, getWMClass, $StringArray*)},
+		{"getWMProtocols", "()Lsun/awt/X11/XAtomList;", nullptr, $PROTECTED, $virtualMethod(XWindow, getWMProtocols, $XAtomList*)},
+		{"getWMState", "()I", nullptr, 0, $virtualMethod(XWindow, getWMState, int32_t)},
+		{"getWheelModifiers", "(II)I", nullptr, $STATIC, $staticMethod(XWindow, getWheelModifiers, int32_t, int32_t, int32_t)},
+		{"getWinBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(XWindow, getWinBackground, $Color*)},
+		{"getXModifiers", "(Ljava/awt/AWTKeyStroke;)I", nullptr, $STATIC, $staticMethod(XWindow, getXModifiers, int32_t, $AWTKeyStroke*)},
+		{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleButtonPressRelease, void, $XEvent*)},
+		{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleConfigureNotifyEvent, void, $XEvent*)},
+		{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleExposeEvent, void, $XEvent*)},
+		{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleKeyPress, void, $XEvent*)},
+		{"handleKeyPress", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, $FINAL, $method(XWindow, handleKeyPress, void, $XKeyEvent*)},
+		{"handleKeyRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleKeyRelease, void, $XEvent*)},
+		{"handleKeyRelease", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, $PRIVATE, $method(XWindow, handleKeyRelease, void, $XKeyEvent*)},
+		{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleMapNotifyEvent, void, $XEvent*)},
+		{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleMotionNotify, void, $XEvent*)},
+		{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handlePropertyNotify, void, $XEvent*)},
+		{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleUnmapNotifyEvent, void, $XEvent*)},
+		{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, handleXCrossingEvent, void, $XEvent*)},
+		{"haveCurrentX11InputMethodInstance", "()Z", nullptr, $PRIVATE | $NATIVE, $method(XWindow, haveCurrentX11InputMethodInstance, bool)},
+		{"initGraphicsConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(XWindow, initGraphicsConfiguration, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XWindow, initIDs, void)},
+		{"initWMProtocols", "()V", nullptr, $PROTECTED | $FINAL, $method(XWindow, initWMProtocols, void)},
+		{"isDeadKey", "(J)Z", nullptr, $PRIVATE, $method(XWindow, isDeadKey, bool, int64_t)},
+		{"isEmbedded", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindow, isEmbedded, bool)},
+		{"isFullScreenExclusiveMode", "()Z", nullptr, $PUBLIC | $FINAL, $method(XWindow, isFullScreenExclusiveMode, bool)},
+		{"isLocationByPlatform", "()Z", nullptr, 0, $virtualMethod(XWindow, isLocationByPlatform, bool)},
+		{"isMouseAbove", "()Z", nullptr, $PUBLIC, $virtualMethod(XWindow, isMouseAbove, bool)},
+		{"isParentOf", "(Lsun/awt/X11/XWindow;)Z", nullptr, 0, $virtualMethod(XWindow, isParentOf, bool, XWindow*)},
+		{"isReparented", "()Z", nullptr, 0, $virtualMethod(XWindow, isReparented, bool)},
+		{"isResizable", "()Z", nullptr, 0, $virtualMethod(XWindow, isResizable, bool)},
+		{"isShowing", "()Z", nullptr, 0, $virtualMethod(XWindow, isShowing, bool)},
+		{"isWheel", "(I)Z", nullptr, $STATIC, $staticMethod(XWindow, isWheel, bool, int32_t)},
+		{"keyEventType2Id", "(I)I", nullptr, 0, $virtualMethod(XWindow, keyEventType2Id, int32_t, int32_t)},
+		{"keysymToUnicode", "(JI)I", nullptr, 0, $virtualMethod(XWindow, keysymToUnicode, int32_t, int64_t, int32_t)},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XWindow, layout, void)},
+		{"leaveNotify", "(J)V", nullptr, $PROTECTED, $virtualMethod(XWindow, leaveNotify, void, int64_t)},
+		{"logIncomingKeyEvent", "(Lsun/awt/X11/XKeyEvent;)V", nullptr, 0, $virtualMethod(XWindow, logIncomingKeyEvent, void, $XKeyEvent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, paint, void, $Graphics*)},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XWindow, paintPeer, void, $Graphics*)},
+		{"popup", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, popup, void, int32_t, int32_t, int32_t, int32_t)},
+		{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(XWindow, postEvent, void, $AWTEvent*)},
+		{"postEventStatic", "(Ljava/awt/AWTEvent;)V", nullptr, $STATIC, $staticMethod(XWindow, postEventStatic, void, $AWTEvent*)},
+		{"postEventToEventQueue", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, postEventToEventQueue, void, $AWTEvent*)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XWindow, postInit, void, $XCreateWindowParams*)},
+		{"postKeyEvent", "(IIIIIJIJII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, postKeyEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int64_t, int32_t, int64_t, int32_t, int32_t)},
+		{"postPaintEvent", "(Ljava/awt/Component;IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, postPaintEvent, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XWindow, preInit, void, $XCreateWindowParams*)},
+		{"prePostEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(XWindow, prePostEvent, bool, $AWTEvent*)},
+		{"primaryUnicode2JavaKeycode", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XWindow, primaryUnicode2JavaKeycode, int32_t, int32_t)},
+		{"repaint", "(IIII)V", nullptr, $PUBLIC | $FINAL, $method(XWindow, repaint, void, int32_t, int32_t, int32_t, int32_t)},
+		{"repaint", "()V", nullptr, 0, $virtualMethod(XWindow, repaint, void)},
+		{"reshape", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, reshape, void, $Rectangle*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XWindow, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"scaleDown", "(I)I", nullptr, $PROTECTED, $virtualMethod(XWindow, scaleDown, int32_t, int32_t)},
+		{"scaleUp", "(I)I", nullptr, $PROTECTED, $virtualMethod(XWindow, scaleUp, int32_t, int32_t)},
+		{"sendEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $STATIC, $staticMethod(XWindow, sendEvent, void, $AWTEvent*)},
+		{"setBData", "(Ljava/awt/event/KeyEvent;[B)V", nullptr, $STATIC, $staticMethod(XWindow, setBData, void, $KeyEvent*, $bytes*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, setBackground, void, $Color*)},
+		{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWindow, setFullScreenExclusiveModeState, void, bool)},
+		{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC, $virtualMethod(XWindow, setMWMHints, void, $PropMwmHints*)},
+		{"setMouseAbove", "(Z)V", nullptr, $PROTECTED, $virtualMethod(XWindow, setMouseAbove, void, bool)},
+		{"setReparented", "(Z)V", nullptr, 0, $virtualMethod(XWindow, setReparented, void, bool)},
+		{"stateChanged", "(JII)V", nullptr, $PROTECTED, $virtualMethod(XWindow, stateChanged, void, int64_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateSizeHints", "()V", nullptr, 0, $virtualMethod(XWindow, updateSizeHints, void)},
+		{"updateSizeHints", "(IIII)V", nullptr, 0, $virtualMethod(XWindow, updateSizeHints, void, int32_t, int32_t, int32_t, int32_t)},
+		{"updateSizeHints", "(II)V", nullptr, 0, $virtualMethod(XWindow, updateSizeHints, void, int32_t, int32_t)},
+		{"validateSurface", "()V", nullptr, 0, $virtualMethod(XWindow, validateSurface, void)},
+		{"winBackground", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(XWindow, winBackground, void, $Color*)},
+		{"x11inputMethodLookupString", "(J[J)Z", nullptr, $PRIVATE | $NATIVE, $method(XWindow, x11inputMethodLookupString, bool, int64_t, $longs*)},
+		{"xSetBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $FINAL, $method(XWindow, xSetBackground, void, $Color*)},
+		{"xkeycodeToKeysym", "(Lsun/awt/X11/XKeyEvent;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(XWindow, xkeycodeToKeysym, int64_t, $XKeyEvent*)},
+		{"xkeycodeToPrimaryKeysym", "(Lsun/awt/X11/XKeyEvent;)J", nullptr, $PRIVATE, $method(XWindow, xkeycodeToPrimaryKeysym, int64_t, $XKeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XWindow",
+		"sun.awt.X11.XBaseWindow",
+		"sun.awt.X11ComponentPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XWindow$1"
+	};
+	$loadClass(XWindow, name, initialize, &classInfo$$, XWindow::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XWindow));
+	});
 	return class$;
 }
 

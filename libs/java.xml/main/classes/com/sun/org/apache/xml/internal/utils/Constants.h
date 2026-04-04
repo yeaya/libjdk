@@ -62,6 +62,7 @@ class $export Constants : public ::java::lang::Object {
 	$class(Constants, 0, ::java::lang::Object)
 public:
 	Constants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* S_XMLNAMESPACEURI;
 	static $String* S_XSLNAMESPACEURL;

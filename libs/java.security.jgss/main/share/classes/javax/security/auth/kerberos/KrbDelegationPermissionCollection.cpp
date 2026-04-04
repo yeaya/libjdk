@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/KrbDelegationPermissionCollection.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -34,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $Collection = ::java::util::Collection;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
@@ -45,36 +43,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace kerberos {
-
-$FieldInfo _KrbDelegationPermissionCollection_FieldInfo_[] = {
-	{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/security/Permission;Ljava/lang/Boolean;>;", $PRIVATE | $TRANSIENT, $field(KrbDelegationPermissionCollection, perms)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbDelegationPermissionCollection, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbDelegationPermissionCollection, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _KrbDelegationPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KrbDelegationPermissionCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(KrbDelegationPermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(KrbDelegationPermissionCollection, elements, $Enumeration*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(KrbDelegationPermissionCollection, implies, bool, $Permission*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KrbDelegationPermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KrbDelegationPermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _KrbDelegationPermissionCollection_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.security.auth.kerberos.KrbDelegationPermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_KrbDelegationPermissionCollection_FieldInfo_,
-	_KrbDelegationPermissionCollection_MethodInfo_
-};
-
-$Object* allocate$KrbDelegationPermissionCollection($Class* clazz) {
-	return $of($alloc(KrbDelegationPermissionCollection));
-}
 
 $ObjectStreamFieldArray* KrbDelegationPermissionCollection::serialPersistentFields = nullptr;
 
@@ -97,7 +65,6 @@ void KrbDelegationPermissionCollection::add($Permission* permission) {
 	if (isReadOnly()) {
 		$throwNew($SecurityException, "attempt to add a Permission to a readonly PermissionCollection"_s);
 	}
-	$init($Boolean);
 	$nc(this->perms)->put(permission, $Boolean::TRUE);
 }
 
@@ -106,31 +73,30 @@ $Enumeration* KrbDelegationPermissionCollection::elements() {
 }
 
 void KrbDelegationPermissionCollection::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
-	$var($Vector, permissions, $new($Vector, $(static_cast<$Collection*>($nc(this->perms)->keySet()))));
+	$useLocalObjectStack();
+	$var($Vector, permissions, $new($Vector, $($nc(this->perms)->keySet())));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
-	$nc(pfields)->put("permissions"_s, $of(permissions));
+	$nc(pfields)->put("permissions"_s, permissions);
 	out->writeFields();
 }
 
 void KrbDelegationPermissionCollection::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
-	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
+	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size()));
 	{
-		$var($Iterator, i$, $nc(permissions)->iterator());
+		$var($Iterator, i$, permissions->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Permission, perm, $cast($Permission, i$->next()));
 			{
-				$init($Boolean);
 				$nc(this->perms)->put(perm, $Boolean::TRUE);
 			}
 		}
 	}
 }
 
-void clinit$KrbDelegationPermissionCollection($Class* class$) {
+void KrbDelegationPermissionCollection::clinit$($Class* clazz) {
 	$load($Vector);
 	$assignStatic(KrbDelegationPermissionCollection::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "permissions"_s, $Vector::class$)}));
 }
@@ -139,7 +105,32 @@ KrbDelegationPermissionCollection::KrbDelegationPermissionCollection() {
 }
 
 $Class* KrbDelegationPermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(KrbDelegationPermissionCollection, name, initialize, &_KrbDelegationPermissionCollection_ClassInfo_, clinit$KrbDelegationPermissionCollection, allocate$KrbDelegationPermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"perms", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/security/Permission;Ljava/lang/Boolean;>;", $PRIVATE | $TRANSIENT, $field(KrbDelegationPermissionCollection, perms)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbDelegationPermissionCollection, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KrbDelegationPermissionCollection, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KrbDelegationPermissionCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(KrbDelegationPermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(KrbDelegationPermissionCollection, elements, $Enumeration*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(KrbDelegationPermissionCollection, implies, bool, $Permission*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KrbDelegationPermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KrbDelegationPermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.security.auth.kerberos.KrbDelegationPermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbDelegationPermissionCollection, name, initialize, &classInfo$$, KrbDelegationPermissionCollection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbDelegationPermissionCollection);
+	});
 	return class$;
 }
 

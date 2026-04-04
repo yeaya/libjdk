@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIState$TitleBarHeightState.h>
-
 #include <apple/laf/JRSUIConstants$Key.h>
 #include <apple/laf/JRSUIControl.h>
 #include <apple/laf/JRSUIState$ValueState.h>
@@ -19,45 +18,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$MethodInfo _JRSUIState$TitleBarHeightState_MethodInfo_[] = {
-	{"<init>", "(JD)V", nullptr, 0, $method(JRSUIState$TitleBarHeightState, init$, void, int64_t, double)},
-	{"apply", "(Lapple/laf/JRSUIControl;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$TitleBarHeightState, apply, void, $JRSUIControl*)},
-	{"createDerivation", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState$TitleBarHeightState, createDerivation, $JRSUIState*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIState$TitleBarHeightState_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIState$TitleBarHeightState", "apple.laf.JRSUIState", "TitleBarHeightState", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIState$ValueState", "apple.laf.JRSUIState", "ValueState", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIState$TitleBarHeightState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIState$TitleBarHeightState",
-	"apple.laf.JRSUIState$ValueState",
-	nullptr,
-	nullptr,
-	_JRSUIState$TitleBarHeightState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIState$TitleBarHeightState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIState"
-};
-
-$Object* allocate$JRSUIState$TitleBarHeightState($Class* clazz) {
-	return $of($alloc(JRSUIState$TitleBarHeightState));
-}
-
 void JRSUIState$TitleBarHeightState::init$(int64_t encodedState, double value) {
 	$JRSUIState$ValueState::init$(encodedState, value);
 }
 
 $JRSUIState* JRSUIState$TitleBarHeightState::createDerivation() {
-	return static_cast<$JRSUIState*>($new(JRSUIState$TitleBarHeightState, this->derivedEncodedState, this->derivedValue));
+	return $cast($JRSUIState, $new(JRSUIState$TitleBarHeightState, this->derivedEncodedState, this->derivedValue));
 }
 
 void JRSUIState$TitleBarHeightState::apply($JRSUIControl* control) {
@@ -70,7 +36,35 @@ JRSUIState$TitleBarHeightState::JRSUIState$TitleBarHeightState() {
 }
 
 $Class* JRSUIState$TitleBarHeightState::load$($String* name, bool initialize) {
-	$loadClass(JRSUIState$TitleBarHeightState, name, initialize, &_JRSUIState$TitleBarHeightState_ClassInfo_, allocate$JRSUIState$TitleBarHeightState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JD)V", nullptr, 0, $method(JRSUIState$TitleBarHeightState, init$, void, int64_t, double)},
+		{"apply", "(Lapple/laf/JRSUIControl;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$TitleBarHeightState, apply, void, $JRSUIControl*)},
+		{"createDerivation", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState$TitleBarHeightState, createDerivation, $JRSUIState*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIState$TitleBarHeightState", "apple.laf.JRSUIState", "TitleBarHeightState", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIState$ValueState", "apple.laf.JRSUIState", "ValueState", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIState$TitleBarHeightState",
+		"apple.laf.JRSUIState$ValueState",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIState"
+	};
+	$loadClass(JRSUIState$TitleBarHeightState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIState$TitleBarHeightState);
+	});
 	return class$;
 }
 

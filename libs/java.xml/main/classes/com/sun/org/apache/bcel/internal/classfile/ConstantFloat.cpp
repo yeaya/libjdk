@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantFloat.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -26,41 +25,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _ConstantFloat_FieldInfo_[] = {
-	{"bytes", "F", nullptr, $PRIVATE, $field(ConstantFloat, bytes)},
-	{}
-};
-
-$MethodInfo _ConstantFloat_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(F)V", nullptr, $PUBLIC, $method(ConstantFloat, init$, void, float)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantFloat;)V", nullptr, $PUBLIC, $method(ConstantFloat, init$, void, ConstantFloat*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantFloat, init$, void, $DataInput*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getBytes", "()F", nullptr, $PUBLIC, $method(ConstantFloat, getBytes, float)},
-	{"getConstantValue", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, getConstantValue, $Object*, $ConstantPool*)},
-	{"setBytes", "(F)V", nullptr, $PUBLIC, $method(ConstantFloat, setBytes, void, float)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ConstantFloat_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantFloat",
-	"com.sun.org.apache.bcel.internal.classfile.Constant",
-	"com.sun.org.apache.bcel.internal.classfile.ConstantObject",
-	_ConstantFloat_FieldInfo_,
-	_ConstantFloat_MethodInfo_
-};
-
-$Object* allocate$ConstantFloat($Class* clazz) {
-	return $of($alloc(ConstantFloat));
-}
 
 $Object* ConstantFloat::clone() {
 	 return this->$Constant::clone();
@@ -109,7 +73,7 @@ void ConstantFloat::setBytes(float bytes) {
 }
 
 $String* ConstantFloat::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Constant::toString()), "(bytes = "_s, $$str(this->bytes), ")"_s});
 }
 
@@ -121,7 +85,37 @@ ConstantFloat::ConstantFloat() {
 }
 
 $Class* ConstantFloat::load$($String* name, bool initialize) {
-	$loadClass(ConstantFloat, name, initialize, &_ConstantFloat_ClassInfo_, allocate$ConstantFloat);
+	$FieldInfo fieldInfos$$[] = {
+		{"bytes", "F", nullptr, $PRIVATE, $field(ConstantFloat, bytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(F)V", nullptr, $PUBLIC, $method(ConstantFloat, init$, void, float)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantFloat;)V", nullptr, $PUBLIC, $method(ConstantFloat, init$, void, ConstantFloat*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantFloat, init$, void, $DataInput*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getBytes", "()F", nullptr, $PUBLIC, $method(ConstantFloat, getBytes, float)},
+		{"getConstantValue", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, getConstantValue, $Object*, $ConstantPool*)},
+		{"setBytes", "(F)V", nullptr, $PUBLIC, $method(ConstantFloat, setBytes, void, float)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantFloat, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantFloat",
+		"com.sun.org.apache.bcel.internal.classfile.Constant",
+		"com.sun.org.apache.bcel.internal.classfile.ConstantObject",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConstantFloat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantFloat));
+	});
 	return class$;
 }
 

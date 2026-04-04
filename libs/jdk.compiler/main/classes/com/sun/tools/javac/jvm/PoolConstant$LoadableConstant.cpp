@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant.h>
-
 #include <com/sun/tools/javac/jvm/ClassFile.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant$BasicConstant.h>
 #include <jcpp.h>
@@ -19,41 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$MethodInfo _PoolConstant$LoadableConstant_MethodInfo_[] = {
-	{"Double", "(D)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Double, PoolConstant$LoadableConstant*, double)},
-	{"Float", "(F)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Float, PoolConstant$LoadableConstant*, float)},
-	{"Int", "(I)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Int, PoolConstant$LoadableConstant*, int32_t)},
-	{"Long", "(J)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Long, PoolConstant$LoadableConstant*, int64_t)},
-	{"String", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, String, PoolConstant$LoadableConstant*, $String*)},
-	{}
-};
-
-$InnerClassInfo _PoolConstant$LoadableConstant_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant$BasicConstant", "com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "BasicConstant", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PoolConstant$LoadableConstant_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant",
-	nullptr,
-	"com.sun.tools.javac.jvm.PoolConstant",
-	nullptr,
-	_PoolConstant$LoadableConstant_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PoolConstant$LoadableConstant_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.PoolConstant"
-};
-
-$Object* allocate$PoolConstant$LoadableConstant($Class* clazz) {
-	return $of($alloc(PoolConstant$LoadableConstant));
-}
 
 PoolConstant$LoadableConstant* PoolConstant$LoadableConstant::Int(int32_t i) {
 	$init(PoolConstant$LoadableConstant);
@@ -81,7 +45,37 @@ PoolConstant$LoadableConstant* PoolConstant$LoadableConstant::String($String* s)
 }
 
 $Class* PoolConstant$LoadableConstant::load$($String* name, bool initialize) {
-	$loadClass(PoolConstant$LoadableConstant, name, initialize, &_PoolConstant$LoadableConstant_ClassInfo_, allocate$PoolConstant$LoadableConstant);
+	$MethodInfo methodInfos$$[] = {
+		{"Double", "(D)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Double, PoolConstant$LoadableConstant*, double)},
+		{"Float", "(F)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Float, PoolConstant$LoadableConstant*, float)},
+		{"Int", "(I)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Int, PoolConstant$LoadableConstant*, int32_t)},
+		{"Long", "(J)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Long, PoolConstant$LoadableConstant*, int64_t)},
+		{"String", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, String, PoolConstant$LoadableConstant*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant$BasicConstant", "com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "BasicConstant", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant",
+		nullptr,
+		"com.sun.tools.javac.jvm.PoolConstant",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.PoolConstant"
+	};
+	$loadClass(PoolConstant$LoadableConstant, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PoolConstant$LoadableConstant);
+	});
 	return class$;
 }
 

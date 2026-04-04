@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapReferralContext.h>
-
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/LdapReferralException.h>
@@ -15,7 +14,6 @@
 #include <javax/naming/NamingEnumeration.h>
 #include <javax/naming/NamingException.h>
 #include <javax/naming/NotContextException.h>
-#include <javax/naming/RefAddr.h>
 #include <javax/naming/Reference.h>
 #include <javax/naming/StringRefAddr.h>
 #include <javax/naming/directory/Attributes.h>
@@ -56,7 +54,6 @@ using $NameParser = ::javax::naming::NameParser;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
 using $NotContextException = ::javax::naming::NotContextException;
-using $RefAddr = ::javax::naming::RefAddr;
 using $Reference = ::javax::naming::Reference;
 using $StringRefAddr = ::javax::naming::StringRefAddr;
 using $Attributes = ::javax::naming::directory::Attributes;
@@ -72,107 +69,8 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapReferralContext_FieldInfo_[] = {
-	{"refCtx", "Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $field(LdapReferralContext, refCtx)},
-	{"urlName", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(LdapReferralContext, urlName)},
-	{"urlAttrs", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralContext, urlAttrs)},
-	{"urlScope", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralContext, urlScope)},
-	{"urlFilter", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralContext, urlFilter)},
-	{"refEx", "Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, $PRIVATE, $field(LdapReferralContext, refEx)},
-	{"skipThisReferral", "Z", nullptr, $PRIVATE, $field(LdapReferralContext, skipThisReferral)},
-	{"hopCount", "I", nullptr, $PRIVATE, $field(LdapReferralContext, hopCount)},
-	{"previousEx", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(LdapReferralContext, previousEx)},
-	{}
-};
-
-$MethodInfo _LdapReferralContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapReferralException;Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;Ljava/lang/String;ZI)V", "(Lcom/sun/jndi/ldap/LdapReferralException;Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;Ljava/lang/String;ZI)V", 0, $method(LdapReferralContext, init$, void, $LdapReferralException*, $Hashtable*, $ControlArray*, $ControlArray*, $String*, bool, int32_t), "javax.naming.NamingException"},
-	{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, addToEnvironment, $Object*, $String*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, close, void), "javax.naming.NamingException"},
-	{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
-	{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, destroySubcontext, void, $String*), "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
-	{"extendedOperation", "(Ljavax/naming/ldap/ExtendedRequest;)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, extendedOperation, $ExtendedResponse*, $ExtendedRequest*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
-	{"getConnectControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getConnectControls, $ControlArray*), "javax.naming.NamingException"},
-	{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PUBLIC, $virtualMethod(LdapReferralContext, getEnvironment, $Hashtable*), "javax.naming.NamingException"},
-	{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getNameInNamespace, $String*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
-	{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
-	{"getRequestControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getRequestControls, $ControlArray*), "javax.naming.NamingException"},
-	{"getResponseControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getResponseControls, $ControlArray*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"initDefaults", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapReferralContext, initDefaults, void, $String*, $String*), "javax.naming.NamingException"},
-	{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(LdapReferralContext, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(LdapReferralContext, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(LdapReferralContext, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(LdapReferralContext, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookup, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookup, $Object*, $Name*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
-	{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"newInstance", "([Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/LdapContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, newInstance, $LdapContext*, $ControlArray*), "javax.naming.NamingException"},
-	{"overrideAttributesAndScope", "(Ljavax/naming/directory/SearchControls;)Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE, $method(LdapReferralContext, overrideAttributesAndScope, $SearchControls*, $SearchControls*)},
-	{"overrideFilter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapReferralContext, overrideFilter, $String*, $String*)},
-	{"overrideName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PRIVATE, $method(LdapReferralContext, overrideName, $Name*, $Name*), "javax.naming.InvalidNameException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"reconnect", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, reconnect, void, $ControlArray*), "javax.naming.NamingException"},
-	{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, removeFromEnvironment, $Object*, $String*), "javax.naming.NamingException"},
-	{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rename, void, $String*, $String*), "javax.naming.NamingException"},
-	{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"setHopCount", "(I)V", nullptr, 0, $method(LdapReferralContext, setHopCount, void, int32_t)},
-	{"setRequestControls", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, setRequestControls, void, $ControlArray*), "javax.naming.NamingException"},
-	{"toName", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PRIVATE, $method(LdapReferralContext, toName, $Name*, $String*), "javax.naming.InvalidNameException"},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, unbind, void, $String*), "javax.naming.NamingException"},
-	{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, unbind, void, $Name*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapReferralContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapReferralContext",
-	"java.lang.Object",
-	"javax.naming.ldap.LdapContext",
-	_LdapReferralContext_FieldInfo_,
-	_LdapReferralContext_MethodInfo_
-};
-
-$Object* allocate$LdapReferralContext($Class* clazz) {
-	return $of($alloc(LdapReferralContext));
-}
-
 void LdapReferralContext::init$($LdapReferralException* ex, $Hashtable* env$renamed, $ControlArray* connCtls, $ControlArray* reqCtls, $String* nextName, bool skipThisReferral, int32_t handleReferrals) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, env, env$renamed);
 	$set(this, refCtx, nullptr);
 	$set(this, urlName, nullptr);
@@ -208,7 +106,7 @@ void LdapReferralContext::init$($LdapReferralException* ex, $Hashtable* env$rena
 			$assign(referral, $nc(this->refEx)->getNextReferral());
 			if (referral == nullptr) {
 				if (this->previousEx != nullptr) {
-					$throw(($cast($NamingException, $($nc(this->previousEx)->fillInStackTrace()))));
+					$throw($$cast($NamingException, this->previousEx->fillInStackTrace()));
 				} else {
 					$throwNew($NamingException, "Illegal encoding: referral is empty"_s);
 				}
@@ -239,7 +137,7 @@ void LdapReferralContext::init$($LdapReferralException* ex, $Hashtable* env$rena
 		if ($instanceOf($DirContext, obj)) {
 			$set(this, refCtx, $cast($DirContext, obj));
 			if ($instanceOf($LdapContext, this->refCtx) && reqCtls != nullptr) {
-				$nc(($cast($LdapContext, this->refCtx)))->setRequestControls(reqCtls);
+				$cast($LdapContext, this->refCtx)->setRequestControls(reqCtls);
 			}
 			initDefaults(referral, nextName);
 			break;
@@ -252,7 +150,7 @@ void LdapReferralContext::init$($LdapReferralException* ex, $Hashtable* env$rena
 }
 
 void LdapReferralContext::initDefaults($String* referral, $String* nextName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, urlString, nullptr);
 	try {
 		$var($LdapURL, url, $new($LdapURL, referral));
@@ -262,7 +160,7 @@ void LdapReferralContext::initDefaults($String* referral, $String* nextName) {
 		$set(this, urlFilter, url->getFilter());
 	} catch ($NamingException& e) {
 		$assign(urlString, referral);
-		$set(this, urlAttrs, ($set(this, urlScope, ($set(this, urlFilter, nullptr)))));
+		$set(this, urlAttrs, $set(this, urlScope, $set(this, urlFilter, nullptr)));
 	}
 	if (urlString == nullptr) {
 		$assign(urlString, nextName);
@@ -272,13 +170,13 @@ void LdapReferralContext::initDefaults($String* referral, $String* nextName) {
 	if (urlString == nullptr) {
 		$set(this, urlName, nullptr);
 	} else {
-		$set(this, urlName, $nc(urlString)->isEmpty() ? static_cast<$Name*>($new($CompositeName)) : $$new($CompositeName)->add(urlString));
+		$set(this, urlName, urlString->isEmpty() ? $cast($Name, $new($CompositeName)) : $$new($CompositeName)->add(urlString));
 	}
 }
 
 void LdapReferralContext::close() {
 	if (this->refCtx != nullptr) {
-		$nc(this->refCtx)->close();
+		this->refCtx->close();
 		$set(this, refCtx, nullptr);
 	}
 	$set(this, refEx, nullptr);
@@ -287,20 +185,20 @@ void LdapReferralContext::close() {
 void LdapReferralContext::setHopCount(int32_t hopCount) {
 	this->hopCount = hopCount;
 	if ((this->refCtx != nullptr) && ($instanceOf($LdapCtx, this->refCtx))) {
-		$nc(($cast($LdapCtx, this->refCtx)))->setHopCount(hopCount);
+		$cast($LdapCtx, this->refCtx)->setHopCount(hopCount);
 	}
 }
 
 $Object* LdapReferralContext::lookup($String* name) {
-	return $of(lookup($(toName(name))));
+	return lookup($(toName(name)));
 }
 
 $Object* LdapReferralContext::lookup($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
-	return $of($nc(this->refCtx)->lookup($(overrideName(name))));
+	return $nc(this->refCtx)->lookup($(overrideName(name)));
 }
 
 void LdapReferralContext::bind($String* name, Object$* obj) {
@@ -308,9 +206,9 @@ void LdapReferralContext::bind($String* name, Object$* obj) {
 }
 
 void LdapReferralContext::bind($Name* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->bind($(overrideName(name)), obj);
 }
@@ -320,9 +218,9 @@ void LdapReferralContext::rebind($String* name, Object$* obj) {
 }
 
 void LdapReferralContext::rebind($Name* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->rebind($(overrideName(name)), obj);
 }
@@ -332,23 +230,23 @@ void LdapReferralContext::unbind($String* name) {
 }
 
 void LdapReferralContext::unbind($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->unbind($(overrideName(name)));
 }
 
 void LdapReferralContext::rename($String* oldName, $String* newName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, var$0, toName(oldName));
 	rename(var$0, $(toName(newName)));
 }
 
 void LdapReferralContext::rename($Name* oldName, $Name* newName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$var($Name, var$0, overrideName(oldName));
 	$nc(this->refCtx)->rename(var$0, $(toName($($nc(this->refEx)->getNewRdn()))));
@@ -359,13 +257,13 @@ $NamingEnumeration* LdapReferralContext::list($String* name) {
 }
 
 $NamingEnumeration* LdapReferralContext::list($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	try {
 		$var($NamingEnumeration, ne, nullptr);
-		if (this->urlScope != nullptr && $nc(this->urlScope)->equals("base"_s)) {
+		if (this->urlScope != nullptr && this->urlScope->equals("base"_s)) {
 			$var($SearchControls, cons, $new($SearchControls));
 			cons->setReturningObjFlag(true);
 			cons->setSearchScope($SearchControls::OBJECT_SCOPE);
@@ -374,22 +272,22 @@ $NamingEnumeration* LdapReferralContext::list($Name* name) {
 			$assign(ne, $nc(this->refCtx)->list($(overrideName(name))));
 		}
 		$nc(this->refEx)->setNameResolved(true);
-		$nc(($cast($ReferralEnumeration, ne)))->appendUnprocessedReferrals(this->refEx);
+		$nc($cast($ReferralEnumeration, ne))->appendUnprocessedReferrals(this->refEx);
 		return (ne);
 	} catch ($LdapReferralException& e) {
 		e->appendUnprocessedReferrals(this->refEx);
-		$throw(($cast($NamingException, $(e->fillInStackTrace()))));
+		$throw($$cast($NamingException, e->fillInStackTrace()));
 	} catch ($NamingException& e) {
-		if ((this->refEx != nullptr) && (!$nc(this->refEx)->hasMoreReferrals())) {
-			$nc(this->refEx)->setNamingException(e);
+		if ((this->refEx != nullptr) && (!this->refEx->hasMoreReferrals())) {
+			this->refEx->setNamingException(e);
 		}
-		bool var$0 = (this->refEx != nullptr);
+		bool var$0 = this->refEx != nullptr;
 		if (var$0) {
-			bool var$1 = $nc(this->refEx)->hasMoreReferrals();
-			var$0 = (var$1 || $nc(this->refEx)->hasMoreReferralExceptions());
+			bool var$1 = this->refEx->hasMoreReferrals();
+			var$0 = var$1 || this->refEx->hasMoreReferralExceptions();
 		}
 		if (var$0) {
-			$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+			$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 		} else {
 			$throw(e);
 		}
@@ -402,13 +300,13 @@ $NamingEnumeration* LdapReferralContext::listBindings($String* name) {
 }
 
 $NamingEnumeration* LdapReferralContext::listBindings($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	try {
 		$var($NamingEnumeration, be, nullptr);
-		if (this->urlScope != nullptr && $nc(this->urlScope)->equals("base"_s)) {
+		if (this->urlScope != nullptr && this->urlScope->equals("base"_s)) {
 			$var($SearchControls, cons, $new($SearchControls));
 			cons->setReturningObjFlag(true);
 			cons->setSearchScope($SearchControls::OBJECT_SCOPE);
@@ -417,22 +315,22 @@ $NamingEnumeration* LdapReferralContext::listBindings($Name* name) {
 			$assign(be, $nc(this->refCtx)->listBindings($(overrideName(name))));
 		}
 		$nc(this->refEx)->setNameResolved(true);
-		$nc(($cast($ReferralEnumeration, be)))->appendUnprocessedReferrals(this->refEx);
+		$nc($cast($ReferralEnumeration, be))->appendUnprocessedReferrals(this->refEx);
 		return (be);
 	} catch ($LdapReferralException& e) {
 		e->appendUnprocessedReferrals(this->refEx);
-		$throw(($cast($NamingException, $(e->fillInStackTrace()))));
+		$throw($$cast($NamingException, e->fillInStackTrace()));
 	} catch ($NamingException& e) {
-		if ((this->refEx != nullptr) && (!$nc(this->refEx)->hasMoreReferrals())) {
-			$nc(this->refEx)->setNamingException(e);
+		if ((this->refEx != nullptr) && (!this->refEx->hasMoreReferrals())) {
+			this->refEx->setNamingException(e);
 		}
-		bool var$0 = (this->refEx != nullptr);
+		bool var$0 = this->refEx != nullptr;
 		if (var$0) {
-			bool var$1 = $nc(this->refEx)->hasMoreReferrals();
-			var$0 = (var$1 || $nc(this->refEx)->hasMoreReferralExceptions());
+			bool var$1 = this->refEx->hasMoreReferrals();
+			var$0 = var$1 || this->refEx->hasMoreReferralExceptions();
 		}
 		if (var$0) {
-			$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+			$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 		} else {
 			$throw(e);
 		}
@@ -445,9 +343,9 @@ void LdapReferralContext::destroySubcontext($String* name) {
 }
 
 void LdapReferralContext::destroySubcontext($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->destroySubcontext($(overrideName(name)));
 }
@@ -457,23 +355,23 @@ $Context* LdapReferralContext::createSubcontext($String* name) {
 }
 
 $Context* LdapReferralContext::createSubcontext($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->createSubcontext($(overrideName(name)));
 }
 
 $Object* LdapReferralContext::lookupLink($String* name) {
-	return $of(lookupLink($(toName(name))));
+	return lookupLink($(toName(name)));
 }
 
 $Object* LdapReferralContext::lookupLink($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
-	return $of($nc(this->refCtx)->lookupLink($(overrideName(name))));
+	return $nc(this->refCtx)->lookupLink($(overrideName(name)));
 }
 
 $NameParser* LdapReferralContext::getNameParser($String* name) {
@@ -481,47 +379,47 @@ $NameParser* LdapReferralContext::getNameParser($String* name) {
 }
 
 $NameParser* LdapReferralContext::getNameParser($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->getNameParser($(overrideName(name)));
 }
 
 $String* LdapReferralContext::composeName($String* name, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, var$0, toName(name));
-	return $nc($of($(composeName(var$0, $(toName(prefix))))))->toString();
+	return $$nc(composeName(var$0, $(toName(prefix))))->toString();
 }
 
 $Name* LdapReferralContext::composeName($Name* name, $Name* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->composeName(name, prefix);
 }
 
 $Object* LdapReferralContext::addToEnvironment($String* propName, Object$* propVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
-	return $of($nc(this->refCtx)->addToEnvironment(propName, propVal));
+	return $nc(this->refCtx)->addToEnvironment(propName, propVal);
 }
 
 $Object* LdapReferralContext::removeFromEnvironment($String* propName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
-	return $of($nc(this->refCtx)->removeFromEnvironment(propName));
+	return $nc(this->refCtx)->removeFromEnvironment(propName);
 }
 
 $Hashtable* LdapReferralContext::getEnvironment() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->getEnvironment();
 }
@@ -531,9 +429,9 @@ $Attributes* LdapReferralContext::getAttributes($String* name) {
 }
 
 $Attributes* LdapReferralContext::getAttributes($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->getAttributes($(overrideName(name)));
 }
@@ -543,9 +441,9 @@ $Attributes* LdapReferralContext::getAttributes($String* name, $StringArray* att
 }
 
 $Attributes* LdapReferralContext::getAttributes($Name* name, $StringArray* attrIds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->getAttributes($(overrideName(name)), attrIds);
 }
@@ -555,9 +453,9 @@ void LdapReferralContext::modifyAttributes($String* name, int32_t mod_op, $Attri
 }
 
 void LdapReferralContext::modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->modifyAttributes($(overrideName(name)), mod_op, attrs);
 }
@@ -567,9 +465,9 @@ void LdapReferralContext::modifyAttributes($String* name, $ModificationItemArray
 }
 
 void LdapReferralContext::modifyAttributes($Name* name, $ModificationItemArray* mods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->modifyAttributes($(overrideName(name)), mods);
 }
@@ -579,9 +477,9 @@ void LdapReferralContext::bind($String* name, Object$* obj, $Attributes* attrs) 
 }
 
 void LdapReferralContext::bind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->bind($(overrideName(name)), obj, attrs);
 }
@@ -591,9 +489,9 @@ void LdapReferralContext::rebind($String* name, Object$* obj, $Attributes* attrs
 }
 
 void LdapReferralContext::rebind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	$nc(this->refCtx)->rebind($(overrideName(name)), obj, attrs);
 }
@@ -603,9 +501,9 @@ $DirContext* LdapReferralContext::createSubcontext($String* name, $Attributes* a
 }
 
 $DirContext* LdapReferralContext::createSubcontext($Name* name, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->createSubcontext($(overrideName(name)), attrs);
 }
@@ -615,9 +513,9 @@ $DirContext* LdapReferralContext::getSchema($String* name) {
 }
 
 $DirContext* LdapReferralContext::getSchema($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->getSchema($(overrideName(name)));
 }
@@ -627,29 +525,28 @@ $DirContext* LdapReferralContext::getSchemaClassDefinition($String* name) {
 }
 
 $DirContext* LdapReferralContext::getSchemaClassDefinition($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	return $nc(this->refCtx)->getSchemaClassDefinition($(overrideName(name)));
 }
 
 $NamingEnumeration* LdapReferralContext::search($String* name, $Attributes* matchingAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, var$0, toName(name));
 	$var($String, var$1, $SearchFilter::format(matchingAttributes));
 	return search(var$0, var$1, $$new($SearchControls));
 }
 
 $NamingEnumeration* LdapReferralContext::search($Name* name, $Attributes* matchingAttributes) {
-	$useLocalCurrentObjectStackCache();
-	$var($Name, var$0, name);
-	$var($String, var$1, $SearchFilter::format(matchingAttributes));
-	return search(var$0, var$1, $$new($SearchControls));
+	$useLocalObjectStack();
+	$var($String, var$0, $SearchFilter::format(matchingAttributes));
+	return search(name, var$0, $$new($SearchControls));
 }
 
 $NamingEnumeration* LdapReferralContext::search($String* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, cons, $new($SearchControls));
 	cons->setReturningAttributes(attributesToReturn);
 	$var($Name, var$0, toName(name));
@@ -657,7 +554,7 @@ $NamingEnumeration* LdapReferralContext::search($String* name, $Attributes* matc
 }
 
 $NamingEnumeration* LdapReferralContext::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, cons, $new($SearchControls));
 	cons->setReturningAttributes(attributesToReturn);
 	return search(name, $($SearchFilter::format(matchingAttributes)), cons);
@@ -668,31 +565,31 @@ $NamingEnumeration* LdapReferralContext::search($String* name, $String* filter, 
 }
 
 $NamingEnumeration* LdapReferralContext::search($Name* name, $String* filter, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	try {
 		$var($Name, var$0, overrideName(name));
 		$var($String, var$1, overrideFilter(filter));
 		$var($NamingEnumeration, se, $nc(this->refCtx)->search(var$0, var$1, $(overrideAttributesAndScope(cons))));
 		$nc(this->refEx)->setNameResolved(true);
-		$nc(($cast($ReferralEnumeration, se)))->appendUnprocessedReferrals(this->refEx);
+		$nc($cast($ReferralEnumeration, se))->appendUnprocessedReferrals(this->refEx);
 		return (se);
 	} catch ($LdapReferralException& e) {
 		e->appendUnprocessedReferrals(this->refEx);
-		$throw(($cast($NamingException, $(e->fillInStackTrace()))));
+		$throw($$cast($NamingException, e->fillInStackTrace()));
 	} catch ($NamingException& e) {
-		if ((this->refEx != nullptr) && (!$nc(this->refEx)->hasMoreReferrals())) {
-			$nc(this->refEx)->setNamingException(e);
+		if ((this->refEx != nullptr) && (!this->refEx->hasMoreReferrals())) {
+			this->refEx->setNamingException(e);
 		}
-		bool var$2 = (this->refEx != nullptr);
+		bool var$2 = this->refEx != nullptr;
 		if (var$2) {
-			bool var$3 = $nc(this->refEx)->hasMoreReferrals();
-			var$2 = (var$3 || $nc(this->refEx)->hasMoreReferralExceptions());
+			bool var$3 = this->refEx->hasMoreReferrals();
+			var$2 = var$3 || this->refEx->hasMoreReferralExceptions();
 		}
 		if (var$2) {
-			$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+			$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 		} else {
 			$throw(e);
 		}
@@ -705,9 +602,9 @@ $NamingEnumeration* LdapReferralContext::search($String* name, $String* filterEx
 }
 
 $NamingEnumeration* LdapReferralContext::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	try {
 		$var($NamingEnumeration, se, nullptr);
@@ -717,27 +614,25 @@ $NamingEnumeration* LdapReferralContext::search($Name* name, $String* filterExpr
 			$assign(se, $nc(this->refCtx)->search(var$0, var$1, $(overrideAttributesAndScope(cons))));
 		} else {
 			$var($Name, var$2, overrideName(name));
-			$var($String, var$3, filterExpr);
-			$var($ObjectArray, var$4, filterArgs);
-			$assign(se, $nc(this->refCtx)->search(var$2, var$3, var$4, $(overrideAttributesAndScope(cons))));
+			$assign(se, $nc(this->refCtx)->search(var$2, filterExpr, filterArgs, $(overrideAttributesAndScope(cons))));
 		}
 		$nc(this->refEx)->setNameResolved(true);
-		$nc(($cast($ReferralEnumeration, se)))->appendUnprocessedReferrals(this->refEx);
+		$nc($cast($ReferralEnumeration, se))->appendUnprocessedReferrals(this->refEx);
 		return (se);
 	} catch ($LdapReferralException& e) {
 		e->appendUnprocessedReferrals(this->refEx);
-		$throw(($cast($NamingException, $(e->fillInStackTrace()))));
+		$throw($$cast($NamingException, e->fillInStackTrace()));
 	} catch ($NamingException& e) {
-		if ((this->refEx != nullptr) && (!$nc(this->refEx)->hasMoreReferrals())) {
-			$nc(this->refEx)->setNamingException(e);
+		if ((this->refEx != nullptr) && (!this->refEx->hasMoreReferrals())) {
+			this->refEx->setNamingException(e);
 		}
-		bool var$5 = (this->refEx != nullptr);
-		if (var$5) {
-			bool var$6 = $nc(this->refEx)->hasMoreReferrals();
-			var$5 = (var$6 || $nc(this->refEx)->hasMoreReferralExceptions());
+		bool var$3 = this->refEx != nullptr;
+		if (var$3) {
+			bool var$4 = this->refEx->hasMoreReferrals();
+			var$3 = var$4 || this->refEx->hasMoreReferralExceptions();
 		}
-		if (var$5) {
-			$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		if (var$3) {
+			$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 		} else {
 			$throw(e);
 		}
@@ -746,92 +641,92 @@ $NamingEnumeration* LdapReferralContext::search($Name* name, $String* filterExpr
 }
 
 $String* LdapReferralContext::getNameInNamespace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
-	return this->urlName != nullptr && !$nc(this->urlName)->isEmpty() ? $nc(this->urlName)->get(0) : ""_s;
+	return this->urlName != nullptr && !this->urlName->isEmpty() ? this->urlName->get(0) : ""_s;
 }
 
 $ExtendedResponse* LdapReferralContext::extendedOperation($ExtendedRequest* request) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	if (!($instanceOf($LdapContext, this->refCtx))) {
 		$throwNew($NotContextException, "Referral context not an instance of LdapContext"_s);
 	}
-	return $nc(($cast($LdapContext, this->refCtx)))->extendedOperation(request);
+	return $nc($cast($LdapContext, this->refCtx))->extendedOperation(request);
 }
 
 $LdapContext* LdapReferralContext::newInstance($ControlArray* requestControls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	if (!($instanceOf($LdapContext, this->refCtx))) {
 		$throwNew($NotContextException, "Referral context not an instance of LdapContext"_s);
 	}
-	return $nc(($cast($LdapContext, this->refCtx)))->newInstance(requestControls);
+	return $nc($cast($LdapContext, this->refCtx))->newInstance(requestControls);
 }
 
 void LdapReferralContext::reconnect($ControlArray* connCtls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	if (!($instanceOf($LdapContext, this->refCtx))) {
 		$throwNew($NotContextException, "Referral context not an instance of LdapContext"_s);
 	}
-	$nc(($cast($LdapContext, this->refCtx)))->reconnect(connCtls);
+	$nc($cast($LdapContext, this->refCtx))->reconnect(connCtls);
 }
 
 $ControlArray* LdapReferralContext::getConnectControls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	if (!($instanceOf($LdapContext, this->refCtx))) {
 		$throwNew($NotContextException, "Referral context not an instance of LdapContext"_s);
 	}
-	return $nc(($cast($LdapContext, this->refCtx)))->getConnectControls();
+	return $nc($cast($LdapContext, this->refCtx))->getConnectControls();
 }
 
 void LdapReferralContext::setRequestControls($ControlArray* requestControls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	if (!($instanceOf($LdapContext, this->refCtx))) {
 		$throwNew($NotContextException, "Referral context not an instance of LdapContext"_s);
 	}
-	$nc(($cast($LdapContext, this->refCtx)))->setRequestControls(requestControls);
+	$nc($cast($LdapContext, this->refCtx))->setRequestControls(requestControls);
 }
 
 $ControlArray* LdapReferralContext::getRequestControls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	if (!($instanceOf($LdapContext, this->refCtx))) {
 		$throwNew($NotContextException, "Referral context not an instance of LdapContext"_s);
 	}
-	return $nc(($cast($LdapContext, this->refCtx)))->getRequestControls();
+	return $nc($cast($LdapContext, this->refCtx))->getRequestControls();
 }
 
 $ControlArray* LdapReferralContext::getResponseControls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skipThisReferral) {
-		$throw(($cast($NamingException, $($nc(($($nc(this->refEx)->appendUnprocessedReferrals(nullptr))))->fillInStackTrace()))));
+		$throw($$cast($NamingException, ($$nc($nc(this->refEx)->appendUnprocessedReferrals(nullptr)))->fillInStackTrace()));
 	}
 	if (!($instanceOf($LdapContext, this->refCtx))) {
 		$throwNew($NotContextException, "Referral context not an instance of LdapContext"_s);
 	}
-	return $nc(($cast($LdapContext, this->refCtx)))->getResponseControls();
+	return $nc($cast($LdapContext, this->refCtx))->getResponseControls();
 }
 
 $Name* LdapReferralContext::toName($String* name) {
-	return $nc(name)->isEmpty() ? static_cast<$Name*>($new($CompositeName)) : $$new($CompositeName)->add(name);
+	return $nc(name)->isEmpty() ? $cast($Name, $new($CompositeName)) : $$new($CompositeName)->add(name);
 }
 
 $Name* LdapReferralContext::overrideName($Name* name) {
@@ -839,7 +734,7 @@ $Name* LdapReferralContext::overrideName($Name* name) {
 }
 
 $SearchControls* LdapReferralContext::overrideAttributesAndScope($SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, urlCons, nullptr);
 	if ((this->urlScope != nullptr) || (this->urlAttrs != nullptr)) {
 		int32_t var$0 = $nc(cons)->getSearchScope();
@@ -849,11 +744,11 @@ $SearchControls* LdapReferralContext::overrideAttributesAndScope($SearchControls
 		bool var$4 = cons->getReturningObjFlag();
 		$assign(urlCons, $new($SearchControls, var$0, var$1, var$2, var$3, var$4, cons->getDerefLinkFlag()));
 		if (this->urlScope != nullptr) {
-			if ($nc(this->urlScope)->equals("base"_s)) {
+			if (this->urlScope->equals("base"_s)) {
 				urlCons->setSearchScope($SearchControls::OBJECT_SCOPE);
 			} else if ($nc(this->urlScope)->equals("one"_s)) {
 				urlCons->setSearchScope($SearchControls::ONELEVEL_SCOPE);
-			} else if ($nc(this->urlScope)->equals("sub"_s)) {
+			} else if (this->urlScope->equals("sub"_s)) {
 				urlCons->setSearchScope($SearchControls::SUBTREE_SCOPE);
 			}
 		}
@@ -880,7 +775,101 @@ LdapReferralContext::LdapReferralContext() {
 }
 
 $Class* LdapReferralContext::load$($String* name, bool initialize) {
-	$loadClass(LdapReferralContext, name, initialize, &_LdapReferralContext_ClassInfo_, allocate$LdapReferralContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"refCtx", "Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $field(LdapReferralContext, refCtx)},
+		{"urlName", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(LdapReferralContext, urlName)},
+		{"urlAttrs", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralContext, urlAttrs)},
+		{"urlScope", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralContext, urlScope)},
+		{"urlFilter", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapReferralContext, urlFilter)},
+		{"refEx", "Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, $PRIVATE, $field(LdapReferralContext, refEx)},
+		{"skipThisReferral", "Z", nullptr, $PRIVATE, $field(LdapReferralContext, skipThisReferral)},
+		{"hopCount", "I", nullptr, $PRIVATE, $field(LdapReferralContext, hopCount)},
+		{"previousEx", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(LdapReferralContext, previousEx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/LdapReferralException;Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;Ljava/lang/String;ZI)V", "(Lcom/sun/jndi/ldap/LdapReferralException;Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;Ljava/lang/String;ZI)V", 0, $method(LdapReferralContext, init$, void, $LdapReferralException*, $Hashtable*, $ControlArray*, $ControlArray*, $String*, bool, int32_t), "javax.naming.NamingException"},
+		{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, addToEnvironment, $Object*, $String*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, close, void), "javax.naming.NamingException"},
+		{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
+		{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $Context*, $String*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $Context*, $Name*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, destroySubcontext, void, $String*), "javax.naming.NamingException"},
+		{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
+		{"extendedOperation", "(Ljavax/naming/ldap/ExtendedRequest;)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, extendedOperation, $ExtendedResponse*, $ExtendedRequest*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
+		{"getConnectControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getConnectControls, $ControlArray*), "javax.naming.NamingException"},
+		{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PUBLIC, $virtualMethod(LdapReferralContext, getEnvironment, $Hashtable*), "javax.naming.NamingException"},
+		{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getNameInNamespace, $String*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
+		{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
+		{"getRequestControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getRequestControls, $ControlArray*), "javax.naming.NamingException"},
+		{"getResponseControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getResponseControls, $ControlArray*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"initDefaults", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapReferralContext, initDefaults, void, $String*, $String*), "javax.naming.NamingException"},
+		{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(LdapReferralContext, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC, $virtualMethod(LdapReferralContext, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(LdapReferralContext, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC, $virtualMethod(LdapReferralContext, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+		{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookup, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookup, $Object*, $Name*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
+		{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"newInstance", "([Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/LdapContext;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, newInstance, $LdapContext*, $ControlArray*), "javax.naming.NamingException"},
+		{"overrideAttributesAndScope", "(Ljavax/naming/directory/SearchControls;)Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE, $method(LdapReferralContext, overrideAttributesAndScope, $SearchControls*, $SearchControls*)},
+		{"overrideFilter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapReferralContext, overrideFilter, $String*, $String*)},
+		{"overrideName", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PRIVATE, $method(LdapReferralContext, overrideName, $Name*, $Name*), "javax.naming.InvalidNameException"},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"reconnect", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, reconnect, void, $ControlArray*), "javax.naming.NamingException"},
+		{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, removeFromEnvironment, $Object*, $String*), "javax.naming.NamingException"},
+		{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rename, void, $String*, $String*), "javax.naming.NamingException"},
+		{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(LdapReferralContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"setHopCount", "(I)V", nullptr, 0, $method(LdapReferralContext, setHopCount, void, int32_t)},
+		{"setRequestControls", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, setRequestControls, void, $ControlArray*), "javax.naming.NamingException"},
+		{"toName", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PRIVATE, $method(LdapReferralContext, toName, $Name*, $String*), "javax.naming.InvalidNameException"},
+		{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, unbind, void, $String*), "javax.naming.NamingException"},
+		{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LdapReferralContext, unbind, void, $Name*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapReferralContext",
+		"java.lang.Object",
+		"javax.naming.ldap.LdapContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapReferralContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapReferralContext);
+	});
 	return class$;
 }
 

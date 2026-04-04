@@ -1,8 +1,6 @@
 #include <sun/awt/windows/TranslucentWindowPainter$VIOptWindowPainter.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/windows/TranslucentWindowPainter$BIWindowPainter.h>
 #include <sun/awt/windows/TranslucentWindowPainter$VIOptWindowPainter$1.h>
 #include <sun/awt/windows/TranslucentWindowPainter$VIWindowPainter.h>
@@ -20,7 +18,6 @@ using $Image = ::java::awt::Image;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $TranslucentWindowPainter$VIOptWindowPainter$1 = ::sun::awt::windows::TranslucentWindowPainter$VIOptWindowPainter$1;
 using $TranslucentWindowPainter$VIWindowPainter = ::sun::awt::windows::TranslucentWindowPainter$VIWindowPainter;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
@@ -35,71 +32,35 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$MethodInfo _TranslucentWindowPainter$VIOptWindowPainter_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $PROTECTED, $method(TranslucentWindowPainter$VIOptWindowPainter, init$, void, $WWindowPeer*)},
-	{"update", "(Ljava/awt/Image;)Z", nullptr, $PROTECTED, $virtualMethod(TranslucentWindowPainter$VIOptWindowPainter, update, bool, $Image*)},
-	{"updateWindowAccel", "(JII)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(TranslucentWindowPainter$VIOptWindowPainter, updateWindowAccel, bool, int64_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TranslucentWindowPainter$VIOptWindowPainter_InnerClassesInfo_[] = {
-	{"sun.awt.windows.TranslucentWindowPainter$VIOptWindowPainter", "sun.awt.windows.TranslucentWindowPainter", "VIOptWindowPainter", $PRIVATE | $STATIC | $ABSTRACT},
-	{"sun.awt.windows.TranslucentWindowPainter$VIWindowPainter", "sun.awt.windows.TranslucentWindowPainter", "VIWindowPainter", $PRIVATE | $STATIC},
-	{"sun.awt.windows.TranslucentWindowPainter$VIOptWindowPainter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TranslucentWindowPainter$VIOptWindowPainter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.awt.windows.TranslucentWindowPainter$VIOptWindowPainter",
-	"sun.awt.windows.TranslucentWindowPainter$VIWindowPainter",
-	nullptr,
-	nullptr,
-	_TranslucentWindowPainter$VIOptWindowPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TranslucentWindowPainter$VIOptWindowPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.TranslucentWindowPainter"
-};
-
-$Object* allocate$TranslucentWindowPainter$VIOptWindowPainter($Class* clazz) {
-	return $of($alloc(TranslucentWindowPainter$VIOptWindowPainter));
-}
-
 void TranslucentWindowPainter$VIOptWindowPainter::init$($WWindowPeer* peer) {
 	$TranslucentWindowPainter$VIWindowPainter::init$(peer);
 }
 
 bool TranslucentWindowPainter$VIOptWindowPainter::update($Image* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DestSurfaceProvider, bb)) {
-		$var($Surface, s, $nc(($cast($DestSurfaceProvider, bb)))->getDestSurface());
+		$var($Surface, s, $cast($DestSurfaceProvider, bb)->getDestSurface());
 		if ($instanceOf($AccelSurface, s)) {
 			$var($booleans, arr, $new($booleans, {false}));
 			$var($AccelSurface, as, $cast($AccelSurface, s));
-			int32_t w = $nc($($nc(as)->getBounds()))->width;
+			int32_t w = $nc($(as->getBounds()))->width;
 			int32_t h = $nc($(as->getBounds()))->height;
-			$var($RenderQueue, rq, $nc($(as->getContext()))->getRenderQueue());
+			$var($RenderQueue, rq, $$nc(as->getContext())->getRenderQueue());
 			$nc(rq)->lock();
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$BufferedContext::validateContext(as);
-						rq->flushAndInvokeNow($$new($TranslucentWindowPainter$VIOptWindowPainter$1, this, as, arr, w, h));
-					} catch ($InvalidPipeException& e) {
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					rq->unlock();
+					$BufferedContext::validateContext(as);
+					rq->flushAndInvokeNow($$new($TranslucentWindowPainter$VIOptWindowPainter$1, this, as, arr, w, h));
+				} catch ($InvalidPipeException& e) {
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				rq->unlock();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 			return arr->get(0);
 		}
@@ -111,7 +72,36 @@ TranslucentWindowPainter$VIOptWindowPainter::TranslucentWindowPainter$VIOptWindo
 }
 
 $Class* TranslucentWindowPainter$VIOptWindowPainter::load$($String* name, bool initialize) {
-	$loadClass(TranslucentWindowPainter$VIOptWindowPainter, name, initialize, &_TranslucentWindowPainter$VIOptWindowPainter_ClassInfo_, allocate$TranslucentWindowPainter$VIOptWindowPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $PROTECTED, $method(TranslucentWindowPainter$VIOptWindowPainter, init$, void, $WWindowPeer*)},
+		{"update", "(Ljava/awt/Image;)Z", nullptr, $PROTECTED, $virtualMethod(TranslucentWindowPainter$VIOptWindowPainter, update, bool, $Image*)},
+		{"updateWindowAccel", "(JII)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(TranslucentWindowPainter$VIOptWindowPainter, updateWindowAccel, bool, int64_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.TranslucentWindowPainter$VIOptWindowPainter", "sun.awt.windows.TranslucentWindowPainter", "VIOptWindowPainter", $PRIVATE | $STATIC | $ABSTRACT},
+		{"sun.awt.windows.TranslucentWindowPainter$VIWindowPainter", "sun.awt.windows.TranslucentWindowPainter", "VIWindowPainter", $PRIVATE | $STATIC},
+		{"sun.awt.windows.TranslucentWindowPainter$VIOptWindowPainter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.awt.windows.TranslucentWindowPainter$VIOptWindowPainter",
+		"sun.awt.windows.TranslucentWindowPainter$VIWindowPainter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.TranslucentWindowPainter"
+	};
+	$loadClass(TranslucentWindowPainter$VIOptWindowPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TranslucentWindowPainter$VIOptWindowPainter);
+	});
 	return class$;
 }
 

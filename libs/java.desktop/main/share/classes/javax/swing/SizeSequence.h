@@ -12,6 +12,7 @@ class $export SizeSequence : public ::java::lang::Object {
 	$class(SizeSequence, 0, ::java::lang::Object)
 public:
 	SizeSequence();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t numEntries);
 	void init$(int32_t numEntries, int32_t value);

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory$MenuItemCheckIcon.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -19,44 +18,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$MethodInfo _MotifIconFactory$MenuItemCheckIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$MenuItemCheckIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuItemCheckIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuItemCheckIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuItemCheckIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifIconFactory$MenuItemCheckIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifIconFactory$MenuItemCheckIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MotifIconFactory$MenuItemCheckIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifIconFactory$MenuItemCheckIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory"
-};
-
-$Object* allocate$MotifIconFactory$MenuItemCheckIcon($Class* clazz) {
-	return $of($alloc(MotifIconFactory$MenuItemCheckIcon));
-}
 
 int32_t MotifIconFactory$MenuItemCheckIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -96,7 +57,40 @@ MotifIconFactory$MenuItemCheckIcon::MotifIconFactory$MenuItemCheckIcon() {
 }
 
 $Class* MotifIconFactory$MenuItemCheckIcon::load$($String* name, bool initialize) {
-	$loadClass(MotifIconFactory$MenuItemCheckIcon, name, initialize, &_MotifIconFactory$MenuItemCheckIcon_ClassInfo_, allocate$MotifIconFactory$MenuItemCheckIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$MenuItemCheckIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuItemCheckIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuItemCheckIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$MenuItemCheckIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory$MenuItemCheckIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory"
+	};
+	$loadClass(MotifIconFactory$MenuItemCheckIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifIconFactory$MenuItemCheckIcon));
+	});
 	return class$;
 }
 

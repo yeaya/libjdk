@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_vi.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,4829 +13,4810 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_vi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_vi, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_vi, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_vi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_vi",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_vi_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_vi($Class* clazz) {
-	return $of($alloc(LocaleNames_vi));
-}
-
 void LocaleNames_vi::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_vi::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_ssy, u"Tiếng Saho"_s);
 	$var($String, metaValue_key_nu, u"Số"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ksh"_s),
-			$of(u"Tiếng Cologne"_s)
+			"ksh"_s,
+			u"Tiếng Cologne"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ogam"_s),
-			$of(u"Chữ Ogham"_s)
+			"Ogam"_s,
+			u"Chữ Ogham"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of(u"Tiếng Miranda"_s)
+			"mwl"_s,
+			u"Tiếng Miranda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of(u"Ký hiệu"_s)
+			"Zsym"_s,
+			u"Ký hiệu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cch"_s),
-			$of(u"Tiếng Atsam"_s)
+			"cch"_s,
+			u"Tiếng Atsam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwr"_s),
-			$of(u"Tiếng Marwari"_s)
+			"mwr"_s,
+			u"Tiếng Marwari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.lanatham"_s),
-			$of(u"Chữ số Tham Thái Đam"_s)
+			"type.nu.lanatham"_s,
+			u"Chữ số Tham Thái Đam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egl"_s),
-			$of(u"Tiếng Emilia"_s)
+			"egl"_s,
+			u"Tiếng Emilia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tagb"_s),
-			$of(u"Chữ Tagbanwa"_s)
+			"Tagb"_s,
+			u"Chữ Tagbanwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsye"_s),
-			$of(u"Biểu tượng"_s)
+			"Zsye"_s,
+			u"Biểu tượng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NJIVA"_s),
-			$of(u"Phương ngữ Gniva/Njiva"_s)
+			"%%NJIVA"_s,
+			u"Phương ngữ Gniva/Njiva"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ccp"_s),
-			$of(u"Tiếng Chakma"_s)
+			"ccp"_s,
+			u"Tiếng Chakma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egy"_s),
-			$of(u"Tiếng Ai Cập cổ"_s)
+			"egy"_s,
+			u"Tiếng Ai Cập cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("raj"_s),
-			$of(u"Tiếng Rajasthani"_s)
+			"raj"_s,
+			u"Tiếng Rajasthani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phag"_s),
-			$of(u"Chữ Phags-pa"_s)
+			"Phag"_s,
+			u"Chữ Phags-pa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of(u"Tiếng Timne"_s)
+			"tem"_s,
+			u"Tiếng Timne"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.sind"_s),
-			$of(u"Chữ số Sind"_s)
+			"type.nu.sind"_s,
+			u"Chữ số Sind"_s
 		}),
 		$$new($ObjectArray, {
-			$of("teo"_s),
-			$of(u"Tiếng Teso"_s)
+			"teo"_s,
+			u"Tiếng Teso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of(u"Tiếng Rapanui"_s)
+			"rap"_s,
+			u"Tiếng Rapanui"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ter"_s),
-			$of(u"Tiếng Tereno"_s)
+			"ter"_s,
+			u"Tiếng Tereno"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of(u"Đảo Ascension"_s)
+			"AC"_s,
+			u"Đảo Ascension"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rar"_s),
-			$of(u"Tiếng Rarotongan"_s)
+			"rar"_s,
+			u"Tiếng Rarotongan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"Tiếng Tetum"_s)
+			"tet"_s,
+			u"Tiếng Tetum"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.sinh"_s),
-			$of(u"Chữ số Sinh"_s)
+			"type.nu.sinh"_s,
+			u"Chữ số Sinh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of("Andorra"_s)
+			"AD"_s,
+			"Andorra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"Các Tiểu Vương quốc Ả Rập Thống nhất"_s)
+			"AE"_s,
+			u"Các Tiểu Vương quốc Ả Rập Thống nhất"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl_BE"_s),
-			$of(u"Tiếng Flemish"_s)
+			"nl_BE"_s,
+			u"Tiếng Flemish"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of("Afghanistan"_s)
+			"AF"_s,
+			"Afghanistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"Antigua và Barbuda"_s)
+			"AG"_s,
+			u"Antigua và Barbuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mroo"_s),
-			$of(u"Chữ số Mroo"_s)
+			"type.nu.mroo"_s,
+			u"Chữ số Mroo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic"_s),
-			$of(u"Lịch Ethiopia"_s)
+			"type.ca.ethiopic"_s,
+			u"Lịch Ethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("glk"_s),
-			$of(u"Tiếng Gilaki"_s)
+			"glk"_s,
+			u"Tiếng Gilaki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of("Anguilla"_s)
+			"AI"_s,
+			"Anguilla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.tz"_s),
-			$of(u"Múi giờ"_s)
+			"key.tz"_s,
+			u"Múi giờ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of("Albania"_s)
+			"AL"_s,
+			"Albania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of("Armenia"_s)
+			"AM"_s,
+			"Armenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Teng"_s),
-			$of(u"Chữ Tengwar"_s)
+			"Teng"_s,
+			u"Chữ Tengwar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of("Angola"_s)
+			"AO"_s,
+			"Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"Nam Cực"_s)
+			"AQ"_s,
+			u"Nam Cực"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of("Argentina"_s)
+			"AR"_s,
+			"Argentina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prti"_s),
-			$of(u"Chữ Parthia Văn bia"_s)
+			"Prti"_s,
+			u"Chữ Parthia Văn bia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"Samoa thuộc Mỹ"_s)
+			"AS"_s,
+			u"Samoa thuộc Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"Áo"_s)
+			"AT"_s,
+			u"Áo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of("Australia"_s)
+			"AU"_s,
+			"Australia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of("Aruba"_s)
+			"AW"_s,
+			"Aruba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of(u"Tiếng Anh (Mỹ)"_s)
+			"en_US"_s,
+			u"Tiếng Anh (Mỹ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"Quần đảo Åland"_s)
+			"AX"_s,
+			u"Quần đảo Åland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mye"_s),
-			$of(u"Tiếng Myene"_s)
+			"mye"_s,
+			u"Tiếng Myene"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of("Azerbaijan"_s)
+			"AZ"_s,
+			"Azerbaijan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVELA"_s),
-			$of(u"Tiếng Armenia Miền Đông"_s)
+			"%%AREVELA"_s,
+			u"Tiếng Armenia Miền Đông"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"Bosnia và Herzegovina"_s)
+			"BA"_s,
+			u"Bosnia và Herzegovina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of("Barbados"_s)
+			"BB"_s,
+			"Barbados"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of(u"Tiếng Cebuano"_s)
+			"ceb"_s,
+			u"Tiếng Cebuano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of("Bangladesh"_s)
+			"BD"_s,
+			"Bangladesh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of(u"Tiếng Kumyk"_s)
+			"kum"_s,
+			u"Tiếng Kumyk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"Bỉ"_s)
+			"BE"_s,
+			u"Bỉ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmh"_s),
-			$of(u"Tiếng Thượng Giéc-man Trung cổ"_s)
+			"gmh"_s,
+			u"Tiếng Thượng Giéc-man Trung cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of("Burkina Faso"_s)
+			"BF"_s,
+			"Burkina Faso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of("Bulgaria"_s)
+			"BG"_s,
+			"Bulgaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of("Bahrain"_s)
+			"BH"_s,
+			"Bahrain"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of("Burundi"_s)
+			"BI"_s,
+			"Burundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of("Benin"_s)
+			"BJ"_s,
+			"Benin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of(u"St. Barthélemy"_s)
+			"BL"_s,
+			u"St. Barthélemy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of("Bermuda"_s)
+			"BM"_s,
+			"Bermuda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kut"_s),
-			$of(u"Tiếng Kutenai"_s)
+			"kut"_s,
+			u"Tiếng Kutenai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of(u"Tiếng Erzya"_s)
+			"myv"_s,
+			u"Tiếng Erzya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of("Brunei"_s)
+			"BN"_s,
+			"Brunei"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of("Bolivia"_s)
+			"BO"_s,
+			"Bolivia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of(u"Ca-ri-bê Hà Lan"_s)
+			"BQ"_s,
+			u"Ca-ri-bê Hà Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of("Brazil"_s)
+			"BR"_s,
+			"Brazil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of("Bahamas"_s)
+			"BS"_s,
+			"Bahamas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xog"_s),
-			$of(u"Tiếng Soga"_s)
+			"xog"_s,
+			u"Tiếng Soga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of("Bhutan"_s)
+			"BT"_s,
+			"Bhutan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"Đảo Bouvet"_s)
+			"BV"_s,
+			u"Đảo Bouvet"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of("Botswana"_s)
+			"BW"_s,
+			"Botswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of("Belarus"_s)
+			"BY"_s,
+			"Belarus"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of("Belize"_s)
+			"BZ"_s,
+			"Belize"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Visp"_s),
-			$of(u"Tiếng nói Nhìn thấy được"_s)
+			"Visp"_s,
+			u"Tiếng nói Nhìn thấy được"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.persian"_s),
-			$of(u"Lịch Ba Tư"_s)
+			"type.ca.persian"_s,
+			u"Lịch Ba Tư"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hebr"_s),
-			$of(u"Chữ số Do Thái"_s)
+			"type.nu.hebr"_s,
+			u"Chữ số Do Thái"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of("Canada"_s)
+			"CA"_s,
+			"Canada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"Quần đảo Cocos (Keeling)"_s)
+			"CC"_s,
+			u"Quần đảo Cocos (Keeling)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzn"_s),
-			$of(u"Tiếng Mazanderani"_s)
+			"mzn"_s,
+			u"Tiếng Mazanderani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of("Congo - Kinshasa"_s)
+			"CD"_s,
+			"Congo - Kinshasa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"Cộng hòa Trung Phi"_s)
+			"CF"_s,
+			u"Cộng hòa Trung Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of("Congo - Brazzaville"_s)
+			"CG"_s,
+			"Congo - Brazzaville"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"Thụy Sĩ"_s)
+			"CH"_s,
+			u"Thụy Sĩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"Côte d’Ivoire"_s)
+			"CI"_s,
+			u"Côte d’Ivoire"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"Quần đảo Cook"_s)
+			"CK"_s,
+			u"Quần đảo Cook"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of("Chile"_s)
+			"CL"_s,
+			"Chile"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kthi"_s),
-			$of(u"Chữ Kaithi"_s)
+			"Kthi"_s,
+			u"Chữ Kaithi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of("Cameroon"_s)
+			"CM"_s,
+			"Cameroon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"Trung Quốc"_s)
+			"CN"_s,
+			u"Trung Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of("Colombia"_s)
+			"CO"_s,
+			"Colombia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of(u"Đảo Clipperton"_s)
+			"CP"_s,
+			u"Đảo Clipperton"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of("Costa Rica"_s)
+			"CR"_s,
+			"Costa Rica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of("Cuba"_s)
+			"CU"_s,
+			"Cuba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of("Cape Verde"_s)
+			"CV"_s,
+			"Cape Verde"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of(u"Curaçao"_s)
+			"CW"_s,
+			u"Curaçao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"Đảo Giáng Sinh"_s)
+			"CX"_s,
+			u"Đảo Giáng Sinh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"Síp"_s)
+			"CY"_s,
+			u"Síp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.bali"_s),
-			$of(u"Chữ số Bali"_s)
+			"type.nu.bali"_s,
+			u"Chữ số Bali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"Séc"_s)
+			"CZ"_s,
+			u"Séc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of(u"Tiếng Ekajuk"_s)
+			"eka"_s,
+			u"Tiếng Ekajuk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%RIGIK"_s),
-			$of(u"Tiếng Volapük Cổ điển"_s)
+			"%%RIGIK"_s,
+			u"Tiếng Volapük Cổ điển"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"Đức"_s)
+			"DE"_s,
+			u"Đức"_s
 		}),
 		$$new($ObjectArray, {
-			$of("goh"_s),
-			$of(u"Tiếng Thượng Giéc-man cổ"_s)
+			"goh"_s,
+			u"Tiếng Thượng Giéc-man cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"Tiếng Achinese"_s)
+			"ace"_s,
+			u"Tiếng Achinese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cgg"_s),
-			$of(u"Tiếng Chiga"_s)
+			"cgg"_s,
+			u"Tiếng Chiga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of("Diego Garcia"_s)
+			"DG"_s,
+			"Diego Garcia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gom"_s),
-			$of(u"Tiếng Goan Konkani"_s)
+			"gom"_s,
+			u"Tiếng Goan Konkani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.deva"_s),
-			$of(u"Chữ số Devanagari"_s)
+			"type.nu.deva"_s,
+			u"Chữ số Devanagari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of("Djibouti"_s)
+			"DJ"_s,
+			"Djibouti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"Đan Mạch"_s)
+			"DK"_s,
+			u"Đan Mạch"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ach"_s),
-			$of(u"Tiếng Acoli"_s)
+			"ach"_s,
+			u"Tiếng Acoli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gon"_s),
-			$of(u"Tiếng Gondi"_s)
+			"gon"_s,
+			u"Tiếng Gondi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of(u"Chữ nổi Braille"_s)
+			"Brai"_s,
+			u"Chữ nổi Braille"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brah"_s),
-			$of(u"Chữ Brahmi"_s)
+			"Brah"_s,
+			u"Chữ Brahmi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of("Dominica"_s)
+			"DM"_s,
+			"Dominica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armnlow"_s),
-			$of(u"Chữ số Armenia viết thường"_s)
+			"type.nu.armnlow"_s,
+			u"Chữ số Armenia viết thường"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"Cộng hòa Dominica"_s)
+			"DO"_s,
+			u"Cộng hòa Dominica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of(u"Tiếng Gorontalo"_s)
+			"gor"_s,
+			u"Tiếng Gorontalo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("got"_s),
-			$of(u"Tiếng Gô-tích"_s)
+			"got"_s,
+			u"Tiếng Gô-tích"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mtei"_s),
-			$of(u"Chữ Meitei Mayek"_s)
+			"Mtei"_s,
+			u"Chữ Meitei Mayek"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of(u"Tiếng Zuni"_s)
+			"zun"_s,
+			u"Tiếng Zuni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of(u"Tiếng Tigre"_s)
+			"tig"_s,
+			u"Tiếng Tigre"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Takr"_s),
-			$of(u"Chữ Takri"_s)
+			"Takr"_s,
+			u"Chữ Takri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of("Algeria"_s)
+			"DZ"_s,
+			"Algeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of(u"Tiếng Pangasinan"_s)
+			"pag"_s,
+			u"Tiếng Pangasinan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.hwidth"_s),
-			$of(u"Nửa độ rộng"_s)
+			"type.d0.hwidth"_s,
+			u"Nửa độ rộng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pal"_s),
-			$of(u"Tiếng Pahlavi"_s)
+			"pal"_s,
+			u"Tiếng Pahlavi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of(u"Ceuta và Melilla"_s)
+			"EA"_s,
+			u"Ceuta và Melilla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chb"_s),
-			$of(u"Tiếng Chibcha"_s)
+			"chb"_s,
+			u"Tiếng Chibcha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of(u"Tiếng Pampanga"_s)
+			"pam"_s,
+			u"Tiếng Pampanga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of("Ecuador"_s)
+			"EC"_s,
+			"Ecuador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of(u"Tiếng Papiamento"_s)
+			"pap"_s,
+			u"Tiếng Papiamento"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of(u"Tiếng Adangme"_s)
+			"ada"_s,
+			u"Tiếng Adangme"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of("Estonia"_s)
+			"EE"_s,
+			"Estonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tiv"_s),
-			$of(u"Tiếng Tiv"_s)
+			"tiv"_s,
+			u"Tiếng Tiv"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"Ai Cập"_s)
+			"EG"_s,
+			u"Ai Cập"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"Tây Sahara"_s)
+			"EH"_s,
+			u"Tây Sahara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chg"_s),
-			$of(u"Tiếng Chagatai"_s)
+			"chg"_s,
+			u"Tiếng Chagatai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of(u"Tiếng Palauan"_s)
+			"pau"_s,
+			u"Tiếng Palauan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of(u"Tiếng Chuuk"_s)
+			"chk"_s,
+			u"Tiếng Chuuk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chn"_s),
-			$of(u"Biệt ngữ Chinook"_s)
+			"chn"_s,
+			u"Biệt ngữ Chinook"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of(u"Tiếng Mari"_s)
+			"chm"_s,
+			u"Tiếng Mari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chp"_s),
-			$of(u"Tiếng Chipewyan"_s)
+			"chp"_s,
+			u"Tiếng Chipewyan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of(u"Tiếng Choctaw"_s)
+			"cho"_s,
+			u"Tiếng Choctaw"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mathbold"_s),
-			$of(u"Chữ số Mathbold"_s)
+			"type.nu.mathbold"_s,
+			u"Chữ số Mathbold"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of(u"Tiếng Cherokee"_s)
+			"chr"_s,
+			u"Tiếng Cherokee"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of("Eritrea"_s)
+			"ER"_s,
+			"Eritrea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"Tây Ban Nha"_s)
+			"ES"_s,
+			u"Tây Ban Nha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of("Ethiopia"_s)
+			"ET"_s,
+			"Ethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of(u"Liên Minh Châu Âu"_s)
+			"EU"_s,
+			u"Liên Minh Châu Âu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("elx"_s),
-			$of(u"Tiếng Elamite"_s)
+			"elx"_s,
+			u"Tiếng Elamite"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of(u"Lịch Gregory"_s)
+			"type.ca.gregorian"_s,
+			u"Lịch Gregory"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of(u"Khu vực đồng Euro"_s)
+			"EZ"_s,
+			u"Khu vực đồng Euro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of(u"Tiếng Cheyenne"_s)
+			"chy"_s,
+			u"Tiếng Cheyenne"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of(u"Chữ số Gujarati"_s)
+			"type.nu.gujr"_s,
+			u"Chữ số Gujarati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Inds"_s),
-			$of(u"Chữ Indus"_s)
+			"Inds"_s,
+			u"Chữ Indus"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of(u"Tiếng Adyghe"_s)
+			"ady"_s,
+			u"Tiếng Adyghe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"Phần Lan"_s)
+			"FI"_s,
+			u"Phần Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of("Fiji"_s)
+			"FJ"_s,
+			"Fiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"Quần đảo Falkland"_s)
+			"FK"_s,
+			u"Quần đảo Falkland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of("Micronesia"_s)
+			"FM"_s,
+			"Micronesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.va"_s),
-			$of(u"Biến thể ngôn ngữ"_s)
+			"key.va"_s,
+			u"Biến thể ngôn ngữ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"Quần đảo Faroe"_s)
+			"FO"_s,
+			u"Quần đảo Faroe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of(u"Chữ Tamil"_s)
+			"Taml"_s,
+			u"Chữ Tamil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"Pháp"_s)
+			"FR"_s,
+			u"Pháp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kpel"_s),
-			$of(u"Chữ Kpelle"_s)
+			"Kpel"_s,
+			u"Chữ Kpelle"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tkl"_s),
-			$of(u"Tiếng Tokelau"_s)
+			"tkl"_s,
+			u"Tiếng Tokelau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grb"_s),
-			$of(u"Tiếng Grebo"_s)
+			"grb"_s,
+			u"Tiếng Grebo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%DAJNKO"_s),
-			$of(u"Bảng chữ cái Dajnko"_s)
+			"%%DAJNKO"_s,
+			u"Bảng chữ cái Dajnko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.indian"_s),
-			$of(u"Lịch Quốc gia Ấn Độ"_s)
+			"type.ca.indian"_s,
+			u"Lịch Quốc gia Ấn Độ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of(u"Tiếng Hy Lạp cổ"_s)
+			"grc"_s,
+			u"Tiếng Hy Lạp cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of("Gabon"_s)
+			"GA"_s,
+			"Gabon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vot"_s),
-			$of(u"Tiếng Votic"_s)
+			"vot"_s,
+			u"Tiếng Votic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"Vương quốc Anh"_s)
+			"GB"_s,
+			u"Vương quốc Anh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pcm"_s),
-			$of(u"Tiếng Nigeria Pidgin"_s)
+			"pcm"_s,
+			u"Tiếng Nigeria Pidgin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of("Grenada"_s)
+			"GD"_s,
+			"Grenada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of("Georgia"_s)
+			"GE"_s,
+			"Georgia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"Guiana thuộc Pháp"_s)
+			"GF"_s,
+			u"Guiana thuộc Pháp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of("Guernsey"_s)
+			"GG"_s,
+			"Guernsey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of("Ghana"_s)
+			"GH"_s,
+			"Ghana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tale"_s),
-			$of(u"Chữ Thái Na"_s)
+			"Tale"_s,
+			u"Chữ Thái Na"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of("Gibraltar"_s)
+			"GI"_s,
+			"Gibraltar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afh"_s),
-			$of(u"Tiếng Afrihili"_s)
+			"afh"_s,
+			u"Tiếng Afrihili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of("Greenland"_s)
+			"GL"_s,
+			"Greenland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enm"_s),
-			$of(u"Tiếng Anh Trung cổ"_s)
+			"enm"_s,
+			u"Tiếng Anh Trung cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of("Gambia"_s)
+			"GM"_s,
+			"Gambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of("Guinea"_s)
+			"GN"_s,
+			"Guinea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of("Guadeloupe"_s)
+			"GP"_s,
+			"Guadeloupe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"Guinea Xích Đạo"_s)
+			"GQ"_s,
+			u"Guinea Xích Đạo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"Hy Lạp"_s)
+			"GR"_s,
+			u"Hy Lạp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"Nam Georgia & Quần đảo Nam Sandwich"_s)
+			"GS"_s,
+			u"Nam Georgia & Quần đảo Nam Sandwich"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of("Guatemala"_s)
+			"GT"_s,
+			"Guatemala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of("Guam"_s)
+			"GU"_s,
+			"Guam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mathmono"_s),
-			$of(u"Chữ số Mathmono"_s)
+			"type.nu.mathmono"_s,
+			u"Chữ số Mathmono"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of("Guinea-Bissau"_s)
+			"GW"_s,
+			"Guinea-Bissau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tli"_s),
-			$of(u"Tiếng Tlingit"_s)
+			"tli"_s,
+			u"Tiếng Tlingit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"Tiếng Klingon"_s)
+			"tlh"_s,
+			u"Tiếng Klingon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Talu"_s),
-			$of(u"Chữ Thái Lặc mới"_s)
+			"Talu"_s,
+			u"Chữ Thái Lặc mới"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of("Guyana"_s)
+			"GY"_s,
+			"Guyana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ckb"_s),
-			$of(u"Tiếng Kurd Miền Trung"_s)
+			"ckb"_s,
+			u"Tiếng Kurd Miền Trung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of(u"Không có nội dung ngôn ngữ"_s)
+			"zxx"_s,
+			u"Không có nội dung ngôn ngữ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jurc"_s),
-			$of(u"Chữ Jurchen"_s)
+			"Jurc"_s,
+			u"Chữ Jurchen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"Đặc khu Hành chính Hồng Kông, Trung Quốc"_s)
+			"HK"_s,
+			u"Đặc khu Hành chính Hồng Kông, Trung Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Vaii"_s),
-			$of(u"Chữ Vai"_s)
+			"Vaii"_s,
+			u"Chữ Vai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"Quần đảo Heard và McDonald"_s)
+			"HM"_s,
+			u"Quần đảo Heard và McDonald"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of("Honduras"_s)
+			"HN"_s,
+			"Honduras"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of("Croatia"_s)
+			"HR"_s,
+			"Croatia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("agq"_s),
-			$of(u"Tiếng Aghem"_s)
+			"agq"_s,
+			u"Tiếng Aghem"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"Tiếng Đức (Thụy Sĩ)"_s)
+			"gsw"_s,
+			u"Tiếng Đức (Thụy Sĩ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-umalqura"_s),
-			$of(u"Lịch Hồi Giáo - Umm al-Qura"_s)
+			"type.ca.islamic-umalqura"_s,
+			u"Lịch Hồi Giáo - Umm al-Qura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of("Haiti"_s)
+			"HT"_s,
+			"Haiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of("Hungary"_s)
+			"HU"_s,
+			"Hungary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tmh"_s),
-			$of(u"Tiếng Tamashek"_s)
+			"tmh"_s,
+			u"Tiếng Tamashek"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of(u"Quần đảo Canary"_s)
+			"IC"_s,
+			u"Quần đảo Canary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nan"_s),
-			$of(u"Tiếng Mân Nam"_s)
+			"nan"_s,
+			u"Tiếng Mân Nam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of("Indonesia"_s)
+			"ID"_s,
+			"Indonesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("peo"_s),
-			$of(u"Tiếng Ba Tư cổ"_s)
+			"peo"_s,
+			u"Tiếng Ba Tư cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.kali"_s),
-			$of(u"Chữ số Kayah Li"_s)
+			"type.nu.kali"_s,
+			u"Chữ số Kayah Li"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of("Ireland"_s)
+			"IE"_s,
+			"Ireland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of(u"Tiếng Napoli"_s)
+			"nap"_s,
+			u"Tiếng Napoli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NDYUKA"_s),
-			$of(u"Phương ngữ Ndyuka"_s)
+			"%%NDYUKA"_s,
+			u"Phương ngữ Ndyuka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("naq"_s),
-			$of(u"Tiếng Nama"_s)
+			"naq"_s,
+			u"Tiếng Nama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.sora"_s),
-			$of(u"Chữ số Sora Sompeng"_s)
+			"type.nu.sora"_s,
+			u"Chữ số Sora Sompeng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of(u"Tiếng Zaza"_s)
+			"zza"_s,
+			u"Tiếng Zaza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tang"_s),
-			$of(u"Chữ Tangut"_s)
+			"Tang"_s,
+			u"Chữ Tangut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of("Israel"_s)
+			"IL"_s,
+			"Israel"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nbat"_s),
-			$of(u"Chữ Nabataean"_s)
+			"Nbat"_s,
+			u"Chữ Nabataean"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of(u"Đảo Man"_s)
+			"IM"_s,
+			u"Đảo Man"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"Ấn Độ"_s)
+			"IN"_s,
+			u"Ấn Độ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.eor"_s),
-			$of(u"Quy tắc sắp xếp Châu Âu"_s)
+			"type.co.eor"_s,
+			u"Quy tắc sắp xếp Châu Âu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"Lãnh thổ Ấn Độ Dương thuộc Anh"_s)
+			"IO"_s,
+			u"Lãnh thổ Ấn Độ Dương thuộc Anh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of("Iraq"_s)
+			"IQ"_s,
+			"Iraq"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of("Iran"_s)
+			"IR"_s,
+			"Iran"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of("Iceland"_s)
+			"IS"_s,
+			"Iceland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of("Italy"_s)
+			"IT"_s,
+			"Italy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of(u"Ký hiệu Toán học"_s)
+			"Zmth"_s,
+			u"Ký hiệu Toán học"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.thai"_s),
-			$of(u"Chữ số Thái"_s)
+			"type.nu.thai"_s,
+			u"Chữ số Thái"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POSIX"_s),
-			$of(u"Máy tính"_s)
+			"%%POSIX"_s,
+			u"Máy tính"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.beng"_s),
-			$of(u"Chữ số Bangladesh"_s)
+			"type.nu.beng"_s,
+			u"Chữ số Bangladesh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.cyrl"_s),
-			$of(u"Số Kirin"_s)
+			"type.nu.cyrl"_s,
+			u"Số Kirin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of("Jersey"_s)
+			"JE"_s,
+			"Jersey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic"_s),
-			$of(u"Lịch Hồi Giáo"_s)
+			"type.ca.islamic"_s,
+			u"Lịch Hồi Giáo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of("Jamaica"_s)
+			"JM"_s,
+			"Jamaica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(u"Chữ Bangla"_s)
+			"Beng"_s,
+			u"Chữ Bangla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of("Jordan"_s)
+			"JO"_s,
+			"Jordan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gur"_s),
-			$of(u"Tiếng Frafra"_s)
+			"gur"_s,
+			u"Tiếng Frafra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"Nhật Bản"_s)
+			"JP"_s,
+			u"Nhật Bản"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1606NICT"_s),
-			$of(u"Tiếng Pháp từ Cuối thời Trung cổ đến 1606"_s)
+			"%%1606NICT"_s,
+			u"Tiếng Pháp từ Cuối thời Trung cổ đến 1606"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of(u"Tiếng Ainu"_s)
+			"ain"_s,
+			u"Tiếng Ainu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mend"_s),
-			$of(u"Chữ Mende"_s)
+			"Mend"_s,
+			u"Chữ Mende"_s
 		}),
 		$$new($ObjectArray, {
-			$of("guz"_s),
-			$of(u"Tiếng Gusii"_s)
+			"guz"_s,
+			u"Tiếng Gusii"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tog"_s),
-			$of(u"Tiếng Nyasa Tonga"_s)
+			"tog"_s,
+			u"Tiếng Nyasa Tonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.knda"_s),
-			$of(u"Chữ số Kannada"_s)
+			"type.nu.knda"_s,
+			u"Chữ số Kannada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kali"_s),
-			$of(u"Chữ Kayah Li"_s)
+			"Kali"_s,
+			u"Chữ Kayah Li"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of(u"Tiếng Thượng Giéc-man (Thụy Sĩ)"_s)
+			"de_CH"_s,
+			u"Tiếng Thượng Giéc-man (Thụy Sĩ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonetic"_s),
-			$of(u"Thứ tự sắp xếp theo ngữ âm"_s)
+			"type.co.phonetic"_s,
+			u"Thứ tự sắp xếp theo ngữ âm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("izh"_s),
-			$of(u"Tiếng Ingria"_s)
+			"izh"_s,
+			u"Tiếng Ingria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.buddhist"_s),
-			$of(u"Lịch Phật Giáo"_s)
+			"type.ca.buddhist"_s,
+			u"Lịch Phật Giáo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of("Kenya"_s)
+			"KE"_s,
+			"Kenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of(u"Châu Mỹ La-tinh"_s)
+			"419"_s,
+			u"Châu Mỹ La-tinh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of("Kyrgyzstan"_s)
+			"KG"_s,
+			"Kyrgyzstan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of("Campuchia"_s)
+			"KH"_s,
+			"Campuchia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of("Kiribati"_s)
+			"KI"_s,
+			"Kiribati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of("Comoros"_s)
+			"KM"_s,
+			"Comoros"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"St. Kitts và Nevis"_s)
+			"KN"_s,
+			u"St. Kitts và Nevis"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(u"Chữ Kannada"_s)
+			"Knda"_s,
+			u"Chữ Kannada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zinh"_s),
-			$of(u"Chữ Kế thừa"_s)
+			"Zinh"_s,
+			u"Chữ Kế thừa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"Triều Tiên"_s)
+			"KP"_s,
+			u"Triều Tiên"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"Hàn Quốc"_s)
+			"KR"_s,
+			u"Hàn Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Plrd"_s),
-			$of(u"Ngữ âm Pollard"_s)
+			"Plrd"_s,
+			u"Ngữ âm Pollard"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of("Kuwait"_s)
+			"KW"_s,
+			"Kuwait"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of(u"Tiếng Tok Pisin"_s)
+			"tpi"_s,
+			u"Tiếng Tok Pisin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"Quần đảo Cayman"_s)
+			"KY"_s,
+			u"Quần đảo Cayman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of("Kazakhstan"_s)
+			"KZ"_s,
+			"Kazakhstan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of(u"Chữ Kirin"_s)
+			"Cyrl"_s,
+			u"Chữ Kirin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"Lào"_s)
+			"LA"_s,
+			u"Lào"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"Li-băng"_s)
+			"LB"_s,
+			u"Li-băng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of("St. Lucia"_s)
+			"LC"_s,
+			"St. Lucia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("phn"_s),
-			$of(u"Tiếng Phoenicia"_s)
+			"phn"_s,
+			u"Tiếng Phoenicia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrs"_s),
-			$of(u"Chữ Kirin Slavơ Nhà thờ cổ"_s)
+			"Cyrs"_s,
+			u"Chữ Kirin Slavơ Nhà thờ cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"Tiếng Gwichʼin"_s)
+			"gwi"_s,
+			u"Tiếng Gwichʼin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of(u"Tiếng Hạ Giéc-man"_s)
+			"nds"_s,
+			u"Tiếng Hạ Giéc-man"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of("Liechtenstein"_s)
+			"LI"_s,
+			"Liechtenstein"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of("Sri Lanka"_s)
+			"LK"_s,
+			"Sri Lanka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("akk"_s),
-			$of(u"Tiếng Akkadia"_s)
+			"akk"_s,
+			u"Tiếng Akkadia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of(u"Tiếng Coptic"_s)
+			"cop"_s,
+			u"Tiếng Coptic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of("Liberia"_s)
+			"LR"_s,
+			"Liberia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("esu"_s),
-			$of(u"Tiếng Yupik Miền Trung"_s)
+			"esu"_s,
+			u"Tiếng Yupik Miền Trung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of("Lesotho"_s)
+			"LS"_s,
+			"Lesotho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlv"_s),
-			$of(u"Chữ Pahlavi Sách"_s)
+			"Phlv"_s,
+			u"Chữ Pahlavi Sách"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of("Litva"_s)
+			"LT"_s,
+			"Litva"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of("Luxembourg"_s)
+			"LU"_s,
+			"Luxembourg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of("Latvia"_s)
+			"LV"_s,
+			"Latvia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of(u"Chữ Katakana"_s)
+			"Kana"_s,
+			u"Chữ Katakana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sora"_s),
-			$of(u"Chữ Sora Sompeng"_s)
+			"Sora"_s,
+			u"Chữ Sora Sompeng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of("Libya"_s)
+			"LY"_s,
+			"Libya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of(u"Tiếng Ladino"_s)
+			"lad"_s,
+			u"Tiếng Ladino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vun"_s),
-			$of(u"Tiếng Vunjo"_s)
+			"vun"_s,
+			u"Tiếng Vunjo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("akz"_s),
-			$of(u"Tiếng Alabama"_s)
+			"akz"_s,
+			u"Tiếng Alabama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lah"_s),
-			$of(u"Tiếng Lahnda"_s)
+			"lah"_s,
+			u"Tiếng Lahnda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lag"_s),
-			$of(u"Tiếng Langi"_s)
+			"lag"_s,
+			u"Tiếng Langi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of(u"Chữ Thaana"_s)
+			"Thaa"_s,
+			u"Chữ Thaana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"Ma-rốc"_s)
+			"MA"_s,
+			u"Ma-rốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of("Monaco"_s)
+			"MC"_s,
+			"Monaco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of("Moldova"_s)
+			"MD"_s,
+			"Moldova"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nshu"_s),
-			$of(u"Chữ Nüshu"_s)
+			"Nshu"_s,
+			u"Chữ Nüshu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of("Montenegro"_s)
+			"ME"_s,
+			"Montenegro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of("St. Martin"_s)
+			"MF"_s,
+			"St. Martin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lam"_s),
-			$of(u"Tiếng Lamba"_s)
+			"lam"_s,
+			u"Tiếng Lamba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of("Madagascar"_s)
+			"MG"_s,
+			"Madagascar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"Quần đảo Marshall"_s)
+			"MH"_s,
+			u"Quần đảo Marshall"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of(u"Tiếng Aleut"_s)
+			"ale"_s,
+			u"Tiếng Aleut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(u"Chữ Thái"_s)
+			"Thai"_s,
+			u"Chữ Thái"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.vaii"_s),
-			$of(u"Chữ số Vai"_s)
+			"type.nu.vaii"_s,
+			u"Chữ số Vai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"Bắc Macedonia"_s)
+			"MK"_s,
+			u"Bắc Macedonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mathdbl"_s),
-			$of(u"Chữ số Mathdbl"_s)
+			"type.nu.mathdbl"_s,
+			u"Chữ số Mathdbl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of("Mali"_s)
+			"ML"_s,
+			"Mali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"Myanmar (Miến Điện)"_s)
+			"MM"_s,
+			u"Myanmar (Miến Điện)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"Mông Cổ"_s)
+			"MN"_s,
+			u"Mông Cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of(u"Tiếng Newari"_s)
+			"new"_s,
+			u"Tiếng Newari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"Đặc khu Hành chính Macao, Trung Quốc"_s)
+			"MO"_s,
+			u"Đặc khu Hành chính Macao, Trung Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aln"_s),
-			$of(u"Tiếng Gheg Albani"_s)
+			"aln"_s,
+			u"Tiếng Gheg Albani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"Quần đảo Bắc Mariana"_s)
+			"MP"_s,
+			u"Quần đảo Bắc Mariana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of("Martinique"_s)
+			"MQ"_s,
+			"Martinique"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of("Mauritania"_s)
+			"MR"_s,
+			"Mauritania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of("Montserrat"_s)
+			"MS"_s,
+			"Montserrat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of("Malta"_s)
+			"MT"_s,
+			"Malta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cps"_s),
-			$of(u"Tiếng Capiznon"_s)
+			"cps"_s,
+			u"Tiếng Capiznon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.ungegn"_s),
-			$of(u"Chuyển tự UN GEGN"_s)
+			"type.m0.ungegn"_s,
+			u"Chuyển tự UN GEGN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of("Mauritius"_s)
+			"MU"_s,
+			"Mauritius"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of(u"Tiếng Altai Miền Nam"_s)
+			"alt"_s,
+			u"Tiếng Altai Miền Nam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of("Maldives"_s)
+			"MV"_s,
+			"Maldives"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of("Malawi"_s)
+			"MW"_s,
+			"Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of("Mexico"_s)
+			"MX"_s,
+			"Mexico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.japanese"_s),
-			$of(u"Lịch Nhật Bản"_s)
+			"type.ca.japanese"_s,
+			u"Lịch Nhật Bản"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of("Malaysia"_s)
+			"MY"_s,
+			"Malaysia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of("Mozambique"_s)
+			"MZ"_s,
+			"Mozambique"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phli"_s),
-			$of(u"Chữ Pahlavi Văn bia"_s)
+			"Phli"_s,
+			u"Chữ Pahlavi Văn bia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of("Namibia"_s)
+			"NA"_s,
+			"Namibia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("202"_s),
-			$of(u"Châu Phi hạ Sahara"_s)
+			"202"_s,
+			u"Châu Phi hạ Sahara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.hebrew"_s),
-			$of(u"Lịch Do Thái"_s)
+			"type.ca.hebrew"_s,
+			u"Lịch Do Thái"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.dictionary"_s),
-			$of(u"Thứ tự sắp xếp theo từ điển"_s)
+			"type.co.dictionary"_s,
+			u"Thứ tự sắp xếp theo từ điển"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of("New Caledonia"_s)
+			"NC"_s,
+			"New Caledonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%WADEGILE"_s),
-			$of(u"La Mã hóa Wade-Giles"_s)
+			"%%WADEGILE"_s,
+			u"La Mã hóa Wade-Giles"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCRCOR"_s),
-			$of(u"Phép chính tả Sửa đổi Hợp nhất"_s)
+			"%%UCRCOR"_s,
+			u"Phép chính tả Sửa đổi Hợp nhất"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of("Niger"_s)
+			"NE"_s,
+			"Niger"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"Đảo Norfolk"_s)
+			"NF"_s,
+			u"Đảo Norfolk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of("Nigeria"_s)
+			"NG"_s,
+			"Nigeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trv"_s),
-			$of(u"Tiếng Taroko"_s)
+			"trv"_s,
+			u"Tiếng Taroko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlp"_s),
-			$of(u"Chữ Pahlavi Thánh ca"_s)
+			"Phlp"_s,
+			u"Chữ Pahlavi Thánh ca"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of("Nicaragua"_s)
+			"NI"_s,
+			"Nicaragua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hmng"_s),
-			$of(u"Chữ Pahawh Hmong"_s)
+			"Hmng"_s,
+			u"Chữ Pahawh Hmong"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"Hà Lan"_s)
+			"NL"_s,
+			u"Hà Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of("Na Uy"_s)
+			"NO"_s,
+			"Na Uy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of("Nepal"_s)
+			"NP"_s,
+			"Nepal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of("Nauru"_s)
+			"NR"_s,
+			"Nauru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of("Niue"_s)
+			"NU"_s,
+			"Niue"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phnx"_s),
-			$of(u"Chữ Phoenicia"_s)
+			"Phnx"_s,
+			u"Chữ Phoenicia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rof"_s),
-			$of(u"Tiếng Rombo"_s)
+			"rof"_s,
+			u"Tiếng Rombo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tsi"_s),
-			$of(u"Tiếng Tsimshian"_s)
+			"tsi"_s,
+			u"Tiếng Tsimshian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of("New Zealand"_s)
+			"NZ"_s,
+			"New Zealand"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Merc"_s),
-			$of(u"Chữ Meroitic Nét thảo"_s)
+			"Merc"_s,
+			u"Chữ Meroitic Nét thảo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rom"_s),
-			$of(u"Tiếng Romany"_s)
+			"rom"_s,
+			u"Tiếng Romany"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mero"_s),
-			$of(u"Chữ Meroitic"_s)
+			"Mero"_s,
+			u"Chữ Meroitic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crh"_s),
-			$of(u"Tiếng Thổ Nhĩ Kỳ Crimean"_s)
+			"crh"_s,
+			u"Tiếng Thổ Nhĩ Kỳ Crimean"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of(u"Tiếng Anh cổ"_s)
+			"ang"_s,
+			u"Tiếng Anh cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of("Oman"_s)
+			"OM"_s,
+			"Oman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of(u"Tiếng Angika"_s)
+			"anp"_s,
+			u"Tiếng Angika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crs"_s),
-			$of(u"Tiếng Pháp Seselwa Creole"_s)
+			"crs"_s,
+			u"Tiếng Pháp Seselwa Creole"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hmnp"_s),
-			$of(u"Chữ số Hmnp"_s)
+			"type.nu.hmnp"_s,
+			u"Chữ số Hmnp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xpeo"_s),
-			$of(u"Chữ Ba Tư cổ"_s)
+			"Xpeo"_s,
+			u"Chữ Ba Tư cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hmng"_s),
-			$of(u"Chữ số Hmng"_s)
+			"type.nu.hmng"_s,
+			u"Chữ số Hmng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of("Panama"_s)
+			"PA"_s,
+			"Panama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-civil"_s),
-			$of(u"Lịch Islamic-Civil"_s)
+			"type.ca.islamic-civil"_s,
+			u"Lịch Islamic-Civil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("csb"_s),
-			$of(u"Tiếng Kashubia"_s)
+			"csb"_s,
+			u"Tiếng Kashubia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of(u"Tiếng Anh (Anh)"_s)
+			"en_GB"_s,
+			u"Tiếng Anh (Anh)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of("Peru"_s)
+			"PE"_s,
+			"Peru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"Polynesia thuộc Pháp"_s)
+			"PF"_s,
+			u"Polynesia thuộc Pháp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of("Papua New Guinea"_s)
+			"PG"_s,
+			"Papua New Guinea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of("Philippines"_s)
+			"PH"_s,
+			"Philippines"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of("Pakistan"_s)
+			"PK"_s,
+			"Pakistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of("Ba Lan"_s)
+			"PL"_s,
+			"Ba Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of(u"Tiếng Ewondo"_s)
+			"ewo"_s,
+			u"Tiếng Ewondo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"Saint Pierre và Miquelon"_s)
+			"PM"_s,
+			u"Saint Pierre và Miquelon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"Quần đảo Pitcairn"_s)
+			"PN"_s,
+			u"Quần đảo Pitcairn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of("Puerto Rico"_s)
+			"PR"_s,
+			"Puerto Rico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"Lãnh thổ Palestine"_s)
+			"PS"_s,
+			u"Lãnh thổ Palestine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bali"_s),
-			$of(u"Chữ Bali"_s)
+			"Bali"_s,
+			u"Chữ Bali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"Bồ Đào Nha"_s)
+			"PT"_s,
+			u"Bồ Đào Nha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of("Palau"_s)
+			"PW"_s,
+			"Palau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of(u"Tiếng Nias"_s)
+			"nia"_s,
+			u"Tiếng Nias"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.greklow"_s),
-			$of(u"Chữ số Hy Lạp viết thường"_s)
+			"type.nu.greklow"_s,
+			u"Chữ số Hy Lạp viết thường"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of("Paraguay"_s)
+			"PY"_s,
+			"Paraguay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of(u"Tiếng Tumbuka"_s)
+			"tum"_s,
+			u"Tiếng Tumbuka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(u"Chữ Do Thái"_s)
+			"Hebr"_s,
+			u"Chữ Do Thái"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of("Qatar"_s)
+			"QA"_s,
+			"Qatar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SCOTLAND"_s),
-			$of(u"Tiếng Anh chuẩn tại Scotland"_s)
+			"%%SCOTLAND"_s,
+			u"Tiếng Anh chuẩn tại Scotland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jam"_s),
-			$of(u"Tiếng Anh Jamaica Creole"_s)
+			"jam"_s,
+			u"Tiếng Anh Jamaica Creole"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of(u"Tiếng Niuean"_s)
+			"niu"_s,
+			u"Tiếng Niuean"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of(u"Vùng xa xôi thuộc Châu Đại Dương"_s)
+			"QO"_s,
+			u"Vùng xa xôi thuộc Châu Đại Dương"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ext"_s),
-			$of(u"Tiếng Extremadura"_s)
+			"ext"_s,
+			u"Tiếng Extremadura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of(u"Tiếng Lezghian"_s)
+			"lez"_s,
+			u"Tiếng Lezghian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ahom"_s),
-			$of(u"Chữ số Ahom"_s)
+			"type.nu.ahom"_s,
+			u"Chữ số Ahom"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%FONUPA"_s),
-			$of(u"Ngữ âm học UPA"_s)
+			"%%FONUPA"_s,
+			u"Ngữ âm học UPA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.takr"_s),
-			$of(u"Chữ số Takri"_s)
+			"type.nu.takr"_s,
+			u"Chữ số Takri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of(u"Tiếng Tuvalu"_s)
+			"tvl"_s,
+			u"Tiếng Tuvalu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tavt"_s),
-			$of(u"Chữ Thái Việt"_s)
+			"Tavt"_s,
+			u"Chữ Thái Việt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"Thế giới"_s)
+			"001"_s,
+			u"Thế giới"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"Châu Phi"_s)
+			"002"_s,
+			u"Châu Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("njo"_s),
-			$of(u"Tiếng Ao Naga"_s)
+			"njo"_s,
+			u"Tiếng Ao Naga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of(u"Bắc Mỹ"_s)
+			"003"_s,
+			u"Bắc Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"Réunion"_s)
+			"RE"_s,
+			u"Réunion"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"Nam Mỹ"_s)
+			"005"_s,
+			u"Nam Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of(u"Tiếng Lojban"_s)
+			"jbo"_s,
+			u"Tiếng Lojban"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Rjng"_s),
-			$of(u"Chữ Rejang"_s)
+			"Rjng"_s,
+			u"Chữ Rejang"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"Châu Đại Dương"_s)
+			"009"_s,
+			u"Châu Đại Dương"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of("Romania"_s)
+			"RO"_s,
+			"Romania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of("Serbia"_s)
+			"RS"_s,
+			"Serbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mroo"_s),
-			$of(u"Chữ Mro"_s)
+			"Mroo"_s,
+			u"Chữ Mro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of("Nga"_s)
+			"RU"_s,
+			"Nga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of("Rwanda"_s)
+			"RW"_s,
+			"Rwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.talu"_s),
-			$of(u"Chữ số Thái Lặc mới"_s)
+			"type.nu.talu"_s,
+			u"Chữ số Thái Lặc mới"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%METELKO"_s),
-			$of(u"Bảng chữ cái Metelko"_s)
+			"%%METELKO"_s,
+			u"Bảng chữ cái Metelko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mani"_s),
-			$of(u"Chữ Manichaean"_s)
+			"Mani"_s,
+			u"Chữ Manichaean"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ugar"_s),
-			$of(u"Chữ Ugarit"_s)
+			"Ugar"_s,
+			u"Chữ Ugarit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khar"_s),
-			$of(u"Chữ Kharoshthi"_s)
+			"Khar"_s,
+			u"Chữ Kharoshthi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"Ả Rập Xê-út"_s)
+			"SA"_s,
+			u"Ả Rập Xê-út"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pon"_s),
-			$of(u"Tiếng Pohnpeian"_s)
+			"pon"_s,
+			u"Tiếng Pohnpeian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mand"_s),
-			$of(u"Chữ Mandaean"_s)
+			"Mand"_s,
+			u"Chữ Mandaean"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"Quần đảo Solomon"_s)
+			"SB"_s,
+			u"Quần đảo Solomon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twq"_s),
-			$of(u"Tiếng Tasawaq"_s)
+			"twq"_s,
+			u"Tiếng Tasawaq"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"Tây Phi"_s)
+			"011"_s,
+			u"Tây Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of("Seychelles"_s)
+			"SC"_s,
+			"Seychelles"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of("Sudan"_s)
+			"SD"_s,
+			"Sudan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of(u"Trung Mỹ"_s)
+			"013"_s,
+			u"Trung Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"Thụy Điển"_s)
+			"SE"_s,
+			u"Thụy Điển"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"Đông Phi"_s)
+			"014"_s,
+			u"Đông Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arc"_s),
-			$of(u"Tiếng Aramaic"_s)
+			"arc"_s,
+			u"Tiếng Aramaic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Loma"_s),
-			$of(u"Chữ Loma"_s)
+			"Loma"_s,
+			u"Chữ Loma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"Bắc Phi"_s)
+			"015"_s,
+			u"Bắc Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of("Singapore"_s)
+			"SG"_s,
+			"Singapore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of("St. Helena"_s)
+			"SH"_s,
+			"St. Helena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.strict"_s),
-			$of(u"Kiểu xuống dòng hẹp"_s)
+			"type.lb.strict"_s,
+			u"Kiểu xuống dòng hẹp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of("Trung Phi"_s)
+			"017"_s,
+			"Trung Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of("Slovenia"_s)
+			"SI"_s,
+			"Slovenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymrtlng"_s),
-			$of(u"Chữ số Mymrtlng"_s)
+			"type.nu.mymrtlng"_s,
+			u"Chữ số Mymrtlng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"Miền Nam Châu Phi"_s)
+			"018"_s,
+			u"Miền Nam Châu Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"Svalbard và Jan Mayen"_s)
+			"SJ"_s,
+			u"Svalbard và Jan Mayen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"Châu Mỹ"_s)
+			"019"_s,
+			u"Châu Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of("Slovakia"_s)
+			"SK"_s,
+			"Slovakia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bamu"_s),
-			$of(u"Chữ Bamum"_s)
+			"Bamu"_s,
+			u"Chữ Bamum"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Wole"_s),
-			$of(u"Chữ Woleai"_s)
+			"Wole"_s,
+			u"Chữ Woleai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of("Sierra Leone"_s)
+			"SL"_s,
+			"Sierra Leone"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of("San Marino"_s)
+			"SM"_s,
+			"San Marino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of("Senegal"_s)
+			"SN"_s,
+			"Senegal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of("Somalia"_s)
+			"SO"_s,
+			"Somalia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of(u"Tiếng Mapuche"_s)
+			"arn"_s,
+			u"Tiếng Mapuche"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of(u"Tiếng Arapaho"_s)
+			"arp"_s,
+			u"Tiếng Arapaho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.taml"_s),
-			$of(u"Chữ số Tamil Truyền thống"_s)
+			"type.nu.taml"_s,
+			u"Chữ số Tamil Truyền thống"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of("Suriname"_s)
+			"SR"_s,
+			"Suriname"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aro"_s),
-			$of(u"Tiếng Araona"_s)
+			"aro"_s,
+			u"Tiếng Araona"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of("Nam Sudan"_s)
+			"SS"_s,
+			"Nam Sudan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"São Tomé và Príncipe"_s)
+			"ST"_s,
+			u"São Tomé và Príncipe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arq"_s),
-			$of(u"Tiếng Ả Rập Algeria"_s)
+			"arq"_s,
+			u"Tiếng Ả Rập Algeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of("El Salvador"_s)
+			"SV"_s,
+			"El Salvador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ars"_s),
-			$of(u"Tiếng Ả Rập Najdi"_s)
+			"ars"_s,
+			u"Tiếng Ả Rập Najdi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of("Sint Maarten"_s)
+			"SX"_s,
+			"Sint Maarten"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of("Syria"_s)
+			"SY"_s,
+			"Syria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yao"_s),
-			$of(u"Tiếng Yao"_s)
+			"yao"_s,
+			u"Tiếng Yao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of("Eswatini"_s)
+			"SZ"_s,
+			"Eswatini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arw"_s),
-			$of(u"Tiếng Arawak"_s)
+			"arw"_s,
+			u"Tiếng Arawak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arz"_s),
-			$of(u"Tiếng Ả Rập Ai Cập"_s)
+			"arz"_s,
+			u"Tiếng Ả Rập Ai Cập"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yap"_s),
-			$of(u"Tiếng Yap"_s)
+			"yap"_s,
+			u"Tiếng Yap"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of("Tristan da Cunha"_s)
+			"TA"_s,
+			"Tristan da Cunha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asa"_s),
-			$of(u"Tiếng Asu"_s)
+			"asa"_s,
+			u"Tiếng Asu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.ussystem"_s),
-			$of(u"Hệ đo lường Mỹ"_s)
+			"type.ms.ussystem"_s,
+			u"Hệ đo lường Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"Miền Bắc Châu Mỹ"_s)
+			"021"_s,
+			u"Miền Bắc Châu Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"Quần đảo Turks và Caicos"_s)
+			"TC"_s,
+			u"Quần đảo Turks và Caicos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yav"_s),
-			$of(u"Tiếng Yangben"_s)
+			"yav"_s,
+			u"Tiếng Yangben"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of("Chad"_s)
+			"TD"_s,
+			"Chad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Qaag"_s),
-			$of(u"Chữ Zawgyi"_s)
+			"Qaag"_s,
+			u"Chữ Zawgyi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"Lãnh thổ phía Nam Thuộc Pháp"_s)
+			"TF"_s,
+			u"Lãnh thổ phía Nam Thuộc Pháp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ase"_s),
-			$of(u"Ngôn ngữ Ký hiệu Mỹ"_s)
+			"ase"_s,
+			u"Ngôn ngữ Ký hiệu Mỹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of("Togo"_s)
+			"TG"_s,
+			"Togo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"Thái Lan"_s)
+			"TH"_s,
+			u"Thái Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of("Tajikistan"_s)
+			"TJ"_s,
+			"Tajikistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"Ca-ri-bê"_s)
+			"029"_s,
+			u"Ca-ri-bê"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of("Tokelau"_s)
+			"TK"_s,
+			"Tokelau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of("Timor-Leste"_s)
+			"TL"_s,
+			"Timor-Leste"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ybb"_s),
-			$of(u"Tiếng Yemba"_s)
+			"ybb"_s,
+			u"Tiếng Yemba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.searchjl"_s),
-			$of(u"Tìm kiếm theo Phụ âm Đầu Hangul"_s)
+			"type.co.searchjl"_s,
+			u"Tìm kiếm theo Phụ âm Đầu Hangul"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of("Turkmenistan"_s)
+			"TM"_s,
+			"Turkmenistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BOONT"_s),
-			$of(u"Tiếng Boontling"_s)
+			"%%BOONT"_s,
+			u"Tiếng Boontling"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of("Tunisia"_s)
+			"TN"_s,
+			"Tunisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of("Tonga"_s)
+			"TO"_s,
+			"Tonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NULIK"_s),
-			$of(u"Tiếng Volapük Hiện đại"_s)
+			"%%NULIK"_s,
+			u"Tiếng Volapük Hiện đại"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"Thổ Nhĩ Kỳ"_s)
+			"TR"_s,
+			u"Thổ Nhĩ Kỳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"Trinidad và Tobago"_s)
+			"TT"_s,
+			u"Trinidad và Tobago"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of("Tuvalu"_s)
+			"TV"_s,
+			"Tuvalu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"Đài Loan"_s)
+			"TW"_s,
+			u"Đài Loan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of(u"Tiếng Asturias"_s)
+			"ast"_s,
+			u"Tiếng Asturias"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orkh"_s),
-			$of(u"Chữ Orkhon"_s)
+			"Orkh"_s,
+			u"Chữ Orkhon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of("Tanzania"_s)
+			"TZ"_s,
+			"Tanzania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nmg"_s),
-			$of(u"Tiếng Kwasio"_s)
+			"nmg"_s,
+			u"Tiếng Kwasio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of(u"Chữ viết không xác định"_s)
+			"Zzzz"_s,
+			u"Chữ viết không xác định"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sind"_s),
-			$of(u"Chữ Khudawadi"_s)
+			"Sind"_s,
+			u"Chữ Khudawadi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of("Ukraina"_s)
+			"UA"_s,
+			"Ukraina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of(u"Tiếng Aromania"_s)
+			"rup"_s,
+			u"Tiếng Aromania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of(u"Đông Á"_s)
+			"030"_s,
+			u"Đông Á"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of(u"Tiếng Tuvinian"_s)
+			"tyv"_s,
+			u"Tiếng Tuvinian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of(u"Tiếng Swahili Congo"_s)
+			"sw_CD"_s,
+			u"Tiếng Swahili Congo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"Nam Á"_s)
+			"034"_s,
+			u"Nam Á"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hai"_s),
-			$of(u"Tiếng Haida"_s)
+			"hai"_s,
+			u"Tiếng Haida"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"Đông Nam Á"_s)
+			"035"_s,
+			u"Đông Nam Á"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of("Uganda"_s)
+			"UG"_s,
+			"Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hak"_s),
-			$of(u"Tiếng Khách Gia"_s)
+			"hak"_s,
+			u"Tiếng Khách Gia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.pinyin"_s),
-			$of(u"Thứ tự sắp xếp theo bính âm"_s)
+			"type.co.pinyin"_s,
+			u"Thứ tự sắp xếp theo bính âm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"Nam Âu"_s)
+			"039"_s,
+			u"Nam Âu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(u"Chữ Sinhala"_s)
+			"Sinh"_s,
+			u"Chữ Sinhala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"Các tiểu đảo xa của Hoa Kỳ"_s)
+			"UM"_s,
+			u"Các tiểu đảo xa của Hoa Kỳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of(u"Liên hiệp quốc"_s)
+			"UN"_s,
+			u"Liên hiệp quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"Hoa Kỳ"_s)
+			"US"_s,
+			u"Hoa Kỳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of(u"Tiếng Hawaii"_s)
+			"haw"_s,
+			u"Tiếng Hawaii"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1959ACAD"_s),
-			$of(u"Hàn lâm"_s)
+			"%%1959ACAD"_s,
+			u"Hàn lâm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.gb2312han"_s),
-			$of(u"Thứ tự sắp xếp theo tiếng Trung giản thể - GB2312"_s)
+			"type.co.gb2312han"_s,
+			u"Thứ tự sắp xếp theo tiếng Trung giản thể - GB2312"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of("Uruguay"_s)
+			"UY"_s,
+			"Uruguay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("prg"_s),
-			$of(u"Tiếng Prussia"_s)
+			"prg"_s,
+			u"Tiếng Prussia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of("Uzbekistan"_s)
+			"UZ"_s,
+			"Uzbekistan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"Tiếng Tamazight Miền Trung Ma-rốc"_s)
+			"tzm"_s,
+			u"Tiếng Tamazight Miền Trung Ma-rốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.stroke"_s),
-			$of(u"Thứ tự sắp xếp theo nét chữ"_s)
+			"type.co.stroke"_s,
+			u"Thứ tự sắp xếp theo nét chữ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nnh"_s),
-			$of(u"Tiếng Ngiemboon"_s)
+			"nnh"_s,
+			u"Tiếng Ngiemboon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"Thành Vatican"_s)
+			"VA"_s,
+			u"Thành Vatican"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pro"_s),
-			$of(u"Tiếng Provençal cổ"_s)
+			"pro"_s,
+			u"Tiếng Provençal cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"St. Vincent và Grenadines"_s)
+			"VC"_s,
+			u"St. Vincent và Grenadines"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of("Venezuela"_s)
+			"VE"_s,
+			"Venezuela"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"Quần đảo Virgin thuộc Anh"_s)
+			"VG"_s,
+			u"Quần đảo Virgin thuộc Anh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"Quần đảo Virgin thuộc Hoa Kỳ"_s)
+			"VI"_s,
+			u"Quần đảo Virgin thuộc Hoa Kỳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"Việt Nam"_s)
+			"VN"_s,
+			u"Việt Nam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of("Vanuatu"_s)
+			"VU"_s,
+			"Vanuatu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of(u"Tiếng Nogai"_s)
+			"nog"_s,
+			u"Tiếng Nogai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwk"_s),
-			$of(u"Tiếng Rwa"_s)
+			"rwk"_s,
+			u"Tiếng Rwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("non"_s),
-			$of(u"Tiếng Na Uy cổ"_s)
+			"non"_s,
+			u"Tiếng Na Uy cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of("Australasia"_s)
+			"053"_s,
+			"Australasia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVMDA"_s),
-			$of(u"Tiếng Armenia Miền Tây"_s)
+			"%%AREVMDA"_s,
+			u"Tiếng Armenia Miền Tây"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of("Melanesia"_s)
+			"054"_s,
+			"Melanesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"Wallis và Futuna"_s)
+			"WF"_s,
+			u"Wallis và Futuna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.traditional"_s),
-			$of(u"Thứ tự sắp xếp truyền thống"_s)
+			"type.co.traditional"_s,
+			u"Thứ tự sắp xếp truyền thống"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of(u"Vùng Micronesia"_s)
+			"057"_s,
+			u"Vùng Micronesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jgo"_s),
-			$of(u"Tiếng Ngomba"_s)
+			"jgo"_s,
+			u"Tiếng Ngomba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lkt"_s),
-			$of(u"Tiếng Lakota"_s)
+			"lkt"_s,
+			u"Tiếng Lakota"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.finance"_s),
-			$of(u"Chữ số dùng trong tài chính"_s)
+			"type.nu.finance"_s,
+			u"Chữ số dùng trong tài chính"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%HEPBURN"_s),
-			$of(u"La mã hóa Hepburn"_s)
+			"%%HEPBURN"_s,
+			u"La mã hóa Hepburn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.compat"_s),
-			$of(u"Thứ tự sắp xếp trước đây, để tương thích"_s)
+			"type.co.compat"_s,
+			u"Thứ tự sắp xếp trước đây, để tương thích"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wae"_s),
-			$of(u"Tiếng Walser"_s)
+			"wae"_s,
+			u"Tiếng Walser"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of("Samoa"_s)
+			"WS"_s,
+			"Samoa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bass"_s),
-			$of(u"Chữ Bassa Vah"_s)
+			"Bass"_s,
+			u"Chữ Bassa Vah"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mtei"_s),
-			$of(u"Chữ số Meetei Mayek"_s)
+			"type.nu.mtei"_s,
+			u"Chữ số Meetei Mayek"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of(u"Tiếng Walamo"_s)
+			"wal"_s,
+			u"Tiếng Walamo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("was"_s),
-			$of(u"Tiếng Washo"_s)
+			"was"_s,
+			u"Tiếng Washo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XA"_s),
-			$of("Pseudo-Accents"_s)
+			"XA"_s,
+			"Pseudo-Accents"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of(u"Tiếng Waray"_s)
+			"war"_s,
+			u"Tiếng Waray"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XB"_s),
-			$of("Pseudo-Bidi"_s)
+			"XB"_s,
+			"Pseudo-Bidi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of(u"Tiếng Awadhi"_s)
+			"awa"_s,
+			u"Tiếng Awadhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of("Polynesia"_s)
+			"061"_s,
+			"Polynesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%KSCOR"_s),
-			$of(u"Phép chính tả Chuẩn"_s)
+			"%%KSCOR"_s,
+			u"Phép chính tả Chuẩn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of("Kosovo"_s)
+			"XK"_s,
+			"Kosovo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.brah"_s),
-			$of(u"Chữ số Brahmi"_s)
+			"type.nu.brah"_s,
+			u"Chữ số Brahmi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(u"Chữ Gujarati"_s)
+			"Gujr"_s,
+			u"Chữ Gujarati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of(u"Chưa có chữ viết"_s)
+			"Zxxx"_s,
+			u"Chưa có chữ viết"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Olck"_s),
-			$of(u"Chữ Ol Chiki"_s)
+			"Olck"_s,
+			u"Chữ Ol Chiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wbp"_s),
-			$of(u"Tiếng Warlpiri"_s)
+			"wbp"_s,
+			u"Tiếng Warlpiri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Batk"_s),
-			$of(u"Chữ Batak"_s)
+			"Batk"_s,
+			u"Chữ Batak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Blis"_s),
-			$of(u"Chữ Blissymbols"_s)
+			"Blis"_s,
+			u"Chữ Blissymbols"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of("Yemen"_s)
+			"YE"_s,
+			"Yemen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(u"Tiếng N’Ko"_s)
+			"nqo"_s,
+			u"Tiếng N’Ko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of(u"Thứ tự sắp xếp chuẩn"_s)
+			"type.co.standard"_s,
+			u"Thứ tự sắp xếp chuẩn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fan"_s),
-			$of(u"Tiếng Fang"_s)
+			"fan"_s,
+			u"Tiếng Fang"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%ROZAJ"_s),
-			$of(u"Tiếng Resian"_s)
+			"%%ROZAJ"_s,
+			u"Tiếng Resian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fat"_s),
-			$of(u"Tiếng Fanti"_s)
+			"fat"_s,
+			u"Tiếng Fanti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sgnw"_s),
-			$of(u"Chữ viết Ký hiệu"_s)
+			"Sgnw"_s,
+			u"Chữ viết Ký hiệu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of("Mayotte"_s)
+			"YT"_s,
+			"Mayotte"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.cham"_s),
-			$of(u"Chữ số Chăm"_s)
+			"type.nu.cham"_s,
+			u"Chữ số Chăm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of("Nam Phi"_s)
+			"ZA"_s,
+			"Nam Phi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.sund"_s),
-			$of(u"Chữ số Sudan"_s)
+			"type.nu.sund"_s,
+			u"Chữ số Sudan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.loose"_s),
-			$of(u"Kiểu xuống dòng thoáng"_s)
+			"type.lb.loose"_s,
+			u"Kiểu xuống dòng thoáng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of(u"Chữ Devanagari"_s)
+			"Deva"_s,
+			u"Chữ Devanagari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.geor"_s),
-			$of(u"Chữ số Georgia"_s)
+			"type.nu.geor"_s,
+			u"Chữ số Georgia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.zhuyin"_s),
-			$of(u"Thứ tự sắp xếp Zhuyin"_s)
+			"type.co.zhuyin"_s,
+			u"Thứ tự sắp xếp Zhuyin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of(u"Chữ Hiragana"_s)
+			"Hira"_s,
+			u"Chữ Hiragana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of("Zambia"_s)
+			"ZM"_s,
+			"Zambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%PINYIN"_s),
-			$of(u"La Mã hóa Bính âm"_s)
+			"%%PINYIN"_s,
+			u"La Mã hóa Bính âm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of("Zimbabwe"_s)
+			"ZW"_s,
+			"Zimbabwe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of(u"Vùng không xác định"_s)
+			"ZZ"_s,
+			u"Vùng không xác định"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Runr"_s),
-			$of(u"Chữ Runic"_s)
+			"Runr"_s,
+			u"Chữ Runic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.metric"_s),
-			$of(u"Hệ mét"_s)
+			"type.ms.metric"_s,
+			u"Hệ mét"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of(u"Lịch ISO-8601"_s)
+			"type.ca.iso8601"_s,
+			u"Lịch ISO-8601"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lol"_s),
-			$of(u"Tiếng Mongo"_s)
+			"lol"_s,
+			u"Tiếng Mongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of(u"Tiếng Sotho Miền Bắc"_s)
+			"nso"_s,
+			u"Tiếng Sotho Miền Bắc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.telu"_s),
-			$of(u"Chữ số Telugu"_s)
+			"type.nu.telu"_s,
+			u"Chữ số Telugu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lou"_s),
-			$of(u"Tiếng Creole Louisiana"_s)
+			"lou"_s,
+			u"Tiếng Creole Louisiana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of(u"Tiếng Lozi"_s)
+			"loz"_s,
+			u"Tiếng Lozi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkgb"_s),
-			$of(u"Chữ Naxi Geba"_s)
+			"Nkgb"_s,
+			u"Chữ Naxi Geba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmc"_s),
-			$of(u"Tiếng Machame"_s)
+			"jmc"_s,
+			u"Tiếng Machame"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hif"_s),
-			$of(u"Tiếng Fiji Hindi"_s)
+			"hif"_s,
+			u"Tiếng Fiji Hindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hansfin"_s),
-			$of(u"Chữ số dùng trong tài chính của tiếng Trung giản thể"_s)
+			"type.nu.hansfin"_s,
+			u"Chữ số dùng trong tài chính của tiếng Trung giản thể"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"Tiếng Hiligaynon"_s)
+			"hil"_s,
+			u"Tiếng Hiligaynon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arabext"_s),
-			$of(u"Chữ số Ả Rập - Ấn Độ mở rộng"_s)
+			"type.nu.arabext"_s,
+			u"Chữ số Ả Rập - Ấn Độ mở rộng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nus"_s),
-			$of(u"Tiếng Nuer"_s)
+			"nus"_s,
+			u"Tiếng Nuer"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of(u"Tiếng Dakota"_s)
+			"dak"_s,
+			u"Tiếng Dakota"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.fullwide"_s),
-			$of(u"Chữ số có độ rộng đầy đủ"_s)
+			"type.nu.fullwide"_s,
+			u"Chữ số có độ rộng đầy đủ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hit"_s),
-			$of(u"Tiếng Hittite"_s)
+			"hit"_s,
+			u"Tiếng Hittite"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of(u"Tiếng Dargwa"_s)
+			"dar"_s,
+			u"Tiếng Dargwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dav"_s),
-			$of(u"Tiếng Taita"_s)
+			"dav"_s,
+			u"Tiếng Taita"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Maya"_s),
-			$of(u"Chữ tượng hình Maya"_s)
+			"Maya"_s,
+			u"Chữ tượng hình Maya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrc"_s),
-			$of(u"Tiếng Bắc Luri"_s)
+			"lrc"_s,
+			u"Tiếng Bắc Luri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.emoji"_s),
-			$of(u"Thứ tự sắp xếp biểu tượng"_s)
+			"type.co.emoji"_s,
+			u"Thứ tự sắp xếp biểu tượng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Copt"_s),
-			$of(u"Chữ Coptic"_s)
+			"Copt"_s,
+			u"Chữ Coptic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nwc"_s),
-			$of(u"Tiếng Newari cổ"_s)
+			"nwc"_s,
+			u"Tiếng Newari cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of(u"Tiếng Udmurt"_s)
+			"udm"_s,
+			u"Tiếng Udmurt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(u"Chữ Khơ-me"_s)
+			"Khmr"_s,
+			u"Chữ Khơ-me"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-rgsa"_s),
-			$of(u"Lịch Hồi Giáo - Ả Rập Xê-út"_s)
+			"type.ca.islamic-rgsa"_s,
+			u"Lịch Hồi Giáo - Ả Rập Xê-út"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Limb"_s),
-			$of(u"Chữ Limbu"_s)
+			"Limb"_s,
+			u"Chữ Limbu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of(u"Tiếng Sandawe"_s)
+			"sad"_s,
+			u"Tiếng Sandawe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.roman"_s),
-			$of(u"Chữ số La mã"_s)
+			"type.nu.roman"_s,
+			u"Chữ số La mã"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of(u"Tiếng Sakha"_s)
+			"sah"_s,
+			u"Tiếng Sakha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.shrd"_s),
-			$of(u"Chữ số Sharada"_s)
+			"type.nu.shrd"_s,
+			u"Chữ số Sharada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sam"_s),
-			$of(u"Tiếng Samaritan Aramaic"_s)
+			"sam"_s,
+			u"Tiếng Samaritan Aramaic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SCOUSE"_s),
-			$of(u"Phương ngữ Liverpool"_s)
+			"%%SCOUSE"_s,
+			u"Phương ngữ Liverpool"_s
 		}),
 		$$new($ObjectArray, {
-			$of("saq"_s),
-			$of(u"Tiếng Samburu"_s)
+			"saq"_s,
+			u"Tiếng Samburu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sas"_s),
-			$of(u"Tiếng Sasak"_s)
+			"sas"_s,
+			u"Tiếng Sasak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of(u"Tiếng Santali"_s)
+			"sat"_s,
+			u"Tiếng Santali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tfng"_s),
-			$of(u"Chữ Tifinagh"_s)
+			"Tfng"_s,
+			u"Chữ Tifinagh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.npinyin"_s),
-			$of(metaValue_key_nu)
+			"type.d0.npinyin"_s,
+			metaValue_key_nu
 		}),
 		$$new($ObjectArray, {
-			$of("jpr"_s),
-			$of(u"Tiếng Judeo-Ba Tư"_s)
+			"jpr"_s,
+			u"Tiếng Judeo-Ba Tư"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.native"_s),
-			$of(u"Chữ số tự nhiên"_s)
+			"type.nu.native"_s,
+			u"Chữ số tự nhiên"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sba"_s),
-			$of(u"Tiếng Ngambay"_s)
+			"sba"_s,
+			u"Tiếng Ngambay"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of(u"Chữ Gurmukhi"_s)
+			"Guru"_s,
+			u"Chữ Gurmukhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%ALUKU"_s),
-			$of(u"Phương ngữ Aluku"_s)
+			"%%ALUKU"_s,
+			u"Phương ngữ Aluku"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of(u"Tiếng Luba-Lulua"_s)
+			"lua"_s,
+			u"Tiếng Luba-Lulua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tirh"_s),
-			$of(u"Chữ số Tirh"_s)
+			"type.nu.tirh"_s,
+			u"Chữ số Tirh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.fwidth"_s),
-			$of(u"Độ rộng tối đa"_s)
+			"type.d0.fwidth"_s,
+			u"Độ rộng tối đa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbp"_s),
-			$of(u"Tiếng Sangu"_s)
+			"sbp"_s,
+			u"Tiếng Sangu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lui"_s),
-			$of(u"Tiếng Luiseno"_s)
+			"lui"_s,
+			u"Tiếng Luiseno"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of(u"Tiếng Nyankole"_s)
+			"nyn"_s,
+			u"Tiếng Nyankole"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nym"_s),
-			$of(u"Tiếng Nyamwezi"_s)
+			"nym"_s,
+			u"Tiếng Nyamwezi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of(u"Tiếng Lunda"_s)
+			"lun"_s,
+			u"Tiếng Lunda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyo"_s),
-			$of(u"Tiếng Nyoro"_s)
+			"nyo"_s,
+			u"Tiếng Nyoro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of(u"Tiếng Luo"_s)
+			"luo"_s,
+			u"Tiếng Luo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"Tiếng Philippines"_s)
+			"fil"_s,
+			u"Tiếng Philippines"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of(u"Tiếng H’Mông"_s)
+			"hmn"_s,
+			u"Tiếng H’Mông"_s
 		}),
 		$$new($ObjectArray, {
-			$of("del"_s),
-			$of(u"Tiếng Delaware"_s)
+			"del"_s,
+			u"Tiếng Delaware"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of(u"Tiếng Lushai"_s)
+			"lus"_s,
+			u"Tiếng Lushai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bal"_s),
-			$of(u"Tiếng Baluchi"_s)
+			"bal"_s,
+			u"Tiếng Baluchi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("den"_s),
-			$of(u"Tiếng Slave"_s)
+			"den"_s,
+			u"Tiếng Slave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of(u"Tiếng Bali"_s)
+			"ban"_s,
+			u"Tiếng Bali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uga"_s),
-			$of(u"Tiếng Ugaritic"_s)
+			"uga"_s,
+			u"Tiếng Ugaritic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.wara"_s),
-			$of(u"Chữ số Wara"_s)
+			"type.nu.wara"_s,
+			u"Chữ số Wara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luy"_s),
-			$of(u"Tiếng Luyia"_s)
+			"luy"_s,
+			u"Tiếng Luyia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bar"_s),
-			$of(u"Tiếng Bavaria"_s)
+			"bar"_s,
+			u"Tiếng Bavaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"Tiếng Basaa"_s)
+			"bas"_s,
+			u"Tiếng Basaa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bax"_s),
-			$of(u"Tiếng Bamun"_s)
+			"bax"_s,
+			u"Tiếng Bamun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jrb"_s),
-			$of(u"Tiếng Judeo-Ả Rập"_s)
+			"jrb"_s,
+			u"Tiếng Judeo-Ả Rập"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of(u"Tiếng Tây Ban Nha (Châu Âu)"_s)
+			"es_ES"_s,
+			u"Tiếng Tây Ban Nha (Châu Âu)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzi"_s),
-			$of(u"Tiếng Nzima"_s)
+			"nzi"_s,
+			u"Tiếng Nzima"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of(u"Tiếng Scots"_s)
+			"sco"_s,
+			u"Tiếng Scots"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of(u"Tiếng Sicilia"_s)
+			"scn"_s,
+			u"Tiếng Sicilia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of(u"Tiếng Afar"_s)
+			"aa"_s,
+			u"Tiếng Afar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"Tiếng Abkhazia"_s)
+			"ab"_s,
+			u"Tiếng Abkhazia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Aran"_s),
-			$of(u"Chữ Nastaliq"_s)
+			"Aran"_s,
+			u"Chữ Nastaliq"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bbc"_s),
-			$of(u"Tiếng Batak Toba"_s)
+			"bbc"_s,
+			u"Tiếng Batak Toba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ae"_s),
-			$of(u"Tiếng Avestan"_s)
+			"ae"_s,
+			u"Tiếng Avestan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"Tiếng Afrikaans"_s)
+			"af"_s,
+			u"Tiếng Afrikaans"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"Tiếng Akan"_s)
+			"ak"_s,
+			u"Tiếng Akan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.cakm"_s),
-			$of(u"Chữ số Chakma"_s)
+			"type.nu.cakm"_s,
+			u"Chữ số Chakma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bbj"_s),
-			$of(u"Tiếng Ghomala"_s)
+			"bbj"_s,
+			u"Tiếng Ghomala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"Tiếng Amharic"_s)
+			"am"_s,
+			u"Tiếng Amharic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of(u"Tiếng Aragon"_s)
+			"an"_s,
+			u"Tiếng Aragon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(u"Chữ Ả Rập"_s)
+			"Arab"_s,
+			u"Chữ Ả Rập"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SOLBA"_s),
-			$of(u"Phương ngữ Stolvizza/Solbica"_s)
+			"%%SOLBA"_s,
+			u"Phương ngữ Stolvizza/Solbica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(u"Chữ Nhật Bản"_s)
+			"Jpan"_s,
+			u"Chữ Nhật Bản"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"Tiếng Ả Rập"_s)
+			"ar"_s,
+			u"Tiếng Ả Rập"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of(u"Bảng ký hiệu âm tiết Tiếng Nhật"_s)
+			"Hrkt"_s,
+			u"Bảng ký hiệu âm tiết Tiếng Nhật"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of(u"Tiếng Assam"_s)
+			"as"_s,
+			u"Tiếng Assam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lina"_s),
-			$of(u"Chữ Linear A"_s)
+			"Lina"_s,
+			u"Chữ Linear A"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of(u"Tiếng Avaric"_s)
+			"av"_s,
+			u"Tiếng Avaric"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Linb"_s),
-			$of(u"Chữ Linear B"_s)
+			"Linb"_s,
+			u"Chữ Linear B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdh"_s),
-			$of(u"Tiếng Kurd Miền Nam"_s)
+			"sdh"_s,
+			u"Tiếng Kurd Miền Nam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of(u"Tiếng Aymara"_s)
+			"ay"_s,
+			u"Tiếng Aymara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"Tiếng Azerbaijan"_s)
+			"az"_s,
+			u"Tiếng Azerbaijan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khoj"_s),
-			$of(u"Chữ Khojki"_s)
+			"Khoj"_s,
+			u"Chữ Khojki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%OSOJS"_s),
-			$of(u"Phương ngữ Oseacco/Osojane"_s)
+			"%%OSOJS"_s,
+			u"Phương ngữ Oseacco/Osojane"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"Tiếng Bashkir"_s)
+			"ba"_s,
+			u"Tiếng Bashkir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.unihan"_s),
-			$of(u"Trình tự sắp xếp theo bộ-nét"_s)
+			"type.co.unihan"_s,
+			u"Trình tự sắp xếp theo bộ-nét"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"Tiếng Belarus"_s)
+			"be"_s,
+			u"Tiếng Belarus"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"Tiếng Bulgaria"_s)
+			"bg"_s,
+			u"Tiếng Bulgaria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of(u"Tiếng Bislama"_s)
+			"bi"_s,
+			u"Tiếng Bislama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.java"_s),
-			$of(u"Chữ số Java"_s)
+			"type.nu.java"_s,
+			u"Chữ số Java"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"Tiếng Bambara"_s)
+			"bm"_s,
+			u"Tiếng Bambara"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"Tiếng Bangla"_s)
+			"bn"_s,
+			u"Tiếng Bangla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(u"Tiếng Tây Tạng"_s)
+			"bo"_s,
+			u"Tiếng Tây Tạng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of(u"Tiếng Dogrib"_s)
+			"dgr"_s,
+			u"Tiếng Dogrib"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"Tiếng Breton"_s)
+			"br"_s,
+			u"Tiếng Breton"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"Tiếng Bosnia"_s)
+			"bs"_s,
+			u"Tiếng Bosnia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("see"_s),
-			$of(u"Tiếng Seneca"_s)
+			"see"_s,
+			u"Tiếng Seneca"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of(u"Chữ Myanmar"_s)
+			"Mymr"_s,
+			u"Chữ Myanmar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.laoo"_s),
-			$of(u"Chữ số Lào"_s)
+			"type.nu.laoo"_s,
+			u"Chữ số Lào"_s
 		}),
 		$$new($ObjectArray, {
-			$of("seh"_s),
-			$of(u"Tiếng Sena"_s)
+			"seh"_s,
+			u"Tiếng Sena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkoo"_s),
-			$of(u"Chữ N’Ko"_s)
+			"Nkoo"_s,
+			u"Chữ N’Ko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sel"_s),
-			$of(u"Tiếng Selkup"_s)
+			"sel"_s,
+			u"Tiếng Selkup"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"Tiếng Catalan"_s)
+			"ca"_s,
+			u"Tiếng Catalan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ses"_s),
-			$of(u"Tiếng Koyraboro Senni"_s)
+			"ses"_s,
+			u"Tiếng Koyraboro Senni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of(u"Tiếng Chechen"_s)
+			"ce"_s,
+			u"Tiếng Chechen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of(u"Tiếng Chamorro"_s)
+			"ch"_s,
+			u"Tiếng Chamorro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%REVISED"_s),
-			$of(u"Phép chính tả Sửa đổi"_s)
+			"%%REVISED"_s,
+			u"Phép chính tả Sửa đổi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"Tiếng Corsica"_s)
+			"co"_s,
+			u"Tiếng Corsica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(u"Chữ Odia"_s)
+			"Orya"_s,
+			u"Chữ Odia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cr"_s),
-			$of(u"Tiếng Cree"_s)
+			"cr"_s,
+			u"Tiếng Cree"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"Tiếng Séc"_s)
+			"cs"_s,
+			u"Tiếng Séc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of(u"Tiếng Slavơ Nhà thờ"_s)
+			"cu"_s,
+			u"Tiếng Slavơ Nhà thờ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of(u"Tiếng Chuvash"_s)
+			"cv"_s,
+			u"Tiếng Chuvash"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"Tiếng Wales"_s)
+			"cy"_s,
+			u"Tiếng Wales"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ethi"_s),
-			$of(u"Chữ số Ethiopia"_s)
+			"type.nu.ethi"_s,
+			u"Chữ số Ethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Yiii"_s),
-			$of(u"Chữ Di"_s)
+			"Yiii"_s,
+			u"Chữ Di"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"Tiếng Đan Mạch"_s)
+			"da"_s,
+			u"Tiếng Đan Mạch"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"Tiếng Bồ Đào Nha (Châu Âu)"_s)
+			"pt_PT"_s,
+			u"Tiếng Bồ Đào Nha (Châu Âu)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"Tiếng Đức"_s)
+			"de"_s,
+			u"Tiếng Đức"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.standard"_s),
-			$of(u"Định dạng tiền tệ chuẩn"_s)
+			"type.cf.standard"_s,
+			u"Định dạng tiền tệ chuẩn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bej"_s),
-			$of(u"Tiếng Beja"_s)
+			"bej"_s,
+			u"Tiếng Beja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("din"_s),
-			$of(u"Tiếng Dinka"_s)
+			"din"_s,
+			u"Tiếng Dinka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jut"_s),
-			$of(u"Tiếng Jutish"_s)
+			"jut"_s,
+			u"Tiếng Jutish"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bugi"_s),
-			$of(u"Chữ Bugin"_s)
+			"Bugi"_s,
+			u"Chữ Bugin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of(u"Tiếng Bemba"_s)
+			"bem"_s,
+			u"Tiếng Bemba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sga"_s),
-			$of(u"Tiếng Ai-len cổ"_s)
+			"sga"_s,
+			u"Tiếng Ai-len cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mong"_s),
-			$of(u"Chữ số Mông Cổ"_s)
+			"type.nu.mong"_s,
+			u"Chữ số Mông Cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of(u"Tiếng Divehi"_s)
+			"dv"_s,
+			u"Tiếng Divehi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"Tiếng Tây Ban Nha (Mỹ La tinh)"_s)
+			"es_419"_s,
+			u"Tiếng Tây Ban Nha (Mỹ La tinh)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bew"_s),
-			$of(u"Tiếng Betawi"_s)
+			"bew"_s,
+			u"Tiếng Betawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of(u"Tiếng Dzongkha"_s)
+			"dz"_s,
+			u"Tiếng Dzongkha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bez"_s),
-			$of(u"Tiếng Bena"_s)
+			"bez"_s,
+			u"Tiếng Bena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.chinese"_s),
-			$of(u"Lịch Trung Quốc"_s)
+			"type.ca.chinese"_s,
+			u"Lịch Trung Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lisu"_s),
-			$of(u"Chữ Fraser"_s)
+			"Lisu"_s,
+			u"Chữ Fraser"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dje"_s),
-			$of(u"Tiếng Zarma"_s)
+			"dje"_s,
+			u"Tiếng Zarma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.grek"_s),
-			$of(u"Chữ số Hy Lạp"_s)
+			"type.nu.grek"_s,
+			u"Chữ số Hy Lạp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of(u"Tiếng Ewe"_s)
+			"ee"_s,
+			u"Tiếng Ewe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bfd"_s),
-			$of(u"Tiếng Bafut"_s)
+			"bfd"_s,
+			u"Tiếng Bafut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.normal"_s),
-			$of(u"Kiểu xuống dòng thường"_s)
+			"type.lb.normal"_s,
+			u"Kiểu xuống dòng thường"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro_MD"_s),
-			$of(u"Tiếng Moldova"_s)
+			"ro_MD"_s,
+			u"Tiếng Moldova"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"Tiếng Hy Lạp"_s)
+			"el"_s,
+			u"Tiếng Hy Lạp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"Tiếng Anh"_s)
+			"en"_s,
+			u"Tiếng Anh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"Tiếng Quốc Tế Ngữ"_s)
+			"eo"_s,
+			u"Tiếng Quốc Tế Ngữ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bfq"_s),
-			$of(u"Tiếng Badaga"_s)
+			"bfq"_s,
+			u"Tiếng Badaga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.big5han"_s),
-			$of(u"Thứ tự sắp xếp theo tiếng Trung phồn thể - Big5"_s)
+			"type.co.big5han"_s,
+			u"Thứ tự sắp xếp theo tiếng Trung phồn thể - Big5"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"Tiếng Tây Ban Nha"_s)
+			"es"_s,
+			u"Tiếng Tây Ban Nha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"Tiếng Estonia"_s)
+			"et"_s,
+			u"Tiếng Estonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hanb"_s),
-			$of(u"Chữ Hán có chú âm"_s)
+			"Hanb"_s,
+			u"Chữ Hán có chú âm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"Tiếng Basque"_s)
+			"eu"_s,
+			u"Tiếng Basque"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Buhd"_s),
-			$of(u"Chữ Buhid"_s)
+			"Buhd"_s,
+			u"Chữ Buhid"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hang"_s),
-			$of(u"Chữ Hàn"_s)
+			"Hang"_s,
+			u"Chữ Hàn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Samr"_s),
-			$of(u"Chữ Samaritan"_s)
+			"Samr"_s,
+			u"Chữ Samaritan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"Tiếng Tachelhit"_s)
+			"shi"_s,
+			u"Tiếng Tachelhit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of(u"Tiếng Thượng Sorbia"_s)
+			"hsb"_s,
+			u"Tiếng Thượng Sorbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of(u"Chữ Hán"_s)
+			"Hani"_s,
+			u"Chữ Hán"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of(u"Tiếng Shan"_s)
+			"shn"_s,
+			u"Tiếng Shan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hano"_s),
-			$of(u"Chữ Hanunoo"_s)
+			"Hano"_s,
+			u"Chữ Hanunoo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"Tiếng Ba Tư"_s)
+			"fa"_s,
+			u"Tiếng Ba Tư"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of(u"Giản thể"_s)
+			"Hans"_s,
+			u"Giản thể"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of(u"Chữ số phương Tây"_s)
+			"type.nu.latn"_s,
+			u"Chữ số phương Tây"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of(u"Phồn thể"_s)
+			"Hant"_s,
+			u"Phồn thể"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"Tiếng Fulah"_s)
+			"ff"_s,
+			u"Tiếng Fulah"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shu"_s),
-			$of(u"Tiếng Ả-Rập Chad"_s)
+			"shu"_s,
+			u"Tiếng Ả-Rập Chad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsn"_s),
-			$of(u"Tiếng Tương"_s)
+			"hsn"_s,
+			u"Tiếng Tương"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"Tiếng Phần Lan"_s)
+			"fi"_s,
+			u"Tiếng Phần Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of(u"Tiếng Fiji"_s)
+			"fj"_s,
+			u"Tiếng Fiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of(u"Tiếng Fon"_s)
+			"fon"_s,
+			u"Tiếng Fon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bgn"_s),
-			$of(u"Tiếng Tây Balochi"_s)
+			"bgn"_s,
+			u"Tiếng Tây Balochi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yue"_s),
-			$of(u"Tiếng Quảng Đông"_s)
+			"yue"_s,
+			u"Tiếng Quảng Đông"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"Tiếng Faroe"_s)
+			"fo"_s,
+			u"Tiếng Faroe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.bgn"_s),
-			$of(u"Chuyển tự US BGN"_s)
+			"type.m0.bgn"_s,
+			u"Chuyển tự US BGN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of(u"Tiếng Umbundu"_s)
+			"umb"_s,
+			u"Tiếng Umbundu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"Tiếng Pháp"_s)
+			"fr"_s,
+			u"Tiếng Pháp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sid"_s),
-			$of(u"Tiếng Sidamo"_s)
+			"sid"_s,
+			u"Tiếng Sidamo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"Tiếng Frisia"_s)
+			"fy"_s,
+			u"Tiếng Frisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"Tiếng Ireland"_s)
+			"ga"_s,
+			u"Tiếng Ireland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"Tiếng Gael Scotland"_s)
+			"gd"_s,
+			u"Tiếng Gael Scotland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"Tiếng Galician"_s)
+			"gl"_s,
+			u"Tiếng Galician"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"Tiếng Guarani"_s)
+			"gn"_s,
+			u"Tiếng Guarani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of(u"Tiếng Bhojpuri"_s)
+			"bho"_s,
+			u"Tiếng Bhojpuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of(u"Ngôn ngữ không xác định"_s)
+			"und"_s,
+			u"Ngôn ngữ không xác định"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic-amete-alem"_s),
-			$of(u"Lịch Ethiopic Amete Alem"_s)
+			"type.ca.ethiopic-amete-alem"_s,
+			u"Lịch Ethiopic Amete Alem"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(u"Tiếng Gujarati"_s)
+			"gu"_s,
+			u"Tiếng Gujarati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-tbla"_s),
-			$of(u"Lịch Hồi Giáo - Thiên văn"_s)
+			"type.ca.islamic-tbla"_s,
+			u"Lịch Hồi Giáo - Thiên văn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of(u"Tiếng Manx"_s)
+			"gv"_s,
+			u"Tiếng Manx"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.osma"_s),
-			$of(u"Chữ số Osmanya"_s)
+			"type.nu.osma"_s,
+			u"Chữ số Osmanya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"Tiếng Hausa"_s)
+			"ha"_s,
+			u"Tiếng Hausa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"Tiếng Do Thái"_s)
+			"he"_s,
+			u"Tiếng Do Thái"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"Tiếng Hindi"_s)
+			"hi"_s,
+			u"Tiếng Hindi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of(u"Tiếng Hupa"_s)
+			"hup"_s,
+			u"Tiếng Hupa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bik"_s),
-			$of(u"Tiếng Bikol"_s)
+			"bik"_s,
+			u"Tiếng Bikol"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of(u"Tiếng Bini"_s)
+			"bin"_s,
+			u"Tiếng Bini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ho"_s),
-			$of(u"Tiếng Hiri Motu"_s)
+			"ho"_s,
+			u"Tiếng Hiri Motu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"Tiếng Croatia"_s)
+			"hr"_s,
+			u"Tiếng Croatia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"Tiếng Haiti"_s)
+			"ht"_s,
+			u"Tiếng Haiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"Tiếng Hungary"_s)
+			"hu"_s,
+			u"Tiếng Hungary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"Tiếng Armenia"_s)
+			"hy"_s,
+			u"Tiếng Armenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of(u"Tiếng Herero"_s)
+			"hz"_s,
+			u"Tiếng Herero"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frc"_s),
-			$of(u"Tiếng Pháp Cajun"_s)
+			"frc"_s,
+			u"Tiếng Pháp Cajun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%FONIPA"_s),
-			$of(u"Ngữ âm học IPA"_s)
+			"%%FONIPA"_s,
+			u"Ngữ âm học IPA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"Tiếng Khoa Học Quốc Tế"_s)
+			"ia"_s,
+			u"Tiếng Khoa Học Quốc Tế"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jamo"_s),
-			$of(u"Chữ Jamo"_s)
+			"Jamo"_s,
+			u"Chữ Jamo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"Tiếng Indonesia"_s)
+			"id"_s,
+			u"Tiếng Indonesia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tibt"_s),
-			$of(u"Chữ số Tây Tạng"_s)
+			"type.nu.tibt"_s,
+			u"Chữ số Tây Tạng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ie"_s),
-			$of(u"Tiếng Interlingue"_s)
+			"ie"_s,
+			u"Tiếng Interlingue"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"Tiếng Igbo"_s)
+			"ig"_s,
+			u"Tiếng Igbo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of(u"Tiếng Di Tứ Xuyên"_s)
+			"ii"_s,
+			u"Tiếng Di Tứ Xuyên"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frm"_s),
-			$of(u"Tiếng Pháp Trung cổ"_s)
+			"frm"_s,
+			u"Tiếng Pháp Trung cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ik"_s),
-			$of(u"Tiếng Inupiaq"_s)
+			"ik"_s,
+			u"Tiếng Inupiaq"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fro"_s),
-			$of(u"Tiếng Pháp cổ"_s)
+			"fro"_s,
+			u"Tiếng Pháp cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frp"_s),
-			$of(u"Tiếng Arpitan"_s)
+			"frp"_s,
+			u"Tiếng Arpitan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of(u"Tiếng Ido"_s)
+			"io"_s,
+			u"Tiếng Ido"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frs"_s),
-			$of(u"Tiếng Frisian Miền Đông"_s)
+			"frs"_s,
+			u"Tiếng Frisian Miền Đông"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bjn"_s),
-			$of(u"Tiếng Banjar"_s)
+			"bjn"_s,
+			u"Tiếng Banjar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frr"_s),
-			$of(u"Tiếng Frisia Miền Bắc"_s)
+			"frr"_s,
+			u"Tiếng Frisia Miền Bắc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"Tiếng Iceland"_s)
+			"is"_s,
+			u"Tiếng Iceland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"Tiếng Italy"_s)
+			"it"_s,
+			u"Tiếng Italy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"Tiếng Inuktitut"_s)
+			"iu"_s,
+			u"Tiếng Inuktitut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"Tiếng Nhật"_s)
+			"ja"_s,
+			u"Tiếng Nhật"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(u"Chữ Malayalam"_s)
+			"Mlym"_s,
+			u"Chữ Malayalam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sarb"_s),
-			$of(u"Chữ Nam Ả Rập cổ"_s)
+			"Sarb"_s,
+			u"Chữ Nam Ả Rập cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sara"_s),
-			$of(u"Chữ Sarati"_s)
+			"Sara"_s,
+			u"Chữ Sarati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("doi"_s),
-			$of(u"Tiếng Dogri"_s)
+			"doi"_s,
+			u"Tiếng Dogri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.lepc"_s),
-			$of(u"Chữ số Lepcha"_s)
+			"type.nu.lepc"_s,
+			u"Chữ số Lepcha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bkm"_s),
-			$of(u"Tiếng Kom"_s)
+			"bkm"_s,
+			u"Tiếng Kom"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of(u"Tiếng Sami Miền Nam"_s)
+			"sma"_s,
+			u"Tiếng Sami Miền Nam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(u"Tiếng Java"_s)
+			"jv"_s,
+			u"Tiếng Java"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Shaw"_s),
-			$of(u"Chữ Shavian"_s)
+			"Shaw"_s,
+			u"Chữ Shavian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"Tiếng Madura"_s)
+			"mad"_s,
+			u"Tiếng Madura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of(u"Tiếng Lule Sami"_s)
+			"smj"_s,
+			u"Tiếng Lule Sami"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of(u"Tiếng Magahi"_s)
+			"mag"_s,
+			u"Tiếng Magahi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("maf"_s),
-			$of(u"Tiếng Mafa"_s)
+			"maf"_s,
+			u"Tiếng Mafa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of(u"Tiếng Maithili"_s)
+			"mai"_s,
+			u"Tiếng Maithili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of(u"Tiếng Inari Sami"_s)
+			"smn"_s,
+			u"Tiếng Inari Sami"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(u"Tiếng Georgia"_s)
+			"ka"_s,
+			u"Tiếng Georgia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of(u"Tiếng Siksika"_s)
+			"bla"_s,
+			u"Tiếng Siksika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of(u"Tiếng Makasar"_s)
+			"mak"_s,
+			u"Tiếng Makasar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wuu"_s),
-			$of(u"Tiếng Ngô"_s)
+			"wuu"_s,
+			u"Tiếng Ngô"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of(u"Tiếng Skolt Sami"_s)
+			"sms"_s,
+			u"Tiếng Skolt Sami"_s
 		}),
 		$$new($ObjectArray, {
-			$of("man"_s),
-			$of(u"Tiếng Mandingo"_s)
+			"man"_s,
+			u"Tiếng Mandingo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kg"_s),
-			$of(u"Tiếng Kongo"_s)
+			"kg"_s,
+			u"Tiếng Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Goth"_s),
-			$of(u"Chữ Gô-tích"_s)
+			"Goth"_s,
+			u"Chữ Gô-tích"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of(u"Tiếng Kikuyu"_s)
+			"ki"_s,
+			u"Tiếng Kikuyu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of(u"Tiếng Masai"_s)
+			"mas"_s,
+			u"Tiếng Masai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of(u"Tiếng Kuanyama"_s)
+			"kj"_s,
+			u"Tiếng Kuanyama"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of(u"Tiếng Kazakh"_s)
+			"kk"_s,
+			u"Tiếng Kazakh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of(u"Tiếng Kalaallisut"_s)
+			"kl"_s,
+			u"Tiếng Kalaallisut"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(u"Tiếng Khmer"_s)
+			"km"_s,
+			u"Tiếng Khmer"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(u"Tiếng Kannada"_s)
+			"kn"_s,
+			u"Tiếng Kannada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(u"Tiếng Hàn"_s)
+			"ko"_s,
+			u"Tiếng Hàn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of(u"Tiếng Kanuri"_s)
+			"kr"_s,
+			u"Tiếng Kanuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"Tiếng Kashmir"_s)
+			"ks"_s,
+			u"Tiếng Kashmir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cirt"_s),
-			$of(u"Chữ Cirth"_s)
+			"Cirt"_s,
+			u"Chữ Cirth"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lepc"_s),
-			$of(u"Chữ Lepcha"_s)
+			"Lepc"_s,
+			u"Chữ Lepcha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Avst"_s),
-			$of(u"Chữ Avestan"_s)
+			"Avst"_s,
+			u"Chữ Avestan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"Tiếng Kurd"_s)
+			"ku"_s,
+			u"Tiếng Kurd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of(u"Tiếng Komi"_s)
+			"kv"_s,
+			u"Tiếng Komi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of(u"Tiếng Cornwall"_s)
+			"kw"_s,
+			u"Tiếng Cornwall"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"Tiếng Kyrgyz"_s)
+			"ky"_s,
+			u"Tiếng Kyrgyz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of(u"Tiếng Soninke"_s)
+			"snk"_s,
+			u"Tiếng Soninke"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(u"Tiếng La-tinh"_s)
+			"la"_s,
+			u"Tiếng La-tinh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of(u"Tiếng Luxembourg"_s)
+			"lb"_s,
+			u"Tiếng Luxembourg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mlym"_s),
-			$of(u"Chữ số Malayalam"_s)
+			"type.nu.mlym"_s,
+			u"Chữ số Malayalam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of(u"Tiếng Ganda"_s)
+			"lg"_s,
+			u"Tiếng Ganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Roro"_s),
-			$of(u"Chữ Rongorongo"_s)
+			"Roro"_s,
+			u"Chữ Rongorongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of(u"Tiếng Limburg"_s)
+			"li"_s,
+			u"Tiếng Limburg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(u"Chữ Tây Tạng"_s)
+			"Tibt"_s,
+			u"Chữ Tây Tạng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of(u"Tiếng Lingala"_s)
+			"ln"_s,
+			u"Tiếng Lingala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of(u"Tiếng Friulian"_s)
+			"fur"_s,
+			u"Tiếng Friulian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(u"Tiếng Lào"_s)
+			"lo"_s,
+			u"Tiếng Lào"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.uksystem"_s),
-			$of(u"Hệ đo lường Anh"_s)
+			"type.ms.uksystem"_s,
+			u"Hệ đo lường Anh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.lana"_s),
-			$of(u"Chữ số Hora Thái Đam"_s)
+			"type.nu.lana"_s,
+			u"Chữ số Hora Thái Đam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"Tiếng Litva"_s)
+			"lt"_s,
+			u"Tiếng Litva"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of(u"Tiếng Luba-Katanga"_s)
+			"lu"_s,
+			u"Tiếng Luba-Katanga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"Tiếng Latvia"_s)
+			"lv"_s,
+			u"Tiếng Latvia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sog"_s),
-			$of(u"Tiếng Sogdien"_s)
+			"sog"_s,
+			u"Tiếng Sogdien"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"Tiếng Malagasy"_s)
+			"mg"_s,
+			u"Tiếng Malagasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of(u"Tiếng Marshall"_s)
+			"mh"_s,
+			u"Tiếng Marshall"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of(u"Thứ tự sắp xếp unicode mặc định"_s)
+			"type.co.ducet"_s,
+			u"Thứ tự sắp xếp unicode mặc định"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of(u"Tiếng Maori"_s)
+			"mi"_s,
+			u"Tiếng Maori"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"Tiếng Macedonia"_s)
+			"mk"_s,
+			u"Tiếng Macedonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(u"Tiếng Malayalam"_s)
+			"ml"_s,
+			u"Tiếng Malayalam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(u"Tiếng Mông Cổ"_s)
+			"mn"_s,
+			u"Tiếng Mông Cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"Tiếng Marathi"_s)
+			"mr"_s,
+			u"Tiếng Marathi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"Tiếng Mã Lai"_s)
+			"ms"_s,
+			u"Tiếng Mã Lai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"Tiếng Malta"_s)
+			"mt"_s,
+			u"Tiếng Malta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"Tiếng Miến Điện"_s)
+			"my"_s,
+			u"Tiếng Miến Điện"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Saur"_s),
-			$of(u"Chữ Saurashtra"_s)
+			"Saur"_s,
+			u"Chữ Saurashtra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(u"Chữ Armenia"_s)
+			"Armn"_s,
+			u"Chữ Armenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of(u"Tiếng Moksha"_s)
+			"mdf"_s,
+			u"Tiếng Moksha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mde"_s),
-			$of(u"Tiếng Maba"_s)
+			"mde"_s,
+			u"Tiếng Maba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of(u"Tiếng Hạ Sorbia"_s)
+			"dsb"_s,
+			u"Tiếng Hạ Sorbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armi"_s),
-			$of(u"Chữ Imperial Aramaic"_s)
+			"Armi"_s,
+			u"Chữ Imperial Aramaic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(u"Tiếng Nauru"_s)
+			"na"_s,
+			u"Tiếng Nauru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.search"_s),
-			$of(u"Tìm kiếm mục đích chung"_s)
+			"type.co.search"_s,
+			u"Tìm kiếm mục đích chung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"Tiếng Na Uy (Bokmål)"_s)
+			"nb"_s,
+			u"Tiếng Na Uy (Bokmål)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of(u"Tiếng Ndebele Miền Bắc"_s)
+			"nd"_s,
+			u"Tiếng Ndebele Miền Bắc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"Tiếng Nepal"_s)
+			"ne"_s,
+			u"Tiếng Nepal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of(u"Tiếng Ndonga"_s)
+			"ng"_s,
+			u"Tiếng Ndonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdr"_s),
-			$of(u"Tiếng Mandar"_s)
+			"mdr"_s,
+			u"Tiếng Mandar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"Tiếng Hà Lan"_s)
+			"nl"_s,
+			u"Tiếng Hà Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"Tiếng Na Uy (Nynorsk)"_s)
+			"nn"_s,
+			u"Tiếng Na Uy (Nynorsk)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"Tiếng Na Uy"_s)
+			"no"_s,
+			u"Tiếng Na Uy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of(u"Tiếng Ndebele Miền Nam"_s)
+			"nr"_s,
+			u"Tiếng Ndebele Miền Nam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.modi"_s),
-			$of(u"Chữ số Modi"_s)
+			"type.nu.modi"_s,
+			u"Chữ số Modi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"Tiếng Navajo"_s)
+			"nv"_s,
+			u"Tiếng Navajo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaa"_s),
-			$of(u"Tiếng Kara-Kalpak"_s)
+			"kaa"_s,
+			u"Tiếng Kara-Kalpak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of(u"Tiếng Nyanja"_s)
+			"ny"_s,
+			u"Tiếng Nyanja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of(u"Tiếng Kachin"_s)
+			"kac"_s,
+			u"Tiếng Kachin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of(u"Tiếng Kabyle"_s)
+			"kab"_s,
+			u"Tiếng Kabyle"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POLYTON"_s),
-			$of(u"Đa âm"_s)
+			"%%POLYTON"_s,
+			u"Đa âm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"Tiếng Occitan"_s)
+			"oc"_s,
+			u"Tiếng Occitan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaj"_s),
-			$of(u"Tiếng Jju"_s)
+			"kaj"_s,
+			u"Tiếng Jju"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of(u"Tiếng Kamba"_s)
+			"kam"_s,
+			u"Tiếng Kamba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of(u"Tiếng Mende"_s)
+			"men"_s,
+			u"Tiếng Mende"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%EMODENG"_s),
-			$of(u"Tiếng Anh Hiện đại Thời kỳ đầu"_s)
+			"%%EMODENG"_s,
+			u"Tiếng Anh Hiện đại Thời kỳ đầu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oj"_s),
-			$of(u"Tiếng Ojibwa"_s)
+			"oj"_s,
+			u"Tiếng Ojibwa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mer"_s),
-			$of(u"Tiếng Meru"_s)
+			"mer"_s,
+			u"Tiếng Meru"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armn"_s),
-			$of(u"Chữ số Armenia"_s)
+			"type.nu.armn"_s,
+			u"Chữ số Armenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of(u"Tiếng Oromo"_s)
+			"om"_s,
+			u"Tiếng Oromo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaw"_s),
-			$of(u"Tiếng Kawi"_s)
+			"kaw"_s,
+			u"Tiếng Kawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dtp"_s),
-			$of(u"Tiếng Dusun Miền Trung"_s)
+			"dtp"_s,
+			u"Tiếng Dusun Miền Trung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(u"Tiếng Odia"_s)
+			"or"_s,
+			u"Tiếng Odia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"Tiếng Ossetic"_s)
+			"os"_s,
+			u"Tiếng Ossetic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%ALALC97"_s),
-			$of(u"La Mã hóa ALA-LC, ấn bản năm 1997"_s)
+			"%%ALALC97"_s,
+			u"La Mã hóa ALA-LC, ấn bản năm 1997"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bpy"_s),
-			$of(u"Tiếng Bishnupriya"_s)
+			"bpy"_s,
+			u"Tiếng Bishnupriya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of(u"Tiếng Kabardian"_s)
+			"kbd"_s,
+			u"Tiếng Kabardian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mfe"_s),
-			$of(u"Tiếng Morisyen"_s)
+			"mfe"_s,
+			u"Tiếng Morisyen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of(u"Tiếng Sranan Tongo"_s)
+			"srn"_s,
+			u"Tiếng Sranan Tongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"Tiếng Punjab"_s)
+			"pa"_s,
+			u"Tiếng Punjab"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of(u"Tiếng Duala"_s)
+			"dua"_s,
+			u"Tiếng Duala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srr"_s),
-			$of(u"Tiếng Serer"_s)
+			"srr"_s,
+			u"Tiếng Serer"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%LIPAW"_s),
-			$of(u"Phương ngữ Lipovaz của người Resian"_s)
+			"%%LIPAW"_s,
+			u"Phương ngữ Lipovaz của người Resian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbl"_s),
-			$of(u"Tiếng Kanembu"_s)
+			"kbl"_s,
+			u"Tiếng Kanembu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pi"_s),
-			$of(u"Tiếng Pali"_s)
+			"pi"_s,
+			u"Tiếng Pali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bqi"_s),
-			$of(u"Tiếng Bakhtiari"_s)
+			"bqi"_s,
+			u"Tiếng Bakhtiari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"Tiếng Ba Lan"_s)
+			"pl"_s,
+			u"Tiếng Ba Lan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dum"_s),
-			$of(u"Tiếng Hà Lan Trung cổ"_s)
+			"dum"_s,
+			u"Tiếng Hà Lan Trung cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.saur"_s),
-			$of(u"Chữ số Saurashtra"_s)
+			"type.nu.saur"_s,
+			u"Chữ số Saurashtra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.dangi"_s),
-			$of(u"Lịch Dangi"_s)
+			"type.ca.dangi"_s,
+			u"Lịch Dangi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"Tiếng Pashto"_s)
+			"ps"_s,
+			u"Tiếng Pashto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"Tiếng Bồ Đào Nha"_s)
+			"pt"_s,
+			u"Tiếng Bồ Đào Nha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"Tiếng Ai-len Trung cổ"_s)
+			"mga"_s,
+			u"Tiếng Ai-len Trung cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.co"_s),
-			$of(u"Thứ tự sắp xếp"_s)
+			"key.co"_s,
+			u"Thứ tự sắp xếp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BOHORIC"_s),
-			$of(u"Bảng chữ cái Bohorič"_s)
+			"%%BOHORIC"_s,
+			u"Bảng chữ cái Bohorič"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kcg"_s),
-			$of(u"Tiếng Tyap"_s)
+			"kcg"_s,
+			u"Tiếng Tyap"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgh"_s),
-			$of(u"Tiếng Makhuwa-Meetto"_s)
+			"mgh"_s,
+			u"Tiếng Makhuwa-Meetto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cf"_s),
-			$of(u"Định dạng tiền tệ"_s)
+			"key.cf"_s,
+			u"Định dạng tiền tệ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.nkoo"_s),
-			$of(u"Chữ số N’Ko"_s)
+			"type.nu.nkoo"_s,
+			u"Chữ số N’Ko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bra"_s),
-			$of(u"Tiếng Braj"_s)
+			"bra"_s,
+			u"Tiếng Braj"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ca"_s),
-			$of(u"Lịch"_s)
+			"key.ca"_s,
+			u"Lịch"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(u"Chữ Lào"_s)
+			"Laoo"_s,
+			u"Chữ Lào"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgo"_s),
-			$of(u"Tiếng Meta’"_s)
+			"mgo"_s,
+			u"Tiếng Meta’"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h23"_s),
-			$of(u"Hệ thống 24 giờ (0–23)"_s)
+			"type.hc.h23"_s,
+			u"Hệ thống 24 giờ (0–23)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h24"_s),
-			$of(u"Hệ thống 24 giờ (1–24)"_s)
+			"type.hc.h24"_s,
+			u"Hệ thống 24 giờ (1–24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssy"_s),
-			$of(metaValue_ssy)
+			"ssy"_s,
+			metaValue_ssy
 		}),
 		$$new($ObjectArray, {
-			$of("brh"_s),
-			$of(u"Tiếng Brahui"_s)
+			"brh"_s,
+			u"Tiếng Brahui"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymr"_s),
-			$of(u"Chữ số Myanma"_s)
+			"type.nu.mymr"_s,
+			u"Chữ số Myanma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of(u"Tiếng Quechua"_s)
+			"qu"_s,
+			u"Tiếng Quechua"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zap"_s),
-			$of(u"Tiếng Zapotec"_s)
+			"zap"_s,
+			u"Tiếng Zapotec"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brx"_s),
-			$of(u"Tiếng Bodo"_s)
+			"brx"_s,
+			u"Tiếng Bodo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lana"_s),
-			$of(u"Chữ Lanna"_s)
+			"Lana"_s,
+			u"Chữ Lanna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kde"_s),
-			$of(u"Tiếng Makonde"_s)
+			"kde"_s,
+			u"Tiếng Makonde"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"Chữ Ethiopia"_s)
+			"Ethi"_s,
+			u"Chữ Ethiopia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h12"_s),
-			$of(u"Hệ thống 12 giờ (1–12)"_s)
+			"type.hc.h12"_s,
+			u"Hệ thống 12 giờ (1–12)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h11"_s),
-			$of(u"Hệ thống 12 giờ (0–11)"_s)
+			"type.hc.h11"_s,
+			u"Hệ thống 12 giờ (0–11)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"Tiếng Romansh"_s)
+			"rm"_s,
+			u"Tiếng Romansh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of(u"Tiếng Rundi"_s)
+			"rn"_s,
+			u"Tiếng Rundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cu"_s),
-			$of(u"Tiền tệ"_s)
+			"key.cu"_s,
+			u"Tiền tệ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"Tiếng Romania"_s)
+			"ro"_s,
+			u"Tiếng Romania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SAAHO"_s),
-			$of(metaValue_ssy)
+			"%%SAAHO"_s,
+			metaValue_ssy
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.orya"_s),
-			$of(u"Chữ số Odia"_s)
+			"type.nu.orya"_s,
+			u"Chữ số Odia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hanidec"_s),
-			$of(u"Chữ số thập phân Trung Quốc"_s)
+			"type.nu.hanidec"_s,
+			u"Chữ số thập phân Trung Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"Tiếng Nga"_s)
+			"ru"_s,
+			u"Tiếng Nga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bss"_s),
-			$of(u"Tiếng Akoose"_s)
+			"bss"_s,
+			u"Tiếng Akoose"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"Tiếng Kinyarwanda"_s)
+			"rw"_s,
+			u"Tiếng Kinyarwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zbl"_s),
-			$of(u"Ký hiệu Blissymbols"_s)
+			"zbl"_s,
+			u"Ký hiệu Blissymbols"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kea"_s),
-			$of(u"Tiếng Kabuverdianu"_s)
+			"kea"_s,
+			u"Tiếng Kabuverdianu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"Tiếng Micmac"_s)
+			"mic"_s,
+			u"Tiếng Micmac"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of(u"Tiếng Sukuma"_s)
+			"suk"_s,
+			u"Tiếng Sukuma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dupl"_s),
-			$of(u"Chữ tốc ký Duployan"_s)
+			"Dupl"_s,
+			u"Chữ tốc ký Duployan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"Tiếng Phạn"_s)
+			"sa"_s,
+			u"Tiếng Phạn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCCOR"_s),
-			$of(u"Phép chính tả Hợp nhất"_s)
+			"%%UCCOR"_s,
+			u"Phép chính tả Hợp nhất"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"Tiếng Sardinia"_s)
+			"sc"_s,
+			u"Tiếng Sardinia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sus"_s),
-			$of(u"Tiếng Susu"_s)
+			"sus"_s,
+			u"Tiếng Susu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of(u"Tiếng Sindhi"_s)
+			"sd"_s,
+			u"Tiếng Sindhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"Tiếng Sami Miền Bắc"_s)
+			"se"_s,
+			u"Tiếng Sami Miền Bắc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of(u"Tiếng Minangkabau"_s)
+			"min"_s,
+			u"Tiếng Minangkabau"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of(u"Tiếng Sango"_s)
+			"sg"_s,
+			u"Tiếng Sango"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sh"_s),
-			$of(u"Tiếng Serbo-Croatia"_s)
+			"sh"_s,
+			u"Tiếng Serbo-Croatia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"Tiếng Sinhala"_s)
+			"si"_s,
+			u"Tiếng Sinhala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sux"_s),
-			$of(u"Tiếng Sumeria"_s)
+			"sux"_s,
+			u"Tiếng Sumeria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"Tiếng Slovak"_s)
+			"sk"_s,
+			u"Tiếng Slovak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"Tiếng Slovenia"_s)
+			"sl"_s,
+			u"Tiếng Slovenia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gran"_s),
-			$of(u"Chữ Grantha"_s)
+			"Gran"_s,
+			u"Chữ Grantha"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"Tiếng Samoa"_s)
+			"sm"_s,
+			u"Tiếng Samoa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of(u"Tiếng Shona"_s)
+			"sn"_s,
+			u"Tiếng Shona"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"Tiếng Somali"_s)
+			"so"_s,
+			u"Tiếng Somali"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arab"_s),
-			$of(u"Chữ số Ả Rập - Ấn Độ"_s)
+			"type.nu.arab"_s,
+			u"Chữ số Ả Rập - Ấn Độ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"Tiếng Albania"_s)
+			"sq"_s,
+			u"Tiếng Albania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"Tiếng Serbia"_s)
+			"sr"_s,
+			u"Tiếng Serbia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of(u"Tiếng Swati"_s)
+			"ss"_s,
+			u"Tiếng Swati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.account"_s),
-			$of(u"Định dạng tiền tệ kế toán"_s)
+			"type.cf.account"_s,
+			u"Định dạng tiền tệ kế toán"_s
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"Tiếng Sotho Miền Nam"_s)
+			"st"_s,
+			u"Tiếng Sotho Miền Nam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Java"_s),
-			$of(u"Chữ Java"_s)
+			"Java"_s,
+			u"Chữ Java"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(u"Tiếng Sunda"_s)
+			"su"_s,
+			u"Tiếng Sunda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NEDIS"_s),
-			$of(u"Phương ngữ Natisone"_s)
+			"%%NEDIS"_s,
+			u"Phương ngữ Natisone"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"Tiếng Thụy Điển"_s)
+			"sv"_s,
+			u"Tiếng Thụy Điển"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"Tiếng Swahili"_s)
+			"sw"_s,
+			u"Tiếng Swahili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.wcho"_s),
-			$of(u"Chữ số Wancho"_s)
+			"type.nu.wcho"_s,
+			u"Chữ số Wancho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hantfin"_s),
-			$of(u"Chữ số dùng trong tài chính của tiếng Trung phồn thể"_s)
+			"type.nu.hantfin"_s,
+			u"Chữ số dùng trong tài chính của tiếng Trung phồn thể"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibb"_s),
-			$of(u"Tiếng Ibibio"_s)
+			"ibb"_s,
+			u"Tiếng Ibibio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of(u"Tiếng Iban"_s)
+			"iba"_s,
+			u"Tiếng Iban"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(u"Tiếng Tamil"_s)
+			"ta"_s,
+			u"Tiếng Tamil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"Châu Á"_s)
+			"142"_s,
+			u"Châu Á"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bua"_s),
-			$of(u"Tiếng Buriat"_s)
+			"bua"_s,
+			u"Tiếng Buriat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of(u"Trung Á"_s)
+			"143"_s,
+			u"Trung Á"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(u"Tiếng Telugu"_s)
+			"te"_s,
+			u"Tiếng Telugu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"Tây Á"_s)
+			"145"_s,
+			u"Tây Á"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of(u"Tiếng Tajik"_s)
+			"tg"_s,
+			u"Tiếng Tajik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(u"Tiếng Thái"_s)
+			"th"_s,
+			u"Tiếng Thái"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"Tiếng Tigrinya"_s)
+			"ti"_s,
+			u"Tiếng Tigrinya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of(u"Tiếng Bugin"_s)
+			"bug"_s,
+			u"Tiếng Bugin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kfo"_s),
-			$of(u"Tiếng Koro"_s)
+			"kfo"_s,
+			u"Tiếng Koro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"Tiếng Turkmen"_s)
+			"tk"_s,
+			u"Tiếng Turkmen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tl"_s),
-			$of(u"Tiếng Tagalog"_s)
+			"tl"_s,
+			u"Tiếng Tagalog"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of(u"Tiếng Tswana"_s)
+			"tn"_s,
+			u"Tiếng Tswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of(u"Tiếng Tonga"_s)
+			"to"_s,
+			u"Tiếng Tonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bum"_s),
-			$of(u"Tiếng Bulu"_s)
+			"bum"_s,
+			u"Tiếng Bulu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyo"_s),
-			$of(u"Tiếng Jola-Fonyi"_s)
+			"dyo"_s,
+			u"Tiếng Jola-Fonyi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpan"_s),
-			$of(u"Chữ số Nhật Bản"_s)
+			"type.nu.jpan"_s,
+			u"Chữ số Nhật Bản"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"Tiếng Thổ Nhĩ Kỳ"_s)
+			"tr"_s,
+			u"Tiếng Thổ Nhĩ Kỳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of(u"Tiếng Tsonga"_s)
+			"ts"_s,
+			u"Tiếng Tsonga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swb"_s),
-			$of(u"Tiếng Cômo"_s)
+			"swb"_s,
+			u"Tiếng Cômo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cakm"_s),
-			$of(u"Chữ Chakma"_s)
+			"Cakm"_s,
+			u"Chữ Chakma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of(u"Tiếng Tatar"_s)
+			"tt"_s,
+			u"Tiếng Tatar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyu"_s),
-			$of(u"Tiếng Dyula"_s)
+			"dyu"_s,
+			u"Tiếng Dyula"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of(u"Tiếng Twi"_s)
+			"tw"_s,
+			u"Tiếng Twi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"Tiếng Tahiti"_s)
+			"ty"_s,
+			u"Tiếng Tahiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BISKE"_s),
-			$of(u"Phương ngữ San Giorgio/Bila"_s)
+			"%%BISKE"_s,
+			u"Phương ngữ San Giorgio/Bila"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"Châu Âu"_s)
+			"150"_s,
+			u"Châu Âu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"Đông Âu"_s)
+			"151"_s,
+			u"Đông Âu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.rohg"_s),
-			$of(u"Chữ số Rohg"_s)
+			"type.nu.rohg"_s,
+			u"Chữ số Rohg"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mathsanb"_s),
-			$of(u"Chữ số Mathsanb"_s)
+			"type.nu.mathsanb"_s,
+			u"Chữ số Mathsanb"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"Bắc Âu"_s)
+			"154"_s,
+			u"Bắc Âu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzg"_s),
-			$of(u"Tiếng Dazaga"_s)
+			"dzg"_s,
+			u"Tiếng Dazaga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"Tây Âu"_s)
+			"155"_s,
+			u"Tây Âu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of(u"Tiếng Uyghur"_s)
+			"ug"_s,
+			u"Tiếng Uyghur"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ital"_s),
-			$of(u"Chữ Italic cổ"_s)
+			"Ital"_s,
+			u"Chữ Italic cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(u"Chữ Hàn Quốc"_s)
+			"Kore"_s,
+			u"Chữ Hàn Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of("Chung"_s)
+			"Zyyy"_s,
+			"Chung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"Tiếng Ukraina"_s)
+			"uk"_s,
+			u"Tiếng Ukraina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.coptic"_s),
-			$of(u"Lịch Copts"_s)
+			"type.ca.coptic"_s,
+			u"Lịch Copts"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"Tiếng Urdu"_s)
+			"ur"_s,
+			u"Tiếng Urdu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1994"_s),
-			$of(u"Phép chính tả Resian Chuẩn hóa"_s)
+			"%%1994"_s,
+			u"Phép chính tả Resian Chuẩn hóa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of(u"Tiếng Kalmyk"_s)
+			"xal"_s,
+			u"Tiếng Kalmyk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zen"_s),
-			$of(u"Tiếng Zenaga"_s)
+			"zen"_s,
+			u"Tiếng Zenaga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"Tiếng Uzbek"_s)
+			"uz"_s,
+			u"Tiếng Uzbek"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of(u"Tiếng Khasi"_s)
+			"kha"_s,
+			u"Tiếng Khasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1996"_s),
-			$of(u"Phép chính tả Tiếng Đức năm 1996"_s)
+			"%%1996"_s,
+			u"Phép chính tả Tiếng Đức năm 1996"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds_NL"_s),
-			$of(u"Tiếng Hạ Saxon"_s)
+			"nds_NL"_s,
+			u"Tiếng Hạ Saxon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sylo"_s),
-			$of(u"Chữ Syloti Nagri"_s)
+			"Sylo"_s,
+			u"Chữ Syloti Nagri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of(u"Tiếng Venda"_s)
+			"ve"_s,
+			u"Tiếng Venda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Wara"_s),
-			$of(u"Chữ Varang Kshiti"_s)
+			"Wara"_s,
+			u"Chữ Varang Kshiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of(u"Lịch Trung Hoa Dân Quốc"_s)
+			"type.ca.roc"_s,
+			u"Lịch Trung Hoa Dân Quốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"Tiếng Việt"_s)
+			"vi"_s,
+			u"Tiếng Việt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kho"_s),
-			$of(u"Tiếng Khotan"_s)
+			"kho"_s,
+			u"Tiếng Khotan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khq"_s),
-			$of(u"Tiếng Koyra Chiini"_s)
+			"khq"_s,
+			u"Tiếng Koyra Chiini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.hc"_s),
-			$of(u"Chu kỳ giờ (12 với 24)"_s)
+			"key.hc"_s,
+			u"Chu kỳ giờ (12 với 24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%TARASK"_s),
-			$of(u"Phép chính tả Taraskievica"_s)
+			"%%TARASK"_s,
+			u"Phép chính tả Taraskievica"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of(u"Tiếng Volapük"_s)
+			"vo"_s,
+			u"Tiếng Volapük"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syc"_s),
-			$of(u"Tiếng Syriac cổ"_s)
+			"syc"_s,
+			u"Tiếng Syriac cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mathsans"_s),
-			$of(u"Chữ số Mathsans"_s)
+			"type.nu.mathsans"_s,
+			u"Chữ số Mathsans"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Osma"_s),
-			$of(u"Chữ Osmanya"_s)
+			"Osma"_s,
+			u"Chữ Osmanya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("quc"_s),
-			$of(u"Tiếng Kʼicheʼ"_s)
+			"quc"_s,
+			u"Tiếng Kʼicheʼ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gonm"_s),
-			$of(u"Chữ số Gonm"_s)
+			"type.nu.gonm"_s,
+			u"Chữ số Gonm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qug"_s),
-			$of(u"Tiếng Quechua ở Cao nguyên Chimborazo"_s)
+			"qug"_s,
+			u"Tiếng Quechua ở Cao nguyên Chimborazo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of(u"Tiếng Ga"_s)
+			"gaa"_s,
+			u"Tiếng Ga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"Tiếng Walloon"_s)
+			"wa"_s,
+			u"Tiếng Walloon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gag"_s),
-			$of(u"Tiếng Gagauz"_s)
+			"gag"_s,
+			u"Tiếng Gagauz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of(u"Tiếng Syriac"_s)
+			"syr"_s,
+			u"Tiếng Syriac"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gong"_s),
-			$of(u"Chữ số Gong"_s)
+			"type.nu.gong"_s,
+			u"Chữ số Gong"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(u"Chữ Hy Lạp"_s)
+			"Grek"_s,
+			u"Chữ Hy Lạp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gan"_s),
-			$of(u"Tiếng Cám"_s)
+			"gan"_s,
+			u"Tiếng Cám"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lydi"_s),
-			$of(u"Chữ Lydia"_s)
+			"Lydi"_s,
+			u"Chữ Lydia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xsux"_s),
-			$of(u"Chữ hình nêm Sumero-Akkadian"_s)
+			"Xsux"_s,
+			u"Chữ hình nêm Sumero-Akkadian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of(u"Tiếng Wolof"_s)
+			"wo"_s,
+			u"Tiếng Wolof"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"Tiếng Tamazight Chuẩn của Ma-rốc"_s)
+			"zgh"_s,
+			u"Tiếng Tamazight Chuẩn của Ma-rốc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of(u"Tiếng Ả Rập Hiện đại"_s)
+			"ar_001"_s,
+			u"Tiếng Ả Rập Hiện đại"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cans"_s),
-			$of(u"Âm tiết Thổ dân Canada Hợp nhất"_s)
+			"Cans"_s,
+			u"Âm tiết Thổ dân Canada Hợp nhất"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gay"_s),
-			$of(u"Tiếng Gayo"_s)
+			"gay"_s,
+			u"Tiếng Gayo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(u"Chữ Mông Cổ"_s)
+			"Mong"_s,
+			u"Chữ Mông Cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mnc"_s),
-			$of(u"Tiếng Mãn Châu"_s)
+			"mnc"_s,
+			u"Tiếng Mãn Châu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latf"_s),
-			$of(u"Chữ La-tinh Fraktur"_s)
+			"Latf"_s,
+			u"Chữ La-tinh Fraktur"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hluw"_s),
-			$of(u"Chữ tượng hình Anatolia"_s)
+			"Hluw"_s,
+			u"Chữ tượng hình Anatolia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gba"_s),
-			$of(u"Tiếng Gbaya"_s)
+			"gba"_s,
+			u"Tiếng Gbaya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of(u"Tiếng Manipuri"_s)
+			"mni"_s,
+			u"Tiếng Manipuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(u"Chữ La tinh"_s)
+			"Latn"_s,
+			u"Chữ La tinh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latg"_s),
-			$of(u"Chữ La-tinh Xcốt-len"_s)
+			"Latg"_s,
+			u"Chữ La-tinh Xcốt-len"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hans"_s),
-			$of(u"Chữ số của tiếng Trung giản thể"_s)
+			"type.nu.hans"_s,
+			u"Chữ số của tiếng Trung giản thể"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hant"_s),
-			$of(u"Chữ số tiếng Trung phồn thể"_s)
+			"type.nu.hant"_s,
+			u"Chữ số tiếng Trung phồn thể"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"Tiếng Xhosa"_s)
+			"xh"_s,
+			u"Tiếng Xhosa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.romanlow"_s),
-			$of(u"Chữ số La Mã viết thường"_s)
+			"type.nu.romanlow"_s,
+			u"Chữ số La Mã viết thường"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of(u"Tiếng Blin"_s)
+			"byn"_s,
+			u"Tiếng Blin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%PAMAKA"_s),
-			$of(u"Phương ngữ Pamaka"_s)
+			"%%PAMAKA"_s,
+			u"Phương ngữ Pamaka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lyci"_s),
-			$of(u"Chữ Lycia"_s)
+			"Lyci"_s,
+			u"Chữ Lycia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("osa"_s),
-			$of(u"Tiếng Osage"_s)
+			"osa"_s,
+			u"Tiếng Osage"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byv"_s),
-			$of(u"Tiếng Medumba"_s)
+			"byv"_s,
+			u"Tiếng Medumba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Moon"_s),
-			$of(u"Chữ nổi Moon"_s)
+			"Moon"_s,
+			u"Chữ nổi Moon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"Tiếng Mohawk"_s)
+			"moh"_s,
+			u"Tiếng Mohawk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of(u"Tiếng Kako"_s)
+			"kkj"_s,
+			u"Tiếng Kako"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1694ACAD"_s),
-			$of(u"Tiếng Pháp Hiện đại Thời kỳ đầu"_s)
+			"%%1694ACAD"_s,
+			u"Tiếng Pháp Hiện đại Thời kỳ đầu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"Tiếng Yiddish"_s)
+			"yi"_s,
+			u"Tiếng Yiddish"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of(u"Tiếng Mossi"_s)
+			"mos"_s,
+			u"Tiếng Mossi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrc"_s),
-			$of(u"Chữ Syria"_s)
+			"Syrc"_s,
+			u"Chữ Syria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dsrt"_s),
-			$of(u"Chữ Deseret"_s)
+			"Dsrt"_s,
+			u"Chữ Deseret"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"Tiếng Yoruba"_s)
+			"yo"_s,
+			u"Tiếng Yoruba"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.traditional"_s),
-			$of(u"Số truyền thống"_s)
+			"type.nu.traditional"_s,
+			u"Số truyền thống"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrj"_s),
-			$of(u"Chữ Tây Syria"_s)
+			"Syrj"_s,
+			u"Chữ Tây Syria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ota"_s),
-			$of(u"Tiếng Thổ Nhĩ Kỳ Ottoman"_s)
+			"ota"_s,
+			u"Tiếng Thổ Nhĩ Kỳ Ottoman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syre"_s),
-			$of(u"Chữ Estrangelo Syriac"_s)
+			"Syre"_s,
+			u"Chữ Estrangelo Syriac"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of(u"Tiếng Vai"_s)
+			"vai"_s,
+			u"Tiếng Vai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("za"_s),
-			$of(u"Tiếng Choang"_s)
+			"za"_s,
+			u"Tiếng Choang"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cari"_s),
-			$of(u"Chữ Caria"_s)
+			"Cari"_s,
+			u"Chữ Caria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kln"_s),
-			$of(u"Tiếng Kalenjin"_s)
+			"kln"_s,
+			u"Tiếng Kalenjin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"Tiếng Trung"_s)
+			"zh"_s,
+			u"Tiếng Trung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Afak"_s),
-			$of(u"Chữ Afaka"_s)
+			"Afak"_s,
+			u"Chữ Afaka"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of(u"Chữ Bopomofo"_s)
+			"Bopo"_s,
+			u"Chữ Bopomofo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Perm"_s),
-			$of(u"Chữ Permic cổ"_s)
+			"Perm"_s,
+			u"Chữ Permic cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.lb"_s),
-			$of(u"Kiểu xuống dòng"_s)
+			"key.lb"_s,
+			u"Kiểu xuống dòng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"Tiếng Zulu"_s)
+			"zu"_s,
+			u"Tiếng Zulu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonebook"_s),
-			$of(u"Thứ tự sắp xếp theo danh bạ điện thoại"_s)
+			"type.co.phonebook"_s,
+			u"Thứ tự sắp xếp theo danh bạ điện thoại"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%MONOTON"_s),
-			$of(u"Đơn âm"_s)
+			"%%MONOTON"_s,
+			u"Đơn âm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(u"Chữ Georgia"_s)
+			"Geor"_s,
+			u"Chữ Georgia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Shrd"_s),
-			$of(u"Chữ Sharada"_s)
+			"Shrd"_s,
+			u"Chữ Sharada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of(u"Tiếng Kimbundu"_s)
+			"kmb"_s,
+			u"Tiếng Kimbundu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpanfin"_s),
-			$of(u"Chữ số dùng trong tài chính của tiếng Nhật"_s)
+			"type.nu.jpanfin"_s,
+			u"Chữ số dùng trong tài chính của tiếng Nhật"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cham"_s),
-			$of(u"Chữ Chăm"_s)
+			"Cham"_s,
+			u"Chữ Chăm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"Tiếng Geez"_s)
+			"gez"_s,
+			u"Tiếng Geez"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrn"_s),
-			$of(u"Chữ Đông Syria"_s)
+			"Syrn"_s,
+			u"Chữ Đông Syria"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymrshan"_s),
-			$of(u"Chữ số Myanmar Shan"_s)
+			"type.nu.mymrshan"_s,
+			u"Chữ số Myanmar Shan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Narb"_s),
-			$of(u"Chữ Bắc Ả Rập cổ"_s)
+			"Narb"_s,
+			u"Chữ Bắc Ả Rập cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.olck"_s),
-			$of(u"Chữ số Ol Chiki"_s)
+			"type.nu.olck"_s,
+			u"Chữ số Ol Chiki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.reformed"_s),
-			$of(u"Thứ tự sắp xếp đã sửa đổi"_s)
+			"type.co.reformed"_s,
+			u"Thứ tự sắp xếp đã sửa đổi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tglg"_s),
-			$of(u"Chữ Tagalog"_s)
+			"Tglg"_s,
+			u"Chữ Tagalog"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyd"_s),
-			$of(u"Chữ Ai Cập bình dân"_s)
+			"Egyd"_s,
+			u"Chữ Ai Cập bình dân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyh"_s),
-			$of(u"Chữ Ai Cập thày tu"_s)
+			"Egyh"_s,
+			u"Chữ Ai Cập thày tu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Palm"_s),
-			$of(u"Chữ Palmyrene"_s)
+			"Palm"_s,
+			u"Chữ Palmyrene"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ebu"_s),
-			$of(u"Tiếng Embu"_s)
+			"ebu"_s,
+			u"Tiếng Embu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyp"_s),
-			$of(u"Chữ tượng hình Ai Cập"_s)
+			"Egyp"_s,
+			u"Chữ tượng hình Ai Cập"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geok"_s),
-			$of(u"Chữ Khutsuri Georgia"_s)
+			"Geok"_s,
+			u"Chữ Khutsuri Georgia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("koi"_s),
-			$of(u"Tiếng Komi-Permyak"_s)
+			"koi"_s,
+			u"Tiếng Komi-Permyak"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hung"_s),
-			$of(u"Chữ Hungary cổ"_s)
+			"Hung"_s,
+			u"Chữ Hungary cổ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of(u"Tiếng Konkani"_s)
+			"kok"_s,
+			u"Tiếng Konkani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1901"_s),
-			$of(u"Phép chính tả Tiếng Đức Truyền thống"_s)
+			"%%1901"_s,
+			u"Phép chính tả Tiếng Đức Truyền thống"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kos"_s),
-			$of(u"Tiếng Kosrae"_s)
+			"kos"_s,
+			u"Tiếng Kosrae"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.limb"_s),
-			$of(u"Chữ số Limbu"_s)
+			"type.nu.limb"_s,
+			u"Chữ số Limbu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sund"_s),
-			$of(u"Chữ Xu-đăng"_s)
+			"Sund"_s,
+			u"Chữ Xu-đăng"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of(u"Tiếng Kpelle"_s)
+			"kpe"_s,
+			u"Tiếng Kpelle"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.khmr"_s),
-			$of(u"Chữ số Khơ-me"_s)
+			"type.nu.khmr"_s,
+			u"Chữ số Khơ-me"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tirh"_s),
-			$of(u"Chữ Tirhuta"_s)
+			"Tirh"_s,
+			u"Chữ Tirhuta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of(u"Tiếng Iloko"_s)
+			"ilo"_s,
+			u"Tiếng Iloko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%VALENCIA"_s),
-			$of(u"Tiếng Valencia"_s)
+			"%%VALENCIA"_s,
+			u"Tiếng Valencia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cprt"_s),
-			$of(u"Chứ Síp"_s)
+			"Cprt"_s,
+			u"Chứ Síp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BAKU1926"_s),
-			$of(u"Bảng chữ cái La-tinh Tiếng Turk Hợp nhất"_s)
+			"%%BAKU1926"_s,
+			u"Bảng chữ cái La-tinh Tiếng Turk Hợp nhất"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mua"_s),
-			$of(u"Tiếng Mundang"_s)
+			"mua"_s,
+			u"Tiếng Mundang"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.guru"_s),
-			$of(u"Chữ số Gurmukhi"_s)
+			"type.nu.guru"_s,
+			u"Chữ số Gurmukhi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of(u"Nhiều Ngôn ngữ"_s)
+			"mul"_s,
+			u"Nhiều Ngôn ngữ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"Tiếng Caddo"_s)
+			"cad"_s,
+			u"Tiếng Caddo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ms"_s),
-			$of(u"Hệ thống đo lường"_s)
+			"key.ms"_s,
+			u"Hệ thống đo lường"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of(u"Tiếng Creek"_s)
+			"mus"_s,
+			u"Tiếng Creek"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Glag"_s),
-			$of(u"Chữ Glagolitic"_s)
+			"Glag"_s,
+			u"Chữ Glagolitic"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of(u"Tiếng Gilbert"_s)
+			"gil"_s,
+			u"Tiếng Gilbert"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%KKCOR"_s),
-			$of(u"Phép chính tả Chung"_s)
+			"%%KKCOR"_s,
+			u"Phép chính tả Chung"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cher"_s),
-			$of(u"Chữ Cherokee"_s)
+			"Cher"_s,
+			u"Chữ Cherokee"_s
 		}),
 		$$new($ObjectArray, {
-			$of("car"_s),
-			$of(u"Tiếng Carib"_s)
+			"car"_s,
+			u"Tiếng Carib"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cay"_s),
-			$of(u"Tiếng Cayuga"_s)
+			"cay"_s,
+			u"Tiếng Cayuga"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tamldec"_s),
-			$of(u"Chữ số Tamil"_s)
+			"type.nu.tamldec"_s,
+			u"Chữ số Tamil"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"Tiếng Karachay-Balkar"_s)
+			"krc"_s,
+			u"Tiếng Karachay-Balkar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of(u"Tiếng Ingush"_s)
+			"inh"_s,
+			u"Tiếng Ingush"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa_AF"_s),
-			$of(u"Tiếng Dari"_s)
+			"fa_AF"_s,
+			u"Tiếng Dari"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of(u"Tiếng Karelian"_s)
+			"krl"_s,
+			u"Tiếng Karelian"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of(u"Tiếng Efik"_s)
+			"efi"_s,
+			u"Tiếng Efik"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.nu"_s),
-			$of(metaValue_key_nu)
+			"key.nu"_s,
+			metaValue_key_nu
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of(u"Tiếng Kurukh"_s)
+			"kru"_s,
+			u"Tiếng Kurukh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksb"_s),
-			$of(u"Tiếng Shambala"_s)
+			"ksb"_s,
+			u"Tiếng Shambala"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(u"Chữ Telugu"_s)
+			"Telu"_s,
+			u"Chữ Telugu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksf"_s),
-			$of(u"Tiếng Bafia"_s)
+			"ksf"_s,
+			u"Tiếng Bafia"_s
 		})
 	}));
 	return data;
@@ -4846,7 +4826,22 @@ LocaleNames_vi::LocaleNames_vi() {
 }
 
 $Class* LocaleNames_vi::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_vi, name, initialize, &_LocaleNames_vi_ClassInfo_, allocate$LocaleNames_vi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_vi, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_vi, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_vi",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_vi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_vi);
+	});
 	return class$;
 }
 

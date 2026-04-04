@@ -24,6 +24,7 @@ class $export TestTabSizeWithLineWrap : public ::java::lang::Object {
 	$class(TestTabSizeWithLineWrap, 0, ::java::lang::Object)
 public:
 	TestTabSizeWithLineWrap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0();
 	static void main($StringArray* args);

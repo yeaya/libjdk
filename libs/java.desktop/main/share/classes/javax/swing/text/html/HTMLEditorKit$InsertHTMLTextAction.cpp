@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$InsertHTMLTextAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/IOException.h>
 #include <java/lang/Math.h>
@@ -28,67 +27,12 @@ using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Element = ::javax::swing::text::Element;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
-using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 using $HTMLEditorKit$HTMLTextAction = ::javax::swing::text::html::HTMLEditorKit$HTMLTextAction;
 
 namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$CompoundAttribute _HTMLEditorKit$InsertHTMLTextAction_MethodAnnotations_insertAtBoundry6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _HTMLEditorKit$InsertHTMLTextAction_FieldInfo_[] = {
-	{"html", "Ljava/lang/String;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, html)},
-	{"parentTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, parentTag)},
-	{"addTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, addTag)},
-	{"alternateParentTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, alternateParentTag)},
-	{"alternateAddTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, alternateAddTag)},
-	{"adjustSelection", "Z", nullptr, 0, $field(HTMLEditorKit$InsertHTMLTextAction, adjustSelection$)},
-	{}
-};
-
-$MethodInfo _HTMLEditorKit$InsertHTMLTextAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$InsertHTMLTextAction, init$, void, $String*, $String*, $HTML$Tag*, $HTML$Tag*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$InsertHTMLTextAction, init$, void, $String*, $String*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Z)V", nullptr, 0, $method(HTMLEditorKit$InsertHTMLTextAction, init$, void, $String*, $String*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, actionPerformed, void, $ActionEvent*)},
-	{"adjustSelection", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;II)V", nullptr, 0, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, adjustSelection, void, $JEditorPane*, $HTMLDocument*, int32_t, int32_t)},
-	{"insertAtBoundary", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/Element;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertAtBoundary, void, $JEditorPane*, $HTMLDocument*, int32_t, $Element*, $String*, $HTML$Tag*, $HTML$Tag*)},
-	{"insertAtBoundry", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/Element;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertAtBoundry, void, $JEditorPane*, $HTMLDocument*, int32_t, $Element*, $String*, $HTML$Tag*, $HTML$Tag*), nullptr, nullptr, _HTMLEditorKit$InsertHTMLTextAction_MethodAnnotations_insertAtBoundry6},
-	{"insertHTML", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjava/lang/String;IILjavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertHTML, void, $JEditorPane*, $HTMLDocument*, int32_t, $String*, int32_t, int32_t, $HTML$Tag*)},
-	{"insertIntoTag", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, 0, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertIntoTag, bool, $JEditorPane*, $HTMLDocument*, int32_t, $HTML$Tag*, $HTML$Tag*)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$InsertHTMLTextAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "InsertHTMLTextAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$HTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "HTMLTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$InsertHTMLTextAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction",
-	"javax.swing.text.html.HTMLEditorKit$HTMLTextAction",
-	nullptr,
-	_HTMLEditorKit$InsertHTMLTextAction_FieldInfo_,
-	_HTMLEditorKit$InsertHTMLTextAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$InsertHTMLTextAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$InsertHTMLTextAction($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$InsertHTMLTextAction));
-}
 
 void HTMLEditorKit$InsertHTMLTextAction::init$($String* name, $String* html, $HTML$Tag* parentTag, $HTML$Tag* addTag) {
 	HTMLEditorKit$InsertHTMLTextAction::init$(name, html, parentTag, addTag, nullptr, nullptr);
@@ -109,9 +53,9 @@ void HTMLEditorKit$InsertHTMLTextAction::init$($String* name, $String* html, $HT
 }
 
 void HTMLEditorKit$InsertHTMLTextAction::insertHTML($JEditorPane* editor, $HTMLDocument* doc, int32_t offset, $String* html, int32_t popDepth, int32_t pushDepth, $HTML$Tag* addTag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc($(getHTMLEditorKit(editor)))->insertHTML(doc, offset, html, popDepth, pushDepth, addTag);
+		$$nc(getHTMLEditorKit(editor))->insertHTML(doc, offset, html, popDepth, pushDepth, addTag);
 	} catch ($IOException& ioe) {
 		$throwNew($RuntimeException, $$str({"Unable to insert: "_s, ioe}));
 	} catch ($BadLocationException& ble) {
@@ -124,7 +68,7 @@ void HTMLEditorKit$InsertHTMLTextAction::insertAtBoundary($JEditorPane* editor, 
 }
 
 void HTMLEditorKit$InsertHTMLTextAction::insertAtBoundry($JEditorPane* editor, $HTMLDocument* doc, int32_t offset, $Element* insertElement, $String* html, $HTML$Tag* parentTag, $HTML$Tag* addTag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, e, nullptr);
 	$var($Element, commonParent, nullptr);
 	bool isFirst = (offset == 0);
@@ -136,10 +80,10 @@ void HTMLEditorKit$InsertHTMLTextAction::insertAtBoundry($JEditorPane* editor, $
 				break;
 			}
 			{
-				$assign(e, e->getElement(e->getElementIndex(offset)));
+				$assign(e, $nc(e)->getElement($nc(e)->getElementIndex(offset)));
 			}
 		}
-		$assign(commonParent, (e != nullptr) ? $nc(e)->getParentElement() : ($Element*)nullptr);
+		$assign(commonParent, (e != nullptr) ? e->getParentElement() : ($Element*)nullptr);
 	} else {
 		$assign(commonParent, insertElement);
 	}
@@ -209,7 +153,7 @@ void HTMLEditorKit$InsertHTMLTextAction::adjustSelection($JEditorPane* pane, $HT
 }
 
 void HTMLEditorKit$InsertHTMLTextAction::actionPerformed($ActionEvent* ae) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, getEditor(ae));
 	if (editor != nullptr) {
 		$var($HTMLDocument, doc, getHTMLDocument(editor));
@@ -231,7 +175,54 @@ HTMLEditorKit$InsertHTMLTextAction::HTMLEditorKit$InsertHTMLTextAction() {
 }
 
 $Class* HTMLEditorKit$InsertHTMLTextAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$InsertHTMLTextAction, name, initialize, &_HTMLEditorKit$InsertHTMLTextAction_ClassInfo_, allocate$HTMLEditorKit$InsertHTMLTextAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"html", "Ljava/lang/String;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, html)},
+		{"parentTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, parentTag)},
+		{"addTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, addTag)},
+		{"alternateParentTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, alternateParentTag)},
+		{"alternateAddTag", "Ljavax/swing/text/html/HTML$Tag;", nullptr, $PROTECTED, $field(HTMLEditorKit$InsertHTMLTextAction, alternateAddTag)},
+		{"adjustSelection", "Z", nullptr, 0, $field(HTMLEditorKit$InsertHTMLTextAction, adjustSelection$)},
+		{}
+	};
+	$CompoundAttribute insertAtBoundrymethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$InsertHTMLTextAction, init$, void, $String*, $String*, $HTML$Tag*, $HTML$Tag*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$InsertHTMLTextAction, init$, void, $String*, $String*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;Z)V", nullptr, 0, $method(HTMLEditorKit$InsertHTMLTextAction, init$, void, $String*, $String*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*, $HTML$Tag*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, actionPerformed, void, $ActionEvent*)},
+		{"adjustSelection", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;II)V", nullptr, 0, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, adjustSelection, void, $JEditorPane*, $HTMLDocument*, int32_t, int32_t)},
+		{"insertAtBoundary", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/Element;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertAtBoundary, void, $JEditorPane*, $HTMLDocument*, int32_t, $Element*, $String*, $HTML$Tag*, $HTML$Tag*)},
+		{"insertAtBoundry", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/Element;Ljava/lang/String;Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertAtBoundry, void, $JEditorPane*, $HTMLDocument*, int32_t, $Element*, $String*, $HTML$Tag*, $HTML$Tag*), nullptr, nullptr, insertAtBoundrymethodAnnotations$$},
+		{"insertHTML", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjava/lang/String;IILjavax/swing/text/html/HTML$Tag;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertHTML, void, $JEditorPane*, $HTMLDocument*, int32_t, $String*, int32_t, int32_t, $HTML$Tag*)},
+		{"insertIntoTag", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/html/HTML$Tag;Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, 0, $virtualMethod(HTMLEditorKit$InsertHTMLTextAction, insertIntoTag, bool, $JEditorPane*, $HTMLDocument*, int32_t, $HTML$Tag*, $HTML$Tag*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "InsertHTMLTextAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$HTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "HTMLTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction",
+		"javax.swing.text.html.HTMLEditorKit$HTMLTextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$InsertHTMLTextAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit$InsertHTMLTextAction));
+	});
 	return class$;
 }
 

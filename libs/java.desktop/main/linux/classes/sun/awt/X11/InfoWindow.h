@@ -39,6 +39,7 @@ public:
 	using ::java::awt::Window::add;
 	using ::java::awt::Window::getMousePosition;
 	using ::java::awt::Window::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* parent, ::java::awt::Color* borderColor);
 	static void access$001(::sun::awt::X11::InfoWindow* x0);
 	virtual ::java::awt::Component* add(::java::awt::Component* c) override;

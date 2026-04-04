@@ -38,6 +38,7 @@ class MetalBumps : public ::javax::swing::Icon {
 	$class(MetalBumps, 0, ::javax::swing::Icon)
 public:
 	MetalBumps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t width, int32_t height, ::java::awt::Color* newTopColor, ::java::awt::Color* newShadowColor, ::java::awt::Color* newBackColor);
 	static ::javax::swing::plaf::metal::BumpBuffer* createBuffer(::java::awt::GraphicsConfiguration* gc, ::java::awt::Color* topColor, ::java::awt::Color* shadowColor, ::java::awt::Color* backColor);
 	virtual int32_t getIconHeight() override;

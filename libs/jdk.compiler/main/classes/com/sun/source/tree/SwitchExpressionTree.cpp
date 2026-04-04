@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/SwitchExpressionTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _SwitchExpressionTree_MethodInfo_[] = {
-	{"getCases", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CaseTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SwitchExpressionTree, getCases, $List*)},
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwitchExpressionTree, getExpression, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _SwitchExpressionTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.SwitchExpressionTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_SwitchExpressionTree_MethodInfo_
-};
-
-$Object* allocate$SwitchExpressionTree($Class* clazz) {
-	return $of($alloc(SwitchExpressionTree));
-}
-
 $Class* SwitchExpressionTree::load$($String* name, bool initialize) {
-	$loadClass(SwitchExpressionTree, name, initialize, &_SwitchExpressionTree_ClassInfo_, allocate$SwitchExpressionTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getCases", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CaseTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SwitchExpressionTree, getCases, $List*)},
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwitchExpressionTree, getExpression, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.SwitchExpressionTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SwitchExpressionTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwitchExpressionTree);
+	});
 	return class$;
 }
 

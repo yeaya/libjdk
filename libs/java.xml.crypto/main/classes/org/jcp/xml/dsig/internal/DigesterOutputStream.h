@@ -58,6 +58,7 @@ class DigesterOutputStream : public ::java::io::OutputStream {
 	$class(DigesterOutputStream, 0, ::java::io::OutputStream)
 public:
 	DigesterOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::MessageDigest* md);
 	void init$(::java::security::MessageDigest* md, bool buffer);
 	virtual void close() override;

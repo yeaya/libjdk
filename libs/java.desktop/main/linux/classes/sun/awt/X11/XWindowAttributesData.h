@@ -50,6 +50,7 @@ class XWindowAttributesData : public ::java::lang::Object {
 	$class(XWindowAttributesData, 0, ::java::lang::Object)
 public:
 	XWindowAttributesData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t NORMAL;
 	static int32_t ICONIC;

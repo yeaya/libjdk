@@ -1,5 +1,4 @@
 #include <java/awt/dnd/Autoscroll.h>
-
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$MethodInfo _Autoscroll_MethodInfo_[] = {
-	{"autoscroll", "(Ljava/awt/Point;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Autoscroll, autoscroll, void, $Point*)},
-	{"getAutoscrollInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Autoscroll, getAutoscrollInsets, $Insets*)},
-	{}
-};
-
-$ClassInfo _Autoscroll_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.dnd.Autoscroll",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Autoscroll_MethodInfo_
-};
-
-$Object* allocate$Autoscroll($Class* clazz) {
-	return $of($alloc(Autoscroll));
-}
-
 $Class* Autoscroll::load$($String* name, bool initialize) {
-	$loadClass(Autoscroll, name, initialize, &_Autoscroll_ClassInfo_, allocate$Autoscroll);
+	$MethodInfo methodInfos$$[] = {
+		{"autoscroll", "(Ljava/awt/Point;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Autoscroll, autoscroll, void, $Point*)},
+		{"getAutoscrollInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Autoscroll, getAutoscrollInsets, $Insets*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.dnd.Autoscroll",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Autoscroll, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Autoscroll);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFAttributes$BooleanAttribute.h>
-
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/rtf/RTFAttributes$GenericAttribute.h>
@@ -21,59 +20,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _RTFAttributes$BooleanAttribute_FieldInfo_[] = {
-	{"rtfDefault", "Z", nullptr, 0, $field(RTFAttributes$BooleanAttribute, rtfDefault)},
-	{"swingDefault", "Z", nullptr, 0, $field(RTFAttributes$BooleanAttribute, swingDefault)},
-	{"True", "Ljava/lang/Boolean;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(RTFAttributes$BooleanAttribute, True)},
-	{"False", "Ljava/lang/Boolean;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(RTFAttributes$BooleanAttribute, False)},
-	{}
-};
-
-$MethodInfo _RTFAttributes$BooleanAttribute_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*domain", "()I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(RTFAttributes$BooleanAttribute, init$, void, int32_t, Object$*, $String*, bool, bool)},
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RTFAttributes$BooleanAttribute, init$, void, int32_t, Object$*, $String*)},
-	{"*rtfName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"set", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, set, bool, $MutableAttributeSet*)},
-	{"set", "(Ljavax/swing/text/MutableAttributeSet;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, set, bool, $MutableAttributeSet*, int32_t)},
-	{"setDefault", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, setDefault, bool, $MutableAttributeSet*)},
-	{"*swingName", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*write", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC},
-	{"writeValue", "(Ljava/lang/Object;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, writeValue, bool, Object$*, $RTFGenerator*, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RTFAttributes$BooleanAttribute_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFAttributes$BooleanAttribute", "javax.swing.text.rtf.RTFAttributes", "BooleanAttribute", $STATIC},
-	{"javax.swing.text.rtf.RTFAttributes$GenericAttribute", "javax.swing.text.rtf.RTFAttributes", "GenericAttribute", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFAttributes$BooleanAttribute_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFAttributes$BooleanAttribute",
-	"javax.swing.text.rtf.RTFAttributes$GenericAttribute",
-	"javax.swing.text.rtf.RTFAttribute",
-	_RTFAttributes$BooleanAttribute_FieldInfo_,
-	_RTFAttributes$BooleanAttribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFAttributes$BooleanAttribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFAttributes"
-};
-
-$Object* allocate$RTFAttributes$BooleanAttribute($Class* clazz) {
-	return $of($alloc(RTFAttributes$BooleanAttribute));
-}
 
 int32_t RTFAttributes$BooleanAttribute::domain() {
 	 return this->$RTFAttributes$GenericAttribute::domain();
@@ -139,7 +85,7 @@ bool RTFAttributes$BooleanAttribute::set($MutableAttributeSet* target, int32_t p
 
 bool RTFAttributes$BooleanAttribute::setDefault($MutableAttributeSet* target) {
 	if (this->swingDefault != this->rtfDefault || ($nc(target)->getAttribute(this->swingName$) != nullptr)) {
-		target->addAttribute(this->swingName$, $($Boolean::valueOf(this->rtfDefault)));
+		$nc(target)->addAttribute(this->swingName$, $($Boolean::valueOf(this->rtfDefault)));
 	}
 	return true;
 }
@@ -152,7 +98,7 @@ bool RTFAttributes$BooleanAttribute::writeValue(Object$* o_value, $RTFGenerator*
 		$assign(val, $cast($Boolean, o_value));
 	}
 	if (force || ($nc(val)->booleanValue() != this->rtfDefault)) {
-		if (val->booleanValue()) {
+		if ($nc(val)->booleanValue()) {
 			$nc(target)->writeControlWord(this->rtfName$);
 		} else {
 			$nc(target)->writeControlWord(this->rtfName$, 0);
@@ -161,7 +107,7 @@ bool RTFAttributes$BooleanAttribute::writeValue(Object$* o_value, $RTFGenerator*
 	return true;
 }
 
-void clinit$RTFAttributes$BooleanAttribute($Class* class$) {
+void RTFAttributes$BooleanAttribute::clinit$($Class* clazz) {
 	$assignStatic(RTFAttributes$BooleanAttribute::True, $Boolean::valueOf(true));
 	$assignStatic(RTFAttributes$BooleanAttribute::False, $Boolean::valueOf(false));
 }
@@ -170,7 +116,54 @@ RTFAttributes$BooleanAttribute::RTFAttributes$BooleanAttribute() {
 }
 
 $Class* RTFAttributes$BooleanAttribute::load$($String* name, bool initialize) {
-	$loadClass(RTFAttributes$BooleanAttribute, name, initialize, &_RTFAttributes$BooleanAttribute_ClassInfo_, clinit$RTFAttributes$BooleanAttribute, allocate$RTFAttributes$BooleanAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"rtfDefault", "Z", nullptr, 0, $field(RTFAttributes$BooleanAttribute, rtfDefault)},
+		{"swingDefault", "Z", nullptr, 0, $field(RTFAttributes$BooleanAttribute, swingDefault)},
+		{"True", "Ljava/lang/Boolean;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(RTFAttributes$BooleanAttribute, True)},
+		{"False", "Ljava/lang/Boolean;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(RTFAttributes$BooleanAttribute, False)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*domain", "()I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(RTFAttributes$BooleanAttribute, init$, void, int32_t, Object$*, $String*, bool, bool)},
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RTFAttributes$BooleanAttribute, init$, void, int32_t, Object$*, $String*)},
+		{"*rtfName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"set", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, set, bool, $MutableAttributeSet*)},
+		{"set", "(Ljavax/swing/text/MutableAttributeSet;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, set, bool, $MutableAttributeSet*, int32_t)},
+		{"setDefault", "(Ljavax/swing/text/MutableAttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, setDefault, bool, $MutableAttributeSet*)},
+		{"*swingName", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*write", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC},
+		{"writeValue", "(Ljava/lang/Object;Ljavax/swing/text/rtf/RTFGenerator;Z)Z", nullptr, $PUBLIC, $virtualMethod(RTFAttributes$BooleanAttribute, writeValue, bool, Object$*, $RTFGenerator*, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFAttributes$BooleanAttribute", "javax.swing.text.rtf.RTFAttributes", "BooleanAttribute", $STATIC},
+		{"javax.swing.text.rtf.RTFAttributes$GenericAttribute", "javax.swing.text.rtf.RTFAttributes", "GenericAttribute", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFAttributes$BooleanAttribute",
+		"javax.swing.text.rtf.RTFAttributes$GenericAttribute",
+		"javax.swing.text.rtf.RTFAttribute",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFAttributes"
+	};
+	$loadClass(RTFAttributes$BooleanAttribute, name, initialize, &classInfo$$, RTFAttributes$BooleanAttribute::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RTFAttributes$BooleanAttribute));
+	});
 	return class$;
 }
 

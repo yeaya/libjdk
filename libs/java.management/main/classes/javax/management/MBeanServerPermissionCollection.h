@@ -33,7 +33,7 @@ public:
 	virtual ::java::util::Enumeration* elements() override;
 	virtual bool implies(::java::security::Permission* permission) override;
 	::javax::management::MBeanServerPermission* collectionPermission = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xB16C9A6BD5FAE3D2;
+	static const int64_t serialVersionUID = (int64_t)0xb16c9a6bd5fae3d2;
 };
 
 	} // management

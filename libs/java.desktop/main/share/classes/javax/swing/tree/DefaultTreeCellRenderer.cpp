@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultTreeCellRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTree$DropLocation.h>
 #include <javax/swing/JTree.h>
@@ -31,7 +29,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Graphics = ::java::awt::Graphics;
@@ -42,13 +39,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTree = ::javax::swing::JTree;
 using $JTree$DropLocation = ::javax::swing::JTree$DropLocation;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $BorderUIResource$EmptyBorderUIResource = ::javax::swing::plaf::BorderUIResource$EmptyBorderUIResource;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
@@ -61,94 +56,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _DefaultTreeCellRenderer_FieldInfo_[] = {
-	{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, tree)},
-	{"selected", "Z", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, selected)},
-	{"hasFocus", "Z", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, hasFocus$)},
-	{"drawsFocusBorderAroundIcon", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, drawsFocusBorderAroundIcon)},
-	{"drawDashedFocusIndicator", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, drawDashedFocusIndicator)},
-	{"treeBGColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, treeBGColor)},
-	{"focusBGColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, focusBGColor)},
-	{"closedIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellRenderer, closedIcon)},
-	{"leafIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellRenderer, leafIcon)},
-	{"openIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellRenderer, openIcon)},
-	{"textSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, textSelectionColor)},
-	{"textNonSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, textNonSelectionColor)},
-	{"backgroundSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, backgroundSelectionColor)},
-	{"backgroundNonSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, backgroundNonSelectionColor)},
-	{"borderSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, borderSelectionColor)},
-	{"isDropCell", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, isDropCell)},
-	{"fillBackground", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, fillBackground)},
-	{"inited", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, inited)},
-	{}
-};
-
-$MethodInfo _DefaultTreeCellRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTreeCellRenderer, init$, void)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"firePropertyChange", "(Ljava/lang/String;BB)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int8_t, int8_t)},
-	{"firePropertyChange", "(Ljava/lang/String;CC)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, char16_t, char16_t)},
-	{"firePropertyChange", "(Ljava/lang/String;SS)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int16_t, int16_t)},
-	{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int32_t, int32_t)},
-	{"firePropertyChange", "(Ljava/lang/String;JJ)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int64_t, int64_t)},
-	{"firePropertyChange", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, float, float)},
-	{"firePropertyChange", "(Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, double, double)},
-	{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, bool, bool)},
-	{"getBackgroundNonSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getBackgroundNonSelectionColor, $Color*)},
-	{"getBackgroundSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getBackgroundSelectionColor, $Color*)},
-	{"getBorderSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getBorderSelectionColor, $Color*)},
-	{"getClosedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getClosedIcon, $Icon*)},
-	{"getDefaultClosedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getDefaultClosedIcon, $Icon*)},
-	{"getDefaultLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getDefaultLeafIcon, $Icon*)},
-	{"getDefaultOpenIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getDefaultOpenIcon, $Icon*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getFont, $Font*)},
-	{"getLabelStart", "()I", nullptr, $PRIVATE, $method(DefaultTreeCellRenderer, getLabelStart, int32_t)},
-	{"getLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getLeafIcon, $Icon*)},
-	{"getOpenIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getOpenIcon, $Icon*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getPreferredSize, $Dimension*)},
-	{"getTextNonSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getTextNonSelectionColor, $Color*)},
-	{"getTextSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getTextSelectionColor, $Color*)},
-	{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, invalidate, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, paint, void, $Graphics*)},
-	{"paintFocus", "(Ljava/awt/Graphics;IIIILjava/awt/Color;)V", nullptr, $PRIVATE, $method(DefaultTreeCellRenderer, paintFocus, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, repaint, void, $Rectangle*)},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, repaint, void)},
-	{"revalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, revalidate, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBackground, void, $Color*)},
-	{"setBackgroundNonSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBackgroundNonSelectionColor, void, $Color*)},
-	{"setBackgroundSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBackgroundSelectionColor, void, $Color*)},
-	{"setBorderSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBorderSelectionColor, void, $Color*)},
-	{"setClosedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setClosedIcon, void, $Icon*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setFont, void, $Font*)},
-	{"setLeafIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setLeafIcon, void, $Icon*)},
-	{"setOpenIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setOpenIcon, void, $Icon*)},
-	{"setTextNonSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setTextNonSelectionColor, void, $Color*)},
-	{"setTextSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setTextSelectionColor, void, $Color*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, updateUI, void)},
-	{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, validate, void)},
-	{}
-};
-
-$ClassInfo _DefaultTreeCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.DefaultTreeCellRenderer",
-	"javax.swing.JLabel",
-	"javax.swing.tree.TreeCellRenderer",
-	_DefaultTreeCellRenderer_FieldInfo_,
-	_DefaultTreeCellRenderer_MethodInfo_
-};
-
-$Object* allocate$DefaultTreeCellRenderer($Class* clazz) {
-	return $of($alloc(DefaultTreeCellRenderer));
-}
 
 $String* DefaultTreeCellRenderer::toString() {
 	 return this->$JLabel::toString();
@@ -176,7 +83,7 @@ void DefaultTreeCellRenderer::init$() {
 }
 
 void DefaultTreeCellRenderer::updateUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JLabel::updateUI();
 	if (!this->inited || ($instanceOf($UIResource, $(getLeafIcon())))) {
 		setLeafIcon($($DefaultLookup::getIcon(this, this->ui, "Tree.leafIcon"_s)));
@@ -303,7 +210,7 @@ void DefaultTreeCellRenderer::setFont($Font* font$renamed) {
 $Font* DefaultTreeCellRenderer::getFont() {
 	$var($Font, font, $JLabel::getFont());
 	if (font == nullptr && this->tree != nullptr) {
-		$assign(font, $nc(this->tree)->getFont());
+		$assign(font, this->tree->getFont());
 	}
 	return font;
 }
@@ -317,7 +224,7 @@ void DefaultTreeCellRenderer::setBackground($Color* color$renamed) {
 }
 
 $Component* DefaultTreeCellRenderer::getTreeCellRendererComponent($JTree* tree, Object$* value, bool sel, bool expanded, bool leaf, int32_t row, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, stringValue, $nc(tree)->convertValueToText(value, sel, expanded, leaf, row, hasFocus));
 	$set(this, tree, tree);
 	this->hasFocus$ = hasFocus;
@@ -366,7 +273,7 @@ $Component* DefaultTreeCellRenderer::getTreeCellRendererComponent($JTree* tree, 
 }
 
 void DefaultTreeCellRenderer::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, bColor, nullptr);
 	if (this->isDropCell) {
 		$assign(bColor, $DefaultLookup::getColor(this, this->ui, "Tree.dropCellBackground"_s));
@@ -385,13 +292,12 @@ void DefaultTreeCellRenderer::paint($Graphics* g) {
 	if (bColor != nullptr && this->fillBackground) {
 		imageOffset = getLabelStart();
 		$nc(g)->setColor(bColor);
-		if ($nc($(getComponentOrientation()))->isLeftToRight()) {
-			int32_t var$0 = imageOffset;
-			int32_t var$1 = getWidth() - imageOffset;
-			g->fillRect(var$0, 0, var$1, getHeight());
+		if ($$nc(getComponentOrientation())->isLeftToRight()) {
+			int32_t var$0 = getWidth() - imageOffset;
+			g->fillRect(imageOffset, 0, var$0, getHeight());
 		} else {
-			int32_t var$2 = getWidth() - imageOffset;
-			g->fillRect(0, 0, var$2, getHeight());
+			int32_t var$1 = getWidth() - imageOffset;
+			g->fillRect(0, 0, var$1, getHeight());
 		}
 	}
 	if (this->hasFocus$) {
@@ -400,15 +306,12 @@ void DefaultTreeCellRenderer::paint($Graphics* g) {
 		} else if (imageOffset == -1) {
 			imageOffset = getLabelStart();
 		}
-		if ($nc($(getComponentOrientation()))->isLeftToRight()) {
-			$var($Graphics, var$3, g);
-			int32_t var$4 = imageOffset;
-			int32_t var$5 = getWidth() - imageOffset;
-			paintFocus(var$3, var$4, 0, var$5, getHeight(), bColor);
+		if ($$nc(getComponentOrientation())->isLeftToRight()) {
+			int32_t var$2 = getWidth() - imageOffset;
+			paintFocus(g, imageOffset, 0, var$2, getHeight(), bColor);
 		} else {
-			$var($Graphics, var$6, g);
-			int32_t var$7 = getWidth() - imageOffset;
-			paintFocus(var$6, 0, 0, var$7, getHeight(), bColor);
+			int32_t var$3 = getWidth() - imageOffset;
+			paintFocus(g, 0, 0, var$3, getHeight(), bColor);
 		}
 	}
 	$JLabel::paint(g);
@@ -470,7 +373,7 @@ void DefaultTreeCellRenderer::firePropertyChange($String* propertyName, Object$*
 	if (!var$0) {
 		bool var$1 = ($SwingUtilities2::isScaleChanged(propertyName, oldValue, newValue) || propertyName == "font"_s || propertyName == "foreground"_s) && !$equals(oldValue, newValue);
 		$init($BasicHTML);
-		var$0 = (var$1 && getClientProperty($BasicHTML::propertyKey) != nullptr);
+		var$0 = var$1 && getClientProperty($BasicHTML::propertyKey) != nullptr;
 	}
 	if (var$0) {
 		$JLabel::firePropertyChange(propertyName, oldValue, newValue);
@@ -505,7 +408,90 @@ DefaultTreeCellRenderer::DefaultTreeCellRenderer() {
 }
 
 $Class* DefaultTreeCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(DefaultTreeCellRenderer, name, initialize, &_DefaultTreeCellRenderer_ClassInfo_, allocate$DefaultTreeCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, tree)},
+		{"selected", "Z", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, selected)},
+		{"hasFocus", "Z", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, hasFocus$)},
+		{"drawsFocusBorderAroundIcon", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, drawsFocusBorderAroundIcon)},
+		{"drawDashedFocusIndicator", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, drawDashedFocusIndicator)},
+		{"treeBGColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, treeBGColor)},
+		{"focusBGColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, focusBGColor)},
+		{"closedIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellRenderer, closedIcon)},
+		{"leafIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellRenderer, leafIcon)},
+		{"openIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTreeCellRenderer, openIcon)},
+		{"textSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, textSelectionColor)},
+		{"textNonSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, textNonSelectionColor)},
+		{"backgroundSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, backgroundSelectionColor)},
+		{"backgroundNonSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, backgroundNonSelectionColor)},
+		{"borderSelectionColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(DefaultTreeCellRenderer, borderSelectionColor)},
+		{"isDropCell", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, isDropCell)},
+		{"fillBackground", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, fillBackground)},
+		{"inited", "Z", nullptr, $PRIVATE, $field(DefaultTreeCellRenderer, inited)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTreeCellRenderer, init$, void)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"firePropertyChange", "(Ljava/lang/String;BB)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int8_t, int8_t)},
+		{"firePropertyChange", "(Ljava/lang/String;CC)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, char16_t, char16_t)},
+		{"firePropertyChange", "(Ljava/lang/String;SS)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int16_t, int16_t)},
+		{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int32_t, int32_t)},
+		{"firePropertyChange", "(Ljava/lang/String;JJ)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, int64_t, int64_t)},
+		{"firePropertyChange", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, float, float)},
+		{"firePropertyChange", "(Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, double, double)},
+		{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, firePropertyChange, void, $String*, bool, bool)},
+		{"getBackgroundNonSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getBackgroundNonSelectionColor, $Color*)},
+		{"getBackgroundSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getBackgroundSelectionColor, $Color*)},
+		{"getBorderSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getBorderSelectionColor, $Color*)},
+		{"getClosedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getClosedIcon, $Icon*)},
+		{"getDefaultClosedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getDefaultClosedIcon, $Icon*)},
+		{"getDefaultLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getDefaultLeafIcon, $Icon*)},
+		{"getDefaultOpenIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getDefaultOpenIcon, $Icon*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getFont, $Font*)},
+		{"getLabelStart", "()I", nullptr, $PRIVATE, $method(DefaultTreeCellRenderer, getLabelStart, int32_t)},
+		{"getLeafIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getLeafIcon, $Icon*)},
+		{"getOpenIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getOpenIcon, $Icon*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getPreferredSize, $Dimension*)},
+		{"getTextNonSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getTextNonSelectionColor, $Color*)},
+		{"getTextSelectionColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getTextSelectionColor, $Color*)},
+		{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, invalidate, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, paint, void, $Graphics*)},
+		{"paintFocus", "(Ljava/awt/Graphics;IIIILjava/awt/Color;)V", nullptr, $PRIVATE, $method(DefaultTreeCellRenderer, paintFocus, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, repaint, void, $Rectangle*)},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, repaint, void)},
+		{"revalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, revalidate, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBackground, void, $Color*)},
+		{"setBackgroundNonSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBackgroundNonSelectionColor, void, $Color*)},
+		{"setBackgroundSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBackgroundSelectionColor, void, $Color*)},
+		{"setBorderSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setBorderSelectionColor, void, $Color*)},
+		{"setClosedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setClosedIcon, void, $Icon*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setFont, void, $Font*)},
+		{"setLeafIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setLeafIcon, void, $Icon*)},
+		{"setOpenIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setOpenIcon, void, $Icon*)},
+		{"setTextNonSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setTextNonSelectionColor, void, $Color*)},
+		{"setTextSelectionColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, setTextSelectionColor, void, $Color*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, updateUI, void)},
+		{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellRenderer, validate, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.DefaultTreeCellRenderer",
+		"javax.swing.JLabel",
+		"javax.swing.tree.TreeCellRenderer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultTreeCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTreeCellRenderer));
+	});
 	return class$;
 }
 

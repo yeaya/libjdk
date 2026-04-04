@@ -88,13 +88,14 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Class* getCategory() override;
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $String* getName() override;
 	virtual $StringArray* getStringTable() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xE97762AA80A5A5AF;
+	static const int64_t serialVersionUID = (int64_t)0xe97762aa80a5a5af;
 	static ::javax::print::attribute::standard::PrinterStateReason* OTHER;
 	static ::javax::print::attribute::standard::PrinterStateReason* MEDIA_NEEDED;
 	static ::javax::print::attribute::standard::PrinterStateReason* MEDIA_JAM;

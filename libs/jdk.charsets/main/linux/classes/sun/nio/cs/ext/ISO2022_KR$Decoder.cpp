@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_KR$Decoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -40,61 +39,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _ISO2022_KR$Decoder_FieldInfo_[] = {
-	{"SOD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_KR$Decoder, SOD)},
-	{"KSC5601", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_KR$Decoder, KSC5601)},
-	{"ISO_ESC", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_ESC)},
-	{"ISO_SI", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SI)},
-	{"ISO_SO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SO)},
-	{"ISO_SS2_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SS2_7)},
-	{"ISO_SS3_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SS3_7)},
-	{"MSB", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, MSB)},
-	{"REPLACE_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, REPLACE_CHAR)},
-	{"minDesignatorLength", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, minDesignatorLength)},
-	{"SOFlag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, SOFlag)},
-	{"SS2Flag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, SS2Flag)},
-	{"SS3Flag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, SS3Flag)},
-	{"shiftout", "Z", nullptr, $PRIVATE, $field(ISO2022_KR$Decoder, shiftout)},
-	{}
-};
-
-$MethodInfo _ISO2022_KR$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, init$, void, $Charset*)},
-	{"decode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decode, char16_t, int8_t, int8_t, int8_t)},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_KR$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"findDesig", "([BII)Z", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, findDesig, bool, $bytes*, int32_t, int32_t)},
-	{"findDesigBuf", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, findDesigBuf, bool, $ByteBuffer*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022_KR$Decoder, implReset, void)},
-	{}
-};
-
-$InnerClassInfo _ISO2022_KR$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_KR$Decoder", "sun.nio.cs.ext.ISO2022_KR", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_KR$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_KR$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_ISO2022_KR$Decoder_FieldInfo_,
-	_ISO2022_KR$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_KR$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_KR"
-};
-
-$Object* allocate$ISO2022_KR$Decoder($Class* clazz) {
-	return $of($alloc(ISO2022_KR$Decoder));
-}
-
 $bytes* ISO2022_KR$Decoder::SOD = nullptr;
 $DoubleByte$Decoder* ISO2022_KR$Decoder::KSC5601 = nullptr;
 
@@ -108,30 +52,30 @@ void ISO2022_KR$Decoder::implReset() {
 
 char16_t ISO2022_KR$Decoder::decode(int8_t byte1, int8_t byte2, int8_t shiftFlag) {
 	if (shiftFlag == ISO2022_KR$Decoder::SOFlag) {
-		return $nc(ISO2022_KR$Decoder::KSC5601)->decodeDouble((int32_t)((byte1 | ISO2022_KR$Decoder::MSB) & (uint32_t)255), (int32_t)((byte2 | ISO2022_KR$Decoder::MSB) & (uint32_t)255));
+		return $nc(ISO2022_KR$Decoder::KSC5601)->decodeDouble((byte1 | ISO2022_KR$Decoder::MSB) & 0xff, (byte2 | ISO2022_KR$Decoder::MSB) & 0xff);
 	}
 	return ISO2022_KR$Decoder::REPLACE_CHAR;
 }
 
 bool ISO2022_KR$Decoder::findDesig($bytes* in, int32_t sp, int32_t sl) {
-	if (sl - sp >= $nc(ISO2022_KR$Decoder::SOD)->length) {
+	if (sl - sp >= ISO2022_KR$Decoder::SOD->length) {
 		int32_t j = 0;
-		while (j < $nc(ISO2022_KR$Decoder::SOD)->length && $nc(in)->get(sp + j) == $nc(ISO2022_KR$Decoder::SOD)->get(j)) {
+		while (j < ISO2022_KR$Decoder::SOD->length && $nc(in)->get(sp + j) == ISO2022_KR$Decoder::SOD->get(j)) {
 			++j;
 		}
-		return j == $nc(ISO2022_KR$Decoder::SOD)->length;
+		return j == ISO2022_KR$Decoder::SOD->length;
 	}
 	return false;
 }
 
 bool ISO2022_KR$Decoder::findDesigBuf($ByteBuffer* in) {
-	if ($nc(in)->remaining() >= $nc(ISO2022_KR$Decoder::SOD)->length) {
+	if ($nc(in)->remaining() >= ISO2022_KR$Decoder::SOD->length) {
 		int32_t j = 0;
 		in->mark();
-		while (j < $nc(ISO2022_KR$Decoder::SOD)->length && in->get() == $nc(ISO2022_KR$Decoder::SOD)->get(j)) {
+		while (j < ISO2022_KR$Decoder::SOD->length && in->get() == ISO2022_KR$Decoder::SOD->get(j)) {
 			++j;
 		}
-		if (j == $nc(ISO2022_KR$Decoder::SOD)->length) {
+		if (j == ISO2022_KR$Decoder::SOD->length) {
 			return true;
 		}
 		in->reset();
@@ -140,7 +84,7 @@ bool ISO2022_KR$Decoder::findDesigBuf($ByteBuffer* in) {
 }
 
 $CoderResult* ISO2022_KR$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -154,293 +98,261 @@ $CoderResult* ISO2022_KR$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 	int32_t b1 = 0;
 	int32_t b2 = 0;
 	int32_t b3 = 0;
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				b1 = (int32_t)($nc(sa)->get(sp) & (uint32_t)255);
-				int32_t inputSize = 1;
-				switch (b1) {
-				case ISO2022_KR$Decoder::ISO_SO:
-					{
-						this->shiftout = true;
-						inputSize = 1;
-						break;
-					}
-				case ISO2022_KR$Decoder::ISO_SI:
-					{
-						this->shiftout = false;
-						inputSize = 1;
-						break;
-					}
-				case ISO2022_KR$Decoder::ISO_ESC:
-					{
-						if (sl - sp - 1 < ISO2022_KR$Decoder::minDesignatorLength) {
-							$init($CoderResult);
-							$assign(var$6, $CoderResult::UNDERFLOW);
-							return$5 = true;
-							goto $finally;
-						}
-						if (findDesig(sa, sp + 1, sl)) {
-							inputSize = $nc(ISO2022_KR$Decoder::SOD)->length + 1;
-							break;
-						}
-						if (sl - sp < 2) {
-							$init($CoderResult);
-							$assign(var$6, $CoderResult::UNDERFLOW);
-							return$5 = true;
-							goto $finally;
-						}
-						b1 = sa->get(sp + 1);
-						switch (b1) {
-						case ISO2022_KR$Decoder::ISO_SS2_7:
-							{
-								if (sl - sp < 4) {
-									$init($CoderResult);
-									$assign(var$6, $CoderResult::UNDERFLOW);
-									return$5 = true;
-									goto $finally;
-								}
-								b2 = sa->get(sp + 2);
-								b3 = sa->get(sp + 3);
-								if (dl - dp < 1) {
-									$init($CoderResult);
-									$assign(var$6, $CoderResult::OVERFLOW);
-									return$5 = true;
-									goto $finally;
-								}
-								$nc(da)->set(dp, decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS2Flag));
-								++dp;
-								inputSize = 4;
-								break;
-							}
-						case ISO2022_KR$Decoder::ISO_SS3_7:
-							{
-								if (sl - sp < 4) {
-									$init($CoderResult);
-									$assign(var$6, $CoderResult::UNDERFLOW);
-									return$5 = true;
-									goto $finally;
-								}
-								b2 = sa->get(sp + 2);
-								b3 = sa->get(sp + 3);
-								if (dl - dp < 1) {
-									$init($CoderResult);
-									$assign(var$6, $CoderResult::OVERFLOW);
-									return$5 = true;
-									goto $finally;
-								}
-								$nc(da)->set(dp, decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS3Flag));
-								++dp;
-								inputSize = 4;
-								break;
-							}
-						default:
-							{
-								$assign(var$6, $CoderResult::malformedForLength(2));
-								return$5 = true;
-								goto $finally;
-							}
-						}
-						break;
-					}
-				default:
-					{
-						if (dl - dp < 1) {
-							$init($CoderResult);
-							$assign(var$6, $CoderResult::OVERFLOW);
-							return$5 = true;
-							goto $finally;
-						}
-						if (!this->shiftout) {
-							$nc(da)->set(dp++, (char16_t)((int32_t)(sa->get(sp) & (uint32_t)255)));
-						} else {
-							if (dl - dp < 1) {
-								$init($CoderResult);
-								$assign(var$6, $CoderResult::OVERFLOW);
-								return$5 = true;
-								goto $finally;
-							}
-							if (sl - sp < 2) {
-								$init($CoderResult);
-								$assign(var$6, $CoderResult::UNDERFLOW);
-								return$5 = true;
-								goto $finally;
-							}
-							b2 = (int32_t)(sa->get(sp + 1) & (uint32_t)255);
-							$nc(da)->set(dp++, decode((int8_t)b1, (int8_t)b2, ISO2022_KR$Decoder::SOFlag));
-							inputSize = 2;
-						}
-						break;
-					}
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			b1 = $nc(sa)->get(sp) & 0xff;
+			int32_t inputSize = 1;
+			switch (b1) {
+			case ISO2022_KR$Decoder::ISO_SO:
+				this->shiftout = true;
+				inputSize = 1;
+				break;
+			case ISO2022_KR$Decoder::ISO_SI:
+				this->shiftout = false;
+				inputSize = 1;
+				break;
+			case ISO2022_KR$Decoder::ISO_ESC:
+				if (sl - sp - 1 < ISO2022_KR$Decoder::minDesignatorLength) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::UNDERFLOW);
+					return$5 = true;
+					goto $finally;
 				}
-				sp += inputSize;
+				if (findDesig(sa, sp + 1, sl)) {
+					inputSize = ISO2022_KR$Decoder::SOD->length + 1;
+					break;
+				}
+				if (sl - sp < 2) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::UNDERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				b1 = sa->get(sp + 1);
+				switch (b1) {
+				case ISO2022_KR$Decoder::ISO_SS2_7:
+					if (sl - sp < 4) {
+						$init($CoderResult);
+						$assign(var$6, $CoderResult::UNDERFLOW);
+						return$5 = true;
+						goto $finally;
+					}
+					b2 = sa->get(sp + 2);
+					b3 = sa->get(sp + 3);
+					if (dl - dp < 1) {
+						$init($CoderResult);
+						$assign(var$6, $CoderResult::OVERFLOW);
+						return$5 = true;
+						goto $finally;
+					}
+					$nc(da)->set(dp, decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS2Flag));
+					++dp;
+					inputSize = 4;
+					break;
+				case ISO2022_KR$Decoder::ISO_SS3_7:
+					if (sl - sp < 4) {
+						$init($CoderResult);
+						$assign(var$6, $CoderResult::UNDERFLOW);
+						return$5 = true;
+						goto $finally;
+					}
+					b2 = sa->get(sp + 2);
+					b3 = sa->get(sp + 3);
+					if (dl - dp < 1) {
+						$init($CoderResult);
+						$assign(var$6, $CoderResult::OVERFLOW);
+						return$5 = true;
+						goto $finally;
+					}
+					$nc(da)->set(dp, decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS3Flag));
+					++dp;
+					inputSize = 4;
+					break;
+				default:
+					$assign(var$6, $CoderResult::malformedForLength(2));
+					return$5 = true;
+					goto $finally;
+				}
+				break;
+			default:
+				if (dl - dp < 1) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::OVERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				if (!this->shiftout) {
+					$nc(da)->set(dp++, (char16_t)(sa->get(sp) & 0xff));
+				} else {
+					if (dl - dp < 1) {
+						$init($CoderResult);
+						$assign(var$6, $CoderResult::OVERFLOW);
+						return$5 = true;
+						goto $finally;
+					}
+					if (sl - sp < 2) {
+						$init($CoderResult);
+						$assign(var$6, $CoderResult::UNDERFLOW);
+						return$5 = true;
+						goto $finally;
+					}
+					b2 = sa->get(sp + 1) & 0xff;
+					$nc(da)->set(dp++, decode((int8_t)b1, (int8_t)b2, ISO2022_KR$Decoder::SOFlag));
+					inputSize = 2;
+				}
+				break;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			sp += inputSize;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* ISO2022_KR$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
 	int32_t b1 = 0;
 	int32_t b2 = 0;
 	int32_t b3 = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				while (src->hasRemaining()) {
-					b1 = src->get();
-					int32_t inputSize = 1;
-					switch (b1) {
-					case ISO2022_KR$Decoder::ISO_SO:
-						{
-							this->shiftout = true;
-							break;
-						}
-					case ISO2022_KR$Decoder::ISO_SI:
-						{
-							this->shiftout = false;
-							break;
-						}
-					case ISO2022_KR$Decoder::ISO_ESC:
-						{
-							if (src->remaining() < ISO2022_KR$Decoder::minDesignatorLength) {
-								$init($CoderResult);
-								$assign(var$2, $CoderResult::UNDERFLOW);
-								return$1 = true;
-								goto $finally;
-							}
-							if (findDesigBuf(src)) {
-								inputSize = $nc(ISO2022_KR$Decoder::SOD)->length + 1;
-								break;
-							}
-							if (src->remaining() < 1) {
-								$init($CoderResult);
-								$assign(var$2, $CoderResult::UNDERFLOW);
-								return$1 = true;
-								goto $finally;
-							}
-							b1 = src->get();
-							switch (b1) {
-							case ISO2022_KR$Decoder::ISO_SS2_7:
-								{
-									if (src->remaining() < 2) {
-										$init($CoderResult);
-										$assign(var$2, $CoderResult::UNDERFLOW);
-										return$1 = true;
-										goto $finally;
-									}
-									b2 = src->get();
-									b3 = src->get();
-									if ($nc(dst)->remaining() < 1) {
-										$init($CoderResult);
-										$assign(var$2, $CoderResult::OVERFLOW);
-										return$1 = true;
-										goto $finally;
-									}
-									$nc(dst)->put(decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS2Flag));
-									inputSize = 4;
-									break;
-								}
-							case ISO2022_KR$Decoder::ISO_SS3_7:
-								{
-									if (src->remaining() < 2) {
-										$init($CoderResult);
-										$assign(var$2, $CoderResult::UNDERFLOW);
-										return$1 = true;
-										goto $finally;
-									}
-									b2 = src->get();
-									b3 = src->get();
-									if ($nc(dst)->remaining() < 1) {
-										$init($CoderResult);
-										$assign(var$2, $CoderResult::OVERFLOW);
-										return$1 = true;
-										goto $finally;
-									}
-									$nc(dst)->put(decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS3Flag));
-									inputSize = 4;
-									break;
-								}
-							default:
-								{
-									$assign(var$2, $CoderResult::malformedForLength(2));
-									return$1 = true;
-									goto $finally;
-								}
-							}
-							break;
-						}
-					default:
-						{
-							if ($nc(dst)->remaining() < 1) {
-								$init($CoderResult);
-								$assign(var$2, $CoderResult::OVERFLOW);
-								return$1 = true;
-								goto $finally;
-							}
-							if (!this->shiftout) {
-								$nc(dst)->put((char16_t)((int32_t)(b1 & (uint32_t)255)));
-							} else {
-								if (src->remaining() < 1) {
-									$init($CoderResult);
-									$assign(var$2, $CoderResult::UNDERFLOW);
-									return$1 = true;
-									goto $finally;
-								}
-								b2 = (int32_t)(src->get() & (uint32_t)255);
-								$nc(dst)->put(decode((int8_t)b1, (int8_t)b2, ISO2022_KR$Decoder::SOFlag));
-								inputSize = 2;
-							}
-							break;
-						}
+			while (src->hasRemaining()) {
+				b1 = src->get();
+				int32_t inputSize = 1;
+				switch (b1) {
+				case ISO2022_KR$Decoder::ISO_SO:
+					this->shiftout = true;
+					break;
+				case ISO2022_KR$Decoder::ISO_SI:
+					this->shiftout = false;
+					break;
+				case ISO2022_KR$Decoder::ISO_ESC:
+					if (src->remaining() < ISO2022_KR$Decoder::minDesignatorLength) {
+						$init($CoderResult);
+						$assign(var$2, $CoderResult::UNDERFLOW);
+						return$1 = true;
+						goto $finally;
 					}
-					mark += inputSize;
+					if (findDesigBuf(src)) {
+						inputSize = ISO2022_KR$Decoder::SOD->length + 1;
+						break;
+					}
+					if (src->remaining() < 1) {
+						$init($CoderResult);
+						$assign(var$2, $CoderResult::UNDERFLOW);
+						return$1 = true;
+						goto $finally;
+					}
+					b1 = src->get();
+					switch (b1) {
+					case ISO2022_KR$Decoder::ISO_SS2_7:
+						if (src->remaining() < 2) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::UNDERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						b2 = src->get();
+						b3 = src->get();
+						if ($nc(dst)->remaining() < 1) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::OVERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						dst->put(decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS2Flag));
+						inputSize = 4;
+						break;
+					case ISO2022_KR$Decoder::ISO_SS3_7:
+						if (src->remaining() < 2) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::UNDERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						b2 = src->get();
+						b3 = src->get();
+						if ($nc(dst)->remaining() < 1) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::OVERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						dst->put(decode((int8_t)b2, (int8_t)b3, ISO2022_KR$Decoder::SS3Flag));
+						inputSize = 4;
+						break;
+					default:
+						$assign(var$2, $CoderResult::malformedForLength(2));
+						return$1 = true;
+						goto $finally;
+					}
+					break;
+				default:
+					if ($nc(dst)->remaining() < 1) {
+						$init($CoderResult);
+						$assign(var$2, $CoderResult::OVERFLOW);
+						return$1 = true;
+						goto $finally;
+					}
+					if (!this->shiftout) {
+						dst->put((char16_t)(b1 & 0xff));
+					} else {
+						if (src->remaining() < 1) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::UNDERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						b2 = src->get() & 0xff;
+						dst->put(decode((int8_t)b1, (int8_t)b2, ISO2022_KR$Decoder::SOFlag));
+						inputSize = 2;
+					}
+					break;
 				}
-				$init($CoderResult);
-				$assign(var$2, $CoderResult::UNDERFLOW);
-				return$1 = true;
-				goto $finally;
-			} catch ($Exception& e) {
-				e->printStackTrace();
-				$init($CoderResult);
-				$assign(var$2, $CoderResult::OVERFLOW);
-				return$1 = true;
-				goto $finally;
+				mark += inputSize;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			$init($CoderResult);
+			$assign(var$2, $CoderResult::UNDERFLOW);
+			return$1 = true;
+			goto $finally;
+		} catch ($Exception& e) {
+			e->printStackTrace();
+			$init($CoderResult);
+			$assign(var$2, $CoderResult::OVERFLOW);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -454,7 +366,7 @@ $CoderResult* ISO2022_KR$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst)
 	}
 }
 
-void clinit$ISO2022_KR$Decoder($Class* class$) {
+void ISO2022_KR$Decoder::clinit$($Class* clazz) {
 	$assignStatic(ISO2022_KR$Decoder::SOD, $new($bytes, {
 		(int8_t)u'$',
 		(int8_t)u')',
@@ -467,7 +379,56 @@ ISO2022_KR$Decoder::ISO2022_KR$Decoder() {
 }
 
 $Class* ISO2022_KR$Decoder::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_KR$Decoder, name, initialize, &_ISO2022_KR$Decoder_ClassInfo_, clinit$ISO2022_KR$Decoder, allocate$ISO2022_KR$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"SOD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_KR$Decoder, SOD)},
+		{"KSC5601", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_KR$Decoder, KSC5601)},
+		{"ISO_ESC", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_ESC)},
+		{"ISO_SI", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SI)},
+		{"ISO_SO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SO)},
+		{"ISO_SS2_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SS2_7)},
+		{"ISO_SS3_7", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, ISO_SS3_7)},
+		{"MSB", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, MSB)},
+		{"REPLACE_CHAR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, REPLACE_CHAR)},
+		{"minDesignatorLength", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, minDesignatorLength)},
+		{"SOFlag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, SOFlag)},
+		{"SS2Flag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, SS2Flag)},
+		{"SS3Flag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ISO2022_KR$Decoder, SS3Flag)},
+		{"shiftout", "Z", nullptr, $PRIVATE, $field(ISO2022_KR$Decoder, shiftout)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, init$, void, $Charset*)},
+		{"decode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decode, char16_t, int8_t, int8_t, int8_t)},
+		{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_KR$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"findDesig", "([BII)Z", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, findDesig, bool, $bytes*, int32_t, int32_t)},
+		{"findDesigBuf", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, findDesigBuf, bool, $ByteBuffer*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022_KR$Decoder, implReset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_KR$Decoder", "sun.nio.cs.ext.ISO2022_KR", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_KR$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_KR"
+	};
+	$loadClass(ISO2022_KR$Decoder, name, initialize, &classInfo$$, ISO2022_KR$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO2022_KR$Decoder);
+	});
 	return class$;
 }
 

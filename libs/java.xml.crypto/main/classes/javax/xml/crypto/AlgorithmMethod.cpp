@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/AlgorithmMethod.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace javax {
 	namespace xml {
 		namespace crypto {
 
-$MethodInfo _AlgorithmMethod_MethodInfo_[] = {
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmMethod, getAlgorithm, $String*)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmMethod, getParameterSpec, $AlgorithmParameterSpec*)},
-	{}
-};
-
-$ClassInfo _AlgorithmMethod_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.AlgorithmMethod",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AlgorithmMethod_MethodInfo_
-};
-
-$Object* allocate$AlgorithmMethod($Class* clazz) {
-	return $of($alloc(AlgorithmMethod));
-}
-
 $Class* AlgorithmMethod::load$($String* name, bool initialize) {
-	$loadClass(AlgorithmMethod, name, initialize, &_AlgorithmMethod_ClassInfo_, allocate$AlgorithmMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmMethod, getAlgorithm, $String*)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmMethod, getParameterSpec, $AlgorithmParameterSpec*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.AlgorithmMethod",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AlgorithmMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlgorithmMethod);
+	});
 	return class$;
 }
 

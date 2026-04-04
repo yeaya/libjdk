@@ -47,6 +47,7 @@ class XMLX509Certificate : public ::com::sun::org::apache::xml::internal::securi
 	$class(XMLX509Certificate, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy, ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509DataContent)
 public:
 	XMLX509Certificate();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);

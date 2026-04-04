@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRMaskImage.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/NoninvertibleTransformException.h>
@@ -22,7 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $XRBackend = ::sun::java2d::xr::XRBackend;
 using $XRColor = ::sun::java2d::xr::XRColor;
 using $XRCompositeManager = ::sun::java2d::xr::XRCompositeManager;
 using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;
@@ -31,42 +29,6 @@ using $XRUtils = ::sun::java2d::xr::XRUtils;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$FieldInfo _XRMaskImage_FieldInfo_[] = {
-	{"MASK_SCALE_FACTOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRMaskImage, MASK_SCALE_FACTOR)},
-	{"BLIT_MASK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRMaskImage, BLIT_MASK_SIZE)},
-	{"blitMaskDimensions", "Ljava/awt/Dimension;", nullptr, 0, $field(XRMaskImage, blitMaskDimensions)},
-	{"blitMaskPixmap", "I", nullptr, 0, $field(XRMaskImage, blitMaskPixmap)},
-	{"blitMaskPicture", "I", nullptr, 0, $field(XRMaskImage, blitMaskPicture)},
-	{"lastMaskWidth", "I", nullptr, 0, $field(XRMaskImage, lastMaskWidth)},
-	{"lastMaskHeight", "I", nullptr, 0, $field(XRMaskImage, lastMaskHeight)},
-	{"lastEA", "I", nullptr, 0, $field(XRMaskImage, lastEA)},
-	{"lastMaskTransform", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(XRMaskImage, lastMaskTransform)},
-	{"xrMgr", "Lsun/java2d/xr/XRCompositeManager;", nullptr, 0, $field(XRMaskImage, xrMgr)},
-	{"con", "Lsun/java2d/xr/XRBackend;", nullptr, 0, $field(XRMaskImage, con)},
-	{}
-};
-
-$MethodInfo _XRMaskImage_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/xr/XRCompositeManager;I)V", nullptr, $PUBLIC, $method(XRMaskImage, init$, void, $XRCompositeManager*, int32_t)},
-	{"ensureBlitMaskSize", "(II)V", nullptr, $PRIVATE, $method(XRMaskImage, ensureBlitMaskSize, void, int32_t, int32_t)},
-	{"initBlitMask", "(III)V", nullptr, $PRIVATE, $method(XRMaskImage, initBlitMask, void, int32_t, int32_t, int32_t)},
-	{"prepareBlitMask", "(Lsun/java2d/xr/XRSurfaceData;Ljava/awt/geom/AffineTransform;II)I", nullptr, $PUBLIC, $virtualMethod(XRMaskImage, prepareBlitMask, int32_t, $XRSurfaceData*, $AffineTransform*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XRMaskImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRMaskImage",
-	"java.lang.Object",
-	nullptr,
-	_XRMaskImage_FieldInfo_,
-	_XRMaskImage_MethodInfo_
-};
-
-$Object* allocate$XRMaskImage($Class* clazz) {
-	return $of($alloc(XRMaskImage));
-}
 
 void XRMaskImage::init$($XRCompositeManager* xrMgr, int32_t parentDrawable) {
 	$set(this, blitMaskDimensions, $new($Dimension, XRMaskImage::BLIT_MASK_SIZE, XRMaskImage::BLIT_MASK_SIZE));
@@ -79,7 +41,7 @@ void XRMaskImage::init$($XRCompositeManager* xrMgr, int32_t parentDrawable) {
 }
 
 int32_t XRMaskImage::prepareBlitMask($XRSurfaceData* dst, $AffineTransform* maskTX, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t maskWidth = $Math::max($div(width, XRMaskImage::MASK_SCALE_FACTOR), 1);
 	int32_t maskHeight = $Math::max($div(height, XRMaskImage::MASK_SCALE_FACTOR), 1);
 	$nc(maskTX)->scale(((double)width) / maskWidth, ((double)height) / maskHeight);
@@ -89,11 +51,11 @@ int32_t XRMaskImage::prepareBlitMask($XRSurfaceData* dst, $AffineTransform* mask
 		maskTX->setToIdentity();
 	}
 	ensureBlitMaskSize(maskWidth, maskHeight);
-	if (this->lastMaskTransform == nullptr || !$nc(this->lastMaskTransform)->equals(maskTX)) {
+	if (this->lastMaskTransform == nullptr || !this->lastMaskTransform->equals(maskTX)) {
 		$nc(this->con)->setPictureTransform(this->blitMaskPicture, maskTX);
 		$set(this, lastMaskTransform, maskTX);
 	}
-	int32_t currentEA = $nc($($nc(this->xrMgr)->getAlphaColor()))->getAlpha();
+	int32_t currentEA = $$nc($nc(this->xrMgr)->getAlphaColor())->getAlpha();
 	if (this->lastMaskWidth != maskWidth || this->lastMaskHeight != maskHeight || this->lastEA != currentEA) {
 		if (this->lastMaskWidth > maskWidth || this->lastMaskHeight > maskHeight) {
 			$nc(this->con)->renderRectangle(this->blitMaskPicture, $XRUtils::PictOpClear, $XRColor::NO_ALPHA, 0, 0, this->lastMaskWidth, this->lastMaskHeight);
@@ -118,16 +80,16 @@ void XRMaskImage::initBlitMask(int32_t parentDrawable, int32_t width, int32_t he
 	$init($XRColor);
 	$nc(this->con)->renderRectangle(this->blitMaskPicture, $XRUtils::PictOpClear, $XRColor::NO_ALPHA, 0, 0, width, height);
 	$nc(this->blitMaskDimensions)->width = width;
-	$nc(this->blitMaskDimensions)->height = height;
+	this->blitMaskDimensions->height = height;
 	this->lastMaskWidth = 0;
 	this->lastMaskHeight = 0;
 	$set(this, lastMaskTransform, nullptr);
 }
 
 void XRMaskImage::ensureBlitMaskSize(int32_t minSizeX, int32_t minSizeY) {
-	if (minSizeX > $nc(this->blitMaskDimensions)->width || minSizeY > $nc(this->blitMaskDimensions)->height) {
-		int32_t newWidth = $Math::max(minSizeX, $nc(this->blitMaskDimensions)->width);
-		int32_t newHeight = $Math::max(minSizeY, $nc(this->blitMaskDimensions)->height);
+	if (minSizeX > $nc(this->blitMaskDimensions)->width || minSizeY > this->blitMaskDimensions->height) {
+		int32_t newWidth = $Math::max(minSizeX, this->blitMaskDimensions->width);
+		int32_t newHeight = $Math::max(minSizeY, this->blitMaskDimensions->height);
 		initBlitMask(this->blitMaskPixmap, newWidth, newHeight);
 	}
 }
@@ -136,7 +98,38 @@ XRMaskImage::XRMaskImage() {
 }
 
 $Class* XRMaskImage::load$($String* name, bool initialize) {
-	$loadClass(XRMaskImage, name, initialize, &_XRMaskImage_ClassInfo_, allocate$XRMaskImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"MASK_SCALE_FACTOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRMaskImage, MASK_SCALE_FACTOR)},
+		{"BLIT_MASK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRMaskImage, BLIT_MASK_SIZE)},
+		{"blitMaskDimensions", "Ljava/awt/Dimension;", nullptr, 0, $field(XRMaskImage, blitMaskDimensions)},
+		{"blitMaskPixmap", "I", nullptr, 0, $field(XRMaskImage, blitMaskPixmap)},
+		{"blitMaskPicture", "I", nullptr, 0, $field(XRMaskImage, blitMaskPicture)},
+		{"lastMaskWidth", "I", nullptr, 0, $field(XRMaskImage, lastMaskWidth)},
+		{"lastMaskHeight", "I", nullptr, 0, $field(XRMaskImage, lastMaskHeight)},
+		{"lastEA", "I", nullptr, 0, $field(XRMaskImage, lastEA)},
+		{"lastMaskTransform", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(XRMaskImage, lastMaskTransform)},
+		{"xrMgr", "Lsun/java2d/xr/XRCompositeManager;", nullptr, 0, $field(XRMaskImage, xrMgr)},
+		{"con", "Lsun/java2d/xr/XRBackend;", nullptr, 0, $field(XRMaskImage, con)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/xr/XRCompositeManager;I)V", nullptr, $PUBLIC, $method(XRMaskImage, init$, void, $XRCompositeManager*, int32_t)},
+		{"ensureBlitMaskSize", "(II)V", nullptr, $PRIVATE, $method(XRMaskImage, ensureBlitMaskSize, void, int32_t, int32_t)},
+		{"initBlitMask", "(III)V", nullptr, $PRIVATE, $method(XRMaskImage, initBlitMask, void, int32_t, int32_t, int32_t)},
+		{"prepareBlitMask", "(Lsun/java2d/xr/XRSurfaceData;Ljava/awt/geom/AffineTransform;II)I", nullptr, $PUBLIC, $virtualMethod(XRMaskImage, prepareBlitMask, int32_t, $XRSurfaceData*, $AffineTransform*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRMaskImage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRMaskImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XRMaskImage);
+	});
 	return class$;
 }
 

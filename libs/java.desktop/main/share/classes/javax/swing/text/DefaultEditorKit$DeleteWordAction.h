@@ -21,6 +21,7 @@ class $export DefaultEditorKit$DeleteWordAction : public ::javax::swing::text::T
 	$class(DefaultEditorKit$DeleteWordAction, 0, ::javax::swing::text::TextAction)
 public:
 	DefaultEditorKit$DeleteWordAction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	static bool $assertionsDisabled;

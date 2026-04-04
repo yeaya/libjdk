@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$ForAll.h>
-
 #include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
@@ -28,14 +27,14 @@ using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $ExecutableType = ::javax::lang::model::type::ExecutableType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
@@ -47,65 +46,7 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$ForAll_FieldInfo_[] = {
-	{"tvars", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $field(Type$ForAll, tvars)},
-	{}
-};
-
-$MethodInfo _Type$ForAll_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)V", $PUBLIC, $method(Type$ForAll, init$, void, $List*, $Type*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$ForAll, accept, $Object*, $Type$Visitor*, Object$*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$ForAll, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"asMethodType", "()Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, asMethodType, $Type$MethodType*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ForAll;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, cloneWithMetadata, Type$ForAll*, $TypeMetadata*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, complete, void)},
-	{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, contains, bool, $Type*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, getKind, $TypeKind*)},
-	{"getParameterTypes", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getParameterTypes, $List*)},
-	{"getReceiverType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getReceiverType, $Type*)},
-	{"getReturnType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getReturnType, $Type*)},
-	{"getThrownTypes", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getThrownTypes, $List*)},
-	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ForAll, getTypeArguments, $List*)},
-	{"getTypeVariables", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;", $PUBLIC, $virtualMethod(Type$ForAll, getTypeVariables, $List*)},
-	{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, isErroneous, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Type$ForAll_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$ForAll", "com.sun.tools.javac.code.Type", "ForAll", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Type$ForAll_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$ForAll",
-	"com.sun.tools.javac.code.Type$DelegatedType",
-	"javax.lang.model.type.ExecutableType",
-	_Type$ForAll_FieldInfo_,
-	_Type$ForAll_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$ForAll_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$ForAll($Class* clazz) {
-	return $of($alloc(Type$ForAll));
-}
-
-$1List* Type$ForAll::getAnnotationMirrors() {
+$List* Type$ForAll::getAnnotationMirrors() {
 	 return this->$Type$DelegatedType::getAnnotationMirrors();
 }
 
@@ -137,7 +78,7 @@ Type$ForAll::MemberClass0$::MemberClass0$() {
 	$patchMemberClass(Type$ForAll, $ExecutableType, memberClass0$);
 }
 
-$1List* Type$ForAll::MemberClass0$::getTypeVariables() {
+$List* Type$ForAll::MemberClass0$::getTypeVariables() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->getTypeVariables();
 }
 
@@ -145,7 +86,7 @@ $TypeMirror* Type$ForAll::MemberClass0$::getReturnType() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->getReturnType();
 }
 
-$1List* Type$ForAll::MemberClass0$::getParameterTypes() {
+$List* Type$ForAll::MemberClass0$::getParameterTypes() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->getParameterTypes();
 }
 
@@ -153,7 +94,7 @@ $TypeMirror* Type$ForAll::MemberClass0$::getReceiverType() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->getReceiverType();
 }
 
-$1List* Type$ForAll::MemberClass0$::getThrownTypes() {
+$List* Type$ForAll::MemberClass0$::getThrownTypes() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->getThrownTypes();
 }
 
@@ -173,7 +114,7 @@ $String* Type$ForAll::MemberClass0$::toString() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->toString();
 }
 
-$1List* Type$ForAll::MemberClass0$::getAnnotationMirrors() {
+$List* Type$ForAll::MemberClass0$::getAnnotationMirrors() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -197,7 +138,7 @@ void Type$ForAll::MemberClass0$::finalize() {
 	return ((Type$ForAll*)(void*)((int8_t*)(void*)this - $offsetof(Type$ForAll, memberClass0$)))->finalize();
 }
 
-void Type$ForAll::init$($List* tvars, $Type* qtype) {
+void Type$ForAll::init$($1List* tvars, $Type* qtype) {
 	$init($TypeTag);
 	$Type$DelegatedType::init$($TypeTag::FORALL, $cast($Type$MethodType, qtype));
 	$set(this, tvars, tvars);
@@ -209,20 +150,20 @@ Type$ForAll* Type$ForAll::cloneWithMetadata($TypeMetadata* md) {
 }
 
 $Object* Type$ForAll::accept($Type$Visitor* v, Object$* s) {
-	return $of($nc(v)->visitForAll(this, s));
+	return $nc(v)->visitForAll(this, s);
 }
 
 $String* Type$ForAll::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	appendAnnotationsString(sb);
 	sb->append(u'<');
-	sb->append($of(this->tvars));
+	sb->append(this->tvars);
 	sb->append(u'>');
-	sb->append($of(this->qtype));
+	sb->append(this->qtype);
 	return sb->toString();
 }
 
-$List* Type$ForAll::getTypeArguments() {
+$1List* Type$ForAll::getTypeArguments() {
 	return this->tvars;
 }
 
@@ -239,19 +180,19 @@ $Type$MethodType* Type$ForAll::asMethodType() {
 }
 
 void Type$ForAll::complete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($List, l, this->tvars);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			$nc($($nc(($cast($Type$TypeVar, l->head)))->getUpperBound()))->complete();
+		$var($1List, l, this->tvars);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			$$nc($nc($cast($Type$TypeVar, l->head))->getUpperBound())->complete();
 		}
 	}
 	$nc(this->qtype)->complete();
 }
 
-$List* Type$ForAll::getTypeVariables() {
+$1List* Type$ForAll::getTypeVariables() {
 	$load($Type$TypeVar);
-	return $List::convert($Type$TypeVar::class$, $(getTypeArguments()));
+	return $1List::convert($Type$TypeVar::class$, $(getTypeArguments()));
 }
 
 $TypeKind* Type$ForAll::getKind() {
@@ -260,10 +201,10 @@ $TypeKind* Type$ForAll::getKind() {
 }
 
 $Object* Type$ForAll::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitExecutable($as($ExecutableType, this), p));
+	return $nc(v)->visitExecutable($as($ExecutableType, this), p);
 }
 
-$List* Type$ForAll::getThrownTypes() {
+$1List* Type$ForAll::getThrownTypes() {
 	return $Type$DelegatedType::getThrownTypes();
 }
 
@@ -271,7 +212,7 @@ $Type* Type$ForAll::getReceiverType() {
 	return $Type$DelegatedType::getReceiverType();
 }
 
-$List* Type$ForAll::getParameterTypes() {
+$1List* Type$ForAll::getParameterTypes() {
 	return $Type$DelegatedType::getParameterTypes();
 }
 
@@ -283,7 +224,59 @@ Type$ForAll::Type$ForAll() {
 }
 
 $Class* Type$ForAll::load$($String* name, bool initialize) {
-	$loadClass(Type$ForAll, name, initialize, &_Type$ForAll_ClassInfo_, allocate$Type$ForAll);
+	$FieldInfo fieldInfos$$[] = {
+		{"tvars", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $field(Type$ForAll, tvars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)V", $PUBLIC, $method(Type$ForAll, init$, void, $1List*, $Type*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$ForAll, accept, $Object*, $Type$Visitor*, Object$*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$ForAll, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"asMethodType", "()Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, asMethodType, $Type$MethodType*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ForAll;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, cloneWithMetadata, Type$ForAll*, $TypeMetadata*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, complete, void)},
+		{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, contains, bool, $Type*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, getKind, $TypeKind*)},
+		{"getParameterTypes", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getParameterTypes, $1List*)},
+		{"getReceiverType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getReceiverType, $Type*)},
+		{"getReturnType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getReturnType, $Type*)},
+		{"getThrownTypes", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ForAll, getThrownTypes, $1List*)},
+		{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ForAll, getTypeArguments, $1List*)},
+		{"getTypeVariables", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;", $PUBLIC, $virtualMethod(Type$ForAll, getTypeVariables, $1List*)},
+		{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, isErroneous, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$ForAll, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$ForAll", "com.sun.tools.javac.code.Type", "ForAll", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$ForAll",
+		"com.sun.tools.javac.code.Type$DelegatedType",
+		"javax.lang.model.type.ExecutableType",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$ForAll, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$ForAll));
+	});
 	return class$;
 }
 

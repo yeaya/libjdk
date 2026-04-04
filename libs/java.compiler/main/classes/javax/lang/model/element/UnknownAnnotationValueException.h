@@ -32,7 +32,10 @@ public:
 	$Object* parameter = nullptr;
 	UnknownAnnotationValueException(const UnknownAnnotationValueException& e);
 	virtual void throw$() override;
-	inline UnknownAnnotationValueException* operator ->() {
+	inline UnknownAnnotationValueException* operator ->() const {
+		return (UnknownAnnotationValueException*)throwing$;
+	}
+	inline operator UnknownAnnotationValueException*() const {
 		return (UnknownAnnotationValueException*)throwing$;
 	}
 };

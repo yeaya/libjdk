@@ -33,6 +33,7 @@ class XlibWrapper : public ::java::lang::Object {
 	$class(XlibWrapper, 0, ::java::lang::Object)
 public:
 	XlibWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t CallErrorHandler(int64_t handler, int64_t display, int64_t event_ptr);
 	static int64_t DefaultScreen(int64_t display);

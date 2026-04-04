@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLStreamFilterImpl.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <javax/xml/namespace/NamespaceContext.h>
 #include <javax/xml/namespace/QName.h>
@@ -30,81 +29,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLStreamFilterImpl_FieldInfo_[] = {
-	{"fStreamFilter", "Ljavax/xml/stream/StreamFilter;", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fStreamFilter)},
-	{"fStreamReader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fStreamReader)},
-	{"fCurrentEvent", "I", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fCurrentEvent)},
-	{"fEventAccepted", "Z", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fEventAccepted)},
-	{"fStreamAdvancedByHasNext", "Z", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fStreamAdvancedByHasNext)},
-	{}
-};
-
-$MethodInfo _XMLStreamFilterImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/stream/XMLStreamReader;Ljavax/xml/stream/StreamFilter;)V", nullptr, $PUBLIC, $method(XMLStreamFilterImpl, init$, void, $XMLStreamReader*, $StreamFilter*), "javax.xml.stream.XMLStreamException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, close, void), "javax.xml.stream.XMLStreamException"},
-	{"findNextEvent", "()I", nullptr, $PRIVATE, $method(XMLStreamFilterImpl, findNextEvent, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"findNextTag", "()I", nullptr, $PRIVATE, $method(XMLStreamFilterImpl, findNextTag, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeCount, int32_t)},
-	{"getAttributeLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeLocalName, $String*, int32_t)},
-	{"getAttributeName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeName, $QName*, int32_t)},
-	{"getAttributeNamespace", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeNamespace, $String*, int32_t)},
-	{"getAttributePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributePrefix, $String*, int32_t)},
-	{"getAttributeType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeType, $String*, int32_t)},
-	{"getAttributeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeValue, $String*, int32_t)},
-	{"getAttributeValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeValue, $String*, $String*, $String*)},
-	{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getCharacterEncodingScheme, $String*)},
-	{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getEncoding, $String*)},
-	{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getEventType, int32_t)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getLocalName, $String*)},
-	{"getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getLocation, $Location*)},
-	{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getName, $QName*)},
-	{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceContext, $NamespaceContext*)},
-	{"getNamespaceCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceCount, int32_t)},
-	{"getNamespacePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespacePrefix, $String*, int32_t)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceURI, $String*)},
-	{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceURI, $String*, int32_t)},
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceURI, $String*, $String*)},
-	{"getPIData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getPIData, $String*)},
-	{"getPITarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getPITarget, $String*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getPrefix, $String*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getText, $String*)},
-	{"getTextCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextCharacters, $chars*)},
-	{"getTextCharacters", "(I[CII)I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextCharacters, int32_t, int32_t, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"getTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextLength, int32_t)},
-	{"getTextStart", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextStart, int32_t)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getVersion, $String*)},
-	{"hasName", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, hasName, bool)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, hasNext, bool), "javax.xml.stream.XMLStreamException"},
-	{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, hasText, bool)},
-	{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isAttributeSpecified, bool, int32_t)},
-	{"isCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isCharacters, bool)},
-	{"isEndElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isEndElement, bool)},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isStandalone, bool)},
-	{"isStartElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isStartElement, bool)},
-	{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isWhiteSpace, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, next, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"nextTag", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, nextTag, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"require", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, require, void, int32_t, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"setStreamFilter", "(Ljavax/xml/stream/StreamFilter;)V", nullptr, $PROTECTED, $virtualMethod(XMLStreamFilterImpl, setStreamFilter, void, $StreamFilter*)},
-	{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, standaloneSet, bool)},
-	{}
-};
-
-$ClassInfo _XMLStreamFilterImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLStreamFilterImpl",
-	"java.lang.Object",
-	"javax.xml.stream.XMLStreamReader",
-	_XMLStreamFilterImpl_FieldInfo_,
-	_XMLStreamFilterImpl_MethodInfo_
-};
-
-$Object* allocate$XMLStreamFilterImpl($Class* clazz) {
-	return $of($alloc(XMLStreamFilterImpl));
-}
 
 void XMLStreamFilterImpl::init$($XMLStreamReader* reader, $StreamFilter* filter) {
 	$set(this, fStreamFilter, nullptr);
@@ -165,7 +89,7 @@ bool XMLStreamFilterImpl::hasNext() {
 int32_t XMLStreamFilterImpl::findNextEvent() {
 	this->fStreamAdvancedByHasNext = false;
 	while ($nc(this->fStreamReader)->hasNext()) {
-		this->fCurrentEvent = $nc(this->fStreamReader)->next();
+		this->fCurrentEvent = this->fStreamReader->next();
 		if ($nc(this->fStreamFilter)->accept(this->fStreamReader)) {
 			this->fEventAccepted = true;
 			return this->fCurrentEvent;
@@ -181,7 +105,7 @@ int32_t XMLStreamFilterImpl::findNextEvent() {
 int32_t XMLStreamFilterImpl::findNextTag() {
 	this->fStreamAdvancedByHasNext = false;
 	while ($nc(this->fStreamReader)->hasNext()) {
-		this->fCurrentEvent = $nc(this->fStreamReader)->nextTag();
+		this->fCurrentEvent = this->fStreamReader->nextTag();
 		if ($nc(this->fStreamFilter)->accept(this->fStreamReader)) {
 			this->fEventAccepted = true;
 			return this->fCurrentEvent;
@@ -291,7 +215,7 @@ $String* XMLStreamFilterImpl::getPrefix() {
 }
 
 $Object* XMLStreamFilterImpl::getProperty($String* name) {
-	return $of($nc(this->fStreamReader)->getProperty(name));
+	return $nc(this->fStreamReader)->getProperty(name);
 }
 
 $String* XMLStreamFilterImpl::getText() {
@@ -366,7 +290,77 @@ XMLStreamFilterImpl::XMLStreamFilterImpl() {
 }
 
 $Class* XMLStreamFilterImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamFilterImpl, name, initialize, &_XMLStreamFilterImpl_ClassInfo_, allocate$XMLStreamFilterImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fStreamFilter", "Ljavax/xml/stream/StreamFilter;", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fStreamFilter)},
+		{"fStreamReader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fStreamReader)},
+		{"fCurrentEvent", "I", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fCurrentEvent)},
+		{"fEventAccepted", "Z", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fEventAccepted)},
+		{"fStreamAdvancedByHasNext", "Z", nullptr, $PRIVATE, $field(XMLStreamFilterImpl, fStreamAdvancedByHasNext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/stream/XMLStreamReader;Ljavax/xml/stream/StreamFilter;)V", nullptr, $PUBLIC, $method(XMLStreamFilterImpl, init$, void, $XMLStreamReader*, $StreamFilter*), "javax.xml.stream.XMLStreamException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, close, void), "javax.xml.stream.XMLStreamException"},
+		{"findNextEvent", "()I", nullptr, $PRIVATE, $method(XMLStreamFilterImpl, findNextEvent, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"findNextTag", "()I", nullptr, $PRIVATE, $method(XMLStreamFilterImpl, findNextTag, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeCount, int32_t)},
+		{"getAttributeLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeLocalName, $String*, int32_t)},
+		{"getAttributeName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeName, $QName*, int32_t)},
+		{"getAttributeNamespace", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeNamespace, $String*, int32_t)},
+		{"getAttributePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributePrefix, $String*, int32_t)},
+		{"getAttributeType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeType, $String*, int32_t)},
+		{"getAttributeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeValue, $String*, int32_t)},
+		{"getAttributeValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getAttributeValue, $String*, $String*, $String*)},
+		{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getCharacterEncodingScheme, $String*)},
+		{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getEncoding, $String*)},
+		{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getEventType, int32_t)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getLocalName, $String*)},
+		{"getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getLocation, $Location*)},
+		{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getName, $QName*)},
+		{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceContext, $NamespaceContext*)},
+		{"getNamespaceCount", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceCount, int32_t)},
+		{"getNamespacePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespacePrefix, $String*, int32_t)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceURI, $String*)},
+		{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceURI, $String*, int32_t)},
+		{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getNamespaceURI, $String*, $String*)},
+		{"getPIData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getPIData, $String*)},
+		{"getPITarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getPITarget, $String*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getPrefix, $String*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getText, $String*)},
+		{"getTextCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextCharacters, $chars*)},
+		{"getTextCharacters", "(I[CII)I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextCharacters, int32_t, int32_t, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"getTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextLength, int32_t)},
+		{"getTextStart", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getTextStart, int32_t)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, getVersion, $String*)},
+		{"hasName", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, hasName, bool)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, hasNext, bool), "javax.xml.stream.XMLStreamException"},
+		{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, hasText, bool)},
+		{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isAttributeSpecified, bool, int32_t)},
+		{"isCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isCharacters, bool)},
+		{"isEndElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isEndElement, bool)},
+		{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isStandalone, bool)},
+		{"isStartElement", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isStartElement, bool)},
+		{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, isWhiteSpace, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, next, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"nextTag", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, nextTag, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"require", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, require, void, int32_t, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"setStreamFilter", "(Ljavax/xml/stream/StreamFilter;)V", nullptr, $PROTECTED, $virtualMethod(XMLStreamFilterImpl, setStreamFilter, void, $StreamFilter*)},
+		{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamFilterImpl, standaloneSet, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLStreamFilterImpl",
+		"java.lang.Object",
+		"javax.xml.stream.XMLStreamReader",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLStreamFilterImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStreamFilterImpl);
+	});
 	return class$;
 }
 

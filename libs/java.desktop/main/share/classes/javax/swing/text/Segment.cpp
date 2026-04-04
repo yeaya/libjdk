@@ -1,5 +1,4 @@
 #include <javax/swing/text/Segment.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
@@ -20,54 +19,6 @@ using $CharacterIterator = ::java::text::CharacterIterator;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _Segment_FieldInfo_[] = {
-	{"array", "[C", nullptr, $PUBLIC, $field(Segment, array)},
-	{"offset", "I", nullptr, $PUBLIC, $field(Segment, offset)},
-	{"count", "I", nullptr, $PUBLIC, $field(Segment, count)},
-	{"copy", "Z", nullptr, 0, $field(Segment, copy)},
-	{"partialReturn", "Z", nullptr, $PRIVATE, $field(Segment, partialReturn)},
-	{"pos", "I", nullptr, $PRIVATE, $field(Segment, pos)},
-	{}
-};
-
-$MethodInfo _Segment_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Segment, init$, void)},
-	{"<init>", "([CII)V", nullptr, $PUBLIC, $method(Segment, init$, void, $chars*, int32_t, int32_t)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(Segment, charAt, char16_t, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Segment, clone, $Object*)},
-	{"current", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, current, char16_t)},
-	{"first", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, first, char16_t)},
-	{"getBeginIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, getBeginIndex, int32_t)},
-	{"getEndIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, getEndIndex, int32_t)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, getIndex, int32_t)},
-	{"isPartialReturn", "()Z", nullptr, $PUBLIC, $virtualMethod(Segment, isPartialReturn, bool)},
-	{"last", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, last, char16_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, length, int32_t)},
-	{"next", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, next, char16_t)},
-	{"previous", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, previous, char16_t)},
-	{"setIndex", "(I)C", nullptr, $PUBLIC, $virtualMethod(Segment, setIndex, char16_t, int32_t)},
-	{"setPartialReturn", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Segment, setPartialReturn, void, bool)},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(Segment, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Segment, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Segment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.Segment",
-	"java.lang.Object",
-	"java.text.CharacterIterator,java.lang.CharSequence",
-	_Segment_FieldInfo_,
-	_Segment_MethodInfo_
-};
-
-$Object* allocate$Segment($Class* clazz) {
-	return $of($alloc(Segment));
-}
 
 int32_t Segment::hashCode() {
 	 return this->$CharacterIterator::hashCode();
@@ -150,7 +101,7 @@ char16_t Segment::previous() {
 }
 
 char16_t Segment::setIndex(int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t end = this->offset + this->count;
 	if ((position < this->offset) || (position > end)) {
 		$throwNew($IllegalArgumentException, $$str({"bad position: "_s, $$str(position)}));
@@ -209,14 +160,57 @@ $Object* Segment::clone() {
 	} catch ($CloneNotSupportedException& cnse) {
 		$assign(o, nullptr);
 	}
-	return $of(o);
+	return o;
 }
 
 Segment::Segment() {
 }
 
 $Class* Segment::load$($String* name, bool initialize) {
-	$loadClass(Segment, name, initialize, &_Segment_ClassInfo_, allocate$Segment);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[C", nullptr, $PUBLIC, $field(Segment, array)},
+		{"offset", "I", nullptr, $PUBLIC, $field(Segment, offset)},
+		{"count", "I", nullptr, $PUBLIC, $field(Segment, count)},
+		{"copy", "Z", nullptr, 0, $field(Segment, copy)},
+		{"partialReturn", "Z", nullptr, $PRIVATE, $field(Segment, partialReturn)},
+		{"pos", "I", nullptr, $PRIVATE, $field(Segment, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Segment, init$, void)},
+		{"<init>", "([CII)V", nullptr, $PUBLIC, $method(Segment, init$, void, $chars*, int32_t, int32_t)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(Segment, charAt, char16_t, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Segment, clone, $Object*)},
+		{"current", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, current, char16_t)},
+		{"first", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, first, char16_t)},
+		{"getBeginIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, getBeginIndex, int32_t)},
+		{"getEndIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, getEndIndex, int32_t)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, getIndex, int32_t)},
+		{"isPartialReturn", "()Z", nullptr, $PUBLIC, $virtualMethod(Segment, isPartialReturn, bool)},
+		{"last", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, last, char16_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(Segment, length, int32_t)},
+		{"next", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, next, char16_t)},
+		{"previous", "()C", nullptr, $PUBLIC, $virtualMethod(Segment, previous, char16_t)},
+		{"setIndex", "(I)C", nullptr, $PUBLIC, $virtualMethod(Segment, setIndex, char16_t, int32_t)},
+		{"setPartialReturn", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Segment, setPartialReturn, void, bool)},
+		{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(Segment, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Segment, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.Segment",
+		"java.lang.Object",
+		"java.text.CharacterIterator,java.lang.CharSequence",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Segment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Segment));
+	});
 	return class$;
 }
 

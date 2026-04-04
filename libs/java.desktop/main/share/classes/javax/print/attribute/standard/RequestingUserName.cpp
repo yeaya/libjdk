@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/RequestingUserName.h>
-
 #include <java/util/Locale.h>
 #include <javax/print/attribute/TextSyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _RequestingUserName_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RequestingUserName, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RequestingUserName_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(RequestingUserName, init$, void, $String*, $Locale*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RequestingUserName, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(RequestingUserName, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(RequestingUserName, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _RequestingUserName_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.RequestingUserName",
-	"javax.print.attribute.TextSyntax",
-	"javax.print.attribute.PrintRequestAttribute",
-	_RequestingUserName_FieldInfo_,
-	_RequestingUserName_MethodInfo_
-};
-
-$Object* allocate$RequestingUserName($Class* clazz) {
-	return $of($alloc(RequestingUserName));
-}
 
 int32_t RequestingUserName::hashCode() {
 	 return this->$TextSyntax::hashCode();
@@ -81,7 +50,32 @@ RequestingUserName::RequestingUserName() {
 }
 
 $Class* RequestingUserName::load$($String* name, bool initialize) {
-	$loadClass(RequestingUserName, name, initialize, &_RequestingUserName_ClassInfo_, allocate$RequestingUserName);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RequestingUserName, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(RequestingUserName, init$, void, $String*, $Locale*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RequestingUserName, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(RequestingUserName, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(RequestingUserName, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.RequestingUserName",
+		"javax.print.attribute.TextSyntax",
+		"javax.print.attribute.PrintRequestAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RequestingUserName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RequestingUserName));
+	});
 	return class$;
 }
 

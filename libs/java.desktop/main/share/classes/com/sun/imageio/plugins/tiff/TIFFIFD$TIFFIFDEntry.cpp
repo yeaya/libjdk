@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFIFD$TIFFIFDEntry.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFIFD.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,44 +15,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFIFD$TIFFIFDEntry_FieldInfo_[] = {
-	{"tag", "Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, tag)},
-	{"type", "I", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, type)},
-	{"count", "I", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, count)},
-	{"offset", "J", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, offset)},
-	{}
-};
-
-$MethodInfo _TIFFIFD$TIFFIFDEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;IIJ)V", nullptr, 0, $method(TIFFIFD$TIFFIFDEntry, init$, void, $TIFFTag*, int32_t, int32_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _TIFFIFD$TIFFIFDEntry_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry", "com.sun.imageio.plugins.tiff.TIFFIFD", "TIFFIFDEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TIFFIFD$TIFFIFDEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry",
-	"java.lang.Object",
-	nullptr,
-	_TIFFIFD$TIFFIFDEntry_FieldInfo_,
-	_TIFFIFD$TIFFIFDEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TIFFIFD$TIFFIFDEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.tiff.TIFFIFD"
-};
-
-$Object* allocate$TIFFIFD$TIFFIFDEntry($Class* clazz) {
-	return $of($alloc(TIFFIFD$TIFFIFDEntry));
-}
-
 void TIFFIFD$TIFFIFDEntry::init$($TIFFTag* tag, int32_t type, int32_t count, int64_t offset) {
 	$set(this, tag, tag);
 	this->type = type;
@@ -65,7 +26,39 @@ TIFFIFD$TIFFIFDEntry::TIFFIFD$TIFFIFDEntry() {
 }
 
 $Class* TIFFIFD$TIFFIFDEntry::load$($String* name, bool initialize) {
-	$loadClass(TIFFIFD$TIFFIFDEntry, name, initialize, &_TIFFIFD$TIFFIFDEntry_ClassInfo_, allocate$TIFFIFD$TIFFIFDEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"tag", "Ljavax/imageio/plugins/tiff/TIFFTag;", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, tag)},
+		{"type", "I", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, type)},
+		{"count", "I", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, count)},
+		{"offset", "J", nullptr, $PUBLIC | $FINAL, $field(TIFFIFD$TIFFIFDEntry, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFTag;IIJ)V", nullptr, 0, $method(TIFFIFD$TIFFIFDEntry, init$, void, $TIFFTag*, int32_t, int32_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry", "com.sun.imageio.plugins.tiff.TIFFIFD", "TIFFIFDEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFIFD$TIFFIFDEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.tiff.TIFFIFD"
+	};
+	$loadClass(TIFFIFD$TIFFIFDEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFIFD$TIFFIFDEntry);
+	});
 	return class$;
 }
 

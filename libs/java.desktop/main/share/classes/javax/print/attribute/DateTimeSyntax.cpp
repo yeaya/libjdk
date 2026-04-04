@@ -1,5 +1,4 @@
 #include <javax/print/attribute/DateTimeSyntax.h>
-
 #include <java/io/Serializable.h>
 #include <java/util/Date.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ using $Date = ::java::util::Date;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _DateTimeSyntax_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeSyntax, serialVersionUID)},
-	{"value", "Ljava/util/Date;", nullptr, $PRIVATE, $field(DateTimeSyntax, value)},
-	{}
-};
-
-$MethodInfo _DateTimeSyntax_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/Date;)V", nullptr, $PROTECTED, $method(DateTimeSyntax, init$, void, $Date*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, equals, bool, Object$*)},
-	{"getValue", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, getValue, $Date*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DateTimeSyntax_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.print.attribute.DateTimeSyntax",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_DateTimeSyntax_FieldInfo_,
-	_DateTimeSyntax_MethodInfo_
-};
-
-$Object* allocate$DateTimeSyntax($Class* clazz) {
-	return $of($alloc(DateTimeSyntax));
-}
 
 $Object* DateTimeSyntax::clone() {
 	 return this->$Serializable::clone();
@@ -65,7 +34,7 @@ $Date* DateTimeSyntax::getValue() {
 }
 
 bool DateTimeSyntax::equals(Object$* object) {
-	return (object != nullptr && $instanceOf(DateTimeSyntax, object) && $nc(this->value)->equals($nc(($cast(DateTimeSyntax, object)))->value));
+	return (object != nullptr && $instanceOf(DateTimeSyntax, object) && $nc(this->value)->equals($cast(DateTimeSyntax, object)->value));
 }
 
 int32_t DateTimeSyntax::hashCode() {
@@ -80,7 +49,32 @@ DateTimeSyntax::DateTimeSyntax() {
 }
 
 $Class* DateTimeSyntax::load$($String* name, bool initialize) {
-	$loadClass(DateTimeSyntax, name, initialize, &_DateTimeSyntax_ClassInfo_, allocate$DateTimeSyntax);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeSyntax, serialVersionUID)},
+		{"value", "Ljava/util/Date;", nullptr, $PRIVATE, $field(DateTimeSyntax, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/Date;)V", nullptr, $PROTECTED, $method(DateTimeSyntax, init$, void, $Date*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, equals, bool, Object$*)},
+		{"getValue", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, getValue, $Date*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeSyntax, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.print.attribute.DateTimeSyntax",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateTimeSyntax, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DateTimeSyntax));
+	});
 	return class$;
 }
 

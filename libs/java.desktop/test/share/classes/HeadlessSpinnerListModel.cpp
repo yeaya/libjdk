@@ -1,5 +1,4 @@
 #include <HeadlessSpinnerListModel.h>
-
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <javax/swing/SpinnerListModel.h>
@@ -8,39 +7,19 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LinkedList = ::java::util::LinkedList;
-using $List = ::java::util::List;
 using $SpinnerListModel = ::javax::swing::SpinnerListModel;
-
-$MethodInfo _HeadlessSpinnerListModel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessSpinnerListModel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessSpinnerListModel, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessSpinnerListModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessSpinnerListModel",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessSpinnerListModel_MethodInfo_
-};
-
-$Object* allocate$HeadlessSpinnerListModel($Class* clazz) {
-	return $of($alloc(HeadlessSpinnerListModel));
-}
 
 void HeadlessSpinnerListModel::init$() {
 }
 
 void HeadlessSpinnerListModel::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList, list, $new($LinkedList));
 	list->add("prev"_s);
 	list->add("this"_s);
 	list->add("next"_s);
 	$var($SpinnerListModel, m, nullptr);
-	$assign(m, $new($SpinnerListModel, static_cast<$List*>(list)));
+	$assign(m, $new($SpinnerListModel, list));
 	$assign(m, $new($SpinnerListModel, $$new($StringArray, {
 		"prev"_s,
 		"this"_s,
@@ -57,7 +36,22 @@ HeadlessSpinnerListModel::HeadlessSpinnerListModel() {
 }
 
 $Class* HeadlessSpinnerListModel::load$($String* name, bool initialize) {
-	$loadClass(HeadlessSpinnerListModel, name, initialize, &_HeadlessSpinnerListModel_ClassInfo_, allocate$HeadlessSpinnerListModel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessSpinnerListModel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessSpinnerListModel, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessSpinnerListModel",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessSpinnerListModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessSpinnerListModel);
+	});
 	return class$;
 }
 

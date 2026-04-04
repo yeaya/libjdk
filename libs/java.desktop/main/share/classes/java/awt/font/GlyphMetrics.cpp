@@ -1,5 +1,4 @@
 #include <java/awt/font/GlyphMetrics.h>
-
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <jcpp.h>
@@ -20,57 +19,12 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _GlyphMetrics_FieldInfo_[] = {
-	{"horizontal", "Z", nullptr, $PRIVATE, $field(GlyphMetrics, horizontal)},
-	{"advanceX", "F", nullptr, $PRIVATE, $field(GlyphMetrics, advanceX)},
-	{"advanceY", "F", nullptr, $PRIVATE, $field(GlyphMetrics, advanceY)},
-	{"bounds", "Ljava/awt/geom/Rectangle2D$Float;", nullptr, $PRIVATE, $field(GlyphMetrics, bounds)},
-	{"glyphType", "B", nullptr, $PRIVATE, $field(GlyphMetrics, glyphType)},
-	{"STANDARD", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, STANDARD)},
-	{"LIGATURE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, LIGATURE)},
-	{"COMBINING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, COMBINING)},
-	{"COMPONENT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, COMPONENT)},
-	{"WHITESPACE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, WHITESPACE)},
-	{}
-};
-
-$MethodInfo _GlyphMetrics_MethodInfo_[] = {
-	{"<init>", "(FLjava/awt/geom/Rectangle2D;B)V", nullptr, $PUBLIC, $method(GlyphMetrics, init$, void, float, $Rectangle2D*, int8_t)},
-	{"<init>", "(ZFFLjava/awt/geom/Rectangle2D;B)V", nullptr, $PUBLIC, $method(GlyphMetrics, init$, void, bool, float, float, $Rectangle2D*, int8_t)},
-	{"getAdvance", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getAdvance, float)},
-	{"getAdvanceX", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getAdvanceX, float)},
-	{"getAdvanceY", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getAdvanceY, float)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(GlyphMetrics, getBounds2D, $Rectangle2D*)},
-	{"getLSB", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getLSB, float)},
-	{"getRSB", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getRSB, float)},
-	{"getType", "()I", nullptr, $PUBLIC, $method(GlyphMetrics, getType, int32_t)},
-	{"isCombining", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isCombining, bool)},
-	{"isComponent", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isComponent, bool)},
-	{"isLigature", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isLigature, bool)},
-	{"isStandard", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isStandard, bool)},
-	{"isWhitespace", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isWhitespace, bool)},
-	{}
-};
-
-$ClassInfo _GlyphMetrics_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.GlyphMetrics",
-	"java.lang.Object",
-	nullptr,
-	_GlyphMetrics_FieldInfo_,
-	_GlyphMetrics_MethodInfo_
-};
-
-$Object* allocate$GlyphMetrics($Class* clazz) {
-	return $of($alloc(GlyphMetrics));
-}
-
 void GlyphMetrics::init$(float advance, $Rectangle2D* bounds, int8_t glyphType) {
 	this->horizontal = true;
 	this->advanceX = advance;
-	this->advanceY = (float)0;
+	this->advanceY = 0;
 	$set(this, bounds, $new($Rectangle2D$Float));
-	$nc(this->bounds)->setRect(bounds);
+	this->bounds->setRect(bounds);
 	this->glyphType = glyphType;
 }
 
@@ -79,7 +33,7 @@ void GlyphMetrics::init$(bool horizontal, float advanceX, float advanceY, $Recta
 	this->advanceX = advanceX;
 	this->advanceY = advanceY;
 	$set(this, bounds, $new($Rectangle2D$Float));
-	$nc(this->bounds)->setRect(bounds);
+	this->bounds->setRect(bounds);
 	this->glyphType = glyphType;
 }
 
@@ -112,30 +66,70 @@ int32_t GlyphMetrics::getType() {
 }
 
 bool GlyphMetrics::isStandard() {
-	return ((int32_t)(this->glyphType & (uint32_t)3)) == GlyphMetrics::STANDARD;
+	return (this->glyphType & 3) == GlyphMetrics::STANDARD;
 }
 
 bool GlyphMetrics::isLigature() {
-	return ((int32_t)(this->glyphType & (uint32_t)3)) == GlyphMetrics::LIGATURE;
+	return (this->glyphType & 3) == GlyphMetrics::LIGATURE;
 }
 
 bool GlyphMetrics::isCombining() {
-	return ((int32_t)(this->glyphType & (uint32_t)3)) == GlyphMetrics::COMBINING;
+	return (this->glyphType & 3) == GlyphMetrics::COMBINING;
 }
 
 bool GlyphMetrics::isComponent() {
-	return ((int32_t)(this->glyphType & (uint32_t)3)) == GlyphMetrics::COMPONENT;
+	return (this->glyphType & 3) == GlyphMetrics::COMPONENT;
 }
 
 bool GlyphMetrics::isWhitespace() {
-	return ((int32_t)(this->glyphType & (uint32_t)4)) == GlyphMetrics::WHITESPACE;
+	return (this->glyphType & 4) == GlyphMetrics::WHITESPACE;
 }
 
 GlyphMetrics::GlyphMetrics() {
 }
 
 $Class* GlyphMetrics::load$($String* name, bool initialize) {
-	$loadClass(GlyphMetrics, name, initialize, &_GlyphMetrics_ClassInfo_, allocate$GlyphMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"horizontal", "Z", nullptr, $PRIVATE, $field(GlyphMetrics, horizontal)},
+		{"advanceX", "F", nullptr, $PRIVATE, $field(GlyphMetrics, advanceX)},
+		{"advanceY", "F", nullptr, $PRIVATE, $field(GlyphMetrics, advanceY)},
+		{"bounds", "Ljava/awt/geom/Rectangle2D$Float;", nullptr, $PRIVATE, $field(GlyphMetrics, bounds)},
+		{"glyphType", "B", nullptr, $PRIVATE, $field(GlyphMetrics, glyphType)},
+		{"STANDARD", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, STANDARD)},
+		{"LIGATURE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, LIGATURE)},
+		{"COMBINING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, COMBINING)},
+		{"COMPONENT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, COMPONENT)},
+		{"WHITESPACE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GlyphMetrics, WHITESPACE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FLjava/awt/geom/Rectangle2D;B)V", nullptr, $PUBLIC, $method(GlyphMetrics, init$, void, float, $Rectangle2D*, int8_t)},
+		{"<init>", "(ZFFLjava/awt/geom/Rectangle2D;B)V", nullptr, $PUBLIC, $method(GlyphMetrics, init$, void, bool, float, float, $Rectangle2D*, int8_t)},
+		{"getAdvance", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getAdvance, float)},
+		{"getAdvanceX", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getAdvanceX, float)},
+		{"getAdvanceY", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getAdvanceY, float)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $method(GlyphMetrics, getBounds2D, $Rectangle2D*)},
+		{"getLSB", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getLSB, float)},
+		{"getRSB", "()F", nullptr, $PUBLIC, $method(GlyphMetrics, getRSB, float)},
+		{"getType", "()I", nullptr, $PUBLIC, $method(GlyphMetrics, getType, int32_t)},
+		{"isCombining", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isCombining, bool)},
+		{"isComponent", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isComponent, bool)},
+		{"isLigature", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isLigature, bool)},
+		{"isStandard", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isStandard, bool)},
+		{"isWhitespace", "()Z", nullptr, $PUBLIC, $method(GlyphMetrics, isWhitespace, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.GlyphMetrics",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GlyphMetrics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphMetrics);
+	});
 	return class$;
 }
 

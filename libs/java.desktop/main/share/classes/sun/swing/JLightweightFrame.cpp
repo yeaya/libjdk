@@ -1,5 +1,4 @@
 #include <sun/swing/JLightweightFrame.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -24,14 +23,12 @@
 #include <java/awt/dnd/DragSource.h>
 #include <java/awt/dnd/DropTarget.h>
 #include <java/awt/dnd/peer/DragSourceContextPeer.h>
-#include <java/awt/event/ContainerListener.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferInt.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
@@ -41,7 +38,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JPanel.h>
@@ -60,7 +56,6 @@
 #include <sun/swing/JLightweightFrame$3.h>
 #include <sun/swing/JLightweightFrame$4.h>
 #include <sun/swing/LightweightContent.h>
-#include <sun/swing/SwingAccessor$JLightweightFrameAccessor.h>
 #include <sun/swing/SwingAccessor$RepaintManagerAccessor.h>
 #include <sun/swing/SwingAccessor.h>
 #include <sun/swing/SwingUtilities2$RepaintListener.h>
@@ -74,11 +69,8 @@ using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $MouseInfo = ::java::awt::MouseInfo;
 using $Point = ::java::awt::Point;
 using $PointerInfo = ::java::awt::PointerInfo;
@@ -90,13 +82,9 @@ using $DragGestureRecognizer = ::java::awt::dnd::DragGestureRecognizer;
 using $DragSource = ::java::awt::dnd::DragSource;
 using $DropTarget = ::java::awt::dnd::DropTarget;
 using $DragSourceContextPeer = ::java::awt::dnd::peer::DragSourceContextPeer;
-using $ContainerListener = ::java::awt::event::ContainerListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
-using $WritableRaster = ::java::awt::image::WritableRaster;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -107,16 +95,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $JComponent = ::javax::swing::JComponent;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
-using $JPanel = ::javax::swing::JPanel;
 using $JRootPane = ::javax::swing::JRootPane;
 using $LayoutFocusTraversalPolicy = ::javax::swing::LayoutFocusTraversalPolicy;
 using $RepaintManager = ::javax::swing::RepaintManager;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
 using $OverrideNativeWindowHandle = ::sun::awt::OverrideNativeWindowHandle;
@@ -127,8 +112,6 @@ using $JLightweightFrame$3 = ::sun::swing::JLightweightFrame$3;
 using $JLightweightFrame$4 = ::sun::swing::JLightweightFrame$4;
 using $LightweightContent = ::sun::swing::LightweightContent;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$JLightweightFrameAccessor = ::sun::swing::SwingAccessor$JLightweightFrameAccessor;
-using $SwingAccessor$RepaintManagerAccessor = ::sun::swing::SwingAccessor$RepaintManagerAccessor;
 using $SwingUtilities2$RepaintListener = ::sun::swing::SwingUtilities2$RepaintListener;
 
 namespace sun {
@@ -143,118 +126,32 @@ public:
 	virtual void repaintPerformed($JComponent* c, int32_t x, int32_t y, int32_t w, int32_t h) override {
 		$nc(inst$)->lambda$new$0(c, x, y, w, h);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JLightweightFrame$$Lambda$lambda$new$0>());
-	}
 	JLightweightFrame* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JLightweightFrame$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JLightweightFrame$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo JLightweightFrame$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lsun/swing/JLightweightFrame;)V", nullptr, $PUBLIC, $method(JLightweightFrame$$Lambda$lambda$new$0, init$, void, JLightweightFrame*)},
-	{"repaintPerformed", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame$$Lambda$lambda$new$0, repaintPerformed, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-$ClassInfo JLightweightFrame$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.swing.JLightweightFrame$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"sun.swing.SwingUtilities2$RepaintListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* JLightweightFrame$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(JLightweightFrame$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JLightweightFrame$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/JLightweightFrame;)V", nullptr, $PUBLIC, $method(JLightweightFrame$$Lambda$lambda$new$0, init$, void, JLightweightFrame*)},
+		{"repaintPerformed", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame$$Lambda$lambda$new$0, repaintPerformed, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.swing.JLightweightFrame$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"sun.swing.SwingUtilities2$RepaintListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JLightweightFrame$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JLightweightFrame$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* JLightweightFrame$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _JLightweightFrame_FieldInfo_[] = {
-	{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PRIVATE | $FINAL, $field(JLightweightFrame, rootPane)},
-	{"content", "Lsun/swing/LightweightContent;", nullptr, $PRIVATE, $field(JLightweightFrame, content)},
-	{"component", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(JLightweightFrame, component)},
-	{"contentPane", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(JLightweightFrame, contentPane)},
-	{"bbImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(JLightweightFrame, bbImage)},
-	{"scaleFactorX", "D", nullptr, $PRIVATE | $VOLATILE, $field(JLightweightFrame, scaleFactorX)},
-	{"scaleFactorY", "D", nullptr, $PRIVATE | $VOLATILE, $field(JLightweightFrame, scaleFactorY)},
-	{"copyBufferEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(JLightweightFrame, copyBufferEnabled)},
-	{"copyBuffer", "[I", nullptr, $PRIVATE, $field(JLightweightFrame, copyBuffer)},
-	{"layoutSizeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(JLightweightFrame, layoutSizeListener)},
-	{"repaintListener", "Lsun/swing/SwingUtilities2$RepaintListener;", nullptr, $PRIVATE, $field(JLightweightFrame, repaintListener)},
-	{}
-};
-
-$MethodInfo _JLightweightFrame_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JLightweightFrame, init$, void)},
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, addDropTarget, void, $DropTarget*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, addNotify, void)},
-	{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(JLightweightFrame, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
-	{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, dispose, void)},
-	{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getContentPane, $Container*)},
-	{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getGlassPane, $Component*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getGraphics, $Graphics*)},
-	{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getLayeredPane, $JLayeredPane*)},
-	{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getRootPane, $JRootPane*)},
-	{"getScaleFactor", "()I", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getScaleFactor, int32_t)},
-	{"getScaleFactorX", "()D", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getScaleFactorX, double)},
-	{"getScaleFactorY", "()D", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getScaleFactorY, double)},
-	{"grabFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, grabFocus, void)},
-	{"initInterior", "()V", nullptr, $PRIVATE, $method(JLightweightFrame, initInterior, void)},
-	{"lambda$new$0", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JLightweightFrame, lambda$new$0, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
-	{"notifyDisplayChanged", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, notifyDisplayChanged, void, int32_t)},
-	{"notifyDisplayChanged", "(DD)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, notifyDisplayChanged, void, double, double)},
-	{"notifyImageUpdated", "(IIII)V", nullptr, $PRIVATE, $method(JLightweightFrame, notifyImageUpdated, void, int32_t, int32_t, int32_t, int32_t)},
-	{"overrideNativeWindowHandle", "(JLjava/lang/Runnable;)V", nullptr, $PUBLIC, $method(JLightweightFrame, overrideNativeWindowHandle, void, int64_t, $Runnable*)},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, removeDropTarget, void, $DropTarget*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"resizeBuffer", "(IIDD)V", nullptr, $PRIVATE, $method(JLightweightFrame, resizeBuffer, void, int32_t, int32_t, double, double)},
-	{"setContent", "(Lsun/swing/LightweightContent;)V", nullptr, $PUBLIC, $method(JLightweightFrame, setContent, void, $LightweightContent*)},
-	{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, setContentPane, void, $Container*)},
-	{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, setGlassPane, void, $Component*)},
-	{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, setLayeredPane, void, $JLayeredPane*)},
-	{"syncCopyBuffer", "(ZIIIIDD)V", nullptr, $PRIVATE, $method(JLightweightFrame, syncCopyBuffer, void, bool, int32_t, int32_t, int32_t, int32_t, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrabFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, ungrabFocus, void)},
-	{"updateClientCursor", "()V", nullptr, $PRIVATE, $method(JLightweightFrame, updateClientCursor, void)},
-	{}
-};
-
-$InnerClassInfo _JLightweightFrame_InnerClassesInfo_[] = {
-	{"sun.swing.JLightweightFrame$4", nullptr, nullptr, 0},
-	{"sun.swing.JLightweightFrame$3", nullptr, nullptr, 0},
-	{"sun.swing.JLightweightFrame$2", nullptr, nullptr, 0},
-	{"sun.swing.JLightweightFrame$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JLightweightFrame_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.swing.JLightweightFrame",
-	"sun.awt.LightweightFrame",
-	"javax.swing.RootPaneContainer",
-	_JLightweightFrame_FieldInfo_,
-	_JLightweightFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JLightweightFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.JLightweightFrame$4,sun.swing.JLightweightFrame$3,sun.swing.JLightweightFrame$3$1,sun.swing.JLightweightFrame$2,sun.swing.JLightweightFrame$1"
-};
-
-$Object* allocate$JLightweightFrame($Class* clazz) {
-	return $of($alloc(JLightweightFrame));
-}
 
 $String* JLightweightFrame::toString() {
 	 return this->$LightweightFrame::toString();
@@ -279,28 +176,28 @@ void JLightweightFrame::finalize() {
 bool JLightweightFrame::copyBufferEnabled = false;
 
 void JLightweightFrame::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$LightweightFrame::init$();
 	$set(this, rootPane, $new($JRootPane));
-	$var($AffineTransform, defaultTransform, $nc($(getGraphicsConfiguration()))->getDefaultTransform());
+	$var($AffineTransform, defaultTransform, $$nc(getGraphicsConfiguration())->getDefaultTransform());
 	this->scaleFactorX = $nc(defaultTransform)->getScaleX();
 	this->scaleFactorY = defaultTransform->getScaleY();
-	JLightweightFrame::copyBufferEnabled = "true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.jlf.copyBufferEnabled"_s, "true"_s)))));
+	JLightweightFrame::copyBufferEnabled = "true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "swing.jlf.copyBufferEnabled"_s, "true"_s))));
 	$init($BorderLayout);
-	add(static_cast<$Component*>(this->rootPane), $of($BorderLayout::CENTER));
+	add(this->rootPane, $BorderLayout::CENTER);
 	setFocusTraversalPolicy($$new($LayoutFocusTraversalPolicy));
-	if ($nc($(getGraphicsConfiguration()))->isTranslucencyCapable()) {
+	if ($$nc(getGraphicsConfiguration())->isTranslucencyCapable()) {
 		setBackground($$new($Color, 0, 0, 0, 0));
 	}
 	$set(this, layoutSizeListener, $new($JLightweightFrame$2, this));
-	$set(this, repaintListener, static_cast<$SwingUtilities2$RepaintListener*>($new(JLightweightFrame$$Lambda$lambda$new$0, this)));
-	$nc($($SwingAccessor::getRepaintManagerAccessor()))->addRepaintListener($($RepaintManager::currentManager(static_cast<$Component*>(this))), this->repaintListener);
+	$set(this, repaintListener, $new(JLightweightFrame$$Lambda$lambda$new$0, this));
+	$$nc($SwingAccessor::getRepaintManagerAccessor())->addRepaintListener($($RepaintManager::currentManager(this)), this->repaintListener);
 }
 
 void JLightweightFrame::dispose() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($SwingAccessor::getRepaintManagerAccessor()))->removeRepaintListener($($RepaintManager::currentManager(static_cast<$Component*>(this))), this->repaintListener);
+	$useLocalObjectStack();
+	$$nc($SwingAccessor::getRepaintManagerAccessor())->removeRepaintListener($($RepaintManager::currentManager(this)), this->repaintListener);
 	$LightweightFrame::dispose();
 }
 
@@ -312,16 +209,16 @@ void JLightweightFrame::setContent($LightweightContent* content) {
 	$set(this, content, content);
 	$set(this, component, $nc(content)->getComponent());
 	$var($Dimension, d, $nc(this->component)->getPreferredSize());
-	content->preferredSizeChanged($nc(d)->width, d->height);
+	content->preferredSizeChanged($nc(d)->width, $nc(d)->height);
 	$assign(d, $nc(this->component)->getMaximumSize());
-	content->maximumSizeChanged($nc(d)->width, d->height);
+	content->maximumSizeChanged($nc(d)->width, $nc(d)->height);
 	$assign(d, $nc(this->component)->getMinimumSize());
-	content->minimumSizeChanged($nc(d)->width, d->height);
+	content->minimumSizeChanged($nc(d)->width, $nc(d)->height);
 	initInterior();
 }
 
 $Graphics* JLightweightFrame::getGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->bbImage == nullptr) {
 		return nullptr;
 	}
@@ -335,13 +232,13 @@ $Graphics* JLightweightFrame::getGraphics() {
 
 void JLightweightFrame::grabFocus() {
 	if (this->content != nullptr) {
-		$nc(this->content)->focusGrabbed();
+		this->content->focusGrabbed();
 	}
 }
 
 void JLightweightFrame::ungrabFocus() {
 	if (this->content != nullptr) {
-		$nc(this->content)->focusUngrabbed();
+		this->content->focusUngrabbed();
 	}
 }
 
@@ -362,36 +259,34 @@ void JLightweightFrame::notifyDisplayChanged(int32_t scaleFactor) {
 }
 
 void JLightweightFrame::notifyDisplayChanged(double scaleFactorX, double scaleFactorY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $Double::compare(scaleFactorX, this->scaleFactorX) != 0;
 	if (var$0 || $Double::compare(scaleFactorY, this->scaleFactorY) != 0) {
 		if (!JLightweightFrame::copyBufferEnabled) {
 			$nc(this->content)->paintLock();
 		}
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				if (this->bbImage != nullptr) {
-					int32_t var$2 = getWidth();
-					resizeBuffer(var$2, getHeight(), scaleFactorX, scaleFactorY);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$1, var$3);
-			} /*finally*/ {
-				if (!JLightweightFrame::copyBufferEnabled) {
-					$nc(this->content)->paintUnlock();
-				}
+		$var($Throwable, var$1, nullptr);
+		try {
+			if (this->bbImage != nullptr) {
+				int32_t var$2 = getWidth();
+				resizeBuffer(var$2, getHeight(), scaleFactorX, scaleFactorY);
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+		} catch ($Throwable& var$3) {
+			$assign(var$1, var$3);
+		} /*finally*/ {
+			if (!JLightweightFrame::copyBufferEnabled) {
+				$nc(this->content)->paintUnlock();
 			}
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 		this->scaleFactorX = scaleFactorX;
 		this->scaleFactorY = scaleFactorY;
 		if (isVisible()) {
-			$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this));
+			$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this));
 			if ($instanceOf($DisplayChangedListener, peer)) {
-				$nc(($cast($DisplayChangedListener, peer)))->displayChanged();
+				$cast($DisplayChangedListener, peer)->displayChanged();
 			}
 			repaint();
 		}
@@ -399,47 +294,45 @@ void JLightweightFrame::notifyDisplayChanged(double scaleFactorX, double scaleFa
 }
 
 void JLightweightFrame::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LightweightFrame::addNotify();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this));
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this));
 	if ($instanceOf($DisplayChangedListener, peer)) {
-		$nc(($cast($DisplayChangedListener, peer)))->displayChanged();
+		$cast($DisplayChangedListener, peer)->displayChanged();
 	}
 }
 
 void JLightweightFrame::syncCopyBuffer(bool reset, int32_t x, int32_t y, int32_t w, int32_t h, double scaleX, double scaleY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->content)->paintLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($ints, srcBuffer, $nc(($cast($DataBufferInt, $($nc($($nc(this->bbImage)->getRaster()))->getDataBuffer()))))->getData());
-			if (reset) {
-				$set(this, copyBuffer, $new($ints, $nc(srcBuffer)->length));
-			}
-			int32_t linestride = $nc(this->bbImage)->getWidth();
-			int32_t startX = $cast(int32_t, $Math::floor(x * scaleX));
-			int32_t startY = $cast(int32_t, $Math::floor(y * scaleY));
-			int32_t width = $cast(int32_t, $Math::ceil((x + w) * scaleX)) - startX;
-			int32_t height = $cast(int32_t, $Math::ceil((y + h) * scaleY)) - startY;
-			if (startX + width > linestride) {
-				width = linestride - startX;
-			}
-			if (startY + height > $nc(this->bbImage)->getHeight()) {
-				height = $nc(this->bbImage)->getHeight() - startY;
-			}
-			for (int32_t i = 0; i < height; ++i) {
-				int32_t from = (startY + i) * linestride + startX;
-				$System::arraycopy(srcBuffer, from, this->copyBuffer, from, width);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->content)->paintUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($ints, srcBuffer, $$sure($DataBufferInt, $$nc($nc(this->bbImage)->getRaster())->getDataBuffer())->getData());
+		if (reset) {
+			$set(this, copyBuffer, $new($ints, $nc(srcBuffer)->length));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int32_t linestride = $nc(this->bbImage)->getWidth();
+		int32_t startX = $cast(int32_t, $Math::floor(x * scaleX));
+		int32_t startY = $cast(int32_t, $Math::floor(y * scaleY));
+		int32_t width = $cast(int32_t, $Math::ceil((x + w) * scaleX)) - startX;
+		int32_t height = $cast(int32_t, $Math::ceil((y + h) * scaleY)) - startY;
+		if (startX + width > linestride) {
+			width = linestride - startX;
 		}
+		if (startY + height > $nc(this->bbImage)->getHeight()) {
+			height = $nc(this->bbImage)->getHeight() - startY;
+		}
+		for (int32_t i = 0; i < height; ++i) {
+			int32_t from = (startY + i) * linestride + startX;
+			$System::arraycopy(srcBuffer, from, this->copyBuffer, from, width);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->content)->paintUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -451,12 +344,12 @@ void JLightweightFrame::notifyImageUpdated(int32_t x, int32_t y, int32_t width, 
 }
 
 void JLightweightFrame::initInterior() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, contentPane, $new($JLightweightFrame$3, this));
-	$nc(this->contentPane)->setLayout($$new($BorderLayout));
+	this->contentPane->setLayout($$new($BorderLayout));
 	$nc(this->contentPane)->add(this->component);
-	if ("true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.jlf.contentPaneTransparent"_s, "false"_s)))))) {
+	if ("true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "swing.jlf.contentPaneTransparent"_s, "false"_s))))) {
 		$nc(this->contentPane)->setOpaque(false);
 	}
 	setContentPane(this->contentPane);
@@ -471,65 +364,63 @@ void JLightweightFrame::reshape(int32_t x, int32_t y, int32_t width, int32_t hei
 	if (!JLightweightFrame::copyBufferEnabled) {
 		$nc(this->content)->paintLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			bool createBB = (this->bbImage == nullptr);
-			int32_t newW = width;
-			int32_t newH = height;
-			if (this->bbImage != nullptr) {
-				int32_t imgWidth = (int32_t)$Math::round($nc(this->bbImage)->getWidth() / this->scaleFactorX);
-				int32_t imgHeight = (int32_t)$Math::round($nc(this->bbImage)->getHeight() / this->scaleFactorY);
-				if (width != imgWidth || height != imgHeight) {
-					createBB = true;
-					if (this->bbImage != nullptr) {
-						int32_t oldW = imgWidth;
-						int32_t oldH = imgHeight;
-						if ((oldW >= newW) && (oldH >= newH)) {
-							createBB = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		bool createBB = (this->bbImage == nullptr);
+		int32_t newW = width;
+		int32_t newH = height;
+		if (this->bbImage != nullptr) {
+			int32_t imgWidth = (int32_t)$Math::round(this->bbImage->getWidth() / this->scaleFactorX);
+			int32_t imgHeight = (int32_t)$Math::round($nc(this->bbImage)->getHeight() / this->scaleFactorY);
+			if (width != imgWidth || height != imgHeight) {
+				createBB = true;
+				if (this->bbImage != nullptr) {
+					int32_t oldW = imgWidth;
+					int32_t oldH = imgHeight;
+					if ((oldW >= newW) && (oldH >= newH)) {
+						createBB = false;
+					} else {
+						if (oldW >= newW) {
+							newW = oldW;
 						} else {
-							if (oldW >= newW) {
-								newW = oldW;
-							} else {
-								newW = $Math::max($cast(int32_t, (oldW * 1.2)), width);
-							}
-							if (oldH >= newH) {
-								newH = oldH;
-							} else {
-								newH = $Math::max($cast(int32_t, (oldH * 1.2)), height);
-							}
+							newW = $Math::max($cast(int32_t, (oldW * 1.2)), width);
+						}
+						if (oldH >= newH) {
+							newH = oldH;
+						} else {
+							newH = $Math::max($cast(int32_t, (oldH * 1.2)), height);
 						}
 					}
 				}
 			}
-			if (createBB) {
-				resizeBuffer(newW, newH, this->scaleFactorX, this->scaleFactorY);
-				return$1 = true;
-				goto $finally;
-			}
-			$nc(this->content)->imageReshaped(0, 0, width, height);
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			if (!JLightweightFrame::copyBufferEnabled) {
-				$nc(this->content)->paintUnlock();
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (createBB) {
+			resizeBuffer(newW, newH, this->scaleFactorX, this->scaleFactorY);
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return;
+		$nc(this->content)->imageReshaped(0, 0, width, height);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		if (!JLightweightFrame::copyBufferEnabled) {
+			$nc(this->content)->paintUnlock();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void JLightweightFrame::resizeBuffer(int32_t width, int32_t height, double newScaleFactorX, double newScaleFactorY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = (int32_t)$Math::round(width * newScaleFactorX);
 	$set(this, bbImage, $new($BufferedImage, var$0, (int32_t)$Math::round(height * newScaleFactorY), $BufferedImage::TYPE_INT_ARGB_PRE));
-	$var($ints, pixels, $nc(($cast($DataBufferInt, $($nc($($nc(this->bbImage)->getRaster()))->getDataBuffer()))))->getData());
+	$var($ints, pixels, $$sure($DataBufferInt, $$nc(this->bbImage->getRaster())->getDataBuffer())->getData());
 	if (JLightweightFrame::copyBufferEnabled) {
 		syncCopyBuffer(true, 0, 0, width, height, newScaleFactorX, newScaleFactorY);
 		$assign(pixels, this->copyBuffer);
@@ -542,48 +433,48 @@ $JRootPane* JLightweightFrame::getRootPane() {
 }
 
 void JLightweightFrame::setContentPane($Container* contentPane) {
-	$nc($(getRootPane()))->setContentPane(contentPane);
+	$$nc(getRootPane())->setContentPane(contentPane);
 }
 
 $Container* JLightweightFrame::getContentPane() {
-	return $nc($(getRootPane()))->getContentPane();
+	return $$nc(getRootPane())->getContentPane();
 }
 
 void JLightweightFrame::setLayeredPane($JLayeredPane* layeredPane) {
-	$nc($(getRootPane()))->setLayeredPane(layeredPane);
+	$$nc(getRootPane())->setLayeredPane(layeredPane);
 }
 
 $JLayeredPane* JLightweightFrame::getLayeredPane() {
-	return $nc($(getRootPane()))->getLayeredPane();
+	return $$nc(getRootPane())->getLayeredPane();
 }
 
 void JLightweightFrame::setGlassPane($Component* glassPane) {
-	$nc($(getRootPane()))->setGlassPane(glassPane);
+	$$nc(getRootPane())->setGlassPane(glassPane);
 }
 
 $Component* JLightweightFrame::getGlassPane() {
-	return $nc($(getRootPane()))->getGlassPane();
+	return $$nc(getRootPane())->getGlassPane();
 }
 
 void JLightweightFrame::updateClientCursor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointerInfo, pointerInfo, $MouseInfo::getPointerInfo());
 	if (pointerInfo == nullptr) {
 		return;
 	}
 	$var($Point, p, $nc(pointerInfo)->getLocation());
 	$SwingUtilities::convertPointFromScreen(p, this);
-	$var($Component, target, $SwingUtilities::getDeepestComponentAt(this, $nc(p)->x, p->y));
+	$var($Component, target, $SwingUtilities::getDeepestComponentAt(this, $nc(p)->x, $nc(p)->y));
 	if (target != nullptr) {
 		$nc(this->content)->setCursor($(target->getCursor()));
 	}
 }
 
 void JLightweightFrame::overrideNativeWindowHandle(int64_t handle, $Runnable* closeWindow) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(this));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this));
 	if ($instanceOf($OverrideNativeWindowHandle, peer)) {
-		$nc(($cast($OverrideNativeWindowHandle, peer)))->overrideWindowHandle(handle);
+		$cast($OverrideNativeWindowHandle, peer)->overrideWindowHandle(handle);
 	}
 	if (closeWindow != nullptr) {
 		closeWindow->run();
@@ -591,11 +482,11 @@ void JLightweightFrame::overrideNativeWindowHandle(int64_t handle, $Runnable* cl
 }
 
 $DragGestureRecognizer* JLightweightFrame::createDragGestureRecognizer($Class* abstractRecognizerClass, $DragSource* ds, $Component* c, int32_t srcActions, $DragGestureListener* dgl) {
-	return this->content == nullptr ? ($DragGestureRecognizer*)nullptr : $nc(this->content)->createDragGestureRecognizer(abstractRecognizerClass, ds, c, srcActions, dgl);
+	return this->content == nullptr ? ($DragGestureRecognizer*)nullptr : this->content->createDragGestureRecognizer(abstractRecognizerClass, ds, c, srcActions, dgl);
 }
 
 $DragSourceContextPeer* JLightweightFrame::createDragSourceContextPeer($DragGestureEvent* dge) {
-	return this->content == nullptr ? ($DragSourceContextPeer*)nullptr : $nc(this->content)->createDragSourceContextPeer(dge);
+	return this->content == nullptr ? ($DragSourceContextPeer*)nullptr : this->content->createDragSourceContextPeer(dge);
 }
 
 void JLightweightFrame::addDropTarget($DropTarget* dt) {
@@ -613,25 +504,25 @@ void JLightweightFrame::removeDropTarget($DropTarget* dt) {
 }
 
 void JLightweightFrame::lambda$new$0($JComponent* c, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, jlf, $SwingUtilities::getWindowAncestor(c));
 	if (!$equals(jlf, this)) {
 		return;
 	}
 	$var($Point, p, $SwingUtilities::convertPoint(c, x, y, jlf));
 	int32_t var$0 = (int32_t)$Math::round($nc(this->bbImage)->getWidth() / this->scaleFactorX);
-	$var($Rectangle, r, $$new($Rectangle, $nc(p)->x, p->y, w, h)->intersection($$new($Rectangle, 0, 0, var$0, (int32_t)$Math::round($nc(this->bbImage)->getHeight() / this->scaleFactorY))));
+	$var($Rectangle, r, $$new($Rectangle, $nc(p)->x, $nc(p)->y, w, h)->intersection($$new($Rectangle, 0, 0, var$0, (int32_t)$Math::round(this->bbImage->getHeight() / this->scaleFactorY))));
 	if (!$nc(r)->isEmpty()) {
 		notifyImageUpdated(r->x, r->y, r->width, r->height);
 	}
 }
 
-void clinit$JLightweightFrame($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JLightweightFrame::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$SwingAccessor::setJLightweightFrameAccessor($$new($JLightweightFrame$1));
-		JLightweightFrame::copyBufferEnabled = "true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.jlf.copyBufferEnabled"_s, "true"_s)))));
+		JLightweightFrame::copyBufferEnabled = "true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "swing.jlf.copyBufferEnabled"_s, "true"_s))));
 	}
 }
 
@@ -640,11 +531,87 @@ JLightweightFrame::JLightweightFrame() {
 
 $Class* JLightweightFrame::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JLightweightFrame$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.swing.JLightweightFrame$$Lambda$lambda$new$0")) {
 			return JLightweightFrame$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JLightweightFrame, name, initialize, &_JLightweightFrame_ClassInfo_, clinit$JLightweightFrame, allocate$JLightweightFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PRIVATE | $FINAL, $field(JLightweightFrame, rootPane)},
+		{"content", "Lsun/swing/LightweightContent;", nullptr, $PRIVATE, $field(JLightweightFrame, content)},
+		{"component", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(JLightweightFrame, component)},
+		{"contentPane", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(JLightweightFrame, contentPane)},
+		{"bbImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(JLightweightFrame, bbImage)},
+		{"scaleFactorX", "D", nullptr, $PRIVATE | $VOLATILE, $field(JLightweightFrame, scaleFactorX)},
+		{"scaleFactorY", "D", nullptr, $PRIVATE | $VOLATILE, $field(JLightweightFrame, scaleFactorY)},
+		{"copyBufferEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(JLightweightFrame, copyBufferEnabled)},
+		{"copyBuffer", "[I", nullptr, $PRIVATE, $field(JLightweightFrame, copyBuffer)},
+		{"layoutSizeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(JLightweightFrame, layoutSizeListener)},
+		{"repaintListener", "Lsun/swing/SwingUtilities2$RepaintListener;", nullptr, $PRIVATE, $field(JLightweightFrame, repaintListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JLightweightFrame, init$, void)},
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, addDropTarget, void, $DropTarget*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, addNotify, void)},
+		{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(JLightweightFrame, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
+		{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, dispose, void)},
+		{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getContentPane, $Container*)},
+		{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getGlassPane, $Component*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getGraphics, $Graphics*)},
+		{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getLayeredPane, $JLayeredPane*)},
+		{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getRootPane, $JRootPane*)},
+		{"getScaleFactor", "()I", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getScaleFactor, int32_t)},
+		{"getScaleFactorX", "()D", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getScaleFactorX, double)},
+		{"getScaleFactorY", "()D", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, getScaleFactorY, double)},
+		{"grabFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, grabFocus, void)},
+		{"initInterior", "()V", nullptr, $PRIVATE, $method(JLightweightFrame, initInterior, void)},
+		{"lambda$new$0", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JLightweightFrame, lambda$new$0, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
+		{"notifyDisplayChanged", "(I)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, notifyDisplayChanged, void, int32_t)},
+		{"notifyDisplayChanged", "(DD)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, notifyDisplayChanged, void, double, double)},
+		{"notifyImageUpdated", "(IIII)V", nullptr, $PRIVATE, $method(JLightweightFrame, notifyImageUpdated, void, int32_t, int32_t, int32_t, int32_t)},
+		{"overrideNativeWindowHandle", "(JLjava/lang/Runnable;)V", nullptr, $PUBLIC, $method(JLightweightFrame, overrideNativeWindowHandle, void, int64_t, $Runnable*)},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, removeDropTarget, void, $DropTarget*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"resizeBuffer", "(IIDD)V", nullptr, $PRIVATE, $method(JLightweightFrame, resizeBuffer, void, int32_t, int32_t, double, double)},
+		{"setContent", "(Lsun/swing/LightweightContent;)V", nullptr, $PUBLIC, $method(JLightweightFrame, setContent, void, $LightweightContent*)},
+		{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, setContentPane, void, $Container*)},
+		{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, setGlassPane, void, $Component*)},
+		{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, setLayeredPane, void, $JLayeredPane*)},
+		{"syncCopyBuffer", "(ZIIIIDD)V", nullptr, $PRIVATE, $method(JLightweightFrame, syncCopyBuffer, void, bool, int32_t, int32_t, int32_t, int32_t, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrabFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame, ungrabFocus, void)},
+		{"updateClientCursor", "()V", nullptr, $PRIVATE, $method(JLightweightFrame, updateClientCursor, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.JLightweightFrame$4", nullptr, nullptr, 0},
+		{"sun.swing.JLightweightFrame$3", nullptr, nullptr, 0},
+		{"sun.swing.JLightweightFrame$2", nullptr, nullptr, 0},
+		{"sun.swing.JLightweightFrame$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.swing.JLightweightFrame",
+		"sun.awt.LightweightFrame",
+		"javax.swing.RootPaneContainer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.JLightweightFrame$4,sun.swing.JLightweightFrame$3,sun.swing.JLightweightFrame$3$1,sun.swing.JLightweightFrame$2,sun.swing.JLightweightFrame$1"
+	};
+	$loadClass(JLightweightFrame, name, initialize, &classInfo$$, JLightweightFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JLightweightFrame));
+	});
 	return class$;
 }
 

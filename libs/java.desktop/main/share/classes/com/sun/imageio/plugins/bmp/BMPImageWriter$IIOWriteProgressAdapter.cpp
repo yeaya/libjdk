@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageWriter$IIOWriteProgressAdapter.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageWriter.h>
 #include <javax/imageio/ImageWriter.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace bmp {
-
-$MethodInfo _BMPImageWriter$IIOWriteProgressAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BMPImageWriter$IIOWriteProgressAdapter, init$, void)},
-	{"imageComplete", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, imageComplete, void, $ImageWriter*)},
-	{"imageProgress", "(Ljavax/imageio/ImageWriter;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, imageProgress, void, $ImageWriter*, float)},
-	{"imageStarted", "(Ljavax/imageio/ImageWriter;I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, imageStarted, void, $ImageWriter*, int32_t)},
-	{"thumbnailComplete", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, thumbnailComplete, void, $ImageWriter*)},
-	{"thumbnailProgress", "(Ljavax/imageio/ImageWriter;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, thumbnailProgress, void, $ImageWriter*, float)},
-	{"thumbnailStarted", "(Ljavax/imageio/ImageWriter;II)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, thumbnailStarted, void, $ImageWriter*, int32_t, int32_t)},
-	{"writeAborted", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, writeAborted, void, $ImageWriter*)},
-	{}
-};
-
-$InnerClassInfo _BMPImageWriter$IIOWriteProgressAdapter_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageWriter", "IIOWriteProgressAdapter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BMPImageWriter$IIOWriteProgressAdapter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter",
-	"java.lang.Object",
-	"javax.imageio.event.IIOWriteProgressListener",
-	nullptr,
-	_BMPImageWriter$IIOWriteProgressAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BMPImageWriter$IIOWriteProgressAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.bmp.BMPImageWriter"
-};
-
-$Object* allocate$BMPImageWriter$IIOWriteProgressAdapter($Class* clazz) {
-	return $of($alloc(BMPImageWriter$IIOWriteProgressAdapter));
-}
 
 void BMPImageWriter$IIOWriteProgressAdapter::init$() {
 }
@@ -80,7 +42,39 @@ BMPImageWriter$IIOWriteProgressAdapter::BMPImageWriter$IIOWriteProgressAdapter()
 }
 
 $Class* BMPImageWriter$IIOWriteProgressAdapter::load$($String* name, bool initialize) {
-	$loadClass(BMPImageWriter$IIOWriteProgressAdapter, name, initialize, &_BMPImageWriter$IIOWriteProgressAdapter_ClassInfo_, allocate$BMPImageWriter$IIOWriteProgressAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BMPImageWriter$IIOWriteProgressAdapter, init$, void)},
+		{"imageComplete", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, imageComplete, void, $ImageWriter*)},
+		{"imageProgress", "(Ljavax/imageio/ImageWriter;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, imageProgress, void, $ImageWriter*, float)},
+		{"imageStarted", "(Ljavax/imageio/ImageWriter;I)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, imageStarted, void, $ImageWriter*, int32_t)},
+		{"thumbnailComplete", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, thumbnailComplete, void, $ImageWriter*)},
+		{"thumbnailProgress", "(Ljavax/imageio/ImageWriter;F)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, thumbnailProgress, void, $ImageWriter*, float)},
+		{"thumbnailStarted", "(Ljavax/imageio/ImageWriter;II)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, thumbnailStarted, void, $ImageWriter*, int32_t, int32_t)},
+		{"writeAborted", "(Ljavax/imageio/ImageWriter;)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriter$IIOWriteProgressAdapter, writeAborted, void, $ImageWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter", "com.sun.imageio.plugins.bmp.BMPImageWriter", "IIOWriteProgressAdapter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageWriter$IIOWriteProgressAdapter",
+		"java.lang.Object",
+		"javax.imageio.event.IIOWriteProgressListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.bmp.BMPImageWriter"
+	};
+	$loadClass(BMPImageWriter$IIOWriteProgressAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageWriter$IIOWriteProgressAdapter);
+	});
 	return class$;
 }
 

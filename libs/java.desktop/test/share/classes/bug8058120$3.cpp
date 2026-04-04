@@ -1,5 +1,4 @@
 #include <bug8058120$3.h>
-
 #include <bug8058120.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/html/HTML$Tag.h>
@@ -16,59 +15,21 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Element = ::javax::swing::text::Element;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
-using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
-
-$MethodInfo _bug8058120$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8058120$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8058120$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8058120$3_EnclosingMethodInfo_ = {
-	"bug8058120",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8058120$3_InnerClassesInfo_[] = {
-	{"bug8058120$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8058120$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8058120$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8058120$3_MethodInfo_,
-	nullptr,
-	&_bug8058120$3_EnclosingMethodInfo_,
-	_bug8058120$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8058120"
-};
-
-$Object* allocate$bug8058120$3($Class* clazz) {
-	return $of($alloc(bug8058120$3));
-}
 
 void bug8058120$3::init$() {
 }
 
 void bug8058120$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($bug8058120);
-	$var($Element, parent, $nc($($nc($bug8058120::document)->getElement("ab"_s)))->getParentElement());
+	$var($Element, parent, $$nc($nc($bug8058120::document)->getElement("ab"_s))->getParentElement());
 	int32_t count = $nc(parent)->getElementCount();
 	if (count != 2) {
 		$throwNew($RuntimeException, $$str({"Test Failed! Unexpected Element count = "_s, $$str(count)}));
 	}
 	$var($Element, insertedElement, parent->getElement(count - 1));
 	$init($HTML$Tag);
-	if (!$nc($($nc($HTML$Tag::IMPLIED)->toString()))->equals($($nc(insertedElement)->getName()))) {
+	if (!$$nc($nc($HTML$Tag::IMPLIED)->toString())->equals($($nc(insertedElement)->getName()))) {
 		$throwNew($RuntimeException, $$str({"Test Failed! Inserted text is not wrapped by "_s, $HTML$Tag::IMPLIED, " tag"_s}));
 	}
 }
@@ -77,7 +38,38 @@ bug8058120$3::bug8058120$3() {
 }
 
 $Class* bug8058120$3::load$($String* name, bool initialize) {
-	$loadClass(bug8058120$3, name, initialize, &_bug8058120$3_ClassInfo_, allocate$bug8058120$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8058120$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8058120$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8058120",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8058120$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8058120$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8058120"
+	};
+	$loadClass(bug8058120$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8058120$3);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class StringValueHandler : public ::com::sun::org::apache::xml::internal::serial
 	$class(StringValueHandler, 0, ::com::sun::org::apache::xml::internal::serializer::EmptySerializer)
 public:
 	StringValueHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::org::apache::xml::internal::serializer::EmptySerializer::endElement;
 	using ::com::sun::org::apache::xml::internal::serializer::EmptySerializer::characters;
 	void init$();

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelPatch.h>
-
 #include <javax/sound/midi/Patch.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _ModelPatch_FieldInfo_[] = {
-	{"percussion", "Z", nullptr, $PRIVATE, $field(ModelPatch, percussion)},
-	{}
-};
-
-$MethodInfo _ModelPatch_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ModelPatch, init$, void, int32_t, int32_t)},
-	{"<init>", "(IIZ)V", nullptr, $PUBLIC, $method(ModelPatch, init$, void, int32_t, int32_t, bool)},
-	{"isPercussion", "()Z", nullptr, $PUBLIC, $method(ModelPatch, isPercussion, bool)},
-	{}
-};
-
-$ClassInfo _ModelPatch_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelPatch",
-	"javax.sound.midi.Patch",
-	nullptr,
-	_ModelPatch_FieldInfo_,
-	_ModelPatch_MethodInfo_
-};
-
-$Object* allocate$ModelPatch($Class* clazz) {
-	return $of($alloc(ModelPatch));
-}
 
 void ModelPatch::init$(int32_t bank, int32_t program) {
 	$Patch::init$(bank, program);
@@ -57,7 +31,27 @@ ModelPatch::ModelPatch() {
 }
 
 $Class* ModelPatch::load$($String* name, bool initialize) {
-	$loadClass(ModelPatch, name, initialize, &_ModelPatch_ClassInfo_, allocate$ModelPatch);
+	$FieldInfo fieldInfos$$[] = {
+		{"percussion", "Z", nullptr, $PRIVATE, $field(ModelPatch, percussion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ModelPatch, init$, void, int32_t, int32_t)},
+		{"<init>", "(IIZ)V", nullptr, $PUBLIC, $method(ModelPatch, init$, void, int32_t, int32_t, bool)},
+		{"isPercussion", "()Z", nullptr, $PUBLIC, $method(ModelPatch, isPercussion, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelPatch",
+		"javax.sound.midi.Patch",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelPatch, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelPatch);
+	});
 	return class$;
 }
 

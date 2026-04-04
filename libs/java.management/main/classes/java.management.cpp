@@ -1,13 +1,10 @@
 #include <java.management.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/defaults/ServiceName.h>
 #include <com/sun/jmx/interceptor/DefaultMBeanServerInterceptor.h>
@@ -1054,6 +1051,7 @@ $bytes* java$management$GetResource($String* name) {
 
 void java$management::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.management", "17.35", "",
 		&_java$management_ModuleInfo_,

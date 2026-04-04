@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/spec/C14NMethodParameterSpec.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,19 +9,16 @@ namespace javax {
 			namespace dsig {
 				namespace spec {
 
-$ClassInfo _C14NMethodParameterSpec_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.spec.C14NMethodParameterSpec",
-	nullptr,
-	"javax.xml.crypto.dsig.spec.TransformParameterSpec"
-};
-
-$Object* allocate$C14NMethodParameterSpec($Class* clazz) {
-	return $of($alloc(C14NMethodParameterSpec));
-}
-
 $Class* C14NMethodParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(C14NMethodParameterSpec, name, initialize, &_C14NMethodParameterSpec_ClassInfo_, allocate$C14NMethodParameterSpec);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.spec.C14NMethodParameterSpec",
+		nullptr,
+		"javax.xml.crypto.dsig.spec.TransformParameterSpec"
+	};
+	$loadClass(C14NMethodParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(C14NMethodParameterSpec);
+	});
 	return class$;
 }
 

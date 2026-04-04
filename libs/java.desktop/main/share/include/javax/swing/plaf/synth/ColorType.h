@@ -27,6 +27,7 @@ class $import ColorType : public ::java::lang::Object {
 	$class(ColorType, 0, ::java::lang::Object)
 public:
 	ColorType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* description);
 	int32_t getID();
 	virtual $String* toString() override;

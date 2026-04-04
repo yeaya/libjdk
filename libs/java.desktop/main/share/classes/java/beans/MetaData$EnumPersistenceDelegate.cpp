@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$EnumPersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData.h>
@@ -18,38 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$EnumPersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$EnumPersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$EnumPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$EnumPersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$EnumPersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$EnumPersistenceDelegate", "java.beans.MetaData", "EnumPersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$EnumPersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$EnumPersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$EnumPersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$EnumPersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$EnumPersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$EnumPersistenceDelegate));
-}
-
 void MetaData$EnumPersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
@@ -59,12 +26,11 @@ bool MetaData$EnumPersistenceDelegate::mutatesTo(Object$* oldInstance, Object$* 
 }
 
 $Expression* MetaData$EnumPersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enum, e, $cast($Enum, oldInstance));
-	$load($Enum);
 	return $new($Expression, e, $Enum::class$, "valueOf"_s, $$new($ObjectArray, {
-		$of($nc(e)->getDeclaringClass()),
-		$($of(e->name()))
+		$nc(e)->getDeclaringClass(),
+		$($nc(e)->name())
 	}));
 }
 
@@ -72,7 +38,34 @@ MetaData$EnumPersistenceDelegate::MetaData$EnumPersistenceDelegate() {
 }
 
 $Class* MetaData$EnumPersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$EnumPersistenceDelegate, name, initialize, &_MetaData$EnumPersistenceDelegate_ClassInfo_, allocate$MetaData$EnumPersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$EnumPersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$EnumPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$EnumPersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$EnumPersistenceDelegate", "java.beans.MetaData", "EnumPersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$EnumPersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$EnumPersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$EnumPersistenceDelegate);
+	});
 	return class$;
 }
 

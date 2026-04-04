@@ -1,5 +1,4 @@
 #include <javax/management/monitor/MonitorMBean.h>
-
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
@@ -13,48 +12,42 @@ namespace javax {
 	namespace management {
 		namespace monitor {
 
-$CompoundAttribute _MonitorMBean_MethodAnnotations_getObservedObject4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MonitorMBean_MethodAnnotations_setObservedObject10[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _MonitorMBean_MethodInfo_[] = {
-	{"addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, addObservedObject, void, $ObjectName*), "java.lang.IllegalArgumentException"},
-	{"containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, containsObservedObject, bool, $ObjectName*)},
-	{"getGranularityPeriod", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, getGranularityPeriod, int64_t)},
-	{"getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, getObservedAttribute, $String*)},
-	{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(MonitorMBean, getObservedObject, $ObjectName*), nullptr, nullptr, _MonitorMBean_MethodAnnotations_getObservedObject4},
-	{"getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, getObservedObjects, $ObjectNameArray*)},
-	{"isActive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, isActive, bool)},
-	{"removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, removeObservedObject, void, $ObjectName*)},
-	{"setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, setGranularityPeriod, void, int64_t), "java.lang.IllegalArgumentException"},
-	{"setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, setObservedAttribute, void, $String*)},
-	{"setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(MonitorMBean, setObservedObject, void, $ObjectName*), nullptr, nullptr, _MonitorMBean_MethodAnnotations_setObservedObject10},
-	{"start", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, stop, void)},
-	{}
-};
-
-$ClassInfo _MonitorMBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.monitor.MonitorMBean",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MonitorMBean_MethodInfo_
-};
-
-$Object* allocate$MonitorMBean($Class* clazz) {
-	return $of($alloc(MonitorMBean));
-}
-
 $Class* MonitorMBean::load$($String* name, bool initialize) {
-	$loadClass(MonitorMBean, name, initialize, &_MonitorMBean_ClassInfo_, allocate$MonitorMBean);
+	$CompoundAttribute getObservedObjectmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setObservedObjectmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, addObservedObject, void, $ObjectName*), "java.lang.IllegalArgumentException"},
+		{"containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, containsObservedObject, bool, $ObjectName*)},
+		{"getGranularityPeriod", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, getGranularityPeriod, int64_t)},
+		{"getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, getObservedAttribute, $String*)},
+		{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(MonitorMBean, getObservedObject, $ObjectName*), nullptr, nullptr, getObservedObjectmethodAnnotations$$},
+		{"getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, getObservedObjects, $ObjectNameArray*)},
+		{"isActive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, isActive, bool)},
+		{"removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, removeObservedObject, void, $ObjectName*)},
+		{"setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, setGranularityPeriod, void, int64_t), "java.lang.IllegalArgumentException"},
+		{"setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, setObservedAttribute, void, $String*)},
+		{"setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(MonitorMBean, setObservedObject, void, $ObjectName*), nullptr, nullptr, setObservedObjectmethodAnnotations$$},
+		{"start", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MonitorMBean, stop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.monitor.MonitorMBean",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MonitorMBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MonitorMBean);
+	});
 	return class$;
 }
 

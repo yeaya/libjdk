@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthArrowButton.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
@@ -14,57 +13,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $SynthArrowButton$SynthArrowButtonUI = ::javax::swing::plaf::synth::SynthArrowButton$SynthArrowButtonUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthArrowButton_FieldInfo_[] = {
-	{"direction", "I", nullptr, $PRIVATE, $field(SynthArrowButton, direction)},
-	{}
-};
-
-$MethodInfo _SynthArrowButton_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SynthArrowButton, init$, void, int32_t)},
-	{"getDirection", "()I", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, getDirection, int32_t)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, getUIClassID, $String*)},
-	{"setDirection", "(I)V", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, setDirection, void, int32_t)},
-	{"setFocusable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, setFocusable, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, updateUI, void)},
-	{}
-};
-
-$InnerClassInfo _SynthArrowButton_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthArrowButton$SynthArrowButtonUI", "javax.swing.plaf.synth.SynthArrowButton", "SynthArrowButtonUI", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthArrowButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthArrowButton",
-	"javax.swing.JButton",
-	"javax.swing.plaf.UIResource",
-	_SynthArrowButton_FieldInfo_,
-	_SynthArrowButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthArrowButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthArrowButton$SynthArrowButtonUI"
-};
-
-$Object* allocate$SynthArrowButton($Class* clazz) {
-	return $of($alloc(SynthArrowButton));
-}
 
 $String* SynthArrowButton::toString() {
 	 return this->$JButton::toString();
@@ -98,7 +52,7 @@ $String* SynthArrowButton::getUIClassID() {
 }
 
 void SynthArrowButton::updateUI() {
-	setUI(static_cast<$ButtonUI*>($$new($SynthArrowButton$SynthArrowButtonUI)));
+	setUI($$new($SynthArrowButton$SynthArrowButtonUI));
 }
 
 void SynthArrowButton::setDirection(int32_t dir) {
@@ -118,7 +72,45 @@ SynthArrowButton::SynthArrowButton() {
 }
 
 $Class* SynthArrowButton::load$($String* name, bool initialize) {
-	$loadClass(SynthArrowButton, name, initialize, &_SynthArrowButton_ClassInfo_, allocate$SynthArrowButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"direction", "I", nullptr, $PRIVATE, $field(SynthArrowButton, direction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SynthArrowButton, init$, void, int32_t)},
+		{"getDirection", "()I", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, getDirection, int32_t)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, getUIClassID, $String*)},
+		{"setDirection", "(I)V", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, setDirection, void, int32_t)},
+		{"setFocusable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, setFocusable, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(SynthArrowButton, updateUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthArrowButton$SynthArrowButtonUI", "javax.swing.plaf.synth.SynthArrowButton", "SynthArrowButtonUI", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthArrowButton",
+		"javax.swing.JButton",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthArrowButton$SynthArrowButtonUI"
+	};
+	$loadClass(SynthArrowButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthArrowButton));
+	});
 	return class$;
 }
 

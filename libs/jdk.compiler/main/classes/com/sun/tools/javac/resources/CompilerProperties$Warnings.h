@@ -97,6 +97,7 @@ class $export CompilerProperties$Warnings : public ::java::lang::Object {
 	$class(CompilerProperties$Warnings, 0, ::java::lang::Object)
 public:
 	CompilerProperties$Warnings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::tools::javac::util::JCDiagnostic$Warning* AccessToMemberFromSerializableElement(::com::sun::tools::javac::code::Symbol* arg0);
 	static ::com::sun::tools::javac::util::JCDiagnostic$Warning* AccessToMemberFromSerializableLambda(::com::sun::tools::javac::code::Symbol* arg0);

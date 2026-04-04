@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/dom3/DOMConstants.h>
-
 #include <jcpp.h>
 
 #undef DOM3_DEFAULT_FALSE
@@ -59,71 +58,6 @@ namespace com {
 						namespace serializer {
 							namespace dom3 {
 
-$FieldInfo _DOMConstants_FieldInfo_[] = {
-	{"DOM3_REC_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_REC_URL)},
-	{"XERCES_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, XERCES_URL)},
-	{"ORACLE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, ORACLE_URL)},
-	{"S_DOM3_PROPERTIES_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_DOM3_PROPERTIES_NS)},
-	{"S_XERCES_PROPERTIES_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XERCES_PROPERTIES_NS)},
-	{"S_JDK_PROPERTIES_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_JDK_PROPERTIES_NS)},
-	{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConstants, XMLNS_URI)},
-	{"XMLNS_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConstants, XMLNS_PREFIX)},
-	{"DOM_CANONICAL_FORM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_CANONICAL_FORM)},
-	{"DOM_CDATA_SECTIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_CDATA_SECTIONS)},
-	{"DOM_CHECK_CHAR_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_CHECK_CHAR_NORMALIZATION)},
-	{"DOM_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_COMMENTS)},
-	{"DOM_DATATYPE_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_DATATYPE_NORMALIZATION)},
-	{"DOM_ELEMENT_CONTENT_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_ELEMENT_CONTENT_WHITESPACE)},
-	{"DOM_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_ENTITIES)},
-	{"DOM_INFOSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_INFOSET)},
-	{"DOM_NAMESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_NAMESPACES)},
-	{"DOM_NAMESPACE_DECLARATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_NAMESPACE_DECLARATIONS)},
-	{"DOM_NORMALIZE_CHARACTERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_NORMALIZE_CHARACTERS)},
-	{"DOM_SPLIT_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_SPLIT_CDATA)},
-	{"DOM_VALIDATE_IF_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_VALIDATE_IF_SCHEMA)},
-	{"DOM_VALIDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_VALIDATE)},
-	{"DOM_WELLFORMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_WELLFORMED)},
-	{"DOM_DISCARD_DEFAULT_CONTENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_DISCARD_DEFAULT_CONTENT)},
-	{"DOM_FORMAT_PRETTY_PRINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_FORMAT_PRETTY_PRINT)},
-	{"DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)},
-	{"DOM_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_XMLDECL)},
-	{"DOM_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_ERROR_HANDLER)},
-	{"DOM_SCHEMA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_SCHEMA_TYPE)},
-	{"DOM_SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_SCHEMA_LOCATION)},
-	{"S_XSL_OUTPUT_INDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_OUTPUT_INDENT)},
-	{"S_XSL_OUTPUT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_OUTPUT_ENCODING)},
-	{"S_XSL_OUTPUT_OMIT_XML_DECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_OUTPUT_OMIT_XML_DECL)},
-	{"S_XML_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XML_VERSION)},
-	{"NS_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, NS_IS_STANDALONE)},
-	{"S_XSL_VALUE_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_VALUE_ENTITIES)},
-	{"DOM3_EXPLICIT_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_EXPLICIT_TRUE)},
-	{"DOM3_DEFAULT_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_DEFAULT_TRUE)},
-	{"DOM3_EXPLICIT_FALSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_EXPLICIT_FALSE)},
-	{"DOM3_DEFAULT_FALSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_DEFAULT_FALSE)},
-	{"DOM_EXCEPTION_FEATURE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_EXCEPTION_FEATURE_NOT_FOUND)},
-	{"DOM_EXCEPTION_FEATURE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_EXCEPTION_FEATURE_NOT_SUPPORTED)},
-	{"DOM_LSEXCEPTION_SERIALIZER_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_LSEXCEPTION_SERIALIZER_ERR)},
-	{}
-};
-
-$MethodInfo _DOMConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMConstants, init$, void)},
-	{}
-};
-
-$ClassInfo _DOMConstants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.dom3.DOMConstants",
-	"java.lang.Object",
-	nullptr,
-	_DOMConstants_FieldInfo_,
-	_DOMConstants_MethodInfo_
-};
-
-$Object* allocate$DOMConstants($Class* clazz) {
-	return $of($alloc(DOMConstants));
-}
-
 $String* DOMConstants::DOM3_REC_URL = nullptr;
 $String* DOMConstants::XERCES_URL = nullptr;
 $String* DOMConstants::ORACLE_URL = nullptr;
@@ -174,7 +108,7 @@ void DOMConstants::init$() {
 DOMConstants::DOMConstants() {
 }
 
-void clinit$DOMConstants($Class* class$) {
+void DOMConstants::clinit$($Class* clazz) {
 	$assignStatic(DOMConstants::DOM3_REC_URL, "http://www.w3.org/TR/DOM-Level-3-LS"_s);
 	$assignStatic(DOMConstants::XERCES_URL, "http://xml.apache.org/xerces-2j"_s);
 	$assignStatic(DOMConstants::ORACLE_URL, "http://www.oracle.com/xml"_s);
@@ -221,7 +155,67 @@ void clinit$DOMConstants($Class* class$) {
 }
 
 $Class* DOMConstants::load$($String* name, bool initialize) {
-	$loadClass(DOMConstants, name, initialize, &_DOMConstants_ClassInfo_, clinit$DOMConstants, allocate$DOMConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOM3_REC_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_REC_URL)},
+		{"XERCES_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, XERCES_URL)},
+		{"ORACLE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, ORACLE_URL)},
+		{"S_DOM3_PROPERTIES_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_DOM3_PROPERTIES_NS)},
+		{"S_XERCES_PROPERTIES_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XERCES_PROPERTIES_NS)},
+		{"S_JDK_PROPERTIES_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_JDK_PROPERTIES_NS)},
+		{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConstants, XMLNS_URI)},
+		{"XMLNS_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConstants, XMLNS_PREFIX)},
+		{"DOM_CANONICAL_FORM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_CANONICAL_FORM)},
+		{"DOM_CDATA_SECTIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_CDATA_SECTIONS)},
+		{"DOM_CHECK_CHAR_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_CHECK_CHAR_NORMALIZATION)},
+		{"DOM_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_COMMENTS)},
+		{"DOM_DATATYPE_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_DATATYPE_NORMALIZATION)},
+		{"DOM_ELEMENT_CONTENT_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_ELEMENT_CONTENT_WHITESPACE)},
+		{"DOM_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_ENTITIES)},
+		{"DOM_INFOSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_INFOSET)},
+		{"DOM_NAMESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_NAMESPACES)},
+		{"DOM_NAMESPACE_DECLARATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_NAMESPACE_DECLARATIONS)},
+		{"DOM_NORMALIZE_CHARACTERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_NORMALIZE_CHARACTERS)},
+		{"DOM_SPLIT_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_SPLIT_CDATA)},
+		{"DOM_VALIDATE_IF_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_VALIDATE_IF_SCHEMA)},
+		{"DOM_VALIDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_VALIDATE)},
+		{"DOM_WELLFORMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_WELLFORMED)},
+		{"DOM_DISCARD_DEFAULT_CONTENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_DISCARD_DEFAULT_CONTENT)},
+		{"DOM_FORMAT_PRETTY_PRINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_FORMAT_PRETTY_PRINT)},
+		{"DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)},
+		{"DOM_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_XMLDECL)},
+		{"DOM_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_ERROR_HANDLER)},
+		{"DOM_SCHEMA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_SCHEMA_TYPE)},
+		{"DOM_SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_SCHEMA_LOCATION)},
+		{"S_XSL_OUTPUT_INDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_OUTPUT_INDENT)},
+		{"S_XSL_OUTPUT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_OUTPUT_ENCODING)},
+		{"S_XSL_OUTPUT_OMIT_XML_DECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_OUTPUT_OMIT_XML_DECL)},
+		{"S_XML_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XML_VERSION)},
+		{"NS_IS_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, NS_IS_STANDALONE)},
+		{"S_XSL_VALUE_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, S_XSL_VALUE_ENTITIES)},
+		{"DOM3_EXPLICIT_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_EXPLICIT_TRUE)},
+		{"DOM3_DEFAULT_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_DEFAULT_TRUE)},
+		{"DOM3_EXPLICIT_FALSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_EXPLICIT_FALSE)},
+		{"DOM3_DEFAULT_FALSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM3_DEFAULT_FALSE)},
+		{"DOM_EXCEPTION_FEATURE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_EXCEPTION_FEATURE_NOT_FOUND)},
+		{"DOM_EXCEPTION_FEATURE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_EXCEPTION_FEATURE_NOT_SUPPORTED)},
+		{"DOM_LSEXCEPTION_SERIALIZER_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMConstants, DOM_LSEXCEPTION_SERIALIZER_ERR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMConstants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.dom3.DOMConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMConstants, name, initialize, &classInfo$$, DOMConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMConstants);
+	});
 	return class$;
 }
 

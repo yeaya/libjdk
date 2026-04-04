@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLRTTSurfaceToSurfaceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLRTTSurfaceToSurfaceBlit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OGLRTTSurfaceToSurfaceBlit, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLRTTSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLRTTSurfaceToSurfaceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLRTTSurfaceToSurfaceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_OGLRTTSurfaceToSurfaceBlit_MethodInfo_
-};
-
-$Object* allocate$OGLRTTSurfaceToSurfaceBlit($Class* clazz) {
-	return $of($alloc(OGLRTTSurfaceToSurfaceBlit));
-}
-
 void OGLRTTSurfaceToSurfaceBlit::init$() {
 	$init($OGLSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ OGLRTTSurfaceToSurfaceBlit::OGLRTTSurfaceToSurfaceBlit() {
 }
 
 $Class* OGLRTTSurfaceToSurfaceBlit::load$($String* name, bool initialize) {
-	$loadClass(OGLRTTSurfaceToSurfaceBlit, name, initialize, &_OGLRTTSurfaceToSurfaceBlit_ClassInfo_, allocate$OGLRTTSurfaceToSurfaceBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OGLRTTSurfaceToSurfaceBlit, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLRTTSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLRTTSurfaceToSurfaceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLRTTSurfaceToSurfaceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLRTTSurfaceToSurfaceBlit);
+	});
 	return class$;
 }
 

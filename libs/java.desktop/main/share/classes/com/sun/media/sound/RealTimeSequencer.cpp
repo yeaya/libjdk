@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RealTimeSequencer.h>
-
 #include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/EventDispatcher.h>
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
@@ -88,148 +87,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _RealTimeSequencer_FieldInfo_[] = {
-	{"dispatchers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ThreadGroup;Lcom/sun/media/sound/EventDispatcher;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, dispatchers)},
-	{"info", "Ljavax/sound/midi/MidiDevice$Info;", nullptr, $STATIC | $FINAL, $staticField(RealTimeSequencer, info)},
-	{"masterSyncModes", "[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, masterSyncModes)},
-	{"slaveSyncModes", "[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, slaveSyncModes)},
-	{"masterSyncMode", "Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, masterSyncMode)},
-	{"slaveSyncMode", "Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, slaveSyncMode)},
-	{"sequence", "Ljavax/sound/midi/Sequence;", nullptr, $PRIVATE, $field(RealTimeSequencer, sequence)},
-	{"cacheTempoMPQ", "D", nullptr, $PRIVATE, $field(RealTimeSequencer, cacheTempoMPQ)},
-	{"cacheTempoFactor", "F", nullptr, $PRIVATE, $field(RealTimeSequencer, cacheTempoFactor)},
-	{"trackMuted", "[Z", nullptr, $PRIVATE, $field(RealTimeSequencer, trackMuted)},
-	{"trackSolo", "[Z", nullptr, $PRIVATE, $field(RealTimeSequencer, trackSolo)},
-	{"tempoCache", "Lcom/sun/media/sound/MidiUtils$TempoCache;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer, tempoCache)},
-	{"running", "Z", nullptr, $PRIVATE | $VOLATILE, $field(RealTimeSequencer, running)},
-	{"playThread", "Lcom/sun/media/sound/RealTimeSequencer$PlayThread;", nullptr, $PRIVATE, $field(RealTimeSequencer, playThread)},
-	{"recording", "Z", nullptr, $PRIVATE | $VOLATILE, $field(RealTimeSequencer, recording)},
-	{"recordingTracks", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;>;", $PRIVATE | $FINAL, $field(RealTimeSequencer, recordingTracks)},
-	{"loopStart", "J", nullptr, $PRIVATE, $field(RealTimeSequencer, loopStart)},
-	{"loopEnd", "J", nullptr, $PRIVATE, $field(RealTimeSequencer, loopEnd)},
-	{"loopCount", "I", nullptr, $PRIVATE, $field(RealTimeSequencer, loopCount)},
-	{"metaEventListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(RealTimeSequencer, metaEventListeners)},
-	{"controllerEventListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/RealTimeSequencer$ControllerListElement;>;", $PRIVATE | $FINAL, $field(RealTimeSequencer, controllerEventListeners)},
-	{"autoConnect", "Z", nullptr, $PRIVATE, $field(RealTimeSequencer, autoConnect)},
-	{"doAutoConnectAtNextOpen", "Z", nullptr, $PRIVATE, $field(RealTimeSequencer, doAutoConnectAtNextOpen)},
-	{"autoConnectedReceiver", "Ljavax/sound/midi/Receiver;", nullptr, 0, $field(RealTimeSequencer, autoConnectedReceiver)},
-	{}
-};
-
-$MethodInfo _RealTimeSequencer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*getDeviceInfo", "()Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $FINAL},
-	{"*getMaxReceivers", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getMaxTransmitters", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC | $FINAL},
-	{"*getReceivers", "()Ljava/util/List;", nullptr, $PUBLIC | $FINAL},
-	{"*getTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC | $FINAL},
-	{"*getTransmitters", "()Ljava/util/List;", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(RealTimeSequencer, init$, void)},
-	{"addControllerEventListener", "(Ljavax/sound/midi/ControllerEventListener;[I)[I", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, addControllerEventListener, $ints*, $ControllerEventListener*, $ints*)},
-	{"addMetaEventListener", "(Ljavax/sound/midi/MetaEventListener;)Z", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, addMetaEventListener, bool, $MetaEventListener*)},
-	{"createReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, createReceiver, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
-	{"createTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, createTransmitter, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
-	{"doAutoConnect", "()V", nullptr, $PRIVATE, $method(RealTimeSequencer, doAutoConnect, void)},
-	{"ensureBoolArraySize", "([ZI)[Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RealTimeSequencer, ensureBoolArraySize, $booleans*, $booleans*, int32_t)},
-	{"findTrack", "(Ljavax/sound/midi/Track;)Z", nullptr, $PRIVATE, $method(RealTimeSequencer, findTrack, bool, $Track*)},
-	{"getDataPump", "()Lcom/sun/media/sound/RealTimeSequencer$DataPump;", nullptr, $PRIVATE, $method(RealTimeSequencer, getDataPump, $RealTimeSequencer$DataPump*)},
-	{"getEventDispatcher", "()Lcom/sun/media/sound/EventDispatcher;", nullptr, $PRIVATE | $STATIC, $staticMethod(RealTimeSequencer, getEventDispatcher, $EventDispatcher*)},
-	{"getLoopCount", "()I", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getLoopCount, int32_t)},
-	{"getLoopEndPoint", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getLoopEndPoint, int64_t)},
-	{"getLoopStartPoint", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getLoopStartPoint, int64_t)},
-	{"getMasterSyncMode", "()Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMasterSyncMode, $Sequencer$SyncMode*)},
-	{"getMasterSyncModes", "()[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMasterSyncModes, $Sequencer$SyncModeArray*)},
-	{"getMicrosecondLength", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMicrosecondLength, int64_t)},
-	{"getMicrosecondPosition", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMicrosecondPosition, int64_t)},
-	{"getSequence", "()Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getSequence, $Sequence*)},
-	{"getSlaveSyncMode", "()Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getSlaveSyncMode, $Sequencer$SyncMode*)},
-	{"getSlaveSyncModes", "()[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getSlaveSyncModes, $Sequencer$SyncModeArray*)},
-	{"getTempoCache", "()Lcom/sun/media/sound/MidiUtils$TempoCache;", nullptr, $PRIVATE, $method(RealTimeSequencer, getTempoCache, $MidiUtils$TempoCache*)},
-	{"getTempoFactor", "()F", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTempoFactor, float)},
-	{"getTempoInBPM", "()F", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTempoInBPM, float)},
-	{"getTempoInMPQ", "()F", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTempoInMPQ, float)},
-	{"getTickLength", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTickLength, int64_t)},
-	{"getTickPosition", "()J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, getTickPosition, int64_t)},
-	{"getTrackCount", "()I", nullptr, 0, $method(RealTimeSequencer, getTrackCount, int32_t)},
-	{"getTrackMute", "(I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, getTrackMute, bool, int32_t)},
-	{"getTrackSolo", "(I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, getTrackSolo, bool, int32_t)},
-	{"hasReceivers", "()Z", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, hasReceivers, bool)},
-	{"hasTransmitters", "()Z", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, hasTransmitters, bool)},
-	{"implClose", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, implClose, void)},
-	{"implOpen", "()V", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, implOpen, void), "javax.sound.midi.MidiUnavailableException"},
-	{"implStart", "()V", nullptr, 0, $method(RealTimeSequencer, implStart, void)},
-	{"implStop", "()V", nullptr, 0, $method(RealTimeSequencer, implStop, void)},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isRecording", "()Z", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, isRecording, bool)},
-	{"isRunning", "()Z", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, isRunning, bool)},
-	{"needCaching", "()Z", nullptr, $PRIVATE, $method(RealTimeSequencer, needCaching, bool)},
-	{"*open", "()V", nullptr, $PUBLIC | $FINAL},
-	{"propagateCaches", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RealTimeSequencer, propagateCaches, void)},
-	{"recordDisable", "(Ljavax/sound/midi/Track;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, recordDisable, void, $Track*)},
-	{"recordEnable", "(Ljavax/sound/midi/Track;I)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, recordEnable, void, $Track*, int32_t)},
-	{"removeControllerEventListener", "(Ljavax/sound/midi/ControllerEventListener;[I)[I", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, removeControllerEventListener, $ints*, $ControllerEventListener*, $ints*)},
-	{"removeMetaEventListener", "(Ljavax/sound/midi/MetaEventListener;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, removeMetaEventListener, void, $MetaEventListener*)},
-	{"sendControllerEvents", "(Ljavax/sound/midi/MidiMessage;)V", nullptr, 0, $method(RealTimeSequencer, sendControllerEvents, void, $MidiMessage*)},
-	{"sendMetaEvents", "(Ljavax/sound/midi/MidiMessage;)V", nullptr, 0, $method(RealTimeSequencer, sendMetaEvents, void, $MidiMessage*)},
-	{"setAutoConnect", "(Ljavax/sound/midi/Receiver;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setAutoConnect, void, $Receiver*)},
-	{"setCaches", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RealTimeSequencer, setCaches, void)},
-	{"setLoopCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setLoopCount, void, int32_t)},
-	{"setLoopEndPoint", "(J)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setLoopEndPoint, void, int64_t)},
-	{"setLoopStartPoint", "(J)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setLoopStartPoint, void, int64_t)},
-	{"setMasterSyncMode", "(Ljavax/sound/midi/Sequencer$SyncMode;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setMasterSyncMode, void, $Sequencer$SyncMode*)},
-	{"setMicrosecondPosition", "(J)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setMicrosecondPosition, void, int64_t)},
-	{"setSequence", "(Ljavax/sound/midi/Sequence;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setSequence, void, $Sequence*), "javax.sound.midi.InvalidMidiDataException"},
-	{"setSequence", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setSequence, void, $InputStream*), "java.io.IOException,javax.sound.midi.InvalidMidiDataException"},
-	{"setSlaveSyncMode", "(Ljavax/sound/midi/Sequencer$SyncMode;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setSlaveSyncMode, void, $Sequencer$SyncMode*)},
-	{"setTempoFactor", "(F)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setTempoFactor, void, float)},
-	{"setTempoInBPM", "(F)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setTempoInBPM, void, float)},
-	{"setTempoInMPQ", "(F)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setTempoInMPQ, void, float)},
-	{"setTickPosition", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setTickPosition, void, int64_t)},
-	{"setTrackMute", "(IZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setTrackMute, void, int32_t, bool)},
-	{"setTrackSolo", "(IZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setTrackSolo, void, int32_t, bool)},
-	{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, start, void)},
-	{"startRecording", "()V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, startRecording, void)},
-	{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, stop, void)},
-	{"stopRecording", "()V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, stopRecording, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RealTimeSequencer_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RealTimeSequencer$DataPump", "com.sun.media.sound.RealTimeSequencer", "DataPump", $PRIVATE},
-	{"com.sun.media.sound.RealTimeSequencer$PlayThread", "com.sun.media.sound.RealTimeSequencer", "PlayThread", $FINAL},
-	{"com.sun.media.sound.RealTimeSequencer$RecordingTrack", "com.sun.media.sound.RealTimeSequencer", "RecordingTrack", $STATIC},
-	{"com.sun.media.sound.RealTimeSequencer$ControllerListElement", "com.sun.media.sound.RealTimeSequencer", "ControllerListElement", $PRIVATE},
-	{"com.sun.media.sound.RealTimeSequencer$RealTimeSequencerInfo", "com.sun.media.sound.RealTimeSequencer", "RealTimeSequencerInfo", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.RealTimeSequencer$SequencerReceiver", "com.sun.media.sound.RealTimeSequencer", "SequencerReceiver", $FINAL},
-	{"com.sun.media.sound.RealTimeSequencer$SequencerTransmitter", "com.sun.media.sound.RealTimeSequencer", "SequencerTransmitter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _RealTimeSequencer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RealTimeSequencer",
-	"com.sun.media.sound.AbstractMidiDevice",
-	"javax.sound.midi.Sequencer,com.sun.media.sound.AutoConnectSequencer",
-	_RealTimeSequencer_FieldInfo_,
-	_RealTimeSequencer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RealTimeSequencer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RealTimeSequencer$DataPump,com.sun.media.sound.RealTimeSequencer$PlayThread,com.sun.media.sound.RealTimeSequencer$RecordingTrack,com.sun.media.sound.RealTimeSequencer$ControllerListElement,com.sun.media.sound.RealTimeSequencer$RealTimeSequencerInfo,com.sun.media.sound.RealTimeSequencer$SequencerReceiver,com.sun.media.sound.RealTimeSequencer$SequencerTransmitter"
-};
-
-$Object* allocate$RealTimeSequencer($Class* clazz) {
-	return $of($alloc(RealTimeSequencer));
-}
-
 $MidiDevice$Info* RealTimeSequencer::getDeviceInfo() {
 	 return this->$AbstractMidiDevice::getDeviceInfo();
 }
@@ -300,8 +157,8 @@ $Sequencer$SyncMode* RealTimeSequencer::slaveSyncMode = nullptr;
 void RealTimeSequencer::init$() {
 	$AbstractMidiDevice::init$(RealTimeSequencer::info);
 	$set(this, sequence, nullptr);
-	this->cacheTempoMPQ = (double)-1;
-	this->cacheTempoFactor = (float)-1;
+	this->cacheTempoMPQ = -1;
+	this->cacheTempoFactor = -1;
 	$set(this, trackMuted, nullptr);
 	$set(this, trackSolo, nullptr);
 	$set(this, tempoCache, $new($MidiUtils$TempoCache));
@@ -318,7 +175,7 @@ void RealTimeSequencer::init$() {
 
 void RealTimeSequencer::setSequence($Sequence* sequence) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (sequence != this->sequence) {
 			if (this->sequence != nullptr && sequence == nullptr) {
 				setCaches();
@@ -329,23 +186,23 @@ void RealTimeSequencer::setSequence($Sequence* sequence) {
 				this->loopEnd = -1;
 				this->loopCount = 0;
 				if (getDataPump() != nullptr) {
-					$nc($(getDataPump()))->setTickPos(0);
-					$nc($(getDataPump()))->resetLoopCount();
+					$$nc(getDataPump())->setTickPos(0);
+					$$nc(getDataPump())->resetLoopCount();
 				}
 			}
 			if (this->playThread != nullptr) {
-				$nc(this->playThread)->setSequence(sequence);
+				this->playThread->setSequence(sequence);
 			}
 			$set(this, sequence, sequence);
 			if (sequence != nullptr) {
-				$nc(this->tempoCache)->refresh(sequence);
+				this->tempoCache->refresh(sequence);
 				setTickPosition(0);
 				propagateCaches();
 			}
 		} else if (sequence != nullptr) {
-			$nc(this->tempoCache)->refresh(sequence);
+			this->tempoCache->refresh(sequence);
 			if (this->playThread != nullptr) {
-				$nc(this->playThread)->setSequence(sequence);
+				this->playThread->setSequence(sequence);
 			}
 		}
 	}
@@ -418,7 +275,7 @@ bool RealTimeSequencer::isRecording() {
 }
 
 void RealTimeSequencer::recordEnable($Track* track, int32_t channel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!findTrack(track)) {
 		$throwNew($IllegalArgumentException, "Track does not exist in the current sequence"_s);
 	}
@@ -427,7 +284,7 @@ void RealTimeSequencer::recordEnable($Track* track, int32_t channel) {
 		if (rc != nullptr) {
 			rc->channel = channel;
 		} else {
-			$nc(this->recordingTracks)->add($$new($RealTimeSequencer$RecordingTrack, track, channel));
+			this->recordingTracks->add($$new($RealTimeSequencer$RecordingTrack, track, channel));
 		}
 	}
 }
@@ -436,7 +293,7 @@ void RealTimeSequencer::recordDisable($Track* track) {
 	$synchronized(this->recordingTracks) {
 		$var($RealTimeSequencer$RecordingTrack, rc, $RealTimeSequencer$RecordingTrack::get(this->recordingTracks, track));
 		if (rc != nullptr) {
-			$nc(this->recordingTracks)->remove($of(rc));
+			this->recordingTracks->remove(rc);
 		}
 	}
 }
@@ -444,7 +301,7 @@ void RealTimeSequencer::recordDisable($Track* track) {
 bool RealTimeSequencer::findTrack($Track* track) {
 	bool found = false;
 	if (this->sequence != nullptr) {
-		$var($TrackArray, tracks, $nc(this->sequence)->getTracks());
+		$var($TrackArray, tracks, this->sequence->getTracks());
 		for (int32_t i = 0; i < $nc(tracks)->length; ++i) {
 			if (track == tracks->get(i)) {
 				found = true;
@@ -472,11 +329,11 @@ float RealTimeSequencer::getTempoInMPQ() {
 			return (float)this->cacheTempoMPQ;
 		}
 		if (this->sequence != nullptr) {
-			return $nc(this->tempoCache)->getTempoMPQAt(getTickPosition());
+			return this->tempoCache->getTempoMPQAt(getTickPosition());
 		}
 		return (float)$MidiUtils::DEFAULT_TEMPO_MPQ;
 	}
-	return $nc($(getDataPump()))->getTempoMPQ();
+	return $$nc(getDataPump())->getTempoMPQ();
 }
 
 void RealTimeSequencer::setTempoInMPQ(float mpq) {
@@ -486,8 +343,8 @@ void RealTimeSequencer::setTempoInMPQ(float mpq) {
 	if (needCaching()) {
 		this->cacheTempoMPQ = mpq;
 	} else {
-		$nc($(getDataPump()))->setTempoMPQ(mpq);
-		this->cacheTempoMPQ = (double)-1;
+		$$nc(getDataPump())->setTempoMPQ(mpq);
+		this->cacheTempoMPQ = -1;
 	}
 }
 
@@ -498,8 +355,8 @@ void RealTimeSequencer::setTempoFactor(float factor) {
 	if (needCaching()) {
 		this->cacheTempoFactor = factor;
 	} else {
-		$nc($(getDataPump()))->setTempoFactor(factor);
-		this->cacheTempoFactor = (float)-1;
+		$$nc(getDataPump())->setTempoFactor(factor);
+		this->cacheTempoFactor = -1;
 	}
 }
 
@@ -510,7 +367,7 @@ float RealTimeSequencer::getTempoFactor() {
 		}
 		return 1.0f;
 	}
-	return $nc($(getDataPump()))->getTempoFactor();
+	return $$nc(getDataPump())->getTempoFactor();
 }
 
 int64_t RealTimeSequencer::getTickLength() {
@@ -525,7 +382,7 @@ int64_t RealTimeSequencer::getTickPosition() {
 		if (getDataPump() == nullptr || this->sequence == nullptr) {
 			return 0;
 		}
-		return $nc($(getDataPump()))->getTickPos();
+		return $$nc(getDataPump())->getTickPos();
 	}
 }
 
@@ -541,7 +398,7 @@ void RealTimeSequencer::setTickPosition(int64_t tick) {
 			if (tick != 0) {
 			}
 		} else {
-			$nc($(getDataPump()))->setTickPos(tick);
+			$$nc(getDataPump())->setTickPos(tick);
 		}
 	}
 }
@@ -558,7 +415,7 @@ int64_t RealTimeSequencer::getMicrosecondPosition() {
 		return 0;
 	}
 	$synchronized(this->tempoCache) {
-		return $MidiUtils::tick2microsecond(this->sequence, $nc($(getDataPump()))->getTickPos(), this->tempoCache);
+		return $MidiUtils::tick2microsecond(this->sequence, $$nc(getDataPump())->getTickPos(), this->tempoCache);
 	}
 }
 
@@ -587,8 +444,8 @@ $Sequencer$SyncMode* RealTimeSequencer::getMasterSyncMode() {
 }
 
 $Sequencer$SyncModeArray* RealTimeSequencer::getMasterSyncModes() {
-	$var($Sequencer$SyncModeArray, returnedModes, $new($Sequencer$SyncModeArray, $nc(RealTimeSequencer::masterSyncModes)->length));
-	$System::arraycopy(RealTimeSequencer::masterSyncModes, 0, returnedModes, 0, $nc(RealTimeSequencer::masterSyncModes)->length);
+	$var($Sequencer$SyncModeArray, returnedModes, $new($Sequencer$SyncModeArray, RealTimeSequencer::masterSyncModes->length));
+	$System::arraycopy(RealTimeSequencer::masterSyncModes, 0, returnedModes, 0, RealTimeSequencer::masterSyncModes->length);
 	return returnedModes;
 }
 
@@ -600,13 +457,13 @@ $Sequencer$SyncMode* RealTimeSequencer::getSlaveSyncMode() {
 }
 
 $Sequencer$SyncModeArray* RealTimeSequencer::getSlaveSyncModes() {
-	$var($Sequencer$SyncModeArray, returnedModes, $new($Sequencer$SyncModeArray, $nc(RealTimeSequencer::slaveSyncModes)->length));
-	$System::arraycopy(RealTimeSequencer::slaveSyncModes, 0, returnedModes, 0, $nc(RealTimeSequencer::slaveSyncModes)->length);
+	$var($Sequencer$SyncModeArray, returnedModes, $new($Sequencer$SyncModeArray, RealTimeSequencer::slaveSyncModes->length));
+	$System::arraycopy(RealTimeSequencer::slaveSyncModes, 0, returnedModes, 0, RealTimeSequencer::slaveSyncModes->length);
 	return returnedModes;
 }
 
 int32_t RealTimeSequencer::getTrackCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Sequence, seq, getSequence());
 	if (seq != nullptr) {
 		return $nc($($nc(this->sequence)->getTracks()))->length;
@@ -623,7 +480,7 @@ void RealTimeSequencer::setTrackMute(int32_t track, bool mute) {
 		$set(this, trackMuted, ensureBoolArraySize(this->trackMuted, trackCount));
 		$nc(this->trackMuted)->set(track, mute);
 		if (getDataPump() != nullptr) {
-			$nc($(getDataPump()))->muteSoloChanged();
+			$$nc(getDataPump())->muteSoloChanged();
 		}
 	}
 }
@@ -633,7 +490,7 @@ bool RealTimeSequencer::getTrackMute(int32_t track) {
 		if (track < 0 || track >= getTrackCount()) {
 			return false;
 		}
-		if (this->trackMuted == nullptr || $nc(this->trackMuted)->length <= track) {
+		if (this->trackMuted == nullptr || this->trackMuted->length <= track) {
 			return false;
 		}
 		return $nc(this->trackMuted)->get(track);
@@ -649,7 +506,7 @@ void RealTimeSequencer::setTrackSolo(int32_t track, bool solo) {
 		$set(this, trackSolo, ensureBoolArraySize(this->trackSolo, trackCount));
 		$nc(this->trackSolo)->set(track, solo);
 		if (getDataPump() != nullptr) {
-			$nc($(getDataPump()))->muteSoloChanged();
+			$$nc(getDataPump())->muteSoloChanged();
 		}
 	}
 }
@@ -659,7 +516,7 @@ bool RealTimeSequencer::getTrackSolo(int32_t track) {
 		if (track < 0 || track >= getTrackCount()) {
 			return false;
 		}
-		if (this->trackSolo == nullptr || $nc(this->trackSolo)->length <= track) {
+		if (this->trackSolo == nullptr || this->trackSolo->length <= track) {
 			return false;
 		}
 		return $nc(this->trackSolo)->get(track);
@@ -668,8 +525,8 @@ bool RealTimeSequencer::getTrackSolo(int32_t track) {
 
 bool RealTimeSequencer::addMetaEventListener($MetaEventListener* listener) {
 	$synchronized(this->metaEventListeners) {
-		if (!$nc(this->metaEventListeners)->contains(listener)) {
-			$nc(this->metaEventListeners)->add(listener);
+		if (!this->metaEventListeners->contains(listener)) {
+			this->metaEventListeners->add(listener);
 		}
 		return true;
 	}
@@ -677,9 +534,9 @@ bool RealTimeSequencer::addMetaEventListener($MetaEventListener* listener) {
 
 void RealTimeSequencer::removeMetaEventListener($MetaEventListener* listener) {
 	$synchronized(this->metaEventListeners) {
-		int32_t index = $nc(this->metaEventListeners)->indexOf(listener);
+		int32_t index = this->metaEventListeners->indexOf(listener);
 		if (index >= 0) {
-			$nc(this->metaEventListeners)->remove(index);
+			this->metaEventListeners->remove(index);
 		}
 	}
 }
@@ -688,9 +545,9 @@ $ints* RealTimeSequencer::addControllerEventListener($ControllerEventListener* l
 	$synchronized(this->controllerEventListeners) {
 		$var($RealTimeSequencer$ControllerListElement, cve, nullptr);
 		bool flag = false;
-		for (int32_t i = 0; i < $nc(this->controllerEventListeners)->size(); ++i) {
-			$assign(cve, $cast($RealTimeSequencer$ControllerListElement, $nc(this->controllerEventListeners)->get(i)));
-			if ($nc($of($nc(cve)->listener))->equals(listener)) {
+		for (int32_t i = 0; i < this->controllerEventListeners->size(); ++i) {
+			$assign(cve, $cast($RealTimeSequencer$ControllerListElement, this->controllerEventListeners->get(i)));
+			if ($nc($nc(cve)->listener)->equals(listener)) {
 				cve->addControllers(controllers);
 				flag = true;
 				break;
@@ -698,7 +555,7 @@ $ints* RealTimeSequencer::addControllerEventListener($ControllerEventListener* l
 		}
 		if (!flag) {
 			$assign(cve, $new($RealTimeSequencer$ControllerListElement, this, listener, controllers));
-			$nc(this->controllerEventListeners)->add(cve);
+			this->controllerEventListeners->add(cve);
 		}
 		return $nc(cve)->getControllers();
 	}
@@ -708,9 +565,9 @@ $ints* RealTimeSequencer::removeControllerEventListener($ControllerEventListener
 	$synchronized(this->controllerEventListeners) {
 		$var($RealTimeSequencer$ControllerListElement, cve, nullptr);
 		bool flag = false;
-		for (int32_t i = 0; i < $nc(this->controllerEventListeners)->size(); ++i) {
-			$assign(cve, $cast($RealTimeSequencer$ControllerListElement, $nc(this->controllerEventListeners)->get(i)));
-			if ($nc($of($nc(cve)->listener))->equals(listener)) {
+		for (int32_t i = 0; i < this->controllerEventListeners->size(); ++i) {
+			$assign(cve, $cast($RealTimeSequencer$ControllerListElement, this->controllerEventListeners->get(i)));
+			if ($nc($nc(cve)->listener)->equals(listener)) {
 				cve->removeControllers(controllers);
 				flag = true;
 				break;
@@ -720,9 +577,9 @@ $ints* RealTimeSequencer::removeControllerEventListener($ControllerEventListener
 			return $new($ints, 0);
 		}
 		if (controllers == nullptr) {
-			int32_t index = $nc(this->controllerEventListeners)->indexOf(cve);
+			int32_t index = this->controllerEventListeners->indexOf(cve);
 			if (index >= 0) {
-				$nc(this->controllerEventListeners)->remove(index);
+				this->controllerEventListeners->remove(index);
 			}
 			return $new($ints, 0);
 		}
@@ -731,7 +588,7 @@ $ints* RealTimeSequencer::removeControllerEventListener($ControllerEventListener
 }
 
 void RealTimeSequencer::setLoopStartPoint(int64_t tick) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((tick > getTickLength()) || ((this->loopEnd != -1) && (tick > this->loopEnd)) || (tick < 0)) {
 		$throwNew($IllegalArgumentException, $$str({"invalid loop start point: "_s, $$str(tick)}));
 	}
@@ -743,7 +600,7 @@ int64_t RealTimeSequencer::getLoopStartPoint() {
 }
 
 void RealTimeSequencer::setLoopEndPoint(int64_t tick) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((tick > getTickLength()) || ((this->loopStart > tick) && (tick != -1)) || (tick < -1)) {
 		$throwNew($IllegalArgumentException, $$str({"invalid loop end point: "_s, $$str(tick)}));
 	}
@@ -755,13 +612,13 @@ int64_t RealTimeSequencer::getLoopEndPoint() {
 }
 
 void RealTimeSequencer::setLoopCount(int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (count != $Sequencer::LOOP_CONTINUOUSLY && count < 0) {
 		$throwNew($IllegalArgumentException, $$str({"illegal value for loop count: "_s, $$str(count)}));
 	}
 	this->loopCount = count;
 	if (getDataPump() != nullptr) {
-		$nc($(getDataPump()))->resetLoopCount();
+		$$nc(getDataPump())->resetLoopCount();
 	}
 }
 
@@ -772,7 +629,7 @@ int32_t RealTimeSequencer::getLoopCount() {
 void RealTimeSequencer::implOpen() {
 	$set(this, playThread, $new($RealTimeSequencer$PlayThread, this));
 	if (this->sequence != nullptr) {
-		$nc(this->playThread)->setSequence(this->sequence);
+		this->playThread->setSequence(this->sequence);
 	}
 	propagateCaches();
 	if (this->doAutoConnectAtNextOpen) {
@@ -781,28 +638,26 @@ void RealTimeSequencer::implOpen() {
 }
 
 void RealTimeSequencer::doAutoConnect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Receiver, rec, nullptr);
 	try {
 		$var($Synthesizer, synth, $MidiSystem::getSynthesizer());
 		if ($instanceOf($ReferenceCountingDevice, synth)) {
-			$assign(rec, $nc(($cast($ReferenceCountingDevice, synth)))->getReceiverReferenceCounting());
+			$assign(rec, $cast($ReferenceCountingDevice, synth)->getReceiverReferenceCounting());
 		} else {
 			$nc(synth)->open();
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$assign(rec, synth->getReceiver());
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					if (rec == nullptr) {
-						synth->close();
-					}
+			$var($Throwable, var$0, nullptr);
+			try {
+				$assign(rec, synth->getReceiver());
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (rec == nullptr) {
+					synth->close();
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	} catch ($Exception& e) {
@@ -816,7 +671,7 @@ void RealTimeSequencer::doAutoConnect() {
 	if (rec != nullptr) {
 		$set(this, autoConnectedReceiver, rec);
 		try {
-			$nc($(getTransmitter()))->setReceiver(rec);
+			$$nc(getTransmitter())->setReceiver(rec);
 		} catch ($Exception& e) {
 		}
 	}
@@ -852,14 +707,14 @@ void RealTimeSequencer::implClose() {
 				$Printer::err("RealTimeSequencer.implClose() called, but playThread not instanciated!"_s);
 			}
 		} else {
-			$nc(this->playThread)->close();
+			this->playThread->close();
 			$set(this, playThread, nullptr);
 		}
 		$AbstractMidiDevice::implClose();
 		$set(this, sequence, nullptr);
 		this->running = false;
-		this->cacheTempoMPQ = (double)-1;
-		this->cacheTempoFactor = (float)-1;
+		this->cacheTempoMPQ = -1;
+		this->cacheTempoFactor = -1;
 		$set(this, trackMuted, nullptr);
 		$set(this, trackSolo, nullptr);
 		this->loopStart = 0;
@@ -868,7 +723,7 @@ void RealTimeSequencer::implClose() {
 		this->doAutoConnectAtNextOpen = this->autoConnect;
 		if (this->autoConnectedReceiver != nullptr) {
 			try {
-				$nc(this->autoConnectedReceiver)->close();
+				this->autoConnectedReceiver->close();
 			} catch ($Exception& e) {
 			}
 			$set(this, autoConnectedReceiver, nullptr);
@@ -884,7 +739,7 @@ void RealTimeSequencer::implStart() {
 		}
 		return;
 	}
-	$nc(this->tempoCache)->refresh(this->sequence);
+	this->tempoCache->refresh(this->sequence);
 	if (!this->running) {
 		this->running = true;
 		$nc(this->playThread)->start();
@@ -908,13 +763,13 @@ void RealTimeSequencer::implStop() {
 
 $EventDispatcher* RealTimeSequencer::getEventDispatcher() {
 	$init(RealTimeSequencer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	$synchronized(RealTimeSequencer::dispatchers) {
-		$var($EventDispatcher, eventDispatcher, $cast($EventDispatcher, $nc(RealTimeSequencer::dispatchers)->get(tg)));
+		$var($EventDispatcher, eventDispatcher, $cast($EventDispatcher, RealTimeSequencer::dispatchers->get(tg)));
 		if (eventDispatcher == nullptr) {
 			$assign(eventDispatcher, $new($EventDispatcher));
-			$nc(RealTimeSequencer::dispatchers)->put(tg, eventDispatcher);
+			RealTimeSequencer::dispatchers->put(tg, eventDispatcher);
 			eventDispatcher->start();
 		}
 		return eventDispatcher;
@@ -922,15 +777,15 @@ $EventDispatcher* RealTimeSequencer::getEventDispatcher() {
 }
 
 void RealTimeSequencer::sendMetaEvents($MidiMessage* message) {
-	if ($nc(this->metaEventListeners)->size() == 0) {
+	if (this->metaEventListeners->size() == 0) {
 		return;
 	}
-	$nc($(getEventDispatcher()))->sendAudioEvents(message, this->metaEventListeners);
+	$$nc(getEventDispatcher())->sendAudioEvents(message, this->metaEventListeners);
 }
 
 void RealTimeSequencer::sendControllerEvents($MidiMessage* message) {
-	$useLocalCurrentObjectStackCache();
-	int32_t size = $nc(this->controllerEventListeners)->size();
+	$useLocalObjectStack();
+	int32_t size = this->controllerEventListeners->size();
 	if (size == 0) {
 		return;
 	}
@@ -941,15 +796,15 @@ void RealTimeSequencer::sendControllerEvents($MidiMessage* message) {
 	int32_t controller = $nc(msg)->getData1();
 	$var($List, sendToListeners, $new($ArrayList));
 	for (int32_t i = 0; i < size; ++i) {
-		$var($RealTimeSequencer$ControllerListElement, cve, $cast($RealTimeSequencer$ControllerListElement, $nc(this->controllerEventListeners)->get(i)));
+		$var($RealTimeSequencer$ControllerListElement, cve, $cast($RealTimeSequencer$ControllerListElement, this->controllerEventListeners->get(i)));
 		for (int32_t j = 0; j < $nc($nc(cve)->controllers)->length; ++j) {
-			if ($nc(cve->controllers)->get(j) == controller) {
+			if (cve->controllers->get(j) == controller) {
 				sendToListeners->add(cve->listener);
 				break;
 			}
 		}
 	}
-	$nc($(getEventDispatcher()))->sendAudioEvents(message, sendToListeners);
+	$$nc(getEventDispatcher())->sendAudioEvents(message, sendToListeners);
 }
 
 bool RealTimeSequencer::needCaching() {
@@ -958,7 +813,7 @@ bool RealTimeSequencer::needCaching() {
 
 $RealTimeSequencer$DataPump* RealTimeSequencer::getDataPump() {
 	if (this->playThread != nullptr) {
-		return $nc(this->playThread)->getDataPump();
+		return this->playThread->getDataPump();
 	}
 	return nullptr;
 }
@@ -1001,7 +856,7 @@ void RealTimeSequencer::setAutoConnect($Receiver* autoConnectedReceiver) {
 	$set(this, autoConnectedReceiver, autoConnectedReceiver);
 }
 
-void clinit$RealTimeSequencer($Class* class$) {
+void RealTimeSequencer::clinit$($Class* clazz) {
 	$assignStatic(RealTimeSequencer::dispatchers, $new($WeakHashMap));
 	$assignStatic(RealTimeSequencer::info, $new($RealTimeSequencer$RealTimeSequencerInfo));
 	$init($Sequencer$SyncMode);
@@ -1015,7 +870,143 @@ RealTimeSequencer::RealTimeSequencer() {
 }
 
 $Class* RealTimeSequencer::load$($String* name, bool initialize) {
-	$loadClass(RealTimeSequencer, name, initialize, &_RealTimeSequencer_ClassInfo_, clinit$RealTimeSequencer, allocate$RealTimeSequencer);
+	$FieldInfo fieldInfos$$[] = {
+		{"dispatchers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ThreadGroup;Lcom/sun/media/sound/EventDispatcher;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, dispatchers)},
+		{"info", "Ljavax/sound/midi/MidiDevice$Info;", nullptr, $STATIC | $FINAL, $staticField(RealTimeSequencer, info)},
+		{"masterSyncModes", "[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, masterSyncModes)},
+		{"slaveSyncModes", "[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, slaveSyncModes)},
+		{"masterSyncMode", "Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, masterSyncMode)},
+		{"slaveSyncMode", "Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RealTimeSequencer, slaveSyncMode)},
+		{"sequence", "Ljavax/sound/midi/Sequence;", nullptr, $PRIVATE, $field(RealTimeSequencer, sequence)},
+		{"cacheTempoMPQ", "D", nullptr, $PRIVATE, $field(RealTimeSequencer, cacheTempoMPQ)},
+		{"cacheTempoFactor", "F", nullptr, $PRIVATE, $field(RealTimeSequencer, cacheTempoFactor)},
+		{"trackMuted", "[Z", nullptr, $PRIVATE, $field(RealTimeSequencer, trackMuted)},
+		{"trackSolo", "[Z", nullptr, $PRIVATE, $field(RealTimeSequencer, trackSolo)},
+		{"tempoCache", "Lcom/sun/media/sound/MidiUtils$TempoCache;", nullptr, $PRIVATE | $FINAL, $field(RealTimeSequencer, tempoCache)},
+		{"running", "Z", nullptr, $PRIVATE | $VOLATILE, $field(RealTimeSequencer, running)},
+		{"playThread", "Lcom/sun/media/sound/RealTimeSequencer$PlayThread;", nullptr, $PRIVATE, $field(RealTimeSequencer, playThread)},
+		{"recording", "Z", nullptr, $PRIVATE | $VOLATILE, $field(RealTimeSequencer, recording)},
+		{"recordingTracks", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/RealTimeSequencer$RecordingTrack;>;", $PRIVATE | $FINAL, $field(RealTimeSequencer, recordingTracks)},
+		{"loopStart", "J", nullptr, $PRIVATE, $field(RealTimeSequencer, loopStart)},
+		{"loopEnd", "J", nullptr, $PRIVATE, $field(RealTimeSequencer, loopEnd)},
+		{"loopCount", "I", nullptr, $PRIVATE, $field(RealTimeSequencer, loopCount)},
+		{"metaEventListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(RealTimeSequencer, metaEventListeners)},
+		{"controllerEventListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/RealTimeSequencer$ControllerListElement;>;", $PRIVATE | $FINAL, $field(RealTimeSequencer, controllerEventListeners)},
+		{"autoConnect", "Z", nullptr, $PRIVATE, $field(RealTimeSequencer, autoConnect)},
+		{"doAutoConnectAtNextOpen", "Z", nullptr, $PRIVATE, $field(RealTimeSequencer, doAutoConnectAtNextOpen)},
+		{"autoConnectedReceiver", "Ljavax/sound/midi/Receiver;", nullptr, 0, $field(RealTimeSequencer, autoConnectedReceiver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*getDeviceInfo", "()Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $FINAL},
+		{"*getMaxReceivers", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getMaxTransmitters", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC | $FINAL},
+		{"*getReceivers", "()Ljava/util/List;", nullptr, $PUBLIC | $FINAL},
+		{"*getTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC | $FINAL},
+		{"*getTransmitters", "()Ljava/util/List;", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(RealTimeSequencer, init$, void)},
+		{"addControllerEventListener", "(Ljavax/sound/midi/ControllerEventListener;[I)[I", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, addControllerEventListener, $ints*, $ControllerEventListener*, $ints*)},
+		{"addMetaEventListener", "(Ljavax/sound/midi/MetaEventListener;)Z", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, addMetaEventListener, bool, $MetaEventListener*)},
+		{"createReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, createReceiver, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
+		{"createTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, createTransmitter, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
+		{"doAutoConnect", "()V", nullptr, $PRIVATE, $method(RealTimeSequencer, doAutoConnect, void)},
+		{"ensureBoolArraySize", "([ZI)[Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RealTimeSequencer, ensureBoolArraySize, $booleans*, $booleans*, int32_t)},
+		{"findTrack", "(Ljavax/sound/midi/Track;)Z", nullptr, $PRIVATE, $method(RealTimeSequencer, findTrack, bool, $Track*)},
+		{"getDataPump", "()Lcom/sun/media/sound/RealTimeSequencer$DataPump;", nullptr, $PRIVATE, $method(RealTimeSequencer, getDataPump, $RealTimeSequencer$DataPump*)},
+		{"getEventDispatcher", "()Lcom/sun/media/sound/EventDispatcher;", nullptr, $PRIVATE | $STATIC, $staticMethod(RealTimeSequencer, getEventDispatcher, $EventDispatcher*)},
+		{"getLoopCount", "()I", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getLoopCount, int32_t)},
+		{"getLoopEndPoint", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getLoopEndPoint, int64_t)},
+		{"getLoopStartPoint", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getLoopStartPoint, int64_t)},
+		{"getMasterSyncMode", "()Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMasterSyncMode, $Sequencer$SyncMode*)},
+		{"getMasterSyncModes", "()[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMasterSyncModes, $Sequencer$SyncModeArray*)},
+		{"getMicrosecondLength", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMicrosecondLength, int64_t)},
+		{"getMicrosecondPosition", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getMicrosecondPosition, int64_t)},
+		{"getSequence", "()Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getSequence, $Sequence*)},
+		{"getSlaveSyncMode", "()Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getSlaveSyncMode, $Sequencer$SyncMode*)},
+		{"getSlaveSyncModes", "()[Ljavax/sound/midi/Sequencer$SyncMode;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getSlaveSyncModes, $Sequencer$SyncModeArray*)},
+		{"getTempoCache", "()Lcom/sun/media/sound/MidiUtils$TempoCache;", nullptr, $PRIVATE, $method(RealTimeSequencer, getTempoCache, $MidiUtils$TempoCache*)},
+		{"getTempoFactor", "()F", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTempoFactor, float)},
+		{"getTempoInBPM", "()F", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTempoInBPM, float)},
+		{"getTempoInMPQ", "()F", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTempoInMPQ, float)},
+		{"getTickLength", "()J", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, getTickLength, int64_t)},
+		{"getTickPosition", "()J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, getTickPosition, int64_t)},
+		{"getTrackCount", "()I", nullptr, 0, $method(RealTimeSequencer, getTrackCount, int32_t)},
+		{"getTrackMute", "(I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, getTrackMute, bool, int32_t)},
+		{"getTrackSolo", "(I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, getTrackSolo, bool, int32_t)},
+		{"hasReceivers", "()Z", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, hasReceivers, bool)},
+		{"hasTransmitters", "()Z", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, hasTransmitters, bool)},
+		{"implClose", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, implClose, void)},
+		{"implOpen", "()V", nullptr, $PROTECTED, $virtualMethod(RealTimeSequencer, implOpen, void), "javax.sound.midi.MidiUnavailableException"},
+		{"implStart", "()V", nullptr, 0, $method(RealTimeSequencer, implStart, void)},
+		{"implStop", "()V", nullptr, 0, $method(RealTimeSequencer, implStop, void)},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"isRecording", "()Z", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, isRecording, bool)},
+		{"isRunning", "()Z", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, isRunning, bool)},
+		{"needCaching", "()Z", nullptr, $PRIVATE, $method(RealTimeSequencer, needCaching, bool)},
+		{"*open", "()V", nullptr, $PUBLIC | $FINAL},
+		{"propagateCaches", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RealTimeSequencer, propagateCaches, void)},
+		{"recordDisable", "(Ljavax/sound/midi/Track;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, recordDisable, void, $Track*)},
+		{"recordEnable", "(Ljavax/sound/midi/Track;I)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, recordEnable, void, $Track*, int32_t)},
+		{"removeControllerEventListener", "(Ljavax/sound/midi/ControllerEventListener;[I)[I", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, removeControllerEventListener, $ints*, $ControllerEventListener*, $ints*)},
+		{"removeMetaEventListener", "(Ljavax/sound/midi/MetaEventListener;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, removeMetaEventListener, void, $MetaEventListener*)},
+		{"sendControllerEvents", "(Ljavax/sound/midi/MidiMessage;)V", nullptr, 0, $method(RealTimeSequencer, sendControllerEvents, void, $MidiMessage*)},
+		{"sendMetaEvents", "(Ljavax/sound/midi/MidiMessage;)V", nullptr, 0, $method(RealTimeSequencer, sendMetaEvents, void, $MidiMessage*)},
+		{"setAutoConnect", "(Ljavax/sound/midi/Receiver;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setAutoConnect, void, $Receiver*)},
+		{"setCaches", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RealTimeSequencer, setCaches, void)},
+		{"setLoopCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setLoopCount, void, int32_t)},
+		{"setLoopEndPoint", "(J)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setLoopEndPoint, void, int64_t)},
+		{"setLoopStartPoint", "(J)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setLoopStartPoint, void, int64_t)},
+		{"setMasterSyncMode", "(Ljavax/sound/midi/Sequencer$SyncMode;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setMasterSyncMode, void, $Sequencer$SyncMode*)},
+		{"setMicrosecondPosition", "(J)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setMicrosecondPosition, void, int64_t)},
+		{"setSequence", "(Ljavax/sound/midi/Sequence;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setSequence, void, $Sequence*), "javax.sound.midi.InvalidMidiDataException"},
+		{"setSequence", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setSequence, void, $InputStream*), "java.io.IOException,javax.sound.midi.InvalidMidiDataException"},
+		{"setSlaveSyncMode", "(Ljavax/sound/midi/Sequencer$SyncMode;)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setSlaveSyncMode, void, $Sequencer$SyncMode*)},
+		{"setTempoFactor", "(F)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setTempoFactor, void, float)},
+		{"setTempoInBPM", "(F)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setTempoInBPM, void, float)},
+		{"setTempoInMPQ", "(F)V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, setTempoInMPQ, void, float)},
+		{"setTickPosition", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setTickPosition, void, int64_t)},
+		{"setTrackMute", "(IZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setTrackMute, void, int32_t, bool)},
+		{"setTrackSolo", "(IZ)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, setTrackSolo, void, int32_t, bool)},
+		{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, start, void)},
+		{"startRecording", "()V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, startRecording, void)},
+		{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RealTimeSequencer, stop, void)},
+		{"stopRecording", "()V", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencer, stopRecording, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RealTimeSequencer$DataPump", "com.sun.media.sound.RealTimeSequencer", "DataPump", $PRIVATE},
+		{"com.sun.media.sound.RealTimeSequencer$PlayThread", "com.sun.media.sound.RealTimeSequencer", "PlayThread", $FINAL},
+		{"com.sun.media.sound.RealTimeSequencer$RecordingTrack", "com.sun.media.sound.RealTimeSequencer", "RecordingTrack", $STATIC},
+		{"com.sun.media.sound.RealTimeSequencer$ControllerListElement", "com.sun.media.sound.RealTimeSequencer", "ControllerListElement", $PRIVATE},
+		{"com.sun.media.sound.RealTimeSequencer$RealTimeSequencerInfo", "com.sun.media.sound.RealTimeSequencer", "RealTimeSequencerInfo", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.RealTimeSequencer$SequencerReceiver", "com.sun.media.sound.RealTimeSequencer", "SequencerReceiver", $FINAL},
+		{"com.sun.media.sound.RealTimeSequencer$SequencerTransmitter", "com.sun.media.sound.RealTimeSequencer", "SequencerTransmitter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RealTimeSequencer",
+		"com.sun.media.sound.AbstractMidiDevice",
+		"javax.sound.midi.Sequencer,com.sun.media.sound.AutoConnectSequencer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RealTimeSequencer$DataPump,com.sun.media.sound.RealTimeSequencer$PlayThread,com.sun.media.sound.RealTimeSequencer$RecordingTrack,com.sun.media.sound.RealTimeSequencer$ControllerListElement,com.sun.media.sound.RealTimeSequencer$RealTimeSequencerInfo,com.sun.media.sound.RealTimeSequencer$SequencerReceiver,com.sun.media.sound.RealTimeSequencer$SequencerTransmitter"
+	};
+	$loadClass(RealTimeSequencer, name, initialize, &classInfo$$, RealTimeSequencer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RealTimeSequencer));
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <com/sun/tools/javac/jvm/ClassWriter$AttributeWriter.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$Class.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute$Constant.h>
 #include <com/sun/tools/javac/code/Attribute$Enum.h>
 #include <com/sun/tools/javac/code/Attribute$Error.h>
-#include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -32,15 +30,10 @@ using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Attribute$Constant = ::com::sun::tools::javac::code::Attribute$Constant;
 using $Attribute$Enum = ::com::sun::tools::javac::code::Attribute$Enum;
 using $Attribute$Error = ::com::sun::tools::javac::code::Attribute$Error;
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $ClassWriter = ::com::sun::tools::javac::jvm::ClassWriter;
 using $ClassWriter$1 = ::com::sun::tools::javac::jvm::ClassWriter$1;
-using $PoolWriter = ::com::sun::tools::javac::jvm::PoolWriter;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -53,54 +46,12 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassWriter$AttributeWriter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/ClassWriter;", nullptr, $FINAL | $SYNTHETIC, $field(ClassWriter$AttributeWriter, this$0)},
-	{}
-};
-
-$MethodInfo _ClassWriter$AttributeWriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $method(ClassWriter$AttributeWriter, init$, void, $ClassWriter*)},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitArray, void, $Attribute$Array*)},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitClass, void, $Attribute$Class*)},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitCompound, void, $Attribute$Compound*)},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitConstant, void, $Attribute$Constant*)},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitEnum, void, $Attribute$Enum*)},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitError, void, $Attribute$Error*)},
-	{}
-};
-
-$InnerClassInfo _ClassWriter$AttributeWriter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassWriter$AttributeWriter", "com.sun.tools.javac.jvm.ClassWriter", "AttributeWriter", 0},
-	{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClassWriter$AttributeWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassWriter$AttributeWriter",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Attribute$Visitor",
-	_ClassWriter$AttributeWriter_FieldInfo_,
-	_ClassWriter$AttributeWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassWriter$AttributeWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassWriter"
-};
-
-$Object* allocate$ClassWriter$AttributeWriter($Class* clazz) {
-	return $of($alloc(ClassWriter$AttributeWriter));
-}
-
 void ClassWriter$AttributeWriter::init$($ClassWriter* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void ClassWriter$AttributeWriter::visitConstant($Attribute$Constant* _value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc($nc(_value)->type)->getTag() == $TypeTag::CLASS) {
 		$Assert::check($instanceOf($String, _value->value));
@@ -109,51 +60,33 @@ void ClassWriter$AttributeWriter::visitConstant($Attribute$Constant* _value) {
 		$nc(this->this$0->databuf)->appendChar($nc(this->this$0->poolWriter)->putName($($nc(this->this$0->names)->fromString(s))));
 	} else {
 		$init($ClassWriter$1);
-		switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(_value->type)->getTag())))->ordinal())) {
+		switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(_value->type)->getTag()))->ordinal())) {
 		case 1:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'B');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'B');
+			break;
 		case 2:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'C');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'C');
+			break;
 		case 3:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'S');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'S');
+			break;
 		case 4:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'I');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'I');
+			break;
 		case 5:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'J');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'J');
+			break;
 		case 6:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'F');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'F');
+			break;
 		case 7:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'D');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'D');
+			break;
 		case 8:
-			{
-				$nc(this->this$0->databuf)->appendByte(u'Z');
-				break;
-			}
+			$nc(this->this$0->databuf)->appendByte(u'Z');
+			break;
 		default:
-			{
-				$throwNew($AssertionError, $of(_value->type));
-			}
+			$throwNew($AssertionError, _value->type);
 		}
 		$nc(this->this$0->databuf)->appendChar($nc(this->this$0->poolWriter)->putConstant(_value->value));
 	}
@@ -162,7 +95,7 @@ void ClassWriter$AttributeWriter::visitConstant($Attribute$Constant* _value) {
 void ClassWriter$AttributeWriter::visitEnum($Attribute$Enum* e) {
 	$nc(this->this$0->databuf)->appendByte(u'e');
 	$nc(this->this$0->databuf)->appendChar($nc(this->this$0->poolWriter)->putDescriptor($nc($nc(e)->value)->type));
-	$nc(this->this$0->databuf)->appendChar($nc(this->this$0->poolWriter)->putName($nc($nc(e)->value)->name));
+	$nc(this->this$0->databuf)->appendChar(this->this$0->poolWriter->putName($nc(e->value)->name));
 }
 
 void ClassWriter$AttributeWriter::visitClass($Attribute$Class* clazz) {
@@ -176,18 +109,16 @@ void ClassWriter$AttributeWriter::visitCompound($Attribute$Compound* compound) {
 }
 
 void ClassWriter$AttributeWriter::visitError($Attribute$Error* x) {
-	$throwNew($AssertionError, $of(x));
+	$throwNew($AssertionError, x);
 }
 
 void ClassWriter$AttributeWriter::visitArray($Attribute$Array* array) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->this$0->databuf)->appendByte(u'[');
 	$nc(this->this$0->databuf)->appendChar($nc($nc(array)->values)->length);
 	{
-		$var($AttributeArray, arr$, $nc(array)->values);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($AttributeArray, arr$, array->values);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, a, arr$->get(i$));
 			{
 				$nc(a)->accept(this);
@@ -200,7 +131,43 @@ ClassWriter$AttributeWriter::ClassWriter$AttributeWriter() {
 }
 
 $Class* ClassWriter$AttributeWriter::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$AttributeWriter, name, initialize, &_ClassWriter$AttributeWriter_ClassInfo_, allocate$ClassWriter$AttributeWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/ClassWriter;", nullptr, $FINAL | $SYNTHETIC, $field(ClassWriter$AttributeWriter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $method(ClassWriter$AttributeWriter, init$, void, $ClassWriter*)},
+		{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitArray, void, $Attribute$Array*)},
+		{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitClass, void, $Attribute$Class*)},
+		{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitCompound, void, $Attribute$Compound*)},
+		{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitConstant, void, $Attribute$Constant*)},
+		{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitEnum, void, $Attribute$Enum*)},
+		{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitError, void, $Attribute$Error*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassWriter$AttributeWriter", "com.sun.tools.javac.jvm.ClassWriter", "AttributeWriter", 0},
+		{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassWriter$AttributeWriter",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Attribute$Visitor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassWriter"
+	};
+	$loadClass(ClassWriter$AttributeWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$AttributeWriter);
+	});
 	return class$;
 }
 

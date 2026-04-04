@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageWatched$AccWeakReference.h>
-
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
@@ -17,41 +16,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ImageWatched$AccWeakReference_FieldInfo_[] = {
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ImageWatched$AccWeakReference, acc)},
-	{}
-};
-
-$MethodInfo _ImageWatched$AccWeakReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(ImageWatched$AccWeakReference, init$, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ImageWatched$AccWeakReference_InnerClassesInfo_[] = {
-	{"sun.awt.image.ImageWatched$AccWeakReference", "sun.awt.image.ImageWatched", "AccWeakReference", $STATIC},
-	{}
-};
-
-$ClassInfo _ImageWatched$AccWeakReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.image.ImageWatched$AccWeakReference",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_ImageWatched$AccWeakReference_FieldInfo_,
-	_ImageWatched$AccWeakReference_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<TT;>;",
-	nullptr,
-	_ImageWatched$AccWeakReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.ImageWatched"
-};
-
-$Object* allocate$ImageWatched$AccWeakReference($Class* clazz) {
-	return $of($alloc(ImageWatched$AccWeakReference));
-}
-
 void ImageWatched$AccWeakReference::init$(Object$* ref) {
 	$WeakReference::init$(ref);
 	$set(this, acc, $AccessController::getContext());
@@ -61,7 +25,36 @@ ImageWatched$AccWeakReference::ImageWatched$AccWeakReference() {
 }
 
 $Class* ImageWatched$AccWeakReference::load$($String* name, bool initialize) {
-	$loadClass(ImageWatched$AccWeakReference, name, initialize, &_ImageWatched$AccWeakReference_ClassInfo_, allocate$ImageWatched$AccWeakReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ImageWatched$AccWeakReference, acc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(ImageWatched$AccWeakReference, init$, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.ImageWatched$AccWeakReference", "sun.awt.image.ImageWatched", "AccWeakReference", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.image.ImageWatched$AccWeakReference",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.ImageWatched"
+	};
+	$loadClass(ImageWatched$AccWeakReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageWatched$AccWeakReference);
+	});
 	return class$;
 }
 

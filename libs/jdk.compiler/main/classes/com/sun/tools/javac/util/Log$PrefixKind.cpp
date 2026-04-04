@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Log$PrefixKind.h>
-
 #include <com/sun/tools/javac/util/Log.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Log$PrefixKind_FieldInfo_[] = {
-	{"JAVAC", "Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$PrefixKind, JAVAC)},
-	{"COMPILER_MISC", "Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$PrefixKind, COMPILER_MISC)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Log$PrefixKind, $VALUES)},
-	{"value", "Ljava/lang/String;", nullptr, $FINAL, $field(Log$PrefixKind, value)},
-	{}
-};
-
-$MethodInfo _Log$PrefixKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$PrefixKind, $values, $Log$PrefixKindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Log$PrefixKind, init$, void, $String*, int32_t, $String*)},
-	{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Log$PrefixKind, key, $String*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$PrefixKind, valueOf, Log$PrefixKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$PrefixKind, values, $Log$PrefixKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Log$PrefixKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Log$PrefixKind", "com.sun.tools.javac.util.Log", "PrefixKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Log$PrefixKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.Log$PrefixKind",
-	"java.lang.Enum",
-	nullptr,
-	_Log$PrefixKind_FieldInfo_,
-	_Log$PrefixKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Log$PrefixKind;>;",
-	nullptr,
-	_Log$PrefixKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Log"
-};
-
-$Object* allocate$Log$PrefixKind($Class* clazz) {
-	return $of($alloc(Log$PrefixKind));
-}
 
 Log$PrefixKind* Log$PrefixKind::JAVAC = nullptr;
 Log$PrefixKind* Log$PrefixKind::COMPILER_MISC = nullptr;
@@ -93,7 +50,7 @@ $String* Log$PrefixKind::key($String* k) {
 	return $str({this->value, k});
 }
 
-void clinit$Log$PrefixKind($Class* class$) {
+void Log$PrefixKind::clinit$($Class* clazz) {
 	$assignStatic(Log$PrefixKind::JAVAC, $new(Log$PrefixKind, "JAVAC"_s, 0, "javac."_s));
 	$assignStatic(Log$PrefixKind::COMPILER_MISC, $new(Log$PrefixKind, "COMPILER_MISC"_s, 1, "compiler.misc."_s));
 	$assignStatic(Log$PrefixKind::$VALUES, Log$PrefixKind::$values());
@@ -103,7 +60,43 @@ Log$PrefixKind::Log$PrefixKind() {
 }
 
 $Class* Log$PrefixKind::load$($String* name, bool initialize) {
-	$loadClass(Log$PrefixKind, name, initialize, &_Log$PrefixKind_ClassInfo_, clinit$Log$PrefixKind, allocate$Log$PrefixKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"JAVAC", "Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$PrefixKind, JAVAC)},
+		{"COMPILER_MISC", "Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$PrefixKind, COMPILER_MISC)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Log$PrefixKind, $VALUES)},
+		{"value", "Ljava/lang/String;", nullptr, $FINAL, $field(Log$PrefixKind, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$PrefixKind, $values, $Log$PrefixKindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Log$PrefixKind, init$, void, $String*, int32_t, $String*)},
+		{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Log$PrefixKind, key, $String*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$PrefixKind, valueOf, Log$PrefixKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$PrefixKind, values, $Log$PrefixKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Log$PrefixKind", "com.sun.tools.javac.util.Log", "PrefixKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.Log$PrefixKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Log$PrefixKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Log"
+	};
+	$loadClass(Log$PrefixKind, name, initialize, &classInfo$$, Log$PrefixKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Log$PrefixKind));
+	});
 	return class$;
 }
 

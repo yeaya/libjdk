@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HRuleView.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
@@ -39,7 +38,6 @@
 
 using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
 using $Color = ::java::awt::Color;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
@@ -68,50 +66,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _HRuleView_FieldInfo_[] = {
-	{"topMargin", "F", nullptr, $PRIVATE, $field(HRuleView, topMargin)},
-	{"bottomMargin", "F", nullptr, $PRIVATE, $field(HRuleView, bottomMargin)},
-	{"leftMargin", "F", nullptr, $PRIVATE, $field(HRuleView, leftMargin)},
-	{"rightMargin", "F", nullptr, $PRIVATE, $field(HRuleView, rightMargin)},
-	{"alignment", "I", nullptr, $PRIVATE, $field(HRuleView, alignment)},
-	{"noshade", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HRuleView, noshade)},
-	{"size", "I", nullptr, $PRIVATE, $field(HRuleView, size)},
-	{"widthValue", "Ljavax/swing/text/html/CSS$LengthValue;", nullptr, $PRIVATE, $field(HRuleView, widthValue)},
-	{"SPACE_ABOVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HRuleView, SPACE_ABOVE)},
-	{"SPACE_BELOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HRuleView, SPACE_BELOW)},
-	{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(HRuleView, attr)},
-	{}
-};
-
-$MethodInfo _HRuleView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(HRuleView, init$, void, $Element*)},
-	{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(HRuleView, breakView, $View*, int32_t, int32_t, float, float)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(HRuleView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(HRuleView, getAttributes, $AttributeSet*)},
-	{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(HRuleView, getBreakWeight, int32_t, int32_t, float, float)},
-	{"getLength", "(Ljavax/swing/text/html/CSS$Attribute;Ljavax/swing/text/AttributeSet;)F", nullptr, $PRIVATE, $method(HRuleView, getLength, float, $CSS$Attribute*, $AttributeSet*)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(HRuleView, getPreferredSpan, float, int32_t)},
-	{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(HRuleView, getResizeWeight, int32_t, int32_t)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(HRuleView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(HRuleView, paint, void, $Graphics*, $Shape*)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(HRuleView, setPropertiesFromAttributes, void)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(HRuleView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$ClassInfo _HRuleView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HRuleView",
-	"javax.swing.text.View",
-	nullptr,
-	_HRuleView_FieldInfo_,
-	_HRuleView_MethodInfo_
-};
-
-$Object* allocate$HRuleView($Class* clazz) {
-	return $of($alloc(HRuleView));
-}
-
 void HRuleView::init$($Element* elem) {
 	$View::init$(elem);
 	this->alignment = $StyleConstants::ALIGN_CENTER;
@@ -121,9 +75,9 @@ void HRuleView::init$($Element* elem) {
 }
 
 void HRuleView::setPropertiesFromAttributes() {
-	$useLocalCurrentObjectStackCache();
-	$var($StyleSheet, sheet, $nc(($cast($HTMLDocument, $(getDocument()))))->getStyleSheet());
-	$var($AttributeSet, eAttr, $nc($(getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($StyleSheet, sheet, $$sure($HTMLDocument, getDocument())->getStyleSheet());
+	$var($AttributeSet, eAttr, $$nc(getElement())->getAttributes());
 	$set(this, attr, $nc(sheet)->getViewAttributes(this));
 	this->alignment = $StyleConstants::ALIGN_CENTER;
 	this->size = 0;
@@ -131,7 +85,7 @@ void HRuleView::setPropertiesFromAttributes() {
 	$set(this, widthValue, nullptr);
 	if (this->attr != nullptr) {
 		$init($StyleConstants);
-		if ($nc(this->attr)->getAttribute($StyleConstants::Alignment) != nullptr) {
+		if (this->attr->getAttribute($StyleConstants::Alignment) != nullptr) {
 			this->alignment = $StyleConstants::getAlignment(this->attr);
 		}
 		$init($HTML$Attribute);
@@ -154,25 +108,25 @@ void HRuleView::setPropertiesFromAttributes() {
 		this->leftMargin = getLength($CSS$Attribute::MARGIN_LEFT, this->attr);
 		this->rightMargin = getLength($CSS$Attribute::MARGIN_RIGHT, this->attr);
 	} else {
-		this->topMargin = (this->bottomMargin = (this->leftMargin = (this->rightMargin = (float)0)));
+		this->topMargin = (this->bottomMargin = (this->leftMargin = (this->rightMargin = 0)));
 	}
 	this->size = $Math::max(2, this->size);
 }
 
 float HRuleView::getLength($CSS$Attribute* key, $AttributeSet* a) {
 	$var($CSS$LengthValue, lv, $cast($CSS$LengthValue, $nc(a)->getAttribute(key)));
-	float len = (lv != nullptr) ? $nc(lv)->getValue() : (float)0;
+	float len = (lv != nullptr) ? lv->getValue() : 0;
 	return len;
 }
 
 void HRuleView::paint($Graphics* g, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : $nc(a)->getBounds());
 	int32_t x = 0;
 	int32_t y = $nc(alloc)->y + HRuleView::SPACE_ABOVE + $cast(int32_t, this->topMargin);
 	int32_t width = alloc->width - $cast(int32_t, (this->leftMargin + this->rightMargin));
 	if (this->widthValue != nullptr) {
-		width = $cast(int32_t, $nc(this->widthValue)->getValue((float)width));
+		width = $cast(int32_t, this->widthValue->getValue((float)width));
 	}
 	int32_t height = alloc->height - (HRuleView::SPACE_ABOVE + HRuleView::SPACE_BELOW + $cast(int32_t, this->topMargin) + $cast(int32_t, this->bottomMargin));
 	if (this->size > 0) {
@@ -180,33 +134,26 @@ void HRuleView::paint($Graphics* g, $Shape* a) {
 	}
 	switch (this->alignment) {
 	case $StyleConstants::ALIGN_CENTER:
-		{
-			x = alloc->x + (alloc->width / 2) - (width / 2);
-			break;
-		}
+		x = alloc->x + (alloc->width / 2) - (width / 2);
+		break;
 	case $StyleConstants::ALIGN_RIGHT:
-		{
-			x = alloc->x + alloc->width - width - $cast(int32_t, this->rightMargin);
-			break;
-		}
+		x = alloc->x + alloc->width - width - $cast(int32_t, this->rightMargin);
+		break;
 	case $StyleConstants::ALIGN_LEFT:
-		{}
 	default:
-		{
-			x = alloc->x + $cast(int32_t, this->leftMargin);
-			break;
-		}
+		x = alloc->x + $cast(int32_t, this->leftMargin);
+		break;
 	}
 	if (this->noshade != nullptr) {
 		$init($Color);
 		$nc(g)->setColor($Color::black);
 		g->fillRect(x, y, width, height);
 	} else {
-		$var($Color, bg, $nc($(getContainer()))->getBackground());
+		$var($Color, bg, $$nc(getContainer())->getBackground());
 		$var($Color, bottom, nullptr);
 		$var($Color, top, nullptr);
 		$init($Color);
-		if (bg == nullptr || $nc(bg)->equals($Color::white)) {
+		if (bg == nullptr || bg->equals($Color::white)) {
 			$assign(top, $Color::darkGray);
 			$assign(bottom, $Color::lightGray);
 		} else {
@@ -223,26 +170,20 @@ void HRuleView::paint($Graphics* g, $Shape* a) {
 }
 
 float HRuleView::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (axis) {
 	case $View::X_AXIS:
-		{
-			return (float)1;
-		}
+		return 1;
 	case $View::Y_AXIS:
-		{
-			if (this->size > 0) {
-				return this->size + HRuleView::SPACE_ABOVE + HRuleView::SPACE_BELOW + this->topMargin + this->bottomMargin;
-			} else if (this->noshade != nullptr) {
-				return 2 + HRuleView::SPACE_ABOVE + HRuleView::SPACE_BELOW + this->topMargin + this->bottomMargin;
-			} else {
-				return HRuleView::SPACE_ABOVE + HRuleView::SPACE_BELOW + this->topMargin + this->bottomMargin;
-			}
+		if (this->size > 0) {
+			return this->size + HRuleView::SPACE_ABOVE + HRuleView::SPACE_BELOW + this->topMargin + this->bottomMargin;
+		} else if (this->noshade != nullptr) {
+			return 2 + HRuleView::SPACE_ABOVE + HRuleView::SPACE_BELOW + this->topMargin + this->bottomMargin;
+		} else {
+			return HRuleView::SPACE_ABOVE + HRuleView::SPACE_BELOW + this->topMargin + this->bottomMargin;
 		}
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
@@ -273,7 +214,7 @@ $Shape* HRuleView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 	if ((pos >= p0) && (pos <= p1)) {
 		$var($Rectangle, r, $nc(a)->getBounds());
 		if (pos == p1) {
-			$nc(r)->x += r->width;
+			$nc(r)->x += $nc(r)->width;
 		}
 		$nc(r)->width = 0;
 		return r;
@@ -283,7 +224,7 @@ $Shape* HRuleView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 
 int32_t HRuleView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray* bias) {
 	$var($Rectangle, alloc, $cast($Rectangle, a));
-	if (x < $nc(alloc)->x + (alloc->width / 2)) {
+	if (x < $nc(alloc)->x + ($nc(alloc)->width / 2)) {
 		$init($Position$Bias);
 		$nc(bias)->set(0, $Position$Bias::Forward);
 		return getStartOffset();
@@ -302,7 +243,7 @@ void HRuleView::changedUpdate($DocumentEvent* changes, $Shape* a, $ViewFactory* 
 	int32_t pos = $nc(changes)->getOffset();
 	bool var$0 = pos <= getStartOffset();
 	if (var$0) {
-		int32_t var$1 = (pos + changes->getLength());
+		int32_t var$1 = pos + changes->getLength();
 		var$0 = var$1 >= getEndOffset();
 	}
 	if (var$0) {
@@ -314,7 +255,46 @@ HRuleView::HRuleView() {
 }
 
 $Class* HRuleView::load$($String* name, bool initialize) {
-	$loadClass(HRuleView, name, initialize, &_HRuleView_ClassInfo_, allocate$HRuleView);
+	$FieldInfo fieldInfos$$[] = {
+		{"topMargin", "F", nullptr, $PRIVATE, $field(HRuleView, topMargin)},
+		{"bottomMargin", "F", nullptr, $PRIVATE, $field(HRuleView, bottomMargin)},
+		{"leftMargin", "F", nullptr, $PRIVATE, $field(HRuleView, leftMargin)},
+		{"rightMargin", "F", nullptr, $PRIVATE, $field(HRuleView, rightMargin)},
+		{"alignment", "I", nullptr, $PRIVATE, $field(HRuleView, alignment)},
+		{"noshade", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HRuleView, noshade)},
+		{"size", "I", nullptr, $PRIVATE, $field(HRuleView, size)},
+		{"widthValue", "Ljavax/swing/text/html/CSS$LengthValue;", nullptr, $PRIVATE, $field(HRuleView, widthValue)},
+		{"SPACE_ABOVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HRuleView, SPACE_ABOVE)},
+		{"SPACE_BELOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HRuleView, SPACE_BELOW)},
+		{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(HRuleView, attr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(HRuleView, init$, void, $Element*)},
+		{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(HRuleView, breakView, $View*, int32_t, int32_t, float, float)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(HRuleView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(HRuleView, getAttributes, $AttributeSet*)},
+		{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(HRuleView, getBreakWeight, int32_t, int32_t, float, float)},
+		{"getLength", "(Ljavax/swing/text/html/CSS$Attribute;Ljavax/swing/text/AttributeSet;)F", nullptr, $PRIVATE, $method(HRuleView, getLength, float, $CSS$Attribute*, $AttributeSet*)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(HRuleView, getPreferredSpan, float, int32_t)},
+		{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(HRuleView, getResizeWeight, int32_t, int32_t)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(HRuleView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(HRuleView, paint, void, $Graphics*, $Shape*)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(HRuleView, setPropertiesFromAttributes, void)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(HRuleView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HRuleView",
+		"javax.swing.text.View",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HRuleView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HRuleView);
+	});
 	return class$;
 }
 

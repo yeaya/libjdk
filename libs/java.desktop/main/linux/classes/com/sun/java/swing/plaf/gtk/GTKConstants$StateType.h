@@ -29,6 +29,7 @@ class GTKConstants$StateType : public ::java::lang::Enum {
 public:
 	GTKConstants$StateType();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$StateType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKConstants$StateType* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$StateType>* values();

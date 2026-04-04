@@ -14,10 +14,13 @@ class $import Asn1Exception : public ::sun::security::krb5::KrbException {
 public:
 	Asn1Exception();
 	void init$(int32_t i);
-	static const int64_t serialVersionUID = (int64_t)0x73109366FFB50664;
+	static const int64_t serialVersionUID = (int64_t)0x73109366ffb50664;
 	Asn1Exception(const Asn1Exception& e);
 	virtual void throw$() override;
-	inline Asn1Exception* operator ->() {
+	inline Asn1Exception* operator ->() const {
+		return (Asn1Exception*)throwing$;
+	}
+	inline operator Asn1Exception*() const {
 		return (Asn1Exception*)throwing$;
 	}
 };

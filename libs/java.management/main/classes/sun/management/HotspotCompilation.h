@@ -43,6 +43,7 @@ class HotspotCompilation : public ::sun::management::HotspotCompilationMBean {
 	$class(HotspotCompilation, 0, ::sun::management::HotspotCompilationMBean)
 public:
 	HotspotCompilation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::VMManagement* vm);
 	virtual int64_t getBailoutCompileCount() override;
 	virtual int64_t getCompiledMethodCodeSize() override;

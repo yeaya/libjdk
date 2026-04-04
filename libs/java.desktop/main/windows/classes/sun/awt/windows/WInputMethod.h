@@ -84,6 +84,7 @@ class WInputMethod : public ::sun::awt::im::InputMethodAdapter {
 	$class(WInputMethod, $HAS_FINALIZE, ::sun::awt::im::InputMethodAdapter)
 public:
 	WInputMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::Component* access$000(::sun::awt::windows::WInputMethod* x0);
 	static bool access$100(::sun::awt::windows::WInputMethod* x0);

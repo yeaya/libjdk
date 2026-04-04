@@ -1,10 +1,8 @@
 #include <Test6461042.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/border/Border.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
@@ -13,34 +11,6 @@ using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $Border = ::javax::swing::border::Border;
-
-$MethodInfo _Test6461042_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test6461042, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(Test6461042, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(Test6461042, isBorderOpaque, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6461042, main, void, $StringArray*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(Test6461042, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Test6461042_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6461042",
-	"javax.swing.JComponent",
-	"javax.swing.border.Border",
-	nullptr,
-	_Test6461042_MethodInfo_
-};
-
-$Object* allocate$Test6461042($Class* clazz) {
-	return $of($alloc(Test6461042));
-}
 
 $String* Test6461042::toString() {
 	 return this->$JComponent::toString();
@@ -87,7 +57,30 @@ Test6461042::Test6461042() {
 }
 
 $Class* Test6461042::load$($String* name, bool initialize) {
-	$loadClass(Test6461042, name, initialize, &_Test6461042_ClassInfo_, allocate$Test6461042);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test6461042, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(Test6461042, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(Test6461042, isBorderOpaque, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6461042, main, void, $StringArray*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(Test6461042, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6461042",
+		"javax.swing.JComponent",
+		"javax.swing.border.Border",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test6461042, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test6461042));
+	});
 	return class$;
 }
 

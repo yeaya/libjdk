@@ -84,6 +84,7 @@ public:
 	XBaseMenuWindow();
 	using ::sun::awt::X11::XWindow::getGraphics;
 	using ::sun::awt::X11::XWindow::handleKeyPress;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addItem(::java::awt::MenuItem* item);
 	virtual $Array<::sun::awt::X11::XMenuItemPeer>* copyItems();

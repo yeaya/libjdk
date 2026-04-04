@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaButtonCheckBoxUI$CheckBoxButtonBorder.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder.h>
@@ -13,9 +11,7 @@
 
 #undef BUTTON_CHECK_BOX
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaButtonLabeledUI$LabeledButtonBorder = ::com::apple::laf::AquaButtonLabeledUI$LabeledButtonBorder;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
@@ -27,54 +23,49 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaButtonCheckBoxUI$CheckBoxButtonBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonCheckBoxUI$CheckBoxButtonBorder, init$, void)},
-	{"<init>", "(Lcom/apple/laf/AquaButtonCheckBoxUI$CheckBoxButtonBorder;)V", nullptr, $PUBLIC, $method(AquaButtonCheckBoxUI$CheckBoxButtonBorder, init$, void, AquaButtonCheckBoxUI$CheckBoxButtonBorder*)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonCheckBoxUI$CheckBoxButtonBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder", "com.apple.laf.AquaButtonCheckBoxUI", "CheckBoxButtonBorder", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonLabeledUI$LabeledButtonBorder", "com.apple.laf.AquaButtonLabeledUI", "LabeledButtonBorder", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaButtonCheckBoxUI$CheckBoxButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder",
-	"com.apple.laf.AquaButtonLabeledUI$LabeledButtonBorder",
-	nullptr,
-	nullptr,
-	_AquaButtonCheckBoxUI$CheckBoxButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonCheckBoxUI$CheckBoxButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonCheckBoxUI"
-};
-
-$Object* allocate$AquaButtonCheckBoxUI$CheckBoxButtonBorder($Class* clazz) {
-	return $of($alloc(AquaButtonCheckBoxUI$CheckBoxButtonBorder));
-}
-
 void AquaButtonCheckBoxUI$CheckBoxButtonBorder::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaButtonLabeledUI$LabeledButtonBorder::init$($$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant)->replaceMargins("CheckBox.margin"_s))));
 	$init($JRSUIConstants$Widget);
 	$nc($nc(this->painter)->state)->set($JRSUIConstants$Widget::BUTTON_CHECK_BOX);
 }
 
 void AquaButtonCheckBoxUI$CheckBoxButtonBorder::init$(AquaButtonCheckBoxUI$CheckBoxButtonBorder* sizeDescriptor) {
-	$AquaButtonLabeledUI$LabeledButtonBorder::init$(static_cast<$AquaButtonLabeledUI$LabeledButtonBorder*>(sizeDescriptor));
+	$AquaButtonLabeledUI$LabeledButtonBorder::init$(sizeDescriptor);
 }
 
 AquaButtonCheckBoxUI$CheckBoxButtonBorder::AquaButtonCheckBoxUI$CheckBoxButtonBorder() {
 }
 
 $Class* AquaButtonCheckBoxUI$CheckBoxButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonCheckBoxUI$CheckBoxButtonBorder, name, initialize, &_AquaButtonCheckBoxUI$CheckBoxButtonBorder_ClassInfo_, allocate$AquaButtonCheckBoxUI$CheckBoxButtonBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonCheckBoxUI$CheckBoxButtonBorder, init$, void)},
+		{"<init>", "(Lcom/apple/laf/AquaButtonCheckBoxUI$CheckBoxButtonBorder;)V", nullptr, $PUBLIC, $method(AquaButtonCheckBoxUI$CheckBoxButtonBorder, init$, void, AquaButtonCheckBoxUI$CheckBoxButtonBorder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder", "com.apple.laf.AquaButtonCheckBoxUI", "CheckBoxButtonBorder", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonLabeledUI$LabeledButtonBorder", "com.apple.laf.AquaButtonLabeledUI", "LabeledButtonBorder", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonCheckBoxUI$CheckBoxButtonBorder",
+		"com.apple.laf.AquaButtonLabeledUI$LabeledButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonCheckBoxUI"
+	};
+	$loadClass(AquaButtonCheckBoxUI$CheckBoxButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonCheckBoxUI$CheckBoxButtonBorder));
+	});
 	return class$;
 }
 

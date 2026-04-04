@@ -31,6 +31,7 @@ class Operators : public ::java::lang::Object {
 	$class(Operators, 0, ::java::lang::Object)
 public:
 	Operators();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getOpNames(int32_t operator$);
 	static int32_t swapOp(int32_t operator$);

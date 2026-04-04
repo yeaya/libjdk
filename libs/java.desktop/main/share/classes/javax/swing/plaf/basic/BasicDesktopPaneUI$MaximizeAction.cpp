@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI$MaximizeAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractAction.h>
@@ -28,43 +27,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicDesktopPaneUI$MaximizeAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$MaximizeAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicDesktopPaneUI$MaximizeAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PROTECTED, $method(BasicDesktopPaneUI$MaximizeAction, init$, void, $BasicDesktopPaneUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$MaximizeAction, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$MaximizeAction, isEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopPaneUI$MaximizeAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "MaximizeAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicDesktopPaneUI$MaximizeAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicDesktopPaneUI$MaximizeAction_FieldInfo_,
-	_BasicDesktopPaneUI$MaximizeAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopPaneUI$MaximizeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI"
-};
-
-$Object* allocate$BasicDesktopPaneUI$MaximizeAction($Class* clazz) {
-	return $of($alloc(BasicDesktopPaneUI$MaximizeAction));
-}
-
 void BasicDesktopPaneUI$MaximizeAction::init$($BasicDesktopPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$();
@@ -89,7 +51,38 @@ BasicDesktopPaneUI$MaximizeAction::BasicDesktopPaneUI$MaximizeAction() {
 }
 
 $Class* BasicDesktopPaneUI$MaximizeAction::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopPaneUI$MaximizeAction, name, initialize, &_BasicDesktopPaneUI$MaximizeAction_ClassInfo_, allocate$BasicDesktopPaneUI$MaximizeAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$MaximizeAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PROTECTED, $method(BasicDesktopPaneUI$MaximizeAction, init$, void, $BasicDesktopPaneUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$MaximizeAction, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$MaximizeAction, isEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "MaximizeAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI"
+	};
+	$loadClass(BasicDesktopPaneUI$MaximizeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicDesktopPaneUI$MaximizeAction));
+	});
 	return class$;
 }
 

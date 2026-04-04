@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingDataLine$AudioFloatInputStreamResampler.h>
-
 #include <com/sun/media/sound/AudioFloatInputStream.h>
 #include <com/sun/media/sound/SoftAbstractResampler.h>
 #include <com/sun/media/sound/SoftCubicResampler.h>
@@ -20,7 +19,6 @@
 
 using $floatArray2 = $Array<float, 2>;
 using $AudioFloatInputStream = ::com::sun::media::sound::AudioFloatInputStream;
-using $SoftAbstractResampler = ::com::sun::media::sound::SoftAbstractResampler;
 using $SoftCubicResampler = ::com::sun::media::sound::SoftCubicResampler;
 using $SoftLanczosResampler = ::com::sun::media::sound::SoftLanczosResampler;
 using $SoftLinearResampler = ::com::sun::media::sound::SoftLinearResampler;
@@ -42,80 +40,17 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingDataLine$AudioFloatInputStreamResampler_FieldInfo_[] = {
-	{"ais", "Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ais)},
-	{"targetFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, targetFormat)},
-	{"skipbuffer", "[F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, skipbuffer)},
-	{"resampler", "Lcom/sun/media/sound/SoftAbstractResampler;", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, resampler)},
-	{"pitch", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, pitch)},
-	{"ibuffer2", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer2)},
-	{"ibuffer", "[[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer)},
-	{"ibuffer_index", "F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer_index)},
-	{"ibuffer_len", "I", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer_len)},
-	{"nrofchannels", "I", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, nrofchannels)},
-	{"cbuffer", "[[F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, cbuffer)},
-	{"buffer_len", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftMixingDataLine$AudioFloatInputStreamResampler, buffer_len)},
-	{"pad", "I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, pad)},
-	{"pad2", "I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, pad2)},
-	{"ix", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ix)},
-	{"ox", "[I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ox)},
-	{"mark_ibuffer", "[[F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, mark_ibuffer)},
-	{"mark_ibuffer_index", "F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, mark_ibuffer_index)},
-	{"mark_ibuffer_len", "I", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, mark_ibuffer_len)},
-	{}
-};
-
-$MethodInfo _SoftMixingDataLine$AudioFloatInputStreamResampler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/AudioFloatInputStream;Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC, $method(SoftMixingDataLine$AudioFloatInputStreamResampler, init$, void, $AudioFloatInputStream*, $AudioFormat*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, close, void), "java.io.IOException"},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, getFormat, $AudioFormat*)},
-	{"getFrameLength", "()J", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, getFrameLength, int64_t)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, markSupported, bool)},
-	{"read", "([FII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, read, int32_t, $floats*, int32_t, int32_t), "java.io.IOException"},
-	{"readNextBuffer", "()V", nullptr, $PRIVATE, $method(SoftMixingDataLine$AudioFloatInputStreamResampler, readNextBuffer, void), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SoftMixingDataLine$AudioFloatInputStreamResampler_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler", "com.sun.media.sound.SoftMixingDataLine", "AudioFloatInputStreamResampler", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SoftMixingDataLine$AudioFloatInputStreamResampler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler",
-	"com.sun.media.sound.AudioFloatInputStream",
-	nullptr,
-	_SoftMixingDataLine$AudioFloatInputStreamResampler_FieldInfo_,
-	_SoftMixingDataLine$AudioFloatInputStreamResampler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingDataLine$AudioFloatInputStreamResampler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingDataLine"
-};
-
-$Object* allocate$SoftMixingDataLine$AudioFloatInputStreamResampler($Class* clazz) {
-	return $of($alloc(SoftMixingDataLine$AudioFloatInputStreamResampler));
-}
-
 void SoftMixingDataLine$AudioFloatInputStreamResampler::init$($AudioFloatInputStream* ais, $AudioFormat* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AudioFloatInputStream::init$();
 	$set(this, pitch, $new($floats, 1));
-	this->ibuffer_index = (float)0;
+	this->ibuffer_index = 0;
 	this->ibuffer_len = 0;
 	this->nrofchannels = 0;
 	$set(this, ix, $new($floats, 1));
 	$set(this, ox, $new($ints, 1));
 	$set(this, mark_ibuffer, nullptr);
-	this->mark_ibuffer_index = (float)0;
+	this->mark_ibuffer_index = 0;
 	this->mark_ibuffer_len = 0;
 	$set(this, ais, ais);
 	$var($AudioFormat, sourceFormat, $nc(ais)->getFormat());
@@ -126,8 +61,8 @@ void SoftMixingDataLine$AudioFloatInputStreamResampler::init$($AudioFloatInputSt
 	int32_t var$4 = sourceFormat->getFrameSize();
 	float var$5 = format->getSampleRate();
 	$set(this, targetFormat, $new($AudioFormat, var$0, var$1, var$2, var$3, var$4, var$5, sourceFormat->isBigEndian()));
-	this->nrofchannels = $nc(this->targetFormat)->getChannels();
-	$var($Object, interpolation, $nc(format)->getProperty("interpolation"_s));
+	this->nrofchannels = this->targetFormat->getChannels();
+	$var($Object, interpolation, format->getProperty("interpolation"_s));
 	if (interpolation != nullptr && ($instanceOf($String, interpolation))) {
 		$var($String, resamplerType, $cast($String, interpolation));
 		if (resamplerType->equalsIgnoreCase("point"_s)) {
@@ -155,8 +90,8 @@ void SoftMixingDataLine$AudioFloatInputStreamResampler::init$($AudioFloatInputSt
 	if (this->resampler == nullptr) {
 		$set(this, resampler, $new($SoftLinearResampler2));
 	}
-	float var$6 = $nc(sourceFormat)->getSampleRate();
-	$nc(this->pitch)->set(0, var$6 / format->getSampleRate());
+	float var$6 = sourceFormat->getSampleRate();
+	this->pitch->set(0, var$6 / format->getSampleRate());
 	this->pad = $nc(this->resampler)->getPadding();
 	this->pad2 = this->pad * 2;
 	$set(this, ibuffer, $new($floatArray2, this->nrofchannels, SoftMixingDataLine$AudioFloatInputStreamResampler::buffer_len + this->pad2));
@@ -182,15 +117,15 @@ int64_t SoftMixingDataLine$AudioFloatInputStreamResampler::getFrameLength() {
 }
 
 void SoftMixingDataLine$AudioFloatInputStreamResampler::mark(int32_t readlimit) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->ais)->mark($cast(int32_t, (readlimit * $nc(this->pitch)->get(0))));
+	$useLocalObjectStack();
+	$nc(this->ais)->mark($cast(int32_t, (readlimit * this->pitch->get(0))));
 	this->mark_ibuffer_index = this->ibuffer_index;
 	this->mark_ibuffer_len = this->ibuffer_len;
 	if (this->mark_ibuffer == nullptr) {
-		$set(this, mark_ibuffer, $new($floatArray2, $nc(this->ibuffer)->length, $nc($nc(this->ibuffer)->get(0))->length));
+		$set(this, mark_ibuffer, $new($floatArray2, this->ibuffer->length, $nc(this->ibuffer->get(0))->length));
 	}
-	for (int32_t c = 0; c < $nc(this->ibuffer)->length; ++c) {
-		$var($floats, from, $nc(this->ibuffer)->get(c));
+	for (int32_t c = 0; c < this->ibuffer->length; ++c) {
+		$var($floats, from, this->ibuffer->get(c));
 		$var($floats, to, $nc(this->mark_ibuffer)->get(c));
 		for (int32_t i = 0; i < $nc(to)->length; ++i) {
 			to->set(i, $nc(from)->get(i));
@@ -203,52 +138,44 @@ bool SoftMixingDataLine$AudioFloatInputStreamResampler::markSupported() {
 }
 
 void SoftMixingDataLine$AudioFloatInputStreamResampler::readNextBuffer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ibuffer_len == -1) {
 		return;
 	}
 	for (int32_t c = 0; c < this->nrofchannels; ++c) {
-		$var($floats, buff, $nc(this->ibuffer)->get(c));
+		$var($floats, buff, this->ibuffer->get(c));
 		int32_t buffer_len_pad = this->ibuffer_len + this->pad2;
-		{
-			int32_t i = this->ibuffer_len;
-			int32_t ix = 0;
-			for (; i < buffer_len_pad; ++i, ++ix) {
-				$nc(buff)->set(ix, buff->get(i));
-			}
+		for (int32_t i = this->ibuffer_len, ix = 0; i < buffer_len_pad; ++i, ++ix) {
+			$nc(buff)->set(ix, $nc(buff)->get(i));
 		}
 	}
 	this->ibuffer_index -= (this->ibuffer_len);
 	this->ibuffer_len = $nc(this->ais)->read(this->ibuffer2);
 	if (this->ibuffer_len >= 0) {
-		while (this->ibuffer_len < $nc(this->ibuffer2)->length) {
-			int32_t ret = $nc(this->ais)->read(this->ibuffer2, this->ibuffer_len, $nc(this->ibuffer2)->length - this->ibuffer_len);
+		while (this->ibuffer_len < this->ibuffer2->length) {
+			int32_t ret = this->ais->read(this->ibuffer2, this->ibuffer_len, this->ibuffer2->length - this->ibuffer_len);
 			if (ret == -1) {
 				break;
 			}
 			this->ibuffer_len += ret;
 		}
-		$Arrays::fill(this->ibuffer2, this->ibuffer_len, $nc(this->ibuffer2)->length, (float)0);
+		$Arrays::fill(this->ibuffer2, this->ibuffer_len, this->ibuffer2->length, 0);
 		this->ibuffer_len /= this->nrofchannels;
 	} else {
-		$Arrays::fill(this->ibuffer2, 0, $nc(this->ibuffer2)->length, (float)0);
+		$Arrays::fill(this->ibuffer2, 0, this->ibuffer2->length, 0);
 	}
-	int32_t ibuffer2_len = $nc(this->ibuffer2)->length;
+	int32_t ibuffer2_len = this->ibuffer2->length;
 	for (int32_t c = 0; c < this->nrofchannels; ++c) {
-		$var($floats, buff, $nc(this->ibuffer)->get(c));
-		{
-			int32_t i = c;
-			int32_t ix = this->pad2;
-			for (; i < ibuffer2_len; i += this->nrofchannels, ++ix) {
-				$nc(buff)->set(ix, $nc(this->ibuffer2)->get(i));
-			}
+		$var($floats, buff, this->ibuffer->get(c));
+		for (int32_t i = c, ix = this->pad2; i < ibuffer2_len; i += this->nrofchannels, ++ix) {
+			$nc(buff)->set(ix, this->ibuffer2->get(i));
 		}
 	}
 }
 
 int32_t SoftMixingDataLine$AudioFloatInputStreamResampler::read($floats* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
-	if (this->cbuffer == nullptr || $nc($nc(this->cbuffer)->get(0))->length < $div(len, this->nrofchannels)) {
+	$useLocalObjectStack();
+	if (this->cbuffer == nullptr || $nc(this->cbuffer->get(0))->length < $div(len, this->nrofchannels)) {
 		$set(this, cbuffer, $new($floatArray2, this->nrofchannels, $div(len, this->nrofchannels)));
 	}
 	if (this->ibuffer_len == -1) {
@@ -278,13 +205,13 @@ int32_t SoftMixingDataLine$AudioFloatInputStreamResampler::read($floats* b, int3
 		}
 		int32_t preDestPos = destPos;
 		for (int32_t c = 0; c < this->nrofchannels; ++c) {
-			$nc(this->ix)->set(0, this->ibuffer_index);
-			$nc(this->ox)->set(0, destPos);
-			$var($floats, buff, $nc(this->ibuffer)->get(c));
-			$nc(this->resampler)->interpolate(buff, this->ix, (float)in_end, this->pitch, (float)0, $nc(this->cbuffer)->get(c), this->ox, $div(len, this->nrofchannels));
+			this->ix->set(0, this->ibuffer_index);
+			this->ox->set(0, destPos);
+			$var($floats, buff, this->ibuffer->get(c));
+			$nc(this->resampler)->interpolate(buff, this->ix, (float)in_end, this->pitch, 0, $nc(this->cbuffer)->get(c), this->ox, $div(len, this->nrofchannels));
 		}
-		this->ibuffer_index = $nc(this->ix)->get(0);
-		destPos = $nc(this->ox)->get(0);
+		this->ibuffer_index = this->ix->get(0);
+		destPos = this->ox->get(0);
 		remain -= destPos - preDestPos;
 	}
 	for (int32_t c = 0; c < this->nrofchannels; ++c) {
@@ -298,16 +225,16 @@ int32_t SoftMixingDataLine$AudioFloatInputStreamResampler::read($floats* b, int3
 }
 
 void SoftMixingDataLine$AudioFloatInputStreamResampler::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->ais)->reset();
 	if (this->mark_ibuffer == nullptr) {
 		return;
 	}
 	this->ibuffer_index = this->mark_ibuffer_index;
 	this->ibuffer_len = this->mark_ibuffer_len;
-	for (int32_t c = 0; c < $nc(this->ibuffer)->length; ++c) {
+	for (int32_t c = 0; c < this->ibuffer->length; ++c) {
 		$var($floats, from, $nc(this->mark_ibuffer)->get(c));
-		$var($floats, to, $nc(this->ibuffer)->get(c));
+		$var($floats, to, this->ibuffer->get(c));
 		for (int32_t i = 0; i < $nc(to)->length; ++i) {
 			to->set(i, $nc(from)->get(i));
 		}
@@ -319,7 +246,7 @@ int64_t SoftMixingDataLine$AudioFloatInputStreamResampler::skip(int64_t len) {
 		return 0;
 	}
 	if (this->skipbuffer == nullptr) {
-		$set(this, skipbuffer, $new($floats, 1024 * $nc(this->targetFormat)->getFrameSize()));
+		$set(this, skipbuffer, $new($floats, 1024 * this->targetFormat->getFrameSize()));
 	}
 	$var($floats, l_skipbuffer, this->skipbuffer);
 	int64_t remain = len;
@@ -340,7 +267,64 @@ SoftMixingDataLine$AudioFloatInputStreamResampler::SoftMixingDataLine$AudioFloat
 }
 
 $Class* SoftMixingDataLine$AudioFloatInputStreamResampler::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingDataLine$AudioFloatInputStreamResampler, name, initialize, &_SoftMixingDataLine$AudioFloatInputStreamResampler_ClassInfo_, allocate$SoftMixingDataLine$AudioFloatInputStreamResampler);
+	$FieldInfo fieldInfos$$[] = {
+		{"ais", "Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ais)},
+		{"targetFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, targetFormat)},
+		{"skipbuffer", "[F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, skipbuffer)},
+		{"resampler", "Lcom/sun/media/sound/SoftAbstractResampler;", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, resampler)},
+		{"pitch", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, pitch)},
+		{"ibuffer2", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer2)},
+		{"ibuffer", "[[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer)},
+		{"ibuffer_index", "F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer_index)},
+		{"ibuffer_len", "I", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ibuffer_len)},
+		{"nrofchannels", "I", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, nrofchannels)},
+		{"cbuffer", "[[F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, cbuffer)},
+		{"buffer_len", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SoftMixingDataLine$AudioFloatInputStreamResampler, buffer_len)},
+		{"pad", "I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, pad)},
+		{"pad2", "I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, pad2)},
+		{"ix", "[F", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ix)},
+		{"ox", "[I", nullptr, $PRIVATE | $FINAL, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, ox)},
+		{"mark_ibuffer", "[[F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, mark_ibuffer)},
+		{"mark_ibuffer_index", "F", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, mark_ibuffer_index)},
+		{"mark_ibuffer_len", "I", nullptr, $PRIVATE, $field(SoftMixingDataLine$AudioFloatInputStreamResampler, mark_ibuffer_len)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/AudioFloatInputStream;Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC, $method(SoftMixingDataLine$AudioFloatInputStreamResampler, init$, void, $AudioFloatInputStream*, $AudioFormat*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, close, void), "java.io.IOException"},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, getFormat, $AudioFormat*)},
+		{"getFrameLength", "()J", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, getFrameLength, int64_t)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, markSupported, bool)},
+		{"read", "([FII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, read, int32_t, $floats*, int32_t, int32_t), "java.io.IOException"},
+		{"readNextBuffer", "()V", nullptr, $PRIVATE, $method(SoftMixingDataLine$AudioFloatInputStreamResampler, readNextBuffer, void), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$AudioFloatInputStreamResampler, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler", "com.sun.media.sound.SoftMixingDataLine", "AudioFloatInputStreamResampler", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingDataLine$AudioFloatInputStreamResampler",
+		"com.sun.media.sound.AudioFloatInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingDataLine"
+	};
+	$loadClass(SoftMixingDataLine$AudioFloatInputStreamResampler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingDataLine$AudioFloatInputStreamResampler);
+	});
 	return class$;
 }
 

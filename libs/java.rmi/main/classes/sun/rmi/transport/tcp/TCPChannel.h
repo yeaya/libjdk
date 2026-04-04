@@ -65,6 +65,7 @@ class TCPChannel : public ::sun::rmi::transport::Channel {
 	$class(TCPChannel, 0, ::sun::rmi::transport::Channel)
 public:
 	TCPChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::rmi::transport::tcp::TCPTransport* tr, ::sun::rmi::transport::tcp::TCPEndpoint* ep);
 	void checkConnectPermission();
 	::sun::rmi::transport::Connection* createConnection();

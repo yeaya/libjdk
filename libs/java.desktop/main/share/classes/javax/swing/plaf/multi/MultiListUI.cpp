@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/multi/MultiListUI.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Point.h>
@@ -34,44 +33,6 @@ namespace javax {
 		namespace plaf {
 			namespace multi {
 
-$FieldInfo _MultiListUI_FieldInfo_[] = {
-	{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiListUI, uis)},
-	{}
-};
-
-$MethodInfo _MultiListUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiListUI, init$, void)},
-	{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiListUI, contains, bool, $JComponent*, int32_t, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiListUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
-	{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
-	{"getCellBounds", "(Ljavax/swing/JList;II)Ljava/awt/Rectangle;", "(Ljavax/swing/JList<*>;II)Ljava/awt/Rectangle;", $PUBLIC, $virtualMethod(MultiListUI, getCellBounds, $Rectangle*, $JList*, int32_t, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getUIs, $ComponentUIArray*)},
-	{"indexToLocation", "(Ljavax/swing/JList;I)Ljava/awt/Point;", "(Ljavax/swing/JList<*>;I)Ljava/awt/Point;", $PUBLIC, $virtualMethod(MultiListUI, indexToLocation, $Point*, $JList*, int32_t)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, installUI, void, $JComponent*)},
-	{"locationToIndex", "(Ljavax/swing/JList;Ljava/awt/Point;)I", "(Ljavax/swing/JList<*>;Ljava/awt/Point;)I", $PUBLIC, $virtualMethod(MultiListUI, locationToIndex, int32_t, $JList*, $Point*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, paint, void, $Graphics*, $JComponent*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MultiListUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.multi.MultiListUI",
-	"javax.swing.plaf.ListUI",
-	nullptr,
-	_MultiListUI_FieldInfo_,
-	_MultiListUI_MethodInfo_
-};
-
-$Object* allocate$MultiListUI($Class* clazz) {
-	return $of($alloc(MultiListUI));
-}
-
 void MultiListUI::init$() {
 	$ListUI::init$();
 	$set(this, uis, $new($Vector));
@@ -82,45 +43,45 @@ $ComponentUIArray* MultiListUI::getUIs() {
 }
 
 int32_t MultiListUI::locationToIndex($JList* a, $Point* b) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($ListUI, $($nc(this->uis)->elementAt(0))))))->locationToIndex(a, b);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($ListUI, $nc(this->uis)->elementAt(0))->locationToIndex(a, b);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($ListUI, $($nc(this->uis)->elementAt(i))))))->locationToIndex(a, b);
+		$$cast($ListUI, this->uis->elementAt(i))->locationToIndex(a, b);
 	}
 	return returnValue;
 }
 
 $Point* MultiListUI::indexToLocation($JList* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
-	$var($Point, returnValue, $nc((($cast($ListUI, $($nc(this->uis)->elementAt(0))))))->indexToLocation(a, b));
+	$useLocalObjectStack();
+	$var($Point, returnValue, $$cast($ListUI, $nc(this->uis)->elementAt(0))->indexToLocation(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($ListUI, $($nc(this->uis)->elementAt(i))))))->indexToLocation(a, b);
+		$$cast($ListUI, this->uis->elementAt(i))->indexToLocation(a, b);
 	}
 	return returnValue;
 }
 
 $Rectangle* MultiListUI::getCellBounds($JList* a, int32_t b, int32_t c) {
-	$useLocalCurrentObjectStackCache();
-	$var($Rectangle, returnValue, $nc((($cast($ListUI, $($nc(this->uis)->elementAt(0))))))->getCellBounds(a, b, c));
+	$useLocalObjectStack();
+	$var($Rectangle, returnValue, $$cast($ListUI, $nc(this->uis)->elementAt(0))->getCellBounds(a, b, c));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($ListUI, $($nc(this->uis)->elementAt(i))))))->getCellBounds(a, b, c);
+		$$cast($ListUI, this->uis->elementAt(i))->getCellBounds(a, b, c);
 	}
 	return returnValue;
 }
 
 bool MultiListUI::contains($JComponent* a, int32_t b, int32_t c) {
-	$useLocalCurrentObjectStackCache();
-	bool returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->contains(a, b, c);
+	$useLocalObjectStack();
+	bool returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->contains(a, b, c);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->contains(a, b, c);
+		$$sure($ComponentUI, this->uis->elementAt(i))->contains(a, b, c);
 	}
 	return returnValue;
 }
 
 void MultiListUI::update($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->update(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->update(a, b);
 	}
 }
 
@@ -131,67 +92,67 @@ $ComponentUI* MultiListUI::createUI($JComponent* a) {
 }
 
 void MultiListUI::installUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->installUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->installUI(a);
 	}
 }
 
 void MultiListUI::uninstallUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->uninstallUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->uninstallUI(a);
 	}
 }
 
 void MultiListUI::paint($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->paint(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->paint(a, b);
 	}
 }
 
 $Dimension* MultiListUI::getPreferredSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getPreferredSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getPreferredSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getPreferredSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getPreferredSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiListUI::getMinimumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMinimumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMinimumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMinimumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMinimumSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiListUI::getMaximumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMaximumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMaximumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMaximumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMaximumSize(a);
 	}
 	return returnValue;
 }
 
 int32_t MultiListUI::getAccessibleChildrenCount($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChildrenCount(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChildrenCount(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChildrenCount(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChildrenCount(a);
 	}
 	return returnValue;
 }
 
 $Accessible* MultiListUI::getAccessibleChild($JComponent* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
-	$var($Accessible, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChild(a, b));
+	$useLocalObjectStack();
+	$var($Accessible, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChild(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChild(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChild(a, b);
 	}
 	return returnValue;
 }
@@ -200,7 +161,40 @@ MultiListUI::MultiListUI() {
 }
 
 $Class* MultiListUI::load$($String* name, bool initialize) {
-	$loadClass(MultiListUI, name, initialize, &_MultiListUI_ClassInfo_, allocate$MultiListUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiListUI, uis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiListUI, init$, void)},
+		{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiListUI, contains, bool, $JComponent*, int32_t, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiListUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
+		{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
+		{"getCellBounds", "(Ljavax/swing/JList;II)Ljava/awt/Rectangle;", "(Ljavax/swing/JList<*>;II)Ljava/awt/Rectangle;", $PUBLIC, $virtualMethod(MultiListUI, getCellBounds, $Rectangle*, $JList*, int32_t, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiListUI, getUIs, $ComponentUIArray*)},
+		{"indexToLocation", "(Ljavax/swing/JList;I)Ljava/awt/Point;", "(Ljavax/swing/JList<*>;I)Ljava/awt/Point;", $PUBLIC, $virtualMethod(MultiListUI, indexToLocation, $Point*, $JList*, int32_t)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, installUI, void, $JComponent*)},
+		{"locationToIndex", "(Ljavax/swing/JList;Ljava/awt/Point;)I", "(Ljavax/swing/JList<*>;Ljava/awt/Point;)I", $PUBLIC, $virtualMethod(MultiListUI, locationToIndex, int32_t, $JList*, $Point*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, paint, void, $Graphics*, $JComponent*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiListUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.multi.MultiListUI",
+		"javax.swing.plaf.ListUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiListUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiListUI);
+	});
 	return class$;
 }
 

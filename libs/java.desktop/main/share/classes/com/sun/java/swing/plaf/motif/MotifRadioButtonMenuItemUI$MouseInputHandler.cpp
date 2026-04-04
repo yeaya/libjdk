@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI$MouseInputHandler.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -20,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -32,48 +30,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifRadioButtonMenuItemUI$MouseInputHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifRadioButtonMenuItemUI$MouseInputHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MotifRadioButtonMenuItemUI$MouseInputHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifRadioButtonMenuItemUI$MouseInputHandler, init$, void, $MotifRadioButtonMenuItemUI*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _MotifRadioButtonMenuItemUI$MouseInputHandler_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "MouseInputHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifRadioButtonMenuItemUI$MouseInputHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler",
-	"java.lang.Object",
-	"javax.swing.event.MouseInputListener",
-	_MotifRadioButtonMenuItemUI$MouseInputHandler_FieldInfo_,
-	_MotifRadioButtonMenuItemUI$MouseInputHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifRadioButtonMenuItemUI$MouseInputHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI"
-};
-
-$Object* allocate$MotifRadioButtonMenuItemUI$MouseInputHandler($Class* clazz) {
-	return $of($alloc(MotifRadioButtonMenuItemUI$MouseInputHandler));
-}
-
 void MotifRadioButtonMenuItemUI$MouseInputHandler::init$($MotifRadioButtonMenuItemUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -82,13 +38,13 @@ void MotifRadioButtonMenuItemUI$MouseInputHandler::mouseClicked($MouseEvent* e) 
 }
 
 void MotifRadioButtonMenuItemUI$MouseInputHandler::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	$nc(manager)->setSelectedPath($(this->this$0->getPath()));
 }
 
 void MotifRadioButtonMenuItemUI$MouseInputHandler::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	$var($JMenuItem, menuItem, $cast($JMenuItem, $nc(e)->getComponent()));
 	$var($Point, p, e->getPoint());
@@ -111,7 +67,7 @@ void MotifRadioButtonMenuItemUI$MouseInputHandler::mouseExited($MouseEvent* e) {
 }
 
 void MotifRadioButtonMenuItemUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
-	$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(e);
+	$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(e);
 }
 
 void MotifRadioButtonMenuItemUI$MouseInputHandler::mouseMoved($MouseEvent* e) {
@@ -121,7 +77,43 @@ MotifRadioButtonMenuItemUI$MouseInputHandler::MotifRadioButtonMenuItemUI$MouseIn
 }
 
 $Class* MotifRadioButtonMenuItemUI$MouseInputHandler::load$($String* name, bool initialize) {
-	$loadClass(MotifRadioButtonMenuItemUI$MouseInputHandler, name, initialize, &_MotifRadioButtonMenuItemUI$MouseInputHandler_ClassInfo_, allocate$MotifRadioButtonMenuItemUI$MouseInputHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifRadioButtonMenuItemUI$MouseInputHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifRadioButtonMenuItemUI$MouseInputHandler, init$, void, $MotifRadioButtonMenuItemUI*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifRadioButtonMenuItemUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "MouseInputHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler",
+		"java.lang.Object",
+		"javax.swing.event.MouseInputListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI"
+	};
+	$loadClass(MotifRadioButtonMenuItemUI$MouseInputHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifRadioButtonMenuItemUI$MouseInputHandler));
+	});
 	return class$;
 }
 

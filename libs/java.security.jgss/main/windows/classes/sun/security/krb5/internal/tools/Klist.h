@@ -28,6 +28,7 @@ class $export Klist : public ::java::lang::Object {
 	$class(Klist, 0, ::java::lang::Object)
 public:
 	Klist();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void displayCache();
 	virtual void displayMessage($String* target);

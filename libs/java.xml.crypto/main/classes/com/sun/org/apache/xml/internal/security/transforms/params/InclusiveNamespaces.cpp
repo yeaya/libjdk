@@ -1,7 +1,5 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/params/InclusiveNamespaces.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
 #include <java/util/SortedSet.h>
@@ -17,7 +15,6 @@ using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::E
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
@@ -34,42 +31,6 @@ namespace com {
 						namespace security {
 							namespace transforms {
 								namespace params {
-
-$FieldInfo _InclusiveNamespaces_FieldInfo_[] = {
-	{"_TAG_EC_INCLUSIVENAMESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InclusiveNamespaces, _TAG_EC_INCLUSIVENAMESPACES)},
-	{"_ATT_EC_PREFIXLIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InclusiveNamespaces, _ATT_EC_PREFIXLIST)},
-	{"ExclusiveCanonicalizationNamespace", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InclusiveNamespaces, ExclusiveCanonicalizationNamespace)},
-	{}
-};
-
-$MethodInfo _InclusiveNamespaces_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InclusiveNamespaces, init$, void, $Document*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/util/Set;)V", "(Lorg/w3c/dom/Document;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(InclusiveNamespaces, init$, void, $Document*, $Set*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InclusiveNamespaces, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InclusiveNamespaces, getBaseLocalName, $String*)},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InclusiveNamespaces, getBaseNamespace, $String*)},
-	{"getInclusiveNamespaces", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InclusiveNamespaces, getInclusiveNamespaces, $String*)},
-	{"prefixStr2Set", "(Ljava/lang/String;)Ljava/util/SortedSet;", "(Ljava/lang/String;)Ljava/util/SortedSet<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(InclusiveNamespaces, prefixStr2Set, $SortedSet*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _InclusiveNamespaces_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.params.InclusiveNamespaces",
-	"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformParam",
-	_InclusiveNamespaces_FieldInfo_,
-	_InclusiveNamespaces_MethodInfo_
-};
-
-$Object* allocate$InclusiveNamespaces($Class* clazz) {
-	return $of($alloc(InclusiveNamespaces));
-}
 
 int32_t InclusiveNamespaces::hashCode() {
 	 return this->$ElementProxy::hashCode();
@@ -96,34 +57,32 @@ $String* InclusiveNamespaces::_ATT_EC_PREFIXLIST = nullptr;
 $String* InclusiveNamespaces::ExclusiveCanonicalizationNamespace = nullptr;
 
 void InclusiveNamespaces::init$($Document* doc, $String* prefixList) {
-	InclusiveNamespaces::init$(doc, $(static_cast<$Set*>(InclusiveNamespaces::prefixStr2Set(prefixList))));
+	InclusiveNamespaces::init$(doc, $(InclusiveNamespaces::prefixStr2Set(prefixList)));
 }
 
 void InclusiveNamespaces::init$($Document* doc, $Set* prefixes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementProxy::init$(doc);
 	$var($SortedSet, prefixList, nullptr);
 	if ($instanceOf($SortedSet, prefixes)) {
 		$assign(prefixList, $cast($SortedSet, prefixes));
 	} else {
-		$assign(prefixList, $new($TreeSet, static_cast<$Collection*>(prefixes)));
+		$assign(prefixList, $new($TreeSet, prefixes));
 	}
 	$var($StringBuilder, sb, $new($StringBuilder));
 	{
 		$var($Iterator, i$, $nc(prefixList)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, prefix, $cast($String, i$->next()));
-			{
-				if ("xmlns"_s->equals(prefix)) {
-					sb->append("#default "_s);
-				} else {
-					sb->append(prefix);
-					sb->append(u' ');
-				}
+			if ("xmlns"_s->equals(prefix)) {
+				sb->append("#default "_s);
+			} else {
+				sb->append(prefix);
+				sb->append(u' ');
 			}
 		}
 	}
-	setLocalAttribute(InclusiveNamespaces::_ATT_EC_PREFIXLIST, $($nc($(sb->toString()))->trim()));
+	setLocalAttribute(InclusiveNamespaces::_ATT_EC_PREFIXLIST, $($(sb->toString())->trim()));
 }
 
 void InclusiveNamespaces::init$($Element* element, $String* baseURI) {
@@ -136,24 +95,20 @@ $String* InclusiveNamespaces::getInclusiveNamespaces() {
 
 $SortedSet* InclusiveNamespaces::prefixStr2Set($String* inclusiveNamespaces) {
 	$init(InclusiveNamespaces);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SortedSet, prefixes, $new($TreeSet));
-	if (inclusiveNamespaces == nullptr || $nc(inclusiveNamespaces)->length() == 0) {
+	if (inclusiveNamespaces == nullptr || inclusiveNamespaces->length() == 0) {
 		return prefixes;
 	}
 	$var($StringArray, tokens, $nc(inclusiveNamespaces)->split("\\s"_s));
 	{
 		$var($StringArray, arr$, tokens);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, prefix, arr$->get(i$));
-			{
-				if ("#default"_s->equals(prefix)) {
-					prefixes->add("xmlns"_s);
-				} else {
-					prefixes->add(prefix);
-				}
+			if ("#default"_s->equals(prefix)) {
+				prefixes->add("xmlns"_s);
+			} else {
+				prefixes->add(prefix);
 			}
 		}
 	}
@@ -171,14 +126,45 @@ $String* InclusiveNamespaces::getBaseLocalName() {
 InclusiveNamespaces::InclusiveNamespaces() {
 }
 
-void clinit$InclusiveNamespaces($Class* class$) {
+void InclusiveNamespaces::clinit$($Class* clazz) {
 	$assignStatic(InclusiveNamespaces::_TAG_EC_INCLUSIVENAMESPACES, "InclusiveNamespaces"_s);
 	$assignStatic(InclusiveNamespaces::_ATT_EC_PREFIXLIST, "PrefixList"_s);
 	$assignStatic(InclusiveNamespaces::ExclusiveCanonicalizationNamespace, "http://www.w3.org/2001/10/xml-exc-c14n#"_s);
 }
 
 $Class* InclusiveNamespaces::load$($String* name, bool initialize) {
-	$loadClass(InclusiveNamespaces, name, initialize, &_InclusiveNamespaces_ClassInfo_, clinit$InclusiveNamespaces, allocate$InclusiveNamespaces);
+	$FieldInfo fieldInfos$$[] = {
+		{"_TAG_EC_INCLUSIVENAMESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InclusiveNamespaces, _TAG_EC_INCLUSIVENAMESPACES)},
+		{"_ATT_EC_PREFIXLIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InclusiveNamespaces, _ATT_EC_PREFIXLIST)},
+		{"ExclusiveCanonicalizationNamespace", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InclusiveNamespaces, ExclusiveCanonicalizationNamespace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InclusiveNamespaces, init$, void, $Document*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/util/Set;)V", "(Lorg/w3c/dom/Document;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(InclusiveNamespaces, init$, void, $Document*, $Set*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InclusiveNamespaces, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InclusiveNamespaces, getBaseLocalName, $String*)},
+		{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InclusiveNamespaces, getBaseNamespace, $String*)},
+		{"getInclusiveNamespaces", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InclusiveNamespaces, getInclusiveNamespaces, $String*)},
+		{"prefixStr2Set", "(Ljava/lang/String;)Ljava/util/SortedSet;", "(Ljava/lang/String;)Ljava/util/SortedSet<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(InclusiveNamespaces, prefixStr2Set, $SortedSet*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.params.InclusiveNamespaces",
+		"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformParam",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InclusiveNamespaces, name, initialize, &classInfo$$, InclusiveNamespaces::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InclusiveNamespaces));
+	});
 	return class$;
 }
 

@@ -26,7 +26,7 @@ public:
 	int64_t getValue();
 	::java::rmi::dgc::VMID* vmid = nullptr;
 	int64_t value = 0;
-	static const int64_t serialVersionUID = (int64_t)0xB0B5E2660C4ADC34;
+	static const int64_t serialVersionUID = (int64_t)0xb0b5e2660c4adc34;
 };
 
 		} // dgc

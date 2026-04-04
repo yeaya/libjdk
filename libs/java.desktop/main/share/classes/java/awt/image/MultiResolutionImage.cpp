@@ -1,5 +1,4 @@
 #include <java/awt/image/MultiResolutionImage.h>
-
 #include <java/awt/Image.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _MultiResolutionImage_MethodInfo_[] = {
-	{"getResolutionVariant", "(DD)Ljava/awt/Image;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiResolutionImage, getResolutionVariant, $Image*, double, double)},
-	{"getResolutionVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MultiResolutionImage, getResolutionVariants, $List*)},
-	{}
-};
-
-$ClassInfo _MultiResolutionImage_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.image.MultiResolutionImage",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MultiResolutionImage_MethodInfo_
-};
-
-$Object* allocate$MultiResolutionImage($Class* clazz) {
-	return $of($alloc(MultiResolutionImage));
-}
-
 $Class* MultiResolutionImage::load$($String* name, bool initialize) {
-	$loadClass(MultiResolutionImage, name, initialize, &_MultiResolutionImage_ClassInfo_, allocate$MultiResolutionImage);
+	$MethodInfo methodInfos$$[] = {
+		{"getResolutionVariant", "(DD)Ljava/awt/Image;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiResolutionImage, getResolutionVariant, $Image*, double, double)},
+		{"getResolutionVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MultiResolutionImage, getResolutionVariants, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.image.MultiResolutionImage",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiResolutionImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiResolutionImage);
+	});
 	return class$;
 }
 

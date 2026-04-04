@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/ContainmentFilter.h>
-
 #include <javax/naming/NamingEnumeration.h>
 #include <javax/naming/directory/Attribute.h>
 #include <javax/naming/directory/Attributes.h>
@@ -18,43 +17,18 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$FieldInfo _ContainmentFilter_FieldInfo_[] = {
-	{"matchingAttrs", "Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE, $field(ContainmentFilter, matchingAttrs)},
-	{}
-};
-
-$MethodInfo _ContainmentFilter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(ContainmentFilter, init$, void, $Attributes*)},
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(ContainmentFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
-	{"contains", "(Ljavax/naming/directory/Attributes;Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ContainmentFilter, contains, bool, $Attributes*, $Attributes*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _ContainmentFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.ContainmentFilter",
-	"java.lang.Object",
-	"com.sun.jndi.toolkit.dir.AttrFilter",
-	_ContainmentFilter_FieldInfo_,
-	_ContainmentFilter_MethodInfo_
-};
-
-$Object* allocate$ContainmentFilter($Class* clazz) {
-	return $of($alloc(ContainmentFilter));
-}
-
 void ContainmentFilter::init$($Attributes* match) {
 	$set(this, matchingAttrs, match);
 }
 
 bool ContainmentFilter::check($Attributes* attrs) {
-	bool var$0 = this->matchingAttrs == nullptr || $nc(this->matchingAttrs)->size() == 0;
+	bool var$0 = this->matchingAttrs == nullptr || this->matchingAttrs->size() == 0;
 	return var$0 || contains(attrs, this->matchingAttrs);
 }
 
 bool ContainmentFilter::contains($Attributes* superset, $Attributes* subset) {
 	$init(ContainmentFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (subset == nullptr) {
 		return true;
 	}
@@ -67,10 +41,10 @@ bool ContainmentFilter::contains($Attributes* superset, $Attributes* subset) {
 		$var($Attribute, fromSuper, $nc(superset)->get($($nc(target)->getID())));
 		if (fromSuper == nullptr) {
 			return false;
-		} else if ($nc(target)->size() > 0) {
+		} else if (target->size() > 0) {
 			$var($NamingEnumeration, vals, target->getAll());
 			while ($nc(vals)->hasMore()) {
-				if (!$nc(fromSuper)->contains($(vals->next()))) {
+				if (!fromSuper->contains($(vals->next()))) {
 					return false;
 				}
 			}
@@ -83,7 +57,27 @@ ContainmentFilter::ContainmentFilter() {
 }
 
 $Class* ContainmentFilter::load$($String* name, bool initialize) {
-	$loadClass(ContainmentFilter, name, initialize, &_ContainmentFilter_ClassInfo_, allocate$ContainmentFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"matchingAttrs", "Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE, $field(ContainmentFilter, matchingAttrs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(ContainmentFilter, init$, void, $Attributes*)},
+		{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(ContainmentFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
+		{"contains", "(Ljavax/naming/directory/Attributes;Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ContainmentFilter, contains, bool, $Attributes*, $Attributes*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.ContainmentFilter",
+		"java.lang.Object",
+		"com.sun.jndi.toolkit.dir.AttrFilter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContainmentFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContainmentFilter);
+	});
 	return class$;
 }
 

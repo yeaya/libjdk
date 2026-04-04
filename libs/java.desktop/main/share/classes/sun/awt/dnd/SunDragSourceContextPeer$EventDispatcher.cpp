@@ -1,5 +1,4 @@
 #include <sun/awt/dnd/SunDragSourceContextPeer$EventDispatcher.h>
-
 #include <java/awt/dnd/DragSourceContext.h>
 #include <java/awt/dnd/DragSourceDragEvent.h>
 #include <java/awt/dnd/DragSourceDropEvent.h>
@@ -24,143 +23,78 @@ namespace sun {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _SunDragSourceContextPeer$EventDispatcher_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/dnd/SunDragSourceContextPeer;", nullptr, $FINAL | $SYNTHETIC, $field(SunDragSourceContextPeer$EventDispatcher, this$0)},
-	{"dispatchType", "I", nullptr, $PRIVATE | $FINAL, $field(SunDragSourceContextPeer$EventDispatcher, dispatchType)},
-	{"event", "Ljava/awt/dnd/DragSourceEvent;", nullptr, $PRIVATE | $FINAL, $field(SunDragSourceContextPeer$EventDispatcher, event)},
-	{}
-};
-
-$MethodInfo _SunDragSourceContextPeer$EventDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/dnd/SunDragSourceContextPeer;ILjava/awt/dnd/DragSourceEvent;)V", nullptr, 0, $method(SunDragSourceContextPeer$EventDispatcher, init$, void, $SunDragSourceContextPeer*, int32_t, $DragSourceEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SunDragSourceContextPeer$EventDispatcher, run, void)},
-	{}
-};
-
-$InnerClassInfo _SunDragSourceContextPeer$EventDispatcher_InnerClassesInfo_[] = {
-	{"sun.awt.dnd.SunDragSourceContextPeer$EventDispatcher", "sun.awt.dnd.SunDragSourceContextPeer", "EventDispatcher", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SunDragSourceContextPeer$EventDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.dnd.SunDragSourceContextPeer$EventDispatcher",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SunDragSourceContextPeer$EventDispatcher_FieldInfo_,
-	_SunDragSourceContextPeer$EventDispatcher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunDragSourceContextPeer$EventDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.dnd.SunDragSourceContextPeer"
-};
-
-$Object* allocate$SunDragSourceContextPeer$EventDispatcher($Class* clazz) {
-	return $of($alloc(SunDragSourceContextPeer$EventDispatcher));
-}
-
 void SunDragSourceContextPeer$EventDispatcher::init$($SunDragSourceContextPeer* this$0, int32_t dispatchType, $DragSourceEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	switch (dispatchType) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 6:
-		{
-			if (!($instanceOf($DragSourceDragEvent, event))) {
-				$throwNew($IllegalArgumentException, $$str({"Event: "_s, event}));
-			}
-			break;
+		if (!($instanceOf($DragSourceDragEvent, event))) {
+			$throwNew($IllegalArgumentException, $$str({"Event: "_s, event}));
 		}
+		break;
 	case 4:
-		{
-			break;
-		}
+		break;
 	case 5:
-		{
-			if (!($instanceOf($DragSourceDropEvent, event))) {
-				$throwNew($IllegalArgumentException, $$str({"Event: "_s, event}));
-			}
-			break;
+		if (!($instanceOf($DragSourceDropEvent, event))) {
+			$throwNew($IllegalArgumentException, $$str({"Event: "_s, event}));
 		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Dispatch type: "_s, $$str(dispatchType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Dispatch type: "_s, $$str(dispatchType)}));
 	}
 	this->dispatchType = dispatchType;
 	$set(this, event, event);
 }
 
 void SunDragSourceContextPeer$EventDispatcher::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DragSourceContext, dragSourceContext, this->this$0->getDragSourceContext());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			switch (this->dispatchType) {
-			case 1:
-				{
-					$nc(dragSourceContext)->dragEnter($cast($DragSourceDragEvent, this->event));
-					break;
+	$var($Throwable, var$0, nullptr);
+	try {
+		switch (this->dispatchType) {
+		case 1:
+			$nc(dragSourceContext)->dragEnter($cast($DragSourceDragEvent, this->event));
+			break;
+		case 2:
+			$nc(dragSourceContext)->dragOver($cast($DragSourceDragEvent, this->event));
+			break;
+		case 3:
+			$nc(dragSourceContext)->dropActionChanged($cast($DragSourceDragEvent, this->event));
+			break;
+		case 4:
+			$nc(dragSourceContext)->dragExit(this->event);
+			break;
+		case 6:
+			$nc(dragSourceContext)->dragMouseMoved($cast($DragSourceDragEvent, this->event));
+			break;
+		case 5:
+			{
+				$var($Throwable, var$1, nullptr);
+				try {
+					$nc(dragSourceContext)->dragDropEnd($cast($DragSourceDropEvent, this->event));
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					this->this$0->cleanup();
 				}
-			case 2:
-				{
-					$nc(dragSourceContext)->dragOver($cast($DragSourceDragEvent, this->event));
-					break;
+				if (var$1 != nullptr) {
+					$throw(var$1);
 				}
-			case 3:
-				{
-					$nc(dragSourceContext)->dropActionChanged($cast($DragSourceDragEvent, this->event));
-					break;
-				}
-			case 4:
-				{
-					$nc(dragSourceContext)->dragExit(this->event);
-					break;
-				}
-			case 6:
-				{
-					$nc(dragSourceContext)->dragMouseMoved($cast($DragSourceDragEvent, this->event));
-					break;
-				}
-			case 5:
-				{
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							$nc(dragSourceContext)->dragDropEnd($cast($DragSourceDropEvent, this->event));
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							this->this$0->cleanup();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-					break;
-				}
-			default:
-				{
-					$throwNew($IllegalStateException, $$str({"Dispatch type: "_s, $$str(this->dispatchType)}));
-				}
+				break;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			this->this$0->quitSecondaryEventLoop();
+		default:
+			$throwNew($IllegalStateException, $$str({"Dispatch type: "_s, $$str(this->dispatchType)}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		this->this$0->quitSecondaryEventLoop();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -168,7 +102,39 @@ SunDragSourceContextPeer$EventDispatcher::SunDragSourceContextPeer$EventDispatch
 }
 
 $Class* SunDragSourceContextPeer$EventDispatcher::load$($String* name, bool initialize) {
-	$loadClass(SunDragSourceContextPeer$EventDispatcher, name, initialize, &_SunDragSourceContextPeer$EventDispatcher_ClassInfo_, allocate$SunDragSourceContextPeer$EventDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/dnd/SunDragSourceContextPeer;", nullptr, $FINAL | $SYNTHETIC, $field(SunDragSourceContextPeer$EventDispatcher, this$0)},
+		{"dispatchType", "I", nullptr, $PRIVATE | $FINAL, $field(SunDragSourceContextPeer$EventDispatcher, dispatchType)},
+		{"event", "Ljava/awt/dnd/DragSourceEvent;", nullptr, $PRIVATE | $FINAL, $field(SunDragSourceContextPeer$EventDispatcher, event)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/dnd/SunDragSourceContextPeer;ILjava/awt/dnd/DragSourceEvent;)V", nullptr, 0, $method(SunDragSourceContextPeer$EventDispatcher, init$, void, $SunDragSourceContextPeer*, int32_t, $DragSourceEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SunDragSourceContextPeer$EventDispatcher, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.dnd.SunDragSourceContextPeer$EventDispatcher", "sun.awt.dnd.SunDragSourceContextPeer", "EventDispatcher", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.dnd.SunDragSourceContextPeer$EventDispatcher",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.dnd.SunDragSourceContextPeer"
+	};
+	$loadClass(SunDragSourceContextPeer$EventDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunDragSourceContextPeer$EventDispatcher);
+	});
 	return class$;
 }
 

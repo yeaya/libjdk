@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobImpressionsCompleted.h>
-
 #include <javax/print/attribute/IntegerSyntax.h>
 #include <jcpp.h>
 
@@ -15,36 +14,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobImpressionsCompleted_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobImpressionsCompleted, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JobImpressionsCompleted_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobImpressionsCompleted, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobImpressionsCompleted, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobImpressionsCompleted, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobImpressionsCompleted, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobImpressionsCompleted_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.JobImpressionsCompleted",
-	"javax.print.attribute.IntegerSyntax",
-	"javax.print.attribute.PrintJobAttribute",
-	_JobImpressionsCompleted_FieldInfo_,
-	_JobImpressionsCompleted_MethodInfo_
-};
-
-$Object* allocate$JobImpressionsCompleted($Class* clazz) {
-	return $of($alloc(JobImpressionsCompleted));
-}
 
 int32_t JobImpressionsCompleted::hashCode() {
 	 return this->$IntegerSyntax::hashCode();
@@ -82,7 +51,32 @@ JobImpressionsCompleted::JobImpressionsCompleted() {
 }
 
 $Class* JobImpressionsCompleted::load$($String* name, bool initialize) {
-	$loadClass(JobImpressionsCompleted, name, initialize, &_JobImpressionsCompleted_ClassInfo_, allocate$JobImpressionsCompleted);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobImpressionsCompleted, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobImpressionsCompleted, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobImpressionsCompleted, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobImpressionsCompleted, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobImpressionsCompleted, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.JobImpressionsCompleted",
+		"javax.print.attribute.IntegerSyntax",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobImpressionsCompleted, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobImpressionsCompleted));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WPanelPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -66,79 +65,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WPanelPeer_FieldInfo_[] = {
-	{"insets_", "Ljava/awt/Insets;", nullptr, 0, $field(WPanelPeer, insets_)},
-	{}
-};
-
-$MethodInfo _WPanelPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(WPanelPeer, init$, void, $Component*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WPanelPeer, getInsets, $Insets*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WPanelPeer, initIDs, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WPanelPeer, initialize, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WPanelPeer, paint, void, $Graphics*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WPanelPeer, print, void, $Graphics*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 29
-
-$ClassInfo _WPanelPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WPanelPeer",
-	"sun.awt.windows.WCanvasPeer",
-	"java.awt.peer.PanelPeer",
-	_WPanelPeer_FieldInfo_,
-	_WPanelPeer_MethodInfo_
-};
-
-$Object* allocate$WPanelPeer($Class* clazz) {
-	return $of($alloc(WPanelPeer));
-}
 
 bool WPanelPeer::isObscured() {
 	 return this->$WCanvasPeer::isObscured();
@@ -313,15 +239,15 @@ void WPanelPeer::finalize() {
 }
 
 void WPanelPeer::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WCanvasPeer::paint(g);
-	$nc($($SunGraphicsCallback$PaintHeavyweightComponentsCallback::getInstance()))->runComponents($($nc(($cast($Container, this->target)))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
+	$$nc($SunGraphicsCallback$PaintHeavyweightComponentsCallback::getInstance())->runComponents($($nc($cast($Container, this->target))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
 }
 
 void WPanelPeer::print($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WCanvasPeer::print(g);
-	$nc($($SunGraphicsCallback$PrintHeavyweightComponentsCallback::getInstance()))->runComponents($($nc(($cast($Container, this->target)))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
+	$$nc($SunGraphicsCallback$PrintHeavyweightComponentsCallback::getInstance())->runComponents($($nc($cast($Container, this->target))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
 }
 
 $Insets* WPanelPeer::getInsets() {
@@ -330,7 +256,7 @@ $Insets* WPanelPeer::getInsets() {
 
 void WPanelPeer::initIDs() {
 	$init(WPanelPeer);
-	$prepareNativeStatic(WPanelPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -342,23 +268,23 @@ void WPanelPeer::init$($Component* target) {
 void WPanelPeer::initialize() {
 	$WCanvasPeer::initialize();
 	$set(this, insets_, $new($Insets, 0, 0, 0, 0));
-	$var($Color, c, $nc(($cast($Component, this->target)))->getBackground());
+	$var($Color, c, $nc($cast($Component, this->target))->getBackground());
 	if (c == nullptr) {
 		$init($SystemColor);
 		$assign(c, $SystemColor::window);
-		$nc(($cast($Component, this->target)))->setBackground(c);
+		$nc($cast($Component, this->target))->setBackground(c);
 		setBackground(c);
 	}
-	$assign(c, $nc(($cast($Component, this->target)))->getForeground());
+	$assign(c, $nc($cast($Component, this->target))->getForeground());
 	if (c == nullptr) {
 		$init($SystemColor);
 		$assign(c, $SystemColor::windowText);
-		$nc(($cast($Component, this->target)))->setForeground(c);
+		$nc($cast($Component, this->target))->setForeground(c);
 		setForeground(c);
 	}
 }
 
-void clinit$WPanelPeer($Class* class$) {
+void WPanelPeer::clinit$($Class* clazz) {
 	{
 		WPanelPeer::initIDs();
 	}
@@ -368,7 +294,73 @@ WPanelPeer::WPanelPeer() {
 }
 
 $Class* WPanelPeer::load$($String* name, bool initialize) {
-	$loadClass(WPanelPeer, name, initialize, &_WPanelPeer_ClassInfo_, clinit$WPanelPeer, allocate$WPanelPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"insets_", "Ljava/awt/Insets;", nullptr, 0, $field(WPanelPeer, insets_)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(WPanelPeer, init$, void, $Component*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WPanelPeer, getInsets, $Insets*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WPanelPeer, initIDs, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WPanelPeer, initialize, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WPanelPeer, paint, void, $Graphics*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WPanelPeer, print, void, $Graphics*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WPanelPeer",
+		"sun.awt.windows.WCanvasPeer",
+		"java.awt.peer.PanelPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WPanelPeer, name, initialize, &classInfo$$, WPanelPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WPanelPeer));
+	});
 	return class$;
 }
 

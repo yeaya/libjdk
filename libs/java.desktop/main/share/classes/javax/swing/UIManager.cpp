@@ -1,12 +1,10 @@
 #include <javax/swing/UIManager.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/Font.h>
 #include <java/awt/Insets.h>
-#include <java/awt/KeyEventPostProcessor.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Toolkit.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -70,15 +68,12 @@ using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAnd
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Font = ::java::awt::Font;
 using $Insets = ::java::awt::Insets;
-using $KeyEventPostProcessor = ::java::awt::KeyEventPostProcessor;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Toolkit = ::java::awt::Toolkit;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
@@ -89,14 +84,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
 using $Properties = ::java::util::Properties;
-using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Vector = ::java::util::Vector;
 using $FocusManager = ::javax::swing::FocusManager;
@@ -119,7 +112,6 @@ using $SwingPropertyChangeSupport = ::javax::swing::event::SwingPropertyChangeSu
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
@@ -131,103 +123,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _UIManager_FieldInfo_[] = {
-	{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, classLock)},
-	{"defaultLAFKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, defaultLAFKey)},
-	{"auxiliaryLAFsKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, auxiliaryLAFsKey)},
-	{"multiplexingLAFKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, multiplexingLAFKey)},
-	{"installedLAFsKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, installedLAFsKey)},
-	{"disableMnemonicKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, disableMnemonicKey)},
-	{"installedLAFs", "[Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PRIVATE | $STATIC, $staticField(UIManager, installedLAFs)},
-	{}
-};
-
-$MethodInfo _UIManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UIManager, init$, void)},
-	{"addAuxiliaryLookAndFeel", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, addAuxiliaryLookAndFeel, void, $LookAndFeel*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"checkProperty", "(Ljava/util/Properties;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, checkProperty, void, $Properties*, $String*)},
-	{"createLookAndFeel", "(Ljava/lang/String;)Ljavax/swing/LookAndFeel;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, createLookAndFeel, $LookAndFeel*, $String*), "javax.swing.UnsupportedLookAndFeelException"},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, get, $Object*, Object$*)},
-	{"get", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, get, $Object*, Object$*, $Locale*)},
-	{"getAuxiliaryLookAndFeels", "()[Ljavax/swing/LookAndFeel;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getAuxiliaryLookAndFeels, $LookAndFeelArray*)},
-	{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBoolean, bool, Object$*)},
-	{"getBoolean", "(Ljava/lang/Object;Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBoolean, bool, Object$*, $Locale*)},
-	{"getBorder", "(Ljava/lang/Object;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBorder, $Border*, Object$*)},
-	{"getBorder", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBorder, $Border*, Object$*, $Locale*)},
-	{"getColor", "(Ljava/lang/Object;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getColor, $Color*, Object$*)},
-	{"getColor", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getColor, $Color*, Object$*, $Locale*)},
-	{"getCrossPlatformLookAndFeelClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getCrossPlatformLookAndFeelClassName, $String*)},
-	{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getDefaults, $UIDefaults*)},
-	{"getDimension", "(Ljava/lang/Object;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getDimension, $Dimension*, Object$*)},
-	{"getDimension", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getDimension, $Dimension*, Object$*, $Locale*)},
-	{"getFont", "(Ljava/lang/Object;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getFont, $Font*, Object$*)},
-	{"getFont", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getFont, $Font*, Object$*, $Locale*)},
-	{"getIcon", "(Ljava/lang/Object;)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getIcon, $Icon*, Object$*)},
-	{"getIcon", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getIcon, $Icon*, Object$*, $Locale*)},
-	{"getInsets", "(Ljava/lang/Object;)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInsets, $Insets*, Object$*)},
-	{"getInsets", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInsets, $Insets*, Object$*, $Locale*)},
-	{"getInstalledLookAndFeels", "()[Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInstalledLookAndFeels, $UIManager$LookAndFeelInfoArray*)},
-	{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInt, int32_t, Object$*)},
-	{"getInt", "(Ljava/lang/Object;Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInt, int32_t, Object$*, $Locale*)},
-	{"getLAFState", "()Ljavax/swing/UIManager$LAFState;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, getLAFState, $UIManager$LAFState*)},
-	{"getLookAndFeel", "()Ljavax/swing/LookAndFeel;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getLookAndFeel, $LookAndFeel*)},
-	{"getLookAndFeelDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getLookAndFeelDefaults, $UIDefaults*)},
-	{"getMultiLookAndFeel", "()Ljavax/swing/LookAndFeel;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, getMultiLookAndFeel, $LookAndFeel*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getString, $String*, Object$*)},
-	{"getString", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getString, $String*, Object$*, $Locale*)},
-	{"getString", "(Ljava/lang/Object;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UIManager, getString, $String*, Object$*, $Component*)},
-	{"getSystemLookAndFeelClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getSystemLookAndFeelClassName, $String*)},
-	{"getUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getUI, $ComponentUI*, $JComponent*)},
-	{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initialize, void)},
-	{"initializeAuxiliaryLAFs", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeAuxiliaryLAFs, void, $Properties*)},
-	{"initializeDefaultLAF", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeDefaultLAF, void, $Properties*)},
-	{"initializeInstalledLAFs", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeInstalledLAFs, void, $Properties*)},
-	{"initializeSystemDefaults", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeSystemDefaults, void, $Properties*)},
-	{"installLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, installLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"installLookAndFeel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, installLookAndFeel, void, $String*, $String*)},
-	{"loadSwingProperties", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, loadSwingProperties, $Properties*)},
-	{"makeInstalledLAFKey", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, makeInstalledLAFKey, $String*, $String*, $String*)},
-	{"makeSwingPropertiesFilename", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, makeSwingPropertiesFilename, $String*)},
-	{"maybeInitialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, maybeInitialize, void)},
-	{"maybeInitializeFocusPolicy", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, maybeInitializeFocusPolicy, void, $JComponent*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, put, $Object*, Object$*, Object$*)},
-	{"removeAuxiliaryLookAndFeel", "(Ljavax/swing/LookAndFeel;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, removeAuxiliaryLookAndFeel, bool, $LookAndFeel*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setInstalledLookAndFeels", "([Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, setInstalledLookAndFeels, void, $UIManager$LookAndFeelInfoArray*), "java.lang.SecurityException"},
-	{"setLookAndFeel", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, setLookAndFeel, void, $LookAndFeel*), "javax.swing.UnsupportedLookAndFeelException"},
-	{"setLookAndFeel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, setLookAndFeel, void, $String*), "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException,javax.swing.UnsupportedLookAndFeelException"},
-	{}
-};
-
-$InnerClassInfo _UIManager_InnerClassesInfo_[] = {
-	{"javax.swing.UIManager$LookAndFeelInfo", "javax.swing.UIManager", "LookAndFeelInfo", $PUBLIC | $STATIC},
-	{"javax.swing.UIManager$LAFState", "javax.swing.UIManager", "LAFState", $PRIVATE | $STATIC},
-	{"javax.swing.UIManager$2", nullptr, nullptr, 0},
-	{"javax.swing.UIManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UIManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.UIManager",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_UIManager_FieldInfo_,
-	_UIManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UIManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.UIManager$LookAndFeelInfo,javax.swing.UIManager$LAFState,javax.swing.UIManager$2,javax.swing.UIManager$1"
-};
-
-$Object* allocate$UIManager($Class* clazz) {
-	return $of($alloc(UIManager));
-}
 
 $Object* UIManager::classLock = nullptr;
 $String* UIManager::defaultLAFKey = nullptr;
@@ -262,7 +157,7 @@ $String* UIManager::makeInstalledLAFKey($String* laf, $String* attr) {
 
 $String* UIManager::makeSwingPropertiesFilename() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($String, sep, $File::separator);
 	$var($String, javaHome, $System::getProperty("java.home"_s));
@@ -274,7 +169,7 @@ $String* UIManager::makeSwingPropertiesFilename() {
 
 $UIManager$LookAndFeelInfoArray* UIManager::getInstalledLookAndFeels() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeInitialize();
 	$var($UIManager$LookAndFeelInfoArray, ilafs, $nc($(getLAFState()))->installedLAFs);
 	if (ilafs == nullptr) {
@@ -287,7 +182,7 @@ $UIManager$LookAndFeelInfoArray* UIManager::getInstalledLookAndFeels() {
 
 void UIManager::setInstalledLookAndFeels($UIManager$LookAndFeelInfoArray* infos) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeInitialize();
 	$var($UIManager$LookAndFeelInfoArray, newInfos, $new($UIManager$LookAndFeelInfoArray, $nc(infos)->length));
 	$System::arraycopy(infos, 0, newInfos, 0, infos->length);
@@ -296,7 +191,7 @@ void UIManager::setInstalledLookAndFeels($UIManager$LookAndFeelInfoArray* infos)
 
 void UIManager::installLookAndFeel($UIManager$LookAndFeelInfo* info) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIManager$LookAndFeelInfoArray, infos, getInstalledLookAndFeels());
 	$var($UIManager$LookAndFeelInfoArray, newInfos, $new($UIManager$LookAndFeelInfoArray, $nc(infos)->length + 1));
 	$System::arraycopy(infos, 0, newInfos, 0, infos->length);
@@ -317,7 +212,7 @@ $LookAndFeel* UIManager::getLookAndFeel() {
 
 $LookAndFeel* UIManager::createLookAndFeel($String* name$renamed) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(name);
@@ -325,23 +220,17 @@ $LookAndFeel* UIManager::createLookAndFeel($String* name$renamed) {
 		$assign(name, "GTK+"_s);
 	}
 	try {
-		{
-			$var($UIManager$LookAndFeelInfoArray, arr$, UIManager::installedLAFs);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
-				{
-					if ($nc($($nc(info)->getName()))->equals(name)) {
-						$var($Module, var$0, UIManager::class$->getModule());
-						$Class* cls = $Class::forName(var$0, $(info->getClassName()));
-						$var($LookAndFeel, laf, $cast($LookAndFeel, $nc(cls)->newInstance()));
-						if (!$nc(laf)->isSupportedLookAndFeel()) {
-							break;
-						}
-						return laf;
-					}
+		$var($UIManager$LookAndFeelInfoArray, arr$, UIManager::installedLAFs);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
+			if ($$nc($nc(info)->getName())->equals(name)) {
+				$var($Module, var$0, UIManager::class$->getModule());
+				$Class* cls = $Class::forName(var$0, $(info->getClassName()));
+				$var($LookAndFeel, laf, $cast($LookAndFeel, cls->newInstance()));
+				if (!$nc(laf)->isSupportedLookAndFeel()) {
+					break;
 				}
+				return laf;
 			}
 		}
 	} catch ($ReflectiveOperationException& ignore) {
@@ -353,7 +242,7 @@ $LookAndFeel* UIManager::createLookAndFeel($String* name$renamed) {
 
 void UIManager::setLookAndFeel($LookAndFeel* newLookAndFeel) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((newLookAndFeel != nullptr) && !newLookAndFeel->isSupportedLookAndFeel()) {
 		$var($String, s, $str({$(newLookAndFeel->toString()), " not supported on this platform"_s}));
 		$throwNew($UnsupportedLookAndFeelException, s);
@@ -373,27 +262,27 @@ void UIManager::setLookAndFeel($LookAndFeel* newLookAndFeel) {
 	}
 	$var($SwingPropertyChangeSupport, changeSupport, lafState->getPropertyChangeSupport(false));
 	if (changeSupport != nullptr) {
-		changeSupport->firePropertyChange("lookAndFeel"_s, $of(oldLookAndFeel), $of(newLookAndFeel));
+		changeSupport->firePropertyChange("lookAndFeel"_s, oldLookAndFeel, newLookAndFeel);
 	}
 }
 
 void UIManager::setLookAndFeel($String* className) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ("javax.swing.plaf.metal.MetalLookAndFeel"_s->equals(className)) {
-		setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		setLookAndFeel($$new($MetalLookAndFeel));
 	} else {
 		$Class* lnfClass = $SwingUtilities::loadSystemClass(className);
-		setLookAndFeel(($cast($LookAndFeel, $($nc(lnfClass)->newInstance()))));
+		setLookAndFeel($$cast($LookAndFeel, $nc(lnfClass)->newInstance()));
 	}
 }
 
 $String* UIManager::getSystemLookAndFeelClassName() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, systemLAF, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.systemlaf"_s)))));
+	$var($String, systemLAF, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.systemlaf"_s))));
 	if (systemLAF != nullptr) {
 		return systemLAF;
 	}
@@ -405,14 +294,14 @@ $String* UIManager::getSystemLookAndFeelClassName() {
 		$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 		if ($instanceOf($SunToolkit, toolkit)) {
 			$var($SunToolkit, suntk, $cast($SunToolkit, toolkit));
-			$var($String, desktop, $nc(suntk)->getDesktop());
+			$var($String, desktop, suntk->getDesktop());
 			bool gtkAvailable = suntk->isNativeGTKAvailable();
 			if ("gnome"_s->equals(desktop) && gtkAvailable) {
 				return "com.sun.java.swing.plaf.gtk.GTKLookAndFeel"_s;
 			}
 		}
 		if (osType == $OSInfo$OSType::MACOSX) {
-			if ($nc($($nc($of(toolkit))->getClass()->getName()))->equals("sun.lwawt.macosx.LWCToolkit"_s)) {
+			if ($$nc($nc(toolkit)->getClass()->getName())->equals("sun.lwawt.macosx.LWCToolkit"_s)) {
 				return "com.apple.laf.AquaLookAndFeel"_s;
 			}
 		}
@@ -422,9 +311,9 @@ $String* UIManager::getSystemLookAndFeelClassName() {
 
 $String* UIManager::getCrossPlatformLookAndFeelClassName() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, laf, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.crossplatformlaf"_s)))));
+	$var($String, laf, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.crossplatformlaf"_s))));
 	if (laf != nullptr) {
 		return laf;
 	}
@@ -439,127 +328,127 @@ $UIDefaults* UIManager::getDefaults() {
 
 $Font* UIManager::getFont(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getFont(key);
+	return $$nc(getDefaults())->getFont(key);
 }
 
 $Font* UIManager::getFont(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getFont(key, l);
+	return $$nc(getDefaults())->getFont(key, l);
 }
 
 $Color* UIManager::getColor(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getColor(key);
+	return $$nc(getDefaults())->getColor(key);
 }
 
 $Color* UIManager::getColor(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getColor(key, l);
+	return $$nc(getDefaults())->getColor(key, l);
 }
 
 $Icon* UIManager::getIcon(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getIcon(key);
+	return $$nc(getDefaults())->getIcon(key);
 }
 
 $Icon* UIManager::getIcon(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getIcon(key, l);
+	return $$nc(getDefaults())->getIcon(key, l);
 }
 
 $Border* UIManager::getBorder(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getBorder(key);
+	return $$nc(getDefaults())->getBorder(key);
 }
 
 $Border* UIManager::getBorder(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getBorder(key, l);
+	return $$nc(getDefaults())->getBorder(key, l);
 }
 
 $String* UIManager::getString(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getString(key);
+	return $$nc(getDefaults())->getString(key);
 }
 
 $String* UIManager::getString(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getString(key, l);
+	return $$nc(getDefaults())->getString(key, l);
 }
 
 $String* UIManager::getString(Object$* key, $Component* c) {
 	$init(UIManager);
-	$var($Locale, l, (c == nullptr) ? $Locale::getDefault() : $nc(c)->getLocale());
+	$var($Locale, l, (c == nullptr) ? $Locale::getDefault() : c->getLocale());
 	return getString(key, l);
 }
 
 int32_t UIManager::getInt(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getInt(key);
+	return $$nc(getDefaults())->getInt(key);
 }
 
 int32_t UIManager::getInt(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getInt(key, l);
+	return $$nc(getDefaults())->getInt(key, l);
 }
 
 bool UIManager::getBoolean(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getBoolean(key);
+	return $$nc(getDefaults())->getBoolean(key);
 }
 
 bool UIManager::getBoolean(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getBoolean(key, l);
+	return $$nc(getDefaults())->getBoolean(key, l);
 }
 
 $Insets* UIManager::getInsets(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getInsets(key);
+	return $$nc(getDefaults())->getInsets(key);
 }
 
 $Insets* UIManager::getInsets(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getInsets(key, l);
+	return $$nc(getDefaults())->getInsets(key, l);
 }
 
 $Dimension* UIManager::getDimension(Object$* key) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getDimension(key);
+	return $$nc(getDefaults())->getDimension(key);
 }
 
 $Dimension* UIManager::getDimension(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $nc($(getDefaults()))->getDimension(key, l);
+	return $$nc(getDefaults())->getDimension(key, l);
 }
 
 $Object* UIManager::get(Object$* key) {
 	$init(UIManager);
-	return $of($nc($(getDefaults()))->get(key));
+	return $$nc(getDefaults())->get(key);
 }
 
 $Object* UIManager::get(Object$* key, $Locale* l) {
 	$init(UIManager);
-	return $of($nc($(getDefaults()))->get(key, l));
+	return $$nc(getDefaults())->get(key, l);
 }
 
 $Object* UIManager::put(Object$* key, Object$* value) {
 	$init(UIManager);
-	return $of($nc($(getDefaults()))->put(key, value));
+	return $$nc(getDefaults())->put(key, value);
 }
 
 $ComponentUI* UIManager::getUI($JComponent* target) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeInitialize();
 	maybeInitializeFocusPolicy(target);
 	$var($ComponentUI, ui, nullptr);
 	$var($LookAndFeel, multiLAF, $nc($(getLAFState()))->multiLookAndFeel);
 	if (multiLAF != nullptr) {
-		$assign(ui, $nc($(multiLAF->getDefaults()))->getUI(target));
+		$assign(ui, $$nc(multiLAF->getDefaults())->getUI(target));
 	}
 	if (ui == nullptr) {
-		$assign(ui, $nc($(getDefaults()))->getUI(target));
+		$assign(ui, $$nc(getDefaults())->getUI(target));
 	}
 	return ui;
 }
@@ -567,12 +456,12 @@ $ComponentUI* UIManager::getUI($JComponent* target) {
 $UIDefaults* UIManager::getLookAndFeelDefaults() {
 	$init(UIManager);
 	maybeInitialize();
-	return $nc($(getLAFState()))->getLookAndFeelDefaults();
+	return $$nc(getLAFState())->getLookAndFeelDefaults();
 }
 
 $LookAndFeel* UIManager::getMultiLookAndFeel() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($LookAndFeel, multiLookAndFeel, $nc($(getLAFState()))->multiLookAndFeel);
 	if (multiLookAndFeel == nullptr) {
@@ -590,7 +479,7 @@ $LookAndFeel* UIManager::getMultiLookAndFeel() {
 
 void UIManager::addAuxiliaryLookAndFeel($LookAndFeel* laf) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeInitialize();
 	if (!$nc(laf)->isSupportedLookAndFeel()) {
 		return;
@@ -601,7 +490,7 @@ void UIManager::addAuxiliaryLookAndFeel($LookAndFeel* laf) {
 	}
 	if (!$nc(v)->contains(laf)) {
 		v->addElement(laf);
-		$nc(laf)->initialize();
+		laf->initialize();
 		$set($nc($(getLAFState())), auxLookAndFeels, v);
 		if ($nc($(getLAFState()))->multiLookAndFeel == nullptr) {
 			$set($nc($(getLAFState())), multiLookAndFeel, getMultiLookAndFeel());
@@ -611,11 +500,11 @@ void UIManager::addAuxiliaryLookAndFeel($LookAndFeel* laf) {
 
 bool UIManager::removeAuxiliaryLookAndFeel($LookAndFeel* laf) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeInitialize();
 	bool result = false;
 	$var($Vector, v, $nc($(getLAFState()))->auxLookAndFeels);
-	if ((v == nullptr) || ($nc(v)->size() == 0)) {
+	if ((v == nullptr) || (v->size() == 0)) {
 		return false;
 	}
 	result = $nc(v)->removeElement(laf);
@@ -633,15 +522,15 @@ bool UIManager::removeAuxiliaryLookAndFeel($LookAndFeel* laf) {
 
 $LookAndFeelArray* UIManager::getAuxiliaryLookAndFeels() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeInitialize();
 	$var($Vector, v, $nc($(getLAFState()))->auxLookAndFeels);
-	if ((v == nullptr) || ($nc(v)->size() == 0)) {
+	if ((v == nullptr) || (v->size() == 0)) {
 		return nullptr;
 	} else {
 		$var($LookAndFeelArray, rv, $new($LookAndFeelArray, v->size()));
 		for (int32_t i = 0; i < rv->length; ++i) {
-			rv->set(i, $cast($LookAndFeel, $(v->elementAt(i))));
+			rv->set(i, $$cast($LookAndFeel, v->elementAt(i)));
 		}
 		return rv;
 	}
@@ -649,37 +538,37 @@ $LookAndFeelArray* UIManager::getAuxiliaryLookAndFeels() {
 
 void UIManager::addPropertyChangeListener($PropertyChangeListener* listener) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(UIManager::classLock) {
-		$nc($($nc($(getLAFState()))->getPropertyChangeSupport(true)))->addPropertyChangeListener(listener);
+		$$nc($$nc(getLAFState())->getPropertyChangeSupport(true))->addPropertyChangeListener(listener);
 	}
 }
 
 void UIManager::removePropertyChangeListener($PropertyChangeListener* listener) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(UIManager::classLock) {
-		$nc($($nc($(getLAFState()))->getPropertyChangeSupport(true)))->removePropertyChangeListener(listener);
+		$$nc($$nc(getLAFState())->getPropertyChangeSupport(true))->removePropertyChangeListener(listener);
 	}
 }
 
 $PropertyChangeListenerArray* UIManager::getPropertyChangeListeners() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(UIManager::classLock) {
-		return $nc($($nc($(getLAFState()))->getPropertyChangeSupport(true)))->getPropertyChangeListeners();
+		return $$nc($$nc(getLAFState())->getPropertyChangeSupport(true))->getPropertyChangeListeners();
 	}
 }
 
 $Properties* UIManager::loadSwingProperties() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (UIManager::class$->getClassLoader() != nullptr) {
 		return $new($Properties);
 	} else {
 		$var($Properties, props, $new($Properties));
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($UIManager$1, props)));
+		$AccessController::doPrivileged($$new($UIManager$1, props));
 		return props;
 	}
 }
@@ -694,7 +583,7 @@ void UIManager::checkProperty($Properties* props, $String* key) {
 
 void UIManager::initializeInstalledLAFs($Properties* swingProps) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ilafsString, $nc(swingProps)->getProperty(UIManager::installedLAFsKey));
 	if (ilafsString == nullptr) {
 		return;
@@ -720,19 +609,19 @@ void UIManager::initializeInstalledLAFs($Properties* swingProps) {
 	}
 	$var($UIManager$LookAndFeelInfoArray, installedLAFs, $new($UIManager$LookAndFeelInfoArray, ilafs->size()));
 	for (int32_t i = 0; i < ilafs->size(); ++i) {
-		installedLAFs->set(i, $cast($UIManager$LookAndFeelInfo, $(ilafs->elementAt(i))));
+		installedLAFs->set(i, $$cast($UIManager$LookAndFeelInfo, ilafs->elementAt(i)));
 	}
 	$set($nc($(getLAFState())), installedLAFs, installedLAFs);
 }
 
 void UIManager::initializeDefaultLAF($Properties* swingProps) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($(getLAFState()))->lookAndFeel != nullptr) {
 		return;
 	}
 	$var($String, lafName, nullptr);
-	$var($HashMap, lafData, $cast($HashMap, $nc($($AppContext::getAppContext()))->remove("swing.lafdata"_s)));
+	$var($HashMap, lafData, $cast($HashMap, $$nc($AppContext::getAppContext())->remove("swing.lafdata"_s)));
 	if (lafData != nullptr) {
 		$assign(lafName, $cast($String, lafData->remove("defaultlaf"_s)));
 	}
@@ -746,13 +635,11 @@ void UIManager::initializeDefaultLAF($Properties* swingProps) {
 		$throwNew($Error, $$str({"Cannot load "_s, lafName}));
 	}
 	if (lafData != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(lafData->keySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Object, key, i$->next());
-				{
-					UIManager::put(key, $(lafData->get(key)));
-				}
+		$var($Iterator, i$, $$nc(lafData->keySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Object, key, i$->next());
+			{
+				UIManager::put(key, $(lafData->get(key)));
 			}
 		}
 	}
@@ -760,7 +647,7 @@ void UIManager::initializeDefaultLAF($Properties* swingProps) {
 
 void UIManager::initializeAuxiliaryLAFs($Properties* swingProps) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, auxLookAndFeelNames, $nc(swingProps)->getProperty(UIManager::auxiliaryLAFsKey));
 	if (auxLookAndFeelNames == nullptr) {
@@ -798,7 +685,7 @@ void UIManager::initializeSystemDefaults($Properties* swingProps) {
 
 void UIManager::maybeInitialize() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(UIManager::classLock) {
 		if (!$nc($(getLAFState()))->initialized) {
 			$nc($(getLAFState()))->initialized = true;
@@ -809,13 +696,13 @@ void UIManager::maybeInitialize() {
 
 void UIManager::maybeInitializeFocusPolicy($JComponent* comp) {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JRootPane, comp)) {
 		$synchronized(UIManager::classLock) {
 			if (!$nc($(getLAFState()))->focusPolicyInitialized) {
 				$nc($(getLAFState()))->focusPolicyInitialized = true;
 				if ($FocusManager::isFocusManagerEnabled()) {
-					$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->setDefaultFocusTraversalPolicy($$new($LayoutFocusTraversalPolicy));
+					$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->setDefaultFocusTraversalPolicy($$new($LayoutFocusTraversalPolicy));
 				}
 			}
 		}
@@ -824,7 +711,7 @@ void UIManager::maybeInitializeFocusPolicy($JComponent* comp) {
 
 void UIManager::initialize() {
 	$init(UIManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, swingProps, loadSwingProperties());
 	initializeSystemDefaults(swingProps);
 	initializeDefaultLAF(swingProps);
@@ -834,13 +721,13 @@ void UIManager::initialize() {
 	if ($RepaintManager::HANDLE_TOP_LEVEL_PAINT) {
 		$PaintEventDispatcher::setPaintEventDispatcher($$new($SwingPaintEventDispatcher));
 	}
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addKeyEventPostProcessor($$new($UIManager$2));
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addKeyEventPostProcessor($$new($UIManager$2));
 	$init($JComponent);
-	$nc($($AWTAccessor::getComponentAccessor()))->setRequestFocusController($JComponent::focusController);
+	$$nc($AWTAccessor::getComponentAccessor())->setRequestFocusController($JComponent::focusController);
 }
 
-void clinit$UIManager($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void UIManager::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(UIManager::defaultLAFKey, "swing.defaultlaf"_s);
 	$assignStatic(UIManager::auxiliaryLAFsKey, "swing.auxiliarylaf"_s);
 	$assignStatic(UIManager::multiplexingLAFKey, "swing.plaf.multiplexinglaf"_s);
@@ -857,17 +744,15 @@ void clinit$UIManager($Class* class$) {
 		$init($OSInfo$OSType);
 		if (osType == $OSInfo$OSType::WINDOWS) {
 			iLAFs->add($$new($UIManager$LookAndFeelInfo, "Windows"_s, "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"_s));
-			if ($nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("win.xpstyle.themeActive"_s) != nullptr) {
+			if ($$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("win.xpstyle.themeActive"_s) != nullptr) {
 				iLAFs->add($$new($UIManager$LookAndFeelInfo, "Windows Classic"_s, "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel"_s));
 			}
+		} else if (osType == $OSInfo$OSType::MACOSX) {
+			iLAFs->add($$new($UIManager$LookAndFeelInfo, "Mac OS X"_s, "com.apple.laf.AquaLookAndFeel"_s));
 		} else {
-			if (osType == $OSInfo$OSType::MACOSX) {
-				iLAFs->add($$new($UIManager$LookAndFeelInfo, "Mac OS X"_s, "com.apple.laf.AquaLookAndFeel"_s));
-			} else {
-				iLAFs->add($$new($UIManager$LookAndFeelInfo, "GTK+"_s, "com.sun.java.swing.plaf.gtk.GTKLookAndFeel"_s));
-			}
+			iLAFs->add($$new($UIManager$LookAndFeelInfo, "GTK+"_s, "com.sun.java.swing.plaf.gtk.GTKLookAndFeel"_s));
 		}
-		$assignStatic(UIManager::installedLAFs, $fcast($UIManager$LookAndFeelInfoArray, iLAFs->toArray($$new($UIManager$LookAndFeelInfoArray, iLAFs->size()))));
+		$assignStatic(UIManager::installedLAFs, $cast($UIManager$LookAndFeelInfoArray, iLAFs->toArray($$new($UIManager$LookAndFeelInfoArray, iLAFs->size()))));
 	}
 }
 
@@ -875,7 +760,98 @@ UIManager::UIManager() {
 }
 
 $Class* UIManager::load$($String* name, bool initialize) {
-	$loadClass(UIManager, name, initialize, &_UIManager_ClassInfo_, clinit$UIManager, allocate$UIManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, classLock)},
+		{"defaultLAFKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, defaultLAFKey)},
+		{"auxiliaryLAFsKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, auxiliaryLAFsKey)},
+		{"multiplexingLAFKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, multiplexingLAFKey)},
+		{"installedLAFsKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, installedLAFsKey)},
+		{"disableMnemonicKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIManager, disableMnemonicKey)},
+		{"installedLAFs", "[Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PRIVATE | $STATIC, $staticField(UIManager, installedLAFs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UIManager, init$, void)},
+		{"addAuxiliaryLookAndFeel", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, addAuxiliaryLookAndFeel, void, $LookAndFeel*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"checkProperty", "(Ljava/util/Properties;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, checkProperty, void, $Properties*, $String*)},
+		{"createLookAndFeel", "(Ljava/lang/String;)Ljavax/swing/LookAndFeel;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, createLookAndFeel, $LookAndFeel*, $String*), "javax.swing.UnsupportedLookAndFeelException"},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, get, $Object*, Object$*)},
+		{"get", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, get, $Object*, Object$*, $Locale*)},
+		{"getAuxiliaryLookAndFeels", "()[Ljavax/swing/LookAndFeel;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getAuxiliaryLookAndFeels, $LookAndFeelArray*)},
+		{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBoolean, bool, Object$*)},
+		{"getBoolean", "(Ljava/lang/Object;Ljava/util/Locale;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBoolean, bool, Object$*, $Locale*)},
+		{"getBorder", "(Ljava/lang/Object;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBorder, $Border*, Object$*)},
+		{"getBorder", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getBorder, $Border*, Object$*, $Locale*)},
+		{"getColor", "(Ljava/lang/Object;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getColor, $Color*, Object$*)},
+		{"getColor", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getColor, $Color*, Object$*, $Locale*)},
+		{"getCrossPlatformLookAndFeelClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getCrossPlatformLookAndFeelClassName, $String*)},
+		{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getDefaults, $UIDefaults*)},
+		{"getDimension", "(Ljava/lang/Object;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getDimension, $Dimension*, Object$*)},
+		{"getDimension", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getDimension, $Dimension*, Object$*, $Locale*)},
+		{"getFont", "(Ljava/lang/Object;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getFont, $Font*, Object$*)},
+		{"getFont", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getFont, $Font*, Object$*, $Locale*)},
+		{"getIcon", "(Ljava/lang/Object;)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getIcon, $Icon*, Object$*)},
+		{"getIcon", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getIcon, $Icon*, Object$*, $Locale*)},
+		{"getInsets", "(Ljava/lang/Object;)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInsets, $Insets*, Object$*)},
+		{"getInsets", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInsets, $Insets*, Object$*, $Locale*)},
+		{"getInstalledLookAndFeels", "()[Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInstalledLookAndFeels, $UIManager$LookAndFeelInfoArray*)},
+		{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInt, int32_t, Object$*)},
+		{"getInt", "(Ljava/lang/Object;Ljava/util/Locale;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getInt, int32_t, Object$*, $Locale*)},
+		{"getLAFState", "()Ljavax/swing/UIManager$LAFState;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, getLAFState, $UIManager$LAFState*)},
+		{"getLookAndFeel", "()Ljavax/swing/LookAndFeel;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getLookAndFeel, $LookAndFeel*)},
+		{"getLookAndFeelDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getLookAndFeelDefaults, $UIDefaults*)},
+		{"getMultiLookAndFeel", "()Ljavax/swing/LookAndFeel;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, getMultiLookAndFeel, $LookAndFeel*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getString, $String*, Object$*)},
+		{"getString", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getString, $String*, Object$*, $Locale*)},
+		{"getString", "(Ljava/lang/Object;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UIManager, getString, $String*, Object$*, $Component*)},
+		{"getSystemLookAndFeelClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getSystemLookAndFeelClassName, $String*)},
+		{"getUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, getUI, $ComponentUI*, $JComponent*)},
+		{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initialize, void)},
+		{"initializeAuxiliaryLAFs", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeAuxiliaryLAFs, void, $Properties*)},
+		{"initializeDefaultLAF", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeDefaultLAF, void, $Properties*)},
+		{"initializeInstalledLAFs", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeInstalledLAFs, void, $Properties*)},
+		{"initializeSystemDefaults", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, initializeSystemDefaults, void, $Properties*)},
+		{"installLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, installLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"installLookAndFeel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, installLookAndFeel, void, $String*, $String*)},
+		{"loadSwingProperties", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, loadSwingProperties, $Properties*)},
+		{"makeInstalledLAFKey", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, makeInstalledLAFKey, $String*, $String*, $String*)},
+		{"makeSwingPropertiesFilename", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, makeSwingPropertiesFilename, $String*)},
+		{"maybeInitialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, maybeInitialize, void)},
+		{"maybeInitializeFocusPolicy", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UIManager, maybeInitializeFocusPolicy, void, $JComponent*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, put, $Object*, Object$*, Object$*)},
+		{"removeAuxiliaryLookAndFeel", "(Ljavax/swing/LookAndFeel;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, removeAuxiliaryLookAndFeel, bool, $LookAndFeel*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setInstalledLookAndFeels", "([Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, setInstalledLookAndFeels, void, $UIManager$LookAndFeelInfoArray*), "java.lang.SecurityException"},
+		{"setLookAndFeel", "(Ljavax/swing/LookAndFeel;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, setLookAndFeel, void, $LookAndFeel*), "javax.swing.UnsupportedLookAndFeelException"},
+		{"setLookAndFeel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UIManager, setLookAndFeel, void, $String*), "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException,javax.swing.UnsupportedLookAndFeelException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.UIManager$LookAndFeelInfo", "javax.swing.UIManager", "LookAndFeelInfo", $PUBLIC | $STATIC},
+		{"javax.swing.UIManager$LAFState", "javax.swing.UIManager", "LAFState", $PRIVATE | $STATIC},
+		{"javax.swing.UIManager$2", nullptr, nullptr, 0},
+		{"javax.swing.UIManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.UIManager",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.UIManager$LookAndFeelInfo,javax.swing.UIManager$LAFState,javax.swing.UIManager$2,javax.swing.UIManager$1"
+	};
+	$loadClass(UIManager, name, initialize, &classInfo$$, UIManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UIManager);
+	});
 	return class$;
 }
 

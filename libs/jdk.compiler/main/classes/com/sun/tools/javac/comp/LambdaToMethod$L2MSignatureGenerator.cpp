@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$L2MSignatureGenerator.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$SignatureGenerator.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -12,7 +11,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Types$SignatureGenerator = ::com::sun::tools::javac::code::Types$SignatureGenerator;
 using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,49 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _LambdaToMethod$L2MSignatureGenerator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$L2MSignatureGenerator, this$0)},
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, 0, $field(LambdaToMethod$L2MSignatureGenerator, sb)},
-	{"allowIllegalSignatures", "Z", nullptr, 0, $field(LambdaToMethod$L2MSignatureGenerator, allowIllegalSignatures)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod$L2MSignatureGenerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Z)V", nullptr, 0, $method(LambdaToMethod$L2MSignatureGenerator, init$, void, $LambdaToMethod*, bool)},
-	{"append", "(C)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, char16_t)},
-	{"append", "([B)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, $bytes*)},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, $Name*)},
-	{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, reportIllegalSignature, void, $Type*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LambdaToMethod$L2MSignatureGenerator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator", "com.sun.tools.javac.comp.LambdaToMethod", "L2MSignatureGenerator", $PRIVATE},
-	{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$L2MSignatureGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator",
-	"com.sun.tools.javac.code.Types$SignatureGenerator",
-	nullptr,
-	_LambdaToMethod$L2MSignatureGenerator_FieldInfo_,
-	_LambdaToMethod$L2MSignatureGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaToMethod$L2MSignatureGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$L2MSignatureGenerator($Class* clazz) {
-	return $of($alloc(LambdaToMethod$L2MSignatureGenerator));
-}
 
 void LambdaToMethod$L2MSignatureGenerator::init$($LambdaToMethod* this$0, bool allowIllegalSignatures) {
 	$set(this, this$0, this$0);
@@ -85,7 +40,7 @@ void LambdaToMethod$L2MSignatureGenerator::append(char16_t ch) {
 }
 
 void LambdaToMethod$L2MSignatureGenerator::append($bytes* ba) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, $nc(this->this$0->names)->fromUtf(ba));
 	$nc(this->sb)->append($($nc(name)->toString()));
 }
@@ -102,7 +57,44 @@ LambdaToMethod$L2MSignatureGenerator::LambdaToMethod$L2MSignatureGenerator() {
 }
 
 $Class* LambdaToMethod$L2MSignatureGenerator::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$L2MSignatureGenerator, name, initialize, &_LambdaToMethod$L2MSignatureGenerator_ClassInfo_, allocate$LambdaToMethod$L2MSignatureGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$L2MSignatureGenerator, this$0)},
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, 0, $field(LambdaToMethod$L2MSignatureGenerator, sb)},
+		{"allowIllegalSignatures", "Z", nullptr, 0, $field(LambdaToMethod$L2MSignatureGenerator, allowIllegalSignatures)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Z)V", nullptr, 0, $method(LambdaToMethod$L2MSignatureGenerator, init$, void, $LambdaToMethod*, bool)},
+		{"append", "(C)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, char16_t)},
+		{"append", "([B)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, $bytes*)},
+		{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, $Name*)},
+		{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, reportIllegalSignature, void, $Type*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator", "com.sun.tools.javac.comp.LambdaToMethod", "L2MSignatureGenerator", $PRIVATE},
+		{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator",
+		"com.sun.tools.javac.code.Types$SignatureGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$L2MSignatureGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$L2MSignatureGenerator);
+	});
 	return class$;
 }
 

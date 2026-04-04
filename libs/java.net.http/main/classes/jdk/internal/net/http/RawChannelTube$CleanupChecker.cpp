@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RawChannelTube$CleanupChecker.h>
-
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
@@ -21,43 +20,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _RawChannelTube$CleanupChecker_FieldInfo_[] = {
-	{"closed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(RawChannelTube$CleanupChecker, closed)},
-	{"debug", "Ljava/lang/System$Logger;", nullptr, $FINAL, $field(RawChannelTube$CleanupChecker, debug)},
-	{}
-};
-
-$MethodInfo _RawChannelTube$CleanupChecker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/System$Logger;)V", nullptr, 0, $method(RawChannelTube$CleanupChecker, init$, void, $AtomicBoolean*, $System$Logger*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$CleanupChecker, run, void)},
-	{}
-};
-
-$InnerClassInfo _RawChannelTube$CleanupChecker_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RawChannelTube$CleanupChecker", "jdk.internal.net.http.RawChannelTube", "CleanupChecker", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RawChannelTube$CleanupChecker_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.RawChannelTube$CleanupChecker",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_RawChannelTube$CleanupChecker_FieldInfo_,
-	_RawChannelTube$CleanupChecker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RawChannelTube$CleanupChecker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RawChannelTube"
-};
-
-$Object* allocate$RawChannelTube$CleanupChecker($Class* clazz) {
-	return $of($alloc(RawChannelTube$CleanupChecker));
-}
-
 void RawChannelTube$CleanupChecker::init$($AtomicBoolean* closed, $System$Logger* debug) {
 	$set(this, closed, closed);
 	$set(this, debug, debug);
@@ -74,7 +36,38 @@ RawChannelTube$CleanupChecker::RawChannelTube$CleanupChecker() {
 }
 
 $Class* RawChannelTube$CleanupChecker::load$($String* name, bool initialize) {
-	$loadClass(RawChannelTube$CleanupChecker, name, initialize, &_RawChannelTube$CleanupChecker_ClassInfo_, allocate$RawChannelTube$CleanupChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(RawChannelTube$CleanupChecker, closed)},
+		{"debug", "Ljava/lang/System$Logger;", nullptr, $FINAL, $field(RawChannelTube$CleanupChecker, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/System$Logger;)V", nullptr, 0, $method(RawChannelTube$CleanupChecker, init$, void, $AtomicBoolean*, $System$Logger*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$CleanupChecker, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RawChannelTube$CleanupChecker", "jdk.internal.net.http.RawChannelTube", "CleanupChecker", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.RawChannelTube$CleanupChecker",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RawChannelTube"
+	};
+	$loadClass(RawChannelTube$CleanupChecker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RawChannelTube$CleanupChecker);
+	});
 	return class$;
 }
 

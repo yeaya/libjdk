@@ -51,8 +51,9 @@ class $export DocFlavor$INPUT_STREAM : public ::javax::print::DocFlavor {
 	$class(DocFlavor$INPUT_STREAM, 0, ::javax::print::DocFlavor)
 public:
 	DocFlavor$INPUT_STREAM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mimeType);
-	static const int64_t serialVersionUID = (int64_t)0x9E382364E690BC71;
+	static const int64_t serialVersionUID = (int64_t)0x9e382364e690bc71;
 	static ::javax::print::DocFlavor$INPUT_STREAM* TEXT_PLAIN_HOST;
 	static ::javax::print::DocFlavor$INPUT_STREAM* TEXT_PLAIN_UTF_8;
 	static ::javax::print::DocFlavor$INPUT_STREAM* TEXT_PLAIN_UTF_16;

@@ -27,6 +27,7 @@ class $import XMLReaderFactory : public ::java::lang::Object {
 	$class(XMLReaderFactory, 0, ::java::lang::Object)
 public:
 	XMLReaderFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::org::xml::sax::XMLReader* createXMLReader();
 	static ::org::xml::sax::XMLReader* createXMLReader($String* className);

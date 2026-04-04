@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMDOMException.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
@@ -20,7 +19,6 @@ using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DOMException = ::org::w3c::dom::DOMException;
@@ -35,38 +33,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _DTMNodeIterator_FieldInfo_[] = {
-	{"dtm_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PRIVATE, $field(DTMNodeIterator, dtm_iter)},
-	{"valid", "Z", nullptr, $PRIVATE, $field(DTMNodeIterator, valid)},
-	{}
-};
-
-$MethodInfo _DTMNodeIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $method(DTMNodeIterator, init$, void, $DTMIterator*)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, detach, void)},
-	{"getDTMIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getDTMIterator, $DTMIterator*)},
-	{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getExpandEntityReferences, bool)},
-	{"getFilter", "()Lorg/w3c/dom/traversal/NodeFilter;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getFilter, $NodeFilter*)},
-	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getRoot, $Node*)},
-	{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getWhatToShow, int32_t)},
-	{"nextNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, nextNode, $Node*), "org.w3c.dom.DOMException"},
-	{"previousNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, previousNode, $Node*)},
-	{}
-};
-
-$ClassInfo _DTMNodeIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeIterator",
-	"java.lang.Object",
-	"org.w3c.dom.traversal.NodeIterator",
-	_DTMNodeIterator_FieldInfo_,
-	_DTMNodeIterator_MethodInfo_
-};
-
-$Object* allocate$DTMNodeIterator($Class* clazz) {
-	return $of($alloc(DTMNodeIterator));
-}
 
 void DTMNodeIterator::init$($DTMIterator* dtmIterator) {
 	this->valid = true;
@@ -96,7 +62,7 @@ $NodeFilter* DTMNodeIterator::getFilter() {
 
 $Node* DTMNodeIterator::getRoot() {
 	int32_t handle = $nc(this->dtm_iter)->getRoot();
-	return $nc($($nc(this->dtm_iter)->getDTM(handle)))->getNode(handle);
+	return $$nc($nc(this->dtm_iter)->getDTM(handle))->getNode(handle);
 }
 
 int32_t DTMNodeIterator::getWhatToShow() {
@@ -111,7 +77,7 @@ $Node* DTMNodeIterator::nextNode() {
 	if (handle == $DTM::NULL) {
 		return nullptr;
 	}
-	return $nc($($nc(this->dtm_iter)->getDTM(handle)))->getNode(handle);
+	return $$nc($nc(this->dtm_iter)->getDTM(handle))->getNode(handle);
 }
 
 $Node* DTMNodeIterator::previousNode() {
@@ -122,14 +88,41 @@ $Node* DTMNodeIterator::previousNode() {
 	if (handle == $DTM::NULL) {
 		return nullptr;
 	}
-	return $nc($($nc(this->dtm_iter)->getDTM(handle)))->getNode(handle);
+	return $$nc($nc(this->dtm_iter)->getDTM(handle))->getNode(handle);
 }
 
 DTMNodeIterator::DTMNodeIterator() {
 }
 
 $Class* DTMNodeIterator::load$($String* name, bool initialize) {
-	$loadClass(DTMNodeIterator, name, initialize, &_DTMNodeIterator_ClassInfo_, allocate$DTMNodeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"dtm_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PRIVATE, $field(DTMNodeIterator, dtm_iter)},
+		{"valid", "Z", nullptr, $PRIVATE, $field(DTMNodeIterator, valid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC, $method(DTMNodeIterator, init$, void, $DTMIterator*)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, detach, void)},
+		{"getDTMIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getDTMIterator, $DTMIterator*)},
+		{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getExpandEntityReferences, bool)},
+		{"getFilter", "()Lorg/w3c/dom/traversal/NodeFilter;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getFilter, $NodeFilter*)},
+		{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getRoot, $Node*)},
+		{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, getWhatToShow, int32_t)},
+		{"nextNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, nextNode, $Node*), "org.w3c.dom.DOMException"},
+		{"previousNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMNodeIterator, previousNode, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeIterator",
+		"java.lang.Object",
+		"org.w3c.dom.traversal.NodeIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMNodeIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMNodeIterator);
+	});
 	return class$;
 }
 

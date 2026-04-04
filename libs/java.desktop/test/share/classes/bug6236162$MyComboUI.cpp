@@ -1,5 +1,4 @@
 #include <bug6236162$MyComboUI.h>
-
 #include <bug6236162.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
@@ -11,37 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 using $MetalComboBoxUI = ::javax::swing::plaf::metal::MetalComboBoxUI;
-
-$MethodInfo _bug6236162$MyComboUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(bug6236162$MyComboUI, init$, void)},
-	{"getComboPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PUBLIC, $virtualMethod(bug6236162$MyComboUI, getComboPopup, $ComboPopup*)},
-	{}
-};
-
-$InnerClassInfo _bug6236162$MyComboUI_InnerClassesInfo_[] = {
-	{"bug6236162$MyComboUI", "bug6236162", "MyComboUI", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug6236162$MyComboUI_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6236162$MyComboUI",
-	"javax.swing.plaf.metal.MetalComboBoxUI",
-	nullptr,
-	nullptr,
-	_bug6236162$MyComboUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6236162$MyComboUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6236162"
-};
-
-$Object* allocate$bug6236162$MyComboUI($Class* clazz) {
-	return $of($alloc(bug6236162$MyComboUI));
-}
 
 void bug6236162$MyComboUI::init$() {
 	$MetalComboBoxUI::init$();
@@ -55,7 +23,33 @@ bug6236162$MyComboUI::bug6236162$MyComboUI() {
 }
 
 $Class* bug6236162$MyComboUI::load$($String* name, bool initialize) {
-	$loadClass(bug6236162$MyComboUI, name, initialize, &_bug6236162$MyComboUI_ClassInfo_, allocate$bug6236162$MyComboUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(bug6236162$MyComboUI, init$, void)},
+		{"getComboPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PUBLIC, $virtualMethod(bug6236162$MyComboUI, getComboPopup, $ComboPopup*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6236162$MyComboUI", "bug6236162", "MyComboUI", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6236162$MyComboUI",
+		"javax.swing.plaf.metal.MetalComboBoxUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6236162"
+	};
+	$loadClass(bug6236162$MyComboUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6236162$MyComboUI);
+	});
 	return class$;
 }
 

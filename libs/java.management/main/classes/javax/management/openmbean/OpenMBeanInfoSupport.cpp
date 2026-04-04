@@ -1,8 +1,6 @@
 #include <javax/management/openmbean/OpenMBeanInfoSupport.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
@@ -31,9 +29,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
-using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Descriptor = ::javax::management::Descriptor;
 using $MBeanInfo = ::javax::management::MBeanInfo;
@@ -42,48 +38,6 @@ using $OpenMBeanInfo = ::javax::management::openmbean::OpenMBeanInfo;
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$FieldInfo _OpenMBeanInfoSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanInfoSupport, serialVersionUID)},
-	{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanInfoSupport, myHashCode)},
-	{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanInfoSupport, myToString)},
-	{}
-};
-
-$MethodInfo _OpenMBeanInfoSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC},
-	{"*getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC},
-	{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC},
-	{"*getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanAttributeInfo;[Ljavax/management/openmbean/OpenMBeanConstructorInfo;[Ljavax/management/openmbean/OpenMBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(OpenMBeanInfoSupport, init$, void, $String*, $String*, $OpenMBeanAttributeInfoArray*, $OpenMBeanConstructorInfoArray*, $OpenMBeanOperationInfoArray*, $MBeanNotificationInfoArray*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanAttributeInfo;[Ljavax/management/openmbean/OpenMBeanConstructorInfo;[Ljavax/management/openmbean/OpenMBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(OpenMBeanInfoSupport, init$, void, $String*, $String*, $OpenMBeanAttributeInfoArray*, $OpenMBeanConstructorInfoArray*, $OpenMBeanOperationInfoArray*, $MBeanNotificationInfoArray*, $Descriptor*)},
-	{"arraySetHash", "([Ljava/lang/Object;)I", "<T:Ljava/lang/Object;>([TT;)I", $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, arraySetHash, int32_t, $ObjectArray*)},
-	{"attributeArray", "([Ljavax/management/openmbean/OpenMBeanAttributeInfo;)[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, attributeArray, $MBeanAttributeInfoArray*, $OpenMBeanAttributeInfoArray*)},
-	{"constructorArray", "([Ljavax/management/openmbean/OpenMBeanConstructorInfo;)[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, constructorArray, $MBeanConstructorInfoArray*, $OpenMBeanConstructorInfoArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanInfoSupport, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanInfoSupport, hashCode, int32_t)},
-	{"operationArray", "([Ljavax/management/openmbean/OpenMBeanOperationInfo;)[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, operationArray, $MBeanOperationInfoArray*, $OpenMBeanOperationInfoArray*)},
-	{"sameArrayContents", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>([TT;[TT;)Z", $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, sameArrayContents, bool, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanInfoSupport, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OpenMBeanInfoSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.OpenMBeanInfoSupport",
-	"javax.management.MBeanInfo",
-	"javax.management.openmbean.OpenMBeanInfo",
-	_OpenMBeanInfoSupport_FieldInfo_,
-	_OpenMBeanInfoSupport_MethodInfo_
-};
-
-$Object* allocate$OpenMBeanInfoSupport($Class* clazz) {
-	return $of($alloc(OpenMBeanInfoSupport));
-}
 
 $Object* OpenMBeanInfoSupport::clone() {
 	 return this->$MBeanInfo::clone();
@@ -122,13 +76,11 @@ void OpenMBeanInfoSupport::init$($String* className, $String* description, $Open
 }
 
 void OpenMBeanInfoSupport::init$($String* className, $String* description, $OpenMBeanAttributeInfoArray* openAttributes, $OpenMBeanConstructorInfoArray* openConstructors, $OpenMBeanOperationInfoArray* openOperations, $MBeanNotificationInfoArray* notifications, $Descriptor* descriptor) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, className);
-	$var($String, var$1, description);
-	$var($MBeanAttributeInfoArray, var$2, attributeArray(openAttributes));
-	$var($MBeanConstructorInfoArray, var$3, constructorArray(openConstructors));
-	$var($MBeanOperationInfoArray, var$4, operationArray(openOperations));
-	$MBeanInfo::init$(var$0, var$1, var$2, var$3, var$4, (notifications == nullptr) ? ($MBeanNotificationInfoArray*)nullptr : $cast($MBeanNotificationInfoArray, $($nc(notifications)->clone())), descriptor);
+	$useLocalObjectStack();
+	$var($MBeanAttributeInfoArray, var$0, attributeArray(openAttributes));
+	$var($MBeanConstructorInfoArray, var$1, constructorArray(openConstructors));
+	$var($MBeanOperationInfoArray, var$2, operationArray(openOperations));
+	$MBeanInfo::init$(className, description, var$0, var$1, var$2, (notifications == nullptr) ? ($MBeanNotificationInfoArray*)nullptr : $$cast($MBeanNotificationInfoArray, notifications->clone()), descriptor);
 	$set(this, myHashCode, nullptr);
 	$set(this, myToString, nullptr);
 }
@@ -164,7 +116,7 @@ $MBeanOperationInfoArray* OpenMBeanInfoSupport::operationArray($OpenMBeanOperati
 }
 
 bool OpenMBeanInfoSupport::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -174,24 +126,24 @@ bool OpenMBeanInfoSupport::equals(Object$* obj) {
 	} catch ($ClassCastException& e) {
 		return false;
 	}
-	$var($Object, var$0, $of(this->getClassName()));
+	$var($Object, var$0, this->getClassName());
 	if (!$Objects::equals(var$0, $($nc(other)->getClassName()))) {
 		return false;
 	}
 	$var($ObjectArray, var$1, this->getAttributes());
-	if (!sameArrayContents(var$1, $($nc(other)->getAttributes()))) {
+	if (!sameArrayContents(var$1, $(other->getAttributes()))) {
 		return false;
 	}
 	$var($ObjectArray, var$2, this->getConstructors());
-	if (!sameArrayContents(var$2, $($nc(other)->getConstructors()))) {
+	if (!sameArrayContents(var$2, $(other->getConstructors()))) {
 		return false;
 	}
 	$var($ObjectArray, var$3, this->getOperations());
-	if (!sameArrayContents(var$3, $($nc(other)->getOperations()))) {
+	if (!sameArrayContents(var$3, $(other->getOperations()))) {
 		return false;
 	}
 	$var($ObjectArray, var$4, this->getNotifications());
-	if (!sameArrayContents(var$4, $($nc(other)->getNotifications()))) {
+	if (!sameArrayContents(var$4, $(other->getNotifications()))) {
 		return false;
 	}
 	return true;
@@ -199,16 +151,16 @@ bool OpenMBeanInfoSupport::equals(Object$* obj) {
 
 bool OpenMBeanInfoSupport::sameArrayContents($ObjectArray* a1, $ObjectArray* a2) {
 	$init(OpenMBeanInfoSupport);
-	$useLocalCurrentObjectStackCache();
-	return ($$new($HashSet, $(static_cast<$Collection*>($Arrays::asList(a1))))->equals($$new($HashSet, $(static_cast<$Collection*>($Arrays::asList(a2))))));
+	$useLocalObjectStack();
+	return ($$new($HashSet, $($Arrays::asList(a1)))->equals($$new($HashSet, $($Arrays::asList(a2)))));
 }
 
 int32_t OpenMBeanInfoSupport::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myHashCode == nullptr) {
 		int32_t value = 0;
 		if (this->getClassName() != nullptr) {
-			value += $nc($(this->getClassName()))->hashCode();
+			value += $$nc(this->getClassName())->hashCode();
 		}
 		value += arraySetHash($(this->getAttributes()));
 		value += arraySetHash($(this->getConstructors()));
@@ -221,14 +173,14 @@ int32_t OpenMBeanInfoSupport::hashCode() {
 
 int32_t OpenMBeanInfoSupport::arraySetHash($ObjectArray* a) {
 	$init(OpenMBeanInfoSupport);
-	$useLocalCurrentObjectStackCache();
-	return $$new($HashSet, $(static_cast<$Collection*>($Arrays::asList(a))))->hashCode();
+	$useLocalObjectStack();
+	return $$new($HashSet, $($Arrays::asList(a)))->hashCode();
 }
 
 $String* OpenMBeanInfoSupport::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myToString == nullptr) {
-		$set(this, myToString, $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(mbean_class_name="_s)->append($(this->getClassName()))->append(",attributes="_s)->append($($nc($of($($Arrays::asList($(this->getAttributes())))))->toString()))->append(",constructors="_s)->append($($nc($of($($Arrays::asList($(this->getConstructors())))))->toString()))->append(",operations="_s)->append($($nc($of($($Arrays::asList($(this->getOperations())))))->toString()))->append(",notifications="_s)->append($($nc($of($($Arrays::asList($(this->getNotifications())))))->toString()))->append(",descriptor="_s)->append($($of(this->getDescriptor())))->append(")"_s)->toString());
+		$set(this, myToString, $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(mbean_class_name="_s)->append($(this->getClassName()))->append(",attributes="_s)->append($($$nc($Arrays::asList($(this->getAttributes())))->toString()))->append(",constructors="_s)->append($($$nc($Arrays::asList($(this->getConstructors())))->toString()))->append(",operations="_s)->append($($$nc($Arrays::asList($(this->getOperations())))->toString()))->append(",notifications="_s)->append($($$nc($Arrays::asList($(this->getNotifications())))->toString()))->append(",descriptor="_s)->append($(this->getDescriptor()))->append(")"_s)->toString());
 	}
 	return this->myToString;
 }
@@ -237,7 +189,44 @@ OpenMBeanInfoSupport::OpenMBeanInfoSupport() {
 }
 
 $Class* OpenMBeanInfoSupport::load$($String* name, bool initialize) {
-	$loadClass(OpenMBeanInfoSupport, name, initialize, &_OpenMBeanInfoSupport_ClassInfo_, allocate$OpenMBeanInfoSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenMBeanInfoSupport, serialVersionUID)},
+		{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanInfoSupport, myHashCode)},
+		{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenMBeanInfoSupport, myToString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC},
+		{"*getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC},
+		{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC},
+		{"*getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanAttributeInfo;[Ljavax/management/openmbean/OpenMBeanConstructorInfo;[Ljavax/management/openmbean/OpenMBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(OpenMBeanInfoSupport, init$, void, $String*, $String*, $OpenMBeanAttributeInfoArray*, $OpenMBeanConstructorInfoArray*, $OpenMBeanOperationInfoArray*, $MBeanNotificationInfoArray*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanAttributeInfo;[Ljavax/management/openmbean/OpenMBeanConstructorInfo;[Ljavax/management/openmbean/OpenMBeanOperationInfo;[Ljavax/management/MBeanNotificationInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(OpenMBeanInfoSupport, init$, void, $String*, $String*, $OpenMBeanAttributeInfoArray*, $OpenMBeanConstructorInfoArray*, $OpenMBeanOperationInfoArray*, $MBeanNotificationInfoArray*, $Descriptor*)},
+		{"arraySetHash", "([Ljava/lang/Object;)I", "<T:Ljava/lang/Object;>([TT;)I", $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, arraySetHash, int32_t, $ObjectArray*)},
+		{"attributeArray", "([Ljavax/management/openmbean/OpenMBeanAttributeInfo;)[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, attributeArray, $MBeanAttributeInfoArray*, $OpenMBeanAttributeInfoArray*)},
+		{"constructorArray", "([Ljavax/management/openmbean/OpenMBeanConstructorInfo;)[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, constructorArray, $MBeanConstructorInfoArray*, $OpenMBeanConstructorInfoArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanInfoSupport, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanInfoSupport, hashCode, int32_t)},
+		{"operationArray", "([Ljavax/management/openmbean/OpenMBeanOperationInfo;)[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, operationArray, $MBeanOperationInfoArray*, $OpenMBeanOperationInfoArray*)},
+		{"sameArrayContents", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>([TT;[TT;)Z", $PRIVATE | $STATIC, $staticMethod(OpenMBeanInfoSupport, sameArrayContents, bool, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanInfoSupport, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.OpenMBeanInfoSupport",
+		"javax.management.MBeanInfo",
+		"javax.management.openmbean.OpenMBeanInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenMBeanInfoSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpenMBeanInfoSupport));
+	});
 	return class$;
 }
 

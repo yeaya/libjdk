@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
-
 #include <jcpp.h>
 
 #undef ALL
@@ -36,54 +35,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 
-$FieldInfo _Axis_FieldInfo_[] = {
-	{"ANCESTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ANCESTOR)},
-	{"ANCESTORORSELF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ANCESTORORSELF)},
-	{"ATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ATTRIBUTE)},
-	{"CHILD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, CHILD)},
-	{"DESCENDANT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANT)},
-	{"DESCENDANTORSELF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANTORSELF)},
-	{"FOLLOWING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, FOLLOWING)},
-	{"FOLLOWINGSIBLING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, FOLLOWINGSIBLING)},
-	{"NAMESPACEDECLS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, NAMESPACEDECLS)},
-	{"NAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, NAMESPACE)},
-	{"PARENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PARENT)},
-	{"PRECEDING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PRECEDING)},
-	{"PRECEDINGSIBLING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PRECEDINGSIBLING)},
-	{"SELF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, SELF)},
-	{"ALLFROMNODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ALLFROMNODE)},
-	{"PRECEDINGANDANCESTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PRECEDINGANDANCESTOR)},
-	{"ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ALL)},
-	{"DESCENDANTSFROMROOT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANTSFROMROOT)},
-	{"DESCENDANTSORSELFFROMROOT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANTSORSELFFROMROOT)},
-	{"ROOT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ROOT)},
-	{"FILTEREDLIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, FILTEREDLIST)},
-	{"isReverse", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Axis, isReverse$)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Axis, names)},
-	{}
-};
-
-$MethodInfo _Axis_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Axis, init$, void)},
-	{"getNames", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Axis, getNames, $String*, int32_t)},
-	{"getNamesLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Axis, getNamesLength, int32_t)},
-	{"isReverse", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Axis, isReverse, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _Axis_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.Axis",
-	"java.lang.Object",
-	nullptr,
-	_Axis_FieldInfo_,
-	_Axis_MethodInfo_
-};
-
-$Object* allocate$Axis($Class* clazz) {
-	return $of($alloc(Axis));
-}
-
 $booleans* Axis::isReverse$ = nullptr;
 $StringArray* Axis::names = nullptr;
 
@@ -92,20 +43,20 @@ void Axis::init$() {
 
 bool Axis::isReverse(int32_t axis) {
 	$init(Axis);
-	return $nc(Axis::isReverse$)->get(axis);
+	return Axis::isReverse$->get(axis);
 }
 
 $String* Axis::getNames(int32_t index) {
 	$init(Axis);
-	return $nc(Axis::names)->get(index);
+	return Axis::names->get(index);
 }
 
 int32_t Axis::getNamesLength() {
 	$init(Axis);
-	return $nc(Axis::names)->length;
+	return Axis::names->length;
 }
 
-void clinit$Axis($Class* class$) {
+void Axis::clinit$($Class* clazz) {
 	$assignStatic(Axis::isReverse$, $new($booleans, {
 		true,
 		true,
@@ -151,7 +102,50 @@ Axis::Axis() {
 }
 
 $Class* Axis::load$($String* name, bool initialize) {
-	$loadClass(Axis, name, initialize, &_Axis_ClassInfo_, clinit$Axis, allocate$Axis);
+	$FieldInfo fieldInfos$$[] = {
+		{"ANCESTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ANCESTOR)},
+		{"ANCESTORORSELF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ANCESTORORSELF)},
+		{"ATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ATTRIBUTE)},
+		{"CHILD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, CHILD)},
+		{"DESCENDANT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANT)},
+		{"DESCENDANTORSELF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANTORSELF)},
+		{"FOLLOWING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, FOLLOWING)},
+		{"FOLLOWINGSIBLING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, FOLLOWINGSIBLING)},
+		{"NAMESPACEDECLS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, NAMESPACEDECLS)},
+		{"NAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, NAMESPACE)},
+		{"PARENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PARENT)},
+		{"PRECEDING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PRECEDING)},
+		{"PRECEDINGSIBLING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PRECEDINGSIBLING)},
+		{"SELF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, SELF)},
+		{"ALLFROMNODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ALLFROMNODE)},
+		{"PRECEDINGANDANCESTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, PRECEDINGANDANCESTOR)},
+		{"ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ALL)},
+		{"DESCENDANTSFROMROOT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANTSFROMROOT)},
+		{"DESCENDANTSORSELFFROMROOT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, DESCENDANTSORSELFFROMROOT)},
+		{"ROOT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, ROOT)},
+		{"FILTEREDLIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Axis, FILTEREDLIST)},
+		{"isReverse", "[Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Axis, isReverse$)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Axis, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Axis, init$, void)},
+		{"getNames", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Axis, getNames, $String*, int32_t)},
+		{"getNamesLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Axis, getNamesLength, int32_t)},
+		{"isReverse", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Axis, isReverse, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.Axis",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Axis, name, initialize, &classInfo$$, Axis::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Axis);
+	});
 	return class$;
 }
 

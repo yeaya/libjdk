@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDropTargetProtocolListener.h>
-
 #include <sun/awt/X11/XWindow.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XDropTargetProtocolListener_MethodInfo_[] = {
-	{"handleDropTargetNotification", "(Lsun/awt/X11/XWindow;IIII[JJI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XDropTargetProtocolListener, handleDropTargetNotification, void, $XWindow*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XDropTargetProtocolListener_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.awt.X11.XDropTargetProtocolListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XDropTargetProtocolListener_MethodInfo_
-};
-
-$Object* allocate$XDropTargetProtocolListener($Class* clazz) {
-	return $of($alloc(XDropTargetProtocolListener));
-}
-
 $Class* XDropTargetProtocolListener::load$($String* name, bool initialize) {
-	$loadClass(XDropTargetProtocolListener, name, initialize, &_XDropTargetProtocolListener_ClassInfo_, allocate$XDropTargetProtocolListener);
+	$MethodInfo methodInfos$$[] = {
+		{"handleDropTargetNotification", "(Lsun/awt/X11/XWindow;IIII[JJI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XDropTargetProtocolListener, handleDropTargetNotification, void, $XWindow*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.awt.X11.XDropTargetProtocolListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XDropTargetProtocolListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XDropTargetProtocolListener);
+	});
 	return class$;
 }
 

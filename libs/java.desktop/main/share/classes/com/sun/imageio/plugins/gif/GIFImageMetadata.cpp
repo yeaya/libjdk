@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFImageMetadata.h>
-
 #include <com/sun/imageio/plugins/gif/GIFMetadata.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/IllegalStateException.h>
@@ -21,7 +20,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $Node = ::org::w3c::dom::Node;
@@ -31,72 +29,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace gif {
-
-$FieldInfo _GIFImageMetadata_FieldInfo_[] = {
-	{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageMetadata, nativeMetadataFormatName)},
-	{"disposalMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageMetadata, disposalMethodNames)},
-	{"imageLeftPosition", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageLeftPosition)},
-	{"imageTopPosition", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageTopPosition)},
-	{"imageWidth", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageWidth)},
-	{"imageHeight", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageHeight)},
-	{"interlaceFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, interlaceFlag)},
-	{"sortFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, sortFlag)},
-	{"localColorTable", "[B", nullptr, $PUBLIC, $field(GIFImageMetadata, localColorTable)},
-	{"disposalMethod", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, disposalMethod)},
-	{"userInputFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, userInputFlag)},
-	{"transparentColorFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, transparentColorFlag)},
-	{"delayTime", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, delayTime)},
-	{"transparentColorIndex", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, transparentColorIndex)},
-	{"hasPlainTextExtension", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, hasPlainTextExtension)},
-	{"textGridLeft", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridLeft)},
-	{"textGridTop", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridTop)},
-	{"textGridWidth", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridWidth)},
-	{"textGridHeight", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridHeight)},
-	{"characterCellWidth", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, characterCellWidth)},
-	{"characterCellHeight", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, characterCellHeight)},
-	{"textForegroundColor", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textForegroundColor)},
-	{"textBackgroundColor", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textBackgroundColor)},
-	{"text", "[B", nullptr, $PUBLIC, $field(GIFImageMetadata, text)},
-	{"applicationIDs", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, applicationIDs)},
-	{"authenticationCodes", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, authenticationCodes)},
-	{"applicationData", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, applicationData)},
-	{"comments", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, comments)},
-	{}
-};
-
-$MethodInfo _GIFImageMetadata_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GIFImageMetadata, init$, void, bool, $String*, $String*, $StringArray*, $StringArray*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageMetadata, init$, void)},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getAsTree, $Node*, $String*)},
-	{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(GIFImageMetadata, getNativeTree, $Node*)},
-	{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardChromaNode, $IIOMetadataNode*)},
-	{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
-	{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardDataNode, $IIOMetadataNode*)},
-	{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
-	{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardTextNode, $IIOMetadataNode*)},
-	{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, isReadOnly, bool)},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFImageMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFImageMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GIFImageMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, reset, void)},
-	{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"toISO8859", "([B)Ljava/lang/String;", nullptr, $PRIVATE, $method(GIFImageMetadata, toISO8859, $String*, $bytes*)},
-	{}
-};
-
-$ClassInfo _GIFImageMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFImageMetadata",
-	"com.sun.imageio.plugins.gif.GIFMetadata",
-	nullptr,
-	_GIFImageMetadata_FieldInfo_,
-	_GIFImageMetadata_MethodInfo_
-};
-
-$Object* allocate$GIFImageMetadata($Class* clazz) {
-	return $of($alloc(GIFImageMetadata));
-}
 
 $String* GIFImageMetadata::nativeMetadataFormatName = nullptr;
 $StringArray* GIFImageMetadata::disposalMethodNames = nullptr;
@@ -149,7 +81,7 @@ $String* GIFImageMetadata::toISO8859($bytes* data) {
 }
 
 $Node* GIFImageMetadata::getNativeTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, nullptr);
 	$var($IIOMetadataNode, root, $new($IIOMetadataNode, GIFImageMetadata::nativeMetadataFormatName));
 	$assign(node, $new($IIOMetadataNode, "ImageDescriptor"_s));
@@ -161,15 +93,15 @@ $Node* GIFImageMetadata::getNativeTree() {
 	root->appendChild(node);
 	if (this->localColorTable != nullptr) {
 		$assign(node, $new($IIOMetadataNode, "LocalColorTable"_s));
-		int32_t numEntries = $nc(this->localColorTable)->length / 3;
+		int32_t numEntries = this->localColorTable->length / 3;
 		node->setAttribute("sizeOfLocalColorTable"_s, $($Integer::toString(numEntries)));
 		node->setAttribute("sortFlag"_s, this->sortFlag ? "TRUE"_s : "FALSE"_s);
 		for (int32_t i = 0; i < numEntries; ++i) {
 			$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "ColorTableEntry"_s));
 			entry->setAttribute("index"_s, $($Integer::toString(i)));
-			int32_t r = (int32_t)($nc(this->localColorTable)->get(3 * i) & (uint32_t)255);
-			int32_t g = (int32_t)($nc(this->localColorTable)->get(3 * i + 1) & (uint32_t)255);
-			int32_t b = (int32_t)($nc(this->localColorTable)->get(3 * i + 2) & (uint32_t)255);
+			int32_t r = $nc(this->localColorTable)->get(3 * i) & 0xff;
+			int32_t g = this->localColorTable->get(3 * i + 1) & 0xff;
+			int32_t b = this->localColorTable->get(3 * i + 2) & 0xff;
 			entry->setAttribute("red"_s, $($Integer::toString(r)));
 			entry->setAttribute("green"_s, $($Integer::toString(g)));
 			entry->setAttribute("blue"_s, $($Integer::toString(b)));
@@ -178,7 +110,7 @@ $Node* GIFImageMetadata::getNativeTree() {
 		root->appendChild(node);
 	}
 	$assign(node, $new($IIOMetadataNode, "GraphicControlExtension"_s));
-	node->setAttribute("disposalMethod"_s, $nc(GIFImageMetadata::disposalMethodNames)->get(this->disposalMethod));
+	node->setAttribute("disposalMethod"_s, GIFImageMetadata::disposalMethodNames->get(this->disposalMethod));
 	node->setAttribute("userInputFlag"_s, this->userInputFlag ? "TRUE"_s : "FALSE"_s);
 	node->setAttribute("transparentColorFlag"_s, this->transparentColorFlag ? "TRUE"_s : "FALSE"_s);
 	node->setAttribute("delayTime"_s, $($Integer::toString(this->delayTime)));
@@ -197,7 +129,7 @@ $Node* GIFImageMetadata::getNativeTree() {
 		node->setAttribute("text"_s, $(toISO8859(this->text)));
 		root->appendChild(node);
 	}
-	int32_t numAppExtensions = this->applicationIDs == nullptr ? 0 : $nc(this->applicationIDs)->size();
+	int32_t numAppExtensions = this->applicationIDs == nullptr ? 0 : this->applicationIDs->size();
 	if (numAppExtensions > 0) {
 		$assign(node, $new($IIOMetadataNode, "ApplicationExtensions"_s));
 		for (int32_t i = 0; i < numAppExtensions; ++i) {
@@ -212,7 +144,7 @@ $Node* GIFImageMetadata::getNativeTree() {
 		}
 		root->appendChild(node);
 	}
-	int32_t numComments = this->comments == nullptr ? 0 : $nc(this->comments)->size();
+	int32_t numComments = this->comments == nullptr ? 0 : this->comments->size();
 	if (numComments > 0) {
 		$assign(node, $new($IIOMetadataNode, "CommentExtensions"_s));
 		for (int32_t i = 0; i < numComments; ++i) {
@@ -227,7 +159,7 @@ $Node* GIFImageMetadata::getNativeTree() {
 }
 
 $IIOMetadataNode* GIFImageMetadata::getStandardChromaNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, chroma_node, $new($IIOMetadataNode, "Chroma"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "ColorSpaceType"_s));
@@ -241,13 +173,13 @@ $IIOMetadataNode* GIFImageMetadata::getStandardChromaNode() {
 	chroma_node->appendChild(node);
 	if (this->localColorTable != nullptr) {
 		$assign(node, $new($IIOMetadataNode, "Palette"_s));
-		int32_t numEntries = $nc(this->localColorTable)->length / 3;
+		int32_t numEntries = this->localColorTable->length / 3;
 		for (int32_t i = 0; i < numEntries; ++i) {
 			$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "PaletteEntry"_s));
 			entry->setAttribute("index"_s, $($Integer::toString(i)));
-			entry->setAttribute("red"_s, $($Integer::toString((int32_t)($nc(this->localColorTable)->get(3 * i) & (uint32_t)255))));
-			entry->setAttribute("green"_s, $($Integer::toString((int32_t)($nc(this->localColorTable)->get(3 * i + 1) & (uint32_t)255))));
-			entry->setAttribute("blue"_s, $($Integer::toString((int32_t)($nc(this->localColorTable)->get(3 * i + 2) & (uint32_t)255))));
+			entry->setAttribute("red"_s, $($Integer::toString($nc(this->localColorTable)->get(3 * i) & 0xff)));
+			entry->setAttribute("green"_s, $($Integer::toString($nc(this->localColorTable)->get(3 * i + 1) & 0xff)));
+			entry->setAttribute("blue"_s, $($Integer::toString($nc(this->localColorTable)->get(3 * i + 2) & 0xff)));
 			node->appendChild(entry);
 		}
 		chroma_node->appendChild(node);
@@ -256,7 +188,7 @@ $IIOMetadataNode* GIFImageMetadata::getStandardChromaNode() {
 }
 
 $IIOMetadataNode* GIFImageMetadata::getStandardCompressionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, compression_node, $new($IIOMetadataNode, "Compression"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "CompressionTypeName"_s));
@@ -272,7 +204,7 @@ $IIOMetadataNode* GIFImageMetadata::getStandardCompressionNode() {
 }
 
 $IIOMetadataNode* GIFImageMetadata::getStandardDataNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, data_node, $new($IIOMetadataNode, "Data"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "SampleFormat"_s));
@@ -282,7 +214,7 @@ $IIOMetadataNode* GIFImageMetadata::getStandardDataNode() {
 }
 
 $IIOMetadataNode* GIFImageMetadata::getStandardDimensionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, dimension_node, $new($IIOMetadataNode, "Dimension"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$assign(node, $new($IIOMetadataNode, "ImageOrientation"_s));
@@ -298,7 +230,7 @@ $IIOMetadataNode* GIFImageMetadata::getStandardDimensionNode() {
 }
 
 $IIOMetadataNode* GIFImageMetadata::getStandardTextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->comments == nullptr) {
 		return nullptr;
 	}
@@ -308,7 +240,7 @@ $IIOMetadataNode* GIFImageMetadata::getStandardTextNode() {
 	}
 	$var($IIOMetadataNode, text_node, $new($IIOMetadataNode, "Text"_s));
 	$var($IIOMetadataNode, node, nullptr);
-	while ($nc(commentIter)->hasNext()) {
+	while (commentIter->hasNext()) {
 		$var($bytes, comment, $cast($bytes, commentIter->next()));
 		$var($String, s, nullptr);
 		try {
@@ -326,7 +258,7 @@ $IIOMetadataNode* GIFImageMetadata::getStandardTextNode() {
 }
 
 $IIOMetadataNode* GIFImageMetadata::getStandardTransparencyNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->transparentColorFlag) {
 		return nullptr;
 	}
@@ -358,7 +290,7 @@ void GIFImageMetadata::mergeTree($String* formatName, $Node* root) {
 	$GIFMetadata::mergeTree(formatName, root);
 }
 
-void clinit$GIFImageMetadata($Class* class$) {
+void GIFImageMetadata::clinit$($Class* clazz) {
 	$assignStatic(GIFImageMetadata::nativeMetadataFormatName, "javax_imageio_gif_image_1.0"_s);
 	$assignStatic(GIFImageMetadata::disposalMethodNames, $new($StringArray, {
 		"none"_s,
@@ -376,7 +308,68 @@ GIFImageMetadata::GIFImageMetadata() {
 }
 
 $Class* GIFImageMetadata::load$($String* name, bool initialize) {
-	$loadClass(GIFImageMetadata, name, initialize, &_GIFImageMetadata_ClassInfo_, clinit$GIFImageMetadata, allocate$GIFImageMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageMetadata, nativeMetadataFormatName)},
+		{"disposalMethodNames", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFImageMetadata, disposalMethodNames)},
+		{"imageLeftPosition", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageLeftPosition)},
+		{"imageTopPosition", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageTopPosition)},
+		{"imageWidth", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageWidth)},
+		{"imageHeight", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, imageHeight)},
+		{"interlaceFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, interlaceFlag)},
+		{"sortFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, sortFlag)},
+		{"localColorTable", "[B", nullptr, $PUBLIC, $field(GIFImageMetadata, localColorTable)},
+		{"disposalMethod", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, disposalMethod)},
+		{"userInputFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, userInputFlag)},
+		{"transparentColorFlag", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, transparentColorFlag)},
+		{"delayTime", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, delayTime)},
+		{"transparentColorIndex", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, transparentColorIndex)},
+		{"hasPlainTextExtension", "Z", nullptr, $PUBLIC, $field(GIFImageMetadata, hasPlainTextExtension)},
+		{"textGridLeft", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridLeft)},
+		{"textGridTop", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridTop)},
+		{"textGridWidth", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridWidth)},
+		{"textGridHeight", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textGridHeight)},
+		{"characterCellWidth", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, characterCellWidth)},
+		{"characterCellHeight", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, characterCellHeight)},
+		{"textForegroundColor", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textForegroundColor)},
+		{"textBackgroundColor", "I", nullptr, $PUBLIC, $field(GIFImageMetadata, textBackgroundColor)},
+		{"text", "[B", nullptr, $PUBLIC, $field(GIFImageMetadata, text)},
+		{"applicationIDs", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, applicationIDs)},
+		{"authenticationCodes", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, authenticationCodes)},
+		{"applicationData", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, applicationData)},
+		{"comments", "Ljava/util/List;", "Ljava/util/List<[B>;", $PUBLIC, $field(GIFImageMetadata, comments)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GIFImageMetadata, init$, void, bool, $String*, $String*, $StringArray*, $StringArray*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageMetadata, init$, void)},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getAsTree, $Node*, $String*)},
+		{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(GIFImageMetadata, getNativeTree, $Node*)},
+		{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardChromaNode, $IIOMetadataNode*)},
+		{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
+		{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardDataNode, $IIOMetadataNode*)},
+		{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
+		{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardTextNode, $IIOMetadataNode*)},
+		{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, isReadOnly, bool)},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFImageMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFImageMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GIFImageMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, reset, void)},
+		{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFImageMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"toISO8859", "([B)Ljava/lang/String;", nullptr, $PRIVATE, $method(GIFImageMetadata, toISO8859, $String*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFImageMetadata",
+		"com.sun.imageio.plugins.gif.GIFMetadata",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFImageMetadata, name, initialize, &classInfo$$, GIFImageMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFImageMetadata);
+	});
 	return class$;
 }
 

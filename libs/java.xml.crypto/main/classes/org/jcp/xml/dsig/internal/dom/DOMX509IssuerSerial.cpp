@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMX509IssuerSerial.h>
-
 #include <java/math/BigInteger.h>
 #include <javax/security/auth/x500/X500Principal.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
@@ -37,40 +36,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMX509IssuerSerial_FieldInfo_[] = {
-	{"issuerName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMX509IssuerSerial, issuerName)},
-	{"serialNumber", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(DOMX509IssuerSerial, serialNumber)},
-	{}
-};
-
-$MethodInfo _DOMX509IssuerSerial_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DOMX509IssuerSerial, init$, void, $String*, $BigInteger*)},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMX509IssuerSerial, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, equals, bool, Object$*)},
-	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, getIssuerName, $String*)},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, getSerialNumber, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMX509IssuerSerial_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMX509IssuerSerial",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.keyinfo.X509IssuerSerial",
-	_DOMX509IssuerSerial_FieldInfo_,
-	_DOMX509IssuerSerial_MethodInfo_
-};
-
-$Object* allocate$DOMX509IssuerSerial($Class* clazz) {
-	return $of($alloc(DOMX509IssuerSerial));
-}
-
 bool DOMX509IssuerSerial::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -101,13 +66,13 @@ void DOMX509IssuerSerial::init$($String* issuerName, $BigInteger* serialNumber) 
 }
 
 void DOMX509IssuerSerial::init$($Element* isElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$init($XMLSignature);
 	$var($Element, iNElem, $DOMUtils::getFirstChildElement(isElem, "X509IssuerName"_s, $XMLSignature::XMLNS));
 	$var($Element, sNElem, $DOMUtils::getNextSiblingElement(iNElem, "X509SerialNumber"_s, $XMLSignature::XMLNS));
-	$set(this, issuerName, $nc($($nc(iNElem)->getFirstChild()))->getNodeValue());
-	$set(this, serialNumber, $new($BigInteger, $($nc($($nc(sNElem)->getFirstChild()))->getNodeValue())));
+	$set(this, issuerName, $$nc($nc(iNElem)->getFirstChild())->getNodeValue());
+	$set(this, serialNumber, $new($BigInteger, $($$nc($nc(sNElem)->getFirstChild())->getNodeValue())));
 }
 
 $String* DOMX509IssuerSerial::getIssuerName() {
@@ -119,21 +84,21 @@ $BigInteger* DOMX509IssuerSerial::getSerialNumber() {
 }
 
 void DOMX509IssuerSerial::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, isElem, $DOMUtils::createElement(ownerDoc, "X509IssuerSerial"_s, $XMLSignature::XMLNS, dsPrefix));
 	$var($Element, inElem, $DOMUtils::createElement(ownerDoc, "X509IssuerName"_s, $XMLSignature::XMLNS, dsPrefix));
 	$var($Element, snElem, $DOMUtils::createElement(ownerDoc, "X509SerialNumber"_s, $XMLSignature::XMLNS, dsPrefix));
 	$nc(inElem)->appendChild($($nc(ownerDoc)->createTextNode(this->issuerName)));
-	$nc(snElem)->appendChild($($nc(ownerDoc)->createTextNode($($nc(this->serialNumber)->toString()))));
+	$nc(snElem)->appendChild($(ownerDoc->createTextNode($($nc(this->serialNumber)->toString()))));
 	$nc(isElem)->appendChild(inElem);
 	isElem->appendChild(snElem);
 	$nc(parent)->appendChild(isElem);
 }
 
 bool DOMX509IssuerSerial::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -142,7 +107,7 @@ bool DOMX509IssuerSerial::equals(Object$* obj) {
 	}
 	$var($X509IssuerSerial, ois, $cast($X509IssuerSerial, obj));
 	bool var$0 = $nc(this->issuerName)->equals($($nc(ois)->getIssuerName()));
-	return var$0 && $nc(this->serialNumber)->equals($($nc(ois)->getSerialNumber()));
+	return var$0 && $nc(this->serialNumber)->equals($(ois->getSerialNumber()));
 }
 
 int32_t DOMX509IssuerSerial::hashCode() {
@@ -156,7 +121,36 @@ DOMX509IssuerSerial::DOMX509IssuerSerial() {
 }
 
 $Class* DOMX509IssuerSerial::load$($String* name, bool initialize) {
-	$loadClass(DOMX509IssuerSerial, name, initialize, &_DOMX509IssuerSerial_ClassInfo_, allocate$DOMX509IssuerSerial);
+	$FieldInfo fieldInfos$$[] = {
+		{"issuerName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMX509IssuerSerial, issuerName)},
+		{"serialNumber", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(DOMX509IssuerSerial, serialNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DOMX509IssuerSerial, init$, void, $String*, $BigInteger*)},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMX509IssuerSerial, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, equals, bool, Object$*)},
+		{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, getIssuerName, $String*)},
+		{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, getSerialNumber, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMX509IssuerSerial",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.keyinfo.X509IssuerSerial",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMX509IssuerSerial, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMX509IssuerSerial));
+	});
 	return class$;
 }
 

@@ -66,6 +66,7 @@ class $export NamingManager : public ::java::lang::Object {
 	$class(NamingManager, 0, ::java::lang::Object)
 public:
 	NamingManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* createObjectFromFactories(Object$* obj, ::javax::naming::Name* name, ::javax::naming::Context* nameCtx, ::java::util::Hashtable* environment);
 	static ::javax::naming::Context* getContext(Object$* obj, ::javax::naming::Name* name, ::javax::naming::Context* nameCtx, ::java::util::Hashtable* environment);

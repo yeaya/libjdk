@@ -1,5 +1,4 @@
 #include <sun/rmi/server/Dispatcher.h>
-
 #include <java/rmi/Remote.h>
 #include <java/rmi/server/RemoteCall.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace sun {
 	namespace rmi {
 		namespace server {
 
-$MethodInfo _Dispatcher_MethodInfo_[] = {
-	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dispatcher, dispatch, void, $Remote*, $RemoteCall*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Dispatcher_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.rmi.server.Dispatcher",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Dispatcher_MethodInfo_
-};
-
-$Object* allocate$Dispatcher($Class* clazz) {
-	return $of($alloc(Dispatcher));
-}
-
 $Class* Dispatcher::load$($String* name, bool initialize) {
-	$loadClass(Dispatcher, name, initialize, &_Dispatcher_ClassInfo_, allocate$Dispatcher);
+	$MethodInfo methodInfos$$[] = {
+		{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dispatcher, dispatch, void, $Remote*, $RemoteCall*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.rmi.server.Dispatcher",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Dispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dispatcher);
+	});
 	return class$;
 }
 

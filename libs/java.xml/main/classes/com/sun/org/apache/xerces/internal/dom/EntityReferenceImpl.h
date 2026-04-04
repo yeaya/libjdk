@@ -92,7 +92,7 @@ public:
 	virtual $Object* setUserData($String* key, Object$* data, ::org::w3c::dom::UserDataHandler* handler) override;
 	virtual void synchronizeChildren() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x998FCFA53A035992;
+	static const int64_t serialVersionUID = (int64_t)0x998fcfa53a035992;
 	$String* name = nullptr;
 	$String* baseURI = nullptr;
 };

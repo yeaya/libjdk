@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CAccessible$AXChangeNotifier.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -34,48 +33,12 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CAccessible$AXChangeNotifier_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/macosx/CAccessible;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessible$AXChangeNotifier, this$0)},
-	{}
-};
-
-$MethodInfo _CAccessible$AXChangeNotifier_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/CAccessible;)V", nullptr, $PRIVATE, $method(CAccessible$AXChangeNotifier, init$, void, $CAccessible*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(CAccessible$AXChangeNotifier, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _CAccessible$AXChangeNotifier_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessible$AXChangeNotifier", "sun.lwawt.macosx.CAccessible", "AXChangeNotifier", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CAccessible$AXChangeNotifier_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessible$AXChangeNotifier",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_CAccessible$AXChangeNotifier_FieldInfo_,
-	_CAccessible$AXChangeNotifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CAccessible$AXChangeNotifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessible"
-};
-
-$Object* allocate$CAccessible$AXChangeNotifier($Class* clazz) {
-	return $of($alloc(CAccessible$AXChangeNotifier));
-}
-
 void CAccessible$AXChangeNotifier::init$($CAccessible* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void CAccessible$AXChangeNotifier::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getPropertyName());
 	if (this->this$0->ptr != 0) {
 		$var($Object, newValue, e->getNewValue());
@@ -98,25 +61,21 @@ void CAccessible$AXChangeNotifier::propertyChange($PropertyChangeEvent* e) {
 			$var($Accessible, parentAccessible, thisAC->getAccessibleParent());
 			$var($AccessibleRole, parentRole, nullptr);
 			if (parentAccessible != nullptr) {
-				$assign(parentRole, $nc($(parentAccessible->getAccessibleContext()))->getAccessibleRole());
+				$assign(parentRole, $$nc(parentAccessible->getAccessibleContext())->getAccessibleRole());
 			}
 			$init($AccessibleRole);
 			if (parentRole != $AccessibleRole::COMBO_BOX) {
 				if (thisRole == $AccessibleRole::POPUP_MENU) {
 					$init($AccessibleState);
-					if (newValue != nullptr && ($cast($AccessibleState, newValue)) == $AccessibleState::VISIBLE) {
+					if (newValue != nullptr && $cast($AccessibleState, newValue) == $AccessibleState::VISIBLE) {
 						$CAccessible::menuOpened(this->this$0->ptr);
-					} else {
-						if (oldValue != nullptr && ($cast($AccessibleState, oldValue)) == $AccessibleState::VISIBLE) {
-							$CAccessible::menuClosed(this->this$0->ptr);
-						}
+					} else if (oldValue != nullptr && $cast($AccessibleState, oldValue) == $AccessibleState::VISIBLE) {
+						$CAccessible::menuClosed(this->this$0->ptr);
 					}
-				} else {
-					if (thisRole == $AccessibleRole::MENU_ITEM) {
-						$init($AccessibleState);
-						if (newValue != nullptr && ($cast($AccessibleState, newValue)) == $AccessibleState::FOCUSED) {
-							$CAccessible::menuItemSelected(this->this$0->ptr);
-						}
+				} else if (thisRole == $AccessibleRole::MENU_ITEM) {
+					$init($AccessibleState);
+					if (newValue != nullptr && $cast($AccessibleState, newValue) == $AccessibleState::FOCUSED) {
+						$CAccessible::menuItemSelected(this->this$0->ptr);
 					}
 				}
 			}
@@ -128,7 +87,7 @@ void CAccessible$AXChangeNotifier::propertyChange($PropertyChangeEvent* e) {
 				$CAccessible::titleChanged(this->this$0->ptr);
 			}
 		} else if (name->compareTo("AccessibleValue"_s) == 0) {
-			$var($AccessibleRole, thisRole, $nc($($nc(this->this$0->accessible)->getAccessibleContext()))->getAccessibleRole());
+			$var($AccessibleRole, thisRole, $$nc($nc(this->this$0->accessible)->getAccessibleContext())->getAccessibleRole());
 			$init($AccessibleRole);
 			if (thisRole == $AccessibleRole::SLIDER || thisRole == $AccessibleRole::PROGRESS_BAR) {
 				$CAccessible::valueChanged(this->this$0->ptr);
@@ -141,7 +100,37 @@ CAccessible$AXChangeNotifier::CAccessible$AXChangeNotifier() {
 }
 
 $Class* CAccessible$AXChangeNotifier::load$($String* name, bool initialize) {
-	$loadClass(CAccessible$AXChangeNotifier, name, initialize, &_CAccessible$AXChangeNotifier_ClassInfo_, allocate$CAccessible$AXChangeNotifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/macosx/CAccessible;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessible$AXChangeNotifier, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CAccessible;)V", nullptr, $PRIVATE, $method(CAccessible$AXChangeNotifier, init$, void, $CAccessible*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(CAccessible$AXChangeNotifier, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessible$AXChangeNotifier", "sun.lwawt.macosx.CAccessible", "AXChangeNotifier", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessible$AXChangeNotifier",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessible"
+	};
+	$loadClass(CAccessible$AXChangeNotifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessible$AXChangeNotifier);
+	});
 	return class$;
 }
 

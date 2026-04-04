@@ -51,6 +51,7 @@ public:
 	virtual void finalize() override;
 	virtual ::java::awt::Font* getFont() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* label);
 	void init$($String* label, bool tearOff);
@@ -89,7 +90,7 @@ public:
 	$volatile(bool) isHelpMenu = false;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x85BE11E0ECE27978;
+	static const int64_t serialVersionUID = (int64_t)0x85be11e0ece27978;
 	int32_t menuSerializedDataVersion = 0;
 };
 

@@ -1,5 +1,4 @@
 #include <java/rmi/dgc/DGC.h>
-
 #include <java/rmi/dgc/Lease.h>
 #include <java/rmi/dgc/VMID.h>
 #include <java/rmi/server/ObjID.h>
@@ -17,27 +16,23 @@ namespace java {
 	namespace rmi {
 		namespace dgc {
 
-$MethodInfo _DGC_MethodInfo_[] = {
-	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DGC, clean, void, $ObjIDArray*, int64_t, $VMID*, bool), "java.rmi.RemoteException"},
-	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DGC, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*), "java.rmi.RemoteException"},
-	{}
-};
-
-$ClassInfo _DGC_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.rmi.dgc.DGC",
-	nullptr,
-	"java.rmi.Remote",
-	nullptr,
-	_DGC_MethodInfo_
-};
-
-$Object* allocate$DGC($Class* clazz) {
-	return $of($alloc(DGC));
-}
-
 $Class* DGC::load$($String* name, bool initialize) {
-	$loadClass(DGC, name, initialize, &_DGC_ClassInfo_, allocate$DGC);
+	$MethodInfo methodInfos$$[] = {
+		{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DGC, clean, void, $ObjIDArray*, int64_t, $VMID*, bool), "java.rmi.RemoteException"},
+		{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DGC, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*), "java.rmi.RemoteException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.rmi.dgc.DGC",
+		nullptr,
+		"java.rmi.Remote",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DGC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGC);
+	});
 	return class$;
 }
 

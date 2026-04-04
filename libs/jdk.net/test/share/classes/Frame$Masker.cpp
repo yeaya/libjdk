@@ -1,5 +1,4 @@
 #include <Frame$Masker.h>
-
 #include <Frame.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -16,51 +15,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 
-$FieldInfo _Frame$Masker_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Frame$Masker, $assertionsDisabled)},
-	{"acc", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(Frame$Masker, acc)},
-	{"maskBytes", "[I", nullptr, $PRIVATE | $FINAL, $field(Frame$Masker, maskBytes)},
-	{"offset", "I", nullptr, $PRIVATE, $field(Frame$Masker, offset)},
-	{"maskLong", "J", nullptr, $PRIVATE, $field(Frame$Masker, maskLong)},
-	{}
-};
-
-$MethodInfo _Frame$Masker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Frame$Masker, init$, void)},
-	{"begin", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, begin, void, $ByteBuffer*, $ByteBuffer*)},
-	{"end", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, end, void, $ByteBuffer*, $ByteBuffer*)},
-	{"loop", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, loop, void, $ByteBuffer*, $ByteBuffer*)},
-	{"mask", "(I)LFrame$Masker;", nullptr, 0, $method(Frame$Masker, mask, Frame$Masker*, int32_t)},
-	{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V", nullptr, $STATIC, $staticMethod(Frame$Masker, transferMasking, void, $ByteBuffer*, $ByteBuffer*, int32_t)},
-	{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)LFrame$Masker;", nullptr, 0, $method(Frame$Masker, transferMasking, Frame$Masker*, $ByteBuffer*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _Frame$Masker_InnerClassesInfo_[] = {
-	{"Frame$Masker", "Frame", "Masker", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Frame$Masker_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"Frame$Masker",
-	"java.lang.Object",
-	nullptr,
-	_Frame$Masker_FieldInfo_,
-	_Frame$Masker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Frame$Masker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Frame"
-};
-
-$Object* allocate$Frame$Masker($Class* clazz) {
-	return $of($alloc(Frame$Masker));
-}
-
 bool Frame$Masker::$assertionsDisabled = false;
 
 void Frame$Masker::init$() {
@@ -70,22 +24,22 @@ void Frame$Masker::init$() {
 
 void Frame$Masker::transferMasking($ByteBuffer* src, $ByteBuffer* dst, int32_t mask) {
 	$init(Frame$Masker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(src)->remaining();
 	if (var$0 > $nc(dst)->remaining()) {
 		$throwNew($IllegalArgumentException);
 	}
-	$nc($($$new(Frame$Masker)->mask(mask)))->transferMasking(src, dst);
+	$$nc($$new(Frame$Masker)->mask(mask))->transferMasking(src, dst);
 }
 
 Frame$Masker* Frame$Masker::mask(int32_t value) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc($($nc($($nc(this->acc)->clear()))->putInt(value)))->putInt(value)))->flip();
-	for (int32_t i = 0; i < $nc(this->maskBytes)->length; ++i) {
-		$nc(this->maskBytes)->set(i, $nc(this->acc)->get(i));
+	$useLocalObjectStack();
+	$$nc($$nc($$nc($nc(this->acc)->clear())->putInt(value))->putInt(value))->flip();
+	for (int32_t i = 0; i < this->maskBytes->length; ++i) {
+		this->maskBytes->set(i, this->acc->get(i));
 	}
 	this->offset = 0;
-	this->maskLong = $nc(this->acc)->getLong(0);
+	this->maskLong = this->acc->getLong(0);
 	return this;
 }
 
@@ -105,7 +59,7 @@ void Frame$Masker::begin($ByteBuffer* src, $ByteBuffer* dst) {
 	int32_t srcLim = src->limit();
 	int32_t dstLim = dst->limit();
 	for (; this->offset < 4 && i < srcLim && j < dstLim; ++i, ++j, ++this->offset) {
-		dst->put(j, (int8_t)(src->get(i) ^ $nc(this->maskBytes)->get(this->offset)));
+		dst->put(j, (int8_t)(src->get(i) ^ this->maskBytes->get(this->offset)));
 	}
 	this->offset &= (uint32_t)3;
 	src->position(i);
@@ -145,14 +99,14 @@ void Frame$Masker::end($ByteBuffer* src, $ByteBuffer* dst) {
 	int32_t dstLim = $nc(dst)->limit();
 	int32_t i = src->position();
 	int32_t j = dst->position();
-	for (; i < srcLim && j < dstLim; ++i, ++j, this->offset = (int32_t)((this->offset + 1) & (uint32_t)3)) {
-		dst->put(j, (int8_t)(src->get(i) ^ $nc(this->maskBytes)->get(this->offset)));
+	for (; i < srcLim && j < dstLim; ++i, ++j, this->offset = (this->offset + 1) & 3) {
+		dst->put(j, (int8_t)(src->get(i) ^ this->maskBytes->get(this->offset)));
 	}
 	src->position(i);
 	dst->position(j);
 }
 
-void clinit$Frame$Masker($Class* class$) {
+void Frame$Masker::clinit$($Class* clazz) {
 	$load($Frame);
 	Frame$Masker::$assertionsDisabled = !$Frame::class$->desiredAssertionStatus();
 }
@@ -161,7 +115,46 @@ Frame$Masker::Frame$Masker() {
 }
 
 $Class* Frame$Masker::load$($String* name, bool initialize) {
-	$loadClass(Frame$Masker, name, initialize, &_Frame$Masker_ClassInfo_, clinit$Frame$Masker, allocate$Frame$Masker);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Frame$Masker, $assertionsDisabled)},
+		{"acc", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(Frame$Masker, acc)},
+		{"maskBytes", "[I", nullptr, $PRIVATE | $FINAL, $field(Frame$Masker, maskBytes)},
+		{"offset", "I", nullptr, $PRIVATE, $field(Frame$Masker, offset)},
+		{"maskLong", "J", nullptr, $PRIVATE, $field(Frame$Masker, maskLong)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Frame$Masker, init$, void)},
+		{"begin", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, begin, void, $ByteBuffer*, $ByteBuffer*)},
+		{"end", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, end, void, $ByteBuffer*, $ByteBuffer*)},
+		{"loop", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, loop, void, $ByteBuffer*, $ByteBuffer*)},
+		{"mask", "(I)LFrame$Masker;", nullptr, 0, $method(Frame$Masker, mask, Frame$Masker*, int32_t)},
+		{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V", nullptr, $STATIC, $staticMethod(Frame$Masker, transferMasking, void, $ByteBuffer*, $ByteBuffer*, int32_t)},
+		{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)LFrame$Masker;", nullptr, 0, $method(Frame$Masker, transferMasking, Frame$Masker*, $ByteBuffer*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Frame$Masker", "Frame", "Masker", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"Frame$Masker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Frame"
+	};
+	$loadClass(Frame$Masker, name, initialize, &classInfo$$, Frame$Masker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Frame$Masker);
+	});
 	return class$;
 }
 

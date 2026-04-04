@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TestSupport$ThrowingProcedure.h>
-
 #include <jdk/internal/net/http/websocket/TestSupport.h>
 #include <jcpp.h>
 
@@ -13,38 +12,33 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$MethodInfo _TestSupport$ThrowingProcedure_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$ThrowingProcedure, run, void), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _TestSupport$ThrowingProcedure_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TestSupport$ThrowingProcedure", "jdk.internal.net.http.websocket.TestSupport", "ThrowingProcedure", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestSupport$ThrowingProcedure_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.websocket.TestSupport$ThrowingProcedure",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestSupport$ThrowingProcedure_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestSupport$ThrowingProcedure_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TestSupport"
-};
-
-$Object* allocate$TestSupport$ThrowingProcedure($Class* clazz) {
-	return $of($alloc(TestSupport$ThrowingProcedure));
-}
-
 $Class* TestSupport$ThrowingProcedure::load$($String* name, bool initialize) {
-	$loadClass(TestSupport$ThrowingProcedure, name, initialize, &_TestSupport$ThrowingProcedure_ClassInfo_, allocate$TestSupport$ThrowingProcedure);
+	$MethodInfo methodInfos$$[] = {
+		{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$ThrowingProcedure, run, void), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TestSupport$ThrowingProcedure", "jdk.internal.net.http.websocket.TestSupport", "ThrowingProcedure", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.websocket.TestSupport$ThrowingProcedure",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TestSupport"
+	};
+	$loadClass(TestSupport$ThrowingProcedure, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSupport$ThrowingProcedure);
+	});
 	return class$;
 }
 

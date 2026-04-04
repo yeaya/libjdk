@@ -34,6 +34,7 @@ class QuickHuffman : public ::java::lang::Object {
 	$class(QuickHuffman, 0, ::java::lang::Object)
 public:
 	QuickHuffman();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addChar(::jdk::internal::net::http::hpack::QuickHuffman$Node* root, int32_t symbol, int32_t code, int32_t bitLength);
 	static void addEOS(::jdk::internal::net::http::hpack::QuickHuffman$Node* root, int32_t symbol, int32_t code, int32_t bitLength);
@@ -44,7 +45,7 @@ public:
 	static bool $assertionsDisabled;
 	static $longs* codes;
 	static const int32_t EOS_LENGTH = 30;
-	static const int32_t EOS_LSB = 0x3FFFFFFF;
+	static const int32_t EOS_LSB = 0x3fffffff;
 	static const int64_t EOS_MSB = -17179869184; // ((long)EOS_LSB) << (64 - EOS_LENGTH)
 	static ::jdk::internal::net::http::hpack::QuickHuffman$Node* root;
 };

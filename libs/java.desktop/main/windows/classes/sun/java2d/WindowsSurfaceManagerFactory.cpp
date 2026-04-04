@@ -1,5 +1,4 @@
 #include <sun/java2d/WindowsSurfaceManagerFactory.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <sun/awt/image/BufImgVolatileSurfaceManager.h>
 #include <sun/awt/image/SunVolatileImage.h>
@@ -26,25 +25,6 @@ using $WGLVolatileSurfaceManager = ::sun::java2d::opengl::WGLVolatileSurfaceMana
 namespace sun {
 	namespace java2d {
 
-$MethodInfo _WindowsSurfaceManagerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSurfaceManagerFactory, init$, void)},
-	{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC, $virtualMethod(WindowsSurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
-	{}
-};
-
-$ClassInfo _WindowsSurfaceManagerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.WindowsSurfaceManagerFactory",
-	"sun.java2d.SurfaceManagerFactory",
-	nullptr,
-	nullptr,
-	_WindowsSurfaceManagerFactory_MethodInfo_
-};
-
-$Object* allocate$WindowsSurfaceManagerFactory($Class* clazz) {
-	return $of($alloc(WindowsSurfaceManagerFactory));
-}
-
 void WindowsSurfaceManagerFactory::init$() {
 	$SurfaceManagerFactory::init$();
 }
@@ -64,7 +44,22 @@ WindowsSurfaceManagerFactory::WindowsSurfaceManagerFactory() {
 }
 
 $Class* WindowsSurfaceManagerFactory::load$($String* name, bool initialize) {
-	$loadClass(WindowsSurfaceManagerFactory, name, initialize, &_WindowsSurfaceManagerFactory_ClassInfo_, allocate$WindowsSurfaceManagerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSurfaceManagerFactory, init$, void)},
+		{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC, $virtualMethod(WindowsSurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.WindowsSurfaceManagerFactory",
+		"sun.java2d.SurfaceManagerFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsSurfaceManagerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSurfaceManagerFactory);
+	});
 	return class$;
 }
 

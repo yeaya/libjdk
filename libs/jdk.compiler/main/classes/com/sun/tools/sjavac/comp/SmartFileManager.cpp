@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/SmartFileManager.h>
-
 #include <com/sun/tools/javac/file/JavacFileManager.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <com/sun/tools/sjavac/comp/FileObjectWithLocation.h>
@@ -9,8 +8,6 @@
 #include <java/lang/Iterable.h>
 #include <java/net/URI.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractQueue.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -43,8 +40,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractQueue = ::java::util::AbstractQueue;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -64,59 +59,6 @@ namespace com {
 			namespace sjavac {
 				namespace comp {
 
-$CompoundAttribute _SmartFileManager_Annotations_[] = {
-	{"Lcom/sun/tools/javac/api/ClientCodeWrapper$Trusted;", nullptr},
-	{}
-};
-
-$FieldInfo _SmartFileManager_FieldInfo_[] = {
-	{"visibleSources", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URI;>;", 0, $field(SmartFileManager, visibleSources)},
-	{"packageArtifacts", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;", 0, $field(SmartFileManager, packageArtifacts)},
-	{}
-};
-
-$MethodInfo _SmartFileManager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileManager;)V", nullptr, $PUBLIC, $method(SmartFileManager, init$, void, $JavaFileManager*)},
-	{"addArtifact", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $virtualMethod(SmartFileManager, addArtifact, void, $String*, $URI*)},
-	{"cleanArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, cleanArtifacts, void)},
-	{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
-	{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
-	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
-	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
-	{"getPackageArtifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;", $PUBLIC, $virtualMethod(SmartFileManager, getPackageArtifacts, $Map*)},
-	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
-	{"isModuleInfo", "(Ljavax/tools/FileObject;)Z", nullptr, $PRIVATE, $method(SmartFileManager, isModuleInfo, bool, $FileObject*)},
-	{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, isSameFile, bool, $FileObject*, $FileObject*)},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(SmartFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
-	{"locUnwrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locUnwrap, $FileObject*, $FileObject*)},
-	{"locUnwrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locUnwrap, $JavaFileObject*, $JavaFileObject*)},
-	{"locWrap", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileManager$Location;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(SmartFileManager, locWrap, $JavaFileObject*, $JavaFileObject*, $JavaFileManager$Location*)},
-	{"locWrap", "(Ljavax/tools/FileObject;Ljavax/tools/JavaFileManager$Location;)Ljavax/tools/FileObject;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locWrap, $FileObject*, $FileObject*, $JavaFileManager$Location*)},
-	{"locWrapMany", "(Ljava/lang/Iterable;Ljavax/tools/JavaFileManager$Location;)Lcom/sun/tools/javac/util/ListBuffer;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;Ljavax/tools/JavaFileManager$Location;)Lcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locWrapMany, $ListBuffer*, $Iterable*, $JavaFileManager$Location*)},
-	{"packageNameFromFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, packageNameFromFileName, $String*, $String*)},
-	{"setSymbolFileEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, setSymbolFileEnabled, void, bool)},
-	{"setVisibleSources", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/URI;>;)V", $PUBLIC, $virtualMethod(SmartFileManager, setVisibleSources, void, $Set*)},
-	{}
-};
-
-$ClassInfo _SmartFileManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.SmartFileManager",
-	"javax.tools.ForwardingJavaFileManager",
-	nullptr,
-	_SmartFileManager_FieldInfo_,
-	_SmartFileManager_MethodInfo_,
-	"Ljavax/tools/ForwardingJavaFileManager<Ljavax/tools/JavaFileManager;>;",
-	nullptr,
-	nullptr,
-	_SmartFileManager_Annotations_
-};
-
-$Object* allocate$SmartFileManager($Class* clazz) {
-	return $of($alloc(SmartFileManager));
-}
-
 void SmartFileManager::init$($JavaFileManager* fileManager) {
 	$ForwardingJavaFileManager::init$(fileManager);
 	$set(this, visibleSources, $new($HashSet));
@@ -132,7 +74,7 @@ void SmartFileManager::cleanArtifacts() {
 }
 
 void SmartFileManager::setSymbolFileEnabled(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavacFileManager, javacFileManager, nullptr);
 	$var($JavaFileManager, patt3109$temp, this->fileManager);
 	bool var$0 = $instanceOf($JavacFileManager, patt3109$temp);
@@ -155,10 +97,10 @@ $Map* SmartFileManager::getPackageArtifacts() {
 }
 
 $Iterable* SmartFileManager::list($JavaFileManager$Location* location, $String* packageName, $Set* kinds, bool recurse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterable, files, $ForwardingJavaFileManager::list(location, packageName, kinds, recurse));
 	if ($nc(this->visibleSources)->isEmpty()) {
-		return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(locWrapMany(files, location)))));
+		return $cast($AbstractCollection, locWrapMany(files, location));
 	}
 	$var($ListBuffer, filteredFiles, $new($ListBuffer));
 	{
@@ -169,18 +111,18 @@ $Iterable* SmartFileManager::list($JavaFileManager$Location* location, $String* 
 				$var($URI, uri, $nc(f)->toUri());
 				$var($String, t, $nc(uri)->toString());
 				bool var$1 = $nc(t)->startsWith("jar:"_s);
-				bool var$0 = var$1 || $nc(t)->endsWith(".class"_s);
+				bool var$0 = var$1 || t->endsWith(".class"_s);
 				if (var$0 || $nc(this->visibleSources)->contains(uri)) {
 					filteredFiles->add(f);
 				}
 			}
 		}
 	}
-	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(locWrapMany(static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(filteredFiles)))), location)))));
+	return $cast($AbstractCollection, locWrapMany($cast($AbstractCollection, filteredFiles), location));
 }
 
 $JavaFileObject* SmartFileManager::getJavaFileForInput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, file, $ForwardingJavaFileManager::getJavaFileForInput(location, className, kind));
 	$assign(file, locWrap(file, location));
 	if (file == nullptr || $nc(this->visibleSources)->isEmpty()) {
@@ -194,13 +136,13 @@ $JavaFileObject* SmartFileManager::getJavaFileForInput($JavaFileManager$Location
 }
 
 $JavaFileObject* SmartFileManager::getJavaFileForOutput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind, $FileObject* sibling) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, file, $ForwardingJavaFileManager::getJavaFileForOutput(location, className, kind, sibling));
 	$assign(file, locWrap(file, location));
 	if (file == nullptr) {
 		return file;
 	}
-	int32_t dp = $nc(className)->lastIndexOf((int32_t)u'.');
+	int32_t dp = $nc(className)->lastIndexOf(u'.');
 	$var($String, pkg_name, ""_s);
 	if (dp != -1) {
 		$assign(pkg_name, className->substring(0, dp));
@@ -211,7 +153,7 @@ $JavaFileObject* SmartFileManager::getJavaFileForOutput($JavaFileManager$Locatio
 }
 
 $FileObject* SmartFileManager::getFileForInput($JavaFileManager$Location* location, $String* packageName, $String* relativeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileObject, file, $ForwardingJavaFileManager::getFileForInput(location, packageName, relativeName));
 	$assign(file, locWrap(file, location));
 	if (file == nullptr || $nc(this->visibleSources)->isEmpty()) {
@@ -231,17 +173,17 @@ bool SmartFileManager::isModuleInfo($FileObject* fo) {
 		$assign(javaFileObject, $cast($JavaFileObject, fo));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (var$0) {
 		$init($JavaFileObject$Kind);
 		bool var$2 = $nc(javaFileObject)->isNameCompatible("module-info"_s, $JavaFileObject$Kind::SOURCE);
-		var$0 = (var$2 || $nc(javaFileObject)->isNameCompatible("module-info"_s, $JavaFileObject$Kind::CLASS));
+		var$0 = var$2 || javaFileObject->isNameCompatible("module-info"_s, $JavaFileObject$Kind::CLASS);
 	}
 	return var$0;
 }
 
 $FileObject* SmartFileManager::getFileForOutput($JavaFileManager$Location* location, $String* packageName$renamed, $String* relativeName, $FileObject* sibling) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, packageName, packageName$renamed);
 	$var($FileObject, superFile, $ForwardingJavaFileManager::getFileForOutput(location, packageName, relativeName, sibling));
 	$var($FileObject, file, locWrap(superFile, location));
@@ -266,9 +208,9 @@ $JavaFileManager$Location* SmartFileManager::getLocationForModule($JavaFileManag
 
 $String* SmartFileManager::packageNameFromFileName($String* fn) {
 	$init(SmartFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	int32_t p = $nc(fn)->indexOf((int32_t)u'_');
+	int32_t p = $nc(fn)->indexOf(u'_');
 	int32_t pp = 0;
 	while (p != -1) {
 		if (sb->length() > 0) {
@@ -279,7 +221,7 @@ $String* SmartFileManager::packageNameFromFileName($String* fn) {
 			break;
 		}
 		pp = p + 1;
-		p = fn->indexOf((int32_t)u'_', pp);
+		p = fn->indexOf(u'_', pp);
 	}
 	return sb->toString();
 }
@@ -288,7 +230,7 @@ void SmartFileManager::addArtifact($String* pkgName, $URI* art) {
 	$var($Set, s, $cast($Set, $nc(this->packageArtifacts)->get(pkgName)));
 	if (s == nullptr) {
 		$assign(s, $new($HashSet));
-		$nc(this->packageArtifacts)->put(pkgName, s);
+		this->packageArtifacts->put(pkgName, s);
 	}
 	$nc(s)->add(art);
 }
@@ -299,7 +241,7 @@ $JavaFileObject* SmartFileManager::locWrap($JavaFileObject* jfo, $JavaFileManage
 	if ($equals(loc, $StandardLocation::PLATFORM_CLASS_PATH)) {
 		return jfo;
 	}
-	return jfo == nullptr ? ($JavaFileObject*)nullptr : static_cast<$JavaFileObject*>($new($JavaFileObjectWithLocation, jfo, loc));
+	return jfo == nullptr ? ($JavaFileObject*)nullptr : $cast($JavaFileObject, $new($JavaFileObjectWithLocation, jfo, loc));
 }
 
 $FileObject* SmartFileManager::locWrap($FileObject* fo, $JavaFileManager$Location* loc) {
@@ -315,18 +257,18 @@ $FileObject* SmartFileManager::locWrap($FileObject* fo, $JavaFileManager$Locatio
 			return locWrap(javaFileObject, loc);
 		}
 	}
-	return fo == nullptr ? ($FileObject*)nullptr : static_cast<$FileObject*>($new($FileObjectWithLocation, fo, loc));
+	return fo == nullptr ? ($FileObject*)nullptr : $cast($FileObject, $new($FileObjectWithLocation, fo, loc));
 }
 
 bool SmartFileManager::isSameFile($FileObject* a, $FileObject* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileObject, var$0, locUnwrap(a));
 	return $ForwardingJavaFileManager::isSameFile(var$0, $(locUnwrap(b)));
 }
 
 $ListBuffer* SmartFileManager::locWrapMany($Iterable* jfos, $JavaFileManager$Location* loc) {
 	$init(SmartFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, locWrapped, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(jfos)->iterator());
@@ -340,7 +282,7 @@ $ListBuffer* SmartFileManager::locWrapMany($Iterable* jfos, $JavaFileManager$Loc
 
 $FileObject* SmartFileManager::locUnwrap($FileObject* fo) {
 	$init(SmartFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($FileObjectWithLocation, fileObjectWithLocation, nullptr);
 		bool var$0 = $instanceOf($FileObjectWithLocation, fo);
@@ -386,7 +328,54 @@ SmartFileManager::SmartFileManager() {
 }
 
 $Class* SmartFileManager::load$($String* name, bool initialize) {
-	$loadClass(SmartFileManager, name, initialize, &_SmartFileManager_ClassInfo_, allocate$SmartFileManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"visibleSources", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URI;>;", 0, $field(SmartFileManager, visibleSources)},
+		{"packageArtifacts", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;", 0, $field(SmartFileManager, packageArtifacts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileManager;)V", nullptr, $PUBLIC, $method(SmartFileManager, init$, void, $JavaFileManager*)},
+		{"addArtifact", "(Ljava/lang/String;Ljava/net/URI;)V", nullptr, 0, $virtualMethod(SmartFileManager, addArtifact, void, $String*, $URI*)},
+		{"cleanArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, cleanArtifacts, void)},
+		{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
+		{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
+		{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
+		{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
+		{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
+		{"getPackageArtifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;", $PUBLIC, $virtualMethod(SmartFileManager, getPackageArtifacts, $Map*)},
+		{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
+		{"isModuleInfo", "(Ljavax/tools/FileObject;)Z", nullptr, $PRIVATE, $method(SmartFileManager, isModuleInfo, bool, $FileObject*)},
+		{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, isSameFile, bool, $FileObject*, $FileObject*)},
+		{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(SmartFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
+		{"locUnwrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locUnwrap, $FileObject*, $FileObject*)},
+		{"locUnwrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locUnwrap, $JavaFileObject*, $JavaFileObject*)},
+		{"locWrap", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileManager$Location;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(SmartFileManager, locWrap, $JavaFileObject*, $JavaFileObject*, $JavaFileManager$Location*)},
+		{"locWrap", "(Ljavax/tools/FileObject;Ljavax/tools/JavaFileManager$Location;)Ljavax/tools/FileObject;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locWrap, $FileObject*, $FileObject*, $JavaFileManager$Location*)},
+		{"locWrapMany", "(Ljava/lang/Iterable;Ljavax/tools/JavaFileManager$Location;)Lcom/sun/tools/javac/util/ListBuffer;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;Ljavax/tools/JavaFileManager$Location;)Lcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $STATIC, $staticMethod(SmartFileManager, locWrapMany, $ListBuffer*, $Iterable*, $JavaFileManager$Location*)},
+		{"packageNameFromFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SmartFileManager, packageNameFromFileName, $String*, $String*)},
+		{"setSymbolFileEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SmartFileManager, setSymbolFileEnabled, void, bool)},
+		{"setVisibleSources", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/URI;>;)V", $PUBLIC, $virtualMethod(SmartFileManager, setVisibleSources, void, $Set*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Lcom/sun/tools/javac/api/ClientCodeWrapper$Trusted;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.SmartFileManager",
+		"javax.tools.ForwardingJavaFileManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/tools/ForwardingJavaFileManager<Ljavax/tools/JavaFileManager;>;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SmartFileManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SmartFileManager));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -25,48 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, this$1)},
-	{"isVoidCompatible", "Z", nullptr, 0, $field(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, isVoidCompatible)},
-	{"isPotentiallyValueCompatible", "Z", nullptr, 0, $field(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, isPotentiallyValueCompatible)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, init$, void, $DeferredAttr$DeferredAttrNode*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitReturn, void, $JCTree$JCReturn*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrNode", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "LambdaBodyStructChecker", 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_FieldInfo_,
-	_DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker));
-}
 
 void DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker::init$($DeferredAttr$DeferredAttrNode* this$1) {
 	$set(this, this$1, this$1);
@@ -96,7 +53,43 @@ DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker::DeferredAttr$DeferredAttr
 }
 
 $Class* DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, name, initialize, &_DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_ClassInfo_, allocate$DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, this$1)},
+		{"isVoidCompatible", "Z", nullptr, 0, $field(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, isVoidCompatible)},
+		{"isPotentiallyValueCompatible", "Z", nullptr, 0, $field(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, isPotentiallyValueCompatible)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, init$, void, $DeferredAttr$DeferredAttrNode*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitReturn, void, $JCTree$JCReturn*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrNode", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "LambdaBodyStructChecker", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker);
+	});
 	return class$;
 }
 

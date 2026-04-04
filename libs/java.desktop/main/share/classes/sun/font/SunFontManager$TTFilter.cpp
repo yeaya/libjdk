@@ -1,5 +1,4 @@
 #include <sun/font/SunFontManager$TTFilter.h>
-
 #include <java/io/File.h>
 #include <sun/font/SunFontManager.h>
 #include <jcpp.h>
@@ -11,37 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _SunFontManager$TTFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SunFontManager$TTFilter, init$, void)},
-	{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager$TTFilter, accept, bool, $File*, $String*)},
-	{}
-};
-
-$InnerClassInfo _SunFontManager$TTFilter_InnerClassesInfo_[] = {
-	{"sun.font.SunFontManager$TTFilter", "sun.font.SunFontManager", "TTFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SunFontManager$TTFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.SunFontManager$TTFilter",
-	"java.lang.Object",
-	"java.io.FilenameFilter",
-	nullptr,
-	_SunFontManager$TTFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunFontManager$TTFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.SunFontManager"
-};
-
-$Object* allocate$SunFontManager$TTFilter($Class* clazz) {
-	return $of($alloc(SunFontManager$TTFilter));
-}
 
 void SunFontManager$TTFilter::init$() {
 }
@@ -64,7 +32,33 @@ SunFontManager$TTFilter::SunFontManager$TTFilter() {
 }
 
 $Class* SunFontManager$TTFilter::load$($String* name, bool initialize) {
-	$loadClass(SunFontManager$TTFilter, name, initialize, &_SunFontManager$TTFilter_ClassInfo_, allocate$SunFontManager$TTFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SunFontManager$TTFilter, init$, void)},
+		{"accept", "(Ljava/io/File;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager$TTFilter, accept, bool, $File*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.SunFontManager$TTFilter", "sun.font.SunFontManager", "TTFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.SunFontManager$TTFilter",
+		"java.lang.Object",
+		"java.io.FilenameFilter",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.SunFontManager"
+	};
+	$loadClass(SunFontManager$TTFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunFontManager$TTFilter);
+	});
 	return class$;
 }
 

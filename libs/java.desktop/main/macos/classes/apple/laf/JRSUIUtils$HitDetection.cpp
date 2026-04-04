@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIUtils$HitDetection.h>
-
 #include <apple/laf/JRSUIConstants$Hit.h>
 #include <apple/laf/JRSUIControl.h>
 #include <apple/laf/JRSUIUtils.h>
@@ -14,37 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$MethodInfo _JRSUIUtils$HitDetection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$HitDetection, init$, void)},
-	{"getHitForPoint", "(Lapple/laf/JRSUIControl;IIIIII)Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$HitDetection, getHitForPoint, $JRSUIConstants$Hit*, $JRSUIControl*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JRSUIUtils$HitDetection_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIUtils$HitDetection", "apple.laf.JRSUIUtils", "HitDetection", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIUtils$HitDetection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIUtils$HitDetection",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JRSUIUtils$HitDetection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIUtils$HitDetection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIUtils"
-};
-
-$Object* allocate$JRSUIUtils$HitDetection($Class* clazz) {
-	return $of($alloc(JRSUIUtils$HitDetection));
-}
-
 void JRSUIUtils$HitDetection::init$() {
 }
 
@@ -56,7 +24,33 @@ JRSUIUtils$HitDetection::JRSUIUtils$HitDetection() {
 }
 
 $Class* JRSUIUtils$HitDetection::load$($String* name, bool initialize) {
-	$loadClass(JRSUIUtils$HitDetection, name, initialize, &_JRSUIUtils$HitDetection_ClassInfo_, allocate$JRSUIUtils$HitDetection);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$HitDetection, init$, void)},
+		{"getHitForPoint", "(Lapple/laf/JRSUIControl;IIIIII)Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$HitDetection, getHitForPoint, $JRSUIConstants$Hit*, $JRSUIControl*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIUtils$HitDetection", "apple.laf.JRSUIUtils", "HitDetection", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIUtils$HitDetection",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIUtils"
+	};
+	$loadClass(JRSUIUtils$HitDetection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIUtils$HitDetection);
+	});
 	return class$;
 }
 

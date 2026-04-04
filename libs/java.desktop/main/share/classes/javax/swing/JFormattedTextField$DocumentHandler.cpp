@@ -1,5 +1,4 @@
 #include <javax/swing/JFormattedTextField$DocumentHandler.h>
-
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/event/DocumentListener.h>
@@ -15,49 +14,6 @@ using $DocumentListener = ::javax::swing::event::DocumentListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JFormattedTextField$DocumentHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JFormattedTextField;", nullptr, $FINAL | $SYNTHETIC, $field(JFormattedTextField$DocumentHandler, this$0)},
-	{}
-};
-
-$MethodInfo _JFormattedTextField$DocumentHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JFormattedTextField;)V", nullptr, $PRIVATE, $method(JFormattedTextField$DocumentHandler, init$, void, $JFormattedTextField*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$DocumentHandler, changedUpdate, void, $DocumentEvent*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$DocumentHandler, insertUpdate, void, $DocumentEvent*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$DocumentHandler, removeUpdate, void, $DocumentEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JFormattedTextField$DocumentHandler_InnerClassesInfo_[] = {
-	{"javax.swing.JFormattedTextField$DocumentHandler", "javax.swing.JFormattedTextField", "DocumentHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JFormattedTextField$DocumentHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JFormattedTextField$DocumentHandler",
-	"java.lang.Object",
-	"javax.swing.event.DocumentListener,java.io.Serializable",
-	_JFormattedTextField$DocumentHandler_FieldInfo_,
-	_JFormattedTextField$DocumentHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFormattedTextField$DocumentHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JFormattedTextField"
-};
-
-$Object* allocate$JFormattedTextField$DocumentHandler($Class* clazz) {
-	return $of($alloc(JFormattedTextField$DocumentHandler));
-}
 
 int32_t JFormattedTextField$DocumentHandler::hashCode() {
 	 return this->$DocumentListener::hashCode();
@@ -98,7 +54,44 @@ JFormattedTextField$DocumentHandler::JFormattedTextField$DocumentHandler() {
 }
 
 $Class* JFormattedTextField$DocumentHandler::load$($String* name, bool initialize) {
-	$loadClass(JFormattedTextField$DocumentHandler, name, initialize, &_JFormattedTextField$DocumentHandler_ClassInfo_, allocate$JFormattedTextField$DocumentHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JFormattedTextField;", nullptr, $FINAL | $SYNTHETIC, $field(JFormattedTextField$DocumentHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JFormattedTextField;)V", nullptr, $PRIVATE, $method(JFormattedTextField$DocumentHandler, init$, void, $JFormattedTextField*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$DocumentHandler, changedUpdate, void, $DocumentEvent*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$DocumentHandler, insertUpdate, void, $DocumentEvent*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$DocumentHandler, removeUpdate, void, $DocumentEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JFormattedTextField$DocumentHandler", "javax.swing.JFormattedTextField", "DocumentHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JFormattedTextField$DocumentHandler",
+		"java.lang.Object",
+		"javax.swing.event.DocumentListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JFormattedTextField"
+	};
+	$loadClass(JFormattedTextField$DocumentHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JFormattedTextField$DocumentHandler));
+	});
 	return class$;
 }
 

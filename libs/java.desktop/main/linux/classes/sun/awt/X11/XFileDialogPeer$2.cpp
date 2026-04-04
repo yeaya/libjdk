@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XFileDialogPeer$2.h>
-
 #include <java/awt/Choice.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/TextField.h>
@@ -8,7 +7,6 @@
 
 using $Choice = ::java::awt::Choice;
 using $Dimension = ::java::awt::Dimension;
-using $TextField = ::java::awt::TextField;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,48 +17,6 @@ using $XFileDialogPeer = ::sun::awt::X11::XFileDialogPeer;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XFileDialogPeer$2_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XFileDialogPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XFileDialogPeer$2, this$0)},
-	{}
-};
-
-$MethodInfo _XFileDialogPeer$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XFileDialogPeer;)V", nullptr, 0, $method(XFileDialogPeer$2, init$, void, $XFileDialogPeer*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer$2, getPreferredSize, $Dimension*)},
-	{}
-};
-
-$EnclosingMethodInfo _XFileDialogPeer$2_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XFileDialogPeer",
-	"init",
-	"(Ljava/awt/FileDialog;)V"
-};
-
-$InnerClassInfo _XFileDialogPeer$2_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XFileDialogPeer$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XFileDialogPeer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XFileDialogPeer$2",
-	"java.awt.Choice",
-	nullptr,
-	_XFileDialogPeer$2_FieldInfo_,
-	_XFileDialogPeer$2_MethodInfo_,
-	nullptr,
-	&_XFileDialogPeer$2_EnclosingMethodInfo_,
-	_XFileDialogPeer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XFileDialogPeer"
-};
-
-$Object* allocate$XFileDialogPeer$2($Class* clazz) {
-	return $of($alloc(XFileDialogPeer$2));
-}
 
 void XFileDialogPeer$2::init$($XFileDialogPeer* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +31,42 @@ XFileDialogPeer$2::XFileDialogPeer$2() {
 }
 
 $Class* XFileDialogPeer$2::load$($String* name, bool initialize) {
-	$loadClass(XFileDialogPeer$2, name, initialize, &_XFileDialogPeer$2_ClassInfo_, allocate$XFileDialogPeer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XFileDialogPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XFileDialogPeer$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XFileDialogPeer;)V", nullptr, 0, $method(XFileDialogPeer$2, init$, void, $XFileDialogPeer*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XFileDialogPeer$2, getPreferredSize, $Dimension*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XFileDialogPeer",
+		"init",
+		"(Ljava/awt/FileDialog;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XFileDialogPeer$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XFileDialogPeer$2",
+		"java.awt.Choice",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XFileDialogPeer"
+	};
+	$loadClass(XFileDialogPeer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XFileDialogPeer$2));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/SystemPropertyTree.h>
-
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _SystemPropertyTree_MethodInfo_[] = {
-	{"getPropertyName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemPropertyTree, getPropertyName, $Name*)},
-	{}
-};
-
-$ClassInfo _SystemPropertyTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.SystemPropertyTree",
-	nullptr,
-	"com.sun.source.doctree.InlineTagTree",
-	nullptr,
-	_SystemPropertyTree_MethodInfo_
-};
-
-$Object* allocate$SystemPropertyTree($Class* clazz) {
-	return $of($alloc(SystemPropertyTree));
-}
-
 $Class* SystemPropertyTree::load$($String* name, bool initialize) {
-	$loadClass(SystemPropertyTree, name, initialize, &_SystemPropertyTree_ClassInfo_, allocate$SystemPropertyTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getPropertyName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemPropertyTree, getPropertyName, $Name*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.SystemPropertyTree",
+		nullptr,
+		"com.sun.source.doctree.InlineTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemPropertyTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemPropertyTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/geom/RectangularShape.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -34,58 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$CompoundAttribute _RectangularShape_MethodAnnotations_getFrame7[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$MethodInfo _RectangularShape_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RectangularShape, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, clone, $Object*)},
-	{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(RectangularShape, contains, bool, $Point2D*)},
-	{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(RectangularShape, contains, bool, $Rectangle2D*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getBounds, $Rectangle*)},
-	{"getCenterX", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getCenterX, double)},
-	{"getCenterY", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getCenterY, double)},
-	{"getFrame", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getFrame, $Rectangle2D*), nullptr, nullptr, _RectangularShape_MethodAnnotations_getFrame7},
-	{"getHeight", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getHeight, double)},
-	{"getMaxX", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMaxX, double)},
-	{"getMaxY", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMaxY, double)},
-	{"getMinX", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMinX, double)},
-	{"getMinY", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMinY, double)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getPathIterator, $PathIterator*, $AffineTransform*, double)},
-	{"getWidth", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getWidth, double)},
-	{"getX", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getY, double)},
-	{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(RectangularShape, intersects, bool, $Rectangle2D*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, isEmpty, bool)},
-	{"setFrame", "(DDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, setFrame, void, double, double, double, double)},
-	{"setFrame", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Dimension2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrame, void, $Point2D*, $Dimension2D*)},
-	{"setFrame", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrame, void, $Rectangle2D*)},
-	{"setFrameFromCenter", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromCenter, void, double, double, double, double)},
-	{"setFrameFromCenter", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromCenter, void, $Point2D*, $Point2D*)},
-	{"setFrameFromDiagonal", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromDiagonal, void, double, double, double, double)},
-	{"setFrameFromDiagonal", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromDiagonal, void, $Point2D*, $Point2D*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _RectangularShape_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.RectangularShape",
-	"java.lang.Object",
-	"java.awt.Shape,java.lang.Cloneable",
-	nullptr,
-	_RectangularShape_MethodInfo_
-};
-
-$Object* allocate$RectangularShape($Class* clazz) {
-	return $of($alloc(RectangularShape));
-}
 
 int32_t RectangularShape::hashCode() {
 	 return this->$Shape::hashCode();
@@ -229,9 +176,9 @@ $PathIterator* RectangularShape::getPathIterator($AffineTransform* at, double fl
 
 $Object* RectangularShape::clone() {
 	try {
-		return $of($Shape::clone());
+		return $Shape::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -240,7 +187,54 @@ RectangularShape::RectangularShape() {
 }
 
 $Class* RectangularShape::load$($String* name, bool initialize) {
-	$loadClass(RectangularShape, name, initialize, &_RectangularShape_ClassInfo_, allocate$RectangularShape);
+	$CompoundAttribute getFramemethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RectangularShape, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, clone, $Object*)},
+		{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(RectangularShape, contains, bool, $Point2D*)},
+		{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(RectangularShape, contains, bool, $Rectangle2D*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getBounds, $Rectangle*)},
+		{"getCenterX", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getCenterX, double)},
+		{"getCenterY", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getCenterY, double)},
+		{"getFrame", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getFrame, $Rectangle2D*), nullptr, nullptr, getFramemethodAnnotations$$},
+		{"getHeight", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getHeight, double)},
+		{"getMaxX", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMaxX, double)},
+		{"getMaxY", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMaxY, double)},
+		{"getMinX", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMinX, double)},
+		{"getMinY", "()D", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getMinY, double)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(RectangularShape, getPathIterator, $PathIterator*, $AffineTransform*, double)},
+		{"getWidth", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getWidth, double)},
+		{"getX", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, getY, double)},
+		{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(RectangularShape, intersects, bool, $Rectangle2D*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, isEmpty, bool)},
+		{"setFrame", "(DDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RectangularShape, setFrame, void, double, double, double, double)},
+		{"setFrame", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Dimension2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrame, void, $Point2D*, $Dimension2D*)},
+		{"setFrame", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrame, void, $Rectangle2D*)},
+		{"setFrameFromCenter", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromCenter, void, double, double, double, double)},
+		{"setFrameFromCenter", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromCenter, void, $Point2D*, $Point2D*)},
+		{"setFrameFromDiagonal", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromDiagonal, void, double, double, double, double)},
+		{"setFrameFromDiagonal", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(RectangularShape, setFrameFromDiagonal, void, $Point2D*, $Point2D*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.RectangularShape",
+		"java.lang.Object",
+		"java.awt.Shape,java.lang.Cloneable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RectangularShape, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RectangularShape));
+	});
 	return class$;
 }
 

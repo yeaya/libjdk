@@ -34,6 +34,7 @@ class $export TimeoutOrdering : public ::java::lang::Object {
 	$class(TimeoutOrdering, 0, ::java::lang::Object)
 public:
 	TimeoutOrdering();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkReturnOrder($Array<::java::net::http::HttpRequest>* requests);
 	static $String* getRequest(::java::net::http::HttpRequest* req, $Array<::java::net::http::HttpRequest>* requests);

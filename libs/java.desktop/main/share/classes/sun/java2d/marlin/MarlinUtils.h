@@ -30,6 +30,7 @@ class MarlinUtils : public ::java::lang::Object {
 	$class(MarlinUtils, 0, ::java::lang::Object)
 public:
 	MarlinUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::ThreadGroup* getRootThreadGroup();
 	static void logException($String* msg, $Throwable* th);

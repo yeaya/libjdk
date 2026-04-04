@@ -1,8 +1,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMHMACSignatureMethod.h>
-
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -14,7 +12,6 @@
 #include <javax/crypto/Mac.h>
 #include <javax/crypto/SecretKey.h>
 #include <javax/xml/crypto/MarshalException.h>
-#include <javax/xml/crypto/XMLCryptoContext.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dsig/SignedInfo.h>
 #include <javax/xml/crypto/dsig/XMLSignContext.h>
@@ -46,7 +43,6 @@
 
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -64,7 +60,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Mac = ::javax::crypto::Mac;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $SignedInfo = ::javax::xml::crypto::dsig::SignedInfo;
 using $XMLSignContext = ::javax::xml::crypto::dsig::XMLSignContext;
@@ -89,68 +84,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMHMACSignatureMethod_FieldInfo_[] = {
-	{"DOM_SIGNATURE_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, DOM_SIGNATURE_PROVIDER)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, LOG)},
-	{"HMAC_SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA224)},
-	{"HMAC_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA256)},
-	{"HMAC_SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA384)},
-	{"HMAC_SHA512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA512)},
-	{"HMAC_RIPEMD160", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_RIPEMD160)},
-	{"hmac", "Ljavax/crypto/Mac;", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, hmac)},
-	{"outputLength", "I", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, outputLength)},
-	{"outputLengthSet", "Z", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, outputLengthSet)},
-	{"params", "Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, params)},
-	{}
-};
-
-$MethodInfo _DOMHMACSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMHMACSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMHMACSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"checkParams", "(Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)V", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, checkParams, void, $SignatureMethodParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMHMACSignatureMethod, equals, bool, Object$*)},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
-	{"getDigestLength", "()I", nullptr, $ABSTRACT, $virtualMethod(DOMHMACSignatureMethod, getDigestLength, int32_t)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMHMACSignatureMethod, getParameterSpec, $AlgorithmParameterSpec*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMHMACSignatureMethod, hashCode, int32_t)},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMHMACSignatureMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshalParams", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, marshalParams, void, $Element*, $String*), "javax.xml.crypto.MarshalException"},
-	{"paramsEqual", "(Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, paramsEqual, bool, $AlgorithmParameterSpec*)},
-	{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, sign, $bytes*, $Key*, $SignedInfo*, $XMLSignContext*), "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, unmarshalParams, $SignatureMethodParameterSpec*, $Element*), "javax.xml.crypto.MarshalException"},
-	{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, verify, bool, $Key*, $SignedInfo*, $bytes*, $XMLValidateContext*), "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _DOMHMACSignatureMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$RIPEMD160", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "RIPEMD160", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA512", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA512", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA384", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA256", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA256", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA224", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA224", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA1", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA1", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMHMACSignatureMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod",
-	"org.jcp.xml.dsig.internal.dom.AbstractDOMSignatureMethod",
-	nullptr,
-	_DOMHMACSignatureMethod_FieldInfo_,
-	_DOMHMACSignatureMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMHMACSignatureMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$RIPEMD160,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA512,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA256,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA224,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA1"
-};
-
-$Object* allocate$DOMHMACSignatureMethod($Class* clazz) {
-	return $of($alloc(DOMHMACSignatureMethod));
-}
-
 $String* DOMHMACSignatureMethod::DOM_SIGNATURE_PROVIDER = nullptr;
 $Logger* DOMHMACSignatureMethod::LOG = nullptr;
 $String* DOMHMACSignatureMethod::HMAC_SHA224 = nullptr;
@@ -174,19 +107,19 @@ void DOMHMACSignatureMethod::init$($Element* smElem) {
 	try {
 		checkParams(this->params);
 	} catch ($InvalidAlgorithmParameterException& iape) {
-		$throwNew($MarshalException, static_cast<$Throwable*>(iape));
+		$throwNew($MarshalException, iape);
 	}
 }
 
 void DOMHMACSignatureMethod::checkParams($SignatureMethodParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params != nullptr) {
 		if (!($instanceOf($HMACParameterSpec, params))) {
 			$throwNew($InvalidAlgorithmParameterException, "params must be of type HMACParameterSpec"_s);
 		}
-		this->outputLength = $nc(($cast($HMACParameterSpec, params)))->getOutputLength();
+		this->outputLength = $cast($HMACParameterSpec, params)->getOutputLength();
 		this->outputLengthSet = true;
-		$nc(DOMHMACSignatureMethod::LOG)->debug("Setting outputLength from HMACParameterSpec to: {}"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->outputLength)))}));
+		$nc(DOMHMACSignatureMethod::LOG)->debug("Setting outputLength from HMACParameterSpec to: {}"_s, $$new($ObjectArray, {$($Integer::valueOf(this->outputLength))}));
 	}
 }
 
@@ -195,19 +128,19 @@ $AlgorithmParameterSpec* DOMHMACSignatureMethod::getParameterSpec() {
 }
 
 $SignatureMethodParameterSpec* DOMHMACSignatureMethod::unmarshalParams($Element* paramsElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		this->outputLength = $Integer::parseInt($($nc($($nc(paramsElem)->getFirstChild()))->getNodeValue()));
+		this->outputLength = $Integer::parseInt($($$nc($nc(paramsElem)->getFirstChild())->getNodeValue()));
 	} catch ($NumberFormatException& ex) {
-		$throwNew($MarshalException, $$str({"Invalid output length supplied: "_s, $($nc($($nc(paramsElem)->getFirstChild()))->getNodeValue())}));
+		$throwNew($MarshalException, $$str({"Invalid output length supplied: "_s, $($$nc($nc(paramsElem)->getFirstChild())->getNodeValue())}));
 	}
 	this->outputLengthSet = true;
-	$nc(DOMHMACSignatureMethod::LOG)->debug("unmarshalled outputLength: {}"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->outputLength)))}));
+	$nc(DOMHMACSignatureMethod::LOG)->debug("unmarshalled outputLength: {}"_s, $$new($ObjectArray, {$($Integer::valueOf(this->outputLength))}));
 	return $new($HMACParameterSpec, this->outputLength);
 }
 
 void DOMHMACSignatureMethod::marshalParams($Element* parent, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, hmacElem, $DOMUtils::createElement(ownerDoc, "HMACOutputLength"_s, $XMLSignature::XMLNS, prefix));
@@ -216,7 +149,7 @@ void DOMHMACSignatureMethod::marshalParams($Element* parent, $String* prefix) {
 }
 
 bool DOMHMACSignatureMethod::verify($Key* key, $SignedInfo* si, $bytes* sig, $XMLValidateContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr || si == nullptr || sig == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -228,20 +161,20 @@ bool DOMHMACSignatureMethod::verify($Key* key, $SignedInfo* si, $bytes* sig, $XM
 			$var($Provider, p, $cast($Provider, $nc(context)->getProperty(DOMHMACSignatureMethod::DOM_SIGNATURE_PROVIDER)));
 			$set(this, hmac, (p == nullptr) ? $Mac::getInstance($(getJCAAlgorithm())) : $Mac::getInstance($(getJCAAlgorithm()), p));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($XMLSignatureException, static_cast<$Throwable*>(nsae));
+			$throwNew($XMLSignatureException, nsae);
 		}
 	}
 	if (this->outputLengthSet && this->outputLength < getDigestLength()) {
 		$throwNew($XMLSignatureException, $$str({"HMACOutputLength must not be less than "_s, $$str(getDigestLength())}));
 	}
 	$nc(this->hmac)->init(key);
-	$nc(($cast($DOMSignedInfo, si)))->canonicalize(context, $$new($MacOutputStream, this->hmac));
+	$nc($cast($DOMSignedInfo, si))->canonicalize(context, $$new($MacOutputStream, this->hmac));
 	$var($bytes, result, $nc(this->hmac)->doFinal());
 	return $MessageDigest::isEqual(sig, result);
 }
 
 $bytes* DOMHMACSignatureMethod::sign($Key* key, $SignedInfo* si, $XMLSignContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr || si == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -253,14 +186,14 @@ $bytes* DOMHMACSignatureMethod::sign($Key* key, $SignedInfo* si, $XMLSignContext
 			$var($Provider, p, $cast($Provider, $nc(context)->getProperty(DOMHMACSignatureMethod::DOM_SIGNATURE_PROVIDER)));
 			$set(this, hmac, (p == nullptr) ? $Mac::getInstance($(getJCAAlgorithm())) : $Mac::getInstance($(getJCAAlgorithm()), p));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($XMLSignatureException, static_cast<$Throwable*>(nsae));
+			$throwNew($XMLSignatureException, nsae);
 		}
 	}
 	if (this->outputLengthSet && this->outputLength < getDigestLength()) {
 		$throwNew($XMLSignatureException, $$str({"HMACOutputLength must not be less than "_s, $$str(getDigestLength())}));
 	}
 	$nc(this->hmac)->init(key);
-	$nc(($cast($DOMSignedInfo, si)))->canonicalize(context, $$new($MacOutputStream, this->hmac));
+	$nc($cast($DOMSignedInfo, si))->canonicalize(context, $$new($MacOutputStream, this->hmac));
 	return $nc(this->hmac)->doFinal();
 }
 
@@ -292,7 +225,7 @@ void DOMHMACSignatureMethod::marshal($Node* parent, $String* dsPrefix, $DOMCrypt
 	$AbstractDOMSignatureMethod::marshal(parent, dsPrefix, context);
 }
 
-void clinit$DOMHMACSignatureMethod($Class* class$) {
+void DOMHMACSignatureMethod::clinit$($Class* clazz) {
 	$assignStatic(DOMHMACSignatureMethod::DOM_SIGNATURE_PROVIDER, "org.jcp.xml.dsig.internal.dom.MacProvider"_s);
 	$assignStatic(DOMHMACSignatureMethod::HMAC_SHA224, "http://www.w3.org/2001/04/xmldsig-more#hmac-sha224"_s);
 	$assignStatic(DOMHMACSignatureMethod::HMAC_SHA256, "http://www.w3.org/2001/04/xmldsig-more#hmac-sha256"_s);
@@ -306,7 +239,63 @@ DOMHMACSignatureMethod::DOMHMACSignatureMethod() {
 }
 
 $Class* DOMHMACSignatureMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMHMACSignatureMethod, name, initialize, &_DOMHMACSignatureMethod_ClassInfo_, clinit$DOMHMACSignatureMethod, allocate$DOMHMACSignatureMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOM_SIGNATURE_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, DOM_SIGNATURE_PROVIDER)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, LOG)},
+		{"HMAC_SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA224)},
+		{"HMAC_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA256)},
+		{"HMAC_SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA384)},
+		{"HMAC_SHA512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_SHA512)},
+		{"HMAC_RIPEMD160", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMHMACSignatureMethod, HMAC_RIPEMD160)},
+		{"hmac", "Ljavax/crypto/Mac;", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, hmac)},
+		{"outputLength", "I", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, outputLength)},
+		{"outputLengthSet", "Z", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, outputLengthSet)},
+		{"params", "Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, $PRIVATE, $field(DOMHMACSignatureMethod, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMHMACSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMHMACSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"checkParams", "(Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)V", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, checkParams, void, $SignatureMethodParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMHMACSignatureMethod, equals, bool, Object$*)},
+		{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+		{"getDigestLength", "()I", nullptr, $ABSTRACT, $virtualMethod(DOMHMACSignatureMethod, getDigestLength, int32_t)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMHMACSignatureMethod, getParameterSpec, $AlgorithmParameterSpec*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMHMACSignatureMethod, hashCode, int32_t)},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMHMACSignatureMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshalParams", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, marshalParams, void, $Element*, $String*), "javax.xml.crypto.MarshalException"},
+		{"paramsEqual", "(Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, paramsEqual, bool, $AlgorithmParameterSpec*)},
+		{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, sign, $bytes*, $Key*, $SignedInfo*, $XMLSignContext*), "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
+		{"unmarshalParams", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, unmarshalParams, $SignatureMethodParameterSpec*, $Element*), "javax.xml.crypto.MarshalException"},
+		{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod, verify, bool, $Key*, $SignedInfo*, $bytes*, $XMLValidateContext*), "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$RIPEMD160", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "RIPEMD160", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA512", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA512", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA384", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA256", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA256", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA224", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA224", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA1", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA1", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod",
+		"org.jcp.xml.dsig.internal.dom.AbstractDOMSignatureMethod",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$RIPEMD160,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA512,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA256,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA224,org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA1"
+	};
+	$loadClass(DOMHMACSignatureMethod, name, initialize, &classInfo$$, DOMHMACSignatureMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMHMACSignatureMethod));
+	});
 	return class$;
 }
 

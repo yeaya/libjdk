@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAttributeGroupTraverser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl.h>
@@ -16,7 +15,6 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <org/w3c/dom/Element.h>
-#include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
 #undef ATTIDX_NAME
@@ -40,12 +38,10 @@ using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::u
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
 using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -57,39 +53,19 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$MethodInfo _XSDAttributeGroupTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDAttributeGroupTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
-	{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, 0, $virtualMethod(XSDAttributeGroupTraverser, traverseGlobal, $XSAttributeGroupDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, 0, $virtualMethod(XSDAttributeGroupTraverser, traverseLocal, $XSAttributeGroupDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{}
-};
-
-$ClassInfo _XSDAttributeGroupTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAttributeGroupTraverser",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
-	nullptr,
-	nullptr,
-	_XSDAttributeGroupTraverser_MethodInfo_
-};
-
-$Object* allocate$XSDAttributeGroupTraverser($Class* clazz) {
-	return $of($alloc(XSDAttributeGroupTraverser));
-}
-
 void XSDAttributeGroupTraverser::init$($XSDHandler* handler, $XSAttributeChecker* gAttrCheck) {
 	$XSDAbstractTraverser::init$(handler, gAttrCheck);
 }
 
 $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseLocal($Element* elmNode, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(elmNode, false, schemaDoc));
 	$var($QName, refAttr, $cast($QName, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_REF)));
 	$var($XSAttributeGroupDecl, attrGrp, nullptr);
 	if (refAttr == nullptr) {
 		reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of("attributeGroup (local)"_s),
-			$of("ref"_s)
+			"attributeGroup (local)"_s,
+			"ref"_s
 		}), elmNode);
 		$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 		return nullptr;
@@ -110,9 +86,9 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseLocal($Element* elmNo
 		}
 		if (child != nullptr) {
 			$var($ObjectArray, args, $new($ObjectArray, {
-				$of($nc(refAttr)->rawname),
-				$of("(annotation?)"_s),
-				$($of($DOMUtil::getLocalName(child)))
+				$nc(refAttr)->rawname,
+				"(annotation?)"_s,
+				$($DOMUtil::getLocalName(child))
 			}));
 			reportSchemaError("s4s-elt-must-match.1"_s, args, child);
 		}
@@ -122,14 +98,14 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseLocal($Element* elmNo
 }
 
 $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseGlobal($Element* elmNode, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSAttributeGroupDecl, attrGrp, $new($XSAttributeGroupDecl));
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(elmNode, true, schemaDoc));
 	$var($String, nameAttr, $cast($String, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_NAME)));
 	if (nameAttr == nullptr) {
 		reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of("attributeGroup (global)"_s),
-			$of("name"_s)
+			"attributeGroup (global)"_s,
+			"name"_s
 		}), elmNode);
 		$init($XSDAbstractTraverser);
 		$assign(nameAttr, $XSDAbstractTraverser::NO_NAME);
@@ -139,7 +115,7 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseGlobal($Element* elmN
 	$var($Element, child, $DOMUtil::getFirstChildElement(elmNode));
 	$var($XSAnnotationImpl, annotation, nullptr);
 	$init($SchemaSymbols);
-	if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		$assign(annotation, traverseAnnotationDecl(child, attrValues, false, schemaDoc));
 		$assign(child, $DOMUtil::getNextSiblingElement(child));
 	} else {
@@ -151,9 +127,9 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseGlobal($Element* elmN
 	$var($Element, nextNode, traverseAttrsAndAttrGrps(child, attrGrp, schemaDoc, grammar, nullptr));
 	if (nextNode != nullptr) {
 		$var($ObjectArray, args, $new($ObjectArray, {
-			$of(nameAttr),
-			$of("(annotation?, ((attribute | attributeGroup)*, anyAttribute?))"_s),
-			$($of($DOMUtil::getLocalName(nextNode)))
+			nameAttr,
+			"(annotation?, ((attribute | attributeGroup)*, anyAttribute?))"_s,
+			$($DOMUtil::getLocalName(nextNode))
 		}));
 		reportSchemaError("s4s-elt-must-match.1"_s, args, nextNode);
 	}
@@ -170,7 +146,7 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseGlobal($Element* elmN
 		if (errArgs != nullptr) {
 			reportSchemaError($cast($String, errArgs->get(errArgs->length - 1)), errArgs, child);
 			reportSchemaError("src-redefine.7.2.2"_s, $$new($ObjectArray, {
-				$of(nameAttr),
+				nameAttr,
 				errArgs->get(errArgs->length - 1)
 			}), child);
 		}
@@ -178,7 +154,7 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseGlobal($Element* elmN
 	$var($XSObjectList, annotations, nullptr);
 	if (annotation != nullptr) {
 		$assign(annotations, $new($XSObjectListImpl));
-		$nc(($cast($XSObjectListImpl, annotations)))->addXSObject(annotation);
+		$cast($XSObjectListImpl, annotations)->addXSObject(annotation);
 	} else {
 		$init($XSObjectListImpl);
 		$assign(annotations, $XSObjectListImpl::EMPTY_LIST);
@@ -188,7 +164,7 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseGlobal($Element* elmN
 		grammar->addGlobalAttributeGroupDecl(attrGrp);
 	}
 	$var($String, loc, $nc(this->fSchemaHandler)->schemaDocument2SystemId(schemaDoc));
-	$var($XSAttributeGroupDecl, attrGrp2, $nc(grammar)->getGlobalAttributeGroupDecl(attrGrp->fName, loc));
+	$var($XSAttributeGroupDecl, attrGrp2, grammar->getGlobalAttributeGroupDecl(attrGrp->fName, loc));
 	if (attrGrp2 == nullptr) {
 		grammar->addGlobalAttributeGroupDecl(attrGrp, loc);
 	}
@@ -196,7 +172,7 @@ $XSAttributeGroupDecl* XSDAttributeGroupTraverser::traverseGlobal($Element* elmN
 		if (attrGrp2 != nullptr) {
 			$assign(attrGrp, attrGrp2);
 		}
-		$nc(this->fSchemaHandler)->addGlobalAttributeGroupDecl(attrGrp);
+		this->fSchemaHandler->addGlobalAttributeGroupDecl(attrGrp);
 	}
 	$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 	return attrGrp;
@@ -206,7 +182,23 @@ XSDAttributeGroupTraverser::XSDAttributeGroupTraverser() {
 }
 
 $Class* XSDAttributeGroupTraverser::load$($String* name, bool initialize) {
-	$loadClass(XSDAttributeGroupTraverser, name, initialize, &_XSDAttributeGroupTraverser_ClassInfo_, allocate$XSDAttributeGroupTraverser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDAttributeGroupTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
+		{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, 0, $virtualMethod(XSDAttributeGroupTraverser, traverseGlobal, $XSAttributeGroupDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, 0, $virtualMethod(XSDAttributeGroupTraverser, traverseLocal, $XSAttributeGroupDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAttributeGroupTraverser",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSDAttributeGroupTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDAttributeGroupTraverser);
+	});
 	return class$;
 }
 

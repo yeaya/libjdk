@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/LinkTree.h>
-
 #include <com/sun/source/doctree/ReferenceTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _LinkTree_MethodInfo_[] = {
-	{"getLabel", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LinkTree, getLabel, $List*)},
-	{"getReference", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LinkTree, getReference, $ReferenceTree*)},
-	{}
-};
-
-$ClassInfo _LinkTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.LinkTree",
-	nullptr,
-	"com.sun.source.doctree.InlineTagTree",
-	nullptr,
-	_LinkTree_MethodInfo_
-};
-
-$Object* allocate$LinkTree($Class* clazz) {
-	return $of($alloc(LinkTree));
-}
-
 $Class* LinkTree::load$($String* name, bool initialize) {
-	$loadClass(LinkTree, name, initialize, &_LinkTree_ClassInfo_, allocate$LinkTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getLabel", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LinkTree, getLabel, $List*)},
+		{"getReference", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LinkTree, getReference, $ReferenceTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.LinkTree",
+		nullptr,
+		"com.sun.source.doctree.InlineTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LinkTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkTree);
+	});
 	return class$;
 }
 

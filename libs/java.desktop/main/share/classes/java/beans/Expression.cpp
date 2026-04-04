@@ -1,5 +1,4 @@
 #include <java/beans/Expression.h>
-
 #include <java/beans/Statement.h>
 #include <jcpp.h>
 
@@ -13,53 +12,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace java {
 	namespace beans {
-
-$Attribute Expression_Attribute_var$1[] = {
-	{'s', "target"},
-	{'s', "methodName"},
-	{'s', "arguments"},
-	{'-'}
-};
-
-$NamedAttribute Expression_Attribute_var$0[] = {
-	{"value", '[', Expression_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Expression_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", Expression_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Expression_FieldInfo_[] = {
-	{"unbound", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(Expression, unbound)},
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Expression, value)},
-	{}
-};
-
-$MethodInfo _Expression_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Expression, init$, void, Object$*, $String*, $ObjectArray*), nullptr, nullptr, _Expression_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Expression, init$, void, Object$*, Object$*, $String*, $ObjectArray*)},
-	{"execute", "()V", nullptr, $PUBLIC, $virtualMethod(Expression, execute, void), "java.lang.Exception"},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Expression, getValue, $Object*), "java.lang.Exception"},
-	{"instanceName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, 0, $virtualMethod(Expression, instanceName, $String*, Object$*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Expression, setValue, void, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Expression, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Expression_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.Expression",
-	"java.beans.Statement",
-	nullptr,
-	_Expression_FieldInfo_,
-	_Expression_MethodInfo_
-};
-
-$Object* allocate$Expression($Class* clazz) {
-	return $of($alloc(Expression));
-}
 
 $Object* Expression::unbound = nullptr;
 
@@ -81,7 +33,7 @@ $Object* Expression::getValue() {
 	if ($equals(this->value, Expression::unbound)) {
 		setValue($(invoke()));
 	}
-	return $of(this->value);
+	return this->value;
 }
 
 void Expression::setValue(Object$* value) {
@@ -93,12 +45,15 @@ $String* Expression::instanceName(Object$* instance) {
 }
 
 $String* Expression::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$(instanceName(this->value)), "="_s}));
-	return $concat(var$0, $($Statement::toString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(instanceName(this->value)));
+	var$0->append("="_s);
+	var$0->append($($Statement::toString()));
+	return $str(var$0);
 }
 
-void clinit$Expression($Class* class$) {
+void Expression::clinit$($Class* clazz) {
 	$assignStatic(Expression::unbound, $new($Object));
 }
 
@@ -106,7 +61,46 @@ Expression::Expression() {
 }
 
 $Class* Expression::load$($String* name, bool initialize) {
-	$loadClass(Expression, name, initialize, &_Expression_ClassInfo_, clinit$Expression, allocate$Expression);
+	$FieldInfo fieldInfos$$[] = {
+		{"unbound", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(Expression, unbound)},
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Expression, value)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "target"},
+		{'s', "methodName"},
+		{'s', "arguments"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Expression, init$, void, Object$*, $String*, $ObjectArray*), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Expression, init$, void, Object$*, Object$*, $String*, $ObjectArray*)},
+		{"execute", "()V", nullptr, $PUBLIC, $virtualMethod(Expression, execute, void), "java.lang.Exception"},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Expression, getValue, $Object*), "java.lang.Exception"},
+		{"instanceName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, 0, $virtualMethod(Expression, instanceName, $String*, Object$*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Expression, setValue, void, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Expression, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.Expression",
+		"java.beans.Statement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Expression, name, initialize, &classInfo$$, Expression::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Expression);
+	});
 	return class$;
 }
 

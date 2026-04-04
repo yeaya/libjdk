@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingClip$1.h>
-
 #include <com/sun/media/sound/SoftMixingClip.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -17,49 +16,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingClip$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftMixingClip;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingClip$1, this$0)},
-	{}
-};
-
-$MethodInfo _SoftMixingClip$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingClip;)V", nullptr, 0, $method(SoftMixingClip$1, init$, void, $SoftMixingClip*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingClip$1, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingClip$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _SoftMixingClip$1_EnclosingMethodInfo_ = {
-	"com.sun.media.sound.SoftMixingClip",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SoftMixingClip$1_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingClip$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftMixingClip$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftMixingClip$1",
-	"java.io.InputStream",
-	nullptr,
-	_SoftMixingClip$1_FieldInfo_,
-	_SoftMixingClip$1_MethodInfo_,
-	nullptr,
-	&_SoftMixingClip$1_EnclosingMethodInfo_,
-	_SoftMixingClip$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingClip"
-};
-
-$Object* allocate$SoftMixingClip$1($Class* clazz) {
-	return $of($alloc(SoftMixingClip$1));
-}
-
 void SoftMixingClip$1::init$($SoftMixingClip* this$0) {
 	$set(this, this$0, this$0);
 	$InputStream::init$();
@@ -71,7 +27,7 @@ int32_t SoftMixingClip$1::read() {
 	if (ret < 0) {
 		return ret;
 	}
-	return (int32_t)(b->get(0) & (uint32_t)255);
+	return b->get(0) & 0xff;
 }
 
 int32_t SoftMixingClip$1::read($bytes* b, int32_t off, int32_t len) {
@@ -132,7 +88,43 @@ SoftMixingClip$1::SoftMixingClip$1() {
 }
 
 $Class* SoftMixingClip$1::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingClip$1, name, initialize, &_SoftMixingClip$1_ClassInfo_, allocate$SoftMixingClip$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftMixingClip;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingClip$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingClip;)V", nullptr, 0, $method(SoftMixingClip$1, init$, void, $SoftMixingClip*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingClip$1, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingClip$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.media.sound.SoftMixingClip",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingClip$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftMixingClip$1",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingClip"
+	};
+	$loadClass(SoftMixingClip$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingClip$1);
+	});
 	return class$;
 }
 

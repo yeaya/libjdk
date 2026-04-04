@@ -54,6 +54,7 @@ class $import Http2Connection$Http2TubeSubscriber : public ::jdk::internal::net:
 	$class(Http2Connection$Http2TubeSubscriber, 0, ::jdk::internal::net::http::common::FlowTube$TubeSubscriber)
 public:
 	Http2Connection$Http2TubeSubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http2Connection* this$0, ::jdk::internal::net::http::HttpClientImpl* client);
 	virtual void dropSubscription() override;
 	static $String* lambda$onError$1($Throwable* throwable);

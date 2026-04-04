@@ -33,6 +33,7 @@ class AbstractMidiDeviceProvider : public ::javax::sound::midi::spi::MidiDeviceP
 	$class(AbstractMidiDeviceProvider, 0, ::javax::sound::midi::spi::MidiDeviceProvider)
 public:
 	AbstractMidiDeviceProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::sound::midi::MidiDevice* createDevice(::com::sun::media::sound::AbstractMidiDeviceProvider$Info* info) {return nullptr;}
 	virtual ::com::sun::media::sound::AbstractMidiDeviceProvider$Info* createInfo(int32_t index) {return nullptr;}

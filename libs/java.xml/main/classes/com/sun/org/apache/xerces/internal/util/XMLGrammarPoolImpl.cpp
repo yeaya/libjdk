@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/XMLGrammarPoolImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/util/XMLGrammarPoolImpl$Entry.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/Grammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
@@ -26,57 +25,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _XMLGrammarPoolImpl_FieldInfo_[] = {
-	{"TABLE_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLGrammarPoolImpl, TABLE_SIZE)},
-	{"fGrammars", "[Lcom/sun/org/apache/xerces/internal/util/XMLGrammarPoolImpl$Entry;", nullptr, $PROTECTED, $field(XMLGrammarPoolImpl, fGrammars)},
-	{"fPoolIsLocked", "Z", nullptr, $PROTECTED, $field(XMLGrammarPoolImpl, fPoolIsLocked)},
-	{"fGrammarCount", "I", nullptr, $PROTECTED, $field(XMLGrammarPoolImpl, fGrammarCount)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGrammarPoolImpl, DEBUG)},
-	{}
-};
-
-$MethodInfo _XMLGrammarPoolImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLGrammarPoolImpl, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLGrammarPoolImpl, init$, void, int32_t)},
-	{"cacheGrammars", "(Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, cacheGrammars, void, $String*, $GrammarArray*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, clear, void)},
-	{"containsGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, containsGrammar, bool, $XMLGrammarDescription*)},
-	{"equals", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, equals, bool, $XMLGrammarDescription*, $XMLGrammarDescription*)},
-	{"getGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, getGrammar, $Grammar*, $XMLGrammarDescription*)},
-	{"hashCode", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)I", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, hashCode, int32_t, $XMLGrammarDescription*)},
-	{"lockPool", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, lockPool, void)},
-	{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, putGrammar, void, $Grammar*)},
-	{"removeGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, removeGrammar, $Grammar*, $XMLGrammarDescription*)},
-	{"retrieveGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, retrieveGrammar, $Grammar*, $XMLGrammarDescription*)},
-	{"retrieveInitialGrammarSet", "(Ljava/lang/String;)[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, retrieveInitialGrammarSet, $GrammarArray*, $String*)},
-	{"unlockPool", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, unlockPool, void)},
-	{}
-};
-
-$InnerClassInfo _XMLGrammarPoolImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl$Entry", "com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl", "Entry", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XMLGrammarPoolImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarPool",
-	_XMLGrammarPoolImpl_FieldInfo_,
-	_XMLGrammarPoolImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLGrammarPoolImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl$Entry"
-};
-
-$Object* allocate$XMLGrammarPoolImpl($Class* clazz) {
-	return $of($alloc(XMLGrammarPoolImpl));
-}
-
 void XMLGrammarPoolImpl::init$() {
 	$set(this, fGrammars, nullptr);
 	this->fGrammarCount = 0;
@@ -92,18 +40,16 @@ void XMLGrammarPoolImpl::init$(int32_t initialCapacity) {
 }
 
 $GrammarArray* XMLGrammarPoolImpl::retrieveInitialGrammarSet($String* grammarType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->fGrammars) {
-		int32_t grammarSize = $nc(this->fGrammars)->length;
+		int32_t grammarSize = this->fGrammars->length;
 		$var($GrammarArray, tempGrammars, $new($GrammarArray, this->fGrammarCount));
 		int32_t pos = 0;
 		for (int32_t i = 0; i < grammarSize; ++i) {
-			{
-				$var($XMLGrammarPoolImpl$Entry, e, $nc(this->fGrammars)->get(i));
-				for (; e != nullptr; $assign(e, $nc(e)->next)) {
-					if ($nc($($nc(e->desc)->getGrammarType()))->equals(grammarType)) {
-						tempGrammars->set(pos++, e->grammar);
-					}
+			$var($XMLGrammarPoolImpl$Entry, e, $nc(this->fGrammars)->get(i));
+			for (; e != nullptr; $assign(e, e->next)) {
+				if ($$nc($nc(e->desc)->getGrammarType())->equals(grammarType)) {
+					tempGrammars->set(pos++, e->grammar);
 				}
 			}
 		}
@@ -116,25 +62,27 @@ $GrammarArray* XMLGrammarPoolImpl::retrieveInitialGrammarSet($String* grammarTyp
 void XMLGrammarPoolImpl::cacheGrammars($String* grammarType, $GrammarArray* grammars) {
 	if (!this->fPoolIsLocked) {
 		for (int32_t i = 0; i < $nc(grammars)->length; ++i) {
+			;
 			putGrammar(grammars->get(i));
 		}
 	}
 }
 
 $Grammar* XMLGrammarPoolImpl::retrieveGrammar($XMLGrammarDescription* desc) {
+	;
 	return getGrammar(desc);
 }
 
 void XMLGrammarPoolImpl::putGrammar($Grammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->fPoolIsLocked) {
 		$synchronized(this->fGrammars) {
 			$var($XMLGrammarDescription, desc, $nc(grammar)->getGrammarDescription());
 			int32_t hash = hashCode(desc);
-			int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(this->fGrammars)->length);
+			int32_t index = $mod((hash & 0x7fffffff), $nc(this->fGrammars)->length);
 			{
-				$var($XMLGrammarPoolImpl$Entry, entry, $nc(this->fGrammars)->get(index));
-				for (; entry != nullptr; $assign(entry, $nc(entry)->next)) {
+				$var($XMLGrammarPoolImpl$Entry, entry, this->fGrammars->get(index));
+				for (; entry != nullptr; $assign(entry, entry->next)) {
 					if (entry->hash == hash && equals(entry->desc, desc)) {
 						$set(entry, grammar, grammar);
 						return;
@@ -142,7 +90,7 @@ void XMLGrammarPoolImpl::putGrammar($Grammar* grammar) {
 				}
 			}
 			$var($XMLGrammarPoolImpl$Entry, entry, $new($XMLGrammarPoolImpl$Entry, hash, desc, grammar, $nc(this->fGrammars)->get(index)));
-			$nc(this->fGrammars)->set(index, entry);
+			this->fGrammars->set(index, entry);
 			++this->fGrammarCount;
 		}
 	}
@@ -151,10 +99,10 @@ void XMLGrammarPoolImpl::putGrammar($Grammar* grammar) {
 $Grammar* XMLGrammarPoolImpl::getGrammar($XMLGrammarDescription* desc) {
 	$synchronized(this->fGrammars) {
 		int32_t hash = hashCode(desc);
-		int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(this->fGrammars)->length);
+		int32_t index = $mod((hash & 0x7fffffff), $nc(this->fGrammars)->length);
 		{
-			$var($XMLGrammarPoolImpl$Entry, entry, $nc(this->fGrammars)->get(index));
-			for (; entry != nullptr; $assign(entry, $nc(entry)->next)) {
+			$var($XMLGrammarPoolImpl$Entry, entry, this->fGrammars->get(index));
+			for (; entry != nullptr; $assign(entry, entry->next)) {
 				if ((entry->hash == hash) && equals(entry->desc, desc)) {
 					return entry->grammar;
 				}
@@ -165,14 +113,14 @@ $Grammar* XMLGrammarPoolImpl::getGrammar($XMLGrammarDescription* desc) {
 }
 
 $Grammar* XMLGrammarPoolImpl::removeGrammar($XMLGrammarDescription* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->fGrammars) {
 		int32_t hash = hashCode(desc);
-		int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(this->fGrammars)->length);
+		int32_t index = $mod((hash & 0x7fffffff), $nc(this->fGrammars)->length);
 		{
-			$var($XMLGrammarPoolImpl$Entry, entry, $nc(this->fGrammars)->get(index));
+			$var($XMLGrammarPoolImpl$Entry, entry, this->fGrammars->get(index));
 			$var($XMLGrammarPoolImpl$Entry, prev, nullptr);
-			for (; entry != nullptr; $assign(prev, entry), $assign(entry, $nc(entry)->next)) {
+			for (; entry != nullptr; $assign(prev, entry), $assign(entry, entry->next)) {
 				if ((entry->hash == hash) && equals(entry->desc, desc)) {
 					if (prev != nullptr) {
 						$set(prev, next, entry->next);
@@ -193,10 +141,10 @@ $Grammar* XMLGrammarPoolImpl::removeGrammar($XMLGrammarDescription* desc) {
 bool XMLGrammarPoolImpl::containsGrammar($XMLGrammarDescription* desc) {
 	$synchronized(this->fGrammars) {
 		int32_t hash = hashCode(desc);
-		int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(this->fGrammars)->length);
+		int32_t index = $mod((hash & 0x7fffffff), $nc(this->fGrammars)->length);
 		{
-			$var($XMLGrammarPoolImpl$Entry, entry, $nc(this->fGrammars)->get(index));
-			for (; entry != nullptr; $assign(entry, $nc(entry)->next)) {
+			$var($XMLGrammarPoolImpl$Entry, entry, this->fGrammars->get(index));
+			for (; entry != nullptr; $assign(entry, entry->next)) {
 				if ((entry->hash == hash) && equals(entry->desc, desc)) {
 					return true;
 				}
@@ -216,8 +164,8 @@ void XMLGrammarPoolImpl::unlockPool() {
 
 void XMLGrammarPoolImpl::clear() {
 	for (int32_t i = 0; i < $nc(this->fGrammars)->length; ++i) {
-		if ($nc(this->fGrammars)->get(i) != nullptr) {
-			$nc($nc(this->fGrammars)->get(i))->clear();
+		if (this->fGrammars->get(i) != nullptr) {
+			$nc(this->fGrammars->get(i))->clear();
 			$nc(this->fGrammars)->set(i, nullptr);
 		}
 	}
@@ -236,7 +184,52 @@ XMLGrammarPoolImpl::XMLGrammarPoolImpl() {
 }
 
 $Class* XMLGrammarPoolImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLGrammarPoolImpl, name, initialize, &_XMLGrammarPoolImpl_ClassInfo_, allocate$XMLGrammarPoolImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"TABLE_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLGrammarPoolImpl, TABLE_SIZE)},
+		{"fGrammars", "[Lcom/sun/org/apache/xerces/internal/util/XMLGrammarPoolImpl$Entry;", nullptr, $PROTECTED, $field(XMLGrammarPoolImpl, fGrammars)},
+		{"fPoolIsLocked", "Z", nullptr, $PROTECTED, $field(XMLGrammarPoolImpl, fPoolIsLocked)},
+		{"fGrammarCount", "I", nullptr, $PROTECTED, $field(XMLGrammarPoolImpl, fGrammarCount)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLGrammarPoolImpl, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLGrammarPoolImpl, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLGrammarPoolImpl, init$, void, int32_t)},
+		{"cacheGrammars", "(Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, cacheGrammars, void, $String*, $GrammarArray*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, clear, void)},
+		{"containsGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, containsGrammar, bool, $XMLGrammarDescription*)},
+		{"equals", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Z", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, equals, bool, $XMLGrammarDescription*, $XMLGrammarDescription*)},
+		{"getGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, getGrammar, $Grammar*, $XMLGrammarDescription*)},
+		{"hashCode", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)I", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, hashCode, int32_t, $XMLGrammarDescription*)},
+		{"lockPool", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, lockPool, void)},
+		{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, putGrammar, void, $Grammar*)},
+		{"removeGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, removeGrammar, $Grammar*, $XMLGrammarDescription*)},
+		{"retrieveGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, retrieveGrammar, $Grammar*, $XMLGrammarDescription*)},
+		{"retrieveInitialGrammarSet", "(Ljava/lang/String;)[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, retrieveInitialGrammarSet, $GrammarArray*, $String*)},
+		{"unlockPool", "()V", nullptr, $PUBLIC, $virtualMethod(XMLGrammarPoolImpl, unlockPool, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl$Entry", "com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl", "Entry", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarPool",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl$Entry"
+	};
+	$loadClass(XMLGrammarPoolImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLGrammarPoolImpl);
+	});
 	return class$;
 }
 

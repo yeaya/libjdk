@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KRBError.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -39,7 +38,6 @@ using $PADataArray = $Array<::sun::security::krb5::internal::PAData>;
 using $IOException = ::java::io::IOException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -48,7 +46,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Date = ::java::util::Date;
 using $List = ::java::util::List;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Checksum = ::sun::security::krb5::Checksum;
@@ -60,7 +57,6 @@ using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
 using $PAData = ::sun::security::krb5::internal::PAData;
 using $KerberosString = ::sun::security::krb5::internal::util::KerberosString;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
@@ -70,74 +66,15 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _KRBError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(KRBError, serialVersionUID)},
-	{"pvno", "I", nullptr, $PRIVATE, $field(KRBError, pvno)},
-	{"msgType", "I", nullptr, $PRIVATE, $field(KRBError, msgType)},
-	{"cTime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KRBError, cTime)},
-	{"cuSec", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(KRBError, cuSec)},
-	{"sTime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KRBError, sTime)},
-	{"suSec", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(KRBError, suSec)},
-	{"errorCode", "I", nullptr, $PRIVATE, $field(KRBError, errorCode)},
-	{"crealm", "Lsun/security/krb5/Realm;", nullptr, $PRIVATE, $field(KRBError, crealm)},
-	{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KRBError, cname)},
-	{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KRBError, sname)},
-	{"eText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KRBError, eText)},
-	{"eData", "[B", nullptr, $PRIVATE, $field(KRBError, eData)},
-	{"eCksum", "Lsun/security/krb5/Checksum;", nullptr, $PRIVATE, $field(KRBError, eCksum)},
-	{"pa", "[Lsun/security/krb5/internal/PAData;", nullptr, $PRIVATE, $field(KRBError, pa)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KRBError, DEBUG)},
-	{}
-};
-
-$MethodInfo _KRBError_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/APOptions;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;ILsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $APOptions*, $KerberosTime*, $Integer*, $KerberosTime*, $Integer*, int32_t, $PrincipalName*, $PrincipalName*, $String*, $bytes*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"<init>", "(Lsun/security/krb5/internal/APOptions;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;ILsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;[BLsun/security/krb5/Checksum;)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $APOptions*, $KerberosTime*, $Integer*, $KerberosTime*, $Integer*, int32_t, $PrincipalName*, $PrincipalName*, $String*, $bytes*, $Checksum*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KRBError, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KRBError, equals, bool, Object$*)},
-	{"getClientMicroSeconds", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getClientMicroSeconds, $Integer*)},
-	{"getClientRealm", "()Lsun/security/krb5/Realm;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getClientRealm, $Realm*)},
-	{"getClientTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getClientTime, $KerberosTime*)},
-	{"getErrorCode", "()I", nullptr, $PUBLIC | $FINAL, $method(KRBError, getErrorCode, int32_t)},
-	{"getErrorString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getErrorString, $String*)},
-	{"getPA", "()[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getPA, $PADataArray*)},
-	{"getServerMicroSeconds", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getServerMicroSeconds, $Integer*)},
-	{"getServerTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getServerTime, $KerberosTime*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KRBError, hashCode, int32_t)},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(KRBError, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(KRBError, isEqual, bool, Object$*, Object$*)},
-	{"parseEData", "([B)V", nullptr, $PRIVATE, $method(KRBError, parseEData, void, $bytes*), "java.io.IOException"},
-	{"parsePAData", "([B)V", nullptr, $PRIVATE, $method(KRBError, parsePAData, void, $bytes*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KRBError, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"showDebug", "()V", nullptr, $PRIVATE, $method(KRBError, showDebug, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KRBError, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _KRBError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KRBError",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_KRBError_FieldInfo_,
-	_KRBError_MethodInfo_
-};
-
-$Object* allocate$KRBError($Class* clazz) {
-	return $of($alloc(KRBError));
-}
-
 bool KRBError::DEBUG = false;
 
 void KRBError::readObject($ObjectInputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		init($$new($DerValue, $cast($bytes, $($nc(is)->readObject()))));
+		init($$new($DerValue, $$cast($bytes, $nc(is)->readObject())));
 		parseEData(this->eData);
 	} catch ($Exception& e) {
-		$throwNew($IOException, static_cast<$Throwable*>(e));
+		$throwNew($IOException, e);
 	}
 }
 
@@ -145,7 +82,7 @@ void KRBError::writeObject($ObjectOutputStream* os) {
 	try {
 		$nc(os)->writeObject($(asn1Encode()));
 	} catch ($Exception& e) {
-		$throwNew($IOException, static_cast<$Throwable*>(e));
+		$throwNew($IOException, e);
 	}
 }
 
@@ -157,7 +94,7 @@ void KRBError::init$($APOptions* new_apOptions, $KerberosTime* new_cTime, $Integ
 	$set(this, sTime, new_sTime);
 	$set(this, suSec, new_suSec);
 	this->errorCode = new_errorCode;
-	$set(this, crealm, new_cname != nullptr ? $nc(new_cname)->getRealm() : ($Realm*)nullptr);
+	$set(this, crealm, new_cname != nullptr ? new_cname->getRealm() : ($Realm*)nullptr);
 	$set(this, cname, new_cname);
 	$set(this, sname, new_sname);
 	$set(this, eText, new_eText);
@@ -173,7 +110,7 @@ void KRBError::init$($APOptions* new_apOptions, $KerberosTime* new_cTime, $Integ
 	$set(this, sTime, new_sTime);
 	$set(this, suSec, new_suSec);
 	this->errorCode = new_errorCode;
-	$set(this, crealm, new_cname != nullptr ? $nc(new_cname)->getRealm() : ($Realm*)nullptr);
+	$set(this, crealm, new_cname != nullptr ? new_cname->getRealm() : ($Realm*)nullptr);
 	$set(this, cname, new_cname);
 	$set(this, sname, new_sname);
 	$set(this, eText, new_eText);
@@ -194,7 +131,7 @@ void KRBError::init$($DerValue* encoding) {
 }
 
 void KRBError::parseEData($bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (data == nullptr) {
 		return;
 	}
@@ -215,18 +152,18 @@ void KRBError::parseEData($bytes* data) {
 }
 
 void KRBError::parsePAData($bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, derPA, $new($DerValue, data));
 	$var($List, paList, $new($ArrayList));
 	while ($nc(derPA->data$)->available() > 0) {
-		$var($DerValue, tmp, $nc(derPA->data$)->getDerValue());
+		$var($DerValue, tmp, derPA->data$->getDerValue());
 		$var($PAData, pa_data, $new($PAData, tmp));
 		paList->add(pa_data);
 		if (KRBError::DEBUG) {
-			$nc($System::out)->println($of(pa_data));
+			$nc($System::out)->println(pa_data);
 		}
 	}
-	$set(this, pa, $fcast($PADataArray, paList->toArray($$new($PADataArray, paList->size()))));
+	$set(this, pa, $cast($PADataArray, paList->toArray($$new($PADataArray, paList->size()))));
 }
 
 $Realm* KRBError::getClientRealm() {
@@ -262,30 +199,30 @@ $String* KRBError::getErrorString() {
 }
 
 void KRBError::init($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	$var($DerValue, subDer, nullptr);
-	bool var$1 = (((int32_t)($nc(encoding)->getTag() & (uint32_t)(int32_t)(int8_t)31)) != (int8_t)30);
-	bool var$0 = var$1 || ($nc(encoding)->isApplication() != true);
-	if (var$0 || ($nc(encoding)->isConstructed() != true)) {
+	bool var$1 = ($nc(encoding)->getTag() & (int8_t)31) != (int8_t)30;
+	bool var$0 = var$1 || (encoding->isApplication() != true);
+	if (var$0 || (encoding->isConstructed() != true)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
 	if ($nc(der)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(subDer, $nc($($nc(der)->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)0) {
-		this->pvno = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) == (int8_t)0) {
+		this->pvno = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 		if (this->pvno != $Krb5::PVNO) {
 			$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_BADVERSION);
 		}
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(subDer, $nc($(der->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)1) {
-		this->msgType = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) == (int8_t)1) {
+		this->msgType = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 		if (this->msgType != $Krb5::KRB_ERROR) {
 			$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_MSG_TYPE);
 		}
@@ -293,22 +230,22 @@ void KRBError::init($DerValue* encoding) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 	$set(this, cTime, $KerberosTime::parse($(der->getData()), (int8_t)2, true));
-	if (((int32_t)($nc($(der->getData()))->peekByte() & (uint32_t)31)) == 3) {
-		$assign(subDer, $nc($(der->getData()))->getDerValue());
-		$set(this, cuSec, $Integer::valueOf($nc($($nc($($nc(subDer)->getData()))->getBigInteger()))->intValue()));
+	if (($$nc(der->getData())->peekByte() & 0x1f) == 3) {
+		$assign(subDer, $$nc(der->getData())->getDerValue());
+		$set(this, cuSec, $Integer::valueOf($$nc($$nc($nc(subDer)->getData())->getBigInteger())->intValue()));
 	} else {
 		$set(this, cuSec, nullptr);
 	}
 	$set(this, sTime, $KerberosTime::parse($(der->getData()), (int8_t)4, false));
-	$assign(subDer, $nc($(der->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)5) {
-		$set(this, suSec, $Integer::valueOf($nc($($nc($(subDer->getData()))->getBigInteger()))->intValue()));
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) == (int8_t)5) {
+		$set(this, suSec, $Integer::valueOf($$nc($$nc(subDer->getData())->getBigInteger())->intValue()));
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(subDer, $nc($(der->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)6) {
-		this->errorCode = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) == (int8_t)6) {
+		this->errorCode = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
@@ -319,97 +256,105 @@ void KRBError::init($DerValue* encoding) {
 	$set(this, eText, nullptr);
 	$set(this, eData, nullptr);
 	$set(this, eCksum, nullptr);
-	if ($nc($(der->getData()))->available() > 0) {
-		if (((int32_t)($nc($(der->getData()))->peekByte() & (uint32_t)31)) == 11) {
-			$assign(subDer, $nc($(der->getData()))->getDerValue());
-			$set(this, eText, $$new($KerberosString, $($nc($($nc(subDer)->getData()))->getDerValue()))->toString());
+	if ($$nc(der->getData())->available() > 0) {
+		if (($$nc(der->getData())->peekByte() & 0x1f) == 0x0b) {
+			$assign(subDer, $$nc(der->getData())->getDerValue());
+			$set(this, eText, $$new($KerberosString, $($$nc($nc(subDer)->getData())->getDerValue()))->toString());
 		}
 	}
-	if ($nc($(der->getData()))->available() > 0) {
-		if (((int32_t)($nc($(der->getData()))->peekByte() & (uint32_t)31)) == 12) {
-			$assign(subDer, $nc($(der->getData()))->getDerValue());
-			$set(this, eData, $nc($($nc(subDer)->getData()))->getOctetString());
+	if ($$nc(der->getData())->available() > 0) {
+		if (($$nc(der->getData())->peekByte() & 0x1f) == 0x0c) {
+			$assign(subDer, $$nc(der->getData())->getDerValue());
+			$set(this, eData, $$nc($nc(subDer)->getData())->getOctetString());
 		}
 	}
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$set(this, eCksum, $Checksum::parse($(der->getData()), (int8_t)13, true));
 	}
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 void KRBError::showDebug() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (KRBError::DEBUG) {
 		$nc($System::out)->println(">>>KRBError:"_s);
 		if (this->cTime != nullptr) {
-			$var($String, var$0, $$str({"\t cTime is "_s, $($nc($($nc(this->cTime)->toDate()))->toString()), " "_s}));
-			$nc($System::out)->println($$concat(var$0, $$str($nc($($nc(this->cTime)->toDate()))->getTime())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("\t cTime is "_s);
+			var$0->append($($$nc(this->cTime->toDate())->toString()));
+			var$0->append(" "_s);
+			var$0->append($$nc(this->cTime->toDate())->getTime());
+			$System::out->println($$str(var$0));
 		}
 		if (this->cuSec != nullptr) {
-			$nc($System::out)->println($$str({"\t cuSec is "_s, $$str($nc(this->cuSec)->intValue())}));
+			$System::out->println($$str({"\t cuSec is "_s, $$str(this->cuSec->intValue())}));
 		}
-		$var($String, var$1, $$str({"\t sTime is "_s, $($nc($($nc(this->sTime)->toDate()))->toString()), " "_s}));
-		$nc($System::out)->println($$concat(var$1, $$str($nc($($nc(this->sTime)->toDate()))->getTime())));
-		$nc($System::out)->println($$str({"\t suSec is "_s, this->suSec}));
-		$nc($System::out)->println($$str({"\t error code is "_s, $$str(this->errorCode)}));
-		$nc($System::out)->println($$str({"\t error Message is "_s, $($Krb5::getErrorMessage(this->errorCode))}));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("\t sTime is "_s);
+		var$1->append($($$nc($nc(this->sTime)->toDate())->toString()));
+		var$1->append(" "_s);
+		var$1->append($$nc(this->sTime->toDate())->getTime());
+		$System::out->println($$str(var$1));
+		$System::out->println($$str({"\t suSec is "_s, this->suSec}));
+		$System::out->println($$str({"\t error code is "_s, $$str(this->errorCode)}));
+		$System::out->println($$str({"\t error Message is "_s, $($Krb5::getErrorMessage(this->errorCode))}));
 		if (this->crealm != nullptr) {
-			$nc($System::out)->println($$str({"\t crealm is "_s, $($nc(this->crealm)->toString())}));
+			$System::out->println($$str({"\t crealm is "_s, $(this->crealm->toString())}));
 		}
 		if (this->cname != nullptr) {
-			$nc($System::out)->println($$str({"\t cname is "_s, $($nc(this->cname)->toString())}));
+			$System::out->println($$str({"\t cname is "_s, $(this->cname->toString())}));
 		}
 		if (this->sname != nullptr) {
-			$nc($System::out)->println($$str({"\t sname is "_s, $($nc(this->sname)->toString())}));
+			$System::out->println($$str({"\t sname is "_s, $(this->sname->toString())}));
 		}
 		if (this->eData != nullptr) {
-			$nc($System::out)->println("\t eData provided."_s);
+			$System::out->println("\t eData provided."_s);
 		}
 		if (this->eCksum != nullptr) {
-			$nc($System::out)->println("\t checksum provided."_s);
+			$System::out->println("\t checksum provided."_s);
 		}
-		$nc($System::out)->println($$str({"\t msgType is "_s, $$str(this->msgType)}));
+		$System::out->println($$str({"\t msgType is "_s, $$str(this->msgType)}));
 	}
 }
 
 $bytes* KRBError::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->pvno)));
+	temp->putInteger($($BigInteger::valueOf(this->pvno)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), temp);
 	$assign(temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->msgType)));
+	temp->putInteger($($BigInteger::valueOf(this->msgType)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1), temp);
 	if (this->cTime != nullptr) {
 		int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2);
-		bytes->write(var$0, $($nc(this->cTime)->asn1Encode()));
+		bytes->write(var$0, $(this->cTime->asn1Encode()));
 	}
 	if (this->cuSec != nullptr) {
 		$assign(temp, $new($DerOutputStream));
-		temp->putInteger($($BigInteger::valueOf((int64_t)$nc(this->cuSec)->intValue())));
+		temp->putInteger($($BigInteger::valueOf(this->cuSec->intValue())));
 		bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)3), temp);
 	}
 	int8_t var$1 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)4);
 	bytes->write(var$1, $($nc(this->sTime)->asn1Encode()));
 	$assign(temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)$nc(this->suSec)->intValue())));
+	temp->putInteger($($BigInteger::valueOf($nc(this->suSec)->intValue())));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)5), temp);
 	$assign(temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->errorCode)));
+	temp->putInteger($($BigInteger::valueOf(this->errorCode)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)6), temp);
 	if (this->crealm != nullptr) {
 		int8_t var$2 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)7);
-		bytes->write(var$2, $($nc(this->crealm)->asn1Encode()));
+		bytes->write(var$2, $(this->crealm->asn1Encode()));
 	}
 	if (this->cname != nullptr) {
 		int8_t var$3 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)8);
-		bytes->write(var$3, $($nc(this->cname)->asn1Encode()));
+		bytes->write(var$3, $(this->cname->asn1Encode()));
 	}
 	int8_t var$4 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)9);
-	bytes->write(var$4, $($nc($($nc(this->sname)->getRealm()))->asn1Encode()));
+	bytes->write(var$4, $($$nc($nc(this->sname)->getRealm())->asn1Encode()));
 	int8_t var$5 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)10);
 	bytes->write(var$5, $($nc(this->sname)->asn1Encode()));
 	if (this->eText != nullptr) {
@@ -424,7 +369,7 @@ $bytes* KRBError::asn1Encode() {
 	}
 	if (this->eCksum != nullptr) {
 		int8_t var$6 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)13);
-		bytes->write(var$6, $($nc(this->eCksum)->asn1Encode()));
+		bytes->write(var$6, $(this->eCksum->asn1Encode()));
 	}
 	$assign(temp, $new($DerOutputStream));
 	temp->write($DerValue::tag_Sequence, bytes);
@@ -455,7 +400,7 @@ bool KRBError::equals(Object$* obj) {
 
 bool KRBError::isEqual(Object$* a, Object$* b) {
 	$init(KRBError);
-	return (a == nullptr) ? (b == nullptr) : ($nc($of(a))->equals(b));
+	return (a == nullptr) ? (b == nullptr) : ($of(a)->equals(b));
 }
 
 int32_t KRBError::hashCode() {
@@ -463,38 +408,38 @@ int32_t KRBError::hashCode() {
 	result = 37 * result + this->pvno;
 	result = 37 * result + this->msgType;
 	if (this->cTime != nullptr) {
-		result = 37 * result + $nc(this->cTime)->hashCode();
+		result = 37 * result + this->cTime->hashCode();
 	}
 	if (this->cuSec != nullptr) {
-		result = 37 * result + $nc(this->cuSec)->hashCode();
+		result = 37 * result + this->cuSec->hashCode();
 	}
 	if (this->sTime != nullptr) {
-		result = 37 * result + $nc(this->sTime)->hashCode();
+		result = 37 * result + this->sTime->hashCode();
 	}
 	if (this->suSec != nullptr) {
-		result = 37 * result + $nc(this->suSec)->hashCode();
+		result = 37 * result + this->suSec->hashCode();
 	}
 	result = 37 * result + this->errorCode;
 	if (this->crealm != nullptr) {
-		result = 37 * result + $nc(this->crealm)->hashCode();
+		result = 37 * result + this->crealm->hashCode();
 	}
 	if (this->cname != nullptr) {
-		result = 37 * result + $nc(this->cname)->hashCode();
+		result = 37 * result + this->cname->hashCode();
 	}
 	if (this->sname != nullptr) {
-		result = 37 * result + $nc(this->sname)->hashCode();
+		result = 37 * result + this->sname->hashCode();
 	}
 	if (this->eText != nullptr) {
-		result = 37 * result + $nc(this->eText)->hashCode();
+		result = 37 * result + this->eText->hashCode();
 	}
 	result = 37 * result + $Arrays::hashCode(this->eData);
 	if (this->eCksum != nullptr) {
-		result = 37 * result + $nc(this->eCksum)->hashCode();
+		result = 37 * result + this->eCksum->hashCode();
 	}
 	return result;
 }
 
-void clinit$KRBError($Class* class$) {
+void KRBError::clinit$($Class* clazz) {
 	$init($Krb5);
 	KRBError::DEBUG = $Krb5::DEBUG;
 }
@@ -503,7 +448,61 @@ KRBError::KRBError() {
 }
 
 $Class* KRBError::load$($String* name, bool initialize) {
-	$loadClass(KRBError, name, initialize, &_KRBError_ClassInfo_, clinit$KRBError, allocate$KRBError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(KRBError, serialVersionUID)},
+		{"pvno", "I", nullptr, $PRIVATE, $field(KRBError, pvno)},
+		{"msgType", "I", nullptr, $PRIVATE, $field(KRBError, msgType)},
+		{"cTime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KRBError, cTime)},
+		{"cuSec", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(KRBError, cuSec)},
+		{"sTime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $field(KRBError, sTime)},
+		{"suSec", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(KRBError, suSec)},
+		{"errorCode", "I", nullptr, $PRIVATE, $field(KRBError, errorCode)},
+		{"crealm", "Lsun/security/krb5/Realm;", nullptr, $PRIVATE, $field(KRBError, crealm)},
+		{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KRBError, cname)},
+		{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KRBError, sname)},
+		{"eText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KRBError, eText)},
+		{"eData", "[B", nullptr, $PRIVATE, $field(KRBError, eData)},
+		{"eCksum", "Lsun/security/krb5/Checksum;", nullptr, $PRIVATE, $field(KRBError, eCksum)},
+		{"pa", "[Lsun/security/krb5/internal/PAData;", nullptr, $PRIVATE, $field(KRBError, pa)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KRBError, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/internal/APOptions;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;ILsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $APOptions*, $KerberosTime*, $Integer*, $KerberosTime*, $Integer*, int32_t, $PrincipalName*, $PrincipalName*, $String*, $bytes*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"<init>", "(Lsun/security/krb5/internal/APOptions;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;ILsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;[BLsun/security/krb5/Checksum;)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $APOptions*, $KerberosTime*, $Integer*, $KerberosTime*, $Integer*, int32_t, $PrincipalName*, $PrincipalName*, $String*, $bytes*, $Checksum*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KRBError, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KRBError, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KRBError, equals, bool, Object$*)},
+		{"getClientMicroSeconds", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getClientMicroSeconds, $Integer*)},
+		{"getClientRealm", "()Lsun/security/krb5/Realm;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getClientRealm, $Realm*)},
+		{"getClientTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getClientTime, $KerberosTime*)},
+		{"getErrorCode", "()I", nullptr, $PUBLIC | $FINAL, $method(KRBError, getErrorCode, int32_t)},
+		{"getErrorString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getErrorString, $String*)},
+		{"getPA", "()[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getPA, $PADataArray*)},
+		{"getServerMicroSeconds", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getServerMicroSeconds, $Integer*)},
+		{"getServerTime", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $FINAL, $method(KRBError, getServerTime, $KerberosTime*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KRBError, hashCode, int32_t)},
+		{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(KRBError, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+		{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(KRBError, isEqual, bool, Object$*, Object$*)},
+		{"parseEData", "([B)V", nullptr, $PRIVATE, $method(KRBError, parseEData, void, $bytes*), "java.io.IOException"},
+		{"parsePAData", "([B)V", nullptr, $PRIVATE, $method(KRBError, parsePAData, void, $bytes*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KRBError, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"showDebug", "()V", nullptr, $PRIVATE, $method(KRBError, showDebug, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KRBError, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KRBError",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KRBError, name, initialize, &classInfo$$, KRBError::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KRBError);
+	});
 	return class$;
 }
 

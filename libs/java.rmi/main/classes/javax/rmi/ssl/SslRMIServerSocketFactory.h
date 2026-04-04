@@ -33,6 +33,7 @@ class $export SslRMIServerSocketFactory : public ::java::rmi::server::RMIServerS
 	$class(SslRMIServerSocketFactory, 0, ::java::rmi::server::RMIServerSocketFactory)
 public:
 	SslRMIServerSocketFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($StringArray* enabledCipherSuites, $StringArray* enabledProtocols, bool needClientAuth);
 	void init$(::javax::net::ssl::SSLContext* context, $StringArray* enabledCipherSuites, $StringArray* enabledProtocols, bool needClientAuth);

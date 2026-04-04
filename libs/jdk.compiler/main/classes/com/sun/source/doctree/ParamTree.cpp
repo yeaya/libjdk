@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/ParamTree.h>
-
 #include <com/sun/source/doctree/IdentifierTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,28 +13,24 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _ParamTree_MethodInfo_[] = {
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, getDescription, $List*)},
-	{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, getName, $IdentifierTree*)},
-	{"isTypeParameter", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, isTypeParameter, bool)},
-	{}
-};
-
-$ClassInfo _ParamTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.ParamTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_ParamTree_MethodInfo_
-};
-
-$Object* allocate$ParamTree($Class* clazz) {
-	return $of($alloc(ParamTree));
-}
-
 $Class* ParamTree::load$($String* name, bool initialize) {
-	$loadClass(ParamTree, name, initialize, &_ParamTree_ClassInfo_, allocate$ParamTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, getDescription, $List*)},
+		{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, getName, $IdentifierTree*)},
+		{"isTypeParameter", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, isTypeParameter, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.ParamTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ParamTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParamTree);
+	});
 	return class$;
 }
 

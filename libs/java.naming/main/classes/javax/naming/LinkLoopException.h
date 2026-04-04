@@ -14,10 +14,13 @@ public:
 	LinkLoopException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xD4B669459586AF47;
+	static const int64_t serialVersionUID = (int64_t)0xd4b669459586af47;
 	LinkLoopException(const LinkLoopException& e);
 	virtual void throw$() override;
-	inline LinkLoopException* operator ->() {
+	inline LinkLoopException* operator ->() const {
+		return (LinkLoopException*)throwing$;
+	}
+	inline operator LinkLoopException*() const {
 		return (LinkLoopException*)throwing$;
 	}
 };

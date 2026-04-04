@@ -1,5 +1,4 @@
 #include <sun/security/jgss/GSSCredentialImpl$SearchKey.h>
-
 #include <org/ietf/jgss/GSSCredential.h>
 #include <org/ietf/jgss/Oid.h>
 #include <sun/security/jgss/GSSCredentialImpl.h>
@@ -17,46 +16,6 @@ using $Oid = ::org::ietf::jgss::Oid;
 namespace sun {
 	namespace security {
 		namespace jgss {
-
-$FieldInfo _GSSCredentialImpl$SearchKey_FieldInfo_[] = {
-	{"mechOid", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSCredentialImpl$SearchKey, mechOid)},
-	{"usage", "I", nullptr, $PRIVATE, $field(GSSCredentialImpl$SearchKey, usage)},
-	{}
-};
-
-$MethodInfo _GSSCredentialImpl$SearchKey_MethodInfo_[] = {
-	{"<init>", "(Lorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC, $method(GSSCredentialImpl$SearchKey, init$, void, $Oid*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, equals, bool, Object$*)},
-	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, getMech, $Oid*)},
-	{"getUsage", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, getUsage, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GSSCredentialImpl$SearchKey_InnerClassesInfo_[] = {
-	{"sun.security.jgss.GSSCredentialImpl$SearchKey", "sun.security.jgss.GSSCredentialImpl", "SearchKey", $STATIC},
-	{}
-};
-
-$ClassInfo _GSSCredentialImpl$SearchKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.GSSCredentialImpl$SearchKey",
-	"java.lang.Object",
-	nullptr,
-	_GSSCredentialImpl$SearchKey_FieldInfo_,
-	_GSSCredentialImpl$SearchKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GSSCredentialImpl$SearchKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.GSSCredentialImpl"
-};
-
-$Object* allocate$GSSCredentialImpl$SearchKey($Class* clazz) {
-	return $of($alloc(GSSCredentialImpl$SearchKey));
-}
 
 void GSSCredentialImpl$SearchKey::init$($Oid* mechOid, int32_t usage) {
 	$set(this, mechOid, nullptr);
@@ -78,7 +37,7 @@ bool GSSCredentialImpl$SearchKey::equals(Object$* other) {
 		return false;
 	}
 	$var(GSSCredentialImpl$SearchKey, that, $cast(GSSCredentialImpl$SearchKey, other));
-	return (($nc(this->mechOid)->equals($nc(that)->mechOid)) && (this->usage == $nc(that)->usage));
+	return (($nc(this->mechOid)->equals($nc(that)->mechOid)) && (this->usage == that->usage));
 }
 
 int32_t GSSCredentialImpl$SearchKey::hashCode() {
@@ -89,7 +48,41 @@ GSSCredentialImpl$SearchKey::GSSCredentialImpl$SearchKey() {
 }
 
 $Class* GSSCredentialImpl$SearchKey::load$($String* name, bool initialize) {
-	$loadClass(GSSCredentialImpl$SearchKey, name, initialize, &_GSSCredentialImpl$SearchKey_ClassInfo_, allocate$GSSCredentialImpl$SearchKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"mechOid", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSCredentialImpl$SearchKey, mechOid)},
+		{"usage", "I", nullptr, $PRIVATE, $field(GSSCredentialImpl$SearchKey, usage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC, $method(GSSCredentialImpl$SearchKey, init$, void, $Oid*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, equals, bool, Object$*)},
+		{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, getMech, $Oid*)},
+		{"getUsage", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, getUsage, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.GSSCredentialImpl$SearchKey", "sun.security.jgss.GSSCredentialImpl", "SearchKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.GSSCredentialImpl$SearchKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.GSSCredentialImpl"
+	};
+	$loadClass(GSSCredentialImpl$SearchKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSCredentialImpl$SearchKey);
+	});
 	return class$;
 }
 

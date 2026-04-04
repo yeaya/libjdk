@@ -14,10 +14,13 @@ public:
 	MalformedLinkException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xD570BFD1F64F889E;
+	static const int64_t serialVersionUID = (int64_t)0xd570bfd1f64f889e;
 	MalformedLinkException(const MalformedLinkException& e);
 	virtual void throw$() override;
-	inline MalformedLinkException* operator ->() {
+	inline MalformedLinkException* operator ->() const {
+		return (MalformedLinkException*)throwing$;
+	}
+	inline operator MalformedLinkException*() const {
 		return (MalformedLinkException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/AttrNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/CDATASectionImpl.h>
@@ -159,9 +158,7 @@ using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;
 using $Attr = ::org::w3c::dom::Attr;
 using $CDATASection = ::org::w3c::dom::CDATASection;
@@ -207,275 +204,38 @@ public:
 	virtual void accept(Object$* key) override {
 		CoreDocumentImpl::lambda$callUserDataHandlers$0(userData, operation, n, c, $cast($String, key));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0>());
-	}
 	$Map* userData = nullptr;
 	int16_t operation = 0;
 	$Node* n = nullptr;
 	$Node* c = nullptr;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::fieldInfos[5] = {
-	{"userData", "Ljava/util/Map;", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, userData)},
-	{"operation", "S", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, operation)},
-	{"n", "Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, n)},
-	{"c", "Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, c)},
-	{}
-};
-$MethodInfo CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;SLorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, init$, void, $Map*, int16_t, $Node*, $Node*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::load$($String* name, bool initialize) {
-	$loadClass(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"userData", "Ljava/util/Map;", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, userData)},
+		{"operation", "S", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, operation)},
+		{"n", "Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, n)},
+		{"c", "Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $field(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;SLorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, init$, void, $Map*, int16_t, $Node*, $Node*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0);
+	});
 	return class$;
 }
 $Class* CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::class$ = nullptr;
-
-$CompoundAttribute _CoreDocumentImpl_MethodAnnotations_getEncoding47[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CoreDocumentImpl_MethodAnnotations_getStandalone60[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CoreDocumentImpl_MethodAnnotations_getVersion66[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CoreDocumentImpl_MethodAnnotations_setEncoding111[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CoreDocumentImpl_MethodAnnotations_setStandalone115[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CoreDocumentImpl_MethodAnnotations_setVersion121[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CoreDocumentImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CoreDocumentImpl, serialVersionUID)},
-	{"docType", "Lcom/sun/org/apache/xerces/internal/dom/DocumentTypeImpl;", nullptr, $PROTECTED, $field(CoreDocumentImpl, docType)},
-	{"docElement", "Lcom/sun/org/apache/xerces/internal/dom/ElementImpl;", nullptr, $PROTECTED, $field(CoreDocumentImpl, docElement)},
-	{"fFreeNLCache", "Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, fFreeNLCache)},
-	{"encoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, encoding)},
-	{"actualEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, actualEncoding)},
-	{"version", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, version)},
-	{"standalone", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, standalone)},
-	{"fDocumentURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, fDocumentURI)},
-	{"nodeUserData", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;>;", $PRIVATE, $field(CoreDocumentImpl, nodeUserData)},
-	{"identifiers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Node;>;", $PROTECTED, $field(CoreDocumentImpl, identifiers)},
-	{"domNormalizer", "Lcom/sun/org/apache/xerces/internal/dom/DOMNormalizer;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, domNormalizer)},
-	{"fConfiguration", "Lcom/sun/org/apache/xerces/internal/dom/DOMConfigurationImpl;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, fConfiguration)},
-	{"fXPathEvaluator", "Ljava/lang/Object;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, fXPathEvaluator)},
-	{"kidOK", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CoreDocumentImpl, kidOK)},
-	{"changes", "I", nullptr, $PROTECTED, $field(CoreDocumentImpl, changes$)},
-	{"allowGrammarAccess", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, allowGrammarAccess)},
-	{"errorChecking", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, errorChecking)},
-	{"ancestorChecking", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, ancestorChecking)},
-	{"xmlVersionChanged", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, xmlVersionChanged)},
-	{"documentNumber", "I", nullptr, $PRIVATE, $field(CoreDocumentImpl, documentNumber)},
-	{"nodeCounter", "I", nullptr, $PRIVATE, $field(CoreDocumentImpl, nodeCounter)},
-	{"nodeTable", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/Integer;>;", $PRIVATE, $field(CoreDocumentImpl, nodeTable)},
-	{"xml11Version", "Z", nullptr, $PRIVATE, $field(CoreDocumentImpl, xml11Version)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CoreDocumentImpl, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _CoreDocumentImpl_MethodInfo_[] = {
-	{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
-	{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
-	{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hasAttributes", "()Z", nullptr, $PUBLIC},
-	{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void, bool)},
-	{"<init>", "(Lorg/w3c/dom/DocumentType;)V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void, $DocumentType*)},
-	{"<init>", "(Lorg/w3c/dom/DocumentType;Z)V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void, $DocumentType*, bool)},
-	{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, abort, void)},
-	{"addEventListener", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Lorg/w3c/dom/events/EventListener;Z)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, addEventListener, void, $NodeImpl*, $String*, $EventListener*, bool)},
-	{"adoptNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, adoptNode, $Node*, $Node*)},
-	{"callUserDataHandlers", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;S)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, callUserDataHandlers, void, $Node*, $Node*, int16_t)},
-	{"callUserDataHandlers", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;SLjava/util/Map;)V", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;SLjava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;)V", 0, $virtualMethod(CoreDocumentImpl, callUserDataHandlers, void, $Node*, $Node*, int16_t, $Map*)},
-	{"changed", "()V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, changed, void)},
-	{"changes", "()I", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, changes, int32_t)},
-	{"checkDOMNSErr", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, checkDOMNSErr, void, $String*, $String*)},
-	{"checkNamespaceWF", "(Ljava/lang/String;II)V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, checkNamespaceWF, void, $String*, int32_t, int32_t)},
-	{"checkQName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, checkQName, void, $String*, $String*)},
-	{"clearIdentifiers", "()V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, clearIdentifiers, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, cloneNode, $Node*, bool)},
-	{"cloneNode", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Z)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, cloneNode, void, CoreDocumentImpl*, bool)},
-	{"copyEventListeners", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, copyEventListeners, void, $NodeImpl*, $NodeImpl*)},
-	{"createAttribute", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createAttribute, $Attr*, $String*), "org.w3c.dom.DOMException"},
-	{"createAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createAttributeNS, $Attr*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createAttributeNS, $Attr*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createCDATASection", "(Ljava/lang/String;)Lorg/w3c/dom/CDATASection;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createCDATASection, $CDATASection*, $String*), "org.w3c.dom.DOMException"},
-	{"createComment", "(Ljava/lang/String;)Lorg/w3c/dom/Comment;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createComment, $Comment*, $String*)},
-	{"createDocumentFragment", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createDocumentFragment, $DocumentFragment*)},
-	{"createDocumentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createDocumentType, $DocumentType*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createElement", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElement, $Element*, $String*), "org.w3c.dom.DOMException"},
-	{"createElementDefinition", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/dom/ElementDefinitionImpl;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElementDefinition, $ElementDefinitionImpl*, $String*), "org.w3c.dom.DOMException"},
-	{"createElementNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElementNS, $Element*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createElementNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElementNS, $Element*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createEntity", "(Ljava/lang/String;)Lorg/w3c/dom/Entity;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createEntity, $Entity*, $String*), "org.w3c.dom.DOMException"},
-	{"createEntityReference", "(Ljava/lang/String;)Lorg/w3c/dom/EntityReference;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createEntityReference, $EntityReference*, $String*), "org.w3c.dom.DOMException"},
-	{"createNotation", "(Ljava/lang/String;)Lorg/w3c/dom/Notation;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createNotation, $Notation*, $String*), "org.w3c.dom.DOMException"},
-	{"createProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ProcessingInstruction;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createProcessingInstruction, $ProcessingInstruction*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"createTextNode", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createTextNode, $Text*, $String*)},
-	{"deletedText", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;II)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, deletedText, void, $NodeImpl*, int32_t, int32_t)},
-	{"dispatchEvent", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lorg/w3c/dom/events/Event;)Z", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, dispatchEvent, bool, $NodeImpl*, $Event*)},
-	{"freeNodeListCache", "(Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, freeNodeListCache, void, $NodeListCache*)},
-	{"getAsync", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getAsync, bool)},
-	{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getBaseURI, $String*)},
-	{"getDoctype", "()Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDoctype, $DocumentType*)},
-	{"getDocumentElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDocumentElement, $Element*)},
-	{"getDocumentURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDocumentURI, $String*)},
-	{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDomConfig, $DOMConfiguration*)},
-	{"getElementById", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getElementById, $Element*, $String*)},
-	{"getElementsByTagName", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getElementsByTagName, $NodeList*, $String*)},
-	{"getElementsByTagNameNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getElementsByTagNameNS, $NodeList*, $String*, $String*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, getEncoding, $String*), nullptr, nullptr, _CoreDocumentImpl_MethodAnnotations_getEncoding47},
-	{"getErrorChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getErrorChecking, bool)},
-	{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getFeature, $Object*, $String*, $String*)},
-	{"getIdentifier", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getIdentifier, $Element*, $String*)},
-	{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getImplementation, $DOMImplementation*)},
-	{"getInputEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getInputEncoding, $String*)},
-	{"getMutationEvents", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, getMutationEvents, bool)},
-	{"getNodeListCache", "(Lcom/sun/org/apache/xerces/internal/dom/ParentNode;)Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;", nullptr, 0, $virtualMethod(CoreDocumentImpl, getNodeListCache, $NodeListCache*, $ParentNode*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getNodeName, $String*)},
-	{"getNodeNumber", "()I", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, getNodeNumber, int32_t)},
-	{"getNodeNumber", "(Lorg/w3c/dom/Node;)I", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, getNodeNumber, int32_t, $Node*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getNodeType, int16_t)},
-	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CoreDocumentImpl, getOwnerDocument, $Document*)},
-	{"getStandalone", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, getStandalone, bool), nullptr, nullptr, _CoreDocumentImpl_MethodAnnotations_getStandalone60},
-	{"getStrictErrorChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getStrictErrorChecking, bool)},
-	{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getTextContent, $String*), "org.w3c.dom.DOMException"},
-	{"getUserData", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getUserData, $Object*, $Node*, $String*)},
-	{"getUserData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, getUserData, $Object*, $NodeImpl*)},
-	{"getUserDataRecord", "(Lorg/w3c/dom/Node;)Ljava/util/Map;", "(Lorg/w3c/dom/Node;)Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", $PROTECTED, $virtualMethod(CoreDocumentImpl, getUserDataRecord, $Map*, $Node*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, getVersion, $String*), nullptr, nullptr, _CoreDocumentImpl_MethodAnnotations_getVersion66},
-	{"getXmlEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getXmlEncoding, $String*)},
-	{"getXmlStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getXmlStandalone, bool)},
-	{"getXmlVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getXmlVersion, $String*)},
-	{"importNode", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, importNode, $Node*, $Node*, bool), "org.w3c.dom.DOMException"},
-	{"importNode", "(Lorg/w3c/dom/Node;ZZLjava/util/Map;)Lorg/w3c/dom/Node;", "(Lorg/w3c/dom/Node;ZZLjava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Node;", $PRIVATE, $method(CoreDocumentImpl, importNode, $Node*, $Node*, bool, bool, $Map*), "org.w3c.dom.DOMException"},
-	{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, insertBefore, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"insertedNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, insertedNode, void, $NodeImpl*, $NodeImpl*, bool)},
-	{"insertedText", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;II)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, insertedText, void, $NodeImpl*, int32_t, int32_t)},
-	{"insertingNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, insertingNode, void, $NodeImpl*, bool)},
-	{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"isKidOK", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, isKidOK, bool, $Node*, $Node*)},
-	{"isNormalizeDocRequired", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, isNormalizeDocRequired, bool)},
-	{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"isValidQName", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CoreDocumentImpl, isValidQName, bool, $String*, $String*, bool)},
-	{"isXML11Version", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, isXML11Version, bool)},
-	{"isXMLName", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CoreDocumentImpl, isXMLName, bool, $String*, bool)},
-	{"isXMLVersionChanged", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, isXMLVersionChanged, bool)},
-	{"lambda$callUserDataHandlers$0", "(Ljava/util/Map;SLorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CoreDocumentImpl, lambda$callUserDataHandlers$0, void, $Map*, int16_t, $Node*, $Node*, $String*)},
-	{"load", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, load, bool, $String*)},
-	{"loadXML", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, loadXML, bool, $String*)},
-	{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"modifiedAttrValue", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, modifiedAttrValue, void, $AttrImpl*, $String*)},
-	{"modifiedCharacterData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, modifiedCharacterData, void, $NodeImpl*, $String*, $String*, bool)},
-	{"modifyingCharacterData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, modifyingCharacterData, void, $NodeImpl*, bool)},
-	{"*normalize", "()V", nullptr, $PUBLIC},
-	{"normalizeDocument", "()V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, normalizeDocument, void)},
-	{"putIdentifier", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, putIdentifier, void, $String*, $Element*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CoreDocumentImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, removeChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"removeEventListener", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Lorg/w3c/dom/events/EventListener;Z)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, removeEventListener, void, $NodeImpl*, $String*, $EventListener*, bool)},
-	{"removeIdentifier", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, removeIdentifier, void, $String*)},
-	{"removeUserDataTable", "(Lorg/w3c/dom/Node;)Ljava/util/Map;", "(Lorg/w3c/dom/Node;)Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", 0, $virtualMethod(CoreDocumentImpl, removeUserDataTable, $Map*, $Node*)},
-	{"removedAttrNode", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, removedAttrNode, void, $AttrImpl*, $NodeImpl*, $String*)},
-	{"removedNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, removedNode, void, $NodeImpl*, bool)},
-	{"removingNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, removingNode, void, $NodeImpl*, $NodeImpl*, bool)},
-	{"renameNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, renameNode, $Node*, $Node*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"renamedAttrNode", "(Lorg/w3c/dom/Attr;Lorg/w3c/dom/Attr;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, renamedAttrNode, void, $Attr*, $Attr*)},
-	{"renamedElement", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, renamedElement, void, $Element*, $Element*)},
-	{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, replaceChild, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"replacedCharacterData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacedCharacterData, void, $NodeImpl*, $String*, $String*)},
-	{"replacedNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacedNode, void, $NodeImpl*)},
-	{"replacedText", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacedText, void, $NodeImpl*)},
-	{"replacingData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacingData, void, $NodeImpl*)},
-	{"replacingNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacingNode, void, $NodeImpl*)},
-	{"saveXML", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, saveXML, $String*, $Node*), "org.w3c.dom.DOMException"},
-	{"setAsync", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setAsync, void, bool)},
-	{"setAttrNode", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, setAttrNode, void, $AttrImpl*, $AttrImpl*)},
-	{"setDocumentURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setDocumentURI, void, $String*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, setEncoding, void, $String*), nullptr, nullptr, _CoreDocumentImpl_MethodAnnotations_setEncoding111},
-	{"setErrorChecking", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setErrorChecking, void, bool)},
-	{"setInputEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setInputEncoding, void, $String*)},
-	{"setMutationEvents", "(Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, setMutationEvents, void, bool)},
-	{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setStandalone", "(Z)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, setStandalone, void, bool), nullptr, nullptr, _CoreDocumentImpl_MethodAnnotations_setStandalone115},
-	{"setStrictErrorChecking", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setStrictErrorChecking, void, bool)},
-	{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
-	{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"setUserData", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setUserData, $Object*, $Node*, $String*, Object$*, $UserDataHandler*)},
-	{"setUserData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, setUserData, void, $NodeImpl*, Object$*)},
-	{"setUserDataTable", "(Lorg/w3c/dom/Node;Ljava/util/Map;)V", "(Lorg/w3c/dom/Node;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;)V", 0, $virtualMethod(CoreDocumentImpl, setUserDataTable, void, $Node*, $Map*)},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, setVersion, void, $String*), nullptr, nullptr, _CoreDocumentImpl_MethodAnnotations_setVersion121},
-	{"setXmlEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setXmlEncoding, void, $String*)},
-	{"setXmlStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setXmlStandalone, void, bool), "org.w3c.dom.DOMException"},
-	{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setXmlVersion, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"undeferChildren", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, undeferChildren, void, $Node*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CoreDocumentImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CoreDocumentImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl",
-	"com.sun.org.apache.xerces.internal.dom.ParentNode",
-	"org.w3c.dom.Document",
-	_CoreDocumentImpl_FieldInfo_,
-	_CoreDocumentImpl_MethodInfo_
-};
-
-$Object* allocate$CoreDocumentImpl($Class* clazz) {
-	return $of($alloc(CoreDocumentImpl));
-}
 
 bool CoreDocumentImpl::hasChildNodes() {
 	 return this->$ParentNode::hasChildNodes();
@@ -605,7 +365,7 @@ void CoreDocumentImpl::init$() {
 }
 
 void CoreDocumentImpl::init$(bool grammarAccess) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ParentNode::init$(nullptr);
 	$set(this, domNormalizer, nullptr);
 	$set(this, fConfiguration, nullptr);
@@ -633,7 +393,7 @@ void CoreDocumentImpl::init$($DocumentType* doctype) {
 }
 
 void CoreDocumentImpl::init$($DocumentType* doctype, bool grammarAccess) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	CoreDocumentImpl::init$(grammarAccess);
 	if (doctype != nullptr) {
 		$var($DocumentTypeImpl, doctypeImpl, nullptr);
@@ -663,34 +423,34 @@ $String* CoreDocumentImpl::getNodeName() {
 
 $Node* CoreDocumentImpl::cloneNode(bool deep) {
 	$var(CoreDocumentImpl, newdoc, $new(CoreDocumentImpl));
-	callUserDataHandlers(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(this)))), static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(newdoc)))), $UserDataHandler::NODE_CLONED);
+	callUserDataHandlers($cast($ParentNode, this), $cast($ParentNode, newdoc), $UserDataHandler::NODE_CLONED);
 	cloneNode(newdoc, deep);
-	return static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(newdoc))));
+	return $cast($ParentNode, newdoc);
 }
 
 void CoreDocumentImpl::cloneNode(CoreDocumentImpl* newdoc, bool deep) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (needsSyncChildren()) {
 		synchronizeChildren();
 	}
 	if (deep) {
 		$var($Map, reversedIdentifiers, nullptr);
 		if (this->identifiers != nullptr) {
-			$assign(reversedIdentifiers, $new($HashMap, $nc(this->identifiers)->size()));
+			$assign(reversedIdentifiers, $new($HashMap, this->identifiers->size()));
 			{
-				$var($Iterator, i$, $nc($($nc(this->identifiers)->keySet()))->iterator());
+				$var($Iterator, i$, $$nc(this->identifiers->keySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($String, elementId, $cast($String, i$->next()));
 					{
-						reversedIdentifiers->put($cast($Node, $($nc(this->identifiers)->get(elementId))), elementId);
+						reversedIdentifiers->put($$cast($Node, this->identifiers->get(elementId)), elementId);
 					}
 				}
 			}
 		}
 		{
 			$var($ChildNode, kid, this->firstChild);
-			for (; kid != nullptr; $assign(kid, $nc(kid)->nextSibling)) {
-				$nc(newdoc)->appendChild($(newdoc->importNode(kid, true, true, reversedIdentifiers)));
+			for (; kid != nullptr; $assign(kid, kid->nextSibling)) {
+				$nc(newdoc)->appendChild($($nc(newdoc)->importNode(kid, true, true, reversedIdentifiers)));
 			}
 		}
 	}
@@ -708,7 +468,7 @@ $Node* CoreDocumentImpl::insertBefore($Node* newChild, $Node* refChild) {
 		}
 	}
 	if (newChild->getOwnerDocument() == nullptr && $instanceOf($DocumentTypeImpl, newChild)) {
-		$set($nc($cast($DocumentTypeImpl, newChild)), ownerDocument$, this);
+		$set($cast($DocumentTypeImpl, newChild), ownerDocument$, this);
 	}
 	$ParentNode::insertBefore(newChild, refChild);
 	if (type == $Node::ELEMENT_NODE) {
@@ -732,17 +492,17 @@ $Node* CoreDocumentImpl::removeChild($Node* oldChild) {
 
 $Node* CoreDocumentImpl::replaceChild($Node* newChild, $Node* oldChild) {
 	if ($nc(newChild)->getOwnerDocument() == nullptr && $instanceOf($DocumentTypeImpl, newChild)) {
-		$set($nc($cast($DocumentTypeImpl, newChild)), ownerDocument$, this);
+		$set($cast($DocumentTypeImpl, newChild), ownerDocument$, this);
 	}
 	bool var$0 = this->errorChecking;
 	if (var$0) {
 		bool var$2 = this->docType != nullptr && $nc(oldChild)->getNodeType() != $Node::DOCUMENT_TYPE_NODE;
-		bool var$1 = (var$2 && $nc(newChild)->getNodeType() == $Node::DOCUMENT_TYPE_NODE);
+		bool var$1 = var$2 && newChild->getNodeType() == $Node::DOCUMENT_TYPE_NODE;
 		if (!var$1) {
 			bool var$3 = this->docElement != nullptr && $nc(oldChild)->getNodeType() != $Node::ELEMENT_NODE;
-			var$1 = (var$3 && $nc(newChild)->getNodeType() == $Node::ELEMENT_NODE);
+			var$1 = var$3 && newChild->getNodeType() == $Node::ELEMENT_NODE;
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		$init($DOMMessageFormatter);
@@ -766,7 +526,7 @@ void CoreDocumentImpl::setTextContent($String* textContent) {
 }
 
 $Object* CoreDocumentImpl::getFeature($String* feature, $String* version) {
-	return $of($ParentNode::getFeature(feature, version));
+	return $ParentNode::getFeature(feature, version);
 }
 
 $Attr* CoreDocumentImpl::createAttribute($String* name) {
@@ -884,13 +644,13 @@ $String* CoreDocumentImpl::getEncoding() {
 }
 
 void CoreDocumentImpl::setXmlVersion($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return;
 	}
 	bool var$0 = $nc(value)->equals("1.0"_s);
-	if (var$0 || $nc(value)->equals("1.1"_s)) {
-		if (!$nc($(getXmlVersion()))->equals(value)) {
+	if (var$0 || value->equals("1.1"_s)) {
+		if (!$$nc(getXmlVersion())->equals(value)) {
 			this->xmlVersionChanged = true;
 			isNormalized(false);
 			$set(this, version, value);
@@ -900,7 +660,7 @@ void CoreDocumentImpl::setXmlVersion($String* value) {
 		$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
 		$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 	}
-	if ($nc(($(getXmlVersion())))->equals("1.1"_s)) {
+	if (($$nc(getXmlVersion()))->equals("1.1"_s)) {
 		this->xml11Version = true;
 	} else {
 		this->xml11Version = false;
@@ -940,7 +700,7 @@ $String* CoreDocumentImpl::getDocumentURI() {
 }
 
 $Node* CoreDocumentImpl::renameNode($Node* n, $String* namespaceURI, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->errorChecking && !$equals($nc(n)->getOwnerDocument(), this) && !$equals(n, this)) {
 		$init($DOMMessageFormatter);
 		$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "WRONG_DOCUMENT_ERR"_s, nullptr));
@@ -949,102 +709,96 @@ $Node* CoreDocumentImpl::renameNode($Node* n, $String* namespaceURI, $String* na
 	switch ($nc(n)->getNodeType()) {
 	case $Node::ELEMENT_NODE:
 		{
-			{
-				$var($ElementImpl, el, $cast($ElementImpl, n));
-				if ($instanceOf($ElementNSImpl, el)) {
-					$nc(($cast($ElementNSImpl, el)))->rename(namespaceURI, name);
-					callUserDataHandlers(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(el)))), nullptr, $UserDataHandler::NODE_RENAMED);
-				} else if (namespaceURI == nullptr) {
-					if (this->errorChecking) {
-						int32_t colon1 = $nc(name)->indexOf((int32_t)u':');
-						if (colon1 != -1) {
-							$init($DOMMessageFormatter);
-							$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NAMESPACE_ERR"_s, nullptr));
-							$throwNew($DOMException, $DOMException::NAMESPACE_ERR, msg);
-						}
-						if (!isXMLName(name, this->xml11Version)) {
-							$init($DOMMessageFormatter);
-							$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_CHARACTER_ERR"_s, nullptr));
-							$throwNew($DOMException, $DOMException::INVALID_CHARACTER_ERR, msg);
-						}
+			$var($ElementImpl, el, $cast($ElementImpl, n));
+			if ($instanceOf($ElementNSImpl, el)) {
+				$cast($ElementNSImpl, el)->rename(namespaceURI, name);
+				callUserDataHandlers($cast($ParentNode, el), nullptr, $UserDataHandler::NODE_RENAMED);
+			} else if (namespaceURI == nullptr) {
+				if (this->errorChecking) {
+					int32_t colon1 = $nc(name)->indexOf(u':');
+					if (colon1 != -1) {
+						$init($DOMMessageFormatter);
+						$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NAMESPACE_ERR"_s, nullptr));
+						$throwNew($DOMException, $DOMException::NAMESPACE_ERR, msg);
 					}
-					el->rename(name);
-					callUserDataHandlers(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(el)))), nullptr, $UserDataHandler::NODE_RENAMED);
-				} else {
-					$var($ElementNSImpl, nel, $new($ElementNSImpl, this, namespaceURI, name));
-					copyEventListeners(el, nel);
-					$var($Map, data, removeUserDataTable(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(el))))));
-					$var($Node, parent, el->getParentNode());
-					$var($Node, nextSib, el->getNextSibling());
-					if (parent != nullptr) {
-						parent->removeChild(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(el)))));
+					if (!isXMLName(name, this->xml11Version)) {
+						$init($DOMMessageFormatter);
+						$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_CHARACTER_ERR"_s, nullptr));
+						$throwNew($DOMException, $DOMException::INVALID_CHARACTER_ERR, msg);
 					}
-					$var($Node, child, el->getFirstChild());
-					while (child != nullptr) {
-						el->removeChild(child);
-						nel->appendChild(child);
-						$assign(child, el->getFirstChild());
-					}
-					nel->moveSpecifiedAttributes(el);
-					setUserDataTable(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(static_cast<$ElementImpl*>(nel))))), data);
-					callUserDataHandlers(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(el)))), static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(static_cast<$ElementImpl*>(nel))))), $UserDataHandler::NODE_RENAMED);
-					if (parent != nullptr) {
-						parent->insertBefore(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(static_cast<$ElementImpl*>(nel))))), nextSib);
-					}
-					$assign(el, nel);
 				}
-				renamedElement($cast($Element, n), el);
-				return static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(el))));
+				el->rename(name);
+				callUserDataHandlers($cast($ParentNode, el), nullptr, $UserDataHandler::NODE_RENAMED);
+			} else {
+				$var($ElementNSImpl, nel, $new($ElementNSImpl, this, namespaceURI, name));
+				copyEventListeners(el, nel);
+				$var($Map, data, removeUserDataTable($cast($ParentNode, el)));
+				$var($Node, parent, el->getParentNode());
+				$var($Node, nextSib, el->getNextSibling());
+				if (parent != nullptr) {
+					parent->removeChild($cast($ParentNode, el));
+				}
+				$var($Node, child, el->getFirstChild());
+				while (child != nullptr) {
+					el->removeChild(child);
+					nel->appendChild(child);
+					$assign(child, el->getFirstChild());
+				}
+				nel->moveSpecifiedAttributes(el);
+				setUserDataTable($cast($ParentNode, nel), data);
+				callUserDataHandlers($cast($ParentNode, el), $cast($ParentNode, nel), $UserDataHandler::NODE_RENAMED);
+				if (parent != nullptr) {
+					parent->insertBefore($cast($ParentNode, nel), nextSib);
+				}
+				$assign(el, nel);
 			}
+			renamedElement($cast($Element, n), el);
+			return $cast($ParentNode, el);
 		}
 	case $Node::ATTRIBUTE_NODE:
 		{
-			{
-				$var($AttrImpl, at, $cast($AttrImpl, n));
-				$var($Element, el, at->getOwnerElement());
-				if (el != nullptr) {
-					el->removeAttributeNode(at);
-				}
-				if ($instanceOf($AttrNSImpl, n)) {
-					$nc(($cast($AttrNSImpl, at)))->rename(namespaceURI, name);
-					if (el != nullptr) {
-						el->setAttributeNodeNS(at);
-					}
-					callUserDataHandlers(static_cast<$Node*>(static_cast<$NodeImpl*>(at)), nullptr, $UserDataHandler::NODE_RENAMED);
-				} else if (namespaceURI == nullptr) {
-					at->rename(name);
-					if (el != nullptr) {
-						el->setAttributeNode(at);
-					}
-					callUserDataHandlers(static_cast<$Node*>(static_cast<$NodeImpl*>(at)), nullptr, $UserDataHandler::NODE_RENAMED);
-				} else {
-					$var($AttrNSImpl, nat, $new($AttrNSImpl, this, namespaceURI, name));
-					copyEventListeners(at, nat);
-					$var($Map, data, removeUserDataTable(static_cast<$Node*>(static_cast<$NodeImpl*>(at))));
-					$var($Node, child, at->getFirstChild());
-					while (child != nullptr) {
-						at->removeChild(child);
-						nat->appendChild(child);
-						$assign(child, at->getFirstChild());
-					}
-					setUserDataTable(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$AttrImpl*>(nat))), data);
-					callUserDataHandlers(static_cast<$Node*>(static_cast<$NodeImpl*>(at)), static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$AttrImpl*>(nat))), $UserDataHandler::NODE_RENAMED);
-					if (el != nullptr) {
-						el->setAttributeNode(nat);
-					}
-					$assign(at, nat);
-				}
-				renamedAttrNode($cast($Attr, n), at);
-				return static_cast<$Node*>(static_cast<$NodeImpl*>(at));
+			$var($AttrImpl, at, $cast($AttrImpl, n));
+			$var($Element, el, at->getOwnerElement());
+			if (el != nullptr) {
+				el->removeAttributeNode(at);
 			}
+			if ($instanceOf($AttrNSImpl, n)) {
+				$cast($AttrNSImpl, at)->rename(namespaceURI, name);
+				if (el != nullptr) {
+					el->setAttributeNodeNS(at);
+				}
+				callUserDataHandlers($cast($NodeImpl, at), nullptr, $UserDataHandler::NODE_RENAMED);
+			} else if (namespaceURI == nullptr) {
+				at->rename(name);
+				if (el != nullptr) {
+					el->setAttributeNode(at);
+				}
+				callUserDataHandlers($cast($NodeImpl, at), nullptr, $UserDataHandler::NODE_RENAMED);
+			} else {
+				$var($AttrNSImpl, nat, $new($AttrNSImpl, this, namespaceURI, name));
+				copyEventListeners(at, nat);
+				$var($Map, data, removeUserDataTable($cast($NodeImpl, at)));
+				$var($Node, child, at->getFirstChild());
+				while (child != nullptr) {
+					at->removeChild(child);
+					nat->appendChild(child);
+					$assign(child, at->getFirstChild());
+				}
+				setUserDataTable($cast($NodeImpl, nat), data);
+				callUserDataHandlers($cast($NodeImpl, at), $cast($NodeImpl, nat), $UserDataHandler::NODE_RENAMED);
+				if (el != nullptr) {
+					el->setAttributeNode(nat);
+				}
+				$assign(at, nat);
+			}
+			renamedAttrNode($cast($Attr, n), at);
+			return $cast($NodeImpl, at);
 		}
 	default:
 		{
-			{
-				$init($DOMMessageFormatter);
-				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
-				$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-			}
+			$init($DOMMessageFormatter);
+			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
+			$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 		}
 	}
 }
@@ -1063,7 +817,7 @@ void CoreDocumentImpl::normalizeDocument() {
 	if (this->fConfiguration == nullptr) {
 		$set(this, fConfiguration, $new($DOMConfigurationImpl));
 	} else {
-		$nc(this->fConfiguration)->reset();
+		this->fConfiguration->reset();
 	}
 	$nc(this->domNormalizer)->normalizeDocument(this, this->fConfiguration);
 	isNormalized(true);
@@ -1078,7 +832,7 @@ $DOMConfiguration* CoreDocumentImpl::getDomConfig() {
 }
 
 $String* CoreDocumentImpl::getBaseURI() {
-	if (this->fDocumentURI != nullptr && $nc(this->fDocumentURI)->length() != 0) {
+	if (this->fDocumentURI != nullptr && this->fDocumentURI->length() != 0) {
 		try {
 			return $$new($URI, this->fDocumentURI)->toString();
 		} catch ($URI$MalformedURIException& e) {
@@ -1116,7 +870,7 @@ bool CoreDocumentImpl::loadXML($String* source) {
 }
 
 $String* CoreDocumentImpl::saveXML($Node* node$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, node$renamed);
 	if (this->errorChecking && node != nullptr && !$equals(this, node->getOwnerDocument())) {
 		$init($DOMMessageFormatter);
@@ -1126,7 +880,7 @@ $String* CoreDocumentImpl::saveXML($Node* node$renamed) {
 	$var($DOMImplementationLS, domImplLS, $cast($DOMImplementationLS, $DOMImplementationImpl::getDOMImplementation()));
 	$var($LSSerializer, xmlWriter, $nc(domImplLS)->createLSSerializer());
 	if (node == nullptr) {
-		$assign(node, static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(this)))));
+		$assign(node, $cast($ParentNode, this));
 	}
 	return $nc(xmlWriter)->writeToString(node);
 }
@@ -1178,19 +932,19 @@ int32_t CoreDocumentImpl::getNodeNumber() {
 }
 
 int32_t CoreDocumentImpl::getNodeNumber($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t num = 0;
 	if (this->nodeTable == nullptr) {
 		$set(this, nodeTable, $new($HashMap));
 		num = --this->nodeCounter;
-		$nc(this->nodeTable)->put(node, $($Integer::valueOf(num)));
+		this->nodeTable->put(node, $($Integer::valueOf(num)));
 	} else {
-		$var($Integer, n, $cast($Integer, $nc(this->nodeTable)->get(node)));
+		$var($Integer, n, $cast($Integer, this->nodeTable->get(node)));
 		if (n == nullptr) {
 			num = --this->nodeCounter;
-			$nc(this->nodeTable)->put(node, $($Integer::valueOf(num)));
+			this->nodeTable->put(node, $($Integer::valueOf(num)));
 		} else {
-			num = $nc(n)->intValue();
+			num = n->intValue();
 		}
 	}
 	return num;
@@ -1201,212 +955,185 @@ $Node* CoreDocumentImpl::importNode($Node* source, bool deep) {
 }
 
 $Node* CoreDocumentImpl::importNode($Node* source, bool deep, bool cloningDoc, $Map* reversedIdentifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, newnode, nullptr);
 	$var($Map, userData, nullptr);
 	if ($instanceOf($NodeImpl, source)) {
-		$assign(userData, $nc(($cast($NodeImpl, source)))->getUserDataRecord());
+		$assign(userData, $cast($NodeImpl, source)->getUserDataRecord());
 	}
 	int32_t type = $nc(source)->getNodeType();
 	switch (type) {
 	case $Node::ELEMENT_NODE:
 		{
-			{
-				$var($Element, newElement, nullptr);
-				bool domLevel20 = $nc($($nc($(source->getOwnerDocument()))->getImplementation()))->hasFeature("XML"_s, "2.0"_s);
-				if (domLevel20 == false || source->getLocalName() == nullptr) {
-					$assign(newElement, createElement($(source->getNodeName())));
-				} else {
-					$var($String, var$0, source->getNamespaceURI());
-					$assign(newElement, createElementNS(var$0, $(source->getNodeName())));
-				}
-				$var($NamedNodeMap, sourceAttrs, source->getAttributes());
-				if (sourceAttrs != nullptr) {
-					int32_t length = sourceAttrs->getLength();
-					for (int32_t index = 0; index < length; ++index) {
-						$var($Attr, attr, $cast($Attr, sourceAttrs->item(index)));
-						if ($nc(attr)->getSpecified() || cloningDoc) {
-							$var($Attr, newAttr, $cast($Attr, importNode(attr, true, cloningDoc, reversedIdentifiers)));
-							if (domLevel20 == false || $nc(attr)->getLocalName() == nullptr) {
-								$nc(newElement)->setAttributeNode(newAttr);
-							} else {
-								$nc(newElement)->setAttributeNodeNS(newAttr);
-							}
-						}
-					}
-				}
-				if (reversedIdentifiers != nullptr) {
-					$var($String, elementId, $cast($String, reversedIdentifiers->get(source)));
-					if (elementId != nullptr) {
-						if (this->identifiers == nullptr) {
-							$set(this, identifiers, $new($HashMap));
-						}
-						$nc(this->identifiers)->put(elementId, newElement);
-					}
-				}
-				$assign(newnode, newElement);
-				break;
+			$var($Element, newElement, nullptr);
+			bool domLevel20 = $$nc($$nc(source->getOwnerDocument())->getImplementation())->hasFeature("XML"_s, "2.0"_s);
+			if (domLevel20 == false || source->getLocalName() == nullptr) {
+				$assign(newElement, createElement($(source->getNodeName())));
+			} else {
+				$var($String, var$0, source->getNamespaceURI());
+				$assign(newElement, createElementNS(var$0, $(source->getNodeName())));
 			}
+			$var($NamedNodeMap, sourceAttrs, source->getAttributes());
+			if (sourceAttrs != nullptr) {
+				int32_t length = sourceAttrs->getLength();
+				for (int32_t index = 0; index < length; ++index) {
+					$var($Attr, attr, $cast($Attr, sourceAttrs->item(index)));
+					if ($nc(attr)->getSpecified() || cloningDoc) {
+						$var($Attr, newAttr, $cast($Attr, importNode(attr, true, cloningDoc, reversedIdentifiers)));
+						if (domLevel20 == false || attr->getLocalName() == nullptr) {
+							$nc(newElement)->setAttributeNode(newAttr);
+						} else {
+							$nc(newElement)->setAttributeNodeNS(newAttr);
+						}
+					}
+				}
+			}
+			if (reversedIdentifiers != nullptr) {
+				$var($String, elementId, $cast($String, reversedIdentifiers->get(source)));
+				if (elementId != nullptr) {
+					if (this->identifiers == nullptr) {
+						$set(this, identifiers, $new($HashMap));
+					}
+					$nc(this->identifiers)->put(elementId, newElement);
+				}
+			}
+			$assign(newnode, newElement);
+			break;
 		}
 	case $Node::ATTRIBUTE_NODE:
 		{
-			{
-				if ($nc($($nc($(source->getOwnerDocument()))->getImplementation()))->hasFeature("XML"_s, "2.0"_s)) {
-					if (source->getLocalName() == nullptr) {
-						$assign(newnode, createAttribute($(source->getNodeName())));
-					} else {
-						$var($String, var$1, source->getNamespaceURI());
-						$assign(newnode, createAttributeNS(var$1, $(source->getNodeName())));
-					}
-				} else {
+			if ($$nc($$nc(source->getOwnerDocument())->getImplementation())->hasFeature("XML"_s, "2.0"_s)) {
+				if (source->getLocalName() == nullptr) {
 					$assign(newnode, createAttribute($(source->getNodeName())));
+				} else {
+					$var($String, var$1, source->getNamespaceURI());
+					$assign(newnode, createAttributeNS(var$1, $(source->getNodeName())));
 				}
-				if ($instanceOf($AttrImpl, source)) {
-					$var($AttrImpl, attr, $cast($AttrImpl, source));
-					if (attr->hasStringValue()) {
-						$var($AttrImpl, newattr, $cast($AttrImpl, newnode));
-						$nc(newattr)->setValue($(attr->getValue()));
-						deep = false;
-					} else {
-						deep = true;
-					}
-				} else if (source->getFirstChild() == nullptr) {
-					$nc(newnode)->setNodeValue($(source->getNodeValue()));
+			} else {
+				$assign(newnode, createAttribute($(source->getNodeName())));
+			}
+			if ($instanceOf($AttrImpl, source)) {
+				$var($AttrImpl, attr, $cast($AttrImpl, source));
+				if (attr->hasStringValue()) {
+					$var($AttrImpl, newattr, $cast($AttrImpl, newnode));
+					$nc(newattr)->setValue($(attr->getValue()));
 					deep = false;
 				} else {
 					deep = true;
 				}
-				break;
+			} else if (source->getFirstChild() == nullptr) {
+				$nc(newnode)->setNodeValue($(source->getNodeValue()));
+				deep = false;
+			} else {
+				deep = true;
 			}
+			break;
 		}
 	case $Node::TEXT_NODE:
 		{
-			{
-				$assign(newnode, createTextNode($(source->getNodeValue())));
-				break;
-			}
+			$assign(newnode, createTextNode($(source->getNodeValue())));
+			break;
 		}
 	case $Node::CDATA_SECTION_NODE:
 		{
-			{
-				$assign(newnode, createCDATASection($(source->getNodeValue())));
-				break;
-			}
+			$assign(newnode, createCDATASection($(source->getNodeValue())));
+			break;
 		}
 	case $Node::ENTITY_REFERENCE_NODE:
 		{
-			{
-				$assign(newnode, createEntityReference($(source->getNodeName())));
-				deep = false;
-				break;
-			}
+			$assign(newnode, createEntityReference($(source->getNodeName())));
+			deep = false;
+			break;
 		}
 	case $Node::ENTITY_NODE:
 		{
-			{
-				$var($Entity, srcentity, $cast($Entity, source));
-				$var($EntityImpl, newentity, $cast($EntityImpl, createEntity($(source->getNodeName()))));
-				$nc(newentity)->setPublicId($(srcentity->getPublicId()));
-				newentity->setSystemId($(srcentity->getSystemId()));
-				newentity->setNotationName($(srcentity->getNotationName()));
-				newentity->isReadOnly(false);
-				$assign(newnode, static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(newentity)))));
-				break;
-			}
+			$var($Entity, srcentity, $cast($Entity, source));
+			$var($EntityImpl, newentity, $cast($EntityImpl, createEntity($(source->getNodeName()))));
+			$nc(newentity)->setPublicId($(srcentity->getPublicId()));
+			newentity->setSystemId($(srcentity->getSystemId()));
+			newentity->setNotationName($(srcentity->getNotationName()));
+			newentity->isReadOnly(false);
+			$assign(newnode, $cast($ParentNode, newentity));
+			break;
 		}
 	case $Node::PROCESSING_INSTRUCTION_NODE:
 		{
-			{
-				$var($String, var$2, source->getNodeName());
-				$assign(newnode, createProcessingInstruction(var$2, $(source->getNodeValue())));
-				break;
-			}
+			$var($String, var$2, source->getNodeName());
+			$assign(newnode, createProcessingInstruction(var$2, $(source->getNodeValue())));
+			break;
 		}
 	case $Node::COMMENT_NODE:
 		{
-			{
-				$assign(newnode, createComment($(source->getNodeValue())));
-				break;
-			}
+			$assign(newnode, createComment($(source->getNodeValue())));
+			break;
 		}
 	case $Node::DOCUMENT_TYPE_NODE:
 		{
-			{
-				if (!cloningDoc) {
-					$init($DOMMessageFormatter);
-					$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
-					$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-				}
-				$var($DocumentType, srcdoctype, $cast($DocumentType, source));
-				$var($String, var$3, srcdoctype->getNodeName());
-				$var($String, var$4, srcdoctype->getPublicId());
-				$var($DocumentTypeImpl, newdoctype, $cast($DocumentTypeImpl, createDocumentType(var$3, var$4, $(srcdoctype->getSystemId()))));
-				$var($NamedNodeMap, smap, srcdoctype->getEntities());
-				$var($NamedNodeMap, tmap, $nc(newdoctype)->getEntities());
-				if (smap != nullptr) {
-					for (int32_t i = 0; i < smap->getLength(); ++i) {
-						$nc(tmap)->setNamedItem($(importNode($(smap->item(i)), true, true, reversedIdentifiers)));
-					}
-				}
-				$assign(smap, srcdoctype->getNotations());
-				$assign(tmap, newdoctype->getNotations());
-				if (smap != nullptr) {
-					for (int32_t i = 0; i < smap->getLength(); ++i) {
-						$nc(tmap)->setNamedItem($(importNode($(smap->item(i)), true, true, reversedIdentifiers)));
-					}
-				}
-				$assign(newnode, static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(newdoctype)))));
-				break;
-			}
-		}
-	case $Node::DOCUMENT_FRAGMENT_NODE:
-		{
-			{
-				$assign(newnode, createDocumentFragment());
-				break;
-			}
-		}
-	case $Node::NOTATION_NODE:
-		{
-			{
-				$var($Notation, srcnotation, $cast($Notation, source));
-				$var($NotationImpl, newnotation, $cast($NotationImpl, createNotation($(source->getNodeName()))));
-				$nc(newnotation)->setPublicId($(srcnotation->getPublicId()));
-				newnotation->setSystemId($(srcnotation->getSystemId()));
-				$assign(newnode, static_cast<$Node*>(static_cast<$NodeImpl*>(newnotation)));
-				break;
-			}
-		}
-	case $Node::DOCUMENT_NODE:
-		{}
-	default:
-		{
-			{
+			if (!cloningDoc) {
 				$init($DOMMessageFormatter);
 				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
 				$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 			}
+			$var($DocumentType, srcdoctype, $cast($DocumentType, source));
+			$var($String, var$3, srcdoctype->getNodeName());
+			$var($String, var$4, srcdoctype->getPublicId());
+			$var($DocumentTypeImpl, newdoctype, $cast($DocumentTypeImpl, createDocumentType(var$3, var$4, $(srcdoctype->getSystemId()))));
+			$var($NamedNodeMap, smap, srcdoctype->getEntities());
+			$var($NamedNodeMap, tmap, $nc(newdoctype)->getEntities());
+			if (smap != nullptr) {
+				for (int32_t i = 0; i < smap->getLength(); ++i) {
+					$nc(tmap)->setNamedItem($(importNode($(smap->item(i)), true, true, reversedIdentifiers)));
+				}
+			}
+			$assign(smap, srcdoctype->getNotations());
+			$assign(tmap, newdoctype->getNotations());
+			if (smap != nullptr) {
+				for (int32_t i = 0; i < smap->getLength(); ++i) {
+					$nc(tmap)->setNamedItem($(importNode($(smap->item(i)), true, true, reversedIdentifiers)));
+				}
+			}
+			$assign(newnode, $cast($ParentNode, newdoctype));
+			break;
+		}
+	case $Node::DOCUMENT_FRAGMENT_NODE:
+		{
+			$assign(newnode, createDocumentFragment());
+			break;
+		}
+	case $Node::NOTATION_NODE:
+		{
+			$var($Notation, srcnotation, $cast($Notation, source));
+			$var($NotationImpl, newnotation, $cast($NotationImpl, createNotation($(source->getNodeName()))));
+			$nc(newnotation)->setPublicId($(srcnotation->getPublicId()));
+			newnotation->setSystemId($(srcnotation->getSystemId()));
+			$assign(newnode, $cast($NodeImpl, newnotation));
+			break;
+		}
+	case $Node::DOCUMENT_NODE:
+	default:
+		{
+			$init($DOMMessageFormatter);
+			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
+			$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 		}
 	}
 	if (userData != nullptr) {
 		callUserDataHandlers(source, newnode, $UserDataHandler::NODE_IMPORTED, userData);
 	}
 	if (deep) {
-		{
-			$var($Node, srckid, source->getFirstChild());
-			for (; srckid != nullptr; $assign(srckid, $nc(srckid)->getNextSibling())) {
-				$nc(newnode)->appendChild($(importNode(srckid, true, cloningDoc, reversedIdentifiers)));
-			}
+		$var($Node, srckid, source->getFirstChild());
+		for (; srckid != nullptr; $assign(srckid, srckid->getNextSibling())) {
+			$nc(newnode)->appendChild($(importNode(srckid, true, cloningDoc, reversedIdentifiers)));
 		}
 	}
 	if ($nc(newnode)->getNodeType() == $Node::ENTITY_NODE) {
-		$nc(($cast($NodeImpl, newnode)))->setReadOnly(true, true);
+		$cast($NodeImpl, newnode)->setReadOnly(true, true);
 	}
 	return newnode;
 }
 
 $Node* CoreDocumentImpl::adoptNode($Node* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeImpl, node, nullptr);
 	$var($Map, userData, nullptr);
 	try {
@@ -1416,9 +1143,9 @@ $Node* CoreDocumentImpl::adoptNode($Node* source) {
 	}
 	if (source == nullptr) {
 		return nullptr;
-	} else if ($nc(source)->getOwnerDocument() != nullptr) {
+	} else if (source->getOwnerDocument() != nullptr) {
 		$var($DOMImplementation, thisImpl, this->getImplementation());
-		$var($DOMImplementation, otherImpl, $nc($(source->getOwnerDocument()))->getImplementation());
+		$var($DOMImplementation, otherImpl, $$nc(source->getOwnerDocument())->getImplementation());
 		if (thisImpl != otherImpl) {
 			if ($instanceOf($DOMImplementationImpl, thisImpl) && $instanceOf($DeferredDOMImplementationImpl, otherImpl)) {
 				undeferChildren(node);
@@ -1433,99 +1160,85 @@ $Node* CoreDocumentImpl::adoptNode($Node* source) {
 	switch ($nc(node)->getNodeType()) {
 	case $Node::ATTRIBUTE_NODE:
 		{
-			{
-				$var($AttrImpl, attr, $cast($AttrImpl, node));
-				if (attr->getOwnerElement() != nullptr) {
-					$nc($(attr->getOwnerElement()))->removeAttributeNode(attr);
-				}
-				attr->isSpecified(true);
-				$assign(userData, node->getUserDataRecord());
-				attr->setOwnerDocument(this);
-				if (userData != nullptr) {
-					setUserDataTable(node, userData);
-				}
-				break;
+			$var($AttrImpl, attr, $cast($AttrImpl, node));
+			if (attr->getOwnerElement() != nullptr) {
+				$$nc(attr->getOwnerElement())->removeAttributeNode(attr);
 			}
+			attr->isSpecified(true);
+			$assign(userData, node->getUserDataRecord());
+			attr->setOwnerDocument(this);
+			if (userData != nullptr) {
+				setUserDataTable(node, userData);
+			}
+			break;
 		}
 	case $Node::ENTITY_NODE:
-		{}
 	case $Node::NOTATION_NODE:
 		{
-			{
-				$init($DOMMessageFormatter);
-				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NO_MODIFICATION_ALLOWED_ERR"_s, nullptr));
-				$throwNew($DOMException, $DOMException::NO_MODIFICATION_ALLOWED_ERR, msg);
-			}
+			$init($DOMMessageFormatter);
+			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NO_MODIFICATION_ALLOWED_ERR"_s, nullptr));
+			$throwNew($DOMException, $DOMException::NO_MODIFICATION_ALLOWED_ERR, msg);
 		}
 	case $Node::DOCUMENT_NODE:
-		{}
 	case $Node::DOCUMENT_TYPE_NODE:
 		{
-			{
-				$init($DOMMessageFormatter);
-				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
-				$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-			}
+			$init($DOMMessageFormatter);
+			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NOT_SUPPORTED_ERR"_s, nullptr));
+			$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 		}
 	case $Node::ENTITY_REFERENCE_NODE:
 		{
-			{
-				$assign(userData, node->getUserDataRecord());
-				$var($Node, parent, node->getParentNode());
-				if (parent != nullptr) {
-					parent->removeChild(source);
-				}
-				$var($Node, child, nullptr);
-				while (($assign(child, node->getFirstChild())) != nullptr) {
-					node->removeChild(child);
-				}
-				node->setOwnerDocument(this);
-				if (userData != nullptr) {
-					setUserDataTable(node, userData);
-				}
-				if (this->docType == nullptr) {
-					break;
-				}
-				$var($NamedNodeMap, entities, $nc(this->docType)->getEntities());
-				$var($Node, entityNode, $nc(entities)->getNamedItem($(node->getNodeName())));
-				if (entityNode == nullptr) {
-					break;
-				}
-				for ($assign(child, $nc(entityNode)->getFirstChild()); child != nullptr; $assign(child, $nc(child)->getNextSibling())) {
-					$var($Node, childClone, child->cloneNode(true));
-					node->appendChild(childClone);
-				}
+			$assign(userData, node->getUserDataRecord());
+			$var($Node, parent, node->getParentNode());
+			if (parent != nullptr) {
+				parent->removeChild(source);
+			}
+			$var($Node, child, nullptr);
+			while (($assign(child, node->getFirstChild())) != nullptr) {
+				node->removeChild(child);
+			}
+			node->setOwnerDocument(this);
+			if (userData != nullptr) {
+				setUserDataTable(node, userData);
+			}
+			if (this->docType == nullptr) {
 				break;
 			}
+			$var($NamedNodeMap, entities, $nc(this->docType)->getEntities());
+			$var($Node, entityNode, $nc(entities)->getNamedItem($(node->getNodeName())));
+			if (entityNode == nullptr) {
+				break;
+			}
+			for ($assign(child, $nc(entityNode)->getFirstChild()); child != nullptr; $assign(child, child->getNextSibling())) {
+				$var($Node, childClone, child->cloneNode(true));
+				node->appendChild(childClone);
+			}
+			break;
 		}
 	case $Node::ELEMENT_NODE:
 		{
-			{
-				$assign(userData, node->getUserDataRecord());
-				$var($Node, parent, node->getParentNode());
-				if (parent != nullptr) {
-					parent->removeChild(source);
-				}
-				node->setOwnerDocument(this);
-				if (userData != nullptr) {
-					setUserDataTable(node, userData);
-				}
-				$nc(($cast($ElementImpl, node)))->reconcileDefaultAttributes();
-				break;
+			$assign(userData, node->getUserDataRecord());
+			$var($Node, parent, node->getParentNode());
+			if (parent != nullptr) {
+				parent->removeChild(source);
 			}
+			node->setOwnerDocument(this);
+			if (userData != nullptr) {
+				setUserDataTable(node, userData);
+			}
+			$cast($ElementImpl, node)->reconcileDefaultAttributes();
+			break;
 		}
 	default:
 		{
-			{
-				$assign(userData, node->getUserDataRecord());
-				$var($Node, parent, node->getParentNode());
-				if (parent != nullptr) {
-					parent->removeChild(source);
-				}
-				node->setOwnerDocument(this);
-				if (userData != nullptr) {
-					setUserDataTable(node, userData);
-				}
+			$assign(userData, node->getUserDataRecord());
+			$var($Node, parent, node->getParentNode());
+			if (parent != nullptr) {
+				parent->removeChild(source);
+			}
+			node->setOwnerDocument(this);
+			if (userData != nullptr) {
+				setUserDataTable(node, userData);
 			}
 		}
 	}
@@ -1536,12 +1249,12 @@ $Node* CoreDocumentImpl::adoptNode($Node* source) {
 }
 
 void CoreDocumentImpl::undeferChildren($Node* node$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, node$renamed);
 	$var($Node, top, node);
 	while (nullptr != node) {
-		if ($nc(($cast($NodeImpl, node)))->needsSyncData()) {
-			($cast($NodeImpl, node))->synchronizeData();
+		if ($cast($NodeImpl, node)->needsSyncData()) {
+			$cast($NodeImpl, node)->synchronizeData();
 		}
 		$var($NamedNodeMap, attributes, node->getAttributes());
 		if (attributes != nullptr) {
@@ -1553,13 +1266,13 @@ void CoreDocumentImpl::undeferChildren($Node* node$renamed) {
 		$var($Node, nextNode, nullptr);
 		$assign(nextNode, node->getFirstChild());
 		while (nullptr == nextNode) {
-			if ($nc($of(top))->equals(node)) {
+			if ($nc(top)->equals(node)) {
 				break;
 			}
 			$assign(nextNode, $nc(node)->getNextSibling());
 			if (nullptr == nextNode) {
 				$assign(node, node->getParentNode());
-				if ((nullptr == node) || ($nc($of(top))->equals(node))) {
+				if ((nullptr == node) || (top->equals(node))) {
 					$assign(nextNode, nullptr);
 					break;
 				}
@@ -1575,7 +1288,7 @@ $Element* CoreDocumentImpl::getElementById($String* elementId) {
 
 void CoreDocumentImpl::clearIdentifiers() {
 	if (this->identifiers != nullptr) {
-		$nc(this->identifiers)->clear();
+		this->identifiers->clear();
 	}
 }
 
@@ -1594,7 +1307,7 @@ void CoreDocumentImpl::putIdentifier($String* idName, $Element* element) {
 }
 
 $Element* CoreDocumentImpl::getIdentifier($String* idName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (needsSyncData()) {
 		synchronizeData();
 	}
@@ -1670,10 +1383,10 @@ bool CoreDocumentImpl::isValidQName($String* prefix, $String* local, bool xml11V
 	}
 	bool validNCName = false;
 	if (!xml11Version) {
-		bool var$0 = (prefix == nullptr || $XMLChar::isValidNCName(prefix));
+		bool var$0 = prefix == nullptr || $XMLChar::isValidNCName(prefix);
 		validNCName = var$0 && $XMLChar::isValidNCName(local);
 	} else {
-		bool var$1 = (prefix == nullptr || $XML11Char::isXML11ValidNCName(prefix));
+		bool var$1 = prefix == nullptr || $XML11Char::isXML11ValidNCName(prefix);
 		validNCName = var$1 && $XML11Char::isXML11ValidNCName(local);
 	}
 	return validNCName;
@@ -1685,7 +1398,7 @@ bool CoreDocumentImpl::isKidOK($Node* parent, $Node* child) {
 	}
 	int32_t var$0 = 0;
 	int32_t var$2 = $nc(CoreDocumentImpl::kidOK)->get($nc(parent)->getNodeType());
-	int32_t var$1 = ((int32_t)(var$2 & (uint32_t)$sl(1, $nc(child)->getNodeType())));
+	int32_t var$1 = (var$2 & $sl(1, $nc(child)->getNodeType()));
 	return var$0 != var$1;
 }
 
@@ -1707,7 +1420,7 @@ $NodeListCache* CoreDocumentImpl::getNodeListCache($ParentNode* owner) {
 	c->fChildIndex = -1;
 	c->fLength = -1;
 	if (c->fOwner != nullptr) {
-		$set($nc(c->fOwner), fNodeListCache, nullptr);
+		$set(c->fOwner, fNodeListCache, nullptr);
 	}
 	$set(c, fOwner, owner);
 	return c;
@@ -1719,53 +1432,53 @@ void CoreDocumentImpl::freeNodeListCache($NodeListCache* c) {
 }
 
 $Object* CoreDocumentImpl::setUserData($Node* n, $String* key, Object$* data, $UserDataHandler* handler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (data == nullptr) {
 		if (this->nodeUserData != nullptr) {
-			$var($Map, t, $cast($Map, $nc(this->nodeUserData)->get(n)));
+			$var($Map, t, $cast($Map, this->nodeUserData->get(n)));
 			if (t != nullptr) {
 				$var($ParentNode$UserDataRecord, r, $cast($ParentNode$UserDataRecord, t->remove(key)));
 				if (r != nullptr) {
-					return $of(r->fData);
+					return r->fData;
 				}
 			}
 		}
-		return $of(nullptr);
+		return nullptr;
 	} else {
 		$var($Map, t, nullptr);
 		if (this->nodeUserData == nullptr) {
 			$set(this, nodeUserData, $new($HashMap));
 			$assign(t, $new($HashMap));
-			$nc(this->nodeUserData)->put(n, t);
+			this->nodeUserData->put(n, t);
 		} else {
-			$assign(t, $cast($Map, $nc(this->nodeUserData)->get(n)));
+			$assign(t, $cast($Map, this->nodeUserData->get(n)));
 			if (t == nullptr) {
 				$assign(t, $new($HashMap));
-				$nc(this->nodeUserData)->put(n, t);
+				this->nodeUserData->put(n, t);
 			}
 		}
 		$var($ParentNode$UserDataRecord, r, $cast($ParentNode$UserDataRecord, $nc(t)->put(key, $$new($ParentNode$UserDataRecord, this, data, handler))));
 		if (r != nullptr) {
-			return $of(r->fData);
+			return r->fData;
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
 $Object* CoreDocumentImpl::getUserData($Node* n, $String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nodeUserData == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($Map, t, $cast($Map, $nc(this->nodeUserData)->get(n)));
 	if (t == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($ParentNode$UserDataRecord, r, $cast($ParentNode$UserDataRecord, $nc(t)->get(key)));
 	if (r != nullptr) {
-		return $of(r->fData);
+		return r->fData;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Map* CoreDocumentImpl::getUserDataRecord($Node* n) {
@@ -1800,8 +1513,8 @@ void CoreDocumentImpl::callUserDataHandlers($Node* n, $Node* c, int16_t operatio
 		return;
 	}
 	if ($instanceOf($NodeImpl, n)) {
-		$var($Map, t, $nc(($cast($NodeImpl, n)))->getUserDataRecord());
-		if (t == nullptr || $nc(t)->isEmpty()) {
+		$var($Map, t, $cast($NodeImpl, n)->getUserDataRecord());
+		if (t == nullptr || t->isEmpty()) {
 			return;
 		}
 		callUserDataHandlers(n, c, operation, t);
@@ -1809,11 +1522,11 @@ void CoreDocumentImpl::callUserDataHandlers($Node* n, $Node* c, int16_t operatio
 }
 
 void CoreDocumentImpl::callUserDataHandlers($Node* n, $Node* c, int16_t operation, $Map* userData) {
-	$useLocalCurrentObjectStackCache();
-	if (userData == nullptr || $nc(userData)->isEmpty()) {
+	$useLocalObjectStack();
+	if (userData == nullptr || userData->isEmpty()) {
 		return;
 	}
-	$nc($($nc($($nc(userData)->keySet()))->stream()))->forEach(static_cast<$Consumer*>($$new(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, userData, operation, n, c)));
+	$$nc($$nc($nc(userData)->keySet())->stream())->forEach($$new(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0, userData, operation, n, c));
 }
 
 void CoreDocumentImpl::checkNamespaceWF($String* qname, int32_t colon1, int32_t colon2) {
@@ -1828,27 +1541,27 @@ void CoreDocumentImpl::checkNamespaceWF($String* qname, int32_t colon1, int32_t 
 }
 
 void CoreDocumentImpl::checkDOMNSErr($String* prefix, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->errorChecking) {
 		if (namespace$ == nullptr) {
 			$init($DOMMessageFormatter);
 			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NAMESPACE_ERR"_s, nullptr));
 			$throwNew($DOMException, $DOMException::NAMESPACE_ERR, msg);
 		} else {
-			bool var$1 = $nc(prefix)->equals("xml"_s);
+			bool var$0 = $nc(prefix)->equals("xml"_s);
 			$init($NamespaceContext);
-			if (var$1 && !$nc(namespace$)->equals($NamespaceContext::XML_URI)) {
+			if (var$0 && !namespace$->equals($NamespaceContext::XML_URI)) {
 				$init($DOMMessageFormatter);
 				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NAMESPACE_ERR"_s, nullptr));
 				$throwNew($DOMException, $DOMException::NAMESPACE_ERR, msg);
 			} else {
-				bool var$6 = prefix->equals("xmlns"_s);
-				bool var$5 = var$6 && !namespace$->equals($NamespaceContext::XMLNS_URI);
-				if (!var$5) {
-					bool var$7 = !prefix->equals("xmlns"_s);
-					var$5 = (var$7 && namespace$->equals($NamespaceContext::XMLNS_URI));
+				bool var$2 = prefix->equals("xmlns"_s);
+				bool var$1 = var$2 && !namespace$->equals($NamespaceContext::XMLNS_URI);
+				if (!var$1) {
+					bool var$3 = !prefix->equals("xmlns"_s);
+					var$1 = var$3 && namespace$->equals($NamespaceContext::XMLNS_URI);
 				}
-				if (var$5) {
+				if (var$1) {
 					$init($DOMMessageFormatter);
 					$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NAMESPACE_ERR"_s, nullptr));
 					$throwNew($DOMException, $DOMException::NAMESPACE_ERR, msg);
@@ -1864,10 +1577,10 @@ void CoreDocumentImpl::checkQName($String* prefix, $String* local) {
 	}
 	bool validNCName = false;
 	if (!this->xml11Version) {
-		bool var$0 = (prefix == nullptr || $XMLChar::isValidNCName(prefix));
+		bool var$0 = prefix == nullptr || $XMLChar::isValidNCName(prefix);
 		validNCName = var$0 && $XMLChar::isValidNCName(local);
 	} else {
-		bool var$1 = (prefix == nullptr || $XML11Char::isXML11ValidNCName(prefix));
+		bool var$1 = prefix == nullptr || $XML11Char::isXML11ValidNCName(prefix);
 		validNCName = var$1 && $XML11Char::isXML11ValidNCName(local);
 	}
 	if (!validNCName) {
@@ -1894,7 +1607,7 @@ void CoreDocumentImpl::setUserData($NodeImpl* n, Object$* data) {
 }
 
 $Object* CoreDocumentImpl::getUserData($NodeImpl* n) {
-	return $of(getUserData(n, "XERCES1DOMUSERDATA"_s));
+	return getUserData(n, "XERCES1DOMUSERDATA"_s);
 }
 
 void CoreDocumentImpl::addEventListener($NodeImpl* node, $String* type, $EventListener* listener, bool useCapture) {
@@ -1965,17 +1678,17 @@ void CoreDocumentImpl::renamedElement($Element* oldEl, $Element* newEl) {
 }
 
 void CoreDocumentImpl::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, nud, nullptr);
 	if (this->nodeUserData != nullptr) {
 		$assign(nud, $new($Hashtable));
 		{
-			$var($Iterator, i$, $nc($($nc(this->nodeUserData)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(this->nodeUserData->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 				{
 					$var($Object, var$0, $cast($Node, $nc(e)->getKey()));
-					nud->put(var$0, $$new($Hashtable, $cast($Map, $(e->getValue()))));
+					nud->put(var$0, $$new($Hashtable, $$cast($Map, e->getValue())));
 				}
 			}
 		}
@@ -1983,16 +1696,16 @@ void CoreDocumentImpl::writeObject($ObjectOutputStream* out) {
 	$var($Hashtable, ids, (this->identifiers == nullptr) ? ($Hashtable*)nullptr : $new($Hashtable, this->identifiers));
 	$var($Hashtable, nt, (this->nodeTable == nullptr) ? ($Hashtable*)nullptr : $new($Hashtable, this->nodeTable));
 	$var($ObjectOutputStream$PutField, pf, $nc(out)->putFields());
-	$nc(pf)->put("docType"_s, $of(this->docType));
-	pf->put("docElement"_s, $of(this->docElement));
-	pf->put("fFreeNLCache"_s, $of(this->fFreeNLCache));
-	pf->put("encoding"_s, $of(this->encoding));
-	pf->put("actualEncoding"_s, $of(this->actualEncoding));
-	pf->put("version"_s, $of(this->version));
+	$nc(pf)->put("docType"_s, this->docType);
+	pf->put("docElement"_s, this->docElement);
+	pf->put("fFreeNLCache"_s, this->fFreeNLCache);
+	pf->put("encoding"_s, this->encoding);
+	pf->put("actualEncoding"_s, this->actualEncoding);
+	pf->put("version"_s, this->version);
 	pf->put("standalone"_s, this->standalone);
-	pf->put("fDocumentURI"_s, $of(this->fDocumentURI));
-	pf->put("userData"_s, $of(nud));
-	pf->put("identifiers"_s, $of(ids));
+	pf->put("fDocumentURI"_s, this->fDocumentURI);
+	pf->put("userData"_s, nud);
+	pf->put("identifiers"_s, ids);
 	pf->put("changes"_s, this->changes$);
 	pf->put("allowGrammarAccess"_s, this->allowGrammarAccess);
 	pf->put("errorChecking"_s, this->errorChecking);
@@ -2000,24 +1713,24 @@ void CoreDocumentImpl::writeObject($ObjectOutputStream* out) {
 	pf->put("xmlVersionChanged"_s, this->xmlVersionChanged);
 	pf->put("documentNumber"_s, this->documentNumber);
 	pf->put("nodeCounter"_s, this->nodeCounter);
-	pf->put("nodeTable"_s, $of(nt));
+	pf->put("nodeTable"_s, nt);
 	pf->put("xml11Version"_s, this->xml11Version);
 	out->writeFields();
 }
 
 void CoreDocumentImpl::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gf, $nc(in)->readFields());
-	$set(this, docType, $cast($DocumentTypeImpl, $nc(gf)->get("docType"_s, ($Object*)nullptr)));
-	$set(this, docElement, $cast($ElementImpl, gf->get("docElement"_s, ($Object*)nullptr)));
-	$set(this, fFreeNLCache, $cast($NodeListCache, gf->get("fFreeNLCache"_s, ($Object*)nullptr)));
-	$set(this, encoding, $cast($String, gf->get("encoding"_s, ($Object*)nullptr)));
-	$set(this, actualEncoding, $cast($String, gf->get("actualEncoding"_s, ($Object*)nullptr)));
-	$set(this, version, $cast($String, gf->get("version"_s, ($Object*)nullptr)));
+	$set(this, docType, $cast($DocumentTypeImpl, $nc(gf)->get("docType"_s, nullptr)));
+	$set(this, docElement, $cast($ElementImpl, gf->get("docElement"_s, nullptr)));
+	$set(this, fFreeNLCache, $cast($NodeListCache, gf->get("fFreeNLCache"_s, nullptr)));
+	$set(this, encoding, $cast($String, gf->get("encoding"_s, nullptr)));
+	$set(this, actualEncoding, $cast($String, gf->get("actualEncoding"_s, nullptr)));
+	$set(this, version, $cast($String, gf->get("version"_s, nullptr)));
 	this->standalone = gf->get("standalone"_s, false);
-	$set(this, fDocumentURI, $cast($String, gf->get("fDocumentURI"_s, ($Object*)nullptr)));
-	$var($Hashtable, nud, $cast($Hashtable, gf->get("userData"_s, ($Object*)nullptr)));
-	$var($Hashtable, ids, $cast($Hashtable, gf->get("identifiers"_s, ($Object*)nullptr)));
+	$set(this, fDocumentURI, $cast($String, gf->get("fDocumentURI"_s, nullptr)));
+	$var($Hashtable, nud, $cast($Hashtable, gf->get("userData"_s, nullptr)));
+	$var($Hashtable, ids, $cast($Hashtable, gf->get("identifiers"_s, nullptr)));
 	this->changes$ = gf->get("changes"_s, 0);
 	this->allowGrammarAccess = gf->get("allowGrammarAccess"_s, false);
 	this->errorChecking = gf->get("errorChecking"_s, true);
@@ -2025,26 +1738,26 @@ void CoreDocumentImpl::readObject($ObjectInputStream* in) {
 	this->xmlVersionChanged = gf->get("xmlVersionChanged"_s, false);
 	this->documentNumber = gf->get("documentNumber"_s, 0);
 	this->nodeCounter = gf->get("nodeCounter"_s, 0);
-	$var($Hashtable, nt, $cast($Hashtable, gf->get("nodeTable"_s, ($Object*)nullptr)));
+	$var($Hashtable, nt, $cast($Hashtable, gf->get("nodeTable"_s, nullptr)));
 	this->xml11Version = gf->get("xml11Version"_s, false);
 	if (nud != nullptr) {
 		$set(this, nodeUserData, $new($HashMap));
 		{
-			$var($Iterator, i$, $nc($(nud->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(nud->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 				{
 					$var($Object, var$0, $cast($Node, $nc(e)->getKey()));
-					$nc(this->nodeUserData)->put(var$0, $$new($HashMap, $cast($Map, $(e->getValue()))));
+					this->nodeUserData->put(var$0, $$new($HashMap, $$cast($Map, e->getValue())));
 				}
 			}
 		}
 	}
 	if (ids != nullptr) {
-		$set(this, identifiers, $new($HashMap, static_cast<$Map*>(ids)));
+		$set(this, identifiers, $new($HashMap, ids));
 	}
 	if (nt != nullptr) {
-		$set(this, nodeTable, $new($HashMap, static_cast<$Map*>(nt)));
+		$set(this, nodeTable, $new($HashMap, nt));
 	}
 }
 
@@ -2052,25 +1765,23 @@ void CoreDocumentImpl::lambda$callUserDataHandlers$0($Map* userData, int16_t ope
 	$init(CoreDocumentImpl);
 	$var($ParentNode$UserDataRecord, r, $cast($ParentNode$UserDataRecord, $nc(userData)->get(key)));
 	if ($nc(r)->fHandler != nullptr) {
-		$nc(r->fHandler)->handle(operation, key, r->fData, n, c);
+		r->fHandler->handle(operation, key, r->fData, n, c);
 	}
 }
 
-void clinit$CoreDocumentImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CoreDocumentImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$assignStatic(CoreDocumentImpl::kidOK, $new($ints, 13));
-		$nc(CoreDocumentImpl::kidOK)->set($Node::DOCUMENT_NODE, (($sl(1, $Node::ELEMENT_NODE) | $sl(1, $Node::PROCESSING_INSTRUCTION_NODE)) | $sl(1, $Node::COMMENT_NODE)) | $sl(1, $Node::DOCUMENT_TYPE_NODE));
-		$nc(CoreDocumentImpl::kidOK)->set($Node::DOCUMENT_FRAGMENT_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::ENTITY_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::ENTITY_REFERENCE_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::ELEMENT_NODE, (((($sl(1, $Node::ELEMENT_NODE) | $sl(1, $Node::PROCESSING_INSTRUCTION_NODE)) | $sl(1, $Node::COMMENT_NODE)) | $sl(1, $Node::TEXT_NODE)) | $sl(1, $Node::CDATA_SECTION_NODE)) | $sl(1, $Node::ENTITY_REFERENCE_NODE)))));
-		$nc(CoreDocumentImpl::kidOK)->set($Node::ATTRIBUTE_NODE, $sl(1, $Node::TEXT_NODE) | $sl(1, $Node::ENTITY_REFERENCE_NODE));
-		$nc(CoreDocumentImpl::kidOK)->set($Node::DOCUMENT_TYPE_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::PROCESSING_INSTRUCTION_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::COMMENT_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::TEXT_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::CDATA_SECTION_NODE, $nc(CoreDocumentImpl::kidOK)->set($Node::NOTATION_NODE, 0))))));
+		CoreDocumentImpl::kidOK->set($Node::DOCUMENT_NODE, (($sl(1, $Node::ELEMENT_NODE) | $sl(1, $Node::PROCESSING_INSTRUCTION_NODE)) | $sl(1, $Node::COMMENT_NODE)) | $sl(1, $Node::DOCUMENT_TYPE_NODE));
+		CoreDocumentImpl::kidOK->set($Node::DOCUMENT_FRAGMENT_NODE, CoreDocumentImpl::kidOK->set($Node::ENTITY_NODE, CoreDocumentImpl::kidOK->set($Node::ENTITY_REFERENCE_NODE, CoreDocumentImpl::kidOK->set($Node::ELEMENT_NODE, (((($sl(1, $Node::ELEMENT_NODE) | $sl(1, $Node::PROCESSING_INSTRUCTION_NODE)) | $sl(1, $Node::COMMENT_NODE)) | $sl(1, $Node::TEXT_NODE)) | $sl(1, $Node::CDATA_SECTION_NODE)) | $sl(1, $Node::ENTITY_REFERENCE_NODE)))));
+		CoreDocumentImpl::kidOK->set($Node::ATTRIBUTE_NODE, $sl(1, $Node::TEXT_NODE) | $sl(1, $Node::ENTITY_REFERENCE_NODE));
+		CoreDocumentImpl::kidOK->set($Node::DOCUMENT_TYPE_NODE, CoreDocumentImpl::kidOK->set($Node::PROCESSING_INSTRUCTION_NODE, CoreDocumentImpl::kidOK->set($Node::COMMENT_NODE, CoreDocumentImpl::kidOK->set($Node::TEXT_NODE, CoreDocumentImpl::kidOK->set($Node::CDATA_SECTION_NODE, CoreDocumentImpl::kidOK->set($Node::NOTATION_NODE, 0))))));
 	}
 	$load($DocumentTypeImpl);
 	$load($ElementImpl);
 	$load($NodeListCache);
-	$init($Boolean);
 	$load($Hashtable);
-	$init($Integer);
 	$assignStatic(CoreDocumentImpl::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "docType"_s, $DocumentTypeImpl::class$),
 		$$new($ObjectStreamField, "docElement"_s, $ElementImpl::class$),
@@ -2099,11 +1810,233 @@ CoreDocumentImpl::CoreDocumentImpl() {
 
 $Class* CoreDocumentImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0")) {
 			return CoreDocumentImpl$$Lambda$lambda$callUserDataHandlers$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CoreDocumentImpl, name, initialize, &_CoreDocumentImpl_ClassInfo_, clinit$CoreDocumentImpl, allocate$CoreDocumentImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CoreDocumentImpl, serialVersionUID)},
+		{"docType", "Lcom/sun/org/apache/xerces/internal/dom/DocumentTypeImpl;", nullptr, $PROTECTED, $field(CoreDocumentImpl, docType)},
+		{"docElement", "Lcom/sun/org/apache/xerces/internal/dom/ElementImpl;", nullptr, $PROTECTED, $field(CoreDocumentImpl, docElement)},
+		{"fFreeNLCache", "Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, fFreeNLCache)},
+		{"encoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, encoding)},
+		{"actualEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, actualEncoding)},
+		{"version", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, version)},
+		{"standalone", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, standalone)},
+		{"fDocumentURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(CoreDocumentImpl, fDocumentURI)},
+		{"nodeUserData", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;>;", $PRIVATE, $field(CoreDocumentImpl, nodeUserData)},
+		{"identifiers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lorg/w3c/dom/Node;>;", $PROTECTED, $field(CoreDocumentImpl, identifiers)},
+		{"domNormalizer", "Lcom/sun/org/apache/xerces/internal/dom/DOMNormalizer;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, domNormalizer)},
+		{"fConfiguration", "Lcom/sun/org/apache/xerces/internal/dom/DOMConfigurationImpl;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, fConfiguration)},
+		{"fXPathEvaluator", "Ljava/lang/Object;", nullptr, $TRANSIENT, $field(CoreDocumentImpl, fXPathEvaluator)},
+		{"kidOK", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CoreDocumentImpl, kidOK)},
+		{"changes", "I", nullptr, $PROTECTED, $field(CoreDocumentImpl, changes$)},
+		{"allowGrammarAccess", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, allowGrammarAccess)},
+		{"errorChecking", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, errorChecking)},
+		{"ancestorChecking", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, ancestorChecking)},
+		{"xmlVersionChanged", "Z", nullptr, $PROTECTED, $field(CoreDocumentImpl, xmlVersionChanged)},
+		{"documentNumber", "I", nullptr, $PRIVATE, $field(CoreDocumentImpl, documentNumber)},
+		{"nodeCounter", "I", nullptr, $PRIVATE, $field(CoreDocumentImpl, nodeCounter)},
+		{"nodeTable", "Ljava/util/Map;", "Ljava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/Integer;>;", $PRIVATE, $field(CoreDocumentImpl, nodeTable)},
+		{"xml11Version", "Z", nullptr, $PRIVATE, $field(CoreDocumentImpl, xml11Version)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CoreDocumentImpl, serialPersistentFields)},
+		{}
+	};
+	$CompoundAttribute getEncodingmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getStandalonemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getVersionmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setEncodingmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setStandalonemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVersionmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
+		{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
+		{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hasAttributes", "()Z", nullptr, $PUBLIC},
+		{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void, bool)},
+		{"<init>", "(Lorg/w3c/dom/DocumentType;)V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void, $DocumentType*)},
+		{"<init>", "(Lorg/w3c/dom/DocumentType;Z)V", nullptr, $PUBLIC, $method(CoreDocumentImpl, init$, void, $DocumentType*, bool)},
+		{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, abort, void)},
+		{"addEventListener", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Lorg/w3c/dom/events/EventListener;Z)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, addEventListener, void, $NodeImpl*, $String*, $EventListener*, bool)},
+		{"adoptNode", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, adoptNode, $Node*, $Node*)},
+		{"callUserDataHandlers", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;S)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, callUserDataHandlers, void, $Node*, $Node*, int16_t)},
+		{"callUserDataHandlers", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;SLjava/util/Map;)V", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;SLjava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;)V", 0, $virtualMethod(CoreDocumentImpl, callUserDataHandlers, void, $Node*, $Node*, int16_t, $Map*)},
+		{"changed", "()V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, changed, void)},
+		{"changes", "()I", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, changes, int32_t)},
+		{"checkDOMNSErr", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, checkDOMNSErr, void, $String*, $String*)},
+		{"checkNamespaceWF", "(Ljava/lang/String;II)V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, checkNamespaceWF, void, $String*, int32_t, int32_t)},
+		{"checkQName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, checkQName, void, $String*, $String*)},
+		{"clearIdentifiers", "()V", nullptr, $PROTECTED | $FINAL, $method(CoreDocumentImpl, clearIdentifiers, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, cloneNode, $Node*, bool)},
+		{"cloneNode", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Z)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, cloneNode, void, CoreDocumentImpl*, bool)},
+		{"copyEventListeners", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, copyEventListeners, void, $NodeImpl*, $NodeImpl*)},
+		{"createAttribute", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createAttribute, $Attr*, $String*), "org.w3c.dom.DOMException"},
+		{"createAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createAttributeNS, $Attr*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createAttributeNS, $Attr*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createCDATASection", "(Ljava/lang/String;)Lorg/w3c/dom/CDATASection;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createCDATASection, $CDATASection*, $String*), "org.w3c.dom.DOMException"},
+		{"createComment", "(Ljava/lang/String;)Lorg/w3c/dom/Comment;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createComment, $Comment*, $String*)},
+		{"createDocumentFragment", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createDocumentFragment, $DocumentFragment*)},
+		{"createDocumentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createDocumentType, $DocumentType*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createElement", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElement, $Element*, $String*), "org.w3c.dom.DOMException"},
+		{"createElementDefinition", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/dom/ElementDefinitionImpl;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElementDefinition, $ElementDefinitionImpl*, $String*), "org.w3c.dom.DOMException"},
+		{"createElementNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElementNS, $Element*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createElementNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createElementNS, $Element*, $String*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createEntity", "(Ljava/lang/String;)Lorg/w3c/dom/Entity;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createEntity, $Entity*, $String*), "org.w3c.dom.DOMException"},
+		{"createEntityReference", "(Ljava/lang/String;)Lorg/w3c/dom/EntityReference;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createEntityReference, $EntityReference*, $String*), "org.w3c.dom.DOMException"},
+		{"createNotation", "(Ljava/lang/String;)Lorg/w3c/dom/Notation;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createNotation, $Notation*, $String*), "org.w3c.dom.DOMException"},
+		{"createProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ProcessingInstruction;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createProcessingInstruction, $ProcessingInstruction*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"createTextNode", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, createTextNode, $Text*, $String*)},
+		{"deletedText", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;II)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, deletedText, void, $NodeImpl*, int32_t, int32_t)},
+		{"dispatchEvent", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lorg/w3c/dom/events/Event;)Z", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, dispatchEvent, bool, $NodeImpl*, $Event*)},
+		{"freeNodeListCache", "(Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, freeNodeListCache, void, $NodeListCache*)},
+		{"getAsync", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getAsync, bool)},
+		{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getBaseURI, $String*)},
+		{"getDoctype", "()Lorg/w3c/dom/DocumentType;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDoctype, $DocumentType*)},
+		{"getDocumentElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDocumentElement, $Element*)},
+		{"getDocumentURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDocumentURI, $String*)},
+		{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getDomConfig, $DOMConfiguration*)},
+		{"getElementById", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getElementById, $Element*, $String*)},
+		{"getElementsByTagName", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getElementsByTagName, $NodeList*, $String*)},
+		{"getElementsByTagNameNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getElementsByTagNameNS, $NodeList*, $String*, $String*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, getEncoding, $String*), nullptr, nullptr, getEncodingmethodAnnotations$$},
+		{"getErrorChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getErrorChecking, bool)},
+		{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getFeature, $Object*, $String*, $String*)},
+		{"getIdentifier", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getIdentifier, $Element*, $String*)},
+		{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getImplementation, $DOMImplementation*)},
+		{"getInputEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getInputEncoding, $String*)},
+		{"getMutationEvents", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, getMutationEvents, bool)},
+		{"getNodeListCache", "(Lcom/sun/org/apache/xerces/internal/dom/ParentNode;)Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;", nullptr, 0, $virtualMethod(CoreDocumentImpl, getNodeListCache, $NodeListCache*, $ParentNode*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getNodeName, $String*)},
+		{"getNodeNumber", "()I", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, getNodeNumber, int32_t)},
+		{"getNodeNumber", "(Lorg/w3c/dom/Node;)I", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, getNodeNumber, int32_t, $Node*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getNodeType, int16_t)},
+		{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CoreDocumentImpl, getOwnerDocument, $Document*)},
+		{"getStandalone", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, getStandalone, bool), nullptr, nullptr, getStandalonemethodAnnotations$$},
+		{"getStrictErrorChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getStrictErrorChecking, bool)},
+		{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getTextContent, $String*), "org.w3c.dom.DOMException"},
+		{"getUserData", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getUserData, $Object*, $Node*, $String*)},
+		{"getUserData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, getUserData, $Object*, $NodeImpl*)},
+		{"getUserDataRecord", "(Lorg/w3c/dom/Node;)Ljava/util/Map;", "(Lorg/w3c/dom/Node;)Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", $PROTECTED, $virtualMethod(CoreDocumentImpl, getUserDataRecord, $Map*, $Node*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, getVersion, $String*), nullptr, nullptr, getVersionmethodAnnotations$$},
+		{"getXmlEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getXmlEncoding, $String*)},
+		{"getXmlStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getXmlStandalone, bool)},
+		{"getXmlVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, getXmlVersion, $String*)},
+		{"importNode", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, importNode, $Node*, $Node*, bool), "org.w3c.dom.DOMException"},
+		{"importNode", "(Lorg/w3c/dom/Node;ZZLjava/util/Map;)Lorg/w3c/dom/Node;", "(Lorg/w3c/dom/Node;ZZLjava/util/Map<Lorg/w3c/dom/Node;Ljava/lang/String;>;)Lorg/w3c/dom/Node;", $PRIVATE, $method(CoreDocumentImpl, importNode, $Node*, $Node*, bool, bool, $Map*), "org.w3c.dom.DOMException"},
+		{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, insertBefore, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"insertedNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, insertedNode, void, $NodeImpl*, $NodeImpl*, bool)},
+		{"insertedText", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;II)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, insertedText, void, $NodeImpl*, int32_t, int32_t)},
+		{"insertingNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, insertingNode, void, $NodeImpl*, bool)},
+		{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"isKidOK", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, isKidOK, bool, $Node*, $Node*)},
+		{"isNormalizeDocRequired", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, isNormalizeDocRequired, bool)},
+		{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"isValidQName", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CoreDocumentImpl, isValidQName, bool, $String*, $String*, bool)},
+		{"isXML11Version", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, isXML11Version, bool)},
+		{"isXMLName", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CoreDocumentImpl, isXMLName, bool, $String*, bool)},
+		{"isXMLVersionChanged", "()Z", nullptr, 0, $virtualMethod(CoreDocumentImpl, isXMLVersionChanged, bool)},
+		{"lambda$callUserDataHandlers$0", "(Ljava/util/Map;SLorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CoreDocumentImpl, lambda$callUserDataHandlers$0, void, $Map*, int16_t, $Node*, $Node*, $String*)},
+		{"load", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, load, bool, $String*)},
+		{"loadXML", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, loadXML, bool, $String*)},
+		{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"modifiedAttrValue", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, modifiedAttrValue, void, $AttrImpl*, $String*)},
+		{"modifiedCharacterData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, modifiedCharacterData, void, $NodeImpl*, $String*, $String*, bool)},
+		{"modifyingCharacterData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, modifyingCharacterData, void, $NodeImpl*, bool)},
+		{"*normalize", "()V", nullptr, $PUBLIC},
+		{"normalizeDocument", "()V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, normalizeDocument, void)},
+		{"putIdentifier", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, putIdentifier, void, $String*, $Element*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CoreDocumentImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, removeChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"removeEventListener", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Lorg/w3c/dom/events/EventListener;Z)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, removeEventListener, void, $NodeImpl*, $String*, $EventListener*, bool)},
+		{"removeIdentifier", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, removeIdentifier, void, $String*)},
+		{"removeUserDataTable", "(Lorg/w3c/dom/Node;)Ljava/util/Map;", "(Lorg/w3c/dom/Node;)Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", 0, $virtualMethod(CoreDocumentImpl, removeUserDataTable, $Map*, $Node*)},
+		{"removedAttrNode", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, removedAttrNode, void, $AttrImpl*, $NodeImpl*, $String*)},
+		{"removedNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, removedNode, void, $NodeImpl*, bool)},
+		{"removingNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, removingNode, void, $NodeImpl*, $NodeImpl*, bool)},
+		{"renameNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, renameNode, $Node*, $Node*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"renamedAttrNode", "(Lorg/w3c/dom/Attr;Lorg/w3c/dom/Attr;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, renamedAttrNode, void, $Attr*, $Attr*)},
+		{"renamedElement", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, renamedElement, void, $Element*, $Element*)},
+		{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, replaceChild, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"replacedCharacterData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacedCharacterData, void, $NodeImpl*, $String*, $String*)},
+		{"replacedNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacedNode, void, $NodeImpl*)},
+		{"replacedText", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacedText, void, $NodeImpl*)},
+		{"replacingData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacingData, void, $NodeImpl*)},
+		{"replacingNode", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, replacingNode, void, $NodeImpl*)},
+		{"saveXML", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, saveXML, $String*, $Node*), "org.w3c.dom.DOMException"},
+		{"setAsync", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setAsync, void, bool)},
+		{"setAttrNode", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, setAttrNode, void, $AttrImpl*, $AttrImpl*)},
+		{"setDocumentURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setDocumentURI, void, $String*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, setEncoding, void, $String*), nullptr, nullptr, setEncodingmethodAnnotations$$},
+		{"setErrorChecking", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setErrorChecking, void, bool)},
+		{"setInputEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setInputEncoding, void, $String*)},
+		{"setMutationEvents", "(Z)V", nullptr, 0, $virtualMethod(CoreDocumentImpl, setMutationEvents, void, bool)},
+		{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setStandalone", "(Z)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, setStandalone, void, bool), nullptr, nullptr, setStandalonemethodAnnotations$$},
+		{"setStrictErrorChecking", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setStrictErrorChecking, void, bool)},
+		{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
+		{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"setUserData", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setUserData, $Object*, $Node*, $String*, Object$*, $UserDataHandler*)},
+		{"setUserData", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, setUserData, void, $NodeImpl*, Object$*)},
+		{"setUserDataTable", "(Lorg/w3c/dom/Node;Ljava/util/Map;)V", "(Lorg/w3c/dom/Node;Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;)V", 0, $virtualMethod(CoreDocumentImpl, setUserDataTable, void, $Node*, $Map*)},
+		{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(CoreDocumentImpl, setVersion, void, $String*), nullptr, nullptr, setVersionmethodAnnotations$$},
+		{"setXmlEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setXmlEncoding, void, $String*)},
+		{"setXmlStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setXmlStandalone, void, bool), "org.w3c.dom.DOMException"},
+		{"setXmlVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CoreDocumentImpl, setXmlVersion, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"undeferChildren", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(CoreDocumentImpl, undeferChildren, void, $Node*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CoreDocumentImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl",
+		"com.sun.org.apache.xerces.internal.dom.ParentNode",
+		"org.w3c.dom.Document",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CoreDocumentImpl, name, initialize, &classInfo$$, CoreDocumentImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CoreDocumentImpl));
+	});
 	return class$;
 }
 

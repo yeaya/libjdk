@@ -1,5 +1,4 @@
 #include <java.net.http.test.h>
-
 #include <java.net.http.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

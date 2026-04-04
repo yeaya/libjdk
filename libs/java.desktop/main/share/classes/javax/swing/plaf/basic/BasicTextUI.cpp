@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -15,16 +14,12 @@
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseAdapter.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Error.h>
 #include <java/lang/Math.h>
 #include <java/lang/Number.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <javax/swing/Action.h>
@@ -40,8 +35,6 @@
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/event/DocumentListener.h>
-#include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentInputMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -113,12 +106,9 @@ using $Shape = ::java::awt::Shape;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -130,7 +120,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $Action = ::javax::swing::Action;
@@ -143,14 +132,10 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentInputMapUIResource = ::javax::swing::plaf::ComponentInputMapUIResource;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $InputMapUIResource = ::javax::swing::plaf::InputMapUIResource;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -168,7 +153,6 @@ using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Caret = ::javax::swing::text::Caret;
-using $DefaultCaret = ::javax::swing::text::DefaultCaret;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $DefaultEditorKit$InsertBreakAction = ::javax::swing::text::DefaultEditorKit$InsertBreakAction;
 using $Document = ::javax::swing::text::Document;
@@ -189,155 +173,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$NamedAttribute BasicTextUI_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _BasicTextUI_MethodAnnotations_modelToView30[] = {
-	{"Ljava/lang/Deprecated;", BasicTextUI_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute BasicTextUI_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _BasicTextUI_MethodAnnotations_modelToView31[] = {
-	{"Ljava/lang/Deprecated;", BasicTextUI_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute BasicTextUI_Attribute_var$2[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _BasicTextUI_MethodAnnotations_viewToModel48[] = {
-	{"Ljava/lang/Deprecated;", BasicTextUI_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute BasicTextUI_Attribute_var$3[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _BasicTextUI_MethodAnnotations_viewToModel49[] = {
-	{"Ljava/lang/Deprecated;", BasicTextUI_Attribute_var$3},
-	{}
-};
-
-$FieldInfo _BasicTextUI_FieldInfo_[] = {
-	{"DEFAULT_CARET_MARGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicTextUI, DEFAULT_CARET_MARGIN)},
-	{"textCursor", "Ljavax/swing/plaf/basic/BasicTextUI$BasicCursor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTextUI, textCursor)},
-	{"defaultKit", "Ljavax/swing/text/EditorKit;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTextUI, defaultKit)},
-	{"editor", "Ljavax/swing/text/JTextComponent;", nullptr, $TRANSIENT, $field(BasicTextUI, editor)},
-	{"painted", "Z", nullptr, $TRANSIENT, $field(BasicTextUI, painted)},
-	{"rootView", "Ljavax/swing/plaf/basic/BasicTextUI$RootView;", nullptr, $TRANSIENT, $field(BasicTextUI, rootView)},
-	{"updateHandler", "Ljavax/swing/plaf/basic/BasicTextUI$UpdateHandler;", nullptr, $TRANSIENT, $field(BasicTextUI, updateHandler)},
-	{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTextUI, defaultTransferHandler)},
-	{"dragListener", "Ljavax/swing/plaf/basic/BasicTextUI$DragListener;", nullptr, $PRIVATE | $FINAL, $field(BasicTextUI, dragListener)},
-	{"discardBias", "[Ljavax/swing/text/Position$Bias;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTextUI, discardBias)},
-	{"dropCaret", "Ljavax/swing/text/DefaultCaret;", nullptr, $PRIVATE, $field(BasicTextUI, dropCaret)},
-	{"caretMargin", "I", nullptr, $PRIVATE, $field(BasicTextUI, caretMargin)},
-	{}
-};
-
-$MethodInfo _BasicTextUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextUI, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, create, $View*, $Element*)},
-	{"create", "(Ljavax/swing/text/Element;II)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, create, $View*, $Element*, int32_t, int32_t)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicTextUI, createActionMap, $ActionMap*)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, createCaret, $Caret*)},
-	{"createHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, createHighlighter, $Highlighter*)},
-	{"createKeymap", "()Ljavax/swing/text/Keymap;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, createKeymap, $Keymap*)},
-	{"damageRange", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t)},
-	{"damageRange", "(Ljavax/swing/text/JTextComponent;IILjavax/swing/text/Position$Bias;Ljavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t, $Position$Bias*, $Position$Bias*)},
-	{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicTextUI, getActionMap, $ActionMap*)},
-	{"getComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(BasicTextUI, getComponent, $JTextComponent*)},
-	{"getDragListener", "()Ljavax/swing/plaf/basic/BasicTextUI$DragListener;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTextUI, getDragListener, $BasicTextUI$DragListener*)},
-	{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getEditorKit, $EditorKit*, $JTextComponent*)},
-	{"getInputMap", "()Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicTextUI, getInputMap, $InputMap*)},
-	{"getKeymapName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, getKeymapName, $String*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getNextVisualPositionFrom", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getNextVisualPositionFrom, int32_t, $JTextComponent*, int32_t, $Position$Bias*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(BasicTextUI, getPropertyPrefix, $String*)},
-	{"getRootView", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getRootView, $View*, $JTextComponent*)},
-	{"getToolTipText", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getToolTipText, $String*, $JTextComponent*, $Point*)},
-	{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, 0, $virtualMethod(BasicTextUI, getTransferHandler, $TransferHandler*)},
-	{"getVisibleEditorRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, getVisibleEditorRect, $Rectangle*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, installDefaults, void)},
-	{"installDefaults2", "()V", nullptr, $PRIVATE, $method(BasicTextUI, installDefaults2, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, installUI, void, $JComponent*)},
-	{"modelChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, modelChanged, void)},
-	{"modelToView", "(Ljavax/swing/text/JTextComponent;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException", nullptr, _BasicTextUI_MethodAnnotations_modelToView30},
-	{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException", nullptr, _BasicTextUI_MethodAnnotations_modelToView31},
-	{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;Z)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(BasicTextUI, modelToView, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*, bool), "javax.swing.text.BadLocationException"},
-	{"modelToView2D", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, modelToView2D, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BasicTextUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, paintBackground, void, $Graphics*)},
-	{"paintSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, paintSafely, void, $Graphics*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"setView", "(Ljavax/swing/text/View;)V", nullptr, $PROTECTED | $FINAL, $method(BasicTextUI, setView, void, $View*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, update, void, $Graphics*, $JComponent*)},
-	{"updateBackground", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PRIVATE, $method(BasicTextUI, updateBackground, void, $JTextComponent*)},
-	{"updateCursor", "()V", nullptr, $PRIVATE, $method(BasicTextUI, updateCursor, void)},
-	{"updateFocusAcceleratorBinding", "(Z)V", nullptr, 0, $virtualMethod(BasicTextUI, updateFocusAcceleratorBinding, void, bool)},
-	{"updateFocusTraversalKeys", "()V", nullptr, 0, $virtualMethod(BasicTextUI, updateFocusTraversalKeys, void)},
-	{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, viewToModel, int32_t, $JTextComponent*, $Point*), nullptr, nullptr, _BasicTextUI_MethodAnnotations_viewToModel48},
-	{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, viewToModel, int32_t, $JTextComponent*, $Point*, $Position$BiasArray*), nullptr, nullptr, _BasicTextUI_MethodAnnotations_viewToModel49},
-	{"viewToModel", "(Ljavax/swing/text/JTextComponent;FF[Ljavax/swing/text/Position$Bias;)I", nullptr, $PRIVATE, $method(BasicTextUI, viewToModel, int32_t, $JTextComponent*, float, float, $Position$BiasArray*)},
-	{"viewToModel2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, viewToModel2D, int32_t, $JTextComponent*, $Point2D*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _BasicTextUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "javax.swing.plaf.basic.BasicTextUI", "TextTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicTextUI$DragListener", "javax.swing.plaf.basic.BasicTextUI", "DragListener", $STATIC},
-	{"javax.swing.plaf.basic.BasicTextUI$FocusAction", "javax.swing.plaf.basic.BasicTextUI", "FocusAction", 0},
-	{"javax.swing.plaf.basic.BasicTextUI$TextActionWrapper", "javax.swing.plaf.basic.BasicTextUI", "TextActionWrapper", 0},
-	{"javax.swing.plaf.basic.BasicTextUI$UpdateHandler", "javax.swing.plaf.basic.BasicTextUI", "UpdateHandler", 0},
-	{"javax.swing.plaf.basic.BasicTextUI$RootView", "javax.swing.plaf.basic.BasicTextUI", "RootView", 0},
-	{"javax.swing.plaf.basic.BasicTextUI$BasicCursor", "javax.swing.plaf.basic.BasicTextUI", "BasicCursor", $STATIC},
-	{"javax.swing.plaf.basic.BasicTextUI$BasicHighlighter", "javax.swing.plaf.basic.BasicTextUI", "BasicHighlighter", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.basic.BasicTextUI$BasicCaret", "javax.swing.plaf.basic.BasicTextUI", "BasicCaret", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTextUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.basic.BasicTextUI",
-	"javax.swing.plaf.TextUI",
-	"javax.swing.text.ViewFactory",
-	_BasicTextUI_FieldInfo_,
-	_BasicTextUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler,javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable,javax.swing.plaf.basic.BasicTextUI$DragListener,javax.swing.plaf.basic.BasicTextUI$FocusAction,javax.swing.plaf.basic.BasicTextUI$TextActionWrapper,javax.swing.plaf.basic.BasicTextUI$UpdateHandler,javax.swing.plaf.basic.BasicTextUI$RootView,javax.swing.plaf.basic.BasicTextUI$BasicCursor,javax.swing.plaf.basic.BasicTextUI$BasicHighlighter,javax.swing.plaf.basic.BasicTextUI$BasicCaret"
-};
-
-$Object* allocate$BasicTextUI($Class* clazz) {
-	return $of($alloc(BasicTextUI));
-}
 
 int32_t BasicTextUI::hashCode() {
 	 return this->$TextUI::hashCode();
@@ -382,7 +217,7 @@ $Highlighter* BasicTextUI::createHighlighter() {
 
 $String* BasicTextUI::getKeymapName() {
 	$var($String, nm, $of(this)->getClass()->getName());
-	int32_t index = $nc(nm)->lastIndexOf((int32_t)u'.');
+	int32_t index = $nc(nm)->lastIndexOf(u'.');
 	if (index >= 0) {
 		$assign(nm, nm->substring(index + 1, nm->length()));
 	}
@@ -390,7 +225,7 @@ $String* BasicTextUI::getKeymapName() {
 }
 
 $Keymap* BasicTextUI::createKeymap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, nm, getKeymapName());
 	$var($Keymap, map, $JTextComponent::getKeymap(nm));
 	if (map == nullptr) {
@@ -400,21 +235,21 @@ $Keymap* BasicTextUI::createKeymap() {
 		$var($Object, o, $DefaultLookup::get(this->editor, this, $$str({prefix, ".keyBindings"_s})));
 		if ((o != nullptr) && ($instanceOf($JTextComponent$KeyBindingArray, o))) {
 			$var($JTextComponent$KeyBindingArray, bindings, $cast($JTextComponent$KeyBindingArray, o));
-			$JTextComponent::loadKeymap(map, bindings, $($nc($(getComponent()))->getActions()));
+			$JTextComponent::loadKeymap(map, bindings, $($$nc(getComponent())->getActions()));
 		}
 	}
 	return map;
 }
 
 void BasicTextUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($($nc(evt)->getPropertyName()))->equals("editable"_s);
-	if (var$0 || $nc($($nc(evt)->getPropertyName()))->equals("enabled"_s)) {
-		updateBackground($cast($JTextComponent, $(evt->getSource())));
-	} else if ($nc($(evt->getPropertyName()))->equals("caretWidth"_s)) {
+	$useLocalObjectStack();
+	bool var$0 = $$nc($nc(evt)->getPropertyName())->equals("editable"_s);
+	if (var$0 || $$nc(evt->getPropertyName())->equals("enabled"_s)) {
+		updateBackground($$cast($JTextComponent, evt->getSource()));
+	} else if ($$nc(evt->getPropertyName())->equals("caretWidth"_s)) {
 		$var($Object, value, evt->getNewValue());
 		if ($instanceOf($Number, value)) {
-			int32_t width = $nc(($cast($Number, value)))->intValue();
+			int32_t width = $cast($Number, value)->intValue();
 			if (width >= 0) {
 				this->caretMargin = width;
 			}
@@ -423,7 +258,7 @@ void BasicTextUI::propertyChange($PropertyChangeEvent* evt) {
 }
 
 void BasicTextUI::updateBackground($JTextComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($SynthUI, this) || ($instanceOf($JTextArea, c))) {
 		return;
 	}
@@ -453,7 +288,7 @@ void BasicTextUI::updateBackground($JTextComponent* c) {
 }
 
 void BasicTextUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, getPropertyPrefix());
 	$var($Font, f, $nc(this->editor)->getFont());
 	if ((f == nullptr) || ($instanceOf($UIResource, f))) {
@@ -495,9 +330,9 @@ void BasicTextUI::installDefaults() {
 }
 
 void BasicTextUI::installDefaults2() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->editor)->addMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->dragListener))));
-	$nc(this->editor)->addMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->dragListener))));
+	$useLocalObjectStack();
+	$nc(this->editor)->addMouseListener($cast($MouseAdapter, this->dragListener));
+	$nc(this->editor)->addMouseMotionListener($cast($MouseAdapter, this->dragListener));
 	$var($String, prefix, getPropertyPrefix());
 	$var($Caret, caret, $nc(this->editor)->getCaret());
 	if (caret == nullptr || $instanceOf($UIResource, caret)) {
@@ -517,9 +352,9 @@ void BasicTextUI::installDefaults2() {
 }
 
 void BasicTextUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->editor)->removeMouseListener(static_cast<$MouseListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->dragListener))));
-	$nc(this->editor)->removeMouseMotionListener(static_cast<$MouseMotionListener*>(static_cast<$MouseAdapter*>(static_cast<$MouseInputAdapter*>(this->dragListener))));
+	$useLocalObjectStack();
+	$nc(this->editor)->removeMouseListener($cast($MouseAdapter, this->dragListener));
+	$nc(this->editor)->removeMouseMotionListener($cast($MouseAdapter, this->dragListener));
 	if ($instanceOf($UIResource, $($nc(this->editor)->getCaretColor()))) {
 		$nc(this->editor)->setCaretColor(nullptr);
 	}
@@ -559,7 +394,7 @@ void BasicTextUI::uninstallListeners() {
 }
 
 void BasicTextUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->editor)->setKeymap($(createKeymap()));
 	$var($InputMap, km, getInputMap());
 	if (km != nullptr) {
@@ -573,7 +408,7 @@ void BasicTextUI::installKeyboardActions() {
 }
 
 $InputMap* BasicTextUI::getInputMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, map, $new($InputMapUIResource));
 	$var($InputMap, shared, $cast($InputMap, $DefaultLookup::get(this->editor, this, $$str({$(getPropertyPrefix()), ".focusInputMap"_s}))));
 	if (shared != nullptr) {
@@ -583,7 +418,7 @@ $InputMap* BasicTextUI::getInputMap() {
 }
 
 void BasicTextUI::updateFocusAcceleratorBinding(bool changed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t accelerator = $nc(this->editor)->getFocusAccelerator();
 	if (changed || accelerator != u'\0') {
 		$var($InputMap, km, $SwingUtilities::getUIInputMap(this->editor, $JComponent::WHEN_IN_FOCUSED_WINDOW));
@@ -604,13 +439,13 @@ void BasicTextUI::updateFocusAcceleratorBinding(bool changed) {
 }
 
 void BasicTextUI::updateFocusTraversalKeys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EditorKit, editorKit, getEditorKit(this->editor));
 	if (editorKit != nullptr && $instanceOf($DefaultEditorKit, editorKit)) {
 		$var($Set, storedForwardTraversalKeys, $nc(this->editor)->getFocusTraversalKeys($KeyboardFocusManager::FORWARD_TRAVERSAL_KEYS));
 		$var($Set, storedBackwardTraversalKeys, $nc(this->editor)->getFocusTraversalKeys($KeyboardFocusManager::BACKWARD_TRAVERSAL_KEYS));
-		$var($Set, forwardTraversalKeys, $new($HashSet, static_cast<$Collection*>(storedForwardTraversalKeys)));
-		$var($Set, backwardTraversalKeys, $new($HashSet, static_cast<$Collection*>(storedBackwardTraversalKeys)));
+		$var($Set, forwardTraversalKeys, $new($HashSet, storedForwardTraversalKeys));
+		$var($Set, backwardTraversalKeys, $new($HashSet, storedBackwardTraversalKeys));
 		if ($nc(this->editor)->isEditable()) {
 			forwardTraversalKeys->remove($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)));
 			backwardTraversalKeys->remove($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, $InputEvent::SHIFT_MASK)));
@@ -624,10 +459,10 @@ void BasicTextUI::updateFocusTraversalKeys() {
 }
 
 void BasicTextUI::updateCursor() {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = (!$nc(this->editor)->isCursorSet());
-	if (var$0 || $instanceOf($UIResource, $($nc(this->editor)->getCursor()))) {
-		$var($Cursor, cursor, ($nc(this->editor)->isEditable()) ? static_cast<$Cursor*>(BasicTextUI::textCursor) : ($Cursor*)nullptr);
+	$useLocalObjectStack();
+	bool var$0 = !$nc(this->editor)->isCursorSet();
+	if (var$0 || $instanceOf($UIResource, $(this->editor->getCursor()))) {
+		$var($Cursor, cursor, ($nc(this->editor)->isEditable()) ? $cast($Cursor, BasicTextUI::textCursor) : ($Cursor*)nullptr);
 		$nc(this->editor)->setCursor(cursor);
 	}
 }
@@ -637,13 +472,13 @@ $TransferHandler* BasicTextUI::getTransferHandler() {
 }
 
 $ActionMap* BasicTextUI::getActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mapName, $str({$(getPropertyPrefix()), ".actionMap"_s}));
 	$var($ActionMap, map, $cast($ActionMap, $UIManager::get(mapName)));
 	if (map == nullptr) {
 		$assign(map, createActionMap());
 		if (map != nullptr) {
-			$nc($($UIManager::getLookAndFeelDefaults()))->put(mapName, map);
+			$$nc($UIManager::getLookAndFeelDefaults())->put(mapName, map);
 		}
 	}
 	$var($ActionMap, componentMap, $new($ActionMapUIResource));
@@ -666,21 +501,19 @@ $ActionMap* BasicTextUI::getActionMap() {
 }
 
 $ActionMap* BasicTextUI::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	$var($ActionArray, actions, $nc(this->editor)->getActions());
 	int32_t n = $nc(actions)->length;
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Action, a, actions->get(i));
-		$init($Action);
 		map->put($($nc(a)->getValue($Action::NAME)), a);
 	}
-	$init($Action);
-	$var($Object, var$0, $nc($($TransferHandler::getCutAction()))->getValue($Action::NAME));
+	$var($Object, var$0, $$nc($TransferHandler::getCutAction())->getValue($Action::NAME));
 	map->put(var$0, $($TransferHandler::getCutAction()));
-	$var($Object, var$1, $nc($($TransferHandler::getCopyAction()))->getValue($Action::NAME));
+	$var($Object, var$1, $$nc($TransferHandler::getCopyAction())->getValue($Action::NAME));
 	map->put(var$1, $($TransferHandler::getCopyAction()));
-	$var($Object, var$2, $nc($($TransferHandler::getPasteAction()))->getValue($Action::NAME));
+	$var($Object, var$2, $$nc($TransferHandler::getPasteAction())->getValue($Action::NAME));
 	map->put(var$2, $($TransferHandler::getPasteAction()));
 	return map;
 }
@@ -694,7 +527,7 @@ void BasicTextUI::uninstallKeyboardActions() {
 void BasicTextUI::paintBackground($Graphics* g) {
 	$nc(g)->setColor($($nc(this->editor)->getBackground()));
 	int32_t var$0 = $nc(this->editor)->getWidth();
-	g->fillRect(0, 0, var$0, $nc(this->editor)->getHeight());
+	g->fillRect(0, 0, var$0, this->editor->getHeight());
 }
 
 $JTextComponent* BasicTextUI::getComponent() {
@@ -702,7 +535,7 @@ $JTextComponent* BasicTextUI::getComponent() {
 }
 
 void BasicTextUI::modelChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ViewFactory, f, $nc(this->rootView)->getViewFactory());
 	$var($Document, doc, $nc(this->editor)->getDocument());
 	$var($Element, elem, $nc(doc)->getDefaultRootElement());
@@ -717,7 +550,7 @@ void BasicTextUI::setView($View* v) {
 }
 
 void BasicTextUI::paintSafely($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->painted = true;
 	$var($Highlighter, highlighter, $nc(this->editor)->getHighlighter());
 	$var($Caret, caret, $nc(this->editor)->getCaret());
@@ -735,15 +568,14 @@ void BasicTextUI::paintSafely($Graphics* g) {
 		caret->paint(g);
 	}
 	if (this->dropCaret != nullptr) {
-		$nc(this->dropCaret)->paint(g);
+		this->dropCaret->paint(g);
 	}
 }
 
 void BasicTextUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTextComponent, c)) {
 		$set(this, editor, $cast($JTextComponent, c));
-		$init($Boolean);
 		$LookAndFeel::installProperty(this->editor, "opaque"_s, $Boolean::TRUE);
 		$LookAndFeel::installProperty(this->editor, "autoscrolls"_s, $Boolean::TRUE);
 		installDefaults();
@@ -751,11 +583,11 @@ void BasicTextUI::installUI($JComponent* c) {
 		this->caretMargin = -1;
 		$var($Object, property, $UIManager::get("Caret.width"_s));
 		if ($instanceOf($Number, property)) {
-			this->caretMargin = $nc(($cast($Number, property)))->intValue();
+			this->caretMargin = $cast($Number, property)->intValue();
 		}
-		$assign(property, $nc(c)->getClientProperty("caretWidth"_s));
+		$assign(property, c->getClientProperty("caretWidth"_s));
 		if ($instanceOf($Number, property)) {
-			this->caretMargin = $nc(($cast($Number, property)))->intValue();
+			this->caretMargin = $cast($Number, property)->intValue();
 		}
 		if (this->caretMargin < 0) {
 			this->caretMargin = BasicTextUI::DEFAULT_CARET_MARGIN;
@@ -763,9 +595,9 @@ void BasicTextUI::installUI($JComponent* c) {
 		$nc(this->editor)->addPropertyChangeListener(this->updateHandler);
 		$var($Document, doc, $nc(this->editor)->getDocument());
 		if (doc == nullptr) {
-			$nc(this->editor)->setDocument($($nc($(getEditorKit(this->editor)))->createDefaultDocument()));
+			$nc(this->editor)->setDocument($($$nc(getEditorKit(this->editor))->createDefaultDocument()));
 		} else {
-			$nc(doc)->addDocumentListener(this->updateHandler);
+			doc->addDocumentListener(this->updateHandler);
 			modelChanged();
 		}
 		installListeners();
@@ -781,9 +613,9 @@ void BasicTextUI::installUI($JComponent* c) {
 }
 
 void BasicTextUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->editor)->removePropertyChangeListener(this->updateHandler);
-	$nc($($nc(this->editor)->getDocument()))->removeDocumentListener(this->updateHandler);
+	$$nc($nc(this->editor)->getDocument())->removeDocumentListener(this->updateHandler);
 	this->painted = false;
 	uninstallDefaults();
 	$nc(this->rootView)->setView(nullptr);
@@ -802,119 +634,111 @@ void BasicTextUI::update($Graphics* g, $JComponent* c) {
 }
 
 void BasicTextUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = ($nc(this->rootView)->getViewCount() > 0);
-	if (var$0 && ($nc(this->rootView)->getView(0) != nullptr)) {
+	$useLocalObjectStack();
+	bool var$0 = $nc(this->rootView)->getViewCount() > 0;
+	if (var$0 && (this->rootView->getView(0) != nullptr)) {
 		$var($Document, doc, $nc(this->editor)->getDocument());
 		if ($instanceOf($AbstractDocument, doc)) {
-			$nc(($cast($AbstractDocument, doc)))->readLock();
+			$cast($AbstractDocument, doc)->readLock();
 		}
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				paintSafely(g);
-			} catch ($Throwable& var$2) {
-				$assign(var$1, var$2);
-			} /*finally*/ {
-				if ($instanceOf($AbstractDocument, doc)) {
-					$nc(($cast($AbstractDocument, doc)))->readUnlock();
-				}
+		$var($Throwable, var$1, nullptr);
+		try {
+			paintSafely(g);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
+		} /*finally*/ {
+			if ($instanceOf($AbstractDocument, doc)) {
+				$cast($AbstractDocument, doc)->readUnlock();
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 	}
 }
 
 $Dimension* BasicTextUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(this->editor)->getDocument());
 	$var($Insets, i, $nc(c)->getInsets());
 	$var($Dimension, d, c->getSize());
 	if ($instanceOf($AbstractDocument, doc)) {
-		$nc(($cast($AbstractDocument, doc)))->readLock();
+		$cast($AbstractDocument, doc)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (($nc(d)->width > ($nc(i)->left + i->right + this->caretMargin)) && (d->height > (i->top + i->bottom))) {
-				$nc(this->rootView)->setSize((float)(d->width - i->left - i->right - this->caretMargin), (float)(d->height - i->top - i->bottom));
-			} else if (d->width == 0 && d->height == 0) {
-				$nc(this->rootView)->setSize((float)$Integer::MAX_VALUE, (float)$Integer::MAX_VALUE);
-			}
-			$nc(d)->width = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getPreferredSpan($View::X_AXIS)) + (int64_t)$nc(i)->left + (int64_t)i->right + this->caretMargin, (int64_t)$Integer::MAX_VALUE);
-			d->height = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getPreferredSpan($View::Y_AXIS)) + (int64_t)$nc(i)->top + (int64_t)i->bottom, (int64_t)$Integer::MAX_VALUE);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readUnlock();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (($nc(d)->width > ($nc(i)->left + $nc(i)->right + this->caretMargin)) && (d->height > (i->top + i->bottom))) {
+			$nc(this->rootView)->setSize((float)(d->width - i->left - i->right - this->caretMargin), (float)(d->height - i->top - i->bottom));
+		} else if (d->width == 0 && d->height == 0) {
+			$nc(this->rootView)->setSize((float)$Integer::MAX_VALUE, (float)$Integer::MAX_VALUE);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		d->width = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getPreferredSpan($View::X_AXIS)) + (int64_t)i->left + (int64_t)i->right + this->caretMargin, (int64_t)$Integer::MAX_VALUE);
+		d->height = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getPreferredSpan($View::Y_AXIS)) + (int64_t)i->top + (int64_t)i->bottom, (int64_t)$Integer::MAX_VALUE);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readUnlock();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return d;
 }
 
 $Dimension* BasicTextUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(this->editor)->getDocument());
 	$var($Insets, i, $nc(c)->getInsets());
 	$var($Dimension, d, $new($Dimension));
 	if ($instanceOf($AbstractDocument, doc)) {
-		$nc(($cast($AbstractDocument, doc)))->readLock();
+		$cast($AbstractDocument, doc)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			d->width = $cast(int32_t, $nc(this->rootView)->getMinimumSpan($View::X_AXIS)) + $nc(i)->left + i->right + this->caretMargin;
-			d->height = $cast(int32_t, $nc(this->rootView)->getMinimumSpan($View::Y_AXIS)) + i->top + i->bottom;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readUnlock();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		d->width = $cast(int32_t, $nc(this->rootView)->getMinimumSpan($View::X_AXIS)) + $nc(i)->left + $nc(i)->right + this->caretMargin;
+		d->height = $cast(int32_t, $nc(this->rootView)->getMinimumSpan($View::Y_AXIS)) + i->top + i->bottom;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return d;
 }
 
 $Dimension* BasicTextUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(this->editor)->getDocument());
 	$var($Insets, i, $nc(c)->getInsets());
 	$var($Dimension, d, $new($Dimension));
 	if ($instanceOf($AbstractDocument, doc)) {
-		$nc(($cast($AbstractDocument, doc)))->readLock();
+		$cast($AbstractDocument, doc)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			d->width = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getMaximumSpan($View::X_AXIS)) + (int64_t)$nc(i)->left + (int64_t)i->right + this->caretMargin, (int64_t)$Integer::MAX_VALUE);
-			d->height = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getMaximumSpan($View::Y_AXIS)) + (int64_t)$nc(i)->top + (int64_t)i->bottom, (int64_t)$Integer::MAX_VALUE);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readUnlock();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		d->width = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getMaximumSpan($View::X_AXIS)) + (int64_t)$nc(i)->left + (int64_t)$nc(i)->right + this->caretMargin, (int64_t)$Integer::MAX_VALUE);
+		d->height = (int32_t)$Math::min($cast(int64_t, $nc(this->rootView)->getMaximumSpan($View::Y_AXIS)) + (int64_t)i->top + (int64_t)i->bottom, (int64_t)$Integer::MAX_VALUE);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return d;
 }
 
 $Rectangle* BasicTextUI::getVisibleEditorRect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, $nc(this->editor)->getBounds());
 	if (($nc(alloc)->width > 0) && (alloc->height > 0)) {
 		alloc->x = (alloc->y = 0);
@@ -942,39 +766,37 @@ $Rectangle2D* BasicTextUI::modelToView2D($JTextComponent* tc, int32_t pos, $Posi
 }
 
 $Rectangle2D* BasicTextUI::modelToView($JTextComponent* tc, int32_t pos, $Position$Bias* bias, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(this->editor)->getDocument());
 	if ($instanceOf($AbstractDocument, doc)) {
-		$nc(($cast($AbstractDocument, doc)))->readLock();
+		$cast($AbstractDocument, doc)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle2D, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Rectangle, alloc, getVisibleEditorRect());
-			if (alloc != nullptr) {
-				$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
-				$var($Shape, s, $nc(this->rootView)->modelToView(pos, alloc, bias));
-				if (s != nullptr) {
-					$assign(var$2, useFPAPI ? s->getBounds2D() : static_cast<$Rectangle2D*>(s->getBounds()));
-					return$1 = true;
-					goto $finally;
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readUnlock();
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle2D, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Rectangle, alloc, getVisibleEditorRect());
+		if (alloc != nullptr) {
+			$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
+			$var($Shape, s, $nc(this->rootView)->modelToView(pos, alloc, bias));
+			if (s != nullptr) {
+				$assign(var$2, useFPAPI ? s->getBounds2D() : $cast($Rectangle2D, s->getBounds()));
+				return$1 = true;
+				goto $finally;
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readUnlock();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return nullptr;
 }
@@ -984,80 +806,75 @@ int32_t BasicTextUI::viewToModel($JTextComponent* tc, $Point* pt) {
 }
 
 int32_t BasicTextUI::viewToModel($JTextComponent* tc, $Point* pt, $Position$BiasArray* biasReturn) {
-	return viewToModel(tc, (float)$nc(pt)->x, (float)pt->y, biasReturn);
+	return viewToModel(tc, (float)$nc(pt)->x, (float)$nc(pt)->y, biasReturn);
 }
 
 int32_t BasicTextUI::viewToModel2D($JTextComponent* tc, $Point2D* pt, $Position$BiasArray* biasReturn) {
-	$var($JTextComponent, var$0, tc);
-	float var$1 = (float)$nc(pt)->getX();
-	return viewToModel(var$0, var$1, (float)pt->getY(), biasReturn);
+	float var$0 = (float)$nc(pt)->getX();
+	return viewToModel(tc, var$0, (float)pt->getY(), biasReturn);
 }
 
 int32_t BasicTextUI::viewToModel($JTextComponent* tc, float x, float y, $Position$BiasArray* biasReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t offs = -1;
 	$var($Document, doc, $nc(this->editor)->getDocument());
 	if ($instanceOf($AbstractDocument, doc)) {
-		$nc(($cast($AbstractDocument, doc)))->readLock();
+		$cast($AbstractDocument, doc)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Rectangle, alloc, getVisibleEditorRect());
-			if (alloc != nullptr) {
-				$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
-				offs = $nc(this->rootView)->viewToModel(x, y, alloc, biasReturn);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readUnlock();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Rectangle, alloc, getVisibleEditorRect());
+		if (alloc != nullptr) {
+			$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
+			offs = $nc(this->rootView)->viewToModel(x, y, alloc, biasReturn);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readUnlock();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return offs;
 }
 
 int32_t BasicTextUI::getNextVisualPositionFrom($JTextComponent* t, int32_t pos, $Position$Bias* b, int32_t direction, $Position$BiasArray* biasRet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(this->editor)->getDocument());
 	if (pos < -1 || pos > $nc(doc)->getLength()) {
 		$throwNew($BadLocationException, "Invalid position"_s, pos);
 	}
 	if ($instanceOf($AbstractDocument, doc)) {
-		$nc(($cast($AbstractDocument, doc)))->readLock();
+		$cast($AbstractDocument, doc)->readLock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (this->painted) {
-				$var($Rectangle, alloc, getVisibleEditorRect());
-				if (alloc != nullptr) {
-					$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
-				}
-				var$2 = $nc(this->rootView)->getNextVisualPositionFrom(pos, b, alloc, direction, biasRet);
-				return$1 = true;
-				goto $finally;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (this->painted) {
+			$var($Rectangle, alloc, getVisibleEditorRect());
+			if (alloc != nullptr) {
+				$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readUnlock();
-			}
+			var$2 = $nc(this->rootView)->getNextVisualPositionFrom(pos, b, alloc, direction, biasRet);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readUnlock();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return -1;
 }
@@ -1068,34 +885,32 @@ void BasicTextUI::damageRange($JTextComponent* tc, int32_t p0, int32_t p1) {
 }
 
 void BasicTextUI::damageRange($JTextComponent* t, int32_t p0, int32_t p1, $Position$Bias* p0Bias, $Position$Bias* p1Bias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->painted) {
 		$var($Rectangle, alloc, getVisibleEditorRect());
 		if (alloc != nullptr) {
 			$var($Document, doc, $nc(t)->getDocument());
 			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readLock();
+				$cast($AbstractDocument, doc)->readLock();
 			}
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
-						$var($Shape, toDamage, $nc(this->rootView)->modelToView(p0, p0Bias, p1, p1Bias, alloc));
-						$var($Rectangle, rect, ($instanceOf($Rectangle, toDamage)) ? $cast($Rectangle, toDamage) : $nc(toDamage)->getBounds());
-						$nc(this->editor)->repaint($nc(rect)->x, rect->y, rect->width, rect->height);
-					} catch ($BadLocationException& e) {
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					if ($instanceOf($AbstractDocument, doc)) {
-						$nc(($cast($AbstractDocument, doc)))->readUnlock();
-					}
+					$nc(this->rootView)->setSize((float)alloc->width, (float)alloc->height);
+					$var($Shape, toDamage, $nc(this->rootView)->modelToView(p0, p0Bias, p1, p1Bias, alloc));
+					$var($Rectangle, rect, ($instanceOf($Rectangle, toDamage)) ? $cast($Rectangle, toDamage) : $nc(toDamage)->getBounds());
+					$nc(this->editor)->repaint($nc(rect)->x, $nc(rect)->y, $nc(rect)->width, $nc(rect)->height);
+				} catch ($BadLocationException& e) {
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if ($instanceOf($AbstractDocument, doc)) {
+					$cast($AbstractDocument, doc)->readUnlock();
 				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -1110,7 +925,7 @@ $View* BasicTextUI::getRootView($JTextComponent* tc) {
 }
 
 $String* BasicTextUI::getToolTipText($JTextComponent* t, $Point* pt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->painted) {
 		return nullptr;
 	}
@@ -1119,22 +934,20 @@ $String* BasicTextUI::getToolTipText($JTextComponent* t, $Point* pt) {
 	$var($Rectangle, alloc, getVisibleEditorRect());
 	if (alloc != nullptr) {
 		if ($instanceOf($AbstractDocument, doc)) {
-			$nc(($cast($AbstractDocument, doc)))->readLock();
+			$cast($AbstractDocument, doc)->readLock();
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$assign(tt, $nc(this->rootView)->getToolTipText((float)$nc(pt)->x, (float)pt->y, alloc));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				if ($instanceOf($AbstractDocument, doc)) {
-					$nc(($cast($AbstractDocument, doc)))->readUnlock();
-				}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$assign(tt, $nc(this->rootView)->getToolTipText((float)$nc(pt)->x, (float)$nc(pt)->y, alloc));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if ($instanceOf($AbstractDocument, doc)) {
+				$cast($AbstractDocument, doc)->readUnlock();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return tt;
@@ -1150,19 +963,19 @@ $View* BasicTextUI::create($Element* elem, int32_t p0, int32_t p1) {
 
 $BasicTextUI$DragListener* BasicTextUI::getDragListener() {
 	$init(BasicTextUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($BasicTextUI$DragListener);
 	$synchronized($BasicTextUI$DragListener::class$) {
-		$var($BasicTextUI$DragListener, listener, $cast($BasicTextUI$DragListener, $nc($($AppContext::getAppContext()))->get($BasicTextUI$DragListener::class$)));
+		$var($BasicTextUI$DragListener, listener, $cast($BasicTextUI$DragListener, $$nc($AppContext::getAppContext())->get($BasicTextUI$DragListener::class$)));
 		if (listener == nullptr) {
 			$assign(listener, $new($BasicTextUI$DragListener));
-			$nc($($AppContext::getAppContext()))->put($BasicTextUI$DragListener::class$, listener);
+			$$nc($AppContext::getAppContext())->put($BasicTextUI$DragListener::class$, listener);
 		}
 		return listener;
 	}
 }
 
-void clinit$BasicTextUI($Class* class$) {
+void BasicTextUI::clinit$($Class* clazz) {
 	$assignStatic(BasicTextUI::textCursor, $new($BasicTextUI$BasicCursor, $Cursor::TEXT_CURSOR));
 	$assignStatic(BasicTextUI::defaultKit, $new($DefaultEditorKit));
 	$assignStatic(BasicTextUI::defaultTransferHandler, $new($BasicTextUI$TextTransferHandler));
@@ -1173,7 +986,142 @@ BasicTextUI::BasicTextUI() {
 }
 
 $Class* BasicTextUI::load$($String* name, bool initialize) {
-	$loadClass(BasicTextUI, name, initialize, &_BasicTextUI_ClassInfo_, clinit$BasicTextUI, allocate$BasicTextUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_CARET_MARGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicTextUI, DEFAULT_CARET_MARGIN)},
+		{"textCursor", "Ljavax/swing/plaf/basic/BasicTextUI$BasicCursor;", nullptr, $PRIVATE | $STATIC, $staticField(BasicTextUI, textCursor)},
+		{"defaultKit", "Ljavax/swing/text/EditorKit;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTextUI, defaultKit)},
+		{"editor", "Ljavax/swing/text/JTextComponent;", nullptr, $TRANSIENT, $field(BasicTextUI, editor)},
+		{"painted", "Z", nullptr, $TRANSIENT, $field(BasicTextUI, painted)},
+		{"rootView", "Ljavax/swing/plaf/basic/BasicTextUI$RootView;", nullptr, $TRANSIENT, $field(BasicTextUI, rootView)},
+		{"updateHandler", "Ljavax/swing/plaf/basic/BasicTextUI$UpdateHandler;", nullptr, $TRANSIENT, $field(BasicTextUI, updateHandler)},
+		{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTextUI, defaultTransferHandler)},
+		{"dragListener", "Ljavax/swing/plaf/basic/BasicTextUI$DragListener;", nullptr, $PRIVATE | $FINAL, $field(BasicTextUI, dragListener)},
+		{"discardBias", "[Ljavax/swing/text/Position$Bias;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTextUI, discardBias)},
+		{"dropCaret", "Ljavax/swing/text/DefaultCaret;", nullptr, $PRIVATE, $field(BasicTextUI, dropCaret)},
+		{"caretMargin", "I", nullptr, $PRIVATE, $field(BasicTextUI, caretMargin)},
+		{}
+	};
+	$NamedAttribute modelToViewmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", modelToViewmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute modelToViewmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", modelToViewmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute viewToModelmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", viewToModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute viewToModelmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", viewToModelmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextUI, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, create, $View*, $Element*)},
+		{"create", "(Ljavax/swing/text/Element;II)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, create, $View*, $Element*, int32_t, int32_t)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicTextUI, createActionMap, $ActionMap*)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, createCaret, $Caret*)},
+		{"createHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, createHighlighter, $Highlighter*)},
+		{"createKeymap", "()Ljavax/swing/text/Keymap;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, createKeymap, $Keymap*)},
+		{"damageRange", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t)},
+		{"damageRange", "(Ljavax/swing/text/JTextComponent;IILjavax/swing/text/Position$Bias;Ljavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t, $Position$Bias*, $Position$Bias*)},
+		{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicTextUI, getActionMap, $ActionMap*)},
+		{"getComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(BasicTextUI, getComponent, $JTextComponent*)},
+		{"getDragListener", "()Ljavax/swing/plaf/basic/BasicTextUI$DragListener;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTextUI, getDragListener, $BasicTextUI$DragListener*)},
+		{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getEditorKit, $EditorKit*, $JTextComponent*)},
+		{"getInputMap", "()Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicTextUI, getInputMap, $InputMap*)},
+		{"getKeymapName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, getKeymapName, $String*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getNextVisualPositionFrom", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getNextVisualPositionFrom, int32_t, $JTextComponent*, int32_t, $Position$Bias*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(BasicTextUI, getPropertyPrefix, $String*)},
+		{"getRootView", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getRootView, $View*, $JTextComponent*)},
+		{"getToolTipText", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, getToolTipText, $String*, $JTextComponent*, $Point*)},
+		{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, 0, $virtualMethod(BasicTextUI, getTransferHandler, $TransferHandler*)},
+		{"getVisibleEditorRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, getVisibleEditorRect, $Rectangle*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, installDefaults, void)},
+		{"installDefaults2", "()V", nullptr, $PRIVATE, $method(BasicTextUI, installDefaults2, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, installUI, void, $JComponent*)},
+		{"modelChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, modelChanged, void)},
+		{"modelToView", "(Ljavax/swing/text/JTextComponent;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$},
+		{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$$1},
+		{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;Z)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(BasicTextUI, modelToView, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*, bool), "javax.swing.text.BadLocationException"},
+		{"modelToView2D", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, modelToView2D, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(BasicTextUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, paintBackground, void, $Graphics*)},
+		{"paintSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, paintSafely, void, $Graphics*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"setView", "(Ljavax/swing/text/View;)V", nullptr, $PROTECTED | $FINAL, $method(BasicTextUI, setView, void, $View*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, update, void, $Graphics*, $JComponent*)},
+		{"updateBackground", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PRIVATE, $method(BasicTextUI, updateBackground, void, $JTextComponent*)},
+		{"updateCursor", "()V", nullptr, $PRIVATE, $method(BasicTextUI, updateCursor, void)},
+		{"updateFocusAcceleratorBinding", "(Z)V", nullptr, 0, $virtualMethod(BasicTextUI, updateFocusAcceleratorBinding, void, bool)},
+		{"updateFocusTraversalKeys", "()V", nullptr, 0, $virtualMethod(BasicTextUI, updateFocusTraversalKeys, void)},
+		{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, viewToModel, int32_t, $JTextComponent*, $Point*), nullptr, nullptr, viewToModelmethodAnnotations$$},
+		{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BasicTextUI, viewToModel, int32_t, $JTextComponent*, $Point*, $Position$BiasArray*), nullptr, nullptr, viewToModelmethodAnnotations$$$1},
+		{"viewToModel", "(Ljavax/swing/text/JTextComponent;FF[Ljavax/swing/text/Position$Bias;)I", nullptr, $PRIVATE, $method(BasicTextUI, viewToModel, int32_t, $JTextComponent*, float, float, $Position$BiasArray*)},
+		{"viewToModel2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BasicTextUI, viewToModel2D, int32_t, $JTextComponent*, $Point2D*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "javax.swing.plaf.basic.BasicTextUI", "TextTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicTextUI$DragListener", "javax.swing.plaf.basic.BasicTextUI", "DragListener", $STATIC},
+		{"javax.swing.plaf.basic.BasicTextUI$FocusAction", "javax.swing.plaf.basic.BasicTextUI", "FocusAction", 0},
+		{"javax.swing.plaf.basic.BasicTextUI$TextActionWrapper", "javax.swing.plaf.basic.BasicTextUI", "TextActionWrapper", 0},
+		{"javax.swing.plaf.basic.BasicTextUI$UpdateHandler", "javax.swing.plaf.basic.BasicTextUI", "UpdateHandler", 0},
+		{"javax.swing.plaf.basic.BasicTextUI$RootView", "javax.swing.plaf.basic.BasicTextUI", "RootView", 0},
+		{"javax.swing.plaf.basic.BasicTextUI$BasicCursor", "javax.swing.plaf.basic.BasicTextUI", "BasicCursor", $STATIC},
+		{"javax.swing.plaf.basic.BasicTextUI$BasicHighlighter", "javax.swing.plaf.basic.BasicTextUI", "BasicHighlighter", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.basic.BasicTextUI$BasicCaret", "javax.swing.plaf.basic.BasicTextUI", "BasicCaret", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.basic.BasicTextUI",
+		"javax.swing.plaf.TextUI",
+		"javax.swing.text.ViewFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler,javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable,javax.swing.plaf.basic.BasicTextUI$DragListener,javax.swing.plaf.basic.BasicTextUI$FocusAction,javax.swing.plaf.basic.BasicTextUI$TextActionWrapper,javax.swing.plaf.basic.BasicTextUI$UpdateHandler,javax.swing.plaf.basic.BasicTextUI$RootView,javax.swing.plaf.basic.BasicTextUI$BasicCursor,javax.swing.plaf.basic.BasicTextUI$BasicHighlighter,javax.swing.plaf.basic.BasicTextUI$BasicCaret"
+	};
+	$loadClass(BasicTextUI, name, initialize, &classInfo$$, BasicTextUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextUI));
+	});
 	return class$;
 }
 

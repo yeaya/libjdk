@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac$IntegrityHmacSHA384.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,39 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _IntegrityHmac$IntegrityHmacSHA384_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacSHA384, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacSHA384, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegrityHmac$IntegrityHmacSHA384, engineGetURI, $String*)},
-	{"getDigestLength", "()I", nullptr, 0, $virtualMethod(IntegrityHmac$IntegrityHmacSHA384, getDigestLength, int32_t)},
-	{}
-};
-
-$InnerClassInfo _IntegrityHmac$IntegrityHmacSHA384_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA384", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _IntegrityHmac$IntegrityHmacSHA384_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
-	nullptr,
-	nullptr,
-	_IntegrityHmac$IntegrityHmacSHA384_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegrityHmac$IntegrityHmacSHA384_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac"
-};
-
-$Object* allocate$IntegrityHmac$IntegrityHmacSHA384($Class* clazz) {
-	return $of($alloc(IntegrityHmac$IntegrityHmacSHA384));
-}
-
 void IntegrityHmac$IntegrityHmacSHA384::init$() {
 	$IntegrityHmac::init$();
 }
@@ -78,7 +44,35 @@ IntegrityHmac$IntegrityHmacSHA384::IntegrityHmac$IntegrityHmacSHA384() {
 }
 
 $Class* IntegrityHmac$IntegrityHmacSHA384::load$($String* name, bool initialize) {
-	$loadClass(IntegrityHmac$IntegrityHmacSHA384, name, initialize, &_IntegrityHmac$IntegrityHmacSHA384_ClassInfo_, allocate$IntegrityHmac$IntegrityHmacSHA384);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacSHA384, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacSHA384, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegrityHmac$IntegrityHmacSHA384, engineGetURI, $String*)},
+		{"getDigestLength", "()I", nullptr, 0, $virtualMethod(IntegrityHmac$IntegrityHmacSHA384, getDigestLength, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA384", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac"
+	};
+	$loadClass(IntegrityHmac$IntegrityHmacSHA384, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegrityHmac$IntegrityHmacSHA384);
+	});
 	return class$;
 }
 

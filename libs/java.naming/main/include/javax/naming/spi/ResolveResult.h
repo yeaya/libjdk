@@ -30,7 +30,7 @@ public:
 	virtual void setResolvedObj(Object$* obj);
 	$Object* resolvedObj = nullptr;
 	::javax::naming::Name* remainingName = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xC0D3A9D39D1BB379;
+	static const int64_t serialVersionUID = (int64_t)0xc0d3a9d39d1bb379;
 };
 
 		} // spi

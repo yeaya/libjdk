@@ -43,6 +43,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t rule);
 	void init$(int32_t rule, int32_t initialCapacity);
@@ -74,7 +75,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	static bool $assertionsDisabled;
 	$doubles* doubleCoords = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x1959F6D4F9360808;
+	static const int64_t serialVersionUID = (int64_t)0x1959f6d4f9360808;
 };
 
 		} // geom

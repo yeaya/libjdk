@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$DescriptorCache$Entry.h>
-
 #include <com/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor.h>
 #include <com/sun/tools/javac/code/Types$DescriptorCache.h>
 #include <jcpp.h>
@@ -17,45 +16,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$DescriptorCache$Entry_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/code/Types$DescriptorCache;", nullptr, $FINAL | $SYNTHETIC, $field(Types$DescriptorCache$Entry, this$1)},
-	{"cachedDescRes", "Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", nullptr, $FINAL, $field(Types$DescriptorCache$Entry, cachedDescRes)},
-	{"prevMark", "I", nullptr, $FINAL, $field(Types$DescriptorCache$Entry, prevMark)},
-	{}
-};
-
-$MethodInfo _Types$DescriptorCache$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;I)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$Entry, init$, void, $Types$DescriptorCache*, $Types$DescriptorCache$FunctionDescriptor*, int32_t)},
-	{"matches", "(I)Z", nullptr, 0, $virtualMethod(Types$DescriptorCache$Entry, matches, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Types$DescriptorCache$Entry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$DescriptorCache", "com.sun.tools.javac.code.Types", "DescriptorCache", 0},
-	{"com.sun.tools.javac.code.Types$DescriptorCache$Entry", "com.sun.tools.javac.code.Types$DescriptorCache", "Entry", 0},
-	{}
-};
-
-$ClassInfo _Types$DescriptorCache$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$DescriptorCache$Entry",
-	"java.lang.Object",
-	nullptr,
-	_Types$DescriptorCache$Entry_FieldInfo_,
-	_Types$DescriptorCache$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$DescriptorCache$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$DescriptorCache$Entry($Class* clazz) {
-	return $of($alloc(Types$DescriptorCache$Entry));
-}
-
 void Types$DescriptorCache$Entry::init$($Types$DescriptorCache* this$1, $Types$DescriptorCache$FunctionDescriptor* cachedDescRes, int32_t prevMark) {
 	$set(this, this$1, this$1);
 	$set(this, cachedDescRes, cachedDescRes);
@@ -70,7 +30,40 @@ Types$DescriptorCache$Entry::Types$DescriptorCache$Entry() {
 }
 
 $Class* Types$DescriptorCache$Entry::load$($String* name, bool initialize) {
-	$loadClass(Types$DescriptorCache$Entry, name, initialize, &_Types$DescriptorCache$Entry_ClassInfo_, allocate$Types$DescriptorCache$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/code/Types$DescriptorCache;", nullptr, $FINAL | $SYNTHETIC, $field(Types$DescriptorCache$Entry, this$1)},
+		{"cachedDescRes", "Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", nullptr, $FINAL, $field(Types$DescriptorCache$Entry, cachedDescRes)},
+		{"prevMark", "I", nullptr, $FINAL, $field(Types$DescriptorCache$Entry, prevMark)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;I)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$Entry, init$, void, $Types$DescriptorCache*, $Types$DescriptorCache$FunctionDescriptor*, int32_t)},
+		{"matches", "(I)Z", nullptr, 0, $virtualMethod(Types$DescriptorCache$Entry, matches, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$DescriptorCache", "com.sun.tools.javac.code.Types", "DescriptorCache", 0},
+		{"com.sun.tools.javac.code.Types$DescriptorCache$Entry", "com.sun.tools.javac.code.Types$DescriptorCache", "Entry", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$DescriptorCache$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$DescriptorCache$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$DescriptorCache$Entry);
+	});
 	return class$;
 }
 

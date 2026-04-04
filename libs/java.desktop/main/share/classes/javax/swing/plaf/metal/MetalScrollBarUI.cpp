@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalScrollBarUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -26,7 +25,6 @@
 #undef VERTICAL
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -55,64 +53,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalScrollBarUI_FieldInfo_[] = {
-	{"shadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, shadowColor)},
-	{"highlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, highlightColor)},
-	{"darkShadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, darkShadowColor)},
-	{"thumbColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, thumbColor)},
-	{"thumbShadow", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, thumbShadow)},
-	{"thumbHighlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, thumbHighlightColor)},
-	{"bumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalScrollBarUI, bumps)},
-	{"increaseButton", "Ljavax/swing/plaf/metal/MetalScrollButton;", nullptr, $PROTECTED, $field(MetalScrollBarUI, increaseButton)},
-	{"decreaseButton", "Ljavax/swing/plaf/metal/MetalScrollButton;", nullptr, $PROTECTED, $field(MetalScrollBarUI, decreaseButton)},
-	{"scrollBarWidth", "I", nullptr, $PROTECTED, $field(MetalScrollBarUI, scrollBarWidth)},
-	{"FREE_STANDING_PROP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MetalScrollBarUI, FREE_STANDING_PROP)},
-	{"isFreeStanding", "Z", nullptr, $PROTECTED, $field(MetalScrollBarUI, isFreeStanding)},
-	{}
-};
-
-$MethodInfo _MetalScrollBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalScrollBarUI, init$, void)},
-	{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, configureScrollBarColors, void)},
-	{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
-	{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, getMinimumThumbSize, $Dimension*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, installListeners, void)},
-	{"oceanPaintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(MetalScrollBarUI, oceanPaintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"setThumbBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, setThumbBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalScrollBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalScrollBarUI$ScrollBarListener", "javax.swing.plaf.metal.MetalScrollBarUI", "ScrollBarListener", 0},
-	{}
-};
-
-$ClassInfo _MetalScrollBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalScrollBarUI",
-	"javax.swing.plaf.basic.BasicScrollBarUI",
-	nullptr,
-	_MetalScrollBarUI_FieldInfo_,
-	_MetalScrollBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalScrollBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalScrollBarUI$ScrollBarListener"
-};
-
-$Object* allocate$MetalScrollBarUI($Class* clazz) {
-	return $of($alloc(MetalScrollBarUI));
-}
-
 $Color* MetalScrollBarUI::shadowColor = nullptr;
 $Color* MetalScrollBarUI::highlightColor = nullptr;
 $Color* MetalScrollBarUI::darkShadowColor = nullptr;
@@ -132,14 +72,14 @@ $ComponentUI* MetalScrollBarUI::createUI($JComponent* c) {
 }
 
 void MetalScrollBarUI::installDefaults() {
-	this->scrollBarWidth = $nc((($cast($Integer, $($UIManager::get("ScrollBar.width"_s))))))->intValue();
+	this->scrollBarWidth = $$cast($Integer, $UIManager::get("ScrollBar.width"_s))->intValue();
 	$BasicScrollBarUI::installDefaults();
 	$set(this, bumps, $new($MetalBumps, 10, 10, MetalScrollBarUI::thumbHighlightColor, MetalScrollBarUI::thumbShadow, MetalScrollBarUI::thumbColor));
 }
 
 void MetalScrollBarUI::installListeners() {
 	$BasicScrollBarUI::installListeners();
-	$nc(($cast($MetalScrollBarUI$ScrollBarListener, this->propertyChangeListener)))->handlePropertyChange($($nc(this->scrollbar)->getClientProperty(MetalScrollBarUI::FREE_STANDING_PROP)));
+	$nc($cast($MetalScrollBarUI$ScrollBarListener, this->propertyChangeListener))->handlePropertyChange($($nc(this->scrollbar)->getClientProperty(MetalScrollBarUI::FREE_STANDING_PROP)));
 }
 
 $PropertyChangeListener* MetalScrollBarUI::createPropertyChangeListener() {
@@ -175,67 +115,67 @@ $JButton* MetalScrollBarUI::createIncreaseButton(int32_t orientation) {
 }
 
 void MetalScrollBarUI::paintTrack($Graphics* g, $JComponent* c, $Rectangle* trackBounds) {
-	$nc(g)->translate($nc(trackBounds)->x, trackBounds->y);
+	$nc(g)->translate($nc(trackBounds)->x, $nc(trackBounds)->y);
 	bool leftToRight = $MetalUtils::isLeftToRight(c);
 	if ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 		if (!this->isFreeStanding) {
-			$nc(trackBounds)->width += 2;
+			trackBounds->width += 2;
 			if (!leftToRight) {
 				g->translate(-1, 0);
 			}
 		}
 		if ($nc(c)->isEnabled()) {
 			g->setColor(MetalScrollBarUI::darkShadowColor);
-			$SwingUtilities2::drawVLine(g, 0, 0, $nc(trackBounds)->height - 1);
-			$SwingUtilities2::drawVLine(g, $nc(trackBounds)->width - 2, 0, trackBounds->height - 1);
-			$SwingUtilities2::drawHLine(g, 2, $nc(trackBounds)->width - 1, trackBounds->height - 1);
-			$SwingUtilities2::drawHLine(g, 2, $nc(trackBounds)->width - 2, 0);
+			$SwingUtilities2::drawVLine(g, 0, 0, trackBounds->height - 1);
+			$SwingUtilities2::drawVLine(g, trackBounds->width - 2, 0, trackBounds->height - 1);
+			$SwingUtilities2::drawHLine(g, 2, trackBounds->width - 1, trackBounds->height - 1);
+			$SwingUtilities2::drawHLine(g, 2, trackBounds->width - 2, 0);
 			g->setColor(MetalScrollBarUI::shadowColor);
-			$SwingUtilities2::drawVLine(g, 1, 1, $nc(trackBounds)->height - 2);
-			$SwingUtilities2::drawHLine(g, 1, $nc(trackBounds)->width - 3, 1);
+			$SwingUtilities2::drawVLine(g, 1, 1, trackBounds->height - 2);
+			$SwingUtilities2::drawHLine(g, 1, trackBounds->width - 3, 1);
 			int32_t var$0 = $nc(this->scrollbar)->getValue();
-			if (var$0 != $nc(this->scrollbar)->getMaximum()) {
-				int32_t y = $nc(this->thumbRect)->y + $nc(this->thumbRect)->height - $nc(trackBounds)->y;
+			if (var$0 != this->scrollbar->getMaximum()) {
+				int32_t y = $nc(this->thumbRect)->y + $nc(this->thumbRect)->height - trackBounds->y;
 				$SwingUtilities2::drawHLine(g, 1, trackBounds->width - 1, y);
 			}
 			g->setColor(MetalScrollBarUI::highlightColor);
-			$SwingUtilities2::drawVLine(g, $nc(trackBounds)->width - 1, 0, trackBounds->height - 1);
+			$SwingUtilities2::drawVLine(g, trackBounds->width - 1, 0, trackBounds->height - 1);
 		} else {
-			$MetalUtils::drawDisabledBorder(g, 0, 0, $nc(trackBounds)->width, trackBounds->height);
+			$MetalUtils::drawDisabledBorder(g, 0, 0, trackBounds->width, trackBounds->height);
 		}
 		if (!this->isFreeStanding) {
-			$nc(trackBounds)->width -= 2;
+			trackBounds->width -= 2;
 			if (!leftToRight) {
 				g->translate(1, 0);
 			}
 		}
 	} else {
 		if (!this->isFreeStanding) {
-			$nc(trackBounds)->height += 2;
+			trackBounds->height += 2;
 		}
 		if ($nc(c)->isEnabled()) {
 			g->setColor(MetalScrollBarUI::darkShadowColor);
-			$SwingUtilities2::drawHLine(g, 0, $nc(trackBounds)->width - 1, 0);
-			$SwingUtilities2::drawVLine(g, 0, 2, $nc(trackBounds)->height - 2);
-			$SwingUtilities2::drawHLine(g, 0, $nc(trackBounds)->width - 1, trackBounds->height - 2);
-			$SwingUtilities2::drawVLine(g, $nc(trackBounds)->width - 1, 2, trackBounds->height - 1);
+			$SwingUtilities2::drawHLine(g, 0, trackBounds->width - 1, 0);
+			$SwingUtilities2::drawVLine(g, 0, 2, trackBounds->height - 2);
+			$SwingUtilities2::drawHLine(g, 0, trackBounds->width - 1, trackBounds->height - 2);
+			$SwingUtilities2::drawVLine(g, trackBounds->width - 1, 2, trackBounds->height - 1);
 			g->setColor(MetalScrollBarUI::shadowColor);
-			$SwingUtilities2::drawHLine(g, 1, $nc(trackBounds)->width - 2, 1);
-			$SwingUtilities2::drawVLine(g, 1, 1, $nc(trackBounds)->height - 3);
-			$SwingUtilities2::drawHLine(g, 0, $nc(trackBounds)->width - 1, trackBounds->height - 1);
+			$SwingUtilities2::drawHLine(g, 1, trackBounds->width - 2, 1);
+			$SwingUtilities2::drawVLine(g, 1, 1, trackBounds->height - 3);
+			$SwingUtilities2::drawHLine(g, 0, trackBounds->width - 1, trackBounds->height - 1);
 			int32_t var$1 = $nc(this->scrollbar)->getValue();
-			if (var$1 != $nc(this->scrollbar)->getMaximum()) {
-				int32_t x = $nc(this->thumbRect)->x + $nc(this->thumbRect)->width - $nc(trackBounds)->x;
+			if (var$1 != this->scrollbar->getMaximum()) {
+				int32_t x = $nc(this->thumbRect)->x + $nc(this->thumbRect)->width - trackBounds->x;
 				$SwingUtilities2::drawVLine(g, x, 1, trackBounds->height - 1);
 			}
 		} else {
-			$MetalUtils::drawDisabledBorder(g, 0, 0, $nc(trackBounds)->width, trackBounds->height);
+			$MetalUtils::drawDisabledBorder(g, 0, 0, trackBounds->width, trackBounds->height);
 		}
 		if (!this->isFreeStanding) {
-			$nc(trackBounds)->height -= 2;
+			trackBounds->height -= 2;
 		}
 	}
-	g->translate(-$nc(trackBounds)->x, -trackBounds->y);
+	g->translate(-trackBounds->x, -trackBounds->y);
 }
 
 void MetalScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* thumbBounds) {
@@ -247,71 +187,71 @@ void MetalScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* thum
 		return;
 	}
 	bool leftToRight = $MetalUtils::isLeftToRight(c);
-	$nc(g)->translate($nc(thumbBounds)->x, thumbBounds->y);
+	$nc(g)->translate($nc(thumbBounds)->x, $nc(thumbBounds)->y);
 	if ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 		if (!this->isFreeStanding) {
-			$nc(thumbBounds)->width += 2;
+			thumbBounds->width += 2;
 			if (!leftToRight) {
 				g->translate(-1, 0);
 			}
 		}
 		g->setColor(MetalScrollBarUI::thumbColor);
-		g->fillRect(0, 0, $nc(thumbBounds)->width - 2, thumbBounds->height - 1);
+		g->fillRect(0, 0, thumbBounds->width - 2, thumbBounds->height - 1);
 		g->setColor(MetalScrollBarUI::thumbShadow);
-		$SwingUtilities2::drawRect(g, 0, 0, $nc(thumbBounds)->width - 2, thumbBounds->height - 1);
+		$SwingUtilities2::drawRect(g, 0, 0, thumbBounds->width - 2, thumbBounds->height - 1);
 		g->setColor(MetalScrollBarUI::thumbHighlightColor);
-		$SwingUtilities2::drawHLine(g, 1, $nc(thumbBounds)->width - 3, 1);
-		$SwingUtilities2::drawVLine(g, 1, 1, $nc(thumbBounds)->height - 2);
-		$nc(this->bumps)->setBumpArea($nc(thumbBounds)->width - 6, thumbBounds->height - 7);
+		$SwingUtilities2::drawHLine(g, 1, thumbBounds->width - 3, 1);
+		$SwingUtilities2::drawVLine(g, 1, 1, thumbBounds->height - 2);
+		$nc(this->bumps)->setBumpArea(thumbBounds->width - 6, thumbBounds->height - 7);
 		$nc(this->bumps)->paintIcon(c, g, 3, 4);
 		if (!this->isFreeStanding) {
-			$nc(thumbBounds)->width -= 2;
+			thumbBounds->width -= 2;
 			if (!leftToRight) {
 				g->translate(1, 0);
 			}
 		}
 	} else {
 		if (!this->isFreeStanding) {
-			$nc(thumbBounds)->height += 2;
+			thumbBounds->height += 2;
 		}
 		g->setColor(MetalScrollBarUI::thumbColor);
-		g->fillRect(0, 0, $nc(thumbBounds)->width - 1, thumbBounds->height - 2);
+		g->fillRect(0, 0, thumbBounds->width - 1, thumbBounds->height - 2);
 		g->setColor(MetalScrollBarUI::thumbShadow);
-		$SwingUtilities2::drawRect(g, 0, 0, $nc(thumbBounds)->width - 1, thumbBounds->height - 2);
+		$SwingUtilities2::drawRect(g, 0, 0, thumbBounds->width - 1, thumbBounds->height - 2);
 		g->setColor(MetalScrollBarUI::thumbHighlightColor);
-		$SwingUtilities2::drawHLine(g, 1, $nc(thumbBounds)->width - 3, 1);
-		$SwingUtilities2::drawVLine(g, 1, 1, $nc(thumbBounds)->height - 3);
-		$nc(this->bumps)->setBumpArea($nc(thumbBounds)->width - 7, thumbBounds->height - 6);
+		$SwingUtilities2::drawHLine(g, 1, thumbBounds->width - 3, 1);
+		$SwingUtilities2::drawVLine(g, 1, 1, thumbBounds->height - 3);
+		$nc(this->bumps)->setBumpArea(thumbBounds->width - 7, thumbBounds->height - 6);
 		$nc(this->bumps)->paintIcon(c, g, 4, 3);
 		if (!this->isFreeStanding) {
-			$nc(thumbBounds)->height -= 2;
+			thumbBounds->height -= 2;
 		}
 	}
-	g->translate(-$nc(thumbBounds)->x, -thumbBounds->y);
+	g->translate(-thumbBounds->x, -thumbBounds->y);
 }
 
 void MetalScrollBarUI::oceanPaintThumb($Graphics* g, $JComponent* c, $Rectangle* thumbBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = $MetalUtils::isLeftToRight(c);
-	$nc(g)->translate($nc(thumbBounds)->x, thumbBounds->y);
+	$nc(g)->translate($nc(thumbBounds)->x, $nc(thumbBounds)->y);
 	if ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 		if (!this->isFreeStanding) {
-			$nc(thumbBounds)->width += 2;
+			thumbBounds->width += 2;
 			if (!leftToRight) {
 				g->translate(-1, 0);
 			}
 		}
 		if (MetalScrollBarUI::thumbColor != nullptr) {
 			g->setColor(MetalScrollBarUI::thumbColor);
-			g->fillRect(0, 0, $nc(thumbBounds)->width - 2, thumbBounds->height - 1);
+			g->fillRect(0, 0, thumbBounds->width - 2, thumbBounds->height - 1);
 		}
 		g->setColor(MetalScrollBarUI::thumbShadow);
-		$SwingUtilities2::drawRect(g, 0, 0, $nc(thumbBounds)->width - 2, thumbBounds->height - 1);
+		$SwingUtilities2::drawRect(g, 0, 0, thumbBounds->width - 2, thumbBounds->height - 1);
 		g->setColor(MetalScrollBarUI::thumbHighlightColor);
-		$SwingUtilities2::drawHLine(g, 1, $nc(thumbBounds)->width - 3, 1);
-		$SwingUtilities2::drawVLine(g, 1, 1, $nc(thumbBounds)->height - 2);
-		$MetalUtils::drawGradient(c, g, "ScrollBar.gradient"_s, 2, 2, $nc(thumbBounds)->width - 4, thumbBounds->height - 3, false);
-		int32_t gripSize = $nc(thumbBounds)->width - 8;
+		$SwingUtilities2::drawHLine(g, 1, thumbBounds->width - 3, 1);
+		$SwingUtilities2::drawVLine(g, 1, 1, thumbBounds->height - 2);
+		$MetalUtils::drawGradient(c, g, "ScrollBar.gradient"_s, 2, 2, thumbBounds->width - 4, thumbBounds->height - 3, false);
+		int32_t gripSize = thumbBounds->width - 8;
 		if (gripSize > 2 && thumbBounds->height >= 10) {
 			g->setColor($($MetalLookAndFeel::getPrimaryControlDarkShadow()));
 			int32_t gripY = thumbBounds->height / 2 - 2;
@@ -332,19 +272,19 @@ void MetalScrollBarUI::oceanPaintThumb($Graphics* g, $JComponent* c, $Rectangle*
 		}
 	} else {
 		if (!this->isFreeStanding) {
-			$nc(thumbBounds)->height += 2;
+			thumbBounds->height += 2;
 		}
 		if (MetalScrollBarUI::thumbColor != nullptr) {
 			g->setColor(MetalScrollBarUI::thumbColor);
-			g->fillRect(0, 0, $nc(thumbBounds)->width - 1, thumbBounds->height - 2);
+			g->fillRect(0, 0, thumbBounds->width - 1, thumbBounds->height - 2);
 		}
 		g->setColor(MetalScrollBarUI::thumbShadow);
-		$SwingUtilities2::drawRect(g, 0, 0, $nc(thumbBounds)->width - 1, thumbBounds->height - 2);
+		$SwingUtilities2::drawRect(g, 0, 0, thumbBounds->width - 1, thumbBounds->height - 2);
 		g->setColor(MetalScrollBarUI::thumbHighlightColor);
-		$SwingUtilities2::drawHLine(g, 1, $nc(thumbBounds)->width - 2, 1);
-		$SwingUtilities2::drawVLine(g, 1, 1, $nc(thumbBounds)->height - 3);
-		$MetalUtils::drawGradient(c, g, "ScrollBar.gradient"_s, 2, 2, $nc(thumbBounds)->width - 3, thumbBounds->height - 4, true);
-		int32_t gripSize = $nc(thumbBounds)->height - 8;
+		$SwingUtilities2::drawHLine(g, 1, thumbBounds->width - 2, 1);
+		$SwingUtilities2::drawVLine(g, 1, 1, thumbBounds->height - 3);
+		$MetalUtils::drawGradient(c, g, "ScrollBar.gradient"_s, 2, 2, thumbBounds->width - 3, thumbBounds->height - 4, true);
+		int32_t gripSize = thumbBounds->height - 8;
 		if (gripSize > 2 && thumbBounds->width >= 10) {
 			g->setColor($($MetalLookAndFeel::getPrimaryControlDarkShadow()));
 			int32_t gripX = thumbBounds->width / 2 - 2;
@@ -361,7 +301,7 @@ void MetalScrollBarUI::oceanPaintThumb($Graphics* g, $JComponent* c, $Rectangle*
 			thumbBounds->height -= 2;
 		}
 	}
-	g->translate(-$nc(thumbBounds)->x, -thumbBounds->y);
+	g->translate(-thumbBounds->x, -thumbBounds->y);
 }
 
 $Dimension* MetalScrollBarUI::getMinimumThumbSize() {
@@ -369,26 +309,78 @@ $Dimension* MetalScrollBarUI::getMinimumThumbSize() {
 }
 
 void MetalScrollBarUI::setThumbBounds(int32_t x, int32_t y, int32_t width, int32_t height) {
-	if (($nc(this->thumbRect)->x == x) && ($nc(this->thumbRect)->y == y) && ($nc(this->thumbRect)->width == width) && ($nc(this->thumbRect)->height == height)) {
+	if (($nc(this->thumbRect)->x == x) && (this->thumbRect->y == y) && (this->thumbRect->width == width) && (this->thumbRect->height == height)) {
 		return;
 	}
-	int32_t minX = $Math::min(x, $nc(this->thumbRect)->x);
-	int32_t minY = $Math::min(y, $nc(this->thumbRect)->y);
-	int32_t maxX = $Math::max(x + width, $nc(this->thumbRect)->x + $nc(this->thumbRect)->width);
-	int32_t maxY = $Math::max(y + height, $nc(this->thumbRect)->y + $nc(this->thumbRect)->height);
-	$nc(this->thumbRect)->setBounds(x, y, width, height);
+	int32_t minX = $Math::min(x, this->thumbRect->x);
+	int32_t minY = $Math::min(y, this->thumbRect->y);
+	int32_t maxX = $Math::max(x + width, this->thumbRect->x + this->thumbRect->width);
+	int32_t maxY = $Math::max(y + height, this->thumbRect->y + this->thumbRect->height);
+	this->thumbRect->setBounds(x, y, width, height);
 	$nc(this->scrollbar)->repaint(minX, minY, (maxX - minX) + 1, (maxY - minY) + 1);
 }
 
 MetalScrollBarUI::MetalScrollBarUI() {
 }
 
-void clinit$MetalScrollBarUI($Class* class$) {
+void MetalScrollBarUI::clinit$($Class* clazz) {
 	$assignStatic(MetalScrollBarUI::FREE_STANDING_PROP, "JScrollBar.isFreeStanding"_s);
 }
 
 $Class* MetalScrollBarUI::load$($String* name, bool initialize) {
-	$loadClass(MetalScrollBarUI, name, initialize, &_MetalScrollBarUI_ClassInfo_, clinit$MetalScrollBarUI, allocate$MetalScrollBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, shadowColor)},
+		{"highlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, highlightColor)},
+		{"darkShadowColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, darkShadowColor)},
+		{"thumbColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, thumbColor)},
+		{"thumbShadow", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, thumbShadow)},
+		{"thumbHighlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(MetalScrollBarUI, thumbHighlightColor)},
+		{"bumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalScrollBarUI, bumps)},
+		{"increaseButton", "Ljavax/swing/plaf/metal/MetalScrollButton;", nullptr, $PROTECTED, $field(MetalScrollBarUI, increaseButton)},
+		{"decreaseButton", "Ljavax/swing/plaf/metal/MetalScrollButton;", nullptr, $PROTECTED, $field(MetalScrollBarUI, decreaseButton)},
+		{"scrollBarWidth", "I", nullptr, $PROTECTED, $field(MetalScrollBarUI, scrollBarWidth)},
+		{"FREE_STANDING_PROP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MetalScrollBarUI, FREE_STANDING_PROP)},
+		{"isFreeStanding", "Z", nullptr, $PROTECTED, $field(MetalScrollBarUI, isFreeStanding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalScrollBarUI, init$, void)},
+		{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, configureScrollBarColors, void)},
+		{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
+		{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, getMinimumThumbSize, $Dimension*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, installListeners, void)},
+		{"oceanPaintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(MetalScrollBarUI, oceanPaintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"setThumbBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollBarUI, setThumbBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalScrollBarUI$ScrollBarListener", "javax.swing.plaf.metal.MetalScrollBarUI", "ScrollBarListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalScrollBarUI",
+		"javax.swing.plaf.basic.BasicScrollBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalScrollBarUI$ScrollBarListener"
+	};
+	$loadClass(MetalScrollBarUI, name, initialize, &classInfo$$, MetalScrollBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalScrollBarUI));
+	});
 	return class$;
 }
 

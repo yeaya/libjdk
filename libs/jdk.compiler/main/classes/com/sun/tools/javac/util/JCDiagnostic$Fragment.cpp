@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$Fragment.h>
-
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticType.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -19,37 +18,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _JCDiagnostic$Fragment_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(JCDiagnostic$Fragment, init$, void, $String*, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic$Fragment_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$Fragment", "com.sun.tools.javac.util.JCDiagnostic", "Fragment", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCDiagnostic$Fragment_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.util.JCDiagnostic$Fragment",
-	"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo",
-	nullptr,
-	nullptr,
-	_JCDiagnostic$Fragment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCDiagnostic$Fragment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic"
-};
-
-$Object* allocate$JCDiagnostic$Fragment($Class* clazz) {
-	return $of($alloc(JCDiagnostic$Fragment));
-}
-
 void JCDiagnostic$Fragment::init$($String* prefix, $String* key, $ObjectArray* args) {
 	$init($JCDiagnostic$DiagnosticType);
 	$JCDiagnostic$DiagnosticInfo::init$($JCDiagnostic$DiagnosticType::FRAGMENT, prefix, key, args);
@@ -59,7 +27,33 @@ JCDiagnostic$Fragment::JCDiagnostic$Fragment() {
 }
 
 $Class* JCDiagnostic$Fragment::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic$Fragment, name, initialize, &_JCDiagnostic$Fragment_ClassInfo_, allocate$JCDiagnostic$Fragment);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(JCDiagnostic$Fragment, init$, void, $String*, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$Fragment", "com.sun.tools.javac.util.JCDiagnostic", "Fragment", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.util.JCDiagnostic$Fragment",
+		"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic"
+	};
+	$loadClass(JCDiagnostic$Fragment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JCDiagnostic$Fragment);
+	});
 	return class$;
 }
 

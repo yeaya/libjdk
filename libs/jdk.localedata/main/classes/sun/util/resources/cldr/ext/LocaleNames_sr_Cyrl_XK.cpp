@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_sr_Cyrl_XK.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,127 +13,108 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_sr_Cyrl_XK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sr_Cyrl_XK, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sr_Cyrl_XK, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_sr_Cyrl_XK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_sr_Cyrl_XK",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_sr_Cyrl_XK_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_sr_Cyrl_XK($Class* clazz) {
-	return $of($alloc(LocaleNames_sr_Cyrl_XK));
-}
-
 void LocaleNames_sr_Cyrl_XK::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_sr_Cyrl_XK::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"Конго"_s)
+			"CG"_s,
+			u"Конго"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"Кабо Верде"_s)
+			"CV"_s,
+			u"Кабо Верде"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"Чешка Република"_s)
+			"CZ"_s,
+			u"Чешка Република"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"САР Хонгконг"_s)
+			"HK"_s,
+			u"САР Хонгконг"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"Свети Китс и Невис"_s)
+			"KN"_s,
+			u"Свети Китс и Невис"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"САР Макао"_s)
+			"MO"_s,
+			u"САР Макао"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"Свети Пјер и Микелон"_s)
+			"PM"_s,
+			u"Свети Пјер и Микелон"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"Реунион"_s)
+			"RE"_s,
+			u"Реунион"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"Мања удаљена острва САД"_s)
+			"UM"_s,
+			u"Мања удаљена острва САД"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"Свети Винсент и Гренадини"_s)
+			"VC"_s,
+			u"Свети Винсент и Гренадини"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"бамананкан"_s)
+			"bm"_s,
+			u"бамананкан"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"бангла"_s)
+			"bn"_s,
+			u"бангла"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"фулах"_s)
+			"ff"_s,
+			u"фулах"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"хаићански креолски"_s)
+			"ht"_s,
+			u"хаићански креолски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(u"лаошки"_s)
+			"lo"_s,
+			u"лаошки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"синхалски"_s)
+			"si"_s,
+			u"синхалски"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"исикоса"_s)
+			"xh"_s,
+			u"исикоса"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"исизулу"_s)
+			"zu"_s,
+			u"исизулу"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"швајцарски немачки"_s)
+			"gsw"_s,
+			u"швајцарски немачки"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"мохок"_s)
+			"moh"_s,
+			u"мохок"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(u"н’ко"_s)
+			"nqo"_s,
+			u"н’ко"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"јужни шилха"_s)
+			"shi"_s,
+			u"јужни шилха"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"централноатласки тамашек"_s)
+			"tzm"_s,
+			u"централноатласки тамашек"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"стандардни марокански тамашек"_s)
+			"zgh"_s,
+			u"стандардни марокански тамашек"_s
 		})
 	}));
 	return data;
@@ -144,7 +124,22 @@ LocaleNames_sr_Cyrl_XK::LocaleNames_sr_Cyrl_XK() {
 }
 
 $Class* LocaleNames_sr_Cyrl_XK::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_sr_Cyrl_XK, name, initialize, &_LocaleNames_sr_Cyrl_XK_ClassInfo_, allocate$LocaleNames_sr_Cyrl_XK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_sr_Cyrl_XK, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_sr_Cyrl_XK, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_sr_Cyrl_XK",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_sr_Cyrl_XK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_sr_Cyrl_XK);
+	});
 	return class$;
 }
 

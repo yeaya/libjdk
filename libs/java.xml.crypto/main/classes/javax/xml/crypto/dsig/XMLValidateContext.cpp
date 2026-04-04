@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/XMLValidateContext.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 
-$ClassInfo _XMLValidateContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.XMLValidateContext",
-	nullptr,
-	"javax.xml.crypto.XMLCryptoContext"
-};
-
-$Object* allocate$XMLValidateContext($Class* clazz) {
-	return $of($alloc(XMLValidateContext));
-}
-
 $Class* XMLValidateContext::load$($String* name, bool initialize) {
-	$loadClass(XMLValidateContext, name, initialize, &_XMLValidateContext_ClassInfo_, allocate$XMLValidateContext);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.XMLValidateContext",
+		nullptr,
+		"javax.xml.crypto.XMLCryptoContext"
+	};
+	$loadClass(XMLValidateContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLValidateContext);
+	});
 	return class$;
 }
 

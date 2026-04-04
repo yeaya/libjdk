@@ -18,7 +18,10 @@ public:
 	void init$();
 	TestException(const TestException& e);
 	virtual void throw$() override;
-	inline TestException* operator ->() {
+	inline TestException* operator ->() const {
+		return (TestException*)throwing$;
+	}
+	inline operator TestException*() const {
 		return (TestException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <java/awt/event/KeyAdapter.h>
-
 #include <java/awt/event/KeyEvent.h>
 #include <jcpp.h>
 
@@ -10,27 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$MethodInfo _KeyAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(KeyAdapter, init$, void)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(KeyAdapter, keyPressed, void, $KeyEvent*)},
-	{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(KeyAdapter, keyReleased, void, $KeyEvent*)},
-	{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(KeyAdapter, keyTyped, void, $KeyEvent*)},
-	{}
-};
-
-$ClassInfo _KeyAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.event.KeyAdapter",
-	"java.lang.Object",
-	"java.awt.event.KeyListener",
-	nullptr,
-	_KeyAdapter_MethodInfo_
-};
-
-$Object* allocate$KeyAdapter($Class* clazz) {
-	return $of($alloc(KeyAdapter));
-}
 
 void KeyAdapter::init$() {
 }
@@ -48,7 +26,24 @@ KeyAdapter::KeyAdapter() {
 }
 
 $Class* KeyAdapter::load$($String* name, bool initialize) {
-	$loadClass(KeyAdapter, name, initialize, &_KeyAdapter_ClassInfo_, allocate$KeyAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(KeyAdapter, init$, void)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(KeyAdapter, keyPressed, void, $KeyEvent*)},
+		{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(KeyAdapter, keyReleased, void, $KeyEvent*)},
+		{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(KeyAdapter, keyTyped, void, $KeyEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.event.KeyAdapter",
+		"java.lang.Object",
+		"java.awt.event.KeyListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyAdapter);
+	});
 	return class$;
 }
 

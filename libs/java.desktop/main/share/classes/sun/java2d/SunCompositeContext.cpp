@@ -1,5 +1,4 @@
 #include <sun/java2d/SunCompositeContext.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Composite.h>
 #include <java/awt/image/BufferedImage.h>
@@ -18,7 +17,6 @@
 #include <jcpp.h>
 
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Composite = ::java::awt::Composite;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $Raster = ::java::awt::image::Raster;
@@ -39,35 +37,6 @@ using $Region = ::sun::java2d::pipe::Region;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _SunCompositeContext_FieldInfo_[] = {
-	{"srcCM", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(SunCompositeContext, srcCM)},
-	{"dstCM", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(SunCompositeContext, dstCM)},
-	{"composite", "Ljava/awt/Composite;", nullptr, 0, $field(SunCompositeContext, composite)},
-	{"comptype", "Lsun/java2d/loops/CompositeType;", nullptr, 0, $field(SunCompositeContext, comptype)},
-	{}
-};
-
-$MethodInfo _SunCompositeContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/AlphaComposite;Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(SunCompositeContext, init$, void, $AlphaComposite*, $ColorModel*, $ColorModel*)},
-	{"<init>", "(Lsun/java2d/loops/XORComposite;Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(SunCompositeContext, init$, void, $XORComposite*, $ColorModel*, $ColorModel*)},
-	{"compose", "(Ljava/awt/image/Raster;Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC, $virtualMethod(SunCompositeContext, compose, void, $Raster*, $Raster*, $WritableRaster*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SunCompositeContext, dispose, void)},
-	{}
-};
-
-$ClassInfo _SunCompositeContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.SunCompositeContext",
-	"java.lang.Object",
-	"java.awt.CompositeContext",
-	_SunCompositeContext_FieldInfo_,
-	_SunCompositeContext_MethodInfo_
-};
-
-$Object* allocate$SunCompositeContext($Class* clazz) {
-	return $of($alloc(SunCompositeContext));
-}
 
 void SunCompositeContext::init$($AlphaComposite* ac, $ColorModel* s, $ColorModel* d) {
 	if (s == nullptr) {
@@ -100,7 +69,7 @@ void SunCompositeContext::dispose() {
 }
 
 void SunCompositeContext::compose($Raster* src1, $Raster* src2, $WritableRaster* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, src, nullptr);
 	int32_t w = 0;
 	int32_t h = 0;
@@ -115,10 +84,10 @@ void SunCompositeContext::compose($Raster* src1, $Raster* src2, $WritableRaster*
 	}
 	int32_t var$0 = $nc(src)->getWidth();
 	w = $Math::min(var$0, $nc(src2)->getWidth());
-	int32_t var$1 = $nc(src)->getHeight();
-	h = $Math::min(var$1, $nc(src2)->getHeight());
-	$var($BufferedImage, srcImg, $new($BufferedImage, this->srcCM, src, $nc(this->srcCM)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
-	$var($BufferedImage, dstImg, $new($BufferedImage, this->dstCM, dst, $nc(this->dstCM)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+	int32_t var$1 = src->getHeight();
+	h = $Math::min(var$1, src2->getHeight());
+	$var($BufferedImage, srcImg, $new($BufferedImage, this->srcCM, src, $nc(this->srcCM)->isAlphaPremultiplied(), nullptr));
+	$var($BufferedImage, dstImg, $new($BufferedImage, this->dstCM, dst, $nc(this->dstCM)->isAlphaPremultiplied(), nullptr));
 	$var($SurfaceData, srcData, $BufImgSurfaceData::createData(srcImg));
 	$var($SurfaceData, dstData, $BufImgSurfaceData::createData(dstImg));
 	$var($SurfaceType, var$2, $nc(srcData)->getSurfaceType());
@@ -131,7 +100,31 @@ SunCompositeContext::SunCompositeContext() {
 }
 
 $Class* SunCompositeContext::load$($String* name, bool initialize) {
-	$loadClass(SunCompositeContext, name, initialize, &_SunCompositeContext_ClassInfo_, allocate$SunCompositeContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"srcCM", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(SunCompositeContext, srcCM)},
+		{"dstCM", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(SunCompositeContext, dstCM)},
+		{"composite", "Ljava/awt/Composite;", nullptr, 0, $field(SunCompositeContext, composite)},
+		{"comptype", "Lsun/java2d/loops/CompositeType;", nullptr, 0, $field(SunCompositeContext, comptype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/AlphaComposite;Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(SunCompositeContext, init$, void, $AlphaComposite*, $ColorModel*, $ColorModel*)},
+		{"<init>", "(Lsun/java2d/loops/XORComposite;Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(SunCompositeContext, init$, void, $XORComposite*, $ColorModel*, $ColorModel*)},
+		{"compose", "(Ljava/awt/image/Raster;Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC, $virtualMethod(SunCompositeContext, compose, void, $Raster*, $Raster*, $WritableRaster*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SunCompositeContext, dispose, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.SunCompositeContext",
+		"java.lang.Object",
+		"java.awt.CompositeContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunCompositeContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunCompositeContext);
+	});
 	return class$;
 }
 

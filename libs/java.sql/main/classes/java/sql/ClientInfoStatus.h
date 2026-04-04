@@ -23,6 +23,7 @@ class $export ClientInfoStatus : public ::java::lang::Enum {
 public:
 	ClientInfoStatus();
 	static $Array<::java::sql::ClientInfoStatus>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::sql::ClientInfoStatus* valueOf($String* name);
 	static $Array<::java::sql::ClientInfoStatus>* values();

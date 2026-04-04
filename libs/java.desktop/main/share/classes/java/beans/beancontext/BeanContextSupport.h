@@ -132,7 +132,7 @@ public:
 	virtual void vetoableChange(::java::beans::PropertyChangeEvent* pce) override;
 	void writeChildren(::java::io::ObjectOutputStream* oos);
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0xBC4820F0918FB90C;
+	static const int64_t serialVersionUID = (int64_t)0xbc4820f0918fb90c;
 	::java::util::HashMap* children = nullptr;
 	int32_t serializable = 0;
 	::java::util::ArrayList* bcmListeners = nullptr;

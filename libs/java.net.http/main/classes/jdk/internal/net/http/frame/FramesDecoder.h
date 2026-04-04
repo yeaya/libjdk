@@ -53,6 +53,7 @@ class $export FramesDecoder : public ::java::lang::Object {
 	$class(FramesDecoder, 0, ::java::lang::Object)
 public:
 	FramesDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::frame::FramesDecoder$FrameProcessor* frameProcessor);
 	void init$(::jdk::internal::net::http::frame::FramesDecoder$FrameProcessor* frameProcessor, int32_t maxFrameSize);
 	virtual void close($String* msg);

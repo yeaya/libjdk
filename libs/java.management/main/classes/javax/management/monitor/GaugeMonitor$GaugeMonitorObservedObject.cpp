@@ -1,5 +1,4 @@
 #include <javax/management/monitor/GaugeMonitor$GaugeMonitorObservedObject.h>
-
 #include <java/lang/Number.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/monitor/GaugeMonitor.h>
@@ -19,53 +18,6 @@ using $Monitor$ObservedObject = ::javax::management::monitor::Monitor$ObservedOb
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$FieldInfo _GaugeMonitor$GaugeMonitorObservedObject_FieldInfo_[] = {
-	{"derivedGaugeValid", "Z", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, derivedGaugeValid)},
-	{"type", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, type)},
-	{"previousScanGauge", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, previousScanGauge)},
-	{"status", "I", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, status)},
-	{}
-};
-
-$MethodInfo _GaugeMonitor$GaugeMonitorObservedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(GaugeMonitor$GaugeMonitorObservedObject, init$, void, $ObjectName*)},
-	{"getDerivedGaugeValid", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getDerivedGaugeValid, bool)},
-	{"getPreviousScanGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getPreviousScanGauge, $Number*)},
-	{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getStatus, int32_t)},
-	{"getType", "()Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getType, $Monitor$NumericalType*)},
-	{"setDerivedGaugeValid", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setDerivedGaugeValid, void, bool)},
-	{"setPreviousScanGauge", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setPreviousScanGauge, void, $Number*)},
-	{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setStatus, void, int32_t)},
-	{"setType", "(Ljavax/management/monitor/Monitor$NumericalType;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setType, void, $Monitor$NumericalType*)},
-	{}
-};
-
-$InnerClassInfo _GaugeMonitor$GaugeMonitorObservedObject_InnerClassesInfo_[] = {
-	{"javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject", "javax.management.monitor.GaugeMonitor", "GaugeMonitorObservedObject", $STATIC},
-	{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
-	{}
-};
-
-$ClassInfo _GaugeMonitor$GaugeMonitorObservedObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject",
-	"javax.management.monitor.Monitor$ObservedObject",
-	nullptr,
-	_GaugeMonitor$GaugeMonitorObservedObject_FieldInfo_,
-	_GaugeMonitor$GaugeMonitorObservedObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GaugeMonitor$GaugeMonitorObservedObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.GaugeMonitor"
-};
-
-$Object* allocate$GaugeMonitor$GaugeMonitorObservedObject($Class* clazz) {
-	return $of($alloc(GaugeMonitor$GaugeMonitorObservedObject));
-}
 
 void GaugeMonitor$GaugeMonitorObservedObject::init$($ObjectName* observedObject) {
 	$Monitor$ObservedObject::init$(observedObject);
@@ -123,7 +75,48 @@ GaugeMonitor$GaugeMonitorObservedObject::GaugeMonitor$GaugeMonitorObservedObject
 }
 
 $Class* GaugeMonitor$GaugeMonitorObservedObject::load$($String* name, bool initialize) {
-	$loadClass(GaugeMonitor$GaugeMonitorObservedObject, name, initialize, &_GaugeMonitor$GaugeMonitorObservedObject_ClassInfo_, allocate$GaugeMonitor$GaugeMonitorObservedObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"derivedGaugeValid", "Z", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, derivedGaugeValid)},
+		{"type", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, type)},
+		{"previousScanGauge", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, previousScanGauge)},
+		{"status", "I", nullptr, $PRIVATE, $field(GaugeMonitor$GaugeMonitorObservedObject, status)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(GaugeMonitor$GaugeMonitorObservedObject, init$, void, $ObjectName*)},
+		{"getDerivedGaugeValid", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getDerivedGaugeValid, bool)},
+		{"getPreviousScanGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getPreviousScanGauge, $Number*)},
+		{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getStatus, int32_t)},
+		{"getType", "()Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getType, $Monitor$NumericalType*)},
+		{"setDerivedGaugeValid", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setDerivedGaugeValid, void, bool)},
+		{"setPreviousScanGauge", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setPreviousScanGauge, void, $Number*)},
+		{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setStatus, void, int32_t)},
+		{"setType", "(Ljavax/management/monitor/Monitor$NumericalType;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setType, void, $Monitor$NumericalType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject", "javax.management.monitor.GaugeMonitor", "GaugeMonitorObservedObject", $STATIC},
+		{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject",
+		"javax.management.monitor.Monitor$ObservedObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.GaugeMonitor"
+	};
+	$loadClass(GaugeMonitor$GaugeMonitorObservedObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GaugeMonitor$GaugeMonitorObservedObject);
+	});
 	return class$;
 }
 

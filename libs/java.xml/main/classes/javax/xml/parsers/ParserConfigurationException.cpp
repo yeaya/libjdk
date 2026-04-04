@@ -1,5 +1,4 @@
 #include <javax/xml/parsers/ParserConfigurationException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace xml {
 		namespace parsers {
-
-$FieldInfo _ParserConfigurationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParserConfigurationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ParserConfigurationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParserConfigurationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ParserConfigurationException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ParserConfigurationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.parsers.ParserConfigurationException",
-	"java.lang.Exception",
-	nullptr,
-	_ParserConfigurationException_FieldInfo_,
-	_ParserConfigurationException_MethodInfo_
-};
-
-$Object* allocate$ParserConfigurationException($Class* clazz) {
-	return $of($alloc(ParserConfigurationException));
-}
 
 void ParserConfigurationException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void ParserConfigurationException::throw$() {
 }
 
 $Class* ParserConfigurationException::load$($String* name, bool initialize) {
-	$loadClass(ParserConfigurationException, name, initialize, &_ParserConfigurationException_ClassInfo_, allocate$ParserConfigurationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParserConfigurationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParserConfigurationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ParserConfigurationException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.parsers.ParserConfigurationException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParserConfigurationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParserConfigurationException);
+	});
 	return class$;
 }
 

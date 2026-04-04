@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ByteArrayChannel.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -29,60 +28,11 @@ using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $Arrays = ::java::util::Arrays;
-using $Lock = ::java::util::concurrent::locks::Lock;
-using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
 using $ReentrantReadWriteLock = ::java::util::concurrent::locks::ReentrantReadWriteLock;
 
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ByteArrayChannel_FieldInfo_[] = {
-	{"rwlock", "Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(ByteArrayChannel, rwlock)},
-	{"buf", "[B", nullptr, $PRIVATE, $field(ByteArrayChannel, buf)},
-	{"pos", "I", nullptr, $PRIVATE, $field(ByteArrayChannel, pos)},
-	{"last", "I", nullptr, $PRIVATE, $field(ByteArrayChannel, last)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(ByteArrayChannel, closed)},
-	{"readonly", "Z", nullptr, $PRIVATE, $field(ByteArrayChannel, readonly)},
-	{"MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ByteArrayChannel, MAX_ARRAY_SIZE)},
-	{}
-};
-
-$MethodInfo _ByteArrayChannel_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, 0, $method(ByteArrayChannel, init$, void, int32_t, bool)},
-	{"<init>", "([BZ)V", nullptr, 0, $method(ByteArrayChannel, init$, void, $bytes*, bool)},
-	{"beginRead", "()V", nullptr, $PRIVATE | $FINAL, $method(ByteArrayChannel, beginRead, void)},
-	{"beginWrite", "()V", nullptr, $FINAL, $method(ByteArrayChannel, beginWrite, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, close, void), "java.io.IOException"},
-	{"endRead", "()V", nullptr, $PRIVATE | $FINAL, $method(ByteArrayChannel, endRead, void)},
-	{"endWrite", "()V", nullptr, $FINAL, $method(ByteArrayChannel, endWrite, void)},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(ByteArrayChannel, ensureCapacity, void, int32_t)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ByteArrayChannel, ensureOpen, void), "java.io.IOException"},
-	{"grow", "(I)V", nullptr, $PRIVATE, $method(ByteArrayChannel, grow, void, int32_t)},
-	{"hugeCapacity", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ByteArrayChannel, hugeCapacity, int32_t, int32_t)},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, isOpen, bool)},
-	{"position", "()J", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, position, int64_t), "java.io.IOException"},
-	{"position", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, position, $SeekableByteChannel*, int64_t), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, size, int64_t), "java.io.IOException"},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, toByteArray, $bytes*)},
-	{"truncate", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, truncate, $SeekableByteChannel*, int64_t), "java.io.IOException"},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, write, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ByteArrayChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.nio.zipfs.ByteArrayChannel",
-	"java.lang.Object",
-	"java.nio.channels.SeekableByteChannel",
-	_ByteArrayChannel_FieldInfo_,
-	_ByteArrayChannel_MethodInfo_
-};
-
-$Object* allocate$ByteArrayChannel($Class* clazz) {
-	return $of($alloc(ByteArrayChannel));
-}
 
 void ByteArrayChannel::init$(int32_t sz, bool readonly) {
 	$set(this, rwlock, $new($ReentrantReadWriteLock));
@@ -105,91 +55,85 @@ bool ByteArrayChannel::isOpen() {
 
 int64_t ByteArrayChannel::position() {
 	beginRead();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			ensureOpen();
-			var$2 = this->pos;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			endRead();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		ensureOpen();
+		var$2 = this->pos;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		endRead();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $SeekableByteChannel* ByteArrayChannel::position(int64_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	beginWrite();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SeekableByteChannel, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			ensureOpen();
-			if (pos < 0 || pos >= $Integer::MAX_VALUE) {
-				$throwNew($IllegalArgumentException, $$str({"Illegal position "_s, $$str(pos)}));
-			}
-			this->pos = $Math::min((int32_t)pos, this->last);
-			$assign(var$2, this);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			endWrite();
+	$var($Throwable, var$0, nullptr);
+	$var($SeekableByteChannel, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		ensureOpen();
+		if (pos < 0 || pos >= $Integer::MAX_VALUE) {
+			$throwNew($IllegalArgumentException, $$str({"Illegal position "_s, $$str(pos)}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		this->pos = $Math::min((int32_t)pos, this->last);
+		$assign(var$2, this);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		endWrite();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t ByteArrayChannel::read($ByteBuffer* dst) {
 	beginWrite();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			ensureOpen();
-			if (this->pos == this->last) {
-				var$2 = -1;
-				return$1 = true;
-				goto $finally;
-			}
-			int32_t n = $Math::min($nc(dst)->remaining(), this->last - this->pos);
-			$nc(dst)->put(this->buf, this->pos, n);
-			this->pos += n;
-			var$2 = n;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		ensureOpen();
+		if (this->pos == this->last) {
+			var$2 = -1;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			endWrite();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		int32_t n = $Math::min($nc(dst)->remaining(), this->last - this->pos);
+		dst->put(this->buf, this->pos, n);
+		this->pos += n;
+		var$2 = n;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		endWrite();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -208,59 +152,55 @@ int32_t ByteArrayChannel::write($ByteBuffer* src) {
 		$throwNew($NonWritableChannelException);
 	}
 	beginWrite();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			ensureOpen();
-			int32_t n = $nc(src)->remaining();
-			ensureCapacity(this->pos + n);
-			src->get(this->buf, this->pos, n);
-			this->pos += n;
-			if (this->pos > this->last) {
-				this->last = this->pos;
-			}
-			var$2 = n;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			endWrite();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		ensureOpen();
+		int32_t n = $nc(src)->remaining();
+		ensureCapacity(this->pos + n);
+		src->get(this->buf, this->pos, n);
+		this->pos += n;
+		if (this->pos > this->last) {
+			this->last = this->pos;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = n;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		endWrite();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int64_t ByteArrayChannel::size() {
 	beginRead();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			ensureOpen();
-			var$2 = this->last;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			endRead();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		ensureOpen();
+		var$2 = this->last;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		endRead();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -270,46 +210,42 @@ void ByteArrayChannel::close() {
 		return;
 	}
 	beginWrite();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			this->closed = true;
-			$set(this, buf, nullptr);
-			this->pos = 0;
-			this->last = 0;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			endWrite();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		this->closed = true;
+		$set(this, buf, nullptr);
+		this->pos = 0;
+		this->last = 0;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		endWrite();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $bytes* ByteArrayChannel::toByteArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	beginRead();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $Arrays::copyOf(this->buf, this->last));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			endRead();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $Arrays::copyOf(this->buf, this->last));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		endRead();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -321,19 +257,19 @@ void ByteArrayChannel::ensureOpen() {
 }
 
 void ByteArrayChannel::beginWrite() {
-	$nc($($nc(this->rwlock)->writeLock()))->lock();
+	$$nc($nc(this->rwlock)->writeLock())->lock();
 }
 
 void ByteArrayChannel::endWrite() {
-	$nc($($nc(this->rwlock)->writeLock()))->unlock();
+	$$nc($nc(this->rwlock)->writeLock())->unlock();
 }
 
 void ByteArrayChannel::beginRead() {
-	$nc($($nc(this->rwlock)->readLock()))->lock();
+	$$nc($nc(this->rwlock)->readLock())->lock();
 }
 
 void ByteArrayChannel::endRead() {
-	$nc($($nc(this->rwlock)->readLock()))->unlock();
+	$$nc($nc(this->rwlock)->readLock())->unlock();
 }
 
 void ByteArrayChannel::ensureCapacity(int32_t minCapacity) {
@@ -366,7 +302,49 @@ ByteArrayChannel::ByteArrayChannel() {
 }
 
 $Class* ByteArrayChannel::load$($String* name, bool initialize) {
-	$loadClass(ByteArrayChannel, name, initialize, &_ByteArrayChannel_ClassInfo_, allocate$ByteArrayChannel);
+	$FieldInfo fieldInfos$$[] = {
+		{"rwlock", "Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(ByteArrayChannel, rwlock)},
+		{"buf", "[B", nullptr, $PRIVATE, $field(ByteArrayChannel, buf)},
+		{"pos", "I", nullptr, $PRIVATE, $field(ByteArrayChannel, pos)},
+		{"last", "I", nullptr, $PRIVATE, $field(ByteArrayChannel, last)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(ByteArrayChannel, closed)},
+		{"readonly", "Z", nullptr, $PRIVATE, $field(ByteArrayChannel, readonly)},
+		{"MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ByteArrayChannel, MAX_ARRAY_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ)V", nullptr, 0, $method(ByteArrayChannel, init$, void, int32_t, bool)},
+		{"<init>", "([BZ)V", nullptr, 0, $method(ByteArrayChannel, init$, void, $bytes*, bool)},
+		{"beginRead", "()V", nullptr, $PRIVATE | $FINAL, $method(ByteArrayChannel, beginRead, void)},
+		{"beginWrite", "()V", nullptr, $FINAL, $method(ByteArrayChannel, beginWrite, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, close, void), "java.io.IOException"},
+		{"endRead", "()V", nullptr, $PRIVATE | $FINAL, $method(ByteArrayChannel, endRead, void)},
+		{"endWrite", "()V", nullptr, $FINAL, $method(ByteArrayChannel, endWrite, void)},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(ByteArrayChannel, ensureCapacity, void, int32_t)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ByteArrayChannel, ensureOpen, void), "java.io.IOException"},
+		{"grow", "(I)V", nullptr, $PRIVATE, $method(ByteArrayChannel, grow, void, int32_t)},
+		{"hugeCapacity", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ByteArrayChannel, hugeCapacity, int32_t, int32_t)},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, isOpen, bool)},
+		{"position", "()J", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, position, int64_t), "java.io.IOException"},
+		{"position", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, position, $SeekableByteChannel*, int64_t), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, size, int64_t), "java.io.IOException"},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, toByteArray, $bytes*)},
+		{"truncate", "(J)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, truncate, $SeekableByteChannel*, int64_t), "java.io.IOException"},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ByteArrayChannel, write, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.nio.zipfs.ByteArrayChannel",
+		"java.lang.Object",
+		"java.nio.channels.SeekableByteChannel",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteArrayChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteArrayChannel));
+	});
 	return class$;
 }
 

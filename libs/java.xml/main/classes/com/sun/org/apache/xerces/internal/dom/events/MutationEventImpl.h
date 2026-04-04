@@ -43,6 +43,7 @@ class MutationEventImpl : public ::com::sun::org::apache::xerces::internal::dom:
 	$class(MutationEventImpl, 0, ::com::sun::org::apache::xerces::internal::dom::events::EventImpl, ::org::w3c::dom::events::MutationEvent)
 public:
 	MutationEventImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

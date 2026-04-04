@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalUtils.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -28,16 +26,13 @@
 
 #undef INSTANCE
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $FilteredImageSource = ::java::awt::image::FilteredImageSource;
-using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -60,63 +55,15 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetalUtils, init$, void)},
-	{"drawActiveButtonBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawActiveButtonBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawButtonBorder", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawButtonBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawDark3DBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDark3DBorder, void, $Graphics*, $Rectangle*)},
-	{"drawDark3DBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDark3DBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawDefaultButtonBorder", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDefaultButtonBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawDefaultButtonPressedBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDefaultButtonPressedBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawDisabledBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDisabledBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawFlush3DBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawFlush3DBorder, void, $Graphics*, $Rectangle*)},
-	{"drawFlush3DBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawFlush3DBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGradient", "(Ljava/awt/Component;Ljava/awt/Graphics;Ljava/lang/String;IIIIZ)Z", nullptr, $STATIC, $staticMethod(MetalUtils, drawGradient, bool, $Component*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawPressed3DBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawPressed3DBorder, void, $Graphics*, $Rectangle*)},
-	{"drawPressed3DBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawPressed3DBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"getInt", "(Ljava/lang/Object;I)I", nullptr, $STATIC, $staticMethod(MetalUtils, getInt, int32_t, Object$*, int32_t)},
-	{"getOceanDisabledButtonIcon", "(Ljava/awt/Image;)Ljavax/swing/Icon;", nullptr, $STATIC, $staticMethod(MetalUtils, getOceanDisabledButtonIcon, $Icon*, $Image*)},
-	{"getOceanToolBarIcon", "(Ljava/awt/Image;)Ljavax/swing/Icon;", nullptr, $STATIC, $staticMethod(MetalUtils, getOceanToolBarIcon, $Icon*, $Image*)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(MetalUtils, isLeftToRight, bool, $Component*)},
-	{"isToolBarButton", "(Ljavax/swing/JComponent;)Z", nullptr, $STATIC, $staticMethod(MetalUtils, isToolBarButton, bool, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _MetalUtils_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter", "javax.swing.plaf.metal.MetalUtils", "OceanToolBarImageFilter", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalUtils$OceanDisabledButtonImageFilter", "javax.swing.plaf.metal.MetalUtils", "OceanDisabledButtonImageFilter", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.MetalUtils$GradientPainter", "javax.swing.plaf.metal.MetalUtils", "GradientPainter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalUtils_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MetalUtils_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalUtils_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter,javax.swing.plaf.metal.MetalUtils$OceanDisabledButtonImageFilter,javax.swing.plaf.metal.MetalUtils$GradientPainter"
-};
-
-$Object* allocate$MetalUtils($Class* clazz) {
-	return $of($alloc(MetalUtils));
-}
-
 void MetalUtils::init$() {
 }
 
 void MetalUtils::drawFlush3DBorder($Graphics* g, $Rectangle* r) {
-	drawFlush3DBorder(g, $nc(r)->x, r->y, r->width, r->height);
+	drawFlush3DBorder(g, $nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 void MetalUtils::drawFlush3DBorder($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->translate(x, y);
 	g->setColor($($MetalLookAndFeel::getControlDarkShadow()));
 	g->drawRect(0, 0, w - 2, h - 2);
@@ -129,7 +76,7 @@ void MetalUtils::drawFlush3DBorder($Graphics* g, int32_t x, int32_t y, int32_t w
 }
 
 void MetalUtils::drawPressed3DBorder($Graphics* g, $Rectangle* r) {
-	drawPressed3DBorder(g, $nc(r)->x, r->y, r->width, r->height);
+	drawPressed3DBorder(g, $nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 void MetalUtils::drawDisabledBorder($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -149,11 +96,11 @@ void MetalUtils::drawPressed3DBorder($Graphics* g, int32_t x, int32_t y, int32_t
 }
 
 void MetalUtils::drawDark3DBorder($Graphics* g, $Rectangle* r) {
-	drawDark3DBorder(g, $nc(r)->x, r->y, r->width, r->height);
+	drawDark3DBorder(g, $nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 void MetalUtils::drawDark3DBorder($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->translate(x, y);
 	drawFlush3DBorder(g, 0, 0, w, h);
 	g->setColor($($MetalLookAndFeel::getControl()));
@@ -174,7 +121,7 @@ void MetalUtils::drawButtonBorder($Graphics* g, int32_t x, int32_t y, int32_t w,
 }
 
 void MetalUtils::drawActiveButtonBorder($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	drawFlush3DBorder(g, x, y, w, h);
 	$nc(g)->setColor($($MetalLookAndFeel::getPrimaryControl()));
 	g->drawLine(x + 1, y + 1, x + 1, h - 3);
@@ -195,7 +142,7 @@ void MetalUtils::drawDefaultButtonBorder($Graphics* g, int32_t x, int32_t y, int
 }
 
 void MetalUtils::drawDefaultButtonPressedBorder($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	drawPressed3DBorder(g, x + 1, y + 1, w - 1, h - 1);
 	$nc(g)->translate(x, y);
 	g->setColor($($MetalLookAndFeel::getControlDarkShadow()));
@@ -209,13 +156,13 @@ void MetalUtils::drawDefaultButtonPressedBorder($Graphics* g, int32_t x, int32_t
 }
 
 bool MetalUtils::isLeftToRight($Component* c) {
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 int32_t MetalUtils::getInt(Object$* key, int32_t defaultValue) {
 	$var($Object, value, $UIManager::get(key));
 	if ($instanceOf($Integer, value)) {
-		return $nc(($cast($Integer, value)))->intValue();
+		return $cast($Integer, value)->intValue();
 	}
 	if ($instanceOf($String, value)) {
 		try {
@@ -244,31 +191,74 @@ bool MetalUtils::isToolBarButton($JComponent* c) {
 }
 
 $Icon* MetalUtils::getOceanToolBarIcon($Image* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageProducer, var$0, $nc(i)->getSource());
 	$var($ImageProducer, prod, $new($FilteredImageSource, var$0, $$new($MetalUtils$OceanToolBarImageFilter)));
-	return $new($ImageIconUIResource, $($nc($($Toolkit::getDefaultToolkit()))->createImage(prod)));
+	return $new($ImageIconUIResource, $($$nc($Toolkit::getDefaultToolkit())->createImage(prod)));
 }
 
 $Icon* MetalUtils::getOceanDisabledButtonIcon($Image* image) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, range, $cast($ObjectArray, $UIManager::get("Button.disabledGrayRange"_s)));
 	int32_t min = 180;
 	int32_t max = 215;
 	if (range != nullptr) {
-		min = $nc(($cast($Integer, range->get(0))))->intValue();
-		max = $nc(($cast($Integer, range->get(1))))->intValue();
+		min = $nc($cast($Integer, range->get(0)))->intValue();
+		max = $nc($cast($Integer, range->get(1)))->intValue();
 	}
 	$var($ImageProducer, var$0, $nc(image)->getSource());
 	$var($ImageProducer, prod, $new($FilteredImageSource, var$0, $$new($MetalUtils$OceanDisabledButtonImageFilter, min, max)));
-	return $new($ImageIconUIResource, $($nc($($Toolkit::getDefaultToolkit()))->createImage(prod)));
+	return $new($ImageIconUIResource, $($$nc($Toolkit::getDefaultToolkit())->createImage(prod)));
 }
 
 MetalUtils::MetalUtils() {
 }
 
 $Class* MetalUtils::load$($String* name, bool initialize) {
-	$loadClass(MetalUtils, name, initialize, &_MetalUtils_ClassInfo_, allocate$MetalUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetalUtils, init$, void)},
+		{"drawActiveButtonBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawActiveButtonBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawButtonBorder", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawButtonBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawDark3DBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDark3DBorder, void, $Graphics*, $Rectangle*)},
+		{"drawDark3DBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDark3DBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawDefaultButtonBorder", "(Ljava/awt/Graphics;IIIIZ)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDefaultButtonBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawDefaultButtonPressedBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDefaultButtonPressedBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawDisabledBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawDisabledBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawFlush3DBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawFlush3DBorder, void, $Graphics*, $Rectangle*)},
+		{"drawFlush3DBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawFlush3DBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGradient", "(Ljava/awt/Component;Ljava/awt/Graphics;Ljava/lang/String;IIIIZ)Z", nullptr, $STATIC, $staticMethod(MetalUtils, drawGradient, bool, $Component*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawPressed3DBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawPressed3DBorder, void, $Graphics*, $Rectangle*)},
+		{"drawPressed3DBorder", "(Ljava/awt/Graphics;IIII)V", nullptr, $STATIC, $staticMethod(MetalUtils, drawPressed3DBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"getInt", "(Ljava/lang/Object;I)I", nullptr, $STATIC, $staticMethod(MetalUtils, getInt, int32_t, Object$*, int32_t)},
+		{"getOceanDisabledButtonIcon", "(Ljava/awt/Image;)Ljavax/swing/Icon;", nullptr, $STATIC, $staticMethod(MetalUtils, getOceanDisabledButtonIcon, $Icon*, $Image*)},
+		{"getOceanToolBarIcon", "(Ljava/awt/Image;)Ljavax/swing/Icon;", nullptr, $STATIC, $staticMethod(MetalUtils, getOceanToolBarIcon, $Icon*, $Image*)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(MetalUtils, isLeftToRight, bool, $Component*)},
+		{"isToolBarButton", "(Ljavax/swing/JComponent;)Z", nullptr, $STATIC, $staticMethod(MetalUtils, isToolBarButton, bool, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter", "javax.swing.plaf.metal.MetalUtils", "OceanToolBarImageFilter", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalUtils$OceanDisabledButtonImageFilter", "javax.swing.plaf.metal.MetalUtils", "OceanDisabledButtonImageFilter", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.MetalUtils$GradientPainter", "javax.swing.plaf.metal.MetalUtils", "GradientPainter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter,javax.swing.plaf.metal.MetalUtils$OceanDisabledButtonImageFilter,javax.swing.plaf.metal.MetalUtils$GradientPainter"
+	};
+	$loadClass(MetalUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalUtils);
+	});
 	return class$;
 }
 

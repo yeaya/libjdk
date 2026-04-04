@@ -32,6 +32,7 @@ class MimeType : public ::java::io::Externalizable, public ::java::lang::Cloneab
 	$class(MimeType, 0, ::java::io::Externalizable, ::java::lang::Cloneable)
 public:
 	MimeType();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void finalize() override;
 	void init$();
 	void init$($String* rawdata);
@@ -55,7 +56,7 @@ public:
 	virtual void setParameter($String* name, $String* value);
 	virtual $String* toString() override;
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
-	static const int64_t serialVersionUID = (int64_t)0xA4D735B9EF75981E;
+	static const int64_t serialVersionUID = (int64_t)0xa4d735b9ef75981e;
 	$String* primaryType = nullptr;
 	$String* subType = nullptr;
 	::java::awt::datatransfer::MimeTypeParameterList* parameters = nullptr;

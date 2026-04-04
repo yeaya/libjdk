@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$FocusHandler.h>
-
 #include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusEvent.h>
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$Handler.h>
@@ -13,49 +12,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$Handler = ::javax::swing::plaf::basic::BasicTabbedPaneUI$Handler;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$FocusHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$FocusHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$FocusHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$FocusHandler, init$, void, $BasicTabbedPaneUI*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$FocusHandler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$FocusHandler, focusLost, void, $FocusEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$FocusHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$FocusHandler", "javax.swing.plaf.basic.BasicTabbedPaneUI", "FocusHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$FocusHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$FocusHandler",
-	"java.awt.event.FocusAdapter",
-	nullptr,
-	_BasicTabbedPaneUI$FocusHandler_FieldInfo_,
-	_BasicTabbedPaneUI$FocusHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$FocusHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$FocusHandler($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$FocusHandler));
-}
 
 void BasicTabbedPaneUI$FocusHandler::init$($BasicTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
@@ -63,18 +24,49 @@ void BasicTabbedPaneUI$FocusHandler::init$($BasicTabbedPaneUI* this$0) {
 }
 
 void BasicTabbedPaneUI$FocusHandler::focusGained($FocusEvent* e) {
-	$nc($(this->this$0->getHandler()))->focusGained(e);
+	$$nc(this->this$0->getHandler())->focusGained(e);
 }
 
 void BasicTabbedPaneUI$FocusHandler::focusLost($FocusEvent* e) {
-	$nc($(this->this$0->getHandler()))->focusLost(e);
+	$$nc(this->this$0->getHandler())->focusLost(e);
 }
 
 BasicTabbedPaneUI$FocusHandler::BasicTabbedPaneUI$FocusHandler() {
 }
 
 $Class* BasicTabbedPaneUI$FocusHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$FocusHandler, name, initialize, &_BasicTabbedPaneUI$FocusHandler_ClassInfo_, allocate$BasicTabbedPaneUI$FocusHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$FocusHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$FocusHandler, init$, void, $BasicTabbedPaneUI*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$FocusHandler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$FocusHandler, focusLost, void, $FocusEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$FocusHandler", "javax.swing.plaf.basic.BasicTabbedPaneUI", "FocusHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$FocusHandler",
+		"java.awt.event.FocusAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$FocusHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTabbedPaneUI$FocusHandler);
+	});
 	return class$;
 }
 

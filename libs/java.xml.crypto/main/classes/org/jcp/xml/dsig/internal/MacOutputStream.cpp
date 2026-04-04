@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/MacOutputStream.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <javax/crypto/Mac.h>
 #include <jcpp.h>
@@ -15,31 +14,6 @@ namespace org {
 		namespace xml {
 			namespace dsig {
 				namespace internal {
-
-$FieldInfo _MacOutputStream_FieldInfo_[] = {
-	{"mac", "Ljavax/crypto/Mac;", nullptr, $PRIVATE | $FINAL, $field(MacOutputStream, mac)},
-	{}
-};
-
-$MethodInfo _MacOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/Mac;)V", nullptr, $PUBLIC, $method(MacOutputStream, init$, void, $Mac*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(MacOutputStream, write, void, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MacOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MacOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.MacOutputStream",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	_MacOutputStream_FieldInfo_,
-	_MacOutputStream_MethodInfo_
-};
-
-$Object* allocate$MacOutputStream($Class* clazz) {
-	return $of($alloc(MacOutputStream));
-}
 
 void MacOutputStream::init$($Mac* mac) {
 	$ByteArrayOutputStream::init$();
@@ -60,7 +34,27 @@ MacOutputStream::MacOutputStream() {
 }
 
 $Class* MacOutputStream::load$($String* name, bool initialize) {
-	$loadClass(MacOutputStream, name, initialize, &_MacOutputStream_ClassInfo_, allocate$MacOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"mac", "Ljavax/crypto/Mac;", nullptr, $PRIVATE | $FINAL, $field(MacOutputStream, mac)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/Mac;)V", nullptr, $PUBLIC, $method(MacOutputStream, init$, void, $Mac*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(MacOutputStream, write, void, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MacOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.MacOutputStream",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MacOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MacOutputStream));
+	});
 	return class$;
 }
 

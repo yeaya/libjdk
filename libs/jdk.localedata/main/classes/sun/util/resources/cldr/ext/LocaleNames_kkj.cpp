@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_kkj.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,47 +13,28 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_kkj_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_kkj, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_kkj, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_kkj_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_kkj",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_kkj_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_kkj($Class* clazz) {
-	return $of($alloc(LocaleNames_kkj));
-}
-
 void LocaleNames_kkj::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_kkj::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"Kamɛrun"_s)
+			"CM"_s,
+			u"Kamɛrun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of("yaman"_s)
+			"en"_s,
+			"yaman"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of("numbu buy"_s)
+			"fr"_s,
+			"numbu buy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of(u"kakɔ"_s)
+			"kkj"_s,
+			u"kakɔ"_s
 		})
 	}));
 	return data;
@@ -64,7 +44,22 @@ LocaleNames_kkj::LocaleNames_kkj() {
 }
 
 $Class* LocaleNames_kkj::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_kkj, name, initialize, &_LocaleNames_kkj_ClassInfo_, allocate$LocaleNames_kkj);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_kkj, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_kkj, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_kkj",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_kkj, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_kkj);
+	});
 	return class$;
 }
 

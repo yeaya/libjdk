@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASHA1.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,38 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _SignatureBaseRSA$SignatureRSASHA1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASHA1, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASHA1, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSASHA1, engineGetURI, $String*)},
-	{}
-};
-
-$InnerClassInfo _SignatureBaseRSA$SignatureRSASHA1_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA1", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureBaseRSA$SignatureRSASHA1_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA$SignatureRSASHA1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureBaseRSA$SignatureRSASHA1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
-};
-
-$Object* allocate$SignatureBaseRSA$SignatureRSASHA1($Class* clazz) {
-	return $of($alloc(SignatureBaseRSA$SignatureRSASHA1));
-}
-
 void SignatureBaseRSA$SignatureRSASHA1::init$() {
 	$SignatureBaseRSA::init$();
 }
@@ -73,7 +40,34 @@ SignatureBaseRSA$SignatureRSASHA1::SignatureBaseRSA$SignatureRSASHA1() {
 }
 
 $Class* SignatureBaseRSA$SignatureRSASHA1::load$($String* name, bool initialize) {
-	$loadClass(SignatureBaseRSA$SignatureRSASHA1, name, initialize, &_SignatureBaseRSA$SignatureRSASHA1_ClassInfo_, allocate$SignatureBaseRSA$SignatureRSASHA1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASHA1, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASHA1, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSASHA1, engineGetURI, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASHA1", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
+	};
+	$loadClass(SignatureBaseRSA$SignatureRSASHA1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureBaseRSA$SignatureRSASHA1);
+	});
 	return class$;
 }
 

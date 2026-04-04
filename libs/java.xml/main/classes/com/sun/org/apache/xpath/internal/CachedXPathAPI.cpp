@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/CachedXPathAPI.h>
-
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolver.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolverDefault.h>
 #include <com/sun/org/apache/xpath/internal/XPath.h>
@@ -41,40 +40,6 @@ namespace com {
 			namespace apache {
 				namespace xpath {
 					namespace internal {
-
-$FieldInfo _CachedXPathAPI_FieldInfo_[] = {
-	{"xpathSupport", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PROTECTED, $field(CachedXPathAPI, xpathSupport)},
-	{}
-};
-
-$MethodInfo _CachedXPathAPI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CachedXPathAPI, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/CachedXPathAPI;)V", nullptr, $PUBLIC, $method(CachedXPathAPI, init$, void, CachedXPathAPI*)},
-	{"eval", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, eval, $XObject*, $Node*, $String*), "javax.xml.transform.TransformerException"},
-	{"eval", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, eval, $XObject*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{"eval", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, eval, $XObject*, $Node*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
-	{"getXPathContext", "()Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, getXPathContext, $XPathContext*)},
-	{"selectNodeIterator", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeIterator, $NodeIterator*, $Node*, $String*), "javax.xml.transform.TransformerException"},
-	{"selectNodeIterator", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeIterator, $NodeIterator*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{"selectNodeList", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeList, $NodeList*, $Node*, $String*), "javax.xml.transform.TransformerException"},
-	{"selectNodeList", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeList, $NodeList*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{"selectSingleNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectSingleNode, $Node*, $Node*, $String*), "javax.xml.transform.TransformerException"},
-	{"selectSingleNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectSingleNode, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _CachedXPathAPI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.CachedXPathAPI",
-	"java.lang.Object",
-	nullptr,
-	_CachedXPathAPI_FieldInfo_,
-	_CachedXPathAPI_MethodInfo_
-};
-
-$Object* allocate$CachedXPathAPI($Class* clazz) {
-	return $of($alloc(CachedXPathAPI));
-}
 
 void CachedXPathAPI::init$() {
 	$init($JdkConstants);
@@ -121,15 +86,15 @@ $XObject* CachedXPathAPI::eval($Node* contextNode, $String* str) {
 }
 
 $XObject* CachedXPathAPI::eval($Node* contextNode, $String* str, $Node* namespaceNode) {
-	$useLocalCurrentObjectStackCache();
-	$var($PrefixResolverDefault, prefixResolver, $new($PrefixResolverDefault, ($nc(namespaceNode)->getNodeType() == $Node::DOCUMENT_NODE) ? $(static_cast<$Node*>($nc(($cast($Document, namespaceNode)))->getDocumentElement())) : namespaceNode));
+	$useLocalObjectStack();
+	$var($PrefixResolverDefault, prefixResolver, $new($PrefixResolverDefault, ($nc(namespaceNode)->getNodeType() == $Node::DOCUMENT_NODE) ? $$cast($Node, $cast($Document, namespaceNode)->getDocumentElement()) : namespaceNode));
 	$var($XPath, xpath, $new($XPath, str, nullptr, prefixResolver, $XPath::SELECT, nullptr));
 	int32_t ctxtNode = $nc(this->xpathSupport)->getDTMHandleFromNode(contextNode);
-	return xpath->execute(this->xpathSupport, ctxtNode, static_cast<$PrefixResolver*>(prefixResolver));
+	return xpath->execute(this->xpathSupport, ctxtNode, prefixResolver);
 }
 
 $XObject* CachedXPathAPI::eval($Node* contextNode, $String* str, $PrefixResolver* prefixResolver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPath, xpath, $new($XPath, str, nullptr, prefixResolver, $XPath::SELECT, nullptr));
 	$init($JdkConstants);
 	$var($XPathContext, xpathSupport, $new($XPathContext, $JdkConstants::OVERRIDE_PARSER_DEFAULT));
@@ -141,7 +106,36 @@ CachedXPathAPI::CachedXPathAPI() {
 }
 
 $Class* CachedXPathAPI::load$($String* name, bool initialize) {
-	$loadClass(CachedXPathAPI, name, initialize, &_CachedXPathAPI_ClassInfo_, allocate$CachedXPathAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"xpathSupport", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PROTECTED, $field(CachedXPathAPI, xpathSupport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CachedXPathAPI, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/CachedXPathAPI;)V", nullptr, $PUBLIC, $method(CachedXPathAPI, init$, void, CachedXPathAPI*)},
+		{"eval", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, eval, $XObject*, $Node*, $String*), "javax.xml.transform.TransformerException"},
+		{"eval", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, eval, $XObject*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{"eval", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, eval, $XObject*, $Node*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
+		{"getXPathContext", "()Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, getXPathContext, $XPathContext*)},
+		{"selectNodeIterator", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeIterator, $NodeIterator*, $Node*, $String*), "javax.xml.transform.TransformerException"},
+		{"selectNodeIterator", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeIterator, $NodeIterator*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{"selectNodeList", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeList, $NodeList*, $Node*, $String*), "javax.xml.transform.TransformerException"},
+		{"selectNodeList", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectNodeList, $NodeList*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{"selectSingleNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectSingleNode, $Node*, $Node*, $String*), "javax.xml.transform.TransformerException"},
+		{"selectSingleNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(CachedXPathAPI, selectSingleNode, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.CachedXPathAPI",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CachedXPathAPI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CachedXPathAPI);
+	});
 	return class$;
 }
 

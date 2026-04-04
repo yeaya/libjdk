@@ -1,5 +1,4 @@
 #include <sun/awt/FontConfiguration$PropertiesHandler.h>
-
 #include <java/io/InputStream.h>
 #include <java/lang/AbstractStringBuilder.h>
 #include <java/util/Arrays.h>
@@ -31,76 +30,12 @@ using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
-using $Vector = ::java::util::Vector;
 using $FontConfiguration = ::sun::awt::FontConfiguration;
 using $FontConfiguration$PropertiesHandler$FontProperties = ::sun::awt::FontConfiguration$PropertiesHandler$FontProperties;
 using $FontUtilities = ::sun::font::FontUtilities;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _FontConfiguration$PropertiesHandler_FieldInfo_[] = {
-	{"scriptIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptIDs)},
-	{"elcIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, elcIDs)},
-	{"componentFontNameIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, componentFontNameIDs)},
-	{"fontfileNameIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, fontfileNameIDs)},
-	{"logicalFontIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, logicalFontIDs)},
-	{"fontStyleIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, fontStyleIDs)},
-	{"filenames", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, filenames)},
-	{"sequences", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[S>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, sequences)},
-	{"scriptFonts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptFonts)},
-	{"scriptAllfonts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptAllfonts)},
-	{"exclusions", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[I>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, exclusions)},
-	{"awtfontpaths", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, awtfontpaths)},
-	{"proportionals", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, proportionals)},
-	{"scriptAllfontsMotif", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptAllfontsMotif)},
-	{"scriptFontsMotif", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptFontsMotif)},
-	{"alphabeticSuffix", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, alphabeticSuffix)},
-	{"fallbackScriptIDs", "[S", nullptr, $PRIVATE, $field(FontConfiguration$PropertiesHandler, fallbackScriptIDs)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration$PropertiesHandler, version)},
-	{"appendedfontpath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration$PropertiesHandler, appendedfontpath)},
-	{}
-};
-
-$MethodInfo _FontConfiguration$PropertiesHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FontConfiguration$PropertiesHandler, init$, void)},
-	{"getID", "(Ljava/util/HashMap;Ljava/lang/String;)Ljava/lang/Short;", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;Ljava/lang/String;)Ljava/lang/Short;", $PRIVATE, $method(FontConfiguration$PropertiesHandler, getID, $Short*, $HashMap*, $String*)},
-	{"initBinaryTable", "()V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, initBinaryTable, void)},
-	{"initHashMaps", "()V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, initHashMaps, void)},
-	{"initLogicalNameStyle", "()V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, initLogicalNameStyle, void)},
-	{"load", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(FontConfiguration$PropertiesHandler, load, void, $InputStream*), "java.io.IOException"},
-	{"parseExclusions", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, parseExclusions, $ints*, $String*, $String*)},
-	{"parseProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, parseProperty, void, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _FontConfiguration$PropertiesHandler_InnerClassesInfo_[] = {
-	{"sun.awt.FontConfiguration$PropertiesHandler", "sun.awt.FontConfiguration", "PropertiesHandler", $STATIC},
-	{"sun.awt.FontConfiguration$PropertiesHandler$FontProperties", "sun.awt.FontConfiguration$PropertiesHandler", "FontProperties", 0},
-	{}
-};
-
-$ClassInfo _FontConfiguration$PropertiesHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.FontConfiguration$PropertiesHandler",
-	"java.lang.Object",
-	nullptr,
-	_FontConfiguration$PropertiesHandler_FieldInfo_,
-	_FontConfiguration$PropertiesHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontConfiguration$PropertiesHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.FontConfiguration"
-};
-
-$Object* allocate$FontConfiguration$PropertiesHandler($Class* clazz) {
-	return $of($alloc(FontConfiguration$PropertiesHandler));
-}
 
 void FontConfiguration$PropertiesHandler::init$() {
 }
@@ -114,98 +49,98 @@ void FontConfiguration$PropertiesHandler::load($InputStream* in) {
 }
 
 void FontConfiguration$PropertiesHandler::initBinaryTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($FontConfiguration);
 	$assignStatic($FontConfiguration::head, $new($shorts, 20));
-	$nc($FontConfiguration::head)->set(0, (int16_t)20);
+	$FontConfiguration::head->set(0, (int16_t)20);
 	$assignStatic($FontConfiguration::table_scriptIDs, $FontConfiguration::toList(this->scriptIDs));
 	$nc($FontConfiguration::head)->set(1, (int16_t)($nc($FontConfiguration::head)->get(0) + $nc($FontConfiguration::table_scriptIDs)->length));
-	int32_t len = $nc($FontConfiguration::table_scriptIDs)->length + $nc(this->scriptFonts)->size() * 20;
+	int32_t len = $FontConfiguration::table_scriptIDs->length + $nc(this->scriptFonts)->size() * 20;
 	$assignStatic($FontConfiguration::table_scriptFonts, $new($shorts, len));
 	{
-		$var($Iterator, i$, $nc($($nc(this->scriptAllfonts)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->scriptAllfonts)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				int32_t var$0 = $nc(($cast($Short, $($nc(entry)->getKey()))))->intValue();
-				$nc($FontConfiguration::table_scriptFonts)->set(var$0, $nc(($cast($Short, $(entry->getValue()))))->shortValue());
+				int32_t var$0 = $$sure($Short, $nc(entry)->getKey())->intValue();
+				$FontConfiguration::table_scriptFonts->set(var$0, $$sure($Short, entry->getValue())->shortValue());
 			}
 		}
 	}
-	int32_t off = $nc($FontConfiguration::table_scriptIDs)->length;
+	int32_t off = $FontConfiguration::table_scriptIDs->length;
 	{
-		$var($Iterator, i$, $nc($($nc(this->scriptFonts)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->scriptFonts->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				$nc($FontConfiguration::table_scriptFonts)->set($nc(($cast($Short, $($nc(entry)->getKey()))))->intValue(), (int16_t)-off);
+				$FontConfiguration::table_scriptFonts->set($$sure($Short, $nc(entry)->getKey())->intValue(), (int16_t)-off);
 				$var($ShortArray, v, $cast($ShortArray, entry->getValue()));
 				for (int32_t i = 0; i < 20; ++i) {
 					if ($nc(v)->get(i) != nullptr) {
-						$nc($FontConfiguration::table_scriptFonts)->set(off++, $nc(v->get(i))->shortValue());
+						$FontConfiguration::table_scriptFonts->set(off++, $nc(v->get(i))->shortValue());
 					} else {
-						$nc($FontConfiguration::table_scriptFonts)->set(off++, (int16_t)0);
+						$FontConfiguration::table_scriptFonts->set(off++, 0);
 					}
 				}
 			}
 		}
 	}
-	$nc($FontConfiguration::head)->set(2, (int16_t)($nc($FontConfiguration::head)->get(1) + $nc($FontConfiguration::table_scriptFonts)->length));
+	$FontConfiguration::head->set(2, (int16_t)($FontConfiguration::head->get(1) + $FontConfiguration::table_scriptFonts->length));
 	$assignStatic($FontConfiguration::table_elcIDs, $FontConfiguration::toList(this->elcIDs));
 	$nc($FontConfiguration::head)->set(3, (int16_t)($nc($FontConfiguration::head)->get(2) + $nc($FontConfiguration::table_elcIDs)->length));
 	$assignStatic($FontConfiguration::table_sequences, $new($shorts, $nc(this->elcIDs)->size() * 5));
 	{
-		$var($Iterator, i$, $nc($($nc(this->sequences)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->sequences)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				int32_t k = $nc(($cast($Short, $($nc(entry)->getKey()))))->intValue();
+				int32_t k = $$sure($Short, $nc(entry)->getKey())->intValue();
 				$var($shorts, v, $cast($shorts, entry->getValue()));
 				if ($nc(v)->length == 1) {
 					for (int32_t i = 0; i < 5; ++i) {
-						$nc($FontConfiguration::table_sequences)->set(k * 5 + i, v->get(0));
+						$FontConfiguration::table_sequences->set(k * 5 + i, v->get(0));
 					}
 				} else {
 					for (int32_t i = 0; i < 5; ++i) {
-						$nc($FontConfiguration::table_sequences)->set(k * 5 + i, v->get(i));
+						$FontConfiguration::table_sequences->set(k * 5 + i, v->get(i));
 					}
 				}
 			}
 		}
 	}
-	$nc($FontConfiguration::head)->set(4, (int16_t)($nc($FontConfiguration::head)->get(3) + $nc($FontConfiguration::table_sequences)->length));
+	$FontConfiguration::head->set(4, (int16_t)($FontConfiguration::head->get(3) + $FontConfiguration::table_sequences->length));
 	$assignStatic($FontConfiguration::table_fontfileNameIDs, $FontConfiguration::toList(this->fontfileNameIDs));
 	$nc($FontConfiguration::head)->set(5, (int16_t)($nc($FontConfiguration::head)->get(4) + $nc($FontConfiguration::table_fontfileNameIDs)->length));
 	$assignStatic($FontConfiguration::table_componentFontNameIDs, $FontConfiguration::toList(this->componentFontNameIDs));
 	$nc($FontConfiguration::head)->set(6, (int16_t)($nc($FontConfiguration::head)->get(5) + $nc($FontConfiguration::table_componentFontNameIDs)->length));
-	$assignStatic($FontConfiguration::table_filenames, $new($shorts, $nc($FontConfiguration::table_componentFontNameIDs)->length));
+	$assignStatic($FontConfiguration::table_filenames, $new($shorts, $FontConfiguration::table_componentFontNameIDs->length));
 	$Arrays::fill($FontConfiguration::table_filenames, (int16_t)-1);
 	{
-		$var($Iterator, i$, $nc($($nc(this->filenames)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->filenames)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				int16_t var$1 = $nc(($cast($Short, $($nc(entry)->getKey()))))->shortValue();
-				$nc($FontConfiguration::table_filenames)->set(var$1, $nc(($cast($Short, $(entry->getValue()))))->shortValue());
+				int16_t var$1 = $$sure($Short, $nc(entry)->getKey())->shortValue();
+				$FontConfiguration::table_filenames->set(var$1, $$sure($Short, entry->getValue())->shortValue());
 			}
 		}
 	}
-	$nc($FontConfiguration::head)->set(7, (int16_t)($nc($FontConfiguration::head)->get(6) + $nc($FontConfiguration::table_filenames)->length));
+	$FontConfiguration::head->set(7, (int16_t)($FontConfiguration::head->get(6) + $FontConfiguration::table_filenames->length));
 	$assignStatic($FontConfiguration::table_awtfontpaths, $new($shorts, $nc($FontConfiguration::table_scriptIDs)->length));
 	{
-		$var($Iterator, i$, $nc($($nc(this->awtfontpaths)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->awtfontpaths)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				int16_t var$2 = $nc(($cast($Short, $($nc(entry)->getKey()))))->shortValue();
-				$nc($FontConfiguration::table_awtfontpaths)->set(var$2, $nc(($cast($Short, $(entry->getValue()))))->shortValue());
+				int16_t var$2 = $$sure($Short, $nc(entry)->getKey())->shortValue();
+				$FontConfiguration::table_awtfontpaths->set(var$2, $$sure($Short, entry->getValue())->shortValue());
 			}
 		}
 	}
-	$nc($FontConfiguration::head)->set(8, (int16_t)($nc($FontConfiguration::head)->get(7) + $nc($FontConfiguration::table_awtfontpaths)->length));
+	$FontConfiguration::head->set(8, (int16_t)($FontConfiguration::head->get(7) + $FontConfiguration::table_awtfontpaths->length));
 	$assignStatic($FontConfiguration::table_exclusions, $new($shorts, $nc(this->scriptIDs)->size()));
 	{
-		$var($Iterator, i$, $nc($($nc(this->exclusions)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->exclusions)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
@@ -214,9 +149,9 @@ void FontConfiguration$PropertiesHandler::initBinaryTable() {
 				int32_t j = 0;
 				for (int32_t i = 0; i < exI->length; ++i) {
 					exC->set(j++, (char16_t)(exI->get(i) >> 16));
-					exC->set(j++, (char16_t)((int32_t)(exI->get(i) & (uint32_t)0x0000FFFF)));
+					exC->set(j++, (char16_t)(exI->get(i) & 0xffff));
 				}
-				int16_t var$3 = $nc(($cast($Short, $(entry->getKey()))))->shortValue();
+				int16_t var$3 = $$sure($Short, entry->getKey())->shortValue();
 				$nc($FontConfiguration::table_exclusions)->set(var$3, $FontConfiguration::getStringID($$new($String, exC)));
 			}
 		}
@@ -225,44 +160,44 @@ void FontConfiguration$PropertiesHandler::initBinaryTable() {
 	$assignStatic($FontConfiguration::table_proportionals, $new($shorts, $nc(this->proportionals)->size() * 2));
 	int32_t j = 0;
 	{
-		$var($Iterator, i$, $nc($($nc(this->proportionals)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->proportionals->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				$nc($FontConfiguration::table_proportionals)->set(j++, $nc(($cast($Short, $($nc(entry)->getKey()))))->shortValue());
-				$nc($FontConfiguration::table_proportionals)->set(j++, $nc(($cast($Short, $(entry->getValue()))))->shortValue());
+				$FontConfiguration::table_proportionals->set(j++, $$sure($Short, $nc(entry)->getKey())->shortValue());
+				$FontConfiguration::table_proportionals->set(j++, $$sure($Short, entry->getValue())->shortValue());
 			}
 		}
 	}
-	$nc($FontConfiguration::head)->set(10, (int16_t)($nc($FontConfiguration::head)->get(9) + $nc($FontConfiguration::table_proportionals)->length));
+	$FontConfiguration::head->set(10, (int16_t)($FontConfiguration::head->get(9) + $FontConfiguration::table_proportionals->length));
 	bool var$4 = $nc(this->scriptAllfontsMotif)->size() != 0;
 	if (var$4 || $nc(this->scriptFontsMotif)->size() != 0) {
 		len = $nc($FontConfiguration::table_scriptIDs)->length + $nc(this->scriptFontsMotif)->size() * 20;
 		$assignStatic($FontConfiguration::table_scriptFontsMotif, $new($shorts, len));
 		{
-			$var($Iterator, i$, $nc($($nc(this->scriptAllfontsMotif)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(this->scriptAllfontsMotif->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 				{
-					int32_t var$5 = $nc(($cast($Short, $($nc(entry)->getKey()))))->intValue();
-					$nc($FontConfiguration::table_scriptFontsMotif)->set(var$5, $nc(($cast($Short, $(entry->getValue()))))->shortValue());
+					int32_t var$5 = $$sure($Short, $nc(entry)->getKey())->intValue();
+					$FontConfiguration::table_scriptFontsMotif->set(var$5, $$sure($Short, entry->getValue())->shortValue());
 				}
 			}
 		}
-		off = $nc($FontConfiguration::table_scriptIDs)->length;
+		off = $FontConfiguration::table_scriptIDs->length;
 		{
-			$var($Iterator, i$, $nc($($nc(this->scriptFontsMotif)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(this->scriptFontsMotif->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 				{
-					$nc($FontConfiguration::table_scriptFontsMotif)->set($nc(($cast($Short, $($nc(entry)->getKey()))))->intValue(), (int16_t)-off);
+					$FontConfiguration::table_scriptFontsMotif->set($$sure($Short, $nc(entry)->getKey())->intValue(), (int16_t)-off);
 					$var($ShortArray, v, $cast($ShortArray, entry->getValue()));
 					int32_t i = 0;
 					while (i < 20) {
 						if ($nc(v)->get(i) != nullptr) {
-							$nc($FontConfiguration::table_scriptFontsMotif)->set(off++, $nc(v->get(i))->shortValue());
+							$FontConfiguration::table_scriptFontsMotif->set(off++, $nc(v->get(i))->shortValue());
 						} else {
-							$nc($FontConfiguration::table_scriptFontsMotif)->set(off++, (int16_t)0);
+							$FontConfiguration::table_scriptFontsMotif->set(off++, 0);
 						}
 						++i;
 					}
@@ -272,51 +207,51 @@ void FontConfiguration$PropertiesHandler::initBinaryTable() {
 	} else {
 		$assignStatic($FontConfiguration::table_scriptFontsMotif, $FontConfiguration::EMPTY_SHORT_ARRAY);
 	}
-	$nc($FontConfiguration::head)->set(11, (int16_t)($nc($FontConfiguration::head)->get(10) + $nc($FontConfiguration::table_scriptFontsMotif)->length));
+	$FontConfiguration::head->set(11, (int16_t)($FontConfiguration::head->get(10) + $nc($FontConfiguration::table_scriptFontsMotif)->length));
 	$assignStatic($FontConfiguration::table_alphabeticSuffix, $new($shorts, $nc(this->alphabeticSuffix)->size() * 2));
 	j = 0;
 	{
-		$var($Iterator, i$, $nc($($nc(this->alphabeticSuffix)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->alphabeticSuffix->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				$nc($FontConfiguration::table_alphabeticSuffix)->set(j++, $nc(($cast($Short, $($nc(entry)->getKey()))))->shortValue());
-				$nc($FontConfiguration::table_alphabeticSuffix)->set(j++, $nc(($cast($Short, $(entry->getValue()))))->shortValue());
+				$FontConfiguration::table_alphabeticSuffix->set(j++, $$sure($Short, $nc(entry)->getKey())->shortValue());
+				$FontConfiguration::table_alphabeticSuffix->set(j++, $$sure($Short, entry->getValue())->shortValue());
 			}
 		}
 	}
-	$nc($FontConfiguration::head)->set(15, $FontConfiguration::getShortArrayID(this->fallbackScriptIDs));
+	$FontConfiguration::head->set(15, $FontConfiguration::getShortArrayID(this->fallbackScriptIDs));
 	$nc($FontConfiguration::head)->set(16, $FontConfiguration::getStringID(this->appendedfontpath));
 	$nc($FontConfiguration::head)->set(17, $FontConfiguration::getStringID(this->version));
 	$nc($FontConfiguration::head)->set(12, (int16_t)($nc($FontConfiguration::head)->get(11) + $nc($FontConfiguration::table_alphabeticSuffix)->length));
 	$assignStatic($FontConfiguration::table_stringIDs, $new($shorts, $FontConfiguration::stringIDNum + 1));
 	$System::arraycopy($FontConfiguration::stringIDs, 0, $FontConfiguration::table_stringIDs, 0, $FontConfiguration::stringIDNum + 1);
-	$nc($FontConfiguration::head)->set(13, (int16_t)($nc($FontConfiguration::head)->get(12) + $FontConfiguration::stringIDNum + 1));
-	$assignStatic($FontConfiguration::table_stringTable, $nc($($nc($FontConfiguration::stringTable)->toString()))->toCharArray());
-	$nc($FontConfiguration::head)->set(14, (int16_t)($nc($FontConfiguration::head)->get(13) + $nc($FontConfiguration::stringTable)->length()));
-	$assignStatic($FontConfiguration::stringCache, $new($StringArray, $nc($FontConfiguration::table_stringIDs)->length));
+	$FontConfiguration::head->set(13, (int16_t)($FontConfiguration::head->get(12) + $FontConfiguration::stringIDNum + 1));
+	$assignStatic($FontConfiguration::table_stringTable, $($nc($FontConfiguration::stringTable)->toString())->toCharArray());
+	$FontConfiguration::head->set(14, (int16_t)($FontConfiguration::head->get(13) + $FontConfiguration::stringTable->length()));
+	$assignStatic($FontConfiguration::stringCache, $new($StringArray, $FontConfiguration::table_stringIDs->length));
 }
 
 void FontConfiguration$PropertiesHandler::initLogicalNameStyle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, logicalFontIDs, $new($HashMap));
 	$set(this, fontStyleIDs, $new($HashMap));
-	$nc(this->logicalFontIDs)->put("serif"_s, $($Integer::valueOf(0)));
-	$nc(this->logicalFontIDs)->put("sansserif"_s, $($Integer::valueOf(1)));
-	$nc(this->logicalFontIDs)->put("monospaced"_s, $($Integer::valueOf(2)));
-	$nc(this->logicalFontIDs)->put("dialog"_s, $($Integer::valueOf(3)));
-	$nc(this->logicalFontIDs)->put("dialoginput"_s, $($Integer::valueOf(4)));
-	$nc(this->fontStyleIDs)->put("plain"_s, $($Integer::valueOf(0)));
-	$nc(this->fontStyleIDs)->put("bold"_s, $($Integer::valueOf(1)));
-	$nc(this->fontStyleIDs)->put("italic"_s, $($Integer::valueOf(2)));
-	$nc(this->fontStyleIDs)->put("bolditalic"_s, $($Integer::valueOf(3)));
+	this->logicalFontIDs->put("serif"_s, $($Integer::valueOf(0)));
+	this->logicalFontIDs->put("sansserif"_s, $($Integer::valueOf(1)));
+	this->logicalFontIDs->put("monospaced"_s, $($Integer::valueOf(2)));
+	this->logicalFontIDs->put("dialog"_s, $($Integer::valueOf(3)));
+	this->logicalFontIDs->put("dialoginput"_s, $($Integer::valueOf(4)));
+	this->fontStyleIDs->put("plain"_s, $($Integer::valueOf(0)));
+	this->fontStyleIDs->put("bold"_s, $($Integer::valueOf(1)));
+	this->fontStyleIDs->put("italic"_s, $($Integer::valueOf(2)));
+	this->fontStyleIDs->put("bolditalic"_s, $($Integer::valueOf(3)));
 }
 
 void FontConfiguration$PropertiesHandler::initHashMaps() {
 	$set(this, scriptIDs, $new($HashMap));
 	$set(this, elcIDs, $new($HashMap));
 	$set(this, componentFontNameIDs, $new($HashMap));
-	$nc(this->componentFontNameIDs)->put(""_s, $($Short::valueOf((int16_t)0)));
+	this->componentFontNameIDs->put(""_s, $($Short::valueOf((int16_t)0)));
 	$set(this, fontfileNameIDs, $new($HashMap));
 	$set(this, filenames, $new($HashMap));
 	$set(this, sequences, $new($HashMap));
@@ -333,14 +268,14 @@ void FontConfiguration$PropertiesHandler::initHashMaps() {
 }
 
 $ints* FontConfiguration$PropertiesHandler::parseExclusions($String* key, $String* exclusions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (exclusions == nullptr) {
 		$init($FontConfiguration);
 		return $FontConfiguration::EMPTY_INT_ARRAY;
 	}
 	int32_t numExclusions = 1;
 	int32_t pos = 0;
-	while ((pos = $nc(exclusions)->indexOf((int32_t)u',', pos)) != -1) {
+	while ((pos = $nc(exclusions)->indexOf(u',', pos)) != -1) {
 		++numExclusions;
 		++pos;
 	}
@@ -353,10 +288,10 @@ $ints* FontConfiguration$PropertiesHandler::parseExclusions($String* key, $Strin
 		int32_t lo = 0;
 		int32_t up = 0;
 		try {
-			newPos = $nc(exclusions)->indexOf((int32_t)u'-', pos);
+			newPos = exclusions->indexOf(u'-', pos);
 			$assign(lower, exclusions->substring(pos, newPos));
 			pos = newPos + 1;
-			newPos = exclusions->indexOf((int32_t)u',', pos);
+			newPos = exclusions->indexOf(u',', pos);
 			if (newPos == -1) {
 				newPos = exclusions->length();
 			}
@@ -375,7 +310,7 @@ $ints* FontConfiguration$PropertiesHandler::parseExclusions($String* key, $Strin
 		} catch ($Exception& e) {
 			$init($FontConfiguration);
 			if ($FontUtilities::debugFonts() && $FontConfiguration::logger != nullptr) {
-				$nc($FontConfiguration::logger)->config($$str({"Failed parsing "_s, key, " property of font configuration."_s}));
+				$FontConfiguration::logger->config($$str({"Failed parsing "_s, key, " property of font configuration."_s}));
 			}
 			return $FontConfiguration::EMPTY_INT_ARRAY;
 		}
@@ -386,7 +321,7 @@ $ints* FontConfiguration$PropertiesHandler::parseExclusions($String* key, $Strin
 }
 
 $Short* FontConfiguration$PropertiesHandler::getID($HashMap* map, $String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Short, ret, $cast($Short, $nc(map)->get(key)));
 	if (ret == nullptr) {
 		map->put(key, $($Short::valueOf((int16_t)map->size())));
@@ -396,7 +331,7 @@ $Short* FontConfiguration$PropertiesHandler::getID($HashMap* map, $String* key) 
 }
 
 void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, key$renamed);
 	if ($nc(key)->startsWith("filename."_s)) {
 		$assign(key, key->substring(9));
@@ -408,14 +343,14 @@ void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $S
 		$nc(this->filenames)->put(faceID, fileID);
 	} else if (key->startsWith("exclusion."_s)) {
 		$assign(key, key->substring(10));
-		$var($Object, var$0, $of(getID(this->scriptIDs, key)));
+		$var($Object, var$0, getID(this->scriptIDs, key));
 		$nc(this->exclusions)->put(var$0, $(parseExclusions(key, value)));
 	} else if (key->startsWith("sequence."_s)) {
 		$assign(key, key->substring(9));
 		bool hasDefault = false;
 		bool has1252 = false;
 		$init($FontConfiguration);
-		$var($StringArray, ss, $fcast($StringArray, $nc($($FontConfiguration::splitSequence(value)))->toArray($FontConfiguration::EMPTY_STRING_ARRAY)));
+		$var($StringArray, ss, $cast($StringArray, $$nc($FontConfiguration::splitSequence(value))->toArray($FontConfiguration::EMPTY_STRING_ARRAY)));
 		$var($shorts, sa, $new($shorts, $nc(ss)->length));
 		for (int32_t i = 0; i < ss->length; ++i) {
 			if ("alphabetic/default"_s->equals(ss->get(i))) {
@@ -425,11 +360,11 @@ void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $S
 				ss->set(i, "alphabetic"_s);
 				has1252 = true;
 			}
-			sa->set(i, $nc($(getID(this->scriptIDs, ss->get(i))))->shortValue());
+			sa->set(i, $$nc(getID(this->scriptIDs, ss->get(i)))->shortValue());
 		}
 		int16_t scriptArrayID = $FontConfiguration::getShortArrayID(sa);
 		$var($Short, elcID, nullptr);
-		int32_t dot = key->indexOf((int32_t)u'.');
+		int32_t dot = key->indexOf(u'.');
 		if (dot == -1) {
 			if ("fallback"_s->equals(key)) {
 				$set(this, fallbackScriptIDs, sa);
@@ -439,7 +374,7 @@ void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $S
 				$assign(elcID, getID(this->elcIDs, "NULL.NULL.NULL"_s));
 			} else {
 				if ($FontConfiguration::logger != nullptr) {
-					$nc($FontConfiguration::logger)->config($$str({"Error sequence def: <sequence."_s, key, ">"_s}));
+					$FontConfiguration::logger->config($$str({"Error sequence def: <sequence."_s, key, ">"_s}));
 				}
 				return;
 			}
@@ -459,7 +394,7 @@ void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $S
 			$var($Integer, fid, $cast($Integer, $nc(this->logicalFontIDs)->get(key)));
 			if (fid == nullptr) {
 				if ($FontConfiguration::logger != nullptr) {
-					$nc($FontConfiguration::logger)->config($$str({"Unrecognizable logicfont name "_s, key}));
+					$FontConfiguration::logger->config($$str({"Unrecognizable logicfont name "_s, key}));
 				}
 				return;
 			}
@@ -475,15 +410,15 @@ void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $S
 		$assign(key, key->substring(9));
 		if (key->endsWith(".motif"_s)) {
 			$assign(key, key->substring(0, key->length() - 6));
-			$var($Object, var$1, $of(getID(this->scriptIDs, key)));
+			$var($Object, var$1, getID(this->scriptIDs, key));
 			$nc(this->scriptAllfontsMotif)->put(var$1, $(getID(this->componentFontNameIDs, value)));
 		} else {
-			$var($Object, var$2, $of(getID(this->scriptIDs, key)));
+			$var($Object, var$2, getID(this->scriptIDs, key));
 			$nc(this->scriptAllfonts)->put(var$2, $(getID(this->componentFontNameIDs, value)));
 		}
 	} else if (key->startsWith("awtfontpath."_s)) {
 		$assign(key, key->substring(12));
-		$var($Object, var$3, $of(getID(this->scriptIDs, key)));
+		$var($Object, var$3, getID(this->scriptIDs, key));
 		$nc(this->awtfontpaths)->put(var$3, $($Short::valueOf($FontConfiguration::getStringID(value))));
 	} else if ("version"_s->equals(key)) {
 		$set(this, version, value);
@@ -491,25 +426,25 @@ void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $S
 		$set(this, appendedfontpath, value);
 	} else if (key->startsWith("proportional."_s)) {
 		$assign(key, $(key->substring(13))->replace(u'_', u' '));
-		$var($Object, var$4, $of(getID(this->componentFontNameIDs, key)));
+		$var($Object, var$4, getID(this->componentFontNameIDs, key));
 		$nc(this->proportionals)->put(var$4, $(getID(this->componentFontNameIDs, value)));
 	} else {
 		int32_t dot1 = 0;
 		int32_t dot2 = 0;
 		bool isMotif = false;
-		dot1 = key->indexOf((int32_t)u'.');
+		dot1 = key->indexOf(u'.');
 		if (dot1 == -1) {
 			$init($FontConfiguration);
 			if ($FontConfiguration::logger != nullptr) {
-				$nc($FontConfiguration::logger)->config($$str({"Failed parsing "_s, key, " property of font configuration."_s}));
+				$FontConfiguration::logger->config($$str({"Failed parsing "_s, key, " property of font configuration."_s}));
 			}
 			return;
 		}
-		dot2 = key->indexOf((int32_t)u'.', dot1 + 1);
+		dot2 = key->indexOf(u'.', dot1 + 1);
 		if (dot2 == -1) {
 			$init($FontConfiguration);
 			if ($FontConfiguration::logger != nullptr) {
-				$nc($FontConfiguration::logger)->config($$str({"Failed parsing "_s, key, " property of font configuration."_s}));
+				$FontConfiguration::logger->config($$str({"Failed parsing "_s, key, " property of font configuration."_s}));
 			}
 			return;
 		}
@@ -523,7 +458,7 @@ void FontConfiguration$PropertiesHandler::parseProperty($String* key$renamed, $S
 		if (nameID == nullptr || styleID == nullptr) {
 			$init($FontConfiguration);
 			if ($FontConfiguration::logger != nullptr) {
-				$nc($FontConfiguration::logger)->config($$str({"unrecognizable logicfont name/style at "_s, key}));
+				$FontConfiguration::logger->config($$str({"unrecognizable logicfont name/style at "_s, key}));
 			}
 			return;
 		}
@@ -551,7 +486,62 @@ FontConfiguration$PropertiesHandler::FontConfiguration$PropertiesHandler() {
 }
 
 $Class* FontConfiguration$PropertiesHandler::load$($String* name, bool initialize) {
-	$loadClass(FontConfiguration$PropertiesHandler, name, initialize, &_FontConfiguration$PropertiesHandler_ClassInfo_, allocate$FontConfiguration$PropertiesHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"scriptIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptIDs)},
+		{"elcIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, elcIDs)},
+		{"componentFontNameIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, componentFontNameIDs)},
+		{"fontfileNameIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, fontfileNameIDs)},
+		{"logicalFontIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, logicalFontIDs)},
+		{"fontStyleIDs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, fontStyleIDs)},
+		{"filenames", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, filenames)},
+		{"sequences", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[S>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, sequences)},
+		{"scriptFonts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptFonts)},
+		{"scriptAllfonts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptAllfonts)},
+		{"exclusions", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[I>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, exclusions)},
+		{"awtfontpaths", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, awtfontpaths)},
+		{"proportionals", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, proportionals)},
+		{"scriptAllfontsMotif", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptAllfontsMotif)},
+		{"scriptFontsMotif", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;[Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, scriptFontsMotif)},
+		{"alphabeticSuffix", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Short;Ljava/lang/Short;>;", $PRIVATE, $field(FontConfiguration$PropertiesHandler, alphabeticSuffix)},
+		{"fallbackScriptIDs", "[S", nullptr, $PRIVATE, $field(FontConfiguration$PropertiesHandler, fallbackScriptIDs)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration$PropertiesHandler, version)},
+		{"appendedfontpath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontConfiguration$PropertiesHandler, appendedfontpath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FontConfiguration$PropertiesHandler, init$, void)},
+		{"getID", "(Ljava/util/HashMap;Ljava/lang/String;)Ljava/lang/Short;", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Short;>;Ljava/lang/String;)Ljava/lang/Short;", $PRIVATE, $method(FontConfiguration$PropertiesHandler, getID, $Short*, $HashMap*, $String*)},
+		{"initBinaryTable", "()V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, initBinaryTable, void)},
+		{"initHashMaps", "()V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, initHashMaps, void)},
+		{"initLogicalNameStyle", "()V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, initLogicalNameStyle, void)},
+		{"load", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(FontConfiguration$PropertiesHandler, load, void, $InputStream*), "java.io.IOException"},
+		{"parseExclusions", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, parseExclusions, $ints*, $String*, $String*)},
+		{"parseProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FontConfiguration$PropertiesHandler, parseProperty, void, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.FontConfiguration$PropertiesHandler", "sun.awt.FontConfiguration", "PropertiesHandler", $STATIC},
+		{"sun.awt.FontConfiguration$PropertiesHandler$FontProperties", "sun.awt.FontConfiguration$PropertiesHandler", "FontProperties", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.FontConfiguration$PropertiesHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.FontConfiguration"
+	};
+	$loadClass(FontConfiguration$PropertiesHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FontConfiguration$PropertiesHandler);
+	});
 	return class$;
 }
 

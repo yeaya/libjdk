@@ -40,6 +40,7 @@ class MarlinCache : public ::sun::java2d::marlin::MarlinConst {
 	$class(MarlinCache, 0, ::sun::java2d::marlin::MarlinConst)
 public:
 	MarlinCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx);
 	int32_t alphaSumInTile(int32_t x);
 	static $bytes* buildAlphaMap(int32_t maxalpha);

@@ -15,6 +15,7 @@ class TIFFLZWUtil : public ::java::lang::Object {
 	$class(TIFFLZWUtil, 0, ::java::lang::Object)
 public:
 	TIFFLZWUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addStringToTable($bytes* oldString, int8_t newString);
 	virtual void addStringToTable($bytes* string);

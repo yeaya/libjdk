@@ -1,5 +1,4 @@
 #include <javax/print/attribute/AttributeSetUtilities$SynchronizedPrintJobAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/AttributeSetUtilities$SynchronizedAttributeSet.h>
@@ -20,58 +19,6 @@ using $PrintJobAttributeSet = ::javax::print::attribute::PrintJobAttributeSet;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _AttributeSetUtilities$SynchronizedPrintJobAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$SynchronizedPrintJobAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeSetUtilities$SynchronizedPrintJobAttributeSet_MethodInfo_[] = {
-	{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"<init>", "(Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$SynchronizedPrintJobAttributeSet, init$, void, $PrintJobAttributeSet*)},
-	{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AttributeSetUtilities$SynchronizedPrintJobAttributeSet_InnerClassesInfo_[] = {
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintJobAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedAttributeSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AttributeSetUtilities$SynchronizedPrintJobAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet",
-	"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet",
-	"javax.print.attribute.PrintJobAttributeSet",
-	_AttributeSetUtilities$SynchronizedPrintJobAttributeSet_FieldInfo_,
-	_AttributeSetUtilities$SynchronizedPrintJobAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities$SynchronizedPrintJobAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.AttributeSetUtilities"
-};
-
-$Object* allocate$AttributeSetUtilities$SynchronizedPrintJobAttributeSet($Class* clazz) {
-	return $of($alloc(AttributeSetUtilities$SynchronizedPrintJobAttributeSet));
-}
 
 $Attribute* AttributeSetUtilities$SynchronizedPrintJobAttributeSet::get($Class* category) {
 	 return this->$AttributeSetUtilities$SynchronizedAttributeSet::get(category);
@@ -145,7 +92,53 @@ AttributeSetUtilities$SynchronizedPrintJobAttributeSet::AttributeSetUtilities$Sy
 }
 
 $Class* AttributeSetUtilities$SynchronizedPrintJobAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(AttributeSetUtilities$SynchronizedPrintJobAttributeSet, name, initialize, &_AttributeSetUtilities$SynchronizedPrintJobAttributeSet_ClassInfo_, allocate$AttributeSetUtilities$SynchronizedPrintJobAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$SynchronizedPrintJobAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsKey", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"<init>", "(Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$SynchronizedPrintJobAttributeSet, init$, void, $PrintJobAttributeSet*)},
+		{"*remove", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintJobAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedAttributeSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet",
+		"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet",
+		"javax.print.attribute.PrintJobAttributeSet",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.AttributeSetUtilities"
+	};
+	$loadClass(AttributeSetUtilities$SynchronizedPrintJobAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeSetUtilities$SynchronizedPrintJobAttributeSet));
+	});
 	return class$;
 }
 

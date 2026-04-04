@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/ClientFactoryImpl.h>
-
 #include <com/sun/security/sasl/CramMD5Client.h>
 #include <com/sun/security/sasl/ExternalClient.h>
 #include <com/sun/security/sasl/PlainClient.h>
@@ -37,7 +36,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Map = ::java::util::Map;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
@@ -50,36 +48,6 @@ namespace com {
 		namespace security {
 			namespace sasl {
 
-$FieldInfo _ClientFactoryImpl_FieldInfo_[] = {
-	{"myMechs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientFactoryImpl, myMechs)},
-	{"mechPolicies", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientFactoryImpl, mechPolicies)},
-	{"EXTERNAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientFactoryImpl, EXTERNAL)},
-	{"CRAMMD5", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientFactoryImpl, CRAMMD5)},
-	{"PLAIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientFactoryImpl, PLAIN)},
-	{}
-};
-
-$MethodInfo _ClientFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClientFactoryImpl, init$, void)},
-	{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC, $virtualMethod(ClientFactoryImpl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC, $virtualMethod(ClientFactoryImpl, getMechanismNames, $StringArray*, $Map*)},
-	{"getUserInfo", "(Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ClientFactoryImpl, getUserInfo, $ObjectArray*, $String*, $String*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$ClassInfo _ClientFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.ClientFactoryImpl",
-	"java.lang.Object",
-	"javax.security.sasl.SaslClientFactory",
-	_ClientFactoryImpl_FieldInfo_,
-	_ClientFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$ClientFactoryImpl($Class* clazz) {
-	return $of($alloc(ClientFactoryImpl));
-}
-
 $StringArray* ClientFactoryImpl::myMechs = nullptr;
 $ints* ClientFactoryImpl::mechPolicies = nullptr;
 
@@ -87,21 +55,21 @@ void ClientFactoryImpl::init$() {
 }
 
 $SaslClient* ClientFactoryImpl::createSaslClient($StringArray* mechs, $String* authorizationId, $String* protocol, $String* serverName, $Map* props, $CallbackHandler* cbh) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(mechs)->length; ++i) {
-		bool var$0 = $nc(mechs->get(i))->equals($nc(ClientFactoryImpl::myMechs)->get(ClientFactoryImpl::EXTERNAL));
-		if (var$0 && $PolicyUtils::checkPolicy($nc(ClientFactoryImpl::mechPolicies)->get(ClientFactoryImpl::EXTERNAL), props)) {
+		bool var$0 = $nc(mechs->get(i))->equals(ClientFactoryImpl::myMechs->get(ClientFactoryImpl::EXTERNAL));
+		if (var$0 && $PolicyUtils::checkPolicy(ClientFactoryImpl::mechPolicies->get(ClientFactoryImpl::EXTERNAL), props)) {
 			return $new($ExternalClient, authorizationId);
 		} else {
-			bool var$2 = $nc(mechs->get(i))->equals($nc(ClientFactoryImpl::myMechs)->get(ClientFactoryImpl::CRAMMD5));
-			if (var$2 && $PolicyUtils::checkPolicy($nc(ClientFactoryImpl::mechPolicies)->get(ClientFactoryImpl::CRAMMD5), props)) {
+			bool var$1 = $nc(mechs->get(i))->equals(ClientFactoryImpl::myMechs->get(ClientFactoryImpl::CRAMMD5));
+			if (var$1 && $PolicyUtils::checkPolicy(ClientFactoryImpl::mechPolicies->get(ClientFactoryImpl::CRAMMD5), props)) {
 				$var($ObjectArray, uinfo, getUserInfo("CRAM-MD5"_s, authorizationId, cbh));
-				return $new($CramMD5Client, $cast($String, $nc(uinfo)->get(0)), $cast($bytes, uinfo->get(1)));
+				return $new($CramMD5Client, $cast($String, $nc(uinfo)->get(0)), $cast($bytes, $nc(uinfo)->get(1)));
 			} else {
-				bool var$4 = $nc(mechs->get(i))->equals($nc(ClientFactoryImpl::myMechs)->get(ClientFactoryImpl::PLAIN));
-				if (var$4 && $PolicyUtils::checkPolicy($nc(ClientFactoryImpl::mechPolicies)->get(ClientFactoryImpl::PLAIN), props)) {
+				bool var$2 = $nc(mechs->get(i))->equals(ClientFactoryImpl::myMechs->get(ClientFactoryImpl::PLAIN));
+				if (var$2 && $PolicyUtils::checkPolicy(ClientFactoryImpl::mechPolicies->get(ClientFactoryImpl::PLAIN), props)) {
 					$var($ObjectArray, uinfo, getUserInfo("PLAIN"_s, authorizationId, cbh));
-					return $new($PlainClient, authorizationId, $cast($String, $nc(uinfo)->get(0)), $cast($bytes, uinfo->get(1)));
+					return $new($PlainClient, authorizationId, $cast($String, $nc(uinfo)->get(0)), $cast($bytes, $nc(uinfo)->get(1)));
 				}
 			}
 		}
@@ -114,7 +82,7 @@ $StringArray* ClientFactoryImpl::getMechanismNames($Map* props) {
 }
 
 $ObjectArray* ClientFactoryImpl::getUserInfo($String* prefix, $String* authorizationId, $CallbackHandler* cbh) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cbh == nullptr) {
 		$throwNew($SaslException, "Callback handler to get username/password required"_s);
 	}
@@ -124,8 +92,8 @@ $ObjectArray* ClientFactoryImpl::getUserInfo($String* prefix, $String* authoriza
 		$var($NameCallback, ncb, authorizationId == nullptr ? $new($NameCallback, userPrompt) : $new($NameCallback, userPrompt, authorizationId));
 		$var($PasswordCallback, pcb, $new($PasswordCallback, passwdPrompt, false));
 		$nc(cbh)->handle($$new($CallbackArray, {
-			static_cast<$Callback*>(ncb),
-			static_cast<$Callback*>(pcb)
+			ncb,
+			pcb
 		}));
 		$var($chars, pw, pcb->getPassword());
 		$var($bytes, bytepw, nullptr);
@@ -139,8 +107,8 @@ $ObjectArray* ClientFactoryImpl::getUserInfo($String* prefix, $String* authoriza
 		}
 		$assign(authId, $nc(ncb)->getName());
 		return $new($ObjectArray, {
-			$of(authId),
-			$of(bytepw)
+			authId,
+			bytepw
 		});
 	} catch ($IOException& e) {
 		$throwNew($SaslException, "Cannot get password"_s, e);
@@ -150,7 +118,7 @@ $ObjectArray* ClientFactoryImpl::getUserInfo($String* prefix, $String* authoriza
 	$shouldNotReachHere();
 }
 
-void clinit$ClientFactoryImpl($Class* class$) {
+void ClientFactoryImpl::clinit$($Class* clazz) {
 	$assignStatic(ClientFactoryImpl::myMechs, $new($StringArray, {
 		"EXTERNAL"_s,
 		"CRAM-MD5"_s,
@@ -167,7 +135,32 @@ ClientFactoryImpl::ClientFactoryImpl() {
 }
 
 $Class* ClientFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(ClientFactoryImpl, name, initialize, &_ClientFactoryImpl_ClassInfo_, clinit$ClientFactoryImpl, allocate$ClientFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"myMechs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientFactoryImpl, myMechs)},
+		{"mechPolicies", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClientFactoryImpl, mechPolicies)},
+		{"EXTERNAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientFactoryImpl, EXTERNAL)},
+		{"CRAMMD5", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientFactoryImpl, CRAMMD5)},
+		{"PLAIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClientFactoryImpl, PLAIN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClientFactoryImpl, init$, void)},
+		{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC, $virtualMethod(ClientFactoryImpl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC, $virtualMethod(ClientFactoryImpl, getMechanismNames, $StringArray*, $Map*)},
+		{"getUserInfo", "(Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ClientFactoryImpl, getUserInfo, $ObjectArray*, $String*, $String*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.ClientFactoryImpl",
+		"java.lang.Object",
+		"javax.security.sasl.SaslClientFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClientFactoryImpl, name, initialize, &classInfo$$, ClientFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientFactoryImpl);
+	});
 	return class$;
 }
 

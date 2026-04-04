@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$ClosureHolder.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/util/List.h>
@@ -20,47 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$ClosureHolder_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$ClosureHolder, this$0)},
-	{"closure", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$ClosureHolder, closure$)},
-	{"minClosure", "Z", nullptr, $FINAL, $field(Types$ClosureHolder, minClosure)},
-	{"shouldSkip", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;>;", $FINAL, $field(Types$ClosureHolder, shouldSkip)},
-	{}
-};
-
-$MethodInfo _Types$ClosureHolder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;ZLjava/util/function/BiPredicate;)V", "(ZLjava/util/function/BiPredicate<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Types$ClosureHolder, init$, void, $Types*, bool, $BiPredicate*)},
-	{"add", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Types$ClosureHolder, add, void, $Type*)},
-	{"closure", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Types$ClosureHolder, closure, $List*)},
-	{"merge", "(Lcom/sun/tools/javac/code/Types$ClosureHolder;)Lcom/sun/tools/javac/code/Types$ClosureHolder;", nullptr, 0, $virtualMethod(Types$ClosureHolder, merge, Types$ClosureHolder*, Types$ClosureHolder*)},
-	{}
-};
-
-$InnerClassInfo _Types$ClosureHolder_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$ClosureHolder", "com.sun.tools.javac.code.Types", "ClosureHolder", 0},
-	{}
-};
-
-$ClassInfo _Types$ClosureHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$ClosureHolder",
-	"java.lang.Object",
-	nullptr,
-	_Types$ClosureHolder_FieldInfo_,
-	_Types$ClosureHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$ClosureHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$ClosureHolder($Class* clazz) {
-	return $of($alloc(Types$ClosureHolder));
-}
 
 void Types$ClosureHolder::init$($Types* this$0, bool minClosure, $BiPredicate* shouldSkip) {
 	$set(this, this$0, this$0);
@@ -86,7 +44,42 @@ Types$ClosureHolder::Types$ClosureHolder() {
 }
 
 $Class* Types$ClosureHolder::load$($String* name, bool initialize) {
-	$loadClass(Types$ClosureHolder, name, initialize, &_Types$ClosureHolder_ClassInfo_, allocate$Types$ClosureHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$ClosureHolder, this$0)},
+		{"closure", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$ClosureHolder, closure$)},
+		{"minClosure", "Z", nullptr, $FINAL, $field(Types$ClosureHolder, minClosure)},
+		{"shouldSkip", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;>;", $FINAL, $field(Types$ClosureHolder, shouldSkip)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;ZLjava/util/function/BiPredicate;)V", "(ZLjava/util/function/BiPredicate<Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Types$ClosureHolder, init$, void, $Types*, bool, $BiPredicate*)},
+		{"add", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Types$ClosureHolder, add, void, $Type*)},
+		{"closure", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Types$ClosureHolder, closure, $List*)},
+		{"merge", "(Lcom/sun/tools/javac/code/Types$ClosureHolder;)Lcom/sun/tools/javac/code/Types$ClosureHolder;", nullptr, 0, $virtualMethod(Types$ClosureHolder, merge, Types$ClosureHolder*, Types$ClosureHolder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$ClosureHolder", "com.sun.tools.javac.code.Types", "ClosureHolder", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$ClosureHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$ClosureHolder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$ClosureHolder);
+	});
 	return class$;
 }
 

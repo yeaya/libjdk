@@ -1,9 +1,7 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/WithParam.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
@@ -49,22 +47,17 @@
 using $ALOAD = ::com::sun::org::apache::bcel::internal::generic::ALOAD;
 using $ASTORE = ::com::sun::org::apache::bcel::internal::generic::ASTORE;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $1Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
-using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -87,50 +80,13 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _WithParam_FieldInfo_[] = {
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(WithParam, _name)},
-	{"_escapedName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(WithParam, _escapedName)},
-	{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(WithParam, _select)},
-	{"_domAdapter", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PRIVATE, $field(WithParam, _domAdapter)},
-	{"_doParameterOptimization", "Z", nullptr, $PRIVATE, $field(WithParam, _doParameterOptimization)},
-	{}
-};
-
-$MethodInfo _WithParam_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WithParam, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(WithParam, display, void, int32_t)},
-	{"getEscapedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(WithParam, getEscapedName, $String*)},
-	{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(WithParam, getName, $QName*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(WithParam, parseContents, void, $Parser*)},
-	{"releaseResultTree", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(WithParam, releaseResultTree, void, $ClassGenerator*, $MethodGenerator*)},
-	{"setDoParameterOptimization", "(Z)V", nullptr, $PUBLIC, $method(WithParam, setDoParameterOptimization, void, bool)},
-	{"setName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(WithParam, setName, void, $QName*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(WithParam, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateValue", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(WithParam, translateValue, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(WithParam, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _WithParam_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.WithParam",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_WithParam_FieldInfo_,
-	_WithParam_MethodInfo_
-};
-
-$Object* allocate$WithParam($Class* clazz) {
-	return $of($alloc(WithParam));
-}
-
 void WithParam::init$() {
 	$Instruction::init$();
 	this->_doParameterOptimization = false;
 }
 
 void WithParam::display(int32_t indent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->indent(indent);
 	$Util::println($$str({"with-param "_s, this->_name}));
 	if (this->_select != nullptr) {
@@ -158,12 +114,12 @@ void WithParam::setDoParameterOptimization(bool flag) {
 }
 
 void WithParam::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getAttribute("name"_s));
 	if ($nc(name)->length() > 0) {
 		if (!$XML11Char::isXML11ValidQName(name)) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, $of(name), static_cast<$SyntaxTreeNode*>(this)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, name, this));
 			$nc(parser)->reportError($Constants::ERROR, err);
 		}
 		setName($($nc(parser)->getQNameIgnoreDefaultNs(name)));
@@ -180,7 +136,7 @@ void WithParam::parseContents($Parser* parser) {
 
 $Type* WithParam::typeCheck($SymbolTable* stable) {
 	if (this->_select != nullptr) {
-		$var($Type, tselect, $nc(this->_select)->typeCheck(stable));
+		$var($Type, tselect, this->_select->typeCheck(stable));
 		if ($instanceOf($ReferenceType, tselect) == false) {
 			$init($Type);
 			$set(this, _select, $new($CastExpr, this->_select, $Type::Reference));
@@ -193,9 +149,9 @@ $Type* WithParam::typeCheck($SymbolTable* stable) {
 }
 
 void WithParam::translateValue($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_select != nullptr) {
-		$nc(this->_select)->translate(classGen, methodGen);
+		this->_select->translate(classGen, methodGen);
 		$nc(this->_select)->startIterator(classGen, methodGen);
 	} else if (hasContents()) {
 		$var($InstructionList, il, $nc(methodGen)->getInstructionList());
@@ -205,18 +161,18 @@ void WithParam::translateValue($ClassGenerator* classGen, $MethodGenerator* meth
 		$var($1Type, var$1, $nc($Type::ResultTree)->toJCType());
 		$set(this, _domAdapter, methodGen->addLocalVariable2(var$0, var$1, $($nc(il)->getEnd())));
 		$init($Constants);
-		$nc(il)->append(static_cast<$1Instruction*>($Constants::DUP));
-		il->append(static_cast<$1Instruction*>($$new($ASTORE, $nc(this->_domAdapter)->getIndex())));
+		il->append($Constants::DUP);
+		il->append($$new($ASTORE, $nc(this->_domAdapter)->getIndex()));
 	} else {
 		$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 		$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 		$init($Constants);
-		$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $Constants::EMPTYSTRING)));
+		$nc(il)->append($$new($PUSH, cpg, $Constants::EMPTYSTRING));
 	}
 }
 
 void WithParam::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if (this->_doParameterOptimization) {
@@ -225,32 +181,32 @@ void WithParam::translate($ClassGenerator* classGen, $MethodGenerator* methodGen
 	}
 	$var($String, name, $Util::escape($(getEscapedName())));
 	$nc(il)->append($(classGen->loadTranslet()));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, name)));
+	il->append($$new($PUSH, cpg, name));
 	translateValue(classGen, methodGen);
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, false)));
+	il->append($$new($PUSH, cpg, false));
 	$init($Constants);
-	il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::TRANSLET_CLASS, $Constants::ADD_PARAMETER, $Constants::ADD_PARAMETER_SIG))));
-	il->append(static_cast<$1Instruction*>($Constants::POP));
+	il->append($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::TRANSLET_CLASS, $Constants::ADD_PARAMETER, $Constants::ADD_PARAMETER_SIG)));
+	il->append($Constants::POP);
 }
 
 void WithParam::releaseResultTree($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_domAdapter != nullptr) {
 		$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 		$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-		bool var$0 = $nc($(classGen->getStylesheet()))->callsNodeset();
+		bool var$0 = $$nc(classGen->getStylesheet())->callsNodeset();
 		$init($Constants);
-		if (var$0 && $nc($(classGen->getDOMClass()))->equals($Constants::MULTI_DOM_CLASS)) {
+		if (var$0 && $$nc(classGen->getDOMClass())->equals($Constants::MULTI_DOM_CLASS)) {
 			int32_t removeDA = $nc(cpg)->addMethodref($Constants::MULTI_DOM_CLASS, "removeDOMAdapter"_s, $$str({"("_s, $Constants::DOM_ADAPTER_SIG, ")V"_s}));
 			$nc(il)->append($(methodGen->loadDOM()));
-			il->append(static_cast<$1Instruction*>($$new($CHECKCAST, cpg->addClass($Constants::MULTI_DOM_CLASS))));
-			il->append(static_cast<$1Instruction*>($$new($ALOAD, $nc(this->_domAdapter)->getIndex())));
-			il->append(static_cast<$1Instruction*>($$new($CHECKCAST, cpg->addClass($Constants::DOM_ADAPTER_CLASS))));
-			il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, removeDA)));
+			il->append($$new($CHECKCAST, cpg->addClass($Constants::MULTI_DOM_CLASS)));
+			il->append($$new($ALOAD, $nc(this->_domAdapter)->getIndex()));
+			il->append($$new($CHECKCAST, cpg->addClass($Constants::DOM_ADAPTER_CLASS)));
+			il->append($$new($INVOKEVIRTUAL, removeDA));
 		}
 		int32_t release = $nc(cpg)->addInterfaceMethodref($Constants::DOM_IMPL_CLASS, "release"_s, "()V"_s);
-		$nc(il)->append(static_cast<$1Instruction*>($$new($ALOAD, $nc(this->_domAdapter)->getIndex())));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, release, 1)));
+		$nc(il)->append($$new($ALOAD, $nc(this->_domAdapter)->getIndex()));
+		il->append($$new($INVOKEINTERFACE, release, 1));
 		$nc(this->_domAdapter)->setEnd($(il->getEnd()));
 		methodGen->removeLocalVariable(this->_domAdapter);
 		$set(this, _domAdapter, nullptr);
@@ -261,7 +217,39 @@ WithParam::WithParam() {
 }
 
 $Class* WithParam::load$($String* name, bool initialize) {
-	$loadClass(WithParam, name, initialize, &_WithParam_ClassInfo_, allocate$WithParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(WithParam, _name)},
+		{"_escapedName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(WithParam, _escapedName)},
+		{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(WithParam, _select)},
+		{"_domAdapter", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PRIVATE, $field(WithParam, _domAdapter)},
+		{"_doParameterOptimization", "Z", nullptr, $PRIVATE, $field(WithParam, _doParameterOptimization)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WithParam, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(WithParam, display, void, int32_t)},
+		{"getEscapedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(WithParam, getEscapedName, $String*)},
+		{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(WithParam, getName, $QName*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(WithParam, parseContents, void, $Parser*)},
+		{"releaseResultTree", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(WithParam, releaseResultTree, void, $ClassGenerator*, $MethodGenerator*)},
+		{"setDoParameterOptimization", "(Z)V", nullptr, $PUBLIC, $method(WithParam, setDoParameterOptimization, void, bool)},
+		{"setName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(WithParam, setName, void, $QName*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(WithParam, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateValue", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(WithParam, translateValue, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(WithParam, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.WithParam",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WithParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WithParam);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/GrowableRectArray.h>
-
 #include <sun/java2d/xr/GrowableIntArray.h>
 #include <jcpp.h>
 
@@ -14,39 +13,6 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _GrowableRectArray_FieldInfo_[] = {
-	{"RECT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GrowableRectArray, RECT_SIZE)},
-	{}
-};
-
-$MethodInfo _GrowableRectArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(GrowableRectArray, init$, void, int32_t)},
-	{"getHeight", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getHeight, int32_t, int32_t)},
-	{"getWidth", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getWidth, int32_t, int32_t)},
-	{"getX", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getX, int32_t, int32_t)},
-	{"getY", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getY, int32_t, int32_t)},
-	{"pushRectValues", "(IIII)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, pushRectValues, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setHeight", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setHeight, void, int32_t, int32_t)},
-	{"setWidth", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setWidth, void, int32_t, int32_t)},
-	{"setX", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setX, void, int32_t, int32_t)},
-	{"setY", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setY, void, int32_t, int32_t)},
-	{"translateRects", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, translateRects, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _GrowableRectArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.GrowableRectArray",
-	"sun.java2d.xr.GrowableIntArray",
-	nullptr,
-	_GrowableRectArray_FieldInfo_,
-	_GrowableRectArray_MethodInfo_
-};
-
-$Object* allocate$GrowableRectArray($Class* clazz) {
-	return $of($alloc(GrowableRectArray));
-}
-
 void GrowableRectArray::init$(int32_t initialSize) {
 	$GrowableIntArray::init$(GrowableRectArray::RECT_SIZE, initialSize);
 }
@@ -58,9 +24,9 @@ void GrowableRectArray::pushRectValues(int32_t x, int32_t y, int32_t width, int3
 		growArray();
 	}
 	$nc(this->array)->set(currSize, x);
-	$nc(this->array)->set(currSize + 1, y);
-	$nc(this->array)->set(currSize + 2, width);
-	$nc(this->array)->set(currSize + 3, height);
+	this->array->set(currSize + 1, y);
+	this->array->set(currSize + 2, width);
+	this->array->set(currSize + 3, height);
 }
 
 void GrowableRectArray::setX(int32_t index, int32_t x) {
@@ -106,7 +72,35 @@ GrowableRectArray::GrowableRectArray() {
 }
 
 $Class* GrowableRectArray::load$($String* name, bool initialize) {
-	$loadClass(GrowableRectArray, name, initialize, &_GrowableRectArray_ClassInfo_, allocate$GrowableRectArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"RECT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GrowableRectArray, RECT_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(GrowableRectArray, init$, void, int32_t)},
+		{"getHeight", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getHeight, int32_t, int32_t)},
+		{"getWidth", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getWidth, int32_t, int32_t)},
+		{"getX", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getX, int32_t, int32_t)},
+		{"getY", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, getY, int32_t, int32_t)},
+		{"pushRectValues", "(IIII)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, pushRectValues, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setHeight", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setHeight, void, int32_t, int32_t)},
+		{"setWidth", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setWidth, void, int32_t, int32_t)},
+		{"setX", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setX, void, int32_t, int32_t)},
+		{"setY", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, setY, void, int32_t, int32_t)},
+		{"translateRects", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowableRectArray, translateRects, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.GrowableRectArray",
+		"sun.java2d.xr.GrowableIntArray",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GrowableRectArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GrowableRectArray);
+	});
 	return class$;
 }
 

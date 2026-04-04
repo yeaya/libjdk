@@ -154,6 +154,7 @@ class TransformerFactoryImpl : public ::javax::xml::transform::sax::SAXTransform
 	$class(TransformerFactoryImpl, 0, ::javax::xml::transform::sax::SAXTransformerFactory, ::com::sun::org::apache::xalan::internal::xsltc::compiler::SourceLoader)
 public:
 	TransformerFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

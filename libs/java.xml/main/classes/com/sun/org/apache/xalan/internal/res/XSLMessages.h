@@ -27,6 +27,7 @@ class XSLMessages : public ::com::sun::org::apache::xpath::internal::res::XPATHM
 	$class(XSLMessages, 0, ::com::sun::org::apache::xpath::internal::res::XPATHMessages)
 public:
 	XSLMessages();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* createMessage($String* msgKey, $ObjectArray* args);
 	static $String* createWarning($String* msgKey, $ObjectArray* args);

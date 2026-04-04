@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/SystemEntry.h>
-
 #include <java/net/URL.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
 #include <javax/xml/catalog/BaseEntry.h>
@@ -21,35 +20,6 @@ using $Normalizer = ::javax::xml::catalog::Normalizer;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _SystemEntry_FieldInfo_[] = {
-	{"systemId", "Ljava/lang/String;", nullptr, 0, $field(SystemEntry, systemId)},
-	{"uri", "Ljava/net/URL;", nullptr, 0, $field(SystemEntry, uri)},
-	{}
-};
-
-$MethodInfo _SystemEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemEntry, init$, void, $String*, $String*, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SystemEntry, getSystemId, $String*)},
-	{"getURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(SystemEntry, getURI, $URL*)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemEntry, match, $String*, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemEntry, setSystemId, void, $String*)},
-	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemEntry, setURI, void, $String*)},
-	{}
-};
-
-$ClassInfo _SystemEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.xml.catalog.SystemEntry",
-	"javax.xml.catalog.BaseEntry",
-	nullptr,
-	_SystemEntry_FieldInfo_,
-	_SystemEntry_MethodInfo_
-};
-
-$Object* allocate$SystemEntry($Class* clazz) {
-	return $of($alloc(SystemEntry));
-}
 
 void SystemEntry::init$($String* base, $String* systemId, $String* uri) {
 	$init($BaseEntry$CatalogEntryType);
@@ -86,7 +56,31 @@ SystemEntry::SystemEntry() {
 }
 
 $Class* SystemEntry::load$($String* name, bool initialize) {
-	$loadClass(SystemEntry, name, initialize, &_SystemEntry_ClassInfo_, allocate$SystemEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"systemId", "Ljava/lang/String;", nullptr, 0, $field(SystemEntry, systemId)},
+		{"uri", "Ljava/net/URL;", nullptr, 0, $field(SystemEntry, uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemEntry, init$, void, $String*, $String*, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SystemEntry, getSystemId, $String*)},
+		{"getURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(SystemEntry, getURI, $URL*)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemEntry, match, $String*, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemEntry, setSystemId, void, $String*)},
+		{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemEntry, setURI, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.xml.catalog.SystemEntry",
+		"javax.xml.catalog.BaseEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SystemEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemEntry);
+	});
 	return class$;
 }
 

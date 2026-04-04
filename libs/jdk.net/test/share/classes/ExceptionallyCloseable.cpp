@@ -1,30 +1,10 @@
 #include <ExceptionallyCloseable.h>
-
 #include <java/io/Closeable.h>
 #include <jcpp.h>
 
 using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _ExceptionallyCloseable_MethodInfo_[] = {
-	{"close", "(Ljava/lang/Throwable;Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionallyCloseable, close, void, $Throwable*, $Closeable*), "java.io.IOException"},
-	{"closeExceptionally", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ExceptionallyCloseable, closeExceptionally, void, $Throwable*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ExceptionallyCloseable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"ExceptionallyCloseable",
-	nullptr,
-	"java.io.Closeable",
-	nullptr,
-	_ExceptionallyCloseable_MethodInfo_
-};
-
-$Object* allocate$ExceptionallyCloseable($Class* clazz) {
-	return $of($alloc(ExceptionallyCloseable));
-}
 
 void ExceptionallyCloseable::closeExceptionally($Throwable* cause) {
 	close();
@@ -33,14 +13,29 @@ void ExceptionallyCloseable::closeExceptionally($Throwable* cause) {
 void ExceptionallyCloseable::close($Throwable* t, $Closeable* c) {
 	$init(ExceptionallyCloseable);
 	if ($instanceOf(ExceptionallyCloseable, c)) {
-		$nc(($cast(ExceptionallyCloseable, c)))->closeExceptionally(t);
+		$cast(ExceptionallyCloseable, c)->closeExceptionally(t);
 	} else {
 		$nc(c)->close();
 	}
 }
 
 $Class* ExceptionallyCloseable::load$($String* name, bool initialize) {
-	$loadClass(ExceptionallyCloseable, name, initialize, &_ExceptionallyCloseable_ClassInfo_, allocate$ExceptionallyCloseable);
+	$MethodInfo methodInfos$$[] = {
+		{"close", "(Ljava/lang/Throwable;Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionallyCloseable, close, void, $Throwable*, $Closeable*), "java.io.IOException"},
+		{"closeExceptionally", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ExceptionallyCloseable, closeExceptionally, void, $Throwable*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"ExceptionallyCloseable",
+		nullptr,
+		"java.io.Closeable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExceptionallyCloseable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExceptionallyCloseable);
+	});
 	return class$;
 }
 

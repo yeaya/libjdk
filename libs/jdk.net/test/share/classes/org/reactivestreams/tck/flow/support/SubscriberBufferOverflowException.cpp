@@ -1,5 +1,4 @@
 #include <org/reactivestreams/tck/flow/support/SubscriberBufferOverflowException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,27 +10,6 @@ namespace org {
 		namespace tck {
 			namespace flow {
 				namespace support {
-
-$MethodInfo _SubscriberBufferOverflowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SubscriberBufferOverflowException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.reactivestreams.tck.flow.support.SubscriberBufferOverflowException",
-	"java.lang.RuntimeException",
-	nullptr,
-	nullptr,
-	_SubscriberBufferOverflowException_MethodInfo_
-};
-
-$Object* allocate$SubscriberBufferOverflowException($Class* clazz) {
-	return $of($alloc(SubscriberBufferOverflowException));
-}
 
 void SubscriberBufferOverflowException::init$() {
 	$RuntimeException::init$();
@@ -60,7 +38,24 @@ void SubscriberBufferOverflowException::throw$() {
 }
 
 $Class* SubscriberBufferOverflowException::load$($String* name, bool initialize) {
-	$loadClass(SubscriberBufferOverflowException, name, initialize, &_SubscriberBufferOverflowException_ClassInfo_, allocate$SubscriberBufferOverflowException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.reactivestreams.tck.flow.support.SubscriberBufferOverflowException",
+		"java.lang.RuntimeException",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SubscriberBufferOverflowException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubscriberBufferOverflowException);
+	});
 	return class$;
 }
 

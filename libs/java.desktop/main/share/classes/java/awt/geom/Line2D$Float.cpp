@@ -1,5 +1,4 @@
 #include <java/awt/geom/Line2D$Float.h>
-
 #include <java/awt/geom/Line2D.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Point2D.h>
@@ -20,61 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Line2D$Float_FieldInfo_[] = {
-	{"x1", "F", nullptr, $PUBLIC, $field(Line2D$Float, x1)},
-	{"y1", "F", nullptr, $PUBLIC, $field(Line2D$Float, y1)},
-	{"x2", "F", nullptr, $PUBLIC, $field(Line2D$Float, x2)},
-	{"y2", "F", nullptr, $PUBLIC, $field(Line2D$Float, y2)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Line2D$Float, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Line2D$Float_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Line2D$Float, init$, void)},
-	{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Line2D$Float, init$, void, float, float, float, float)},
-	{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $method(Line2D$Float, init$, void, $Point2D*, $Point2D*)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getBounds2D, $Rectangle2D*)},
-	{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getP1, $Point2D*)},
-	{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getP2, $Point2D*)},
-	{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getX1, double)},
-	{"getX2", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getX2, double)},
-	{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getY1, double)},
-	{"getY2", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getY2, double)},
-	{"setLine", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, setLine, void, double, double, double, double)},
-	{"setLine", "(FFFF)V", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, setLine, void, float, float, float, float)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Line2D$Float_InnerClassesInfo_[] = {
-	{"java.awt.geom.Line2D$Float", "java.awt.geom.Line2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Line2D$Float_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.Line2D$Float",
-	"java.awt.geom.Line2D",
-	"java.io.Serializable",
-	_Line2D$Float_FieldInfo_,
-	_Line2D$Float_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Line2D$Float_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Line2D"
-};
-
-$Object* allocate$Line2D$Float($Class* clazz) {
-	return $of($alloc(Line2D$Float));
-}
 
 $Object* Line2D$Float::clone() {
 	 return this->$Line2D::clone();
@@ -174,7 +118,56 @@ Line2D$Float::Line2D$Float() {
 }
 
 $Class* Line2D$Float::load$($String* name, bool initialize) {
-	$loadClass(Line2D$Float, name, initialize, &_Line2D$Float_ClassInfo_, allocate$Line2D$Float);
+	$FieldInfo fieldInfos$$[] = {
+		{"x1", "F", nullptr, $PUBLIC, $field(Line2D$Float, x1)},
+		{"y1", "F", nullptr, $PUBLIC, $field(Line2D$Float, y1)},
+		{"x2", "F", nullptr, $PUBLIC, $field(Line2D$Float, x2)},
+		{"y2", "F", nullptr, $PUBLIC, $field(Line2D$Float, y2)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Line2D$Float, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Line2D$Float, init$, void)},
+		{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Line2D$Float, init$, void, float, float, float, float)},
+		{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $method(Line2D$Float, init$, void, $Point2D*, $Point2D*)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getBounds2D, $Rectangle2D*)},
+		{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getP1, $Point2D*)},
+		{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getP2, $Point2D*)},
+		{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getX1, double)},
+		{"getX2", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getX2, double)},
+		{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getY1, double)},
+		{"getY2", "()D", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, getY2, double)},
+		{"setLine", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, setLine, void, double, double, double, double)},
+		{"setLine", "(FFFF)V", nullptr, $PUBLIC, $virtualMethod(Line2D$Float, setLine, void, float, float, float, float)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Line2D$Float", "java.awt.geom.Line2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.Line2D$Float",
+		"java.awt.geom.Line2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Line2D"
+	};
+	$loadClass(Line2D$Float, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Line2D$Float));
+	});
 	return class$;
 }
 

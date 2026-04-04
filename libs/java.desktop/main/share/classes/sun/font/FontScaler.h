@@ -36,6 +36,7 @@ class FontScaler : public ::sun::java2d::DisposerRecord {
 	$class(FontScaler, 0, ::sun::java2d::DisposerRecord)
 public:
 	FontScaler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int64_t createScalerContext($doubles* matrix, int32_t aa, int32_t fm, float boldness, float italic) {return 0;}
 	virtual void dispose() override;

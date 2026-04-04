@@ -27,6 +27,7 @@ class GTKConstants$ArrowType : public ::java::lang::Enum {
 public:
 	GTKConstants$ArrowType();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$ArrowType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKConstants$ArrowType* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$ArrowType>* values();

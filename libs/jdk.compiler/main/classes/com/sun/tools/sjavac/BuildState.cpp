@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/BuildState.h>
-
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/Module.h>
@@ -39,7 +38,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -48,7 +46,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $BiFunction = ::java::util::function::BiFunction;
 using $BinaryOperator = ::java::util::function::BinaryOperator;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -61,74 +58,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s1, Object$* s2) override {
-		 return $of($Util::union$($cast($Set, s1), $cast($Set, s2)));
+		 return $Util::union$($cast($Set, s1), $cast($Set, s2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BuildState$$Lambda$union>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BuildState$$Lambda$union::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BuildState$$Lambda$union, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuildState$$Lambda$union, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo BuildState$$Lambda$union::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.BuildState$$Lambda$union",
-	"java.lang.Object",
-	"java.util.function.BinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* BuildState$$Lambda$union::load$($String* name, bool initialize) {
-	$loadClass(BuildState$$Lambda$union, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BuildState$$Lambda$union, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuildState$$Lambda$union, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.BuildState$$Lambda$union",
+		"java.lang.Object",
+		"java.util.function.BinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BuildState$$Lambda$union, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BuildState$$Lambda$union);
+	});
 	return class$;
 }
 $Class* BuildState$$Lambda$union::class$ = nullptr;
-
-$FieldInfo _BuildState_FieldInfo_[] = {
-	{"modules", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;", $PRIVATE, $field(BuildState, modules$)},
-	{"packages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;", $PRIVATE, $field(BuildState, packages$)},
-	{"sources", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $field(BuildState, sources$)},
-	{"artifacts", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PRIVATE, $field(BuildState, artifacts$)},
-	{"dependents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE, $field(BuildState, dependents$)},
-	{}
-};
-
-$MethodInfo _BuildState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BuildState, init$, void)},
-	{"artifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PUBLIC, $virtualMethod(BuildState, artifacts, $Map*)},
-	{"calculateDependents", "()V", nullptr, $PUBLIC, $virtualMethod(BuildState, calculateDependents, void)},
-	{"checkInternalState", "(Ljava/lang/String;ZLjava/util/Map;)V", "(Ljava/lang/String;ZLjava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;)V", $PUBLIC, $virtualMethod(BuildState, checkInternalState, void, $String*, bool, $Map*)},
-	{"copyPackagesExcept", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set;Ljava/util/Set;)V", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BuildState, copyPackagesExcept, void, BuildState*, $Set*, $Set*)},
-	{"dependents", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(BuildState, dependents, $Map*)},
-	{"findModuleFromPackageName", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, 0, $virtualMethod(BuildState, findModuleFromPackageName, $Module*, $String*)},
-	{"flattenArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC, $virtualMethod(BuildState, flattenArtifacts, void, $Map*)},
-	{"flattenPackagesSourcesAndArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC, $virtualMethod(BuildState, flattenPackagesSourcesAndArtifacts, void, $Map*)},
-	{"loadModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadModule, $Module*, $String*)},
-	{"loadPackage", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadPackage, $Package*, $Module*, $String*)},
-	{"loadSource", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;Z)Lcom/sun/tools/sjavac/Source;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadSource, $Source*, $Package*, $String*, bool)},
-	{"lookupModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC, $virtualMethod(BuildState, lookupModule, $Module*, $String*)},
-	{"modules", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;", $PUBLIC, $virtualMethod(BuildState, modules, $Map*)},
-	{"packages", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;", $PUBLIC, $virtualMethod(BuildState, packages, $Map*)},
-	{"sources", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PUBLIC, $virtualMethod(BuildState, sources, $Map*)},
-	{}
-};
-
-$ClassInfo _BuildState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.BuildState",
-	"java.lang.Object",
-	nullptr,
-	_BuildState_FieldInfo_,
-	_BuildState_MethodInfo_
-};
-
-$Object* allocate$BuildState($Class* clazz) {
-	return $of($alloc(BuildState));
-}
 
 void BuildState::init$() {
 	$set(this, modules$, $new($HashMap));
@@ -162,65 +114,63 @@ $Module* BuildState::lookupModule($String* mod) {
 	$var($Module, m, $cast($Module, $nc(this->modules$)->get(mod)));
 	if (m == nullptr) {
 		$assign(m, $new($Module, mod, "???"_s));
-		$nc(this->modules$)->put(mod, m);
+		this->modules$->put(mod, m);
 	}
 	return m;
 }
 
 $Module* BuildState::findModuleFromPackageName($String* pkg) {
-	int32_t cp = $nc(pkg)->indexOf((int32_t)u':');
+	int32_t cp = $nc(pkg)->indexOf(u':');
 	$Assert::check(cp != -1, "Could not find package name"_s);
 	$var($String, mod, pkg->substring(0, cp));
 	return lookupModule(mod);
 }
 
 void BuildState::flattenPackagesSourcesAndArtifacts($Map* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, modules$, m);
 	{
-		$var($Iterator, i$, $nc($($nc(this->modules$)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->modules$)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Module, i, $cast($Module, i$->next()));
 			{
-				{
-					$var($Iterator, i$, $nc($($nc($($nc(i)->packages()))->entrySet()))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Map$Entry, j, $cast($Map$Entry, i$->next()));
+				$var($Iterator, i$, $$nc($$nc($nc(i)->packages())->entrySet())->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Map$Entry, j, $cast($Map$Entry, i$->next()));
+					{
+						$var($Package, p, $cast($Package, $nc(this->packages$)->get($($nc(j)->getKey()))));
+						$Assert::check(p == nullptr || $equals(p, j->getValue()));
+						if (p == nullptr) {
+							$assign(p, $cast($Package, j->getValue()));
+							$var($Object, var$0, $cast($String, j->getKey()));
+							$nc(this->packages$)->put(var$0, $$cast($Package, j->getValue()));
+						}
 						{
-							$var($Package, p, $cast($Package, $nc(this->packages$)->get($($nc(j)->getKey()))));
-							$Assert::check(p == nullptr || $equals(p, $nc(j)->getValue()));
-							if (p == nullptr) {
-								$assign(p, $cast($Package, $nc(j)->getValue()));
-								$var($Object, var$0, $cast($String, j->getKey()));
-								$nc(this->packages$)->put(var$0, $cast($Package, $(j->getValue())));
-							}
-							{
-								$var($Iterator, i$, $nc($($nc($($nc(p)->sources()))->entrySet()))->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($Map$Entry, k, $cast($Map$Entry, i$->next()));
-									{
-										$var($Source, s, $cast($Source, $nc(this->sources$)->get($($nc(k)->getKey()))));
-										$Assert::check(s == nullptr || $equals(s, $nc(k)->getValue()));
-										if (s == nullptr) {
-											$assign(s, $cast($Source, $nc(k)->getValue()));
-											$var($Object, var$1, $cast($String, k->getKey()));
-											$nc(this->sources$)->put(var$1, $cast($Source, $(k->getValue())));
-										}
+							$var($Iterator, i$, $$nc($$nc($nc(p)->sources())->entrySet())->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($Map$Entry, k, $cast($Map$Entry, i$->next()));
+								{
+									$var($Source, s, $cast($Source, $nc(this->sources$)->get($($nc(k)->getKey()))));
+									$Assert::check(s == nullptr || $equals(s, k->getValue()));
+									if (s == nullptr) {
+										$assign(s, $cast($Source, k->getValue()));
+										$var($Object, var$1, $cast($String, k->getKey()));
+										$nc(this->sources$)->put(var$1, $$cast($Source, k->getValue()));
 									}
 								}
 							}
-							{
-								$var($Iterator, i$, $nc($($nc($(p->artifacts()))->entrySet()))->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($Map$Entry, g, $cast($Map$Entry, i$->next()));
-									{
-										$var($File, f, $cast($File, $nc(this->artifacts$)->get($($nc(g)->getKey()))));
-										$Assert::check(f == nullptr || $equals(f, $nc(g)->getValue()));
-										if (f == nullptr) {
-											$assign(f, $cast($File, $nc(g)->getValue()));
-											$var($Object, var$2, $cast($String, g->getKey()));
-											$nc(this->artifacts$)->put(var$2, $cast($File, $(g->getValue())));
-										}
+						}
+						{
+							$var($Iterator, i$, $$nc($$nc(p->artifacts())->entrySet())->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($Map$Entry, g, $cast($Map$Entry, i$->next()));
+								{
+									$var($File, f, $cast($File, $nc(this->artifacts$)->get($($nc(g)->getKey()))));
+									$Assert::check(f == nullptr || $equals(f, g->getValue()));
+									if (f == nullptr) {
+										$assign(f, $cast($File, g->getValue()));
+										$var($Object, var$2, $cast($String, g->getKey()));
+										$nc(this->artifacts$)->put(var$2, $$cast($File, g->getValue()));
 									}
 								}
 							}
@@ -233,33 +183,31 @@ void BuildState::flattenPackagesSourcesAndArtifacts($Map* m) {
 }
 
 void BuildState::flattenArtifacts($Map* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, modules$, m);
 	{
-		$var($Iterator, i$, $nc($($nc(this->modules$)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->modules$)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Module, i, $cast($Module, i$->next()));
 			{
-				{
-					$var($Iterator, i$, $nc($($nc($($nc(i)->packages()))->entrySet()))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Map$Entry, j, $cast($Map$Entry, i$->next()));
+				$var($Iterator, i$, $$nc($$nc($nc(i)->packages())->entrySet())->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Map$Entry, j, $cast($Map$Entry, i$->next()));
+					{
+						$var($Package, p, $cast($Package, $nc(this->packages$)->get($($nc(j)->getKey()))));
+						$Assert::check(p == nullptr || $equals(p, j->getValue()));
+						$assign(p, $cast($Package, j->getValue()));
+						$var($Object, var$0, $cast($String, j->getKey()));
+						$nc(this->packages$)->put(var$0, $$cast($Package, j->getValue()));
 						{
-							$var($Package, p, $cast($Package, $nc(this->packages$)->get($($nc(j)->getKey()))));
-							$Assert::check(p == nullptr || $equals(p, $nc(j)->getValue()));
-							$assign(p, $cast($Package, $nc(j)->getValue()));
-							$var($Object, var$0, $cast($String, j->getKey()));
-							$nc(this->packages$)->put(var$0, $cast($Package, $(j->getValue())));
-							{
-								$var($Iterator, i$, $nc($($nc($($nc(p)->artifacts()))->entrySet()))->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($Map$Entry, g, $cast($Map$Entry, i$->next()));
-									{
-										$var($File, f, $cast($File, $nc(this->artifacts$)->get($($nc(g)->getKey()))));
-										$Assert::check(f == nullptr || $equals(f, $nc(g)->getValue()));
-										$var($Object, var$1, $cast($String, $nc(g)->getKey()));
-										$nc(this->artifacts$)->put(var$1, $cast($File, $(g->getValue())));
-									}
+							$var($Iterator, i$, $$nc($$nc($nc(p)->artifacts())->entrySet())->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($Map$Entry, g, $cast($Map$Entry, i$->next()));
+								{
+									$var($File, f, $cast($File, $nc(this->artifacts$)->get($($nc(g)->getKey()))));
+									$Assert::check(f == nullptr || $equals(f, g->getValue()));
+									$var($Object, var$1, $cast($String, g->getKey()));
+									$nc(this->artifacts$)->put(var$1, $$cast($File, g->getValue()));
 								}
 							}
 						}
@@ -271,28 +219,27 @@ void BuildState::flattenArtifacts($Map* m) {
 }
 
 void BuildState::calculateDependents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, dependents$, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($($nc(this->packages$)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->packages$)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, s, $cast($String, i$->next()));
 			{
 				$var($Package, p, $cast($Package, $nc(this->packages$)->get(s)));
-				$var($Object, var$0, $of($Collections::emptySet()));
-				$var($Set, deps, $cast($Set, $nc($($nc($($nc($($nc(p)->typeDependencies()))->values()))->stream()))->reduce(var$0, static_cast<$BinaryOperator*>($$new(BuildState$$Lambda$union)))));
+				$var($Object, var$0, $Collections::emptySet());
+				$var($Set, deps, $cast($Set, $$nc($$nc($$nc($nc(p)->typeDependencies())->values())->stream())->reduce(var$0, $$new(BuildState$$Lambda$union))));
 				{
 					$var($Iterator, i$, $nc(deps)->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($String, dep, $cast($String, i$->next()));
 						{
-							$var($String, depPkgStr, $str({":"_s, $($nc(dep)->substring(0, dep->lastIndexOf((int32_t)u'.')))}));
-							$var($Object, var$1, $of(depPkgStr));
-							$var($Object, var$2, $of($Collections::singleton(s)));
-							$nc(this->dependents$)->merge(var$1, var$2, static_cast<$BiFunction*>($$new(BuildState$$Lambda$union)));
+							$var($String, depPkgStr, $str({":"_s, $($nc(dep)->substring(0, $nc(dep)->lastIndexOf(u'.')))}));
+							$var($Object, var$1, $Collections::singleton(s));
+							$nc(this->dependents$)->merge(depPkgStr, var$1, $$new(BuildState$$Lambda$union));
 							$var($Package, dp, $cast($Package, $nc(this->packages$)->get(depPkgStr)));
 							if (dp != nullptr) {
-								dp->addDependent($(p->name()));
+								dp->addDependent($($nc(p)->name()));
 							}
 						}
 					}
@@ -303,12 +250,12 @@ void BuildState::calculateDependents() {
 }
 
 void BuildState::checkInternalState($String* msg, bool linkedOnly, $Map* srcs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool baad = false;
 	$var($Map, original, $new($HashMap));
 	$var($Map, calculated, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($($nc(this->sources$)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->sources$)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, s, $cast($String, i$->next()));
 			{
@@ -320,7 +267,7 @@ void BuildState::checkInternalState($String* msg, bool linkedOnly, $Map* srcs) {
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(srcs)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(srcs)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, s, $cast($String, i$->next()));
 			{
@@ -336,29 +283,27 @@ void BuildState::checkInternalState($String* msg, bool linkedOnly, $Map* srcs) {
 		$Log::error($$str({"INTERNAL ERROR "_s, msg, " original and calculated are not the same size!"_s}));
 		baad = true;
 	}
-	if (!$nc($(original->keySet()))->equals($(calculated->keySet()))) {
+	if (!$$nc(original->keySet())->equals($(calculated->keySet()))) {
 		$Log::error($$str({"INTERNAL ERROR "_s, msg, " original and calculated do not have the same domain!"_s}));
 		baad = true;
 	}
 	if (!baad) {
-		{
-			$var($Iterator, i$, $nc($(original->keySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($String, s, $cast($String, i$->next()));
-				{
-					$var($Source, s1, $cast($Source, original->get(s)));
-					$var($Source, s2, $cast($Source, calculated->get(s)));
-					if (s1 == nullptr || s2 == nullptr || !$nc(s1)->equals(s2)) {
-						$Log::error($$str({"INTERNAL ERROR "_s, msg, " original and calculated have differing elements for "_s, s}));
-					}
-					baad = true;
+		$var($Iterator, i$, $$nc(original->keySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($String, s, $cast($String, i$->next()));
+			{
+				$var($Source, s1, $cast($Source, original->get(s)));
+				$var($Source, s2, $cast($Source, calculated->get(s)));
+				if (s1 == nullptr || s2 == nullptr || !s1->equals(s2)) {
+					$Log::error($$str({"INTERNAL ERROR "_s, msg, " original and calculated have differing elements for "_s, s}));
 				}
+				baad = true;
 			}
 		}
 	}
 	if (baad) {
 		{
-			$var($Iterator, i$, $nc($(original->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(original->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, s, $cast($String, i$->next()));
 				{
@@ -371,7 +316,7 @@ void BuildState::checkInternalState($String* msg, bool linkedOnly, $Map* srcs) {
 			}
 		}
 		{
-			$var($Iterator, i$, $nc($(calculated->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(calculated->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, s, $cast($String, i$->next()));
 				{
@@ -387,14 +332,14 @@ void BuildState::checkInternalState($String* msg, bool linkedOnly, $Map* srcs) {
 }
 
 $Module* BuildState::loadModule($String* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, m, $Module::load(l));
 	$nc(this->modules$)->put($($nc(m)->name()), m);
 	return m;
 }
 
 $Package* BuildState::loadPackage($Module* lastModule, $String* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Package, p, $Package::load(lastModule, l));
 	$nc(lastModule)->addPackage(p);
 	$nc(this->packages$)->put($($nc(p)->name()), p);
@@ -402,7 +347,7 @@ $Package* BuildState::loadPackage($Module* lastModule, $String* l) {
 }
 
 $Source* BuildState::loadSource($Package* lastPackage, $String* l, bool is_generated) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Source, s, $Source::load(lastPackage, l, is_generated));
 	$nc(lastPackage)->addSource(s);
 	$nc(this->sources$)->put($($nc(s)->name()), s);
@@ -410,25 +355,23 @@ $Source* BuildState::loadSource($Package* lastPackage, $String* l, bool is_gener
 }
 
 void BuildState::copyPackagesExcept(BuildState* prev, $Set* recompiled, $Set* removed) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc($($nc(prev)->packages()))->keySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($String, pkg, $cast($String, i$->next()));
-			{
-				bool var$0 = $nc(recompiled)->contains(pkg);
-				if (var$0 || $nc(removed)->contains(pkg)) {
-					continue;
-				}
-				$var($Module, mnew, findModuleFromPackageName(pkg));
-				$var($Package, pprev, $cast($Package, $nc($(prev->packages()))->get(pkg)));
-				if ($nc(this->packages$)->containsKey(pkg)) {
-					$var($PubApi, var$1, pprev->getPubApi());
-					$nc(pprev)->setPubapi($($PubApi::mergeTypes(var$1, $($nc(($cast($Package, $($nc(this->packages$)->get(pkg)))))->getPubApi()))));
-				}
-				$nc(mnew)->addPackage(pprev);
-				$nc(this->packages$)->put(pkg, pprev);
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($$nc($nc(prev)->packages())->keySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($String, pkg, $cast($String, i$->next()));
+		{
+			bool var$0 = $nc(recompiled)->contains(pkg);
+			if (var$0 || $nc(removed)->contains(pkg)) {
+				continue;
 			}
+			$var($Module, mnew, findModuleFromPackageName(pkg));
+			$var($Package, pprev, $cast($Package, $$nc(prev->packages())->get(pkg)));
+			if ($nc(this->packages$)->containsKey(pkg)) {
+				$var($PubApi, var$1, $nc(pprev)->getPubApi());
+				$nc(pprev)->setPubapi($($PubApi::mergeTypes(var$1, $($$sure($Package, this->packages$->get(pkg))->getPubApi()))));
+			}
+			$nc(mnew)->addPackage(pprev);
+			$nc(this->packages$)->put(pkg, pprev);
 		}
 	}
 }
@@ -438,11 +381,48 @@ BuildState::BuildState() {
 
 $Class* BuildState::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BuildState$$Lambda$union::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.BuildState$$Lambda$union")) {
 			return BuildState$$Lambda$union::load$(name, initialize);
 		}
 	}
-	$loadClass(BuildState, name, initialize, &_BuildState_ClassInfo_, allocate$BuildState);
+	$FieldInfo fieldInfos$$[] = {
+		{"modules", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;", $PRIVATE, $field(BuildState, modules$)},
+		{"packages", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;", $PRIVATE, $field(BuildState, packages$)},
+		{"sources", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $field(BuildState, sources$)},
+		{"artifacts", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PRIVATE, $field(BuildState, artifacts$)},
+		{"dependents", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE, $field(BuildState, dependents$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BuildState, init$, void)},
+		{"artifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PUBLIC, $virtualMethod(BuildState, artifacts, $Map*)},
+		{"calculateDependents", "()V", nullptr, $PUBLIC, $virtualMethod(BuildState, calculateDependents, void)},
+		{"checkInternalState", "(Ljava/lang/String;ZLjava/util/Map;)V", "(Ljava/lang/String;ZLjava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;)V", $PUBLIC, $virtualMethod(BuildState, checkInternalState, void, $String*, bool, $Map*)},
+		{"copyPackagesExcept", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set;Ljava/util/Set;)V", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BuildState, copyPackagesExcept, void, BuildState*, $Set*, $Set*)},
+		{"dependents", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(BuildState, dependents, $Map*)},
+		{"findModuleFromPackageName", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, 0, $virtualMethod(BuildState, findModuleFromPackageName, $Module*, $String*)},
+		{"flattenArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC, $virtualMethod(BuildState, flattenArtifacts, void, $Map*)},
+		{"flattenPackagesSourcesAndArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC, $virtualMethod(BuildState, flattenPackagesSourcesAndArtifacts, void, $Map*)},
+		{"loadModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadModule, $Module*, $String*)},
+		{"loadPackage", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadPackage, $Package*, $Module*, $String*)},
+		{"loadSource", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;Z)Lcom/sun/tools/sjavac/Source;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadSource, $Source*, $Package*, $String*, bool)},
+		{"lookupModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC, $virtualMethod(BuildState, lookupModule, $Module*, $String*)},
+		{"modules", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;", $PUBLIC, $virtualMethod(BuildState, modules, $Map*)},
+		{"packages", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;", $PUBLIC, $virtualMethod(BuildState, packages, $Map*)},
+		{"sources", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PUBLIC, $virtualMethod(BuildState, sources, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.BuildState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BuildState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BuildState);
+	});
 	return class$;
 }
 

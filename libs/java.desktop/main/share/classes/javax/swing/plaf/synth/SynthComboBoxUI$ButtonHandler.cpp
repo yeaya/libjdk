@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthComboBoxUI$ButtonHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/DefaultButtonModel.h>
@@ -14,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
-using $JComboBox = ::javax::swing::JComboBox;
 using $PopupMenuEvent = ::javax::swing::event::PopupMenuEvent;
 using $SynthComboBoxUI = ::javax::swing::plaf::synth::SynthComboBoxUI;
 
@@ -22,63 +20,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthComboBoxUI$ButtonHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthComboBoxUI$ButtonHandler, this$0)},
-	{"over", "Z", nullptr, $PRIVATE, $field(SynthComboBoxUI$ButtonHandler, over)},
-	{"pressed", "Z", nullptr, $PRIVATE, $field(SynthComboBoxUI$ButtonHandler, pressed)},
-	{}
-};
-
-$MethodInfo _SynthComboBoxUI$ButtonHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthComboBoxUI;)V", nullptr, $PRIVATE, $method(SynthComboBoxUI$ButtonHandler, init$, void, $SynthComboBoxUI*)},
-	{"isArmed", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, isArmed, bool)},
-	{"isPressed", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, isPressed, bool)},
-	{"isRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, isRollover, bool)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseReleased, void, $MouseEvent*)},
-	{"popupMenuCanceled", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, popupMenuCanceled, void, $PopupMenuEvent*)},
-	{"popupMenuWillBecomeInvisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, popupMenuWillBecomeInvisible, void, $PopupMenuEvent*)},
-	{"popupMenuWillBecomeVisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, popupMenuWillBecomeVisible, void, $PopupMenuEvent*)},
-	{"setPressed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, setPressed, void, bool)},
-	{"setRollover", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, setRollover, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateOver", "(Z)V", nullptr, $PRIVATE, $method(SynthComboBoxUI$ButtonHandler, updateOver, void, bool)},
-	{"updatePressed", "(Z)V", nullptr, $PRIVATE, $method(SynthComboBoxUI$ButtonHandler, updatePressed, void, bool)},
-	{}
-};
-
-$InnerClassInfo _SynthComboBoxUI$ButtonHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthComboBoxUI$ButtonHandler", "javax.swing.plaf.synth.SynthComboBoxUI", "ButtonHandler", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SynthComboBoxUI$ButtonHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthComboBoxUI$ButtonHandler",
-	"javax.swing.DefaultButtonModel",
-	"java.awt.event.MouseListener,javax.swing.event.PopupMenuListener",
-	_SynthComboBoxUI$ButtonHandler_FieldInfo_,
-	_SynthComboBoxUI$ButtonHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthComboBoxUI$ButtonHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthComboBoxUI"
-};
-
-$Object* allocate$SynthComboBoxUI$ButtonHandler($Class* clazz) {
-	return $of($alloc(SynthComboBoxUI$ButtonHandler));
-}
 
 int32_t SynthComboBoxUI$ButtonHandler::hashCode() {
 	 return this->$DefaultButtonModel::hashCode();
@@ -108,7 +49,7 @@ void SynthComboBoxUI$ButtonHandler::init$($SynthComboBoxUI* this$0) {
 void SynthComboBoxUI$ButtonHandler::updatePressed(bool p) {
 	this->pressed = p && isEnabled();
 	if (this->this$0->shouldActLikeButton()) {
-		$nc($($SynthComboBoxUI::access$300(this->this$0)))->repaint();
+		$$nc($SynthComboBoxUI::access$300(this->this$0))->repaint();
 	}
 }
 
@@ -117,18 +58,18 @@ void SynthComboBoxUI$ButtonHandler::updateOver(bool o) {
 	this->over = o && isEnabled();
 	bool newo = isRollover();
 	if (this->this$0->shouldActLikeButton() && old != newo) {
-		$nc($($SynthComboBoxUI::access$400(this->this$0)))->repaint();
+		$$nc($SynthComboBoxUI::access$400(this->this$0))->repaint();
 	}
 }
 
 bool SynthComboBoxUI$ButtonHandler::isPressed() {
 	bool b = this->this$0->shouldActLikeButton() ? this->pressed : $DefaultButtonModel::isPressed();
-	return b || (this->this$0->pressedWhenPopupVisible && $nc($($SynthComboBoxUI::access$500(this->this$0)))->isPopupVisible());
+	return b || (this->this$0->pressedWhenPopupVisible && $$nc($SynthComboBoxUI::access$500(this->this$0))->isPopupVisible());
 }
 
 bool SynthComboBoxUI$ButtonHandler::isArmed() {
 	bool var$0 = this->this$0->shouldActLikeButton();
-	bool b = var$0 || (this->this$0->pressedWhenPopupVisible && $nc($($SynthComboBoxUI::access$600(this->this$0)))->isPopupVisible());
+	bool b = var$0 || (this->this$0->pressedWhenPopupVisible && $$nc($SynthComboBoxUI::access$600(this->this$0))->isPopupVisible());
 	return b ? isPressed() : $DefaultButtonModel::isArmed();
 }
 
@@ -167,7 +108,7 @@ void SynthComboBoxUI$ButtonHandler::mouseClicked($MouseEvent* e) {
 
 void SynthComboBoxUI$ButtonHandler::popupMenuCanceled($PopupMenuEvent* e) {
 	if (this->this$0->shouldActLikeButton() || this->this$0->pressedWhenPopupVisible) {
-		$nc($($SynthComboBoxUI::access$700(this->this$0)))->repaint();
+		$$nc($SynthComboBoxUI::access$700(this->this$0))->repaint();
 	}
 }
 
@@ -181,7 +122,58 @@ SynthComboBoxUI$ButtonHandler::SynthComboBoxUI$ButtonHandler() {
 }
 
 $Class* SynthComboBoxUI$ButtonHandler::load$($String* name, bool initialize) {
-	$loadClass(SynthComboBoxUI$ButtonHandler, name, initialize, &_SynthComboBoxUI$ButtonHandler_ClassInfo_, allocate$SynthComboBoxUI$ButtonHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthComboBoxUI$ButtonHandler, this$0)},
+		{"over", "Z", nullptr, $PRIVATE, $field(SynthComboBoxUI$ButtonHandler, over)},
+		{"pressed", "Z", nullptr, $PRIVATE, $field(SynthComboBoxUI$ButtonHandler, pressed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthComboBoxUI;)V", nullptr, $PRIVATE, $method(SynthComboBoxUI$ButtonHandler, init$, void, $SynthComboBoxUI*)},
+		{"isArmed", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, isArmed, bool)},
+		{"isPressed", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, isPressed, bool)},
+		{"isRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, isRollover, bool)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, mouseReleased, void, $MouseEvent*)},
+		{"popupMenuCanceled", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, popupMenuCanceled, void, $PopupMenuEvent*)},
+		{"popupMenuWillBecomeInvisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, popupMenuWillBecomeInvisible, void, $PopupMenuEvent*)},
+		{"popupMenuWillBecomeVisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, popupMenuWillBecomeVisible, void, $PopupMenuEvent*)},
+		{"setPressed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, setPressed, void, bool)},
+		{"setRollover", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SynthComboBoxUI$ButtonHandler, setRollover, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateOver", "(Z)V", nullptr, $PRIVATE, $method(SynthComboBoxUI$ButtonHandler, updateOver, void, bool)},
+		{"updatePressed", "(Z)V", nullptr, $PRIVATE, $method(SynthComboBoxUI$ButtonHandler, updatePressed, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthComboBoxUI$ButtonHandler", "javax.swing.plaf.synth.SynthComboBoxUI", "ButtonHandler", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthComboBoxUI$ButtonHandler",
+		"javax.swing.DefaultButtonModel",
+		"java.awt.event.MouseListener,javax.swing.event.PopupMenuListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthComboBoxUI"
+	};
+	$loadClass(SynthComboBoxUI$ButtonHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthComboBoxUI$ButtonHandler));
+	});
 	return class$;
 }
 

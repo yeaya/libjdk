@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/Entity$ExternalEntity.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
 #include <com/sun/xml/internal/stream/Entity.h>
 #include <jcpp.h>
@@ -16,48 +15,6 @@ namespace com {
 		namespace xml {
 			namespace internal {
 				namespace stream {
-
-$FieldInfo _Entity$ExternalEntity_FieldInfo_[] = {
-	{"entityLocation", "Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;", nullptr, $PUBLIC, $field(Entity$ExternalEntity, entityLocation)},
-	{"notation", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Entity$ExternalEntity, notation)},
-	{}
-};
-
-$MethodInfo _Entity$ExternalEntity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Entity$ExternalEntity, init$, void)},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Entity$ExternalEntity, init$, void, $String*, $XMLResourceIdentifier*, $String*, bool)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Entity$ExternalEntity, clear, void)},
-	{"isExternal", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Entity$ExternalEntity, isExternal, bool)},
-	{"isUnparsed", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Entity$ExternalEntity, isUnparsed, bool)},
-	{"setValues", "(Lcom/sun/xml/internal/stream/Entity;)V", nullptr, $PUBLIC, $virtualMethod(Entity$ExternalEntity, setValues, void, $Entity*)},
-	{"setValues", "(Lcom/sun/xml/internal/stream/Entity$ExternalEntity;)V", nullptr, $PUBLIC, $virtualMethod(Entity$ExternalEntity, setValues, void, Entity$ExternalEntity*)},
-	{}
-};
-
-$InnerClassInfo _Entity$ExternalEntity_InnerClassesInfo_[] = {
-	{"com.sun.xml.internal.stream.Entity$ExternalEntity", "com.sun.xml.internal.stream.Entity", "ExternalEntity", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Entity$ExternalEntity_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.Entity$ExternalEntity",
-	"com.sun.xml.internal.stream.Entity",
-	nullptr,
-	_Entity$ExternalEntity_FieldInfo_,
-	_Entity$ExternalEntity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Entity$ExternalEntity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.xml.internal.stream.Entity"
-};
-
-$Object* allocate$Entity$ExternalEntity($Class* clazz) {
-	return $of($alloc(Entity$ExternalEntity));
-}
 
 void Entity$ExternalEntity::init$() {
 	$Entity::init$();
@@ -100,7 +57,43 @@ Entity$ExternalEntity::Entity$ExternalEntity() {
 }
 
 $Class* Entity$ExternalEntity::load$($String* name, bool initialize) {
-	$loadClass(Entity$ExternalEntity, name, initialize, &_Entity$ExternalEntity_ClassInfo_, allocate$Entity$ExternalEntity);
+	$FieldInfo fieldInfos$$[] = {
+		{"entityLocation", "Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;", nullptr, $PUBLIC, $field(Entity$ExternalEntity, entityLocation)},
+		{"notation", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Entity$ExternalEntity, notation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Entity$ExternalEntity, init$, void)},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Entity$ExternalEntity, init$, void, $String*, $XMLResourceIdentifier*, $String*, bool)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Entity$ExternalEntity, clear, void)},
+		{"isExternal", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Entity$ExternalEntity, isExternal, bool)},
+		{"isUnparsed", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Entity$ExternalEntity, isUnparsed, bool)},
+		{"setValues", "(Lcom/sun/xml/internal/stream/Entity;)V", nullptr, $PUBLIC, $virtualMethod(Entity$ExternalEntity, setValues, void, $Entity*)},
+		{"setValues", "(Lcom/sun/xml/internal/stream/Entity$ExternalEntity;)V", nullptr, $PUBLIC, $virtualMethod(Entity$ExternalEntity, setValues, void, Entity$ExternalEntity*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.xml.internal.stream.Entity$ExternalEntity", "com.sun.xml.internal.stream.Entity", "ExternalEntity", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.Entity$ExternalEntity",
+		"com.sun.xml.internal.stream.Entity",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.xml.internal.stream.Entity"
+	};
+	$loadClass(Entity$ExternalEntity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Entity$ExternalEntity);
+	});
 	return class$;
 }
 

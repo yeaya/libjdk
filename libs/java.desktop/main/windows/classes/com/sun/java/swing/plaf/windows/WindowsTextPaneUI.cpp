@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTextPaneUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI$WindowsCaret.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsTextPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTextPaneUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsTextPaneUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTextPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsTextPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTextPaneUI",
-	"javax.swing.plaf.basic.BasicTextPaneUI",
-	nullptr,
-	nullptr,
-	_WindowsTextPaneUI_MethodInfo_
-};
-
-$Object* allocate$WindowsTextPaneUI($Class* clazz) {
-	return $of($alloc(WindowsTextPaneUI));
-}
-
 void WindowsTextPaneUI::init$() {
 	$BasicTextPaneUI::init$();
 }
@@ -59,7 +38,23 @@ WindowsTextPaneUI::WindowsTextPaneUI() {
 }
 
 $Class* WindowsTextPaneUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsTextPaneUI, name, initialize, &_WindowsTextPaneUI_ClassInfo_, allocate$WindowsTextPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTextPaneUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsTextPaneUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTextPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTextPaneUI",
+		"javax.swing.plaf.basic.BasicTextPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsTextPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTextPaneUI));
+	});
 	return class$;
 }
 

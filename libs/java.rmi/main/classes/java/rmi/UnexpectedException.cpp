@@ -1,5 +1,4 @@
 #include <java/rmi/UnexpectedException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _UnexpectedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnexpectedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnexpectedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnexpectedException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnexpectedException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _UnexpectedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.UnexpectedException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_UnexpectedException_FieldInfo_,
-	_UnexpectedException_MethodInfo_
-};
-
-$Object* allocate$UnexpectedException($Class* clazz) {
-	return $of($alloc(UnexpectedException));
-}
 
 void UnexpectedException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -55,7 +30,26 @@ void UnexpectedException::throw$() {
 }
 
 $Class* UnexpectedException::load$($String* name, bool initialize) {
-	$loadClass(UnexpectedException, name, initialize, &_UnexpectedException_ClassInfo_, allocate$UnexpectedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnexpectedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnexpectedException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnexpectedException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.UnexpectedException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnexpectedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnexpectedException);
+	});
 	return class$;
 }
 

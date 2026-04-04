@@ -15,6 +15,7 @@ class Resolve$18 : public ::java::lang::Object {
 	$class(Resolve$18, 0, ::java::lang::Object)
 public:
 	Resolve$18();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Kinds$KindName;
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Kinds$Kind;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/JavaUtils.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
@@ -34,10 +33,8 @@ using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $Files = ::java::nio::file::Files;
 using $Paths = ::java::nio::file::Paths;
-using $Permission = ::java::security::Permission;
 using $SecurityPermission = ::java::security::SecurityPermission;
 
 namespace com {
@@ -49,37 +46,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _JavaUtils_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaUtils, LOG)},
-	{"REGISTER_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaUtils, REGISTER_PERMISSION)},
-	{}
-};
-
-$MethodInfo _JavaUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JavaUtils, init$, void)},
-	{"checkRegisterPermission", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, checkRegisterPermission, void)},
-	{"convertDsaASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, convertDsaASN1toXMLDSIG, $bytes*, $bytes*, int32_t), "java.io.IOException"},
-	{"convertDsaXMLDSIGtoASN1", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, convertDsaXMLDSIGtoASN1, $bytes*, $bytes*, int32_t), "java.io.IOException"},
-	{"getBytesFromFile", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, getBytesFromFile, $bytes*, $String*), "java.io.FileNotFoundException,java.io.IOException"},
-	{"getBytesFromStream", "(Ljava/io/InputStream;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, getBytesFromStream, $bytes*, $InputStream*), "java.io.IOException"},
-	{"newInstanceWithEmptyConstructor", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(JavaUtils, newInstanceWithEmptyConstructor, $Object*, $Class*), "java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
-	{"writeBytesToFilename", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, writeBytesToFilename, void, $String*, $bytes*)},
-	{}
-};
-
-$ClassInfo _JavaUtils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.JavaUtils",
-	"java.lang.Object",
-	nullptr,
-	_JavaUtils_FieldInfo_,
-	_JavaUtils_MethodInfo_
-};
-
-$Object* allocate$JavaUtils($Class* clazz) {
-	return $of($alloc(JavaUtils));
-}
-
 $Logger* JavaUtils::LOG = nullptr;
 $SecurityPermission* JavaUtils::REGISTER_PERMISSION = nullptr;
 
@@ -88,62 +54,58 @@ void JavaUtils::init$() {
 
 $bytes* JavaUtils::getBytesFromFile($String* fileName) {
 	$init(JavaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, refBytes, nullptr);
 	{
 		$var($InputStream, inputStream, $Files::newInputStream($($Paths::get(fileName, $$new($StringArray, 0))), $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($UnsyncByteArrayOutputStream, baos, $new($UnsyncByteArrayOutputStream));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($UnsyncByteArrayOutputStream, baos, $new($UnsyncByteArrayOutputStream));
-					{
-						$var($Throwable, var$1, nullptr);
+					try {
+						$var($bytes, buf, $new($bytes, 1024));
+						int32_t len = 0;
+						while ((len = $nc(inputStream)->read(buf)) > 0) {
+							baos->write(buf, 0, len);
+						}
+						$assign(refBytes, baos->toByteArray());
+					} catch ($Throwable& t$) {
 						try {
-							try {
-								$var($bytes, buf, $new($bytes, 1024));
-								int32_t len = 0;
-								while ((len = $nc(inputStream)->read(buf)) > 0) {
-									baos->write(buf, 0, len);
-								}
-								$assign(refBytes, baos->toByteArray());
-							} catch ($Throwable& t$) {
-								try {
-									baos->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
 							baos->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
-					if (inputStream != nullptr) {
-						try {
-							inputStream->close();
 						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					baos->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
 				if (inputStream != nullptr) {
-					inputStream->close();
+					try {
+						inputStream->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			if (inputStream != nullptr) {
+				inputStream->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return refBytes;
@@ -151,38 +113,36 @@ $bytes* JavaUtils::getBytesFromFile($String* fileName) {
 
 void JavaUtils::writeBytesToFilename($String* filename, $bytes* bytes) {
 	$init(JavaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (filename != nullptr && bytes != nullptr) {
 		try {
 			$var($OutputStream, outputStream, $Files::newOutputStream($($Paths::get(filename, $$new($StringArray, 0))), $$new($OpenOptionArray, 0)));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$nc(outputStream)->write(bytes);
-					} catch ($Throwable& t$) {
-						if (outputStream != nullptr) {
-							try {
-								outputStream->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+					$nc(outputStream)->write(bytes);
+				} catch ($Throwable& t$) {
 					if (outputStream != nullptr) {
-						outputStream->close();
+						try {
+							outputStream->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (outputStream != nullptr) {
+					outputStream->close();
 				}
 			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
 		} catch ($IOException& ex) {
-			$nc(JavaUtils::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+			$nc(JavaUtils::LOG)->debug($(ex->getMessage()), ex);
 		}
 	} else {
 		$nc(JavaUtils::LOG)->debug("writeBytesToFilename got null byte[] pointed"_s);
@@ -191,42 +151,40 @@ void JavaUtils::writeBytesToFilename($String* filename, $bytes* bytes) {
 
 $bytes* JavaUtils::getBytesFromStream($InputStream* inputStream) {
 	$init(JavaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($UnsyncByteArrayOutputStream, baos, $new($UnsyncByteArrayOutputStream));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($bytes, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($bytes, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$var($bytes, buf, $new($bytes, 4 * 1024));
-					int32_t len = 0;
-					while ((len = $nc(inputStream)->read(buf)) > 0) {
-						baos->write(buf, 0, len);
-					}
-					$assign(var$2, baos->toByteArray());
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						baos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				$var($bytes, buf, $new($bytes, 4 * 1024));
+				int32_t len = 0;
+				while ((len = $nc(inputStream)->read(buf)) > 0) {
+					baos->write(buf, 0, len);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				baos->close();
+				$assign(var$2, baos->toByteArray());
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
+				try {
+					baos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			baos->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -234,16 +192,18 @@ $bytes* JavaUtils::getBytesFromStream($InputStream* inputStream) {
 
 $bytes* JavaUtils::convertDsaASN1toXMLDSIG($bytes* asn1Bytes, int32_t size) {
 	$init(JavaUtils);
-	if ($nc(asn1Bytes)->get(0) != 48 || $nc(asn1Bytes)->get(1) != asn1Bytes->length - 2 || $nc(asn1Bytes)->get(2) != 2) {
+	if ($nc(asn1Bytes)->get(0) != 48 || asn1Bytes->get(1) != asn1Bytes->length - 2 || asn1Bytes->get(2) != 2) {
 		$throwNew($IOException, "Invalid ASN.1 format of DSA signature"_s);
 	}
-	int8_t rLength = $nc(asn1Bytes)->get(3);
+	int8_t rLength = asn1Bytes->get(3);
 	int32_t i = 0;
 	for (i = rLength; i > 0 && asn1Bytes->get(4 + rLength - i) == 0; --i) {
+		;
 	}
 	int8_t sLength = asn1Bytes->get(5 + rLength);
 	int32_t j = 0;
 	for (j = sLength; j > 0 && asn1Bytes->get(6 + rLength + sLength - j) == 0; --j) {
+		;
 	}
 	if (i > size || asn1Bytes->get(4 + rLength) != 2 || j > size) {
 		$throwNew($IOException, "Invalid ASN.1 format of DSA signature"_s);
@@ -262,26 +222,28 @@ $bytes* JavaUtils::convertDsaXMLDSIGtoASN1($bytes* xmldsigBytes, int32_t size) {
 		$throwNew($IOException, "Invalid XMLDSIG format of DSA signature"_s);
 	}
 	int32_t i = 0;
-	for (i = size; i > 0 && $nc(xmldsigBytes)->get(size - i) == 0; --i) {
+	for (i = size; i > 0 && xmldsigBytes->get(size - i) == 0; --i) {
+		;
 	}
 	int32_t j = i;
-	if ($nc(xmldsigBytes)->get(size - i) < 0) {
+	if (xmldsigBytes->get(size - i) < 0) {
 		++j;
 	}
 	int32_t k = 0;
-	for (k = size; k > 0 && $nc(xmldsigBytes)->get(totalSize - k) == 0; --k) {
+	for (k = size; k > 0 && xmldsigBytes->get(totalSize - k) == 0; --k) {
+		;
 	}
 	int32_t l = k;
-	if ($nc(xmldsigBytes)->get(totalSize - k) < 0) {
+	if (xmldsigBytes->get(totalSize - k) < 0) {
 		++l;
 	}
 	$var($bytes, asn1Bytes, $new($bytes, 6 + j + l));
-	asn1Bytes->set(0, (int8_t)48);
+	asn1Bytes->set(0, 48);
 	asn1Bytes->set(1, (int8_t)(4 + j + l));
-	asn1Bytes->set(2, (int8_t)2);
+	asn1Bytes->set(2, 2);
 	asn1Bytes->set(3, (int8_t)j);
 	$System::arraycopy(xmldsigBytes, size - i, asn1Bytes, 4 + j - i, i);
-	asn1Bytes->set(4 + j, (int8_t)2);
+	asn1Bytes->set(4 + j, 2);
 	asn1Bytes->set(5 + j, (int8_t)l);
 	$System::arraycopy(xmldsigBytes, totalSize - k, asn1Bytes, 6 + j + l - k, k);
 	return asn1Bytes;
@@ -297,17 +259,17 @@ void JavaUtils::checkRegisterPermission() {
 
 $Object* JavaUtils::newInstanceWithEmptyConstructor($Class* clazz) {
 	$init(JavaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $of($nc($($nc(clazz)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+		return $$nc($nc(clazz)->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0));
 	} catch ($NoSuchMethodException& e) {
-		$throw($cast($InstantiationException, $($$new($InstantiationException, $($nc(clazz)->getName()))->initCause(e))));
+		$throw($$cast($InstantiationException, $$new($InstantiationException, $($nc(clazz)->getName()))->initCause(e)));
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$JavaUtils($Class* class$) {
+void JavaUtils::clinit$($Class* clazz) {
 	$assignStatic(JavaUtils::LOG, $LoggerFactory::getLogger(JavaUtils::class$));
 	$assignStatic(JavaUtils::REGISTER_PERMISSION, $new($SecurityPermission, "com.sun.org.apache.xml.internal.security.register"_s));
 }
@@ -316,7 +278,33 @@ JavaUtils::JavaUtils() {
 }
 
 $Class* JavaUtils::load$($String* name, bool initialize) {
-	$loadClass(JavaUtils, name, initialize, &_JavaUtils_ClassInfo_, clinit$JavaUtils, allocate$JavaUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaUtils, LOG)},
+		{"REGISTER_PERMISSION", "Ljava/security/SecurityPermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaUtils, REGISTER_PERMISSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JavaUtils, init$, void)},
+		{"checkRegisterPermission", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, checkRegisterPermission, void)},
+		{"convertDsaASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, convertDsaASN1toXMLDSIG, $bytes*, $bytes*, int32_t), "java.io.IOException"},
+		{"convertDsaXMLDSIGtoASN1", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, convertDsaXMLDSIGtoASN1, $bytes*, $bytes*, int32_t), "java.io.IOException"},
+		{"getBytesFromFile", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, getBytesFromFile, $bytes*, $String*), "java.io.FileNotFoundException,java.io.IOException"},
+		{"getBytesFromStream", "(Ljava/io/InputStream;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, getBytesFromStream, $bytes*, $InputStream*), "java.io.IOException"},
+		{"newInstanceWithEmptyConstructor", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(JavaUtils, newInstanceWithEmptyConstructor, $Object*, $Class*), "java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
+		{"writeBytesToFilename", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, writeBytesToFilename, void, $String*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.JavaUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavaUtils, name, initialize, &classInfo$$, JavaUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaUtils);
+	});
 	return class$;
 }
 

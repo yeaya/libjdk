@@ -1,5 +1,4 @@
 #include <TableViewLayoutTest.h>
-
 #include <CodeBugDocument.h>
 #include <CodeBugEditorKit.h>
 #include <TableViewLayoutTest$1.h>
@@ -14,12 +13,10 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/event/CaretListener.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
@@ -43,83 +40,21 @@ using $TableViewLayoutTest$3 = ::TableViewLayoutTest$3;
 using $TableViewLayoutTest$4 = ::TableViewLayoutTest$4;
 using $TableViewLayoutTest$5 = ::TableViewLayoutTest$5;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $CaretListener = ::javax::swing::event::CaretListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $Document = ::javax::swing::text::Document;
-using $EditorKit = ::javax::swing::text::EditorKit;
-
-$FieldInfo _TableViewLayoutTest_FieldInfo_[] = {
-	{"yCaret", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, yCaret)},
-	{"xCaret", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, xCaret)},
-	{"tn", "I", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, tn)},
-	{"yCarFLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, yCarFLTab)},
-	{"yCarLLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, yCarLLTab)},
-	{"xCarBTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, xCarBTab)},
-	{"xCarETab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, xCarETab)},
-	{"dyCarFLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dyCarFLTab)},
-	{"dyCarLLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dyCarLLTab)},
-	{"dxCarBTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dxCarBTab)},
-	{"dxCarETab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dxCarETab)},
-	{"edit", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, edit)},
-	{"frame", "LTableViewLayoutTest;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, frame)},
-	{"Prop", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, Prop)},
-	{"isTabWrong", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, isTabWrong)},
-	{"isI18n", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, isI18n)},
-	{}
-};
-
-$MethodInfo _TableViewLayoutTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TableViewLayoutTest, init$, void)},
-	{"hitKey", "(Ljava/awt/Robot;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TableViewLayoutTest, hitKey, void, $Robot*, int32_t), "java.lang.Exception"},
-	{"initCodeBug", "()V", nullptr, $PRIVATE, $method(TableViewLayoutTest, initCodeBug, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TableViewLayoutTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TableViewLayoutTest_InnerClassesInfo_[] = {
-	{"TableViewLayoutTest$5", nullptr, nullptr, 0},
-	{"TableViewLayoutTest$4", nullptr, nullptr, 0},
-	{"TableViewLayoutTest$3", nullptr, nullptr, 0},
-	{"TableViewLayoutTest$2", nullptr, nullptr, 0},
-	{"TableViewLayoutTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TableViewLayoutTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TableViewLayoutTest",
-	"javax.swing.JFrame",
-	nullptr,
-	_TableViewLayoutTest_FieldInfo_,
-	_TableViewLayoutTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TableViewLayoutTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TableViewLayoutTest$5,TableViewLayoutTest$4,TableViewLayoutTest$3,TableViewLayoutTest$2,TableViewLayoutTest$1"
-};
-
-$Object* allocate$TableViewLayoutTest($Class* clazz) {
-	return $of($alloc(TableViewLayoutTest));
-}
 
 double TableViewLayoutTest::yCaret = 0.0;
 double TableViewLayoutTest::xCaret = 0.0;
@@ -139,13 +74,13 @@ bool TableViewLayoutTest::isTabWrong = false;
 $Boolean* TableViewLayoutTest::isI18n = nullptr;
 
 void TableViewLayoutTest::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFrame::init$("Code example for a TableView bug"_s);
 	setUndecorated(true);
 	setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(TableViewLayoutTest::edit)->setEditorKit($$new($CodeBugEditorKit));
 	initCodeBug();
-	$nc($(this->getContentPane()))->add(static_cast<$Component*>($$new($JScrollPane, TableViewLayoutTest::edit)));
+	$$nc(this->getContentPane())->add($$new($JScrollPane, TableViewLayoutTest::edit));
 	this->pack();
 	this->setLocationRelativeTo(nullptr);
 	$nc(TableViewLayoutTest::edit)->addCaretListener($$new($TableViewLayoutTest$1, this));
@@ -177,7 +112,7 @@ void TableViewLayoutTest::initCodeBug() {
 
 void TableViewLayoutTest::main($StringArray* args) {
 	$init(TableViewLayoutTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < TableViewLayoutTest::tn; ++i) {
 		$var($Robot, rob, $new($Robot));
 		$SwingUtilities::invokeAndWait($$new($TableViewLayoutTest$2));
@@ -192,8 +127,7 @@ void TableViewLayoutTest::main($StringArray* args) {
 		hitKey(rob, $KeyEvent::VK_BACK_SPACE);
 		rob->waitForIdle();
 		$SwingUtilities::invokeAndWait($$new($TableViewLayoutTest$4));
-		$var($Object, dp, $nc($($nc(TableViewLayoutTest::edit)->getDocument()))->getProperty("i18n"_s));
-		$init($Boolean);
+		$var($Object, dp, $$nc($nc(TableViewLayoutTest::edit)->getDocument())->getProperty("i18n"_s));
 		$var($Boolean, isI18n, $instanceOf($Boolean, dp) ? $cast($Boolean, dp) : $Boolean::FALSE);
 		$var($String, i18n, $nc(isI18n)->booleanValue() ? "\nWhen i18n enable, "_s : "\nWhen i18n disable, "_s);
 		if ($Math::abs(TableViewLayoutTest::yCarFLTab - TableViewLayoutTest::yCarLLTab) < 10) {
@@ -226,11 +160,10 @@ void TableViewLayoutTest::hitKey($Robot* robot, int32_t k) {
 	robot->delay(50);
 }
 
-void clinit$TableViewLayoutTest($Class* class$) {
+void TableViewLayoutTest::clinit$($Class* clazz) {
 	TableViewLayoutTest::tn = 2;
 	$assignStatic(TableViewLayoutTest::edit, $new($JEditorPane));
 	$assignStatic(TableViewLayoutTest::Prop, "\n"_s);
-	$init($Boolean);
 	TableViewLayoutTest::isTabWrong = $nc($Boolean::FALSE)->booleanValue();
 	$assignStatic(TableViewLayoutTest::isI18n, $Boolean::valueOf(false));
 }
@@ -239,7 +172,57 @@ TableViewLayoutTest::TableViewLayoutTest() {
 }
 
 $Class* TableViewLayoutTest::load$($String* name, bool initialize) {
-	$loadClass(TableViewLayoutTest, name, initialize, &_TableViewLayoutTest_ClassInfo_, clinit$TableViewLayoutTest, allocate$TableViewLayoutTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"yCaret", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, yCaret)},
+		{"xCaret", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, xCaret)},
+		{"tn", "I", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, tn)},
+		{"yCarFLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, yCarFLTab)},
+		{"yCarLLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, yCarLLTab)},
+		{"xCarBTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, xCarBTab)},
+		{"xCarETab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, xCarETab)},
+		{"dyCarFLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dyCarFLTab)},
+		{"dyCarLLTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dyCarLLTab)},
+		{"dxCarBTab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dxCarBTab)},
+		{"dxCarETab", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, dxCarETab)},
+		{"edit", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, edit)},
+		{"frame", "LTableViewLayoutTest;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, frame)},
+		{"Prop", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, Prop)},
+		{"isTabWrong", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, isTabWrong)},
+		{"isI18n", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, isI18n)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TableViewLayoutTest, init$, void)},
+		{"hitKey", "(Ljava/awt/Robot;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TableViewLayoutTest, hitKey, void, $Robot*, int32_t), "java.lang.Exception"},
+		{"initCodeBug", "()V", nullptr, $PRIVATE, $method(TableViewLayoutTest, initCodeBug, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TableViewLayoutTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TableViewLayoutTest$5", nullptr, nullptr, 0},
+		{"TableViewLayoutTest$4", nullptr, nullptr, 0},
+		{"TableViewLayoutTest$3", nullptr, nullptr, 0},
+		{"TableViewLayoutTest$2", nullptr, nullptr, 0},
+		{"TableViewLayoutTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TableViewLayoutTest",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TableViewLayoutTest$5,TableViewLayoutTest$4,TableViewLayoutTest$3,TableViewLayoutTest$2,TableViewLayoutTest$1"
+	};
+	$loadClass(TableViewLayoutTest, name, initialize, &classInfo$$, TableViewLayoutTest::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TableViewLayoutTest));
+	});
 	return class$;
 }
 

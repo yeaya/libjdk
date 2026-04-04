@@ -1,5 +1,4 @@
 #include <sun/font/ScriptRun.h>
-
 #include <sun/font/Script.h>
 #include <sun/font/ScriptRunData.h>
 #include <jcpp.h>
@@ -26,58 +25,6 @@ using $ScriptRunData = ::sun::font::ScriptRunData;
 namespace sun {
 	namespace font {
 
-$FieldInfo _ScriptRun_FieldInfo_[] = {
-	{"text", "[C", nullptr, $PRIVATE, $field(ScriptRun, text)},
-	{"textStart", "I", nullptr, $PRIVATE, $field(ScriptRun, textStart)},
-	{"textLimit", "I", nullptr, $PRIVATE, $field(ScriptRun, textLimit)},
-	{"scriptStart", "I", nullptr, $PRIVATE, $field(ScriptRun, scriptStart)},
-	{"scriptLimit", "I", nullptr, $PRIVATE, $field(ScriptRun, scriptLimit)},
-	{"scriptCode", "I", nullptr, $PRIVATE, $field(ScriptRun, scriptCode)},
-	{"stack", "[I", nullptr, $PRIVATE, $field(ScriptRun, stack)},
-	{"parenSP", "I", nullptr, $PRIVATE, $field(ScriptRun, parenSP)},
-	{"SURROGATE_START", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, SURROGATE_START)},
-	{"LEAD_START", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, LEAD_START)},
-	{"LEAD_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, LEAD_LIMIT)},
-	{"TAIL_START", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, TAIL_START)},
-	{"TAIL_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, TAIL_LIMIT)},
-	{"LEAD_SURROGATE_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, LEAD_SURROGATE_SHIFT)},
-	{"SURROGATE_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, SURROGATE_OFFSET)},
-	{"DONE", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, DONE)},
-	{"pairedChars", "[I", nullptr, $PRIVATE | $STATIC, $staticField(ScriptRun, pairedChars)},
-	{"pairedCharPower", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRun, pairedCharPower)},
-	{"pairedCharExtra", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRun, pairedCharExtra)},
-	{}
-};
-
-$MethodInfo _ScriptRun_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptRun, init$, void)},
-	{"<init>", "([CII)V", nullptr, $PUBLIC, $method(ScriptRun, init$, void, $chars*, int32_t, int32_t)},
-	{"getPairIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptRun, getPairIndex, int32_t, int32_t)},
-	{"getScriptCode", "()I", nullptr, $PUBLIC, $method(ScriptRun, getScriptCode, int32_t)},
-	{"getScriptLimit", "()I", nullptr, $PUBLIC, $method(ScriptRun, getScriptLimit, int32_t)},
-	{"getScriptStart", "()I", nullptr, $PUBLIC, $method(ScriptRun, getScriptStart, int32_t)},
-	{"highBit", "(I)B", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptRun, highBit, int8_t, int32_t)},
-	{"init", "([CII)V", nullptr, $PUBLIC, $method(ScriptRun, init, void, $chars*, int32_t, int32_t)},
-	{"next", "()Z", nullptr, $PUBLIC, $method(ScriptRun, next, bool)},
-	{"nextCodePoint", "()I", nullptr, $PRIVATE, $method(ScriptRun, nextCodePoint, int32_t)},
-	{"pushback", "(I)V", nullptr, $PRIVATE, $method(ScriptRun, pushback, void, int32_t)},
-	{"sameScript", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptRun, sameScript, bool, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ScriptRun_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.ScriptRun",
-	"java.lang.Object",
-	nullptr,
-	_ScriptRun_FieldInfo_,
-	_ScriptRun_MethodInfo_
-};
-
-$Object* allocate$ScriptRun($Class* clazz) {
-	return $of($alloc(ScriptRun));
-}
-
 $ints* ScriptRun::pairedChars = nullptr;
 int32_t ScriptRun::pairedCharPower = 0;
 int32_t ScriptRun::pairedCharExtra = 0;
@@ -90,7 +37,7 @@ void ScriptRun::init$($chars* chars, int32_t start, int32_t count) {
 }
 
 void ScriptRun::init($chars* chars, int32_t start, int32_t count) {
-	if (chars == nullptr || start < 0 || count < 0 || count > $nc(chars)->length - start) {
+	if (chars == nullptr || start < 0 || count < 0 || count > chars->length - start) {
 		$throwNew($IllegalArgumentException);
 	}
 	$set(this, text, chars);
@@ -115,7 +62,7 @@ int32_t ScriptRun::getScriptCode() {
 }
 
 bool ScriptRun::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startSP = this->parenSP;
 	if (this->scriptLimit >= this->textLimit) {
 		return false;
@@ -127,24 +74,25 @@ bool ScriptRun::next() {
 		int32_t sc = $ScriptRunData::getScript(ch);
 		int32_t pairIndex = sc == $Script::COMMON ? getPairIndex(ch) : -1;
 		if (pairIndex >= 0) {
-			if (((int32_t)(pairIndex & (uint32_t)1)) == 0) {
+			if ((pairIndex & 1) == 0) {
 				if (this->stack == nullptr) {
 					$set(this, stack, $new($ints, 32));
-				} else if (this->parenSP == $nc(this->stack)->length) {
-					$var($ints, newstack, $new($ints, $nc(this->stack)->length + 32));
-					$System::arraycopy(this->stack, 0, newstack, 0, $nc(this->stack)->length);
+				} else if (this->parenSP == this->stack->length) {
+					$var($ints, newstack, $new($ints, this->stack->length + 32));
+					$System::arraycopy(this->stack, 0, newstack, 0, this->stack->length);
 					$set(this, stack, newstack);
 				}
 				$nc(this->stack)->set(this->parenSP++, pairIndex);
-				$nc(this->stack)->set(this->parenSP++, this->scriptCode);
+				this->stack->set(this->parenSP++, this->scriptCode);
 			} else if (this->parenSP > 0) {
-				int32_t pi = (int32_t)(pairIndex & (uint32_t)~1);
+				int32_t pi = pairIndex & ~1;
 				while (true) {
 					bool var$0 = (this->parenSP -= 2) >= 0;
 					if (!(var$0 && $nc(this->stack)->get(this->parenSP) != pi)) {
 						break;
 					}
 					{
+						;
 					}
 				}
 				if (this->parenSP >= 0) {
@@ -165,7 +113,7 @@ bool ScriptRun::next() {
 					startSP += 2;
 				}
 			}
-			if (pairIndex > 0 && ((int32_t)(pairIndex & (uint32_t)1)) != 0 && this->parenSP > 0) {
+			if (pairIndex > 0 && (pairIndex & 1) != 0 && this->parenSP > 0) {
 				this->parenSP -= 2;
 			}
 		} else {
@@ -182,7 +130,7 @@ int32_t ScriptRun::nextCodePoint() {
 	}
 	int32_t ch = $nc(this->text)->get(this->scriptLimit++);
 	if (ch >= ScriptRun::LEAD_START && ch < ScriptRun::LEAD_LIMIT && this->scriptLimit < this->textLimit) {
-		int32_t nch = $nc(this->text)->get(this->scriptLimit);
+		int32_t nch = this->text->get(this->scriptLimit);
 		if (nch >= ScriptRun::TAIL_START && nch < ScriptRun::TAIL_LIMIT) {
 			++this->scriptLimit;
 			ch = ($sl(ch, ScriptRun::LEAD_SURROGATE_SHIFT)) + nch + ScriptRun::SURROGATE_OFFSET;
@@ -209,9 +157,9 @@ bool ScriptRun::sameScript(int32_t scriptOne, int32_t scriptTwo) {
 int8_t ScriptRun::highBit(int32_t n) {
 	$init(ScriptRun);
 	if (n <= 0) {
-		return (int8_t)-32;
+		return -32;
 	}
-	int8_t bit = (int8_t)0;
+	int8_t bit = 0;
 	if (n >= 1 << 16) {
 		n >>= 16;
 		bit += 16;
@@ -244,17 +192,17 @@ int32_t ScriptRun::getPairIndex(int32_t ch) {
 	}
 	while (probe > (1 << 0)) {
 		probe >>= 1;
-		if (ch >= $nc(ScriptRun::pairedChars)->get(index + probe)) {
+		if (ch >= ScriptRun::pairedChars->get(index + probe)) {
 			index += probe;
 		}
 	}
-	if ($nc(ScriptRun::pairedChars)->get(index) != ch) {
+	if (ScriptRun::pairedChars->get(index) != ch) {
 		index = -1;
 	}
 	return index;
 }
 
-void clinit$ScriptRun($Class* class$) {
+void ScriptRun::clinit$($Class* clazz) {
 	$assignStatic(ScriptRun::pairedChars, $new($ints, {
 		40,
 		41,
@@ -291,7 +239,7 @@ void clinit$ScriptRun($Class* class$) {
 		12314,
 		12315
 	}));
-	ScriptRun::pairedCharPower = $sl(1, ScriptRun::highBit($nc(ScriptRun::pairedChars)->length));
+	ScriptRun::pairedCharPower = $sl(1, ScriptRun::highBit(ScriptRun::pairedChars->length));
 	ScriptRun::pairedCharExtra = $nc(ScriptRun::pairedChars)->length - ScriptRun::pairedCharPower;
 }
 
@@ -299,7 +247,54 @@ ScriptRun::ScriptRun() {
 }
 
 $Class* ScriptRun::load$($String* name, bool initialize) {
-	$loadClass(ScriptRun, name, initialize, &_ScriptRun_ClassInfo_, clinit$ScriptRun, allocate$ScriptRun);
+	$FieldInfo fieldInfos$$[] = {
+		{"text", "[C", nullptr, $PRIVATE, $field(ScriptRun, text)},
+		{"textStart", "I", nullptr, $PRIVATE, $field(ScriptRun, textStart)},
+		{"textLimit", "I", nullptr, $PRIVATE, $field(ScriptRun, textLimit)},
+		{"scriptStart", "I", nullptr, $PRIVATE, $field(ScriptRun, scriptStart)},
+		{"scriptLimit", "I", nullptr, $PRIVATE, $field(ScriptRun, scriptLimit)},
+		{"scriptCode", "I", nullptr, $PRIVATE, $field(ScriptRun, scriptCode)},
+		{"stack", "[I", nullptr, $PRIVATE, $field(ScriptRun, stack)},
+		{"parenSP", "I", nullptr, $PRIVATE, $field(ScriptRun, parenSP)},
+		{"SURROGATE_START", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, SURROGATE_START)},
+		{"LEAD_START", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, LEAD_START)},
+		{"LEAD_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, LEAD_LIMIT)},
+		{"TAIL_START", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, TAIL_START)},
+		{"TAIL_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, TAIL_LIMIT)},
+		{"LEAD_SURROGATE_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, LEAD_SURROGATE_SHIFT)},
+		{"SURROGATE_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, SURROGATE_OFFSET)},
+		{"DONE", "I", nullptr, $STATIC | $FINAL, $constField(ScriptRun, DONE)},
+		{"pairedChars", "[I", nullptr, $PRIVATE | $STATIC, $staticField(ScriptRun, pairedChars)},
+		{"pairedCharPower", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRun, pairedCharPower)},
+		{"pairedCharExtra", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRun, pairedCharExtra)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptRun, init$, void)},
+		{"<init>", "([CII)V", nullptr, $PUBLIC, $method(ScriptRun, init$, void, $chars*, int32_t, int32_t)},
+		{"getPairIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptRun, getPairIndex, int32_t, int32_t)},
+		{"getScriptCode", "()I", nullptr, $PUBLIC, $method(ScriptRun, getScriptCode, int32_t)},
+		{"getScriptLimit", "()I", nullptr, $PUBLIC, $method(ScriptRun, getScriptLimit, int32_t)},
+		{"getScriptStart", "()I", nullptr, $PUBLIC, $method(ScriptRun, getScriptStart, int32_t)},
+		{"highBit", "(I)B", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptRun, highBit, int8_t, int32_t)},
+		{"init", "([CII)V", nullptr, $PUBLIC, $method(ScriptRun, init, void, $chars*, int32_t, int32_t)},
+		{"next", "()Z", nullptr, $PUBLIC, $method(ScriptRun, next, bool)},
+		{"nextCodePoint", "()I", nullptr, $PRIVATE, $method(ScriptRun, nextCodePoint, int32_t)},
+		{"pushback", "(I)V", nullptr, $PRIVATE, $method(ScriptRun, pushback, void, int32_t)},
+		{"sameScript", "(II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptRun, sameScript, bool, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.ScriptRun",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScriptRun, name, initialize, &classInfo$$, ScriptRun::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScriptRun);
+	});
 	return class$;
 }
 

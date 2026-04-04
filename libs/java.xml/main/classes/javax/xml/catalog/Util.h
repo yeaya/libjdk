@@ -40,6 +40,7 @@ class Util : public ::java::lang::Object {
 	$class(Util, 0, ::java::lang::Object)
 public:
 	Util();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getCatalogFiles($String* sysPropertyName);
 	static $String* getNotNullOrEmpty($String* test);

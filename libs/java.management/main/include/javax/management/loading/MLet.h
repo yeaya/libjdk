@@ -103,7 +103,7 @@ public:
 	void setMBeanServer(::javax::management::MBeanServer* server);
 	virtual $String* toString() override;
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
-	static const int64_t serialVersionUID = (int64_t)0x327631A3952B5792;
+	static const int64_t serialVersionUID = (int64_t)0x327631a3952b5792;
 	::javax::management::MBeanServer* server = nullptr;
 	::java::util::List* mletList = nullptr;
 	$String* libraryDirectory = nullptr;

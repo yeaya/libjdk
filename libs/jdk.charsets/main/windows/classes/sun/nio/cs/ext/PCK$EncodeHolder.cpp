@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/PCK$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/ext/PCK$DecodeHolder.h>
 #include <sun/nio/cs/ext/PCK.h>
@@ -17,50 +16,14 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _PCK$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(PCK$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(PCK$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _PCK$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PCK$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PCK$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.PCK$EncodeHolder", "sun.nio.cs.ext.PCK", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _PCK$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.PCK$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_PCK$EncodeHolder_FieldInfo_,
-	_PCK$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PCK$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.PCK"
-};
-
-$Object* allocate$PCK$EncodeHolder($Class* clazz) {
-	return $of($alloc(PCK$EncodeHolder));
-}
-
 $chars* PCK$EncodeHolder::c2b = nullptr;
 $chars* PCK$EncodeHolder::c2bIndex = nullptr;
 
 void PCK$EncodeHolder::init$() {
 }
 
-void clinit$PCK$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PCK$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(PCK$EncodeHolder::c2b, $new($chars, 25344));
 	$assignStatic(PCK$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -75,7 +38,37 @@ PCK$EncodeHolder::PCK$EncodeHolder() {
 }
 
 $Class* PCK$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(PCK$EncodeHolder, name, initialize, &_PCK$EncodeHolder_ClassInfo_, clinit$PCK$EncodeHolder, allocate$PCK$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(PCK$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(PCK$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PCK$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.PCK$EncodeHolder", "sun.nio.cs.ext.PCK", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.PCK$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.PCK"
+	};
+	$loadClass(PCK$EncodeHolder, name, initialize, &classInfo$$, PCK$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PCK$EncodeHolder);
+	});
 	return class$;
 }
 

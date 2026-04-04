@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ARETURN.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
@@ -11,10 +10,7 @@
 #undef ARETURN
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
 using $ReturnInstruction = ::com::sun::org::apache::bcel::internal::generic::ReturnInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _ARETURN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ARETURN, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ARETURN, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _ARETURN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ARETURN",
-	"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
-	nullptr,
-	nullptr,
-	_ARETURN_MethodInfo_
-};
-
-$Object* allocate$ARETURN($Class* clazz) {
-	return $of($alloc(ARETURN));
-}
 
 void ARETURN::init$() {
 	$ReturnInstruction::init$($Const::ARETURN);
@@ -62,7 +39,22 @@ ARETURN::ARETURN() {
 }
 
 $Class* ARETURN::load$($String* name, bool initialize) {
-	$loadClass(ARETURN, name, initialize, &_ARETURN_ClassInfo_, allocate$ARETURN);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ARETURN, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ARETURN, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ARETURN",
+		"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ARETURN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ARETURN));
+	});
 	return class$;
 }
 

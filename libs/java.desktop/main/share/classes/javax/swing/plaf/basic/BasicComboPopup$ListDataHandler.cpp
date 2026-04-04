@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboPopup$ListDataHandler.h>
-
 #include <javax/swing/event/ListDataEvent.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicComboPopup$ListDataHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$ListDataHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicComboPopup$ListDataHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PUBLIC, $method(BasicComboPopup$ListDataHandler, init$, void, $BasicComboPopup*)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ListDataHandler, contentsChanged, void, $ListDataEvent*)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ListDataHandler, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ListDataHandler, intervalRemoved, void, $ListDataEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicComboPopup$ListDataHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboPopup$ListDataHandler", "javax.swing.plaf.basic.BasicComboPopup", "ListDataHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicComboPopup$ListDataHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboPopup$ListDataHandler",
-	"java.lang.Object",
-	"javax.swing.event.ListDataListener",
-	_BasicComboPopup$ListDataHandler_FieldInfo_,
-	_BasicComboPopup$ListDataHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboPopup$ListDataHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboPopup"
-};
-
-$Object* allocate$BasicComboPopup$ListDataHandler($Class* clazz) {
-	return $of($alloc(BasicComboPopup$ListDataHandler));
-}
 
 void BasicComboPopup$ListDataHandler::init$($BasicComboPopup* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +32,39 @@ BasicComboPopup$ListDataHandler::BasicComboPopup$ListDataHandler() {
 }
 
 $Class* BasicComboPopup$ListDataHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicComboPopup$ListDataHandler, name, initialize, &_BasicComboPopup$ListDataHandler_ClassInfo_, allocate$BasicComboPopup$ListDataHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$ListDataHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PUBLIC, $method(BasicComboPopup$ListDataHandler, init$, void, $BasicComboPopup*)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ListDataHandler, contentsChanged, void, $ListDataEvent*)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ListDataHandler, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ListDataHandler, intervalRemoved, void, $ListDataEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboPopup$ListDataHandler", "javax.swing.plaf.basic.BasicComboPopup", "ListDataHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboPopup$ListDataHandler",
+		"java.lang.Object",
+		"javax.swing.event.ListDataListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboPopup"
+	};
+	$loadClass(BasicComboPopup$ListDataHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicComboPopup$ListDataHandler);
+	});
 	return class$;
 }
 

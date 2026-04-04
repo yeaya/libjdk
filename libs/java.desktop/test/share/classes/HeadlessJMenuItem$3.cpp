@@ -1,5 +1,4 @@
 #include <HeadlessJMenuItem$3.h>
-
 #include <HeadlessJMenuItem.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJMenuItem$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJMenuItem$3, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJMenuItem$3_EnclosingMethodInfo_ = {
-	"HeadlessJMenuItem",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJMenuItem$3_InnerClassesInfo_[] = {
-	{"HeadlessJMenuItem$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJMenuItem$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJMenuItem$3",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJMenuItem$3_MethodInfo_,
-	nullptr,
-	&_HeadlessJMenuItem$3_EnclosingMethodInfo_,
-	_HeadlessJMenuItem$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJMenuItem"
-};
-
-$Object* allocate$HeadlessJMenuItem$3($Class* clazz) {
-	return $of($alloc(HeadlessJMenuItem$3));
-}
-
 void HeadlessJMenuItem$3::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJMenuItem$3::HeadlessJMenuItem$3() {
 }
 
 $Class* HeadlessJMenuItem$3::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJMenuItem$3, name, initialize, &_HeadlessJMenuItem$3_ClassInfo_, allocate$HeadlessJMenuItem$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJMenuItem$3, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJMenuItem",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJMenuItem$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJMenuItem$3",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJMenuItem"
+	};
+	$loadClass(HeadlessJMenuItem$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJMenuItem$3));
+	});
 	return class$;
 }
 

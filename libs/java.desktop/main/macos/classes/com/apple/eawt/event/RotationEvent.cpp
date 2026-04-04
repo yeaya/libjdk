@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/RotationEvent.h>
-
 #include <com/apple/eawt/event/GestureEvent.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 			namespace event {
-
-$FieldInfo _RotationEvent_FieldInfo_[] = {
-	{"rotation", "D", nullptr, $FINAL, $field(RotationEvent, rotation)},
-	{}
-};
-
-$MethodInfo _RotationEvent_MethodInfo_[] = {
-	{"<init>", "(D)V", nullptr, 0, $method(RotationEvent, init$, void, double)},
-	{"getRotation", "()D", nullptr, $PUBLIC, $virtualMethod(RotationEvent, getRotation, double)},
-	{}
-};
-
-$ClassInfo _RotationEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.eawt.event.RotationEvent",
-	"com.apple.eawt.event.GestureEvent",
-	nullptr,
-	_RotationEvent_FieldInfo_,
-	_RotationEvent_MethodInfo_
-};
-
-$Object* allocate$RotationEvent($Class* clazz) {
-	return $of($alloc(RotationEvent));
-}
 
 void RotationEvent::init$(double rotation) {
 	$GestureEvent::init$();
@@ -50,7 +25,26 @@ RotationEvent::RotationEvent() {
 }
 
 $Class* RotationEvent::load$($String* name, bool initialize) {
-	$loadClass(RotationEvent, name, initialize, &_RotationEvent_ClassInfo_, allocate$RotationEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"rotation", "D", nullptr, $FINAL, $field(RotationEvent, rotation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(D)V", nullptr, 0, $method(RotationEvent, init$, void, double)},
+		{"getRotation", "()D", nullptr, $PUBLIC, $virtualMethod(RotationEvent, getRotation, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.eawt.event.RotationEvent",
+		"com.apple.eawt.event.GestureEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RotationEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RotationEvent);
+	});
 	return class$;
 }
 

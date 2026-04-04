@@ -1,10 +1,8 @@
 #include <javax/print/DocFlavor.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Map.h>
 #include <javax/print/MimeType.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -19,70 +17,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Map = ::java::util::Map;
 using $MimeType = ::javax::print::MimeType;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace javax {
 	namespace print {
-
-$FieldInfo _DocFlavor_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocFlavor, serialVersionUID)},
-	{"hostEncoding", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor, hostEncoding)},
-	{"myMimeType", "Ljavax/print/MimeType;", nullptr, $PRIVATE | $TRANSIENT, $field(DocFlavor, myMimeType)},
-	{"myClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DocFlavor, myClassName)},
-	{"myStringValue", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(DocFlavor, myStringValue)},
-	{}
-};
-
-$MethodInfo _DocFlavor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocFlavor, init$, void, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DocFlavor, equals, bool, Object$*)},
-	{"getMediaSubtype", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getMediaSubtype, $String*)},
-	{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getMediaType, $String*)},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getMimeType, $String*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getParameter, $String*, $String*)},
-	{"getRepresentationClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getRepresentationClassName, $String*)},
-	{"getStringValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DocFlavor, getStringValue, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DocFlavor, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DocFlavor, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DocFlavor, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DocFlavor_InnerClassesInfo_[] = {
-	{"javax.print.DocFlavor$SERVICE_FORMATTED", "javax.print.DocFlavor", "SERVICE_FORMATTED", $PUBLIC | $STATIC},
-	{"javax.print.DocFlavor$READER", "javax.print.DocFlavor", "READER", $PUBLIC | $STATIC},
-	{"javax.print.DocFlavor$STRING", "javax.print.DocFlavor", "STRING", $PUBLIC | $STATIC},
-	{"javax.print.DocFlavor$CHAR_ARRAY", "javax.print.DocFlavor", "CHAR_ARRAY", $PUBLIC | $STATIC},
-	{"javax.print.DocFlavor$URL", "javax.print.DocFlavor", "URL", $PUBLIC | $STATIC},
-	{"javax.print.DocFlavor$INPUT_STREAM", "javax.print.DocFlavor", "INPUT_STREAM", $PUBLIC | $STATIC},
-	{"javax.print.DocFlavor$BYTE_ARRAY", "javax.print.DocFlavor", "BYTE_ARRAY", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DocFlavor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.DocFlavor",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_DocFlavor_FieldInfo_,
-	_DocFlavor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocFlavor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.print.DocFlavor$SERVICE_FORMATTED,javax.print.DocFlavor$READER,javax.print.DocFlavor$STRING,javax.print.DocFlavor$CHAR_ARRAY,javax.print.DocFlavor$URL,javax.print.DocFlavor$INPUT_STREAM,javax.print.DocFlavor$BYTE_ARRAY"
-};
-
-$Object* allocate$DocFlavor($Class* clazz) {
-	return $of($alloc(DocFlavor));
-}
 
 $Object* DocFlavor::clone() {
 	 return this->$Serializable::clone();
@@ -116,8 +55,8 @@ $String* DocFlavor::getMediaSubtype() {
 }
 
 $String* DocFlavor::getParameter($String* paramName) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($String, $nc($($nc(this->myMimeType)->getParameterMap()))->get($($nc(paramName)->toLowerCase())));
+	$useLocalObjectStack();
+	return $cast($String, $$nc($nc(this->myMimeType)->getParameterMap())->get($($nc(paramName)->toLowerCase())));
 }
 
 $String* DocFlavor::getRepresentationClassName() {
@@ -129,12 +68,12 @@ $String* DocFlavor::toString() {
 }
 
 int32_t DocFlavor::hashCode() {
-	return $nc($(getStringValue()))->hashCode();
+	return $$nc(getStringValue())->hashCode();
 }
 
 bool DocFlavor::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
-	return obj != nullptr && $instanceOf(DocFlavor, obj) && $nc($(getStringValue()))->equals($($nc(($cast(DocFlavor, obj)))->getStringValue()));
+	$useLocalObjectStack();
+	return obj != nullptr && $instanceOf(DocFlavor, obj) && $$nc(getStringValue())->equals($($cast(DocFlavor, obj)->getStringValue()));
 }
 
 $String* DocFlavor::getStringValue() {
@@ -151,13 +90,13 @@ void DocFlavor::writeObject($ObjectOutputStream* s) {
 
 void DocFlavor::readObject($ObjectInputStream* s) {
 	$nc(s)->defaultReadObject();
-	$set(this, myMimeType, $new($MimeType, $cast($String, $(s->readObject()))));
+	$set(this, myMimeType, $new($MimeType, $$cast($String, s->readObject())));
 }
 
-void clinit$DocFlavor($Class* class$) {
+void DocFlavor::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$assignStatic(DocFlavor::hostEncoding, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "file.encoding"_s)))));
+		$assignStatic(DocFlavor::hostEncoding, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "file.encoding"_s))));
 	}
 }
 
@@ -165,7 +104,58 @@ DocFlavor::DocFlavor() {
 }
 
 $Class* DocFlavor::load$($String* name, bool initialize) {
-	$loadClass(DocFlavor, name, initialize, &_DocFlavor_ClassInfo_, clinit$DocFlavor, allocate$DocFlavor);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocFlavor, serialVersionUID)},
+		{"hostEncoding", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor, hostEncoding)},
+		{"myMimeType", "Ljavax/print/MimeType;", nullptr, $PRIVATE | $TRANSIENT, $field(DocFlavor, myMimeType)},
+		{"myClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DocFlavor, myClassName)},
+		{"myStringValue", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(DocFlavor, myStringValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocFlavor, init$, void, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DocFlavor, equals, bool, Object$*)},
+		{"getMediaSubtype", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getMediaSubtype, $String*)},
+		{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getMediaType, $String*)},
+		{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getMimeType, $String*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getParameter, $String*, $String*)},
+		{"getRepresentationClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, getRepresentationClassName, $String*)},
+		{"getStringValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DocFlavor, getStringValue, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DocFlavor, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DocFlavor, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocFlavor, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DocFlavor, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.DocFlavor$SERVICE_FORMATTED", "javax.print.DocFlavor", "SERVICE_FORMATTED", $PUBLIC | $STATIC},
+		{"javax.print.DocFlavor$READER", "javax.print.DocFlavor", "READER", $PUBLIC | $STATIC},
+		{"javax.print.DocFlavor$STRING", "javax.print.DocFlavor", "STRING", $PUBLIC | $STATIC},
+		{"javax.print.DocFlavor$CHAR_ARRAY", "javax.print.DocFlavor", "CHAR_ARRAY", $PUBLIC | $STATIC},
+		{"javax.print.DocFlavor$URL", "javax.print.DocFlavor", "URL", $PUBLIC | $STATIC},
+		{"javax.print.DocFlavor$INPUT_STREAM", "javax.print.DocFlavor", "INPUT_STREAM", $PUBLIC | $STATIC},
+		{"javax.print.DocFlavor$BYTE_ARRAY", "javax.print.DocFlavor", "BYTE_ARRAY", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.DocFlavor",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.print.DocFlavor$SERVICE_FORMATTED,javax.print.DocFlavor$READER,javax.print.DocFlavor$STRING,javax.print.DocFlavor$CHAR_ARRAY,javax.print.DocFlavor$URL,javax.print.DocFlavor$INPUT_STREAM,javax.print.DocFlavor$BYTE_ARRAY"
+	};
+	$loadClass(DocFlavor, name, initialize, &classInfo$$, DocFlavor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocFlavor));
+	});
 	return class$;
 }
 

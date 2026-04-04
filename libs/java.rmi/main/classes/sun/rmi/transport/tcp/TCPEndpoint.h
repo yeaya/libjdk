@@ -73,6 +73,7 @@ class TCPEndpoint : public ::sun::rmi::transport::Endpoint {
 	$class(TCPEndpoint, 0, ::sun::rmi::transport::Endpoint)
 public:
 	TCPEndpoint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* host, int32_t port);
 	void init$($String* host, int32_t port, ::java::rmi::server::RMIClientSocketFactory* csf, ::java::rmi::server::RMIServerSocketFactory* ssf);
 	static ::java::util::Collection* allKnownTransports();

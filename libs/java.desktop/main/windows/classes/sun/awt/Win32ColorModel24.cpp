@@ -1,5 +1,4 @@
 #include <sun/awt/Win32ColorModel24.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
@@ -29,28 +28,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _Win32ColorModel24_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Win32ColorModel24, init$, void)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(Win32ColorModel24, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Win32ColorModel24, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Win32ColorModel24_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.Win32ColorModel24",
-	"java.awt.image.ComponentColorModel",
-	nullptr,
-	nullptr,
-	_Win32ColorModel24_MethodInfo_
-};
-
-$Object* allocate$Win32ColorModel24($Class* clazz) {
-	return $of($alloc(Win32ColorModel24));
-}
-
 void Win32ColorModel24::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ComponentColorModel::init$($($ColorSpace::getInstance($ColorSpace::CS_sRGB)), $$new($ints, {
 		8,
 		8,
@@ -64,7 +43,7 @@ $WritableRaster* Win32ColorModel24::createCompatibleWritableRaster(int32_t w, in
 		1,
 		0
 	}));
-	return $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, w, h, w * 3, 3, bOffs, ($Point*)nullptr);
+	return $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, w, h, w * 3, 3, bOffs, nullptr);
 }
 
 $SampleModel* Win32ColorModel24::createCompatibleSampleModel(int32_t w, int32_t h) {
@@ -80,7 +59,23 @@ Win32ColorModel24::Win32ColorModel24() {
 }
 
 $Class* Win32ColorModel24::load$($String* name, bool initialize) {
-	$loadClass(Win32ColorModel24, name, initialize, &_Win32ColorModel24_ClassInfo_, allocate$Win32ColorModel24);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Win32ColorModel24, init$, void)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(Win32ColorModel24, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(Win32ColorModel24, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.Win32ColorModel24",
+		"java.awt.image.ComponentColorModel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Win32ColorModel24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ColorModel24);
+	});
 	return class$;
 }
 

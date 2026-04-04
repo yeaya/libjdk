@@ -1,5 +1,4 @@
 #include <javax/management/modelmbean/ModelMBeanConstructorInfo.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <java/io/ObjectInputStream.h>
@@ -10,7 +9,6 @@
 #include <java/lang/System$Logger.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/management/Descriptor.h>
 #include <javax/management/MBeanConstructorInfo.h>
 #include <javax/management/MBeanParameterInfo.h>
@@ -35,65 +33,17 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Descriptor = ::javax::management::Descriptor;
 using $MBeanConstructorInfo = ::javax::management::MBeanConstructorInfo;
-using $MBeanParameterInfo = ::javax::management::MBeanParameterInfo;
 using $RuntimeOperationsException = ::javax::management::RuntimeOperationsException;
 using $DescriptorSupport = ::javax::management::modelmbean::DescriptorSupport;
 
 namespace javax {
 	namespace management {
 		namespace modelmbean {
-
-$FieldInfo _ModelMBeanConstructorInfo_FieldInfo_[] = {
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanConstructorInfo, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanConstructorInfo, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ModelMBeanConstructorInfo, compat)},
-	{"consDescriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE, $field(ModelMBeanConstructorInfo, consDescriptor)},
-	{"currClass", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, currClass)},
-	{}
-};
-
-$MethodInfo _ModelMBeanConstructorInfo_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/String;Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $Constructor*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Constructor;Ljavax/management/Descriptor;)V", "(Ljava/lang/String;Ljava/lang/reflect/Constructor<*>;Ljavax/management/Descriptor;)V", $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $Constructor*, $Descriptor*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;)V", nullptr, $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*, $Descriptor*)},
-	{"<init>", "(Ljavax/management/modelmbean/ModelMBeanConstructorInfo;)V", nullptr, 0, $method(ModelMBeanConstructorInfo, init$, void, ModelMBeanConstructorInfo*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, clone, $Object*)},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, getDescriptor, $Descriptor*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanConstructorInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, setDescriptor, void, $Descriptor*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, toString, $String*)},
-	{"validDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(ModelMBeanConstructorInfo, validDescriptor, $Descriptor*, $Descriptor*), "javax.management.RuntimeOperationsException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanConstructorInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ModelMBeanConstructorInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.modelmbean.ModelMBeanConstructorInfo",
-	"javax.management.MBeanConstructorInfo",
-	"javax.management.DescriptorAccess",
-	_ModelMBeanConstructorInfo_FieldInfo_,
-	_ModelMBeanConstructorInfo_MethodInfo_
-};
-
-$Object* allocate$ModelMBeanConstructorInfo($Class* clazz) {
-	return $of($alloc(ModelMBeanConstructorInfo));
-}
 
 bool ModelMBeanConstructorInfo::equals(Object$* o) {
 	 return this->$MBeanConstructorInfo::equals(o);
@@ -120,7 +70,7 @@ void ModelMBeanConstructorInfo::init$($String* description, $Constructor* constr
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,Constructor) Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,Constructor) Entry"_s);
 	}
 	$set(this, consDescriptor, validDescriptor(nullptr));
 }
@@ -131,7 +81,7 @@ void ModelMBeanConstructorInfo::init$($String* description, $Constructor* constr
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,Constructor,Descriptor) Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,Constructor,Descriptor) Entry"_s);
 	}
 	$set(this, consDescriptor, validDescriptor(descriptor));
 }
@@ -142,7 +92,7 @@ void ModelMBeanConstructorInfo::init$($String* name, $String* description, $MBea
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,String,MBeanParameterInfo[]) Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,String,MBeanParameterInfo[]) Entry"_s);
 	}
 	$set(this, consDescriptor, validDescriptor(nullptr));
 }
@@ -153,13 +103,13 @@ void ModelMBeanConstructorInfo::init$($String* name, $String* description, $MBea
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,String,MBeanParameterInfo[],Descriptor) Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(String,String,MBeanParameterInfo[],Descriptor) Entry"_s);
 	}
 	$set(this, consDescriptor, validDescriptor(descriptor));
 }
 
 void ModelMBeanConstructorInfo::init$(ModelMBeanConstructorInfo* old) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(old)->getName());
 	$var($String, var$1, old->getDescription());
 	$MBeanConstructorInfo::init$(var$0, var$1, $(old->getSignature()));
@@ -167,7 +117,7 @@ void ModelMBeanConstructorInfo::init$(ModelMBeanConstructorInfo* old) {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(ModelMBeanConstructorInfo) Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "ModelMBeanConstructorInfo(ModelMBeanConstructorInfo) Entry"_s);
 	}
 	$set(this, consDescriptor, validDescriptor(this->consDescriptor));
 }
@@ -176,53 +126,57 @@ $Object* ModelMBeanConstructorInfo::clone() {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
-	return $of(($new(ModelMBeanConstructorInfo, this)));
+	return ($of($new(ModelMBeanConstructorInfo, this)));
 }
 
 $Descriptor* ModelMBeanConstructorInfo::getDescriptor() {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	if (this->consDescriptor == nullptr) {
 		$set(this, consDescriptor, validDescriptor(nullptr));
 	}
-	return ($cast($Descriptor, $nc(this->consDescriptor)->clone()));
+	return $cast($Descriptor, $nc(this->consDescriptor)->clone());
 }
 
 void ModelMBeanConstructorInfo::setDescriptor($Descriptor* inDescriptor) {
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
 	$set(this, consDescriptor, validDescriptor(inDescriptor));
 }
 
 $String* ModelMBeanConstructorInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Entry"_s);
+		$JmxProperties::MODELMBEAN_LOGGER->log($System$Logger$Level::TRACE, "Entry"_s);
 	}
-	$var($String, var$3, $$str({"ModelMBeanConstructorInfo: "_s, $(this->getName()), " ; Description: "_s}));
-	$var($String, var$2, $$concat(var$3, $(this->getDescription())));
-	$var($String, var$1, $$concat(var$2, " ; Descriptor: "_s));
-	$var($String, var$0, $$concat(var$1, $(this->getDescriptor())));
-	$var($String, retStr, $concat(var$0, " ; Signature: "_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("ModelMBeanConstructorInfo: "_s);
+	var$0->append($(this->getName()));
+	var$0->append(" ; Description: "_s);
+	var$0->append($(this->getDescription()));
+	var$0->append(" ; Descriptor: "_s);
+	var$0->append($(this->getDescriptor()));
+	var$0->append(" ; Signature: "_s);
+	$var($String, retStr, $str(var$0));
 	$var($MBeanParameterInfoArray, pTypes, this->getSignature());
 	for (int32_t i = 0; i < $nc(pTypes)->length; ++i) {
-		$assign(retStr, $nc(retStr)->concat($$str({$($nc((pTypes->get(i)))->getType()), ", "_s})));
+		$assign(retStr, retStr->concat($$str({$($nc((pTypes->get(i)))->getType()), ", "_s})));
 	}
 	return retStr;
 }
 
 $Descriptor* ModelMBeanConstructorInfo::validDescriptor($Descriptor* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Descriptor, clone, nullptr);
 	bool defaulted = (in == nullptr);
 	if (defaulted) {
@@ -251,27 +205,31 @@ $Descriptor* ModelMBeanConstructorInfo::validDescriptor($Descriptor* in) {
 		$init($System$Logger$Level);
 		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Defaulting Descriptor displayName to "_s, $(this->getName())}));
 	}
-	if ($nc(clone)->getFieldValue("role"_s) == nullptr) {
+	if (clone->getFieldValue("role"_s) == nullptr) {
 		clone->setField("role"_s, "constructor"_s);
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, "Defaulting Descriptor role field to \"constructor\""_s);
 	}
-	if (!$nc(clone)->isValid()) {
-		$var($RuntimeException, var$0, static_cast<$RuntimeException*>($new($IllegalArgumentException, "Invalid Descriptor argument"_s)));
-		$throwNew($RuntimeOperationsException, var$0, $$str({"The isValid() method of the Descriptor object itself returned false,one or more required fields are invalid. Descriptor:"_s, $($of(clone)->toString())}));
+	if (!clone->isValid()) {
+		$var($RuntimeException, var$0, $new($IllegalArgumentException, "Invalid Descriptor argument"_s));
+		$throwNew($RuntimeOperationsException, var$0, $$str({"The isValid() method of the Descriptor object itself returned false,one or more required fields are invalid. Descriptor:"_s, $(clone->toString())}));
 	}
-	if (!$nc($(getName()))->equalsIgnoreCase($cast($String, $($nc(clone)->getFieldValue("name"_s))))) {
-		$var($RuntimeException, var$1, static_cast<$RuntimeException*>($new($IllegalArgumentException, "Invalid Descriptor argument"_s)));
-		$var($String, var$2, $$str({"The Descriptor \"name\" field does not match the object described.  Expected: "_s, $(this->getName()), " , was: "_s}));
-		$throwNew($RuntimeOperationsException, var$1, $$concat(var$2, $($nc(clone)->getFieldValue("name"_s))));
+	if (!$$nc(getName())->equalsIgnoreCase($$cast($String, clone->getFieldValue("name"_s)))) {
+		$var($RuntimeException, var$1, $new($IllegalArgumentException, "Invalid Descriptor argument"_s));
+		$var($StringBuilder, var$2, $new($StringBuilder));
+		var$2->append("The Descriptor \"name\" field does not match the object described.  Expected: "_s);
+		var$2->append($(this->getName()));
+		var$2->append(" , was: "_s);
+		var$2->append($(clone->getFieldValue("name"_s)));
+		$throwNew($RuntimeOperationsException, var$1, $$str(var$2));
 	}
-	if (!"operation"_s->equalsIgnoreCase($cast($String, $($nc(clone)->getFieldValue("descriptorType"_s))))) {
-		$var($RuntimeException, var$3, static_cast<$RuntimeException*>($new($IllegalArgumentException, "Invalid Descriptor argument"_s)));
-		$throwNew($RuntimeOperationsException, var$3, $$str({"The Descriptor \"descriptorType\" field does not match the object described.  Expected: \"operation\" , was: "_s, $($nc(clone)->getFieldValue("descriptorType"_s))}));
+	if (!"operation"_s->equalsIgnoreCase($$cast($String, clone->getFieldValue("descriptorType"_s)))) {
+		$var($RuntimeException, var$3, $new($IllegalArgumentException, "Invalid Descriptor argument"_s));
+		$throwNew($RuntimeOperationsException, var$3, $$str({"The Descriptor \"descriptorType\" field does not match the object described.  Expected: \"operation\" , was: "_s, $(clone->getFieldValue("descriptorType"_s))}));
 	}
-	if (!$nc(($cast($String, $($nc(clone)->getFieldValue("role"_s)))))->equalsIgnoreCase("constructor"_s)) {
-		$var($RuntimeException, var$4, static_cast<$RuntimeException*>($new($IllegalArgumentException, "Invalid Descriptor argument"_s)));
+	if (!$$sure($String, clone->getFieldValue("role"_s))->equalsIgnoreCase("constructor"_s)) {
+		$var($RuntimeException, var$4, $new($IllegalArgumentException, "Invalid Descriptor argument"_s));
 		$throwNew($RuntimeOperationsException, var$4, $$str({"The Descriptor \"role\" field does not match the object described.  Expected: \"constructor\" , was: "_s, $(clone->getFieldValue("role"_s))}));
 	}
 	return clone;
@@ -284,16 +242,16 @@ void ModelMBeanConstructorInfo::readObject($ObjectInputStream* in) {
 void ModelMBeanConstructorInfo::writeObject($ObjectOutputStream* out) {
 	if (ModelMBeanConstructorInfo::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("consDescriptor"_s, $of(this->consDescriptor));
-		fields->put("currClass"_s, $of(ModelMBeanConstructorInfo::currClass));
+		$nc(fields)->put("consDescriptor"_s, this->consDescriptor);
+		fields->put("currClass"_s, ModelMBeanConstructorInfo::currClass);
 		out->writeFields();
 	} else {
 		$nc(out)->defaultWriteObject();
 	}
 }
 
-void clinit$ModelMBeanConstructorInfo($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ModelMBeanConstructorInfo::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ModelMBeanConstructorInfo::currClass, "ModelMBeanConstructorInfo"_s);
 	$beforeCallerSensitive();
 	$load($Descriptor);
@@ -306,7 +264,7 @@ void clinit$ModelMBeanConstructorInfo($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			ModelMBeanConstructorInfo::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -324,7 +282,47 @@ ModelMBeanConstructorInfo::ModelMBeanConstructorInfo() {
 }
 
 $Class* ModelMBeanConstructorInfo::load$($String* name, bool initialize) {
-	$loadClass(ModelMBeanConstructorInfo, name, initialize, &_ModelMBeanConstructorInfo_ClassInfo_, clinit$ModelMBeanConstructorInfo, allocate$ModelMBeanConstructorInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanConstructorInfo, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModelMBeanConstructorInfo, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ModelMBeanConstructorInfo, compat)},
+		{"consDescriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE, $field(ModelMBeanConstructorInfo, consDescriptor)},
+		{"currClass", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModelMBeanConstructorInfo, currClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/String;Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $Constructor*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Constructor;Ljavax/management/Descriptor;)V", "(Ljava/lang/String;Ljava/lang/reflect/Constructor<*>;Ljavax/management/Descriptor;)V", $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $Constructor*, $Descriptor*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;)V", nullptr, $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(ModelMBeanConstructorInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*, $Descriptor*)},
+		{"<init>", "(Ljavax/management/modelmbean/ModelMBeanConstructorInfo;)V", nullptr, 0, $method(ModelMBeanConstructorInfo, init$, void, ModelMBeanConstructorInfo*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, clone, $Object*)},
+		{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, getDescriptor, $Descriptor*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanConstructorInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, setDescriptor, void, $Descriptor*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanConstructorInfo, toString, $String*)},
+		{"validDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(ModelMBeanConstructorInfo, validDescriptor, $Descriptor*, $Descriptor*), "javax.management.RuntimeOperationsException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanConstructorInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.modelmbean.ModelMBeanConstructorInfo",
+		"javax.management.MBeanConstructorInfo",
+		"javax.management.DescriptorAccess",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelMBeanConstructorInfo, name, initialize, &classInfo$$, ModelMBeanConstructorInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModelMBeanConstructorInfo));
+	});
 	return class$;
 }
 

@@ -108,6 +108,7 @@ class MotifDnDConstants : public ::java::lang::Object {
 	$class(MotifDnDConstants, 0, ::java::lang::Object)
 public:
 	MotifDnDConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t createMotifWindow();
 	static int8_t getByteOrderByte();

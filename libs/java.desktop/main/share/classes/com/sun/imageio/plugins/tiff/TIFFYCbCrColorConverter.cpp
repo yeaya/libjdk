@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFYCbCrColorConverter.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFColorConverter.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
@@ -27,46 +26,11 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFYCbCrColorConverter_FieldInfo_[] = {
-	{"CODING_RANGE_Y", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFYCbCrColorConverter, CODING_RANGE_Y)},
-	{"CODING_RANGE_CB_CR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFYCbCrColorConverter, CODING_RANGE_CB_CR)},
-	{"lumaRed", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, lumaRed)},
-	{"lumaGreen", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, lumaGreen)},
-	{"lumaBlue", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, lumaBlue)},
-	{"referenceBlackY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceBlackY)},
-	{"referenceWhiteY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceWhiteY)},
-	{"referenceBlackCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceBlackCb)},
-	{"referenceWhiteCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceWhiteCb)},
-	{"referenceBlackCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceBlackCr)},
-	{"referenceWhiteCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceWhiteCr)},
-	{}
-};
-
-$MethodInfo _TIFFYCbCrColorConverter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;)V", nullptr, $PUBLIC, $method(TIFFYCbCrColorConverter, init$, void, $TIFFImageMetadata*)},
-	{"fromRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrColorConverter, fromRGB, void, float, float, float, $floats*)},
-	{"toRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrColorConverter, toRGB, void, float, float, float, $floats*)},
-	{}
-};
-
-$ClassInfo _TIFFYCbCrColorConverter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFYCbCrColorConverter",
-	"com.sun.imageio.plugins.tiff.TIFFColorConverter",
-	nullptr,
-	_TIFFYCbCrColorConverter_FieldInfo_,
-	_TIFFYCbCrColorConverter_MethodInfo_
-};
-
-$Object* allocate$TIFFYCbCrColorConverter($Class* clazz) {
-	return $of($alloc(TIFFYCbCrColorConverter));
-}
-
 float TIFFYCbCrColorConverter::CODING_RANGE_Y = 0.0;
 float TIFFYCbCrColorConverter::CODING_RANGE_CB_CR = 0.0;
 
 void TIFFYCbCrColorConverter::init$($TIFFImageMetadata* metadata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TIFFColorConverter::init$();
 	this->lumaRed = 0.299f;
 	this->lumaGreen = 0.587f;
@@ -116,13 +80,43 @@ void TIFFYCbCrColorConverter::toRGB(float x0, float x1, float x2, $floats* rgb) 
 TIFFYCbCrColorConverter::TIFFYCbCrColorConverter() {
 }
 
-void clinit$TIFFYCbCrColorConverter($Class* class$) {
+void TIFFYCbCrColorConverter::clinit$($Class* clazz) {
 	TIFFYCbCrColorConverter::CODING_RANGE_Y = 255.0f;
 	TIFFYCbCrColorConverter::CODING_RANGE_CB_CR = 127.0f;
 }
 
 $Class* TIFFYCbCrColorConverter::load$($String* name, bool initialize) {
-	$loadClass(TIFFYCbCrColorConverter, name, initialize, &_TIFFYCbCrColorConverter_ClassInfo_, clinit$TIFFYCbCrColorConverter, allocate$TIFFYCbCrColorConverter);
+	$FieldInfo fieldInfos$$[] = {
+		{"CODING_RANGE_Y", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFYCbCrColorConverter, CODING_RANGE_Y)},
+		{"CODING_RANGE_CB_CR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFYCbCrColorConverter, CODING_RANGE_CB_CR)},
+		{"lumaRed", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, lumaRed)},
+		{"lumaGreen", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, lumaGreen)},
+		{"lumaBlue", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, lumaBlue)},
+		{"referenceBlackY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceBlackY)},
+		{"referenceWhiteY", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceWhiteY)},
+		{"referenceBlackCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceBlackCb)},
+		{"referenceWhiteCb", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceWhiteCb)},
+		{"referenceBlackCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceBlackCr)},
+		{"referenceWhiteCr", "F", nullptr, $PRIVATE, $field(TIFFYCbCrColorConverter, referenceWhiteCr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;)V", nullptr, $PUBLIC, $method(TIFFYCbCrColorConverter, init$, void, $TIFFImageMetadata*)},
+		{"fromRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrColorConverter, fromRGB, void, float, float, float, $floats*)},
+		{"toRGB", "(FFF[F)V", nullptr, $PUBLIC, $virtualMethod(TIFFYCbCrColorConverter, toRGB, void, float, float, float, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFYCbCrColorConverter",
+		"com.sun.imageio.plugins.tiff.TIFFColorConverter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFYCbCrColorConverter, name, initialize, &classInfo$$, TIFFYCbCrColorConverter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFYCbCrColorConverter);
+	});
 	return class$;
 }
 

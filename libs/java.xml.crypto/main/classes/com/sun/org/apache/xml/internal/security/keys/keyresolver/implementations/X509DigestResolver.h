@@ -79,6 +79,7 @@ class X509DigestResolver : public ::com::sun::org::apache::xml::internal::securi
 	$class(X509DigestResolver, 0, ::com::sun::org::apache::xml::internal::security::keys::keyresolver::KeyResolverSpi)
 public:
 	X509DigestResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void checkStorage(::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage);
 	virtual bool engineCanResolve(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage) override;

@@ -1,5 +1,4 @@
 #include <sun/font/TextSourceLabel.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Rectangle.h>
@@ -40,50 +39,6 @@ using $TextSource = ::sun::font::TextSource;
 namespace sun {
 	namespace font {
 
-$FieldInfo _TextSourceLabel_FieldInfo_[] = {
-	{"source", "Lsun/font/TextSource;", nullptr, 0, $field(TextSourceLabel, source)},
-	{"lb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, lb)},
-	{"ab", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, ab)},
-	{"vb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, vb)},
-	{"ib", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, ib)},
-	{"gv", "Ljava/awt/font/GlyphVector;", nullptr, 0, $field(TextSourceLabel, gv)},
-	{}
-};
-
-$MethodInfo _TextSourceLabel_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/TextSource;)V", nullptr, $PUBLIC, $method(TextSourceLabel, init$, void, $TextSource*)},
-	{"<init>", "(Lsun/font/TextSource;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/Rectangle2D;Ljava/awt/font/GlyphVector;)V", nullptr, $PUBLIC, $method(TextSourceLabel, init$, void, $TextSource*, $Rectangle2D*, $Rectangle2D*, $GlyphVector*)},
-	{"createAlignBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createAlignBounds, $Rectangle2D*)},
-	{"createGV", "()Ljava/awt/font/GlyphVector;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createGV, $GlyphVector*)},
-	{"createItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createItalicBounds, $Rectangle2D*)},
-	{"createLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createLogicalBounds, $Rectangle2D*)},
-	{"createVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createVisualBounds, $Rectangle2D*)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, draw, void, $Graphics2D*, float, float)},
-	{"getAlignBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TextSourceLabel, getAlignBounds, $Rectangle2D*, float, float)},
-	{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getBaselineTransform, $AffineTransform*)},
-	{"getGV", "()Ljava/awt/font/GlyphVector;", nullptr, $PRIVATE, $method(TextSourceLabel, getGV, $GlyphVector*)},
-	{"getItalicBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getItalicBounds, $Rectangle2D*, float, float)},
-	{"getLogicalBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TextSourceLabel, getLogicalBounds, $Rectangle2D*, float, float)},
-	{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getOutline, $Shape*, float, float)},
-	{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
-	{"getSource", "()Lsun/font/TextSource;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getSource, $TextSource*)},
-	{"getVisualBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TextSourceLabel, getVisualBounds, $Rectangle2D*, float, float)},
-	{}
-};
-
-$ClassInfo _TextSourceLabel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.TextSourceLabel",
-	"sun.font.TextLabel",
-	nullptr,
-	_TextSourceLabel_FieldInfo_,
-	_TextSourceLabel_MethodInfo_
-};
-
-$Object* allocate$TextSourceLabel($Class* clazz) {
-	return $of($alloc(TextSourceLabel));
-}
-
 void TextSourceLabel::init$($TextSource* source) {
 	TextSourceLabel::init$(source, nullptr, nullptr, nullptr);
 }
@@ -105,9 +60,9 @@ $Rectangle2D* TextSourceLabel::getLogicalBounds(float x, float y) {
 		$set(this, lb, createLogicalBounds());
 	}
 	float var$0 = (float)($nc(this->lb)->getX() + x);
-	float var$1 = (float)($nc(this->lb)->getY() + y);
-	float var$2 = (float)$nc(this->lb)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->lb)->getHeight());
+	float var$1 = (float)(this->lb->getY() + y);
+	float var$2 = (float)this->lb->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->lb->getHeight());
 }
 
 $Rectangle2D* TextSourceLabel::getVisualBounds(float x, float y) {
@@ -115,9 +70,9 @@ $Rectangle2D* TextSourceLabel::getVisualBounds(float x, float y) {
 		$set(this, vb, createVisualBounds());
 	}
 	float var$0 = (float)($nc(this->vb)->getX() + x);
-	float var$1 = (float)($nc(this->vb)->getY() + y);
-	float var$2 = (float)$nc(this->vb)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->vb)->getHeight());
+	float var$1 = (float)(this->vb->getY() + y);
+	float var$2 = (float)this->vb->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->vb->getHeight());
 }
 
 $Rectangle2D* TextSourceLabel::getAlignBounds(float x, float y) {
@@ -125,9 +80,9 @@ $Rectangle2D* TextSourceLabel::getAlignBounds(float x, float y) {
 		$set(this, ab, createAlignBounds());
 	}
 	float var$0 = (float)($nc(this->ab)->getX() + x);
-	float var$1 = (float)($nc(this->ab)->getY() + y);
-	float var$2 = (float)$nc(this->ab)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->ab)->getHeight());
+	float var$1 = (float)(this->ab->getY() + y);
+	float var$2 = (float)this->ab->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->ab->getHeight());
 }
 
 $Rectangle2D* TextSourceLabel::getItalicBounds(float x, float y) {
@@ -135,17 +90,17 @@ $Rectangle2D* TextSourceLabel::getItalicBounds(float x, float y) {
 		$set(this, ib, createItalicBounds());
 	}
 	float var$0 = (float)($nc(this->ib)->getX() + x);
-	float var$1 = (float)($nc(this->ib)->getY() + y);
-	float var$2 = (float)$nc(this->ib)->getWidth();
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)$nc(this->ib)->getHeight());
+	float var$1 = (float)(this->ib->getY() + y);
+	float var$2 = (float)this->ib->getWidth();
+	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)this->ib->getHeight());
 }
 
 $Rectangle* TextSourceLabel::getPixelBounds($FontRenderContext* frc, float x, float y) {
-	return $nc($(getGV()))->getPixelBounds(frc, x, y);
+	return $$nc(getGV())->getPixelBounds(frc, x, y);
 }
 
 $AffineTransform* TextSourceLabel::getBaselineTransform() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, $nc(this->source)->getFont());
 	if ($nc(font)->hasLayoutAttributes()) {
 		return $AttributeValues::getBaselineTransform($(font->getAttributes()));
@@ -154,7 +109,7 @@ $AffineTransform* TextSourceLabel::getBaselineTransform() {
 }
 
 $Shape* TextSourceLabel::getOutline(float x, float y) {
-	return $nc($(getGV()))->getOutline(x, y);
+	return $$nc(getGV())->getOutline(x, y);
 }
 
 void TextSourceLabel::draw($Graphics2D* g, float x, float y) {
@@ -162,15 +117,15 @@ void TextSourceLabel::draw($Graphics2D* g, float x, float y) {
 }
 
 $Rectangle2D* TextSourceLabel::createLogicalBounds() {
-	return $nc($(getGV()))->getLogicalBounds();
+	return $$nc(getGV())->getLogicalBounds();
 }
 
 $Rectangle2D* TextSourceLabel::createVisualBounds() {
-	return $nc($(getGV()))->getVisualBounds();
+	return $$nc(getGV())->getVisualBounds();
 }
 
 $Rectangle2D* TextSourceLabel::createItalicBounds() {
-	return $nc($(getGV()))->getLogicalBounds();
+	return $$nc(getGV())->getLogicalBounds();
 }
 
 $Rectangle2D* TextSourceLabel::createAlignBounds() {
@@ -185,7 +140,7 @@ $GlyphVector* TextSourceLabel::getGV() {
 }
 
 $GlyphVector* TextSourceLabel::createGV() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, $nc(this->source)->getFont());
 	$var($FontRenderContext, frc, $nc(this->source)->getFRC());
 	int32_t flags = $nc(this->source)->getLayoutFlags();
@@ -202,7 +157,46 @@ TextSourceLabel::TextSourceLabel() {
 }
 
 $Class* TextSourceLabel::load$($String* name, bool initialize) {
-	$loadClass(TextSourceLabel, name, initialize, &_TextSourceLabel_ClassInfo_, allocate$TextSourceLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"source", "Lsun/font/TextSource;", nullptr, 0, $field(TextSourceLabel, source)},
+		{"lb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, lb)},
+		{"ab", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, ab)},
+		{"vb", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, vb)},
+		{"ib", "Ljava/awt/geom/Rectangle2D;", nullptr, 0, $field(TextSourceLabel, ib)},
+		{"gv", "Ljava/awt/font/GlyphVector;", nullptr, 0, $field(TextSourceLabel, gv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/TextSource;)V", nullptr, $PUBLIC, $method(TextSourceLabel, init$, void, $TextSource*)},
+		{"<init>", "(Lsun/font/TextSource;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/Rectangle2D;Ljava/awt/font/GlyphVector;)V", nullptr, $PUBLIC, $method(TextSourceLabel, init$, void, $TextSource*, $Rectangle2D*, $Rectangle2D*, $GlyphVector*)},
+		{"createAlignBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createAlignBounds, $Rectangle2D*)},
+		{"createGV", "()Ljava/awt/font/GlyphVector;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createGV, $GlyphVector*)},
+		{"createItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createItalicBounds, $Rectangle2D*)},
+		{"createLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createLogicalBounds, $Rectangle2D*)},
+		{"createVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(TextSourceLabel, createVisualBounds, $Rectangle2D*)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, draw, void, $Graphics2D*, float, float)},
+		{"getAlignBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TextSourceLabel, getAlignBounds, $Rectangle2D*, float, float)},
+		{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getBaselineTransform, $AffineTransform*)},
+		{"getGV", "()Ljava/awt/font/GlyphVector;", nullptr, $PRIVATE, $method(TextSourceLabel, getGV, $GlyphVector*)},
+		{"getItalicBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getItalicBounds, $Rectangle2D*, float, float)},
+		{"getLogicalBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TextSourceLabel, getLogicalBounds, $Rectangle2D*, float, float)},
+		{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getOutline, $Shape*, float, float)},
+		{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
+		{"getSource", "()Lsun/font/TextSource;", nullptr, $PUBLIC, $virtualMethod(TextSourceLabel, getSource, $TextSource*)},
+		{"getVisualBounds", "(FF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TextSourceLabel, getVisualBounds, $Rectangle2D*, float, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.TextSourceLabel",
+		"sun.font.TextLabel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextSourceLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextSourceLabel);
+	});
 	return class$;
 }
 

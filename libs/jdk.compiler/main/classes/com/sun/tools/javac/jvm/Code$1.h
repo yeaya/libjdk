@@ -15,6 +15,7 @@ class Code$1 : public ::java::lang::Object {
 	$class(Code$1, 0, ::java::lang::Object)
 public:
 	Code$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 	static $ints* $SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat;
 };

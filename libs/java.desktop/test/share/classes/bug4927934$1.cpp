@@ -1,5 +1,4 @@
 #include <bug4927934$1.h>
-
 #include <bug4927934.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -15,8 +14,6 @@
 #include <jcpp.h>
 
 using $bug4927934 = ::bug4927934;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -28,57 +25,19 @@ using $JTree = ::javax::swing::JTree;
 using $TreeExpansionListener = ::javax::swing::event::TreeExpansionListener;
 using $TreeSelectionListener = ::javax::swing::event::TreeSelectionListener;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
-using $TreeNode = ::javax::swing::tree::TreeNode;
-
-$MethodInfo _bug4927934$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug4927934$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4927934$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug4927934$1_EnclosingMethodInfo_ = {
-	"bug4927934",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug4927934$1_InnerClassesInfo_[] = {
-	{"bug4927934$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4927934$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4927934$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug4927934$1_MethodInfo_,
-	nullptr,
-	&_bug4927934$1_EnclosingMethodInfo_,
-	_bug4927934$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4927934"
-};
-
-$Object* allocate$bug4927934$1($Class* clazz) {
-	return $of($alloc(bug4927934$1));
-}
 
 void bug4927934$1::init$() {
 }
 
 void bug4927934$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($bug4927934);
 	$assignStatic($bug4927934::frame, $new($JFrame));
 	$var($DefaultMutableTreeNode, root, $new($DefaultMutableTreeNode, "root"_s));
 	$bug4927934::createNodes(root);
-	$assignStatic($bug4927934::tree, $new($JTree, static_cast<$TreeNode*>(root)));
+	$assignStatic($bug4927934::tree, $new($JTree, root));
 	$var($JScrollPane, scrollPane, $new($JScrollPane, $bug4927934::tree));
-	$nc($($nc($bug4927934::frame)->getContentPane()))->add(static_cast<$Component*>(scrollPane));
+	$$nc($nc($bug4927934::frame)->getContentPane())->add(scrollPane);
 	$nc($bug4927934::tree)->addFocusListener($cast($FocusListener, $bug4927934::listener));
 	$nc($bug4927934::tree)->addTreeSelectionListener($cast($TreeSelectionListener, $bug4927934::listener));
 	$nc($bug4927934::tree)->addTreeExpansionListener($cast($TreeExpansionListener, $bug4927934::listener));
@@ -90,7 +49,38 @@ bug4927934$1::bug4927934$1() {
 }
 
 $Class* bug4927934$1::load$($String* name, bool initialize) {
-	$loadClass(bug4927934$1, name, initialize, &_bug4927934$1_ClassInfo_, allocate$bug4927934$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug4927934$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4927934$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug4927934",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4927934$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4927934$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4927934"
+	};
+	$loadClass(bug4927934$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4927934$1);
+	});
 	return class$;
 }
 

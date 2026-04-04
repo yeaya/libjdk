@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavadocTokenizer.h>
-
 #include <com/sun/tools/javac/parser/JavaTokenizer.h>
 #include <com/sun/tools/javac/parser/JavadocTokenizer$JavadocComment.h>
 #include <com/sun/tools/javac/parser/ScannerFactory.h>
@@ -30,44 +29,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _JavadocTokenizer_FieldInfo_[] = {
-	{"fac", "Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $FINAL, $field(JavadocTokenizer, fac)},
-	{}
-};
-
-$MethodInfo _JavadocTokenizer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(JavadocTokenizer, init$, void, $ScannerFactory*, $CharBuffer*)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavadocTokenizer, init$, void, $ScannerFactory*, $chars*, int32_t)},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer, getLineMap, $Position$LineMap*)},
-	{"processComment", "(IILcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer, processComment, $Tokens$Comment*, int32_t, int32_t, $Tokens$Comment$CommentStyle*)},
-	{}
-};
-
-$InnerClassInfo _JavadocTokenizer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap", "com.sun.tools.javac.parser.JavadocTokenizer", "OffsetMap", $STATIC},
-	{"com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment", "com.sun.tools.javac.parser.JavadocTokenizer", "JavadocComment", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _JavadocTokenizer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.JavadocTokenizer",
-	"com.sun.tools.javac.parser.JavaTokenizer",
-	nullptr,
-	_JavadocTokenizer_FieldInfo_,
-	_JavadocTokenizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavadocTokenizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap,com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment"
-};
-
-$Object* allocate$JavadocTokenizer($Class* clazz) {
-	return $of($alloc(JavadocTokenizer));
-}
-
 void JavadocTokenizer::init$($ScannerFactory* fac, $CharBuffer* cb) {
 	$JavaTokenizer::init$(fac, cb);
 	$set(this, fac, fac);
@@ -92,7 +53,39 @@ JavadocTokenizer::JavadocTokenizer() {
 }
 
 $Class* JavadocTokenizer::load$($String* name, bool initialize) {
-	$loadClass(JavadocTokenizer, name, initialize, &_JavadocTokenizer_ClassInfo_, allocate$JavadocTokenizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fac", "Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $FINAL, $field(JavadocTokenizer, fac)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(JavadocTokenizer, init$, void, $ScannerFactory*, $CharBuffer*)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavadocTokenizer, init$, void, $ScannerFactory*, $chars*, int32_t)},
+		{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer, getLineMap, $Position$LineMap*)},
+		{"processComment", "(IILcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer, processComment, $Tokens$Comment*, int32_t, int32_t, $Tokens$Comment$CommentStyle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap", "com.sun.tools.javac.parser.JavadocTokenizer", "OffsetMap", $STATIC},
+		{"com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment", "com.sun.tools.javac.parser.JavadocTokenizer", "JavadocComment", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.JavadocTokenizer",
+		"com.sun.tools.javac.parser.JavaTokenizer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap,com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment"
+	};
+	$loadClass(JavadocTokenizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocTokenizer);
+	});
 	return class$;
 }
 

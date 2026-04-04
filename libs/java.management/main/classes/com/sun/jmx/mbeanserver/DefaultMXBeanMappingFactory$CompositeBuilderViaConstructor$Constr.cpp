@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/util/BitSet.h>
@@ -17,44 +16,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_FieldInfo_[] = {
-	{"constructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, constructor)},
-	{"paramIndexes", "[I", nullptr, $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, paramIndexes)},
-	{"presentParams", "Ljava/util/BitSet;", nullptr, $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, presentParams)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;[ILjava/util/BitSet;)V", "(Ljava/lang/reflect/Constructor<*>;[ILjava/util/BitSet;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, init$, void, $Constructor*, $ints*, $BitSet*)},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaConstructor", $PRIVATE | $STATIC},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "Constr", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr",
-	"java.lang.Object",
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_FieldInfo_,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr));
-}
-
 void DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr::init$($Constructor* constructor, $ints* paramIndexes, $BitSet* presentParams) {
 	$set(this, constructor, constructor);
 	$set(this, paramIndexes, paramIndexes);
@@ -65,7 +26,39 @@ DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr::DefaultMXBean
 }
 
 $Class* DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, name, initialize, &_DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_ClassInfo_, allocate$DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr);
+	$FieldInfo fieldInfos$$[] = {
+		{"constructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, constructor)},
+		{"paramIndexes", "[I", nullptr, $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, paramIndexes)},
+		{"presentParams", "Ljava/util/BitSet;", nullptr, $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, presentParams)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Constructor;[ILjava/util/BitSet;)V", "(Ljava/lang/reflect/Constructor<*>;[ILjava/util/BitSet;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, init$, void, $Constructor*, $ints*, $BitSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaConstructor", $PRIVATE | $STATIC},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "Constr", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/HelperNodeList.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $Document = ::org::w3c::dom::Document;
 using $Node = ::org::w3c::dom::Node;
 
@@ -25,35 +23,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace utils {
-
-$FieldInfo _HelperNodeList_FieldInfo_[] = {
-	{"nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(HelperNodeList, nodes)},
-	{"allNodesMustHaveSameParent", "Z", nullptr, $PRIVATE | $FINAL, $field(HelperNodeList, allNodesMustHaveSameParent)},
-	{}
-};
-
-$MethodInfo _HelperNodeList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HelperNodeList, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(HelperNodeList, init$, void, bool)},
-	{"appendChild", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, appendChild, void, $Node*), "java.lang.IllegalArgumentException"},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, getLength, int32_t)},
-	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, getOwnerDocument, $Document*)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, item, $Node*, int32_t)},
-	{}
-};
-
-$ClassInfo _HelperNodeList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.HelperNodeList",
-	"java.lang.Object",
-	"org.w3c.dom.NodeList",
-	_HelperNodeList_FieldInfo_,
-	_HelperNodeList_MethodInfo_
-};
-
-$Object* allocate$HelperNodeList($Class* clazz) {
-	return $of($alloc(HelperNodeList));
-}
 
 void HelperNodeList::init$() {
 	HelperNodeList::init$(false);
@@ -75,7 +44,7 @@ int32_t HelperNodeList::getLength() {
 void HelperNodeList::appendChild($Node* node) {
 	bool var$0 = this->allNodesMustHaveSameParent && this->getLength() > 0;
 	if (var$0) {
-		var$0 = $nc($(this->item(0)))->getParentNode() != $nc(node)->getParentNode();
+		var$0 = $$nc(this->item(0))->getParentNode() != $nc(node)->getParentNode();
 	}
 	if (var$0) {
 		$throwNew($IllegalArgumentException, "Nodes have not the same Parent"_s);
@@ -94,7 +63,31 @@ HelperNodeList::HelperNodeList() {
 }
 
 $Class* HelperNodeList::load$($String* name, bool initialize) {
-	$loadClass(HelperNodeList, name, initialize, &_HelperNodeList_ClassInfo_, allocate$HelperNodeList);
+	$FieldInfo fieldInfos$$[] = {
+		{"nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE | $FINAL, $field(HelperNodeList, nodes)},
+		{"allNodesMustHaveSameParent", "Z", nullptr, $PRIVATE | $FINAL, $field(HelperNodeList, allNodesMustHaveSameParent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HelperNodeList, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(HelperNodeList, init$, void, bool)},
+		{"appendChild", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, appendChild, void, $Node*), "java.lang.IllegalArgumentException"},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, getLength, int32_t)},
+		{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, getOwnerDocument, $Document*)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, item, $Node*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.HelperNodeList",
+		"java.lang.Object",
+		"org.w3c.dom.NodeList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HelperNodeList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HelperNodeList);
+	});
 	return class$;
 }
 

@@ -76,6 +76,7 @@ class Method : public ::com::sun::org::apache::bcel::internal::classfile::FieldO
 	$class(Method, 0, ::com::sun::org::apache::bcel::internal::classfile::FieldOrMethod)
 public:
 	Method();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::bcel::internal::classfile::Method* c);
 	void init$(::java::io::DataInput* file, ::com::sun::org::apache::bcel::internal::classfile::ConstantPool* constant_pool);

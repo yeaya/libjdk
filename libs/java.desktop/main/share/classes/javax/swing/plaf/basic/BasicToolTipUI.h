@@ -38,6 +38,7 @@ class $export BasicToolTipUI : public ::javax::swing::plaf::ToolTipUI {
 	$class(BasicToolTipUI, 0, ::javax::swing::plaf::ToolTipUI)
 public:
 	BasicToolTipUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void componentChanged(::javax::swing::JComponent* c);
 	::java::beans::PropertyChangeListener* createPropertyChangeListener(::javax::swing::JComponent* c);

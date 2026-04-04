@@ -1,5 +1,4 @@
 #include <sun/awt/shell/ShellFolder$3.h>
-
 #include <java/lang/Comparable.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace shell {
-
-$MethodInfo _ShellFolder$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ShellFolder$3, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ShellFolder$3, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _ShellFolder$3_EnclosingMethodInfo_ = {
-	"sun.awt.shell.ShellFolder",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ShellFolder$3_InnerClassesInfo_[] = {
-	{"sun.awt.shell.ShellFolder$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ShellFolder$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.ShellFolder$3",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_ShellFolder$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;",
-	&_ShellFolder$3_EnclosingMethodInfo_,
-	_ShellFolder$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.ShellFolder"
-};
-
-$Object* allocate$ShellFolder$3($Class* clazz) {
-	return $of($alloc(ShellFolder$3));
-}
 
 void ShellFolder$3::init$() {
 }
@@ -74,7 +36,38 @@ ShellFolder$3::ShellFolder$3() {
 }
 
 $Class* ShellFolder$3::load$($String* name, bool initialize) {
-	$loadClass(ShellFolder$3, name, initialize, &_ShellFolder$3_ClassInfo_, allocate$ShellFolder$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ShellFolder$3, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ShellFolder$3, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.ShellFolder",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.ShellFolder$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.ShellFolder$3",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.ShellFolder"
+	};
+	$loadClass(ShellFolder$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShellFolder$3);
+	});
 	return class$;
 }
 

@@ -37,6 +37,7 @@ class DataFlavorUtil$DataFlavorComparator : public ::java::util::Comparator {
 	$class(DataFlavorUtil$DataFlavorComparator, 0, ::java::util::Comparator)
 public:
 	DataFlavorUtil$DataFlavorComparator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare(::java::awt::datatransfer::DataFlavor* flavor1, ::java::awt::datatransfer::DataFlavor* flavor2);
 	virtual int32_t compare(Object$* flavor1, Object$* flavor2) override;

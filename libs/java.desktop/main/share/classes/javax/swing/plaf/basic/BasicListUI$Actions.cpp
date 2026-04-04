@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicListUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Point.h>
@@ -54,7 +53,6 @@
 #undef VERTICAL
 #undef VERTICAL_WRAP
 
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
@@ -65,7 +63,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $BasicListUI = ::javax::swing::plaf::basic::BasicListUI;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
@@ -76,79 +73,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicListUI$Actions_FieldInfo_[] = {
-	{"SELECT_PREVIOUS_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_COLUMN)},
-	{"SELECT_PREVIOUS_COLUMN_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_COLUMN_EXTEND)},
-	{"SELECT_PREVIOUS_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_COLUMN_CHANGE_LEAD)},
-	{"SELECT_NEXT_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_COLUMN)},
-	{"SELECT_NEXT_COLUMN_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_COLUMN_EXTEND)},
-	{"SELECT_NEXT_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_COLUMN_CHANGE_LEAD)},
-	{"SELECT_PREVIOUS_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_ROW)},
-	{"SELECT_PREVIOUS_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_ROW_EXTEND)},
-	{"SELECT_PREVIOUS_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_ROW_CHANGE_LEAD)},
-	{"SELECT_NEXT_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_ROW)},
-	{"SELECT_NEXT_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_ROW_EXTEND)},
-	{"SELECT_NEXT_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_ROW_CHANGE_LEAD)},
-	{"SELECT_FIRST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_FIRST_ROW)},
-	{"SELECT_FIRST_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_FIRST_ROW_EXTEND)},
-	{"SELECT_FIRST_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_FIRST_ROW_CHANGE_LEAD)},
-	{"SELECT_LAST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_LAST_ROW)},
-	{"SELECT_LAST_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_LAST_ROW_EXTEND)},
-	{"SELECT_LAST_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_LAST_ROW_CHANGE_LEAD)},
-	{"SCROLL_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_UP)},
-	{"SCROLL_UP_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_UP_EXTEND)},
-	{"SCROLL_UP_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_UP_CHANGE_LEAD)},
-	{"SCROLL_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_DOWN)},
-	{"SCROLL_DOWN_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_DOWN_EXTEND)},
-	{"SCROLL_DOWN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_DOWN_CHANGE_LEAD)},
-	{"SELECT_ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_ALL)},
-	{"CLEAR_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, CLEAR_SELECTION)},
-	{"ADD_TO_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, ADD_TO_SELECTION)},
-	{"TOGGLE_AND_ANCHOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, TOGGLE_AND_ANCHOR)},
-	{"EXTEND_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, EXTEND_TO)},
-	{"MOVE_SELECTION_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, MOVE_SELECTION_TO)},
-	{}
-};
-
-$MethodInfo _BasicListUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicListUI$Actions, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"adjustScrollPositionIfNecessary", "(Ljavax/swing/JList;II)V", "(Ljavax/swing/JList<*>;II)V", $PRIVATE, $method(BasicListUI$Actions, adjustScrollPositionIfNecessary, void, $JList*, int32_t, int32_t)},
-	{"changeSelection", "(Ljavax/swing/JList;III)V", "(Ljavax/swing/JList<*>;III)V", $PRIVATE, $method(BasicListUI$Actions, changeSelection, void, $JList*, int32_t, int32_t, int32_t)},
-	{"clearSelection", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(BasicListUI$Actions, clearSelection, void, $JList*)},
-	{"getNextColumnIndex", "(Ljavax/swing/JList;Ljavax/swing/plaf/basic/BasicListUI;I)I", "(Ljavax/swing/JList<*>;Ljavax/swing/plaf/basic/BasicListUI;I)I", $PRIVATE, $method(BasicListUI$Actions, getNextColumnIndex, int32_t, $JList*, $BasicListUI*, int32_t)},
-	{"getNextIndex", "(Ljavax/swing/JList;Ljavax/swing/plaf/basic/BasicListUI;I)I", "(Ljavax/swing/JList<*>;Ljavax/swing/plaf/basic/BasicListUI;I)I", $PRIVATE, $method(BasicListUI$Actions, getNextIndex, int32_t, $JList*, $BasicListUI*, int32_t)},
-	{"getNextPageIndex", "(Ljavax/swing/JList;I)I", "(Ljavax/swing/JList<*>;I)I", $PRIVATE, $method(BasicListUI$Actions, getNextPageIndex, int32_t, $JList*, int32_t)},
-	{"selectAll", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(BasicListUI$Actions, selectAll, void, $JList*)},
-	{}
-};
-
-$InnerClassInfo _BasicListUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicListUI$Actions", "javax.swing.plaf.basic.BasicListUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicListUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicListUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicListUI$Actions_FieldInfo_,
-	_BasicListUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicListUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicListUI"
-};
-
-$Object* allocate$BasicListUI$Actions($Class* clazz) {
-	return $of($alloc(BasicListUI$Actions));
-}
 
 $String* BasicListUI$Actions::SELECT_PREVIOUS_COLUMN = nullptr;
 $String* BasicListUI$Actions::SELECT_PREVIOUS_COLUMN_EXTEND = nullptr;
@@ -186,7 +110,7 @@ void BasicListUI$Actions::init$($String* name) {
 }
 
 void BasicListUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getName());
 	$var($JList, list, $cast($JList, $nc(e)->getSource()));
 	$load($BasicListUI);
@@ -222,11 +146,11 @@ void BasicListUI$Actions::actionPerformed($ActionEvent* e) {
 	} else if (name == BasicListUI$Actions::SELECT_FIRST_ROW_CHANGE_LEAD) {
 		changeSelection(list, 0, 0, -1);
 	} else if (name == BasicListUI$Actions::SELECT_LAST_ROW) {
-		changeSelection(list, 1, $nc($($nc(list)->getModel()))->getSize() - 1, 1);
+		changeSelection(list, 1, $$nc(list->getModel())->getSize() - 1, 1);
 	} else if (name == BasicListUI$Actions::SELECT_LAST_ROW_EXTEND) {
-		changeSelection(list, 2, $nc($($nc(list)->getModel()))->getSize() - 1, 1);
+		changeSelection(list, 2, $$nc(list->getModel())->getSize() - 1, 1);
 	} else if (name == BasicListUI$Actions::SELECT_LAST_ROW_CHANGE_LEAD) {
-		changeSelection(list, 0, $nc($($nc(list)->getModel()))->getSize() - 1, 1);
+		changeSelection(list, 0, $$nc(list->getModel())->getSize() - 1, 1);
 	} else if (name == BasicListUI$Actions::SCROLL_UP) {
 		changeSelection(list, 1, getNextPageIndex(list, -1), -1);
 	} else if (name == BasicListUI$Actions::SCROLL_UP_EXTEND) {
@@ -244,33 +168,33 @@ void BasicListUI$Actions::actionPerformed($ActionEvent* e) {
 	} else if (name == BasicListUI$Actions::CLEAR_SELECTION) {
 		clearSelection(list);
 	} else if (name == BasicListUI$Actions::ADD_TO_SELECTION) {
-		int32_t index = $BasicListUI::adjustIndex($nc($($nc(list)->getSelectionModel()))->getLeadSelectionIndex(), list);
-		if (!$nc(list)->isSelectedIndex(index)) {
-			int32_t oldAnchor = $nc($(list->getSelectionModel()))->getAnchorSelectionIndex();
+		int32_t index = $BasicListUI::adjustIndex($$nc(list->getSelectionModel())->getLeadSelectionIndex(), list);
+		if (!list->isSelectedIndex(index)) {
+			int32_t oldAnchor = $$nc(list->getSelectionModel())->getAnchorSelectionIndex();
 			list->setValueIsAdjusting(true);
 			list->addSelectionInterval(index, index);
-			$nc($(list->getSelectionModel()))->setAnchorSelectionIndex(oldAnchor);
+			$$nc(list->getSelectionModel())->setAnchorSelectionIndex(oldAnchor);
 			list->setValueIsAdjusting(false);
 		}
 	} else if (name == BasicListUI$Actions::TOGGLE_AND_ANCHOR) {
-		int32_t index = $BasicListUI::adjustIndex($nc($($nc(list)->getSelectionModel()))->getLeadSelectionIndex(), list);
-		if ($nc(list)->isSelectedIndex(index)) {
+		int32_t index = $BasicListUI::adjustIndex($$nc(list->getSelectionModel())->getLeadSelectionIndex(), list);
+		if (list->isSelectedIndex(index)) {
 			list->removeSelectionInterval(index, index);
 		} else {
 			list->addSelectionInterval(index, index);
 		}
 	} else if (name == BasicListUI$Actions::EXTEND_TO) {
-		changeSelection(list, 2, $BasicListUI::adjustIndex($nc($($nc(list)->getSelectionModel()))->getLeadSelectionIndex(), list), 0);
+		changeSelection(list, 2, $BasicListUI::adjustIndex($$nc(list->getSelectionModel())->getLeadSelectionIndex(), list), 0);
 	} else if (name == BasicListUI$Actions::MOVE_SELECTION_TO) {
-		changeSelection(list, 1, $BasicListUI::adjustIndex($nc($($nc(list)->getSelectionModel()))->getLeadSelectionIndex(), list), 0);
+		changeSelection(list, 1, $BasicListUI::adjustIndex($$nc(list->getSelectionModel())->getLeadSelectionIndex(), list), 0);
 	}
 }
 
 bool BasicListUI$Actions::accept(Object$* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, name, getName());
 	if ($equals(name, BasicListUI$Actions::SELECT_PREVIOUS_COLUMN_CHANGE_LEAD) || $equals(name, BasicListUI$Actions::SELECT_NEXT_COLUMN_CHANGE_LEAD) || $equals(name, BasicListUI$Actions::SELECT_PREVIOUS_ROW_CHANGE_LEAD) || $equals(name, BasicListUI$Actions::SELECT_NEXT_ROW_CHANGE_LEAD) || $equals(name, BasicListUI$Actions::SELECT_FIRST_ROW_CHANGE_LEAD) || $equals(name, BasicListUI$Actions::SELECT_LAST_ROW_CHANGE_LEAD) || $equals(name, BasicListUI$Actions::SCROLL_UP_CHANGE_LEAD) || $equals(name, BasicListUI$Actions::SCROLL_DOWN_CHANGE_LEAD)) {
-		return c != nullptr && $instanceOf($DefaultListSelectionModel, $($nc(($cast($JList, c)))->getSelectionModel()));
+		return c != nullptr && $instanceOf($DefaultListSelectionModel, $($cast($JList, c)->getSelectionModel()));
 	}
 	return true;
 }
@@ -280,12 +204,12 @@ void BasicListUI$Actions::clearSelection($JList* list) {
 }
 
 void BasicListUI$Actions::selectAll($JList* list) {
-	$useLocalCurrentObjectStackCache();
-	int32_t size = $nc($($nc(list)->getModel()))->getSize();
+	$useLocalObjectStack();
+	int32_t size = $$nc($nc(list)->getModel())->getSize();
 	if (size > 0) {
 		$var($ListSelectionModel, lsm, list->getSelectionModel());
 		int32_t lead = $BasicListUI::adjustIndex($nc(lsm)->getLeadSelectionIndex(), list);
-		if ($nc(lsm)->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION) {
+		if (lsm->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION) {
 			if (lead == -1) {
 				int32_t min = $BasicListUI::adjustIndex(list->getMinSelectionIndex(), list);
 				lead = (min == -1 ? 0 : min);
@@ -303,12 +227,12 @@ void BasicListUI$Actions::selectAll($JList* list) {
 }
 
 int32_t BasicListUI$Actions::getNextPageIndex($JList* list, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(list)->getModel()))->getSize() == 0) {
+	$useLocalObjectStack();
+	if ($$nc($nc(list)->getModel())->getSize() == 0) {
 		return -1;
 	}
 	int32_t index = -1;
-	$var($Rectangle, visRect, $nc(list)->getVisibleRect());
+	$var($Rectangle, visRect, list->getVisibleRect());
 	$var($ListSelectionModel, lsm, list->getSelectionModel());
 	int32_t lead = $BasicListUI::adjustIndex($nc(lsm)->getLeadSelectionIndex(), list);
 	$var($Rectangle, leadRect, (lead == -1) ? $new($Rectangle) : list->getCellBounds(lead, lead));
@@ -317,11 +241,11 @@ int32_t BasicListUI$Actions::getNextPageIndex($JList* list, int32_t direction) {
 	}
 	bool var$0 = list->getLayoutOrientation() == $JList::VERTICAL_WRAP;
 	if (var$0 && list->getVisibleRowCount() <= 0) {
-		if (!$nc($(list->getComponentOrientation()))->isLeftToRight()) {
+		if (!$$nc(list->getComponentOrientation())->isLeftToRight()) {
 			direction = -direction;
 		}
 		if (direction < 0) {
-			$nc(visRect)->x = $nc(leadRect)->x + leadRect->width - visRect->width;
+			$nc(visRect)->x = $nc(leadRect)->x + $nc(leadRect)->width - $nc(visRect)->width;
 			$var($Point, p, $new($Point, visRect->x - 1, leadRect->y));
 			index = list->locationToIndex(p);
 			if (index == -1) {
@@ -365,7 +289,7 @@ int32_t BasicListUI$Actions::getNextPageIndex($JList* list, int32_t direction) {
 		$var($Point, p, $new($Point, $nc(leadRect)->x, $nc(visRect)->y));
 		index = list->locationToIndex(p);
 		if (lead <= index) {
-			$nc(visRect)->y = $nc(leadRect)->y + leadRect->height - visRect->height;
+			visRect->y = leadRect->y + leadRect->height - visRect->height;
 			p->y = visRect->y;
 			index = list->locationToIndex(p);
 			if (index == -1) {
@@ -386,13 +310,13 @@ int32_t BasicListUI$Actions::getNextPageIndex($JList* list, int32_t direction) {
 			}
 		}
 	} else {
-		$var($Point, p, $new($Point, $nc(leadRect)->x, $nc(visRect)->y + visRect->height - 1));
+		$var($Point, p, $new($Point, $nc(leadRect)->x, $nc(visRect)->y + $nc(visRect)->height - 1));
 		index = list->locationToIndex(p);
 		if (index == -1) {
 			return index;
 		}
 		$var($Rectangle, cellBounds, list->getCellBounds(index, index));
-		if (cellBounds != nullptr && cellBounds->y + cellBounds->height > $nc(visRect)->y + visRect->height) {
+		if (cellBounds != nullptr && cellBounds->y + cellBounds->height > visRect->y + visRect->height) {
 			p->y = cellBounds->y - 1;
 			index = list->locationToIndex(p);
 			if (index == -1) {
@@ -402,7 +326,7 @@ int32_t BasicListUI$Actions::getNextPageIndex($JList* list, int32_t direction) {
 			index = $Math::max(index, lead);
 		}
 		if (lead >= index) {
-			$nc(visRect)->y = $nc(leadRect)->y;
+			visRect->y = leadRect->y;
 			p->y = visRect->y + visRect->height - 1;
 			index = list->locationToIndex(p);
 			if (index == -1) {
@@ -427,8 +351,8 @@ int32_t BasicListUI$Actions::getNextPageIndex($JList* list, int32_t direction) {
 }
 
 void BasicListUI$Actions::changeSelection($JList* list, int32_t type, int32_t index, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
-	if (index >= 0 && index < $nc($($nc(list)->getModel()))->getSize()) {
+	$useLocalObjectStack();
+	if (index >= 0 && index < $$nc($nc(list)->getModel())->getSize()) {
 		$var($ListSelectionModel, lsm, list->getSelectionModel());
 		if (type == 0 && list->getSelectionMode() != $ListSelectionModel::MULTIPLE_INTERVAL_SELECTION) {
 			type = 1;
@@ -443,13 +367,13 @@ void BasicListUI$Actions::changeSelection($JList* list, int32_t type, int32_t in
 		} else if (type == 1) {
 			list->setSelectedIndex(index);
 		} else {
-			$nc(($cast($DefaultListSelectionModel, lsm)))->moveLeadSelectionIndex(index);
+			$nc($cast($DefaultListSelectionModel, lsm))->moveLeadSelectionIndex(index);
 		}
 	}
 }
 
 void BasicListUI$Actions::adjustScrollPositionIfNecessary($JList* list, int32_t index, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (direction == 0) {
 		return;
 	}
@@ -458,7 +382,7 @@ void BasicListUI$Actions::adjustScrollPositionIfNecessary($JList* list, int32_t 
 	if (cellBounds != nullptr && !$nc(visRect)->contains(cellBounds)) {
 		bool var$0 = list->getLayoutOrientation() == $JList::VERTICAL_WRAP;
 		if (var$0 && list->getVisibleRowCount() <= 0) {
-			if ($nc($(list->getComponentOrientation()))->isLeftToRight()) {
+			if ($$nc(list->getComponentOrientation())->isLeftToRight()) {
 				if (direction > 0) {
 					int32_t x = $Math::max(0, cellBounds->x + cellBounds->width - visRect->width);
 					int32_t startIndex = list->locationToIndex($$new($Point, x, cellBounds->y));
@@ -528,12 +452,12 @@ void BasicListUI$Actions::adjustScrollPositionIfNecessary($JList* list, int32_t 
 int32_t BasicListUI$Actions::getNextColumnIndex($JList* list, $BasicListUI* ui, int32_t amount) {
 	if ($nc(list)->getLayoutOrientation() != $JList::VERTICAL) {
 		int32_t index = $BasicListUI::adjustIndex(list->getLeadSelectionIndex(), list);
-		int32_t size = $nc($(list->getModel()))->getSize();
+		int32_t size = $$nc(list->getModel())->getSize();
 		if (index == -1) {
 			return 0;
 		} else if (size == 1) {
 			return 0;
-		} else if (ui == nullptr || $nc(ui)->columnCount <= 1) {
+		} else if (ui == nullptr || ui->columnCount <= 1) {
 			return -1;
 		}
 		int32_t column = $nc(ui)->convertModelToColumn(index);
@@ -553,7 +477,7 @@ int32_t BasicListUI$Actions::getNextColumnIndex($JList* list, $BasicListUI* ui, 
 
 int32_t BasicListUI$Actions::getNextIndex($JList* list, $BasicListUI* ui, int32_t amount) {
 	int32_t index = $BasicListUI::adjustIndex($nc(list)->getLeadSelectionIndex(), list);
-	int32_t size = $nc($($nc(list)->getModel()))->getSize();
+	int32_t size = $$nc(list->getModel())->getSize();
 	if (index == -1) {
 		if (size > 0) {
 			if (amount > 0) {
@@ -577,7 +501,7 @@ int32_t BasicListUI$Actions::getNextIndex($JList* list, $BasicListUI* ui, int32_
 BasicListUI$Actions::BasicListUI$Actions() {
 }
 
-void clinit$BasicListUI$Actions($Class* class$) {
+void BasicListUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicListUI$Actions::SELECT_PREVIOUS_COLUMN, "selectPreviousColumn"_s);
 	$assignStatic(BasicListUI$Actions::SELECT_PREVIOUS_COLUMN_EXTEND, "selectPreviousColumnExtendSelection"_s);
 	$assignStatic(BasicListUI$Actions::SELECT_PREVIOUS_COLUMN_CHANGE_LEAD, "selectPreviousColumnChangeLead"_s);
@@ -611,7 +535,74 @@ void clinit$BasicListUI$Actions($Class* class$) {
 }
 
 $Class* BasicListUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicListUI$Actions, name, initialize, &_BasicListUI$Actions_ClassInfo_, clinit$BasicListUI$Actions, allocate$BasicListUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"SELECT_PREVIOUS_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_COLUMN)},
+		{"SELECT_PREVIOUS_COLUMN_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_COLUMN_EXTEND)},
+		{"SELECT_PREVIOUS_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_COLUMN_CHANGE_LEAD)},
+		{"SELECT_NEXT_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_COLUMN)},
+		{"SELECT_NEXT_COLUMN_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_COLUMN_EXTEND)},
+		{"SELECT_NEXT_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_COLUMN_CHANGE_LEAD)},
+		{"SELECT_PREVIOUS_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_ROW)},
+		{"SELECT_PREVIOUS_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_ROW_EXTEND)},
+		{"SELECT_PREVIOUS_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_PREVIOUS_ROW_CHANGE_LEAD)},
+		{"SELECT_NEXT_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_ROW)},
+		{"SELECT_NEXT_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_ROW_EXTEND)},
+		{"SELECT_NEXT_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_NEXT_ROW_CHANGE_LEAD)},
+		{"SELECT_FIRST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_FIRST_ROW)},
+		{"SELECT_FIRST_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_FIRST_ROW_EXTEND)},
+		{"SELECT_FIRST_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_FIRST_ROW_CHANGE_LEAD)},
+		{"SELECT_LAST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_LAST_ROW)},
+		{"SELECT_LAST_ROW_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_LAST_ROW_EXTEND)},
+		{"SELECT_LAST_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_LAST_ROW_CHANGE_LEAD)},
+		{"SCROLL_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_UP)},
+		{"SCROLL_UP_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_UP_EXTEND)},
+		{"SCROLL_UP_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_UP_CHANGE_LEAD)},
+		{"SCROLL_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_DOWN)},
+		{"SCROLL_DOWN_EXTEND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_DOWN_EXTEND)},
+		{"SCROLL_DOWN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SCROLL_DOWN_CHANGE_LEAD)},
+		{"SELECT_ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, SELECT_ALL)},
+		{"CLEAR_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, CLEAR_SELECTION)},
+		{"ADD_TO_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, ADD_TO_SELECTION)},
+		{"TOGGLE_AND_ANCHOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, TOGGLE_AND_ANCHOR)},
+		{"EXTEND_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, EXTEND_TO)},
+		{"MOVE_SELECTION_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI$Actions, MOVE_SELECTION_TO)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicListUI$Actions, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"adjustScrollPositionIfNecessary", "(Ljavax/swing/JList;II)V", "(Ljavax/swing/JList<*>;II)V", $PRIVATE, $method(BasicListUI$Actions, adjustScrollPositionIfNecessary, void, $JList*, int32_t, int32_t)},
+		{"changeSelection", "(Ljavax/swing/JList;III)V", "(Ljavax/swing/JList<*>;III)V", $PRIVATE, $method(BasicListUI$Actions, changeSelection, void, $JList*, int32_t, int32_t, int32_t)},
+		{"clearSelection", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(BasicListUI$Actions, clearSelection, void, $JList*)},
+		{"getNextColumnIndex", "(Ljavax/swing/JList;Ljavax/swing/plaf/basic/BasicListUI;I)I", "(Ljavax/swing/JList<*>;Ljavax/swing/plaf/basic/BasicListUI;I)I", $PRIVATE, $method(BasicListUI$Actions, getNextColumnIndex, int32_t, $JList*, $BasicListUI*, int32_t)},
+		{"getNextIndex", "(Ljavax/swing/JList;Ljavax/swing/plaf/basic/BasicListUI;I)I", "(Ljavax/swing/JList<*>;Ljavax/swing/plaf/basic/BasicListUI;I)I", $PRIVATE, $method(BasicListUI$Actions, getNextIndex, int32_t, $JList*, $BasicListUI*, int32_t)},
+		{"getNextPageIndex", "(Ljavax/swing/JList;I)I", "(Ljavax/swing/JList<*>;I)I", $PRIVATE, $method(BasicListUI$Actions, getNextPageIndex, int32_t, $JList*, int32_t)},
+		{"selectAll", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(BasicListUI$Actions, selectAll, void, $JList*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicListUI$Actions", "javax.swing.plaf.basic.BasicListUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicListUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicListUI"
+	};
+	$loadClass(BasicListUI$Actions, name, initialize, &classInfo$$, BasicListUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicListUI$Actions);
+	});
 	return class$;
 }
 

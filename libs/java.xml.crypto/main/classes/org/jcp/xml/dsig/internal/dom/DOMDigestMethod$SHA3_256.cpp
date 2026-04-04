@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod$SHA3_256.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod.h>
 #include <org/w3c/dom/Element.h>
@@ -18,39 +17,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMDigestMethod$SHA3_256_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMDigestMethod$SHA3_256, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMDigestMethod$SHA3_256, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod$SHA3_256, getAlgorithm, $String*)},
-	{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMDigestMethod$SHA3_256, getMessageDigestAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMDigestMethod$SHA3_256_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_256", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMDigestMethod$SHA3_256_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256",
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod",
-	nullptr,
-	nullptr,
-	_DOMDigestMethod$SHA3_256_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMDigestMethod$SHA3_256_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod"
-};
-
-$Object* allocate$DOMDigestMethod$SHA3_256($Class* clazz) {
-	return $of($alloc(DOMDigestMethod$SHA3_256));
-}
 
 void DOMDigestMethod$SHA3_256::init$($AlgorithmParameterSpec* params) {
 	$DOMDigestMethod::init$(params);
@@ -73,7 +39,35 @@ DOMDigestMethod$SHA3_256::DOMDigestMethod$SHA3_256() {
 }
 
 $Class* DOMDigestMethod$SHA3_256::load$($String* name, bool initialize) {
-	$loadClass(DOMDigestMethod$SHA3_256, name, initialize, &_DOMDigestMethod$SHA3_256_ClassInfo_, allocate$DOMDigestMethod$SHA3_256);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMDigestMethod$SHA3_256, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMDigestMethod$SHA3_256, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod$SHA3_256, getAlgorithm, $String*)},
+		{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMDigestMethod$SHA3_256, getMessageDigestAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_256", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256",
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod"
+	};
+	$loadClass(DOMDigestMethod$SHA3_256, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMDigestMethod$SHA3_256));
+	});
 	return class$;
 }
 

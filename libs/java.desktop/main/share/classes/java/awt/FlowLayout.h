@@ -72,7 +72,7 @@ public:
 	int32_t hgap = 0;
 	int32_t vgap = 0;
 	bool alignOnBaseline = false;
-	static const int64_t serialVersionUID = (int64_t)0x9B364B025BF90239;
+	static const int64_t serialVersionUID = (int64_t)0x9b364b025bf90239;
 	static const int32_t currentSerialVersion = 1;
 	int32_t serialVersionOnStream = 0;
 };

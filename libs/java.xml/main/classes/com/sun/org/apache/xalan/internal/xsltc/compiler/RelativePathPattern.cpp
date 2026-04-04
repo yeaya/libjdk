@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern.h>
 #include <jcpp.h>
 
@@ -16,24 +15,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _RelativePathPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RelativePathPattern, init$, void)},
-	{}
-};
-
-$ClassInfo _RelativePathPattern_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativePathPattern",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.LocationPathPattern",
-	nullptr,
-	nullptr,
-	_RelativePathPattern_MethodInfo_
-};
-
-$Object* allocate$RelativePathPattern($Class* clazz) {
-	return $of($alloc(RelativePathPattern));
-}
-
 void RelativePathPattern::init$() {
 	$LocationPathPattern::init$();
 }
@@ -42,7 +23,21 @@ RelativePathPattern::RelativePathPattern() {
 }
 
 $Class* RelativePathPattern::load$($String* name, bool initialize) {
-	$loadClass(RelativePathPattern, name, initialize, &_RelativePathPattern_ClassInfo_, allocate$RelativePathPattern);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RelativePathPattern, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativePathPattern",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.LocationPathPattern",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RelativePathPattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RelativePathPattern);
+	});
 	return class$;
 }
 

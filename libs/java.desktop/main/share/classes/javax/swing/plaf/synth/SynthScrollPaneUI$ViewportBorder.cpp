@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthScrollPaneUI$ViewportBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -27,7 +26,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthScrollPaneUI = ::javax::swing::plaf::synth::SynthScrollPaneUI;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 
@@ -35,51 +33,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthScrollPaneUI$ViewportBorder_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthScrollPaneUI$ViewportBorder, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthScrollPaneUI$ViewportBorder, $assertionsDisabled)},
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(SynthScrollPaneUI$ViewportBorder, insets)},
-	{}
-};
-
-$MethodInfo _SynthScrollPaneUI$ViewportBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, 0, $method(SynthScrollPaneUI$ViewportBorder, init$, void, $SynthScrollPaneUI*, $SynthContext*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthScrollPaneUI$ViewportBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthScrollPaneUI$ViewportBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_SynthScrollPaneUI$ViewportBorder_FieldInfo_,
-	_SynthScrollPaneUI$ViewportBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthScrollPaneUI$ViewportBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthScrollPaneUI"
-};
-
-$Object* allocate$SynthScrollPaneUI$ViewportBorder($Class* clazz) {
-	return $of($alloc(SynthScrollPaneUI$ViewportBorder));
-}
 
 int32_t SynthScrollPaneUI$ViewportBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -106,7 +59,7 @@ bool SynthScrollPaneUI$ViewportBorder::$assertionsDisabled = false;
 void SynthScrollPaneUI$ViewportBorder::init$($SynthScrollPaneUI* this$0, $SynthContext* context) {
 	$set(this, this$0, this$0);
 	$AbstractBorder::init$();
-	$set(this, insets, $cast($Insets, $nc($($nc(context)->getStyle()))->get(context, "ScrollPane.viewportBorderInsets"_s)));
+	$set(this, insets, $cast($Insets, $$nc($nc(context)->getStyle())->get(context, "ScrollPane.viewportBorderInsets"_s)));
 	if (this->insets == nullptr) {
 		$init($SynthLookAndFeel);
 		$set(this, insets, $SynthLookAndFeel::EMPTY_UIRESOURCE_INSETS);
@@ -114,7 +67,7 @@ void SynthScrollPaneUI$ViewportBorder::init$($SynthScrollPaneUI* this$0, $SynthC
 }
 
 void SynthScrollPaneUI$ViewportBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, jc, $cast($JComponent, c));
 	$var($SynthContext, context, this->this$0->getContext(jc));
 	$var($SynthStyle, style, $nc(context)->getStyle());
@@ -124,7 +77,7 @@ void SynthScrollPaneUI$ViewportBorder::paintBorder($Component* c, $Graphics* g, 
 		}
 		return;
 	}
-	$nc($(context->getPainter()))->paintViewportBorder(context, g, x, y, width, height);
+	$$nc(context->getPainter())->paintViewportBorder(context, g, x, y, width, height);
 }
 
 $Insets* SynthScrollPaneUI$ViewportBorder::getBorderInsets($Component* c, $Insets* insets) {
@@ -132,9 +85,9 @@ $Insets* SynthScrollPaneUI$ViewportBorder::getBorderInsets($Component* c, $Inset
 		return $new($Insets, $nc(this->insets)->top, $nc(this->insets)->left, $nc(this->insets)->bottom, $nc(this->insets)->right);
 	}
 	$nc(insets)->top = $nc(this->insets)->top;
-	insets->bottom = $nc(this->insets)->bottom;
-	insets->left = $nc(this->insets)->left;
-	insets->right = $nc(this->insets)->left;
+	insets->bottom = this->insets->bottom;
+	insets->left = this->insets->left;
+	insets->right = this->insets->left;
 	return insets;
 }
 
@@ -142,7 +95,7 @@ bool SynthScrollPaneUI$ViewportBorder::isBorderOpaque() {
 	return false;
 }
 
-void clinit$SynthScrollPaneUI$ViewportBorder($Class* class$) {
+void SynthScrollPaneUI$ViewportBorder::clinit$($Class* clazz) {
 	$load($SynthScrollPaneUI);
 	SynthScrollPaneUI$ViewportBorder::$assertionsDisabled = !$SynthScrollPaneUI::class$->desiredAssertionStatus();
 }
@@ -151,7 +104,46 @@ SynthScrollPaneUI$ViewportBorder::SynthScrollPaneUI$ViewportBorder() {
 }
 
 $Class* SynthScrollPaneUI$ViewportBorder::load$($String* name, bool initialize) {
-	$loadClass(SynthScrollPaneUI$ViewportBorder, name, initialize, &_SynthScrollPaneUI$ViewportBorder_ClassInfo_, clinit$SynthScrollPaneUI$ViewportBorder, allocate$SynthScrollPaneUI$ViewportBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthScrollPaneUI$ViewportBorder, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthScrollPaneUI$ViewportBorder, $assertionsDisabled)},
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(SynthScrollPaneUI$ViewportBorder, insets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthScrollPaneUI;Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, 0, $method(SynthScrollPaneUI$ViewportBorder, init$, void, $SynthScrollPaneUI*, $SynthContext*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthScrollPaneUI$ViewportBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder", "javax.swing.plaf.synth.SynthScrollPaneUI", "ViewportBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthScrollPaneUI$ViewportBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthScrollPaneUI"
+	};
+	$loadClass(SynthScrollPaneUI$ViewportBorder, name, initialize, &classInfo$$, SynthScrollPaneUI$ViewportBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthScrollPaneUI$ViewportBorder));
+	});
 	return class$;
 }
 

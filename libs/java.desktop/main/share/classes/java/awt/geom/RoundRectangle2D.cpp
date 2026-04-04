@@ -1,5 +1,4 @@
 #include <java/awt/geom/RoundRectangle2D.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/RectangularShape.h>
@@ -21,48 +20,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$MethodInfo _RoundRectangle2D_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RoundRectangle2D, init$, void)},
-	{"classify", "(DDDD)I", nullptr, $PRIVATE, $method(RoundRectangle2D, classify, int32_t, double, double, double, double)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, contains, bool, double, double)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, contains, bool, double, double, double, double)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, equals, bool, Object$*)},
-	{"getArcHeight", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundRectangle2D, getArcHeight, double)},
-	{"getArcWidth", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundRectangle2D, getArcWidth, double)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, hashCode, int32_t)},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, intersects, bool, double, double, double, double)},
-	{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, setFrame, void, double, double, double, double)},
-	{"setRoundRect", "(DDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundRectangle2D, setRoundRect, void, double, double, double, double, double, double)},
-	{"setRoundRect", "(Ljava/awt/geom/RoundRectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, setRoundRect, void, RoundRectangle2D*)},
-	{}
-};
-
-$InnerClassInfo _RoundRectangle2D_InnerClassesInfo_[] = {
-	{"java.awt.geom.RoundRectangle2D$Double", "java.awt.geom.RoundRectangle2D", "Double", $PUBLIC | $STATIC},
-	{"java.awt.geom.RoundRectangle2D$Float", "java.awt.geom.RoundRectangle2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RoundRectangle2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.RoundRectangle2D",
-	"java.awt.geom.RectangularShape",
-	nullptr,
-	nullptr,
-	_RoundRectangle2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RoundRectangle2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.geom.RoundRectangle2D$Double,java.awt.geom.RoundRectangle2D$Float"
-};
-
-$Object* allocate$RoundRectangle2D($Class* clazz) {
-	return $of($alloc(RoundRectangle2D));
-}
-
 void RoundRectangle2D::init$() {
 	$RectangularShape::init$();
 }
@@ -77,12 +34,8 @@ void RoundRectangle2D::setRoundRect(RoundRectangle2D* rr) {
 }
 
 void RoundRectangle2D::setFrame(double x, double y, double w, double h) {
-	double var$0 = x;
-	double var$1 = y;
-	double var$2 = w;
-	double var$3 = h;
-	double var$4 = getArcWidth();
-	setRoundRect(var$0, var$1, var$2, var$3, var$4, getArcHeight());
+	double var$0 = getArcWidth();
+	setRoundRect(x, y, w, h, var$0, getArcHeight());
 }
 
 bool RoundRectangle2D::contains(double x, double y) {
@@ -190,30 +143,30 @@ bool RoundRectangle2D::equals(Object$* obj) {
 	if ($instanceOf(RoundRectangle2D, obj)) {
 		$var(RoundRectangle2D, rr2d, $cast(RoundRectangle2D, obj));
 		double var$5 = getX();
-		bool var$4 = (var$5 == $nc(rr2d)->getX());
+		bool var$4 = var$5 == rr2d->getX();
 		if (var$4) {
 			double var$6 = getY();
-			var$4 = (var$6 == rr2d->getY());
+			var$4 = var$6 == rr2d->getY();
 		}
 		bool var$3 = var$4;
 		if (var$3) {
 			double var$7 = getWidth();
-			var$3 = (var$7 == rr2d->getWidth());
+			var$3 = var$7 == rr2d->getWidth();
 		}
 		bool var$2 = var$3;
 		if (var$2) {
 			double var$8 = getHeight();
-			var$2 = (var$8 == rr2d->getHeight());
+			var$2 = var$8 == rr2d->getHeight();
 		}
 		bool var$1 = var$2;
 		if (var$1) {
 			double var$9 = getArcWidth();
-			var$1 = (var$9 == rr2d->getArcWidth());
+			var$1 = var$9 == rr2d->getArcWidth();
 		}
 		bool var$0 = var$1;
 		if (var$0) {
 			double var$10 = getArcHeight();
-			var$0 = (var$10 == rr2d->getArcHeight());
+			var$0 = var$10 == rr2d->getArcHeight();
 		}
 		return (var$0);
 	}
@@ -224,7 +177,44 @@ RoundRectangle2D::RoundRectangle2D() {
 }
 
 $Class* RoundRectangle2D::load$($String* name, bool initialize) {
-	$loadClass(RoundRectangle2D, name, initialize, &_RoundRectangle2D_ClassInfo_, allocate$RoundRectangle2D);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RoundRectangle2D, init$, void)},
+		{"classify", "(DDDD)I", nullptr, $PRIVATE, $method(RoundRectangle2D, classify, int32_t, double, double, double, double)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, contains, bool, double, double)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, contains, bool, double, double, double, double)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, equals, bool, Object$*)},
+		{"getArcHeight", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundRectangle2D, getArcHeight, double)},
+		{"getArcWidth", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundRectangle2D, getArcWidth, double)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, hashCode, int32_t)},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, intersects, bool, double, double, double, double)},
+		{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, setFrame, void, double, double, double, double)},
+		{"setRoundRect", "(DDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundRectangle2D, setRoundRect, void, double, double, double, double, double, double)},
+		{"setRoundRect", "(Ljava/awt/geom/RoundRectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D, setRoundRect, void, RoundRectangle2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.RoundRectangle2D$Double", "java.awt.geom.RoundRectangle2D", "Double", $PUBLIC | $STATIC},
+		{"java.awt.geom.RoundRectangle2D$Float", "java.awt.geom.RoundRectangle2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.RoundRectangle2D",
+		"java.awt.geom.RectangularShape",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.geom.RoundRectangle2D$Double,java.awt.geom.RoundRectangle2D$Float"
+	};
+	$loadClass(RoundRectangle2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RoundRectangle2D));
+	});
 	return class$;
 }
 

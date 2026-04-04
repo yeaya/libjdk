@@ -1,5 +1,4 @@
 #include <NonGregorianFormatTest.h>
-
 #include <java/text/DateFormat.h>
 #include <java/text/ParseException.h>
 #include <java/text/SimpleDateFormat.h>
@@ -21,7 +20,6 @@
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -33,44 +31,6 @@ using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $Calendar = ::java::util::Calendar;
 using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
-
-$FieldInfo _NonGregorianFormatTest_FieldInfo_[] = {
-	{"errors", "I", nullptr, $STATIC, $staticField(NonGregorianFormatTest, errors)},
-	{"JAPANESE_EN", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, JAPANESE_EN)},
-	{"EXCEPTION_JAPANESE_EN", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, EXCEPTION_JAPANESE_EN)},
-	{"BUDDHIST_EN", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, BUDDHIST_EN)},
-	{"FULL_DATE_FORMAT_JA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, FULL_DATE_FORMAT_JA)},
-	{"JAPANESE_JA", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, JAPANESE_JA)},
-	{"EXCEPTION_JAPANESE_JA", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, EXCEPTION_JAPANESE_JA)},
-	{"BUDDHIST_JA", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, BUDDHIST_JA)},
-	{}
-};
-
-$MethodInfo _NonGregorianFormatTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NonGregorianFormatTest, init$, void)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, error, void, $String*)},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(NonGregorianFormatTest, error, void, $String*, $ObjectArray*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonGregorianFormatTest, main, void, $StringArray*), "java.text.ParseException"},
-	{"test", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, test, void, $Locale*)},
-	{"testParseExceptions", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testParseExceptions, void, $Locale*, $ObjectArray2*)},
-	{"testRoundTrip", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTrip, void, $Locale*)},
-	{"testRoundTrip", "(Ljava/text/DateFormat;Ljava/util/Date;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTrip, void, $DateFormat*, $Date*)},
-	{"testRoundTripSimple", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTripSimple, void, $Locale*, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _NonGregorianFormatTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NonGregorianFormatTest",
-	"java.lang.Object",
-	nullptr,
-	_NonGregorianFormatTest_FieldInfo_,
-	_NonGregorianFormatTest_MethodInfo_
-};
-
-$Object* allocate$NonGregorianFormatTest($Class* clazz) {
-	return $of($alloc(NonGregorianFormatTest));
-}
 
 int32_t NonGregorianFormatTest::errors = 0;
 $ObjectArray2* NonGregorianFormatTest::JAPANESE_EN = nullptr;
@@ -86,34 +46,28 @@ void NonGregorianFormatTest::init$() {
 
 void NonGregorianFormatTest::main($StringArray* args) {
 	$init(NonGregorianFormatTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	$var($LocaleArray, locales, $new($LocaleArray, {
 		$Locale::ENGLISH,
 		$Locale::JAPAN
 	}));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($LocaleArray, arr$, locales);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Locale, locale, arr$->get(i$));
 			{
-				$var($LocaleArray, arr$, locales);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($Locale, locale, arr$->get(i$));
-					{
-						test(locale);
-					}
-				}
+				test(locale);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$Locale::setDefault(defaultLocale);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$Locale::setDefault(defaultLocale);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (NonGregorianFormatTest::errors > 0) {
 		$throwNew($RuntimeException, $$str({"FAILED: "_s, $$str(NonGregorianFormatTest::errors), " error(s)"_s}));
@@ -134,7 +88,7 @@ void NonGregorianFormatTest::test($Locale* locale) {
 
 void NonGregorianFormatTest::testRoundTrip($Locale* calendarLocale) {
 	$init(NonGregorianFormatTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DateFormat, df, $DateFormat::getDateTimeInstance($DateFormat::FULL, $DateFormat::FULL, calendarLocale));
 	int64_t t = $System::currentTimeMillis();
 	t = (t / 1000) * 1000;
@@ -145,81 +99,73 @@ void NonGregorianFormatTest::testRoundTrip($Locale* calendarLocale) {
 
 void NonGregorianFormatTest::testRoundTrip($DateFormat* df, $Date* orig) {
 	$init(NonGregorianFormatTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, s, $nc(df)->format(orig));
 		$var($Date, parsed, df->parse(s));
 		if (!$nc(orig)->equals(parsed)) {
 			error("testRoundTrip: bad date: origianl: \'%s\', parsed \'%s\'%n"_s, $$new($ObjectArray, {
-				$of(orig),
-				$of(parsed)
+				orig,
+				parsed
 			}));
 		}
 	} catch ($Exception& e) {
-		error("Unexpected exception: %s%n"_s, $$new($ObjectArray, {$of(e)}));
+		error("Unexpected exception: %s%n"_s, $$new($ObjectArray, {e}));
 	}
 }
 
 void NonGregorianFormatTest::testRoundTripSimple($Locale* calendarLocale, $ObjectArray2* data) {
 	$init(NonGregorianFormatTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		{
-			$var($ObjectArray2, arr$, data);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($ObjectArray, item, arr$->get(i$));
-				{
-					$var($String, pattern, $cast($String, $nc(item)->get(0)));
-					$var($String, str, $cast($String, item->get(1)));
-					$var($Date, date, $cast($Date, item->get(2)));
-					$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
-					$var($Calendar, cal, $Calendar::getInstance(calendarLocale));
-					sdf->setCalendar(cal);
-					$var($String, s, sdf->format(date));
-					if (!$nc(s)->equals(str)) {
-						error("testRoundTripSimple: Got \'%s\', expected \'%s\'%n"_s, $$new($ObjectArray, {
-							$of(s),
-							$of(str)
-						}));
-					}
-					$var($Date, d, sdf->parse(str));
-					if (!$nc(d)->equals(date)) {
-						error("testRoundTripSimple: Got \'%s\', expected \'%s\'%n"_s, $$new($ObjectArray, {
-							$of(d),
-							$of(date)
-						}));
-					}
+		$var($ObjectArray2, arr$, data);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($ObjectArray, item, arr$->get(i$));
+			{
+				$var($String, pattern, $cast($String, $nc(item)->get(0)));
+				$var($String, str, $cast($String, item->get(1)));
+				$var($Date, date, $cast($Date, item->get(2)));
+				$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
+				$var($Calendar, cal, $Calendar::getInstance(calendarLocale));
+				sdf->setCalendar(cal);
+				$var($String, s, sdf->format(date));
+				if (!$nc(s)->equals(str)) {
+					error("testRoundTripSimple: Got \'%s\', expected \'%s\'%n"_s, $$new($ObjectArray, {
+						s,
+						str
+					}));
+				}
+				$var($Date, d, sdf->parse(str));
+				if (!$nc(d)->equals(date)) {
+					error("testRoundTripSimple: Got \'%s\', expected \'%s\'%n"_s, $$new($ObjectArray, {
+						d,
+						date
+					}));
 				}
 			}
 		}
 	} catch ($Exception& e) {
-		error("Unexpected exception: %s%n"_s, $$new($ObjectArray, {$of(e)}));
+		error("Unexpected exception: %s%n"_s, $$new($ObjectArray, {e}));
 	}
 }
 
 void NonGregorianFormatTest::testParseExceptions($Locale* calendarLocale, $ObjectArray2* data) {
 	$init(NonGregorianFormatTest);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ObjectArray2, arr$, data);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($ObjectArray, item, arr$->get(i$));
-			{
-				$var($String, pattern, $cast($String, $nc(item)->get(0)));
-				$var($String, str, $cast($String, item->get(1)));
-				$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
-				$var($Calendar, cal, $Calendar::getInstance(calendarLocale));
-				sdf->setCalendar(cal);
-				sdf->setLenient(false);
-				try {
-					$var($Date, d, sdf->parse(str));
-					error("testParseExceptions: parsing \'%s\' doesn\'t throw a ParseException.%n"_s, $$new($ObjectArray, {$of(str)}));
-				} catch ($ParseException& e) {
-				}
+	$useLocalObjectStack();
+	$var($ObjectArray2, arr$, data);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($ObjectArray, item, arr$->get(i$));
+		{
+			$var($String, pattern, $cast($String, $nc(item)->get(0)));
+			$var($String, str, $cast($String, item->get(1)));
+			$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
+			$var($Calendar, cal, $Calendar::getInstance(calendarLocale));
+			sdf->setCalendar(cal);
+			sdf->setLenient(false);
+			try {
+				$var($Date, d, sdf->parse(str));
+				error("testParseExceptions: parsing \'%s\' doesn\'t throw a ParseException.%n"_s, $$new($ObjectArray, {str}));
+			} catch ($ParseException& e) {
 			}
 		}
 	}
@@ -237,237 +183,237 @@ void NonGregorianFormatTest::error($String* fmt, $ObjectArray* args) {
 	++NonGregorianFormatTest::errors;
 }
 
-void clinit$NonGregorianFormatTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void NonGregorianFormatTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(NonGregorianFormatTest::FULL_DATE_FORMAT_JA, u"GGGGyyyy\'年\'M\'月\'d\'日\'"_s);
 	$assignStatic(NonGregorianFormatTest::JAPANESE_EN, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("Showa 1 December 31"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			"GGGG yyyy MMMM d"_s,
+			"Showa 1 December 31"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("Showa 64 January 6"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			"GGGG yyyy MMMM d"_s,
+			"Showa 64 January 6"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("Heisei 1 August 9"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			"GGGG yyyy MMMM d"_s,
+			"Heisei 1 August 9"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("Heisei 17 June 10"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			"GGGG yyyy MMMM d"_s,
+			"Heisei 17 June 10"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		}),
 		$$new($ObjectArray, {
-			$of("Gy.MM.dd"_s),
-			$of("S1.12.31"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			"Gy.MM.dd"_s,
+			"S1.12.31"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of("Gy.MM.dd"_s),
-			$of("S64.01.06"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			"Gy.MM.dd"_s,
+			"S64.01.06"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("H01.08.09"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			"Gyy.MM.dd"_s,
+			"H01.08.09"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of("Gy.M.d"_s),
-			$of("H1.8.9"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			"Gy.M.d"_s,
+			"H1.8.9"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of("Gy.MM.dd"_s),
-			$of("H17.06.10"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			"Gy.MM.dd"_s,
+			"H17.06.10"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		})
 	}));
 	$assignStatic(NonGregorianFormatTest::EXCEPTION_JAPANESE_EN, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("Showa 1 December 10"_s)
+			"GGGG yyyy MMMM d"_s,
+			"Showa 1 December 10"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("Showa 64 January 16"_s)
+			"GGGG yyyy MMMM d"_s,
+			"Showa 64 January 16"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("Heisei 1 January 1"_s)
+			"GGGG yyyy MMMM d"_s,
+			"Heisei 1 January 1"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gy.MM.dd"_s),
-			$of("S1.12.10"_s)
+			"Gy.MM.dd"_s,
+			"S1.12.10"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gy.MM.dd"_s),
-			$of("S64.01.16"_s)
+			"Gy.MM.dd"_s,
+			"S64.01.16"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("H01.01.01"_s)
+			"Gyy.MM.dd"_s,
+			"H01.01.01"_s
 		})
 	}));
 	$assignStatic(NonGregorianFormatTest::BUDDHIST_EN, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("B.E. 2469 December 31"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			"GGGG yyyy MMMM d"_s,
+			"B.E. 2469 December 31"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("B.E. 2532 January 6"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			"GGGG yyyy MMMM d"_s,
+			"B.E. 2532 January 6"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("B.E. 2532 August 8"_s),
-			$of($$new($Date, 1989 - 1900, 7, 8))
+			"GGGG yyyy MMMM d"_s,
+			"B.E. 2532 August 8"_s,
+			$$new($Date, 1989 - 1900, 7, 8)
 		}),
 		$$new($ObjectArray, {
-			$of("GGGG yyyy MMMM d"_s),
-			$of("B.E. 2548 June 10"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			"GGGG yyyy MMMM d"_s,
+			"B.E. 2548 June 10"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2469/12/31"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2469/12/31"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2532/01/06"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2532/01/06"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2532/08/09"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2532/08/09"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2548/06/10"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2548/06/10"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		})
 	}));
 	$assignStatic(NonGregorianFormatTest::JAPANESE_JA, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"昭和元年12月31日"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"昭和元年12月31日"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"昭和64年1月6日"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"昭和64年1月6日"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"平成元年8月9日"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"平成元年8月9日"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"平成17年6月10日"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"平成17年6月10日"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("S01.12.31"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			"Gyy.MM.dd"_s,
+			"S01.12.31"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("S64.01.06"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			"Gyy.MM.dd"_s,
+			"S64.01.06"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("H01.08.09"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			"Gyy.MM.dd"_s,
+			"H01.08.09"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of("Gy.M.d"_s),
-			$of("H1.8.9"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			"Gy.M.d"_s,
+			"H1.8.9"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("H17.06.10"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			"Gyy.MM.dd"_s,
+			"H17.06.10"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		})
 	}));
 	$assignStatic(NonGregorianFormatTest::EXCEPTION_JAPANESE_JA, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"昭和元年12月10日"_s)
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"昭和元年12月10日"_s
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"昭和64年1月16日"_s)
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"昭和64年1月16日"_s
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"平成元年1月1日"_s)
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"平成元年1月1日"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("S01.12.10"_s)
+			"Gyy.MM.dd"_s,
+			"S01.12.10"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("S64.01.16"_s)
+			"Gyy.MM.dd"_s,
+			"S64.01.16"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gyy.MM.dd"_s),
-			$of("H01.01.01"_s)
+			"Gyy.MM.dd"_s,
+			"H01.01.01"_s
 		})
 	}));
 	$assignStatic(NonGregorianFormatTest::BUDDHIST_JA, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"仏暦2469年12月31日"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"仏暦2469年12月31日"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"仏暦2532年1月6日"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"仏暦2532年1月6日"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"仏暦2532年8月9日"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"仏暦2532年8月9日"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"仏暦2548年6月10日"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			NonGregorianFormatTest::FULL_DATE_FORMAT_JA,
+			u"仏暦2548年6月10日"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2469/12/31"_s),
-			$of($$new($Date, 1926 - 1900, 11, 31))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2469/12/31"_s,
+			$$new($Date, 1926 - 1900, 11, 31)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2532/01/06"_s),
-			$of($$new($Date, 1989 - 1900, 0, 6))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2532/01/06"_s,
+			$$new($Date, 1989 - 1900, 0, 6)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2532/08/09"_s),
-			$of($$new($Date, 1989 - 1900, 7, 9))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2532/08/09"_s,
+			$$new($Date, 1989 - 1900, 7, 9)
 		}),
 		$$new($ObjectArray, {
-			$of("Gyyyy/MM/dd"_s),
-			$of("B.E.2548/06/10"_s),
-			$of($$new($Date, 2005 - 1900, 5, 10))
+			"Gyyyy/MM/dd"_s,
+			"B.E.2548/06/10"_s,
+			$$new($Date, 2005 - 1900, 5, 10)
 		})
 	}));
 }
@@ -476,7 +422,40 @@ NonGregorianFormatTest::NonGregorianFormatTest() {
 }
 
 $Class* NonGregorianFormatTest::load$($String* name, bool initialize) {
-	$loadClass(NonGregorianFormatTest, name, initialize, &_NonGregorianFormatTest_ClassInfo_, clinit$NonGregorianFormatTest, allocate$NonGregorianFormatTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"errors", "I", nullptr, $STATIC, $staticField(NonGregorianFormatTest, errors)},
+		{"JAPANESE_EN", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, JAPANESE_EN)},
+		{"EXCEPTION_JAPANESE_EN", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, EXCEPTION_JAPANESE_EN)},
+		{"BUDDHIST_EN", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, BUDDHIST_EN)},
+		{"FULL_DATE_FORMAT_JA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, FULL_DATE_FORMAT_JA)},
+		{"JAPANESE_JA", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, JAPANESE_JA)},
+		{"EXCEPTION_JAPANESE_JA", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, EXCEPTION_JAPANESE_JA)},
+		{"BUDDHIST_JA", "[[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(NonGregorianFormatTest, BUDDHIST_JA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NonGregorianFormatTest, init$, void)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, error, void, $String*)},
+		{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(NonGregorianFormatTest, error, void, $String*, $ObjectArray*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonGregorianFormatTest, main, void, $StringArray*), "java.text.ParseException"},
+		{"test", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, test, void, $Locale*)},
+		{"testParseExceptions", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testParseExceptions, void, $Locale*, $ObjectArray2*)},
+		{"testRoundTrip", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTrip, void, $Locale*)},
+		{"testRoundTrip", "(Ljava/text/DateFormat;Ljava/util/Date;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTrip, void, $DateFormat*, $Date*)},
+		{"testRoundTripSimple", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTripSimple, void, $Locale*, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NonGregorianFormatTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NonGregorianFormatTest, name, initialize, &classInfo$$, NonGregorianFormatTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NonGregorianFormatTest);
+	});
 	return class$;
 }
 

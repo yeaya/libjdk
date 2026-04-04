@@ -19,6 +19,7 @@ class GTKEngine$CustomRegion : public ::javax::swing::plaf::synth::Region {
 	$class(GTKEngine$CustomRegion, 0, ::javax::swing::plaf::synth::Region)
 public:
 	GTKEngine$CustomRegion();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static ::javax::swing::plaf::synth::Region* TITLED_BORDER;
 };

@@ -1,6 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$AWTTextArea.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusEvent$Cause.h>
@@ -23,7 +21,6 @@
 
 #undef TEXT_VALUE_CHANGED
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
@@ -38,67 +35,12 @@ using $TransferHandler = ::javax::swing::TransferHandler;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;
 using $XTextAreaPeer$AWTTextAreaUI = ::sun::awt::X11::XTextAreaPeer$AWTTextAreaUI;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextAreaPeer$AWTTextArea_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$AWTTextArea, this$0)},
-	{"isFocused", "Z", nullptr, $PRIVATE, $field(XTextAreaPeer$AWTTextArea, isFocused)},
-	{"peer", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextArea, peer)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$AWTTextArea_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11/XTextAreaPeer;Ljava/lang/String;Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextArea, init$, void, $XTextAreaPeer*, $String*, $XTextAreaPeer*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, changedUpdate, void, $DocumentEvent*)},
-	{"forwardFocusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextArea, forwardFocusGained, void, $FocusEvent*)},
-	{"forwardFocusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextArea, forwardFocusLost, void, $FocusEvent*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, hasFocus, bool)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, insertUpdate, void, $DocumentEvent*)},
-	{"processInputMethodEventPublic", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, processInputMethodEventPublic, void, $InputMethodEvent*)},
-	{"processMouseEventPublic", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, processMouseEventPublic, void, $MouseEvent*)},
-	{"processMouseMotionEventPublic", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, processMouseMotionEventPublic, void, $MouseEvent*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, removeUpdate, void, $DocumentEvent*)},
-	{"repaintNow", "()V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, repaintNow, void)},
-	{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, setTransferHandler, void, $TransferHandler*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, updateUI, void)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$AWTTextArea_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$AWTTextArea", "sun.awt.X11.XTextAreaPeer", "AWTTextArea", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$AWTTextArea_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$AWTTextArea",
-	"javax.swing.JTextArea",
-	"javax.swing.event.DocumentListener",
-	_XTextAreaPeer$AWTTextArea_FieldInfo_,
-	_XTextAreaPeer$AWTTextArea_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$AWTTextArea_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$AWTTextArea($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$AWTTextArea));
-}
 
 $String* XTextAreaPeer$AWTTextArea::toString() {
 	 return this->$JTextArea::toString();
@@ -130,24 +72,24 @@ void XTextAreaPeer$AWTTextArea::init$($XTextAreaPeer* this$0, $String* text, $XT
 
 void XTextAreaPeer$AWTTextArea::insertUpdate($DocumentEvent* e) {
 	if (this->peer != nullptr) {
-		$nc(this->peer)->postEvent($$new($TextEvent, $nc(this->peer)->target, $TextEvent::TEXT_VALUE_CHANGED));
+		this->peer->postEvent($$new($TextEvent, this->peer->target, $TextEvent::TEXT_VALUE_CHANGED));
 	}
 }
 
 void XTextAreaPeer$AWTTextArea::removeUpdate($DocumentEvent* e) {
 	if (this->peer != nullptr) {
-		$nc(this->peer)->postEvent($$new($TextEvent, $nc(this->peer)->target, $TextEvent::TEXT_VALUE_CHANGED));
+		this->peer->postEvent($$new($TextEvent, this->peer->target, $TextEvent::TEXT_VALUE_CHANGED));
 	}
 }
 
 void XTextAreaPeer$AWTTextArea::changedUpdate($DocumentEvent* e) {
 	if (this->peer != nullptr) {
-		$nc(this->peer)->postEvent($$new($TextEvent, $nc(this->peer)->target, $TextEvent::TEXT_VALUE_CHANGED));
+		this->peer->postEvent($$new($TextEvent, this->peer->target, $TextEvent::TEXT_VALUE_CHANGED));
 	}
 }
 
 void XTextAreaPeer$AWTTextArea::forwardFocusGained($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isFocused = true;
 	int32_t var$0 = $nc(e)->getID();
 	bool var$1 = e->isTemporary();
@@ -157,7 +99,7 @@ void XTextAreaPeer$AWTTextArea::forwardFocusGained($FocusEvent* e) {
 }
 
 void XTextAreaPeer$AWTTextArea::forwardFocusLost($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isFocused = false;
 	int32_t var$0 = $nc(e)->getID();
 	bool var$1 = e->isTemporary();
@@ -192,18 +134,66 @@ void XTextAreaPeer$AWTTextArea::updateUI() {
 }
 
 void XTextAreaPeer$AWTTextArea::setTransferHandler($TransferHandler* newHandler) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, key, $nc($($AWTAccessor::getClientPropertyKeyAccessor()))->getJComponent_TRANSFER_HANDLER());
+	$useLocalObjectStack();
+	$var($Object, key, $$nc($AWTAccessor::getClientPropertyKeyAccessor())->getJComponent_TRANSFER_HANDLER());
 	$var($Object, oldHandler, getClientProperty(key));
 	putClientProperty(key, newHandler);
-	firePropertyChange("transferHandler"_s, oldHandler, $of(newHandler));
+	firePropertyChange("transferHandler"_s, oldHandler, newHandler);
 }
 
 XTextAreaPeer$AWTTextArea::XTextAreaPeer$AWTTextArea() {
 }
 
 $Class* XTextAreaPeer$AWTTextArea::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$AWTTextArea, name, initialize, &_XTextAreaPeer$AWTTextArea_ClassInfo_, allocate$XTextAreaPeer$AWTTextArea);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$AWTTextArea, this$0)},
+		{"isFocused", "Z", nullptr, $PRIVATE, $field(XTextAreaPeer$AWTTextArea, isFocused)},
+		{"peer", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$AWTTextArea, peer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11/XTextAreaPeer;Ljava/lang/String;Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextArea, init$, void, $XTextAreaPeer*, $String*, $XTextAreaPeer*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, changedUpdate, void, $DocumentEvent*)},
+		{"forwardFocusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextArea, forwardFocusGained, void, $FocusEvent*)},
+		{"forwardFocusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextAreaPeer$AWTTextArea, forwardFocusLost, void, $FocusEvent*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, hasFocus, bool)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, insertUpdate, void, $DocumentEvent*)},
+		{"processInputMethodEventPublic", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, processInputMethodEventPublic, void, $InputMethodEvent*)},
+		{"processMouseEventPublic", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, processMouseEventPublic, void, $MouseEvent*)},
+		{"processMouseMotionEventPublic", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, processMouseMotionEventPublic, void, $MouseEvent*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, removeUpdate, void, $DocumentEvent*)},
+		{"repaintNow", "()V", nullptr, $PUBLIC, $method(XTextAreaPeer$AWTTextArea, repaintNow, void)},
+		{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, setTransferHandler, void, $TransferHandler*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$AWTTextArea, updateUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$AWTTextArea", "sun.awt.X11.XTextAreaPeer", "AWTTextArea", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$AWTTextArea",
+		"javax.swing.JTextArea",
+		"javax.swing.event.DocumentListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$AWTTextArea, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$AWTTextArea));
+	});
 	return class$;
 }
 

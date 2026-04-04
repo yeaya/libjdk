@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/HttpConnection.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -22,11 +21,9 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
@@ -41,77 +38,10 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _HttpConnection_FieldInfo_[] = {
-	{"context", "Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $field(HttpConnection, context)},
-	{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, 0, $field(HttpConnection, engine)},
-	{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, 0, $field(HttpConnection, sslContext)},
-	{"sslStreams", "Lsun/net/httpserver/SSLStreams;", nullptr, 0, $field(HttpConnection, sslStreams)},
-	{"i", "Ljava/io/InputStream;", nullptr, 0, $field(HttpConnection, i)},
-	{"raw", "Ljava/io/InputStream;", nullptr, 0, $field(HttpConnection, raw)},
-	{"rawout", "Ljava/io/OutputStream;", nullptr, 0, $field(HttpConnection, rawout)},
-	{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(HttpConnection, chan)},
-	{"selectionKey", "Ljava/nio/channels/SelectionKey;", nullptr, 0, $field(HttpConnection, selectionKey)},
-	{"protocol", "Ljava/lang/String;", nullptr, 0, $field(HttpConnection, protocol)},
-	{"time", "J", nullptr, 0, $field(HttpConnection, time)},
-	{"creationTime", "J", nullptr, $VOLATILE, $field(HttpConnection, creationTime)},
-	{"rspStartedTime", "J", nullptr, $VOLATILE, $field(HttpConnection, rspStartedTime)},
-	{"remaining", "I", nullptr, 0, $field(HttpConnection, remaining)},
-	{"closed", "Z", nullptr, 0, $field(HttpConnection, closed)},
-	{"logger", "Ljava/lang/System$Logger;", nullptr, 0, $field(HttpConnection, logger)},
-	{"state", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $VOLATILE, $field(HttpConnection, state)},
-	{}
-};
-
-$MethodInfo _HttpConnection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HttpConnection, init$, void)},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(HttpConnection, close, void)},
-	{"getChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(HttpConnection, getChannel, $SocketChannel*)},
-	{"getHttpContext", "()Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $virtualMethod(HttpConnection, getHttpContext, $HttpContextImpl*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, 0, $virtualMethod(HttpConnection, getInputStream, $InputStream*)},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HttpConnection, getProtocol, $String*)},
-	{"getRawOutputStream", "()Ljava/io/OutputStream;", nullptr, 0, $virtualMethod(HttpConnection, getRawOutputStream, $OutputStream*)},
-	{"getRemaining", "()I", nullptr, 0, $virtualMethod(HttpConnection, getRemaining, int32_t)},
-	{"getSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, 0, $virtualMethod(HttpConnection, getSSLContext, $SSLContext*)},
-	{"getSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(HttpConnection, getSSLEngine, $SSLEngine*)},
-	{"getSelectionKey", "()Ljava/nio/channels/SelectionKey;", nullptr, 0, $virtualMethod(HttpConnection, getSelectionKey, $SelectionKey*)},
-	{"getState", "()Lsun/net/httpserver/HttpConnection$State;", nullptr, 0, $virtualMethod(HttpConnection, getState, $HttpConnection$State*)},
-	{"setChannel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $virtualMethod(HttpConnection, setChannel, void, $SocketChannel*)},
-	{"setContext", "(Lsun/net/httpserver/HttpContextImpl;)V", nullptr, 0, $virtualMethod(HttpConnection, setContext, void, $HttpContextImpl*)},
-	{"setParameters", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/nio/channels/SocketChannel;Ljavax/net/ssl/SSLEngine;Lsun/net/httpserver/SSLStreams;Ljavax/net/ssl/SSLContext;Ljava/lang/String;Lsun/net/httpserver/HttpContextImpl;Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(HttpConnection, setParameters, void, $InputStream*, $OutputStream*, $SocketChannel*, $SSLEngine*, $SSLStreams*, $SSLContext*, $String*, $HttpContextImpl*, $InputStream*)},
-	{"setRemaining", "(I)V", nullptr, 0, $virtualMethod(HttpConnection, setRemaining, void, int32_t)},
-	{"setState", "(Lsun/net/httpserver/HttpConnection$State;)V", nullptr, 0, $virtualMethod(HttpConnection, setState, void, $HttpConnection$State*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpConnection, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _HttpConnection_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.HttpConnection$State", "sun.net.httpserver.HttpConnection", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _HttpConnection_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.HttpConnection",
-	"java.lang.Object",
-	nullptr,
-	_HttpConnection_FieldInfo_,
-	_HttpConnection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpConnection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.HttpConnection$State"
-};
-
-$Object* allocate$HttpConnection($Class* clazz) {
-	return $of($alloc(HttpConnection));
-}
-
 $String* HttpConnection::toString() {
 	$var($String, s, nullptr);
 	if (this->chan != nullptr) {
-		$assign(s, $nc($of(this->chan))->toString());
+		$assign(s, this->chan->toString());
 	}
 	return s;
 }
@@ -155,14 +85,14 @@ $SocketChannel* HttpConnection::getChannel() {
 
 void HttpConnection::close() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->closed) {
 			return;
 		}
 		this->closed = true;
 		if (this->logger != nullptr && this->chan != nullptr) {
 			$init($System$Logger$Level);
-			$nc(this->logger)->log($System$Logger$Level::TRACE, $$str({"Closing connection: "_s, $($nc($of(this->chan))->toString())}));
+			this->logger->log($System$Logger$Level::TRACE, $$str({"Closing connection: "_s, $(this->chan->toString())}));
 		}
 		if (!$nc(this->chan)->isOpen()) {
 			$ServerImpl::dprint("Channel already closed"_s);
@@ -170,29 +100,29 @@ void HttpConnection::close() {
 		}
 		try {
 			if (this->raw != nullptr) {
-				$nc(this->raw)->close();
+				this->raw->close();
 			}
 		} catch ($IOException& e) {
-			$ServerImpl::dprint(static_cast<$Exception*>(e));
+			$ServerImpl::dprint(e);
 		}
 		try {
 			if (this->rawout != nullptr) {
-				$nc(this->rawout)->close();
+				this->rawout->close();
 			}
 		} catch ($IOException& e) {
-			$ServerImpl::dprint(static_cast<$Exception*>(e));
+			$ServerImpl::dprint(e);
 		}
 		try {
 			if (this->sslStreams != nullptr) {
-				$nc(this->sslStreams)->close();
+				this->sslStreams->close();
 			}
 		} catch ($IOException& e) {
-			$ServerImpl::dprint(static_cast<$Exception*>(e));
+			$ServerImpl::dprint(e);
 		}
 		try {
 			$nc(this->chan)->close();
 		} catch ($IOException& e) {
-			$ServerImpl::dprint(static_cast<$Exception*>(e));
+			$ServerImpl::dprint(e);
 		}
 	}
 }
@@ -237,7 +167,68 @@ HttpConnection::HttpConnection() {
 }
 
 $Class* HttpConnection::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection, name, initialize, &_HttpConnection_ClassInfo_, allocate$HttpConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $field(HttpConnection, context)},
+		{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, 0, $field(HttpConnection, engine)},
+		{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, 0, $field(HttpConnection, sslContext)},
+		{"sslStreams", "Lsun/net/httpserver/SSLStreams;", nullptr, 0, $field(HttpConnection, sslStreams)},
+		{"i", "Ljava/io/InputStream;", nullptr, 0, $field(HttpConnection, i)},
+		{"raw", "Ljava/io/InputStream;", nullptr, 0, $field(HttpConnection, raw)},
+		{"rawout", "Ljava/io/OutputStream;", nullptr, 0, $field(HttpConnection, rawout)},
+		{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(HttpConnection, chan)},
+		{"selectionKey", "Ljava/nio/channels/SelectionKey;", nullptr, 0, $field(HttpConnection, selectionKey)},
+		{"protocol", "Ljava/lang/String;", nullptr, 0, $field(HttpConnection, protocol)},
+		{"time", "J", nullptr, 0, $field(HttpConnection, time)},
+		{"creationTime", "J", nullptr, $VOLATILE, $field(HttpConnection, creationTime)},
+		{"rspStartedTime", "J", nullptr, $VOLATILE, $field(HttpConnection, rspStartedTime)},
+		{"remaining", "I", nullptr, 0, $field(HttpConnection, remaining)},
+		{"closed", "Z", nullptr, 0, $field(HttpConnection, closed)},
+		{"logger", "Ljava/lang/System$Logger;", nullptr, 0, $field(HttpConnection, logger)},
+		{"state", "Lsun/net/httpserver/HttpConnection$State;", nullptr, $VOLATILE, $field(HttpConnection, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HttpConnection, init$, void)},
+		{"close", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(HttpConnection, close, void)},
+		{"getChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(HttpConnection, getChannel, $SocketChannel*)},
+		{"getHttpContext", "()Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $virtualMethod(HttpConnection, getHttpContext, $HttpContextImpl*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, 0, $virtualMethod(HttpConnection, getInputStream, $InputStream*)},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HttpConnection, getProtocol, $String*)},
+		{"getRawOutputStream", "()Ljava/io/OutputStream;", nullptr, 0, $virtualMethod(HttpConnection, getRawOutputStream, $OutputStream*)},
+		{"getRemaining", "()I", nullptr, 0, $virtualMethod(HttpConnection, getRemaining, int32_t)},
+		{"getSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, 0, $virtualMethod(HttpConnection, getSSLContext, $SSLContext*)},
+		{"getSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(HttpConnection, getSSLEngine, $SSLEngine*)},
+		{"getSelectionKey", "()Ljava/nio/channels/SelectionKey;", nullptr, 0, $virtualMethod(HttpConnection, getSelectionKey, $SelectionKey*)},
+		{"getState", "()Lsun/net/httpserver/HttpConnection$State;", nullptr, 0, $virtualMethod(HttpConnection, getState, $HttpConnection$State*)},
+		{"setChannel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $virtualMethod(HttpConnection, setChannel, void, $SocketChannel*)},
+		{"setContext", "(Lsun/net/httpserver/HttpContextImpl;)V", nullptr, 0, $virtualMethod(HttpConnection, setContext, void, $HttpContextImpl*)},
+		{"setParameters", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/nio/channels/SocketChannel;Ljavax/net/ssl/SSLEngine;Lsun/net/httpserver/SSLStreams;Ljavax/net/ssl/SSLContext;Ljava/lang/String;Lsun/net/httpserver/HttpContextImpl;Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(HttpConnection, setParameters, void, $InputStream*, $OutputStream*, $SocketChannel*, $SSLEngine*, $SSLStreams*, $SSLContext*, $String*, $HttpContextImpl*, $InputStream*)},
+		{"setRemaining", "(I)V", nullptr, 0, $virtualMethod(HttpConnection, setRemaining, void, int32_t)},
+		{"setState", "(Lsun/net/httpserver/HttpConnection$State;)V", nullptr, 0, $virtualMethod(HttpConnection, setState, void, $HttpConnection$State*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpConnection, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.HttpConnection$State", "sun.net.httpserver.HttpConnection", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.HttpConnection",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.HttpConnection$State"
+	};
+	$loadClass(HttpConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection);
+	});
 	return class$;
 }
 

@@ -67,7 +67,7 @@ public:
 	void init$();
 	void init$($String* s);
 	void init$(int32_t errcode);
-	static const int64_t serialVersionUID = (int64_t)0x8D833CC2DA0F2A59;
+	static const int64_t serialVersionUID = (int64_t)0x8d833cc2da0f2a59;
 	int32_t errorCode = 0;
 	static const int32_t XA_RBBASE = 100;
 	static const int32_t XA_RBROLLBACK = XA_RBBASE;
@@ -96,7 +96,10 @@ public:
 	static const int32_t XAER_OUTSIDE = (-9);
 	XAException(const XAException& e);
 	virtual void throw$() override;
-	inline XAException* operator ->() {
+	inline XAException* operator ->() const {
+		return (XAException*)throwing$;
+	}
+	inline operator XAException*() const {
 		return (XAException*)throwing$;
 	}
 };

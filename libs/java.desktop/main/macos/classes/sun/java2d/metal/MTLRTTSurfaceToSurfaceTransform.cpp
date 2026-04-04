@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLRTTSurfaceToSurfaceTransform.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
@@ -30,25 +29,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLRTTSurfaceToSurfaceTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MTLRTTSurfaceToSurfaceTransform, init$, void)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRTTSurfaceToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLRTTSurfaceToSurfaceTransform_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLRTTSurfaceToSurfaceTransform",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	nullptr,
-	_MTLRTTSurfaceToSurfaceTransform_MethodInfo_
-};
-
-$Object* allocate$MTLRTTSurfaceToSurfaceTransform($Class* clazz) {
-	return $of($alloc(MTLRTTSurfaceToSurfaceTransform));
-}
-
 void MTLRTTSurfaceToSurfaceTransform::init$() {
 	$init($MTLSurfaceData);
 	$init($CompositeType);
@@ -63,7 +43,22 @@ MTLRTTSurfaceToSurfaceTransform::MTLRTTSurfaceToSurfaceTransform() {
 }
 
 $Class* MTLRTTSurfaceToSurfaceTransform::load$($String* name, bool initialize) {
-	$loadClass(MTLRTTSurfaceToSurfaceTransform, name, initialize, &_MTLRTTSurfaceToSurfaceTransform_ClassInfo_, allocate$MTLRTTSurfaceToSurfaceTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MTLRTTSurfaceToSurfaceTransform, init$, void)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRTTSurfaceToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLRTTSurfaceToSurfaceTransform",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MTLRTTSurfaceToSurfaceTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLRTTSurfaceToSurfaceTransform);
+	});
 	return class$;
 }
 

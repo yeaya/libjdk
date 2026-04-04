@@ -43,6 +43,7 @@ class $export PlainProxyConnectionTest : public ::java::lang::Object {
 	$class(PlainProxyConnectionTest, 0, ::java::lang::Object)
 public:
 	PlainProxyConnectionTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::net::httpserver::HttpServer* createHttpsServer();
 	static void main($StringArray* args);

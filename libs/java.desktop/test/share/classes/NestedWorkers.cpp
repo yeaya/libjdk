@@ -1,7 +1,5 @@
 #include <NestedWorkers.h>
-
 #include <NestedWorkers$1.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/SwingWorker.h>
 #include <jcpp.h>
@@ -9,51 +7,12 @@
 #undef MAX_LEVEL
 
 using $NestedWorkers$1 = ::NestedWorkers$1;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $SwingWorker = ::javax::swing::SwingWorker;
-
-$FieldInfo _NestedWorkers_FieldInfo_[] = {
-	{"MAX_LEVEL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NestedWorkers, MAX_LEVEL)},
-	{"level", "I", nullptr, $PRIVATE, $field(NestedWorkers, level)},
-	{}
-};
-
-$MethodInfo _NestedWorkers_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(NestedWorkers, init$, void, int32_t)},
-	{"doInBackground", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NestedWorkers, doInBackground, $Object*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NestedWorkers, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _NestedWorkers_InnerClassesInfo_[] = {
-	{"NestedWorkers$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NestedWorkers_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NestedWorkers",
-	"javax.swing.SwingWorker",
-	nullptr,
-	_NestedWorkers_FieldInfo_,
-	_NestedWorkers_MethodInfo_,
-	"Ljavax/swing/SwingWorker<Ljava/lang/String;Ljava/lang/Void;>;",
-	nullptr,
-	_NestedWorkers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NestedWorkers$1"
-};
-
-$Object* allocate$NestedWorkers($Class* clazz) {
-	return $of($alloc(NestedWorkers));
-}
 
 void NestedWorkers::init$(int32_t level) {
 	$SwingWorker::init$();
@@ -61,7 +20,7 @@ void NestedWorkers::init$(int32_t level) {
 }
 
 $Object* NestedWorkers::doInBackground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->level < NestedWorkers::MAX_LEVEL) {
 		$var($SwingWorker, nested, $new(NestedWorkers, this->level + 1));
 		nested->execute();
@@ -80,7 +39,38 @@ NestedWorkers::NestedWorkers() {
 }
 
 $Class* NestedWorkers::load$($String* name, bool initialize) {
-	$loadClass(NestedWorkers, name, initialize, &_NestedWorkers_ClassInfo_, allocate$NestedWorkers);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_LEVEL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NestedWorkers, MAX_LEVEL)},
+		{"level", "I", nullptr, $PRIVATE, $field(NestedWorkers, level)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(NestedWorkers, init$, void, int32_t)},
+		{"doInBackground", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NestedWorkers, doInBackground, $Object*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NestedWorkers, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NestedWorkers$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NestedWorkers",
+		"javax.swing.SwingWorker",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/SwingWorker<Ljava/lang/String;Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NestedWorkers$1"
+	};
+	$loadClass(NestedWorkers, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NestedWorkers));
+	});
 	return class$;
 }
 

@@ -39,6 +39,7 @@ class $export LogStream : public ::java::io::PrintStream {
 	$class(LogStream, 0, ::java::io::PrintStream)
 public:
 	LogStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::java::io::OutputStream* out);
 	static ::java::io::PrintStream* getDefaultStream();
 	virtual ::java::io::OutputStream* getOutputStream();

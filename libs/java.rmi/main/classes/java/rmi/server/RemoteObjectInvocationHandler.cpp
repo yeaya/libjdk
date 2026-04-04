@@ -1,5 +1,4 @@
 #include <java/rmi/server/RemoteObjectInvocationHandler.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/reflect/InvocationHandler.h>
@@ -42,52 +41,6 @@ namespace java {
 	namespace rmi {
 		namespace server {
 
-$FieldInfo _RemoteObjectInvocationHandler_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteObjectInvocationHandler, serialVersionUID)},
-	{"methodToHash_Maps", "Ljava/rmi/server/RemoteObjectInvocationHandler$MethodToHash_Maps;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RemoteObjectInvocationHandler, methodToHash_Maps)},
-	{}
-};
-
-$MethodInfo _RemoteObjectInvocationHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RemoteObjectInvocationHandler, init$, void, $RemoteRef*)},
-	{"getMethodHash", "(Ljava/lang/reflect/Method;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(RemoteObjectInvocationHandler, getMethodHash, int64_t, $Method*)},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RemoteObjectInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
-	{"invokeObjectMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, invokeObjectMethod, $Object*, Object$*, $Method*, $ObjectArray*)},
-	{"invokeRemoteMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, invokeRemoteMethod, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Exception"},
-	{"proxyToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, proxyToString, $String*, Object$*)},
-	{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, readObjectNoData, void), "java.io.InvalidObjectException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RemoteObjectInvocationHandler_InnerClassesInfo_[] = {
-	{"java.rmi.server.RemoteObjectInvocationHandler$MethodToHash_Maps", "java.rmi.server.RemoteObjectInvocationHandler", "MethodToHash_Maps", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _RemoteObjectInvocationHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.server.RemoteObjectInvocationHandler",
-	"java.rmi.server.RemoteObject",
-	"java.lang.reflect.InvocationHandler",
-	_RemoteObjectInvocationHandler_FieldInfo_,
-	_RemoteObjectInvocationHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RemoteObjectInvocationHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.rmi.server.RemoteObjectInvocationHandler$MethodToHash_Maps,java.rmi.server.RemoteObjectInvocationHandler$MethodToHash_Maps$1"
-};
-
-$Object* allocate$RemoteObjectInvocationHandler($Class* clazz) {
-	return $of($alloc(RemoteObjectInvocationHandler));
-}
-
 int32_t RemoteObjectInvocationHandler::hashCode() {
 	 return this->$RemoteObject::hashCode();
 }
@@ -118,7 +71,6 @@ void RemoteObjectInvocationHandler::init$($RemoteRef* ref) {
 }
 
 $Object* RemoteObjectInvocationHandler::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!$Proxy::isProxyClass($nc($of(proxy))->getClass())) {
 		$throwNew($IllegalArgumentException, "not a proxy"_s);
@@ -127,19 +79,19 @@ $Object* RemoteObjectInvocationHandler::invoke(Object$* proxy, $Method* method, 
 		$throwNew($IllegalArgumentException, "handler mismatch"_s);
 	}
 	if ($nc(method)->getDeclaringClass() == $Object::class$) {
-		return $of(invokeObjectMethod(proxy, method, args));
+		return invokeObjectMethod(proxy, method, args);
 	} else {
-		bool var$1 = "finalize"_s->equals($(method->getName()));
-		if (var$1 && method->getParameterCount() == 0) {
-			return $of(nullptr);
+		bool var$0 = "finalize"_s->equals($(method->getName()));
+		if (var$0 && method->getParameterCount() == 0) {
+			return nullptr;
 		} else {
-			return $of(invokeRemoteMethod(proxy, method, args));
+			return invokeRemoteMethod(proxy, method, args);
 		}
 	}
 }
 
 $Object* RemoteObjectInvocationHandler::invokeObjectMethod(Object$* proxy, $Method* method, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, name, $nc(method)->getName());
 	if ($nc(name)->equals("hashCode"_s)) {
@@ -149,9 +101,9 @@ $Object* RemoteObjectInvocationHandler::invokeObjectMethod(Object$* proxy, $Meth
 		$var($InvocationHandler, hdlr, nullptr);
 		bool var$0 = $equals(proxy, obj);
 		if (!var$0) {
-			bool var$2 = obj != nullptr && $Proxy::isProxyClass($of(obj)->getClass());
+			bool var$2 = obj != nullptr && $Proxy::isProxyClass(obj->getClass());
 			bool var$1 = var$2 && $instanceOf(RemoteObjectInvocationHandler, $assign(hdlr, $Proxy::getInvocationHandler(obj)));
-			var$0 = (var$1 && this->equals(hdlr));
+			var$0 = var$1 && this->equals(hdlr);
 		}
 		return $of($Boolean::valueOf(var$0));
 	} else if (name->equals("toString"_s)) {
@@ -162,7 +114,7 @@ $Object* RemoteObjectInvocationHandler::invokeObjectMethod(Object$* proxy, $Meth
 }
 
 $Object* RemoteObjectInvocationHandler::invokeRemoteMethod(Object$* proxy, $Method* method$renamed, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Method, method, method$renamed);
 	$beforeCallerSensitive();
 	try {
@@ -174,27 +126,23 @@ $Object* RemoteObjectInvocationHandler::invokeRemoteMethod(Object$* proxy, $Meth
 		if (!$Remote::class$->isAssignableFrom(decl)) {
 			$throwNew($RemoteException, $$str({"Method is not Remote: "_s, decl, "::"_s, method}));
 		}
-		return $of($nc(this->ref)->invoke($cast($Remote, proxy), method, args, getMethodHash(method)));
+		return $nc(this->ref)->invoke($cast($Remote, proxy), method, args, getMethodHash(method));
 	} catch ($Exception& e) {
 		if (!($instanceOf($RuntimeException, e))) {
 			$Class* cl = $nc($of(proxy))->getClass();
 			try {
 				$var($String, var$0, $nc(method)->getName());
-				$assign(method, $nc(cl)->getMethod(var$0, $(method->getParameterTypes())));
+				$assign(method, cl->getMethod(var$0, $(method->getParameterTypes())));
 			} catch ($NoSuchMethodException& nsme) {
-				$throw($cast($IllegalArgumentException, $($$new($IllegalArgumentException)->initCause(nsme))));
+				$throw($$cast($IllegalArgumentException, $$new($IllegalArgumentException)->initCause(nsme)));
 			}
-			$Class* thrownType = $of(e)->getClass();
+			$Class* thrownType = e->getClass();
 			{
 				$var($ClassArray, arr$, $nc(method)->getExceptionTypes());
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$Class* declaredType = arr$->get(i$);
-					{
-						if ($nc(declaredType)->isAssignableFrom(thrownType)) {
-							$throw(e);
-						}
+					if ($nc(declaredType)->isAssignableFrom(thrownType)) {
+						$throw(e);
 					}
 				}
 			}
@@ -206,7 +154,7 @@ $Object* RemoteObjectInvocationHandler::invokeRemoteMethod(Object$* proxy, $Meth
 }
 
 $String* RemoteObjectInvocationHandler::proxyToString(Object$* proxy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassArray, interfaces, $nc($of(proxy))->getClass()->getInterfaces());
 	if (interfaces->length == 0) {
 		return $str({"Proxy["_s, this, "]"_s});
@@ -215,7 +163,7 @@ $String* RemoteObjectInvocationHandler::proxyToString(Object$* proxy) {
 	if ($nc(iface)->equals("java.rmi.Remote"_s) && interfaces->length > 1) {
 		$assign(iface, $nc(interfaces->get(1))->getName());
 	}
-	int32_t dot = $nc(iface)->lastIndexOf((int32_t)u'.');
+	int32_t dot = $nc(iface)->lastIndexOf(u'.');
 	if (dot >= 0) {
 		$assign(iface, iface->substring(dot + 1));
 	}
@@ -223,17 +171,17 @@ $String* RemoteObjectInvocationHandler::proxyToString(Object$* proxy) {
 }
 
 void RemoteObjectInvocationHandler::readObjectNoData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($InvalidObjectException, $$str({"no data in stream; class: "_s, $($of(this)->getClass()->getName())}));
 }
 
 int64_t RemoteObjectInvocationHandler::getMethodHash($Method* method) {
 	$init(RemoteObjectInvocationHandler);
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Long, $($nc(($cast($Map, $($nc(RemoteObjectInvocationHandler::methodToHash_Maps)->get($nc(method)->getDeclaringClass())))))->get(method)))))->longValue();
+	$useLocalObjectStack();
+	return $$sure($Long, $$sure($Map, RemoteObjectInvocationHandler::methodToHash_Maps->get($nc(method)->getDeclaringClass()))->get(method))->longValue();
 }
 
-void clinit$RemoteObjectInvocationHandler($Class* class$) {
+void RemoteObjectInvocationHandler::clinit$($Class* clazz) {
 	$assignStatic(RemoteObjectInvocationHandler::methodToHash_Maps, $new($RemoteObjectInvocationHandler$MethodToHash_Maps));
 }
 
@@ -241,7 +189,47 @@ RemoteObjectInvocationHandler::RemoteObjectInvocationHandler() {
 }
 
 $Class* RemoteObjectInvocationHandler::load$($String* name, bool initialize) {
-	$loadClass(RemoteObjectInvocationHandler, name, initialize, &_RemoteObjectInvocationHandler_ClassInfo_, clinit$RemoteObjectInvocationHandler, allocate$RemoteObjectInvocationHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteObjectInvocationHandler, serialVersionUID)},
+		{"methodToHash_Maps", "Ljava/rmi/server/RemoteObjectInvocationHandler$MethodToHash_Maps;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RemoteObjectInvocationHandler, methodToHash_Maps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RemoteObjectInvocationHandler, init$, void, $RemoteRef*)},
+		{"getMethodHash", "(Ljava/lang/reflect/Method;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(RemoteObjectInvocationHandler, getMethodHash, int64_t, $Method*)},
+		{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RemoteObjectInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
+		{"invokeObjectMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, invokeObjectMethod, $Object*, Object$*, $Method*, $ObjectArray*)},
+		{"invokeRemoteMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, invokeRemoteMethod, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Exception"},
+		{"proxyToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, proxyToString, $String*, Object$*)},
+		{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(RemoteObjectInvocationHandler, readObjectNoData, void), "java.io.InvalidObjectException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.rmi.server.RemoteObjectInvocationHandler$MethodToHash_Maps", "java.rmi.server.RemoteObjectInvocationHandler", "MethodToHash_Maps", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.server.RemoteObjectInvocationHandler",
+		"java.rmi.server.RemoteObject",
+		"java.lang.reflect.InvocationHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.rmi.server.RemoteObjectInvocationHandler$MethodToHash_Maps,java.rmi.server.RemoteObjectInvocationHandler$MethodToHash_Maps$1"
+	};
+	$loadClass(RemoteObjectInvocationHandler, name, initialize, &classInfo$$, RemoteObjectInvocationHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RemoteObjectInvocationHandler));
+	});
 	return class$;
 }
 

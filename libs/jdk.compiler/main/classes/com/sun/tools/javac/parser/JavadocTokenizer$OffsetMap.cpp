@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavadocTokenizer$OffsetMap.h>
-
 #include <com/sun/tools/javac/parser/JavadocTokenizer.h>
 #include <com/sun/tools/javac/util/Position.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -25,51 +24,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _JavadocTokenizer$OffsetMap_FieldInfo_[] = {
-	{"SB_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocTokenizer$OffsetMap, SB_OFFSET)},
-	{"POS_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocTokenizer$OffsetMap, POS_OFFSET)},
-	{"NOFFSETS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocTokenizer$OffsetMap, NOFFSETS)},
-	{"map", "[I", nullptr, $PRIVATE, $field(JavadocTokenizer$OffsetMap, map)},
-	{"size", "I", nullptr, $PRIVATE, $field(JavadocTokenizer$OffsetMap, size)},
-	{}
-};
-
-$MethodInfo _JavadocTokenizer$OffsetMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JavadocTokenizer$OffsetMap, init$, void)},
-	{"add", "(II)V", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, add, void, int32_t, int32_t)},
-	{"ensure", "(I)V", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, ensure, void, int32_t)},
-	{"getSourcePos", "(I)I", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, getSourcePos, int32_t, int32_t)},
-	{"lastPosOffset", "()I", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, lastPosOffset, int32_t)},
-	{"lastSBOffset", "()I", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, lastSBOffset, int32_t)},
-	{"shouldAdd", "(II)Z", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, shouldAdd, bool, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JavadocTokenizer$OffsetMap_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap", "com.sun.tools.javac.parser.JavadocTokenizer", "OffsetMap", $STATIC},
-	{}
-};
-
-$ClassInfo _JavadocTokenizer$OffsetMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap",
-	"java.lang.Object",
-	nullptr,
-	_JavadocTokenizer$OffsetMap_FieldInfo_,
-	_JavadocTokenizer$OffsetMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavadocTokenizer$OffsetMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavadocTokenizer"
-};
-
-$Object* allocate$JavadocTokenizer$OffsetMap($Class* clazz) {
-	return $of($alloc(JavadocTokenizer$OffsetMap));
-}
-
 void JavadocTokenizer$OffsetMap::init$() {
 	$set(this, map, $new($ints, 128));
 	this->size = 0;
@@ -84,7 +38,7 @@ void JavadocTokenizer$OffsetMap::add(int32_t sbOffset, int32_t posOffet) {
 	if (this->size == 0 || shouldAdd(sbOffset, posOffet)) {
 		ensure(JavadocTokenizer$OffsetMap::NOFFSETS);
 		$nc(this->map)->set(this->size + JavadocTokenizer$OffsetMap::SB_OFFSET, sbOffset);
-		$nc(this->map)->set(this->size + JavadocTokenizer$OffsetMap::POS_OFFSET, posOffet);
+		this->map->set(this->size + JavadocTokenizer$OffsetMap::POS_OFFSET, posOffet);
 		this->size += JavadocTokenizer$OffsetMap::NOFFSETS;
 	}
 }
@@ -103,9 +57,9 @@ void JavadocTokenizer$OffsetMap::ensure(int32_t need) {
 	while (need > grow) {
 		grow <<= 1;
 	}
-	if (grow < $nc(this->map)->length) {
+	if (grow < this->map->length) {
 		$throwNew($IndexOutOfBoundsException);
-	} else if (grow != $nc(this->map)->length) {
+	} else if (grow != this->map->length) {
 		$set(this, map, $Arrays::copyOf(this->map, grow));
 	}
 }
@@ -121,8 +75,8 @@ int32_t JavadocTokenizer$OffsetMap::getSourcePos(int32_t pos) {
 		int32_t indexScaled = index * JavadocTokenizer$OffsetMap::NOFFSETS;
 		if ($nc(this->map)->get(indexScaled + JavadocTokenizer$OffsetMap::SB_OFFSET) < pos) {
 			start = index;
-		} else if ($nc(this->map)->get(indexScaled + JavadocTokenizer$OffsetMap::SB_OFFSET) == pos) {
-			return $nc(this->map)->get(indexScaled + JavadocTokenizer$OffsetMap::POS_OFFSET);
+		} else if (this->map->get(indexScaled + JavadocTokenizer$OffsetMap::SB_OFFSET) == pos) {
+			return this->map->get(indexScaled + JavadocTokenizer$OffsetMap::POS_OFFSET);
 		} else {
 			end = index;
 		}
@@ -135,7 +89,46 @@ JavadocTokenizer$OffsetMap::JavadocTokenizer$OffsetMap() {
 }
 
 $Class* JavadocTokenizer$OffsetMap::load$($String* name, bool initialize) {
-	$loadClass(JavadocTokenizer$OffsetMap, name, initialize, &_JavadocTokenizer$OffsetMap_ClassInfo_, allocate$JavadocTokenizer$OffsetMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"SB_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocTokenizer$OffsetMap, SB_OFFSET)},
+		{"POS_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocTokenizer$OffsetMap, POS_OFFSET)},
+		{"NOFFSETS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JavadocTokenizer$OffsetMap, NOFFSETS)},
+		{"map", "[I", nullptr, $PRIVATE, $field(JavadocTokenizer$OffsetMap, map)},
+		{"size", "I", nullptr, $PRIVATE, $field(JavadocTokenizer$OffsetMap, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JavadocTokenizer$OffsetMap, init$, void)},
+		{"add", "(II)V", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, add, void, int32_t, int32_t)},
+		{"ensure", "(I)V", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, ensure, void, int32_t)},
+		{"getSourcePos", "(I)I", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, getSourcePos, int32_t, int32_t)},
+		{"lastPosOffset", "()I", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, lastPosOffset, int32_t)},
+		{"lastSBOffset", "()I", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, lastSBOffset, int32_t)},
+		{"shouldAdd", "(II)Z", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, shouldAdd, bool, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap", "com.sun.tools.javac.parser.JavadocTokenizer", "OffsetMap", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.parser.JavadocTokenizer$OffsetMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavadocTokenizer"
+	};
+	$loadClass(JavadocTokenizer$OffsetMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocTokenizer$OffsetMap);
+	});
 	return class$;
 }
 

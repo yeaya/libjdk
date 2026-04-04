@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Op$StringOp.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Op.h>
 #include <jcpp.h>
 
@@ -19,42 +18,6 @@ namespace com {
 							namespace xpath {
 								namespace regex {
 
-$FieldInfo _Op$StringOp_FieldInfo_[] = {
-	{"string", "Ljava/lang/String;", nullptr, $FINAL, $field(Op$StringOp, string)},
-	{}
-};
-
-$MethodInfo _Op$StringOp_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(Op$StringOp, init$, void, int32_t, $String*)},
-	{"getString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Op$StringOp, getString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Op$StringOp_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$StringOp", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Op", "StringOp", $STATIC},
-	{}
-};
-
-$ClassInfo _Op$StringOp_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$StringOp",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op",
-	nullptr,
-	_Op$StringOp_FieldInfo_,
-	_Op$StringOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Op$StringOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op"
-};
-
-$Object* allocate$Op$StringOp($Class* clazz) {
-	return $of($alloc(Op$StringOp));
-}
-
 void Op$StringOp::init$(int32_t type, $String* literal) {
 	$Op::init$(type);
 	$set(this, string, literal);
@@ -68,7 +31,37 @@ Op$StringOp::Op$StringOp() {
 }
 
 $Class* Op$StringOp::load$($String* name, bool initialize) {
-	$loadClass(Op$StringOp, name, initialize, &_Op$StringOp_ClassInfo_, allocate$Op$StringOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"string", "Ljava/lang/String;", nullptr, $FINAL, $field(Op$StringOp, string)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(Op$StringOp, init$, void, int32_t, $String*)},
+		{"getString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Op$StringOp, getString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$StringOp", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Op", "StringOp", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$StringOp",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op"
+	};
+	$loadClass(Op$StringOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Op$StringOp);
+	});
 	return class$;
 }
 

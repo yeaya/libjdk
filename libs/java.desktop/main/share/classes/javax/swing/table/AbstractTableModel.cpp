@@ -1,5 +1,4 @@
 #include <javax/swing/table/AbstractTableModel.h>
-
 #include <java/util/EventListener.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/event/TableModelEvent.h>
@@ -18,7 +17,6 @@ using $TableModelListenerArray = $Array<::javax::swing::event::TableModelListene
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $TableModelEvent = ::javax::swing::event::TableModelEvent;
 using $TableModelListener = ::javax::swing::event::TableModelListener;
@@ -27,50 +25,6 @@ using $TableModel = ::javax::swing::table::TableModel;
 namespace javax {
 	namespace swing {
 		namespace table {
-
-$FieldInfo _AbstractTableModel_FieldInfo_[] = {
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractTableModel, listenerList)},
-	{}
-};
-
-$MethodInfo _AbstractTableModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractTableModel, init$, void)},
-	{"addTableModelListener", "(Ljavax/swing/event/TableModelListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, addTableModelListener, void, $TableModelListener*)},
-	{"findColumn", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, findColumn, int32_t, $String*)},
-	{"fireTableCellUpdated", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableCellUpdated, void, int32_t, int32_t)},
-	{"fireTableChanged", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableChanged, void, $TableModelEvent*)},
-	{"fireTableDataChanged", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableDataChanged, void)},
-	{"fireTableRowsDeleted", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableRowsDeleted, void, int32_t, int32_t)},
-	{"fireTableRowsInserted", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableRowsInserted, void, int32_t, int32_t)},
-	{"fireTableRowsUpdated", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableRowsUpdated, void, int32_t, int32_t)},
-	{"fireTableStructureChanged", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableStructureChanged, void)},
-	{"getColumnClass", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(AbstractTableModel, getColumnClass, $Class*, int32_t)},
-	{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, getColumnName, $String*, int32_t)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AbstractTableModel, getListeners, $EventListenerArray*, $Class*)},
-	{"getTableModelListeners", "()[Ljavax/swing/event/TableModelListener;", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, getTableModelListeners, $TableModelListenerArray*)},
-	{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, isCellEditable, bool, int32_t, int32_t)},
-	{"removeTableModelListener", "(Ljavax/swing/event/TableModelListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, removeTableModelListener, void, $TableModelListener*)},
-	{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, setValueAt, void, Object$*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractTableModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.table.AbstractTableModel",
-	"java.lang.Object",
-	"javax.swing.table.TableModel,java.io.Serializable",
-	_AbstractTableModel_FieldInfo_,
-	_AbstractTableModel_MethodInfo_
-};
-
-$Object* allocate$AbstractTableModel($Class* clazz) {
-	return $of($alloc(AbstractTableModel));
-}
 
 int32_t AbstractTableModel::hashCode() {
 	 return this->$TableModel::hashCode();
@@ -97,7 +51,7 @@ void AbstractTableModel::init$() {
 }
 
 $String* AbstractTableModel::getColumnName(int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, ""_s);
 	for (; column >= 0; column = column / 26 - 1) {
 		$assign(result, $str({$$str((char16_t)((char16_t)(column % 26) + u'A')), result}));
@@ -106,7 +60,7 @@ $String* AbstractTableModel::getColumnName(int32_t column) {
 }
 
 int32_t AbstractTableModel::findColumn($String* columnName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < getColumnCount(); ++i) {
 		if ($nc(columnName)->equals($(getColumnName(i)))) {
 			return i;
@@ -138,7 +92,7 @@ void AbstractTableModel::removeTableModelListener($TableModelListener* l) {
 
 $TableModelListenerArray* AbstractTableModel::getTableModelListeners() {
 	$load($TableModelListener);
-	return $fcast($TableModelListenerArray, $nc(this->listenerList)->getListeners($TableModelListener::class$));
+	return $cast($TableModelListenerArray, $nc(this->listenerList)->getListeners($TableModelListener::class$));
 }
 
 void AbstractTableModel::fireTableDataChanged() {
@@ -170,7 +124,7 @@ void AbstractTableModel::fireTableChanged($TableModelEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TableModelListener);
 		if ($equals(listeners->get(i), $TableModelListener::class$)) {
-			$nc(($cast($TableModelListener, listeners->get(i + 1))))->tableChanged(e);
+			$nc($cast($TableModelListener, listeners->get(i + 1)))->tableChanged(e);
 		}
 	}
 }
@@ -183,7 +137,46 @@ AbstractTableModel::AbstractTableModel() {
 }
 
 $Class* AbstractTableModel::load$($String* name, bool initialize) {
-	$loadClass(AbstractTableModel, name, initialize, &_AbstractTableModel_ClassInfo_, allocate$AbstractTableModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractTableModel, listenerList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractTableModel, init$, void)},
+		{"addTableModelListener", "(Ljavax/swing/event/TableModelListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, addTableModelListener, void, $TableModelListener*)},
+		{"findColumn", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, findColumn, int32_t, $String*)},
+		{"fireTableCellUpdated", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableCellUpdated, void, int32_t, int32_t)},
+		{"fireTableChanged", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableChanged, void, $TableModelEvent*)},
+		{"fireTableDataChanged", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableDataChanged, void)},
+		{"fireTableRowsDeleted", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableRowsDeleted, void, int32_t, int32_t)},
+		{"fireTableRowsInserted", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableRowsInserted, void, int32_t, int32_t)},
+		{"fireTableRowsUpdated", "(II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableRowsUpdated, void, int32_t, int32_t)},
+		{"fireTableStructureChanged", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, fireTableStructureChanged, void)},
+		{"getColumnClass", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(AbstractTableModel, getColumnClass, $Class*, int32_t)},
+		{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, getColumnName, $String*, int32_t)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(AbstractTableModel, getListeners, $EventListenerArray*, $Class*)},
+		{"getTableModelListeners", "()[Ljavax/swing/event/TableModelListener;", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, getTableModelListeners, $TableModelListenerArray*)},
+		{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, isCellEditable, bool, int32_t, int32_t)},
+		{"removeTableModelListener", "(Ljavax/swing/event/TableModelListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, removeTableModelListener, void, $TableModelListener*)},
+		{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(AbstractTableModel, setValueAt, void, Object$*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.table.AbstractTableModel",
+		"java.lang.Object",
+		"javax.swing.table.TableModel,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractTableModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractTableModel));
+	});
 	return class$;
 }
 

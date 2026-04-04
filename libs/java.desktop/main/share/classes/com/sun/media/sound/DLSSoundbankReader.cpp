@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DLSSoundbankReader.h>
-
 #include <com/sun/media/sound/DLSSoundbank.h>
 #include <com/sun/media/sound/RIFFInvalidFormatException.h>
 #include <java/io/File.h>
@@ -25,27 +24,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _DLSSoundbankReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DLSSoundbankReader, init$, void)},
-	{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(DLSSoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(DLSSoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(DLSSoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DLSSoundbankReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DLSSoundbankReader",
-	"javax.sound.midi.spi.SoundbankReader",
-	nullptr,
-	nullptr,
-	_DLSSoundbankReader_MethodInfo_
-};
-
-$Object* allocate$DLSSoundbankReader($Class* clazz) {
-	return $of($alloc(DLSSoundbankReader));
-}
 
 void DLSSoundbankReader::init$() {
 	$SoundbankReader::init$();
@@ -86,7 +64,24 @@ DLSSoundbankReader::DLSSoundbankReader() {
 }
 
 $Class* DLSSoundbankReader::load$($String* name, bool initialize) {
-	$loadClass(DLSSoundbankReader, name, initialize, &_DLSSoundbankReader_ClassInfo_, allocate$DLSSoundbankReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DLSSoundbankReader, init$, void)},
+		{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(DLSSoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(DLSSoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(DLSSoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DLSSoundbankReader",
+		"javax.sound.midi.spi.SoundbankReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DLSSoundbankReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DLSSoundbankReader);
+	});
 	return class$;
 }
 

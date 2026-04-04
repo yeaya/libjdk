@@ -1,5 +1,4 @@
 #include <java/awt/image/AbstractMultiResolutionImage.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/image/ImageObserver.h>
@@ -18,35 +17,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 namespace java {
 	namespace awt {
 		namespace image {
-
-$MethodInfo _AbstractMultiResolutionImage_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractMultiResolutionImage, init$, void)},
-	{"getBaseImage", "()Ljava/awt/Image;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMultiResolutionImage, getBaseImage, $Image*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getGraphics, $Graphics*)},
-	{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getHeight, int32_t, $ImageObserver*)},
-	{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getProperty, $Object*, $String*, $ImageObserver*)},
-	{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getSource, $ImageProducer*)},
-	{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getWidth, int32_t, $ImageObserver*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractMultiResolutionImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.AbstractMultiResolutionImage",
-	"java.awt.Image",
-	"java.awt.image.MultiResolutionImage",
-	nullptr,
-	_AbstractMultiResolutionImage_MethodInfo_
-};
-
-$Object* allocate$AbstractMultiResolutionImage($Class* clazz) {
-	return $of($alloc(AbstractMultiResolutionImage));
-}
 
 int32_t AbstractMultiResolutionImage::hashCode() {
 	 return this->$Image::hashCode();
@@ -73,15 +43,15 @@ void AbstractMultiResolutionImage::init$() {
 }
 
 int32_t AbstractMultiResolutionImage::getWidth($ImageObserver* observer) {
-	return $nc($(getBaseImage()))->getWidth(observer);
+	return $$nc(getBaseImage())->getWidth(observer);
 }
 
 int32_t AbstractMultiResolutionImage::getHeight($ImageObserver* observer) {
-	return $nc($(getBaseImage()))->getHeight(observer);
+	return $$nc(getBaseImage())->getHeight(observer);
 }
 
 $ImageProducer* AbstractMultiResolutionImage::getSource() {
-	return $nc($(getBaseImage()))->getSource();
+	return $$nc(getBaseImage())->getSource();
 }
 
 $Graphics* AbstractMultiResolutionImage::getGraphics() {
@@ -90,14 +60,39 @@ $Graphics* AbstractMultiResolutionImage::getGraphics() {
 }
 
 $Object* AbstractMultiResolutionImage::getProperty($String* name, $ImageObserver* observer) {
-	return $of($nc($(getBaseImage()))->getProperty(name, observer));
+	return $$nc(getBaseImage())->getProperty(name, observer);
 }
 
 AbstractMultiResolutionImage::AbstractMultiResolutionImage() {
 }
 
 $Class* AbstractMultiResolutionImage::load$($String* name, bool initialize) {
-	$loadClass(AbstractMultiResolutionImage, name, initialize, &_AbstractMultiResolutionImage_ClassInfo_, allocate$AbstractMultiResolutionImage);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractMultiResolutionImage, init$, void)},
+		{"getBaseImage", "()Ljava/awt/Image;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractMultiResolutionImage, getBaseImage, $Image*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getGraphics, $Graphics*)},
+		{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getHeight, int32_t, $ImageObserver*)},
+		{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getProperty, $Object*, $String*, $ImageObserver*)},
+		{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getSource, $ImageProducer*)},
+		{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(AbstractMultiResolutionImage, getWidth, int32_t, $ImageObserver*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.AbstractMultiResolutionImage",
+		"java.awt.Image",
+		"java.awt.image.MultiResolutionImage",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbstractMultiResolutionImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractMultiResolutionImage));
+	});
 	return class$;
 }
 

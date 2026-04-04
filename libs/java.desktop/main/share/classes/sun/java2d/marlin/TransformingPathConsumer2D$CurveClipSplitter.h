@@ -32,6 +32,7 @@ class TransformingPathConsumer2D$CurveClipSplitter : public ::java::lang::Object
 	$class(TransformingPathConsumer2D$CurveClipSplitter, 0, ::java::lang::Object)
 public:
 	TransformingPathConsumer2D$CurveClipSplitter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx);
 	static void emitCurrent(int32_t type, $doubles* pts, int32_t off, ::sun::java2d::marlin::DPathConsumer2D* out);
 	void init();

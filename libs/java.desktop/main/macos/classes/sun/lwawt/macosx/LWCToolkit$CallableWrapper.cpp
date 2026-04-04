@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/LWCToolkit$CallableWrapper.h>
-
 #include <java/util/concurrent/Callable.h>
 #include <sun/lwawt/macosx/LWCToolkit.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ using $Callable = ::java::util::concurrent::Callable;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _LWCToolkit$CallableWrapper_FieldInfo_[] = {
-	{"callable", "Ljava/util/concurrent/Callable;", "Ljava/util/concurrent/Callable<TT;>;", $FINAL, $field(LWCToolkit$CallableWrapper, callable)},
-	{"object", "Ljava/lang/Object;", "TT;", 0, $field(LWCToolkit$CallableWrapper, object)},
-	{"e", "Ljava/lang/Exception;", nullptr, 0, $field(LWCToolkit$CallableWrapper, e)},
-	{}
-};
-
-$MethodInfo _LWCToolkit$CallableWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Callable;)V", "(Ljava/util/concurrent/Callable<TT;>;)V", 0, $method(LWCToolkit$CallableWrapper, init$, void, $Callable*)},
-	{"getResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(LWCToolkit$CallableWrapper, getResult, $Object*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$CallableWrapper, run, void)},
-	{}
-};
-
-$InnerClassInfo _LWCToolkit$CallableWrapper_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.LWCToolkit$CallableWrapper", "sun.lwawt.macosx.LWCToolkit", "CallableWrapper", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LWCToolkit$CallableWrapper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.LWCToolkit$CallableWrapper",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LWCToolkit$CallableWrapper_FieldInfo_,
-	_LWCToolkit$CallableWrapper_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;",
-	nullptr,
-	_LWCToolkit$CallableWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.LWCToolkit"
-};
-
-$Object* allocate$LWCToolkit$CallableWrapper($Class* clazz) {
-	return $of($alloc(LWCToolkit$CallableWrapper));
-}
 
 void LWCToolkit$CallableWrapper::init$($Callable* callable) {
 	$set(this, callable, callable);
@@ -70,14 +30,47 @@ $Object* LWCToolkit$CallableWrapper::getResult() {
 	if (this->e != nullptr) {
 		$throw(this->e);
 	}
-	return $of(this->object);
+	return this->object;
 }
 
 LWCToolkit$CallableWrapper::LWCToolkit$CallableWrapper() {
 }
 
 $Class* LWCToolkit$CallableWrapper::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$CallableWrapper, name, initialize, &_LWCToolkit$CallableWrapper_ClassInfo_, allocate$LWCToolkit$CallableWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"callable", "Ljava/util/concurrent/Callable;", "Ljava/util/concurrent/Callable<TT;>;", $FINAL, $field(LWCToolkit$CallableWrapper, callable)},
+		{"object", "Ljava/lang/Object;", "TT;", 0, $field(LWCToolkit$CallableWrapper, object)},
+		{"e", "Ljava/lang/Exception;", nullptr, 0, $field(LWCToolkit$CallableWrapper, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Callable;)V", "(Ljava/util/concurrent/Callable<TT;>;)V", 0, $method(LWCToolkit$CallableWrapper, init$, void, $Callable*)},
+		{"getResult", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(LWCToolkit$CallableWrapper, getResult, $Object*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$CallableWrapper, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.LWCToolkit$CallableWrapper", "sun.lwawt.macosx.LWCToolkit", "CallableWrapper", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.LWCToolkit$CallableWrapper",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.LWCToolkit"
+	};
+	$loadClass(LWCToolkit$CallableWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$CallableWrapper);
+	});
 	return class$;
 }
 

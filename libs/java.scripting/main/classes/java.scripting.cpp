@@ -1,13 +1,10 @@
 #include <java.scripting.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/tools/script/shell/Main.h>
 #include <com/sun/tools/script/shell/Main$1.h>
 #include <com/sun/tools/script/shell/Main$2.h>
@@ -113,6 +110,7 @@ $bytes* java$scripting$GetResource($String* name) {
 
 void java$scripting::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.scripting", "17.35", "",
 		&_java$scripting_ModuleInfo_,

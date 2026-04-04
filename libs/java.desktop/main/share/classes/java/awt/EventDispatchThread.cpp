@@ -1,5 +1,4 @@
 #include <java/awt/EventDispatchThread.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Conditional.h>
@@ -42,7 +41,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
 using $ThreadDeath = ::java::lang::ThreadDeath;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
@@ -53,61 +51,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _EventDispatchThread_FieldInfo_[] = {
-	{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EventDispatchThread, eventLog)},
-	{"theQueue", "Ljava/awt/EventQueue;", nullptr, $PRIVATE, $field(EventDispatchThread, theQueue)},
-	{"doDispatch", "Z", nullptr, $PRIVATE | $VOLATILE, $field(EventDispatchThread, doDispatch)},
-	{"ANY_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventDispatchThread, ANY_EVENT)},
-	{"eventFilters", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/awt/EventFilter;>;", $PRIVATE, $field(EventDispatchThread, eventFilters)},
-	{}
-};
-
-$MethodInfo _EventDispatchThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(EventDispatchThread, init$, void)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;Ljava/awt/EventQueue;)V", nullptr, 0, $method(EventDispatchThread, init$, void, $ThreadGroup*, $String*, $EventQueue*)},
-	{"addEventFilter", "(Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, addEventFilter, void, $EventFilter*)},
-	{"filterAndCheckEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(EventDispatchThread, filterAndCheckEvent, bool, $AWTEvent*)},
-	{"getEventQueue", "()Ljava/awt/EventQueue;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventDispatchThread, getEventQueue, $EventQueue*)},
-	{"processException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(EventDispatchThread, processException, void, $Throwable*)},
-	{"pumpEvents", "(Ljava/awt/Conditional;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEvents, void, $Conditional*)},
-	{"pumpEvents", "(ILjava/awt/Conditional;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEvents, void, int32_t, $Conditional*)},
-	{"pumpEventsForFilter", "(Ljava/awt/Conditional;Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForFilter, void, $Conditional*, $EventFilter*)},
-	{"pumpEventsForFilter", "(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForFilter, void, int32_t, $Conditional*, $EventFilter*)},
-	{"pumpEventsForHierarchy", "(Ljava/awt/Conditional;Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForHierarchy, void, $Conditional*, $Component*)},
-	{"pumpEventsForHierarchy", "(ILjava/awt/Conditional;Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForHierarchy, void, int32_t, $Conditional*, $Component*)},
-	{"pumpOneEventForFilters", "(I)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpOneEventForFilters, void, int32_t)},
-	{"removeEventFilter", "(Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, removeEventFilter, void, $EventFilter*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread, run, void)},
-	{"setEventQueue", "(Ljava/awt/EventQueue;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventDispatchThread, setEventQueue, void, $EventQueue*)},
-	{"stopDispatching", "()V", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread, stopDispatching, void)},
-	{}
-};
-
-$InnerClassInfo _EventDispatchThread_InnerClassesInfo_[] = {
-	{"java.awt.EventDispatchThread$HierarchyEventFilter", "java.awt.EventDispatchThread", "HierarchyEventFilter", $PRIVATE | $STATIC},
-	{"java.awt.EventDispatchThread$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _EventDispatchThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.EventDispatchThread",
-	"java.lang.Thread",
-	nullptr,
-	_EventDispatchThread_FieldInfo_,
-	_EventDispatchThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EventDispatchThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.EventDispatchThread$HierarchyEventFilter,java.awt.EventDispatchThread$1"
-};
-
-$Object* allocate$EventDispatchThread($Class* clazz) {
-	return $of($alloc(EventDispatchThread));
-}
 
 $PlatformLogger* EventDispatchThread::eventLog = nullptr;
 
@@ -130,19 +73,17 @@ void EventDispatchThread::stopDispatching() {
 }
 
 void EventDispatchThread::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			pumpEvents($$new($EventDispatchThread$1, this));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($(getEventQueue()))->detachDispatchThread(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		pumpEvents($$new($EventDispatchThread$1, this));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$$nc(getEventQueue())->detachDispatchThread(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -182,21 +123,21 @@ void EventDispatchThread::pumpEventsForFilter(int32_t id, $Conditional* cond, $E
 }
 
 void EventDispatchThread::addEventFilter($EventFilter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(EventDispatchThread::eventLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(EventDispatchThread::eventLog)->finest($$str({"adding the event filter: "_s, filter}));
+		EventDispatchThread::eventLog->finest($$str({"adding the event filter: "_s, filter}));
 	}
 	$synchronized(this->eventFilters) {
-		if (!$nc(this->eventFilters)->contains(filter)) {
+		if (!this->eventFilters->contains(filter)) {
 			if ($instanceOf($ModalEventFilter, filter)) {
 				$var($ModalEventFilter, newFilter, $cast($ModalEventFilter, filter));
 				int32_t k = 0;
 				for (k = 0; k < $nc(this->eventFilters)->size(); ++k) {
-					$var($EventFilter, f, $cast($EventFilter, $nc(this->eventFilters)->get(k)));
+					$var($EventFilter, f, $cast($EventFilter, this->eventFilters->get(k)));
 					if ($instanceOf($ModalEventFilter, f)) {
 						$var($ModalEventFilter, cf, $cast($ModalEventFilter, f));
-						if ($nc(cf)->compareTo(newFilter) > 0) {
+						if (cf->compareTo(newFilter) > 0) {
 							break;
 						}
 					}
@@ -212,28 +153,26 @@ void EventDispatchThread::addEventFilter($EventFilter* filter) {
 void EventDispatchThread::removeEventFilter($EventFilter* filter) {
 	$init($PlatformLogger$Level);
 	if ($nc(EventDispatchThread::eventLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(EventDispatchThread::eventLog)->finest($$str({"removing the event filter: "_s, filter}));
+		EventDispatchThread::eventLog->finest($$str({"removing the event filter: "_s, filter}));
 	}
 	$synchronized(this->eventFilters) {
-		$nc(this->eventFilters)->remove($of(filter));
+		this->eventFilters->remove(filter);
 	}
 }
 
 bool EventDispatchThread::filterAndCheckEvent($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool eventOK = true;
 	$synchronized(this->eventFilters) {
-		for (int32_t i = $nc(this->eventFilters)->size() - 1; i >= 0; --i) {
+		for (int32_t i = this->eventFilters->size() - 1; i >= 0; --i) {
 			$var($EventFilter, f, $cast($EventFilter, $nc(this->eventFilters)->get(i)));
 			$EventFilter$FilterAction* accept = $nc(f)->acceptEvent(event);
 			$init($EventFilter$FilterAction);
 			if (accept == $EventFilter$FilterAction::REJECT) {
 				eventOK = false;
 				break;
-			} else {
-				if (accept == $EventFilter$FilterAction::ACCEPT_IMMEDIATELY) {
-					break;
-				}
+			} else if (accept == $EventFilter$FilterAction::ACCEPT_IMMEDIATELY) {
+				break;
 			}
 		}
 	}
@@ -241,14 +180,14 @@ bool EventDispatchThread::filterAndCheckEvent($AWTEvent* event) {
 }
 
 void EventDispatchThread::pumpOneEventForFilters(int32_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTEvent, event, nullptr);
 	bool eventOK = false;
 	try {
 		$var($EventQueue, eq, nullptr);
 		do {
 			$assign(eq, getEventQueue());
-			$assign(event, (id == EventDispatchThread::ANY_EVENT) ? $nc(eq)->getNextEvent() : eq->getNextEvent(id));
+			$assign(event, (id == EventDispatchThread::ANY_EVENT) ? $nc(eq)->getNextEvent() : $nc(eq)->getNextEvent(id));
 			eventOK = filterAndCheckEvent(event);
 			if (!eventOK) {
 				$nc(event)->consume();
@@ -256,7 +195,7 @@ void EventDispatchThread::pumpOneEventForFilters(int32_t id) {
 		} while (eventOK == false);
 		$init($PlatformLogger$Level);
 		if ($nc(EventDispatchThread::eventLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-			$nc(EventDispatchThread::eventLog)->finest($$str({"Dispatching: "_s, event}));
+			EventDispatchThread::eventLog->finest($$str({"Dispatching: "_s, event}));
 		}
 		$nc(eq)->dispatchEvent(event);
 	} catch ($ThreadDeath& death) {
@@ -270,12 +209,12 @@ void EventDispatchThread::pumpOneEventForFilters(int32_t id) {
 }
 
 void EventDispatchThread::processException($Throwable* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(EventDispatchThread::eventLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(EventDispatchThread::eventLog)->fine($$str({"Processing exception: "_s, e}));
+		EventDispatchThread::eventLog->fine($$str({"Processing exception: "_s, e}));
 	}
-	$nc($(getUncaughtExceptionHandler()))->uncaughtException(this, e);
+	$$nc(getUncaughtExceptionHandler())->uncaughtException(this, e);
 }
 
 $EventQueue* EventDispatchThread::getEventQueue() {
@@ -290,7 +229,7 @@ void EventDispatchThread::setEventQueue($EventQueue* eq) {
 	}
 }
 
-void clinit$EventDispatchThread($Class* class$) {
+void EventDispatchThread::clinit$($Class* clazz) {
 	$assignStatic(EventDispatchThread::eventLog, $PlatformLogger::getLogger("java.awt.event.EventDispatchThread"_s));
 }
 
@@ -298,7 +237,56 @@ EventDispatchThread::EventDispatchThread() {
 }
 
 $Class* EventDispatchThread::load$($String* name, bool initialize) {
-	$loadClass(EventDispatchThread, name, initialize, &_EventDispatchThread_ClassInfo_, clinit$EventDispatchThread, allocate$EventDispatchThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EventDispatchThread, eventLog)},
+		{"theQueue", "Ljava/awt/EventQueue;", nullptr, $PRIVATE, $field(EventDispatchThread, theQueue)},
+		{"doDispatch", "Z", nullptr, $PRIVATE | $VOLATILE, $field(EventDispatchThread, doDispatch)},
+		{"ANY_EVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventDispatchThread, ANY_EVENT)},
+		{"eventFilters", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/awt/EventFilter;>;", $PRIVATE, $field(EventDispatchThread, eventFilters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(EventDispatchThread, init$, void)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;Ljava/awt/EventQueue;)V", nullptr, 0, $method(EventDispatchThread, init$, void, $ThreadGroup*, $String*, $EventQueue*)},
+		{"addEventFilter", "(Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, addEventFilter, void, $EventFilter*)},
+		{"filterAndCheckEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(EventDispatchThread, filterAndCheckEvent, bool, $AWTEvent*)},
+		{"getEventQueue", "()Ljava/awt/EventQueue;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventDispatchThread, getEventQueue, $EventQueue*)},
+		{"processException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(EventDispatchThread, processException, void, $Throwable*)},
+		{"pumpEvents", "(Ljava/awt/Conditional;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEvents, void, $Conditional*)},
+		{"pumpEvents", "(ILjava/awt/Conditional;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEvents, void, int32_t, $Conditional*)},
+		{"pumpEventsForFilter", "(Ljava/awt/Conditional;Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForFilter, void, $Conditional*, $EventFilter*)},
+		{"pumpEventsForFilter", "(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForFilter, void, int32_t, $Conditional*, $EventFilter*)},
+		{"pumpEventsForHierarchy", "(Ljava/awt/Conditional;Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForHierarchy, void, $Conditional*, $Component*)},
+		{"pumpEventsForHierarchy", "(ILjava/awt/Conditional;Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpEventsForHierarchy, void, int32_t, $Conditional*, $Component*)},
+		{"pumpOneEventForFilters", "(I)V", nullptr, 0, $virtualMethod(EventDispatchThread, pumpOneEventForFilters, void, int32_t)},
+		{"removeEventFilter", "(Ljava/awt/EventFilter;)V", nullptr, 0, $virtualMethod(EventDispatchThread, removeEventFilter, void, $EventFilter*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread, run, void)},
+		{"setEventQueue", "(Ljava/awt/EventQueue;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventDispatchThread, setEventQueue, void, $EventQueue*)},
+		{"stopDispatching", "()V", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread, stopDispatching, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.EventDispatchThread$HierarchyEventFilter", "java.awt.EventDispatchThread", "HierarchyEventFilter", $PRIVATE | $STATIC},
+		{"java.awt.EventDispatchThread$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.EventDispatchThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.EventDispatchThread$HierarchyEventFilter,java.awt.EventDispatchThread$1"
+	};
+	$loadClass(EventDispatchThread, name, initialize, &classInfo$$, EventDispatchThread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EventDispatchThread);
+	});
 	return class$;
 }
 

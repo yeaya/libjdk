@@ -1,9 +1,6 @@
 #include <sun/lwawt/macosx/CWarningWindow.h>
-
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
@@ -22,7 +19,6 @@
 #include <java/awt/image/ImageObserver.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -47,7 +43,6 @@
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/lwawt/LWWindowPeer.h>
-#include <sun/lwawt/PlatformEventNotifier.h>
 #include <sun/lwawt/PlatformWindow.h>
 #include <sun/lwawt/macosx/CFRetainedResource$CFNativeAction.h>
 #include <sun/lwawt/macosx/CPlatformResponder.h>
@@ -70,8 +65,6 @@
 
 using $IconInfoArray2 = $Array<::sun::awt::IconInfo, 2>;
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Color = ::java::awt::Color;
-using $Composite = ::java::awt::Composite;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -93,11 +86,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
 using $AWTIcon32_security_icon_bw16_png = ::sun::awt::AWTIcon32_security_icon_bw16_png;
 using $AWTIcon32_security_icon_bw24_png = ::sun::awt::AWTIcon32_security_icon_bw24_png;
 using $AWTIcon32_security_icon_bw32_png = ::sun::awt::AWTIcon32_security_icon_bw32_png;
@@ -114,14 +105,12 @@ using $IconInfo = ::sun::awt::IconInfo;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $LWWindowPeer = ::sun::lwawt::LWWindowPeer;
-using $PlatformEventNotifier = ::sun::lwawt::PlatformEventNotifier;
 using $PlatformWindow = ::sun::lwawt::PlatformWindow;
 using $CFRetainedResource$CFNativeAction = ::sun::lwawt::macosx::CFRetainedResource$CFNativeAction;
 using $CPlatformResponder = ::sun::lwawt::macosx::CPlatformResponder;
 using $CPlatformView = ::sun::lwawt::macosx::CPlatformView;
 using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 using $CWarningWindow$1 = ::sun::lwawt::macosx::CWarningWindow$1;
-using $CWarningWindow$CancelableRunnable = ::sun::lwawt::macosx::CWarningWindow$CancelableRunnable;
 using $CWarningWindow$HidingTask = ::sun::lwawt::macosx::CWarningWindow$HidingTask;
 using $CWarningWindow$Lock = ::sun::lwawt::macosx::CWarningWindow$Lock;
 using $CWarningWindow$ShowingTask = ::sun::lwawt::macosx::CWarningWindow$ShowingTask;
@@ -141,33 +130,29 @@ public:
 	virtual void run(int64_t ptr) override {
 		CWarningWindow::lambda$setVisible$0(visible, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CWarningWindow$$Lambda$lambda$setVisible$0>());
-	}
 	bool visible = false;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CWarningWindow$$Lambda$lambda$setVisible$0::fieldInfos[2] = {
-	{"visible", "Z", nullptr, $PUBLIC, $field(CWarningWindow$$Lambda$lambda$setVisible$0, visible)},
-	{}
-};
-$MethodInfo CWarningWindow$$Lambda$lambda$setVisible$0::methodInfos[3] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(CWarningWindow$$Lambda$lambda$setVisible$0, init$, void, bool)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$$Lambda$lambda$setVisible$0, run, void, int64_t)},
-	{}
-};
-$ClassInfo CWarningWindow$$Lambda$lambda$setVisible$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$0",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CWarningWindow$$Lambda$lambda$setVisible$0::load$($String* name, bool initialize) {
-	$loadClass(CWarningWindow$$Lambda$lambda$setVisible$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"visible", "Z", nullptr, $PUBLIC, $field(CWarningWindow$$Lambda$lambda$setVisible$0, visible)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(CWarningWindow$$Lambda$lambda$setVisible$0, init$, void, bool)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$$Lambda$lambda$setVisible$0, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$0",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CWarningWindow$$Lambda$lambda$setVisible$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CWarningWindow$$Lambda$lambda$setVisible$0);
+	});
 	return class$;
 }
 $Class* CWarningWindow$$Lambda$lambda$setVisible$0::class$ = nullptr;
@@ -181,33 +166,29 @@ public:
 	virtual void run(int64_t ownerPtr) override {
 		$nc(inst$)->lambda$setVisible$2(ownerPtr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CWarningWindow$$Lambda$lambda$setVisible$2$1>());
-	}
 	CWarningWindow* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CWarningWindow$$Lambda$lambda$setVisible$2$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CWarningWindow$$Lambda$lambda$setVisible$2$1, inst$)},
-	{}
-};
-$MethodInfo CWarningWindow$$Lambda$lambda$setVisible$2$1::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CWarningWindow;)V", nullptr, $PUBLIC, $method(CWarningWindow$$Lambda$lambda$setVisible$2$1, init$, void, CWarningWindow*)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$$Lambda$lambda$setVisible$2$1, run, void, int64_t)},
-	{}
-};
-$ClassInfo CWarningWindow$$Lambda$lambda$setVisible$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$2$1",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CWarningWindow$$Lambda$lambda$setVisible$2$1::load$($String* name, bool initialize) {
-	$loadClass(CWarningWindow$$Lambda$lambda$setVisible$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CWarningWindow$$Lambda$lambda$setVisible$2$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CWarningWindow;)V", nullptr, $PUBLIC, $method(CWarningWindow$$Lambda$lambda$setVisible$2$1, init$, void, CWarningWindow*)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$$Lambda$lambda$setVisible$2$1, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$2$1",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CWarningWindow$$Lambda$lambda$setVisible$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CWarningWindow$$Lambda$lambda$setVisible$2$1);
+	});
 	return class$;
 }
 $Class* CWarningWindow$$Lambda$lambda$setVisible$2$1::class$ = nullptr;
@@ -221,152 +202,32 @@ public:
 	virtual void run(int64_t ptr) override {
 		CWarningWindow::lambda$setVisible$1(ownerPtr, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CWarningWindow$$Lambda$lambda$setVisible$1$2>());
-	}
 	int64_t ownerPtr = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CWarningWindow$$Lambda$lambda$setVisible$1$2::fieldInfos[2] = {
-	{"ownerPtr", "J", nullptr, $PUBLIC, $field(CWarningWindow$$Lambda$lambda$setVisible$1$2, ownerPtr)},
-	{}
-};
-$MethodInfo CWarningWindow$$Lambda$lambda$setVisible$1$2::methodInfos[3] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(CWarningWindow$$Lambda$lambda$setVisible$1$2, init$, void, int64_t)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$$Lambda$lambda$setVisible$1$2, run, void, int64_t)},
-	{}
-};
-$ClassInfo CWarningWindow$$Lambda$lambda$setVisible$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$1$2",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CWarningWindow$$Lambda$lambda$setVisible$1$2::load$($String* name, bool initialize) {
-	$loadClass(CWarningWindow$$Lambda$lambda$setVisible$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ownerPtr", "J", nullptr, $PUBLIC, $field(CWarningWindow$$Lambda$lambda$setVisible$1$2, ownerPtr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(CWarningWindow$$Lambda$lambda$setVisible$1$2, init$, void, int64_t)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$$Lambda$lambda$setVisible$1$2, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$1$2",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CWarningWindow$$Lambda$lambda$setVisible$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CWarningWindow$$Lambda$lambda$setVisible$1$2);
+	});
 	return class$;
 }
 $Class* CWarningWindow$$Lambda$lambda$setVisible$1$2::class$ = nullptr;
-
-$FieldInfo _CWarningWindow_FieldInfo_[] = {
-	{"lock", "Lsun/lwawt/macosx/CWarningWindow$Lock;", nullptr, $PRIVATE | $FINAL, $field(CWarningWindow, lock)},
-	{"SHOWING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CWarningWindow, SHOWING_DELAY)},
-	{"HIDING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CWarningWindow, HIDING_DELAY)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(CWarningWindow, bounds)},
-	{"ownerPeer", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/lwawt/LWWindowPeer;>;", $PRIVATE | $FINAL, $field(CWarningWindow, ownerPeer)},
-	{"ownerWindow", "Ljava/awt/Window;", nullptr, $PRIVATE | $FINAL, $field(CWarningWindow, ownerWindow)},
-	{"currentIcon", "I", nullptr, $PRIVATE | $VOLATILE, $field(CWarningWindow, currentIcon)},
-	{"currentSize", "I", nullptr, $PRIVATE, $field(CWarningWindow, currentSize)},
-	{"icons", "[[Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticField(CWarningWindow, icons)},
-	{"taskLock", "Lsun/lwawt/macosx/CWarningWindow$Lock;", nullptr, $PRIVATE | $FINAL, $field(CWarningWindow, taskLock)},
-	{"showHideTask", "Lsun/lwawt/macosx/CWarningWindow$CancelableRunnable;", nullptr, $PRIVATE, $field(CWarningWindow, showHideTask)},
-	{}
-};
-
-$MethodInfo _CWarningWindow_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*enterFullScreenMode", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*exitFullScreenMode", "()V", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
-	{"*getLayerPtr", "()J", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC},
-	{"*getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC, $method(CWarningWindow, init$, void, $Window*, $LWWindowPeer*)},
-	{"cancelTasks", "()V", nullptr, $PRIVATE, $method(CWarningWindow, cancelTasks, void)},
-	{"createContentView", "()Lsun/lwawt/macosx/CPlatformView;", nullptr, 0, $virtualMethod(CWarningWindow, createContentView, $CPlatformView*)},
-	{"createPlatformResponder", "()Lsun/lwawt/macosx/CPlatformResponder;", nullptr, $PROTECTED, $virtualMethod(CWarningWindow, createPlatformResponder, $CPlatformResponder*)},
-	{"deliverMoveResizeEvent", "(IIIIZ)V", nullptr, $PROTECTED, $virtualMethod(CWarningWindow, deliverMoveResizeEvent, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, dispose, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(CWarningWindow, getBounds, $Rectangle*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PRIVATE, $method(CWarningWindow, getGraphics, $Graphics*)},
-	{"getHeight", "()I", nullptr, $PRIVATE, $method(CWarningWindow, getHeight, int32_t)},
-	{"getInitialStyleBits", "()I", nullptr, $PROTECTED, $virtualMethod(CWarningWindow, getInitialStyleBits, int32_t)},
-	{"getSecurityIconInfo", "(II)Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(CWarningWindow, getSecurityIconInfo, $IconInfo*, int32_t, int32_t)},
-	{"getSecurityIconInfo", "()Lsun/awt/IconInfo;", nullptr, $PRIVATE, $method(CWarningWindow, getSecurityIconInfo, $IconInfo*)},
-	{"getWidth", "()I", nullptr, $PRIVATE, $method(CWarningWindow, getWidth, int32_t)},
-	{"*initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC},
-	{"*isActive", "()Z", nullptr, $PUBLIC},
-	{"*isFullScreenMode", "()Z", nullptr, $PUBLIC},
-	{"*isUnderMouse", "()Z", nullptr, $PUBLIC},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, isVisible, bool)},
-	{"lambda$setVisible$0", "(ZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CWarningWindow, lambda$setVisible$0, void, bool, int64_t)},
-	{"lambda$setVisible$1", "(JJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CWarningWindow, lambda$setVisible$1, void, int64_t, int64_t)},
-	{"lambda$setVisible$2", "(J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CWarningWindow, lambda$setVisible$2, void, int64_t)},
-	{"notifyActivation", "(ZLsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyActivation, void, bool, $LWWindowPeer*)},
-	{"notifyExpose", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyExpose, void, $Rectangle*)},
-	{"notifyIconify", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyIconify, void, bool)},
-	{"notifyKeyEvent", "(IJIICI)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyKeyEvent, void, int32_t, int64_t, int32_t, int32_t, char16_t, int32_t)},
-	{"notifyMouseEvent", "(IJIIIIIIIZ[B)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyMouseEvent, void, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $bytes*)},
-	{"notifyMouseWheelEvent", "(JIIIIIIIID[B)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyMouseWheelEvent, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, double, $bytes*)},
-	{"notifyNCMouseDown", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyNCMouseDown, void)},
-	{"notifyReshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyReshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"notifyUpdateCursor", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyUpdateCursor, void)},
-	{"notifyZoom", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyZoom, void, bool)},
-	{"*rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"repaint", "()V", nullptr, $PRIVATE, $method(CWarningWindow, repaint, void)},
-	{"replaceSurface", "()V", nullptr, $PRIVATE, $method(CWarningWindow, replaceSurface, void)},
-	{"*replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC},
-	{"reposition", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, reposition, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*requestWindowFocus", "()Z", nullptr, $PUBLIC},
-	{"*setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIII)V", nullptr, $PUBLIC},
-	{"*setMaximizedBounds", "(IIII)V", nullptr, $PUBLIC},
-	{"*setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC},
-	{"*setModalBlocked", "(Z)V", nullptr, $PUBLIC},
-	{"*setOpacity", "(F)V", nullptr, $PUBLIC},
-	{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
-	{"*setResizable", "(Z)V", nullptr, $PUBLIC},
-	{"*setSizeConstraints", "(IIII)V", nullptr, $PUBLIC},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setVisible", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, setVisible, void, bool, bool)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, setVisible, void, bool)},
-	{"*setWindowState", "(I)V", nullptr, $PUBLIC},
-	{"*toBack", "()V", nullptr, $PUBLIC},
-	{"*toFront", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
-	{"*updateIconImages", "()V", nullptr, $PUBLIC},
-	{"updateIconSize", "()V", nullptr, $PRIVATE, $method(CWarningWindow, updateIconSize, void)},
-	{}
-};
-
-$InnerClassInfo _CWarningWindow_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CWarningWindow$ShowingTask", "sun.lwawt.macosx.CWarningWindow", "ShowingTask", $PRIVATE},
-	{"sun.lwawt.macosx.CWarningWindow$HidingTask", "sun.lwawt.macosx.CWarningWindow", "HidingTask", $PRIVATE},
-	{"sun.lwawt.macosx.CWarningWindow$CancelableRunnable", "sun.lwawt.macosx.CWarningWindow", "CancelableRunnable", $PRIVATE | $STATIC | $ABSTRACT},
-	{"sun.lwawt.macosx.CWarningWindow$Lock", "sun.lwawt.macosx.CWarningWindow", "Lock", $PRIVATE | $STATIC},
-	{"sun.lwawt.macosx.CWarningWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CWarningWindow_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CWarningWindow",
-	"sun.lwawt.macosx.CPlatformWindow",
-	"sun.lwawt.SecurityWarningWindow,sun.lwawt.PlatformEventNotifier",
-	_CWarningWindow_FieldInfo_,
-	_CWarningWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CWarningWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CWarningWindow$ShowingTask,sun.lwawt.macosx.CWarningWindow$HidingTask,sun.lwawt.macosx.CWarningWindow$CancelableRunnable,sun.lwawt.macosx.CWarningWindow$Lock,sun.lwawt.macosx.CWarningWindow$1,sun.lwawt.macosx.CWarningWindow$1$2,sun.lwawt.macosx.CWarningWindow$1$1"
-};
-
-$Object* allocate$CWarningWindow($Class* clazz) {
-	return $of($alloc(CWarningWindow));
-}
 
 void CWarningWindow::initialize($Window* _target, $LWWindowPeer* _peer, $PlatformWindow* _owner) {
 	this->$CPlatformWindow::initialize(_target, _peer, _owner);
@@ -516,42 +377,42 @@ $IconInfoArray2* CWarningWindow::icons = nullptr;
 
 $IconInfo* CWarningWindow::getSecurityIconInfo(int32_t size, int32_t num) {
 	$init(CWarningWindow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(CWarningWindow::class$) {
 		if (CWarningWindow::icons == nullptr) {
 			$assignStatic(CWarningWindow::icons, $new($IconInfoArray2, 4, 3));
 			$init($AWTIcon32_security_icon_bw16_png);
-			$nc($nc(CWarningWindow::icons)->get(0))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw16_png::security_icon_bw16_png));
+			$nc(CWarningWindow::icons->get(0))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw16_png::security_icon_bw16_png));
 			$init($AWTIcon32_security_icon_interim16_png);
-			$nc($nc(CWarningWindow::icons)->get(0))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim16_png::security_icon_interim16_png));
+			$nc(CWarningWindow::icons->get(0))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim16_png::security_icon_interim16_png));
 			$init($AWTIcon32_security_icon_yellow16_png);
-			$nc($nc(CWarningWindow::icons)->get(0))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow16_png::security_icon_yellow16_png));
+			$nc(CWarningWindow::icons->get(0))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow16_png::security_icon_yellow16_png));
 			$init($AWTIcon32_security_icon_bw24_png);
-			$nc($nc(CWarningWindow::icons)->get(1))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw24_png::security_icon_bw24_png));
+			$nc(CWarningWindow::icons->get(1))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw24_png::security_icon_bw24_png));
 			$init($AWTIcon32_security_icon_interim24_png);
-			$nc($nc(CWarningWindow::icons)->get(1))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim24_png::security_icon_interim24_png));
+			$nc(CWarningWindow::icons->get(1))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim24_png::security_icon_interim24_png));
 			$init($AWTIcon32_security_icon_yellow24_png);
-			$nc($nc(CWarningWindow::icons)->get(1))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow24_png::security_icon_yellow24_png));
+			$nc(CWarningWindow::icons->get(1))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow24_png::security_icon_yellow24_png));
 			$init($AWTIcon32_security_icon_bw32_png);
-			$nc($nc(CWarningWindow::icons)->get(2))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw32_png::security_icon_bw32_png));
+			$nc(CWarningWindow::icons->get(2))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw32_png::security_icon_bw32_png));
 			$init($AWTIcon32_security_icon_interim32_png);
-			$nc($nc(CWarningWindow::icons)->get(2))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim32_png::security_icon_interim32_png));
+			$nc(CWarningWindow::icons->get(2))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim32_png::security_icon_interim32_png));
 			$init($AWTIcon32_security_icon_yellow32_png);
-			$nc($nc(CWarningWindow::icons)->get(2))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow32_png::security_icon_yellow32_png));
+			$nc(CWarningWindow::icons->get(2))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow32_png::security_icon_yellow32_png));
 			$init($AWTIcon32_security_icon_bw48_png);
-			$nc($nc(CWarningWindow::icons)->get(3))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw48_png::security_icon_bw48_png));
+			$nc(CWarningWindow::icons->get(3))->set(0, $$new($IconInfo, $AWTIcon32_security_icon_bw48_png::security_icon_bw48_png));
 			$init($AWTIcon32_security_icon_interim48_png);
-			$nc($nc(CWarningWindow::icons)->get(3))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim48_png::security_icon_interim48_png));
+			$nc(CWarningWindow::icons->get(3))->set(1, $$new($IconInfo, $AWTIcon32_security_icon_interim48_png::security_icon_interim48_png));
 			$init($AWTIcon32_security_icon_yellow48_png);
-			$nc($nc(CWarningWindow::icons)->get(3))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow48_png::security_icon_yellow48_png));
+			$nc(CWarningWindow::icons->get(3))->set(2, $$new($IconInfo, $AWTIcon32_security_icon_yellow48_png::security_icon_yellow48_png));
 		}
 	}
 	int32_t sizeIndex = $mod(size, $nc(CWarningWindow::icons)->length);
-	return $nc($nc(CWarningWindow::icons)->get(sizeIndex))->get($mod(num, $nc($nc(CWarningWindow::icons)->get(sizeIndex))->length));
+	return $nc(CWarningWindow::icons->get(sizeIndex))->get($mod(num, $nc(CWarningWindow::icons->get(sizeIndex))->length));
 }
 
 void CWarningWindow::init$($Window* _ownerWindow, $LWWindowPeer* _ownerPeer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CPlatformWindow::init$();
 	$set(this, lock, $new($CWarningWindow$Lock));
 	$set(this, bounds, $new($Rectangle));
@@ -564,14 +425,14 @@ void CWarningWindow::init$($Window* _ownerWindow, $LWWindowPeer* _ownerPeer) {
 	setOpaque(false);
 	$var($String, warningString, $nc(this->ownerWindow)->getWarningString());
 	if (warningString != nullptr) {
-		$nc(this->contentView)->setToolTip($($nc(this->ownerWindow)->getWarningString()));
+		$nc(this->contentView)->setToolTip($(this->ownerWindow->getWarningString()));
 	}
 	updateIconSize();
 }
 
 void CWarningWindow::reposition(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	$var($Point2D, point, $nc($($AWTAccessor::getWindowAccessor()))->calculateSecurityWarningPosition(this->ownerWindow, (double)x, (double)y, (double)w, (double)h));
+	$useLocalObjectStack();
+	$var($Point2D, point, $$nc($AWTAccessor::getWindowAccessor())->calculateSecurityWarningPosition(this->ownerWindow, (double)x, (double)y, (double)w, (double)h));
 	int32_t var$0 = $cast(int32_t, $nc(point)->getX());
 	int32_t var$1 = $cast(int32_t, point->getY());
 	int32_t var$2 = getWidth();
@@ -651,13 +512,13 @@ bool CWarningWindow::isVisible() {
 }
 
 void CWarningWindow::setVisible(bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
-		execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CWarningWindow$$Lambda$lambda$setVisible$0, visible)));
+		execute($$new(CWarningWindow$$Lambda$lambda$setVisible$0, visible));
 		this->visible = visible;
 		if (visible) {
-			if (this->owner != nullptr && $nc(this->owner)->isVisible()) {
-				$nc(this->owner)->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CWarningWindow$$Lambda$lambda$setVisible$2$1, this)));
+			if (this->owner != nullptr && this->owner->isVisible()) {
+				this->owner->execute($$new(CWarningWindow$$Lambda$lambda$setVisible$2$1, this));
 				applyWindowLevel(this->ownerWindow);
 			}
 		}
@@ -679,7 +540,7 @@ int32_t CWarningWindow::getInitialStyleBits() {
 void CWarningWindow::deliverMoveResizeEvent(int32_t x, int32_t y, int32_t width, int32_t height, bool byUser) {
 	bool isResize = false;
 	$synchronized(this->lock) {
-		isResize = ($nc(this->bounds)->width != width || $nc(this->bounds)->height != height);
+		isResize = ($nc(this->bounds)->width != width || this->bounds->height != height);
 		$set(this, bounds, $new($Rectangle, x, y, width, height));
 	}
 	if (isResize) {
@@ -708,18 +569,18 @@ void CWarningWindow::dispose() {
 void CWarningWindow::cancelTasks() {
 	$synchronized(this->taskLock) {
 		if (this->showHideTask != nullptr) {
-			$nc(this->showHideTask)->cancel();
+			this->showHideTask->cancel();
 			$set(this, showHideTask, nullptr);
 		}
 	}
 }
 
 void CWarningWindow::updateIconSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newSize = -1;
 	if (this->ownerWindow != nullptr) {
-		$var($Insets, insets, $nc(this->ownerWindow)->getInsets());
-		int32_t max = $Math::max($nc(insets)->top, $Math::max(insets->bottom, $Math::max(insets->left, insets->right)));
+		$var($Insets, insets, this->ownerWindow->getInsets());
+		int32_t max = $Math::max($nc(insets)->top, $Math::max($nc(insets)->bottom, $Math::max($nc(insets)->left, $nc(insets)->right)));
 		if (max < 24) {
 			newSize = 0;
 		} else if (max < 32) {
@@ -739,13 +600,13 @@ void CWarningWindow::updateIconSize() {
 			$var($IconInfo, ico, getSecurityIconInfo(this->currentSize, 0));
 			$var($Window, var$0, this->ownerWindow);
 			int32_t var$1 = $nc(ico)->getWidth();
-			$nc($($AWTAccessor::getWindowAccessor()))->setSecurityWarningSize(var$0, var$1, ico->getHeight());
+			$$nc($AWTAccessor::getWindowAccessor())->setSecurityWarningSize(var$0, var$1, ico->getHeight());
 		}
 	}
 }
 
 $Graphics* CWarningWindow::getGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, sd, $nc(this->contentView)->getSurfaceData());
 	if (this->ownerWindow == nullptr || sd == nullptr) {
 		return nullptr;
@@ -755,23 +616,21 @@ $Graphics* CWarningWindow::getGraphics() {
 }
 
 void CWarningWindow::repaint() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, getGraphics());
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$init($AlphaComposite);
-				$nc(($cast($Graphics2D, g)))->setComposite($AlphaComposite::Src);
-				g->drawImage($($nc($(getSecurityIconInfo()))->getImage()), 0, 0, nullptr);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				g->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$init($AlphaComposite);
+			$cast($Graphics2D, g)->setComposite($AlphaComposite::Src);
+			g->drawImage($($$nc(getSecurityIconInfo())->getImage()), 0, 0, nullptr);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -785,11 +644,11 @@ void CWarningWindow::replaceSurface() {
 }
 
 int32_t CWarningWindow::getWidth() {
-	return $nc($(getSecurityIconInfo()))->getWidth();
+	return $$nc(getSecurityIconInfo())->getWidth();
 }
 
 int32_t CWarningWindow::getHeight() {
-	return $nc($(getSecurityIconInfo()))->getHeight();
+	return $$nc(getSecurityIconInfo())->getHeight();
 }
 
 $IconInfo* CWarningWindow::getSecurityIconInfo() {
@@ -797,7 +656,7 @@ $IconInfo* CWarningWindow::getSecurityIconInfo() {
 }
 
 void CWarningWindow::lambda$setVisible$2(int64_t ownerPtr) {
-	execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CWarningWindow$$Lambda$lambda$setVisible$1$2, ownerPtr)));
+	execute($$new(CWarningWindow$$Lambda$lambda$setVisible$1$2, ownerPtr));
 }
 
 void CWarningWindow::lambda$setVisible$1(int64_t ownerPtr, int64_t ptr) {
@@ -819,17 +678,127 @@ CWarningWindow::CWarningWindow() {
 
 $Class* CWarningWindow::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CWarningWindow$$Lambda$lambda$setVisible$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$0")) {
 			return CWarningWindow$$Lambda$lambda$setVisible$0::load$(name, initialize);
 		}
-		if (name->equals(CWarningWindow$$Lambda$lambda$setVisible$2$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$2$1")) {
 			return CWarningWindow$$Lambda$lambda$setVisible$2$1::load$(name, initialize);
 		}
-		if (name->equals(CWarningWindow$$Lambda$lambda$setVisible$1$2::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CWarningWindow$$Lambda$lambda$setVisible$1$2")) {
 			return CWarningWindow$$Lambda$lambda$setVisible$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(CWarningWindow, name, initialize, &_CWarningWindow_ClassInfo_, allocate$CWarningWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"lock", "Lsun/lwawt/macosx/CWarningWindow$Lock;", nullptr, $PRIVATE | $FINAL, $field(CWarningWindow, lock)},
+		{"SHOWING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CWarningWindow, SHOWING_DELAY)},
+		{"HIDING_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CWarningWindow, HIDING_DELAY)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(CWarningWindow, bounds)},
+		{"ownerPeer", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/lwawt/LWWindowPeer;>;", $PRIVATE | $FINAL, $field(CWarningWindow, ownerPeer)},
+		{"ownerWindow", "Ljava/awt/Window;", nullptr, $PRIVATE | $FINAL, $field(CWarningWindow, ownerWindow)},
+		{"currentIcon", "I", nullptr, $PRIVATE | $VOLATILE, $field(CWarningWindow, currentIcon)},
+		{"currentSize", "I", nullptr, $PRIVATE, $field(CWarningWindow, currentSize)},
+		{"icons", "[[Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticField(CWarningWindow, icons)},
+		{"taskLock", "Lsun/lwawt/macosx/CWarningWindow$Lock;", nullptr, $PRIVATE | $FINAL, $field(CWarningWindow, taskLock)},
+		{"showHideTask", "Lsun/lwawt/macosx/CWarningWindow$CancelableRunnable;", nullptr, $PRIVATE, $field(CWarningWindow, showHideTask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*enterFullScreenMode", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*exitFullScreenMode", "()V", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
+		{"*getLayerPtr", "()J", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC},
+		{"*getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC, $method(CWarningWindow, init$, void, $Window*, $LWWindowPeer*)},
+		{"cancelTasks", "()V", nullptr, $PRIVATE, $method(CWarningWindow, cancelTasks, void)},
+		{"createContentView", "()Lsun/lwawt/macosx/CPlatformView;", nullptr, 0, $virtualMethod(CWarningWindow, createContentView, $CPlatformView*)},
+		{"createPlatformResponder", "()Lsun/lwawt/macosx/CPlatformResponder;", nullptr, $PROTECTED, $virtualMethod(CWarningWindow, createPlatformResponder, $CPlatformResponder*)},
+		{"deliverMoveResizeEvent", "(IIIIZ)V", nullptr, $PROTECTED, $virtualMethod(CWarningWindow, deliverMoveResizeEvent, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, dispose, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(CWarningWindow, getBounds, $Rectangle*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PRIVATE, $method(CWarningWindow, getGraphics, $Graphics*)},
+		{"getHeight", "()I", nullptr, $PRIVATE, $method(CWarningWindow, getHeight, int32_t)},
+		{"getInitialStyleBits", "()I", nullptr, $PROTECTED, $virtualMethod(CWarningWindow, getInitialStyleBits, int32_t)},
+		{"getSecurityIconInfo", "(II)Lsun/awt/IconInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(CWarningWindow, getSecurityIconInfo, $IconInfo*, int32_t, int32_t)},
+		{"getSecurityIconInfo", "()Lsun/awt/IconInfo;", nullptr, $PRIVATE, $method(CWarningWindow, getSecurityIconInfo, $IconInfo*)},
+		{"getWidth", "()I", nullptr, $PRIVATE, $method(CWarningWindow, getWidth, int32_t)},
+		{"*initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC},
+		{"*isActive", "()Z", nullptr, $PUBLIC},
+		{"*isFullScreenMode", "()Z", nullptr, $PUBLIC},
+		{"*isUnderMouse", "()Z", nullptr, $PUBLIC},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, isVisible, bool)},
+		{"lambda$setVisible$0", "(ZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CWarningWindow, lambda$setVisible$0, void, bool, int64_t)},
+		{"lambda$setVisible$1", "(JJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CWarningWindow, lambda$setVisible$1, void, int64_t, int64_t)},
+		{"lambda$setVisible$2", "(J)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CWarningWindow, lambda$setVisible$2, void, int64_t)},
+		{"notifyActivation", "(ZLsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyActivation, void, bool, $LWWindowPeer*)},
+		{"notifyExpose", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyExpose, void, $Rectangle*)},
+		{"notifyIconify", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyIconify, void, bool)},
+		{"notifyKeyEvent", "(IJIICI)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyKeyEvent, void, int32_t, int64_t, int32_t, int32_t, char16_t, int32_t)},
+		{"notifyMouseEvent", "(IJIIIIIIIZ[B)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyMouseEvent, void, int32_t, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $bytes*)},
+		{"notifyMouseWheelEvent", "(JIIIIIIIID[B)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyMouseWheelEvent, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, double, $bytes*)},
+		{"notifyNCMouseDown", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyNCMouseDown, void)},
+		{"notifyReshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyReshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"notifyUpdateCursor", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyUpdateCursor, void)},
+		{"notifyZoom", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, notifyZoom, void, bool)},
+		{"*rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"repaint", "()V", nullptr, $PRIVATE, $method(CWarningWindow, repaint, void)},
+		{"replaceSurface", "()V", nullptr, $PRIVATE, $method(CWarningWindow, replaceSurface, void)},
+		{"*replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC},
+		{"reposition", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, reposition, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*requestWindowFocus", "()Z", nullptr, $PUBLIC},
+		{"*setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIII)V", nullptr, $PUBLIC},
+		{"*setMaximizedBounds", "(IIII)V", nullptr, $PUBLIC},
+		{"*setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC},
+		{"*setModalBlocked", "(Z)V", nullptr, $PUBLIC},
+		{"*setOpacity", "(F)V", nullptr, $PUBLIC},
+		{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
+		{"*setResizable", "(Z)V", nullptr, $PUBLIC},
+		{"*setSizeConstraints", "(IIII)V", nullptr, $PUBLIC},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setVisible", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, setVisible, void, bool, bool)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow, setVisible, void, bool)},
+		{"*setWindowState", "(I)V", nullptr, $PUBLIC},
+		{"*toBack", "()V", nullptr, $PUBLIC},
+		{"*toFront", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
+		{"*updateIconImages", "()V", nullptr, $PUBLIC},
+		{"updateIconSize", "()V", nullptr, $PRIVATE, $method(CWarningWindow, updateIconSize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CWarningWindow$ShowingTask", "sun.lwawt.macosx.CWarningWindow", "ShowingTask", $PRIVATE},
+		{"sun.lwawt.macosx.CWarningWindow$HidingTask", "sun.lwawt.macosx.CWarningWindow", "HidingTask", $PRIVATE},
+		{"sun.lwawt.macosx.CWarningWindow$CancelableRunnable", "sun.lwawt.macosx.CWarningWindow", "CancelableRunnable", $PRIVATE | $STATIC | $ABSTRACT},
+		{"sun.lwawt.macosx.CWarningWindow$Lock", "sun.lwawt.macosx.CWarningWindow", "Lock", $PRIVATE | $STATIC},
+		{"sun.lwawt.macosx.CWarningWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CWarningWindow",
+		"sun.lwawt.macosx.CPlatformWindow",
+		"sun.lwawt.SecurityWarningWindow,sun.lwawt.PlatformEventNotifier",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CWarningWindow$ShowingTask,sun.lwawt.macosx.CWarningWindow$HidingTask,sun.lwawt.macosx.CWarningWindow$CancelableRunnable,sun.lwawt.macosx.CWarningWindow$Lock,sun.lwawt.macosx.CWarningWindow$1,sun.lwawt.macosx.CWarningWindow$1$2,sun.lwawt.macosx.CWarningWindow$1$1"
+	};
+	$loadClass(CWarningWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CWarningWindow));
+	});
 	return class$;
 }
 

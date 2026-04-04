@@ -55,6 +55,7 @@ class FullDVFactory : public ::com::sun::org::apache::xerces::internal::impl::dv
 	$class(FullDVFactory, 0, ::com::sun::org::apache::xerces::internal::impl::dv::xs::BaseDVFactory)
 public:
 	FullDVFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createBuiltInTypes(::com::sun::org::apache::xerces::internal::util::SymbolHash* types);
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* getBuiltInType($String* name) override;

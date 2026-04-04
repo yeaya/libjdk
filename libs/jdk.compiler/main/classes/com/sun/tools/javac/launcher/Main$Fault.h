@@ -43,7 +43,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	Main$Fault(const Main$Fault& e);
 	virtual void throw$() override;
-	inline Main$Fault* operator ->() {
+	inline Main$Fault* operator ->() const {
+		return (Main$Fault*)throwing$;
+	}
+	inline operator Main$Fault*() const {
 		return (Main$Fault*)throwing$;
 	}
 };

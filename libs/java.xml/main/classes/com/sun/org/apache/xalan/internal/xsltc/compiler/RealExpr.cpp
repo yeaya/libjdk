@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/RealExpr.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
@@ -12,7 +10,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Type.h>
 #include <jcpp.h>
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
@@ -34,32 +31,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _RealExpr_FieldInfo_[] = {
-	{"_value", "D", nullptr, $PRIVATE, $field(RealExpr, _value)},
-	{}
-};
-
-$MethodInfo _RealExpr_MethodInfo_[] = {
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(RealExpr, init$, void, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RealExpr, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(RealExpr, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(RealExpr, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _RealExpr_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.RealExpr",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	_RealExpr_FieldInfo_,
-	_RealExpr_MethodInfo_
-};
-
-$Object* allocate$RealExpr($Class* clazz) {
-	return $of($alloc(RealExpr));
-}
-
 void RealExpr::init$(double value) {
 	$Expression::init$();
 	this->_value = value;
@@ -71,22 +42,43 @@ $Type* RealExpr::typeCheck($SymbolTable* stable) {
 }
 
 $String* RealExpr::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"real-expr("_s, $$str(this->_value), $$str(u')')});
 }
 
 void RealExpr::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_value)));
+	$nc(il)->append($$new($PUSH, cpg, this->_value));
 }
 
 RealExpr::RealExpr() {
 }
 
 $Class* RealExpr::load$($String* name, bool initialize) {
-	$loadClass(RealExpr, name, initialize, &_RealExpr_ClassInfo_, allocate$RealExpr);
+	$FieldInfo fieldInfos$$[] = {
+		{"_value", "D", nullptr, $PRIVATE, $field(RealExpr, _value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(D)V", nullptr, $PUBLIC, $method(RealExpr, init$, void, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RealExpr, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(RealExpr, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(RealExpr, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.RealExpr",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RealExpr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RealExpr);
+	});
 	return class$;
 }
 

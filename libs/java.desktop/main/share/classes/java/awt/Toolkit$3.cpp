@@ -1,5 +1,4 @@
 #include <java/awt/Toolkit$3.h>
-
 #include <java/awt/Toolkit.h>
 #include <java/util/ResourceBundle.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ using $ResourceBundle = ::java::util::ResourceBundle;
 namespace java {
 	namespace awt {
 
-$MethodInfo _Toolkit$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Toolkit$3, init$, void)},
-	{"setPlatformResources", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$3, setPlatformResources, void, $ResourceBundle*)},
-	{}
-};
-
-$EnclosingMethodInfo _Toolkit$3_EnclosingMethodInfo_ = {
-	"java.awt.Toolkit",
-	"initStatic",
-	"()V"
-};
-
-$InnerClassInfo _Toolkit$3_InnerClassesInfo_[] = {
-	{"java.awt.Toolkit$3", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$ToolkitAccessor", "sun.awt.AWTAccessor", "ToolkitAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Toolkit$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Toolkit$3",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$ToolkitAccessor",
-	nullptr,
-	_Toolkit$3_MethodInfo_,
-	nullptr,
-	&_Toolkit$3_EnclosingMethodInfo_,
-	_Toolkit$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Toolkit"
-};
-
-$Object* allocate$Toolkit$3($Class* clazz) {
-	return $of($alloc(Toolkit$3));
-}
-
 void Toolkit$3::init$() {
 }
 
@@ -63,7 +24,39 @@ Toolkit$3::Toolkit$3() {
 }
 
 $Class* Toolkit$3::load$($String* name, bool initialize) {
-	$loadClass(Toolkit$3, name, initialize, &_Toolkit$3_ClassInfo_, allocate$Toolkit$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Toolkit$3, init$, void)},
+		{"setPlatformResources", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$3, setPlatformResources, void, $ResourceBundle*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.Toolkit",
+		"initStatic",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Toolkit$3", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$ToolkitAccessor", "sun.awt.AWTAccessor", "ToolkitAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Toolkit$3",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$ToolkitAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Toolkit"
+	};
+	$loadClass(Toolkit$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Toolkit$3);
+	});
 	return class$;
 }
 

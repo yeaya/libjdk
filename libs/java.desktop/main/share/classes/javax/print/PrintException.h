@@ -16,10 +16,13 @@ public:
 	void init$($String* s);
 	void init$(::java::lang::Exception* e);
 	void init$($String* s, ::java::lang::Exception* e);
-	static const int64_t serialVersionUID = (int64_t)0xADAB69FD7BD5D699;
+	static const int64_t serialVersionUID = (int64_t)0xadab69fd7bd5d699;
 	PrintException(const PrintException& e);
 	virtual void throw$() override;
-	inline PrintException* operator ->() {
+	inline PrintException* operator ->() const {
+		return (PrintException*)throwing$;
+	}
+	inline operator PrintException*() const {
 		return (PrintException*)throwing$;
 	}
 };

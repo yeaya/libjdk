@@ -1,5 +1,4 @@
 #include <sun/rmi/log/ReliableLog.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutput.h>
@@ -10,8 +9,6 @@
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
-#include <java/io/RandomAccessFile.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/invoke/CallSite.h>
@@ -39,9 +36,6 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
-using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -73,27 +67,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(ReliableLog::lambda$new$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ReliableLog$$Lambda$lambda$new$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ReliableLog$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReliableLog$$Lambda$lambda$new$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReliableLog$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo ReliableLog$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.log.ReliableLog$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* ReliableLog$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(ReliableLog$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReliableLog$$Lambda$lambda$new$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReliableLog$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.log.ReliableLog$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReliableLog$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReliableLog$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* ReliableLog$$Lambda$lambda$new$0::class$ = nullptr;
@@ -106,115 +97,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(ReliableLog::lambda$getLogClassConstructor$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.log.ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::load$($String* name, bool initialize) {
-	$loadClass(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.log.ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1);
+	});
 	return class$;
 }
 $Class* ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::class$ = nullptr;
-
-$FieldInfo _ReliableLog_FieldInfo_[] = {
-	{"PreferredMajorVersion", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReliableLog, PreferredMajorVersion)},
-	{"PreferredMinorVersion", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReliableLog, PreferredMinorVersion)},
-	{"Debug", "Z", nullptr, $PRIVATE, $field(ReliableLog, Debug)},
-	{"snapshotPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, snapshotPrefix)},
-	{"logfilePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, logfilePrefix)},
-	{"versionFile", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, versionFile)},
-	{"newVersionFile", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, newVersionFile)},
-	{"intBytes", "I", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, intBytes)},
-	{"diskPageSize", "J", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, diskPageSize)},
-	{"dir", "Ljava/io/File;", nullptr, $PRIVATE, $field(ReliableLog, dir)},
-	{"version", "I", nullptr, $PRIVATE, $field(ReliableLog, version)},
-	{"logName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReliableLog, logName)},
-	{"log", "Lsun/rmi/log/ReliableLog$LogFile;", nullptr, $PRIVATE, $field(ReliableLog, log)},
-	{"snapshotBytes", "J", nullptr, $PRIVATE, $field(ReliableLog, snapshotBytes)},
-	{"logBytes", "J", nullptr, $PRIVATE, $field(ReliableLog, logBytes)},
-	{"logEntries", "I", nullptr, $PRIVATE, $field(ReliableLog, logEntries)},
-	{"lastSnapshot", "J", nullptr, $PRIVATE, $field(ReliableLog, lastSnapshot)},
-	{"lastLog", "J", nullptr, $PRIVATE, $field(ReliableLog, lastLog)},
-	{"handler", "Lsun/rmi/log/LogHandler;", nullptr, $PRIVATE, $field(ReliableLog, handler)},
-	{"intBuf", "[B", nullptr, $PRIVATE | $FINAL, $field(ReliableLog, intBuf)},
-	{"majorFormatVersion", "I", nullptr, $PRIVATE, $field(ReliableLog, majorFormatVersion)},
-	{"minorFormatVersion", "I", nullptr, $PRIVATE, $field(ReliableLog, minorFormatVersion)},
-	{"logClassConstructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+Lsun/rmi/log/ReliableLog$LogFile;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ReliableLog, logClassConstructor)},
-	{}
-};
-
-$MethodInfo _ReliableLog_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;Z)V", nullptr, $PUBLIC, $method(ReliableLog, init$, void, $String*, $LogHandler*, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;)V", nullptr, $PUBLIC, $method(ReliableLog, init$, void, $String*, $LogHandler*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, close, void), "java.io.IOException"},
-	{"commitToNewVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, commitToNewVersion, void), "java.io.IOException"},
-	{"createFirstVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, createFirstVersion, void), "java.io.IOException"},
-	{"deleteFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ReliableLog, deleteFile, void, $String*), "java.io.IOException"},
-	{"deleteLogFile", "(I)V", nullptr, $PRIVATE, $method(ReliableLog, deleteLogFile, void, int32_t), "java.io.IOException"},
-	{"deleteNewVersionFile", "()V", nullptr, $PRIVATE, $method(ReliableLog, deleteNewVersionFile, void), "java.io.IOException"},
-	{"deleteSnapshot", "(I)V", nullptr, $PRIVATE, $method(ReliableLog, deleteSnapshot, void, int32_t), "java.io.IOException"},
-	{"fName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, fName, $String*, $String*)},
-	{"getLogClassConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<+Lsun/rmi/log/ReliableLog$LogFile;>;", $PRIVATE | $STATIC, $staticMethod(ReliableLog, getLogClassConstructor, $Constructor*)},
-	{"getVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, getVersion, void), "java.io.IOException"},
-	{"incrVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, incrVersion, void)},
-	{"initializeLogFile", "()V", nullptr, $PRIVATE, $method(ReliableLog, initializeLogFile, void), "java.io.IOException"},
-	{"lambda$getLogClassConstructor$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReliableLog, lambda$getLogClassConstructor$1, $String*)},
-	{"lambda$new$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReliableLog, lambda$new$0, $Boolean*)},
-	{"logSize", "()J", nullptr, $PUBLIC, $virtualMethod(ReliableLog, logSize, int64_t)},
-	{"openLogFile", "(Z)V", nullptr, $PRIVATE, $method(ReliableLog, openLogFile, void, bool), "java.io.IOException"},
-	{"readVersion", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(ReliableLog, readVersion, int32_t, $String*), "java.io.IOException"},
-	{"recover", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, recover, $Object*), "java.io.IOException"},
-	{"recoverUpdates", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(ReliableLog, recoverUpdates, $Object*, Object$*), "java.io.IOException"},
-	{"snapshot", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, snapshot, void, Object$*), "java.io.IOException"},
-	{"snapshotSize", "()J", nullptr, $PUBLIC, $virtualMethod(ReliableLog, snapshotSize, int64_t)},
-	{"update", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, update, void, Object$*), "java.io.IOException"},
-	{"update", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, update, void, Object$*, bool), "java.io.IOException"},
-	{"versionName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, versionName, $String*, $String*)},
-	{"versionName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, versionName, $String*, $String*, int32_t)},
-	{"writeInt", "(Ljava/io/DataOutput;I)V", nullptr, $PRIVATE, $method(ReliableLog, writeInt, void, $DataOutput*, int32_t), "java.io.IOException"},
-	{"writeVersionFile", "(Z)V", nullptr, $PRIVATE, $method(ReliableLog, writeVersionFile, void, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ReliableLog_InnerClassesInfo_[] = {
-	{"sun.rmi.log.ReliableLog$LogFile", "sun.rmi.log.ReliableLog", "LogFile", $PUBLIC | $STATIC},
-	{"sun.rmi.log.ReliableLog$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReliableLog_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.log.ReliableLog",
-	"java.lang.Object",
-	nullptr,
-	_ReliableLog_FieldInfo_,
-	_ReliableLog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReliableLog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.log.ReliableLog$LogFile,sun.rmi.log.ReliableLog$1"
-};
-
-$Object* allocate$ReliableLog($Class* clazz) {
-	return $of($alloc(ReliableLog));
-}
 
 $String* ReliableLog::snapshotPrefix = nullptr;
 $String* ReliableLog::logfilePrefix = nullptr;
@@ -225,7 +128,7 @@ int64_t ReliableLog::diskPageSize = 0;
 $Constructor* ReliableLog::logClassConstructor = nullptr;
 
 void ReliableLog::init$($String* dirPath, $LogHandler* handler, bool pad) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	this->Debug = false;
 	this->version = 0;
@@ -239,11 +142,11 @@ void ReliableLog::init$($String* dirPath, $LogHandler* handler, bool pad) {
 	$set(this, intBuf, $new($bytes, 4));
 	this->majorFormatVersion = 0;
 	this->minorFormatVersion = 0;
-	this->Debug = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(ReliableLog$$Lambda$lambda$new$0)))))))->booleanValue();
+	this->Debug = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(ReliableLog$$Lambda$lambda$new$0))))->booleanValue();
 	$set(this, dir, $new($File, dirPath));
-	bool var$0 = $nc(this->dir)->exists();
-	if (!(var$0 && $nc(this->dir)->isDirectory())) {
-		if (!$nc(this->dir)->mkdir()) {
+	bool var$0 = this->dir->exists();
+	if (!(var$0 && this->dir->isDirectory())) {
+		if (!this->dir->mkdir()) {
 			$throwNew($IOException, $$str({"could not create directory for log: "_s, dirPath}));
 		}
 	}
@@ -268,12 +171,12 @@ void ReliableLog::init$($String* dirPath, $LogHandler* handler) {
 
 $Object* ReliableLog::recover() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->Debug) {
 			$nc($System::err)->println("log.debug: recover()"_s);
 		}
 		if (this->version == 0) {
-			return $of(nullptr);
+			return nullptr;
 		}
 		$var($Object, snapshot, nullptr);
 		$var($String, fname, versionName(ReliableLog::snapshotPrefix));
@@ -282,30 +185,28 @@ $Object* ReliableLog::recover() {
 		if (this->Debug) {
 			$nc($System::err)->println($$str({"log.debug: recovering from "_s, fname}));
 		}
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$assign(snapshot, $nc(this->handler)->recover(in));
-				} catch ($IOException& e) {
-					$throw(e);
-				} catch ($Exception& e) {
-					if (this->Debug) {
-						$nc($System::err)->println($$str({"log.debug: recovery failed: "_s, e}));
-					}
-					$throwNew($IOException, $$str({"log recover failed with exception: "_s, e}));
+				$assign(snapshot, $nc(this->handler)->recover(in));
+			} catch ($IOException& e) {
+				$throw(e);
+			} catch ($Exception& e) {
+				if (this->Debug) {
+					$nc($System::err)->println($$str({"log.debug: recovery failed: "_s, e}));
 				}
-				this->snapshotBytes = snapshotFile->length();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				in->close();
+				$throwNew($IOException, $$str({"log recover failed with exception: "_s, e}));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+			this->snapshotBytes = snapshotFile->length();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			in->close();
 		}
-		return $of(recoverUpdates(snapshot));
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		return recoverUpdates(snapshot);
 	}
 }
 
@@ -317,30 +218,30 @@ void ReliableLog::update(Object$* value) {
 
 void ReliableLog::update(Object$* value, bool forceToDisk) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->log == nullptr) {
 			$throwNew($IOException, "log is inaccessible, it may have been corrupted or closed"_s);
 		}
 		int64_t entryStart = $nc(this->log)->getFilePointer();
-		bool spansBoundary = $nc(this->log)->checkSpansBoundary(entryStart);
+		bool spansBoundary = this->log->checkSpansBoundary(entryStart);
 		writeInt(this->log, spansBoundary ? 1 << 31 : 0);
 		try {
 			$nc(this->handler)->writeUpdate($$new($LogOutputStream, this->log), value);
 		} catch ($IOException& e) {
 			$throw(e);
 		} catch ($Exception& e) {
-			$throw($cast($IOException, $($$new($IOException, "write update failed"_s)->initCause(e))));
+			$throw($$cast($IOException, $$new($IOException, "write update failed"_s)->initCause(e)));
 		}
 		$nc(this->log)->sync();
 		int64_t entryEnd = $nc(this->log)->getFilePointer();
 		int32_t updateLen = (int32_t)((entryEnd - entryStart) - ReliableLog::intBytes);
-		$nc(this->log)->seek(entryStart);
+		this->log->seek(entryStart);
 		if (spansBoundary) {
 			writeInt(this->log, updateLen | (1 << 31));
 			$nc(this->log)->sync();
 			$nc(this->log)->seek(entryStart);
-			$nc(this->log)->writeByte(updateLen >> 24);
-			$nc(this->log)->sync();
+			this->log->writeByte(updateLen >> 24);
+			this->log->sync();
 		} else {
 			writeInt(this->log, updateLen);
 			$nc(this->log)->sync();
@@ -354,12 +255,12 @@ void ReliableLog::update(Object$* value, bool forceToDisk) {
 
 $Constructor* ReliableLog::getLogClassConstructor() {
 	$init(ReliableLog);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, logClassName, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1)))));
+	$var($String, logClassName, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1)))));
 	if (logClassName != nullptr) {
 		try {
-			$var($ClassLoader, loader, $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ReliableLog$1)))));
+			$var($ClassLoader, loader, $cast($ClassLoader, $AccessController::doPrivileged($$new($ReliableLog$1))));
 			$load($ReliableLog$LogFile);
 			$Class* cl = $nc($nc(loader)->loadClass(logClassName))->asSubclass($ReliableLog$LogFile::class$);
 			return $nc(cl)->getConstructor($$new($ClassArray, {
@@ -376,32 +277,30 @@ $Constructor* ReliableLog::getLogClassConstructor() {
 
 void ReliableLog::snapshot(Object$* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int32_t oldVersion = this->version;
 		incrVersion();
 		$var($String, fname, versionName(ReliableLog::snapshotPrefix));
 		$var($File, snapshotFile, $new($File, fname));
 		$var($FileOutputStream, out, $new($FileOutputStream, snapshotFile));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->handler)->snapshot(out, value);
-				} catch ($IOException& e) {
-					$throw(e);
-				} catch ($Exception& e) {
-					$throwNew($IOException, "snapshot failed"_s, e);
-				}
-				this->lastSnapshot = $System::currentTimeMillis();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				out->close();
-				this->snapshotBytes = snapshotFile->length();
+				$nc(this->handler)->snapshot(out, value);
+			} catch ($IOException& e) {
+				$throw(e);
+			} catch ($Exception& e) {
+				$throwNew($IOException, "snapshot failed"_s, e);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+			this->lastSnapshot = $System::currentTimeMillis();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			out->close();
+			this->snapshotBytes = snapshotFile->length();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		openLogFile(true);
 		writeVersionFile(true);
@@ -416,18 +315,16 @@ void ReliableLog::close() {
 		if (this->log == nullptr) {
 			return;
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(this->log)->close();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, log, nullptr);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(this->log)->close();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, log, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -442,9 +339,9 @@ int64_t ReliableLog::logSize() {
 
 void ReliableLog::writeInt($DataOutput* out, int32_t val) {
 	$nc(this->intBuf)->set(0, (int8_t)(val >> 24));
-	$nc(this->intBuf)->set(1, (int8_t)(val >> 16));
-	$nc(this->intBuf)->set(2, (int8_t)(val >> 8));
-	$nc(this->intBuf)->set(3, (int8_t)val);
+	this->intBuf->set(1, (int8_t)(val >> 16));
+	this->intBuf->set(2, (int8_t)(val >> 8));
+	this->intBuf->set(3, (int8_t)val);
 	$nc(out)->write(this->intBuf);
 }
 
@@ -458,10 +355,12 @@ $String* ReliableLog::versionName($String* name) {
 }
 
 $String* ReliableLog::versionName($String* prefix, int32_t ver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ver = (ver == 0) ? this->version : ver;
-	$var($String, var$0, $(fName(prefix)));
-	return $concat(var$0, $($String::valueOf(ver)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(fName(prefix)));
+	var$0->append($($String::valueOf(ver)));
+	return $str(var$0);
 }
 
 void ReliableLog::incrVersion() {
@@ -471,7 +370,7 @@ void ReliableLog::incrVersion() {
 }
 
 void ReliableLog::deleteFile($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, name));
 	if (!f->delete$()) {
 		$throwNew($IOException, $$str({"couldn\'t remove file: "_s, name}));
@@ -497,7 +396,7 @@ void ReliableLog::deleteLogFile(int32_t ver) {
 }
 
 void ReliableLog::openLogFile(bool truncate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		close();
@@ -505,12 +404,12 @@ void ReliableLog::openLogFile(bool truncate) {
 	}
 	$set(this, logName, versionName(ReliableLog::logfilePrefix));
 	try {
-		$set(this, log, ReliableLog::logClassConstructor == nullptr ? $new($ReliableLog$LogFile, this->logName, "rw"_s) : $cast($ReliableLog$LogFile, $nc(ReliableLog::logClassConstructor)->newInstance($$new($ObjectArray, {
-			$of(this->logName),
-			$of("rw"_s)
+		$set(this, log, ReliableLog::logClassConstructor == nullptr ? $new($ReliableLog$LogFile, this->logName, "rw"_s) : $cast($ReliableLog$LogFile, ReliableLog::logClassConstructor->newInstance($$new($ObjectArray, {
+			this->logName,
+			"rw"_s
 		}))));
 	} catch ($Exception& e) {
-		$throw($cast($IOException, $($$new($IOException, "unable to construct LogFile instance"_s)->initCause(e))));
+		$throw($$cast($IOException, $$new($IOException, "unable to construct LogFile instance"_s)->initCause(e)));
 	}
 	if (truncate) {
 		initializeLogFile();
@@ -528,7 +427,7 @@ void ReliableLog::initializeLogFile() {
 }
 
 void ReliableLog::writeVersionFile(bool newVersion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, nullptr);
 	if (newVersion) {
 		$assign(name, ReliableLog::newVersionFile);
@@ -537,49 +436,45 @@ void ReliableLog::writeVersionFile(bool newVersion) {
 	}
 	{
 		$var($FileOutputStream, fos, $new($FileOutputStream, $(fName(name))));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataOutputStream, out, $new($DataOutputStream, fos));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataOutputStream, out, $new($DataOutputStream, fos));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								writeInt(out, this->version);
-							} catch ($Throwable& t$) {
-								try {
-									out->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							out->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						fos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						writeInt(out, this->version);
+					} catch ($Throwable& t$) {
+						try {
+							out->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					out->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				fos->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					fos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			fos->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -595,44 +490,42 @@ void ReliableLog::commitToNewVersion() {
 }
 
 int32_t ReliableLog::readVersion($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($DataInputStream, in, $new($DataInputStream, $$new($FileInputStream, name)));
-		{
-			$var($Throwable, var$0, nullptr);
-			int32_t var$2 = 0;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		int32_t var$2 = 0;
+		bool return$1 = false;
+		try {
 			try {
+				var$2 = in->readInt();
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					var$2 = in->readInt();
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				in->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 void ReliableLog::getVersion() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		this->version = readVersion($(fName(ReliableLog::newVersionFile)));
 		commitToNewVersion();
@@ -650,7 +543,7 @@ void ReliableLog::getVersion() {
 }
 
 $Object* ReliableLog::recoverUpdates(Object$* state$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, state, state$renamed);
 	this->logBytes = 0;
 	this->logEntries = 0;
@@ -678,55 +571,53 @@ $Object* ReliableLog::recoverUpdates(Object$* state$renamed) {
 		}
 		$throwNew($IOException, $$str({"Log file "_s, this->logName, " has a version "_s, $$str(this->majorFormatVersion), "."_s, $$str(this->minorFormatVersion), " format, and this implementation  understands only version "_s, $$str(ReliableLog::PreferredMajorVersion), "."_s, $$str(ReliableLog::PreferredMinorVersion)}));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while (in != nullptr) {
-				int32_t updateLen = 0;
-				try {
-					updateLen = dataIn->readInt();
-				} catch ($EOFException& e) {
-					if (this->Debug) {
-						$nc($System::err)->println("log.debug: log was sync\'d cleanly"_s);
-					}
-					break;
-				}
-				if (updateLen <= 0) {
-					if (this->Debug) {
-						$nc($System::err)->println($$str({"log.debug: last update incomplete, updateLen = 0x"_s, $($Integer::toHexString(updateLen))}));
-					}
-					break;
-				}
-				if (in->available() < updateLen) {
-					if (this->Debug) {
-						$nc($System::err)->println("log.debug: log was truncated"_s);
-					}
-					break;
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		while (in != nullptr) {
+			int32_t updateLen = 0;
+			try {
+				updateLen = dataIn->readInt();
+			} catch ($EOFException& e) {
 				if (this->Debug) {
-					$nc($System::err)->println($$str({"log.debug: rdUpdate size "_s, $$str(updateLen)}));
+					$nc($System::err)->println("log.debug: log was sync\'d cleanly"_s);
 				}
-				try {
-					$assign(state, $nc(this->handler)->readUpdate($$new($LogInputStream, in, updateLen), state));
-				} catch ($IOException& e) {
-					$throw(e);
-				} catch ($Exception& e) {
-					e->printStackTrace();
-					$throwNew($IOException, $$str({"read update failed with exception: "_s, e}));
+				break;
+			}
+			if (updateLen <= 0) {
+				if (this->Debug) {
+					$nc($System::err)->println($$str({"log.debug: last update incomplete, updateLen = 0x"_s, $($Integer::toHexString(updateLen))}));
 				}
-				this->logBytes += (ReliableLog::intBytes + updateLen);
-				++this->logEntries;
+				break;
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (in != nullptr) {
-				in->close();
+			if (in->available() < updateLen) {
+				if (this->Debug) {
+					$nc($System::err)->println("log.debug: log was truncated"_s);
+				}
+				break;
 			}
+			if (this->Debug) {
+				$nc($System::err)->println($$str({"log.debug: rdUpdate size "_s, $$str(updateLen)}));
+			}
+			try {
+				$assign(state, $nc(this->handler)->readUpdate($$new($LogInputStream, in, updateLen), state));
+			} catch ($IOException& e) {
+				$throw(e);
+			} catch ($Exception& e) {
+				e->printStackTrace();
+				$throwNew($IOException, $$str({"read update failed with exception: "_s, e}));
+			}
+			this->logBytes += (ReliableLog::intBytes + updateLen);
+			++this->logEntries;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (in != nullptr) {
+			in->close();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (this->Debug) {
 		$nc($System::err)->println($$str({"log.debug: recovered updates: "_s, $$str(this->logEntries)}));
@@ -736,7 +627,7 @@ $Object* ReliableLog::recoverUpdates(Object$* state$renamed) {
 		$throwNew($IOException, "rmid\'s log is inaccessible, it may have been corrupted or closed"_s);
 	}
 	$nc(this->log)->seek(this->logBytes);
-	$nc(this->log)->setLength(this->logBytes);
+	this->log->setLength(this->logBytes);
 	return $of(state);
 }
 
@@ -750,7 +641,7 @@ $Boolean* ReliableLog::lambda$new$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("sun.rmi.log.debug"_s));
 }
 
-void clinit$ReliableLog($Class* class$) {
+void ReliableLog::clinit$($Class* clazz) {
 	$assignStatic(ReliableLog::snapshotPrefix, "Snapshot."_s);
 	$assignStatic(ReliableLog::logfilePrefix, "Logfile."_s);
 	$assignStatic(ReliableLog::versionFile, "Version_Number"_s);
@@ -765,14 +656,93 @@ ReliableLog::ReliableLog() {
 
 $Class* ReliableLog::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ReliableLog$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.log.ReliableLog$$Lambda$lambda$new$0")) {
 			return ReliableLog$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.log.ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1")) {
 			return ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ReliableLog, name, initialize, &_ReliableLog_ClassInfo_, clinit$ReliableLog, allocate$ReliableLog);
+	$FieldInfo fieldInfos$$[] = {
+		{"PreferredMajorVersion", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReliableLog, PreferredMajorVersion)},
+		{"PreferredMinorVersion", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ReliableLog, PreferredMinorVersion)},
+		{"Debug", "Z", nullptr, $PRIVATE, $field(ReliableLog, Debug)},
+		{"snapshotPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, snapshotPrefix)},
+		{"logfilePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, logfilePrefix)},
+		{"versionFile", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, versionFile)},
+		{"newVersionFile", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, newVersionFile)},
+		{"intBytes", "I", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, intBytes)},
+		{"diskPageSize", "J", nullptr, $PRIVATE | $STATIC, $staticField(ReliableLog, diskPageSize)},
+		{"dir", "Ljava/io/File;", nullptr, $PRIVATE, $field(ReliableLog, dir)},
+		{"version", "I", nullptr, $PRIVATE, $field(ReliableLog, version)},
+		{"logName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReliableLog, logName)},
+		{"log", "Lsun/rmi/log/ReliableLog$LogFile;", nullptr, $PRIVATE, $field(ReliableLog, log)},
+		{"snapshotBytes", "J", nullptr, $PRIVATE, $field(ReliableLog, snapshotBytes)},
+		{"logBytes", "J", nullptr, $PRIVATE, $field(ReliableLog, logBytes)},
+		{"logEntries", "I", nullptr, $PRIVATE, $field(ReliableLog, logEntries)},
+		{"lastSnapshot", "J", nullptr, $PRIVATE, $field(ReliableLog, lastSnapshot)},
+		{"lastLog", "J", nullptr, $PRIVATE, $field(ReliableLog, lastLog)},
+		{"handler", "Lsun/rmi/log/LogHandler;", nullptr, $PRIVATE, $field(ReliableLog, handler)},
+		{"intBuf", "[B", nullptr, $PRIVATE | $FINAL, $field(ReliableLog, intBuf)},
+		{"majorFormatVersion", "I", nullptr, $PRIVATE, $field(ReliableLog, majorFormatVersion)},
+		{"minorFormatVersion", "I", nullptr, $PRIVATE, $field(ReliableLog, minorFormatVersion)},
+		{"logClassConstructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<+Lsun/rmi/log/ReliableLog$LogFile;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ReliableLog, logClassConstructor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;Z)V", nullptr, $PUBLIC, $method(ReliableLog, init$, void, $String*, $LogHandler*, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;)V", nullptr, $PUBLIC, $method(ReliableLog, init$, void, $String*, $LogHandler*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, close, void), "java.io.IOException"},
+		{"commitToNewVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, commitToNewVersion, void), "java.io.IOException"},
+		{"createFirstVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, createFirstVersion, void), "java.io.IOException"},
+		{"deleteFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ReliableLog, deleteFile, void, $String*), "java.io.IOException"},
+		{"deleteLogFile", "(I)V", nullptr, $PRIVATE, $method(ReliableLog, deleteLogFile, void, int32_t), "java.io.IOException"},
+		{"deleteNewVersionFile", "()V", nullptr, $PRIVATE, $method(ReliableLog, deleteNewVersionFile, void), "java.io.IOException"},
+		{"deleteSnapshot", "(I)V", nullptr, $PRIVATE, $method(ReliableLog, deleteSnapshot, void, int32_t), "java.io.IOException"},
+		{"fName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, fName, $String*, $String*)},
+		{"getLogClassConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<+Lsun/rmi/log/ReliableLog$LogFile;>;", $PRIVATE | $STATIC, $staticMethod(ReliableLog, getLogClassConstructor, $Constructor*)},
+		{"getVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, getVersion, void), "java.io.IOException"},
+		{"incrVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, incrVersion, void)},
+		{"initializeLogFile", "()V", nullptr, $PRIVATE, $method(ReliableLog, initializeLogFile, void), "java.io.IOException"},
+		{"lambda$getLogClassConstructor$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReliableLog, lambda$getLogClassConstructor$1, $String*)},
+		{"lambda$new$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReliableLog, lambda$new$0, $Boolean*)},
+		{"logSize", "()J", nullptr, $PUBLIC, $virtualMethod(ReliableLog, logSize, int64_t)},
+		{"openLogFile", "(Z)V", nullptr, $PRIVATE, $method(ReliableLog, openLogFile, void, bool), "java.io.IOException"},
+		{"readVersion", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(ReliableLog, readVersion, int32_t, $String*), "java.io.IOException"},
+		{"recover", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, recover, $Object*), "java.io.IOException"},
+		{"recoverUpdates", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(ReliableLog, recoverUpdates, $Object*, Object$*), "java.io.IOException"},
+		{"snapshot", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, snapshot, void, Object$*), "java.io.IOException"},
+		{"snapshotSize", "()J", nullptr, $PUBLIC, $virtualMethod(ReliableLog, snapshotSize, int64_t)},
+		{"update", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, update, void, Object$*), "java.io.IOException"},
+		{"update", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, update, void, Object$*, bool), "java.io.IOException"},
+		{"versionName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, versionName, $String*, $String*)},
+		{"versionName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, versionName, $String*, $String*, int32_t)},
+		{"writeInt", "(Ljava/io/DataOutput;I)V", nullptr, $PRIVATE, $method(ReliableLog, writeInt, void, $DataOutput*, int32_t), "java.io.IOException"},
+		{"writeVersionFile", "(Z)V", nullptr, $PRIVATE, $method(ReliableLog, writeVersionFile, void, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.log.ReliableLog$LogFile", "sun.rmi.log.ReliableLog", "LogFile", $PUBLIC | $STATIC},
+		{"sun.rmi.log.ReliableLog$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.log.ReliableLog",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.log.ReliableLog$LogFile,sun.rmi.log.ReliableLog$1"
+	};
+	$loadClass(ReliableLog, name, initialize, &classInfo$$, ReliableLog::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReliableLog);
+	});
 	return class$;
 }
 

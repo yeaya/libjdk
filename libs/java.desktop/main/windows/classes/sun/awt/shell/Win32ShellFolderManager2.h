@@ -69,6 +69,7 @@ class $export Win32ShellFolderManager2 : public ::sun::awt::shell::ShellFolderMa
 	$class(Win32ShellFolderManager2, 0, ::sun::awt::shell::ShellFolderManager)
 public:
 	Win32ShellFolderManager2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::File* checkFile(::java::io::File* file);
 	static ::java::io::File* checkFile(::java::io::File* file, ::java::lang::SecurityManager* sm);

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel$AATextListener$1.h>
-
 #include <javax/swing/plaf/synth/SynthLookAndFeel$AATextListener.h>
 #include <jcpp.h>
 
@@ -15,49 +14,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthLookAndFeel$AATextListener$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthLookAndFeel$AATextListener;", nullptr, $FINAL | $SYNTHETIC, $field(SynthLookAndFeel$AATextListener$1, this$0)},
-	{}
-};
-
-$MethodInfo _SynthLookAndFeel$AATextListener$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthLookAndFeel$AATextListener;)V", nullptr, 0, $method(SynthLookAndFeel$AATextListener$1, init$, void, $SynthLookAndFeel$AATextListener*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel$AATextListener$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthLookAndFeel$AATextListener$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener",
-	"updateUI",
-	"()V"
-};
-
-$InnerClassInfo _SynthLookAndFeel$AATextListener$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener", "javax.swing.plaf.synth.SynthLookAndFeel", "AATextListener", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthLookAndFeel$AATextListener$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SynthLookAndFeel$AATextListener$1_FieldInfo_,
-	_SynthLookAndFeel$AATextListener$1_MethodInfo_,
-	nullptr,
-	&_SynthLookAndFeel$AATextListener$1_EnclosingMethodInfo_,
-	_SynthLookAndFeel$AATextListener$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthLookAndFeel"
-};
-
-$Object* allocate$SynthLookAndFeel$AATextListener$1($Class* clazz) {
-	return $of($alloc(SynthLookAndFeel$AATextListener$1));
-}
-
 void SynthLookAndFeel$AATextListener$1::init$($SynthLookAndFeel$AATextListener* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -71,7 +27,43 @@ SynthLookAndFeel$AATextListener$1::SynthLookAndFeel$AATextListener$1() {
 }
 
 $Class* SynthLookAndFeel$AATextListener$1::load$($String* name, bool initialize) {
-	$loadClass(SynthLookAndFeel$AATextListener$1, name, initialize, &_SynthLookAndFeel$AATextListener$1_ClassInfo_, allocate$SynthLookAndFeel$AATextListener$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthLookAndFeel$AATextListener;", nullptr, $FINAL | $SYNTHETIC, $field(SynthLookAndFeel$AATextListener$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthLookAndFeel$AATextListener;)V", nullptr, 0, $method(SynthLookAndFeel$AATextListener$1, init$, void, $SynthLookAndFeel$AATextListener*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel$AATextListener$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener",
+		"updateUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener", "javax.swing.plaf.synth.SynthLookAndFeel", "AATextListener", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthLookAndFeel"
+	};
+	$loadClass(SynthLookAndFeel$AATextListener$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthLookAndFeel$AATextListener$1);
+	});
 	return class$;
 }
 

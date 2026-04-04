@@ -1,5 +1,4 @@
 #include <javax/naming/NamingSecurityException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _NamingSecurityException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingSecurityException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NamingSecurityException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamingSecurityException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamingSecurityException, init$, void)},
-	{}
-};
-
-$ClassInfo _NamingSecurityException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.naming.NamingSecurityException",
-	"javax.naming.NamingException",
-	nullptr,
-	_NamingSecurityException_FieldInfo_,
-	_NamingSecurityException_MethodInfo_
-};
-
-$Object* allocate$NamingSecurityException($Class* clazz) {
-	return $of($alloc(NamingSecurityException));
-}
 
 void NamingSecurityException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void NamingSecurityException::throw$() {
 }
 
 $Class* NamingSecurityException::load$($String* name, bool initialize) {
-	$loadClass(NamingSecurityException, name, initialize, &_NamingSecurityException_ClassInfo_, allocate$NamingSecurityException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingSecurityException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamingSecurityException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamingSecurityException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.naming.NamingSecurityException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamingSecurityException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingSecurityException);
+	});
 	return class$;
 }
 

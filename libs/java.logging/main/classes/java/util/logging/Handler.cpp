@@ -1,12 +1,10 @@
 #include <java/util/logging/Handler.h>
-
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Objects.h>
 #include <java/util/logging/ErrorManager.h>
 #include <java/util/logging/Filter.h>
@@ -21,7 +19,6 @@
 #undef OFF
 
 using $PermissionArray = $Array<::java::security::Permission>;
-using $PrintStream = ::java::io::PrintStream;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -33,7 +30,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $IllegalCharsetNameException = ::java::nio::charset::IllegalCharsetNameException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
 using $ErrorManager = ::java::util::logging::ErrorManager;
 using $Filter = ::java::util::logging::Filter;
@@ -47,63 +43,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _Handler_FieldInfo_[] = {
-	{"offValue", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Handler, offValue)},
-	{"manager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $FINAL, $field(Handler, manager)},
-	{"filter", "Ljava/util/logging/Filter;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, filter)},
-	{"formatter", "Ljava/util/logging/Formatter;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, formatter)},
-	{"logLevel", "Ljava/util/logging/Level;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, logLevel)},
-	{"errorManager", "Ljava/util/logging/ErrorManager;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, errorManager)},
-	{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, encoding)},
-	{}
-};
-
-$MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Handler, init$, void)},
-	{"<init>", "(Ljava/util/logging/Level;Ljava/util/logging/Formatter;Ljava/util/logging/Formatter;)V", nullptr, 0, $method(Handler, init$, void, $Level*, $Formatter*, $Formatter*)},
-	{"checkPermission", "()V", nullptr, 0, $virtualMethod(Handler, checkPermission, void), "java.lang.SecurityException"},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Handler, close, void), "java.lang.SecurityException"},
-	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Handler, flush, void)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Handler, getEncoding, $String*)},
-	{"getErrorManager", "()Ljava/util/logging/ErrorManager;", nullptr, $PUBLIC, $virtualMethod(Handler, getErrorManager, $ErrorManager*)},
-	{"getFilter", "()Ljava/util/logging/Filter;", nullptr, $PUBLIC, $virtualMethod(Handler, getFilter, $Filter*)},
-	{"getFormatter", "()Ljava/util/logging/Formatter;", nullptr, $PUBLIC, $virtualMethod(Handler, getFormatter, $Formatter*)},
-	{"getLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(Handler, getLevel, $Level*)},
-	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC, $virtualMethod(Handler, isLoggable, bool, $LogRecord*)},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Handler, publish, void, $LogRecord*)},
-	{"reportError", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PROTECTED, $virtualMethod(Handler, reportError, void, $String*, $Exception*, int32_t)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setEncoding, void, $String*), "java.lang.SecurityException,java.io.UnsupportedEncodingException"},
-	{"setErrorManager", "(Ljava/util/logging/ErrorManager;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setErrorManager, void, $ErrorManager*)},
-	{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setFilter, void, $Filter*), "java.lang.SecurityException"},
-	{"setFormatter", "(Ljava/util/logging/Formatter;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setFormatter, void, $Formatter*), "java.lang.SecurityException"},
-	{"setLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setLevel, void, $Level*), "java.lang.SecurityException"},
-	{}
-};
-
-$InnerClassInfo _Handler_InnerClassesInfo_[] = {
-	{"java.util.logging.Handler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Handler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.logging.Handler",
-	"java.lang.Object",
-	nullptr,
-	_Handler_FieldInfo_,
-	_Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.logging.Handler$1"
-};
-
-$Object* allocate$Handler($Class* clazz) {
-	return $of($alloc(Handler));
-}
-
 int32_t Handler::offValue = 0;
 
 void Handler::init$() {
@@ -114,7 +53,7 @@ void Handler::init$() {
 }
 
 void Handler::init$($Level* defaultLevel, $Formatter* defaultFormatter, $Formatter* specifiedFormatter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, manager, $LogManager::getLogManager());
 	$init($Level);
@@ -126,7 +65,7 @@ void Handler::init$($Level* defaultLevel, $Formatter* defaultFormatter, $Formatt
 	$var($Filter, filter, manager->getFilterProperty($$str({cname, ".filter"_s}), nullptr));
 	$var($Formatter, formatter, specifiedFormatter == nullptr ? manager->getFormatterProperty($$str({cname, ".formatter"_s}), defaultFormatter) : specifiedFormatter);
 	$var($String, encoding, manager->getStringProperty($$str({cname, ".encoding"_s}), nullptr));
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Handler$1, this, level, filter, formatter, encoding)), ($AccessControlContext*)nullptr, $$new($PermissionArray, {$LogManager::controlPermission}));
+	$AccessController::doPrivileged($$new($Handler$1, this, level, filter, formatter, encoding), nullptr, $$new($PermissionArray, {$LogManager::controlPermission}));
 }
 
 void Handler::setFormatter($Formatter* newFormatter) {
@@ -210,12 +149,12 @@ $Level* Handler::getLevel() {
 }
 
 bool Handler::isLoggable($LogRecord* record) {
-	$useLocalCurrentObjectStackCache();
-	int32_t levelValue = $nc($(getLevel()))->intValue();
+	$useLocalObjectStack();
+	int32_t levelValue = $$nc(getLevel())->intValue();
 	if (record == nullptr) {
 		return false;
 	}
-	if ($nc($($nc(record)->getLevel()))->intValue() < levelValue || levelValue == Handler::offValue) {
+	if ($$nc($nc(record)->getLevel())->intValue() < levelValue || levelValue == Handler::offValue) {
 		return false;
 	}
 	$var($Filter, filter, getFilter());
@@ -229,7 +168,7 @@ void Handler::checkPermission() {
 	$nc(this->manager)->checkPermission();
 }
 
-void clinit$Handler($Class* class$) {
+void Handler::clinit$($Class* clazz) {
 	$init($Level);
 	Handler::offValue = $nc($Level::OFF)->intValue();
 }
@@ -238,7 +177,58 @@ Handler::Handler() {
 }
 
 $Class* Handler::load$($String* name, bool initialize) {
-	$loadClass(Handler, name, initialize, &_Handler_ClassInfo_, clinit$Handler, allocate$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"offValue", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Handler, offValue)},
+		{"manager", "Ljava/util/logging/LogManager;", nullptr, $PRIVATE | $FINAL, $field(Handler, manager)},
+		{"filter", "Ljava/util/logging/Filter;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, filter)},
+		{"formatter", "Ljava/util/logging/Formatter;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, formatter)},
+		{"logLevel", "Ljava/util/logging/Level;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, logLevel)},
+		{"errorManager", "Ljava/util/logging/ErrorManager;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, errorManager)},
+		{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(Handler, encoding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Handler, init$, void)},
+		{"<init>", "(Ljava/util/logging/Level;Ljava/util/logging/Formatter;Ljava/util/logging/Formatter;)V", nullptr, 0, $method(Handler, init$, void, $Level*, $Formatter*, $Formatter*)},
+		{"checkPermission", "()V", nullptr, 0, $virtualMethod(Handler, checkPermission, void), "java.lang.SecurityException"},
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Handler, close, void), "java.lang.SecurityException"},
+		{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Handler, flush, void)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Handler, getEncoding, $String*)},
+		{"getErrorManager", "()Ljava/util/logging/ErrorManager;", nullptr, $PUBLIC, $virtualMethod(Handler, getErrorManager, $ErrorManager*)},
+		{"getFilter", "()Ljava/util/logging/Filter;", nullptr, $PUBLIC, $virtualMethod(Handler, getFilter, $Filter*)},
+		{"getFormatter", "()Ljava/util/logging/Formatter;", nullptr, $PUBLIC, $virtualMethod(Handler, getFormatter, $Formatter*)},
+		{"getLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(Handler, getLevel, $Level*)},
+		{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC, $virtualMethod(Handler, isLoggable, bool, $LogRecord*)},
+		{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Handler, publish, void, $LogRecord*)},
+		{"reportError", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PROTECTED, $virtualMethod(Handler, reportError, void, $String*, $Exception*, int32_t)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setEncoding, void, $String*), "java.lang.SecurityException,java.io.UnsupportedEncodingException"},
+		{"setErrorManager", "(Ljava/util/logging/ErrorManager;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setErrorManager, void, $ErrorManager*)},
+		{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setFilter, void, $Filter*), "java.lang.SecurityException"},
+		{"setFormatter", "(Ljava/util/logging/Formatter;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setFormatter, void, $Formatter*), "java.lang.SecurityException"},
+		{"setLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Handler, setLevel, void, $Level*), "java.lang.SecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.Handler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.logging.Handler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.logging.Handler$1"
+	};
+	$loadClass(Handler, name, initialize, &classInfo$$, Handler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Handler);
+	});
 	return class$;
 }
 

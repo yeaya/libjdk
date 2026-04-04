@@ -40,6 +40,7 @@ namespace javax {
 class $export Action : public ::java::awt::event::ActionListener {
 	$interface(Action, 0, ::java::awt::event::ActionListener)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool accept(Object$* sender);
 	virtual void addPropertyChangeListener(::java::beans::PropertyChangeListener* listener) {}
 	virtual $Object* getValue($String* key) {return nullptr;}

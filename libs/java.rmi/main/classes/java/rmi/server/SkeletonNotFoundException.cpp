@@ -1,5 +1,4 @@
 #include <java/rmi/server/SkeletonNotFoundException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -13,39 +12,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$CompoundAttribute _SkeletonNotFoundException_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _SkeletonNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SkeletonNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SkeletonNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SkeletonNotFoundException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SkeletonNotFoundException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _SkeletonNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.server.SkeletonNotFoundException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_SkeletonNotFoundException_FieldInfo_,
-	_SkeletonNotFoundException_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SkeletonNotFoundException_Annotations_
-};
-
-$Object* allocate$SkeletonNotFoundException($Class* clazz) {
-	return $of($alloc(SkeletonNotFoundException));
-}
 
 void SkeletonNotFoundException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -66,7 +32,34 @@ void SkeletonNotFoundException::throw$() {
 }
 
 $Class* SkeletonNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(SkeletonNotFoundException, name, initialize, &_SkeletonNotFoundException_ClassInfo_, allocate$SkeletonNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SkeletonNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SkeletonNotFoundException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SkeletonNotFoundException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.server.SkeletonNotFoundException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SkeletonNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SkeletonNotFoundException);
+	});
 	return class$;
 }
 

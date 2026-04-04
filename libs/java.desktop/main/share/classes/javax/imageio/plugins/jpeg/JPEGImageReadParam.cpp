@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/jpeg/JPEGImageReadParam.h>
-
 #include <javax/imageio/ImageReadParam.h>
 #include <javax/imageio/plugins/jpeg/JPEGHuffmanTable.h>
 #include <javax/imageio/plugins/jpeg/JPEGQTable.h>
@@ -18,37 +17,6 @@ namespace javax {
 		namespace plugins {
 			namespace jpeg {
 
-$FieldInfo _JPEGImageReadParam_FieldInfo_[] = {
-	{"qTables", "[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $field(JPEGImageReadParam, qTables)},
-	{"DCHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageReadParam, DCHuffmanTables)},
-	{"ACHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageReadParam, ACHuffmanTables)},
-	{}
-};
-
-$MethodInfo _JPEGImageReadParam_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageReadParam, init$, void)},
-	{"areTablesSet", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, areTablesSet, bool)},
-	{"getACHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, getACHuffmanTables, $JPEGHuffmanTableArray*)},
-	{"getDCHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, getDCHuffmanTables, $JPEGHuffmanTableArray*)},
-	{"getQTables", "()[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, getQTables, $JPEGQTableArray*)},
-	{"setDecodeTables", "([Ljavax/imageio/plugins/jpeg/JPEGQTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, setDecodeTables, void, $JPEGQTableArray*, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
-	{"unsetDecodeTables", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, unsetDecodeTables, void)},
-	{}
-};
-
-$ClassInfo _JPEGImageReadParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.plugins.jpeg.JPEGImageReadParam",
-	"javax.imageio.ImageReadParam",
-	nullptr,
-	_JPEGImageReadParam_FieldInfo_,
-	_JPEGImageReadParam_MethodInfo_
-};
-
-$Object* allocate$JPEGImageReadParam($Class* clazz) {
-	return $of($alloc(JPEGImageReadParam));
-}
-
 void JPEGImageReadParam::init$() {
 	$ImageReadParam::init$();
 	$set(this, qTables, nullptr);
@@ -61,7 +29,7 @@ bool JPEGImageReadParam::areTablesSet() {
 }
 
 void JPEGImageReadParam::setDecodeTables($JPEGQTableArray* qTables, $JPEGHuffmanTableArray* DCHuffmanTables, $JPEGHuffmanTableArray* ACHuffmanTables) {
-	if ((qTables == nullptr) || (DCHuffmanTables == nullptr) || (ACHuffmanTables == nullptr) || ($nc(qTables)->length > 4) || ($nc(DCHuffmanTables)->length > 4) || ($nc(ACHuffmanTables)->length > 4) || ($nc(DCHuffmanTables)->length != $nc(ACHuffmanTables)->length)) {
+	if ((qTables == nullptr) || (DCHuffmanTables == nullptr) || (ACHuffmanTables == nullptr) || (qTables->length > 4) || (DCHuffmanTables->length > 4) || (ACHuffmanTables->length > 4) || (DCHuffmanTables->length != ACHuffmanTables->length)) {
 		$throwNew($IllegalArgumentException, "Invalid JPEG table arrays"_s);
 	}
 	$set(this, qTables, $cast($JPEGQTableArray, $nc(qTables)->clone()));
@@ -76,22 +44,48 @@ void JPEGImageReadParam::unsetDecodeTables() {
 }
 
 $JPEGQTableArray* JPEGImageReadParam::getQTables() {
-	return (this->qTables != nullptr) ? $cast($JPEGQTableArray, $nc(this->qTables)->clone()) : ($JPEGQTableArray*)nullptr;
+	return (this->qTables != nullptr) ? $cast($JPEGQTableArray, this->qTables->clone()) : ($JPEGQTableArray*)nullptr;
 }
 
 $JPEGHuffmanTableArray* JPEGImageReadParam::getDCHuffmanTables() {
-	return (this->DCHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, $nc(this->DCHuffmanTables)->clone()) : ($JPEGHuffmanTableArray*)nullptr;
+	return (this->DCHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, this->DCHuffmanTables->clone()) : ($JPEGHuffmanTableArray*)nullptr;
 }
 
 $JPEGHuffmanTableArray* JPEGImageReadParam::getACHuffmanTables() {
-	return (this->ACHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, $nc(this->ACHuffmanTables)->clone()) : ($JPEGHuffmanTableArray*)nullptr;
+	return (this->ACHuffmanTables != nullptr) ? $cast($JPEGHuffmanTableArray, this->ACHuffmanTables->clone()) : ($JPEGHuffmanTableArray*)nullptr;
 }
 
 JPEGImageReadParam::JPEGImageReadParam() {
 }
 
 $Class* JPEGImageReadParam::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageReadParam, name, initialize, &_JPEGImageReadParam_ClassInfo_, allocate$JPEGImageReadParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"qTables", "[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PRIVATE, $field(JPEGImageReadParam, qTables)},
+		{"DCHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageReadParam, DCHuffmanTables)},
+		{"ACHuffmanTables", "[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PRIVATE, $field(JPEGImageReadParam, ACHuffmanTables)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageReadParam, init$, void)},
+		{"areTablesSet", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, areTablesSet, bool)},
+		{"getACHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, getACHuffmanTables, $JPEGHuffmanTableArray*)},
+		{"getDCHuffmanTables", "()[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, getDCHuffmanTables, $JPEGHuffmanTableArray*)},
+		{"getQTables", "()[Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, getQTables, $JPEGQTableArray*)},
+		{"setDecodeTables", "([Ljavax/imageio/plugins/jpeg/JPEGQTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;[Ljavax/imageio/plugins/jpeg/JPEGHuffmanTable;)V", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, setDecodeTables, void, $JPEGQTableArray*, $JPEGHuffmanTableArray*, $JPEGHuffmanTableArray*)},
+		{"unsetDecodeTables", "()V", nullptr, $PUBLIC, $virtualMethod(JPEGImageReadParam, unsetDecodeTables, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.plugins.jpeg.JPEGImageReadParam",
+		"javax.imageio.ImageReadParam",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGImageReadParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageReadParam);
+	});
 	return class$;
 }
 

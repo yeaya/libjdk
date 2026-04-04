@@ -1,5 +1,4 @@
 #include <sun/awt/util/IdentityArrayList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractList.h>
 #include <java/util/Arrays.h>
@@ -18,61 +17,6 @@ using $Collection = ::java::util::Collection;
 namespace sun {
 	namespace awt {
 		namespace util {
-
-$FieldInfo _IdentityArrayList_FieldInfo_[] = {
-	{"elementData", "[Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(IdentityArrayList, elementData)},
-	{"size", "I", nullptr, $PRIVATE, $field(IdentityArrayList, size$)},
-	{}
-};
-
-$MethodInfo _IdentityArrayList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IdentityArrayList, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IdentityArrayList, init$, void)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(IdentityArrayList, init$, void, $Collection*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityArrayList, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(IdentityArrayList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityArrayList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityArrayList, addAll, bool, int32_t, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, contains, bool, Object$*)},
-	{"ensureCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, ensureCapacity, void, int32_t)},
-	{"fastRemove", "(I)V", nullptr, $PRIVATE, $method(IdentityArrayList, fastRemove, void, int32_t)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityArrayList, get, $Object*, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, indexOf, int32_t, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, isEmpty, bool)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, lastIndexOf, int32_t, Object$*)},
-	{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(IdentityArrayList, outOfBoundsMsg, $String*, int32_t)},
-	{"rangeCheck", "(I)V", nullptr, $PRIVATE, $method(IdentityArrayList, rangeCheck, void, int32_t)},
-	{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(IdentityArrayList, rangeCheckForAdd, void, int32_t)},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityArrayList, remove, $Object*, int32_t)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, remove, bool, Object$*)},
-	{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(IdentityArrayList, removeRange, void, int32_t, int32_t)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(IdentityArrayList, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(IdentityArrayList, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"trimToSize", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, trimToSize, void)},
-	{}
-};
-
-$ClassInfo _IdentityArrayList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.util.IdentityArrayList",
-	"java.util.AbstractList",
-	"java.util.RandomAccess",
-	_IdentityArrayList_FieldInfo_,
-	_IdentityArrayList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;"
-};
-
-$Object* allocate$IdentityArrayList($Class* clazz) {
-	return $of($alloc(IdentityArrayList));
-}
 
 bool IdentityArrayList::equals(Object$* arg0) {
 	 return this->$AbstractList::equals(arg0);
@@ -95,7 +39,7 @@ void IdentityArrayList::finalize() {
 }
 
 void IdentityArrayList::init$(int32_t initialCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractList::init$();
 	if (initialCapacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal Capacity: "_s, $$str(initialCapacity)}));
@@ -111,8 +55,7 @@ void IdentityArrayList::init$($Collection* c) {
 	$AbstractList::init$();
 	$set(this, elementData, $nc(c)->toArray());
 	this->size$ = $nc(this->elementData)->length;
-	$load($ObjectArray);
-	if ($nc($of(this->elementData))->getClass() != $getClass($ObjectArray)) {
+	if (this->elementData->getClass() != $getClass($ObjectArray)) {
 		$set(this, elementData, $Arrays::copyOf(this->elementData, this->size$, $getClass($ObjectArray)));
 	}
 }
@@ -177,7 +120,7 @@ $ObjectArray* IdentityArrayList::toArray($ObjectArray* a) {
 		return $Arrays::copyOf(this->elementData, this->size$, $of(a)->getClass());
 	}
 	$System::arraycopy(this->elementData, 0, a, 0, this->size$);
-	if ($nc(a)->length > this->size$) {
+	if (a->length > this->size$) {
 		a->set(this->size$, nullptr);
 	}
 	return a;
@@ -186,14 +129,14 @@ $ObjectArray* IdentityArrayList::toArray($ObjectArray* a) {
 $Object* IdentityArrayList::get(int32_t index) {
 	rangeCheck(index);
 	$var($Object, rv, $nc(this->elementData)->get(index));
-	return $of(rv);
+	return rv;
 }
 
 $Object* IdentityArrayList::set(int32_t index, Object$* element) {
 	rangeCheck(index);
 	$var($Object, oldValue, $nc(this->elementData)->get(index));
-	$nc(this->elementData)->set(index, element);
-	return $of(oldValue);
+	this->elementData->set(index, element);
+	return oldValue;
 }
 
 bool IdentityArrayList::add(Object$* e) {
@@ -218,8 +161,8 @@ $Object* IdentityArrayList::remove(int32_t index) {
 	if (numMoved > 0) {
 		$System::arraycopy(this->elementData, index + 1, this->elementData, index, numMoved);
 	}
-	$nc(this->elementData)->set(--this->size$, nullptr);
-	return $of(oldValue);
+	this->elementData->set(--this->size$, nullptr);
+	return oldValue;
 }
 
 bool IdentityArrayList::remove(Object$* o) {
@@ -295,7 +238,7 @@ void IdentityArrayList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* IdentityArrayList::outOfBoundsMsg(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)});
 }
 
@@ -303,7 +246,57 @@ IdentityArrayList::IdentityArrayList() {
 }
 
 $Class* IdentityArrayList::load$($String* name, bool initialize) {
-	$loadClass(IdentityArrayList, name, initialize, &_IdentityArrayList_ClassInfo_, allocate$IdentityArrayList);
+	$FieldInfo fieldInfos$$[] = {
+		{"elementData", "[Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(IdentityArrayList, elementData)},
+		{"size", "I", nullptr, $PRIVATE, $field(IdentityArrayList, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IdentityArrayList, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IdentityArrayList, init$, void)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(IdentityArrayList, init$, void, $Collection*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(IdentityArrayList, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(IdentityArrayList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityArrayList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(IdentityArrayList, addAll, bool, int32_t, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, contains, bool, Object$*)},
+		{"ensureCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, ensureCapacity, void, int32_t)},
+		{"fastRemove", "(I)V", nullptr, $PRIVATE, $method(IdentityArrayList, fastRemove, void, int32_t)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityArrayList, get, $Object*, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, indexOf, int32_t, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, isEmpty, bool)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, lastIndexOf, int32_t, Object$*)},
+		{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(IdentityArrayList, outOfBoundsMsg, $String*, int32_t)},
+		{"rangeCheck", "(I)V", nullptr, $PRIVATE, $method(IdentityArrayList, rangeCheck, void, int32_t)},
+		{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(IdentityArrayList, rangeCheckForAdd, void, int32_t)},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(IdentityArrayList, remove, $Object*, int32_t)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, remove, bool, Object$*)},
+		{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(IdentityArrayList, removeRange, void, int32_t, int32_t)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(IdentityArrayList, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(IdentityArrayList, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"trimToSize", "()V", nullptr, $PUBLIC, $virtualMethod(IdentityArrayList, trimToSize, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.util.IdentityArrayList",
+		"java.util.AbstractList",
+		"java.util.RandomAccess",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;"
+	};
+	$loadClass(IdentityArrayList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IdentityArrayList));
+	});
 	return class$;
 }
 

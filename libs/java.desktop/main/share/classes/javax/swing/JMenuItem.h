@@ -74,6 +74,7 @@ class $export JMenuItem : public ::javax::swing::AbstractButton, public ::javax:
 	$class(JMenuItem, 0, ::javax::swing::AbstractButton, ::javax::accessibility::Accessible, ::javax::swing::MenuElement)
 public:
 	JMenuItem();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::AbstractButton::contains;
 	using ::javax::swing::AbstractButton::enable;
 	using ::javax::swing::AbstractButton::getBounds;

@@ -1,7 +1,5 @@
 #include <sun/awt/X11/XScrollbarPeer.h>
-
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Adjustable.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Color.h>
@@ -30,7 +28,6 @@
 #include <sun/awt/X11/XCreateWindowParams.h>
 #include <sun/awt/X11/XHorizontalScrollbar.h>
 #include <sun/awt/X11/XScrollbar.h>
-#include <sun/awt/X11/XScrollbarClient.h>
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XVerticalScrollbar.h>
 #include <sun/awt/X11/XWindow.h>
@@ -62,7 +59,6 @@
 
 using $ColorArray = $Array<::java::awt::Color>;
 using $AWTEvent = ::java::awt::AWTEvent;
-using $Adjustable = ::java::awt::Adjustable;
 using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
@@ -88,12 +84,10 @@ using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XHorizontalScrollbar = ::sun::awt::X11::XHorizontalScrollbar;
 using $XScrollbar = ::sun::awt::X11::XScrollbar;
-using $XScrollbarClient = ::sun::awt::X11::XScrollbarClient;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XVerticalScrollbar = ::sun::awt::X11::XVerticalScrollbar;
 using $Region = ::sun::java2d::pipe::Region;
@@ -103,86 +97,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XScrollbarPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XScrollbarPeer, log)},
-	{"DEFAULT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbarPeer, DEFAULT_LENGTH)},
-	{"DEFAULT_WIDTH_SOLARIS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbarPeer, DEFAULT_WIDTH_SOLARIS)},
-	{"DEFAULT_WIDTH_LINUX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XScrollbarPeer, DEFAULT_WIDTH_LINUX)},
-	{"tsb", "Lsun/awt/X11/XScrollbar;", nullptr, 0, $field(XScrollbarPeer, tsb)},
-	{}
-};
-
-$MethodInfo _XScrollbarPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Scrollbar;)V", nullptr, 0, $method(XScrollbarPeer, init$, void, $Scrollbar*)},
-	{"getDefaultDimension", "()I", nullptr, $PRIVATE, $method(XScrollbarPeer, getDefaultDimension, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, getMinimumSize, $Dimension*)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, handleJavaKeyEvent, void, $KeyEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, layout, void)},
-	{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XScrollbarPeer, paintPeer, void, $Graphics*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, preInit, void, $XCreateWindowParams*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, repaintScrollbarRequest, void, $XScrollbar*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setLineIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setLineIncrement, void, int32_t)},
-	{"setPageIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setPageIncrement, void, int32_t)},
-	{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setValue, void, int32_t)},
-	{"setValues", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setValues, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XScrollbarPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XScrollbarPeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.ScrollbarPeer,sun.awt.X11.XScrollbarClient",
-	_XScrollbarPeer_FieldInfo_,
-	_XScrollbarPeer_MethodInfo_
-};
-
-$Object* allocate$XScrollbarPeer($Class* clazz) {
-	return $of($alloc(XScrollbarPeer));
-}
 
 void XScrollbarPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -355,7 +269,7 @@ void XScrollbarPeer::preInit($XCreateWindowParams* params) {
 	} else {
 		$set(this, tsb, $new($XHorizontalScrollbar, this));
 	}
-	int32_t min = $nc(target)->getMinimum();
+	int32_t min = target->getMinimum();
 	int32_t max = target->getMaximum();
 	int32_t vis = target->getVisibleAmount();
 	int32_t val = target->getValue();
@@ -365,13 +279,13 @@ void XScrollbarPeer::preInit($XCreateWindowParams* params) {
 }
 
 void XScrollbarPeer::init$($Scrollbar* target) {
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$XComponentPeer::init$(target);
 	$set(this, target, target);
 	xSetVisible(true);
 }
 
 int32_t XScrollbarPeer::getDefaultDimension() {
-	if ($nc($($System::getProperty("os.name"_s)))->equals("Linux"_s)) {
+	if ($$nc($System::getProperty("os.name"_s))->equals("Linux"_s)) {
 		return XScrollbarPeer::DEFAULT_WIDTH_LINUX;
 	} else {
 		return XScrollbarPeer::DEFAULT_WIDTH_SOLARIS;
@@ -394,7 +308,7 @@ void XScrollbarPeer::repaintScrollbarRequest($XScrollbar* sb) {
 }
 
 void XScrollbarPeer::notifyValue($XScrollbar* obj, int32_t type, int32_t value, bool isAdjusting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Scrollbar, sb, $cast($Scrollbar, this->target));
 	$nc(sb)->setValue(value);
 	postEvent($$new($AdjustmentEvent, sb, $AdjustmentEvent::ADJUSTMENT_VALUE_CHANGED, type, value, isAdjusting));
@@ -406,26 +320,20 @@ void XScrollbarPeer::handleJavaMouseEvent($MouseEvent* mouseEvent) {
 	int32_t y = mouseEvent->getY();
 	int32_t modifiers = mouseEvent->getModifiers();
 	int32_t id = mouseEvent->getID();
-	if (((int32_t)(mouseEvent->getModifiers() & (uint32_t)$InputEvent::BUTTON1_MASK)) == 0) {
+	if ((mouseEvent->getModifiers() & $InputEvent::BUTTON1_MASK) == 0) {
 		return;
 	}
 	switch (mouseEvent->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{
-			$nc(this->target)->requestFocus();
-			$nc(this->tsb)->handleMouseEvent(id, modifiers, x, y);
-			break;
-		}
+		$nc(this->target)->requestFocus();
+		$nc(this->tsb)->handleMouseEvent(id, modifiers, x, y);
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			$nc(this->tsb)->handleMouseEvent(id, modifiers, x, y);
-			break;
-		}
+		$nc(this->tsb)->handleMouseEvent(id, modifiers, x, y);
+		break;
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			$nc(this->tsb)->handleMouseEvent(id, modifiers, x, y);
-			break;
-		}
+		$nc(this->tsb)->handleMouseEvent(id, modifiers, x, y);
+		break;
 	}
 }
 
@@ -433,65 +341,61 @@ void XScrollbarPeer::handleJavaKeyEvent($KeyEvent* event) {
 	$XComponentPeer::handleJavaKeyEvent(event);
 	$init($PlatformLogger$Level);
 	if ($nc(XScrollbarPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XScrollbarPeer::log)->finer($$str({"KeyEvent on scrollbar: "_s, event}));
+		XScrollbarPeer::log->finer($$str({"KeyEvent on scrollbar: "_s, event}));
 	}
 	bool var$0 = !($nc(event)->isConsumed());
 	if (var$0 && event->getID() == $KeyEvent::KEY_RELEASED) {
 		switch (event->getKeyCode()) {
 		case $KeyEvent::VK_UP:
 			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling up"_s);
+				XScrollbarPeer::log->finer("Scrolling up"_s);
 				int32_t var$1 = $nc(this->tsb)->getValue();
-				$nc(this->tsb)->notifyValue(var$1 - $nc(this->tsb)->getUnitIncrement());
+				$nc(this->tsb)->notifyValue(var$1 - this->tsb->getUnitIncrement());
 				break;
 			}
 		case $KeyEvent::VK_DOWN:
 			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling down"_s);
+				XScrollbarPeer::log->finer("Scrolling down"_s);
 				int32_t var$2 = $nc(this->tsb)->getValue();
-				$nc(this->tsb)->notifyValue(var$2 + $nc(this->tsb)->getUnitIncrement());
+				$nc(this->tsb)->notifyValue(var$2 + this->tsb->getUnitIncrement());
 				break;
 			}
 		case $KeyEvent::VK_LEFT:
 			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling up"_s);
+				XScrollbarPeer::log->finer("Scrolling up"_s);
 				int32_t var$3 = $nc(this->tsb)->getValue();
-				$nc(this->tsb)->notifyValue(var$3 - $nc(this->tsb)->getUnitIncrement());
+				$nc(this->tsb)->notifyValue(var$3 - this->tsb->getUnitIncrement());
 				break;
 			}
 		case $KeyEvent::VK_RIGHT:
 			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling down"_s);
+				XScrollbarPeer::log->finer("Scrolling down"_s);
 				int32_t var$4 = $nc(this->tsb)->getValue();
-				$nc(this->tsb)->notifyValue(var$4 + $nc(this->tsb)->getUnitIncrement());
+				$nc(this->tsb)->notifyValue(var$4 + this->tsb->getUnitIncrement());
 				break;
 			}
 		case $KeyEvent::VK_PAGE_UP:
 			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling page up"_s);
+				XScrollbarPeer::log->finer("Scrolling page up"_s);
 				int32_t var$5 = $nc(this->tsb)->getValue();
-				$nc(this->tsb)->notifyValue(var$5 - $nc(this->tsb)->getBlockIncrement());
+				$nc(this->tsb)->notifyValue(var$5 - this->tsb->getBlockIncrement());
 				break;
 			}
 		case $KeyEvent::VK_PAGE_DOWN:
 			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling page down"_s);
+				XScrollbarPeer::log->finer("Scrolling page down"_s);
 				int32_t var$6 = $nc(this->tsb)->getValue();
-				$nc(this->tsb)->notifyValue(var$6 + $nc(this->tsb)->getBlockIncrement());
+				$nc(this->tsb)->notifyValue(var$6 + this->tsb->getBlockIncrement());
 				break;
 			}
 		case $KeyEvent::VK_HOME:
-			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling to home"_s);
-				$nc(this->tsb)->notifyValue(0);
-				break;
-			}
+			XScrollbarPeer::log->finer("Scrolling to home"_s);
+			$nc(this->tsb)->notifyValue(0);
+			break;
 		case $KeyEvent::VK_END:
-			{
-				$nc(XScrollbarPeer::log)->finer("Scrolling to end"_s);
-				$nc(this->tsb)->notifyValue($nc(this->tsb)->getMaximum());
-				break;
-			}
+			XScrollbarPeer::log->finer("Scrolling to end"_s);
+			$nc(this->tsb)->notifyValue($nc(this->tsb)->getMaximum());
+			break;
 		}
 	}
 }
@@ -519,10 +423,10 @@ void XScrollbarPeer::layout() {
 	$nc(this->tsb)->setSize(this->width, this->height);
 }
 
-void clinit$XScrollbarPeer($Class* class$) {
+void XScrollbarPeer::clinit$($Class* clazz) {
 	$assignStatic(XScrollbarPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XScrollbarPeer"_s));
 	{
-		XScrollbarPeer::DEFAULT_WIDTH_LINUX = $nc($($XToolkit::getUIDefaults()))->getInt("ScrollBar.defaultWidth"_s);
+		XScrollbarPeer::DEFAULT_WIDTH_LINUX = $$nc($XToolkit::getUIDefaults())->getInt("ScrollBar.defaultWidth"_s);
 	}
 }
 
@@ -530,7 +434,82 @@ XScrollbarPeer::XScrollbarPeer() {
 }
 
 $Class* XScrollbarPeer::load$($String* name, bool initialize) {
-	$loadClass(XScrollbarPeer, name, initialize, &_XScrollbarPeer_ClassInfo_, clinit$XScrollbarPeer, allocate$XScrollbarPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XScrollbarPeer, log)},
+		{"DEFAULT_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbarPeer, DEFAULT_LENGTH)},
+		{"DEFAULT_WIDTH_SOLARIS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XScrollbarPeer, DEFAULT_WIDTH_SOLARIS)},
+		{"DEFAULT_WIDTH_LINUX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XScrollbarPeer, DEFAULT_WIDTH_LINUX)},
+		{"tsb", "Lsun/awt/X11/XScrollbar;", nullptr, 0, $field(XScrollbarPeer, tsb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Scrollbar;)V", nullptr, 0, $method(XScrollbarPeer, init$, void, $Scrollbar*)},
+		{"getDefaultDimension", "()I", nullptr, $PRIVATE, $method(XScrollbarPeer, getDefaultDimension, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, getMinimumSize, $Dimension*)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, handleJavaKeyEvent, void, $KeyEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, layout, void)},
+		{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XScrollbarPeer, paintPeer, void, $Graphics*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, preInit, void, $XCreateWindowParams*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, repaintScrollbarRequest, void, $XScrollbar*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setLineIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setLineIncrement, void, int32_t)},
+		{"setPageIncrement", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setPageIncrement, void, int32_t)},
+		{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setValue, void, int32_t)},
+		{"setValues", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(XScrollbarPeer, setValues, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XScrollbarPeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.ScrollbarPeer,sun.awt.X11.XScrollbarClient",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XScrollbarPeer, name, initialize, &classInfo$$, XScrollbarPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XScrollbarPeer));
+	});
 	return class$;
 }
 

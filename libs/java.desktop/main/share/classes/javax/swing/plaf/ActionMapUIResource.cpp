@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/ActionMapUIResource.h>
-
 #include <javax/swing/ActionMap.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $ActionMap = ::javax::swing::ActionMap;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$MethodInfo _ActionMapUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ActionMapUIResource, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ActionMapUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.ActionMapUIResource",
-	"javax.swing.ActionMap",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_ActionMapUIResource_MethodInfo_
-};
-
-$Object* allocate$ActionMapUIResource($Class* clazz) {
-	return $of($alloc(ActionMapUIResource));
-}
 
 int32_t ActionMapUIResource::hashCode() {
 	 return this->$ActionMap::hashCode();
@@ -62,7 +38,26 @@ ActionMapUIResource::ActionMapUIResource() {
 }
 
 $Class* ActionMapUIResource::load$($String* name, bool initialize) {
-	$loadClass(ActionMapUIResource, name, initialize, &_ActionMapUIResource_ClassInfo_, allocate$ActionMapUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ActionMapUIResource, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.ActionMapUIResource",
+		"javax.swing.ActionMap",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ActionMapUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ActionMapUIResource));
+	});
 	return class$;
 }
 

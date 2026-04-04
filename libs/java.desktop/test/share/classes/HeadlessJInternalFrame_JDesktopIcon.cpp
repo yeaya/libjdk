@@ -1,5 +1,4 @@
 #include <HeadlessJInternalFrame_JDesktopIcon.h>
-
 #include <HeadlessJInternalFrame_JDesktopIcon$1.h>
 #include <HeadlessJInternalFrame_JDesktopIcon$2.h>
 #include <HeadlessJInternalFrame_JDesktopIcon$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -62,43 +60,11 @@ using $Locale = ::java::util::Locale;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 
-$MethodInfo _HeadlessJInternalFrame_JDesktopIcon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJInternalFrame_JDesktopIcon, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJInternalFrame_JDesktopIcon, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJInternalFrame_JDesktopIcon_InnerClassesInfo_[] = {
-	{"HeadlessJInternalFrame_JDesktopIcon$3", nullptr, nullptr, 0},
-	{"HeadlessJInternalFrame_JDesktopIcon$2", nullptr, nullptr, 0},
-	{"HeadlessJInternalFrame_JDesktopIcon$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJInternalFrame_JDesktopIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJInternalFrame_JDesktopIcon",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJInternalFrame_JDesktopIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJInternalFrame_JDesktopIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJInternalFrame_JDesktopIcon$3,HeadlessJInternalFrame_JDesktopIcon$2,HeadlessJInternalFrame_JDesktopIcon$1"
-};
-
-$Object* allocate$HeadlessJInternalFrame_JDesktopIcon($Class* clazz) {
-	return $of($alloc(HeadlessJInternalFrame_JDesktopIcon));
-}
-
 void HeadlessJInternalFrame_JDesktopIcon::init$() {
 }
 
 void HeadlessJInternalFrame_JDesktopIcon::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame$JDesktopIcon, jdi, $new($JInternalFrame$JDesktopIcon, $$new($JInternalFrame)));
 	jdi->getAccessibleContext();
 	jdi->isFocusTraversable();
@@ -110,9 +76,9 @@ void HeadlessJInternalFrame_JDesktopIcon::main($StringArray* args) {
 	jdi->getMaximumSize();
 	jdi->getMinimumSize();
 	jdi->contains(1, 2);
-	$var($Component, c1, jdi->add(static_cast<$Component*>($$new($HeadlessJInternalFrame_JDesktopIcon$1))));
-	$var($Component, c2, jdi->add(static_cast<$Component*>($$new($HeadlessJInternalFrame_JDesktopIcon$2))));
-	$var($Component, c3, jdi->add(static_cast<$Component*>($$new($HeadlessJInternalFrame_JDesktopIcon$3))));
+	$var($Component, c1, jdi->add($$new($HeadlessJInternalFrame_JDesktopIcon$1)));
+	$var($Component, c2, jdi->add($$new($HeadlessJInternalFrame_JDesktopIcon$2)));
+	$var($Component, c3, jdi->add($$new($HeadlessJInternalFrame_JDesktopIcon$3)));
 	$var($Insets, ins, jdi->getInsets());
 	jdi->getAlignmentY();
 	jdi->getAlignmentX();
@@ -123,26 +89,22 @@ void HeadlessJInternalFrame_JDesktopIcon::main($StringArray* args) {
 	jdi->setForeground($Color::red);
 	jdi->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					jdi->setFont(f1);
-					jdi->setFont(f2);
-					jdi->setFont(f3);
-					jdi->setFont(f4);
-					jdi->getFontMetrics(f1);
-					jdi->getFontMetrics(f2);
-					jdi->getFontMetrics(f3);
-					jdi->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				jdi->setFont(f1);
+				jdi->setFont(f2);
+				jdi->setFont(f3);
+				jdi->setFont(f4);
+				jdi->getFontMetrics(f1);
+				jdi->getFontMetrics(f2);
+				jdi->getFontMetrics(f3);
+				jdi->getFontMetrics(f4);
 			}
 		}
 	}
@@ -207,13 +169,11 @@ void HeadlessJInternalFrame_JDesktopIcon::main($StringArray* args) {
 	jdi->getFont();
 	jdi->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(jdi));
+	c->add(jdi);
 	jdi->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			jdi->setLocale(locale);
 		}
@@ -270,7 +230,34 @@ HeadlessJInternalFrame_JDesktopIcon::HeadlessJInternalFrame_JDesktopIcon() {
 }
 
 $Class* HeadlessJInternalFrame_JDesktopIcon::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJInternalFrame_JDesktopIcon, name, initialize, &_HeadlessJInternalFrame_JDesktopIcon_ClassInfo_, allocate$HeadlessJInternalFrame_JDesktopIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJInternalFrame_JDesktopIcon, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJInternalFrame_JDesktopIcon, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJInternalFrame_JDesktopIcon$3", nullptr, nullptr, 0},
+		{"HeadlessJInternalFrame_JDesktopIcon$2", nullptr, nullptr, 0},
+		{"HeadlessJInternalFrame_JDesktopIcon$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJInternalFrame_JDesktopIcon",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJInternalFrame_JDesktopIcon$3,HeadlessJInternalFrame_JDesktopIcon$2,HeadlessJInternalFrame_JDesktopIcon$1"
+	};
+	$loadClass(HeadlessJInternalFrame_JDesktopIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJInternalFrame_JDesktopIcon);
+	});
 	return class$;
 }
 

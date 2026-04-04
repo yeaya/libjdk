@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMBase64Transform.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <javax/xml/crypto/dsig/spec/TransformParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/ApacheTransform.h>
@@ -18,25 +17,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMBase64Transform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMBase64Transform, init$, void)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMBase64Transform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$ClassInfo _DOMBase64Transform_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMBase64Transform",
-	"org.jcp.xml.dsig.internal.dom.ApacheTransform",
-	nullptr,
-	nullptr,
-	_DOMBase64Transform_MethodInfo_
-};
-
-$Object* allocate$DOMBase64Transform($Class* clazz) {
-	return $of($alloc(DOMBase64Transform));
-}
-
 void DOMBase64Transform::init$() {
 	$ApacheTransform::init$();
 }
@@ -51,7 +31,22 @@ DOMBase64Transform::DOMBase64Transform() {
 }
 
 $Class* DOMBase64Transform::load$($String* name, bool initialize) {
-	$loadClass(DOMBase64Transform, name, initialize, &_DOMBase64Transform_ClassInfo_, allocate$DOMBase64Transform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMBase64Transform, init$, void)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMBase64Transform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMBase64Transform",
+		"org.jcp.xml.dsig.internal.dom.ApacheTransform",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMBase64Transform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMBase64Transform));
+	});
 	return class$;
 }
 

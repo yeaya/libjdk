@@ -1,6 +1,4 @@
 #include <Pending.h>
-
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <jcpp.h>
@@ -8,35 +6,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-
-$FieldInfo _Pending_FieldInfo_[] = {
-	{"passed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Pending, passed)},
-	{}
-};
-
-$MethodInfo _Pending_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pending, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pending, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Pending, run, void)},
-	{}
-};
-
-$ClassInfo _Pending_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"Pending",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Pending_FieldInfo_,
-	_Pending_MethodInfo_
-};
-
-$Object* allocate$Pending($Class* clazz) {
-	return $of($alloc(Pending));
-}
 
 $volatile(bool) Pending::passed = false;
 
@@ -62,7 +34,27 @@ Pending::Pending() {
 }
 
 $Class* Pending::load$($String* name, bool initialize) {
-	$loadClass(Pending, name, initialize, &_Pending_ClassInfo_, allocate$Pending);
+	$FieldInfo fieldInfos$$[] = {
+		{"passed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Pending, passed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pending, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Pending, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Pending, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"Pending",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pending, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pending);
+	});
 	return class$;
 }
 

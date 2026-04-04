@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$Mappings.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <java/util/WeakHashMap.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _DefaultMXBeanMappingFactory$Mappings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory$Mappings, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$Mappings_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "Mappings", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$Mappings_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings",
-	"java.util.WeakHashMap",
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$Mappings_MethodInfo_,
-	"Ljava/util/WeakHashMap<Ljava/lang/reflect/Type;Ljava/lang/ref/WeakReference<Lcom/sun/jmx/mbeanserver/MXBeanMapping;>;>;",
-	nullptr,
-	_DefaultMXBeanMappingFactory$Mappings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$Mappings($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$Mappings));
-}
-
 void DefaultMXBeanMappingFactory$Mappings::init$() {
 	$WeakHashMap::init$();
 }
@@ -52,7 +21,32 @@ DefaultMXBeanMappingFactory$Mappings::DefaultMXBeanMappingFactory$Mappings() {
 }
 
 $Class* DefaultMXBeanMappingFactory$Mappings::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$Mappings, name, initialize, &_DefaultMXBeanMappingFactory$Mappings_ClassInfo_, allocate$DefaultMXBeanMappingFactory$Mappings);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory$Mappings, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "Mappings", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$Mappings",
+		"java.util.WeakHashMap",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/WeakHashMap<Ljava/lang/reflect/Type;Ljava/lang/ref/WeakReference<Lcom/sun/jmx/mbeanserver/MXBeanMapping;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$Mappings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$Mappings);
+	});
 	return class$;
 }
 

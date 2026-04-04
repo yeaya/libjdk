@@ -70,6 +70,7 @@ public:
 	using ::javax::swing::JComponent::add;
 	using ::javax::swing::JComponent::getMousePosition;
 	using ::javax::swing::JComponent::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JInternalFrame* f);
 	virtual void addSubComponents();
 	virtual void addSystemMenuItems(::javax::swing::JMenu* systemMenu);

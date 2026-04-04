@@ -1,5 +1,4 @@
 #include <sun/java2d/cmm/CMSManager$CMMTracer.h>
-
 #include <java/awt/color/ICC_Profile.h>
 #include <sun/java2d/cmm/CMSManager.h>
 #include <sun/java2d/cmm/ColorTransform.h>
@@ -9,7 +8,6 @@
 
 using $ColorTransformArray = $Array<::sun::java2d::cmm::ColorTransform>;
 using $ICC_Profile = ::java::awt::color::ICC_Profile;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,85 +21,42 @@ namespace sun {
 	namespace java2d {
 		namespace cmm {
 
-$FieldInfo _CMSManager$CMMTracer_FieldInfo_[] = {
-	{"tcmm", "Lsun/java2d/cmm/PCMM;", nullptr, 0, $field(CMSManager$CMMTracer, tcmm)},
-	{"cName", "Ljava/lang/String;", nullptr, 0, $field(CMSManager$CMMTracer, cName)},
-	{}
-};
-
-$MethodInfo _CMSManager$CMMTracer_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/cmm/PCMM;)V", nullptr, $PUBLIC, $method(CMSManager$CMMTracer, init$, void, $PCMM*)},
-	{"createTransform", "(Ljava/awt/color/ICC_Profile;II)Lsun/java2d/cmm/ColorTransform;", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, createTransform, $ColorTransform*, $ICC_Profile*, int32_t, int32_t)},
-	{"createTransform", "([Lsun/java2d/cmm/ColorTransform;)Lsun/java2d/cmm/ColorTransform;", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, createTransform, $ColorTransform*, $ColorTransformArray*)},
-	{"getProfileData", "(Lsun/java2d/cmm/Profile;)[B", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, getProfileData, $bytes*, $Profile*)},
-	{"getTagData", "(Lsun/java2d/cmm/Profile;I)[B", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, getTagData, $bytes*, $Profile*, int32_t)},
-	{"loadProfile", "([B)Lsun/java2d/cmm/Profile;", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, loadProfile, $Profile*, $bytes*)},
-	{"setTagData", "(Lsun/java2d/cmm/Profile;I[B)V", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, setTagData, void, $Profile*, int32_t, $bytes*)},
-	{"signatureToString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CMSManager$CMMTracer, signatureToString, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CMSManager$CMMTracer_InnerClassesInfo_[] = {
-	{"sun.java2d.cmm.CMSManager$CMMTracer", "sun.java2d.cmm.CMSManager", "CMMTracer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CMSManager$CMMTracer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.cmm.CMSManager$CMMTracer",
-	"java.lang.Object",
-	"sun.java2d.cmm.PCMM",
-	_CMSManager$CMMTracer_FieldInfo_,
-	_CMSManager$CMMTracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CMSManager$CMMTracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.cmm.CMSManager"
-};
-
-$Object* allocate$CMSManager$CMMTracer($Class* clazz) {
-	return $of($alloc(CMSManager$CMMTracer));
-}
-
 void CMSManager$CMMTracer::init$($PCMM* tcmm) {
 	$set(this, tcmm, tcmm);
 	$set(this, cName, $nc($of(tcmm))->getClass()->getName());
 }
 
 $Profile* CMSManager$CMMTracer::loadProfile($bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->print($$str({this->cName, ".loadProfile"_s}));
 	$var($Profile, p, $nc(this->tcmm)->loadProfile(data));
-	$nc($System::err)->printf("(ID=%s)\n"_s, $$new($ObjectArray, {$($of($nc($of(p))->toString()))}));
+	$System::err->printf("(ID=%s)\n"_s, $$new($ObjectArray, {$($nc(p)->toString())}));
 	return p;
 }
 
 $bytes* CMSManager$CMMTracer::getProfileData($Profile* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->print($$str({this->cName, ".getProfileData(ID="_s, p, ") "_s}));
 	$var($bytes, data, $nc(this->tcmm)->getProfileData(p));
-	$nc($System::err)->println($$str({"requested "_s, $$str($nc(data)->length), " byte(s)"_s}));
+	$System::err->println($$str({"requested "_s, $$str($nc(data)->length), " byte(s)"_s}));
 	return data;
 }
 
 $bytes* CMSManager$CMMTracer::getTagData($Profile* p, int32_t tagSignature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->printf($$str({this->cName, ".getTagData(ID=%x, TagSig=%s)"_s}), $$new($ObjectArray, {
-		$of(p),
-		$($of(signatureToString(tagSignature)))
+		p,
+		$(signatureToString(tagSignature))
 	}));
 	$var($bytes, data, $nc(this->tcmm)->getTagData(p, tagSignature));
-	$nc($System::err)->println($$str({" requested "_s, $$str($nc(data)->length), " byte(s)"_s}));
+	$System::err->println($$str({" requested "_s, $$str($nc(data)->length), " byte(s)"_s}));
 	return data;
 }
 
 void CMSManager$CMMTracer::setTagData($Profile* p, int32_t tagSignature, $bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->print($$str({this->cName, ".setTagData(ID="_s, p, ", TagSig="_s, $$str(tagSignature), ")"_s}));
-	$nc($System::err)->println($$str({" sending "_s, $$str($nc(data)->length), " byte(s)"_s}));
+	$System::err->println($$str({" sending "_s, $$str($nc(data)->length), " byte(s)"_s}));
 	$nc(this->tcmm)->setTagData(p, tagSignature, data);
 }
 
@@ -117,12 +72,12 @@ $ColorTransform* CMSManager$CMMTracer::createTransform($ColorTransformArray* tra
 
 $String* CMSManager$CMMTracer::signatureToString(int32_t sig) {
 	$init(CMSManager$CMMTracer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%c%c%c%c"_s, $$new($ObjectArray, {
-		$($of($Character::valueOf((char16_t)((int32_t)(255 & (uint32_t)(sig >> 24)))))),
-		$($of($Character::valueOf((char16_t)((int32_t)(255 & (uint32_t)(sig >> 16)))))),
-		$($of($Character::valueOf((char16_t)((int32_t)(255 & (uint32_t)(sig >> 8)))))),
-		$($of($Character::valueOf((char16_t)((int32_t)(255 & (uint32_t)(sig))))))
+		$($Character::valueOf((char16_t)(0xff & (sig >> 24)))),
+		$($Character::valueOf((char16_t)(0xff & (sig >> 16)))),
+		$($Character::valueOf((char16_t)(0xff & (sig >> 8)))),
+		$($Character::valueOf((char16_t)(0xff & (sig))))
 	}));
 }
 
@@ -130,7 +85,44 @@ CMSManager$CMMTracer::CMSManager$CMMTracer() {
 }
 
 $Class* CMSManager$CMMTracer::load$($String* name, bool initialize) {
-	$loadClass(CMSManager$CMMTracer, name, initialize, &_CMSManager$CMMTracer_ClassInfo_, allocate$CMSManager$CMMTracer);
+	$FieldInfo fieldInfos$$[] = {
+		{"tcmm", "Lsun/java2d/cmm/PCMM;", nullptr, 0, $field(CMSManager$CMMTracer, tcmm)},
+		{"cName", "Ljava/lang/String;", nullptr, 0, $field(CMSManager$CMMTracer, cName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/cmm/PCMM;)V", nullptr, $PUBLIC, $method(CMSManager$CMMTracer, init$, void, $PCMM*)},
+		{"createTransform", "(Ljava/awt/color/ICC_Profile;II)Lsun/java2d/cmm/ColorTransform;", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, createTransform, $ColorTransform*, $ICC_Profile*, int32_t, int32_t)},
+		{"createTransform", "([Lsun/java2d/cmm/ColorTransform;)Lsun/java2d/cmm/ColorTransform;", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, createTransform, $ColorTransform*, $ColorTransformArray*)},
+		{"getProfileData", "(Lsun/java2d/cmm/Profile;)[B", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, getProfileData, $bytes*, $Profile*)},
+		{"getTagData", "(Lsun/java2d/cmm/Profile;I)[B", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, getTagData, $bytes*, $Profile*, int32_t)},
+		{"loadProfile", "([B)Lsun/java2d/cmm/Profile;", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, loadProfile, $Profile*, $bytes*)},
+		{"setTagData", "(Lsun/java2d/cmm/Profile;I[B)V", nullptr, $PUBLIC, $virtualMethod(CMSManager$CMMTracer, setTagData, void, $Profile*, int32_t, $bytes*)},
+		{"signatureToString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CMSManager$CMMTracer, signatureToString, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.cmm.CMSManager$CMMTracer", "sun.java2d.cmm.CMSManager", "CMMTracer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.cmm.CMSManager$CMMTracer",
+		"java.lang.Object",
+		"sun.java2d.cmm.PCMM",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.cmm.CMSManager"
+	};
+	$loadClass(CMSManager$CMMTracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMSManager$CMMTracer);
+	});
 	return class$;
 }
 

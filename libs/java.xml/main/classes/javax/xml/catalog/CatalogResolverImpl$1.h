@@ -13,6 +13,7 @@ class CatalogResolverImpl$1 : public ::java::lang::Object {
 	$class(CatalogResolverImpl$1, 0, ::java::lang::Object)
 public:
 	CatalogResolverImpl$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$xml$catalog$GroupEntry$ResolveType;
 };
 

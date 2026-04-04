@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap.h>
-
 #include <com/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer.h>
 #include <java/lang/Enum.h>
 #include <jdk/xml/internal/JdkConstants.h>
@@ -28,50 +27,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _XMLLimitAnalyzer$NameMap_FieldInfo_[] = {
-	{"ENTITY_EXPANSION_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLLimitAnalyzer$NameMap, ENTITY_EXPANSION_LIMIT)},
-	{"MAX_OCCUR_NODE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLLimitAnalyzer$NameMap, MAX_OCCUR_NODE_LIMIT)},
-	{"ELEMENT_ATTRIBUTE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLLimitAnalyzer$NameMap, ELEMENT_ATTRIBUTE_LIMIT)},
-	{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XMLLimitAnalyzer$NameMap, $VALUES)},
-	{"newName", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLLimitAnalyzer$NameMap, newName)},
-	{"oldName", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLLimitAnalyzer$NameMap, oldName)},
-	{}
-};
-
-$MethodInfo _XMLLimitAnalyzer$NameMap_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLLimitAnalyzer$NameMap, $values, $XMLLimitAnalyzer$NameMapArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(XMLLimitAnalyzer$NameMap, init$, void, $String*, int32_t, $String*, $String*)},
-	{"getOldName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(XMLLimitAnalyzer$NameMap, getOldName, $String*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLLimitAnalyzer$NameMap, valueOf, XMLLimitAnalyzer$NameMap*, $String*)},
-	{"values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLLimitAnalyzer$NameMap, values, $XMLLimitAnalyzer$NameMapArray*)},
-	{}
-};
-
-$InnerClassInfo _XMLLimitAnalyzer$NameMap_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer$NameMap", "com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer", "NameMap", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _XMLLimitAnalyzer$NameMap_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer$NameMap",
-	"java.lang.Enum",
-	nullptr,
-	_XMLLimitAnalyzer$NameMap_FieldInfo_,
-	_XMLLimitAnalyzer$NameMap_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;>;",
-	nullptr,
-	_XMLLimitAnalyzer$NameMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer"
-};
-
-$Object* allocate$XMLLimitAnalyzer$NameMap($Class* clazz) {
-	return $of($alloc(XMLLimitAnalyzer$NameMap));
-}
 
 XMLLimitAnalyzer$NameMap* XMLLimitAnalyzer$NameMap::ENTITY_EXPANSION_LIMIT = nullptr;
 XMLLimitAnalyzer$NameMap* XMLLimitAnalyzer$NameMap::MAX_OCCUR_NODE_LIMIT = nullptr;
@@ -110,7 +65,7 @@ $String* XMLLimitAnalyzer$NameMap::getOldName($String* newName) {
 	return nullptr;
 }
 
-void clinit$XMLLimitAnalyzer$NameMap($Class* class$) {
+void XMLLimitAnalyzer$NameMap::clinit$($Class* clazz) {
 	$init($JdkConstants);
 	$assignStatic(XMLLimitAnalyzer$NameMap::ENTITY_EXPANSION_LIMIT, $new(XMLLimitAnalyzer$NameMap, "ENTITY_EXPANSION_LIMIT"_s, 0, $JdkConstants::SP_ENTITY_EXPANSION_LIMIT, $JdkConstants::ENTITY_EXPANSION_LIMIT));
 	$assignStatic(XMLLimitAnalyzer$NameMap::MAX_OCCUR_NODE_LIMIT, $new(XMLLimitAnalyzer$NameMap, "MAX_OCCUR_NODE_LIMIT"_s, 1, $JdkConstants::SP_MAX_OCCUR_LIMIT, $JdkConstants::MAX_OCCUR_LIMIT));
@@ -122,7 +77,45 @@ XMLLimitAnalyzer$NameMap::XMLLimitAnalyzer$NameMap() {
 }
 
 $Class* XMLLimitAnalyzer$NameMap::load$($String* name, bool initialize) {
-	$loadClass(XMLLimitAnalyzer$NameMap, name, initialize, &_XMLLimitAnalyzer$NameMap_ClassInfo_, clinit$XMLLimitAnalyzer$NameMap, allocate$XMLLimitAnalyzer$NameMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENTITY_EXPANSION_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLLimitAnalyzer$NameMap, ENTITY_EXPANSION_LIMIT)},
+		{"MAX_OCCUR_NODE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLLimitAnalyzer$NameMap, MAX_OCCUR_NODE_LIMIT)},
+		{"ELEMENT_ATTRIBUTE_LIMIT", "Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XMLLimitAnalyzer$NameMap, ELEMENT_ATTRIBUTE_LIMIT)},
+		{"$VALUES", "[Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XMLLimitAnalyzer$NameMap, $VALUES)},
+		{"newName", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLLimitAnalyzer$NameMap, newName)},
+		{"oldName", "Ljava/lang/String;", nullptr, $FINAL, $field(XMLLimitAnalyzer$NameMap, oldName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLLimitAnalyzer$NameMap, $values, $XMLLimitAnalyzer$NameMapArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(XMLLimitAnalyzer$NameMap, init$, void, $String*, int32_t, $String*, $String*)},
+		{"getOldName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(XMLLimitAnalyzer$NameMap, getOldName, $String*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLLimitAnalyzer$NameMap, valueOf, XMLLimitAnalyzer$NameMap*, $String*)},
+		{"values", "()[Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLLimitAnalyzer$NameMap, values, $XMLLimitAnalyzer$NameMapArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer$NameMap", "com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer", "NameMap", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer$NameMap",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/org/apache/xerces/internal/utils/XMLLimitAnalyzer$NameMap;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.utils.XMLLimitAnalyzer"
+	};
+	$loadClass(XMLLimitAnalyzer$NameMap, name, initialize, &classInfo$$, XMLLimitAnalyzer$NameMap::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLLimitAnalyzer$NameMap));
+	});
 	return class$;
 }
 

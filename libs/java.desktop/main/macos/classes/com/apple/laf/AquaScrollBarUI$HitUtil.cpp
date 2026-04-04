@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaScrollBarUI$HitUtil.h>
-
 #include <apple/laf/JRSUIConstants$Hit.h>
 #include <apple/laf/JRSUIConstants$ScrollBarHit.h>
 #include <com/apple/laf/AquaScrollBarUI.h>
@@ -21,40 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaScrollBarUI$HitUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaScrollBarUI$HitUtil, init$, void)},
-	{"isArrow", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isArrow, bool, $JRSUIConstants$Hit*)},
-	{"isDecrement", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isDecrement, bool, $JRSUIConstants$Hit*)},
-	{"isIncrement", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isIncrement, bool, $JRSUIConstants$Hit*)},
-	{"isTrack", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isTrack, bool, $JRSUIConstants$Hit*)},
-	{}
-};
-
-$InnerClassInfo _AquaScrollBarUI$HitUtil_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaScrollBarUI$HitUtil", "com.apple.laf.AquaScrollBarUI", "HitUtil", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaScrollBarUI$HitUtil_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaScrollBarUI$HitUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AquaScrollBarUI$HitUtil_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaScrollBarUI$HitUtil_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaScrollBarUI"
-};
-
-$Object* allocate$AquaScrollBarUI$HitUtil($Class* clazz) {
-	return $of($alloc(AquaScrollBarUI$HitUtil));
-}
 
 void AquaScrollBarUI$HitUtil::init$() {
 }
@@ -83,7 +48,36 @@ AquaScrollBarUI$HitUtil::AquaScrollBarUI$HitUtil() {
 }
 
 $Class* AquaScrollBarUI$HitUtil::load$($String* name, bool initialize) {
-	$loadClass(AquaScrollBarUI$HitUtil, name, initialize, &_AquaScrollBarUI$HitUtil_ClassInfo_, allocate$AquaScrollBarUI$HitUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaScrollBarUI$HitUtil, init$, void)},
+		{"isArrow", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isArrow, bool, $JRSUIConstants$Hit*)},
+		{"isDecrement", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isDecrement, bool, $JRSUIConstants$Hit*)},
+		{"isIncrement", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isIncrement, bool, $JRSUIConstants$Hit*)},
+		{"isTrack", "(Lapple/laf/JRSUIConstants$Hit;)Z", nullptr, $STATIC, $staticMethod(AquaScrollBarUI$HitUtil, isTrack, bool, $JRSUIConstants$Hit*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaScrollBarUI$HitUtil", "com.apple.laf.AquaScrollBarUI", "HitUtil", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaScrollBarUI$HitUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaScrollBarUI"
+	};
+	$loadClass(AquaScrollBarUI$HitUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaScrollBarUI$HitUtil);
+	});
 	return class$;
 }
 

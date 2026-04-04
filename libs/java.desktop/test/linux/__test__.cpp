@@ -187,12 +187,15 @@
 #include <PaintContextScaleValidation.h>
 #include <PaintThumbSize.h>
 #include <Pending.h>
+#include <PopupMenuTest.h>
 #include <PopupReferenceMemoryLeak.h>
 #include <PressedButtonRightClickTest.h>
 #include <PressedIconTest.h>
+#include <PrintManualTest_FitWidthMultiple.h>
 #include <ProgressMonitorEscapeKeyPress.h>
 #include <ProvokeGTK.h>
 #include <RGBColorValueTest.h>
+#include <RTFReadBGColorTest.h>
 #include <RTFWriteParagraphAlignTest.h>
 #include <RenderBadPictureCrash.h>
 #include <RepaintManagerFPUIScaleTest.h>
@@ -203,6 +206,7 @@
 #include <ScrollBarThumbVisibleTest.h>
 #include <ScrollableTabbedPaneTest.h>
 #include <SelectAllFilesFilterTest.h>
+#include <SerializationTest.h>
 #include <SetInvokerJPopupMenuTest.h>
 #include <SetLayerNPE.h>
 #include <SetSelectedValueTest.h>
@@ -230,6 +234,7 @@
 #include <Test4461329.h>
 #include <Test4711996.h>
 #include <Test4783068.h>
+#include <Test5062055.h>
 #include <Test6199676.h>
 #include <Test6256140.h>
 #include <Test6325652.h>
@@ -282,6 +287,7 @@
 #include <TestBoxFiller.h>
 #include <TestBrowserBGColor.h>
 #include <TestButtonGroupFocusTraversal.h>
+#include <TestCCEOnEditEvent.h>
 #include <TestCaretPosition.h>
 #include <TestCaretPositionJTextPane.h>
 #include <TestClearSel.h>
@@ -298,6 +304,7 @@
 #include <TestJLabelWithHTMLText.h>
 #include <TestJProgressBarHighlightColor.h>
 #include <TestJSliderRendering.h>
+#include <TestJSpinnerFocusLost.h>
 #include <TestJSpinnerPressUnpress.h>
 #include <TestJTableCellEditor.h>
 #include <TestJTextPaneBackgroundColor.h>
@@ -345,12 +352,15 @@
 #include <WrongSelectionOnMouseOver.h>
 #include <bug4128979.h>
 #include <bug4201995.h>
+#include <bug4235420.h>
+#include <bug4242228.h>
 #include <bug4247996.h>
 #include <bug4251579.h>
 #include <bug4252173.h>
 #include <bug4275046.h>
 #include <bug4300666.h>
 #include <bug4310381.h>
+#include <bug4331767.h>
 #include <bug4337267.h>
 #include <bug4361477.h>
 #include <bug4368790.h>
@@ -359,6 +369,7 @@
 #include <bug4492274.h>
 #include <bug4496801.h>
 #include <bug4506788.h>
+#include <bug4514858.h>
 #include <bug4529206.h>
 #include <bug4530474.h>
 #include <bug4697612.h>
@@ -370,6 +381,7 @@
 #include <bug4765271.h>
 #include <bug4788637.h>
 #include <bug4816114.h>
+#include <bug4865918.h>
 #include <bug4870644.h>
 #include <bug4885629.h>
 #include <bug4927934.h>
@@ -377,6 +389,7 @@
 #include <bug4960629.h>
 #include <bug4962534.h>
 #include <bug4966171.h>
+#include <bug5012888.h>
 #include <bug5043626.h>
 #include <bug5073047.h>
 #include <bug5074573.h>
@@ -866,12 +879,15 @@ void TestCases::runCases() {
 	run("PaintContextScaleValidation", ::PaintContextScaleValidation);
 	run("PaintThumbSize", ::PaintThumbSize);
 	run("Pending", ::Pending);
+	run("PopupMenuTest", ::PopupMenuTest);
 	run("PopupReferenceMemoryLeak", ::PopupReferenceMemoryLeak);
 	run("PressedButtonRightClickTest", ::PressedButtonRightClickTest);
 	run("PressedIconTest", ::PressedIconTest);
+	run("PrintManualTest_FitWidthMultiple", ::PrintManualTest_FitWidthMultiple);
 	run("ProgressMonitorEscapeKeyPress", ::ProgressMonitorEscapeKeyPress);
 	run("ProvokeGTK", ::ProvokeGTK);
 	run("RGBColorValueTest", ::RGBColorValueTest);
+	run("RTFReadBGColorTest", ::RTFReadBGColorTest);
 	run("RTFWriteParagraphAlignTest", ::RTFWriteParagraphAlignTest);
 	run("RenderBadPictureCrash", ::RenderBadPictureCrash);
 	run("RepaintManagerFPUIScaleTest", ::RepaintManagerFPUIScaleTest);
@@ -882,6 +898,7 @@ void TestCases::runCases() {
 	run("ScrollBarThumbVisibleTest", ::ScrollBarThumbVisibleTest);
 	run("ScrollableTabbedPaneTest", ::ScrollableTabbedPaneTest);
 	run("SelectAllFilesFilterTest", ::SelectAllFilesFilterTest, true);
+	run("SerializationTest", ::SerializationTest);
 	run("SetInvokerJPopupMenuTest", ::SetInvokerJPopupMenuTest);
 	run("SetLayerNPE", ::SetLayerNPE);
 	run("SetSelectedValueTest", ::SetSelectedValueTest);
@@ -909,6 +926,7 @@ void TestCases::runCases() {
 	run("Test4461329", ::Test4461329);
 	run("Test4711996", ::Test4711996);
 	run("Test4783068", ::Test4783068);
+	run("Test5062055", ::Test5062055);
 	run("Test6199676", ::Test6199676);
 	run("Test6256140", ::Test6256140, true);
 	run("Test6325652", ::Test6325652);
@@ -961,6 +979,7 @@ void TestCases::runCases() {
 	run("TestBoxFiller", ::TestBoxFiller);
 	run("TestBrowserBGColor", ::TestBrowserBGColor);
 	run("TestButtonGroupFocusTraversal", ::TestButtonGroupFocusTraversal, true);
+	run("TestCCEOnEditEvent", ::TestCCEOnEditEvent);
 	run("TestCaretPosition", ::TestCaretPosition);
 	run("TestCaretPositionJTextPane", ::TestCaretPositionJTextPane);
 	run("TestClearSel", ::TestClearSel, true);
@@ -977,6 +996,7 @@ void TestCases::runCases() {
 	run("TestJLabelWithHTMLText", ::TestJLabelWithHTMLText, true);
 	run("TestJProgressBarHighlightColor", ::TestJProgressBarHighlightColor);
 	run("TestJSliderRendering", ::TestJSliderRendering);
+	run("TestJSpinnerFocusLost", ::TestJSpinnerFocusLost);
 	run("TestJSpinnerPressUnpress", ::TestJSpinnerPressUnpress);
 	run("TestJTableCellEditor", ::TestJTableCellEditor);
 	run("TestJTextPaneBackgroundColor", ::TestJTextPaneBackgroundColor);
@@ -1028,12 +1048,15 @@ void TestCases::runCases() {
 	run("WrongSelectionOnMouseOver", ::WrongSelectionOnMouseOver);
 	run("bug4128979", ::bug4128979);
 	run("bug4201995", ::bug4201995, true);
+	run("bug4235420", ::bug4235420);
+	run("bug4242228", ::bug4242228);
 	run("bug4247996", ::bug4247996);
 	run("bug4251579", ::bug4251579);
 	run("bug4252173", ::bug4252173);
 	run("bug4275046", ::bug4275046);
 	run("bug4300666", ::bug4300666);
 	run("bug4310381", ::bug4310381);
+	run("bug4331767", ::bug4331767);
 	run("bug4337267", ::bug4337267);
 	run("bug4361477", ::bug4361477);
 	run("bug4368790", ::bug4368790);
@@ -1042,6 +1065,7 @@ void TestCases::runCases() {
 	run("bug4492274", ::bug4492274, true);
 	run("bug4496801", ::bug4496801);
 	run("bug4506788", ::bug4506788, true);
+	run("bug4514858", ::bug4514858);
 	run("bug4529206", ::bug4529206);
 	run("bug4530474", ::bug4530474, true);
 	run("bug4697612", ::bug4697612, true);
@@ -1053,6 +1077,7 @@ void TestCases::runCases() {
 	run("bug4765271", ::bug4765271);
 	run("bug4788637", ::bug4788637);
 	run("bug4816114", ::bug4816114);
+	run("bug4865918", ::bug4865918);
 	run("bug4870644", ::bug4870644);
 	run("bug4885629", ::bug4885629);
 	run("bug4927934", ::bug4927934);
@@ -1060,6 +1085,7 @@ void TestCases::runCases() {
 	run("bug4960629", ::bug4960629);
 	run("bug4962534", ::bug4962534);
 	run("bug4966171", ::bug4966171);
+	run("bug5012888", ::bug5012888);
 	run("bug5043626", ::bug5043626, true);
 	run("bug5073047", ::bug5073047);
 	run("bug5074573", ::bug5074573, true);
@@ -1244,14 +1270,14 @@ void TestCases::runCases() {
 #ifdef JCPP_SUBSYSTEM_WINDOWS
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE inst, HINSTANCE previnst, LPSTR cmdline, int cmdshow) {
-	return $System::launchw(::java$desktop$test::init, []($StringArray* args)->void {
+	return $System::launchw(::java$desktop$test::init, []($StringArray* args) -> void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});
 }
 #else
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, ::java$desktop$test::init, []($StringArray* args)->void {
+	return $System::launch(argc, argv, ::java$desktop$test::init, []($StringArray* args) -> void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});

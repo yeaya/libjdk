@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaMnemonicHandler$AltProcessor.h>
-
 #include <com/apple/laf/AquaMnemonicHandler.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
@@ -15,7 +14,6 @@
 #undef VK_ALT
 
 using $AquaMnemonicHandler = ::com::apple::laf::AquaMnemonicHandler;
-using $Component = ::java::awt::Component;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,58 +26,23 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaMnemonicHandler$AltProcessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaMnemonicHandler$AltProcessor, init$, void)},
-	{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(AquaMnemonicHandler$AltProcessor, postProcessKeyEvent, bool, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaMnemonicHandler$AltProcessor_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaMnemonicHandler$AltProcessor", "com.apple.laf.AquaMnemonicHandler", "AltProcessor", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaMnemonicHandler$AltProcessor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaMnemonicHandler$AltProcessor",
-	"java.lang.Object",
-	"java.awt.KeyEventPostProcessor",
-	nullptr,
-	_AquaMnemonicHandler$AltProcessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaMnemonicHandler$AltProcessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaMnemonicHandler"
-};
-
-$Object* allocate$AquaMnemonicHandler$AltProcessor($Class* clazz) {
-	return $of($alloc(AquaMnemonicHandler$AltProcessor));
-}
-
 void AquaMnemonicHandler$AltProcessor::init$() {
 }
 
 bool AquaMnemonicHandler$AltProcessor::postProcessKeyEvent($KeyEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ev)->getKeyCode() != $KeyEvent::VK_ALT) {
 		return false;
 	}
-	$var($JRootPane, root, $SwingUtilities::getRootPane($($nc(ev)->getComponent())));
+	$var($JRootPane, root, $SwingUtilities::getRootPane($(ev->getComponent())));
 	$var($Window, winAncestor, root == nullptr ? ($Window*)nullptr : $SwingUtilities::getWindowAncestor(root));
-	switch ($nc(ev)->getID()) {
+	switch (ev->getID()) {
 	case $KeyEvent::KEY_PRESSED:
-		{
-			$AquaMnemonicHandler::setMnemonicHidden(false);
-			break;
-		}
+		$AquaMnemonicHandler::setMnemonicHidden(false);
+		break;
 	case $KeyEvent::KEY_RELEASED:
-		{
-			$AquaMnemonicHandler::setMnemonicHidden(true);
-			break;
-		}
+		$AquaMnemonicHandler::setMnemonicHidden(true);
+		break;
 	}
 	$AquaMnemonicHandler::repaintMnemonicsInWindow(winAncestor);
 	return false;
@@ -89,7 +52,33 @@ AquaMnemonicHandler$AltProcessor::AquaMnemonicHandler$AltProcessor() {
 }
 
 $Class* AquaMnemonicHandler$AltProcessor::load$($String* name, bool initialize) {
-	$loadClass(AquaMnemonicHandler$AltProcessor, name, initialize, &_AquaMnemonicHandler$AltProcessor_ClassInfo_, allocate$AquaMnemonicHandler$AltProcessor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaMnemonicHandler$AltProcessor, init$, void)},
+		{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(AquaMnemonicHandler$AltProcessor, postProcessKeyEvent, bool, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaMnemonicHandler$AltProcessor", "com.apple.laf.AquaMnemonicHandler", "AltProcessor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaMnemonicHandler$AltProcessor",
+		"java.lang.Object",
+		"java.awt.KeyEventPostProcessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaMnemonicHandler"
+	};
+	$loadClass(AquaMnemonicHandler$AltProcessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaMnemonicHandler$AltProcessor);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/JViewport$ViewListener.h>
-
 #include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <javax/swing/JViewport.h>
@@ -15,47 +14,6 @@ using $JViewport = ::javax::swing::JViewport;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JViewport$ViewListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JViewport;", nullptr, $FINAL | $SYNTHETIC, $field(JViewport$ViewListener, this$0)},
-	{}
-};
-
-$MethodInfo _JViewport$ViewListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JViewport;)V", nullptr, $PROTECTED, $method(JViewport$ViewListener, init$, void, $JViewport*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JViewport$ViewListener, componentResized, void, $ComponentEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JViewport$ViewListener_InnerClassesInfo_[] = {
-	{"javax.swing.JViewport$ViewListener", "javax.swing.JViewport", "ViewListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JViewport$ViewListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JViewport$ViewListener",
-	"java.awt.event.ComponentAdapter",
-	"java.io.Serializable",
-	_JViewport$ViewListener_FieldInfo_,
-	_JViewport$ViewListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JViewport$ViewListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JViewport"
-};
-
-$Object* allocate$JViewport$ViewListener($Class* clazz) {
-	return $of($alloc(JViewport$ViewListener));
-}
 
 int32_t JViewport$ViewListener::hashCode() {
 	 return this->$ComponentAdapter::hashCode();
@@ -91,7 +49,42 @@ JViewport$ViewListener::JViewport$ViewListener() {
 }
 
 $Class* JViewport$ViewListener::load$($String* name, bool initialize) {
-	$loadClass(JViewport$ViewListener, name, initialize, &_JViewport$ViewListener_ClassInfo_, allocate$JViewport$ViewListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JViewport;", nullptr, $FINAL | $SYNTHETIC, $field(JViewport$ViewListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JViewport;)V", nullptr, $PROTECTED, $method(JViewport$ViewListener, init$, void, $JViewport*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JViewport$ViewListener, componentResized, void, $ComponentEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JViewport$ViewListener", "javax.swing.JViewport", "ViewListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JViewport$ViewListener",
+		"java.awt.event.ComponentAdapter",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JViewport"
+	};
+	$loadClass(JViewport$ViewListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JViewport$ViewListener));
+	});
 	return class$;
 }
 

@@ -14,7 +14,7 @@ public:
 	AWTPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x7B6104C96E234C81;
+	static const int64_t serialVersionUID = (int64_t)0x7b6104c96e234c81;
 };
 
 	} // awt

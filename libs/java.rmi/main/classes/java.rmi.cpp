@@ -1,5 +1,4 @@
 #include <java.rmi.h>
-
 #include <java.base.h>
 #include <java.logging.h>
 #include <java/lang/ClassEntry.h>
@@ -7,8 +6,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/rmi/AccessException.h>
 #include <java/rmi/AlreadyBoundException.h>
 #include <java/rmi/ConnectException.h>
@@ -425,6 +422,7 @@ $bytes* java$rmi$GetResource($String* name) {
 void java$rmi::init() {
 	::java$base::init();
 	::java$logging::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.rmi", "17.35", "",
 		&_java$rmi_ModuleInfo_,

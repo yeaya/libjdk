@@ -1,5 +1,4 @@
 #include <java/awt/color/ProfileDataException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace awt {
 		namespace color {
-
-$FieldInfo _ProfileDataException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ProfileDataException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProfileDataException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ProfileDataException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.color.ProfileDataException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ProfileDataException_FieldInfo_,
-	_ProfileDataException_MethodInfo_
-};
-
-$Object* allocate$ProfileDataException($Class* clazz) {
-	return $of($alloc(ProfileDataException));
-}
 
 void ProfileDataException::init$($String* s) {
 	$RuntimeException::init$(s);
@@ -49,7 +25,25 @@ void ProfileDataException::throw$() {
 }
 
 $Class* ProfileDataException::load$($String* name, bool initialize) {
-	$loadClass(ProfileDataException, name, initialize, &_ProfileDataException_ClassInfo_, allocate$ProfileDataException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProfileDataException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProfileDataException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.color.ProfileDataException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProfileDataException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProfileDataException);
+	});
 	return class$;
 }
 

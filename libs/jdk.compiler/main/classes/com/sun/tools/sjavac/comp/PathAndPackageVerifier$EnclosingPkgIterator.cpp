@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/PathAndPackageVerifier$EnclosingPkgIterator.h>
-
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
@@ -23,43 +22,6 @@ namespace com {
 			namespace sjavac {
 				namespace comp {
 
-$FieldInfo _PathAndPackageVerifier$EnclosingPkgIterator_FieldInfo_[] = {
-	{"next", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(PathAndPackageVerifier$EnclosingPkgIterator, next$)},
-	{}
-};
-
-$MethodInfo _PathAndPackageVerifier$EnclosingPkgIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(PathAndPackageVerifier$EnclosingPkgIterator, init$, void, $JCTree*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$EnclosingPkgIterator, hasNext, bool)},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$EnclosingPkgIterator, next, $Object*)},
-	{}
-};
-
-$InnerClassInfo _PathAndPackageVerifier$EnclosingPkgIterator_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator", "com.sun.tools.sjavac.comp.PathAndPackageVerifier", "EnclosingPkgIterator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PathAndPackageVerifier$EnclosingPkgIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_PathAndPackageVerifier$EnclosingPkgIterator_FieldInfo_,
-	_PathAndPackageVerifier$EnclosingPkgIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
-	nullptr,
-	_PathAndPackageVerifier$EnclosingPkgIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.comp.PathAndPackageVerifier"
-};
-
-$Object* allocate$PathAndPackageVerifier$EnclosingPkgIterator($Class* clazz) {
-	return $of($alloc(PathAndPackageVerifier$EnclosingPkgIterator));
-}
-
 void PathAndPackageVerifier$EnclosingPkgIterator::init$($JCTree* initial) {
 	$set(this, next$, initial);
 }
@@ -69,7 +31,7 @@ bool PathAndPackageVerifier$EnclosingPkgIterator::hasNext() {
 }
 
 $Object* PathAndPackageVerifier$EnclosingPkgIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, nullptr);
 	{
 		$var($JCTree$JCIdent, identNext, nullptr);
@@ -95,7 +57,38 @@ PathAndPackageVerifier$EnclosingPkgIterator::PathAndPackageVerifier$EnclosingPkg
 }
 
 $Class* PathAndPackageVerifier$EnclosingPkgIterator::load$($String* name, bool initialize) {
-	$loadClass(PathAndPackageVerifier$EnclosingPkgIterator, name, initialize, &_PathAndPackageVerifier$EnclosingPkgIterator_ClassInfo_, allocate$PathAndPackageVerifier$EnclosingPkgIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"next", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(PathAndPackageVerifier$EnclosingPkgIterator, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(PathAndPackageVerifier$EnclosingPkgIterator, init$, void, $JCTree*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$EnclosingPkgIterator, hasNext, bool)},
+		{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$EnclosingPkgIterator, next, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator", "com.sun.tools.sjavac.comp.PathAndPackageVerifier", "EnclosingPkgIterator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.sjavac.comp.PathAndPackageVerifier$EnclosingPkgIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.comp.PathAndPackageVerifier"
+	};
+	$loadClass(PathAndPackageVerifier$EnclosingPkgIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathAndPackageVerifier$EnclosingPkgIterator);
+	});
 	return class$;
 }
 

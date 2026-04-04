@@ -14,10 +14,13 @@ class $export ProfileDataException : public ::java::lang::RuntimeException {
 public:
 	ProfileDataException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x651D9288C30377C2;
+	static const int64_t serialVersionUID = (int64_t)0x651d9288c30377c2;
 	ProfileDataException(const ProfileDataException& e);
 	virtual void throw$() override;
-	inline ProfileDataException* operator ->() {
+	inline ProfileDataException* operator ->() const {
+		return (ProfileDataException*)throwing$;
+	}
+	inline operator ProfileDataException*() const {
 		return (ProfileDataException*)throwing$;
 	}
 };

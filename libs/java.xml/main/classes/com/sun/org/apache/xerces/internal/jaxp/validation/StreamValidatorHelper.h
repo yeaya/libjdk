@@ -103,6 +103,7 @@ class StreamValidatorHelper : public ::com::sun::org::apache::xerces::internal::
 	$class(StreamValidatorHelper, 0, ::com::sun::org::apache::xerces::internal::jaxp::validation::ValidatorHelper)
 public:
 	StreamValidatorHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::jaxp::validation::XMLSchemaValidatorComponentManager* componentManager);
 	::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration* initialize();
 	virtual void validate(::javax::xml::transform::Source* source, ::javax::xml::transform::Result* result) override;

@@ -58,6 +58,7 @@ class Encoder : public ::java::lang::Object {
 	$class(Encoder, 0, ::java::lang::Object)
 public:
 	Encoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t maxCapacity);
 	virtual int32_t calculateCapacity(int32_t maxCapacity);
 	void checkEncoding();

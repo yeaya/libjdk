@@ -15,6 +15,7 @@ class $export FormatLocale : public ::java::lang::Object {
 	$class(FormatLocale, 0, ::java::lang::Object)
 public:
 	FormatLocale();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0(int32_t i);
 	static void main($StringArray* args);

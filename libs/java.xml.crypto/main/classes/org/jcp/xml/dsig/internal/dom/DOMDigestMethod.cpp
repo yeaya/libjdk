@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/xml/crypto/AlgorithmMethod.h>
@@ -66,71 +65,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMDigestMethod_FieldInfo_[] = {
-	{"SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA224)},
-	{"SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA384)},
-	{"WHIRLPOOL", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, WHIRLPOOL)},
-	{"SHA3_224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_224)},
-	{"SHA3_256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_256)},
-	{"SHA3_384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_384)},
-	{"SHA3_512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_512)},
-	{"params", "Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;", nullptr, $PRIVATE, $field(DOMDigestMethod, params)},
-	{}
-};
-
-$MethodInfo _DOMDigestMethod_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMDigestMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMDigestMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"checkParams", "(Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;)V", nullptr, 0, $virtualMethod(DOMDigestMethod, checkParams, void, $DigestMethodParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod, equals, bool, Object$*)},
-	{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(DOMDigestMethod, getMessageDigestAlgorithm, $String*)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMDigestMethod, getParameterSpec, $AlgorithmParameterSpec*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshalParams", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(DOMDigestMethod, marshalParams, void, $Element*, $String*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unmarshal", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $STATIC, $staticMethod(DOMDigestMethod, unmarshal, $DigestMethod*, $Element*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;", nullptr, 0, $virtualMethod(DOMDigestMethod, unmarshalParams, $DigestMethodParameterSpec*, $Element*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$InnerClassInfo _DOMDigestMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_512", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_512", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_384", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_384", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_256", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_224", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_224", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$WHIRLPOOL", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "WHIRLPOOL", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$RIPEMD160", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "RIPEMD160", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA512", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA384", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA384", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA256", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA256", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA224", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA224", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA1", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA1", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMDigestMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.DigestMethod",
-	_DOMDigestMethod_FieldInfo_,
-	_DOMDigestMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMDigestMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_512,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_384,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_224,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$WHIRLPOOL,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$RIPEMD160,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA384,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA256,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA224,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA1"
-};
-
-$Object* allocate$DOMDigestMethod($Class* clazz) {
-	return $of($alloc(DOMDigestMethod));
-}
-
 bool DOMDigestMethod::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -173,64 +107,44 @@ void DOMDigestMethod::init$($Element* dmElem) {
 	try {
 		checkParams(this->params);
 	} catch ($InvalidAlgorithmParameterException& iape) {
-		$throwNew($MarshalException, static_cast<$Throwable*>(iape));
+		$throwNew($MarshalException, iape);
 	}
 }
 
 $DigestMethod* DOMDigestMethod::unmarshal($Element* dmElem) {
 	$init(DOMDigestMethod);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, alg, $DOMUtils::getAttributeValue(dmElem, "Algorithm"_s));
 	$init($DigestMethod);
 	if ($nc(alg)->equals($DigestMethod::SHA1)) {
 		return $new($DOMDigestMethod$SHA1, dmElem);
+	} else if (alg->equals(DOMDigestMethod::SHA224)) {
+		return $new($DOMDigestMethod$SHA224, dmElem);
+	} else if (alg->equals($DigestMethod::SHA256)) {
+		return $new($DOMDigestMethod$SHA256, dmElem);
+	} else if (alg->equals(DOMDigestMethod::SHA384)) {
+		return $new($DOMDigestMethod$SHA384, dmElem);
+	} else if (alg->equals($DigestMethod::SHA512)) {
+		return $new($DOMDigestMethod$SHA512, dmElem);
+	} else if (alg->equals($DigestMethod::RIPEMD160)) {
+		return $new($DOMDigestMethod$RIPEMD160, dmElem);
+	} else if (alg->equals(DOMDigestMethod::WHIRLPOOL)) {
+		return $new($DOMDigestMethod$WHIRLPOOL, dmElem);
+	} else if (alg->equals(DOMDigestMethod::SHA3_224)) {
+		return $new($DOMDigestMethod$SHA3_224, dmElem);
+	} else if (alg->equals(DOMDigestMethod::SHA3_256)) {
+		return $new($DOMDigestMethod$SHA3_256, dmElem);
+	} else if (alg->equals(DOMDigestMethod::SHA3_384)) {
+		return $new($DOMDigestMethod$SHA3_384, dmElem);
+	} else if (alg->equals(DOMDigestMethod::SHA3_512)) {
+		return $new($DOMDigestMethod$SHA3_512, dmElem);
 	} else {
-		if (alg->equals(DOMDigestMethod::SHA224)) {
-			return $new($DOMDigestMethod$SHA224, dmElem);
-		} else {
-			if (alg->equals($DigestMethod::SHA256)) {
-				return $new($DOMDigestMethod$SHA256, dmElem);
-			} else {
-				if (alg->equals(DOMDigestMethod::SHA384)) {
-					return $new($DOMDigestMethod$SHA384, dmElem);
-				} else {
-					if (alg->equals($DigestMethod::SHA512)) {
-						return $new($DOMDigestMethod$SHA512, dmElem);
-					} else {
-						if (alg->equals($DigestMethod::RIPEMD160)) {
-							return $new($DOMDigestMethod$RIPEMD160, dmElem);
-						} else {
-							if (alg->equals(DOMDigestMethod::WHIRLPOOL)) {
-								return $new($DOMDigestMethod$WHIRLPOOL, dmElem);
-							} else {
-								if (alg->equals(DOMDigestMethod::SHA3_224)) {
-									return $new($DOMDigestMethod$SHA3_224, dmElem);
-								} else {
-									if (alg->equals(DOMDigestMethod::SHA3_256)) {
-										return $new($DOMDigestMethod$SHA3_256, dmElem);
-									} else {
-										if (alg->equals(DOMDigestMethod::SHA3_384)) {
-											return $new($DOMDigestMethod$SHA3_384, dmElem);
-										} else {
-											if (alg->equals(DOMDigestMethod::SHA3_512)) {
-												return $new($DOMDigestMethod$SHA3_512, dmElem);
-											} else {
-												$throwNew($MarshalException, $$str({"unsupported DigestMethod algorithm: "_s, alg}));
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		$throwNew($MarshalException, $$str({"unsupported DigestMethod algorithm: "_s, alg}));
 	}
 }
 
 void DOMDigestMethod::checkParams($DigestMethodParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params != nullptr) {
 		$throwNew($InvalidAlgorithmParameterException, $$str({"no parameters should be specified for the "_s, $(getMessageDigestAlgorithm()), " DigestMethod algorithm"_s}));
 	}
@@ -241,13 +155,13 @@ $AlgorithmParameterSpec* DOMDigestMethod::getParameterSpec() {
 }
 
 $DigestMethodParameterSpec* DOMDigestMethod::unmarshalParams($Element* paramsElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($MarshalException, $$str({"no parameters should be specified for the "_s, $(getMessageDigestAlgorithm()), " DigestMethod algorithm"_s}));
 	$shouldNotReachHere();
 }
 
 void DOMDigestMethod::marshal($Node* parent, $String* prefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, dmElem, $DOMUtils::createElement(ownerDoc, "DigestMethod"_s, $XMLSignature::XMLNS, prefix));
@@ -259,7 +173,7 @@ void DOMDigestMethod::marshal($Node* parent, $String* prefix, $DOMCryptoContext*
 }
 
 bool DOMDigestMethod::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -267,28 +181,28 @@ bool DOMDigestMethod::equals(Object$* o) {
 		return false;
 	}
 	$var($DigestMethod, odm, $cast($DigestMethod, o));
-	bool paramsEqual = this->params == nullptr ? $nc(odm)->getParameterSpec() == nullptr : $nc($of(this->params))->equals($(odm->getParameterSpec()));
-	return $nc($(getAlgorithm()))->equals($(odm->getAlgorithm())) && paramsEqual;
+	bool paramsEqual = this->params == nullptr ? $nc(odm)->getParameterSpec() == nullptr : this->params->equals($($nc(odm)->getParameterSpec()));
+	return $$nc(getAlgorithm())->equals($($nc(odm)->getAlgorithm())) && paramsEqual;
 }
 
 int32_t DOMDigestMethod::hashCode() {
 	int32_t result = 17;
 	if (this->params != nullptr) {
-		result = 31 * result + $nc($of(this->params))->hashCode();
+		result = 31 * result + this->params->hashCode();
 	}
-	result = 31 * result + $nc($(getAlgorithm()))->hashCode();
+	result = 31 * result + $$nc(getAlgorithm())->hashCode();
 	return result;
 }
 
 void DOMDigestMethod::marshalParams($Element* parent, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($MarshalException, $$str({"no parameters should be specified for the "_s, $(getMessageDigestAlgorithm()), " DigestMethod algorithm"_s}));
 }
 
 DOMDigestMethod::DOMDigestMethod() {
 }
 
-void clinit$DOMDigestMethod($Class* class$) {
+void DOMDigestMethod::clinit$($Class* clazz) {
 	$assignStatic(DOMDigestMethod::SHA224, "http://www.w3.org/2001/04/xmldsig-more#sha224"_s);
 	$assignStatic(DOMDigestMethod::SHA384, "http://www.w3.org/2001/04/xmldsig-more#sha384"_s);
 	$assignStatic(DOMDigestMethod::WHIRLPOOL, "http://www.w3.org/2007/05/xmldsig-more#whirlpool"_s);
@@ -299,7 +213,66 @@ void clinit$DOMDigestMethod($Class* class$) {
 }
 
 $Class* DOMDigestMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMDigestMethod, name, initialize, &_DOMDigestMethod_ClassInfo_, clinit$DOMDigestMethod, allocate$DOMDigestMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA224)},
+		{"SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA384)},
+		{"WHIRLPOOL", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, WHIRLPOOL)},
+		{"SHA3_224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_224)},
+		{"SHA3_256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_256)},
+		{"SHA3_384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_384)},
+		{"SHA3_512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMDigestMethod, SHA3_512)},
+		{"params", "Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;", nullptr, $PRIVATE, $field(DOMDigestMethod, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMDigestMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMDigestMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"checkParams", "(Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;)V", nullptr, 0, $virtualMethod(DOMDigestMethod, checkParams, void, $DigestMethodParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod, equals, bool, Object$*)},
+		{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(DOMDigestMethod, getMessageDigestAlgorithm, $String*)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMDigestMethod, getParameterSpec, $AlgorithmParameterSpec*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshalParams", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(DOMDigestMethod, marshalParams, void, $Element*, $String*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unmarshal", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $STATIC, $staticMethod(DOMDigestMethod, unmarshal, $DigestMethod*, $Element*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalParams", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;", nullptr, 0, $virtualMethod(DOMDigestMethod, unmarshalParams, $DigestMethodParameterSpec*, $Element*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_512", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_512", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_384", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_384", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_256", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_224", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA3_224", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$WHIRLPOOL", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "WHIRLPOOL", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$RIPEMD160", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "RIPEMD160", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA512", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA384", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA384", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA256", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA256", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA224", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA224", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA1", "org.jcp.xml.dsig.internal.dom.DOMDigestMethod", "SHA1", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.DigestMethod",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_512,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_384,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_256,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA3_224,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$WHIRLPOOL,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$RIPEMD160,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA512,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA384,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA256,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA224,org.jcp.xml.dsig.internal.dom.DOMDigestMethod$SHA1"
+	};
+	$loadClass(DOMDigestMethod, name, initialize, &classInfo$$, DOMDigestMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMDigestMethod));
+	});
 	return class$;
 }
 

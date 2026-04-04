@@ -57,7 +57,7 @@ public:
 	void init$();
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual void executeCharsToContentHandler(::com::sun::org::apache::xpath::internal::XPathContext* xctxt, ::org::xml::sax::ContentHandler* handler) override;
-	static const int64_t serialVersionUID = (int64_t)0xD11F161F3FEE7E60;
+	static const int64_t serialVersionUID = (int64_t)0xd11f161f3fee7e60;
 };
 
 						} // functions

@@ -1,8 +1,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod.h>
-
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
@@ -90,10 +88,8 @@
 
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -164,97 +160,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMSignatureMethod_FieldInfo_[] = {
-	{"DOM_SIGNATURE_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMSignatureMethod, DOM_SIGNATURE_PROVIDER)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMSignatureMethod, LOG)},
-	{"params", "Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, $PRIVATE, $field(DOMSignatureMethod, params)},
-	{"signature", "Ljava/security/Signature;", nullptr, $PRIVATE, $field(DOMSignatureMethod, signature)},
-	{"RSA_SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA224)},
-	{"RSA_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA256)},
-	{"RSA_SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA384)},
-	{"RSA_SHA512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA512)},
-	{"RSA_RIPEMD160", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_RIPEMD160)},
-	{"ECDSA_SHA1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA1)},
-	{"ECDSA_SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA224)},
-	{"ECDSA_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA256)},
-	{"ECDSA_SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA384)},
-	{"ECDSA_SHA512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA512)},
-	{"DSA_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, DSA_SHA256)},
-	{"ECDSA_RIPEMD160", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_RIPEMD160)},
-	{"RSA_SHA1_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA1_MGF1)},
-	{"RSA_SHA224_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA224_MGF1)},
-	{"RSA_SHA256_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA256_MGF1)},
-	{"RSA_SHA384_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA384_MGF1)},
-	{"RSA_SHA512_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA512_MGF1)},
-	{"RSA_RIPEMD160_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_RIPEMD160_MGF1)},
-	{}
-};
-
-$MethodInfo _DOMSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"checkKeySize", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Key;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMSignatureMethod, checkKeySize, void, $XMLCryptoContext*, $Key*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, equals, bool, Object$*)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMSignatureMethod, getParameterSpec, $AlgorithmParameterSpec*)},
-	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, hashCode, int32_t)},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
-	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
-	{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod, sign, $bytes*, $Key*, $SignedInfo*, $XMLSignContext*), "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{"unmarshal", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $STATIC, $staticMethod(DOMSignatureMethod, unmarshal, $SignatureMethod*, $Element*), "javax.xml.crypto.MarshalException"},
-	{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, $virtualMethod(DOMSignatureMethod, verify, bool, $Key*, $SignedInfo*, $bytes*, $XMLValidateContext*), "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA512withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA384withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA224withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withRSAandMGF1", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA512withRSAandMGF1", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA384withRSAandMGF1", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withRSAandMGF1", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA224withRSAandMGF1", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withRSAandMGF1", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withRSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA512withRSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA384withRSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withRSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA224withRSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withRSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractDSASignatureMethod", $STATIC | $ABSTRACT},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractP1363FormatSignatureMethod", $STATIC | $ABSTRACT},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSAPSSSignatureMethod", $STATIC | $ABSTRACT},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod",
-	"org.jcp.xml.dsig.internal.dom.AbstractDOMSignatureMethod",
-	nullptr,
-	_DOMSignatureMethod_FieldInfo_,
-	_DOMSignatureMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractDSASignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod));
-}
-
 $String* DOMSignatureMethod::DOM_SIGNATURE_PROVIDER = nullptr;
 $Logger* DOMSignatureMethod::LOG = nullptr;
 $String* DOMSignatureMethod::RSA_SHA224 = nullptr;
@@ -294,123 +199,75 @@ void DOMSignatureMethod::init$($Element* smElem) {
 	try {
 		checkParams(this->params);
 	} catch ($InvalidAlgorithmParameterException& iape) {
-		$throwNew($MarshalException, static_cast<$Throwable*>(iape));
+		$throwNew($MarshalException, iape);
 	}
 }
 
 $SignatureMethod* DOMSignatureMethod::unmarshal($Element* smElem) {
 	$init(DOMSignatureMethod);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, alg, $DOMUtils::getAttributeValue(smElem, "Algorithm"_s));
 	$init($SignatureMethod);
 	if ($nc(alg)->equals($SignatureMethod::RSA_SHA1)) {
 		return $new($DOMSignatureMethod$SHA1withRSA, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA224)) {
+		return $new($DOMSignatureMethod$SHA224withRSA, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA256)) {
+		return $new($DOMSignatureMethod$SHA256withRSA, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA384)) {
+		return $new($DOMSignatureMethod$SHA384withRSA, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA512)) {
+		return $new($DOMSignatureMethod$SHA512withRSA, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_RIPEMD160)) {
+		return $new($DOMSignatureMethod$RIPEMD160withRSA, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA1_MGF1)) {
+		return $new($DOMSignatureMethod$SHA1withRSAandMGF1, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA224_MGF1)) {
+		return $new($DOMSignatureMethod$SHA224withRSAandMGF1, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA256_MGF1)) {
+		return $new($DOMSignatureMethod$SHA256withRSAandMGF1, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA384_MGF1)) {
+		return $new($DOMSignatureMethod$SHA384withRSAandMGF1, smElem);
+	} else if (alg->equals(DOMSignatureMethod::RSA_SHA512_MGF1)) {
+		return $new($DOMSignatureMethod$SHA512withRSAandMGF1, smElem);
 	} else {
-		if (alg->equals(DOMSignatureMethod::RSA_SHA224)) {
-			return $new($DOMSignatureMethod$SHA224withRSA, smElem);
+		$init($DOMRSAPSSSignatureMethod);
+		if (alg->equals($DOMRSAPSSSignatureMethod::RSA_PSS)) {
+			return $new($DOMRSAPSSSignatureMethod$RSAPSS, smElem);
+		} else if (alg->equals(DOMSignatureMethod::RSA_RIPEMD160_MGF1)) {
+			return $new($DOMSignatureMethod$RIPEMD160withRSAandMGF1, smElem);
+		} else if (alg->equals($SignatureMethod::DSA_SHA1)) {
+			return $new($DOMSignatureMethod$SHA1withDSA, smElem);
+		} else if (alg->equals(DOMSignatureMethod::DSA_SHA256)) {
+			return $new($DOMSignatureMethod$SHA256withDSA, smElem);
+		} else if (alg->equals(DOMSignatureMethod::ECDSA_SHA1)) {
+			return $new($DOMSignatureMethod$SHA1withECDSA, smElem);
+		} else if (alg->equals(DOMSignatureMethod::ECDSA_SHA224)) {
+			return $new($DOMSignatureMethod$SHA224withECDSA, smElem);
+		} else if (alg->equals(DOMSignatureMethod::ECDSA_SHA256)) {
+			return $new($DOMSignatureMethod$SHA256withECDSA, smElem);
+		} else if (alg->equals(DOMSignatureMethod::ECDSA_SHA384)) {
+			return $new($DOMSignatureMethod$SHA384withECDSA, smElem);
+		} else if (alg->equals(DOMSignatureMethod::ECDSA_SHA512)) {
+			return $new($DOMSignatureMethod$SHA512withECDSA, smElem);
+		} else if (alg->equals(DOMSignatureMethod::ECDSA_RIPEMD160)) {
+			return $new($DOMSignatureMethod$RIPEMD160withECDSA, smElem);
+		} else if (alg->equals($SignatureMethod::HMAC_SHA1)) {
+			return $new($DOMHMACSignatureMethod$SHA1, smElem);
 		} else {
-			if (alg->equals(DOMSignatureMethod::RSA_SHA256)) {
-				return $new($DOMSignatureMethod$SHA256withRSA, smElem);
+			$init($DOMHMACSignatureMethod);
+			if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA224)) {
+				return $new($DOMHMACSignatureMethod$SHA224, smElem);
+			} else if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA256)) {
+				return $new($DOMHMACSignatureMethod$SHA256, smElem);
+			} else if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA384)) {
+				return $new($DOMHMACSignatureMethod$SHA384, smElem);
+			} else if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA512)) {
+				return $new($DOMHMACSignatureMethod$SHA512, smElem);
+			} else if (alg->equals($DOMHMACSignatureMethod::HMAC_RIPEMD160)) {
+				return $new($DOMHMACSignatureMethod$RIPEMD160, smElem);
 			} else {
-				if (alg->equals(DOMSignatureMethod::RSA_SHA384)) {
-					return $new($DOMSignatureMethod$SHA384withRSA, smElem);
-				} else {
-					if (alg->equals(DOMSignatureMethod::RSA_SHA512)) {
-						return $new($DOMSignatureMethod$SHA512withRSA, smElem);
-					} else {
-						if (alg->equals(DOMSignatureMethod::RSA_RIPEMD160)) {
-							return $new($DOMSignatureMethod$RIPEMD160withRSA, smElem);
-						} else {
-							if (alg->equals(DOMSignatureMethod::RSA_SHA1_MGF1)) {
-								return $new($DOMSignatureMethod$SHA1withRSAandMGF1, smElem);
-							} else {
-								if (alg->equals(DOMSignatureMethod::RSA_SHA224_MGF1)) {
-									return $new($DOMSignatureMethod$SHA224withRSAandMGF1, smElem);
-								} else {
-									if (alg->equals(DOMSignatureMethod::RSA_SHA256_MGF1)) {
-										return $new($DOMSignatureMethod$SHA256withRSAandMGF1, smElem);
-									} else {
-										if (alg->equals(DOMSignatureMethod::RSA_SHA384_MGF1)) {
-											return $new($DOMSignatureMethod$SHA384withRSAandMGF1, smElem);
-										} else {
-											if (alg->equals(DOMSignatureMethod::RSA_SHA512_MGF1)) {
-												return $new($DOMSignatureMethod$SHA512withRSAandMGF1, smElem);
-											} else {
-												$init($DOMRSAPSSSignatureMethod);
-												if (alg->equals($DOMRSAPSSSignatureMethod::RSA_PSS)) {
-													return $new($DOMRSAPSSSignatureMethod$RSAPSS, smElem);
-												} else {
-													if (alg->equals(DOMSignatureMethod::RSA_RIPEMD160_MGF1)) {
-														return $new($DOMSignatureMethod$RIPEMD160withRSAandMGF1, smElem);
-													} else {
-														if (alg->equals($SignatureMethod::DSA_SHA1)) {
-															return $new($DOMSignatureMethod$SHA1withDSA, smElem);
-														} else {
-															if (alg->equals(DOMSignatureMethod::DSA_SHA256)) {
-																return $new($DOMSignatureMethod$SHA256withDSA, smElem);
-															} else {
-																if (alg->equals(DOMSignatureMethod::ECDSA_SHA1)) {
-																	return $new($DOMSignatureMethod$SHA1withECDSA, smElem);
-																} else {
-																	if (alg->equals(DOMSignatureMethod::ECDSA_SHA224)) {
-																		return $new($DOMSignatureMethod$SHA224withECDSA, smElem);
-																	} else {
-																		if (alg->equals(DOMSignatureMethod::ECDSA_SHA256)) {
-																			return $new($DOMSignatureMethod$SHA256withECDSA, smElem);
-																		} else {
-																			if (alg->equals(DOMSignatureMethod::ECDSA_SHA384)) {
-																				return $new($DOMSignatureMethod$SHA384withECDSA, smElem);
-																			} else {
-																				if (alg->equals(DOMSignatureMethod::ECDSA_SHA512)) {
-																					return $new($DOMSignatureMethod$SHA512withECDSA, smElem);
-																				} else {
-																					if (alg->equals(DOMSignatureMethod::ECDSA_RIPEMD160)) {
-																						return $new($DOMSignatureMethod$RIPEMD160withECDSA, smElem);
-																					} else {
-																						if (alg->equals($SignatureMethod::HMAC_SHA1)) {
-																							return $new($DOMHMACSignatureMethod$SHA1, smElem);
-																						} else {
-																							$init($DOMHMACSignatureMethod);
-																							if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA224)) {
-																								return $new($DOMHMACSignatureMethod$SHA224, smElem);
-																							} else {
-																								if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA256)) {
-																									return $new($DOMHMACSignatureMethod$SHA256, smElem);
-																								} else {
-																									if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA384)) {
-																										return $new($DOMHMACSignatureMethod$SHA384, smElem);
-																									} else {
-																										if (alg->equals($DOMHMACSignatureMethod::HMAC_SHA512)) {
-																											return $new($DOMHMACSignatureMethod$SHA512, smElem);
-																										} else {
-																											if (alg->equals($DOMHMACSignatureMethod::HMAC_RIPEMD160)) {
-																												return $new($DOMHMACSignatureMethod$RIPEMD160, smElem);
-																											} else {
-																												$throwNew($MarshalException, $$str({"unsupported SignatureMethod algorithm: "_s, alg}));
-																											}
-																										}
-																									}
-																								}
-																							}
-																						}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+				$throwNew($MarshalException, $$str({"unsupported SignatureMethod algorithm: "_s, alg}));
 			}
 		}
 	}
@@ -421,12 +278,12 @@ $AlgorithmParameterSpec* DOMSignatureMethod::getParameterSpec() {
 }
 
 $Signature* DOMSignatureMethod::getSignature($Provider* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return (p == nullptr) ? $Signature::getInstance($(getJCAAlgorithm())) : $Signature::getInstance($(getJCAAlgorithm()), p);
 }
 
 bool DOMSignatureMethod::verify($Key* key, $SignedInfo* si, $bytes* sig, $XMLValidateContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr || si == nullptr || sig == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -439,49 +296,47 @@ bool DOMSignatureMethod::verify($Key* key, $SignedInfo* si, $bytes* sig, $XMLVal
 		try {
 			$set(this, signature, getSignature(p));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($XMLSignatureException, static_cast<$Throwable*>(nsae));
+			$throwNew($XMLSignatureException, nsae);
 		}
 	}
 	$nc(this->signature)->initVerify($cast($PublicKey, key));
-	$nc(DOMSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$($of($nc(this->signature)->getProvider()))}));
-	$nc(DOMSignatureMethod::LOG)->debug("Verifying with key: {}"_s, $$new($ObjectArray, {$of(key)}));
-	$nc(DOMSignatureMethod::LOG)->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$($of(getJCAAlgorithm()))}));
-	$nc(DOMSignatureMethod::LOG)->debug("Signature Bytes length: {}"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(sig)->length)))}));
+	$nc(DOMSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$(this->signature->getProvider())}));
+	DOMSignatureMethod::LOG->debug("Verifying with key: {}"_s, $$new($ObjectArray, {key}));
+	DOMSignatureMethod::LOG->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$(getJCAAlgorithm())}));
+	DOMSignatureMethod::LOG->debug("Signature Bytes length: {}"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(sig)->length))}));
 	$var($bytes, s, nullptr);
 	try {
 		$var($SignerOutputStream, outputStream, $new($SignerOutputStream, this->signature));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$nc($cast($DOMSignedInfo, si))->canonicalize(context, outputStream);
+				$assign(s, preVerifyFormat(key, sig));
+			} catch ($Throwable& t$) {
 				try {
-					$nc(($cast($DOMSignedInfo, si)))->canonicalize(context, outputStream);
-					$assign(s, preVerifyFormat(key, sig));
-				} catch ($Throwable& t$) {
-					try {
-						outputStream->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					outputStream->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				outputStream->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			outputStream->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& ioe) {
-		$throwNew($XMLSignatureException, static_cast<$Throwable*>(ioe));
+		$throwNew($XMLSignatureException, ioe);
 	}
 	return $nc(this->signature)->verify(s);
 }
 
 void DOMSignatureMethod::checkKeySize($XMLCryptoContext* context, $Key* key) {
 	$init(DOMSignatureMethod);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Utils::secureValidation(context)) {
 		int32_t size = $KeyUtil::getKeySize(key);
 		if (size == -1) {
@@ -489,15 +344,18 @@ void DOMSignatureMethod::checkKeySize($XMLCryptoContext* context, $Key* key) {
 			return;
 		}
 		if ($Policy::restrictKey($($nc(key)->getAlgorithm()), size)) {
-			$var($String, var$1, $$str({$($nc(key)->getAlgorithm()), " keys less than "_s}));
-			$var($String, var$0, $$concat(var$1, $$str($Policy::minKeySize($(key->getAlgorithm())))));
-			$throwNew($XMLSignatureException, $$concat(var$0, " bits are forbidden when secure validation is enabled"_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($(key->getAlgorithm()));
+			var$0->append(" keys less than "_s);
+			var$0->append($Policy::minKeySize($(key->getAlgorithm())));
+			var$0->append(" bits are forbidden when secure validation is enabled"_s);
+			$throwNew($XMLSignatureException, $$str(var$0));
 		}
 	}
 }
 
 $bytes* DOMSignatureMethod::sign($Key* key, $SignedInfo* si, $XMLSignContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr || si == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -510,49 +368,47 @@ $bytes* DOMSignatureMethod::sign($Key* key, $SignedInfo* si, $XMLSignContext* co
 		try {
 			$set(this, signature, getSignature(p));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($XMLSignatureException, static_cast<$Throwable*>(nsae));
+			$throwNew($XMLSignatureException, nsae);
 		}
 	}
 	$nc(this->signature)->initSign($cast($PrivateKey, key));
-	$nc(DOMSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$($of($nc(this->signature)->getProvider()))}));
-	$nc(DOMSignatureMethod::LOG)->debug("Signing with key: {}"_s, $$new($ObjectArray, {$of(key)}));
-	$nc(DOMSignatureMethod::LOG)->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$($of(getJCAAlgorithm()))}));
+	$nc(DOMSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$(this->signature->getProvider())}));
+	DOMSignatureMethod::LOG->debug("Signing with key: {}"_s, $$new($ObjectArray, {key}));
+	DOMSignatureMethod::LOG->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$(getJCAAlgorithm())}));
 	try {
 		$var($SignerOutputStream, outputStream, $new($SignerOutputStream, this->signature));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($bytes, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($bytes, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$nc($cast($DOMSignedInfo, si))->canonicalize(context, outputStream);
+				$assign(var$2, postSignFormat(key, $($nc(this->signature)->sign())));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					$nc(($cast($DOMSignedInfo, si)))->canonicalize(context, outputStream);
-					$assign(var$2, postSignFormat(key, $($nc(this->signature)->sign())));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						outputStream->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					outputStream->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				outputStream->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			outputStream->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Throwable*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Throwable*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -569,7 +425,7 @@ void DOMSignatureMethod::marshal($Node* parent, $String* dsPrefix, $DOMCryptoCon
 	$AbstractDOMSignatureMethod::marshal(parent, dsPrefix, context);
 }
 
-void clinit$DOMSignatureMethod($Class* class$) {
+void DOMSignatureMethod::clinit$($Class* clazz) {
 	$assignStatic(DOMSignatureMethod::DOM_SIGNATURE_PROVIDER, "org.jcp.xml.dsig.internal.dom.SignatureProvider"_s);
 	$assignStatic(DOMSignatureMethod::RSA_SHA224, "http://www.w3.org/2001/04/xmldsig-more#rsa-sha224"_s);
 	$assignStatic(DOMSignatureMethod::RSA_SHA256, "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"_s);
@@ -596,7 +452,92 @@ DOMSignatureMethod::DOMSignatureMethod() {
 }
 
 $Class* DOMSignatureMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod, name, initialize, &_DOMSignatureMethod_ClassInfo_, clinit$DOMSignatureMethod, allocate$DOMSignatureMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOM_SIGNATURE_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMSignatureMethod, DOM_SIGNATURE_PROVIDER)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMSignatureMethod, LOG)},
+		{"params", "Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, $PRIVATE, $field(DOMSignatureMethod, params)},
+		{"signature", "Ljava/security/Signature;", nullptr, $PRIVATE, $field(DOMSignatureMethod, signature)},
+		{"RSA_SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA224)},
+		{"RSA_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA256)},
+		{"RSA_SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA384)},
+		{"RSA_SHA512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA512)},
+		{"RSA_RIPEMD160", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_RIPEMD160)},
+		{"ECDSA_SHA1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA1)},
+		{"ECDSA_SHA224", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA224)},
+		{"ECDSA_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA256)},
+		{"ECDSA_SHA384", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA384)},
+		{"ECDSA_SHA512", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_SHA512)},
+		{"DSA_SHA256", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, DSA_SHA256)},
+		{"ECDSA_RIPEMD160", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, ECDSA_RIPEMD160)},
+		{"RSA_SHA1_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA1_MGF1)},
+		{"RSA_SHA224_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA224_MGF1)},
+		{"RSA_SHA256_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA256_MGF1)},
+		{"RSA_SHA384_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA384_MGF1)},
+		{"RSA_SHA512_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_SHA512_MGF1)},
+		{"RSA_RIPEMD160_MGF1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMSignatureMethod, RSA_RIPEMD160_MGF1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"checkKeySize", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Key;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMSignatureMethod, checkKeySize, void, $XMLCryptoContext*, $Key*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, equals, bool, Object$*)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMSignatureMethod, getParameterSpec, $AlgorithmParameterSpec*)},
+		{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, hashCode, int32_t)},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
+		{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
+		{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod, sign, $bytes*, $Key*, $SignedInfo*, $XMLSignContext*), "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
+		{"unmarshal", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $STATIC, $staticMethod(DOMSignatureMethod, unmarshal, $SignatureMethod*, $Element*), "javax.xml.crypto.MarshalException"},
+		{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, $virtualMethod(DOMSignatureMethod, verify, bool, $Key*, $SignedInfo*, $bytes*, $XMLValidateContext*), "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA512withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA384withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA224withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withRSAandMGF1", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA512withRSAandMGF1", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA384withRSAandMGF1", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withRSAandMGF1", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA224withRSAandMGF1", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withRSAandMGF1", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "RIPEMD160withRSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA512withRSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA384withRSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA256withRSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA224withRSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withRSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractDSASignatureMethod", $STATIC | $ABSTRACT},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractP1363FormatSignatureMethod", $STATIC | $ABSTRACT},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSAPSSSignatureMethod", $STATIC | $ABSTRACT},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSASignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod",
+		"org.jcp.xml.dsig.internal.dom.AbstractDOMSignatureMethod",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withDSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$RIPEMD160withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA512withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA384withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA256withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA224withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSA,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractDSASignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod,org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSASignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod, name, initialize, &classInfo$$, DOMSignatureMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod));
+	});
 	return class$;
 }
 

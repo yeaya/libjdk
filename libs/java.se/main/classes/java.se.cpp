@@ -1,5 +1,4 @@
 #include <java.se.h>
-
 #include <java.compiler.h>
 #include <java.datatransfer.h>
 #include <java.desktop.h>
@@ -24,8 +23,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 
 void java$se$PreloadClass() {
 }
@@ -73,6 +70,7 @@ void java$se::init() {
 	::java$transaction$xa::init();
 	::java$xml::init();
 	::java$xml$crypto::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.se", "17.35", "",
 		&_java$se_ModuleInfo_,

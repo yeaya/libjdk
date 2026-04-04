@@ -1,5 +1,4 @@
 #include <javax/naming/spi/ResolveResult.h>
-
 #include <javax/naming/CompositeName.h>
 #include <javax/naming/InvalidNameException.h>
 #include <javax/naming/Name.h>
@@ -15,39 +14,6 @@ using $Name = ::javax::naming::Name;
 namespace javax {
 	namespace naming {
 		namespace spi {
-
-$FieldInfo _ResolveResult_FieldInfo_[] = {
-	{"resolvedObj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ResolveResult, resolvedObj)},
-	{"remainingName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(ResolveResult, remainingName)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolveResult, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ResolveResult_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ResolveResult, init$, void)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResolveResult, init$, void, Object$*, $String*)},
-	{"<init>", "(Ljava/lang/Object;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(ResolveResult, init$, void, Object$*, $Name*)},
-	{"appendRemainingComponent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, appendRemainingComponent, void, $String*)},
-	{"appendRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, appendRemainingName, void, $Name*)},
-	{"getRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(ResolveResult, getRemainingName, $Name*)},
-	{"getResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResolveResult, getResolvedObj, $Object*)},
-	{"setRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, setRemainingName, void, $Name*)},
-	{"setResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, setResolvedObj, void, Object$*)},
-	{}
-};
-
-$ClassInfo _ResolveResult_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.spi.ResolveResult",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ResolveResult_FieldInfo_,
-	_ResolveResult_MethodInfo_
-};
-
-$Object* allocate$ResolveResult($Class* clazz) {
-	return $of($alloc(ResolveResult));
-}
 
 void ResolveResult::init$() {
 	$set(this, resolvedObj, nullptr);
@@ -72,12 +38,12 @@ $Name* ResolveResult::getRemainingName() {
 }
 
 $Object* ResolveResult::getResolvedObj() {
-	return $of(this->resolvedObj);
+	return this->resolvedObj;
 }
 
 void ResolveResult::setRemainingName($Name* name) {
 	if (name != nullptr) {
-		$set(this, remainingName, ($cast($Name, name->clone())));
+		$set(this, remainingName, $cast($Name, name->clone()));
 	} else {
 		$set(this, remainingName, nullptr);
 	}
@@ -87,11 +53,11 @@ void ResolveResult::appendRemainingName($Name* name) {
 	if (name != nullptr) {
 		if (this->remainingName != nullptr) {
 			try {
-				$nc(this->remainingName)->addAll(name);
+				this->remainingName->addAll(name);
 			} catch ($InvalidNameException& e) {
 			}
 		} else {
-			$set(this, remainingName, ($cast($Name, name->clone())));
+			$set(this, remainingName, $cast($Name, name->clone()));
 		}
 	}
 }
@@ -115,7 +81,35 @@ ResolveResult::ResolveResult() {
 }
 
 $Class* ResolveResult::load$($String* name, bool initialize) {
-	$loadClass(ResolveResult, name, initialize, &_ResolveResult_ClassInfo_, allocate$ResolveResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"resolvedObj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ResolveResult, resolvedObj)},
+		{"remainingName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(ResolveResult, remainingName)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResolveResult, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ResolveResult, init$, void)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResolveResult, init$, void, Object$*, $String*)},
+		{"<init>", "(Ljava/lang/Object;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(ResolveResult, init$, void, Object$*, $Name*)},
+		{"appendRemainingComponent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, appendRemainingComponent, void, $String*)},
+		{"appendRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, appendRemainingName, void, $Name*)},
+		{"getRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(ResolveResult, getRemainingName, $Name*)},
+		{"getResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResolveResult, getResolvedObj, $Object*)},
+		{"setRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, setRemainingName, void, $Name*)},
+		{"setResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, setResolvedObj, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.spi.ResolveResult",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResolveResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolveResult);
+	});
 	return class$;
 }
 

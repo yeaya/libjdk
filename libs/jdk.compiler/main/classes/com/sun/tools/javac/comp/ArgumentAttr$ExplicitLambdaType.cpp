@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType.h>
-
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$JCVoidType.h>
@@ -43,7 +42,6 @@
 
 #undef VOID
 
-using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressionTree$BodyKind;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types$FunctionDescriptorLookupError = ::com::sun::tools::javac::code::Types$FunctionDescriptorLookupError;
@@ -51,7 +49,6 @@ using $ArgumentAttr = ::com::sun::tools::javac::comp::ArgumentAttr;
 using $ArgumentAttr$2 = ::com::sun::tools::javac::comp::ArgumentAttr$2;
 using $ArgumentAttr$ArgumentType = ::com::sun::tools::javac::comp::ArgumentAttr$ArgumentType;
 using $ArgumentAttr$ExplicitLambdaType$1 = ::com::sun::tools::javac::comp::ArgumentAttr$ExplicitLambdaType$1;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Attr$TargetInfo = ::com::sun::tools::javac::comp::Attr$TargetInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
@@ -63,7 +60,6 @@ using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyEx
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Serializable = ::java::io::Serializable;
@@ -93,33 +89,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->lambda$argtypes$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0>());
-	}
 	ArgumentAttr$ExplicitLambdaType* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, inst$)},
-	{}
-};
-$MethodInfo ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;)V", nullptr, $PUBLIC, $method(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, init$, void, ArgumentAttr$ExplicitLambdaType*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, get, $Object*)},
-	{}
-};
-$ClassInfo ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;)V", nullptr, $PUBLIC, $method(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, init$, void, ArgumentAttr$ExplicitLambdaType*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0);
+	});
 	return class$;
 }
 $Class* ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0::class$ = nullptr;
@@ -133,87 +125,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->lambda$returnExpressions$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1>());
-	}
 	ArgumentAttr$ExplicitLambdaType* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, inst$)},
-	{}
-};
-$MethodInfo ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;)V", nullptr, $PUBLIC, $method(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, init$, void, ArgumentAttr$ExplicitLambdaType*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;)V", nullptr, $PUBLIC, $method(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, init$, void, ArgumentAttr$ExplicitLambdaType*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1);
+	});
 	return class$;
 }
 $Class* ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1::class$ = nullptr;
-
-$FieldInfo _ArgumentAttr$ExplicitLambdaType_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ExplicitLambdaType, this$0)},
-	{"argtypes", "Ljava/util/Optional;", "Ljava/util/Optional<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(ArgumentAttr$ExplicitLambdaType, argtypes$)},
-	{"returnExpressions", "Ljava/util/Optional;", "Ljava/util/Optional<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCReturn;>;>;", 0, $field(ArgumentAttr$ExplicitLambdaType, returnExpressions$)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$ExplicitLambdaType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", 0, $method(ArgumentAttr$ExplicitLambdaType, init$, void, $ArgumentAttr*, $JCTree$JCLambda*, $Env*, $JCTree$JCLambda*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(ArgumentAttr$ExplicitLambdaType, init$, void, $ArgumentAttr*, $JCTree$JCLambda*, $Env*, $JCTree$JCLambda*, $Map*)},
-	{"argtypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, argtypes, $List*)},
-	{"checkLambdaCompatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, $PRIVATE, $method(ArgumentAttr$ExplicitLambdaType, checkLambdaCompatible, void, $Type*, $Attr$ResultInfo*)},
-	{"checkReturnInStatementLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, checkReturnInStatementLambda, void, $JCTree$JCReturn*, $Attr$ResultInfo*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;", 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCLambda*, $Env*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ExplicitLambdaType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
-	{"getReturnType", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, getReturnType, $Type*, $JCTree$JCReturn*)},
-	{"lambda$argtypes$0", "()Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr$ExplicitLambdaType, lambda$argtypes$0, $List*)},
-	{"lambda$returnExpressions$1", "()Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr$ExplicitLambdaType, lambda$returnExpressions$1, $List*)},
-	{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
-	{"returnExpressions", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCReturn;>;", 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, returnExpressions, $List*)},
-	{}
-};
-
-$InnerClassInfo _ArgumentAttr$ExplicitLambdaType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType", "com.sun.tools.javac.comp.ArgumentAttr", "ExplicitLambdaType", 0},
-	{"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType", "com.sun.tools.javac.comp.ArgumentAttr", "ArgumentType", $ABSTRACT},
-	{"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$ExplicitLambdaType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType",
-	"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType",
-	nullptr,
-	_ArgumentAttr$ExplicitLambdaType_FieldInfo_,
-	_ArgumentAttr$ExplicitLambdaType_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;",
-	nullptr,
-	_ArgumentAttr$ExplicitLambdaType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$ExplicitLambdaType($Class* clazz) {
-	return $of($alloc(ArgumentAttr$ExplicitLambdaType));
-}
 
 void ArgumentAttr$ExplicitLambdaType::init$($ArgumentAttr* this$0, $JCTree$JCLambda* originalLambda, $Env* env, $JCTree$JCLambda* speculativeLambda) {
 	ArgumentAttr$ExplicitLambdaType::init$(this$0, originalLambda, env, speculativeLambda, $$new($HashMap));
@@ -227,15 +164,15 @@ void ArgumentAttr$ExplicitLambdaType::init$($ArgumentAttr* this$0, $JCTree$JCLam
 }
 
 $List* ArgumentAttr$ExplicitLambdaType::argtypes() {
-	return $cast($List, $nc(this->argtypes$)->orElseGet(static_cast<$Supplier*>($$new(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, this))));
+	return $cast($List, $nc(this->argtypes$)->orElseGet($$new(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0, this)));
 }
 
 $List* ArgumentAttr$ExplicitLambdaType::returnExpressions() {
-	return $cast($List, $nc(this->returnExpressions$)->orElseGet(static_cast<$Supplier*>($$new(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, this))));
+	return $cast($List, $nc(this->returnExpressions$)->orElseGet($$new(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1, this)));
 }
 
 $Type* ArgumentAttr$ExplicitLambdaType::overloadCheck($Attr$ResultInfo* resultInfo, $DeferredAttr$DeferredAttrContext* deferredAttrContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Attr$TargetInfo, targetInfo, $nc(this->this$0->attr)->getTargetInfo($cast($JCTree$JCPolyExpression, this->speculativeTree$), resultInfo, $(argtypes())));
 		$var($Type, lambdaType, $nc(targetInfo)->descriptor);
@@ -250,47 +187,41 @@ $Type* ArgumentAttr$ExplicitLambdaType::overloadCheck($Attr$ResultInfo* resultIn
 }
 
 void ArgumentAttr$ExplicitLambdaType::checkLambdaCompatible($Type* descriptor, $Attr$ResultInfo* resultInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Check$CheckContext, checkContext, $nc(resultInfo)->checkContext);
 	$var($Attr$ResultInfo, bodyResultInfo, $nc(this->this$0->attr)->lambdaBodyResult($cast($JCTree$JCLambda, this->speculativeTree$), descriptor, resultInfo));
 	$init($ArgumentAttr$2);
-	switch ($nc($ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind)->get($nc(($($nc(($cast($JCTree$JCLambda, this->speculativeTree$)))->getBodyKind())))->ordinal())) {
+	switch ($nc($ArgumentAttr$2::$SwitchMap$com$sun$source$tree$LambdaExpressionTree$BodyKind)->get(($$nc($nc($cast($JCTree$JCLambda, this->speculativeTree$))->getBodyKind()))->ordinal())) {
 	case 1:
-		{
-			this->this$0->checkSpeculative($nc(($cast($JCTree$JCLambda, this->speculativeTree$)))->body, $nc($nc(($cast($JCTree$JCLambda, this->speculativeTree$)))->body)->type, bodyResultInfo);
-			break;
-		}
+		this->this$0->checkSpeculative(($cast($JCTree$JCLambda, this->speculativeTree$))->body, $nc(($cast($JCTree$JCLambda, this->speculativeTree$))->body)->type, bodyResultInfo);
+		break;
 	case 2:
 		{
-			{
-				$var($Iterator, i$, $nc($(returnExpressions()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($JCTree$JCReturn, ret, $cast($JCTree$JCReturn, i$->next()));
-					{
-						checkReturnInStatementLambda(ret, bodyResultInfo);
-					}
+			$var($Iterator, i$, $$nc(returnExpressions())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($JCTree$JCReturn, ret, $cast($JCTree$JCReturn, i$->next()));
+				{
+					checkReturnInStatementLambda(ret, bodyResultInfo);
 				}
 			}
 			break;
 		}
 	}
-	$nc(this->this$0->attr)->checkLambdaCompatible($cast($JCTree$JCLambda, this->speculativeTree$), descriptor, checkContext);
+	this->this$0->attr->checkLambdaCompatible($cast($JCTree$JCLambda, this->speculativeTree$), descriptor, checkContext);
 }
 
 void ArgumentAttr$ExplicitLambdaType::checkReturnInStatementLambda($JCTree$JCReturn* ret, $Attr$ResultInfo* resultInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc($nc(resultInfo)->pt)->hasTag($TypeTag::VOID) && $nc(ret)->expr != nullptr) {
-		$var($JCDiagnostic$DiagnosticPosition, var$0, $nc(($cast($JCTree$JCLambda, this->speculativeTree$)))->pos());
+		$var($JCDiagnostic$DiagnosticPosition, var$0, $nc($cast($JCTree$JCLambda, this->speculativeTree$))->pos());
 		$nc(resultInfo->checkContext)->report(var$0, $($nc(this->this$0->diags)->fragment("unexpected.ret.val"_s, $$new($ObjectArray, 0))));
-	} else {
-		if (!$nc(resultInfo->pt)->hasTag($TypeTag::VOID)) {
-			if (ret->expr == nullptr) {
-				$var($JCDiagnostic$DiagnosticPosition, var$1, $nc(($cast($JCTree$JCLambda, this->speculativeTree$)))->pos());
-				$nc(resultInfo->checkContext)->report(var$1, $($nc(this->this$0->diags)->fragment("missing.ret.val"_s, $$new($ObjectArray, 0))));
-			}
-			this->this$0->checkSpeculative(ret->expr, $nc(ret->expr)->type, resultInfo);
+	} else if (!resultInfo->pt->hasTag($TypeTag::VOID)) {
+		if ($nc(ret)->expr == nullptr) {
+			$var($JCDiagnostic$DiagnosticPosition, var$1, $nc($cast($JCTree$JCLambda, this->speculativeTree$))->pos());
+			$nc(resultInfo->checkContext)->report(var$1, $($nc(this->this$0->diags)->fragment("missing.ret.val"_s, $$new($ObjectArray, 0))));
 		}
+		this->this$0->checkSpeculative(ret->expr, $nc(ret->expr)->type, resultInfo);
 	}
 }
 
@@ -298,7 +229,7 @@ $Type* ArgumentAttr$ExplicitLambdaType::getReturnType($JCTree$JCReturn* ret) {
 	if ($nc(ret)->expr == nullptr) {
 		return $nc(this->this$0->syms)->voidType;
 	} else {
-		return $nc(ret->expr)->type;
+		return ret->expr->type;
 	}
 }
 
@@ -311,7 +242,7 @@ $ArgumentAttr$ArgumentType* ArgumentAttr$ExplicitLambdaType::dup($JCTree$JCExpre
 }
 
 $List* ArgumentAttr$ExplicitLambdaType::lambda$returnExpressions$1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, res, nullptr);
 	$var($ListBuffer, buf, $new($ListBuffer));
 	$$new($ArgumentAttr$ExplicitLambdaType$1, this, buf)->scan($nc(($cast($JCTree$JCLambda, this->speculativeTree$)))->body);
@@ -331,14 +262,59 @@ ArgumentAttr$ExplicitLambdaType::ArgumentAttr$ExplicitLambdaType() {
 
 $Class* ArgumentAttr$ExplicitLambdaType::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0")) {
 			return ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$argtypes$0::load$(name, initialize);
 		}
-		if (name->equals(ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1")) {
 			return ArgumentAttr$ExplicitLambdaType$$Lambda$lambda$returnExpressions$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ArgumentAttr$ExplicitLambdaType, name, initialize, &_ArgumentAttr$ExplicitLambdaType_ClassInfo_, allocate$ArgumentAttr$ExplicitLambdaType);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ExplicitLambdaType, this$0)},
+		{"argtypes", "Ljava/util/Optional;", "Ljava/util/Optional<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(ArgumentAttr$ExplicitLambdaType, argtypes$)},
+		{"returnExpressions", "Ljava/util/Optional;", "Ljava/util/Optional<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCReturn;>;>;", 0, $field(ArgumentAttr$ExplicitLambdaType, returnExpressions$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", 0, $method(ArgumentAttr$ExplicitLambdaType, init$, void, $ArgumentAttr*, $JCTree$JCLambda*, $Env*, $JCTree$JCLambda*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(ArgumentAttr$ExplicitLambdaType, init$, void, $ArgumentAttr*, $JCTree$JCLambda*, $Env*, $JCTree$JCLambda*, $Map*)},
+		{"argtypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, argtypes, $List*)},
+		{"checkLambdaCompatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, $PRIVATE, $method(ArgumentAttr$ExplicitLambdaType, checkLambdaCompatible, void, $Type*, $Attr$ResultInfo*)},
+		{"checkReturnInStatementLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, checkReturnInStatementLambda, void, $JCTree$JCReturn*, $Attr$ResultInfo*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;", 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCLambda*, $Env*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ExplicitLambdaType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
+		{"getReturnType", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, getReturnType, $Type*, $JCTree$JCReturn*)},
+		{"lambda$argtypes$0", "()Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr$ExplicitLambdaType, lambda$argtypes$0, $List*)},
+		{"lambda$returnExpressions$1", "()Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr$ExplicitLambdaType, lambda$returnExpressions$1, $List*)},
+		{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+		{"returnExpressions", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCReturn;>;", 0, $virtualMethod(ArgumentAttr$ExplicitLambdaType, returnExpressions, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType", "com.sun.tools.javac.comp.ArgumentAttr", "ExplicitLambdaType", 0},
+		{"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType", "com.sun.tools.javac.comp.ArgumentAttr", "ArgumentType", $ABSTRACT},
+		{"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ArgumentAttr$ExplicitLambdaType",
+		"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$ExplicitLambdaType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArgumentAttr$ExplicitLambdaType));
+	});
 	return class$;
 }
 

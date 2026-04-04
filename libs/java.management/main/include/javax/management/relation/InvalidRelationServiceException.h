@@ -15,10 +15,13 @@ public:
 	InvalidRelationServiceException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x2F31CABC4E679067;
+	static const int64_t serialVersionUID = (int64_t)0x2f31cabc4e679067;
 	InvalidRelationServiceException(const InvalidRelationServiceException& e);
 	virtual void throw$() override;
-	inline InvalidRelationServiceException* operator ->() {
+	inline InvalidRelationServiceException* operator ->() const {
+		return (InvalidRelationServiceException*)throwing$;
+	}
+	inline operator InvalidRelationServiceException*() const {
 		return (InvalidRelationServiceException*)throwing$;
 	}
 };

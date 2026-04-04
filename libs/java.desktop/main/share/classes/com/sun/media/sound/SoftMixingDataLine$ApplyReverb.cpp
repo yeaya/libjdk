@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingDataLine$ApplyReverb.h>
-
 #include <com/sun/media/sound/SoftMixingDataLine.h>
 #include <javax/sound/sampled/BooleanControl$Type.h>
 #include <javax/sound/sampled/BooleanControl.h>
@@ -20,42 +19,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingDataLine$ApplyReverb_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$ApplyReverb, this$0)},
-	{}
-};
-
-$MethodInfo _SoftMixingDataLine$ApplyReverb_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$ApplyReverb, init$, void, $SoftMixingDataLine*)},
-	{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$ApplyReverb, setValue, void, bool)},
-	{}
-};
-
-$InnerClassInfo _SoftMixingDataLine$ApplyReverb_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingDataLine$ApplyReverb", "com.sun.media.sound.SoftMixingDataLine", "ApplyReverb", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _SoftMixingDataLine$ApplyReverb_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingDataLine$ApplyReverb",
-	"javax.sound.sampled.BooleanControl",
-	nullptr,
-	_SoftMixingDataLine$ApplyReverb_FieldInfo_,
-	_SoftMixingDataLine$ApplyReverb_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftMixingDataLine$ApplyReverb_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingDataLine"
-};
-
-$Object* allocate$SoftMixingDataLine$ApplyReverb($Class* clazz) {
-	return $of($alloc(SoftMixingDataLine$ApplyReverb));
-}
-
 void SoftMixingDataLine$ApplyReverb::init$($SoftMixingDataLine* this$0) {
 	$set(this, this$0, this$0);
 	$init($BooleanControl$Type);
@@ -71,7 +34,37 @@ SoftMixingDataLine$ApplyReverb::SoftMixingDataLine$ApplyReverb() {
 }
 
 $Class* SoftMixingDataLine$ApplyReverb::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingDataLine$ApplyReverb, name, initialize, &_SoftMixingDataLine$ApplyReverb_ClassInfo_, allocate$SoftMixingDataLine$ApplyReverb);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftMixingDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingDataLine$ApplyReverb, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingDataLine;)V", nullptr, $PRIVATE, $method(SoftMixingDataLine$ApplyReverb, init$, void, $SoftMixingDataLine*)},
+		{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftMixingDataLine$ApplyReverb, setValue, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingDataLine$ApplyReverb", "com.sun.media.sound.SoftMixingDataLine", "ApplyReverb", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingDataLine$ApplyReverb",
+		"javax.sound.sampled.BooleanControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingDataLine"
+	};
+	$loadClass(SoftMixingDataLine$ApplyReverb, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingDataLine$ApplyReverb);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Curve.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <sun/java2d/marlin/Helpers.h>
@@ -22,56 +21,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _Curve_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Curve, $assertionsDisabled)},
-	{"ax", "D", nullptr, 0, $field(Curve, ax)},
-	{"ay", "D", nullptr, 0, $field(Curve, ay)},
-	{"bx", "D", nullptr, 0, $field(Curve, bx)},
-	{"by", "D", nullptr, 0, $field(Curve, by)},
-	{"cx", "D", nullptr, 0, $field(Curve, cx)},
-	{"cy", "D", nullptr, 0, $field(Curve, cy)},
-	{"dx", "D", nullptr, 0, $field(Curve, dx)},
-	{"dy", "D", nullptr, 0, $field(Curve, dy)},
-	{"dax", "D", nullptr, 0, $field(Curve, dax)},
-	{"day", "D", nullptr, 0, $field(Curve, day)},
-	{"dbx", "D", nullptr, 0, $field(Curve, dbx)},
-	{"dby", "D", nullptr, 0, $field(Curve, dby)},
-	{}
-};
-
-$MethodInfo _Curve_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Curve, init$, void)},
-	{"ROCsq", "(D)D", nullptr, $PRIVATE, $method(Curve, ROCsq, double, double)},
-	{"dxRoots", "([DI)I", nullptr, 0, $method(Curve, dxRoots, int32_t, $doubles*, int32_t)},
-	{"dyRoots", "([DI)I", nullptr, 0, $method(Curve, dyRoots, int32_t, $doubles*, int32_t)},
-	{"eliminateInf", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Curve, eliminateInf, double, double)},
-	{"falsePositionROCsqMinusX", "(DDDD)D", nullptr, $PRIVATE, $method(Curve, falsePositionROCsqMinusX, double, double, double, double, double)},
-	{"infPoints", "([DI)I", nullptr, 0, $method(Curve, infPoints, int32_t, $doubles*, int32_t)},
-	{"perpendiculardfddf", "([DI)I", nullptr, $PRIVATE, $method(Curve, perpendiculardfddf, int32_t, $doubles*, int32_t)},
-	{"rootsOfROCMinusW", "([DIDD)I", nullptr, 0, $method(Curve, rootsOfROCMinusW, int32_t, $doubles*, int32_t, double, double)},
-	{"sameSign", "(DD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Curve, sameSign, bool, double, double)},
-	{"set", "([DI)V", nullptr, 0, $method(Curve, set, void, $doubles*, int32_t)},
-	{"set", "(DDDDDDDD)V", nullptr, 0, $method(Curve, set, void, double, double, double, double, double, double, double, double)},
-	{"set", "(DDDDDD)V", nullptr, 0, $method(Curve, set, void, double, double, double, double, double, double)},
-	{"set", "(DDDD)V", nullptr, 0, $method(Curve, set, void, double, double, double, double)},
-	{"xPoints", "([DID)I", nullptr, 0, $method(Curve, xPoints, int32_t, $doubles*, int32_t, double)},
-	{"yPoints", "([DID)I", nullptr, 0, $method(Curve, yPoints, int32_t, $doubles*, int32_t, double)},
-	{}
-};
-
-$ClassInfo _Curve_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Curve",
-	"java.lang.Object",
-	nullptr,
-	_Curve_FieldInfo_,
-	_Curve_MethodInfo_
-};
-
-$Object* allocate$Curve($Class* clazz) {
-	return $of($alloc(Curve));
-}
-
 bool Curve::$assertionsDisabled = false;
 
 void Curve::init$() {
@@ -79,11 +28,11 @@ void Curve::init$() {
 
 void Curve::set($doubles* points, int32_t type) {
 	if (type == 8) {
-		set($nc(points)->get(0), points->get(1), points->get(2), points->get(3), points->get(4), points->get(5), points->get(6), points->get(7));
+		set($nc(points)->get(0), $nc(points)->get(1), $nc(points)->get(2), $nc(points)->get(3), $nc(points)->get(4), $nc(points)->get(5), $nc(points)->get(6), $nc(points)->get(7));
 	} else if (type == 4) {
-		set($nc(points)->get(0), points->get(1), points->get(2), points->get(3));
+		set($nc(points)->get(0), $nc(points)->get(1), $nc(points)->get(2), $nc(points)->get(3));
 	} else {
-		set($nc(points)->get(0), points->get(1), points->get(2), points->get(3), points->get(4), points->get(5));
+		set($nc(points)->get(0), $nc(points)->get(1), $nc(points)->get(2), $nc(points)->get(3), $nc(points)->get(4), $nc(points)->get(5));
 	}
 }
 
@@ -199,7 +148,6 @@ int32_t Curve::rootsOfROCMinusW($doubles* roots, int32_t off, double w2, double 
 
 double Curve::eliminateInf(double x) {
 	$init(Curve);
-	$init($Double);
 	return (x == $Double::POSITIVE_INFINITY ? $Double::MAX_VALUE : (x == $Double::NEGATIVE_INFINITY ? $Double::MIN_VALUE : x));
 }
 
@@ -212,41 +160,38 @@ double Curve::falsePositionROCsqMinusX(double t0, double t1, double w2, double e
 	double fs = eliminateInf(ROCsq(s) - w2);
 	double r = s;
 	double fr = 0.0;
-	{
-		int32_t i = 0;
-		for (;; ++i) {
-			bool var$0 = i < iterLimit;
-			if (var$0) {
-				double var$1 = $Math::abs(t - s);
-				var$0 = var$1 > err * $Math::abs(t + s);
-			}
-			if (!(var$0)) {
-				break;
-			}
-			{
-				r = (fs * t - ft * s) / (fs - ft);
-				fr = ROCsq(r) - w2;
-				if (sameSign(fr, ft)) {
-					ft = fr;
-					t = r;
-					if (side < 0) {
-						fs /= ($sl(1, -side));
-						--side;
-					} else {
-						side = -1;
-					}
-				} else if (fr * fs > 0.0) {
-					fs = fr;
-					s = r;
-					if (side > 0) {
-						ft /= ($sl(1, side));
-						++side;
-					} else {
-						side = 1;
-					}
+	for (int32_t i = 0;; ++i) {
+		bool var$0 = i < iterLimit;
+		if (var$0) {
+			double var$1 = $Math::abs(t - s);
+			var$0 = var$1 > err * $Math::abs(t + s);
+		}
+		if (!(var$0)) {
+			break;
+		}
+		{
+			r = (fs * t - ft * s) / (fs - ft);
+			fr = ROCsq(r) - w2;
+			if (sameSign(fr, ft)) {
+				ft = fr;
+				t = r;
+				if (side < 0) {
+					fs /= ($sl(1, -side));
+					--side;
 				} else {
-					break;
+					side = -1;
 				}
+			} else if (fr * fs > 0.0) {
+				fs = fr;
+				s = r;
+				if (side > 0) {
+					ft /= ($sl(1, side));
+					++side;
+				} else {
+					side = 1;
+				}
+			} else {
+				break;
 			}
 		}
 	}
@@ -269,7 +214,7 @@ double Curve::ROCsq(double t) {
 	return dx2dy2 * ((dx2dy2 * dx2dy2) / (dx2dy2 * ddx2ddy2 - ddxdxddydy * ddxdxddydy));
 }
 
-void clinit$Curve($Class* class$) {
+void Curve::clinit$($Class* clazz) {
 	Curve::$assertionsDisabled = !Curve::class$->desiredAssertionStatus();
 }
 
@@ -277,7 +222,52 @@ Curve::Curve() {
 }
 
 $Class* Curve::load$($String* name, bool initialize) {
-	$loadClass(Curve, name, initialize, &_Curve_ClassInfo_, clinit$Curve, allocate$Curve);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Curve, $assertionsDisabled)},
+		{"ax", "D", nullptr, 0, $field(Curve, ax)},
+		{"ay", "D", nullptr, 0, $field(Curve, ay)},
+		{"bx", "D", nullptr, 0, $field(Curve, bx)},
+		{"by", "D", nullptr, 0, $field(Curve, by)},
+		{"cx", "D", nullptr, 0, $field(Curve, cx)},
+		{"cy", "D", nullptr, 0, $field(Curve, cy)},
+		{"dx", "D", nullptr, 0, $field(Curve, dx)},
+		{"dy", "D", nullptr, 0, $field(Curve, dy)},
+		{"dax", "D", nullptr, 0, $field(Curve, dax)},
+		{"day", "D", nullptr, 0, $field(Curve, day)},
+		{"dbx", "D", nullptr, 0, $field(Curve, dbx)},
+		{"dby", "D", nullptr, 0, $field(Curve, dby)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Curve, init$, void)},
+		{"ROCsq", "(D)D", nullptr, $PRIVATE, $method(Curve, ROCsq, double, double)},
+		{"dxRoots", "([DI)I", nullptr, 0, $method(Curve, dxRoots, int32_t, $doubles*, int32_t)},
+		{"dyRoots", "([DI)I", nullptr, 0, $method(Curve, dyRoots, int32_t, $doubles*, int32_t)},
+		{"eliminateInf", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Curve, eliminateInf, double, double)},
+		{"falsePositionROCsqMinusX", "(DDDD)D", nullptr, $PRIVATE, $method(Curve, falsePositionROCsqMinusX, double, double, double, double, double)},
+		{"infPoints", "([DI)I", nullptr, 0, $method(Curve, infPoints, int32_t, $doubles*, int32_t)},
+		{"perpendiculardfddf", "([DI)I", nullptr, $PRIVATE, $method(Curve, perpendiculardfddf, int32_t, $doubles*, int32_t)},
+		{"rootsOfROCMinusW", "([DIDD)I", nullptr, 0, $method(Curve, rootsOfROCMinusW, int32_t, $doubles*, int32_t, double, double)},
+		{"sameSign", "(DD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Curve, sameSign, bool, double, double)},
+		{"set", "([DI)V", nullptr, 0, $method(Curve, set, void, $doubles*, int32_t)},
+		{"set", "(DDDDDDDD)V", nullptr, 0, $method(Curve, set, void, double, double, double, double, double, double, double, double)},
+		{"set", "(DDDDDD)V", nullptr, 0, $method(Curve, set, void, double, double, double, double, double, double)},
+		{"set", "(DDDD)V", nullptr, 0, $method(Curve, set, void, double, double, double, double)},
+		{"xPoints", "([DID)I", nullptr, 0, $method(Curve, xPoints, int32_t, $doubles*, int32_t, double)},
+		{"yPoints", "([DID)I", nullptr, 0, $method(Curve, yPoints, int32_t, $doubles*, int32_t, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Curve",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Curve, name, initialize, &classInfo$$, Curve::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Curve);
+	});
 	return class$;
 }
 

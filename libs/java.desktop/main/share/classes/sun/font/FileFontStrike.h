@@ -70,6 +70,7 @@ class FileFontStrike : public ::sun::font::PhysicalStrike {
 	$class(FileFontStrike, 0, ::sun::font::PhysicalStrike)
 public:
 	FileFontStrike();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::FileFont* fileFont, ::sun::font::FontStrikeDesc* desc);
 	int64_t _getGlyphImageFromWindows($String* family, int32_t style, int32_t size, int32_t glyphCode, bool fracMetrics, int32_t fontDataSize);
 	virtual void adjustPoint(::java::awt::geom::Point2D$Float* pt) override;
@@ -99,7 +100,7 @@ public:
 	static bool initNative();
 	int64_t setCachedGlyphPtr(int32_t glyphCode, int64_t glyphPtr);
 	int64_t setCachedGlyphPtrInternal(int32_t glyphCode, int64_t glyphPtr);
-	static const int32_t INVISIBLE_GLYPHS = 0x0000FFFE;
+	static const int32_t INVISIBLE_GLYPHS = 0x0000fffe;
 	::sun::font::FileFont* fileFont = nullptr;
 	static const int32_t UNINITIALISED = 0;
 	static const int32_t INTARRAY = 1;

@@ -22,6 +22,7 @@ class $export DeferredAttr$AttrMode : public ::java::lang::Enum {
 public:
 	DeferredAttr$AttrMode();
 	static $Array<::com::sun::tools::javac::comp::DeferredAttr$AttrMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::comp::DeferredAttr$AttrMode* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::comp::DeferredAttr$AttrMode>* values();

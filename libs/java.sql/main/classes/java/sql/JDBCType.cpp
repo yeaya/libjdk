@@ -1,5 +1,4 @@
 #include <java/sql/JDBCType.h>
-
 #include <java/lang/Enum.h>
 #include <java/sql/Types.h>
 #include <jcpp.h>
@@ -55,82 +54,6 @@ using $Types = ::java::sql::Types;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _JDBCType_FieldInfo_[] = {
-	{"BIT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BIT)},
-	{"TINYINT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TINYINT)},
-	{"SMALLINT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, SMALLINT)},
-	{"INTEGER", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, INTEGER)},
-	{"BIGINT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BIGINT)},
-	{"FLOAT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, FLOAT)},
-	{"REAL", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, REAL)},
-	{"DOUBLE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DOUBLE)},
-	{"NUMERIC", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NUMERIC)},
-	{"DECIMAL", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DECIMAL)},
-	{"CHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, CHAR)},
-	{"VARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, VARCHAR)},
-	{"LONGVARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, LONGVARCHAR)},
-	{"DATE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DATE)},
-	{"TIME", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIME)},
-	{"TIMESTAMP", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIMESTAMP)},
-	{"BINARY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BINARY)},
-	{"VARBINARY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, VARBINARY)},
-	{"LONGVARBINARY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, LONGVARBINARY)},
-	{"NULL", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NULL)},
-	{"OTHER", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, OTHER)},
-	{"JAVA_OBJECT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, JAVA_OBJECT)},
-	{"DISTINCT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DISTINCT)},
-	{"STRUCT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, STRUCT)},
-	{"ARRAY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, ARRAY)},
-	{"BLOB", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BLOB)},
-	{"CLOB", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, CLOB)},
-	{"REF", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, REF)},
-	{"DATALINK", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DATALINK)},
-	{"BOOLEAN", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BOOLEAN)},
-	{"ROWID", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, ROWID)},
-	{"NCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NCHAR)},
-	{"NVARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NVARCHAR)},
-	{"LONGNVARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, LONGNVARCHAR)},
-	{"NCLOB", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NCLOB)},
-	{"SQLXML", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, SQLXML)},
-	{"REF_CURSOR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, REF_CURSOR)},
-	{"TIME_WITH_TIMEZONE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIME_WITH_TIMEZONE)},
-	{"TIMESTAMP_WITH_TIMEZONE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIMESTAMP_WITH_TIMEZONE)},
-	{"$VALUES", "[Ljava/sql/JDBCType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JDBCType, $VALUES)},
-	{"type", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(JDBCType, type)},
-	{}
-};
-
-$MethodInfo _JDBCType_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/JDBCType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDBCType, $values, $JDBCTypeArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Integer;)V", "(Ljava/lang/Integer;)V", $PRIVATE, $method(JDBCType, init$, void, $String*, int32_t, $Integer*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getName, $String*)},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getVendor, $String*)},
-	{"getVendorTypeNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getVendorTypeNumber, $Integer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, valueOf, JDBCType*, $String*)},
-	{"valueOf", "(I)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, valueOf, JDBCType*, int32_t)},
-	{"values", "()[Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, values, $JDBCTypeArray*)},
-	{}
-};
-
-$ClassInfo _JDBCType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.sql.JDBCType",
-	"java.lang.Enum",
-	"java.sql.SQLType",
-	_JDBCType_FieldInfo_,
-	_JDBCType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/sql/JDBCType;>;Ljava/sql/SQLType;"
-};
-
-$Object* allocate$JDBCType($Class* clazz) {
-	return $of($alloc(JDBCType));
-}
 
 $String* JDBCType::toString() {
 	 return this->$Enum::toString();
@@ -267,25 +190,21 @@ $Integer* JDBCType::getVendorTypeNumber() {
 
 JDBCType* JDBCType::valueOf(int32_t type) {
 	$init(JDBCType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($JDBCTypeArray, arr$, $fcast($JDBCTypeArray, JDBCType::class$->getEnumConstants()));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($JDBCTypeArray, arr$, $cast($JDBCTypeArray, JDBCType::class$->getEnumConstants()));
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			JDBCType* sqlType = arr$->get(i$);
-			{
-				if (type == $nc($nc(sqlType)->type)->intValue()) {
-					return sqlType;
-				}
+			if (type == $nc($nc(sqlType)->type)->intValue()) {
+				return sqlType;
 			}
 		}
 	}
 	$throwNew($IllegalArgumentException, $$str({"Type:"_s, $$str(type), " is not a valid Types.java value."_s}));
 }
 
-void clinit$JDBCType($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JDBCType::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JDBCType::BIT, $new(JDBCType, "BIT"_s, 0, $($Integer::valueOf($Types::BIT))));
 	$assignStatic(JDBCType::TINYINT, $new(JDBCType, "TINYINT"_s, 1, $($Integer::valueOf($Types::TINYINT))));
 	$assignStatic(JDBCType::SMALLINT, $new(JDBCType, "SMALLINT"_s, 2, $($Integer::valueOf($Types::SMALLINT))));
@@ -332,7 +251,78 @@ JDBCType::JDBCType() {
 }
 
 $Class* JDBCType::load$($String* name, bool initialize) {
-	$loadClass(JDBCType, name, initialize, &_JDBCType_ClassInfo_, clinit$JDBCType, allocate$JDBCType);
+	$FieldInfo fieldInfos$$[] = {
+		{"BIT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BIT)},
+		{"TINYINT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TINYINT)},
+		{"SMALLINT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, SMALLINT)},
+		{"INTEGER", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, INTEGER)},
+		{"BIGINT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BIGINT)},
+		{"FLOAT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, FLOAT)},
+		{"REAL", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, REAL)},
+		{"DOUBLE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DOUBLE)},
+		{"NUMERIC", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NUMERIC)},
+		{"DECIMAL", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DECIMAL)},
+		{"CHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, CHAR)},
+		{"VARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, VARCHAR)},
+		{"LONGVARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, LONGVARCHAR)},
+		{"DATE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DATE)},
+		{"TIME", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIME)},
+		{"TIMESTAMP", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIMESTAMP)},
+		{"BINARY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BINARY)},
+		{"VARBINARY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, VARBINARY)},
+		{"LONGVARBINARY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, LONGVARBINARY)},
+		{"NULL", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NULL)},
+		{"OTHER", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, OTHER)},
+		{"JAVA_OBJECT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, JAVA_OBJECT)},
+		{"DISTINCT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DISTINCT)},
+		{"STRUCT", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, STRUCT)},
+		{"ARRAY", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, ARRAY)},
+		{"BLOB", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BLOB)},
+		{"CLOB", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, CLOB)},
+		{"REF", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, REF)},
+		{"DATALINK", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, DATALINK)},
+		{"BOOLEAN", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, BOOLEAN)},
+		{"ROWID", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, ROWID)},
+		{"NCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NCHAR)},
+		{"NVARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NVARCHAR)},
+		{"LONGNVARCHAR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, LONGNVARCHAR)},
+		{"NCLOB", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, NCLOB)},
+		{"SQLXML", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, SQLXML)},
+		{"REF_CURSOR", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, REF_CURSOR)},
+		{"TIME_WITH_TIMEZONE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIME_WITH_TIMEZONE)},
+		{"TIMESTAMP_WITH_TIMEZONE", "Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JDBCType, TIMESTAMP_WITH_TIMEZONE)},
+		{"$VALUES", "[Ljava/sql/JDBCType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JDBCType, $VALUES)},
+		{"type", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(JDBCType, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/sql/JDBCType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDBCType, $values, $JDBCTypeArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/Integer;)V", "(Ljava/lang/Integer;)V", $PRIVATE, $method(JDBCType, init$, void, $String*, int32_t, $Integer*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getName, $String*)},
+		{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getVendor, $String*)},
+		{"getVendorTypeNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getVendorTypeNumber, $Integer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, valueOf, JDBCType*, $String*)},
+		{"valueOf", "(I)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, valueOf, JDBCType*, int32_t)},
+		{"values", "()[Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, values, $JDBCTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.sql.JDBCType",
+		"java.lang.Enum",
+		"java.sql.SQLType",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/sql/JDBCType;>;Ljava/sql/SQLType;"
+	};
+	$loadClass(JDBCType, name, initialize, &classInfo$$, JDBCType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JDBCType));
+	});
 	return class$;
 }
 

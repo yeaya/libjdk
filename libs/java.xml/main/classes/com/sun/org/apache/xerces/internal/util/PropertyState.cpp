@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/PropertyState.h>
-
 #include <com/sun/org/apache/xerces/internal/util/Status.h>
 #include <jcpp.h>
 
@@ -22,38 +21,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _PropertyState_FieldInfo_[] = {
-	{"status", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $FINAL, $field(PropertyState, status)},
-	{"state", "Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $field(PropertyState, state)},
-	{"UNKNOWN", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, UNKNOWN)},
-	{"RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, RECOGNIZED)},
-	{"NOT_SUPPORTED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, NOT_SUPPORTED)},
-	{"NOT_RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, NOT_RECOGNIZED)},
-	{"NOT_ALLOWED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, NOT_ALLOWED)},
-	{}
-};
-
-$MethodInfo _PropertyState_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/Status;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyState, init$, void, $Status*, Object$*)},
-	{"is", "(Ljava/lang/Object;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyState, is, PropertyState*, Object$*)},
-	{"isExceptional", "()Z", nullptr, $PUBLIC, $virtualMethod(PropertyState, isExceptional, bool)},
-	{"of", "(Lcom/sun/org/apache/xerces/internal/util/Status;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyState, of, PropertyState*, $Status*)},
-	{}
-};
-
-$ClassInfo _PropertyState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.PropertyState",
-	"java.lang.Object",
-	nullptr,
-	_PropertyState_FieldInfo_,
-	_PropertyState_MethodInfo_
-};
-
-$Object* allocate$PropertyState($Class* clazz) {
-	return $of($alloc(PropertyState));
-}
 
 PropertyState* PropertyState::UNKNOWN = nullptr;
 PropertyState* PropertyState::RECOGNIZED = nullptr;
@@ -81,7 +48,7 @@ bool PropertyState::isExceptional() {
 	return this->status->isExceptional();
 }
 
-void clinit$PropertyState($Class* class$) {
+void PropertyState::clinit$($Class* clazz) {
 	$init($Status);
 	$assignStatic(PropertyState::UNKNOWN, $new(PropertyState, $Status::UNKNOWN, nullptr));
 	$assignStatic(PropertyState::RECOGNIZED, $new(PropertyState, $Status::RECOGNIZED, nullptr));
@@ -94,7 +61,34 @@ PropertyState::PropertyState() {
 }
 
 $Class* PropertyState::load$($String* name, bool initialize) {
-	$loadClass(PropertyState, name, initialize, &_PropertyState_ClassInfo_, clinit$PropertyState, allocate$PropertyState);
+	$FieldInfo fieldInfos$$[] = {
+		{"status", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $FINAL, $field(PropertyState, status)},
+		{"state", "Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $field(PropertyState, state)},
+		{"UNKNOWN", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, UNKNOWN)},
+		{"RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, RECOGNIZED)},
+		{"NOT_SUPPORTED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, NOT_SUPPORTED)},
+		{"NOT_RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, NOT_RECOGNIZED)},
+		{"NOT_ALLOWED", "Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PropertyState, NOT_ALLOWED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/Status;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyState, init$, void, $Status*, Object$*)},
+		{"is", "(Ljava/lang/Object;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyState, is, PropertyState*, Object$*)},
+		{"isExceptional", "()Z", nullptr, $PUBLIC, $virtualMethod(PropertyState, isExceptional, bool)},
+		{"of", "(Lcom/sun/org/apache/xerces/internal/util/Status;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(PropertyState, of, PropertyState*, $Status*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.PropertyState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropertyState, name, initialize, &classInfo$$, PropertyState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyState);
+	});
 	return class$;
 }
 

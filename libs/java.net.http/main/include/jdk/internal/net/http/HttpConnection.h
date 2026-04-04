@@ -89,6 +89,7 @@ class $import HttpConnection : public ::java::io::Closeable {
 public:
 	HttpConnection();
 	virtual void close() override {}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::InetSocketAddress* address, ::jdk::internal::net::http::HttpClientImpl* client);
 	void addTrailingOperation(::java::util::concurrent::CompletionStage* cf);
 	::java::net::InetSocketAddress* address();

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbMapNotifyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,102 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbMapNotifyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbMapNotifyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbMapNotifyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbMapNotifyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbMapNotifyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbMapNotifyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbMapNotifyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbMapNotifyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbMapNotifyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbMapNotifyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbMapNotifyEvent, getSize, int32_t)},
-	{"get_changed", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_changed, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_display, int64_t)},
-	{"get_first_key_act", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_act, int32_t)},
-	{"get_first_key_behavior", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_behavior, int32_t)},
-	{"get_first_key_explicit", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_explicit, int32_t)},
-	{"get_first_key_sym", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_sym, int32_t)},
-	{"get_first_modmap_key", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_modmap_key, int32_t)},
-	{"get_first_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_type, int32_t)},
-	{"get_first_vmodmap_key", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_vmodmap_key, int32_t)},
-	{"get_flags", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_flags, int32_t)},
-	{"get_max_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_max_key_code, int32_t)},
-	{"get_min_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_min_key_code, int32_t)},
-	{"get_num_key_acts", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_acts, int32_t)},
-	{"get_num_key_behaviors", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_behaviors, int32_t)},
-	{"get_num_key_explicit", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_explicit, int32_t)},
-	{"get_num_key_syms", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_syms, int32_t)},
-	{"get_num_modmap_keys", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_modmap_keys, int32_t)},
-	{"get_num_types", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_types, int32_t)},
-	{"get_num_vmodmap_keys", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_vmodmap_keys, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_serial, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_type, int32_t)},
-	{"get_vmods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_vmods, int32_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_xkb_type, int32_t)},
-	{"set_changed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_changed, void, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_display, void, int64_t)},
-	{"set_first_key_act", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_act, void, int32_t)},
-	{"set_first_key_behavior", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_behavior, void, int32_t)},
-	{"set_first_key_explicit", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_explicit, void, int32_t)},
-	{"set_first_key_sym", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_sym, void, int32_t)},
-	{"set_first_modmap_key", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_modmap_key, void, int32_t)},
-	{"set_first_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_type, void, int32_t)},
-	{"set_first_vmodmap_key", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_vmodmap_key, void, int32_t)},
-	{"set_flags", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_flags, void, int32_t)},
-	{"set_max_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_max_key_code, void, int32_t)},
-	{"set_min_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_min_key_code, void, int32_t)},
-	{"set_num_key_acts", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_acts, void, int32_t)},
-	{"set_num_key_behaviors", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_behaviors, void, int32_t)},
-	{"set_num_key_explicit", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_explicit, void, int32_t)},
-	{"set_num_key_syms", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_syms, void, int32_t)},
-	{"set_num_modmap_keys", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_modmap_keys, void, int32_t)},
-	{"set_num_types", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_types, void, int32_t)},
-	{"set_num_vmodmap_keys", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_vmodmap_keys, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_serial, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_type, void, int32_t)},
-	{"set_vmods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_vmods, void, int32_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbMapNotifyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbMapNotifyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbMapNotifyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbMapNotifyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbMapNotifyEvent_FieldInfo_,
-	_XkbMapNotifyEvent_MethodInfo_
-};
-
-$Object* allocate$XkbMapNotifyEvent($Class* clazz) {
-	return $of($alloc(XkbMapNotifyEvent));
-}
 
 int32_t XkbMapNotifyEvent::getSize() {
 	$init(XkbMapNotifyEvent);
@@ -145,7 +55,7 @@ void XkbMapNotifyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -499,7 +409,7 @@ $String* XkbMapNotifyEvent::getFieldsAsString() {
 }
 
 $Object* XkbMapNotifyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbMapNotifyEvent::zero() {
@@ -514,7 +424,89 @@ XkbMapNotifyEvent::XkbMapNotifyEvent() {
 }
 
 $Class* XkbMapNotifyEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbMapNotifyEvent, name, initialize, &_XkbMapNotifyEvent_ClassInfo_, allocate$XkbMapNotifyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbMapNotifyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbMapNotifyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbMapNotifyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbMapNotifyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbMapNotifyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbMapNotifyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbMapNotifyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbMapNotifyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbMapNotifyEvent, getSize, int32_t)},
+		{"get_changed", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_changed, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_display, int64_t)},
+		{"get_first_key_act", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_act, int32_t)},
+		{"get_first_key_behavior", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_behavior, int32_t)},
+		{"get_first_key_explicit", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_explicit, int32_t)},
+		{"get_first_key_sym", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_key_sym, int32_t)},
+		{"get_first_modmap_key", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_modmap_key, int32_t)},
+		{"get_first_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_type, int32_t)},
+		{"get_first_vmodmap_key", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_first_vmodmap_key, int32_t)},
+		{"get_flags", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_flags, int32_t)},
+		{"get_max_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_max_key_code, int32_t)},
+		{"get_min_key_code", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_min_key_code, int32_t)},
+		{"get_num_key_acts", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_acts, int32_t)},
+		{"get_num_key_behaviors", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_behaviors, int32_t)},
+		{"get_num_key_explicit", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_explicit, int32_t)},
+		{"get_num_key_syms", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_key_syms, int32_t)},
+		{"get_num_modmap_keys", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_modmap_keys, int32_t)},
+		{"get_num_types", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_types, int32_t)},
+		{"get_num_vmodmap_keys", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_num_vmodmap_keys, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_serial, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_type, int32_t)},
+		{"get_vmods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_vmods, int32_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, get_xkb_type, int32_t)},
+		{"set_changed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_changed, void, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_display, void, int64_t)},
+		{"set_first_key_act", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_act, void, int32_t)},
+		{"set_first_key_behavior", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_behavior, void, int32_t)},
+		{"set_first_key_explicit", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_explicit, void, int32_t)},
+		{"set_first_key_sym", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_key_sym, void, int32_t)},
+		{"set_first_modmap_key", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_modmap_key, void, int32_t)},
+		{"set_first_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_type, void, int32_t)},
+		{"set_first_vmodmap_key", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_first_vmodmap_key, void, int32_t)},
+		{"set_flags", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_flags, void, int32_t)},
+		{"set_max_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_max_key_code, void, int32_t)},
+		{"set_min_key_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_min_key_code, void, int32_t)},
+		{"set_num_key_acts", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_acts, void, int32_t)},
+		{"set_num_key_behaviors", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_behaviors, void, int32_t)},
+		{"set_num_key_explicit", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_explicit, void, int32_t)},
+		{"set_num_key_syms", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_key_syms, void, int32_t)},
+		{"set_num_modmap_keys", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_modmap_keys, void, int32_t)},
+		{"set_num_types", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_types, void, int32_t)},
+		{"set_num_vmodmap_keys", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_num_vmodmap_keys, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_serial, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_type, void, int32_t)},
+		{"set_vmods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_vmods, void, int32_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbMapNotifyEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbMapNotifyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbMapNotifyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbMapNotifyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbMapNotifyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbMapNotifyEvent);
+	});
 	return class$;
 }
 

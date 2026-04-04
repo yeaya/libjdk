@@ -38,6 +38,7 @@ class ClearSelTest : public ::java::lang::Runnable {
 	$class(ClearSelTest, 0, ::java::lang::Runnable)
 public:
 	ClearSelTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::CountDownLatch* latch);
 	static void clearSelTest();
 	void createUI();

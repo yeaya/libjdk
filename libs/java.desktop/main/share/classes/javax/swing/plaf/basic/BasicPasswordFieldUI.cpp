@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicPasswordFieldUI.h>
-
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JComponent.h>
@@ -23,7 +22,6 @@ using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
@@ -36,29 +34,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicPasswordFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPasswordFieldUI, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicPasswordFieldUI, create, $View*, $Element*)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicPasswordFieldUI, createActionMap, $ActionMap*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicPasswordFieldUI, getPropertyPrefix, $String*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPasswordFieldUI, installDefaults, void)},
-	{}
-};
-
-$ClassInfo _BasicPasswordFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicPasswordFieldUI",
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	nullptr,
-	nullptr,
-	_BasicPasswordFieldUI_MethodInfo_
-};
-
-$Object* allocate$BasicPasswordFieldUI($Class* clazz) {
-	return $of($alloc(BasicPasswordFieldUI));
-}
 
 void BasicPasswordFieldUI::init$() {
 	$BasicTextFieldUI::init$();
@@ -74,10 +49,10 @@ $String* BasicPasswordFieldUI::getPropertyPrefix() {
 }
 
 void BasicPasswordFieldUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextFieldUI::installDefaults();
 	$var($String, prefix, getPropertyPrefix());
-	$var($Character, echoChar, $cast($Character, $nc($($UIManager::getDefaults()))->get($$str({prefix, ".echoChar"_s}))));
+	$var($Character, echoChar, $cast($Character, $$nc($UIManager::getDefaults())->get($$str({prefix, ".echoChar"_s}))));
 	if (echoChar != nullptr) {
 		$LookAndFeel::installProperty($(getComponent()), "echoChar"_s, echoChar);
 	}
@@ -88,7 +63,7 @@ $View* BasicPasswordFieldUI::create($Element* elem) {
 }
 
 $ActionMap* BasicPasswordFieldUI::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $BasicTextFieldUI::createActionMap());
 	$init($DefaultEditorKit);
 	if ($nc(map)->get($DefaultEditorKit::selectWordAction) != nullptr) {
@@ -105,7 +80,26 @@ BasicPasswordFieldUI::BasicPasswordFieldUI() {
 }
 
 $Class* BasicPasswordFieldUI::load$($String* name, bool initialize) {
-	$loadClass(BasicPasswordFieldUI, name, initialize, &_BasicPasswordFieldUI_ClassInfo_, allocate$BasicPasswordFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPasswordFieldUI, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicPasswordFieldUI, create, $View*, $Element*)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicPasswordFieldUI, createActionMap, $ActionMap*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicPasswordFieldUI, getPropertyPrefix, $String*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicPasswordFieldUI, installDefaults, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicPasswordFieldUI",
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BasicPasswordFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicPasswordFieldUI));
+	});
 	return class$;
 }
 

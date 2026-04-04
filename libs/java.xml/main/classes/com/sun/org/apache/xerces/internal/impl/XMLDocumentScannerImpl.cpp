@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/ExternalSubsetResolver.h>
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
@@ -10,7 +9,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$PrologDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$TrailingMiscDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$XMLDeclDriver.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLEntityHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLScanner$NameType.h>
@@ -24,7 +22,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
-#include <com/sun/org/apache/xerces/internal/xni/grammars/XMLDTDDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLConfigurationException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner.h>
@@ -76,7 +73,6 @@
 
 using $BooleanArray = $Array<::java::lang::Boolean>;
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $ExternalSubsetResolver = ::com::sun::org::apache::xerces::internal::impl::ExternalSubsetResolver;
 using $PropertyManager = ::com::sun::org::apache::xerces::internal::impl::PropertyManager;
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
 using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
@@ -85,9 +81,6 @@ using $XMLDocumentScannerImpl$ContentDriver = ::com::sun::org::apache::xerces::i
 using $XMLDocumentScannerImpl$PrologDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$PrologDriver;
 using $XMLDocumentScannerImpl$TrailingMiscDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$TrailingMiscDriver;
 using $XMLDocumentScannerImpl$XMLDeclDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$XMLDeclDriver;
-using $XMLEntityHandler = ::com::sun::org::apache::xerces::internal::impl::XMLEntityHandler;
-using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
-using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLScanner = ::com::sun::org::apache::xerces::internal::impl::XMLScanner;
 using $XMLScanner$NameType = ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType;
 using $XMLDTDDescription = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDDescription;
@@ -96,17 +89,13 @@ using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::Names
 using $XMLStringBuffer = ::com::sun::org::apache::xerces::internal::util::XMLStringBuffer;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
-using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XMLResourceIdentifier = ::com::sun::org::apache::xerces::internal::xni::XMLResourceIdentifier;
-using $1XMLDTDDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLDTDDescription;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
 using $XMLDTDScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDScanner;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $Entity = ::com::sun::xml::internal::stream::Entity;
 using $Entity$ScannedEntity = ::com::sun::xml::internal::stream::Entity$ScannedEntity;
-using $XMLBufferListener = ::com::sun::xml::internal::stream::XMLBufferListener;
 using $EOFException = ::java::io::EOFException;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -123,105 +112,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLDocumentScannerImpl_FieldInfo_[] = {
-	{"SCANNER_STATE_XML_DECL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_XML_DECL)},
-	{"SCANNER_STATE_PROLOG", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_PROLOG)},
-	{"SCANNER_STATE_TRAILING_MISC", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_TRAILING_MISC)},
-	{"SCANNER_STATE_DTD_INTERNAL_DECLS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_DTD_INTERNAL_DECLS)},
-	{"SCANNER_STATE_DTD_EXTERNAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_DTD_EXTERNAL)},
-	{"SCANNER_STATE_DTD_EXTERNAL_DECLS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_DTD_EXTERNAL_DECLS)},
-	{"SCANNER_STATE_NO_SUCH_ELEMENT_EXCEPTION", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_NO_SUCH_ELEMENT_EXCEPTION)},
-	{"DOCUMENT_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DOCUMENT_SCANNER)},
-	{"LOAD_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, LOAD_EXTERNAL_DTD)},
-	{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DISALLOW_DOCTYPE_DECL_FEATURE)},
-	{"DTD_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DTD_SCANNER)},
-	{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, VALIDATION_MANAGER)},
-	{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, NAMESPACE_CONTEXT)},
-	{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, RECOGNIZED_FEATURES)},
-	{"FEATURE_DEFAULTS", "[Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, FEATURE_DEFAULTS)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, RECOGNIZED_PROPERTIES)},
-	{"PROPERTY_DEFAULTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, PROPERTY_DEFAULTS)},
-	{"fDTDScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDTDScanner)},
-	{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fValidationManager)},
-	{"fDTDDecl", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDTDDecl)},
-	{"fReadingDTD", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fReadingDTD)},
-	{"fAddedListener", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fAddedListener)},
-	{"fDoctypeName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDoctypeName)},
-	{"fDoctypePublicId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDoctypePublicId)},
-	{"fDoctypeSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDoctypeSystemId)},
-	{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fNamespaceContext)},
-	{"fLoadExternalDTD", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fLoadExternalDTD)},
-	{"fSeenDoctypeDecl", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fSeenDoctypeDecl)},
-	{"fScanEndElement", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fScanEndElement)},
-	{"fXMLDeclDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fXMLDeclDriver)},
-	{"fPrologDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fPrologDriver)},
-	{"fDTDDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDTDDriver)},
-	{"fTrailingMiscDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fTrailingMiscDriver)},
-	{"fStartPos", "I", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fStartPos)},
-	{"fEndPos", "I", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fEndPos)},
-	{"fSeenInternalSubset", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fSeenInternalSubset)},
-	{"fStrings", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLDocumentScannerImpl, fStrings)},
-	{"fExternalSubsetSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PRIVATE, $field(XMLDocumentScannerImpl, fExternalSubsetSource)},
-	{"fDTDDescription", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDDescription;", nullptr, $PRIVATE | $FINAL, $field(XMLDocumentScannerImpl, fDTDDescription)},
-	{"DOCTYPE", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DOCTYPE)},
-	{"COMMENTSTRING", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, COMMENTSTRING)},
-	{}
-};
-
-$MethodInfo _XMLDocumentScannerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDocumentScannerImpl, init$, void)},
-	{"createContentDriver", "()Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, createContentDriver, $XMLDocumentFragmentScannerImpl$Driver*)},
-	{"endEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, endEntity, void, $String*, $Augmentations*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getCharacterEncodingScheme, $String*)},
-	{"getDTDDecl", "()Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getDTDDecl, $XMLStringBuffer*)},
-	{"getFeatureDefault", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getFeatureDefault, $Boolean*, $String*)},
-	{"getNamespaceContext", "()Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getNamespaceContext, $NamespaceContext*)},
-	{"getPropertyDefault", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getPropertyDefault, $Object*, $String*)},
-	{"getRecognizedFeatures", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getRecognizedFeatures, $StringArray*)},
-	{"getRecognizedProperties", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getRecognizedProperties, $StringArray*)},
-	{"getScannerStateName", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, getScannerStateName, $String*, int32_t)},
-	{"getScannetState", "()I", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getScannetState, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, next, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"refresh", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, refresh, void, int32_t)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, reset, void, $PropertyManager*)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"scanDoctypeDecl", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, scanDoctypeDecl, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setEndDTDScanState", "()V", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, setEndDTDScanState, void)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, setInputSource, void, $XMLInputSource*), "java.io.IOException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"startEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, startEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$InnerClassInfo _XMLDocumentScannerImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$TrailingMiscDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "TrailingMiscDriver", $PROTECTED | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "ContentDriver", $PROTECTED},
-	{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$DTDDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "DTDDriver", $PROTECTED | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "PrologDriver", $PROTECTED | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$XMLDeclDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "XMLDeclDriver", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _XMLDocumentScannerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl",
-	"com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl",
-	nullptr,
-	_XMLDocumentScannerImpl_FieldInfo_,
-	_XMLDocumentScannerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLDocumentScannerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$TrailingMiscDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$DTDDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$XMLDeclDriver"
-};
-
-$Object* allocate$XMLDocumentScannerImpl($Class* clazz) {
-	return $of($alloc(XMLDocumentScannerImpl));
-}
 
 $String* XMLDocumentScannerImpl::DOCUMENT_SCANNER = nullptr;
 $String* XMLDocumentScannerImpl::LOAD_EXTERNAL_DTD = nullptr;
@@ -267,7 +157,7 @@ int32_t XMLDocumentScannerImpl::getScannetState() {
 }
 
 void XMLDocumentScannerImpl::reset($PropertyManager* propertyManager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XMLDocumentFragmentScannerImpl::reset(propertyManager);
 	$set(this, fDoctypeName, nullptr);
 	$set(this, fDoctypePublicId, nullptr);
@@ -275,19 +165,19 @@ void XMLDocumentScannerImpl::reset($PropertyManager* propertyManager) {
 	this->fSeenDoctypeDecl = false;
 	$nc(this->fNamespaceContext)->reset();
 	$init($XMLInputFactory);
-	this->fSupportDTD = $nc(($cast($Boolean, $($nc(propertyManager)->getProperty($XMLInputFactory::SUPPORT_DTD)))))->booleanValue();
+	this->fSupportDTD = $$sure($Boolean, $nc(propertyManager)->getProperty($XMLInputFactory::SUPPORT_DTD))->booleanValue();
 	$init($Constants);
-	this->fLoadExternalDTD = !$nc(($cast($Boolean, $(propertyManager->getProperty($$str({$Constants::ZEPHYR_PROPERTY_PREFIX, $Constants::IGNORE_EXTERNAL_DTD}))))))->booleanValue();
+	this->fLoadExternalDTD = !$$sure($Boolean, propertyManager->getProperty($$str({$Constants::ZEPHYR_PROPERTY_PREFIX, $Constants::IGNORE_EXTERNAL_DTD})))->booleanValue();
 	setScannerState($XMLEvent::START_DOCUMENT);
 	setDriver(this->fXMLDeclDriver);
 	this->fSeenInternalSubset = false;
 	if (this->fDTDScanner != nullptr) {
-		$nc(($cast($XMLDTDScannerImpl, this->fDTDScanner)))->reset(propertyManager);
+		$cast($XMLDTDScannerImpl, this->fDTDScanner)->reset(propertyManager);
 	}
 	this->fEndPos = 0;
 	this->fStartPos = 0;
 	if (this->fDTDDecl != nullptr) {
-		$nc(this->fDTDDecl)->clear();
+		this->fDTDDecl->clear();
 	}
 }
 
@@ -316,21 +206,21 @@ void XMLDocumentScannerImpl::reset($XMLComponentManager* componentManager) {
 	this->fEndPos = 0;
 	this->fStartPos = 0;
 	if (this->fDTDDecl != nullptr) {
-		$nc(this->fDTDDecl)->clear();
+		this->fDTDDecl->clear();
 	}
 	setScannerState(XMLDocumentScannerImpl::SCANNER_STATE_XML_DECL);
 	setDriver(this->fXMLDeclDriver);
 }
 
 $StringArray* XMLDocumentScannerImpl::getRecognizedFeatures() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, featureIds, $XMLDocumentFragmentScannerImpl::getRecognizedFeatures());
-	int32_t length = featureIds != nullptr ? $nc(featureIds)->length : 0;
-	$var($StringArray, combinedFeatureIds, $new($StringArray, length + $nc(XMLDocumentScannerImpl::RECOGNIZED_FEATURES)->length));
+	int32_t length = featureIds != nullptr ? featureIds->length : 0;
+	$var($StringArray, combinedFeatureIds, $new($StringArray, length + XMLDocumentScannerImpl::RECOGNIZED_FEATURES->length));
 	if (featureIds != nullptr) {
 		$System::arraycopy(featureIds, 0, combinedFeatureIds, 0, featureIds->length);
 	}
-	$System::arraycopy(XMLDocumentScannerImpl::RECOGNIZED_FEATURES, 0, combinedFeatureIds, length, $nc(XMLDocumentScannerImpl::RECOGNIZED_FEATURES)->length);
+	$System::arraycopy(XMLDocumentScannerImpl::RECOGNIZED_FEATURES, 0, combinedFeatureIds, length, XMLDocumentScannerImpl::RECOGNIZED_FEATURES->length);
 	return combinedFeatureIds;
 }
 
@@ -345,8 +235,8 @@ void XMLDocumentScannerImpl::setFeature($String* featureId, bool state) {
 			this->fLoadExternalDTD = state;
 			return;
 		} else {
-			bool var$3 = suffixLength == $nc($Constants::DISALLOW_DOCTYPE_DECL_FEATURE)->length();
-			if (var$3 && featureId->endsWith($Constants::DISALLOW_DOCTYPE_DECL_FEATURE)) {
+			bool var$2 = suffixLength == $nc($Constants::DISALLOW_DOCTYPE_DECL_FEATURE)->length();
+			if (var$2 && featureId->endsWith($Constants::DISALLOW_DOCTYPE_DECL_FEATURE)) {
 				this->fDisallowDoctype = state;
 				return;
 			}
@@ -355,14 +245,14 @@ void XMLDocumentScannerImpl::setFeature($String* featureId, bool state) {
 }
 
 $StringArray* XMLDocumentScannerImpl::getRecognizedProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, propertyIds, $XMLDocumentFragmentScannerImpl::getRecognizedProperties());
-	int32_t length = propertyIds != nullptr ? $nc(propertyIds)->length : 0;
-	$var($StringArray, combinedPropertyIds, $new($StringArray, length + $nc(XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES)->length));
+	int32_t length = propertyIds != nullptr ? propertyIds->length : 0;
+	$var($StringArray, combinedPropertyIds, $new($StringArray, length + XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES->length));
 	if (propertyIds != nullptr) {
 		$System::arraycopy(propertyIds, 0, combinedPropertyIds, 0, propertyIds->length);
 	}
-	$System::arraycopy(XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES, 0, combinedPropertyIds, length, $nc(XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES)->length);
+	$System::arraycopy(XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES, 0, combinedPropertyIds, length, XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES->length);
 	return combinedPropertyIds;
 }
 
@@ -387,21 +277,21 @@ void XMLDocumentScannerImpl::setProperty($String* propertyId, Object$* value) {
 }
 
 $Boolean* XMLDocumentScannerImpl::getFeatureDefault($String* featureId) {
-	for (int32_t i = 0; i < $nc(XMLDocumentScannerImpl::RECOGNIZED_FEATURES)->length; ++i) {
-		if ($nc($nc(XMLDocumentScannerImpl::RECOGNIZED_FEATURES)->get(i))->equals(featureId)) {
-			return $nc(XMLDocumentScannerImpl::FEATURE_DEFAULTS)->get(i);
+	for (int32_t i = 0; i < XMLDocumentScannerImpl::RECOGNIZED_FEATURES->length; ++i) {
+		if ($nc(XMLDocumentScannerImpl::RECOGNIZED_FEATURES->get(i))->equals(featureId)) {
+			return XMLDocumentScannerImpl::FEATURE_DEFAULTS->get(i);
 		}
 	}
 	return $XMLDocumentFragmentScannerImpl::getFeatureDefault(featureId);
 }
 
 $Object* XMLDocumentScannerImpl::getPropertyDefault($String* propertyId) {
-	for (int32_t i = 0; i < $nc(XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES)->length; ++i) {
-		if ($nc($nc(XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES)->get(i))->equals(propertyId)) {
-			return $of($nc(XMLDocumentScannerImpl::PROPERTY_DEFAULTS)->get(i));
+	for (int32_t i = 0; i < XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES->length; ++i) {
+		if ($nc(XMLDocumentScannerImpl::RECOGNIZED_PROPERTIES->get(i))->equals(propertyId)) {
+			return XMLDocumentScannerImpl::PROPERTY_DEFAULTS->get(i);
 		}
 	}
-	return $of($XMLDocumentFragmentScannerImpl::getPropertyDefault(propertyId));
+	return $XMLDocumentFragmentScannerImpl::getPropertyDefault(propertyId);
 }
 
 void XMLDocumentScannerImpl::startEntity($String* name, $XMLResourceIdentifier* identifier, $String* encoding, $Augmentations* augs) {
@@ -410,12 +300,12 @@ void XMLDocumentScannerImpl::startEntity($String* name, $XMLResourceIdentifier* 
 	bool var$0 = !$nc(name)->equals("[xml]"_s);
 	if (var$0 && $nc(this->fEntityScanner)->isExternal()) {
 		$init($Constants);
-		if (augs == nullptr || !$nc(($cast($Boolean, $($nc(augs)->getItem($Constants::ENTITY_SKIPPED)))))->booleanValue()) {
+		if (augs == nullptr || !$$sure($Boolean, augs->getItem($Constants::ENTITY_SKIPPED))->booleanValue()) {
 			setScannerState($XMLDocumentFragmentScannerImpl::SCANNER_STATE_TEXT_DECL);
 		}
 	}
-	if (this->fDocumentHandler != nullptr && $nc(name)->equals("[xml]"_s)) {
-		$nc(this->fDocumentHandler)->startDocument(this->fEntityScanner, encoding, this->fNamespaceContext, nullptr);
+	if (this->fDocumentHandler != nullptr && name->equals("[xml]"_s)) {
+		this->fDocumentHandler->startDocument(this->fEntityScanner, encoding, this->fNamespaceContext, nullptr);
 	}
 }
 
@@ -432,7 +322,7 @@ void XMLDocumentScannerImpl::endEntity($String* name, $Augmentations* augs) {
 
 $XMLStringBuffer* XMLDocumentScannerImpl::getDTDDecl() {
 	$var($Entity, entity, $nc(this->fEntityScanner)->getCurrentEntity());
-	$nc(this->fDTDDecl)->append($nc(($cast($Entity$ScannedEntity, entity)))->ch, this->fStartPos, this->fEndPos - this->fStartPos);
+	$nc(this->fDTDDecl)->append($nc($cast($Entity$ScannedEntity, entity))->ch, this->fStartPos, this->fEndPos - this->fStartPos);
 	if (this->fSeenInternalSubset) {
 		$nc(this->fDTDDecl)->append("]>"_s);
 	}
@@ -456,7 +346,7 @@ $XMLDocumentFragmentScannerImpl$Driver* XMLDocumentScannerImpl::createContentDri
 }
 
 bool XMLDocumentScannerImpl::scanDoctypeDecl(bool supportDTD) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->fEntityScanner)->skipSpaces()) {
 		reportFatalError("MSG_SPACE_REQUIRED_BEFORE_ROOT_ELEMENT_TYPE_IN_DOCTYPEDECL"_s, nullptr);
 	}
@@ -468,23 +358,23 @@ bool XMLDocumentScannerImpl::scanDoctypeDecl(bool supportDTD) {
 	if ($nc(this->fEntityScanner)->skipSpaces()) {
 		scanExternalID(this->fStrings, false);
 		$set(this, fDoctypeSystemId, $nc(this->fStrings)->get(0));
-		$set(this, fDoctypePublicId, $nc(this->fStrings)->get(1));
+		$set(this, fDoctypePublicId, this->fStrings->get(1));
 		$nc(this->fEntityScanner)->skipSpaces();
 	}
 	this->fHasExternalDTD = this->fDoctypeSystemId != nullptr;
 	if (supportDTD && !this->fHasExternalDTD && this->fExternalSubsetResolver != nullptr) {
-		$nc(this->fDTDDescription)->setValues(nullptr, nullptr, $($nc($($nc(this->fEntityManager)->getCurrentResourceIdentifier()))->getExpandedSystemId()), nullptr);
-		$nc(this->fDTDDescription)->setRootName(this->fDoctypeName);
+		this->fDTDDescription->setValues(nullptr, nullptr, $($$nc($nc(this->fEntityManager)->getCurrentResourceIdentifier())->getExpandedSystemId()), nullptr);
+		this->fDTDDescription->setRootName(this->fDoctypeName);
 		$set(this, fExternalSubsetSource, $nc(this->fExternalSubsetResolver)->getExternalSubset(this->fDTDDescription));
 		this->fHasExternalDTD = this->fExternalSubsetSource != nullptr;
 	}
 	if (supportDTD && this->fDocumentHandler != nullptr) {
 		if (this->fExternalSubsetSource == nullptr) {
-			$nc(this->fDocumentHandler)->doctypeDecl(this->fDoctypeName, this->fDoctypePublicId, this->fDoctypeSystemId, nullptr);
+			this->fDocumentHandler->doctypeDecl(this->fDoctypeName, this->fDoctypePublicId, this->fDoctypeSystemId, nullptr);
 		} else {
 			$var($String, var$0, this->fDoctypeName);
-			$var($String, var$1, $nc(this->fExternalSubsetSource)->getPublicId());
-			$nc(this->fDocumentHandler)->doctypeDecl(var$0, var$1, $($nc(this->fExternalSubsetSource)->getSystemId()), nullptr);
+			$var($String, var$1, this->fExternalSubsetSource->getPublicId());
+			$nc(this->fDocumentHandler)->doctypeDecl(var$0, var$1, $(this->fExternalSubsetSource->getSystemId()), nullptr);
 		}
 	}
 	bool internalSubset = true;
@@ -492,7 +382,7 @@ bool XMLDocumentScannerImpl::scanDoctypeDecl(bool supportDTD) {
 		internalSubset = false;
 		$nc(this->fEntityScanner)->skipSpaces();
 		if (!$nc(this->fEntityScanner)->skipChar(u'>', nullptr)) {
-			reportFatalError("DoctypedeclUnterminated"_s, $$new($ObjectArray, {$of(this->fDoctypeName)}));
+			reportFatalError("DoctypedeclUnterminated"_s, $$new($ObjectArray, {this->fDoctypeName}));
 		}
 		--this->fMarkupDepth;
 	}
@@ -509,29 +399,17 @@ void XMLDocumentScannerImpl::setEndDTDScanState() {
 $String* XMLDocumentScannerImpl::getScannerStateName(int32_t state) {
 	switch (state) {
 	case XMLDocumentScannerImpl::SCANNER_STATE_XML_DECL:
-		{
-			return "SCANNER_STATE_XML_DECL"_s;
-		}
+		return "SCANNER_STATE_XML_DECL"_s;
 	case XMLDocumentScannerImpl::SCANNER_STATE_PROLOG:
-		{
-			return "SCANNER_STATE_PROLOG"_s;
-		}
+		return "SCANNER_STATE_PROLOG"_s;
 	case XMLDocumentScannerImpl::SCANNER_STATE_TRAILING_MISC:
-		{
-			return "SCANNER_STATE_TRAILING_MISC"_s;
-		}
+		return "SCANNER_STATE_TRAILING_MISC"_s;
 	case XMLDocumentScannerImpl::SCANNER_STATE_DTD_INTERNAL_DECLS:
-		{
-			return "SCANNER_STATE_DTD_INTERNAL_DECLS"_s;
-		}
+		return "SCANNER_STATE_DTD_INTERNAL_DECLS"_s;
 	case XMLDocumentScannerImpl::SCANNER_STATE_DTD_EXTERNAL:
-		{
-			return "SCANNER_STATE_DTD_EXTERNAL"_s;
-		}
+		return "SCANNER_STATE_DTD_EXTERNAL"_s;
 	case XMLDocumentScannerImpl::SCANNER_STATE_DTD_EXTERNAL_DECLS:
-		{
-			return "SCANNER_STATE_DTD_EXTERNAL_DECLS"_s;
-		}
+		return "SCANNER_STATE_DTD_EXTERNAL_DECLS"_s;
 	}
 	return $XMLDocumentFragmentScannerImpl::getScannerStateName(state);
 }
@@ -541,14 +419,14 @@ void XMLDocumentScannerImpl::refresh(int32_t refreshPosition) {
 	if (this->fReadingDTD) {
 		$var($Entity, entity, $nc(this->fEntityScanner)->getCurrentEntity());
 		if ($instanceOf($Entity$ScannedEntity, entity)) {
-			this->fEndPos = $nc(($cast($Entity$ScannedEntity, entity)))->position;
+			this->fEndPos = $cast($Entity$ScannedEntity, entity)->position;
 		}
-		$nc(this->fDTDDecl)->append($nc(($cast($Entity$ScannedEntity, entity)))->ch, this->fStartPos, this->fEndPos - this->fStartPos);
+		$nc(this->fDTDDecl)->append($nc($cast($Entity$ScannedEntity, entity))->ch, this->fStartPos, this->fEndPos - this->fStartPos);
 		this->fStartPos = refreshPosition;
 	}
 }
 
-void clinit$XMLDocumentScannerImpl($Class* class$) {
+void XMLDocumentScannerImpl::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XMLDocumentScannerImpl::DOCUMENT_SCANNER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::DOCUMENT_SCANNER_PROPERTY}));
 	$assignStatic(XMLDocumentScannerImpl::LOAD_EXTERNAL_DTD, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::LOAD_EXTERNAL_DTD_FEATURE}));
@@ -560,7 +438,6 @@ void clinit$XMLDocumentScannerImpl($Class* class$) {
 		XMLDocumentScannerImpl::LOAD_EXTERNAL_DTD,
 		XMLDocumentScannerImpl::DISALLOW_DOCTYPE_DECL_FEATURE
 	}));
-	$init($Boolean);
 	$assignStatic(XMLDocumentScannerImpl::FEATURE_DEFAULTS, $new($BooleanArray, {
 		$Boolean::TRUE,
 		$Boolean::FALSE
@@ -570,8 +447,8 @@ void clinit$XMLDocumentScannerImpl($Class* class$) {
 		XMLDocumentScannerImpl::VALIDATION_MANAGER
 	}));
 	$assignStatic(XMLDocumentScannerImpl::PROPERTY_DEFAULTS, $new($ObjectArray, {
-		($Object*)nullptr,
-		($Object*)nullptr
+		nullptr,
+		nullptr
 	}));
 	$assignStatic(XMLDocumentScannerImpl::DOCTYPE, $new($chars, {
 		u'D',
@@ -592,7 +469,100 @@ XMLDocumentScannerImpl::XMLDocumentScannerImpl() {
 }
 
 $Class* XMLDocumentScannerImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLDocumentScannerImpl, name, initialize, &_XMLDocumentScannerImpl_ClassInfo_, clinit$XMLDocumentScannerImpl, allocate$XMLDocumentScannerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCANNER_STATE_XML_DECL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_XML_DECL)},
+		{"SCANNER_STATE_PROLOG", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_PROLOG)},
+		{"SCANNER_STATE_TRAILING_MISC", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_TRAILING_MISC)},
+		{"SCANNER_STATE_DTD_INTERNAL_DECLS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_DTD_INTERNAL_DECLS)},
+		{"SCANNER_STATE_DTD_EXTERNAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_DTD_EXTERNAL)},
+		{"SCANNER_STATE_DTD_EXTERNAL_DECLS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_DTD_EXTERNAL_DECLS)},
+		{"SCANNER_STATE_NO_SUCH_ELEMENT_EXCEPTION", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLDocumentScannerImpl, SCANNER_STATE_NO_SUCH_ELEMENT_EXCEPTION)},
+		{"DOCUMENT_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DOCUMENT_SCANNER)},
+		{"LOAD_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, LOAD_EXTERNAL_DTD)},
+		{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DISALLOW_DOCTYPE_DECL_FEATURE)},
+		{"DTD_SCANNER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DTD_SCANNER)},
+		{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, VALIDATION_MANAGER)},
+		{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, NAMESPACE_CONTEXT)},
+		{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, RECOGNIZED_FEATURES)},
+		{"FEATURE_DEFAULTS", "[Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, FEATURE_DEFAULTS)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, RECOGNIZED_PROPERTIES)},
+		{"PROPERTY_DEFAULTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, PROPERTY_DEFAULTS)},
+		{"fDTDScanner", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDTDScanner)},
+		{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fValidationManager)},
+		{"fDTDDecl", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDTDDecl)},
+		{"fReadingDTD", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fReadingDTD)},
+		{"fAddedListener", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fAddedListener)},
+		{"fDoctypeName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDoctypeName)},
+		{"fDoctypePublicId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDoctypePublicId)},
+		{"fDoctypeSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDoctypeSystemId)},
+		{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fNamespaceContext)},
+		{"fLoadExternalDTD", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fLoadExternalDTD)},
+		{"fSeenDoctypeDecl", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fSeenDoctypeDecl)},
+		{"fScanEndElement", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fScanEndElement)},
+		{"fXMLDeclDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fXMLDeclDriver)},
+		{"fPrologDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fPrologDriver)},
+		{"fDTDDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fDTDDriver)},
+		{"fTrailingMiscDriver", "Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fTrailingMiscDriver)},
+		{"fStartPos", "I", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fStartPos)},
+		{"fEndPos", "I", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fEndPos)},
+		{"fSeenInternalSubset", "Z", nullptr, $PROTECTED, $field(XMLDocumentScannerImpl, fSeenInternalSubset)},
+		{"fStrings", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XMLDocumentScannerImpl, fStrings)},
+		{"fExternalSubsetSource", "Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PRIVATE, $field(XMLDocumentScannerImpl, fExternalSubsetSource)},
+		{"fDTDDescription", "Lcom/sun/org/apache/xerces/internal/impl/dtd/XMLDTDDescription;", nullptr, $PRIVATE | $FINAL, $field(XMLDocumentScannerImpl, fDTDDescription)},
+		{"DOCTYPE", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, DOCTYPE)},
+		{"COMMENTSTRING", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDocumentScannerImpl, COMMENTSTRING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDocumentScannerImpl, init$, void)},
+		{"createContentDriver", "()Lcom/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver;", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, createContentDriver, $XMLDocumentFragmentScannerImpl$Driver*)},
+		{"endEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, endEntity, void, $String*, $Augmentations*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getCharacterEncodingScheme, $String*)},
+		{"getDTDDecl", "()Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getDTDDecl, $XMLStringBuffer*)},
+		{"getFeatureDefault", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getFeatureDefault, $Boolean*, $String*)},
+		{"getNamespaceContext", "()Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getNamespaceContext, $NamespaceContext*)},
+		{"getPropertyDefault", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getPropertyDefault, $Object*, $String*)},
+		{"getRecognizedFeatures", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getRecognizedFeatures, $StringArray*)},
+		{"getRecognizedProperties", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getRecognizedProperties, $StringArray*)},
+		{"getScannerStateName", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, getScannerStateName, $String*, int32_t)},
+		{"getScannetState", "()I", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, getScannetState, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, next, int32_t), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"refresh", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, refresh, void, int32_t)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, reset, void, $PropertyManager*)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"scanDoctypeDecl", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, scanDoctypeDecl, bool, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setEndDTDScanState", "()V", nullptr, $PROTECTED, $virtualMethod(XMLDocumentScannerImpl, setEndDTDScanState, void)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"setInputSource", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, setInputSource, void, $XMLInputSource*), "java.io.IOException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"startEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(XMLDocumentScannerImpl, startEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$TrailingMiscDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "TrailingMiscDriver", $PROTECTED | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "ContentDriver", $PROTECTED},
+		{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$DTDDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "DTDDriver", $PROTECTED | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "PrologDriver", $PROTECTED | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$XMLDeclDriver", "com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl", "XMLDeclDriver", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl",
+		"com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$TrailingMiscDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$ContentDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$DTDDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$XMLDeclDriver"
+	};
+	$loadClass(XMLDocumentScannerImpl, name, initialize, &classInfo$$, XMLDocumentScannerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDocumentScannerImpl));
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class $export TestTitledBorderLeak : public ::java::lang::Object {
 	$class(TestTitledBorderLeak, 0, ::java::lang::Object)
 public:
 	TestTitledBorderLeak();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void attemptGCTitledBorder();
 	static int32_t getCleanedUpTitledBorderCount();

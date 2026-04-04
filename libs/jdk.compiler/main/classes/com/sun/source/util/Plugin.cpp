@@ -1,5 +1,4 @@
 #include <com/sun/source/util/Plugin.h>
-
 #include <com/sun/source/util/JavacTask.h>
 #include <jcpp.h>
 
@@ -12,32 +11,28 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$MethodInfo _Plugin_MethodInfo_[] = {
-	{"autoStart", "()Z", nullptr, $PUBLIC, $virtualMethod(Plugin, autoStart, bool)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Plugin, getName, $String*)},
-	{"init", "(Lcom/sun/source/util/JavacTask;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Plugin, init, void, $JavacTask*, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Plugin_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.util.Plugin",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Plugin_MethodInfo_
-};
-
-$Object* allocate$Plugin($Class* clazz) {
-	return $of($alloc(Plugin));
-}
-
 bool Plugin::autoStart() {
 	return false;
 }
 
 $Class* Plugin::load$($String* name, bool initialize) {
-	$loadClass(Plugin, name, initialize, &_Plugin_ClassInfo_, allocate$Plugin);
+	$MethodInfo methodInfos$$[] = {
+		{"autoStart", "()Z", nullptr, $PUBLIC, $virtualMethod(Plugin, autoStart, bool)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Plugin, getName, $String*)},
+		{"init", "(Lcom/sun/source/util/JavacTask;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Plugin, init, void, $JavacTask*, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.util.Plugin",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Plugin, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Plugin);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$ScrollableTabPanel.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -27,58 +26,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPanel = ::javax::swing::JPanel;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $UIManager = ::javax::swing::UIManager;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$CroppedEdge = ::javax::swing::plaf::basic::BasicTabbedPaneUI$CroppedEdge;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$ScrollableTabPanel_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$ScrollableTabPanel, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$ScrollableTabPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$ScrollableTabPanel, init$, void, $BasicTabbedPaneUI*)},
-	{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$ScrollableTabPanel, doLayout, void)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$ScrollableTabPanel, paintComponent, void, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$ScrollableTabPanel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabPanel", "javax.swing.plaf.basic.BasicTabbedPaneUI", "ScrollableTabPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$ScrollableTabPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabPanel",
-	"javax.swing.JPanel",
-	"javax.swing.plaf.UIResource",
-	_BasicTabbedPaneUI$ScrollableTabPanel_FieldInfo_,
-	_BasicTabbedPaneUI$ScrollableTabPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$ScrollableTabPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$ScrollableTabPanel($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$ScrollableTabPanel));
-}
 
 $String* BasicTabbedPaneUI$ScrollableTabPanel::toString() {
 	 return this->$JPanel::toString();
@@ -101,9 +56,9 @@ void BasicTabbedPaneUI$ScrollableTabPanel::finalize() {
 }
 
 void BasicTabbedPaneUI$ScrollableTabPanel::init$($BasicTabbedPaneUI* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$JPanel::init$(($LayoutManager*)nullptr);
+	$JPanel::init$(nullptr);
 	setOpaque($nc(this$0->tabPane)->isOpaque());
 	$var($Color, background, $nc(this$0->tabPane)->getBackground());
 	$var($Color, tabAreaBackground, $UIManager::getColor("TabbedPane.tabAreaBackground"_s));
@@ -115,16 +70,14 @@ void BasicTabbedPaneUI$ScrollableTabPanel::init$($BasicTabbedPaneUI* this$0) {
 }
 
 void BasicTabbedPaneUI$ScrollableTabPanel::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
 	$JPanel::paintComponent(g);
-	$var($Graphics, var$0, g);
-	int32_t var$1 = $nc(this->this$0->tabPane)->getTabPlacement();
-	this->this$0->paintTabArea(var$0, var$1, $nc(this->this$0->tabPane)->getSelectedIndex());
+	int32_t var$0 = $nc(this->this$0->tabPane)->getTabPlacement();
+	this->this$0->paintTabArea(g, var$0, this->this$0->tabPane->getSelectedIndex());
 	if ($nc($nc(this->this$0->tabScroller)->croppedEdge)->isParamsSet() && this->this$0->tabContainer == nullptr) {
 		$var($Rectangle, croppedRect, $nc(this->this$0->rects)->get($nc($nc(this->this$0->tabScroller)->croppedEdge)->getTabIndex()));
-		$nc(g)->translate($nc(croppedRect)->x, croppedRect->y);
+		$nc(g)->translate($nc(croppedRect)->x, $nc(croppedRect)->y);
 		$nc($nc(this->this$0->tabScroller)->croppedEdge)->paintComponent(g);
-		g->translate(-$nc(croppedRect)->x, -croppedRect->y);
+		g->translate(-croppedRect->x, -croppedRect->y);
 	}
 }
 
@@ -140,7 +93,43 @@ BasicTabbedPaneUI$ScrollableTabPanel::BasicTabbedPaneUI$ScrollableTabPanel() {
 }
 
 $Class* BasicTabbedPaneUI$ScrollableTabPanel::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$ScrollableTabPanel, name, initialize, &_BasicTabbedPaneUI$ScrollableTabPanel_ClassInfo_, allocate$BasicTabbedPaneUI$ScrollableTabPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$ScrollableTabPanel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$ScrollableTabPanel, init$, void, $BasicTabbedPaneUI*)},
+		{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$ScrollableTabPanel, doLayout, void)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$ScrollableTabPanel, paintComponent, void, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabPanel", "javax.swing.plaf.basic.BasicTabbedPaneUI", "ScrollableTabPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabPanel",
+		"javax.swing.JPanel",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$ScrollableTabPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTabbedPaneUI$ScrollableTabPanel));
+	});
 	return class$;
 }
 

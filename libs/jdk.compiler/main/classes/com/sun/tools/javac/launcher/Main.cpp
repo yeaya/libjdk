@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/launcher/Main.h>
-
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/tools/javac/api/JavacTool.h>
 #include <com/sun/tools/javac/code/Source.h>
@@ -18,8 +17,6 @@
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/PrintWriter.h>
-#include <java/io/Reader.h>
-#include <java/io/Writer.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
@@ -41,7 +38,6 @@
 #include <java/text/MessageFormat.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -51,7 +47,6 @@
 #include <javax/lang/model/element/TypeElement.h>
 #include <javax/tools/DiagnosticListener.h>
 #include <javax/tools/JavaCompiler$CompilationTask.h>
-#include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject$Kind.h>
 #include <javax/tools/JavaFileObject.h>
@@ -82,14 +77,10 @@ using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -114,17 +105,13 @@ using $Paths = ::java::nio::file::Paths;
 using $MessageFormat = ::java::text::MessageFormat;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $MissingResourceException = ::java::util::MissingResourceException;
 using $ResourceBundle = ::java::util::ResourceBundle;
-using $Name = ::javax::lang::model::element::Name;
-using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
-using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
@@ -137,62 +124,11 @@ namespace com {
 			namespace javac {
 				namespace launcher {
 
-$FieldInfo _Main_FieldInfo_[] = {
-	{"out", "Ljava/io/PrintWriter;", nullptr, $PRIVATE, $field(Main, out)},
-	{"bundleName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, bundleName)},
-	{"resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $field(Main, resourceBundle)},
-	{"errorPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, errorPrefix)},
-	{}
-};
-
-$MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintStream*)},
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintWriter*)},
-	{"compile", "(Ljava/nio/file/Path;Ljava/util/List;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", $PRIVATE, $method(Main, compile, $String*, $Path*, $List*, $Main$Context*), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"execute", "(Ljava/lang/String;[Ljava/lang/String;Lcom/sun/tools/javac/launcher/Main$Context;)V", nullptr, $PRIVATE, $method(Main, execute, void, $String*, $StringArray*, $Main$Context*), "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
-	{"getFile", "([Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(Main, getFile, $Path*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"getJavacOpts", "([Ljava/lang/String;)Ljava/util/List;", "([Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $method(Main, getJavacOpts, $List*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"getMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, getMessage, $String*, $JCDiagnostic$Error*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Main, main, void, $StringArray*), "java.lang.Throwable"},
-	{"readFile", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(Main, readFile, $JavaFileObject*, $Path*), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"run", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main, run, void, $StringArray*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
-	{}
-};
-
-$InnerClassInfo _Main_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.launcher.Main$MemoryClassLoader", "com.sun.tools.javac.launcher.Main", "MemoryClassLoader", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.launcher.Main$MemoryFileManager", "com.sun.tools.javac.launcher.Main", "MemoryFileManager", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.launcher.Main$Context", "com.sun.tools.javac.launcher.Main", "Context", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.launcher.Main$MainClassListener", "com.sun.tools.javac.launcher.Main", "MainClassListener", $STATIC},
-	{"com.sun.tools.javac.launcher.Main$Fault", "com.sun.tools.javac.launcher.Main", "Fault", $PUBLIC},
-	{"com.sun.tools.javac.launcher.Main$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Main_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.launcher.Main",
-	"java.lang.Object",
-	nullptr,
-	_Main_FieldInfo_,
-	_Main_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.launcher.Main$MemoryClassLoader,com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection,com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLStreamHandler,com.sun.tools.javac.launcher.Main$MemoryClassLoader$1,com.sun.tools.javac.launcher.Main$MemoryFileManager,com.sun.tools.javac.launcher.Main$MemoryFileManager$1,com.sun.tools.javac.launcher.Main$MemoryFileManager$1$1,com.sun.tools.javac.launcher.Main$Context,com.sun.tools.javac.launcher.Main$MainClassListener,com.sun.tools.javac.launcher.Main$Fault,com.sun.tools.javac.launcher.Main$1"
-};
-
-$Object* allocate$Main($Class* clazz) {
-	return $of($alloc(Main));
-}
-
 $String* Main::bundleName = nullptr;
 
 void Main::main($StringArray* args) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$$new(Main, $System::err)->run($($VM::getRuntimeArguments()), args);
 	} catch ($Main$Fault& f) {
@@ -204,8 +140,8 @@ void Main::main($StringArray* args) {
 }
 
 void Main::init$($PrintStream* out) {
-	$useLocalCurrentObjectStackCache();
-	Main::init$($$new($PrintWriter, static_cast<$Writer*>($$new($OutputStreamWriter, out)), true));
+	$useLocalObjectStack();
+	Main::init$($$new($PrintWriter, $$new($OutputStreamWriter, out), true));
 }
 
 void Main::init$($PrintWriter* out) {
@@ -214,25 +150,25 @@ void Main::init$($PrintWriter* out) {
 }
 
 void Main::run($StringArray* runtimeArgs, $StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, file, getFile(args));
 	$var($Main$Context, context, $new($Main$Context, $($nc(file)->toAbsolutePath())));
 	$var($String, mainClassName, compile(file, $(getJavacOpts(runtimeArgs)), context));
-	$var($StringArray, appArgs, $fcast($StringArray, $Arrays::copyOfRange(args, 1, $nc(args)->length)));
+	$var($StringArray, appArgs, $cast($StringArray, $Arrays::copyOfRange(args, 1, $nc(args)->length)));
 	execute(mainClassName, appArgs, context);
 }
 
 $Path* Main::getFile($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length == 0) {
 		$init($LauncherProperties$Errors);
 		$throwNew($Main$Fault, this, $LauncherProperties$Errors::NoArgs);
 	}
 	$var($Path, file, nullptr);
 	try {
-		$assign(file, $Paths::get($nc(args)->get(0), $$new($StringArray, 0)));
+		$assign(file, $Paths::get(args->get(0), $$new($StringArray, 0)));
 	} catch ($InvalidPathException& e) {
-		$throwNew($Main$Fault, this, $($LauncherProperties$Errors::InvalidFilename($nc(args)->get(0))));
+		$throwNew($Main$Fault, this, $($LauncherProperties$Errors::InvalidFilename(args->get(0))));
 	}
 	if (!$Files::exists(file, $$new($LinkOptionArray, 0))) {
 		$throwNew($Main$Fault, this, $($LauncherProperties$Errors::FileNotFound(file)));
@@ -241,90 +177,86 @@ $Path* Main::getFile($StringArray* args) {
 }
 
 $JavaFileObject* Main::readFile($Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($BufferedInputStream, in, $new($BufferedInputStream, $($Files::newInputStream(file, $$new($OpenOptionArray, 0)))));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($JavaFileObject, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($JavaFileObject, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					bool ignoreFirstLine = false;
-					if ($nc($($nc($($nc(file)->getFileName()))->toString()))->endsWith(".java"_s)) {
-						ignoreFirstLine = false;
-					} else {
-						in->mark(2);
-						bool var$3 = (in->read() == u'#');
-						ignoreFirstLine = var$3 && (in->read() == u'!');
-						if (!ignoreFirstLine) {
-							in->reset();
-						}
+				bool ignoreFirstLine = false;
+				if ($$nc($$nc($nc(file)->getFileName())->toString())->endsWith(".java"_s)) {
+					ignoreFirstLine = false;
+				} else {
+					in->mark(2);
+					bool var$3 = in->read() == u'#';
+					ignoreFirstLine = var$3 && (in->read() == u'!');
+					if (!ignoreFirstLine) {
+						in->reset();
 					}
-					{
-						$var($BufferedReader, r, $new($BufferedReader, $$new($InputStreamReader, static_cast<$InputStream*>(in), $($Charset::defaultCharset()))));
-						{
-							$var($Throwable, var$4, nullptr);
-							$var($JavaFileObject, var$6, nullptr);
-							bool return$5 = false;
-							try {
-								try {
-									$var($StringBuilder, sb, $new($StringBuilder));
-									if (ignoreFirstLine) {
-										r->readLine();
-										sb->append("\n"_s);
-									}
-									$var($chars, buf, $new($chars, 1024));
-									int32_t n = 0;
-									while ((n = r->read(buf, 0, buf->length)) != -1) {
-										sb->append(buf, 0, n);
-									}
-									$init($JavaFileObject$Kind);
-									$assign(var$6, $new($Main$1, this, $($nc(file)->toUri()), $JavaFileObject$Kind::SOURCE, file, sb));
-									return$5 = true;
-									goto $finally1;
-								} catch ($Throwable& t$) {
-									try {
-										r->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$7) {
-								$assign(var$4, var$7);
-							} $finally1: {
-								r->close();
-							}
-							if (var$4 != nullptr) {
-								$throw(var$4);
-							}
-							if (return$5) {
-								$assign(var$2, var$6);
-								return$1 = true;
-								goto $finally;
-							}
-						}
-					}
-				} catch ($Throwable& t$) {
-					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$8) {
-				$assign(var$0, var$8);
-			} $finally: {
-				in->close();
+				{
+					$var($BufferedReader, r, $new($BufferedReader, $$new($InputStreamReader, in, $($Charset::defaultCharset()))));
+					$var($Throwable, var$4, nullptr);
+					$var($JavaFileObject, var$6, nullptr);
+					bool return$5 = false;
+					try {
+						try {
+							$var($StringBuilder, sb, $new($StringBuilder));
+							if (ignoreFirstLine) {
+								r->readLine();
+								sb->append("\n"_s);
+							}
+							$var($chars, buf, $new($chars, 1024));
+							int32_t n = 0;
+							while ((n = r->read(buf, 0, buf->length)) != -1) {
+								sb->append(buf, 0, n);
+							}
+							$init($JavaFileObject$Kind);
+							$assign(var$6, $new($Main$1, this, $(file->toUri()), $JavaFileObject$Kind::SOURCE, file, sb));
+							return$5 = true;
+							goto $finally1;
+						} catch ($Throwable& t$) {
+							try {
+								r->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
+						}
+					} catch ($Throwable& var$7) {
+						$assign(var$4, var$7);
+					} $finally1: {
+						r->close();
+					}
+					if (var$4 != nullptr) {
+						$throw(var$4);
+					}
+					if (return$5) {
+						$assign(var$2, var$6);
+						return$1 = true;
+						goto $finally;
+					}
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$8) {
+			$assign(var$0, var$8);
+		} $finally: {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($IOException& e) {
 		$throwNew($Main$Fault, this, $($LauncherProperties$Errors::CantReadFile(file, e)));
@@ -333,7 +265,7 @@ $JavaFileObject* Main::readFile($Path* file) {
 }
 
 $List* Main::getJavacOpts($StringArray* runtimeArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, javacOpts, $new($ArrayList));
 	$var($String, sourceOpt, $System::getProperty("jdk.internal.javac.source"_s));
 	if (sourceOpt != nullptr) {
@@ -348,7 +280,7 @@ $List* Main::getJavacOpts($StringArray* runtimeArgs) {
 		$var($String, opt, arg);
 		$var($String, value, nullptr);
 		if ($nc(arg)->startsWith("--"_s)) {
-			int32_t eq = arg->indexOf((int32_t)u'=');
+			int32_t eq = arg->indexOf(u'=');
 			if (eq > 0) {
 				$assign(opt, arg->substring(0, eq));
 				$assign(value, arg->substring(eq + 1));
@@ -358,103 +290,72 @@ $List* Main::getJavacOpts($StringArray* runtimeArgs) {
 			$var($String, s12177$, opt);
 			int32_t tmp12177$ = -1;
 			switch ($nc(s12177$)->hashCode()) {
-			case 0x725D84FA:
-				{
-					if (s12177$->equals("--class-path"_s)) {
-						tmp12177$ = 0;
-					}
-					break;
+			case 0x725d84fa:
+				if (s12177$->equals("--class-path"_s)) {
+					tmp12177$ = 0;
 				}
-			case (int32_t)0xF0617410:
-				{
-					if (s12177$->equals("-classpath"_s)) {
-						tmp12177$ = 1;
-					}
-					break;
+				break;
+			case (int32_t)0xf0617410:
+				if (s12177$->equals("-classpath"_s)) {
+					tmp12177$ = 1;
 				}
-			case 0x0000B55A:
-				{
-					if (s12177$->equals("-cp"_s)) {
-						tmp12177$ = 2;
-					}
-					break;
+				break;
+			case 0x0000b55a:
+				if (s12177$->equals("-cp"_s)) {
+					tmp12177$ = 2;
 				}
-			case (int32_t)0xFD483946:
-				{
-					if (s12177$->equals("--module-path"_s)) {
-						tmp12177$ = 3;
-					}
-					break;
+				break;
+			case (int32_t)0xfd483946:
+				if (s12177$->equals("--module-path"_s)) {
+					tmp12177$ = 3;
 				}
+				break;
 			case 1507:
-				{
-					if (s12177$->equals("-p"_s)) {
-						tmp12177$ = 4;
-					}
-					break;
+				if (s12177$->equals("-p"_s)) {
+					tmp12177$ = 4;
 				}
-			case (int32_t)0xFDE3C473:
-				{
-					if (s12177$->equals("--add-exports"_s)) {
-						tmp12177$ = 5;
-					}
-					break;
+				break;
+			case (int32_t)0xfde3c473:
+				if (s12177$->equals("--add-exports"_s)) {
+					tmp12177$ = 5;
 				}
-			case (int32_t)0x951388BB:
-				{
-					if (s12177$->equals("--add-modules"_s)) {
-						tmp12177$ = 6;
-					}
-					break;
+				break;
+			case (int32_t)0x951388bb:
+				if (s12177$->equals("--add-modules"_s)) {
+					tmp12177$ = 6;
 				}
-			case (int32_t)0x98F189D5:
-				{
-					if (s12177$->equals("--limit-modules"_s)) {
-						tmp12177$ = 7;
-					}
-					break;
+				break;
+			case (int32_t)0x98f189d5:
+				if (s12177$->equals("--limit-modules"_s)) {
+					tmp12177$ = 7;
 				}
-			case (int32_t)0xB1612531:
-				{
-					if (s12177$->equals("--patch-module"_s)) {
-						tmp12177$ = 8;
-					}
-					break;
+				break;
+			case (int32_t)0xb1612531:
+				if (s12177$->equals("--patch-module"_s)) {
+					tmp12177$ = 8;
 				}
-			case 0x450C3B15:
-				{
-					if (s12177$->equals("--upgrade-module-path"_s)) {
-						tmp12177$ = 9;
-					}
-					break;
+				break;
+			case 0x450c3b15:
+				if (s12177$->equals("--upgrade-module-path"_s)) {
+					tmp12177$ = 9;
 				}
-			case (int32_t)0xB278671E:
-				{
-					if (s12177$->equals("--enable-preview"_s)) {
-						tmp12177$ = 10;
-					}
-					break;
+				break;
+			case (int32_t)0xb278671e:
+				if (s12177$->equals("--enable-preview"_s)) {
+					tmp12177$ = 10;
 				}
+				break;
 			}
 			switch (tmp12177$) {
 			case 0:
-				{}
 			case 1:
-				{}
 			case 2:
-				{}
 			case 3:
-				{}
 			case 4:
-				{}
 			case 5:
-				{}
 			case 6:
-				{}
 			case 7:
-				{}
 			case 8:
-				{}
 			case 9:
 				{
 					if (value == nullptr) {
@@ -472,18 +373,16 @@ $List* Main::getJavacOpts($StringArray* runtimeArgs) {
 					break;
 				}
 			case 10:
-				{
-					javacOpts->add(opt);
-					if (sourceOpt == nullptr) {
-						$init($LauncherProperties$Errors);
-						$throwNew($Main$Fault, this, $LauncherProperties$Errors::EnablePreviewRequiresSource);
-					}
-					break;
+				javacOpts->add(opt);
+				if (sourceOpt == nullptr) {
+					$init($LauncherProperties$Errors);
+					$throwNew($Main$Fault, this, $LauncherProperties$Errors::EnablePreviewRequiresSource);
 				}
+				break;
 			default:
 				{
 					bool var$1 = $nc(opt)->startsWith("-agentlib:jdwp="_s);
-					if (var$1 || $nc(opt)->startsWith("-Xrunjdwp:"_s)) {
+					if (var$1 || opt->startsWith("-Xrunjdwp:"_s)) {
 						javacOpts->add("-g"_s);
 					}
 				}
@@ -496,7 +395,7 @@ $List* Main::getJavacOpts($StringArray* runtimeArgs) {
 }
 
 $String* Main::compile($Path* file, $List* javacOpts, $Main$Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, fo, readFile(file));
 	$var($JavacTool, javaCompiler, $JavacTool::create());
 	$var($StandardJavaFileManager, stdFileMgr, $nc(javaCompiler)->getStandardFileManager(nullptr, nullptr, nullptr));
@@ -507,7 +406,7 @@ $String* Main::compile($Path* file, $List* javacOpts, $Main$Context* context) {
 		$throwNew($Error, "unexpected exception from file manager"_s, e);
 	}
 	$var($JavaFileManager, fm, $nc(context)->getFileManager(stdFileMgr));
-	$var($JavacTask, t, $cast($JavacTask, javaCompiler->getTask(this->out, fm, nullptr, javacOpts, nullptr, $($List::of($of(fo))))));
+	$var($JavacTask, t, $cast($JavacTask, javaCompiler->getTask(this->out, fm, nullptr, javacOpts, nullptr, $($List::of(fo)))));
 	$var($Main$MainClassListener, l, $new($Main$MainClassListener, t));
 	$var($Boolean, ok, $cast($Boolean, $nc(t)->call()));
 	if (!$nc(ok)->booleanValue()) {
@@ -518,30 +417,28 @@ $String* Main::compile($Path* file, $List* javacOpts, $Main$Context* context) {
 		$init($LauncherProperties$Errors);
 		$throwNew($Main$Fault, this, $LauncherProperties$Errors::NoClass);
 	}
-	$var($String, mainClassName, $nc($of($($nc(l->mainClass)->getQualifiedName())))->toString());
+	$var($String, mainClassName, $$nc($nc(l->mainClass)->getQualifiedName())->toString());
 	return mainClassName;
 }
 
 void Main::execute($String* mainClassName, $StringArray* appArgs, $Main$Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$System::setProperty("jdk.launcher.sourcefile"_s, $($nc($nc(context)->file)->toString()));
-	$var($ClassLoader, cl, $nc(context)->getClassLoader($($ClassLoader::getSystemClassLoader())));
+	$var($ClassLoader, cl, context->getClassLoader($($ClassLoader::getSystemClassLoader())));
 	try {
 		$Class* appClass = $Class::forName(mainClassName, true, cl);
-		$load($StringArray);
-		$var($Method, main, $nc(appClass)->getDeclaredMethod("main"_s, $$new($ClassArray, {$getClass($StringArray)})));
+		$var($Method, main, appClass->getDeclaredMethod("main"_s, $$new($ClassArray, {$getClass($StringArray)})));
 		int32_t PUBLIC_STATIC = $Modifier::PUBLIC | $Modifier::STATIC;
-		if (((int32_t)($nc(main)->getModifiers() & (uint32_t)PUBLIC_STATIC)) != PUBLIC_STATIC) {
+		if (($nc(main)->getModifiers() & PUBLIC_STATIC) != PUBLIC_STATIC) {
 			$init($LauncherProperties$Errors);
 			$throwNew($Main$Fault, this, $LauncherProperties$Errors::MainNotPublicStatic);
 		}
-		$init($Void);
-		if (!$nc($of($nc(main)->getReturnType()))->equals($Void::TYPE)) {
+		if (!$nc(main->getReturnType())->equals($Void::TYPE)) {
 			$init($LauncherProperties$Errors);
 			$throwNew($Main$Fault, this, $LauncherProperties$Errors::MainNotVoid);
 		}
-		$nc(main)->setAccessible(true);
+		main->setAccessible(true);
 		main->invoke($($Integer::valueOf(0)), $$new($ObjectArray, {$of(appArgs)}));
 	} catch ($ClassNotFoundException& e) {
 		$throwNew($Main$Fault, this, $($LauncherProperties$Errors::CantFindClass(mainClassName)));
@@ -553,13 +450,13 @@ void Main::execute($String* mainClassName, $StringArray* appArgs, $Main$Context*
 		int32_t invocationFrames = $nc($(e->getStackTrace()))->length;
 		$var($Throwable, target, e->getCause());
 		$var($StackTraceElementArray, targetTrace, $nc(target)->getStackTrace());
-		target->setStackTrace($fcast($StackTraceElementArray, $($Arrays::copyOfRange(targetTrace, 0, $nc(targetTrace)->length - invocationFrames))));
+		target->setStackTrace($$cast($StackTraceElementArray, $Arrays::copyOfRange(targetTrace, 0, $nc(targetTrace)->length - invocationFrames)));
 		$throw(e);
 	}
 }
 
 $String* Main::getMessage($JCDiagnostic$Error* error) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, key, $nc(error)->key());
 	$var($ObjectArray, args, error->getArgs());
@@ -580,12 +477,57 @@ $String* Main::getMessage($JCDiagnostic$Error* error) {
 Main::Main() {
 }
 
-void clinit$Main($Class* class$) {
+void Main::clinit$($Class* clazz) {
 	$assignStatic(Main::bundleName, "com.sun.tools.javac.resources.launcher"_s);
 }
 
 $Class* Main::load$($String* name, bool initialize) {
-	$loadClass(Main, name, initialize, &_Main_ClassInfo_, clinit$Main, allocate$Main);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/PrintWriter;", nullptr, $PRIVATE, $field(Main, out)},
+		{"bundleName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, bundleName)},
+		{"resourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $field(Main, resourceBundle)},
+		{"errorPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, errorPrefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintStream*)},
+		{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintWriter*)},
+		{"compile", "(Ljava/nio/file/Path;Ljava/util/List;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", $PRIVATE, $method(Main, compile, $String*, $Path*, $List*, $Main$Context*), "com.sun.tools.javac.launcher.Main$Fault"},
+		{"execute", "(Ljava/lang/String;[Ljava/lang/String;Lcom/sun/tools/javac/launcher/Main$Context;)V", nullptr, $PRIVATE, $method(Main, execute, void, $String*, $StringArray*, $Main$Context*), "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
+		{"getFile", "([Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(Main, getFile, $Path*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault"},
+		{"getJavacOpts", "([Ljava/lang/String;)Ljava/util/List;", "([Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $method(Main, getJavacOpts, $List*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault"},
+		{"getMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, getMessage, $String*, $JCDiagnostic$Error*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Main, main, void, $StringArray*), "java.lang.Throwable"},
+		{"readFile", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(Main, readFile, $JavaFileObject*, $Path*), "com.sun.tools.javac.launcher.Main$Fault"},
+		{"run", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main, run, void, $StringArray*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.launcher.Main$MemoryClassLoader", "com.sun.tools.javac.launcher.Main", "MemoryClassLoader", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.launcher.Main$MemoryFileManager", "com.sun.tools.javac.launcher.Main", "MemoryFileManager", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.launcher.Main$Context", "com.sun.tools.javac.launcher.Main", "Context", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.launcher.Main$MainClassListener", "com.sun.tools.javac.launcher.Main", "MainClassListener", $STATIC},
+		{"com.sun.tools.javac.launcher.Main$Fault", "com.sun.tools.javac.launcher.Main", "Fault", $PUBLIC},
+		{"com.sun.tools.javac.launcher.Main$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.launcher.Main",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.launcher.Main$MemoryClassLoader,com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection,com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLStreamHandler,com.sun.tools.javac.launcher.Main$MemoryClassLoader$1,com.sun.tools.javac.launcher.Main$MemoryFileManager,com.sun.tools.javac.launcher.Main$MemoryFileManager$1,com.sun.tools.javac.launcher.Main$MemoryFileManager$1$1,com.sun.tools.javac.launcher.Main$Context,com.sun.tools.javac.launcher.Main$MainClassListener,com.sun.tools.javac.launcher.Main$Fault,com.sun.tools.javac.launcher.Main$1"
+	};
+	$loadClass(Main, name, initialize, &classInfo$$, Main::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Main);
+	});
 	return class$;
 }
 

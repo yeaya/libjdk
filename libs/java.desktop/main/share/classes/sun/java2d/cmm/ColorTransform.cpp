@@ -1,5 +1,4 @@
 #include <sun/java2d/cmm/ColorTransform.h>
-
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
@@ -16,41 +15,36 @@ namespace sun {
 	namespace java2d {
 		namespace cmm {
 
-$FieldInfo _ColorTransform_FieldInfo_[] = {
-	{"Any", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Any)},
-	{"In", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, In)},
-	{"Out", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Out)},
-	{"Gamut", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Gamut)},
-	{"Simulation", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Simulation)},
-	{}
-};
-
-$MethodInfo _ColorTransform_MethodInfo_[] = {
-	{"colorConvert", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, void, $BufferedImage*, $BufferedImage*)},
-	{"colorConvert", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;[F[F[F[F)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, void, $Raster*, $WritableRaster*, $floats*, $floats*, $floats*, $floats*)},
-	{"colorConvert", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, void, $Raster*, $WritableRaster*)},
-	{"colorConvert", "([S[S)[S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, $shorts*, $shorts*, $shorts*)},
-	{"colorConvert", "([B[B)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, $bytes*, $bytes*, $bytes*)},
-	{"getNumInComponents", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, getNumInComponents, int32_t)},
-	{"getNumOutComponents", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, getNumOutComponents, int32_t)},
-	{}
-};
-
-$ClassInfo _ColorTransform_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.cmm.ColorTransform",
-	nullptr,
-	nullptr,
-	_ColorTransform_FieldInfo_,
-	_ColorTransform_MethodInfo_
-};
-
-$Object* allocate$ColorTransform($Class* clazz) {
-	return $of($alloc(ColorTransform));
-}
-
 $Class* ColorTransform::load$($String* name, bool initialize) {
-	$loadClass(ColorTransform, name, initialize, &_ColorTransform_ClassInfo_, allocate$ColorTransform);
+	$FieldInfo fieldInfos$$[] = {
+		{"Any", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Any)},
+		{"In", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, In)},
+		{"Out", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Out)},
+		{"Gamut", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Gamut)},
+		{"Simulation", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ColorTransform, Simulation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"colorConvert", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, void, $BufferedImage*, $BufferedImage*)},
+		{"colorConvert", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;[F[F[F[F)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, void, $Raster*, $WritableRaster*, $floats*, $floats*, $floats*, $floats*)},
+		{"colorConvert", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, void, $Raster*, $WritableRaster*)},
+		{"colorConvert", "([S[S)[S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, $shorts*, $shorts*, $shorts*)},
+		{"colorConvert", "([B[B)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, colorConvert, $bytes*, $bytes*, $bytes*)},
+		{"getNumInComponents", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, getNumInComponents, int32_t)},
+		{"getNumOutComponents", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ColorTransform, getNumOutComponents, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.cmm.ColorTransform",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorTransform);
+	});
 	return class$;
 }
 

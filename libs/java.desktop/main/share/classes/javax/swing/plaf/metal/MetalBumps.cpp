@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBumps.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -42,43 +41,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalBumps_FieldInfo_[] = {
-	{"ALPHA", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(MetalBumps, ALPHA)},
-	{"xBumps", "I", nullptr, $PROTECTED, $field(MetalBumps, xBumps)},
-	{"yBumps", "I", nullptr, $PROTECTED, $field(MetalBumps, yBumps)},
-	{"topColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalBumps, topColor)},
-	{"shadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalBumps, shadowColor)},
-	{"backColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalBumps, backColor)},
-	{"METAL_BUMPS", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalBumps, METAL_BUMPS)},
-	{"buffer", "Ljavax/swing/plaf/metal/BumpBuffer;", nullptr, $PROTECTED, $field(MetalBumps, buffer)},
-	{}
-};
-
-$MethodInfo _MetalBumps_MethodInfo_[] = {
-	{"<init>", "(IILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MetalBumps, init$, void, int32_t, int32_t, $Color*, $Color*, $Color*)},
-	{"createBuffer", "(Ljava/awt/GraphicsConfiguration;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/plaf/metal/BumpBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalBumps, createBuffer, $BumpBuffer*, $GraphicsConfiguration*, $Color*, $Color*, $Color*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalBumps, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalBumps, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"setBumpArea", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, setBumpArea, void, $Dimension*)},
-	{"setBumpArea", "(II)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, setBumpArea, void, int32_t, int32_t)},
-	{"setBumpColors", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, setBumpColors, void, $Color*, $Color*, $Color*)},
-	{}
-};
-
-$ClassInfo _MetalBumps_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBumps",
-	"java.lang.Object",
-	"javax.swing.Icon",
-	_MetalBumps_FieldInfo_,
-	_MetalBumps_MethodInfo_
-};
-
-$Object* allocate$MetalBumps($Class* clazz) {
-	return $of($alloc(MetalBumps));
-}
-
 $Color* MetalBumps::ALPHA = nullptr;
 $Object* MetalBumps::METAL_BUMPS = nullptr;
 
@@ -89,7 +51,7 @@ void MetalBumps::init$(int32_t width, int32_t height, $Color* newTopColor, $Colo
 
 $BumpBuffer* MetalBumps::createBuffer($GraphicsConfiguration* gc, $Color* topColor, $Color* shadowColor, $Color* backColor) {
 	$init(MetalBumps);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, context, $AppContext::getAppContext());
 	$var($List, buffers, $cast($List, $nc(context)->get(MetalBumps::METAL_BUMPS)));
 	if (buffers == nullptr) {
@@ -100,10 +62,8 @@ $BumpBuffer* MetalBumps::createBuffer($GraphicsConfiguration* gc, $Color* topCol
 		$var($Iterator, i$, $nc(buffers)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($BumpBuffer, buffer, $cast($BumpBuffer, i$->next()));
-			{
-				if ($nc(buffer)->hasSameConfiguration(gc, topColor, shadowColor, backColor)) {
-					return buffer;
-				}
+			if ($nc(buffer)->hasSameConfiguration(gc, topColor, shadowColor, backColor)) {
+				return buffer;
 			}
 		}
 	}
@@ -113,7 +73,7 @@ $BumpBuffer* MetalBumps::createBuffer($GraphicsConfiguration* gc, $Color* topCol
 }
 
 void MetalBumps::setBumpArea($Dimension* bumpArea) {
-	setBumpArea($nc(bumpArea)->width, bumpArea->height);
+	setBumpArea($nc(bumpArea)->width, $nc(bumpArea)->height);
 }
 
 void MetalBumps::setBumpArea(int32_t width, int32_t height) {
@@ -132,9 +92,9 @@ void MetalBumps::setBumpColors($Color* newTopColor, $Color* newShadowColor, $Col
 }
 
 void MetalBumps::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$var($GraphicsConfiguration, gc, ($instanceOf($Graphics2D, g)) ? $nc(($cast($Graphics2D, g)))->getDeviceConfiguration() : ($GraphicsConfiguration*)nullptr);
-	if ((this->buffer == nullptr) || !$nc(this->buffer)->hasSameConfiguration(gc, this->topColor, this->shadowColor, this->backColor)) {
+	$useLocalObjectStack();
+	$var($GraphicsConfiguration, gc, ($instanceOf($Graphics2D, g)) ? $cast($Graphics2D, g)->getDeviceConfiguration() : ($GraphicsConfiguration*)nullptr);
+	if ((this->buffer == nullptr) || !this->buffer->hasSameConfiguration(gc, this->topColor, this->shadowColor, this->backColor)) {
 		$set(this, buffer, createBuffer(gc, this->topColor, this->shadowColor, this->backColor));
 	}
 	int32_t bufferWidth = $BumpBuffer::IMAGE_SIZE;
@@ -162,7 +122,7 @@ int32_t MetalBumps::getIconHeight() {
 	return this->yBumps * 2;
 }
 
-void clinit$MetalBumps($Class* class$) {
+void MetalBumps::clinit$($Class* clazz) {
 	$assignStatic(MetalBumps::ALPHA, $new($Color, 0, 0, 0, 0));
 	$assignStatic(MetalBumps::METAL_BUMPS, $new($Object));
 }
@@ -171,7 +131,39 @@ MetalBumps::MetalBumps() {
 }
 
 $Class* MetalBumps::load$($String* name, bool initialize) {
-	$loadClass(MetalBumps, name, initialize, &_MetalBumps_ClassInfo_, clinit$MetalBumps, allocate$MetalBumps);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALPHA", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(MetalBumps, ALPHA)},
+		{"xBumps", "I", nullptr, $PROTECTED, $field(MetalBumps, xBumps)},
+		{"yBumps", "I", nullptr, $PROTECTED, $field(MetalBumps, yBumps)},
+		{"topColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalBumps, topColor)},
+		{"shadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalBumps, shadowColor)},
+		{"backColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalBumps, backColor)},
+		{"METAL_BUMPS", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalBumps, METAL_BUMPS)},
+		{"buffer", "Ljavax/swing/plaf/metal/BumpBuffer;", nullptr, $PROTECTED, $field(MetalBumps, buffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MetalBumps, init$, void, int32_t, int32_t, $Color*, $Color*, $Color*)},
+		{"createBuffer", "(Ljava/awt/GraphicsConfiguration;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)Ljavax/swing/plaf/metal/BumpBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalBumps, createBuffer, $BumpBuffer*, $GraphicsConfiguration*, $Color*, $Color*, $Color*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalBumps, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalBumps, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"setBumpArea", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, setBumpArea, void, $Dimension*)},
+		{"setBumpArea", "(II)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, setBumpArea, void, int32_t, int32_t)},
+		{"setBumpColors", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(MetalBumps, setBumpColors, void, $Color*, $Color*, $Color*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBumps",
+		"java.lang.Object",
+		"javax.swing.Icon",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalBumps, name, initialize, &classInfo$$, MetalBumps::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalBumps);
+	});
 	return class$;
 }
 

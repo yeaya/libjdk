@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -31,7 +30,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
@@ -55,48 +53,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DOMUtils, init$, void)},
-	{"appendChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, appendChild, void, $Node*, $Node*)},
-	{"createElement", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, createElement, $Element*, $Document*, $String*, $String*, $String*)},
-	{"getAttributeValue", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getAttributeValue, $String*, $Element*, $String*)},
-	{"getFirstChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getFirstChildElement, $Element*, $Node*)},
-	{"getFirstChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getFirstChildElement, $Element*, $Node*, $String*, $String*), "javax.xml.crypto.MarshalException"},
-	{"getIdAttributeValue", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", "<N:Ljava/lang/Object;>(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(DOMUtils, getIdAttributeValue, $String*, $Element*, $String*)},
-	{"getLastChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getLastChildElement, $Element*, $Node*)},
-	{"getNSPrefix", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getNSPrefix, $String*, $XMLCryptoContext*, $String*)},
-	{"getNextSiblingElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getNextSiblingElement, $Element*, $Node*)},
-	{"getNextSiblingElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getNextSiblingElement, $Element*, $Node*, $String*, $String*), "javax.xml.crypto.MarshalException"},
-	{"getOwnerDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getOwnerDocument, $Document*, $Node*)},
-	{"getQNameString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getQNameString, $String*, $String*, $String*)},
-	{"getSignaturePrefix", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getSignaturePrefix, $String*, $XMLCryptoContext*)},
-	{"isNamespace", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, isNamespace, bool, $Node*)},
-	{"nodesEqual", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, nodesEqual, bool, $Node*, $Node*)},
-	{"paramsEqual", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $AlgorithmParameterSpec*, $AlgorithmParameterSpec*)},
-	{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/XPathFilter2ParameterSpec;Ljavax/xml/crypto/dsig/spec/XPathFilter2ParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $XPathFilter2ParameterSpec*, $XPathFilter2ParameterSpec*)},
-	{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $ExcC14NParameterSpec*, $ExcC14NParameterSpec*)},
-	{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/XPathFilterParameterSpec;Ljavax/xml/crypto/dsig/spec/XPathFilterParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $XPathFilterParameterSpec*, $XPathFilterParameterSpec*)},
-	{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/XSLTTransformParameterSpec;Ljavax/xml/crypto/dsig/spec/XSLTTransformParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $XSLTTransformParameterSpec*, $XSLTTransformParameterSpec*)},
-	{"removeAllChildren", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, removeAllChildren, void, $Node*)},
-	{"setAttribute", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, setAttribute, void, $Element*, $String*, $String*)},
-	{"setAttributeID", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, setAttributeID, void, $Element*, $String*, $String*)},
-	{"verifyElement", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, verifyElement, $Element*, $Element*, $String*, $String*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$ClassInfo _DOMUtils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DOMUtils_MethodInfo_
-};
-
-$Object* allocate$DOMUtils($Class* clazz) {
-	return $of($alloc(DOMUtils));
-}
-
 void DOMUtils::init$() {
 }
 
@@ -109,12 +65,12 @@ $Document* DOMUtils::getOwnerDocument($Node* node) {
 }
 
 $String* DOMUtils::getQNameString($String* prefix, $String* localName) {
-	$var($String, qName, prefix == nullptr || $nc(prefix)->length() == 0 ? localName : $str({prefix, ":"_s, localName}));
+	$var($String, qName, prefix == nullptr || prefix->length() == 0 ? localName : $str({prefix, ":"_s, localName}));
 	return qName;
 }
 
 $Element* DOMUtils::createElement($Document* doc, $String* tag, $String* nsURI, $String* prefix) {
-	$var($String, qName, (prefix == nullptr || $nc(prefix)->length() == 0) ? tag : $str({prefix, ":"_s, tag}));
+	$var($String, qName, (prefix == nullptr || prefix->length() == 0) ? tag : $str({prefix, ":"_s, tag}));
 	return $nc(doc)->createElementNS(nsURI, qName);
 }
 
@@ -146,7 +102,7 @@ $Element* DOMUtils::getFirstChildElement($Node* node, $String* localName, $Strin
 }
 
 $Element* DOMUtils::verifyElement($Element* elem, $String* localName, $String* namespaceURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (elem == nullptr) {
 		$throwNew($MarshalException, $$str({"Missing "_s, localName, " element"_s}));
 	}
@@ -181,7 +137,7 @@ $Element* DOMUtils::getNextSiblingElement($Node* node, $String* localName, $Stri
 
 $String* DOMUtils::getAttributeValue($Element* elem, $String* name) {
 	$var($Attr, attr, $nc(elem)->getAttributeNodeNS(nullptr, name));
-	return (attr == nullptr) ? ($String*)nullptr : $nc(attr)->getValue();
+	return (attr == nullptr) ? ($String*)nullptr : attr->getValue();
 }
 
 $String* DOMUtils::getIdAttributeValue($Element* elem, $String* name) {
@@ -189,7 +145,7 @@ $String* DOMUtils::getIdAttributeValue($Element* elem, $String* name) {
 	if (attr != nullptr && !attr->isId()) {
 		elem->setIdAttributeNode(attr, true);
 	}
-	return (attr == nullptr) ? ($String*)nullptr : $nc(attr)->getValue();
+	return (attr == nullptr) ? ($String*)nullptr : attr->getValue();
 }
 
 $String* DOMUtils::getNSPrefix($XMLCryptoContext* context, $String* nsURI) {
@@ -206,7 +162,7 @@ $String* DOMUtils::getSignaturePrefix($XMLCryptoContext* context) {
 }
 
 void DOMUtils::removeAllChildren($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, firstChild, $nc(node)->getFirstChild());
 	while (firstChild != nullptr) {
 		$var($Node, nodeToRemove, firstChild);
@@ -220,7 +176,7 @@ bool DOMUtils::nodesEqual($Node* thisNode, $Node* otherNode) {
 }
 
 void DOMUtils::appendChild($Node* parent, $Node* child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, getOwnerDocument(parent));
 	if ($nc(child)->getOwnerDocument() != ownerDoc) {
 		$nc(parent)->appendChild($($nc(ownerDoc)->importNode(child, true)));
@@ -249,7 +205,7 @@ bool DOMUtils::paramsEqual($AlgorithmParameterSpec* spec1, $AlgorithmParameterSp
 }
 
 bool DOMUtils::paramsEqual($XPathFilter2ParameterSpec* spec1, $XPathFilter2ParameterSpec* spec2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, types, $nc(spec1)->getXPathList());
 	$var($List, otypes, $nc(spec2)->getXPathList());
 	int32_t size = $nc(types)->size();
@@ -258,11 +214,11 @@ bool DOMUtils::paramsEqual($XPathFilter2ParameterSpec* spec1, $XPathFilter2Param
 	}
 	for (int32_t i = 0; i < size; ++i) {
 		$var($XPathType, type, $cast($XPathType, types->get(i)));
-		$var($XPathType, otype, $cast($XPathType, $nc(otypes)->get(i)));
-		bool var$1 = !$nc($($nc(type)->getExpression()))->equals($($nc(otype)->getExpression()));
-		bool var$0 = var$1 || !$nc($($nc(type)->getNamespaceMap()))->equals($($nc(otype)->getNamespaceMap()));
+		$var($XPathType, otype, $cast($XPathType, otypes->get(i)));
+		bool var$1 = !$$nc($nc(type)->getExpression())->equals($($nc(otype)->getExpression()));
+		bool var$0 = var$1 || !$$nc(type->getNamespaceMap())->equals($(otype->getNamespaceMap()));
 		if (!var$0) {
-			var$0 = $nc(type)->getFilter() != $nc(otype)->getFilter();
+			var$0 = type->getFilter() != otype->getFilter();
 		}
 		if (var$0) {
 			return false;
@@ -272,25 +228,25 @@ bool DOMUtils::paramsEqual($XPathFilter2ParameterSpec* spec1, $XPathFilter2Param
 }
 
 bool DOMUtils::paramsEqual($ExcC14NParameterSpec* spec1, $ExcC14NParameterSpec* spec2) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(spec1)->getPrefixList()))->equals($($nc(spec2)->getPrefixList()));
+	$useLocalObjectStack();
+	return $$nc($nc(spec1)->getPrefixList())->equals($($nc(spec2)->getPrefixList()));
 }
 
 bool DOMUtils::paramsEqual($XPathFilterParameterSpec* spec1, $XPathFilterParameterSpec* spec2) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($($nc(spec1)->getXPath()))->equals($($nc(spec2)->getXPath()));
-	return var$0 && $nc($(spec1->getNamespaceMap()))->equals($($nc(spec2)->getNamespaceMap()));
+	$useLocalObjectStack();
+	bool var$0 = $$nc($nc(spec1)->getXPath())->equals($($nc(spec2)->getXPath()));
+	return var$0 && $$nc(spec1->getNamespaceMap())->equals($(spec2->getNamespaceMap()));
 }
 
 bool DOMUtils::paramsEqual($XSLTTransformParameterSpec* spec1, $XSLTTransformParameterSpec* spec2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLStructure, ostylesheet, $nc(spec2)->getStylesheet());
 	if (!($instanceOf($DOMStructure, ostylesheet))) {
 		return false;
 	}
-	$var($Node, ostylesheetElem, $nc(($cast($DOMStructure, ostylesheet)))->getNode());
+	$var($Node, ostylesheetElem, $nc($cast($DOMStructure, ostylesheet))->getNode());
 	$var($XMLStructure, stylesheet, $nc(spec1)->getStylesheet());
-	$var($Node, stylesheetElem, $nc(($cast($DOMStructure, stylesheet)))->getNode());
+	$var($Node, stylesheetElem, $nc($cast($DOMStructure, stylesheet))->getNode());
 	return nodesEqual(stylesheetElem, ostylesheetElem);
 }
 
@@ -307,7 +263,45 @@ DOMUtils::DOMUtils() {
 }
 
 $Class* DOMUtils::load$($String* name, bool initialize) {
-	$loadClass(DOMUtils, name, initialize, &_DOMUtils_ClassInfo_, allocate$DOMUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DOMUtils, init$, void)},
+		{"appendChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, appendChild, void, $Node*, $Node*)},
+		{"createElement", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, createElement, $Element*, $Document*, $String*, $String*, $String*)},
+		{"getAttributeValue", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getAttributeValue, $String*, $Element*, $String*)},
+		{"getFirstChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getFirstChildElement, $Element*, $Node*)},
+		{"getFirstChildElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getFirstChildElement, $Element*, $Node*, $String*, $String*), "javax.xml.crypto.MarshalException"},
+		{"getIdAttributeValue", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", "<N:Ljava/lang/Object;>(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(DOMUtils, getIdAttributeValue, $String*, $Element*, $String*)},
+		{"getLastChildElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getLastChildElement, $Element*, $Node*)},
+		{"getNSPrefix", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getNSPrefix, $String*, $XMLCryptoContext*, $String*)},
+		{"getNextSiblingElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getNextSiblingElement, $Element*, $Node*)},
+		{"getNextSiblingElement", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getNextSiblingElement, $Element*, $Node*, $String*, $String*), "javax.xml.crypto.MarshalException"},
+		{"getOwnerDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getOwnerDocument, $Document*, $Node*)},
+		{"getQNameString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getQNameString, $String*, $String*, $String*)},
+		{"getSignaturePrefix", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, getSignaturePrefix, $String*, $XMLCryptoContext*)},
+		{"isNamespace", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, isNamespace, bool, $Node*)},
+		{"nodesEqual", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, nodesEqual, bool, $Node*, $Node*)},
+		{"paramsEqual", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $AlgorithmParameterSpec*, $AlgorithmParameterSpec*)},
+		{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/XPathFilter2ParameterSpec;Ljavax/xml/crypto/dsig/spec/XPathFilter2ParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $XPathFilter2ParameterSpec*, $XPathFilter2ParameterSpec*)},
+		{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $ExcC14NParameterSpec*, $ExcC14NParameterSpec*)},
+		{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/XPathFilterParameterSpec;Ljavax/xml/crypto/dsig/spec/XPathFilterParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $XPathFilterParameterSpec*, $XPathFilterParameterSpec*)},
+		{"paramsEqual", "(Ljavax/xml/crypto/dsig/spec/XSLTTransformParameterSpec;Ljavax/xml/crypto/dsig/spec/XSLTTransformParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, paramsEqual, bool, $XSLTTransformParameterSpec*, $XSLTTransformParameterSpec*)},
+		{"removeAllChildren", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, removeAllChildren, void, $Node*)},
+		{"setAttribute", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, setAttribute, void, $Element*, $String*, $String*)},
+		{"setAttributeID", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMUtils, setAttributeID, void, $Element*, $String*, $String*)},
+		{"verifyElement", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMUtils, verifyElement, $Element*, $Element*, $String*, $String*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMUtils);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthEditorPaneUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -14,7 +13,6 @@
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
 #include <javax/swing/plaf/synth/SynthTextFieldUI.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
@@ -23,7 +21,6 @@
 #undef HONOR_DISPLAY_PROPERTIES
 #undef TRUE
 
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $Boolean = ::java::lang::Boolean;
@@ -37,59 +34,14 @@ using $BasicEditorPaneUI = ::javax::swing::plaf::basic::BasicEditorPaneUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthTextFieldUI = ::javax::swing::plaf::synth::SynthTextFieldUI;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthEditorPaneUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthEditorPaneUI, style)},
-	{"localTrue", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(SynthEditorPaneUI, localTrue)},
-	{"updateKBAction", "Z", nullptr, $PRIVATE, $field(SynthEditorPaneUI, updateKBAction)},
-	{}
-};
-
-$MethodInfo _SynthEditorPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthEditorPaneUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthEditorPaneUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthEditorPaneUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthEditorPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, installDefaults, void)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, paintBackground, void, $Graphics*)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthEditorPaneUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthEditorPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, uninstallDefaults, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthEditorPaneUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/text/JTextComponent;Z)V", nullptr, $PRIVATE, $method(SynthEditorPaneUI, updateStyle, void, $JTextComponent*, bool)},
-	{}
-};
-
-$ClassInfo _SynthEditorPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthEditorPaneUI",
-	"javax.swing.plaf.basic.BasicEditorPaneUI",
-	"javax.swing.plaf.synth.SynthUI",
-	_SynthEditorPaneUI_FieldInfo_,
-	_SynthEditorPaneUI_MethodInfo_
-};
-
-$Object* allocate$SynthEditorPaneUI($Class* clazz) {
-	return $of($alloc(SynthEditorPaneUI));
-}
 
 int32_t SynthEditorPaneUI::hashCode() {
 	 return this->$BasicEditorPaneUI::hashCode();
@@ -113,7 +65,6 @@ void SynthEditorPaneUI::finalize() {
 
 void SynthEditorPaneUI::init$() {
 	$BasicEditorPaneUI::init$();
-	$init($Boolean);
 	$set(this, localTrue, $Boolean::TRUE);
 	this->updateKBAction = true;
 }
@@ -124,7 +75,7 @@ $ComponentUI* SynthEditorPaneUI::createUI($JComponent* c) {
 }
 
 void SynthEditorPaneUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicEditorPaneUI::installDefaults();
 	$var($JComponent, c, getComponent());
 	$init($JEditorPane);
@@ -136,7 +87,7 @@ void SynthEditorPaneUI::installDefaults() {
 }
 
 void SynthEditorPaneUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext($(getComponent()), $SynthConstants::ENABLED));
 	$var($JComponent, c, getComponent());
 	$nc(c)->putClientProperty("caretAspectRatio"_s, nullptr);
@@ -145,15 +96,14 @@ void SynthEditorPaneUI::uninstallDefaults() {
 	$init($JEditorPane);
 	$var($Object, clientProperty, c->getClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES));
 	if ($equals(clientProperty, this->localTrue)) {
-		$init($Boolean);
 		c->putClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES, $Boolean::FALSE);
 	}
 	$BasicEditorPaneUI::uninstallDefaults();
 }
 
 void SynthEditorPaneUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(evt)->getPropertyName()))->equals("keymap"_s)) {
+	$useLocalObjectStack();
+	if ($$nc($nc(evt)->getPropertyName())->equals("keymap"_s)) {
 		if (evt->getNewValue() != nullptr) {
 			this->updateKBAction = false;
 		} else {
@@ -161,13 +111,13 @@ void SynthEditorPaneUI::propertyChange($PropertyChangeEvent* evt) {
 		}
 	}
 	if ($SynthLookAndFeel::shouldUpdateStyle(evt)) {
-		updateStyle($cast($JTextComponent, $($nc(evt)->getSource())), this->updateKBAction);
+		updateStyle($$cast($JTextComponent, evt->getSource()), this->updateKBAction);
 	}
 	$BasicEditorPaneUI::propertyChange(evt);
 }
 
 void SynthEditorPaneUI::updateStyle($JTextComponent* comp, bool updateKBAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(comp, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -207,22 +157,57 @@ void SynthEditorPaneUI::paintBackground($Graphics* g) {
 }
 
 void SynthEditorPaneUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintEditorPaneBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintEditorPaneBackground(context, g, 0, 0, var$0, c->getHeight());
 }
 
 void SynthEditorPaneUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintEditorPaneBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintEditorPaneBorder(context, g, x, y, w, h);
 }
 
 SynthEditorPaneUI::SynthEditorPaneUI() {
 }
 
 $Class* SynthEditorPaneUI::load$($String* name, bool initialize) {
-	$loadClass(SynthEditorPaneUI, name, initialize, &_SynthEditorPaneUI_ClassInfo_, allocate$SynthEditorPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthEditorPaneUI, style)},
+		{"localTrue", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(SynthEditorPaneUI, localTrue)},
+		{"updateKBAction", "Z", nullptr, $PRIVATE, $field(SynthEditorPaneUI, updateKBAction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthEditorPaneUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthEditorPaneUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthEditorPaneUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthEditorPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, installDefaults, void)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, paintBackground, void, $Graphics*)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthEditorPaneUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthEditorPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthEditorPaneUI, uninstallDefaults, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthEditorPaneUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/text/JTextComponent;Z)V", nullptr, $PRIVATE, $method(SynthEditorPaneUI, updateStyle, void, $JTextComponent*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthEditorPaneUI",
+		"javax.swing.plaf.basic.BasicEditorPaneUI",
+		"javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthEditorPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthEditorPaneUI));
+	});
 	return class$;
 }
 

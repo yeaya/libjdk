@@ -1,5 +1,4 @@
 #include <bug6495408$2.h>
-
 #include <bug6495408.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -19,52 +18,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _bug6495408$2_FieldInfo_[] = {
-	{"val$robot", "Ljava/awt/Robot;", nullptr, $FINAL | $SYNTHETIC, $field(bug6495408$2, val$robot)},
-	{"val$p", "Ljava/awt/Point;", nullptr, $FINAL | $SYNTHETIC, $field(bug6495408$2, val$p)},
-	{"val$d", "Ljava/awt/Rectangle;", nullptr, $FINAL | $SYNTHETIC, $field(bug6495408$2, val$d)},
-	{}
-};
-
-$MethodInfo _bug6495408$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Rectangle;Ljava/awt/Point;Ljava/awt/Robot;)V", "()V", 0, $method(bug6495408$2, init$, void, $Rectangle*, $Point*, $Robot*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6495408$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6495408$2_EnclosingMethodInfo_ = {
-	"bug6495408",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6495408$2_InnerClassesInfo_[] = {
-	{"bug6495408$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6495408$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6495408$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6495408$2_FieldInfo_,
-	_bug6495408$2_MethodInfo_,
-	nullptr,
-	&_bug6495408$2_EnclosingMethodInfo_,
-	_bug6495408$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6495408"
-};
-
-$Object* allocate$bug6495408$2($Class* clazz) {
-	return $of($alloc(bug6495408$2));
-}
 
 void bug6495408$2::init$($Rectangle* val$d, $Point* val$p, $Robot* val$robot) {
 	$set(this, val$d, val$d);
@@ -78,9 +32,9 @@ void bug6495408$2::run() {
 	$var($Rectangle, bounds, $nc($bug6495408::tabbedPane)->getBoundsAt(tab));
 	if (bounds != nullptr) {
 		$nc(this->val$d)->setBounds(bounds);
-		$nc(this->val$p)->setLocation($nc(this->val$d)->x + $nc(this->val$d)->width / 2, $nc(this->val$d)->y + $nc(this->val$d)->height / 2);
+		$nc(this->val$p)->setLocation(this->val$d->x + this->val$d->width / 2, this->val$d->y + this->val$d->height / 2);
 		$SwingUtilities::convertPointToScreen(this->val$p, $bug6495408::tabbedPane);
-		$nc(this->val$robot)->mouseMove($nc(this->val$p)->x, $nc(this->val$p)->y + $nc(this->val$d)->height);
+		$nc(this->val$robot)->mouseMove(this->val$p->x, this->val$p->y + this->val$d->height);
 		$nc($bug6495408::tabbedPane)->addTab("Hello"_s, nullptr);
 	}
 }
@@ -89,7 +43,44 @@ bug6495408$2::bug6495408$2() {
 }
 
 $Class* bug6495408$2::load$($String* name, bool initialize) {
-	$loadClass(bug6495408$2, name, initialize, &_bug6495408$2_ClassInfo_, allocate$bug6495408$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$robot", "Ljava/awt/Robot;", nullptr, $FINAL | $SYNTHETIC, $field(bug6495408$2, val$robot)},
+		{"val$p", "Ljava/awt/Point;", nullptr, $FINAL | $SYNTHETIC, $field(bug6495408$2, val$p)},
+		{"val$d", "Ljava/awt/Rectangle;", nullptr, $FINAL | $SYNTHETIC, $field(bug6495408$2, val$d)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Rectangle;Ljava/awt/Point;Ljava/awt/Robot;)V", "()V", 0, $method(bug6495408$2, init$, void, $Rectangle*, $Point*, $Robot*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6495408$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6495408",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6495408$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6495408$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6495408"
+	};
+	$loadClass(bug6495408$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6495408$2);
+	});
 	return class$;
 }
 

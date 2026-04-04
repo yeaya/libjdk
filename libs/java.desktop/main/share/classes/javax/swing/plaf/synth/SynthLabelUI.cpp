@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthLabelUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -22,14 +21,12 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
 #undef ENABLED
 #undef TEXT_FOREGROUND
 
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -51,61 +48,13 @@ using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
-using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $View = ::javax::swing::text::View;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthLabelUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthLabelUI, style)},
-	{}
-};
-
-$MethodInfo _SynthLabelUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthLabelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLabelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthLabelUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthLabelUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(SynthLabelUI, installDefaults, void, $JLabel*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthLabelUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(SynthLabelUI, uninstallDefaults, void, $JLabel*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JLabel;)V", nullptr, 0, $virtualMethod(SynthLabelUI, updateStyle, void, $JLabel*)},
-	{}
-};
-
-$ClassInfo _SynthLabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthLabelUI",
-	"javax.swing.plaf.basic.BasicLabelUI",
-	"javax.swing.plaf.synth.SynthUI",
-	_SynthLabelUI_FieldInfo_,
-	_SynthLabelUI_MethodInfo_
-};
-
-$Object* allocate$SynthLabelUI($Class* clazz) {
-	return $of($alloc(SynthLabelUI));
-}
 
 int32_t SynthLabelUI::hashCode() {
 	 return this->$BasicLabelUI::hashCode();
@@ -168,7 +117,7 @@ int32_t SynthLabelUI::getComponentState($JComponent* c) {
 }
 
 int32_t SynthLabelUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$throwNew($NullPointerException, "Component must be non-null"_s);
 	}
@@ -177,7 +126,7 @@ int32_t SynthLabelUI::getBaseline($JComponent* c, int32_t width, int32_t height)
 	}
 	$var($JLabel, label, $cast($JLabel, c));
 	$var($String, text, $nc(label)->getText());
-	if (text == nullptr || $nc(text)->isEmpty()) {
+	if (text == nullptr || text->isEmpty()) {
 		return -1;
 	}
 	$var($Insets, i, label->getInsets());
@@ -189,19 +138,14 @@ int32_t SynthLabelUI::getBaseline($JComponent* c, int32_t width, int32_t height)
 	viewRect->width = width - (i->right + viewRect->x);
 	viewRect->height = height - (i->bottom + viewRect->y);
 	$var($SynthContext, context, getContext(label));
-	$var($FontMetrics, fm, $nc($($nc(context)->getComponent()))->getFontMetrics($($nc($(context->getStyle()))->getFont(context))));
-	$var($SynthContext, var$0, context);
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, label->getText());
-	$var($Icon, var$3, label->getIcon());
-	int32_t var$4 = label->getHorizontalAlignment();
-	int32_t var$5 = label->getVerticalAlignment();
-	int32_t var$6 = label->getHorizontalTextPosition();
-	int32_t var$7 = label->getVerticalTextPosition();
-	$var($Rectangle, var$8, viewRect);
-	$var($Rectangle, var$9, iconRect);
-	$var($Rectangle, var$10, textRect);
-	$nc($($nc($(context->getStyle()))->getGraphicsUtils(context)))->layoutText(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, label->getIconTextGap());
+	$var($FontMetrics, fm, $$nc($nc(context)->getComponent())->getFontMetrics($($$nc($nc(context)->getStyle())->getFont(context))));
+	$var($String, var$0, label->getText());
+	$var($Icon, var$1, label->getIcon());
+	int32_t var$2 = label->getHorizontalAlignment();
+	int32_t var$3 = label->getVerticalAlignment();
+	int32_t var$4 = label->getHorizontalTextPosition();
+	int32_t var$5 = label->getVerticalTextPosition();
+	$$nc($$nc(context->getStyle())->getGraphicsUtils(context))->layoutText(context, fm, var$0, var$1, var$2, var$3, var$4, var$5, viewRect, iconRect, textRect, label->getIconTextGap());
 	$init($BasicHTML);
 	$var($View, view, $cast($View, label->getClientProperty($BasicHTML::propertyKey)));
 	int32_t baseline = 0;
@@ -217,13 +161,11 @@ int32_t SynthLabelUI::getBaseline($JComponent* c, int32_t width, int32_t height)
 }
 
 void SynthLabelUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintLabelBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintLabelBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -233,86 +175,77 @@ void SynthLabelUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthLabelUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $cast($JLabel, $nc(context)->getComponent()));
-	$var($Icon, icon, ($nc(label)->isEnabled()) ? $nc(label)->getIcon() : label->getDisabledIcon());
+	$var($Icon, icon, ($nc(label)->isEnabled()) ? label->getIcon() : label->getDisabledIcon());
 	$init($ColorType);
-	$nc(g)->setColor($($nc($(context->getStyle()))->getColor(context, $ColorType::TEXT_FOREGROUND)));
+	$nc(g)->setColor($($$nc(context->getStyle())->getColor(context, $ColorType::TEXT_FOREGROUND)));
 	g->setFont($($nc(this->style)->getFont(context)));
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	$var($String, var$2, label->getText());
-	$var($Icon, var$3, icon);
-	int32_t var$4 = label->getHorizontalAlignment();
-	int32_t var$5 = label->getVerticalAlignment();
-	int32_t var$6 = label->getHorizontalTextPosition();
-	int32_t var$7 = label->getVerticalTextPosition();
-	int32_t var$8 = label->getIconTextGap();
-	$nc($($nc($(context->getStyle()))->getGraphicsUtils(context)))->paintText(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, label->getDisplayedMnemonicIndex(), 0);
+	$var($String, var$0, label->getText());
+	int32_t var$1 = label->getHorizontalAlignment();
+	int32_t var$2 = label->getVerticalAlignment();
+	int32_t var$3 = label->getHorizontalTextPosition();
+	int32_t var$4 = label->getVerticalTextPosition();
+	int32_t var$5 = label->getIconTextGap();
+	$$nc($$nc(context->getStyle())->getGraphicsUtils(context))->paintText(context, g, var$0, icon, var$1, var$2, var$3, var$4, var$5, label->getDisplayedMnemonicIndex(), 0);
 }
 
 void SynthLabelUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintLabelBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintLabelBorder(context, g, x, y, w, h);
 }
 
 $Dimension* SynthLabelUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $cast($JLabel, c));
-	$var($Icon, icon, ($nc(label)->isEnabled()) ? $nc(label)->getIcon() : label->getDisabledIcon());
+	$var($Icon, icon, ($nc(label)->isEnabled()) ? label->getIcon() : label->getDisabledIcon());
 	$var($SynthContext, context, getContext(c));
-	$var($SynthContext, var$0, context);
-	$var($Font, var$1, $nc($(context->getStyle()))->getFont(context));
-	$var($String, var$2, label->getText());
-	$var($Icon, var$3, icon);
-	int32_t var$4 = label->getHorizontalAlignment();
-	int32_t var$5 = label->getVerticalAlignment();
-	int32_t var$6 = label->getHorizontalTextPosition();
-	int32_t var$7 = label->getVerticalTextPosition();
-	int32_t var$8 = label->getIconTextGap();
-	$var($Dimension, size, $nc($($nc($($nc(context)->getStyle()))->getGraphicsUtils(context)))->getPreferredSize(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, label->getDisplayedMnemonicIndex()));
+	$var($Font, var$0, $$nc($nc(context)->getStyle())->getFont(context));
+	$var($String, var$1, label->getText());
+	int32_t var$2 = label->getHorizontalAlignment();
+	int32_t var$3 = label->getVerticalAlignment();
+	int32_t var$4 = label->getHorizontalTextPosition();
+	int32_t var$5 = label->getVerticalTextPosition();
+	int32_t var$6 = label->getIconTextGap();
+	$var($Dimension, size, $$nc($$nc($nc(context)->getStyle())->getGraphicsUtils(context))->getPreferredSize(context, var$0, var$1, icon, var$2, var$3, var$4, var$5, var$6, label->getDisplayedMnemonicIndex()));
 	return size;
 }
 
 $Dimension* SynthLabelUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $cast($JLabel, c));
-	$var($Icon, icon, ($nc(label)->isEnabled()) ? $nc(label)->getIcon() : label->getDisabledIcon());
+	$var($Icon, icon, ($nc(label)->isEnabled()) ? label->getIcon() : label->getDisabledIcon());
 	$var($SynthContext, context, getContext(c));
-	$var($SynthContext, var$0, context);
-	$var($Font, var$1, $nc($(context->getStyle()))->getFont(context));
-	$var($String, var$2, label->getText());
-	$var($Icon, var$3, icon);
-	int32_t var$4 = label->getHorizontalAlignment();
-	int32_t var$5 = label->getVerticalAlignment();
-	int32_t var$6 = label->getHorizontalTextPosition();
-	int32_t var$7 = label->getVerticalTextPosition();
-	int32_t var$8 = label->getIconTextGap();
-	$var($Dimension, size, $nc($($nc($($nc(context)->getStyle()))->getGraphicsUtils(context)))->getMinimumSize(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, label->getDisplayedMnemonicIndex()));
+	$var($Font, var$0, $$nc($nc(context)->getStyle())->getFont(context));
+	$var($String, var$1, label->getText());
+	int32_t var$2 = label->getHorizontalAlignment();
+	int32_t var$3 = label->getVerticalAlignment();
+	int32_t var$4 = label->getHorizontalTextPosition();
+	int32_t var$5 = label->getVerticalTextPosition();
+	int32_t var$6 = label->getIconTextGap();
+	$var($Dimension, size, $$nc($$nc($nc(context)->getStyle())->getGraphicsUtils(context))->getMinimumSize(context, var$0, var$1, icon, var$2, var$3, var$4, var$5, var$6, label->getDisplayedMnemonicIndex()));
 	return size;
 }
 
 $Dimension* SynthLabelUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $cast($JLabel, c));
-	$var($Icon, icon, ($nc(label)->isEnabled()) ? $nc(label)->getIcon() : label->getDisabledIcon());
+	$var($Icon, icon, ($nc(label)->isEnabled()) ? label->getIcon() : label->getDisabledIcon());
 	$var($SynthContext, context, getContext(c));
-	$var($SynthContext, var$0, context);
-	$var($Font, var$1, $nc($(context->getStyle()))->getFont(context));
-	$var($String, var$2, label->getText());
-	$var($Icon, var$3, icon);
-	int32_t var$4 = label->getHorizontalAlignment();
-	int32_t var$5 = label->getVerticalAlignment();
-	int32_t var$6 = label->getHorizontalTextPosition();
-	int32_t var$7 = label->getVerticalTextPosition();
-	int32_t var$8 = label->getIconTextGap();
-	$var($Dimension, size, $nc($($nc($($nc(context)->getStyle()))->getGraphicsUtils(context)))->getMaximumSize(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, label->getDisplayedMnemonicIndex()));
+	$var($Font, var$0, $$nc($nc(context)->getStyle())->getFont(context));
+	$var($String, var$1, label->getText());
+	int32_t var$2 = label->getHorizontalAlignment();
+	int32_t var$3 = label->getVerticalAlignment();
+	int32_t var$4 = label->getHorizontalTextPosition();
+	int32_t var$5 = label->getVerticalTextPosition();
+	int32_t var$6 = label->getIconTextGap();
+	$var($Dimension, size, $$nc($$nc($nc(context)->getStyle())->getGraphicsUtils(context))->getMaximumSize(context, var$0, var$1, icon, var$2, var$3, var$4, var$5, var$6, label->getDisplayedMnemonicIndex()));
 	return size;
 }
 
 void SynthLabelUI::propertyChange($PropertyChangeEvent* e) {
 	$BasicLabelUI::propertyChange(e);
 	if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-		updateStyle($cast($JLabel, $($nc(e)->getSource())));
+		updateStyle($$cast($JLabel, $nc(e)->getSource()));
 	}
 }
 
@@ -320,7 +253,46 @@ SynthLabelUI::SynthLabelUI() {
 }
 
 $Class* SynthLabelUI::load$($String* name, bool initialize) {
-	$loadClass(SynthLabelUI, name, initialize, &_SynthLabelUI_ClassInfo_, allocate$SynthLabelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthLabelUI, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthLabelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLabelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthLabelUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthLabelUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(SynthLabelUI, installDefaults, void, $JLabel*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthLabelUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(SynthLabelUI, uninstallDefaults, void, $JLabel*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLabelUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JLabel;)V", nullptr, 0, $virtualMethod(SynthLabelUI, updateStyle, void, $JLabel*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthLabelUI",
+		"javax.swing.plaf.basic.BasicLabelUI",
+		"javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthLabelUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthLabelUI));
+	});
 	return class$;
 }
 

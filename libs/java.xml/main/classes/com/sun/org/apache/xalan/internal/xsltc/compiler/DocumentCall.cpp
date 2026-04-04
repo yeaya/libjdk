@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/DocumentCall.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
@@ -16,7 +14,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/QName.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator.h>
@@ -36,21 +33,16 @@
 #undef STRING_SIG
 #undef TRANSLET_SIG
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
-using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
@@ -70,33 +62,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _DocumentCall_FieldInfo_[] = {
-	{"_arg1", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(DocumentCall, _arg1)},
-	{"_arg2", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(DocumentCall, _arg2)},
-	{"_arg1Type", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(DocumentCall, _arg1Type)},
-	{}
-};
-
-$MethodInfo _DocumentCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(DocumentCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(DocumentCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(DocumentCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _DocumentCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.DocumentCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	_DocumentCall_FieldInfo_,
-	_DocumentCall_MethodInfo_
-};
-
-$Object* allocate$DocumentCall($Class* clazz) {
-	return $of($alloc(DocumentCall));
-}
-
 void DocumentCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 	$set(this, _arg1, nullptr);
@@ -104,22 +69,22 @@ void DocumentCall::init$($QName* fname, $List* arguments) {
 }
 
 $Type* DocumentCall::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ac = argumentCount();
 	if ((ac < 1) || (ac > 2)) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ARG_ERR, static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ARG_ERR, this));
 		$throwNew($TypeCheckError, msg);
 	}
 	if (getStylesheet() == nullptr) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ARG_ERR, static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ILLEGAL_ARG_ERR, this));
 		$throwNew($TypeCheckError, msg);
 	}
 	$set(this, _arg1, argument(0));
 	if (this->_arg1 == nullptr) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::DOCUMENT_ARG_ERR, static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::DOCUMENT_ARG_ERR, this));
 		$throwNew($TypeCheckError, msg);
 	}
 	$set(this, _arg1Type, $nc(this->_arg1)->typeCheck(stable));
@@ -131,26 +96,24 @@ $Type* DocumentCall::typeCheck($SymbolTable* stable) {
 		$set(this, _arg2, argument(1));
 		if (this->_arg2 == nullptr) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::DOCUMENT_ARG_ERR, static_cast<$SyntaxTreeNode*>(this)));
+			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::DOCUMENT_ARG_ERR, this));
 			$throwNew($TypeCheckError, msg);
 		}
 		$var($Type, arg2Type, $nc(this->_arg2)->typeCheck(stable));
 		if ($nc(arg2Type)->identicalTo($Type::Node)) {
 			$set(this, _arg2, $new($CastExpr, this->_arg2, $Type::NodeSet));
+		} else if (arg2Type->identicalTo($Type::NodeSet)) {
 		} else {
-			if (arg2Type->identicalTo($Type::NodeSet)) {
-			} else {
-				$init($ErrorMsg);
-				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::DOCUMENT_ARG_ERR, static_cast<$SyntaxTreeNode*>(this)));
-				$throwNew($TypeCheckError, msg);
-			}
+			$init($ErrorMsg);
+			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::DOCUMENT_ARG_ERR, this));
+			$throwNew($TypeCheckError, msg);
 		}
 	}
 	return $set(this, _type, $Type::NodeSet);
 }
 
 void DocumentCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	int32_t ac = argumentCount();
@@ -172,18 +135,40 @@ void DocumentCall::translate($ClassGenerator* classGen, $MethodGenerator* method
 		$nc(this->_arg2)->translate(classGen, methodGen);
 		$nc(this->_arg2)->startIterator(classGen, methodGen);
 	}
-	$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $($nc($(getStylesheet()))->getSystemId()))));
+	$nc(il)->append($$new($PUSH, cpg, $($$nc(getStylesheet())->getSystemId())));
 	il->append($(classGen->loadTranslet()));
-	il->append(static_cast<$Instruction*>($Constants::DUP));
-	il->append(static_cast<$Instruction*>($$new($GETFIELD, domField)));
-	il->append(static_cast<$Instruction*>($$new($INVOKESTATIC, docIdx)));
+	il->append($Constants::DUP);
+	il->append($$new($GETFIELD, domField));
+	il->append($$new($INVOKESTATIC, docIdx));
 }
 
 DocumentCall::DocumentCall() {
 }
 
 $Class* DocumentCall::load$($String* name, bool initialize) {
-	$loadClass(DocumentCall, name, initialize, &_DocumentCall_ClassInfo_, allocate$DocumentCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"_arg1", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(DocumentCall, _arg1)},
+		{"_arg2", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(DocumentCall, _arg2)},
+		{"_arg1Type", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PRIVATE, $field(DocumentCall, _arg1Type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(DocumentCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(DocumentCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(DocumentCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.DocumentCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DocumentCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentCall);
+	});
 	return class$;
 }
 

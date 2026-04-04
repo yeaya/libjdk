@@ -1,10 +1,8 @@
 #include <sun/awt/Win32FontManager.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/io/File.h>
 #include <java/io/FilenameFilter.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
@@ -28,16 +26,12 @@
 
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $File = ::java::io::File;
-using $FilenameFilter = ::java::io::FilenameFilter;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
-using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -55,73 +49,13 @@ using $TrueTypeFont = ::sun::font::TrueTypeFont;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _Win32FontManager_FieldInfo_[] = {
-	{"eudcFont", "Lsun/font/TrueTypeFont;", nullptr, $PRIVATE | $STATIC, $staticField(Win32FontManager, eudcFont)},
-	{"fontsForPrinting", "Ljava/lang/String;", nullptr, $STATIC, $staticField(Win32FontManager, fontsForPrinting)},
-	{}
-};
-
-$MethodInfo _Win32FontManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Win32FontManager, init$, void)},
-	{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, createFontConfiguration, $FontConfiguration*)},
-	{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
-	{"deRegisterFontWithPlatform", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, deRegisterFontWithPlatform, void, $String*)},
-	{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, getDefaultPlatformFont, $StringArray*)},
-	{"getEUDCFont", "()Lsun/font/TrueTypeFont;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager, getEUDCFont, $TrueTypeFont*)},
-	{"getEUDCFontFile", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, getEUDCFontFile, $String*)},
-	{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(Win32FontManager, getFontPath, $String*, bool)},
-	{"populateFontFileNameMap", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(Win32FontManager, populateFontFileNameMap, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
-	{"populateFontFileNameMap0", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, populateFontFileNameMap0, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
-	{"populateHardcodedFileNameMap", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/font/SunFontManager$FamilyDescription;>;", $PUBLIC, $virtualMethod(Win32FontManager, populateHardcodedFileNameMap, $HashMap*)},
-	{"registerFontFile", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, registerFontFile, void, $String*, $StringArray*, int32_t, bool)},
-	{"registerFontWithPlatform", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, registerFontWithPlatform, void, $String*)},
-	{"registerJREFontsForPrinting", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32FontManager, registerJREFontsForPrinting, void)},
-	{"registerJREFontsWithPlatform", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Win32FontManager, registerJREFontsWithPlatform, void, $String*)},
-	{"useAbsoluteFontFileNames", "()Z", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, useAbsoluteFontFileNames, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_deRegisterFontWithPlatform 3
-#define _METHOD_INDEX_getEUDCFontFile 6
-#define _METHOD_INDEX_getFontPath 7
-#define _METHOD_INDEX_populateFontFileNameMap0 9
-#define _METHOD_INDEX_registerFontWithPlatform 12
-
-$InnerClassInfo _Win32FontManager_InnerClassesInfo_[] = {
-	{"sun.awt.Win32FontManager$4", nullptr, nullptr, 0},
-	{"sun.awt.Win32FontManager$3", nullptr, nullptr, 0},
-	{"sun.awt.Win32FontManager$2", nullptr, nullptr, 0},
-	{"sun.awt.Win32FontManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32FontManager_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.Win32FontManager",
-	"sun.font.SunFontManager",
-	nullptr,
-	_Win32FontManager_FieldInfo_,
-	_Win32FontManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32FontManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.Win32FontManager$4,sun.awt.Win32FontManager$3,sun.awt.Win32FontManager$2,sun.awt.Win32FontManager$1"
-};
-
-$Object* allocate$Win32FontManager($Class* clazz) {
-	return $of($alloc(Win32FontManager));
-}
-
 $TrueTypeFont* Win32FontManager::eudcFont = nullptr;
 $String* Win32FontManager::fontsForPrinting = nullptr;
 
 $String* Win32FontManager::getEUDCFontFile() {
 	$init(Win32FontManager);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(Win32FontManager, getEUDCFontFile, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getEUDCFontFile, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -133,7 +67,7 @@ $TrueTypeFont* Win32FontManager::getEUDCFont() {
 void Win32FontManager::init$() {
 	$beforeCallerSensitive();
 	$SunFontManager::init$();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Win32FontManager$2, this)));
+	$AccessController::doPrivileged($$new($Win32FontManager$2, this));
 }
 
 bool Win32FontManager::useAbsoluteFontFileNames() {
@@ -141,15 +75,15 @@ bool Win32FontManager::useAbsoluteFontFileNames() {
 }
 
 void Win32FontManager::registerFontFile($String* fontFileName, $StringArray* nativeNames, int32_t fontRank, bool defer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->registeredFontFiles)->contains(fontFileName)) {
 		return;
 	}
-	$nc(this->registeredFontFiles)->add(fontFileName);
+	this->registeredFontFiles->add(fontFileName);
 	int32_t fontFormat = 0;
-	if ($nc($(getTrueTypeFilter()))->accept(nullptr, fontFileName)) {
+	if ($$nc(getTrueTypeFilter())->accept(nullptr, fontFileName)) {
 		fontFormat = $SunFontManager::FONTFORMAT_TRUETYPE;
-	} else if ($nc($(getType1Filter()))->accept(nullptr, fontFileName)) {
+	} else if ($$nc(getType1Filter())->accept(nullptr, fontFileName)) {
 		fontFormat = $SunFontManager::FONTFORMAT_TYPE1;
 	} else {
 		return;
@@ -203,28 +137,27 @@ void Win32FontManager::populateFontFileNameMap($HashMap* fontToFileMap, $HashMap
 
 void Win32FontManager::populateFontFileNameMap0($HashMap* fontToFileMap, $HashMap* fontToFamilyNameMap, $HashMap* familyToFontListMap, $Locale* locale) {
 	$init(Win32FontManager);
-	$prepareNativeStatic(Win32FontManager, populateFontFileNameMap0, void, $HashMap* fontToFileMap, $HashMap* fontToFamilyNameMap, $HashMap* familyToFontListMap, $Locale* locale);
+	$prepareNativeStatic(populateFontFileNameMap0, void, $HashMap* fontToFileMap, $HashMap* fontToFamilyNameMap, $HashMap* familyToFontListMap, $Locale* locale);
 	$invokeNativeStatic(fontToFileMap, fontToFamilyNameMap, familyToFontListMap, locale);
 	$finishNativeStatic();
 }
 
 $String* Win32FontManager::getFontPath(bool noType1Fonts) {
-	$var($String, $ret, nullptr);
-	$prepareNative(Win32FontManager, getFontPath, $String*, bool noType1Fonts);
-	$assign($ret, $invokeNativeObject(noType1Fonts));
+	$prepareNative(getFontPath, $String*, bool noType1Fonts);
+	$var($String, $ret, $invokeNativeObject(noType1Fonts));
 	$finishNative();
 	return $ret;
 }
 
 $StringArray* Win32FontManager::getDefaultPlatformFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($StringArray, info, $new($StringArray, 2));
 	info->set(0, "Arial"_s);
 	info->set(1, "c:\\windows\\fonts"_s);
 	$var($StringArray, dirs, getPlatformFontDirs(true));
 	if ($nc(dirs)->length > 1) {
-		$var($String, dir, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Win32FontManager$3, this, dirs)))));
+		$var($String, dir, $cast($String, $AccessController::doPrivileged($$new($Win32FontManager$3, this, dirs))));
 		if (dir != nullptr) {
 			info->set(1, dir);
 		}
@@ -242,7 +175,7 @@ void Win32FontManager::registerJREFontsWithPlatform($String* pathName) {
 
 void Win32FontManager::registerJREFontsForPrinting() {
 	$init(Win32FontManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, pathName, nullptr);
 	$load($Win32GraphicsEnvironment);
@@ -254,25 +187,25 @@ void Win32FontManager::registerJREFontsForPrinting() {
 		$assign(pathName, Win32FontManager::fontsForPrinting);
 		$assignStatic(Win32FontManager::fontsForPrinting, nullptr);
 	}
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Win32FontManager$4, pathName)));
+	$AccessController::doPrivileged($$new($Win32FontManager$4, pathName));
 }
 
 void Win32FontManager::registerFontWithPlatform($String* fontName) {
 	$init(Win32FontManager);
-	$prepareNativeStatic(Win32FontManager, registerFontWithPlatform, void, $String* fontName);
+	$prepareNativeStatic(registerFontWithPlatform, void, $String* fontName);
 	$invokeNativeStatic(fontName);
 	$finishNativeStatic();
 }
 
 void Win32FontManager::deRegisterFontWithPlatform($String* fontName) {
 	$init(Win32FontManager);
-	$prepareNativeStatic(Win32FontManager, deRegisterFontWithPlatform, void, $String* fontName);
+	$prepareNativeStatic(deRegisterFontWithPlatform, void, $String* fontName);
 	$invokeNativeStatic(fontName);
 	$finishNativeStatic();
 }
 
 $HashMap* Win32FontManager::populateHardcodedFileNameMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap, platformFontMap, $new($HashMap));
 	$var($SunFontManager$FamilyDescription, fd, nullptr);
 	$assign(fd, $new($SunFontManager$FamilyDescription));
@@ -328,10 +261,10 @@ $HashMap* Win32FontManager::populateHardcodedFileNameMap() {
 	return platformFontMap;
 }
 
-void clinit$Win32FontManager($Class* class$) {
+void Win32FontManager::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Win32FontManager$1)));
+		$AccessController::doPrivileged($$new($Win32FontManager$1));
 	}
 	$assignStatic(Win32FontManager::fontsForPrinting, nullptr);
 }
@@ -340,7 +273,54 @@ Win32FontManager::Win32FontManager() {
 }
 
 $Class* Win32FontManager::load$($String* name, bool initialize) {
-	$loadClass(Win32FontManager, name, initialize, &_Win32FontManager_ClassInfo_, clinit$Win32FontManager, allocate$Win32FontManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"eudcFont", "Lsun/font/TrueTypeFont;", nullptr, $PRIVATE | $STATIC, $staticField(Win32FontManager, eudcFont)},
+		{"fontsForPrinting", "Ljava/lang/String;", nullptr, $STATIC, $staticField(Win32FontManager, fontsForPrinting)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Win32FontManager, init$, void)},
+		{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, createFontConfiguration, $FontConfiguration*)},
+		{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
+		{"deRegisterFontWithPlatform", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, deRegisterFontWithPlatform, void, $String*)},
+		{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, getDefaultPlatformFont, $StringArray*)},
+		{"getEUDCFont", "()Lsun/font/TrueTypeFont;", nullptr, $PUBLIC, $virtualMethod(Win32FontManager, getEUDCFont, $TrueTypeFont*)},
+		{"getEUDCFontFile", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, getEUDCFontFile, $String*)},
+		{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED | $NATIVE, $virtualMethod(Win32FontManager, getFontPath, $String*, bool)},
+		{"populateFontFileNameMap", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(Win32FontManager, populateFontFileNameMap, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
+		{"populateFontFileNameMap0", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, populateFontFileNameMap0, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
+		{"populateHardcodedFileNameMap", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/font/SunFontManager$FamilyDescription;>;", $PUBLIC, $virtualMethod(Win32FontManager, populateHardcodedFileNameMap, $HashMap*)},
+		{"registerFontFile", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, registerFontFile, void, $String*, $StringArray*, int32_t, bool)},
+		{"registerFontWithPlatform", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32FontManager, registerFontWithPlatform, void, $String*)},
+		{"registerJREFontsForPrinting", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32FontManager, registerJREFontsForPrinting, void)},
+		{"registerJREFontsWithPlatform", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Win32FontManager, registerJREFontsWithPlatform, void, $String*)},
+		{"useAbsoluteFontFileNames", "()Z", nullptr, $PROTECTED, $virtualMethod(Win32FontManager, useAbsoluteFontFileNames, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.Win32FontManager$4", nullptr, nullptr, 0},
+		{"sun.awt.Win32FontManager$3", nullptr, nullptr, 0},
+		{"sun.awt.Win32FontManager$2", nullptr, nullptr, 0},
+		{"sun.awt.Win32FontManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.Win32FontManager",
+		"sun.font.SunFontManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.Win32FontManager$4,sun.awt.Win32FontManager$3,sun.awt.Win32FontManager$2,sun.awt.Win32FontManager$1"
+	};
+	$loadClass(Win32FontManager, name, initialize, &classInfo$$, Win32FontManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32FontManager));
+	});
 	return class$;
 }
 

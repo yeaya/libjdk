@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/FillSpans.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -27,48 +26,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _FillSpans_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillSpans, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillSpans, primTypeID)},
-	{}
-};
-
-$MethodInfo _FillSpans_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(FillSpans, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillSpans, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IJLsun/java2d/pipe/SpanIterator;)V", nullptr, $PRIVATE | $NATIVE, $method(FillSpans, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int64_t, $SpanIterator*)},
-	{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(FillSpans, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/FillSpans;", nullptr, $PUBLIC | $STATIC, $staticMethod(FillSpans, locate, FillSpans*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillSpans, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_FillSpans$ 2
-
-$InnerClassInfo _FillSpans_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.FillSpans$TraceFillSpans", "sun.java2d.loops.FillSpans", "TraceFillSpans", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FillSpans_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.FillSpans",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_FillSpans_FieldInfo_,
-	_FillSpans_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FillSpans_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.FillSpans$TraceFillSpans"
-};
-
-$Object* allocate$FillSpans($Class* clazz) {
-	return $of($alloc(FillSpans));
-}
-
 $String* FillSpans::methodSignature = nullptr;
 int32_t FillSpans::primTypeID = 0;
 
@@ -86,7 +43,7 @@ void FillSpans::init$(int64_t pNativePrim, $SurfaceType* srctype, $CompositeType
 }
 
 void FillSpans::FillSpans$($SunGraphics2D* sg2d, $SurfaceData* dest, int32_t pixel, int64_t pIterator, $SpanIterator* si) {
-	$prepareNative(FillSpans, FillSpans$, void, $SunGraphics2D* sg2d, $SurfaceData* dest, int32_t pixel, int64_t pIterator, $SpanIterator* si);
+	$prepareNative(FillSpans, void, $SunGraphics2D* sg2d, $SurfaceData* dest, int32_t pixel, int64_t pIterator, $SpanIterator* si);
 	$invokeNative(sg2d, dest, pixel, pIterator, si);
 	$finishNative();
 }
@@ -99,7 +56,7 @@ $GraphicsPrimitive* FillSpans::traceWrap() {
 	return $new($FillSpans$TraceFillSpans, this);
 }
 
-void clinit$FillSpans($Class* class$) {
+void FillSpans::clinit$($Class* clazz) {
 	$assignStatic(FillSpans::methodSignature, "FillSpans(...)"_s->toString());
 	FillSpans::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 }
@@ -108,7 +65,41 @@ FillSpans::FillSpans() {
 }
 
 $Class* FillSpans::load$($String* name, bool initialize) {
-	$loadClass(FillSpans, name, initialize, &_FillSpans_ClassInfo_, clinit$FillSpans, allocate$FillSpans);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillSpans, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillSpans, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(FillSpans, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillSpans, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IJLsun/java2d/pipe/SpanIterator;)V", nullptr, $PRIVATE | $NATIVE, $method(FillSpans, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int64_t, $SpanIterator*)},
+		{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(FillSpans, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/FillSpans;", nullptr, $PUBLIC | $STATIC, $staticMethod(FillSpans, locate, FillSpans*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillSpans, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.FillSpans$TraceFillSpans", "sun.java2d.loops.FillSpans", "TraceFillSpans", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.FillSpans",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.FillSpans$TraceFillSpans"
+	};
+	$loadClass(FillSpans, name, initialize, &classInfo$$, FillSpans::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FillSpans);
+	});
 	return class$;
 }
 

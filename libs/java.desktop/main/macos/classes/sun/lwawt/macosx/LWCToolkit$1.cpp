@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/LWCToolkit$1.h>
-
 #include <java/util/MissingResourceException.h>
 #include <java/util/ResourceBundle.h>
 #include <sun/lwawt/macosx/LWCToolkit.h>
@@ -16,43 +15,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _LWCToolkit$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LWCToolkit$1, init$, void)},
-	{"run", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LWCToolkit$1_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.LWCToolkit",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _LWCToolkit$1_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.LWCToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCToolkit$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.LWCToolkit$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_LWCToolkit$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/ResourceBundle;>;",
-	&_LWCToolkit$1_EnclosingMethodInfo_,
-	_LWCToolkit$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.LWCToolkit"
-};
-
-$Object* allocate$LWCToolkit$1($Class* clazz) {
-	return $of($alloc(LWCToolkit$1));
-}
-
 void LWCToolkit$1::init$() {
 }
 
@@ -65,14 +27,45 @@ $Object* LWCToolkit$1::run() {
 	}
 	$System::loadLibrary("awt"_s);
 	$System::loadLibrary("fontmanager"_s);
-	return $of(platformResources);
+	return platformResources;
 }
 
 LWCToolkit$1::LWCToolkit$1() {
 }
 
 $Class* LWCToolkit$1::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$1, name, initialize, &_LWCToolkit$1_ClassInfo_, allocate$LWCToolkit$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LWCToolkit$1, init$, void)},
+		{"run", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.LWCToolkit",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.LWCToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.LWCToolkit$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/ResourceBundle;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.LWCToolkit"
+	};
+	$loadClass(LWCToolkit$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$1);
+	});
 	return class$;
 }
 

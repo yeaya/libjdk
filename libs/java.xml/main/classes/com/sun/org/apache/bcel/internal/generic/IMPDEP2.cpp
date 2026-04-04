@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/IMPDEP2.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -21,25 +20,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _IMPDEP2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IMPDEP2, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(IMPDEP2, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _IMPDEP2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.IMPDEP2",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	nullptr,
-	nullptr,
-	_IMPDEP2_MethodInfo_
-};
-
-$Object* allocate$IMPDEP2($Class* clazz) {
-	return $of($alloc(IMPDEP2));
-}
-
 void IMPDEP2::init$() {
 	$Instruction::init$($Const::IMPDEP2, (int16_t)1);
 }
@@ -52,7 +32,22 @@ IMPDEP2::IMPDEP2() {
 }
 
 $Class* IMPDEP2::load$($String* name, bool initialize) {
-	$loadClass(IMPDEP2, name, initialize, &_IMPDEP2_ClassInfo_, allocate$IMPDEP2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IMPDEP2, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(IMPDEP2, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.IMPDEP2",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IMPDEP2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IMPDEP2);
+	});
 	return class$;
 }
 

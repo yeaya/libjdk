@@ -22,6 +22,7 @@ class TlsChannelBinding$TlsChannelBindingType : public ::java::lang::Enum {
 public:
 	TlsChannelBinding$TlsChannelBindingType();
 	static $Array<::com::sun::jndi::ldap::sasl::TlsChannelBinding$TlsChannelBindingType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name);
 	virtual $String* getName();
 	static ::com::sun::jndi::ldap::sasl::TlsChannelBinding$TlsChannelBindingType* valueOf($String* name);

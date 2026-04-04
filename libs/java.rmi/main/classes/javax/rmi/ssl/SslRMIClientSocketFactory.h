@@ -28,6 +28,7 @@ public:
 	SslRMIClientSocketFactory();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::net::Socket* createSocket($String* host, int32_t port) override;
 	virtual bool equals(Object$* obj) override;
@@ -35,7 +36,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
 	static ::javax::net::SocketFactory* defaultSocketFactory;
-	static const int64_t serialVersionUID = (int64_t)0x8CAAB4BB8185250F;
+	static const int64_t serialVersionUID = (int64_t)0x8caab4bb8185250f;
 };
 
 		} // ssl

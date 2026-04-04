@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -7,14 +6,10 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
@@ -38,28 +33,20 @@
 #undef ORIENTATION_PROPERTY
 #undef S_RESIZE_CURSOR
 
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicSplitPaneDivider$1 = ::javax::swing::plaf::basic::BasicSplitPaneDivider$1;
 using $BasicSplitPaneDivider$2 = ::javax::swing::plaf::basic::BasicSplitPaneDivider$2;
 using $BasicSplitPaneDivider$DividerLayout = ::javax::swing::plaf::basic::BasicSplitPaneDivider$DividerLayout;
@@ -72,86 +59,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSplitPaneDivider_FieldInfo_[] = {
-	{"ONE_TOUCH_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicSplitPaneDivider, ONE_TOUCH_SIZE)},
-	{"ONE_TOUCH_OFFSET", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicSplitPaneDivider, ONE_TOUCH_OFFSET)},
-	{"dragger", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider$DragController;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, dragger)},
-	{"splitPaneUI", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, splitPaneUI)},
-	{"dividerSize", "I", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, dividerSize)},
-	{"hiddenDivider", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, hiddenDivider)},
-	{"splitPane", "Ljavax/swing/JSplitPane;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, splitPane)},
-	{"mouseHandler", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider$MouseHandler;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, mouseHandler)},
-	{"orientation", "I", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, orientation)},
-	{"leftButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, leftButton)},
-	{"rightButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, rightButton)},
-	{"border", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, border)},
-	{"mouseOver", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, mouseOver)},
-	{"oneTouchSize", "I", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, oneTouchSize)},
-	{"oneTouchOffset", "I", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, oneTouchOffset)},
-	{"centerOneTouchButtons", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, centerOneTouchButtons)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneDivider_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(BasicSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
-	{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, createLeftOneTouchButton, $JButton*)},
-	{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, createRightOneTouchButton, $JButton*)},
-	{"dragDividerTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, dragDividerTo, void, int32_t)},
-	{"finishDraggingTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, finishDraggingTo, void, int32_t)},
-	{"getBasicSplitPaneUI", "()Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getBasicSplitPaneUI, $BasicSplitPaneUI*)},
-	{"getBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getBorder, $Border*)},
-	{"getDividerSize", "()I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getDividerSize, int32_t)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getInsets, $Insets*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getPreferredSize, $Dimension*)},
-	{"isMouseOver", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, isMouseOver, bool)},
-	{"oneTouchExpandableChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, oneTouchExpandableChanged, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, paint, void, $Graphics*)},
-	{"prepareForDragging", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, prepareForDragging, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, propertyChange, void, $PropertyChangeEvent*)},
-	{"revalidateSplitPane", "()V", nullptr, $PRIVATE, $method(BasicSplitPaneDivider, revalidateSplitPane, void)},
-	{"setBasicSplitPaneUI", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, setBasicSplitPaneUI, void, $BasicSplitPaneUI*)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, setBorder, void, $Border*)},
-	{"setDividerSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, setDividerSize, void, int32_t)},
-	{"setMouseOver", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, setMouseOver, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneDivider_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "OneTouchActionHandler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DividerLayout", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "VerticalDragController", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DragController", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "MouseHandler", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneDivider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider",
-	"java.awt.Container",
-	"java.beans.PropertyChangeListener",
-	_BasicSplitPaneDivider_FieldInfo_,
-	_BasicSplitPaneDivider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneDivider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler,javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout,javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController,javax.swing.plaf.basic.BasicSplitPaneDivider$DragController,javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler,javax.swing.plaf.basic.BasicSplitPaneDivider$2,javax.swing.plaf.basic.BasicSplitPaneDivider$1"
-};
-
-$Object* allocate$BasicSplitPaneDivider($Class* clazz) {
-	return $of($alloc(BasicSplitPaneDivider));
-}
 
 $String* BasicSplitPaneDivider::toString() {
 	 return this->$Container::toString();
@@ -174,12 +81,12 @@ void BasicSplitPaneDivider::finalize() {
 }
 
 void BasicSplitPaneDivider::init$($BasicSplitPaneUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Container::init$();
 	this->dividerSize = 0;
 	this->oneTouchSize = $DefaultLookup::getInt($($nc(ui)->getSplitPane()), ui, "SplitPane.oneTouchButtonSize"_s, BasicSplitPaneDivider::ONE_TOUCH_SIZE);
-	this->oneTouchOffset = $DefaultLookup::getInt($($nc(ui)->getSplitPane()), ui, "SplitPane.oneTouchButtonOffset"_s, BasicSplitPaneDivider::ONE_TOUCH_OFFSET);
-	this->centerOneTouchButtons = $DefaultLookup::getBoolean($($nc(ui)->getSplitPane()), ui, "SplitPane.centerOneTouchButtons"_s, true);
+	this->oneTouchOffset = $DefaultLookup::getInt($(ui->getSplitPane()), ui, "SplitPane.oneTouchButtonOffset"_s, BasicSplitPaneDivider::ONE_TOUCH_OFFSET);
+	this->centerOneTouchButtons = $DefaultLookup::getBoolean($(ui->getSplitPane()), ui, "SplitPane.centerOneTouchButtons"_s, true);
 	setLayout($$new($BasicSplitPaneDivider$DividerLayout, this));
 	setBasicSplitPaneUI(ui);
 	this->orientation = $nc(this->splitPane)->getOrientation();
@@ -190,13 +97,13 @@ void BasicSplitPaneDivider::init$($BasicSplitPaneUI* ui) {
 void BasicSplitPaneDivider::revalidateSplitPane() {
 	invalidate();
 	if (this->splitPane != nullptr) {
-		$nc(this->splitPane)->revalidate();
+		this->splitPane->revalidate();
 	}
 }
 
 void BasicSplitPaneDivider::setBasicSplitPaneUI($BasicSplitPaneUI* newUI) {
 	if (this->splitPane != nullptr) {
-		$nc(this->splitPane)->removePropertyChangeListener(this);
+		this->splitPane->removePropertyChangeListener(this);
 		if (this->mouseHandler != nullptr) {
 			$nc(this->splitPane)->removeMouseListener(this->mouseHandler);
 			$nc(this->splitPane)->removeMouseMotionListener(this->mouseHandler);
@@ -212,7 +119,7 @@ void BasicSplitPaneDivider::setBasicSplitPaneUI($BasicSplitPaneUI* newUI) {
 			if (this->mouseHandler == nullptr) {
 				$set(this, mouseHandler, $new($BasicSplitPaneDivider$MouseHandler, this));
 			}
-			$nc(this->splitPane)->addMouseListener(this->mouseHandler);
+			this->splitPane->addMouseListener(this->mouseHandler);
 			$nc(this->splitPane)->addMouseMotionListener(this->mouseHandler);
 			addMouseListener(this->mouseHandler);
 			addMouseMotionListener(this->mouseHandler);
@@ -275,55 +182,53 @@ $Dimension* BasicSplitPaneDivider::getMinimumSize() {
 }
 
 void BasicSplitPaneDivider::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($nc(e)->getSource(), this->splitPane)) {
 		$init($JSplitPane);
 		if (e->getPropertyName() == $JSplitPane::ORIENTATION_PROPERTY) {
 			this->orientation = $nc(this->splitPane)->getOrientation();
 			setCursor((this->orientation == $JSplitPane::HORIZONTAL_SPLIT) ? $($Cursor::getPredefinedCursor($Cursor::E_RESIZE_CURSOR)) : $($Cursor::getPredefinedCursor($Cursor::S_RESIZE_CURSOR)));
 			revalidateSplitPane();
-		} else {
-			if (e->getPropertyName() == $JSplitPane::ONE_TOUCH_EXPANDABLE_PROPERTY) {
-				oneTouchExpandableChanged();
-			}
+		} else if (e->getPropertyName() == $JSplitPane::ONE_TOUCH_EXPANDABLE_PROPERTY) {
+			oneTouchExpandableChanged();
 		}
 	}
 }
 
 void BasicSplitPaneDivider::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Container::paint(g);
 	$var($Border, border, getBorder());
 	if (border != nullptr) {
 		$var($Dimension, size, getSize());
-		border->paintBorder(this, g, 0, 0, $nc(size)->width, size->height);
+		border->paintBorder(this, g, 0, 0, $nc(size)->width, $nc(size)->height);
 	}
 }
 
 void BasicSplitPaneDivider::oneTouchExpandableChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$DefaultLookup::getBoolean(this->splitPane, this->splitPaneUI, "SplitPane.supportsOneTouchButtons"_s, true)) {
 		return;
 	}
 	if ($nc(this->splitPane)->isOneTouchExpandable() && this->leftButton == nullptr && this->rightButton == nullptr) {
 		$set(this, leftButton, createLeftOneTouchButton());
 		if (this->leftButton != nullptr) {
-			$nc(this->leftButton)->addActionListener($$new($BasicSplitPaneDivider$OneTouchActionHandler, this, true));
+			this->leftButton->addActionListener($$new($BasicSplitPaneDivider$OneTouchActionHandler, this, true));
 		}
 		$set(this, rightButton, createRightOneTouchButton());
 		if (this->rightButton != nullptr) {
-			$nc(this->rightButton)->addActionListener($$new($BasicSplitPaneDivider$OneTouchActionHandler, this, false));
+			this->rightButton->addActionListener($$new($BasicSplitPaneDivider$OneTouchActionHandler, this, false));
 		}
 		if (this->leftButton != nullptr && this->rightButton != nullptr) {
-			add(static_cast<$Component*>(this->leftButton));
-			add(static_cast<$Component*>(this->rightButton));
+			add(this->leftButton);
+			add(this->rightButton);
 		}
 	}
 	revalidateSplitPane();
 }
 
 $JButton* BasicSplitPaneDivider::createLeftOneTouchButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($BasicSplitPaneDivider$1, this));
 	b->setMinimumSize($$new($Dimension, this->oneTouchSize, this->oneTouchSize));
 	b->setCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
@@ -334,7 +239,7 @@ $JButton* BasicSplitPaneDivider::createLeftOneTouchButton() {
 }
 
 $JButton* BasicSplitPaneDivider::createRightOneTouchButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($BasicSplitPaneDivider$2, this));
 	b->setMinimumSize($$new($Dimension, this->oneTouchSize, this->oneTouchSize));
 	b->setCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
@@ -360,7 +265,81 @@ BasicSplitPaneDivider::BasicSplitPaneDivider() {
 }
 
 $Class* BasicSplitPaneDivider::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneDivider, name, initialize, &_BasicSplitPaneDivider_ClassInfo_, allocate$BasicSplitPaneDivider);
+	$FieldInfo fieldInfos$$[] = {
+		{"ONE_TOUCH_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicSplitPaneDivider, ONE_TOUCH_SIZE)},
+		{"ONE_TOUCH_OFFSET", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicSplitPaneDivider, ONE_TOUCH_OFFSET)},
+		{"dragger", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider$DragController;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, dragger)},
+		{"splitPaneUI", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, splitPaneUI)},
+		{"dividerSize", "I", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, dividerSize)},
+		{"hiddenDivider", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, hiddenDivider)},
+		{"splitPane", "Ljavax/swing/JSplitPane;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, splitPane)},
+		{"mouseHandler", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider$MouseHandler;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, mouseHandler)},
+		{"orientation", "I", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, orientation)},
+		{"leftButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, leftButton)},
+		{"rightButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicSplitPaneDivider, rightButton)},
+		{"border", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, border)},
+		{"mouseOver", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, mouseOver)},
+		{"oneTouchSize", "I", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, oneTouchSize)},
+		{"oneTouchOffset", "I", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, oneTouchOffset)},
+		{"centerOneTouchButtons", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneDivider, centerOneTouchButtons)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(BasicSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
+		{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, createLeftOneTouchButton, $JButton*)},
+		{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, createRightOneTouchButton, $JButton*)},
+		{"dragDividerTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, dragDividerTo, void, int32_t)},
+		{"finishDraggingTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, finishDraggingTo, void, int32_t)},
+		{"getBasicSplitPaneUI", "()Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getBasicSplitPaneUI, $BasicSplitPaneUI*)},
+		{"getBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getBorder, $Border*)},
+		{"getDividerSize", "()I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getDividerSize, int32_t)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getInsets, $Insets*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, getPreferredSize, $Dimension*)},
+		{"isMouseOver", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, isMouseOver, bool)},
+		{"oneTouchExpandableChanged", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, oneTouchExpandableChanged, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, paint, void, $Graphics*)},
+		{"prepareForDragging", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, prepareForDragging, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, propertyChange, void, $PropertyChangeEvent*)},
+		{"revalidateSplitPane", "()V", nullptr, $PRIVATE, $method(BasicSplitPaneDivider, revalidateSplitPane, void)},
+		{"setBasicSplitPaneUI", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, setBasicSplitPaneUI, void, $BasicSplitPaneUI*)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, setBorder, void, $Border*)},
+		{"setDividerSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider, setDividerSize, void, int32_t)},
+		{"setMouseOver", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider, setMouseOver, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "OneTouchActionHandler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DividerLayout", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "VerticalDragController", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DragController", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "MouseHandler", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider",
+		"java.awt.Container",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler,javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout,javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController,javax.swing.plaf.basic.BasicSplitPaneDivider$DragController,javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler,javax.swing.plaf.basic.BasicSplitPaneDivider$2,javax.swing.plaf.basic.BasicSplitPaneDivider$1"
+	};
+	$loadClass(BasicSplitPaneDivider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSplitPaneDivider));
+	});
 	return class$;
 }
 

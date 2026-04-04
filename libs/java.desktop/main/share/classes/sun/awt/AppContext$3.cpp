@@ -1,5 +1,4 @@
 #include <sun/awt/AppContext$3.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/lang/ThreadLocal.h>
@@ -15,57 +14,17 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $ThreadLocal = ::java::lang::ThreadLocal;
-using $Map = ::java::util::Map;
-using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AppContext$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AppContext$3, init$, void)},
-	{"run", "()Lsun/awt/AppContext;", nullptr, $PUBLIC, $virtualMethod(AppContext$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AppContext$3_EnclosingMethodInfo_ = {
-	"sun.awt.AppContext",
-	"getAppContext",
-	"()Lsun/awt/AppContext;"
-};
-
-$InnerClassInfo _AppContext$3_InnerClassesInfo_[] = {
-	{"sun.awt.AppContext$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AppContext$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.AppContext$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_AppContext$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/awt/AppContext;>;",
-	&_AppContext$3_EnclosingMethodInfo_,
-	_AppContext$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AppContext"
-};
-
-$Object* allocate$AppContext$3($Class* clazz) {
-	return $of($alloc(AppContext$3));
-}
-
 void AppContext$3::init$() {
 }
 
 $Object* AppContext$3::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, currentThreadGroup, $($Thread::currentThread())->getThreadGroup());
 	$var($ThreadGroup, threadGroup, currentThreadGroup);
 	$init($AppContext);
@@ -75,8 +34,8 @@ $Object* AppContext$3::run() {
 			if (var$0 && $System::getProperty("javawebstart.version"_s) == nullptr) {
 				$AppContext::initMainAppContext();
 			} else {
-				bool var$2 = $System::getProperty("javafx.version"_s) != nullptr;
-				if (var$2 && $nc(threadGroup)->getParent() != nullptr) {
+				bool var$1 = $System::getProperty("javafx.version"_s) != nullptr;
+				if (var$1 && $nc(threadGroup)->getParent() != nullptr) {
 					$SunToolkit::createNewAppContext();
 				}
 			}
@@ -90,28 +49,59 @@ $Object* AppContext$3::run() {
 			if (securityManager != nullptr) {
 				$var($ThreadGroup, smThreadGroup, securityManager->getThreadGroup());
 				if (smThreadGroup != nullptr) {
-					return $of($cast($AppContext, $nc($AppContext::threadGroup2appContext)->get(smThreadGroup)));
+					return $cast($AppContext, $AppContext::threadGroup2appContext->get(smThreadGroup));
 				}
 			}
-			return $of(nullptr);
+			return nullptr;
 		}
-		$assign(context, $cast($AppContext, $nc($AppContext::threadGroup2appContext)->get(threadGroup)));
+		$assign(context, $cast($AppContext, $AppContext::threadGroup2appContext->get(threadGroup)));
 	}
 	{
 		$var($ThreadGroup, tg, currentThreadGroup);
 		for (; tg != threadGroup; $assign(tg, $nc(tg)->getParent())) {
-			$nc($AppContext::threadGroup2appContext)->put(tg, context);
+			$AppContext::threadGroup2appContext->put(tg, context);
 		}
 	}
 	$nc($AppContext::threadAppContext)->set(context);
-	return $of(context);
+	return context;
 }
 
 AppContext$3::AppContext$3() {
 }
 
 $Class* AppContext$3::load$($String* name, bool initialize) {
-	$loadClass(AppContext$3, name, initialize, &_AppContext$3_ClassInfo_, allocate$AppContext$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AppContext$3, init$, void)},
+		{"run", "()Lsun/awt/AppContext;", nullptr, $PUBLIC, $virtualMethod(AppContext$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.AppContext",
+		"getAppContext",
+		"()Lsun/awt/AppContext;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AppContext$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.AppContext$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/awt/AppContext;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AppContext"
+	};
+	$loadClass(AppContext$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppContext$3);
+	});
 	return class$;
 }
 

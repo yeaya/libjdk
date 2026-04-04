@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_fo_DK.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_fo_DK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_fo_DK, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_fo_DK, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_fo_DK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_fo_DK",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_fo_DK_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_fo_DK($Class* clazz) {
-	return $of($alloc(CurrencyNames_fo_DK));
-}
-
 void CurrencyNames_fo_DK::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_fo_DK::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("DKK"_s),
-		$of("kr."_s)
+		"DKK"_s,
+		"kr."_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_fo_DK::CurrencyNames_fo_DK() {
 }
 
 $Class* CurrencyNames_fo_DK::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_fo_DK, name, initialize, &_CurrencyNames_fo_DK_ClassInfo_, allocate$CurrencyNames_fo_DK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_fo_DK, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_fo_DK, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_fo_DK",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_fo_DK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_fo_DK);
+	});
 	return class$;
 }
 

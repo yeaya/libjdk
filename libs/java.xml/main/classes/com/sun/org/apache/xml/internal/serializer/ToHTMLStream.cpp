@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToHTMLStream.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/CharInfo.h>
 #include <com/sun/org/apache/xml/internal/serializer/ElemContext.h>
@@ -61,7 +60,6 @@
 #undef S_USE_URL_ESCAPING
 #undef WHITESPACESENSITIVE
 
-using $AttributesImplSerializer = ::com::sun::org::apache::xml::internal::serializer::AttributesImplSerializer;
 using $CharInfo = ::com::sun::org::apache::xml::internal::serializer::CharInfo;
 using $ElemContext = ::com::sun::org::apache::xml::internal::serializer::ElemContext;
 using $ElemDesc = ::com::sun::org::apache::xml::internal::serializer::ElemDesc;
@@ -74,20 +72,17 @@ using $OutputPropertyUtils = ::com::sun::org::apache::xml::internal::serializer:
 using $SerializerConstants = ::com::sun::org::apache::xml::internal::serializer::SerializerConstants;
 using $ToHTMLStream$Trie = ::com::sun::org::apache::xml::internal::serializer::ToHTMLStream$Trie;
 using $ToStream = ::com::sun::org::apache::xml::internal::serializer::ToStream;
-using $Messages = ::com::sun::org::apache::xml::internal::serializer::utils::Messages;
 using $MsgKey = ::com::sun::org::apache::xml::internal::serializer::utils::MsgKey;
 using $Utils = ::com::sun::org::apache::xml::internal::serializer::utils::Utils;
 using $IOException = ::java::io::IOException;
 using $Writer = ::java::io::Writer;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $List = ::java::util::List;
 using $Properties = ::java::util::Properties;
 using $ErrorListener = ::javax::xml::transform::ErrorListener;
 using $Result = ::javax::xml::transform::Result;
@@ -102,93 +97,13 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$FieldInfo _ToHTMLStream_FieldInfo_[] = {
-	{"m_inDTD", "Z", nullptr, $PROTECTED, $field(ToHTMLStream, m_inDTD)},
-	{"m_isprevblock", "Z", nullptr, $PRIVATE, $field(ToHTMLStream, m_isprevblock)},
-	{"m_htmlcharInfo", "Lcom/sun/org/apache/xml/internal/serializer/CharInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToHTMLStream, m_htmlcharInfo)},
-	{"m_elementFlags", "Lcom/sun/org/apache/xml/internal/serializer/ToHTMLStream$Trie;", nullptr, $STATIC | $FINAL, $staticField(ToHTMLStream, m_elementFlags)},
-	{"m_dummy", "Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToHTMLStream, m_dummy)},
-	{"m_specialEscapeURLs", "Z", nullptr, $PRIVATE, $field(ToHTMLStream, m_specialEscapeURLs)},
-	{"m_omitMetaTag", "Z", nullptr, $PRIVATE, $field(ToHTMLStream, m_omitMetaTag)},
-	{"m_htmlInfo", "Lcom/sun/org/apache/xml/internal/serializer/ToHTMLStream$Trie;", nullptr, $PRIVATE, $field(ToHTMLStream, m_htmlInfo)},
-	{}
-};
-
-$MethodInfo _ToHTMLStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToHTMLStream, init$, void)},
-	{"<init>", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(ToHTMLStream, init$, void, $ErrorListener*)},
-	{"addUniqueAttribute", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, addUniqueAttribute, void, $String*, $String*, int32_t), "org.xml.sax.SAXException"},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"cdata", "([CII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, cdata, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"closeStartTag", "()V", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, closeStartTag, void), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, entityReference, void, $String*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"getElemDesc", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ToHTMLStream, getElemDesc, $ElemDesc*, $String*)},
-	{"getElemDesc2", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;", nullptr, $PRIVATE, $method(ToHTMLStream, getElemDesc2, $ElemDesc*, $String*)},
-	{"getOmitMetaTag", "()Z", nullptr, $PRIVATE | $FINAL, $method(ToHTMLStream, getOmitMetaTag, bool)},
-	{"getSpecialEscapeURLs", "()Z", nullptr, $PRIVATE | $FINAL, $method(ToHTMLStream, getSpecialEscapeURLs, bool)},
-	{"initTagReference", "(Lcom/sun/org/apache/xml/internal/serializer/ToHTMLStream$Trie;)V", nullptr, $STATIC, $staticMethod(ToHTMLStream, initTagReference, void, $ToHTMLStream$Trie*)},
-	{"initToHTMLStream", "()V", nullptr, $PRIVATE, $method(ToHTMLStream, initToHTMLStream, void)},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"isASCIIDigit", "(C)Z", nullptr, $PRIVATE, $method(ToHTMLStream, isASCIIDigit, bool, char16_t)},
-	{"isHHSign", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ToHTMLStream, isHHSign, bool, $String*)},
-	{"makeHHString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ToHTMLStream, makeHHString, $String*, int32_t)},
-	{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processAttribute", "(Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;)V", nullptr, $PROTECTED, $method(ToHTMLStream, processAttribute, void, $Writer*, $String*, $String*, $ElemDesc*), "java.io.IOException,org.xml.sax.SAXException"},
-	{"processAttributes", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, processAttributes, void, $Writer*, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, reset, bool)},
-	{"setOmitMetaTag", "(Z)V", nullptr, $PUBLIC, $method(ToHTMLStream, setOmitMetaTag, void, bool)},
-	{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, setOutputFormat, void, $Properties*)},
-	{"setSpecialEscapeURLs", "(Z)V", nullptr, $PUBLIC, $method(ToHTMLStream, setSpecialEscapeURLs, void, bool)},
-	{"shouldFormatOutput", "()Z", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, shouldFormatOutput, bool)},
-	{"shouldIndentForText", "()Z", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, shouldIndentForText, bool)},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocumentInternal", "()V", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, startDocumentInternal, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"writeAttrString", "(Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, writeAttrString, void, $Writer*, $String*, $String*), "java.io.IOException,org.xml.sax.SAXException"},
-	{"writeAttrURI", "(Ljava/io/Writer;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(ToHTMLStream, writeAttrURI, void, $Writer*, $String*, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ToHTMLStream_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.ToHTMLStream$Trie", "com.sun.org.apache.xml.internal.serializer.ToHTMLStream", "Trie", $STATIC},
-	{}
-};
-
-$ClassInfo _ToHTMLStream_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ToHTMLStream",
-	"com.sun.org.apache.xml.internal.serializer.ToStream",
-	nullptr,
-	_ToHTMLStream_FieldInfo_,
-	_ToHTMLStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ToHTMLStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.ToHTMLStream$Trie,com.sun.org.apache.xml.internal.serializer.ToHTMLStream$Trie$Node"
-};
-
-$Object* allocate$ToHTMLStream($Class* clazz) {
-	return $of($alloc(ToHTMLStream));
-}
-
 $CharInfo* ToHTMLStream::m_htmlcharInfo = nullptr;
 $ToHTMLStream$Trie* ToHTMLStream::m_elementFlags = nullptr;
 $ElemDesc* ToHTMLStream::m_dummy = nullptr;
 
 void ToHTMLStream::initTagReference($ToHTMLStream$Trie* m_elementFlags) {
 	$init(ToHTMLStream);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(m_elementFlags)->put("BASEFONT"_s, $$new($ElemDesc, 0 | $ElemDesc::EMPTY));
 	m_elementFlags->put("FRAME"_s, $$new($ElemDesc, (0 | $ElemDesc::EMPTY) | $ElemDesc::BLOCK));
 	m_elementFlags->put("FRAMESET"_s, $$new($ElemDesc, 0 | $ElemDesc::BLOCK));
@@ -288,94 +203,94 @@ void ToHTMLStream::initTagReference($ToHTMLStream$Trie* m_elementFlags) {
 	$nc(elemDesc)->setAttr("HREF"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("NAME"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("area"_s)));
-	elemDesc->setAttr("HREF"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("HREF"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("NOHREF"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("base"_s)));
-	elemDesc->setAttr("HREF"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("HREF"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("button"_s)));
-	elemDesc->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("blockquote"_s)));
-	elemDesc->setAttr("CITE"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("CITE"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("del"_s)));
-	elemDesc->setAttr("CITE"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("CITE"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("dir"_s)));
-	elemDesc->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("div"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("dl"_s)));
-	elemDesc->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("form"_s)));
-	elemDesc->setAttr("ACTION"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("ACTION"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("frame"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("LONGDESC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("NORESIZE"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("head"_s)));
-	elemDesc->setAttr("PROFILE"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("PROFILE"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("hr"_s)));
-	elemDesc->setAttr("NOSHADE"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("NOSHADE"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("iframe"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("LONGDESC"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("ilayer"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("img"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("LONGDESC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("USEMAP"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("ISMAP"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("input"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("USEMAP"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("CHECKED"_s, $ElemDesc::ATTREMPTY);
 	elemDesc->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
 	elemDesc->setAttr("ISMAP"_s, $ElemDesc::ATTREMPTY);
 	elemDesc->setAttr("READONLY"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("ins"_s)));
-	elemDesc->setAttr("CITE"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("CITE"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("layer"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("link"_s)));
-	elemDesc->setAttr("HREF"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("HREF"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("menu"_s)));
-	elemDesc->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("object"_s)));
-	elemDesc->setAttr("CLASSID"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("CLASSID"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("CODEBASE"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("DATA"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("ARCHIVE"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("USEMAP"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("DECLARE"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("ol"_s)));
-	elemDesc->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("optgroup"_s)));
-	elemDesc->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("option"_s)));
-	elemDesc->setAttr("SELECTED"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("SELECTED"_s, $ElemDesc::ATTREMPTY);
 	elemDesc->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("q"_s)));
-	elemDesc->setAttr("CITE"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("CITE"_s, $ElemDesc::ATTRURL);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("script"_s)));
-	elemDesc->setAttr("SRC"_s, $ElemDesc::ATTRURL);
+	$nc(elemDesc)->setAttr("SRC"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("FOR"_s, $ElemDesc::ATTRURL);
 	elemDesc->setAttr("DEFER"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("select"_s)));
-	elemDesc->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
 	elemDesc->setAttr("MULTIPLE"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("table"_s)));
-	elemDesc->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("td"_s)));
-	elemDesc->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("textarea"_s)));
-	elemDesc->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("DISABLED"_s, $ElemDesc::ATTREMPTY);
 	elemDesc->setAttr("READONLY"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("th"_s)));
-	elemDesc->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("tr"_s)));
-	elemDesc->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("NOWRAP"_s, $ElemDesc::ATTREMPTY);
 	$assign(elemDesc, $cast($ElemDesc, m_elementFlags->get("ul"_s)));
-	elemDesc->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
+	$nc(elemDesc)->setAttr("COMPACT"_s, $ElemDesc::ATTREMPTY);
 }
 
 void ToHTMLStream::setSpecialEscapeURLs(bool bool$) {
@@ -403,7 +318,7 @@ bool ToHTMLStream::getOmitMetaTag() {
 
 $ElemDesc* ToHTMLStream::getElemDesc($String* name) {
 	$init(ToHTMLStream);
-	$var($Object, obj, $nc(ToHTMLStream::m_elementFlags)->get(name));
+	$var($Object, obj, ToHTMLStream::m_elementFlags->get(name));
 	if (nullptr != obj) {
 		return $cast($ElemDesc, obj);
 	}
@@ -434,7 +349,7 @@ void ToHTMLStream::init$($ErrorListener* l) {
 }
 
 void ToHTMLStream::startDocumentInternal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ToStream::startDocumentInternal();
 	this->m_needToCallStartDocument = false;
 	this->m_needToOutputDocTypeDecl = true;
@@ -450,7 +365,7 @@ void ToHTMLStream::startDocumentInternal() {
 				if (nullptr != doctypePublic) {
 					writer->write(" PUBLIC \""_s);
 					writer->write(doctypePublic);
-					writer->write((int32_t)u'\"');
+					writer->write(u'\"');
 				}
 				if (nullptr != doctypeSystem) {
 					if (nullptr == doctypePublic) {
@@ -459,12 +374,12 @@ void ToHTMLStream::startDocumentInternal() {
 						writer->write(" \""_s);
 					}
 					writer->write(doctypeSystem);
-					writer->write((int32_t)u'\"');
+					writer->write(u'\"');
 				}
-				writer->write((int32_t)u'>');
+				writer->write(u'>');
 				outputLineSep();
 			} catch ($IOException& e) {
-				$throwNew($SAXException, static_cast<$Exception*>(e));
+				$throwNew($SAXException, e);
 			}
 		}
 	}
@@ -480,7 +395,7 @@ void ToHTMLStream::endDocument() {
 		try {
 			outputLineSep();
 		} catch ($IOException& e) {
-			$throwNew($SAXException, static_cast<$Exception*>(e));
+			$throwNew($SAXException, e);
 		}
 	}
 	flushWriter();
@@ -498,7 +413,7 @@ bool ToHTMLStream::shouldFormatOutput() {
 }
 
 void ToHTMLStream::startElement($String* namespaceURI, $String* localName, $String* name, $Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_doIndent) {
 		++this->m_childNodeNum;
 		flushCharactersBuffer(false);
@@ -522,8 +437,8 @@ void ToHTMLStream::startElement($String* namespaceURI, $String* localName, $Stri
 		$var($ElemDesc, elemDesc, getElemDesc2(name));
 		int32_t elemFlags = $nc(elemDesc)->getFlags();
 		if (this->m_doIndent) {
-			bool isBlockElement = ((int32_t)(elemFlags & (uint32_t)$ElemDesc::BLOCK)) != 0;
-			if (($nc(elemContext)->m_elementName != nullptr) && (isBlockElement || (!(this->m_isprevtext || !this->m_isprevblock)))) {
+			bool isBlockElement = (elemFlags & $ElemDesc::BLOCK) != 0;
+			if ((elemContext->m_elementName != nullptr) && (isBlockElement || (!(this->m_isprevtext || !this->m_isprevblock)))) {
 				this->m_startNewLine = true;
 				indent();
 			}
@@ -534,7 +449,7 @@ void ToHTMLStream::startElement($String* namespaceURI, $String* localName, $Stri
 		}
 		this->m_isprevtext = false;
 		$var($Writer, writer, this->m_writer);
-		$nc(writer)->write((int32_t)u'<');
+		$nc(writer)->write(u'<');
 		writer->write(name);
 		if (this->m_doIndent) {
 			$nc(this->m_childNodeNumStack)->add($($Integer::valueOf(this->m_childNodeNum)));
@@ -543,26 +458,26 @@ void ToHTMLStream::startElement($String* namespaceURI, $String* localName, $Stri
 		if (this->m_tracer != nullptr) {
 			firePseudoAttributes();
 		}
-		if (((int32_t)(elemFlags & (uint32_t)$ElemDesc::EMPTY)) != 0) {
-			$set(this, m_elemContext, $nc(elemContext)->push());
+		if ((elemFlags & $ElemDesc::EMPTY) != 0) {
+			$set(this, m_elemContext, elemContext->push());
 			$set($nc(this->m_elemContext), m_elementName, name);
-			$set($nc(this->m_elemContext), m_elementDesc, elemDesc);
+			$set(this->m_elemContext, m_elementDesc, elemDesc);
 			return;
 		} else {
-			$assign(elemContext, $nc(elemContext)->push(namespaceURI, localName, name));
+			$assign(elemContext, elemContext->push(namespaceURI, localName, name));
 			$set(this, m_elemContext, elemContext);
-			$set(elemContext, m_elementDesc, elemDesc);
-			elemContext->m_isRaw = ((int32_t)(elemFlags & (uint32_t)$ElemDesc::RAW)) != 0;
+			$set($nc(elemContext), m_elementDesc, elemDesc);
+			elemContext->m_isRaw = (elemFlags & $ElemDesc::RAW) != 0;
 			if (this->m_doIndent) {
-				bool isBlockElement = ((int32_t)(elemFlags & (uint32_t)$ElemDesc::BLOCK)) != 0;
+				bool isBlockElement = (elemFlags & $ElemDesc::BLOCK) != 0;
 				if (isBlockElement) {
 					this->m_startNewLine = true;
 				}
 			}
 		}
-		if (((int32_t)(elemFlags & (uint32_t)$ElemDesc::HEADELEM)) != 0) {
+		if ((elemFlags & $ElemDesc::HEADELEM) != 0) {
 			closeStartTag();
-			$nc(elemContext)->m_startTagOpen = false;
+			elemContext->m_startTagOpen = false;
 			if (!this->m_omitMetaTag) {
 				if (this->m_doIndent) {
 					indent();
@@ -575,12 +490,12 @@ void ToHTMLStream::startElement($String* namespaceURI, $String* localName, $Stri
 			}
 		}
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
 void ToHTMLStream::endElement($String* namespaceURI, $String* localName, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_doIndent) {
 		flushCharactersBuffer(false);
 	}
@@ -595,9 +510,9 @@ void ToHTMLStream::endElement($String* namespaceURI, $String* localName, $String
 		$var($ElemContext, elemContext, this->m_elemContext);
 		$var($ElemDesc, elemDesc, $nc(elemContext)->m_elementDesc);
 		int32_t elemFlags = $nc(elemDesc)->getFlags();
-		bool elemEmpty = ((int32_t)(elemFlags & (uint32_t)$ElemDesc::EMPTY)) != 0;
+		bool elemEmpty = (elemFlags & $ElemDesc::EMPTY) != 0;
 		if (this->m_doIndent) {
-			bool isBlockElement = ((int32_t)(elemFlags & (uint32_t)$ElemDesc::BLOCK)) != 0;
+			bool isBlockElement = (elemFlags & $ElemDesc::BLOCK) != 0;
 			bool shouldIndent = false;
 			if (isBlockElement || (!(this->m_isprevtext || !this->m_isprevblock))) {
 				this->m_startNewLine = true;
@@ -612,7 +527,7 @@ void ToHTMLStream::endElement($String* namespaceURI, $String* localName, $String
 		if (!elemContext->m_startTagOpen) {
 			$nc(writer)->write("</"_s);
 			writer->write(name);
-			writer->write((int32_t)u'>');
+			writer->write(u'>');
 		} else {
 			if (this->m_tracer != nullptr) {
 				$ToStream::fireStartElem(name);
@@ -625,13 +540,13 @@ void ToHTMLStream::endElement($String* namespaceURI, $String* localName, $String
 			if (!elemEmpty) {
 				$nc(writer)->write("></"_s);
 				writer->write(name);
-				writer->write((int32_t)u'>');
+				writer->write(u'>');
 			} else {
-				$nc(writer)->write((int32_t)u'>');
+				$nc(writer)->write(u'>');
 			}
 		}
 		if (this->m_doIndent) {
-			this->m_childNodeNum = $nc(($cast($Integer, $($nc(this->m_childNodeNumStack)->remove($nc(this->m_childNodeNumStack)->size() - 1)))))->intValue();
+			this->m_childNodeNum = $$sure($Integer, $nc(this->m_childNodeNumStack)->remove($nc(this->m_childNodeNumStack)->size() - 1))->intValue();
 			this->m_isprevtext = false;
 		}
 		if (this->m_tracer != nullptr) {
@@ -643,14 +558,14 @@ void ToHTMLStream::endElement($String* namespaceURI, $String* localName, $String
 		}
 		$set(this, m_elemContext, elemContext->m_prev);
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
 void ToHTMLStream::processAttribute($Writer* writer, $String* name, $String* value, $ElemDesc* elemDesc) {
-	$nc(writer)->write((int32_t)u' ');
-	bool var$1 = ($nc(value)->length() == 0);
-	bool var$0 = (var$1 || $nc(value)->equalsIgnoreCase(name)) && elemDesc != nullptr;
+	$nc(writer)->write(u' ');
+	bool var$1 = $nc(value)->length() == 0;
+	bool var$0 = (var$1 || value->equalsIgnoreCase(name)) && elemDesc != nullptr;
 	if (var$0 && elemDesc->isAttrFlagSet(name, $ElemDesc::ATTREMPTY)) {
 		writer->write(name);
 	} else {
@@ -661,7 +576,7 @@ void ToHTMLStream::processAttribute($Writer* writer, $String* name, $String* val
 		} else {
 			writeAttrString(writer, value, $(this->getEncoding()));
 		}
-		writer->write((int32_t)u'\"');
+		writer->write(u'\"');
 	}
 }
 
@@ -671,8 +586,8 @@ bool ToHTMLStream::isASCIIDigit(char16_t c) {
 
 $String* ToHTMLStream::makeHHString(int32_t i) {
 	$init(ToHTMLStream);
-	$useLocalCurrentObjectStackCache();
-	$var($String, s, $nc($($Integer::toHexString(i)))->toUpperCase());
+	$useLocalObjectStack();
+	$var($String, s, $$nc($Integer::toHexString(i))->toUpperCase());
 	if (s->length() == 1) {
 		$assign(s, $str({"0"_s, s}));
 	}
@@ -690,7 +605,7 @@ bool ToHTMLStream::isHHSign($String* str) {
 }
 
 void ToHTMLStream::writeAttrURI($Writer* writer, $String* string, bool doURLEscaping) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t end = $nc(string)->length();
 	if (end > $nc(this->m_attrBuff)->length) {
 		$set(this, m_attrBuff, $new($chars, end * 2 + 1));
@@ -699,7 +614,7 @@ void ToHTMLStream::writeAttrURI($Writer* writer, $String* string, bool doURLEsca
 	$var($chars, chars, this->m_attrBuff);
 	int32_t cleanStart = 0;
 	int32_t cleanLength = 0;
-	char16_t ch = (char16_t)0;
+	char16_t ch = 0;
 	for (int32_t i = 0; i < end; ++i) {
 		ch = $nc(chars)->get(i);
 		if ((ch < 32) || (ch > 126)) {
@@ -709,54 +624,54 @@ void ToHTMLStream::writeAttrURI($Writer* writer, $String* string, bool doURLEsca
 			}
 			if (doURLEscaping) {
 				if (ch <= 127) {
-					$nc(writer)->write((int32_t)u'%');
+					$nc(writer)->write(u'%');
 					writer->write($(makeHHString(ch)));
 				} else if (ch <= 2047) {
-					int32_t high = (ch >> 6) | 192;
-					int32_t low = ((int32_t)(ch & (uint32_t)63)) | 128;
-					$nc(writer)->write((int32_t)u'%');
+					int32_t high = (ch >> 6) | 0xc0;
+					int32_t low = (ch & 0x3f) | 0x80;
+					$nc(writer)->write(u'%');
 					writer->write($(makeHHString(high)));
-					writer->write((int32_t)u'%');
+					writer->write(u'%');
 					writer->write($(makeHHString(low)));
 				} else if ($Encodings::isHighUTF16Surrogate(ch)) {
-					int32_t highSurrogate = (int32_t)(((int32_t)ch) & (uint32_t)1023);
-					int32_t wwww = (((int32_t)(highSurrogate & (uint32_t)960)) >> 6);
+					int32_t highSurrogate = ((int32_t)ch) & 0x03ff;
+					int32_t wwww = ((highSurrogate & 0x03c0) >> 6);
 					int32_t uuuuu = wwww + 1;
-					int32_t zzzz = ((int32_t)(highSurrogate & (uint32_t)60)) >> 2;
-					int32_t yyyyyy = (int32_t)((((int32_t)(highSurrogate & (uint32_t)3)) << 4) & (uint32_t)48);
+					int32_t zzzz = (highSurrogate & 0x3c) >> 2;
+					int32_t yyyyyy = ((highSurrogate & 3) << 4) & 0x30;
 					ch = chars->get(++i);
-					int32_t lowSurrogate = (int32_t)(((int32_t)ch) & (uint32_t)1023);
-					yyyyyy = yyyyyy | (((int32_t)(lowSurrogate & (uint32_t)960)) >> 6);
-					int32_t xxxxxx = ((int32_t)(lowSurrogate & (uint32_t)63));
-					int32_t byte1 = 240 | (uuuuu >> 2);
-					int32_t byte2 = (128 | ((int32_t)((((int32_t)(uuuuu & (uint32_t)3)) << 4) & (uint32_t)48))) | zzzz;
-					int32_t byte3 = 128 | yyyyyy;
-					int32_t byte4 = 128 | xxxxxx;
-					$nc(writer)->write((int32_t)u'%');
+					int32_t lowSurrogate = ((int32_t)ch) & 0x03ff;
+					yyyyyy = yyyyyy | ((lowSurrogate & 0x03c0) >> 6);
+					int32_t xxxxxx = (lowSurrogate & 0x3f);
+					int32_t byte1 = 0xf0 | (uuuuu >> 2);
+					int32_t byte2 = (0x80 | (((uuuuu & 3) << 4) & 0x30)) | zzzz;
+					int32_t byte3 = 0x80 | yyyyyy;
+					int32_t byte4 = 0x80 | xxxxxx;
+					$nc(writer)->write(u'%');
 					writer->write($(makeHHString(byte1)));
-					writer->write((int32_t)u'%');
+					writer->write(u'%');
 					writer->write($(makeHHString(byte2)));
-					writer->write((int32_t)u'%');
+					writer->write(u'%');
 					writer->write($(makeHHString(byte3)));
-					writer->write((int32_t)u'%');
+					writer->write(u'%');
 					writer->write($(makeHHString(byte4)));
 				} else {
-					int32_t high = (ch >> 12) | 224;
-					int32_t middle = (((int32_t)(ch & (uint32_t)4032)) >> 6) | 128;
-					int32_t low = ((int32_t)(ch & (uint32_t)63)) | 128;
-					$nc(writer)->write((int32_t)u'%');
+					int32_t high = (ch >> 12) | 0xe0;
+					int32_t middle = ((ch & 0x0fc0) >> 6) | 0x80;
+					int32_t low = (ch & 0x3f) | 0x80;
+					$nc(writer)->write(u'%');
 					writer->write($(makeHHString(high)));
-					writer->write((int32_t)u'%');
+					writer->write(u'%');
 					writer->write($(makeHHString(middle)));
-					writer->write((int32_t)u'%');
+					writer->write(u'%');
 					writer->write($(makeHHString(low)));
 				}
 			} else if (escapingNotNeeded(ch)) {
-				$nc(writer)->write((int32_t)ch);
+				$nc(writer)->write(ch);
 			} else {
 				$nc(writer)->write("&#"_s);
 				writer->write($($Integer::toString(ch)));
-				writer->write((int32_t)u';');
+				writer->write(u';');
 			}
 			cleanStart = i + 1;
 		} else if (ch == u'\"') {
@@ -788,12 +703,12 @@ void ToHTMLStream::writeAttrURI($Writer* writer, $String* string, bool doURLEsca
 			$nc(writer)->write(chars, cleanStart, cleanLength);
 		}
 	} else if (cleanLength == 1) {
-		$nc(writer)->write((int32_t)ch);
+		$nc(writer)->write(ch);
 	}
 }
 
 void ToHTMLStream::writeAttrString($Writer* writer, $String* string, $String* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t end = $nc(string)->length();
 	if (end > $nc(this->m_attrBuff)->length) {
 		$set(this, m_attrBuff, $new($chars, end * 2 + 1));
@@ -802,7 +717,7 @@ void ToHTMLStream::writeAttrString($Writer* writer, $String* string, $String* en
 	$var($chars, chars, this->m_attrBuff);
 	int32_t cleanStart = 0;
 	int32_t cleanLength = 0;
-	char16_t ch = (char16_t)0;
+	char16_t ch = 0;
 	for (int32_t i = 0; i < end; ++i) {
 		ch = $nc(chars)->get(i);
 		bool var$0 = escapingNotNeeded(ch);
@@ -833,11 +748,11 @@ void ToHTMLStream::writeAttrString($Writer* writer, $String* string, $String* en
 				if (nullptr != outputStringForChar) {
 					$nc(writer)->write(outputStringForChar);
 				} else if (escapingNotNeeded(ch)) {
-					$nc(writer)->write((int32_t)ch);
+					$nc(writer)->write(ch);
 				} else {
 					$nc(writer)->write("&#"_s);
 					writer->write($($Integer::toString(ch)));
-					writer->write((int32_t)u';');
+					writer->write(u';');
 				}
 			}
 			cleanStart = i + 1;
@@ -850,14 +765,14 @@ void ToHTMLStream::writeAttrString($Writer* writer, $String* string, $String* en
 			$nc(writer)->write(chars, cleanStart, cleanLength);
 		}
 	} else if (cleanLength == 1) {
-		$nc(writer)->write((int32_t)ch);
+		$nc(writer)->write(ch);
 	}
 }
 
 void ToHTMLStream::characters($chars* chars, int32_t start, int32_t length) {
 	if ($nc(this->m_elemContext)->m_isRaw) {
 		try {
-			if ($nc(this->m_elemContext)->m_startTagOpen) {
+			if (this->m_elemContext->m_startTagOpen) {
 				closeStartTag();
 				$nc(this->m_elemContext)->m_startTagOpen = false;
 			}
@@ -878,14 +793,14 @@ void ToHTMLStream::characters($chars* chars, int32_t start, int32_t length) {
 }
 
 void ToHTMLStream::cdata($chars* ch, int32_t start, int32_t length) {
-	bool var$0 = (nullptr != $nc(this->m_elemContext)->m_elementName);
+	bool var$0 = nullptr != $nc(this->m_elemContext)->m_elementName;
 	if (var$0) {
-		bool var$1 = $nc($nc(this->m_elemContext)->m_elementName)->equalsIgnoreCase("SCRIPT"_s);
-		var$0 = (var$1 || $nc($nc(this->m_elemContext)->m_elementName)->equalsIgnoreCase("STYLE"_s));
+		bool var$1 = this->m_elemContext->m_elementName->equalsIgnoreCase("SCRIPT"_s);
+		var$0 = var$1 || this->m_elemContext->m_elementName->equalsIgnoreCase("STYLE"_s);
 	}
 	if (var$0) {
 		try {
-			if ($nc(this->m_elemContext)->m_startTagOpen) {
+			if (this->m_elemContext->m_startTagOpen) {
 				closeStartTag();
 				$nc(this->m_elemContext)->m_startTagOpen = false;
 			}
@@ -912,36 +827,34 @@ void ToHTMLStream::processingInstruction($String* target, $String* data) {
 	$init($Result);
 	if ($nc(target)->equals($Result::PI_DISABLE_OUTPUT_ESCAPING)) {
 		startNonEscaping();
+	} else if (target->equals($Result::PI_ENABLE_OUTPUT_ESCAPING)) {
+		endNonEscaping();
 	} else {
-		if (target->equals($Result::PI_ENABLE_OUTPUT_ESCAPING)) {
-			endNonEscaping();
-		} else {
-			try {
-				if ($nc(this->m_elemContext)->m_startTagOpen) {
-					closeStartTag();
-					$nc(this->m_elemContext)->m_startTagOpen = false;
-				} else if (this->m_needToCallStartDocument) {
-					startDocumentInternal();
-				}
-				if (shouldIndent()) {
-					indent();
-				}
-				$var($Writer, writer, this->m_writer);
-				$nc(writer)->write("<?"_s);
-				writer->write(target);
-				bool var$0 = $nc(data)->length() > 0;
-				if (var$0 && !$Character::isSpaceChar(data->charAt(0))) {
-					writer->write((int32_t)u' ');
-				}
-				writer->write(data);
-				writer->write((int32_t)u'>');
-				if ($nc(this->m_elemContext)->m_currentElemDepth <= 0) {
-					outputLineSep();
-				}
-				this->m_startNewLine = true;
-			} catch ($IOException& e) {
-				$throwNew($SAXException, static_cast<$Exception*>(e));
+		try {
+			if ($nc(this->m_elemContext)->m_startTagOpen) {
+				closeStartTag();
+				$nc(this->m_elemContext)->m_startTagOpen = false;
+			} else if (this->m_needToCallStartDocument) {
+				startDocumentInternal();
 			}
+			if (shouldIndent()) {
+				indent();
+			}
+			$var($Writer, writer, this->m_writer);
+			$nc(writer)->write("<?"_s);
+			writer->write(target);
+			bool var$0 = $nc(data)->length() > 0;
+			if (var$0 && !$Character::isSpaceChar(data->charAt(0))) {
+				writer->write(u' ');
+			}
+			writer->write(data);
+			writer->write(u'>');
+			if ($nc(this->m_elemContext)->m_currentElemDepth <= 0) {
+				outputLineSep();
+			}
+			this->m_startNewLine = true;
+		} catch ($IOException& e) {
+			$throwNew($SAXException, e);
 		}
 	}
 	if (this->m_tracer != nullptr) {
@@ -952,11 +865,11 @@ void ToHTMLStream::processingInstruction($String* target, $String* data) {
 void ToHTMLStream::entityReference($String* name) {
 	try {
 		$var($Writer, writer, this->m_writer);
-		$nc(writer)->write((int32_t)u'&');
+		$nc(writer)->write(u'&');
 		writer->write(name);
-		writer->write((int32_t)u';');
+		writer->write(u';');
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -965,11 +878,10 @@ void ToHTMLStream::endElement($String* elemName) {
 }
 
 void ToHTMLStream::processAttributes($Writer* writer, int32_t nAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < nAttrs; ++i) {
-		$var($Writer, var$0, writer);
-		$var($String, var$1, $nc(this->m_attributes)->getQName(i));
-		processAttribute(var$0, var$1, $($nc(this->m_attributes)->getValue(i)), $nc(this->m_elemContext)->m_elementDesc);
+		$var($String, var$0, $nc(this->m_attributes)->getQName(i));
+		processAttribute(writer, var$0, $(this->m_attributes->getValue(i)), $nc(this->m_elemContext)->m_elementDesc);
 	}
 }
 
@@ -983,18 +895,18 @@ void ToHTMLStream::closeStartTag() {
 			processAttributes(this->m_writer, nAttrs);
 			$nc(this->m_attributes)->clear();
 		}
-		$nc(this->m_writer)->write((int32_t)u'>');
+		$nc(this->m_writer)->write(u'>');
 		if (this->m_StringOfCDATASections != nullptr) {
 			$nc(this->m_elemContext)->m_isCdataSection = isCdataSection();
 		}
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
 void ToHTMLStream::namespaceAfterStartElement($String* prefix, $String* uri) {
 	if ($nc(this->m_elemContext)->m_elementURI == nullptr) {
-		$var($String, prefix1, getPrefixPart($nc(this->m_elemContext)->m_elementName));
+		$var($String, prefix1, getPrefixPart(this->m_elemContext->m_elementName));
 		$init($SerializerConstants);
 		if (prefix1 == nullptr && $nc($SerializerConstants::EMPTYSTRING)->equals(prefix)) {
 			$set($nc(this->m_elemContext), m_elementURI, uri);
@@ -1025,38 +937,38 @@ void ToHTMLStream::externalEntityDecl($String* name, $String* publicId, $String*
 }
 
 void ToHTMLStream::addUniqueAttribute($String* name, $String* value, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Writer, writer, this->m_writer);
-		if (((int32_t)(flags & (uint32_t)$ExtendedContentHandler::NO_BAD_CHARS)) > 0 && $nc(ToHTMLStream::m_htmlcharInfo)->onlyQuotAmpLtGt) {
-			$nc(writer)->write((int32_t)u' ');
+		if ((flags & $ExtendedContentHandler::NO_BAD_CHARS) > 0 && $nc(ToHTMLStream::m_htmlcharInfo)->onlyQuotAmpLtGt) {
+			$nc(writer)->write(u' ');
 			writer->write(name);
 			writer->write("=\""_s);
 			writer->write(value);
-			writer->write((int32_t)u'\"');
+			writer->write(u'\"');
 		} else {
-			bool var$2 = ((int32_t)(flags & (uint32_t)$ExtendedContentHandler::HTML_ATTREMPTY)) > 0;
-			if (var$2) {
-				bool var$3 = $nc(value)->length() == 0;
-				var$2 = (var$3 || $nc(value)->equalsIgnoreCase(name));
+			bool var$0 = (flags & $ExtendedContentHandler::HTML_ATTREMPTY) > 0;
+			if (var$0) {
+				bool var$1 = $nc(value)->length() == 0;
+				var$0 = var$1 || value->equalsIgnoreCase(name);
 			}
-			if (var$2) {
-				$nc(writer)->write((int32_t)u' ');
+			if (var$0) {
+				$nc(writer)->write(u' ');
 				writer->write(name);
 			} else {
-				$nc(writer)->write((int32_t)u' ');
+				$nc(writer)->write(u' ');
 				writer->write(name);
 				writer->write("=\""_s);
-				if (((int32_t)(flags & (uint32_t)$ExtendedContentHandler::HTML_ATTRURL)) > 0) {
+				if ((flags & $ExtendedContentHandler::HTML_ATTRURL) > 0) {
 					writeAttrURI(writer, value, this->m_specialEscapeURLs);
 				} else {
 					writeAttrString(writer, value, $(this->getEncoding()));
 				}
-				writer->write((int32_t)u'\"');
+				writer->write(u'\"');
 			}
 		}
 	} catch ($IOException& e) {
-		$throwNew($SAXException, static_cast<$Exception*>(e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -1083,7 +995,7 @@ void ToHTMLStream::initToHTMLStream() {
 	this->m_specialEscapeURLs = true;
 }
 
-void clinit$ToHTMLStream($Class* class$) {
+void ToHTMLStream::clinit$($Class* clazz) {
 	$init($CharInfo);
 	$init($Method);
 	$assignStatic(ToHTMLStream::m_htmlcharInfo, $CharInfo::getCharInfoInternal($CharInfo::HTML_ENTITIES_RESOURCE, $Method::HTML));
@@ -1098,7 +1010,81 @@ ToHTMLStream::ToHTMLStream() {
 }
 
 $Class* ToHTMLStream::load$($String* name, bool initialize) {
-	$loadClass(ToHTMLStream, name, initialize, &_ToHTMLStream_ClassInfo_, clinit$ToHTMLStream, allocate$ToHTMLStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_inDTD", "Z", nullptr, $PROTECTED, $field(ToHTMLStream, m_inDTD)},
+		{"m_isprevblock", "Z", nullptr, $PRIVATE, $field(ToHTMLStream, m_isprevblock)},
+		{"m_htmlcharInfo", "Lcom/sun/org/apache/xml/internal/serializer/CharInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToHTMLStream, m_htmlcharInfo)},
+		{"m_elementFlags", "Lcom/sun/org/apache/xml/internal/serializer/ToHTMLStream$Trie;", nullptr, $STATIC | $FINAL, $staticField(ToHTMLStream, m_elementFlags)},
+		{"m_dummy", "Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ToHTMLStream, m_dummy)},
+		{"m_specialEscapeURLs", "Z", nullptr, $PRIVATE, $field(ToHTMLStream, m_specialEscapeURLs)},
+		{"m_omitMetaTag", "Z", nullptr, $PRIVATE, $field(ToHTMLStream, m_omitMetaTag)},
+		{"m_htmlInfo", "Lcom/sun/org/apache/xml/internal/serializer/ToHTMLStream$Trie;", nullptr, $PRIVATE, $field(ToHTMLStream, m_htmlInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToHTMLStream, init$, void)},
+		{"<init>", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(ToHTMLStream, init$, void, $ErrorListener*)},
+		{"addUniqueAttribute", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, addUniqueAttribute, void, $String*, $String*, int32_t), "org.xml.sax.SAXException"},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"cdata", "([CII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, cdata, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"closeStartTag", "()V", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, closeStartTag, void), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ToHTMLStream, entityReference, void, $String*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"getElemDesc", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ToHTMLStream, getElemDesc, $ElemDesc*, $String*)},
+		{"getElemDesc2", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;", nullptr, $PRIVATE, $method(ToHTMLStream, getElemDesc2, $ElemDesc*, $String*)},
+		{"getOmitMetaTag", "()Z", nullptr, $PRIVATE | $FINAL, $method(ToHTMLStream, getOmitMetaTag, bool)},
+		{"getSpecialEscapeURLs", "()Z", nullptr, $PRIVATE | $FINAL, $method(ToHTMLStream, getSpecialEscapeURLs, bool)},
+		{"initTagReference", "(Lcom/sun/org/apache/xml/internal/serializer/ToHTMLStream$Trie;)V", nullptr, $STATIC, $staticMethod(ToHTMLStream, initTagReference, void, $ToHTMLStream$Trie*)},
+		{"initToHTMLStream", "()V", nullptr, $PRIVATE, $method(ToHTMLStream, initToHTMLStream, void)},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"isASCIIDigit", "(C)Z", nullptr, $PRIVATE, $method(ToHTMLStream, isASCIIDigit, bool, char16_t)},
+		{"isHHSign", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ToHTMLStream, isHHSign, bool, $String*)},
+		{"makeHHString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ToHTMLStream, makeHHString, $String*, int32_t)},
+		{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processAttribute", "(Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/serializer/ElemDesc;)V", nullptr, $PROTECTED, $method(ToHTMLStream, processAttribute, void, $Writer*, $String*, $String*, $ElemDesc*), "java.io.IOException,org.xml.sax.SAXException"},
+		{"processAttributes", "(Ljava/io/Writer;I)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, processAttributes, void, $Writer*, int32_t), "java.io.IOException,org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, reset, bool)},
+		{"setOmitMetaTag", "(Z)V", nullptr, $PUBLIC, $method(ToHTMLStream, setOmitMetaTag, void, bool)},
+		{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, setOutputFormat, void, $Properties*)},
+		{"setSpecialEscapeURLs", "(Z)V", nullptr, $PUBLIC, $method(ToHTMLStream, setSpecialEscapeURLs, void, bool)},
+		{"shouldFormatOutput", "()Z", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, shouldFormatOutput, bool)},
+		{"shouldIndentForText", "()Z", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, shouldIndentForText, bool)},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocumentInternal", "()V", nullptr, $PROTECTED, $virtualMethod(ToHTMLStream, startDocumentInternal, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"writeAttrString", "(Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToHTMLStream, writeAttrString, void, $Writer*, $String*, $String*), "java.io.IOException,org.xml.sax.SAXException"},
+		{"writeAttrURI", "(Ljava/io/Writer;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(ToHTMLStream, writeAttrURI, void, $Writer*, $String*, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.ToHTMLStream$Trie", "com.sun.org.apache.xml.internal.serializer.ToHTMLStream", "Trie", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ToHTMLStream",
+		"com.sun.org.apache.xml.internal.serializer.ToStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.ToHTMLStream$Trie,com.sun.org.apache.xml.internal.serializer.ToHTMLStream$Trie$Node"
+	};
+	$loadClass(ToHTMLStream, name, initialize, &classInfo$$, ToHTMLStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ToHTMLStream));
+	});
 	return class$;
 }
 

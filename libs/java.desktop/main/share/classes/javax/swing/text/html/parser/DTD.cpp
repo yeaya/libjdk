@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/DTD.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/IOException.h>
 #include <java/util/BitSet.h>
@@ -45,70 +44,6 @@ namespace javax {
 			namespace html {
 				namespace parser {
 
-$FieldInfo _DTD_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DTD, name)},
-	{"elements", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/html/parser/Element;>;", $PUBLIC, $field(DTD, elements)},
-	{"elementHash", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/parser/Element;>;", $PUBLIC, $field(DTD, elementHash)},
-	{"entityHash", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljavax/swing/text/html/parser/Entity;>;", $PUBLIC, $field(DTD, entityHash)},
-	{"pcdata", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, pcdata)},
-	{"html", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, html)},
-	{"meta", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, meta)},
-	{"base", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, base)},
-	{"isindex", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, isindex)},
-	{"head", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, head)},
-	{"body", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, body)},
-	{"applet", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, applet)},
-	{"param", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, param)},
-	{"p", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, p)},
-	{"title", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, title)},
-	{"style", "Ljavax/swing/text/html/parser/Element;", nullptr, $FINAL, $field(DTD, style)},
-	{"link", "Ljavax/swing/text/html/parser/Element;", nullptr, $FINAL, $field(DTD, link)},
-	{"script", "Ljavax/swing/text/html/parser/Element;", nullptr, $FINAL, $field(DTD, script)},
-	{"FILE_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTD, FILE_VERSION)},
-	{"DTD_HASH_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DTD, DTD_HASH_KEY)},
-	{}
-};
-
-$MethodInfo _DTD_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(DTD, init$, void, $String*)},
-	{"defAttributeList", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/parser/AttributeList;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PROTECTED, $virtualMethod(DTD, defAttributeList, $AttributeList*, $String*, int32_t, int32_t, $String*, $String*, $AttributeList*)},
-	{"defContentModel", "(ILjava/lang/Object;Ljavax/swing/text/html/parser/ContentModel;)Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PROTECTED, $virtualMethod(DTD, defContentModel, $ContentModel*, int32_t, Object$*, $ContentModel*)},
-	{"defElement", "(Ljava/lang/String;IZZLjavax/swing/text/html/parser/ContentModel;[Ljava/lang/String;[Ljava/lang/String;Ljavax/swing/text/html/parser/AttributeList;)Ljavax/swing/text/html/parser/Element;", nullptr, $PROTECTED, $virtualMethod(DTD, defElement, $Element*, $String*, int32_t, bool, bool, $ContentModel*, $StringArray*, $StringArray*, $AttributeList*)},
-	{"defEntity", "(Ljava/lang/String;II)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, defEntity, $Entity*, $String*, int32_t, int32_t)},
-	{"defEntity", "(Ljava/lang/String;ILjava/lang/String;)Ljavax/swing/text/html/parser/Entity;", nullptr, $PROTECTED, $virtualMethod(DTD, defEntity, $Entity*, $String*, int32_t, $String*)},
-	{"defineAttributes", "(Ljava/lang/String;Ljavax/swing/text/html/parser/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(DTD, defineAttributes, void, $String*, $AttributeList*)},
-	{"defineElement", "(Ljava/lang/String;IZZLjavax/swing/text/html/parser/ContentModel;Ljava/util/BitSet;Ljava/util/BitSet;Ljavax/swing/text/html/parser/AttributeList;)Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $virtualMethod(DTD, defineElement, $Element*, $String*, int32_t, bool, bool, $ContentModel*, $BitSet*, $BitSet*, $AttributeList*)},
-	{"defineEntity", "(Ljava/lang/String;I[C)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, defineEntity, $Entity*, $String*, int32_t, $chars*)},
-	{"elementExists", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(DTD, elementExists, bool, $String*)},
-	{"getDTD", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/DTD;", nullptr, $PUBLIC | $STATIC, $staticMethod(DTD, getDTD, DTD*, $String*), "java.io.IOException"},
-	{"getDtdHash", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/parser/DTD;>;", $PRIVATE | $STATIC, $staticMethod(DTD, getDtdHash, $Hashtable*)},
-	{"getElement", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $virtualMethod(DTD, getElement, $Element*, $String*)},
-	{"getElement", "(I)Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $virtualMethod(DTD, getElement, $Element*, int32_t)},
-	{"getEntity", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, getEntity, $Entity*, $String*)},
-	{"getEntity", "(I)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, getEntity, $Entity*, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTD, getName, $String*)},
-	{"putDTDHash", "(Ljava/lang/String;Ljavax/swing/text/html/parser/DTD;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DTD, putDTDHash, void, $String*, DTD*)},
-	{"read", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(DTD, read, void, $DataInputStream*), "java.io.IOException"},
-	{"readAttributeList", "(Ljava/io/DataInputStream;[Ljava/lang/String;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PRIVATE, $method(DTD, readAttributeList, $AttributeList*, $DataInputStream*, $StringArray*), "java.io.IOException"},
-	{"readContentModel", "(Ljava/io/DataInputStream;[Ljava/lang/String;)Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PRIVATE, $method(DTD, readContentModel, $ContentModel*, $DataInputStream*, $StringArray*), "java.io.IOException"},
-	{"readNameArray", "(Ljava/io/DataInputStream;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(DTD, readNameArray, $StringArray*, $DataInputStream*, $StringArray*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTD, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DTD_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.parser.DTD",
-	"java.lang.Object",
-	"javax.swing.text.html.parser.DTDConstants",
-	_DTD_FieldInfo_,
-	_DTD_MethodInfo_
-};
-
-$Object* allocate$DTD($Class* clazz) {
-	return $of($alloc(DTD));
-}
-
 $Object* DTD::DTD_HASH_KEY = nullptr;
 
 void DTD::init$($String* name) {
@@ -130,9 +65,9 @@ void DTD::init$($String* name) {
 	$set(this, link, getElement("link"_s));
 	$set(this, script, getElement("script"_s));
 	$set(this, name, name);
-	defEntity("#RE"_s, $DTDConstants::GENERAL, (int32_t)u'\r');
-	defEntity("#RS"_s, $DTDConstants::GENERAL, (int32_t)u'\n');
-	defEntity("#SPACE"_s, $DTDConstants::GENERAL, (int32_t)u' ');
+	defEntity("#RE"_s, $DTDConstants::GENERAL, u'\r');
+	defEntity("#RS"_s, $DTDConstants::GENERAL, u'\n');
+	defEntity("#SPACE"_s, $DTDConstants::GENERAL, u' ');
 	defineElement("unknown"_s, $DTDConstants::EMPTY, false, true, nullptr, nullptr, nullptr, nullptr);
 }
 
@@ -157,8 +92,8 @@ $Element* DTD::getElement($String* name) {
 	$var($Element, e, $cast($Element, $nc(this->elementHash)->get(name)));
 	if (e == nullptr) {
 		$assign(e, $new($Element, name, $nc(this->elements)->size()));
-		$nc(this->elements)->addElement(e);
-		$nc(this->elementHash)->put(name, e);
+		this->elements->addElement(e);
+		this->elementHash->put(name, e);
 	}
 	return e;
 }
@@ -168,20 +103,17 @@ $Element* DTD::getElement(int32_t index) {
 }
 
 $Entity* DTD::defineEntity($String* name, int32_t type, $chars* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Entity, ent, $cast($Entity, $nc(this->entityHash)->get(name)));
 	if (ent == nullptr) {
 		$assign(ent, $new($Entity, name, type, data));
-		$nc(this->entityHash)->put(name, ent);
-		if ((((int32_t)(type & (uint32_t)$DTDConstants::GENERAL)) != 0) && ($nc(data)->length == 1)) {
-			switch ((int32_t)(type & (uint32_t)~$DTDConstants::GENERAL)) {
+		this->entityHash->put(name, ent);
+		if (((type & $DTDConstants::GENERAL) != 0) && ($nc(data)->length == 1)) {
+			switch (type & ~$DTDConstants::GENERAL) {
 			case $DTDConstants::CDATA:
-				{}
 			case $DTDConstants::SDATA:
-				{
-					$nc(this->entityHash)->put($($Integer::valueOf((int32_t)data->get(0))), ent);
-					break;
-				}
+				this->entityHash->put($($Integer::valueOf(data->get(0))), ent);
+				break;
 			}
 		}
 	}
@@ -218,20 +150,16 @@ $Entity* DTD::defEntity($String* name, int32_t type, $String* str) {
 }
 
 $Element* DTD::defElement($String* name, int32_t type, bool omitStart, bool omitEnd, $ContentModel* content, $StringArray* exclusions, $StringArray* inclusions, $AttributeList* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BitSet, excl, nullptr);
 	if (exclusions != nullptr && exclusions->length > 0) {
 		$assign(excl, $new($BitSet));
 		{
 			$var($StringArray, arr$, exclusions);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, str, arr$->get(i$));
-				{
-					if ($nc(str)->length() > 0) {
-						excl->set($nc($(getElement(str)))->getIndex());
-					}
+				if ($nc(str)->length() > 0) {
+					excl->set($$nc(getElement(str))->getIndex());
 				}
 			}
 		}
@@ -241,14 +169,10 @@ $Element* DTD::defElement($String* name, int32_t type, bool omitStart, bool omit
 		$assign(incl, $new($BitSet));
 		{
 			$var($StringArray, arr$, inclusions);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, str, arr$->get(i$));
-				{
-					if ($nc(str)->length() > 0) {
-						incl->set($nc($(getElement(str)))->getIndex());
-					}
+				if ($nc(str)->length() > 0) {
+					incl->set($$nc(getElement(str))->getIndex());
 				}
 			}
 		}
@@ -257,7 +181,7 @@ $Element* DTD::defElement($String* name, int32_t type, bool omitStart, bool omit
 }
 
 $AttributeList* DTD::defAttributeList($String* name, int32_t type, int32_t modifier, $String* value, $String* values, $AttributeList* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, vals, nullptr);
 	if (values != nullptr) {
 		$assign(vals, $new($Vector));
@@ -284,15 +208,15 @@ $String* DTD::toString() {
 
 void DTD::putDTDHash($String* name, DTD* dtd) {
 	$init(DTD);
-	$nc($(getDtdHash()))->put(name, dtd);
+	$$nc(getDtdHash())->put(name, dtd);
 }
 
 DTD* DTD::getDTD($String* name$renamed) {
 	$init(DTD);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$assign(name, $nc(name)->toLowerCase());
-	$var(DTD, dtd, $cast(DTD, $nc($(getDtdHash()))->get(name)));
+	$var(DTD, dtd, $cast(DTD, $$nc(getDtdHash())->get(name)));
 	if (dtd == nullptr) {
 		$assign(dtd, $new(DTD, name));
 	}
@@ -301,7 +225,7 @@ DTD* DTD::getDTD($String* name$renamed) {
 
 $Hashtable* DTD::getDtdHash() {
 	$init(DTD);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var($Hashtable, result, $cast($Hashtable, $nc(appContext)->get(DTD::DTD_HASH_KEY)));
 	if (result == nullptr) {
@@ -312,10 +236,10 @@ $Hashtable* DTD::getDtdHash() {
 }
 
 void DTD::read($DataInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(in)->readInt() != DTD::FILE_VERSION) {
 	}
-	$var($StringArray, names, $new($StringArray, $nc(in)->readShort()));
+	$var($StringArray, names, $new($StringArray, in->readShort()));
 	for (int32_t i = 0; i < names->length; ++i) {
 		names->set(i, $(in->readUTF()));
 	}
@@ -335,40 +259,32 @@ void DTD::read($DataInputStream* in) {
 		$var($StringArray, exclusions, readNameArray(in, names));
 		$var($StringArray, inclusions, readNameArray(in, names));
 		$var($AttributeList, atts, readAttributeList(in, names));
-		defElement(names->get(nameId), type, (((int32_t)(flags & (uint32_t)1)) != 0), (((int32_t)(flags & (uint32_t)2)) != 0), m, exclusions, inclusions, atts);
+		defElement(names->get(nameId), type, ((flags & 1) != 0), ((flags & 2) != 0), m, exclusions, inclusions, atts);
 	}
 }
 
 $ContentModel* DTD::readContentModel($DataInputStream* in, $StringArray* names) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t flag = $nc(in)->readByte();
 	switch (flag) {
 	case 0:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case 1:
 		{
-			{
-				int32_t type = in->readByte();
-				$var($ContentModel, m, readContentModel(in, names));
-				$var($ContentModel, next, readContentModel(in, names));
-				return defContentModel(type, m, next);
-			}
+			int32_t type = in->readByte();
+			$var($ContentModel, m, readContentModel(in, names));
+			$var($ContentModel, next, readContentModel(in, names));
+			return defContentModel(type, m, next);
 		}
 	case 2:
 		{
-			{
-				int32_t type = in->readByte();
-				$var($Element, el, getElement($nc(names)->get(in->readShort())));
-				$var($ContentModel, next, readContentModel(in, names));
-				return defContentModel(type, el, next);
-			}
+			int32_t type = in->readByte();
+			$var($Element, el, getElement($nc(names)->get(in->readShort())));
+			$var($ContentModel, next, readContentModel(in, names));
+			return defContentModel(type, el, next);
 		}
 	default:
-		{
-			$throwNew($IOException, "bad bdtd"_s);
-		}
+		$throwNew($IOException, "bad bdtd"_s);
 	}
 }
 
@@ -385,7 +301,7 @@ $StringArray* DTD::readNameArray($DataInputStream* in, $StringArray* names) {
 }
 
 $AttributeList* DTD::readAttributeList($DataInputStream* in, $StringArray* names) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeList, result, nullptr);
 	for (int32_t num = $nc(in)->readByte(); num > 0; --num) {
 		int16_t nameId = in->readShort();
@@ -396,17 +312,17 @@ $AttributeList* DTD::readAttributeList($DataInputStream* in, $StringArray* names
 		$var($Vector, values, nullptr);
 		int16_t numValues = in->readShort();
 		if (numValues > 0) {
-			$assign(values, $new($Vector, (int32_t)numValues));
+			$assign(values, $new($Vector, numValues));
 			for (int32_t i = 0; i < numValues; ++i) {
-				values->addElement(names->get(in->readShort()));
+				values->addElement($nc(names)->get(in->readShort()));
 			}
 		}
-		$assign(result, $new($AttributeList, names->get(nameId), type, modifier, value, values, result));
+		$assign(result, $new($AttributeList, $nc(names)->get(nameId), type, modifier, value, values, result));
 	}
 	return result;
 }
 
-void clinit$DTD($Class* class$) {
+void DTD::clinit$($Class* clazz) {
 	$assignStatic(DTD::DTD_HASH_KEY, $new($Object));
 }
 
@@ -414,7 +330,66 @@ DTD::DTD() {
 }
 
 $Class* DTD::load$($String* name, bool initialize) {
-	$loadClass(DTD, name, initialize, &_DTD_ClassInfo_, clinit$DTD, allocate$DTD);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DTD, name)},
+		{"elements", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/html/parser/Element;>;", $PUBLIC, $field(DTD, elements)},
+		{"elementHash", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/parser/Element;>;", $PUBLIC, $field(DTD, elementHash)},
+		{"entityHash", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljavax/swing/text/html/parser/Entity;>;", $PUBLIC, $field(DTD, entityHash)},
+		{"pcdata", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, pcdata)},
+		{"html", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, html)},
+		{"meta", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, meta)},
+		{"base", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, base)},
+		{"isindex", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, isindex)},
+		{"head", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, head)},
+		{"body", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, body)},
+		{"applet", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, applet)},
+		{"param", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, param)},
+		{"p", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, p)},
+		{"title", "Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC | $FINAL, $field(DTD, title)},
+		{"style", "Ljavax/swing/text/html/parser/Element;", nullptr, $FINAL, $field(DTD, style)},
+		{"link", "Ljavax/swing/text/html/parser/Element;", nullptr, $FINAL, $field(DTD, link)},
+		{"script", "Ljavax/swing/text/html/parser/Element;", nullptr, $FINAL, $field(DTD, script)},
+		{"FILE_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTD, FILE_VERSION)},
+		{"DTD_HASH_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DTD, DTD_HASH_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(DTD, init$, void, $String*)},
+		{"defAttributeList", "(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljavax/swing/text/html/parser/AttributeList;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PROTECTED, $virtualMethod(DTD, defAttributeList, $AttributeList*, $String*, int32_t, int32_t, $String*, $String*, $AttributeList*)},
+		{"defContentModel", "(ILjava/lang/Object;Ljavax/swing/text/html/parser/ContentModel;)Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PROTECTED, $virtualMethod(DTD, defContentModel, $ContentModel*, int32_t, Object$*, $ContentModel*)},
+		{"defElement", "(Ljava/lang/String;IZZLjavax/swing/text/html/parser/ContentModel;[Ljava/lang/String;[Ljava/lang/String;Ljavax/swing/text/html/parser/AttributeList;)Ljavax/swing/text/html/parser/Element;", nullptr, $PROTECTED, $virtualMethod(DTD, defElement, $Element*, $String*, int32_t, bool, bool, $ContentModel*, $StringArray*, $StringArray*, $AttributeList*)},
+		{"defEntity", "(Ljava/lang/String;II)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, defEntity, $Entity*, $String*, int32_t, int32_t)},
+		{"defEntity", "(Ljava/lang/String;ILjava/lang/String;)Ljavax/swing/text/html/parser/Entity;", nullptr, $PROTECTED, $virtualMethod(DTD, defEntity, $Entity*, $String*, int32_t, $String*)},
+		{"defineAttributes", "(Ljava/lang/String;Ljavax/swing/text/html/parser/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(DTD, defineAttributes, void, $String*, $AttributeList*)},
+		{"defineElement", "(Ljava/lang/String;IZZLjavax/swing/text/html/parser/ContentModel;Ljava/util/BitSet;Ljava/util/BitSet;Ljavax/swing/text/html/parser/AttributeList;)Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $virtualMethod(DTD, defineElement, $Element*, $String*, int32_t, bool, bool, $ContentModel*, $BitSet*, $BitSet*, $AttributeList*)},
+		{"defineEntity", "(Ljava/lang/String;I[C)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, defineEntity, $Entity*, $String*, int32_t, $chars*)},
+		{"elementExists", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(DTD, elementExists, bool, $String*)},
+		{"getDTD", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/DTD;", nullptr, $PUBLIC | $STATIC, $staticMethod(DTD, getDTD, DTD*, $String*), "java.io.IOException"},
+		{"getDtdHash", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/parser/DTD;>;", $PRIVATE | $STATIC, $staticMethod(DTD, getDtdHash, $Hashtable*)},
+		{"getElement", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $virtualMethod(DTD, getElement, $Element*, $String*)},
+		{"getElement", "(I)Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $virtualMethod(DTD, getElement, $Element*, int32_t)},
+		{"getEntity", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, getEntity, $Entity*, $String*)},
+		{"getEntity", "(I)Ljavax/swing/text/html/parser/Entity;", nullptr, $PUBLIC, $virtualMethod(DTD, getEntity, $Entity*, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTD, getName, $String*)},
+		{"putDTDHash", "(Ljava/lang/String;Ljavax/swing/text/html/parser/DTD;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DTD, putDTDHash, void, $String*, DTD*)},
+		{"read", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC, $virtualMethod(DTD, read, void, $DataInputStream*), "java.io.IOException"},
+		{"readAttributeList", "(Ljava/io/DataInputStream;[Ljava/lang/String;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PRIVATE, $method(DTD, readAttributeList, $AttributeList*, $DataInputStream*, $StringArray*), "java.io.IOException"},
+		{"readContentModel", "(Ljava/io/DataInputStream;[Ljava/lang/String;)Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PRIVATE, $method(DTD, readContentModel, $ContentModel*, $DataInputStream*, $StringArray*), "java.io.IOException"},
+		{"readNameArray", "(Ljava/io/DataInputStream;[Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(DTD, readNameArray, $StringArray*, $DataInputStream*, $StringArray*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTD, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.parser.DTD",
+		"java.lang.Object",
+		"javax.swing.text.html.parser.DTDConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTD, name, initialize, &classInfo$$, DTD::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DTD);
+	});
 	return class$;
 }
 

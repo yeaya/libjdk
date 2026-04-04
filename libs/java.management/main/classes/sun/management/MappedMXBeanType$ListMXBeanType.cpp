@@ -1,5 +1,4 @@
 #include <sun/management/MappedMXBeanType$ListMXBeanType.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/reflect/Array.h>
@@ -29,58 +28,15 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ArrayType = ::javax::management::openmbean::ArrayType;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
-using $OpenType = ::javax::management::openmbean::OpenType;
 using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 
 namespace sun {
 	namespace management {
 
-$FieldInfo _MappedMXBeanType$ListMXBeanType_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MappedMXBeanType$ListMXBeanType, $assertionsDisabled)},
-	{"javaType", "Ljava/lang/reflect/ParameterizedType;", nullptr, $FINAL, $field(MappedMXBeanType$ListMXBeanType, javaType)},
-	{"paramType", "Lsun/management/MappedMXBeanType;", nullptr, $FINAL, $field(MappedMXBeanType$ListMXBeanType, paramType)},
-	{"typeName", "Ljava/lang/String;", nullptr, $FINAL, $field(MappedMXBeanType$ListMXBeanType, typeName)},
-	{}
-};
-
-$MethodInfo _MappedMXBeanType$ListMXBeanType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/ParameterizedType;)V", nullptr, 0, $method(MappedMXBeanType$ListMXBeanType, init$, void, $ParameterizedType*), "javax.management.openmbean.OpenDataException"},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$ListMXBeanType, getJavaType, $Type*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$ListMXBeanType, getName, $String*)},
-	{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$ListMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
-	{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$ListMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _MappedMXBeanType$ListMXBeanType_InnerClassesInfo_[] = {
-	{"sun.management.MappedMXBeanType$ListMXBeanType", "sun.management.MappedMXBeanType", "ListMXBeanType", $STATIC},
-	{}
-};
-
-$ClassInfo _MappedMXBeanType$ListMXBeanType_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MappedMXBeanType$ListMXBeanType",
-	"sun.management.MappedMXBeanType",
-	nullptr,
-	_MappedMXBeanType$ListMXBeanType_FieldInfo_,
-	_MappedMXBeanType$ListMXBeanType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MappedMXBeanType$ListMXBeanType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.MappedMXBeanType"
-};
-
-$Object* allocate$MappedMXBeanType$ListMXBeanType($Class* clazz) {
-	return $of($alloc(MappedMXBeanType$ListMXBeanType));
-}
-
 bool MappedMXBeanType$ListMXBeanType::$assertionsDisabled = false;
 
 void MappedMXBeanType$ListMXBeanType::init$($ParameterizedType* pt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$MappedMXBeanType::init$();
 	$set(this, javaType, pt);
@@ -91,20 +47,20 @@ void MappedMXBeanType$ListMXBeanType::init$($ParameterizedType* pt) {
 	if (!($instanceOf($Class, $nc(argTypes)->get(0)))) {
 		$throwNew($OpenDataException, $$str({"Element Type for "_s, pt, " not supported"_s}));
 	}
-	$Class* et = $cast($Class, $nc(argTypes)->get(0));
+	$Class* et = $cast($Class, argTypes->get(0));
 	if ($nc(et)->isArray()) {
 		$throwNew($OpenDataException, $$str({"Element Type for "_s, pt, " not supported"_s}));
 	}
 	$set(this, paramType, getMappedType(et));
 	$set(this, typeName, $str({"List<"_s, $($nc(this->paramType)->getName()), ">"_s}));
 	try {
-		$set(this, mappedTypeClass, $Class::forName($$str({"[L"_s, $($nc(this->paramType)->getTypeName()), ";"_s})));
+		$set(this, mappedTypeClass, $Class::forName($$str({"[L"_s, $(this->paramType->getTypeName()), ";"_s})));
 	} catch ($ClassNotFoundException& e) {
 		$var($OpenDataException, ode, $new($OpenDataException, "Array class not found"_s));
 		ode->initCause(e);
 		$throw(ode);
 	}
-	$set(this, openType, $new($ArrayType, 1, $($nc(this->paramType)->getOpenType())));
+	$set(this, openType, $new($ArrayType, 1, $(this->paramType->getOpenType())));
 }
 
 $Type* MappedMXBeanType$ListMXBeanType::getJavaType() {
@@ -116,42 +72,40 @@ $String* MappedMXBeanType$ListMXBeanType::getName() {
 }
 
 $Object* MappedMXBeanType$ListMXBeanType::toOpenTypeData(Object$* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $cast($List, data));
 	$Class* var$0 = $nc(this->paramType)->getMappedTypeClass();
 	$var($ObjectArray, openArray, $cast($ObjectArray, $1Array::newInstance(var$0, $nc(list)->size())));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc(list)->iterator());
+		$var($Iterator, i$, list->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, o, i$->next());
 			{
-				openArray->set(i++, $($nc(this->paramType)->toOpenTypeData(o)));
+				openArray->set(i++, $(this->paramType->toOpenTypeData(o)));
 			}
 		}
 	}
-	return $of(openArray);
+	return openArray;
 }
 
 $Object* MappedMXBeanType$ListMXBeanType::toJavaTypeData(Object$* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, openArray, $cast($ObjectArray, data));
 	$var($List, result, $new($ArrayList, $nc(openArray)->length));
 	{
 		$var($ObjectArray, arr$, openArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			{
 				result->add($($nc(this->paramType)->toJavaTypeData(o)));
 			}
 		}
 	}
-	return $of(result);
+	return result;
 }
 
-void clinit$MappedMXBeanType$ListMXBeanType($Class* class$) {
+void MappedMXBeanType$ListMXBeanType::clinit$($Class* clazz) {
 	$load($MappedMXBeanType);
 	MappedMXBeanType$ListMXBeanType::$assertionsDisabled = !$MappedMXBeanType::class$->desiredAssertionStatus();
 }
@@ -160,7 +114,43 @@ MappedMXBeanType$ListMXBeanType::MappedMXBeanType$ListMXBeanType() {
 }
 
 $Class* MappedMXBeanType$ListMXBeanType::load$($String* name, bool initialize) {
-	$loadClass(MappedMXBeanType$ListMXBeanType, name, initialize, &_MappedMXBeanType$ListMXBeanType_ClassInfo_, clinit$MappedMXBeanType$ListMXBeanType, allocate$MappedMXBeanType$ListMXBeanType);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MappedMXBeanType$ListMXBeanType, $assertionsDisabled)},
+		{"javaType", "Ljava/lang/reflect/ParameterizedType;", nullptr, $FINAL, $field(MappedMXBeanType$ListMXBeanType, javaType)},
+		{"paramType", "Lsun/management/MappedMXBeanType;", nullptr, $FINAL, $field(MappedMXBeanType$ListMXBeanType, paramType)},
+		{"typeName", "Ljava/lang/String;", nullptr, $FINAL, $field(MappedMXBeanType$ListMXBeanType, typeName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/ParameterizedType;)V", nullptr, 0, $method(MappedMXBeanType$ListMXBeanType, init$, void, $ParameterizedType*), "javax.management.openmbean.OpenDataException"},
+		{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$ListMXBeanType, getJavaType, $Type*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$ListMXBeanType, getName, $String*)},
+		{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$ListMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
+		{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$ListMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.MappedMXBeanType$ListMXBeanType", "sun.management.MappedMXBeanType", "ListMXBeanType", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MappedMXBeanType$ListMXBeanType",
+		"sun.management.MappedMXBeanType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.MappedMXBeanType"
+	};
+	$loadClass(MappedMXBeanType$ListMXBeanType, name, initialize, &classInfo$$, MappedMXBeanType$ListMXBeanType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MappedMXBeanType$ListMXBeanType);
+	});
 	return class$;
 }
 

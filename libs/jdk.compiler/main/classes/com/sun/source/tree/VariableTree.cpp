@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/VariableTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/ModifiersTree.h>
 #include <com/sun/source/tree/Tree.h>
@@ -18,30 +17,26 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _VariableTree_MethodInfo_[] = {
-	{"getInitializer", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getInitializer, $ExpressionTree*)},
-	{"getModifiers", "()Lcom/sun/source/tree/ModifiersTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getModifiers, $ModifiersTree*)},
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getName, $Name*)},
-	{"getNameExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getNameExpression, $ExpressionTree*)},
-	{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getType, $Tree*)},
-	{}
-};
-
-$ClassInfo _VariableTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.VariableTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_VariableTree_MethodInfo_
-};
-
-$Object* allocate$VariableTree($Class* clazz) {
-	return $of($alloc(VariableTree));
-}
-
 $Class* VariableTree::load$($String* name, bool initialize) {
-	$loadClass(VariableTree, name, initialize, &_VariableTree_ClassInfo_, allocate$VariableTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getInitializer", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getInitializer, $ExpressionTree*)},
+		{"getModifiers", "()Lcom/sun/source/tree/ModifiersTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getModifiers, $ModifiersTree*)},
+		{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getName, $Name*)},
+		{"getNameExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getNameExpression, $ExpressionTree*)},
+		{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableTree, getType, $Tree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.VariableTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VariableTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VariableTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameDockIconUI$ScaledImageLabel.h>
-
 #include <com/apple/laf/AquaInternalFrameDockIconUI.h>
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Component.h>
@@ -28,7 +27,6 @@ using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
-using $Rectangle = ::java::awt::Rectangle;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,8 +37,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JLabel = ::javax::swing::JLabel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 
@@ -48,52 +44,13 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaInternalFrameDockIconUI$ScaledImageLabel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaInternalFrameDockIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameDockIconUI$ScaledImageLabel, this$0)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameDockIconUI$ScaledImageLabel_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaInternalFrameDockIconUI;)V", nullptr, 0, $method(AquaInternalFrameDockIconUI$ScaledImageLabel, init$, void, $AquaInternalFrameDockIconUI*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI$ScaledImageLabel, getPreferredSize, $Dimension*)},
-	{"mouseInIcon", "(Ljava/awt/event/MouseEvent;)Z", nullptr, 0, $method(AquaInternalFrameDockIconUI$ScaledImageLabel, mouseInIcon, bool, $MouseEvent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI$ScaledImageLabel, paint, void, $Graphics*)},
-	{"updateIcon", "()V", nullptr, 0, $method(AquaInternalFrameDockIconUI$ScaledImageLabel, updateIcon, void)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFrameDockIconUI$ScaledImageLabel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "ScaledImageLabel", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameDockIconUI$ScaledImageLabel_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel",
-	"javax.swing.JLabel",
-	nullptr,
-	_AquaInternalFrameDockIconUI$ScaledImageLabel_FieldInfo_,
-	_AquaInternalFrameDockIconUI$ScaledImageLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFrameDockIconUI$ScaledImageLabel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameDockIconUI"
-};
-
-$Object* allocate$AquaInternalFrameDockIconUI$ScaledImageLabel($Class* clazz) {
-	return $of($alloc(AquaInternalFrameDockIconUI$ScaledImageLabel));
-}
-
 void AquaInternalFrameDockIconUI$ScaledImageLabel::init$($AquaInternalFrameDockIconUI* this$0) {
 	$set(this, this$0, this$0);
 	$JLabel::init$(nullptr, nullptr, $SwingConstants::CENTER);
 }
 
 void AquaInternalFrameDockIconUI$ScaledImageLabel::updateIcon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $nc(this->this$0->fFrame)->getWidth();
 	int32_t height = $nc(this->this$0->fFrame)->getHeight();
 	if (width <= 0 || height <= 0) {
@@ -110,7 +67,7 @@ void AquaInternalFrameDockIconUI$ScaledImageLabel::updateIcon() {
 }
 
 void AquaInternalFrameDockIconUI$ScaledImageLabel::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getIcon() == nullptr) {
 		updateIcon();
 	}
@@ -128,7 +85,7 @@ void AquaInternalFrameDockIconUI$ScaledImageLabel::paint($Graphics* g) {
 
 bool AquaInternalFrameDockIconUI$ScaledImageLabel::mouseInIcon($MouseEvent* e) {
 	int32_t var$0 = $nc(e)->getX();
-	return $nc($(getBounds()))->contains(var$0, e->getY());
+	return $$nc(getBounds())->contains(var$0, e->getY());
 }
 
 $Dimension* AquaInternalFrameDockIconUI$ScaledImageLabel::getPreferredSize() {
@@ -139,7 +96,40 @@ AquaInternalFrameDockIconUI$ScaledImageLabel::AquaInternalFrameDockIconUI$Scaled
 }
 
 $Class* AquaInternalFrameDockIconUI$ScaledImageLabel::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameDockIconUI$ScaledImageLabel, name, initialize, &_AquaInternalFrameDockIconUI$ScaledImageLabel_ClassInfo_, allocate$AquaInternalFrameDockIconUI$ScaledImageLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaInternalFrameDockIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameDockIconUI$ScaledImageLabel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaInternalFrameDockIconUI;)V", nullptr, 0, $method(AquaInternalFrameDockIconUI$ScaledImageLabel, init$, void, $AquaInternalFrameDockIconUI*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI$ScaledImageLabel, getPreferredSize, $Dimension*)},
+		{"mouseInIcon", "(Ljava/awt/event/MouseEvent;)Z", nullptr, 0, $method(AquaInternalFrameDockIconUI$ScaledImageLabel, mouseInIcon, bool, $MouseEvent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI$ScaledImageLabel, paint, void, $Graphics*)},
+		{"updateIcon", "()V", nullptr, 0, $method(AquaInternalFrameDockIconUI$ScaledImageLabel, updateIcon, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "ScaledImageLabel", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameDockIconUI$ScaledImageLabel",
+		"javax.swing.JLabel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameDockIconUI"
+	};
+	$loadClass(AquaInternalFrameDockIconUI$ScaledImageLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFrameDockIconUI$ScaledImageLabel));
+	});
 	return class$;
 }
 

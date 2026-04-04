@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDropTargetProtocol$EmbedderRegistryEntry.h>
-
 #include <sun/awt/X11/XDropTargetProtocol.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XDropTargetProtocol$EmbedderRegistryEntry_FieldInfo_[] = {
-	{"overriden", "Z", nullptr, $PRIVATE | $FINAL, $field(XDropTargetProtocol$EmbedderRegistryEntry, overriden)},
-	{"version", "I", nullptr, $PRIVATE | $FINAL, $field(XDropTargetProtocol$EmbedderRegistryEntry, version)},
-	{"proxy", "J", nullptr, $PRIVATE | $FINAL, $field(XDropTargetProtocol$EmbedderRegistryEntry, proxy)},
-	{}
-};
-
-$MethodInfo _XDropTargetProtocol$EmbedderRegistryEntry_MethodInfo_[] = {
-	{"<init>", "(ZIJ)V", nullptr, 0, $method(XDropTargetProtocol$EmbedderRegistryEntry, init$, void, bool, int32_t, int64_t)},
-	{"getProxy", "()J", nullptr, $PUBLIC, $method(XDropTargetProtocol$EmbedderRegistryEntry, getProxy, int64_t)},
-	{"getVersion", "()I", nullptr, $PUBLIC, $method(XDropTargetProtocol$EmbedderRegistryEntry, getVersion, int32_t)},
-	{"isOverriden", "()Z", nullptr, $PUBLIC, $method(XDropTargetProtocol$EmbedderRegistryEntry, isOverriden, bool)},
-	{}
-};
-
-$InnerClassInfo _XDropTargetProtocol$EmbedderRegistryEntry_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XDropTargetProtocol$EmbedderRegistryEntry", "sun.awt.X11.XDropTargetProtocol", "EmbedderRegistryEntry", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XDropTargetProtocol$EmbedderRegistryEntry_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11.XDropTargetProtocol$EmbedderRegistryEntry",
-	"java.lang.Object",
-	nullptr,
-	_XDropTargetProtocol$EmbedderRegistryEntry_FieldInfo_,
-	_XDropTargetProtocol$EmbedderRegistryEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XDropTargetProtocol$EmbedderRegistryEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XDropTargetProtocol"
-};
-
-$Object* allocate$XDropTargetProtocol$EmbedderRegistryEntry($Class* clazz) {
-	return $of($alloc(XDropTargetProtocol$EmbedderRegistryEntry));
-}
 
 void XDropTargetProtocol$EmbedderRegistryEntry::init$(bool overriden, int32_t version, int64_t proxy) {
 	this->overriden = overriden;
@@ -74,7 +33,41 @@ XDropTargetProtocol$EmbedderRegistryEntry::XDropTargetProtocol$EmbedderRegistryE
 }
 
 $Class* XDropTargetProtocol$EmbedderRegistryEntry::load$($String* name, bool initialize) {
-	$loadClass(XDropTargetProtocol$EmbedderRegistryEntry, name, initialize, &_XDropTargetProtocol$EmbedderRegistryEntry_ClassInfo_, allocate$XDropTargetProtocol$EmbedderRegistryEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"overriden", "Z", nullptr, $PRIVATE | $FINAL, $field(XDropTargetProtocol$EmbedderRegistryEntry, overriden)},
+		{"version", "I", nullptr, $PRIVATE | $FINAL, $field(XDropTargetProtocol$EmbedderRegistryEntry, version)},
+		{"proxy", "J", nullptr, $PRIVATE | $FINAL, $field(XDropTargetProtocol$EmbedderRegistryEntry, proxy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZIJ)V", nullptr, 0, $method(XDropTargetProtocol$EmbedderRegistryEntry, init$, void, bool, int32_t, int64_t)},
+		{"getProxy", "()J", nullptr, $PUBLIC, $method(XDropTargetProtocol$EmbedderRegistryEntry, getProxy, int64_t)},
+		{"getVersion", "()I", nullptr, $PUBLIC, $method(XDropTargetProtocol$EmbedderRegistryEntry, getVersion, int32_t)},
+		{"isOverriden", "()Z", nullptr, $PUBLIC, $method(XDropTargetProtocol$EmbedderRegistryEntry, isOverriden, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XDropTargetProtocol$EmbedderRegistryEntry", "sun.awt.X11.XDropTargetProtocol", "EmbedderRegistryEntry", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11.XDropTargetProtocol$EmbedderRegistryEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XDropTargetProtocol"
+	};
+	$loadClass(XDropTargetProtocol$EmbedderRegistryEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XDropTargetProtocol$EmbedderRegistryEntry);
+	});
 	return class$;
 }
 

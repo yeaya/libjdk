@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/ColorSupported.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _ColorSupported_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ColorSupported, serialVersionUID)},
-	{"NOT_SUPPORTED", "Ljavax/print/attribute/standard/ColorSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSupported, NOT_SUPPORTED)},
-	{"SUPPORTED", "Ljavax/print/attribute/standard/ColorSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSupported, SUPPORTED)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ColorSupported, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/ColorSupported;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ColorSupported, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _ColorSupported_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(ColorSupported, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(ColorSupported, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(ColorSupported, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorSupported, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ColorSupported, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ColorSupported_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.ColorSupported",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintServiceAttribute",
-	_ColorSupported_FieldInfo_,
-	_ColorSupported_MethodInfo_
-};
-
-$Object* allocate$ColorSupported($Class* clazz) {
-	return $of($alloc(ColorSupported));
-}
 
 $Object* ColorSupported::clone() {
 	 return this->$EnumSyntax::clone();
@@ -88,7 +51,7 @@ $StringArray* ColorSupported::getStringTable() {
 }
 
 $EnumSyntaxArray* ColorSupported::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, ColorSupported::myEnumValueTable);
+	return $cast($EnumSyntaxArray, ColorSupported::myEnumValueTable);
 }
 
 $Class* ColorSupported::getCategory() {
@@ -99,7 +62,7 @@ $String* ColorSupported::getName() {
 	return "color-supported"_s;
 }
 
-void clinit$ColorSupported($Class* class$) {
+void ColorSupported::clinit$($Class* clazz) {
 	$assignStatic(ColorSupported::NOT_SUPPORTED, $new(ColorSupported, 0));
 	$assignStatic(ColorSupported::SUPPORTED, $new(ColorSupported, 1));
 	$assignStatic(ColorSupported::myStringTable, $new($StringArray, {
@@ -116,7 +79,38 @@ ColorSupported::ColorSupported() {
 }
 
 $Class* ColorSupported::load$($String* name, bool initialize) {
-	$loadClass(ColorSupported, name, initialize, &_ColorSupported_ClassInfo_, clinit$ColorSupported, allocate$ColorSupported);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ColorSupported, serialVersionUID)},
+		{"NOT_SUPPORTED", "Ljavax/print/attribute/standard/ColorSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSupported, NOT_SUPPORTED)},
+		{"SUPPORTED", "Ljavax/print/attribute/standard/ColorSupported;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ColorSupported, SUPPORTED)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ColorSupported, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/ColorSupported;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ColorSupported, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(ColorSupported, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(ColorSupported, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(ColorSupported, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ColorSupported, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ColorSupported, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.ColorSupported",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintServiceAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorSupported, name, initialize, &classInfo$$, ColorSupported::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorSupported));
+	});
 	return class$;
 }
 

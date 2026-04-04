@@ -1,10 +1,8 @@
 #include <javax/print/PrintServiceLookup.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <javax/print/DocFlavor.h>
@@ -28,7 +26,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $DocFlavor = ::javax::print::DocFlavor;
@@ -43,63 +40,16 @@ using $AppContext = ::sun::awt::AppContext;
 namespace javax {
 	namespace print {
 
-$MethodInfo _PrintServiceLookup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PrintServiceLookup, init$, void)},
-	{"getAllLookupServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintServiceLookup;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getAllLookupServices, $ArrayList*)},
-	{"getDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getDefaultPrintService, $PrintService*)},
-	{"getListOfLookupServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintServiceLookup;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getListOfLookupServices, $ArrayList*)},
-	{"getMultiDocPrintServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/MultiDocPrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getMultiDocPrintServices, $MultiDocPrintServiceArray*, $DocFlavorArray*, $AttributeSet*)},
-	{"getMultiDocServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList;", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList<Ljavax/print/MultiDocPrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getMultiDocServices, $ArrayList*, $DocFlavorArray*, $AttributeSet*)},
-	{"getPrintServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getPrintServices, $PrintServiceArray*, $DocFlavor*, $AttributeSet*)},
-	{"getPrintServices", "()[Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getPrintServices, $PrintServiceArray*)},
-	{"getRegisteredServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getRegisteredServices, $ArrayList*)},
-	{"getServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList;", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList<Ljavax/print/PrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getServices, $ArrayList*, $DocFlavor*, $AttributeSet*)},
-	{"getServicesForContext", "()Ljavax/print/PrintServiceLookup$Services;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getServicesForContext, $PrintServiceLookup$Services*)},
-	{"initListOfLookupServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintServiceLookup;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, initListOfLookupServices, $ArrayList*)},
-	{"initRegisteredServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, initRegisteredServices, $ArrayList*)},
-	{"lookupDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(PrintServiceLookup, lookupDefaultPrintService, $PrintService*)},
-	{"lookupMultiDocPrintServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/MultiDocPrintService;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(PrintServiceLookup, lookupMultiDocPrintServices, $MultiDocPrintServiceArray*, $DocFlavorArray*, $AttributeSet*)},
-	{"lookupPrintServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(PrintServiceLookup, lookupPrintServices, $PrintServiceArray*, $DocFlavor*, $AttributeSet*)},
-	{"registerService", "(Ljavax/print/PrintService;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintServiceLookup, registerService, bool, $PrintService*)},
-	{"registerServiceProvider", "(Ljavax/print/PrintServiceLookup;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintServiceLookup, registerServiceProvider, bool, PrintServiceLookup*)},
-	{}
-};
-
-$InnerClassInfo _PrintServiceLookup_InnerClassesInfo_[] = {
-	{"javax.print.PrintServiceLookup$Services", "javax.print.PrintServiceLookup", "Services", $STATIC},
-	{"javax.print.PrintServiceLookup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintServiceLookup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.print.PrintServiceLookup",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PrintServiceLookup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintServiceLookup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.print.PrintServiceLookup$Services,javax.print.PrintServiceLookup$1"
-};
-
-$Object* allocate$PrintServiceLookup($Class* clazz) {
-	return $of($alloc(PrintServiceLookup));
-}
-
 void PrintServiceLookup::init$() {
 }
 
 $PrintServiceLookup$Services* PrintServiceLookup::getServicesForContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($PrintServiceLookup$Services);
-	$var($PrintServiceLookup$Services, services, $cast($PrintServiceLookup$Services, $nc($($AppContext::getAppContext()))->get($PrintServiceLookup$Services::class$)));
+	$var($PrintServiceLookup$Services, services, $cast($PrintServiceLookup$Services, $$nc($AppContext::getAppContext())->get($PrintServiceLookup$Services::class$)));
 	if (services == nullptr) {
 		$assign(services, $new($PrintServiceLookup$Services));
-		$nc($($AppContext::getAppContext()))->put($PrintServiceLookup$Services::class$, services);
+		$$nc($AppContext::getAppContext())->put($PrintServiceLookup$Services::class$, services);
 	}
 	return services;
 }
@@ -109,7 +59,7 @@ $ArrayList* PrintServiceLookup::getListOfLookupServices() {
 }
 
 $ArrayList* PrintServiceLookup::initListOfLookupServices() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, listOfLookupServices, $new($ArrayList));
 	$set($nc($(getServicesForContext())), listOfLookupServices, listOfLookupServices);
 	return listOfLookupServices;
@@ -120,27 +70,27 @@ $ArrayList* PrintServiceLookup::getRegisteredServices() {
 }
 
 $ArrayList* PrintServiceLookup::initRegisteredServices() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, registeredServices, $new($ArrayList));
 	$set($nc($(getServicesForContext())), registeredServices, registeredServices);
 	return registeredServices;
 }
 
 $PrintServiceArray* PrintServiceLookup::lookupPrintServices($DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, list, getServices(flavor, attributes));
-	return $fcast($PrintServiceArray, $nc(list)->toArray($$new($PrintServiceArray, list->size())));
+	return $cast($PrintServiceArray, $nc(list)->toArray($$new($PrintServiceArray, $nc(list)->size())));
 }
 
 $MultiDocPrintServiceArray* PrintServiceLookup::lookupMultiDocPrintServices($DocFlavorArray* flavors, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, list, getMultiDocServices(flavors, attributes));
-	return $fcast($MultiDocPrintServiceArray, $nc(list)->toArray($$new($MultiDocPrintServiceArray, list->size())));
+	return $cast($MultiDocPrintServiceArray, $nc(list)->toArray($$new($MultiDocPrintServiceArray, $nc(list)->size())));
 }
 
 $PrintService* PrintServiceLookup::lookupDefaultPrintService() {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, psIterator, $nc($(getAllLookupServices()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, psIterator, $$nc(getAllLookupServices())->iterator());
 	while ($nc(psIterator)->hasNext()) {
 		try {
 			$var(PrintServiceLookup, lus, $cast(PrintServiceLookup, psIterator->next()));
@@ -155,20 +105,20 @@ $PrintService* PrintServiceLookup::lookupDefaultPrintService() {
 }
 
 bool PrintServiceLookup::registerServiceProvider(PrintServiceLookup* sp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load(PrintServiceLookup);
 	$synchronized(PrintServiceLookup::class$) {
-		$var($Iterator, psIterator, $nc($(getAllLookupServices()))->iterator());
+		$var($Iterator, psIterator, $$nc(getAllLookupServices())->iterator());
 		while ($nc(psIterator)->hasNext()) {
 			try {
 				$var($Object, lus, psIterator->next());
-				if ($nc($of(lus))->getClass() == $nc($of(sp))->getClass()) {
+				if ($nc(lus)->getClass() == $nc($of(sp))->getClass()) {
 					return false;
 				}
 			} catch ($Exception& e) {
 			}
 		}
-		$nc($(getListOfLookupServices()))->add(sp);
+		$$nc(getListOfLookupServices())->add(sp);
 		return true;
 	}
 }
@@ -182,7 +132,7 @@ bool PrintServiceLookup::registerService($PrintService* service) {
 		$var($ArrayList, registeredServices, getRegisteredServices());
 		if (registeredServices == nullptr) {
 			$assign(registeredServices, initRegisteredServices());
-		} else if ($nc(registeredServices)->contains(service)) {
+		} else if (registeredServices->contains(service)) {
 			return false;
 		}
 		$nc(registeredServices)->add(service);
@@ -191,8 +141,8 @@ bool PrintServiceLookup::registerService($PrintService* service) {
 }
 
 $ArrayList* PrintServiceLookup::getAllLookupServices() {
+	$useLocalObjectStack();
 	$load(PrintServiceLookup);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$synchronized(PrintServiceLookup::class$) {
 		$var($ArrayList, listOfLookupServices, getListOfLookupServices());
@@ -202,7 +152,7 @@ $ArrayList* PrintServiceLookup::getAllLookupServices() {
 			$assign(listOfLookupServices, initListOfLookupServices());
 		}
 		try {
-			$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($PrintServiceLookup$1)));
+			$AccessController::doPrivileged($$new($PrintServiceLookup$1));
 		} catch ($PrivilegedActionException& e) {
 		}
 		return listOfLookupServices;
@@ -210,9 +160,9 @@ $ArrayList* PrintServiceLookup::getAllLookupServices() {
 }
 
 $ArrayList* PrintServiceLookup::getServices($DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, listOfServices, $new($ArrayList));
-	$var($Iterator, psIterator, $nc($(getAllLookupServices()))->iterator());
+	$var($Iterator, psIterator, $$nc(getAllLookupServices())->iterator());
 	while ($nc(psIterator)->hasNext()) {
 		try {
 			$var(PrintServiceLookup, lus, $cast(PrintServiceLookup, psIterator->next()));
@@ -244,14 +194,14 @@ $ArrayList* PrintServiceLookup::getServices($DocFlavor* flavor, $AttributeSet* a
 	} catch ($SecurityException& se) {
 	}
 	if (registeredServices != nullptr) {
-		$var($PrintServiceArray, services, $fcast($PrintServiceArray, registeredServices->toArray($$new($PrintServiceArray, registeredServices->size()))));
+		$var($PrintServiceArray, services, $cast($PrintServiceArray, registeredServices->toArray($$new($PrintServiceArray, registeredServices->size()))));
 		for (int32_t i = 0; i < $nc(services)->length; ++i) {
 			if (!listOfServices->contains(services->get(i))) {
 				if (flavor == nullptr && attributes == nullptr) {
 					listOfServices->add(services->get(i));
 				} else {
-					bool var$1 = ((flavor != nullptr && $nc(services->get(i))->isDocFlavorSupported(flavor)) || flavor == nullptr);
-					if (var$1 && nullptr == $nc(services->get(i))->getUnsupportedAttributes(flavor, attributes)) {
+					bool var$0 = (flavor != nullptr && $nc(services->get(i))->isDocFlavorSupported(flavor)) || flavor == nullptr;
+					if (var$0 && nullptr == $nc(services->get(i))->getUnsupportedAttributes(flavor, attributes)) {
 						listOfServices->add(services->get(i));
 					}
 				}
@@ -262,9 +212,9 @@ $ArrayList* PrintServiceLookup::getServices($DocFlavor* flavor, $AttributeSet* a
 }
 
 $ArrayList* PrintServiceLookup::getMultiDocServices($DocFlavorArray* flavors, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, listOfServices, $new($ArrayList));
-	$var($Iterator, psIterator, $nc($(getAllLookupServices()))->iterator());
+	$var($Iterator, psIterator, $$nc(getAllLookupServices())->iterator());
 	while ($nc(psIterator)->hasNext()) {
 		try {
 			$var(PrintServiceLookup, lus, $cast(PrintServiceLookup, psIterator->next()));
@@ -288,10 +238,10 @@ $ArrayList* PrintServiceLookup::getMultiDocServices($DocFlavorArray* flavors, $A
 	} catch ($Exception& e) {
 	}
 	if (registeredServices != nullptr) {
-		$var($PrintServiceArray, services, $fcast($PrintServiceArray, registeredServices->toArray($$new($PrintServiceArray, registeredServices->size()))));
+		$var($PrintServiceArray, services, $cast($PrintServiceArray, registeredServices->toArray($$new($PrintServiceArray, registeredServices->size()))));
 		for (int32_t i = 0; i < $nc(services)->length; ++i) {
 			if ($instanceOf($MultiDocPrintService, services->get(i)) && !listOfServices->contains(services->get(i))) {
-				if (flavors == nullptr || $nc(flavors)->length == 0) {
+				if (flavors == nullptr || flavors->length == 0) {
 					listOfServices->add($cast($MultiDocPrintService, services->get(i)));
 				} else {
 					bool supported = true;
@@ -320,7 +270,49 @@ PrintServiceLookup::PrintServiceLookup() {
 }
 
 $Class* PrintServiceLookup::load$($String* name, bool initialize) {
-	$loadClass(PrintServiceLookup, name, initialize, &_PrintServiceLookup_ClassInfo_, allocate$PrintServiceLookup);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PrintServiceLookup, init$, void)},
+		{"getAllLookupServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintServiceLookup;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getAllLookupServices, $ArrayList*)},
+		{"getDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getDefaultPrintService, $PrintService*)},
+		{"getListOfLookupServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintServiceLookup;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getListOfLookupServices, $ArrayList*)},
+		{"getMultiDocPrintServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/MultiDocPrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getMultiDocPrintServices, $MultiDocPrintServiceArray*, $DocFlavorArray*, $AttributeSet*)},
+		{"getMultiDocServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList;", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList<Ljavax/print/MultiDocPrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getMultiDocServices, $ArrayList*, $DocFlavorArray*, $AttributeSet*)},
+		{"getPrintServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getPrintServices, $PrintServiceArray*, $DocFlavor*, $AttributeSet*)},
+		{"getPrintServices", "()[Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintServiceLookup, getPrintServices, $PrintServiceArray*)},
+		{"getRegisteredServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getRegisteredServices, $ArrayList*)},
+		{"getServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList;", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/util/ArrayList<Ljavax/print/PrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getServices, $ArrayList*, $DocFlavor*, $AttributeSet*)},
+		{"getServicesForContext", "()Ljavax/print/PrintServiceLookup$Services;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, getServicesForContext, $PrintServiceLookup$Services*)},
+		{"initListOfLookupServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintServiceLookup;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, initListOfLookupServices, $ArrayList*)},
+		{"initRegisteredServices", "()Ljava/util/ArrayList;", "()Ljava/util/ArrayList<Ljavax/print/PrintService;>;", $PRIVATE | $STATIC, $staticMethod(PrintServiceLookup, initRegisteredServices, $ArrayList*)},
+		{"lookupDefaultPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(PrintServiceLookup, lookupDefaultPrintService, $PrintService*)},
+		{"lookupMultiDocPrintServices", "([Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/MultiDocPrintService;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(PrintServiceLookup, lookupMultiDocPrintServices, $MultiDocPrintServiceArray*, $DocFlavorArray*, $AttributeSet*)},
+		{"lookupPrintServices", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)[Ljavax/print/PrintService;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(PrintServiceLookup, lookupPrintServices, $PrintServiceArray*, $DocFlavor*, $AttributeSet*)},
+		{"registerService", "(Ljavax/print/PrintService;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintServiceLookup, registerService, bool, $PrintService*)},
+		{"registerServiceProvider", "(Ljavax/print/PrintServiceLookup;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintServiceLookup, registerServiceProvider, bool, PrintServiceLookup*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.PrintServiceLookup$Services", "javax.print.PrintServiceLookup", "Services", $STATIC},
+		{"javax.print.PrintServiceLookup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.print.PrintServiceLookup",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.print.PrintServiceLookup$Services,javax.print.PrintServiceLookup$1"
+	};
+	$loadClass(PrintServiceLookup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintServiceLookup);
+	});
 	return class$;
 }
 

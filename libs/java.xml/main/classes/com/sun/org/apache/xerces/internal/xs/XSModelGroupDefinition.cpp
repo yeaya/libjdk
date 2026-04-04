@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSModelGroupDefinition.h>
-
 #include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSModelGroup.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
@@ -19,28 +18,24 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$MethodInfo _XSModelGroupDefinition_MethodInfo_[] = {
-	{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSModelGroupDefinition, getAnnotation, $XSAnnotation*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSModelGroupDefinition, getAnnotations, $XSObjectList*)},
-	{"getModelGroup", "()Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSModelGroupDefinition, getModelGroup, $XSModelGroup*)},
-	{}
-};
-
-$ClassInfo _XSModelGroupDefinition_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.XSModelGroupDefinition",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xs.XSObject",
-	nullptr,
-	_XSModelGroupDefinition_MethodInfo_
-};
-
-$Object* allocate$XSModelGroupDefinition($Class* clazz) {
-	return $of($alloc(XSModelGroupDefinition));
-}
-
 $Class* XSModelGroupDefinition::load$($String* name, bool initialize) {
-	$loadClass(XSModelGroupDefinition, name, initialize, &_XSModelGroupDefinition_ClassInfo_, allocate$XSModelGroupDefinition);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSModelGroupDefinition, getAnnotation, $XSAnnotation*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSModelGroupDefinition, getAnnotations, $XSObjectList*)},
+		{"getModelGroup", "()Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSModelGroupDefinition, getModelGroup, $XSModelGroup*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.XSModelGroupDefinition",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xs.XSObject",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSModelGroupDefinition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSModelGroupDefinition);
+	});
 	return class$;
 }
 

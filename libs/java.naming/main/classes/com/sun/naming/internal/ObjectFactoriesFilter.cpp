@@ -1,8 +1,6 @@
 #include <com/sun/naming/internal/ObjectFactoriesFilter.h>
-
 #include <com/sun/naming/internal/ObjectFactoriesFilter$FactoryInfo.h>
 #include <java/io/ObjectInputFilter$Config.h>
-#include <java/io/ObjectInputFilter$FilterInfo.h>
 #include <java/io/ObjectInputFilter$Status.h>
 #include <java/io/ObjectInputFilter.h>
 #include <java/io/Serializable.h>
@@ -23,7 +21,6 @@
 using $ObjectFactoriesFilter$FactoryInfo = ::com::sun::naming::internal::ObjectFactoriesFilter$FactoryInfo;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;
-using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ObjectInputFilter$Status = ::java::io::ObjectInputFilter$Status;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,76 +45,32 @@ public:
 	virtual $Class* serialClass() override {
 		 return ObjectFactoriesFilter::lambda$canInstantiateObjectsFactory$0(factoryClass);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0>());
-	}
 	$Class* factoryClass = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::fieldInfos[2] = {
-	{"factoryClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, factoryClass)},
-	{}
-};
-$MethodInfo ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, init$, void, $Class*)},
-	{"serialClass", "()Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, serialClass, $Class*)},
-	{}
-};
-$ClassInfo ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0",
-	"java.lang.Object",
-	"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo",
-	fieldInfos,
-	methodInfos
 };
 $Class* ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::load$($String* name, bool initialize) {
-	$loadClass(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"factoryClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, factoryClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, init$, void, $Class*)},
+		{"serialClass", "()Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, serialClass, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0",
+		"java.lang.Object",
+		"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0);
+	});
 	return class$;
 }
 $Class* ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::class$ = nullptr;
-
-$FieldInfo _ObjectFactoriesFilter_FieldInfo_[] = {
-	{"FACTORIES_FILTER_PROPNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectFactoriesFilter, FACTORIES_FILTER_PROPNAME)},
-	{"DEFAULT_SP_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectFactoriesFilter, DEFAULT_SP_VALUE)},
-	{"GLOBAL", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectFactoriesFilter, GLOBAL)},
-	{}
-};
-
-$MethodInfo _ObjectFactoriesFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectFactoriesFilter, init$, void)},
-	{"canInstantiateObjectsFactory", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ObjectFactoriesFilter, canInstantiateObjectsFactory, bool, $Class*)},
-	{"checkInput", "(Lcom/sun/naming/internal/ObjectFactoriesFilter$FactoryInfo;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectFactoriesFilter, checkInput, bool, $ObjectFactoriesFilter$FactoryInfo*)},
-	{"getFilterPropertyValue", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectFactoriesFilter, getFilterPropertyValue, $String*)},
-	{"lambda$canInstantiateObjectsFactory$0", "(Ljava/lang/Class;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectFactoriesFilter, lambda$canInstantiateObjectsFactory$0, $Class*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _ObjectFactoriesFilter_InnerClassesInfo_[] = {
-	{"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo", "com.sun.naming.internal.ObjectFactoriesFilter", "FactoryInfo", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ObjectFactoriesFilter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.naming.internal.ObjectFactoriesFilter",
-	"java.lang.Object",
-	nullptr,
-	_ObjectFactoriesFilter_FieldInfo_,
-	_ObjectFactoriesFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectFactoriesFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo"
-};
-
-$Object* allocate$ObjectFactoriesFilter($Class* clazz) {
-	return $of($alloc(ObjectFactoriesFilter));
-}
 
 $String* ObjectFactoriesFilter::FACTORIES_FILTER_PROPNAME = nullptr;
 $String* ObjectFactoriesFilter::DEFAULT_SP_VALUE = nullptr;
@@ -125,7 +78,7 @@ $ObjectInputFilter* ObjectFactoriesFilter::GLOBAL = nullptr;
 
 bool ObjectFactoriesFilter::canInstantiateObjectsFactory($Class* factoryClass) {
 	$init(ObjectFactoriesFilter);
-	return checkInput(static_cast<$ObjectFactoriesFilter$FactoryInfo*>($$new(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, factoryClass)));
+	return checkInput($$new(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, factoryClass));
 }
 
 bool ObjectFactoriesFilter::checkInput($ObjectFactoriesFilter$FactoryInfo* factoryInfo) {
@@ -150,7 +103,7 @@ $Class* ObjectFactoriesFilter::lambda$canInstantiateObjectsFactory$0($Class* fac
 	return factoryClass;
 }
 
-void clinit$ObjectFactoriesFilter($Class* class$) {
+void ObjectFactoriesFilter::clinit$($Class* clazz) {
 	$assignStatic(ObjectFactoriesFilter::FACTORIES_FILTER_PROPNAME, "jdk.jndi.object.factoriesFilter"_s);
 	$assignStatic(ObjectFactoriesFilter::DEFAULT_SP_VALUE, "*"_s);
 	$assignStatic(ObjectFactoriesFilter::GLOBAL, $ObjectInputFilter$Config::createFilter($(ObjectFactoriesFilter::getFilterPropertyValue())));
@@ -161,11 +114,45 @@ ObjectFactoriesFilter::ObjectFactoriesFilter() {
 
 $Class* ObjectFactoriesFilter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0")) {
 			return ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ObjectFactoriesFilter, name, initialize, &_ObjectFactoriesFilter_ClassInfo_, clinit$ObjectFactoriesFilter, allocate$ObjectFactoriesFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"FACTORIES_FILTER_PROPNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectFactoriesFilter, FACTORIES_FILTER_PROPNAME)},
+		{"DEFAULT_SP_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectFactoriesFilter, DEFAULT_SP_VALUE)},
+		{"GLOBAL", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectFactoriesFilter, GLOBAL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectFactoriesFilter, init$, void)},
+		{"canInstantiateObjectsFactory", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ObjectFactoriesFilter, canInstantiateObjectsFactory, bool, $Class*)},
+		{"checkInput", "(Lcom/sun/naming/internal/ObjectFactoriesFilter$FactoryInfo;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectFactoriesFilter, checkInput, bool, $ObjectFactoriesFilter$FactoryInfo*)},
+		{"getFilterPropertyValue", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectFactoriesFilter, getFilterPropertyValue, $String*)},
+		{"lambda$canInstantiateObjectsFactory$0", "(Ljava/lang/Class;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectFactoriesFilter, lambda$canInstantiateObjectsFactory$0, $Class*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo", "com.sun.naming.internal.ObjectFactoriesFilter", "FactoryInfo", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.naming.internal.ObjectFactoriesFilter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.naming.internal.ObjectFactoriesFilter$FactoryInfo"
+	};
+	$loadClass(ObjectFactoriesFilter, name, initialize, &classInfo$$, ObjectFactoriesFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectFactoriesFilter);
+	});
 	return class$;
 }
 

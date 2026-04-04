@@ -1,5 +1,4 @@
 #include <java/beans/BeansAppletContext.h>
-
 #include <java/applet/Applet.h>
 #include <java/applet/AudioClip.h>
 #include <java/awt/Component.h>
@@ -33,55 +32,6 @@ using $Vector = ::java::util::Vector;
 namespace java {
 	namespace beans {
 
-$NamedAttribute BeansAppletContext_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _BeansAppletContext_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", BeansAppletContext_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _BeansAppletContext_FieldInfo_[] = {
-	{"target", "Ljava/applet/Applet;", nullptr, 0, $field(BeansAppletContext, target)},
-	{"imageCache", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/net/URL;Ljava/lang/Object;>;", 0, $field(BeansAppletContext, imageCache)},
-	{}
-};
-
-$MethodInfo _BeansAppletContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/applet/Applet;)V", nullptr, 0, $method(BeansAppletContext, init$, void, $Applet*)},
-	{"getApplet", "(Ljava/lang/String;)Ljava/applet/Applet;", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, getApplet, $Applet*, $String*)},
-	{"getApplets", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/applet/Applet;>;", $PUBLIC, $virtualMethod(BeansAppletContext, getApplets, $Enumeration*)},
-	{"getAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, getAudioClip, $AudioClip*, $URL*)},
-	{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeansAppletContext, getImage, $Image*, $URL*)},
-	{"getStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, getStream, $InputStream*, $String*)},
-	{"getStreamKeys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BeansAppletContext, getStreamKeys, $Iterator*)},
-	{"setStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, setStream, void, $String*, $InputStream*), "java.io.IOException"},
-	{"showDocument", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, showDocument, void, $URL*)},
-	{"showDocument", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, showDocument, void, $URL*, $String*)},
-	{"showStatus", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, showStatus, void, $String*)},
-	{}
-};
-
-$ClassInfo _BeansAppletContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.beans.BeansAppletContext",
-	"java.lang.Object",
-	"java.applet.AppletContext",
-	_BeansAppletContext_FieldInfo_,
-	_BeansAppletContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_BeansAppletContext_Annotations_
-};
-
-$Object* allocate$BeansAppletContext($Class* clazz) {
-	return $of($alloc(BeansAppletContext));
-}
-
 void BeansAppletContext::init$($Applet* target) {
 	$set(this, imageCache, $new($Hashtable));
 	$set(this, target, target);
@@ -98,7 +48,7 @@ $AudioClip* BeansAppletContext::getAudioClip($URL* url) {
 
 $Image* BeansAppletContext::getImage($URL* url) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Object, o, $nc(this->imageCache)->get(url));
 		if (o != nullptr) {
 			return $cast($Image, o);
@@ -109,7 +59,7 @@ $Image* BeansAppletContext::getImage($URL* url) {
 				return nullptr;
 			}
 			if ($instanceOf($Image, o)) {
-				$nc(this->imageCache)->put(url, o);
+				this->imageCache->put(url, o);
 				return $cast($Image, o);
 			}
 			$var($Image, img, $nc(this->target)->createImage($cast($ImageProducer, o)));
@@ -156,7 +106,49 @@ BeansAppletContext::BeansAppletContext() {
 }
 
 $Class* BeansAppletContext::load$($String* name, bool initialize) {
-	$loadClass(BeansAppletContext, name, initialize, &_BeansAppletContext_ClassInfo_, allocate$BeansAppletContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/applet/Applet;", nullptr, 0, $field(BeansAppletContext, target)},
+		{"imageCache", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/net/URL;Ljava/lang/Object;>;", 0, $field(BeansAppletContext, imageCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/applet/Applet;)V", nullptr, 0, $method(BeansAppletContext, init$, void, $Applet*)},
+		{"getApplet", "(Ljava/lang/String;)Ljava/applet/Applet;", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, getApplet, $Applet*, $String*)},
+		{"getApplets", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/applet/Applet;>;", $PUBLIC, $virtualMethod(BeansAppletContext, getApplets, $Enumeration*)},
+		{"getAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, getAudioClip, $AudioClip*, $URL*)},
+		{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BeansAppletContext, getImage, $Image*, $URL*)},
+		{"getStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, getStream, $InputStream*, $String*)},
+		{"getStreamKeys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BeansAppletContext, getStreamKeys, $Iterator*)},
+		{"setStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, setStream, void, $String*, $InputStream*), "java.io.IOException"},
+		{"showDocument", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, showDocument, void, $URL*)},
+		{"showDocument", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, showDocument, void, $URL*, $String*)},
+		{"showStatus", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BeansAppletContext, showStatus, void, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.beans.BeansAppletContext",
+		"java.lang.Object",
+		"java.applet.AppletContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(BeansAppletContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeansAppletContext);
+	});
 	return class$;
 }
 

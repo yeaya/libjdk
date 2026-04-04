@@ -70,6 +70,7 @@ class Instruction : public ::java::lang::Cloneable {
 	$class(Instruction, 0, ::java::lang::Cloneable)
 public:
 	Instruction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int16_t opcode, int16_t length);
 	virtual void accept(::com::sun::org::apache::bcel::internal::generic::Visitor* v) {}

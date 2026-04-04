@@ -21,6 +21,7 @@ class ServiceProxy : public ::java::lang::Object {
 	$class(ServiceProxy, 0, ::java::lang::Object)
 public:
 	ServiceProxy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fail($Class* service, $String* msg);
 	static void fail($Class* service, ::java::net::URL* u, int32_t line, $String* msg);

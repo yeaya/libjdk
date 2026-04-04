@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$StructuralTypeMapping$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
@@ -26,50 +25,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$StructuralTypeMapping$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Type$StructuralTypeMapping;", nullptr, $FINAL | $SYNTHETIC, $field(Type$StructuralTypeMapping$1, this$0)},
-	{}
-};
-
-$MethodInfo _Type$StructuralTypeMapping$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$StructuralTypeMapping;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$StructuralTypeMapping$1, init$, void, $Type$StructuralTypeMapping*, $Type*, $List*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Type$StructuralTypeMapping$1, needsStripping, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$StructuralTypeMapping$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping",
-	"visitClassType",
-	"(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;"
-};
-
-$InnerClassInfo _Type$StructuralTypeMapping$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Type$StructuralTypeMapping$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping$1",
-	"com.sun.tools.javac.code.Type$ClassType",
-	nullptr,
-	_Type$StructuralTypeMapping$1_FieldInfo_,
-	_Type$StructuralTypeMapping$1_MethodInfo_,
-	nullptr,
-	&_Type$StructuralTypeMapping$1_EnclosingMethodInfo_,
-	_Type$StructuralTypeMapping$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$StructuralTypeMapping$1($Class* clazz) {
-	return $of($alloc(Type$StructuralTypeMapping$1));
-}
-
 void Type$StructuralTypeMapping$1::init$($Type$StructuralTypeMapping* this$0, $Type* outer, $List* typarams, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
 	$set(this, this$0, this$0);
 	$Type$ClassType::init$(outer, typarams, tsym, metadata);
@@ -83,7 +38,44 @@ Type$StructuralTypeMapping$1::Type$StructuralTypeMapping$1() {
 }
 
 $Class* Type$StructuralTypeMapping$1::load$($String* name, bool initialize) {
-	$loadClass(Type$StructuralTypeMapping$1, name, initialize, &_Type$StructuralTypeMapping$1_ClassInfo_, allocate$Type$StructuralTypeMapping$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Type$StructuralTypeMapping;", nullptr, $FINAL | $SYNTHETIC, $field(Type$StructuralTypeMapping$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$StructuralTypeMapping;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$StructuralTypeMapping$1, init$, void, $Type$StructuralTypeMapping*, $Type*, $List*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Type$StructuralTypeMapping$1, needsStripping, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping",
+		"visitClassType",
+		"(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping$1",
+		"com.sun.tools.javac.code.Type$ClassType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$StructuralTypeMapping$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$StructuralTypeMapping$1));
+	});
 	return class$;
 }
 

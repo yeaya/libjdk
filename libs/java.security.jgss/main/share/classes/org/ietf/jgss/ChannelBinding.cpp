@@ -1,5 +1,4 @@
 #include <org/ietf/jgss/ChannelBinding.h>
-
 #include <java/net/InetAddress.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ using $Arrays = ::java::util::Arrays;
 namespace org {
 	namespace ietf {
 		namespace jgss {
-
-$FieldInfo _ChannelBinding_FieldInfo_[] = {
-	{"initiator", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(ChannelBinding, initiator)},
-	{"acceptor", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(ChannelBinding, acceptor)},
-	{"appData", "[B", nullptr, $PRIVATE, $field(ChannelBinding, appData)},
-	{}
-};
-
-$MethodInfo _ChannelBinding_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetAddress;Ljava/net/InetAddress;[B)V", nullptr, $PUBLIC, $method(ChannelBinding, init$, void, $InetAddress*, $InetAddress*, $bytes*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ChannelBinding, init$, void, $bytes*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, equals, bool, Object$*)},
-	{"getAcceptorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getAcceptorAddress, $InetAddress*)},
-	{"getApplicationData", "()[B", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getApplicationData, $bytes*)},
-	{"getInitiatorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getInitiatorAddress, $InetAddress*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ChannelBinding_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.ietf.jgss.ChannelBinding",
-	"java.lang.Object",
-	nullptr,
-	_ChannelBinding_FieldInfo_,
-	_ChannelBinding_MethodInfo_
-};
-
-$Object* allocate$ChannelBinding($Class* clazz) {
-	return $of($alloc(ChannelBinding));
-}
 
 void ChannelBinding::init$($InetAddress* initAddr, $InetAddress* acceptAddr, $bytes* appData) {
 	$set(this, initiator, initAddr);
@@ -71,7 +39,7 @@ $bytes* ChannelBinding::getApplicationData() {
 		return nullptr;
 	}
 	$var($bytes, retVal, $new($bytes, $nc(this->appData)->length));
-	$System::arraycopy(this->appData, 0, retVal, 0, $nc(this->appData)->length);
+	$System::arraycopy(this->appData, 0, retVal, 0, this->appData->length);
 	return retVal;
 }
 
@@ -86,13 +54,13 @@ bool ChannelBinding::equals(Object$* obj) {
 	if ((this->initiator != nullptr && $nc(cb)->initiator == nullptr) || (this->initiator == nullptr && $nc(cb)->initiator != nullptr)) {
 		return false;
 	}
-	if (this->initiator != nullptr && !$nc(this->initiator)->equals($nc(cb)->initiator)) {
+	if (this->initiator != nullptr && !this->initiator->equals($nc(cb)->initiator)) {
 		return false;
 	}
 	if ((this->acceptor != nullptr && $nc(cb)->acceptor == nullptr) || (this->acceptor == nullptr && $nc(cb)->acceptor != nullptr)) {
 		return false;
 	}
-	if (this->acceptor != nullptr && !$nc(this->acceptor)->equals($nc(cb)->acceptor)) {
+	if (this->acceptor != nullptr && !this->acceptor->equals($nc(cb)->acceptor)) {
 		return false;
 	}
 	return $Arrays::equals(this->appData, $nc(cb)->appData);
@@ -100,9 +68,9 @@ bool ChannelBinding::equals(Object$* obj) {
 
 int32_t ChannelBinding::hashCode() {
 	if (this->initiator != nullptr) {
-		return $nc(this->initiator)->hashCode();
+		return this->initiator->hashCode();
 	} else if (this->acceptor != nullptr) {
-		return $nc(this->acceptor)->hashCode();
+		return this->acceptor->hashCode();
 	} else if (this->appData != nullptr) {
 		return $$new($String, this->appData)->hashCode();
 	} else {
@@ -114,7 +82,33 @@ ChannelBinding::ChannelBinding() {
 }
 
 $Class* ChannelBinding::load$($String* name, bool initialize) {
-	$loadClass(ChannelBinding, name, initialize, &_ChannelBinding_ClassInfo_, allocate$ChannelBinding);
+	$FieldInfo fieldInfos$$[] = {
+		{"initiator", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(ChannelBinding, initiator)},
+		{"acceptor", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(ChannelBinding, acceptor)},
+		{"appData", "[B", nullptr, $PRIVATE, $field(ChannelBinding, appData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetAddress;Ljava/net/InetAddress;[B)V", nullptr, $PUBLIC, $method(ChannelBinding, init$, void, $InetAddress*, $InetAddress*, $bytes*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ChannelBinding, init$, void, $bytes*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, equals, bool, Object$*)},
+		{"getAcceptorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getAcceptorAddress, $InetAddress*)},
+		{"getApplicationData", "()[B", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getApplicationData, $bytes*)},
+		{"getInitiatorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getInitiatorAddress, $InetAddress*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.ietf.jgss.ChannelBinding",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChannelBinding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChannelBinding);
+	});
 	return class$;
 }
 

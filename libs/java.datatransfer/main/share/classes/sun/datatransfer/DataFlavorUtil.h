@@ -37,6 +37,7 @@ class $export DataFlavorUtil : public ::java::lang::Object {
 	$class(DataFlavorUtil, 0, ::java::lang::Object)
 public:
 	DataFlavorUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* canonicalName($String* encoding);
 	static int32_t compareIndices(::java::util::Map* indexMap, Object$* obj1, Object$* obj2, ::java::lang::Integer* fallbackIndex);

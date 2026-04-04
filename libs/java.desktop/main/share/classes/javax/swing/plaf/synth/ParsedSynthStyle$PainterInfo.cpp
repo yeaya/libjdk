@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/ParsedSynthStyle$PainterInfo.h>
-
 #include <javax/swing/plaf/synth/ParsedSynthStyle$AggregatePainter.h>
 #include <javax/swing/plaf/synth/ParsedSynthStyle.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
@@ -17,49 +16,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _ParsedSynthStyle$PainterInfo_FieldInfo_[] = {
-	{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ParsedSynthStyle$PainterInfo, _method)},
-	{"_painter", "Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $field(ParsedSynthStyle$PainterInfo, _painter)},
-	{"_direction", "I", nullptr, $PRIVATE, $field(ParsedSynthStyle$PainterInfo, _direction)},
-	{}
-};
-
-$MethodInfo _ParsedSynthStyle$PainterInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/plaf/synth/SynthPainter;I)V", nullptr, 0, $method(ParsedSynthStyle$PainterInfo, init$, void, $String*, $SynthPainter*, int32_t)},
-	{"addPainter", "(Ljavax/swing/plaf/synth/SynthPainter;)V", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, addPainter, void, $SynthPainter*)},
-	{"equalsPainter", "(Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;)Z", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, equalsPainter, bool, ParsedSynthStyle$PainterInfo*)},
-	{"getDirection", "()I", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, getDirection, int32_t)},
-	{"getMethod", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, getMethod, $String*)},
-	{"getPainter", "()Ljavax/swing/plaf/synth/SynthPainter;", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, getPainter, $SynthPainter*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle$PainterInfo, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ParsedSynthStyle$PainterInfo_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo", "javax.swing.plaf.synth.ParsedSynthStyle", "PainterInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _ParsedSynthStyle$PainterInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo",
-	"java.lang.Object",
-	nullptr,
-	_ParsedSynthStyle$PainterInfo_FieldInfo_,
-	_ParsedSynthStyle$PainterInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ParsedSynthStyle$PainterInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.ParsedSynthStyle"
-};
-
-$Object* allocate$ParsedSynthStyle$PainterInfo($Class* clazz) {
-	return $of($alloc(ParsedSynthStyle$PainterInfo));
-}
-
 void ParsedSynthStyle$PainterInfo::init$($String* method, $SynthPainter* painter, int32_t direction) {
 	if (method != nullptr) {
 		$set(this, _method, method->intern());
@@ -72,7 +28,7 @@ void ParsedSynthStyle$PainterInfo::addPainter($SynthPainter* painter) {
 	if (!($instanceOf($ParsedSynthStyle$AggregatePainter, this->_painter))) {
 		$set(this, _painter, $new($ParsedSynthStyle$AggregatePainter, this->_painter));
 	}
-	$nc(($cast($ParsedSynthStyle$AggregatePainter, this->_painter)))->addPainter(painter);
+	$nc($cast($ParsedSynthStyle$AggregatePainter, this->_painter))->addPainter(painter);
 }
 
 $String* ParsedSynthStyle$PainterInfo::getMethod() {
@@ -99,7 +55,44 @@ ParsedSynthStyle$PainterInfo::ParsedSynthStyle$PainterInfo() {
 }
 
 $Class* ParsedSynthStyle$PainterInfo::load$($String* name, bool initialize) {
-	$loadClass(ParsedSynthStyle$PainterInfo, name, initialize, &_ParsedSynthStyle$PainterInfo_ClassInfo_, allocate$ParsedSynthStyle$PainterInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ParsedSynthStyle$PainterInfo, _method)},
+		{"_painter", "Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $field(ParsedSynthStyle$PainterInfo, _painter)},
+		{"_direction", "I", nullptr, $PRIVATE, $field(ParsedSynthStyle$PainterInfo, _direction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/plaf/synth/SynthPainter;I)V", nullptr, 0, $method(ParsedSynthStyle$PainterInfo, init$, void, $String*, $SynthPainter*, int32_t)},
+		{"addPainter", "(Ljavax/swing/plaf/synth/SynthPainter;)V", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, addPainter, void, $SynthPainter*)},
+		{"equalsPainter", "(Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;)Z", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, equalsPainter, bool, ParsedSynthStyle$PainterInfo*)},
+		{"getDirection", "()I", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, getDirection, int32_t)},
+		{"getMethod", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, getMethod, $String*)},
+		{"getPainter", "()Ljavax/swing/plaf/synth/SynthPainter;", nullptr, 0, $virtualMethod(ParsedSynthStyle$PainterInfo, getPainter, $SynthPainter*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle$PainterInfo, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo", "javax.swing.plaf.synth.ParsedSynthStyle", "PainterInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.ParsedSynthStyle"
+	};
+	$loadClass(ParsedSynthStyle$PainterInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParsedSynthStyle$PainterInfo);
+	});
 	return class$;
 }
 

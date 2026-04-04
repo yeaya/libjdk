@@ -23,13 +23,14 @@ class $import SortResponseControl : public ::javax::naming::ldap::BasicControl {
 	$class(SortResponseControl, 0, ::javax::naming::ldap::BasicControl)
 public:
 	SortResponseControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* id, bool criticality, $bytes* value);
 	$String* getAttributeID();
 	::javax::naming::NamingException* getException();
 	int32_t getResultCode();
 	bool isSorted();
 	static $String* OID;
-	static const int64_t serialVersionUID = (int64_t)0x475F63EE9F4BDBDD;
+	static const int64_t serialVersionUID = (int64_t)0x475f63ee9f4bdbdd;
 	int32_t resultCode = 0;
 	$String* badAttrId = nullptr;
 };

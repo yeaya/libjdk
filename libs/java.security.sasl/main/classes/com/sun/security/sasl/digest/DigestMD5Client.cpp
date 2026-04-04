@@ -1,9 +1,7 @@
 #include <com/sun/security/sasl/digest/DigestMD5Client.h>
-
 #include <com/sun/security/sasl/digest/DigestMD5Base$DigestIntegrity.h>
 #include <com/sun/security/sasl/digest/DigestMD5Base$DigestPrivacy.h>
 #include <com/sun/security/sasl/digest/DigestMD5Base.h>
-#include <com/sun/security/sasl/digest/SecurityCtx.h>
 #include <com/sun/security/sasl/util/AbstractSaslImpl.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
@@ -60,7 +58,6 @@ using $byteArray2 = $Array<int8_t, 2>;
 using $DigestMD5Base = ::com::sun::security::sasl::digest::DigestMD5Base;
 using $DigestMD5Base$DigestIntegrity = ::com::sun::security::sasl::digest::DigestMD5Base$DigestIntegrity;
 using $DigestMD5Base$DigestPrivacy = ::com::sun::security::sasl::digest::DigestMD5Base$DigestPrivacy;
-using $SecurityCtx = ::com::sun::security::sasl::digest::SecurityCtx;
 using $AbstractSaslImpl = ::com::sun::security::sasl::util::AbstractSaslImpl;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -78,8 +75,6 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Level = ::java::util::logging::Level;
-using $Logger = ::java::util::logging::Logger;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
@@ -93,67 +88,6 @@ namespace com {
 		namespace security {
 			namespace sasl {
 				namespace digest {
-
-$FieldInfo _DigestMD5Client_FieldInfo_[] = {
-	{"MY_CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Client, MY_CLASS_NAME)},
-	{"CIPHER_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Client, CIPHER_PROPERTY)},
-	{"DIRECTIVE_KEY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Client, DIRECTIVE_KEY)},
-	{"REALM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, REALM)},
-	{"QOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, QOP)},
-	{"ALGORITHM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, ALGORITHM)},
-	{"NONCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, NONCE)},
-	{"MAXBUF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, MAXBUF)},
-	{"CHARSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, CHARSET)},
-	{"CIPHER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, CIPHER)},
-	{"RESPONSE_AUTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, RESPONSE_AUTH)},
-	{"STALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, STALE)},
-	{"nonceCount", "I", nullptr, $PRIVATE, $field(DigestMD5Client, nonceCount)},
-	{"specifiedCipher", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestMD5Client, specifiedCipher)},
-	{"cnonce", "[B", nullptr, $PRIVATE, $field(DigestMD5Client, cnonce)},
-	{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestMD5Client, username)},
-	{"passwd", "[C", nullptr, $PRIVATE, $field(DigestMD5Client, passwd)},
-	{"authzidBytes", "[B", nullptr, $PRIVATE, $field(DigestMD5Client, authzidBytes)},
-	{}
-};
-
-$MethodInfo _DigestMD5Client_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(DigestMD5Client, init$, void, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"checkQopSupport", "([B[B)V", nullptr, $PRIVATE, $method(DigestMD5Client, checkQopSupport, void, $bytes*, $bytes*), "java.io.IOException"},
-	{"checkStrengthSupport", "([B)V", nullptr, $PRIVATE, $method(DigestMD5Client, checkStrengthSupport, void, $bytes*), "java.io.IOException"},
-	{"clearPassword", "()V", nullptr, $PRIVATE, $method(DigestMD5Client, clearPassword, void)},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Client, evaluateChallenge, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
-	{"findCipherAndStrength", "([B[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DigestMD5Client, findCipherAndStrength, $String*, $bytes*, $StringArray*)},
-	{"generateClientResponse", "([B)[B", nullptr, $PRIVATE, $method(DigestMD5Client, generateClientResponse, $bytes*, $bytes*), "java.io.IOException"},
-	{"getNonceCount", "([B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Client, getNonceCount, int32_t, $bytes*)},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(DigestMD5Client, hasInitialResponse, bool)},
-	{"*isComplete", "()Z", nullptr, $PUBLIC},
-	{"processChallenge", "([[BLjava/util/List;)V", "([[BLjava/util/List<[B>;)V", $PRIVATE, $method(DigestMD5Client, processChallenge, void, $byteArray2*, $List*), "javax.security.sasl.SaslException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*unwrap", "([BII)[B", nullptr, $PUBLIC},
-	{"validateResponseValue", "([B)V", nullptr, $PRIVATE, $method(DigestMD5Client, validateResponseValue, void, $bytes*), "javax.security.sasl.SaslException"},
-	{"*wrap", "([BII)[B", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DigestMD5Client_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.digest.DigestMD5Client",
-	"com.sun.security.sasl.digest.DigestMD5Base",
-	"javax.security.sasl.SaslClient",
-	_DigestMD5Client_FieldInfo_,
-	_DigestMD5Client_MethodInfo_
-};
-
-$Object* allocate$DigestMD5Client($Class* clazz) {
-	return $of($alloc(DigestMD5Client));
-}
 
 $String* DigestMD5Client::getMechanismName() {
 	 return this->$DigestMD5Base::getMechanismName();
@@ -214,7 +148,7 @@ void DigestMD5Client::init$($String* authzid, $String* protocol, $String* server
 		$set(this, specifiedCipher, $cast($String, props->get(DigestMD5Client::CIPHER_PROPERTY)));
 		$init($AbstractSaslImpl);
 		$init($Level);
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST60:Explicitly specified cipher: {0}"_s, $of(this->specifiedCipher));
+		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST60:Explicitly specified cipher: {0}"_s, this->specifiedCipher);
 	}
 }
 
@@ -223,76 +157,70 @@ bool DigestMD5Client::hasInitialResponse() {
 }
 
 $bytes* DigestMD5Client::evaluateChallenge($bytes* challengeData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(challengeData)->length > $DigestMD5Base::MAX_CHALLENGE_LENGTH) {
 		$throwNew($SaslException, $$str({"DIGEST-MD5: Invalid digest-challenge length. Got:  "_s, $$str(challengeData->length), " Expected < "_s, $$str($DigestMD5Base::MAX_CHALLENGE_LENGTH)}));
 	}
 	$var($byteArray2, challengeVal, nullptr);
 	{
-		$var($List, realmChoices, nullptr)
+		$var($List, realmChoices, nullptr);
 		switch (this->step) {
 		case 2:
-			{
-				$assign(realmChoices, $new($ArrayList, 3));
-				$assign(challengeVal, parseDirectives(challengeData, DigestMD5Client::DIRECTIVE_KEY, realmChoices, DigestMD5Client::REALM));
-				try {
-					processChallenge(challengeVal, realmChoices);
-					checkQopSupport($nc(challengeVal)->get(DigestMD5Client::QOP), challengeVal->get(DigestMD5Client::CIPHER));
-					++this->step;
-					return generateClientResponse($nc(challengeVal)->get(DigestMD5Client::CHARSET));
-				} catch ($SaslException& e) {
-					this->step = 0;
-					clearPassword();
-					$throw(e);
-				} catch ($IOException& e) {
-					this->step = 0;
-					clearPassword();
-					$throwNew($SaslException, "DIGEST-MD5: Error generating digest response-value"_s, e);
-				}
+			$assign(realmChoices, $new($ArrayList, 3));
+			$assign(challengeVal, parseDirectives(challengeData, DigestMD5Client::DIRECTIVE_KEY, realmChoices, DigestMD5Client::REALM));
+			try {
+				processChallenge(challengeVal, realmChoices);
+				checkQopSupport($nc(challengeVal)->get(DigestMD5Client::QOP), $nc(challengeVal)->get(DigestMD5Client::CIPHER));
+				++this->step;
+				return generateClientResponse(challengeVal->get(DigestMD5Client::CHARSET));
+			} catch ($SaslException& e) {
+				this->step = 0;
+				clearPassword();
+				$throw(e);
+			} catch ($IOException& e) {
+				this->step = 0;
+				clearPassword();
+				$throwNew($SaslException, "DIGEST-MD5: Error generating digest response-value"_s, e);
 			}
 		case 3:
 			{
-				{
-					$var($Throwable, var$0, nullptr);
-					$var($bytes, var$2, nullptr);
-					bool return$1 = false;
-					try {
-						$assign(challengeVal, parseDirectives(challengeData, DigestMD5Client::DIRECTIVE_KEY, nullptr, DigestMD5Client::REALM));
-						validateResponseValue($nc(challengeVal)->get(DigestMD5Client::RESPONSE_AUTH));
-						if (this->integrity && this->privacy) {
-							$set(this, secCtx, $new($DigestMD5Base$DigestPrivacy, this, true));
-						} else if (this->integrity) {
-							$set(this, secCtx, $new($DigestMD5Base$DigestIntegrity, this, true));
-						}
-						$assign(var$2, nullptr);
-						return$1 = true;
-						goto $finally;
-					} catch ($Throwable& var$3) {
-						$assign(var$0, var$3);
-					} $finally: {
-						clearPassword();
-						this->step = 0;
-						this->completed = true;
+				$var($Throwable, var$0, nullptr);
+				$var($bytes, var$2, nullptr);
+				bool return$1 = false;
+				try {
+					$assign(challengeVal, parseDirectives(challengeData, DigestMD5Client::DIRECTIVE_KEY, nullptr, DigestMD5Client::REALM));
+					validateResponseValue($nc(challengeVal)->get(DigestMD5Client::RESPONSE_AUTH));
+					if (this->integrity && this->privacy) {
+						$set(this, secCtx, $new($DigestMD5Base$DigestPrivacy, this, true));
+					} else if (this->integrity) {
+						$set(this, secCtx, $new($DigestMD5Base$DigestIntegrity, this, true));
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
-					if (return$1) {
-						return var$2;
-					}
+					$assign(var$2, nullptr);
+					return$1 = true;
+					goto $finally;
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
+				} $finally: {
+					clearPassword();
+					this->step = 0;
+					this->completed = true;
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
+				}
+				if (return$1) {
+					return var$2;
 				}
 			}
 		default:
-			{
-				$throwNew($SaslException, "DIGEST-MD5: Client at illegal state"_s);
-			}
+			$throwNew($SaslException, "DIGEST-MD5: Client at illegal state"_s);
 		}
 	}
 	$shouldNotReachHere();
 }
 
 void DigestMD5Client::processChallenge($byteArray2* challengeVal, $List* realmChoices) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(challengeVal)->get(DigestMD5Client::CHARSET) != nullptr) {
 		if (!"utf-8"_s->equals($$new($String, challengeVal->get(DigestMD5Client::CHARSET), this->encoding))) {
 			$throwNew($SaslException, $$str({"DIGEST-MD5: digest-challenge format violation. Unrecognised charset value: "_s, $$new($String, challengeVal->get(DigestMD5Client::CHARSET))}));
@@ -302,25 +230,25 @@ void DigestMD5Client::processChallenge($byteArray2* challengeVal, $List* realmCh
 			this->useUTF8 = true;
 		}
 	}
-	if ($nc(challengeVal)->get(DigestMD5Client::ALGORITHM) == nullptr) {
+	if (challengeVal->get(DigestMD5Client::ALGORITHM) == nullptr) {
 		$throwNew($SaslException, "DIGEST-MD5: Digest-challenge format violation: algorithm directive missing"_s);
 	} else if (!"md5-sess"_s->equals($$new($String, challengeVal->get(DigestMD5Client::ALGORITHM), this->encoding))) {
 		$throwNew($SaslException, $$str({"DIGEST-MD5: Digest-challenge format violation. Invalid value for \'algorithm\' directive: "_s, challengeVal->get(DigestMD5Client::ALGORITHM)}));
 	}
-	if ($nc(challengeVal)->get(DigestMD5Client::NONCE) == nullptr) {
+	if (challengeVal->get(DigestMD5Client::NONCE) == nullptr) {
 		$throwNew($SaslException, "DIGEST-MD5: Digest-challenge format violation: nonce directive missing"_s);
 	} else {
 		$set(this, nonce, challengeVal->get(DigestMD5Client::NONCE));
 	}
 	try {
 		$var($StringArray, realmTokens, nullptr);
-		if ($nc(challengeVal)->get(DigestMD5Client::REALM) != nullptr) {
-			if (realmChoices == nullptr || $nc(realmChoices)->size() <= 1) {
+		if (challengeVal->get(DigestMD5Client::REALM) != nullptr) {
+			if (realmChoices == nullptr || realmChoices->size() <= 1) {
 				$set(this, negotiatedRealm, $new($String, challengeVal->get(DigestMD5Client::REALM), this->encoding));
 			} else {
 				$assign(realmTokens, $new($StringArray, realmChoices->size()));
 				for (int32_t i = 0; i < realmTokens->length; ++i) {
-					realmTokens->set(i, $$new($String, $cast($bytes, $(realmChoices->get(i))), this->encoding));
+					realmTokens->set(i, $$new($String, $$cast($bytes, realmChoices->get(i)), this->encoding));
 				}
 			}
 		}
@@ -329,9 +257,9 @@ void DigestMD5Client::processChallenge($byteArray2* challengeVal, $List* realmCh
 		if (realmTokens == nullptr) {
 			$var($RealmCallback, tcb, this->negotiatedRealm == nullptr ? $new($RealmCallback, "DIGEST-MD5 realm: "_s) : $new($RealmCallback, "DIGEST-MD5 realm: "_s, this->negotiatedRealm));
 			$nc(this->cbh)->handle($$new($CallbackArray, {
-				static_cast<$Callback*>(tcb),
-				static_cast<$Callback*>(ncb),
-				static_cast<$Callback*>(pcb)
+				tcb,
+				ncb,
+				pcb
 			}));
 			$set(this, negotiatedRealm, $nc(tcb)->getText());
 			if (this->negotiatedRealm == nullptr) {
@@ -340,15 +268,15 @@ void DigestMD5Client::processChallenge($byteArray2* challengeVal, $List* realmCh
 		} else {
 			$var($RealmChoiceCallback, ccb, $new($RealmChoiceCallback, "DIGEST-MD5 realm: "_s, realmTokens, 0, false));
 			$nc(this->cbh)->handle($$new($CallbackArray, {
-				static_cast<$Callback*>(ccb),
-				static_cast<$Callback*>(ncb),
-				static_cast<$Callback*>(pcb)
+				ccb,
+				ncb,
+				pcb
 			}));
 			$var($ints, selected, ccb->getSelectedIndexes());
-			if (selected == nullptr || $nc(selected)->get(0) < 0 || $nc(selected)->get(0) >= $nc(realmTokens)->length) {
+			if (selected == nullptr || selected->get(0) < 0 || selected->get(0) >= realmTokens->length) {
 				$throwNew($SaslException, "DIGEST-MD5: Invalid realm chosen"_s);
 			}
-			$set(this, negotiatedRealm, $nc(realmTokens)->get($nc(selected)->get(0)));
+			$set(this, negotiatedRealm, realmTokens->get($nc(selected)->get(0)));
 		}
 		$set(this, passwd, pcb->getPassword());
 		pcb->clearPassword();
@@ -363,12 +291,12 @@ void DigestMD5Client::processChallenge($byteArray2* challengeVal, $List* realmCh
 	if (this->username == nullptr || this->passwd == nullptr) {
 		$throwNew($SaslException, "DIGEST-MD5: authentication ID and password must be specified"_s);
 	}
-	int32_t srvMaxBufSize = ($nc(challengeVal)->get(DigestMD5Client::MAXBUF) == nullptr) ? $DigestMD5Base::DEFAULT_MAXBUF : $Integer::parseInt($$new($String, $nc(challengeVal)->get(DigestMD5Client::MAXBUF), this->encoding));
+	int32_t srvMaxBufSize = (challengeVal->get(DigestMD5Client::MAXBUF) == nullptr) ? $DigestMD5Base::DEFAULT_MAXBUF : $Integer::parseInt($$new($String, challengeVal->get(DigestMD5Client::MAXBUF), this->encoding));
 	this->sendMaxBufSize = (this->sendMaxBufSize == 0) ? srvMaxBufSize : $Math::min(this->sendMaxBufSize, srvMaxBufSize);
 }
 
 void DigestMD5Client::checkQopSupport($bytes* qopInChallenge, $bytes* ciphersInChallenge) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, qopOptions, nullptr);
 	if (qopInChallenge == nullptr) {
 		$assign(qopOptions, "auth"_s);
@@ -380,39 +308,31 @@ void DigestMD5Client::checkQopSupport($bytes* qopInChallenge, $bytes* ciphersInC
 	int8_t serverAllQop = combineMasks(serverQop);
 	switch (findPreferredMask(serverAllQop, this->qop)) {
 	case 0:
-		{
-			$throwNew($SaslException, "DIGEST-MD5: No common protection layer between client and server"_s);
-		}
+		$throwNew($SaslException, "DIGEST-MD5: No common protection layer between client and server"_s);
 	case $AbstractSaslImpl::NO_PROTECTION:
-		{
-			$set(this, negotiatedQop, "auth"_s);
-			break;
-		}
+		$set(this, negotiatedQop, "auth"_s);
+		break;
 	case $AbstractSaslImpl::INTEGRITY_ONLY_PROTECTION:
-		{
-			$set(this, negotiatedQop, "auth-int"_s);
-			this->integrity = true;
-			this->rawSendSize = this->sendMaxBufSize - 16;
-			break;
-		}
+		$set(this, negotiatedQop, "auth-int"_s);
+		this->integrity = true;
+		this->rawSendSize = this->sendMaxBufSize - 16;
+		break;
 	case $AbstractSaslImpl::PRIVACY_PROTECTION:
-		{
-			$set(this, negotiatedQop, "auth-conf"_s);
-			this->privacy = (this->integrity = true);
-			this->rawSendSize = this->sendMaxBufSize - 26;
-			checkStrengthSupport(ciphersInChallenge);
-			break;
-		}
+		$set(this, negotiatedQop, "auth-conf"_s);
+		this->privacy = (this->integrity = true);
+		this->rawSendSize = this->sendMaxBufSize - 26;
+		checkStrengthSupport(ciphersInChallenge);
+		break;
 	}
 	$init($AbstractSaslImpl);
 	$init($Level);
 	if ($nc($AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-		$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST61:Raw send size: {0}"_s, $($of($Integer::valueOf(this->rawSendSize))));
+		$AbstractSaslImpl::logger->log($Level::FINE, "DIGEST61:Raw send size: {0}"_s, $($Integer::valueOf(this->rawSendSize)));
 	}
 }
 
 void DigestMD5Client::checkStrengthSupport($bytes* ciphersInChallenge) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ciphersInChallenge == nullptr) {
 		$throwNew($SaslException, "DIGEST-MD5: server did not specify cipher to use for \'auth-conf\'"_s);
 	}
@@ -432,17 +352,17 @@ void DigestMD5Client::checkStrengthSupport($bytes* ciphersInChallenge) {
 		$assign(token, parser->nextToken());
 		$init($DigestMD5Base);
 		for (int32_t j = 0; j < $nc($DigestMD5Base::CIPHER_TOKENS)->length; ++j) {
-			if ($nc(token)->equals($nc($DigestMD5Base::CIPHER_TOKENS)->get(j))) {
+			if ($nc(token)->equals($DigestMD5Base::CIPHER_TOKENS->get(j))) {
 				(*serverCiphers)[j] |= $nc($DigestMD5Base::CIPHER_MASKS)->get(j);
 				serverCipherStrs->set(j, token);
 				$init($AbstractSaslImpl);
 				$init($Level);
-				$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST62:Server supports {0}"_s, $of(token));
+				$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST62:Server supports {0}"_s, token);
 			}
 		}
 	}
 	$var($bytes, clntCiphers, getPlatformCiphers());
-	int8_t inter = (int8_t)0;
+	int8_t inter = 0;
 	for (int32_t i = 0; i < serverCiphers->length; ++i) {
 		(*serverCiphers)[i] &= (uint8_t)$nc(clntCiphers)->get(i);
 		inter |= serverCiphers->get(i);
@@ -456,31 +376,25 @@ void DigestMD5Client::checkStrengthSupport($bytes* ciphersInChallenge) {
 	}
 	$init($AbstractSaslImpl);
 	$init($Level);
-	$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST63:Cipher suite: {0}"_s, $of(this->negotiatedCipher));
+	$nc($AbstractSaslImpl::logger)->log($Level::FINE, "DIGEST63:Cipher suite: {0}"_s, this->negotiatedCipher);
 }
 
 $String* DigestMD5Client::findCipherAndStrength($bytes* supportedCiphers, $StringArray* tokens) {
 	int8_t s = 0;
 	for (int32_t i = 0; i < $nc(this->strength)->length; ++i) {
-		if ((s = $nc(this->strength)->get(i)) != 0) {
+		if ((s = this->strength->get(i)) != 0) {
 			for (int32_t j = 0; j < $nc(supportedCiphers)->length; ++j) {
-				if (s == supportedCiphers->get(j) && (this->specifiedCipher == nullptr || $nc(this->specifiedCipher)->equals($nc(tokens)->get(j)))) {
+				if (s == supportedCiphers->get(j) && (this->specifiedCipher == nullptr || this->specifiedCipher->equals($nc(tokens)->get(j)))) {
 					switch (s) {
 					case $AbstractSaslImpl::HIGH_STRENGTH:
-						{
-							$set(this, negotiatedStrength, "high"_s);
-							break;
-						}
+						$set(this, negotiatedStrength, "high"_s);
+						break;
 					case $AbstractSaslImpl::MEDIUM_STRENGTH:
-						{
-							$set(this, negotiatedStrength, "medium"_s);
-							break;
-						}
+						$set(this, negotiatedStrength, "medium"_s);
+						break;
 					case $AbstractSaslImpl::LOW_STRENGTH:
-						{
-							$set(this, negotiatedStrength, "low"_s);
-							break;
-						}
+						$set(this, negotiatedStrength, "low"_s);
+						break;
 					}
 					return $nc(tokens)->get(j);
 				}
@@ -491,12 +405,12 @@ $String* DigestMD5Client::findCipherAndStrength($bytes* supportedCiphers, $Strin
 }
 
 $bytes* DigestMD5Client::generateClientResponse($bytes* charset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, digestResp, $new($ByteArrayOutputStream));
 	if (this->useUTF8) {
 		digestResp->write($("charset="_s->getBytes(this->encoding)));
 		digestResp->write(charset);
-		digestResp->write((int32_t)u',');
+		digestResp->write(u',');
 	}
 	digestResp->write($($nc(($$str({"username=\""_s, $(quotedStringValue(this->username)), "\","_s})))->getBytes(this->encoding)));
 	if ($nc(this->negotiatedRealm)->length() > 0) {
@@ -504,8 +418,8 @@ $bytes* DigestMD5Client::generateClientResponse($bytes* charset) {
 	}
 	digestResp->write($("nonce=\""_s->getBytes(this->encoding)));
 	writeQuotedStringValue(digestResp, this->nonce);
-	digestResp->write((int32_t)u'\"');
-	digestResp->write((int32_t)u',');
+	digestResp->write(u'\"');
+	digestResp->write(u',');
 	this->nonceCount = getNonceCount(this->nonce);
 	digestResp->write($($nc(($$str({"nc="_s, $(nonceCountToHex(this->nonceCount)), ","_s})))->getBytes(this->encoding)));
 	$set(this, cnonce, generateNonce());
@@ -515,11 +429,11 @@ $bytes* DigestMD5Client::generateClientResponse($bytes* charset) {
 	digestResp->write($($nc(($$str({"digest-uri=\""_s, this->digestUri, "\","_s})))->getBytes(this->encoding)));
 	digestResp->write($("maxbuf="_s->getBytes(this->encoding)));
 	digestResp->write($($($String::valueOf(this->recvMaxBufSize))->getBytes(this->encoding)));
-	digestResp->write((int32_t)u',');
+	digestResp->write(u',');
 	try {
 		digestResp->write($("response="_s->getBytes(this->encoding)));
 		digestResp->write($(generateResponseValue("AUTHENTICATE"_s, this->digestUri, this->negotiatedQop, this->username, this->negotiatedRealm, this->passwd, this->nonce, this->cnonce, this->nonceCount, this->authzidBytes)));
-		digestResp->write((int32_t)u',');
+		digestResp->write(u',');
 	} catch ($Exception& e) {
 		$throwNew($SaslException, "DIGEST-MD5: Error generating response value"_s, e);
 	}
@@ -561,14 +475,14 @@ int32_t DigestMD5Client::getNonceCount($bytes* nonceValue) {
 
 void DigestMD5Client::clearPassword() {
 	if (this->passwd != nullptr) {
-		for (int32_t i = 0; i < $nc(this->passwd)->length; ++i) {
-			$nc(this->passwd)->set(i, (char16_t)0);
+		for (int32_t i = 0; i < this->passwd->length; ++i) {
+			this->passwd->set(i, 0);
 		}
 		$set(this, passwd, nullptr);
 	}
 }
 
-void clinit$DigestMD5Client($Class* class$) {
+void DigestMD5Client::clinit$($Class* clazz) {
 	$assignStatic(DigestMD5Client::CIPHER_PROPERTY, "com.sun.security.sasl.digest.cipher"_s);
 	$assignStatic(DigestMD5Client::MY_CLASS_NAME, DigestMD5Client::class$->getName());
 	$assignStatic(DigestMD5Client::DIRECTIVE_KEY, $new($StringArray, {
@@ -588,7 +502,63 @@ DigestMD5Client::DigestMD5Client() {
 }
 
 $Class* DigestMD5Client::load$($String* name, bool initialize) {
-	$loadClass(DigestMD5Client, name, initialize, &_DigestMD5Client_ClassInfo_, clinit$DigestMD5Client, allocate$DigestMD5Client);
+	$FieldInfo fieldInfos$$[] = {
+		{"MY_CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Client, MY_CLASS_NAME)},
+		{"CIPHER_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Client, CIPHER_PROPERTY)},
+		{"DIRECTIVE_KEY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Client, DIRECTIVE_KEY)},
+		{"REALM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, REALM)},
+		{"QOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, QOP)},
+		{"ALGORITHM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, ALGORITHM)},
+		{"NONCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, NONCE)},
+		{"MAXBUF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, MAXBUF)},
+		{"CHARSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, CHARSET)},
+		{"CIPHER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, CIPHER)},
+		{"RESPONSE_AUTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, RESPONSE_AUTH)},
+		{"STALE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestMD5Client, STALE)},
+		{"nonceCount", "I", nullptr, $PRIVATE, $field(DigestMD5Client, nonceCount)},
+		{"specifiedCipher", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestMD5Client, specifiedCipher)},
+		{"cnonce", "[B", nullptr, $PRIVATE, $field(DigestMD5Client, cnonce)},
+		{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DigestMD5Client, username)},
+		{"passwd", "[C", nullptr, $PRIVATE, $field(DigestMD5Client, passwd)},
+		{"authzidBytes", "[B", nullptr, $PRIVATE, $field(DigestMD5Client, authzidBytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(DigestMD5Client, init$, void, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"checkQopSupport", "([B[B)V", nullptr, $PRIVATE, $method(DigestMD5Client, checkQopSupport, void, $bytes*, $bytes*), "java.io.IOException"},
+		{"checkStrengthSupport", "([B)V", nullptr, $PRIVATE, $method(DigestMD5Client, checkStrengthSupport, void, $bytes*), "java.io.IOException"},
+		{"clearPassword", "()V", nullptr, $PRIVATE, $method(DigestMD5Client, clearPassword, void)},
+		{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Client, evaluateChallenge, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
+		{"findCipherAndStrength", "([B[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DigestMD5Client, findCipherAndStrength, $String*, $bytes*, $StringArray*)},
+		{"generateClientResponse", "([B)[B", nullptr, $PRIVATE, $method(DigestMD5Client, generateClientResponse, $bytes*, $bytes*), "java.io.IOException"},
+		{"getNonceCount", "([B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DigestMD5Client, getNonceCount, int32_t, $bytes*)},
+		{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(DigestMD5Client, hasInitialResponse, bool)},
+		{"*isComplete", "()Z", nullptr, $PUBLIC},
+		{"processChallenge", "([[BLjava/util/List;)V", "([[BLjava/util/List<[B>;)V", $PRIVATE, $method(DigestMD5Client, processChallenge, void, $byteArray2*, $List*), "javax.security.sasl.SaslException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*unwrap", "([BII)[B", nullptr, $PUBLIC},
+		{"validateResponseValue", "([B)V", nullptr, $PRIVATE, $method(DigestMD5Client, validateResponseValue, void, $bytes*), "javax.security.sasl.SaslException"},
+		{"*wrap", "([BII)[B", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.digest.DigestMD5Client",
+		"com.sun.security.sasl.digest.DigestMD5Base",
+		"javax.security.sasl.SaslClient",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DigestMD5Client, name, initialize, &classInfo$$, DigestMD5Client::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DigestMD5Client));
+	});
 	return class$;
 }
 

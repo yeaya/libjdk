@@ -54,6 +54,7 @@ class $import ShellFolder : public ::java::io::File {
 public:
 	ShellFolder();
 	using ::java::io::File::listFiles;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::shell::ShellFolder* parent, $String* pathname);
 	virtual bool canRead() override;
 	virtual bool canWrite() override;

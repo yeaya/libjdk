@@ -1,5 +1,4 @@
 #include <Test8039464$1.h>
-
 #include <Test8039464.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -11,49 +10,11 @@
 
 using $Test8039464 = ::Test8039464;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JFrame = ::javax::swing::JFrame;
-
-$MethodInfo _Test8039464$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Test8039464$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8039464$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test8039464$1_EnclosingMethodInfo_ = {
-	"Test8039464",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Test8039464$1_InnerClassesInfo_[] = {
-	{"Test8039464$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test8039464$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test8039464$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Test8039464$1_MethodInfo_,
-	nullptr,
-	&_Test8039464$1_EnclosingMethodInfo_,
-	_Test8039464$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test8039464"
-};
-
-$Object* allocate$Test8039464$1($Class* clazz) {
-	return $of($alloc(Test8039464$1));
-}
 
 void Test8039464$1::init$() {
 }
@@ -71,7 +32,38 @@ Test8039464$1::Test8039464$1() {
 }
 
 $Class* Test8039464$1::load$($String* name, bool initialize) {
-	$loadClass(Test8039464$1, name, initialize, &_Test8039464$1_ClassInfo_, allocate$Test8039464$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Test8039464$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8039464$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test8039464",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test8039464$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test8039464$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test8039464"
+	};
+	$loadClass(Test8039464$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8039464$1);
+	});
 	return class$;
 }
 

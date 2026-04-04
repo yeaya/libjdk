@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIState$ScrollBarState.h>
-
 #include <apple/laf/JRSUIConstants$Key.h>
 #include <apple/laf/JRSUIControl.h>
 #include <apple/laf/JRSUIState$ValueState.h>
@@ -22,53 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIState$ScrollBarState_FieldInfo_[] = {
-	{"thumbProportion", "D", nullptr, $FINAL, $field(JRSUIState$ScrollBarState, thumbProportion)},
-	{"derivedThumbProportion", "D", nullptr, 0, $field(JRSUIState$ScrollBarState, derivedThumbProportion)},
-	{"thumbStart", "D", nullptr, $FINAL, $field(JRSUIState$ScrollBarState, thumbStart)},
-	{"derivedThumbStart", "D", nullptr, 0, $field(JRSUIState$ScrollBarState, derivedThumbStart)},
-	{}
-};
-
-$MethodInfo _JRSUIState$ScrollBarState_MethodInfo_[] = {
-	{"<init>", "(JDDD)V", nullptr, 0, $method(JRSUIState$ScrollBarState, init$, void, int64_t, double, double, double)},
-	{"apply", "(Lapple/laf/JRSUIControl;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, apply, void, $JRSUIControl*)},
-	{"createDerivation", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, createDerivation, $JRSUIState*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, hashCode, int32_t)},
-	{"isDerivationSame", "()Z", nullptr, 0, $virtualMethod(JRSUIState$ScrollBarState, isDerivationSame, bool)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, reset, void)},
-	{"setThumbPercent", "(D)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, setThumbPercent, void, double)},
-	{"setThumbStart", "(D)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, setThumbStart, void, double)},
-	{}
-};
-
-$InnerClassInfo _JRSUIState$ScrollBarState_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIState$ScrollBarState", "apple.laf.JRSUIState", "ScrollBarState", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIState$ValueState", "apple.laf.JRSUIState", "ValueState", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIState$ScrollBarState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIState$ScrollBarState",
-	"apple.laf.JRSUIState$ValueState",
-	nullptr,
-	_JRSUIState$ScrollBarState_FieldInfo_,
-	_JRSUIState$ScrollBarState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIState$ScrollBarState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIState"
-};
-
-$Object* allocate$JRSUIState$ScrollBarState($Class* clazz) {
-	return $of($alloc(JRSUIState$ScrollBarState));
-}
-
 void JRSUIState$ScrollBarState::init$(int64_t encodedState, double value, double thumbProportion, double thumbStart) {
 	$JRSUIState$ValueState::init$(encodedState, value);
 	this->thumbProportion = (this->derivedThumbProportion = thumbProportion);
@@ -80,7 +32,7 @@ bool JRSUIState$ScrollBarState::isDerivationSame() {
 }
 
 $JRSUIState* JRSUIState$ScrollBarState::createDerivation() {
-	return static_cast<$JRSUIState*>($new(JRSUIState$ScrollBarState, this->derivedEncodedState, this->derivedValue, this->derivedThumbProportion, this->derivedThumbStart));
+	return $cast($JRSUIState, $new(JRSUIState$ScrollBarState, this->derivedEncodedState, this->derivedValue, this->derivedThumbProportion, this->derivedThumbStart));
 }
 
 void JRSUIState$ScrollBarState::reset() {
@@ -108,7 +60,7 @@ bool JRSUIState$ScrollBarState::equals(Object$* obj) {
 	if (!($instanceOf(JRSUIState$ScrollBarState, obj))) {
 		return false;
 	}
-	return (this->thumbProportion == $nc(($cast(JRSUIState$ScrollBarState, obj)))->thumbProportion) && (this->thumbStart == ($cast(JRSUIState$ScrollBarState, obj))->thumbStart) && $JRSUIState$ValueState::equals(obj);
+	return (this->thumbProportion == $nc($cast(JRSUIState$ScrollBarState, obj))->thumbProportion) && (this->thumbStart == $cast(JRSUIState$ScrollBarState, obj)->thumbStart) && $JRSUIState$ValueState::equals(obj);
 }
 
 int32_t JRSUIState$ScrollBarState::hashCode() {
@@ -121,7 +73,48 @@ JRSUIState$ScrollBarState::JRSUIState$ScrollBarState() {
 }
 
 $Class* JRSUIState$ScrollBarState::load$($String* name, bool initialize) {
-	$loadClass(JRSUIState$ScrollBarState, name, initialize, &_JRSUIState$ScrollBarState_ClassInfo_, allocate$JRSUIState$ScrollBarState);
+	$FieldInfo fieldInfos$$[] = {
+		{"thumbProportion", "D", nullptr, $FINAL, $field(JRSUIState$ScrollBarState, thumbProportion)},
+		{"derivedThumbProportion", "D", nullptr, 0, $field(JRSUIState$ScrollBarState, derivedThumbProportion)},
+		{"thumbStart", "D", nullptr, $FINAL, $field(JRSUIState$ScrollBarState, thumbStart)},
+		{"derivedThumbStart", "D", nullptr, 0, $field(JRSUIState$ScrollBarState, derivedThumbStart)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JDDD)V", nullptr, 0, $method(JRSUIState$ScrollBarState, init$, void, int64_t, double, double, double)},
+		{"apply", "(Lapple/laf/JRSUIControl;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, apply, void, $JRSUIControl*)},
+		{"createDerivation", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, createDerivation, $JRSUIState*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, hashCode, int32_t)},
+		{"isDerivationSame", "()Z", nullptr, 0, $virtualMethod(JRSUIState$ScrollBarState, isDerivationSame, bool)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, reset, void)},
+		{"setThumbPercent", "(D)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, setThumbPercent, void, double)},
+		{"setThumbStart", "(D)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState$ScrollBarState, setThumbStart, void, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIState$ScrollBarState", "apple.laf.JRSUIState", "ScrollBarState", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIState$ValueState", "apple.laf.JRSUIState", "ValueState", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIState$ScrollBarState",
+		"apple.laf.JRSUIState$ValueState",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIState"
+	};
+	$loadClass(JRSUIState$ScrollBarState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIState$ScrollBarState);
+	});
 	return class$;
 }
 

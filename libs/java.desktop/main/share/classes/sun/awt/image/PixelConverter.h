@@ -21,6 +21,7 @@ class PixelConverter : public ::java::lang::Object {
 	$class(PixelConverter, 0, ::java::lang::Object)
 public:
 	PixelConverter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t getAlphaMask();
 	virtual int32_t pixelToRgb(int32_t pixel, ::java::awt::image::ColorModel* cm);

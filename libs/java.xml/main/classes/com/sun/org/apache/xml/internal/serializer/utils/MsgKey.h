@@ -141,6 +141,7 @@ class MsgKey : public ::java::lang::Object {
 	$class(MsgKey, 0, ::java::lang::Object)
 public:
 	MsgKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* BAD_MSGKEY;
 	static $String* BAD_MSGFORMAT;

@@ -28,6 +28,7 @@ class XDragAndDropProtocols : public ::java::lang::Object {
 	$class(XDragAndDropProtocols, 0, ::java::lang::Object)
 public:
 	XDragAndDropProtocols();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::X11::XDragSourceProtocol* getDragSourceProtocol($String* name);
 	static ::java::util::Iterator* getDragSourceProtocols();

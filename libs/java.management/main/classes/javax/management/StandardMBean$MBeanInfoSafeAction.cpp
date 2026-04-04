@@ -1,5 +1,4 @@
 #include <javax/management/StandardMBean$MBeanInfoSafeAction.h>
-
 #include <javax/management/MBeanInfo.h>
 #include <javax/management/StandardEmitterMBean.h>
 #include <javax/management/StandardMBean.h>
@@ -16,42 +15,6 @@ using $StandardMBean = ::javax::management::StandardMBean;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _StandardMBean$MBeanInfoSafeAction_FieldInfo_[] = {
-	{"subclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(StandardMBean$MBeanInfoSafeAction, subclass)},
-	{}
-};
-
-$MethodInfo _StandardMBean$MBeanInfoSafeAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(StandardMBean$MBeanInfoSafeAction, init$, void, $Class*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(StandardMBean$MBeanInfoSafeAction, run, $Object*)},
-	{}
-};
-
-$InnerClassInfo _StandardMBean$MBeanInfoSafeAction_InnerClassesInfo_[] = {
-	{"javax.management.StandardMBean$MBeanInfoSafeAction", "javax.management.StandardMBean", "MBeanInfoSafeAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StandardMBean$MBeanInfoSafeAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.StandardMBean$MBeanInfoSafeAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_StandardMBean$MBeanInfoSafeAction_FieldInfo_,
-	_StandardMBean$MBeanInfoSafeAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	nullptr,
-	_StandardMBean$MBeanInfoSafeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.StandardMBean"
-};
-
-$Object* allocate$StandardMBean$MBeanInfoSafeAction($Class* clazz) {
-	return $of($alloc(StandardMBean$MBeanInfoSafeAction));
-}
 
 void StandardMBean$MBeanInfoSafeAction::init$($Class* subclass) {
 	$set(this, subclass, subclass);
@@ -82,7 +45,37 @@ StandardMBean$MBeanInfoSafeAction::StandardMBean$MBeanInfoSafeAction() {
 }
 
 $Class* StandardMBean$MBeanInfoSafeAction::load$($String* name, bool initialize) {
-	$loadClass(StandardMBean$MBeanInfoSafeAction, name, initialize, &_StandardMBean$MBeanInfoSafeAction_ClassInfo_, allocate$StandardMBean$MBeanInfoSafeAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"subclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(StandardMBean$MBeanInfoSafeAction, subclass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(StandardMBean$MBeanInfoSafeAction, init$, void, $Class*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(StandardMBean$MBeanInfoSafeAction, run, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.StandardMBean$MBeanInfoSafeAction", "javax.management.StandardMBean", "MBeanInfoSafeAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.StandardMBean$MBeanInfoSafeAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.StandardMBean"
+	};
+	$loadClass(StandardMBean$MBeanInfoSafeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardMBean$MBeanInfoSafeAction);
+	});
 	return class$;
 }
 

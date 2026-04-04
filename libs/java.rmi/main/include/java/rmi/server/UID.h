@@ -23,6 +23,7 @@ class $import UID : public ::java::io::Serializable {
 	$class(UID, 0, ::java::io::Serializable)
 public:
 	UID();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int16_t num);
 	void init$(int32_t unique, int64_t time, int16_t count);
@@ -36,7 +37,7 @@ public:
 	static $Object* lock;
 	static int64_t lastTime;
 	static int16_t lastCount;
-	static const int64_t serialVersionUID = (int64_t)0x0F12700DBF364F12;
+	static const int64_t serialVersionUID = (int64_t)0x0f12700dbf364f12;
 	int32_t unique = 0;
 	int64_t time = 0;
 	int16_t count = 0;

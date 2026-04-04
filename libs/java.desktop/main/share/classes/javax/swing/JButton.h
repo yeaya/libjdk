@@ -31,6 +31,7 @@ class $export JButton : public ::javax::swing::AbstractButton, public ::javax::a
 	$class(JButton, 0, ::javax::swing::AbstractButton, ::javax::accessibility::Accessible)
 public:
 	JButton();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::AbstractButton::contains;
 	using ::javax::swing::AbstractButton::enable;
 	using ::javax::swing::AbstractButton::getBounds;

@@ -125,6 +125,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::dtm::DTMManager* mgr, int32_t documentNumber, ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter* whiteSpaceFilter, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory* xstringfactory);
 	virtual void appendAttribute(int32_t namespaceIndex, int32_t localNameIndex, int32_t prefixIndex, bool isID, int32_t m_char_current_start, int32_t contentLength);
 	virtual void appendChild(int32_t newChild, bool clone, bool cloneDepth) override;

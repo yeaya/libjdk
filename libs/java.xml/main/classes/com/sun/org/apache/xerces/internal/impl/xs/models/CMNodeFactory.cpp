@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/CMNodeFactory.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMNode.h>
@@ -52,45 +51,6 @@ namespace com {
 							namespace xs {
 								namespace models {
 
-$FieldInfo _CMNodeFactory_FieldInfo_[] = {
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CMNodeFactory, ERROR_REPORTER)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CMNodeFactory, SECURITY_MANAGER)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CMNodeFactory, DEBUG)},
-	{"MULTIPLICITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CMNodeFactory, MULTIPLICITY)},
-	{"nodeCount", "I", nullptr, $PRIVATE, $field(CMNodeFactory, nodeCount)},
-	{"maxNodeLimit", "I", nullptr, $PRIVATE, $field(CMNodeFactory, maxNodeLimit)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(CMNodeFactory, fErrorReporter)},
-	{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(CMNodeFactory, fSecurityManager)},
-	{}
-};
-
-$MethodInfo _CMNodeFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CMNodeFactory, init$, void)},
-	{"getCMBinOpNode", "(ILcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMBinOpNode, $CMNode*, int32_t, $CMNode*, $CMNode*)},
-	{"getCMLeafNode", "(ILjava/lang/Object;II)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMLeafNode, $CMNode*, int32_t, Object$*, int32_t, int32_t)},
-	{"getCMRepeatingLeafNode", "(ILjava/lang/Object;IIII)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMRepeatingLeafNode, $CMNode*, int32_t, Object$*, int32_t, int32_t, int32_t, int32_t)},
-	{"getCMUniOpNode", "(ILcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMUniOpNode, $CMNode*, int32_t, $CMNode*)},
-	{"nodeCountCheck", "()V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, nodeCountCheck, void)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, reset, void, $XMLComponentManager*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, reset, void)},
-	{"resetNodeCount", "()V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, resetNodeCount, void)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{}
-};
-
-$ClassInfo _CMNodeFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.CMNodeFactory",
-	"java.lang.Object",
-	nullptr,
-	_CMNodeFactory_FieldInfo_,
-	_CMNodeFactory_MethodInfo_
-};
-
-$Object* allocate$CMNodeFactory($Class* clazz) {
-	return $of($alloc(CMNodeFactory));
-}
-
 $String* CMNodeFactory::ERROR_REPORTER = nullptr;
 $String* CMNodeFactory::SECURITY_MANAGER = nullptr;
 
@@ -112,7 +72,7 @@ void CMNodeFactory::reset($XMLComponentManager* componentManager) {
 void CMNodeFactory::reset() {
 	if (this->fSecurityManager != nullptr) {
 		$init($XMLSecurityManager$Limit);
-		this->maxNodeLimit = $nc(this->fSecurityManager)->getLimit($XMLSecurityManager$Limit::MAX_OCCUR_NODE_LIMIT) * CMNodeFactory::MULTIPLICITY;
+		this->maxNodeLimit = this->fSecurityManager->getLimit($XMLSecurityManager$Limit::MAX_OCCUR_NODE_LIMIT) * CMNodeFactory::MULTIPLICITY;
 	}
 }
 
@@ -135,10 +95,11 @@ $CMNode* CMNodeFactory::getCMBinOpNode(int32_t type, $CMNode* leftNode, $CMNode*
 }
 
 void CMNodeFactory::nodeCountCheck() {
-	$useLocalCurrentObjectStackCache();
-	if (this->fSecurityManager != nullptr && !$nc(this->fSecurityManager)->isNoLimit(this->maxNodeLimit) && this->nodeCount++ > this->maxNodeLimit) {
+	$useLocalObjectStack();
+	if (this->fSecurityManager != nullptr && !this->fSecurityManager->isNoLimit(this->maxNodeLimit) && this->nodeCount++ > this->maxNodeLimit) {
+		;
 		$init($XSMessageFormatter);
-		$nc(this->fErrorReporter)->reportError($XSMessageFormatter::SCHEMA_DOMAIN, "MaxOccurLimit"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->maxNodeLimit)))}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
+		$nc(this->fErrorReporter)->reportError($XSMessageFormatter::SCHEMA_DOMAIN, "MaxOccurLimit"_s, $$new($ObjectArray, {$($Integer::valueOf(this->maxNodeLimit))}), $XMLErrorReporter::SEVERITY_FATAL_ERROR);
 		this->nodeCount = 0;
 	}
 }
@@ -156,7 +117,7 @@ void CMNodeFactory::setProperty($String* propertyId, Object$* value) {
 		if (var$1 && propertyId->endsWith($Constants::SECURITY_MANAGER_PROPERTY)) {
 			$set(this, fSecurityManager, $cast($XMLSecurityManager, value));
 			$init($XMLSecurityManager$Limit);
-			this->maxNodeLimit = (this->fSecurityManager != nullptr) ? $nc(this->fSecurityManager)->getLimit($XMLSecurityManager$Limit::MAX_OCCUR_NODE_LIMIT) * CMNodeFactory::MULTIPLICITY : 0;
+			this->maxNodeLimit = (this->fSecurityManager != nullptr) ? this->fSecurityManager->getLimit($XMLSecurityManager$Limit::MAX_OCCUR_NODE_LIMIT) * CMNodeFactory::MULTIPLICITY : 0;
 			return;
 		}
 		bool var$2 = suffixLength == $nc($Constants::ERROR_REPORTER_PROPERTY)->length();
@@ -170,14 +131,48 @@ void CMNodeFactory::setProperty($String* propertyId, Object$* value) {
 CMNodeFactory::CMNodeFactory() {
 }
 
-void clinit$CMNodeFactory($Class* class$) {
+void CMNodeFactory::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(CMNodeFactory::ERROR_REPORTER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ERROR_REPORTER_PROPERTY}));
 	$assignStatic(CMNodeFactory::SECURITY_MANAGER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SECURITY_MANAGER_PROPERTY}));
 }
 
 $Class* CMNodeFactory::load$($String* name, bool initialize) {
-	$loadClass(CMNodeFactory, name, initialize, &_CMNodeFactory_ClassInfo_, clinit$CMNodeFactory, allocate$CMNodeFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CMNodeFactory, ERROR_REPORTER)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CMNodeFactory, SECURITY_MANAGER)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CMNodeFactory, DEBUG)},
+		{"MULTIPLICITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CMNodeFactory, MULTIPLICITY)},
+		{"nodeCount", "I", nullptr, $PRIVATE, $field(CMNodeFactory, nodeCount)},
+		{"maxNodeLimit", "I", nullptr, $PRIVATE, $field(CMNodeFactory, maxNodeLimit)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(CMNodeFactory, fErrorReporter)},
+		{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(CMNodeFactory, fSecurityManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CMNodeFactory, init$, void)},
+		{"getCMBinOpNode", "(ILcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMBinOpNode, $CMNode*, int32_t, $CMNode*, $CMNode*)},
+		{"getCMLeafNode", "(ILjava/lang/Object;II)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMLeafNode, $CMNode*, int32_t, Object$*, int32_t, int32_t)},
+		{"getCMRepeatingLeafNode", "(ILjava/lang/Object;IIII)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMRepeatingLeafNode, $CMNode*, int32_t, Object$*, int32_t, int32_t, int32_t, int32_t)},
+		{"getCMUniOpNode", "(ILcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, getCMUniOpNode, $CMNode*, int32_t, $CMNode*)},
+		{"nodeCountCheck", "()V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, nodeCountCheck, void)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, reset, void, $XMLComponentManager*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, reset, void)},
+		{"resetNodeCount", "()V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, resetNodeCount, void)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CMNodeFactory, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.CMNodeFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMNodeFactory, name, initialize, &classInfo$$, CMNodeFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CMNodeFactory);
+	});
 	return class$;
 }
 

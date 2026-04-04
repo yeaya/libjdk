@@ -1,5 +1,4 @@
 #include <TestWrongCSSFontSize.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -31,7 +30,6 @@
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/GlyphView.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
@@ -41,10 +39,8 @@
 #undef W3C_LENGTH_UNITS
 
 using $Component = ::java::awt::Component;
-using $Font = ::java::awt::Font;
 using $Graphics = ::java::awt::Graphics;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
@@ -58,19 +54,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $Consumer = ::java::util::function::Consumer;
 using $ImageIO = ::javax::imageio::ImageIO;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TextUI = ::javax::swing::plaf::TextUI;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Document = ::javax::swing::text::Document;
-using $EditorKit = ::javax::swing::text::EditorKit;
-using $Element = ::javax::swing::text::Element;
 using $GlyphView = ::javax::swing::text::GlyphView;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $View = ::javax::swing::text::View;
 
 class TestWrongCSSFontSize$$Lambda$assertFontSize : public $Consumer {
@@ -82,33 +73,29 @@ public:
 	virtual void accept(Object$* child) override {
 		$nc(inst$)->assertFontSize($cast($GlyphView, child));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestWrongCSSFontSize$$Lambda$assertFontSize>());
-	}
 	TestWrongCSSFontSize* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestWrongCSSFontSize$$Lambda$assertFontSize::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$assertFontSize, inst$)},
-	{}
-};
-$MethodInfo TestWrongCSSFontSize$$Lambda$assertFontSize::methodInfos[3] = {
-	{"<init>", "(LTestWrongCSSFontSize;)V", nullptr, $PUBLIC, $method(TestWrongCSSFontSize$$Lambda$assertFontSize, init$, void, TestWrongCSSFontSize*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize$$Lambda$assertFontSize, accept, void, Object$*)},
-	{}
-};
-$ClassInfo TestWrongCSSFontSize$$Lambda$assertFontSize::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestWrongCSSFontSize$$Lambda$assertFontSize",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestWrongCSSFontSize$$Lambda$assertFontSize::load$($String* name, bool initialize) {
-	$loadClass(TestWrongCSSFontSize$$Lambda$assertFontSize, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$assertFontSize, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestWrongCSSFontSize;)V", nullptr, $PUBLIC, $method(TestWrongCSSFontSize$$Lambda$assertFontSize, init$, void, TestWrongCSSFontSize*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize$$Lambda$assertFontSize, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestWrongCSSFontSize$$Lambda$assertFontSize",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestWrongCSSFontSize$$Lambda$assertFontSize, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestWrongCSSFontSize$$Lambda$assertFontSize);
+	});
 	return class$;
 }
 $Class* TestWrongCSSFontSize$$Lambda$assertFontSize::class$ = nullptr;
@@ -124,77 +111,36 @@ public:
 	virtual void run() override {
 		TestWrongCSSFontSize::lambda$main$0(test, failure, args);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestWrongCSSFontSize$$Lambda$lambda$main$0$1>());
-	}
 	TestWrongCSSFontSize* test = nullptr;
 	$AtomicReference* failure = nullptr;
 	$StringArray* args = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestWrongCSSFontSize$$Lambda$lambda$main$0$1::fieldInfos[4] = {
-	{"test", "LTestWrongCSSFontSize;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, test)},
-	{"failure", "Ljava/util/concurrent/atomic/AtomicReference;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, failure)},
-	{"args", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, args)},
-	{}
-};
-$MethodInfo TestWrongCSSFontSize$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "(LTestWrongCSSFontSize;Ljava/util/concurrent/atomic/AtomicReference;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, init$, void, TestWrongCSSFontSize*, $AtomicReference*, $StringArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, run, void)},
-	{}
-};
-$ClassInfo TestWrongCSSFontSize$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestWrongCSSFontSize$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestWrongCSSFontSize$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"test", "LTestWrongCSSFontSize;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, test)},
+		{"failure", "Ljava/util/concurrent/atomic/AtomicReference;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, failure)},
+		{"args", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestWrongCSSFontSize;Ljava/util/concurrent/atomic/AtomicReference;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, init$, void, TestWrongCSSFontSize*, $AtomicReference*, $StringArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestWrongCSSFontSize$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestWrongCSSFontSize$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* TestWrongCSSFontSize$$Lambda$lambda$main$0$1::class$ = nullptr;
-
-$FieldInfo _TestWrongCSSFontSize_FieldInfo_[] = {
-	{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestWrongCSSFontSize, TEXT)},
-	{"expectedFontSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TestWrongCSSFontSize, expectedFontSize)},
-	{"expectedAssertions", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TestWrongCSSFontSize, expectedAssertions)},
-	{"w3cUnits", "Z", nullptr, $PRIVATE | $FINAL, $field(TestWrongCSSFontSize, w3cUnits)},
-	{"editor", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(TestWrongCSSFontSize, editor)},
-	{}
-};
-
-$MethodInfo _TestWrongCSSFontSize_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(TestWrongCSSFontSize, init$, void, bool)},
-	{"argCapture", "([Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TestWrongCSSFontSize, argCapture, bool, $StringArray*)},
-	{"argW3CUnits", "([Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TestWrongCSSFontSize, argW3CUnits, bool, $StringArray*)},
-	{"assertFontSize", "(Ljavax/swing/text/GlyphView;)V", nullptr, $PRIVATE, $method(TestWrongCSSFontSize, assertFontSize, void, $GlyphView*)},
-	{"captureImage", "(Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestWrongCSSFontSize, captureImage, void, $Component*, $String*)},
-	{"forEachTextRun", "(Ljavax/swing/text/View;Ljava/util/function/Consumer;)I", "(Ljavax/swing/text/View;Ljava/util/function/Consumer<Ljavax/swing/text/GlyphView;>;)I", $PRIVATE, $method(TestWrongCSSFontSize, forEachTextRun, int32_t, $View*, $Consumer*)},
-	{"lambda$main$0", "(LTestWrongCSSFontSize;Ljava/util/concurrent/atomic/AtomicReference;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestWrongCSSFontSize, lambda$main$0, void, TestWrongCSSFontSize*, $AtomicReference*, $StringArray*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestWrongCSSFontSize, main, void, $StringArray*), "java.lang.Throwable"},
-	{"printSource", "(Ljavax/swing/text/View;)V", nullptr, $PRIVATE, $method(TestWrongCSSFontSize, printSource, void, $View*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize, run, void)},
-	{"setUp", "()V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize, setUp, void)},
-	{}
-};
-
-$ClassInfo _TestWrongCSSFontSize_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestWrongCSSFontSize",
-	"java.lang.Object",
-	nullptr,
-	_TestWrongCSSFontSize_FieldInfo_,
-	_TestWrongCSSFontSize_MethodInfo_
-};
-
-$Object* allocate$TestWrongCSSFontSize($Class* clazz) {
-	return $of($alloc(TestWrongCSSFontSize));
-}
 
 $String* TestWrongCSSFontSize::TEXT = nullptr;
 
@@ -204,9 +150,8 @@ void TestWrongCSSFontSize::init$(bool w3cUnits) {
 
 void TestWrongCSSFontSize::setUp() {
 	$set(this, editor, $new($JEditorPane));
-	$nc(this->editor)->setContentType("text/html"_s);
+	this->editor->setContentType("text/html"_s);
 	if (this->w3cUnits) {
-		$init($Boolean);
 		$nc(this->editor)->putClientProperty($JEditorPane::W3C_LENGTH_UNITS, $Boolean::TRUE);
 	}
 	$nc(this->editor)->setText(TestWrongCSSFontSize::TEXT);
@@ -214,22 +159,21 @@ void TestWrongCSSFontSize::setUp() {
 }
 
 void TestWrongCSSFontSize::run() {
-	$useLocalCurrentObjectStackCache();
-	$var($View, var$0, $nc($($cast($TextUI, $nc(this->editor)->getUI())))->getRootView(this->editor));
-	int32_t count = forEachTextRun(var$0, static_cast<$Consumer*>($$new(TestWrongCSSFontSize$$Lambda$assertFontSize, this)));
+	$useLocalObjectStack();
+	$var($View, var$0, $$sure($TextUI, $nc(this->editor)->getUI())->getRootView(this->editor));
+	int32_t count = forEachTextRun(var$0, $$new(TestWrongCSSFontSize$$Lambda$assertFontSize, this));
 	if (count != TestWrongCSSFontSize::expectedAssertions) {
-		$throwNew($AssertionError, $of($$str({(this->w3cUnits ? "w3cUnits - "_s : ""_s), "assertion count expected ["_s, $$str(TestWrongCSSFontSize::expectedAssertions), "] but found ["_s, $$str(count), "]"_s})));
+		$throwNew($AssertionError, $$of($str({(this->w3cUnits ? "w3cUnits - "_s : ""_s), "assertion count expected ["_s, $$str(TestWrongCSSFontSize::expectedAssertions), "] but found ["_s, $$str(count), "]"_s})));
 	}
 }
 
 int32_t TestWrongCSSFontSize::forEachTextRun($View* view, $Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tested = 0;
 	for (int32_t i = 0; i < $nc(view)->getViewCount(); ++i) {
 		$var($View, child, view->getView(i));
 		if ($instanceOf($GlyphView, child)) {
-			$init($Boolean);
-			if ($equals($nc($($nc($($nc(child)->getElement()))->getAttributes()))->getAttribute("CR"_s), $Boolean::TRUE)) {
+			if ($equals($$nc($$nc(child->getElement())->getAttributes())->getAttribute("CR"_s), $Boolean::TRUE)) {
 				continue;
 			}
 			$nc(action)->accept($cast($GlyphView, child));
@@ -242,22 +186,22 @@ int32_t TestWrongCSSFontSize::forEachTextRun($View* view, $Consumer* action) {
 }
 
 void TestWrongCSSFontSize::assertFontSize($GlyphView* child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	printSource(child);
-	int32_t actualFontSize = $nc($($nc(child)->getFont()))->getSize();
+	int32_t actualFontSize = $$nc($nc(child)->getFont())->getSize();
 	if (actualFontSize != TestWrongCSSFontSize::expectedFontSize) {
-		$throwNew($AssertionError, $of($$str({(this->w3cUnits ? "w3cUnits - "_s : ""_s), "font size expected ["_s, $$str(TestWrongCSSFontSize::expectedFontSize), "] but found ["_s, $$str(actualFontSize), "]"_s})));
+		$throwNew($AssertionError, $$of($str({(this->w3cUnits ? "w3cUnits - "_s : ""_s), "font size expected ["_s, $$str(TestWrongCSSFontSize::expectedFontSize), "] but found ["_s, $$str(actualFontSize), "]"_s})));
 	}
 }
 
 void TestWrongCSSFontSize::printSource($View* textRun) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($OutputStream, var$0, static_cast<$OutputStream*>($System::out));
+		$var($OutputStream, var$0, $System::out);
 		$var($Document, var$1, $nc(this->editor)->getDocument());
 		int32_t var$2 = $nc(textRun)->getStartOffset();
 		int32_t var$3 = textRun->getEndOffset();
-		$nc($($nc(this->editor)->getEditorKit()))->write(var$0, var$1, var$2, var$3 - textRun->getStartOffset());
+		$$nc($nc(this->editor)->getEditorKit())->write(var$0, var$1, var$2, var$3 - textRun->getStartOffset());
 	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
@@ -265,14 +209,14 @@ void TestWrongCSSFontSize::printSource($View* textRun) {
 
 void TestWrongCSSFontSize::captureImage($Component* comp, $String* suffix) {
 	$init(TestWrongCSSFontSize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t var$0 = $nc(comp)->getWidth();
 		$var($BufferedImage, capture, $new($BufferedImage, var$0, comp->getHeight(), $BufferedImage::TYPE_INT_ARGB));
 		$var($Graphics, g, capture->getGraphics());
-		$nc(comp)->paint(g);
+		comp->paint(g);
 		$nc(g)->dispose();
-		$ImageIO::write(static_cast<$RenderedImage*>(capture), "png"_s, $$new($File, $$str({$(TestWrongCSSFontSize::class$->getSimpleName()), suffix, ".png"_s})));
+		$ImageIO::write(capture, "png"_s, $$new($File, $$str({$(TestWrongCSSFontSize::class$->getSimpleName()), suffix, ".png"_s})));
 	} catch ($IOException& e) {
 		e->printStackTrace();
 	}
@@ -280,70 +224,100 @@ void TestWrongCSSFontSize::captureImage($Component* comp, $String* suffix) {
 
 void TestWrongCSSFontSize::main($StringArray* args) {
 	$init(TestWrongCSSFontSize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(TestWrongCSSFontSize, test, $new(TestWrongCSSFontSize, argW3CUnits(args)));
 	$var($AtomicReference, failure, $new($AtomicReference));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, test, failure, args)));
+	$SwingUtilities::invokeAndWait($$new(TestWrongCSSFontSize$$Lambda$lambda$main$0$1, test, failure, args));
 	if (failure->get() != nullptr) {
-		$throw($cast($Throwable, $(failure->get())));
+		$throw($$cast($Throwable, failure->get()));
 	}
 }
 
 bool TestWrongCSSFontSize::argW3CUnits($StringArray* args) {
 	$init(TestWrongCSSFontSize);
-	return $nc($($Arrays::asList(args)))->contains("-w3cUnits"_s);
+	return $$nc($Arrays::asList(args))->contains("-w3cUnits"_s);
 }
 
 bool TestWrongCSSFontSize::argCapture($StringArray* args) {
 	$init(TestWrongCSSFontSize);
-	return $nc($($Arrays::asList(args)))->contains("-capture"_s);
+	return $$nc($Arrays::asList(args))->contains("-capture"_s);
 }
 
 void TestWrongCSSFontSize::lambda$main$0(TestWrongCSSFontSize* test, $AtomicReference* failure, $StringArray* args) {
 	$init(TestWrongCSSFontSize);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(test)->setUp();
-				test->run();
-			} catch ($Throwable& e) {
-				$nc(failure)->set(e);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$var($String, suffix, $nc(test)->w3cUnits ? "-w3cUnits"_s : ""_s);
-			if ($nc(failure)->get() != nullptr) {
-				captureImage($nc(test)->editor, $$str({suffix, "-failure"_s}));
-			} else if (argCapture(args)) {
-				captureImage($nc(test)->editor, $$str({suffix, "-success"_s}));
-			}
+			$nc(test)->setUp();
+			test->run();
+		} catch ($Throwable& e) {
+			$nc(failure)->set(e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$var($String, suffix, $nc(test)->w3cUnits ? "-w3cUnits"_s : ""_s);
+		if ($nc(failure)->get() != nullptr) {
+			captureImage(test->editor, $$str({suffix, "-failure"_s}));
+		} else if (argCapture(args)) {
+			captureImage(test->editor, $$str({suffix, "-success"_s}));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 TestWrongCSSFontSize::TestWrongCSSFontSize() {
 }
 
-void clinit$TestWrongCSSFontSize($Class* class$) {
+void TestWrongCSSFontSize::clinit$($Class* clazz) {
 	$assignStatic(TestWrongCSSFontSize::TEXT, "<html><head><style>body { font-size: 14 }div span { font-size: 150% }span { font-size: 200% }h2, .h2 { font-size: 150% }</style></head><body><h2>Foo</h2><div class=h2>Bar</div><ol class=h2><li>Baz</li></ol><table class=h2><tr><td>Qux</td></tr></table><table><thead class=h2><tr><th>Qux</th></tr></thead></table><table><tr class=h2><td>Qux</td></tr></table><table><tr><td class=h2>Qux</td></tr></table><div><span>Quux</span></div></body></html>"_s);
 }
 
 $Class* TestWrongCSSFontSize::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestWrongCSSFontSize$$Lambda$assertFontSize::classInfo$.name)) {
+		if (name->equals("TestWrongCSSFontSize$$Lambda$assertFontSize")) {
 			return TestWrongCSSFontSize$$Lambda$assertFontSize::load$(name, initialize);
 		}
-		if (name->equals(TestWrongCSSFontSize$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("TestWrongCSSFontSize$$Lambda$lambda$main$0$1")) {
 			return TestWrongCSSFontSize$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestWrongCSSFontSize, name, initialize, &_TestWrongCSSFontSize_ClassInfo_, clinit$TestWrongCSSFontSize, allocate$TestWrongCSSFontSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestWrongCSSFontSize, TEXT)},
+		{"expectedFontSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TestWrongCSSFontSize, expectedFontSize)},
+		{"expectedAssertions", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TestWrongCSSFontSize, expectedAssertions)},
+		{"w3cUnits", "Z", nullptr, $PRIVATE | $FINAL, $field(TestWrongCSSFontSize, w3cUnits)},
+		{"editor", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(TestWrongCSSFontSize, editor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(TestWrongCSSFontSize, init$, void, bool)},
+		{"argCapture", "([Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TestWrongCSSFontSize, argCapture, bool, $StringArray*)},
+		{"argW3CUnits", "([Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TestWrongCSSFontSize, argW3CUnits, bool, $StringArray*)},
+		{"assertFontSize", "(Ljavax/swing/text/GlyphView;)V", nullptr, $PRIVATE, $method(TestWrongCSSFontSize, assertFontSize, void, $GlyphView*)},
+		{"captureImage", "(Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestWrongCSSFontSize, captureImage, void, $Component*, $String*)},
+		{"forEachTextRun", "(Ljavax/swing/text/View;Ljava/util/function/Consumer;)I", "(Ljavax/swing/text/View;Ljava/util/function/Consumer<Ljavax/swing/text/GlyphView;>;)I", $PRIVATE, $method(TestWrongCSSFontSize, forEachTextRun, int32_t, $View*, $Consumer*)},
+		{"lambda$main$0", "(LTestWrongCSSFontSize;Ljava/util/concurrent/atomic/AtomicReference;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestWrongCSSFontSize, lambda$main$0, void, TestWrongCSSFontSize*, $AtomicReference*, $StringArray*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestWrongCSSFontSize, main, void, $StringArray*), "java.lang.Throwable"},
+		{"printSource", "(Ljavax/swing/text/View;)V", nullptr, $PRIVATE, $method(TestWrongCSSFontSize, printSource, void, $View*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize, run, void)},
+		{"setUp", "()V", nullptr, $PUBLIC, $virtualMethod(TestWrongCSSFontSize, setUp, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestWrongCSSFontSize",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestWrongCSSFontSize, name, initialize, &classInfo$$, TestWrongCSSFontSize::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestWrongCSSFontSize);
+	});
 	return class$;
 }
 

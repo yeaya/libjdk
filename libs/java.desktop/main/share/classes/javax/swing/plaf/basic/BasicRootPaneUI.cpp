@@ -1,8 +1,6 @@
 #include <javax/swing/plaf/basic/BasicRootPaneUI.h>
-
 #include <java/awt/Component.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ComponentInputMap.h>
@@ -28,13 +26,11 @@
 #undef WHEN_IN_FOCUSED_WINDOW
 
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ComponentInputMap = ::javax::swing::ComponentInputMap;
 using $InputMap = ::javax::swing::InputMap;
@@ -53,62 +49,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicRootPaneUI_FieldInfo_[] = {
-	{"rootPaneUI", "Ljavax/swing/plaf/RootPaneUI;", nullptr, $PRIVATE | $STATIC, $staticField(BasicRootPaneUI, rootPaneUI)},
-	{}
-};
-
-$MethodInfo _BasicRootPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicRootPaneUI, init$, void)},
-	{"createInputMap", "(ILjavax/swing/JComponent;)Ljavax/swing/ComponentInputMap;", nullptr, 0, $virtualMethod(BasicRootPaneUI, createInputMap, $ComponentInputMap*, int32_t, $JComponent*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getInputMap", "(ILjavax/swing/JComponent;)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicRootPaneUI, getInputMap, $InputMap*, int32_t, $JComponent*)},
-	{"installComponents", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installComponents, void, $JRootPane*)},
-	{"installDefaults", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installDefaults, void, $JRootPane*)},
-	{"installKeyboardActions", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installKeyboardActions, void, $JRootPane*)},
-	{"installListeners", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installListeners, void, $JRootPane*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI, installUI, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicRootPaneUI, loadActionMap, void, $LazyActionMap*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallComponents, void, $JRootPane*)},
-	{"uninstallDefaults", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallDefaults, void, $JRootPane*)},
-	{"uninstallKeyboardActions", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallKeyboardActions, void, $JRootPane*)},
-	{"uninstallListeners", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallListeners, void, $JRootPane*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI, uninstallUI, void, $JComponent*)},
-	{"updateDefaultButtonBindings", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $virtualMethod(BasicRootPaneUI, updateDefaultButtonBindings, void, $JRootPane*)},
-	{}
-};
-
-$InnerClassInfo _BasicRootPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicRootPaneUI$RootPaneInputMap", "javax.swing.plaf.basic.BasicRootPaneUI", "RootPaneInputMap", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicRootPaneUI$Actions", "javax.swing.plaf.basic.BasicRootPaneUI", "Actions", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicRootPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicRootPaneUI",
-	"javax.swing.plaf.RootPaneUI",
-	"java.beans.PropertyChangeListener",
-	_BasicRootPaneUI_FieldInfo_,
-	_BasicRootPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicRootPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicRootPaneUI$RootPaneInputMap,javax.swing.plaf.basic.BasicRootPaneUI$Actions"
-};
-
-$Object* allocate$BasicRootPaneUI($Class* clazz) {
-	return $of($alloc(BasicRootPaneUI));
-}
 
 int32_t BasicRootPaneUI::hashCode() {
 	 return this->$RootPaneUI::hashCode();
@@ -156,7 +96,6 @@ void BasicRootPaneUI::uninstallUI($JComponent* c) {
 }
 
 void BasicRootPaneUI::installDefaults($JRootPane* c) {
-	$init($Boolean);
 	$LookAndFeel::installProperty(c, "opaque"_s, $Boolean::FALSE);
 }
 
@@ -207,7 +146,7 @@ $ComponentInputMap* BasicRootPaneUI::createInputMap(int32_t condition, $JCompone
 
 void BasicRootPaneUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicRootPaneUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicRootPaneUI$Actions);
 	$nc(map)->put($$new($BasicRootPaneUI$Actions, $BasicRootPaneUI$Actions::PRESS));
 	map->put($$new($BasicRootPaneUI$Actions, $BasicRootPaneUI$Actions::RELEASE));
@@ -215,7 +154,7 @@ void BasicRootPaneUI::loadActionMap($LazyActionMap* map) {
 }
 
 void BasicRootPaneUI::updateDefaultButtonBindings($JRootPane* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, km, $SwingUtilities::getUIInputMap(root, $JComponent::WHEN_IN_FOCUSED_WINDOW));
 	while (km != nullptr && !($instanceOf($BasicRootPaneUI$RootPaneInputMap, km))) {
 		$assign(km, km->getParent());
@@ -232,8 +171,8 @@ void BasicRootPaneUI::updateDefaultButtonBindings($JRootPane* root) {
 }
 
 void BasicRootPaneUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(e)->getPropertyName()))->equals("defaultButton"_s)) {
+	$useLocalObjectStack();
+	if ($$nc($nc(e)->getPropertyName())->equals("defaultButton"_s)) {
 		$var($JRootPane, rootpane, $cast($JRootPane, e->getSource()));
 		updateDefaultButtonBindings(rootpane);
 		if ($nc(rootpane)->getClientProperty("temporaryDefaultButton"_s) == nullptr) {
@@ -242,7 +181,7 @@ void BasicRootPaneUI::propertyChange($PropertyChangeEvent* e) {
 	}
 }
 
-void clinit$BasicRootPaneUI($Class* class$) {
+void BasicRootPaneUI::clinit$($Class* clazz) {
 	$assignStatic(BasicRootPaneUI::rootPaneUI, $new(BasicRootPaneUI));
 }
 
@@ -250,7 +189,57 @@ BasicRootPaneUI::BasicRootPaneUI() {
 }
 
 $Class* BasicRootPaneUI::load$($String* name, bool initialize) {
-	$loadClass(BasicRootPaneUI, name, initialize, &_BasicRootPaneUI_ClassInfo_, clinit$BasicRootPaneUI, allocate$BasicRootPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"rootPaneUI", "Ljavax/swing/plaf/RootPaneUI;", nullptr, $PRIVATE | $STATIC, $staticField(BasicRootPaneUI, rootPaneUI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicRootPaneUI, init$, void)},
+		{"createInputMap", "(ILjavax/swing/JComponent;)Ljavax/swing/ComponentInputMap;", nullptr, 0, $virtualMethod(BasicRootPaneUI, createInputMap, $ComponentInputMap*, int32_t, $JComponent*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getInputMap", "(ILjavax/swing/JComponent;)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicRootPaneUI, getInputMap, $InputMap*, int32_t, $JComponent*)},
+		{"installComponents", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installComponents, void, $JRootPane*)},
+		{"installDefaults", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installDefaults, void, $JRootPane*)},
+		{"installKeyboardActions", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installKeyboardActions, void, $JRootPane*)},
+		{"installListeners", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, installListeners, void, $JRootPane*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI, installUI, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicRootPaneUI, loadActionMap, void, $LazyActionMap*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallComponents, void, $JRootPane*)},
+		{"uninstallDefaults", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallDefaults, void, $JRootPane*)},
+		{"uninstallKeyboardActions", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallKeyboardActions, void, $JRootPane*)},
+		{"uninstallListeners", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(BasicRootPaneUI, uninstallListeners, void, $JRootPane*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI, uninstallUI, void, $JComponent*)},
+		{"updateDefaultButtonBindings", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $virtualMethod(BasicRootPaneUI, updateDefaultButtonBindings, void, $JRootPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicRootPaneUI$RootPaneInputMap", "javax.swing.plaf.basic.BasicRootPaneUI", "RootPaneInputMap", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicRootPaneUI$Actions", "javax.swing.plaf.basic.BasicRootPaneUI", "Actions", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicRootPaneUI",
+		"javax.swing.plaf.RootPaneUI",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicRootPaneUI$RootPaneInputMap,javax.swing.plaf.basic.BasicRootPaneUI$Actions"
+	};
+	$loadClass(BasicRootPaneUI, name, initialize, &classInfo$$, BasicRootPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicRootPaneUI));
+	});
 	return class$;
 }
 

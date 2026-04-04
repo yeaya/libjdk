@@ -1,5 +1,4 @@
 #include <java/awt/desktop/ScreenSleepListener.h>
-
 #include <java/awt/desktop/ScreenSleepEvent.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _ScreenSleepListener_MethodInfo_[] = {
-	{"screenAboutToSleep", "(Ljava/awt/desktop/ScreenSleepEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScreenSleepListener, screenAboutToSleep, void, $ScreenSleepEvent*)},
-	{"screenAwoke", "(Ljava/awt/desktop/ScreenSleepEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScreenSleepListener, screenAwoke, void, $ScreenSleepEvent*)},
-	{}
-};
-
-$ClassInfo _ScreenSleepListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.ScreenSleepListener",
-	nullptr,
-	"java.awt.desktop.SystemEventListener",
-	nullptr,
-	_ScreenSleepListener_MethodInfo_
-};
-
-$Object* allocate$ScreenSleepListener($Class* clazz) {
-	return $of($alloc(ScreenSleepListener));
-}
-
 $Class* ScreenSleepListener::load$($String* name, bool initialize) {
-	$loadClass(ScreenSleepListener, name, initialize, &_ScreenSleepListener_ClassInfo_, allocate$ScreenSleepListener);
+	$MethodInfo methodInfos$$[] = {
+		{"screenAboutToSleep", "(Ljava/awt/desktop/ScreenSleepEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScreenSleepListener, screenAboutToSleep, void, $ScreenSleepEvent*)},
+		{"screenAwoke", "(Ljava/awt/desktop/ScreenSleepEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ScreenSleepListener, screenAwoke, void, $ScreenSleepEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.ScreenSleepListener",
+		nullptr,
+		"java.awt.desktop.SystemEventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ScreenSleepListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScreenSleepListener);
+	});
 	return class$;
 }
 

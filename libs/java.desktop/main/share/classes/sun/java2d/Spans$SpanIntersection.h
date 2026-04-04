@@ -18,6 +18,7 @@ class Spans$SpanIntersection : public ::java::util::Comparator {
 	$class(Spans$SpanIntersection, 0, ::java::util::Comparator)
 public:
 	Spans$SpanIntersection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare(::sun::java2d::Spans$Span* span1, ::sun::java2d::Spans$Span* span2);
 	virtual int32_t compare(Object$* span1, Object$* span2) override;

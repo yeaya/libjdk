@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/ErrorFrame.h>
-
 #include <jdk/internal/net/http/frame/Http2Frame.h>
 #include <jcpp.h>
 
@@ -32,48 +31,6 @@ namespace jdk {
 			namespace http {
 				namespace frame {
 
-$FieldInfo _ErrorFrame_FieldInfo_[] = {
-	{"NO_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, NO_ERROR)},
-	{"PROTOCOL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, PROTOCOL_ERROR)},
-	{"INTERNAL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, INTERNAL_ERROR)},
-	{"FLOW_CONTROL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, FLOW_CONTROL_ERROR)},
-	{"SETTINGS_TIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, SETTINGS_TIMEOUT)},
-	{"STREAM_CLOSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, STREAM_CLOSED)},
-	{"FRAME_SIZE_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, FRAME_SIZE_ERROR)},
-	{"REFUSED_STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, REFUSED_STREAM)},
-	{"CANCEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, CANCEL)},
-	{"COMPRESSION_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, COMPRESSION_ERROR)},
-	{"CONNECT_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, CONNECT_ERROR)},
-	{"ENHANCE_YOUR_CALM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, ENHANCE_YOUR_CALM)},
-	{"INADEQUATE_SECURITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, INADEQUATE_SECURITY)},
-	{"HTTP_1_1_REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, HTTP_1_1_REQUIRED)},
-	{"LAST_ERROR", "I", nullptr, $STATIC | $FINAL, $constField(ErrorFrame, LAST_ERROR)},
-	{"errorStrings", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ErrorFrame, errorStrings)},
-	{"errorCode", "I", nullptr, 0, $field(ErrorFrame, errorCode)},
-	{}
-};
-
-$MethodInfo _ErrorFrame_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(ErrorFrame, init$, void, int32_t, int32_t, int32_t)},
-	{"getErrorCode", "()I", nullptr, $PUBLIC, $virtualMethod(ErrorFrame, getErrorCode, int32_t)},
-	{"stringForCode", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorFrame, stringForCode, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ErrorFrame, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ErrorFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.frame.ErrorFrame",
-	"jdk.internal.net.http.frame.Http2Frame",
-	nullptr,
-	_ErrorFrame_FieldInfo_,
-	_ErrorFrame_MethodInfo_
-};
-
-$Object* allocate$ErrorFrame($Class* clazz) {
-	return $of($alloc(ErrorFrame));
-}
-
 $StringArray* ErrorFrame::errorStrings = nullptr;
 
 $String* ErrorFrame::stringForCode(int32_t code) {
@@ -84,7 +41,7 @@ $String* ErrorFrame::stringForCode(int32_t code) {
 	if (code > ErrorFrame::LAST_ERROR) {
 		return $str({"Error: "_s, $($Integer::toString(code))});
 	} else {
-		return $nc(ErrorFrame::errorStrings)->get(code);
+		return ErrorFrame::errorStrings->get(code);
 	}
 }
 
@@ -94,16 +51,19 @@ void ErrorFrame::init$(int32_t streamid, int32_t flags, int32_t errorCode) {
 }
 
 $String* ErrorFrame::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Http2Frame::toString()), " Error: "_s}));
-	return $concat(var$0, $(stringForCode(this->errorCode)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Http2Frame::toString()));
+	var$0->append(" Error: "_s);
+	var$0->append($(stringForCode(this->errorCode)));
+	return $str(var$0);
 }
 
 int32_t ErrorFrame::getErrorCode() {
 	return this->errorCode;
 }
 
-void clinit$ErrorFrame($Class* class$) {
+void ErrorFrame::clinit$($Class* clazz) {
 	$assignStatic(ErrorFrame::errorStrings, $new($StringArray, {
 		"Not an error"_s,
 		"Protocol error"_s,
@@ -126,7 +86,44 @@ ErrorFrame::ErrorFrame() {
 }
 
 $Class* ErrorFrame::load$($String* name, bool initialize) {
-	$loadClass(ErrorFrame, name, initialize, &_ErrorFrame_ClassInfo_, clinit$ErrorFrame, allocate$ErrorFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, NO_ERROR)},
+		{"PROTOCOL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, PROTOCOL_ERROR)},
+		{"INTERNAL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, INTERNAL_ERROR)},
+		{"FLOW_CONTROL_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, FLOW_CONTROL_ERROR)},
+		{"SETTINGS_TIMEOUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, SETTINGS_TIMEOUT)},
+		{"STREAM_CLOSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, STREAM_CLOSED)},
+		{"FRAME_SIZE_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, FRAME_SIZE_ERROR)},
+		{"REFUSED_STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, REFUSED_STREAM)},
+		{"CANCEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, CANCEL)},
+		{"COMPRESSION_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, COMPRESSION_ERROR)},
+		{"CONNECT_ERROR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, CONNECT_ERROR)},
+		{"ENHANCE_YOUR_CALM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, ENHANCE_YOUR_CALM)},
+		{"INADEQUATE_SECURITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, INADEQUATE_SECURITY)},
+		{"HTTP_1_1_REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ErrorFrame, HTTP_1_1_REQUIRED)},
+		{"LAST_ERROR", "I", nullptr, $STATIC | $FINAL, $constField(ErrorFrame, LAST_ERROR)},
+		{"errorStrings", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ErrorFrame, errorStrings)},
+		{"errorCode", "I", nullptr, 0, $field(ErrorFrame, errorCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(ErrorFrame, init$, void, int32_t, int32_t, int32_t)},
+		{"getErrorCode", "()I", nullptr, $PUBLIC, $virtualMethod(ErrorFrame, getErrorCode, int32_t)},
+		{"stringForCode", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorFrame, stringForCode, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ErrorFrame, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.frame.ErrorFrame",
+		"jdk.internal.net.http.frame.Http2Frame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ErrorFrame, name, initialize, &classInfo$$, ErrorFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ErrorFrame);
+	});
 	return class$;
 }
 

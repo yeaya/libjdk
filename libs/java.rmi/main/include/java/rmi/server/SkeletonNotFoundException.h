@@ -21,10 +21,13 @@ public:
 	SkeletonNotFoundException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x92EA9B17A1ACEEF1;
+	static const int64_t serialVersionUID = (int64_t)0x92ea9b17a1aceef1;
 	SkeletonNotFoundException(const SkeletonNotFoundException& e);
 	virtual void throw$() override;
-	inline SkeletonNotFoundException* operator ->() {
+	inline SkeletonNotFoundException* operator ->() const {
+		return (SkeletonNotFoundException*)throwing$;
+	}
+	inline operator SkeletonNotFoundException*() const {
 		return (SkeletonNotFoundException*)throwing$;
 	}
 };

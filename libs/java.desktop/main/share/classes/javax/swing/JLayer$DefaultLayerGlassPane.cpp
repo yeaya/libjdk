@@ -1,5 +1,4 @@
 #include <javax/swing/JLayer$DefaultLayerGlassPane.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Point.h>
@@ -22,44 +21,13 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JLayer$DefaultLayerGlassPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JLayer$DefaultLayerGlassPane, init$, void)},
-	{"contains", "(II)Z", nullptr, $PUBLIC, $virtualMethod(JLayer$DefaultLayerGlassPane, contains, bool, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JLayer$DefaultLayerGlassPane_InnerClassesInfo_[] = {
-	{"javax.swing.JLayer$DefaultLayerGlassPane", "javax.swing.JLayer", "DefaultLayerGlassPane", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JLayer$DefaultLayerGlassPane_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JLayer$DefaultLayerGlassPane",
-	"javax.swing.JPanel",
-	nullptr,
-	nullptr,
-	_JLayer$DefaultLayerGlassPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JLayer$DefaultLayerGlassPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JLayer"
-};
-
-$Object* allocate$JLayer$DefaultLayerGlassPane($Class* clazz) {
-	return $of($alloc(JLayer$DefaultLayerGlassPane));
-}
-
 void JLayer$DefaultLayerGlassPane::init$() {
 	$JPanel::init$();
 	setOpaque(false);
 }
 
 bool JLayer$DefaultLayerGlassPane::contains(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < getComponentCount(); ++i) {
 		$var($Component, c, getComponent(i));
 		$var($Point, point, $SwingUtilities::convertPoint(this, $$new($Point, x, y), c));
@@ -81,7 +49,33 @@ JLayer$DefaultLayerGlassPane::JLayer$DefaultLayerGlassPane() {
 }
 
 $Class* JLayer$DefaultLayerGlassPane::load$($String* name, bool initialize) {
-	$loadClass(JLayer$DefaultLayerGlassPane, name, initialize, &_JLayer$DefaultLayerGlassPane_ClassInfo_, allocate$JLayer$DefaultLayerGlassPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JLayer$DefaultLayerGlassPane, init$, void)},
+		{"contains", "(II)Z", nullptr, $PUBLIC, $virtualMethod(JLayer$DefaultLayerGlassPane, contains, bool, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JLayer$DefaultLayerGlassPane", "javax.swing.JLayer", "DefaultLayerGlassPane", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JLayer$DefaultLayerGlassPane",
+		"javax.swing.JPanel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JLayer"
+	};
+	$loadClass(JLayer$DefaultLayerGlassPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JLayer$DefaultLayerGlassPane));
+	});
 	return class$;
 }
 

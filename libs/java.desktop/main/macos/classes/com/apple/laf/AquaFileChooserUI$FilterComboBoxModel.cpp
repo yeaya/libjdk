@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$FilterComboBoxModel.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/util/Objects.h>
@@ -28,56 +27,6 @@ using $FileFilter = ::javax::swing::filechooser::FileFilter;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$FilterComboBoxModel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$FilterComboBoxModel, this$0)},
-	{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(AquaFileChooserUI$FilterComboBoxModel, filters)},
-	{"oldFileFilter", "Ljava/lang/Object;", nullptr, 0, $field(AquaFileChooserUI$FilterComboBoxModel, oldFileFilter)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$FilterComboBoxModel_MethodInfo_[] = {
-	{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$FilterComboBoxModel, init$, void, $AquaFileChooserUI*)},
-	{"getElementAt", "(I)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
-	{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
-	{"isSelectedFileFilterInModel", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(AquaFileChooserUI$FilterComboBoxModel, isSelectedFileFilterInModel, bool, Object$*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
-	{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$FilterComboBoxModel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$FilterComboBoxModel", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$FilterComboBoxModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$FilterComboBoxModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
-	_AquaFileChooserUI$FilterComboBoxModel_FieldInfo_,
-	_AquaFileChooserUI$FilterComboBoxModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/ComboBoxModel<Ljavax/swing/filechooser/FileFilter;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_AquaFileChooserUI$FilterComboBoxModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$FilterComboBoxModel($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$FilterComboBoxModel));
-}
 
 void AquaFileChooserUI$FilterComboBoxModel::addListDataListener($ListDataListener* l) {
 	this->$AbstractListModel::addListDataListener(l);
@@ -108,31 +57,29 @@ void AquaFileChooserUI$FilterComboBoxModel::finalize() {
 }
 
 void AquaFileChooserUI$FilterComboBoxModel::init$($AquaFileChooserUI* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$AbstractListModel::init$();
-	$set(this, oldFileFilter, $nc($(this->this$0->getFileChooser()))->getFileFilter());
-	$set(this, filters, $nc($(this$0->getFileChooser()))->getChoosableFileFilters());
+	$set(this, oldFileFilter, $$nc(this->this$0->getFileChooser())->getFileFilter());
+	$set(this, filters, $$nc(this$0->getFileChooser())->getChoosableFileFilters());
 }
 
 void AquaFileChooserUI$FilterComboBoxModel::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(e)->getPropertyName());
 	$init($JFileChooser);
 	if (prop == $JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY) {
 		$set(this, filters, $cast($FileFilterArray, e->getNewValue()));
 		fireContentsChanged(this, -1, -1);
-	} else {
-		if (prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY) {
-			setSelectedItem($(e->getNewValue()));
-		}
+	} else if (prop == $JFileChooser::FILE_FILTER_CHANGED_PROPERTY) {
+		setSelectedItem($(e->getNewValue()));
 	}
 }
 
 void AquaFileChooserUI$FilterComboBoxModel::setSelectedItem(Object$* filter) {
 	if (filter != nullptr && !isSelectedFileFilterInModel(filter)) {
 		$set(this, oldFileFilter, filter);
-		$nc($(this->this$0->getFileChooser()))->setFileFilter($cast($FileFilter, filter));
+		$$nc(this->this$0->getFileChooser())->setFileFilter($cast($FileFilter, filter));
 		fireContentsChanged(this, -1, -1);
 	}
 }
@@ -142,33 +89,29 @@ bool AquaFileChooserUI$FilterComboBoxModel::isSelectedFileFilterInModel(Object$*
 }
 
 $Object* AquaFileChooserUI$FilterComboBoxModel::getSelectedItem() {
-	$useLocalCurrentObjectStackCache();
-	$var($FileFilter, currentFilter, $nc($(this->this$0->getFileChooser()))->getFileFilter());
+	$useLocalObjectStack();
+	$var($FileFilter, currentFilter, $$nc(this->this$0->getFileChooser())->getFileFilter());
 	bool found = false;
 	if (currentFilter != nullptr) {
 		{
 			$var($FileFilterArray, arr$, this->filters);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($FileFilter, filter, arr$->get(i$));
-				{
-					if (filter == currentFilter) {
-						found = true;
-					}
+				if (filter == currentFilter) {
+					found = true;
 				}
 			}
 		}
 		if (found == false) {
-			$nc($(this->this$0->getFileChooser()))->addChoosableFileFilter(currentFilter);
+			$$nc(this->this$0->getFileChooser())->addChoosableFileFilter(currentFilter);
 		}
 	}
-	return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+	return $$nc(this->this$0->getFileChooser())->getFileFilter();
 }
 
 int32_t AquaFileChooserUI$FilterComboBoxModel::getSize() {
 	if (this->filters != nullptr) {
-		return $nc(this->filters)->length;
+		return this->filters->length;
 	} else {
 		return 0;
 	}
@@ -176,12 +119,12 @@ int32_t AquaFileChooserUI$FilterComboBoxModel::getSize() {
 
 $Object* AquaFileChooserUI$FilterComboBoxModel::getElementAt(int32_t index) {
 	if (index > getSize() - 1) {
-		return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+		return $$nc(this->this$0->getFileChooser())->getFileFilter();
 	}
 	if (this->filters != nullptr) {
-		return $of($nc(this->filters)->get(index));
+		return this->filters->get(index);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -189,7 +132,51 @@ AquaFileChooserUI$FilterComboBoxModel::AquaFileChooserUI$FilterComboBoxModel() {
 }
 
 $Class* AquaFileChooserUI$FilterComboBoxModel::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$FilterComboBoxModel, name, initialize, &_AquaFileChooserUI$FilterComboBoxModel_ClassInfo_, allocate$AquaFileChooserUI$FilterComboBoxModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$FilterComboBoxModel, this$0)},
+		{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(AquaFileChooserUI$FilterComboBoxModel, filters)},
+		{"oldFileFilter", "Ljava/lang/Object;", nullptr, 0, $field(AquaFileChooserUI$FilterComboBoxModel, oldFileFilter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$FilterComboBoxModel, init$, void, $AquaFileChooserUI*)},
+		{"getElementAt", "(I)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
+		{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
+		{"isSelectedFileFilterInModel", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(AquaFileChooserUI$FilterComboBoxModel, isSelectedFileFilterInModel, bool, Object$*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
+		{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$FilterComboBoxModel", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$FilterComboBoxModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/ComboBoxModel<Ljavax/swing/filechooser/FileFilter;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$FilterComboBoxModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$FilterComboBoxModel));
+	});
 	return class$;
 }
 

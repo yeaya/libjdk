@@ -38,6 +38,7 @@ class $export CredentialsUtil : public ::java::lang::Object {
 	$class(CredentialsUtil, 0, ::java::lang::Object)
 public:
 	CredentialsUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::krb5::Credentials* acquireS4U2proxyCreds($String* backend, ::sun::security::krb5::internal::Ticket* second, ::sun::security::krb5::PrincipalName* client, ::sun::security::krb5::Credentials* ccreds);
 	static ::sun::security::krb5::Credentials* acquireS4U2selfCreds(::sun::security::krb5::PrincipalName* client, ::sun::security::krb5::Credentials* ccreds);

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$SnippetBreakAnalyzer.h>
-
 #include <com/sun/tools/javac/comp/Flow$AliveAnalyzer.h>
 #include <com/sun/tools/javac/comp/Flow$Liveness.h>
 #include <com/sun/tools/javac/comp/Flow.h>
@@ -30,58 +29,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Flow$SnippetBreakAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$SnippetBreakAnalyzer, this$0)},
-	{"seenTrees", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE | $FINAL, $field(Flow$SnippetBreakAnalyzer, seenTrees)},
-	{"breaksOut", "Z", nullptr, $PRIVATE, $field(Flow$SnippetBreakAnalyzer, breaksOut$)},
-	{}
-};
-
-$MethodInfo _Flow$SnippetBreakAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, $PUBLIC, $method(Flow$SnippetBreakAnalyzer, init$, void, $Flow*)},
-	{"breaksOut", "()Z", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, breaksOut, bool)},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitBreak, void, $JCTree$JCBreak*)},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitForLoop, void, $JCTree$JCForLoop*)},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
-	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitLabelled, void, $JCTree$JCLabeledStatement*)},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
-	{}
-};
-
-$InnerClassInfo _Flow$SnippetBreakAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetBreakAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
-	{}
-};
-
-$ClassInfo _Flow$SnippetBreakAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer",
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
-	nullptr,
-	_Flow$SnippetBreakAnalyzer_FieldInfo_,
-	_Flow$SnippetBreakAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$SnippetBreakAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$SnippetBreakAnalyzer($Class* clazz) {
-	return $of($alloc(Flow$SnippetBreakAnalyzer));
-}
 
 void Flow$SnippetBreakAnalyzer::init$($Flow* this$0) {
 	$set(this, this$0, this$0);
@@ -90,33 +43,33 @@ void Flow$SnippetBreakAnalyzer::init$($Flow* this$0) {
 }
 
 void Flow$SnippetBreakAnalyzer::visitLabelled($JCTree$JCLabeledStatement* tree) {
-	$nc(this->seenTrees)->add(tree);
+	this->seenTrees->add(tree);
 	$Flow$AliveAnalyzer::visitLabelled(tree);
 }
 
 void Flow$SnippetBreakAnalyzer::visitWhileLoop($JCTree$JCWhileLoop* tree) {
-	$nc(this->seenTrees)->add(tree);
+	this->seenTrees->add(tree);
 	$Flow$AliveAnalyzer::visitWhileLoop(tree);
 }
 
 void Flow$SnippetBreakAnalyzer::visitForLoop($JCTree$JCForLoop* tree) {
-	$nc(this->seenTrees)->add(tree);
+	this->seenTrees->add(tree);
 	$Flow$AliveAnalyzer::visitForLoop(tree);
 }
 
 void Flow$SnippetBreakAnalyzer::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
-	$nc(this->seenTrees)->add(tree);
+	this->seenTrees->add(tree);
 	$Flow$AliveAnalyzer::visitForeachLoop(tree);
 }
 
 void Flow$SnippetBreakAnalyzer::visitDoLoop($JCTree$JCDoWhileLoop* tree) {
-	$nc(this->seenTrees)->add(tree);
+	this->seenTrees->add(tree);
 	$Flow$AliveAnalyzer::visitDoLoop(tree);
 }
 
 void Flow$SnippetBreakAnalyzer::visitBreak($JCTree$JCBreak* tree) {
 	$init($Flow$Liveness);
-	this->breaksOut$ |= (this->alive == $Flow$Liveness::ALIVE && !$nc(this->seenTrees)->contains($nc(tree)->target));
+	this->breaksOut$ |= (this->alive == $Flow$Liveness::ALIVE && !this->seenTrees->contains($nc(tree)->target));
 	$Flow$AliveAnalyzer::visitBreak(tree);
 }
 
@@ -128,7 +81,46 @@ Flow$SnippetBreakAnalyzer::Flow$SnippetBreakAnalyzer() {
 }
 
 $Class* Flow$SnippetBreakAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Flow$SnippetBreakAnalyzer, name, initialize, &_Flow$SnippetBreakAnalyzer_ClassInfo_, allocate$Flow$SnippetBreakAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$SnippetBreakAnalyzer, this$0)},
+		{"seenTrees", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE | $FINAL, $field(Flow$SnippetBreakAnalyzer, seenTrees)},
+		{"breaksOut", "Z", nullptr, $PRIVATE, $field(Flow$SnippetBreakAnalyzer, breaksOut$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, $PUBLIC, $method(Flow$SnippetBreakAnalyzer, init$, void, $Flow*)},
+		{"breaksOut", "()Z", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, breaksOut, bool)},
+		{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitBreak, void, $JCTree$JCBreak*)},
+		{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+		{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitForLoop, void, $JCTree$JCForLoop*)},
+		{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+		{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitLabelled, void, $JCTree$JCLabeledStatement*)},
+		{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetBreakAnalyzer, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer", "com.sun.tools.javac.comp.Flow", "SnippetBreakAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$SnippetBreakAnalyzer",
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$SnippetBreakAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$SnippetBreakAnalyzer);
+	});
 	return class$;
 }
 

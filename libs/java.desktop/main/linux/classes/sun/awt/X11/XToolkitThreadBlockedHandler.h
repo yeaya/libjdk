@@ -21,6 +21,7 @@ class XToolkitThreadBlockedHandler : public ::sun::awt::datatransfer::ToolkitThr
 	$class(XToolkitThreadBlockedHandler, 0, ::sun::awt::datatransfer::ToolkitThreadBlockedHandler)
 public:
 	XToolkitThreadBlockedHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void enter() override;
 	virtual void exit() override;

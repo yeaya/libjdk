@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/ContextEnumerator.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <javax/naming/Binding.h>
 #include <javax/naming/Context.h>
@@ -14,7 +13,6 @@
 #undef ONELEVEL_SCOPE
 #undef SUBTREE_SCOPE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -33,53 +31,6 @@ namespace com {
 		namespace jndi {
 			namespace toolkit {
 				namespace dir {
-
-$FieldInfo _ContextEnumerator_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ContextEnumerator, debug)},
-	{"children", "Ljavax/naming/NamingEnumeration;", "Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PRIVATE, $field(ContextEnumerator, children)},
-	{"currentChild", "Ljavax/naming/Binding;", nullptr, $PRIVATE, $field(ContextEnumerator, currentChild)},
-	{"currentReturned", "Z", nullptr, $PRIVATE, $field(ContextEnumerator, currentReturned)},
-	{"root", "Ljavax/naming/Context;", nullptr, $PRIVATE, $field(ContextEnumerator, root)},
-	{"currentChildEnum", "Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PRIVATE, $field(ContextEnumerator, currentChildEnum)},
-	{"currentChildExpanded", "Z", nullptr, $PRIVATE, $field(ContextEnumerator, currentChildExpanded)},
-	{"rootProcessed", "Z", nullptr, $PRIVATE, $field(ContextEnumerator, rootProcessed)},
-	{"scope", "I", nullptr, $PRIVATE, $field(ContextEnumerator, scope)},
-	{"contextName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ContextEnumerator, contextName)},
-	{}
-};
-
-$MethodInfo _ContextEnumerator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC, $method(ContextEnumerator, init$, void, $Context*), "javax.naming.NamingException"},
-	{"<init>", "(Ljavax/naming/Context;I)V", nullptr, $PUBLIC, $method(ContextEnumerator, init$, void, $Context*, int32_t), "javax.naming.NamingException"},
-	{"<init>", "(Ljavax/naming/Context;ILjava/lang/String;Z)V", nullptr, $PROTECTED, $method(ContextEnumerator, init$, void, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, close, void), "javax.naming.NamingException"},
-	{"getImmediateChildren", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(ContextEnumerator, getImmediateChildren, $NamingEnumeration*, $Context*), "javax.naming.NamingException"},
-	{"getNextChild", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(ContextEnumerator, getNextChild, $Binding*), "javax.naming.NamingException"},
-	{"getNextDescendant", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(ContextEnumerator, getNextDescendant, $Binding*), "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, hasMore, bool), "javax.naming.NamingException"},
-	{"hasMoreChildren", "()Z", nullptr, $PRIVATE, $method(ContextEnumerator, hasMoreChildren, bool), "javax.naming.NamingException"},
-	{"hasMoreDescendants", "()Z", nullptr, $PRIVATE, $method(ContextEnumerator, hasMoreDescendants, bool), "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, hasMoreElements, bool)},
-	{"newEnumerator", "(Ljavax/naming/Context;ILjava/lang/String;Z)Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PROTECTED, $virtualMethod(ContextEnumerator, newEnumerator, ContextEnumerator*, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
-	{"next", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, next, $Object*), "javax.naming.NamingException"},
-	{"nextElement", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, nextElement, $Object*)},
-	{"prepNextChild", "()V", nullptr, $PRIVATE, $method(ContextEnumerator, prepNextChild, void), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _ContextEnumerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.ContextEnumerator",
-	"java.lang.Object",
-	"javax.naming.NamingEnumeration",
-	_ContextEnumerator_FieldInfo_,
-	_ContextEnumerator_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;"
-};
-
-$Object* allocate$ContextEnumerator($Class* clazz) {
-	return $of($alloc(ContextEnumerator));
-}
 
 bool ContextEnumerator::debug = false;
 
@@ -136,7 +87,7 @@ bool ContextEnumerator::hasMoreElements() {
 
 $Object* ContextEnumerator::nextElement() {
 	try {
-		return $of(next());
+		return next();
 	} catch ($NamingException& e) {
 		$throwNew($NoSuchElementException, $(e->toString()));
 	}
@@ -146,10 +97,10 @@ $Object* ContextEnumerator::nextElement() {
 $Object* ContextEnumerator::next() {
 	if (!this->rootProcessed) {
 		this->rootProcessed = true;
-		return $of($new($Binding, ""_s, $($nc($of(this->root))->getClass()->getName()), this->root, true));
+		return $new($Binding, ""_s, $($nc(this->root)->getClass()->getName()), this->root, true);
 	}
 	if (this->scope != $SearchControls::OBJECT_SCOPE && hasMoreDescendants()) {
-		return $of(getNextDescendant());
+		return getNextDescendant();
 	}
 	$throwNew($NoSuchElementException);
 }
@@ -159,11 +110,11 @@ void ContextEnumerator::close() {
 }
 
 bool ContextEnumerator::hasMoreChildren() {
-	return this->children != nullptr && $nc(this->children)->hasMore();
+	return this->children != nullptr && this->children->hasMore();
 }
 
 $Binding* ContextEnumerator::getNextChild() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Binding, oldBinding, $cast($Binding, $nc(this->children)->next()));
 	$var($Binding, newBinding, nullptr);
 	bool var$0 = $nc(oldBinding)->isRelative();
@@ -174,7 +125,7 @@ $Binding* ContextEnumerator::getNextChild() {
 		if (ContextEnumerator::debug) {
 			$nc($System::out)->println($$str({"ContextEnumerator: adding "_s, newName}));
 		}
-		$var($String, var$1, $of(newName)->toString());
+		$var($String, var$1, newName->toString());
 		$var($String, var$2, oldBinding->getClassName());
 		$var($Object, var$3, oldBinding->getObject());
 		$assign(newBinding, $new($Binding, var$1, var$2, var$3, oldBinding->isRelative()));
@@ -188,7 +139,7 @@ $Binding* ContextEnumerator::getNextChild() {
 }
 
 bool ContextEnumerator::hasMoreDescendants() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->currentReturned) {
 		if (ContextEnumerator::debug) {
 			$nc($System::out)->println($$str({"hasMoreDescendants returning "_s, $$str((this->currentChild != nullptr))}));
@@ -229,7 +180,7 @@ $Binding* ContextEnumerator::getNextDescendant() {
 }
 
 void ContextEnumerator::prepNextChild() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hasMoreChildren()) {
 		try {
 			$set(this, currentChild, getNextChild());
@@ -247,9 +198,9 @@ void ContextEnumerator::prepNextChild() {
 		return;
 	}
 	if (this->scope == $SearchControls::SUBTREE_SCOPE && $instanceOf($Context, $($nc(this->currentChild)->getObject()))) {
-		$var($Context, var$0, ($cast($Context, $nc(this->currentChild)->getObject())));
+		$var($Context, var$0, $cast($Context, $nc(this->currentChild)->getObject()));
 		int32_t var$1 = this->scope;
-		$set(this, currentChildEnum, newEnumerator(var$0, var$1, $($nc(this->currentChild)->getName()), false));
+		$set(this, currentChildEnum, newEnumerator(var$0, var$1, $(this->currentChild->getName()), false));
 		this->currentChildExpanded = true;
 		if (ContextEnumerator::debug) {
 			$nc($System::out)->println("prepNextChild: expanded"_s);
@@ -263,7 +214,7 @@ void ContextEnumerator::prepNextChild() {
 	}
 }
 
-void clinit$ContextEnumerator($Class* class$) {
+void ContextEnumerator::clinit$($Class* clazz) {
 	ContextEnumerator::debug = false;
 }
 
@@ -271,7 +222,49 @@ ContextEnumerator::ContextEnumerator() {
 }
 
 $Class* ContextEnumerator::load$($String* name, bool initialize) {
-	$loadClass(ContextEnumerator, name, initialize, &_ContextEnumerator_ClassInfo_, clinit$ContextEnumerator, allocate$ContextEnumerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ContextEnumerator, debug)},
+		{"children", "Ljavax/naming/NamingEnumeration;", "Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PRIVATE, $field(ContextEnumerator, children)},
+		{"currentChild", "Ljavax/naming/Binding;", nullptr, $PRIVATE, $field(ContextEnumerator, currentChild)},
+		{"currentReturned", "Z", nullptr, $PRIVATE, $field(ContextEnumerator, currentReturned)},
+		{"root", "Ljavax/naming/Context;", nullptr, $PRIVATE, $field(ContextEnumerator, root)},
+		{"currentChildEnum", "Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PRIVATE, $field(ContextEnumerator, currentChildEnum)},
+		{"currentChildExpanded", "Z", nullptr, $PRIVATE, $field(ContextEnumerator, currentChildExpanded)},
+		{"rootProcessed", "Z", nullptr, $PRIVATE, $field(ContextEnumerator, rootProcessed)},
+		{"scope", "I", nullptr, $PRIVATE, $field(ContextEnumerator, scope)},
+		{"contextName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ContextEnumerator, contextName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC, $method(ContextEnumerator, init$, void, $Context*), "javax.naming.NamingException"},
+		{"<init>", "(Ljavax/naming/Context;I)V", nullptr, $PUBLIC, $method(ContextEnumerator, init$, void, $Context*, int32_t), "javax.naming.NamingException"},
+		{"<init>", "(Ljavax/naming/Context;ILjava/lang/String;Z)V", nullptr, $PROTECTED, $method(ContextEnumerator, init$, void, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, close, void), "javax.naming.NamingException"},
+		{"getImmediateChildren", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(ContextEnumerator, getImmediateChildren, $NamingEnumeration*, $Context*), "javax.naming.NamingException"},
+		{"getNextChild", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(ContextEnumerator, getNextChild, $Binding*), "javax.naming.NamingException"},
+		{"getNextDescendant", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(ContextEnumerator, getNextDescendant, $Binding*), "javax.naming.NamingException"},
+		{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, hasMore, bool), "javax.naming.NamingException"},
+		{"hasMoreChildren", "()Z", nullptr, $PRIVATE, $method(ContextEnumerator, hasMoreChildren, bool), "javax.naming.NamingException"},
+		{"hasMoreDescendants", "()Z", nullptr, $PRIVATE, $method(ContextEnumerator, hasMoreDescendants, bool), "javax.naming.NamingException"},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, hasMoreElements, bool)},
+		{"newEnumerator", "(Ljavax/naming/Context;ILjava/lang/String;Z)Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PROTECTED, $virtualMethod(ContextEnumerator, newEnumerator, ContextEnumerator*, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
+		{"next", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, next, $Object*), "javax.naming.NamingException"},
+		{"nextElement", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, nextElement, $Object*)},
+		{"prepNextChild", "()V", nullptr, $PRIVATE, $method(ContextEnumerator, prepNextChild, void), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.ContextEnumerator",
+		"java.lang.Object",
+		"javax.naming.NamingEnumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;"
+	};
+	$loadClass(ContextEnumerator, name, initialize, &classInfo$$, ContextEnumerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextEnumerator);
+	});
 	return class$;
 }
 

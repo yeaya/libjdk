@@ -1,5 +1,4 @@
 #include <javax/swing/JMenu$1.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
@@ -20,48 +19,6 @@ using $JMenuItem = ::javax::swing::JMenuItem;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JMenu$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JMenu$1, this$0)},
-	{}
-};
-
-$MethodInfo _JMenu$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JMenu;)V", nullptr, 0, $method(JMenu$1, init$, void, $JMenu*)},
-	{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JMenu$1, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
-	{}
-};
-
-$EnclosingMethodInfo _JMenu$1_EnclosingMethodInfo_ = {
-	"javax.swing.JMenu",
-	"createActionComponent",
-	"(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;"
-};
-
-$InnerClassInfo _JMenu$1_InnerClassesInfo_[] = {
-	{"javax.swing.JMenu$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JMenu$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JMenu$1",
-	"javax.swing.JMenuItem",
-	nullptr,
-	_JMenu$1_FieldInfo_,
-	_JMenu$1_MethodInfo_,
-	nullptr,
-	&_JMenu$1_EnclosingMethodInfo_,
-	_JMenu$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JMenu"
-};
-
-$Object* allocate$JMenu$1($Class* clazz) {
-	return $of($alloc(JMenu$1));
-}
-
 void JMenu$1::init$($JMenu* this$0) {
 	$set(this, this$0, this$0);
 	$JMenuItem::init$();
@@ -79,7 +36,42 @@ JMenu$1::JMenu$1() {
 }
 
 $Class* JMenu$1::load$($String* name, bool initialize) {
-	$loadClass(JMenu$1, name, initialize, &_JMenu$1_ClassInfo_, allocate$JMenu$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JMenu$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JMenu;)V", nullptr, 0, $method(JMenu$1, init$, void, $JMenu*)},
+		{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JMenu$1, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JMenu",
+		"createActionComponent",
+		"(Ljavax/swing/Action;)Ljavax/swing/JMenuItem;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JMenu$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JMenu$1",
+		"javax.swing.JMenuItem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JMenu"
+	};
+	$loadClass(JMenu$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JMenu$1));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/sound/midi/Receiver.h>
-
 #include <javax/sound/midi/MidiMessage.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$MethodInfo _Receiver_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"send", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Receiver, send, void, $MidiMessage*, int64_t)},
-	{}
-};
-
-$ClassInfo _Receiver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sound.midi.Receiver",
-	nullptr,
-	"java.lang.AutoCloseable",
-	nullptr,
-	_Receiver_MethodInfo_
-};
-
-$Object* allocate$Receiver($Class* clazz) {
-	return $of($alloc(Receiver));
-}
-
 $Class* Receiver::load$($String* name, bool initialize) {
-	$loadClass(Receiver, name, initialize, &_Receiver_ClassInfo_, allocate$Receiver);
+	$MethodInfo methodInfos$$[] = {
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"send", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Receiver, send, void, $MidiMessage*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sound.midi.Receiver",
+		nullptr,
+		"java.lang.AutoCloseable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Receiver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Receiver);
+	});
 	return class$;
 }
 

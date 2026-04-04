@@ -20,6 +20,7 @@ class $export HijrahConfigCheck : public ::java::lang::Object {
 	$class(HijrahConfigCheck, 0, ::java::lang::Object)
 public:
 	HijrahConfigCheck();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool lambda$main$0(::java::time::chrono::Chronology* c);
 	static void main($StringArray* args);

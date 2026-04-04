@@ -1,5 +1,4 @@
 #include <javax/management/OrQueryExp.h>
-
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/QueryEval.h>
@@ -16,41 +15,6 @@ using $QueryExp = ::javax::management::QueryExp;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _OrQueryExp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OrQueryExp, serialVersionUID)},
-	{"exp1", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(OrQueryExp, exp1)},
-	{"exp2", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(OrQueryExp, exp2)},
-	{}
-};
-
-$MethodInfo _OrQueryExp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OrQueryExp, init$, void)},
-	{"<init>", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(OrQueryExp, init$, void, $QueryExp*, $QueryExp*)},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getLeftExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, getLeftExp, $QueryExp*)},
-	{"getRightExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, getRightExp, $QueryExp*)},
-	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, toString, $String*)},
-	{}
-};
-
-$ClassInfo _OrQueryExp_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.OrQueryExp",
-	"javax.management.QueryEval",
-	"javax.management.QueryExp",
-	_OrQueryExp_FieldInfo_,
-	_OrQueryExp_MethodInfo_
-};
-
-$Object* allocate$OrQueryExp($Class* clazz) {
-	return $of($alloc(OrQueryExp));
-}
 
 void OrQueryExp::setMBeanServer($MBeanServer* s) {
 	this->$QueryEval::setMBeanServer(s);
@@ -103,7 +67,37 @@ OrQueryExp::OrQueryExp() {
 }
 
 $Class* OrQueryExp::load$($String* name, bool initialize) {
-	$loadClass(OrQueryExp, name, initialize, &_OrQueryExp_ClassInfo_, allocate$OrQueryExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OrQueryExp, serialVersionUID)},
+		{"exp1", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(OrQueryExp, exp1)},
+		{"exp2", "Ljavax/management/QueryExp;", nullptr, $PRIVATE, $field(OrQueryExp, exp2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OrQueryExp, init$, void)},
+		{"<init>", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(OrQueryExp, init$, void, $QueryExp*, $QueryExp*)},
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"getLeftExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, getLeftExp, $QueryExp*)},
+		{"getRightExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, getRightExp, $QueryExp*)},
+		{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.OrQueryExp",
+		"javax.management.QueryEval",
+		"javax.management.QueryExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OrQueryExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OrQueryExp));
+	});
 	return class$;
 }
 

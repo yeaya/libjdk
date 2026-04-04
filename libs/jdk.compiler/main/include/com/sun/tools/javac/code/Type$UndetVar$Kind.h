@@ -24,6 +24,7 @@ class $import Type$UndetVar$Kind : public ::java::lang::Enum {
 public:
 	Type$UndetVar$Kind();
 	static $Array<::com::sun::tools::javac::code::Type$UndetVar$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::code::Type$UndetVar$Kind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::Type$UndetVar$Kind>* values();

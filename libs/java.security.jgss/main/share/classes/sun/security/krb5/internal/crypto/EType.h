@@ -30,6 +30,7 @@ class EType : public ::java::lang::Object {
 	$class(EType, 0, ::java::lang::Object)
 public:
 	EType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t blockSize() {return 0;}
 	virtual int32_t checksumSize() {return 0;}

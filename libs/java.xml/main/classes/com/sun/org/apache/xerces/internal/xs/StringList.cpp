@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/StringList.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,29 +12,25 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$MethodInfo _StringList_MethodInfo_[] = {
-	{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringList, contains, bool, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringList, getLength, int32_t)},
-	{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringList, item, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _StringList_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.StringList",
-	nullptr,
-	"java.util.List",
-	nullptr,
-	_StringList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/List<Ljava/lang/String;>;"
-};
-
-$Object* allocate$StringList($Class* clazz) {
-	return $of($alloc(StringList));
-}
-
 $Class* StringList::load$($String* name, bool initialize) {
-	$loadClass(StringList, name, initialize, &_StringList_ClassInfo_, allocate$StringList);
+	$MethodInfo methodInfos$$[] = {
+		{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringList, contains, bool, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringList, getLength, int32_t)},
+		{"item", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringList, item, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.StringList",
+		nullptr,
+		"java.util.List",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/List<Ljava/lang/String;>;"
+	};
+	$loadClass(StringList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringList);
+	});
 	return class$;
 }
 

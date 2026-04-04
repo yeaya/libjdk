@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$SignatureGenerator.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -27,11 +26,8 @@
 #undef MTH
 #undef TYPEVAR
 
-using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -59,52 +55,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$SignatureGenerator_FieldInfo_[] = {
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Types$SignatureGenerator, types)},
-	{}
-};
-
-$MethodInfo _Types$SignatureGenerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PROTECTED, $method(Types$SignatureGenerator, init$, void, $Types*)},
-	{"append", "(C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, char16_t)},
-	{"append", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, $bytes*)},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, $Name*)},
-	{"assembleClassSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleClassSig, void, $Type*)},
-	{"assembleParamsSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleParamsSig, void, $List*)},
-	{"assembleSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleSig, void, $Type*)},
-	{"assembleSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleSig, void, $List*)},
-	{"classReference", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED, $virtualMethod(Types$SignatureGenerator, classReference, void, $Symbol$ClassSymbol*)},
-	{"hasTypeVar", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC, $virtualMethod(Types$SignatureGenerator, hasTypeVar, bool, $List*)},
-	{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(Types$SignatureGenerator, reportIllegalSignature, void, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Types$SignatureGenerator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Types$SignatureGenerator$InvalidSignatureException", "com.sun.tools.javac.code.Types$SignatureGenerator", "InvalidSignatureException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$SignatureGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Types$SignatureGenerator",
-	"java.lang.Object",
-	nullptr,
-	_Types$SignatureGenerator_FieldInfo_,
-	_Types$SignatureGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$SignatureGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$SignatureGenerator($Class* clazz) {
-	return $of($alloc(Types$SignatureGenerator));
-}
-
 void Types$SignatureGenerator::classReference($Symbol$ClassSymbol* c) {
 }
 
@@ -117,145 +67,101 @@ void Types$SignatureGenerator::reportIllegalSignature($Type* t) {
 }
 
 void Types$SignatureGenerator::assembleSig($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Types$25);
-	{
-		$var($Type$ArrayType, at, nullptr)
-		$var($Type$MethodType, mt, nullptr)
-		$var($Type$ForAll, ft, nullptr)
-		switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(type)->getTag())))->ordinal())) {
-		case 3:
-			{
-				append(u'B');
-				break;
-			}
-		case 5:
-			{
-				append(u'S');
-				break;
-			}
-		case 4:
-			{
-				append(u'C');
-				break;
-			}
-		case 6:
-			{
-				append(u'I');
-				break;
-			}
-		case 7:
-			{
-				append(u'J');
-				break;
-			}
-		case 8:
-			{
-				append(u'F');
-				break;
-			}
-		case 9:
-			{
-				append(u'D');
-				break;
-			}
-		case 10:
-			{
-				append(u'Z');
-				break;
-			}
-		case 11:
-			{
-				append(u'V');
-				break;
-			}
-		case 2:
-			{
-				if (type->isCompound()) {
-					reportIllegalSignature(type);
-				}
-				append(u'L');
-				assembleClassSig(type);
-				append(u';');
-				break;
-			}
-		case 1:
-			{
-				$assign(at, $cast($Type$ArrayType, type));
-				append(u'[');
-				assembleSig($nc(at)->elemtype);
-				break;
-			}
-		case 19:
-			{
-				$assign(mt, $cast($Type$MethodType, type));
-				append(u'(');
-				assembleSig($nc(mt)->argtypes$);
-				append(u')');
-				assembleSig($nc(mt)->restype);
-				if (hasTypeVar($nc(mt)->thrown)) {
-					{
-						$var($List, l, $nc(mt)->thrown);
-						for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-							append(u'^');
-							assembleSig($cast($Type, l->head));
-						}
-					}
-				}
-				break;
-			}
-		case 14:
-			{
-				{
-					$var($Type$WildcardType, ta, $cast($Type$WildcardType, type));
-					switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind)->get($nc((ta->kind))->ordinal())) {
-					case 2:
-						{
-							append(u'-');
-							assembleSig(ta->type);
-							break;
-						}
-					case 1:
-						{
-							append(u'+');
-							assembleSig(ta->type);
-							break;
-						}
-					case 3:
-						{
-							append(u'*');
-							break;
-						}
-					default:
-						{
-							$throwNew($AssertionError, $of(ta->kind));
-						}
-					}
-					break;
-				}
-			}
-		case 12:
-			{
-				if ($nc(($cast($Type$TypeVar, type)))->isCaptured()) {
-					reportIllegalSignature(type);
-				}
-				append(u'T');
-				append($nc(type->tsym)->name);
-				append(u';');
-				break;
-			}
-		case 18:
-			{
-				$assign(ft, $cast($Type$ForAll, type));
-				assembleParamsSig($nc(ft)->tvars);
-				assembleSig($nc(ft)->qtype);
-				break;
-			}
-		default:
-			{
-				$throwNew($AssertionError, $of($$str({"typeSig "_s, $(type->getTag())})));
+	$var($Type$ArrayType, at, nullptr);
+	$var($Type$MethodType, mt, nullptr);
+	$var($Type$ForAll, ft, nullptr);
+	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(type)->getTag()))->ordinal())) {
+	case 3:
+		append(u'B');
+		break;
+	case 5:
+		append(u'S');
+		break;
+	case 4:
+		append(u'C');
+		break;
+	case 6:
+		append(u'I');
+		break;
+	case 7:
+		append(u'J');
+		break;
+	case 8:
+		append(u'F');
+		break;
+	case 9:
+		append(u'D');
+		break;
+	case 10:
+		append(u'Z');
+		break;
+	case 11:
+		append(u'V');
+		break;
+	case 2:
+		if (type->isCompound()) {
+			reportIllegalSignature(type);
+		}
+		append(u'L');
+		assembleClassSig(type);
+		append(u';');
+		break;
+	case 1:
+		$assign(at, $cast($Type$ArrayType, type));
+		append(u'[');
+		assembleSig($nc(at)->elemtype);
+		break;
+	case 19:
+		$assign(mt, $cast($Type$MethodType, type));
+		append(u'(');
+		assembleSig($nc(mt)->argtypes$);
+		append(u')');
+		assembleSig(mt->restype);
+		if (hasTypeVar(mt->thrown)) {
+			$var($List, l, mt->thrown);
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				append(u'^');
+				assembleSig($cast($Type, l->head));
 			}
 		}
+		break;
+	case 14:
+		{
+			$var($Type$WildcardType, ta, $cast($Type$WildcardType, type));
+			switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$BoundKind)->get($nc((ta->kind))->ordinal())) {
+			case 2:
+				append(u'-');
+				assembleSig(ta->type);
+				break;
+			case 1:
+				append(u'+');
+				assembleSig(ta->type);
+				break;
+			case 3:
+				append(u'*');
+				break;
+			default:
+				$throwNew($AssertionError, ta->kind);
+			}
+			break;
+		}
+	case 12:
+		if ($cast($Type$TypeVar, type)->isCaptured()) {
+			reportIllegalSignature(type);
+		}
+		append(u'T');
+		append($nc(type->tsym)->name);
+		append(u';');
+		break;
+	case 18:
+		$assign(ft, $cast($Type$ForAll, type));
+		assembleParamsSig($nc(ft)->tvars);
+		assembleSig(ft->qtype);
+		break;
+	default:
+		$throwNew($AssertionError, $$of($str({"typeSig "_s, $(type->getTag())})));
 	}
 }
 
@@ -263,7 +169,7 @@ bool Types$SignatureGenerator::hasTypeVar($List* l$renamed) {
 	$var($List, l, l$renamed);
 	while ($nc(l)->nonEmpty()) {
 		$init($TypeTag);
-		if ($nc(($cast($Type, l->head)))->hasTag($TypeTag::TYPEVAR)) {
+		if ($nc($cast($Type, l->head))->hasTag($TypeTag::TYPEVAR)) {
 			return true;
 		}
 		$assign(l, l->tail);
@@ -272,14 +178,14 @@ bool Types$SignatureGenerator::hasTypeVar($List* l$renamed) {
 }
 
 void Types$SignatureGenerator::assembleClassSig($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$ClassType, ct, $cast($Type$ClassType, type));
 	$var($Symbol$ClassSymbol, c, $cast($Symbol$ClassSymbol, $nc(ct)->tsym));
 	classReference(c);
 	$var($Type, outer, ct->getEnclosingType());
-	if ($nc($($nc(outer)->allparams()))->nonEmpty()) {
+	if ($$nc($nc(outer)->allparams())->nonEmpty()) {
 		$init($Kinds$Kind);
-		bool rawOuter = $nc($nc(c)->owner)->kind == $Kinds$Kind::MTH || $nc(c)->name == $nc($nc(this->types)->names)->empty;
+		bool rawOuter = $nc($nc(c)->owner)->kind == $Kinds$Kind::MTH || c->name == $nc($nc(this->types)->names)->empty;
 		assembleClassSig(rawOuter ? $($nc(this->types)->erasure(outer)) : outer);
 		append(rawOuter ? u'$' : u'.');
 		$Assert::check($nc(c->flatname)->startsWith($nc($($nc(c->owner)->enclClass()))->flatname));
@@ -294,7 +200,7 @@ void Types$SignatureGenerator::assembleClassSig($Type* type) {
 	} else {
 		append($($ClassFile::externalize($nc(c)->flatname)));
 	}
-	if ($nc($(ct->getTypeArguments()))->nonEmpty()) {
+	if ($$nc(ct->getTypeArguments())->nonEmpty()) {
 		append(u'<');
 		assembleSig($(ct->getTypeArguments()));
 		append(u'>');
@@ -302,20 +208,20 @@ void Types$SignatureGenerator::assembleClassSig($Type* type) {
 }
 
 void Types$SignatureGenerator::assembleParamsSig($List* typarams) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	append(u'<');
 	{
 		$var($List, ts, typarams);
-		for (; $nc(ts)->nonEmpty(); $assign(ts, $nc(ts)->tail)) {
+		for (; $nc(ts)->nonEmpty(); $assign(ts, ts->tail)) {
 			$var($Type$TypeVar, tvar, $cast($Type$TypeVar, ts->head));
 			append($nc($nc(tvar)->tsym)->name);
 			$var($List, bounds, $nc(this->types)->getBounds(tvar));
-			if (((int64_t)($nc($nc(($cast($Type, $nc(bounds)->head)))->tsym)->flags() & (uint64_t)(int64_t)512)) != 0) {
+			if (($nc($nc(($cast($Type, $nc(bounds)->head)))->tsym)->flags() & 0x0200) != 0) {
 				append(u':');
 			}
 			{
 				$var($List, l, bounds);
-				for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+				for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 					append(u':');
 					assembleSig($cast($Type, l->head));
 				}
@@ -326,11 +232,9 @@ void Types$SignatureGenerator::assembleParamsSig($List* typarams) {
 }
 
 void Types$SignatureGenerator::assembleSig($List* types) {
-	{
-		$var($List, ts, types);
-		for (; $nc(ts)->nonEmpty(); $assign(ts, $nc(ts)->tail)) {
-			assembleSig($cast($Type, ts->head));
-		}
+	$var($List, ts, types);
+	for (; $nc(ts)->nonEmpty(); $assign(ts, ts->tail)) {
+		assembleSig($cast($Type, ts->head));
 	}
 }
 
@@ -338,7 +242,47 @@ Types$SignatureGenerator::Types$SignatureGenerator() {
 }
 
 $Class* Types$SignatureGenerator::load$($String* name, bool initialize) {
-	$loadClass(Types$SignatureGenerator, name, initialize, &_Types$SignatureGenerator_ClassInfo_, allocate$Types$SignatureGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Types$SignatureGenerator, types)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PROTECTED, $method(Types$SignatureGenerator, init$, void, $Types*)},
+		{"append", "(C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, char16_t)},
+		{"append", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, $bytes*)},
+		{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, $Name*)},
+		{"assembleClassSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleClassSig, void, $Type*)},
+		{"assembleParamsSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleParamsSig, void, $List*)},
+		{"assembleSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleSig, void, $Type*)},
+		{"assembleSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleSig, void, $List*)},
+		{"classReference", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED, $virtualMethod(Types$SignatureGenerator, classReference, void, $Symbol$ClassSymbol*)},
+		{"hasTypeVar", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC, $virtualMethod(Types$SignatureGenerator, hasTypeVar, bool, $List*)},
+		{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(Types$SignatureGenerator, reportIllegalSignature, void, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Types$SignatureGenerator$InvalidSignatureException", "com.sun.tools.javac.code.Types$SignatureGenerator", "InvalidSignatureException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Types$SignatureGenerator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$SignatureGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$SignatureGenerator);
+	});
 	return class$;
 }
 

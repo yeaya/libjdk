@@ -86,6 +86,7 @@ class $import BasicFileChooserUI : public ::javax::swing::plaf::FileChooserUI {
 	$class(BasicFileChooserUI, 0, ::javax::swing::plaf::FileChooserUI)
 public:
 	BasicFileChooserUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* b);
 	void changeDirectory(::java::io::File* dir);
 	virtual void clearIconCache();

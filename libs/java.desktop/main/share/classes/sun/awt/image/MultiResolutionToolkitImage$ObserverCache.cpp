@@ -1,5 +1,4 @@
 #include <sun/awt/image/MultiResolutionToolkitImage$ObserverCache.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/ref/WeakReference.h>
@@ -23,51 +22,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $ImageRepresentation = ::sun::awt::image::ImageRepresentation;
 using $ToolkitImage = ::sun::awt::image::ToolkitImage;
 
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _MultiResolutionToolkitImage$ObserverCache_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/image/ImageObserver;Ljava/awt/image/ImageObserver;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MultiResolutionToolkitImage$ObserverCache, INSTANCE)},
-	{"concat", "Z", nullptr, $PRIVATE | $FINAL, $field(MultiResolutionToolkitImage$ObserverCache, concat)},
-	{"imageRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Image;>;", $PRIVATE | $FINAL, $field(MultiResolutionToolkitImage$ObserverCache, imageRef)},
-	{"observerRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/ImageObserver;>;", $PRIVATE | $FINAL, $field(MultiResolutionToolkitImage$ObserverCache, observerRef)},
-	{}
-};
-
-$MethodInfo _MultiResolutionToolkitImage$ObserverCache_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/ImageObserver;ZLjava/awt/Image;)V", nullptr, $PRIVATE, $method(MultiResolutionToolkitImage$ObserverCache, init$, void, $ImageObserver*, bool, $Image*)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(MultiResolutionToolkitImage$ObserverCache, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MultiResolutionToolkitImage$ObserverCache_InnerClassesInfo_[] = {
-	{"sun.awt.image.MultiResolutionToolkitImage$ObserverCache", "sun.awt.image.MultiResolutionToolkitImage", "ObserverCache", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MultiResolutionToolkitImage$ObserverCache_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.image.MultiResolutionToolkitImage$ObserverCache",
-	"java.lang.Object",
-	"java.awt.image.ImageObserver",
-	_MultiResolutionToolkitImage$ObserverCache_FieldInfo_,
-	_MultiResolutionToolkitImage$ObserverCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiResolutionToolkitImage$ObserverCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.MultiResolutionToolkitImage"
-};
-
-$Object* allocate$MultiResolutionToolkitImage$ObserverCache($Class* clazz) {
-	return $of($alloc(MultiResolutionToolkitImage$ObserverCache));
-}
 
 $Map* MultiResolutionToolkitImage$ObserverCache::INSTANCE = nullptr;
 
@@ -78,29 +37,29 @@ void MultiResolutionToolkitImage$ObserverCache::init$($ImageObserver* obs, bool 
 }
 
 bool MultiResolutionToolkitImage$ObserverCache::imageUpdate($Image* img, int32_t infoflags, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	$var($ImageObserver, observer, $cast($ImageObserver, $nc(this->observerRef)->get()));
-	$var($Image, image, $cast($Image, $nc(this->imageRef)->get()));
+	$useLocalObjectStack();
+	$var($ImageObserver, observer, $cast($ImageObserver, this->observerRef->get()));
+	$var($Image, image, $cast($Image, this->imageRef->get()));
 	if (observer == nullptr || image == nullptr) {
 		return false;
 	}
-	if (((int32_t)(infoflags & (uint32_t)($ImageObserver::WIDTH | 56))) != 0) {
+	if ((infoflags & ($ImageObserver::WIDTH | 0x38)) != 0) {
 		width = (width + 1) / 2;
 	}
-	if (((int32_t)(infoflags & (uint32_t)($ImageObserver::HEIGHT | 56))) != 0) {
+	if ((infoflags & ($ImageObserver::HEIGHT | 0x38)) != 0) {
 		height = (height + 1) / 2;
 	}
-	if (((int32_t)(infoflags & (uint32_t)56)) != 0) {
+	if ((infoflags & 0x38) != 0) {
 		x /= 2;
 		y /= 2;
 	}
 	if (this->concat) {
-		infoflags &= (uint32_t)$nc($($nc(($cast($ToolkitImage, image)))->getImageRep()))->check(nullptr);
+		infoflags &= (uint32_t)$$nc($nc($cast($ToolkitImage, image))->getImageRep())->check(nullptr);
 	}
 	return $nc(observer)->imageUpdate(image, infoflags, x, y, width, height);
 }
 
-void clinit$MultiResolutionToolkitImage$ObserverCache($Class* class$) {
+void MultiResolutionToolkitImage$ObserverCache::clinit$($Class* clazz) {
 	$assignStatic(MultiResolutionToolkitImage$ObserverCache::INSTANCE, $new($WeakHashMap));
 }
 
@@ -108,7 +67,40 @@ MultiResolutionToolkitImage$ObserverCache::MultiResolutionToolkitImage$ObserverC
 }
 
 $Class* MultiResolutionToolkitImage$ObserverCache::load$($String* name, bool initialize) {
-	$loadClass(MultiResolutionToolkitImage$ObserverCache, name, initialize, &_MultiResolutionToolkitImage$ObserverCache_ClassInfo_, clinit$MultiResolutionToolkitImage$ObserverCache, allocate$MultiResolutionToolkitImage$ObserverCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/image/ImageObserver;Ljava/awt/image/ImageObserver;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MultiResolutionToolkitImage$ObserverCache, INSTANCE)},
+		{"concat", "Z", nullptr, $PRIVATE | $FINAL, $field(MultiResolutionToolkitImage$ObserverCache, concat)},
+		{"imageRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Image;>;", $PRIVATE | $FINAL, $field(MultiResolutionToolkitImage$ObserverCache, imageRef)},
+		{"observerRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/ImageObserver;>;", $PRIVATE | $FINAL, $field(MultiResolutionToolkitImage$ObserverCache, observerRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/ImageObserver;ZLjava/awt/Image;)V", nullptr, $PRIVATE, $method(MultiResolutionToolkitImage$ObserverCache, init$, void, $ImageObserver*, bool, $Image*)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(MultiResolutionToolkitImage$ObserverCache, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.MultiResolutionToolkitImage$ObserverCache", "sun.awt.image.MultiResolutionToolkitImage", "ObserverCache", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.image.MultiResolutionToolkitImage$ObserverCache",
+		"java.lang.Object",
+		"java.awt.image.ImageObserver",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.MultiResolutionToolkitImage"
+	};
+	$loadClass(MultiResolutionToolkitImage$ObserverCache, name, initialize, &classInfo$$, MultiResolutionToolkitImage$ObserverCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiResolutionToolkitImage$ObserverCache);
+	});
 	return class$;
 }
 

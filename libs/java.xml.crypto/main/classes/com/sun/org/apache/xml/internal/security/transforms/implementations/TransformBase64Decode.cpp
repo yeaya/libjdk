@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformBase64Decode.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformSpi.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/TransformationException.h>
@@ -40,27 +39,6 @@ namespace com {
 							namespace transforms {
 								namespace implementations {
 
-$MethodInfo _TransformBase64Decode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformBase64Decode, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformBase64Decode, engineGetURI, $String*)},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformBase64Decode, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"traverseElement", "(Lorg/w3c/dom/Element;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(TransformBase64Decode, traverseElement, void, $Element*, $StringBuilder*)},
-	{}
-};
-
-$ClassInfo _TransformBase64Decode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformBase64Decode",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
-	nullptr,
-	nullptr,
-	_TransformBase64Decode_MethodInfo_
-};
-
-$Object* allocate$TransformBase64Decode($Class* clazz) {
-	return $of($alloc(TransformBase64Decode));
-}
-
 void TransformBase64Decode::init$() {
 	$TransformSpi::init$();
 }
@@ -71,10 +49,10 @@ $String* TransformBase64Decode::engineGetURI() {
 }
 
 $XMLSignatureInput* TransformBase64Decode::enginePerformTransform($XMLSignatureInput* input, $OutputStream* os, $Element* transformElement, $String* baseURI, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(input)->isElement()) {
 		$var($Node, el, input->getSubNode());
-		if ($nc($(input->getSubNode()))->getNodeType() == $Node::TEXT_NODE) {
+		if ($$nc(input->getSubNode())->getNodeType() == $Node::TEXT_NODE) {
 			$assign(el, $nc(el)->getParentNode());
 		}
 		$var($StringBuilder, sb, $new($StringBuilder));
@@ -92,8 +70,8 @@ $XMLSignatureInput* TransformBase64Decode::enginePerformTransform($XMLSignatureI
 		output->setOutputStream(os);
 		return output;
 	} else {
-		bool var$1 = input->isOctetStream();
-		if (var$1 || input->isNodeSet()) {
+		bool var$0 = input->isOctetStream();
+		if (var$0 || input->isNodeSet()) {
 			if (os == nullptr) {
 				$var($bytes, base64Bytes, input->getBytes());
 				$var($bytes, decodedBytes, $XMLUtils::decode(base64Bytes));
@@ -101,8 +79,8 @@ $XMLSignatureInput* TransformBase64Decode::enginePerformTransform($XMLSignatureI
 				output->setSecureValidation(secureValidation);
 				return output;
 			}
-			bool var$2 = input->isByteArray();
-			if (var$2 || input->isNodeSet()) {
+			bool var$1 = input->isByteArray();
+			if (var$1 || input->isNodeSet()) {
 				$var($bytes, bytes, $XMLUtils::decode($(input->getBytes())));
 				$nc(os)->write(bytes);
 			} else {
@@ -116,17 +94,17 @@ $XMLSignatureInput* TransformBase64Decode::enginePerformTransform($XMLSignatureI
 			return output;
 		}
 	}
-	$throwNew($TransformationException, "empty"_s, $$new($ObjectArray, {$of("Unrecognized XMLSignatureInput state"_s)}));
+	$throwNew($TransformationException, "empty"_s, $$new($ObjectArray, {"Unrecognized XMLSignatureInput state"_s}));
 }
 
 void TransformBase64Decode::traverseElement($Element* node, $StringBuilder* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, $nc(node)->getFirstChild());
 	while (sibling != nullptr) {
 		if ($Node::ELEMENT_NODE == sibling->getNodeType()) {
 			traverseElement($cast($Element, sibling), sb);
 		} else if ($Node::TEXT_NODE == sibling->getNodeType()) {
-			$nc(sb)->append($($nc(($cast($Text, sibling)))->getData()));
+			$nc(sb)->append($($cast($Text, sibling)->getData()));
 		}
 		$assign(sibling, sibling->getNextSibling());
 	}
@@ -136,7 +114,24 @@ TransformBase64Decode::TransformBase64Decode() {
 }
 
 $Class* TransformBase64Decode::load$($String* name, bool initialize) {
-	$loadClass(TransformBase64Decode, name, initialize, &_TransformBase64Decode_ClassInfo_, allocate$TransformBase64Decode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformBase64Decode, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformBase64Decode, engineGetURI, $String*)},
+		{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformBase64Decode, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"traverseElement", "(Lorg/w3c/dom/Element;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(TransformBase64Decode, traverseElement, void, $Element*, $StringBuilder*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformBase64Decode",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TransformBase64Decode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformBase64Decode);
+	});
 	return class$;
 }
 

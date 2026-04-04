@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/EncryptionConstants.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <jcpp.h>
 
@@ -78,94 +77,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _EncryptionConstants_FieldInfo_[] = {
-	{"_ATT_ALGORITHM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_ALGORITHM)},
-	{"_ATT_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_ID)},
-	{"_ATT_TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_TARGET)},
-	{"_ATT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_TYPE)},
-	{"_ATT_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_URI)},
-	{"_ATT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_ENCODING)},
-	{"_ATT_RECIPIENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_RECIPIENT)},
-	{"_ATT_MIMETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_MIMETYPE)},
-	{"_TAG_CARRIEDKEYNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CARRIEDKEYNAME)},
-	{"_TAG_CIPHERDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CIPHERDATA)},
-	{"_TAG_CIPHERREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CIPHERREFERENCE)},
-	{"_TAG_CIPHERVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CIPHERVALUE)},
-	{"_TAG_DATAREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_DATAREFERENCE)},
-	{"_TAG_ENCRYPTEDDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTEDDATA)},
-	{"_TAG_ENCRYPTEDKEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTEDKEY)},
-	{"_TAG_ENCRYPTIONMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTIONMETHOD)},
-	{"_TAG_ENCRYPTIONPROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTIONPROPERTIES)},
-	{"_TAG_ENCRYPTIONPROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTIONPROPERTY)},
-	{"_TAG_KEYREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_KEYREFERENCE)},
-	{"_TAG_KEYSIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_KEYSIZE)},
-	{"_TAG_OAEPPARAMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_OAEPPARAMS)},
-	{"_TAG_MGF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_MGF)},
-	{"_TAG_REFERENCELIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_REFERENCELIST)},
-	{"_TAG_TRANSFORMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_TRANSFORMS)},
-	{"_TAG_AGREEMENTMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_AGREEMENTMETHOD)},
-	{"_TAG_KA_NONCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_KA_NONCE)},
-	{"_TAG_ORIGINATORKEYINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ORIGINATORKEYINFO)},
-	{"_TAG_RECIPIENTKEYINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_RECIPIENTKEYINFO)},
-	{"ENCRYPTIONSPECIFICATION_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ENCRYPTIONSPECIFICATION_URL)},
-	{"EncryptionSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, EncryptionSpecNS)},
-	{"EncryptionSpec11NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, EncryptionSpec11NS)},
-	{"TYPE_CONTENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, TYPE_CONTENT)},
-	{"TYPE_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, TYPE_ELEMENT)},
-	{"TYPE_MEDIATYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, TYPE_MEDIATYPE)},
-	{"ALGO_ID_BLOCKCIPHER_TRIPLEDES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_TRIPLEDES)},
-	{"ALGO_ID_BLOCKCIPHER_AES128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES128)},
-	{"ALGO_ID_BLOCKCIPHER_AES256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES256)},
-	{"ALGO_ID_BLOCKCIPHER_AES192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES192)},
-	{"ALGO_ID_BLOCKCIPHER_AES128_GCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES128_GCM)},
-	{"ALGO_ID_BLOCKCIPHER_AES192_GCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES192_GCM)},
-	{"ALGO_ID_BLOCKCIPHER_AES256_GCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES256_GCM)},
-	{"ALGO_ID_BLOCKCIPHER_SEED128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_SEED128)},
-	{"ALGO_ID_BLOCKCIPHER_CAMELLIA128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_CAMELLIA128)},
-	{"ALGO_ID_BLOCKCIPHER_CAMELLIA192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_CAMELLIA192)},
-	{"ALGO_ID_BLOCKCIPHER_CAMELLIA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_CAMELLIA256)},
-	{"ALGO_ID_KEYTRANSPORT_RSA15", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYTRANSPORT_RSA15)},
-	{"ALGO_ID_KEYTRANSPORT_RSAOAEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYTRANSPORT_RSAOAEP)},
-	{"ALGO_ID_KEYTRANSPORT_RSAOAEP_11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYTRANSPORT_RSAOAEP_11)},
-	{"ALGO_ID_KEYAGREEMENT_DH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYAGREEMENT_DH)},
-	{"ALGO_ID_KEYWRAP_TRIPLEDES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_TRIPLEDES)},
-	{"ALGO_ID_KEYWRAP_AES128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_AES128)},
-	{"ALGO_ID_KEYWRAP_AES256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_AES256)},
-	{"ALGO_ID_KEYWRAP_AES192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_AES192)},
-	{"ALGO_ID_KEYWRAP_CAMELLIA128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_CAMELLIA128)},
-	{"ALGO_ID_KEYWRAP_CAMELLIA192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_CAMELLIA192)},
-	{"ALGO_ID_KEYWRAP_CAMELLIA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_CAMELLIA256)},
-	{"ALGO_ID_KEYWRAP_SEED128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_SEED128)},
-	{"ALGO_ID_AUTHENTICATION_XMLSIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_AUTHENTICATION_XMLSIGNATURE)},
-	{"ALGO_ID_C14N_WITHCOMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_C14N_WITHCOMMENTS)},
-	{"ALGO_ID_C14N_OMITCOMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_C14N_OMITCOMMENTS)},
-	{"ALGO_ID_ENCODING_BASE64", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_ENCODING_BASE64)},
-	{"MGF1_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA1)},
-	{"MGF1_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA224)},
-	{"MGF1_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA256)},
-	{"MGF1_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA384)},
-	{"MGF1_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA512)},
-	{}
-};
-
-$MethodInfo _EncryptionConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(EncryptionConstants, init$, void)},
-	{}
-};
-
-$ClassInfo _EncryptionConstants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.EncryptionConstants",
-	"java.lang.Object",
-	nullptr,
-	_EncryptionConstants_FieldInfo_,
-	_EncryptionConstants_MethodInfo_
-};
-
-$Object* allocate$EncryptionConstants($Class* clazz) {
-	return $of($alloc(EncryptionConstants));
-}
-
 $String* EncryptionConstants::_ATT_ALGORITHM = nullptr;
 $String* EncryptionConstants::_ATT_ID = nullptr;
 $String* EncryptionConstants::_ATT_TARGET = nullptr;
@@ -239,7 +150,7 @@ void EncryptionConstants::init$() {
 EncryptionConstants::EncryptionConstants() {
 }
 
-void clinit$EncryptionConstants($Class* class$) {
+void EncryptionConstants::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(EncryptionConstants::_ATT_ALGORITHM, $Constants::_ATT_ALGORITHM);
 	$assignStatic(EncryptionConstants::_ATT_ID, $Constants::_ATT_ID);
@@ -310,7 +221,90 @@ void clinit$EncryptionConstants($Class* class$) {
 }
 
 $Class* EncryptionConstants::load$($String* name, bool initialize) {
-	$loadClass(EncryptionConstants, name, initialize, &_EncryptionConstants_ClassInfo_, clinit$EncryptionConstants, allocate$EncryptionConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"_ATT_ALGORITHM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_ALGORITHM)},
+		{"_ATT_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_ID)},
+		{"_ATT_TARGET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_TARGET)},
+		{"_ATT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_TYPE)},
+		{"_ATT_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_URI)},
+		{"_ATT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_ENCODING)},
+		{"_ATT_RECIPIENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_RECIPIENT)},
+		{"_ATT_MIMETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _ATT_MIMETYPE)},
+		{"_TAG_CARRIEDKEYNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CARRIEDKEYNAME)},
+		{"_TAG_CIPHERDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CIPHERDATA)},
+		{"_TAG_CIPHERREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CIPHERREFERENCE)},
+		{"_TAG_CIPHERVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_CIPHERVALUE)},
+		{"_TAG_DATAREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_DATAREFERENCE)},
+		{"_TAG_ENCRYPTEDDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTEDDATA)},
+		{"_TAG_ENCRYPTEDKEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTEDKEY)},
+		{"_TAG_ENCRYPTIONMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTIONMETHOD)},
+		{"_TAG_ENCRYPTIONPROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTIONPROPERTIES)},
+		{"_TAG_ENCRYPTIONPROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ENCRYPTIONPROPERTY)},
+		{"_TAG_KEYREFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_KEYREFERENCE)},
+		{"_TAG_KEYSIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_KEYSIZE)},
+		{"_TAG_OAEPPARAMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_OAEPPARAMS)},
+		{"_TAG_MGF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_MGF)},
+		{"_TAG_REFERENCELIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_REFERENCELIST)},
+		{"_TAG_TRANSFORMS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_TRANSFORMS)},
+		{"_TAG_AGREEMENTMETHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_AGREEMENTMETHOD)},
+		{"_TAG_KA_NONCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_KA_NONCE)},
+		{"_TAG_ORIGINATORKEYINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_ORIGINATORKEYINFO)},
+		{"_TAG_RECIPIENTKEYINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, _TAG_RECIPIENTKEYINFO)},
+		{"ENCRYPTIONSPECIFICATION_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ENCRYPTIONSPECIFICATION_URL)},
+		{"EncryptionSpecNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, EncryptionSpecNS)},
+		{"EncryptionSpec11NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, EncryptionSpec11NS)},
+		{"TYPE_CONTENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, TYPE_CONTENT)},
+		{"TYPE_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, TYPE_ELEMENT)},
+		{"TYPE_MEDIATYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, TYPE_MEDIATYPE)},
+		{"ALGO_ID_BLOCKCIPHER_TRIPLEDES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_TRIPLEDES)},
+		{"ALGO_ID_BLOCKCIPHER_AES128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES128)},
+		{"ALGO_ID_BLOCKCIPHER_AES256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES256)},
+		{"ALGO_ID_BLOCKCIPHER_AES192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES192)},
+		{"ALGO_ID_BLOCKCIPHER_AES128_GCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES128_GCM)},
+		{"ALGO_ID_BLOCKCIPHER_AES192_GCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES192_GCM)},
+		{"ALGO_ID_BLOCKCIPHER_AES256_GCM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_AES256_GCM)},
+		{"ALGO_ID_BLOCKCIPHER_SEED128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_SEED128)},
+		{"ALGO_ID_BLOCKCIPHER_CAMELLIA128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_CAMELLIA128)},
+		{"ALGO_ID_BLOCKCIPHER_CAMELLIA192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_CAMELLIA192)},
+		{"ALGO_ID_BLOCKCIPHER_CAMELLIA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_BLOCKCIPHER_CAMELLIA256)},
+		{"ALGO_ID_KEYTRANSPORT_RSA15", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYTRANSPORT_RSA15)},
+		{"ALGO_ID_KEYTRANSPORT_RSAOAEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYTRANSPORT_RSAOAEP)},
+		{"ALGO_ID_KEYTRANSPORT_RSAOAEP_11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYTRANSPORT_RSAOAEP_11)},
+		{"ALGO_ID_KEYAGREEMENT_DH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYAGREEMENT_DH)},
+		{"ALGO_ID_KEYWRAP_TRIPLEDES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_TRIPLEDES)},
+		{"ALGO_ID_KEYWRAP_AES128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_AES128)},
+		{"ALGO_ID_KEYWRAP_AES256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_AES256)},
+		{"ALGO_ID_KEYWRAP_AES192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_AES192)},
+		{"ALGO_ID_KEYWRAP_CAMELLIA128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_CAMELLIA128)},
+		{"ALGO_ID_KEYWRAP_CAMELLIA192", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_CAMELLIA192)},
+		{"ALGO_ID_KEYWRAP_CAMELLIA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_CAMELLIA256)},
+		{"ALGO_ID_KEYWRAP_SEED128", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_KEYWRAP_SEED128)},
+		{"ALGO_ID_AUTHENTICATION_XMLSIGNATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_AUTHENTICATION_XMLSIGNATURE)},
+		{"ALGO_ID_C14N_WITHCOMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_C14N_WITHCOMMENTS)},
+		{"ALGO_ID_C14N_OMITCOMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_C14N_OMITCOMMENTS)},
+		{"ALGO_ID_ENCODING_BASE64", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, ALGO_ID_ENCODING_BASE64)},
+		{"MGF1_SHA1", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA1)},
+		{"MGF1_SHA224", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA224)},
+		{"MGF1_SHA256", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA256)},
+		{"MGF1_SHA384", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA384)},
+		{"MGF1_SHA512", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EncryptionConstants, MGF1_SHA512)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(EncryptionConstants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.EncryptionConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncryptionConstants, name, initialize, &classInfo$$, EncryptionConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EncryptionConstants);
+	});
 	return class$;
 }
 

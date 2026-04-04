@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$LocalCacheContext.h>
-
 #include <com/sun/tools/javac/comp/ArgumentAttr.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -11,50 +10,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _ArgumentAttr$LocalCacheContext_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$LocalCacheContext, this$0)},
-	{"prevCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<*>;>;", 0, $field(ArgumentAttr$LocalCacheContext, prevCache)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$LocalCacheContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;)V", nullptr, $PUBLIC, $method(ArgumentAttr$LocalCacheContext, init$, void, $ArgumentAttr*)},
-	{"leave", "()V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$LocalCacheContext, leave, void)},
-	{}
-};
-
-$InnerClassInfo _ArgumentAttr$LocalCacheContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$LocalCacheContext", "com.sun.tools.javac.comp.ArgumentAttr", "LocalCacheContext", 0},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$LocalCacheContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ArgumentAttr$LocalCacheContext",
-	"java.lang.Object",
-	nullptr,
-	_ArgumentAttr$LocalCacheContext_FieldInfo_,
-	_ArgumentAttr$LocalCacheContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ArgumentAttr$LocalCacheContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$LocalCacheContext($Class* clazz) {
-	return $of($alloc(ArgumentAttr$LocalCacheContext));
-}
 
 void ArgumentAttr$LocalCacheContext::init$($ArgumentAttr* this$0) {
 	$set(this, this$0, this$0);
@@ -70,7 +31,38 @@ ArgumentAttr$LocalCacheContext::ArgumentAttr$LocalCacheContext() {
 }
 
 $Class* ArgumentAttr$LocalCacheContext::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$LocalCacheContext, name, initialize, &_ArgumentAttr$LocalCacheContext_ClassInfo_, allocate$ArgumentAttr$LocalCacheContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$LocalCacheContext, this$0)},
+		{"prevCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<*>;>;", 0, $field(ArgumentAttr$LocalCacheContext, prevCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;)V", nullptr, $PUBLIC, $method(ArgumentAttr$LocalCacheContext, init$, void, $ArgumentAttr*)},
+		{"leave", "()V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$LocalCacheContext, leave, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$LocalCacheContext", "com.sun.tools.javac.comp.ArgumentAttr", "LocalCacheContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ArgumentAttr$LocalCacheContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$LocalCacheContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArgumentAttr$LocalCacheContext);
+	});
 	return class$;
 }
 

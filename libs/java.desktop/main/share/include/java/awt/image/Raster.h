@@ -29,6 +29,7 @@ class $import Raster : public ::java::lang::Object {
 	$class(Raster, 0, ::java::lang::Object)
 public:
 	Raster();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBuffer* dataBuffer, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBuffer* dataBuffer, ::java::awt::Rectangle* aRegion, ::java::awt::Point* sampleModelTranslate, ::java::awt::image::Raster* parent);

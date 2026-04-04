@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacMessager.h>
-
 #include <com/sun/tools/javac/model/JavacElements.h>
 #include <com/sun/tools/javac/processing/JavacMessager$1.h>
 #include <com/sun/tools/javac/processing/JavacProcessingEnvironment.h>
@@ -60,55 +59,6 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _JavacMessager_FieldInfo_[] = {
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(JavacMessager, log)},
-	{"processingEnv", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;", nullptr, 0, $field(JavacMessager, processingEnv)},
-	{"errorCount", "I", nullptr, 0, $field(JavacMessager, errorCount$)},
-	{"warningCount", "I", nullptr, 0, $field(JavacMessager, warningCount$)},
-	{}
-};
-
-$MethodInfo _JavacMessager_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", nullptr, 0, $method(JavacMessager, init$, void, $Context*, $JavacProcessingEnvironment*)},
-	{"errorCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavacMessager, errorCount, int32_t)},
-	{"errorRaised", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacMessager, errorRaised, bool)},
-	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, newRound, void)},
-	{"printError", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printError, void, $String*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
-	{"printNotice", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printNotice, void, $String*)},
-	{"printWarning", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printWarning, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacMessager, toString, $String*)},
-	{"warningCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavacMessager, warningCount, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JavacMessager_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacMessager$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavacMessager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacMessager",
-	"java.lang.Object",
-	"javax.annotation.processing.Messager",
-	_JavacMessager_FieldInfo_,
-	_JavacMessager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacMessager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacMessager$1"
-};
-
-$Object* allocate$JavacMessager($Class* clazz) {
-	return $of($alloc(JavacMessager));
-}
-
 void JavacMessager::init$($Context* context, $JavacProcessingEnvironment* processingEnv) {
 	this->errorCount$ = 0;
 	this->warningCount$ = 0;
@@ -129,7 +79,7 @@ void JavacMessager::printMessage($Diagnostic$Kind* kind, $CharSequence* msg, $El
 }
 
 void JavacMessager::printMessage($Diagnostic$Kind* kind, $CharSequence* msg, $Element* e, $AnnotationMirror* a, $AnnotationValue* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, oldSource, nullptr);
 	$var($JavaFileObject, newSource, nullptr);
 	$var($JCDiagnostic$DiagnosticPosition, pos, nullptr);
@@ -139,49 +89,39 @@ void JavacMessager::printMessage($Diagnostic$Kind* kind, $CharSequence* msg, $El
 		$assign(newSource, $nc(($cast($JCTree$JCCompilationUnit, treeTop->snd)))->sourcefile);
 		if (newSource != nullptr) {
 			$assign(oldSource, $nc(this->log)->useSource(newSource));
-			$assign(pos, $nc(($cast($JCTree, treeTop->fst)))->pos());
+			$assign(pos, $nc($cast($JCTree, treeTop->fst))->pos());
 		}
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($JavacMessager$1);
-			switch ($nc($JavacMessager$1::$SwitchMap$javax$tools$Diagnostic$Kind)->get($nc((kind))->ordinal())) {
-			case 1:
-				{
-					++this->errorCount$;
-					$init($JCDiagnostic$DiagnosticFlag);
-					$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::API, pos, $($CompilerProperties$Errors::ProcMessager($($nc(msg)->toString()))));
-					break;
-				}
-			case 2:
-				{
-					++this->warningCount$;
-					$nc(this->log)->warning(pos, $($CompilerProperties$Warnings::ProcMessager($($nc(msg)->toString()))));
-					break;
-				}
-			case 3:
-				{
-					++this->warningCount$;
-					$nc(this->log)->mandatoryWarning(pos, $($CompilerProperties$Warnings::ProcMessager($($nc(msg)->toString()))));
-					break;
-				}
-			default:
-				{
-					$nc(this->log)->note(pos, $($CompilerProperties$Notes::ProcMessager($($nc(msg)->toString()))));
-					break;
-				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (newSource != nullptr) {
-				$nc(this->log)->useSource(oldSource);
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($JavacMessager$1);
+		switch ($nc($JavacMessager$1::$SwitchMap$javax$tools$Diagnostic$Kind)->get($nc((kind))->ordinal())) {
+		case 1:
+			++this->errorCount$;
+			$init($JCDiagnostic$DiagnosticFlag);
+			$nc(this->log)->error($JCDiagnostic$DiagnosticFlag::API, pos, $($CompilerProperties$Errors::ProcMessager($($nc(msg)->toString()))));
+			break;
+		case 2:
+			++this->warningCount$;
+			$nc(this->log)->warning(pos, $($CompilerProperties$Warnings::ProcMessager($($nc(msg)->toString()))));
+			break;
+		case 3:
+			++this->warningCount$;
+			$nc(this->log)->mandatoryWarning(pos, $($CompilerProperties$Warnings::ProcMessager($($nc(msg)->toString()))));
+			break;
+		default:
+			$nc(this->log)->note(pos, $($CompilerProperties$Notes::ProcMessager($($nc(msg)->toString()))));
+			break;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (newSource != nullptr) {
+			$nc(this->log)->useSource(oldSource);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -224,7 +164,50 @@ JavacMessager::JavacMessager() {
 }
 
 $Class* JavacMessager::load$($String* name, bool initialize) {
-	$loadClass(JavacMessager, name, initialize, &_JavacMessager_ClassInfo_, allocate$JavacMessager);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(JavacMessager, log)},
+		{"processingEnv", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;", nullptr, 0, $field(JavacMessager, processingEnv)},
+		{"errorCount", "I", nullptr, 0, $field(JavacMessager, errorCount$)},
+		{"warningCount", "I", nullptr, 0, $field(JavacMessager, warningCount$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", nullptr, 0, $method(JavacMessager, init$, void, $Context*, $JavacProcessingEnvironment*)},
+		{"errorCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavacMessager, errorCount, int32_t)},
+		{"errorRaised", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacMessager, errorRaised, bool)},
+		{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, newRound, void)},
+		{"printError", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printError, void, $String*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
+		{"printNotice", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printNotice, void, $String*)},
+		{"printWarning", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printWarning, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacMessager, toString, $String*)},
+		{"warningCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavacMessager, warningCount, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacMessager$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacMessager",
+		"java.lang.Object",
+		"javax.annotation.processing.Messager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacMessager$1"
+	};
+	$loadClass(JavacMessager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacMessager);
+	});
 	return class$;
 }
 

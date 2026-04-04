@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/List$1.h>
-
 #include <com/sun/tools/javac/util/List.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
@@ -16,44 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$MethodInfo _List$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(List$1, init$, void, Object$*, $List*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(List$1, isEmpty, bool)},
-	{"setTail", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(List$1, setTail, $List*, $List*)},
-	{}
-};
-
-$EnclosingMethodInfo _List$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.List",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _List$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.List$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _List$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.List$1",
-	"com.sun.tools.javac.util.List",
-	nullptr,
-	nullptr,
-	_List$1_MethodInfo_,
-	"Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;",
-	&_List$1_EnclosingMethodInfo_,
-	_List$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.List"
-};
-
-$Object* allocate$List$1($Class* clazz) {
-	return $of($alloc(List$1));
-}
 
 void List$1::init$(Object$* head, $List* tail) {
 	$List::init$(head, tail);
@@ -72,7 +33,39 @@ List$1::List$1() {
 }
 
 $Class* List$1::load$($String* name, bool initialize) {
-	$loadClass(List$1, name, initialize, &_List$1_ClassInfo_, allocate$List$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(List$1, init$, void, Object$*, $List*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(List$1, isEmpty, bool)},
+		{"setTail", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(List$1, setTail, $List*, $List*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.List",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.List$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.List$1",
+		"com.sun.tools.javac.util.List",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.List"
+	};
+	$loadClass(List$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(List$1));
+	});
 	return class$;
 }
 

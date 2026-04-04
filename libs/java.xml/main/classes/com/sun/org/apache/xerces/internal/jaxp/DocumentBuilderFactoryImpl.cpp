@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/DocumentBuilderImpl.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPConstants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/DOMParser.h>
@@ -42,7 +41,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $DocumentBuilder = ::javax::xml::parsers::DocumentBuilder;
 using $DocumentBuilderFactory = ::javax::xml::parsers::DocumentBuilderFactory;
@@ -61,44 +59,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _DocumentBuilderFactoryImpl_FieldInfo_[] = {
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(DocumentBuilderFactoryImpl, attributes)},
-	{"features", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE, $field(DocumentBuilderFactoryImpl, features)},
-	{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE, $field(DocumentBuilderFactoryImpl, grammar)},
-	{"isXIncludeAware", "Z", nullptr, $PRIVATE, $field(DocumentBuilderFactoryImpl, isXIncludeAware$)},
-	{"fSecureProcess", "Z", nullptr, $PRIVATE, $field(DocumentBuilderFactoryImpl, fSecureProcess)},
-	{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, 0, $field(DocumentBuilderFactoryImpl, fSecurityManager)},
-	{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, 0, $field(DocumentBuilderFactoryImpl, fSecurityPropertyMgr)},
-	{}
-};
-
-$MethodInfo _DocumentBuilderFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentBuilderFactoryImpl, init$, void)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, getAttribute, $Object*, $String*), "java.lang.IllegalArgumentException"},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, getFeature, bool, $String*), "javax.xml.parsers.ParserConfigurationException"},
-	{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, getSchema, $Schema*)},
-	{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, isXIncludeAware, bool)},
-	{"newDocumentBuilder", "()Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, newDocumentBuilder, $DocumentBuilder*), "javax.xml.parsers.ParserConfigurationException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setAttribute, void, $String*, Object$*), "java.lang.IllegalArgumentException"},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setFeature, void, $String*, bool), "javax.xml.parsers.ParserConfigurationException"},
-	{"setSchema", "(Ljavax/xml/validation/Schema;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setSchema, void, $Schema*)},
-	{"setXIncludeAware", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setXIncludeAware, void, bool)},
-	{}
-};
-
-$ClassInfo _DocumentBuilderFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl",
-	"javax.xml.parsers.DocumentBuilderFactory",
-	nullptr,
-	_DocumentBuilderFactoryImpl_FieldInfo_,
-	_DocumentBuilderFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$DocumentBuilderFactoryImpl($Class* clazz) {
-	return $of($alloc(DocumentBuilderFactoryImpl));
-}
-
 void DocumentBuilderFactoryImpl::init$() {
 	$DocumentBuilderFactory::init$();
 	this->fSecureProcess = true;
@@ -107,15 +67,13 @@ void DocumentBuilderFactoryImpl::init$() {
 }
 
 $DocumentBuilder* DocumentBuilderFactoryImpl::newDocumentBuilder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->grammar != nullptr && this->attributes != nullptr) {
 		$init($JAXPConstants);
-		if ($nc(this->attributes)->containsKey($JAXPConstants::JAXP_SCHEMA_LANGUAGE)) {
-			$throwNew($ParserConfigurationException, $($SAXMessageFormatter::formatMessage(nullptr, "schema-already-specified"_s, $$new($ObjectArray, {$of($JAXPConstants::JAXP_SCHEMA_LANGUAGE)}))));
-		} else {
-			if ($nc(this->attributes)->containsKey($JAXPConstants::JAXP_SCHEMA_SOURCE)) {
-				$throwNew($ParserConfigurationException, $($SAXMessageFormatter::formatMessage(nullptr, "schema-already-specified"_s, $$new($ObjectArray, {$of($JAXPConstants::JAXP_SCHEMA_SOURCE)}))));
-			}
+		if (this->attributes->containsKey($JAXPConstants::JAXP_SCHEMA_LANGUAGE)) {
+			$throwNew($ParserConfigurationException, $($SAXMessageFormatter::formatMessage(nullptr, "schema-already-specified"_s, $$new($ObjectArray, {$JAXPConstants::JAXP_SCHEMA_LANGUAGE}))));
+		} else if (this->attributes->containsKey($JAXPConstants::JAXP_SCHEMA_SOURCE)) {
+			$throwNew($ParserConfigurationException, $($SAXMessageFormatter::formatMessage(nullptr, "schema-already-specified"_s, $$new($ObjectArray, {$JAXPConstants::JAXP_SCHEMA_SOURCE}))));
 		}
 	}
 	try {
@@ -127,10 +85,10 @@ $DocumentBuilder* DocumentBuilderFactoryImpl::newDocumentBuilder() {
 }
 
 void DocumentBuilderFactoryImpl::setAttribute($String* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		if (this->attributes != nullptr) {
-			$nc(this->attributes)->remove(name);
+			this->attributes->remove(name);
 		}
 		return;
 	}
@@ -151,33 +109,32 @@ void DocumentBuilderFactoryImpl::setAttribute($String* name, Object$* value) {
 	try {
 		$new($DocumentBuilderImpl, this, this->attributes, this->features);
 	} catch ($Exception& e) {
-		$nc(this->attributes)->remove(name);
+		this->attributes->remove(name);
 		$throwNew($IllegalArgumentException, $(e->getMessage()));
 	}
 }
 
 $Object* DocumentBuilderFactoryImpl::getAttribute($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pName, nullptr);
 	if (($assign(pName, $nc(this->fSecurityManager)->find(name))) != nullptr) {
-		return $of($nc(this->attributes)->get(pName));
+		return $nc(this->attributes)->get(pName);
 	} else if (($assign(pName, $nc(this->fSecurityPropertyMgr)->find(name))) != nullptr) {
-		return $of($nc(this->attributes)->get(pName));
+		return $nc(this->attributes)->get(pName);
 	}
 	if (this->attributes != nullptr) {
-		$var($Object, val, $nc(this->attributes)->get(name));
+		$var($Object, val, this->attributes->get(name));
 		if (val != nullptr) {
-			return $of(val);
+			return val;
 		}
 	}
 	$var($DOMParser, domParser, nullptr);
 	try {
 		$assign(domParser, $$new($DocumentBuilderImpl, this, this->attributes, this->features)->getDOMParser());
-		return $of($nc(domParser)->getProperty(name));
+		return $nc(domParser)->getProperty(name);
 	} catch ($SAXException& se1) {
 		try {
 			bool result = $nc(domParser)->getFeature(name);
-			$init($Boolean);
 			return $of(result ? $Boolean::TRUE : $Boolean::FALSE);
 		} catch ($SAXException& se2) {
 			$throwNew($IllegalArgumentException, $(se1->getMessage()));
@@ -203,13 +160,13 @@ void DocumentBuilderFactoryImpl::setXIncludeAware(bool state) {
 }
 
 bool DocumentBuilderFactoryImpl::getFeature($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XMLConstants);
 	if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 		return this->fSecureProcess;
 	}
 	if (this->features != nullptr) {
-		$var($Boolean, val, $cast($Boolean, $nc(this->features)->get(name)));
+		$var($Boolean, val, $cast($Boolean, this->features->get(name)));
 		if (val != nullptr) {
 			return val->booleanValue();
 		}
@@ -224,7 +181,7 @@ bool DocumentBuilderFactoryImpl::getFeature($String* name) {
 }
 
 void DocumentBuilderFactoryImpl::setFeature($String* name, bool value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->features == nullptr) {
 		$set(this, features, $new($HashMap));
 	}
@@ -234,19 +191,17 @@ void DocumentBuilderFactoryImpl::setFeature($String* name, bool value) {
 			$throwNew($ParserConfigurationException, $($SAXMessageFormatter::formatMessage(nullptr, "jaxp-secureprocessing-feature"_s, nullptr)));
 		}
 		this->fSecureProcess = value;
-		$init($Boolean);
 		$nc(this->features)->put(name, value ? $Boolean::TRUE : $Boolean::FALSE);
 		return;
 	}
-	$init($Boolean);
 	$nc(this->features)->put(name, value ? $Boolean::TRUE : $Boolean::FALSE);
 	try {
 		$new($DocumentBuilderImpl, this, this->attributes, this->features);
 	} catch ($SAXNotSupportedException& e) {
-		$nc(this->features)->remove(name);
+		this->features->remove(name);
 		$throwNew($ParserConfigurationException, $(e->getMessage()));
 	} catch ($SAXNotRecognizedException& e) {
-		$nc(this->features)->remove(name);
+		this->features->remove(name);
 		$throwNew($ParserConfigurationException, $(e->getMessage()));
 	}
 }
@@ -255,7 +210,40 @@ DocumentBuilderFactoryImpl::DocumentBuilderFactoryImpl() {
 }
 
 $Class* DocumentBuilderFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(DocumentBuilderFactoryImpl, name, initialize, &_DocumentBuilderFactoryImpl_ClassInfo_, allocate$DocumentBuilderFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(DocumentBuilderFactoryImpl, attributes)},
+		{"features", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE, $field(DocumentBuilderFactoryImpl, features)},
+		{"grammar", "Ljavax/xml/validation/Schema;", nullptr, $PRIVATE, $field(DocumentBuilderFactoryImpl, grammar)},
+		{"isXIncludeAware", "Z", nullptr, $PRIVATE, $field(DocumentBuilderFactoryImpl, isXIncludeAware$)},
+		{"fSecureProcess", "Z", nullptr, $PRIVATE, $field(DocumentBuilderFactoryImpl, fSecureProcess)},
+		{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, 0, $field(DocumentBuilderFactoryImpl, fSecurityManager)},
+		{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, 0, $field(DocumentBuilderFactoryImpl, fSecurityPropertyMgr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentBuilderFactoryImpl, init$, void)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, getAttribute, $Object*, $String*), "java.lang.IllegalArgumentException"},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, getFeature, bool, $String*), "javax.xml.parsers.ParserConfigurationException"},
+		{"getSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, getSchema, $Schema*)},
+		{"isXIncludeAware", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, isXIncludeAware, bool)},
+		{"newDocumentBuilder", "()Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, newDocumentBuilder, $DocumentBuilder*), "javax.xml.parsers.ParserConfigurationException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setAttribute, void, $String*, Object$*), "java.lang.IllegalArgumentException"},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setFeature, void, $String*, bool), "javax.xml.parsers.ParserConfigurationException"},
+		{"setSchema", "(Ljavax/xml/validation/Schema;)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setSchema, void, $Schema*)},
+		{"setXIncludeAware", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DocumentBuilderFactoryImpl, setXIncludeAware, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl",
+		"javax.xml.parsers.DocumentBuilderFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DocumentBuilderFactoryImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentBuilderFactoryImpl);
+	});
 	return class$;
 }
 

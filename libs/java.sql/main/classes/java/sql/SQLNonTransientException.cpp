@@ -1,5 +1,4 @@
 #include <java/sql/SQLNonTransientException.h>
-
 #include <java/sql/SQLException.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $SQLException = ::java::sql::SQLException;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _SQLNonTransientException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLNonTransientException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SQLNonTransientException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, int32_t, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SQLNonTransientException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.SQLNonTransientException",
-	"java.sql.SQLException",
-	nullptr,
-	_SQLNonTransientException_FieldInfo_,
-	_SQLNonTransientException_MethodInfo_
-};
-
-$Object* allocate$SQLNonTransientException($Class* clazz) {
-	return $of($alloc(SQLNonTransientException));
-}
 
 void SQLNonTransientException::init$() {
 	$SQLException::init$();
@@ -84,7 +53,32 @@ void SQLNonTransientException::throw$() {
 }
 
 $Class* SQLNonTransientException::load$($String* name, bool initialize) {
-	$loadClass(SQLNonTransientException, name, initialize, &_SQLNonTransientException_ClassInfo_, allocate$SQLNonTransientException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLNonTransientException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, int32_t, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.SQLNonTransientException",
+		"java.sql.SQLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SQLNonTransientException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SQLNonTransientException));
+	});
 	return class$;
 }
 

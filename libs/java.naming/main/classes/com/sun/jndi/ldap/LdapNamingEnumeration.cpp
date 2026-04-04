@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapNamingEnumeration.h>
-
 #include <com/sun/jndi/ldap/AbstractLdapNamingEnumeration.h>
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/LdapReferralContext.h>
@@ -44,32 +43,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapNamingEnumeration_FieldInfo_[] = {
-	{"defaultClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapNamingEnumeration, defaultClassName)},
-	{}
-};
-
-$MethodInfo _LdapNamingEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(LdapNamingEnumeration, init$, void, $LdapCtx*, $LdapResult*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/NameClassPair;", $PROTECTED, $virtualMethod(LdapNamingEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
-	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapNamingEnumeration, getReferredResults, $AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapNamingEnumeration_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapNamingEnumeration",
-	"com.sun.jndi.ldap.AbstractLdapNamingEnumeration",
-	nullptr,
-	_LdapNamingEnumeration_FieldInfo_,
-	_LdapNamingEnumeration_MethodInfo_,
-	"Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<Ljavax/naming/NameClassPair;>;"
-};
-
-$Object* allocate$LdapNamingEnumeration($Class* clazz) {
-	return $of($alloc(LdapNamingEnumeration));
-}
-
 $String* LdapNamingEnumeration::defaultClassName = nullptr;
 
 void LdapNamingEnumeration::init$($LdapCtx* homeCtx, $LdapResult* answer, $Name* listArg, $Continuation* cont) {
@@ -77,7 +50,7 @@ void LdapNamingEnumeration::init$($LdapCtx* homeCtx, $LdapResult* answer, $Name*
 }
 
 $NameClassPair* LdapNamingEnumeration::createItem($String* dn, $Attributes* attrs, $Vector* respCtls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, attr, nullptr);
 	$var($String, className, nullptr);
 	$init($Obj);
@@ -91,8 +64,7 @@ $NameClassPair* LdapNamingEnumeration::createItem($String* dn, $Attributes* attr
 	$var($NameClassPair, ncp, nullptr);
 	if (respCtls != nullptr) {
 		$var($String, var$0, cn->toString());
-		$var($String, var$1, className);
-		$assign(ncp, $new($NameClassPairWithControls, var$0, var$1, $($nc(this->homeCtx)->convertControls(respCtls))));
+		$assign(ncp, $new($NameClassPairWithControls, var$0, className, $($nc(this->homeCtx)->convertControls(respCtls))));
 	} else {
 		$assign(ncp, $new($NameClassPair, $(cn->toString()), className));
 	}
@@ -104,7 +76,7 @@ $AbstractLdapNamingEnumeration* LdapNamingEnumeration::getReferredResults($LdapR
 	return $cast($AbstractLdapNamingEnumeration, $nc(refCtx)->list(this->listArg));
 }
 
-void clinit$LdapNamingEnumeration($Class* class$) {
+void LdapNamingEnumeration::clinit$($Class* clazz) {
 	$load($DirContext);
 	$assignStatic(LdapNamingEnumeration::defaultClassName, $DirContext::class$->getName());
 }
@@ -113,7 +85,28 @@ LdapNamingEnumeration::LdapNamingEnumeration() {
 }
 
 $Class* LdapNamingEnumeration::load$($String* name, bool initialize) {
-	$loadClass(LdapNamingEnumeration, name, initialize, &_LdapNamingEnumeration_ClassInfo_, clinit$LdapNamingEnumeration, allocate$LdapNamingEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapNamingEnumeration, defaultClassName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(LdapNamingEnumeration, init$, void, $LdapCtx*, $LdapResult*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/NameClassPair;", $PROTECTED, $virtualMethod(LdapNamingEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
+		{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapNamingEnumeration, getReferredResults, $AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapNamingEnumeration",
+		"com.sun.jndi.ldap.AbstractLdapNamingEnumeration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<Ljavax/naming/NameClassPair;>;"
+	};
+	$loadClass(LdapNamingEnumeration, name, initialize, &classInfo$$, LdapNamingEnumeration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapNamingEnumeration);
+	});
 	return class$;
 }
 

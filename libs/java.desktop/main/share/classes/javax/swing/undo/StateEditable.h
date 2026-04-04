@@ -21,6 +21,7 @@ namespace javax {
 class $export StateEditable : public ::java::lang::Object {
 	$interface(StateEditable, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void restoreState(::java::util::Hashtable* state) {}
 	virtual void storeState(::java::util::Hashtable* state) {}
 	static $String* RCSID;

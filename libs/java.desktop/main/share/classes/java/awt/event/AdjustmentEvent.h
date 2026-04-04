@@ -55,7 +55,7 @@ public:
 	int32_t value = 0;
 	int32_t adjustmentType = 0;
 	bool isAdjusting = false;
-	static const int64_t serialVersionUID = (int64_t)0x4F1B8023EFF164B1;
+	static const int64_t serialVersionUID = (int64_t)0x4f1b8023eff164b1;
 };
 
 		} // event

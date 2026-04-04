@@ -1,8 +1,6 @@
 #include <javax/swing/JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem.h>
-
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JMenuItem$AccessibleJMenuItem.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/JRadioButtonMenuItem.h>
 #include <jcpp.h>
 
@@ -13,49 +11,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JMenuItem$AccessibleJMenuItem = ::javax::swing::JMenuItem$AccessibleJMenuItem;
 using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JRadioButtonMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, this$0)},
-	{}
-};
-
-$MethodInfo _JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JRadioButtonMenuItem;)V", nullptr, $PROTECTED, $method(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, init$, void, $JRadioButtonMenuItem*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_InnerClassesInfo_[] = {
-	{"javax.swing.JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem", "javax.swing.JRadioButtonMenuItem", "AccessibleJRadioButtonMenuItem", $PROTECTED},
-	{"javax.swing.JMenuItem$AccessibleJMenuItem", "javax.swing.JMenuItem", "AccessibleJMenuItem", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem",
-	"javax.swing.JMenuItem$AccessibleJMenuItem",
-	nullptr,
-	_JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_FieldInfo_,
-	_JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JRadioButtonMenuItem"
-};
-
-$Object* allocate$JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem($Class* clazz) {
-	return $of($alloc(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem));
-}
 
 void JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem::init$($JRadioButtonMenuItem* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +31,38 @@ JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem::JRadioButtonMenuItem$Access
 }
 
 $Class* JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem::load$($String* name, bool initialize) {
-	$loadClass(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, name, initialize, &_JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem_ClassInfo_, allocate$JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JRadioButtonMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JRadioButtonMenuItem;)V", nullptr, $PROTECTED, $method(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, init$, void, $JRadioButtonMenuItem*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem", "javax.swing.JRadioButtonMenuItem", "AccessibleJRadioButtonMenuItem", $PROTECTED},
+		{"javax.swing.JMenuItem$AccessibleJMenuItem", "javax.swing.JMenuItem", "AccessibleJMenuItem", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem",
+		"javax.swing.JMenuItem$AccessibleJMenuItem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JRadioButtonMenuItem"
+	};
+	$loadClass(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem));
+	});
 	return class$;
 }
 

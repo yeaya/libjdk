@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/MemberReferenceTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
 #include <java/util/List.h>
@@ -19,40 +18,35 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _MemberReferenceTree_MethodInfo_[] = {
-	{"getMode", "()Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getMode, $MemberReferenceTree$ReferenceMode*)},
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getName, $Name*)},
-	{"getQualifierExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getQualifierExpression, $ExpressionTree*)},
-	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getTypeArguments, $List*)},
-	{}
-};
-
-$InnerClassInfo _MemberReferenceTree_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.MemberReferenceTree$ReferenceMode", "com.sun.source.tree.MemberReferenceTree", "ReferenceMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MemberReferenceTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.MemberReferenceTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_MemberReferenceTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MemberReferenceTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.MemberReferenceTree$ReferenceMode"
-};
-
-$Object* allocate$MemberReferenceTree($Class* clazz) {
-	return $of($alloc(MemberReferenceTree));
-}
-
 $Class* MemberReferenceTree::load$($String* name, bool initialize) {
-	$loadClass(MemberReferenceTree, name, initialize, &_MemberReferenceTree_ClassInfo_, allocate$MemberReferenceTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getMode", "()Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getMode, $MemberReferenceTree$ReferenceMode*)},
+		{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getName, $Name*)},
+		{"getQualifierExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getQualifierExpression, $ExpressionTree*)},
+		{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MemberReferenceTree, getTypeArguments, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.MemberReferenceTree$ReferenceMode", "com.sun.source.tree.MemberReferenceTree", "ReferenceMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.MemberReferenceTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.MemberReferenceTree$ReferenceMode"
+	};
+	$loadClass(MemberReferenceTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemberReferenceTree);
+	});
 	return class$;
 }
 

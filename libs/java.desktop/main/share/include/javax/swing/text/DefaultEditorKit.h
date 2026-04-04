@@ -38,6 +38,7 @@ class $import DefaultEditorKit : public ::javax::swing::text::EditorKit {
 	$class(DefaultEditorKit, 0, ::javax::swing::text::EditorKit)
 public:
 	DefaultEditorKit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::text::Caret* createCaret() override;
 	virtual ::javax::swing::text::Document* createDefaultDocument() override;

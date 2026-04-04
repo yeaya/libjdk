@@ -95,6 +95,7 @@ class $export TypeEnter : public ::com::sun::tools::javac::code::Symbol$Complete
 	$class(TypeEnter, 0, ::com::sun::tools::javac::code::Symbol$Completer)
 public:
 	TypeEnter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void complete(::com::sun::tools::javac::code::Symbol* sym) override;
 	virtual ::com::sun::tools::javac::tree::JCTree* defaultConstructor(::com::sun::tools::javac::tree::TreeMaker* make, ::com::sun::tools::javac::comp::TypeEnter$DefaultConstructorHelper* helper);

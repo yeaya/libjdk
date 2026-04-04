@@ -24,6 +24,7 @@ namespace javax {
 class $export PGPData : public ::javax::xml::crypto::XMLStructure {
 	$interface(PGPData, 0, ::javax::xml::crypto::XMLStructure)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::util::List* getExternalElements() {return nullptr;}
 	virtual $bytes* getKeyId() {return nullptr;}
 	virtual $bytes* getKeyPacket() {return nullptr;}

@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$IconRenderer.h>
-
 #include <javax/swing/Icon.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
@@ -18,38 +17,6 @@ using $DefaultTableCellRenderer$UIResource = ::javax::swing::table::DefaultTable
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JTable$IconRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$IconRenderer, init$, void)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JTable$IconRenderer, setValue, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _JTable$IconRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$IconRenderer", "javax.swing.JTable", "IconRenderer", $STATIC},
-	{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JTable$IconRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$IconRenderer",
-	"javax.swing.table.DefaultTableCellRenderer$UIResource",
-	nullptr,
-	nullptr,
-	_JTable$IconRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$IconRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$IconRenderer($Class* clazz) {
-	return $of($alloc(JTable$IconRenderer));
-}
-
 void JTable$IconRenderer::init$() {
 	$DefaultTableCellRenderer$UIResource::init$();
 	setHorizontalAlignment($JLabel::CENTER);
@@ -63,7 +30,34 @@ JTable$IconRenderer::JTable$IconRenderer() {
 }
 
 $Class* JTable$IconRenderer::load$($String* name, bool initialize) {
-	$loadClass(JTable$IconRenderer, name, initialize, &_JTable$IconRenderer_ClassInfo_, allocate$JTable$IconRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$IconRenderer, init$, void)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JTable$IconRenderer, setValue, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$IconRenderer", "javax.swing.JTable", "IconRenderer", $STATIC},
+		{"javax.swing.table.DefaultTableCellRenderer$UIResource", "javax.swing.table.DefaultTableCellRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$IconRenderer",
+		"javax.swing.table.DefaultTableCellRenderer$UIResource",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$IconRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTable$IconRenderer));
+	});
 	return class$;
 }
 

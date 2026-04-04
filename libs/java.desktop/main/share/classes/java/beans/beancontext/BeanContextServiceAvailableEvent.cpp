@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextServiceAvailableEvent.h>
-
 #include <java/beans/beancontext/BeanContext.h>
 #include <java/beans/beancontext/BeanContextEvent.h>
 #include <java/beans/beancontext/BeanContextServices.h>
@@ -19,35 +18,8 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$FieldInfo _BeanContextServiceAvailableEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextServiceAvailableEvent, serialVersionUID)},
-	{"serviceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PROTECTED, $field(BeanContextServiceAvailableEvent, serviceClass)},
-	{}
-};
-
-$MethodInfo _BeanContextServiceAvailableEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class;)V", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class<*>;)V", $PUBLIC, $method(BeanContextServiceAvailableEvent, init$, void, $BeanContextServices*, $Class*)},
-	{"getCurrentServiceSelectors", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<*>;", $PUBLIC, $virtualMethod(BeanContextServiceAvailableEvent, getCurrentServiceSelectors, $Iterator*)},
-	{"getServiceClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanContextServiceAvailableEvent, getServiceClass, $Class*)},
-	{"getSourceAsBeanContextServices", "()Ljava/beans/beancontext/BeanContextServices;", nullptr, $PUBLIC, $virtualMethod(BeanContextServiceAvailableEvent, getSourceAsBeanContextServices, $BeanContextServices*)},
-	{}
-};
-
-$ClassInfo _BeanContextServiceAvailableEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.beancontext.BeanContextServiceAvailableEvent",
-	"java.beans.beancontext.BeanContextEvent",
-	nullptr,
-	_BeanContextServiceAvailableEvent_FieldInfo_,
-	_BeanContextServiceAvailableEvent_MethodInfo_
-};
-
-$Object* allocate$BeanContextServiceAvailableEvent($Class* clazz) {
-	return $of($alloc(BeanContextServiceAvailableEvent));
-}
-
 void BeanContextServiceAvailableEvent::init$($BeanContextServices* bcs, $Class* sc) {
-	$BeanContextEvent::init$(static_cast<$BeanContext*>(bcs));
+	$BeanContextEvent::init$($cast($BeanContext, bcs));
 	$set(this, serviceClass, sc);
 }
 
@@ -60,14 +32,36 @@ $Class* BeanContextServiceAvailableEvent::getServiceClass() {
 }
 
 $Iterator* BeanContextServiceAvailableEvent::getCurrentServiceSelectors() {
-	return $nc(($cast($BeanContextServices, $(getSource()))))->getCurrentServiceSelectors(this->serviceClass);
+	return $$sure($BeanContextServices, getSource())->getCurrentServiceSelectors(this->serviceClass);
 }
 
 BeanContextServiceAvailableEvent::BeanContextServiceAvailableEvent() {
 }
 
 $Class* BeanContextServiceAvailableEvent::load$($String* name, bool initialize) {
-	$loadClass(BeanContextServiceAvailableEvent, name, initialize, &_BeanContextServiceAvailableEvent_ClassInfo_, allocate$BeanContextServiceAvailableEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextServiceAvailableEvent, serialVersionUID)},
+		{"serviceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PROTECTED, $field(BeanContextServiceAvailableEvent, serviceClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class;)V", "(Ljava/beans/beancontext/BeanContextServices;Ljava/lang/Class<*>;)V", $PUBLIC, $method(BeanContextServiceAvailableEvent, init$, void, $BeanContextServices*, $Class*)},
+		{"getCurrentServiceSelectors", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<*>;", $PUBLIC, $virtualMethod(BeanContextServiceAvailableEvent, getCurrentServiceSelectors, $Iterator*)},
+		{"getServiceClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanContextServiceAvailableEvent, getServiceClass, $Class*)},
+		{"getSourceAsBeanContextServices", "()Ljava/beans/beancontext/BeanContextServices;", nullptr, $PUBLIC, $virtualMethod(BeanContextServiceAvailableEvent, getSourceAsBeanContextServices, $BeanContextServices*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.beancontext.BeanContextServiceAvailableEvent",
+		"java.beans.beancontext.BeanContextEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BeanContextServiceAvailableEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextServiceAvailableEvent);
+	});
 	return class$;
 }
 

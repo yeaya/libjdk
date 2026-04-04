@@ -86,6 +86,7 @@ class AquaTreeUI : public ::javax::swing::plaf::basic::BasicTreeUI {
 	$class(AquaTreeUI, 0, ::javax::swing::plaf::basic::BasicTreeUI)
 public:
 	AquaTreeUI();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::plaf::basic::BasicTreeUI::getRowForPath;
 	void init$();
 	static ::javax::swing::JTree* access$000(::com::apple::laf::AquaTreeUI* x0);

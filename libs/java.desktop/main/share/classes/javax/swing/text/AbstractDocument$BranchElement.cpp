@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractDocument$BranchElement.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
@@ -27,57 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _AbstractDocument$BranchElement_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$BranchElement, this$0)},
-	{"children", "[Ljavax/swing/text/AbstractDocument$AbstractElement;", nullptr, $PRIVATE, $field(AbstractDocument$BranchElement, children$)},
-	{"nchildren", "I", nullptr, $PRIVATE, $field(AbstractDocument$BranchElement, nchildren)},
-	{"lastIndex", "I", nullptr, $PRIVATE, $field(AbstractDocument$BranchElement, lastIndex)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$BranchElement_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(AbstractDocument$BranchElement, init$, void, $AbstractDocument*, $Element*, $AttributeSet*)},
-	{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, children, $Enumeration*)},
-	{"getAllowsChildren", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getAllowsChildren, bool)},
-	{"getElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getElement, $Element*, int32_t)},
-	{"getElementCount", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getElementCount, int32_t)},
-	{"getElementIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getElementIndex, int32_t, int32_t)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getEndOffset, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getName, $String*)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getStartOffset, int32_t)},
-	{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, isLeaf, bool)},
-	{"positionToElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, positionToElement, $Element*, int32_t)},
-	{"replace", "(II[Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, replace, void, int32_t, int32_t, $ElementArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractDocument$BranchElement_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$BranchElement", "javax.swing.text.AbstractDocument", "BranchElement", $PUBLIC},
-	{"javax.swing.text.AbstractDocument$AbstractElement", "javax.swing.text.AbstractDocument", "AbstractElement", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractDocument$BranchElement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.AbstractDocument$BranchElement",
-	"javax.swing.text.AbstractDocument$AbstractElement",
-	nullptr,
-	_AbstractDocument$BranchElement_FieldInfo_,
-	_AbstractDocument$BranchElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDocument$BranchElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$BranchElement($Class* clazz) {
-	return $of($alloc(AbstractDocument$BranchElement));
-}
-
 void AbstractDocument$BranchElement::init$($AbstractDocument* this$0, $Element* parent, $AttributeSet* a) {
 	$set(this, this$0, this$0);
 	$AbstractDocument$AbstractElement::init$(this$0, parent, a);
@@ -103,7 +51,7 @@ void AbstractDocument$BranchElement::replace(int32_t offset, int32_t length, $El
 	int32_t nmove = this->nchildren - src;
 	int32_t dest = src + delta;
 	if ((this->nchildren + delta) >= $nc(this->children$)->length) {
-		int32_t newLength = $Math::max(2 * $nc(this->children$)->length, this->nchildren + delta);
+		int32_t newLength = $Math::max(2 * this->children$->length, this->nchildren + delta);
 		$var($AbstractDocument$AbstractElementArray, newChildren, $new($AbstractDocument$AbstractElementArray, newLength));
 		$System::arraycopy(this->children$, 0, newChildren, 0, offset);
 		$System::arraycopy(elems, 0, newChildren, offset, elems->length);
@@ -117,12 +65,16 @@ void AbstractDocument$BranchElement::replace(int32_t offset, int32_t length, $El
 }
 
 $String* AbstractDocument$BranchElement::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$3, $$str({"BranchElement("_s, $(getName()), ") "_s}));
-	$var($String, var$2, $$concat(var$3, $$str(getStartOffset())));
-	$var($String, var$1, $$concat(var$2, ","_s));
-	$var($String, var$0, $$concat(var$1, $$str(getEndOffset())));
-	return $concat(var$0, "\n"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("BranchElement("_s);
+	var$0->append($(getName()));
+	var$0->append(") "_s);
+	var$0->append(getStartOffset());
+	var$0->append(","_s);
+	var$0->append(getEndOffset());
+	var$0->append("\n"_s);
+	return $str(var$0);
 }
 
 $String* AbstractDocument$BranchElement::getName() {
@@ -138,7 +90,7 @@ int32_t AbstractDocument$BranchElement::getStartOffset() {
 }
 
 int32_t AbstractDocument$BranchElement::getEndOffset() {
-	$var($Element, child, (this->nchildren > 0) ? static_cast<$Element*>($nc(this->children$)->get(this->nchildren - 1)) : static_cast<$Element*>($nc(this->children$)->get(0)));
+	$var($Element, child, (this->nchildren > 0) ? $nc(this->children$)->get(this->nchildren - 1) : $nc(this->children$)->get(0));
 	return $nc(child)->getEndOffset();
 }
 
@@ -154,7 +106,7 @@ int32_t AbstractDocument$BranchElement::getElementCount() {
 }
 
 int32_t AbstractDocument$BranchElement::getElementIndex(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	int32_t lower = 0;
 	int32_t upper = this->nchildren - 1;
@@ -227,7 +179,52 @@ AbstractDocument$BranchElement::AbstractDocument$BranchElement() {
 }
 
 $Class* AbstractDocument$BranchElement::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$BranchElement, name, initialize, &_AbstractDocument$BranchElement_ClassInfo_, allocate$AbstractDocument$BranchElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$BranchElement, this$0)},
+		{"children", "[Ljavax/swing/text/AbstractDocument$AbstractElement;", nullptr, $PRIVATE, $field(AbstractDocument$BranchElement, children$)},
+		{"nchildren", "I", nullptr, $PRIVATE, $field(AbstractDocument$BranchElement, nchildren)},
+		{"lastIndex", "I", nullptr, $PRIVATE, $field(AbstractDocument$BranchElement, lastIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(AbstractDocument$BranchElement, init$, void, $AbstractDocument*, $Element*, $AttributeSet*)},
+		{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, children, $Enumeration*)},
+		{"getAllowsChildren", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getAllowsChildren, bool)},
+		{"getElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getElement, $Element*, int32_t)},
+		{"getElementCount", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getElementCount, int32_t)},
+		{"getElementIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getElementIndex, int32_t, int32_t)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getEndOffset, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getName, $String*)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, getStartOffset, int32_t)},
+		{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, isLeaf, bool)},
+		{"positionToElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, positionToElement, $Element*, int32_t)},
+		{"replace", "(II[Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, replace, void, int32_t, int32_t, $ElementArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BranchElement, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$BranchElement", "javax.swing.text.AbstractDocument", "BranchElement", $PUBLIC},
+		{"javax.swing.text.AbstractDocument$AbstractElement", "javax.swing.text.AbstractDocument", "AbstractElement", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.AbstractDocument$BranchElement",
+		"javax.swing.text.AbstractDocument$AbstractElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$BranchElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDocument$BranchElement));
+	});
 	return class$;
 }
 

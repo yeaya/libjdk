@@ -1,11 +1,9 @@
 #include <javax/swing/AbstractAction.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ArrayTable.h>
 #include <javax/swing/Icon.h>
@@ -31,7 +29,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Action = ::javax::swing::Action;
 using $ArrayTable = ::javax::swing::ArrayTable;
 using $Icon = ::javax::swing::Icon;
@@ -41,55 +38,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _AbstractAction_FieldInfo_[] = {
-	{"RECONFIGURE_ON_NULL", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(AbstractAction, RECONFIGURE_ON_NULL)},
-	{"enabled", "Z", nullptr, $PROTECTED, $field(AbstractAction, enabled)},
-	{"arrayTable", "Ljavax/swing/ArrayTable;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractAction, arrayTable)},
-	{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PROTECTED, $field(AbstractAction, changeSupport)},
-	{}
-};
-
-$MethodInfo _AbstractAction_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractAction, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractAction, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(AbstractAction, init$, void, $String*, $Icon*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractAction, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AbstractAction, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(AbstractAction, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"getKeys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractAction, getKeys, $ObjectArray*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractAction, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractAction, getValue, $Object*, $String*)},
-	{"hasSelectedKey", "(Ljavax/swing/Action;)Z", nullptr, $STATIC, $staticMethod(AbstractAction, hasSelectedKey, bool, $Action*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractAction, isEnabled, bool)},
-	{"isSelected", "(Ljavax/swing/Action;)Z", nullptr, $STATIC, $staticMethod(AbstractAction, isSelected, bool, $Action*)},
-	{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractAction, putValue, void, $String*, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AbstractAction, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractAction, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractAction, setEnabled, void, bool)},
-	{"setEnabledFromAction", "(Ljavax/swing/JComponent;Ljavax/swing/Action;)V", nullptr, $STATIC, $staticMethod(AbstractAction, setEnabledFromAction, void, $JComponent*, $Action*)},
-	{"setToolTipTextFromAction", "(Ljavax/swing/JComponent;Ljavax/swing/Action;)V", nullptr, $STATIC, $staticMethod(AbstractAction, setToolTipTextFromAction, void, $JComponent*, $Action*)},
-	{"shouldReconfigure", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $STATIC, $staticMethod(AbstractAction, shouldReconfigure, bool, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(AbstractAction, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AbstractAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.AbstractAction",
-	"java.lang.Object",
-	"javax.swing.Action,java.lang.Cloneable,java.io.Serializable",
-	_AbstractAction_FieldInfo_,
-	_AbstractAction_MethodInfo_
-};
-
-$Object* allocate$AbstractAction($Class* clazz) {
-	return $of($alloc(AbstractAction));
-}
 
 int32_t AbstractAction::hashCode() {
 	 return this->$Action::hashCode();
@@ -111,12 +59,12 @@ $Boolean* AbstractAction::RECONFIGURE_ON_NULL = nullptr;
 
 bool AbstractAction::shouldReconfigure($PropertyChangeEvent* e) {
 	$init(AbstractAction);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($nc(e)->getPropertyName() == nullptr) {
 		$synchronized(AbstractAction::class$) {
 			if (AbstractAction::RECONFIGURE_ON_NULL == nullptr) {
-				$assignStatic(AbstractAction::RECONFIGURE_ON_NULL, $Boolean::valueOf($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.actions.reconfigureOnNull"_s, "false"_s)))))));
+				$assignStatic(AbstractAction::RECONFIGURE_ON_NULL, $Boolean::valueOf($$cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.actions.reconfigureOnNull"_s, "false"_s)))));
 			}
 			return $nc(AbstractAction::RECONFIGURE_ON_NULL)->booleanValue();
 		}
@@ -126,13 +74,13 @@ bool AbstractAction::shouldReconfigure($PropertyChangeEvent* e) {
 
 void AbstractAction::setEnabledFromAction($JComponent* c, $Action* a) {
 	$init(AbstractAction);
-	$nc(c)->setEnabled((a != nullptr) ? $nc(a)->isEnabled() : true);
+	$nc(c)->setEnabled((a != nullptr) ? a->isEnabled() : true);
 }
 
 void AbstractAction::setToolTipTextFromAction($JComponent* c, $Action* a) {
 	$init(AbstractAction);
 	$init($Action);
-	$nc(c)->setToolTipText(a != nullptr ? $cast($String, $($nc(a)->getValue($Action::SHORT_DESCRIPTION))) : ($String*)nullptr);
+	$nc(c)->setToolTipText(a != nullptr ? $$cast($String, a->getValue($Action::SHORT_DESCRIPTION)) : ($String*)nullptr);
 }
 
 bool AbstractAction::hasSelectedKey($Action* a) {
@@ -143,7 +91,6 @@ bool AbstractAction::hasSelectedKey($Action* a) {
 
 bool AbstractAction::isSelected($Action* a) {
 	$init(AbstractAction);
-	$init($Boolean);
 	$init($Action);
 	return $nc($Boolean::TRUE)->equals($($nc(a)->getValue($Action::SELECTED_KEY)));
 }
@@ -169,13 +116,13 @@ $Object* AbstractAction::getValue($String* key) {
 		return $of($Boolean::valueOf(this->enabled));
 	}
 	if (this->arrayTable == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(this->arrayTable)->get(key));
+	return $nc(this->arrayTable)->get(key);
 }
 
 void AbstractAction::putValue($String* key, Object$* newValue$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, newValue, newValue$renamed);
 	$var($Object, oldValue, nullptr);
 	if (key == "enabled"_s) {
@@ -183,7 +130,7 @@ void AbstractAction::putValue($String* key, Object$* newValue$renamed) {
 			$assign(newValue, $Boolean::valueOf(false));
 		}
 		$assign(oldValue, $Boolean::valueOf(this->enabled));
-		this->enabled = $nc(($cast($Boolean, newValue)))->booleanValue();
+		this->enabled = $nc($cast($Boolean, newValue))->booleanValue();
 	} else {
 		if (this->arrayTable == nullptr) {
 			$set(this, arrayTable, $new($ArrayTable));
@@ -205,12 +152,12 @@ bool AbstractAction::isEnabled() {
 }
 
 void AbstractAction::setEnabled(bool newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool oldValue = this->enabled;
 	if (oldValue != newValue) {
 		this->enabled = newValue;
 		$var($String, var$0, "enabled"_s);
-		$var($Object, var$1, $of($Boolean::valueOf(oldValue)));
+		$var($Object, var$1, $Boolean::valueOf(oldValue));
 		firePropertyChange(var$0, var$1, $($Boolean::valueOf(newValue)));
 	}
 }
@@ -262,7 +209,7 @@ $Object* AbstractAction::clone() {
 	$var(AbstractAction, newAction, $cast(AbstractAction, $Action::clone()));
 	$synchronized(this) {
 		if (this->arrayTable != nullptr) {
-			$set($nc(newAction), arrayTable, $cast($ArrayTable, $nc(this->arrayTable)->clone()));
+			$set($nc(newAction), arrayTable, $cast($ArrayTable, this->arrayTable->clone()));
 		}
 	}
 	return $of(newAction);
@@ -274,7 +221,7 @@ void AbstractAction::writeObject($ObjectOutputStream* s) {
 }
 
 void AbstractAction::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	for (int32_t counter = s->readInt() - 1; counter >= 0; --counter) {
 		$var($String, var$0, $cast($String, s->readObject()));
@@ -286,7 +233,51 @@ AbstractAction::AbstractAction() {
 }
 
 $Class* AbstractAction::load$($String* name, bool initialize) {
-	$loadClass(AbstractAction, name, initialize, &_AbstractAction_ClassInfo_, allocate$AbstractAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"RECONFIGURE_ON_NULL", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(AbstractAction, RECONFIGURE_ON_NULL)},
+		{"enabled", "Z", nullptr, $PROTECTED, $field(AbstractAction, enabled)},
+		{"arrayTable", "Ljavax/swing/ArrayTable;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractAction, arrayTable)},
+		{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PROTECTED, $field(AbstractAction, changeSupport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractAction, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractAction, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(AbstractAction, init$, void, $String*, $Icon*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractAction, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AbstractAction, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(AbstractAction, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"getKeys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractAction, getKeys, $ObjectArray*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractAction, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractAction, getValue, $Object*, $String*)},
+		{"hasSelectedKey", "(Ljavax/swing/Action;)Z", nullptr, $STATIC, $staticMethod(AbstractAction, hasSelectedKey, bool, $Action*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractAction, isEnabled, bool)},
+		{"isSelected", "(Ljavax/swing/Action;)Z", nullptr, $STATIC, $staticMethod(AbstractAction, isSelected, bool, $Action*)},
+		{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractAction, putValue, void, $String*, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AbstractAction, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractAction, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractAction, setEnabled, void, bool)},
+		{"setEnabledFromAction", "(Ljavax/swing/JComponent;Ljavax/swing/Action;)V", nullptr, $STATIC, $staticMethod(AbstractAction, setEnabledFromAction, void, $JComponent*, $Action*)},
+		{"setToolTipTextFromAction", "(Ljavax/swing/JComponent;Ljavax/swing/Action;)V", nullptr, $STATIC, $staticMethod(AbstractAction, setToolTipTextFromAction, void, $JComponent*, $Action*)},
+		{"shouldReconfigure", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $STATIC, $staticMethod(AbstractAction, shouldReconfigure, bool, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(AbstractAction, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.AbstractAction",
+		"java.lang.Object",
+		"javax.swing.Action,java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractAction));
+	});
 	return class$;
 }
 

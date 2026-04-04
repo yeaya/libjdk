@@ -1,5 +1,4 @@
 #include <java/sql/NClob.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,19 +6,16 @@ using $ClassInfo = ::java::lang::ClassInfo;
 namespace java {
 	namespace sql {
 
-$ClassInfo _NClob_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.sql.NClob",
-	nullptr,
-	"java.sql.Clob"
-};
-
-$Object* allocate$NClob($Class* clazz) {
-	return $of($alloc(NClob));
-}
-
 $Class* NClob::load$($String* name, bool initialize) {
-	$loadClass(NClob, name, initialize, &_NClob_ClassInfo_, allocate$NClob);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.sql.NClob",
+		nullptr,
+		"java.sql.Clob"
+	};
+	$loadClass(NClob, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NClob);
+	});
 	return class$;
 }
 

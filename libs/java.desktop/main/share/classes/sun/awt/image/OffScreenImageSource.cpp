@@ -1,5 +1,4 @@
 #include <sun/awt/image/OffScreenImageSource.h>
-
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
@@ -39,41 +38,6 @@ using $BytePackedRaster = ::sun::awt::image::BytePackedRaster;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _OffScreenImageSource_FieldInfo_[] = {
-	{"image", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OffScreenImageSource, image)},
-	{"width", "I", nullptr, 0, $field(OffScreenImageSource, width)},
-	{"height", "I", nullptr, 0, $field(OffScreenImageSource, height)},
-	{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", 0, $field(OffScreenImageSource, properties)},
-	{"theConsumer", "Ljava/awt/image/ImageConsumer;", nullptr, $PRIVATE, $field(OffScreenImageSource, theConsumer)},
-	{}
-};
-
-$MethodInfo _OffScreenImageSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/BufferedImage;Ljava/util/Hashtable;)V", "(Ljava/awt/image/BufferedImage;Ljava/util/Hashtable<**>;)V", $PUBLIC, $method(OffScreenImageSource, init$, void, $BufferedImage*, $Hashtable*)},
-	{"<init>", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(OffScreenImageSource, init$, void, $BufferedImage*)},
-	{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OffScreenImageSource, addConsumer, void, $ImageConsumer*)},
-	{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OffScreenImageSource, isConsumer, bool, $ImageConsumer*)},
-	{"produce", "()V", nullptr, $PRIVATE, $method(OffScreenImageSource, produce, void)},
-	{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OffScreenImageSource, removeConsumer, void, $ImageConsumer*)},
-	{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(OffScreenImageSource, requestTopDownLeftRightResend, void, $ImageConsumer*)},
-	{"sendPixels", "()V", nullptr, $PRIVATE, $method(OffScreenImageSource, sendPixels, void)},
-	{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(OffScreenImageSource, startProduction, void, $ImageConsumer*)},
-	{}
-};
-
-$ClassInfo _OffScreenImageSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.OffScreenImageSource",
-	"java.lang.Object",
-	"java.awt.image.ImageProducer",
-	_OffScreenImageSource_FieldInfo_,
-	_OffScreenImageSource_MethodInfo_
-};
-
-$Object* allocate$OffScreenImageSource($Class* clazz) {
-	return $of($alloc(OffScreenImageSource));
-}
 
 void OffScreenImageSource::init$($BufferedImage* image, $Hashtable* properties) {
 	$set(this, image, image);
@@ -119,11 +83,11 @@ void OffScreenImageSource::requestTopDownLeftRightResend($ImageConsumer* ic) {
 }
 
 void OffScreenImageSource::sendPixels() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, $nc(this->image)->getColorModel());
 	$var($WritableRaster, raster, $nc(this->image)->getRaster());
 	int32_t numDataElements = $nc(raster)->getNumDataElements();
-	int32_t dataType = $nc($(raster->getDataBuffer()))->getDataType();
+	int32_t dataType = $$nc(raster->getDataBuffer())->getDataType();
 	$var($ints, scanline, $new($ints, this->width * numDataElements));
 	bool needToCvt = true;
 	if ($instanceOf($IndexColorModel, cm)) {
@@ -155,45 +119,37 @@ void OffScreenImageSource::sendPixels() {
 		$nc(this->theConsumer)->setColorModel(cm);
 		needToCvt = false;
 		{
-			$var($bytes, bscanline, nullptr)
-			$var($shorts, sscanline, nullptr)
+			$var($bytes, bscanline, nullptr);
+			$var($shorts, sscanline, nullptr);
 			switch (dataType) {
 			case $DataBuffer::TYPE_INT:
-				{
-					for (int32_t y = 0; y < this->height; ++y) {
-						raster->getDataElements(0, y, this->width, 1, scanline);
-						$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
-					}
-					break;
+				for (int32_t y = 0; y < this->height; ++y) {
+					raster->getDataElements(0, y, this->width, 1, scanline);
+					$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
 				}
+				break;
 			case $DataBuffer::TYPE_BYTE:
-				{
-					$assign(bscanline, $new($bytes, this->width));
-					for (int32_t y = 0; y < this->height; ++y) {
-						raster->getDataElements(0, y, this->width, 1, bscanline);
-						for (int32_t x = 0; x < this->width; ++x) {
-							scanline->set(x, (int32_t)($nc(bscanline)->get(x) & (uint32_t)255));
-						}
-						$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
+				$assign(bscanline, $new($bytes, this->width));
+				for (int32_t y = 0; y < this->height; ++y) {
+					raster->getDataElements(0, y, this->width, 1, bscanline);
+					for (int32_t x = 0; x < this->width; ++x) {
+						scanline->set(x, $nc(bscanline)->get(x) & 0xff);
 					}
-					break;
+					$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
 				}
+				break;
 			case $DataBuffer::TYPE_USHORT:
-				{
-					$assign(sscanline, $new($shorts, this->width));
-					for (int32_t y = 0; y < this->height; ++y) {
-						raster->getDataElements(0, y, this->width, 1, sscanline);
-						for (int32_t x = 0; x < this->width; ++x) {
-							scanline->set(x, (int32_t)($nc(sscanline)->get(x) & (uint32_t)0x0000FFFF));
-						}
-						$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
+				$assign(sscanline, $new($shorts, this->width));
+				for (int32_t y = 0; y < this->height; ++y) {
+					raster->getDataElements(0, y, this->width, 1, sscanline);
+					for (int32_t x = 0; x < this->width; ++x) {
+						scanline->set(x, $nc(sscanline)->get(x) & 0xffff);
 					}
-					break;
+					$nc(this->theConsumer)->setPixels(0, y, this->width, 1, cm, scanline, 0, this->width);
 				}
+				break;
 			default:
-				{
-					needToCvt = true;
-				}
+				needToCvt = true;
 			}
 		}
 	}
@@ -212,13 +168,13 @@ void OffScreenImageSource::sendPixels() {
 void OffScreenImageSource::produce() {
 	try {
 		int32_t var$0 = $nc(this->image)->getWidth();
-		$nc(this->theConsumer)->setDimensions(var$0, $nc(this->image)->getHeight());
+		$nc(this->theConsumer)->setDimensions(var$0, this->image->getHeight());
 		$nc(this->theConsumer)->setProperties(this->properties);
 		sendPixels();
 		$nc(this->theConsumer)->imageComplete($ImageConsumer::SINGLEFRAMEDONE);
 		if (this->theConsumer != nullptr) {
 			try {
-				$nc(this->theConsumer)->imageComplete($ImageConsumer::STATICIMAGEDONE);
+				this->theConsumer->imageComplete($ImageConsumer::STATICIMAGEDONE);
 			} catch ($RuntimeException& e) {
 				e->printStackTrace();
 			}
@@ -226,7 +182,7 @@ void OffScreenImageSource::produce() {
 	} catch ($NullPointerException& e) {
 		e->printStackTrace();
 		if (this->theConsumer != nullptr) {
-			$nc(this->theConsumer)->imageComplete($ImageConsumer::IMAGEERROR);
+			this->theConsumer->imageComplete($ImageConsumer::IMAGEERROR);
 		}
 	}
 }
@@ -235,7 +191,37 @@ OffScreenImageSource::OffScreenImageSource() {
 }
 
 $Class* OffScreenImageSource::load$($String* name, bool initialize) {
-	$loadClass(OffScreenImageSource, name, initialize, &_OffScreenImageSource_ClassInfo_, allocate$OffScreenImageSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"image", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(OffScreenImageSource, image)},
+		{"width", "I", nullptr, 0, $field(OffScreenImageSource, width)},
+		{"height", "I", nullptr, 0, $field(OffScreenImageSource, height)},
+		{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<**>;", 0, $field(OffScreenImageSource, properties)},
+		{"theConsumer", "Ljava/awt/image/ImageConsumer;", nullptr, $PRIVATE, $field(OffScreenImageSource, theConsumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/BufferedImage;Ljava/util/Hashtable;)V", "(Ljava/awt/image/BufferedImage;Ljava/util/Hashtable<**>;)V", $PUBLIC, $method(OffScreenImageSource, init$, void, $BufferedImage*, $Hashtable*)},
+		{"<init>", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(OffScreenImageSource, init$, void, $BufferedImage*)},
+		{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OffScreenImageSource, addConsumer, void, $ImageConsumer*)},
+		{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OffScreenImageSource, isConsumer, bool, $ImageConsumer*)},
+		{"produce", "()V", nullptr, $PRIVATE, $method(OffScreenImageSource, produce, void)},
+		{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(OffScreenImageSource, removeConsumer, void, $ImageConsumer*)},
+		{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(OffScreenImageSource, requestTopDownLeftRightResend, void, $ImageConsumer*)},
+		{"sendPixels", "()V", nullptr, $PRIVATE, $method(OffScreenImageSource, sendPixels, void)},
+		{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(OffScreenImageSource, startProduction, void, $ImageConsumer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.OffScreenImageSource",
+		"java.lang.Object",
+		"java.awt.image.ImageProducer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OffScreenImageSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OffScreenImageSource);
+	});
 	return class$;
 }
 

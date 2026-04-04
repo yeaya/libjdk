@@ -67,6 +67,7 @@ class $export DummyWebSocketServer : public ::java::io::Closeable {
 	$class(DummyWebSocketServer, 0, ::java::io::Closeable)
 public:
 	DummyWebSocketServer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* username, $String* password);
 	void init$(::java::util::function::BiFunction* mapping, $String* username, $String* password);

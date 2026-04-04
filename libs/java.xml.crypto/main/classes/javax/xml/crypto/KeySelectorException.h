@@ -33,11 +33,14 @@ public:
 	virtual void printStackTrace() override;
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
-	static const int64_t serialVersionUID = (int64_t)0x9831950934354ADB;
+	static const int64_t serialVersionUID = (int64_t)0x9831950934354adb;
 	$Throwable* cause = nullptr;
 	KeySelectorException(const KeySelectorException& e);
 	virtual void throw$() override;
-	inline KeySelectorException* operator ->() {
+	inline KeySelectorException* operator ->() const {
+		return (KeySelectorException*)throwing$;
+	}
+	inline operator KeySelectorException*() const {
 		return (KeySelectorException*)throwing$;
 	}
 };

@@ -34,6 +34,7 @@ class $export Test8003400 : public ::java::lang::Object {
 	$class(Test8003400, 0, ::java::lang::Object)
 public:
 	Test8003400();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockTillDisplayed(::java::awt::Component* comp);
 	static void lambda$main$0();

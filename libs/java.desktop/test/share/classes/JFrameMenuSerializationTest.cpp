@@ -1,5 +1,4 @@
 #include <JFrameMenuSerializationTest.h>
-
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -8,7 +7,6 @@
 #include <java/io/IOException.h>
 #include <java/io/NotSerializableException.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -30,7 +28,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $NotSerializableException = ::java::io::NotSerializableException;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,7 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -51,27 +47,24 @@ public:
 	virtual void run() override {
 		JFrameMenuSerializationTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JFrameMenuSerializationTest$$Lambda$lambda$main$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JFrameMenuSerializationTest$$Lambda$lambda$main$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$lambda$main$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$lambda$main$1, run, void)},
-	{}
-};
-$ClassInfo JFrameMenuSerializationTest$$Lambda$lambda$main$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JFrameMenuSerializationTest$$Lambda$lambda$main$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JFrameMenuSerializationTest$$Lambda$lambda$main$1::load$($String* name, bool initialize) {
-	$loadClass(JFrameMenuSerializationTest$$Lambda$lambda$main$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$lambda$main$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$lambda$main$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JFrameMenuSerializationTest$$Lambda$lambda$main$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JFrameMenuSerializationTest$$Lambda$lambda$main$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFrameMenuSerializationTest$$Lambda$lambda$main$1);
+	});
 	return class$;
 }
 $Class* JFrameMenuSerializationTest$$Lambda$lambda$main$1::class$ = nullptr;
@@ -85,33 +78,29 @@ public:
 	virtual void run() override {
 		JFrameMenuSerializationTest::lambda$main$2(oos);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JFrameMenuSerializationTest$$Lambda$lambda$main$2$1>());
-	}
 	$ObjectOutputStream* oos = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JFrameMenuSerializationTest$$Lambda$lambda$main$2$1::fieldInfos[2] = {
-	{"oos", "Ljava/io/ObjectOutputStream;", nullptr, $PUBLIC, $field(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, oos)},
-	{}
-};
-$MethodInfo JFrameMenuSerializationTest$$Lambda$lambda$main$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, init$, void, $ObjectOutputStream*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, run, void)},
-	{}
-};
-$ClassInfo JFrameMenuSerializationTest$$Lambda$lambda$main$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JFrameMenuSerializationTest$$Lambda$lambda$main$2$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JFrameMenuSerializationTest$$Lambda$lambda$main$2$1::load$($String* name, bool initialize) {
-	$loadClass(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"oos", "Ljava/io/ObjectOutputStream;", nullptr, $PUBLIC, $field(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, oos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, init$, void, $ObjectOutputStream*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JFrameMenuSerializationTest$$Lambda$lambda$main$2$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1);
+	});
 	return class$;
 }
 $Class* JFrameMenuSerializationTest$$Lambda$lambda$main$2$1::class$ = nullptr;
@@ -125,33 +114,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JFrameMenuSerializationTest$$Lambda$dispose$2>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JFrameMenuSerializationTest$$Lambda$dispose$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JFrameMenuSerializationTest$$Lambda$dispose$2, inst$)},
-	{}
-};
-$MethodInfo JFrameMenuSerializationTest$$Lambda$dispose$2::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$dispose$2, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$dispose$2, run, void)},
-	{}
-};
-$ClassInfo JFrameMenuSerializationTest$$Lambda$dispose$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JFrameMenuSerializationTest$$Lambda$dispose$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JFrameMenuSerializationTest$$Lambda$dispose$2::load$($String* name, bool initialize) {
-	$loadClass(JFrameMenuSerializationTest$$Lambda$dispose$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JFrameMenuSerializationTest$$Lambda$dispose$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$dispose$2, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$dispose$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JFrameMenuSerializationTest$$Lambda$dispose$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JFrameMenuSerializationTest$$Lambda$dispose$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFrameMenuSerializationTest$$Lambda$dispose$2);
+	});
 	return class$;
 }
 $Class* JFrameMenuSerializationTest$$Lambda$dispose$2::class$ = nullptr;
@@ -164,57 +149,27 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* evt) override {
 		JFrameMenuSerializationTest::lambda$main$0(evt);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JFrameMenuSerializationTest$$Lambda$lambda$main$0$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JFrameMenuSerializationTest$$Lambda$lambda$main$0$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo JFrameMenuSerializationTest$$Lambda$lambda$main$0$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JFrameMenuSerializationTest$$Lambda$lambda$main$0$3",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	methodInfos
 };
 $Class* JFrameMenuSerializationTest$$Lambda$lambda$main$0$3::load$($String* name, bool initialize) {
-	$loadClass(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JFrameMenuSerializationTest$$Lambda$lambda$main$0$3",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3);
+	});
 	return class$;
 }
 $Class* JFrameMenuSerializationTest$$Lambda$lambda$main$0$3::class$ = nullptr;
-
-$FieldInfo _JFrameMenuSerializationTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JFrameMenuSerializationTest, frame)},
-	{}
-};
-
-$MethodInfo _JFrameMenuSerializationTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest, init$, void)},
-	{"lambda$main$0", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JFrameMenuSerializationTest, lambda$main$0, void, $PropertyChangeEvent*)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JFrameMenuSerializationTest, lambda$main$1, void)},
-	{"lambda$main$2", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JFrameMenuSerializationTest, lambda$main$2, void, $ObjectOutputStream*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JFrameMenuSerializationTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _JFrameMenuSerializationTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JFrameMenuSerializationTest",
-	"java.lang.Object",
-	nullptr,
-	_JFrameMenuSerializationTest_FieldInfo_,
-	_JFrameMenuSerializationTest_MethodInfo_
-};
-
-$Object* allocate$JFrameMenuSerializationTest($Class* clazz) {
-	return $of($alloc(JFrameMenuSerializationTest));
-}
 
 $JFrame* JFrameMenuSerializationTest::frame = nullptr;
 
@@ -222,17 +177,17 @@ void JFrameMenuSerializationTest::init$() {
 }
 
 void JFrameMenuSerializationTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$System::setProperty("apple.laf.useScreenMenuBar"_s, "true"_s);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JFrameMenuSerializationTest$$Lambda$lambda$main$1)));
+	$SwingUtilities::invokeAndWait($$new(JFrameMenuSerializationTest$$Lambda$lambda$main$1));
 	$var($Robot, robot, $new($Robot));
 	robot->waitForIdle();
 	robot->delay(200);
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream, 10000));
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, baos));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, oos)));
+	$SwingUtilities::invokeAndWait($$new(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1, oos));
 	$init(JFrameMenuSerializationTest);
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(JFrameMenuSerializationTest$$Lambda$dispose$2, static_cast<$JFrame*>($nc(JFrameMenuSerializationTest::frame)))));
+	$SwingUtilities::invokeLater($$new(JFrameMenuSerializationTest$$Lambda$dispose$2, $nc(JFrameMenuSerializationTest::frame)));
 }
 
 void JFrameMenuSerializationTest::lambda$main$2($ObjectOutputStream* oos) {
@@ -247,12 +202,12 @@ void JFrameMenuSerializationTest::lambda$main$2($ObjectOutputStream* oos) {
 }
 
 void JFrameMenuSerializationTest::lambda$main$1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(JFrameMenuSerializationTest);
 	$assignStatic(JFrameMenuSerializationTest::frame, $new($JFrame));
-	$nc(JFrameMenuSerializationTest::frame)->setJMenuBar($$new($JMenuBar));
+	JFrameMenuSerializationTest::frame->setJMenuBar($$new($JMenuBar));
 	$nc(JFrameMenuSerializationTest::frame)->setVisible(true);
-	$nc($($nc(JFrameMenuSerializationTest::frame)->getAccessibleContext()))->addPropertyChangeListener(static_cast<$PropertyChangeListener*>($$new(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3)));
+	$$nc($nc(JFrameMenuSerializationTest::frame)->getAccessibleContext())->addPropertyChangeListener($$new(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3));
 }
 
 void JFrameMenuSerializationTest::lambda$main$0($PropertyChangeEvent* evt) {
@@ -263,20 +218,42 @@ JFrameMenuSerializationTest::JFrameMenuSerializationTest() {
 
 $Class* JFrameMenuSerializationTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JFrameMenuSerializationTest$$Lambda$lambda$main$1::classInfo$.name)) {
+		if (name->equals("JFrameMenuSerializationTest$$Lambda$lambda$main$1")) {
 			return JFrameMenuSerializationTest$$Lambda$lambda$main$1::load$(name, initialize);
 		}
-		if (name->equals(JFrameMenuSerializationTest$$Lambda$lambda$main$2$1::classInfo$.name)) {
+		if (name->equals("JFrameMenuSerializationTest$$Lambda$lambda$main$2$1")) {
 			return JFrameMenuSerializationTest$$Lambda$lambda$main$2$1::load$(name, initialize);
 		}
-		if (name->equals(JFrameMenuSerializationTest$$Lambda$dispose$2::classInfo$.name)) {
+		if (name->equals("JFrameMenuSerializationTest$$Lambda$dispose$2")) {
 			return JFrameMenuSerializationTest$$Lambda$dispose$2::load$(name, initialize);
 		}
-		if (name->equals(JFrameMenuSerializationTest$$Lambda$lambda$main$0$3::classInfo$.name)) {
+		if (name->equals("JFrameMenuSerializationTest$$Lambda$lambda$main$0$3")) {
 			return JFrameMenuSerializationTest$$Lambda$lambda$main$0$3::load$(name, initialize);
 		}
 	}
-	$loadClass(JFrameMenuSerializationTest, name, initialize, &_JFrameMenuSerializationTest_ClassInfo_, allocate$JFrameMenuSerializationTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JFrameMenuSerializationTest, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JFrameMenuSerializationTest, init$, void)},
+		{"lambda$main$0", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JFrameMenuSerializationTest, lambda$main$0, void, $PropertyChangeEvent*)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JFrameMenuSerializationTest, lambda$main$1, void)},
+		{"lambda$main$2", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JFrameMenuSerializationTest, lambda$main$2, void, $ObjectOutputStream*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JFrameMenuSerializationTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JFrameMenuSerializationTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JFrameMenuSerializationTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFrameMenuSerializationTest);
+	});
 	return class$;
 }
 

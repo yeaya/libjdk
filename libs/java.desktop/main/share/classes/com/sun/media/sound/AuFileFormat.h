@@ -48,7 +48,7 @@ public:
 	AuFileFormat();
 	void init$(::javax::sound::sampled::AudioFileFormat$Type* type, int64_t byteLength, ::javax::sound::sampled::AudioFormat* format, int64_t frameLength);
 	int32_t getAuType();
-	static const int32_t AU_SUN_MAGIC = 0x2E736E64;
+	static const int32_t AU_SUN_MAGIC = 0x2e736e64;
 	static const int32_t AU_ULAW_8 = 1;
 	static const int32_t AU_LINEAR_8 = 2;
 	static const int32_t AU_LINEAR_16 = 3;
@@ -58,7 +58,7 @@ public:
 	static const int32_t AU_DOUBLE = 7;
 	static const int32_t AU_ALAW_8 = 27;
 	static const int32_t AU_HEADERSIZE = 24;
-	static const int64_t UNKNOWN_SIZE = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t UNKNOWN_SIZE = (int64_t)0x00000000ffffffff;
 	int32_t auType = 0;
 };
 

@@ -1,5 +1,4 @@
 #include <javax/management/timer/TimerAlarmClockNotification.h>
-
 #include <javax/management/Notification.h>
 #include <javax/management/timer/TimerAlarmClock.h>
 #include <jcpp.h>
@@ -14,29 +13,6 @@ namespace javax {
 	namespace management {
 		namespace timer {
 
-$FieldInfo _TimerAlarmClockNotification_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimerAlarmClockNotification, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _TimerAlarmClockNotification_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/timer/TimerAlarmClock;)V", nullptr, $PUBLIC, $method(TimerAlarmClockNotification, init$, void, $TimerAlarmClock*)},
-	{}
-};
-
-$ClassInfo _TimerAlarmClockNotification_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.timer.TimerAlarmClockNotification",
-	"javax.management.Notification",
-	nullptr,
-	_TimerAlarmClockNotification_FieldInfo_,
-	_TimerAlarmClockNotification_MethodInfo_
-};
-
-$Object* allocate$TimerAlarmClockNotification($Class* clazz) {
-	return $of($alloc(TimerAlarmClockNotification));
-}
-
 void TimerAlarmClockNotification::init$($TimerAlarmClock* source) {
 	$Notification::init$(""_s, source, 0);
 }
@@ -45,7 +21,25 @@ TimerAlarmClockNotification::TimerAlarmClockNotification() {
 }
 
 $Class* TimerAlarmClockNotification::load$($String* name, bool initialize) {
-	$loadClass(TimerAlarmClockNotification, name, initialize, &_TimerAlarmClockNotification_ClassInfo_, allocate$TimerAlarmClockNotification);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimerAlarmClockNotification, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/timer/TimerAlarmClock;)V", nullptr, $PUBLIC, $method(TimerAlarmClockNotification, init$, void, $TimerAlarmClock*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.timer.TimerAlarmClockNotification",
+		"javax.management.Notification",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimerAlarmClockNotification, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimerAlarmClockNotification);
+	});
 	return class$;
 }
 

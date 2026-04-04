@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WFramePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -17,7 +16,6 @@
 #include <java/awt/MenuBar.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/image/ColorModel.h>
@@ -26,13 +24,11 @@
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/AWTAccessor$FrameAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/im/InputMethodManager.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WMenuBarPeer.h>
-#include <sun/awt/windows/WObjectPeer.h>
 #include <sun/awt/windows/WPanelPeer.h>
 #include <sun/awt/windows/WToolkit.h>
 #include <sun/awt/windows/WWindowPeer.h>
@@ -60,7 +56,6 @@ using $Insets = ::java::awt::Insets;
 using $MenuBar = ::java::awt::MenuBar;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Window = ::java::awt::Window;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $ColorModel = ::java::awt::image::ColorModel;
@@ -72,13 +67,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$FrameAccessor = ::sun::awt::AWTAccessor$FrameAccessor;
 using $InputMethodManager = ::sun::awt::im::InputMethodManager;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WMenuBarPeer = ::sun::awt::windows::WMenuBarPeer;
-using $WObjectPeer = ::sun::awt::windows::WObjectPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
 using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
@@ -88,122 +80,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WFramePeer_FieldInfo_[] = {
-	{"keepOnMinimize", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WFramePeer, keepOnMinimize)},
-	{}
-};
-
-$MethodInfo _WFramePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Frame;)V", nullptr, 0, $method(WFramePeer, init$, void, $Frame*)},
-	{"adjustMaximizedBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(WFramePeer, adjustMaximizedBounds, $Rectangle*, $Rectangle*)},
-	{"clearMaximizedBounds", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, clearMaximizedBounds, void)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WFramePeer, create, void, $WComponentPeer*)},
-	{"createAwtFrame", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WFramePeer, createAwtFrame, void, $WComponentPeer*)},
-	{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, emulateActivation, void, bool)},
-	{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WFramePeer, getBoundsPrivate, $Rectangle*)},
-	{"getExtendedState", "()I", nullptr, $PUBLIC, $virtualMethod(WFramePeer, getExtendedState, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL, $virtualMethod(WFramePeer, getMinimumSize, $Dimension*)},
-	{"getState", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFramePeer, getState, int32_t)},
-	{"getSysMenuHeight", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFramePeer, getSysMenuHeight, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFramePeer, initIDs, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WFramePeer, initialize, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(WFramePeer, isTargetUndecorated, bool)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"notifyIMMOptionChange", "()V", nullptr, 0, $virtualMethod(WFramePeer, notifyIMMOptionChange, void)},
-	{"pSetIMMOption", "(Ljava/lang/String;)V", nullptr, $NATIVE, $virtualMethod(WFramePeer, pSetIMMOption, void, $String*)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setExtendedState", "(I)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, setExtendedState, void, int32_t)},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setMaximizedBounds", "(IIII)V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, setMaximizedBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(WFramePeer, setMaximizedBounds, void, $Rectangle*)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, setMenuBar, void, $MenuBar*)},
-	{"setMenuBar0", "(Lsun/awt/windows/WMenuBarPeer;)V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, setMenuBar0, void, $WMenuBarPeer*)},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"*setOpacity", "(F)V", nullptr, $PUBLIC},
-	{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
-	{"*setResizable", "(Z)V", nullptr, $PUBLIC},
-	{"setState", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFramePeer, setState, void, int32_t)},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"synthesizeWmActivate", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, synthesizeWmActivate, void, bool)},
-	{"*toBack", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*toFront", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
-	{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(WFramePeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
-	{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
-	{"*updateIconImages", "()V", nullptr, $PUBLIC},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_clearMaximizedBounds 29
-#define _METHOD_INDEX_createAwtFrame 31
-#define _METHOD_INDEX_getState 36
-#define _METHOD_INDEX_getSysMenuHeight 37
-#define _METHOD_INDEX_initIDs 38
-#define _METHOD_INDEX_pSetIMMOption 46
-#define _METHOD_INDEX_setMaximizedBounds 60
-#define _METHOD_INDEX_setMenuBar0 63
-#define _METHOD_INDEX_setState 68
-#define _METHOD_INDEX_synthesizeWmActivate 72
-
-$ClassInfo _WFramePeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WFramePeer",
-	"sun.awt.windows.WWindowPeer",
-	"java.awt.peer.FramePeer",
-	_WFramePeer_FieldInfo_,
-	_WFramePeer_MethodInfo_
-};
-
-$Object* allocate$WFramePeer($Class* clazz) {
-	return $of($alloc(WFramePeer));
-}
 
 void WFramePeer::toFront() {
 	this->$WWindowPeer::toFront();
@@ -437,41 +313,40 @@ bool WFramePeer::keepOnMinimize = false;
 
 void WFramePeer::initIDs() {
 	$init(WFramePeer);
-	$prepareNativeStatic(WFramePeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void WFramePeer::setState(int32_t state) {
-	$prepareNative(WFramePeer, setState, void, int32_t state);
+	$prepareNative(setState, void, int32_t state);
 	$invokeNative(state);
 	$finishNative();
 }
 
 int32_t WFramePeer::getState() {
-	int32_t $ret = 0;
-	$prepareNative(WFramePeer, getState, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getState, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void WFramePeer::setExtendedState(int32_t state) {
-	$nc($($AWTAccessor::getFrameAccessor()))->setExtendedState($cast($Frame, this->target), state);
+	$$nc($AWTAccessor::getFrameAccessor())->setExtendedState($cast($Frame, this->target), state);
 }
 
 int32_t WFramePeer::getExtendedState() {
-	return $nc($($AWTAccessor::getFrameAccessor()))->getExtendedState($cast($Frame, this->target));
+	return $$nc($AWTAccessor::getFrameAccessor())->getExtendedState($cast($Frame, this->target));
 }
 
 void WFramePeer::setMaximizedBounds(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$prepareNative(WFramePeer, setMaximizedBounds, void, int32_t x, int32_t y, int32_t w, int32_t h);
+	$prepareNative(setMaximizedBounds, void, int32_t x, int32_t y, int32_t w, int32_t h);
 	$invokeNative(x, y, w, h);
 	$finishNative();
 }
 
 void WFramePeer::clearMaximizedBounds() {
-	$prepareNative(WFramePeer, clearMaximizedBounds, void);
+	$prepareNative(clearMaximizedBounds, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -482,12 +357,12 @@ void WFramePeer::setMaximizedBounds($Rectangle* b$renamed) {
 		clearMaximizedBounds();
 	} else {
 		$assign(b, adjustMaximizedBounds(b));
-		setMaximizedBounds($nc(b)->x, b->y, b->width, b->height);
+		setMaximizedBounds($nc(b)->x, $nc(b)->y, $nc(b)->width, $nc(b)->height);
 	}
 }
 
 $Rectangle* WFramePeer::adjustMaximizedBounds($Rectangle* bounds$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, bounds, bounds$renamed);
 	$assign(bounds, $SunGraphicsEnvironment::toDeviceSpaceAbs(bounds));
 	$var($GraphicsConfiguration, gc, getGraphicsConfiguration());
@@ -498,9 +373,9 @@ $Rectangle* WFramePeer::adjustMaximizedBounds($Rectangle* bounds$renamed) {
 }
 
 bool WFramePeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool result = $WWindowPeer::updateGraphicsData(gc);
-	$var($Rectangle, bounds, $nc($($AWTAccessor::getFrameAccessor()))->getMaximizedBounds($cast($Frame, this->target)));
+	$var($Rectangle, bounds, $$nc($AWTAccessor::getFrameAccessor())->getMaximizedBounds($cast($Frame, this->target)));
 	if (bounds != nullptr) {
 		setMaximizedBounds(bounds);
 	}
@@ -508,11 +383,11 @@ bool WFramePeer::updateGraphicsData($GraphicsConfiguration* gc) {
 }
 
 bool WFramePeer::isTargetUndecorated() {
-	return $nc(($cast($Frame, this->target)))->isUndecorated();
+	return $nc($cast($Frame, this->target))->isUndecorated();
 }
 
 void WFramePeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
-	if ($nc(($cast($Frame, this->target)))->isUndecorated()) {
+	if ($nc($cast($Frame, this->target))->isUndecorated()) {
 		$WWindowPeer::reshape(x, y, width, height);
 	} else {
 		reshapeFrame(x, y, width, height);
@@ -520,15 +395,14 @@ void WFramePeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 $Dimension* WFramePeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, getGraphicsConfiguration());
 	$var($Dimension, d, $new($Dimension));
-	if (!$nc(($cast($Frame, this->target)))->isUndecorated()) {
-		$var($GraphicsConfiguration, var$0, gc);
-		int32_t var$1 = getSysMinWidth();
-		d->setSize($($SunGraphicsEnvironment::toUserSpace(var$0, var$1, getSysMinHeight())));
+	if (!$nc($cast($Frame, this->target))->isUndecorated()) {
+		int32_t var$0 = getSysMinWidth();
+		d->setSize($($SunGraphicsEnvironment::toUserSpace(gc, var$0, getSysMinHeight())));
 	}
-	if ($nc(($cast($Frame, this->target)))->getMenuBar() != nullptr) {
+	if ($nc($cast($Frame, this->target))->getMenuBar() != nullptr) {
 		d->height += $nc($($SunGraphicsEnvironment::toUserSpace(gc, 0, getSysMenuHeight())))->height;
 	}
 	return d;
@@ -554,13 +428,13 @@ void WFramePeer::setMenuBar($MenuBar* mb) {
 }
 
 void WFramePeer::setMenuBar0($WMenuBarPeer* mbPeer) {
-	$prepareNative(WFramePeer, setMenuBar0, void, $WMenuBarPeer* mbPeer);
+	$prepareNative(setMenuBar0, void, $WMenuBarPeer* mbPeer);
 	$invokeNative(mbPeer);
 	$finishNative();
 }
 
 void WFramePeer::init$($Frame* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WWindowPeer::init$(target);
 	$var($InputMethodManager, imm, $InputMethodManager::getInstance());
 	$var($String, menuString, $nc(imm)->getTriggerMenuString());
@@ -570,7 +444,7 @@ void WFramePeer::init$($Frame* target) {
 }
 
 void WFramePeer::createAwtFrame($WComponentPeer* parent) {
-	$prepareNative(WFramePeer, createAwtFrame, void, $WComponentPeer* parent);
+	$prepareNative(createAwtFrame, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
@@ -581,33 +455,32 @@ void WFramePeer::create($WComponentPeer* parent) {
 }
 
 void WFramePeer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WWindowPeer::initialize();
 	$var($Frame, target, $cast($Frame, this->target));
 	if ($nc(target)->getTitle() != nullptr) {
 		setTitle($(target->getTitle()));
 	}
-	setResizable($nc(target)->isResizable());
-	setState($nc(target)->getExtendedState());
+	setResizable(target->isResizable());
+	setState(target->getExtendedState());
 }
 
 int32_t WFramePeer::getSysMenuHeight() {
 	$init(WFramePeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WFramePeer, getSysMenuHeight, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getSysMenuHeight, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void WFramePeer::pSetIMMOption($String* option) {
-	$prepareNative(WFramePeer, pSetIMMOption, void, $String* option);
+	$prepareNative(pSetIMMOption, void, $String* option);
 	$invokeNative(option);
 	$finishNative();
 }
 
 void WFramePeer::notifyIMMOptionChange() {
-	$nc($($InputMethodManager::getInstance()))->notifyChangeRequest($cast($Component, this->target));
+	$$nc($InputMethodManager::getInstance())->notifyChangeRequest($cast($Component, this->target));
 }
 
 void WFramePeer::setBoundsPrivate(int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -623,25 +496,125 @@ void WFramePeer::emulateActivation(bool activate) {
 }
 
 void WFramePeer::synthesizeWmActivate(bool activate) {
-	$prepareNative(WFramePeer, synthesizeWmActivate, void, bool activate);
+	$prepareNative(synthesizeWmActivate, void, bool activate);
 	$invokeNative(activate);
 	$finishNative();
 }
 
-void clinit$WFramePeer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WFramePeer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		WFramePeer::initIDs();
 	}
-	WFramePeer::keepOnMinimize = "true"_s->equals($($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.awt.keepWorkingSetOnMinimize"_s)))));
+	WFramePeer::keepOnMinimize = "true"_s->equals($($AccessController::doPrivileged($$new($GetPropertyAction, "sun.awt.keepWorkingSetOnMinimize"_s))));
 }
 
 WFramePeer::WFramePeer() {
 }
 
 $Class* WFramePeer::load$($String* name, bool initialize) {
-	$loadClass(WFramePeer, name, initialize, &_WFramePeer_ClassInfo_, clinit$WFramePeer, allocate$WFramePeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"keepOnMinimize", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WFramePeer, keepOnMinimize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Frame;)V", nullptr, 0, $method(WFramePeer, init$, void, $Frame*)},
+		{"adjustMaximizedBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(WFramePeer, adjustMaximizedBounds, $Rectangle*, $Rectangle*)},
+		{"clearMaximizedBounds", "()V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, clearMaximizedBounds, void)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WFramePeer, create, void, $WComponentPeer*)},
+		{"createAwtFrame", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WFramePeer, createAwtFrame, void, $WComponentPeer*)},
+		{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, emulateActivation, void, bool)},
+		{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WFramePeer, getBoundsPrivate, $Rectangle*)},
+		{"getExtendedState", "()I", nullptr, $PUBLIC, $virtualMethod(WFramePeer, getExtendedState, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $FINAL, $virtualMethod(WFramePeer, getMinimumSize, $Dimension*)},
+		{"getState", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFramePeer, getState, int32_t)},
+		{"getSysMenuHeight", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFramePeer, getSysMenuHeight, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WFramePeer, initIDs, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WFramePeer, initialize, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(WFramePeer, isTargetUndecorated, bool)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"notifyIMMOptionChange", "()V", nullptr, 0, $virtualMethod(WFramePeer, notifyIMMOptionChange, void)},
+		{"pSetIMMOption", "(Ljava/lang/String;)V", nullptr, $NATIVE, $virtualMethod(WFramePeer, pSetIMMOption, void, $String*)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setExtendedState", "(I)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, setExtendedState, void, int32_t)},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setMaximizedBounds", "(IIII)V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, setMaximizedBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(WFramePeer, setMaximizedBounds, void, $Rectangle*)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(WFramePeer, setMenuBar, void, $MenuBar*)},
+		{"setMenuBar0", "(Lsun/awt/windows/WMenuBarPeer;)V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, setMenuBar0, void, $WMenuBarPeer*)},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"*setOpacity", "(F)V", nullptr, $PUBLIC},
+		{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
+		{"*setResizable", "(Z)V", nullptr, $PUBLIC},
+		{"setState", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WFramePeer, setState, void, int32_t)},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"synthesizeWmActivate", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WFramePeer, synthesizeWmActivate, void, bool)},
+		{"*toBack", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*toFront", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
+		{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(WFramePeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
+		{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
+		{"*updateIconImages", "()V", nullptr, $PUBLIC},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WFramePeer",
+		"sun.awt.windows.WWindowPeer",
+		"java.awt.peer.FramePeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WFramePeer, name, initialize, &classInfo$$, WFramePeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WFramePeer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRSurfaceData$XRInternalSurfaceData.h>
-
 #include <java/awt/Rectangle.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/xr/XRBackend.h>
@@ -18,40 +17,6 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$MethodInfo _XRSurfaceData$XRInternalSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/xr/XRBackend;I)V", nullptr, $PUBLIC, $method(XRSurfaceData$XRInternalSurfaceData, init$, void, $XRBackend*, int32_t)},
-	{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, getBounds, $Rectangle*)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, getReplacement, $SurfaceData*)},
-	{}
-};
-
-$InnerClassInfo _XRSurfaceData$XRInternalSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRInternalSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XRSurfaceData$XRInternalSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData",
-	"sun.java2d.xr.XRSurfaceData",
-	nullptr,
-	nullptr,
-	_XRSurfaceData$XRInternalSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XRSurfaceData$XRInternalSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.xr.XRSurfaceData"
-};
-
-$Object* allocate$XRSurfaceData$XRInternalSurfaceData($Class* clazz) {
-	return $of($alloc(XRSurfaceData$XRInternalSurfaceData));
-}
-
 void XRSurfaceData$XRInternalSurfaceData::init$($XRBackend* renderQueue, int32_t pictXid) {
 	$XRSurfaceData::init$(renderQueue);
 	this->picture = pictXid;
@@ -67,7 +32,7 @@ $Rectangle* XRSurfaceData$XRInternalSurfaceData::getBounds() {
 }
 
 $Object* XRSurfaceData$XRInternalSurfaceData::getDestination() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $SurfaceData* XRSurfaceData$XRInternalSurfaceData::getReplacement() {
@@ -78,7 +43,36 @@ XRSurfaceData$XRInternalSurfaceData::XRSurfaceData$XRInternalSurfaceData() {
 }
 
 $Class* XRSurfaceData$XRInternalSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(XRSurfaceData$XRInternalSurfaceData, name, initialize, &_XRSurfaceData$XRInternalSurfaceData_ClassInfo_, allocate$XRSurfaceData$XRInternalSurfaceData);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/xr/XRBackend;I)V", nullptr, $PUBLIC, $method(XRSurfaceData$XRInternalSurfaceData, init$, void, $XRBackend*, int32_t)},
+		{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, getBounds, $Rectangle*)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData$XRInternalSurfaceData, getReplacement, $SurfaceData*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRInternalSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData",
+		"sun.java2d.xr.XRSurfaceData",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.xr.XRSurfaceData"
+	};
+	$loadClass(XRSurfaceData$XRInternalSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XRSurfaceData$XRInternalSurfaceData));
+	});
 	return class$;
 }
 

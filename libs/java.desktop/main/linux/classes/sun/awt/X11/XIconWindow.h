@@ -42,6 +42,7 @@ class XIconWindow : public ::sun::awt::X11::XBaseWindow {
 	$class(XIconWindow, 0, ::sun::awt::X11::XBaseWindow)
 public:
 	XIconWindow();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XDecoratedPeer* parent);
 	::java::awt::Dimension* calcIconSize(int32_t widthHint, int32_t heightHint);
 	virtual ::java::awt::Dimension* getIconSize(int32_t widthHint, int32_t heightHint);

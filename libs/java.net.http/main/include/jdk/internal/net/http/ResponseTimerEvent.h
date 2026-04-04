@@ -41,6 +41,7 @@ class $import ResponseTimerEvent : public ::jdk::internal::net::http::TimeoutEve
 public:
 	ResponseTimerEvent();
 	using ::jdk::internal::net::http::TimeoutEvent::compareTo;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::MultiExchange* multiExchange);
 	virtual int32_t compareTo(::jdk::internal::net::http::TimeoutEvent* other) override;
 	virtual ::java::time::Instant* deadline() override;

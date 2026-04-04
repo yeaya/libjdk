@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/InitSecContextToken.h>
-
 #include <java/io/InputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/net/InetAddress.h>
@@ -38,7 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
-using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $InitialToken = ::sun::security::jgss::krb5::InitialToken;
@@ -62,37 +60,10 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _InitSecContextToken_FieldInfo_[] = {
-	{"ACCEPTOR_USE_INITIATOR_SEQNUM", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InitSecContextToken, ACCEPTOR_USE_INITIATOR_SEQNUM)},
-	{"apReq", "Lsun/security/krb5/KrbApReq;", nullptr, $PRIVATE, $field(InitSecContextToken, apReq)},
-	{}
-};
-
-$MethodInfo _InitSecContextToken_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, 0, $method(InitSecContextToken, init$, void, $Krb5Context*, $Credentials*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/jgss/krb5/Krb5AcceptCredential;Ljava/io/InputStream;)V", nullptr, 0, $method(InitSecContextToken, init$, void, $Krb5Context*, $Krb5AcceptCredential*, $InputStream*), "java.io.IOException,org.ietf.jgss.GSSException,sun.security.krb5.KrbException"},
-	{"encode", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(InitSecContextToken, encode, $bytes*), "java.io.IOException"},
-	{"getKrbApReq", "()Lsun/security/krb5/KrbApReq;", nullptr, $PUBLIC | $FINAL, $method(InitSecContextToken, getKrbApReq, $KrbApReq*)},
-	{}
-};
-
-$ClassInfo _InitSecContextToken_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.InitSecContextToken",
-	"sun.security.jgss.krb5.InitialToken",
-	nullptr,
-	_InitSecContextToken_FieldInfo_,
-	_InitSecContextToken_MethodInfo_
-};
-
-$Object* allocate$InitSecContextToken($Class* clazz) {
-	return $of($alloc(InitSecContextToken));
-}
-
 bool InitSecContextToken::ACCEPTOR_USE_INITIATOR_SEQNUM = false;
 
 void InitSecContextToken::init$($Krb5Context* context, $Credentials* tgt, $Credentials* serviceTicket) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InitialToken::init$();
 	$set(this, apReq, nullptr);
 	bool mutualRequired = $nc(context)->getMutualAuthState();
@@ -101,25 +72,25 @@ void InitSecContextToken::init$($Krb5Context* context, $Credentials* tgt, $Crede
 	$var($InitialToken$OverloadedChecksum, gssChecksum, $new($InitialToken$OverloadedChecksum, this, context, tgt, serviceTicket));
 	$var($Checksum, checksum, gssChecksum->getChecksum());
 	context->setTktFlags($($nc(serviceTicket)->getFlags()));
-	context->setAuthTime($($$new($KerberosTime, $($nc(serviceTicket)->getAuthTime()))->toString()));
+	context->setAuthTime($($$new($KerberosTime, $(serviceTicket->getAuthTime()))->toString()));
 	$set(this, apReq, $new($KrbApReq, serviceTicket, mutualRequired, useSubkey, useSequenceNumber, checksum));
-	context->resetMySequenceNumber($nc($($nc(this->apReq)->getSeqNumber()))->intValue());
+	context->resetMySequenceNumber($$nc(this->apReq->getSeqNumber())->intValue());
 	$var($EncryptionKey, subKey, $nc(this->apReq)->getSubKey());
 	if (subKey != nullptr) {
 		context->setKey($Krb5Context::INITIATOR_SUBKEY, subKey);
 	} else {
-		context->setKey($Krb5Context::SESSION_KEY, $($nc(serviceTicket)->getSessionKey()));
+		context->setKey($Krb5Context::SESSION_KEY, $(serviceTicket->getSessionKey()));
 	}
 	if (!mutualRequired) {
-		context->resetPeerSequenceNumber(InitSecContextToken::ACCEPTOR_USE_INITIATOR_SEQNUM ? $nc($($nc(this->apReq)->getSeqNumber()))->intValue() : 0);
+		context->resetPeerSequenceNumber(InitSecContextToken::ACCEPTOR_USE_INITIATOR_SEQNUM ? $$nc($nc(this->apReq)->getSeqNumber())->intValue() : 0);
 	}
 }
 
 void InitSecContextToken::init$($Krb5Context* context, $Krb5AcceptCredential* cred, $InputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InitialToken::init$();
 	$set(this, apReq, nullptr);
-	int32_t var$0 = ($nc(is)->read() << 8);
+	int32_t var$0 = $nc(is)->read() << 8;
 	int32_t tokenId = (var$0 | is->read());
 	if (tokenId != $Krb5Token::AP_REQ_ID) {
 		$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "AP_REQ token id does not match!"_s);
@@ -127,32 +98,32 @@ void InitSecContextToken::init$($Krb5Context* context, $Krb5AcceptCredential* cr
 	$var($bytes, apReqBytes, $$new($DerValue, is)->toByteArray());
 	$var($InetAddress, addr, nullptr);
 	if ($nc(context)->getChannelBinding() != nullptr) {
-		$assign(addr, $nc($(context->getChannelBinding()))->getInitiatorAddress());
+		$assign(addr, $$nc(context->getChannelBinding())->getInitiatorAddress());
 	}
 	$set(this, apReq, $new($KrbApReq, apReqBytes, cred, addr));
-	$var($EncryptionKey, sessionKey, $nc($($nc(this->apReq)->getCreds()))->getSessionKey());
+	$var($EncryptionKey, sessionKey, $$nc(this->apReq->getCreds())->getSessionKey());
 	$var($EncryptionKey, subKey, $nc(this->apReq)->getSubKey());
 	if (subKey != nullptr) {
-		$nc(context)->setKey($Krb5Context::INITIATOR_SUBKEY, subKey);
+		context->setKey($Krb5Context::INITIATOR_SUBKEY, subKey);
 	} else {
-		$nc(context)->setKey($Krb5Context::SESSION_KEY, sessionKey);
+		context->setKey($Krb5Context::SESSION_KEY, sessionKey);
 	}
 	$var($InitialToken$OverloadedChecksum, gssChecksum, $new($InitialToken$OverloadedChecksum, this, context, $($nc(this->apReq)->getChecksum()), sessionKey, subKey));
 	gssChecksum->setContextFlags(context);
 	$var($Credentials, delegCred, gssChecksum->getDelegatedCreds());
 	if (delegCred != nullptr) {
-		$var($Krb5CredElement, credElement, $Krb5InitCredential::getInstance($cast($Krb5NameElement, $($nc(context)->getSrcName())), delegCred));
-		$nc(context)->setDelegCred(credElement);
+		$var($Krb5CredElement, credElement, $Krb5InitCredential::getInstance($$cast($Krb5NameElement, context->getSrcName()), delegCred));
+		context->setDelegCred(credElement);
 	}
 	$var($Integer, apReqSeqNumber, $nc(this->apReq)->getSeqNumber());
-	int32_t peerSeqNumber = (apReqSeqNumber != nullptr ? $nc(apReqSeqNumber)->intValue() : 0);
-	$nc(context)->resetPeerSequenceNumber(peerSeqNumber);
+	int32_t peerSeqNumber = (apReqSeqNumber != nullptr ? apReqSeqNumber->intValue() : 0);
+	context->resetPeerSequenceNumber(peerSeqNumber);
 	if (!context->getMutualAuthState()) {
 		context->resetMySequenceNumber(InitSecContextToken::ACCEPTOR_USE_INITIATOR_SEQNUM ? peerSeqNumber : 0);
 	}
-	context->setAuthTime($($$new($KerberosTime, $($nc($($nc(this->apReq)->getCreds()))->getAuthTime()))->toString()));
-	context->setTktFlags($($nc($($nc(this->apReq)->getCreds()))->getFlags()));
-	$var($AuthorizationData, ad, $nc($($nc(this->apReq)->getCreds()))->getAuthzData());
+	context->setAuthTime($($$new($KerberosTime, $($$nc($nc(this->apReq)->getCreds())->getAuthTime()))->toString()));
+	context->setTktFlags($($$nc($nc(this->apReq)->getCreds())->getFlags()));
+	$var($AuthorizationData, ad, $$nc($nc(this->apReq)->getCreds())->getAuthzData());
 	context->setAuthzData(ad);
 }
 
@@ -161,7 +132,7 @@ $KrbApReq* InitSecContextToken::getKrbApReq() {
 }
 
 $bytes* InitSecContextToken::encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, apReqBytes, $nc(this->apReq)->getMessage());
 	$var($bytes, retVal, $new($bytes, 2 + $nc(apReqBytes)->length));
 	writeInt($Krb5Token::AP_REQ_ID, retVal, 0);
@@ -169,19 +140,19 @@ $bytes* InitSecContextToken::encode() {
 	return retVal;
 }
 
-void clinit$InitSecContextToken($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void InitSecContextToken::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($String, propName, "sun.security.krb5.acceptor.sequence.number.nonmutual"_s);
 		$var($String, s, $GetPropertyAction::privilegedGetProperty(propName, "initiator"_s));
 		if ($nc(s)->equals("initiator"_s)) {
 			InitSecContextToken::ACCEPTOR_USE_INITIATOR_SEQNUM = true;
 		} else {
-			bool var$1 = s->equals("zero"_s);
-			if (var$1 || s->equals("0"_s)) {
+			bool var$0 = s->equals("zero"_s);
+			if (var$0 || s->equals("0"_s)) {
 				InitSecContextToken::ACCEPTOR_USE_INITIATOR_SEQNUM = false;
 			} else {
-				$throwNew($AssertionError, $of($$str({"Unrecognized value for "_s, propName, ": "_s, s})));
+				$throwNew($AssertionError, $$of($str({"Unrecognized value for "_s, propName, ": "_s, s})));
 			}
 		}
 	}
@@ -191,7 +162,29 @@ InitSecContextToken::InitSecContextToken() {
 }
 
 $Class* InitSecContextToken::load$($String* name, bool initialize) {
-	$loadClass(InitSecContextToken, name, initialize, &_InitSecContextToken_ClassInfo_, clinit$InitSecContextToken, allocate$InitSecContextToken);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACCEPTOR_USE_INITIATOR_SEQNUM", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InitSecContextToken, ACCEPTOR_USE_INITIATOR_SEQNUM)},
+		{"apReq", "Lsun/security/krb5/KrbApReq;", nullptr, $PRIVATE, $field(InitSecContextToken, apReq)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, 0, $method(InitSecContextToken, init$, void, $Krb5Context*, $Credentials*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/jgss/krb5/Krb5AcceptCredential;Ljava/io/InputStream;)V", nullptr, 0, $method(InitSecContextToken, init$, void, $Krb5Context*, $Krb5AcceptCredential*, $InputStream*), "java.io.IOException,org.ietf.jgss.GSSException,sun.security.krb5.KrbException"},
+		{"encode", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(InitSecContextToken, encode, $bytes*), "java.io.IOException"},
+		{"getKrbApReq", "()Lsun/security/krb5/KrbApReq;", nullptr, $PUBLIC | $FINAL, $method(InitSecContextToken, getKrbApReq, $KrbApReq*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.InitSecContextToken",
+		"sun.security.jgss.krb5.InitialToken",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InitSecContextToken, name, initialize, &classInfo$$, InitSecContextToken::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InitSecContextToken);
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class $export StreamResult : public ::javax::xml::transform::Result {
 	$class(StreamResult, 0, ::javax::xml::transform::Result)
 public:
 	StreamResult();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::io::OutputStream* outputStream);
 	void init$(::java::io::Writer* writer);

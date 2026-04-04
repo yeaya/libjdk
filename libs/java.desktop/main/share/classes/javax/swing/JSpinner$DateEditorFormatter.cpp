@@ -1,5 +1,4 @@
 #include <javax/swing/JSpinner$DateEditorFormatter.h>
-
 #include <java/lang/Comparable.h>
 #include <java/text/DateFormat.h>
 #include <javax/swing/JSpinner.h>
@@ -18,45 +17,6 @@ using $DateFormatter = ::javax::swing::text::DateFormatter;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JSpinner$DateEditorFormatter_FieldInfo_[] = {
-	{"model", "Ljavax/swing/SpinnerDateModel;", nullptr, $PRIVATE | $FINAL, $field(JSpinner$DateEditorFormatter, model)},
-	{}
-};
-
-$MethodInfo _JSpinner$DateEditorFormatter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/SpinnerDateModel;Ljava/text/DateFormat;)V", nullptr, 0, $method(JSpinner$DateEditorFormatter, init$, void, $SpinnerDateModel*, $DateFormat*)},
-	{"getMaximum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, getMaximum, $Comparable*)},
-	{"getMinimum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, getMinimum, $Comparable*)},
-	{"setMaximum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, setMaximum, void, $Comparable*)},
-	{"setMinimum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, setMinimum, void, $Comparable*)},
-	{}
-};
-
-$InnerClassInfo _JSpinner$DateEditorFormatter_InnerClassesInfo_[] = {
-	{"javax.swing.JSpinner$DateEditorFormatter", "javax.swing.JSpinner", "DateEditorFormatter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JSpinner$DateEditorFormatter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JSpinner$DateEditorFormatter",
-	"javax.swing.text.DateFormatter",
-	nullptr,
-	_JSpinner$DateEditorFormatter_FieldInfo_,
-	_JSpinner$DateEditorFormatter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSpinner$DateEditorFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JSpinner"
-};
-
-$Object* allocate$JSpinner$DateEditorFormatter($Class* clazz) {
-	return $of($alloc(JSpinner$DateEditorFormatter));
-}
 
 void JSpinner$DateEditorFormatter::init$($SpinnerDateModel* model, $DateFormat* format) {
 	$DateFormatter::init$(format);
@@ -83,7 +43,40 @@ JSpinner$DateEditorFormatter::JSpinner$DateEditorFormatter() {
 }
 
 $Class* JSpinner$DateEditorFormatter::load$($String* name, bool initialize) {
-	$loadClass(JSpinner$DateEditorFormatter, name, initialize, &_JSpinner$DateEditorFormatter_ClassInfo_, allocate$JSpinner$DateEditorFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"model", "Ljavax/swing/SpinnerDateModel;", nullptr, $PRIVATE | $FINAL, $field(JSpinner$DateEditorFormatter, model)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/SpinnerDateModel;Ljava/text/DateFormat;)V", nullptr, 0, $method(JSpinner$DateEditorFormatter, init$, void, $SpinnerDateModel*, $DateFormat*)},
+		{"getMaximum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, getMaximum, $Comparable*)},
+		{"getMinimum", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, getMinimum, $Comparable*)},
+		{"setMaximum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, setMaximum, void, $Comparable*)},
+		{"setMinimum", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<*>;)V", $PUBLIC, $virtualMethod(JSpinner$DateEditorFormatter, setMinimum, void, $Comparable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSpinner$DateEditorFormatter", "javax.swing.JSpinner", "DateEditorFormatter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JSpinner$DateEditorFormatter",
+		"javax.swing.text.DateFormatter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JSpinner"
+	};
+	$loadClass(JSpinner$DateEditorFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSpinner$DateEditorFormatter));
+	});
 	return class$;
 }
 

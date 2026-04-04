@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaMenuBarBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -20,32 +19,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaMenuBarBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBarBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarBorder, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AquaMenuBarBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaMenuBarBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	nullptr,
-	_AquaMenuBarBorder_MethodInfo_
-};
-
-$Object* allocate$AquaMenuBarBorder($Class* clazz) {
-	return $of($alloc(AquaMenuBarBorder));
-}
 
 int32_t AquaMenuBarBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -88,7 +61,29 @@ AquaMenuBarBorder::AquaMenuBarBorder() {
 }
 
 $Class* AquaMenuBarBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaMenuBarBorder, name, initialize, &_AquaMenuBarBorder_ClassInfo_, allocate$AquaMenuBarBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBarBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarBorder, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaMenuBarBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaMenuBarBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaMenuBarBorder));
+	});
 	return class$;
 }
 

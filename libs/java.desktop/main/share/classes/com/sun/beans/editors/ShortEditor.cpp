@@ -1,5 +1,4 @@
 #include <com/sun/beans/editors/ShortEditor.h>
-
 #include <com/sun/beans/editors/NumberEditor.h>
 #include <java/beans/PropertyEditorSupport.h>
 #include <jcpp.h>
@@ -13,26 +12,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace editors {
-
-$MethodInfo _ShortEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortEditor, init$, void)},
-	{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortEditor, getJavaInitializationString, $String*)},
-	{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
-	{}
-};
-
-$ClassInfo _ShortEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.editors.ShortEditor",
-	"com.sun.beans.editors.NumberEditor",
-	nullptr,
-	nullptr,
-	_ShortEditor_MethodInfo_
-};
-
-$Object* allocate$ShortEditor($Class* clazz) {
-	return $of($alloc(ShortEditor));
-}
 
 void ShortEditor::init$() {
 	$NumberEditor::init$();
@@ -51,7 +30,23 @@ ShortEditor::ShortEditor() {
 }
 
 $Class* ShortEditor::load$($String* name, bool initialize) {
-	$loadClass(ShortEditor, name, initialize, &_ShortEditor_ClassInfo_, allocate$ShortEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShortEditor, init$, void)},
+		{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShortEditor, getJavaInitializationString, $String*)},
+		{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ShortEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.editors.ShortEditor",
+		"com.sun.beans.editors.NumberEditor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ShortEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortEditor);
+	});
 	return class$;
 }
 

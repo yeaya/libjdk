@@ -1,5 +1,4 @@
 #include <TestAbstractRegionPainter.h>
-
 #include <TestAbstractRegionPainter$UserAbstractRegionPainter.h>
 #include <TestAbstractRegionPainter$UserJComponent.h>
 #include <java/awt/Color.h>
@@ -39,82 +38,46 @@ public:
 	virtual void run() override {
 		TestAbstractRegionPainter::testAbstractRegionPainter();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter, run, void)},
-	{}
-};
-$ClassInfo TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter::load$($String* name, bool initialize) {
-	$loadClass(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter);
+	});
 	return class$;
 }
 $Class* TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter::class$ = nullptr;
-
-$MethodInfo _TestAbstractRegionPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAbstractRegionPainter, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestAbstractRegionPainter, main, void, $StringArray*), "java.lang.Exception"},
-	{"testAbstractRegionPainter", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestAbstractRegionPainter, testAbstractRegionPainter, void)},
-	{}
-};
-
-$InnerClassInfo _TestAbstractRegionPainter_InnerClassesInfo_[] = {
-	{"TestAbstractRegionPainter$UserAbstractRegionPainter", "TestAbstractRegionPainter", "UserAbstractRegionPainter", $PUBLIC | $STATIC},
-	{"TestAbstractRegionPainter$UserJComponent", "TestAbstractRegionPainter", "UserJComponent", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestAbstractRegionPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestAbstractRegionPainter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestAbstractRegionPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestAbstractRegionPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestAbstractRegionPainter$UserAbstractRegionPainter,TestAbstractRegionPainter$UserJComponent"
-};
-
-$Object* allocate$TestAbstractRegionPainter($Class* clazz) {
-	return $of($alloc(TestAbstractRegionPainter));
-}
 
 void TestAbstractRegionPainter::init$() {
 }
 
 void TestAbstractRegionPainter::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestAbstractRegionPainter);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter)));
+	$SwingUtilities::invokeAndWait($$new(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter));
 	$System::setSecurityManager($$new($SecurityManager));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter)));
+	$SwingUtilities::invokeAndWait($$new(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter));
 }
 
 void TestAbstractRegionPainter::testAbstractRegionPainter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TestAbstractRegionPainter$UserAbstractRegionPainter, painter, $new($TestAbstractRegionPainter$UserAbstractRegionPainter));
 	$var($JComponent, userComponent, $new($TestAbstractRegionPainter$UserJComponent));
 	$init($Color);
-	$var($Color, color, painter->getUserComponentColor(userComponent, "UserColor"_s, $Color::yellow, (float)0, (float)0, 0));
-	$init($TestAbstractRegionPainter$UserJComponent);
+	$var($Color, color, painter->getUserComponentColor(userComponent, "UserColor"_s, $Color::yellow, 0, 0, 0));
 	if (!$nc($TestAbstractRegionPainter$UserJComponent::USER_COLOR)->equals(color)) {
 		$throwNew($RuntimeException, $$str({"Wrong color: "_s, color}));
 	}
@@ -125,11 +88,38 @@ TestAbstractRegionPainter::TestAbstractRegionPainter() {
 
 $Class* TestAbstractRegionPainter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter::classInfo$.name)) {
+		if (name->equals("TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter")) {
 			return TestAbstractRegionPainter$$Lambda$testAbstractRegionPainter::load$(name, initialize);
 		}
 	}
-	$loadClass(TestAbstractRegionPainter, name, initialize, &_TestAbstractRegionPainter_ClassInfo_, allocate$TestAbstractRegionPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestAbstractRegionPainter, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestAbstractRegionPainter, main, void, $StringArray*), "java.lang.Exception"},
+		{"testAbstractRegionPainter", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestAbstractRegionPainter, testAbstractRegionPainter, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestAbstractRegionPainter$UserAbstractRegionPainter", "TestAbstractRegionPainter", "UserAbstractRegionPainter", $PUBLIC | $STATIC},
+		{"TestAbstractRegionPainter$UserJComponent", "TestAbstractRegionPainter", "UserJComponent", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestAbstractRegionPainter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestAbstractRegionPainter$UserAbstractRegionPainter,TestAbstractRegionPainter$UserJComponent"
+	};
+	$loadClass(TestAbstractRegionPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestAbstractRegionPainter);
+	});
 	return class$;
 }
 

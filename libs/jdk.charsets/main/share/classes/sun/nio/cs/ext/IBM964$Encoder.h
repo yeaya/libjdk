@@ -25,6 +25,7 @@ public:
 	IBM964$Encoder();
 	using ::sun::nio::cs::ext::SimpleEUCEncoder::canEncode;
 	using ::sun::nio::cs::ext::SimpleEUCEncoder::encode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	static $shorts* index1;
 	static $String* index2;

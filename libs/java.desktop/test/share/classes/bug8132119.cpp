@@ -1,5 +1,4 @@
 #include <bug8132119.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -24,7 +23,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/HashMap.h>
-#include <java/util/Map.h>
 #include <javax/imageio/ImageIO.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
@@ -62,9 +60,7 @@ using $TextAttribute = ::java::awt::font::TextAttribute;
 using $TextLayout = ::java::awt::font::TextLayout;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -75,11 +71,9 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $ImageIO = ::javax::imageio::ImageIO;
 using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
@@ -93,78 +87,27 @@ public:
 	virtual void run() override {
 		bug8132119::testStringMethods();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8132119$$Lambda$testStringMethods>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8132119$$Lambda$testStringMethods::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8132119$$Lambda$testStringMethods, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8132119$$Lambda$testStringMethods, run, void)},
-	{}
-};
-$ClassInfo bug8132119$$Lambda$testStringMethods::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8132119$$Lambda$testStringMethods",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8132119$$Lambda$testStringMethods::load$($String* name, bool initialize) {
-	$loadClass(bug8132119$$Lambda$testStringMethods, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8132119$$Lambda$testStringMethods, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8132119$$Lambda$testStringMethods, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8132119$$Lambda$testStringMethods",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8132119$$Lambda$testStringMethods, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8132119$$Lambda$testStringMethods);
+	});
 	return class$;
 }
 $Class* bug8132119$$Lambda$testStringMethods::class$ = nullptr;
-
-$FieldInfo _bug8132119_FieldInfo_[] = {
-	{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug8132119, WIDTH)},
-	{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug8132119, HEIGHT)},
-	{"DRAW_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8132119, DRAW_COLOR)},
-	{"BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8132119, BACKGROUND_COLOR)},
-	{"NUMERIC_SHAPER", "Ljava/awt/font/NumericShaper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8132119, NUMERIC_SHAPER)},
-	{}
-};
-
-$MethodInfo _bug8132119_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8132119, init$, void)},
-	{"checkClippedString", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkClippedString, void, $String*, $String*, $String*)},
-	{"checkImageContainsSymbol", "(Ljava/awt/image/BufferedImage;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkImageContainsSymbol, void, $BufferedImage*, int32_t, int32_t)},
-	{"checkImageIsEmpty", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkImageIsEmpty, void, $BufferedImage*)},
-	{"checkNullArguments", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArguments, void)},
-	{"checkNullArguments", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArguments, void, $JComponent*, $Graphics2D*, $String*)},
-	{"checkNullArgumentsDrawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsDrawString, void, $JComponent*, $Graphics2D*, $String*)},
-	{"checkNullArgumentsDrawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsDrawStringUnderlineCharAt, void, $JComponent*, $Graphics2D*, $String*)},
-	{"checkNullArgumentsGetClippedString", "(Ljavax/swing/JComponent;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsGetClippedString, void, $JComponent*, $String*)},
-	{"checkNullArgumentsGetStringWidth", "(Ljavax/swing/JComponent;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsGetStringWidth, void, $JComponent*, $String*)},
-	{"createBufferedImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, createBufferedImage, $BufferedImage*, int32_t, int32_t)},
-	{"createComponent", "(Ljava/lang/String;)Ljavax/swing/JComponent;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, createComponent, $JComponent*, $String*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, getFont, $Font*)},
-	{"getFontName", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, getFontName, $String*, $String*, $StringArray*)},
-	{"getLayoutWidth", "(Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/NumericShaper;)F", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, getLayoutWidth, float, $String*, $Font*, $NumericShaper*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8132119, main, void, $StringArray*), "java.lang.Exception"},
-	{"setMetalLAF", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, setMetalLAF, void)},
-	{"testDrawEmptyString", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testDrawEmptyString, void)},
-	{"testDrawString", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testDrawString, void, bool)},
-	{"testStringClip", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testStringClip, void)},
-	{"testStringMethods", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testStringMethods, void)},
-	{"testStringWidth", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testStringWidth, void)},
-	{}
-};
-
-$ClassInfo _bug8132119_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8132119",
-	"java.lang.Object",
-	nullptr,
-	_bug8132119_FieldInfo_,
-	_bug8132119_MethodInfo_
-};
-
-$Object* allocate$bug8132119($Class* clazz) {
-	return $of($alloc(bug8132119));
-}
 
 $Color* bug8132119::DRAW_COLOR = nullptr;
 $Color* bug8132119::BACKGROUND_COLOR = nullptr;
@@ -175,7 +118,7 @@ void bug8132119::init$() {
 
 void bug8132119::main($StringArray* args) {
 	$init(bug8132119);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8132119$$Lambda$testStringMethods)));
+	$SwingUtilities::invokeAndWait($$new(bug8132119$$Lambda$testStringMethods));
 }
 
 void bug8132119::testStringMethods() {
@@ -191,7 +134,7 @@ void bug8132119::testStringMethods() {
 
 void bug8132119::testStringWidth() {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, u"12345678910ͯ"_s);
 	$var($JComponent, comp, createComponent(str));
 	$var($Font, font, $nc(comp)->getFont());
@@ -207,10 +150,10 @@ void bug8132119::testStringWidth() {
 
 void bug8132119::testStringClip() {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, "1234567890"_s);
 	$var($JComponent, comp, createComponent(str));
-	$var($FontMetrics, fontMetrics, $nc(comp)->getFontMetrics($(comp->getFont())));
+	$var($FontMetrics, fontMetrics, $nc(comp)->getFontMetrics($($nc(comp)->getFont())));
 	int32_t width = $cast(int32_t, $BasicGraphicsUtils::getStringWidth(comp, fontMetrics, str));
 	$var($String, clip, $BasicGraphicsUtils::getClippedString(comp, fontMetrics, str, width));
 	checkClippedString(str, clip, str);
@@ -227,38 +170,38 @@ void bug8132119::testStringClip() {
 
 void bug8132119::checkClippedString($String* str, $String* res, $String* golden) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(golden)->equals(res)) {
 		$throwNew($RuntimeException, $($String::format("The string \'%s\' is not properly clipped. The result is \'%s\' instead of \'%s\'"_s, $$new($ObjectArray, {
-			$of(str),
-			$of(res),
-			$of(golden)
+			str,
+			res,
+			golden
 		}))));
 	}
 }
 
 void bug8132119::testDrawEmptyString() {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $new($JLabel));
 	$var($BufferedImage, buffImage, createBufferedImage(50, 50));
 	$var($Graphics2D, g2, $nc(buffImage)->createGraphics());
 	$nc(g2)->setColor(bug8132119::DRAW_COLOR);
-	$BasicGraphicsUtils::drawString(($JComponent*)nullptr, g2, ($String*)nullptr, (float)0, (float)0);
-	$BasicGraphicsUtils::drawString(static_cast<$JComponent*>(label), g2, ($String*)nullptr, (float)0, (float)0);
-	$BasicGraphicsUtils::drawString(($JComponent*)nullptr, g2, ""_s, (float)0, (float)0);
-	$BasicGraphicsUtils::drawString(static_cast<$JComponent*>(label), g2, ""_s, (float)0, (float)0);
-	$BasicGraphicsUtils::drawStringUnderlineCharAt(nullptr, g2, nullptr, 3, (float)0, (float)0);
-	$BasicGraphicsUtils::drawStringUnderlineCharAt(label, g2, nullptr, 3, (float)0, (float)0);
-	$BasicGraphicsUtils::drawStringUnderlineCharAt(nullptr, g2, ""_s, 3, (float)0, (float)0);
-	$BasicGraphicsUtils::drawStringUnderlineCharAt(label, g2, ""_s, 3, (float)0, (float)0);
+	$BasicGraphicsUtils::drawString(nullptr, g2, nullptr, 0, 0);
+	$BasicGraphicsUtils::drawString(label, g2, nullptr, 0, 0);
+	$BasicGraphicsUtils::drawString(nullptr, g2, ""_s, 0, 0);
+	$BasicGraphicsUtils::drawString(label, g2, ""_s, 0, 0);
+	$BasicGraphicsUtils::drawStringUnderlineCharAt(nullptr, g2, nullptr, 3, 0, 0);
+	$BasicGraphicsUtils::drawStringUnderlineCharAt(label, g2, nullptr, 3, 0, 0);
+	$BasicGraphicsUtils::drawStringUnderlineCharAt(nullptr, g2, ""_s, 3, 0, 0);
+	$BasicGraphicsUtils::drawStringUnderlineCharAt(label, g2, ""_s, 3, 0, 0);
 	g2->dispose();
 	checkImageIsEmpty(buffImage);
 }
 
 void bug8132119::testDrawString(bool underlined) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, "AOB"_s);
 	$var($JComponent, comp, createComponent(str));
 	$var($BufferedImage, buffImage, createBufferedImage(bug8132119::WIDTH, bug8132119::HEIGHT));
@@ -267,16 +210,16 @@ void bug8132119::testDrawString(bool underlined) {
 	g2->setFont($($nc(comp)->getFont()));
 	$init($RenderingHints);
 	g2->setRenderingHint($RenderingHints::KEY_TEXT_ANTIALIASING, $RenderingHints::VALUE_TEXT_ANTIALIAS_OFF);
-	$var($FontMetrics, fontMetrices, $nc(comp)->getFontMetrics($(comp->getFont())));
+	$var($FontMetrics, fontMetrices, comp->getFontMetrics($(comp->getFont())));
 	float width = $BasicGraphicsUtils::getStringWidth(comp, fontMetrices, str);
 	int32_t y = 3 * bug8132119::HEIGHT / 4;
 	if (underlined) {
-		$BasicGraphicsUtils::drawStringUnderlineCharAt(comp, g2, str, 1, (float)0, (float)y);
+		$BasicGraphicsUtils::drawStringUnderlineCharAt(comp, g2, str, 1, 0, (float)y);
 	} else {
-		$BasicGraphicsUtils::drawString(comp, g2, str, (float)0, (float)y);
+		$BasicGraphicsUtils::drawString(comp, g2, str, 0, (float)y);
 	}
 	g2->dispose();
-	float xx = (float)0;
+	float xx = 0;
 	if (underlined) {
 		float var$0 = $BasicGraphicsUtils::getStringWidth(comp, fontMetrices, "A"_s);
 		xx = var$0 + $BasicGraphicsUtils::getStringWidth(comp, fontMetrices, "O"_s) / 2 - 5;
@@ -289,24 +232,22 @@ void bug8132119::testDrawString(bool underlined) {
 
 void bug8132119::checkNullArguments() {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics2D, g, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($String, text, "Test"_s);
-			$var($JComponent, component, $new($JLabel, text));
-			$var($BufferedImage, img, createBufferedImage(100, 100));
-			$assign(g, $nc(img)->createGraphics());
-			checkNullArguments(component, g, text);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($String, text, "Test"_s);
+		$var($JComponent, component, $new($JLabel, text));
+		$var($BufferedImage, img, createBufferedImage(100, 100));
+		$assign(g, $nc(img)->createGraphics());
+		checkNullArguments(component, g, text);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -320,12 +261,12 @@ void bug8132119::checkNullArguments($JComponent* comp, $Graphics2D* g, $String* 
 
 void bug8132119::checkNullArgumentsDrawString($JComponent* comp, $Graphics2D* g, $String* text) {
 	$init(bug8132119);
-	float x = (float)50;
-	float y = (float)50;
-	$BasicGraphicsUtils::drawString(($JComponent*)nullptr, g, text, x, y);
-	$BasicGraphicsUtils::drawString(comp, g, ($String*)nullptr, x, y);
+	float x = 50;
+	float y = 50;
+	$BasicGraphicsUtils::drawString(nullptr, g, text, x, y);
+	$BasicGraphicsUtils::drawString(comp, g, nullptr, x, y);
 	try {
-		$BasicGraphicsUtils::drawString(comp, ($Graphics2D*)nullptr, text, x, y);
+		$BasicGraphicsUtils::drawString(comp, nullptr, text, x, y);
 	} catch ($NullPointerException& e) {
 		return;
 	}
@@ -348,8 +289,8 @@ void bug8132119::checkNullArgumentsDrawStringUnderlineCharAt($JComponent* comp, 
 
 void bug8132119::checkNullArgumentsGetClippedString($JComponent* comp, $String* text) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, fontMetrics, $nc(comp)->getFontMetrics($(comp->getFont())));
+	$useLocalObjectStack();
+	$var($FontMetrics, fontMetrics, $nc(comp)->getFontMetrics($($nc(comp)->getFont())));
 	$BasicGraphicsUtils::getClippedString(nullptr, fontMetrics, text, 1);
 	$var($String, result, $BasicGraphicsUtils::getClippedString(comp, fontMetrics, nullptr, 1));
 	if (!""_s->equals(result)) {
@@ -365,8 +306,8 @@ void bug8132119::checkNullArgumentsGetClippedString($JComponent* comp, $String* 
 
 void bug8132119::checkNullArgumentsGetStringWidth($JComponent* comp, $String* text) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, fontMetrics, $nc(comp)->getFontMetrics($(comp->getFont())));
+	$useLocalObjectStack();
+	$var($FontMetrics, fontMetrics, $nc(comp)->getFontMetrics($($nc(comp)->getFont())));
 	$BasicGraphicsUtils::getStringWidth(nullptr, fontMetrics, text);
 	float result = $BasicGraphicsUtils::getStringWidth(comp, fontMetrics, nullptr);
 	if (result != 0) {
@@ -383,15 +324,15 @@ void bug8132119::checkNullArgumentsGetStringWidth($JComponent* comp, $String* te
 void bug8132119::setMetalLAF() {
 	$init(bug8132119);
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 $JComponent* bug8132119::createComponent($String* str) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, comp, $new($JLabel, str));
 	comp->setSize(bug8132119::WIDTH, bug8132119::HEIGHT);
 	$init($TextAttribute);
@@ -402,19 +343,15 @@ $JComponent* bug8132119::createComponent($String* str) {
 
 $String* bug8132119::getFontName($String* fn, $StringArray* fontNames) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fontName, nullptr);
 	{
 		$var($StringArray, arr$, fontNames);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, name, arr$->get(i$));
-			{
-				if ($nc(fn)->equals(name)) {
-					$assign(fontName, name);
-					break;
-				}
+			if ($nc(fn)->equals(name)) {
+				$assign(fontName, name);
+				break;
 			}
 		}
 	}
@@ -423,7 +360,7 @@ $String* bug8132119::getFontName($String* fn, $StringArray* fontNames) {
 
 $Font* bug8132119::getFont() {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	$var($StringArray, fontNames, $nc(ge)->getAvailableFontFamilyNames());
 	$var($String, fontName, getFontName("Arial"_s, fontNames));
@@ -442,13 +379,13 @@ $Font* bug8132119::getFont() {
 
 float bug8132119::getLayoutWidth($String* text, $Font* font, $NumericShaper* shaper) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap, map, $new($HashMap));
 	$init($TextAttribute);
 	map->put($TextAttribute::FONT, font);
 	map->put($TextAttribute::NUMERIC_SHAPING, shaper);
-	$var($FontRenderContext, frc, $new($FontRenderContext, ($AffineTransform*)nullptr, false, false));
-	$var($TextLayout, layout, $new($TextLayout, text, static_cast<$Map*>(map), frc));
+	$var($FontRenderContext, frc, $new($FontRenderContext, nullptr, false, false));
+	$var($TextLayout, layout, $new($TextLayout, text, map, frc));
 	return layout->getAdvance();
 }
 
@@ -477,7 +414,7 @@ void bug8132119::checkImageContainsSymbol($BufferedImage* buffImage, int32_t x, 
 	}
 	if (backgroundChangesCount != intersections * 2) {
 		try {
-			$ImageIO::write(static_cast<$RenderedImage*>(buffImage), "png"_s, $$new($File, "image.png"_s));
+			$ImageIO::write(buffImage, "png"_s, $$new($File, "image.png"_s));
 		} catch ($Exception& e) {
 		}
 		$throwNew($RuntimeException, "String is not properly drawn!"_s);
@@ -486,7 +423,7 @@ void bug8132119::checkImageContainsSymbol($BufferedImage* buffImage, int32_t x, 
 
 $BufferedImage* bug8132119::createBufferedImage(int32_t width, int32_t height) {
 	$init(bug8132119);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, bufffImage, $new($BufferedImage, width, height, $BufferedImage::TYPE_INT_RGB));
 	$var($Graphics2D, g, bufffImage->createGraphics());
 	$nc(g)->setColor(bug8132119::BACKGROUND_COLOR);
@@ -495,7 +432,7 @@ $BufferedImage* bug8132119::createBufferedImage(int32_t width, int32_t height) {
 	return bufffImage;
 }
 
-void clinit$bug8132119($Class* class$) {
+void bug8132119::clinit$($Class* clazz) {
 	$init($Color);
 	$assignStatic(bug8132119::DRAW_COLOR, $Color::RED);
 	$assignStatic(bug8132119::BACKGROUND_COLOR, $Color::GREEN);
@@ -507,11 +444,54 @@ bug8132119::bug8132119() {
 
 $Class* bug8132119::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8132119$$Lambda$testStringMethods::classInfo$.name)) {
+		if (name->equals("bug8132119$$Lambda$testStringMethods")) {
 			return bug8132119$$Lambda$testStringMethods::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8132119, name, initialize, &_bug8132119_ClassInfo_, clinit$bug8132119, allocate$bug8132119);
+	$FieldInfo fieldInfos$$[] = {
+		{"WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug8132119, WIDTH)},
+		{"HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug8132119, HEIGHT)},
+		{"DRAW_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8132119, DRAW_COLOR)},
+		{"BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8132119, BACKGROUND_COLOR)},
+		{"NUMERIC_SHAPER", "Ljava/awt/font/NumericShaper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8132119, NUMERIC_SHAPER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8132119, init$, void)},
+		{"checkClippedString", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkClippedString, void, $String*, $String*, $String*)},
+		{"checkImageContainsSymbol", "(Ljava/awt/image/BufferedImage;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkImageContainsSymbol, void, $BufferedImage*, int32_t, int32_t)},
+		{"checkImageIsEmpty", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkImageIsEmpty, void, $BufferedImage*)},
+		{"checkNullArguments", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArguments, void)},
+		{"checkNullArguments", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArguments, void, $JComponent*, $Graphics2D*, $String*)},
+		{"checkNullArgumentsDrawString", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsDrawString, void, $JComponent*, $Graphics2D*, $String*)},
+		{"checkNullArgumentsDrawStringUnderlineCharAt", "(Ljavax/swing/JComponent;Ljava/awt/Graphics2D;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsDrawStringUnderlineCharAt, void, $JComponent*, $Graphics2D*, $String*)},
+		{"checkNullArgumentsGetClippedString", "(Ljavax/swing/JComponent;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsGetClippedString, void, $JComponent*, $String*)},
+		{"checkNullArgumentsGetStringWidth", "(Ljavax/swing/JComponent;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, checkNullArgumentsGetStringWidth, void, $JComponent*, $String*)},
+		{"createBufferedImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, createBufferedImage, $BufferedImage*, int32_t, int32_t)},
+		{"createComponent", "(Ljava/lang/String;)Ljavax/swing/JComponent;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, createComponent, $JComponent*, $String*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, getFont, $Font*)},
+		{"getFontName", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, getFontName, $String*, $String*, $StringArray*)},
+		{"getLayoutWidth", "(Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/NumericShaper;)F", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, getLayoutWidth, float, $String*, $Font*, $NumericShaper*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8132119, main, void, $StringArray*), "java.lang.Exception"},
+		{"setMetalLAF", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, setMetalLAF, void)},
+		{"testDrawEmptyString", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testDrawEmptyString, void)},
+		{"testDrawString", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testDrawString, void, bool)},
+		{"testStringClip", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testStringClip, void)},
+		{"testStringMethods", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testStringMethods, void)},
+		{"testStringWidth", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8132119, testStringWidth, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8132119",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug8132119, name, initialize, &classInfo$$, bug8132119::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8132119);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbStateNotifyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,102 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbStateNotifyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbStateNotifyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbStateNotifyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbStateNotifyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbStateNotifyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbStateNotifyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbStateNotifyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbStateNotifyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbStateNotifyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbStateNotifyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbStateNotifyEvent, getSize, int32_t)},
-	{"get_base_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_base_group, int32_t)},
-	{"get_base_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_base_mods, int32_t)},
-	{"get_changed", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_changed, int32_t)},
-	{"get_compat_grab_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_compat_grab_mods, int8_t)},
-	{"get_compat_lookup_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_compat_lookup_mods, int8_t)},
-	{"get_compat_state", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_compat_state, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_display, int64_t)},
-	{"get_event_type", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_event_type, int8_t)},
-	{"get_grab_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_grab_mods, int8_t)},
-	{"get_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_group, int32_t)},
-	{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_keycode, int32_t)},
-	{"get_latched_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_latched_group, int32_t)},
-	{"get_latched_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_latched_mods, int32_t)},
-	{"get_locked_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_locked_group, int32_t)},
-	{"get_locked_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_locked_mods, int32_t)},
-	{"get_lookup_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_lookup_mods, int8_t)},
-	{"get_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_mods, int32_t)},
-	{"get_ptr_buttons", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_ptr_buttons, int32_t)},
-	{"get_req_major", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_req_major, int8_t)},
-	{"get_req_minor", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_req_minor, int8_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_serial, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_type, int32_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_xkb_type, int32_t)},
-	{"set_base_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_base_group, void, int32_t)},
-	{"set_base_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_base_mods, void, int32_t)},
-	{"set_changed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_changed, void, int32_t)},
-	{"set_compat_grab_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_compat_grab_mods, void, int8_t)},
-	{"set_compat_lookup_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_compat_lookup_mods, void, int8_t)},
-	{"set_compat_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_compat_state, void, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_display, void, int64_t)},
-	{"set_event_type", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_event_type, void, int8_t)},
-	{"set_grab_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_grab_mods, void, int8_t)},
-	{"set_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_group, void, int32_t)},
-	{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_keycode, void, int32_t)},
-	{"set_latched_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_latched_group, void, int32_t)},
-	{"set_latched_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_latched_mods, void, int32_t)},
-	{"set_locked_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_locked_group, void, int32_t)},
-	{"set_locked_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_locked_mods, void, int32_t)},
-	{"set_lookup_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_lookup_mods, void, int8_t)},
-	{"set_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_mods, void, int32_t)},
-	{"set_ptr_buttons", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_ptr_buttons, void, int32_t)},
-	{"set_req_major", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_req_major, void, int8_t)},
-	{"set_req_minor", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_req_minor, void, int8_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_serial, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_type, void, int32_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbStateNotifyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbStateNotifyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbStateNotifyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbStateNotifyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbStateNotifyEvent_FieldInfo_,
-	_XkbStateNotifyEvent_MethodInfo_
-};
-
-$Object* allocate$XkbStateNotifyEvent($Class* clazz) {
-	return $of($alloc(XkbStateNotifyEvent));
-}
 
 int32_t XkbStateNotifyEvent::getSize() {
 	$init(XkbStateNotifyEvent);
@@ -145,7 +55,7 @@ void XkbStateNotifyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -499,7 +409,7 @@ $String* XkbStateNotifyEvent::getFieldsAsString() {
 }
 
 $Object* XkbStateNotifyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbStateNotifyEvent::zero() {
@@ -514,7 +424,89 @@ XkbStateNotifyEvent::XkbStateNotifyEvent() {
 }
 
 $Class* XkbStateNotifyEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbStateNotifyEvent, name, initialize, &_XkbStateNotifyEvent_ClassInfo_, allocate$XkbStateNotifyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbStateNotifyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbStateNotifyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbStateNotifyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbStateNotifyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbStateNotifyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbStateNotifyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbStateNotifyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbStateNotifyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbStateNotifyEvent, getSize, int32_t)},
+		{"get_base_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_base_group, int32_t)},
+		{"get_base_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_base_mods, int32_t)},
+		{"get_changed", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_changed, int32_t)},
+		{"get_compat_grab_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_compat_grab_mods, int8_t)},
+		{"get_compat_lookup_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_compat_lookup_mods, int8_t)},
+		{"get_compat_state", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_compat_state, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_display, int64_t)},
+		{"get_event_type", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_event_type, int8_t)},
+		{"get_grab_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_grab_mods, int8_t)},
+		{"get_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_group, int32_t)},
+		{"get_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_keycode, int32_t)},
+		{"get_latched_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_latched_group, int32_t)},
+		{"get_latched_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_latched_mods, int32_t)},
+		{"get_locked_group", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_locked_group, int32_t)},
+		{"get_locked_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_locked_mods, int32_t)},
+		{"get_lookup_mods", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_lookup_mods, int8_t)},
+		{"get_mods", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_mods, int32_t)},
+		{"get_ptr_buttons", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_ptr_buttons, int32_t)},
+		{"get_req_major", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_req_major, int8_t)},
+		{"get_req_minor", "()B", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_req_minor, int8_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_serial, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_type, int32_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, get_xkb_type, int32_t)},
+		{"set_base_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_base_group, void, int32_t)},
+		{"set_base_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_base_mods, void, int32_t)},
+		{"set_changed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_changed, void, int32_t)},
+		{"set_compat_grab_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_compat_grab_mods, void, int8_t)},
+		{"set_compat_lookup_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_compat_lookup_mods, void, int8_t)},
+		{"set_compat_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_compat_state, void, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_display, void, int64_t)},
+		{"set_event_type", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_event_type, void, int8_t)},
+		{"set_grab_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_grab_mods, void, int8_t)},
+		{"set_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_group, void, int32_t)},
+		{"set_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_keycode, void, int32_t)},
+		{"set_latched_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_latched_group, void, int32_t)},
+		{"set_latched_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_latched_mods, void, int32_t)},
+		{"set_locked_group", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_locked_group, void, int32_t)},
+		{"set_locked_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_locked_mods, void, int32_t)},
+		{"set_lookup_mods", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_lookup_mods, void, int8_t)},
+		{"set_mods", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_mods, void, int32_t)},
+		{"set_ptr_buttons", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_ptr_buttons, void, int32_t)},
+		{"set_req_major", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_req_major, void, int8_t)},
+		{"set_req_minor", "(B)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_req_minor, void, int8_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_serial, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_type, void, int32_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbStateNotifyEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbStateNotifyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbStateNotifyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbStateNotifyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbStateNotifyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbStateNotifyEvent);
+	});
 	return class$;
 }
 

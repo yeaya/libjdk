@@ -1,5 +1,4 @@
 #include <javax/swing/text/View.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
@@ -67,97 +66,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$CompoundAttribute _View_MethodAnnotations_modelToView35[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _View_MethodAnnotations_viewToModel48[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _View_FieldInfo_[] = {
-	{"BadBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, BadBreakWeight)},
-	{"GoodBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, GoodBreakWeight)},
-	{"ExcellentBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, ExcellentBreakWeight)},
-	{"ForcedBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, ForcedBreakWeight)},
-	{"X_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, X_AXIS)},
-	{"Y_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, Y_AXIS)},
-	{"sharedBiasReturn", "[Ljavax/swing/text/Position$Bias;", nullptr, $STATIC | $FINAL, $staticField(View, sharedBiasReturn)},
-	{"parent", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(View, parent)},
-	{"elem", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(View, elem)},
-	{"firstUpdateIndex", "I", nullptr, 0, $field(View, firstUpdateIndex)},
-	{"lastUpdateIndex", "I", nullptr, 0, $field(View, lastUpdateIndex)},
-	{}
-};
-
-$MethodInfo _View_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(View, init$, void, $Element*)},
-	{"append", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, append, void, View*)},
-	{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, breakView, View*, int32_t, int32_t, float, float)},
-	{"calculateUpdateIndexes", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, 0, $virtualMethod(View, calculateUpdateIndexes, void, $DocumentEvent*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(View, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"createFragment", "(II)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, createFragment, View*, int32_t, int32_t)},
-	{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(View, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"forwardUpdateToView", "(Ljavax/swing/text/View;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(View, forwardUpdateToView, void, View*, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(View, getAlignment, float, int32_t)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(View, getAttributes, $AttributeSet*)},
-	{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(View, getBreakWeight, int32_t, int32_t, float, float)},
-	{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(View, getChildAllocation, $Shape*, int32_t, $Shape*)},
-	{"getContainer", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(View, getContainer, $Container*)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(View, getDocument, $Document*)},
-	{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(View, getElement, $Element*)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(View, getEndOffset, int32_t)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(View, getGraphics, $Graphics*)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(View, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(View, getMinimumSpan, float, int32_t)},
-	{"getNextVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(View, getNextVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getParent", "()Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, getParent, View*)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, getPreferredSpan, float, int32_t)},
-	{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(View, getResizeWeight, int32_t, int32_t)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(View, getStartOffset, int32_t)},
-	{"getToolTipText", "(FFLjava/awt/Shape;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(View, getToolTipText, $String*, float, float, $Shape*)},
-	{"getView", "(I)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, getView, View*, int32_t)},
-	{"getViewCount", "()I", nullptr, $PUBLIC, $virtualMethod(View, getViewCount, int32_t)},
-	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(View, getViewFactory, $ViewFactory*)},
-	{"getViewIndex", "(ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(View, getViewIndex, int32_t, int32_t, $Position$Bias*)},
-	{"getViewIndex", "(FFLjava/awt/Shape;)I", nullptr, $PUBLIC, $virtualMethod(View, getViewIndex, int32_t, float, float, $Shape*)},
-	{"insert", "(ILjavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, insert, void, int32_t, View*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(View, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(View, isVisible, bool)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"modelToView", "(ILjavax/swing/text/Position$Bias;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(View, modelToView, $Shape*, int32_t, $Position$Bias*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
-	{"modelToView", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(View, modelToView, $Shape*, int32_t, $Shape*), "javax.swing.text.BadLocationException", nullptr, _View_MethodAnnotations_modelToView35},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, paint, void, $Graphics*, $Shape*)},
-	{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(View, preferenceChanged, void, View*, bool, bool)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(View, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(View, removeAll, void)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(View, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, replace, void, int32_t, int32_t, $ViewArray*)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, setParent, void, View*)},
-	{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(View, setSize, void, float, float)},
-	{"updateAfterChange", "()V", nullptr, 0, $virtualMethod(View, updateAfterChange, void)},
-	{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(View, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
-	{"updateLayout", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(View, updateLayout, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{"viewToModel", "(FFLjava/awt/Shape;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(View, viewToModel, int32_t, float, float, $Shape*), nullptr, nullptr, _View_MethodAnnotations_viewToModel48},
-	{}
-};
-
-$ClassInfo _View_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.View",
-	"java.lang.Object",
-	"javax.swing.SwingConstants",
-	_View_FieldInfo_,
-	_View_MethodInfo_
-};
-
-$Object* allocate$View($Class* clazz) {
-	return $of($alloc(View));
-}
-
 $Position$BiasArray* View::sharedBiasReturn = nullptr;
 
 void View::init$($Element* elem) {
@@ -177,7 +85,7 @@ float View::getMinimumSpan(int32_t axis) {
 	if (w == 0) {
 		return getPreferredSpan(axis);
 	}
-	return (float)0;
+	return 0;
 }
 
 float View::getMaximumSpan(int32_t axis) {
@@ -200,11 +108,11 @@ float View::getAlignment(int32_t axis) {
 }
 
 void View::setParent(View* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (parent == nullptr) {
 		for (int32_t i = 0; i < getViewCount(); ++i) {
-			if ($nc($(getView(i)))->getParent() == this) {
-				$nc($(getView(i)))->setParent(nullptr);
+			if ($$nc(getView(i))->getParent() == this) {
+				$$nc(getView(i))->setParent(nullptr);
 			}
 		}
 	}
@@ -251,73 +159,64 @@ $Shape* View::getChildAllocation(int32_t index, $Shape* a) {
 }
 
 int32_t View::getNextVisualPositionFrom(int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	$useLocalCurrentObjectStackCache();
-	if (pos < -1 || pos > $nc($(getDocument()))->getLength()) {
+	$useLocalObjectStack();
+	if (pos < -1 || pos > $$nc(getDocument())->getLength()) {
 		$throwNew($BadLocationException, "Invalid position"_s, pos);
 	}
 	$init($Position$Bias);
 	$nc(biasRet)->set(0, $Position$Bias::Forward);
 	switch (direction) {
 	case $SwingConstants::NORTH:
-		{}
 	case $SwingConstants::SOUTH:
 		{
-			{
-				if (pos == -1) {
-					pos = (direction == $SwingConstants::NORTH) ? $Math::max(0, getEndOffset() - 1) : getStartOffset();
-					break;
-				}
-				$var($JTextComponent, target, $cast($JTextComponent, getContainer()));
-				$var($Caret, c, (target != nullptr) ? $nc(target)->getCaret() : ($Caret*)nullptr);
-				$var($Point, mcp, nullptr);
-				if (c != nullptr) {
-					$assign(mcp, c->getMagicCaretPosition());
-				} else {
-					$assign(mcp, nullptr);
-				}
-				int32_t x = 0;
-				if (mcp == nullptr) {
-					$var($Rectangle, loc, target->modelToView(pos));
-					x = (loc == nullptr) ? 0 : $nc(loc)->x;
-				} else {
-					x = $nc(mcp)->x;
-				}
-				if (direction == $SwingConstants::NORTH) {
-					pos = $Utilities::getPositionAbove(target, pos, x);
-				} else {
-					pos = $Utilities::getPositionBelow(target, pos, x);
-				}
+			if (pos == -1) {
+				pos = (direction == $SwingConstants::NORTH) ? $Math::max(0, getEndOffset() - 1) : getStartOffset();
+				break;
 			}
-			break;
+			$var($JTextComponent, target, $cast($JTextComponent, getContainer()));
+			$var($Caret, c, (target != nullptr) ? target->getCaret() : ($Caret*)nullptr);
+			$var($Point, mcp, nullptr);
+			if (c != nullptr) {
+				$assign(mcp, c->getMagicCaretPosition());
+			} else {
+				$assign(mcp, nullptr);
+			}
+			int32_t x = 0;
+			if (mcp == nullptr) {
+				$var($Rectangle, loc, $nc(target)->modelToView(pos));
+				x = (loc == nullptr) ? 0 : loc->x;
+			} else {
+				x = mcp->x;
+			}
+			if (direction == $SwingConstants::NORTH) {
+				pos = $Utilities::getPositionAbove(target, pos, x);
+			} else {
+				pos = $Utilities::getPositionBelow(target, pos, x);
+			}
 		}
+		break;
 	case $SwingConstants::WEST:
-		{
-			if (pos == -1) {
-				pos = $Math::max(0, getEndOffset() - 1);
-			} else {
-				pos = $Math::max(0, pos - 1);
-			}
-			break;
+		if (pos == -1) {
+			pos = $Math::max(0, getEndOffset() - 1);
+		} else {
+			pos = $Math::max(0, pos - 1);
 		}
+		break;
 	case $SwingConstants::EAST:
-		{
-			if (pos == -1) {
-				pos = getStartOffset();
-			} else {
-				pos = $Math::min(pos + 1, $nc($(getDocument()))->getLength());
-			}
-			break;
+		if (pos == -1) {
+			pos = getStartOffset();
+		} else {
+			pos = $Math::min(pos + 1, $$nc(getDocument())->getLength());
 		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
 	}
 	return pos;
 }
 
 $Shape* View::modelToView(int32_t p0, $Position$Bias* b0, int32_t p1, $Position$Bias* b1, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, s0, modelToView(p0, a, b0));
 	$var($Shape, s1, nullptr);
 	if (p1 == getEndOffset()) {
@@ -328,7 +227,7 @@ $Shape* View::modelToView(int32_t p0, $Position$Bias* b0, int32_t p1, $Position$
 		}
 		if (s1 == nullptr) {
 			$var($Rectangle, alloc, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : $nc(a)->getBounds());
-			$assign(s1, $new($Rectangle, $nc(alloc)->x + alloc->width - 1, alloc->y, 1, alloc->height));
+			$assign(s1, $new($Rectangle, $nc(alloc)->x + $nc(alloc)->width - 1, $nc(alloc)->y, 1, $nc(alloc)->height));
 		}
 	} else {
 		$assign(s1, modelToView(p1, a, b1));
@@ -340,12 +239,12 @@ $Shape* View::modelToView(int32_t p0, $Position$Bias* b0, int32_t p1, $Position$
 		r0->x = $nc(alloc)->x;
 		r0->width = alloc->width;
 	}
-	$nc(r0)->add(r1);
+	r0->add(r1);
 	return r0;
 }
 
 void View::insertUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getViewCount() > 0) {
 		$var($Element, elem, getElement());
 		$var($DocumentEvent$ElementChange, ec, $nc(e)->getChange(elem));
@@ -360,7 +259,7 @@ void View::insertUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 }
 
 void View::removeUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getViewCount() > 0) {
 		$var($Element, elem, getElement());
 		$var($DocumentEvent$ElementChange, ec, $nc(e)->getChange(elem));
@@ -375,7 +274,7 @@ void View::removeUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 }
 
 void View::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getViewCount() > 0) {
 		$var($Element, elem, getElement());
 		$var($DocumentEvent$ElementChange, ec, $nc(e)->getChange(elem));
@@ -438,30 +337,30 @@ void View::setSize(float width, float height) {
 
 $Container* View::getContainer() {
 	$var(View, v, getParent());
-	return (v != nullptr) ? $nc(v)->getContainer() : ($Container*)nullptr;
+	return (v != nullptr) ? v->getContainer() : ($Container*)nullptr;
 }
 
 $ViewFactory* View::getViewFactory() {
 	$var(View, v, getParent());
-	return (v != nullptr) ? $nc(v)->getViewFactory() : ($ViewFactory*)nullptr;
+	return (v != nullptr) ? v->getViewFactory() : ($ViewFactory*)nullptr;
 }
 
 $String* View::getToolTipText(float x, float y, $Shape* allocation$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, allocation, allocation$renamed);
 	int32_t viewIndex = getViewIndex(x, y, allocation);
 	if (viewIndex >= 0) {
 		$assign(allocation, getChildAllocation(viewIndex, allocation));
 		$var($Rectangle, rect, ($instanceOf($Rectangle, allocation)) ? $cast($Rectangle, allocation) : $nc(allocation)->getBounds());
 		if ($nc(rect)->contains(x, y)) {
-			return $nc($(getView(viewIndex)))->getToolTipText(x, y, allocation);
+			return $$nc(getView(viewIndex))->getToolTipText(x, y, allocation);
 		}
 	}
 	return nullptr;
 }
 
 int32_t View::getViewIndex(float x, float y, $Shape* allocation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t counter = getViewCount() - 1; counter >= 0; --counter) {
 		$var($Shape, childAllocation, getChildAllocation(counter, allocation));
 		if (childAllocation != nullptr) {
@@ -475,7 +374,7 @@ int32_t View::getViewIndex(float x, float y, $Shape* allocation) {
 }
 
 bool View::updateChildren($DocumentEvent$ElementChange* ec, $DocumentEvent* e, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementArray, removedElems, $nc(ec)->getChildrenRemoved());
 	$var($ElementArray, addedElems, ec->getChildrenAdded());
 	$var($ViewArray, added, nullptr);
@@ -495,13 +394,13 @@ bool View::updateChildren($DocumentEvent$ElementChange* ec, $DocumentEvent* e, $
 }
 
 void View::forwardUpdate($DocumentEvent$ElementChange* ec, $DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	calculateUpdateIndexes(e);
 	int32_t hole0 = this->lastUpdateIndex + 1;
 	int32_t hole1 = hole0;
-	$var($ElementArray, addedElems, (ec != nullptr) ? $nc(ec)->getChildrenAdded() : ($ElementArray*)nullptr);
+	$var($ElementArray, addedElems, (ec != nullptr) ? ec->getChildrenAdded() : ($ElementArray*)nullptr);
 	if ((addedElems != nullptr) && (addedElems->length > 0)) {
-		hole0 = ec->getIndex();
+		hole0 = $nc(ec)->getIndex();
 		hole1 = hole0 + addedElems->length - 1;
 	}
 	for (int32_t i = this->firstUpdateIndex; i <= this->lastUpdateIndex; ++i) {
@@ -548,12 +447,10 @@ void View::forwardUpdateToView(View* v, $DocumentEvent* e, $Shape* a, $ViewFacto
 	$init($DocumentEvent$EventType);
 	if (type == $DocumentEvent$EventType::INSERT) {
 		$nc(v)->insertUpdate(e, a, f);
+	} else if (type == $DocumentEvent$EventType::REMOVE) {
+		$nc(v)->removeUpdate(e, a, f);
 	} else {
-		if (type == $DocumentEvent$EventType::REMOVE) {
-			$nc(v)->removeUpdate(e, a, f);
-		} else {
-			$nc(v)->changedUpdate(e, a, f);
-		}
+		$nc(v)->changedUpdate(e, a, f);
 	}
 }
 
@@ -574,11 +471,11 @@ $Shape* View::modelToView(int32_t pos, $Shape* a) {
 
 int32_t View::viewToModel(float x, float y, $Shape* a) {
 	$init($Position$Bias);
-	$nc(View::sharedBiasReturn)->set(0, $Position$Bias::Forward);
+	View::sharedBiasReturn->set(0, $Position$Bias::Forward);
 	return viewToModel(x, y, a, View::sharedBiasReturn);
 }
 
-void clinit$View($Class* class$) {
+void View::clinit$($Class* clazz) {
 	$assignStatic(View::sharedBiasReturn, $new($Position$BiasArray, 1));
 }
 
@@ -586,7 +483,91 @@ View::View() {
 }
 
 $Class* View::load$($String* name, bool initialize) {
-	$loadClass(View, name, initialize, &_View_ClassInfo_, clinit$View, allocate$View);
+	$FieldInfo fieldInfos$$[] = {
+		{"BadBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, BadBreakWeight)},
+		{"GoodBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, GoodBreakWeight)},
+		{"ExcellentBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, ExcellentBreakWeight)},
+		{"ForcedBreakWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, ForcedBreakWeight)},
+		{"X_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, X_AXIS)},
+		{"Y_AXIS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(View, Y_AXIS)},
+		{"sharedBiasReturn", "[Ljavax/swing/text/Position$Bias;", nullptr, $STATIC | $FINAL, $staticField(View, sharedBiasReturn)},
+		{"parent", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(View, parent)},
+		{"elem", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(View, elem)},
+		{"firstUpdateIndex", "I", nullptr, 0, $field(View, firstUpdateIndex)},
+		{"lastUpdateIndex", "I", nullptr, 0, $field(View, lastUpdateIndex)},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(View, init$, void, $Element*)},
+		{"append", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, append, void, View*)},
+		{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, breakView, View*, int32_t, int32_t, float, float)},
+		{"calculateUpdateIndexes", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, 0, $virtualMethod(View, calculateUpdateIndexes, void, $DocumentEvent*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(View, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"createFragment", "(II)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, createFragment, View*, int32_t, int32_t)},
+		{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(View, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"forwardUpdateToView", "(Ljavax/swing/text/View;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(View, forwardUpdateToView, void, View*, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(View, getAlignment, float, int32_t)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(View, getAttributes, $AttributeSet*)},
+		{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(View, getBreakWeight, int32_t, int32_t, float, float)},
+		{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(View, getChildAllocation, $Shape*, int32_t, $Shape*)},
+		{"getContainer", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(View, getContainer, $Container*)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(View, getDocument, $Document*)},
+		{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(View, getElement, $Element*)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(View, getEndOffset, int32_t)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(View, getGraphics, $Graphics*)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(View, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(View, getMinimumSpan, float, int32_t)},
+		{"getNextVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(View, getNextVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getParent", "()Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, getParent, View*)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, getPreferredSpan, float, int32_t)},
+		{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(View, getResizeWeight, int32_t, int32_t)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(View, getStartOffset, int32_t)},
+		{"getToolTipText", "(FFLjava/awt/Shape;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(View, getToolTipText, $String*, float, float, $Shape*)},
+		{"getView", "(I)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(View, getView, View*, int32_t)},
+		{"getViewCount", "()I", nullptr, $PUBLIC, $virtualMethod(View, getViewCount, int32_t)},
+		{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(View, getViewFactory, $ViewFactory*)},
+		{"getViewIndex", "(ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(View, getViewIndex, int32_t, int32_t, $Position$Bias*)},
+		{"getViewIndex", "(FFLjava/awt/Shape;)I", nullptr, $PUBLIC, $virtualMethod(View, getViewIndex, int32_t, float, float, $Shape*)},
+		{"insert", "(ILjavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, insert, void, int32_t, View*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(View, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(View, isVisible, bool)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"modelToView", "(ILjavax/swing/text/Position$Bias;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(View, modelToView, $Shape*, int32_t, $Position$Bias*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
+		{"modelToView", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(View, modelToView, $Shape*, int32_t, $Shape*), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$$2},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, paint, void, $Graphics*, $Shape*)},
+		{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(View, preferenceChanged, void, View*, bool, bool)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(View, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(View, removeAll, void)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(View, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, replace, void, int32_t, int32_t, $ViewArray*)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(View, setParent, void, View*)},
+		{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(View, setSize, void, float, float)},
+		{"updateAfterChange", "()V", nullptr, 0, $virtualMethod(View, updateAfterChange, void)},
+		{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(View, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
+		{"updateLayout", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(View, updateLayout, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(View, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{"viewToModel", "(FFLjava/awt/Shape;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(View, viewToModel, int32_t, float, float, $Shape*), nullptr, nullptr, viewToModelmethodAnnotations$$$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.View",
+		"java.lang.Object",
+		"javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(View, name, initialize, &classInfo$$, View::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(View);
+	});
 	return class$;
 }
 

@@ -1,7 +1,5 @@
 #include <com/sun/tools/javac/util/GraphUtils$AbstractNode.h>
-
 #include <com/sun/tools/javac/util/GraphUtils$DependencyKind.h>
-#include <com/sun/tools/javac/util/GraphUtils$Node.h>
 #include <com/sun/tools/javac/util/GraphUtils$NodeVisitor.h>
 #include <com/sun/tools/javac/util/GraphUtils.h>
 #include <java/util/ArrayList.h>
@@ -11,7 +9,6 @@
 
 using $GraphUtils$DependencyKindArray = $Array<::com::sun::tools::javac::util::GraphUtils$DependencyKind>;
 using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
-using $GraphUtils$Node = ::com::sun::tools::javac::util::GraphUtils$Node;
 using $GraphUtils$NodeVisitor = ::com::sun::tools::javac::util::GraphUtils$NodeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,56 +24,16 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _GraphUtils$AbstractNode_FieldInfo_[] = {
-	{"data", "Ljava/lang/Object;", "TD;", $PUBLIC | $FINAL, $field(GraphUtils$AbstractNode, data)},
-	{}
-};
-
-$MethodInfo _GraphUtils$AbstractNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TD;)V", $PUBLIC, $method(GraphUtils$AbstractNode, init$, void, Object$*)},
-	{"accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;TA;>;TA;)V", $PUBLIC, $virtualMethod(GraphUtils$AbstractNode, accept, void, $GraphUtils$NodeVisitor*, Object$*)},
-	{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+TN;>;", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$AbstractNode, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
-	{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$AbstractNode, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GraphUtils$AbstractNode, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _GraphUtils$AbstractNode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.GraphUtils$AbstractNode", "com.sun.tools.javac.util.GraphUtils", "AbstractNode", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.GraphUtils$Node", "com.sun.tools.javac.util.GraphUtils", "Node", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GraphUtils$AbstractNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.util.GraphUtils$AbstractNode",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.GraphUtils$Node",
-	_GraphUtils$AbstractNode_FieldInfo_,
-	_GraphUtils$AbstractNode_MethodInfo_,
-	"<D:Ljava/lang/Object;N:Lcom/sun/tools/javac/util/GraphUtils$AbstractNode<TD;TN;>;>Ljava/lang/Object;Lcom/sun/tools/javac/util/GraphUtils$Node<TD;TN;>;",
-	nullptr,
-	_GraphUtils$AbstractNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.GraphUtils"
-};
-
-$Object* allocate$GraphUtils$AbstractNode($Class* clazz) {
-	return $of($alloc(GraphUtils$AbstractNode));
-}
-
 void GraphUtils$AbstractNode::init$(Object$* data) {
 	$set(this, data, data);
 }
 
 $String* GraphUtils$AbstractNode::toString() {
-	return $nc($of(this->data))->toString();
+	return $nc(this->data)->toString();
 }
 
 void GraphUtils$AbstractNode::accept($GraphUtils$NodeVisitor* visitor, Object$* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(visitor)->visitNode(this, arg);
 	{
 		$var($GraphUtils$DependencyKindArray, arr$, getSupportedDependencyKinds());
@@ -85,13 +42,11 @@ void GraphUtils$AbstractNode::accept($GraphUtils$NodeVisitor* visitor, Object$* 
 		for (; i$ < len$; ++i$) {
 			$var($GraphUtils$DependencyKind, dk, arr$->get(i$));
 			{
-				{
-					$var($Iterator, i$, $$new($ArrayList, $(getDependenciesByKind(dk)))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var(GraphUtils$AbstractNode, dep, $cast(GraphUtils$AbstractNode, i$->next()));
-						{
-							visitor->visitDependency(dk, this, dep, arg);
-						}
+				$var($Iterator, i$, $$new($ArrayList, $(getDependenciesByKind(dk)))->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var(GraphUtils$AbstractNode, dep, $cast(GraphUtils$AbstractNode, i$->next()));
+					{
+						visitor->visitDependency(dk, this, dep, arg);
 					}
 				}
 			}
@@ -103,7 +58,41 @@ GraphUtils$AbstractNode::GraphUtils$AbstractNode() {
 }
 
 $Class* GraphUtils$AbstractNode::load$($String* name, bool initialize) {
-	$loadClass(GraphUtils$AbstractNode, name, initialize, &_GraphUtils$AbstractNode_ClassInfo_, allocate$GraphUtils$AbstractNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "Ljava/lang/Object;", "TD;", $PUBLIC | $FINAL, $field(GraphUtils$AbstractNode, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", "(TD;)V", $PUBLIC, $method(GraphUtils$AbstractNode, init$, void, Object$*)},
+		{"accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;TA;>;TA;)V", $PUBLIC, $virtualMethod(GraphUtils$AbstractNode, accept, void, $GraphUtils$NodeVisitor*, Object$*)},
+		{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+TN;>;", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$AbstractNode, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
+		{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$AbstractNode, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GraphUtils$AbstractNode, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.GraphUtils$AbstractNode", "com.sun.tools.javac.util.GraphUtils", "AbstractNode", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.GraphUtils$Node", "com.sun.tools.javac.util.GraphUtils", "Node", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.util.GraphUtils$AbstractNode",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.GraphUtils$Node",
+		fieldInfos$$,
+		methodInfos$$,
+		"<D:Ljava/lang/Object;N:Lcom/sun/tools/javac/util/GraphUtils$AbstractNode<TD;TN;>;>Ljava/lang/Object;Lcom/sun/tools/javac/util/GraphUtils$Node<TD;TN;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.GraphUtils"
+	};
+	$loadClass(GraphUtils$AbstractNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphUtils$AbstractNode);
+	});
 	return class$;
 }
 

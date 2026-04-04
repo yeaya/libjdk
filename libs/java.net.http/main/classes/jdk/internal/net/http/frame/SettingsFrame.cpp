@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/SettingsFrame.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Arrays.h>
 #include <jdk/internal/net/http/frame/Http2Frame.h>
@@ -36,126 +35,55 @@ namespace jdk {
 			namespace http {
 				namespace frame {
 
-$FieldInfo _SettingsFrame_FieldInfo_[] = {
-	{"parameters", "[I", nullptr, $PRIVATE | $FINAL, $field(SettingsFrame, parameters)},
-	{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, TYPE)},
-	{"ACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, ACK)},
-	{"HEADER_TABLE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, HEADER_TABLE_SIZE)},
-	{"ENABLE_PUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, ENABLE_PUSH)},
-	{"MAX_CONCURRENT_STREAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_CONCURRENT_STREAMS)},
-	{"INITIAL_WINDOW_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, INITIAL_WINDOW_SIZE)},
-	{"MAX_FRAME_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_FRAME_SIZE)},
-	{"MAX_HEADER_LIST_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_HEADER_LIST_SIZE)},
-	{"MAX_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_PARAM)},
-	{"K", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SettingsFrame, K)},
-	{"DEFAULT_HEADER_TABLE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_HEADER_TABLE_SIZE)},
-	{"DEFAULT_ENABLE_PUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_ENABLE_PUSH)},
-	{"DEFAULT_MAX_CONCURRENT_STREAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_MAX_CONCURRENT_STREAMS)},
-	{"DEFAULT_INITIAL_WINDOW_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_INITIAL_WINDOW_SIZE)},
-	{"DEFAULT_MAX_FRAME_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_MAX_FRAME_SIZE)},
-	{}
-};
-
-$MethodInfo _SettingsFrame_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void)},
-	{"<init>", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void, SettingsFrame*)},
-	{"defaultRFCSettings", "()Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $STATIC, $staticMethod(SettingsFrame, defaultRFCSettings, SettingsFrame*)},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, flagAsString, $String*, int32_t)},
-	{"getParameter", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, getParameter, int32_t, int32_t)},
-	{"length", "()I", nullptr, 0, $virtualMethod(SettingsFrame, length, int32_t)},
-	{"name", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(SettingsFrame, name, $String*, int32_t)},
-	{"setParameter", "(II)Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, setParameter, SettingsFrame*, int32_t, int32_t)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, toByteArray, $bytes*)},
-	{"toByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(SettingsFrame, toByteBuffer, void, $ByteBuffer*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, toString, $String*)},
-	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, type, int32_t)},
-	{"update", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, update, void, SettingsFrame*)},
-	{}
-};
-
-$ClassInfo _SettingsFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.frame.SettingsFrame",
-	"jdk.internal.net.http.frame.Http2Frame",
-	nullptr,
-	_SettingsFrame_FieldInfo_,
-	_SettingsFrame_MethodInfo_
-};
-
-$Object* allocate$SettingsFrame($Class* clazz) {
-	return $of($alloc(SettingsFrame));
-}
-
 $String* SettingsFrame::flagAsString(int32_t flag) {
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (flag) {
 	case SettingsFrame::ACK:
-		{
-			$assign(var$0, "ACK"_s);
-			break;
-		}
+		$assign(var$0, "ACK"_s);
+		break;
 	default:
-		{
-			$assign(var$0, $Http2Frame::flagAsString(flag));
-			break;
-		}
+		$assign(var$0, $Http2Frame::flagAsString(flag));
+		break;
 	}
 	return var$0;
 }
 
 $String* SettingsFrame::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Http2Frame::toString()))->append(" Settings: "_s);
 	for (int32_t i = 0; i < SettingsFrame::MAX_PARAM; ++i) {
 		if ($nc(this->parameters)->get(i) != -1) {
-			sb->append($(name(i)))->append("="_s)->append($($Integer::toString($nc(this->parameters)->get(i))))->append(u' ');
+			sb->append($(name(i)))->append("="_s)->append($($Integer::toString(this->parameters->get(i))))->append(u' ');
 		}
 	}
 	return sb->toString();
 }
 
 $String* SettingsFrame::name(int32_t i) {
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (i + 1) {
 	case SettingsFrame::HEADER_TABLE_SIZE:
-		{
-			$assign(var$0, "HEADER_TABLE_SIZE"_s);
-			break;
-		}
+		$assign(var$0, "HEADER_TABLE_SIZE"_s);
+		break;
 	case SettingsFrame::ENABLE_PUSH:
-		{
-			$assign(var$0, "ENABLE_PUSH"_s);
-			break;
-		}
+		$assign(var$0, "ENABLE_PUSH"_s);
+		break;
 	case SettingsFrame::MAX_CONCURRENT_STREAMS:
-		{
-			$assign(var$0, "MAX_CONCURRENT_STREAMS"_s);
-			break;
-		}
+		$assign(var$0, "MAX_CONCURRENT_STREAMS"_s);
+		break;
 	case SettingsFrame::INITIAL_WINDOW_SIZE:
-		{
-			$assign(var$0, "INITIAL_WINDOW_SIZE"_s);
-			break;
-		}
+		$assign(var$0, "INITIAL_WINDOW_SIZE"_s);
+		break;
 	case SettingsFrame::MAX_FRAME_SIZE:
-		{
-			$assign(var$0, "MAX_FRAME_SIZE"_s);
-			break;
-		}
+		$assign(var$0, "MAX_FRAME_SIZE"_s);
+		break;
 	case SettingsFrame::MAX_HEADER_LIST_SIZE:
-		{
-			$assign(var$0, "MAX_HEADER_LIST_SIZE"_s);
-			break;
-		}
+		$assign(var$0, "MAX_HEADER_LIST_SIZE"_s);
+		break;
 	default:
-		{
-			$assign(var$0, "unknown parameter"_s);
-			break;
-		}
+		$assign(var$0, "unknown parameter"_s);
+		break;
 	}
 	return var$0;
 }
@@ -172,7 +100,7 @@ void SettingsFrame::init$() {
 
 void SettingsFrame::init$(SettingsFrame* other) {
 	$Http2Frame::init$(0, $nc(other)->flags);
-	$set(this, parameters, $Arrays::copyOf($nc(other)->parameters, SettingsFrame::MAX_PARAM));
+	$set(this, parameters, $Arrays::copyOf(other->parameters, SettingsFrame::MAX_PARAM));
 }
 
 int32_t SettingsFrame::type() {
@@ -202,14 +130,10 @@ int32_t SettingsFrame::length() {
 	int32_t len = 0;
 	{
 		$var($ints, arr$, this->parameters);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t i = arr$->get(i$);
-			{
-				if (i != -1) {
-					len += 6;
-				}
+			if (i != -1) {
+				len += 6;
 			}
 		}
 	}
@@ -220,13 +144,13 @@ void SettingsFrame::toByteBuffer($ByteBuffer* buf) {
 	for (int32_t i = 0; i < SettingsFrame::MAX_PARAM; ++i) {
 		if ($nc(this->parameters)->get(i) != -1) {
 			$nc(buf)->putShort((int16_t)(i + 1));
-			buf->putInt($nc(this->parameters)->get(i));
+			buf->putInt(this->parameters->get(i));
 		}
 	}
 }
 
 $bytes* SettingsFrame::toByteArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, $new($bytes, length()));
 	$var($ByteBuffer, buf, $ByteBuffer::wrap(bytes));
 	toByteBuffer(buf);
@@ -237,7 +161,7 @@ void SettingsFrame::update(SettingsFrame* updated) {
 	$synchronized(this) {
 		for (int32_t i = 0; i < SettingsFrame::MAX_PARAM; ++i) {
 			if ($nc($nc(updated)->parameters)->get(i) != -1) {
-				$nc(this->parameters)->set(i, $nc(updated->parameters)->get(i));
+				$nc(this->parameters)->set(i, updated->parameters->get(i));
 			}
 		}
 	}
@@ -258,7 +182,53 @@ SettingsFrame::SettingsFrame() {
 }
 
 $Class* SettingsFrame::load$($String* name, bool initialize) {
-	$loadClass(SettingsFrame, name, initialize, &_SettingsFrame_ClassInfo_, allocate$SettingsFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"parameters", "[I", nullptr, $PRIVATE | $FINAL, $field(SettingsFrame, parameters)},
+		{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, TYPE)},
+		{"ACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, ACK)},
+		{"HEADER_TABLE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, HEADER_TABLE_SIZE)},
+		{"ENABLE_PUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, ENABLE_PUSH)},
+		{"MAX_CONCURRENT_STREAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_CONCURRENT_STREAMS)},
+		{"INITIAL_WINDOW_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, INITIAL_WINDOW_SIZE)},
+		{"MAX_FRAME_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_FRAME_SIZE)},
+		{"MAX_HEADER_LIST_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_HEADER_LIST_SIZE)},
+		{"MAX_PARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, MAX_PARAM)},
+		{"K", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SettingsFrame, K)},
+		{"DEFAULT_HEADER_TABLE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_HEADER_TABLE_SIZE)},
+		{"DEFAULT_ENABLE_PUSH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_ENABLE_PUSH)},
+		{"DEFAULT_MAX_CONCURRENT_STREAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_MAX_CONCURRENT_STREAMS)},
+		{"DEFAULT_INITIAL_WINDOW_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_INITIAL_WINDOW_SIZE)},
+		{"DEFAULT_MAX_FRAME_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SettingsFrame, DEFAULT_MAX_FRAME_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void)},
+		{"<init>", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void, SettingsFrame*)},
+		{"defaultRFCSettings", "()Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $STATIC, $staticMethod(SettingsFrame, defaultRFCSettings, SettingsFrame*)},
+		{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, flagAsString, $String*, int32_t)},
+		{"getParameter", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, getParameter, int32_t, int32_t)},
+		{"length", "()I", nullptr, 0, $virtualMethod(SettingsFrame, length, int32_t)},
+		{"name", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(SettingsFrame, name, $String*, int32_t)},
+		{"setParameter", "(II)Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, setParameter, SettingsFrame*, int32_t, int32_t)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, toByteArray, $bytes*)},
+		{"toByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(SettingsFrame, toByteBuffer, void, $ByteBuffer*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, toString, $String*)},
+		{"type", "()I", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, type, int32_t)},
+		{"update", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, update, void, SettingsFrame*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.frame.SettingsFrame",
+		"jdk.internal.net.http.frame.Http2Frame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SettingsFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SettingsFrame);
+	});
 	return class$;
 }
 

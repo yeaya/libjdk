@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/StringToIntTable.h>
-
 #include <jcpp.h>
 
 #undef INVALID_KEY
@@ -15,41 +14,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _StringToIntTable_FieldInfo_[] = {
-	{"INVALID_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StringToIntTable, INVALID_KEY)},
-	{"m_blocksize", "I", nullptr, $PRIVATE, $field(StringToIntTable, m_blocksize)},
-	{"m_map", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(StringToIntTable, m_map)},
-	{"m_values", "[I", nullptr, $PRIVATE, $field(StringToIntTable, m_values)},
-	{"m_firstFree", "I", nullptr, $PRIVATE, $field(StringToIntTable, m_firstFree)},
-	{"m_mapSize", "I", nullptr, $PRIVATE, $field(StringToIntTable, m_mapSize)},
-	{}
-};
-
-$MethodInfo _StringToIntTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringToIntTable, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringToIntTable, init$, void, int32_t)},
-	{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, contains, bool, $String*)},
-	{"get", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, get, int32_t, $String*)},
-	{"getIgnoreCase", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, getIgnoreCase, int32_t, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, getLength, int32_t)},
-	{"keys", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, keys, $StringArray*)},
-	{"put", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, put, void, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _StringToIntTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.StringToIntTable",
-	"java.lang.Object",
-	nullptr,
-	_StringToIntTable_FieldInfo_,
-	_StringToIntTable_MethodInfo_
-};
-
-$Object* allocate$StringToIntTable($Class* clazz) {
-	return $of($alloc(StringToIntTable));
-}
 
 void StringToIntTable::init$() {
 	this->m_firstFree = 0;
@@ -72,7 +36,7 @@ int32_t StringToIntTable::getLength() {
 }
 
 void StringToIntTable::put($String* key, int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->m_firstFree + 1) >= this->m_mapSize) {
 		this->m_mapSize += this->m_blocksize;
 		$var($StringArray, newMap, $new($StringArray, this->m_mapSize));
@@ -129,7 +93,37 @@ StringToIntTable::StringToIntTable() {
 }
 
 $Class* StringToIntTable::load$($String* name, bool initialize) {
-	$loadClass(StringToIntTable, name, initialize, &_StringToIntTable_ClassInfo_, allocate$StringToIntTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVALID_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StringToIntTable, INVALID_KEY)},
+		{"m_blocksize", "I", nullptr, $PRIVATE, $field(StringToIntTable, m_blocksize)},
+		{"m_map", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(StringToIntTable, m_map)},
+		{"m_values", "[I", nullptr, $PRIVATE, $field(StringToIntTable, m_values)},
+		{"m_firstFree", "I", nullptr, $PRIVATE, $field(StringToIntTable, m_firstFree)},
+		{"m_mapSize", "I", nullptr, $PRIVATE, $field(StringToIntTable, m_mapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringToIntTable, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringToIntTable, init$, void, int32_t)},
+		{"contains", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, contains, bool, $String*)},
+		{"get", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, get, int32_t, $String*)},
+		{"getIgnoreCase", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, getIgnoreCase, int32_t, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, getLength, int32_t)},
+		{"keys", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, keys, $StringArray*)},
+		{"put", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $FINAL, $method(StringToIntTable, put, void, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.StringToIntTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringToIntTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringToIntTable);
+	});
 	return class$;
 }
 

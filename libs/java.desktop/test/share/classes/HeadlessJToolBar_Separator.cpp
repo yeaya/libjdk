@@ -1,5 +1,4 @@
 #include <HeadlessJToolBar_Separator.h>
-
 #include <HeadlessJToolBar_Separator$1.h>
 #include <HeadlessJToolBar_Separator$2.h>
 #include <HeadlessJToolBar_Separator$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,43 +59,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JToolBar$Separator = ::javax::swing::JToolBar$Separator;
 
-$MethodInfo _HeadlessJToolBar_Separator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJToolBar_Separator, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJToolBar_Separator, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJToolBar_Separator_InnerClassesInfo_[] = {
-	{"HeadlessJToolBar_Separator$3", nullptr, nullptr, 0},
-	{"HeadlessJToolBar_Separator$2", nullptr, nullptr, 0},
-	{"HeadlessJToolBar_Separator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJToolBar_Separator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJToolBar_Separator",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJToolBar_Separator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJToolBar_Separator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJToolBar_Separator$3,HeadlessJToolBar_Separator$2,HeadlessJToolBar_Separator$1"
-};
-
-$Object* allocate$HeadlessJToolBar_Separator($Class* clazz) {
-	return $of($alloc(HeadlessJToolBar_Separator));
-}
-
 void HeadlessJToolBar_Separator::init$() {
 }
 
 void HeadlessJToolBar_Separator::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolBar$Separator, s, $new($JToolBar$Separator));
 	s->getAccessibleContext();
 	s->isFocusTraversable();
@@ -109,9 +75,9 @@ void HeadlessJToolBar_Separator::main($StringArray* args) {
 	s->getMaximumSize();
 	s->getMinimumSize();
 	s->contains(1, 2);
-	$var($Component, c1, s->add(static_cast<$Component*>($$new($HeadlessJToolBar_Separator$1))));
-	$var($Component, c2, s->add(static_cast<$Component*>($$new($HeadlessJToolBar_Separator$2))));
-	$var($Component, c3, s->add(static_cast<$Component*>($$new($HeadlessJToolBar_Separator$3))));
+	$var($Component, c1, s->add($$new($HeadlessJToolBar_Separator$1)));
+	$var($Component, c2, s->add($$new($HeadlessJToolBar_Separator$2)));
+	$var($Component, c3, s->add($$new($HeadlessJToolBar_Separator$3)));
 	$var($Insets, ins, s->getInsets());
 	s->getAlignmentY();
 	s->getAlignmentX();
@@ -122,26 +88,22 @@ void HeadlessJToolBar_Separator::main($StringArray* args) {
 	s->setForeground($Color::red);
 	s->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					s->setFont(f1);
-					s->setFont(f2);
-					s->setFont(f3);
-					s->setFont(f4);
-					s->getFontMetrics(f1);
-					s->getFontMetrics(f2);
-					s->getFontMetrics(f3);
-					s->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				s->setFont(f1);
+				s->setFont(f2);
+				s->setFont(f3);
+				s->setFont(f4);
+				s->getFontMetrics(f1);
+				s->getFontMetrics(f2);
+				s->getFontMetrics(f3);
+				s->getFontMetrics(f4);
 			}
 		}
 	}
@@ -206,13 +168,11 @@ void HeadlessJToolBar_Separator::main($StringArray* args) {
 	s->getFont();
 	s->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(s));
+	c->add(s);
 	s->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			s->setLocale(locale);
 		}
@@ -269,7 +229,34 @@ HeadlessJToolBar_Separator::HeadlessJToolBar_Separator() {
 }
 
 $Class* HeadlessJToolBar_Separator::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJToolBar_Separator, name, initialize, &_HeadlessJToolBar_Separator_ClassInfo_, allocate$HeadlessJToolBar_Separator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJToolBar_Separator, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJToolBar_Separator, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJToolBar_Separator$3", nullptr, nullptr, 0},
+		{"HeadlessJToolBar_Separator$2", nullptr, nullptr, 0},
+		{"HeadlessJToolBar_Separator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJToolBar_Separator",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJToolBar_Separator$3,HeadlessJToolBar_Separator$2,HeadlessJToolBar_Separator$1"
+	};
+	$loadClass(HeadlessJToolBar_Separator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJToolBar_Separator);
+	});
 	return class$;
 }
 

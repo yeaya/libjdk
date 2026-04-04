@@ -1,5 +1,4 @@
 #include <javax/swing/text/Position.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,37 +9,32 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _Position_MethodInfo_[] = {
-	{"getOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position, getOffset, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Position_InnerClassesInfo_[] = {
-	{"javax.swing.text.Position$Bias", "javax.swing.text.Position", "Bias", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Position_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.Position",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Position_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Position_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.Position$Bias"
-};
-
-$Object* allocate$Position($Class* clazz) {
-	return $of($alloc(Position));
-}
-
 $Class* Position::load$($String* name, bool initialize) {
-	$loadClass(Position, name, initialize, &_Position_ClassInfo_, allocate$Position);
+	$MethodInfo methodInfos$$[] = {
+		{"getOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position, getOffset, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.Position$Bias", "javax.swing.text.Position", "Bias", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.Position",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.Position$Bias"
+	};
+	$loadClass(Position, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Position);
+	});
 	return class$;
 }
 

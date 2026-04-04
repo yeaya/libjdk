@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$BindingSymbol.h>
-
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -24,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 
 namespace com {
 	namespace sun {
@@ -32,48 +30,13 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Symbol$BindingSymbol_MethodInfo_[] = {
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$BindingSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
-	{"aliases", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;", 0, $virtualMethod(Symbol$BindingSymbol, aliases, $List*)},
-	{"isAliasFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, isAliasFor, bool, Symbol$BindingSymbol*)},
-	{"isPreserved", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, isPreserved, bool)},
-	{"preserveBinding", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, preserveBinding, void)},
-	{}
-};
-
-$InnerClassInfo _Symbol$BindingSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$BindingSymbol", "com.sun.tools.javac.code.Symbol", "BindingSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol$BindingSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$BindingSymbol",
-	"com.sun.tools.javac.code.Symbol$VarSymbol",
-	nullptr,
-	nullptr,
-	_Symbol$BindingSymbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$BindingSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$BindingSymbol($Class* clazz) {
-	return $of($alloc(Symbol$BindingSymbol));
-}
-
 void Symbol$BindingSymbol::init$(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
 	$Symbol$VarSymbol::init$((flags | $Flags::HASINIT) | $Flags::MATCH_BINDING, name, type, owner);
 }
 
 bool Symbol$BindingSymbol::isAliasFor(Symbol$BindingSymbol* b) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(aliases()))->containsAll($(static_cast<$Collection*>(static_cast<$AbstractCollection*>($nc(b)->aliases()))));
+	$useLocalObjectStack();
+	return $$nc(aliases())->containsAll($$cast($AbstractCollection, $nc(b)->aliases()));
 }
 
 $List* Symbol$BindingSymbol::aliases() {
@@ -85,14 +48,44 @@ void Symbol$BindingSymbol::preserveBinding() {
 }
 
 bool Symbol$BindingSymbol::isPreserved() {
-	return ((int64_t)(this->flags_field & (uint64_t)$Flags::MATCH_BINDING_TO_OUTER)) != 0;
+	return (this->flags_field & $Flags::MATCH_BINDING_TO_OUTER) != 0;
 }
 
 Symbol$BindingSymbol::Symbol$BindingSymbol() {
 }
 
 $Class* Symbol$BindingSymbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol$BindingSymbol, name, initialize, &_Symbol$BindingSymbol_ClassInfo_, allocate$Symbol$BindingSymbol);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$BindingSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
+		{"aliases", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;", 0, $virtualMethod(Symbol$BindingSymbol, aliases, $List*)},
+		{"isAliasFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, isAliasFor, bool, Symbol$BindingSymbol*)},
+		{"isPreserved", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, isPreserved, bool)},
+		{"preserveBinding", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, preserveBinding, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$BindingSymbol", "com.sun.tools.javac.code.Symbol", "BindingSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$BindingSymbol",
+		"com.sun.tools.javac.code.Symbol$VarSymbol",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$BindingSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$BindingSymbol));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$19.h>
-
 #include <com/sun/tools/javac/main/Option$ArgKind.h>
 #include <com/sun/tools/javac/main/Option$InvalidValueException.h>
 #include <com/sun/tools/javac/main/Option$OptionGroup.h>
@@ -29,45 +28,6 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$MethodInfo _Option$19_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", nullptr, $PRIVATE, $method(Option$19, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ArgKind*)},
-	{"hasArg", "()Z", nullptr, $PUBLIC, $virtualMethod(Option$19, hasArg, bool)},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Option$19, matches, bool, $String*)},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$19, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{}
-};
-
-$EnclosingMethodInfo _Option$19_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$19_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$19", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$19_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$19",
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr,
-	_Option$19_MethodInfo_,
-	nullptr,
-	&_Option$19_EnclosingMethodInfo_,
-	_Option$19_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$19($Class* clazz) {
-	return $of($alloc(Option$19));
-}
-
 void Option$19::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* argsNameKey, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group, $Option$ArgKind* ak) {
 	$Option::init$($enum$name, $enum$ordinal, text, argsNameKey, descrKey, kind, group, ak);
 }
@@ -81,13 +41,13 @@ bool Option$19::hasArg() {
 }
 
 void Option$19::process($OptionHelper* helper, $String* option) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t argLength = $nc(option)->length();
 	if (argLength == 2) {
 		$init($CompilerProperties$Errors);
 		$throw($($nc(helper)->newInvalidValueException($CompilerProperties$Errors::EmptyAArgument)));
 	}
-	int32_t sepIndex = option->indexOf((int32_t)u'=');
+	int32_t sepIndex = option->indexOf(u'=');
 	$var($String, key, option->substring(2, (sepIndex != -1 ? sepIndex : argLength)));
 	if (!$JavacProcessingEnvironment::isValidOptionName(key)) {
 		$throw($($nc(helper)->newInvalidValueException($($CompilerProperties$Errors::InvalidAKey(option)))));
@@ -99,7 +59,40 @@ Option$19::Option$19() {
 }
 
 $Class* Option$19::load$($String* name, bool initialize) {
-	$loadClass(Option$19, name, initialize, &_Option$19_ClassInfo_, allocate$Option$19);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", nullptr, $PRIVATE, $method(Option$19, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ArgKind*)},
+		{"hasArg", "()Z", nullptr, $PUBLIC, $virtualMethod(Option$19, hasArg, bool)},
+		{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Option$19, matches, bool, $String*)},
+		{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$19, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$19", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$19",
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$19));
+	});
 	return class$;
 }
 

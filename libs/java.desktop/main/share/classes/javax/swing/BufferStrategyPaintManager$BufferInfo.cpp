@@ -1,10 +1,8 @@
 #include <javax/swing/BufferStrategyPaintManager$BufferInfo.h>
-
 #include <com/sun/java/swing/SwingUtilities3.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/ImageCapabilities.h>
 #include <java/awt/Window.h>
@@ -12,7 +10,6 @@
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/WindowEvent.h>
-#include <java/awt/event/WindowListener.h>
 #include <java/awt/image/BufferStrategy.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/ref/WeakReference.h>
@@ -37,15 +34,12 @@ using $SwingUtilities3 = ::com::sun::java::swing::SwingUtilities3;
 using $AWTException = ::java::awt::AWTException;
 using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $Window = ::java::awt::Window;
 using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $WindowEvent = ::java::awt::event::WindowEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $BufferStrategy = ::java::awt::image::BufferStrategy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -53,7 +47,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $ArrayList = ::java::util::ArrayList;
 using $BufferStrategyPaintManager = ::javax::swing::BufferStrategyPaintManager;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
@@ -61,76 +54,10 @@ using $SubRegionShowable = ::sun::awt::SubRegionShowable;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $ExtendedBufferCapabilities = ::sun::java2d::pipe::hw::ExtendedBufferCapabilities;
 using $ExtendedBufferCapabilities$VSyncType = ::sun::java2d::pipe::hw::ExtendedBufferCapabilities$VSyncType;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _BufferStrategyPaintManager$BufferInfo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/BufferStrategyPaintManager;", nullptr, $FINAL | $SYNTHETIC, $field(BufferStrategyPaintManager$BufferInfo, this$0)},
-	{"weakBS", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/BufferStrategy;>;", $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, weakBS)},
-	{"root", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Container;>;", $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, root)},
-	{"inSync", "Z", nullptr, $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, inSync)},
-	{"contentsLostDuringExpose", "Z", nullptr, $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, contentsLostDuringExpose)},
-	{"paintAllOnExpose", "Z", nullptr, $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, paintAllOnExpose)},
-	{}
-};
-
-$MethodInfo _BufferStrategyPaintManager$BufferInfo_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/BufferStrategyPaintManager;Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(BufferStrategyPaintManager$BufferInfo, init$, void, $BufferStrategyPaintManager*, $Container*)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, componentHidden, void, $ComponentEvent*)},
-	{"createBufferStrategy", "()Ljava/awt/image/BufferStrategy;", nullptr, $PRIVATE, $method(BufferStrategyPaintManager$BufferInfo, createBufferStrategy, $BufferStrategy*)},
-	{"createBufferStrategy", "(Ljava/awt/Container;Z)Ljava/awt/image/BufferStrategy;", nullptr, $PRIVATE, $method(BufferStrategyPaintManager$BufferInfo, createBufferStrategy, $BufferStrategy*, $Container*, bool)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, dispose, void)},
-	{"getBufferStrategy", "(Z)Ljava/awt/image/BufferStrategy;", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getBufferStrategy, $BufferStrategy*, bool)},
-	{"getContentsLostDuringExpose", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getContentsLostDuringExpose, bool)},
-	{"getPaintAllOnExpose", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getPaintAllOnExpose, bool)},
-	{"getRoot", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getRoot, $Container*)},
-	{"hasBufferStrategyChanged", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, hasBufferStrategyChanged, bool)},
-	{"isInSync", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, isInSync, bool)},
-	{"setContentsLostDuringExpose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, setContentsLostDuringExpose, void, bool)},
-	{"setInSync", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, setInSync, void, bool)},
-	{"setPaintAllOnExpose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, setPaintAllOnExpose, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowActivated, void, $WindowEvent*)},
-	{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowClosed, void, $WindowEvent*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowClosing, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowDeactivated, void, $WindowEvent*)},
-	{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowDeiconified, void, $WindowEvent*)},
-	{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowIconified, void, $WindowEvent*)},
-	{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowOpened, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _BufferStrategyPaintManager$BufferInfo_InnerClassesInfo_[] = {
-	{"javax.swing.BufferStrategyPaintManager$BufferInfo", "javax.swing.BufferStrategyPaintManager", "BufferInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BufferStrategyPaintManager$BufferInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.BufferStrategyPaintManager$BufferInfo",
-	"java.awt.event.ComponentAdapter",
-	"java.awt.event.WindowListener",
-	_BufferStrategyPaintManager$BufferInfo_FieldInfo_,
-	_BufferStrategyPaintManager$BufferInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BufferStrategyPaintManager$BufferInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.BufferStrategyPaintManager"
-};
-
-$Object* allocate$BufferStrategyPaintManager$BufferInfo($Class* clazz) {
-	return $of($alloc(BufferStrategyPaintManager$BufferInfo));
-}
 
 int32_t BufferStrategyPaintManager$BufferInfo::hashCode() {
 	 return this->$ComponentAdapter::hashCode();
@@ -158,7 +85,7 @@ void BufferStrategyPaintManager$BufferInfo::init$($BufferStrategyPaintManager* t
 	$set(this, root, $new($WeakReference, root));
 	$nc(root)->addComponentListener(this);
 	if ($instanceOf($Window, root)) {
-		$nc(($cast($Window, root)))->addWindowListener(this);
+		$cast($Window, root)->addWindowListener(this);
 	}
 }
 
@@ -187,12 +114,12 @@ bool BufferStrategyPaintManager$BufferInfo::isInSync() {
 }
 
 $Container* BufferStrategyPaintManager$BufferInfo::getRoot() {
-	return (this->root == nullptr) ? ($Container*)nullptr : $cast($Container, $nc(this->root)->get());
+	return (this->root == nullptr) ? ($Container*)nullptr : $cast($Container, this->root->get());
 }
 
 $BufferStrategy* BufferStrategyPaintManager$BufferInfo::getBufferStrategy(bool create) {
-	$useLocalCurrentObjectStackCache();
-	$var($BufferStrategy, bs, (this->weakBS == nullptr) ? ($BufferStrategy*)nullptr : $cast($BufferStrategy, $nc(this->weakBS)->get()));
+	$useLocalObjectStack();
+	$var($BufferStrategy, bs, (this->weakBS == nullptr) ? ($BufferStrategy*)nullptr : $cast($BufferStrategy, this->weakBS->get()));
 	if (bs == nullptr && create) {
 		$assign(bs, createBufferStrategy());
 		if (bs != nullptr) {
@@ -201,23 +128,23 @@ $BufferStrategy* BufferStrategyPaintManager$BufferInfo::getBufferStrategy(bool c
 		$init($BufferStrategyPaintManager);
 		$init($PlatformLogger$Level);
 		if ($nc($BufferStrategyPaintManager::LOGGER)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc($BufferStrategyPaintManager::LOGGER)->finer($$str({"getBufferStrategy: created bs: "_s, bs}));
+			$BufferStrategyPaintManager::LOGGER->finer($$str({"getBufferStrategy: created bs: "_s, bs}));
 		}
 	}
 	return bs;
 }
 
 bool BufferStrategyPaintManager$BufferInfo::hasBufferStrategyChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, root, getRoot());
 	if (root != nullptr) {
 		$var($BufferStrategy, ourBS, nullptr);
 		$var($BufferStrategy, componentBS, nullptr);
 		$assign(ourBS, getBufferStrategy(false));
 		if ($instanceOf($Window, root)) {
-			$assign(componentBS, $nc(($cast($Window, root)))->getBufferStrategy());
+			$assign(componentBS, $cast($Window, root)->getBufferStrategy());
 		} else {
-			$assign(componentBS, $nc($($AWTAccessor::getComponentAccessor()))->getBufferStrategy(root));
+			$assign(componentBS, $$nc($AWTAccessor::getComponentAccessor())->getBufferStrategy(root));
 		}
 		if (componentBS != ourBS) {
 			if (ourBS != nullptr) {
@@ -231,7 +158,7 @@ bool BufferStrategyPaintManager$BufferInfo::hasBufferStrategyChanged() {
 }
 
 $BufferStrategy* BufferStrategyPaintManager$BufferInfo::createBufferStrategy() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, root, getRoot());
 	if (root == nullptr) {
 		return nullptr;
@@ -242,7 +169,7 @@ $BufferStrategy* BufferStrategyPaintManager$BufferInfo::createBufferStrategy() {
 		$init($BufferStrategyPaintManager);
 		$init($PlatformLogger$Level);
 		if ($nc($BufferStrategyPaintManager::LOGGER)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc($BufferStrategyPaintManager::LOGGER)->finer("createBufferStrategy: using vsynced strategy"_s);
+			$BufferStrategyPaintManager::LOGGER->finer("createBufferStrategy: using vsynced strategy"_s);
 		}
 	}
 	if (bs == nullptr) {
@@ -255,7 +182,7 @@ $BufferStrategy* BufferStrategyPaintManager$BufferInfo::createBufferStrategy() {
 }
 
 $BufferStrategy* BufferStrategyPaintManager$BufferInfo::createBufferStrategy($Container* root, bool isVsynced) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferCapabilities, caps, nullptr);
 	if (isVsynced) {
 		$var($ImageCapabilities, var$0, $new($ImageCapabilities, true));
@@ -267,7 +194,7 @@ $BufferStrategy* BufferStrategyPaintManager$BufferInfo::createBufferStrategy($Co
 		$assign(caps, $new($BufferCapabilities, var$1, $$new($ImageCapabilities, true), nullptr));
 	}
 	$var($BufferStrategy, bs, nullptr);
-	if ($SunToolkit::isInstanceOf($of(root), "java.applet.Applet"_s)) {
+	if ($SunToolkit::isInstanceOf(root, "java.applet.Applet"_s)) {
 		try {
 			$var($AWTAccessor$ComponentAccessor, componentAccessor, $AWTAccessor::getComponentAccessor());
 			$nc(componentAccessor)->createBufferStrategy(root, 2, caps);
@@ -276,18 +203,18 @@ $BufferStrategy* BufferStrategyPaintManager$BufferInfo::createBufferStrategy($Co
 			$init($BufferStrategyPaintManager);
 			$init($PlatformLogger$Level);
 			if ($nc($BufferStrategyPaintManager::LOGGER)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc($BufferStrategyPaintManager::LOGGER)->finer("createBufferStratety failed"_s, static_cast<$Throwable*>(e));
+				$BufferStrategyPaintManager::LOGGER->finer("createBufferStratety failed"_s, e);
 			}
 		}
 	} else {
 		try {
-			$nc(($cast($Window, root)))->createBufferStrategy(2, caps);
-			$assign(bs, ($cast($Window, root))->getBufferStrategy());
+			$nc($cast($Window, root))->createBufferStrategy(2, caps);
+			$assign(bs, $cast($Window, root)->getBufferStrategy());
 		} catch ($AWTException& e) {
 			$init($BufferStrategyPaintManager);
 			$init($PlatformLogger$Level);
 			if ($nc($BufferStrategyPaintManager::LOGGER)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc($BufferStrategyPaintManager::LOGGER)->finer("createBufferStratety failed"_s, static_cast<$Throwable*>(e));
+				$BufferStrategyPaintManager::LOGGER->finer("createBufferStratety failed"_s, e);
 			}
 		}
 	}
@@ -295,17 +222,17 @@ $BufferStrategy* BufferStrategyPaintManager$BufferInfo::createBufferStrategy($Co
 }
 
 void BufferStrategyPaintManager$BufferInfo::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, root, getRoot());
 	$init($BufferStrategyPaintManager);
 	$init($PlatformLogger$Level);
 	if ($nc($BufferStrategyPaintManager::LOGGER)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc($BufferStrategyPaintManager::LOGGER)->finer($$str({"disposed BufferInfo for: "_s, root}));
+		$BufferStrategyPaintManager::LOGGER->finer($$str({"disposed BufferInfo for: "_s, root}));
 	}
 	if (root != nullptr) {
 		root->removeComponentListener(this);
 		if ($instanceOf($Window, root)) {
-			$nc(($cast($Window, root)))->removeWindowListener(this);
+			$cast($Window, root)->removeWindowListener(this);
 		}
 		$var($BufferStrategy, bs, getBufferStrategy(false));
 		if (bs != nullptr) {
@@ -333,11 +260,11 @@ void BufferStrategyPaintManager$BufferInfo::windowClosed($WindowEvent* e) {
 	$synchronized(this->this$0) {
 		while (this->this$0->showing) {
 			try {
-				$of(this->this$0)->wait();
+				this->this$0->wait();
 			} catch ($InterruptedException& ie) {
 			}
 		}
-		$nc(this->this$0->bufferInfos)->remove($of(this));
+		$nc(this->this$0->bufferInfos)->remove(this);
 	}
 	dispose();
 }
@@ -361,7 +288,66 @@ BufferStrategyPaintManager$BufferInfo::BufferStrategyPaintManager$BufferInfo() {
 }
 
 $Class* BufferStrategyPaintManager$BufferInfo::load$($String* name, bool initialize) {
-	$loadClass(BufferStrategyPaintManager$BufferInfo, name, initialize, &_BufferStrategyPaintManager$BufferInfo_ClassInfo_, allocate$BufferStrategyPaintManager$BufferInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/BufferStrategyPaintManager;", nullptr, $FINAL | $SYNTHETIC, $field(BufferStrategyPaintManager$BufferInfo, this$0)},
+		{"weakBS", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/BufferStrategy;>;", $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, weakBS)},
+		{"root", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Container;>;", $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, root)},
+		{"inSync", "Z", nullptr, $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, inSync)},
+		{"contentsLostDuringExpose", "Z", nullptr, $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, contentsLostDuringExpose)},
+		{"paintAllOnExpose", "Z", nullptr, $PRIVATE, $field(BufferStrategyPaintManager$BufferInfo, paintAllOnExpose)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/BufferStrategyPaintManager;Ljava/awt/Container;)V", nullptr, $PUBLIC, $method(BufferStrategyPaintManager$BufferInfo, init$, void, $BufferStrategyPaintManager*, $Container*)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, componentHidden, void, $ComponentEvent*)},
+		{"createBufferStrategy", "()Ljava/awt/image/BufferStrategy;", nullptr, $PRIVATE, $method(BufferStrategyPaintManager$BufferInfo, createBufferStrategy, $BufferStrategy*)},
+		{"createBufferStrategy", "(Ljava/awt/Container;Z)Ljava/awt/image/BufferStrategy;", nullptr, $PRIVATE, $method(BufferStrategyPaintManager$BufferInfo, createBufferStrategy, $BufferStrategy*, $Container*, bool)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, dispose, void)},
+		{"getBufferStrategy", "(Z)Ljava/awt/image/BufferStrategy;", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getBufferStrategy, $BufferStrategy*, bool)},
+		{"getContentsLostDuringExpose", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getContentsLostDuringExpose, bool)},
+		{"getPaintAllOnExpose", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getPaintAllOnExpose, bool)},
+		{"getRoot", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, getRoot, $Container*)},
+		{"hasBufferStrategyChanged", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, hasBufferStrategyChanged, bool)},
+		{"isInSync", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, isInSync, bool)},
+		{"setContentsLostDuringExpose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, setContentsLostDuringExpose, void, bool)},
+		{"setInSync", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, setInSync, void, bool)},
+		{"setPaintAllOnExpose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, setPaintAllOnExpose, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowActivated, void, $WindowEvent*)},
+		{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowClosed, void, $WindowEvent*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowClosing, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowDeactivated, void, $WindowEvent*)},
+		{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowDeiconified, void, $WindowEvent*)},
+		{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowIconified, void, $WindowEvent*)},
+		{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$BufferInfo, windowOpened, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.BufferStrategyPaintManager$BufferInfo", "javax.swing.BufferStrategyPaintManager", "BufferInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.BufferStrategyPaintManager$BufferInfo",
+		"java.awt.event.ComponentAdapter",
+		"java.awt.event.WindowListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.BufferStrategyPaintManager"
+	};
+	$loadClass(BufferStrategyPaintManager$BufferInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BufferStrategyPaintManager$BufferInfo));
+	});
 	return class$;
 }
 

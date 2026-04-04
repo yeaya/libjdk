@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DescriptorCache.h>
-
 #include <java/lang/ref/WeakReference.h>
 #include <java/util/WeakHashMap.h>
 #include <javax/management/Descriptor.h>
@@ -20,34 +19,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _DescriptorCache_FieldInfo_[] = {
-	{"instance", "Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DescriptorCache, instance)},
-	{"map", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljavax/management/ImmutableDescriptor;Ljava/lang/ref/WeakReference<Ljavax/management/ImmutableDescriptor;>;>;", $PRIVATE | $FINAL, $field(DescriptorCache, map)},
-	{}
-};
-
-$MethodInfo _DescriptorCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DescriptorCache, init$, void)},
-	{"get", "(Ljavax/management/ImmutableDescriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC, $virtualMethod(DescriptorCache, get, $ImmutableDescriptor*, $ImmutableDescriptor*)},
-	{"getInstance", "()Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $STATIC, $staticMethod(DescriptorCache, getInstance, DescriptorCache*)},
-	{"getInstance", "(Ljavax/management/JMX;)Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(DescriptorCache, getInstance, DescriptorCache*, $JMX*)},
-	{"union", "([Ljavax/management/Descriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DescriptorCache, union$, $ImmutableDescriptor*, $DescriptorArray*)},
-	{}
-};
-
-$ClassInfo _DescriptorCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DescriptorCache",
-	"java.lang.Object",
-	nullptr,
-	_DescriptorCache_FieldInfo_,
-	_DescriptorCache_MethodInfo_
-};
-
-$Object* allocate$DescriptorCache($Class* clazz) {
-	return $of($alloc(DescriptorCache));
-}
 
 DescriptorCache* DescriptorCache::instance = nullptr;
 
@@ -70,13 +41,13 @@ DescriptorCache* DescriptorCache::getInstance($JMX* proof) {
 }
 
 $ImmutableDescriptor* DescriptorCache::get($ImmutableDescriptor* descriptor) {
-	$useLocalCurrentObjectStackCache();
-	$var($WeakReference, wr, $cast($WeakReference, $nc(this->map)->get(descriptor)));
-	$var($ImmutableDescriptor, got, (wr == nullptr) ? ($ImmutableDescriptor*)nullptr : $cast($ImmutableDescriptor, $nc(wr)->get()));
+	$useLocalObjectStack();
+	$var($WeakReference, wr, $cast($WeakReference, this->map->get(descriptor)));
+	$var($ImmutableDescriptor, got, (wr == nullptr) ? ($ImmutableDescriptor*)nullptr : $cast($ImmutableDescriptor, wr->get()));
 	if (got != nullptr) {
 		return got;
 	}
-	$nc(this->map)->put(descriptor, $$new($WeakReference, descriptor));
+	this->map->put(descriptor, $$new($WeakReference, descriptor));
 	return descriptor;
 }
 
@@ -84,7 +55,7 @@ $ImmutableDescriptor* DescriptorCache::union$($DescriptorArray* descriptors) {
 	return get($($ImmutableDescriptor::union$(descriptors)));
 }
 
-void clinit$DescriptorCache($Class* class$) {
+void DescriptorCache::clinit$($Class* clazz) {
 	$assignStatic(DescriptorCache::instance, $new(DescriptorCache));
 }
 
@@ -92,7 +63,30 @@ DescriptorCache::DescriptorCache() {
 }
 
 $Class* DescriptorCache::load$($String* name, bool initialize) {
-	$loadClass(DescriptorCache, name, initialize, &_DescriptorCache_ClassInfo_, clinit$DescriptorCache, allocate$DescriptorCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DescriptorCache, instance)},
+		{"map", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljavax/management/ImmutableDescriptor;Ljava/lang/ref/WeakReference<Ljavax/management/ImmutableDescriptor;>;>;", $PRIVATE | $FINAL, $field(DescriptorCache, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DescriptorCache, init$, void)},
+		{"get", "(Ljavax/management/ImmutableDescriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC, $virtualMethod(DescriptorCache, get, $ImmutableDescriptor*, $ImmutableDescriptor*)},
+		{"getInstance", "()Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $STATIC, $staticMethod(DescriptorCache, getInstance, DescriptorCache*)},
+		{"getInstance", "(Ljavax/management/JMX;)Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(DescriptorCache, getInstance, DescriptorCache*, $JMX*)},
+		{"union", "([Ljavax/management/Descriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DescriptorCache, union$, $ImmutableDescriptor*, $DescriptorArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DescriptorCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DescriptorCache, name, initialize, &classInfo$$, DescriptorCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DescriptorCache);
+	});
 	return class$;
 }
 

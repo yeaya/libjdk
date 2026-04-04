@@ -1,5 +1,4 @@
 #include <sun/font/LayoutPathImpl$SegmentPathBuilder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <sun/font/LayoutPathImpl$EndType.h>
@@ -22,67 +21,19 @@ using $LayoutPathImpl$SegmentPath = ::sun::font::LayoutPathImpl$SegmentPath;
 namespace sun {
 	namespace font {
 
-$FieldInfo _LayoutPathImpl$SegmentPathBuilder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LayoutPathImpl$SegmentPathBuilder, $assertionsDisabled)},
-	{"data", "[D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, data)},
-	{"w", "I", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, w)},
-	{"px", "D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, px)},
-	{"py", "D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, py)},
-	{"a", "D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, a)},
-	{"pconnect", "Z", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, pconnect)},
-	{}
-};
-
-$MethodInfo _LayoutPathImpl$SegmentPathBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, init$, void)},
-	{"build", "(Lsun/font/LayoutPathImpl$EndType;[D)Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC | $TRANSIENT, $method(LayoutPathImpl$SegmentPathBuilder, build, $LayoutPathImpl$SegmentPath*, $LayoutPathImpl$EndType*, $doubles*)},
-	{"complete", "()Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, complete, $LayoutPathImpl$SegmentPath*)},
-	{"complete", "(Lsun/font/LayoutPathImpl$EndType;)Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, complete, $LayoutPathImpl$SegmentPath*, $LayoutPathImpl$EndType*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, moveTo, void, double, double)},
-	{"nextPoint", "(DDZ)V", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPathBuilder, nextPoint, void, double, double, bool)},
-	{"reset", "(I)V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, reset, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _LayoutPathImpl$SegmentPathBuilder_InnerClassesInfo_[] = {
-	{"sun.font.LayoutPathImpl$SegmentPathBuilder", "sun.font.LayoutPathImpl", "SegmentPathBuilder", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LayoutPathImpl$SegmentPathBuilder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.LayoutPathImpl$SegmentPathBuilder",
-	"java.lang.Object",
-	nullptr,
-	_LayoutPathImpl$SegmentPathBuilder_FieldInfo_,
-	_LayoutPathImpl$SegmentPathBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LayoutPathImpl$SegmentPathBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.LayoutPathImpl"
-};
-
-$Object* allocate$LayoutPathImpl$SegmentPathBuilder($Class* clazz) {
-	return $of($alloc(LayoutPathImpl$SegmentPathBuilder));
-}
-
 bool LayoutPathImpl$SegmentPathBuilder::$assertionsDisabled = false;
 
 void LayoutPathImpl$SegmentPathBuilder::init$() {
 }
 
 void LayoutPathImpl$SegmentPathBuilder::reset(int32_t datalen) {
-	if (this->data == nullptr || datalen > $nc(this->data)->length) {
+	if (this->data == nullptr || datalen > this->data->length) {
 		$set(this, data, $new($doubles, datalen));
 	} else if (datalen == 0) {
 		$set(this, data, nullptr);
 	}
 	this->w = 0;
-	this->px = (this->py = (double)0);
+	this->px = (this->py = 0);
 	this->pconnect = false;
 }
 
@@ -91,7 +42,7 @@ $LayoutPathImpl$SegmentPath* LayoutPathImpl$SegmentPathBuilder::build($LayoutPat
 		$throwNew($AssertionError);
 	}
 	reset($nc(pts)->length / 2 * 3);
-	for (int32_t i = 0; i < $nc(pts)->length; i += 2) {
+	for (int32_t i = 0; i < pts->length; i += 2) {
 		nextPoint(pts->get(i), pts->get(i + 1), i != 0);
 	}
 	return complete(etype);
@@ -119,7 +70,7 @@ void LayoutPathImpl$SegmentPathBuilder::nextPoint(double x, double y, bool conne
 	}
 	if (this->w != 0 && !connect && !this->pconnect) {
 		$nc(this->data)->set(this->w - 3, this->px = x);
-		$nc(this->data)->set(this->w - 2, this->py = y);
+		this->data->set(this->w - 2, this->py = y);
 		return;
 	}
 	if (this->w == $nc(this->data)->length) {
@@ -132,9 +83,9 @@ void LayoutPathImpl$SegmentPathBuilder::nextPoint(double x, double y, bool conne
 		double dy = y - this->py;
 		this->a += $Math::sqrt(dx * dx + dy * dy);
 	}
-	$nc(this->data)->set(this->w++, x);
-	$nc(this->data)->set(this->w++, y);
-	$nc(this->data)->set(this->w++, this->a);
+	this->data->set(this->w++, x);
+	this->data->set(this->w++, y);
+	this->data->set(this->w++, this->a);
 	this->px = x;
 	this->py = y;
 	this->pconnect = connect;
@@ -146,7 +97,7 @@ $LayoutPathImpl$SegmentPath* LayoutPathImpl$SegmentPathBuilder::complete() {
 }
 
 $LayoutPathImpl$SegmentPath* LayoutPathImpl$SegmentPathBuilder::complete($LayoutPathImpl$EndType* etype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LayoutPathImpl$SegmentPath, result, nullptr);
 	if (this->data == nullptr || this->w < 6) {
 		return nullptr;
@@ -163,7 +114,7 @@ $LayoutPathImpl$SegmentPath* LayoutPathImpl$SegmentPathBuilder::complete($Layout
 	return result;
 }
 
-void clinit$LayoutPathImpl$SegmentPathBuilder($Class* class$) {
+void LayoutPathImpl$SegmentPathBuilder::clinit$($Class* clazz) {
 	$load($LayoutPathImpl);
 	LayoutPathImpl$SegmentPathBuilder::$assertionsDisabled = !$LayoutPathImpl::class$->desiredAssertionStatus();
 }
@@ -172,7 +123,49 @@ LayoutPathImpl$SegmentPathBuilder::LayoutPathImpl$SegmentPathBuilder() {
 }
 
 $Class* LayoutPathImpl$SegmentPathBuilder::load$($String* name, bool initialize) {
-	$loadClass(LayoutPathImpl$SegmentPathBuilder, name, initialize, &_LayoutPathImpl$SegmentPathBuilder_ClassInfo_, clinit$LayoutPathImpl$SegmentPathBuilder, allocate$LayoutPathImpl$SegmentPathBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LayoutPathImpl$SegmentPathBuilder, $assertionsDisabled)},
+		{"data", "[D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, data)},
+		{"w", "I", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, w)},
+		{"px", "D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, px)},
+		{"py", "D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, py)},
+		{"a", "D", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, a)},
+		{"pconnect", "Z", nullptr, $PRIVATE, $field(LayoutPathImpl$SegmentPathBuilder, pconnect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, init$, void)},
+		{"build", "(Lsun/font/LayoutPathImpl$EndType;[D)Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC | $TRANSIENT, $method(LayoutPathImpl$SegmentPathBuilder, build, $LayoutPathImpl$SegmentPath*, $LayoutPathImpl$EndType*, $doubles*)},
+		{"complete", "()Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, complete, $LayoutPathImpl$SegmentPath*)},
+		{"complete", "(Lsun/font/LayoutPathImpl$EndType;)Lsun/font/LayoutPathImpl$SegmentPath;", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, complete, $LayoutPathImpl$SegmentPath*, $LayoutPathImpl$EndType*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, moveTo, void, double, double)},
+		{"nextPoint", "(DDZ)V", nullptr, $PRIVATE, $method(LayoutPathImpl$SegmentPathBuilder, nextPoint, void, double, double, bool)},
+		{"reset", "(I)V", nullptr, $PUBLIC, $method(LayoutPathImpl$SegmentPathBuilder, reset, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.LayoutPathImpl$SegmentPathBuilder", "sun.font.LayoutPathImpl", "SegmentPathBuilder", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.LayoutPathImpl$SegmentPathBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.LayoutPathImpl"
+	};
+	$loadClass(LayoutPathImpl$SegmentPathBuilder, name, initialize, &classInfo$$, LayoutPathImpl$SegmentPathBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LayoutPathImpl$SegmentPathBuilder);
+	});
 	return class$;
 }
 

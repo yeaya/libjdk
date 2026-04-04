@@ -1,9 +1,7 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/LoadDocument.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/DOMCache.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/TransletException.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMAdapter.h>
@@ -37,7 +35,6 @@
 using $DOM = ::com::sun::org::apache::xalan::internal::xsltc::DOM;
 using $DOMCache = ::com::sun::org::apache::xalan::internal::xsltc::DOMCache;
 using $DOMEnhancedForDTM = ::com::sun::org::apache::xalan::internal::xsltc::DOMEnhancedForDTM;
-using $Translet = ::com::sun::org::apache::xalan::internal::xsltc::Translet;
 using $TransletException = ::com::sun::org::apache::xalan::internal::xsltc::TransletException;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $DOMAdapter = ::com::sun::org::apache::xalan::internal::xsltc::dom::DOMAdapter;
@@ -74,35 +71,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _LoadDocument_FieldInfo_[] = {
-	{"NAMESPACE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoadDocument, NAMESPACE_FEATURE)},
-	{}
-};
-
-$MethodInfo _LoadDocument_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoadDocument, init$, void)},
-	{"document", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $String*, $String*, $AbstractTranslet*, $DOM*), "java.lang.Exception"},
-	{"document", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Z)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $String*, $String*, $AbstractTranslet*, $DOM*, bool), "java.lang.Exception"},
-	{"document", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $DTMAxisIterator*, $String*, $AbstractTranslet*, $DOM*), "java.lang.Exception"},
-	{"document", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $DOM*, $AbstractTranslet*, $DOM*), "java.lang.Exception"},
-	{"documentF", "(Ljava/lang/Object;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoadDocument, documentF, $DTMAxisIterator*, Object$*, $DTMAxisIterator*, $String*, $AbstractTranslet*, $DOM*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{"documentF", "(Ljava/lang/Object;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoadDocument, documentF, $DTMAxisIterator*, Object$*, $String*, $AbstractTranslet*, $DOM*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
-	{}
-};
-
-$ClassInfo _LoadDocument_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.LoadDocument",
-	"java.lang.Object",
-	nullptr,
-	_LoadDocument_FieldInfo_,
-	_LoadDocument_MethodInfo_
-};
-
-$Object* allocate$LoadDocument($Class* clazz) {
-	return $of($alloc(LoadDocument));
-}
-
 $String* LoadDocument::NAMESPACE_FEATURE = nullptr;
 
 void LoadDocument::init$() {
@@ -110,7 +78,7 @@ void LoadDocument::init$() {
 
 $DTMAxisIterator* LoadDocument::documentF(Object$* arg1, $DTMAxisIterator* arg2, $String* xslURI, $AbstractTranslet* translet, $DOM* dom) {
 	$init(LoadDocument);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, baseURI, nullptr);
 	int32_t arg2FirstNode = $nc(arg2)->next();
 	if (arg2FirstNode == $DTMAxisIterator::END) {
@@ -123,7 +91,7 @@ $DTMAxisIterator* LoadDocument::documentF(Object$* arg1, $DTMAxisIterator* arg2,
 	}
 	try {
 		if ($instanceOf($String, arg1)) {
-			if ($nc(($cast($String, arg1)))->length() == 0) {
+			if ($cast($String, arg1)->length() == 0) {
 				return document(xslURI, ""_s, translet, dom);
 			} else {
 				return document($cast($String, arg1), baseURI, translet, dom);
@@ -135,14 +103,14 @@ $DTMAxisIterator* LoadDocument::documentF(Object$* arg1, $DTMAxisIterator* arg2,
 			$throwNew($IllegalArgumentException, err);
 		}
 	} catch ($Exception& e) {
-		$throwNew($TransletException, $cast($Exception, e));
+		$throwNew($TransletException, e);
 	}
 	$shouldNotReachHere();
 }
 
 $DTMAxisIterator* LoadDocument::documentF(Object$* arg, $String* xslURI$renamed, $AbstractTranslet* translet, $DOM* dom) {
 	$init(LoadDocument);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, xslURI, xslURI$renamed);
 	try {
 		if ($instanceOf($String, arg)) {
@@ -154,7 +122,7 @@ $DTMAxisIterator* LoadDocument::documentF(Object$* arg, $String* xslURI$renamed,
 				$assign(baseURI, $SystemIDResolver::getAbsoluteURIFromRelative(xslURI));
 			}
 			$var($String, href, $cast($String, arg));
-			if ($nc(href)->length() == 0) {
+			if (href->length() == 0) {
 				$assign(href, ""_s);
 				$var($TemplatesImpl, templates, $cast($TemplatesImpl, $nc(translet)->getTemplates()));
 				$var($DOM, sdom, nullptr);
@@ -170,13 +138,13 @@ $DTMAxisIterator* LoadDocument::documentF(Object$* arg, $String* xslURI$renamed,
 				return document(href, baseURI, translet, dom);
 			}
 		} else if ($instanceOf($DTMAxisIterator, arg)) {
-			return document($cast($DTMAxisIterator, arg), ($String*)nullptr, translet, dom);
+			return document($cast($DTMAxisIterator, arg), nullptr, translet, dom);
 		} else {
 			$var($String, err, $str({"document("_s, $($nc($of(arg))->toString()), ")"_s}));
 			$throwNew($IllegalArgumentException, err);
 		}
 	} catch ($Exception& e) {
-		$throwNew($TransletException, $cast($Exception, e));
+		$throwNew($TransletException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -188,7 +156,7 @@ $DTMAxisIterator* LoadDocument::document($String* uri, $String* base, $AbstractT
 
 $DTMAxisIterator* LoadDocument::document($String* uri$renamed, $String* base, $AbstractTranslet* translet, $DOM* dom, bool cacheDOM) {
 	$init(LoadDocument);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uri, uri$renamed);
 	try {
 		$var($String, originalUri, uri);
@@ -196,14 +164,14 @@ $DTMAxisIterator* LoadDocument::document($String* uri$renamed, $String* base, $A
 		if (base != nullptr && !base->equals(""_s)) {
 			$assign(uri, $SystemIDResolver::getAbsoluteURI(uri, base));
 		}
-		if (uri == nullptr || $nc(uri)->equals(""_s)) {
+		if (uri == nullptr || uri->equals(""_s)) {
 			return ($EmptyIterator::getInstance());
 		}
 		int32_t mask = $nc(multiplexer)->getDocumentMask(uri);
 		if (mask != -1) {
-			$var($DOM, newDom, $nc(($cast($DOMAdapter, $(multiplexer->getDOMAdapter(uri)))))->getDOMImpl());
+			$var($DOM, newDom, $$sure($DOMAdapter, multiplexer->getDOMAdapter(uri))->getDOMImpl());
 			if ($instanceOf($DOMEnhancedForDTM, newDom)) {
-				return $new($SingletonIterator, $nc(($cast($DOMEnhancedForDTM, newDom)))->getDocument(), true);
+				return $new($SingletonIterator, $cast($DOMEnhancedForDTM, newDom)->getDocument(), true);
 			}
 		}
 		$var($DOMCache, cache, $nc(translet)->getDOMCache());
@@ -220,11 +188,11 @@ $DTMAxisIterator* LoadDocument::document($String* uri$renamed, $String* base, $A
 			$var($String, accessError, $SecuritySupport::checkAccess(uri, $(translet->getAllowedProtocols()), $JdkConstants::ACCESS_EXTERNAL_ALL));
 			if (accessError != nullptr) {
 				$init($ErrorMsg);
-				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ACCESSING_XSLT_TARGET_ERR, $($of($SecuritySupport::sanitizePath(uri))), $of(accessError)));
+				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ACCESSING_XSLT_TARGET_ERR, $($SecuritySupport::sanitizePath(uri)), accessError));
 				$throwNew($Exception, $(msg->toString()));
 			}
 			$var($XSLTCDTMManager, dtmManager, $cast($XSLTCDTMManager, multiplexer->getDTMManager()));
-			$var($Source, var$0, static_cast<$Source*>($new($StreamSource, uri)));
+			$var($Source, var$0, $new($StreamSource, uri));
 			$var($DOMEnhancedForDTM, enhancedDOM, $cast($DOMEnhancedForDTM, $nc(dtmManager)->getDTM(var$0, false, nullptr, true, false, translet->hasIdCall(), cacheDOM)));
 			$assign(newdom, enhancedDOM);
 			if (cacheDOM) {
@@ -239,7 +207,7 @@ $DTMAxisIterator* LoadDocument::document($String* uri$renamed, $String* base, $A
 		$var($DOMAdapter, domAdapter, translet->makeDOMAdapter(newdom));
 		multiplexer->addDOMAdapter(domAdapter);
 		translet->buildKeys(domAdapter, nullptr, nullptr, $nc(newdom)->getDocument());
-		return $new($SingletonIterator, $nc(newdom)->getDocument(), true);
+		return $new($SingletonIterator, newdom->getDocument(), true);
 	} catch ($Exception& e) {
 		$throw(e);
 	}
@@ -248,7 +216,7 @@ $DTMAxisIterator* LoadDocument::document($String* uri$renamed, $String* base, $A
 
 $DTMAxisIterator* LoadDocument::document($DTMAxisIterator* arg1, $String* baseURI$renamed, $AbstractTranslet* translet, $DOM* dom) {
 	$init(LoadDocument);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, baseURI, baseURI$renamed);
 	$var($UnionIterator, union$, $new($UnionIterator, dom));
 	int32_t node = $DTM::NULL;
@@ -267,27 +235,51 @@ $DTMAxisIterator* LoadDocument::document($DTMAxisIterator* arg1, $String* baseUR
 
 $DTMAxisIterator* LoadDocument::document($DOM* newdom, $AbstractTranslet* translet, $DOM* dom) {
 	$init(LoadDocument);
-	$useLocalCurrentObjectStackCache();
-	$var($DTMManager, dtmManager, $nc(($cast($MultiDOM, dom)))->getDTMManager());
+	$useLocalObjectStack();
+	$var($DTMManager, dtmManager, $nc($cast($MultiDOM, dom))->getDTMManager());
 	if (dtmManager != nullptr && $instanceOf($DTM, newdom)) {
-		$nc(($cast($DTM, newdom)))->migrateTo(dtmManager);
+		$cast($DTM, newdom)->migrateTo(dtmManager);
 	}
 	$nc(translet)->prepassDocument(newdom);
 	$var($DOMAdapter, domAdapter, translet->makeDOMAdapter(newdom));
-	($cast($MultiDOM, dom))->addDOMAdapter(domAdapter);
+	$cast($MultiDOM, dom)->addDOMAdapter(domAdapter);
 	translet->buildKeys(domAdapter, nullptr, nullptr, $nc(newdom)->getDocument());
-	return $new($SingletonIterator, $nc(newdom)->getDocument(), true);
+	return $new($SingletonIterator, newdom->getDocument(), true);
 }
 
 LoadDocument::LoadDocument() {
 }
 
-void clinit$LoadDocument($Class* class$) {
+void LoadDocument::clinit$($Class* clazz) {
 	$assignStatic(LoadDocument::NAMESPACE_FEATURE, "http://xml.org/sax/features/namespaces"_s);
 }
 
 $Class* LoadDocument::load$($String* name, bool initialize) {
-	$loadClass(LoadDocument, name, initialize, &_LoadDocument_ClassInfo_, clinit$LoadDocument, allocate$LoadDocument);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMESPACE_FEATURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoadDocument, NAMESPACE_FEATURE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoadDocument, init$, void)},
+		{"document", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $String*, $String*, $AbstractTranslet*, $DOM*), "java.lang.Exception"},
+		{"document", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Z)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $String*, $String*, $AbstractTranslet*, $DOM*, bool), "java.lang.Exception"},
+		{"document", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $DTMAxisIterator*, $String*, $AbstractTranslet*, $DOM*), "java.lang.Exception"},
+		{"document", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoadDocument, document, $DTMAxisIterator*, $DOM*, $AbstractTranslet*, $DOM*), "java.lang.Exception"},
+		{"documentF", "(Ljava/lang/Object;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoadDocument, documentF, $DTMAxisIterator*, Object$*, $DTMAxisIterator*, $String*, $AbstractTranslet*, $DOM*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{"documentF", "(Ljava/lang/Object;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoadDocument, documentF, $DTMAxisIterator*, Object$*, $String*, $AbstractTranslet*, $DOM*), "com.sun.org.apache.xalan.internal.xsltc.TransletException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.LoadDocument",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LoadDocument, name, initialize, &classInfo$$, LoadDocument::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LoadDocument);
+	});
 	return class$;
 }
 

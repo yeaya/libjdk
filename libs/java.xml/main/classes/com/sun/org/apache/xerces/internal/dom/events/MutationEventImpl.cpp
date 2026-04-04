@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/events/MutationEventImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/events/EventImpl.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/events/EventTarget.h>
@@ -28,61 +27,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 							namespace events {
-
-$FieldInfo _MutationEventImpl_FieldInfo_[] = {
-	{"relatedNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(MutationEventImpl, relatedNode)},
-	{"prevValue", "Ljava/lang/String;", nullptr, 0, $field(MutationEventImpl, prevValue)},
-	{"newValue", "Ljava/lang/String;", nullptr, 0, $field(MutationEventImpl, newValue)},
-	{"attrName", "Ljava/lang/String;", nullptr, 0, $field(MutationEventImpl, attrName)},
-	{"attrChange", "S", nullptr, $PUBLIC, $field(MutationEventImpl, attrChange)},
-	{"DOM_SUBTREE_MODIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_SUBTREE_MODIFIED)},
-	{"DOM_NODE_INSERTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_INSERTED)},
-	{"DOM_NODE_REMOVED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_REMOVED)},
-	{"DOM_NODE_REMOVED_FROM_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_REMOVED_FROM_DOCUMENT)},
-	{"DOM_NODE_INSERTED_INTO_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_INSERTED_INTO_DOCUMENT)},
-	{"DOM_ATTR_MODIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_ATTR_MODIFIED)},
-	{"DOM_CHARACTER_DATA_MODIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_CHARACTER_DATA_MODIFIED)},
-	{}
-};
-
-$MethodInfo _MutationEventImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getBubbles", "()Z", nullptr, $PUBLIC},
-	{"*getCancelable", "()Z", nullptr, $PUBLIC},
-	{"*getCurrentTarget", "()Lorg/w3c/dom/events/EventTarget;", nullptr, $PUBLIC},
-	{"*getEventPhase", "()S", nullptr, $PUBLIC},
-	{"*getTarget", "()Lorg/w3c/dom/events/EventTarget;", nullptr, $PUBLIC},
-	{"*getTimeStamp", "()J", nullptr, $PUBLIC},
-	{"*getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MutationEventImpl, init$, void)},
-	{"getAttrChange", "()S", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getAttrChange, int16_t)},
-	{"getAttrName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getAttrName, $String*)},
-	{"getNewValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getNewValue, $String*)},
-	{"getPrevValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getPrevValue, $String*)},
-	{"getRelatedNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getRelatedNode, $Node*)},
-	{"*initEvent", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC},
-	{"initMutationEvent", "(Ljava/lang/String;ZZLorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, initMutationEvent, void, $String*, bool, bool, $Node*, $String*, $String*, $String*, int16_t)},
-	{"*stopPropagation", "()V", nullptr, $PUBLIC},
-	{"*preventDefault", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MutationEventImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.events.MutationEventImpl",
-	"com.sun.org.apache.xerces.internal.dom.events.EventImpl",
-	"org.w3c.dom.events.MutationEvent",
-	_MutationEventImpl_FieldInfo_,
-	_MutationEventImpl_MethodInfo_
-};
-
-$Object* allocate$MutationEventImpl($Class* clazz) {
-	return $of($alloc(MutationEventImpl));
-}
 
 void MutationEventImpl::initEvent($String* eventTypeArg, bool canBubbleArg, bool cancelableArg) {
 	this->$EventImpl::initEvent(eventTypeArg, canBubbleArg, cancelableArg);
@@ -192,7 +136,7 @@ void MutationEventImpl::initMutationEvent($String* typeArg, bool canBubbleArg, b
 MutationEventImpl::MutationEventImpl() {
 }
 
-void clinit$MutationEventImpl($Class* class$) {
+void MutationEventImpl::clinit$($Class* clazz) {
 	$assignStatic(MutationEventImpl::DOM_SUBTREE_MODIFIED, "DOMSubtreeModified"_s);
 	$assignStatic(MutationEventImpl::DOM_NODE_INSERTED, "DOMNodeInserted"_s);
 	$assignStatic(MutationEventImpl::DOM_NODE_REMOVED, "DOMNodeRemoved"_s);
@@ -203,7 +147,57 @@ void clinit$MutationEventImpl($Class* class$) {
 }
 
 $Class* MutationEventImpl::load$($String* name, bool initialize) {
-	$loadClass(MutationEventImpl, name, initialize, &_MutationEventImpl_ClassInfo_, clinit$MutationEventImpl, allocate$MutationEventImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"relatedNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(MutationEventImpl, relatedNode)},
+		{"prevValue", "Ljava/lang/String;", nullptr, 0, $field(MutationEventImpl, prevValue)},
+		{"newValue", "Ljava/lang/String;", nullptr, 0, $field(MutationEventImpl, newValue)},
+		{"attrName", "Ljava/lang/String;", nullptr, 0, $field(MutationEventImpl, attrName)},
+		{"attrChange", "S", nullptr, $PUBLIC, $field(MutationEventImpl, attrChange)},
+		{"DOM_SUBTREE_MODIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_SUBTREE_MODIFIED)},
+		{"DOM_NODE_INSERTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_INSERTED)},
+		{"DOM_NODE_REMOVED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_REMOVED)},
+		{"DOM_NODE_REMOVED_FROM_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_REMOVED_FROM_DOCUMENT)},
+		{"DOM_NODE_INSERTED_INTO_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_NODE_INSERTED_INTO_DOCUMENT)},
+		{"DOM_ATTR_MODIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_ATTR_MODIFIED)},
+		{"DOM_CHARACTER_DATA_MODIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MutationEventImpl, DOM_CHARACTER_DATA_MODIFIED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getBubbles", "()Z", nullptr, $PUBLIC},
+		{"*getCancelable", "()Z", nullptr, $PUBLIC},
+		{"*getCurrentTarget", "()Lorg/w3c/dom/events/EventTarget;", nullptr, $PUBLIC},
+		{"*getEventPhase", "()S", nullptr, $PUBLIC},
+		{"*getTarget", "()Lorg/w3c/dom/events/EventTarget;", nullptr, $PUBLIC},
+		{"*getTimeStamp", "()J", nullptr, $PUBLIC},
+		{"*getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MutationEventImpl, init$, void)},
+		{"getAttrChange", "()S", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getAttrChange, int16_t)},
+		{"getAttrName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getAttrName, $String*)},
+		{"getNewValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getNewValue, $String*)},
+		{"getPrevValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getPrevValue, $String*)},
+		{"getRelatedNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, getRelatedNode, $Node*)},
+		{"*initEvent", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC},
+		{"initMutationEvent", "(Ljava/lang/String;ZZLorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(MutationEventImpl, initMutationEvent, void, $String*, bool, bool, $Node*, $String*, $String*, $String*, int16_t)},
+		{"*stopPropagation", "()V", nullptr, $PUBLIC},
+		{"*preventDefault", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.events.MutationEventImpl",
+		"com.sun.org.apache.xerces.internal.dom.events.EventImpl",
+		"org.w3c.dom.events.MutationEvent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MutationEventImpl, name, initialize, &classInfo$$, MutationEventImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MutationEventImpl));
+	});
 	return class$;
 }
 

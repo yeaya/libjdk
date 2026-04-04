@@ -1,5 +1,4 @@
 #include <sun/awt/CausedFocusEvent$Cause.h>
-
 #include <java/lang/Enum.h>
 #include <sun/awt/CausedFocusEvent.h>
 #include <jcpp.h>
@@ -28,58 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _CausedFocusEvent$Cause_FieldInfo_[] = {
-	{"UNKNOWN", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, UNKNOWN)},
-	{"MOUSE_EVENT", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, MOUSE_EVENT)},
-	{"TRAVERSAL", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL)},
-	{"TRAVERSAL_UP", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_UP)},
-	{"TRAVERSAL_DOWN", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_DOWN)},
-	{"TRAVERSAL_FORWARD", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_FORWARD)},
-	{"TRAVERSAL_BACKWARD", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_BACKWARD)},
-	{"MANUAL_REQUEST", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, MANUAL_REQUEST)},
-	{"AUTOMATIC_TRAVERSE", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, AUTOMATIC_TRAVERSE)},
-	{"ROLLBACK", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, ROLLBACK)},
-	{"NATIVE_SYSTEM", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, NATIVE_SYSTEM)},
-	{"ACTIVATION", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, ACTIVATION)},
-	{"CLEAR_GLOBAL_FOCUS_OWNER", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, CLEAR_GLOBAL_FOCUS_OWNER)},
-	{"RETARGETED", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, RETARGETED)},
-	{"$VALUES", "[Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CausedFocusEvent$Cause, $VALUES)},
-	{}
-};
-
-$MethodInfo _CausedFocusEvent$Cause_MethodInfo_[] = {
-	{"$values", "()[Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CausedFocusEvent$Cause, $values, $CausedFocusEvent$CauseArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CausedFocusEvent$Cause, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(CausedFocusEvent$Cause, valueOf, CausedFocusEvent$Cause*, $String*)},
-	{"values", "()[Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(CausedFocusEvent$Cause, values, $CausedFocusEvent$CauseArray*)},
-	{}
-};
-
-$InnerClassInfo _CausedFocusEvent$Cause_InnerClassesInfo_[] = {
-	{"sun.awt.CausedFocusEvent$Cause", "sun.awt.CausedFocusEvent", "Cause", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CausedFocusEvent$Cause_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.awt.CausedFocusEvent$Cause",
-	"java.lang.Enum",
-	nullptr,
-	_CausedFocusEvent$Cause_FieldInfo_,
-	_CausedFocusEvent$Cause_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/awt/CausedFocusEvent$Cause;>;",
-	nullptr,
-	_CausedFocusEvent$Cause_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.CausedFocusEvent"
-};
-
-$Object* allocate$CausedFocusEvent$Cause($Class* clazz) {
-	return $of($alloc(CausedFocusEvent$Cause));
-}
 
 CausedFocusEvent$Cause* CausedFocusEvent$Cause::UNKNOWN = nullptr;
 CausedFocusEvent$Cause* CausedFocusEvent$Cause::MOUSE_EVENT = nullptr;
@@ -131,7 +78,7 @@ void CausedFocusEvent$Cause::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CausedFocusEvent$Cause($Class* class$) {
+void CausedFocusEvent$Cause::clinit$($Class* clazz) {
 	$assignStatic(CausedFocusEvent$Cause::UNKNOWN, $new(CausedFocusEvent$Cause, "UNKNOWN"_s, 0));
 	$assignStatic(CausedFocusEvent$Cause::MOUSE_EVENT, $new(CausedFocusEvent$Cause, "MOUSE_EVENT"_s, 1));
 	$assignStatic(CausedFocusEvent$Cause::TRAVERSAL, $new(CausedFocusEvent$Cause, "TRAVERSAL"_s, 2));
@@ -153,7 +100,53 @@ CausedFocusEvent$Cause::CausedFocusEvent$Cause() {
 }
 
 $Class* CausedFocusEvent$Cause::load$($String* name, bool initialize) {
-	$loadClass(CausedFocusEvent$Cause, name, initialize, &_CausedFocusEvent$Cause_ClassInfo_, clinit$CausedFocusEvent$Cause, allocate$CausedFocusEvent$Cause);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNKNOWN", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, UNKNOWN)},
+		{"MOUSE_EVENT", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, MOUSE_EVENT)},
+		{"TRAVERSAL", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL)},
+		{"TRAVERSAL_UP", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_UP)},
+		{"TRAVERSAL_DOWN", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_DOWN)},
+		{"TRAVERSAL_FORWARD", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_FORWARD)},
+		{"TRAVERSAL_BACKWARD", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, TRAVERSAL_BACKWARD)},
+		{"MANUAL_REQUEST", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, MANUAL_REQUEST)},
+		{"AUTOMATIC_TRAVERSE", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, AUTOMATIC_TRAVERSE)},
+		{"ROLLBACK", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, ROLLBACK)},
+		{"NATIVE_SYSTEM", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, NATIVE_SYSTEM)},
+		{"ACTIVATION", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, ACTIVATION)},
+		{"CLEAR_GLOBAL_FOCUS_OWNER", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, CLEAR_GLOBAL_FOCUS_OWNER)},
+		{"RETARGETED", "Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CausedFocusEvent$Cause, RETARGETED)},
+		{"$VALUES", "[Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CausedFocusEvent$Cause, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CausedFocusEvent$Cause, $values, $CausedFocusEvent$CauseArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CausedFocusEvent$Cause, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(CausedFocusEvent$Cause, valueOf, CausedFocusEvent$Cause*, $String*)},
+		{"values", "()[Lsun/awt/CausedFocusEvent$Cause;", nullptr, $PUBLIC | $STATIC, $staticMethod(CausedFocusEvent$Cause, values, $CausedFocusEvent$CauseArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.CausedFocusEvent$Cause", "sun.awt.CausedFocusEvent", "Cause", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.awt.CausedFocusEvent$Cause",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/awt/CausedFocusEvent$Cause;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.CausedFocusEvent"
+	};
+	$loadClass(CausedFocusEvent$Cause, name, initialize, &classInfo$$, CausedFocusEvent$Cause::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CausedFocusEvent$Cause));
+	});
 	return class$;
 }
 

@@ -53,6 +53,7 @@ class XPathFactoryFinder : public ::java::lang::Object {
 	$class(XPathFactoryFinder, 0, ::java::lang::Object)
 public:
 	XPathFactoryFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* loader);
 	::javax::xml::xpath::XPathFactory* _newFactory($String* uri);
 	$Class* createClass($String* className);

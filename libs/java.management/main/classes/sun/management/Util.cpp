@@ -1,5 +1,4 @@
 #include <sun/management/Util.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/lang/management/ManagementPermission.h>
 #include <java/security/Permission.h>
@@ -18,45 +17,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ManagementPermission = ::java::lang::management::ManagementPermission;
-using $Permission = ::java::security::Permission;
 using $List = ::java::util::List;
 using $MalformedObjectNameException = ::javax::management::MalformedObjectNameException;
 using $ObjectName = ::javax::management::ObjectName;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _Util_FieldInfo_[] = {
-	{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Util, EMPTY_STRING_ARRAY)},
-	{"monitorPermission", "Ljava/lang/management/ManagementPermission;", nullptr, $PRIVATE | $STATIC, $staticField(Util, monitorPermission)},
-	{"controlPermission", "Ljava/lang/management/ManagementPermission;", nullptr, $PRIVATE | $STATIC, $staticField(Util, controlPermission)},
-	{}
-};
-
-$MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
-	{"checkAccess", "(Ljava/lang/management/ManagementPermission;)V", nullptr, $STATIC, $staticMethod(Util, checkAccess, void, $ManagementPermission*), "java.lang.SecurityException"},
-	{"checkControlAccess", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, checkControlAccess, void), "java.lang.SecurityException"},
-	{"checkMonitorAccess", "()V", nullptr, $STATIC, $staticMethod(Util, checkMonitorAccess, void), "java.lang.SecurityException"},
-	{"newException", "(Ljava/lang/Exception;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(Util, newException, $RuntimeException*, $Exception*)},
-	{"newObjectName", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*, $String*)},
-	{"newObjectName", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*)},
-	{"toStringArray", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/String;>;)[Ljava/lang/String;", $STATIC, $staticMethod(Util, toStringArray, $StringArray*, $List*)},
-	{}
-};
-
-$ClassInfo _Util_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.Util",
-	"java.lang.Object",
-	nullptr,
-	_Util_FieldInfo_,
-	_Util_MethodInfo_
-};
-
-$Object* allocate$Util($Class* clazz) {
-	return $of($alloc(Util));
-}
 
 $StringArray* Util::EMPTY_STRING_ARRAY = nullptr;
 $ManagementPermission* Util::monitorPermission = nullptr;
@@ -67,13 +33,13 @@ void Util::init$() {
 
 $RuntimeException* Util::newException($Exception* e) {
 	$init(Util);
-	$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+	$throwNew($RuntimeException, e);
 	$shouldNotReachHere();
 }
 
 $StringArray* Util::toStringArray($List* list) {
 	$init(Util);
-	return $fcast($StringArray, $nc(list)->toArray(Util::EMPTY_STRING_ARRAY));
+	return $cast($StringArray, $nc(list)->toArray(Util::EMPTY_STRING_ARRAY));
 }
 
 $ObjectName* Util::newObjectName($String* domainAndType, $String* name) {
@@ -86,7 +52,7 @@ $ObjectName* Util::newObjectName($String* name) {
 	try {
 		return $ObjectName::getInstance(name);
 	} catch ($MalformedObjectNameException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -109,7 +75,7 @@ void Util::checkControlAccess() {
 	checkAccess(Util::controlPermission);
 }
 
-void clinit$Util($Class* class$) {
+void Util::clinit$($Class* clazz) {
 	$assignStatic(Util::EMPTY_STRING_ARRAY, $new($StringArray, 0));
 	$assignStatic(Util::monitorPermission, $new($ManagementPermission, "monitor"_s));
 	$assignStatic(Util::controlPermission, $new($ManagementPermission, "control"_s));
@@ -119,7 +85,34 @@ Util::Util() {
 }
 
 $Class* Util::load$($String* name, bool initialize) {
-	$loadClass(Util, name, initialize, &_Util_ClassInfo_, clinit$Util, allocate$Util);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_STRING_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Util, EMPTY_STRING_ARRAY)},
+		{"monitorPermission", "Ljava/lang/management/ManagementPermission;", nullptr, $PRIVATE | $STATIC, $staticField(Util, monitorPermission)},
+		{"controlPermission", "Ljava/lang/management/ManagementPermission;", nullptr, $PRIVATE | $STATIC, $staticField(Util, controlPermission)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
+		{"checkAccess", "(Ljava/lang/management/ManagementPermission;)V", nullptr, $STATIC, $staticMethod(Util, checkAccess, void, $ManagementPermission*), "java.lang.SecurityException"},
+		{"checkControlAccess", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, checkControlAccess, void), "java.lang.SecurityException"},
+		{"checkMonitorAccess", "()V", nullptr, $STATIC, $staticMethod(Util, checkMonitorAccess, void), "java.lang.SecurityException"},
+		{"newException", "(Ljava/lang/Exception;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(Util, newException, $RuntimeException*, $Exception*)},
+		{"newObjectName", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*, $String*)},
+		{"newObjectName", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*)},
+		{"toStringArray", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/String;>;)[Ljava/lang/String;", $STATIC, $staticMethod(Util, toStringArray, $StringArray*, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.Util",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Util, name, initialize, &classInfo$$, Util::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Util);
+	});
 	return class$;
 }
 

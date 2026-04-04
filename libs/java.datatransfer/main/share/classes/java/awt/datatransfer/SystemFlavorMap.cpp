@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/SystemFlavorMap.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/FlavorMap.h>
 #include <java/awt/datatransfer/MimeType.h>
@@ -9,7 +8,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -22,9 +20,7 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -55,8 +51,6 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -72,9 +66,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -98,29 +90,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new(SystemFlavorMap));
+		 return $new(SystemFlavorMap);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SystemFlavorMap$$Lambda$SystemFlavorMap>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SystemFlavorMap$$Lambda$SystemFlavorMap::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemFlavorMap$$Lambda$SystemFlavorMap, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemFlavorMap$$Lambda$SystemFlavorMap, get, $Object*)},
-	{}
-};
-$ClassInfo SystemFlavorMap$$Lambda$SystemFlavorMap::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.datatransfer.SystemFlavorMap$$Lambda$SystemFlavorMap",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* SystemFlavorMap$$Lambda$SystemFlavorMap::load$($String* name, bool initialize) {
-	$loadClass(SystemFlavorMap$$Lambda$SystemFlavorMap, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SystemFlavorMap$$Lambda$SystemFlavorMap, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemFlavorMap$$Lambda$SystemFlavorMap, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.datatransfer.SystemFlavorMap$$Lambda$SystemFlavorMap",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemFlavorMap$$Lambda$SystemFlavorMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemFlavorMap$$Lambda$SystemFlavorMap);
+	});
 	return class$;
 }
 $Class* SystemFlavorMap$$Lambda$SystemFlavorMap::class$ = nullptr;
@@ -131,104 +120,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(SystemFlavorMap::lambda$initSystemFlavorMap$0());
+		 return SystemFlavorMap::lambda$initSystemFlavorMap$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.datatransfer.SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::load$($String* name, bool initialize) {
-	$loadClass(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.datatransfer.SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1);
+	});
 	return class$;
 }
 $Class* SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::class$ = nullptr;
-
-$FieldInfo _SystemFlavorMap_FieldInfo_[] = {
-	{"JavaMIME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SystemFlavorMap, JavaMIME)},
-	{"FLAVOR_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, FLAVOR_MAP_KEY)},
-	{"UNICODE_TEXT_CLASSES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, UNICODE_TEXT_CLASSES)},
-	{"ENCODED_TEXT_CLASSES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, ENCODED_TEXT_CLASSES)},
-	{"TEXT_PLAIN_BASE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, TEXT_PLAIN_BASE_TYPE)},
-	{"HTML_TEXT_BASE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, HTML_TEXT_BASE_TYPE)},
-	{"nativeToFlavor", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, nativeToFlavor)},
-	{"flavorToNative", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, flavorToNative)},
-	{"textTypeToNative", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE, $field(SystemFlavorMap, textTypeToNative)},
-	{"isMapInitialized", "Z", nullptr, $PRIVATE, $field(SystemFlavorMap, isMapInitialized)},
-	{"nativesForFlavorCache", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache;", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, nativesForFlavorCache)},
-	{"flavorsForNativeCache", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache;", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, flavorsForNativeCache)},
-	{"disabledMappingGenerationKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Object;>;", $PRIVATE, $field(SystemFlavorMap, disabledMappingGenerationKeys)},
-	{"htmlDocumentTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, htmlDocumentTypes)},
-	{}
-};
-
-$MethodInfo _SystemFlavorMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap, init$, void)},
-	{"addFlavorForUnencodedNative", "(Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, addFlavorForUnencodedNative, void, $String*, $DataFlavor*)},
-	{"addUnencodedNativeForFlavor", "(Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, addUnencodedNativeForFlavor, void, $DataFlavor*, $String*)},
-	{"convertMimeTypeToDataFlavors", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, convertMimeTypeToDataFlavors, $Set*, $String*)},
-	{"decodeDataFlavor", "(Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, decodeDataFlavor, $DataFlavor*, $String*), "java.lang.ClassNotFoundException"},
-	{"decodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, decodeJavaMIMEType, $String*, $String*)},
-	{"encodeDataFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, encodeDataFlavor, $String*, $DataFlavor*)},
-	{"encodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, encodeJavaMIMEType, $String*, $String*)},
-	{"flavorToNativeLookup", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE, $method(SystemFlavorMap, flavorToNativeLookup, $LinkedHashSet*, $DataFlavor*, bool)},
-	{"getDefaultFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, getDefaultFlavorMap, $FlavorMap*)},
-	{"getFlavorToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(SystemFlavorMap, getFlavorToNative, $Map*)},
-	{"getFlavorsForNative", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getFlavorsForNative, $List*, $String*)},
-	{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getFlavorsForNatives, $Map*, $StringArray*)},
-	{"getNativeToFlavor", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;>;", $PRIVATE, $method(SystemFlavorMap, getNativeToFlavor, $Map*)},
-	{"getNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getNativesForFlavor, $List*, $DataFlavor*)},
-	{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getNativesForFlavors, $Map*, $DataFlavorArray*)},
-	{"getTextTypeToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(SystemFlavorMap, getTextTypeToNative, $Map*)},
-	{"handleHtmlMimeTypes", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, handleHtmlMimeTypes, $LinkedHashSet*, $String*, $String*)},
-	{"initSystemFlavorMap", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap, initSystemFlavorMap, void)},
-	{"isJavaMIMEType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, isJavaMIMEType, bool, $String*)},
-	{"lambda$initSystemFlavorMap$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SystemFlavorMap, lambda$initSystemFlavorMap$0, $InputStream*)},
-	{"loadConvert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, loadConvert, $String*, $String*)},
-	{"nativeToFlavorLookup", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE, $method(SystemFlavorMap, nativeToFlavorLookup, $LinkedHashSet*, $String*)},
-	{"setFlavorsForNative", "(Ljava/lang/String;[Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, setFlavorsForNative, void, $String*, $DataFlavorArray*)},
-	{"setNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;[Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, setNativesForFlavor, void, $DataFlavor*, $StringArray*)},
-	{"store", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Map;)V", "<H:Ljava/lang/Object;L:Ljava/lang/Object;>(TH;TL;Ljava/util/Map<TH;Ljava/util/LinkedHashSet<TL;>;>;)V", $PRIVATE, $method(SystemFlavorMap, store, void, Object$*, Object$*, $Map*)},
-	{}
-};
-
-$InnerClassInfo _SystemFlavorMap_InnerClassesInfo_[] = {
-	{"java.awt.datatransfer.SystemFlavorMap$SoftCache", "java.awt.datatransfer.SystemFlavorMap", "SoftCache", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SystemFlavorMap_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.datatransfer.SystemFlavorMap",
-	"java.lang.Object",
-	"java.awt.datatransfer.FlavorTable",
-	_SystemFlavorMap_FieldInfo_,
-	_SystemFlavorMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SystemFlavorMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.datatransfer.SystemFlavorMap$SoftCache"
-};
-
-$Object* allocate$SystemFlavorMap($Class* clazz) {
-	return $of($alloc(SystemFlavorMap));
-}
 
 $String* SystemFlavorMap::JavaMIME = nullptr;
 $Object* SystemFlavorMap::FLAVOR_MAP_KEY = nullptr;
@@ -266,8 +180,8 @@ $Map* SystemFlavorMap::getTextTypeToNative() {
 
 $FlavorMap* SystemFlavorMap::getDefaultFlavorMap() {
 	$init(SystemFlavorMap);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($DataFlavorUtil::getDesktopService()))->getFlavorMap(static_cast<$Supplier*>($$new(SystemFlavorMap$$Lambda$SystemFlavorMap)));
+	$useLocalObjectStack();
+	return $$nc($DataFlavorUtil::getDesktopService())->getFlavorMap($$new(SystemFlavorMap$$Lambda$SystemFlavorMap));
 }
 
 void SystemFlavorMap::init$() {
@@ -281,138 +195,133 @@ void SystemFlavorMap::init$() {
 }
 
 void SystemFlavorMap::initSystemFlavorMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->isMapInitialized) {
 		return;
 	}
 	this->isMapInitialized = true;
-	$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1)))));
+	$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1)))));
 	if (is == nullptr) {
 		$throwNew($InternalError, "Default flavor mapping not found"_s);
 	}
 	try {
 		$var($InputStreamReader, isr, $new($InputStreamReader, is));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($BufferedReader, reader, $new($BufferedReader, isr));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($BufferedReader, reader, $new($BufferedReader, isr));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($String, line, nullptr);
-								while (($assign(line, reader->readLine())) != nullptr) {
-									$assign(line, $nc(line)->trim());
-									bool var$2 = line->startsWith("#"_s);
-									if (var$2 || line->isEmpty()) {
-										continue;
-									}
-									while (line->endsWith("\\"_s)) {
-										$var($String, var$3, $(line->substring(0, line->length() - 1)));
-										$assign(line, $concat(var$3, $($nc($(reader->readLine()))->trim())));
-									}
-									int32_t delimiterPosition = line->indexOf((int32_t)u'=');
-									$var($String, key, $(line->substring(0, delimiterPosition))->replace(static_cast<$CharSequence*>("\\ "_s), static_cast<$CharSequence*>(" "_s)));
-									$var($StringArray, values, $(line->substring(delimiterPosition + 1, line->length()))->split(","_s));
+					try {
+						$var($String, line, nullptr);
+						while (($assign(line, reader->readLine())) != nullptr) {
+							$assign(line, $nc(line)->trim());
+							bool var$2 = line->startsWith("#"_s);
+							if (var$2 || line->isEmpty()) {
+								continue;
+							}
+							while (line->endsWith("\\"_s)) {
+								$var($StringBuilder, var$3, $new($StringBuilder));
+								var$3->append($(line->substring(0, line->length() - 1)));
+								var$3->append($($$nc(reader->readLine())->trim()));
+								$assign(line, $str(var$3));
+							}
+							int32_t delimiterPosition = line->indexOf(u'=');
+							$var($String, key, $(line->substring(0, delimiterPosition))->replace("\\ "_s, " "_s));
+							$var($StringArray, values, $(line->substring(delimiterPosition + 1, line->length()))->split(","_s));
+							{
+								$var($StringArray, arr$, values);
+								int32_t len$ = arr$->length;
+								int32_t i$ = 0;
+								for (; i$ < len$; ++i$) {
+									$var($String, value, arr$->get(i$));
 									{
-										$var($StringArray, arr$, values);
-										int32_t len$ = arr$->length;
-										int32_t i$ = 0;
-										for (; i$ < len$; ++i$) {
-											$var($String, value, arr$->get(i$));
-											{
-												try {
-													$assign(value, loadConvert(value));
-													$var($MimeType, mime, $new($MimeType, value));
-													if ("text"_s->equals($(mime->getPrimaryType()))) {
-														$var($String, charset, mime->getParameter("charset"_s));
-														if ($DataFlavorUtil::doesSubtypeSupportCharset($(mime->getSubType()), charset)) {
-															$var($DesktopDatatransferService, desktopService, $DataFlavorUtil::getDesktopService());
-															if ($nc(desktopService)->isDesktopPresent()) {
-																$var($String, var$4, key);
-																$var($String, var$5, charset);
-																$var($String, var$6, mime->getParameter("eoln"_s));
-																desktopService->registerTextFlavorProperties(var$4, var$5, var$6, $(mime->getParameter("terminators"_s)));
-															}
-														}
-														mime->removeParameter("charset"_s);
-														mime->removeParameter("class"_s);
-														mime->removeParameter("eoln"_s);
-														mime->removeParameter("terminators"_s);
-														$assign(value, mime->toString());
-													}
-												} catch ($MimeTypeParseException& e) {
-													e->printStackTrace();
-													continue;
-												}
-												$var($DataFlavor, flavor, nullptr);
-												try {
-													$assign(flavor, $new($DataFlavor, value));
-												} catch ($Exception& e) {
-													try {
-														$assign(flavor, $new($DataFlavor, value, ($String*)nullptr));
-													} catch ($Exception& ee) {
-														ee->printStackTrace();
-														continue;
+										try {
+											$assign(value, loadConvert(value));
+											$var($MimeType, mime, $new($MimeType, value));
+											if ("text"_s->equals($(mime->getPrimaryType()))) {
+												$var($String, charset, mime->getParameter("charset"_s));
+												if ($DataFlavorUtil::doesSubtypeSupportCharset($(mime->getSubType()), charset)) {
+													$var($DesktopDatatransferService, desktopService, $DataFlavorUtil::getDesktopService());
+													if ($nc(desktopService)->isDesktopPresent()) {
+														$var($String, var$4, mime->getParameter("eoln"_s));
+														desktopService->registerTextFlavorProperties(key, charset, var$4, $(mime->getParameter("terminators"_s)));
 													}
 												}
-												$var($LinkedHashSet, dfs, $new($LinkedHashSet));
-												dfs->add(flavor);
-												if ("text"_s->equals($($nc(flavor)->getPrimaryType()))) {
-													dfs->addAll($(convertMimeTypeToDataFlavors(value)));
-													$var($Object, var$7, $of($nc($nc(flavor)->mimeType)->getBaseType()));
-													$var($Object, var$8, $of(key));
-													store(var$7, var$8, $(getTextTypeToNative()));
-												}
+												mime->removeParameter("charset"_s);
+												mime->removeParameter("class"_s);
+												mime->removeParameter("eoln"_s);
+												mime->removeParameter("terminators"_s);
+												$assign(value, mime->toString());
+											}
+										} catch ($MimeTypeParseException& e) {
+											e->printStackTrace();
+											continue;
+										}
+										$var($DataFlavor, flavor, nullptr);
+										try {
+											$assign(flavor, $new($DataFlavor, value));
+										} catch ($Exception& e) {
+											try {
+												$assign(flavor, $new($DataFlavor, value, nullptr));
+											} catch ($Exception& ee) {
+												ee->printStackTrace();
+												continue;
+											}
+										}
+										$var($LinkedHashSet, dfs, $new($LinkedHashSet));
+										dfs->add(flavor);
+										if ("text"_s->equals($($nc(flavor)->getPrimaryType()))) {
+											dfs->addAll($(convertMimeTypeToDataFlavors(value)));
+											$var($Object, var$5, $nc(flavor->mimeType)->getBaseType());
+											store(var$5, key, $(getTextTypeToNative()));
+										}
+										{
+											$var($Iterator, i$, dfs->iterator());
+											for (; $nc(i$)->hasNext();) {
+												$var($DataFlavor, df, $cast($DataFlavor, i$->next()));
 												{
-													$var($Iterator, i$, dfs->iterator());
-													for (; $nc(i$)->hasNext();) {
-														$var($DataFlavor, df, $cast($DataFlavor, i$->next()));
-														{
-															store(df, key, $(getFlavorToNative()));
-															store(key, df, $(getNativeToFlavor()));
-														}
-													}
+													store(df, key, $(getFlavorToNative()));
+													store(key, df, $(getNativeToFlavor()));
 												}
 											}
 										}
 									}
 								}
-							} catch ($Throwable& t$) {
-								try {
-									reader->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
 							}
-						} catch ($Throwable& var$9) {
-							$assign(var$1, var$9);
-						} /*finally*/ {
+						}
+					} catch ($Throwable& t$) {
+						try {
 							reader->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
+						$throw(t$);
 					}
-				} catch ($Throwable& t$) {
-					try {
-						isr->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				} catch ($Throwable& var$6) {
+					$assign(var$1, var$6);
+				} /*finally*/ {
+					reader->close();
 				}
-			} catch ($Throwable& var$10) {
-				$assign(var$0, var$10);
-			} /*finally*/ {
-				isr->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					isr->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
+		} /*finally*/ {
+			isr->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& e) {
 		$throwNew($InternalError, "Error reading default flavor mapping"_s, e);
@@ -434,69 +343,42 @@ $String* SystemFlavorMap::loadConvert($String* theString) {
 					aChar = theString->charAt(x++);
 					switch (aChar) {
 					case u'0':
-						{}
 					case u'1':
-						{}
 					case u'2':
-						{}
 					case u'3':
-						{}
 					case u'4':
-						{}
 					case u'5':
-						{}
 					case u'6':
-						{}
 					case u'7':
-						{}
 					case u'8':
-						{}
 					case u'9':
 						{
-							{
-								value = (value << 4) + aChar - u'0';
-								break;
-							}
+							value = (value << 4) + aChar - u'0';
+							break;
 						}
 					case u'a':
-						{}
 					case u'b':
-						{}
 					case u'c':
-						{}
 					case u'd':
-						{}
 					case u'e':
-						{}
 					case u'f':
 						{
-							{
-								value = (value << 4) + 10 + aChar - u'a';
-								break;
-							}
+							value = (value << 4) + 10 + aChar - u'a';
+							break;
 						}
 					case u'A':
-						{}
 					case u'B':
-						{}
 					case u'C':
-						{}
 					case u'D':
-						{}
 					case u'E':
-						{}
 					case u'F':
 						{
-							{
-								value = (value << 4) + 10 + aChar - u'A';
-								break;
-							}
+							value = (value << 4) + 10 + aChar - u'A';
+							break;
 						}
 					default:
 						{
-							{
-								$throwNew($IllegalArgumentException, "Malformed \\uxxxx encoding."_s);
-							}
+							$throwNew($IllegalArgumentException, "Malformed \\uxxxx encoding."_s);
 						}
 					}
 				}
@@ -532,15 +414,15 @@ void SystemFlavorMap::store(Object$* hashed, Object$* listed, $Map* map) {
 }
 
 $LinkedHashSet* SystemFlavorMap::nativeToFlavorLookup($String* nat) {
-	$useLocalCurrentObjectStackCache();
-	$var($LinkedHashSet, flavors, $cast($LinkedHashSet, $nc($(getNativeToFlavor()))->get(nat)));
+	$useLocalObjectStack();
+	$var($LinkedHashSet, flavors, $cast($LinkedHashSet, $$nc(getNativeToFlavor())->get(nat)));
 	if (nat != nullptr && !$nc(this->disabledMappingGenerationKeys)->contains(nat)) {
 		$var($DesktopDatatransferService, desktopService, $DataFlavorUtil::getDesktopService());
 		if ($nc(desktopService)->isDesktopPresent()) {
 			$var($LinkedHashSet, platformFlavors, desktopService->getPlatformMappingsForNative(nat));
 			if (!$nc(platformFlavors)->isEmpty()) {
 				if (flavors != nullptr) {
-					platformFlavors->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(flavors)))));
+					platformFlavors->addAll($cast($AbstractCollection, flavors));
 				}
 				$assign(flavors, platformFlavors);
 			}
@@ -552,38 +434,42 @@ $LinkedHashSet* SystemFlavorMap::nativeToFlavorLookup($String* nat) {
 		try {
 			$assign(flavor, $new($DataFlavor, decoded));
 		} catch ($Exception& e) {
-			$var($String, var$2, $$str({"Exception \""_s, $($of(e)->getClass()->getName()), ": "_s}));
-			$var($String, var$1, $$concat(var$2, $(e->getMessage())));
-			$var($String, var$0, $$concat(var$1, "\"while constructing DataFlavor for: "_s));
-			$nc($System::err)->println($$concat(var$0, decoded));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Exception \""_s);
+			var$0->append($(e->getClass()->getName()));
+			var$0->append(": "_s);
+			var$0->append($(e->getMessage()));
+			var$0->append("\"while constructing DataFlavor for: "_s);
+			var$0->append(decoded);
+			$nc($System::err)->println($$str(var$0));
 		}
 		if (flavor != nullptr) {
 			$assign(flavors, $new($LinkedHashSet, 1));
-			$nc($(getNativeToFlavor()))->put(nat, flavors);
+			$$nc(getNativeToFlavor())->put(nat, flavors);
 			flavors->add(flavor);
-			$nc(this->flavorsForNativeCache)->remove(nat);
-			$var($LinkedHashSet, natives, $cast($LinkedHashSet, $nc($(getFlavorToNative()))->get(flavor)));
+			this->flavorsForNativeCache->remove(nat);
+			$var($LinkedHashSet, natives, $cast($LinkedHashSet, $$nc(getFlavorToNative())->get(flavor)));
 			if (natives == nullptr) {
 				$assign(natives, $new($LinkedHashSet, 1));
-				$nc($(getFlavorToNative()))->put(flavor, natives);
+				$$nc(getFlavorToNative())->put(flavor, natives);
 			}
 			$nc(natives)->add(nat);
-			$nc(this->nativesForFlavorCache)->remove(flavor);
+			this->nativesForFlavorCache->remove(flavor);
 		}
 	}
 	return (flavors != nullptr) ? flavors : $new($LinkedHashSet, 0);
 }
 
 $LinkedHashSet* SystemFlavorMap::flavorToNativeLookup($DataFlavor* flav, bool synthesize) {
-	$useLocalCurrentObjectStackCache();
-	$var($LinkedHashSet, natives, $cast($LinkedHashSet, $nc($(getFlavorToNative()))->get(flav)));
+	$useLocalObjectStack();
+	$var($LinkedHashSet, natives, $cast($LinkedHashSet, $$nc(getFlavorToNative())->get(flav)));
 	if (flav != nullptr && !$nc(this->disabledMappingGenerationKeys)->contains(flav)) {
 		$var($DesktopDatatransferService, desktopService, $DataFlavorUtil::getDesktopService());
 		if ($nc(desktopService)->isDesktopPresent()) {
 			$var($LinkedHashSet, platformNatives, desktopService->getPlatformMappingsForFlavor(flav));
 			if (!$nc(platformNatives)->isEmpty()) {
 				if (natives != nullptr) {
-					platformNatives->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(natives)))));
+					platformNatives->addAll($cast($AbstractCollection, natives));
 				}
 				$assign(natives, platformNatives);
 			}
@@ -593,89 +479,87 @@ $LinkedHashSet* SystemFlavorMap::flavorToNativeLookup($DataFlavor* flav, bool sy
 		if (synthesize) {
 			$var($String, encoded, encodeDataFlavor(flav));
 			$assign(natives, $new($LinkedHashSet, 1));
-			$nc($(getFlavorToNative()))->put(flav, natives);
+			$$nc(getFlavorToNative())->put(flav, natives);
 			natives->add(encoded);
-			$var($LinkedHashSet, flavors, $cast($LinkedHashSet, $nc($(getNativeToFlavor()))->get(encoded)));
+			$var($LinkedHashSet, flavors, $cast($LinkedHashSet, $$nc(getNativeToFlavor())->get(encoded)));
 			if (flavors == nullptr) {
 				$assign(flavors, $new($LinkedHashSet, 1));
-				$nc($(getNativeToFlavor()))->put(encoded, flavors);
+				$$nc(getNativeToFlavor())->put(encoded, flavors);
 			}
 			$nc(flavors)->add(flav);
-			$nc(this->nativesForFlavorCache)->remove(flav);
-			$nc(this->flavorsForNativeCache)->remove(encoded);
+			this->nativesForFlavorCache->remove(flav);
+			this->flavorsForNativeCache->remove(encoded);
 		} else {
 			$assign(natives, $new($LinkedHashSet, 0));
 		}
 	}
-	return $new($LinkedHashSet, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(natives)))));
+	return $new($LinkedHashSet, $cast($AbstractCollection, natives));
 }
 
 $List* SystemFlavorMap::getNativesForFlavor($DataFlavor* flav) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($LinkedHashSet, retval, $nc(this->nativesForFlavorCache)->check(flav));
+		$useLocalObjectStack();
+		$var($LinkedHashSet, retval, this->nativesForFlavorCache->check(flav));
 		if (retval != nullptr) {
-			return $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(retval)))));
+			return $new($ArrayList, $cast($AbstractCollection, retval));
 		}
 		if (flav == nullptr) {
-			$assign(retval, $new($LinkedHashSet, $(static_cast<$Collection*>($nc($(getNativeToFlavor()))->keySet()))));
+			$assign(retval, $new($LinkedHashSet, $($$nc(getNativeToFlavor())->keySet())));
 		} else if ($nc(this->disabledMappingGenerationKeys)->contains(flav)) {
 			$assign(retval, flavorToNativeLookup(flav, false));
 		} else if ($DataFlavorUtil::isFlavorCharsetTextType(flav)) {
 			$assign(retval, $new($LinkedHashSet, 0));
-			if ("text"_s->equals($($nc(flav)->getPrimaryType()))) {
-				$var($LinkedHashSet, textTypeNatives, $cast($LinkedHashSet, $nc($(getTextTypeToNative()))->get($($nc($nc(flav)->mimeType)->getBaseType()))));
+			if ("text"_s->equals($(flav->getPrimaryType()))) {
+				$var($LinkedHashSet, textTypeNatives, $cast($LinkedHashSet, $$nc(getTextTypeToNative())->get($($nc(flav->mimeType)->getBaseType()))));
 				if (textTypeNatives != nullptr) {
-					retval->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(textTypeNatives)))));
+					retval->addAll($cast($AbstractCollection, textTypeNatives));
 				}
 			}
-			$var($LinkedHashSet, textTypeNatives, $cast($LinkedHashSet, $nc($(getTextTypeToNative()))->get(SystemFlavorMap::TEXT_PLAIN_BASE_TYPE)));
+			$var($LinkedHashSet, textTypeNatives, $cast($LinkedHashSet, $$nc(getTextTypeToNative())->get(SystemFlavorMap::TEXT_PLAIN_BASE_TYPE)));
 			if (textTypeNatives != nullptr) {
-				retval->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(textTypeNatives)))));
+				retval->addAll($cast($AbstractCollection, textTypeNatives));
 			}
 			if (retval->isEmpty()) {
 				$assign(retval, flavorToNativeLookup(flav, true));
 			} else {
-				retval->addAll($(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(flavorToNativeLookup(flav, false)))))));
+				retval->addAll($$cast($AbstractCollection, flavorToNativeLookup(flav, false)));
 			}
 		} else if ($DataFlavorUtil::isFlavorNoncharsetTextType(flav)) {
-			$assign(retval, $cast($LinkedHashSet, $nc($(getTextTypeToNative()))->get($($nc($nc(flav)->mimeType)->getBaseType()))));
-			if (retval == nullptr || $nc(retval)->isEmpty()) {
+			$assign(retval, $cast($LinkedHashSet, $$nc(getTextTypeToNative())->get($($nc(flav->mimeType)->getBaseType()))));
+			if (retval == nullptr || retval->isEmpty()) {
 				$assign(retval, flavorToNativeLookup(flav, true));
 			} else {
-				retval->addAll($(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(flavorToNativeLookup(flav, false)))))));
+				retval->addAll($$cast($AbstractCollection, flavorToNativeLookup(flav, false)));
 			}
 		} else {
 			$assign(retval, flavorToNativeLookup(flav, true));
 		}
-		$nc(this->nativesForFlavorCache)->put(flav, retval);
-		return $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(retval)))));
+		this->nativesForFlavorCache->put(flav, retval);
+		return $new($ArrayList, $cast($AbstractCollection, retval));
 	}
 }
 
 $List* SystemFlavorMap::getFlavorsForNative($String* nat) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($LinkedHashSet, returnValue, $nc(this->flavorsForNativeCache)->check(nat));
+		$useLocalObjectStack();
+		$var($LinkedHashSet, returnValue, this->flavorsForNativeCache->check(nat));
 		if (returnValue != nullptr) {
-			return $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(returnValue)))));
+			return $new($ArrayList, $cast($AbstractCollection, returnValue));
 		} else {
 			$assign(returnValue, $new($LinkedHashSet));
 		}
 		if (nat == nullptr) {
-			{
-				$var($Iterator, i$, $nc($(getNativesForFlavor(nullptr)))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($String, n, $cast($String, i$->next()));
-					{
-						$nc(returnValue)->addAll($(getFlavorsForNative(n)));
-					}
+			$var($Iterator, i$, $$nc(getNativesForFlavor(nullptr))->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($String, n, $cast($String, i$->next()));
+				{
+					$nc(returnValue)->addAll($(getFlavorsForNative(n)));
 				}
 			}
 		} else {
 			$var($LinkedHashSet, flavors, nativeToFlavorLookup(nat));
 			if ($nc(this->disabledMappingGenerationKeys)->contains(nat)) {
-				return $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(flavors)))));
+				return $new($ArrayList, $cast($AbstractCollection, flavors));
 			}
 			$var($LinkedHashSet, flavorsWithSynthesized, nativeToFlavorLookup(nat));
 			{
@@ -685,21 +569,21 @@ $List* SystemFlavorMap::getFlavorsForNative($String* nat) {
 					{
 						$nc(returnValue)->add(df);
 						if ("text"_s->equals($($nc(df)->getPrimaryType()))) {
-							$var($String, baseType, $nc($nc(df)->mimeType)->getBaseType());
+							$var($String, baseType, $nc(df->mimeType)->getBaseType());
 							returnValue->addAll($(convertMimeTypeToDataFlavors(baseType)));
 						}
 					}
 				}
 			}
 		}
-		$nc(this->flavorsForNativeCache)->put(nat, returnValue);
-		return $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(returnValue)))));
+		this->flavorsForNativeCache->put(nat, returnValue);
+		return $new($ArrayList, $cast($AbstractCollection, returnValue));
 	}
 }
 
 $Set* SystemFlavorMap::convertMimeTypeToDataFlavors($String* baseType) {
 	$init(SystemFlavorMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, returnValue, $new($LinkedHashSet));
 	$var($String, subType, nullptr);
 	try {
@@ -708,7 +592,7 @@ $Set* SystemFlavorMap::convertMimeTypeToDataFlavors($String* baseType) {
 	} catch ($MimeTypeParseException& mtpe) {
 	}
 	if ($DataFlavorUtil::doesSubtypeSupportCharset(subType, nullptr)) {
-		if ($nc(SystemFlavorMap::TEXT_PLAIN_BASE_TYPE)->equals(baseType)) {
+		if (SystemFlavorMap::TEXT_PLAIN_BASE_TYPE->equals(baseType)) {
 			$init($DataFlavor);
 			returnValue->add($DataFlavor::stringFlavor);
 		}
@@ -739,35 +623,32 @@ $Set* SystemFlavorMap::convertMimeTypeToDataFlavors($String* baseType) {
 			}
 		}
 		{
-			$var($Iterator, i$, $nc($($DataFlavorUtil::standardEncodings()))->iterator());
+			$var($Iterator, i$, $$nc($DataFlavorUtil::standardEncodings())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, charset, $cast($String, i$->next()));
 				{
-					{
-						$var($StringArray, arr$, SystemFlavorMap::ENCODED_TEXT_CLASSES);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($String, encodedTextClass, arr$->get(i$));
+					$var($StringArray, arr$, SystemFlavorMap::ENCODED_TEXT_CLASSES);
+					int32_t len$ = $nc(arr$)->length;
+					int32_t i$ = 0;
+					for (; i$ < len$; ++i$) {
+						$var($String, encodedTextClass, arr$->get(i$));
+						{
+							$var($String, mimeType, $str({baseType, ";charset="_s, charset, ";class="_s, encodedTextClass}));
+							$var($LinkedHashSet, mimeTypes, handleHtmlMimeTypes(baseType, mimeType));
 							{
-								$var($String, mimeType, $str({baseType, ";charset="_s, charset, ";class="_s, encodedTextClass}));
-								$var($LinkedHashSet, mimeTypes, handleHtmlMimeTypes(baseType, mimeType));
-								{
-									$var($Iterator, i$, $nc(mimeTypes)->iterator());
-									for (; $nc(i$)->hasNext();) {
-										$var($String, mt, $cast($String, i$->next()));
-										{
-											$var($DataFlavor, df, nullptr);
-											try {
-												$assign(df, $new($DataFlavor, mt));
-												$init($DataFlavor);
-												if (df->equals($DataFlavor::plainTextFlavor)) {
-													$assign(df, $DataFlavor::plainTextFlavor);
-												}
-											} catch ($ClassNotFoundException& cannotHappen) {
+								$var($Iterator, i$, $nc(mimeTypes)->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($String, mt, $cast($String, i$->next()));
+									{
+										$var($DataFlavor, df, nullptr);
+										try {
+											$assign(df, $new($DataFlavor, mt));
+											if (df->equals($DataFlavor::plainTextFlavor)) {
+												$assign(df, $DataFlavor::plainTextFlavor);
 											}
-											returnValue->add(df);
+										} catch ($ClassNotFoundException& cannotHappen) {
 										}
+										returnValue->add(df);
 									}
 								}
 							}
@@ -776,25 +657,21 @@ $Set* SystemFlavorMap::convertMimeTypeToDataFlavors($String* baseType) {
 				}
 			}
 		}
-		if ($nc(SystemFlavorMap::TEXT_PLAIN_BASE_TYPE)->equals(baseType)) {
+		if (SystemFlavorMap::TEXT_PLAIN_BASE_TYPE->equals(baseType)) {
 			$init($DataFlavor);
 			returnValue->add($DataFlavor::plainTextFlavor);
 		}
 	} else {
-		{
-			$var($StringArray, arr$, SystemFlavorMap::ENCODED_TEXT_CLASSES);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, encodedTextClassName, arr$->get(i$));
-				{
-					$var($DataFlavor, toAdd, nullptr);
-					try {
-						$assign(toAdd, $new($DataFlavor, $$str({baseType, ";class="_s, encodedTextClassName})));
-					} catch ($ClassNotFoundException& cannotHappen) {
-					}
-					returnValue->add(toAdd);
+		$var($StringArray, arr$, SystemFlavorMap::ENCODED_TEXT_CLASSES);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, encodedTextClassName, arr$->get(i$));
+			{
+				$var($DataFlavor, toAdd, nullptr);
+				try {
+					$assign(toAdd, $new($DataFlavor, $$str({baseType, ";class="_s, encodedTextClassName})));
+				} catch ($ClassNotFoundException& cannotHappen) {
 				}
+				returnValue->add(toAdd);
 			}
 		}
 	}
@@ -803,18 +680,14 @@ $Set* SystemFlavorMap::convertMimeTypeToDataFlavors($String* baseType) {
 
 $LinkedHashSet* SystemFlavorMap::handleHtmlMimeTypes($String* baseType, $String* mimeType) {
 	$init(SystemFlavorMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashSet, returnValues, $new($LinkedHashSet));
-	if ($nc(SystemFlavorMap::HTML_TEXT_BASE_TYPE)->equals(baseType)) {
-		{
-			$var($StringArray, arr$, SystemFlavorMap::htmlDocumentTypes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, documentType, arr$->get(i$));
-				{
-					returnValues->add($$str({mimeType, ";document="_s, documentType}));
-				}
+	if (SystemFlavorMap::HTML_TEXT_BASE_TYPE->equals(baseType)) {
+		$var($StringArray, arr$, SystemFlavorMap::htmlDocumentTypes);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, documentType, arr$->get(i$));
+			{
+				returnValues->add($$str({mimeType, ";document="_s, documentType}));
 			}
 		}
 	} else {
@@ -825,7 +698,7 @@ $LinkedHashSet* SystemFlavorMap::handleHtmlMimeTypes($String* baseType, $String*
 
 $Map* SystemFlavorMap::getNativesForFlavors($DataFlavorArray* flavors$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($DataFlavorArray, flavors, flavors$renamed);
 		if (flavors == nullptr) {
 			$var($List, flavor_list, getFlavorsForNative(nullptr));
@@ -835,13 +708,11 @@ $Map* SystemFlavorMap::getNativesForFlavors($DataFlavorArray* flavors$renamed) {
 		$var($Map, retval, $new($HashMap, $nc(flavors)->length, 1.0f));
 		{
 			$var($DataFlavorArray, arr$, flavors);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DataFlavor, flavor, arr$->get(i$));
 				{
 					$var($List, natives, getNativesForFlavor(flavor));
-					$var($String, nat, ($nc(natives)->isEmpty()) ? ($String*)nullptr : $cast($String, $nc(natives)->get(0)));
+					$var($String, nat, ($nc(natives)->isEmpty()) ? ($String*)nullptr : $cast($String, natives->get(0)));
 					retval->put(flavor, nat);
 				}
 			}
@@ -852,7 +723,7 @@ $Map* SystemFlavorMap::getNativesForFlavors($DataFlavorArray* flavors$renamed) {
 
 $Map* SystemFlavorMap::getFlavorsForNatives($StringArray* natives$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringArray, natives, natives$renamed);
 		if (natives == nullptr) {
 			$var($List, nativesList, getNativesForFlavor(nullptr));
@@ -862,13 +733,11 @@ $Map* SystemFlavorMap::getFlavorsForNatives($StringArray* natives$renamed) {
 		$var($Map, retval, $new($HashMap, $nc(natives)->length, 1.0f));
 		{
 			$var($StringArray, arr$, natives);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, aNative, arr$->get(i$));
 				{
 					$var($List, flavors, getFlavorsForNative(aNative));
-					$var($DataFlavor, flav, ($nc(flavors)->isEmpty()) ? ($DataFlavor*)nullptr : $cast($DataFlavor, $nc(flavors)->get(0)));
+					$var($DataFlavor, flav, ($nc(flavors)->isEmpty()) ? ($DataFlavor*)nullptr : $cast($DataFlavor, flavors->get(0)));
 					retval->put(aNative, flav);
 				}
 			}
@@ -879,30 +748,28 @@ $Map* SystemFlavorMap::getFlavorsForNatives($StringArray* natives$renamed) {
 
 void SystemFlavorMap::addUnencodedNativeForFlavor($DataFlavor* flav, $String* nat) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$Objects::requireNonNull($of(nat), "Null native not permitted"_s);
-		$Objects::requireNonNull($of(flav), "Null flavor not permitted"_s);
-		$var($LinkedHashSet, natives, $cast($LinkedHashSet, $nc($(getFlavorToNative()))->get(flav)));
+		$useLocalObjectStack();
+		$Objects::requireNonNull(nat, "Null native not permitted"_s);
+		$Objects::requireNonNull(flav, "Null flavor not permitted"_s);
+		$var($LinkedHashSet, natives, $cast($LinkedHashSet, $$nc(getFlavorToNative())->get(flav)));
 		if (natives == nullptr) {
 			$assign(natives, $new($LinkedHashSet, 1));
-			$nc($(getFlavorToNative()))->put(flav, natives);
+			$$nc(getFlavorToNative())->put(flav, natives);
 		}
 		$nc(natives)->add(nat);
-		$nc(this->nativesForFlavorCache)->remove(flav);
+		this->nativesForFlavorCache->remove(flav);
 	}
 }
 
 void SystemFlavorMap::setNativesForFlavor($DataFlavor* flav, $StringArray* natives) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$Objects::requireNonNull($of(natives), "Null natives not permitted"_s);
-		$Objects::requireNonNull($of(flav), "Null flavors not permitted"_s);
-		$nc($(getFlavorToNative()))->remove(flav);
+		$useLocalObjectStack();
+		$Objects::requireNonNull(natives, "Null natives not permitted"_s);
+		$Objects::requireNonNull(flav, "Null flavors not permitted"_s);
+		$$nc(getFlavorToNative())->remove(flav);
 		{
 			$var($StringArray, arr$, natives);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, aNative, arr$->get(i$));
 				{
 					addUnencodedNativeForFlavor(flav, aNative);
@@ -910,36 +777,34 @@ void SystemFlavorMap::setNativesForFlavor($DataFlavor* flav, $StringArray* nativ
 			}
 		}
 		$nc(this->disabledMappingGenerationKeys)->add(flav);
-		$nc(this->nativesForFlavorCache)->remove(flav);
+		this->nativesForFlavorCache->remove(flav);
 	}
 }
 
 void SystemFlavorMap::addFlavorForUnencodedNative($String* nat, $DataFlavor* flav) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$Objects::requireNonNull($of(nat), "Null native not permitted"_s);
-		$Objects::requireNonNull($of(flav), "Null flavor not permitted"_s);
-		$var($LinkedHashSet, flavors, $cast($LinkedHashSet, $nc($(getNativeToFlavor()))->get(nat)));
+		$useLocalObjectStack();
+		$Objects::requireNonNull(nat, "Null native not permitted"_s);
+		$Objects::requireNonNull(flav, "Null flavor not permitted"_s);
+		$var($LinkedHashSet, flavors, $cast($LinkedHashSet, $$nc(getNativeToFlavor())->get(nat)));
 		if (flavors == nullptr) {
 			$assign(flavors, $new($LinkedHashSet, 1));
-			$nc($(getNativeToFlavor()))->put(nat, flavors);
+			$$nc(getNativeToFlavor())->put(nat, flavors);
 		}
 		$nc(flavors)->add(flav);
-		$nc(this->flavorsForNativeCache)->remove(nat);
+		this->flavorsForNativeCache->remove(nat);
 	}
 }
 
 void SystemFlavorMap::setFlavorsForNative($String* nat, $DataFlavorArray* flavors) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$Objects::requireNonNull($of(nat), "Null native not permitted"_s);
-		$Objects::requireNonNull($of(flavors), "Null flavors not permitted"_s);
-		$nc($(getNativeToFlavor()))->remove(nat);
+		$useLocalObjectStack();
+		$Objects::requireNonNull(nat, "Null native not permitted"_s);
+		$Objects::requireNonNull(flavors, "Null flavors not permitted"_s);
+		$$nc(getNativeToFlavor())->remove(nat);
 		{
 			$var($DataFlavorArray, arr$, flavors);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DataFlavor, flavor, arr$->get(i$));
 				{
 					addFlavorForUnencodedNative(nat, flavor);
@@ -947,7 +812,7 @@ void SystemFlavorMap::setFlavorsForNative($String* nat, $DataFlavorArray* flavor
 			}
 		}
 		$nc(this->disabledMappingGenerationKeys)->add(nat);
-		$nc(this->flavorsForNativeCache)->remove(nat);
+		this->flavorsForNativeCache->remove(nat);
 	}
 }
 
@@ -958,7 +823,7 @@ $String* SystemFlavorMap::encodeJavaMIMEType($String* mimeType) {
 
 $String* SystemFlavorMap::encodeDataFlavor($DataFlavor* flav) {
 	$init(SystemFlavorMap);
-	return (flav != nullptr) ? SystemFlavorMap::encodeJavaMIMEType($($nc(flav)->getMimeType())) : ($String*)nullptr;
+	return (flav != nullptr) ? SystemFlavorMap::encodeJavaMIMEType($(flav->getMimeType())) : ($String*)nullptr;
 }
 
 bool SystemFlavorMap::isJavaMIMEType($String* str) {
@@ -968,11 +833,11 @@ bool SystemFlavorMap::isJavaMIMEType($String* str) {
 
 $String* SystemFlavorMap::decodeJavaMIMEType($String* nat) {
 	$init(SystemFlavorMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, nullptr);
 	if (isJavaMIMEType(nat)) {
 		int32_t var$1 = $nc(SystemFlavorMap::JavaMIME)->length();
-		$assign(var$0, $($nc(nat)->substring(var$1, nat->length()))->trim());
+		$assign(var$0, $($nc(nat)->substring(var$1, $nc(nat)->length()))->trim());
 	} else {
 		$assign(var$0, nullptr);
 	}
@@ -991,7 +856,7 @@ $InputStream* SystemFlavorMap::lambda$initSystemFlavorMap$0() {
 	return SystemFlavorMap::class$->getResourceAsStream("/sun/datatransfer/resources/flavormap.properties"_s);
 }
 
-void clinit$SystemFlavorMap($Class* class$) {
+void SystemFlavorMap::clinit$($Class* clazz) {
 	$assignStatic(SystemFlavorMap::TEXT_PLAIN_BASE_TYPE, "text/plain"_s);
 	$assignStatic(SystemFlavorMap::HTML_TEXT_BASE_TYPE, "text/html"_s);
 	$assignStatic(SystemFlavorMap::JavaMIME, "JAVA_DATAFLAVOR:"_s);
@@ -1019,14 +884,80 @@ SystemFlavorMap::SystemFlavorMap() {
 
 $Class* SystemFlavorMap::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SystemFlavorMap$$Lambda$SystemFlavorMap::classInfo$.name)) {
+		if (name->equals("java.awt.datatransfer.SystemFlavorMap$$Lambda$SystemFlavorMap")) {
 			return SystemFlavorMap$$Lambda$SystemFlavorMap::load$(name, initialize);
 		}
-		if (name->equals(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::classInfo$.name)) {
+		if (name->equals("java.awt.datatransfer.SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1")) {
 			return SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(SystemFlavorMap, name, initialize, &_SystemFlavorMap_ClassInfo_, clinit$SystemFlavorMap, allocate$SystemFlavorMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"JavaMIME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SystemFlavorMap, JavaMIME)},
+		{"FLAVOR_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, FLAVOR_MAP_KEY)},
+		{"UNICODE_TEXT_CLASSES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, UNICODE_TEXT_CLASSES)},
+		{"ENCODED_TEXT_CLASSES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, ENCODED_TEXT_CLASSES)},
+		{"TEXT_PLAIN_BASE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, TEXT_PLAIN_BASE_TYPE)},
+		{"HTML_TEXT_BASE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, HTML_TEXT_BASE_TYPE)},
+		{"nativeToFlavor", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, nativeToFlavor)},
+		{"flavorToNative", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, flavorToNative)},
+		{"textTypeToNative", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE, $field(SystemFlavorMap, textTypeToNative)},
+		{"isMapInitialized", "Z", nullptr, $PRIVATE, $field(SystemFlavorMap, isMapInitialized)},
+		{"nativesForFlavorCache", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache;", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, nativesForFlavorCache)},
+		{"flavorsForNativeCache", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache;", "Ljava/awt/datatransfer/SystemFlavorMap$SoftCache<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE | $FINAL, $field(SystemFlavorMap, flavorsForNativeCache)},
+		{"disabledMappingGenerationKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Object;>;", $PRIVATE, $field(SystemFlavorMap, disabledMappingGenerationKeys)},
+		{"htmlDocumentTypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemFlavorMap, htmlDocumentTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap, init$, void)},
+		{"addFlavorForUnencodedNative", "(Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, addFlavorForUnencodedNative, void, $String*, $DataFlavor*)},
+		{"addUnencodedNativeForFlavor", "(Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, addUnencodedNativeForFlavor, void, $DataFlavor*, $String*)},
+		{"convertMimeTypeToDataFlavors", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, convertMimeTypeToDataFlavors, $Set*, $String*)},
+		{"decodeDataFlavor", "(Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, decodeDataFlavor, $DataFlavor*, $String*), "java.lang.ClassNotFoundException"},
+		{"decodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, decodeJavaMIMEType, $String*, $String*)},
+		{"encodeDataFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, encodeDataFlavor, $String*, $DataFlavor*)},
+		{"encodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, encodeJavaMIMEType, $String*, $String*)},
+		{"flavorToNativeLookup", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE, $method(SystemFlavorMap, flavorToNativeLookup, $LinkedHashSet*, $DataFlavor*, bool)},
+		{"getDefaultFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, getDefaultFlavorMap, $FlavorMap*)},
+		{"getFlavorToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(SystemFlavorMap, getFlavorToNative, $Map*)},
+		{"getFlavorsForNative", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getFlavorsForNative, $List*, $String*)},
+		{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getFlavorsForNatives, $Map*, $StringArray*)},
+		{"getNativeToFlavor", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;>;", $PRIVATE, $method(SystemFlavorMap, getNativeToFlavor, $Map*)},
+		{"getNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getNativesForFlavor, $List*, $DataFlavor*)},
+		{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getNativesForFlavors, $Map*, $DataFlavorArray*)},
+		{"getTextTypeToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(SystemFlavorMap, getTextTypeToNative, $Map*)},
+		{"handleHtmlMimeTypes", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, handleHtmlMimeTypes, $LinkedHashSet*, $String*, $String*)},
+		{"initSystemFlavorMap", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap, initSystemFlavorMap, void)},
+		{"isJavaMIMEType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, isJavaMIMEType, bool, $String*)},
+		{"lambda$initSystemFlavorMap$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SystemFlavorMap, lambda$initSystemFlavorMap$0, $InputStream*)},
+		{"loadConvert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, loadConvert, $String*, $String*)},
+		{"nativeToFlavorLookup", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE, $method(SystemFlavorMap, nativeToFlavorLookup, $LinkedHashSet*, $String*)},
+		{"setFlavorsForNative", "(Ljava/lang/String;[Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, setFlavorsForNative, void, $String*, $DataFlavorArray*)},
+		{"setNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;[Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, setNativesForFlavor, void, $DataFlavor*, $StringArray*)},
+		{"store", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Map;)V", "<H:Ljava/lang/Object;L:Ljava/lang/Object;>(TH;TL;Ljava/util/Map<TH;Ljava/util/LinkedHashSet<TL;>;>;)V", $PRIVATE, $method(SystemFlavorMap, store, void, Object$*, Object$*, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.datatransfer.SystemFlavorMap$SoftCache", "java.awt.datatransfer.SystemFlavorMap", "SoftCache", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.datatransfer.SystemFlavorMap",
+		"java.lang.Object",
+		"java.awt.datatransfer.FlavorTable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.datatransfer.SystemFlavorMap$SoftCache"
+	};
+	$loadClass(SystemFlavorMap, name, initialize, &classInfo$$, SystemFlavorMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemFlavorMap);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/font/CharToGlyphMapper.h>
-
 #include <jcpp.h>
 
 #undef HI_SURROGATE_END
@@ -21,51 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace font {
 
-$FieldInfo _CharToGlyphMapper_FieldInfo_[] = {
-	{"HI_SURROGATE_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, HI_SURROGATE_START)},
-	{"HI_SURROGATE_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, HI_SURROGATE_END)},
-	{"LO_SURROGATE_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, LO_SURROGATE_START)},
-	{"LO_SURROGATE_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, LO_SURROGATE_END)},
-	{"VS_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VS_START)},
-	{"VS_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VS_END)},
-	{"VSS_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VSS_START)},
-	{"VSS_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VSS_END)},
-	{"UNINITIALIZED_GLYPH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, UNINITIALIZED_GLYPH)},
-	{"INVISIBLE_GLYPH_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, INVISIBLE_GLYPH_ID)},
-	{"INVISIBLE_GLYPHS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, INVISIBLE_GLYPHS)},
-	{"missingGlyph", "I", nullptr, $PROTECTED, $field(CharToGlyphMapper, missingGlyph)},
-	{}
-};
-
-$MethodInfo _CharToGlyphMapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharToGlyphMapper, init$, void)},
-	{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, canDisplay, bool, char16_t)},
-	{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, canDisplay, bool, int32_t)},
-	{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, charToGlyph, int32_t, char16_t)},
-	{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, charToGlyph, int32_t, int32_t)},
-	{"charToVariationGlyph", "(II)I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, charToVariationGlyph, int32_t, int32_t, int32_t)},
-	{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
-	{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
-	{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
-	{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, getMissingGlyphCode, int32_t)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, getNumGlyphs, int32_t)},
-	{"isVariationSelector", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CharToGlyphMapper, isVariationSelector, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _CharToGlyphMapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.font.CharToGlyphMapper",
-	"java.lang.Object",
-	nullptr,
-	_CharToGlyphMapper_FieldInfo_,
-	_CharToGlyphMapper_MethodInfo_
-};
-
-$Object* allocate$CharToGlyphMapper($Class* clazz) {
-	return $of($alloc(CharToGlyphMapper));
-}
-
 void CharToGlyphMapper::init$() {
 	this->missingGlyph = CharToGlyphMapper::UNINITIALIZED_GLYPH;
 }
@@ -85,7 +39,7 @@ bool CharToGlyphMapper::canDisplay(int32_t cp) {
 }
 
 int32_t CharToGlyphMapper::charToGlyph(char16_t unicode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, chars, $new($chars, 1));
 	$var($ints, glyphs, $new($ints, 1));
 	chars->set(0, unicode);
@@ -94,7 +48,7 @@ int32_t CharToGlyphMapper::charToGlyph(char16_t unicode) {
 }
 
 int32_t CharToGlyphMapper::charToGlyph(int32_t unicode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, chars, $new($ints, 1));
 	$var($ints, glyphs, $new($ints, 1));
 	chars->set(0, unicode);
@@ -114,7 +68,47 @@ CharToGlyphMapper::CharToGlyphMapper() {
 }
 
 $Class* CharToGlyphMapper::load$($String* name, bool initialize) {
-	$loadClass(CharToGlyphMapper, name, initialize, &_CharToGlyphMapper_ClassInfo_, allocate$CharToGlyphMapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"HI_SURROGATE_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, HI_SURROGATE_START)},
+		{"HI_SURROGATE_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, HI_SURROGATE_END)},
+		{"LO_SURROGATE_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, LO_SURROGATE_START)},
+		{"LO_SURROGATE_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, LO_SURROGATE_END)},
+		{"VS_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VS_START)},
+		{"VS_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VS_END)},
+		{"VSS_START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VSS_START)},
+		{"VSS_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, VSS_END)},
+		{"UNINITIALIZED_GLYPH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, UNINITIALIZED_GLYPH)},
+		{"INVISIBLE_GLYPH_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, INVISIBLE_GLYPH_ID)},
+		{"INVISIBLE_GLYPHS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CharToGlyphMapper, INVISIBLE_GLYPHS)},
+		{"missingGlyph", "I", nullptr, $PROTECTED, $field(CharToGlyphMapper, missingGlyph)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharToGlyphMapper, init$, void)},
+		{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, canDisplay, bool, char16_t)},
+		{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, canDisplay, bool, int32_t)},
+		{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, charToGlyph, int32_t, char16_t)},
+		{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, charToGlyph, int32_t, int32_t)},
+		{"charToVariationGlyph", "(II)I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, charToVariationGlyph, int32_t, int32_t, int32_t)},
+		{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
+		{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
+		{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
+		{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(CharToGlyphMapper, getMissingGlyphCode, int32_t)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CharToGlyphMapper, getNumGlyphs, int32_t)},
+		{"isVariationSelector", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CharToGlyphMapper, isVariationSelector, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.font.CharToGlyphMapper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharToGlyphMapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharToGlyphMapper);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug8058305.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
@@ -24,8 +23,6 @@
 #undef WEST
 
 using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -37,7 +34,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $NavigationFilter = ::javax::swing::text::NavigationFilter;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 
@@ -49,65 +45,42 @@ public:
 	virtual void run() override {
 		bug8058305::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug8058305$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug8058305$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8058305$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8058305$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo bug8058305$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug8058305$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug8058305$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(bug8058305$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8058305$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8058305$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug8058305$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8058305$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8058305$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* bug8058305$$Lambda$createAndShowGUI::class$ = nullptr;
-
-$MethodInfo _bug8058305_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8058305, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8058305, createAndShowGUI, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8058305, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug8058305_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8058305",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug8058305_MethodInfo_
-};
-
-$Object* allocate$bug8058305($Class* clazz) {
-	return $of($alloc(bug8058305));
-}
 
 void bug8058305::init$() {
 }
 
 void bug8058305::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug8058305$$Lambda$createAndShowGUI)));
+	$SwingUtilities::invokeAndWait($$new(bug8058305$$Lambda$createAndShowGUI));
 }
 
 void bug8058305::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, frame, $new($JFrame));
 	$var($JFormattedTextField, textField, $new($JFormattedTextField));
 	$var($NavigationFilter, navigationFilter, $new($NavigationFilter));
 	textField->setText("Test for Tests"_s);
-	$nc($(frame->getContentPane()))->add(static_cast<$Component*>(textField));
+	$$nc(frame->getContentPane())->add(textField);
 	frame->pack();
 	$init($Position$Bias);
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, {$Position$Bias::Forward}));
@@ -129,11 +102,27 @@ bug8058305::bug8058305() {
 
 $Class* bug8058305::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug8058305$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("bug8058305$$Lambda$createAndShowGUI")) {
 			return bug8058305$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
 	}
-	$loadClass(bug8058305, name, initialize, &_bug8058305_ClassInfo_, allocate$bug8058305);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8058305, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8058305, createAndShowGUI, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8058305, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8058305",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug8058305, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8058305);
+	});
 	return class$;
 }
 

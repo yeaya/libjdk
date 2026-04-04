@@ -34,10 +34,13 @@ public:
 	$Object* linkResolvedObj = nullptr;
 	::javax::naming::Name* linkRemainingName = nullptr;
 	$String* linkExplanation = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x916D2D1379D6FF10;
+	static const int64_t serialVersionUID = (int64_t)0x916d2d1379d6ff10;
 	LinkException(const LinkException& e);
 	virtual void throw$() override;
-	inline LinkException* operator ->() {
+	inline LinkException* operator ->() const {
+		return (LinkException*)throwing$;
+	}
+	inline operator LinkException*() const {
 		return (LinkException*)throwing$;
 	}
 };

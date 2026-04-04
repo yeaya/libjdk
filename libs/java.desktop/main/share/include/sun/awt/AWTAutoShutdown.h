@@ -39,6 +39,7 @@ class $import AWTAutoShutdown : public ::java::lang::Runnable {
 	$class(AWTAutoShutdown, 0, ::java::lang::Runnable)
 public:
 	AWTAutoShutdown();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void activateBlockerThread();
 	void dumpPeers(::sun::util::logging::PlatformLogger* aLog);

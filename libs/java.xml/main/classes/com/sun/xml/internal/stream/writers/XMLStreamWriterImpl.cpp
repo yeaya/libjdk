@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/writers/XMLStreamWriterImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
@@ -95,13 +94,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Random = ::java::util::Random;
 using $Set = ::java::util::Set;
@@ -119,150 +115,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace writers {
-
-$FieldInfo _XMLStreamWriterImpl_FieldInfo_[] = {
-	{"START_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, START_COMMENT)},
-	{"END_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, END_COMMENT)},
-	{"DEFAULT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, DEFAULT_ENCODING)},
-	{"DEFAULT_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, DEFAULT_XMLDECL)},
-	{"DEFAULT_XML_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, DEFAULT_XML_VERSION)},
-	{"CLOSE_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLStreamWriterImpl, CLOSE_START_TAG)},
-	{"OPEN_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLStreamWriterImpl, OPEN_START_TAG)},
-	{"OPEN_END_TAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, OPEN_END_TAG)},
-	{"CLOSE_END_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLStreamWriterImpl, CLOSE_END_TAG)},
-	{"START_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, START_CDATA)},
-	{"END_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, END_CDATA)},
-	{"CLOSE_EMPTY_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, CLOSE_EMPTY_ELEMENT)},
-	{"SPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, SPACE)},
-	{"UTF_8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, UTF_8)},
-	{"OUTPUTSTREAM_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, OUTPUTSTREAM_PROPERTY)},
-	{"fEscapeCharacters", "Z", nullptr, 0, $field(XMLStreamWriterImpl, fEscapeCharacters)},
-	{"fIsRepairingNamespace", "Z", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fIsRepairingNamespace)},
-	{"fWriter", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fWriter)},
-	{"fOutputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fOutputStream)},
-	{"fAttributeCache", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl$Attribute;>;", $PRIVATE, $field(XMLStreamWriterImpl, fAttributeCache)},
-	{"fNamespaceDecls", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/QName;>;", $PRIVATE, $field(XMLStreamWriterImpl, fNamespaceDecls)},
-	{"fNamespaceContext", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl$NamespaceContextImpl;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fNamespaceContext)},
-	{"fInternalNamespaceContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fInternalNamespaceContext)},
-	{"fPrefixGen", "Ljava/util/Random;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fPrefixGen)},
-	{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fPropertyManager)},
-	{"fStartTagOpened", "Z", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fStartTagOpened)},
-	{"fReuse", "Z", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fReuse)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fSymbolTable)},
-	{"fElementStack", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl$ElementStack;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fElementStack)},
-	{"DEFAULT_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XMLStreamWriterImpl, DEFAULT_PREFIX)},
-	{"fReadOnlyIterator", "Lcom/sun/xml/internal/stream/util/ReadOnlyIterator;", "Lcom/sun/xml/internal/stream/util/ReadOnlyIterator<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XMLStreamWriterImpl, fReadOnlyIterator)},
-	{"fEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fEncoder)},
-	{"fAttrNamespace", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(XMLStreamWriterImpl, fAttrNamespace)},
-	{}
-};
-
-$MethodInfo _XMLStreamWriterImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $OutputStream*, $PropertyManager*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $OutputStream*, $String*, $PropertyManager*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $Writer*, $PropertyManager*), "java.io.IOException"},
-	{"<init>", "(Ljavax/xml/transform/stream/StreamResult;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $StreamResult*, $String*, $PropertyManager*), "java.io.IOException"},
-	{"addAttrNamespace", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, addAttrNamespace, void, $String*, $String*)},
-	{"canReuse", "()Z", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, canReuse, bool)},
-	{"checkForNull", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $method(XMLStreamWriterImpl, checkForNull, void, $QName*)},
-	{"checkUserNamespaceContext", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, checkUserNamespaceContext, bool, $String*, $String*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, close, void), "javax.xml.stream.XMLStreamException"},
-	{"closeStartTag", "()V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, closeStartTag, void), "javax.xml.stream.XMLStreamException"},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, containsKey, bool, Object$*)},
-	{"correctPrefix", "(Lcom/sun/org/apache/xerces/internal/xni/QName;I)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, correctPrefix, void, $QName*, int32_t)},
-	{"correctPrefix", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $method(XMLStreamWriterImpl, correctPrefix, void, $QName*, $QName*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(XMLStreamWriterImpl, entrySet, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, equals, bool, Object$*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, flush, void), "javax.xml.stream.XMLStreamException"},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, get, $Object*, Object$*)},
-	{"getAttrPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, getAttrPrefix, $String*, $String*)},
-	{"getEscapeCharacters", "()Z", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, getEscapeCharacters, bool)},
-	{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, getNamespaceContext, $NamespaceContext*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, getPrefix, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, hashCode, int32_t)},
-	{"init", "()V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, init, void)},
-	{"isDeclared", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Z", nullptr, 0, $method(XMLStreamWriterImpl, isDeclared, bool, $QName*)},
-	{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, isDefaultNamespace, bool, $String*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, isEmpty, bool)},
-	{"openStartTag", "()V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, openStartTag, void), "java.io.IOException"},
-	{"removeDuplicateDecls", "()V", nullptr, 0, $method(XMLStreamWriterImpl, removeDuplicateDecls, void)},
-	{"repair", "()V", nullptr, $PROTECTED, $method(XMLStreamWriterImpl, repair, void)},
-	{"repairNamespaceDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $method(XMLStreamWriterImpl, repairNamespaceDecl, void, $QName*)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, reset, void)},
-	{"reset", "(Z)V", nullptr, 0, $method(XMLStreamWriterImpl, reset, void, bool)},
-	{"setDefaultNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, setDefaultNamespace, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"setEscapeCharacters", "(Z)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, setEscapeCharacters, void, bool)},
-	{"setNamespaceContext", "(Ljavax/xml/namespace/NamespaceContext;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, setNamespaceContext, void, $NamespaceContext*), "javax.xml.stream.XMLStreamException"},
-	{"setOutput", "(Ljavax/xml/transform/stream/StreamResult;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, setOutput, void, $StreamResult*, $String*), "java.io.IOException"},
-	{"setOutputUsingStream", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, setOutputUsingStream, void, $OutputStream*, $String*), "java.io.IOException"},
-	{"setOutputUsingWriter", "(Ljava/io/Writer;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, setOutputUsingWriter, void, $Writer*), "java.io.IOException"},
-	{"setPrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, setPrefix, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, toString, $String*)},
-	{"verifyEncoding", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, verifyEncoding, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeAttribute, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeAttribute, void, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeAttribute, void, $String*, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeAttributeWithPrefix", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeAttributeWithPrefix, void, $String*, $String*, $String*), "java.io.IOException"},
-	{"writeCData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeCData, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeCharRef", "(I)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeCharRef, void, int32_t), "java.io.IOException"},
-	{"writeCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeCharacters, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeCharacters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeCharacters, void, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"writeComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeComment, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeDTD", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeDTD, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeDefaultNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeDefaultNamespace, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeEmptyElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEmptyElement, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeEmptyElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEmptyElement, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeEmptyElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEmptyElement, void, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeEndDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEndDocument, void), "javax.xml.stream.XMLStreamException"},
-	{"writeEndElement", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEndElement, void), "javax.xml.stream.XMLStreamException"},
-	{"writeEntityRef", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEntityRef, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeNamespace", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeNamespace, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeProcessingInstruction", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeProcessingInstruction, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeProcessingInstruction, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeStartDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void), "javax.xml.stream.XMLStreamException"},
-	{"writeStartDocument", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void, $String*, $String*, bool, bool), "javax.xml.stream.XMLStreamException"},
-	{"writeStartElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartElement, void, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartElement, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartElement, void, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"writeXMLContent", "([CIIZ)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeXMLContent, void, $chars*, int32_t, int32_t, bool), "java.io.IOException"},
-	{"writeXMLContent", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeXMLContent, void, $String*), "java.io.IOException"},
-	{"writeXMLContent", "(Ljava/lang/String;ZZ)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeXMLContent, void, $String*, bool, bool), "java.io.IOException"},
-	{"writenamespace", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writenamespace, void, $String*, $String*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _XMLStreamWriterImpl_InnerClassesInfo_[] = {
-	{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$NamespaceContextImpl", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "NamespaceContextImpl", 0},
-	{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "Attribute", 0},
-	{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementState", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "ElementState", 0},
-	{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementStack", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "ElementStack", $PROTECTED},
-	{}
-};
-
-$ClassInfo _XMLStreamWriterImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl",
-	"java.util.AbstractMap",
-	"com.sun.xml.internal.stream.writers.XMLStreamWriterBase",
-	_XMLStreamWriterImpl_FieldInfo_,
-	_XMLStreamWriterImpl_MethodInfo_,
-	"Ljava/util/AbstractMap<Ljava/lang/Object;Ljava/lang/Object;>;Lcom/sun/xml/internal/stream/writers/XMLStreamWriterBase;",
-	nullptr,
-	_XMLStreamWriterImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$NamespaceContextImpl,com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute,com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementState,com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementStack"
-};
-
-$Object* allocate$XMLStreamWriterImpl($Class* clazz) {
-	return $of($alloc(XMLStreamWriterImpl));
-}
 
 $Object* XMLStreamWriterImpl::clone() {
 	 return this->$AbstractMap::clone();
@@ -286,7 +138,7 @@ $String* XMLStreamWriterImpl::UTF_8 = nullptr;
 $String* XMLStreamWriterImpl::OUTPUTSTREAM_PROPERTY = nullptr;
 
 void XMLStreamWriterImpl::init$($OutputStream* outputStream, $PropertyManager* props) {
-	XMLStreamWriterImpl::init$(static_cast<$Writer*>($$new($OutputStreamWriter, outputStream)), props);
+	XMLStreamWriterImpl::init$($$new($OutputStreamWriter, outputStream), props);
 }
 
 void XMLStreamWriterImpl::init$($OutputStream* outputStream, $String* encoding, $PropertyManager* props) {
@@ -294,7 +146,7 @@ void XMLStreamWriterImpl::init$($OutputStream* outputStream, $String* encoding, 
 }
 
 void XMLStreamWriterImpl::init$($Writer* writer, $PropertyManager* props) {
-	XMLStreamWriterImpl::init$($$new($StreamResult, writer), ($String*)nullptr, props);
+	XMLStreamWriterImpl::init$($$new($StreamResult, writer), nullptr, props);
 }
 
 void XMLStreamWriterImpl::init$($StreamResult* sr, $String* encoding, $PropertyManager* props) {
@@ -309,7 +161,7 @@ void XMLStreamWriterImpl::init$($StreamResult* sr, $String* encoding, $PropertyM
 	this->fStartTagOpened = false;
 	$set(this, fSymbolTable, $new($SymbolTable));
 	$set(this, fElementStack, $new($XMLStreamWriterImpl$ElementStack, this));
-	$set(this, DEFAULT_PREFIX, $nc(this->fSymbolTable)->addSymbol(""_s));
+	$set(this, DEFAULT_PREFIX, this->fSymbolTable->addSymbol(""_s));
 	$set(this, fReadOnlyIterator, $new($ReadOnlyIterator));
 	$set(this, fEncoder, nullptr);
 	$set(this, fAttrNamespace, nullptr);
@@ -324,15 +176,15 @@ void XMLStreamWriterImpl::init() {
 	$set(this, fPrefixGen, $new($Random));
 	$set(this, fAttributeCache, $new($ArrayList));
 	$set(this, fInternalNamespaceContext, $new($NamespaceSupport));
-	$nc(this->fInternalNamespaceContext)->reset();
+	this->fInternalNamespaceContext->reset();
 	$set(this, fNamespaceContext, $new($XMLStreamWriterImpl$NamespaceContextImpl, this));
-	$set($nc(this->fNamespaceContext), internalContext, this->fInternalNamespaceContext);
+	$set(this->fNamespaceContext, internalContext, this->fInternalNamespaceContext);
 	$init($XMLOutputFactory);
 	$var($Boolean, ob, $cast($Boolean, $nc(this->fPropertyManager)->getProperty($XMLOutputFactory::IS_REPAIRING_NAMESPACES)));
 	this->fIsRepairingNamespace = $nc(ob)->booleanValue();
 	$init($Constants);
 	$assign(ob, $cast($Boolean, $nc(this->fPropertyManager)->getProperty($Constants::ESCAPE_CHARACTERS)));
-	setEscapeCharacters(ob->booleanValue());
+	setEscapeCharacters($nc(ob)->booleanValue());
 }
 
 void XMLStreamWriterImpl::reset() {
@@ -356,12 +208,12 @@ void XMLStreamWriterImpl::reset(bool resetProperties) {
 		this->fIsRepairingNamespace = $nc(ob)->booleanValue();
 		$init($Constants);
 		$assign(ob, $cast($Boolean, $nc(this->fPropertyManager)->getProperty($Constants::ESCAPE_CHARACTERS)));
-		setEscapeCharacters(ob->booleanValue());
+		setEscapeCharacters($nc(ob)->booleanValue());
 	}
 }
 
 void XMLStreamWriterImpl::setOutput($StreamResult* sr, $String* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sr)->getOutputStream() != nullptr) {
 		setOutputUsingStream($(sr->getOutputStream()), encoding);
 	} else if (sr->getWriter() != nullptr) {
@@ -372,18 +224,18 @@ void XMLStreamWriterImpl::setOutput($StreamResult* sr, $String* encoding) {
 }
 
 void XMLStreamWriterImpl::setOutputUsingWriter($Writer* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fWriter, writer);
 	if ($instanceOf($OutputStreamWriter, writer)) {
-		$var($String, charset, $nc(($cast($OutputStreamWriter, writer)))->getEncoding());
+		$var($String, charset, $cast($OutputStreamWriter, writer)->getEncoding());
 		if (charset != nullptr && !charset->equalsIgnoreCase("utf-8"_s)) {
-			$set(this, fEncoder, $nc($($Charset::forName(charset)))->newEncoder());
+			$set(this, fEncoder, $$nc($Charset::forName(charset))->newEncoder());
 		}
 	}
 }
 
 void XMLStreamWriterImpl::setOutputUsingStream($OutputStream* os, $String* encoding$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encoding, encoding$renamed);
 	$set(this, fOutputStream, os);
 	if (encoding != nullptr) {
@@ -391,7 +243,7 @@ void XMLStreamWriterImpl::setOutputUsingStream($OutputStream* os, $String* encod
 			$set(this, fWriter, $new($UTF8OutputStreamWriter, os));
 		} else {
 			$set(this, fWriter, $new($XMLWriter, $$new($OutputStreamWriter, os, encoding)));
-			$set(this, fEncoder, $nc($($Charset::forName(encoding)))->newEncoder());
+			$set(this, fEncoder, $$nc($Charset::forName(encoding))->newEncoder());
 		}
 	} else {
 		$assign(encoding, $SecuritySupport::getSystemProperty("file.encoding"_s));
@@ -418,9 +270,9 @@ bool XMLStreamWriterImpl::getEscapeCharacters() {
 void XMLStreamWriterImpl::close() {
 	if (this->fWriter != nullptr) {
 		try {
-			$nc(this->fWriter)->flush();
+			this->fWriter->flush();
 		} catch ($IOException& e) {
-			$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+			$throwNew($XMLStreamException, e);
 		}
 	}
 	$set(this, fWriter, nullptr);
@@ -438,7 +290,7 @@ void XMLStreamWriterImpl::flush() {
 	try {
 		$nc(this->fWriter)->flush();
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -457,11 +309,11 @@ $Object* XMLStreamWriterImpl::getProperty($String* str) {
 	if (!$nc(this->fPropertyManager)->containsProperty(str)) {
 		$throwNew($IllegalArgumentException, $$str({"Property \'"_s, str, "\' is not supported"_s}));
 	}
-	return $of($nc(this->fPropertyManager)->getProperty(str));
+	return $nc(this->fPropertyManager)->getProperty(str);
 }
 
 void XMLStreamWriterImpl::setDefaultNamespace($String* uri$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uri, uri$renamed);
 	if (uri != nullptr) {
 		$assign(uri, $nc(this->fSymbolTable)->addSymbol(uri));
@@ -483,7 +335,7 @@ void XMLStreamWriterImpl::setNamespaceContext($NamespaceContext* namespaceContex
 }
 
 void XMLStreamWriterImpl::setPrefix($String* prefix$renamed, $String* uri$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, uri, uri$renamed);
 	if (prefix == nullptr) {
@@ -523,17 +375,17 @@ void XMLStreamWriterImpl::writeAttribute($String* localName, $String* value) {
 			return;
 		}
 		$nc(this->fWriter)->write(" "_s);
-		$nc(this->fWriter)->write(localName);
-		$nc(this->fWriter)->write("=\""_s);
+		this->fWriter->write(localName);
+		this->fWriter->write("=\""_s);
 		writeXMLContent(value, true, true);
 		$nc(this->fWriter)->write("\""_s);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
 void XMLStreamWriterImpl::writeAttribute($String* namespaceURI$renamed, $String* localName, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespaceURI, namespaceURI$renamed);
 	try {
 		if (!this->fStartTagOpened) {
@@ -555,7 +407,7 @@ void XMLStreamWriterImpl::writeAttribute($String* namespaceURI$renamed, $String*
 			$nc(this->fAttributeCache)->add(attr);
 		}
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -563,17 +415,17 @@ void XMLStreamWriterImpl::writeAttributeWithPrefix($String* prefix, $String* loc
 	$nc(this->fWriter)->write(XMLStreamWriterImpl::SPACE);
 	$init($XMLConstants);
 	if ((prefix != nullptr) && (!prefix->equals($XMLConstants::DEFAULT_NS_PREFIX))) {
-		$nc(this->fWriter)->write(prefix);
-		$nc(this->fWriter)->write(":"_s);
+		this->fWriter->write(prefix);
+		this->fWriter->write(":"_s);
 	}
-	$nc(this->fWriter)->write(localName);
-	$nc(this->fWriter)->write("=\""_s);
+	this->fWriter->write(localName);
+	this->fWriter->write("=\""_s);
 	writeXMLContent(value, true, true);
 	$nc(this->fWriter)->write("\""_s);
 }
 
 void XMLStreamWriterImpl::writeAttribute($String* prefix$renamed, $String* namespaceURI$renamed, $String* localName, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, namespaceURI, namespaceURI$renamed);
 	try {
@@ -587,7 +439,7 @@ void XMLStreamWriterImpl::writeAttribute($String* prefix$renamed, $String* names
 			$throwNew($XMLStreamException, "Local name cannot be null"_s);
 		}
 		if (!this->fIsRepairingNamespace) {
-			if (prefix == nullptr || $nc(prefix)->isEmpty()) {
+			if (prefix == nullptr || prefix->isEmpty()) {
 				if (!$nc(namespaceURI)->isEmpty()) {
 					$throwNew($XMLStreamException, "prefix cannot be null or empty"_s);
 				} else {
@@ -619,7 +471,7 @@ void XMLStreamWriterImpl::writeAttribute($String* prefix$renamed, $String* names
 			$nc(this->fAttributeCache)->add(attr);
 		}
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -632,10 +484,10 @@ void XMLStreamWriterImpl::writeCData($String* cdata) {
 			closeStartTag();
 		}
 		$nc(this->fWriter)->write(XMLStreamWriterImpl::START_CDATA);
-		$nc(this->fWriter)->write(cdata);
-		$nc(this->fWriter)->write(XMLStreamWriterImpl::END_CDATA);
+		this->fWriter->write(cdata);
+		this->fWriter->write(XMLStreamWriterImpl::END_CDATA);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -646,7 +498,7 @@ void XMLStreamWriterImpl::writeCharacters($String* data) {
 		}
 		writeXMLContent(data);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -657,7 +509,7 @@ void XMLStreamWriterImpl::writeCharacters($chars* data, int32_t start, int32_t l
 		}
 		writeXMLContent(data, start, len, this->fEscapeCharacters);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -668,11 +520,11 @@ void XMLStreamWriterImpl::writeComment($String* comment) {
 		}
 		$nc(this->fWriter)->write(XMLStreamWriterImpl::START_COMMENT);
 		if (comment != nullptr) {
-			$nc(this->fWriter)->write(comment);
+			this->fWriter->write(comment);
 		}
-		$nc(this->fWriter)->write(XMLStreamWriterImpl::END_COMMENT);
+		this->fWriter->write(XMLStreamWriterImpl::END_COMMENT);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -683,12 +535,12 @@ void XMLStreamWriterImpl::writeDTD($String* dtd) {
 		}
 		$nc(this->fWriter)->write(dtd);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
 void XMLStreamWriterImpl::writeDefaultNamespace($String* namespaceURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespaceURINormalized, nullptr);
 	if (namespaceURI == nullptr) {
 		$assign(namespaceURINormalized, ""_s);
@@ -716,7 +568,7 @@ void XMLStreamWriterImpl::writeDefaultNamespace($String* namespaceURI) {
 		$nc(this->fInternalNamespaceContext)->declarePrefix(""_s, namespaceURINormalized);
 		writenamespace(nullptr, namespaceURINormalized);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -732,12 +584,12 @@ void XMLStreamWriterImpl::writeEmptyElement($String* localName) {
 			$nc(this->fWriter)->write(localName);
 		}
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
 void XMLStreamWriterImpl::writeEmptyElement($String* namespaceURI$renamed, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespaceURI, namespaceURI$renamed);
 	if (namespaceURI == nullptr) {
 		$throwNew($XMLStreamException, "NamespaceURI cannot be null"_s);
@@ -748,7 +600,7 @@ void XMLStreamWriterImpl::writeEmptyElement($String* namespaceURI$renamed, $Stri
 }
 
 void XMLStreamWriterImpl::writeEmptyElement($String* prefix$renamed, $String* localName, $String* namespaceURI$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, namespaceURI, namespaceURI$renamed);
 	try {
@@ -778,43 +630,43 @@ void XMLStreamWriterImpl::writeEmptyElement($String* prefix$renamed, $String* lo
 		$init($XMLConstants);
 		if ((prefix != nullptr) && (!prefix->equals($XMLConstants::DEFAULT_NS_PREFIX))) {
 			$nc(this->fWriter)->write(prefix);
-			$nc(this->fWriter)->write(":"_s);
+			this->fWriter->write(":"_s);
 		}
 		$nc(this->fWriter)->write(localName);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
 void XMLStreamWriterImpl::writeEndDocument() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->fStartTagOpened) {
 			closeStartTag();
 		}
 		while (!$nc(this->fElementStack)->empty()) {
-			$var($XMLStreamWriterImpl$ElementState, elem, $nc(this->fElementStack)->pop());
+			$var($XMLStreamWriterImpl$ElementState, elem, this->fElementStack->pop());
 			$nc(this->fInternalNamespaceContext)->popContext();
 			if ($nc(elem)->isEmpty) {
 			} else {
 				$nc(this->fWriter)->write(XMLStreamWriterImpl::OPEN_END_TAG);
-				if ((elem->prefix != nullptr) && !$nc((elem->prefix))->isEmpty()) {
-					$nc(this->fWriter)->write(elem->prefix);
-					$nc(this->fWriter)->write(":"_s);
+				if ((elem->prefix != nullptr) && !(elem->prefix)->isEmpty()) {
+					this->fWriter->write(elem->prefix);
+					this->fWriter->write(":"_s);
 				}
-				$nc(this->fWriter)->write(elem->localpart);
-				$nc(this->fWriter)->write((int32_t)XMLStreamWriterImpl::CLOSE_END_TAG);
+				this->fWriter->write(elem->localpart);
+				this->fWriter->write(XMLStreamWriterImpl::CLOSE_END_TAG);
 			}
 		}
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	} catch ($ArrayIndexOutOfBoundsException& e) {
 		$throwNew($XMLStreamException, "No more elements to write"_s);
 	}
 }
 
 void XMLStreamWriterImpl::writeEndElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->fStartTagOpened) {
 			closeStartTag();
@@ -827,17 +679,17 @@ void XMLStreamWriterImpl::writeEndElement() {
 			return;
 		}
 		$nc(this->fWriter)->write(XMLStreamWriterImpl::OPEN_END_TAG);
-		if (($nc(currentElement)->prefix != nullptr) && !$nc((currentElement->prefix))->isEmpty()) {
-			$nc(this->fWriter)->write(currentElement->prefix);
-			$nc(this->fWriter)->write(":"_s);
+		if ((currentElement->prefix != nullptr) && !(currentElement->prefix)->isEmpty()) {
+			this->fWriter->write(currentElement->prefix);
+			this->fWriter->write(":"_s);
 		}
-		$nc(this->fWriter)->write($nc(currentElement)->localpart);
-		$nc(this->fWriter)->write((int32_t)XMLStreamWriterImpl::CLOSE_END_TAG);
+		this->fWriter->write(currentElement->localpart);
+		this->fWriter->write(XMLStreamWriterImpl::CLOSE_END_TAG);
 		$nc(this->fInternalNamespaceContext)->popContext();
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	} catch ($ArrayIndexOutOfBoundsException& e) {
-		$throwNew($XMLStreamException, $$str({"No element was found to write: "_s, $(e->toString())}), static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, $$str({"No element was found to write: "_s, $(e->toString())}), e);
 	}
 }
 
@@ -846,16 +698,16 @@ void XMLStreamWriterImpl::writeEntityRef($String* refName) {
 		if (this->fStartTagOpened) {
 			closeStartTag();
 		}
-		$nc(this->fWriter)->write((int32_t)u'&');
-		$nc(this->fWriter)->write(refName);
-		$nc(this->fWriter)->write((int32_t)u';');
+		$nc(this->fWriter)->write(u'&');
+		this->fWriter->write(refName);
+		this->fWriter->write(u';');
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
 void XMLStreamWriterImpl::writeNamespace($String* prefix$renamed, $String* namespaceURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, namespaceURINormalized, nullptr);
 	if (namespaceURI == nullptr) {
@@ -869,8 +721,8 @@ void XMLStreamWriterImpl::writeNamespace($String* prefix$renamed, $String* names
 			$throwNew($IllegalStateException, $$str({"Invalid state: start tag is not opened at writeNamespace("_s, prefix, ", "_s, namespaceURINormalized, ")"_s}));
 		}
 		$init($XMLConstants);
-		bool var$0 = prefix == nullptr || $nc(prefix)->equals($XMLConstants::DEFAULT_NS_PREFIX);
-		if (var$0 || $nc(prefix)->equals($XMLConstants::XMLNS_ATTRIBUTE)) {
+		bool var$0 = prefix == nullptr || prefix->equals($XMLConstants::DEFAULT_NS_PREFIX);
+		if (var$0 || prefix->equals($XMLConstants::XMLNS_ATTRIBUTE)) {
 			writeDefaultNamespace(namespaceURINormalized);
 			return;
 		}
@@ -899,7 +751,7 @@ void XMLStreamWriterImpl::writeNamespace($String* prefix$renamed, $String* names
 		$nc(this->fInternalNamespaceContext)->declarePrefix(prefix, namespaceURINormalized);
 		writenamespace(prefix, namespaceURINormalized);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -907,10 +759,10 @@ void XMLStreamWriterImpl::writenamespace($String* prefix, $String* namespaceURI)
 	$nc(this->fWriter)->write(" xmlns"_s);
 	$init($XMLConstants);
 	if ((prefix != nullptr) && (!prefix->equals($XMLConstants::DEFAULT_NS_PREFIX))) {
-		$nc(this->fWriter)->write(":"_s);
-		$nc(this->fWriter)->write(prefix);
+		this->fWriter->write(":"_s);
+		this->fWriter->write(prefix);
 	}
-	$nc(this->fWriter)->write("=\""_s);
+	this->fWriter->write("=\""_s);
 	writeXMLContent(namespaceURI, true, true);
 	$nc(this->fWriter)->write("\""_s);
 }
@@ -922,12 +774,12 @@ void XMLStreamWriterImpl::writeProcessingInstruction($String* target) {
 		}
 		if (target != nullptr) {
 			$nc(this->fWriter)->write("<?"_s);
-			$nc(this->fWriter)->write(target);
-			$nc(this->fWriter)->write("?>"_s);
+			this->fWriter->write(target);
+			this->fWriter->write("?>"_s);
 			return;
 		}
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 	$throwNew($XMLStreamException, "PI target cannot be null"_s);
 }
@@ -941,12 +793,12 @@ void XMLStreamWriterImpl::writeProcessingInstruction($String* target, $String* d
 			$throwNew($XMLStreamException, "PI target cannot be null"_s);
 		}
 		$nc(this->fWriter)->write("<?"_s);
-		$nc(this->fWriter)->write(target);
-		$nc(this->fWriter)->write(XMLStreamWriterImpl::SPACE);
-		$nc(this->fWriter)->write(data);
-		$nc(this->fWriter)->write("?>"_s);
+		this->fWriter->write(target);
+		this->fWriter->write(XMLStreamWriterImpl::SPACE);
+		this->fWriter->write(data);
+		this->fWriter->write("?>"_s);
 	} catch ($IOException& e) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(e));
+		$throwNew($XMLStreamException, e);
 	}
 }
 
@@ -964,8 +816,8 @@ void XMLStreamWriterImpl::writeStartDocument($String* encoding, $String* version
 
 void XMLStreamWriterImpl::writeStartDocument($String* encoding, $String* version, bool standalone, bool standaloneSet) {
 	try {
-		bool var$0 = (encoding == nullptr || $nc(encoding)->length() == 0);
-		if (var$0 && (version == nullptr || $nc(version)->length() == 0) && (!standaloneSet)) {
+		bool var$0 = encoding == nullptr || encoding->length() == 0;
+		if (var$0 && (version == nullptr || version->length() == 0) && (!standaloneSet)) {
 			$nc(this->fWriter)->write(XMLStreamWriterImpl::DEFAULT_XMLDECL);
 			return;
 		}
@@ -973,46 +825,46 @@ void XMLStreamWriterImpl::writeStartDocument($String* encoding, $String* version
 			verifyEncoding(encoding);
 		}
 		$nc(this->fWriter)->write("<?xml version=\""_s);
-		if ((version == nullptr) || $nc(version)->isEmpty()) {
-			$nc(this->fWriter)->write(XMLStreamWriterImpl::DEFAULT_XML_VERSION);
+		if ((version == nullptr) || version->isEmpty()) {
+			this->fWriter->write(XMLStreamWriterImpl::DEFAULT_XML_VERSION);
 		} else {
-			$nc(this->fWriter)->write(version);
+			this->fWriter->write(version);
 		}
 		if (encoding != nullptr && !encoding->isEmpty()) {
-			$nc(this->fWriter)->write("\" encoding=\""_s);
-			$nc(this->fWriter)->write(encoding);
+			this->fWriter->write("\" encoding=\""_s);
+			this->fWriter->write(encoding);
 		}
 		if (standaloneSet) {
-			$nc(this->fWriter)->write("\" standalone=\""_s);
+			this->fWriter->write("\" standalone=\""_s);
 			if (standalone) {
-				$nc(this->fWriter)->write("yes"_s);
+				this->fWriter->write("yes"_s);
 			} else {
-				$nc(this->fWriter)->write("no"_s);
+				this->fWriter->write("no"_s);
 			}
 		}
-		$nc(this->fWriter)->write("\"?>"_s);
+		this->fWriter->write("\"?>"_s);
 	} catch ($IOException& ex) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
+		$throwNew($XMLStreamException, ex);
 	}
 }
 
 void XMLStreamWriterImpl::verifyEncoding($String* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, streamEncoding, nullptr);
 	if ($instanceOf($OutputStreamWriter, this->fWriter)) {
-		$assign(streamEncoding, $nc(($cast($OutputStreamWriter, this->fWriter)))->getEncoding());
+		$assign(streamEncoding, $cast($OutputStreamWriter, this->fWriter)->getEncoding());
 	} else if ($instanceOf($UTF8OutputStreamWriter, this->fWriter)) {
-		$assign(streamEncoding, $nc(($cast($UTF8OutputStreamWriter, this->fWriter)))->getEncoding());
+		$assign(streamEncoding, $cast($UTF8OutputStreamWriter, this->fWriter)->getEncoding());
 	} else if ($instanceOf($XMLWriter, this->fWriter)) {
-		$assign(streamEncoding, $nc(($cast($OutputStreamWriter, $($nc(($cast($XMLWriter, this->fWriter)))->getWriter()))))->getEncoding());
+		$assign(streamEncoding, $$sure($OutputStreamWriter, $cast($XMLWriter, this->fWriter)->getWriter())->getEncoding());
 	}
 	if (streamEncoding != nullptr && !streamEncoding->equalsIgnoreCase(encoding)) {
 		bool foundAlias = false;
-		$var($Set, aliases, $nc($($Charset::forName(encoding)))->aliases());
+		$var($Set, aliases, $$nc($Charset::forName(encoding))->aliases());
 		{
 			$var($Iterator, it, $nc(aliases)->iterator());
 			for (; !foundAlias && $nc(it)->hasNext();) {
-				if (streamEncoding->equalsIgnoreCase($cast($String, $(it->next())))) {
+				if (streamEncoding->equalsIgnoreCase($$cast($String, it->next()))) {
 					foundAlias = true;
 				}
 			}
@@ -1039,12 +891,12 @@ void XMLStreamWriterImpl::writeStartElement($String* localName) {
 		}
 		$nc(this->fWriter)->write(localName);
 	} catch ($IOException& ex) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
+		$throwNew($XMLStreamException, ex);
 	}
 }
 
 void XMLStreamWriterImpl::writeStartElement($String* namespaceURI$renamed, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespaceURI, namespaceURI$renamed);
 	if (localName == nullptr) {
 		$throwNew($XMLStreamException, "Local Name cannot be null"_s);
@@ -1064,7 +916,7 @@ void XMLStreamWriterImpl::writeStartElement($String* namespaceURI$renamed, $Stri
 }
 
 void XMLStreamWriterImpl::writeStartElement($String* prefix$renamed, $String* localName, $String* namespaceURI$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, namespaceURI, namespaceURI$renamed);
 	try {
@@ -1090,11 +942,11 @@ void XMLStreamWriterImpl::writeStartElement($String* prefix$renamed, $String* lo
 		$nc(this->fElementStack)->push(prefix, localName, nullptr, namespaceURI, false);
 		$nc(this->fInternalNamespaceContext)->pushContext();
 		$var($String, tmpPrefix, $nc(this->fNamespaceContext)->getPrefix(namespaceURI));
-		if ((prefix != nullptr) && ((tmpPrefix == nullptr) || !$nc(prefix)->equals(tmpPrefix))) {
+		if ((prefix != nullptr) && ((tmpPrefix == nullptr) || !prefix->equals(tmpPrefix))) {
 			$nc(this->fInternalNamespaceContext)->declarePrefix(prefix, namespaceURI);
 		}
 		if (this->fIsRepairingNamespace) {
-			if ((prefix == nullptr) || ((tmpPrefix != nullptr) && $nc(prefix)->equals(tmpPrefix))) {
+			if ((prefix == nullptr) || ((tmpPrefix != nullptr) && prefix->equals(tmpPrefix))) {
 				return;
 			}
 			$var($QName, qname, $new($QName));
@@ -1106,18 +958,18 @@ void XMLStreamWriterImpl::writeStartElement($String* prefix$renamed, $String* lo
 		$init($XMLConstants);
 		if ((prefix != nullptr) && (prefix != $XMLConstants::DEFAULT_NS_PREFIX)) {
 			$nc(this->fWriter)->write(prefix);
-			$nc(this->fWriter)->write(":"_s);
+			this->fWriter->write(":"_s);
 		}
 		$nc(this->fWriter)->write(localName);
 	} catch ($IOException& ex) {
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
+		$throwNew($XMLStreamException, ex);
 	}
 }
 
 void XMLStreamWriterImpl::writeCharRef(int32_t codePoint) {
 	$nc(this->fWriter)->write("&#x"_s);
-	$nc(this->fWriter)->write($($Integer::toHexString(codePoint)));
-	$nc(this->fWriter)->write((int32_t)u';');
+	this->fWriter->write($($Integer::toHexString(codePoint)));
+	this->fWriter->write(u';');
 }
 
 void XMLStreamWriterImpl::writeXMLContent($chars* content, int32_t start, int32_t length, bool escapeChars) {
@@ -1129,7 +981,7 @@ void XMLStreamWriterImpl::writeXMLContent($chars* content, int32_t start, int32_
 	int32_t end = start + length;
 	for (int32_t index = start; index < end; ++index) {
 		char16_t ch = $nc(content)->get(index);
-		if (this->fEncoder != nullptr && !$nc(this->fEncoder)->canEncode(ch)) {
+		if (this->fEncoder != nullptr && !this->fEncoder->canEncode(ch)) {
 			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
 			if (index != end - 1 && $Character::isSurrogatePair(ch, content->get(index + 1))) {
 				writeCharRef($Character::toCodePoint(ch, content->get(index + 1)));
@@ -1142,26 +994,20 @@ void XMLStreamWriterImpl::writeXMLContent($chars* content, int32_t start, int32_
 		}
 		switch (ch) {
 		case u'<':
-			{
-				$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-				$nc(this->fWriter)->write("&lt;"_s);
-				startWritePos = index + 1;
-				break;
-			}
+			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+			this->fWriter->write("&lt;"_s);
+			startWritePos = index + 1;
+			break;
 		case u'&':
-			{
-				$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-				$nc(this->fWriter)->write("&amp;"_s);
-				startWritePos = index + 1;
-				break;
-			}
+			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+			this->fWriter->write("&amp;"_s);
+			startWritePos = index + 1;
+			break;
 		case u'>':
-			{
-				$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-				$nc(this->fWriter)->write("&gt;"_s);
-				startWritePos = index + 1;
-				break;
-			}
+			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+			this->fWriter->write("&gt;"_s);
+			startWritePos = index + 1;
+			break;
 		}
 	}
 	$nc(this->fWriter)->write(content, startWritePos, end - startWritePos);
@@ -1182,7 +1028,7 @@ void XMLStreamWriterImpl::writeXMLContent($String* content, bool escapeChars, bo
 	int32_t end = $nc(content)->length();
 	for (int32_t index = 0; index < end; ++index) {
 		char16_t ch = content->charAt(index);
-		if (this->fEncoder != nullptr && !$nc(this->fEncoder)->canEncode(ch)) {
+		if (this->fEncoder != nullptr && !this->fEncoder->canEncode(ch)) {
 			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
 			if (index != end - 1 && $Character::isSurrogatePair(ch, content->charAt(index + 1))) {
 				writeCharRef($Character::toCodePoint(ch, content->charAt(index + 1)));
@@ -1195,55 +1041,47 @@ void XMLStreamWriterImpl::writeXMLContent($String* content, bool escapeChars, bo
 		}
 		switch (ch) {
 		case u'<':
-			{
-				$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-				$nc(this->fWriter)->write("&lt;"_s);
-				startWritePos = index + 1;
-				break;
-			}
+			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+			this->fWriter->write("&lt;"_s);
+			startWritePos = index + 1;
+			break;
 		case u'&':
-			{
-				$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-				$nc(this->fWriter)->write("&amp;"_s);
-				startWritePos = index + 1;
-				break;
-			}
+			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+			this->fWriter->write("&amp;"_s);
+			startWritePos = index + 1;
+			break;
 		case u'>':
-			{
-				$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-				$nc(this->fWriter)->write("&gt;"_s);
-				startWritePos = index + 1;
-				break;
-			}
+			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+			this->fWriter->write("&gt;"_s);
+			startWritePos = index + 1;
+			break;
 		case u'\"':
-			{
-				$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-				if (escapeDoubleQuotes) {
-					$nc(this->fWriter)->write("&quot;"_s);
-				} else {
-					$nc(this->fWriter)->write((int32_t)u'\"');
-				}
-				startWritePos = index + 1;
-				break;
+			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+			if (escapeDoubleQuotes) {
+				this->fWriter->write("&quot;"_s);
+			} else {
+				this->fWriter->write(u'\"');
 			}
+			startWritePos = index + 1;
+			break;
 		}
 	}
 	$nc(this->fWriter)->write(content, startWritePos, end - startWritePos);
 }
 
 void XMLStreamWriterImpl::closeStartTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($XMLStreamWriterImpl$ElementState, currentElement, $nc(this->fElementStack)->peek());
 		if (this->fIsRepairingNamespace) {
 			repair();
-			correctPrefix(static_cast<$QName*>(currentElement), $XMLStreamConstants::START_ELEMENT);
+			correctPrefix(currentElement, $XMLStreamConstants::START_ELEMENT);
 			$init($XMLConstants);
 			if (($nc(currentElement)->prefix != nullptr) && (currentElement->prefix != $XMLConstants::DEFAULT_NS_PREFIX)) {
 				$nc(this->fWriter)->write(currentElement->prefix);
-				$nc(this->fWriter)->write(":"_s);
+				this->fWriter->write(":"_s);
 			}
-			$nc(this->fWriter)->write($nc(currentElement)->localpart);
+			$nc(this->fWriter)->write(currentElement->localpart);
 			int32_t len = $nc(this->fNamespaceDecls)->size();
 			$var($QName, qname, nullptr);
 			for (int32_t i = 0; i < len; ++i) {
@@ -1257,12 +1095,12 @@ void XMLStreamWriterImpl::closeStartTag() {
 			$nc(this->fNamespaceDecls)->clear();
 			$var($XMLStreamWriterImpl$Attribute, attr, nullptr);
 			for (int32_t j = 0; j < $nc(this->fAttributeCache)->size(); ++j) {
-				$assign(attr, $cast($XMLStreamWriterImpl$Attribute, $nc(this->fAttributeCache)->get(j)));
+				$assign(attr, $cast($XMLStreamWriterImpl$Attribute, this->fAttributeCache->get(j)));
 				if (($nc(attr)->prefix != nullptr) && (attr->uri != nullptr)) {
-					bool var$0 = !$nc(attr->prefix)->isEmpty();
-					if (var$0 && !$nc(attr->uri)->isEmpty()) {
+					bool var$0 = !attr->prefix->isEmpty();
+					if (var$0 && !attr->uri->isEmpty()) {
 						$var($String, tmp, $nc(this->fInternalNamespaceContext)->getPrefix(attr->uri));
-						if ((tmp == nullptr) || (!$nc(tmp)->equals(attr->prefix))) {
+						if ((tmp == nullptr) || (!tmp->equals(attr->prefix))) {
 							$assign(tmp, getAttrPrefix(attr->uri));
 							if (tmp == nullptr) {
 								if ($nc(this->fInternalNamespaceContext)->declarePrefix(attr->prefix, attr->uri)) {
@@ -1274,7 +1112,7 @@ void XMLStreamWriterImpl::closeStartTag() {
 						}
 					}
 				}
-				writeAttributeWithPrefix($nc(attr)->prefix, attr->localpart, attr->value);
+				writeAttributeWithPrefix(attr->prefix, attr->localpart, attr->value);
 			}
 			$set(this, fAttrNamespace, nullptr);
 			$nc(this->fAttributeCache)->clear();
@@ -1284,22 +1122,22 @@ void XMLStreamWriterImpl::closeStartTag() {
 			$nc(this->fInternalNamespaceContext)->popContext();
 			$nc(this->fWriter)->write(XMLStreamWriterImpl::CLOSE_EMPTY_ELEMENT);
 		} else {
-			$nc(this->fWriter)->write((int32_t)XMLStreamWriterImpl::CLOSE_START_TAG);
+			$nc(this->fWriter)->write(XMLStreamWriterImpl::CLOSE_START_TAG);
 		}
 		this->fStartTagOpened = false;
 	} catch ($IOException& ex) {
 		this->fStartTagOpened = false;
-		$throwNew($XMLStreamException, static_cast<$Throwable*>(ex));
+		$throwNew($XMLStreamException, ex);
 	}
 }
 
 void XMLStreamWriterImpl::openStartTag() {
 	this->fStartTagOpened = true;
-	$nc(this->fWriter)->write((int32_t)XMLStreamWriterImpl::OPEN_START_TAG);
+	$nc(this->fWriter)->write(XMLStreamWriterImpl::OPEN_START_TAG);
 }
 
 void XMLStreamWriterImpl::correctPrefix($QName* attr, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tmpPrefix, nullptr);
 	$var($String, prefix, nullptr);
 	$var($String, uri, nullptr);
@@ -1307,7 +1145,7 @@ void XMLStreamWriterImpl::correctPrefix($QName* attr, int32_t type) {
 	$assign(uri, attr->uri);
 	bool isSpecialCaseURI = false;
 	$init($XMLConstants);
-	if (prefix == nullptr || $nc(prefix)->equals($XMLConstants::DEFAULT_NS_PREFIX)) {
+	if (prefix == nullptr || prefix->equals($XMLConstants::DEFAULT_NS_PREFIX)) {
 		if (uri == nullptr) {
 			return;
 		}
@@ -1318,14 +1156,14 @@ void XMLStreamWriterImpl::correctPrefix($QName* attr, int32_t type) {
 		$assign(uri, $nc(this->fSymbolTable)->addSymbol(uri));
 		$var($QName, decl, nullptr);
 		for (int32_t i = 0; i < $nc(this->fNamespaceDecls)->size(); ++i) {
-			$assign(decl, $cast($QName, $nc(this->fNamespaceDecls)->get(i)));
+			$assign(decl, $cast($QName, this->fNamespaceDecls->get(i)));
 			if ((decl != nullptr) && ($nc(decl->uri)->equals(attr->uri))) {
 				$set(attr, prefix, decl->prefix);
 				return;
 			}
 		}
 		$assign(tmpPrefix, $nc(this->fNamespaceContext)->getPrefix(uri));
-		if ($nc($XMLConstants::DEFAULT_NS_PREFIX)->equals(tmpPrefix)) {
+		if ($XMLConstants::DEFAULT_NS_PREFIX->equals(tmpPrefix)) {
 			if (type == $XMLStreamConstants::START_ELEMENT) {
 				return;
 			} else if (type == $XMLStreamConstants::ATTRIBUTE) {
@@ -1359,7 +1197,7 @@ void XMLStreamWriterImpl::correctPrefix($QName* attr, int32_t type) {
 
 $String* XMLStreamWriterImpl::getAttrPrefix($String* uri) {
 	if (this->fAttrNamespace != nullptr) {
-		return $cast($String, $nc(this->fAttrNamespace)->get(uri));
+		return $cast($String, this->fAttrNamespace->get(uri));
 	}
 	return nullptr;
 }
@@ -1378,7 +1216,7 @@ bool XMLStreamWriterImpl::isDefaultNamespace($String* uri) {
 
 bool XMLStreamWriterImpl::checkUserNamespaceContext($String* prefix, $String* uri) {
 	if ($nc(this->fNamespaceContext)->userContext != nullptr) {
-		$var($String, tmpURI, $nc($nc(this->fNamespaceContext)->userContext)->getNamespaceURI(prefix));
+		$var($String, tmpURI, this->fNamespaceContext->userContext->getNamespaceURI(prefix));
 		if ((tmpURI != nullptr) && tmpURI->equals(uri)) {
 			return true;
 		}
@@ -1387,74 +1225,74 @@ bool XMLStreamWriterImpl::checkUserNamespaceContext($String* prefix, $String* ur
 }
 
 void XMLStreamWriterImpl::repair() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLStreamWriterImpl$Attribute, attr, nullptr);
 	$var($XMLStreamWriterImpl$Attribute, attr2, nullptr);
 	$var($XMLStreamWriterImpl$ElementState, currentElement, $nc(this->fElementStack)->peek());
 	removeDuplicateDecls();
 	for (int32_t i = 0; i < $nc(this->fAttributeCache)->size(); ++i) {
-		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, $nc(this->fAttributeCache)->get(i)));
-		bool var$0 = ($nc(attr)->prefix != nullptr && !$nc(attr->prefix)->isEmpty());
-		if (var$0 || ($nc(attr)->uri != nullptr && !$nc(attr->uri)->isEmpty())) {
-			correctPrefix(static_cast<$QName*>(currentElement), static_cast<$QName*>(attr));
+		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, this->fAttributeCache->get(i)));
+		bool var$0 = $nc(attr)->prefix != nullptr && !attr->prefix->isEmpty();
+		if (var$0 || (attr->uri != nullptr && !attr->uri->isEmpty())) {
+			correctPrefix(currentElement, attr);
 		}
 	}
 	if (!isDeclared(currentElement)) {
 		if (($nc(currentElement)->prefix != nullptr) && (currentElement->uri != nullptr)) {
-			bool var$1 = (!$nc(currentElement->prefix)->isEmpty());
-			if (var$1 && (!$nc(currentElement->uri)->isEmpty())) {
+			bool var$1 = !currentElement->prefix->isEmpty();
+			if (var$1 && (!currentElement->uri->isEmpty())) {
 				$nc(this->fNamespaceDecls)->add(currentElement);
 			}
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->fAttributeCache)->size(); ++i) {
-		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, $nc(this->fAttributeCache)->get(i)));
+		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, this->fAttributeCache->get(i)));
 		for (int32_t j = i + 1; j < $nc(this->fAttributeCache)->size(); ++j) {
-			$assign(attr2, $cast($XMLStreamWriterImpl$Attribute, $nc(this->fAttributeCache)->get(j)));
+			$assign(attr2, $cast($XMLStreamWriterImpl$Attribute, this->fAttributeCache->get(j)));
 			bool var$2 = !""_s->equals($nc(attr)->prefix);
 			if (var$2 && !""_s->equals($nc(attr2)->prefix)) {
-				correctPrefix(static_cast<$QName*>(attr), static_cast<$QName*>(attr2));
+				correctPrefix(attr, attr2);
 			}
 		}
 	}
 	repairNamespaceDecl(currentElement);
 	int32_t i = 0;
 	for (i = 0; i < $nc(this->fAttributeCache)->size(); ++i) {
-		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, $nc(this->fAttributeCache)->get(i)));
-		bool var$3 = $nc(attr)->prefix != nullptr && $nc(attr->prefix)->isEmpty() && attr->uri != nullptr;
-		if (var$3 && $nc(attr->uri)->isEmpty()) {
+		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, this->fAttributeCache->get(i)));
+		bool var$3 = $nc(attr)->prefix != nullptr && attr->prefix->isEmpty() && attr->uri != nullptr;
+		if (var$3 && attr->uri->isEmpty()) {
 			repairNamespaceDecl(attr);
 		}
 	}
 	$var($QName, qname, nullptr);
 	for (i = 0; i < $nc(this->fNamespaceDecls)->size(); ++i) {
-		$assign(qname, $cast($QName, $nc(this->fNamespaceDecls)->get(i)));
+		$assign(qname, $cast($QName, this->fNamespaceDecls->get(i)));
 		if (qname != nullptr) {
 			$nc(this->fInternalNamespaceContext)->declarePrefix(qname->prefix, qname->uri);
 		}
 	}
 	for (i = 0; i < $nc(this->fAttributeCache)->size(); ++i) {
-		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, $nc(this->fAttributeCache)->get(i)));
-		correctPrefix(static_cast<$QName*>(attr), $XMLStreamConstants::ATTRIBUTE);
+		$assign(attr, $cast($XMLStreamWriterImpl$Attribute, this->fAttributeCache->get(i)));
+		correctPrefix(attr, $XMLStreamConstants::ATTRIBUTE);
 	}
 }
 
 void XMLStreamWriterImpl::correctPrefix($QName* attr1, $QName* attr2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tmpPrefix, nullptr);
 	$var($QName, decl, nullptr);
 	checkForNull(attr1);
 	checkForNull(attr2);
 	bool var$0 = $nc($nc(attr1)->prefix)->equals($nc(attr2)->prefix);
-	if (var$0 && !($nc(attr1->uri)->equals($nc(attr2)->uri))) {
-		$assign(tmpPrefix, $nc(this->fNamespaceContext)->getPrefix($nc(attr2)->uri));
+	if (var$0 && !($nc(attr1->uri)->equals(attr2->uri))) {
+		$assign(tmpPrefix, $nc(this->fNamespaceContext)->getPrefix(attr2->uri));
 		if (tmpPrefix != nullptr) {
-			$set($nc(attr2), prefix, $nc(this->fSymbolTable)->addSymbol(tmpPrefix));
+			$set(attr2, prefix, $nc(this->fSymbolTable)->addSymbol(tmpPrefix));
 		} else {
 			for (int32_t n = 0; n < $nc(this->fNamespaceDecls)->size(); ++n) {
-				$assign(decl, $cast($QName, $nc(this->fNamespaceDecls)->get(n)));
-				if (decl != nullptr && ($nc(decl->uri)->equals($nc(attr2)->uri))) {
-					$set($nc(attr2), prefix, decl->prefix);
+				$assign(decl, $cast($QName, this->fNamespaceDecls->get(n)));
+				if (decl != nullptr && ($nc(decl->uri)->equals(attr2->uri))) {
+					$set(attr2, prefix, decl->prefix);
 					return;
 				}
 			}
@@ -1464,7 +1302,7 @@ void XMLStreamWriterImpl::correctPrefix($QName* attr1, $QName* attr2) {
 			}
 			$assign(tmpPrefix, genPrefix->toString());
 			$assign(tmpPrefix, $nc(this->fSymbolTable)->addSymbol(tmpPrefix));
-			$set($nc(attr2), prefix, tmpPrefix);
+			$set(attr2, prefix, tmpPrefix);
 			$var($QName, qname, $new($QName));
 			$init($XMLConstants);
 			qname->setValues(tmpPrefix, $XMLConstants::XMLNS_ATTRIBUTE, nullptr, attr2->uri);
@@ -1478,24 +1316,24 @@ void XMLStreamWriterImpl::checkForNull($QName* attr) {
 		$init($XMLConstants);
 		$set(attr, prefix, $XMLConstants::DEFAULT_NS_PREFIX);
 	}
-	if ($nc(attr)->uri == nullptr) {
+	if (attr->uri == nullptr) {
 		$init($XMLConstants);
 		$set(attr, uri, $XMLConstants::DEFAULT_NS_PREFIX);
 	}
 }
 
 void XMLStreamWriterImpl::removeDuplicateDecls() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($QName, decl1, nullptr);
 	$var($QName, decl2, nullptr);
 	for (int32_t i = 0; i < $nc(this->fNamespaceDecls)->size(); ++i) {
-		$assign(decl1, $cast($QName, $nc(this->fNamespaceDecls)->get(i)));
+		$assign(decl1, $cast($QName, this->fNamespaceDecls->get(i)));
 		if (decl1 != nullptr) {
-			for (int32_t j = i + 1; j < $nc(this->fNamespaceDecls)->size(); ++j) {
-				$assign(decl2, $cast($QName, $nc(this->fNamespaceDecls)->get(j)));
+			for (int32_t j = i + 1; j < this->fNamespaceDecls->size(); ++j) {
+				$assign(decl2, $cast($QName, this->fNamespaceDecls->get(j)));
 				bool var$0 = decl2 != nullptr && $nc(decl1->prefix)->equals(decl2->prefix);
 				if (var$0 && $nc(decl1->uri)->equals(decl2->uri)) {
-					$nc(this->fNamespaceDecls)->remove(j);
+					this->fNamespaceDecls->remove(j);
 				}
 			}
 		}
@@ -1503,16 +1341,16 @@ void XMLStreamWriterImpl::removeDuplicateDecls() {
 }
 
 void XMLStreamWriterImpl::repairNamespaceDecl($QName* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($QName, decl, nullptr);
 	$var($String, tmpURI, nullptr);
 	for (int32_t j = 0; j < $nc(this->fNamespaceDecls)->size(); ++j) {
-		$assign(decl, $cast($QName, $nc(this->fNamespaceDecls)->get(j)));
+		$assign(decl, $cast($QName, this->fNamespaceDecls->get(j)));
 		if (decl != nullptr) {
-			bool var$0 = ($nc(attr)->prefix != nullptr);
+			bool var$0 = $nc(attr)->prefix != nullptr;
 			if (var$0) {
-				bool var$1 = $nc(attr->prefix)->equals(decl->prefix);
-				var$0 = (var$1 && !($nc(attr->uri)->equals(decl->uri)));
+				bool var$1 = attr->prefix->equals(decl->prefix);
+				var$0 = var$1 && !($nc(attr->uri)->equals(decl->uri));
 			}
 			if (var$0) {
 				$assign(tmpURI, $nc(this->fNamespaceContext)->getNamespaceURI(attr->prefix));
@@ -1531,11 +1369,11 @@ void XMLStreamWriterImpl::repairNamespaceDecl($QName* attr) {
 bool XMLStreamWriterImpl::isDeclared($QName* attr) {
 	$var($QName, decl, nullptr);
 	for (int32_t n = 0; n < $nc(this->fNamespaceDecls)->size(); ++n) {
-		$assign(decl, $cast($QName, $nc(this->fNamespaceDecls)->get(n)));
-		bool var$0 = ($nc(attr)->prefix != nullptr);
+		$assign(decl, $cast($QName, this->fNamespaceDecls->get(n)));
+		bool var$0 = $nc(attr)->prefix != nullptr;
 		if (var$0) {
-			bool var$1 = ($nc(attr->prefix)->equals($nc(decl)->prefix));
-			var$0 = (var$1 && ($nc($nc(decl)->uri)->equals(attr->uri)));
+			bool var$1 = attr->prefix->equals($nc(decl)->prefix);
+			var$0 = var$1 && ($nc(decl->uri)->equals(attr->uri));
 		}
 		if (var$0) {
 			return true;
@@ -1565,7 +1403,7 @@ $Object* XMLStreamWriterImpl::get(Object$* key) {
 	if ($nc($of(key))->equals(XMLStreamWriterImpl::OUTPUTSTREAM_PROPERTY)) {
 		return $of(this->fOutputStream);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Set* XMLStreamWriterImpl::entrySet() {
@@ -1574,13 +1412,16 @@ $Set* XMLStreamWriterImpl::entrySet() {
 }
 
 $String* XMLStreamWriterImpl::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($of(this)->getClass()->getName()), "@"_s}));
-	return $concat(var$0, $($Integer::toHexString(hashCode())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("@"_s);
+	var$0->append($($Integer::toHexString(hashCode())));
+	return $str(var$0);
 }
 
 int32_t XMLStreamWriterImpl::hashCode() {
-	return $nc($of(this->fElementStack))->hashCode();
+	return $nc(this->fElementStack)->hashCode();
 }
 
 bool XMLStreamWriterImpl::equals(Object$* obj) {
@@ -1590,7 +1431,7 @@ bool XMLStreamWriterImpl::equals(Object$* obj) {
 XMLStreamWriterImpl::XMLStreamWriterImpl() {
 }
 
-void clinit$XMLStreamWriterImpl($Class* class$) {
+void XMLStreamWriterImpl::clinit$($Class* clazz) {
 	$assignStatic(XMLStreamWriterImpl::START_COMMENT, "<!--"_s);
 	$assignStatic(XMLStreamWriterImpl::END_COMMENT, "-->"_s);
 	$assignStatic(XMLStreamWriterImpl::DEFAULT_ENCODING, " encoding=\"utf-8\""_s);
@@ -1606,7 +1447,145 @@ void clinit$XMLStreamWriterImpl($Class* class$) {
 }
 
 $Class* XMLStreamWriterImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamWriterImpl, name, initialize, &_XMLStreamWriterImpl_ClassInfo_, clinit$XMLStreamWriterImpl, allocate$XMLStreamWriterImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"START_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, START_COMMENT)},
+		{"END_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, END_COMMENT)},
+		{"DEFAULT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, DEFAULT_ENCODING)},
+		{"DEFAULT_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, DEFAULT_XMLDECL)},
+		{"DEFAULT_XML_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, DEFAULT_XML_VERSION)},
+		{"CLOSE_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLStreamWriterImpl, CLOSE_START_TAG)},
+		{"OPEN_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLStreamWriterImpl, OPEN_START_TAG)},
+		{"OPEN_END_TAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, OPEN_END_TAG)},
+		{"CLOSE_END_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XMLStreamWriterImpl, CLOSE_END_TAG)},
+		{"START_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, START_CDATA)},
+		{"END_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, END_CDATA)},
+		{"CLOSE_EMPTY_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, CLOSE_EMPTY_ELEMENT)},
+		{"SPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, SPACE)},
+		{"UTF_8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, UTF_8)},
+		{"OUTPUTSTREAM_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLStreamWriterImpl, OUTPUTSTREAM_PROPERTY)},
+		{"fEscapeCharacters", "Z", nullptr, 0, $field(XMLStreamWriterImpl, fEscapeCharacters)},
+		{"fIsRepairingNamespace", "Z", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fIsRepairingNamespace)},
+		{"fWriter", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fWriter)},
+		{"fOutputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fOutputStream)},
+		{"fAttributeCache", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl$Attribute;>;", $PRIVATE, $field(XMLStreamWriterImpl, fAttributeCache)},
+		{"fNamespaceDecls", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/QName;>;", $PRIVATE, $field(XMLStreamWriterImpl, fNamespaceDecls)},
+		{"fNamespaceContext", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl$NamespaceContextImpl;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fNamespaceContext)},
+		{"fInternalNamespaceContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fInternalNamespaceContext)},
+		{"fPrefixGen", "Ljava/util/Random;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fPrefixGen)},
+		{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fPropertyManager)},
+		{"fStartTagOpened", "Z", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fStartTagOpened)},
+		{"fReuse", "Z", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fReuse)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fSymbolTable)},
+		{"fElementStack", "Lcom/sun/xml/internal/stream/writers/XMLStreamWriterImpl$ElementStack;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fElementStack)},
+		{"DEFAULT_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XMLStreamWriterImpl, DEFAULT_PREFIX)},
+		{"fReadOnlyIterator", "Lcom/sun/xml/internal/stream/util/ReadOnlyIterator;", "Lcom/sun/xml/internal/stream/util/ReadOnlyIterator<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XMLStreamWriterImpl, fReadOnlyIterator)},
+		{"fEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $field(XMLStreamWriterImpl, fEncoder)},
+		{"fAttrNamespace", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(XMLStreamWriterImpl, fAttrNamespace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $OutputStream*, $PropertyManager*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $OutputStream*, $String*, $PropertyManager*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $Writer*, $PropertyManager*), "java.io.IOException"},
+		{"<init>", "(Ljavax/xml/transform/stream/StreamResult;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, init$, void, $StreamResult*, $String*, $PropertyManager*), "java.io.IOException"},
+		{"addAttrNamespace", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, addAttrNamespace, void, $String*, $String*)},
+		{"canReuse", "()Z", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, canReuse, bool)},
+		{"checkForNull", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $method(XMLStreamWriterImpl, checkForNull, void, $QName*)},
+		{"checkUserNamespaceContext", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, checkUserNamespaceContext, bool, $String*, $String*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, close, void), "javax.xml.stream.XMLStreamException"},
+		{"closeStartTag", "()V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, closeStartTag, void), "javax.xml.stream.XMLStreamException"},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, containsKey, bool, Object$*)},
+		{"correctPrefix", "(Lcom/sun/org/apache/xerces/internal/xni/QName;I)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, correctPrefix, void, $QName*, int32_t)},
+		{"correctPrefix", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $method(XMLStreamWriterImpl, correctPrefix, void, $QName*, $QName*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(XMLStreamWriterImpl, entrySet, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, equals, bool, Object$*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, flush, void), "javax.xml.stream.XMLStreamException"},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, get, $Object*, Object$*)},
+		{"getAttrPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, getAttrPrefix, $String*, $String*)},
+		{"getEscapeCharacters", "()Z", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, getEscapeCharacters, bool)},
+		{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, getNamespaceContext, $NamespaceContext*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, getPrefix, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, getProperty, $Object*, $String*), "java.lang.IllegalArgumentException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, hashCode, int32_t)},
+		{"init", "()V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, init, void)},
+		{"isDeclared", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Z", nullptr, 0, $method(XMLStreamWriterImpl, isDeclared, bool, $QName*)},
+		{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, isDefaultNamespace, bool, $String*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, isEmpty, bool)},
+		{"openStartTag", "()V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, openStartTag, void), "java.io.IOException"},
+		{"removeDuplicateDecls", "()V", nullptr, 0, $method(XMLStreamWriterImpl, removeDuplicateDecls, void)},
+		{"repair", "()V", nullptr, $PROTECTED, $method(XMLStreamWriterImpl, repair, void)},
+		{"repairNamespaceDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)V", nullptr, 0, $method(XMLStreamWriterImpl, repairNamespaceDecl, void, $QName*)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, reset, void)},
+		{"reset", "(Z)V", nullptr, 0, $method(XMLStreamWriterImpl, reset, void, bool)},
+		{"setDefaultNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, setDefaultNamespace, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"setEscapeCharacters", "(Z)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, setEscapeCharacters, void, bool)},
+		{"setNamespaceContext", "(Ljavax/xml/namespace/NamespaceContext;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, setNamespaceContext, void, $NamespaceContext*), "javax.xml.stream.XMLStreamException"},
+		{"setOutput", "(Ljavax/xml/transform/stream/StreamResult;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLStreamWriterImpl, setOutput, void, $StreamResult*, $String*), "java.io.IOException"},
+		{"setOutputUsingStream", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, setOutputUsingStream, void, $OutputStream*, $String*), "java.io.IOException"},
+		{"setOutputUsingWriter", "(Ljava/io/Writer;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, setOutputUsingWriter, void, $Writer*), "java.io.IOException"},
+		{"setPrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, setPrefix, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, toString, $String*)},
+		{"verifyEncoding", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, verifyEncoding, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeAttribute, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeAttribute, void, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeAttribute, void, $String*, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeAttributeWithPrefix", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeAttributeWithPrefix, void, $String*, $String*, $String*), "java.io.IOException"},
+		{"writeCData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeCData, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeCharRef", "(I)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeCharRef, void, int32_t), "java.io.IOException"},
+		{"writeCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeCharacters, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeCharacters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeCharacters, void, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"writeComment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeComment, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeDTD", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeDTD, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeDefaultNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeDefaultNamespace, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeEmptyElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEmptyElement, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeEmptyElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEmptyElement, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeEmptyElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEmptyElement, void, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeEndDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEndDocument, void), "javax.xml.stream.XMLStreamException"},
+		{"writeEndElement", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEndElement, void), "javax.xml.stream.XMLStreamException"},
+		{"writeEntityRef", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeEntityRef, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeNamespace", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeNamespace, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeProcessingInstruction", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeProcessingInstruction, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeProcessingInstruction, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeStartDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void), "javax.xml.stream.XMLStreamException"},
+		{"writeStartDocument", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartDocument, void, $String*, $String*, bool, bool), "javax.xml.stream.XMLStreamException"},
+		{"writeStartElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartElement, void, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartElement, void, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeStartElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLStreamWriterImpl, writeStartElement, void, $String*, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"writeXMLContent", "([CIIZ)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeXMLContent, void, $chars*, int32_t, int32_t, bool), "java.io.IOException"},
+		{"writeXMLContent", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeXMLContent, void, $String*), "java.io.IOException"},
+		{"writeXMLContent", "(Ljava/lang/String;ZZ)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writeXMLContent, void, $String*, bool, bool), "java.io.IOException"},
+		{"writenamespace", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLStreamWriterImpl, writenamespace, void, $String*, $String*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$NamespaceContextImpl", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "NamespaceContextImpl", 0},
+		{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "Attribute", 0},
+		{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementState", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "ElementState", 0},
+		{"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementStack", "com.sun.xml.internal.stream.writers.XMLStreamWriterImpl", "ElementStack", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl",
+		"java.util.AbstractMap",
+		"com.sun.xml.internal.stream.writers.XMLStreamWriterBase",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractMap<Ljava/lang/Object;Ljava/lang/Object;>;Lcom/sun/xml/internal/stream/writers/XMLStreamWriterBase;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$NamespaceContextImpl,com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$Attribute,com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementState,com.sun.xml.internal.stream.writers.XMLStreamWriterImpl$ElementStack"
+	};
+	$loadClass(XMLStreamWriterImpl, name, initialize, &classInfo$$, XMLStreamWriterImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLStreamWriterImpl));
+	});
 	return class$;
 }
 

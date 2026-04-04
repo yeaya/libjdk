@@ -76,7 +76,7 @@ public:
 	virtual void textValueChanged(::java::awt::event::TextEvent* textEvent) override;
 	virtual $String* toString() override;
 	::java::awt::TextComponent* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x32657080E8B29DF3;
+	static const int64_t serialVersionUID = (int64_t)0x32657080e8b29df3;
 	static const bool NEXT = true;
 	static const bool PREVIOUS = false;
 };

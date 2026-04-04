@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/jaxp/JAXPVariableStack.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/QName.h>
 #include <com/sun/org/apache/xpath/internal/VariableStack.h>
@@ -36,40 +35,16 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _JAXPVariableStack_FieldInfo_[] = {
-	{"resolver", "Ljavax/xml/xpath/XPathVariableResolver;", nullptr, $PRIVATE | $FINAL, $field(JAXPVariableStack, resolver)},
-	{}
-};
-
-$MethodInfo _JAXPVariableStack_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PUBLIC, $method(JAXPVariableStack, init$, void, $XPathVariableResolver*)},
-	{"getVariableOrParam", "(Lcom/sun/org/apache/xpath/internal/XPathContext;Lcom/sun/org/apache/xml/internal/utils/QName;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(JAXPVariableStack, getVariableOrParam, $XObject*, $XPathContext*, $QName*), "javax.xml.transform.TransformerException,java.lang.IllegalArgumentException"},
-	{}
-};
-
-$ClassInfo _JAXPVariableStack_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.jaxp.JAXPVariableStack",
-	"com.sun.org.apache.xpath.internal.VariableStack",
-	nullptr,
-	_JAXPVariableStack_FieldInfo_,
-	_JAXPVariableStack_MethodInfo_
-};
-
-$Object* allocate$JAXPVariableStack($Class* clazz) {
-	return $of($alloc(JAXPVariableStack));
-}
-
 void JAXPVariableStack::init$($XPathVariableResolver* resolver) {
 	$VariableStack::init$();
 	$set(this, resolver, resolver);
 }
 
 $XObject* JAXPVariableStack::getVariableOrParam($XPathContext* xctxt, $QName* qname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (qname == nullptr) {
 		$init($XPATHErrorResources);
-		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_ARG_CANNOT_BE_NULL, $$new($ObjectArray, {$of("Variable qname"_s)})));
+		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_ARG_CANNOT_BE_NULL, $$new($ObjectArray, {"Variable qname"_s})));
 		$throwNew($IllegalArgumentException, fmsg);
 	}
 	$var($String, var$0, $nc(qname)->getNamespace());
@@ -77,7 +52,7 @@ $XObject* JAXPVariableStack::getVariableOrParam($XPathContext* xctxt, $QName* qn
 	$var($Object, varValue, $nc(this->resolver)->resolveVariable(name));
 	if (varValue == nullptr) {
 		$init($XPATHErrorResources);
-		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_RESOLVE_VARIABLE_RETURNS_NULL, $$new($ObjectArray, {$($of(name->toString()))})));
+		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_RESOLVE_VARIABLE_RETURNS_NULL, $$new($ObjectArray, {$(name->toString())})));
 		$throwNew($TransformerException, fmsg);
 	}
 	return $XObject::create(varValue, xctxt);
@@ -87,7 +62,26 @@ JAXPVariableStack::JAXPVariableStack() {
 }
 
 $Class* JAXPVariableStack::load$($String* name, bool initialize) {
-	$loadClass(JAXPVariableStack, name, initialize, &_JAXPVariableStack_ClassInfo_, allocate$JAXPVariableStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"resolver", "Ljavax/xml/xpath/XPathVariableResolver;", nullptr, $PRIVATE | $FINAL, $field(JAXPVariableStack, resolver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PUBLIC, $method(JAXPVariableStack, init$, void, $XPathVariableResolver*)},
+		{"getVariableOrParam", "(Lcom/sun/org/apache/xpath/internal/XPathContext;Lcom/sun/org/apache/xml/internal/utils/QName;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(JAXPVariableStack, getVariableOrParam, $XObject*, $XPathContext*, $QName*), "javax.xml.transform.TransformerException,java.lang.IllegalArgumentException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.jaxp.JAXPVariableStack",
+		"com.sun.org.apache.xpath.internal.VariableStack",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JAXPVariableStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JAXPVariableStack);
+	});
 	return class$;
 }
 

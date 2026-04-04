@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPMetadata.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPCompressionTypes.h>
 #include <com/sun/imageio/plugins/common/I18N.h>
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
@@ -36,81 +35,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace bmp {
-
-$FieldInfo _BMPMetadata_FieldInfo_[] = {
-	{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPMetadata, nativeMetadataFormatName)},
-	{"bmpVersion", "Ljava/lang/String;", nullptr, $PUBLIC, $field(BMPMetadata, bmpVersion)},
-	{"width", "I", nullptr, $PUBLIC, $field(BMPMetadata, width)},
-	{"height", "I", nullptr, $PUBLIC, $field(BMPMetadata, height)},
-	{"bitsPerPixel", "S", nullptr, $PUBLIC, $field(BMPMetadata, bitsPerPixel)},
-	{"compression", "I", nullptr, $PUBLIC, $field(BMPMetadata, compression)},
-	{"imageSize", "I", nullptr, $PUBLIC, $field(BMPMetadata, imageSize)},
-	{"xPixelsPerMeter", "I", nullptr, $PUBLIC, $field(BMPMetadata, xPixelsPerMeter)},
-	{"yPixelsPerMeter", "I", nullptr, $PUBLIC, $field(BMPMetadata, yPixelsPerMeter)},
-	{"colorsUsed", "I", nullptr, $PUBLIC, $field(BMPMetadata, colorsUsed)},
-	{"colorsImportant", "I", nullptr, $PUBLIC, $field(BMPMetadata, colorsImportant)},
-	{"redMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, redMask)},
-	{"greenMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, greenMask)},
-	{"blueMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, blueMask)},
-	{"alphaMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, alphaMask)},
-	{"colorSpace", "I", nullptr, $PUBLIC, $field(BMPMetadata, colorSpace)},
-	{"redX", "D", nullptr, $PUBLIC, $field(BMPMetadata, redX)},
-	{"redY", "D", nullptr, $PUBLIC, $field(BMPMetadata, redY)},
-	{"redZ", "D", nullptr, $PUBLIC, $field(BMPMetadata, redZ)},
-	{"greenX", "D", nullptr, $PUBLIC, $field(BMPMetadata, greenX)},
-	{"greenY", "D", nullptr, $PUBLIC, $field(BMPMetadata, greenY)},
-	{"greenZ", "D", nullptr, $PUBLIC, $field(BMPMetadata, greenZ)},
-	{"blueX", "D", nullptr, $PUBLIC, $field(BMPMetadata, blueX)},
-	{"blueY", "D", nullptr, $PUBLIC, $field(BMPMetadata, blueY)},
-	{"blueZ", "D", nullptr, $PUBLIC, $field(BMPMetadata, blueZ)},
-	{"gammaRed", "I", nullptr, $PUBLIC, $field(BMPMetadata, gammaRed)},
-	{"gammaGreen", "I", nullptr, $PUBLIC, $field(BMPMetadata, gammaGreen)},
-	{"gammaBlue", "I", nullptr, $PUBLIC, $field(BMPMetadata, gammaBlue)},
-	{"intent", "I", nullptr, $PUBLIC, $field(BMPMetadata, intent)},
-	{"palette", "[B", nullptr, $PUBLIC, $field(BMPMetadata, palette)},
-	{"paletteSize", "I", nullptr, $PUBLIC, $field(BMPMetadata, paletteSize)},
-	{"red", "I", nullptr, $PUBLIC, $field(BMPMetadata, red)},
-	{"green", "I", nullptr, $PUBLIC, $field(BMPMetadata, green)},
-	{"blue", "I", nullptr, $PUBLIC, $field(BMPMetadata, blue)},
-	{}
-};
-
-$MethodInfo _BMPMetadata_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BMPMetadata, init$, void)},
-	{"addChildNode", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/lang/String;Ljava/lang/Object;)Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $method(BMPMetadata, addChildNode, $IIOMetadataNode*, $IIOMetadataNode*, $String*, Object$*)},
-	{"addXYZPoints", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/lang/String;DDD)V", nullptr, $PRIVATE, $method(BMPMetadata, addXYZPoints, void, $IIOMetadataNode*, $String*, double, double, double)},
-	{"countBits", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(BMPMetadata, countBits, $String*, int32_t)},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, getAsTree, $Node*, $String*)},
-	{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(BMPMetadata, getNativeTree, $Node*)},
-	{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardChromaNode, $IIOMetadataNode*)},
-	{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
-	{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardDataNode, $IIOMetadataNode*)},
-	{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, isReadOnly, bool)},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, mergeTree, void, $String*, $Node*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, reset, void)},
-	{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, setFromTree, void, $String*, $Node*)},
-	{"toISO8859", "([B)Ljava/lang/String;", nullptr, $PRIVATE, $method(BMPMetadata, toISO8859, $String*, $bytes*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _BMPMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPMetadata",
-	"javax.imageio.metadata.IIOMetadata",
-	"com.sun.imageio.plugins.bmp.BMPConstants",
-	_BMPMetadata_FieldInfo_,
-	_BMPMetadata_MethodInfo_
-};
-
-$Object* allocate$BMPMetadata($Class* clazz) {
-	return $of($alloc(BMPMetadata));
-}
 
 int32_t BMPMetadata::hashCode() {
 	 return this->$IIOMetadata::hashCode();
@@ -166,7 +90,7 @@ $String* BMPMetadata::toISO8859($bytes* data) {
 }
 
 $Node* BMPMetadata::getNativeTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, root, $new($IIOMetadataNode, BMPMetadata::nativeMetadataFormatName));
 	addChildNode(root, "BMPVersion"_s, this->bmpVersion);
 	addChildNode(root, "Width"_s, $($Integer::valueOf(this->width)));
@@ -181,8 +105,8 @@ $Node* BMPMetadata::getNativeTree() {
 	addChildNode(root, "ColorsImportant"_s, $($Integer::valueOf(this->colorsImportant)));
 	int32_t version = 0;
 	for (int32_t i = 0; i < $nc(this->bmpVersion)->length(); ++i) {
-		if ($Character::isDigit($nc(this->bmpVersion)->charAt(i))) {
-			version = $nc(this->bmpVersion)->charAt(i) - u'0';
+		if ($Character::isDigit(this->bmpVersion->charAt(i))) {
+			version = this->bmpVersion->charAt(i) - u'0';
 		}
 	}
 	if (version >= 4) {
@@ -201,20 +125,16 @@ $Node* BMPMetadata::getNativeTree() {
 	if ((this->palette != nullptr) && (this->paletteSize > 0)) {
 		$assign(node, addChildNode(root, "Palette"_s, nullptr));
 		int32_t numComps = $div($nc(this->palette)->length, this->paletteSize);
-		{
-			int32_t i = 0;
-			int32_t j = 0;
-			for (; i < this->paletteSize; ++i) {
-				$var($IIOMetadataNode, entry, addChildNode(node, "PaletteEntry"_s, nullptr));
-				this->red = (int32_t)($nc(this->palette)->get(j++) & (uint32_t)255);
-				this->green = (int32_t)($nc(this->palette)->get(j++) & (uint32_t)255);
-				this->blue = (int32_t)($nc(this->palette)->get(j++) & (uint32_t)255);
-				addChildNode(entry, "Red"_s, $($Byte::valueOf((int8_t)this->red)));
-				addChildNode(entry, "Green"_s, $($Byte::valueOf((int8_t)this->green)));
-				addChildNode(entry, "Blue"_s, $($Byte::valueOf((int8_t)this->blue)));
-				if (numComps == 4) {
-					addChildNode(entry, "Alpha"_s, $($Byte::valueOf((int8_t)((int32_t)($nc(this->palette)->get(j++) & (uint32_t)255)))));
-				}
+		for (int32_t i = 0, j = 0; i < this->paletteSize; ++i) {
+			$var($IIOMetadataNode, entry, addChildNode(node, "PaletteEntry"_s, nullptr));
+			this->red = $nc(this->palette)->get(j++) & 0xff;
+			this->green = this->palette->get(j++) & 0xff;
+			this->blue = this->palette->get(j++) & 0xff;
+			addChildNode(entry, "Red"_s, $($Byte::valueOf((int8_t)this->red)));
+			addChildNode(entry, "Green"_s, $($Byte::valueOf((int8_t)this->green)));
+			addChildNode(entry, "Blue"_s, $($Byte::valueOf((int8_t)this->blue)));
+			if (numComps == 4) {
+				addChildNode(entry, "Alpha"_s, $($Byte::valueOf((int8_t)($nc(this->palette)->get(j++) & 0xff))));
 			}
 		}
 	}
@@ -222,26 +142,22 @@ $Node* BMPMetadata::getNativeTree() {
 }
 
 $IIOMetadataNode* BMPMetadata::getStandardChromaNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->palette != nullptr) && (this->paletteSize > 0)) {
 		$var($IIOMetadataNode, node, $new($IIOMetadataNode, "Chroma"_s));
 		$var($IIOMetadataNode, subNode, $new($IIOMetadataNode, "Palette"_s));
-		int32_t numComps = $div($nc(this->palette)->length, this->paletteSize);
+		int32_t numComps = $div(this->palette->length, this->paletteSize);
 		subNode->setAttribute("value"_s, $$str({""_s, $$str(numComps)}));
-		{
-			int32_t i = 0;
-			int32_t j = 0;
-			for (; i < this->paletteSize; ++i) {
-				$var($IIOMetadataNode, subNode1, $new($IIOMetadataNode, "PaletteEntry"_s));
-				subNode1->setAttribute("index"_s, $$str({""_s, $$str(i)}));
-				subNode1->setAttribute("red"_s, $$str({""_s, $$str($nc(this->palette)->get(j++))}));
-				subNode1->setAttribute("green"_s, $$str({""_s, $$str($nc(this->palette)->get(j++))}));
-				subNode1->setAttribute("blue"_s, $$str({""_s, $$str($nc(this->palette)->get(j++))}));
-				if (numComps == 4 && $nc(this->palette)->get(j) != 0) {
-					subNode1->setAttribute("alpha"_s, $$str({""_s, $$str($nc(this->palette)->get(j++))}));
-				}
-				subNode->appendChild(subNode1);
+		for (int32_t i = 0, j = 0; i < this->paletteSize; ++i) {
+			$var($IIOMetadataNode, subNode1, $new($IIOMetadataNode, "PaletteEntry"_s));
+			subNode1->setAttribute("index"_s, $$str({""_s, $$str(i)}));
+			subNode1->setAttribute("red"_s, $$str({""_s, $$str($nc(this->palette)->get(j++))}));
+			subNode1->setAttribute("green"_s, $$str({""_s, $$str($nc(this->palette)->get(j++))}));
+			subNode1->setAttribute("blue"_s, $$str({""_s, $$str($nc(this->palette)->get(j++))}));
+			if (numComps == 4 && $nc(this->palette)->get(j) != 0) {
+				subNode1->setAttribute("alpha"_s, $$str({""_s, $$str(this->palette->get(j++))}));
 			}
+			subNode->appendChild(subNode1);
 		}
 		node->appendChild(subNode);
 		return node;
@@ -250,7 +166,7 @@ $IIOMetadataNode* BMPMetadata::getStandardChromaNode() {
 }
 
 $IIOMetadataNode* BMPMetadata::getStandardCompressionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "Compression"_s));
 	$var($IIOMetadataNode, subNode, $new($IIOMetadataNode, "CompressionTypeName"_s));
 	subNode->setAttribute("value"_s, $($BMPCompressionTypes::getName(this->compression)));
@@ -259,17 +175,21 @@ $IIOMetadataNode* BMPMetadata::getStandardCompressionNode() {
 }
 
 $IIOMetadataNode* BMPMetadata::getStandardDataNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "Data"_s));
 	$var($String, bits, ""_s);
 	if (this->bitsPerPixel == 24) {
 		$assign(bits, "8 8 8 "_s);
 	} else if (this->bitsPerPixel == 16 || this->bitsPerPixel == 32) {
-		$var($String, var$3, $$str({""_s, $(countBits(this->redMask)), " "_s}));
-		$var($String, var$2, $$concat(var$3, $(countBits(this->greenMask))));
-		$var($String, var$1, $$concat(var$2, $(countBits(this->blueMask))));
-		$var($String, var$0, $$concat(var$1, ""_s));
-		$assign(bits, $concat(var$0, $(countBits(this->alphaMask))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(""_s);
+		var$0->append($(countBits(this->redMask)));
+		var$0->append(" "_s);
+		var$0->append($(countBits(this->greenMask)));
+		var$0->append($(countBits(this->blueMask)));
+		var$0->append(""_s);
+		var$0->append($(countBits(this->alphaMask)));
+		$assign(bits, $str(var$0));
 	}
 	$var($IIOMetadataNode, subNode, $new($IIOMetadataNode, "BitsPerSample"_s));
 	subNode->setAttribute("value"_s, bits);
@@ -278,7 +198,7 @@ $IIOMetadataNode* BMPMetadata::getStandardDataNode() {
 }
 
 $IIOMetadataNode* BMPMetadata::getStandardDimensionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->yPixelsPerMeter > 0.0f && this->xPixelsPerMeter > 0.0f) {
 		$var($IIOMetadataNode, node, $new($IIOMetadataNode, "Dimension"_s));
 		float ratio = (float)($div(this->yPixelsPerMeter, this->xPixelsPerMeter));
@@ -311,7 +231,7 @@ void BMPMetadata::reset() {
 $String* BMPMetadata::countBits(int32_t num) {
 	int32_t count = 0;
 	while (num > 0) {
-		if (((int32_t)(num & (uint32_t)1)) == 1) {
+		if ((num & 1) == 1) {
 			++count;
 		}
 		$usrAssign(num, 1);
@@ -320,7 +240,7 @@ $String* BMPMetadata::countBits(int32_t num) {
 }
 
 void BMPMetadata::addXYZPoints($IIOMetadataNode* root, $String* name, double x, double y, double z) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, addChildNode(root, name, nullptr));
 	addChildNode(node, "X"_s, $($Double::valueOf(x)));
 	addChildNode(node, "Y"_s, $($Double::valueOf(y)));
@@ -328,7 +248,7 @@ void BMPMetadata::addXYZPoints($IIOMetadataNode* root, $String* name, double x, 
 }
 
 $IIOMetadataNode* BMPMetadata::addChildNode($IIOMetadataNode* root, $String* name, Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, child, $new($IIOMetadataNode, name));
 	if (object != nullptr) {
 		child->setUserObject(object);
@@ -341,12 +261,82 @@ $IIOMetadataNode* BMPMetadata::addChildNode($IIOMetadataNode* root, $String* nam
 BMPMetadata::BMPMetadata() {
 }
 
-void clinit$BMPMetadata($Class* class$) {
+void BMPMetadata::clinit$($Class* clazz) {
 	$assignStatic(BMPMetadata::nativeMetadataFormatName, "javax_imageio_bmp_1.0"_s);
 }
 
 $Class* BMPMetadata::load$($String* name, bool initialize) {
-	$loadClass(BMPMetadata, name, initialize, &_BMPMetadata_ClassInfo_, clinit$BMPMetadata, allocate$BMPMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BMPMetadata, nativeMetadataFormatName)},
+		{"bmpVersion", "Ljava/lang/String;", nullptr, $PUBLIC, $field(BMPMetadata, bmpVersion)},
+		{"width", "I", nullptr, $PUBLIC, $field(BMPMetadata, width)},
+		{"height", "I", nullptr, $PUBLIC, $field(BMPMetadata, height)},
+		{"bitsPerPixel", "S", nullptr, $PUBLIC, $field(BMPMetadata, bitsPerPixel)},
+		{"compression", "I", nullptr, $PUBLIC, $field(BMPMetadata, compression)},
+		{"imageSize", "I", nullptr, $PUBLIC, $field(BMPMetadata, imageSize)},
+		{"xPixelsPerMeter", "I", nullptr, $PUBLIC, $field(BMPMetadata, xPixelsPerMeter)},
+		{"yPixelsPerMeter", "I", nullptr, $PUBLIC, $field(BMPMetadata, yPixelsPerMeter)},
+		{"colorsUsed", "I", nullptr, $PUBLIC, $field(BMPMetadata, colorsUsed)},
+		{"colorsImportant", "I", nullptr, $PUBLIC, $field(BMPMetadata, colorsImportant)},
+		{"redMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, redMask)},
+		{"greenMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, greenMask)},
+		{"blueMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, blueMask)},
+		{"alphaMask", "I", nullptr, $PUBLIC, $field(BMPMetadata, alphaMask)},
+		{"colorSpace", "I", nullptr, $PUBLIC, $field(BMPMetadata, colorSpace)},
+		{"redX", "D", nullptr, $PUBLIC, $field(BMPMetadata, redX)},
+		{"redY", "D", nullptr, $PUBLIC, $field(BMPMetadata, redY)},
+		{"redZ", "D", nullptr, $PUBLIC, $field(BMPMetadata, redZ)},
+		{"greenX", "D", nullptr, $PUBLIC, $field(BMPMetadata, greenX)},
+		{"greenY", "D", nullptr, $PUBLIC, $field(BMPMetadata, greenY)},
+		{"greenZ", "D", nullptr, $PUBLIC, $field(BMPMetadata, greenZ)},
+		{"blueX", "D", nullptr, $PUBLIC, $field(BMPMetadata, blueX)},
+		{"blueY", "D", nullptr, $PUBLIC, $field(BMPMetadata, blueY)},
+		{"blueZ", "D", nullptr, $PUBLIC, $field(BMPMetadata, blueZ)},
+		{"gammaRed", "I", nullptr, $PUBLIC, $field(BMPMetadata, gammaRed)},
+		{"gammaGreen", "I", nullptr, $PUBLIC, $field(BMPMetadata, gammaGreen)},
+		{"gammaBlue", "I", nullptr, $PUBLIC, $field(BMPMetadata, gammaBlue)},
+		{"intent", "I", nullptr, $PUBLIC, $field(BMPMetadata, intent)},
+		{"palette", "[B", nullptr, $PUBLIC, $field(BMPMetadata, palette)},
+		{"paletteSize", "I", nullptr, $PUBLIC, $field(BMPMetadata, paletteSize)},
+		{"red", "I", nullptr, $PUBLIC, $field(BMPMetadata, red)},
+		{"green", "I", nullptr, $PUBLIC, $field(BMPMetadata, green)},
+		{"blue", "I", nullptr, $PUBLIC, $field(BMPMetadata, blue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BMPMetadata, init$, void)},
+		{"addChildNode", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/lang/String;Ljava/lang/Object;)Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $method(BMPMetadata, addChildNode, $IIOMetadataNode*, $IIOMetadataNode*, $String*, Object$*)},
+		{"addXYZPoints", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljava/lang/String;DDD)V", nullptr, $PRIVATE, $method(BMPMetadata, addXYZPoints, void, $IIOMetadataNode*, $String*, double, double, double)},
+		{"countBits", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(BMPMetadata, countBits, $String*, int32_t)},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, getAsTree, $Node*, $String*)},
+		{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(BMPMetadata, getNativeTree, $Node*)},
+		{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardChromaNode, $IIOMetadataNode*)},
+		{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
+		{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardDataNode, $IIOMetadataNode*)},
+		{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(BMPMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, isReadOnly, bool)},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, mergeTree, void, $String*, $Node*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, reset, void)},
+		{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(BMPMetadata, setFromTree, void, $String*, $Node*)},
+		{"toISO8859", "([B)Ljava/lang/String;", nullptr, $PRIVATE, $method(BMPMetadata, toISO8859, $String*, $bytes*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPMetadata",
+		"javax.imageio.metadata.IIOMetadata",
+		"com.sun.imageio.plugins.bmp.BMPConstants",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BMPMetadata, name, initialize, &classInfo$$, BMPMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BMPMetadata));
+	});
 	return class$;
 }
 

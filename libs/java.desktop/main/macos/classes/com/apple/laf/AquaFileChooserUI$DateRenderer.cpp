@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$DateRenderer.h>
-
 #include <com/apple/laf/AquaFileChooserUI$JTableExtension.h>
 #include <com/apple/laf/AquaFileChooserUI$MacFCTableCellRenderer.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
@@ -16,7 +15,6 @@
 #undef SHORT
 
 using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
-using $AquaFileChooserUI$JTableExtension = ::com::apple::laf::AquaFileChooserUI$JTableExtension;
 using $AquaFileChooserUI$MacFCTableCellRenderer = ::com::apple::laf::AquaFileChooserUI$MacFCTableCellRenderer;
 using $Component = ::java::awt::Component;
 using $Font = ::java::awt::Font;
@@ -33,50 +31,13 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaFileChooserUI$DateRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DateRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$DateRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI$DateRenderer, init$, void, $AquaFileChooserUI*, $Font*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DateRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$DateRenderer_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$DateRenderer", "com.apple.laf.AquaFileChooserUI", "DateRenderer", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer", "com.apple.laf.AquaFileChooserUI", "MacFCTableCellRenderer", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$DateRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$DateRenderer",
-	"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer",
-	nullptr,
-	_AquaFileChooserUI$DateRenderer_FieldInfo_,
-	_AquaFileChooserUI$DateRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$DateRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$DateRenderer($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$DateRenderer));
-}
-
 void AquaFileChooserUI$DateRenderer::init$($AquaFileChooserUI* this$0, $Font* f) {
 	$set(this, this$0, this$0);
 	$AquaFileChooserUI$MacFCTableCellRenderer::init$(this$0, f);
 }
 
 $Component* AquaFileChooserUI$DateRenderer::getTableCellRendererComponent($JTable* list, Object$* value, bool isSelected, bool cellHasFocus, int32_t index, int32_t col) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaFileChooserUI$MacFCTableCellRenderer::getTableCellRendererComponent(list, value, isSelected, false, index, col);
 	$var($File, file, $cast($File, $nc(this->this$0->fFileList)->getValueAt(index, 0)));
 	setEnabled(this->this$0->isSelectableInList(file));
@@ -94,7 +55,38 @@ AquaFileChooserUI$DateRenderer::AquaFileChooserUI$DateRenderer() {
 }
 
 $Class* AquaFileChooserUI$DateRenderer::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$DateRenderer, name, initialize, &_AquaFileChooserUI$DateRenderer_ClassInfo_, allocate$AquaFileChooserUI$DateRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DateRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI$DateRenderer, init$, void, $AquaFileChooserUI*, $Font*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$DateRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$DateRenderer", "com.apple.laf.AquaFileChooserUI", "DateRenderer", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer", "com.apple.laf.AquaFileChooserUI", "MacFCTableCellRenderer", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$DateRenderer",
+		"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$DateRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$DateRenderer));
+	});
 	return class$;
 }
 

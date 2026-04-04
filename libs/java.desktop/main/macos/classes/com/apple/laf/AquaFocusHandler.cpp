@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFocusHandler.h>
-
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaFocusHandler$1.h>
 #include <java/awt/Color.h>
@@ -26,7 +25,6 @@
 using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaFocusHandler$1 = ::com::apple::laf::AquaFocusHandler$1;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Window = ::java::awt::Window;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusListener = ::java::awt::event::FocusListener;
@@ -48,60 +46,6 @@ using $UIResource = ::javax::swing::plaf::UIResource;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFocusHandler_FieldInfo_[] = {
-	{"wasTemporary", "Z", nullptr, $PRIVATE, $field(AquaFocusHandler, wasTemporary)},
-	{"repaintBorder", "Z", nullptr, $PRIVATE, $field(AquaFocusHandler, repaintBorder)},
-	{"FRAME_ACTIVE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFocusHandler, FRAME_ACTIVE_PROPERTY)},
-	{"REPAINT_LISTENER", "Ljava/beans/PropertyChangeListener;", nullptr, $STATIC | $FINAL, $staticField(AquaFocusHandler, REPAINT_LISTENER)},
-	{}
-};
-
-$MethodInfo _AquaFocusHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFocusHandler, init$, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler, focusLost, void, $FocusEvent*)},
-	{"install", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFocusHandler, install, void, $JComponent*)},
-	{"isActive", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFocusHandler, isActive, bool, $JComponent*)},
-	{"isComponentValid", "(Ljavax/swing/JComponent;)Z", nullptr, $STATIC, $staticMethod(AquaFocusHandler, isComponentValid, bool, $JComponent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler, propertyChange, void, $PropertyChangeEvent*)},
-	{"setSelectionColors", "(Ljavax/swing/JTable;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(AquaFocusHandler, setSelectionColors, void, $JTable*, $String*, $String*)},
-	{"setSelectionColors", "(Ljavax/swing/JList;Ljava/lang/String;Ljava/lang/String;)V", "(Ljavax/swing/JList<*>;Ljava/lang/String;Ljava/lang/String;)V", $STATIC, $staticMethod(AquaFocusHandler, setSelectionColors, void, $JList*, $String*, $String*)},
-	{"swapSelectionColors", "(Ljava/lang/String;Ljavax/swing/JTree;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaFocusHandler, swapSelectionColors, void, $String*, $JTree*, Object$*)},
-	{"swapSelectionColors", "(Ljava/lang/String;Ljavax/swing/JTable;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaFocusHandler, swapSelectionColors, void, $String*, $JTable*, Object$*)},
-	{"swapSelectionColors", "(Ljava/lang/String;Ljavax/swing/JList;Ljava/lang/Object;)V", "(Ljava/lang/String;Ljavax/swing/JList<*>;Ljava/lang/Object;)V", $STATIC, $staticMethod(AquaFocusHandler, swapSelectionColors, void, $String*, $JList*, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstall", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFocusHandler, uninstall, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaFocusHandler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFocusHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFocusHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFocusHandler",
-	"java.lang.Object",
-	"java.awt.event.FocusListener,java.beans.PropertyChangeListener",
-	_AquaFocusHandler_FieldInfo_,
-	_AquaFocusHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFocusHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFocusHandler$1"
-};
-
-$Object* allocate$AquaFocusHandler($Class* clazz) {
-	return $of($alloc(AquaFocusHandler));
-}
 
 int32_t AquaFocusHandler::hashCode() {
 	 return this->$FocusListener::hashCode();
@@ -133,7 +77,7 @@ void AquaFocusHandler::init$() {
 
 void AquaFocusHandler::focusGained($FocusEvent* ev) {
 	if (!this->wasTemporary || this->repaintBorder) {
-		$AquaBorder::repaintBorder($cast($JComponent, $($nc(ev)->getSource())));
+		$AquaBorder::repaintBorder($$cast($JComponent, $nc(ev)->getSource()));
 		this->repaintBorder = false;
 	}
 	this->wasTemporary = false;
@@ -142,20 +86,19 @@ void AquaFocusHandler::focusGained($FocusEvent* ev) {
 void AquaFocusHandler::focusLost($FocusEvent* ev) {
 	this->wasTemporary = $nc(ev)->isTemporary();
 	if (!this->wasTemporary) {
-		$AquaBorder::repaintBorder($cast($JComponent, $(ev->getSource())));
+		$AquaBorder::repaintBorder($$cast($JComponent, ev->getSource()));
 	}
 }
 
 void AquaFocusHandler::propertyChange($PropertyChangeEvent* ev) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(AquaFocusHandler::FRAME_ACTIVE_PROPERTY)->equals($($nc(ev)->getPropertyName()))) {
+	$useLocalObjectStack();
+	if (!AquaFocusHandler::FRAME_ACTIVE_PROPERTY->equals($($nc(ev)->getPropertyName()))) {
 		return;
 	}
-	$init($Boolean);
-	if ($nc($Boolean::TRUE)->equals($($nc(ev)->getNewValue()))) {
+	if ($nc($Boolean::TRUE)->equals($(ev->getNewValue()))) {
 		this->repaintBorder = true;
 	} else if (this->wasTemporary) {
-		$AquaBorder::repaintBorder($cast($JComponent, $($nc(ev)->getSource())));
+		$AquaBorder::repaintBorder($$cast($JComponent, ev->getSource()));
 	}
 }
 
@@ -165,7 +108,6 @@ bool AquaFocusHandler::isActive($JComponent* c) {
 		return true;
 	}
 	$var($Object, activeObj, $nc(c)->getClientProperty(AquaFocusHandler::FRAME_ACTIVE_PROPERTY));
-	$init($Boolean);
 	if ($nc($Boolean::FALSE)->equals(activeObj)) {
 		return false;
 	}
@@ -188,7 +130,7 @@ void AquaFocusHandler::swapSelectionColors($String* prefix, $JTree* c, Object$* 
 
 void AquaFocusHandler::swapSelectionColors($String* prefix, $JTable* c, Object$* value) {
 	$init(AquaFocusHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isComponentValid(c)) {
 		return;
 	}
@@ -197,7 +139,6 @@ void AquaFocusHandler::swapSelectionColors($String* prefix, $JTable* c, Object$*
 	if (!($instanceOf($UIResource, bg)) || !($instanceOf($UIResource, fg))) {
 		return;
 	}
-	$init($Boolean);
 	if ($nc($Boolean::FALSE)->equals(value)) {
 		setSelectionColors(c, "Table.selectionInactiveForeground"_s, "Table.selectionInactiveBackground"_s);
 		return;
@@ -210,14 +151,14 @@ void AquaFocusHandler::swapSelectionColors($String* prefix, $JTable* c, Object$*
 
 void AquaFocusHandler::setSelectionColors($JTable* c, $String* fgName, $String* bgName) {
 	$init(AquaFocusHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->setSelectionForeground($($UIManager::getColor(fgName)));
 	c->setSelectionBackground($($UIManager::getColor(bgName)));
 }
 
 void AquaFocusHandler::swapSelectionColors($String* prefix, $JList* c, Object$* value) {
 	$init(AquaFocusHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isComponentValid(c)) {
 		return;
 	}
@@ -226,7 +167,6 @@ void AquaFocusHandler::swapSelectionColors($String* prefix, $JList* c, Object$* 
 	if (!($instanceOf($UIResource, bg)) || !($instanceOf($UIResource, fg))) {
 		return;
 	}
-	$init($Boolean);
 	if ($nc($Boolean::FALSE)->equals(value)) {
 		setSelectionColors(c, "List.selectionInactiveForeground"_s, "List.selectionInactiveBackground"_s);
 		return;
@@ -239,7 +179,7 @@ void AquaFocusHandler::swapSelectionColors($String* prefix, $JList* c, Object$* 
 
 void AquaFocusHandler::setSelectionColors($JList* c, $String* fgName, $String* bgName) {
 	$init(AquaFocusHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->setSelectionForeground($($UIManager::getColor(fgName)));
 	c->setSelectionBackground($($UIManager::getColor(bgName)));
 }
@@ -256,7 +196,7 @@ bool AquaFocusHandler::isComponentValid($JComponent* c) {
 	return true;
 }
 
-void clinit$AquaFocusHandler($Class* class$) {
+void AquaFocusHandler::clinit$($Class* clazz) {
 	$assignStatic(AquaFocusHandler::FRAME_ACTIVE_PROPERTY, "Frame.active"_s);
 	$assignStatic(AquaFocusHandler::REPAINT_LISTENER, $new($AquaFocusHandler$1));
 }
@@ -265,7 +205,55 @@ AquaFocusHandler::AquaFocusHandler() {
 }
 
 $Class* AquaFocusHandler::load$($String* name, bool initialize) {
-	$loadClass(AquaFocusHandler, name, initialize, &_AquaFocusHandler_ClassInfo_, clinit$AquaFocusHandler, allocate$AquaFocusHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"wasTemporary", "Z", nullptr, $PRIVATE, $field(AquaFocusHandler, wasTemporary)},
+		{"repaintBorder", "Z", nullptr, $PRIVATE, $field(AquaFocusHandler, repaintBorder)},
+		{"FRAME_ACTIVE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFocusHandler, FRAME_ACTIVE_PROPERTY)},
+		{"REPAINT_LISTENER", "Ljava/beans/PropertyChangeListener;", nullptr, $STATIC | $FINAL, $staticField(AquaFocusHandler, REPAINT_LISTENER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFocusHandler, init$, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler, focusLost, void, $FocusEvent*)},
+		{"install", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFocusHandler, install, void, $JComponent*)},
+		{"isActive", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFocusHandler, isActive, bool, $JComponent*)},
+		{"isComponentValid", "(Ljavax/swing/JComponent;)Z", nullptr, $STATIC, $staticMethod(AquaFocusHandler, isComponentValid, bool, $JComponent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler, propertyChange, void, $PropertyChangeEvent*)},
+		{"setSelectionColors", "(Ljavax/swing/JTable;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(AquaFocusHandler, setSelectionColors, void, $JTable*, $String*, $String*)},
+		{"setSelectionColors", "(Ljavax/swing/JList;Ljava/lang/String;Ljava/lang/String;)V", "(Ljavax/swing/JList<*>;Ljava/lang/String;Ljava/lang/String;)V", $STATIC, $staticMethod(AquaFocusHandler, setSelectionColors, void, $JList*, $String*, $String*)},
+		{"swapSelectionColors", "(Ljava/lang/String;Ljavax/swing/JTree;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaFocusHandler, swapSelectionColors, void, $String*, $JTree*, Object$*)},
+		{"swapSelectionColors", "(Ljava/lang/String;Ljavax/swing/JTable;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaFocusHandler, swapSelectionColors, void, $String*, $JTable*, Object$*)},
+		{"swapSelectionColors", "(Ljava/lang/String;Ljavax/swing/JList;Ljava/lang/Object;)V", "(Ljava/lang/String;Ljavax/swing/JList<*>;Ljava/lang/Object;)V", $STATIC, $staticMethod(AquaFocusHandler, swapSelectionColors, void, $String*, $JList*, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstall", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFocusHandler, uninstall, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFocusHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFocusHandler",
+		"java.lang.Object",
+		"java.awt.event.FocusListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFocusHandler$1"
+	};
+	$loadClass(AquaFocusHandler, name, initialize, &classInfo$$, AquaFocusHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFocusHandler));
+	});
 	return class$;
 }
 

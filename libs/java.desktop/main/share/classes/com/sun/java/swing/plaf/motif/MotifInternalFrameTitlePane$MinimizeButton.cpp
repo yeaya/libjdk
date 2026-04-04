@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MinimizeButton.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$FrameButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <java/awt/Color.h>
@@ -21,43 +20,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifInternalFrameTitlePane$MinimizeButton_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$MinimizeButton, this$0)},
-	{}
-};
-
-$MethodInfo _MotifInternalFrameTitlePane$MinimizeButton_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(MotifInternalFrameTitlePane$MinimizeButton, init$, void, $MotifInternalFrameTitlePane*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$MinimizeButton, paintComponent, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _MotifInternalFrameTitlePane$MinimizeButton_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MinimizeButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MotifInternalFrameTitlePane$MinimizeButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton",
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton",
-	nullptr,
-	_MotifInternalFrameTitlePane$MinimizeButton_FieldInfo_,
-	_MotifInternalFrameTitlePane$MinimizeButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifInternalFrameTitlePane$MinimizeButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
-};
-
-$Object* allocate$MotifInternalFrameTitlePane$MinimizeButton($Class* clazz) {
-	return $of($alloc(MotifInternalFrameTitlePane$MinimizeButton));
-}
-
 void MotifInternalFrameTitlePane$MinimizeButton::init$($MotifInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
 	$MotifInternalFrameTitlePane$FrameButton::init$(this$0);
@@ -77,7 +39,38 @@ MotifInternalFrameTitlePane$MinimizeButton::MotifInternalFrameTitlePane$Minimize
 }
 
 $Class* MotifInternalFrameTitlePane$MinimizeButton::load$($String* name, bool initialize) {
-	$loadClass(MotifInternalFrameTitlePane$MinimizeButton, name, initialize, &_MotifInternalFrameTitlePane$MinimizeButton_ClassInfo_, allocate$MotifInternalFrameTitlePane$MinimizeButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$MinimizeButton, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(MotifInternalFrameTitlePane$MinimizeButton, init$, void, $MotifInternalFrameTitlePane*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$MinimizeButton, paintComponent, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MinimizeButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton",
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
+	};
+	$loadClass(MotifInternalFrameTitlePane$MinimizeButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifInternalFrameTitlePane$MinimizeButton));
+	});
 	return class$;
 }
 

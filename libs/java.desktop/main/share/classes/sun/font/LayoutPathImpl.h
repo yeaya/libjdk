@@ -41,6 +41,7 @@ class LayoutPathImpl : public ::java::awt::font::LayoutPath {
 	$class(LayoutPathImpl, 0, ::java::awt::font::LayoutPath)
 public:
 	LayoutPathImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual double end() {return 0.0;}
 	static ::sun::font::LayoutPathImpl* getPath(::sun::font::LayoutPathImpl$EndType* etype, $doubles* coords);

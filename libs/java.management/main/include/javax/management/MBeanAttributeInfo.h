@@ -32,6 +32,7 @@ class $import MBeanAttributeInfo : public ::javax::management::MBeanFeatureInfo,
 public:
 	MBeanAttributeInfo();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* type, $String* description, bool isReadable, bool isWritable, bool isIs);
 	void init$($String* name, $String* type, $String* description, bool isReadable, bool isWritable, bool isIs, ::javax::management::Descriptor* descriptor);
 	void init$($String* name, $String* description, ::java::lang::reflect::Method* getter, ::java::lang::reflect::Method* setter);

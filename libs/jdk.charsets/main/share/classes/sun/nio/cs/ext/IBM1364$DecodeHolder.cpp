@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM1364$DecodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte.h>
 #include <sun/nio/cs/ext/IBM1364.h>
 #include <jcpp.h>
@@ -18,44 +17,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _IBM1364$DecodeHolder_FieldInfo_[] = {
-	{"b2cSBStr", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2cSBStr)},
-	{"b2cStr", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2cStr)},
-	{"b2c", "[[C", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2c)},
-	{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2cSB)},
-	{}
-};
-
-$MethodInfo _IBM1364$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(IBM1364$DecodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _IBM1364$DecodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM1364$DecodeHolder", "sun.nio.cs.ext.IBM1364", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _IBM1364$DecodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.IBM1364$DecodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_IBM1364$DecodeHolder_FieldInfo_,
-	_IBM1364$DecodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM1364$DecodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM1364"
-};
-
-$Object* allocate$IBM1364$DecodeHolder($Class* clazz) {
-	return $of($alloc(IBM1364$DecodeHolder));
-}
-
 $String* IBM1364$DecodeHolder::b2cSBStr = nullptr;
 $StringArray* IBM1364$DecodeHolder::b2cStr = nullptr;
 $charArray2* IBM1364$DecodeHolder::b2c = nullptr;
@@ -64,74 +25,74 @@ $chars* IBM1364$DecodeHolder::b2cSB = nullptr;
 void IBM1364$DecodeHolder::init$() {
 }
 
-void clinit$IBM1364$DecodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(IBM1364$DecodeHolder::b2cSBStr, $cstr({'\0', 0x1, 0x2, 0x3, 0x9C, '\t', 0x86, 0x7F, 0x97, 0x8D, 0x8E, 0xB, '\f', '\r', 0xFFFD, 0xFFFD, 0x10, 0x11, 0x12, 0x13, 0x9D, 0x85, '\b', 0x87, 0x18, 0x19, 0x92, 0x8F, 0x1C, 0x1D, 0x1E, 0x1F, 0x80, 0x81, 0x82, 0x83, 0x84, '\n', 0x17, 0x1B, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x5, 0x6, 0x7, 0x90, 0x91, 0x16, 0x93, 0x94, 0x95, 0x96, 0x4, 0x98, 0x99, 0x9A, 0x9B, 0x14, 0x15, 0x9E, 0x1A, ' ', 0xFFFD, 0xFFA0, 0xFFA1, 0xFFA2, 0xFFA3, 0xFFA4, 0xFFA5, 0xFFA6, 0xFFA7, 0xA2, '.', '<', '(', '+', '|', '&', 0xFFFD, 0xFFA8, 0xFFA9, 0xFFAA, 0xFFAB, 0xFFAC, 0xFFAD, 0xFFAE, 0xFFAF, '!', '$', '*', ')', ';', 0xAC, '-', '/', 0xFFB0, 0xFFB1, 0xFFB2, 0xFFB3, 0xFFB4, 0xFFB5, 0xFFB6, 0xFFB7, 0xA6, ',', '%', '_', '>', '?', '[', 0xFFFD, 0xFFB8, 0xFFB9, 0xFFBA, 0xFFBB, 0xFFBC, 0xFFBD, 0xFFBE, '`', ':', '#', '@', '\'', '=', '\"', ']', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 0xFFC2, 0xFFC3, 0xFFC4, 0xFFC5, 0xFFC6, 0xFFC7, 0xFFFD, 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 0xFFCA, 0xFFCB, 0xFFCC, 0xFFCD, 0xFFCE, 0xFFCF, 0x203E, '~', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 0xFFD2, 0xFFD3, 0xFFD4, 0xFFD5, 0xFFD6, 0xFFD7, '^', 0xFFFD, '\\', 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFDA, 0xFFDB, 0xFFDC, 0xFFFD, 0xFFFD, 0xFFFD, '{', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, '}', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0x20A9, 0xFFFD, 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0x9F}));
+void IBM1364$DecodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(IBM1364$DecodeHolder::b2cSBStr, $cstr({'\0', 0x01, 0x02, 0x03, 0x9c, '\t', 0x86, 0x7f, 0x97, 0x8d, 0x8e, 0x0b, '\f', '\r', 0xfffd, 0xfffd, 0x10, 0x11, 0x12, 0x13, 0x9d, 0x85, '\b', 0x87, 0x18, 0x19, 0x92, 0x8f, 0x1c, 0x1d, 0x1e, 0x1f, 0x80, 0x81, 0x82, 0x83, 0x84, '\n', 0x17, 0x1b, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x05, 0x06, 0x07, 0x90, 0x91, 0x16, 0x93, 0x94, 0x95, 0x96, 0x04, 0x98, 0x99, 0x9a, 0x9b, 0x14, 0x15, 0x9e, 0x1a, ' ', 0xfffd, 0xffa0, 0xffa1, 0xffa2, 0xffa3, 0xffa4, 0xffa5, 0xffa6, 0xffa7, 0xa2, '.', '<', '(', '+', '|', '&', 0xfffd, 0xffa8, 0xffa9, 0xffaa, 0xffab, 0xffac, 0xffad, 0xffae, 0xffaf, '!', '$', '*', ')', ';', 0xac, '-', '/', 0xffb0, 0xffb1, 0xffb2, 0xffb3, 0xffb4, 0xffb5, 0xffb6, 0xffb7, 0xa6, ',', '%', '_', '>', '?', '[', 0xfffd, 0xffb8, 0xffb9, 0xffba, 0xffbb, 0xffbc, 0xffbd, 0xffbe, '`', ':', '#', '@', '\'', '=', '\"', ']', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 0xffc2, 0xffc3, 0xffc4, 0xffc5, 0xffc6, 0xffc7, 0xfffd, 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 0xffca, 0xffcb, 0xffcc, 0xffcd, 0xffce, 0xffcf, 0x203e, '~', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 0xffd2, 0xffd3, 0xffd4, 0xffd5, 0xffd6, 0xffd7, '^', 0xfffd, '\\', 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xffda, 0xffdb, 0xffdc, 0xfffd, 0xfffd, 0xfffd, '{', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, '}', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0x20a9, 0xfffd, 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0x9f}));
 	$assignStatic(IBM1364$DecodeHolder::b2cStr, $new($StringArray, {
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		u"　����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������"_s,
 		u"�、。・‥…¨〃‐—∥＼￣‘’“”〔〕〈〉《》「」『』【】±×÷ǂ≦≧∞∴°′″℃K＾￡￥㎖㎗ℓ㏄㎜㎝㎞㎎㎏§※☆★○●◎◇◆□■△▲▽▼→←↑↓↔〓［］≠≤≥Å♂♀∠⊥⌒∂∇≡≒≪≫√∽�������������������������������������������������������������������������������������������������"_s,
 		u"����������￠．＜（＋｜＆���������！＄＊）；￢－／��������￤，％＿＞？���������｀：＃＠＇＝＂�ａｂｃｄｅｆｇｈｉ�������ｊｋｌｍｎｏｐｑｒ�������〜ｓｔｕｖｗｘｙｚ����������������������｛ＡＢＣＤＥＦＧＨＩ������｝ＪＫＬＭＮＯＰＱＲ������￦�ＳＴＵＶＷＸＹＺ������０１２３４５６７８９�����"_s,
@@ -147,7 +108,7 @@ void clinit$IBM1364$DecodeHolder($Class* class$) {
 		u"�ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄋᄌᄍᄎᄏᄐᄑᄒᄓᄔᄕᄖᄗᄘᄙᄚᄛᄜᄝᄞᄟᄠᄡᄢᄣᄤᄥᄦᄧᄨᄩᄪᄫᄬᄭᄮᄯᄰᄱᄲᄳᄴᄵᄶᄷᄸᄹᄺᄻᄼᄽᄾᄿᅀᅁᅂᅃᅄᅅᅆᅇᅈᅉᅊᅋᅌᅍᅎᅏᅐᅑᅒᅓᅔᅕᅖᅗᅘᅙ����������������������������������������������������������������������������������������������������"_s,
 		u"�ᅟᅠᅡᅢᅣᅤᅥᅦᅧᅨᅩᅪᅫᅬᅭᅮᅯᅰᅱᅲᅳᅴᅵᅶᅷᅸᅹᅺᅻᅼᅽᅾᅿᆀᆁᆂᆃᆄᆅᆆᆇᆈᆉᆊᆋᆌᆍᆎᆏᆐᆑᆒᆓᆔᆕᆖᆗᆘᆙᆚᆛᆜᆝᆞᆟᆠᆡᆢ��������������������������������������������������������������������������������������������������������������������������"_s,
 		u"�ᆨᆩᆪᆫᆬᆭᆮᆯᆰᆱᆲᆳᆴᆵᆶᆷᆸᆹᆺᆻᆼᆽᆾᆿᇀᇁᇂᇃᇄᇅᇆᇇᇈᇉᇊᇋᇌᇍᇎᇏᇐᇑᇒᇓᇔᇕᇖᇗᇘᇙᇚᇛᇜᇝᇞᇟᇠᇡᇢᇣᇤᇥᇦᇧᇨᇩᇪᇫᇬᇭᇮᇯᇰᇱᇲᇳᇴᇵᇶᇷᇸᇹ������������������������������������������������������������������������������������������������������������"_s,
-		($String*)nullptr,
+		nullptr,
 		u"�伽佳假價加可呵哥嘉嫁家暇柯架歌稼苛茄街袈訶賈跏軻迦駕刻却各\uf843恪擱殼珏脚覺角閣刊墾奸姦干幹懇揀杆澗癎看稈竿簡艮艱肝諫間乫喝曷渴碣竭褐羯葛鞨勘坎堪嵌感憾敢柑橄減甘疳監紺酣鑑龕匣岬甲胛鉀閘岡剛姜崗康强彊慷江疆綱襁糠腔薑講鋼降介价個凱愷愾慨改槪漑疥皆盖箇芥蓋開客坑更粳羹醵去居巨拒据據渠炬擧距遽車\uf844鋸乾件健巾建愆虔蹇鍵騫乞傑杰儉劍檢瞼黔劫怯偈憩揭擊格檄激覡隔骼堅肩牽犬甄絹繭見譴遣鵑潔決結"_s,
 		u"�缺訣兼慊箝蒹謙鎌京傾勁勍卿哽境庚徑慶暻扃擎敬景更梗檠涇炅熲璟瓊畊痙硬磬竟競絅經耕耿脛莖警輕逕鏡頃頸驚鯨係啓契季屆悸戒桂械溪界癸磎\uf845稽系繫繼計誡階谿雞鷄叩古告呱固姑孤庫拷攷故敲枯杲沽痼皐蠱瞽稿睾考股膏苦藁袴詁誥賈辜錮雇顧高鼓哭斛曲梏穀谷鵠困坤崑昆梱棍滾袞汨滑骨供公共功孔工貢恭恐拱控攻栱槓空箜寡戈果瓜科菓蝌誇課過顆廓槨藿郭霍串冠官寬慣棺瓘款灌盥管罐菅觀貫關館鸛刮恝括适光匡壙廣曠洸狂"_s,
 		u"�珖筐胱鑛卦掛罫乖傀塊壞怪愧拐槐魁宏紘肱轟交僑咬喬嬌嶠巧敎攪校橋狡皎矯絞翹膠蕎蛟較轎郊鉸餃驕鮫丘久九仇佝俱傴具勾區口句咎嘔垢媾嫗寇嶇廐懼拘救\uf846枸柩構歐毆毬求溝灸狗玖球甌瞿矩究絿購臼舅舊苟衢覯謳軀逑邱鉤颶駒驅鳩鷗龜國局掬菊鞠麴窘群軍君郡堀屈掘窟宮弓穹窮躬倦券勸卷圈拳權眷厥蹶闕机櫃潰詭跪軌饋歸貴鬼龜叫圭奎揆珪硅窺葵糾規赳逵閨均筠菌鈞龜橘克剋劇戟極棘隙僅勤巹懃斤根槿漌瑾筋芹菫覲謹近饉契"_s,
@@ -177,29 +138,29 @@ void clinit$IBM1364$DecodeHolder($Class* class$) {
 		u"�呂女廬旅濾璵礖礪艅茹輿轝閭驪麗黎力曆歷轢年憐戀挻沇漣煉璉秊練縯聯輦蓮連鍊列劣烈裂廉念捻殮琰簾獵令囹寧嶺嶸怜渶濚瀯煐獰玲穎羚聆鈴鍈零霙靈領乂例汭穢禮醴隸俉塢懊敖澳熬筽鰲鼇縕饔窪梡椀琓脘娃嵬了僚寥寮尿撓料燎燿療蓼遼縟俑埇墉慂涌甬龍旴玗瑀紆藕釪勖彧栯橒澐熉蕓亐嫄沅洹湲阮暐蔿褘劉杻柳楢洧流溜猷琉留硫紐類六堉戮陸倫崙淪贇輪鈗律慄栗率瀜隆椅薏利吏履李梨泥理痢罹肄苡裏裡貽邇里離匿溺謚吝燐璘絪"_s,
 		u"�茵藺蚓隣鱗麟佚恁林淋臨卄立笠粒芿茨孱臧渽縡紵菹雎齟吊炙翟鏑佃佺塼琠畑筌鐫癤鮎柾檉淀湞瀞炡玎珽綎鋌璪雕悰踪姝湊澍寯焌雋繒沚芷唇搢晋桭殄畛縝臻蔯袗侄瓆什潗鏶侘簒紮讖愴猖寀寨倜蹠玔輟簽詹堞剿艸苕邨悤憁蔥諏鎚騶蹙瑃朮贅厠穉蚩琛咤拖馱坼晫琸眈糖槌闖擺鈑騙枰暴苞逋曝輻飇驃陂珌苾馝厦瀚銜鹹闔嫦行瀣荇櫶俔睍泫玹晛泂滎灐熒瑩逈暳蹊岵晧琥芦蒿烘譁奐晥幌愰晄榥湟潢璜簧匯茴宖鐄斅涍淆驍帿煦珝勛暄煊炘訖"_s,
 		u"�翕囍憘晞熺�����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������"_s,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		u"�ㅤ��ㄳ�ㄵㄶ��ㄺㄻㄼㄽㄾㄿㅀ���ㅄ������������ㅏ�������������������������������ㅐ�������������������������������ㅑ�������������������������������ㅒ�������������������������������ㅓ�����������������������������"_s,
 		u"�ㅔ�������������������������������ㅕ�������������������������������ㅖ�������������������������������ㅗ�������������������������������ㅘ�������������������������������ㅙ�����������������������������"_s,
 		u"�ㅚ�������������������������������ㅛ�������������������������������ㅜ�������������������������������ㅝ�������������������������������ㅞ�������������������������������ㅟ�����������������������������"_s,
@@ -290,52 +251,52 @@ void clinit$IBM1364$DecodeHolder($Class* class$) {
 		u"�\ue524\ue525\ue526\ue527\ue528\ue529\ue52a\ue52b\ue52c\ue52d\ue52e\ue52f\ue530\ue531\ue532\ue533\ue534\ue535\ue536\ue537\ue538\ue539\ue53a\ue53b\ue53c\ue53d\ue53e\ue53f\ue540\ue541\ue542\ue543\ue544\ue545\ue546\ue547\ue548\ue549\ue54a\ue54b\ue54c\ue54d\ue54e\ue54f\ue550\ue551\ue552\ue553\ue554\ue555\ue556\ue557\ue558\ue559\ue55a\ue55b\ue55c\ue55d\ue55e\ue55f\ue560\ue561\ue562�\ue563\ue564\ue565\ue566\ue567\ue568\ue569\ue56a\ue56b\ue56c\ue56d\ue56e\ue56f\ue570\ue571\ue572\ue573\ue574\ue575\ue576\ue577\ue578\ue579\ue57a\ue57b\ue57c\ue57d\ue57e\ue57f\ue580\ue581\ue582\ue583\ue584\ue585\ue586\ue587\ue588\ue589\ue58a\ue58b\ue58c\ue58d\ue58e\ue58f\ue590\ue591\ue592\ue593\ue594\ue595\ue596\ue597\ue598\ue599\ue59a\ue59b\ue59c\ue59d\ue59e\ue59f\ue5a0\ue5a1\ue5a2\ue5a3\ue5a4\ue5a5\ue5a6\ue5a7\ue5a8\ue5a9\ue5aa\ue5ab\ue5ac\ue5ad\ue5ae\ue5af\ue5b0\ue5b1\ue5b2\ue5b3\ue5b4\ue5b5\ue5b6\ue5b7\ue5b8\ue5b9\ue5ba\ue5bb\ue5bc\ue5bd\ue5be\ue5bf\ue5c0\ue5c1\ue5c2\ue5c3\ue5c4\ue5c5\ue5c6\ue5c7\ue5c8\ue5c9\ue5ca\ue5cb\ue5cc\ue5cd\ue5ce\ue5cf\ue5d0\ue5d1\ue5d2\ue5d3\ue5d4\ue5d5\ue5d6\ue5d7\ue5d8\ue5d9\ue5da\ue5db\ue5dc\ue5dd\ue5de\ue5df�"_s,
 		u"�\ue5e0\ue5e1\ue5e2\ue5e3\ue5e4\ue5e5\ue5e6\ue5e7\ue5e8\ue5e9\ue5ea\ue5eb\ue5ec\ue5ed\ue5ee\ue5ef\ue5f0\ue5f1\ue5f2\ue5f3\ue5f4\ue5f5\ue5f6\ue5f7\ue5f8\ue5f9\ue5fa\ue5fb\ue5fc\ue5fd\ue5fe\ue5ff\ue600\ue601\ue602\ue603\ue604\ue605\ue606\ue607\ue608\ue609\ue60a\ue60b\ue60c\ue60d\ue60e\ue60f\ue610\ue611\ue612\ue613\ue614\ue615\ue616\ue617\ue618\ue619\ue61a\ue61b\ue61c\ue61d\ue61e�\ue61f\ue620\ue621\ue622\ue623\ue624\ue625\ue626\ue627\ue628\ue629\ue62a\ue62b\ue62c\ue62d\ue62e\ue62f\ue630\ue631\ue632\ue633\ue634\ue635\ue636\ue637\ue638\ue639\ue63a\ue63b\ue63c\ue63d\ue63e\ue63f\ue640\ue641\ue642\ue643\ue644\ue645\ue646\ue647\ue648\ue649\ue64a\ue64b\ue64c\ue64d\ue64e\ue64f\ue650\ue651\ue652\ue653\ue654\ue655\ue656\ue657\ue658\ue659\ue65a\ue65b\ue65c\ue65d\ue65e\ue65f\ue660\ue661\ue662\ue663\ue664\ue665\ue666\ue667\ue668\ue669\ue66a\ue66b\ue66c\ue66d\ue66e\ue66f\ue670\ue671\ue672\ue673\ue674\ue675\ue676\ue677\ue678\ue679\ue67a\ue67b\ue67c\ue67d\ue67e\ue67f\ue680\ue681\ue682\ue683\ue684\ue685\ue686\ue687\ue688\ue689\ue68a\ue68b\ue68c\ue68d\ue68e\ue68f\ue690\ue691\ue692\ue693\ue694\ue695\ue696\ue697\ue698\ue699\ue69a\ue69b�"_s,
 		u"�\ue69c\ue69d\ue69e\ue69f\ue6a0\ue6a1\ue6a2\ue6a3\ue6a4\ue6a5\ue6a6\ue6a7\ue6a8\ue6a9\ue6aa\ue6ab\ue6ac\ue6ad\ue6ae\ue6af\ue6b0\ue6b1\ue6b2\ue6b3\ue6b4\ue6b5\ue6b6\ue6b7\ue6b8\ue6b9\ue6ba\ue6bb\ue6bc\ue6bd\ue6be\ue6bf\ue6c0\ue6c1\ue6c2\ue6c3\ue6c4\ue6c5\ue6c6\ue6c7\ue6c8\ue6c9\ue6ca\ue6cb\ue6cc\ue6cd\ue6ce\ue6cf\ue6d0\ue6d1\ue6d2\ue6d3\ue6d4\ue6d5\ue6d6\ue6d7\ue6d8\ue6d9\ue6da�\ue6db\ue6dc\ue6dd\ue6de\ue6df\ue6e0\ue6e1\ue6e2\ue6e3\ue6e4\ue6e5\ue6e6\ue6e7\ue6e8\ue6e9\ue6ea\ue6eb\ue6ec\ue6ed\ue6ee\ue6ef\ue6f0\ue6f1\ue6f2\ue6f3\ue6f4\ue6f5\ue6f6\ue6f7\ue6f8\ue6f9\ue6fa\ue6fb\ue6fc\ue6fd\ue6fe\ue6ff\ue700\ue701\ue702\ue703\ue704\ue705\ue706\ue707\ue708\ue709\ue70a\ue70b\ue70c\ue70d\ue70e\ue70f\ue710\ue711\ue712\ue713\ue714\ue715\ue716\ue717\ue718\ue719\ue71a\ue71b\ue71c\ue71d\ue71e\ue71f\ue720\ue721\ue722\ue723\ue724\ue725\ue726\ue727\ue728\ue729\ue72a\ue72b\ue72c\ue72d\ue72e\ue72f\ue730\ue731\ue732\ue733\ue734\ue735\ue736\ue737\ue738\ue739\ue73a\ue73b\ue73c\ue73d\ue73e\ue73f\ue740\ue741\ue742\ue743\ue744\ue745\ue746\ue747\ue748\ue749\ue74a\ue74b\ue74c\ue74d\ue74e\ue74f\ue750\ue751\ue752\ue753\ue754\ue755\ue756\ue757�"_s,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr
 	}));
-	$assignStatic(IBM1364$DecodeHolder::b2c, $new($charArray2, $nc(IBM1364$DecodeHolder::b2cStr)->length));
+	$assignStatic(IBM1364$DecodeHolder::b2c, $new($charArray2, IBM1364$DecodeHolder::b2cStr->length));
 	{
-		for (int32_t i = 0; i < $nc(IBM1364$DecodeHolder::b2cStr)->length; ++i) {
-			if ($nc(IBM1364$DecodeHolder::b2cStr)->get(i) == nullptr) {
+		for (int32_t i = 0; i < IBM1364$DecodeHolder::b2cStr->length; ++i) {
+			if (IBM1364$DecodeHolder::b2cStr->get(i) == nullptr) {
 				$init($DoubleByte);
-				$nc(IBM1364$DecodeHolder::b2c)->set(i, $DoubleByte::B2C_UNMAPPABLE);
+				IBM1364$DecodeHolder::b2c->set(i, $DoubleByte::B2C_UNMAPPABLE);
 			} else {
-				$nc(IBM1364$DecodeHolder::b2c)->set(i, $($nc($nc(IBM1364$DecodeHolder::b2cStr)->get(i))->toCharArray()));
+				IBM1364$DecodeHolder::b2c->set(i, $($nc(IBM1364$DecodeHolder::b2cStr->get(i))->toCharArray()));
 			}
 		}
-		$assignStatic(IBM1364$DecodeHolder::b2cSB, $nc(IBM1364$DecodeHolder::b2cSBStr)->toCharArray());
+		$assignStatic(IBM1364$DecodeHolder::b2cSB, IBM1364$DecodeHolder::b2cSBStr->toCharArray());
 	}
 }
 
@@ -343,7 +304,39 @@ IBM1364$DecodeHolder::IBM1364$DecodeHolder() {
 }
 
 $Class* IBM1364$DecodeHolder::load$($String* name, bool initialize) {
-	$loadClass(IBM1364$DecodeHolder, name, initialize, &_IBM1364$DecodeHolder_ClassInfo_, clinit$IBM1364$DecodeHolder, allocate$IBM1364$DecodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cSBStr", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2cSBStr)},
+		{"b2cStr", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2cStr)},
+		{"b2c", "[[C", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2c)},
+		{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(IBM1364$DecodeHolder, b2cSB)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(IBM1364$DecodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM1364$DecodeHolder", "sun.nio.cs.ext.IBM1364", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.IBM1364$DecodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM1364"
+	};
+	$loadClass(IBM1364$DecodeHolder, name, initialize, &classInfo$$, IBM1364$DecodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IBM1364$DecodeHolder);
+	});
 	return class$;
 }
 

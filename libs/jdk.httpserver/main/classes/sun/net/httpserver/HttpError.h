@@ -14,10 +14,13 @@ class HttpError : public ::java::lang::RuntimeException {
 public:
 	HttpError();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x79B3DD6FB9863C03;
+	static const int64_t serialVersionUID = (int64_t)0x79b3dd6fb9863c03;
 	HttpError(const HttpError& e);
 	virtual void throw$() override;
-	inline HttpError* operator ->() {
+	inline HttpError* operator ->() const {
+		return (HttpError*)throwing$;
+	}
+	inline operator HttpError*() const {
 		return (HttpError*)throwing$;
 	}
 };

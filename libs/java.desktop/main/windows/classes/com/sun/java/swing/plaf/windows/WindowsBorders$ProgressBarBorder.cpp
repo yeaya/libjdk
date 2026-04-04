@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$ProgressBarBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsBorders.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -24,49 +23,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsBorders$ProgressBarBorder_FieldInfo_[] = {
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ProgressBarBorder, shadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ProgressBarBorder, highlight)},
-	{}
-};
-
-$MethodInfo _WindowsBorders$ProgressBarBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsBorders$ProgressBarBorder, init$, void, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ProgressBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ProgressBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsBorders$ProgressBarBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ProgressBarBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsBorders$ProgressBarBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_WindowsBorders$ProgressBarBorder_FieldInfo_,
-	_WindowsBorders$ProgressBarBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsBorders$ProgressBarBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsBorders"
-};
-
-$Object* allocate$WindowsBorders$ProgressBarBorder($Class* clazz) {
-	return $of($alloc(WindowsBorders$ProgressBarBorder));
-}
 
 int32_t WindowsBorders$ProgressBarBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -112,7 +68,44 @@ WindowsBorders$ProgressBarBorder::WindowsBorders$ProgressBarBorder() {
 }
 
 $Class* WindowsBorders$ProgressBarBorder::load$($String* name, bool initialize) {
-	$loadClass(WindowsBorders$ProgressBarBorder, name, initialize, &_WindowsBorders$ProgressBarBorder_ClassInfo_, allocate$WindowsBorders$ProgressBarBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ProgressBarBorder, shadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$ProgressBarBorder, highlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsBorders$ProgressBarBorder, init$, void, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ProgressBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$ProgressBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "ProgressBarBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsBorders$ProgressBarBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsBorders"
+	};
+	$loadClass(WindowsBorders$ProgressBarBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsBorders$ProgressBarBorder));
+	});
 	return class$;
 }
 

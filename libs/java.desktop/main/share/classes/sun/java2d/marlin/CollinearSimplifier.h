@@ -24,6 +24,7 @@ class CollinearSimplifier : public ::sun::java2d::marlin::DPathConsumer2D {
 	$class(CollinearSimplifier, 0, ::sun::java2d::marlin::DPathConsumer2D)
 public:
 	CollinearSimplifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void closePath() override;
 	virtual void curveTo(double x1, double y1, double x2, double y2, double x3, double y3) override;

@@ -1,5 +1,4 @@
 #include <javax/swing/Action.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <jcpp.h>
 
@@ -23,45 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _Action_FieldInfo_[] = {
-	{"DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, DEFAULT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, NAME)},
-	{"SHORT_DESCRIPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, SHORT_DESCRIPTION)},
-	{"LONG_DESCRIPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, LONG_DESCRIPTION)},
-	{"SMALL_ICON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, SMALL_ICON)},
-	{"ACTION_COMMAND_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, ACTION_COMMAND_KEY)},
-	{"ACCELERATOR_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, ACCELERATOR_KEY)},
-	{"MNEMONIC_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, MNEMONIC_KEY)},
-	{"SELECTED_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, SELECTED_KEY)},
-	{"DISPLAYED_MNEMONIC_INDEX_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, DISPLAYED_MNEMONIC_INDEX_KEY)},
-	{"LARGE_ICON_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, LARGE_ICON_KEY)},
-	{}
-};
-
-$MethodInfo _Action_MethodInfo_[] = {
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Action, accept, bool, Object$*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, getValue, $Object*, $String*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, isEnabled, bool)},
-	{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, putValue, void, $String*, Object$*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, setEnabled, void, bool)},
-	{}
-};
-
-$ClassInfo _Action_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.Action",
-	nullptr,
-	"java.awt.event.ActionListener",
-	_Action_FieldInfo_,
-	_Action_MethodInfo_
-};
-
-$Object* allocate$Action($Class* clazz) {
-	return $of($alloc(Action));
-}
-
 $String* Action::DEFAULT = nullptr;
 $String* Action::NAME = nullptr;
 $String* Action::SHORT_DESCRIPTION = nullptr;
@@ -78,7 +38,7 @@ bool Action::accept(Object$* sender) {
 	return isEnabled();
 }
 
-void clinit$Action($Class* class$) {
+void Action::clinit$($Class* clazz) {
 	$assignStatic(Action::DEFAULT, "Default"_s);
 	$assignStatic(Action::NAME, "Name"_s);
 	$assignStatic(Action::SHORT_DESCRIPTION, "ShortDescription"_s);
@@ -93,7 +53,41 @@ void clinit$Action($Class* class$) {
 }
 
 $Class* Action::load$($String* name, bool initialize) {
-	$loadClass(Action, name, initialize, &_Action_ClassInfo_, clinit$Action, allocate$Action);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, DEFAULT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, NAME)},
+		{"SHORT_DESCRIPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, SHORT_DESCRIPTION)},
+		{"LONG_DESCRIPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, LONG_DESCRIPTION)},
+		{"SMALL_ICON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, SMALL_ICON)},
+		{"ACTION_COMMAND_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, ACTION_COMMAND_KEY)},
+		{"ACCELERATOR_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, ACCELERATOR_KEY)},
+		{"MNEMONIC_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, MNEMONIC_KEY)},
+		{"SELECTED_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, SELECTED_KEY)},
+		{"DISPLAYED_MNEMONIC_INDEX_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, DISPLAYED_MNEMONIC_INDEX_KEY)},
+		{"LARGE_ICON_KEY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Action, LARGE_ICON_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Action, accept, bool, Object$*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, getValue, $Object*, $String*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, isEnabled, bool)},
+		{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, putValue, void, $String*, Object$*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Action, setEnabled, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.Action",
+		nullptr,
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Action, name, initialize, &classInfo$$, Action::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Action);
+	});
 	return class$;
 }
 

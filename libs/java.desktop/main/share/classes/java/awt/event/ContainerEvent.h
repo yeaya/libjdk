@@ -38,7 +38,7 @@ public:
 	static const int32_t COMPONENT_ADDED = CONTAINER_FIRST;
 	static const int32_t COMPONENT_REMOVED = 301; // 1 + CONTAINER_FIRST
 	::java::awt::Component* child = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xC6E4C9D335549777;
+	static const int64_t serialVersionUID = (int64_t)0xc6e4c9d335549777;
 };
 
 		} // event

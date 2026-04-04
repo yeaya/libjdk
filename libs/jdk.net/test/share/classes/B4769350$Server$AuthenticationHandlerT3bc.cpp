@@ -1,5 +1,4 @@
 #include <B4769350$Server$AuthenticationHandlerT3bc.h>
-
 #include <B4769350$AuthenticationHandler.h>
 #include <B4769350$Server.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
@@ -8,49 +7,10 @@
 using $B4769350$AuthenticationHandler = ::B4769350$AuthenticationHandler;
 using $B4769350$Server = ::B4769350$Server;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _B4769350$Server$AuthenticationHandlerT3bc_FieldInfo_[] = {
-	{"this$1", "LB4769350$Server;", nullptr, $FINAL | $SYNTHETIC, $field(B4769350$Server$AuthenticationHandlerT3bc, this$1)},
-	{"count", "I", nullptr, $VOLATILE, $field(B4769350$Server$AuthenticationHandlerT3bc, count)},
-	{}
-};
-
-$MethodInfo _B4769350$Server$AuthenticationHandlerT3bc_MethodInfo_[] = {
-	{"<init>", "(LB4769350$Server;)V", nullptr, 0, $method(B4769350$Server$AuthenticationHandlerT3bc, init$, void, $B4769350$Server*)},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(B4769350$Server$AuthenticationHandlerT3bc, handle, void, $HttpExchange*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _B4769350$Server$AuthenticationHandlerT3bc_InnerClassesInfo_[] = {
-	{"B4769350$Server", "B4769350", "Server", 0},
-	{"B4769350$Server$AuthenticationHandlerT3bc", "B4769350$Server", "AuthenticationHandlerT3bc", 0},
-	{}
-};
-
-$ClassInfo _B4769350$Server$AuthenticationHandlerT3bc_ClassInfo_ = {
-	$ACC_SUPER,
-	"B4769350$Server$AuthenticationHandlerT3bc",
-	"java.lang.Object",
-	"com.sun.net.httpserver.HttpHandler",
-	_B4769350$Server$AuthenticationHandlerT3bc_FieldInfo_,
-	_B4769350$Server$AuthenticationHandlerT3bc_MethodInfo_,
-	nullptr,
-	nullptr,
-	_B4769350$Server$AuthenticationHandlerT3bc_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"B4769350"
-};
-
-$Object* allocate$B4769350$Server$AuthenticationHandlerT3bc($Class* clazz) {
-	return $of($alloc(B4769350$Server$AuthenticationHandlerT3bc));
-}
 
 void B4769350$Server$AuthenticationHandlerT3bc::init$($B4769350$Server* this$1) {
 	$set(this, this$1, this$1);
@@ -61,19 +21,13 @@ void B4769350$Server$AuthenticationHandlerT3bc::handle($HttpExchange* exchange) 
 	++this->count;
 	switch (this->count) {
 	case 0:
-		{
-			$B4769350$AuthenticationHandler::proxyReply(exchange, "Basic realm=\"proxy\""_s);
-			break;
-		}
+		$B4769350$AuthenticationHandler::proxyReply(exchange, "Basic realm=\"proxy\""_s);
+		break;
 	case 1:
-		{
-			$B4769350$AuthenticationHandler::okReply(exchange);
-			break;
-		}
+		$B4769350$AuthenticationHandler::okReply(exchange);
+		break;
 	default:
-		{
-			$nc($System::out)->println("Unexpected request"_s);
-		}
+		$nc($System::out)->println("Unexpected request"_s);
 	}
 }
 
@@ -81,7 +35,39 @@ B4769350$Server$AuthenticationHandlerT3bc::B4769350$Server$AuthenticationHandler
 }
 
 $Class* B4769350$Server$AuthenticationHandlerT3bc::load$($String* name, bool initialize) {
-	$loadClass(B4769350$Server$AuthenticationHandlerT3bc, name, initialize, &_B4769350$Server$AuthenticationHandlerT3bc_ClassInfo_, allocate$B4769350$Server$AuthenticationHandlerT3bc);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "LB4769350$Server;", nullptr, $FINAL | $SYNTHETIC, $field(B4769350$Server$AuthenticationHandlerT3bc, this$1)},
+		{"count", "I", nullptr, $VOLATILE, $field(B4769350$Server$AuthenticationHandlerT3bc, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LB4769350$Server;)V", nullptr, 0, $method(B4769350$Server$AuthenticationHandlerT3bc, init$, void, $B4769350$Server*)},
+		{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(B4769350$Server$AuthenticationHandlerT3bc, handle, void, $HttpExchange*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"B4769350$Server", "B4769350", "Server", 0},
+		{"B4769350$Server$AuthenticationHandlerT3bc", "B4769350$Server", "AuthenticationHandlerT3bc", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"B4769350$Server$AuthenticationHandlerT3bc",
+		"java.lang.Object",
+		"com.sun.net.httpserver.HttpHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"B4769350"
+	};
+	$loadClass(B4769350$Server$AuthenticationHandlerT3bc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B4769350$Server$AuthenticationHandlerT3bc);
+	});
 	return class$;
 }
 

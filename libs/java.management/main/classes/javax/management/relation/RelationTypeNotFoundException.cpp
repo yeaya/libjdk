@@ -1,5 +1,4 @@
 #include <javax/management/relation/RelationTypeNotFoundException.h>
-
 #include <javax/management/relation/RelationException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RelationException = ::javax::management::relation::RelationException;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _RelationTypeNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RelationTypeNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RelationTypeNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RelationTypeNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelationTypeNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _RelationTypeNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RelationTypeNotFoundException",
-	"javax.management.relation.RelationException",
-	nullptr,
-	_RelationTypeNotFoundException_FieldInfo_,
-	_RelationTypeNotFoundException_MethodInfo_
-};
-
-$Object* allocate$RelationTypeNotFoundException($Class* clazz) {
-	return $of($alloc(RelationTypeNotFoundException));
-}
 
 void RelationTypeNotFoundException::init$() {
 	$RelationException::init$();
@@ -55,7 +30,26 @@ void RelationTypeNotFoundException::throw$() {
 }
 
 $Class* RelationTypeNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(RelationTypeNotFoundException, name, initialize, &_RelationTypeNotFoundException_ClassInfo_, allocate$RelationTypeNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RelationTypeNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RelationTypeNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelationTypeNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RelationTypeNotFoundException",
+		"javax.management.relation.RelationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RelationTypeNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RelationTypeNotFoundException);
+	});
 	return class$;
 }
 

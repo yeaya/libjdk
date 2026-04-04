@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/XMLSignatureException.h>
-
 #include <java/io/PrintWriter.h>
 #include <jcpp.h>
 
@@ -15,37 +14,6 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 
-$FieldInfo _XMLSignatureException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSignatureException, serialVersionUID)},
-	{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(XMLSignatureException, cause)},
-	{}
-};
-
-$MethodInfo _XMLSignatureException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $Throwable*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, getCause, $Throwable*)},
-	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, printStackTrace, void)},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, printStackTrace, void, $PrintStream*)},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, printStackTrace, void, $PrintWriter*)},
-	{}
-};
-
-$ClassInfo _XMLSignatureException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.dsig.XMLSignatureException",
-	"java.lang.Exception",
-	nullptr,
-	_XMLSignatureException_FieldInfo_,
-	_XMLSignatureException_MethodInfo_
-};
-
-$Object* allocate$XMLSignatureException($Class* clazz) {
-	return $of($alloc(XMLSignatureException));
-}
-
 void XMLSignatureException::init$() {
 	$Exception::init$();
 }
@@ -60,7 +28,7 @@ void XMLSignatureException::init$($String* message, $Throwable* cause) {
 }
 
 void XMLSignatureException::init$($Throwable* cause) {
-	$Exception::init$(cause == nullptr ? ($String*)nullptr : $($nc(cause)->toString()));
+	$Exception::init$(cause == nullptr ? ($String*)nullptr : $(cause->toString()));
 	$set(this, cause, cause);
 }
 
@@ -71,21 +39,21 @@ $Throwable* XMLSignatureException::getCause() {
 void XMLSignatureException::printStackTrace() {
 	$Exception::printStackTrace();
 	if (this->cause != nullptr) {
-		$nc(this->cause)->printStackTrace();
+		this->cause->printStackTrace();
 	}
 }
 
 void XMLSignatureException::printStackTrace($PrintStream* s) {
 	$Exception::printStackTrace(s);
 	if (this->cause != nullptr) {
-		$nc(this->cause)->printStackTrace(s);
+		this->cause->printStackTrace(s);
 	}
 }
 
 void XMLSignatureException::printStackTrace($PrintWriter* s) {
 	$Exception::printStackTrace(s);
 	if (this->cause != nullptr) {
-		$nc(this->cause)->printStackTrace(s);
+		this->cause->printStackTrace(s);
 	}
 }
 
@@ -100,7 +68,33 @@ void XMLSignatureException::throw$() {
 }
 
 $Class* XMLSignatureException::load$($String* name, bool initialize) {
-	$loadClass(XMLSignatureException, name, initialize, &_XMLSignatureException_ClassInfo_, allocate$XMLSignatureException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSignatureException, serialVersionUID)},
+		{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(XMLSignatureException, cause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $Throwable*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, getCause, $Throwable*)},
+		{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, printStackTrace, void)},
+		{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, printStackTrace, void, $PrintStream*)},
+		{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(XMLSignatureException, printStackTrace, void, $PrintWriter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.dsig.XMLSignatureException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSignatureException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSignatureException);
+	});
 	return class$;
 }
 

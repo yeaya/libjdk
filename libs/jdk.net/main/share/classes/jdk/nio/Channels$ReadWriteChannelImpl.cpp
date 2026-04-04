@@ -1,10 +1,8 @@
 #include <jdk/nio/Channels$ReadWriteChannelImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/spi/AbstractSelectableChannel.h>
-#include <java/nio/channels/spi/SelectorProvider.h>
 #include <jdk/nio/Channels$SelectableChannelCloser.h>
 #include <jdk/nio/Channels.h>
 #include <sun/nio/ch/IOUtil.h>
@@ -25,10 +23,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
-using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $Channels$SelectableChannelCloser = ::jdk::nio::Channels$SelectableChannelCloser;
 using $IOUtil = ::sun::nio::ch::IOUtil;
 using $Net = ::sun::nio::ch::Net;
@@ -37,60 +33,6 @@ using $SelectorProviderImpl = ::sun::nio::ch::SelectorProviderImpl;
 
 namespace jdk {
 	namespace nio {
-
-$FieldInfo _Channels$ReadWriteChannelImpl_FieldInfo_[] = {
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadWriteChannelImpl, fd)},
-	{"fdVal", "I", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadWriteChannelImpl, fdVal)},
-	{"closer", "Ljdk/nio/Channels$SelectableChannelCloser;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadWriteChannelImpl, closer)},
-	{}
-};
-
-$MethodInfo _Channels$ReadWriteChannelImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/SelectorProviderImpl;Ljava/io/FileDescriptor;Ljdk/nio/Channels$SelectableChannelCloser;)V", nullptr, 0, $method(Channels$ReadWriteChannelImpl, init$, void, $SelectorProviderImpl*, $FileDescriptor*, $Channels$SelectableChannelCloser*)},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, getFD, $FileDescriptor*)},
-	{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, getFDVal, int32_t)},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$ReadWriteChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
-	{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(Channels$ReadWriteChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, kill, void), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, translateInterestOps, int32_t, int32_t)},
-	{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PRIVATE, $method(Channels$ReadWriteChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
-	{"validOps", "()I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, validOps, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Channels$ReadWriteChannelImpl_InnerClassesInfo_[] = {
-	{"jdk.nio.Channels$ReadWriteChannelImpl", "jdk.nio.Channels", "ReadWriteChannelImpl", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Channels$ReadWriteChannelImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.nio.Channels$ReadWriteChannelImpl",
-	"java.nio.channels.spi.AbstractSelectableChannel",
-	"sun.nio.ch.SelChImpl",
-	_Channels$ReadWriteChannelImpl_FieldInfo_,
-	_Channels$ReadWriteChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Channels$ReadWriteChannelImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.Channels"
-};
-
-$Object* allocate$Channels$ReadWriteChannelImpl($Class* clazz) {
-	return $of($alloc(Channels$ReadWriteChannelImpl));
-}
 
 void Channels$ReadWriteChannelImpl::close() {
 	this->$AbstractSelectableChannel::close();
@@ -144,19 +86,19 @@ bool Channels$ReadWriteChannelImpl::translateReadyOps(int32_t ops, int32_t initi
 	int32_t oldOps = ski->nioReadyOps();
 	int32_t newOps = initialOps;
 	$init($Net);
-	if (((int32_t)(ops & (uint32_t)($Net::POLLERR | $Net::POLLHUP))) != 0) {
+	if ((ops & ($Net::POLLERR | $Net::POLLHUP)) != 0) {
 		newOps = intOps;
 		ski->nioReadyOps(newOps);
-		return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+		return (newOps & ~oldOps) != 0;
 	}
-	if ((((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLIN)) != 0) && (((int32_t)(intOps & (uint32_t)$SelectionKey::OP_READ)) != 0)) {
+	if (((ops & $Net::POLLIN) != 0) && ((intOps & $SelectionKey::OP_READ) != 0)) {
 		newOps |= $SelectionKey::OP_READ;
 	}
-	if ((((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLOUT)) != 0) && (((int32_t)(intOps & (uint32_t)$SelectionKey::OP_WRITE)) != 0)) {
+	if (((ops & $Net::POLLOUT) != 0) && ((intOps & $SelectionKey::OP_WRITE) != 0)) {
 		newOps |= $SelectionKey::OP_WRITE;
 	}
 	ski->nioReadyOps(newOps);
-	return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+	return (newOps & ~oldOps) != 0;
 }
 
 bool Channels$ReadWriteChannelImpl::translateAndUpdateReadyOps(int32_t ops, $SelectionKeyImpl* ski) {
@@ -169,11 +111,11 @@ bool Channels$ReadWriteChannelImpl::translateAndSetReadyOps(int32_t ops, $Select
 
 int32_t Channels$ReadWriteChannelImpl::translateInterestOps(int32_t ops) {
 	int32_t newOps = 0;
-	if (((int32_t)(ops & (uint32_t)$SelectionKey::OP_READ)) != 0) {
+	if ((ops & $SelectionKey::OP_READ) != 0) {
 		$init($Net);
 		newOps |= $Net::POLLIN;
 	}
-	if (((int32_t)(ops & (uint32_t)$SelectionKey::OP_WRITE)) != 0) {
+	if ((ops & $SelectionKey::OP_WRITE) != 0) {
 		$init($Net);
 		newOps |= $Net::POLLOUT;
 	}
@@ -196,7 +138,55 @@ Channels$ReadWriteChannelImpl::Channels$ReadWriteChannelImpl() {
 }
 
 $Class* Channels$ReadWriteChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(Channels$ReadWriteChannelImpl, name, initialize, &_Channels$ReadWriteChannelImpl_ClassInfo_, allocate$Channels$ReadWriteChannelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadWriteChannelImpl, fd)},
+		{"fdVal", "I", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadWriteChannelImpl, fdVal)},
+		{"closer", "Ljdk/nio/Channels$SelectableChannelCloser;", nullptr, $PRIVATE | $FINAL, $field(Channels$ReadWriteChannelImpl, closer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/nio/ch/SelectorProviderImpl;Ljava/io/FileDescriptor;Ljdk/nio/Channels$SelectableChannelCloser;)V", nullptr, 0, $method(Channels$ReadWriteChannelImpl, init$, void, $SelectorProviderImpl*, $FileDescriptor*, $Channels$SelectableChannelCloser*)},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, getFD, $FileDescriptor*)},
+		{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, getFDVal, int32_t)},
+		{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$ReadWriteChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
+		{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(Channels$ReadWriteChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, kill, void), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, translateInterestOps, int32_t, int32_t)},
+		{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PRIVATE, $method(Channels$ReadWriteChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
+		{"validOps", "()I", nullptr, $PUBLIC, $virtualMethod(Channels$ReadWriteChannelImpl, validOps, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.Channels$ReadWriteChannelImpl", "jdk.nio.Channels", "ReadWriteChannelImpl", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.nio.Channels$ReadWriteChannelImpl",
+		"java.nio.channels.spi.AbstractSelectableChannel",
+		"sun.nio.ch.SelChImpl",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.Channels"
+	};
+	$loadClass(Channels$ReadWriteChannelImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Channels$ReadWriteChannelImpl));
+	});
 	return class$;
 }
 

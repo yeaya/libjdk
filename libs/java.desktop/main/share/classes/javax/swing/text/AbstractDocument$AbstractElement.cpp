@@ -1,12 +1,9 @@
 #include <javax/swing/text/AbstractDocument$AbstractElement.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/io/Writer.h>
 #include <java/util/Enumeration.h>
 #include <javax/swing/text/AbstractDocument$AttributeContext.h>
 #include <javax/swing/text/AbstractDocument$Content.h>
@@ -27,12 +24,10 @@
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -55,84 +50,6 @@ using $TreeNode = ::javax::swing::tree::TreeNode;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _AbstractDocument$AbstractElement_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$AbstractElement, this$0)},
-	{"parent", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$AbstractElement, parent)},
-	{"attributes", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractDocument$AbstractElement, attributes)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$AbstractElement_MethodInfo_[] = {
-	{"children", "()Ljava/util/Enumeration;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getAllowsChildren", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElementCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElementIndex", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEndOffset", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStartOffset", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(AbstractDocument$AbstractElement, init$, void, $AbstractDocument*, $Element*, $AttributeSet*)},
-	{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, addAttribute, void, Object$*, Object$*)},
-	{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, addAttributes, void, $AttributeSet*)},
-	{"checkForIllegalCast", "()V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, checkForIllegalCast, void)},
-	{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, containsAttribute, bool, Object$*, Object$*)},
-	{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, containsAttributes, bool, $AttributeSet*)},
-	{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, copyAttributes, $AttributeSet*)},
-	{"dump", "(Ljava/io/PrintStream;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, dump, void, $PrintStream*, int32_t)},
-	{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttribute, $Object*, Object$*)},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttributeCount, int32_t)},
-	{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttributeNames, $Enumeration*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttributes, $AttributeSet*)},
-	{"getChildAt", "(I)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getChildAt, $TreeNode*, int32_t)},
-	{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getChildCount, int32_t)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getDocument, $Document*)},
-	{"getIndex", "(Ljavax/swing/tree/TreeNode;)I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getIndex, int32_t, $TreeNode*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getName, $String*)},
-	{"getParent", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getParent, $TreeNode*)},
-	{"getParentElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getParentElement, $Element*)},
-	{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getResolveParent, $AttributeSet*)},
-	{"indent", "(Ljava/io/PrintWriter;I)V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, indent, void, $PrintWriter*, int32_t)},
-	{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, isDefined, bool, Object$*)},
-	{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, isEqual, bool, $AttributeSet*)},
-	{"isLeaf", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, removeAttribute, void, Object$*)},
-	{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, removeAttributes, void, $Enumeration*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, removeAttributes, void, $AttributeSet*)},
-	{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, setResolveParent, void, $AttributeSet*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _AbstractDocument$AbstractElement_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$AbstractElement", "javax.swing.text.AbstractDocument", "AbstractElement", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractDocument$AbstractElement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.AbstractDocument$AbstractElement",
-	"java.lang.Object",
-	"javax.swing.text.Element,javax.swing.text.MutableAttributeSet,java.io.Serializable,javax.swing.tree.TreeNode",
-	_AbstractDocument$AbstractElement_FieldInfo_,
-	_AbstractDocument$AbstractElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDocument$AbstractElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$AbstractElement($Class* clazz) {
-	return $of($alloc(AbstractDocument$AbstractElement));
-}
 
 int32_t AbstractDocument$AbstractElement::hashCode() {
 	 return this->$Element::hashCode();
@@ -157,7 +74,7 @@ void AbstractDocument$AbstractElement::finalize() {
 void AbstractDocument$AbstractElement::init$($AbstractDocument* this$0, $Element* parent, $AttributeSet* a) {
 	$set(this, this$0, this$0);
 	$set(this, parent, parent);
-	$set(this, attributes, $nc($(this$0->getAttributeContext()))->getEmptySet());
+	$set(this, attributes, $$nc(this$0->getAttributeContext())->getEmptySet());
 	if (a != nullptr) {
 		addAttributes(a);
 	}
@@ -170,12 +87,12 @@ void AbstractDocument$AbstractElement::indent($PrintWriter* out, int32_t n) {
 }
 
 void AbstractDocument$AbstractElement::dump($PrintStream* psOut, int32_t indentAmount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintWriter, out, nullptr);
 	try {
-		$assign(out, $new($PrintWriter, static_cast<$Writer*>($$new($OutputStreamWriter, static_cast<$OutputStream*>(psOut), "JavaEsc"_s)), true));
+		$assign(out, $new($PrintWriter, $$new($OutputStreamWriter, psOut, "JavaEsc"_s), true));
 	} catch ($UnsupportedEncodingException& e) {
-		$assign(out, $new($PrintWriter, static_cast<$OutputStream*>(psOut), true));
+		$assign(out, $new($PrintWriter, psOut, true));
 	}
 	indent(out, indentAmount);
 	if (getName() == nullptr) {
@@ -189,22 +106,29 @@ void AbstractDocument$AbstractElement::dump($PrintStream* psOut, int32_t indentA
 		while ($nc(names)->hasMoreElements()) {
 			$var($Object, name, names->nextElement());
 			indent(out, indentAmount + 1);
-			$var($String, var$0, $$str({name, "="_s}));
-			out->println($$concat(var$0, $(getAttribute(name))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append(name);
+			var$0->append("="_s);
+			var$0->append($(getAttribute(name)));
+			out->println($$str(var$0));
 		}
 		indent(out, indentAmount);
 	}
 	$nc(out)->println(">"_s);
 	if (isLeaf()) {
 		indent(out, indentAmount + 1);
-		$var($String, var$2, $$str({"["_s, $$str(getStartOffset()), ","_s}));
-		$var($String, var$1, $$concat(var$2, $$str(getEndOffset())));
-		out->print($$concat(var$1, "]"_s));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("["_s);
+		var$1->append(getStartOffset());
+		var$1->append(","_s);
+		var$1->append(getEndOffset());
+		var$1->append("]"_s);
+		out->print($$str(var$1));
 		$var($AbstractDocument$Content, c, this->this$0->getContent());
 		try {
-			int32_t var$3 = getStartOffset();
-			int32_t var$4 = getEndOffset();
-			$var($String, contentStr, $nc(c)->getString(var$3, var$4 - getStartOffset()));
+			int32_t var$2 = getStartOffset();
+			int32_t var$3 = getEndOffset();
+			$var($String, contentStr, $nc(c)->getString(var$2, var$3 - getStartOffset()));
 			if ($nc(contentStr)->length() > 40) {
 				$assign(contentStr, $str({$(contentStr->substring(0, 40)), "..."_s}));
 			}
@@ -237,15 +161,15 @@ $AttributeSet* AbstractDocument$AbstractElement::copyAttributes() {
 }
 
 $Object* AbstractDocument$AbstractElement::getAttribute(Object$* attrName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $nc(this->attributes)->getAttribute(attrName));
 	if (value == nullptr) {
-		$var($AttributeSet, a, (this->parent != nullptr) ? $nc(this->parent)->getAttributes() : ($AttributeSet*)nullptr);
+		$var($AttributeSet, a, (this->parent != nullptr) ? this->parent->getAttributes() : ($AttributeSet*)nullptr);
 		if (a != nullptr) {
 			$assign(value, a->getAttribute(attrName));
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 $Enumeration* AbstractDocument$AbstractElement::getAttributeNames() {
@@ -263,7 +187,7 @@ bool AbstractDocument$AbstractElement::containsAttributes($AttributeSet* attrs) 
 $AttributeSet* AbstractDocument$AbstractElement::getResolveParent() {
 	$var($AttributeSet, a, $nc(this->attributes)->getResolveParent());
 	if ((a == nullptr) && (this->parent != nullptr)) {
-		$assign(a, $nc(this->parent)->getAttributes());
+		$assign(a, this->parent->getAttributes());
 	}
 	return a;
 }
@@ -367,12 +291,11 @@ void AbstractDocument$AbstractElement::writeObject($ObjectOutputStream* s) {
 }
 
 void AbstractDocument$AbstractElement::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	$var($MutableAttributeSet, attr, $new($SimpleAttributeSet));
 	$StyleContext::readAttributeSet(s, attr);
 	$var($AbstractDocument$AttributeContext, context, this->this$0->getAttributeContext());
-	$init($SimpleAttributeSet);
 	$set(this, attributes, $nc(context)->addAttributes($SimpleAttributeSet::EMPTY, attr));
 }
 
@@ -380,7 +303,79 @@ AbstractDocument$AbstractElement::AbstractDocument$AbstractElement() {
 }
 
 $Class* AbstractDocument$AbstractElement::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$AbstractElement, name, initialize, &_AbstractDocument$AbstractElement_ClassInfo_, allocate$AbstractDocument$AbstractElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$AbstractElement, this$0)},
+		{"parent", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(AbstractDocument$AbstractElement, parent)},
+		{"attributes", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(AbstractDocument$AbstractElement, attributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"children", "()Ljava/util/Enumeration;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getAllowsChildren", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"getElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getElementCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"getElementIndex", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"getEndOffset", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"getStartOffset", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(AbstractDocument$AbstractElement, init$, void, $AbstractDocument*, $Element*, $AttributeSet*)},
+		{"addAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, addAttribute, void, Object$*, Object$*)},
+		{"addAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, addAttributes, void, $AttributeSet*)},
+		{"checkForIllegalCast", "()V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, checkForIllegalCast, void)},
+		{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, containsAttribute, bool, Object$*, Object$*)},
+		{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, containsAttributes, bool, $AttributeSet*)},
+		{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, copyAttributes, $AttributeSet*)},
+		{"dump", "(Ljava/io/PrintStream;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, dump, void, $PrintStream*, int32_t)},
+		{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttribute, $Object*, Object$*)},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttributeCount, int32_t)},
+		{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttributeNames, $Enumeration*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getAttributes, $AttributeSet*)},
+		{"getChildAt", "(I)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getChildAt, $TreeNode*, int32_t)},
+		{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getChildCount, int32_t)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getDocument, $Document*)},
+		{"getIndex", "(Ljavax/swing/tree/TreeNode;)I", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getIndex, int32_t, $TreeNode*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getName, $String*)},
+		{"getParent", "()Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getParent, $TreeNode*)},
+		{"getParentElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getParentElement, $Element*)},
+		{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, getResolveParent, $AttributeSet*)},
+		{"indent", "(Ljava/io/PrintWriter;I)V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, indent, void, $PrintWriter*, int32_t)},
+		{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, isDefined, bool, Object$*)},
+		{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, isEqual, bool, $AttributeSet*)},
+		{"isLeaf", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removeAttribute", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, removeAttribute, void, Object$*)},
+		{"removeAttributes", "(Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<*>;)V", $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, removeAttributes, void, $Enumeration*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, removeAttributes, void, $AttributeSet*)},
+		{"setResolveParent", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$AbstractElement, setResolveParent, void, $AttributeSet*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(AbstractDocument$AbstractElement, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$AbstractElement", "javax.swing.text.AbstractDocument", "AbstractElement", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.AbstractDocument$AbstractElement",
+		"java.lang.Object",
+		"javax.swing.text.Element,javax.swing.text.MutableAttributeSet,java.io.Serializable,javax.swing.tree.TreeNode",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$AbstractElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDocument$AbstractElement));
+	});
 	return class$;
 }
 

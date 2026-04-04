@@ -319,6 +319,7 @@ class $import XPATHErrorResources_fr : public ::java::util::ListResourceBundle {
 	$class(XPATHErrorResources_fr, 0, ::java::util::ListResourceBundle)
 public:
 	XPATHErrorResources_fr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $String* ERROR0000;

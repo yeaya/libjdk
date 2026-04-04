@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/ContentModel.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/text/html/parser/Element.h>
 #include <jcpp.h>
@@ -15,41 +14,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 				namespace parser {
-
-$FieldInfo _ContentModel_FieldInfo_[] = {
-	{"type", "I", nullptr, $PUBLIC, $field(ContentModel, type)},
-	{"content", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ContentModel, content)},
-	{"next", "Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $field(ContentModel, next)},
-	{"valSet", "[Z", nullptr, $PRIVATE, $field(ContentModel, valSet)},
-	{"val", "[Z", nullptr, $PRIVATE, $field(ContentModel, val)},
-	{}
-};
-
-$MethodInfo _ContentModel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContentModel, init$, void)},
-	{"<init>", "(Ljavax/swing/text/html/parser/Element;)V", nullptr, $PUBLIC, $method(ContentModel, init$, void, $Element*)},
-	{"<init>", "(ILjavax/swing/text/html/parser/ContentModel;)V", nullptr, $PUBLIC, $method(ContentModel, init$, void, int32_t, ContentModel*)},
-	{"<init>", "(ILjava/lang/Object;Ljavax/swing/text/html/parser/ContentModel;)V", nullptr, $PUBLIC, $method(ContentModel, init$, void, int32_t, Object$*, ContentModel*)},
-	{"empty", "()Z", nullptr, $PUBLIC, $method(ContentModel, empty, bool)},
-	{"first", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(ContentModel, first, bool, Object$*)},
-	{"first", "()Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $method(ContentModel, first, $Element*)},
-	{"getElements", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<Ljavax/swing/text/html/parser/Element;>;)V", $PUBLIC, $method(ContentModel, getElements, void, $Vector*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ContentModel, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ContentModel_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.text.html.parser.ContentModel",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ContentModel_FieldInfo_,
-	_ContentModel_MethodInfo_
-};
-
-$Object* allocate$ContentModel($Class* clazz) {
-	return $of($alloc(ContentModel));
-}
 
 void ContentModel::init$() {
 }
@@ -69,211 +33,157 @@ void ContentModel::init$(int32_t type, Object$* content, ContentModel* next) {
 }
 
 bool ContentModel::empty() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->type) {
 	case u'*':
-		{}
 	case u'?':
-		{
-			return true;
-		}
+		return true;
 	case u'+':
-		{}
 	case u'|':
 		{
-			{
-				$var(ContentModel, m, $cast(ContentModel, this->content));
-				for (; m != nullptr; $assign(m, $nc(m)->next)) {
-					if (m->empty()) {
-						return true;
-					}
+			$var(ContentModel, m, $cast(ContentModel, this->content));
+			for (; m != nullptr; $assign(m, m->next)) {
+				if (m->empty()) {
+					return true;
 				}
 			}
 			return false;
 		}
 	case u',':
-		{}
 	case u'&':
 		{
-			{
-				$var(ContentModel, m, $cast(ContentModel, this->content));
-				for (; m != nullptr; $assign(m, $nc(m)->next)) {
-					if (!m->empty()) {
-						return false;
-					}
+			$var(ContentModel, m, $cast(ContentModel, this->content));
+			for (; m != nullptr; $assign(m, m->next)) {
+				if (!m->empty()) {
+					return false;
 				}
 			}
 			return true;
 		}
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 void ContentModel::getElements($Vector* elemVec) {
 	switch (this->type) {
 	case u'*':
-		{}
 	case u'?':
-		{}
 	case u'+':
-		{
-			$nc(($cast(ContentModel, this->content)))->getElements(elemVec);
-			break;
-		}
+		$nc($cast(ContentModel, this->content))->getElements(elemVec);
+		break;
 	case u',':
-		{}
 	case u'|':
-		{}
 	case u'&':
 		{
-			{
-				$var(ContentModel, m, $cast(ContentModel, this->content));
-				for (; m != nullptr; $assign(m, $nc(m)->next)) {
-					m->getElements(elemVec);
-				}
+			$var(ContentModel, m, $cast(ContentModel, this->content));
+			for (; m != nullptr; $assign(m, m->next)) {
+				m->getElements(elemVec);
 			}
 			break;
 		}
 	default:
-		{
-			$nc(elemVec)->addElement($cast($Element, this->content));
-		}
+		$nc(elemVec)->addElement($cast($Element, this->content));
 	}
 }
 
 bool ContentModel::first(Object$* token) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->type) {
 	case u'*':
-		{}
 	case u'?':
-		{}
 	case u'+':
-		{
-			return $nc(($cast(ContentModel, this->content)))->first(token);
-		}
+		return $nc($cast(ContentModel, this->content))->first(token);
 	case u',':
 		{
-			{
-				$var(ContentModel, m, $cast(ContentModel, this->content));
-				for (; m != nullptr; $assign(m, $nc(m)->next)) {
-					if (m->first(token)) {
-						return true;
-					}
-					if (!m->empty()) {
-						return false;
-					}
+			$var(ContentModel, m, $cast(ContentModel, this->content));
+			for (; m != nullptr; $assign(m, m->next)) {
+				if (m->first(token)) {
+					return true;
+				}
+				if (!m->empty()) {
+					return false;
 				}
 			}
 			return false;
 		}
 	case u'|':
-		{}
 	case u'&':
 		{
-			{
-				$var($Element, e, $cast($Element, token));
-				if (this->valSet == nullptr || $nc(this->valSet)->length <= $Element::getMaxIndex()) {
-					$set(this, valSet, $new($booleans, $Element::getMaxIndex() + 1));
-					$set(this, val, $new($booleans, $nc(this->valSet)->length));
-				}
-				if ($nc(this->valSet)->get($nc(e)->index)) {
-					return $nc(this->val)->get(e->index);
-				}
-				{
-					$var(ContentModel, m, $cast(ContentModel, this->content));
-					for (; m != nullptr; $assign(m, $nc(m)->next)) {
-						if (m->first(token)) {
-							$nc(this->val)->set($nc(e)->index, true);
-							break;
-						}
-					}
-				}
-				$nc(this->valSet)->set($nc(e)->index, true);
+			$var($Element, e, $cast($Element, token));
+			if (this->valSet == nullptr || this->valSet->length <= $Element::getMaxIndex()) {
+				$set(this, valSet, $new($booleans, $Element::getMaxIndex() + 1));
+				$set(this, val, $new($booleans, $nc(this->valSet)->length));
+			}
+			if ($nc(this->valSet)->get($nc(e)->index)) {
 				return $nc(this->val)->get(e->index);
 			}
+			{
+				$var(ContentModel, m, $cast(ContentModel, this->content));
+				for (; m != nullptr; $assign(m, m->next)) {
+					if (m->first(token)) {
+						$nc(this->val)->set(e->index, true);
+						break;
+					}
+				}
+			}
+			$nc(this->valSet)->set(e->index, true);
+			return $nc(this->val)->get(e->index);
 		}
 	default:
-		{
-			return ($equals(this->content, token));
-		}
+		return ($equals(this->content, token));
 	}
 }
 
 $Element* ContentModel::first() {
 	switch (this->type) {
 	case u'&':
-		{}
 	case u'|':
-		{}
 	case u'*':
-		{}
 	case u'?':
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case u'+':
-		{}
 	case u',':
-		{
-			return $nc(($cast(ContentModel, this->content)))->first();
-		}
+		return $nc($cast(ContentModel, this->content))->first();
 	default:
-		{
-			return $cast($Element, this->content);
-		}
+		return $cast($Element, this->content);
 	}
 }
 
 $String* ContentModel::toString() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($chars, data, nullptr)
-		$var($String, str, nullptr)
-		switch (this->type) {
-		case u'*':
+	$useLocalObjectStack();
+	$var($chars, data, nullptr);
+	$var($String, str, nullptr);
+	switch (this->type) {
+	case u'*':
+		return $str({this->content, "*"_s});
+	case u'?':
+		return $str({this->content, "?"_s});
+	case u'+':
+		return $str({this->content, "+"_s});
+	case u',':
+	case u'|':
+	case u'&':
+		{
+			$assign(data, $new($chars, {
+				u' ',
+				(char16_t)this->type,
+				u' '
+			}));
+			$assign(str, ""_s);
 			{
-				return $str({this->content, "*"_s});
-			}
-		case u'?':
-			{
-				return $str({this->content, "?"_s});
-			}
-		case u'+':
-			{
-				return $str({this->content, "+"_s});
-			}
-		case u',':
-			{}
-		case u'|':
-			{}
-		case u'&':
-			{
-				$assign(data, $new($chars, {
-					u' ',
-					(char16_t)this->type,
-					u' '
-				}));
-				$assign(str, ""_s);
-				{
-					$var(ContentModel, m, $cast(ContentModel, this->content));
-					for (; m != nullptr; $assign(m, $nc(m)->next)) {
-						$assign(str, $str({str, m}));
-						if (m->next != nullptr) {
-							$plusAssign(str, $$new($String, data));
-						}
+				$var(ContentModel, m, $cast(ContentModel, this->content));
+				for (; m != nullptr; $assign(m, m->next)) {
+					$assign(str, $str({str, m}));
+					if (m->next != nullptr) {
+						$plusAssign(str, $$new($String, data));
 					}
 				}
-				return $str({"("_s, str, ")"_s});
 			}
-		default:
-			{
-				return $nc($of(this->content))->toString();
-			}
+			return $str({"("_s, str, ")"_s});
 		}
+	default:
+		return $nc(this->content)->toString();
 	}
 }
 
@@ -281,7 +191,37 @@ ContentModel::ContentModel() {
 }
 
 $Class* ContentModel::load$($String* name, bool initialize) {
-	$loadClass(ContentModel, name, initialize, &_ContentModel_ClassInfo_, allocate$ContentModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "I", nullptr, $PUBLIC, $field(ContentModel, type)},
+		{"content", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ContentModel, content)},
+		{"next", "Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $field(ContentModel, next)},
+		{"valSet", "[Z", nullptr, $PRIVATE, $field(ContentModel, valSet)},
+		{"val", "[Z", nullptr, $PRIVATE, $field(ContentModel, val)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContentModel, init$, void)},
+		{"<init>", "(Ljavax/swing/text/html/parser/Element;)V", nullptr, $PUBLIC, $method(ContentModel, init$, void, $Element*)},
+		{"<init>", "(ILjavax/swing/text/html/parser/ContentModel;)V", nullptr, $PUBLIC, $method(ContentModel, init$, void, int32_t, ContentModel*)},
+		{"<init>", "(ILjava/lang/Object;Ljavax/swing/text/html/parser/ContentModel;)V", nullptr, $PUBLIC, $method(ContentModel, init$, void, int32_t, Object$*, ContentModel*)},
+		{"empty", "()Z", nullptr, $PUBLIC, $method(ContentModel, empty, bool)},
+		{"first", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(ContentModel, first, bool, Object$*)},
+		{"first", "()Ljavax/swing/text/html/parser/Element;", nullptr, $PUBLIC, $method(ContentModel, first, $Element*)},
+		{"getElements", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<Ljavax/swing/text/html/parser/Element;>;)V", $PUBLIC, $method(ContentModel, getElements, void, $Vector*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ContentModel, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.text.html.parser.ContentModel",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContentModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContentModel);
+	});
 	return class$;
 }
 

@@ -26,7 +26,10 @@ public:
 	static const int64_t serialVersionUID = (-1);
 	Option$InvalidValueException(const Option$InvalidValueException& e);
 	virtual void throw$() override;
-	inline Option$InvalidValueException* operator ->() {
+	inline Option$InvalidValueException* operator ->() const {
+		return (Option$InvalidValueException*)throwing$;
+	}
+	inline operator Option$InvalidValueException*() const {
 		return (Option$InvalidValueException*)throwing$;
 	}
 };

@@ -34,13 +34,14 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Class* getCategory() override;
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $String* getName() override;
 	virtual $StringArray* getStringTable() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xA060B417F4C1E81A;
+	static const int64_t serialVersionUID = (int64_t)0xa060b417f4c1e81a;
 	static ::javax::print::attribute::standard::Sides* ONE_SIDED;
 	static ::javax::print::attribute::standard::Sides* TWO_SIDED_LONG_EDGE;
 	static ::javax::print::attribute::standard::Sides* TWO_SIDED_SHORT_EDGE;

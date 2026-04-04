@@ -1,5 +1,4 @@
 #include <javax/swing/text/JTextComponent$KeymapWrapper.h>
-
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/InputMap.h>
@@ -24,45 +23,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _JTextComponent$KeymapWrapper_FieldInfo_[] = {
-	{"DefaultActionKey", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(JTextComponent$KeymapWrapper, DefaultActionKey)},
-	{"keymap", "Ljavax/swing/text/Keymap;", nullptr, $PRIVATE, $field(JTextComponent$KeymapWrapper, keymap)},
-	{}
-};
-
-$MethodInfo _JTextComponent$KeymapWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Keymap;)V", nullptr, 0, $method(JTextComponent$KeymapWrapper, init$, void, $Keymap*)},
-	{"get", "(Ljavax/swing/KeyStroke;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$KeymapWrapper, get, $Object*, $KeyStroke*)},
-	{"keys", "()[Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$KeymapWrapper, keys, $KeyStrokeArray*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$KeymapWrapper, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JTextComponent$KeymapWrapper_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$KeymapWrapper", "javax.swing.text.JTextComponent", "KeymapWrapper", $STATIC},
-	{}
-};
-
-$ClassInfo _JTextComponent$KeymapWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.JTextComponent$KeymapWrapper",
-	"javax.swing.InputMap",
-	nullptr,
-	_JTextComponent$KeymapWrapper_FieldInfo_,
-	_JTextComponent$KeymapWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextComponent$KeymapWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.JTextComponent"
-};
-
-$Object* allocate$JTextComponent$KeymapWrapper($Class* clazz) {
-	return $of($alloc(JTextComponent$KeymapWrapper));
-}
-
 $Object* JTextComponent$KeymapWrapper::DefaultActionKey = nullptr;
 
 void JTextComponent$KeymapWrapper::init$($Keymap* keymap) {
@@ -71,11 +31,11 @@ void JTextComponent$KeymapWrapper::init$($Keymap* keymap) {
 }
 
 $KeyStrokeArray* JTextComponent$KeymapWrapper::keys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyStrokeArray, sKeys, $InputMap::keys());
 	$var($KeyStrokeArray, keymapKeys, $nc(this->keymap)->getBoundKeyStrokes());
-	int32_t sCount = (sKeys == nullptr) ? 0 : $nc(sKeys)->length;
-	int32_t keymapCount = (keymapKeys == nullptr) ? 0 : $nc(keymapKeys)->length;
+	int32_t sCount = (sKeys == nullptr) ? 0 : sKeys->length;
+	int32_t keymapCount = (keymapKeys == nullptr) ? 0 : keymapKeys->length;
 	if (sCount == 0) {
 		return keymapKeys;
 	}
@@ -90,7 +50,7 @@ $KeyStrokeArray* JTextComponent$KeymapWrapper::keys() {
 
 int32_t JTextComponent$KeymapWrapper::size() {
 	$var($KeyStrokeArray, keymapStrokes, $nc(this->keymap)->getBoundKeyStrokes());
-	int32_t keymapCount = (keymapStrokes == nullptr) ? 0 : $nc(keymapStrokes)->length;
+	int32_t keymapCount = (keymapStrokes == nullptr) ? 0 : keymapStrokes->length;
 	return $InputMap::size() + keymapCount;
 }
 
@@ -103,10 +63,10 @@ $Object* JTextComponent$KeymapWrapper::get($KeyStroke* keyStroke) {
 			$assign(retValue, JTextComponent$KeymapWrapper::DefaultActionKey);
 		}
 	}
-	return $of(retValue);
+	return retValue;
 }
 
-void clinit$JTextComponent$KeymapWrapper($Class* class$) {
+void JTextComponent$KeymapWrapper::clinit$($Class* clazz) {
 	$assignStatic(JTextComponent$KeymapWrapper::DefaultActionKey, $new($Object));
 }
 
@@ -114,7 +74,40 @@ JTextComponent$KeymapWrapper::JTextComponent$KeymapWrapper() {
 }
 
 $Class* JTextComponent$KeymapWrapper::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent$KeymapWrapper, name, initialize, &_JTextComponent$KeymapWrapper_ClassInfo_, clinit$JTextComponent$KeymapWrapper, allocate$JTextComponent$KeymapWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"DefaultActionKey", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(JTextComponent$KeymapWrapper, DefaultActionKey)},
+		{"keymap", "Ljavax/swing/text/Keymap;", nullptr, $PRIVATE, $field(JTextComponent$KeymapWrapper, keymap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Keymap;)V", nullptr, 0, $method(JTextComponent$KeymapWrapper, init$, void, $Keymap*)},
+		{"get", "(Ljavax/swing/KeyStroke;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$KeymapWrapper, get, $Object*, $KeyStroke*)},
+		{"keys", "()[Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(JTextComponent$KeymapWrapper, keys, $KeyStrokeArray*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$KeymapWrapper, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$KeymapWrapper", "javax.swing.text.JTextComponent", "KeymapWrapper", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.JTextComponent$KeymapWrapper",
+		"javax.swing.InputMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.JTextComponent"
+	};
+	$loadClass(JTextComponent$KeymapWrapper, name, initialize, &classInfo$$, JTextComponent$KeymapWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextComponent$KeymapWrapper);
+	});
 	return class$;
 }
 

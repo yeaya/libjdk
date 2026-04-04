@@ -1,5 +1,4 @@
 #include <java/rmi/StubNotFoundException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _StubNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StubNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StubNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StubNotFoundException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(StubNotFoundException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _StubNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.StubNotFoundException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_StubNotFoundException_FieldInfo_,
-	_StubNotFoundException_MethodInfo_
-};
-
-$Object* allocate$StubNotFoundException($Class* clazz) {
-	return $of($alloc(StubNotFoundException));
-}
 
 void StubNotFoundException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -55,7 +30,26 @@ void StubNotFoundException::throw$() {
 }
 
 $Class* StubNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(StubNotFoundException, name, initialize, &_StubNotFoundException_ClassInfo_, allocate$StubNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StubNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StubNotFoundException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(StubNotFoundException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.StubNotFoundException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StubNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StubNotFoundException);
+	});
 	return class$;
 }
 

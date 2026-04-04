@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIUtils$InternalFrame.h>
-
 #include <apple/laf/JRSUIUtils.h>
 #include <jcpp.h>
 
@@ -10,37 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace apple {
 	namespace laf {
-
-$MethodInfo _JRSUIUtils$InternalFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$InternalFrame, init$, void)},
-	{"shouldUseLegacyBorderMetrics", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$InternalFrame, shouldUseLegacyBorderMetrics, bool)},
-	{}
-};
-
-$InnerClassInfo _JRSUIUtils$InternalFrame_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIUtils$InternalFrame", "apple.laf.JRSUIUtils", "InternalFrame", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIUtils$InternalFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIUtils$InternalFrame",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JRSUIUtils$InternalFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIUtils$InternalFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIUtils"
-};
-
-$Object* allocate$JRSUIUtils$InternalFrame($Class* clazz) {
-	return $of($alloc(JRSUIUtils$InternalFrame));
-}
 
 void JRSUIUtils$InternalFrame::init$() {
 }
@@ -54,7 +22,33 @@ JRSUIUtils$InternalFrame::JRSUIUtils$InternalFrame() {
 }
 
 $Class* JRSUIUtils$InternalFrame::load$($String* name, bool initialize) {
-	$loadClass(JRSUIUtils$InternalFrame, name, initialize, &_JRSUIUtils$InternalFrame_ClassInfo_, allocate$JRSUIUtils$InternalFrame);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$InternalFrame, init$, void)},
+		{"shouldUseLegacyBorderMetrics", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$InternalFrame, shouldUseLegacyBorderMetrics, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIUtils$InternalFrame", "apple.laf.JRSUIUtils", "InternalFrame", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIUtils$InternalFrame",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIUtils"
+	};
+	$loadClass(JRSUIUtils$InternalFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIUtils$InternalFrame);
+	});
 	return class$;
 }
 

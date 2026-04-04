@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/LineView.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -46,37 +45,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _LineView_FieldInfo_[] = {
-	{"tabBase", "I", nullptr, 0, $field(LineView, tabBase)},
-	{}
-};
-
-$MethodInfo _LineView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(LineView, init$, void, $Element*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(LineView, getAlignment, float, int32_t)},
-	{"getCharactersPerTab", "()I", nullptr, $PROTECTED, $virtualMethod(LineView, getCharactersPerTab, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(LineView, getMinimumSpan, float, int32_t)},
-	{"getPreTab", "(FI)F", nullptr, $PROTECTED, $virtualMethod(LineView, getPreTab, float, float, int32_t)},
-	{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(LineView, getResizeWeight, int32_t, int32_t)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(LineView, isVisible, bool)},
-	{"layout", "(II)V", nullptr, $PROTECTED, $virtualMethod(LineView, layout, void, int32_t, int32_t)},
-	{"nextTabStop", "(FI)F", nullptr, $PUBLIC, $virtualMethod(LineView, nextTabStop, float, float, int32_t)},
-	{}
-};
-
-$ClassInfo _LineView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.LineView",
-	"javax.swing.text.html.ParagraphView",
-	nullptr,
-	_LineView_FieldInfo_,
-	_LineView_MethodInfo_
-};
-
-$Object* allocate$LineView($Class* clazz) {
-	return $of($alloc(LineView));
-}
-
 void LineView::init$($Element* elem) {
 	$ParagraphView::init$(elem);
 }
@@ -90,26 +58,20 @@ float LineView::getMinimumSpan(int32_t axis) {
 }
 
 int32_t LineView::getResizeWeight(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (axis) {
 	case $View::X_AXIS:
-		{
-			return 1;
-		}
+		return 1;
 	case $View::Y_AXIS:
-		{
-			return 0;
-		}
+		return 0;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
 float LineView::getAlignment(int32_t axis) {
 	if (axis == $View::X_AXIS) {
-		return (float)0;
+		return 0;
 	}
 	return $ParagraphView::getAlignment(axis);
 }
@@ -127,13 +89,13 @@ float LineView::nextTabStop(float x, int32_t tabOffset) {
 }
 
 float LineView::getPreTab(float x, int32_t tabOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, d, getDocument());
 	$var($View, v, getViewAtPosition(tabOffset, nullptr));
 	if (($instanceOf($StyledDocument, d)) && v != nullptr) {
-		$var($Font, f, $nc(($cast($StyledDocument, d)))->getFont($(v->getAttributes())));
+		$var($Font, f, $cast($StyledDocument, d)->getFont($(v->getAttributes())));
 		$var($Container, c, getContainer());
-		$var($FontMetrics, fm, (c != nullptr) ? $nc(c)->getFontMetrics(f) : $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics(f));
+		$var($FontMetrics, fm, (c != nullptr) ? c->getFontMetrics(f) : $$nc($Toolkit::getDefaultToolkit())->getFontMetrics(f));
 		int32_t var$0 = getCharactersPerTab();
 		int32_t width = var$0 * $nc(fm)->charWidth(u'W');
 		int32_t tb = $cast(int32_t, getTabBase());
@@ -150,7 +112,33 @@ LineView::LineView() {
 }
 
 $Class* LineView::load$($String* name, bool initialize) {
-	$loadClass(LineView, name, initialize, &_LineView_ClassInfo_, allocate$LineView);
+	$FieldInfo fieldInfos$$[] = {
+		{"tabBase", "I", nullptr, 0, $field(LineView, tabBase)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(LineView, init$, void, $Element*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(LineView, getAlignment, float, int32_t)},
+		{"getCharactersPerTab", "()I", nullptr, $PROTECTED, $virtualMethod(LineView, getCharactersPerTab, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(LineView, getMinimumSpan, float, int32_t)},
+		{"getPreTab", "(FI)F", nullptr, $PROTECTED, $virtualMethod(LineView, getPreTab, float, float, int32_t)},
+		{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(LineView, getResizeWeight, int32_t, int32_t)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(LineView, isVisible, bool)},
+		{"layout", "(II)V", nullptr, $PROTECTED, $virtualMethod(LineView, layout, void, int32_t, int32_t)},
+		{"nextTabStop", "(FI)F", nullptr, $PUBLIC, $virtualMethod(LineView, nextTabStop, float, float, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.LineView",
+		"javax.swing.text.html.ParagraphView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LineView));
+	});
 	return class$;
 }
 

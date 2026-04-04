@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ModuleTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/ModuleTree$ModuleKind.h>
 #include <java/util/List.h>
@@ -17,40 +16,35 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ModuleTree_MethodInfo_[] = {
-	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getAnnotations, $List*)},
-	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/DirectiveTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getDirectives, $List*)},
-	{"getModuleType", "()Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getModuleType, $ModuleTree$ModuleKind*)},
-	{"getName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getName, $ExpressionTree*)},
-	{}
-};
-
-$InnerClassInfo _ModuleTree_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.ModuleTree$ModuleKind", "com.sun.source.tree.ModuleTree", "ModuleKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ModuleTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ModuleTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_ModuleTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.ModuleTree$ModuleKind"
-};
-
-$Object* allocate$ModuleTree($Class* clazz) {
-	return $of($alloc(ModuleTree));
-}
-
 $Class* ModuleTree::load$($String* name, bool initialize) {
-	$loadClass(ModuleTree, name, initialize, &_ModuleTree_ClassInfo_, allocate$ModuleTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getAnnotations, $List*)},
+		{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/DirectiveTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getDirectives, $List*)},
+		{"getModuleType", "()Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getModuleType, $ModuleTree$ModuleKind*)},
+		{"getName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getName, $ExpressionTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.ModuleTree$ModuleKind", "com.sun.source.tree.ModuleTree", "ModuleKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ModuleTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.ModuleTree$ModuleKind"
+	};
+	$loadClass(ModuleTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleTree);
+	});
 	return class$;
 }
 

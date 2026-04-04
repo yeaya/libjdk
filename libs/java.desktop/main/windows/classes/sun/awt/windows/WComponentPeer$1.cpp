@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WComponentPeer$1.h>
-
 #include <java/awt/Container.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/java2d/InvalidPipeException.h>
@@ -23,49 +22,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WComponentPeer$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/windows/WComponentPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WComponentPeer$1, this$0)},
-	{"val$cont", "Ljava/awt/Container;", nullptr, $FINAL | $SYNTHETIC, $field(WComponentPeer$1, val$cont)},
-	{}
-};
-
-$MethodInfo _WComponentPeer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Container;)V", "()V", 0, $method(WComponentPeer$1, init$, void, $WComponentPeer*, $Container*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WComponentPeer$1_EnclosingMethodInfo_ = {
-	"sun.awt.windows.WComponentPeer",
-	"dynamicallyLayoutContainer",
-	"()V"
-};
-
-$InnerClassInfo _WComponentPeer$1_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WComponentPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WComponentPeer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WComponentPeer$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WComponentPeer$1_FieldInfo_,
-	_WComponentPeer$1_MethodInfo_,
-	nullptr,
-	&_WComponentPeer$1_EnclosingMethodInfo_,
-	_WComponentPeer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WComponentPeer"
-};
-
-$Object* allocate$WComponentPeer$1($Class* clazz) {
-	return $of($alloc(WComponentPeer$1));
-}
-
 void WComponentPeer$1::init$($WComponentPeer* this$0, $Container* val$cont) {
 	$set(this, this$0, this$0);
 	$set(this, val$cont, val$cont);
@@ -73,7 +29,7 @@ void WComponentPeer$1::init$($WComponentPeer* this$0, $Container* val$cont) {
 
 void WComponentPeer$1::run() {
 	$nc(this->val$cont)->invalidate();
-	$nc(this->val$cont)->validate();
+	this->val$cont->validate();
 	if ($instanceOf($D3DSurfaceData$D3DWindowSurfaceData, this->this$0->surfaceData) || $instanceOf($OGLSurfaceData, this->this$0->surfaceData)) {
 		try {
 			this->this$0->replaceSurfaceData();
@@ -86,7 +42,43 @@ WComponentPeer$1::WComponentPeer$1() {
 }
 
 $Class* WComponentPeer$1::load$($String* name, bool initialize) {
-	$loadClass(WComponentPeer$1, name, initialize, &_WComponentPeer$1_ClassInfo_, allocate$WComponentPeer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/windows/WComponentPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WComponentPeer$1, this$0)},
+		{"val$cont", "Ljava/awt/Container;", nullptr, $FINAL | $SYNTHETIC, $field(WComponentPeer$1, val$cont)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Container;)V", "()V", 0, $method(WComponentPeer$1, init$, void, $WComponentPeer*, $Container*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.windows.WComponentPeer",
+		"dynamicallyLayoutContainer",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WComponentPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WComponentPeer$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WComponentPeer"
+	};
+	$loadClass(WComponentPeer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WComponentPeer$1);
+	});
 	return class$;
 }
 

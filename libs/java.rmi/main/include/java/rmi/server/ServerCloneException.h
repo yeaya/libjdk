@@ -25,10 +25,13 @@ public:
 	virtual $Throwable* getCause() override;
 	virtual $String* getMessage() override;
 	::java::lang::Exception* detail = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x5BD5ED7F1B42FB49;
+	static const int64_t serialVersionUID = (int64_t)0x5bd5ed7f1b42fb49;
 	ServerCloneException(const ServerCloneException& e);
 	virtual void throw$() override;
-	inline ServerCloneException* operator ->() {
+	inline ServerCloneException* operator ->() const {
+		return (ServerCloneException*)throwing$;
+	}
+	inline operator ServerCloneException*() const {
 		return (ServerCloneException*)throwing$;
 	}
 };

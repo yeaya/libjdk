@@ -20,6 +20,7 @@ class AWTInputMethodPopupMenu : public ::sun::awt::im::InputMethodPopupMenu {
 	$class(AWTInputMethodPopupMenu, 0, ::sun::awt::im::InputMethodPopupMenu)
 public:
 	AWTInputMethodPopupMenu();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* title);
 	virtual void add(Object$* menuItem) override;
 	virtual void addMenuItem($String* label, $String* command, $String* currentSelection) override;

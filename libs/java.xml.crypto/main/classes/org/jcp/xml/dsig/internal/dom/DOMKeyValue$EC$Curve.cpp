@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$EC$Curve.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/ECParameterSpec.h>
 #include <java/security/spec/ECPoint.h>
@@ -23,45 +22,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMKeyValue$EC$Curve_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyValue$EC$Curve, name)},
-	{"oid", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyValue$EC$Curve, oid)},
-	{}
-};
-
-$MethodInfo _DOMKeyValue$EC$Curve_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(DOMKeyValue$EC$Curve, init$, void, $String*, $String*, $EllipticCurve*, $ECPoint*, $BigInteger*, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMKeyValue$EC$Curve, getName, $String*)},
-	{"getObjectId", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMKeyValue$EC$Curve, getObjectId, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMKeyValue$EC$Curve_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "EC", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC$Curve", "org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC", "Curve", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMKeyValue$EC$Curve_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC$Curve",
-	"java.security.spec.ECParameterSpec",
-	nullptr,
-	_DOMKeyValue$EC$Curve_FieldInfo_,
-	_DOMKeyValue$EC$Curve_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMKeyValue$EC$Curve_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
-};
-
-$Object* allocate$DOMKeyValue$EC$Curve($Class* clazz) {
-	return $of($alloc(DOMKeyValue$EC$Curve));
-}
-
 void DOMKeyValue$EC$Curve::init$($String* name, $String* oid, $EllipticCurve* curve, $ECPoint* g, $BigInteger* n, int32_t h) {
 	$ECParameterSpec::init$(curve, g, n, h);
 	$set(this, name, name);
@@ -80,7 +40,40 @@ DOMKeyValue$EC$Curve::DOMKeyValue$EC$Curve() {
 }
 
 $Class* DOMKeyValue$EC$Curve::load$($String* name, bool initialize) {
-	$loadClass(DOMKeyValue$EC$Curve, name, initialize, &_DOMKeyValue$EC$Curve_ClassInfo_, allocate$DOMKeyValue$EC$Curve);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyValue$EC$Curve, name)},
+		{"oid", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DOMKeyValue$EC$Curve, oid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(DOMKeyValue$EC$Curve, init$, void, $String*, $String*, $EllipticCurve*, $ECPoint*, $BigInteger*, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMKeyValue$EC$Curve, getName, $String*)},
+		{"getObjectId", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DOMKeyValue$EC$Curve, getObjectId, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "EC", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC$Curve", "org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC", "Curve", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue$EC$Curve",
+		"java.security.spec.ECParameterSpec",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
+	};
+	$loadClass(DOMKeyValue$EC$Curve, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMKeyValue$EC$Curve);
+	});
 	return class$;
 }
 

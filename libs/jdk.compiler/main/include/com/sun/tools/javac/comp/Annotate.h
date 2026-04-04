@@ -95,6 +95,7 @@ class $import Annotate : public ::java::lang::Object {
 	$class(Annotate, 0, ::java::lang::Object)
 public:
 	Annotate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void afterTypes(::java::lang::Runnable* a);
 	virtual void annotateDefaultValueLater(::com::sun::tools::javac::tree::JCTree$JCExpression* defaultValue, ::com::sun::tools::javac::comp::Env* localEnv, ::com::sun::tools::javac::code::Symbol$MethodSymbol* m, ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* deferPos);

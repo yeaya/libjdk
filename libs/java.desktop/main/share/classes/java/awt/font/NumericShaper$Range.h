@@ -96,6 +96,7 @@ class $export NumericShaper$Range : public ::java::lang::Enum {
 public:
 	NumericShaper$Range();
 	static $Array<::java::awt::font::NumericShaper$Range>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t base, int32_t start, int32_t end);
 	int32_t getDigitBase();
 	virtual char16_t getNumericBase();

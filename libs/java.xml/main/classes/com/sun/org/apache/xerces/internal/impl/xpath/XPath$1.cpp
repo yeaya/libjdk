@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$1.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Scanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath.h>
@@ -39,50 +38,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 
-$FieldInfo _XPath$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath;", nullptr, $FINAL | $SYNTHETIC, $field(XPath$1, this$0)},
-	{}
-};
-
-$MethodInfo _XPath$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, 0, $method(XPath$1, init$, void, $XPath*, $SymbolTable*)},
-	{"addToken", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;I)V", nullptr, $PROTECTED, $virtualMethod(XPath$1, addToken, void, $XPath$Tokens*, int32_t), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
-	{}
-};
-
-$EnclosingMethodInfo _XPath$1_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath",
-	"parseExpression",
-	"(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)[Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$LocationPath;"
-};
-
-$InnerClassInfo _XPath$1_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$1", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "Scanner", $PRIVATE | $STATIC},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$LocationPath", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "LocationPath", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XPath$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath$1",
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner",
-	nullptr,
-	_XPath$1_FieldInfo_,
-	_XPath$1_MethodInfo_,
-	nullptr,
-	&_XPath$1_EnclosingMethodInfo_,
-	_XPath$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath"
-};
-
-$Object* allocate$XPath$1($Class* clazz) {
-	return $of($alloc(XPath$1));
-}
-
 void XPath$1::init$($XPath* this$0, $SymbolTable* symbolTable) {
 	$set(this, this$0, this$0);
 	$XPath$Scanner::init$(symbolTable);
@@ -100,7 +55,44 @@ XPath$1::XPath$1() {
 }
 
 $Class* XPath$1::load$($String* name, bool initialize) {
-	$loadClass(XPath$1, name, initialize, &_XPath$1_ClassInfo_, allocate$XPath$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath;", nullptr, $FINAL | $SYNTHETIC, $field(XPath$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, 0, $method(XPath$1, init$, void, $XPath*, $SymbolTable*)},
+		{"addToken", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;I)V", nullptr, $PROTECTED, $virtualMethod(XPath$1, addToken, void, $XPath$Tokens*, int32_t), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath",
+		"parseExpression",
+		"(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)[Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$LocationPath;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$1", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "Scanner", $PRIVATE | $STATIC},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$LocationPath", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "LocationPath", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath$1",
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath"
+	};
+	$loadClass(XPath$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPath$1);
+	});
 	return class$;
 }
 

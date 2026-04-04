@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/resources/launcher.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,91 +13,72 @@ namespace com {
 			namespace javac {
 				namespace resources {
 
-$MethodInfo _launcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(launcher, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _launcher_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.resources.launcher",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_launcher_MethodInfo_
-};
-
-$Object* allocate$launcher($Class* clazz) {
-	return $of($alloc(launcher));
-}
-
 void launcher::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* launcher::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("launcher.err.cant.access.main.method"_s),
-			$of("can\'\'t access main method in class: {0}"_s)
+			"launcher.err.cant.access.main.method"_s,
+			"can\'\'t access main method in class: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.cant.find.class"_s),
-			$of("can\'\'t find class: {0}"_s)
+			"launcher.err.cant.find.class"_s,
+			"can\'\'t find class: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.cant.find.main.method"_s),
-			$of("can\'\'t find main(String[]) method in class: {0}"_s)
+			"launcher.err.cant.find.main.method"_s,
+			"can\'\'t find main(String[]) method in class: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.cant.read.file"_s),
-			$of("error reading source file {0}: {1}"_s)
+			"launcher.err.cant.read.file"_s,
+			"error reading source file {0}: {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.compilation.failed"_s),
-			$of("compilation failed"_s)
+			"launcher.err.compilation.failed"_s,
+			"compilation failed"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.enable.preview.requires.source"_s),
-			$of("--enable-preview must be used with --source"_s)
+			"launcher.err.enable.preview.requires.source"_s,
+			"--enable-preview must be used with --source"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.file.not.found"_s),
-			$of("source file not found: {0}"_s)
+			"launcher.err.file.not.found"_s,
+			"source file not found: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.invalid.filename"_s),
-			$of("invalid path for source file: {0}"_s)
+			"launcher.err.invalid.filename"_s,
+			"invalid path for source file: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.invalid.value.for.source"_s),
-			$of("invalid value for --source option: {0}"_s)
+			"launcher.err.invalid.value.for.source"_s,
+			"invalid value for --source option: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.main.not.public.static"_s),
-			$of("\'\'main\'\' method is not declared \'\'public static\'\'"_s)
+			"launcher.err.main.not.public.static"_s,
+			"\'\'main\'\' method is not declared \'\'public static\'\'"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.main.not.void"_s),
-			$of("\'\'main\'\' method is not declared with a return type of \'\'void\'\'"_s)
+			"launcher.err.main.not.void"_s,
+			"\'\'main\'\' method is not declared with a return type of \'\'void\'\'"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.no.args"_s),
-			$of("no path for source file"_s)
+			"launcher.err.no.args"_s,
+			"no path for source file"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.no.class"_s),
-			$of("no class declared in source file"_s)
+			"launcher.err.no.class"_s,
+			"no class declared in source file"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.err.no.value.for.option"_s),
-			$of("no value given for option: {0}"_s)
+			"launcher.err.no.value.for.option"_s,
+			"no value given for option: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("launcher.error"_s),
-			$of("error: "_s)
+			"launcher.error"_s,
+			"error: "_s
 		})
 	});
 }
@@ -107,7 +87,22 @@ launcher::launcher() {
 }
 
 $Class* launcher::load$($String* name, bool initialize) {
-	$loadClass(launcher, name, initialize, &_launcher_ClassInfo_, allocate$launcher);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(launcher, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.resources.launcher",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(launcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(launcher);
+	});
 	return class$;
 }
 

@@ -1,7 +1,5 @@
 #include <sun/awt/X11/Native.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Vector.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native$1.h>
@@ -16,7 +14,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Vector = ::java::util::Vector;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native$1 = ::sun::awt::X11::Native$1;
@@ -25,107 +22,6 @@ using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _Native_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(Native, unsafe)},
-	{"longSize", "I", nullptr, $STATIC, $staticField(Native, longSize)},
-	{"dataModel", "I", nullptr, $STATIC, $staticField(Native, dataModel)},
-	{}
-};
-
-$MethodInfo _Native_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Native, init$, void)},
-	{"allocateLongArray", "(I)J", nullptr, $STATIC, $staticMethod(Native, allocateLongArray, int64_t, int32_t)},
-	{"card32ToArray", "(JI)[J", nullptr, $STATIC, $staticMethod(Native, card32ToArray, $longs*, int64_t, int32_t)},
-	{"card32ToData", "([J)J", nullptr, $STATIC, $staticMethod(Native, card32ToData, int64_t, $longs*)},
-	{"getBool", "(J)Z", nullptr, $STATIC, $staticMethod(Native, getBool, bool, int64_t)},
-	{"getBool", "(JI)Z", nullptr, $STATIC, $staticMethod(Native, getBool, bool, int64_t, int32_t)},
-	{"getByte", "(J)B", nullptr, $STATIC, $staticMethod(Native, getByte, int8_t, int64_t)},
-	{"getByte", "(JI)B", nullptr, $STATIC, $staticMethod(Native, getByte, int8_t, int64_t, int32_t)},
-	{"getByteSize", "()I", nullptr, $STATIC, $staticMethod(Native, getByteSize, int32_t)},
-	{"getCard32", "(J)J", nullptr, $STATIC, $staticMethod(Native, getCard32, int64_t, int64_t)},
-	{"getCard32", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getCard32, int64_t, int64_t, int32_t)},
-	{"getCard32Size", "()I", nullptr, $STATIC, $staticMethod(Native, getCard32Size, int32_t)},
-	{"getInt", "(J)I", nullptr, $STATIC, $staticMethod(Native, getInt, int32_t, int64_t)},
-	{"getInt", "(JI)I", nullptr, $STATIC, $staticMethod(Native, getInt, int32_t, int64_t, int32_t)},
-	{"getIntSize", "()I", nullptr, $STATIC, $staticMethod(Native, getIntSize, int32_t)},
-	{"getLong", "(J)J", nullptr, $STATIC, $staticMethod(Native, getLong, int64_t, int64_t)},
-	{"getLong", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getLong, int64_t, int64_t, int32_t)},
-	{"getLongSize", "()I", nullptr, $STATIC, $staticMethod(Native, getLongSize, int32_t)},
-	{"getShort", "(J)S", nullptr, $STATIC, $staticMethod(Native, getShort, int16_t, int64_t)},
-	{"getShortSize", "()I", nullptr, $STATIC, $staticMethod(Native, getShortSize, int32_t)},
-	{"getUByte", "(J)S", nullptr, $STATIC, $staticMethod(Native, getUByte, int16_t, int64_t)},
-	{"getUByte", "(JI)S", nullptr, $STATIC, $staticMethod(Native, getUByte, int16_t, int64_t, int32_t)},
-	{"getUByteSize", "()I", nullptr, $STATIC, $staticMethod(Native, getUByteSize, int32_t)},
-	{"getUInt", "(J)J", nullptr, $STATIC, $staticMethod(Native, getUInt, int64_t, int64_t)},
-	{"getUInt", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getUInt, int64_t, int64_t, int32_t)},
-	{"getUIntSize", "()I", nullptr, $STATIC, $staticMethod(Native, getUIntSize, int32_t)},
-	{"getULong", "(J)J", nullptr, $STATIC, $staticMethod(Native, getULong, int64_t, int64_t)},
-	{"getUShort", "(J)I", nullptr, $STATIC, $staticMethod(Native, getUShort, int32_t, int64_t)},
-	{"getUShortSize", "()I", nullptr, $STATIC, $staticMethod(Native, getUShortSize, int32_t)},
-	{"getWindow", "(J)J", nullptr, $STATIC, $staticMethod(Native, getWindow, int64_t, int64_t)},
-	{"getWindow", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getWindow, int64_t, int64_t, int32_t)},
-	{"getWindowSize", "()I", nullptr, $STATIC, $staticMethod(Native, getWindowSize, int32_t)},
-	{"put", "(J[J)V", nullptr, $STATIC, $staticMethod(Native, put, void, int64_t, $longs*)},
-	{"putBool", "(JZ)V", nullptr, $STATIC, $staticMethod(Native, putBool, void, int64_t, bool)},
-	{"putBool", "(JIZ)V", nullptr, $STATIC, $staticMethod(Native, putBool, void, int64_t, int32_t, bool)},
-	{"putByte", "(JB)V", nullptr, $STATIC, $staticMethod(Native, putByte, void, int64_t, int8_t)},
-	{"putByte", "(JIB)V", nullptr, $STATIC, $staticMethod(Native, putByte, void, int64_t, int32_t, int8_t)},
-	{"putCard32", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putCard32, void, int64_t, int64_t)},
-	{"putCard32", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putCard32, void, int64_t, int32_t, int64_t)},
-	{"putInt", "(JI)V", nullptr, $STATIC, $staticMethod(Native, putInt, void, int64_t, int32_t)},
-	{"putInt", "(JII)V", nullptr, $STATIC, $staticMethod(Native, putInt, void, int64_t, int32_t, int32_t)},
-	{"putLong", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putLong, void, int64_t, int64_t)},
-	{"putLong", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putLong, void, int64_t, int32_t, int64_t)},
-	{"putLong", "(JLjava/util/Vector;)V", "(JLjava/util/Vector<Ljava/lang/Long;>;)V", $STATIC, $staticMethod(Native, putLong, void, int64_t, $Vector*)},
-	{"putLongReverse", "(JLjava/util/Vector;)V", "(JLjava/util/Vector<Ljava/lang/Long;>;)V", $STATIC, $staticMethod(Native, putLongReverse, void, int64_t, $Vector*)},
-	{"putShort", "(JS)V", nullptr, $STATIC, $staticMethod(Native, putShort, void, int64_t, int16_t)},
-	{"putShort", "(JIS)V", nullptr, $STATIC, $staticMethod(Native, putShort, void, int64_t, int32_t, int16_t)},
-	{"putUByte", "(JS)V", nullptr, $STATIC, $staticMethod(Native, putUByte, void, int64_t, int16_t)},
-	{"putUByte", "(JIS)V", nullptr, $STATIC, $staticMethod(Native, putUByte, void, int64_t, int32_t, int16_t)},
-	{"putUInt", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putUInt, void, int64_t, int64_t)},
-	{"putUInt", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putUInt, void, int64_t, int32_t, int64_t)},
-	{"putULong", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putULong, void, int64_t, int64_t)},
-	{"putUShort", "(JI)V", nullptr, $STATIC, $staticMethod(Native, putUShort, void, int64_t, int32_t)},
-	{"putUShort", "(JII)V", nullptr, $STATIC, $staticMethod(Native, putUShort, void, int64_t, int32_t, int32_t)},
-	{"putWindow", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putWindow, void, int64_t, int64_t)},
-	{"putWindow", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putWindow, void, int64_t, int32_t, int64_t)},
-	{"toBytes", "(JI)[B", nullptr, $STATIC, $staticMethod(Native, toBytes, $bytes*, int64_t, int32_t)},
-	{"toData", "([B)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $bytes*)},
-	{"toData", "([S)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $shorts*)},
-	{"toData", "([I)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $ints*)},
-	{"toData", "([J)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $longs*)},
-	{"toLongs", "(JI)[J", nullptr, $STATIC, $staticMethod(Native, toLongs, $longs*, int64_t, int32_t)},
-	{"toUBytes", "(JI)[S", nullptr, $STATIC, $staticMethod(Native, toUBytes, $shorts*, int64_t, int32_t)},
-	{"toUData", "([S)J", nullptr, $STATIC, $staticMethod(Native, toUData, int64_t, $shorts*)},
-	{"toUData", "([I)J", nullptr, $STATIC, $staticMethod(Native, toUData, int64_t, $ints*)},
-	{"toUData", "([J)J", nullptr, $STATIC, $staticMethod(Native, toUData, int64_t, $longs*)},
-	{}
-};
-
-$InnerClassInfo _Native_InnerClassesInfo_[] = {
-	{"sun.awt.X11.Native$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Native_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.Native",
-	"java.lang.Object",
-	nullptr,
-	_Native_FieldInfo_,
-	_Native_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Native_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.Native$1"
-};
-
-$Object* allocate$Native($Class* clazz) {
-	return $of($alloc(Native));
-}
 
 $Unsafe* Native::unsafe = nullptr;
 int32_t Native::longSize = 0;
@@ -198,7 +94,7 @@ int64_t Native::toData($bytes* bytes) {
 	}
 	$init($XlibWrapper);
 	int64_t res = $nc($XlibWrapper::unsafe)->allocateMemory($nc(bytes)->length);
-	for (int32_t i = 0; i < $nc(bytes)->length; ++i) {
+	for (int32_t i = 0; i < bytes->length; ++i) {
 		putByte(res + i, bytes->get(i));
 	}
 	return res;
@@ -211,7 +107,7 @@ int32_t Native::getUByteSize() {
 
 int16_t Native::getUByte(int64_t ptr) {
 	$init(Native);
-	return (int16_t)((int32_t)(255 & (uint32_t)(int32_t)$nc(Native::unsafe)->getByte(ptr)));
+	return (int16_t)(0xff & $nc(Native::unsafe)->getByte(ptr));
 }
 
 int16_t Native::getUByte(int64_t ptr, int32_t index) {
@@ -248,7 +144,7 @@ int64_t Native::toUData($shorts* bytes) {
 	}
 	$init($XlibWrapper);
 	int64_t res = $nc($XlibWrapper::unsafe)->allocateMemory($nc(bytes)->length);
-	for (int32_t i = 0; i < $nc(bytes)->length; ++i) {
+	for (int32_t i = 0; i < bytes->length; ++i) {
 		putUByte(res + i, bytes->get(i));
 	}
 	return res;
@@ -281,7 +177,7 @@ int64_t Native::toData($shorts* shorts) {
 	}
 	$init($XlibWrapper);
 	int64_t res = $nc($XlibWrapper::unsafe)->allocateMemory($nc(shorts)->length * getShortSize());
-	for (int32_t i = 0; i < $nc(shorts)->length; ++i) {
+	for (int32_t i = 0; i < shorts->length; ++i) {
 		putShort(res, i, shorts->get(i));
 	}
 	return res;
@@ -294,7 +190,7 @@ int32_t Native::getUShortSize() {
 
 int32_t Native::getUShort(int64_t ptr) {
 	$init(Native);
-	return (int32_t)(0x0000FFFF & (uint32_t)(int32_t)$nc(Native::unsafe)->getShort(ptr));
+	return 0xffff & $nc(Native::unsafe)->getShort(ptr);
 }
 
 void Native::putUShort(int64_t ptr, int32_t data) {
@@ -314,7 +210,7 @@ int64_t Native::toUData($ints* shorts) {
 	}
 	$init($XlibWrapper);
 	int64_t res = $nc($XlibWrapper::unsafe)->allocateMemory($nc(shorts)->length * getShortSize());
-	for (int32_t i = 0; i < $nc(shorts)->length; ++i) {
+	for (int32_t i = 0; i < shorts->length; ++i) {
 		putUShort(res, i, shorts->get(i));
 	}
 	return res;
@@ -352,7 +248,7 @@ int64_t Native::toData($ints* ints) {
 	}
 	$init($XlibWrapper);
 	int64_t res = $nc($XlibWrapper::unsafe)->allocateMemory($nc(ints)->length * getIntSize());
-	for (int32_t i = 0; i < $nc(ints)->length; ++i) {
+	for (int32_t i = 0; i < ints->length; ++i) {
 		putInt(res, i, ints->get(i));
 	}
 	return res;
@@ -365,7 +261,7 @@ int32_t Native::getUIntSize() {
 
 int64_t Native::getUInt(int64_t ptr) {
 	$init(Native);
-	return (int64_t)((int64_t)0x00000000FFFFFFFF & (uint64_t)(int64_t)$nc(Native::unsafe)->getInt(ptr));
+	return (int64_t)0xffffffff & $nc(Native::unsafe)->getInt(ptr);
 }
 
 int64_t Native::getUInt(int64_t ptr, int32_t index) {
@@ -390,7 +286,7 @@ int64_t Native::toUData($longs* ints) {
 	}
 	$init($XlibWrapper);
 	int64_t res = $nc($XlibWrapper::unsafe)->allocateMemory($nc(ints)->length * getIntSize());
-	for (int32_t i = 0; i < $nc(ints)->length; ++i) {
+	for (int32_t i = 0; i < ints->length; ++i) {
 		putUInt(res, i, ints->get(i));
 	}
 	return res;
@@ -440,17 +336,17 @@ void Native::put(int64_t ptr, $longs* arr) {
 
 void Native::putLong(int64_t ptr, $Vector* arr) {
 	$init(Native);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(arr)->size(); ++i, ptr += getLongSize()) {
-		putLong(ptr, $nc(($cast($Long, $(arr->elementAt(i)))))->longValue());
+		putLong(ptr, $$sure($Long, arr->elementAt(i))->longValue());
 	}
 }
 
 void Native::putLongReverse(int64_t ptr, $Vector* arr) {
 	$init(Native);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = $nc(arr)->size() - 1; i >= 0; --i, ptr += getLongSize()) {
-		putLong(ptr, $nc(($cast($Long, $(arr->elementAt(i)))))->longValue());
+		putLong(ptr, $$sure($Long, arr->elementAt(i))->longValue());
 	}
 }
 
@@ -473,7 +369,7 @@ int64_t Native::toData($longs* longs) {
 	}
 	$init($XlibWrapper);
 	int64_t res = $nc($XlibWrapper::unsafe)->allocateMemory($nc(longs)->length * getLongSize());
-	for (int32_t i = 0; i < $nc(longs)->length; ++i) {
+	for (int32_t i = 0; i < longs->length; ++i) {
 		putLong(res, i, longs->get(i));
 	}
 	return res;
@@ -483,7 +379,7 @@ int64_t Native::getULong(int64_t ptr) {
 	$init(Native);
 	$init($XlibWrapper);
 	if ($XlibWrapper::dataModel == 32) {
-		return (int64_t)(((int64_t)$nc(Native::unsafe)->getInt(ptr)) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+		return ((int64_t)$nc(Native::unsafe)->getInt(ptr)) & (int64_t)0xffffffff;
 	} else {
 		return $nc(Native::unsafe)->getLong(ptr);
 	}
@@ -559,13 +455,13 @@ int64_t Native::card32ToData($longs* arr) {
 	return toData(arr);
 }
 
-void clinit$Native($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Native::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($XlibWrapper);
 	$assignStatic(Native::unsafe, $XlibWrapper::unsafe);
 	{
-		$var($String, dataModelProp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Native$1)))));
+		$var($String, dataModelProp, $cast($String, $AccessController::doPrivileged($$new($Native$1))));
 		try {
 			Native::dataModel = $Integer::parseInt(dataModelProp);
 		} catch ($Exception& e) {
@@ -583,7 +479,102 @@ Native::Native() {
 }
 
 $Class* Native::load$($String* name, bool initialize) {
-	$loadClass(Native, name, initialize, &_Native_ClassInfo_, clinit$Native, allocate$Native);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(Native, unsafe)},
+		{"longSize", "I", nullptr, $STATIC, $staticField(Native, longSize)},
+		{"dataModel", "I", nullptr, $STATIC, $staticField(Native, dataModel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Native, init$, void)},
+		{"allocateLongArray", "(I)J", nullptr, $STATIC, $staticMethod(Native, allocateLongArray, int64_t, int32_t)},
+		{"card32ToArray", "(JI)[J", nullptr, $STATIC, $staticMethod(Native, card32ToArray, $longs*, int64_t, int32_t)},
+		{"card32ToData", "([J)J", nullptr, $STATIC, $staticMethod(Native, card32ToData, int64_t, $longs*)},
+		{"getBool", "(J)Z", nullptr, $STATIC, $staticMethod(Native, getBool, bool, int64_t)},
+		{"getBool", "(JI)Z", nullptr, $STATIC, $staticMethod(Native, getBool, bool, int64_t, int32_t)},
+		{"getByte", "(J)B", nullptr, $STATIC, $staticMethod(Native, getByte, int8_t, int64_t)},
+		{"getByte", "(JI)B", nullptr, $STATIC, $staticMethod(Native, getByte, int8_t, int64_t, int32_t)},
+		{"getByteSize", "()I", nullptr, $STATIC, $staticMethod(Native, getByteSize, int32_t)},
+		{"getCard32", "(J)J", nullptr, $STATIC, $staticMethod(Native, getCard32, int64_t, int64_t)},
+		{"getCard32", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getCard32, int64_t, int64_t, int32_t)},
+		{"getCard32Size", "()I", nullptr, $STATIC, $staticMethod(Native, getCard32Size, int32_t)},
+		{"getInt", "(J)I", nullptr, $STATIC, $staticMethod(Native, getInt, int32_t, int64_t)},
+		{"getInt", "(JI)I", nullptr, $STATIC, $staticMethod(Native, getInt, int32_t, int64_t, int32_t)},
+		{"getIntSize", "()I", nullptr, $STATIC, $staticMethod(Native, getIntSize, int32_t)},
+		{"getLong", "(J)J", nullptr, $STATIC, $staticMethod(Native, getLong, int64_t, int64_t)},
+		{"getLong", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getLong, int64_t, int64_t, int32_t)},
+		{"getLongSize", "()I", nullptr, $STATIC, $staticMethod(Native, getLongSize, int32_t)},
+		{"getShort", "(J)S", nullptr, $STATIC, $staticMethod(Native, getShort, int16_t, int64_t)},
+		{"getShortSize", "()I", nullptr, $STATIC, $staticMethod(Native, getShortSize, int32_t)},
+		{"getUByte", "(J)S", nullptr, $STATIC, $staticMethod(Native, getUByte, int16_t, int64_t)},
+		{"getUByte", "(JI)S", nullptr, $STATIC, $staticMethod(Native, getUByte, int16_t, int64_t, int32_t)},
+		{"getUByteSize", "()I", nullptr, $STATIC, $staticMethod(Native, getUByteSize, int32_t)},
+		{"getUInt", "(J)J", nullptr, $STATIC, $staticMethod(Native, getUInt, int64_t, int64_t)},
+		{"getUInt", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getUInt, int64_t, int64_t, int32_t)},
+		{"getUIntSize", "()I", nullptr, $STATIC, $staticMethod(Native, getUIntSize, int32_t)},
+		{"getULong", "(J)J", nullptr, $STATIC, $staticMethod(Native, getULong, int64_t, int64_t)},
+		{"getUShort", "(J)I", nullptr, $STATIC, $staticMethod(Native, getUShort, int32_t, int64_t)},
+		{"getUShortSize", "()I", nullptr, $STATIC, $staticMethod(Native, getUShortSize, int32_t)},
+		{"getWindow", "(J)J", nullptr, $STATIC, $staticMethod(Native, getWindow, int64_t, int64_t)},
+		{"getWindow", "(JI)J", nullptr, $STATIC, $staticMethod(Native, getWindow, int64_t, int64_t, int32_t)},
+		{"getWindowSize", "()I", nullptr, $STATIC, $staticMethod(Native, getWindowSize, int32_t)},
+		{"put", "(J[J)V", nullptr, $STATIC, $staticMethod(Native, put, void, int64_t, $longs*)},
+		{"putBool", "(JZ)V", nullptr, $STATIC, $staticMethod(Native, putBool, void, int64_t, bool)},
+		{"putBool", "(JIZ)V", nullptr, $STATIC, $staticMethod(Native, putBool, void, int64_t, int32_t, bool)},
+		{"putByte", "(JB)V", nullptr, $STATIC, $staticMethod(Native, putByte, void, int64_t, int8_t)},
+		{"putByte", "(JIB)V", nullptr, $STATIC, $staticMethod(Native, putByte, void, int64_t, int32_t, int8_t)},
+		{"putCard32", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putCard32, void, int64_t, int64_t)},
+		{"putCard32", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putCard32, void, int64_t, int32_t, int64_t)},
+		{"putInt", "(JI)V", nullptr, $STATIC, $staticMethod(Native, putInt, void, int64_t, int32_t)},
+		{"putInt", "(JII)V", nullptr, $STATIC, $staticMethod(Native, putInt, void, int64_t, int32_t, int32_t)},
+		{"putLong", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putLong, void, int64_t, int64_t)},
+		{"putLong", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putLong, void, int64_t, int32_t, int64_t)},
+		{"putLong", "(JLjava/util/Vector;)V", "(JLjava/util/Vector<Ljava/lang/Long;>;)V", $STATIC, $staticMethod(Native, putLong, void, int64_t, $Vector*)},
+		{"putLongReverse", "(JLjava/util/Vector;)V", "(JLjava/util/Vector<Ljava/lang/Long;>;)V", $STATIC, $staticMethod(Native, putLongReverse, void, int64_t, $Vector*)},
+		{"putShort", "(JS)V", nullptr, $STATIC, $staticMethod(Native, putShort, void, int64_t, int16_t)},
+		{"putShort", "(JIS)V", nullptr, $STATIC, $staticMethod(Native, putShort, void, int64_t, int32_t, int16_t)},
+		{"putUByte", "(JS)V", nullptr, $STATIC, $staticMethod(Native, putUByte, void, int64_t, int16_t)},
+		{"putUByte", "(JIS)V", nullptr, $STATIC, $staticMethod(Native, putUByte, void, int64_t, int32_t, int16_t)},
+		{"putUInt", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putUInt, void, int64_t, int64_t)},
+		{"putUInt", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putUInt, void, int64_t, int32_t, int64_t)},
+		{"putULong", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putULong, void, int64_t, int64_t)},
+		{"putUShort", "(JI)V", nullptr, $STATIC, $staticMethod(Native, putUShort, void, int64_t, int32_t)},
+		{"putUShort", "(JII)V", nullptr, $STATIC, $staticMethod(Native, putUShort, void, int64_t, int32_t, int32_t)},
+		{"putWindow", "(JJ)V", nullptr, $STATIC, $staticMethod(Native, putWindow, void, int64_t, int64_t)},
+		{"putWindow", "(JIJ)V", nullptr, $STATIC, $staticMethod(Native, putWindow, void, int64_t, int32_t, int64_t)},
+		{"toBytes", "(JI)[B", nullptr, $STATIC, $staticMethod(Native, toBytes, $bytes*, int64_t, int32_t)},
+		{"toData", "([B)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $bytes*)},
+		{"toData", "([S)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $shorts*)},
+		{"toData", "([I)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $ints*)},
+		{"toData", "([J)J", nullptr, $STATIC, $staticMethod(Native, toData, int64_t, $longs*)},
+		{"toLongs", "(JI)[J", nullptr, $STATIC, $staticMethod(Native, toLongs, $longs*, int64_t, int32_t)},
+		{"toUBytes", "(JI)[S", nullptr, $STATIC, $staticMethod(Native, toUBytes, $shorts*, int64_t, int32_t)},
+		{"toUData", "([S)J", nullptr, $STATIC, $staticMethod(Native, toUData, int64_t, $shorts*)},
+		{"toUData", "([I)J", nullptr, $STATIC, $staticMethod(Native, toUData, int64_t, $ints*)},
+		{"toUData", "([J)J", nullptr, $STATIC, $staticMethod(Native, toUData, int64_t, $longs*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.Native$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.Native",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.Native$1"
+	};
+	$loadClass(Native, name, initialize, &classInfo$$, Native::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Native);
+	});
 	return class$;
 }
 

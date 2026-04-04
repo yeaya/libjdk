@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingSourceDataLine$1.h>
-
 #include <com/sun/media/sound/SoftMixingSourceDataLine.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -17,50 +16,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingSourceDataLine$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftMixingSourceDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingSourceDataLine$1, this$0)},
-	{}
-};
-
-$MethodInfo _SoftMixingSourceDataLine$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftMixingSourceDataLine;)V", nullptr, 0, $method(SoftMixingSourceDataLine$1, init$, void, $SoftMixingSourceDataLine*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$1, available, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$1, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _SoftMixingSourceDataLine$1_EnclosingMethodInfo_ = {
-	"com.sun.media.sound.SoftMixingSourceDataLine",
-	"open",
-	"(Ljavax/sound/sampled/AudioFormat;I)V"
-};
-
-$InnerClassInfo _SoftMixingSourceDataLine$1_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftMixingSourceDataLine$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftMixingSourceDataLine$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftMixingSourceDataLine$1",
-	"java.io.InputStream",
-	nullptr,
-	_SoftMixingSourceDataLine$1_FieldInfo_,
-	_SoftMixingSourceDataLine$1_MethodInfo_,
-	nullptr,
-	&_SoftMixingSourceDataLine$1_EnclosingMethodInfo_,
-	_SoftMixingSourceDataLine$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftMixingSourceDataLine"
-};
-
-$Object* allocate$SoftMixingSourceDataLine$1($Class* clazz) {
-	return $of($alloc(SoftMixingSourceDataLine$1));
-}
-
 void SoftMixingSourceDataLine$1::init$($SoftMixingSourceDataLine* this$0) {
 	$set(this, this$0, this$0);
 	$InputStream::init$();
@@ -72,7 +27,7 @@ int32_t SoftMixingSourceDataLine$1::read() {
 	if (ret < 0) {
 		return ret;
 	}
-	return (int32_t)(b->get(0) & (uint32_t)255);
+	return b->get(0) & 0xff;
 }
 
 int32_t SoftMixingSourceDataLine$1::available() {
@@ -107,7 +62,44 @@ SoftMixingSourceDataLine$1::SoftMixingSourceDataLine$1() {
 }
 
 $Class* SoftMixingSourceDataLine$1::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingSourceDataLine$1, name, initialize, &_SoftMixingSourceDataLine$1_ClassInfo_, allocate$SoftMixingSourceDataLine$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftMixingSourceDataLine;", nullptr, $FINAL | $SYNTHETIC, $field(SoftMixingSourceDataLine$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftMixingSourceDataLine;)V", nullptr, 0, $method(SoftMixingSourceDataLine$1, init$, void, $SoftMixingSourceDataLine*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$1, available, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$1, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SoftMixingSourceDataLine$1, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.media.sound.SoftMixingSourceDataLine",
+		"open",
+		"(Ljavax/sound/sampled/AudioFormat;I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftMixingSourceDataLine$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftMixingSourceDataLine$1",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftMixingSourceDataLine"
+	};
+	$loadClass(SoftMixingSourceDataLine$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingSourceDataLine$1);
+	});
 	return class$;
 }
 

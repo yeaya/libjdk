@@ -1,8 +1,6 @@
 #include <jdk/net/Sockets$KeepAliveOptions.h>
-
 #include <java/net/Socket.h>
 #include <java/net/SocketOption.h>
-#include <java/util/Collection.h>
 #include <java/util/Set.h>
 #include <jdk/net/ExtendedSocketOptions.h>
 #include <jdk/net/Sockets.h>
@@ -18,55 +16,19 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Socket = ::java::net::Socket;
-using $Collection = ::java::util::Collection;
 using $Set = ::java::util::Set;
 using $ExtendedSocketOptions = ::jdk::net::ExtendedSocketOptions;
 
 namespace jdk {
 	namespace net {
 
-$FieldInfo _Sockets$KeepAliveOptions_FieldInfo_[] = {
-	{"AVAILABLE", "Z", nullptr, $STATIC | $FINAL, $staticField(Sockets$KeepAliveOptions, AVAILABLE)},
-	{}
-};
-
-$MethodInfo _Sockets$KeepAliveOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Sockets$KeepAliveOptions, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Sockets$KeepAliveOptions_InnerClassesInfo_[] = {
-	{"jdk.net.Sockets$KeepAliveOptions", "jdk.net.Sockets", "KeepAliveOptions", $STATIC},
-	{}
-};
-
-$ClassInfo _Sockets$KeepAliveOptions_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.net.Sockets$KeepAliveOptions",
-	"java.lang.Object",
-	nullptr,
-	_Sockets$KeepAliveOptions_FieldInfo_,
-	_Sockets$KeepAliveOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Sockets$KeepAliveOptions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.net.Sockets"
-};
-
-$Object* allocate$Sockets$KeepAliveOptions($Class* clazz) {
-	return $of($alloc(Sockets$KeepAliveOptions));
-}
-
 bool Sockets$KeepAliveOptions::AVAILABLE = false;
 
 void Sockets$KeepAliveOptions::init$() {
 }
 
-void clinit$Sockets$KeepAliveOptions($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Sockets$KeepAliveOptions::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Set, s, $$new($Socket)->supportedOptions());
 		$init($ExtendedSocketOptions);
@@ -78,7 +40,36 @@ Sockets$KeepAliveOptions::Sockets$KeepAliveOptions() {
 }
 
 $Class* Sockets$KeepAliveOptions::load$($String* name, bool initialize) {
-	$loadClass(Sockets$KeepAliveOptions, name, initialize, &_Sockets$KeepAliveOptions_ClassInfo_, clinit$Sockets$KeepAliveOptions, allocate$Sockets$KeepAliveOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"AVAILABLE", "Z", nullptr, $STATIC | $FINAL, $staticField(Sockets$KeepAliveOptions, AVAILABLE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Sockets$KeepAliveOptions, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.net.Sockets$KeepAliveOptions", "jdk.net.Sockets", "KeepAliveOptions", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.net.Sockets$KeepAliveOptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.net.Sockets"
+	};
+	$loadClass(Sockets$KeepAliveOptions, name, initialize, &classInfo$$, Sockets$KeepAliveOptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Sockets$KeepAliveOptions);
+	});
 	return class$;
 }
 

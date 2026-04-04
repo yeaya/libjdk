@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_SystemSleepDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor.h>
 #include <com/apple/eawt/_AppEventHandler.h>
 #include <java/awt/desktop/SystemSleepEvent.h>
@@ -19,55 +18,13 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo __AppEventHandler$_SystemSleepDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_SystemSleepDispatcher, this$0)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_SystemSleepDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_SystemSleepDispatcher, init$, void, $_AppEventHandler*)},
-	{"createEvent", "(Z)Ljava/awt/desktop/SystemSleepEvent;", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, createEvent, $Object*, bool)},
-	{"performFalseEventOn", "(Ljava/awt/desktop/SystemSleepListener;Ljava/awt/desktop/SystemSleepEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performFalseEventOn, void, $SystemSleepListener*, $SystemSleepEvent*)},
-	{"performFalseEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performFalseEventOn, void, Object$*, Object$*)},
-	{"performTrueEventOn", "(Ljava/awt/desktop/SystemSleepListener;Ljava/awt/desktop/SystemSleepEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performTrueEventOn, void, $SystemSleepListener*, $SystemSleepEvent*)},
-	{"performTrueEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performTrueEventOn, void, Object$*, Object$*)},
-	{"registerNativeListener", "()V", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, registerNativeListener, void)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_SystemSleepDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_SystemSleepDispatcher", "com.apple.eawt._AppEventHandler", "_SystemSleepDispatcher", 0},
-	{"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_BooleanAppEventMultiplexor", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_SystemSleepDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppEventHandler$_SystemSleepDispatcher",
-	"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor",
-	nullptr,
-	__AppEventHandler$_SystemSleepDispatcher_FieldInfo_,
-	__AppEventHandler$_SystemSleepDispatcher_MethodInfo_,
-	"Lcom/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor<Ljava/awt/desktop/SystemSleepListener;Ljava/awt/desktop/SystemSleepEvent;>;",
-	nullptr,
-	__AppEventHandler$_SystemSleepDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_SystemSleepDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_SystemSleepDispatcher));
-}
-
 void _AppEventHandler$_SystemSleepDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
 	$_AppEventHandler$_BooleanAppEventMultiplexor::init$(this$0);
 }
 
 $Object* _AppEventHandler$_SystemSleepDispatcher::createEvent(bool isTrue) {
-	return $of($new($SystemSleepEvent));
+	return $new($SystemSleepEvent);
 }
 
 void _AppEventHandler$_SystemSleepDispatcher::performFalseEventOn($SystemSleepListener* listener, $SystemSleepEvent* e) {
@@ -94,7 +51,43 @@ _AppEventHandler$_SystemSleepDispatcher::_AppEventHandler$_SystemSleepDispatcher
 }
 
 $Class* _AppEventHandler$_SystemSleepDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_SystemSleepDispatcher, name, initialize, &__AppEventHandler$_SystemSleepDispatcher_ClassInfo_, allocate$_AppEventHandler$_SystemSleepDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_SystemSleepDispatcher, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_SystemSleepDispatcher, init$, void, $_AppEventHandler*)},
+		{"createEvent", "(Z)Ljava/awt/desktop/SystemSleepEvent;", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, createEvent, $Object*, bool)},
+		{"performFalseEventOn", "(Ljava/awt/desktop/SystemSleepListener;Ljava/awt/desktop/SystemSleepEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performFalseEventOn, void, $SystemSleepListener*, $SystemSleepEvent*)},
+		{"performFalseEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performFalseEventOn, void, Object$*, Object$*)},
+		{"performTrueEventOn", "(Ljava/awt/desktop/SystemSleepListener;Ljava/awt/desktop/SystemSleepEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performTrueEventOn, void, $SystemSleepListener*, $SystemSleepEvent*)},
+		{"performTrueEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, performTrueEventOn, void, Object$*, Object$*)},
+		{"registerNativeListener", "()V", nullptr, 0, $virtualMethod(_AppEventHandler$_SystemSleepDispatcher, registerNativeListener, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_SystemSleepDispatcher", "com.apple.eawt._AppEventHandler", "_SystemSleepDispatcher", 0},
+		{"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_BooleanAppEventMultiplexor", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppEventHandler$_SystemSleepDispatcher",
+		"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor<Ljava/awt/desktop/SystemSleepListener;Ljava/awt/desktop/SystemSleepEvent;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_SystemSleepDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_SystemSleepDispatcher);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/management/MemoryType.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -15,37 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace management {
-
-$FieldInfo _MemoryType_FieldInfo_[] = {
-	{"HEAP", "Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemoryType, HEAP)},
-	{"NON_HEAP", "Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemoryType, NON_HEAP)},
-	{"$VALUES", "[Ljava/lang/management/MemoryType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MemoryType, $VALUES)},
-	{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MemoryType, description)},
-	{}
-};
-
-$MethodInfo _MemoryType_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/management/MemoryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemoryType, $values, $MemoryTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(MemoryType, init$, void, $String*, int32_t, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryType, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryType, valueOf, MemoryType*, $String*)},
-	{"values", "()[Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryType, values, $MemoryTypeArray*)},
-	{}
-};
-
-$ClassInfo _MemoryType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.management.MemoryType",
-	"java.lang.Enum",
-	nullptr,
-	_MemoryType_FieldInfo_,
-	_MemoryType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/management/MemoryType;>;"
-};
-
-$Object* allocate$MemoryType($Class* clazz) {
-	return $of($alloc(MemoryType));
-}
 
 MemoryType* MemoryType::HEAP = nullptr;
 MemoryType* MemoryType::NON_HEAP = nullptr;
@@ -78,7 +46,7 @@ $String* MemoryType::toString() {
 	return this->description;
 }
 
-void clinit$MemoryType($Class* class$) {
+void MemoryType::clinit$($Class* clazz) {
 	$assignStatic(MemoryType::HEAP, $new(MemoryType, "HEAP"_s, 0, "Heap memory"_s));
 	$assignStatic(MemoryType::NON_HEAP, $new(MemoryType, "NON_HEAP"_s, 1, "Non-heap memory"_s));
 	$assignStatic(MemoryType::$VALUES, MemoryType::$values());
@@ -88,7 +56,33 @@ MemoryType::MemoryType() {
 }
 
 $Class* MemoryType::load$($String* name, bool initialize) {
-	$loadClass(MemoryType, name, initialize, &_MemoryType_ClassInfo_, clinit$MemoryType, allocate$MemoryType);
+	$FieldInfo fieldInfos$$[] = {
+		{"HEAP", "Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemoryType, HEAP)},
+		{"NON_HEAP", "Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemoryType, NON_HEAP)},
+		{"$VALUES", "[Ljava/lang/management/MemoryType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MemoryType, $VALUES)},
+		{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MemoryType, description)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/management/MemoryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemoryType, $values, $MemoryTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(MemoryType, init$, void, $String*, int32_t, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryType, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryType, valueOf, MemoryType*, $String*)},
+		{"values", "()[Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryType, values, $MemoryTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.management.MemoryType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/management/MemoryType;>;"
+	};
+	$loadClass(MemoryType, name, initialize, &classInfo$$, MemoryType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemoryType));
+	});
 	return class$;
 }
 

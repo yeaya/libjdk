@@ -33,6 +33,7 @@ class $export ScrollPaneWheelScroller : public ::java::lang::Object {
 	$class(ScrollPaneWheelScroller, 0, ::java::lang::Object)
 public:
 	ScrollPaneWheelScroller();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::Adjustable* getAdjustableToScroll(::java::awt::ScrollPane* sp);
 	static int32_t getIncrementFromAdjustable(::java::awt::Adjustable* adj, ::java::awt::event::MouseWheelEvent* e);

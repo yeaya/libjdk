@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/ServerImpl.h>
-
 #include <com/sun/net/httpserver/HttpContext.h>
 #include <com/sun/net/httpserver/HttpHandler.h>
 #include <com/sun/net/httpserver/HttpServer.h>
@@ -8,7 +7,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
@@ -16,13 +14,11 @@
 #include <java/net/BindException.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
-#include <java/net/SocketAddress.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/Selector.h>
 #include <java/nio/channels/ServerSocketChannel.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -30,7 +26,6 @@
 #include <java/util/List.h>
 #include <java/util/Set.h>
 #include <java/util/Timer.h>
-#include <java/util/TimerTask.h>
 #include <java/util/concurrent/Executor.h>
 #include <javax/net/ssl/SSLContext.h>
 #include <sun/net/httpserver/Code.h>
@@ -67,7 +62,6 @@ using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
 using $HttpsConfigurator = ::com::sun::net::httpserver::HttpsConfigurator;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -79,28 +73,21 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
-using $StackTraceElement = ::java::lang::StackTraceElement;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $BindException = ::java::net::BindException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
-using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $Timer = ::java::util::Timer;
-using $TimerTask = ::java::util::TimerTask;
 using $Executor = ::java::util::concurrent::Executor;
 using $Code = ::sun::net::httpserver::Code;
 using $ContextList = ::sun::net::httpserver::ContextList;
@@ -120,116 +107,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _ServerImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServerImpl, $assertionsDisabled)},
-	{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ServerImpl, protocol)},
-	{"https", "Z", nullptr, $PRIVATE, $field(ServerImpl, https)},
-	{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE, $field(ServerImpl, executor)},
-	{"httpsConfig", "Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PRIVATE, $field(ServerImpl, httpsConfig)},
-	{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $field(ServerImpl, sslContext)},
-	{"contexts", "Lsun/net/httpserver/ContextList;", nullptr, $PRIVATE, $field(ServerImpl, contexts)},
-	{"address", "Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $field(ServerImpl, address)},
-	{"schan", "Ljava/nio/channels/ServerSocketChannel;", nullptr, $PRIVATE, $field(ServerImpl, schan)},
-	{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE, $field(ServerImpl, selector)},
-	{"listenerKey", "Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $field(ServerImpl, listenerKey)},
-	{"idleConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, idleConnections)},
-	{"allConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, allConnections)},
-	{"reqConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, reqConnections)},
-	{"rspConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, rspConnections)},
-	{"events", "Ljava/util/List;", "Ljava/util/List<Lsun/net/httpserver/Event;>;", $PRIVATE, $field(ServerImpl, events)},
-	{"lolock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ServerImpl, lolock)},
-	{"finished", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, finished)},
-	{"terminating", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, terminating)},
-	{"bound", "Z", nullptr, $PRIVATE, $field(ServerImpl, bound)},
-	{"started", "Z", nullptr, $PRIVATE, $field(ServerImpl, started)},
-	{"time", "J", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, time)},
-	{"subticks", "J", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, subticks)},
-	{"ticks", "J", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, ticks)},
-	{"wrapper", "Lcom/sun/net/httpserver/HttpServer;", nullptr, $PRIVATE, $field(ServerImpl, wrapper)},
-	{"CLOCK_TICK", "I", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, CLOCK_TICK)},
-	{"IDLE_INTERVAL", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, IDLE_INTERVAL)},
-	{"MAX_IDLE_CONNECTIONS", "I", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, MAX_IDLE_CONNECTIONS)},
-	{"TIMER_MILLIS", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, TIMER_MILLIS)},
-	{"MAX_REQ_TIME", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, MAX_REQ_TIME)},
-	{"MAX_RSP_TIME", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, MAX_RSP_TIME)},
-	{"timer1Enabled", "Z", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, timer1Enabled)},
-	{"timer", "Ljava/util/Timer;", nullptr, $PRIVATE, $field(ServerImpl, timer)},
-	{"timer1", "Ljava/util/Timer;", nullptr, $PRIVATE, $field(ServerImpl, timer1)},
-	{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $FINAL, $field(ServerImpl, logger)},
-	{"dispatcherThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ServerImpl, dispatcherThread)},
-	{"dispatcher", "Lsun/net/httpserver/ServerImpl$Dispatcher;", nullptr, 0, $field(ServerImpl, dispatcher)},
-	{"debug", "Z", nullptr, $STATIC, $staticField(ServerImpl, debug)},
-	{"exchangeCount", "I", nullptr, $PRIVATE, $field(ServerImpl, exchangeCount)},
-	{}
-};
-
-$MethodInfo _ServerImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/net/httpserver/HttpServer;Ljava/lang/String;Ljava/net/InetSocketAddress;I)V", nullptr, 0, $method(ServerImpl, init$, void, $HttpServer*, $String*, $InetSocketAddress*, int32_t), "java.io.IOException"},
-	{"addEvent", "(Lsun/net/httpserver/Event;)V", nullptr, 0, $virtualMethod(ServerImpl, addEvent, void, $Event*)},
-	{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, bind, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
-	{"closeConnection", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, $PRIVATE, $method(ServerImpl, closeConnection, void, $HttpConnection*)},
-	{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, createContext, $HttpContextImpl*, $String*, $HttpHandler*)},
-	{"createContext", "(Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, createContext, $HttpContextImpl*, $String*)},
-	{"delay", "()V", nullptr, 0, $virtualMethod(ServerImpl, delay, void)},
-	{"dprint", "(Ljava/lang/String;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ServerImpl, dprint, void, $String*)},
-	{"dprint", "(Ljava/lang/Exception;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ServerImpl, dprint, void, $Exception*)},
-	{"endExchange", "()I", nullptr, $SYNCHRONIZED, $virtualMethod(ServerImpl, endExchange, int32_t)},
-	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getAddress, $InetSocketAddress*)},
-	{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getExecutor, $Executor*)},
-	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getHttpsConfigurator, $HttpsConfigurator*)},
-	{"getLogger", "()Ljava/lang/System$Logger;", nullptr, 0, $virtualMethod(ServerImpl, getLogger, $System$Logger*)},
-	{"getSelector", "()Ljava/nio/channels/Selector;", nullptr, 0, $virtualMethod(ServerImpl, getSelector, $Selector*)},
-	{"getTicks", "()J", nullptr, 0, $virtualMethod(ServerImpl, getTicks, int64_t)},
-	{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getTime, int64_t)},
-	{"getTimeMillis", "(J)J", nullptr, $STATIC, $staticMethod(ServerImpl, getTimeMillis, int64_t, int64_t)},
-	{"getWrapper", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, 0, $virtualMethod(ServerImpl, getWrapper, $HttpServer*)},
-	{"isFinishing", "()Z", nullptr, $PUBLIC | $FINAL, $method(ServerImpl, isFinishing, bool)},
-	{"isValidHeaderKey", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(ServerImpl, isValidHeaderKey, bool, $String*)},
-	{"logReply", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl, logReply, void, int32_t, $String*, $String*)},
-	{"logStackTrace", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl, logStackTrace, void, $String*)},
-	{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, removeContext, void, $String*), "java.lang.IllegalArgumentException"},
-	{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, removeContext, void, $HttpContext*), "java.lang.IllegalArgumentException"},
-	{"requestCompleted", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl, requestCompleted, void, $HttpConnection*)},
-	{"requestStarted", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl, requestStarted, void, $HttpConnection*)},
-	{"responseCompleted", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl, responseCompleted, void, $HttpConnection*)},
-	{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, setExecutor, void, $Executor*)},
-	{"setHttpsConfigurator", "(Lcom/sun/net/httpserver/HttpsConfigurator;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, setHttpsConfigurator, void, $HttpsConfigurator*)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, start, void)},
-	{"startExchange", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ServerImpl, startExchange, void)},
-	{"stop", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, stop, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ServerImpl_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.ServerImpl$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.net.httpserver.ServerImpl$ServerTimerTask1", "sun.net.httpserver.ServerImpl", "ServerTimerTask1", 0},
-	{"sun.net.httpserver.ServerImpl$ServerTimerTask", "sun.net.httpserver.ServerImpl", "ServerTimerTask", 0},
-	{"sun.net.httpserver.ServerImpl$Exchange", "sun.net.httpserver.ServerImpl", "Exchange", 0},
-	{"sun.net.httpserver.ServerImpl$Dispatcher", "sun.net.httpserver.ServerImpl", "Dispatcher", 0},
-	{"sun.net.httpserver.ServerImpl$DefaultExecutor", "sun.net.httpserver.ServerImpl", "DefaultExecutor", $PRIVATE | $STATIC},
-	{"sun.net.httpserver.ServerImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServerImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ServerImpl",
-	"java.lang.Object",
-	"sun.net.httpserver.TimeSource",
-	_ServerImpl_FieldInfo_,
-	_ServerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.ServerImpl$2,sun.net.httpserver.ServerImpl$ServerTimerTask1,sun.net.httpserver.ServerImpl$ServerTimerTask,sun.net.httpserver.ServerImpl$Exchange,sun.net.httpserver.ServerImpl$Exchange$LinkHandler,sun.net.httpserver.ServerImpl$Dispatcher,sun.net.httpserver.ServerImpl$DefaultExecutor,sun.net.httpserver.ServerImpl$1"
-};
-
-$Object* allocate$ServerImpl($Class* clazz) {
-	return $of($alloc(ServerImpl));
-}
-
 bool ServerImpl::$assertionsDisabled = false;
 int32_t ServerImpl::CLOCK_TICK = 0;
 int64_t ServerImpl::IDLE_INTERVAL = 0;
@@ -241,7 +118,7 @@ bool ServerImpl::timer1Enabled = false;
 bool ServerImpl::debug = false;
 
 void ServerImpl::init$($HttpServer* wrapper, $String* protocol, $InetSocketAddress* addr, int32_t backlog) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, lolock, $new($Object));
 	this->finished = false;
@@ -273,14 +150,14 @@ void ServerImpl::init$($HttpServer* wrapper, $String* protocol, $InetSocketAddre
 	$set(this, rspConnections, $Collections::synchronizedSet($$new($HashSet)));
 	this->time = $System::currentTimeMillis();
 	$set(this, timer, $new($Timer, "server-timer"_s, true));
-	$nc(this->timer)->schedule(static_cast<$TimerTask*>($$new($ServerImpl$ServerTimerTask, this)), (int64_t)ServerImpl::CLOCK_TICK, (int64_t)ServerImpl::CLOCK_TICK);
+	this->timer->schedule($$new($ServerImpl$ServerTimerTask, this), ServerImpl::CLOCK_TICK, ServerImpl::CLOCK_TICK);
 	if (ServerImpl::timer1Enabled) {
 		$set(this, timer1, $new($Timer, "server-timer1"_s, true));
-		$nc(this->timer1)->schedule(static_cast<$TimerTask*>($$new($ServerImpl$ServerTimerTask1, this)), ServerImpl::TIMER_MILLIS, ServerImpl::TIMER_MILLIS);
+		this->timer1->schedule($$new($ServerImpl$ServerTimerTask1, this), ServerImpl::TIMER_MILLIS, ServerImpl::TIMER_MILLIS);
 		$init($System$Logger$Level);
-		$nc(this->logger)->log($System$Logger$Level::DEBUG, "HttpServer timer1 enabled period in ms: "_s, $$new($ObjectArray, {$($of($Long::valueOf(ServerImpl::TIMER_MILLIS)))}));
-		$nc(this->logger)->log($System$Logger$Level::DEBUG, $$str({"MAX_REQ_TIME:  "_s, $$str(ServerImpl::MAX_REQ_TIME)}));
-		$nc(this->logger)->log($System$Logger$Level::DEBUG, $$str({"MAX_RSP_TIME:  "_s, $$str(ServerImpl::MAX_RSP_TIME)}));
+		$nc(this->logger)->log($System$Logger$Level::DEBUG, "HttpServer timer1 enabled period in ms: "_s, $$new($ObjectArray, {$($Long::valueOf(ServerImpl::TIMER_MILLIS))}));
+		this->logger->log($System$Logger$Level::DEBUG, $$str({"MAX_REQ_TIME:  "_s, $$str(ServerImpl::MAX_REQ_TIME)}));
+		this->logger->log($System$Logger$Level::DEBUG, $$str({"MAX_RSP_TIME:  "_s, $$str(ServerImpl::MAX_RSP_TIME)}));
 	}
 	$set(this, events, $new($LinkedList));
 	$init($System$Logger$Level);
@@ -308,7 +185,7 @@ void ServerImpl::start() {
 	}
 	$set(this, dispatcherThread, $new($Thread, nullptr, this->dispatcher, "HTTP-Dispatcher"_s, 0, false));
 	this->started = true;
-	$nc(this->dispatcherThread)->start();
+	this->dispatcherThread->start();
 }
 
 void ServerImpl::setExecutor($Executor* executor) {
@@ -342,7 +219,7 @@ bool ServerImpl::isFinishing() {
 }
 
 void ServerImpl::stop(int32_t delay) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (delay < 0) {
 		$throwNew($IllegalArgumentException, "negative delay parameter"_s);
 	}
@@ -362,13 +239,11 @@ void ServerImpl::stop(int32_t delay) {
 	this->finished = true;
 	$nc(this->selector)->wakeup();
 	$synchronized(this->allConnections) {
-		{
-			$var($Iterator, i$, $nc(this->allConnections)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($HttpConnection, c, $cast($HttpConnection, i$->next()));
-				{
-					$nc(c)->close();
-				}
+		$var($Iterator, i$, this->allConnections->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($HttpConnection, c, $cast($HttpConnection, i$->next()));
+			{
+				$nc(c)->close();
 			}
 		}
 	}
@@ -380,18 +255,18 @@ void ServerImpl::stop(int32_t delay) {
 	}
 	if (this->dispatcherThread != nullptr && this->dispatcherThread != $Thread::currentThread()) {
 		try {
-			$nc(this->dispatcherThread)->join();
+			this->dispatcherThread->join();
 		} catch ($InterruptedException& e) {
 			$($Thread::currentThread())->interrupt();
 			$init($System$Logger$Level);
-			$nc(this->logger)->log($System$Logger$Level::TRACE, "ServerImpl.stop: "_s, static_cast<$Throwable*>(e));
+			$nc(this->logger)->log($System$Logger$Level::TRACE, "ServerImpl.stop: "_s, e);
 		}
 	}
 }
 
 $HttpContextImpl* ServerImpl::createContext($String* path, $HttpHandler* handler) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (handler == nullptr || path == nullptr) {
 			$throwNew($NullPointerException, "null handler, or path parameter"_s);
 		}
@@ -405,7 +280,7 @@ $HttpContextImpl* ServerImpl::createContext($String* path, $HttpHandler* handler
 
 $HttpContextImpl* ServerImpl::createContext($String* path) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (path == nullptr) {
 			$throwNew($NullPointerException, "null path parameter"_s);
 		}
@@ -430,7 +305,7 @@ void ServerImpl::removeContext($String* path) {
 
 void ServerImpl::removeContext($HttpContext* context) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!($instanceOf($HttpContextImpl, context))) {
 			$throwNew($IllegalArgumentException, "wrong HttpContext type"_s);
 		}
@@ -442,7 +317,7 @@ void ServerImpl::removeContext($HttpContext* context) {
 
 $InetSocketAddress* ServerImpl::getAddress() {
 	$beforeCallerSensitive();
-	return $cast($InetSocketAddress, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ServerImpl$1, this))));
+	return $cast($InetSocketAddress, $AccessController::doPrivileged($$new($ServerImpl$1, this)));
 }
 
 $Selector* ServerImpl::getSelector() {
@@ -457,9 +332,8 @@ void ServerImpl::addEvent($Event* r) {
 }
 
 void ServerImpl::dprint($String* s) {
-	$load(ServerImpl);
+	$init(ServerImpl);
 	$synchronized(class$) {
-		$init(ServerImpl);
 		if (ServerImpl::debug) {
 			$nc($System::out)->println(s);
 		}
@@ -467,11 +341,10 @@ void ServerImpl::dprint($String* s) {
 }
 
 void ServerImpl::dprint($Exception* e) {
-	$load(ServerImpl);
+	$init(ServerImpl);
 	$synchronized(class$) {
-		$init(ServerImpl);
 		if (ServerImpl::debug) {
-			$nc($System::out)->println($of(e));
+			$nc($System::out)->println(e);
 			$nc(e)->printStackTrace();
 		}
 	}
@@ -485,22 +358,16 @@ void ServerImpl::closeConnection($HttpConnection* conn) {
 	$nc(conn)->close();
 	$nc(this->allConnections)->remove(conn);
 	$init($ServerImpl$2);
-	switch ($nc($ServerImpl$2::$SwitchMap$sun$net$httpserver$HttpConnection$State)->get($nc(($(conn->getState())))->ordinal())) {
+	switch ($nc($ServerImpl$2::$SwitchMap$sun$net$httpserver$HttpConnection$State)->get(($$nc(conn->getState()))->ordinal())) {
 	case 1:
-		{
-			$nc(this->reqConnections)->remove(conn);
-			break;
-		}
+		$nc(this->reqConnections)->remove(conn);
+		break;
 	case 2:
-		{
-			$nc(this->rspConnections)->remove(conn);
-			break;
-		}
+		$nc(this->rspConnections)->remove(conn);
+		break;
 	case 3:
-		{
-			$nc(this->idleConnections)->remove(conn);
-			break;
-		}
+		$nc(this->idleConnections)->remove(conn);
+		break;
 	}
 	if (!ServerImpl::$assertionsDisabled && ! !$nc(this->reqConnections)->remove(conn)) {
 		$throwNew($AssertionError);
@@ -514,7 +381,7 @@ void ServerImpl::closeConnection($HttpConnection* conn) {
 }
 
 void ServerImpl::logReply(int32_t code, $String* requestStr, $String* text$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, text$renamed);
 	$init($System$Logger$Level);
 	if (!$nc(this->logger)->isLoggable($System$Logger$Level::DEBUG)) {
@@ -530,7 +397,7 @@ void ServerImpl::logReply(int32_t code, $String* requestStr, $String* text$renam
 		$assign(r, requestStr);
 	}
 	$var($String, message, $str({r, " ["_s, $$str(code), " "_s, $($Code::msg(code)), "] ("_s, text, ")"_s}));
-	$nc(this->logger)->log($System$Logger$Level::DEBUG, message);
+	this->logger->log($System$Logger$Level::DEBUG, message);
 }
 
 int64_t ServerImpl::getTicks() {
@@ -580,7 +447,7 @@ void ServerImpl::requestCompleted($HttpConnection* c) {
 	$HttpConnection$State* s = $nc(c)->getState();
 	$init($HttpConnection$State);
 	if (!ServerImpl::$assertionsDisabled && !(s == $HttpConnection$State::REQUEST)) {
-		$throwNew($AssertionError, $of($$str({"State is not REQUEST ("_s, s, ")"_s})));
+		$throwNew($AssertionError, $$of($str({"State is not REQUEST ("_s, s, ")"_s})));
 	}
 	$nc(this->reqConnections)->remove(c);
 	c->rspStartedTime = getTime();
@@ -592,14 +459,14 @@ void ServerImpl::responseCompleted($HttpConnection* c) {
 	$HttpConnection$State* s = $nc(c)->getState();
 	$init($HttpConnection$State);
 	if (!ServerImpl::$assertionsDisabled && !(s == $HttpConnection$State::RESPONSE)) {
-		$throwNew($AssertionError, $of($$str({"State is not RESPONSE ("_s, s, ")"_s})));
+		$throwNew($AssertionError, $$of($str({"State is not RESPONSE ("_s, s, ")"_s})));
 	}
 	$nc(this->rspConnections)->remove(c);
 	c->setState($HttpConnection$State::IDLE);
 }
 
 void ServerImpl::logStackTrace($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($System$Logger$Level);
 	$nc(this->logger)->log($System$Logger$Level::TRACE, s);
 	$var($StringBuilder, b, $new($StringBuilder));
@@ -607,7 +474,7 @@ void ServerImpl::logStackTrace($String* s) {
 	for (int32_t i = 0; i < $nc(e)->length; ++i) {
 		b->append($($nc(e->get(i))->toString()))->append("\n"_s);
 	}
-	$nc(this->logger)->log($System$Logger$Level::TRACE, $(b->toString()));
+	this->logger->log($System$Logger$Level::TRACE, $(b->toString()));
 }
 
 int64_t ServerImpl::getTimeMillis(int64_t secs) {
@@ -621,7 +488,7 @@ int64_t ServerImpl::getTimeMillis(int64_t secs) {
 
 bool ServerImpl::isValidHeaderKey($String* token) {
 	$init(ServerImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (token == nullptr) {
 		return false;
 	}
@@ -630,13 +497,11 @@ bool ServerImpl::isValidHeaderKey($String* token) {
 	$var($String, validSpecialChars, "!#$%&\'*+-.^_`|~"_s);
 	{
 		$var($chars, arr$, chars);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			char16_t c = arr$->get(i$);
 			{
 				isValidChar = ((c >= u'a') && (c <= u'z')) || ((c >= u'A') && (c <= u'Z')) || ((c >= u'0') && (c <= u'9'));
-				if (!isValidChar && validSpecialChars->indexOf((int32_t)c) == -1) {
+				if (!isValidChar && validSpecialChars->indexOf(c) == -1) {
 					return false;
 				}
 			}
@@ -645,7 +510,7 @@ bool ServerImpl::isValidHeaderKey($String* token) {
 	return !token->isEmpty();
 }
 
-void clinit$ServerImpl($Class* class$) {
+void ServerImpl::clinit$($Class* clazz) {
 	ServerImpl::$assertionsDisabled = !ServerImpl::class$->desiredAssertionStatus();
 	ServerImpl::CLOCK_TICK = $ServerConfig::getClockTick();
 	ServerImpl::IDLE_INTERVAL = $ServerConfig::getIdleInterval();
@@ -661,7 +526,111 @@ ServerImpl::ServerImpl() {
 }
 
 $Class* ServerImpl::load$($String* name, bool initialize) {
-	$loadClass(ServerImpl, name, initialize, &_ServerImpl_ClassInfo_, clinit$ServerImpl, allocate$ServerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServerImpl, $assertionsDisabled)},
+		{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ServerImpl, protocol)},
+		{"https", "Z", nullptr, $PRIVATE, $field(ServerImpl, https)},
+		{"executor", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE, $field(ServerImpl, executor)},
+		{"httpsConfig", "Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PRIVATE, $field(ServerImpl, httpsConfig)},
+		{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $field(ServerImpl, sslContext)},
+		{"contexts", "Lsun/net/httpserver/ContextList;", nullptr, $PRIVATE, $field(ServerImpl, contexts)},
+		{"address", "Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $field(ServerImpl, address)},
+		{"schan", "Ljava/nio/channels/ServerSocketChannel;", nullptr, $PRIVATE, $field(ServerImpl, schan)},
+		{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE, $field(ServerImpl, selector)},
+		{"listenerKey", "Ljava/nio/channels/SelectionKey;", nullptr, $PRIVATE, $field(ServerImpl, listenerKey)},
+		{"idleConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, idleConnections)},
+		{"allConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, allConnections)},
+		{"reqConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, reqConnections)},
+		{"rspConnections", "Ljava/util/Set;", "Ljava/util/Set<Lsun/net/httpserver/HttpConnection;>;", $PRIVATE, $field(ServerImpl, rspConnections)},
+		{"events", "Ljava/util/List;", "Ljava/util/List<Lsun/net/httpserver/Event;>;", $PRIVATE, $field(ServerImpl, events)},
+		{"lolock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ServerImpl, lolock)},
+		{"finished", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, finished)},
+		{"terminating", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, terminating)},
+		{"bound", "Z", nullptr, $PRIVATE, $field(ServerImpl, bound)},
+		{"started", "Z", nullptr, $PRIVATE, $field(ServerImpl, started)},
+		{"time", "J", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, time)},
+		{"subticks", "J", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, subticks)},
+		{"ticks", "J", nullptr, $PRIVATE | $VOLATILE, $field(ServerImpl, ticks)},
+		{"wrapper", "Lcom/sun/net/httpserver/HttpServer;", nullptr, $PRIVATE, $field(ServerImpl, wrapper)},
+		{"CLOCK_TICK", "I", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, CLOCK_TICK)},
+		{"IDLE_INTERVAL", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, IDLE_INTERVAL)},
+		{"MAX_IDLE_CONNECTIONS", "I", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, MAX_IDLE_CONNECTIONS)},
+		{"TIMER_MILLIS", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, TIMER_MILLIS)},
+		{"MAX_REQ_TIME", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, MAX_REQ_TIME)},
+		{"MAX_RSP_TIME", "J", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, MAX_RSP_TIME)},
+		{"timer1Enabled", "Z", nullptr, $STATIC | $FINAL, $staticField(ServerImpl, timer1Enabled)},
+		{"timer", "Ljava/util/Timer;", nullptr, $PRIVATE, $field(ServerImpl, timer)},
+		{"timer1", "Ljava/util/Timer;", nullptr, $PRIVATE, $field(ServerImpl, timer1)},
+		{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $FINAL, $field(ServerImpl, logger)},
+		{"dispatcherThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ServerImpl, dispatcherThread)},
+		{"dispatcher", "Lsun/net/httpserver/ServerImpl$Dispatcher;", nullptr, 0, $field(ServerImpl, dispatcher)},
+		{"debug", "Z", nullptr, $STATIC, $staticField(ServerImpl, debug)},
+		{"exchangeCount", "I", nullptr, $PRIVATE, $field(ServerImpl, exchangeCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/net/httpserver/HttpServer;Ljava/lang/String;Ljava/net/InetSocketAddress;I)V", nullptr, 0, $method(ServerImpl, init$, void, $HttpServer*, $String*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+		{"addEvent", "(Lsun/net/httpserver/Event;)V", nullptr, 0, $virtualMethod(ServerImpl, addEvent, void, $Event*)},
+		{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, bind, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
+		{"closeConnection", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, $PRIVATE, $method(ServerImpl, closeConnection, void, $HttpConnection*)},
+		{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, createContext, $HttpContextImpl*, $String*, $HttpHandler*)},
+		{"createContext", "(Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, createContext, $HttpContextImpl*, $String*)},
+		{"delay", "()V", nullptr, 0, $virtualMethod(ServerImpl, delay, void)},
+		{"dprint", "(Ljava/lang/String;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ServerImpl, dprint, void, $String*)},
+		{"dprint", "(Ljava/lang/Exception;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ServerImpl, dprint, void, $Exception*)},
+		{"endExchange", "()I", nullptr, $SYNCHRONIZED, $virtualMethod(ServerImpl, endExchange, int32_t)},
+		{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getAddress, $InetSocketAddress*)},
+		{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getExecutor, $Executor*)},
+		{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getHttpsConfigurator, $HttpsConfigurator*)},
+		{"getLogger", "()Ljava/lang/System$Logger;", nullptr, 0, $virtualMethod(ServerImpl, getLogger, $System$Logger*)},
+		{"getSelector", "()Ljava/nio/channels/Selector;", nullptr, 0, $virtualMethod(ServerImpl, getSelector, $Selector*)},
+		{"getTicks", "()J", nullptr, 0, $virtualMethod(ServerImpl, getTicks, int64_t)},
+		{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(ServerImpl, getTime, int64_t)},
+		{"getTimeMillis", "(J)J", nullptr, $STATIC, $staticMethod(ServerImpl, getTimeMillis, int64_t, int64_t)},
+		{"getWrapper", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, 0, $virtualMethod(ServerImpl, getWrapper, $HttpServer*)},
+		{"isFinishing", "()Z", nullptr, $PUBLIC | $FINAL, $method(ServerImpl, isFinishing, bool)},
+		{"isValidHeaderKey", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(ServerImpl, isValidHeaderKey, bool, $String*)},
+		{"logReply", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl, logReply, void, int32_t, $String*, $String*)},
+		{"logStackTrace", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl, logStackTrace, void, $String*)},
+		{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, removeContext, void, $String*), "java.lang.IllegalArgumentException"},
+		{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ServerImpl, removeContext, void, $HttpContext*), "java.lang.IllegalArgumentException"},
+		{"requestCompleted", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl, requestCompleted, void, $HttpConnection*)},
+		{"requestStarted", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl, requestStarted, void, $HttpConnection*)},
+		{"responseCompleted", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl, responseCompleted, void, $HttpConnection*)},
+		{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, setExecutor, void, $Executor*)},
+		{"setHttpsConfigurator", "(Lcom/sun/net/httpserver/HttpsConfigurator;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, setHttpsConfigurator, void, $HttpsConfigurator*)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, start, void)},
+		{"startExchange", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ServerImpl, startExchange, void)},
+		{"stop", "(I)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl, stop, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.ServerImpl$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.net.httpserver.ServerImpl$ServerTimerTask1", "sun.net.httpserver.ServerImpl", "ServerTimerTask1", 0},
+		{"sun.net.httpserver.ServerImpl$ServerTimerTask", "sun.net.httpserver.ServerImpl", "ServerTimerTask", 0},
+		{"sun.net.httpserver.ServerImpl$Exchange", "sun.net.httpserver.ServerImpl", "Exchange", 0},
+		{"sun.net.httpserver.ServerImpl$Dispatcher", "sun.net.httpserver.ServerImpl", "Dispatcher", 0},
+		{"sun.net.httpserver.ServerImpl$DefaultExecutor", "sun.net.httpserver.ServerImpl", "DefaultExecutor", $PRIVATE | $STATIC},
+		{"sun.net.httpserver.ServerImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ServerImpl",
+		"java.lang.Object",
+		"sun.net.httpserver.TimeSource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.ServerImpl$2,sun.net.httpserver.ServerImpl$ServerTimerTask1,sun.net.httpserver.ServerImpl$ServerTimerTask,sun.net.httpserver.ServerImpl$Exchange,sun.net.httpserver.ServerImpl$Exchange$LinkHandler,sun.net.httpserver.ServerImpl$Dispatcher,sun.net.httpserver.ServerImpl$DefaultExecutor,sun.net.httpserver.ServerImpl$1"
+	};
+	$loadClass(ServerImpl, name, initialize, &classInfo$$, ServerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerImpl);
+	});
 	return class$;
 }
 

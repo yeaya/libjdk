@@ -1,5 +1,4 @@
 #include <sun/tools/jar/GNUStyleOptions$20.h>
-
 #include <java/io/PrintWriter.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -41,27 +40,24 @@ public:
 	virtual void accept(Object$* out) override {
 		$GNUStyleOptions::printHelp($cast($PrintWriter, out));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GNUStyleOptions$20$$Lambda$printHelp>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GNUStyleOptions$20$$Lambda$printHelp::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$20$$Lambda$printHelp, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$20$$Lambda$printHelp, accept, void, Object$*)},
-	{}
-};
-$ClassInfo GNUStyleOptions$20$$Lambda$printHelp::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.GNUStyleOptions$20$$Lambda$printHelp",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* GNUStyleOptions$20$$Lambda$printHelp::load$($String* name, bool initialize) {
-	$loadClass(GNUStyleOptions$20$$Lambda$printHelp, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$20$$Lambda$printHelp, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$20$$Lambda$printHelp, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.GNUStyleOptions$20$$Lambda$printHelp",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GNUStyleOptions$20$$Lambda$printHelp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GNUStyleOptions$20$$Lambda$printHelp);
+	});
 	return class$;
 }
 $Class* GNUStyleOptions$20$$Lambda$printHelp::class$ = nullptr;
@@ -74,84 +70,43 @@ public:
 	virtual void accept(Object$* out) override {
 		$GNUStyleOptions::printCompatHelp($cast($PrintWriter, out));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GNUStyleOptions$20$$Lambda$printCompatHelp$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GNUStyleOptions$20$$Lambda$printCompatHelp$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$20$$Lambda$printCompatHelp$1, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$20$$Lambda$printCompatHelp$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo GNUStyleOptions$20$$Lambda$printCompatHelp$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.tools.jar.GNUStyleOptions$20$$Lambda$printCompatHelp$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* GNUStyleOptions$20$$Lambda$printCompatHelp$1::load$($String* name, bool initialize) {
-	$loadClass(GNUStyleOptions$20$$Lambda$printCompatHelp$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$20$$Lambda$printCompatHelp$1, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$20$$Lambda$printCompatHelp$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.tools.jar.GNUStyleOptions$20$$Lambda$printCompatHelp$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GNUStyleOptions$20$$Lambda$printCompatHelp$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GNUStyleOptions$20$$Lambda$printCompatHelp$1);
+	});
 	return class$;
 }
 $Class* GNUStyleOptions$20$$Lambda$printCompatHelp$1::class$ = nullptr;
-
-$MethodInfo _GNUStyleOptions$20_MethodInfo_[] = {
-	{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$20, init$, void, bool, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$20, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
-	{}
-};
-
-$EnclosingMethodInfo _GNUStyleOptions$20_EnclosingMethodInfo_ = {
-	"sun.tools.jar.GNUStyleOptions",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _GNUStyleOptions$20_InnerClassesInfo_[] = {
-	{"sun.tools.jar.GNUStyleOptions$20", nullptr, nullptr, 0},
-	{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GNUStyleOptions$20_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.tools.jar.GNUStyleOptions$20",
-	"sun.tools.jar.GNUStyleOptions$Option",
-	nullptr,
-	nullptr,
-	_GNUStyleOptions$20_MethodInfo_,
-	nullptr,
-	&_GNUStyleOptions$20_EnclosingMethodInfo_,
-	_GNUStyleOptions$20_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.GNUStyleOptions"
-};
-
-$Object* allocate$GNUStyleOptions$20($Class* clazz) {
-	return $of($alloc(GNUStyleOptions$20));
-}
 
 void GNUStyleOptions$20::init$(bool hasArg, bool argIsOptional, $GNUStyleOptions$OptionType* type, $StringArray* aliases) {
 	$GNUStyleOptions$Option::init$(hasArg, argIsOptional, type, aliases);
 }
 
 void GNUStyleOptions$20::process($Main* jartool, $String* opt, $String* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(jartool)->info == nullptr) {
 		if (arg == nullptr) {
-			$set(jartool, info, static_cast<$Consumer*>($new(GNUStyleOptions$20$$Lambda$printHelp)));
+			$set(jartool, info, $new(GNUStyleOptions$20$$Lambda$printHelp));
 			return;
 		}
 		if (!$nc(arg)->equals("compat"_s)) {
 			$throw($($$new($GNUStyleOptions$BadArgs, "error.illegal.option"_s, arg)->showUsage(true)));
 		}
-		$set(jartool, info, static_cast<$Consumer*>($new(GNUStyleOptions$20$$Lambda$printCompatHelp$1)));
+		$set(jartool, info, $new(GNUStyleOptions$20$$Lambda$printCompatHelp$1));
 	}
 }
 
@@ -160,14 +115,46 @@ GNUStyleOptions$20::GNUStyleOptions$20() {
 
 $Class* GNUStyleOptions$20::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GNUStyleOptions$20$$Lambda$printHelp::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.GNUStyleOptions$20$$Lambda$printHelp")) {
 			return GNUStyleOptions$20$$Lambda$printHelp::load$(name, initialize);
 		}
-		if (name->equals(GNUStyleOptions$20$$Lambda$printCompatHelp$1::classInfo$.name)) {
+		if (name->equals("sun.tools.jar.GNUStyleOptions$20$$Lambda$printCompatHelp$1")) {
 			return GNUStyleOptions$20$$Lambda$printCompatHelp$1::load$(name, initialize);
 		}
 	}
-	$loadClass(GNUStyleOptions$20, name, initialize, &_GNUStyleOptions$20_ClassInfo_, allocate$GNUStyleOptions$20);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$20, init$, void, bool, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+		{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$20, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.tools.jar.GNUStyleOptions",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.GNUStyleOptions$20", nullptr, nullptr, 0},
+		{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.tools.jar.GNUStyleOptions$20",
+		"sun.tools.jar.GNUStyleOptions$Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.GNUStyleOptions"
+	};
+	$loadClass(GNUStyleOptions$20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GNUStyleOptions$20);
+	});
 	return class$;
 }
 

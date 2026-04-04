@@ -1,5 +1,4 @@
 #include <bug4936917$1.h>
-
 #include <bug4936917.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -10,8 +9,6 @@
 #include <jcpp.h>
 
 using $bug4936917 = ::bug4936917;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -21,61 +18,18 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 
-$FieldInfo _bug4936917$1_FieldInfo_[] = {
-	{"this$0", "Lbug4936917;", nullptr, $FINAL | $SYNTHETIC, $field(bug4936917$1, this$0)},
-	{}
-};
-
-$MethodInfo _bug4936917$1_MethodInfo_[] = {
-	{"<init>", "(Lbug4936917;)V", nullptr, 0, $method(bug4936917$1, init$, void, $bug4936917*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug4936917$1_EnclosingMethodInfo_ = {
-	"bug4936917",
-	"init",
-	"()V"
-};
-
-$InnerClassInfo _bug4936917$1_InnerClassesInfo_[] = {
-	{"bug4936917$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4936917$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4936917$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug4936917$1_FieldInfo_,
-	_bug4936917$1_MethodInfo_,
-	nullptr,
-	&_bug4936917$1_EnclosingMethodInfo_,
-	_bug4936917$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4936917"
-};
-
-$Object* allocate$bug4936917$1($Class* clazz) {
-	return $of($alloc(bug4936917$1));
-}
-
 void bug4936917$1::init$($bug4936917* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void bug4936917$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this->this$0, editorPane, $new($JEditorPane, "text/html"_s, ""_s));
-	$nc(this->this$0->editorPane)->setEditable(false);
+	this->this$0->editorPane->setEditable(false);
 	$nc(this->this$0->editorPane)->setMargin($$new($Insets, 0, 0, 0, 0));
 	$nc(this->this$0->editorPane)->setText(this->this$0->text);
-	$init($bug4936917);
 	$assignStatic($bug4936917::f, $new($JFrame));
-	$nc($($nc($bug4936917::f)->getContentPane()))->add(static_cast<$Component*>(this->this$0->editorPane));
+	$$nc($bug4936917::f->getContentPane())->add(this->this$0->editorPane);
 	$nc($bug4936917::f)->setSize(600, 400);
 	$nc($bug4936917::f)->setVisible(true);
 }
@@ -84,7 +38,42 @@ bug4936917$1::bug4936917$1() {
 }
 
 $Class* bug4936917$1::load$($String* name, bool initialize) {
-	$loadClass(bug4936917$1, name, initialize, &_bug4936917$1_ClassInfo_, allocate$bug4936917$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug4936917;", nullptr, $FINAL | $SYNTHETIC, $field(bug4936917$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4936917;)V", nullptr, 0, $method(bug4936917$1, init$, void, $bug4936917*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug4936917",
+		"init",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4936917$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4936917$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4936917"
+	};
+	$loadClass(bug4936917$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4936917$1);
+	});
 	return class$;
 }
 

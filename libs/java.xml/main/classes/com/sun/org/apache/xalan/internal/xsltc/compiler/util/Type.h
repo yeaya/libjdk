@@ -106,6 +106,7 @@ class Type : public ::com::sun::org::apache::xalan::internal::xsltc::compiler::C
 	$class(Type, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants)
 public:
 	Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::bcel::internal::generic::Instruction* ADD();
 	virtual ::com::sun::org::apache::bcel::internal::generic::Instruction* CMP(bool less);

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$19.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,50 +23,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$19_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$19, this$0)},
-	{"val$s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Types$19, val$s)},
-	{}
-};
-
-$MethodInfo _Types$19_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Types$19, init$, void, $Types*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Types$19, baseSymbol, $Symbol*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$19_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	"mergeAbstracts",
-	"(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Z)Ljava/util/Optional;"
-};
-
-$InnerClassInfo _Types$19_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$19", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$19_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$19",
-	"com.sun.tools.javac.code.Symbol$MethodSymbol",
-	nullptr,
-	_Types$19_FieldInfo_,
-	_Types$19_MethodInfo_,
-	nullptr,
-	&_Types$19_EnclosingMethodInfo_,
-	_Types$19_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$19($Class* clazz) {
-	return $of($alloc(Types$19));
-}
-
 void Types$19::init$($Types* this$0, int64_t flags, $Name* name, $Type* type, $Symbol* owner, $Symbol* val$s) {
 	$set(this, this$0, this$0);
 	$set(this, val$s, val$s);
@@ -82,7 +37,44 @@ Types$19::Types$19() {
 }
 
 $Class* Types$19::load$($String* name, bool initialize) {
-	$loadClass(Types$19, name, initialize, &_Types$19_ClassInfo_, allocate$Types$19);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$19, this$0)},
+		{"val$s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $FINAL | $SYNTHETIC, $field(Types$19, val$s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Types$19, init$, void, $Types*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
+		{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Types$19, baseSymbol, $Symbol*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		"mergeAbstracts",
+		"(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Z)Ljava/util/Optional;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$19", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$19",
+		"com.sun.tools.javac.code.Symbol$MethodSymbol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$19));
+	});
 	return class$;
 }
 

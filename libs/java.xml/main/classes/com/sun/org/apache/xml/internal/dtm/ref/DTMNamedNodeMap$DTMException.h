@@ -39,10 +39,13 @@ public:
 	void init$(::com::sun::org::apache::xml::internal::dtm::ref::DTMNamedNodeMap* this$0, int16_t code, $String* message);
 	void init$(::com::sun::org::apache::xml::internal::dtm::ref::DTMNamedNodeMap* this$0, int16_t code);
 	::com::sun::org::apache::xml::internal::dtm::ref::DTMNamedNodeMap* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x8CF3285B232133D2;
+	static const int64_t serialVersionUID = (int64_t)0x8cf3285b232133d2;
 	DTMNamedNodeMap$DTMException(const DTMNamedNodeMap$DTMException& e);
 	virtual void throw$() override;
-	inline DTMNamedNodeMap$DTMException* operator ->() {
+	inline DTMNamedNodeMap$DTMException* operator ->() const {
+		return (DTMNamedNodeMap$DTMException*)throwing$;
+	}
+	inline operator DTMNamedNodeMap$DTMException*() const {
 		return (DTMNamedNodeMap$DTMException*)throwing$;
 	}
 };

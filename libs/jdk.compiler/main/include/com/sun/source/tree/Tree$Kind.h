@@ -247,6 +247,7 @@ class $import Tree$Kind : public ::java::lang::Enum {
 public:
 	Tree$Kind();
 	static $Array<::com::sun::source::tree::Tree$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $Class* intf);
 	virtual $Class* asInterface();
 	static ::com::sun::source::tree::Tree$Kind* valueOf($String* name);

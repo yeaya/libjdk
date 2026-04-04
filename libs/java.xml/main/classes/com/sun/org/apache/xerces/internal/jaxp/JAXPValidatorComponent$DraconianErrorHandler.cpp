@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$DraconianErrorHandler.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent.h>
 #include <org/xml/sax/SAXParseException.h>
 #include <jcpp.h>
@@ -19,45 +18,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace jaxp {
-
-$FieldInfo _JAXPValidatorComponent$DraconianErrorHandler_FieldInfo_[] = {
-	{"ERROR_HANDLER_INSTANCE", "Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$DraconianErrorHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JAXPValidatorComponent$DraconianErrorHandler, ERROR_HANDLER_INSTANCE)},
-	{}
-};
-
-$MethodInfo _JAXPValidatorComponent$DraconianErrorHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JAXPValidatorComponent$DraconianErrorHandler, init$, void)},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$DraconianErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$DraconianErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"getInstance", "()Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$DraconianErrorHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(JAXPValidatorComponent$DraconianErrorHandler, getInstance, JAXPValidatorComponent$DraconianErrorHandler*)},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$DraconianErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$InnerClassInfo _JAXPValidatorComponent$DraconianErrorHandler_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$DraconianErrorHandler", "com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent", "DraconianErrorHandler", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JAXPValidatorComponent$DraconianErrorHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$DraconianErrorHandler",
-	"java.lang.Object",
-	"org.xml.sax.ErrorHandler",
-	_JAXPValidatorComponent$DraconianErrorHandler_FieldInfo_,
-	_JAXPValidatorComponent$DraconianErrorHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JAXPValidatorComponent$DraconianErrorHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent"
-};
-
-$Object* allocate$JAXPValidatorComponent$DraconianErrorHandler($Class* clazz) {
-	return $of($alloc(JAXPValidatorComponent$DraconianErrorHandler));
-}
 
 JAXPValidatorComponent$DraconianErrorHandler* JAXPValidatorComponent$DraconianErrorHandler::ERROR_HANDLER_INSTANCE = nullptr;
 
@@ -80,7 +40,7 @@ void JAXPValidatorComponent$DraconianErrorHandler::fatalError($SAXParseException
 	$throw(e);
 }
 
-void clinit$JAXPValidatorComponent$DraconianErrorHandler($Class* class$) {
+void JAXPValidatorComponent$DraconianErrorHandler::clinit$($Class* clazz) {
 	$assignStatic(JAXPValidatorComponent$DraconianErrorHandler::ERROR_HANDLER_INSTANCE, $new(JAXPValidatorComponent$DraconianErrorHandler));
 }
 
@@ -88,7 +48,40 @@ JAXPValidatorComponent$DraconianErrorHandler::JAXPValidatorComponent$DraconianEr
 }
 
 $Class* JAXPValidatorComponent$DraconianErrorHandler::load$($String* name, bool initialize) {
-	$loadClass(JAXPValidatorComponent$DraconianErrorHandler, name, initialize, &_JAXPValidatorComponent$DraconianErrorHandler_ClassInfo_, clinit$JAXPValidatorComponent$DraconianErrorHandler, allocate$JAXPValidatorComponent$DraconianErrorHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR_HANDLER_INSTANCE", "Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$DraconianErrorHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JAXPValidatorComponent$DraconianErrorHandler, ERROR_HANDLER_INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JAXPValidatorComponent$DraconianErrorHandler, init$, void)},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$DraconianErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$DraconianErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"getInstance", "()Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$DraconianErrorHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(JAXPValidatorComponent$DraconianErrorHandler, getInstance, JAXPValidatorComponent$DraconianErrorHandler*)},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$DraconianErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$DraconianErrorHandler", "com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent", "DraconianErrorHandler", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$DraconianErrorHandler",
+		"java.lang.Object",
+		"org.xml.sax.ErrorHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent"
+	};
+	$loadClass(JAXPValidatorComponent$DraconianErrorHandler, name, initialize, &classInfo$$, JAXPValidatorComponent$DraconianErrorHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JAXPValidatorComponent$DraconianErrorHandler);
+	});
 	return class$;
 }
 

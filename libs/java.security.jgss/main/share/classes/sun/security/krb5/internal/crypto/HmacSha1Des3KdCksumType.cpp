@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/HmacSha1Des3KdCksumType.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <sun/security/krb5/Checksum.h>
 #include <sun/security/krb5/KrbCryptoException.h>
@@ -25,32 +24,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace crypto {
-
-$MethodInfo _HmacSha1Des3KdCksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HmacSha1Des3KdCksumType, init$, void)},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, cksumSize, int32_t)},
-	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, cksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, confounderSize, int32_t)},
-	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, isKeyed, bool)},
-	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, keyType, int32_t)},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{}
-};
-
-$ClassInfo _HmacSha1Des3KdCksumType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.HmacSha1Des3KdCksumType",
-	"sun.security.krb5.internal.crypto.CksumType",
-	nullptr,
-	nullptr,
-	_HmacSha1Des3KdCksumType_MethodInfo_
-};
-
-$Object* allocate$HmacSha1Des3KdCksumType($Class* clazz) {
-	return $of($alloc(HmacSha1Des3KdCksumType));
-}
 
 void HmacSha1Des3KdCksumType::init$() {
 	$CksumType::init$();
@@ -81,7 +54,7 @@ int32_t HmacSha1Des3KdCksumType::keySize() {
 }
 
 $bytes* HmacSha1Des3KdCksumType::calculateChecksum($bytes* data, int32_t size, $bytes* key, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $Des3::calculateChecksum(key, usage, data, 0, size);
 	} catch ($GeneralSecurityException& e) {
@@ -93,7 +66,7 @@ $bytes* HmacSha1Des3KdCksumType::calculateChecksum($bytes* data, int32_t size, $
 }
 
 bool HmacSha1Des3KdCksumType::verifyChecksum($bytes* data, int32_t size, $bytes* key, $bytes* checksum, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, newCksum, $Des3::calculateChecksum(key, usage, data, 0, size));
 		return isChecksumEqual(checksum, newCksum);
@@ -109,7 +82,29 @@ HmacSha1Des3KdCksumType::HmacSha1Des3KdCksumType() {
 }
 
 $Class* HmacSha1Des3KdCksumType::load$($String* name, bool initialize) {
-	$loadClass(HmacSha1Des3KdCksumType, name, initialize, &_HmacSha1Des3KdCksumType_ClassInfo_, allocate$HmacSha1Des3KdCksumType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HmacSha1Des3KdCksumType, init$, void)},
+		{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, cksumSize, int32_t)},
+		{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, cksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, confounderSize, int32_t)},
+		{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, isKeyed, bool)},
+		{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, keyType, int32_t)},
+		{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(HmacSha1Des3KdCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.HmacSha1Des3KdCksumType",
+		"sun.security.krb5.internal.crypto.CksumType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HmacSha1Des3KdCksumType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HmacSha1Des3KdCksumType);
+	});
 	return class$;
 }
 

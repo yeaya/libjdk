@@ -1,5 +1,4 @@
 #include <javax/tools/DocumentationTool$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/tools/DocumentationTool$Location.h>
 #include <javax/tools/DocumentationTool.h>
@@ -17,49 +16,13 @@ using $DocumentationTool$Location = ::javax::tools::DocumentationTool$Location;
 namespace javax {
 	namespace tools {
 
-$FieldInfo _DocumentationTool$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$tools$DocumentationTool$Location", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocumentationTool$1, $SwitchMap$javax$tools$DocumentationTool$Location)},
-	{}
-};
-
-$EnclosingMethodInfo _DocumentationTool$1_EnclosingMethodInfo_ = {
-	"javax.tools.DocumentationTool",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DocumentationTool$1_InnerClassesInfo_[] = {
-	{"javax.tools.DocumentationTool$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _DocumentationTool$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.tools.DocumentationTool$1",
-	"java.lang.Object",
-	nullptr,
-	_DocumentationTool$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_DocumentationTool$1_EnclosingMethodInfo_,
-	_DocumentationTool$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.tools.DocumentationTool"
-};
-
-$Object* allocate$DocumentationTool$1($Class* clazz) {
-	return $of($alloc(DocumentationTool$1));
-}
-
 $ints* DocumentationTool$1::$SwitchMap$javax$tools$DocumentationTool$Location = nullptr;
 
-void clinit$DocumentationTool$1($Class* class$) {
+void DocumentationTool$1::clinit$($Class* clazz) {
 	$assignStatic(DocumentationTool$1::$SwitchMap$javax$tools$DocumentationTool$Location, $new($ints, $($DocumentationTool$Location::values())->length));
 	{
 		try {
-			$nc(DocumentationTool$1::$SwitchMap$javax$tools$DocumentationTool$Location)->set($DocumentationTool$Location::DOCUMENTATION_OUTPUT->ordinal(), 1);
+			DocumentationTool$1::$SwitchMap$javax$tools$DocumentationTool$Location->set($DocumentationTool$Location::DOCUMENTATION_OUTPUT->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -69,7 +32,37 @@ DocumentationTool$1::DocumentationTool$1() {
 }
 
 $Class* DocumentationTool$1::load$($String* name, bool initialize) {
-	$loadClass(DocumentationTool$1, name, initialize, &_DocumentationTool$1_ClassInfo_, clinit$DocumentationTool$1, allocate$DocumentationTool$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$tools$DocumentationTool$Location", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DocumentationTool$1, $SwitchMap$javax$tools$DocumentationTool$Location)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.tools.DocumentationTool",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.DocumentationTool$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.tools.DocumentationTool$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.tools.DocumentationTool"
+	};
+	$loadClass(DocumentationTool$1, name, initialize, &classInfo$$, DocumentationTool$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentationTool$1);
+	});
 	return class$;
 }
 

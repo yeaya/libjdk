@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Response.h>
-
 #include <java/io/IOException.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -24,7 +23,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URI = ::java::net::URI;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
-using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 using $AbstractAsyncSSLConnection = ::jdk::internal::net::http::AbstractAsyncSSLConnection;
@@ -38,49 +36,12 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _Response_FieldInfo_[] = {
-	{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $FINAL, $field(Response, headers$)},
-	{"statusCode", "I", nullptr, $FINAL, $field(Response, statusCode$)},
-	{"request", "Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $FINAL, $field(Response, request$)},
-	{"exchange", "Ljdk/internal/net/http/Exchange;", "Ljdk/internal/net/http/Exchange<*>;", $FINAL, $field(Response, exchange)},
-	{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $FINAL, $field(Response, version$)},
-	{"isConnectResponse", "Z", nullptr, $FINAL, $field(Response, isConnectResponse)},
-	{"sslSession", "Ljavax/net/ssl/SSLSession;", nullptr, $FINAL, $field(Response, sslSession)},
-	{"localAddress", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(Response, localAddress)},
-	{}
-};
-
-$MethodInfo _Response_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", 0, $method(Response, init$, void, $HttpRequestImpl*, $Exchange*, $HttpHeaders*, $HttpConnection*, int32_t, $HttpClient$Version*)},
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", 0, $method(Response, init$, void, $HttpRequestImpl*, $Exchange*, $HttpHeaders*, $HttpConnection*, int32_t, $HttpClient$Version*, bool)},
-	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0, $virtualMethod(Response, getSSLSession, $SSLSession*)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Response, headers, $HttpHeaders*)},
-	{"request", "()Ljdk/internal/net/http/HttpRequestImpl;", nullptr, 0, $virtualMethod(Response, request, $HttpRequestImpl*)},
-	{"statusCode", "()I", nullptr, 0, $virtualMethod(Response, statusCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Response, toString, $String*)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, 0, $virtualMethod(Response, version, $HttpClient$Version*)},
-	{}
-};
-
-$ClassInfo _Response_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.Response",
-	"java.lang.Object",
-	nullptr,
-	_Response_FieldInfo_,
-	_Response_MethodInfo_
-};
-
-$Object* allocate$Response($Class* clazz) {
-	return $of($alloc(Response));
-}
-
 void Response::init$($HttpRequestImpl* req, $Exchange* exchange, $HttpHeaders* headers, $HttpConnection* connection, int32_t statusCode, $HttpClient$Version* version) {
 	Response::init$(req, exchange, headers, connection, statusCode, version, "CONNECT"_s->equalsIgnoreCase($($nc(req)->method())));
 }
 
 void Response::init$($HttpRequestImpl* req, $Exchange* exchange, $HttpHeaders* headers, $HttpConnection* connection, int32_t statusCode, $HttpClient$Version* version, bool isConnectResponse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, headers$, headers);
 	$set(this, request$, req);
 	$set(this, version$, version);
@@ -90,7 +51,7 @@ void Response::init$($HttpRequestImpl* req, $Exchange* exchange, $HttpHeaders* h
 	if (connection != nullptr) {
 		$var($InetSocketAddress, a, nullptr);
 		try {
-			$assign(a, $cast($InetSocketAddress, $nc($(connection->channel()))->getLocalAddress()));
+			$assign(a, $cast($InetSocketAddress, $$nc(connection->channel())->getLocalAddress()));
 		} catch ($IOException& e) {
 			$assign(a, nullptr);
 		}
@@ -129,15 +90,15 @@ $SSLSession* Response::getSSLSession() {
 }
 
 $String* Response::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	$var($String, method, $nc($(request()))->method());
-	$var($URI, uri, $nc($(request()))->uri());
-	$var($String, uristring, uri == nullptr ? ""_s : $nc(uri)->toString());
+	$var($String, method, $$nc(request())->method());
+	$var($URI, uri, $$nc(request())->uri());
+	$var($String, uristring, uri == nullptr ? ""_s : uri->toString());
 	sb->append(u'(')->append(method)->append(" "_s)->append(uristring)->append(") "_s)->append(statusCode());
-	sb->append(" "_s)->append($of(this->version$));
+	sb->append(" "_s)->append(this->version$);
 	if (this->localAddress != nullptr) {
-		sb->append(" Local port:  "_s)->append($nc(this->localAddress)->getPort());
+		sb->append(" Local port:  "_s)->append(this->localAddress->getPort());
 	}
 	return sb->toString();
 }
@@ -146,7 +107,39 @@ Response::Response() {
 }
 
 $Class* Response::load$($String* name, bool initialize) {
-	$loadClass(Response, name, initialize, &_Response_ClassInfo_, allocate$Response);
+	$FieldInfo fieldInfos$$[] = {
+		{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $FINAL, $field(Response, headers$)},
+		{"statusCode", "I", nullptr, $FINAL, $field(Response, statusCode$)},
+		{"request", "Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $FINAL, $field(Response, request$)},
+		{"exchange", "Ljdk/internal/net/http/Exchange;", "Ljdk/internal/net/http/Exchange<*>;", $FINAL, $field(Response, exchange)},
+		{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $FINAL, $field(Response, version$)},
+		{"isConnectResponse", "Z", nullptr, $FINAL, $field(Response, isConnectResponse)},
+		{"sslSession", "Ljavax/net/ssl/SSLSession;", nullptr, $FINAL, $field(Response, sslSession)},
+		{"localAddress", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(Response, localAddress)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", 0, $method(Response, init$, void, $HttpRequestImpl*, $Exchange*, $HttpHeaders*, $HttpConnection*, int32_t, $HttpClient$Version*)},
+		{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", 0, $method(Response, init$, void, $HttpRequestImpl*, $Exchange*, $HttpHeaders*, $HttpConnection*, int32_t, $HttpClient$Version*, bool)},
+		{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0, $virtualMethod(Response, getSSLSession, $SSLSession*)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Response, headers, $HttpHeaders*)},
+		{"request", "()Ljdk/internal/net/http/HttpRequestImpl;", nullptr, 0, $virtualMethod(Response, request, $HttpRequestImpl*)},
+		{"statusCode", "()I", nullptr, 0, $virtualMethod(Response, statusCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Response, toString, $String*)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, 0, $virtualMethod(Response, version, $HttpClient$Version*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.Response",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Response, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Response);
+	});
 	return class$;
 }
 

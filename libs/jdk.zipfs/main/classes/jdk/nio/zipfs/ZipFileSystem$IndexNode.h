@@ -19,6 +19,7 @@ class ZipFileSystem$IndexNode : public ::java::lang::Object {
 	$class(ZipFileSystem$IndexNode, 0, ::java::lang::Object)
 public:
 	ZipFileSystem$IndexNode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($bytes* name, bool isdir);
 	void init$($bytes* name, int32_t pos);

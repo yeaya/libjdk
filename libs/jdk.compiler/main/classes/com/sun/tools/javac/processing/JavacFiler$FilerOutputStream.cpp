@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacFiler$FilerOutputStream.h>
-
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
 #include <com/sun/tools/javac/processing/JavacFiler.h>
 #include <java/io/FilterOutputStream.h>
@@ -11,7 +10,6 @@
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $JavacFiler = ::com::sun::tools::javac::processing::JavacFiler;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -24,47 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace processing {
-
-$FieldInfo _JavacFiler$FilerOutputStream_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFiler$FilerOutputStream, this$0)},
-	{"mod", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, 0, $field(JavacFiler$FilerOutputStream, mod)},
-	{"typeName", "Ljava/lang/String;", nullptr, 0, $field(JavacFiler$FilerOutputStream, typeName)},
-	{"fileObject", "Ljavax/tools/FileObject;", nullptr, 0, $field(JavacFiler$FilerOutputStream, fileObject)},
-	{"closed", "Z", nullptr, 0, $field(JavacFiler$FilerOutputStream, closed)},
-	{}
-};
-
-$MethodInfo _JavacFiler$FilerOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerOutputStream, init$, void, $JavacFiler*, $Symbol$ModuleSymbol*, $String*, $FileObject*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavacFiler$FilerOutputStream, close, void), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JavacFiler$FilerOutputStream_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacFiler$FilerOutputStream", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JavacFiler$FilerOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacFiler$FilerOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_JavacFiler$FilerOutputStream_FieldInfo_,
-	_JavacFiler$FilerOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacFiler$FilerOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacFiler"
-};
-
-$Object* allocate$JavacFiler$FilerOutputStream($Class* clazz) {
-	return $of($alloc(JavacFiler$FilerOutputStream));
-}
 
 void JavacFiler$FilerOutputStream::init$($JavacFiler* this$0, $Symbol$ModuleSymbol* mod, $String* typeName, $FileObject* fileObject) {
 	$set(this, this$0, this$0);
@@ -94,7 +51,42 @@ JavacFiler$FilerOutputStream::JavacFiler$FilerOutputStream() {
 }
 
 $Class* JavacFiler$FilerOutputStream::load$($String* name, bool initialize) {
-	$loadClass(JavacFiler$FilerOutputStream, name, initialize, &_JavacFiler$FilerOutputStream_ClassInfo_, allocate$JavacFiler$FilerOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFiler$FilerOutputStream, this$0)},
+		{"mod", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, 0, $field(JavacFiler$FilerOutputStream, mod)},
+		{"typeName", "Ljava/lang/String;", nullptr, 0, $field(JavacFiler$FilerOutputStream, typeName)},
+		{"fileObject", "Ljavax/tools/FileObject;", nullptr, 0, $field(JavacFiler$FilerOutputStream, fileObject)},
+		{"closed", "Z", nullptr, 0, $field(JavacFiler$FilerOutputStream, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerOutputStream, init$, void, $JavacFiler*, $Symbol$ModuleSymbol*, $String*, $FileObject*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavacFiler$FilerOutputStream, close, void), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacFiler$FilerOutputStream", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacFiler$FilerOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacFiler"
+	};
+	$loadClass(JavacFiler$FilerOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacFiler$FilerOutputStream));
+	});
 	return class$;
 }
 

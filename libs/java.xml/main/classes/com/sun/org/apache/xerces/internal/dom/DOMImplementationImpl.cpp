@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/CoreDOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
@@ -26,7 +25,6 @@ using $DOMImplementation = ::org::w3c::dom::DOMImplementation;
 using $Document = ::org::w3c::dom::Document;
 using $DocumentType = ::org::w3c::dom::DocumentType;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -35,32 +33,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DOMImplementationImpl_FieldInfo_[] = {
-	{"singleton", "Lcom/sun/org/apache/xerces/internal/dom/DOMImplementationImpl;", nullptr, $STATIC, $staticField(DOMImplementationImpl, singleton)},
-	{}
-};
-
-$MethodInfo _DOMImplementationImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMImplementationImpl, init$, void)},
-	{"createDocument", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/DocumentType;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DOMImplementationImpl, createDocument, $Document*, $String*, $String*, $DocumentType*), "org.w3c.dom.DOMException"},
-	{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMImplementationImpl, getDOMImplementation, $DOMImplementation*)},
-	{"hasFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMImplementationImpl, hasFeature, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _DOMImplementationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DOMImplementationImpl",
-	"com.sun.org.apache.xerces.internal.dom.CoreDOMImplementationImpl",
-	nullptr,
-	_DOMImplementationImpl_FieldInfo_,
-	_DOMImplementationImpl_MethodInfo_
-};
-
-$Object* allocate$DOMImplementationImpl($Class* clazz) {
-	return $of($alloc(DOMImplementationImpl));
-}
 
 DOMImplementationImpl* DOMImplementationImpl::singleton = nullptr;
 
@@ -75,35 +47,35 @@ $DOMImplementation* DOMImplementationImpl::getDOMImplementation() {
 
 bool DOMImplementationImpl::hasFeature($String* feature$renamed, $String* version) {
 	$var($String, feature, feature$renamed);
-	if (feature == nullptr || $nc(feature)->length() == 0) {
+	if (feature == nullptr || feature->length() == 0) {
 		return false;
 	}
 	bool result = $CoreDOMImplementationImpl::hasFeature(feature, version);
 	if (!result) {
-		bool anyVersion = version == nullptr || $nc(version)->length() == 0;
+		bool anyVersion = version == nullptr || version->length() == 0;
 		if ($nc(feature)->startsWith("+"_s)) {
 			$assign(feature, feature->substring(1));
 		}
-		bool var$4 = $nc(feature)->equalsIgnoreCase("Events"_s);
-		bool var$3 = (var$4 && (anyVersion || version->equals("2.0"_s)));
+		bool var$4 = feature->equalsIgnoreCase("Events"_s);
+		bool var$3 = var$4 && (anyVersion || $nc(version)->equals("2.0"_s));
 		if (!var$3) {
-			bool var$5 = $nc(feature)->equalsIgnoreCase("MutationEvents"_s);
-			var$3 = (var$5 && (anyVersion || version->equals("2.0"_s)));
+			bool var$5 = feature->equalsIgnoreCase("MutationEvents"_s);
+			var$3 = var$5 && (anyVersion || $nc(version)->equals("2.0"_s));
 		}
 		bool var$2 = var$3;
 		if (!var$2) {
-			bool var$6 = $nc(feature)->equalsIgnoreCase("Traversal"_s);
-			var$2 = (var$6 && (anyVersion || version->equals("2.0"_s)));
+			bool var$6 = feature->equalsIgnoreCase("Traversal"_s);
+			var$2 = var$6 && (anyVersion || $nc(version)->equals("2.0"_s));
 		}
 		bool var$1 = var$2;
 		if (!var$1) {
-			bool var$7 = $nc(feature)->equalsIgnoreCase("Range"_s);
-			var$1 = (var$7 && (anyVersion || version->equals("2.0"_s)));
+			bool var$7 = feature->equalsIgnoreCase("Range"_s);
+			var$1 = var$7 && (anyVersion || $nc(version)->equals("2.0"_s));
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
-			bool var$8 = $nc(feature)->equalsIgnoreCase("MutationEvents"_s);
-			var$0 = (var$8 && (anyVersion || version->equals("2.0"_s)));
+			bool var$8 = feature->equalsIgnoreCase("MutationEvents"_s);
+			var$0 = var$8 && (anyVersion || $nc(version)->equals("2.0"_s));
 		}
 		return (var$0);
 	}
@@ -111,7 +83,7 @@ bool DOMImplementationImpl::hasFeature($String* feature$renamed, $String* versio
 }
 
 $Document* DOMImplementationImpl::createDocument($String* namespaceURI, $String* qualifiedName, $DocumentType* doctype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (namespaceURI == nullptr && qualifiedName == nullptr && doctype == nullptr) {
 		return $new($DocumentImpl);
 	} else if (doctype != nullptr && doctype->getOwnerDocument() != nullptr) {
@@ -125,7 +97,7 @@ $Document* DOMImplementationImpl::createDocument($String* namespaceURI, $String*
 	return doc;
 }
 
-void clinit$DOMImplementationImpl($Class* class$) {
+void DOMImplementationImpl::clinit$($Class* clazz) {
 	$assignStatic(DOMImplementationImpl::singleton, $new(DOMImplementationImpl));
 }
 
@@ -133,7 +105,28 @@ DOMImplementationImpl::DOMImplementationImpl() {
 }
 
 $Class* DOMImplementationImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMImplementationImpl, name, initialize, &_DOMImplementationImpl_ClassInfo_, clinit$DOMImplementationImpl, allocate$DOMImplementationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lcom/sun/org/apache/xerces/internal/dom/DOMImplementationImpl;", nullptr, $STATIC, $staticField(DOMImplementationImpl, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMImplementationImpl, init$, void)},
+		{"createDocument", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/DocumentType;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DOMImplementationImpl, createDocument, $Document*, $String*, $String*, $DocumentType*), "org.w3c.dom.DOMException"},
+		{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMImplementationImpl, getDOMImplementation, $DOMImplementation*)},
+		{"hasFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMImplementationImpl, hasFeature, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DOMImplementationImpl",
+		"com.sun.org.apache.xerces.internal.dom.CoreDOMImplementationImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMImplementationImpl, name, initialize, &classInfo$$, DOMImplementationImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMImplementationImpl));
+	});
 	return class$;
 }
 

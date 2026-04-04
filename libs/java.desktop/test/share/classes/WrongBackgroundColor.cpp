@@ -1,5 +1,4 @@
 #include <WrongBackgroundColor.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
@@ -18,7 +17,6 @@
 #include <jcpp.h>
 
 using $Color = ::java::awt::Color;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -40,60 +38,37 @@ public:
 	virtual void run() override {
 		WrongBackgroundColor::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WrongBackgroundColor$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WrongBackgroundColor$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WrongBackgroundColor$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WrongBackgroundColor$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo WrongBackgroundColor$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"WrongBackgroundColor$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* WrongBackgroundColor$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(WrongBackgroundColor$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WrongBackgroundColor$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WrongBackgroundColor$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"WrongBackgroundColor$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WrongBackgroundColor$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrongBackgroundColor$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* WrongBackgroundColor$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _WrongBackgroundColor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WrongBackgroundColor, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WrongBackgroundColor, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WrongBackgroundColor, main, void, $StringArray*), "java.lang.reflect.InvocationTargetException,java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _WrongBackgroundColor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"WrongBackgroundColor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WrongBackgroundColor_MethodInfo_
-};
-
-$Object* allocate$WrongBackgroundColor($Class* clazz) {
-	return $of($alloc(WrongBackgroundColor));
-}
 
 void WrongBackgroundColor::init$() {
 }
 
 void WrongBackgroundColor::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(WrongBackgroundColor$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(WrongBackgroundColor$$Lambda$lambda$main$0));
 }
 
 void WrongBackgroundColor::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, ui, $UIManager::getDefaults());
 	$nc(ui)->put("control"_s, $$new($ColorUIResource, 54, 54, 54));
 	$var($JDialog, dialog, $new($JDialog));
@@ -106,7 +81,7 @@ void WrongBackgroundColor::lambda$main$0() {
 	dialog->dispose();
 	if (!$nc(dialogBackground)->equals(frameBackground)) {
 		$nc($System::err)->println($$str({"Expected:"_s, frameBackground}));
-		$nc($System::err)->println($$str({"Actual:"_s, dialogBackground}));
+		$System::err->println($$str({"Actual:"_s, dialogBackground}));
 		$throwNew($RuntimeException, "Wrong background color"_s);
 	}
 }
@@ -116,11 +91,27 @@ WrongBackgroundColor::WrongBackgroundColor() {
 
 $Class* WrongBackgroundColor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WrongBackgroundColor$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("WrongBackgroundColor$$Lambda$lambda$main$0")) {
 			return WrongBackgroundColor$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(WrongBackgroundColor, name, initialize, &_WrongBackgroundColor_ClassInfo_, allocate$WrongBackgroundColor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WrongBackgroundColor, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WrongBackgroundColor, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WrongBackgroundColor, main, void, $StringArray*), "java.lang.reflect.InvocationTargetException,java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"WrongBackgroundColor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WrongBackgroundColor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrongBackgroundColor);
+	});
 	return class$;
 }
 

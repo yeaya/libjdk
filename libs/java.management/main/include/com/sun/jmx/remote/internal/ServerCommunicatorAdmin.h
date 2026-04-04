@@ -27,6 +27,7 @@ class $import ServerCommunicatorAdmin : public ::java::lang::Object {
 	$class(ServerCommunicatorAdmin, 0, ::java::lang::Object)
 public:
 	ServerCommunicatorAdmin();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t timeout);
 	virtual void doStop() {}
 	void logtime($String* desc, int64_t time);

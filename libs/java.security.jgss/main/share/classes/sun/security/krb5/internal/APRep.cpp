@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/APRep.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/krb5/Asn1Exception.h>
 #include <sun/security/krb5/EncryptedData.h>
@@ -26,7 +25,6 @@ using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -34,35 +32,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _APRep_FieldInfo_[] = {
-	{"pvno", "I", nullptr, $PUBLIC, $field(APRep, pvno)},
-	{"msgType", "I", nullptr, $PUBLIC, $field(APRep, msgType)},
-	{"encPart", "Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC, $field(APRep, encPart)},
-	{}
-};
-
-$MethodInfo _APRep_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(APRep, init$, void, $EncryptedData*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(APRep, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(APRep, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(APRep, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(APRep, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _APRep_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.APRep",
-	"java.lang.Object",
-	nullptr,
-	_APRep_FieldInfo_,
-	_APRep_MethodInfo_
-};
-
-$Object* allocate$APRep($Class* clazz) {
-	return $of($alloc(APRep));
-}
 
 void APRep::init$($EncryptedData* new_encPart) {
 	this->pvno = $Krb5::PVNO;
@@ -79,46 +48,46 @@ void APRep::init$($DerValue* encoding) {
 }
 
 void APRep::init($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
-	bool var$1 = (((int32_t)($nc(encoding)->getTag() & (uint32_t)(int32_t)(int8_t)(31))) != $Krb5::KRB_AP_REP);
-	bool var$0 = var$1 || ($nc(encoding)->isApplication() != true);
-	if (var$0 || ($nc(encoding)->isConstructed() != true)) {
+	$useLocalObjectStack();
+	bool var$1 = ($nc(encoding)->getTag() & (int8_t)(31)) != $Krb5::KRB_AP_REP;
+	bool var$0 = var$1 || (encoding->isApplication() != true);
+	if (var$0 || (encoding->isConstructed() != true)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$var($DerValue, der, $nc($($nc(encoding)->getData()))->getDerValue());
+	$var($DerValue, der, $$nc(encoding->getData())->getDerValue());
 	if ($nc(der)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$var($DerValue, subDer, $nc($($nc(der)->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) != (int8_t)0) {
+	$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) != (int8_t)0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	this->pvno = $nc($($nc($($nc(subDer)->getData()))->getBigInteger()))->intValue();
+	this->pvno = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 	if (this->pvno != $Krb5::PVNO) {
 		$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_BADVERSION);
 	}
-	$assign(subDer, $nc($(der->getData()))->getDerValue());
-	if (((int32_t)(subDer->getTag() & (uint32_t)(int32_t)(int8_t)31)) != (int8_t)1) {
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) != (int8_t)1) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	this->msgType = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	this->msgType = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 	if (this->msgType != $Krb5::KRB_AP_REP) {
 		$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_MSG_TYPE);
 	}
 	$set(this, encPart, $EncryptedData::parse($(der->getData()), (int8_t)2, false));
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* APRep::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->pvno)));
+	temp->putInteger($($BigInteger::valueOf(this->pvno)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), temp);
 	$assign(temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->msgType)));
+	temp->putInteger($($BigInteger::valueOf(this->msgType)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1), temp);
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2);
 	bytes->write(var$0, $($nc(this->encPart)->asn1Encode()));
@@ -133,7 +102,31 @@ APRep::APRep() {
 }
 
 $Class* APRep::load$($String* name, bool initialize) {
-	$loadClass(APRep, name, initialize, &_APRep_ClassInfo_, allocate$APRep);
+	$FieldInfo fieldInfos$$[] = {
+		{"pvno", "I", nullptr, $PUBLIC, $field(APRep, pvno)},
+		{"msgType", "I", nullptr, $PUBLIC, $field(APRep, msgType)},
+		{"encPart", "Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC, $field(APRep, encPart)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(APRep, init$, void, $EncryptedData*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(APRep, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(APRep, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(APRep, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(APRep, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.APRep",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(APRep, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(APRep);
+	});
 	return class$;
 }
 

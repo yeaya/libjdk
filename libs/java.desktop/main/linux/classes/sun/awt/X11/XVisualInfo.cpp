@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XVisualInfo.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,71 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XVisualInfo_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XVisualInfo, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XVisualInfo, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XVisualInfo, pData)},
-	{}
-};
-
-$MethodInfo _XVisualInfo_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XVisualInfo, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XVisualInfo, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XVisualInfo, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XVisualInfo, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XVisualInfo, getSize, int32_t)},
-	{"get_bits_per_rgb", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_bits_per_rgb, int32_t)},
-	{"get_blue_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_blue_mask, int64_t)},
-	{"get_class", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_class, int32_t)},
-	{"get_colormap_size", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_colormap_size, int32_t)},
-	{"get_depth", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_depth, int32_t)},
-	{"get_green_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_green_mask, int64_t)},
-	{"get_red_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_red_mask, int64_t)},
-	{"get_screen", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_screen, int32_t)},
-	{"get_visual", "(I)J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visual, int64_t, int32_t)},
-	{"get_visual", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visual, int64_t)},
-	{"get_visualid", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visualid, int64_t)},
-	{"set_bits_per_rgb", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_bits_per_rgb, void, int32_t)},
-	{"set_blue_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_blue_mask, void, int64_t)},
-	{"set_class", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_class, void, int32_t)},
-	{"set_colormap_size", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_colormap_size, void, int32_t)},
-	{"set_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_depth, void, int32_t)},
-	{"set_green_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_green_mask, void, int64_t)},
-	{"set_red_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_red_mask, void, int64_t)},
-	{"set_screen", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_screen, void, int32_t)},
-	{"set_visual", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_visual, void, int64_t)},
-	{"set_visualid", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_visualid, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, zero, void)},
-	{}
-};
-
-$ClassInfo _XVisualInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XVisualInfo",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XVisualInfo_FieldInfo_,
-	_XVisualInfo_MethodInfo_
-};
-
-$Object* allocate$XVisualInfo($Class* clazz) {
-	return $of($alloc(XVisualInfo));
-}
 
 int32_t XVisualInfo::getSize() {
 	$init(XVisualInfo);
@@ -114,7 +55,7 @@ void XVisualInfo::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -266,7 +207,7 @@ $String* XVisualInfo::getFieldsAsString() {
 }
 
 $Object* XVisualInfo::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XVisualInfo::zero() {
@@ -281,7 +222,58 @@ XVisualInfo::XVisualInfo() {
 }
 
 $Class* XVisualInfo::load$($String* name, bool initialize) {
-	$loadClass(XVisualInfo, name, initialize, &_XVisualInfo_ClassInfo_, allocate$XVisualInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XVisualInfo, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XVisualInfo, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XVisualInfo, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XVisualInfo, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XVisualInfo, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XVisualInfo, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XVisualInfo, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XVisualInfo, getSize, int32_t)},
+		{"get_bits_per_rgb", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_bits_per_rgb, int32_t)},
+		{"get_blue_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_blue_mask, int64_t)},
+		{"get_class", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_class, int32_t)},
+		{"get_colormap_size", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_colormap_size, int32_t)},
+		{"get_depth", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_depth, int32_t)},
+		{"get_green_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_green_mask, int64_t)},
+		{"get_red_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_red_mask, int64_t)},
+		{"get_screen", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_screen, int32_t)},
+		{"get_visual", "(I)J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visual, int64_t, int32_t)},
+		{"get_visual", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visual, int64_t)},
+		{"get_visualid", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visualid, int64_t)},
+		{"set_bits_per_rgb", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_bits_per_rgb, void, int32_t)},
+		{"set_blue_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_blue_mask, void, int64_t)},
+		{"set_class", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_class, void, int32_t)},
+		{"set_colormap_size", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_colormap_size, void, int32_t)},
+		{"set_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_depth, void, int32_t)},
+		{"set_green_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_green_mask, void, int64_t)},
+		{"set_red_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_red_mask, void, int64_t)},
+		{"set_screen", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_screen, void, int32_t)},
+		{"set_visual", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_visual, void, int64_t)},
+		{"set_visualid", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_visualid, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XVisualInfo",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XVisualInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XVisualInfo);
+	});
 	return class$;
 }
 

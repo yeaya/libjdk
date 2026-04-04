@@ -21,6 +21,7 @@ class LogManager$2 : public ::java::security::PrivilegedAction {
 	$class(LogManager$2, 0, ::java::security::PrivilegedAction)
 public:
 	LogManager$2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::logging::LogManager* this$0, ::java::util::logging::LogManager* val$owner);
 	virtual $Object* run() override;
 	::java::util::logging::LogManager* this$0 = nullptr;

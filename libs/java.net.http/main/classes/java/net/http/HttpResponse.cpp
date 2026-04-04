@@ -1,5 +1,4 @@
 #include <java/net/http/HttpResponse.h>
-
 #include <java/net/URI.h>
 #include <java/net/http/HttpClient$Version.h>
 #include <java/net/http/HttpHeaders.h>
@@ -20,49 +19,44 @@ namespace java {
 	namespace net {
 		namespace http {
 
-$MethodInfo _HttpResponse_MethodInfo_[] = {
-	{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, body, $Object*)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, headers, $HttpHeaders*)},
-	{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, previousResponse, $Optional*)},
-	{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, request, $HttpRequest*)},
-	{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, sslSession, $Optional*)},
-	{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, statusCode, int32_t)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, uri, $URI*)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, version, $HttpClient$Version*)},
-	{}
-};
-
-$InnerClassInfo _HttpResponse_InnerClassesInfo_[] = {
-	{"java.net.http.HttpResponse$BodySubscribers", "java.net.http.HttpResponse", "BodySubscribers", $PUBLIC | $STATIC},
-	{"java.net.http.HttpResponse$BodySubscriber", "java.net.http.HttpResponse", "BodySubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.net.http.HttpResponse$PushPromiseHandler", "java.net.http.HttpResponse", "PushPromiseHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.net.http.HttpResponse$BodyHandlers", "java.net.http.HttpResponse", "BodyHandlers", $PUBLIC | $STATIC},
-	{"java.net.http.HttpResponse$BodyHandler", "java.net.http.HttpResponse", "BodyHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.net.http.HttpResponse$ResponseInfo", "java.net.http.HttpResponse", "ResponseInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpResponse_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.net.http.HttpResponse",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HttpResponse_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_HttpResponse_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpResponse$BodySubscribers,java.net.http.HttpResponse$BodySubscriber,java.net.http.HttpResponse$PushPromiseHandler,java.net.http.HttpResponse$BodyHandlers,java.net.http.HttpResponse$BodyHandler,java.net.http.HttpResponse$ResponseInfo"
-};
-
-$Object* allocate$HttpResponse($Class* clazz) {
-	return $of($alloc(HttpResponse));
-}
-
 $Class* HttpResponse::load$($String* name, bool initialize) {
-	$loadClass(HttpResponse, name, initialize, &_HttpResponse_ClassInfo_, allocate$HttpResponse);
+	$MethodInfo methodInfos$$[] = {
+		{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, body, $Object*)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, headers, $HttpHeaders*)},
+		{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, previousResponse, $Optional*)},
+		{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, request, $HttpRequest*)},
+		{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, sslSession, $Optional*)},
+		{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, statusCode, int32_t)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, uri, $URI*)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, version, $HttpClient$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpResponse$BodySubscribers", "java.net.http.HttpResponse", "BodySubscribers", $PUBLIC | $STATIC},
+		{"java.net.http.HttpResponse$BodySubscriber", "java.net.http.HttpResponse", "BodySubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.net.http.HttpResponse$PushPromiseHandler", "java.net.http.HttpResponse", "PushPromiseHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.net.http.HttpResponse$BodyHandlers", "java.net.http.HttpResponse", "BodyHandlers", $PUBLIC | $STATIC},
+		{"java.net.http.HttpResponse$BodyHandler", "java.net.http.HttpResponse", "BodyHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.net.http.HttpResponse$ResponseInfo", "java.net.http.HttpResponse", "ResponseInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.net.http.HttpResponse",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpResponse$BodySubscribers,java.net.http.HttpResponse$BodySubscriber,java.net.http.HttpResponse$PushPromiseHandler,java.net.http.HttpResponse$BodyHandlers,java.net.http.HttpResponse$BodyHandler,java.net.http.HttpResponse$ResponseInfo"
+	};
+	$loadClass(HttpResponse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpResponse);
+	});
 	return class$;
 }
 

@@ -22,10 +22,13 @@ class AnnotationProcessingError : public ::java::lang::Error {
 public:
 	AnnotationProcessingError();
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x043CC706DB69DE46;
+	static const int64_t serialVersionUID = (int64_t)0x043cc706db69de46;
 	AnnotationProcessingError(const AnnotationProcessingError& e);
 	virtual void throw$() override;
-	inline AnnotationProcessingError* operator ->() {
+	inline AnnotationProcessingError* operator ->() const {
+		return (AnnotationProcessingError*)throwing$;
+	}
+	inline operator AnnotationProcessingError*() const {
 		return (AnnotationProcessingError*)throwing$;
 	}
 };

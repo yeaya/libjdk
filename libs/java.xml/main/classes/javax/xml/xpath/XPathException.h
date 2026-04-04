@@ -29,6 +29,7 @@ class $export XPathException : public ::java::lang::Exception {
 	$class(XPathException, 0, ::java::lang::Exception)
 public:
 	XPathException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* message);
 	void init$($Throwable* cause);
 	virtual $Throwable* getCause() override;
@@ -38,10 +39,13 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
-	static const int64_t serialVersionUID = (int64_t)0xE681613C88777F1C;
+	static const int64_t serialVersionUID = (int64_t)0xe681613c88777f1c;
 	XPathException(const XPathException& e);
 	virtual void throw$() override;
-	inline XPathException* operator ->() {
+	inline XPathException* operator ->() const {
+		return (XPathException*)throwing$;
+	}
+	inline operator XPathException*() const {
 		return (XPathException*)throwing$;
 	}
 };

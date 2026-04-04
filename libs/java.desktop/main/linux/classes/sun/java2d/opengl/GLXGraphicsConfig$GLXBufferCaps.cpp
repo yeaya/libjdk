@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/GLXGraphicsConfig$GLXBufferCaps.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/ImageCapabilities.h>
@@ -19,36 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _GLXGraphicsConfig$GLXBufferCaps_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(GLXGraphicsConfig$GLXBufferCaps, init$, void, bool)},
-	{}
-};
-
-$InnerClassInfo _GLXGraphicsConfig$GLXBufferCaps_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.GLXGraphicsConfig$GLXBufferCaps", "sun.java2d.opengl.GLXGraphicsConfig", "GLXBufferCaps", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GLXGraphicsConfig$GLXBufferCaps_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.GLXGraphicsConfig$GLXBufferCaps",
-	"java.awt.BufferCapabilities",
-	nullptr,
-	nullptr,
-	_GLXGraphicsConfig$GLXBufferCaps_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GLXGraphicsConfig$GLXBufferCaps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.GLXGraphicsConfig"
-};
-
-$Object* allocate$GLXGraphicsConfig$GLXBufferCaps($Class* clazz) {
-	return $of($alloc(GLXGraphicsConfig$GLXBufferCaps));
-}
-
 void GLXGraphicsConfig$GLXBufferCaps::init$(bool dblBuf) {
 	$init($GLXGraphicsConfig);
 	$init($BufferCapabilities$FlipContents);
@@ -59,7 +28,32 @@ GLXGraphicsConfig$GLXBufferCaps::GLXGraphicsConfig$GLXBufferCaps() {
 }
 
 $Class* GLXGraphicsConfig$GLXBufferCaps::load$($String* name, bool initialize) {
-	$loadClass(GLXGraphicsConfig$GLXBufferCaps, name, initialize, &_GLXGraphicsConfig$GLXBufferCaps_ClassInfo_, allocate$GLXGraphicsConfig$GLXBufferCaps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(GLXGraphicsConfig$GLXBufferCaps, init$, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.GLXGraphicsConfig$GLXBufferCaps", "sun.java2d.opengl.GLXGraphicsConfig", "GLXBufferCaps", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.GLXGraphicsConfig$GLXBufferCaps",
+		"java.awt.BufferCapabilities",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.GLXGraphicsConfig"
+	};
+	$loadClass(GLXGraphicsConfig$GLXBufferCaps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GLXGraphicsConfig$GLXBufferCaps);
+	});
 	return class$;
 }
 

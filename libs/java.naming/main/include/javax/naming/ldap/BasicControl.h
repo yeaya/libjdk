@@ -22,7 +22,7 @@ public:
 	$String* id = nullptr;
 	bool criticality = false;
 	$bytes* value = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xC53E238D8FCC5CB9;
+	static const int64_t serialVersionUID = (int64_t)0xc53e238d8fcc5cb9;
 };
 
 		} // ldap

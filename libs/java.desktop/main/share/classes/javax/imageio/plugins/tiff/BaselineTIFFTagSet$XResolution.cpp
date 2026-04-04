@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$XResolution.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$XResolution_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$XResolution, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$XResolution_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$XResolution", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "XResolution", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$XResolution_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$XResolution",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$XResolution_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$XResolution_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$XResolution($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$XResolution));
-}
-
 void BaselineTIFFTagSet$XResolution::init$() {
 	$TIFFTag::init$("XResolution"_s, 282, $sl(1, $TIFFTag::TIFF_RATIONAL), 1);
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$XResolution::BaselineTIFFTagSet$XResolution() {
 }
 
 $Class* BaselineTIFFTagSet$XResolution::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$XResolution, name, initialize, &_BaselineTIFFTagSet$XResolution_ClassInfo_, allocate$BaselineTIFFTagSet$XResolution);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$XResolution, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$XResolution", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "XResolution", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$XResolution",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$XResolution, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$XResolution);
+	});
 	return class$;
 }
 

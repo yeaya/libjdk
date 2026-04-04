@@ -1,5 +1,4 @@
 #include <javax/management/relation/InvalidRelationIdException.h>
-
 #include <javax/management/relation/RelationException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RelationException = ::javax::management::relation::RelationException;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _InvalidRelationIdException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidRelationIdException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidRelationIdException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRelationIdException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRelationIdException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidRelationIdException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.InvalidRelationIdException",
-	"javax.management.relation.RelationException",
-	nullptr,
-	_InvalidRelationIdException_FieldInfo_,
-	_InvalidRelationIdException_MethodInfo_
-};
-
-$Object* allocate$InvalidRelationIdException($Class* clazz) {
-	return $of($alloc(InvalidRelationIdException));
-}
 
 void InvalidRelationIdException::init$() {
 	$RelationException::init$();
@@ -55,7 +30,26 @@ void InvalidRelationIdException::throw$() {
 }
 
 $Class* InvalidRelationIdException::load$($String* name, bool initialize) {
-	$loadClass(InvalidRelationIdException, name, initialize, &_InvalidRelationIdException_ClassInfo_, allocate$InvalidRelationIdException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidRelationIdException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRelationIdException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRelationIdException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.InvalidRelationIdException",
+		"javax.management.relation.RelationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidRelationIdException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidRelationIdException);
+	});
 	return class$;
 }
 

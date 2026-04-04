@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/ScrollPaneUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _ScrollPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ScrollPaneUI, init$, void)},
-	{}
-};
-
-$ClassInfo _ScrollPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.ScrollPaneUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_ScrollPaneUI_MethodInfo_
-};
-
-$Object* allocate$ScrollPaneUI($Class* clazz) {
-	return $of($alloc(ScrollPaneUI));
-}
-
 void ScrollPaneUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ ScrollPaneUI::ScrollPaneUI() {
 }
 
 $Class* ScrollPaneUI::load$($String* name, bool initialize) {
-	$loadClass(ScrollPaneUI, name, initialize, &_ScrollPaneUI_ClassInfo_, allocate$ScrollPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ScrollPaneUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.ScrollPaneUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ScrollPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScrollPaneUI);
+	});
 	return class$;
 }
 

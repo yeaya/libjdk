@@ -26,7 +26,7 @@ public:
 	void init$(::java::awt::TextField* this$0);
 	virtual ::javax::accessibility::AccessibleStateSet* getAccessibleStateSet() override;
 	::java::awt::TextField* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x564EE908C0073AF6;
+	static const int64_t serialVersionUID = (int64_t)0x564ee908c0073af6;
 };
 
 	} // awt

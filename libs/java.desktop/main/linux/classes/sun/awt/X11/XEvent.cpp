@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XAnyEvent.h>
@@ -41,7 +40,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XAnyEvent = ::sun::awt::X11::XAnyEvent;
 using $XButtonEvent = ::sun::awt::X11::XButtonEvent;
@@ -76,82 +74,10 @@ using $XUnmapEvent = ::sun::awt::X11::XUnmapEvent;
 using $XVisibilityEvent = ::sun::awt::X11::XVisibilityEvent;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XEvent, pData)},
-	{}
-};
-
-$MethodInfo _XEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEvent, clone, XEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XEvent, getSize, int32_t)},
-	{"get_pad", "(I)J", nullptr, $PUBLIC, $virtualMethod(XEvent, get_pad, int64_t, int32_t)},
-	{"get_pad", "()J", nullptr, $PUBLIC, $virtualMethod(XEvent, get_pad, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XEvent, get_type, int32_t)},
-	{"get_xany", "()Lsun/awt/X11/XAnyEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xany, $XAnyEvent*)},
-	{"get_xbutton", "()Lsun/awt/X11/XButtonEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xbutton, $XButtonEvent*)},
-	{"get_xcirculate", "()Lsun/awt/X11/XCirculateEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcirculate, $XCirculateEvent*)},
-	{"get_xcirculaterequest", "()Lsun/awt/X11/XCirculateRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcirculaterequest, $XCirculateRequestEvent*)},
-	{"get_xclient", "()Lsun/awt/X11/XClientMessageEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xclient, $XClientMessageEvent*)},
-	{"get_xcolormap", "()Lsun/awt/X11/XColormapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcolormap, $XColormapEvent*)},
-	{"get_xconfigure", "()Lsun/awt/X11/XConfigureEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xconfigure, $XConfigureEvent*)},
-	{"get_xconfigurerequest", "()Lsun/awt/X11/XConfigureRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xconfigurerequest, $XConfigureRequestEvent*)},
-	{"get_xcreatewindow", "()Lsun/awt/X11/XCreateWindowEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcreatewindow, $XCreateWindowEvent*)},
-	{"get_xcrossing", "()Lsun/awt/X11/XCrossingEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcrossing, $XCrossingEvent*)},
-	{"get_xdestroywindow", "()Lsun/awt/X11/XDestroyWindowEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xdestroywindow, $XDestroyWindowEvent*)},
-	{"get_xerror", "()Lsun/awt/X11/XErrorEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xerror, $XErrorEvent*)},
-	{"get_xexpose", "()Lsun/awt/X11/XExposeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xexpose, $XExposeEvent*)},
-	{"get_xfocus", "()Lsun/awt/X11/XFocusChangeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xfocus, $XFocusChangeEvent*)},
-	{"get_xgraphicsexpose", "()Lsun/awt/X11/XGraphicsExposeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xgraphicsexpose, $XGraphicsExposeEvent*)},
-	{"get_xgravity", "()Lsun/awt/X11/XGravityEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xgravity, $XGravityEvent*)},
-	{"get_xkey", "()Lsun/awt/X11/XKeyEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xkey, $XKeyEvent*)},
-	{"get_xkeymap", "()Lsun/awt/X11/XKeymapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xkeymap, $XKeymapEvent*)},
-	{"get_xmap", "()Lsun/awt/X11/XMapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmap, $XMapEvent*)},
-	{"get_xmapping", "()Lsun/awt/X11/XMappingEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmapping, $XMappingEvent*)},
-	{"get_xmaprequest", "()Lsun/awt/X11/XMapRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmaprequest, $XMapRequestEvent*)},
-	{"get_xmotion", "()Lsun/awt/X11/XMotionEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmotion, $XMotionEvent*)},
-	{"get_xnoexpose", "()Lsun/awt/X11/XNoExposeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xnoexpose, $XNoExposeEvent*)},
-	{"get_xproperty", "()Lsun/awt/X11/XPropertyEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xproperty, $XPropertyEvent*)},
-	{"get_xreparent", "()Lsun/awt/X11/XReparentEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xreparent, $XReparentEvent*)},
-	{"get_xresizerequest", "()Lsun/awt/X11/XResizeRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xresizerequest, $XResizeRequestEvent*)},
-	{"get_xselection", "()Lsun/awt/X11/XSelectionEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xselection, $XSelectionEvent*)},
-	{"get_xselectionclear", "()Lsun/awt/X11/XSelectionClearEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xselectionclear, $XSelectionClearEvent*)},
-	{"get_xselectionrequest", "()Lsun/awt/X11/XSelectionRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xselectionrequest, $XSelectionRequestEvent*)},
-	{"get_xunmap", "()Lsun/awt/X11/XUnmapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xunmap, $XUnmapEvent*)},
-	{"get_xvisibility", "()Lsun/awt/X11/XVisibilityEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xvisibility, $XVisibilityEvent*)},
-	{"set_pad", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(XEvent, set_pad, void, int32_t, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XEvent, set_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XEvent_FieldInfo_,
-	_XEvent_MethodInfo_
-};
-
-$Object* allocate$XEvent($Class* clazz) {
-	return $of($alloc(XEvent));
-}
 
 int32_t XEvent::getSize() {
 	$init(XEvent);
@@ -190,7 +116,7 @@ void XEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -416,41 +342,41 @@ $String* XEvent::getName() {
 }
 
 $String* XEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 1320));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
-	ret->append("xany = "_s)->append($($of(get_xany())))->append(", "_s);
-	ret->append("xkey = "_s)->append($($of(get_xkey())))->append(", "_s);
-	ret->append("xbutton = "_s)->append($($of(get_xbutton())))->append(", "_s);
-	ret->append("xmotion = "_s)->append($($of(get_xmotion())))->append(", "_s);
-	ret->append("xcrossing = "_s)->append($($of(get_xcrossing())))->append(", "_s);
-	ret->append("xfocus = "_s)->append($($of(get_xfocus())))->append(", "_s);
-	ret->append("xexpose = "_s)->append($($of(get_xexpose())))->append(", "_s);
-	ret->append("xgraphicsexpose = "_s)->append($($of(get_xgraphicsexpose())))->append(", "_s);
-	ret->append("xnoexpose = "_s)->append($($of(get_xnoexpose())))->append(", "_s);
-	ret->append("xvisibility = "_s)->append($($of(get_xvisibility())))->append(", "_s);
-	ret->append("xcreatewindow = "_s)->append($($of(get_xcreatewindow())))->append(", "_s);
-	ret->append("xdestroywindow = "_s)->append($($of(get_xdestroywindow())))->append(", "_s);
-	ret->append("xunmap = "_s)->append($($of(get_xunmap())))->append(", "_s);
-	ret->append("xmap = "_s)->append($($of(get_xmap())))->append(", "_s);
-	ret->append("xmaprequest = "_s)->append($($of(get_xmaprequest())))->append(", "_s);
-	ret->append("xreparent = "_s)->append($($of(get_xreparent())))->append(", "_s);
-	ret->append("xconfigure = "_s)->append($($of(get_xconfigure())))->append(", "_s);
-	ret->append("xgravity = "_s)->append($($of(get_xgravity())))->append(", "_s);
-	ret->append("xresizerequest = "_s)->append($($of(get_xresizerequest())))->append(", "_s);
-	ret->append("xconfigurerequest = "_s)->append($($of(get_xconfigurerequest())))->append(", "_s);
-	ret->append("xcirculate = "_s)->append($($of(get_xcirculate())))->append(", "_s);
-	ret->append("xcirculaterequest = "_s)->append($($of(get_xcirculaterequest())))->append(", "_s);
-	ret->append("xproperty = "_s)->append($($of(get_xproperty())))->append(", "_s);
-	ret->append("xselectionclear = "_s)->append($($of(get_xselectionclear())))->append(", "_s);
-	ret->append("xselectionrequest = "_s)->append($($of(get_xselectionrequest())))->append(", "_s);
-	ret->append("xselection = "_s)->append($($of(get_xselection())))->append(", "_s);
-	ret->append("xcolormap = "_s)->append($($of(get_xcolormap())))->append(", "_s);
-	ret->append("xclient = "_s)->append($($of(get_xclient())))->append(", "_s);
-	ret->append("xmapping = "_s)->append($($of(get_xmapping())))->append(", "_s);
-	ret->append("xerror = "_s)->append($($of(get_xerror())))->append(", "_s);
-	ret->append("xkeymap = "_s)->append($($of(get_xkeymap())))->append(", "_s);
+	ret->append("xany = "_s)->append($(get_xany()))->append(", "_s);
+	ret->append("xkey = "_s)->append($(get_xkey()))->append(", "_s);
+	ret->append("xbutton = "_s)->append($(get_xbutton()))->append(", "_s);
+	ret->append("xmotion = "_s)->append($(get_xmotion()))->append(", "_s);
+	ret->append("xcrossing = "_s)->append($(get_xcrossing()))->append(", "_s);
+	ret->append("xfocus = "_s)->append($(get_xfocus()))->append(", "_s);
+	ret->append("xexpose = "_s)->append($(get_xexpose()))->append(", "_s);
+	ret->append("xgraphicsexpose = "_s)->append($(get_xgraphicsexpose()))->append(", "_s);
+	ret->append("xnoexpose = "_s)->append($(get_xnoexpose()))->append(", "_s);
+	ret->append("xvisibility = "_s)->append($(get_xvisibility()))->append(", "_s);
+	ret->append("xcreatewindow = "_s)->append($(get_xcreatewindow()))->append(", "_s);
+	ret->append("xdestroywindow = "_s)->append($(get_xdestroywindow()))->append(", "_s);
+	ret->append("xunmap = "_s)->append($(get_xunmap()))->append(", "_s);
+	ret->append("xmap = "_s)->append($(get_xmap()))->append(", "_s);
+	ret->append("xmaprequest = "_s)->append($(get_xmaprequest()))->append(", "_s);
+	ret->append("xreparent = "_s)->append($(get_xreparent()))->append(", "_s);
+	ret->append("xconfigure = "_s)->append($(get_xconfigure()))->append(", "_s);
+	ret->append("xgravity = "_s)->append($(get_xgravity()))->append(", "_s);
+	ret->append("xresizerequest = "_s)->append($(get_xresizerequest()))->append(", "_s);
+	ret->append("xconfigurerequest = "_s)->append($(get_xconfigurerequest()))->append(", "_s);
+	ret->append("xcirculate = "_s)->append($(get_xcirculate()))->append(", "_s);
+	ret->append("xcirculaterequest = "_s)->append($(get_xcirculaterequest()))->append(", "_s);
+	ret->append("xproperty = "_s)->append($(get_xproperty()))->append(", "_s);
+	ret->append("xselectionclear = "_s)->append($(get_xselectionclear()))->append(", "_s);
+	ret->append("xselectionrequest = "_s)->append($(get_xselectionrequest()))->append(", "_s);
+	ret->append("xselection = "_s)->append($(get_xselection()))->append(", "_s);
+	ret->append("xcolormap = "_s)->append($(get_xcolormap()))->append(", "_s);
+	ret->append("xclient = "_s)->append($(get_xclient()))->append(", "_s);
+	ret->append("xmapping = "_s)->append($(get_xmapping()))->append(", "_s);
+	ret->append("xerror = "_s)->append($(get_xerror()))->append(", "_s);
+	ret->append("xkeymap = "_s)->append($(get_xkeymap()))->append(", "_s);
 	ret->append("{"_s)->append(get_pad(0))->append(" "_s)->append(get_pad(1))->append(" "_s)->append(get_pad(2))->append(" "_s)->append(get_pad(3))->append(" "_s)->append(get_pad(4))->append(" "_s)->append(get_pad(5))->append(" "_s)->append(get_pad(6))->append(" "_s)->append(get_pad(7))->append(" "_s)->append(get_pad(8))->append(" "_s)->append(get_pad(9))->append(" "_s)->append(get_pad(10))->append(" "_s)->append(get_pad(11))->append(" "_s)->append(get_pad(12))->append(" "_s)->append(get_pad(13))->append(" "_s)->append(get_pad(14))->append(" "_s)->append(get_pad(15))->append(" "_s)->append(get_pad(16))->append(" "_s)->append(get_pad(17))->append(" "_s)->append(get_pad(18))->append(" "_s)->append(get_pad(19))->append(" "_s)->append(get_pad(20))->append(" "_s)->append(get_pad(21))->append(" "_s)->append(get_pad(22))->append(" "_s)->append(get_pad(23))->append(" "_s)->append("}"_s);
 	return ret->toString();
 }
@@ -471,7 +397,73 @@ XEvent::XEvent() {
 }
 
 $Class* XEvent::load$($String* name, bool initialize) {
-	$loadClass(XEvent, name, initialize, &_XEvent_ClassInfo_, allocate$XEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEvent, clone, XEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XEvent, getSize, int32_t)},
+		{"get_pad", "(I)J", nullptr, $PUBLIC, $virtualMethod(XEvent, get_pad, int64_t, int32_t)},
+		{"get_pad", "()J", nullptr, $PUBLIC, $virtualMethod(XEvent, get_pad, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XEvent, get_type, int32_t)},
+		{"get_xany", "()Lsun/awt/X11/XAnyEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xany, $XAnyEvent*)},
+		{"get_xbutton", "()Lsun/awt/X11/XButtonEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xbutton, $XButtonEvent*)},
+		{"get_xcirculate", "()Lsun/awt/X11/XCirculateEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcirculate, $XCirculateEvent*)},
+		{"get_xcirculaterequest", "()Lsun/awt/X11/XCirculateRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcirculaterequest, $XCirculateRequestEvent*)},
+		{"get_xclient", "()Lsun/awt/X11/XClientMessageEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xclient, $XClientMessageEvent*)},
+		{"get_xcolormap", "()Lsun/awt/X11/XColormapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcolormap, $XColormapEvent*)},
+		{"get_xconfigure", "()Lsun/awt/X11/XConfigureEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xconfigure, $XConfigureEvent*)},
+		{"get_xconfigurerequest", "()Lsun/awt/X11/XConfigureRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xconfigurerequest, $XConfigureRequestEvent*)},
+		{"get_xcreatewindow", "()Lsun/awt/X11/XCreateWindowEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcreatewindow, $XCreateWindowEvent*)},
+		{"get_xcrossing", "()Lsun/awt/X11/XCrossingEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xcrossing, $XCrossingEvent*)},
+		{"get_xdestroywindow", "()Lsun/awt/X11/XDestroyWindowEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xdestroywindow, $XDestroyWindowEvent*)},
+		{"get_xerror", "()Lsun/awt/X11/XErrorEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xerror, $XErrorEvent*)},
+		{"get_xexpose", "()Lsun/awt/X11/XExposeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xexpose, $XExposeEvent*)},
+		{"get_xfocus", "()Lsun/awt/X11/XFocusChangeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xfocus, $XFocusChangeEvent*)},
+		{"get_xgraphicsexpose", "()Lsun/awt/X11/XGraphicsExposeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xgraphicsexpose, $XGraphicsExposeEvent*)},
+		{"get_xgravity", "()Lsun/awt/X11/XGravityEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xgravity, $XGravityEvent*)},
+		{"get_xkey", "()Lsun/awt/X11/XKeyEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xkey, $XKeyEvent*)},
+		{"get_xkeymap", "()Lsun/awt/X11/XKeymapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xkeymap, $XKeymapEvent*)},
+		{"get_xmap", "()Lsun/awt/X11/XMapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmap, $XMapEvent*)},
+		{"get_xmapping", "()Lsun/awt/X11/XMappingEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmapping, $XMappingEvent*)},
+		{"get_xmaprequest", "()Lsun/awt/X11/XMapRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmaprequest, $XMapRequestEvent*)},
+		{"get_xmotion", "()Lsun/awt/X11/XMotionEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xmotion, $XMotionEvent*)},
+		{"get_xnoexpose", "()Lsun/awt/X11/XNoExposeEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xnoexpose, $XNoExposeEvent*)},
+		{"get_xproperty", "()Lsun/awt/X11/XPropertyEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xproperty, $XPropertyEvent*)},
+		{"get_xreparent", "()Lsun/awt/X11/XReparentEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xreparent, $XReparentEvent*)},
+		{"get_xresizerequest", "()Lsun/awt/X11/XResizeRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xresizerequest, $XResizeRequestEvent*)},
+		{"get_xselection", "()Lsun/awt/X11/XSelectionEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xselection, $XSelectionEvent*)},
+		{"get_xselectionclear", "()Lsun/awt/X11/XSelectionClearEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xselectionclear, $XSelectionClearEvent*)},
+		{"get_xselectionrequest", "()Lsun/awt/X11/XSelectionRequestEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xselectionrequest, $XSelectionRequestEvent*)},
+		{"get_xunmap", "()Lsun/awt/X11/XUnmapEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xunmap, $XUnmapEvent*)},
+		{"get_xvisibility", "()Lsun/awt/X11/XVisibilityEvent;", nullptr, $PUBLIC, $virtualMethod(XEvent, get_xvisibility, $XVisibilityEvent*)},
+		{"set_pad", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(XEvent, set_pad, void, int32_t, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XEvent, set_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XEvent);
+	});
 	return class$;
 }
 

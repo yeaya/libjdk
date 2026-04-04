@@ -1,5 +1,4 @@
 #include <javax/swing/GroupLayout$Group.h>
-
 #include <java/awt/Component.h>
 #include <java/lang/AssertionError.h>
 #include <java/util/ArrayList.h>
@@ -27,65 +26,6 @@ using $GroupLayout$Spring = ::javax::swing::GroupLayout$Spring;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _GroupLayout$Group_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/GroupLayout;", nullptr, $FINAL | $SYNTHETIC, $field(GroupLayout$Group, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupLayout$Group, $assertionsDisabled)},
-	{"springs", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/GroupLayout$Spring;>;", 0, $field(GroupLayout$Group, springs)},
-	{}
-};
-
-$MethodInfo _GroupLayout$Group_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/GroupLayout;)V", nullptr, 0, $method(GroupLayout$Group, init$, void, $GroupLayout*)},
-	{"addComponent", "(Ljava/awt/Component;)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addComponent, GroupLayout$Group*, $Component*)},
-	{"addComponent", "(Ljava/awt/Component;III)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addComponent, GroupLayout$Group*, $Component*, int32_t, int32_t, int32_t)},
-	{"addGap", "(I)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addGap, GroupLayout$Group*, int32_t)},
-	{"addGap", "(III)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addGap, GroupLayout$Group*, int32_t, int32_t, int32_t)},
-	{"addGroup", "(Ljavax/swing/GroupLayout$Group;)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addGroup, GroupLayout$Group*, GroupLayout$Group*)},
-	{"addSpring", "(Ljavax/swing/GroupLayout$Spring;)Ljavax/swing/GroupLayout$Group;", nullptr, 0, $virtualMethod(GroupLayout$Group, addSpring, GroupLayout$Group*, $GroupLayout$Spring*)},
-	{"calculateAutopadding", "(I)V", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateAutopadding, void, int32_t)},
-	{"calculateMaximumSize", "(I)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateMaximumSize, int32_t, int32_t)},
-	{"calculateMinimumSize", "(I)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateMinimumSize, int32_t, int32_t)},
-	{"calculatePreferredSize", "(I)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculatePreferredSize, int32_t, int32_t)},
-	{"calculateSize", "(II)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateSize, int32_t, int32_t, int32_t)},
-	{"getSpring", "(I)Ljavax/swing/GroupLayout$Spring;", nullptr, 0, $virtualMethod(GroupLayout$Group, getSpring, $GroupLayout$Spring*, int32_t)},
-	{"getSpringSize", "(Ljavax/swing/GroupLayout$Spring;II)I", nullptr, 0, $virtualMethod(GroupLayout$Group, getSpringSize, int32_t, $GroupLayout$Spring*, int32_t, int32_t)},
-	{"indexOf", "(Ljavax/swing/GroupLayout$Spring;)I", nullptr, 0, $virtualMethod(GroupLayout$Group, indexOf, int32_t, $GroupLayout$Spring*)},
-	{"insertAutopadding", "(ILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Z)V", "(ILjava/util/List<Ljavax/swing/GroupLayout$AutoPreferredGapSpring;>;Ljava/util/List<Ljavax/swing/GroupLayout$AutoPreferredGapSpring;>;Ljava/util/List<Ljavax/swing/GroupLayout$ComponentSpring;>;Ljava/util/List<Ljavax/swing/GroupLayout$ComponentSpring;>;Z)V", $ABSTRACT, $virtualMethod(GroupLayout$Group, insertAutopadding, void, int32_t, $List*, $List*, $List*, $List*, bool)},
-	{"operator", "(II)I", nullptr, $ABSTRACT, $virtualMethod(GroupLayout$Group, operator$, int32_t, int32_t, int32_t)},
-	{"removeAutopadding", "()V", nullptr, 0, $virtualMethod(GroupLayout$Group, removeAutopadding, void)},
-	{"setSize", "(III)V", nullptr, 0, $virtualMethod(GroupLayout$Group, setSize, void, int32_t, int32_t, int32_t)},
-	{"setValidSize", "(III)V", nullptr, $ABSTRACT, $virtualMethod(GroupLayout$Group, setValidSize, void, int32_t, int32_t, int32_t)},
-	{"unsetAutopadding", "()V", nullptr, 0, $virtualMethod(GroupLayout$Group, unsetAutopadding, void)},
-	{"willHaveZeroSize", "(Z)Z", nullptr, 0, $virtualMethod(GroupLayout$Group, willHaveZeroSize, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _GroupLayout$Group_InnerClassesInfo_[] = {
-	{"javax.swing.GroupLayout$Group", "javax.swing.GroupLayout", "Group", $PUBLIC | $ABSTRACT},
-	{"javax.swing.GroupLayout$Spring", "javax.swing.GroupLayout", "Spring", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GroupLayout$Group_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.GroupLayout$Group",
-	"javax.swing.GroupLayout$Spring",
-	nullptr,
-	_GroupLayout$Group_FieldInfo_,
-	_GroupLayout$Group_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GroupLayout$Group_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.GroupLayout"
-};
-
-$Object* allocate$GroupLayout$Group($Class* clazz) {
-	return $of($alloc(GroupLayout$Group));
-}
 
 bool GroupLayout$Group::$assertionsDisabled = false;
 
@@ -126,18 +66,18 @@ int32_t GroupLayout$Group::indexOf($GroupLayout$Spring* spring) {
 GroupLayout$Group* GroupLayout$Group::addSpring($GroupLayout$Spring* spring) {
 	$nc(this->springs)->add(spring);
 	$nc(spring)->setParent(this);
-	if (!($instanceOf($GroupLayout$AutoPreferredGapSpring, spring)) || !$nc(($cast($GroupLayout$AutoPreferredGapSpring, spring)))->getUserCreated()) {
+	if (!($instanceOf($GroupLayout$AutoPreferredGapSpring, spring)) || !$cast($GroupLayout$AutoPreferredGapSpring, spring)->getUserCreated()) {
 		this->this$0->springsChanged = true;
 	}
 	return this;
 }
 
 void GroupLayout$Group::setSize(int32_t axis, int32_t origin, int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GroupLayout$Spring::setSize(axis, origin, size);
 	if (size == (int32_t)0x80000000) {
 		for (int32_t counter = $nc(this->springs)->size() - 1; counter >= 0; --counter) {
-			$nc($(getSpring(counter)))->setSize(axis, origin, size);
+			$$nc(getSpring(counter))->setSize(axis, origin, size);
 		}
 	} else {
 		setValidSize(axis, origin, size);
@@ -157,7 +97,7 @@ int32_t GroupLayout$Group::calculateMaximumSize(int32_t axis) {
 }
 
 int32_t GroupLayout$Group::calculateSize(int32_t axis, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->springs)->size();
 	if (count == 0) {
 		return 0;
@@ -176,17 +116,11 @@ int32_t GroupLayout$Group::calculateSize(int32_t axis, int32_t type) {
 int32_t GroupLayout$Group::getSpringSize($GroupLayout$Spring* spring, int32_t axis, int32_t type) {
 	switch (type) {
 	case 0:
-		{
-			return $nc(spring)->getMinimumSize(axis);
-		}
+		return $nc(spring)->getMinimumSize(axis);
 	case 1:
-		{
-			return $nc(spring)->getPreferredSize(axis);
-		}
+		return $nc(spring)->getPreferredSize(axis);
 	case 2:
-		{
-			return $nc(spring)->getMaximumSize(axis);
-		}
+		return $nc(spring)->getMaximumSize(axis);
 	}
 	if (!GroupLayout$Group::$assertionsDisabled) {
 		$throwNew($AssertionError);
@@ -195,51 +129,51 @@ int32_t GroupLayout$Group::getSpringSize($GroupLayout$Spring* spring, int32_t ax
 }
 
 void GroupLayout$Group::removeAutopadding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	unset();
 	for (int32_t counter = $nc(this->springs)->size() - 1; counter >= 0; --counter) {
 		$var($GroupLayout$Spring, spring, $cast($GroupLayout$Spring, $nc(this->springs)->get(counter)));
 		if ($instanceOf($GroupLayout$AutoPreferredGapSpring, spring)) {
-			if ($nc(($cast($GroupLayout$AutoPreferredGapSpring, spring)))->getUserCreated()) {
-				$nc(($cast($GroupLayout$AutoPreferredGapSpring, spring)))->reset();
+			if ($cast($GroupLayout$AutoPreferredGapSpring, spring)->getUserCreated()) {
+				$cast($GroupLayout$AutoPreferredGapSpring, spring)->reset();
 			} else {
 				$nc(this->springs)->remove(counter);
 			}
 		} else if ($instanceOf(GroupLayout$Group, spring)) {
-			$nc(($cast(GroupLayout$Group, spring)))->removeAutopadding();
+			$cast(GroupLayout$Group, spring)->removeAutopadding();
 		}
 	}
 }
 
 void GroupLayout$Group::unsetAutopadding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	unset();
 	for (int32_t counter = $nc(this->springs)->size() - 1; counter >= 0; --counter) {
 		$var($GroupLayout$Spring, spring, $cast($GroupLayout$Spring, $nc(this->springs)->get(counter)));
 		if ($instanceOf($GroupLayout$AutoPreferredGapSpring, spring)) {
-			$nc(spring)->unset();
+			spring->unset();
 		} else if ($instanceOf(GroupLayout$Group, spring)) {
-			$nc(($cast(GroupLayout$Group, spring)))->unsetAutopadding();
+			$cast(GroupLayout$Group, spring)->unsetAutopadding();
 		}
 	}
 }
 
 void GroupLayout$Group::calculateAutopadding(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t counter = $nc(this->springs)->size() - 1; counter >= 0; --counter) {
 		$var($GroupLayout$Spring, spring, $cast($GroupLayout$Spring, $nc(this->springs)->get(counter)));
 		if ($instanceOf($GroupLayout$AutoPreferredGapSpring, spring)) {
-			$nc(spring)->unset();
-			$nc(($cast($GroupLayout$AutoPreferredGapSpring, spring)))->calculatePadding(axis);
+			spring->unset();
+			$cast($GroupLayout$AutoPreferredGapSpring, spring)->calculatePadding(axis);
 		} else if ($instanceOf(GroupLayout$Group, spring)) {
-			$nc(($cast(GroupLayout$Group, spring)))->calculateAutopadding(axis);
+			$cast(GroupLayout$Group, spring)->calculateAutopadding(axis);
 		}
 	}
 	unset();
 }
 
 bool GroupLayout$Group::willHaveZeroSize(bool treatAutopaddingAsZeroSized) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = $nc(this->springs)->size() - 1; i >= 0; --i) {
 		$var($GroupLayout$Spring, spring, $cast($GroupLayout$Spring, $nc(this->springs)->get(i)));
 		if (!$nc(spring)->willHaveZeroSize(treatAutopaddingAsZeroSized)) {
@@ -249,7 +183,7 @@ bool GroupLayout$Group::willHaveZeroSize(bool treatAutopaddingAsZeroSized) {
 	return true;
 }
 
-void clinit$GroupLayout$Group($Class* class$) {
+void GroupLayout$Group::clinit$($Class* clazz) {
 	$load($GroupLayout);
 	GroupLayout$Group::$assertionsDisabled = !$GroupLayout::class$->desiredAssertionStatus();
 }
@@ -258,7 +192,60 @@ GroupLayout$Group::GroupLayout$Group() {
 }
 
 $Class* GroupLayout$Group::load$($String* name, bool initialize) {
-	$loadClass(GroupLayout$Group, name, initialize, &_GroupLayout$Group_ClassInfo_, clinit$GroupLayout$Group, allocate$GroupLayout$Group);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/GroupLayout;", nullptr, $FINAL | $SYNTHETIC, $field(GroupLayout$Group, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupLayout$Group, $assertionsDisabled)},
+		{"springs", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/GroupLayout$Spring;>;", 0, $field(GroupLayout$Group, springs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/GroupLayout;)V", nullptr, 0, $method(GroupLayout$Group, init$, void, $GroupLayout*)},
+		{"addComponent", "(Ljava/awt/Component;)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addComponent, GroupLayout$Group*, $Component*)},
+		{"addComponent", "(Ljava/awt/Component;III)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addComponent, GroupLayout$Group*, $Component*, int32_t, int32_t, int32_t)},
+		{"addGap", "(I)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addGap, GroupLayout$Group*, int32_t)},
+		{"addGap", "(III)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addGap, GroupLayout$Group*, int32_t, int32_t, int32_t)},
+		{"addGroup", "(Ljavax/swing/GroupLayout$Group;)Ljavax/swing/GroupLayout$Group;", nullptr, $PUBLIC, $virtualMethod(GroupLayout$Group, addGroup, GroupLayout$Group*, GroupLayout$Group*)},
+		{"addSpring", "(Ljavax/swing/GroupLayout$Spring;)Ljavax/swing/GroupLayout$Group;", nullptr, 0, $virtualMethod(GroupLayout$Group, addSpring, GroupLayout$Group*, $GroupLayout$Spring*)},
+		{"calculateAutopadding", "(I)V", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateAutopadding, void, int32_t)},
+		{"calculateMaximumSize", "(I)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateMaximumSize, int32_t, int32_t)},
+		{"calculateMinimumSize", "(I)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateMinimumSize, int32_t, int32_t)},
+		{"calculatePreferredSize", "(I)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculatePreferredSize, int32_t, int32_t)},
+		{"calculateSize", "(II)I", nullptr, 0, $virtualMethod(GroupLayout$Group, calculateSize, int32_t, int32_t, int32_t)},
+		{"getSpring", "(I)Ljavax/swing/GroupLayout$Spring;", nullptr, 0, $virtualMethod(GroupLayout$Group, getSpring, $GroupLayout$Spring*, int32_t)},
+		{"getSpringSize", "(Ljavax/swing/GroupLayout$Spring;II)I", nullptr, 0, $virtualMethod(GroupLayout$Group, getSpringSize, int32_t, $GroupLayout$Spring*, int32_t, int32_t)},
+		{"indexOf", "(Ljavax/swing/GroupLayout$Spring;)I", nullptr, 0, $virtualMethod(GroupLayout$Group, indexOf, int32_t, $GroupLayout$Spring*)},
+		{"insertAutopadding", "(ILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Z)V", "(ILjava/util/List<Ljavax/swing/GroupLayout$AutoPreferredGapSpring;>;Ljava/util/List<Ljavax/swing/GroupLayout$AutoPreferredGapSpring;>;Ljava/util/List<Ljavax/swing/GroupLayout$ComponentSpring;>;Ljava/util/List<Ljavax/swing/GroupLayout$ComponentSpring;>;Z)V", $ABSTRACT, $virtualMethod(GroupLayout$Group, insertAutopadding, void, int32_t, $List*, $List*, $List*, $List*, bool)},
+		{"operator", "(II)I", nullptr, $ABSTRACT, $virtualMethod(GroupLayout$Group, operator$, int32_t, int32_t, int32_t)},
+		{"removeAutopadding", "()V", nullptr, 0, $virtualMethod(GroupLayout$Group, removeAutopadding, void)},
+		{"setSize", "(III)V", nullptr, 0, $virtualMethod(GroupLayout$Group, setSize, void, int32_t, int32_t, int32_t)},
+		{"setValidSize", "(III)V", nullptr, $ABSTRACT, $virtualMethod(GroupLayout$Group, setValidSize, void, int32_t, int32_t, int32_t)},
+		{"unsetAutopadding", "()V", nullptr, 0, $virtualMethod(GroupLayout$Group, unsetAutopadding, void)},
+		{"willHaveZeroSize", "(Z)Z", nullptr, 0, $virtualMethod(GroupLayout$Group, willHaveZeroSize, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.GroupLayout$Group", "javax.swing.GroupLayout", "Group", $PUBLIC | $ABSTRACT},
+		{"javax.swing.GroupLayout$Spring", "javax.swing.GroupLayout", "Spring", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.GroupLayout$Group",
+		"javax.swing.GroupLayout$Spring",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.GroupLayout"
+	};
+	$loadClass(GroupLayout$Group, name, initialize, &classInfo$$, GroupLayout$Group::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupLayout$Group);
+	});
 	return class$;
 }
 

@@ -151,6 +151,7 @@ class DOM3TreeWalker : public ::java::lang::Object {
 	$class(DOM3TreeWalker, 0, ::java::lang::Object)
 public:
 	DOM3TreeWalker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::serializer::SerializationHandler* serialHandler, ::org::w3c::dom::DOMErrorHandler* errHandler, ::org::w3c::dom::ls::LSSerializerFilter* filter, $String* newLine);
 	bool applyFilter(::org::w3c::dom::Node* node, int32_t nodeType);
 	void checkUnboundPrefixInEntRef(::org::w3c::dom::Node* node);

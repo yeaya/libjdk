@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/util/KrbDataInputStream.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -22,36 +21,9 @@ namespace sun {
 			namespace internal {
 				namespace util {
 
-$FieldInfo _KrbDataInputStream_FieldInfo_[] = {
-	{"bigEndian", "Z", nullptr, $PRIVATE, $field(KrbDataInputStream, bigEndian)},
-	{}
-};
-
-$MethodInfo _KrbDataInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(KrbDataInputStream, init$, void, $InputStream*)},
-	{"read", "(I)I", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, read, int32_t, int32_t), "java.io.IOException"},
-	{"readLength4", "()I", nullptr, $PUBLIC | $FINAL, $method(KrbDataInputStream, readLength4, int32_t), "java.io.IOException"},
-	{"readVersion", "()I", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, readVersion, int32_t), "java.io.IOException"},
-	{"setNativeByteOrder", "()V", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, setNativeByteOrder, void)},
-	{}
-};
-
-$ClassInfo _KrbDataInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.util.KrbDataInputStream",
-	"java.io.BufferedInputStream",
-	nullptr,
-	_KrbDataInputStream_FieldInfo_,
-	_KrbDataInputStream_MethodInfo_
-};
-
-$Object* allocate$KrbDataInputStream($Class* clazz) {
-	return $of($alloc(KrbDataInputStream));
-}
-
 void KrbDataInputStream::setNativeByteOrder() {
 	$init($ByteOrder);
-	if ($nc($of($($ByteOrder::nativeOrder())))->equals($ByteOrder::BIG_ENDIAN)) {
+	if ($$nc($ByteOrder::nativeOrder())->equals($ByteOrder::BIG_ENDIAN)) {
 		this->bigEndian = true;
 	} else {
 		this->bigEndian = false;
@@ -79,24 +51,46 @@ int32_t KrbDataInputStream::read(int32_t num) {
 	int32_t result = 0;
 	for (int32_t i = 0; i < num; ++i) {
 		if (this->bigEndian) {
-			result |= $sl((int32_t)(bytes->get(i) & (uint32_t)255), (num - i - 1) * 8);
+			result |= $sl(bytes->get(i) & 0xff, (num - i - 1) * 8);
 		} else {
-			result |= $sl((int32_t)(bytes->get(i) & (uint32_t)255), i * 8);
+			result |= $sl(bytes->get(i) & 0xff, i * 8);
 		}
 	}
 	return result;
 }
 
 int32_t KrbDataInputStream::readVersion() {
-	int32_t result = ((int32_t)(read() & (uint32_t)255)) << 8;
-	return result | ((int32_t)(read() & (uint32_t)255));
+	int32_t result = (read() & 0xff) << 8;
+	return result | (read() & 0xff);
 }
 
 KrbDataInputStream::KrbDataInputStream() {
 }
 
 $Class* KrbDataInputStream::load$($String* name, bool initialize) {
-	$loadClass(KrbDataInputStream, name, initialize, &_KrbDataInputStream_ClassInfo_, allocate$KrbDataInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"bigEndian", "Z", nullptr, $PRIVATE, $field(KrbDataInputStream, bigEndian)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(KrbDataInputStream, init$, void, $InputStream*)},
+		{"read", "(I)I", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, read, int32_t, int32_t), "java.io.IOException"},
+		{"readLength4", "()I", nullptr, $PUBLIC | $FINAL, $method(KrbDataInputStream, readLength4, int32_t), "java.io.IOException"},
+		{"readVersion", "()I", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, readVersion, int32_t), "java.io.IOException"},
+		{"setNativeByteOrder", "()V", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, setNativeByteOrder, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.util.KrbDataInputStream",
+		"java.io.BufferedInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbDataInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbDataInputStream);
+	});
 	return class$;
 }
 

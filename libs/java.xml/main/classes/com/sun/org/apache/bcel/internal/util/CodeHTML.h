@@ -61,6 +61,7 @@ class CodeHTML : public ::java::lang::Object {
 	$class(CodeHTML, 0, ::java::lang::Object)
 public:
 	CodeHTML();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* dir, $String* class_name, $Array<::com::sun::org::apache::bcel::internal::classfile::Method>* methods, ::com::sun::org::apache::bcel::internal::classfile::ConstantPool* constant_pool, ::com::sun::org::apache::bcel::internal::util::ConstantHTML* constant_html);
 	$String* codeToHTML(::com::sun::org::apache::bcel::internal::util::ByteSequence* bytes, int32_t method_number);
 	void findGotos(::com::sun::org::apache::bcel::internal::util::ByteSequence* bytes, ::com::sun::org::apache::bcel::internal::classfile::Code* code);

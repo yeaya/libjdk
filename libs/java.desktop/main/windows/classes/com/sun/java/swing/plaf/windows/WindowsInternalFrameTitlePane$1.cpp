@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane$1.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -11,7 +10,6 @@
 #include <jcpp.h>
 
 using $WindowsInternalFrameTitlePane = ::com::sun::java::swing::plaf::windows::WindowsInternalFrameTitlePane;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,55 +27,13 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsInternalFrameTitlePane$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsInternalFrameTitlePane$1, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsInternalFrameTitlePane$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;Ljavax/swing/Icon;)V", nullptr, 0, $method(WindowsInternalFrameTitlePane$1, init$, void, $WindowsInternalFrameTitlePane*, $Icon*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane$1, paintComponent, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsInternalFrameTitlePane$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane",
-	"assembleSystemMenu",
-	"()V"
-};
-
-$InnerClassInfo _WindowsInternalFrameTitlePane$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsInternalFrameTitlePane$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1",
-	"javax.swing.JLabel",
-	nullptr,
-	_WindowsInternalFrameTitlePane$1_FieldInfo_,
-	_WindowsInternalFrameTitlePane$1_MethodInfo_,
-	nullptr,
-	&_WindowsInternalFrameTitlePane$1_EnclosingMethodInfo_,
-	_WindowsInternalFrameTitlePane$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane"
-};
-
-$Object* allocate$WindowsInternalFrameTitlePane$1($Class* clazz) {
-	return $of($alloc(WindowsInternalFrameTitlePane$1));
-}
-
 void WindowsInternalFrameTitlePane$1::init$($WindowsInternalFrameTitlePane* this$0, $Icon* image) {
 	$set(this, this$0, this$0);
 	$JLabel::init$(image);
 }
 
 void WindowsInternalFrameTitlePane$1::paintComponent($Graphics* g$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, g$renamed);
 	int32_t x = 0;
 	int32_t y = 0;
@@ -85,7 +41,7 @@ void WindowsInternalFrameTitlePane$1::paintComponent($Graphics* g$renamed) {
 	int32_t h = getHeight();
 	$assign(g, $nc(g)->create());
 	if (isOpaque()) {
-		g->setColor($(getBackground()));
+		$nc(g)->setColor($(getBackground()));
 		g->fillRect(0, 0, w, h);
 	}
 	$var($Icon, icon, getIcon());
@@ -101,18 +57,53 @@ void WindowsInternalFrameTitlePane$1::paintComponent($Graphics* g$renamed) {
 			x = (w - $div(h * iconWidth, iconHeight)) / 2;
 			drawScale = h / (double)iconHeight;
 		}
-		$nc(($cast($Graphics2D, g)))->translate(x, y);
-		($cast($Graphics2D, g))->scale(drawScale, drawScale);
+		$nc($cast($Graphics2D, g))->translate(x, y);
+		$cast($Graphics2D, g)->scale(drawScale, drawScale);
 		icon->paintIcon(this, g, 0, 0);
 	}
-	g->dispose();
+	$nc(g)->dispose();
 }
 
 WindowsInternalFrameTitlePane$1::WindowsInternalFrameTitlePane$1() {
 }
 
 $Class* WindowsInternalFrameTitlePane$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsInternalFrameTitlePane$1, name, initialize, &_WindowsInternalFrameTitlePane$1_ClassInfo_, allocate$WindowsInternalFrameTitlePane$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsInternalFrameTitlePane$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane;Ljavax/swing/Icon;)V", nullptr, 0, $method(WindowsInternalFrameTitlePane$1, init$, void, $WindowsInternalFrameTitlePane*, $Icon*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsInternalFrameTitlePane$1, paintComponent, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane",
+		"assembleSystemMenu",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane$1",
+		"javax.swing.JLabel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane"
+	};
+	$loadClass(WindowsInternalFrameTitlePane$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsInternalFrameTitlePane$1));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/rmi/NoSuchObjectException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _NoSuchObjectException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchObjectException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchObjectException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchObjectException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchObjectException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.NoSuchObjectException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_NoSuchObjectException_FieldInfo_,
-	_NoSuchObjectException_MethodInfo_
-};
-
-$Object* allocate$NoSuchObjectException($Class* clazz) {
-	return $of($alloc(NoSuchObjectException));
-}
 
 void NoSuchObjectException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -49,7 +25,25 @@ void NoSuchObjectException::throw$() {
 }
 
 $Class* NoSuchObjectException::load$($String* name, bool initialize) {
-	$loadClass(NoSuchObjectException, name, initialize, &_NoSuchObjectException_ClassInfo_, allocate$NoSuchObjectException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchObjectException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchObjectException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.NoSuchObjectException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchObjectException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchObjectException);
+	});
 	return class$;
 }
 

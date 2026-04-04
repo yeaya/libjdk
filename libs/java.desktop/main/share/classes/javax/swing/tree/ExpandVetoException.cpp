@@ -1,5 +1,4 @@
 #include <javax/swing/tree/ExpandVetoException.h>
-
 #include <javax/swing/event/TreeExpansionEvent.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ using $TreeExpansionEvent = ::javax::swing::event::TreeExpansionEvent;
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$FieldInfo _ExpandVetoException_FieldInfo_[] = {
-	{"event", "Ljavax/swing/event/TreeExpansionEvent;", nullptr, $PROTECTED, $field(ExpandVetoException, event)},
-	{}
-};
-
-$MethodInfo _ExpandVetoException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC, $method(ExpandVetoException, init$, void, $TreeExpansionEvent*)},
-	{"<init>", "(Ljavax/swing/event/TreeExpansionEvent;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExpandVetoException, init$, void, $TreeExpansionEvent*, $String*)},
-	{}
-};
-
-$ClassInfo _ExpandVetoException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.ExpandVetoException",
-	"java.lang.Exception",
-	nullptr,
-	_ExpandVetoException_FieldInfo_,
-	_ExpandVetoException_MethodInfo_
-};
-
-$Object* allocate$ExpandVetoException($Class* clazz) {
-	return $of($alloc(ExpandVetoException));
-}
 
 void ExpandVetoException::init$($TreeExpansionEvent* event) {
 	ExpandVetoException::init$(event, nullptr);
@@ -57,7 +32,26 @@ void ExpandVetoException::throw$() {
 }
 
 $Class* ExpandVetoException::load$($String* name, bool initialize) {
-	$loadClass(ExpandVetoException, name, initialize, &_ExpandVetoException_ClassInfo_, allocate$ExpandVetoException);
+	$FieldInfo fieldInfos$$[] = {
+		{"event", "Ljavax/swing/event/TreeExpansionEvent;", nullptr, $PROTECTED, $field(ExpandVetoException, event)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC, $method(ExpandVetoException, init$, void, $TreeExpansionEvent*)},
+		{"<init>", "(Ljavax/swing/event/TreeExpansionEvent;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExpandVetoException, init$, void, $TreeExpansionEvent*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.ExpandVetoException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExpandVetoException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExpandVetoException);
+	});
 	return class$;
 }
 

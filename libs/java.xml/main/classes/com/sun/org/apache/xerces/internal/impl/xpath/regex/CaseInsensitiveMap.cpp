@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/CaseInsensitiveMap.h>
-
 #include <jcpp.h>
 
 #undef CHUNK_MASK
@@ -25,44 +24,6 @@ namespace com {
 							namespace xpath {
 								namespace regex {
 
-$FieldInfo _CaseInsensitiveMap_FieldInfo_[] = {
-	{"CHUNK_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, CHUNK_SHIFT)},
-	{"CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, CHUNK_SIZE)},
-	{"CHUNK_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, CHUNK_MASK)},
-	{"INITIAL_CHUNK_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, INITIAL_CHUNK_COUNT)},
-	{"caseInsensitiveMap", "[[[I", nullptr, $PRIVATE | $STATIC, $staticField(CaseInsensitiveMap, caseInsensitiveMap)},
-	{"LOWER_CASE_MATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, LOWER_CASE_MATCH)},
-	{"UPPER_CASE_MATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, UPPER_CASE_MATCH)},
-	{}
-};
-
-$MethodInfo _CaseInsensitiveMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CaseInsensitiveMap, init$, void)},
-	{"buildCaseInsensitiveMap", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, buildCaseInsensitiveMap, void)},
-	{"contains", "([II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, contains, bool, $ints*, int32_t)},
-	{"contains", "([III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, contains, bool, $ints*, int32_t, int32_t)},
-	{"expandAndAdd", "([III)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, expandAndAdd, $ints*, $ints*, int32_t, int32_t)},
-	{"expandMap", "([II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, expandMap, $ints*, $ints*, int32_t)},
-	{"get", "(I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseInsensitiveMap, get, $ints*, int32_t)},
-	{"getMapping", "(I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, getMapping, $ints*, int32_t)},
-	{"set", "(I[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, set, void, int32_t, $ints*)},
-	{"updateMap", "(I[II[II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, updateMap, $ints*, int32_t, $ints*, int32_t, $ints*, int32_t)},
-	{}
-};
-
-$ClassInfo _CaseInsensitiveMap_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.CaseInsensitiveMap",
-	"java.lang.Object",
-	nullptr,
-	_CaseInsensitiveMap_FieldInfo_,
-	_CaseInsensitiveMap_MethodInfo_
-};
-
-$Object* allocate$CaseInsensitiveMap($Class* clazz) {
-	return $of($alloc(CaseInsensitiveMap));
-}
-
 $intArray3* CaseInsensitiveMap::caseInsensitiveMap = nullptr;
 
 void CaseInsensitiveMap::init$() {
@@ -76,13 +37,13 @@ $ints* CaseInsensitiveMap::get(int32_t codePoint) {
 $ints* CaseInsensitiveMap::getMapping(int32_t codePoint) {
 	$init(CaseInsensitiveMap);
 	int32_t chunk = $usr(codePoint, CaseInsensitiveMap::CHUNK_SHIFT);
-	int32_t offset = (int32_t)(codePoint & (uint32_t)CaseInsensitiveMap::CHUNK_MASK);
+	int32_t offset = codePoint & CaseInsensitiveMap::CHUNK_MASK;
 	return $nc($nc(CaseInsensitiveMap::caseInsensitiveMap)->get(chunk))->get(offset);
 }
 
 void CaseInsensitiveMap::buildCaseInsensitiveMap() {
 	$init(CaseInsensitiveMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(CaseInsensitiveMap::caseInsensitiveMap, $new($intArray3, CaseInsensitiveMap::INITIAL_CHUNK_COUNT, CaseInsensitiveMap::CHUNK_SIZE));
 	int32_t lc = 0;
 	int32_t uc = 0;
@@ -101,10 +62,10 @@ void CaseInsensitiveMap::buildCaseInsensitiveMap() {
 				}
 			}
 			if (uc != i) {
-				if (index == map->length) {
+				if (index == $nc(map)->length) {
 					$assign(map, expandMap(map, 2));
 				}
-				map->set(index++, uc);
+				$nc(map)->set(index++, uc);
 				map->set(index++, CaseInsensitiveMap::UPPER_CASE_MATCH);
 				$var($ints, ucMap, getMapping(uc));
 				if (ucMap != nullptr) {
@@ -127,13 +88,13 @@ $ints* CaseInsensitiveMap::expandMap($ints* srcMap, int32_t expandBy) {
 void CaseInsensitiveMap::set(int32_t codePoint, $ints* map) {
 	$init(CaseInsensitiveMap);
 	int32_t chunk = $usr(codePoint, CaseInsensitiveMap::CHUNK_SHIFT);
-	int32_t offset = (int32_t)(codePoint & (uint32_t)CaseInsensitiveMap::CHUNK_MASK);
+	int32_t offset = codePoint & CaseInsensitiveMap::CHUNK_MASK;
 	$nc($nc(CaseInsensitiveMap::caseInsensitiveMap)->get(chunk))->set(offset, map);
 }
 
 $ints* CaseInsensitiveMap::updateMap(int32_t codePoint, $ints* codePointMap$renamed, int32_t ciCodePoint, $ints* ciCodePointMap$renamed, int32_t matchType) {
 	$init(CaseInsensitiveMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, ciCodePointMap, ciCodePointMap$renamed);
 	$var($ints, codePointMap, codePointMap$renamed);
 	for (int32_t i = 0; i < $nc(ciCodePointMap)->length; i += 2) {
@@ -188,7 +149,7 @@ $ints* CaseInsensitiveMap::expandAndAdd($ints* srcMap, int32_t codePoint, int32_
 	return newMap;
 }
 
-void clinit$CaseInsensitiveMap($Class* class$) {
+void CaseInsensitiveMap::clinit$($Class* clazz) {
 	{
 		CaseInsensitiveMap::buildCaseInsensitiveMap();
 	}
@@ -198,7 +159,40 @@ CaseInsensitiveMap::CaseInsensitiveMap() {
 }
 
 $Class* CaseInsensitiveMap::load$($String* name, bool initialize) {
-	$loadClass(CaseInsensitiveMap, name, initialize, &_CaseInsensitiveMap_ClassInfo_, clinit$CaseInsensitiveMap, allocate$CaseInsensitiveMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHUNK_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, CHUNK_SHIFT)},
+		{"CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, CHUNK_SIZE)},
+		{"CHUNK_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, CHUNK_MASK)},
+		{"INITIAL_CHUNK_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, INITIAL_CHUNK_COUNT)},
+		{"caseInsensitiveMap", "[[[I", nullptr, $PRIVATE | $STATIC, $staticField(CaseInsensitiveMap, caseInsensitiveMap)},
+		{"LOWER_CASE_MATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, LOWER_CASE_MATCH)},
+		{"UPPER_CASE_MATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CaseInsensitiveMap, UPPER_CASE_MATCH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CaseInsensitiveMap, init$, void)},
+		{"buildCaseInsensitiveMap", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, buildCaseInsensitiveMap, void)},
+		{"contains", "([II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, contains, bool, $ints*, int32_t)},
+		{"contains", "([III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, contains, bool, $ints*, int32_t, int32_t)},
+		{"expandAndAdd", "([III)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, expandAndAdd, $ints*, $ints*, int32_t, int32_t)},
+		{"expandMap", "([II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, expandMap, $ints*, $ints*, int32_t)},
+		{"get", "(I)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseInsensitiveMap, get, $ints*, int32_t)},
+		{"getMapping", "(I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, getMapping, $ints*, int32_t)},
+		{"set", "(I[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, set, void, int32_t, $ints*)},
+		{"updateMap", "(I[II[II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(CaseInsensitiveMap, updateMap, $ints*, int32_t, $ints*, int32_t, $ints*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.CaseInsensitiveMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CaseInsensitiveMap, name, initialize, &classInfo$$, CaseInsensitiveMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CaseInsensitiveMap);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SequentialScheduler$DeferredCompleter.h>
-
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jcpp.h>
 
@@ -13,37 +12,6 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$MethodInfo _SequentialScheduler$DeferredCompleter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SequentialScheduler$DeferredCompleter, init$, void)},
-	{"complete", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SequentialScheduler$DeferredCompleter, complete, void)},
-	{}
-};
-
-$InnerClassInfo _SequentialScheduler$DeferredCompleter_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter", "jdk.internal.net.http.common.SequentialScheduler", "DeferredCompleter", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SequentialScheduler$DeferredCompleter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SequentialScheduler$DeferredCompleter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SequentialScheduler$DeferredCompleter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SequentialScheduler"
-};
-
-$Object* allocate$SequentialScheduler$DeferredCompleter($Class* clazz) {
-	return $of($alloc(SequentialScheduler$DeferredCompleter));
-}
-
 void SequentialScheduler$DeferredCompleter::init$() {
 }
 
@@ -51,7 +19,33 @@ SequentialScheduler$DeferredCompleter::SequentialScheduler$DeferredCompleter() {
 }
 
 $Class* SequentialScheduler$DeferredCompleter::load$($String* name, bool initialize) {
-	$loadClass(SequentialScheduler$DeferredCompleter, name, initialize, &_SequentialScheduler$DeferredCompleter_ClassInfo_, allocate$SequentialScheduler$DeferredCompleter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SequentialScheduler$DeferredCompleter, init$, void)},
+		{"complete", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SequentialScheduler$DeferredCompleter, complete, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter", "jdk.internal.net.http.common.SequentialScheduler", "DeferredCompleter", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SequentialScheduler"
+	};
+	$loadClass(SequentialScheduler$DeferredCompleter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SequentialScheduler$DeferredCompleter);
+	});
 	return class$;
 }
 

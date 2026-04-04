@@ -1,5 +1,4 @@
 #include <bug4788637.h>
-
 #include <bug4788637$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -30,7 +29,6 @@
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <jcpp.h>
 
 #undef BUTTON1_MASK
@@ -40,17 +38,14 @@ using $bug4788637$1 = ::bug4788637$1;
 using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -67,7 +62,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 class bug4788637$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug4788637$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)
@@ -78,33 +72,29 @@ public:
 	virtual void run() override {
 		bug4788637::lambda$main$0(laf);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4788637$$Lambda$lambda$main$0>());
-	}
 	$UIManager$LookAndFeelInfo* laf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4788637$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(bug4788637$$Lambda$lambda$main$0, laf)},
-	{}
-};
-$MethodInfo bug4788637$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug4788637$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4788637$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4788637$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug4788637$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(bug4788637$$Lambda$lambda$main$0, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4788637$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4788637$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4788637$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug4788637$$Lambda$lambda$main$0::class$ = nullptr;
@@ -118,33 +108,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4788637$$Lambda$createAndShowGUI$1>());
-	}
 	bug4788637* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4788637$$Lambda$createAndShowGUI$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4788637$$Lambda$createAndShowGUI$1, inst$)},
-	{}
-};
-$MethodInfo bug4788637$$Lambda$createAndShowGUI$1::methodInfos[3] = {
-	{"<init>", "(Lbug4788637;)V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$createAndShowGUI$1, init$, void, bug4788637*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$createAndShowGUI$1, run, void)},
-	{}
-};
-$ClassInfo bug4788637$$Lambda$createAndShowGUI$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4788637$$Lambda$createAndShowGUI$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4788637$$Lambda$createAndShowGUI$1::load$($String* name, bool initialize) {
-	$loadClass(bug4788637$$Lambda$createAndShowGUI$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4788637$$Lambda$createAndShowGUI$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4788637;)V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$createAndShowGUI$1, init$, void, bug4788637*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$createAndShowGUI$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4788637$$Lambda$createAndShowGUI$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4788637$$Lambda$createAndShowGUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4788637$$Lambda$createAndShowGUI$1);
+	});
 	return class$;
 }
 $Class* bug4788637$$Lambda$createAndShowGUI$1::class$ = nullptr;
@@ -157,27 +143,24 @@ public:
 	virtual void run() override {
 		bug4788637::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4788637$$Lambda$lambda$main$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug4788637$$Lambda$lambda$main$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$lambda$main$1$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$lambda$main$1$2, run, void)},
-	{}
-};
-$ClassInfo bug4788637$$Lambda$lambda$main$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4788637$$Lambda$lambda$main$1$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug4788637$$Lambda$lambda$main$1$2::load$($String* name, bool initialize) {
-	$loadClass(bug4788637$$Lambda$lambda$main$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$lambda$main$1$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$lambda$main$1$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4788637$$Lambda$lambda$main$1$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug4788637$$Lambda$lambda$main$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4788637$$Lambda$lambda$main$1$2);
+	});
 	return class$;
 }
 $Class* bug4788637$$Lambda$lambda$main$1$2::class$ = nullptr;
@@ -191,83 +174,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->destroy();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4788637$$Lambda$destroy$3>());
-	}
 	bug4788637* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4788637$$Lambda$destroy$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4788637$$Lambda$destroy$3, inst$)},
-	{}
-};
-$MethodInfo bug4788637$$Lambda$destroy$3::methodInfos[3] = {
-	{"<init>", "(Lbug4788637;)V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$destroy$3, init$, void, bug4788637*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$destroy$3, run, void)},
-	{}
-};
-$ClassInfo bug4788637$$Lambda$destroy$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4788637$$Lambda$destroy$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4788637$$Lambda$destroy$3::load$($String* name, bool initialize) {
-	$loadClass(bug4788637$$Lambda$destroy$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4788637$$Lambda$destroy$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4788637;)V", nullptr, $PUBLIC, $method(bug4788637$$Lambda$destroy$3, init$, void, bug4788637*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4788637$$Lambda$destroy$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4788637$$Lambda$destroy$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4788637$$Lambda$destroy$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4788637$$Lambda$destroy$3);
+	});
 	return class$;
 }
 $Class* bug4788637$$Lambda$destroy$3::class$ = nullptr;
-
-$FieldInfo _bug4788637_FieldInfo_[] = {
-	{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, spinner)},
-	{"fr", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, fr)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, robot)},
-	{"step", "I", nullptr, $PRIVATE, $field(bug4788637, step)},
-	{"spinnerValueChanged", "[Z", nullptr, $PRIVATE, $field(bug4788637, spinnerValueChanged)},
-	{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, p)},
-	{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, rect)},
-	{}
-};
-
-$MethodInfo _bug4788637_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4788637, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PUBLIC, $method(bug4788637, createAndShowGUI, void)},
-	{"destroy", "()V", nullptr, $PUBLIC, $method(bug4788637, destroy, void)},
-	{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4788637, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4788637, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4788637, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4788637, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"start", "()V", nullptr, $PUBLIC, $method(bug4788637, start, void)},
-	{}
-};
-
-$InnerClassInfo _bug4788637_InnerClassesInfo_[] = {
-	{"bug4788637$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4788637_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"bug4788637",
-	"java.lang.Object",
-	nullptr,
-	_bug4788637_FieldInfo_,
-	_bug4788637_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4788637_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4788637$1"
-};
-
-$Object* allocate$bug4788637($Class* clazz) {
-	return $of($alloc(bug4788637));
-}
 
 $JSpinner* bug4788637::spinner = nullptr;
 $JFrame* bug4788637::fr = nullptr;
@@ -284,35 +216,31 @@ void bug4788637::init$() {
 }
 
 void bug4788637::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug4788637);
 	$assignStatic(bug4788637::robot, $new($Robot));
-	$nc(bug4788637::robot)->setAutoDelay(50);
+	bug4788637::robot->setAutoDelay(50);
 	$nc(bug4788637::robot)->setAutoWaitForIdle(true);
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
 			{
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4788637$$Lambda$lambda$main$0, laf)));
+				$SwingUtilities::invokeAndWait($$new(bug4788637$$Lambda$lambda$main$0, laf));
 				$var(bug4788637, app, $new(bug4788637));
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4788637$$Lambda$createAndShowGUI$1, static_cast<bug4788637*>(app))));
-						$nc(bug4788637::robot)->waitForIdle();
-						$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4788637$$Lambda$lambda$main$1$2)));
-						app->start();
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4788637$$Lambda$destroy$3, static_cast<bug4788637*>(app))));
-					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				$var($Throwable, var$0, nullptr);
+				try {
+					$SwingUtilities::invokeAndWait($$new(bug4788637$$Lambda$createAndShowGUI$1, app));
+					$nc(bug4788637::robot)->waitForIdle();
+					$SwingUtilities::invokeAndWait($$new(bug4788637$$Lambda$lambda$main$1$2));
+					app->start();
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					$SwingUtilities::invokeAndWait($$new(bug4788637$$Lambda$destroy$3, app));
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		}
@@ -320,12 +248,12 @@ void bug4788637::main($StringArray* args) {
 }
 
 void bug4788637::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(bug4788637::fr, $new($JFrame, "Test"_s));
-	$nc(bug4788637::fr)->setLayout($$new($GridBagLayout));
+	bug4788637::fr->setLayout($$new($GridBagLayout));
 	$var($SpinnerModel, model, $new($SpinnerNumberModel, 50, 1, 100, 1));
 	$assignStatic(bug4788637::spinner, $new($JSpinner, model));
-	$nc(bug4788637::fr)->add(static_cast<$Component*>(bug4788637::spinner), $of($$new($GridBagConstraints)));
+	$nc(bug4788637::fr)->add(bug4788637::spinner, $$new($GridBagConstraints));
 	$nc(bug4788637::spinner)->addChangeListener($$new($bug4788637$1, this));
 	$nc(bug4788637::fr)->setSize(200, 200);
 	$nc(bug4788637::fr)->setLocationRelativeTo(nullptr);
@@ -340,51 +268,51 @@ void bug4788637::start() {
 		$nc(bug4788637::robot)->mousePress($InputEvent::BUTTON1_MASK);
 		$synchronized(this) {
 			if (!$nc(this->spinnerValueChanged)->get(this->step)) {
-				$of(this)->wait(3000);
+				this->wait(3000);
 			}
 		}
 		$nc(bug4788637::robot)->mouseMove($nc(bug4788637::p)->x + $nc(bug4788637::rect)->width - 3, $nc(bug4788637::p)->y - 3);
 		$synchronized(this) {
 			++this->step;
 			if (!$nc(this->spinnerValueChanged)->get(this->step)) {
-				$of(this)->wait(3000);
+				this->wait(3000);
 			}
 		}
 		$nc(bug4788637::robot)->mouseMove($nc(bug4788637::p)->x + $nc(bug4788637::rect)->width - 3, $nc(bug4788637::p)->y + 3);
 		$synchronized(this) {
 			++this->step;
 			if (!$nc(this->spinnerValueChanged)->get(this->step)) {
-				$of(this)->wait(3000);
+				this->wait(3000);
 			}
 		}
 		$nc(bug4788637::robot)->mouseRelease($InputEvent::BUTTON1_MASK);
 	} catch ($Throwable& t) {
-		$throwNew($RuntimeException, $cast($Throwable, t));
+		$throwNew($RuntimeException, t);
 	}
 }
 
 void bug4788637::destroy() {
 	$nc(bug4788637::fr)->dispose();
 	$synchronized(this) {
-		if (!$nc(this->spinnerValueChanged)->get(0) || $nc(this->spinnerValueChanged)->get(1) || !$nc(this->spinnerValueChanged)->get(2)) {
+		if (!$nc(this->spinnerValueChanged)->get(0) || this->spinnerValueChanged->get(1) || !this->spinnerValueChanged->get(2)) {
 			$throwNew($Error, "JSpinner buttons don\'t conform to most platform conventions"_s);
 		}
 	}
 }
 
 void bug4788637::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
-		$nc($System::out)->println($$str({"LookAndFeel: "_s, $($nc(laf)->getClassName())}));
+		$nc($System::out)->println($$str({"LookAndFeel: "_s, $(laf->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($UnsupportedLookAndFeelException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -404,20 +332,61 @@ bug4788637::bug4788637() {
 
 $Class* bug4788637::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4788637$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug4788637$$Lambda$lambda$main$0")) {
 			return bug4788637$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(bug4788637$$Lambda$createAndShowGUI$1::classInfo$.name)) {
+		if (name->equals("bug4788637$$Lambda$createAndShowGUI$1")) {
 			return bug4788637$$Lambda$createAndShowGUI$1::load$(name, initialize);
 		}
-		if (name->equals(bug4788637$$Lambda$lambda$main$1$2::classInfo$.name)) {
+		if (name->equals("bug4788637$$Lambda$lambda$main$1$2")) {
 			return bug4788637$$Lambda$lambda$main$1$2::load$(name, initialize);
 		}
-		if (name->equals(bug4788637$$Lambda$destroy$3::classInfo$.name)) {
+		if (name->equals("bug4788637$$Lambda$destroy$3")) {
 			return bug4788637$$Lambda$destroy$3::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4788637, name, initialize, &_bug4788637_ClassInfo_, allocate$bug4788637);
+	$FieldInfo fieldInfos$$[] = {
+		{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, spinner)},
+		{"fr", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, fr)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, robot)},
+		{"step", "I", nullptr, $PRIVATE, $field(bug4788637, step)},
+		{"spinnerValueChanged", "[Z", nullptr, $PRIVATE, $field(bug4788637, spinnerValueChanged)},
+		{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, p)},
+		{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(bug4788637, rect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4788637, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PUBLIC, $method(bug4788637, createAndShowGUI, void)},
+		{"destroy", "()V", nullptr, $PUBLIC, $method(bug4788637, destroy, void)},
+		{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4788637, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4788637, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4788637, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4788637, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"start", "()V", nullptr, $PUBLIC, $method(bug4788637, start, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4788637$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"bug4788637",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4788637$1"
+	};
+	$loadClass(bug4788637, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4788637);
+	});
 	return class$;
 }
 

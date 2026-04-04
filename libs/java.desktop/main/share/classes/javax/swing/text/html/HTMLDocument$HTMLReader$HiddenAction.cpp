@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$HTMLReader$HiddenAction.h>
-
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
@@ -27,46 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLDocument$HTMLReader$HiddenAction_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$HiddenAction, this$1)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$HTMLReader$HiddenAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader$HiddenAction, init$, void, $HTMLDocument$HTMLReader*)},
-	{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$HiddenAction, end, void, $HTML$Tag*)},
-	{"isEmpty", "(Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader$HiddenAction, isEmpty, bool, $HTML$Tag*)},
-	{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$HiddenAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$HTMLReader$HiddenAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "HiddenAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TagAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$HTMLReader$HiddenAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction",
-	"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction",
-	nullptr,
-	_HTMLDocument$HTMLReader$HiddenAction_FieldInfo_,
-	_HTMLDocument$HTMLReader$HiddenAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$HTMLReader$HiddenAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$HTMLReader$HiddenAction($Class* clazz) {
-	return $of($alloc(HTMLDocument$HTMLReader$HiddenAction));
-}
 
 void HTMLDocument$HTMLReader$HiddenAction::init$($HTMLDocument$HTMLReader* this$1) {
 	$set(this, this$1, this$1);
@@ -98,7 +57,41 @@ HTMLDocument$HTMLReader$HiddenAction::HTMLDocument$HTMLReader$HiddenAction() {
 }
 
 $Class* HTMLDocument$HTMLReader$HiddenAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$HTMLReader$HiddenAction, name, initialize, &_HTMLDocument$HTMLReader$HiddenAction_ClassInfo_, allocate$HTMLDocument$HTMLReader$HiddenAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$HiddenAction, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader$HiddenAction, init$, void, $HTMLDocument$HTMLReader*)},
+		{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$HiddenAction, end, void, $HTML$Tag*)},
+		{"isEmpty", "(Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, 0, $virtualMethod(HTMLDocument$HTMLReader$HiddenAction, isEmpty, bool, $HTML$Tag*)},
+		{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$HiddenAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "HiddenAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TagAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$HTMLReader$HiddenAction",
+		"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$HTMLReader$HiddenAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLDocument$HTMLReader$HiddenAction);
+	});
 	return class$;
 }
 

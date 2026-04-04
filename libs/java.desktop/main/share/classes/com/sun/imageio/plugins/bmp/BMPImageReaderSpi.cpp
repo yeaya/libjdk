@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageReaderSpi.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageReader.h>
 #include <com/sun/imageio/plugins/bmp/BMPMetadata.h>
 #include <java/util/Locale.h>
@@ -26,37 +25,6 @@ namespace com {
 			namespace plugins {
 				namespace bmp {
 
-$FieldInfo _BMPImageReaderSpi_FieldInfo_[] = {
-	{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, writerSpiNames)},
-	{"formatNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, formatNames)},
-	{"entensions", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, entensions)},
-	{"mimeType", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, mimeType)},
-	{"registered", "Z", nullptr, $PRIVATE, $field(BMPImageReaderSpi, registered)},
-	{}
-};
-
-$MethodInfo _BMPImageReaderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BMPImageReaderSpi, init$, void)},
-	{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BMPImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
-	{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(BMPImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "javax.imageio.IIOException"},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BMPImageReaderSpi, getDescription, $String*, $Locale*)},
-	{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BMPImageReaderSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
-	{}
-};
-
-$ClassInfo _BMPImageReaderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageReaderSpi",
-	"javax.imageio.spi.ImageReaderSpi",
-	nullptr,
-	_BMPImageReaderSpi_FieldInfo_,
-	_BMPImageReaderSpi_MethodInfo_
-};
-
-$Object* allocate$BMPImageReaderSpi($Class* clazz) {
-	return $of($alloc(BMPImageReaderSpi));
-}
-
 $StringArray* BMPImageReaderSpi::writerSpiNames = nullptr;
 $StringArray* BMPImageReaderSpi::formatNames = nullptr;
 $StringArray* BMPImageReaderSpi::entensions = nullptr;
@@ -81,7 +49,7 @@ $String* BMPImageReaderSpi::getDescription($Locale* locale) {
 }
 
 bool BMPImageReaderSpi::canDecodeInput(Object$* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ImageInputStream, source))) {
 		return false;
 	}
@@ -97,7 +65,7 @@ $ImageReader* BMPImageReaderSpi::createReaderInstance(Object$* extension) {
 	return $new($BMPImageReader, this);
 }
 
-void clinit$BMPImageReaderSpi($Class* class$) {
+void BMPImageReaderSpi::clinit$($Class* clazz) {
 	$assignStatic(BMPImageReaderSpi::writerSpiNames, $new($StringArray, {"com.sun.imageio.plugins.bmp.BMPImageWriterSpi"_s}));
 	$assignStatic(BMPImageReaderSpi::formatNames, $new($StringArray, {
 		"bmp"_s,
@@ -111,7 +79,33 @@ BMPImageReaderSpi::BMPImageReaderSpi() {
 }
 
 $Class* BMPImageReaderSpi::load$($String* name, bool initialize) {
-	$loadClass(BMPImageReaderSpi, name, initialize, &_BMPImageReaderSpi_ClassInfo_, clinit$BMPImageReaderSpi, allocate$BMPImageReaderSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, writerSpiNames)},
+		{"formatNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, formatNames)},
+		{"entensions", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, entensions)},
+		{"mimeType", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BMPImageReaderSpi, mimeType)},
+		{"registered", "Z", nullptr, $PRIVATE, $field(BMPImageReaderSpi, registered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BMPImageReaderSpi, init$, void)},
+		{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BMPImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
+		{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(BMPImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "javax.imageio.IIOException"},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BMPImageReaderSpi, getDescription, $String*, $Locale*)},
+		{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(BMPImageReaderSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageReaderSpi",
+		"javax.imageio.spi.ImageReaderSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BMPImageReaderSpi, name, initialize, &classInfo$$, BMPImageReaderSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageReaderSpi);
+	});
 	return class$;
 }
 

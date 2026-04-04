@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory$RadioButtonIcon.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -28,51 +27,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifIconFactory$RadioButtonIcon_FieldInfo_[] = {
-	{"dot", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$RadioButtonIcon, dot)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$RadioButtonIcon, highlight)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$RadioButtonIcon, shadow)},
-	{}
-};
-
-$MethodInfo _MotifIconFactory$RadioButtonIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$RadioButtonIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$RadioButtonIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$RadioButtonIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$RadioButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifIconFactory$RadioButtonIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifIconFactory$RadioButtonIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	_MotifIconFactory$RadioButtonIcon_FieldInfo_,
-	_MotifIconFactory$RadioButtonIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifIconFactory$RadioButtonIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory"
-};
-
-$Object* allocate$MotifIconFactory$RadioButtonIcon($Class* clazz) {
-	return $of($alloc(MotifIconFactory$RadioButtonIcon));
-}
-
 int32_t MotifIconFactory$RadioButtonIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -100,7 +54,7 @@ void MotifIconFactory$RadioButtonIcon::init$() {
 }
 
 void MotifIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	int32_t w = getIconWidth();
@@ -137,7 +91,46 @@ MotifIconFactory$RadioButtonIcon::MotifIconFactory$RadioButtonIcon() {
 }
 
 $Class* MotifIconFactory$RadioButtonIcon::load$($String* name, bool initialize) {
-	$loadClass(MotifIconFactory$RadioButtonIcon, name, initialize, &_MotifIconFactory$RadioButtonIcon_ClassInfo_, allocate$MotifIconFactory$RadioButtonIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"dot", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$RadioButtonIcon, dot)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$RadioButtonIcon, highlight)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$RadioButtonIcon, shadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$RadioButtonIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$RadioButtonIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$RadioButtonIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$RadioButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory$RadioButtonIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory"
+	};
+	$loadClass(MotifIconFactory$RadioButtonIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifIconFactory$RadioButtonIcon));
+	});
 	return class$;
 }
 

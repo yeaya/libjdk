@@ -1,5 +1,4 @@
 #include <sun/font/CCharToGlyphMapper.h>
-
 #include <sun/font/CCharToGlyphMapper$Cache.h>
 #include <sun/font/CFont.h>
 #include <sun/font/CharToGlyphMapper.h>
@@ -25,60 +24,10 @@ using $FontUtilities = ::sun::font::FontUtilities;
 namespace sun {
 	namespace font {
 
-$FieldInfo _CCharToGlyphMapper_FieldInfo_[] = {
-	{"cache", "Lsun/font/CCharToGlyphMapper$Cache;", nullptr, $PRIVATE, $field(CCharToGlyphMapper, cache)},
-	{"fFont", "Lsun/font/CFont;", nullptr, 0, $field(CCharToGlyphMapper, fFont)},
-	{"numGlyphs", "I", nullptr, 0, $field(CCharToGlyphMapper, numGlyphs)},
-	{}
-};
-
-$MethodInfo _CCharToGlyphMapper_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/CFont;)V", nullptr, $PUBLIC, $method(CCharToGlyphMapper, init$, void, $CFont*)},
-	{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper, canDisplay, bool, char16_t)},
-	{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper, canDisplay, bool, int32_t)},
-	{"charToGlyph", "(C)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charToGlyph, int32_t, char16_t)},
-	{"charToGlyph", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charToGlyph, int32_t, int32_t)},
-	{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
-	{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
-	{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
-	{"countGlyphs", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCharToGlyphMapper, countGlyphs, int32_t, int64_t)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper, getNumGlyphs, int32_t)},
-	{"nativeCharsToGlyphs", "(JI[C[I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCharToGlyphMapper, nativeCharsToGlyphs, void, int64_t, int32_t, $chars*, $ints*)},
-	{}
-};
-
-#define _METHOD_INDEX_countGlyphs 8
-#define _METHOD_INDEX_nativeCharsToGlyphs 10
-
-$InnerClassInfo _CCharToGlyphMapper_InnerClassesInfo_[] = {
-	{"sun.font.CCharToGlyphMapper$Cache", "sun.font.CCharToGlyphMapper", "Cache", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CCharToGlyphMapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.CCharToGlyphMapper",
-	"sun.font.CharToGlyphMapper",
-	nullptr,
-	_CCharToGlyphMapper_FieldInfo_,
-	_CCharToGlyphMapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CCharToGlyphMapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.CCharToGlyphMapper$Cache,sun.font.CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray"
-};
-
-$Object* allocate$CCharToGlyphMapper($Class* clazz) {
-	return $of($alloc(CCharToGlyphMapper));
-}
-
 int32_t CCharToGlyphMapper::countGlyphs(int64_t nativeFontPtr) {
 	$init(CCharToGlyphMapper);
-	int32_t $ret = 0;
-	$prepareNativeStatic(CCharToGlyphMapper, countGlyphs, int32_t, int64_t nativeFontPtr);
-	$ret = $invokeNativeStatic(nativeFontPtr);
+	$prepareNativeStatic(countGlyphs, int32_t, int64_t nativeFontPtr);
+	int32_t $ret = $invokeNativeStatic(nativeFontPtr);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -135,7 +84,7 @@ bool CCharToGlyphMapper::charsToGlyphsNS(int32_t count, $chars* unicodes, $ints*
 
 int32_t CCharToGlyphMapper::charToGlyph(char16_t unicode) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int32_t glyph = $nc(this->cache)->get(unicode);
 		if (glyph != 0) {
 			return glyph;
@@ -150,7 +99,7 @@ int32_t CCharToGlyphMapper::charToGlyph(char16_t unicode) {
 
 int32_t CCharToGlyphMapper::charToGlyph(int32_t unicode) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (unicode >= 0x00010000) {
 			$var($ints, glyphs, $new($ints, 2));
 			$var($chars, surrogates, $new($chars, 2));
@@ -176,12 +125,13 @@ void CCharToGlyphMapper::charsToGlyphs(int32_t count, $ints* unicodes, $ints* gl
 		for (int32_t i = 0; i < count; ++i) {
 			$nc(glyphs)->set(i, charToGlyph($nc(unicodes)->get(i)));
 		}
+		;
 	}
 }
 
 void CCharToGlyphMapper::nativeCharsToGlyphs(int64_t nativeFontPtr, int32_t count, $chars* unicodes, $ints* glyphs) {
 	$init(CCharToGlyphMapper);
-	$prepareNativeStatic(CCharToGlyphMapper, nativeCharsToGlyphs, void, int64_t nativeFontPtr, int32_t count, $chars* unicodes, $ints* glyphs);
+	$prepareNativeStatic(nativeCharsToGlyphs, void, int64_t nativeFontPtr, int32_t count, $chars* unicodes, $ints* glyphs);
 	$invokeNativeStatic(nativeFontPtr, count, unicodes, glyphs);
 	$finishNativeStatic();
 }
@@ -190,7 +140,47 @@ CCharToGlyphMapper::CCharToGlyphMapper() {
 }
 
 $Class* CCharToGlyphMapper::load$($String* name, bool initialize) {
-	$loadClass(CCharToGlyphMapper, name, initialize, &_CCharToGlyphMapper_ClassInfo_, allocate$CCharToGlyphMapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"cache", "Lsun/font/CCharToGlyphMapper$Cache;", nullptr, $PRIVATE, $field(CCharToGlyphMapper, cache)},
+		{"fFont", "Lsun/font/CFont;", nullptr, 0, $field(CCharToGlyphMapper, fFont)},
+		{"numGlyphs", "I", nullptr, 0, $field(CCharToGlyphMapper, numGlyphs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/CFont;)V", nullptr, $PUBLIC, $method(CCharToGlyphMapper, init$, void, $CFont*)},
+		{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper, canDisplay, bool, char16_t)},
+		{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper, canDisplay, bool, int32_t)},
+		{"charToGlyph", "(C)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charToGlyph, int32_t, char16_t)},
+		{"charToGlyph", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charToGlyph, int32_t, int32_t)},
+		{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
+		{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
+		{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CCharToGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
+		{"countGlyphs", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCharToGlyphMapper, countGlyphs, int32_t, int64_t)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper, getNumGlyphs, int32_t)},
+		{"nativeCharsToGlyphs", "(JI[C[I)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CCharToGlyphMapper, nativeCharsToGlyphs, void, int64_t, int32_t, $chars*, $ints*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CCharToGlyphMapper$Cache", "sun.font.CCharToGlyphMapper", "Cache", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.CCharToGlyphMapper",
+		"sun.font.CharToGlyphMapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.CCharToGlyphMapper$Cache,sun.font.CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray"
+	};
+	$loadClass(CCharToGlyphMapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CCharToGlyphMapper);
+	});
 	return class$;
 }
 

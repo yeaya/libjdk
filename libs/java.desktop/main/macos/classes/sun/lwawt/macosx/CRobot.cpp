@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CRobot.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -9,7 +8,6 @@
 
 #undef MOUSE_LOCATION_UNKNOWN
 
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,53 +19,6 @@ using $CCursorManager = ::sun::lwawt::macosx::CCursorManager;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CRobot_FieldInfo_[] = {
-	{"MOUSE_LOCATION_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRobot, MOUSE_LOCATION_UNKNOWN)},
-	{"fDevice", "Lsun/awt/CGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(CRobot, fDevice)},
-	{"mouseLastX", "I", nullptr, $PRIVATE, $field(CRobot, mouseLastX)},
-	{"mouseLastY", "I", nullptr, $PRIVATE, $field(CRobot, mouseLastY)},
-	{"mouseButtonsState", "I", nullptr, $PRIVATE, $field(CRobot, mouseButtonsState)},
-	{}
-};
-
-$MethodInfo _CRobot_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/CGraphicsDevice;)V", nullptr, 0, $method(CRobot, init$, void, $CGraphicsDevice*)},
-	{"checkMousePos", "()V", nullptr, $PRIVATE, $method(CRobot, checkMousePos, void)},
-	{"getRGBPixel", "(II)I", nullptr, $PUBLIC, $virtualMethod(CRobot, getRGBPixel, int32_t, int32_t, int32_t)},
-	{"getRGBPixels", "(Ljava/awt/Rectangle;)[I", nullptr, $PUBLIC, $virtualMethod(CRobot, getRGBPixels, $ints*, $Rectangle*)},
-	{"getScreenPixels", "(Ljava/awt/Rectangle;[I)V", nullptr, $PRIVATE, $method(CRobot, getScreenPixels, void, $Rectangle*, $ints*)},
-	{"initRobot", "()V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, initRobot, void)},
-	{"keyEvent", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, keyEvent, void, int32_t, bool)},
-	{"keyPress", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, keyPress, void, int32_t)},
-	{"keyRelease", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, keyRelease, void, int32_t)},
-	{"mouseEvent", "(IIIZZ)V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, mouseEvent, void, int32_t, int32_t, int32_t, bool, bool)},
-	{"mouseMove", "(II)V", nullptr, $PUBLIC, $virtualMethod(CRobot, mouseMove, void, int32_t, int32_t)},
-	{"mousePress", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, mousePress, void, int32_t)},
-	{"mouseRelease", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, mouseRelease, void, int32_t)},
-	{"mouseWheel", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(CRobot, mouseWheel, void, int32_t)},
-	{"nativeGetScreenPixels", "(IIIID[I)V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, nativeGetScreenPixels, void, int32_t, int32_t, int32_t, int32_t, double, $ints*)},
-	{}
-};
-
-#define _METHOD_INDEX_initRobot 5
-#define _METHOD_INDEX_keyEvent 6
-#define _METHOD_INDEX_mouseEvent 9
-#define _METHOD_INDEX_mouseWheel 13
-#define _METHOD_INDEX_nativeGetScreenPixels 14
-
-$ClassInfo _CRobot_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CRobot",
-	"java.lang.Object",
-	"java.awt.peer.RobotPeer",
-	_CRobot_FieldInfo_,
-	_CRobot_MethodInfo_
-};
-
-$Object* allocate$CRobot($Class* clazz) {
-	return $of($alloc(CRobot));
-}
 
 void CRobot::init$($CGraphicsDevice* d) {
 	this->mouseLastX = CRobot::MOUSE_LOCATION_UNKNOWN;
@@ -96,27 +47,27 @@ void CRobot::mouseRelease(int32_t buttons) {
 }
 
 void CRobot::checkMousePos() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mouseLastX == CRobot::MOUSE_LOCATION_UNKNOWN || this->mouseLastY == CRobot::MOUSE_LOCATION_UNKNOWN) {
-		$var($Rectangle, deviceBounds, $nc($($nc(this->fDevice)->getDefaultConfiguration()))->getBounds());
-		$var($Point, mousePos, $nc($($CCursorManager::getInstance()))->getCursorPosition());
+		$var($Rectangle, deviceBounds, $$nc($nc(this->fDevice)->getDefaultConfiguration())->getBounds());
+		$var($Point, mousePos, $$nc($CCursorManager::getInstance())->getCursorPosition());
 		if ($nc(mousePos)->x < $nc(deviceBounds)->x) {
 			mousePos->x = deviceBounds->x;
 		} else if (mousePos->x > deviceBounds->x + deviceBounds->width) {
 			mousePos->x = deviceBounds->x + deviceBounds->width;
 		}
-		if ($nc(mousePos)->y < $nc(deviceBounds)->y) {
+		if (mousePos->y < deviceBounds->y) {
 			mousePos->y = deviceBounds->y;
 		} else if (mousePos->y > deviceBounds->y + deviceBounds->height) {
 			mousePos->y = deviceBounds->y + deviceBounds->height;
 		}
-		this->mouseLastX = $nc(mousePos)->x;
+		this->mouseLastX = mousePos->x;
 		this->mouseLastY = mousePos->y;
 	}
 }
 
 void CRobot::mouseWheel(int32_t wheelAmt) {
-	$prepareNative(CRobot, mouseWheel, void, int32_t wheelAmt);
+	$prepareNative(mouseWheel, void, int32_t wheelAmt);
 	$invokeNative(wheelAmt);
 	$finishNative();
 }
@@ -130,7 +81,7 @@ void CRobot::keyRelease(int32_t keycode) {
 }
 
 int32_t CRobot::getRGBPixel(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, c, $new($ints, 1));
 	double scale = (double)$nc(this->fDevice)->getScaleFactor();
 	getScreenPixels($$new($Rectangle, x, y, $cast(int32_t, scale), $cast(int32_t, scale)), c);
@@ -138,36 +89,36 @@ int32_t CRobot::getRGBPixel(int32_t x, int32_t y) {
 }
 
 $ints* CRobot::getRGBPixels($Rectangle* bounds) {
-	$var($ints, c, $new($ints, $nc(bounds)->width * bounds->height));
+	$var($ints, c, $new($ints, $nc(bounds)->width * $nc(bounds)->height));
 	getScreenPixels(bounds, c);
 	return c;
 }
 
 void CRobot::initRobot() {
-	$prepareNative(CRobot, initRobot, void);
+	$prepareNative(initRobot, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void CRobot::mouseEvent(int32_t lastX, int32_t lastY, int32_t buttonsState, bool isButtonsDownState, bool isMouseMove) {
-	$prepareNative(CRobot, mouseEvent, void, int32_t lastX, int32_t lastY, int32_t buttonsState, bool isButtonsDownState, bool isMouseMove);
+	$prepareNative(mouseEvent, void, int32_t lastX, int32_t lastY, int32_t buttonsState, bool isButtonsDownState, bool isMouseMove);
 	$invokeNative(lastX, lastY, buttonsState, isButtonsDownState, isMouseMove);
 	$finishNative();
 }
 
 void CRobot::keyEvent(int32_t javaKeyCode, bool keydown) {
-	$prepareNative(CRobot, keyEvent, void, int32_t javaKeyCode, bool keydown);
+	$prepareNative(keyEvent, void, int32_t javaKeyCode, bool keydown);
 	$invokeNative(javaKeyCode, keydown);
 	$finishNative();
 }
 
 void CRobot::getScreenPixels($Rectangle* r, $ints* pixels) {
 	double scale = (double)$nc(this->fDevice)->getScaleFactor();
-	nativeGetScreenPixels($nc(r)->x, r->y, r->width, r->height, scale, pixels);
+	nativeGetScreenPixels($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height, scale, pixels);
 }
 
 void CRobot::nativeGetScreenPixels(int32_t x, int32_t y, int32_t width, int32_t height, double scale, $ints* pixels) {
-	$prepareNative(CRobot, nativeGetScreenPixels, void, int32_t x, int32_t y, int32_t width, int32_t height, double scale, $ints* pixels);
+	$prepareNative(nativeGetScreenPixels, void, int32_t x, int32_t y, int32_t width, int32_t height, double scale, $ints* pixels);
 	$invokeNative(x, y, width, height, scale, pixels);
 	$finishNative();
 }
@@ -176,7 +127,43 @@ CRobot::CRobot() {
 }
 
 $Class* CRobot::load$($String* name, bool initialize) {
-	$loadClass(CRobot, name, initialize, &_CRobot_ClassInfo_, allocate$CRobot);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOUSE_LOCATION_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRobot, MOUSE_LOCATION_UNKNOWN)},
+		{"fDevice", "Lsun/awt/CGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(CRobot, fDevice)},
+		{"mouseLastX", "I", nullptr, $PRIVATE, $field(CRobot, mouseLastX)},
+		{"mouseLastY", "I", nullptr, $PRIVATE, $field(CRobot, mouseLastY)},
+		{"mouseButtonsState", "I", nullptr, $PRIVATE, $field(CRobot, mouseButtonsState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/CGraphicsDevice;)V", nullptr, 0, $method(CRobot, init$, void, $CGraphicsDevice*)},
+		{"checkMousePos", "()V", nullptr, $PRIVATE, $method(CRobot, checkMousePos, void)},
+		{"getRGBPixel", "(II)I", nullptr, $PUBLIC, $virtualMethod(CRobot, getRGBPixel, int32_t, int32_t, int32_t)},
+		{"getRGBPixels", "(Ljava/awt/Rectangle;)[I", nullptr, $PUBLIC, $virtualMethod(CRobot, getRGBPixels, $ints*, $Rectangle*)},
+		{"getScreenPixels", "(Ljava/awt/Rectangle;[I)V", nullptr, $PRIVATE, $method(CRobot, getScreenPixels, void, $Rectangle*, $ints*)},
+		{"initRobot", "()V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, initRobot, void)},
+		{"keyEvent", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, keyEvent, void, int32_t, bool)},
+		{"keyPress", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, keyPress, void, int32_t)},
+		{"keyRelease", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, keyRelease, void, int32_t)},
+		{"mouseEvent", "(IIIZZ)V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, mouseEvent, void, int32_t, int32_t, int32_t, bool, bool)},
+		{"mouseMove", "(II)V", nullptr, $PUBLIC, $virtualMethod(CRobot, mouseMove, void, int32_t, int32_t)},
+		{"mousePress", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, mousePress, void, int32_t)},
+		{"mouseRelease", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRobot, mouseRelease, void, int32_t)},
+		{"mouseWheel", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(CRobot, mouseWheel, void, int32_t)},
+		{"nativeGetScreenPixels", "(IIIID[I)V", nullptr, $PRIVATE | $NATIVE, $method(CRobot, nativeGetScreenPixels, void, int32_t, int32_t, int32_t, int32_t, double, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CRobot",
+		"java.lang.Object",
+		"java.awt.peer.RobotPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CRobot, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CRobot);
+	});
 	return class$;
 }
 

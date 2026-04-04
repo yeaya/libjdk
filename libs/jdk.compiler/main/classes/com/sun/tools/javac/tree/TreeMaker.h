@@ -148,6 +148,7 @@ class $export TreeMaker : public ::com::sun::tools::javac::tree::JCTree$Factory 
 	$class(TreeMaker, 0, ::com::sun::tools::javac::tree::JCTree$Factory)
 public:
 	TreeMaker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void init$(::com::sun::tools::javac::tree::JCTree$JCCompilationUnit* toplevel, ::com::sun::tools::javac::util::Names* names, ::com::sun::tools::javac::code::Types* types, ::com::sun::tools::javac::code::Symtab* syms);
 	virtual ::com::sun::tools::javac::tree::JCTree$JCAnnotatedType* AnnotatedType(::com::sun::tools::javac::util::List* annotations, ::com::sun::tools::javac::tree::JCTree$JCExpression* underlyingType);

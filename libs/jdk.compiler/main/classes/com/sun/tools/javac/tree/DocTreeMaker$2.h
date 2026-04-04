@@ -15,6 +15,7 @@ class DocTreeMaker$2 : public ::java::lang::Object {
 	$class(DocTreeMaker$2, 0, ::java::lang::Object)
 public:
 	DocTreeMaker$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$source$doctree$DocTree$Kind;
 };
 

@@ -1,5 +1,4 @@
 #include <java/awt/TrayIcon.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/Dimension.h>
@@ -23,7 +22,6 @@
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/util/EventListener.h>
-#include <sun/awt/AWTAccessor$TrayIconAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/HeadlessToolkit.h>
@@ -66,97 +64,13 @@ using $SecurityException = ::java::lang::SecurityException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $EventListener = ::java::util::EventListener;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$TrayIconAccessor = ::sun::awt::AWTAccessor$TrayIconAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $HeadlessToolkit = ::sun::awt::HeadlessToolkit;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _TrayIcon_FieldInfo_[] = {
-	{"image", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(TrayIcon, image)},
-	{"tooltip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrayIcon, tooltip)},
-	{"popup", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(TrayIcon, popup)},
-	{"autosize", "Z", nullptr, $PRIVATE, $field(TrayIcon, autosize)},
-	{"id", "I", nullptr, $PRIVATE, $field(TrayIcon, id)},
-	{"actionCommand", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrayIcon, actionCommand)},
-	{"peer", "Ljava/awt/peer/TrayIconPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(TrayIcon, peer)},
-	{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $TRANSIENT, $field(TrayIcon, mouseListener)},
-	{"mouseMotionListener", "Ljava/awt/event/MouseMotionListener;", nullptr, $TRANSIENT, $field(TrayIcon, mouseMotionListener)},
-	{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $TRANSIENT, $field(TrayIcon, actionListener)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(TrayIcon, acc)},
-	{}
-};
-
-$MethodInfo _TrayIcon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TrayIcon, init$, void), "java.lang.UnsupportedOperationException,java.awt.HeadlessException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(TrayIcon, init$, void, $Image*)},
-	{"<init>", "(Ljava/awt/Image;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TrayIcon, init$, void, $Image*, $String*)},
-	{"<init>", "(Ljava/awt/Image;Ljava/lang/String;Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $method(TrayIcon, init$, void, $Image*, $String*, $PopupMenu*)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, addActionListener, void, $ActionListener*)},
-	{"addMouseListener", "(Ljava/awt/event/MouseListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, addMouseListener, void, $MouseListener*)},
-	{"addMouseMotionListener", "(Ljava/awt/event/MouseMotionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, addMouseMotionListener, void, $MouseMotionListener*)},
-	{"addNotify", "()V", nullptr, 0, $virtualMethod(TrayIcon, addNotify, void), "java.awt.AWTException"},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, dispatchEvent, void, $AWTEvent*)},
-	{"displayMessage", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/TrayIcon$MessageType;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, displayMessage, void, $String*, $String*, $TrayIcon$MessageType*)},
-	{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, $FINAL, $method(TrayIcon, getAccessControlContext, $AccessControlContext*)},
-	{"getActionCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getActionCommand, $String*)},
-	{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, getActionListeners, $ActionListenerArray*)},
-	{"getID", "()I", nullptr, 0, $virtualMethod(TrayIcon, getID, int32_t)},
-	{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getImage, $Image*)},
-	{"getMouseListeners", "()[Ljava/awt/event/MouseListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, getMouseListeners, $MouseListenerArray*)},
-	{"getMouseMotionListeners", "()[Ljava/awt/event/MouseMotionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, getMouseMotionListeners, $MouseMotionListenerArray*)},
-	{"getPopupMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getPopupMenu, $PopupMenu*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getSize, $Dimension*)},
-	{"getToolTip", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getToolTip, $String*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TrayIcon, initIDs, void)},
-	{"isImageAutoSize", "()Z", nullptr, $PUBLIC, $virtualMethod(TrayIcon, isImageAutoSize, bool)},
-	{"processActionEvent", "(Ljava/awt/event/ActionEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processActionEvent, void, $ActionEvent*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processEvent, void, $AWTEvent*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processMouseEvent, void, $MouseEvent*)},
-	{"processMouseMotionEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processMouseMotionEvent, void, $MouseEvent*)},
-	{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, removeActionListener, void, $ActionListener*)},
-	{"removeMouseListener", "(Ljava/awt/event/MouseListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, removeMouseListener, void, $MouseListener*)},
-	{"removeMouseMotionListener", "(Ljava/awt/event/MouseMotionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, removeMouseMotionListener, void, $MouseMotionListener*)},
-	{"removeNotify", "()V", nullptr, 0, $virtualMethod(TrayIcon, removeNotify, void)},
-	{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setActionCommand, void, $String*)},
-	{"setID", "(I)V", nullptr, 0, $virtualMethod(TrayIcon, setID, void, int32_t)},
-	{"setImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setImage, void, $Image*)},
-	{"setImageAutoSize", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setImageAutoSize, void, bool)},
-	{"setPopupMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setPopupMenu, void, $PopupMenu*)},
-	{"setToolTip", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setToolTip, void, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 20
-
-$InnerClassInfo _TrayIcon_InnerClassesInfo_[] = {
-	{"java.awt.TrayIcon$MessageType", "java.awt.TrayIcon", "MessageType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.awt.TrayIcon$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TrayIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.TrayIcon",
-	"java.lang.Object",
-	nullptr,
-	_TrayIcon_FieldInfo_,
-	_TrayIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TrayIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.TrayIcon$MessageType,java.awt.TrayIcon$1"
-};
-
-$Object* allocate$TrayIcon($Class* clazz) {
-	return $of($alloc(TrayIcon));
-}
 
 $AccessControlContext* TrayIcon::getAccessControlContext() {
 	if (this->acc == nullptr) {
@@ -222,7 +136,7 @@ void TrayIcon::setPopupMenu($PopupMenu* popup) {
 			popup->isTrayIconPopup = true;
 		}
 		if (this->popup != nullptr) {
-			$nc(this->popup)->isTrayIconPopup = false;
+			this->popup->isTrayIconPopup = false;
 		}
 		$set(this, popup, popup);
 	}
@@ -277,7 +191,7 @@ void TrayIcon::removeMouseListener($MouseListener* listener) {
 $MouseListenerArray* TrayIcon::getMouseListeners() {
 	$synchronized(this) {
 		$load($MouseListener);
-		return $fcast($MouseListenerArray, $AWTEventMulticaster::getListeners(this->mouseListener, $MouseListener::class$));
+		return $cast($MouseListenerArray, $AWTEventMulticaster::getListeners(this->mouseListener, $MouseListener::class$));
 	}
 }
 
@@ -302,7 +216,7 @@ void TrayIcon::removeMouseMotionListener($MouseMotionListener* listener) {
 $MouseMotionListenerArray* TrayIcon::getMouseMotionListeners() {
 	$synchronized(this) {
 		$load($MouseMotionListener);
-		return $fcast($MouseMotionListenerArray, $AWTEventMulticaster::getListeners(this->mouseMotionListener, $MouseMotionListener::class$));
+		return $cast($MouseMotionListenerArray, $AWTEventMulticaster::getListeners(this->mouseMotionListener, $MouseMotionListener::class$));
 	}
 }
 
@@ -335,12 +249,12 @@ void TrayIcon::removeActionListener($ActionListener* listener) {
 $ActionListenerArray* TrayIcon::getActionListeners() {
 	$synchronized(this) {
 		$load($ActionListener);
-		return $fcast($ActionListenerArray, $AWTEventMulticaster::getListeners(this->actionListener, $ActionListener::class$));
+		return $cast($ActionListenerArray, $AWTEventMulticaster::getListeners(this->actionListener, $ActionListener::class$));
 	}
 }
 
 void TrayIcon::displayMessage($String* caption, $String* text, $TrayIcon$MessageType* messageType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (caption == nullptr && text == nullptr) {
 		$throwNew($NullPointerException, "displaying the message with both caption and text being null"_s);
 	}
@@ -351,18 +265,18 @@ void TrayIcon::displayMessage($String* caption, $String* text, $TrayIcon$Message
 }
 
 $Dimension* TrayIcon::getSize() {
-	return $nc($($SystemTray::getSystemTray()))->getTrayIconSize();
+	return $$nc($SystemTray::getSystemTray())->getTrayIconSize();
 }
 
 void TrayIcon::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		if (this->peer == nullptr) {
 			$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 			if ($instanceOf($SunToolkit, toolkit)) {
-				$set(this, peer, $nc(($cast($SunToolkit, $($Toolkit::getDefaultToolkit()))))->createTrayIcon(this));
+				$set(this, peer, $$sure($SunToolkit, $Toolkit::getDefaultToolkit())->createTrayIcon(this));
 			} else if ($instanceOf($HeadlessToolkit, toolkit)) {
-				$set(this, peer, $nc(($cast($HeadlessToolkit, $($Toolkit::getDefaultToolkit()))))->createTrayIcon(this));
+				$set(this, peer, $$sure($HeadlessToolkit, $Toolkit::getDefaultToolkit())->createTrayIcon(this));
 			}
 		}
 	}
@@ -375,7 +289,7 @@ void TrayIcon::removeNotify() {
 		$assign(p, this->peer);
 		$set(this, peer, nullptr);
 		if (this->popup != nullptr) {
-			$nc(this->popup)->removeNotify();
+			this->popup->removeNotify();
 		}
 	}
 	if (p != nullptr) {
@@ -393,31 +307,23 @@ int32_t TrayIcon::getID() {
 
 void TrayIcon::dispatchEvent($AWTEvent* e) {
 	$EventQueue::setCurrentEventAndMostRecentTime(e);
-	$nc($($Toolkit::getDefaultToolkit()))->notifyAWTEventListeners(e);
+	$$nc($Toolkit::getDefaultToolkit())->notifyAWTEventListeners(e);
 	processEvent(e);
 }
 
 void TrayIcon::processEvent($AWTEvent* e) {
 	if ($instanceOf($MouseEvent, e)) {
-		switch ($nc(e)->getID()) {
+		switch (e->getID()) {
 		case $MouseEvent::MOUSE_PRESSED:
-			{}
 		case $MouseEvent::MOUSE_RELEASED:
-			{}
 		case $MouseEvent::MOUSE_CLICKED:
-			{
-				processMouseEvent($cast($MouseEvent, e));
-				break;
-			}
+			processMouseEvent($cast($MouseEvent, e));
+			break;
 		case $MouseEvent::MOUSE_MOVED:
-			{
-				processMouseMotionEvent($cast($MouseEvent, e));
-				break;
-			}
+			processMouseMotionEvent($cast($MouseEvent, e));
+			break;
 		default:
-			{
-				return;
-			}
+			return;
 		}
 	} else if ($instanceOf($ActionEvent, e)) {
 		processActionEvent($cast($ActionEvent, e));
@@ -430,24 +336,16 @@ void TrayIcon::processMouseEvent($MouseEvent* e) {
 		int32_t id = $nc(e)->getID();
 		switch (id) {
 		case $MouseEvent::MOUSE_PRESSED:
-			{
-				listener->mousePressed(e);
-				break;
-			}
+			listener->mousePressed(e);
+			break;
 		case $MouseEvent::MOUSE_RELEASED:
-			{
-				listener->mouseReleased(e);
-				break;
-			}
+			listener->mouseReleased(e);
+			break;
 		case $MouseEvent::MOUSE_CLICKED:
-			{
-				listener->mouseClicked(e);
-				break;
-			}
+			listener->mouseClicked(e);
+			break;
 		default:
-			{
-				return;
-			}
+			return;
 		}
 	}
 }
@@ -468,12 +366,12 @@ void TrayIcon::processActionEvent($ActionEvent* e) {
 
 void TrayIcon::initIDs() {
 	$init(TrayIcon);
-	$prepareNativeStatic(TrayIcon, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$TrayIcon($Class* class$) {
+void TrayIcon::clinit$($Class* clazz) {
 	{
 		$Toolkit::loadLibraries();
 		if (!$GraphicsEnvironment::isHeadless()) {
@@ -487,7 +385,81 @@ TrayIcon::TrayIcon() {
 }
 
 $Class* TrayIcon::load$($String* name, bool initialize) {
-	$loadClass(TrayIcon, name, initialize, &_TrayIcon_ClassInfo_, clinit$TrayIcon, allocate$TrayIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"image", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(TrayIcon, image)},
+		{"tooltip", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrayIcon, tooltip)},
+		{"popup", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(TrayIcon, popup)},
+		{"autosize", "Z", nullptr, $PRIVATE, $field(TrayIcon, autosize)},
+		{"id", "I", nullptr, $PRIVATE, $field(TrayIcon, id)},
+		{"actionCommand", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TrayIcon, actionCommand)},
+		{"peer", "Ljava/awt/peer/TrayIconPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(TrayIcon, peer)},
+		{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $TRANSIENT, $field(TrayIcon, mouseListener)},
+		{"mouseMotionListener", "Ljava/awt/event/MouseMotionListener;", nullptr, $TRANSIENT, $field(TrayIcon, mouseMotionListener)},
+		{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $TRANSIENT, $field(TrayIcon, actionListener)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(TrayIcon, acc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TrayIcon, init$, void), "java.lang.UnsupportedOperationException,java.awt.HeadlessException,java.lang.SecurityException"},
+		{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(TrayIcon, init$, void, $Image*)},
+		{"<init>", "(Ljava/awt/Image;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TrayIcon, init$, void, $Image*, $String*)},
+		{"<init>", "(Ljava/awt/Image;Ljava/lang/String;Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $method(TrayIcon, init$, void, $Image*, $String*, $PopupMenu*)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, addActionListener, void, $ActionListener*)},
+		{"addMouseListener", "(Ljava/awt/event/MouseListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, addMouseListener, void, $MouseListener*)},
+		{"addMouseMotionListener", "(Ljava/awt/event/MouseMotionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, addMouseMotionListener, void, $MouseMotionListener*)},
+		{"addNotify", "()V", nullptr, 0, $virtualMethod(TrayIcon, addNotify, void), "java.awt.AWTException"},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, dispatchEvent, void, $AWTEvent*)},
+		{"displayMessage", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/TrayIcon$MessageType;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, displayMessage, void, $String*, $String*, $TrayIcon$MessageType*)},
+		{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, $FINAL, $method(TrayIcon, getAccessControlContext, $AccessControlContext*)},
+		{"getActionCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getActionCommand, $String*)},
+		{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, getActionListeners, $ActionListenerArray*)},
+		{"getID", "()I", nullptr, 0, $virtualMethod(TrayIcon, getID, int32_t)},
+		{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getImage, $Image*)},
+		{"getMouseListeners", "()[Ljava/awt/event/MouseListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, getMouseListeners, $MouseListenerArray*)},
+		{"getMouseMotionListeners", "()[Ljava/awt/event/MouseMotionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, getMouseMotionListeners, $MouseMotionListenerArray*)},
+		{"getPopupMenu", "()Ljava/awt/PopupMenu;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getPopupMenu, $PopupMenu*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getSize, $Dimension*)},
+		{"getToolTip", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrayIcon, getToolTip, $String*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(TrayIcon, initIDs, void)},
+		{"isImageAutoSize", "()Z", nullptr, $PUBLIC, $virtualMethod(TrayIcon, isImageAutoSize, bool)},
+		{"processActionEvent", "(Ljava/awt/event/ActionEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processActionEvent, void, $ActionEvent*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processEvent, void, $AWTEvent*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processMouseEvent, void, $MouseEvent*)},
+		{"processMouseMotionEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(TrayIcon, processMouseMotionEvent, void, $MouseEvent*)},
+		{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, removeActionListener, void, $ActionListener*)},
+		{"removeMouseListener", "(Ljava/awt/event/MouseListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, removeMouseListener, void, $MouseListener*)},
+		{"removeMouseMotionListener", "(Ljava/awt/event/MouseMotionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrayIcon, removeMouseMotionListener, void, $MouseMotionListener*)},
+		{"removeNotify", "()V", nullptr, 0, $virtualMethod(TrayIcon, removeNotify, void)},
+		{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setActionCommand, void, $String*)},
+		{"setID", "(I)V", nullptr, 0, $virtualMethod(TrayIcon, setID, void, int32_t)},
+		{"setImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setImage, void, $Image*)},
+		{"setImageAutoSize", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setImageAutoSize, void, bool)},
+		{"setPopupMenu", "(Ljava/awt/PopupMenu;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setPopupMenu, void, $PopupMenu*)},
+		{"setToolTip", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TrayIcon, setToolTip, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TrayIcon$MessageType", "java.awt.TrayIcon", "MessageType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.awt.TrayIcon$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.TrayIcon",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.TrayIcon$MessageType,java.awt.TrayIcon$1"
+	};
+	$loadClass(TrayIcon, name, initialize, &classInfo$$, TrayIcon::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TrayIcon);
+	});
 	return class$;
 }
 

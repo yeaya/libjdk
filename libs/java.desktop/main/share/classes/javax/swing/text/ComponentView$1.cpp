@@ -1,5 +1,4 @@
 #include <javax/swing/text/ComponentView$1.h>
-
 #include <java/awt/Container.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/ComponentView.h>
@@ -22,77 +21,33 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _ComponentView$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/ComponentView;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentView$1, this$0)},
-	{}
-};
-
-$MethodInfo _ComponentView$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/ComponentView;)V", nullptr, 0, $method(ComponentView$1, init$, void, $ComponentView*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ComponentView$1_EnclosingMethodInfo_ = {
-	"javax.swing.text.ComponentView",
-	"setParent",
-	"(Ljavax/swing/text/View;)V"
-};
-
-$InnerClassInfo _ComponentView$1_InnerClassesInfo_[] = {
-	{"javax.swing.text.ComponentView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ComponentView$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.ComponentView$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ComponentView$1_FieldInfo_,
-	_ComponentView$1_MethodInfo_,
-	nullptr,
-	&_ComponentView$1_EnclosingMethodInfo_,
-	_ComponentView$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ComponentView"
-};
-
-$Object* allocate$ComponentView$1($Class* clazz) {
-	return $of($alloc(ComponentView$1));
-}
-
 void ComponentView$1::init$($ComponentView* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void ComponentView$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, this->this$0->getDocument());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readLock();
-			}
-			this->this$0->setComponentParent();
-			$var($Container, host, this->this$0->getContainer());
-			if (host != nullptr) {
-				this->this$0->preferenceChanged(nullptr, true, true);
-				host->repaint();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->readUnlock();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readLock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		this->this$0->setComponentParent();
+		$var($Container, host, this->this$0->getContainer());
+		if (host != nullptr) {
+			this->this$0->preferenceChanged(nullptr, true, true);
+			host->repaint();
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($AbstractDocument, doc)) {
+			$cast($AbstractDocument, doc)->readUnlock();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -100,7 +55,42 @@ ComponentView$1::ComponentView$1() {
 }
 
 $Class* ComponentView$1::load$($String* name, bool initialize) {
-	$loadClass(ComponentView$1, name, initialize, &_ComponentView$1_ClassInfo_, allocate$ComponentView$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/ComponentView;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentView$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/ComponentView;)V", nullptr, 0, $method(ComponentView$1, init$, void, $ComponentView*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentView$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.ComponentView",
+		"setParent",
+		"(Ljavax/swing/text/View;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ComponentView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.ComponentView$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ComponentView"
+	};
+	$loadClass(ComponentView$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentView$1);
+	});
 	return class$;
 }
 

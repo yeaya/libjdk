@@ -20,6 +20,7 @@ class $export JFileChooserCombolistSelection : public ::java::lang::Object {
 	$class(JFileChooserCombolistSelection, 0, ::java::lang::Object)
 public:
 	JFileChooserCombolistSelection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fail();
 	static void init();

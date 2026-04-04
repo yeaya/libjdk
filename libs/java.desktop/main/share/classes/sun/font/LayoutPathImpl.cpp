@@ -1,5 +1,4 @@
 #include <sun/font/LayoutPathImpl.h>
-
 #include <java/awt/Shape.h>
 #include <java/awt/font/LayoutPath.h>
 #include <java/awt/geom/Point2D$Double.h>
@@ -27,54 +26,6 @@ using $LayoutPathImpl$SegmentPath = ::sun::font::LayoutPathImpl$SegmentPath;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _LayoutPathImpl_FieldInfo_[] = {
-	{"LOGMAP", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LayoutPathImpl, LOGMAP)},
-	{"LOG", "Ljava/util/Formatter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LayoutPathImpl, LOG)},
-	{}
-};
-
-$MethodInfo _LayoutPathImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutPathImpl, init$, void)},
-	{"end", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, end, double)},
-	{"getPath", "(Lsun/font/LayoutPathImpl$EndType;[D)Lsun/font/LayoutPathImpl;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LayoutPathImpl, getPath, LayoutPathImpl*, $LayoutPathImpl$EndType*, $doubles*)},
-	{"length", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, length, double)},
-	{"mapShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, mapShape, $Shape*, $Shape*)},
-	{"pathToPoint", "(DDZ)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pathToPoint, $Point2D*, double, double, bool)},
-	{"pathToPoint", "(DDZLjava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pathToPoint, void, double, double, bool, $Point2D*)},
-	{"pointToPath", "(DD)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pointToPath, $Point2D*, double, double)},
-	{"pointToPath", "(DDLjava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pointToPath, void, double, double, $Point2D*)},
-	{"start", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, start, double)},
-	{}
-};
-
-$InnerClassInfo _LayoutPathImpl_InnerClassesInfo_[] = {
-	{"sun.font.LayoutPathImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.font.LayoutPathImpl$EmptyPath", "sun.font.LayoutPathImpl", "EmptyPath", $PUBLIC | $STATIC},
-	{"sun.font.LayoutPathImpl$SegmentPath", "sun.font.LayoutPathImpl", "SegmentPath", $PUBLIC | $STATIC | $FINAL},
-	{"sun.font.LayoutPathImpl$SegmentPathBuilder", "sun.font.LayoutPathImpl", "SegmentPathBuilder", $PUBLIC | $STATIC | $FINAL},
-	{"sun.font.LayoutPathImpl$EndType", "sun.font.LayoutPathImpl", "EndType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LayoutPathImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.font.LayoutPathImpl",
-	"java.awt.font.LayoutPath",
-	nullptr,
-	_LayoutPathImpl_FieldInfo_,
-	_LayoutPathImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LayoutPathImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.LayoutPathImpl$1,sun.font.LayoutPathImpl$EmptyPath,sun.font.LayoutPathImpl$SegmentPath,sun.font.LayoutPathImpl$SegmentPath$Mapper,sun.font.LayoutPathImpl$SegmentPath$Segment,sun.font.LayoutPathImpl$SegmentPath$LineInfo,sun.font.LayoutPathImpl$SegmentPathBuilder,sun.font.LayoutPathImpl$EndType"
-};
-
-$Object* allocate$LayoutPathImpl($Class* clazz) {
-	return $of($alloc(LayoutPathImpl));
-}
 
 $Formatter* LayoutPathImpl::LOG = nullptr;
 
@@ -106,13 +57,13 @@ void LayoutPathImpl::pathToPoint(double a, double o, bool preceding, $Point2D* p
 
 LayoutPathImpl* LayoutPathImpl::getPath($LayoutPathImpl$EndType* etype, $doubles* coords) {
 	$init(LayoutPathImpl);
-	if (((int32_t)($nc(coords)->length & (uint32_t)1)) != 0) {
+	if (($nc(coords)->length & 1) != 0) {
 		$throwNew($IllegalArgumentException, "odd number of points not allowed"_s);
 	}
 	return $LayoutPathImpl$SegmentPath::get(etype, coords);
 }
 
-void clinit$LayoutPathImpl($Class* class$) {
+void LayoutPathImpl::clinit$($Class* clazz) {
 	$assignStatic(LayoutPathImpl::LOG, $new($Formatter, $System::out));
 }
 
@@ -120,7 +71,49 @@ LayoutPathImpl::LayoutPathImpl() {
 }
 
 $Class* LayoutPathImpl::load$($String* name, bool initialize) {
-	$loadClass(LayoutPathImpl, name, initialize, &_LayoutPathImpl_ClassInfo_, clinit$LayoutPathImpl, allocate$LayoutPathImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOGMAP", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LayoutPathImpl, LOGMAP)},
+		{"LOG", "Ljava/util/Formatter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LayoutPathImpl, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutPathImpl, init$, void)},
+		{"end", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, end, double)},
+		{"getPath", "(Lsun/font/LayoutPathImpl$EndType;[D)Lsun/font/LayoutPathImpl;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(LayoutPathImpl, getPath, LayoutPathImpl*, $LayoutPathImpl$EndType*, $doubles*)},
+		{"length", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, length, double)},
+		{"mapShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, mapShape, $Shape*, $Shape*)},
+		{"pathToPoint", "(DDZ)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pathToPoint, $Point2D*, double, double, bool)},
+		{"pathToPoint", "(DDZLjava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pathToPoint, void, double, double, bool, $Point2D*)},
+		{"pointToPath", "(DD)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pointToPath, $Point2D*, double, double)},
+		{"pointToPath", "(DDLjava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(LayoutPathImpl, pointToPath, void, double, double, $Point2D*)},
+		{"start", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LayoutPathImpl, start, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.LayoutPathImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.font.LayoutPathImpl$EmptyPath", "sun.font.LayoutPathImpl", "EmptyPath", $PUBLIC | $STATIC},
+		{"sun.font.LayoutPathImpl$SegmentPath", "sun.font.LayoutPathImpl", "SegmentPath", $PUBLIC | $STATIC | $FINAL},
+		{"sun.font.LayoutPathImpl$SegmentPathBuilder", "sun.font.LayoutPathImpl", "SegmentPathBuilder", $PUBLIC | $STATIC | $FINAL},
+		{"sun.font.LayoutPathImpl$EndType", "sun.font.LayoutPathImpl", "EndType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.font.LayoutPathImpl",
+		"java.awt.font.LayoutPath",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.LayoutPathImpl$1,sun.font.LayoutPathImpl$EmptyPath,sun.font.LayoutPathImpl$SegmentPath,sun.font.LayoutPathImpl$SegmentPath$Mapper,sun.font.LayoutPathImpl$SegmentPath$Segment,sun.font.LayoutPathImpl$SegmentPath$LineInfo,sun.font.LayoutPathImpl$SegmentPathBuilder,sun.font.LayoutPathImpl$EndType"
+	};
+	$loadClass(LayoutPathImpl, name, initialize, &classInfo$$, LayoutPathImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LayoutPathImpl);
+	});
 	return class$;
 }
 

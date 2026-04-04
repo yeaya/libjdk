@@ -1,5 +1,4 @@
 #include <ShortRequestBody$Server.h>
-
 #include <ShortRequestBody.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -10,7 +9,6 @@
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <java/net/SocketException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -25,7 +23,6 @@ using $ShortRequestBody = ::ShortRequestBody;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -36,54 +33,8 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $SocketException = ::java::net::SocketException;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-
-$FieldInfo _ShortRequestBody$Server_FieldInfo_[] = {
-	{"RESPONSE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ShortRequestBody$Server, RESPONSE)},
-	{"ss", "Ljava/net/ServerSocket;", nullptr, $PRIVATE | $FINAL, $field(ShortRequestBody$Server, ss)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ShortRequestBody$Server, closed)},
-	{}
-};
-
-$MethodInfo _ShortRequestBody$Server_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(ShortRequestBody$Server, init$, void), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$Server, close, void)},
-	{"getPort", "()I", nullptr, 0, $virtualMethod(ShortRequestBody$Server, getPort, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$Server, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ShortRequestBody$Server_InnerClassesInfo_[] = {
-	{"ShortRequestBody$Server", "ShortRequestBody", "Server", $STATIC},
-	{}
-};
-
-$ClassInfo _ShortRequestBody$Server_ClassInfo_ = {
-	$ACC_SUPER,
-	"ShortRequestBody$Server",
-	"java.lang.Thread",
-	"java.lang.AutoCloseable",
-	_ShortRequestBody$Server_FieldInfo_,
-	_ShortRequestBody$Server_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ShortRequestBody$Server_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ShortRequestBody"
-};
-
-$Object* allocate$ShortRequestBody$Server($Class* clazz) {
-	return $of($alloc(ShortRequestBody$Server));
-}
 
 $Object* ShortRequestBody$Server::clone() {
 	 return this->$Thread::clone();
@@ -108,109 +59,105 @@ void ShortRequestBody$Server::finalize() {
 $String* ShortRequestBody$Server::RESPONSE = nullptr;
 
 void ShortRequestBody$Server::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Thread::init$("Test-Server"_s);
 	$set(this, ss, $new($ServerSocket));
-	$nc(this->ss)->setReuseAddress(false);
-	$nc(this->ss)->bind($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), 0));
+	this->ss->setReuseAddress(false);
+	this->ss->bind($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), 0));
 	this->start();
 }
 
 int32_t ShortRequestBody$Server::getPort() {
-	return $nc(this->ss)->getLocalPort();
+	return this->ss->getLocalPort();
 }
 
 void ShortRequestBody$Server::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	int32_t offset = 0;
 	while (!this->closed) {
 		$nc($System::err)->println("Server: waiting for connection"_s);
 		try {
-			$var($Socket, s, $nc(this->ss)->accept());
-			{
-				$var($Throwable, var$0, nullptr);
-				bool continue$1 = false;
+			$var($Socket, s, this->ss->accept());
+			$var($Throwable, var$0, nullptr);
+			bool continue$1 = false;
+			try {
 				try {
+					$System::err->println("Server: got connection"_s);
+					$var($InputStream, is, $nc(s)->getInputStream());
 					try {
-						$nc($System::err)->println("Server: got connection"_s);
-						$var($InputStream, is, $nc(s)->getInputStream());
-						try {
-							$var($String, headers, $ShortRequestBody::readRequestHeaders(is));
-							if (headers == nullptr) {
-								// continue;
-								continue$1 = true;
-								goto $finally;
-							}
-						} catch ($SocketException& ex) {
-							$nc($System::err)->println($$str({"Ignoring unexpected exception while reading headers: "_s, ex}));
-							ex->printStackTrace($System::err);
+						$var($String, headers, $ShortRequestBody::readRequestHeaders(is));
+						if (headers == nullptr) {
+							// continue;
+							continue$1 = true;
+							goto $finally;
 						}
-						$var($bytes, ba, $new($bytes, 1024));
-						$init($ShortRequestBody);
-						int32_t length = $nc($ShortRequestBody::BODY_LENGTHS)->get(count % 3);
-						length += $nc($ShortRequestBody::BODY_OFFSETS)->get(offset);
-						$nc($System::err)->println($$str({"Server: count="_s, $$str(count), ", offset="_s, $$str(offset)}));
-						$nc($System::err)->println($$str({"Server: expecting "_s, $$str(length), " bytes"_s}));
-						int32_t read = 0;
-						{
-							$var($Throwable, var$2, nullptr);
-							try {
-								read = $nc(is)->readNBytes(ba, 0, length);
-								$nc($System::err)->println($$str({"Server: actually read "_s, $$str(read), " bytes"_s}));
-							} catch ($Throwable& var$3) {
-								$assign(var$2, var$3);
-							} /*finally*/ {
-								++count;
-								if (count % 6 == 0) {
-									++offset;
-								}
-								if (count % 42 == 0) {
-									count = 0;
-									offset = 0;
-								}
-							}
-							if (var$2 != nullptr) {
-								$throw(var$2);
-							}
-						}
-						if (read < length) {
-							if ($nc(is)->read() != -1) {
-								$new($AssertionError, $of($$str({"Unexpected read: "_s, $$str(read)})));
-							}
-						} else {
-							$var($OutputStream, os, s->getOutputStream());
-							$init($StandardCharsets);
-							$nc($System::err)->println($$str({"Server: writing "_s, $$str($($nc(ShortRequestBody$Server::RESPONSE)->getBytes($StandardCharsets::US_ASCII))->length), " bytes"_s}));
-							$nc(os)->write($($nc(ShortRequestBody$Server::RESPONSE)->getBytes($StandardCharsets::US_ASCII)));
-						}
-					} catch ($Throwable& t$) {
-						if (s != nullptr) {
-							try {
-								s->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
+					} catch ($SocketException& ex) {
+						$System::err->println($$str({"Ignoring unexpected exception while reading headers: "_s, ex}));
+						ex->printStackTrace($System::err);
 					}
-				} catch ($Throwable& var$4) {
-					$assign(var$0, var$4);
-				} $finally: {
+					$var($bytes, ba, $new($bytes, 1024));
+					$init($ShortRequestBody);
+					int32_t length = $nc($ShortRequestBody::BODY_LENGTHS)->get(count % 3);
+					length += $nc($ShortRequestBody::BODY_OFFSETS)->get(offset);
+					$System::err->println($$str({"Server: count="_s, $$str(count), ", offset="_s, $$str(offset)}));
+					$System::err->println($$str({"Server: expecting "_s, $$str(length), " bytes"_s}));
+					int32_t read = 0;
+					$var($Throwable, var$2, nullptr);
+					try {
+						read = $nc(is)->readNBytes(ba, 0, length);
+						$System::err->println($$str({"Server: actually read "_s, $$str(read), " bytes"_s}));
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
+					} /*finally*/ {
+						++count;
+						if (count % 6 == 0) {
+							++offset;
+						}
+						if (count % 42 == 0) {
+							count = 0;
+							offset = 0;
+						}
+					}
+					if (var$2 != nullptr) {
+						$throw(var$2);
+					}
+					if (read < length) {
+						if ($nc(is)->read() != -1) {
+							$new($AssertionError, $$of($str({"Unexpected read: "_s, $$str(read)})));
+						}
+					} else {
+						$var($OutputStream, os, s->getOutputStream());
+						$init($StandardCharsets);
+						$System::err->println($$str({"Server: writing "_s, $$str($($nc(ShortRequestBody$Server::RESPONSE)->getBytes($StandardCharsets::US_ASCII))->length), " bytes"_s}));
+						$nc(os)->write($(ShortRequestBody$Server::RESPONSE->getBytes($StandardCharsets::US_ASCII)));
+					}
+				} catch ($Throwable& t$) {
 					if (s != nullptr) {
-						s->close();
+						try {
+							s->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
+			} $finally: {
+				if (s != nullptr) {
+					s->close();
 				}
-				if (continue$1) {
-					continue;
-				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$1) {
+				continue;
 			}
 		} catch ($Throwable& e) {
 			if (!this->closed) {
-				$nc($System::err)->println($$str({"Unexpected: "_s, e}));
+				$System::err->println($$str({"Unexpected: "_s, e}));
 				e->printStackTrace();
 			}
 		}
@@ -223,13 +170,13 @@ void ShortRequestBody$Server::close() {
 	}
 	this->closed = true;
 	try {
-		$nc(this->ss)->close();
+		this->ss->close();
 	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, "Unexpected"_s, e);
 	}
 }
 
-void clinit$ShortRequestBody$Server($Class* class$) {
+void ShortRequestBody$Server::clinit$($Class* clazz) {
 	$assignStatic(ShortRequestBody$Server::RESPONSE, "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-length: 0\r\n\r\n"_s);
 }
 
@@ -237,7 +184,46 @@ ShortRequestBody$Server::ShortRequestBody$Server() {
 }
 
 $Class* ShortRequestBody$Server::load$($String* name, bool initialize) {
-	$loadClass(ShortRequestBody$Server, name, initialize, &_ShortRequestBody$Server_ClassInfo_, clinit$ShortRequestBody$Server, allocate$ShortRequestBody$Server);
+	$FieldInfo fieldInfos$$[] = {
+		{"RESPONSE", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ShortRequestBody$Server, RESPONSE)},
+		{"ss", "Ljava/net/ServerSocket;", nullptr, $PRIVATE | $FINAL, $field(ShortRequestBody$Server, ss)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ShortRequestBody$Server, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(ShortRequestBody$Server, init$, void), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$Server, close, void)},
+		{"getPort", "()I", nullptr, 0, $virtualMethod(ShortRequestBody$Server, getPort, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$Server, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ShortRequestBody$Server", "ShortRequestBody", "Server", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ShortRequestBody$Server",
+		"java.lang.Thread",
+		"java.lang.AutoCloseable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ShortRequestBody"
+	};
+	$loadClass(ShortRequestBody$Server, name, initialize, &classInfo$$, ShortRequestBody$Server::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ShortRequestBody$Server));
+	});
 	return class$;
 }
 

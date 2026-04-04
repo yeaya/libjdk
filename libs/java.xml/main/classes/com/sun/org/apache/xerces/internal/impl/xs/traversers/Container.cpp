@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/Container.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/LargeContainer.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/SmallContainer.h>
@@ -24,34 +23,6 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$FieldInfo _Container_FieldInfo_[] = {
-	{"THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(Container, THRESHOLD)},
-	{"values", "[Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;", nullptr, 0, $field(Container, values)},
-	{"pos", "I", nullptr, 0, $field(Container, pos)},
-	{}
-};
-
-$MethodInfo _Container_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Container, init$, void)},
-	{"get", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;", nullptr, $ABSTRACT, $virtualMethod(Container, get, $OneAttr*, $String*)},
-	{"getContainer", "(I)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/Container;", nullptr, $STATIC, $staticMethod(Container, getContainer, Container*, int32_t)},
-	{"put", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;)V", nullptr, $ABSTRACT, $virtualMethod(Container, put, void, $String*, $OneAttr*)},
-	{}
-};
-
-$ClassInfo _Container_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.Container",
-	"java.lang.Object",
-	nullptr,
-	_Container_FieldInfo_,
-	_Container_MethodInfo_
-};
-
-$Object* allocate$Container($Class* clazz) {
-	return $of($alloc(Container));
-}
-
 void Container::init$() {
 	this->pos = 0;
 }
@@ -68,7 +39,30 @@ Container::Container() {
 }
 
 $Class* Container::load$($String* name, bool initialize) {
-	$loadClass(Container, name, initialize, &_Container_ClassInfo_, allocate$Container);
+	$FieldInfo fieldInfos$$[] = {
+		{"THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(Container, THRESHOLD)},
+		{"values", "[Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;", nullptr, 0, $field(Container, values)},
+		{"pos", "I", nullptr, 0, $field(Container, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Container, init$, void)},
+		{"get", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;", nullptr, $ABSTRACT, $virtualMethod(Container, get, $OneAttr*, $String*)},
+		{"getContainer", "(I)Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/Container;", nullptr, $STATIC, $staticMethod(Container, getContainer, Container*, int32_t)},
+		{"put", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr;)V", nullptr, $ABSTRACT, $virtualMethod(Container, put, void, $String*, $OneAttr*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.Container",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Container, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Container);
+	});
 	return class$;
 }
 

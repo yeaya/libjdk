@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleConstants$ColorConstants.h>
-
 #include <javax/swing/text/StyleConstants.h>
 #include <jcpp.h>
 
@@ -11,43 +10,6 @@ using $StyleConstants = ::javax::swing::text::StyleConstants;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$MethodInfo _StyleConstants$ColorConstants_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(StyleConstants$ColorConstants, init$, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StyleConstants$ColorConstants_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyleConstants$ColorConstants", "javax.swing.text.StyleConstants", "ColorConstants", $PUBLIC | $STATIC},
-	{"javax.swing.text.AttributeSet$ColorAttribute", "javax.swing.text.AttributeSet", "ColorAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.AttributeSet$CharacterAttribute", "javax.swing.text.AttributeSet", "CharacterAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyleConstants$ColorConstants_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyleConstants$ColorConstants",
-	"javax.swing.text.StyleConstants",
-	"javax.swing.text.AttributeSet$ColorAttribute,javax.swing.text.AttributeSet$CharacterAttribute",
-	nullptr,
-	_StyleConstants$ColorConstants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleConstants$ColorConstants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleConstants"
-};
-
-$Object* allocate$StyleConstants$ColorConstants($Class* clazz) {
-	return $of($alloc(StyleConstants$ColorConstants));
-}
 
 $String* StyleConstants$ColorConstants::toString() {
 	 return this->$StyleConstants::toString();
@@ -77,7 +39,39 @@ StyleConstants$ColorConstants::StyleConstants$ColorConstants() {
 }
 
 $Class* StyleConstants$ColorConstants::load$($String* name, bool initialize) {
-	$loadClass(StyleConstants$ColorConstants, name, initialize, &_StyleConstants$ColorConstants_ClassInfo_, allocate$StyleConstants$ColorConstants);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(StyleConstants$ColorConstants, init$, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyleConstants$ColorConstants", "javax.swing.text.StyleConstants", "ColorConstants", $PUBLIC | $STATIC},
+		{"javax.swing.text.AttributeSet$ColorAttribute", "javax.swing.text.AttributeSet", "ColorAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.AttributeSet$CharacterAttribute", "javax.swing.text.AttributeSet", "CharacterAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyleConstants$ColorConstants",
+		"javax.swing.text.StyleConstants",
+		"javax.swing.text.AttributeSet$ColorAttribute,javax.swing.text.AttributeSet$CharacterAttribute",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleConstants"
+	};
+	$loadClass(StyleConstants$ColorConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleConstants$ColorConstants));
+	});
 	return class$;
 }
 

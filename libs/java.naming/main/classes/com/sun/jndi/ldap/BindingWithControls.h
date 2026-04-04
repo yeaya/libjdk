@@ -33,7 +33,7 @@ public:
 	virtual $Array<::javax::naming::ldap::Control>* getControls() override;
 	virtual $String* toString() override;
 	$Array<::javax::naming::ldap::Control>* controls = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x7E8710E20C722928;
+	static const int64_t serialVersionUID = (int64_t)0x7e8710e20c722928;
 };
 
 			} // ldap

@@ -1,5 +1,4 @@
 #include <javax/swing/text/StateInvariantError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -10,24 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$MethodInfo _StateInvariantError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StateInvariantError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _StateInvariantError_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.StateInvariantError",
-	"java.lang.Error",
-	nullptr,
-	nullptr,
-	_StateInvariantError_MethodInfo_
-};
-
-$Object* allocate$StateInvariantError($Class* clazz) {
-	return $of($alloc(StateInvariantError));
-}
 
 void StateInvariantError::init$($String* s) {
 	$Error::init$(s);
@@ -44,7 +25,21 @@ void StateInvariantError::throw$() {
 }
 
 $Class* StateInvariantError::load$($String* name, bool initialize) {
-	$loadClass(StateInvariantError, name, initialize, &_StateInvariantError_ClassInfo_, allocate$StateInvariantError);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StateInvariantError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.StateInvariantError",
+		"java.lang.Error",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StateInvariantError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StateInvariantError);
+	});
 	return class$;
 }
 

@@ -1,10 +1,8 @@
 #include <com/sun/jndi/url/ldap/ldapURLContextFactory.h>
-
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/LdapCtxFactory.h>
 #include <com/sun/jndi/ldap/LdapURL.h>
 #include <com/sun/jndi/toolkit/ctx/ComponentDirContext.h>
-#include <com/sun/jndi/toolkit/ctx/PartialCompositeDirContext.h>
 #include <com/sun/jndi/url/ldap/ldapURLContext.h>
 #include <java/util/Hashtable.h>
 #include <javax/naming/CompositeName.h>
@@ -18,7 +16,6 @@ using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
 using $LdapCtxFactory = ::com::sun::jndi::ldap::LdapCtxFactory;
 using $LdapURL = ::com::sun::jndi::ldap::LdapURL;
 using $ComponentDirContext = ::com::sun::jndi::toolkit::ctx::ComponentDirContext;
-using $PartialCompositeDirContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeDirContext;
 using $ldapURLContext = ::com::sun::jndi::url::ldap::ldapURLContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -35,26 +32,6 @@ namespace com {
 			namespace url {
 				namespace ldap {
 
-$MethodInfo _ldapURLContextFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ldapURLContextFactory, init$, void)},
-	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(ldapURLContextFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
-	{"getUsingURLIgnoreRootDN", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ResolveResult;", $STATIC, $staticMethod(ldapURLContextFactory, getUsingURLIgnoreRootDN, $ResolveResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _ldapURLContextFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.url.ldap.ldapURLContextFactory",
-	"java.lang.Object",
-	"javax.naming.spi.ObjectFactory",
-	nullptr,
-	_ldapURLContextFactory_MethodInfo_
-};
-
-$Object* allocate$ldapURLContextFactory($Class* clazz) {
-	return $of($alloc(ldapURLContextFactory));
-}
-
 void ldapURLContextFactory::init$() {
 }
 
@@ -62,32 +39,47 @@ $Object* ldapURLContextFactory::getObjectInstance(Object$* urlInfo, $Name* name,
 	if (urlInfo == nullptr) {
 		return $of($new($ldapURLContext, env));
 	} else {
-		return $of($LdapCtxFactory::getLdapCtxInstance(urlInfo, env));
+		return $LdapCtxFactory::getLdapCtxInstance(urlInfo, env);
 	}
 }
 
 $ResolveResult* ldapURLContextFactory::getUsingURLIgnoreRootDN($String* url, $Hashtable* env) {
 	$init(ldapURLContextFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LdapURL, ldapUrl, $new($LdapURL, url));
 	$var($String, var$0, ""_s);
 	$var($String, var$1, ldapUrl->getHost());
 	int32_t var$2 = ldapUrl->getPort();
-	$var($Hashtable, var$3, env);
-	$var($DirContext, ctx, static_cast<$DirContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>($new($LdapCtx, var$0, var$1, var$2, var$3, ldapUrl->useSsl())))));
+	$var($DirContext, ctx, $cast($ComponentDirContext, $new($LdapCtx, var$0, var$1, var$2, env, ldapUrl->useSsl())));
 	$var($String, dn, ldapUrl->getDN() != nullptr ? ldapUrl->getDN() : ""_s);
 	$var($CompositeName, remaining, $new($CompositeName));
 	if (!""_s->equals(dn)) {
 		remaining->add(dn);
 	}
-	return $new($ResolveResult, $of(ctx), static_cast<$Name*>(remaining));
+	return $new($ResolveResult, ctx, remaining);
 }
 
 ldapURLContextFactory::ldapURLContextFactory() {
 }
 
 $Class* ldapURLContextFactory::load$($String* name, bool initialize) {
-	$loadClass(ldapURLContextFactory, name, initialize, &_ldapURLContextFactory_ClassInfo_, allocate$ldapURLContextFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ldapURLContextFactory, init$, void)},
+		{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(ldapURLContextFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
+		{"getUsingURLIgnoreRootDN", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ResolveResult;", $STATIC, $staticMethod(ldapURLContextFactory, getUsingURLIgnoreRootDN, $ResolveResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.url.ldap.ldapURLContextFactory",
+		"java.lang.Object",
+		"javax.naming.spi.ObjectFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ldapURLContextFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ldapURLContextFactory);
+	});
 	return class$;
 }
 

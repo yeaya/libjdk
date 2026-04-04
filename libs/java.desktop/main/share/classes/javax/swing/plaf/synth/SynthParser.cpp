@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthParser.h>
-
 #include <com/sun/beans/decoder/DocumentHandler.h>
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
@@ -56,7 +55,6 @@
 #include <org/xml/sax/helpers/DefaultHandler.h>
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <sun/swing/plaf/synth/DefaultSynthStyle$StateInfo.h>
-#include <sun/swing/plaf/synth/DefaultSynthStyle.h>
 #include <jcpp.h>
 
 #undef ATTRIBUTE_ACTION
@@ -149,7 +147,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $Field = ::java::lang::reflect::Field;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
@@ -160,7 +157,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $PatternSyntaxException = ::java::util::regex::PatternSyntaxException;
 using $JSplitPane = ::javax::swing::JSplitPane;
@@ -190,140 +186,11 @@ using $SAXException = ::org::xml::sax::SAXException;
 using $SAXParseException = ::org::xml::sax::SAXParseException;
 using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
-using $DefaultSynthStyle = ::sun::swing::plaf::synth::DefaultSynthStyle;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthParser_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthParser, $assertionsDisabled)},
-	{"ELEMENT_SYNTH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_SYNTH)},
-	{"ELEMENT_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_STYLE)},
-	{"ELEMENT_STATE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_STATE)},
-	{"ELEMENT_FONT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_FONT)},
-	{"ELEMENT_COLOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_COLOR)},
-	{"ELEMENT_IMAGE_PAINTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_IMAGE_PAINTER)},
-	{"ELEMENT_PAINTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_PAINTER)},
-	{"ELEMENT_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_PROPERTY)},
-	{"ELEMENT_SYNTH_GRAPHICS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_SYNTH_GRAPHICS)},
-	{"ELEMENT_IMAGE_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_IMAGE_ICON)},
-	{"ELEMENT_BIND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_BIND)},
-	{"ELEMENT_BIND_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_BIND_KEY)},
-	{"ELEMENT_INSETS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_INSETS)},
-	{"ELEMENT_OPAQUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_OPAQUE)},
-	{"ELEMENT_DEFAULTS_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_DEFAULTS_PROPERTY)},
-	{"ELEMENT_INPUT_MAP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_INPUT_MAP)},
-	{"ATTRIBUTE_ACTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_ACTION)},
-	{"ATTRIBUTE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_ID)},
-	{"ATTRIBUTE_IDREF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_IDREF)},
-	{"ATTRIBUTE_CLONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_CLONE)},
-	{"ATTRIBUTE_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_VALUE)},
-	{"ATTRIBUTE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_NAME)},
-	{"ATTRIBUTE_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_STYLE)},
-	{"ATTRIBUTE_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_SIZE)},
-	{"ATTRIBUTE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_TYPE)},
-	{"ATTRIBUTE_TOP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_TOP)},
-	{"ATTRIBUTE_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_LEFT)},
-	{"ATTRIBUTE_BOTTOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_BOTTOM)},
-	{"ATTRIBUTE_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_RIGHT)},
-	{"ATTRIBUTE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_KEY)},
-	{"ATTRIBUTE_SOURCE_INSETS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_SOURCE_INSETS)},
-	{"ATTRIBUTE_DEST_INSETS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_DEST_INSETS)},
-	{"ATTRIBUTE_PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_PATH)},
-	{"ATTRIBUTE_STRETCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_STRETCH)},
-	{"ATTRIBUTE_PAINT_CENTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_PAINT_CENTER)},
-	{"ATTRIBUTE_METHOD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_METHOD)},
-	{"ATTRIBUTE_DIRECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_DIRECTION)},
-	{"ATTRIBUTE_CENTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_CENTER)},
-	{"_handler", "Lcom/sun/beans/decoder/DocumentHandler;", nullptr, $PRIVATE, $field(SynthParser, _handler)},
-	{"_depth", "I", nullptr, $PRIVATE, $field(SynthParser, _depth)},
-	{"_factory", "Ljavax/swing/plaf/synth/DefaultSynthStyleFactory;", nullptr, $PRIVATE, $field(SynthParser, _factory)},
-	{"_stateInfos", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$StateInfo;>;", $PRIVATE, $field(SynthParser, _stateInfos)},
-	{"_style", "Ljavax/swing/plaf/synth/ParsedSynthStyle;", nullptr, $PRIVATE, $field(SynthParser, _style)},
-	{"_stateInfo", "Ljavax/swing/plaf/synth/ParsedSynthStyle$StateInfo;", nullptr, $PRIVATE, $field(SynthParser, _stateInfo)},
-	{"_inputMapBindings", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SynthParser, _inputMapBindings)},
-	{"_inputMapID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthParser, _inputMapID)},
-	{"_mapping", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(SynthParser, _mapping)},
-	{"_urlResourceBase", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SynthParser, _urlResourceBase)},
-	{"_classResourceBase", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(SynthParser, _classResourceBase)},
-	{"_colorTypes", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ColorType;>;", $PRIVATE, $field(SynthParser, _colorTypes)},
-	{"_defaultsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(SynthParser, _defaultsMap)},
-	{"_stylePainters", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;>;", $PRIVATE, $field(SynthParser, _stylePainters)},
-	{"_statePainters", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;>;", $PRIVATE, $field(SynthParser, _statePainters)},
-	{}
-};
-
-$MethodInfo _SynthParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SynthParser, init$, void)},
-	{"addPainterOrMerge", "(Ljava/util/List;Ljava/lang/String;Ljavax/swing/plaf/synth/SynthPainter;I)V", "(Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;>;Ljava/lang/String;Ljavax/swing/plaf/synth/SynthPainter;I)V", $PRIVATE, $method(SynthParser, addPainterOrMerge, void, $List*, $String*, $SynthPainter*, int32_t)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"checkCast", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(SynthParser, checkCast, $Object*, Object$*, $Class*), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SynthParser, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endInputMap", "()V", nullptr, $PRIVATE, $method(SynthParser, endInputMap, void), "org.xml.sax.SAXException"},
-	{"endState", "()V", nullptr, $PRIVATE, $method(SynthParser, endState, void)},
-	{"endStyle", "()V", nullptr, $PRIVATE, $method(SynthParser, endStyle, void)},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"getHandler", "()Lcom/sun/beans/decoder/DocumentHandler;", nullptr, $PRIVATE, $method(SynthParser, getHandler, $DocumentHandler*)},
-	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(SynthParser, getResource, $URL*, $String*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"isForwarding", "()Z", nullptr, $PRIVATE, $method(SynthParser, isForwarding, bool)},
-	{"lookup", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(SynthParser, lookup, $Object*, $String*, $Class*), "org.xml.sax.SAXException"},
-	{"nextInt", "(Ljava/util/StringTokenizer;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(SynthParser, nextInt, int32_t, $StringTokenizer*, $String*), "org.xml.sax.SAXException"},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"parse", "(Ljava/io/InputStream;Ljavax/swing/plaf/synth/DefaultSynthStyleFactory;Ljava/net/URL;Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/io/InputStream;Ljavax/swing/plaf/synth/DefaultSynthStyleFactory;Ljava/net/URL;Ljava/lang/Class<*>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(SynthParser, parse, void, $InputStream*, $DefaultSynthStyleFactory*, $URL*, $Class*, $Map*), "java.text.ParseException,java.lang.IllegalArgumentException"},
-	{"parseInsets", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(SynthParser, parseInsets, $Insets*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"register", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(SynthParser, register$, void, $String*, Object$*), "org.xml.sax.SAXException"},
-	{"reset", "()V", nullptr, $PRIVATE, $method(SynthParser, reset, void)},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(SynthParser, resolveEntity, $InputSource*, $String*, $String*), "java.io.IOException,org.xml.sax.SAXException"},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, setDocumentLocator, void, $Locator*)},
-	{"startBind", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startBind, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startBindKey", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startBindKey, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startColor", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startColor, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SynthParser, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startFont", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startFont, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startGraphics", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startGraphics, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startImageIcon", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startImageIcon, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startInputMap", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startInputMap, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startInsets", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startInsets, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startOpaque", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startOpaque, void, $Attributes*)},
-	{"startPainter", "(Lorg/xml/sax/Attributes;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SynthParser, startPainter, void, $Attributes*, $String*), "org.xml.sax.SAXException"},
-	{"startProperty", "(Lorg/xml/sax/Attributes;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(SynthParser, startProperty, void, $Attributes*, Object$*), "org.xml.sax.SAXException"},
-	{"startState", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startState, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"startStyle", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startStyle, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$InnerClassInfo _SynthParser_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthParser$LazyImageIcon", "javax.swing.plaf.synth.SynthParser", "LazyImageIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthParser",
-	"org.xml.sax.helpers.DefaultHandler",
-	nullptr,
-	_SynthParser_FieldInfo_,
-	_SynthParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthParser$LazyImageIcon"
-};
-
-$Object* allocate$SynthParser($Class* clazz) {
-	return $of($alloc(SynthParser));
-}
 
 bool SynthParser::$assertionsDisabled = false;
 $String* SynthParser::ELEMENT_SYNTH = nullptr;
@@ -376,7 +243,7 @@ void SynthParser::init$() {
 }
 
 void SynthParser::parse($InputStream* inputStream, $DefaultSynthStyleFactory* factory, $URL* urlResourceBase, $Class* classResourceBase, $Map* defaultsMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inputStream == nullptr || factory == nullptr || (urlResourceBase == nullptr && classResourceBase == nullptr)) {
 		$throwNew($IllegalArgumentException, "You must supply an InputStream, StyleFactory and Class or URL"_s);
 	}
@@ -387,35 +254,37 @@ void SynthParser::parse($InputStream* inputStream, $DefaultSynthStyleFactory* fa
 	$set(this, _classResourceBase, classResourceBase);
 	$set(this, _urlResourceBase, urlResourceBase);
 	$set(this, _defaultsMap, defaultsMap);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($SAXParser, saxParser, $nc($($SAXParserFactory::newInstance()))->newSAXParser());
-				$nc(saxParser)->parse(static_cast<$InputStream*>($$new($BufferedInputStream, inputStream)), static_cast<$DefaultHandler*>(this));
-			} catch ($ParserConfigurationException& e) {
-				$throwNew($ParseException, $$str({"Error parsing: "_s, e}), 0);
-			} catch ($SAXException& se) {
-				$var($String, var$1, $$str({"Error parsing: "_s, se, " "_s}));
-				$throwNew($ParseException, $$concat(var$1, $(se->getException())), 0);
-			} catch ($IOException& ioe) {
-				$throwNew($ParseException, $$str({"Error parsing: "_s, ioe}), 0);
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			reset();
+			$var($SAXParser, saxParser, $$nc($SAXParserFactory::newInstance())->newSAXParser());
+			$nc(saxParser)->parse($$new($BufferedInputStream, inputStream), this);
+		} catch ($ParserConfigurationException& e) {
+			$throwNew($ParseException, $$str({"Error parsing: "_s, e}), 0);
+		} catch ($SAXException& se) {
+			$var($StringBuilder, var$1, $new($StringBuilder));
+			var$1->append("Error parsing: "_s);
+			var$1->append($of(se));
+			var$1->append(" "_s);
+			var$1->append($(se->getException()));
+			$throwNew($ParseException, $$str(var$1), 0);
+		} catch ($IOException& ioe) {
+			$throwNew($ParseException, $$str({"Error parsing: "_s, ioe}), 0);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		reset();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $URL* SynthParser::getResource($String* path) {
 	$beforeCallerSensitive();
 	if (this->_classResourceBase != nullptr) {
-		return $nc(this->_classResourceBase)->getResource(path);
+		return this->_classResourceBase->getResource(path);
 	} else {
 		try {
 			return $new($URL, this->_urlResourceBase, path);
@@ -441,7 +310,7 @@ bool SynthParser::isForwarding() {
 }
 
 $DocumentHandler* SynthParser::getHandler() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->_handler == nullptr) {
 		$set(this, _handler, $new($DocumentHandler));
@@ -454,7 +323,7 @@ $DocumentHandler* SynthParser::getHandler() {
 			$nc(this->_handler)->setClassLoader($($nc(this->_classResourceBase)->getClassLoader()));
 		}
 		{
-			$var($Iterator, i$, $nc($($nc(this->_mapping)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(this->_mapping)->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, key, $cast($String, i$->next()));
 				{
@@ -467,37 +336,41 @@ $DocumentHandler* SynthParser::getHandler() {
 }
 
 $Object* SynthParser::checkCast(Object$* value, $Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(type)->isInstance(value)) {
-		$var($String, var$0, $$str({"Expected type "_s, type, " got "_s}));
-		$throwNew($SAXException, $$concat(var$0, $($nc($of(value))->getClass())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Expected type "_s);
+		var$0->append(type);
+		var$0->append(" got "_s);
+		var$0->append($nc($of(value))->getClass());
+		$throwNew($SAXException, $$str(var$0));
 	}
 	return $of(value);
 }
 
 $Object* SynthParser::lookup($String* key, $Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	if (this->_handler != nullptr) {
-		if ($nc(this->_handler)->hasVariable(key)) {
-			return $of(checkCast($($nc(this->_handler)->getVariable(key)), type));
+		if (this->_handler->hasVariable(key)) {
+			return checkCast($($nc(this->_handler)->getVariable(key)), type);
 		}
 	}
 	$assign(value, $nc(this->_mapping)->get(key));
 	if (value == nullptr) {
 		$throwNew($SAXException, $$str({"ID "_s, key, " has not been defined"_s}));
 	}
-	return $of(checkCast(value, type));
+	return checkCast(value, type);
 }
 
 void SynthParser::register$($String* key, Object$* value) {
 	if (key != nullptr) {
 		bool var$0 = $nc(this->_mapping)->get(key) != nullptr;
-		if (var$0 || (this->_handler != nullptr && $nc(this->_handler)->hasVariable(key))) {
+		if (var$0 || (this->_handler != nullptr && this->_handler->hasVariable(key))) {
 			$throwNew($SAXException, $$str({"ID "_s, key, " is already defined"_s}));
 		}
 		if (this->_handler != nullptr) {
-			$nc(this->_handler)->setVariable(key, value);
+			this->_handler->setVariable(key, value);
 		} else {
 			$nc(this->_mapping)->put(key, value);
 		}
@@ -509,7 +382,7 @@ int32_t SynthParser::nextInt($StringTokenizer* tok, $String* errorMsg) {
 		$throwNew($SAXException, errorMsg);
 	}
 	try {
-		return $Integer::parseInt($($nc(tok)->nextToken()));
+		return $Integer::parseInt($(tok->nextToken()));
 	} catch ($NumberFormatException& nfe) {
 		$throwNew($SAXException, errorMsg);
 	}
@@ -525,14 +398,14 @@ $Insets* SynthParser::parseInsets($String* insets, $String* errorMsg) {
 }
 
 void SynthParser::startStyle($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, nullptr);
 	$set(this, _style, nullptr);
 	for (int32_t i = $nc(attributes)->getLength() - 1; i >= 0; --i) {
 		$var($String, key, attributes->getQName(i));
 		if ($nc(key)->equals(SynthParser::ATTRIBUTE_CLONE)) {
 			$load($ParsedSynthStyle);
-			$set(this, _style, $cast($ParsedSynthStyle, $nc(($cast($ParsedSynthStyle, $(lookup($(attributes->getValue(i)), $ParsedSynthStyle::class$)))))->clone()));
+			$set(this, _style, $cast($ParsedSynthStyle, $$sure($ParsedSynthStyle, lookup($(attributes->getValue(i)), $ParsedSynthStyle::class$))->clone()));
 		} else if (key->equals(SynthParser::ATTRIBUTE_ID)) {
 			$assign(id, attributes->getValue(i));
 		}
@@ -544,22 +417,22 @@ void SynthParser::startStyle($Attributes* attributes) {
 }
 
 void SynthParser::endStyle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->_stylePainters)->size();
 	if (size > 0) {
-		$nc(this->_style)->setPainters($fcast($ParsedSynthStyle$PainterInfoArray, $($nc(this->_stylePainters)->toArray($$new($ParsedSynthStyle$PainterInfoArray, size)))));
+		$nc(this->_style)->setPainters($$cast($ParsedSynthStyle$PainterInfoArray, this->_stylePainters->toArray($$new($ParsedSynthStyle$PainterInfoArray, size))));
 		$nc(this->_stylePainters)->clear();
 	}
 	size = $nc(this->_stateInfos)->size();
 	if (size > 0) {
-		$nc(this->_style)->setStateInfo($fcast($DefaultSynthStyle$StateInfoArray, $($nc(this->_stateInfos)->toArray($$new($ParsedSynthStyle$StateInfoArray, size)))));
+		$nc(this->_style)->setStateInfo($$cast($DefaultSynthStyle$StateInfoArray, this->_stateInfos->toArray($$new($ParsedSynthStyle$StateInfoArray, size))));
 		$nc(this->_stateInfos)->clear();
 	}
 	$set(this, _style, nullptr);
 }
 
 void SynthParser::startState($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParsedSynthStyle$StateInfo, stateInfo, nullptr);
 	int32_t state = 0;
 	$var($String, id, nullptr);
@@ -573,11 +446,11 @@ void SynthParser::startState($Attributes* attributes) {
 			$set(this, _stateInfo, $cast($ParsedSynthStyle$StateInfo, lookup($(attributes->getValue(i)), $ParsedSynthStyle$StateInfo::class$)));
 		} else if (key->equals(SynthParser::ATTRIBUTE_CLONE)) {
 			$load($ParsedSynthStyle$StateInfo);
-			$set(this, _stateInfo, $cast($ParsedSynthStyle$StateInfo, $nc(($cast($ParsedSynthStyle$StateInfo, $(lookup($(attributes->getValue(i)), $ParsedSynthStyle$StateInfo::class$)))))->clone()));
+			$set(this, _stateInfo, $cast($ParsedSynthStyle$StateInfo, $$sure($ParsedSynthStyle$StateInfo, lookup($(attributes->getValue(i)), $ParsedSynthStyle$StateInfo::class$))->clone()));
 		} else if (key->equals(SynthParser::ATTRIBUTE_VALUE)) {
 			$var($StringTokenizer, tokenizer, $new($StringTokenizer, $(attributes->getValue(i))));
 			while (tokenizer->hasMoreTokens()) {
-				$var($String, stateString, $($nc($(tokenizer->nextToken()))->toUpperCase())->intern());
+				$var($String, stateString, $($$nc(tokenizer->nextToken())->toUpperCase())->intern());
 				if (stateString == "ENABLED"_s) {
 					state |= $SynthConstants::ENABLED;
 				} else if (stateString == "MOUSE_OVER"_s) {
@@ -607,17 +480,17 @@ void SynthParser::startState($Attributes* attributes) {
 }
 
 void SynthParser::endState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->_statePainters)->size();
 	if (size > 0) {
-		$nc(this->_stateInfo)->setPainters($fcast($ParsedSynthStyle$PainterInfoArray, $($nc(this->_statePainters)->toArray($$new($ParsedSynthStyle$PainterInfoArray, size)))));
+		$nc(this->_stateInfo)->setPainters($$cast($ParsedSynthStyle$PainterInfoArray, this->_statePainters->toArray($$new($ParsedSynthStyle$PainterInfoArray, size))));
 		$nc(this->_statePainters)->clear();
 	}
 	$set(this, _stateInfo, nullptr);
 }
 
 void SynthParser::startFont($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, nullptr);
 	int32_t style = $Font::PLAIN;
 	int32_t size = 0;
@@ -641,7 +514,7 @@ void SynthParser::startFont($Attributes* attributes) {
 		} else if (key->equals(SynthParser::ATTRIBUTE_STYLE)) {
 			$var($StringTokenizer, tok, $new($StringTokenizer, $(attributes->getValue(i))));
 			while (tok->hasMoreTokens()) {
-				$var($String, token, $nc($(tok->nextToken()))->intern());
+				$var($String, token, $$nc(tok->nextToken())->intern());
 				if (token == "BOLD"_s) {
 					style = ((style | $Font::PLAIN) ^ $Font::PLAIN) | $Font::BOLD;
 				} else if (token == "ITALIC"_s) {
@@ -663,14 +536,14 @@ void SynthParser::startFont($Attributes* attributes) {
 	}
 	register$(id, font);
 	if (this->_stateInfo != nullptr) {
-		$nc(this->_stateInfo)->setFont(font);
+		this->_stateInfo->setFont(font);
 	} else if (this->_style != nullptr) {
-		$nc(this->_style)->setFont(font);
+		this->_style->setFont(font);
 	}
 }
 
 void SynthParser::startColor($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Color, color, nullptr);
 	$var($String, id, nullptr);
@@ -691,14 +564,14 @@ void SynthParser::startColor($Attributes* attributes) {
 					bool hasAlpha = false;
 					int32_t length = value->length();
 					if (length < 8) {
-						argb = $nc($($Integer::decode(value)))->intValue();
+						argb = $($Integer::decode(value))->intValue();
 						hasAlpha = false;
 					} else if (length == 8) {
-						argb = $nc($($Integer::decode(value)))->intValue();
+						argb = $($Integer::decode(value))->intValue();
 						hasAlpha = true;
 					} else if (length == 9) {
-						int32_t rgb = $nc($($Integer::decode($$str({$$str(u'#'), $(value->substring(3, 9))}))))->intValue();
-						int32_t a = $nc($($Integer::decode($(value->substring(0, 3)))))->intValue();
+						int32_t rgb = $($Integer::decode($$str({$$str(u'#'), $(value->substring(3, 9))})))->intValue();
+						int32_t a = $($Integer::decode($(value->substring(0, 3))))->intValue();
 						argb = (a << 24) | rgb;
 						hasAlpha = true;
 					} else {
@@ -711,7 +584,7 @@ void SynthParser::startColor($Attributes* attributes) {
 			} else {
 				try {
 					$load($Color);
-					$assign(color, $new($ColorUIResource, $cast($Color, $($nc($($Color::class$->getField($(value->toUpperCase()))))->get($Color::class$)))));
+					$assign(color, $new($ColorUIResource, $$cast($Color, $$nc($Color::class$->getField($(value->toUpperCase())))->get($Color::class$))));
 				} catch ($NoSuchFieldException& nsfe) {
 					$throwNew($SAXException, $$str({"Invalid color name: "_s, value}));
 				} catch ($IllegalAccessException& iae) {
@@ -722,7 +595,7 @@ void SynthParser::startColor($Attributes* attributes) {
 			$var($StringTokenizer, tokenizer, $new($StringTokenizer, $(attributes->getValue(i))));
 			while (tokenizer->hasMoreTokens()) {
 				$var($String, typeName, tokenizer->nextToken());
-				int32_t classIndex = $nc(typeName)->lastIndexOf((int32_t)u'.');
+				int32_t classIndex = $nc(typeName)->lastIndexOf(u'.');
 				$Class* typeClass = nullptr;
 				if (classIndex == -1) {
 					$load($ColorType);
@@ -738,7 +611,7 @@ void SynthParser::startColor($Attributes* attributes) {
 				}
 				try {
 					$load($ColorType);
-					$nc(this->_colorTypes)->add($cast($ColorType, $(checkCast($($nc($($nc(typeClass)->getField($(typeName->substring(classIndex)))))->get(typeClass)), $ColorType::class$))));
+					$nc(this->_colorTypes)->add($$cast($ColorType, checkCast($($$nc($nc(typeClass)->getField($(typeName->substring(classIndex))))->get(typeClass)), $ColorType::class$)));
 				} catch ($NoSuchFieldException& nsfe) {
 					$throwNew($SAXException, $$str({"Unable to find color type: "_s, typeName}));
 				} catch ($IllegalAccessException& iae) {
@@ -752,12 +625,12 @@ void SynthParser::startColor($Attributes* attributes) {
 	}
 	register$(id, color);
 	if (this->_stateInfo != nullptr && $nc(this->_colorTypes)->size() > 0) {
-		$var($ColorArray, colors, $nc(this->_stateInfo)->getColors());
+		$var($ColorArray, colors, this->_stateInfo->getColors());
 		int32_t max = 0;
 		for (int32_t counter = $nc(this->_colorTypes)->size() - 1; counter >= 0; --counter) {
-			max = $Math::max(max, $nc(($cast($ColorType, $($nc(this->_colorTypes)->get(counter)))))->getID());
+			max = $Math::max(max, $$sure($ColorType, $nc(this->_colorTypes)->get(counter))->getID());
 		}
-		if (colors == nullptr || $nc(colors)->length <= max) {
+		if (colors == nullptr || colors->length <= max) {
 			$var($ColorArray, newColors, $new($ColorArray, max + 1));
 			if (colors != nullptr) {
 				$System::arraycopy(colors, 0, newColors, 0, colors->length);
@@ -765,14 +638,14 @@ void SynthParser::startColor($Attributes* attributes) {
 			$assign(colors, newColors);
 		}
 		for (int32_t counter = $nc(this->_colorTypes)->size() - 1; counter >= 0; --counter) {
-			$nc(colors)->set($nc(($cast($ColorType, $($nc(this->_colorTypes)->get(counter)))))->getID(), color);
+			$nc(colors)->set($$sure($ColorType, $nc(this->_colorTypes)->get(counter))->getID(), color);
 		}
 		$nc(this->_stateInfo)->setColors(colors);
 	}
 }
 
 void SynthParser::startProperty($Attributes* attributes, Object$* property) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	$var($String, key, nullptr);
 	int32_t iType = 0;
@@ -780,7 +653,7 @@ void SynthParser::startProperty($Attributes* attributes, Object$* property) {
 	for (int32_t i = $nc(attributes)->getLength() - 1; i >= 0; --i) {
 		$var($String, aName, attributes->getQName(i));
 		if ($nc(aName)->equals(SynthParser::ATTRIBUTE_TYPE)) {
-			$var($String, type, $nc($(attributes->getValue(i)))->toUpperCase());
+			$var($String, type, $$nc(attributes->getValue(i))->toUpperCase());
 			if (type->equals("IDREF"_s)) {
 				iType = 0;
 			} else if (type->equals("BOOLEAN"_s)) {
@@ -803,46 +676,34 @@ void SynthParser::startProperty($Attributes* attributes, Object$* property) {
 		}
 	}
 	if (aValue != nullptr) {
-		{
-			$var($StringTokenizer, tok, nullptr)
-			switch (iType) {
-			case 0:
-				{
-					$assign(value, lookup(aValue, $Object::class$));
-					break;
-				}
-			case 1:
-				{
-					$assign(value, $Boolean::valueOf($Boolean::parseBoolean(aValue)));
-					break;
-				}
-			case 2:
-				{
-					$assign(tok, $new($StringTokenizer, aValue));
-					int32_t var$0 = nextInt(tok, "Invalid dimension"_s);
-					$assign(value, $new($DimensionUIResource, var$0, nextInt(tok, "Invalid dimension"_s)));
-					break;
-				}
-			case 3:
-				{
-					$assign(value, parseInsets(aValue, $$str({property, " invalid insets"_s})));
-					break;
-				}
-			case 4:
-				{
-					try {
-						$assign(value, $Integer::valueOf(aValue));
-					} catch ($NumberFormatException& nfe) {
-						$throwNew($SAXException, $$str({property, " invalid value"_s}));
-					}
-					break;
-				}
-			case 5:
-				{
-					$assign(value, aValue);
-					break;
-				}
+		$var($StringTokenizer, tok, nullptr);
+		switch (iType) {
+		case 0:
+			$assign(value, lookup(aValue, $Object::class$));
+			break;
+		case 1:
+			$assign(value, $Boolean::valueOf($Boolean::parseBoolean(aValue)));
+			break;
+		case 2:
+			{
+				$assign(tok, $new($StringTokenizer, aValue));
+				int32_t var$0 = nextInt(tok, "Invalid dimension"_s);
+				$assign(value, $new($DimensionUIResource, var$0, nextInt(tok, "Invalid dimension"_s)));
+				break;
 			}
+		case 3:
+			$assign(value, parseInsets(aValue, $$str({property, " invalid insets"_s})));
+			break;
+		case 4:
+			try {
+				$assign(value, $Integer::valueOf(aValue));
+			} catch ($NumberFormatException& nfe) {
+				$throwNew($SAXException, $$str({property, " invalid value"_s}));
+			}
+			break;
+		case 5:
+			$assign(value, aValue);
+			break;
 		}
 	}
 	if (value == nullptr || key == nullptr) {
@@ -851,20 +712,20 @@ void SynthParser::startProperty($Attributes* attributes, Object$* property) {
 	if ($equals(property, SynthParser::ELEMENT_DEFAULTS_PROPERTY)) {
 		$nc(this->_defaultsMap)->put(key, value);
 	} else if (this->_stateInfo != nullptr) {
-		if ($nc(this->_stateInfo)->getData() == nullptr) {
+		if (this->_stateInfo->getData() == nullptr) {
 			$nc(this->_stateInfo)->setData($$new($HashMap));
 		}
-		$nc($($nc(this->_stateInfo)->getData()))->put(key, value);
+		$$nc($nc(this->_stateInfo)->getData())->put(key, value);
 	} else if (this->_style != nullptr) {
-		if ($nc(this->_style)->getData() == nullptr) {
+		if (this->_style->getData() == nullptr) {
 			$nc(this->_style)->setData($$new($HashMap));
 		}
-		$nc($($nc(this->_style)->getData()))->put(key, value);
+		$$nc($nc(this->_style)->getData())->put(key, value);
 	}
 }
 
 void SynthParser::startGraphics($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthGraphicsUtils, graphics, nullptr);
 	for (int32_t i = $nc(attributes)->getLength() - 1; i >= 0; --i) {
 		$var($String, key, attributes->getQName(i));
@@ -877,12 +738,12 @@ void SynthParser::startGraphics($Attributes* attributes) {
 		$throwNew($SAXException, "graphicsUtils: you must supply an idref"_s);
 	}
 	if (this->_style != nullptr) {
-		$nc(this->_style)->setGraphicsUtils(graphics);
+		this->_style->setGraphicsUtils(graphics);
 	}
 }
 
 void SynthParser::startInsets($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t top = 0;
 	int32_t bottom = 0;
 	int32_t left = 0;
@@ -915,12 +776,12 @@ void SynthParser::startInsets($Attributes* attributes) {
 	}
 	register$(id, insets);
 	if (this->_style != nullptr) {
-		$nc(this->_style)->setInsets(insets);
+		this->_style->setInsets(insets);
 	}
 }
 
 void SynthParser::startBind($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParsedSynthStyle, style, nullptr);
 	$var($String, path, nullptr);
 	int32_t type = -1;
@@ -930,7 +791,7 @@ void SynthParser::startBind($Attributes* attributes) {
 			$load($ParsedSynthStyle);
 			$assign(style, $cast($ParsedSynthStyle, lookup($(attributes->getValue(i)), $ParsedSynthStyle::class$)));
 		} else if (key->equals(SynthParser::ATTRIBUTE_TYPE)) {
-			$var($String, typeS, $nc($(attributes->getValue(i)))->toUpperCase());
+			$var($String, typeS, $$nc(attributes->getValue(i))->toUpperCase());
 			if (typeS->equals("NAME"_s)) {
 				type = $DefaultSynthStyleFactory::NAME;
 			} else if (typeS->equals("REGION"_s)) {
@@ -953,7 +814,7 @@ void SynthParser::startBind($Attributes* attributes) {
 }
 
 void SynthParser::startPainter($Attributes* attributes, $String* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, sourceInsets, nullptr);
 	$var($Insets, destInsets, nullptr);
 	$var($String, path, nullptr);
@@ -1046,7 +907,7 @@ void SynthParser::startPainter($Attributes* attributes, $String* type) {
 }
 
 void SynthParser::addPainterOrMerge($List* painters, $String* method, $SynthPainter* painter, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParsedSynthStyle$PainterInfo, painterInfo, nullptr);
 	$assign(painterInfo, $new($ParsedSynthStyle$PainterInfo, method, painter, direction));
 	{
@@ -1067,7 +928,7 @@ void SynthParser::addPainterOrMerge($List* painters, $String* method, $SynthPain
 }
 
 void SynthParser::startImageIcon($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, nullptr);
 	$var($String, id, nullptr);
 	for (int32_t i = $nc(attributes)->getLength() - 1; i >= 0; --i) {
@@ -1085,20 +946,20 @@ void SynthParser::startImageIcon($Attributes* attributes) {
 }
 
 void SynthParser::startOpaque($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_style != nullptr) {
-		$nc(this->_style)->setOpaque(true);
+		this->_style->setOpaque(true);
 		for (int32_t i = $nc(attributes)->getLength() - 1; i >= 0; --i) {
 			$var($String, key, attributes->getQName(i));
 			if ($nc(key)->equals(SynthParser::ATTRIBUTE_VALUE)) {
-				$nc(this->_style)->setOpaque("true"_s->equals($($nc($(attributes->getValue(i)))->toLowerCase())));
+				$nc(this->_style)->setOpaque("true"_s->equals($($$nc(attributes->getValue(i))->toLowerCase())));
 			}
 		}
 	}
 }
 
 void SynthParser::startInputMap($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->_inputMapBindings)->clear();
 	$set(this, _inputMapID, nullptr);
 	if (this->_style != nullptr) {
@@ -1112,7 +973,7 @@ void SynthParser::startInputMap($Attributes* attributes) {
 }
 
 void SynthParser::endInputMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_inputMapID != nullptr) {
 		register$(this->_inputMapID, $$new($UIDefaults$LazyInputMap, $($nc(this->_inputMapBindings)->toArray($$new($ObjectArray, $nc(this->_inputMapBindings)->size())))));
 	}
@@ -1121,7 +982,7 @@ void SynthParser::endInputMap() {
 }
 
 void SynthParser::startBindKey($Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_inputMapID == nullptr) {
 		return;
 	}
@@ -1140,49 +1001,49 @@ void SynthParser::startBindKey($Attributes* attributes) {
 			$throwNew($SAXException, "bindKey: you must supply a key and action"_s);
 		}
 		$nc(this->_inputMapBindings)->add(key);
-		$nc(this->_inputMapBindings)->add(value);
+		this->_inputMapBindings->add(value);
 	}
 }
 
 $InputSource* SynthParser::resolveEntity($String* publicId, $String* systemId) {
 	if (isForwarding()) {
-		return $nc($(getHandler()))->resolveEntity(publicId, systemId);
+		return $$nc(getHandler())->resolveEntity(publicId, systemId);
 	}
 	return nullptr;
 }
 
 void SynthParser::notationDecl($String* name, $String* publicId, $String* systemId) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->notationDecl(name, publicId, systemId);
+		$$nc(getHandler())->notationDecl(name, publicId, systemId);
 	}
 }
 
 void SynthParser::unparsedEntityDecl($String* name, $String* publicId, $String* systemId, $String* notationName) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->unparsedEntityDecl(name, publicId, systemId, notationName);
+		$$nc(getHandler())->unparsedEntityDecl(name, publicId, systemId, notationName);
 	}
 }
 
 void SynthParser::setDocumentLocator($Locator* locator) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->setDocumentLocator(locator);
+		$$nc(getHandler())->setDocumentLocator(locator);
 	}
 }
 
 void SynthParser::startDocument() {
 	if (isForwarding()) {
-		$nc($(getHandler()))->startDocument();
+		$$nc(getHandler())->startDocument();
 	}
 }
 
 void SynthParser::endDocument() {
 	if (isForwarding()) {
-		$nc($(getHandler()))->endDocument();
+		$$nc(getHandler())->endDocument();
 	}
 }
 
 void SynthParser::startElement($String* uri, $String* local, $String* name$renamed, $Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	$assign(name, $nc(name)->intern());
 	if (name == SynthParser::ELEMENT_STYLE) {
@@ -1217,20 +1078,20 @@ void SynthParser::startElement($String* uri, $String* local, $String* name$renam
 		startInputMap(attributes);
 	} else if (name != SynthParser::ELEMENT_SYNTH) {
 		if (this->_depth++ == 0) {
-			$nc($(getHandler()))->startDocument();
+			$$nc(getHandler())->startDocument();
 		}
-		$nc($(getHandler()))->startElement(uri, local, name, attributes);
+		$$nc(getHandler())->startElement(uri, local, name, attributes);
 	}
 }
 
 void SynthParser::endElement($String* uri, $String* local, $String* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if (isForwarding()) {
-		$nc($(getHandler()))->endElement(uri, local, name);
+		$$nc(getHandler())->endElement(uri, local, name);
 		--this->_depth;
 		if (!isForwarding()) {
-			$nc($(getHandler()))->startDocument();
+			$$nc(getHandler())->startDocument();
 		}
 	} else {
 		$assign(name, $nc(name)->intern());
@@ -1246,42 +1107,42 @@ void SynthParser::endElement($String* uri, $String* local, $String* name$renamed
 
 void SynthParser::characters($chars* ch, int32_t start, int32_t length) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->characters(ch, start, length);
+		$$nc(getHandler())->characters(ch, start, length);
 	}
 }
 
 void SynthParser::ignorableWhitespace($chars* ch, int32_t start, int32_t length) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->ignorableWhitespace(ch, start, length);
+		$$nc(getHandler())->ignorableWhitespace(ch, start, length);
 	}
 }
 
 void SynthParser::processingInstruction($String* target, $String* data) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->processingInstruction(target, data);
+		$$nc(getHandler())->processingInstruction(target, data);
 	}
 }
 
 void SynthParser::warning($SAXParseException* e) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->warning(e);
+		$$nc(getHandler())->warning(e);
 	}
 }
 
 void SynthParser::error($SAXParseException* e) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->error(e);
+		$$nc(getHandler())->error(e);
 	}
 }
 
 void SynthParser::fatalError($SAXParseException* e) {
 	if (isForwarding()) {
-		$nc($(getHandler()))->fatalError(e);
+		$$nc(getHandler())->fatalError(e);
 	}
 	$throw(e);
 }
 
-void clinit$SynthParser($Class* class$) {
+void SynthParser::clinit$($Class* clazz) {
 	$assignStatic(SynthParser::ELEMENT_SYNTH, "synth"_s);
 	$assignStatic(SynthParser::ELEMENT_STYLE, "style"_s);
 	$assignStatic(SynthParser::ELEMENT_STATE, "state"_s);
@@ -1327,7 +1188,129 @@ SynthParser::SynthParser() {
 }
 
 $Class* SynthParser::load$($String* name, bool initialize) {
-	$loadClass(SynthParser, name, initialize, &_SynthParser_ClassInfo_, clinit$SynthParser, allocate$SynthParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthParser, $assertionsDisabled)},
+		{"ELEMENT_SYNTH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_SYNTH)},
+		{"ELEMENT_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_STYLE)},
+		{"ELEMENT_STATE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_STATE)},
+		{"ELEMENT_FONT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_FONT)},
+		{"ELEMENT_COLOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_COLOR)},
+		{"ELEMENT_IMAGE_PAINTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_IMAGE_PAINTER)},
+		{"ELEMENT_PAINTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_PAINTER)},
+		{"ELEMENT_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_PROPERTY)},
+		{"ELEMENT_SYNTH_GRAPHICS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_SYNTH_GRAPHICS)},
+		{"ELEMENT_IMAGE_ICON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_IMAGE_ICON)},
+		{"ELEMENT_BIND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_BIND)},
+		{"ELEMENT_BIND_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_BIND_KEY)},
+		{"ELEMENT_INSETS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_INSETS)},
+		{"ELEMENT_OPAQUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_OPAQUE)},
+		{"ELEMENT_DEFAULTS_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_DEFAULTS_PROPERTY)},
+		{"ELEMENT_INPUT_MAP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ELEMENT_INPUT_MAP)},
+		{"ATTRIBUTE_ACTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_ACTION)},
+		{"ATTRIBUTE_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_ID)},
+		{"ATTRIBUTE_IDREF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_IDREF)},
+		{"ATTRIBUTE_CLONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_CLONE)},
+		{"ATTRIBUTE_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_VALUE)},
+		{"ATTRIBUTE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_NAME)},
+		{"ATTRIBUTE_STYLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_STYLE)},
+		{"ATTRIBUTE_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_SIZE)},
+		{"ATTRIBUTE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_TYPE)},
+		{"ATTRIBUTE_TOP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_TOP)},
+		{"ATTRIBUTE_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_LEFT)},
+		{"ATTRIBUTE_BOTTOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_BOTTOM)},
+		{"ATTRIBUTE_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_RIGHT)},
+		{"ATTRIBUTE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_KEY)},
+		{"ATTRIBUTE_SOURCE_INSETS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_SOURCE_INSETS)},
+		{"ATTRIBUTE_DEST_INSETS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_DEST_INSETS)},
+		{"ATTRIBUTE_PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_PATH)},
+		{"ATTRIBUTE_STRETCH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_STRETCH)},
+		{"ATTRIBUTE_PAINT_CENTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_PAINT_CENTER)},
+		{"ATTRIBUTE_METHOD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_METHOD)},
+		{"ATTRIBUTE_DIRECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_DIRECTION)},
+		{"ATTRIBUTE_CENTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthParser, ATTRIBUTE_CENTER)},
+		{"_handler", "Lcom/sun/beans/decoder/DocumentHandler;", nullptr, $PRIVATE, $field(SynthParser, _handler)},
+		{"_depth", "I", nullptr, $PRIVATE, $field(SynthParser, _depth)},
+		{"_factory", "Ljavax/swing/plaf/synth/DefaultSynthStyleFactory;", nullptr, $PRIVATE, $field(SynthParser, _factory)},
+		{"_stateInfos", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$StateInfo;>;", $PRIVATE, $field(SynthParser, _stateInfos)},
+		{"_style", "Ljavax/swing/plaf/synth/ParsedSynthStyle;", nullptr, $PRIVATE, $field(SynthParser, _style)},
+		{"_stateInfo", "Ljavax/swing/plaf/synth/ParsedSynthStyle$StateInfo;", nullptr, $PRIVATE, $field(SynthParser, _stateInfo)},
+		{"_inputMapBindings", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SynthParser, _inputMapBindings)},
+		{"_inputMapID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthParser, _inputMapID)},
+		{"_mapping", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(SynthParser, _mapping)},
+		{"_urlResourceBase", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SynthParser, _urlResourceBase)},
+		{"_classResourceBase", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(SynthParser, _classResourceBase)},
+		{"_colorTypes", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ColorType;>;", $PRIVATE, $field(SynthParser, _colorTypes)},
+		{"_defaultsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(SynthParser, _defaultsMap)},
+		{"_stylePainters", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;>;", $PRIVATE, $field(SynthParser, _stylePainters)},
+		{"_statePainters", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;>;", $PRIVATE, $field(SynthParser, _statePainters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SynthParser, init$, void)},
+		{"addPainterOrMerge", "(Ljava/util/List;Ljava/lang/String;Ljavax/swing/plaf/synth/SynthPainter;I)V", "(Ljava/util/List<Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;>;Ljava/lang/String;Ljavax/swing/plaf/synth/SynthPainter;I)V", $PRIVATE, $method(SynthParser, addPainterOrMerge, void, $List*, $String*, $SynthPainter*, int32_t)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"checkCast", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(SynthParser, checkCast, $Object*, Object$*, $Class*), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SynthParser, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endInputMap", "()V", nullptr, $PRIVATE, $method(SynthParser, endInputMap, void), "org.xml.sax.SAXException"},
+		{"endState", "()V", nullptr, $PRIVATE, $method(SynthParser, endState, void)},
+		{"endStyle", "()V", nullptr, $PRIVATE, $method(SynthParser, endStyle, void)},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"getHandler", "()Lcom/sun/beans/decoder/DocumentHandler;", nullptr, $PRIVATE, $method(SynthParser, getHandler, $DocumentHandler*)},
+		{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE, $method(SynthParser, getResource, $URL*, $String*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"isForwarding", "()Z", nullptr, $PRIVATE, $method(SynthParser, isForwarding, bool)},
+		{"lookup", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(SynthParser, lookup, $Object*, $String*, $Class*), "org.xml.sax.SAXException"},
+		{"nextInt", "(Ljava/util/StringTokenizer;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(SynthParser, nextInt, int32_t, $StringTokenizer*, $String*), "org.xml.sax.SAXException"},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"parse", "(Ljava/io/InputStream;Ljavax/swing/plaf/synth/DefaultSynthStyleFactory;Ljava/net/URL;Ljava/lang/Class;Ljava/util/Map;)V", "(Ljava/io/InputStream;Ljavax/swing/plaf/synth/DefaultSynthStyleFactory;Ljava/net/URL;Ljava/lang/Class<*>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(SynthParser, parse, void, $InputStream*, $DefaultSynthStyleFactory*, $URL*, $Class*, $Map*), "java.text.ParseException,java.lang.IllegalArgumentException"},
+		{"parseInsets", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(SynthParser, parseInsets, $Insets*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"register", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(SynthParser, register$, void, $String*, Object$*), "org.xml.sax.SAXException"},
+		{"reset", "()V", nullptr, $PRIVATE, $method(SynthParser, reset, void)},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(SynthParser, resolveEntity, $InputSource*, $String*, $String*), "java.io.IOException,org.xml.sax.SAXException"},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, setDocumentLocator, void, $Locator*)},
+		{"startBind", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startBind, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startBindKey", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startBindKey, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startColor", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startColor, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SynthParser, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startFont", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startFont, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startGraphics", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startGraphics, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startImageIcon", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startImageIcon, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startInputMap", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startInputMap, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startInsets", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startInsets, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startOpaque", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startOpaque, void, $Attributes*)},
+		{"startPainter", "(Lorg/xml/sax/Attributes;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SynthParser, startPainter, void, $Attributes*, $String*), "org.xml.sax.SAXException"},
+		{"startProperty", "(Lorg/xml/sax/Attributes;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(SynthParser, startProperty, void, $Attributes*, Object$*), "org.xml.sax.SAXException"},
+		{"startState", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startState, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"startStyle", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SynthParser, startStyle, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SynthParser, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthParser$LazyImageIcon", "javax.swing.plaf.synth.SynthParser", "LazyImageIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthParser",
+		"org.xml.sax.helpers.DefaultHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthParser$LazyImageIcon"
+	};
+	$loadClass(SynthParser, name, initialize, &classInfo$$, SynthParser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthParser));
+	});
 	return class$;
 }
 

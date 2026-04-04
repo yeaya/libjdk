@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/UsesTree.h>
-
 #include <com/sun/source/doctree/ReferenceTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _UsesTree_MethodInfo_[] = {
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(UsesTree, getDescription, $List*)},
-	{"getServiceType", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UsesTree, getServiceType, $ReferenceTree*)},
-	{}
-};
-
-$ClassInfo _UsesTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.UsesTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_UsesTree_MethodInfo_
-};
-
-$Object* allocate$UsesTree($Class* clazz) {
-	return $of($alloc(UsesTree));
-}
-
 $Class* UsesTree::load$($String* name, bool initialize) {
-	$loadClass(UsesTree, name, initialize, &_UsesTree_ClassInfo_, allocate$UsesTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(UsesTree, getDescription, $List*)},
+		{"getServiceType", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UsesTree, getServiceType, $ReferenceTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.UsesTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UsesTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UsesTree);
+	});
 	return class$;
 }
 

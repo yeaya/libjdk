@@ -224,6 +224,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addPropertyChangeListener($String* name, ::java::beans::PropertyChangeListener* pcl) override;
 	virtual bool areExtraMouseButtonsEnabled() override;

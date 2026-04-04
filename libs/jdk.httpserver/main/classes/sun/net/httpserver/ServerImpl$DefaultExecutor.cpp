@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/ServerImpl$DefaultExecutor.h>
-
 #include <java/lang/Runnable.h>
 #include <sun/net/httpserver/ServerImpl.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$MethodInfo _ServerImpl$DefaultExecutor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerImpl$DefaultExecutor, init$, void)},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$DefaultExecutor, execute, void, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _ServerImpl$DefaultExecutor_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.ServerImpl$DefaultExecutor", "sun.net.httpserver.ServerImpl", "DefaultExecutor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ServerImpl$DefaultExecutor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ServerImpl$DefaultExecutor",
-	"java.lang.Object",
-	"java.util.concurrent.Executor",
-	nullptr,
-	_ServerImpl$DefaultExecutor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerImpl$DefaultExecutor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.ServerImpl"
-};
-
-$Object* allocate$ServerImpl$DefaultExecutor($Class* clazz) {
-	return $of($alloc(ServerImpl$DefaultExecutor));
-}
-
 void ServerImpl$DefaultExecutor::init$() {
 }
 
@@ -55,7 +23,33 @@ ServerImpl$DefaultExecutor::ServerImpl$DefaultExecutor() {
 }
 
 $Class* ServerImpl$DefaultExecutor::load$($String* name, bool initialize) {
-	$loadClass(ServerImpl$DefaultExecutor, name, initialize, &_ServerImpl$DefaultExecutor_ClassInfo_, allocate$ServerImpl$DefaultExecutor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerImpl$DefaultExecutor, init$, void)},
+		{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$DefaultExecutor, execute, void, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.ServerImpl$DefaultExecutor", "sun.net.httpserver.ServerImpl", "DefaultExecutor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ServerImpl$DefaultExecutor",
+		"java.lang.Object",
+		"java.util.concurrent.Executor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.ServerImpl"
+	};
+	$loadClass(ServerImpl$DefaultExecutor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerImpl$DefaultExecutor);
+	});
 	return class$;
 }
 

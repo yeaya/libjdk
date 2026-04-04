@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
@@ -70,7 +69,6 @@ using $ElementArray = $Array<::org::w3c::dom::Element>;
 using $CanonicalizationException = ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizationException;
 using $Canonicalizer = ::com::sun::org::apache::xml::internal::security::c14n::Canonicalizer;
 using $InvalidCanonicalizerException = ::com::sun::org::apache::xml::internal::security::c14n::InvalidCanonicalizerException;
-using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
 using $XMLParser = ::com::sun::org::apache::xml::internal::security::parser::XMLParser;
 using $XMLParserImpl = ::com::sun::org::apache::xml::internal::security::parser::XMLParserImpl;
 using $ClassLoaderUtils = ::com::sun::org::apache::xml::internal::security::utils::ClassLoaderUtils;
@@ -88,7 +86,6 @@ using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -104,15 +101,12 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Base64 = ::java::util::Base64;
-using $Base64$Decoder = ::java::util::Base64$Decoder;
-using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Predicate = ::java::util::function::Predicate;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
@@ -138,27 +132,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(XMLUtils::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XMLUtils$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XMLUtils$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo XMLUtils$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* XMLUtils$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(XMLUtils$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLUtils$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLUtils$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* XMLUtils$$Lambda$lambda$static$0::class$ = nullptr;
@@ -169,29 +160,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(XMLUtils::lambda$static$1());
+		 return XMLUtils::lambda$static$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XMLUtils$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XMLUtils$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$static$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$static$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo XMLUtils$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* XMLUtils$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(XMLUtils$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$static$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$static$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLUtils$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLUtils$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* XMLUtils$$Lambda$lambda$static$1$1::class$ = nullptr;
@@ -205,114 +193,32 @@ public:
 	virtual bool test(Object$* inputNode) override {
 		 return XMLUtils::lambda$excludeNodeFromSet$2(signatureElement, $cast($Node, inputNode));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2>());
-	}
 	$Node* signatureElement = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::fieldInfos[2] = {
-	{"signatureElement", "Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $field(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, signatureElement)},
-	{}
-};
-$MethodInfo XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::methodInfos[3] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, init$, void, $Node*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::load$($String* name, bool initialize) {
-	$loadClass(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"signatureElement", "Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $field(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, signatureElement)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, init$, void, $Node*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2);
+	});
 	return class$;
 }
 $Class* XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::class$ = nullptr;
-
-$FieldInfo _XMLUtils_FieldInfo_[] = {
-	{"ignoreLineBreaks", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XMLUtils, ignoreLineBreaks$)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLUtils, LOG)},
-	{"xmlParserImpl", "Lcom/sun/org/apache/xml/internal/security/parser/XMLParser;", nullptr, $PRIVATE | $STATIC, $staticField(XMLUtils, xmlParserImpl)},
-	{"dsPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, dsPrefix)},
-	{"ds11Prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, ds11Prefix)},
-	{"xencPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, xencPrefix)},
-	{"xenc11Prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, xenc11Prefix)},
-	{}
-};
-
-$MethodInfo _XMLUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XMLUtils, init$, void)},
-	{"addReturnBeforeChild", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnBeforeChild, void, $Element*, $Node*)},
-	{"addReturnToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnToElement, void, $Element*)},
-	{"addReturnToElement", "(Lorg/w3c/dom/Document;Lcom/sun/org/apache/xml/internal/security/utils/HelperNodeList;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnToElement, void, $Document*, $HelperNodeList*)},
-	{"circumventBug2650", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, circumventBug2650, void, $Document*)},
-	{"circumventBug2650internal", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLUtils, circumventBug2650internal, void, $Node*)},
-	{"convertNodelistToSet", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set;", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, convertNodelistToSet, $Set*, $NodeList*)},
-	{"createElementInEncryption11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInEncryption11Space, $Element*, $Document*, $String*)},
-	{"createElementInEncryptionSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInEncryptionSpace, $Element*, $Document*, $String*)},
-	{"createElementInSignature11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInSignature11Space, $Element*, $Document*, $String*)},
-	{"createElementInSignatureSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInSignatureSpace, $Element*, $Document*, $String*)},
-	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, decode, $bytes*, $String*)},
-	{"decode", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, decode, $bytes*, $bytes*)},
-	{"elementIsInEncryption11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInEncryption11Space, bool, $Element*, $String*)},
-	{"elementIsInEncryptionSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInEncryptionSpace, bool, $Element*, $String*)},
-	{"elementIsInSignature11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInSignature11Space, bool, $Element*, $String*)},
-	{"elementIsInSignatureSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInSignatureSpace, bool, $Element*, $String*)},
-	{"encodeToString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, encodeToString, $String*, $bytes*)},
-	{"excludeNodeFromSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Ljava/util/Set;", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, excludeNodeFromSet, $Set*, $Node*, $Set*)},
-	{"getBytes", "(Ljava/math/BigInteger;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getBytes, $bytes*, $BigInteger*, int32_t)},
-	{"getFullTextChildrenFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getFullTextChildrenFromNode, $String*, $Node*)},
-	{"getNextElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getNextElement, $Element*, $Node*)},
-	{"getOwnerDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getOwnerDocument, $Document*, $Node*)},
-	{"getOwnerDocument", "(Ljava/util/Set;)Lorg/w3c/dom/Document;", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)Lorg/w3c/dom/Document;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, getOwnerDocument, $Document*, $Set*)},
-	{"getSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PUBLIC | $STATIC, $staticMethod(XMLUtils, getSet, void, $Node*, $Set*, $Node*, bool)},
-	{"getSetRec", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PRIVATE | $STATIC, $staticMethod(XMLUtils, getSetRec, void, $Node*, $Set*, $Node*, bool)},
-	{"getStrFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getStrFromNode, $String*, $Node*)},
-	{"ignoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, ignoreLineBreaks, bool)},
-	{"isDescendantOrSelf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, isDescendantOrSelf, bool, $Node*, $Node*)},
-	{"isIgnoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, isIgnoreLineBreaks, bool)},
-	{"lambda$excludeNodeFromSet$2", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$excludeNodeFromSet$2, bool, $Node*, $Node*)},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$static$0, $Boolean*)},
-	{"lambda$static$1", "()Lcom/sun/org/apache/xml/internal/security/parser/XMLParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$static$1, $XMLParser*)},
-	{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOM, void, $Node*, $OutputStream*)},
-	{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOM, void, $Node*, $OutputStream*, bool)},
-	{"outputDOMc14nWithComments", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOMc14nWithComments, void, $Node*, $OutputStream*)},
-	{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, protectAgainstWrappingAttack, bool, $Node*, $String*)},
-	{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, protectAgainstWrappingAttack, bool, $Node*, $Element*, $String*)},
-	{"read", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, read, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
-	{"selectDs11Node", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDs11Node, $Element*, $Node*, $String*, int32_t)},
-	{"selectDs11Nodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDs11Nodes, $ElementArray*, $Node*, $String*)},
-	{"selectDsNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDsNode, $Element*, $Node*, $String*, int32_t)},
-	{"selectDsNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDsNodes, $ElementArray*, $Node*, $String*)},
-	{"selectNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectNode, $Element*, $Node*, $String*, $String*, int32_t)},
-	{"selectNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectNodes, $ElementArray*, $Node*, $String*, $String*)},
-	{"selectXencNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectXencNode, $Element*, $Node*, $String*, int32_t)},
-	{"setDs11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setDs11Prefix, void, $String*)},
-	{"setDsPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setDsPrefix, void, $String*)},
-	{"setXenc11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setXenc11Prefix, void, $String*)},
-	{"setXencPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setXencPrefix, void, $String*)},
-	{}
-};
-
-$ClassInfo _XMLUtils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.XMLUtils",
-	"java.lang.Object",
-	nullptr,
-	_XMLUtils_FieldInfo_,
-	_XMLUtils_MethodInfo_
-};
-
-$Object* allocate$XMLUtils($Class* clazz) {
-	return $of($alloc(XMLUtils));
-}
 
 bool XMLUtils::ignoreLineBreaks$ = false;
 $Logger* XMLUtils::LOG = nullptr;
@@ -368,59 +274,49 @@ void XMLUtils::getSet($Node* rootNode, $Set* result, $Node* exclude, bool com) {
 
 void XMLUtils::getSetRec($Node* rootNode, $Set* result, $Node* exclude, bool com) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (rootNode == exclude) {
 		return;
 	}
 	{
-		$var($Element, el, nullptr)
+		$var($Element, el, nullptr);
 		switch ($nc(rootNode)->getNodeType()) {
 		case $Node::ELEMENT_NODE:
-			{
-				$nc(result)->add(rootNode);
-				$assign(el, $cast($Element, rootNode));
-				if ($nc(el)->hasAttributes()) {
-					$var($NamedNodeMap, nl, el->getAttributes());
-					int32_t length = $nc(nl)->getLength();
-					for (int32_t i = 0; i < length; ++i) {
-						$nc(result)->add($(nl->item(i)));
-					}
+			$nc(result)->add(rootNode);
+			$assign(el, $cast($Element, rootNode));
+			if ($nc(el)->hasAttributes()) {
+				$var($NamedNodeMap, nl, el->getAttributes());
+				int32_t length = $nc(nl)->getLength();
+				for (int32_t i = 0; i < length; ++i) {
+					result->add($(nl->item(i)));
 				}
 			}
 		case $Node::DOCUMENT_NODE:
 			{
-				{
-					$var($Node, r, rootNode->getFirstChild());
-					for (; r != nullptr; $assign(r, $nc(r)->getNextSibling())) {
-						if (r->getNodeType() == $Node::TEXT_NODE) {
-							$nc(result)->add(r);
-							while (r != nullptr && r->getNodeType() == $Node::TEXT_NODE) {
-								$assign(r, r->getNextSibling());
-							}
-							if (r == nullptr) {
-								return;
-							}
+				$var($Node, r, rootNode->getFirstChild());
+				for (; r != nullptr; $assign(r, $nc(r)->getNextSibling())) {
+					if (r->getNodeType() == $Node::TEXT_NODE) {
+						$nc(result)->add(r);
+						while (r != nullptr && r->getNodeType() == $Node::TEXT_NODE) {
+							$assign(r, r->getNextSibling());
 						}
-						getSetRec(r, result, exclude, com);
+						if (r == nullptr) {
+							return;
+						}
 					}
+					getSetRec(r, result, exclude, com);
 				}
 				break;
 			}
 		case $Node::COMMENT_NODE:
-			{
-				if (com) {
-					$nc(result)->add(rootNode);
-				}
-				break;
-			}
-		case $Node::DOCUMENT_TYPE_NODE:
-			{
-				break;
-			}
-		default:
-			{
+			if (com) {
 				$nc(result)->add(rootNode);
 			}
+			break;
+		case $Node::DOCUMENT_TYPE_NODE:
+			break;
+		default:
+			$nc(result)->add(rootNode);
 		}
 	}
 }
@@ -432,44 +328,44 @@ void XMLUtils::outputDOM($Node* contextNode, $OutputStream* os) {
 
 void XMLUtils::outputDOM($Node* contextNode, $OutputStream* os, bool addPreamble) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (addPreamble) {
 			$init($StandardCharsets);
 			$nc(os)->write($("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"_s->getBytes($StandardCharsets::UTF_8)));
 		}
 		$init($Canonicalizer);
-		$nc($($Canonicalizer::getInstance($Canonicalizer::ALGO_ID_C14N_PHYSICAL)))->canonicalizeSubtree(contextNode, os);
+		$$nc($Canonicalizer::getInstance($Canonicalizer::ALGO_ID_C14N_PHYSICAL))->canonicalizeSubtree(contextNode, os);
 	} catch ($IOException& ex) {
-		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), ex);
 	} catch ($InvalidCanonicalizerException& ex) {
-		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), ex);
 	} catch ($CanonicalizationException& ex) {
-		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), ex);
 	}
 }
 
 void XMLUtils::outputDOMc14nWithComments($Node* contextNode, $OutputStream* os) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Canonicalizer);
-		$nc($($Canonicalizer::getInstance($Canonicalizer::ALGO_ID_C14N_WITH_COMMENTS)))->canonicalizeSubtree(contextNode, os);
+		$$nc($Canonicalizer::getInstance($Canonicalizer::ALGO_ID_C14N_WITH_COMMENTS))->canonicalizeSubtree(contextNode, os);
 	} catch ($InvalidCanonicalizerException& ex) {
-		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), ex);
 	} catch ($CanonicalizationException& ex) {
-		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+		$nc(XMLUtils::LOG)->debug($(ex->getMessage()), ex);
 	}
 }
 
 $String* XMLUtils::getFullTextChildrenFromNode($Node* node) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($Node, child, $nc(node)->getFirstChild());
 	while (child != nullptr) {
 		if (child->getNodeType() == $Node::TEXT_NODE) {
-			sb->append($($nc(($cast($Text, child)))->getData()));
+			sb->append($($cast($Text, child)->getData()));
 		}
 		$assign(child, child->getNextSibling());
 	}
@@ -530,67 +426,70 @@ $Element* XMLUtils::createElementInEncryption11Space($Document* doc, $String* el
 
 bool XMLUtils::elementIsInSignatureSpace($Element* element, $String* localName) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return false;
 	}
 	$init($Constants);
 	bool var$0 = $nc($Constants::SignatureSpecNS)->equals($($nc(element)->getNamespaceURI()));
-	return var$0 && $nc($($nc(element)->getLocalName()))->equals(localName);
+	return var$0 && $$nc(element->getLocalName())->equals(localName);
 }
 
 bool XMLUtils::elementIsInSignature11Space($Element* element, $String* localName) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return false;
 	}
 	$init($Constants);
 	bool var$0 = $nc($Constants::SignatureSpec11NS)->equals($($nc(element)->getNamespaceURI()));
-	return var$0 && $nc($($nc(element)->getLocalName()))->equals(localName);
+	return var$0 && $$nc(element->getLocalName())->equals(localName);
 }
 
 bool XMLUtils::elementIsInEncryptionSpace($Element* element, $String* localName) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return false;
 	}
 	$init($EncryptionConstants);
 	bool var$0 = $nc($EncryptionConstants::EncryptionSpecNS)->equals($($nc(element)->getNamespaceURI()));
-	return var$0 && $nc($($nc(element)->getLocalName()))->equals(localName);
+	return var$0 && $$nc(element->getLocalName())->equals(localName);
 }
 
 bool XMLUtils::elementIsInEncryption11Space($Element* element, $String* localName) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return false;
 	}
 	$init($EncryptionConstants);
 	bool var$0 = $nc($EncryptionConstants::EncryptionSpec11NS)->equals($($nc(element)->getNamespaceURI()));
-	return var$0 && $nc($($nc(element)->getLocalName()))->equals(localName);
+	return var$0 && $$nc(element->getLocalName())->equals(localName);
 }
 
 $Document* XMLUtils::getOwnerDocument($Node* node) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(node)->getNodeType() == $Node::DOCUMENT_NODE) {
 		return $cast($Document, node);
 	}
 	try {
-		return $nc(node)->getOwnerDocument();
+		return node->getOwnerDocument();
 	} catch ($NullPointerException& npe) {
-		$var($String, var$1, $$str({$($I18n::translate("endorsed.jdk1.4.0"_s)), " Original message was \""_s}));
-		$var($String, var$0, $$concat(var$1, $(npe->getMessage())));
-		$throwNew($NullPointerException, $$concat(var$0, "\""_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($I18n::translate("endorsed.jdk1.4.0"_s)));
+		var$0->append(" Original message was \""_s);
+		var$0->append($(npe->getMessage()));
+		var$0->append("\""_s);
+		$throwNew($NullPointerException, $$str(var$0));
 	}
 	$shouldNotReachHere();
 }
 
 $Document* XMLUtils::getOwnerDocument($Set* xpathNodeSet) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NullPointerException, npe, nullptr);
 	{
 		$var($Iterator, i$, $nc(xpathNodeSet)->iterator());
@@ -603,7 +502,7 @@ $Document* XMLUtils::getOwnerDocument($Set* xpathNodeSet) {
 				}
 				try {
 					if (nodeType == $Node::ATTRIBUTE_NODE) {
-						return $nc($($nc(($cast($Attr, node)))->getOwnerElement()))->getOwnerDocument();
+						return $$nc($cast($Attr, node)->getOwnerElement())->getOwnerDocument();
 					}
 					return node->getOwnerDocument();
 				} catch ($NullPointerException& e) {
@@ -612,15 +511,18 @@ $Document* XMLUtils::getOwnerDocument($Set* xpathNodeSet) {
 			}
 		}
 	}
-	$var($String, var$1, $$str({$($I18n::translate("endorsed.jdk1.4.0"_s)), " Original message was \""_s}));
-	$var($String, var$0, $$concat(var$1, (npe == nullptr ? ""_s : $($nc(npe)->getMessage()))));
-	$throwNew($NullPointerException, $$concat(var$0, "\""_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($I18n::translate("endorsed.jdk1.4.0"_s)));
+	var$0->append(" Original message was \""_s);
+	var$0->append(npe == nullptr ? ""_s : $(npe->getMessage()));
+	var$0->append("\""_s);
+	$throwNew($NullPointerException, $$str(var$0));
 	$shouldNotReachHere();
 }
 
 void XMLUtils::addReturnToElement($Element* e) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!XMLUtils::ignoreLineBreaks$) {
 		$var($Document, doc, $nc(e)->getOwnerDocument());
 		e->appendChild($($nc(doc)->createTextNode("\n"_s)));
@@ -636,7 +538,7 @@ void XMLUtils::addReturnToElement($Document* doc, $HelperNodeList* nl) {
 
 void XMLUtils::addReturnBeforeChild($Element* e, $Node* child) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!XMLUtils::ignoreLineBreaks$) {
 		$var($Document, doc, $nc(e)->getOwnerDocument());
 		e->insertBefore($($nc(doc)->createTextNode("\n"_s)), child);
@@ -645,21 +547,21 @@ void XMLUtils::addReturnBeforeChild($Element* e, $Node* child) {
 
 $String* XMLUtils::encodeToString($bytes* bytes) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (XMLUtils::ignoreLineBreaks$) {
-		return $nc($($Base64::getEncoder()))->encodeToString(bytes);
+		return $$nc($Base64::getEncoder())->encodeToString(bytes);
 	}
-	return $nc($($Base64::getMimeEncoder()))->encodeToString(bytes);
+	return $$nc($Base64::getMimeEncoder())->encodeToString(bytes);
 }
 
 $bytes* XMLUtils::decode($String* encodedString) {
 	$init(XMLUtils);
-	return $nc($($Base64::getMimeDecoder()))->decode(encodedString);
+	return $$nc($Base64::getMimeDecoder())->decode(encodedString);
 }
 
 $bytes* XMLUtils::decode($bytes* encodedBytes) {
 	$init(XMLUtils);
-	return $nc($($Base64::getMimeDecoder()))->decode(encodedBytes);
+	return $$nc($Base64::getMimeDecoder())->decode(encodedBytes);
 }
 
 bool XMLUtils::isIgnoreLineBreaks() {
@@ -669,7 +571,7 @@ bool XMLUtils::isIgnoreLineBreaks() {
 
 $Set* XMLUtils::convertNodelistToSet($NodeList* xpathNodeSet) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (xpathNodeSet == nullptr) {
 		return $new($HashSet);
 	}
@@ -683,7 +585,7 @@ $Set* XMLUtils::convertNodelistToSet($NodeList* xpathNodeSet) {
 
 void XMLUtils::circumventBug2650($Document* doc) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, documentElement, $nc(doc)->getDocumentElement());
 	$init($Constants);
 	$var($Attr, xmlnsAttr, $nc(documentElement)->getAttributeNodeNS($Constants::NamespaceSpecNS, "xmlns"_s));
@@ -695,7 +597,7 @@ void XMLUtils::circumventBug2650($Document* doc) {
 
 void XMLUtils::circumventBug2650internal($Node* node$renamed) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, node$renamed);
 	$var($Node, parent, nullptr);
 	$var($Node, sibling, nullptr);
@@ -703,48 +605,42 @@ void XMLUtils::circumventBug2650internal($Node* node$renamed) {
 	$var($String, namespaceNs, $Constants::NamespaceSpecNS);
 	do {
 		{
-			$var($Element, element, nullptr)
+			$var($Element, element, nullptr);
 			switch ($nc(node)->getNodeType()) {
 			case $Node::ELEMENT_NODE:
-				{
-					$assign(element, $cast($Element, node));
-					if (!$nc(element)->hasChildNodes()) {
-						break;
-					}
-					if ($nc(element)->hasAttributes()) {
-						$var($NamedNodeMap, attributes, element->getAttributes());
-						int32_t attributesLength = $nc(attributes)->getLength();
-						{
-							$var($Node, child, element->getFirstChild());
-							for (; child != nullptr; $assign(child, $nc(child)->getNextSibling())) {
-								if (child->getNodeType() != $Node::ELEMENT_NODE) {
+				$assign(element, $cast($Element, node));
+				if (!$nc(element)->hasChildNodes()) {
+					break;
+				}
+				if (element->hasAttributes()) {
+					$var($NamedNodeMap, attributes, element->getAttributes());
+					int32_t attributesLength = $nc(attributes)->getLength();
+					{
+						$var($Node, child, element->getFirstChild());
+						for (; child != nullptr; $assign(child, child->getNextSibling())) {
+							if (child->getNodeType() != $Node::ELEMENT_NODE) {
+								continue;
+							}
+							$var($Element, childElement, $cast($Element, child));
+							for (int32_t i = 0; i < attributesLength; ++i) {
+								$var($Attr, currentAttr, $cast($Attr, attributes->item(i)));
+								if (!$nc(namespaceNs)->equals($($nc(currentAttr)->getNamespaceURI()))) {
 									continue;
 								}
-								$var($Element, childElement, $cast($Element, child));
-								for (int32_t i = 0; i < attributesLength; ++i) {
-									$var($Attr, currentAttr, $cast($Attr, attributes->item(i)));
-									if (!$nc(namespaceNs)->equals($($nc(currentAttr)->getNamespaceURI()))) {
-										continue;
-									}
-									if (childElement->hasAttributeNS(namespaceNs, $($nc(currentAttr)->getLocalName()))) {
-										continue;
-									}
-									$var($String, var$0, namespaceNs);
-									$var($String, var$1, $nc(currentAttr)->getName());
-									childElement->setAttributeNS(var$0, var$1, $(currentAttr->getNodeValue()));
+								if (childElement->hasAttributeNS(namespaceNs, $(currentAttr->getLocalName()))) {
+									continue;
 								}
+								$var($String, var$0, currentAttr->getName());
+								childElement->setAttributeNS(namespaceNs, var$0, $(currentAttr->getNodeValue()));
 							}
 						}
 					}
 				}
 			case $Node::ENTITY_REFERENCE_NODE:
-				{}
 			case $Node::DOCUMENT_NODE:
-				{
-					$assign(parent, node);
-					$assign(sibling, node->getFirstChild());
-					break;
-				}
+				$assign(parent, node);
+				$assign(sibling, node->getFirstChild());
+				break;
 			}
 		}
 		while (sibling == nullptr && parent != nullptr) {
@@ -755,18 +651,18 @@ void XMLUtils::circumventBug2650internal($Node* node$renamed) {
 			return;
 		}
 		$assign(node, sibling);
-		$assign(sibling, node->getNextSibling());
+		$assign(sibling, $nc(node)->getNextSibling());
 	} while (true);
 }
 
 $Element* XMLUtils::selectDsNode($Node* sibling$renamed, $String* nodeName, int32_t number) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, sibling$renamed);
 	while (sibling != nullptr) {
 		$init($Constants);
 		bool var$0 = $nc($Constants::SignatureSpecNS)->equals($(sibling->getNamespaceURI()));
-		if (var$0 && $nc($(sibling->getLocalName()))->equals(nodeName)) {
+		if (var$0 && $$nc(sibling->getLocalName())->equals(nodeName)) {
 			if (number == 0) {
 				return $cast($Element, sibling);
 			}
@@ -779,12 +675,12 @@ $Element* XMLUtils::selectDsNode($Node* sibling$renamed, $String* nodeName, int3
 
 $Element* XMLUtils::selectDs11Node($Node* sibling$renamed, $String* nodeName, int32_t number) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, sibling$renamed);
 	while (sibling != nullptr) {
 		$init($Constants);
 		bool var$0 = $nc($Constants::SignatureSpec11NS)->equals($(sibling->getNamespaceURI()));
-		if (var$0 && $nc($(sibling->getLocalName()))->equals(nodeName)) {
+		if (var$0 && $$nc(sibling->getLocalName())->equals(nodeName)) {
 			if (number == 0) {
 				return $cast($Element, sibling);
 			}
@@ -797,12 +693,12 @@ $Element* XMLUtils::selectDs11Node($Node* sibling$renamed, $String* nodeName, in
 
 $Element* XMLUtils::selectXencNode($Node* sibling$renamed, $String* nodeName, int32_t number) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, sibling$renamed);
 	while (sibling != nullptr) {
 		$init($EncryptionConstants);
 		bool var$0 = $nc($EncryptionConstants::EncryptionSpecNS)->equals($(sibling->getNamespaceURI()));
-		if (var$0 && $nc($(sibling->getLocalName()))->equals(nodeName)) {
+		if (var$0 && $$nc(sibling->getLocalName())->equals(nodeName)) {
 			if (number == 0) {
 				return $cast($Element, sibling);
 			}
@@ -815,12 +711,12 @@ $Element* XMLUtils::selectXencNode($Node* sibling$renamed, $String* nodeName, in
 
 $Element* XMLUtils::selectNode($Node* sibling$renamed, $String* uri, $String* nodeName, int32_t number) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, sibling$renamed);
 	while (sibling != nullptr) {
 		bool var$1 = sibling->getNamespaceURI() != nullptr;
-		bool var$0 = var$1 && $nc($(sibling->getNamespaceURI()))->equals(uri);
-		if (var$0 && $nc($(sibling->getLocalName()))->equals(nodeName)) {
+		bool var$0 = var$1 && $$nc(sibling->getNamespaceURI())->equals(uri);
+		if (var$0 && $$nc(sibling->getLocalName())->equals(nodeName)) {
 			if (number == 0) {
 				return $cast($Element, sibling);
 			}
@@ -845,36 +741,36 @@ $ElementArray* XMLUtils::selectDs11Nodes($Node* sibling, $String* nodeName) {
 
 $ElementArray* XMLUtils::selectNodes($Node* sibling$renamed, $String* uri, $String* nodeName) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, sibling$renamed);
 	$var($List, list, $new($ArrayList));
 	while (sibling != nullptr) {
 		bool var$1 = sibling->getNamespaceURI() != nullptr;
-		bool var$0 = var$1 && $nc($(sibling->getNamespaceURI()))->equals(uri);
-		if (var$0 && $nc($(sibling->getLocalName()))->equals(nodeName)) {
+		bool var$0 = var$1 && $$nc(sibling->getNamespaceURI())->equals(uri);
+		if (var$0 && $$nc(sibling->getLocalName())->equals(nodeName)) {
 			list->add($cast($Element, sibling));
 		}
 		$assign(sibling, sibling->getNextSibling());
 	}
-	return $fcast($ElementArray, list->toArray($$new($ElementArray, list->size())));
+	return $cast($ElementArray, list->toArray($$new($ElementArray, list->size())));
 }
 
 $Set* XMLUtils::excludeNodeFromSet($Node* signatureElement, $Set* inputSet) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
-	return $cast($Set, $nc($($nc($($nc(inputSet)->stream()))->filter(static_cast<$Predicate*>($$new(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, signatureElement)))))->collect($($Collectors::toSet())));
+	$useLocalObjectStack();
+	return $cast($Set, $$nc($$nc($nc(inputSet)->stream())->filter($$new(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, signatureElement)))->collect($($Collectors::toSet())));
 }
 
 $String* XMLUtils::getStrFromNode($Node* xpathnode) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(xpathnode)->getNodeType() == $Node::TEXT_NODE) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		{
-			$var($Node, currentSibling, $nc($(xpathnode->getParentNode()))->getFirstChild());
-			for (; currentSibling != nullptr; $assign(currentSibling, $nc(currentSibling)->getNextSibling())) {
+			$var($Node, currentSibling, $$nc(xpathnode->getParentNode())->getFirstChild());
+			for (; currentSibling != nullptr; $assign(currentSibling, currentSibling->getNextSibling())) {
 				if (currentSibling->getNodeType() == $Node::TEXT_NODE) {
-					sb->append($($nc(($cast($Text, currentSibling)))->getData()));
+					sb->append($($cast($Text, currentSibling)->getData()));
 				}
 			}
 		}
@@ -901,7 +797,7 @@ bool XMLUtils::isDescendantOrSelf($Node* ctx, $Node* descendantOrSelf) {
 			return true;
 		}
 		if ($nc(parent)->getNodeType() == $Node::ATTRIBUTE_NODE) {
-			$assign(parent, $nc(($cast($Attr, parent)))->getOwnerElement());
+			$assign(parent, $cast($Attr, parent)->getOwnerElement());
 		} else {
 			$assign(parent, parent->getParentNode());
 		}
@@ -915,7 +811,7 @@ bool XMLUtils::ignoreLineBreaks() {
 
 bool XMLUtils::protectAgainstWrappingAttack($Node* startNode$renamed, $String* value) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, startNode, startNode$renamed);
 	$var($String, id, $nc(value)->trim());
 	bool var$0 = !id->isEmpty();
@@ -958,7 +854,7 @@ bool XMLUtils::protectAgainstWrappingAttack($Node* startNode$renamed, $String* v
 			if (processedNode == startParent) {
 				return true;
 			}
-			$assign(startNode, processedNode->getNextSibling());
+			$assign(startNode, $nc(processedNode)->getNextSibling());
 		}
 	}
 	return true;
@@ -966,7 +862,7 @@ bool XMLUtils::protectAgainstWrappingAttack($Node* startNode$renamed, $String* v
 
 bool XMLUtils::protectAgainstWrappingAttack($Node* startNode$renamed, $Element* knownElement, $String* value) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, startNode, startNode$renamed);
 	$var($String, id, $nc(value)->trim());
 	bool var$0 = !id->isEmpty();
@@ -1004,7 +900,7 @@ bool XMLUtils::protectAgainstWrappingAttack($Node* startNode$renamed, $Element* 
 			if (processedNode == startParent) {
 				return true;
 			}
-			$assign(startNode, processedNode->getNextSibling());
+			$assign(startNode, $nc(processedNode)->getNextSibling());
 		}
 	}
 	return true;
@@ -1017,18 +913,18 @@ $Document* XMLUtils::read($InputStream* inputStream, bool disallowDocTypeDeclara
 
 $bytes* XMLUtils::getBytes($BigInteger* big, int32_t bitlen) {
 	$init(XMLUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bitlen = ((bitlen + 7) >> 3) << 3;
 	if (bitlen < $nc(big)->bitLength()) {
 		$throwNew($IllegalArgumentException, $($I18n::translate("utils.Base64.IllegalBitlength"_s)));
 	}
-	$var($bytes, bigBytes, $nc(big)->toByteArray());
+	$var($bytes, bigBytes, big->toByteArray());
 	bool var$0 = big->bitLength() % 8 != 0;
 	if (var$0 && big->bitLength() / 8 + 1 == bitlen / 8) {
 		return bigBytes;
 	}
 	int32_t startSrc = 0;
-	int32_t bigLen = $nc(bigBytes)->length;
+	int32_t bigLen = bigBytes->length;
 	if (big->bitLength() % 8 == 0) {
 		startSrc = 1;
 		--bigLen;
@@ -1068,12 +964,12 @@ $Boolean* XMLUtils::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("com.sun.org.apache.xml.internal.security.ignoreLineBreaks"_s));
 }
 
-void clinit$XMLUtils($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XMLUtils::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	XMLUtils::ignoreLineBreaks$ = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(XMLUtils$$Lambda$lambda$static$0)))))))->booleanValue();
+	XMLUtils::ignoreLineBreaks$ = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(XMLUtils$$Lambda$lambda$static$0))))->booleanValue();
 	$assignStatic(XMLUtils::LOG, $LoggerFactory::getLogger(XMLUtils::class$));
-	$assignStatic(XMLUtils::xmlParserImpl, $cast($XMLParser, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(XMLUtils$$Lambda$lambda$static$1$1)))));
+	$assignStatic(XMLUtils::xmlParserImpl, $cast($XMLParser, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(XMLUtils$$Lambda$lambda$static$1$1)))));
 	$assignStatic(XMLUtils::dsPrefix, "ds"_s);
 	$assignStatic(XMLUtils::ds11Prefix, "dsig11"_s);
 	$assignStatic(XMLUtils::xencPrefix, "xenc"_s);
@@ -1085,17 +981,90 @@ XMLUtils::XMLUtils() {
 
 $Class* XMLUtils::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(XMLUtils$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$static$0")) {
 			return XMLUtils$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(XMLUtils$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$static$1$1")) {
 			return XMLUtils$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
-		if (name->equals(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.utils.XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2")) {
 			return XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(XMLUtils, name, initialize, &_XMLUtils_ClassInfo_, clinit$XMLUtils, allocate$XMLUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"ignoreLineBreaks", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XMLUtils, ignoreLineBreaks$)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLUtils, LOG)},
+		{"xmlParserImpl", "Lcom/sun/org/apache/xml/internal/security/parser/XMLParser;", nullptr, $PRIVATE | $STATIC, $staticField(XMLUtils, xmlParserImpl)},
+		{"dsPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, dsPrefix)},
+		{"ds11Prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, ds11Prefix)},
+		{"xencPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, xencPrefix)},
+		{"xenc11Prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XMLUtils, xenc11Prefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XMLUtils, init$, void)},
+		{"addReturnBeforeChild", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnBeforeChild, void, $Element*, $Node*)},
+		{"addReturnToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnToElement, void, $Element*)},
+		{"addReturnToElement", "(Lorg/w3c/dom/Document;Lcom/sun/org/apache/xml/internal/security/utils/HelperNodeList;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnToElement, void, $Document*, $HelperNodeList*)},
+		{"circumventBug2650", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, circumventBug2650, void, $Document*)},
+		{"circumventBug2650internal", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLUtils, circumventBug2650internal, void, $Node*)},
+		{"convertNodelistToSet", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set;", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, convertNodelistToSet, $Set*, $NodeList*)},
+		{"createElementInEncryption11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInEncryption11Space, $Element*, $Document*, $String*)},
+		{"createElementInEncryptionSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInEncryptionSpace, $Element*, $Document*, $String*)},
+		{"createElementInSignature11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInSignature11Space, $Element*, $Document*, $String*)},
+		{"createElementInSignatureSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInSignatureSpace, $Element*, $Document*, $String*)},
+		{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, decode, $bytes*, $String*)},
+		{"decode", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, decode, $bytes*, $bytes*)},
+		{"elementIsInEncryption11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInEncryption11Space, bool, $Element*, $String*)},
+		{"elementIsInEncryptionSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInEncryptionSpace, bool, $Element*, $String*)},
+		{"elementIsInSignature11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInSignature11Space, bool, $Element*, $String*)},
+		{"elementIsInSignatureSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInSignatureSpace, bool, $Element*, $String*)},
+		{"encodeToString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, encodeToString, $String*, $bytes*)},
+		{"excludeNodeFromSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Ljava/util/Set;", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, excludeNodeFromSet, $Set*, $Node*, $Set*)},
+		{"getBytes", "(Ljava/math/BigInteger;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getBytes, $bytes*, $BigInteger*, int32_t)},
+		{"getFullTextChildrenFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getFullTextChildrenFromNode, $String*, $Node*)},
+		{"getNextElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getNextElement, $Element*, $Node*)},
+		{"getOwnerDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getOwnerDocument, $Document*, $Node*)},
+		{"getOwnerDocument", "(Ljava/util/Set;)Lorg/w3c/dom/Document;", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)Lorg/w3c/dom/Document;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, getOwnerDocument, $Document*, $Set*)},
+		{"getSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PUBLIC | $STATIC, $staticMethod(XMLUtils, getSet, void, $Node*, $Set*, $Node*, bool)},
+		{"getSetRec", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PRIVATE | $STATIC, $staticMethod(XMLUtils, getSetRec, void, $Node*, $Set*, $Node*, bool)},
+		{"getStrFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getStrFromNode, $String*, $Node*)},
+		{"ignoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, ignoreLineBreaks, bool)},
+		{"isDescendantOrSelf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, isDescendantOrSelf, bool, $Node*, $Node*)},
+		{"isIgnoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, isIgnoreLineBreaks, bool)},
+		{"lambda$excludeNodeFromSet$2", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$excludeNodeFromSet$2, bool, $Node*, $Node*)},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$static$0, $Boolean*)},
+		{"lambda$static$1", "()Lcom/sun/org/apache/xml/internal/security/parser/XMLParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$static$1, $XMLParser*)},
+		{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOM, void, $Node*, $OutputStream*)},
+		{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOM, void, $Node*, $OutputStream*, bool)},
+		{"outputDOMc14nWithComments", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOMc14nWithComments, void, $Node*, $OutputStream*)},
+		{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, protectAgainstWrappingAttack, bool, $Node*, $String*)},
+		{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, protectAgainstWrappingAttack, bool, $Node*, $Element*, $String*)},
+		{"read", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, read, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
+		{"selectDs11Node", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDs11Node, $Element*, $Node*, $String*, int32_t)},
+		{"selectDs11Nodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDs11Nodes, $ElementArray*, $Node*, $String*)},
+		{"selectDsNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDsNode, $Element*, $Node*, $String*, int32_t)},
+		{"selectDsNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDsNodes, $ElementArray*, $Node*, $String*)},
+		{"selectNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectNode, $Element*, $Node*, $String*, $String*, int32_t)},
+		{"selectNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectNodes, $ElementArray*, $Node*, $String*, $String*)},
+		{"selectXencNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectXencNode, $Element*, $Node*, $String*, int32_t)},
+		{"setDs11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setDs11Prefix, void, $String*)},
+		{"setDsPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setDsPrefix, void, $String*)},
+		{"setXenc11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setXenc11Prefix, void, $String*)},
+		{"setXencPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setXencPrefix, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.XMLUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLUtils, name, initialize, &classInfo$$, XMLUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLUtils);
+	});
 	return class$;
 }
 

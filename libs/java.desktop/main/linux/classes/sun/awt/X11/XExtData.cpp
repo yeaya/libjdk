@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XExtData.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,61 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XExtData_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XExtData, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XExtData, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XExtData, pData)},
-	{}
-};
-
-$MethodInfo _XExtData_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XExtData, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XExtData, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExtData, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XExtData, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XExtData, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExtData, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExtData, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XExtData, getSize, int32_t)},
-	{"get_free_private", "(I)J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_free_private, int64_t, int32_t)},
-	{"get_free_private", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_free_private, int64_t)},
-	{"get_next", "(I)Lsun/awt/X11/XExtData;", nullptr, $PUBLIC, $virtualMethod(XExtData, get_next, XExtData*, int32_t)},
-	{"get_next", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_next, int64_t)},
-	{"get_number", "()I", nullptr, $PUBLIC, $virtualMethod(XExtData, get_number, int32_t)},
-	{"get_private_data", "(I)J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_private_data, int64_t, int32_t)},
-	{"get_private_data", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_private_data, int64_t)},
-	{"set_free_private", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_free_private, void, int64_t)},
-	{"set_next", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_next, void, int64_t)},
-	{"set_number", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_number, void, int32_t)},
-	{"set_private_data", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_private_data, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExtData, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExtData, zero, void)},
-	{}
-};
-
-$ClassInfo _XExtData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XExtData",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XExtData_FieldInfo_,
-	_XExtData_MethodInfo_
-};
-
-$Object* allocate$XExtData($Class* clazz) {
-	return $of($alloc(XExtData));
-}
 
 int32_t XExtData::getSize() {
 	$init(XExtData);
@@ -104,7 +55,7 @@ void XExtData::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -191,7 +142,7 @@ $String* XExtData::getFieldsAsString() {
 }
 
 $Object* XExtData::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XExtData::zero() {
@@ -206,7 +157,48 @@ XExtData::XExtData() {
 }
 
 $Class* XExtData::load$($String* name, bool initialize) {
-	$loadClass(XExtData, name, initialize, &_XExtData_ClassInfo_, allocate$XExtData);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XExtData, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XExtData, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XExtData, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XExtData, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XExtData, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExtData, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XExtData, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XExtData, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExtData, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XExtData, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XExtData, getSize, int32_t)},
+		{"get_free_private", "(I)J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_free_private, int64_t, int32_t)},
+		{"get_free_private", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_free_private, int64_t)},
+		{"get_next", "(I)Lsun/awt/X11/XExtData;", nullptr, $PUBLIC, $virtualMethod(XExtData, get_next, XExtData*, int32_t)},
+		{"get_next", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_next, int64_t)},
+		{"get_number", "()I", nullptr, $PUBLIC, $virtualMethod(XExtData, get_number, int32_t)},
+		{"get_private_data", "(I)J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_private_data, int64_t, int32_t)},
+		{"get_private_data", "()J", nullptr, $PUBLIC, $virtualMethod(XExtData, get_private_data, int64_t)},
+		{"set_free_private", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_free_private, void, int64_t)},
+		{"set_next", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_next, void, int64_t)},
+		{"set_number", "(I)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_number, void, int32_t)},
+		{"set_private_data", "(J)V", nullptr, $PUBLIC, $virtualMethod(XExtData, set_private_data, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExtData, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XExtData, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XExtData",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XExtData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XExtData);
+	});
 	return class$;
 }
 

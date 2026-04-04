@@ -1,5 +1,4 @@
 #include <java/awt/peer/PopupMenuPeer.h>
-
 #include <java/awt/Event.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace peer {
 
-$MethodInfo _PopupMenuPeer_MethodInfo_[] = {
-	{"show", "(Ljava/awt/Event;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuPeer, show, void, $Event*)},
-	{}
-};
-
-$ClassInfo _PopupMenuPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.PopupMenuPeer",
-	nullptr,
-	"java.awt.peer.MenuPeer",
-	nullptr,
-	_PopupMenuPeer_MethodInfo_
-};
-
-$Object* allocate$PopupMenuPeer($Class* clazz) {
-	return $of($alloc(PopupMenuPeer));
-}
-
 $Class* PopupMenuPeer::load$($String* name, bool initialize) {
-	$loadClass(PopupMenuPeer, name, initialize, &_PopupMenuPeer_ClassInfo_, allocate$PopupMenuPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"show", "(Ljava/awt/Event;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuPeer, show, void, $Event*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.PopupMenuPeer",
+		nullptr,
+		"java.awt.peer.MenuPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PopupMenuPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupMenuPeer);
+	});
 	return class$;
 }
 

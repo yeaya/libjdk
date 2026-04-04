@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaScrollBarUI$ScrollListener.h>
-
 #include <apple/laf/JRSUIConstants$Hit.h>
 #include <apple/laf/JRSUIConstants$ScrollBarHit.h>
 #include <com/apple/laf/AquaScrollBarUI$TrackListener.h>
@@ -22,52 +21,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JScrollBar = ::javax::swing::JScrollBar;
 using $Timer = ::javax::swing::Timer;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaScrollBarUI$ScrollListener_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaScrollBarUI$ScrollListener, this$0)},
-	{"fUseBlockIncrement", "Z", nullptr, 0, $field(AquaScrollBarUI$ScrollListener, fUseBlockIncrement)},
-	{"fDirection", "I", nullptr, 0, $field(AquaScrollBarUI$ScrollListener, fDirection)},
-	{}
-};
-
-$MethodInfo _AquaScrollBarUI$ScrollListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaScrollBarUI;)V", nullptr, $PROTECTED, $method(AquaScrollBarUI$ScrollListener, init$, void, $AquaScrollBarUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$ScrollListener, actionPerformed, void, $ActionEvent*)},
-	{"setDirection", "(I)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$ScrollListener, setDirection, void, int32_t)},
-	{"setScrollByBlock", "(Z)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$ScrollListener, setScrollByBlock, void, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaScrollBarUI$ScrollListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaScrollBarUI$ScrollListener", "com.apple.laf.AquaScrollBarUI", "ScrollListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaScrollBarUI$ScrollListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaScrollBarUI$ScrollListener",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_AquaScrollBarUI$ScrollListener_FieldInfo_,
-	_AquaScrollBarUI$ScrollListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaScrollBarUI$ScrollListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaScrollBarUI"
-};
-
-$Object* allocate$AquaScrollBarUI$ScrollListener($Class* clazz) {
-	return $of($alloc(AquaScrollBarUI$ScrollListener));
-}
 
 void AquaScrollBarUI$ScrollListener::init$($AquaScrollBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -83,7 +41,7 @@ void AquaScrollBarUI$ScrollListener::setScrollByBlock(bool block) {
 }
 
 void AquaScrollBarUI$ScrollListener::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fUseBlockIncrement) {
 		$var($JRSUIConstants$Hit, newPart, this->this$0->getPartHit($nc(this->this$0->fTrackListener)->fCurrentMouseX, $nc(this->this$0->fTrackListener)->fCurrentMouseY));
 		$init($JRSUIConstants$ScrollBarHit);
@@ -96,7 +54,7 @@ void AquaScrollBarUI$ScrollListener::actionPerformed($ActionEvent* e) {
 		this->this$0->scrollByBlock(this->fDirection);
 		$assign(newPart, this->this$0->getPartHit($nc(this->this$0->fTrackListener)->fCurrentMouseX, $nc(this->this$0->fTrackListener)->fCurrentMouseY));
 		if ($equals(newPart, $JRSUIConstants$ScrollBarHit::THUMB)) {
-			$nc(($cast($Timer, $($nc(e)->getSource()))))->stop();
+			$$sure($Timer, $nc(e)->getSource())->stop();
 		}
 	} else {
 		this->this$0->scrollByUnit(this->fDirection);
@@ -104,19 +62,19 @@ void AquaScrollBarUI$ScrollListener::actionPerformed($ActionEvent* e) {
 	bool var$0 = this->fDirection > 0;
 	if (var$0) {
 		int32_t var$2 = $nc(this->this$0->fScrollBar)->getValue();
-		int32_t var$1 = var$2 + $nc(this->this$0->fScrollBar)->getVisibleAmount();
-		var$0 = var$1 >= $nc(this->this$0->fScrollBar)->getMaximum();
+		int32_t var$1 = var$2 + this->this$0->fScrollBar->getVisibleAmount();
+		var$0 = var$1 >= this->this$0->fScrollBar->getMaximum();
 	}
 	if (var$0) {
-		$nc(($cast($Timer, $($nc(e)->getSource()))))->stop();
+		$$sure($Timer, $nc(e)->getSource())->stop();
 	} else {
-		bool var$5 = this->fDirection < 0;
-		if (var$5) {
-			int32_t var$6 = $nc(this->this$0->fScrollBar)->getValue();
-			var$5 = var$6 <= $nc(this->this$0->fScrollBar)->getMinimum();
+		bool var$3 = this->fDirection < 0;
+		if (var$3) {
+			int32_t var$4 = $nc(this->this$0->fScrollBar)->getValue();
+			var$3 = var$4 <= this->this$0->fScrollBar->getMinimum();
 		}
-		if (var$5) {
-			$nc(($cast($Timer, $($nc(e)->getSource()))))->stop();
+		if (var$3) {
+			$$sure($Timer, $nc(e)->getSource())->stop();
 		}
 	}
 }
@@ -125,7 +83,41 @@ AquaScrollBarUI$ScrollListener::AquaScrollBarUI$ScrollListener() {
 }
 
 $Class* AquaScrollBarUI$ScrollListener::load$($String* name, bool initialize) {
-	$loadClass(AquaScrollBarUI$ScrollListener, name, initialize, &_AquaScrollBarUI$ScrollListener_ClassInfo_, allocate$AquaScrollBarUI$ScrollListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaScrollBarUI$ScrollListener, this$0)},
+		{"fUseBlockIncrement", "Z", nullptr, 0, $field(AquaScrollBarUI$ScrollListener, fUseBlockIncrement)},
+		{"fDirection", "I", nullptr, 0, $field(AquaScrollBarUI$ScrollListener, fDirection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaScrollBarUI;)V", nullptr, $PROTECTED, $method(AquaScrollBarUI$ScrollListener, init$, void, $AquaScrollBarUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$ScrollListener, actionPerformed, void, $ActionEvent*)},
+		{"setDirection", "(I)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$ScrollListener, setDirection, void, int32_t)},
+		{"setScrollByBlock", "(Z)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$ScrollListener, setScrollByBlock, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaScrollBarUI$ScrollListener", "com.apple.laf.AquaScrollBarUI", "ScrollListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaScrollBarUI$ScrollListener",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaScrollBarUI"
+	};
+	$loadClass(AquaScrollBarUI$ScrollListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaScrollBarUI$ScrollListener);
+	});
 	return class$;
 }
 

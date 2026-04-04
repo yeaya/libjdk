@@ -1,5 +1,4 @@
 #include <java.xml.crypto.test.h>
-
 #include <java.xml.crypto.h>
 #include <java.logging.h>
 #include <java.xml.h>

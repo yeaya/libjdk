@@ -112,6 +112,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t width, int32_t height, int32_t imageType);
 	void init$(int32_t width, int32_t height, int32_t imageType, ::java::awt::image::IndexColorModel* cm);
 	void init$(::java::awt::image::ColorModel* cm, ::java::awt::image::WritableRaster* raster, bool isRasterPremultiplied, ::java::util::Hashtable* properties);
@@ -183,19 +184,19 @@ public:
 	static const int32_t TYPE_USHORT_GRAY = 11;
 	static const int32_t TYPE_BYTE_BINARY = 12;
 	static const int32_t TYPE_BYTE_INDEXED = 13;
-	static const int32_t DCM_RED_MASK = 0x00FF0000;
-	static const int32_t DCM_GREEN_MASK = 0x0000FF00;
+	static const int32_t DCM_RED_MASK = 0x00ff0000;
+	static const int32_t DCM_GREEN_MASK = 0x0000ff00;
 	static const int32_t DCM_BLUE_MASK = 255;
-	static const int32_t DCM_ALPHA_MASK = 0xFF000000;
-	static const int32_t DCM_565_RED_MASK = 0x0000F800;
+	static const int32_t DCM_ALPHA_MASK = 0xff000000;
+	static const int32_t DCM_565_RED_MASK = 0x0000f800;
 	static const int32_t DCM_565_GRN_MASK = 2016;
 	static const int32_t DCM_565_BLU_MASK = 31;
 	static const int32_t DCM_555_RED_MASK = 31744;
 	static const int32_t DCM_555_GRN_MASK = 992;
 	static const int32_t DCM_555_BLU_MASK = 31;
 	static const int32_t DCM_BGR_RED_MASK = 255;
-	static const int32_t DCM_BGR_GRN_MASK = 0x0000FF00;
-	static const int32_t DCM_BGR_BLU_MASK = 0x00FF0000;
+	static const int32_t DCM_BGR_GRN_MASK = 0x0000ff00;
+	static const int32_t DCM_BGR_BLU_MASK = 0x00ff0000;
 };
 
 		} // image

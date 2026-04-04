@@ -55,6 +55,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Button* target);
 	virtual void create(::sun::awt::windows::WComponentPeer* peer) override;
 	virtual ::java::awt::Dimension* getMinimumSize() override;

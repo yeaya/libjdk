@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$HTMLReader$PreAction.h>
-
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/html/CSS$Attribute.h>
 #include <javax/swing/text/html/HTML$Tag.h>
@@ -24,45 +23,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLDocument$HTMLReader$PreAction_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$PreAction, this$1)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$HTMLReader$PreAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader$PreAction, init$, void, $HTMLDocument$HTMLReader*)},
-	{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$PreAction, end, void, $HTML$Tag*)},
-	{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$PreAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$HTMLReader$PreAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$PreAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "PreAction", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "BlockAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$HTMLReader$PreAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$HTMLReader$PreAction",
-	"javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction",
-	nullptr,
-	_HTMLDocument$HTMLReader$PreAction_FieldInfo_,
-	_HTMLDocument$HTMLReader$PreAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$HTMLReader$PreAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$HTMLReader$PreAction($Class* clazz) {
-	return $of($alloc(HTMLDocument$HTMLReader$PreAction));
-}
 
 void HTMLDocument$HTMLReader$PreAction::init$($HTMLDocument$HTMLReader* this$1) {
 	$set(this, this$1, this$1);
@@ -89,7 +49,40 @@ HTMLDocument$HTMLReader$PreAction::HTMLDocument$HTMLReader$PreAction() {
 }
 
 $Class* HTMLDocument$HTMLReader$PreAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$HTMLReader$PreAction, name, initialize, &_HTMLDocument$HTMLReader$PreAction_ClassInfo_, allocate$HTMLDocument$HTMLReader$PreAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$PreAction, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, $PUBLIC, $method(HTMLDocument$HTMLReader$PreAction, init$, void, $HTMLDocument$HTMLReader*)},
+		{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$PreAction, end, void, $HTML$Tag*)},
+		{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$PreAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$PreAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "PreAction", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "BlockAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$HTMLReader$PreAction",
+		"javax.swing.text.html.HTMLDocument$HTMLReader$BlockAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$HTMLReader$PreAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLDocument$HTMLReader$PreAction);
+	});
 	return class$;
 }
 

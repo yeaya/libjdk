@@ -19,6 +19,7 @@ class GraphicsCallback$PeerPrintCallback : public ::java::awt::GraphicsCallback 
 	$class(GraphicsCallback$PeerPrintCallback, 0, ::java::awt::GraphicsCallback)
 public:
 	GraphicsCallback$PeerPrintCallback();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::GraphicsCallback$PeerPrintCallback* getInstance();
 	virtual void run(::java::awt::Component* comp, ::java::awt::Graphics* cg) override;

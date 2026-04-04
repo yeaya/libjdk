@@ -1,5 +1,4 @@
 #include <sun/font/NativeFont.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontFormatException.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -60,61 +59,6 @@ using $SunFontManager = ::sun::font::SunFontManager;
 namespace sun {
 	namespace font {
 
-$FieldInfo _NativeFont_FieldInfo_[] = {
-	{"encoding", "Ljava/lang/String;", nullptr, 0, $field(NativeFont, encoding)},
-	{"numGlyphs", "I", nullptr, $PRIVATE, $field(NativeFont, numGlyphs)},
-	{"isBitmapDelegate", "Z", nullptr, 0, $field(NativeFont, isBitmapDelegate)},
-	{"delegateFont", "Lsun/font/PhysicalFont;", nullptr, 0, $field(NativeFont, delegateFont)},
-	{}
-};
-
-$MethodInfo _NativeFont_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NativeFont, init$, void, $String*, bool), "java.awt.FontFormatException"},
-	{"countGlyphs", "([BI)I", nullptr, $PRIVATE | $NATIVE, $method(NativeFont, countGlyphs, int32_t, $bytes*, int32_t)},
-	{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, 0, $virtualMethod(NativeFont, createStrike, $FontStrike*, $FontStrikeDesc*)},
-	{"fontExists", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeFont, fontExists, bool, $String*)},
-	{"fontExists", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeFont, fontExists, bool, $bytes*)},
-	{"getDelegateFont", "()Lsun/font/PhysicalFont;", nullptr, 0, $virtualMethod(NativeFont, getDelegateFont, $PhysicalFont*)},
-	{"getFontMetrics", "(J)Lsun/font/StrikeMetrics;", nullptr, $NATIVE, $virtualMethod(NativeFont, getFontMetrics, $StrikeMetrics*, int64_t)},
-	{"getGlyphAdvance", "(JI)F", nullptr, $NATIVE, $virtualMethod(NativeFont, getGlyphAdvance, float, int64_t, int32_t)},
-	{"getGlyphImage", "(JI)J", nullptr, $NATIVE, $virtualMethod(NativeFont, getGlyphImage, int64_t, int64_t, int32_t)},
-	{"getGlyphImageNoDefault", "(JI)J", nullptr, $NATIVE, $virtualMethod(NativeFont, getGlyphImageNoDefault, int64_t, int64_t, int32_t)},
-	{"getGlyphMetrics", "(JILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $virtualMethod(NativeFont, getGlyphMetrics, void, int64_t, int32_t, $Point2D$Float*)},
-	{"getGlyphOutline", "(JIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphOutline, $GeneralPath*, int64_t, int32_t, float, float)},
-	{"getGlyphOutlineBounds", "(JI)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(NativeFont, getGlyphOutlineBounds, $Rectangle2D$Float*, int64_t, int32_t)},
-	{"getGlyphVectorOutline", "(J[IIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphVectorOutline, $GeneralPath*, int64_t, $ints*, int32_t, float, float)},
-	{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMapper, $CharToGlyphMapper*)},
-	{"getMaxCharBounds", "(Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMaxCharBounds, $Rectangle2D*, $FontRenderContext*)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(NativeFont, getNumGlyphs, int32_t)},
-	{"getPlatformNameBytes", "(I)[B", nullptr, 0, $virtualMethod(NativeFont, getPlatformNameBytes, $bytes*, int32_t)},
-	{"hasExternalBitmaps", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(NativeFont, hasExternalBitmaps, bool, $String*)},
-	{"haveBitmapFonts", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeFont, haveBitmapFonts, bool, $bytes*)},
-	{"initNames", "()V", nullptr, $PRIVATE, $method(NativeFont, initNames, void), "java.awt.FontFormatException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeFont, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_countGlyphs 1
-#define _METHOD_INDEX_fontExists 4
-#define _METHOD_INDEX_getFontMetrics 6
-#define _METHOD_INDEX_getGlyphAdvance 7
-#define _METHOD_INDEX_getGlyphImage 8
-#define _METHOD_INDEX_getGlyphImageNoDefault 9
-#define _METHOD_INDEX_haveBitmapFonts 19
-
-$ClassInfo _NativeFont_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.NativeFont",
-	"sun.font.PhysicalFont",
-	nullptr,
-	_NativeFont_FieldInfo_,
-	_NativeFont_MethodInfo_
-};
-
-$Object* allocate$NativeFont($Class* clazz) {
-	return $of($alloc(NativeFont));
-}
-
 void NativeFont::init$($String* platName, bool bitmapDelegate) {
 	$PhysicalFont::init$(platName, nullptr);
 	this->numGlyphs = -1;
@@ -130,7 +74,7 @@ void NativeFont::init$($String* platName, bool bitmapDelegate) {
 }
 
 void NativeFont::initNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, hPos, $new($ints, 14));
 	int32_t hyphenCnt = 1;
 	int32_t pos = 1;
@@ -138,7 +82,7 @@ void NativeFont::initNames() {
 	$var($String, xlfd, $nc(this->platName)->toLowerCase($Locale::ENGLISH));
 	if (xlfd->startsWith("-"_s)) {
 		while (pos != -1 && hyphenCnt < 14) {
-			pos = xlfd->indexOf((int32_t)u'-', pos);
+			pos = xlfd->indexOf(u'-', pos);
 			if (pos != -1) {
 				hPos->set(hyphenCnt++, pos);
 				++pos;
@@ -174,8 +118,8 @@ void NativeFont::initNames() {
 				$assign(styleStr, $str({styleStr, " Italic"_s}));
 			}
 		} else {
-			bool var$3 = tmpSlant->equals("o"_s);
-			if (var$3 || tmpSlant->indexOf("oblique"_s) >= 0) {
+			bool var$2 = tmpSlant->equals("o"_s);
+			if (var$2 || tmpSlant->indexOf("oblique"_s) >= 0) {
 				this->style |= $Font::ITALIC;
 				if (styleStr == nullptr) {
 					$assign(styleStr, "Oblique"_s);
@@ -190,10 +134,10 @@ void NativeFont::initNames() {
 			$set(this, fullName, $str({this->familyName, " "_s, styleStr}));
 		}
 		$set(this, encoding, xlfd->substring(hPos->get(12) + 1));
-		if ($nc(this->encoding)->startsWith("-"_s)) {
+		if (this->encoding->startsWith("-"_s)) {
 			$set(this, encoding, xlfd->substring(hPos->get(13) + 1));
 		}
-		if ($nc(this->encoding)->indexOf("fontspecific"_s) >= 0) {
+		if (this->encoding->indexOf("fontspecific"_s) >= 0) {
 			if (tmpFamily->indexOf("dingbats"_s) >= 0) {
 				$set(this, encoding, "dingbats"_s);
 			} else if (tmpFamily->indexOf("symbol"_s) >= 0) {
@@ -209,19 +153,20 @@ void NativeFont::initNames() {
 
 bool NativeFont::hasExternalBitmaps($String* platName) {
 	$init(NativeFont);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, platName));
 	int32_t pos = sb->indexOf("-0-"_s);
 	while (pos >= 0) {
 		sb->replace(pos + 1, pos + 2, "*"_s);
 		pos = sb->indexOf("-0-"_s, pos);
 	}
+	;
 	$var($String, xlfd, sb->toString());
 	$var($bytes, bytes, nullptr);
 	try {
-		$assign(bytes, $nc(xlfd)->getBytes("UTF-8"_s));
+		$assign(bytes, xlfd->getBytes("UTF-8"_s));
 	} catch ($UnsupportedEncodingException& e) {
-		$assign(bytes, $nc(xlfd)->getBytes());
+		$assign(bytes, xlfd->getBytes());
 	}
 	return haveBitmapFonts(bytes);
 }
@@ -239,18 +184,16 @@ bool NativeFont::fontExists($String* xlfd) {
 
 bool NativeFont::haveBitmapFonts($bytes* xlfd) {
 	$init(NativeFont);
-	bool $ret = false;
-	$prepareNativeStatic(NativeFont, haveBitmapFonts, bool, $bytes* xlfd);
-	$ret = $invokeNativeStatic(xlfd);
+	$prepareNativeStatic(haveBitmapFonts, bool, $bytes* xlfd);
+	bool $ret = $invokeNativeStatic(xlfd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool NativeFont::fontExists($bytes* xlfd) {
 	$init(NativeFont);
-	bool $ret = false;
-	$prepareNativeStatic(NativeFont, fontExists, bool, $bytes* xlfd);
-	$ret = $invokeNativeStatic(xlfd);
+	$prepareNativeStatic(fontExists, bool, $bytes* xlfd);
+	bool $ret = $invokeNativeStatic(xlfd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -269,7 +212,7 @@ $CharToGlyphMapper* NativeFont::getMapper() {
 }
 
 $FontStrike* NativeFont::createStrike($FontStrikeDesc* desc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isBitmapDelegate) {
 		return $new($NativeStrike, this, desc);
 	} else {
@@ -290,17 +233,15 @@ $Rectangle2D* NativeFont::getMaxCharBounds($FontRenderContext* frc) {
 }
 
 $StrikeMetrics* NativeFont::getFontMetrics(int64_t pScalerContext) {
-	$var($StrikeMetrics, $ret, nullptr);
-	$prepareNative(NativeFont, getFontMetrics, $StrikeMetrics*, int64_t pScalerContext);
-	$assign($ret, $invokeNativeObject(pScalerContext));
+	$prepareNative(getFontMetrics, $StrikeMetrics*, int64_t pScalerContext);
+	$var($StrikeMetrics, $ret, $invokeNativeObject(pScalerContext));
 	$finishNative();
 	return $ret;
 }
 
 float NativeFont::getGlyphAdvance(int64_t pContext, int32_t glyphCode) {
-	float $ret = 0.0;
-	$prepareNative(NativeFont, getGlyphAdvance, float, int64_t pContext, int32_t glyphCode);
-	$ret = $invokeNative(pContext, glyphCode);
+	$prepareNative(getGlyphAdvance, float, int64_t pContext, int32_t glyphCode);
+	float $ret = $invokeNative(pContext, glyphCode);
 	$finishNative();
 	return $ret;
 }
@@ -314,17 +255,15 @@ $GeneralPath* NativeFont::getGlyphOutline(int64_t pScalerContext, int32_t glyphC
 }
 
 int64_t NativeFont::getGlyphImage(int64_t pScalerContext, int32_t glyphCode) {
-	int64_t $ret = 0;
-	$prepareNative(NativeFont, getGlyphImage, int64_t, int64_t pScalerContext, int32_t glyphCode);
-	$ret = $invokeNative(pScalerContext, glyphCode);
+	$prepareNative(getGlyphImage, int64_t, int64_t pScalerContext, int32_t glyphCode);
+	int64_t $ret = $invokeNative(pScalerContext, glyphCode);
 	$finishNative();
 	return $ret;
 }
 
 int64_t NativeFont::getGlyphImageNoDefault(int64_t pScalerContext, int32_t glyphCode) {
-	int64_t $ret = 0;
-	$prepareNative(NativeFont, getGlyphImageNoDefault, int64_t, int64_t pScalerContext, int32_t glyphCode);
-	$ret = $invokeNative(pScalerContext, glyphCode);
+	$prepareNative(getGlyphImageNoDefault, int64_t, int64_t pScalerContext, int32_t glyphCode);
+	int64_t $ret = $invokeNative(pScalerContext, glyphCode);
 	$finishNative();
 	return $ret;
 }
@@ -338,9 +277,8 @@ $GeneralPath* NativeFont::getGlyphVectorOutline(int64_t pScalerContext, $ints* g
 }
 
 int32_t NativeFont::countGlyphs($bytes* platformNameBytes, int32_t ptSize) {
-	int32_t $ret = 0;
-	$prepareNative(NativeFont, countGlyphs, int32_t, $bytes* platformNameBytes, int32_t ptSize);
-	$ret = $invokeNative(platformNameBytes, ptSize);
+	$prepareNative(countGlyphs, int32_t, $bytes* platformNameBytes, int32_t ptSize);
+	int32_t $ret = $invokeNative(platformNameBytes, ptSize);
 	$finishNative();
 	return $ret;
 }
@@ -362,12 +300,12 @@ $PhysicalFont* NativeFont::getDelegateFont() {
 }
 
 $bytes* NativeFont::getPlatformNameBytes(int32_t ptSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, hPos, $new($ints, 14));
 	int32_t hyphenCnt = 1;
 	int32_t pos = 1;
 	while (pos != -1 && hyphenCnt < 14) {
-		pos = $nc(this->platName)->indexOf((int32_t)u'-', pos);
+		pos = $nc(this->platName)->indexOf(u'-', pos);
 		if (pos != -1) {
 			hPos->set(hyphenCnt++, pos);
 			++pos;
@@ -386,9 +324,9 @@ $bytes* NativeFont::getPlatformNameBytes(int32_t ptSize) {
 	$var($String, xlfd, sb->toString());
 	$var($bytes, bytes, nullptr);
 	try {
-		$assign(bytes, $nc(xlfd)->getBytes("UTF-8"_s));
+		$assign(bytes, xlfd->getBytes("UTF-8"_s));
 	} catch ($UnsupportedEncodingException& e) {
-		$assign(bytes, $nc(xlfd)->getBytes());
+		$assign(bytes, xlfd->getBytes());
 	}
 	return bytes;
 }
@@ -401,7 +339,49 @@ NativeFont::NativeFont() {
 }
 
 $Class* NativeFont::load$($String* name, bool initialize) {
-	$loadClass(NativeFont, name, initialize, &_NativeFont_ClassInfo_, allocate$NativeFont);
+	$FieldInfo fieldInfos$$[] = {
+		{"encoding", "Ljava/lang/String;", nullptr, 0, $field(NativeFont, encoding)},
+		{"numGlyphs", "I", nullptr, $PRIVATE, $field(NativeFont, numGlyphs)},
+		{"isBitmapDelegate", "Z", nullptr, 0, $field(NativeFont, isBitmapDelegate)},
+		{"delegateFont", "Lsun/font/PhysicalFont;", nullptr, 0, $field(NativeFont, delegateFont)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NativeFont, init$, void, $String*, bool), "java.awt.FontFormatException"},
+		{"countGlyphs", "([BI)I", nullptr, $PRIVATE | $NATIVE, $method(NativeFont, countGlyphs, int32_t, $bytes*, int32_t)},
+		{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, 0, $virtualMethod(NativeFont, createStrike, $FontStrike*, $FontStrikeDesc*)},
+		{"fontExists", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeFont, fontExists, bool, $String*)},
+		{"fontExists", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeFont, fontExists, bool, $bytes*)},
+		{"getDelegateFont", "()Lsun/font/PhysicalFont;", nullptr, 0, $virtualMethod(NativeFont, getDelegateFont, $PhysicalFont*)},
+		{"getFontMetrics", "(J)Lsun/font/StrikeMetrics;", nullptr, $NATIVE, $virtualMethod(NativeFont, getFontMetrics, $StrikeMetrics*, int64_t)},
+		{"getGlyphAdvance", "(JI)F", nullptr, $NATIVE, $virtualMethod(NativeFont, getGlyphAdvance, float, int64_t, int32_t)},
+		{"getGlyphImage", "(JI)J", nullptr, $NATIVE, $virtualMethod(NativeFont, getGlyphImage, int64_t, int64_t, int32_t)},
+		{"getGlyphImageNoDefault", "(JI)J", nullptr, $NATIVE, $virtualMethod(NativeFont, getGlyphImageNoDefault, int64_t, int64_t, int32_t)},
+		{"getGlyphMetrics", "(JILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $virtualMethod(NativeFont, getGlyphMetrics, void, int64_t, int32_t, $Point2D$Float*)},
+		{"getGlyphOutline", "(JIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphOutline, $GeneralPath*, int64_t, int32_t, float, float)},
+		{"getGlyphOutlineBounds", "(JI)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(NativeFont, getGlyphOutlineBounds, $Rectangle2D$Float*, int64_t, int32_t)},
+		{"getGlyphVectorOutline", "(J[IIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphVectorOutline, $GeneralPath*, int64_t, $ints*, int32_t, float, float)},
+		{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMapper, $CharToGlyphMapper*)},
+		{"getMaxCharBounds", "(Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMaxCharBounds, $Rectangle2D*, $FontRenderContext*)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(NativeFont, getNumGlyphs, int32_t)},
+		{"getPlatformNameBytes", "(I)[B", nullptr, 0, $virtualMethod(NativeFont, getPlatformNameBytes, $bytes*, int32_t)},
+		{"hasExternalBitmaps", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(NativeFont, hasExternalBitmaps, bool, $String*)},
+		{"haveBitmapFonts", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeFont, haveBitmapFonts, bool, $bytes*)},
+		{"initNames", "()V", nullptr, $PRIVATE, $method(NativeFont, initNames, void), "java.awt.FontFormatException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NativeFont, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.NativeFont",
+		"sun.font.PhysicalFont",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeFont, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeFont);
+	});
 	return class$;
 }
 

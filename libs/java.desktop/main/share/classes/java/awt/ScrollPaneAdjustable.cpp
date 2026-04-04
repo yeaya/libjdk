@@ -1,5 +1,4 @@
 #include <java/awt/ScrollPaneAdjustable.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/Adjustable.h>
@@ -14,7 +13,6 @@
 #include <java/awt/peer/ScrollPanePeer.h>
 #include <java/lang/Math.h>
 #include <java/util/EventListener.h>
-#include <sun/awt/AWTAccessor$ScrollPaneAdjustableAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <jcpp.h>
 
@@ -40,86 +38,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ScrollPaneAdjustableAccessor = ::sun::awt::AWTAccessor$ScrollPaneAdjustableAccessor;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _ScrollPaneAdjustable_FieldInfo_[] = {
-	{"sp", "Ljava/awt/ScrollPane;", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, sp)},
-	{"orientation", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, orientation)},
-	{"value", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, value)},
-	{"minimum", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, minimum)},
-	{"maximum", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, maximum)},
-	{"visibleAmount", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, visibleAmount)},
-	{"isAdjusting", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(ScrollPaneAdjustable, isAdjusting)},
-	{"unitIncrement", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, unitIncrement)},
-	{"blockIncrement", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, blockIncrement)},
-	{"adjustmentListener", "Ljava/awt/event/AdjustmentListener;", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, adjustmentListener)},
-	{"SCROLLPANE_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScrollPaneAdjustable, SCROLLPANE_ONLY)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPaneAdjustable, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ScrollPaneAdjustable_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/ScrollPane;Ljava/awt/event/AdjustmentListener;I)V", nullptr, 0, $method(ScrollPaneAdjustable, init$, void, $ScrollPane*, $AdjustmentListener*, int32_t)},
-	{"addAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, addAdjustmentListener, void, $AdjustmentListener*)},
-	{"getAdjustmentListeners", "()[Ljava/awt/event/AdjustmentListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, getAdjustmentListeners, $AdjustmentListenerArray*)},
-	{"getBlockIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getBlockIncrement, int32_t)},
-	{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getMaximum, int32_t)},
-	{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getMinimum, int32_t)},
-	{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getOrientation, int32_t)},
-	{"getUnitIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getUnitIncrement, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getValue, int32_t)},
-	{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getValueIsAdjusting, bool)},
-	{"getVisibleAmount", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getVisibleAmount, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ScrollPaneAdjustable, initIDs, void)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, paramString, $String*)},
-	{"removeAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, removeAdjustmentListener, void, $AdjustmentListener*)},
-	{"setBlockIncrement", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, setBlockIncrement, void, int32_t)},
-	{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setMaximum, void, int32_t)},
-	{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setMinimum, void, int32_t)},
-	{"setSpan", "(III)V", nullptr, 0, $virtualMethod(ScrollPaneAdjustable, setSpan, void, int32_t, int32_t, int32_t)},
-	{"setTypedValue", "(II)V", nullptr, $PRIVATE, $method(ScrollPaneAdjustable, setTypedValue, void, int32_t, int32_t)},
-	{"setUnitIncrement", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, setUnitIncrement, void, int32_t)},
-	{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setValue, void, int32_t)},
-	{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setValueIsAdjusting, void, bool)},
-	{"setVisibleAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setVisibleAmount, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 15
-
-$InnerClassInfo _ScrollPaneAdjustable_InnerClassesInfo_[] = {
-	{"java.awt.ScrollPaneAdjustable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ScrollPaneAdjustable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.ScrollPaneAdjustable",
-	"java.lang.Object",
-	"java.awt.Adjustable,java.io.Serializable",
-	_ScrollPaneAdjustable_FieldInfo_,
-	_ScrollPaneAdjustable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScrollPaneAdjustable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.ScrollPaneAdjustable$1"
-};
-
-$Object* allocate$ScrollPaneAdjustable($Class* clazz) {
-	return $of($alloc(ScrollPaneAdjustable));
-}
 
 int32_t ScrollPaneAdjustable::hashCode() {
 	 return this->$Adjustable::hashCode();
@@ -141,7 +63,7 @@ $String* ScrollPaneAdjustable::SCROLLPANE_ONLY = nullptr;
 
 void ScrollPaneAdjustable::initIDs() {
 	$init(ScrollPaneAdjustable);
-	$prepareNativeStatic(ScrollPaneAdjustable, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -188,7 +110,7 @@ void ScrollPaneAdjustable::setUnitIncrement(int32_t u) {
 		if (u != this->unitIncrement) {
 			this->unitIncrement = u;
 			if ($nc(this->sp)->peer != nullptr) {
-				$var($ScrollPanePeer, peer, $cast($ScrollPanePeer, $nc(this->sp)->peer));
+				$var($ScrollPanePeer, peer, $cast($ScrollPanePeer, this->sp->peer));
 				$nc(peer)->setUnitIncrement(this, u);
 			}
 		}
@@ -268,23 +190,26 @@ void ScrollPaneAdjustable::removeAdjustmentListener($AdjustmentListener* l) {
 $AdjustmentListenerArray* ScrollPaneAdjustable::getAdjustmentListeners() {
 	$synchronized(this) {
 		$load($AdjustmentListener);
-		return $fcast($AdjustmentListenerArray, $AWTEventMulticaster::getListeners(this->adjustmentListener, $AdjustmentListener::class$));
+		return $cast($AdjustmentListenerArray, $AWTEventMulticaster::getListeners(this->adjustmentListener, $AdjustmentListener::class$));
 	}
 }
 
 $String* ScrollPaneAdjustable::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s}));
-	$var($String, var$0, $$concat(var$1, $(paramString())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("["_s);
+	var$0->append($(paramString()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 $String* ScrollPaneAdjustable::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return ($str({(this->orientation == $Adjustable::VERTICAL ? "vertical,"_s : "horizontal,"_s), "[0.."_s, $$str(this->maximum), "],val="_s, $$str(this->value), ",vis="_s, $$str(this->visibleAmount), ",unit="_s, $$str(this->unitIncrement), ",block="_s, $$str(this->blockIncrement), ",isAdjusting="_s, $$str(this->isAdjusting)}));
 }
 
-void clinit$ScrollPaneAdjustable($Class* class$) {
+void ScrollPaneAdjustable::clinit$($Class* clazz) {
 	$assignStatic(ScrollPaneAdjustable::SCROLLPANE_ONLY, "Can be set by scrollpane only"_s);
 	{
 		$Toolkit::loadLibraries();
@@ -299,7 +224,73 @@ ScrollPaneAdjustable::ScrollPaneAdjustable() {
 }
 
 $Class* ScrollPaneAdjustable::load$($String* name, bool initialize) {
-	$loadClass(ScrollPaneAdjustable, name, initialize, &_ScrollPaneAdjustable_ClassInfo_, clinit$ScrollPaneAdjustable, allocate$ScrollPaneAdjustable);
+	$FieldInfo fieldInfos$$[] = {
+		{"sp", "Ljava/awt/ScrollPane;", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, sp)},
+		{"orientation", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, orientation)},
+		{"value", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, value)},
+		{"minimum", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, minimum)},
+		{"maximum", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, maximum)},
+		{"visibleAmount", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, visibleAmount)},
+		{"isAdjusting", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(ScrollPaneAdjustable, isAdjusting)},
+		{"unitIncrement", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, unitIncrement)},
+		{"blockIncrement", "I", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, blockIncrement)},
+		{"adjustmentListener", "Ljava/awt/event/AdjustmentListener;", nullptr, $PRIVATE, $field(ScrollPaneAdjustable, adjustmentListener)},
+		{"SCROLLPANE_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScrollPaneAdjustable, SCROLLPANE_ONLY)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPaneAdjustable, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/ScrollPane;Ljava/awt/event/AdjustmentListener;I)V", nullptr, 0, $method(ScrollPaneAdjustable, init$, void, $ScrollPane*, $AdjustmentListener*, int32_t)},
+		{"addAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, addAdjustmentListener, void, $AdjustmentListener*)},
+		{"getAdjustmentListeners", "()[Ljava/awt/event/AdjustmentListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, getAdjustmentListeners, $AdjustmentListenerArray*)},
+		{"getBlockIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getBlockIncrement, int32_t)},
+		{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getMaximum, int32_t)},
+		{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getMinimum, int32_t)},
+		{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getOrientation, int32_t)},
+		{"getUnitIncrement", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getUnitIncrement, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getValue, int32_t)},
+		{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getValueIsAdjusting, bool)},
+		{"getVisibleAmount", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, getVisibleAmount, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ScrollPaneAdjustable, initIDs, void)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, paramString, $String*)},
+		{"removeAdjustmentListener", "(Ljava/awt/event/AdjustmentListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, removeAdjustmentListener, void, $AdjustmentListener*)},
+		{"setBlockIncrement", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, setBlockIncrement, void, int32_t)},
+		{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setMaximum, void, int32_t)},
+		{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setMinimum, void, int32_t)},
+		{"setSpan", "(III)V", nullptr, 0, $virtualMethod(ScrollPaneAdjustable, setSpan, void, int32_t, int32_t, int32_t)},
+		{"setTypedValue", "(II)V", nullptr, $PRIVATE, $method(ScrollPaneAdjustable, setTypedValue, void, int32_t, int32_t)},
+		{"setUnitIncrement", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScrollPaneAdjustable, setUnitIncrement, void, int32_t)},
+		{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setValue, void, int32_t)},
+		{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setValueIsAdjusting, void, bool)},
+		{"setVisibleAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, setVisibleAmount, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneAdjustable, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.ScrollPaneAdjustable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.ScrollPaneAdjustable",
+		"java.lang.Object",
+		"java.awt.Adjustable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.ScrollPaneAdjustable$1"
+	};
+	$loadClass(ScrollPaneAdjustable, name, initialize, &classInfo$$, ScrollPaneAdjustable::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScrollPaneAdjustable));
+	});
 	return class$;
 }
 

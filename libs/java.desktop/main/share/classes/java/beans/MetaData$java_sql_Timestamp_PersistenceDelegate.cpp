@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_sql_Timestamp_PersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/MetaData$java_util_Date_PersistenceDelegate.h>
 #include <java/beans/MetaData.h>
@@ -35,45 +34,6 @@ using $Method = ::java::lang::reflect::Method;
 namespace java {
 	namespace beans {
 
-$FieldInfo _MetaData$java_sql_Timestamp_PersistenceDelegate_FieldInfo_[] = {
-	{"getNanosMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetaData$java_sql_Timestamp_PersistenceDelegate, getNanosMethod$)},
-	{}
-};
-
-$MethodInfo _MetaData$java_sql_Timestamp_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_sql_Timestamp_PersistenceDelegate, init$, void)},
-	{"getNanos", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MetaData$java_sql_Timestamp_PersistenceDelegate, getNanos, int32_t, Object$*)},
-	{"getNanosMethod", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetaData$java_sql_Timestamp_PersistenceDelegate, getNanosMethod, $Method*)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_sql_Timestamp_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_sql_Timestamp_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_sql_Timestamp_PersistenceDelegate", "java.beans.MetaData", "java_sql_Timestamp_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Date_PersistenceDelegate", "java.beans.MetaData", "java_util_Date_PersistenceDelegate", $STATIC},
-	{}
-};
-
-$ClassInfo _MetaData$java_sql_Timestamp_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_sql_Timestamp_PersistenceDelegate",
-	"java.beans.MetaData$java_util_Date_PersistenceDelegate",
-	nullptr,
-	_MetaData$java_sql_Timestamp_PersistenceDelegate_FieldInfo_,
-	_MetaData$java_sql_Timestamp_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_sql_Timestamp_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_sql_Timestamp_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_sql_Timestamp_PersistenceDelegate));
-}
-
 $Method* MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod$ = nullptr;
 
 void MetaData$java_sql_Timestamp_PersistenceDelegate::init$() {
@@ -82,11 +42,11 @@ void MetaData$java_sql_Timestamp_PersistenceDelegate::init$() {
 
 $Method* MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod() {
 	$init(MetaData$java_sql_Timestamp_PersistenceDelegate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$Class* c = $Class::forName("java.sql.Timestamp"_s, true, $($ClassLoader::getPlatformClassLoader()));
-		return $nc(c)->getMethod("getNanos"_s, $$new($ClassArray, 0));
+		return c->getMethod("getNanos"_s, $$new($ClassArray, 0));
 	} catch ($ClassNotFoundException& e) {
 		return nullptr;
 	} catch ($NoSuchMethodException& e) {
@@ -97,13 +57,13 @@ $Method* MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod() {
 
 int32_t MetaData$java_sql_Timestamp_PersistenceDelegate::getNanos(Object$* obj) {
 	$init(MetaData$java_sql_Timestamp_PersistenceDelegate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod$ == nullptr) {
 		$throwNew($AssertionError, $of("Should not get here"_s));
 	}
 	try {
-		return $nc(($cast($Integer, $($nc(MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod$)->invoke(obj, $$new($ObjectArray, 0))))))->intValue();
+		return $$sure($Integer, $nc(MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod$)->invoke(obj, $$new($ObjectArray, 0)))->intValue();
 	} catch ($InvocationTargetException& e) {
 		$var($Throwable, cause, e->getCause());
 		if ($instanceOf($RuntimeException, cause)) {
@@ -120,14 +80,14 @@ int32_t MetaData$java_sql_Timestamp_PersistenceDelegate::getNanos(Object$* obj) 
 }
 
 void MetaData$java_sql_Timestamp_PersistenceDelegate::initialize($Class* type, Object$* oldInstance, Object$* newInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nanos = getNanos(oldInstance);
 	if (nanos != getNanos(newInstance)) {
-		$nc(out)->writeStatement($$new($Statement, oldInstance, "setNanos"_s, $$new($ObjectArray, {$($of($Integer::valueOf(nanos)))})));
+		$nc(out)->writeStatement($$new($Statement, oldInstance, "setNanos"_s, $$new($ObjectArray, {$($Integer::valueOf(nanos))})));
 	}
 }
 
-void clinit$MetaData$java_sql_Timestamp_PersistenceDelegate($Class* class$) {
+void MetaData$java_sql_Timestamp_PersistenceDelegate::clinit$($Class* clazz) {
 	$assignStatic(MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod$, MetaData$java_sql_Timestamp_PersistenceDelegate::getNanosMethod());
 }
 
@@ -135,7 +95,40 @@ MetaData$java_sql_Timestamp_PersistenceDelegate::MetaData$java_sql_Timestamp_Per
 }
 
 $Class* MetaData$java_sql_Timestamp_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_sql_Timestamp_PersistenceDelegate, name, initialize, &_MetaData$java_sql_Timestamp_PersistenceDelegate_ClassInfo_, clinit$MetaData$java_sql_Timestamp_PersistenceDelegate, allocate$MetaData$java_sql_Timestamp_PersistenceDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"getNanosMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetaData$java_sql_Timestamp_PersistenceDelegate, getNanosMethod$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_sql_Timestamp_PersistenceDelegate, init$, void)},
+		{"getNanos", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MetaData$java_sql_Timestamp_PersistenceDelegate, getNanos, int32_t, Object$*)},
+		{"getNanosMethod", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(MetaData$java_sql_Timestamp_PersistenceDelegate, getNanosMethod, $Method*)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_sql_Timestamp_PersistenceDelegate, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_sql_Timestamp_PersistenceDelegate", "java.beans.MetaData", "java_sql_Timestamp_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Date_PersistenceDelegate", "java.beans.MetaData", "java_util_Date_PersistenceDelegate", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_sql_Timestamp_PersistenceDelegate",
+		"java.beans.MetaData$java_util_Date_PersistenceDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_sql_Timestamp_PersistenceDelegate, name, initialize, &classInfo$$, MetaData$java_sql_Timestamp_PersistenceDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_sql_Timestamp_PersistenceDelegate);
+	});
 	return class$;
 }
 

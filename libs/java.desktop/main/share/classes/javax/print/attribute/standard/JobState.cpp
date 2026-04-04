@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobState.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -23,48 +22,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobState_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobState, serialVersionUID)},
-	{"UNKNOWN", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, UNKNOWN)},
-	{"PENDING", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PENDING)},
-	{"PENDING_HELD", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PENDING_HELD)},
-	{"PROCESSING", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PROCESSING)},
-	{"PROCESSING_STOPPED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PROCESSING_STOPPED)},
-	{"CANCELED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, CANCELED)},
-	{"ABORTED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, ABORTED)},
-	{"COMPLETED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, COMPLETED)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobState, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/JobState;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobState, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _JobState_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(JobState, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobState, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(JobState, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobState, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JobState, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.JobState",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintJobAttribute",
-	_JobState_FieldInfo_,
-	_JobState_MethodInfo_
-};
-
-$Object* allocate$JobState($Class* clazz) {
-	return $of($alloc(JobState));
-}
 
 $Object* JobState::clone() {
 	 return this->$EnumSyntax::clone();
@@ -106,7 +63,7 @@ $StringArray* JobState::getStringTable() {
 }
 
 $EnumSyntaxArray* JobState::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, JobState::myEnumValueTable);
+	return $cast($EnumSyntaxArray, JobState::myEnumValueTable);
 }
 
 $Class* JobState::getCategory() {
@@ -117,7 +74,7 @@ $String* JobState::getName() {
 	return "job-state"_s;
 }
 
-void clinit$JobState($Class* class$) {
+void JobState::clinit$($Class* clazz) {
 	$assignStatic(JobState::UNKNOWN, $new(JobState, 0));
 	$assignStatic(JobState::PENDING, $new(JobState, 3));
 	$assignStatic(JobState::PENDING_HELD, $new(JobState, 4));
@@ -128,8 +85,8 @@ void clinit$JobState($Class* class$) {
 	$assignStatic(JobState::COMPLETED, $new(JobState, 9));
 	$assignStatic(JobState::myStringTable, $new($StringArray, {
 		"unknown"_s,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
 		"pending"_s,
 		"pending-held"_s,
 		"processing"_s,
@@ -140,8 +97,8 @@ void clinit$JobState($Class* class$) {
 	}));
 	$assignStatic(JobState::myEnumValueTable, $new($JobStateArray, {
 		JobState::UNKNOWN,
-		(JobState*)nullptr,
-		(JobState*)nullptr,
+		nullptr,
+		nullptr,
 		JobState::PENDING,
 		JobState::PENDING_HELD,
 		JobState::PROCESSING,
@@ -156,7 +113,44 @@ JobState::JobState() {
 }
 
 $Class* JobState::load$($String* name, bool initialize) {
-	$loadClass(JobState, name, initialize, &_JobState_ClassInfo_, clinit$JobState, allocate$JobState);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobState, serialVersionUID)},
+		{"UNKNOWN", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, UNKNOWN)},
+		{"PENDING", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PENDING)},
+		{"PENDING_HELD", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PENDING_HELD)},
+		{"PROCESSING", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PROCESSING)},
+		{"PROCESSING_STOPPED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, PROCESSING_STOPPED)},
+		{"CANCELED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, CANCELED)},
+		{"ABORTED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, ABORTED)},
+		{"COMPLETED", "Ljavax/print/attribute/standard/JobState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobState, COMPLETED)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobState, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/JobState;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobState, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(JobState, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobState, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(JobState, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobState, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JobState, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.JobState",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobState, name, initialize, &classInfo$$, JobState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobState));
+	});
 	return class$;
 }
 

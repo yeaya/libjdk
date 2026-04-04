@@ -36,6 +36,7 @@ class $export bug6263446 : public ::java::lang::Object {
 	$class(bug6263446, 0, ::java::lang::Object)
 public:
 	bug6263446();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertEditing(bool editing);
 	static void cancelCellEditing();

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RedirectFilter.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
@@ -41,10 +40,8 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
 using $HttpClient$Redirect = ::java::net::http::HttpClient$Redirect;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
-using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
-using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $MultiExchange = ::jdk::internal::net::http::MultiExchange;
 using $RedirectFilter$1 = ::jdk::internal::net::http::RedirectFilter$1;
@@ -65,27 +62,24 @@ public:
 	virtual $Object* apply(Object$* arg0) override {
 		 return $of($URI::create($cast($String, arg0)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RedirectFilter$$Lambda$create>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RedirectFilter$$Lambda$create::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter$$Lambda$create, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RedirectFilter$$Lambda$create, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo RedirectFilter$$Lambda$create::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.RedirectFilter$$Lambda$create",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* RedirectFilter$$Lambda$create::load$($String* name, bool initialize) {
-	$loadClass(RedirectFilter$$Lambda$create, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter$$Lambda$create, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RedirectFilter$$Lambda$create, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.RedirectFilter$$Lambda$create",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RedirectFilter$$Lambda$create, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RedirectFilter$$Lambda$create);
+	});
 	return class$;
 }
 $Class* RedirectFilter$$Lambda$create::class$ = nullptr;
@@ -96,82 +90,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(RedirectFilter::lambda$getRedirectedURI$0());
+		 return RedirectFilter::lambda$getRedirectedURI$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, get, $Object*)},
-	{}
-};
-$ClassInfo RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::load$($String* name, bool initialize) {
-	$loadClass(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1);
+	});
 	return class$;
 }
 $Class* RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::class$ = nullptr;
-
-$FieldInfo _RedirectFilter_FieldInfo_[] = {
-	{"request", "Ljdk/internal/net/http/HttpRequestImpl;", nullptr, 0, $field(RedirectFilter, request$)},
-	{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0, $field(RedirectFilter, client)},
-	{"policy", "Ljava/net/http/HttpClient$Redirect;", nullptr, 0, $field(RedirectFilter, policy)},
-	{"method", "Ljava/lang/String;", nullptr, 0, $field(RedirectFilter, method)},
-	{"exchange", "Ljdk/internal/net/http/MultiExchange;", "Ljdk/internal/net/http/MultiExchange<*>;", 0, $field(RedirectFilter, exchange)},
-	{"DEFAULT_MAX_REDIRECTS", "I", nullptr, $STATIC | $FINAL, $constField(RedirectFilter, DEFAULT_MAX_REDIRECTS)},
-	{"uri", "Ljava/net/URI;", nullptr, 0, $field(RedirectFilter, uri)},
-	{"HTTP_NOT_MODIFIED", "I", nullptr, $STATIC | $FINAL, $constField(RedirectFilter, HTTP_NOT_MODIFIED)},
-	{"max_redirects", "I", nullptr, $STATIC | $FINAL, $staticField(RedirectFilter, max_redirects)},
-	{}
-};
-
-$MethodInfo _RedirectFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter, init$, void)},
-	{"canRedirect", "(Ljava/net/URI;)Z", nullptr, $PRIVATE, $method(RedirectFilter, canRedirect, bool, $URI*)},
-	{"getRedirectedURI", "(Ljava/net/http/HttpHeaders;)Ljava/net/URI;", nullptr, $PRIVATE, $method(RedirectFilter, getRedirectedURI, $URI*, $HttpHeaders*)},
-	{"handleResponse", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PRIVATE, $method(RedirectFilter, handleResponse, $HttpRequestImpl*, $Response*)},
-	{"isRedirecting", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RedirectFilter, isRedirecting, bool, int32_t)},
-	{"lambda$getRedirectedURI$0", "()Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RedirectFilter, lambda$getRedirectedURI$0, $UncheckedIOException*)},
-	{"redirectedMethod", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RedirectFilter, redirectedMethod, $String*, int32_t, $String*)},
-	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(RedirectFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
-	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RedirectFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RedirectFilter_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RedirectFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _RedirectFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.RedirectFilter",
-	"java.lang.Object",
-	"jdk.internal.net.http.HeaderFilter",
-	_RedirectFilter_FieldInfo_,
-	_RedirectFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RedirectFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RedirectFilter$1"
-};
-
-$Object* allocate$RedirectFilter($Class* clazz) {
-	return $of($alloc(RedirectFilter));
-}
 
 int32_t RedirectFilter::max_redirects = 0;
 
@@ -197,33 +138,22 @@ $HttpRequestImpl* RedirectFilter::response($Response* r) {
 
 $String* RedirectFilter::redirectedMethod(int32_t statusCode, $String* orig) {
 	$init(RedirectFilter);
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (statusCode) {
 	case 301:
-		{}
 	case 302:
-		{
-			$assign(var$0, $nc(orig)->equals("POST"_s) ? "GET"_s : orig);
-			break;
-		}
+		$assign(var$0, $nc(orig)->equals("POST"_s) ? "GET"_s : orig);
+		break;
 	case 303:
-		{
-			$assign(var$0, "GET"_s);
-			break;
-		}
+		$assign(var$0, "GET"_s);
+		break;
 	case 307:
-		{}
 	case 308:
-		{
-			$assign(var$0, orig);
-			break;
-		}
+		$assign(var$0, orig);
+		break;
 	default:
-		{
-			$assign(var$0, orig);
-			break;
-		}
+		$assign(var$0, orig);
+		break;
 	}
 	return var$0;
 }
@@ -236,31 +166,23 @@ bool RedirectFilter::isRedirecting(int32_t statusCode) {
 	if (statusCode > 308) {
 		return false;
 	}
-
 	bool var$0 = false;
 	switch (statusCode) {
 	case 300:
-		{}
 	case 304:
-		{}
 	case 305:
-		{}
 	case 306:
-		{
-			var$0 = false;
-			break;
-		}
+		var$0 = false;
+		break;
 	default:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	}
 	return var$0;
 }
 
 $HttpRequestImpl* RedirectFilter::handleResponse($Response* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rcode = $nc(r)->statusCode();
 	$init($HttpClient$Redirect);
 	if (rcode == 200 || this->policy == $HttpClient$Redirect::NEVER) {
@@ -273,13 +195,13 @@ $HttpRequestImpl* RedirectFilter::handleResponse($Response* r) {
 		$var($URI, redir, getRedirectedURI($(r->headers())));
 		$var($String, newMethod, redirectedMethod(rcode, this->method));
 		$Log::logTrace("response code: {0}, redirected URI: {1}"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(rcode))),
-			$of(redir)
+			$($Integer::valueOf(rcode)),
+			redir
 		}));
 		if (canRedirect(redir) && ++$nc(this->exchange)->numberOfRedirects < RedirectFilter::max_redirects) {
 			$Log::logTrace("redirect to: {0} with method: {1}"_s, $$new($ObjectArray, {
-				$of(redir),
-				$of(newMethod)
+				redir,
+				newMethod
 			}));
 			return $HttpRequestImpl::newInstanceForRedirection(redir, newMethod, this->request$, rcode != 303);
 		} else {
@@ -291,39 +213,32 @@ $HttpRequestImpl* RedirectFilter::handleResponse($Response* r) {
 }
 
 $URI* RedirectFilter::getRedirectedURI($HttpHeaders* headers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, redirectedURI, nullptr);
-	$assign(redirectedURI, $cast($URI, $nc($($nc($($nc(headers)->firstValue("Location"_s)))->map(static_cast<$Function*>($$new(RedirectFilter$$Lambda$create)))))->orElseThrow(static_cast<$Supplier*>($$new(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1)))));
+	$assign(redirectedURI, $cast($URI, $$nc($$nc($nc(headers)->firstValue("Location"_s))->map($$new(RedirectFilter$$Lambda$create)))->orElseThrow($$new(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1))));
 	$assign(redirectedURI, $nc(this->uri)->resolve(redirectedURI));
 	return redirectedURI;
 }
 
 bool RedirectFilter::canRedirect($URI* redir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, newScheme, $nc(redir)->getScheme());
 	$var($String, oldScheme, $nc(this->uri)->getScheme());
 	$init($RedirectFilter$1);
-
 	bool var$0 = false;
 	switch ($nc($RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect)->get($nc((this->policy))->ordinal())) {
 	default:
-		{
-			$throwNew($IncompatibleClassChangeError);
-		}
+		$throwNew($IncompatibleClassChangeError);
 	case 1:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	case 2:
-		{
-			var$0 = false;
-			break;
-		}
+		var$0 = false;
+		break;
 	case 3:
 		{
 			bool var$1 = $nc(newScheme)->equalsIgnoreCase(oldScheme);
-			var$0 = var$1 || $nc(newScheme)->equalsIgnoreCase("https"_s);
+			var$0 = var$1 || newScheme->equalsIgnoreCase("https"_s);
 			break;
 		}
 	}
@@ -335,7 +250,7 @@ $UncheckedIOException* RedirectFilter::lambda$getRedirectedURI$0() {
 	return $new($UncheckedIOException, $$new($IOException, "Invalid redirection"_s));
 }
 
-void clinit$RedirectFilter($Class* class$) {
+void RedirectFilter::clinit$($Class* clazz) {
 	RedirectFilter::max_redirects = $Utils::getIntegerNetProperty("jdk.httpclient.redirects.retrylimit"_s, RedirectFilter::DEFAULT_MAX_REDIRECTS);
 }
 
@@ -344,14 +259,58 @@ RedirectFilter::RedirectFilter() {
 
 $Class* RedirectFilter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RedirectFilter$$Lambda$create::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.RedirectFilter$$Lambda$create")) {
 			return RedirectFilter$$Lambda$create::load$(name, initialize);
 		}
-		if (name->equals(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1")) {
 			return RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(RedirectFilter, name, initialize, &_RedirectFilter_ClassInfo_, clinit$RedirectFilter, allocate$RedirectFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"request", "Ljdk/internal/net/http/HttpRequestImpl;", nullptr, 0, $field(RedirectFilter, request$)},
+		{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0, $field(RedirectFilter, client)},
+		{"policy", "Ljava/net/http/HttpClient$Redirect;", nullptr, 0, $field(RedirectFilter, policy)},
+		{"method", "Ljava/lang/String;", nullptr, 0, $field(RedirectFilter, method)},
+		{"exchange", "Ljdk/internal/net/http/MultiExchange;", "Ljdk/internal/net/http/MultiExchange<*>;", 0, $field(RedirectFilter, exchange)},
+		{"DEFAULT_MAX_REDIRECTS", "I", nullptr, $STATIC | $FINAL, $constField(RedirectFilter, DEFAULT_MAX_REDIRECTS)},
+		{"uri", "Ljava/net/URI;", nullptr, 0, $field(RedirectFilter, uri)},
+		{"HTTP_NOT_MODIFIED", "I", nullptr, $STATIC | $FINAL, $constField(RedirectFilter, HTTP_NOT_MODIFIED)},
+		{"max_redirects", "I", nullptr, $STATIC | $FINAL, $staticField(RedirectFilter, max_redirects)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter, init$, void)},
+		{"canRedirect", "(Ljava/net/URI;)Z", nullptr, $PRIVATE, $method(RedirectFilter, canRedirect, bool, $URI*)},
+		{"getRedirectedURI", "(Ljava/net/http/HttpHeaders;)Ljava/net/URI;", nullptr, $PRIVATE, $method(RedirectFilter, getRedirectedURI, $URI*, $HttpHeaders*)},
+		{"handleResponse", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PRIVATE, $method(RedirectFilter, handleResponse, $HttpRequestImpl*, $Response*)},
+		{"isRedirecting", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RedirectFilter, isRedirecting, bool, int32_t)},
+		{"lambda$getRedirectedURI$0", "()Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RedirectFilter, lambda$getRedirectedURI$0, $UncheckedIOException*)},
+		{"redirectedMethod", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RedirectFilter, redirectedMethod, $String*, int32_t, $String*)},
+		{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(RedirectFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
+		{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RedirectFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RedirectFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.RedirectFilter",
+		"java.lang.Object",
+		"jdk.internal.net.http.HeaderFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RedirectFilter$1"
+	};
+	$loadClass(RedirectFilter, name, initialize, &classInfo$$, RedirectFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RedirectFilter);
+	});
 	return class$;
 }
 

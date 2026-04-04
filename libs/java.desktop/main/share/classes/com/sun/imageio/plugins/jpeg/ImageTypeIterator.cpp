@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/ImageTypeIterator.h>
-
 #include <com/sun/imageio/plugins/jpeg/ImageTypeProducer.h>
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
@@ -20,41 +19,13 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _ImageTypeIterator_FieldInfo_[] = {
-	{"producers", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;>;", $PRIVATE, $field(ImageTypeIterator, producers)},
-	{"theNext", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(ImageTypeIterator, theNext)},
-	{}
-};
-
-$MethodInfo _ImageTypeIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;>;)V", $PUBLIC, $method(ImageTypeIterator, init$, void, $Iterator*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageTypeIterator, hasNext, bool)},
-	{"next", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(ImageTypeIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImageTypeIterator, remove, void)},
-	{}
-};
-
-$ClassInfo _ImageTypeIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.ImageTypeIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ImageTypeIterator_FieldInfo_,
-	_ImageTypeIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;"
-};
-
-$Object* allocate$ImageTypeIterator($Class* clazz) {
-	return $of($alloc(ImageTypeIterator));
-}
-
 void ImageTypeIterator::init$($Iterator* producers) {
 	$set(this, theNext, nullptr);
 	$set(this, producers, producers);
 }
 
 bool ImageTypeIterator::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->theNext != nullptr) {
 		return true;
 	}
@@ -62,7 +33,7 @@ bool ImageTypeIterator::hasNext() {
 		return false;
 	}
 	do {
-		$set(this, theNext, $nc(($cast($ImageTypeProducer, $($nc(this->producers)->next()))))->getType());
+		$set(this, theNext, $$sure($ImageTypeProducer, this->producers->next())->getType());
 	} while (this->theNext == nullptr && $nc(this->producers)->hasNext());
 	return (this->theNext != nullptr);
 }
@@ -71,7 +42,7 @@ $Object* ImageTypeIterator::next() {
 	if (this->theNext != nullptr || hasNext()) {
 		$var($ImageTypeSpecifier, t, this->theNext);
 		$set(this, theNext, nullptr);
-		return $of(t);
+		return t;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -85,7 +56,30 @@ ImageTypeIterator::ImageTypeIterator() {
 }
 
 $Class* ImageTypeIterator::load$($String* name, bool initialize) {
-	$loadClass(ImageTypeIterator, name, initialize, &_ImageTypeIterator_ClassInfo_, allocate$ImageTypeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"producers", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;>;", $PRIVATE, $field(ImageTypeIterator, producers)},
+		{"theNext", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(ImageTypeIterator, theNext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;>;)V", $PUBLIC, $method(ImageTypeIterator, init$, void, $Iterator*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageTypeIterator, hasNext, bool)},
+		{"next", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(ImageTypeIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImageTypeIterator, remove, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.ImageTypeIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;"
+	};
+	$loadClass(ImageTypeIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageTypeIterator);
+	});
 	return class$;
 }
 

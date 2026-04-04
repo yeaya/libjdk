@@ -1,5 +1,4 @@
 #include <javax/naming/NoPermissionException.h>
-
 #include <javax/naming/NamingSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingSecurityException = ::javax::naming::NamingSecurityException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _NoPermissionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoPermissionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoPermissionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoPermissionException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoPermissionException, init$, void)},
-	{}
-};
-
-$ClassInfo _NoPermissionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.NoPermissionException",
-	"javax.naming.NamingSecurityException",
-	nullptr,
-	_NoPermissionException_FieldInfo_,
-	_NoPermissionException_MethodInfo_
-};
-
-$Object* allocate$NoPermissionException($Class* clazz) {
-	return $of($alloc(NoPermissionException));
-}
 
 void NoPermissionException::init$($String* explanation) {
 	$NamingSecurityException::init$(explanation);
@@ -54,7 +29,26 @@ void NoPermissionException::throw$() {
 }
 
 $Class* NoPermissionException::load$($String* name, bool initialize) {
-	$loadClass(NoPermissionException, name, initialize, &_NoPermissionException_ClassInfo_, allocate$NoPermissionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoPermissionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoPermissionException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoPermissionException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.NoPermissionException",
+		"javax.naming.NamingSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoPermissionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoPermissionException);
+	});
 	return class$;
 }
 

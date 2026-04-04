@@ -47,6 +47,7 @@ class WaitDispatchSupport : public ::java::awt::SecondaryLoop {
 	$class(WaitDispatchSupport, 0, ::java::awt::SecondaryLoop)
 public:
 	WaitDispatchSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::EventDispatchThread* dispatchThread);
 	void init$(::java::awt::EventDispatchThread* dispatchThread, ::java::awt::Conditional* extCond);
 	void init$(::java::awt::EventDispatchThread* dispatchThread, ::java::awt::Conditional* extCondition, ::java::awt::EventFilter* filter, int64_t interval);

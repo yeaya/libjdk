@@ -26,10 +26,13 @@ public:
 	virtual $Throwable* initCause($Throwable* cause) override;
 	virtual $String* toString() override;
 	$Throwable* _exception = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x3F8EA98B912AD08A;
+	static const int64_t serialVersionUID = (int64_t)0x3f8ea98b912ad08a;
 	SaslException(const SaslException& e);
 	virtual void throw$() override;
-	inline SaslException* operator ->() {
+	inline SaslException* operator ->() const {
+		return (SaslException*)throwing$;
+	}
+	inline operator SaslException*() const {
 		return (SaslException*)throwing$;
 	}
 };

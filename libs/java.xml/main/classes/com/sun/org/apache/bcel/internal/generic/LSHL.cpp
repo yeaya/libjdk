@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LSHL.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _LSHL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LSHL, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LSHL, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _LSHL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.LSHL",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_LSHL_MethodInfo_
-};
-
-$Object* allocate$LSHL($Class* clazz) {
-	return $of($alloc(LSHL));
-}
 
 void LSHL::init$() {
 	$ArithmeticInstruction::init$($Const::LSHL);
@@ -62,7 +39,22 @@ LSHL::LSHL() {
 }
 
 $Class* LSHL::load$($String* name, bool initialize) {
-	$loadClass(LSHL, name, initialize, &_LSHL_ClassInfo_, allocate$LSHL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LSHL, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LSHL, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.LSHL",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LSHL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LSHL));
+	});
 	return class$;
 }
 

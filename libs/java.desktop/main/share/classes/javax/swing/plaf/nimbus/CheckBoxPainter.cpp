@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/nimbus/CheckBoxPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -39,7 +37,6 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
@@ -60,139 +57,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _CheckBoxPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, BACKGROUND_ENABLED)},
-	{"ICON_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_DISABLED)},
-	{"ICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_ENABLED)},
-	{"ICON_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_FOCUSED)},
-	{"ICON_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER)},
-	{"ICON_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER_FOCUSED)},
-	{"ICON_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED)},
-	{"ICON_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED_FOCUSED)},
-	{"ICON_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_SELECTED)},
-	{"ICON_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_SELECTED_FOCUSED)},
-	{"ICON_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED_SELECTED)},
-	{"ICON_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED_SELECTED_FOCUSED)},
-	{"ICON_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER_SELECTED)},
-	{"ICON_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER_SELECTED_FOCUSED)},
-	{"ICON_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_DISABLED_SELECTED)},
-	{"state", "I", nullptr, $PRIVATE, $field(CheckBoxPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(CheckBoxPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color37)},
-	{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color38)},
-	{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color39)},
-	{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color40)},
-	{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color41)},
-	{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color42)},
-	{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color43)},
-	{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color44)},
-	{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color45)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CheckBoxPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _CheckBoxPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(CheckBoxPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient13, $Paint*, $Shape*)},
-	{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient14, $Paint*, $Shape*)},
-	{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient15, $Paint*, $Shape*)},
-	{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient16, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodePath1, $Path2D*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect3, $RoundRectangle2D*)},
-	{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect4, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(CheckBoxPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CheckBoxPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"painticonDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonDisabled, void, $Graphics2D*)},
-	{"painticonDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonDisabledAndSelected, void, $Graphics2D*)},
-	{"painticonEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonEnabled, void, $Graphics2D*)},
-	{"painticonFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonFocused, void, $Graphics2D*)},
-	{"painticonMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOver, void, $Graphics2D*)},
-	{"painticonMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOverAndFocused, void, $Graphics2D*)},
-	{"painticonMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOverAndSelected, void, $Graphics2D*)},
-	{"painticonMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
-	{"painticonPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressed, void, $Graphics2D*)},
-	{"painticonPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressedAndFocused, void, $Graphics2D*)},
-	{"painticonPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressedAndSelected, void, $Graphics2D*)},
-	{"painticonPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressedAndSelectedAndFocused, void, $Graphics2D*)},
-	{"painticonSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonSelected, void, $Graphics2D*)},
-	{"painticonSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonSelectedAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _CheckBoxPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.CheckBoxPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_CheckBoxPainter_FieldInfo_,
-	_CheckBoxPainter_MethodInfo_
-};
-
-$Object* allocate$CheckBoxPainter($Class* clazz) {
-	return $of($alloc(CheckBoxPainter));
-}
-
 void CheckBoxPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.06766917f, 0.07843137f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.06484103f, 0.027450979f, 0));
 	$set(this, color3, decodeColor("nimbusBase"_s, 0.032459438f, -0.60996324f, 0.36470586f, 0));
@@ -246,75 +116,47 @@ void CheckBoxPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, int
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case CheckBoxPainter::ICON_DISABLED:
-		{
-			painticonDisabled(g);
-			break;
-		}
+		painticonDisabled(g);
+		break;
 	case CheckBoxPainter::ICON_ENABLED:
-		{
-			painticonEnabled(g);
-			break;
-		}
+		painticonEnabled(g);
+		break;
 	case CheckBoxPainter::ICON_FOCUSED:
-		{
-			painticonFocused(g);
-			break;
-		}
+		painticonFocused(g);
+		break;
 	case CheckBoxPainter::ICON_MOUSEOVER:
-		{
-			painticonMouseOver(g);
-			break;
-		}
+		painticonMouseOver(g);
+		break;
 	case CheckBoxPainter::ICON_MOUSEOVER_FOCUSED:
-		{
-			painticonMouseOverAndFocused(g);
-			break;
-		}
+		painticonMouseOverAndFocused(g);
+		break;
 	case CheckBoxPainter::ICON_PRESSED:
-		{
-			painticonPressed(g);
-			break;
-		}
+		painticonPressed(g);
+		break;
 	case CheckBoxPainter::ICON_PRESSED_FOCUSED:
-		{
-			painticonPressedAndFocused(g);
-			break;
-		}
+		painticonPressedAndFocused(g);
+		break;
 	case CheckBoxPainter::ICON_SELECTED:
-		{
-			painticonSelected(g);
-			break;
-		}
+		painticonSelected(g);
+		break;
 	case CheckBoxPainter::ICON_SELECTED_FOCUSED:
-		{
-			painticonSelectedAndFocused(g);
-			break;
-		}
+		painticonSelectedAndFocused(g);
+		break;
 	case CheckBoxPainter::ICON_PRESSED_SELECTED:
-		{
-			painticonPressedAndSelected(g);
-			break;
-		}
+		painticonPressedAndSelected(g);
+		break;
 	case CheckBoxPainter::ICON_PRESSED_SELECTED_FOCUSED:
-		{
-			painticonPressedAndSelectedAndFocused(g);
-			break;
-		}
+		painticonPressedAndSelectedAndFocused(g);
+		break;
 	case CheckBoxPainter::ICON_MOUSEOVER_SELECTED:
-		{
-			painticonMouseOverAndSelected(g);
-			break;
-		}
+		painticonMouseOverAndSelected(g);
+		break;
 	case CheckBoxPainter::ICON_MOUSEOVER_SELECTED_FOCUSED:
-		{
-			painticonMouseOverAndSelectedAndFocused(g);
-			break;
-		}
+		painticonMouseOverAndSelectedAndFocused(g);
+		break;
 	case CheckBoxPainter::ICON_DISABLED_SELECTED:
-		{
-			painticonDisabledAndSelected(g);
-			break;
-		}
+		painticonDisabledAndSelected(g);
+		break;
 	}
 }
 
@@ -323,7 +165,7 @@ $AbstractRegionPainter$PaintContext* CheckBoxPainter::getPaintContext() {
 }
 
 void CheckBoxPainter::painticonDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient1(this->roundRect)));
 	g->fill(this->roundRect);
@@ -333,7 +175,7 @@ void CheckBoxPainter::painticonDisabled($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->roundRect);
@@ -346,7 +188,7 @@ void CheckBoxPainter::painticonEnabled($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->roundRect);
@@ -359,7 +201,7 @@ void CheckBoxPainter::painticonFocused($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->roundRect);
@@ -372,7 +214,7 @@ void CheckBoxPainter::painticonMouseOver($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonMouseOverAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->roundRect);
@@ -385,7 +227,7 @@ void CheckBoxPainter::painticonMouseOverAndFocused($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->roundRect);
@@ -398,7 +240,7 @@ void CheckBoxPainter::painticonPressed($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonPressedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->roundRect);
@@ -411,7 +253,7 @@ void CheckBoxPainter::painticonPressedAndFocused($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->roundRect);
@@ -427,7 +269,7 @@ void CheckBoxPainter::painticonSelected($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->roundRect);
@@ -443,7 +285,7 @@ void CheckBoxPainter::painticonSelectedAndFocused($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonPressedAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color29);
 	g->fill(this->roundRect);
@@ -459,7 +301,7 @@ void CheckBoxPainter::painticonPressedAndSelected($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonPressedAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->roundRect);
@@ -475,7 +317,7 @@ void CheckBoxPainter::painticonPressedAndSelectedAndFocused($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonMouseOverAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->roundRect);
@@ -491,7 +333,7 @@ void CheckBoxPainter::painticonMouseOverAndSelected($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonMouseOverAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->roundRect);
@@ -507,7 +349,7 @@ void CheckBoxPainter::painticonMouseOverAndSelectedAndFocused($Graphics2D* g) {
 }
 
 void CheckBoxPainter::painticonDisabledAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient15(this->roundRect)));
 	g->fill(this->roundRect);
@@ -520,40 +362,40 @@ void CheckBoxPainter::painticonDisabledAndSelected($Graphics2D* g) {
 }
 
 $RoundRectangle2D* CheckBoxPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.4f), 3.7058823f, 3.7058823f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* CheckBoxPainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.6f), 3.764706f, 3.764706f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* CheckBoxPainter::decodeRoundRect3() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(1.75f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(1.75f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.75f), 5.1764708f, 5.1764708f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* CheckBoxPainter::decodeRoundRect4() {
-	double var$0 = (double)decodeX(0.120000005f);
-	double var$1 = (double)decodeY(0.120000005f);
+	double var$0 = decodeX(0.120000005f);
+	double var$1 = decodeY(0.120000005f);
 	float var$3 = decodeX(2.8799999f);
-	double var$2 = (double)(var$3 - decodeX(0.120000005f));
+	double var$2 = var$3 - decodeX(0.120000005f);
 	float var$4 = decodeY(2.8799999f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.120000005f), 8.0f, 8.0f);
 	return this->roundRect;
@@ -561,28 +403,28 @@ $RoundRectangle2D* CheckBoxPainter::decodeRoundRect4() {
 
 $Path2D* CheckBoxPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.0036764f);
+	double var$0 = decodeX(1.0036764f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.382353f));
-	double var$1 = (double)decodeX(1.2536764f);
+	double var$1 = decodeX(1.2536764f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.382353f));
-	double var$2 = (double)decodeX(1.430147f);
+	double var$2 = decodeX(1.430147f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.757353f));
-	double var$3 = (double)decodeX(1.8235294f);
+	double var$3 = decodeX(1.8235294f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.62352943f));
-	double var$4 = (double)decodeX(2.2f);
+	double var$4 = decodeX(2.2f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.61764705f));
-	double var$5 = (double)decodeX(1.492647f);
+	double var$5 = decodeX(1.492647f);
 	$nc(this->path)->lineTo(var$5, decodeY(2.0058823f));
-	double var$6 = (double)decodeX(1.382353f);
+	double var$6 = decodeX(1.382353f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.0058823f));
-	double var$7 = (double)decodeX(1.0036764f);
+	double var$7 = decodeX(1.0036764f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.382353f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* CheckBoxPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -600,7 +442,7 @@ $Paint* CheckBoxPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -622,7 +464,7 @@ $Paint* CheckBoxPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -640,7 +482,7 @@ $Paint* CheckBoxPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -662,7 +504,7 @@ $Paint* CheckBoxPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -680,7 +522,7 @@ $Paint* CheckBoxPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -702,7 +544,7 @@ $Paint* CheckBoxPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -720,7 +562,7 @@ $Paint* CheckBoxPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -742,7 +584,7 @@ $Paint* CheckBoxPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -760,7 +602,7 @@ $Paint* CheckBoxPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -782,7 +624,7 @@ $Paint* CheckBoxPainter::decodeGradient10($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -800,7 +642,7 @@ $Paint* CheckBoxPainter::decodeGradient11($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -826,7 +668,7 @@ $Paint* CheckBoxPainter::decodeGradient12($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient13($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -844,7 +686,7 @@ $Paint* CheckBoxPainter::decodeGradient13($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient14($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -866,7 +708,7 @@ $Paint* CheckBoxPainter::decodeGradient14($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient15($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -884,7 +726,7 @@ $Paint* CheckBoxPainter::decodeGradient15($Shape* s) {
 }
 
 $Paint* CheckBoxPainter::decodeGradient16($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -909,7 +751,129 @@ CheckBoxPainter::CheckBoxPainter() {
 }
 
 $Class* CheckBoxPainter::load$($String* name, bool initialize) {
-	$loadClass(CheckBoxPainter, name, initialize, &_CheckBoxPainter_ClassInfo_, allocate$CheckBoxPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, BACKGROUND_ENABLED)},
+		{"ICON_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_DISABLED)},
+		{"ICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_ENABLED)},
+		{"ICON_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_FOCUSED)},
+		{"ICON_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER)},
+		{"ICON_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER_FOCUSED)},
+		{"ICON_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED)},
+		{"ICON_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED_FOCUSED)},
+		{"ICON_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_SELECTED)},
+		{"ICON_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_SELECTED_FOCUSED)},
+		{"ICON_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED_SELECTED)},
+		{"ICON_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_PRESSED_SELECTED_FOCUSED)},
+		{"ICON_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER_SELECTED)},
+		{"ICON_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_MOUSEOVER_SELECTED_FOCUSED)},
+		{"ICON_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(CheckBoxPainter, ICON_DISABLED_SELECTED)},
+		{"state", "I", nullptr, $PRIVATE, $field(CheckBoxPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(CheckBoxPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(CheckBoxPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color37)},
+		{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color38)},
+		{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color39)},
+		{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color40)},
+		{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color41)},
+		{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color42)},
+		{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color43)},
+		{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color44)},
+		{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(CheckBoxPainter, color45)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CheckBoxPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(CheckBoxPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient13, $Paint*, $Shape*)},
+		{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient14, $Paint*, $Shape*)},
+		{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient15, $Paint*, $Shape*)},
+		{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient16, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodePath1, $Path2D*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect3, $RoundRectangle2D*)},
+		{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(CheckBoxPainter, decodeRoundRect4, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(CheckBoxPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CheckBoxPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"painticonDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonDisabled, void, $Graphics2D*)},
+		{"painticonDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonDisabledAndSelected, void, $Graphics2D*)},
+		{"painticonEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonEnabled, void, $Graphics2D*)},
+		{"painticonFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonFocused, void, $Graphics2D*)},
+		{"painticonMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOver, void, $Graphics2D*)},
+		{"painticonMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOverAndFocused, void, $Graphics2D*)},
+		{"painticonMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOverAndSelected, void, $Graphics2D*)},
+		{"painticonMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
+		{"painticonPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressed, void, $Graphics2D*)},
+		{"painticonPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressedAndFocused, void, $Graphics2D*)},
+		{"painticonPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressedAndSelected, void, $Graphics2D*)},
+		{"painticonPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonPressedAndSelectedAndFocused, void, $Graphics2D*)},
+		{"painticonSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonSelected, void, $Graphics2D*)},
+		{"painticonSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(CheckBoxPainter, painticonSelectedAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.CheckBoxPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CheckBoxPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckBoxPainter);
+	});
 	return class$;
 }
 

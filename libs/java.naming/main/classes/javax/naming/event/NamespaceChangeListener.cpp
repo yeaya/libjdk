@@ -1,5 +1,4 @@
 #include <javax/naming/event/NamespaceChangeListener.h>
-
 #include <javax/naming/event/NamingEvent.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace javax {
 	namespace naming {
 		namespace event {
 
-$MethodInfo _NamespaceChangeListener_MethodInfo_[] = {
-	{"objectAdded", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectAdded, void, $NamingEvent*)},
-	{"objectRemoved", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectRemoved, void, $NamingEvent*)},
-	{"objectRenamed", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectRenamed, void, $NamingEvent*)},
-	{}
-};
-
-$ClassInfo _NamespaceChangeListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.event.NamespaceChangeListener",
-	nullptr,
-	"javax.naming.event.NamingListener",
-	nullptr,
-	_NamespaceChangeListener_MethodInfo_
-};
-
-$Object* allocate$NamespaceChangeListener($Class* clazz) {
-	return $of($alloc(NamespaceChangeListener));
-}
-
 $Class* NamespaceChangeListener::load$($String* name, bool initialize) {
-	$loadClass(NamespaceChangeListener, name, initialize, &_NamespaceChangeListener_ClassInfo_, allocate$NamespaceChangeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"objectAdded", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectAdded, void, $NamingEvent*)},
+		{"objectRemoved", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectRemoved, void, $NamingEvent*)},
+		{"objectRenamed", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectRenamed, void, $NamingEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.event.NamespaceChangeListener",
+		nullptr,
+		"javax.naming.event.NamingListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NamespaceChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceChangeListener);
+	});
 	return class$;
 }
 

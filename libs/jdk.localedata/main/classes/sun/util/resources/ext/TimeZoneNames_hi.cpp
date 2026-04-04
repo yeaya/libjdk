@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/TimeZoneNames_hi.h>
-
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,41 +12,22 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _TimeZoneNames_hi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_hi, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_hi, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _TimeZoneNames_hi_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.TimeZoneNames_hi",
-	"sun.util.resources.TimeZoneNamesBundle",
-	nullptr,
-	nullptr,
-	_TimeZoneNames_hi_MethodInfo_
-};
-
-$Object* allocate$TimeZoneNames_hi($Class* clazz) {
-	return $of($alloc(TimeZoneNames_hi));
-}
-
 void TimeZoneNames_hi::init$() {
 	$TimeZoneNamesBundle::init$();
 }
 
 $ObjectArray2* TimeZoneNames_hi::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("Asia/Calcutta"_s),
-		$of($$new($StringArray, {
+		"Asia/Calcutta"_s,
+		$$new($StringArray, {
 			u"भारतीय समय"_s,
 			"IST"_s,
 			u"भारतीय समय"_s,
 			"IST"_s,
 			u"भारतीय समय"_s,
 			"IT"_s
-		}))
+		})
 	})});
 }
 
@@ -55,7 +35,22 @@ TimeZoneNames_hi::TimeZoneNames_hi() {
 }
 
 $Class* TimeZoneNames_hi::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneNames_hi, name, initialize, &_TimeZoneNames_hi_ClassInfo_, allocate$TimeZoneNames_hi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_hi, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_hi, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.TimeZoneNames_hi",
+		"sun.util.resources.TimeZoneNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TimeZoneNames_hi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneNames_hi);
+	});
 	return class$;
 }
 

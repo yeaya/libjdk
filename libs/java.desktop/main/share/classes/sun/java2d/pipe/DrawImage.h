@@ -68,6 +68,7 @@ class DrawImage : public ::sun::java2d::pipe::DrawImagePipe {
 	$class(DrawImage, 0, ::sun::java2d::pipe::DrawImagePipe)
 public:
 	DrawImage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blitSurfaceData(::sun::java2d::SunGraphics2D* sg, ::sun::java2d::pipe::Region* clip, ::sun::java2d::SurfaceData* srcData, ::sun::java2d::SurfaceData* dstData, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h, ::java::awt::Color* bgColor);
 	static bool closeToInteger(int32_t i, double d);

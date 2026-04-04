@@ -69,6 +69,7 @@ class $export Krb5Util : public ::java::lang::Object {
 	$class(Krb5Util, 0, ::java::lang::Object)
 public:
 	Krb5Util();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::security::auth::kerberos::KerberosTicket* credsToTicket(::sun::security::krb5::Credentials* serviceCreds);
 	static ::javax::security::auth::kerberos::KerberosTicket* getInitialTicket(::sun::security::jgss::GSSCaller* caller, $String* clientPrincipal, ::java::security::AccessControlContext* acc);

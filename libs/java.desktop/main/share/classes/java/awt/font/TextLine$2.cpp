@@ -1,5 +1,4 @@
 #include <java/awt/font/TextLine$2.h>
-
 #include <java/awt/font/TextLine$Function.h>
 #include <java/awt/font/TextLine.h>
 #include <sun/font/TextLineComponent.h>
@@ -17,44 +16,6 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$MethodInfo _TextLine$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TextLine$2, init$, void)},
-	{"computeFunction", "(Ljava/awt/font/TextLine;II)F", nullptr, 0, $virtualMethod(TextLine$2, computeFunction, float, $TextLine*, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _TextLine$2_EnclosingMethodInfo_ = {
-	"java.awt.font.TextLine",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TextLine$2_InnerClassesInfo_[] = {
-	{"java.awt.font.TextLine$2", nullptr, nullptr, 0},
-	{"java.awt.font.TextLine$Function", "java.awt.font.TextLine", "Function", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TextLine$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.font.TextLine$2",
-	"java.awt.font.TextLine$Function",
-	nullptr,
-	nullptr,
-	_TextLine$2_MethodInfo_,
-	nullptr,
-	&_TextLine$2_EnclosingMethodInfo_,
-	_TextLine$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.font.TextLine"
-};
-
-$Object* allocate$TextLine$2($Class* clazz) {
-	return $of($alloc(TextLine$2));
-}
-
 void TextLine$2::init$() {
 	$TextLine$Function::init$();
 }
@@ -68,7 +29,39 @@ TextLine$2::TextLine$2() {
 }
 
 $Class* TextLine$2::load$($String* name, bool initialize) {
-	$loadClass(TextLine$2, name, initialize, &_TextLine$2_ClassInfo_, allocate$TextLine$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TextLine$2, init$, void)},
+		{"computeFunction", "(Ljava/awt/font/TextLine;II)F", nullptr, 0, $virtualMethod(TextLine$2, computeFunction, float, $TextLine*, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.font.TextLine",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.font.TextLine$2", nullptr, nullptr, 0},
+		{"java.awt.font.TextLine$Function", "java.awt.font.TextLine", "Function", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.font.TextLine$2",
+		"java.awt.font.TextLine$Function",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.font.TextLine"
+	};
+	$loadClass(TextLine$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLine$2);
+	});
 	return class$;
 }
 

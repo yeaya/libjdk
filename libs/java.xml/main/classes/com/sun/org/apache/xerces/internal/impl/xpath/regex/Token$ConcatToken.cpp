@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ConcatToken.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token.h>
 #include <jcpp.h>
 
@@ -23,46 +22,6 @@ namespace com {
 							namespace xpath {
 								namespace regex {
 
-$FieldInfo _Token$ConcatToken_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$ConcatToken, serialVersionUID)},
-	{"child", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Token$ConcatToken, child)},
-	{"child2", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Token$ConcatToken, child2)},
-	{}
-};
-
-$MethodInfo _Token$ConcatToken_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $method(Token$ConcatToken, init$, void, $Token*, $Token*)},
-	{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token$ConcatToken, getChild, $Token*, int32_t)},
-	{"size", "()I", nullptr, 0, $virtualMethod(Token$ConcatToken, size, int32_t)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$ConcatToken, toString, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Token$ConcatToken_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ConcatToken", $STATIC},
-	{}
-};
-
-$ClassInfo _Token$ConcatToken_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
-	nullptr,
-	_Token$ConcatToken_FieldInfo_,
-	_Token$ConcatToken_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Token$ConcatToken_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
-};
-
-$Object* allocate$Token$ConcatToken($Class* clazz) {
-	return $of($alloc(Token$ConcatToken));
-}
-
 void Token$ConcatToken::init$($Token* t1, $Token* t2) {
 	$Token::init$($Token::CONCAT);
 	$set(this, child, t1);
@@ -78,15 +37,17 @@ $Token* Token$ConcatToken::getChild(int32_t index) {
 }
 
 $String* Token$ConcatToken::toString(int32_t options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ret, nullptr);
-	if ($nc(this->child2)->type == $Token::CLOSURE && $nc(this->child2)->getChild(0) == this->child) {
+	if ($nc(this->child2)->type == $Token::CLOSURE && this->child2->getChild(0) == this->child) {
 		$assign(ret, $str({$($nc(this->child)->toString(options)), "+"_s}));
-	} else if ($nc(this->child2)->type == $Token::NONGREEDYCLOSURE && $nc(this->child2)->getChild(0) == this->child) {
+	} else if (this->child2->type == $Token::NONGREEDYCLOSURE && this->child2->getChild(0) == this->child) {
 		$assign(ret, $str({$($nc(this->child)->toString(options)), "+?"_s}));
 	} else {
-		$var($String, var$0, $($nc(this->child)->toString(options)));
-		$assign(ret, $concat(var$0, $($nc(this->child2)->toString(options))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(this->child)->toString(options)));
+		var$0->append($(this->child2->toString(options)));
+		$assign(ret, $str(var$0));
 	}
 	return ret;
 }
@@ -95,7 +56,41 @@ Token$ConcatToken::Token$ConcatToken() {
 }
 
 $Class* Token$ConcatToken::load$($String* name, bool initialize) {
-	$loadClass(Token$ConcatToken, name, initialize, &_Token$ConcatToken_ClassInfo_, allocate$Token$ConcatToken);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$ConcatToken, serialVersionUID)},
+		{"child", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Token$ConcatToken, child)},
+		{"child2", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Token$ConcatToken, child2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $method(Token$ConcatToken, init$, void, $Token*, $Token*)},
+		{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token$ConcatToken, getChild, $Token*, int32_t)},
+		{"size", "()I", nullptr, 0, $virtualMethod(Token$ConcatToken, size, int32_t)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$ConcatToken, toString, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ConcatToken", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ConcatToken",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
+	};
+	$loadClass(Token$ConcatToken, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Token$ConcatToken);
+	});
 	return class$;
 }
 

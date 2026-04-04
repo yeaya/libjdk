@@ -92,6 +92,7 @@ class $import Source : public ::java::lang::Enum {
 public:
 	Source();
 	static $Array<::com::sun::tools::javac::code::Source>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name);
 	static ::com::sun::tools::javac::code::Source* instance(::com::sun::tools::javac::util::Context* context);
 	virtual bool isSupported();

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTitlePane$RestoreAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/Locale.h>
@@ -22,46 +21,10 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTitlePane$RestoreAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$RestoreAction, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTitlePane$RestoreAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$RestoreAction, init$, void, $MetalTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$RestoreAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTitlePane$RestoreAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTitlePane$RestoreAction", "javax.swing.plaf.metal.MetalTitlePane", "RestoreAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalTitlePane$RestoreAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTitlePane$RestoreAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_MetalTitlePane$RestoreAction_FieldInfo_,
-	_MetalTitlePane$RestoreAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTitlePane$RestoreAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTitlePane"
-};
-
-$Object* allocate$MetalTitlePane$RestoreAction($Class* clazz) {
-	return $of($alloc(MetalTitlePane$RestoreAction));
-}
-
 void MetalTitlePane$RestoreAction::init$($MetalTitlePane* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$AbstractAction::init$($($UIManager::getString($of("MetalTitlePane.restoreTitle"_s), $(this$0->getLocale()))));
+	$AbstractAction::init$($($UIManager::getString("MetalTitlePane.restoreTitle"_s, $(this$0->getLocale()))));
 }
 
 void MetalTitlePane$RestoreAction::actionPerformed($ActionEvent* e) {
@@ -72,7 +35,37 @@ MetalTitlePane$RestoreAction::MetalTitlePane$RestoreAction() {
 }
 
 $Class* MetalTitlePane$RestoreAction::load$($String* name, bool initialize) {
-	$loadClass(MetalTitlePane$RestoreAction, name, initialize, &_MetalTitlePane$RestoreAction_ClassInfo_, allocate$MetalTitlePane$RestoreAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$RestoreAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$RestoreAction, init$, void, $MetalTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$RestoreAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTitlePane$RestoreAction", "javax.swing.plaf.metal.MetalTitlePane", "RestoreAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTitlePane$RestoreAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTitlePane"
+	};
+	$loadClass(MetalTitlePane$RestoreAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTitlePane$RestoreAction));
+	});
 	return class$;
 }
 

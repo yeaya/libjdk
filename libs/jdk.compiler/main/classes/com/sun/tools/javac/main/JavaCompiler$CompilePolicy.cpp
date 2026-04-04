@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/JavaCompiler$CompilePolicy.h>
-
 #include <com/sun/tools/javac/main/JavaCompiler.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,48 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _JavaCompiler$CompilePolicy_FieldInfo_[] = {
-	{"SIMPLE", "Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$CompilePolicy, SIMPLE)},
-	{"BY_FILE", "Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$CompilePolicy, BY_FILE)},
-	{"BY_TODO", "Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$CompilePolicy, BY_TODO)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$CompilePolicy, $VALUES)},
-	{}
-};
-
-$MethodInfo _JavaCompiler$CompilePolicy_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler$CompilePolicy, $values, $JavaCompiler$CompilePolicyArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavaCompiler$CompilePolicy, init$, void, $String*, int32_t)},
-	{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $STATIC, $staticMethod(JavaCompiler$CompilePolicy, decode, JavaCompiler$CompilePolicy*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$CompilePolicy, valueOf, JavaCompiler$CompilePolicy*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$CompilePolicy, values, $JavaCompiler$CompilePolicyArray*)},
-	{}
-};
-
-$InnerClassInfo _JavaCompiler$CompilePolicy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.JavaCompiler$CompilePolicy", "com.sun.tools.javac.main.JavaCompiler", "CompilePolicy", $PROTECTED | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavaCompiler$CompilePolicy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.JavaCompiler$CompilePolicy",
-	"java.lang.Enum",
-	nullptr,
-	_JavaCompiler$CompilePolicy_FieldInfo_,
-	_JavaCompiler$CompilePolicy_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;>;",
-	nullptr,
-	_JavaCompiler$CompilePolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.JavaCompiler"
-};
-
-$Object* allocate$JavaCompiler$CompilePolicy($Class* clazz) {
-	return $of($alloc(JavaCompiler$CompilePolicy));
-}
 
 JavaCompiler$CompilePolicy* JavaCompiler$CompilePolicy::SIMPLE = nullptr;
 JavaCompiler$CompilePolicy* JavaCompiler$CompilePolicy::BY_FILE = nullptr;
@@ -98,7 +55,7 @@ JavaCompiler$CompilePolicy* JavaCompiler$CompilePolicy::decode($String* option) 
 	if (option == nullptr) {
 		$init($JavaCompiler);
 		return $JavaCompiler::DEFAULT_COMPILE_POLICY;
-	} else if ($nc(option)->equals("simple"_s)) {
+	} else if (option->equals("simple"_s)) {
 		return JavaCompiler$CompilePolicy::SIMPLE;
 	} else if (option->equals("byfile"_s)) {
 		return JavaCompiler$CompilePolicy::BY_FILE;
@@ -110,7 +67,7 @@ JavaCompiler$CompilePolicy* JavaCompiler$CompilePolicy::decode($String* option) 
 	}
 }
 
-void clinit$JavaCompiler$CompilePolicy($Class* class$) {
+void JavaCompiler$CompilePolicy::clinit$($Class* clazz) {
 	$assignStatic(JavaCompiler$CompilePolicy::SIMPLE, $new(JavaCompiler$CompilePolicy, "SIMPLE"_s, 0));
 	$assignStatic(JavaCompiler$CompilePolicy::BY_FILE, $new(JavaCompiler$CompilePolicy, "BY_FILE"_s, 1));
 	$assignStatic(JavaCompiler$CompilePolicy::BY_TODO, $new(JavaCompiler$CompilePolicy, "BY_TODO"_s, 2));
@@ -121,7 +78,43 @@ JavaCompiler$CompilePolicy::JavaCompiler$CompilePolicy() {
 }
 
 $Class* JavaCompiler$CompilePolicy::load$($String* name, bool initialize) {
-	$loadClass(JavaCompiler$CompilePolicy, name, initialize, &_JavaCompiler$CompilePolicy_ClassInfo_, clinit$JavaCompiler$CompilePolicy, allocate$JavaCompiler$CompilePolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIMPLE", "Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$CompilePolicy, SIMPLE)},
+		{"BY_FILE", "Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$CompilePolicy, BY_FILE)},
+		{"BY_TODO", "Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$CompilePolicy, BY_TODO)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$CompilePolicy, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler$CompilePolicy, $values, $JavaCompiler$CompilePolicyArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavaCompiler$CompilePolicy, init$, void, $String*, int32_t)},
+		{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $STATIC, $staticMethod(JavaCompiler$CompilePolicy, decode, JavaCompiler$CompilePolicy*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$CompilePolicy, valueOf, JavaCompiler$CompilePolicy*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$CompilePolicy, values, $JavaCompiler$CompilePolicyArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.JavaCompiler$CompilePolicy", "com.sun.tools.javac.main.JavaCompiler", "CompilePolicy", $PROTECTED | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.JavaCompiler$CompilePolicy",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.JavaCompiler"
+	};
+	$loadClass(JavaCompiler$CompilePolicy, name, initialize, &classInfo$$, JavaCompiler$CompilePolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavaCompiler$CompilePolicy));
+	});
 	return class$;
 }
 

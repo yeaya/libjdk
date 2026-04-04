@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers$FollowingTraverser.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers$DescendantTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
@@ -24,46 +23,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _DTMDefaultBaseTraversers$FollowingTraverser_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseTraversers$FollowingTraverser, this$0)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBaseTraversers$FollowingTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;)V", nullptr, $PRIVATE, $method(DTMDefaultBaseTraversers$FollowingTraverser, init$, void, $DTMDefaultBaseTraversers*)},
-	{"first", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, first, int32_t, int32_t)},
-	{"first", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, first, int32_t, int32_t, int32_t)},
-	{"next", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, next, int32_t, int32_t, int32_t)},
-	{"next", "(III)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, next, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DTMDefaultBaseTraversers$FollowingTraverser_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$FollowingTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "FollowingTraverser", $PRIVATE},
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "DescendantTraverser", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DTMDefaultBaseTraversers$FollowingTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$FollowingTraverser",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser",
-	nullptr,
-	_DTMDefaultBaseTraversers$FollowingTraverser_FieldInfo_,
-	_DTMDefaultBaseTraversers$FollowingTraverser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMDefaultBaseTraversers$FollowingTraverser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers"
-};
-
-$Object* allocate$DTMDefaultBaseTraversers$FollowingTraverser($Class* clazz) {
-	return $of($alloc(DTMDefaultBaseTraversers$FollowingTraverser));
-}
 
 void DTMDefaultBaseTraversers$FollowingTraverser::init$($DTMDefaultBaseTraversers* this$0) {
 	$set(this, this$0, this$0);
@@ -125,7 +84,7 @@ int32_t DTMDefaultBaseTraversers$FollowingTraverser::next(int32_t context, int32
 		if (-1 == type) {
 			return -1;
 		}
-		if ((int16_t)2 == type || (int16_t)13 == type) {
+		if (2 == type || 13 == type) {
 			continue;
 		}
 		return this->this$0->makeNodeHandle(current);
@@ -151,7 +110,41 @@ DTMDefaultBaseTraversers$FollowingTraverser::DTMDefaultBaseTraversers$FollowingT
 }
 
 $Class* DTMDefaultBaseTraversers$FollowingTraverser::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBaseTraversers$FollowingTraverser, name, initialize, &_DTMDefaultBaseTraversers$FollowingTraverser_ClassInfo_, allocate$DTMDefaultBaseTraversers$FollowingTraverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseTraversers$FollowingTraverser, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers;)V", nullptr, $PRIVATE, $method(DTMDefaultBaseTraversers$FollowingTraverser, init$, void, $DTMDefaultBaseTraversers*)},
+		{"first", "(I)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, first, int32_t, int32_t)},
+		{"first", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, first, int32_t, int32_t, int32_t)},
+		{"next", "(II)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, next, int32_t, int32_t, int32_t)},
+		{"next", "(III)I", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseTraversers$FollowingTraverser, next, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$FollowingTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "FollowingTraverser", $PRIVATE},
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers", "DescendantTraverser", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$FollowingTraverser",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers$DescendantTraverser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseTraversers"
+	};
+	$loadClass(DTMDefaultBaseTraversers$FollowingTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBaseTraversers$FollowingTraverser);
+	});
 	return class$;
 }
 

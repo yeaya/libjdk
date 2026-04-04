@@ -1,5 +1,4 @@
 #include <sun/management/counter/Units.h>
-
 #include <jcpp.h>
 
 #undef BYTES
@@ -19,43 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace management {
 		namespace counter {
-
-$FieldInfo _Units_FieldInfo_[] = {
-	{"NUNITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Units, NUNITS)},
-	{"map", "[Lsun/management/counter/Units;", nullptr, $PRIVATE | $STATIC, $staticField(Units, map)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Units, name)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(Units, value)},
-	{"INVALID", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, INVALID)},
-	{"NONE", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, NONE)},
-	{"BYTES", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, BYTES)},
-	{"TICKS", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, TICKS)},
-	{"EVENTS", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, EVENTS)},
-	{"STRING", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, STRING)},
-	{"HERTZ", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, HERTZ)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Units, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Units_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Units, init$, void, $String*, int32_t)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Units, intValue, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Units, toString, $String*)},
-	{"toUnits", "(I)Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC, $staticMethod(Units, toUnits, Units*, int32_t)},
-	{}
-};
-
-$ClassInfo _Units_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.counter.Units",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Units_FieldInfo_,
-	_Units_MethodInfo_
-};
-
-$Object* allocate$Units($Class* clazz) {
-	return $of($alloc(Units));
-}
 
 $UnitsArray* Units::map = nullptr;
 Units* Units::INVALID = nullptr;
@@ -88,7 +50,7 @@ void Units::init$($String* name, int32_t value) {
 	$nc(Units::map)->set(value, this);
 }
 
-void clinit$Units($Class* class$) {
+void Units::clinit$($Class* clazz) {
 	$assignStatic(Units::map, $new($UnitsArray, Units::NUNITS));
 	$assignStatic(Units::INVALID, $new(Units, "Invalid"_s, 0));
 	$assignStatic(Units::NONE, $new(Units, "None"_s, 1));
@@ -103,7 +65,39 @@ Units::Units() {
 }
 
 $Class* Units::load$($String* name, bool initialize) {
-	$loadClass(Units, name, initialize, &_Units_ClassInfo_, clinit$Units, allocate$Units);
+	$FieldInfo fieldInfos$$[] = {
+		{"NUNITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Units, NUNITS)},
+		{"map", "[Lsun/management/counter/Units;", nullptr, $PRIVATE | $STATIC, $staticField(Units, map)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Units, name)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(Units, value)},
+		{"INVALID", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, INVALID)},
+		{"NONE", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, NONE)},
+		{"BYTES", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, BYTES)},
+		{"TICKS", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, TICKS)},
+		{"EVENTS", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, EVENTS)},
+		{"STRING", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, STRING)},
+		{"HERTZ", "Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Units, HERTZ)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Units, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Units, init$, void, $String*, int32_t)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Units, intValue, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Units, toString, $String*)},
+		{"toUnits", "(I)Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC, $staticMethod(Units, toUnits, Units*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.counter.Units",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Units, name, initialize, &classInfo$$, Units::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Units);
+	});
 	return class$;
 }
 

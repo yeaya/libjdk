@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton$1.h>
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton$2.h>
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI.h>
@@ -7,8 +6,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <sun/awt/AWTAccessor$MouseEventAccessor.h>
@@ -20,12 +17,8 @@
 using $MotifDesktopIconUI = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI;
 using $MotifDesktopIconUI$IconButton$1 = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI$IconButton$1;
 using $MotifDesktopIconUI$IconButton$2 = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI$IconButton$2;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -42,48 +35,8 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifDesktopIconUI$IconButton_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifDesktopIconUI$IconButton, this$0)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(MotifDesktopIconUI$IconButton, icon)},
-	{}
-};
-
-$MethodInfo _MotifDesktopIconUI$IconButton_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;Ljavax/swing/Icon;)V", nullptr, 0, $method(MotifDesktopIconUI$IconButton, init$, void, $MotifDesktopIconUI*, $Icon*)},
-	{"forwardEventToParent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI$IconButton, forwardEventToParent, void, $MouseEvent*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconButton, isFocusTraversable, bool)},
-	{}
-};
-
-$InnerClassInfo _MotifDesktopIconUI$IconButton_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconButton", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifDesktopIconUI$IconButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton",
-	"javax.swing.JButton",
-	nullptr,
-	_MotifDesktopIconUI$IconButton_FieldInfo_,
-	_MotifDesktopIconUI$IconButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifDesktopIconUI$IconButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI"
-};
-
-$Object* allocate$MotifDesktopIconUI$IconButton($Class* clazz) {
-	return $of($alloc(MotifDesktopIconUI$IconButton));
-}
-
 void MotifDesktopIconUI$IconButton::init$($MotifDesktopIconUI* this$0, $Icon* icon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JButton::init$(icon);
 	$set(this, icon, icon);
@@ -92,8 +45,8 @@ void MotifDesktopIconUI$IconButton::init$($MotifDesktopIconUI* this$0, $Icon* ic
 }
 
 void MotifDesktopIconUI$IconButton::forwardEventToParent($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, var$0, static_cast<$Component*>(getParent()));
+	$useLocalObjectStack();
+	$var($Component, var$0, getParent());
 	int32_t var$1 = $nc(e)->getID();
 	int64_t var$2 = e->getWhen();
 	int32_t var$3 = e->getModifiers();
@@ -104,8 +57,8 @@ void MotifDesktopIconUI$IconButton::forwardEventToParent($MouseEvent* e) {
 	int32_t var$8 = e->getClickCount();
 	$var($MouseEvent, newEvent, $new($MouseEvent, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, e->isPopupTrigger(), $MouseEvent::NOBUTTON));
 	$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-	$nc(meAccessor)->setCausedByTouchEvent(newEvent, meAccessor->isCausedByTouchEvent(e));
-	$nc($(getParent()))->dispatchEvent(newEvent);
+	$nc(meAccessor)->setCausedByTouchEvent(newEvent, $nc(meAccessor)->isCausedByTouchEvent(e));
+	$$nc(getParent())->dispatchEvent(newEvent);
 }
 
 bool MotifDesktopIconUI$IconButton::isFocusTraversable() {
@@ -116,7 +69,41 @@ MotifDesktopIconUI$IconButton::MotifDesktopIconUI$IconButton() {
 }
 
 $Class* MotifDesktopIconUI$IconButton::load$($String* name, bool initialize) {
-	$loadClass(MotifDesktopIconUI$IconButton, name, initialize, &_MotifDesktopIconUI$IconButton_ClassInfo_, allocate$MotifDesktopIconUI$IconButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifDesktopIconUI$IconButton, this$0)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(MotifDesktopIconUI$IconButton, icon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;Ljavax/swing/Icon;)V", nullptr, 0, $method(MotifDesktopIconUI$IconButton, init$, void, $MotifDesktopIconUI*, $Icon*)},
+		{"forwardEventToParent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI$IconButton, forwardEventToParent, void, $MouseEvent*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$IconButton, isFocusTraversable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconButton", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI"
+	};
+	$loadClass(MotifDesktopIconUI$IconButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifDesktopIconUI$IconButton));
+	});
 	return class$;
 }
 

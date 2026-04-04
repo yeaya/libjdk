@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobHoldUntil.h>
-
 #include <java/util/Date.h>
 #include <javax/print/attribute/DateTimeSyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobHoldUntil_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobHoldUntil, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JobHoldUntil_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $method(JobHoldUntil, init$, void, $Date*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobHoldUntil, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobHoldUntil, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobHoldUntil, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobHoldUntil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.JobHoldUntil",
-	"javax.print.attribute.DateTimeSyntax",
-	"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_JobHoldUntil_FieldInfo_,
-	_JobHoldUntil_MethodInfo_
-};
-
-$Object* allocate$JobHoldUntil($Class* clazz) {
-	return $of($alloc(JobHoldUntil));
-}
 
 int32_t JobHoldUntil::hashCode() {
 	 return this->$DateTimeSyntax::hashCode();
@@ -81,7 +50,32 @@ JobHoldUntil::JobHoldUntil() {
 }
 
 $Class* JobHoldUntil::load$($String* name, bool initialize) {
-	$loadClass(JobHoldUntil, name, initialize, &_JobHoldUntil_ClassInfo_, allocate$JobHoldUntil);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobHoldUntil, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $method(JobHoldUntil, init$, void, $Date*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobHoldUntil, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobHoldUntil, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobHoldUntil, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.JobHoldUntil",
+		"javax.print.attribute.DateTimeSyntax",
+		"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobHoldUntil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobHoldUntil));
+	});
 	return class$;
 }
 

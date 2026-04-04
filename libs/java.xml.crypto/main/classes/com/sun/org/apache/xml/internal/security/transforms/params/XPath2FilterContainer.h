@@ -50,6 +50,7 @@ class XPath2FilterContainer : public ::com::sun::org::apache::xml::internal::sec
 	$class(XPath2FilterContainer, 0, ::com::sun::org::apache::xml::internal::security::utils::ElementProxy, ::com::sun::org::apache::xml::internal::security::transforms::TransformParam)
 public:
 	XPath2FilterContainer();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

@@ -1,9 +1,7 @@
 #include <sun/security/jgss/krb5/Krb5AcceptCredential.h>
-
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/Provider.h>
 #include <javax/security/auth/DestroyFailedException.h>
 #include <org/ietf/jgss/GSSCredential.h>
@@ -37,7 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Provider = ::java::security::Provider;
 using $DestroyFailedException = ::javax::security::auth::DestroyFailedException;
 using $GSSCredential = ::org::ietf::jgss::GSSCredential;
@@ -59,53 +56,6 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _Krb5AcceptCredential_FieldInfo_[] = {
-	{"name", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE | $FINAL, $field(Krb5AcceptCredential, name)},
-	{"screds", "Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PRIVATE | $FINAL, $field(Krb5AcceptCredential, screds)},
-	{}
-};
-
-$MethodInfo _Krb5AcceptCredential_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/krb5/ServiceCreds;)V", nullptr, $PRIVATE, $method(Krb5AcceptCredential, init$, void, $Krb5NameElement*, $ServiceCreds*)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, destroy, void), "javax.security.auth.DestroyFailedException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, dispose, void), "org.ietf.jgss.GSSException"},
-	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;)Lsun/security/jgss/krb5/Krb5AcceptCredential;", nullptr, $STATIC, $staticMethod(Krb5AcceptCredential, getInstance, Krb5AcceptCredential*, $GSSCaller*, $Krb5NameElement*), "org.ietf.jgss.GSSException"},
-	{"getKrb5EncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getKrb5EncryptionKeys, $EncryptionKeyArray*, $PrincipalName*)},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getMechanism, $Oid*)},
-	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getProvider, $Provider*)},
-	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
-	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$InnerClassInfo _Krb5AcceptCredential_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.Krb5AcceptCredential$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Krb5AcceptCredential_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5AcceptCredential",
-	"java.lang.Object",
-	"sun.security.jgss.krb5.Krb5CredElement",
-	_Krb5AcceptCredential_FieldInfo_,
-	_Krb5AcceptCredential_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Krb5AcceptCredential_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.Krb5AcceptCredential$1"
-};
-
-$Object* allocate$Krb5AcceptCredential($Class* clazz) {
-	return $of($alloc(Krb5AcceptCredential));
-}
-
 void Krb5AcceptCredential::init$($Krb5NameElement* name, $ServiceCreds* creds) {
 	$set(this, name, name);
 	$set(this, screds, creds);
@@ -113,14 +63,14 @@ void Krb5AcceptCredential::init$($Krb5NameElement* name, $ServiceCreds* creds) {
 
 Krb5AcceptCredential* Krb5AcceptCredential::getInstance($GSSCaller* caller, $Krb5NameElement* name$renamed) {
 	$init(Krb5AcceptCredential);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Krb5NameElement, name, name$renamed);
 	$beforeCallerSensitive();
-	$var($String, serverPrinc, name == nullptr ? ($String*)nullptr : $nc($($nc(name)->getKrb5PrincipalName()))->getName());
+	$var($String, serverPrinc, name == nullptr ? ($String*)nullptr : $$nc(name->getKrb5PrincipalName())->getName());
 	$var($AccessControlContext, acc, $AccessController::getContext());
 	$var($ServiceCreds, creds, nullptr);
 	try {
-		$assign(creds, $cast($ServiceCreds, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Krb5AcceptCredential$1, caller, serverPrinc, acc)))));
+		$assign(creds, $cast($ServiceCreds, $AccessController::doPrivileged($$new($Krb5AcceptCredential$1, caller, serverPrinc, acc))));
 	} catch ($PrivilegedActionException& e) {
 		$var($GSSException, ge, $new($GSSException, $GSSException::NO_CRED, -1, "Attempt to obtain new ACCEPT credentials failed!"_s));
 		ge->initCause($(e->getException()));
@@ -174,7 +124,7 @@ $EncryptionKeyArray* Krb5AcceptCredential::getKrb5EncryptionKeys($PrincipalName*
 }
 
 void Krb5AcceptCredential::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		destroy();
 	} catch ($DestroyFailedException& e) {
@@ -188,10 +138,10 @@ void Krb5AcceptCredential::destroy() {
 }
 
 $GSSCredentialSpi* Krb5AcceptCredential::impersonate($GSSNameSpi* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Credentials, cred, $nc(this->screds)->getInitCred());
 	if (cred != nullptr) {
-		return $nc($($Krb5InitCredential::getInstance(this->name, cred)))->impersonate(name);
+		return $$nc($Krb5InitCredential::getInstance(this->name, cred))->impersonate(name);
 	} else {
 		$throwNew($GSSException, $GSSException::FAILURE, -1, "Only an initiate credentials can impersonate"_s);
 	}
@@ -201,7 +151,48 @@ Krb5AcceptCredential::Krb5AcceptCredential() {
 }
 
 $Class* Krb5AcceptCredential::load$($String* name, bool initialize) {
-	$loadClass(Krb5AcceptCredential, name, initialize, &_Krb5AcceptCredential_ClassInfo_, allocate$Krb5AcceptCredential);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE | $FINAL, $field(Krb5AcceptCredential, name)},
+		{"screds", "Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PRIVATE | $FINAL, $field(Krb5AcceptCredential, screds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/krb5/ServiceCreds;)V", nullptr, $PRIVATE, $method(Krb5AcceptCredential, init$, void, $Krb5NameElement*, $ServiceCreds*)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, destroy, void), "javax.security.auth.DestroyFailedException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, dispose, void), "org.ietf.jgss.GSSException"},
+		{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getInstance", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;)Lsun/security/jgss/krb5/Krb5AcceptCredential;", nullptr, $STATIC, $staticMethod(Krb5AcceptCredential, getInstance, Krb5AcceptCredential*, $GSSCaller*, $Krb5NameElement*), "org.ietf.jgss.GSSException"},
+		{"getKrb5EncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getKrb5EncryptionKeys, $EncryptionKeyArray*, $PrincipalName*)},
+		{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getMechanism, $Oid*)},
+		{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getProvider, $Provider*)},
+		{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
+		{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.Krb5AcceptCredential$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5AcceptCredential",
+		"java.lang.Object",
+		"sun.security.jgss.krb5.Krb5CredElement",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.Krb5AcceptCredential$1"
+	};
+	$loadClass(Krb5AcceptCredential, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5AcceptCredential);
+	});
 	return class$;
 }
 

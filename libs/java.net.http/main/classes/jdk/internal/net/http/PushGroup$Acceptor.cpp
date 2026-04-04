@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/PushGroup$Acceptor.h>
-
 #include <java/net/http/HttpResponse$BodyHandler.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <jdk/internal/net/http/PushGroup.h>
@@ -16,40 +15,35 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _PushGroup$Acceptor_MethodInfo_[] = {
-	{"accepted", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, accepted, bool)},
-	{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, bodyHandler, $HttpResponse$BodyHandler*)},
-	{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, cf, $CompletableFuture*)},
-	{}
-};
-
-$InnerClassInfo _PushGroup$Acceptor_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.PushGroup$Acceptor", "jdk.internal.net.http.PushGroup", "Acceptor", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PushGroup$Acceptor_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.PushGroup$Acceptor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PushGroup$Acceptor_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_PushGroup$Acceptor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.PushGroup"
-};
-
-$Object* allocate$PushGroup$Acceptor($Class* clazz) {
-	return $of($alloc(PushGroup$Acceptor));
-}
-
 $Class* PushGroup$Acceptor::load$($String* name, bool initialize) {
-	$loadClass(PushGroup$Acceptor, name, initialize, &_PushGroup$Acceptor_ClassInfo_, allocate$PushGroup$Acceptor);
+	$MethodInfo methodInfos$$[] = {
+		{"accepted", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, accepted, bool)},
+		{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, bodyHandler, $HttpResponse$BodyHandler*)},
+		{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, cf, $CompletableFuture*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.PushGroup$Acceptor", "jdk.internal.net.http.PushGroup", "Acceptor", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.PushGroup$Acceptor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.PushGroup"
+	};
+	$loadClass(PushGroup$Acceptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PushGroup$Acceptor);
+	});
 	return class$;
 }
 

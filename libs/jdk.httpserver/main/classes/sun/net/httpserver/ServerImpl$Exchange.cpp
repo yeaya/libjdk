@@ -1,8 +1,6 @@
 #include <sun/net/httpserver/ServerImpl$Exchange.h>
-
 #include <com/sun/net/httpserver/Filter$Chain.h>
 #include <com/sun/net/httpserver/Headers.h>
-#include <com/sun/net/httpserver/HttpExchange.h>
 #include <com/sun/net/httpserver/HttpHandler.h>
 #include <java/io/BufferedInputStream.h>
 #include <java/io/IOException.h>
@@ -49,12 +47,8 @@
 
 using $Filter$Chain = ::com::sun::net::httpserver::Filter$Chain;
 using $Headers = ::com::sun::net::httpserver::Headers;
-using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -62,20 +56,16 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $Code = ::sun::net::httpserver::Code;
-using $ContextList = ::sun::net::httpserver::ContextList;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
 using $HttpConnection = ::sun::net::httpserver::HttpConnection;
-using $HttpContextImpl = ::sun::net::httpserver::HttpContextImpl;
 using $HttpError = ::sun::net::httpserver::HttpError;
 using $HttpExchangeImpl = ::sun::net::httpserver::HttpExchangeImpl;
 using $HttpsExchangeImpl = ::sun::net::httpserver::HttpsExchangeImpl;
@@ -91,54 +81,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _ServerImpl$Exchange_FieldInfo_[] = {
-	{"this$0", "Lsun/net/httpserver/ServerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(ServerImpl$Exchange, this$0)},
-	{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(ServerImpl$Exchange, chan)},
-	{"connection", "Lsun/net/httpserver/HttpConnection;", nullptr, 0, $field(ServerImpl$Exchange, connection)},
-	{"context", "Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $field(ServerImpl$Exchange, context)},
-	{"rawin", "Ljava/io/InputStream;", nullptr, 0, $field(ServerImpl$Exchange, rawin)},
-	{"rawout", "Ljava/io/OutputStream;", nullptr, 0, $field(ServerImpl$Exchange, rawout)},
-	{"protocol", "Ljava/lang/String;", nullptr, 0, $field(ServerImpl$Exchange, protocol)},
-	{"tx", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(ServerImpl$Exchange, tx)},
-	{"ctx", "Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $field(ServerImpl$Exchange, ctx)},
-	{"rejected", "Z", nullptr, 0, $field(ServerImpl$Exchange, rejected)},
-	{}
-};
-
-$MethodInfo _ServerImpl$Exchange_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;Ljava/lang/String;Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $method(ServerImpl$Exchange, init$, void, $ServerImpl*, $SocketChannel*, $String*, $HttpConnection*), "java.io.IOException"},
-	{"reject", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl$Exchange, reject, void, int32_t, $String*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Exchange, run, void)},
-	{"sendReply", "(IZLjava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl$Exchange, sendReply, void, int32_t, bool, $String*)},
-	{}
-};
-
-$InnerClassInfo _ServerImpl$Exchange_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.ServerImpl$Exchange", "sun.net.httpserver.ServerImpl", "Exchange", 0},
-	{"sun.net.httpserver.ServerImpl$Exchange$LinkHandler", "sun.net.httpserver.ServerImpl$Exchange", "LinkHandler", 0},
-	{}
-};
-
-$ClassInfo _ServerImpl$Exchange_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ServerImpl$Exchange",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ServerImpl$Exchange_FieldInfo_,
-	_ServerImpl$Exchange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerImpl$Exchange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.ServerImpl"
-};
-
-$Object* allocate$ServerImpl$Exchange($Class* clazz) {
-	return $of($alloc(ServerImpl$Exchange));
-}
-
 void ServerImpl$Exchange::init$($ServerImpl* this$0, $SocketChannel* chan, $String* protocol, $HttpConnection* conn) {
 	$set(this, this$0, this$0);
 	this->rejected = false;
@@ -148,7 +90,7 @@ void ServerImpl$Exchange::init$($ServerImpl* this$0, $SocketChannel* chan, $Stri
 }
 
 void ServerImpl$Exchange::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($System$Logger$Level);
 	$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "exchange started"_s);
 	$set(this, context, $nc(this->connection)->getHttpContext());
@@ -165,7 +107,7 @@ void ServerImpl$Exchange::run() {
 			newconnection = true;
 			if (this->this$0->https) {
 				if (this->this$0->sslContext == nullptr) {
-					$nc(this->this$0->logger)->log($System$Logger$Level::WARNING, "SSL connection received. No https context created"_s);
+					this->this$0->logger->log($System$Logger$Level::WARNING, "SSL connection received. No https context created"_s);
 					$throwNew($HttpError, "No SSL context established"_s);
 				}
 				$assign(sslStreams, $new($SSLStreams, this->this$0, this->this$0->sslContext, this->chan));
@@ -178,24 +120,24 @@ void ServerImpl$Exchange::run() {
 				$set(this, rawout, $new($Request$WriteStream, this->this$0, this->chan));
 			}
 			$set($nc(this->connection), raw, this->rawin);
-			$set($nc(this->connection), rawout, this->rawout);
+			$set(this->connection, rawout, this->rawout);
 		}
 		$var($Request, req, $new($Request, this->rawin, this->rawout));
 		$assign(requestLine, req->requestLine());
 		if (requestLine == nullptr) {
-			$nc(this->this$0->logger)->log($System$Logger$Level::DEBUG, "no request line: closing"_s);
+			this->this$0->logger->log($System$Logger$Level::DEBUG, "no request line: closing"_s);
 			this->this$0->closeConnection(this->connection);
 			return;
 		}
-		$nc(this->this$0->logger)->log($System$Logger$Level::DEBUG, "Exchange request line: {0}"_s, $$new($ObjectArray, {$of(requestLine)}));
-		int32_t space = $nc(requestLine)->indexOf((int32_t)u' ');
+		this->this$0->logger->log($System$Logger$Level::DEBUG, "Exchange request line: {0}"_s, $$new($ObjectArray, {requestLine}));
+		int32_t space = $nc(requestLine)->indexOf(u' ');
 		if (space == -1) {
 			reject($Code::HTTP_BAD_REQUEST, requestLine, "Bad request line"_s);
 			return;
 		}
 		$var($String, method, requestLine->substring(0, space));
 		int32_t start = space + 1;
-		space = requestLine->indexOf((int32_t)u' ', start);
+		space = requestLine->indexOf(u' ', start);
 		if (space == -1) {
 			reject($Code::HTTP_BAD_REQUEST, requestLine, "Bad request line"_s);
 			return;
@@ -206,21 +148,19 @@ void ServerImpl$Exchange::run() {
 		$var($String, version, requestLine->substring(start));
 		$var($Headers, headers, req->headers());
 		{
-			$var($Iterator, i$, $nc($($nc(headers)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(headers)->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, k, $cast($String, i$->next()));
-				{
-					if (!$ServerImpl::isValidHeaderKey(k)) {
-						reject($Code::HTTP_BAD_REQUEST, requestLine, "Header key contains illegal characters"_s);
-						return;
-					}
+				if (!$ServerImpl::isValidHeaderKey(k)) {
+					reject($Code::HTTP_BAD_REQUEST, requestLine, "Header key contains illegal characters"_s);
+					return;
 				}
 			}
 		}
 		bool var$0 = headers->containsKey("Content-Length"_s);
 		if (var$0) {
 			bool var$1 = headers->containsKey("Transfer-encoding"_s);
-			var$0 = (var$1 || $nc($($cast($List, headers->get("Content-Length"_s))))->size() > 1);
+			var$0 = var$1 || $$sure($List, headers->get("Content-Length"_s))->size() > 1;
 		}
 		if (var$0) {
 			reject($Code::HTTP_BAD_REQUEST, requestLine, "Conflicting or malformed headers detected"_s);
@@ -268,9 +208,9 @@ void ServerImpl$Exchange::run() {
 		if (version->equalsIgnoreCase("http/1.0"_s)) {
 			$nc(this->tx)->http10 = true;
 			if (chdr == nullptr) {
-				$nc(this->tx)->close$ = true;
+				this->tx->close$ = true;
 				$nc(rheaders)->set("Connection"_s, "close"_s);
-			} else if ($nc(chdr)->equalsIgnoreCase("keep-alive"_s)) {
+			} else if (chdr->equalsIgnoreCase("keep-alive"_s)) {
 				$nc(rheaders)->set("Connection"_s, "keep-alive"_s);
 				int32_t idle = (int32_t)($ServerConfig::getIdleInterval() / 1000);
 				int32_t max = $ServerConfig::getMaxIdleConnections();
@@ -298,25 +238,25 @@ void ServerImpl$Exchange::run() {
 			uc->doFilter($$new($HttpExchangeImpl, this->tx));
 		}
 	} catch ($IOException& e1) {
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (1)"_s, static_cast<$Throwable*>(e1));
+		this->this$0->logger->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (1)"_s, e1);
 		this->this$0->closeConnection(this->connection);
 	} catch ($NumberFormatException& e2) {
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (2)"_s, static_cast<$Throwable*>(e2));
+		this->this$0->logger->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (2)"_s, e2);
 		reject($Code::HTTP_BAD_REQUEST, requestLine, "NumberFormatException thrown"_s);
 	} catch ($URISyntaxException& e3) {
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (3)"_s, static_cast<$Throwable*>(e3));
+		this->this$0->logger->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (3)"_s, e3);
 		reject($Code::HTTP_BAD_REQUEST, requestLine, "URISyntaxException thrown"_s);
 	} catch ($Exception& e4) {
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (4)"_s, static_cast<$Throwable*>(e4));
+		this->this$0->logger->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (4)"_s, e4);
 		this->this$0->closeConnection(this->connection);
 	} catch ($Throwable& t) {
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (5)"_s, $cast($Throwable, t));
+		this->this$0->logger->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (5)"_s, t);
 		$throw(t);
 	}
 }
 
 void ServerImpl$Exchange::reject(int32_t code, $String* requestStr, $String* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->rejected = true;
 	this->this$0->logReply(code, requestStr, message);
 	sendReply(code, false, $$str({"<h1>"_s, $$str(code), $($Code::msg(code)), "</h1>"_s, message}));
@@ -324,7 +264,7 @@ void ServerImpl$Exchange::reject(int32_t code, $String* requestStr, $String* mes
 }
 
 void ServerImpl$Exchange::sendReply(int32_t code, bool closeNow, $String* text$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, text$renamed);
 	try {
 		$var($StringBuilder, builder, $new($StringBuilder, 512));
@@ -340,15 +280,15 @@ void ServerImpl$Exchange::sendReply(int32_t code, bool closeNow, $String* text$r
 		}
 		builder->append("\r\n"_s)->append(text);
 		$var($String, s, builder->toString());
-		$var($bytes, b, $nc(s)->getBytes("ISO8859_1"_s));
+		$var($bytes, b, s->getBytes("ISO8859_1"_s));
 		$nc(this->rawout)->write(b);
-		$nc(this->rawout)->flush();
+		this->rawout->flush();
 		if (closeNow) {
 			this->this$0->closeConnection(this->connection);
 		}
 	} catch ($IOException& e) {
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.sendReply"_s, static_cast<$Throwable*>(e));
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.sendReply"_s, e);
 		this->this$0->closeConnection(this->connection);
 	}
 }
@@ -357,7 +297,49 @@ ServerImpl$Exchange::ServerImpl$Exchange() {
 }
 
 $Class* ServerImpl$Exchange::load$($String* name, bool initialize) {
-	$loadClass(ServerImpl$Exchange, name, initialize, &_ServerImpl$Exchange_ClassInfo_, allocate$ServerImpl$Exchange);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/httpserver/ServerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(ServerImpl$Exchange, this$0)},
+		{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(ServerImpl$Exchange, chan)},
+		{"connection", "Lsun/net/httpserver/HttpConnection;", nullptr, 0, $field(ServerImpl$Exchange, connection)},
+		{"context", "Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $field(ServerImpl$Exchange, context)},
+		{"rawin", "Ljava/io/InputStream;", nullptr, 0, $field(ServerImpl$Exchange, rawin)},
+		{"rawout", "Ljava/io/OutputStream;", nullptr, 0, $field(ServerImpl$Exchange, rawout)},
+		{"protocol", "Ljava/lang/String;", nullptr, 0, $field(ServerImpl$Exchange, protocol)},
+		{"tx", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(ServerImpl$Exchange, tx)},
+		{"ctx", "Lsun/net/httpserver/HttpContextImpl;", nullptr, 0, $field(ServerImpl$Exchange, ctx)},
+		{"rejected", "Z", nullptr, 0, $field(ServerImpl$Exchange, rejected)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;Ljava/lang/String;Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $method(ServerImpl$Exchange, init$, void, $ServerImpl*, $SocketChannel*, $String*, $HttpConnection*), "java.io.IOException"},
+		{"reject", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl$Exchange, reject, void, int32_t, $String*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Exchange, run, void)},
+		{"sendReply", "(IZLjava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl$Exchange, sendReply, void, int32_t, bool, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.ServerImpl$Exchange", "sun.net.httpserver.ServerImpl", "Exchange", 0},
+		{"sun.net.httpserver.ServerImpl$Exchange$LinkHandler", "sun.net.httpserver.ServerImpl$Exchange", "LinkHandler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ServerImpl$Exchange",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.ServerImpl"
+	};
+	$loadClass(ServerImpl$Exchange, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerImpl$Exchange);
+	});
 	return class$;
 }
 

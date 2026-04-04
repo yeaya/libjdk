@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFFieldNode.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFIFD.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -32,7 +31,6 @@ using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $TIFFDirectory = ::javax::imageio::plugins::tiff::TIFFDirectory;
 using $TIFFField = ::javax::imageio::plugins::tiff::TIFFField;
 using $TIFFTag = ::javax::imageio::plugins::tiff::TIFFTag;
-using $TIFFTagSet = ::javax::imageio::plugins::tiff::TIFFTagSet;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {
@@ -40,45 +38,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFFieldNode_FieldInfo_[] = {
-	{"isIFD", "Z", nullptr, $PRIVATE, $field(TIFFFieldNode, isIFD$)},
-	{"isInitialized", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(TIFFFieldNode, isInitialized)},
-	{"field", "Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PRIVATE, $field(TIFFFieldNode, field)},
-	{}
-};
-
-$MethodInfo _TIFFFieldNode_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFField;)V", nullptr, $PUBLIC, $method(TIFFFieldNode, init$, void, $TIFFField*)},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, appendChild, $Node*, $Node*)},
-	{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, cloneNode, $Node*, bool)},
-	{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getFirstChild, $Node*)},
-	{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getLastChild, $Node*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getLength, int32_t)},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getNextSibling, $Node*)},
-	{"getNodeName", "(Ljavax/imageio/plugins/tiff/TIFFField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFFieldNode, getNodeName, $String*, $TIFFField*)},
-	{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getPreviousSibling, $Node*)},
-	{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, hasChildNodes, bool)},
-	{"initialize", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TIFFFieldNode, initialize, void)},
-	{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, insertBefore, $Node*, $Node*, $Node*)},
-	{"isIFD", "(Ljavax/imageio/plugins/tiff/TIFFField;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFFieldNode, isIFD, bool, $TIFFField*)},
-	{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, removeChild, $Node*, $Node*)},
-	{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, replaceChild, $Node*, $Node*, $Node*)},
-	{}
-};
-
-$ClassInfo _TIFFFieldNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFFieldNode",
-	"javax.imageio.metadata.IIOMetadataNode",
-	nullptr,
-	_TIFFFieldNode_FieldInfo_,
-	_TIFFFieldNode_MethodInfo_
-};
-
-$Object* allocate$TIFFFieldNode($Class* clazz) {
-	return $of($alloc(TIFFFieldNode));
-}
 
 bool TIFFFieldNode::isIFD($TIFFField* f) {
 	$init(TIFFFieldNode);
@@ -92,9 +51,8 @@ $String* TIFFFieldNode::getNodeName($TIFFField* f) {
 }
 
 void TIFFFieldNode::init$($TIFFField* field) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$IIOMetadataNode::init$($(getNodeName(field)));
-	$init($Boolean);
 	$set(this, isInitialized, $Boolean::FALSE);
 	this->isIFD$ = isIFD(field);
 	$set(this, field, field);
@@ -113,7 +71,7 @@ void TIFFFieldNode::init$($TIFFField* field) {
 		if (tagSets != nullptr) {
 			$var($StringBuilder, tagSetNames, $new($StringBuilder));
 			for (int32_t i = 0; i < tagSets->length; ++i) {
-				tagSetNames->append($($nc($of(tagSets->get(i)))->getClass()->getName()));
+				tagSetNames->append($($nc(tagSets->get(i))->getClass()->getName()));
 				if (i != tagSets->length - 1) {
 					tagSetNames->append(","_s);
 				}
@@ -128,12 +86,12 @@ void TIFFFieldNode::init$($TIFFField* field) {
 
 void TIFFFieldNode::initialize() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc((this->isInitialized))->booleanValue()) {
 			return;
 		}
 		if (this->isIFD$) {
-			$var($TIFFDirectory, dir, $nc(this->field)->hasDirectory() ? $nc(this->field)->getDirectory() : $cast($TIFFDirectory, $nc(this->field)->getData()));
+			$var($TIFFDirectory, dir, $nc(this->field)->hasDirectory() ? this->field->getDirectory() : $cast($TIFFDirectory, this->field->getData()));
 			$var($TIFFFieldArray, fields, $nc(dir)->getTIFFFields());
 			if (fields != nullptr) {
 				$var($TIFFTagSetArray, tagSets, dir->getTagSets());
@@ -157,7 +115,7 @@ void TIFFFieldNode::initialize() {
 				$var($bytes, data, $nc(this->field)->getAsBytes());
 				$var($StringBuilder, sb, $new($StringBuilder));
 				for (int32_t i = 0; i < count; ++i) {
-					sb->append((int32_t)($nc(data)->get(i) & (uint32_t)255));
+					sb->append($nc(data)->get(i) & 0xff);
 					if (i < count - 1) {
 						sb->append(","_s);
 					}
@@ -247,7 +205,41 @@ TIFFFieldNode::TIFFFieldNode() {
 }
 
 $Class* TIFFFieldNode::load$($String* name, bool initialize) {
-	$loadClass(TIFFFieldNode, name, initialize, &_TIFFFieldNode_ClassInfo_, allocate$TIFFFieldNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"isIFD", "Z", nullptr, $PRIVATE, $field(TIFFFieldNode, isIFD$)},
+		{"isInitialized", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(TIFFFieldNode, isInitialized)},
+		{"field", "Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PRIVATE, $field(TIFFFieldNode, field)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/plugins/tiff/TIFFField;)V", nullptr, $PUBLIC, $method(TIFFFieldNode, init$, void, $TIFFField*)},
+		{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, appendChild, $Node*, $Node*)},
+		{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, cloneNode, $Node*, bool)},
+		{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getFirstChild, $Node*)},
+		{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getLastChild, $Node*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getLength, int32_t)},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getNextSibling, $Node*)},
+		{"getNodeName", "(Ljavax/imageio/plugins/tiff/TIFFField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFFieldNode, getNodeName, $String*, $TIFFField*)},
+		{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, getPreviousSibling, $Node*)},
+		{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, hasChildNodes, bool)},
+		{"initialize", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TIFFFieldNode, initialize, void)},
+		{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, insertBefore, $Node*, $Node*, $Node*)},
+		{"isIFD", "(Ljavax/imageio/plugins/tiff/TIFFField;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFFieldNode, isIFD, bool, $TIFFField*)},
+		{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, removeChild, $Node*, $Node*)},
+		{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFFieldNode, replaceChild, $Node*, $Node*, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFFieldNode",
+		"javax.imageio.metadata.IIOMetadataNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFFieldNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TIFFFieldNode));
+	});
 	return class$;
 }
 

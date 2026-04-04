@@ -77,6 +77,7 @@ class DOM2SAX : public ::org::xml::sax::XMLReader, public ::org::xml::sax::Locat
 	$class(DOM2SAX, 0, ::org::xml::sax::XMLReader, ::org::xml::sax::Locator)
 public:
 	DOM2SAX();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

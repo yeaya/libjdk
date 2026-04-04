@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/MethodGen.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AccessFlags.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationEntry.h>
@@ -57,7 +56,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -93,7 +91,6 @@ using $Annotations = ::com::sun::org::apache::bcel::internal::classfile::Annotat
 using $Attribute = ::com::sun::org::apache::bcel::internal::classfile::Attribute;
 using $Code = ::com::sun::org::apache::bcel::internal::classfile::Code;
 using $CodeException = ::com::sun::org::apache::bcel::internal::classfile::CodeException;
-using $ConstantPool = ::com::sun::org::apache::bcel::internal::classfile::ConstantPool;
 using $ExceptionTable = ::com::sun::org::apache::bcel::internal::classfile::ExceptionTable;
 using $LineNumber = ::com::sun::org::apache::bcel::internal::classfile::LineNumber;
 using $LineNumberTable = ::com::sun::org::apache::bcel::internal::classfile::LineNumberTable;
@@ -143,7 +140,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -164,164 +160,32 @@ public:
 	virtual int32_t compare(Object$* o1, Object$* o2) override {
 		 return MethodGen::lambda$getLocalVariables$0($cast($LocalVariableGen, o1), $cast($LocalVariableGen, o2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MethodGen$$Lambda$lambda$getLocalVariables$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MethodGen$$Lambda$lambda$getLocalVariables$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodGen$$Lambda$lambda$getLocalVariables$0, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(MethodGen$$Lambda$lambda$getLocalVariables$0, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo MethodGen$$Lambda$lambda$getLocalVariables$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.bcel.internal.generic.MethodGen$$Lambda$lambda$getLocalVariables$0",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	methodInfos
 };
 $Class* MethodGen$$Lambda$lambda$getLocalVariables$0::load$($String* name, bool initialize) {
-	$loadClass(MethodGen$$Lambda$lambda$getLocalVariables$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodGen$$Lambda$lambda$getLocalVariables$0, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(MethodGen$$Lambda$lambda$getLocalVariables$0, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.bcel.internal.generic.MethodGen$$Lambda$lambda$getLocalVariables$0",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodGen$$Lambda$lambda$getLocalVariables$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodGen$$Lambda$lambda$getLocalVariables$0);
+	});
 	return class$;
 }
 $Class* MethodGen$$Lambda$lambda$getLocalVariables$0::class$ = nullptr;
 
-$FieldInfo _MethodGen_FieldInfo_[] = {
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodGen, className)},
-	{"argTypes", "[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PRIVATE, $field(MethodGen, argTypes)},
-	{"argNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodGen, argNames)},
-	{"maxLocals", "I", nullptr, $PRIVATE, $field(MethodGen, maxLocals)},
-	{"maxStack", "I", nullptr, $PRIVATE, $field(MethodGen, maxStack)},
-	{"il", "Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $field(MethodGen, il)},
-	{"stripAttributes", "Z", nullptr, $PRIVATE, $field(MethodGen, stripAttributes$)},
-	{"localVariableTypeTable", "Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTypeTable;", nullptr, $PRIVATE, $field(MethodGen, localVariableTypeTable)},
-	{"variableList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;>;", $PRIVATE | $FINAL, $field(MethodGen, variableList)},
-	{"lineNumberList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;>;", $PRIVATE | $FINAL, $field(MethodGen, lineNumberList)},
-	{"exceptionList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;>;", $PRIVATE | $FINAL, $field(MethodGen, exceptionList)},
-	{"throwsList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(MethodGen, throwsList)},
-	{"codeAttrsList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Attribute;>;", $PRIVATE | $FINAL, $field(MethodGen, codeAttrsList)},
-	{"paramAnnotations", "[Ljava/util/List;", "[Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE, $field(MethodGen, paramAnnotations)},
-	{"hasParameterAnnotations", "Z", nullptr, $PRIVATE, $field(MethodGen, hasParameterAnnotations)},
-	{"haveUnpackedParameterAnnotations", "Z", nullptr, $PRIVATE, $field(MethodGen, haveUnpackedParameterAnnotations)},
-	{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(MethodGen, bcelComparator)},
-	{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/MethodObserver;>;", $PRIVATE, $field(MethodGen, observers)},
-	{}
-};
-
-$MethodInfo _MethodGen_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MethodGen, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MethodGen, init$, void, $Method*, $String*, $ConstantPoolGen*)},
-	{"addAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addAnnotationsAsAttribute, void, $ConstantPoolGen*)},
-	{"addCodeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addCodeAttribute, void, $Attribute*)},
-	{"addException", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addException, void, $String*)},
-	{"addExceptionHandler", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/ObjectType;)Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addExceptionHandler, $CodeExceptionGen*, $InstructionHandle*, $InstructionHandle*, $InstructionHandle*, $ObjectType*)},
-	{"addLineNumber", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;I)Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLineNumber, $LineNumberGen*, $InstructionHandle*, int32_t)},
-	{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;ILcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;I)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLocalVariable, $LocalVariableGen*, $String*, $Type*, int32_t, $InstructionHandle*, $InstructionHandle*, int32_t)},
-	{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;ILcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLocalVariable, $LocalVariableGen*, $String*, $Type*, int32_t, $InstructionHandle*, $InstructionHandle*)},
-	{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLocalVariable, $LocalVariableGen*, $String*, $Type*, $InstructionHandle*, $InstructionHandle*)},
-	{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/MethodObserver;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addObserver, void, $MethodObserver*)},
-	{"addParameterAnnotation", "(ILcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addParameterAnnotation, void, int32_t, $AnnotationEntryGen*)},
-	{"addParameterAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addParameterAnnotationsAsAttribute, void, $ConstantPoolGen*)},
-	{"addRuntimeAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PRIVATE, $method(MethodGen, addRuntimeAnnotationsAsAttribute, $AttributeArray*, $ConstantPoolGen*)},
-	{"addRuntimeParameterAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PRIVATE, $method(MethodGen, addRuntimeParameterAnnotationsAsAttribute, $AttributeArray*, $ConstantPoolGen*)},
-	{"adjustLocalVariableTypeTable", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;)V", nullptr, $PRIVATE, $method(MethodGen, adjustLocalVariableTypeTable, void, $LocalVariableTable*)},
-	{"copy", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/MethodGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, copy, MethodGen*, $String*, $ConstantPoolGen*)},
-	{"ensureExistingParameterAnnotationsUnpacked", "()V", nullptr, $PRIVATE, $method(MethodGen, ensureExistingParameterAnnotationsUnpacked, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodGen, equals, bool, Object$*)},
-	{"getAnnotationsOnParameter", "(I)Ljava/util/List;", "(I)Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PUBLIC, $virtualMethod(MethodGen, getAnnotationsOnParameter, $List*, int32_t)},
-	{"getArgumentName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentName, $String*, int32_t)},
-	{"getArgumentNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentNames, $StringArray*)},
-	{"getArgumentType", "(I)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentType, $Type*, int32_t)},
-	{"getArgumentTypes", "()[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentTypes, $TypeArray*)},
-	{"getByteCodes", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodGen, getByteCodes, $bytes*, $Method*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getClassName, $String*)},
-	{"getCodeAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getCodeAttributes, $AttributeArray*)},
-	{"getCodeExceptions", "()[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PRIVATE, $method(MethodGen, getCodeExceptions, $CodeExceptionArray*)},
-	{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodGen, getComparator, $BCELComparator*)},
-	{"getExceptionHandlers", "()[Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getExceptionHandlers, $CodeExceptionGenArray*)},
-	{"getExceptionTable", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/classfile/ExceptionTable;", nullptr, $PRIVATE, $method(MethodGen, getExceptionTable, $ExceptionTable*, $ConstantPoolGen*)},
-	{"getExceptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getExceptions, $StringArray*)},
-	{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getInstructionList, $InstructionList*)},
-	{"getLineNumberTable", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLineNumberTable, $LineNumberTable*, $ConstantPoolGen*)},
-	{"getLineNumbers", "()[Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLineNumbers, $LineNumberGenArray*)},
-	{"getLocalVariableTable", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLocalVariableTable, $LocalVariableTable*, $ConstantPoolGen*)},
-	{"getLocalVariableTypeTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTypeTable;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLocalVariableTypeTable, $LocalVariableTypeTable*)},
-	{"getLocalVariables", "()[Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLocalVariables, $LocalVariableGenArray*)},
-	{"getMaxLocals", "()I", nullptr, $PUBLIC, $virtualMethod(MethodGen, getMaxLocals, int32_t)},
-	{"getMaxStack", "()I", nullptr, $PUBLIC, $virtualMethod(MethodGen, getMaxStack, int32_t)},
-	{"getMaxStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;[Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodGen, getMaxStack, int32_t, $ConstantPoolGen*, $InstructionList*, $CodeExceptionGenArray*)},
-	{"getMethod", "()Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getMethod, $Method*)},
-	{"getReturnType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getReturnType, $Type*)},
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getSignature, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodGen, hashCode, int32_t)},
-	{"lambda$getLocalVariables$0", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodGen, lambda$getLocalVariables$0, int32_t, $LocalVariableGen*, $LocalVariableGen*)},
-	{"makeMutableVersion", "([Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;)Ljava/util/List;", "([Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;)Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE, $method(MethodGen, makeMutableVersion, $List*, $AnnotationEntryArray*)},
-	{"removeCodeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeCodeAttribute, void, $Attribute*)},
-	{"removeCodeAttributes", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeCodeAttributes, void)},
-	{"removeException", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeException, void, $String*)},
-	{"removeExceptionHandler", "(Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeExceptionHandler, void, $CodeExceptionGen*)},
-	{"removeExceptionHandlers", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeExceptionHandlers, void)},
-	{"removeExceptions", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeExceptions, void)},
-	{"removeLineNumber", "(Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLineNumber, void, $LineNumberGen*)},
-	{"removeLineNumbers", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLineNumbers, void)},
-	{"removeLocalVariable", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLocalVariable, void, $LocalVariableGen*)},
-	{"removeLocalVariableTypeTable", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLocalVariableTypeTable, void)},
-	{"removeLocalVariables", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLocalVariables, void)},
-	{"removeNOPs", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeNOPs, void)},
-	{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/MethodObserver;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeObserver, void, $MethodObserver*)},
-	{"removeRuntimeAttributes", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeRuntimeAttributes, void, $AttributeArray*)},
-	{"setArgumentName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentName, void, int32_t, $String*)},
-	{"setArgumentNames", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentNames, void, $StringArray*)},
-	{"setArgumentType", "(ILcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentType, void, int32_t, $Type*)},
-	{"setArgumentTypes", "([Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentTypes, void, $TypeArray*)},
-	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setClassName, void, $String*)},
-	{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodGen, setComparator, void, $BCELComparator*)},
-	{"setInstructionList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setInstructionList, void, $InstructionList*)},
-	{"setMaxLocals", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxLocals, void, int32_t)},
-	{"setMaxLocals", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxLocals, void)},
-	{"setMaxStack", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxStack, void, int32_t)},
-	{"setMaxStack", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxStack, void)},
-	{"setReturnType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setReturnType, void, $Type*)},
-	{"stripAttributes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, stripAttributes, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MethodGen, toString, $String*)},
-	{"update", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, update, void)},
-	{"updateLocalVariableTable", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;)V", nullptr, $PRIVATE, $method(MethodGen, updateLocalVariableTable, void, $LocalVariableTable*)},
-	{}
-};
-
-$InnerClassInfo _MethodGen_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.MethodGen$BranchStack", "com.sun.org.apache.bcel.internal.generic.MethodGen", "BranchStack", $STATIC | $FINAL},
-	{"com.sun.org.apache.bcel.internal.generic.MethodGen$BranchTarget", "com.sun.org.apache.bcel.internal.generic.MethodGen", "BranchTarget", $STATIC | $FINAL},
-	{"com.sun.org.apache.bcel.internal.generic.MethodGen$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.MethodGen",
-	"com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen",
-	nullptr,
-	_MethodGen_FieldInfo_,
-	_MethodGen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodGen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.MethodGen$BranchStack,com.sun.org.apache.bcel.internal.generic.MethodGen$BranchTarget,com.sun.org.apache.bcel.internal.generic.MethodGen$1"
-};
-
-$Object* allocate$MethodGen($Class* clazz) {
-	return $of($alloc(MethodGen));
-}
-
 $BCELComparator* MethodGen::bcelComparator = nullptr;
 
 void MethodGen::init$(int32_t access_flags, $Type* return_type, $TypeArray* argTypes, $StringArray* argNames$renamed, $String* method_name, $String* className, $InstructionList* il, $ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, argNames, argNames$renamed);
 	$FieldGenOrMethodGen::init$(access_flags);
 	$set(this, localVariableTypeTable, nullptr);
@@ -353,15 +217,10 @@ void MethodGen::init$(int32_t access_flags, $Type* return_type, $TypeArray* argT
 		int32_t size = argTypes->length;
 		{
 			$var($TypeArray, arr$, argTypes);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Type, arg_type, arr$->get(i$));
-				{
-					$init($Type);
-					if ($equals($Type::VOID, arg_type)) {
-						$throwNew($ClassGenException, "\'void\' is an illegal argument type for a method"_s);
-					}
+				if ($equals($Type::VOID, arg_type)) {
+					$throwNew($ClassGenException, "\'void\' is an illegal argument type for a method"_s);
 				}
 			}
 		}
@@ -385,14 +244,13 @@ void MethodGen::init$(int32_t access_flags, $Type* return_type, $TypeArray* argT
 }
 
 void MethodGen::init$($Method* method, $String* className, $ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(method)->getAccessFlags();
 	$var($Type, var$1, $Type::getReturnType($(method->getSignature())));
 	$var($TypeArray, var$2, $Type::getArgumentTypes($(method->getSignature())));
 	$var($String, var$3, method->getName());
-	$var($String, var$4, className);
-	MethodGen::init$(var$0, var$1, var$2, nullptr, var$3, var$4, (((int32_t)(method->getAccessFlags() & (uint32_t)($Const::ACC_ABSTRACT | $Const::ACC_NATIVE))) == 0) ? $$new($InstructionList, $(getByteCodes(method))) : ($InstructionList*)nullptr, cp);
-	$var($AttributeArray, attributes, $nc(method)->getAttributes());
+	MethodGen::init$(var$0, var$1, var$2, nullptr, var$3, className, ((method->getAccessFlags() & ($Const::ACC_ABSTRACT | $Const::ACC_NATIVE)) == 0) ? $$new($InstructionList, $(getByteCodes(method))) : ($InstructionList*)nullptr, cp);
+	$var($AttributeArray, attributes, method->getAttributes());
 	{
 		$var($AttributeArray, arr$, attributes);
 		int32_t len$ = $nc(arr$)->length;
@@ -403,60 +261,53 @@ void MethodGen::init$($Method* method, $String* className, $ConstantPoolGen* cp)
 				$var($Attribute, a, attribute);
 				if ($instanceOf($Code, a)) {
 					$var($Code, c, $cast($Code, a));
-					setMaxStack($nc(c)->getMaxStack());
-					setMaxLocals($nc(c)->getMaxLocals());
-					$var($CodeExceptionArray, ces, $nc(c)->getExceptionTable());
+					setMaxStack(c->getMaxStack());
+					setMaxLocals(c->getMaxLocals());
+					$var($CodeExceptionArray, ces, c->getExceptionTable());
 					if (ces != nullptr) {
-						{
-							$var($CodeExceptionArray, arr$, ces);
-							int32_t len$ = arr$->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
-								$var($CodeException, ce, arr$->get(i$));
-								{
-									int32_t type = $nc(ce)->getCatchType();
-									$var($ObjectType, c_type, nullptr);
-									if (type > 0) {
-										$var($String, cen, $nc($(method->getConstantPool()))->getConstantString(type, $Const::CONSTANT_Class));
-										$assign(c_type, $ObjectType::getInstance(cen));
-									}
-									int32_t end_pc = ce->getEndPC();
-									int32_t length = $nc($(getByteCodes(method)))->length;
-									$var($InstructionHandle, end, nullptr);
-									if (length == end_pc) {
-										$assign(end, $nc(this->il)->getEnd());
-									} else {
-										$assign(end, $nc(this->il)->findHandle(end_pc));
-										$assign(end, $nc(end)->getPrev());
-									}
-									$var($InstructionHandle, var$5, $nc(this->il)->findHandle(ce->getStartPC()));
-									$var($InstructionHandle, var$6, end);
-									addExceptionHandler(var$5, var$6, $($nc(this->il)->findHandle(ce->getHandlerPC())), c_type);
+						$var($CodeExceptionArray, arr$, ces);
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+							$var($CodeException, ce, arr$->get(i$));
+							{
+								int32_t type = $nc(ce)->getCatchType();
+								$var($ObjectType, c_type, nullptr);
+								if (type > 0) {
+									$var($String, cen, $$nc(method->getConstantPool())->getConstantString(type, $Const::CONSTANT_Class));
+									$assign(c_type, $ObjectType::getInstance(cen));
 								}
+								int32_t end_pc = ce->getEndPC();
+								int32_t length = $nc($(getByteCodes(method)))->length;
+								$var($InstructionHandle, end, nullptr);
+								if (length == end_pc) {
+									$assign(end, $nc(this->il)->getEnd());
+								} else {
+									$assign(end, $nc(this->il)->findHandle(end_pc));
+									$assign(end, $nc(end)->getPrev());
+								}
+								$var($InstructionHandle, var$4, $nc(this->il)->findHandle(ce->getStartPC()));
+								addExceptionHandler(var$4, end, $(this->il->findHandle(ce->getHandlerPC())), c_type);
 							}
 						}
 					}
 					$var($AttributeArray, c_attributes, c->getAttributes());
 					{
 						$var($AttributeArray, arr$, c_attributes);
-						int32_t len$ = arr$->length;
+						int32_t len$ = $nc(arr$)->length;
 						int32_t i$ = 0;
 						for (; i$ < len$; ++i$) {
 							$var($Attribute, c_attribute, arr$->get(i$));
 							{
 								$assign(a, c_attribute);
 								if ($instanceOf($LineNumberTable, a)) {
-									$var($LineNumberArray, ln, $nc(($cast($LineNumberTable, a)))->getLineNumberTable());
+									$var($LineNumberArray, ln, $cast($LineNumberTable, a)->getLineNumberTable());
 									{
 										$var($LineNumberArray, arr$, ln);
-										int32_t len$ = arr$->length;
-										int32_t i$ = 0;
-										for (; i$ < len$; ++i$) {
+										for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 											$var($LineNumber, l, arr$->get(i$));
 											{
 												$var($InstructionHandle, ih, $nc(this->il)->findHandle($nc(l)->getStartPC()));
 												if (ih != nullptr) {
-													addLineNumber(ih, $nc(l)->getLineNumber());
+													addLineNumber(ih, l->getLineNumber());
 												}
 											}
 										}
@@ -464,7 +315,7 @@ void MethodGen::init$($Method* method, $String* className, $ConstantPoolGen* cp)
 								} else if ($instanceOf($LocalVariableTable, a)) {
 									updateLocalVariableTable($cast($LocalVariableTable, a));
 								} else if ($instanceOf($LocalVariableTypeTable, a)) {
-									$set(this, localVariableTypeTable, $cast($LocalVariableTypeTable, $nc(a)->copy($($nc(cp)->getConstantPool()))));
+									$set(this, localVariableTypeTable, $cast($LocalVariableTypeTable, a->copy($($nc(cp)->getConstantPool()))));
 								} else {
 									addCodeAttribute(a);
 								}
@@ -472,12 +323,10 @@ void MethodGen::init$($Method* method, $String* className, $ConstantPoolGen* cp)
 						}
 					}
 				} else if ($instanceOf($ExceptionTable, a)) {
-					$var($StringArray, names, $nc(($cast($ExceptionTable, a)))->getExceptionNames());
+					$var($StringArray, names, $cast($ExceptionTable, a)->getExceptionNames());
 					{
 						$var($StringArray, arr$, names);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($String, name2, arr$->get(i$));
 							{
 								addException(name2);
@@ -486,12 +335,10 @@ void MethodGen::init$($Method* method, $String* className, $ConstantPoolGen* cp)
 					}
 				} else if ($instanceOf($Annotations, a)) {
 					$var($Annotations, runtimeAnnotations, $cast($Annotations, a));
-					$var($AnnotationEntryArray, aes, $nc(runtimeAnnotations)->getAnnotationEntries());
+					$var($AnnotationEntryArray, aes, runtimeAnnotations->getAnnotationEntries());
 					{
 						$var($AnnotationEntryArray, arr$, aes);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($AnnotationEntry, element, arr$->get(i$));
 							{
 								addAnnotationEntry($$new($AnnotationEntryGen, element, cp, false));
@@ -508,16 +355,16 @@ void MethodGen::init$($Method* method, $String* className, $ConstantPoolGen* cp)
 
 $bytes* MethodGen::getByteCodes($Method* method) {
 	$init(MethodGen);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Code, code, $nc(method)->getCode());
 	if (code == nullptr) {
-		$throwNew($IllegalStateException, $($String::format("The method \'%s\' has no code."_s, $$new($ObjectArray, {$of(method)}))));
+		$throwNew($IllegalStateException, $($String::format("The method \'%s\' has no code."_s, $$new($ObjectArray, {method}))));
 	}
 	return $nc(code)->getCode();
 }
 
 $LocalVariableGen* MethodGen::addLocalVariable($String* name, $Type* type, int32_t slot, $InstructionHandle* start, $InstructionHandle* end, int32_t orig_index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t t = $nc(type)->getType();
 	if (t != $Const::T_ADDRESS) {
 		int32_t add = type->getSize();
@@ -527,9 +374,9 @@ $LocalVariableGen* MethodGen::addLocalVariable($String* name, $Type* type, int32
 		$var($LocalVariableGen, l, $new($LocalVariableGen, slot, name, type, start, end, orig_index));
 		int32_t i = 0;
 		if ((i = $nc(this->variableList)->indexOf(l)) >= 0) {
-			$nc(this->variableList)->set(i, l);
+			this->variableList->set(i, l);
 		} else {
-			$nc(this->variableList)->add(l);
+			this->variableList->add(l);
 		}
 		return l;
 	}
@@ -545,7 +392,7 @@ $LocalVariableGen* MethodGen::addLocalVariable($String* name, $Type* type, $Inst
 }
 
 void MethodGen::removeLocalVariable($LocalVariableGen* l) {
-	$nc(this->variableList)->remove($of(l));
+	$nc(this->variableList)->remove(l);
 }
 
 void MethodGen::removeLocalVariables() {
@@ -553,26 +400,26 @@ void MethodGen::removeLocalVariables() {
 }
 
 $LocalVariableGenArray* MethodGen::getLocalVariables() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->variableList)->size();
 	$var($LocalVariableGenArray, lg, $new($LocalVariableGenArray, size));
-	$nc(this->variableList)->toArray(lg);
+	this->variableList->toArray(lg);
 	for (int32_t i = 0; i < size; ++i) {
 		if (($nc(lg->get(i))->getStart() == nullptr) && (this->il != nullptr)) {
-			$nc(lg->get(i))->setStart($($nc(this->il)->getStart()));
+			$nc(lg->get(i))->setStart($(this->il->getStart()));
 		}
 		if (($nc(lg->get(i))->getEnd() == nullptr) && (this->il != nullptr)) {
-			$nc(lg->get(i))->setEnd($($nc(this->il)->getEnd()));
+			$nc(lg->get(i))->setEnd($(this->il->getEnd()));
 		}
 	}
 	if (size > 1) {
-		$Arrays::sort(lg, static_cast<$Comparator*>($$new(MethodGen$$Lambda$lambda$getLocalVariables$0)));
+		$Arrays::sort(lg, $$new(MethodGen$$Lambda$lambda$getLocalVariables$0));
 	}
 	return lg;
 }
 
 $LocalVariableTable* MethodGen::getLocalVariableTable($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalVariableGenArray, lg, getLocalVariables());
 	int32_t size = $nc(lg)->length;
 	$var($LocalVariableArray, lv, $new($LocalVariableArray, size));
@@ -581,8 +428,7 @@ $LocalVariableTable* MethodGen::getLocalVariableTable($ConstantPoolGen* cp) {
 	}
 	int32_t var$0 = $nc(cp)->addUtf8("LocalVariableTable"_s);
 	int32_t var$1 = 2 + lv->length * 10;
-	$var($LocalVariableArray, var$2, lv);
-	return $new($LocalVariableTable, var$0, var$1, var$2, $(cp->getConstantPool()));
+	return $new($LocalVariableTable, var$0, var$1, lv, $(cp->getConstantPool()));
 }
 
 $LocalVariableTypeTable* MethodGen::getLocalVariableTypeTable() {
@@ -596,7 +442,7 @@ $LineNumberGen* MethodGen::addLineNumber($InstructionHandle* ih, int32_t srcLine
 }
 
 void MethodGen::removeLineNumber($LineNumberGen* l) {
-	$nc(this->lineNumberList)->remove($of(l));
+	$nc(this->lineNumberList)->remove(l);
 }
 
 void MethodGen::removeLineNumbers() {
@@ -605,21 +451,20 @@ void MethodGen::removeLineNumbers() {
 
 $LineNumberGenArray* MethodGen::getLineNumbers() {
 	$var($LineNumberGenArray, lg, $new($LineNumberGenArray, $nc(this->lineNumberList)->size()));
-	$nc(this->lineNumberList)->toArray(lg);
+	this->lineNumberList->toArray(lg);
 	return lg;
 }
 
 $LineNumberTable* MethodGen::getLineNumberTable($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->lineNumberList)->size();
 	$var($LineNumberArray, ln, $new($LineNumberArray, size));
 	for (int32_t i = 0; i < size; ++i) {
-		ln->set(i, $($nc(($cast($LineNumberGen, $($nc(this->lineNumberList)->get(i)))))->getLineNumber()));
+		ln->set(i, $($$sure($LineNumberGen, this->lineNumberList->get(i))->getLineNumber()));
 	}
 	int32_t var$0 = $nc(cp)->addUtf8("LineNumberTable"_s);
 	int32_t var$1 = 2 + ln->length * 4;
-	$var($LineNumberArray, var$2, ln);
-	return $new($LineNumberTable, var$0, var$1, var$2, $(cp->getConstantPool()));
+	return $new($LineNumberTable, var$0, var$1, ln, $(cp->getConstantPool()));
 }
 
 $CodeExceptionGen* MethodGen::addExceptionHandler($InstructionHandle* start_pc, $InstructionHandle* end_pc, $InstructionHandle* handler_pc, $ObjectType* catch_type) {
@@ -632,7 +477,7 @@ $CodeExceptionGen* MethodGen::addExceptionHandler($InstructionHandle* start_pc, 
 }
 
 void MethodGen::removeExceptionHandler($CodeExceptionGen* c) {
-	$nc(this->exceptionList)->remove($of(c));
+	$nc(this->exceptionList)->remove(c);
 }
 
 void MethodGen::removeExceptionHandlers() {
@@ -641,16 +486,16 @@ void MethodGen::removeExceptionHandlers() {
 
 $CodeExceptionGenArray* MethodGen::getExceptionHandlers() {
 	$var($CodeExceptionGenArray, cg, $new($CodeExceptionGenArray, $nc(this->exceptionList)->size()));
-	$nc(this->exceptionList)->toArray(cg);
+	this->exceptionList->toArray(cg);
 	return cg;
 }
 
 $CodeExceptionArray* MethodGen::getCodeExceptions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->exceptionList)->size();
 	$var($CodeExceptionArray, c_exc, $new($CodeExceptionArray, size));
 	for (int32_t i = 0; i < size; ++i) {
-		$var($CodeExceptionGen, c, $cast($CodeExceptionGen, $nc(this->exceptionList)->get(i)));
+		$var($CodeExceptionGen, c, $cast($CodeExceptionGen, this->exceptionList->get(i)));
 		c_exc->set(i, $($nc(c)->getCodeException($($FieldGenOrMethodGen::getConstantPool()))));
 	}
 	return c_exc;
@@ -661,7 +506,7 @@ void MethodGen::addException($String* className) {
 }
 
 void MethodGen::removeException($String* c) {
-	$nc(this->throwsList)->remove($of(c));
+	$nc(this->throwsList)->remove(c);
 }
 
 void MethodGen::removeExceptions() {
@@ -669,20 +514,19 @@ void MethodGen::removeExceptions() {
 }
 
 $StringArray* MethodGen::getExceptions() {
-	return $fcast($StringArray, $nc(this->throwsList)->toArray($$new($StringArray, 0)));
+	return $cast($StringArray, $nc(this->throwsList)->toArray($$new($StringArray, 0)));
 }
 
 $ExceptionTable* MethodGen::getExceptionTable($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->throwsList)->size();
 	$var($ints, ex, $new($ints, size));
 	for (int32_t i = 0; i < size; ++i) {
-		ex->set(i, $nc(cp)->addClass($cast($String, $($nc(this->throwsList)->get(i)))));
+		ex->set(i, $nc(cp)->addClass($$cast($String, this->throwsList->get(i))));
 	}
 	int32_t var$0 = $nc(cp)->addUtf8("Exceptions"_s);
 	int32_t var$1 = 2 + 2 * size;
-	$var($ints, var$2, ex);
-	return $new($ExceptionTable, var$0, var$1, var$2, $(cp->getConstantPool()));
+	return $new($ExceptionTable, var$0, var$1, ex, $(cp->getConstantPool()));
 }
 
 void MethodGen::addCodeAttribute($Attribute* a) {
@@ -694,7 +538,7 @@ void MethodGen::removeLocalVariableTypeTable() {
 }
 
 void MethodGen::removeCodeAttribute($Attribute* a) {
-	$nc(this->codeAttrsList)->remove($of(a));
+	$nc(this->codeAttrsList)->remove(a);
 }
 
 void MethodGen::removeCodeAttributes() {
@@ -703,17 +547,15 @@ void MethodGen::removeCodeAttributes() {
 }
 
 $AttributeArray* MethodGen::getCodeAttributes() {
-	return $fcast($AttributeArray, $nc(this->codeAttrsList)->toArray($$new($AttributeArray, 0)));
+	return $cast($AttributeArray, $nc(this->codeAttrsList)->toArray($$new($AttributeArray, 0)));
 }
 
 void MethodGen::addAnnotationsAsAttribute($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeArray, attrs, $AnnotationEntryGen::getAnnotationAttributes(cp, $($FieldGenOrMethodGen::getAnnotationEntries())));
 	{
 		$var($AttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attr, arr$->get(i$));
 			{
 				addAttribute(attr);
@@ -723,34 +565,28 @@ void MethodGen::addAnnotationsAsAttribute($ConstantPoolGen* cp) {
 }
 
 void MethodGen::addParameterAnnotationsAsAttribute($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->hasParameterAnnotations) {
 		return;
 	}
 	$var($AttributeArray, attrs, $AnnotationEntryGen::getParameterAnnotationAttributes(cp, this->paramAnnotations));
 	if (attrs != nullptr) {
-		{
-			$var($AttributeArray, arr$, attrs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Attribute, attr, arr$->get(i$));
-				{
-					addAttribute(attr);
-				}
+		$var($AttributeArray, arr$, attrs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Attribute, attr, arr$->get(i$));
+			{
+				addAttribute(attr);
 			}
 		}
 	}
 }
 
 $AttributeArray* MethodGen::addRuntimeAnnotationsAsAttribute($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeArray, attrs, $AnnotationEntryGen::getAnnotationAttributes(cp, $($FieldGenOrMethodGen::getAnnotationEntries())));
 	{
 		$var($AttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attr, arr$->get(i$));
 			{
 				addAttribute(attr);
@@ -761,16 +597,14 @@ $AttributeArray* MethodGen::addRuntimeAnnotationsAsAttribute($ConstantPoolGen* c
 }
 
 $AttributeArray* MethodGen::addRuntimeParameterAnnotationsAsAttribute($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->hasParameterAnnotations) {
 		return $new($AttributeArray, 0);
 	}
 	$var($AttributeArray, attrs, $AnnotationEntryGen::getParameterAnnotationAttributes(cp, this->paramAnnotations));
 	{
 		$var($AttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attr, arr$->get(i$));
 			{
 				addAttribute(attr);
@@ -781,35 +615,31 @@ $AttributeArray* MethodGen::addRuntimeParameterAnnotationsAsAttribute($ConstantP
 }
 
 void MethodGen::removeRuntimeAttributes($AttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($AttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Attribute, attr, arr$->get(i$));
-			{
-				removeAttribute(attr);
-			}
+	$useLocalObjectStack();
+	$var($AttributeArray, arr$, attrs);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Attribute, attr, arr$->get(i$));
+		{
+			removeAttribute(attr);
 		}
 	}
 }
 
 $Method* MethodGen::getMethod() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, signature, getSignature());
 	$var($ConstantPoolGen, _cp, $FieldGenOrMethodGen::getConstantPool());
 	int32_t name_index = $nc(_cp)->addUtf8($($FieldGenOrMethodGen::getName()));
 	int32_t signature_index = _cp->addUtf8(signature);
 	$var($bytes, byte_code, nullptr);
 	if (this->il != nullptr) {
-		$assign(byte_code, $nc(this->il)->getByteCode());
+		$assign(byte_code, this->il->getByteCode());
 	}
 	$var($LineNumberTable, lnt, nullptr);
 	$var($LocalVariableTable, lvt, nullptr);
 	if (($nc(this->variableList)->size() > 0) && !this->stripAttributes$) {
 		updateLocalVariableTable($(getLocalVariableTable(_cp)));
-		addCodeAttribute(($assign(lvt, getLocalVariableTable(_cp))));
+		addCodeAttribute($assign(lvt, getLocalVariableTable(_cp)));
 	}
 	if (this->localVariableTypeTable != nullptr) {
 		if (lvt != nullptr) {
@@ -818,15 +648,13 @@ $Method* MethodGen::getMethod() {
 		addCodeAttribute(this->localVariableTypeTable);
 	}
 	if (($nc(this->lineNumberList)->size() > 0) && !this->stripAttributes$) {
-		addCodeAttribute(($assign(lnt, getLineNumberTable(_cp))));
+		addCodeAttribute($assign(lnt, getLineNumberTable(_cp)));
 	}
 	$var($AttributeArray, code_attrs, getCodeAttributes());
 	int32_t attrs_len = 0;
 	{
 		$var($AttributeArray, arr$, code_attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, code_attr, arr$->get(i$));
 			{
 				attrs_len += $nc(code_attr)->getLength() + 6;
@@ -841,14 +669,10 @@ $Method* MethodGen::getMethod() {
 		$var($AttributeArray, attributes, getAttributes());
 		{
 			$var($AttributeArray, arr$, attributes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Attribute, a, arr$->get(i$));
-				{
-					if ($instanceOf($Code, a)) {
-						removeAttribute(a);
-					}
+				if ($instanceOf($Code, a)) {
+					removeAttribute(a);
 				}
 			}
 		}
@@ -856,23 +680,18 @@ $Method* MethodGen::getMethod() {
 		int32_t var$2 = 8 + $nc(byte_code)->length + 2 + exc_len + 2 + attrs_len;
 		int32_t var$3 = this->maxStack;
 		int32_t var$4 = this->maxLocals;
-		$var($bytes, var$5, byte_code);
-		$var($CodeExceptionArray, var$6, c_exc);
-		$var($AttributeArray, var$7, code_attrs);
-		$assign(code, $new($Code, var$1, var$2, var$3, var$4, var$5, var$6, var$7, $(_cp->getConstantPool())));
+		$assign(code, $new($Code, var$1, var$2, var$3, var$4, byte_code, c_exc, code_attrs, $(_cp->getConstantPool())));
 		addAttribute(code);
 	}
 	$var($AttributeArray, annotations, addRuntimeAnnotationsAsAttribute(_cp));
 	$var($AttributeArray, parameterAnnotations, addRuntimeParameterAnnotationsAsAttribute(_cp));
 	$var($ExceptionTable, et, nullptr);
 	if ($nc(this->throwsList)->size() > 0) {
-		addAttribute(($assign(et, getExceptionTable(_cp))));
+		addAttribute($assign(et, getExceptionTable(_cp)));
 	}
-	int32_t var$8 = $FieldGenOrMethodGen::getAccessFlags();
-	int32_t var$9 = name_index;
-	int32_t var$10 = signature_index;
-	$var($AttributeArray, var$11, getAttributes());
-	$var($Method, m, $new($Method, var$8, var$9, var$10, var$11, $(_cp->getConstantPool())));
+	int32_t var$5 = $FieldGenOrMethodGen::getAccessFlags();
+	$var($AttributeArray, var$6, getAttributes());
+	$var($Method, m, $new($Method, var$5, name_index, signature_index, var$6, $(_cp->getConstantPool())));
 	if (lvt != nullptr) {
 		removeCodeAttribute(lvt);
 	}
@@ -894,35 +713,31 @@ $Method* MethodGen::getMethod() {
 }
 
 void MethodGen::updateLocalVariableTable($LocalVariableTable* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalVariableArray, lv, $nc(a)->getLocalVariableTable());
 	removeLocalVariables();
 	{
 		$var($LocalVariableArray, arr$, lv);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LocalVariable, l, arr$->get(i$));
 			{
 				$var($InstructionHandle, start, $nc(this->il)->findHandle($nc(l)->getStartPC()));
-				int32_t var$0 = $nc(l)->getStartPC();
+				int32_t var$0 = l->getStartPC();
 				$var($InstructionHandle, end, $nc(this->il)->findHandle(var$0 + l->getLength()));
 				if (nullptr == start) {
 					$assign(start, $nc(this->il)->getStart());
 				}
-				$var($String, var$1, $nc(l)->getName());
+				$var($String, var$1, l->getName());
 				$var($Type, var$2, $Type::getType($(l->getSignature())));
 				int32_t var$3 = l->getIndex();
-				$var($InstructionHandle, var$4, start);
-				$var($InstructionHandle, var$5, end);
-				addLocalVariable(var$1, var$2, var$3, var$4, var$5, l->getOrigIndex());
+				addLocalVariable(var$1, var$2, var$3, start, end, l->getOrigIndex());
 			}
 		}
 	}
 }
 
 void MethodGen::adjustLocalVariableTypeTable($LocalVariableTable* lvt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalVariableArray, lv, $nc(lvt)->getLocalVariableTable());
 	$var($LocalVariableArray, lvg, $nc(this->localVariableTypeTable)->getLocalVariableTypeTable());
 	{
@@ -932,24 +747,20 @@ void MethodGen::adjustLocalVariableTypeTable($LocalVariableTable* lvt) {
 		for (; i$ < len$; ++i$) {
 			$var($LocalVariable, element, arr$->get(i$));
 			{
-				{
-					$var($LocalVariableArray, arr$, lv);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($LocalVariable, l, arr$->get(i$));
-						{
-							bool var$0 = $nc($($nc(element)->getName()))->equals($($nc(l)->getName()));
-							if (var$0) {
-								int32_t var$1 = element->getIndex();
-								var$0 = var$1 == $nc(l)->getOrigIndex();
-							}
-							if (var$0) {
-								element->setLength(l->getLength());
-								element->setStartPC(l->getStartPC());
-								element->setIndex(l->getIndex());
-								break;
-							}
+				$var($LocalVariableArray, arr$, lv);
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$var($LocalVariable, l, arr$->get(i$));
+					{
+						bool var$0 = $$nc($nc(element)->getName())->equals($($nc(l)->getName()));
+						if (var$0) {
+							int32_t var$1 = element->getIndex();
+							var$0 = var$1 == l->getOrigIndex();
+						}
+						if (var$0) {
+							element->setLength(l->getLength());
+							element->setStartPC(l->getStartPC());
+							element->setIndex(l->getIndex());
+							break;
 						}
 					}
 				}
@@ -959,34 +770,28 @@ void MethodGen::adjustLocalVariableTypeTable($LocalVariableTable* lvt) {
 }
 
 void MethodGen::removeNOPs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->il != nullptr) {
 		$var($InstructionHandle, next, nullptr);
 		{
-			$var($InstructionHandle, ih, $nc(this->il)->getStart());
+			$var($InstructionHandle, ih, this->il->getStart());
 			for (; ih != nullptr; $assign(ih, next)) {
-				$assign(next, $nc(ih)->getNext());
+				$assign(next, ih->getNext());
 				if ((next != nullptr) && ($instanceOf($NOP, $(ih->getInstruction())))) {
 					try {
 						$nc(this->il)->delete$(ih);
 					} catch ($TargetLostException& e) {
-						{
-							$var($InstructionHandleArray, arr$, e->getTargets());
-							int32_t len$ = $nc(arr$)->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
-								$var($InstructionHandle, target, arr$->get(i$));
-								{
+						$var($InstructionHandleArray, arr$, e->getTargets());
+						int32_t len$ = $nc(arr$)->length;
+						int32_t i$ = 0;
+						for (; i$ < len$; ++i$) {
+							$var($InstructionHandle, target, arr$->get(i$));
+							{
+								$var($InstructionTargeterArray, arr$, $nc(target)->getTargeters());
+								for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+									$var($InstructionTargeter, targeter, arr$->get(i$));
 									{
-										$var($InstructionTargeterArray, arr$, $nc(target)->getTargeters());
-										int32_t len$ = arr$->length;
-										int32_t i$ = 0;
-										for (; i$ < len$; ++i$) {
-											$var($InstructionTargeter, targeter, arr$->get(i$));
-											{
-												$nc(targeter)->updateTarget(target, next);
-											}
-										}
+										$nc(targeter)->updateTarget(target, next);
 									}
 								}
 							}
@@ -1075,7 +880,7 @@ $String* MethodGen::getSignature() {
 }
 
 void MethodGen::setMaxStack() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->il != nullptr) {
 		$var($ConstantPoolGen, var$0, $FieldGenOrMethodGen::getConstantPool());
 		$var($InstructionList, var$1, this->il);
@@ -1086,29 +891,25 @@ void MethodGen::setMaxStack() {
 }
 
 void MethodGen::setMaxLocals() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->il != nullptr) {
 		int32_t max = isStatic() ? 0 : 1;
 		if (this->argTypes != nullptr) {
-			{
-				$var($TypeArray, arr$, this->argTypes);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($Type, arg_type, arr$->get(i$));
-					{
-						max += $nc(arg_type)->getSize();
-					}
+			$var($TypeArray, arr$, this->argTypes);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($Type, arg_type, arr$->get(i$));
+				{
+					max += $nc(arg_type)->getSize();
 				}
 			}
 		}
 		{
 			$var($InstructionHandle, ih, $nc(this->il)->getStart());
-			for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+			for (; ih != nullptr; $assign(ih, ih->getNext())) {
 				$var($Instruction, ins, ih->getInstruction());
 				if (($instanceOf($LocalVariableInstruction, ins)) || ($instanceOf($RET, ins)) || ($instanceOf($IINC, ins))) {
-					int32_t var$0 = $nc(($cast($IndexedInstruction, ins)))->getIndex();
-					int32_t index = var$0 + $nc($($nc(($cast($TypedInstruction, ins)))->getType($($FieldGenOrMethodGen::getConstantPool()))))->getSize();
+					int32_t var$0 = $nc($cast($IndexedInstruction, ins))->getIndex();
+					int32_t index = var$0 + $$nc($cast($TypedInstruction, ins)->getType($($FieldGenOrMethodGen::getConstantPool())))->getSize();
 					if (index > max) {
 						max = index;
 					}
@@ -1127,13 +928,11 @@ void MethodGen::stripAttributes(bool flag) {
 
 int32_t MethodGen::getMaxStack($ConstantPoolGen* cp, $InstructionList* il, $CodeExceptionGenArray* et) {
 	$init(MethodGen);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodGen$BranchStack, branchTargets, $new($MethodGen$BranchStack));
 	{
 		$var($CodeExceptionGenArray, arr$, et);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CodeExceptionGen, element, arr$->get(i$));
 			{
 				$var($InstructionHandle, handler_pc, $nc(element)->getHandlerPC());
@@ -1162,9 +961,7 @@ int32_t MethodGen::getMaxStack($ConstantPoolGen* cp, $InstructionList* il, $Code
 				$var($InstructionHandleArray, targets, select->getTargets());
 				{
 					$var($InstructionHandleArray, arr$, targets);
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($InstructionHandle, target, arr$->get(i$));
 						{
 							branchTargets->push(target, stackDepth);
@@ -1205,55 +1002,45 @@ void MethodGen::addObserver($MethodObserver* o) {
 
 void MethodGen::removeObserver($MethodObserver* o) {
 	if (this->observers != nullptr) {
-		$nc(this->observers)->remove($of(o));
+		this->observers->remove(o);
 	}
 }
 
 void MethodGen::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->observers != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->observers)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($MethodObserver, observer, $cast($MethodObserver, i$->next()));
-				{
-					$nc(observer)->notify(this);
-				}
+		$var($Iterator, i$, this->observers->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($MethodObserver, observer, $cast($MethodObserver, i$->next()));
+			{
+				$nc(observer)->notify(this);
 			}
 		}
 	}
 }
 
 $String* MethodGen::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, access, $Utility::accessToString($FieldGenOrMethodGen::getAccessFlags()));
 	$var($String, signature, $Type::getMethodSignature($($FieldGenOrMethodGen::getType()), this->argTypes));
-	$var($String, var$0, signature);
-	$var($String, var$1, $FieldGenOrMethodGen::getName());
-	$var($String, var$2, access);
-	$assign(signature, $Utility::methodSignatureToString(var$0, var$1, var$2, true, $(getLocalVariableTable($($FieldGenOrMethodGen::getConstantPool())))));
+	$var($String, var$0, $FieldGenOrMethodGen::getName());
+	$assign(signature, $Utility::methodSignatureToString(signature, var$0, access, true, $(getLocalVariableTable($($FieldGenOrMethodGen::getConstantPool())))));
 	$var($StringBuilder, buf, $new($StringBuilder, signature));
 	{
 		$var($AttributeArray, arr$, getAttributes());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, a, arr$->get(i$));
-			{
-				if (!(($instanceOf($Code, a)) || ($instanceOf($ExceptionTable, a)))) {
-					buf->append(" ["_s)->append($of(a))->append("]"_s);
-				}
+			if (!(($instanceOf($Code, a)) || ($instanceOf($ExceptionTable, a)))) {
+				buf->append(" ["_s)->append(a)->append("]"_s);
 			}
 		}
 	}
 	if ($nc(this->throwsList)->size() > 0) {
-		{
-			$var($Iterator, i$, $nc(this->throwsList)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($String, throwsDescriptor, $cast($String, i$->next()));
-				{
-					buf->append("\n\t\tthrows "_s)->append(throwsDescriptor);
-				}
+		$var($Iterator, i$, this->throwsList->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($String, throwsDescriptor, $cast($String, i$->next()));
+			{
+				buf->append("\n\t\tthrows "_s)->append(throwsDescriptor);
 			}
 		}
 	}
@@ -1261,12 +1048,12 @@ $String* MethodGen::toString() {
 }
 
 MethodGen* MethodGen::copy($String* className, $ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
-	$var($Method, m, $nc(($cast(MethodGen, $(clone()))))->getMethod());
+	$useLocalObjectStack();
+	$var($Method, m, $$sure(MethodGen, clone())->getMethod());
 	$var(MethodGen, mg, $new(MethodGen, m, className, $($FieldGenOrMethodGen::getConstantPool())));
 	if ($FieldGenOrMethodGen::getConstantPool() != cp) {
 		mg->setConstantPool(cp);
-		$nc($(mg->getInstructionList()))->replaceConstantPool($($FieldGenOrMethodGen::getConstantPool()), cp);
+		$$nc(mg->getInstructionList())->replaceConstantPool($($FieldGenOrMethodGen::getConstantPool()), cp);
 	}
 	return mg;
 }
@@ -1280,7 +1067,7 @@ $List* MethodGen::getAnnotationsOnParameter(int32_t i) {
 }
 
 void MethodGen::ensureExistingParameterAnnotationsUnpacked() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->haveUnpackedParameterAnnotations) {
 		return;
 	}
@@ -1289,32 +1076,28 @@ void MethodGen::ensureExistingParameterAnnotationsUnpacked() {
 	$var($ParameterAnnotations, paramAnnInvisAttr, nullptr);
 	{
 		$var($AttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if ($instanceOf($ParameterAnnotations, attribute)) {
-					if (!this->hasParameterAnnotations) {
-						$var($ListArray, parmList, $new($ListArray, $nc(this->argTypes)->length));
-						$set(this, paramAnnotations, parmList);
-						for (int32_t j = 0; j < $nc(this->argTypes)->length; ++j) {
-							$nc(this->paramAnnotations)->set(j, $$new($ArrayList));
-						}
+			if ($instanceOf($ParameterAnnotations, attribute)) {
+				if (!this->hasParameterAnnotations) {
+					$var($ListArray, parmList, $new($ListArray, $nc(this->argTypes)->length));
+					$set(this, paramAnnotations, parmList);
+					for (int32_t j = 0; j < this->argTypes->length; ++j) {
+						this->paramAnnotations->set(j, $$new($ArrayList));
 					}
-					this->hasParameterAnnotations = true;
-					$var($ParameterAnnotations, rpa, $cast($ParameterAnnotations, attribute));
-					if ($instanceOf($RuntimeVisibleParameterAnnotations, rpa)) {
-						$assign(paramAnnVisAttr, rpa);
-					} else {
-						$assign(paramAnnInvisAttr, rpa);
-					}
-					$var($ParameterAnnotationEntryArray, parameterAnnotationEntries, $nc(rpa)->getParameterAnnotationEntries());
-					for (int32_t j = 0; j < $nc(parameterAnnotationEntries)->length; ++j) {
-						$var($ParameterAnnotationEntry, immutableArray, $nc($(rpa->getParameterAnnotationEntries()))->get(j));
-						$var($List, mutable$, makeMutableVersion($($nc(immutableArray)->getAnnotationEntries())));
-						$nc($nc(this->paramAnnotations)->get(j))->addAll(mutable$);
-					}
+				}
+				this->hasParameterAnnotations = true;
+				$var($ParameterAnnotations, rpa, $cast($ParameterAnnotations, attribute));
+				if ($instanceOf($RuntimeVisibleParameterAnnotations, rpa)) {
+					$assign(paramAnnVisAttr, rpa);
+				} else {
+					$assign(paramAnnInvisAttr, rpa);
+				}
+				$var($ParameterAnnotationEntryArray, parameterAnnotationEntries, rpa->getParameterAnnotationEntries());
+				for (int32_t j = 0; j < $nc(parameterAnnotationEntries)->length; ++j) {
+					$var($ParameterAnnotationEntry, immutableArray, $nc($(rpa->getParameterAnnotationEntries()))->get(j));
+					$var($List, mutable$, makeMutableVersion($($nc(immutableArray)->getAnnotationEntries())));
+					$nc($nc(this->paramAnnotations)->get(j))->addAll(mutable$);
 				}
 			}
 		}
@@ -1329,13 +1112,11 @@ void MethodGen::ensureExistingParameterAnnotationsUnpacked() {
 }
 
 $List* MethodGen::makeMutableVersion($AnnotationEntryArray* mutableArray) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	{
 		$var($AnnotationEntryArray, arr$, mutableArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AnnotationEntry, element, arr$->get(i$));
 			{
 				result->add($$new($AnnotationEntryGen, element, $(getConstantPool()), false));
@@ -1346,7 +1127,7 @@ $List* MethodGen::makeMutableVersion($AnnotationEntryArray* mutableArray) {
 }
 
 void MethodGen::addParameterAnnotation(int32_t parameterIndex, $AnnotationEntryGen* annotation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureExistingParameterAnnotationsUnpacked();
 	if (!this->hasParameterAnnotations) {
 		$var($ListArray, parmList, $new($ListArray, $nc(this->argTypes)->length));
@@ -1359,7 +1140,7 @@ void MethodGen::addParameterAnnotation(int32_t parameterIndex, $AnnotationEntryG
 	} else {
 		$var($List, l, $new($ArrayList));
 		l->add(annotation);
-		$nc(this->paramAnnotations)->set(parameterIndex, l);
+		this->paramAnnotations->set(parameterIndex, l);
 	}
 }
 
@@ -1387,7 +1168,7 @@ int32_t MethodGen::lambda$getLocalVariables$0($LocalVariableGen* o1, $LocalVaria
 	return var$0 - $nc(o2)->getIndex();
 }
 
-void clinit$MethodGen($Class* class$) {
+void MethodGen::clinit$($Class* clazz) {
 	$assignStatic(MethodGen::bcelComparator, $new($MethodGen$1));
 }
 
@@ -1396,11 +1177,134 @@ MethodGen::MethodGen() {
 
 $Class* MethodGen::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MethodGen$$Lambda$lambda$getLocalVariables$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.bcel.internal.generic.MethodGen$$Lambda$lambda$getLocalVariables$0")) {
 			return MethodGen$$Lambda$lambda$getLocalVariables$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MethodGen, name, initialize, &_MethodGen_ClassInfo_, clinit$MethodGen, allocate$MethodGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodGen, className)},
+		{"argTypes", "[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PRIVATE, $field(MethodGen, argTypes)},
+		{"argNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodGen, argNames)},
+		{"maxLocals", "I", nullptr, $PRIVATE, $field(MethodGen, maxLocals)},
+		{"maxStack", "I", nullptr, $PRIVATE, $field(MethodGen, maxStack)},
+		{"il", "Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PRIVATE, $field(MethodGen, il)},
+		{"stripAttributes", "Z", nullptr, $PRIVATE, $field(MethodGen, stripAttributes$)},
+		{"localVariableTypeTable", "Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTypeTable;", nullptr, $PRIVATE, $field(MethodGen, localVariableTypeTable)},
+		{"variableList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;>;", $PRIVATE | $FINAL, $field(MethodGen, variableList)},
+		{"lineNumberList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;>;", $PRIVATE | $FINAL, $field(MethodGen, lineNumberList)},
+		{"exceptionList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;>;", $PRIVATE | $FINAL, $field(MethodGen, exceptionList)},
+		{"throwsList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(MethodGen, throwsList)},
+		{"codeAttrsList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Attribute;>;", $PRIVATE | $FINAL, $field(MethodGen, codeAttrsList)},
+		{"paramAnnotations", "[Ljava/util/List;", "[Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE, $field(MethodGen, paramAnnotations)},
+		{"hasParameterAnnotations", "Z", nullptr, $PRIVATE, $field(MethodGen, hasParameterAnnotations)},
+		{"haveUnpackedParameterAnnotations", "Z", nullptr, $PRIVATE, $field(MethodGen, haveUnpackedParameterAnnotations)},
+		{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(MethodGen, bcelComparator)},
+		{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/MethodObserver;>;", $PRIVATE, $field(MethodGen, observers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MethodGen, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MethodGen, init$, void, $Method*, $String*, $ConstantPoolGen*)},
+		{"addAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addAnnotationsAsAttribute, void, $ConstantPoolGen*)},
+		{"addCodeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addCodeAttribute, void, $Attribute*)},
+		{"addException", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addException, void, $String*)},
+		{"addExceptionHandler", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/ObjectType;)Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addExceptionHandler, $CodeExceptionGen*, $InstructionHandle*, $InstructionHandle*, $InstructionHandle*, $ObjectType*)},
+		{"addLineNumber", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;I)Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLineNumber, $LineNumberGen*, $InstructionHandle*, int32_t)},
+		{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;ILcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;I)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLocalVariable, $LocalVariableGen*, $String*, $Type*, int32_t, $InstructionHandle*, $InstructionHandle*, int32_t)},
+		{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;ILcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLocalVariable, $LocalVariableGen*, $String*, $Type*, int32_t, $InstructionHandle*, $InstructionHandle*)},
+		{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, addLocalVariable, $LocalVariableGen*, $String*, $Type*, $InstructionHandle*, $InstructionHandle*)},
+		{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/MethodObserver;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addObserver, void, $MethodObserver*)},
+		{"addParameterAnnotation", "(ILcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addParameterAnnotation, void, int32_t, $AnnotationEntryGen*)},
+		{"addParameterAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, addParameterAnnotationsAsAttribute, void, $ConstantPoolGen*)},
+		{"addRuntimeAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PRIVATE, $method(MethodGen, addRuntimeAnnotationsAsAttribute, $AttributeArray*, $ConstantPoolGen*)},
+		{"addRuntimeParameterAnnotationsAsAttribute", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PRIVATE, $method(MethodGen, addRuntimeParameterAnnotationsAsAttribute, $AttributeArray*, $ConstantPoolGen*)},
+		{"adjustLocalVariableTypeTable", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;)V", nullptr, $PRIVATE, $method(MethodGen, adjustLocalVariableTypeTable, void, $LocalVariableTable*)},
+		{"copy", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/MethodGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, copy, MethodGen*, $String*, $ConstantPoolGen*)},
+		{"ensureExistingParameterAnnotationsUnpacked", "()V", nullptr, $PRIVATE, $method(MethodGen, ensureExistingParameterAnnotationsUnpacked, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodGen, equals, bool, Object$*)},
+		{"getAnnotationsOnParameter", "(I)Ljava/util/List;", "(I)Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PUBLIC, $virtualMethod(MethodGen, getAnnotationsOnParameter, $List*, int32_t)},
+		{"getArgumentName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentName, $String*, int32_t)},
+		{"getArgumentNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentNames, $StringArray*)},
+		{"getArgumentType", "(I)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentType, $Type*, int32_t)},
+		{"getArgumentTypes", "()[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getArgumentTypes, $TypeArray*)},
+		{"getByteCodes", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodGen, getByteCodes, $bytes*, $Method*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getClassName, $String*)},
+		{"getCodeAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getCodeAttributes, $AttributeArray*)},
+		{"getCodeExceptions", "()[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PRIVATE, $method(MethodGen, getCodeExceptions, $CodeExceptionArray*)},
+		{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodGen, getComparator, $BCELComparator*)},
+		{"getExceptionHandlers", "()[Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getExceptionHandlers, $CodeExceptionGenArray*)},
+		{"getExceptionTable", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/classfile/ExceptionTable;", nullptr, $PRIVATE, $method(MethodGen, getExceptionTable, $ExceptionTable*, $ConstantPoolGen*)},
+		{"getExceptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getExceptions, $StringArray*)},
+		{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getInstructionList, $InstructionList*)},
+		{"getLineNumberTable", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLineNumberTable, $LineNumberTable*, $ConstantPoolGen*)},
+		{"getLineNumbers", "()[Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLineNumbers, $LineNumberGenArray*)},
+		{"getLocalVariableTable", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLocalVariableTable, $LocalVariableTable*, $ConstantPoolGen*)},
+		{"getLocalVariableTypeTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTypeTable;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLocalVariableTypeTable, $LocalVariableTypeTable*)},
+		{"getLocalVariables", "()[Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getLocalVariables, $LocalVariableGenArray*)},
+		{"getMaxLocals", "()I", nullptr, $PUBLIC, $virtualMethod(MethodGen, getMaxLocals, int32_t)},
+		{"getMaxStack", "()I", nullptr, $PUBLIC, $virtualMethod(MethodGen, getMaxStack, int32_t)},
+		{"getMaxStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;[Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodGen, getMaxStack, int32_t, $ConstantPoolGen*, $InstructionList*, $CodeExceptionGenArray*)},
+		{"getMethod", "()Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getMethod, $Method*)},
+		{"getReturnType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getReturnType, $Type*)},
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodGen, getSignature, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodGen, hashCode, int32_t)},
+		{"lambda$getLocalVariables$0", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodGen, lambda$getLocalVariables$0, int32_t, $LocalVariableGen*, $LocalVariableGen*)},
+		{"makeMutableVersion", "([Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;)Ljava/util/List;", "([Lcom/sun/org/apache/bcel/internal/classfile/AnnotationEntry;)Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE, $method(MethodGen, makeMutableVersion, $List*, $AnnotationEntryArray*)},
+		{"removeCodeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeCodeAttribute, void, $Attribute*)},
+		{"removeCodeAttributes", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeCodeAttributes, void)},
+		{"removeException", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeException, void, $String*)},
+		{"removeExceptionHandler", "(Lcom/sun/org/apache/bcel/internal/generic/CodeExceptionGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeExceptionHandler, void, $CodeExceptionGen*)},
+		{"removeExceptionHandlers", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeExceptionHandlers, void)},
+		{"removeExceptions", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeExceptions, void)},
+		{"removeLineNumber", "(Lcom/sun/org/apache/bcel/internal/generic/LineNumberGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLineNumber, void, $LineNumberGen*)},
+		{"removeLineNumbers", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLineNumbers, void)},
+		{"removeLocalVariable", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLocalVariable, void, $LocalVariableGen*)},
+		{"removeLocalVariableTypeTable", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLocalVariableTypeTable, void)},
+		{"removeLocalVariables", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeLocalVariables, void)},
+		{"removeNOPs", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeNOPs, void)},
+		{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/MethodObserver;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeObserver, void, $MethodObserver*)},
+		{"removeRuntimeAttributes", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, removeRuntimeAttributes, void, $AttributeArray*)},
+		{"setArgumentName", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentName, void, int32_t, $String*)},
+		{"setArgumentNames", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentNames, void, $StringArray*)},
+		{"setArgumentType", "(ILcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentType, void, int32_t, $Type*)},
+		{"setArgumentTypes", "([Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setArgumentTypes, void, $TypeArray*)},
+		{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setClassName, void, $String*)},
+		{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodGen, setComparator, void, $BCELComparator*)},
+		{"setInstructionList", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setInstructionList, void, $InstructionList*)},
+		{"setMaxLocals", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxLocals, void, int32_t)},
+		{"setMaxLocals", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxLocals, void)},
+		{"setMaxStack", "(I)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxStack, void, int32_t)},
+		{"setMaxStack", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setMaxStack, void)},
+		{"setReturnType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, setReturnType, void, $Type*)},
+		{"stripAttributes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MethodGen, stripAttributes, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MethodGen, toString, $String*)},
+		{"update", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGen, update, void)},
+		{"updateLocalVariableTable", "(Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;)V", nullptr, $PRIVATE, $method(MethodGen, updateLocalVariableTable, void, $LocalVariableTable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.MethodGen$BranchStack", "com.sun.org.apache.bcel.internal.generic.MethodGen", "BranchStack", $STATIC | $FINAL},
+		{"com.sun.org.apache.bcel.internal.generic.MethodGen$BranchTarget", "com.sun.org.apache.bcel.internal.generic.MethodGen", "BranchTarget", $STATIC | $FINAL},
+		{"com.sun.org.apache.bcel.internal.generic.MethodGen$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.MethodGen",
+		"com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.MethodGen$BranchStack,com.sun.org.apache.bcel.internal.generic.MethodGen$BranchTarget,com.sun.org.apache.bcel.internal.generic.MethodGen$1"
+	};
+	$loadClass(MethodGen, name, initialize, &classInfo$$, MethodGen::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MethodGen));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCDirective.h>
-
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
@@ -13,43 +12,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$MethodInfo _JCTree$JCDirective_MethodInfo_[] = {
-	{"*accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCDirective, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCDirective_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCDirective", "com.sun.tools.javac.tree.JCTree", "JCDirective", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCDirective_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.tree.JCTree$JCDirective",
-	"com.sun.tools.javac.tree.JCTree",
-	"com.sun.source.tree.DirectiveTree",
-	nullptr,
-	_JCTree$JCDirective_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCDirective_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCDirective($Class* clazz) {
-	return $of($alloc(JCTree$JCDirective));
-}
 
 $String* JCTree$JCDirective::toString() {
 	 return this->$JCTree::toString();
@@ -79,7 +41,39 @@ JCTree$JCDirective::JCTree$JCDirective() {
 }
 
 $Class* JCTree$JCDirective::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCDirective, name, initialize, &_JCTree$JCDirective_ClassInfo_, allocate$JCTree$JCDirective);
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCDirective, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCDirective", "com.sun.tools.javac.tree.JCTree", "JCDirective", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.tree.JCTree$JCDirective",
+		"com.sun.tools.javac.tree.JCTree",
+		"com.sun.source.tree.DirectiveTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCDirective, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCDirective));
+	});
 	return class$;
 }
 

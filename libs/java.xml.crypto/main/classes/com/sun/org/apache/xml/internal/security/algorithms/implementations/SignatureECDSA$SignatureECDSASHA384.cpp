@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureECDSA$SignatureECDSASHA384.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureECDSA.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
 #include <java/security/Provider.h>
@@ -24,38 +23,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$MethodInfo _SignatureECDSA$SignatureECDSASHA384_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSASHA384, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSASHA384, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureECDSA$SignatureECDSASHA384, engineGetURI, $String*)},
-	{}
-};
-
-$InnerClassInfo _SignatureECDSA$SignatureECDSASHA384_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA384", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SignatureECDSA$SignatureECDSASHA384_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384",
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA",
-	nullptr,
-	nullptr,
-	_SignatureECDSA$SignatureECDSASHA384_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureECDSA$SignatureECDSASHA384_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA"
-};
-
-$Object* allocate$SignatureECDSA$SignatureECDSASHA384($Class* clazz) {
-	return $of($alloc(SignatureECDSA$SignatureECDSASHA384));
-}
-
 void SignatureECDSA$SignatureECDSASHA384::init$() {
 	$SignatureECDSA::init$();
 }
@@ -73,7 +40,34 @@ SignatureECDSA$SignatureECDSASHA384::SignatureECDSA$SignatureECDSASHA384() {
 }
 
 $Class* SignatureECDSA$SignatureECDSASHA384::load$($String* name, bool initialize) {
-	$loadClass(SignatureECDSA$SignatureECDSASHA384, name, initialize, &_SignatureECDSA$SignatureECDSASHA384_ClassInfo_, allocate$SignatureECDSA$SignatureECDSASHA384);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSASHA384, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSASHA384, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureECDSA$SignatureECDSASHA384, engineGetURI, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA", "SignatureECDSASHA384", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA$SignatureECDSASHA384",
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureECDSA"
+	};
+	$loadClass(SignatureECDSA$SignatureECDSASHA384, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureECDSA$SignatureECDSASHA384);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <java/awt/Choice$AccessibleAWTChoice.h>
-
 #include <java/awt/Choice.h>
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <javax/accessibility/AccessibleAction.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <jcpp.h>
@@ -10,7 +8,6 @@
 #undef COMBO_BOX
 
 using $Choice = ::java::awt::Choice;
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,53 +18,6 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Choice$AccessibleAWTChoice_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Choice;", nullptr, $FINAL | $SYNTHETIC, $field(Choice$AccessibleAWTChoice, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Choice$AccessibleAWTChoice, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Choice$AccessibleAWTChoice_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Choice;)V", nullptr, $PUBLIC, $method(Choice$AccessibleAWTChoice, init$, void, $Choice*)},
-	{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, doAccessibleAction, bool, int32_t)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleActionCount, int32_t)},
-	{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleActionDescription, $String*, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleRole, $AccessibleRole*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Choice$AccessibleAWTChoice_InnerClassesInfo_[] = {
-	{"java.awt.Choice$AccessibleAWTChoice", "java.awt.Choice", "AccessibleAWTChoice", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Choice$AccessibleAWTChoice_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Choice$AccessibleAWTChoice",
-	"java.awt.Component$AccessibleAWTComponent",
-	"javax.accessibility.AccessibleAction",
-	_Choice$AccessibleAWTChoice_FieldInfo_,
-	_Choice$AccessibleAWTChoice_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Choice$AccessibleAWTChoice_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Choice"
-};
-
-$Object* allocate$Choice$AccessibleAWTChoice($Class* clazz) {
-	return $of($alloc(Choice$AccessibleAWTChoice));
-}
 
 int32_t Choice$AccessibleAWTChoice::hashCode() {
 	 return this->$Component$AccessibleAWTComponent::hashCode();
@@ -119,7 +69,48 @@ Choice$AccessibleAWTChoice::Choice$AccessibleAWTChoice() {
 }
 
 $Class* Choice$AccessibleAWTChoice::load$($String* name, bool initialize) {
-	$loadClass(Choice$AccessibleAWTChoice, name, initialize, &_Choice$AccessibleAWTChoice_ClassInfo_, allocate$Choice$AccessibleAWTChoice);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Choice;", nullptr, $FINAL | $SYNTHETIC, $field(Choice$AccessibleAWTChoice, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Choice$AccessibleAWTChoice, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Choice;)V", nullptr, $PUBLIC, $method(Choice$AccessibleAWTChoice, init$, void, $Choice*)},
+		{"doAccessibleAction", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, doAccessibleAction, bool, int32_t)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleActionCount", "()I", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleActionCount, int32_t)},
+		{"getAccessibleActionDescription", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleActionDescription, $String*, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Choice$AccessibleAWTChoice, getAccessibleRole, $AccessibleRole*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Choice$AccessibleAWTChoice", "java.awt.Choice", "AccessibleAWTChoice", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Choice$AccessibleAWTChoice",
+		"java.awt.Component$AccessibleAWTComponent",
+		"javax.accessibility.AccessibleAction",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Choice"
+	};
+	$loadClass(Choice$AccessibleAWTChoice, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Choice$AccessibleAWTChoice));
+	});
 	return class$;
 }
 

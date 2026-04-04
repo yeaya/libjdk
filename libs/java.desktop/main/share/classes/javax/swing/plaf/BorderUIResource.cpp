@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/BorderUIResource.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -32,62 +31,6 @@ using $BorderUIResource$LineBorderUIResource = ::javax::swing::plaf::BorderUIRes
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$FieldInfo _BorderUIResource_FieldInfo_[] = {
-	{"etched", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, etched)},
-	{"loweredBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, loweredBevel)},
-	{"raisedBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, raisedBevel)},
-	{"blackLine", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, blackLine)},
-	{"delegate", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(BorderUIResource, delegate)},
-	{}
-};
-
-$MethodInfo _BorderUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(BorderUIResource, init$, void, $Border*)},
-	{"getBlackLineBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getBlackLineBorderUIResource, $Border*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BorderUIResource, getBorderInsets, $Insets*, $Component*)},
-	{"getEtchedBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getEtchedBorderUIResource, $Border*)},
-	{"getLoweredBevelBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getLoweredBevelBorderUIResource, $Border*)},
-	{"getRaisedBevelBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getRaisedBevelBorderUIResource, $Border*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(BorderUIResource, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BorderUIResource, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BorderUIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.BorderUIResource$TitledBorderUIResource", "javax.swing.plaf.BorderUIResource", "TitledBorderUIResource", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.BorderUIResource$MatteBorderUIResource", "javax.swing.plaf.BorderUIResource", "MatteBorderUIResource", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.BorderUIResource$EtchedBorderUIResource", "javax.swing.plaf.BorderUIResource", "EtchedBorderUIResource", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.BorderUIResource$BevelBorderUIResource", "javax.swing.plaf.BorderUIResource", "BevelBorderUIResource", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.BorderUIResource$LineBorderUIResource", "javax.swing.plaf.BorderUIResource", "LineBorderUIResource", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.BorderUIResource$EmptyBorderUIResource", "javax.swing.plaf.BorderUIResource", "EmptyBorderUIResource", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.BorderUIResource$CompoundBorderUIResource", "javax.swing.plaf.BorderUIResource", "CompoundBorderUIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BorderUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.BorderUIResource",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource,java.io.Serializable",
-	_BorderUIResource_FieldInfo_,
-	_BorderUIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BorderUIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.BorderUIResource$TitledBorderUIResource,javax.swing.plaf.BorderUIResource$MatteBorderUIResource,javax.swing.plaf.BorderUIResource$EtchedBorderUIResource,javax.swing.plaf.BorderUIResource$BevelBorderUIResource,javax.swing.plaf.BorderUIResource$LineBorderUIResource,javax.swing.plaf.BorderUIResource$EmptyBorderUIResource,javax.swing.plaf.BorderUIResource$CompoundBorderUIResource"
-};
-
-$Object* allocate$BorderUIResource($Class* clazz) {
-	return $of($alloc(BorderUIResource));
-}
 
 int32_t BorderUIResource::hashCode() {
 	 return this->$Border::hashCode();
@@ -170,7 +113,57 @@ BorderUIResource::BorderUIResource() {
 }
 
 $Class* BorderUIResource::load$($String* name, bool initialize) {
-	$loadClass(BorderUIResource, name, initialize, &_BorderUIResource_ClassInfo_, allocate$BorderUIResource);
+	$FieldInfo fieldInfos$$[] = {
+		{"etched", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, etched)},
+		{"loweredBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, loweredBevel)},
+		{"raisedBevel", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, raisedBevel)},
+		{"blackLine", "Ljavax/swing/border/Border;", nullptr, $STATIC, $staticField(BorderUIResource, blackLine)},
+		{"delegate", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(BorderUIResource, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(BorderUIResource, init$, void, $Border*)},
+		{"getBlackLineBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getBlackLineBorderUIResource, $Border*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BorderUIResource, getBorderInsets, $Insets*, $Component*)},
+		{"getEtchedBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getEtchedBorderUIResource, $Border*)},
+		{"getLoweredBevelBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getLoweredBevelBorderUIResource, $Border*)},
+		{"getRaisedBevelBorderUIResource", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(BorderUIResource, getRaisedBevelBorderUIResource, $Border*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(BorderUIResource, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BorderUIResource, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.BorderUIResource$TitledBorderUIResource", "javax.swing.plaf.BorderUIResource", "TitledBorderUIResource", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.BorderUIResource$MatteBorderUIResource", "javax.swing.plaf.BorderUIResource", "MatteBorderUIResource", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.BorderUIResource$EtchedBorderUIResource", "javax.swing.plaf.BorderUIResource", "EtchedBorderUIResource", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.BorderUIResource$BevelBorderUIResource", "javax.swing.plaf.BorderUIResource", "BevelBorderUIResource", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.BorderUIResource$LineBorderUIResource", "javax.swing.plaf.BorderUIResource", "LineBorderUIResource", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.BorderUIResource$EmptyBorderUIResource", "javax.swing.plaf.BorderUIResource", "EmptyBorderUIResource", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.BorderUIResource$CompoundBorderUIResource", "javax.swing.plaf.BorderUIResource", "CompoundBorderUIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.BorderUIResource",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.BorderUIResource$TitledBorderUIResource,javax.swing.plaf.BorderUIResource$MatteBorderUIResource,javax.swing.plaf.BorderUIResource$EtchedBorderUIResource,javax.swing.plaf.BorderUIResource$BevelBorderUIResource,javax.swing.plaf.BorderUIResource$LineBorderUIResource,javax.swing.plaf.BorderUIResource$EmptyBorderUIResource,javax.swing.plaf.BorderUIResource$CompoundBorderUIResource"
+	};
+	$loadClass(BorderUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BorderUIResource));
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	PartialResultException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x23B21838F29A9562;
+	static const int64_t serialVersionUID = (int64_t)0x23b21838f29a9562;
 	PartialResultException(const PartialResultException& e);
 	virtual void throw$() override;
-	inline PartialResultException* operator ->() {
+	inline PartialResultException* operator ->() const {
+		return (PartialResultException*)throwing$;
+	}
+	inline operator PartialResultException*() const {
 		return (PartialResultException*)throwing$;
 	}
 };

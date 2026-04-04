@@ -13,6 +13,7 @@ class CTaskbarPeer$1 : public ::java::lang::Object {
 	$class(CTaskbarPeer$1, 0, ::java::lang::Object)
 public:
 	CTaskbarPeer$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$awt$Taskbar$Feature;
 };
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DVolatileSurfaceManager.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -57,52 +56,19 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DVolatileSurfaceManager_FieldInfo_[] = {
-	{"accelerationEnabled", "Z", nullptr, $PRIVATE, $field(D3DVolatileSurfaceManager, accelerationEnabled)},
-	{"restoreCountdown", "I", nullptr, $PRIVATE, $field(D3DVolatileSurfaceManager, restoreCountdown)},
-	{}
-};
-
-$MethodInfo _D3DVolatileSurfaceManager_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(D3DVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
-	{"handleVItoScreenOp", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;)V", nullptr, $STATIC, $staticMethod(D3DVolatileSurfaceManager, handleVItoScreenOp, void, $SurfaceData*, $SurfaceData*)},
-	{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
-	{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(D3DVolatileSurfaceManager, initContents, void)},
-	{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, isAccelerationEnabled, bool)},
-	{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
-	{"restoreAcceleratedSurface", "()V", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, restoreAcceleratedSurface, void)},
-	{"restoreContents", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DVolatileSurfaceManager, restoreContents, $SurfaceData*)},
-	{"setAccelerationEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(D3DVolatileSurfaceManager, setAccelerationEnabled, void, bool)},
-	{"setRestoreCountdown", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DVolatileSurfaceManager, setRestoreCountdown, void, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DVolatileSurfaceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.d3d.D3DVolatileSurfaceManager",
-	"sun.awt.image.VolatileSurfaceManager",
-	nullptr,
-	_D3DVolatileSurfaceManager_FieldInfo_,
-	_D3DVolatileSurfaceManager_MethodInfo_
-};
-
-$Object* allocate$D3DVolatileSurfaceManager($Class* clazz) {
-	return $of($alloc(D3DVolatileSurfaceManager));
-}
-
 void D3DVolatileSurfaceManager::init$($SunVolatileImage* vImg, Object$* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$VolatileSurfaceManager::init$(vImg, context);
 	int32_t transparency = $nc(vImg)->getTransparency();
-	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $nc($(vImg->getGraphicsConfig()))->getDevice()));
-	bool var$0 = (transparency == $Transparency::OPAQUE);
+	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $$nc(vImg->getGraphicsConfig())->getDevice()));
+	bool var$0 = transparency == $Transparency::OPAQUE;
 	if (!var$0) {
 		bool var$1 = transparency == $Transparency::TRANSLUCENT;
 		if (var$1) {
 			bool var$2 = $nc(gd)->isCapPresent(2);
-			var$1 = (var$2 || $nc(gd)->isCapPresent(4));
+			var$1 = var$2 || gd->isCapPresent(4);
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	this->accelerationEnabled = var$0;
 }
@@ -116,7 +82,7 @@ void D3DVolatileSurfaceManager::setAccelerationEnabled(bool accelerationEnabled)
 }
 
 $SurfaceData* D3DVolatileSurfaceManager::initAcceleratedSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, sData, nullptr);
 	$var($Component, comp, $nc(this->vImg)->getComponent());
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
@@ -124,7 +90,7 @@ $SurfaceData* D3DVolatileSurfaceManager::initAcceleratedSurface() {
 	try {
 		bool forceback = false;
 		if ($instanceOf($Boolean, this->context)) {
-			forceback = $nc(($cast($Boolean, this->context)))->booleanValue();
+			forceback = $cast($Boolean, this->context)->booleanValue();
 		}
 		if (forceback) {
 			$assign(sData, $D3DSurfaceData::createData(peer, this->vImg));
@@ -135,9 +101,8 @@ $SurfaceData* D3DVolatileSurfaceManager::initAcceleratedSurface() {
 			if (type == 0) {
 				type = 5;
 			}
-			$var($D3DGraphicsConfig, var$0, gc);
-			int32_t var$1 = $nc(this->vImg)->getWidth();
-			$assign(sData, $D3DSurfaceData::createData(var$0, var$1, $nc(this->vImg)->getHeight(), cm, this->vImg, type));
+			int32_t var$0 = $nc(this->vImg)->getWidth();
+			$assign(sData, $D3DSurfaceData::createData(gc, var$0, this->vImg->getHeight(), cm, this->vImg, type));
 		}
 	} catch ($NullPointerException& ex) {
 		$assign(sData, nullptr);
@@ -160,7 +125,7 @@ void D3DVolatileSurfaceManager::setRestoreCountdown(int32_t count) {
 }
 
 void D3DVolatileSurfaceManager::restoreAcceleratedSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		if (this->restoreCountdown > 0) {
 			--this->restoreCountdown;
@@ -182,19 +147,18 @@ $SurfaceData* D3DVolatileSurfaceManager::restoreContents() {
 
 void D3DVolatileSurfaceManager::handleVItoScreenOp($SurfaceData* src, $SurfaceData* dst) {
 	$init(D3DVolatileSurfaceManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($D3DSurfaceData, src) && $instanceOf($GDIWindowSurfaceData, dst)) {
 		$var($D3DSurfaceData, d3dsd, $cast($D3DSurfaceData, src));
-		$var($SurfaceManager, mgr, $SurfaceManager::getManager($cast($Image, $($nc(d3dsd)->getDestination()))));
+		$var($SurfaceManager, mgr, $SurfaceManager::getManager($$cast($Image, d3dsd->getDestination())));
 		if ($instanceOf(D3DVolatileSurfaceManager, mgr)) {
 			$var(D3DVolatileSurfaceManager, vsm, $cast(D3DVolatileSurfaceManager, mgr));
 			if (vsm != nullptr) {
-				$nc(d3dsd)->setSurfaceLost(true);
+				d3dsd->setSurfaceLost(true);
 				$var($GDIWindowSurfaceData, wsd, $cast($GDIWindowSurfaceData, dst));
-				$var($WComponentPeer, p, $nc(wsd)->getPeer());
-				$var($WComponentPeer, var$0, p);
-				$var($Win32GraphicsConfig, var$1, $cast($Win32GraphicsConfig, $nc(p)->getGraphicsConfiguration()));
-				if ($D3DScreenUpdateManager::canUseD3DOnScreen(var$0, var$1, p->getBackBuffersNum())) {
+				$var($WComponentPeer, p, wsd->getPeer());
+				$var($Win32GraphicsConfig, var$0, $cast($Win32GraphicsConfig, $nc(p)->getGraphicsConfiguration()));
+				if ($D3DScreenUpdateManager::canUseD3DOnScreen(p, var$0, p->getBackBuffersNum())) {
 					vsm->setRestoreCountdown(10);
 				} else {
 					vsm->setAccelerationEnabled(false);
@@ -214,7 +178,35 @@ D3DVolatileSurfaceManager::D3DVolatileSurfaceManager() {
 }
 
 $Class* D3DVolatileSurfaceManager::load$($String* name, bool initialize) {
-	$loadClass(D3DVolatileSurfaceManager, name, initialize, &_D3DVolatileSurfaceManager_ClassInfo_, allocate$D3DVolatileSurfaceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"accelerationEnabled", "Z", nullptr, $PRIVATE, $field(D3DVolatileSurfaceManager, accelerationEnabled)},
+		{"restoreCountdown", "I", nullptr, $PRIVATE, $field(D3DVolatileSurfaceManager, restoreCountdown)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(D3DVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
+		{"handleVItoScreenOp", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;)V", nullptr, $STATIC, $staticMethod(D3DVolatileSurfaceManager, handleVItoScreenOp, void, $SurfaceData*, $SurfaceData*)},
+		{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
+		{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(D3DVolatileSurfaceManager, initContents, void)},
+		{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, isAccelerationEnabled, bool)},
+		{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
+		{"restoreAcceleratedSurface", "()V", nullptr, $PROTECTED, $virtualMethod(D3DVolatileSurfaceManager, restoreAcceleratedSurface, void)},
+		{"restoreContents", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DVolatileSurfaceManager, restoreContents, $SurfaceData*)},
+		{"setAccelerationEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(D3DVolatileSurfaceManager, setAccelerationEnabled, void, bool)},
+		{"setRestoreCountdown", "(I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DVolatileSurfaceManager, setRestoreCountdown, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.d3d.D3DVolatileSurfaceManager",
+		"sun.awt.image.VolatileSurfaceManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DVolatileSurfaceManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DVolatileSurfaceManager));
+	});
 	return class$;
 }
 

@@ -1,11 +1,9 @@
 #include <bug6691503.h>
-
 #include <bug6691503$1.h>
 #include <bug6691503$2.h>
 #include <bug6691503$3.h>
 #include <bug6691503$4.h>
 #include <java/awt/Robot.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/SwingUtilities.h>
@@ -16,61 +14,13 @@ using $bug6691503$2 = ::bug6691503$2;
 using $bug6691503$3 = ::bug6691503$3;
 using $bug6691503$4 = ::bug6691503$4;
 using $Robot = ::java::awt::Robot;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _bug6691503_FieldInfo_[] = {
-	{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $field(bug6691503, popupMenu)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug6691503, frame)},
-	{"isAlwaysOnTop1", "Z", nullptr, $PRIVATE, $field(bug6691503, isAlwaysOnTop1)},
-	{"isAlwaysOnTop2", "Z", nullptr, $PRIVATE, $field(bug6691503, isAlwaysOnTop2)},
-	{}
-};
-
-$MethodInfo _bug6691503_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6691503, init$, void)},
-	{"checkResult", "()V", nullptr, $PRIVATE, $method(bug6691503, checkResult, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6691503, main, void, $StringArray*)},
-	{"setupUI", "()V", nullptr, $PRIVATE, $method(bug6691503, setupUI, void)},
-	{"stopEDT", "()V", nullptr, $PRIVATE, $method(bug6691503, stopEDT, void)},
-	{"testApplet", "()V", nullptr, $PRIVATE, $method(bug6691503, testApplet, void)},
-	{"testApplication", "()V", nullptr, $PRIVATE, $method(bug6691503, testApplication, void)},
-	{}
-};
-
-$InnerClassInfo _bug6691503_InnerClassesInfo_[] = {
-	{"bug6691503$4", nullptr, nullptr, 0},
-	{"bug6691503$3", nullptr, nullptr, 0},
-	{"bug6691503$2", nullptr, nullptr, 0},
-	{"bug6691503$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6691503_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6691503",
-	"java.lang.Object",
-	nullptr,
-	_bug6691503_FieldInfo_,
-	_bug6691503_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6691503_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6691503$4,bug6691503$3,bug6691503$2,bug6691503$1"
-};
-
-$Object* allocate$bug6691503($Class* clazz) {
-	return $of($alloc(bug6691503));
-}
 
 void bug6691503::init$() {
 	this->isAlwaysOnTop1 = false;
@@ -120,7 +70,47 @@ bug6691503::bug6691503() {
 }
 
 $Class* bug6691503::load$($String* name, bool initialize) {
-	$loadClass(bug6691503, name, initialize, &_bug6691503_ClassInfo_, allocate$bug6691503);
+	$FieldInfo fieldInfos$$[] = {
+		{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $field(bug6691503, popupMenu)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug6691503, frame)},
+		{"isAlwaysOnTop1", "Z", nullptr, $PRIVATE, $field(bug6691503, isAlwaysOnTop1)},
+		{"isAlwaysOnTop2", "Z", nullptr, $PRIVATE, $field(bug6691503, isAlwaysOnTop2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6691503, init$, void)},
+		{"checkResult", "()V", nullptr, $PRIVATE, $method(bug6691503, checkResult, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6691503, main, void, $StringArray*)},
+		{"setupUI", "()V", nullptr, $PRIVATE, $method(bug6691503, setupUI, void)},
+		{"stopEDT", "()V", nullptr, $PRIVATE, $method(bug6691503, stopEDT, void)},
+		{"testApplet", "()V", nullptr, $PRIVATE, $method(bug6691503, testApplet, void)},
+		{"testApplication", "()V", nullptr, $PRIVATE, $method(bug6691503, testApplication, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6691503$4", nullptr, nullptr, 0},
+		{"bug6691503$3", nullptr, nullptr, 0},
+		{"bug6691503$2", nullptr, nullptr, 0},
+		{"bug6691503$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6691503",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6691503$4,bug6691503$3,bug6691503$2,bug6691503$1"
+	};
+	$loadClass(bug6691503, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6691503);
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class AquaKeyBindings : public ::java::lang::Object {
 	$class(AquaKeyBindings, 0, ::java::lang::Object)
 public:
 	AquaKeyBindings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::apple::laf::AquaKeyBindings$LateBoundInputMap* getComboBoxInputMap();
 	virtual ::com::apple::laf::AquaKeyBindings$LateBoundInputMap* getFormattedTextFieldInputMap();

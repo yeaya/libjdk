@@ -27,6 +27,7 @@ class $export Bug8139572 : public ::java::lang::Object {
 	$class(Bug8139572, 0, ::java::lang::Object)
 public:
 	Bug8139572();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Locale* RUSSIAN;

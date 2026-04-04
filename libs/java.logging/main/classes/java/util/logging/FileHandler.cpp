@@ -1,10 +1,8 @@
 #include <java/util/logging/FileHandler.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/SecurityException.h>
 #include <java/nio/channels/FileChannel.h>
@@ -20,7 +18,6 @@
 #include <java/nio/file/Paths.h>
 #include <java/nio/file/StandardOpenOption.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -55,7 +52,6 @@ using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -73,12 +69,10 @@ using $FileAlreadyExistsException = ::java::nio::file::FileAlreadyExistsExceptio
 using $Files = ::java::nio::file::Files;
 using $LinkOption = ::java::nio::file::LinkOption;
 using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
@@ -87,7 +81,6 @@ using $FileHandler$1 = ::java::util::logging::FileHandler$1;
 using $FileHandler$InitializationErrorManager = ::java::util::logging::FileHandler$InitializationErrorManager;
 using $FileHandler$MeteredStream = ::java::util::logging::FileHandler$MeteredStream;
 using $Filter = ::java::util::logging::Filter;
-using $Formatter = ::java::util::logging::Formatter;
 using $Level = ::java::util::logging::Level;
 using $LogManager = ::java::util::logging::LogManager;
 using $LogRecord = ::java::util::logging::LogRecord;
@@ -99,72 +92,11 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _FileHandler_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileHandler, $assertionsDisabled)},
-	{"meter", "Ljava/util/logging/FileHandler$MeteredStream;", nullptr, $PRIVATE, $field(FileHandler, meter)},
-	{"append", "Z", nullptr, $PRIVATE, $field(FileHandler, append)},
-	{"limit", "J", nullptr, $PRIVATE, $field(FileHandler, limit)},
-	{"count", "I", nullptr, $PRIVATE, $field(FileHandler, count)},
-	{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FileHandler, pattern)},
-	{"lockFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FileHandler, lockFileName)},
-	{"lockFileChannel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE, $field(FileHandler, lockFileChannel)},
-	{"files", "[Ljava/io/File;", nullptr, $PRIVATE, $field(FileHandler, files)},
-	{"MAX_LOCKS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileHandler, MAX_LOCKS)},
-	{"maxLocks", "I", nullptr, $PRIVATE, $field(FileHandler, maxLocks)},
-	{"locks", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FileHandler, locks)},
-	{}
-};
-
-$MethodInfo _FileHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileHandler, init$, void), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, bool), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int32_t, int32_t), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;IIZ)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int32_t, int32_t, bool), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;JIZ)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int64_t, int32_t, bool), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileHandler, close, void), "java.lang.SecurityException"},
-	{"configure", "()V", nullptr, $PRIVATE, $method(FileHandler, configure, void)},
-	{"generate", "(Ljava/lang/String;II)Ljava/io/File;", nullptr, $PRIVATE, $method(FileHandler, generate, $File*, $String*, int32_t, int32_t), "java.io.IOException"},
-	{"generate", "(Ljava/lang/String;III)Ljava/io/File;", nullptr, $STATIC, $staticMethod(FileHandler, generate, $File*, $String*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"isParentWritable", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(FileHandler, isParentWritable, bool, $Path*)},
-	{"open", "(Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(FileHandler, open, void, $File*, bool), "java.io.IOException"},
-	{"openFiles", "()V", nullptr, $PRIVATE, $method(FileHandler, openFiles, void), "java.io.IOException"},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileHandler, publish, void, $LogRecord*)},
-	{"rotate", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(FileHandler, rotate, void)},
-	{}
-};
-
-$InnerClassInfo _FileHandler_InnerClassesInfo_[] = {
-	{"java.util.logging.FileHandler$InitializationErrorManager", "java.util.logging.FileHandler", "InitializationErrorManager", $PRIVATE | $STATIC},
-	{"java.util.logging.FileHandler$MeteredStream", "java.util.logging.FileHandler", "MeteredStream", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.logging.FileHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.logging.FileHandler",
-	"java.util.logging.StreamHandler",
-	nullptr,
-	_FileHandler_FieldInfo_,
-	_FileHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.logging.FileHandler$InitializationErrorManager,java.util.logging.FileHandler$MeteredStream,java.util.logging.FileHandler$1"
-};
-
-$Object* allocate$FileHandler($Class* clazz) {
-	return $of($alloc(FileHandler));
-}
-
 bool FileHandler::$assertionsDisabled = false;
 $Set* FileHandler::locks = nullptr;
 
 void FileHandler::open($File* fname, bool append) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t len = 0;
 	if (append) {
 		len = $nc(fname)->length();
@@ -176,7 +108,7 @@ void FileHandler::open($File* fname, bool append) {
 }
 
 void FileHandler::configure() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LogManager, manager, $LogManager::getLogManager());
 	$var($String, cname, $of(this)->getClass()->getName());
 	$set(this, pattern, $nc(manager)->getStringProperty($$str({cname, ".pattern"_s}), "%h/java%u.log"_s));
@@ -281,16 +213,16 @@ void FileHandler::init$($String* pattern, int64_t limit, int32_t count, bool app
 }
 
 bool FileHandler::isParentWritable($Path* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, parent, $nc(path)->getParent());
 	if (parent == nullptr) {
-		$assign(parent, $nc($(path->toAbsolutePath()))->getParent());
+		$assign(parent, $$nc(path->toAbsolutePath())->getParent());
 	}
 	return parent != nullptr && $Files::isWritable(parent);
 }
 
 void FileHandler::openFiles() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LogManager, manager, $LogManager::getLogManager());
 	$nc(manager)->checkPermission();
 	if (this->count < 1) {
@@ -313,9 +245,9 @@ void FileHandler::openFiles() {
 		if (unique > this->maxLocks) {
 			$throwNew($IOException, $$str({"Couldn\'t get lock for "_s, this->pattern}));
 		}
-		$set(this, lockFileName, $str({$($nc($(generate(this->pattern, 0, unique)))->toString()), ".lck"_s}));
+		$set(this, lockFileName, $str({$($$nc(generate(this->pattern, 0, unique))->toString()), ".lck"_s}));
 		$synchronized(FileHandler::locks) {
-			if ($nc(FileHandler::locks)->contains(this->lockFileName)) {
+			if (FileHandler::locks->contains(this->lockFileName)) {
 				continue;
 			}
 			$var($Path, lockFilePath, $Paths::get(this->lockFileName, $$new($StringArray, 0)));
@@ -326,8 +258,8 @@ void FileHandler::openFiles() {
 				try {
 					$init($StandardOpenOption);
 					$assign(channel, $FileChannel::open(lockFilePath, $$new($OpenOptionArray, {
-						static_cast<$OpenOption*>($StandardOpenOption::CREATE_NEW),
-						static_cast<$OpenOption*>($StandardOpenOption::WRITE)
+						$StandardOpenOption::CREATE_NEW,
+						$StandardOpenOption::WRITE
 					})));
 					fileCreated = true;
 				} catch ($AccessDeniedException& ade) {
@@ -345,8 +277,8 @@ void FileHandler::openFiles() {
 						try {
 							$init($StandardOpenOption);
 							$assign(channel, $FileChannel::open(lockFilePath, $$new($OpenOptionArray, {
-								static_cast<$OpenOption*>($StandardOpenOption::WRITE),
-								static_cast<$OpenOption*>($StandardOpenOption::APPEND)
+								$StandardOpenOption::WRITE,
+								$StandardOpenOption::APPEND
 							})));
 						} catch ($NoSuchFileException& x) {
 							continue;
@@ -371,7 +303,7 @@ void FileHandler::openFiles() {
 				available = false;
 			}
 			if (available) {
-				$nc(FileHandler::locks)->add(this->lockFileName);
+				FileHandler::locks->add(this->lockFileName);
 				break;
 			}
 			$nc(this->lockFileChannel)->close();
@@ -405,7 +337,7 @@ $File* FileHandler::generate($String* pattern, int32_t generation, int32_t uniqu
 
 $File* FileHandler::generate($String* pat, int32_t count, int32_t generation, int32_t unique) {
 	$init(FileHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, path, $Paths::get(pat, $$new($StringArray, 0)));
 	$var($Path, result, nullptr);
 	bool sawg = false;
@@ -419,7 +351,7 @@ $File* FileHandler::generate($String* pat, int32_t count, int32_t generation, in
 			{
 				if (prev != nullptr) {
 					$assign(prev, prev->resolveSibling($(word->toString())));
-					$assign(result, result == nullptr ? prev : $nc(result)->resolve(prev));
+					$assign(result, result == nullptr ? prev : result->resolve(prev));
 				}
 				$var($String, pattern, $nc(elem)->toString());
 				int32_t ix = 0;
@@ -427,7 +359,7 @@ $File* FileHandler::generate($String* pat, int32_t count, int32_t generation, in
 				while (ix < $nc(pattern)->length()) {
 					char16_t ch = pattern->charAt(ix);
 					++ix;
-					char16_t ch2 = (char16_t)0;
+					char16_t ch2 = 0;
 					if (ix < pattern->length()) {
 						ch2 = $Character::toLowerCase(pattern->charAt(ix));
 					}
@@ -479,28 +411,28 @@ $File* FileHandler::generate($String* pat, int32_t count, int32_t generation, in
 	}
 	if (word->length() > 0) {
 		$var($String, n, word->toString());
-		$var($Path, p, prev == nullptr ? $Paths::get(n, $$new($StringArray, 0)) : $nc(prev)->resolveSibling(n));
-		$assign(result, result == nullptr ? p : $nc(result)->resolve(p));
+		$var($Path, p, prev == nullptr ? $Paths::get(n, $$new($StringArray, 0)) : prev->resolveSibling(n));
+		$assign(result, result == nullptr ? p : result->resolve(p));
 	} else if (result == nullptr) {
 		$assign(result, $Paths::get(""_s, $$new($StringArray, 0)));
 	}
 	if (path->getRoot() == nullptr) {
 		return $nc(result)->toFile();
 	} else {
-		return $nc($($nc($(path->getRoot()))->resolve(result)))->toFile();
+		return $$nc($$nc(path->getRoot())->resolve(result))->toFile();
 	}
 }
 
 void FileHandler::rotate() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Level, oldLevel, getLevel());
 		$init($Level);
 		setLevel($Level::OFF);
 		$StreamHandler::close();
 		for (int32_t i = this->count - 2; i >= 0; --i) {
 			$var($File, f1, $nc(this->files)->get(i));
-			$var($File, f2, $nc(this->files)->get(i + 1));
+			$var($File, f2, this->files->get(i + 1));
 			if ($nc(f1)->exists()) {
 				if ($nc(f2)->exists()) {
 					f2->delete$();
@@ -525,8 +457,8 @@ void FileHandler::publish($LogRecord* record) {
 		}
 		$StreamHandler::publish(record);
 		flush();
-		if (this->limit > 0 && ($nc(this->meter)->written >= this->limit || $nc(this->meter)->written < 0)) {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileHandler$1, this)));
+		if (this->limit > 0 && ($nc(this->meter)->written >= this->limit || this->meter->written < 0)) {
+			$AccessController::doPrivileged($$new($FileHandler$1, this));
 		}
 	}
 }
@@ -542,7 +474,7 @@ void FileHandler::close() {
 		} catch ($Exception& ex) {
 		}
 		$synchronized(FileHandler::locks) {
-			$nc(FileHandler::locks)->remove(this->lockFileName);
+			FileHandler::locks->remove(this->lockFileName);
 		}
 		$$new($File, this->lockFileName)->delete$();
 		$set(this, lockFileName, nullptr);
@@ -550,7 +482,7 @@ void FileHandler::close() {
 	}
 }
 
-void clinit$FileHandler($Class* class$) {
+void FileHandler::clinit$($Class* clazz) {
 	FileHandler::$assertionsDisabled = !FileHandler::class$->desiredAssertionStatus();
 	$assignStatic(FileHandler::locks, $new($HashSet));
 }
@@ -559,7 +491,62 @@ FileHandler::FileHandler() {
 }
 
 $Class* FileHandler::load$($String* name, bool initialize) {
-	$loadClass(FileHandler, name, initialize, &_FileHandler_ClassInfo_, clinit$FileHandler, allocate$FileHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileHandler, $assertionsDisabled)},
+		{"meter", "Ljava/util/logging/FileHandler$MeteredStream;", nullptr, $PRIVATE, $field(FileHandler, meter)},
+		{"append", "Z", nullptr, $PRIVATE, $field(FileHandler, append)},
+		{"limit", "J", nullptr, $PRIVATE, $field(FileHandler, limit)},
+		{"count", "I", nullptr, $PRIVATE, $field(FileHandler, count)},
+		{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FileHandler, pattern)},
+		{"lockFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FileHandler, lockFileName)},
+		{"lockFileChannel", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE, $field(FileHandler, lockFileChannel)},
+		{"files", "[Ljava/io/File;", nullptr, $PRIVATE, $field(FileHandler, files)},
+		{"MAX_LOCKS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileHandler, MAX_LOCKS)},
+		{"maxLocks", "I", nullptr, $PRIVATE, $field(FileHandler, maxLocks)},
+		{"locks", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FileHandler, locks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileHandler, init$, void), "java.io.IOException,java.lang.SecurityException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*), "java.io.IOException,java.lang.SecurityException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, bool), "java.io.IOException,java.lang.SecurityException"},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int32_t, int32_t), "java.io.IOException,java.lang.SecurityException"},
+		{"<init>", "(Ljava/lang/String;IIZ)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int32_t, int32_t, bool), "java.io.IOException,java.lang.SecurityException"},
+		{"<init>", "(Ljava/lang/String;JIZ)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int64_t, int32_t, bool), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileHandler, close, void), "java.lang.SecurityException"},
+		{"configure", "()V", nullptr, $PRIVATE, $method(FileHandler, configure, void)},
+		{"generate", "(Ljava/lang/String;II)Ljava/io/File;", nullptr, $PRIVATE, $method(FileHandler, generate, $File*, $String*, int32_t, int32_t), "java.io.IOException"},
+		{"generate", "(Ljava/lang/String;III)Ljava/io/File;", nullptr, $STATIC, $staticMethod(FileHandler, generate, $File*, $String*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"isParentWritable", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(FileHandler, isParentWritable, bool, $Path*)},
+		{"open", "(Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(FileHandler, open, void, $File*, bool), "java.io.IOException"},
+		{"openFiles", "()V", nullptr, $PRIVATE, $method(FileHandler, openFiles, void), "java.io.IOException"},
+		{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileHandler, publish, void, $LogRecord*)},
+		{"rotate", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(FileHandler, rotate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.FileHandler$InitializationErrorManager", "java.util.logging.FileHandler", "InitializationErrorManager", $PRIVATE | $STATIC},
+		{"java.util.logging.FileHandler$MeteredStream", "java.util.logging.FileHandler", "MeteredStream", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.logging.FileHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.logging.FileHandler",
+		"java.util.logging.StreamHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.logging.FileHandler$InitializationErrorManager,java.util.logging.FileHandler$MeteredStream,java.util.logging.FileHandler$1"
+	};
+	$loadClass(FileHandler, name, initialize, &classInfo$$, FileHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/PrivateKeyResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/X509Data.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate.h>
@@ -61,7 +60,6 @@ using $Arrays = ::java::util::Arrays;
 using $Enumeration = ::java::util::Enumeration;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -73,41 +71,6 @@ namespace com {
 							namespace keys {
 								namespace keyresolver {
 									namespace implementations {
-
-$FieldInfo _PrivateKeyResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrivateKeyResolver, LOG)},
-	{"keyStore", "Ljava/security/KeyStore;", nullptr, $PRIVATE | $FINAL, $field(PrivateKeyResolver, keyStore)},
-	{"password", "[C", nullptr, $PRIVATE | $FINAL, $field(PrivateKeyResolver, password)},
-	{}
-};
-
-$MethodInfo _PrivateKeyResolver_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, $PUBLIC, $method(PrivateKeyResolver, init$, void, $KeyStore*, $chars*)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"resolveX509Certificate", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509Certificate, $PrivateKey*, $XMLX509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.security.KeyStoreException"},
-	{"resolveX509Data", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509Data, $PrivateKey*, $Element*, $String*)},
-	{"resolveX509IssuerSerial", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509IssuerSerial, $PrivateKey*, $XMLX509IssuerSerial*), "java.security.KeyStoreException"},
-	{"resolveX509SKI", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SKI;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509SKI, $PrivateKey*, $XMLX509SKI*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.security.KeyStoreException"},
-	{"resolveX509SubjectName", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509SubjectName, $PrivateKey*, $XMLX509SubjectName*), "java.security.KeyStoreException"},
-	{}
-};
-
-$ClassInfo _PrivateKeyResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.PrivateKeyResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_PrivateKeyResolver_FieldInfo_,
-	_PrivateKeyResolver_MethodInfo_
-};
-
-$Object* allocate$PrivateKeyResolver($Class* clazz) {
-	return $of($alloc(PrivateKeyResolver));
-}
 
 $Logger* PrivateKeyResolver::LOG = nullptr;
 
@@ -136,32 +99,30 @@ $SecretKey* PrivateKeyResolver::engineResolveSecretKey($Element* element, $Strin
 }
 
 $PrivateKey* PrivateKeyResolver::engineResolvePrivateKey($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	if ($XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_X509DATA)) {
 		$var($PrivateKey, privKey, resolveX509Data(element, baseURI));
 		if (privKey != nullptr) {
 			return privKey;
 		}
-	} else {
-		if ($XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_KEYNAME)) {
-			$nc(PrivateKeyResolver::LOG)->debug("Can I resolve KeyName?"_s);
-			$var($String, keyName, $nc($($nc(element)->getFirstChild()))->getNodeValue());
-			try {
-				$var($Key, key, $nc(this->keyStore)->getKey(keyName, this->password));
-				if ($instanceOf($PrivateKey, key)) {
-					return $cast($PrivateKey, key);
-				}
-			} catch ($Exception& e) {
-				$nc(PrivateKeyResolver::LOG)->debug("Cannot recover the key"_s, static_cast<$Throwable*>(e));
+	} else if ($XMLUtils::elementIsInSignatureSpace(element, $Constants::_TAG_KEYNAME)) {
+		$nc(PrivateKeyResolver::LOG)->debug("Can I resolve KeyName?"_s);
+		$var($String, keyName, $$nc($nc(element)->getFirstChild())->getNodeValue());
+		try {
+			$var($Key, key, $nc(this->keyStore)->getKey(keyName, this->password));
+			if ($instanceOf($PrivateKey, key)) {
+				return $cast($PrivateKey, key);
 			}
+		} catch ($Exception& e) {
+			PrivateKeyResolver::LOG->debug("Cannot recover the key"_s, e);
 		}
 	}
 	return nullptr;
 }
 
 $PrivateKey* PrivateKeyResolver::resolveX509Data($Element* element, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(PrivateKeyResolver::LOG)->debug("Can I resolve X509Data?"_s);
 	try {
 		$var($X509Data, x509Data, $new($X509Data, element, baseURI));
@@ -198,32 +159,32 @@ $PrivateKey* PrivateKeyResolver::resolveX509Data($Element* element, $String* bas
 			}
 		}
 	} catch ($XMLSecurityException& e) {
-		$nc(PrivateKeyResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(e));
+		PrivateKeyResolver::LOG->debug("XMLSecurityException"_s, e);
 	} catch ($KeyStoreException& e) {
-		$nc(PrivateKeyResolver::LOG)->debug("KeyStoreException"_s, static_cast<$Throwable*>(e));
+		PrivateKeyResolver::LOG->debug("KeyStoreException"_s, e);
 	}
 	return nullptr;
 }
 
 $PrivateKey* PrivateKeyResolver::resolveX509SKI($XMLX509SKI* x509SKI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(PrivateKeyResolver::LOG)->debug("Can I resolve X509SKI?"_s);
 	$var($Enumeration, aliases, $nc(this->keyStore)->aliases());
 	while ($nc(aliases)->hasMoreElements()) {
 		$var($String, alias, $cast($String, aliases->nextElement()));
-		if ($nc(this->keyStore)->isKeyEntry(alias)) {
-			$var($Certificate, cert, $nc(this->keyStore)->getCertificate(alias));
+		if (this->keyStore->isKeyEntry(alias)) {
+			$var($Certificate, cert, this->keyStore->getCertificate(alias));
 			if ($instanceOf($X509Certificate, cert)) {
 				$var($XMLX509SKI, certSKI, $new($XMLX509SKI, $($nc(x509SKI)->getDocument()), $cast($X509Certificate, cert)));
 				if (certSKI->equals(x509SKI)) {
-					$nc(PrivateKeyResolver::LOG)->debug("match !!! "_s);
+					PrivateKeyResolver::LOG->debug("match !!! "_s);
 					try {
-						$var($Key, key, $nc(this->keyStore)->getKey(alias, this->password));
+						$var($Key, key, this->keyStore->getKey(alias, this->password));
 						if ($instanceOf($PrivateKey, key)) {
 							return $cast($PrivateKey, key);
 						}
 					} catch ($Exception& e) {
-						$nc(PrivateKeyResolver::LOG)->debug("Cannot recover the key"_s, static_cast<$Throwable*>(e));
+						PrivateKeyResolver::LOG->debug("Cannot recover the key"_s, e);
 					}
 				}
 			}
@@ -233,24 +194,24 @@ $PrivateKey* PrivateKeyResolver::resolveX509SKI($XMLX509SKI* x509SKI) {
 }
 
 $PrivateKey* PrivateKeyResolver::resolveX509IssuerSerial($XMLX509IssuerSerial* x509Serial) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(PrivateKeyResolver::LOG)->debug("Can I resolve X509IssuerSerial?"_s);
 	$var($Enumeration, aliases, $nc(this->keyStore)->aliases());
 	while ($nc(aliases)->hasMoreElements()) {
 		$var($String, alias, $cast($String, aliases->nextElement()));
-		if ($nc(this->keyStore)->isKeyEntry(alias)) {
-			$var($Certificate, cert, $nc(this->keyStore)->getCertificate(alias));
+		if (this->keyStore->isKeyEntry(alias)) {
+			$var($Certificate, cert, this->keyStore->getCertificate(alias));
 			if ($instanceOf($X509Certificate, cert)) {
 				$var($XMLX509IssuerSerial, certSerial, $new($XMLX509IssuerSerial, $($nc(x509Serial)->getDocument()), $cast($X509Certificate, cert)));
 				if (certSerial->equals(x509Serial)) {
-					$nc(PrivateKeyResolver::LOG)->debug("match !!! "_s);
+					PrivateKeyResolver::LOG->debug("match !!! "_s);
 					try {
-						$var($Key, key, $nc(this->keyStore)->getKey(alias, this->password));
+						$var($Key, key, this->keyStore->getKey(alias, this->password));
 						if ($instanceOf($PrivateKey, key)) {
 							return $cast($PrivateKey, key);
 						}
 					} catch ($Exception& e) {
-						$nc(PrivateKeyResolver::LOG)->debug("Cannot recover the key"_s, static_cast<$Throwable*>(e));
+						PrivateKeyResolver::LOG->debug("Cannot recover the key"_s, e);
 					}
 				}
 			}
@@ -260,24 +221,24 @@ $PrivateKey* PrivateKeyResolver::resolveX509IssuerSerial($XMLX509IssuerSerial* x
 }
 
 $PrivateKey* PrivateKeyResolver::resolveX509SubjectName($XMLX509SubjectName* x509SubjectName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(PrivateKeyResolver::LOG)->debug("Can I resolve X509SubjectName?"_s);
 	$var($Enumeration, aliases, $nc(this->keyStore)->aliases());
 	while ($nc(aliases)->hasMoreElements()) {
 		$var($String, alias, $cast($String, aliases->nextElement()));
-		if ($nc(this->keyStore)->isKeyEntry(alias)) {
-			$var($Certificate, cert, $nc(this->keyStore)->getCertificate(alias));
+		if (this->keyStore->isKeyEntry(alias)) {
+			$var($Certificate, cert, this->keyStore->getCertificate(alias));
 			if ($instanceOf($X509Certificate, cert)) {
 				$var($XMLX509SubjectName, certSN, $new($XMLX509SubjectName, $($nc(x509SubjectName)->getDocument()), $cast($X509Certificate, cert)));
 				if (certSN->equals(x509SubjectName)) {
-					$nc(PrivateKeyResolver::LOG)->debug("match !!! "_s);
+					PrivateKeyResolver::LOG->debug("match !!! "_s);
 					try {
-						$var($Key, key, $nc(this->keyStore)->getKey(alias, this->password));
+						$var($Key, key, this->keyStore->getKey(alias, this->password));
 						if ($instanceOf($PrivateKey, key)) {
 							return $cast($PrivateKey, key);
 						}
 					} catch ($Exception& e) {
-						$nc(PrivateKeyResolver::LOG)->debug("Cannot recover the key"_s, static_cast<$Throwable*>(e));
+						PrivateKeyResolver::LOG->debug("Cannot recover the key"_s, e);
 					}
 				}
 			}
@@ -287,30 +248,30 @@ $PrivateKey* PrivateKeyResolver::resolveX509SubjectName($XMLX509SubjectName* x50
 }
 
 $PrivateKey* PrivateKeyResolver::resolveX509Certificate($XMLX509Certificate* x509Cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(PrivateKeyResolver::LOG)->debug("Can I resolve X509Certificate?"_s);
 	$var($bytes, x509CertBytes, $nc(x509Cert)->getCertificateBytes());
 	$var($Enumeration, aliases, $nc(this->keyStore)->aliases());
 	while ($nc(aliases)->hasMoreElements()) {
 		$var($String, alias, $cast($String, aliases->nextElement()));
-		if ($nc(this->keyStore)->isKeyEntry(alias)) {
-			$var($Certificate, cert, $nc(this->keyStore)->getCertificate(alias));
+		if (this->keyStore->isKeyEntry(alias)) {
+			$var($Certificate, cert, this->keyStore->getCertificate(alias));
 			if ($instanceOf($X509Certificate, cert)) {
 				$var($bytes, certBytes, nullptr);
 				try {
-					$assign(certBytes, $nc(cert)->getEncoded());
+					$assign(certBytes, cert->getEncoded());
 				} catch ($CertificateEncodingException& e1) {
-					$nc(PrivateKeyResolver::LOG)->debug("Cannot recover the key"_s, static_cast<$Throwable*>(e1));
+					PrivateKeyResolver::LOG->debug("Cannot recover the key"_s, e1);
 				}
 				if (certBytes != nullptr && $Arrays::equals(certBytes, x509CertBytes)) {
-					$nc(PrivateKeyResolver::LOG)->debug("match !!! "_s);
+					PrivateKeyResolver::LOG->debug("match !!! "_s);
 					try {
-						$var($Key, key, $nc(this->keyStore)->getKey(alias, this->password));
+						$var($Key, key, this->keyStore->getKey(alias, this->password));
 						if ($instanceOf($PrivateKey, key)) {
 							return $cast($PrivateKey, key);
 						}
 					} catch ($Exception& e) {
-						$nc(PrivateKeyResolver::LOG)->debug("Cannot recover the key"_s, static_cast<$Throwable*>(e));
+						PrivateKeyResolver::LOG->debug("Cannot recover the key"_s, e);
 					}
 				}
 			}
@@ -319,7 +280,7 @@ $PrivateKey* PrivateKeyResolver::resolveX509Certificate($XMLX509Certificate* x50
 	return nullptr;
 }
 
-void clinit$PrivateKeyResolver($Class* class$) {
+void PrivateKeyResolver::clinit$($Class* clazz) {
 	$assignStatic(PrivateKeyResolver::LOG, $LoggerFactory::getLogger(PrivateKeyResolver::class$));
 }
 
@@ -327,7 +288,37 @@ PrivateKeyResolver::PrivateKeyResolver() {
 }
 
 $Class* PrivateKeyResolver::load$($String* name, bool initialize) {
-	$loadClass(PrivateKeyResolver, name, initialize, &_PrivateKeyResolver_ClassInfo_, clinit$PrivateKeyResolver, allocate$PrivateKeyResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrivateKeyResolver, LOG)},
+		{"keyStore", "Ljava/security/KeyStore;", nullptr, $PRIVATE | $FINAL, $field(PrivateKeyResolver, keyStore)},
+		{"password", "[C", nullptr, $PRIVATE | $FINAL, $field(PrivateKeyResolver, password)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, $PUBLIC, $method(PrivateKeyResolver, init$, void, $KeyStore*, $chars*)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(PrivateKeyResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(PrivateKeyResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"resolveX509Certificate", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509Certificate, $PrivateKey*, $XMLX509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.security.KeyStoreException"},
+		{"resolveX509Data", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509Data, $PrivateKey*, $Element*, $String*)},
+		{"resolveX509IssuerSerial", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509IssuerSerial, $PrivateKey*, $XMLX509IssuerSerial*), "java.security.KeyStoreException"},
+		{"resolveX509SKI", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SKI;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509SKI, $PrivateKey*, $XMLX509SKI*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.security.KeyStoreException"},
+		{"resolveX509SubjectName", "(Lcom/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName;)Ljava/security/PrivateKey;", nullptr, $PRIVATE, $method(PrivateKeyResolver, resolveX509SubjectName, $PrivateKey*, $XMLX509SubjectName*), "java.security.KeyStoreException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.PrivateKeyResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrivateKeyResolver, name, initialize, &classInfo$$, PrivateKeyResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PrivateKeyResolver);
+	});
 	return class$;
 }
 

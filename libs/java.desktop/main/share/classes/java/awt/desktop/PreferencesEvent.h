@@ -14,7 +14,7 @@ class $export PreferencesEvent : public ::java::awt::desktop::AppEvent {
 public:
 	PreferencesEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xA73394BF18DE0080;
+	static const int64_t serialVersionUID = (int64_t)0xa73394bf18de0080;
 };
 
 		} // desktop

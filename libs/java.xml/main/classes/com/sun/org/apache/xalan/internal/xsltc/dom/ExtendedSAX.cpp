@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/ExtendedSAX.h>
-
 #include <org/xml/sax/ContentHandler.h>
 #include <jcpp.h>
 
@@ -15,28 +14,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$MethodInfo _ExtendedSAX_MethodInfo_[] = {
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _ExtendedSAX_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.ExtendedSAX",
-	nullptr,
-	"org.xml.sax.ContentHandler,org.xml.sax.ext.LexicalHandler,org.xml.sax.DTDHandler,org.xml.sax.ext.DeclHandler",
-	nullptr,
-	_ExtendedSAX_MethodInfo_
-};
-
-$Object* allocate$ExtendedSAX($Class* clazz) {
-	return $of($alloc(ExtendedSAX));
-}
 
 int32_t ExtendedSAX::hashCode() {
 	 return this->$ContentHandler::hashCode();
@@ -59,7 +36,25 @@ void ExtendedSAX::finalize() {
 }
 
 $Class* ExtendedSAX::load$($String* name, bool initialize) {
-	$loadClass(ExtendedSAX, name, initialize, &_ExtendedSAX_ClassInfo_, allocate$ExtendedSAX);
+	$MethodInfo methodInfos$$[] = {
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.ExtendedSAX",
+		nullptr,
+		"org.xml.sax.ContentHandler,org.xml.sax.ext.LexicalHandler,org.xml.sax.DTDHandler,org.xml.sax.ext.DeclHandler",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExtendedSAX, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExtendedSAX));
+	});
 	return class$;
 }
 

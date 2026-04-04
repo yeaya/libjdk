@@ -22,6 +22,7 @@ class $export KrbAsReqBuilder$ReferralsState : public ::java::lang::Object {
 	$class(KrbAsReqBuilder$ReferralsState, 0, ::java::lang::Object)
 public:
 	KrbAsReqBuilder$ReferralsState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::krb5::KrbAsReqBuilder* reqBuilder);
 	bool handleError(::sun::security::krb5::KrbException* ke);
 	static void initStatic();

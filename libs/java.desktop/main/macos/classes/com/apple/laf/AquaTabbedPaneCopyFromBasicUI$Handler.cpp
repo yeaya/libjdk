@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$Handler.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport.h>
@@ -16,7 +15,6 @@
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/util/Vector.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -27,10 +25,6 @@
 #include <jcpp.h>
 
 using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
-using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel;
-using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport;
-using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport;
-using $AquaTabbedPaneCopyFromBasicUI$TabContainer = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$TabContainer;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Rectangle = ::java::awt::Rectangle;
@@ -44,9 +38,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Vector = ::java::util::Vector;
-using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
@@ -58,61 +49,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTabbedPaneCopyFromBasicUI$Handler_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneCopyFromBasicUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$Handler, init$, void, $AquaTabbedPaneCopyFromBasicUI*)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, componentAdded, void, $ContainerEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, componentRemoved, void, $ContainerEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, focusLost, void, $FocusEvent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseReleased, void, $MouseEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"setHtmlView", "(Ljavax/swing/text/View;ZI)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$Handler, setHtmlView, void, $View*, bool, int32_t)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateHtmlViews", "(IZ)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$Handler, updateHtmlViews, void, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneCopyFromBasicUI$Handler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneCopyFromBasicUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.awt.event.ContainerListener,java.awt.event.FocusListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.beans.PropertyChangeListener",
-	_AquaTabbedPaneCopyFromBasicUI$Handler_FieldInfo_,
-	_AquaTabbedPaneCopyFromBasicUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
-};
-
-$Object* allocate$AquaTabbedPaneCopyFromBasicUI$Handler($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneCopyFromBasicUI$Handler));
-}
 
 int32_t AquaTabbedPaneCopyFromBasicUI$Handler::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -139,7 +75,7 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::init$($AquaTabbedPaneCopyFromBasicUI
 }
 
 void AquaTabbedPaneCopyFromBasicUI$Handler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, pane, $cast($JTabbedPane, $nc(e)->getSource()));
 	$var($String, name, e->getPropertyName());
 	bool isScrollLayout = this->this$0->scrollableTabLayoutEnabled();
@@ -150,7 +86,7 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::propertyChange($PropertyChangeEvent*
 		$nc(pane)->repaint();
 	} else if (name == "indexForTitle"_s) {
 		this->this$0->calculatedBaseline = false;
-		updateHtmlViews($nc(($cast($Integer, $(e->getNewValue()))))->intValue(), false);
+		updateHtmlViews($$sure($Integer, e->getNewValue())->intValue(), false);
 	} else if (name == "tabLayoutPolicy"_s) {
 		this->this$0->uninstallUI(pane);
 		this->this$0->installUI(pane);
@@ -161,7 +97,7 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::propertyChange($PropertyChangeEvent*
 		}
 		this->this$0->calculatedBaseline = false;
 	} else if (name == "opaque"_s && isScrollLayout) {
-		bool newVal = $nc(($cast($Boolean, $(e->getNewValue()))))->booleanValue();
+		bool newVal = $$sure($Boolean, e->getNewValue())->booleanValue();
 		$nc($nc(this->this$0->tabScroller)->tabPanel)->setOpaque(newVal);
 		$nc($nc(this->this$0->tabScroller)->viewport)->setOpaque(newVal);
 	} else if (name == "background"_s && isScrollLayout) {
@@ -173,14 +109,14 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::propertyChange($PropertyChangeEvent*
 		$nc($nc(this->this$0->tabScroller)->scrollBackwardButton)->setBackground(newColor);
 	} else if (name == "indexForTabComponent"_s) {
 		if (this->this$0->tabContainer != nullptr) {
-			$nc(this->this$0->tabContainer)->removeUnusedTabComponents();
+			this->this$0->tabContainer->removeUnusedTabComponents();
 		}
-		$var($Component, c, $nc(this->this$0->tabPane)->getTabComponentAt($nc(($cast($Integer, $(e->getNewValue()))))->intValue()));
+		$var($Component, c, $nc(this->this$0->tabPane)->getTabComponentAt($$sure($Integer, e->getNewValue())->intValue()));
 		if (c != nullptr) {
 			if (this->this$0->tabContainer == nullptr) {
 				this->this$0->installTabContainer();
 			} else {
-				$nc(this->this$0->tabContainer)->add(c);
+				this->this$0->tabContainer->add(c);
 			}
 		}
 		$nc(this->this$0->tabPane)->revalidate();
@@ -188,14 +124,14 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::propertyChange($PropertyChangeEvent*
 		this->this$0->calculatedBaseline = false;
 	} else if (name == "indexForNullComponent"_s) {
 		this->this$0->isRunsDirty = true;
-		updateHtmlViews($nc(($cast($Integer, $(e->getNewValue()))))->intValue(), true);
+		updateHtmlViews($$sure($Integer, e->getNewValue())->intValue(), true);
 	} else if (name == "font"_s || $SwingUtilities2::isScaleChanged(e)) {
 		this->this$0->calculatedBaseline = false;
 	}
 }
 
 void AquaTabbedPaneCopyFromBasicUI$Handler::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, tabPane, $cast($JTabbedPane, $nc(e)->getSource()));
 	$nc(tabPane)->revalidate();
 	tabPane->repaint();
@@ -203,7 +139,7 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::stateChanged($ChangeEvent* e) {
 	if (this->this$0->scrollableTabLayoutEnabled()) {
 		int32_t index = tabPane->getSelectedIndex();
 		if (index < $nc(this->this$0->rects)->length && index != -1) {
-			$nc($nc(this->this$0->tabScroller)->tabPanel)->scrollRectToVisible($cast($Rectangle, $($nc($nc(this->this$0->rects)->get(index))->clone())));
+			$nc($nc(this->this$0->tabScroller)->tabPanel)->scrollRectToVisible($$cast($Rectangle, $nc(this->this$0->rects->get(index))->clone()));
 		}
 	}
 }
@@ -256,7 +192,7 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::focusLost($FocusEvent* e) {
 }
 
 void AquaTabbedPaneCopyFromBasicUI$Handler::componentAdded($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, tp, $cast($JTabbedPane, $nc(e)->getContainer()));
 	$var($Component, child, e->getChild());
 	if ($instanceOf($UIResource, child)) {
@@ -267,7 +203,7 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::componentAdded($ContainerEvent* e) {
 }
 
 void AquaTabbedPaneCopyFromBasicUI$Handler::updateHtmlViews(int32_t index, bool inserted) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, title, $nc(this->this$0->tabPane)->getTitleAt(index));
 	bool isHTML = $BasicHTML::isHTMLString(title);
 	if (isHTML) {
@@ -292,7 +228,7 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::setHtmlView($View* v, bool inserted,
 }
 
 void AquaTabbedPaneCopyFromBasicUI$Handler::componentRemoved($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, tp, $cast($JTabbedPane, $nc(e)->getContainer()));
 	$var($Component, child, e->getChild());
 	if ($instanceOf($UIResource, child)) {
@@ -301,8 +237,8 @@ void AquaTabbedPaneCopyFromBasicUI$Handler::componentRemoved($ContainerEvent* e)
 	$var($Integer, indexObj, $cast($Integer, $nc(tp)->getClientProperty("__index_to_remove__"_s)));
 	if (indexObj != nullptr) {
 		int32_t index = indexObj->intValue();
-		if (this->this$0->htmlViews != nullptr && $nc(this->this$0->htmlViews)->size() > index) {
-			$nc(this->this$0->htmlViews)->removeElementAt(index);
+		if (this->this$0->htmlViews != nullptr && this->this$0->htmlViews->size() > index) {
+			this->this$0->htmlViews->removeElementAt(index);
 		}
 		tp->putClientProperty("__index_to_remove__"_s, nullptr);
 	}
@@ -315,7 +251,56 @@ AquaTabbedPaneCopyFromBasicUI$Handler::AquaTabbedPaneCopyFromBasicUI$Handler() {
 }
 
 $Class* AquaTabbedPaneCopyFromBasicUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneCopyFromBasicUI$Handler, name, initialize, &_AquaTabbedPaneCopyFromBasicUI$Handler_ClassInfo_, allocate$AquaTabbedPaneCopyFromBasicUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneCopyFromBasicUI$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$Handler, init$, void, $AquaTabbedPaneCopyFromBasicUI*)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, componentAdded, void, $ContainerEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, componentRemoved, void, $ContainerEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, focusLost, void, $FocusEvent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, mouseReleased, void, $MouseEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"setHtmlView", "(Ljavax/swing/text/View;ZI)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$Handler, setHtmlView, void, $View*, bool, int32_t)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Handler, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateHtmlViews", "(IZ)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI$Handler, updateHtmlViews, void, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.awt.event.ContainerListener,java.awt.event.FocusListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
+	};
+	$loadClass(AquaTabbedPaneCopyFromBasicUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneCopyFromBasicUI$Handler));
+	});
 	return class$;
 }
 

@@ -51,6 +51,7 @@ class NamespaceMappings : public ::java::lang::Object {
 	$class(NamespaceMappings, 0, ::java::lang::Object)
 public:
 	NamespaceMappings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual $String* generateNextPrefix();

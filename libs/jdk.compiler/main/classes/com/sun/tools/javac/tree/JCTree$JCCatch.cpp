@@ -1,7 +1,5 @@
 #include <com/sun/tools/javac/tree/JCTree$JCCatch.h>
-
 #include <com/sun/source/tree/BlockTree.h>
-#include <com/sun/source/tree/CatchTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/source/tree/VariableTree.h>
@@ -15,7 +13,6 @@
 #undef CATCH
 
 using $BlockTree = ::com::sun::source::tree::BlockTree;
-using $CatchTree = ::com::sun::source::tree::CatchTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $VariableTree = ::com::sun::source::tree::VariableTree;
@@ -34,53 +31,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCCatch_FieldInfo_[] = {
-	{"param", "Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $field(JCTree$JCCatch, param)},
-	{"body", "Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $field(JCTree$JCCatch, body)},
-	{}
-};
-
-$MethodInfo _JCTree$JCCatch_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PROTECTED, $method(JCTree$JCCatch, init$, void, $JCTree$JCVariableDecl*, $JCTree$JCBlock*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCCatch, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getBlock", "()Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getBlock, $BlockTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getKind, $Tree$Kind*)},
-	{"getParameter", "()Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getParameter, $VariableTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCCatch_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCCatch", "com.sun.tools.javac.tree.JCTree", "JCCatch", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCTree$JCCatch_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCCatch",
-	"com.sun.tools.javac.tree.JCTree",
-	"com.sun.source.tree.CatchTree",
-	_JCTree$JCCatch_FieldInfo_,
-	_JCTree$JCCatch_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCCatch_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCCatch($Class* clazz) {
-	return $of($alloc(JCTree$JCCatch));
-}
 
 $String* JCTree$JCCatch::toString() {
 	 return this->$JCTree::toString();
@@ -126,7 +76,7 @@ $BlockTree* JCTree$JCCatch::getBlock() {
 }
 
 $Object* JCTree$JCCatch::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitCatch(this, d));
+	return $nc(v)->visitCatch(this, d);
 }
 
 $JCTree$Tag* JCTree$JCCatch::getTag() {
@@ -138,7 +88,48 @@ JCTree$JCCatch::JCTree$JCCatch() {
 }
 
 $Class* JCTree$JCCatch::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCCatch, name, initialize, &_JCTree$JCCatch_ClassInfo_, allocate$JCTree$JCCatch);
+	$FieldInfo fieldInfos$$[] = {
+		{"param", "Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $field(JCTree$JCCatch, param)},
+		{"body", "Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $field(JCTree$JCCatch, body)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PROTECTED, $method(JCTree$JCCatch, init$, void, $JCTree$JCVariableDecl*, $JCTree$JCBlock*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCCatch, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getBlock", "()Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getBlock, $BlockTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getKind, $Tree$Kind*)},
+		{"getParameter", "()Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getParameter, $VariableTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCatch, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCCatch", "com.sun.tools.javac.tree.JCTree", "JCCatch", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCCatch",
+		"com.sun.tools.javac.tree.JCTree",
+		"com.sun.source.tree.CatchTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCCatch, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCCatch));
+	});
 	return class$;
 }
 

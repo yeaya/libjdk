@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/ElementKind.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -35,57 +34,6 @@ namespace javax {
 	namespace lang {
 		namespace model {
 			namespace element {
-
-$FieldInfo _ElementKind_FieldInfo_[] = {
-	{"PACKAGE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, PACKAGE)},
-	{"ENUM", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, ENUM)},
-	{"CLASS", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, CLASS)},
-	{"ANNOTATION_TYPE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, ANNOTATION_TYPE)},
-	{"INTERFACE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, INTERFACE)},
-	{"ENUM_CONSTANT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, ENUM_CONSTANT)},
-	{"FIELD", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, FIELD)},
-	{"PARAMETER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, PARAMETER)},
-	{"LOCAL_VARIABLE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, LOCAL_VARIABLE)},
-	{"EXCEPTION_PARAMETER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, EXCEPTION_PARAMETER)},
-	{"METHOD", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, METHOD)},
-	{"CONSTRUCTOR", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, CONSTRUCTOR)},
-	{"STATIC_INIT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, STATIC_INIT)},
-	{"INSTANCE_INIT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, INSTANCE_INIT)},
-	{"TYPE_PARAMETER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, TYPE_PARAMETER)},
-	{"OTHER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, OTHER)},
-	{"RESOURCE_VARIABLE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, RESOURCE_VARIABLE)},
-	{"MODULE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, MODULE)},
-	{"RECORD", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, RECORD)},
-	{"RECORD_COMPONENT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, RECORD_COMPONENT)},
-	{"BINDING_VARIABLE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, BINDING_VARIABLE)},
-	{"$VALUES", "[Ljavax/lang/model/element/ElementKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ElementKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _ElementKind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ElementKind, $values, $ElementKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ElementKind, init$, void, $String*, int32_t)},
-	{"isClass", "()Z", nullptr, $PUBLIC, $method(ElementKind, isClass, bool)},
-	{"isField", "()Z", nullptr, $PUBLIC, $method(ElementKind, isField, bool)},
-	{"isInterface", "()Z", nullptr, $PUBLIC, $method(ElementKind, isInterface, bool)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementKind, valueOf, ElementKind*, $String*)},
-	{"values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementKind, values, $ElementKindArray*)},
-	{}
-};
-
-$ClassInfo _ElementKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.lang.model.element.ElementKind",
-	"java.lang.Enum",
-	nullptr,
-	_ElementKind_FieldInfo_,
-	_ElementKind_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/lang/model/element/ElementKind;>;"
-};
-
-$Object* allocate$ElementKind($Class* clazz) {
-	return $of($alloc(ElementKind));
-}
 
 ElementKind* ElementKind::PACKAGE = nullptr;
 ElementKind* ElementKind::ENUM = nullptr;
@@ -163,7 +111,7 @@ bool ElementKind::isField() {
 	return this == ElementKind::FIELD || this == ElementKind::ENUM_CONSTANT;
 }
 
-void clinit$ElementKind($Class* class$) {
+void ElementKind::clinit$($Class* clazz) {
 	$assignStatic(ElementKind::PACKAGE, $new(ElementKind, "PACKAGE"_s, 0));
 	$assignStatic(ElementKind::ENUM, $new(ElementKind, "ENUM"_s, 1));
 	$assignStatic(ElementKind::CLASS, $new(ElementKind, "CLASS"_s, 2));
@@ -192,7 +140,53 @@ ElementKind::ElementKind() {
 }
 
 $Class* ElementKind::load$($String* name, bool initialize) {
-	$loadClass(ElementKind, name, initialize, &_ElementKind_ClassInfo_, clinit$ElementKind, allocate$ElementKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"PACKAGE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, PACKAGE)},
+		{"ENUM", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, ENUM)},
+		{"CLASS", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, CLASS)},
+		{"ANNOTATION_TYPE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, ANNOTATION_TYPE)},
+		{"INTERFACE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, INTERFACE)},
+		{"ENUM_CONSTANT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, ENUM_CONSTANT)},
+		{"FIELD", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, FIELD)},
+		{"PARAMETER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, PARAMETER)},
+		{"LOCAL_VARIABLE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, LOCAL_VARIABLE)},
+		{"EXCEPTION_PARAMETER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, EXCEPTION_PARAMETER)},
+		{"METHOD", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, METHOD)},
+		{"CONSTRUCTOR", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, CONSTRUCTOR)},
+		{"STATIC_INIT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, STATIC_INIT)},
+		{"INSTANCE_INIT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, INSTANCE_INIT)},
+		{"TYPE_PARAMETER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, TYPE_PARAMETER)},
+		{"OTHER", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, OTHER)},
+		{"RESOURCE_VARIABLE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, RESOURCE_VARIABLE)},
+		{"MODULE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, MODULE)},
+		{"RECORD", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, RECORD)},
+		{"RECORD_COMPONENT", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, RECORD_COMPONENT)},
+		{"BINDING_VARIABLE", "Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ElementKind, BINDING_VARIABLE)},
+		{"$VALUES", "[Ljavax/lang/model/element/ElementKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ElementKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ElementKind, $values, $ElementKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ElementKind, init$, void, $String*, int32_t)},
+		{"isClass", "()Z", nullptr, $PUBLIC, $method(ElementKind, isClass, bool)},
+		{"isField", "()Z", nullptr, $PUBLIC, $method(ElementKind, isField, bool)},
+		{"isInterface", "()Z", nullptr, $PUBLIC, $method(ElementKind, isInterface, bool)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementKind, valueOf, ElementKind*, $String*)},
+		{"values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementKind, values, $ElementKindArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.lang.model.element.ElementKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/lang/model/element/ElementKind;>;"
+	};
+	$loadClass(ElementKind, name, initialize, &classInfo$$, ElementKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ElementKind));
+	});
 	return class$;
 }
 

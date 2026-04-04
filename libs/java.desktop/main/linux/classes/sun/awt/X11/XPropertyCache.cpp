@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XPropertyCache.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/awt/X11/XAtom.h>
@@ -20,46 +19,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XPropertyCache_FieldInfo_[] = {
-	{"windowToMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/util/Map<Lsun/awt/X11/XAtom;Lsun/awt/X11/XPropertyCache$PropertyCacheEntry;>;>;", $PRIVATE | $STATIC, $staticField(XPropertyCache, windowToMap)},
-	{}
-};
-
-$MethodInfo _XPropertyCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPropertyCache, init$, void)},
-	{"clearCache", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, clearCache, void, int64_t)},
-	{"clearCache", "(JLsun/awt/X11/XAtom;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, clearCache, void, int64_t, $XAtom*)},
-	{"getCacheEntry", "(JLsun/awt/X11/XAtom;)Lsun/awt/X11/XPropertyCache$PropertyCacheEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, getCacheEntry, $XPropertyCache$PropertyCacheEntry*, int64_t, $XAtom*)},
-	{"isCached", "(JLsun/awt/X11/XAtom;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, isCached, bool, int64_t, $XAtom*)},
-	{"isCachingSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, isCachingSupported, bool)},
-	{"storeCache", "(Lsun/awt/X11/XPropertyCache$PropertyCacheEntry;JLsun/awt/X11/XAtom;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, storeCache, void, $XPropertyCache$PropertyCacheEntry*, int64_t, $XAtom*)},
-	{}
-};
-
-$InnerClassInfo _XPropertyCache_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XPropertyCache$PropertyCacheEntry", "sun.awt.X11.XPropertyCache", "PropertyCacheEntry", $STATIC},
-	{}
-};
-
-$ClassInfo _XPropertyCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XPropertyCache",
-	"java.lang.Object",
-	nullptr,
-	_XPropertyCache_FieldInfo_,
-	_XPropertyCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPropertyCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XPropertyCache$PropertyCacheEntry"
-};
-
-$Object* allocate$XPropertyCache($Class* clazz) {
-	return $of($alloc(XPropertyCache));
-}
-
 $Map* XPropertyCache::windowToMap = nullptr;
 
 void XPropertyCache::init$() {
@@ -67,7 +26,7 @@ void XPropertyCache::init$() {
 
 bool XPropertyCache::isCached(int64_t window, $XAtom* property) {
 	$init(XPropertyCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, entryMap, $cast($Map, $nc(XPropertyCache::windowToMap)->get($($Long::valueOf(window)))));
 	if (entryMap != nullptr) {
 		return entryMap->containsKey(property);
@@ -78,7 +37,7 @@ bool XPropertyCache::isCached(int64_t window, $XAtom* property) {
 
 $XPropertyCache$PropertyCacheEntry* XPropertyCache::getCacheEntry(int64_t window, $XAtom* property) {
 	$init(XPropertyCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, entryMap, $cast($Map, $nc(XPropertyCache::windowToMap)->get($($Long::valueOf(window)))));
 	if (entryMap != nullptr) {
 		return $cast($XPropertyCache$PropertyCacheEntry, entryMap->get(property));
@@ -89,11 +48,11 @@ $XPropertyCache$PropertyCacheEntry* XPropertyCache::getCacheEntry(int64_t window
 
 void XPropertyCache::storeCache($XPropertyCache$PropertyCacheEntry* entry, int64_t window, $XAtom* property) {
 	$init(XPropertyCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, entryMap, $cast($Map, $nc(XPropertyCache::windowToMap)->get($($Long::valueOf(window)))));
 	if (entryMap == nullptr) {
 		$assign(entryMap, $new($HashMap));
-		$nc(XPropertyCache::windowToMap)->put($($Long::valueOf(window)), entryMap);
+		XPropertyCache::windowToMap->put($($Long::valueOf(window)), entryMap);
 	}
 	$nc(entryMap)->put(property, entry);
 }
@@ -105,7 +64,7 @@ void XPropertyCache::clearCache(int64_t window) {
 
 void XPropertyCache::clearCache(int64_t window, $XAtom* property) {
 	$init(XPropertyCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, entryMap, $cast($Map, $nc(XPropertyCache::windowToMap)->get($($Long::valueOf(window)))));
 	if (entryMap != nullptr) {
 		entryMap->remove(property);
@@ -117,7 +76,7 @@ bool XPropertyCache::isCachingSupported() {
 	return false;
 }
 
-void clinit$XPropertyCache($Class* class$) {
+void XPropertyCache::clinit$($Class* clazz) {
 	$assignStatic(XPropertyCache::windowToMap, $new($HashMap));
 }
 
@@ -125,7 +84,41 @@ XPropertyCache::XPropertyCache() {
 }
 
 $Class* XPropertyCache::load$($String* name, bool initialize) {
-	$loadClass(XPropertyCache, name, initialize, &_XPropertyCache_ClassInfo_, clinit$XPropertyCache, allocate$XPropertyCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"windowToMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/util/Map<Lsun/awt/X11/XAtom;Lsun/awt/X11/XPropertyCache$PropertyCacheEntry;>;>;", $PRIVATE | $STATIC, $staticField(XPropertyCache, windowToMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPropertyCache, init$, void)},
+		{"clearCache", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, clearCache, void, int64_t)},
+		{"clearCache", "(JLsun/awt/X11/XAtom;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, clearCache, void, int64_t, $XAtom*)},
+		{"getCacheEntry", "(JLsun/awt/X11/XAtom;)Lsun/awt/X11/XPropertyCache$PropertyCacheEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, getCacheEntry, $XPropertyCache$PropertyCacheEntry*, int64_t, $XAtom*)},
+		{"isCached", "(JLsun/awt/X11/XAtom;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, isCached, bool, int64_t, $XAtom*)},
+		{"isCachingSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, isCachingSupported, bool)},
+		{"storeCache", "(Lsun/awt/X11/XPropertyCache$PropertyCacheEntry;JLsun/awt/X11/XAtom;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XPropertyCache, storeCache, void, $XPropertyCache$PropertyCacheEntry*, int64_t, $XAtom*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XPropertyCache$PropertyCacheEntry", "sun.awt.X11.XPropertyCache", "PropertyCacheEntry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XPropertyCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XPropertyCache$PropertyCacheEntry"
+	};
+	$loadClass(XPropertyCache, name, initialize, &classInfo$$, XPropertyCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPropertyCache);
+	});
 	return class$;
 }
 

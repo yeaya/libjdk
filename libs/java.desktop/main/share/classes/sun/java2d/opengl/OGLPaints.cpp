@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLPaints.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -32,46 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _OGLPaints_FieldInfo_[] = {
-	{"impls", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/java2d/opengl/OGLPaints;>;", $PRIVATE | $STATIC, $staticField(OGLPaints, impls)},
-	{}
-};
-
-$MethodInfo _OGLPaints_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OGLPaints, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $ABSTRACT, $virtualMethod(OGLPaints, isPaintValid, bool, $SunGraphics2D*)},
-	{"isValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $STATIC, $staticMethod(OGLPaints, isValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _OGLPaints_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.OGLPaints$RadialGradient", "sun.java2d.opengl.OGLPaints", "RadialGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.opengl.OGLPaints$LinearGradient", "sun.java2d.opengl.OGLPaints", "LinearGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.opengl.OGLPaints$MultiGradient", "sun.java2d.opengl.OGLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
-	{"sun.java2d.opengl.OGLPaints$Texture", "sun.java2d.opengl.OGLPaints", "Texture", $PRIVATE | $STATIC},
-	{"sun.java2d.opengl.OGLPaints$Gradient", "sun.java2d.opengl.OGLPaints", "Gradient", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _OGLPaints_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.java2d.opengl.OGLPaints",
-	"java.lang.Object",
-	nullptr,
-	_OGLPaints_FieldInfo_,
-	_OGLPaints_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OGLPaints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.OGLPaints$RadialGradient,sun.java2d.opengl.OGLPaints$LinearGradient,sun.java2d.opengl.OGLPaints$MultiGradient,sun.java2d.opengl.OGLPaints$Texture,sun.java2d.opengl.OGLPaints$Gradient"
-};
-
-$Object* allocate$OGLPaints($Class* clazz) {
-	return $of($alloc(OGLPaints));
-}
-
 $Map* OGLPaints::impls = nullptr;
 
 void OGLPaints::init$() {
@@ -79,23 +38,23 @@ void OGLPaints::init$() {
 
 bool OGLPaints::isValid($SunGraphics2D* sg2d) {
 	$init(OGLPaints);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(OGLPaints, impl, $cast(OGLPaints, $nc(OGLPaints::impls)->get($($Integer::valueOf($nc(sg2d)->paintState)))));
 	return (impl != nullptr && impl->isPaintValid(sg2d));
 }
 
-void clinit$OGLPaints($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void OGLPaints::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(OGLPaints::impls, $new($HashMap, 4, 1.0f));
 	{
-		$var($Object, var$0, $of($Integer::valueOf($SunGraphics2D::PAINT_GRADIENT)));
-		$nc(OGLPaints::impls)->put(var$0, $$new($OGLPaints$Gradient));
-		$var($Object, var$1, $of($Integer::valueOf($SunGraphics2D::PAINT_LIN_GRADIENT)));
-		$nc(OGLPaints::impls)->put(var$1, $$new($OGLPaints$LinearGradient));
-		$var($Object, var$2, $of($Integer::valueOf($SunGraphics2D::PAINT_RAD_GRADIENT)));
-		$nc(OGLPaints::impls)->put(var$2, $$new($OGLPaints$RadialGradient));
-		$var($Object, var$3, $of($Integer::valueOf($SunGraphics2D::PAINT_TEXTURE)));
-		$nc(OGLPaints::impls)->put(var$3, $$new($OGLPaints$Texture));
+		$var($Object, var$0, $Integer::valueOf($SunGraphics2D::PAINT_GRADIENT));
+		OGLPaints::impls->put(var$0, $$new($OGLPaints$Gradient));
+		$var($Object, var$1, $Integer::valueOf($SunGraphics2D::PAINT_LIN_GRADIENT));
+		OGLPaints::impls->put(var$1, $$new($OGLPaints$LinearGradient));
+		$var($Object, var$2, $Integer::valueOf($SunGraphics2D::PAINT_RAD_GRADIENT));
+		OGLPaints::impls->put(var$2, $$new($OGLPaints$RadialGradient));
+		$var($Object, var$3, $Integer::valueOf($SunGraphics2D::PAINT_TEXTURE));
+		OGLPaints::impls->put(var$3, $$new($OGLPaints$Texture));
 	}
 }
 
@@ -103,7 +62,41 @@ OGLPaints::OGLPaints() {
 }
 
 $Class* OGLPaints::load$($String* name, bool initialize) {
-	$loadClass(OGLPaints, name, initialize, &_OGLPaints_ClassInfo_, clinit$OGLPaints, allocate$OGLPaints);
+	$FieldInfo fieldInfos$$[] = {
+		{"impls", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/java2d/opengl/OGLPaints;>;", $PRIVATE | $STATIC, $staticField(OGLPaints, impls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OGLPaints, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $ABSTRACT, $virtualMethod(OGLPaints, isPaintValid, bool, $SunGraphics2D*)},
+		{"isValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $STATIC, $staticMethod(OGLPaints, isValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.OGLPaints$RadialGradient", "sun.java2d.opengl.OGLPaints", "RadialGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.opengl.OGLPaints$LinearGradient", "sun.java2d.opengl.OGLPaints", "LinearGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.opengl.OGLPaints$MultiGradient", "sun.java2d.opengl.OGLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
+		{"sun.java2d.opengl.OGLPaints$Texture", "sun.java2d.opengl.OGLPaints", "Texture", $PRIVATE | $STATIC},
+		{"sun.java2d.opengl.OGLPaints$Gradient", "sun.java2d.opengl.OGLPaints", "Gradient", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.java2d.opengl.OGLPaints",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.OGLPaints$RadialGradient,sun.java2d.opengl.OGLPaints$LinearGradient,sun.java2d.opengl.OGLPaints$MultiGradient,sun.java2d.opengl.OGLPaints$Texture,sun.java2d.opengl.OGLPaints$Gradient"
+	};
+	$loadClass(OGLPaints, name, initialize, &classInfo$$, OGLPaints::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLPaints);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/im/InputContext$1.h>
-
 #include <sun/awt/im/InputContext.h>
 #include <sun/awt/im/InputMethodContext.h>
 #include <jcpp.h>
@@ -16,61 +15,54 @@ namespace sun {
 	namespace awt {
 		namespace im {
 
-$FieldInfo _InputContext$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/im/InputContext;", nullptr, $FINAL | $SYNTHETIC, $field(InputContext$1, this$0)},
-	{}
-};
-
-$MethodInfo _InputContext$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/im/InputContext;)V", nullptr, 0, $method(InputContext$1, init$, void, $InputContext*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InputContext$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _InputContext$1_EnclosingMethodInfo_ = {
-	"sun.awt.im.InputContext",
-	"removeNotify",
-	"(Ljava/awt/Component;)V"
-};
-
-$InnerClassInfo _InputContext$1_InnerClassesInfo_[] = {
-	{"sun.awt.im.InputContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InputContext$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.im.InputContext$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_InputContext$1_FieldInfo_,
-	_InputContext$1_MethodInfo_,
-	nullptr,
-	&_InputContext$1_EnclosingMethodInfo_,
-	_InputContext$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.im.InputContext"
-};
-
-$Object* allocate$InputContext$1($Class* clazz) {
-	return $of($alloc(InputContext$1));
-}
-
 void InputContext$1::init$($InputContext* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void InputContext$1::run() {
-	$nc(($cast($InputMethodContext, this->this$0)))->releaseCompositionArea();
+	$cast($InputMethodContext, this->this$0)->releaseCompositionArea();
 }
 
 InputContext$1::InputContext$1() {
 }
 
 $Class* InputContext$1::load$($String* name, bool initialize) {
-	$loadClass(InputContext$1, name, initialize, &_InputContext$1_ClassInfo_, allocate$InputContext$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/im/InputContext;", nullptr, $FINAL | $SYNTHETIC, $field(InputContext$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/im/InputContext;)V", nullptr, 0, $method(InputContext$1, init$, void, $InputContext*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InputContext$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.im.InputContext",
+		"removeNotify",
+		"(Ljava/awt/Component;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.im.InputContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.im.InputContext$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.im.InputContext"
+	};
+	$loadClass(InputContext$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputContext$1);
+	});
 	return class$;
 }
 

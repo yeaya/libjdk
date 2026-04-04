@@ -65,7 +65,7 @@ public:
 	virtual void setSourceActions(int32_t actions);
 	virtual void unregisterListeners() {}
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x7CDA9ABDDA7C4F29;
+	static const int64_t serialVersionUID = (int64_t)0x7cda9abdda7c4f29;
 	::java::awt::dnd::DragSource* dragSource = nullptr;
 	::java::awt::Component* component = nullptr;
 	::java::awt::dnd::DragGestureListener* dragGestureListener = nullptr;

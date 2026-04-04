@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject.h>
-
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl.h>
 #include <javax/tools/FileObject.h>
 #include <javax/tools/ForwardingFileObject.h>
@@ -24,40 +23,6 @@ namespace com {
 			namespace javac {
 				namespace platform {
 
-$MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, init$, void, $JavaFileObject*)},
-	{"getDelegate", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, getDelegate, $JavaFileObject*)},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, getKind, $JavaFileObject$Kind*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{}
-};
-
-$InnerClassInfo _JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject", "com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "SigJavaFileObject", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject",
-	"javax.tools.ForwardingJavaFileObject",
-	nullptr,
-	nullptr,
-	_JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject_MethodInfo_,
-	"Ljavax/tools/ForwardingJavaFileObject<Ljavax/tools/JavaFileObject;>;",
-	nullptr,
-	_JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.platform.JDKPlatformProvider"
-};
-
-$Object* allocate$JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject($Class* clazz) {
-	return $of($alloc(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject));
-}
-
 void JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject::init$($JavaFileObject* fileObject) {
 	$ForwardingJavaFileObject::init$(fileObject);
 }
@@ -80,7 +45,36 @@ JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject::JDKPlatformProvid
 }
 
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, name, initialize, &_JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject_ClassInfo_, allocate$JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, init$, void, $JavaFileObject*)},
+		{"getDelegate", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, getDelegate, $JavaFileObject*)},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, getKind, $JavaFileObject$Kind*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject", "com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "SigJavaFileObject", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject",
+		"javax.tools.ForwardingJavaFileObject",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/tools/ForwardingJavaFileObject<Ljavax/tools/JavaFileObject;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.platform.JDKPlatformProvider"
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject));
+	});
 	return class$;
 }
 

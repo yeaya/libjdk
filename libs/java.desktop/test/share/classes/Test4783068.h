@@ -23,6 +23,7 @@ class $export Test4783068 : public ::java::lang::Object {
 	$class(Test4783068, 0, ::java::lang::Object)
 public:
 	Test4783068();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void test();

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/launcher/Main$1.h>
-
 #include <com/sun/tools/javac/launcher/Main.h>
 #include <java/lang/CharSequence.h>
 #include <java/net/URI.h>
@@ -30,53 +29,6 @@ namespace com {
 			namespace javac {
 				namespace launcher {
 
-$FieldInfo _Main$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/launcher/Main;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, this$0)},
-	{"val$sb", "Ljava/lang/StringBuilder;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, val$sb)},
-	{"val$file", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, val$file)},
-	{}
-};
-
-$MethodInfo _Main$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/nio/file/Path;Ljava/lang/StringBuilder;)V", nullptr, 0, $method(Main$1, init$, void, $Main*, $URI*, $JavaFileObject$Kind*, $Path*, $StringBuilder*)},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(Main$1, getCharContent, $CharSequence*, bool)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$1, getName, $String*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(Main$1, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Main$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.launcher.Main",
-	"readFile",
-	"(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;"
-};
-
-$InnerClassInfo _Main$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.launcher.Main$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Main$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.launcher.Main$1",
-	"javax.tools.SimpleJavaFileObject",
-	nullptr,
-	_Main$1_FieldInfo_,
-	_Main$1_MethodInfo_,
-	nullptr,
-	&_Main$1_EnclosingMethodInfo_,
-	_Main$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.launcher.Main"
-};
-
-$Object* allocate$Main$1($Class* clazz) {
-	return $of($alloc(Main$1));
-}
-
 void Main$1::init$($Main* this$0, $URI* arg0, $JavaFileObject$Kind* arg1, $Path* val$file, $StringBuilder* val$sb) {
 	$set(this, this$0, this$0);
 	$set(this, val$file, val$file);
@@ -105,7 +57,47 @@ Main$1::Main$1() {
 }
 
 $Class* Main$1::load$($String* name, bool initialize) {
-	$loadClass(Main$1, name, initialize, &_Main$1_ClassInfo_, allocate$Main$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/launcher/Main;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, this$0)},
+		{"val$sb", "Ljava/lang/StringBuilder;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, val$sb)},
+		{"val$file", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, val$file)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/nio/file/Path;Ljava/lang/StringBuilder;)V", nullptr, 0, $method(Main$1, init$, void, $Main*, $URI*, $JavaFileObject$Kind*, $Path*, $StringBuilder*)},
+		{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(Main$1, getCharContent, $CharSequence*, bool)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$1, getName, $String*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(Main$1, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.launcher.Main",
+		"readFile",
+		"(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.launcher.Main$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.launcher.Main$1",
+		"javax.tools.SimpleJavaFileObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.launcher.Main"
+	};
+	$loadClass(Main$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$1);
+	});
 	return class$;
 }
 

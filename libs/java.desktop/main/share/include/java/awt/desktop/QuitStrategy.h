@@ -20,6 +20,7 @@ class $import QuitStrategy : public ::java::lang::Enum {
 public:
 	QuitStrategy();
 	static $Array<::java::awt::desktop::QuitStrategy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::desktop::QuitStrategy* valueOf($String* name);
 	static $Array<::java::awt::desktop::QuitStrategy>* values();

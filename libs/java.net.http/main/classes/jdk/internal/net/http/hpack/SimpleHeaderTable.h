@@ -44,6 +44,7 @@ class SimpleHeaderTable : public ::java::lang::Object {
 	$class(SimpleHeaderTable, 0, ::java::lang::Object)
 public:
 	SimpleHeaderTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t maxSize, ::jdk::internal::net::http::hpack::HPACK$Logger* logger);
 	virtual void add(::jdk::internal::net::http::hpack::SimpleHeaderTable$HeaderField* f);
 	int32_t checkIndex(int32_t index);

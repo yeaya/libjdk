@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DropTargetContext$TransferableProxy.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
 #include <java/awt/dnd/DropTargetContext.h>
@@ -20,47 +19,6 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _DropTargetContext$TransferableProxy_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/dnd/DropTargetContext;", nullptr, $FINAL | $SYNTHETIC, $field(DropTargetContext$TransferableProxy, this$0)},
-	{"transferable", "Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $field(DropTargetContext$TransferableProxy, transferable)},
-	{"isLocal", "Z", nullptr, $PROTECTED, $field(DropTargetContext$TransferableProxy, isLocal)},
-	{"proxy", "Lsun/awt/datatransfer/TransferableProxy;", nullptr, $PRIVATE, $field(DropTargetContext$TransferableProxy, proxy)},
-	{}
-};
-
-$MethodInfo _DropTargetContext$TransferableProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/datatransfer/Transferable;Z)V", nullptr, 0, $method(DropTargetContext$TransferableProxy, init$, void, $DropTargetContext*, $Transferable*, bool)},
-	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$TransferableProxy, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
-	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$TransferableProxy, getTransferDataFlavors, $DataFlavorArray*)},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$TransferableProxy, isDataFlavorSupported, bool, $DataFlavor*)},
-	{}
-};
-
-$InnerClassInfo _DropTargetContext$TransferableProxy_InnerClassesInfo_[] = {
-	{"java.awt.dnd.DropTargetContext$TransferableProxy", "java.awt.dnd.DropTargetContext", "TransferableProxy", $PROTECTED},
-	{}
-};
-
-$ClassInfo _DropTargetContext$TransferableProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.dnd.DropTargetContext$TransferableProxy",
-	"java.lang.Object",
-	"java.awt.datatransfer.Transferable",
-	_DropTargetContext$TransferableProxy_FieldInfo_,
-	_DropTargetContext$TransferableProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DropTargetContext$TransferableProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.dnd.DropTargetContext"
-};
-
-$Object* allocate$DropTargetContext$TransferableProxy($Class* clazz) {
-	return $of($alloc(DropTargetContext$TransferableProxy));
-}
-
 void DropTargetContext$TransferableProxy::init$($DropTargetContext* this$0, $Transferable* t, bool local) {
 	$set(this, this$0, this$0);
 	$set(this, proxy, $new($TransferableProxy, t, local));
@@ -77,14 +35,49 @@ bool DropTargetContext$TransferableProxy::isDataFlavorSupported($DataFlavor* fla
 }
 
 $Object* DropTargetContext$TransferableProxy::getTransferData($DataFlavor* df) {
-	return $of($nc(this->proxy)->getTransferData(df));
+	return $nc(this->proxy)->getTransferData(df);
 }
 
 DropTargetContext$TransferableProxy::DropTargetContext$TransferableProxy() {
 }
 
 $Class* DropTargetContext$TransferableProxy::load$($String* name, bool initialize) {
-	$loadClass(DropTargetContext$TransferableProxy, name, initialize, &_DropTargetContext$TransferableProxy_ClassInfo_, allocate$DropTargetContext$TransferableProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/dnd/DropTargetContext;", nullptr, $FINAL | $SYNTHETIC, $field(DropTargetContext$TransferableProxy, this$0)},
+		{"transferable", "Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $field(DropTargetContext$TransferableProxy, transferable)},
+		{"isLocal", "Z", nullptr, $PROTECTED, $field(DropTargetContext$TransferableProxy, isLocal)},
+		{"proxy", "Lsun/awt/datatransfer/TransferableProxy;", nullptr, $PRIVATE, $field(DropTargetContext$TransferableProxy, proxy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DropTargetContext;Ljava/awt/datatransfer/Transferable;Z)V", nullptr, 0, $method(DropTargetContext$TransferableProxy, init$, void, $DropTargetContext*, $Transferable*, bool)},
+		{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$TransferableProxy, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
+		{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$TransferableProxy, getTransferDataFlavors, $DataFlavorArray*)},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DropTargetContext$TransferableProxy, isDataFlavorSupported, bool, $DataFlavor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.dnd.DropTargetContext$TransferableProxy", "java.awt.dnd.DropTargetContext", "TransferableProxy", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.dnd.DropTargetContext$TransferableProxy",
+		"java.lang.Object",
+		"java.awt.datatransfer.Transferable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.dnd.DropTargetContext"
+	};
+	$loadClass(DropTargetContext$TransferableProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DropTargetContext$TransferableProxy);
+	});
 	return class$;
 }
 

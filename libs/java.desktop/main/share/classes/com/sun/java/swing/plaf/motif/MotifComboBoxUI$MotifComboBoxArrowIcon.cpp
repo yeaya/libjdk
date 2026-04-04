@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboBoxArrowIcon.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -22,51 +21,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifComboBoxUI$MotifComboBoxArrowIcon_FieldInfo_[] = {
-	{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifComboBoxUI$MotifComboBoxArrowIcon, lightShadow)},
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifComboBoxUI$MotifComboBoxArrowIcon, darkShadow)},
-	{"fill", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifComboBoxUI$MotifComboBoxArrowIcon, fill)},
-	{}
-};
-
-$MethodInfo _MotifComboBoxUI$MotifComboBoxArrowIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifComboBoxUI$MotifComboBoxArrowIcon, init$, void, $Color*, $Color*, $Color*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboBoxArrowIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboBoxArrowIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboBoxArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifComboBoxUI$MotifComboBoxArrowIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboBoxArrowIcon", $STATIC},
-	{}
-};
-
-$ClassInfo _MotifComboBoxUI$MotifComboBoxArrowIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_MotifComboBoxUI$MotifComboBoxArrowIcon_FieldInfo_,
-	_MotifComboBoxUI$MotifComboBoxArrowIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifComboBoxUI$MotifComboBoxArrowIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI"
-};
-
-$Object* allocate$MotifComboBoxUI$MotifComboBoxArrowIcon($Class* clazz) {
-	return $of($alloc(MotifComboBoxUI$MotifComboBoxArrowIcon));
-}
 
 int32_t MotifComboBoxUI$MotifComboBoxArrowIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -95,7 +49,7 @@ void MotifComboBoxUI$MotifComboBoxArrowIcon::init$($Color* lightShadow, $Color* 
 }
 
 void MotifComboBoxUI$MotifComboBoxArrowIcon::paintIcon($Component* c, $Graphics* g, int32_t xo, int32_t yo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = getIconWidth();
 	int32_t h = getIconHeight();
 	int32_t x1 = xo + w - 1;
@@ -136,7 +90,46 @@ MotifComboBoxUI$MotifComboBoxArrowIcon::MotifComboBoxUI$MotifComboBoxArrowIcon()
 }
 
 $Class* MotifComboBoxUI$MotifComboBoxArrowIcon::load$($String* name, bool initialize) {
-	$loadClass(MotifComboBoxUI$MotifComboBoxArrowIcon, name, initialize, &_MotifComboBoxUI$MotifComboBoxArrowIcon_ClassInfo_, allocate$MotifComboBoxUI$MotifComboBoxArrowIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifComboBoxUI$MotifComboBoxArrowIcon, lightShadow)},
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifComboBoxUI$MotifComboBoxArrowIcon, darkShadow)},
+		{"fill", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifComboBoxUI$MotifComboBoxArrowIcon, fill)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifComboBoxUI$MotifComboBoxArrowIcon, init$, void, $Color*, $Color*, $Color*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboBoxArrowIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboBoxArrowIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI$MotifComboBoxArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboBoxArrowIcon", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI"
+	};
+	$loadClass(MotifComboBoxUI$MotifComboBoxArrowIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifComboBoxUI$MotifComboBoxArrowIcon));
+	});
 	return class$;
 }
 

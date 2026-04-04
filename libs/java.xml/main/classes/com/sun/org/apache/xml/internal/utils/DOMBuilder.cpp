@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/DOMBuilder.h>
-
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLCharacterRecognizer.h>
@@ -54,72 +53,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _DOMBuilder_FieldInfo_[] = {
-	{"m_doc", "Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $field(DOMBuilder, m_doc)},
-	{"m_currentNode", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(DOMBuilder, m_currentNode)},
-	{"m_root", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(DOMBuilder, m_root)},
-	{"m_nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(DOMBuilder, m_nextSibling)},
-	{"m_docFrag", "Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $field(DOMBuilder, m_docFrag)},
-	{"m_elemStack", "Ljava/util/Stack;", "Ljava/util/Stack<Lorg/w3c/dom/Node;>;", $PROTECTED, $field(DOMBuilder, m_elemStack)},
-	{"m_inCData", "Z", nullptr, $PROTECTED, $field(DOMBuilder, m_inCData)},
-	{}
-};
-
-$MethodInfo _DOMBuilder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMBuilder, init$, void, $Document*, $Node*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/DocumentFragment;)V", nullptr, $PUBLIC, $method(DOMBuilder, init$, void, $Document*, $DocumentFragment*)},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(DOMBuilder, init$, void, $Document*)},
-	{"append", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(DOMBuilder, append, void, $Node*), "org.xml.sax.SAXException"},
-	{"cdata", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, cdata, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"charactersRaw", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, charactersRaw, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, entityReference, void, $String*), "org.xml.sax.SAXException"},
-	{"getCurrentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getCurrentNode, $Node*)},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getNextSibling, $Node*)},
-	{"getRootDocument", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getRootDocument, $Node*)},
-	{"getRootNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getRootNode, $Node*)},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getWriter, $Writer*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"isOutsideDocElem", "()Z", nullptr, $PRIVATE, $method(DOMBuilder, isOutsideDocElem, bool)},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, setDocumentLocator, void, $Locator*)},
-	{"setIDAttribute", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, setIDAttribute, void, $String*, $Element*)},
-	{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, setNextSibling, void, $Node*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMBuilder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.DOMBuilder",
-	"java.lang.Object",
-	"org.xml.sax.ContentHandler,org.xml.sax.ext.LexicalHandler",
-	_DOMBuilder_FieldInfo_,
-	_DOMBuilder_MethodInfo_
-};
-
-$Object* allocate$DOMBuilder($Class* clazz) {
-	return $of($alloc(DOMBuilder));
-}
-
 int32_t DOMBuilder::hashCode() {
 	 return this->$ContentHandler::hashCode();
 }
@@ -148,9 +81,9 @@ void DOMBuilder::init$($Document* doc, $Node* node) {
 	$set(this, m_elemStack, $new($Stack));
 	this->m_inCData = false;
 	$set(this, m_doc, doc);
-	$set(this, m_currentNode, ($set(this, m_root, node)));
+	$set(this, m_currentNode, $set(this, m_root, node));
 	if ($instanceOf($Element, node)) {
-		$nc(this->m_elemStack)->push(node);
+		this->m_elemStack->push(node);
 	}
 }
 
@@ -176,7 +109,7 @@ void DOMBuilder::init$($Document* doc) {
 }
 
 $Node* DOMBuilder::getRootDocument() {
-	return (nullptr != this->m_docFrag) ? static_cast<$Node*>(this->m_docFrag) : static_cast<$Node*>(this->m_doc);
+	return (nullptr != this->m_docFrag) ? $cast($Node, this->m_docFrag) : $cast($Node, this->m_doc);
 }
 
 $Node* DOMBuilder::getRootNode() {
@@ -200,7 +133,7 @@ $Writer* DOMBuilder::getWriter() {
 }
 
 void DOMBuilder::append($Node* newNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, currentNode, this->m_currentNode);
 	if (nullptr != currentNode) {
 		if (currentNode == this->m_root && this->m_nextSibling != nullptr) {
@@ -210,7 +143,7 @@ void DOMBuilder::append($Node* newNode) {
 		}
 	} else if (nullptr != this->m_docFrag) {
 		if (this->m_nextSibling != nullptr) {
-			$nc(this->m_docFrag)->insertBefore(newNode, this->m_nextSibling);
+			this->m_docFrag->insertBefore(newNode, this->m_nextSibling);
 		} else {
 			$nc(this->m_docFrag)->appendChild(newNode);
 		}
@@ -251,9 +184,9 @@ void DOMBuilder::endDocument() {
 }
 
 void DOMBuilder::startElement($String* ns, $String* localName, $String* name, $Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, nullptr);
-	if ((nullptr == ns) || ($nc(ns)->length() == 0)) {
+	if ((nullptr == ns) || (ns->length() == 0)) {
 		$assign(elem, $nc(this->m_doc)->createElementNS(nullptr, name));
 	} else {
 		$assign(elem, $nc(this->m_doc)->createElementNS(ns, name));
@@ -263,7 +196,7 @@ void DOMBuilder::startElement($String* ns, $String* localName, $String* name, $A
 		int32_t nAtts = $nc(atts)->getLength();
 		if (0 != nAtts) {
 			for (int32_t i = 0; i < nAtts; ++i) {
-				if ($nc($(atts->getType(i)))->equalsIgnoreCase("ID"_s)) {
+				if ($$nc(atts->getType(i))->equalsIgnoreCase("ID"_s)) {
 					setIDAttribute($(atts->getValue(i)), elem);
 				}
 				$var($String, attrNS, atts->getURI(i));
@@ -272,7 +205,7 @@ void DOMBuilder::startElement($String* ns, $String* localName, $String* name, $A
 				}
 				$var($String, attrQName, atts->getQName(i));
 				bool var$0 = $nc(attrQName)->startsWith("xmlns:"_s);
-				if (var$0 || $nc(attrQName)->equals("xmlns"_s)) {
+				if (var$0 || attrQName->equals("xmlns"_s)) {
 					$assign(attrNS, "http://www.w3.org/2000/xmlns/"_s);
 				}
 				$nc(elem)->setAttributeNS(attrNS, attrQName, $(atts->getValue(i)));
@@ -281,20 +214,20 @@ void DOMBuilder::startElement($String* ns, $String* localName, $String* name, $A
 		$nc(this->m_elemStack)->push(elem);
 		$set(this, m_currentNode, elem);
 	} catch ($Exception& de) {
-		$throwNew($SAXException, $cast($Exception, de));
+		$throwNew($SAXException, de);
 	}
 }
 
 void DOMBuilder::endElement($String* ns, $String* localName, $String* name) {
 	$nc(this->m_elemStack)->pop();
-	$set(this, m_currentNode, $nc(this->m_elemStack)->isEmpty() ? ($Node*)nullptr : $cast($Node, $nc(this->m_elemStack)->peek()));
+	$set(this, m_currentNode, this->m_elemStack->isEmpty() ? ($Node*)nullptr : $cast($Node, this->m_elemStack->peek()));
 }
 
 void DOMBuilder::setIDAttribute($String* id, $Element* elem) {
 }
 
 void DOMBuilder::characters($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isOutsideDocElem();
 	if (var$0 && $XMLCharacterRecognizer::isWhiteSpace(ch, start, length)) {
 		return;
@@ -305,9 +238,9 @@ void DOMBuilder::characters($chars* ch, int32_t start, int32_t length) {
 	}
 	$var($String, s, $new($String, ch, start, length));
 	$var($Node, childNode, nullptr);
-	$assign(childNode, this->m_currentNode != nullptr ? $nc(this->m_currentNode)->getLastChild() : ($Node*)nullptr);
+	$assign(childNode, this->m_currentNode != nullptr ? this->m_currentNode->getLastChild() : ($Node*)nullptr);
 	if (childNode != nullptr && childNode->getNodeType() == $Node::TEXT_NODE) {
-		$nc(($cast($Text, childNode)))->appendData(s);
+		$cast($Text, childNode)->appendData(s);
 	} else {
 		$var($Text, text, $nc(this->m_doc)->createTextNode(s));
 		append(text);
@@ -315,7 +248,7 @@ void DOMBuilder::characters($chars* ch, int32_t start, int32_t length) {
 }
 
 void DOMBuilder::charactersRaw($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isOutsideDocElem();
 	if (var$0 && $XMLCharacterRecognizer::isWhiteSpace(ch, start, length)) {
 		return;
@@ -336,7 +269,7 @@ void DOMBuilder::entityReference($String* name) {
 }
 
 void DOMBuilder::ignorableWhitespace($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isOutsideDocElem()) {
 		return;
 	}
@@ -346,7 +279,7 @@ void DOMBuilder::ignorableWhitespace($chars* ch, int32_t start, int32_t length) 
 
 bool DOMBuilder::isOutsideDocElem() {
 	bool var$0 = (nullptr == this->m_docFrag) && $nc(this->m_elemStack)->size() == 0;
-	return var$0 && (nullptr == this->m_currentNode || $nc(this->m_currentNode)->getNodeType() == $Node::DOCUMENT_NODE);
+	return var$0 && (nullptr == this->m_currentNode || this->m_currentNode->getNodeType() == $Node::DOCUMENT_NODE);
 }
 
 void DOMBuilder::processingInstruction($String* target, $String* data) {
@@ -354,7 +287,7 @@ void DOMBuilder::processingInstruction($String* target, $String* data) {
 }
 
 void DOMBuilder::comment($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	append($($nc(this->m_doc)->createComment($$new($String, ch, start, length))));
 }
 
@@ -368,7 +301,7 @@ void DOMBuilder::endCDATA() {
 }
 
 void DOMBuilder::cdata($chars* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isOutsideDocElem();
 	if (var$0 && $XMLCharacterRecognizer::isWhiteSpace(ch, start, length)) {
 		return;
@@ -397,7 +330,68 @@ DOMBuilder::DOMBuilder() {
 }
 
 $Class* DOMBuilder::load$($String* name, bool initialize) {
-	$loadClass(DOMBuilder, name, initialize, &_DOMBuilder_ClassInfo_, allocate$DOMBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_doc", "Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $field(DOMBuilder, m_doc)},
+		{"m_currentNode", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(DOMBuilder, m_currentNode)},
+		{"m_root", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(DOMBuilder, m_root)},
+		{"m_nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(DOMBuilder, m_nextSibling)},
+		{"m_docFrag", "Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $field(DOMBuilder, m_docFrag)},
+		{"m_elemStack", "Ljava/util/Stack;", "Ljava/util/Stack<Lorg/w3c/dom/Node;>;", $PROTECTED, $field(DOMBuilder, m_elemStack)},
+		{"m_inCData", "Z", nullptr, $PROTECTED, $field(DOMBuilder, m_inCData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMBuilder, init$, void, $Document*, $Node*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Lorg/w3c/dom/DocumentFragment;)V", nullptr, $PUBLIC, $method(DOMBuilder, init$, void, $Document*, $DocumentFragment*)},
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(DOMBuilder, init$, void, $Document*)},
+		{"append", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(DOMBuilder, append, void, $Node*), "org.xml.sax.SAXException"},
+		{"cdata", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, cdata, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"charactersRaw", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, charactersRaw, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, entityReference, void, $String*), "org.xml.sax.SAXException"},
+		{"getCurrentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getCurrentNode, $Node*)},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getNextSibling, $Node*)},
+		{"getRootDocument", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getRootDocument, $Node*)},
+		{"getRootNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getRootNode, $Node*)},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, getWriter, $Writer*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"isOutsideDocElem", "()Z", nullptr, $PRIVATE, $method(DOMBuilder, isOutsideDocElem, bool)},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, setDocumentLocator, void, $Locator*)},
+		{"setIDAttribute", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, setIDAttribute, void, $String*, $Element*)},
+		{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, setNextSibling, void, $Node*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMBuilder, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.DOMBuilder",
+		"java.lang.Object",
+		"org.xml.sax.ContentHandler,org.xml.sax.ext.LexicalHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMBuilder));
+	});
 	return class$;
 }
 

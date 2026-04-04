@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/CompositeDataInvocationHandler.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanLookup.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
@@ -34,35 +33,6 @@ namespace javax {
 	namespace management {
 		namespace openmbean {
 
-$FieldInfo _CompositeDataInvocationHandler_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CompositeDataInvocationHandler, $assertionsDisabled)},
-	{"compositeData", "Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE | $FINAL, $field(CompositeDataInvocationHandler, compositeData)},
-	{"lookup", "Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $PRIVATE | $FINAL, $field(CompositeDataInvocationHandler, lookup)},
-	{}
-};
-
-$MethodInfo _CompositeDataInvocationHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $method(CompositeDataInvocationHandler, init$, void, $CompositeData*)},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, 0, $method(CompositeDataInvocationHandler, init$, void, $CompositeData*, $MXBeanLookup*)},
-	{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(CompositeDataInvocationHandler, equals, bool, Object$*, Object$*)},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC, $virtualMethod(CompositeDataInvocationHandler, getCompositeData, $CompositeData*)},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompositeDataInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _CompositeDataInvocationHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.CompositeDataInvocationHandler",
-	"java.lang.Object",
-	"java.lang.reflect.InvocationHandler",
-	_CompositeDataInvocationHandler_FieldInfo_,
-	_CompositeDataInvocationHandler_MethodInfo_
-};
-
-$Object* allocate$CompositeDataInvocationHandler($Class* clazz) {
-	return $of($alloc(CompositeDataInvocationHandler));
-}
-
 bool CompositeDataInvocationHandler::$assertionsDisabled = false;
 
 void CompositeDataInvocationHandler::init$($CompositeData* compositeData) {
@@ -85,7 +55,7 @@ $CompositeData* CompositeDataInvocationHandler::getCompositeData() {
 }
 
 $Object* CompositeDataInvocationHandler::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, methodName, $nc(method)->getName());
 	if (method->getDeclaringClass() == $Object::class$) {
@@ -94,11 +64,11 @@ $Object* CompositeDataInvocationHandler::invoke(Object$* proxy, $Method* method,
 		} else if (methodName->equals("hashCode"_s) && args == nullptr) {
 			return $of($Integer::valueOf($nc(this->compositeData)->hashCode() + 0x43444948));
 		} else {
-			bool var$1 = methodName->equals("equals"_s) && $nc(args)->length == 1;
-			if (var$1 && $nc($(method->getParameterTypes()))->get(0) == $Object::class$) {
+			bool var$0 = methodName->equals("equals"_s) && $nc(args)->length == 1;
+			if (var$0 && $nc($(method->getParameterTypes()))->get(0) == $Object::class$) {
 				return $of($Boolean::valueOf(equals(proxy, args->get(0))));
 			} else {
-				return $of(method->invoke(this, args));
+				return method->invoke(this, args);
 			}
 		}
 	}
@@ -108,11 +78,11 @@ $Object* CompositeDataInvocationHandler::invoke(Object$* proxy, $Method* method,
 	}
 	$var($Object, openValue, nullptr);
 	if ($nc(this->compositeData)->containsKey(propertyName)) {
-		$assign(openValue, $nc(this->compositeData)->get(propertyName));
+		$assign(openValue, this->compositeData->get(propertyName));
 	} else {
 		$var($String, decap, $DefaultMXBeanMappingFactory::decapitalize(propertyName));
-		if ($nc(this->compositeData)->containsKey(decap)) {
-			$assign(openValue, $nc(this->compositeData)->get(decap));
+		if (this->compositeData->containsKey(decap)) {
+			$assign(openValue, this->compositeData->get(decap));
 		} else {
 			$var($String, msg, $str({"No CompositeData item "_s, propertyName, ($nc(decap)->equals(propertyName) ? ""_s : $$str({" or "_s, decap})), " to match "_s, methodName}));
 			$throwNew($IllegalArgumentException, msg);
@@ -120,11 +90,11 @@ $Object* CompositeDataInvocationHandler::invoke(Object$* proxy, $Method* method,
 	}
 	$init($MXBeanMappingFactory);
 	$var($MXBeanMapping, mapping, $nc($MXBeanMappingFactory::DEFAULT)->mappingForType($(method->getGenericReturnType()), $MXBeanMappingFactory::DEFAULT));
-	return $of($nc(mapping)->fromOpenValue(openValue));
+	return $nc(mapping)->fromOpenValue(openValue);
 }
 
 bool CompositeDataInvocationHandler::equals(Object$* proxy, Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (other == nullptr) {
 		return false;
@@ -142,7 +112,7 @@ bool CompositeDataInvocationHandler::equals(Object$* proxy, Object$* other) {
 	return $nc(this->compositeData)->equals($nc(othercdih)->compositeData);
 }
 
-void clinit$CompositeDataInvocationHandler($Class* class$) {
+void CompositeDataInvocationHandler::clinit$($Class* clazz) {
 	CompositeDataInvocationHandler::$assertionsDisabled = !CompositeDataInvocationHandler::class$->desiredAssertionStatus();
 }
 
@@ -150,7 +120,31 @@ CompositeDataInvocationHandler::CompositeDataInvocationHandler() {
 }
 
 $Class* CompositeDataInvocationHandler::load$($String* name, bool initialize) {
-	$loadClass(CompositeDataInvocationHandler, name, initialize, &_CompositeDataInvocationHandler_ClassInfo_, clinit$CompositeDataInvocationHandler, allocate$CompositeDataInvocationHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CompositeDataInvocationHandler, $assertionsDisabled)},
+		{"compositeData", "Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE | $FINAL, $field(CompositeDataInvocationHandler, compositeData)},
+		{"lookup", "Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $PRIVATE | $FINAL, $field(CompositeDataInvocationHandler, lookup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $method(CompositeDataInvocationHandler, init$, void, $CompositeData*)},
+		{"<init>", "(Ljavax/management/openmbean/CompositeData;Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, 0, $method(CompositeDataInvocationHandler, init$, void, $CompositeData*, $MXBeanLookup*)},
+		{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(CompositeDataInvocationHandler, equals, bool, Object$*, Object$*)},
+		{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC, $virtualMethod(CompositeDataInvocationHandler, getCompositeData, $CompositeData*)},
+		{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompositeDataInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.CompositeDataInvocationHandler",
+		"java.lang.Object",
+		"java.lang.reflect.InvocationHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompositeDataInvocationHandler, name, initialize, &classInfo$$, CompositeDataInvocationHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CompositeDataInvocationHandler);
+	});
 	return class$;
 }
 

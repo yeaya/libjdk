@@ -1,5 +1,4 @@
 #include <javax/swing/RepaintManager$1.h>
-
 #include <javax/swing/RepaintManager.h>
 #include <sun/swing/SwingUtilities2$RepaintListener.h>
 #include <jcpp.h>
@@ -13,45 +12,6 @@ using $SwingUtilities2$RepaintListener = ::sun::swing::SwingUtilities2$RepaintLi
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _RepaintManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RepaintManager$1, init$, void)},
-	{"addRepaintListener", "(Ljavax/swing/RepaintManager;Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$1, addRepaintListener, void, $RepaintManager*, $SwingUtilities2$RepaintListener*)},
-	{"removeRepaintListener", "(Ljavax/swing/RepaintManager;Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$1, removeRepaintListener, void, $RepaintManager*, $SwingUtilities2$RepaintListener*)},
-	{}
-};
-
-$EnclosingMethodInfo _RepaintManager$1_EnclosingMethodInfo_ = {
-	"javax.swing.RepaintManager",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _RepaintManager$1_InnerClassesInfo_[] = {
-	{"javax.swing.RepaintManager$1", nullptr, nullptr, 0},
-	{"sun.swing.SwingAccessor$RepaintManagerAccessor", "sun.swing.SwingAccessor", "RepaintManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RepaintManager$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.RepaintManager$1",
-	"java.lang.Object",
-	"sun.swing.SwingAccessor$RepaintManagerAccessor",
-	nullptr,
-	_RepaintManager$1_MethodInfo_,
-	nullptr,
-	&_RepaintManager$1_EnclosingMethodInfo_,
-	_RepaintManager$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RepaintManager"
-};
-
-$Object* allocate$RepaintManager$1($Class* clazz) {
-	return $of($alloc(RepaintManager$1));
-}
 
 void RepaintManager$1::init$() {
 }
@@ -68,7 +28,40 @@ RepaintManager$1::RepaintManager$1() {
 }
 
 $Class* RepaintManager$1::load$($String* name, bool initialize) {
-	$loadClass(RepaintManager$1, name, initialize, &_RepaintManager$1_ClassInfo_, allocate$RepaintManager$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RepaintManager$1, init$, void)},
+		{"addRepaintListener", "(Ljavax/swing/RepaintManager;Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$1, addRepaintListener, void, $RepaintManager*, $SwingUtilities2$RepaintListener*)},
+		{"removeRepaintListener", "(Ljavax/swing/RepaintManager;Lsun/swing/SwingUtilities2$RepaintListener;)V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$1, removeRepaintListener, void, $RepaintManager*, $SwingUtilities2$RepaintListener*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.RepaintManager",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RepaintManager$1", nullptr, nullptr, 0},
+		{"sun.swing.SwingAccessor$RepaintManagerAccessor", "sun.swing.SwingAccessor", "RepaintManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.RepaintManager$1",
+		"java.lang.Object",
+		"sun.swing.SwingAccessor$RepaintManagerAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RepaintManager"
+	};
+	$loadClass(RepaintManager$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RepaintManager$1);
+	});
 	return class$;
 }
 

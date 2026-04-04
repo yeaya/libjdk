@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/CGLSurfaceData$CGLOffScreenSurfaceData.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/ColorModel.h>
 #include <sun/java2d/SurfaceData.h>
@@ -24,43 +23,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _CGLSurfaceData$CGLOffScreenSurfaceData_FieldInfo_[] = {
-	{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE | $FINAL, $field(CGLSurfaceData$CGLOffScreenSurfaceData, offscreenImage)},
-	{}
-};
-
-$MethodInfo _CGLSurfaceData$CGLOffScreenSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/opengl/CGLGraphicsConfig;IILjava/awt/Image;Ljava/awt/image/ColorModel;I)V", nullptr, $PRIVATE, $method(CGLSurfaceData$CGLOffScreenSurfaceData, init$, void, $CGLGraphicsConfig*, int32_t, int32_t, $Image*, $ColorModel*, int32_t)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLOffScreenSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLOffScreenSurfaceData, getReplacement, $SurfaceData*)},
-	{}
-};
-
-$InnerClassInfo _CGLSurfaceData$CGLOffScreenSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.CGLSurfaceData$CGLOffScreenSurfaceData", "sun.java2d.opengl.CGLSurfaceData", "CGLOffScreenSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CGLSurfaceData$CGLOffScreenSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.CGLSurfaceData$CGLOffScreenSurfaceData",
-	"sun.java2d.opengl.CGLSurfaceData",
-	nullptr,
-	_CGLSurfaceData$CGLOffScreenSurfaceData_FieldInfo_,
-	_CGLSurfaceData$CGLOffScreenSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CGLSurfaceData$CGLOffScreenSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.CGLSurfaceData"
-};
-
-$Object* allocate$CGLSurfaceData$CGLOffScreenSurfaceData($Class* clazz) {
-	return $of($alloc(CGLSurfaceData$CGLOffScreenSurfaceData));
-}
-
 void CGLSurfaceData$CGLOffScreenSurfaceData::init$($CGLGraphicsConfig* gc, int32_t width, int32_t height, $Image* image, $ColorModel* cm, int32_t type) {
 	$CGLSurfaceData::init$(nullptr, gc, cm, type, width, height);
 	$set(this, offscreenImage, image);
@@ -72,14 +34,45 @@ $SurfaceData* CGLSurfaceData$CGLOffScreenSurfaceData::getReplacement() {
 }
 
 $Object* CGLSurfaceData$CGLOffScreenSurfaceData::getDestination() {
-	return $of(this->offscreenImage);
+	return this->offscreenImage;
 }
 
 CGLSurfaceData$CGLOffScreenSurfaceData::CGLSurfaceData$CGLOffScreenSurfaceData() {
 }
 
 $Class* CGLSurfaceData$CGLOffScreenSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(CGLSurfaceData$CGLOffScreenSurfaceData, name, initialize, &_CGLSurfaceData$CGLOffScreenSurfaceData_ClassInfo_, allocate$CGLSurfaceData$CGLOffScreenSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE | $FINAL, $field(CGLSurfaceData$CGLOffScreenSurfaceData, offscreenImage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/opengl/CGLGraphicsConfig;IILjava/awt/Image;Ljava/awt/image/ColorModel;I)V", nullptr, $PRIVATE, $method(CGLSurfaceData$CGLOffScreenSurfaceData, init$, void, $CGLGraphicsConfig*, int32_t, int32_t, $Image*, $ColorModel*, int32_t)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLOffScreenSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CGLSurfaceData$CGLOffScreenSurfaceData, getReplacement, $SurfaceData*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.CGLSurfaceData$CGLOffScreenSurfaceData", "sun.java2d.opengl.CGLSurfaceData", "CGLOffScreenSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.CGLSurfaceData$CGLOffScreenSurfaceData",
+		"sun.java2d.opengl.CGLSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.CGLSurfaceData"
+	};
+	$loadClass(CGLSurfaceData$CGLOffScreenSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CGLSurfaceData$CGLOffScreenSurfaceData));
+	});
 	return class$;
 }
 

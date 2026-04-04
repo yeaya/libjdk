@@ -76,6 +76,7 @@ class $import AttrRecover : public ::java::lang::Object {
 	$class(AttrRecover, 0, ::java::lang::Object)
 public:
 	AttrRecover();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	::com::sun::tools::javac::code::Type* basicMethodInvocationRecovery(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::code::Type* site, ::com::sun::tools::javac::code::Symbol* sym, ::com::sun::tools::javac::comp::Env* env, ::com::sun::tools::javac::comp::Attr$ResultInfo* resultInfo);
 	virtual void doRecovery();

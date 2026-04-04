@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ServerNotifForwarder$1.h>
-
 #include <com/sun/jmx/remote/internal/ServerNotifForwarder.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
@@ -12,7 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
@@ -20,49 +18,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace internal {
-
-$FieldInfo _ServerNotifForwarder$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jmx/remote/internal/ServerNotifForwarder;", nullptr, $FINAL | $SYNTHETIC, $field(ServerNotifForwarder$1, this$0)},
-	{"val$name", "Ljavax/management/ObjectName;", nullptr, $FINAL | $SYNTHETIC, $field(ServerNotifForwarder$1, val$name)},
-	{}
-};
-
-$MethodInfo _ServerNotifForwarder$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ServerNotifForwarder;Ljavax/management/ObjectName;)V", "()V", 0, $method(ServerNotifForwarder$1, init$, void, $ServerNotifForwarder*, $ObjectName*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$1, run, $Object*), "javax.management.InstanceNotFoundException"},
-	{}
-};
-
-$EnclosingMethodInfo _ServerNotifForwarder$1_EnclosingMethodInfo_ = {
-	"com.sun.jmx.remote.internal.ServerNotifForwarder",
-	"addNotificationListener",
-	"(Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;)Ljava/lang/Integer;"
-};
-
-$InnerClassInfo _ServerNotifForwarder$1_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ServerNotifForwarder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServerNotifForwarder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.internal.ServerNotifForwarder$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_ServerNotifForwarder$1_FieldInfo_,
-	_ServerNotifForwarder$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Boolean;>;",
-	&_ServerNotifForwarder$1_EnclosingMethodInfo_,
-	_ServerNotifForwarder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ServerNotifForwarder"
-};
-
-$Object* allocate$ServerNotifForwarder$1($Class* clazz) {
-	return $of($alloc(ServerNotifForwarder$1));
-}
 
 void ServerNotifForwarder$1::init$($ServerNotifForwarder* this$0, $ObjectName* val$name) {
 	$set(this, this$0, this$0);
@@ -78,7 +33,43 @@ ServerNotifForwarder$1::ServerNotifForwarder$1() {
 }
 
 $Class* ServerNotifForwarder$1::load$($String* name, bool initialize) {
-	$loadClass(ServerNotifForwarder$1, name, initialize, &_ServerNotifForwarder$1_ClassInfo_, allocate$ServerNotifForwarder$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jmx/remote/internal/ServerNotifForwarder;", nullptr, $FINAL | $SYNTHETIC, $field(ServerNotifForwarder$1, this$0)},
+		{"val$name", "Ljavax/management/ObjectName;", nullptr, $FINAL | $SYNTHETIC, $field(ServerNotifForwarder$1, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/remote/internal/ServerNotifForwarder;Ljavax/management/ObjectName;)V", "()V", 0, $method(ServerNotifForwarder$1, init$, void, $ServerNotifForwarder*, $ObjectName*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$1, run, $Object*), "javax.management.InstanceNotFoundException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.jmx.remote.internal.ServerNotifForwarder",
+		"addNotificationListener",
+		"(Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;)Ljava/lang/Integer;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ServerNotifForwarder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.internal.ServerNotifForwarder$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ServerNotifForwarder"
+	};
+	$loadClass(ServerNotifForwarder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerNotifForwarder$1);
+	});
 	return class$;
 }
 

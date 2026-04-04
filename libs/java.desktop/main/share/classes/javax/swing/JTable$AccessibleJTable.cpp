@@ -1,9 +1,7 @@
 #include <javax/swing/JTable$AccessibleJTable.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
@@ -11,20 +9,15 @@
 #include <javax/accessibility/AccessibleTable.h>
 #include <javax/accessibility/AccessibleTableModelChange.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTable$AccessibleJTable$AccessibleJTableCell.h>
 #include <javax/swing/JTable$AccessibleJTable$AccessibleJTableModelChange.h>
 #include <javax/swing/JTable$AccessibleJTable$AccessibleTableHeader.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/ListSelectionModel.h>
-#include <javax/swing/event/CellEditorListener.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ListSelectionEvent.h>
-#include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/event/TableColumnModelEvent.h>
-#include <javax/swing/event/TableColumnModelListener.h>
 #include <javax/swing/event/TableModelEvent.h>
-#include <javax/swing/event/TableModelListener.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableColumnModel.h>
@@ -48,7 +41,6 @@ using $AccessibleArray = $Array<::javax::accessibility::Accessible>;
 using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -62,21 +54,16 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleSelection = ::javax::accessibility::AccessibleSelection;
 using $AccessibleTable = ::javax::accessibility::AccessibleTable;
 using $AccessibleTableModelChange = ::javax::accessibility::AccessibleTableModelChange;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JTable = ::javax::swing::JTable;
 using $JTable$AccessibleJTable$AccessibleJTableCell = ::javax::swing::JTable$AccessibleJTable$AccessibleJTableCell;
 using $JTable$AccessibleJTable$AccessibleJTableModelChange = ::javax::swing::JTable$AccessibleJTable$AccessibleJTableModelChange;
 using $JTable$AccessibleJTable$AccessibleTableHeader = ::javax::swing::JTable$AccessibleJTable$AccessibleTableHeader;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
-using $CellEditorListener = ::javax::swing::event::CellEditorListener;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
-using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $TableColumnModelEvent = ::javax::swing::event::TableColumnModelEvent;
-using $TableColumnModelListener = ::javax::swing::event::TableColumnModelListener;
 using $TableModelEvent = ::javax::swing::event::TableModelEvent;
-using $TableModelListener = ::javax::swing::event::TableModelListener;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
@@ -84,110 +71,6 @@ using $TableModel = ::javax::swing::table::TableModel;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTable$AccessibleJTable_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable, this$0)},
-	{"previousFocusedRow", "I", nullptr, 0, $field(JTable$AccessibleJTable, previousFocusedRow)},
-	{"previousFocusedCol", "I", nullptr, 0, $field(JTable$AccessibleJTable, previousFocusedCol)},
-	{"caption", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, caption)},
-	{"summary", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, summary)},
-	{"rowDescription", "[Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, rowDescription)},
-	{"columnDescription", "[Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, columnDescription)},
-	{}
-};
-
-$MethodInfo _JTable$AccessibleJTable_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTable;)V", nullptr, $PROTECTED, $method(JTable$AccessibleJTable, init$, void, $JTable*)},
-	{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, addAccessibleSelection, void, int32_t)},
-	{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, clearAccessibleSelection, void)},
-	{"columnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnAdded, void, $TableColumnModelEvent*)},
-	{"columnMarginChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnMarginChanged, void, $ChangeEvent*)},
-	{"columnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnMoved, void, $TableColumnModelEvent*)},
-	{"columnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnRemoved, void, $TableColumnModelEvent*)},
-	{"columnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnSelectionChanged, void, $ListSelectionEvent*)},
-	{"editingCanceled", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, editingCanceled, void, $ChangeEvent*)},
-	{"editingStopped", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, editingStopped, void, $ChangeEvent*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleAt", "(II)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleAt, $Accessible*, int32_t, int32_t)},
-	{"getAccessibleCaption", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleCaption, $Accessible*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleColumn", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumn, int32_t, int32_t)},
-	{"getAccessibleColumnAtIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnAtIndex, int32_t, int32_t)},
-	{"getAccessibleColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnCount, int32_t)},
-	{"getAccessibleColumnDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnDescription, $Accessible*, int32_t)},
-	{"getAccessibleColumnExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnExtentAt, int32_t, int32_t, int32_t)},
-	{"getAccessibleColumnHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnHeader, $AccessibleTable*)},
-	{"getAccessibleIndex", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleIndex, int32_t, int32_t, int32_t)},
-	{"getAccessibleIndexAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleIndexAt, int32_t, int32_t, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleRow", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRow, int32_t, int32_t)},
-	{"getAccessibleRowAtIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowAtIndex, int32_t, int32_t)},
-	{"getAccessibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowCount, int32_t)},
-	{"getAccessibleRowDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowDescription, $Accessible*, int32_t)},
-	{"getAccessibleRowExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowExtentAt, int32_t, int32_t, int32_t)},
-	{"getAccessibleRowHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowHeader, $AccessibleTable*)},
-	{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSelection, $AccessibleSelection*)},
-	{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSelection, $Accessible*, int32_t)},
-	{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSelectionCount, int32_t)},
-	{"getAccessibleSummary", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSummary, $Accessible*)},
-	{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleTable, $AccessibleTable*)},
-	{"getSelectedAccessibleColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getSelectedAccessibleColumns, $ints*)},
-	{"getSelectedAccessibleRows", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getSelectedAccessibleRows, $ints*)},
-	{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleChildSelected, bool, int32_t)},
-	{"isAccessibleColumnSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleColumnSelected, bool, int32_t)},
-	{"isAccessibleRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleRowSelected, bool, int32_t)},
-	{"isAccessibleSelected", "(II)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleSelected, bool, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, removeAccessibleSelection, void, int32_t)},
-	{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, selectAllAccessibleSelection, void)},
-	{"setAccessibleCaption", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleCaption, void, $Accessible*)},
-	{"setAccessibleColumnDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleColumnDescription, void, int32_t, $Accessible*)},
-	{"setAccessibleColumnHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleColumnHeader, void, $AccessibleTable*)},
-	{"setAccessibleRowDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleRowDescription, void, int32_t, $Accessible*)},
-	{"setAccessibleRowHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleRowHeader, void, $AccessibleTable*)},
-	{"setAccessibleSummary", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleSummary, void, $Accessible*)},
-	{"tableChanged", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, tableChanged, void, $TableModelEvent*)},
-	{"tableRowsDeleted", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, tableRowsDeleted, void, $TableModelEvent*)},
-	{"tableRowsInserted", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, tableRowsInserted, void, $TableModelEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _JTable$AccessibleJTable_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{"javax.swing.JTable$AccessibleJTable$AccessibleJTableHeaderCell", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableHeaderCell", $PRIVATE},
-	{"javax.swing.JTable$AccessibleJTable$AccessibleJTableCell", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableCell", $PROTECTED},
-	{"javax.swing.JTable$AccessibleJTable$AccessibleTableHeader", "javax.swing.JTable$AccessibleJTable", "AccessibleTableHeader", $PRIVATE},
-	{"javax.swing.JTable$AccessibleJTable$AccessibleJTableModelChange", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableModelChange", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTable$AccessibleJTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTable$AccessibleJTable",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.accessibility.AccessibleSelection,javax.swing.event.ListSelectionListener,javax.swing.event.TableModelListener,javax.swing.event.TableColumnModelListener,javax.swing.event.CellEditorListener,java.beans.PropertyChangeListener,javax.accessibility.AccessibleExtendedTable",
-	_JTable$AccessibleJTable_FieldInfo_,
-	_JTable$AccessibleJTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$AccessibleJTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$AccessibleJTable($Class* clazz) {
-	return $of($alloc(JTable$AccessibleJTable));
-}
 
 int32_t JTable$AccessibleJTable::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -210,47 +93,47 @@ void JTable$AccessibleJTable::finalize() {
 }
 
 void JTable$AccessibleJTable::init$($JTable* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JComponent$AccessibleJComponent::init$(this$0);
 	this$0->putClientProperty("JTable.forceAutoStartsEdit"_s, $($Boolean::valueOf(true)));
 	this$0->addPropertyChangeListener(this);
-	$nc($(this$0->getSelectionModel()))->addListSelectionListener(this);
+	$$nc(this$0->getSelectionModel())->addListSelectionListener(this);
 	$var($TableColumnModel, tcm, this$0->getColumnModel());
 	$nc(tcm)->addColumnModelListener(this);
-	$nc($(tcm->getSelectionModel()))->addListSelectionListener(this);
-	$nc($(this$0->getModel()))->addTableModelListener(this);
-	this->previousFocusedRow = $nc($(this$0->getSelectionModel()))->getLeadSelectionIndex();
-	this->previousFocusedCol = $nc($($nc($(this$0->getColumnModel()))->getSelectionModel()))->getLeadSelectionIndex();
+	$$nc(tcm->getSelectionModel())->addListSelectionListener(this);
+	$$nc(this$0->getModel())->addTableModelListener(this);
+	this->previousFocusedRow = $$nc(this$0->getSelectionModel())->getLeadSelectionIndex();
+	this->previousFocusedCol = $$nc($$nc(this$0->getColumnModel())->getSelectionModel())->getLeadSelectionIndex();
 }
 
 void JTable$AccessibleJTable::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getPropertyName());
 	$var($Object, oldValue, e->getOldValue());
 	$var($Object, newValue, e->getNewValue());
 	if ($nc(name)->compareTo("model"_s) == 0) {
 		if (oldValue != nullptr && $instanceOf($TableModel, oldValue)) {
-			$nc(($cast($TableModel, oldValue)))->removeTableModelListener(this);
+			$cast($TableModel, oldValue)->removeTableModelListener(this);
 		}
 		if (newValue != nullptr && $instanceOf($TableModel, newValue)) {
-			$nc(($cast($TableModel, newValue)))->addTableModelListener(this);
+			$cast($TableModel, newValue)->addTableModelListener(this);
 		}
 	} else if (name->compareTo("selectionModel"_s) == 0) {
 		$var($Object, source, e->getSource());
 		if ($equals(source, this->this$0)) {
 			if (oldValue != nullptr && $instanceOf($ListSelectionModel, oldValue)) {
-				$nc(($cast($ListSelectionModel, oldValue)))->removeListSelectionListener(this);
+				$cast($ListSelectionModel, oldValue)->removeListSelectionListener(this);
 			}
 			if (newValue != nullptr && $instanceOf($ListSelectionModel, newValue)) {
-				$nc(($cast($ListSelectionModel, newValue)))->addListSelectionListener(this);
+				$cast($ListSelectionModel, newValue)->addListSelectionListener(this);
 			}
 		} else if ($equals(source, this->this$0->getColumnModel())) {
 			if (oldValue != nullptr && $instanceOf($ListSelectionModel, oldValue)) {
-				$nc(($cast($ListSelectionModel, oldValue)))->removeListSelectionListener(this);
+				$cast($ListSelectionModel, oldValue)->removeListSelectionListener(this);
 			}
 			if (newValue != nullptr && $instanceOf($ListSelectionModel, newValue)) {
-				$nc(($cast($ListSelectionModel, newValue)))->addListSelectionListener(this);
+				$cast($ListSelectionModel, newValue)->addListSelectionListener(this);
 			}
 		} else {
 		}
@@ -258,19 +141,19 @@ void JTable$AccessibleJTable::propertyChange($PropertyChangeEvent* e) {
 		if (oldValue != nullptr && $instanceOf($TableColumnModel, oldValue)) {
 			$var($TableColumnModel, tcm, $cast($TableColumnModel, oldValue));
 			tcm->removeColumnModelListener(this);
-			$nc($(tcm->getSelectionModel()))->removeListSelectionListener(this);
+			$$nc(tcm->getSelectionModel())->removeListSelectionListener(this);
 		}
 		if (newValue != nullptr && $instanceOf($TableColumnModel, newValue)) {
 			$var($TableColumnModel, tcm, $cast($TableColumnModel, newValue));
 			tcm->addColumnModelListener(this);
-			$nc($(tcm->getSelectionModel()))->addListSelectionListener(this);
+			$$nc(tcm->getSelectionModel())->addListSelectionListener(this);
 		}
 	} else if (name->compareTo("tableCellEditor"_s) == 0) {
 		if (oldValue != nullptr && $instanceOf($TableCellEditor, oldValue)) {
-			$nc(($cast($TableCellEditor, oldValue)))->removeCellEditorListener(this);
+			$cast($TableCellEditor, oldValue)->removeCellEditorListener(this);
 		}
 		if (newValue != nullptr && $instanceOf($TableCellEditor, newValue)) {
-			$nc(($cast($TableCellEditor, newValue)))->addCellEditorListener(this);
+			$cast($TableCellEditor, newValue)->addCellEditorListener(this);
 		}
 	}
 }
@@ -326,9 +209,8 @@ void JTable$AccessibleJTable::columnAdded($TableColumnModelEvent* e) {
 	$init($AccessibleContext);
 	firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, nullptr, nullptr);
 	int32_t type = $AccessibleTableModelChange::INSERT;
-	int32_t var$0 = type;
-	int32_t var$1 = $nc(e)->getFromIndex();
-	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, var$0, 0, 0, var$1, e->getToIndex()));
+	int32_t var$0 = $nc(e)->getFromIndex();
+	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, type, 0, 0, var$0, e->getToIndex()));
 	firePropertyChange($AccessibleContext::ACCESSIBLE_TABLE_MODEL_CHANGED, nullptr, change);
 }
 
@@ -336,25 +218,22 @@ void JTable$AccessibleJTable::columnRemoved($TableColumnModelEvent* e) {
 	$init($AccessibleContext);
 	firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, nullptr, nullptr);
 	int32_t type = $AccessibleTableModelChange::DELETE;
-	int32_t var$0 = type;
-	int32_t var$1 = $nc(e)->getFromIndex();
-	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, var$0, 0, 0, var$1, e->getToIndex()));
+	int32_t var$0 = $nc(e)->getFromIndex();
+	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, type, 0, 0, var$0, e->getToIndex()));
 	firePropertyChange($AccessibleContext::ACCESSIBLE_TABLE_MODEL_CHANGED, nullptr, change);
 }
 
 void JTable$AccessibleJTable::columnMoved($TableColumnModelEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AccessibleContext);
 	firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, nullptr, nullptr);
 	int32_t type = $AccessibleTableModelChange::DELETE;
-	int32_t var$0 = type;
-	int32_t var$1 = $nc(e)->getFromIndex();
-	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, var$0, 0, 0, var$1, e->getFromIndex()));
+	int32_t var$0 = $nc(e)->getFromIndex();
+	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, type, 0, 0, var$0, e->getFromIndex()));
 	firePropertyChange($AccessibleContext::ACCESSIBLE_TABLE_MODEL_CHANGED, nullptr, change);
 	int32_t type2 = $AccessibleTableModelChange::INSERT;
-	int32_t var$2 = type2;
-	int32_t var$3 = $nc(e)->getToIndex();
-	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change2, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, var$2, 0, 0, var$3, e->getToIndex()));
+	int32_t var$1 = e->getToIndex();
+	$var($JTable$AccessibleJTable$AccessibleJTableModelChange, change2, $new($JTable$AccessibleJTable$AccessibleJTableModelChange, this, type2, 0, 0, var$1, e->getToIndex()));
 	firePropertyChange($AccessibleContext::ACCESSIBLE_TABLE_MODEL_CHANGED, nullptr, change2);
 }
 
@@ -375,13 +254,13 @@ void JTable$AccessibleJTable::editingCanceled($ChangeEvent* e) {
 }
 
 void JTable$AccessibleJTable::valueChanged($ListSelectionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AccessibleContext);
 	$var($String, var$0, $AccessibleContext::ACCESSIBLE_SELECTION_PROPERTY);
-	$var($Object, var$1, $of($Boolean::valueOf(false)));
+	$var($Object, var$1, $Boolean::valueOf(false));
 	firePropertyChange(var$0, var$1, $($Boolean::valueOf(true)));
-	int32_t focusedRow = $nc($(this->this$0->getSelectionModel()))->getLeadSelectionIndex();
-	int32_t focusedCol = $nc($($nc($(this->this$0->getColumnModel()))->getSelectionModel()))->getLeadSelectionIndex();
+	int32_t focusedRow = $$nc(this->this$0->getSelectionModel())->getLeadSelectionIndex();
+	int32_t focusedCol = $$nc($$nc(this->this$0->getColumnModel())->getSelectionModel())->getLeadSelectionIndex();
 	if (focusedRow != this->previousFocusedRow || focusedCol != this->previousFocusedCol) {
 		$var($Accessible, oldA, getAccessibleAt(this->previousFocusedRow, this->previousFocusedCol));
 		$var($Accessible, newA, getAccessibleAt(focusedRow, focusedCol));
@@ -444,10 +323,10 @@ int32_t JTable$AccessibleJTable::getAccessibleSelectionCount() {
 	if (this->this$0->cellSelectionEnabled) {
 		return rowsSel * colsSel;
 	} else {
-		bool var$1 = this->this$0->getRowSelectionAllowed();
-		if (var$1 && this->this$0->getColumnSelectionAllowed()) {
-			int32_t var$2 = rowsSel * this->this$0->getColumnCount();
-			return var$2 + colsSel * this->this$0->getRowCount() - rowsSel * colsSel;
+		bool var$0 = this->this$0->getRowSelectionAllowed();
+		if (var$0 && this->this$0->getColumnSelectionAllowed()) {
+			int32_t var$1 = rowsSel * this->this$0->getColumnCount();
+			return var$1 + colsSel * this->this$0->getRowCount() - rowsSel * colsSel;
 		} else if (this->this$0->getRowSelectionAllowed()) {
 			return rowsSel * this->this$0->getColumnCount();
 		} else if (this->this$0->getColumnSelectionAllowed()) {
@@ -459,7 +338,7 @@ int32_t JTable$AccessibleJTable::getAccessibleSelectionCount() {
 }
 
 $Accessible* JTable$AccessibleJTable::getAccessibleSelection(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < 0 || i > getAccessibleSelectionCount()) {
 		return nullptr;
 	}
@@ -476,15 +355,15 @@ $Accessible* JTable$AccessibleJTable::getAccessibleSelection(int32_t i) {
 		c = $nc(colIndicies)->get($mod(i, colsSel));
 		return getAccessibleChild((r * ttlCols) + c);
 	} else {
-		bool var$1 = this->this$0->getRowSelectionAllowed();
-		if (var$1 && this->this$0->getColumnSelectionAllowed()) {
+		bool var$0 = this->this$0->getRowSelectionAllowed();
+		if (var$0 && this->this$0->getColumnSelectionAllowed()) {
 			int32_t curIndex = i;
 			int32_t IN_ROW = 0;
 			int32_t NOT_IN_ROW = 1;
 			int32_t state = ($nc(rowIndicies)->get(0) == 0 ? IN_ROW : NOT_IN_ROW);
 			int32_t j = 0;
 			int32_t prevRow = -1;
-			while (j < $nc(rowIndicies)->length) {
+			while (j < rowIndicies->length) {
 				do {
 					if (state == IN_ROW) {
 						goto case$0;
@@ -495,39 +374,35 @@ $Accessible* JTable$AccessibleJTable::getAccessibleSelection(int32_t i) {
 					break;
 case$0:
 					// IN_ROW
-					{
-						if (curIndex < ttlCols) {
-							c = $mod(curIndex, ttlCols);
-							r = rowIndicies->get(j);
-							return getAccessibleChild((r * ttlCols) + c);
-						} else {
-							curIndex -= ttlCols;
-						}
-						if (j + 1 == rowIndicies->length || rowIndicies->get(j) != rowIndicies->get(j + 1) - 1) {
-							state = NOT_IN_ROW;
-							prevRow = rowIndicies->get(j);
-						}
-						++j;
-						break;
+					if (curIndex < ttlCols) {
+						c = $mod(curIndex, ttlCols);
+						r = rowIndicies->get(j);
+						return getAccessibleChild((r * ttlCols) + c);
+					} else {
+						curIndex -= ttlCols;
 					}
+					if (j + 1 == rowIndicies->length || rowIndicies->get(j) != rowIndicies->get(j + 1) - 1) {
+						state = NOT_IN_ROW;
+						prevRow = rowIndicies->get(j);
+					}
+					++j;
+					break;
 case$1:
 					// NOT_IN_ROW
-					{
-						if (curIndex < (colsSel * (rowIndicies->get(j) - (prevRow == -1 ? 0 : (prevRow + 1))))) {
-							c = $nc(colIndicies)->get($mod(curIndex, colsSel));
-							r = (j > 0 ? rowIndicies->get(j - 1) + 1 : 0) + $div(curIndex, colsSel);
-							return getAccessibleChild((r * ttlCols) + c);
-						} else {
-							curIndex -= colsSel * (rowIndicies->get(j) - (prevRow == -1 ? 0 : (prevRow + 1)));
-						}
-						state = IN_ROW;
-						break;
+					if (curIndex < (colsSel * (rowIndicies->get(j) - (prevRow == -1 ? 0 : (prevRow + 1))))) {
+						c = $nc(colIndicies)->get($mod(curIndex, colsSel));
+						r = (j > 0 ? rowIndicies->get(j - 1) + 1 : 0) + $div(curIndex, colsSel);
+						return getAccessibleChild((r * ttlCols) + c);
+					} else {
+						curIndex -= colsSel * (rowIndicies->get(j) - (prevRow == -1 ? 0 : (prevRow + 1)));
 					}
+					state = IN_ROW;
+					break;
 				} while (false);
 			}
 			if (curIndex < (colsSel * (ttlRows - (prevRow == -1 ? 0 : (prevRow + 1))))) {
 				c = $nc(colIndicies)->get($mod(curIndex, colsSel));
-				r = $nc(rowIndicies)->get(j - 1) + $div(curIndex, colsSel) + 1;
+				r = rowIndicies->get(j - 1) + $div(curIndex, colsSel) + 1;
 				return getAccessibleChild((r * ttlCols) + c);
 			} else {
 			}
@@ -642,7 +517,7 @@ void JTable$AccessibleJTable::setAccessibleRowHeader($AccessibleTable* a) {
 
 $AccessibleTable* JTable$AccessibleJTable::getAccessibleColumnHeader() {
 	$var($JTableHeader, header, this->this$0->getTableHeader());
-	return header == nullptr ? ($AccessibleTable*)nullptr : static_cast<$AccessibleTable*>($new($JTable$AccessibleJTable$AccessibleTableHeader, this, header));
+	return header == nullptr ? ($AccessibleTable*)nullptr : $cast($AccessibleTable, $new($JTable$AccessibleJTable$AccessibleTableHeader, this, header));
 }
 
 void JTable$AccessibleJTable::setAccessibleColumnHeader($AccessibleTable* a) {
@@ -655,7 +530,7 @@ $Accessible* JTable$AccessibleJTable::getAccessibleRowDescription(int32_t r) {
 	if (this->rowDescription == nullptr) {
 		return nullptr;
 	} else {
-		return $nc(this->rowDescription)->get(r);
+		return this->rowDescription->get(r);
 	}
 }
 
@@ -677,7 +552,7 @@ $Accessible* JTable$AccessibleJTable::getAccessibleColumnDescription(int32_t c) 
 	if (this->columnDescription == nullptr) {
 		return nullptr;
 	} else {
-		return $nc(this->columnDescription)->get(c);
+		return this->columnDescription->get(c);
 	}
 }
 
@@ -738,7 +613,105 @@ JTable$AccessibleJTable::JTable$AccessibleJTable() {
 }
 
 $Class* JTable$AccessibleJTable::load$($String* name, bool initialize) {
-	$loadClass(JTable$AccessibleJTable, name, initialize, &_JTable$AccessibleJTable_ClassInfo_, allocate$JTable$AccessibleJTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable, this$0)},
+		{"previousFocusedRow", "I", nullptr, 0, $field(JTable$AccessibleJTable, previousFocusedRow)},
+		{"previousFocusedCol", "I", nullptr, 0, $field(JTable$AccessibleJTable, previousFocusedCol)},
+		{"caption", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, caption)},
+		{"summary", "Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, summary)},
+		{"rowDescription", "[Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, rowDescription)},
+		{"columnDescription", "[Ljavax/accessibility/Accessible;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable, columnDescription)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTable;)V", nullptr, $PROTECTED, $method(JTable$AccessibleJTable, init$, void, $JTable*)},
+		{"addAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, addAccessibleSelection, void, int32_t)},
+		{"clearAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, clearAccessibleSelection, void)},
+		{"columnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnAdded, void, $TableColumnModelEvent*)},
+		{"columnMarginChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnMarginChanged, void, $ChangeEvent*)},
+		{"columnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnMoved, void, $TableColumnModelEvent*)},
+		{"columnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnRemoved, void, $TableColumnModelEvent*)},
+		{"columnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, columnSelectionChanged, void, $ListSelectionEvent*)},
+		{"editingCanceled", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, editingCanceled, void, $ChangeEvent*)},
+		{"editingStopped", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, editingStopped, void, $ChangeEvent*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleAt", "(II)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleAt, $Accessible*, int32_t, int32_t)},
+		{"getAccessibleCaption", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleCaption, $Accessible*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleColumn", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumn, int32_t, int32_t)},
+		{"getAccessibleColumnAtIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnAtIndex, int32_t, int32_t)},
+		{"getAccessibleColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnCount, int32_t)},
+		{"getAccessibleColumnDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnDescription, $Accessible*, int32_t)},
+		{"getAccessibleColumnExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnExtentAt, int32_t, int32_t, int32_t)},
+		{"getAccessibleColumnHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleColumnHeader, $AccessibleTable*)},
+		{"getAccessibleIndex", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleIndex, int32_t, int32_t, int32_t)},
+		{"getAccessibleIndexAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleIndexAt, int32_t, int32_t, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleRow", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRow, int32_t, int32_t)},
+		{"getAccessibleRowAtIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowAtIndex, int32_t, int32_t)},
+		{"getAccessibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowCount, int32_t)},
+		{"getAccessibleRowDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowDescription, $Accessible*, int32_t)},
+		{"getAccessibleRowExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowExtentAt, int32_t, int32_t, int32_t)},
+		{"getAccessibleRowHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleRowHeader, $AccessibleTable*)},
+		{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSelection, $AccessibleSelection*)},
+		{"getAccessibleSelection", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSelection, $Accessible*, int32_t)},
+		{"getAccessibleSelectionCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSelectionCount, int32_t)},
+		{"getAccessibleSummary", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleSummary, $Accessible*)},
+		{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getAccessibleTable, $AccessibleTable*)},
+		{"getSelectedAccessibleColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getSelectedAccessibleColumns, $ints*)},
+		{"getSelectedAccessibleRows", "()[I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, getSelectedAccessibleRows, $ints*)},
+		{"isAccessibleChildSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleChildSelected, bool, int32_t)},
+		{"isAccessibleColumnSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleColumnSelected, bool, int32_t)},
+		{"isAccessibleRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleRowSelected, bool, int32_t)},
+		{"isAccessibleSelected", "(II)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, isAccessibleSelected, bool, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeAccessibleSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, removeAccessibleSelection, void, int32_t)},
+		{"selectAllAccessibleSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, selectAllAccessibleSelection, void)},
+		{"setAccessibleCaption", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleCaption, void, $Accessible*)},
+		{"setAccessibleColumnDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleColumnDescription, void, int32_t, $Accessible*)},
+		{"setAccessibleColumnHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleColumnHeader, void, $AccessibleTable*)},
+		{"setAccessibleRowDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleRowDescription, void, int32_t, $Accessible*)},
+		{"setAccessibleRowHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleRowHeader, void, $AccessibleTable*)},
+		{"setAccessibleSummary", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, setAccessibleSummary, void, $Accessible*)},
+		{"tableChanged", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, tableChanged, void, $TableModelEvent*)},
+		{"tableRowsDeleted", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, tableRowsDeleted, void, $TableModelEvent*)},
+		{"tableRowsInserted", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, tableRowsInserted, void, $TableModelEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{"javax.swing.JTable$AccessibleJTable$AccessibleJTableHeaderCell", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableHeaderCell", $PRIVATE},
+		{"javax.swing.JTable$AccessibleJTable$AccessibleJTableCell", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableCell", $PROTECTED},
+		{"javax.swing.JTable$AccessibleJTable$AccessibleTableHeader", "javax.swing.JTable$AccessibleJTable", "AccessibleTableHeader", $PRIVATE},
+		{"javax.swing.JTable$AccessibleJTable$AccessibleJTableModelChange", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableModelChange", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTable$AccessibleJTable",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.accessibility.AccessibleSelection,javax.swing.event.ListSelectionListener,javax.swing.event.TableModelListener,javax.swing.event.TableColumnModelListener,javax.swing.event.CellEditorListener,java.beans.PropertyChangeListener,javax.accessibility.AccessibleExtendedTable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$AccessibleJTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTable$AccessibleJTable));
+	});
 	return class$;
 }
 

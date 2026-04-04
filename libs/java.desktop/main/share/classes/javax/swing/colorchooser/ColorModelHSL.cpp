@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/ColorModelHSL.h>
-
 #include <javax/swing/colorchooser/ColorModel.h>
 #include <jcpp.h>
 
@@ -11,34 +10,6 @@ using $ColorModel = ::javax::swing::colorchooser::ColorModel;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$MethodInfo _ColorModelHSL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ColorModelHSL, init$, void)},
-	{"HSLtoRGB", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSL, HSLtoRGB, $floats*, $floats*, $floats*)},
-	{"RGBtoHSL", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSL, RGBtoHSL, $floats*, $floats*, $floats*)},
-	{"getColor", "([F)I", nullptr, 0, $virtualMethod(ColorModelHSL, getColor, int32_t, $floats*)},
-	{"getDefault", "(I)F", nullptr, 0, $virtualMethod(ColorModelHSL, getDefault, float, int32_t)},
-	{"getHue", "(FFFFF)F", nullptr, $STATIC, $staticMethod(ColorModelHSL, getHue, float, float, float, float, float, float)},
-	{"getMaximum", "(I)I", nullptr, 0, $virtualMethod(ColorModelHSL, getMaximum, int32_t, int32_t)},
-	{"max", "(FFF)F", nullptr, $STATIC, $staticMethod(ColorModelHSL, max, float, float, float, float)},
-	{"min", "(FFF)F", nullptr, $STATIC, $staticMethod(ColorModelHSL, min, float, float, float, float)},
-	{"normalize", "(FFF)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSL, normalize, float, float, float, float)},
-	{"setColor", "(I[F)V", nullptr, 0, $virtualMethod(ColorModelHSL, setColor, void, int32_t, $floats*)},
-	{}
-};
-
-$ClassInfo _ColorModelHSL_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.colorchooser.ColorModelHSL",
-	"javax.swing.colorchooser.ColorModel",
-	nullptr,
-	nullptr,
-	_ColorModelHSL_MethodInfo_
-};
-
-$Object* allocate$ColorModelHSL($Class* clazz) {
-	return $of($alloc(ColorModelHSL));
-}
 
 void ColorModelHSL::init$() {
 	$ColorModel::init$("hsl"_s, $$new($StringArray, {
@@ -52,11 +23,11 @@ void ColorModelHSL::init$() {
 void ColorModelHSL::setColor(int32_t color, $floats* space) {
 	$ColorModel::setColor(color, space);
 	RGBtoHSL(space, space);
-	$nc(space)->set(3, 1.0f - space->get(3));
+	$nc(space)->set(3, 1.0f - $nc(space)->get(3));
 }
 
 int32_t ColorModelHSL::getColor($floats* space) {
-	$nc(space)->set(3, 1.0f - space->get(3));
+	$nc(space)->set(3, 1.0f - $nc(space)->get(3));
 	HSLtoRGB(space, space);
 	return $ColorModel::getColor(space);
 }
@@ -99,14 +70,14 @@ $floats* ColorModelHSL::RGBtoHSL($floats* rgb, $floats* hsl$renamed) {
 	if (hsl == nullptr) {
 		$assign(hsl, $new($floats, 3));
 	}
-	float max = ColorModelHSL::max($nc(rgb)->get(0), rgb->get(1), rgb->get(2));
-	float min = ColorModelHSL::min($nc(rgb)->get(0), rgb->get(1), rgb->get(2));
+	float max = ColorModelHSL::max($nc(rgb)->get(0), $nc(rgb)->get(1), $nc(rgb)->get(2));
+	float min = ColorModelHSL::min(rgb->get(0), rgb->get(1), rgb->get(2));
 	float summa = max + min;
 	float saturation = max - min;
 	if (saturation > 0.0f) {
 		saturation /= (summa > 1.0f) ? 2.0f - summa : summa;
 	}
-	$nc(hsl)->set(0, getHue($nc(rgb)->get(0), rgb->get(1), rgb->get(2), max, min));
+	$nc(hsl)->set(0, getHue(rgb->get(0), rgb->get(1), rgb->get(2), max, min));
 	hsl->set(1, saturation);
 	hsl->set(2, summa / 2.0f);
 	return hsl;
@@ -161,7 +132,31 @@ ColorModelHSL::ColorModelHSL() {
 }
 
 $Class* ColorModelHSL::load$($String* name, bool initialize) {
-	$loadClass(ColorModelHSL, name, initialize, &_ColorModelHSL_ClassInfo_, allocate$ColorModelHSL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ColorModelHSL, init$, void)},
+		{"HSLtoRGB", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSL, HSLtoRGB, $floats*, $floats*, $floats*)},
+		{"RGBtoHSL", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSL, RGBtoHSL, $floats*, $floats*, $floats*)},
+		{"getColor", "([F)I", nullptr, 0, $virtualMethod(ColorModelHSL, getColor, int32_t, $floats*)},
+		{"getDefault", "(I)F", nullptr, 0, $virtualMethod(ColorModelHSL, getDefault, float, int32_t)},
+		{"getHue", "(FFFFF)F", nullptr, $STATIC, $staticMethod(ColorModelHSL, getHue, float, float, float, float, float, float)},
+		{"getMaximum", "(I)I", nullptr, 0, $virtualMethod(ColorModelHSL, getMaximum, int32_t, int32_t)},
+		{"max", "(FFF)F", nullptr, $STATIC, $staticMethod(ColorModelHSL, max, float, float, float, float)},
+		{"min", "(FFF)F", nullptr, $STATIC, $staticMethod(ColorModelHSL, min, float, float, float, float)},
+		{"normalize", "(FFF)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSL, normalize, float, float, float, float)},
+		{"setColor", "(I[F)V", nullptr, 0, $virtualMethod(ColorModelHSL, setColor, void, int32_t, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.colorchooser.ColorModelHSL",
+		"javax.swing.colorchooser.ColorModel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ColorModelHSL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorModelHSL);
+	});
 	return class$;
 }
 

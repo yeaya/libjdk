@@ -1,5 +1,4 @@
 #include <BodyProcessorInputStreamTest.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
@@ -32,7 +31,6 @@
 
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -45,7 +43,6 @@ using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 using $Charset = ::java::nio::charset::Charset;
@@ -64,27 +61,24 @@ public:
 	virtual $Object* apply(Object$* x) override {
 		 return $of(BodyProcessorInputStreamTest::lambda$getCharset$0($cast($String, x)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::load$($String* name, bool initialize) {
-	$loadClass(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0);
+	});
 	return class$;
 }
 $Class* BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::class$ = nullptr;
@@ -97,27 +91,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($String, inst$)->trim());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BodyProcessorInputStreamTest$$Lambda$trim$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BodyProcessorInputStreamTest$$Lambda$trim$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$trim$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$trim$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo BodyProcessorInputStreamTest$$Lambda$trim$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BodyProcessorInputStreamTest$$Lambda$trim$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* BodyProcessorInputStreamTest$$Lambda$trim$1::load$($String* name, bool initialize) {
-	$loadClass(BodyProcessorInputStreamTest$$Lambda$trim$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$trim$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$trim$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BodyProcessorInputStreamTest$$Lambda$trim$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BodyProcessorInputStreamTest$$Lambda$trim$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyProcessorInputStreamTest$$Lambda$trim$1);
+	});
 	return class$;
 }
 $Class* BodyProcessorInputStreamTest$$Lambda$trim$1::class$ = nullptr;
@@ -130,27 +121,24 @@ public:
 	virtual bool test(Object$* x) override {
 		 return BodyProcessorInputStreamTest::lambda$getCharset$1($cast($String, x));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::load$($String* name, bool initialize) {
-	$loadClass(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2);
+	});
 	return class$;
 }
 $Class* BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::class$ = nullptr;
@@ -163,27 +151,24 @@ public:
 	virtual $Object* apply(Object$* x) override {
 		 return $of(BodyProcessorInputStreamTest::lambda$getCharset$2($cast($String, x)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::load$($String* name, bool initialize) {
-	$loadClass(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3);
+	});
 	return class$;
 }
 $Class* BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::class$ = nullptr;
@@ -194,61 +179,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($Charset::forName($cast($String, arg0)));
+		 return $Charset::forName($cast($String, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BodyProcessorInputStreamTest$$Lambda$forName$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BodyProcessorInputStreamTest$$Lambda$forName$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$forName$4, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$forName$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo BodyProcessorInputStreamTest$$Lambda$forName$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BodyProcessorInputStreamTest$$Lambda$forName$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* BodyProcessorInputStreamTest$$Lambda$forName$4::load$($String* name, bool initialize) {
-	$loadClass(BodyProcessorInputStreamTest$$Lambda$forName$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$forName$4, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$forName$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BodyProcessorInputStreamTest$$Lambda$forName$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BodyProcessorInputStreamTest$$Lambda$forName$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyProcessorInputStreamTest$$Lambda$forName$4);
+	});
 	return class$;
 }
 $Class* BodyProcessorInputStreamTest$$Lambda$forName$4::class$ = nullptr;
-
-$FieldInfo _BodyProcessorInputStreamTest_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BodyProcessorInputStreamTest, $assertionsDisabled)},
-	{"DEBUG", "Z", nullptr, $PUBLIC | $STATIC, $staticField(BodyProcessorInputStreamTest, DEBUG)},
-	{}
-};
-
-$MethodInfo _BodyProcessorInputStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest, init$, void)},
-	{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $staticMethod(BodyProcessorInputStreamTest, getCharset, $Optional*, $HttpHeaders*)},
-	{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$0, $String*, $String*)},
-	{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$1, bool, $String*)},
-	{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$2, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BodyProcessorInputStreamTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _BodyProcessorInputStreamTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BodyProcessorInputStreamTest",
-	"java.lang.Object",
-	nullptr,
-	_BodyProcessorInputStreamTest_FieldInfo_,
-	_BodyProcessorInputStreamTest_MethodInfo_
-};
-
-$Object* allocate$BodyProcessorInputStreamTest($Class* clazz) {
-	return $of($alloc(BodyProcessorInputStreamTest));
-}
 
 bool BodyProcessorInputStreamTest::$assertionsDisabled = false;
 bool BodyProcessorInputStreamTest::DEBUG = false;
@@ -258,13 +211,13 @@ void BodyProcessorInputStreamTest::init$() {
 
 $Optional* BodyProcessorInputStreamTest::getCharset($HttpHeaders* headers) {
 	$init(BodyProcessorInputStreamTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Optional, contentType, $nc(headers)->firstValue("Content-Type"_s));
 	$var($Optional, charset, $Optional::empty());
 	if ($nc(contentType)->isPresent()) {
-		$var($StringArray, values, $nc(($cast($String, $(contentType->get()))))->split(";"_s));
+		$var($StringArray, values, $$sure($String, contentType->get())->split(";"_s));
 		if ($nc(values->get(0))->startsWith("text/"_s)) {
-			$assign(charset, $nc($($Optional::of($cast($String, $($nc($($nc($($nc($($nc($($nc($($nc($($Stream::of(values)))->map(static_cast<$Function*>($$new(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0)))))->map(static_cast<$Function*>($$new(BodyProcessorInputStreamTest$$Lambda$trim$1)))))->filter(static_cast<$Predicate*>($$new(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2)))))->map(static_cast<$Function*>($$new(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3)))))->findFirst()))->orElse("ISO-8859-1"_s))))))->map(static_cast<$Function*>($$new(BodyProcessorInputStreamTest$$Lambda$forName$4))));
+			$assign(charset, $$nc($Optional::of($$cast($String, $$nc($$nc($$nc($$nc($$nc($$nc($Stream::of(values))->map($$new(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0)))->map($$new(BodyProcessorInputStreamTest$$Lambda$trim$1)))->filter($$new(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2)))->map($$new(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3)))->findFirst())->orElse("ISO-8859-1"_s))))->map($$new(BodyProcessorInputStreamTest$$Lambda$forName$4)));
 		}
 	}
 	return charset;
@@ -272,9 +225,9 @@ $Optional* BodyProcessorInputStreamTest::getCharset($HttpHeaders* headers) {
 
 void BodyProcessorInputStreamTest::main($StringArray* args) {
 	$init(BodyProcessorInputStreamTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpClient, client, $HttpClient::newHttpClient());
-	$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder($$new($URI, "http://hg.openjdk.java.net/jdk9/sandbox/jdk/shortlog/http-client-branch/"_s))))->GET()))->build());
+	$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder($$new($URI, "http://hg.openjdk.java.net/jdk9/sandbox/jdk/shortlog/http-client-branch/"_s)))->GET())->build());
 	$var($CompletableFuture, handle, $nc(client)->sendAsync(request, $($HttpResponse$BodyHandlers::ofInputStream())));
 	if (BodyProcessorInputStreamTest::DEBUG) {
 		$nc($System::err)->println("Request sent"_s);
@@ -284,85 +237,81 @@ void BodyProcessorInputStreamTest::main($StringArray* args) {
 	$var($Optional, charset, getCharset(responseHeaders));
 	{
 		$var($InputStream, is, $cast($InputStream, pending->body()));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($Reader, r, $new($InputStreamReader, is, $$cast($Charset, $nc(charset)->get())));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($Reader, r, $new($InputStreamReader, is, $cast($Charset, $($nc(charset)->get()))));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($chars, buff, $new($chars, 32));
-								int32_t off = 0;
-								int32_t n = 0;
-								if (BodyProcessorInputStreamTest::DEBUG) {
-									$nc($System::err)->println("Start receiving response body"_s);
-								}
-								if (BodyProcessorInputStreamTest::DEBUG) {
-									$nc($System::err)->println($$str({"Charset: "_s, $($nc(charset)->get())}));
-								}
-								while ((n = r->read(buff, off, buff->length - off)) > 0) {
-									if (!BodyProcessorInputStreamTest::$assertionsDisabled && !((buff->length - off) > 0)) {
-										$throwNew($AssertionError);
-									}
-									if (!BodyProcessorInputStreamTest::$assertionsDisabled && !(n <= (buff->length - off))) {
-										$throwNew($AssertionError);
-									}
-									if (n == (buff->length - off)) {
-										$nc($System::out)->print(buff);
-										off = 0;
-									} else {
-										off += n;
-									}
-									if (!BodyProcessorInputStreamTest::$assertionsDisabled && !(off < buff->length)) {
-										$throwNew($AssertionError);
-									}
-								}
-								if (!BodyProcessorInputStreamTest::$assertionsDisabled && !(off >= 0 && off < buff->length)) {
-									$throwNew($AssertionError);
-								}
-								for (int32_t i = 0; i < off; ++i) {
-									$nc($System::out)->print(buff->get(i));
-								}
-								$nc($System::out)->println("Done!"_s);
-							} catch ($Throwable& t$) {
-								try {
-									r->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
+					try {
+						$var($chars, buff, $new($chars, 32));
+						int32_t off = 0;
+						int32_t n = 0;
+						if (BodyProcessorInputStreamTest::DEBUG) {
+							$nc($System::err)->println("Start receiving response body"_s);
+						}
+						if (BodyProcessorInputStreamTest::DEBUG) {
+							$nc($System::err)->println($$str({"Charset: "_s, $(charset->get())}));
+						}
+						while ((n = r->read(buff, off, buff->length - off)) > 0) {
+							if (!BodyProcessorInputStreamTest::$assertionsDisabled && !((buff->length - off) > 0)) {
+								$throwNew($AssertionError);
 							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							r->close();
+							if (!BodyProcessorInputStreamTest::$assertionsDisabled && !(n <= (buff->length - off))) {
+								$throwNew($AssertionError);
+							}
+							if (n == (buff->length - off)) {
+								$nc($System::out)->print(buff);
+								off = 0;
+							} else {
+								off += n;
+							}
+							if (!BodyProcessorInputStreamTest::$assertionsDisabled && !(off < buff->length)) {
+								$throwNew($AssertionError);
+							}
 						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
+						if (!BodyProcessorInputStreamTest::$assertionsDisabled && !(off >= 0 && off < buff->length)) {
+							$throwNew($AssertionError);
 						}
-					}
-				} catch ($Throwable& t$) {
-					if (is != nullptr) {
+						for (int32_t i = 0; i < off; ++i) {
+							$nc($System::out)->print(buff->get(i));
+						}
+						$nc($System::out)->println("Done!"_s);
+					} catch ($Throwable& t$) {
 						try {
-							is->close();
+							r->close();
 						} catch ($Throwable& x2) {
 							t$->addSuppressed(x2);
 						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					r->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
 				if (is != nullptr) {
-					is->close();
+					try {
+						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			if (is != nullptr) {
+				is->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -383,7 +332,7 @@ $String* BodyProcessorInputStreamTest::lambda$getCharset$0($String* x) {
 	return $nc(x)->toLowerCase($Locale::ROOT);
 }
 
-void clinit$BodyProcessorInputStreamTest($Class* class$) {
+void BodyProcessorInputStreamTest::clinit$($Class* clazz) {
 	BodyProcessorInputStreamTest::$assertionsDisabled = !BodyProcessorInputStreamTest::class$->desiredAssertionStatus();
 	BodyProcessorInputStreamTest::DEBUG = $Boolean::getBoolean("test.debug"_s);
 }
@@ -393,23 +342,47 @@ BodyProcessorInputStreamTest::BodyProcessorInputStreamTest() {
 
 $Class* BodyProcessorInputStreamTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::classInfo$.name)) {
+		if (name->equals("BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0")) {
 			return BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::load$(name, initialize);
 		}
-		if (name->equals(BodyProcessorInputStreamTest$$Lambda$trim$1::classInfo$.name)) {
+		if (name->equals("BodyProcessorInputStreamTest$$Lambda$trim$1")) {
 			return BodyProcessorInputStreamTest$$Lambda$trim$1::load$(name, initialize);
 		}
-		if (name->equals(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::classInfo$.name)) {
+		if (name->equals("BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2")) {
 			return BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::load$(name, initialize);
 		}
-		if (name->equals(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::classInfo$.name)) {
+		if (name->equals("BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3")) {
 			return BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::load$(name, initialize);
 		}
-		if (name->equals(BodyProcessorInputStreamTest$$Lambda$forName$4::classInfo$.name)) {
+		if (name->equals("BodyProcessorInputStreamTest$$Lambda$forName$4")) {
 			return BodyProcessorInputStreamTest$$Lambda$forName$4::load$(name, initialize);
 		}
 	}
-	$loadClass(BodyProcessorInputStreamTest, name, initialize, &_BodyProcessorInputStreamTest_ClassInfo_, clinit$BodyProcessorInputStreamTest, allocate$BodyProcessorInputStreamTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BodyProcessorInputStreamTest, $assertionsDisabled)},
+		{"DEBUG", "Z", nullptr, $PUBLIC | $STATIC, $staticField(BodyProcessorInputStreamTest, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest, init$, void)},
+		{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $staticMethod(BodyProcessorInputStreamTest, getCharset, $Optional*, $HttpHeaders*)},
+		{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$0, $String*, $String*)},
+		{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$1, bool, $String*)},
+		{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$2, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BodyProcessorInputStreamTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BodyProcessorInputStreamTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BodyProcessorInputStreamTest, name, initialize, &classInfo$$, BodyProcessorInputStreamTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyProcessorInputStreamTest);
+	});
 	return class$;
 }
 

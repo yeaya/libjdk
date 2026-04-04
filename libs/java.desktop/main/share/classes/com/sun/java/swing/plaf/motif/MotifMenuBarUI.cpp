@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifMenuBarUI.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicMenuBarUI.h>
@@ -18,25 +17,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifMenuBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifMenuBarUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifMenuBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifMenuBarUI",
-	"javax.swing.plaf.basic.BasicMenuBarUI",
-	nullptr,
-	nullptr,
-	_MotifMenuBarUI_MethodInfo_
-};
-
-$Object* allocate$MotifMenuBarUI($Class* clazz) {
-	return $of($alloc(MotifMenuBarUI));
-}
-
 void MotifMenuBarUI::init$() {
 	$BasicMenuBarUI::init$();
 }
@@ -50,7 +30,22 @@ MotifMenuBarUI::MotifMenuBarUI() {
 }
 
 $Class* MotifMenuBarUI::load$($String* name, bool initialize) {
-	$loadClass(MotifMenuBarUI, name, initialize, &_MotifMenuBarUI_ClassInfo_, allocate$MotifMenuBarUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifMenuBarUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifMenuBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifMenuBarUI",
+		"javax.swing.plaf.basic.BasicMenuBarUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifMenuBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifMenuBarUI);
+	});
 	return class$;
 }
 

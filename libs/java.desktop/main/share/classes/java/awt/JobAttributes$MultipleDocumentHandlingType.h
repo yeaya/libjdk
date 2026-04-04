@@ -24,6 +24,7 @@ class $export JobAttributes$MultipleDocumentHandlingType : public ::java::awt::A
 	$class(JobAttributes$MultipleDocumentHandlingType, 0, ::java::awt::AttributeValue)
 public:
 	JobAttributes$MultipleDocumentHandlingType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;

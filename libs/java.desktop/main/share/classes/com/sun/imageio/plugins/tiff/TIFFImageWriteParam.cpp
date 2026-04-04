@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriteParam.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
 #include <java/util/Locale.h>
 #include <javax/imageio/ImageWriteParam.h>
@@ -17,24 +16,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$MethodInfo _TIFFImageWriteParam_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(TIFFImageWriteParam, init$, void, $Locale*)},
-	{}
-};
-
-$ClassInfo _TIFFImageWriteParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFImageWriteParam",
-	"javax.imageio.ImageWriteParam",
-	nullptr,
-	nullptr,
-	_TIFFImageWriteParam_MethodInfo_
-};
-
-$Object* allocate$TIFFImageWriteParam($Class* clazz) {
-	return $of($alloc(TIFFImageWriteParam));
-}
-
 void TIFFImageWriteParam::init$($Locale* locale) {
 	$ImageWriteParam::init$(locale);
 	this->canWriteCompressed$ = true;
@@ -47,7 +28,21 @@ TIFFImageWriteParam::TIFFImageWriteParam() {
 }
 
 $Class* TIFFImageWriteParam::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageWriteParam, name, initialize, &_TIFFImageWriteParam_ClassInfo_, allocate$TIFFImageWriteParam);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(TIFFImageWriteParam, init$, void, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFImageWriteParam",
+		"javax.imageio.ImageWriteParam",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageWriteParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageWriteParam);
+	});
 	return class$;
 }
 

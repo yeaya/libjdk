@@ -14,6 +14,7 @@ class EUC_KR$DecodeHolder : public ::java::lang::Object {
 	$class(EUC_KR$DecodeHolder, 0, ::java::lang::Object)
 public:
 	EUC_KR$DecodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cSBStr;
 	static $StringArray* b2cStr;

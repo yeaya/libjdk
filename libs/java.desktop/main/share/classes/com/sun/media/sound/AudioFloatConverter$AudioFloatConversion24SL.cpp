@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AudioFloatConverter$AudioFloatConversion24SL.h>
-
 #include <com/sun/media/sound/AudioFloatConverter.h>
 #include <jcpp.h>
 
@@ -14,38 +13,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _AudioFloatConverter$AudioFloatConversion24SL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AudioFloatConverter$AudioFloatConversion24SL, init$, void)},
-	{"toByteArray", "([FII[BI)[B", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion24SL, toByteArray, $bytes*, $floats*, int32_t, int32_t, $bytes*, int32_t)},
-	{"toFloatArray", "([BI[FII)[F", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion24SL, toFloatArray, $floats*, $bytes*, int32_t, $floats*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AudioFloatConverter$AudioFloatConversion24SL_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion24SL", "com.sun.media.sound.AudioFloatConverter", "AudioFloatConversion24SL", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AudioFloatConverter$AudioFloatConversion24SL_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion24SL",
-	"com.sun.media.sound.AudioFloatConverter",
-	nullptr,
-	nullptr,
-	_AudioFloatConverter$AudioFloatConversion24SL_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioFloatConverter$AudioFloatConversion24SL_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AudioFloatConverter"
-};
-
-$Object* allocate$AudioFloatConverter$AudioFloatConversion24SL($Class* clazz) {
-	return $of($alloc(AudioFloatConverter$AudioFloatConversion24SL));
-}
-
 void AudioFloatConverter$AudioFloatConversion24SL::init$() {
 	$AudioFloatConverter::init$();
 }
@@ -54,10 +21,10 @@ $floats* AudioFloatConverter$AudioFloatConversion24SL::toFloatArray($bytes* in_b
 	int32_t ix = in_offset;
 	int32_t ox = out_offset;
 	for (int32_t i = 0; i < out_len; ++i) {
-		int32_t var$1 = ((int32_t)($nc(in_buff)->get(ix++) & (uint32_t)255));
-		int32_t var$0 = var$1 | (((int32_t)(in_buff->get(ix++) & (uint32_t)255)) << 8);
-		int32_t x = var$0 | (((int32_t)(in_buff->get(ix++) & (uint32_t)255)) << 16);
-		if (x > 0x007FFFFF) {
+		int32_t var$1 = $nc(in_buff)->get(ix++) & 0xff;
+		int32_t var$0 = var$1 | ((in_buff->get(ix++) & 0xff) << 8);
+		int32_t x = var$0 | ((in_buff->get(ix++) & 0xff) << 16);
+		if (x > 0x007fffff) {
 			x -= 0x01000000;
 		}
 		$nc(out_buff)->set(ox++, x > 0 ? x / 8388607.0f : x / 8388608.0f);
@@ -85,7 +52,34 @@ AudioFloatConverter$AudioFloatConversion24SL::AudioFloatConverter$AudioFloatConv
 }
 
 $Class* AudioFloatConverter$AudioFloatConversion24SL::load$($String* name, bool initialize) {
-	$loadClass(AudioFloatConverter$AudioFloatConversion24SL, name, initialize, &_AudioFloatConverter$AudioFloatConversion24SL_ClassInfo_, allocate$AudioFloatConverter$AudioFloatConversion24SL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AudioFloatConverter$AudioFloatConversion24SL, init$, void)},
+		{"toByteArray", "([FII[BI)[B", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion24SL, toByteArray, $bytes*, $floats*, int32_t, int32_t, $bytes*, int32_t)},
+		{"toFloatArray", "([BI[FII)[F", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion24SL, toFloatArray, $floats*, $bytes*, int32_t, $floats*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion24SL", "com.sun.media.sound.AudioFloatConverter", "AudioFloatConversion24SL", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion24SL",
+		"com.sun.media.sound.AudioFloatConverter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AudioFloatConverter"
+	};
+	$loadClass(AudioFloatConverter$AudioFloatConversion24SL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFloatConverter$AudioFloatConversion24SL);
+	});
 	return class$;
 }
 

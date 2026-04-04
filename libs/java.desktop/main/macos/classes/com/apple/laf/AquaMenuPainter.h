@@ -51,6 +51,7 @@ class AquaMenuPainter : public ::java::lang::Object {
 	$class(AquaMenuPainter, 0, ::java::lang::Object)
 public:
 	AquaMenuPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void drawString(::java::awt::Graphics* g, ::javax::swing::JComponent* c, $String* text, int32_t underlinedChar, int32_t x, int32_t y, bool isEnabled, bool isSelected);
 	static $String* getKeyModifiersText(int32_t modifiers, bool isLeftToRight);

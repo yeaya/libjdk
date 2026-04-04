@@ -1,5 +1,4 @@
 #include <javax/swing/text/FlowView$FlowStrategy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
@@ -29,9 +28,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $Document = ::javax::swing::text::Document;
 using $FlowView = ::javax::swing::text::FlowView;
-using $Position = ::javax::swing::text::Position;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $TabExpander = ::javax::swing::text::TabExpander;
 using $TabableView = ::javax::swing::text::TabableView;
@@ -40,54 +37,6 @@ using $View = ::javax::swing::text::View;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _FlowView$FlowStrategy_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FlowView$FlowStrategy, $assertionsDisabled)},
-	{"damageStart", "Ljavax/swing/text/Position;", nullptr, 0, $field(FlowView$FlowStrategy, damageStart)},
-	{"viewBuffer", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/View;>;", 0, $field(FlowView$FlowStrategy, viewBuffer)},
-	{}
-};
-
-$MethodInfo _FlowView$FlowStrategy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowView$FlowStrategy, init$, void)},
-	{"addDamage", "(Ljavax/swing/text/FlowView;I)V", nullptr, 0, $virtualMethod(FlowView$FlowStrategy, addDamage, void, $FlowView*, int32_t)},
-	{"adjustRow", "(Ljavax/swing/text/FlowView;III)V", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, adjustRow, void, $FlowView*, int32_t, int32_t, int32_t)},
-	{"changedUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, changedUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
-	{"createView", "(Ljavax/swing/text/FlowView;III)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, createView, $View*, $FlowView*, int32_t, int32_t, int32_t)},
-	{"getLogicalView", "(Ljavax/swing/text/FlowView;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, getLogicalView, $View*, $FlowView*)},
-	{"insertUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, insertUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
-	{"layout", "(Ljavax/swing/text/FlowView;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, layout, void, $FlowView*)},
-	{"layoutRow", "(Ljavax/swing/text/FlowView;II)I", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, layoutRow, int32_t, $FlowView*, int32_t, int32_t)},
-	{"removeUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, removeUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
-	{"reparentViews", "(Ljavax/swing/text/View;I)V", nullptr, 0, $virtualMethod(FlowView$FlowStrategy, reparentViews, void, $View*, int32_t)},
-	{"unsetDamage", "()V", nullptr, 0, $virtualMethod(FlowView$FlowStrategy, unsetDamage, void)},
-	{}
-};
-
-$InnerClassInfo _FlowView$FlowStrategy_InnerClassesInfo_[] = {
-	{"javax.swing.text.FlowView$FlowStrategy", "javax.swing.text.FlowView", "FlowStrategy", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FlowView$FlowStrategy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.FlowView$FlowStrategy",
-	"java.lang.Object",
-	nullptr,
-	_FlowView$FlowStrategy_FieldInfo_,
-	_FlowView$FlowStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FlowView$FlowStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.FlowView"
-};
-
-$Object* allocate$FlowView$FlowStrategy($Class* clazz) {
-	return $of($alloc(FlowView$FlowStrategy));
-}
 
 bool FlowView$FlowStrategy::$assertionsDisabled = false;
 
@@ -98,9 +47,9 @@ void FlowView$FlowStrategy::init$() {
 void FlowView$FlowStrategy::addDamage($FlowView* fv, int32_t offset) {
 	bool var$0 = offset >= $nc(fv)->getStartOffset();
 	if (var$0 && offset < fv->getEndOffset()) {
-		if (this->damageStart == nullptr || offset < $nc(this->damageStart)->getOffset()) {
+		if (this->damageStart == nullptr || offset < this->damageStart->getOffset()) {
 			try {
-				$set(this, damageStart, $nc($(fv->getDocument()))->createPosition(offset));
+				$set(this, damageStart, $$nc(fv->getDocument())->createPosition(offset));
 			} catch ($BadLocationException& e) {
 				if (!FlowView$FlowStrategy::$assertionsDisabled) {
 					$throwNew($AssertionError);
@@ -157,7 +106,7 @@ $View* FlowView$FlowStrategy::getLogicalView($FlowView* fv) {
 }
 
 void FlowView$FlowStrategy::layout($FlowView* fv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, pool, getLogicalView(fv));
 	int32_t rowIndex = 0;
 	int32_t p0 = 0;
@@ -173,7 +122,7 @@ void FlowView$FlowStrategy::layout($FlowView* fv) {
 		if (rowIndex > 0) {
 			--rowIndex;
 		}
-		p0 = $nc($(fv->getView(rowIndex)))->getStartOffset();
+		p0 = $$nc(fv->getView(rowIndex))->getStartOffset();
 	} else {
 		rowIndex = 0;
 		p0 = fv->getStartOffset();
@@ -200,7 +149,7 @@ void FlowView$FlowStrategy::layout($FlowView* fv) {
 }
 
 int32_t FlowView$FlowStrategy::layoutRow($FlowView* fv, int32_t rowIndex, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, row, $nc(fv)->getView(rowIndex));
 	float x = (float)fv->getFlowStart(rowIndex);
 	float spanLeft = (float)fv->getFlowSpan(rowIndex);
@@ -235,7 +184,7 @@ int32_t FlowView$FlowStrategy::layoutRow($FlowView* fv, int32_t rowIndex, int32_
 		}
 		float chunkSpan = 0.0;
 		if (flowAxis == 0 && $instanceOf($TabableView, v)) {
-			chunkSpan = $nc(($cast($TabableView, v)))->getTabbedSpan(x, te);
+			chunkSpan = $cast($TabableView, v)->getTabbedSpan(x, te);
 		} else {
 			chunkSpan = v->getPreferredSpan(flowAxis);
 		}
@@ -246,22 +195,22 @@ int32_t FlowView$FlowStrategy::layoutRow($FlowView* fv, int32_t rowIndex, int32_
 			for (int32_t i = n - 1; i >= breakIndex; --i) {
 				$nc(this->viewBuffer)->remove(i);
 			}
-			$assign(v, v->breakView(flowAxis, v->getStartOffset(), breakX, breakSpan));
+			$assign(v, $nc(v)->breakView(flowAxis, $nc(v)->getStartOffset(), breakX, breakSpan));
 		}
 		spanLeft -= chunkSpan;
 		x += chunkSpan;
 		$nc(this->viewBuffer)->add(v);
-		pos = v->getEndOffset();
+		pos = $nc(v)->getEndOffset();
 		++n;
 	}
 	$var($ViewArray, views, $new($ViewArray, $nc(this->viewBuffer)->size()));
-	$nc(this->viewBuffer)->toArray(views);
-	$nc(row)->replace(0, row->getViewCount(), views);
+	this->viewBuffer->toArray(views);
+	$nc(row)->replace(0, $nc(row)->getViewCount(), views);
 	return (views->length > 0 ? row->getEndOffset() : pos);
 }
 
 void FlowView$FlowStrategy::adjustRow($FlowView* fv, int32_t rowIndex, int32_t desiredSpan, int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t flowAxis = $nc(fv)->getFlowAxis();
 	$var($View, r, fv->getView(rowIndex));
 	int32_t n = $nc(r)->getViewCount();
@@ -289,18 +238,18 @@ void FlowView$FlowStrategy::adjustRow($FlowView* fv, int32_t rowIndex, int32_t d
 	}
 	int32_t spanLeft = desiredSpan - bestSpan;
 	$assign(v, r->getView(bestIndex));
-	$assign(v, $nc(v)->breakView(flowAxis, v->getStartOffset(), (float)(x + bestSpan), (float)spanLeft));
+	$assign(v, $nc(v)->breakView(flowAxis, $nc(v)->getStartOffset(), (float)(x + bestSpan), (float)spanLeft));
 	$var($ViewArray, va, $new($ViewArray, 1));
 	va->set(0, v);
 	$var($View, lv, getLogicalView(fv));
-	int32_t p0 = $nc($(r->getView(bestIndex)))->getStartOffset();
+	int32_t p0 = $$nc(r->getView(bestIndex))->getStartOffset();
 	int32_t p1 = r->getEndOffset();
 	for (int32_t i = 0; i < $nc(lv)->getViewCount(); ++i) {
 		$var($View, tmpView, lv->getView(i));
 		if ($nc(tmpView)->getEndOffset() > p1) {
 			break;
 		}
-		if ($nc(tmpView)->getStartOffset() >= p0) {
+		if (tmpView->getStartOffset() >= p0) {
 			tmpView->setParent(lv);
 		}
 	}
@@ -308,18 +257,18 @@ void FlowView$FlowStrategy::adjustRow($FlowView* fv, int32_t rowIndex, int32_t d
 }
 
 void FlowView$FlowStrategy::reparentViews($View* pool, int32_t startPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Position$Bias);
 	int32_t n = $nc(pool)->getViewIndex(startPos, $Position$Bias::Forward);
 	if (n >= 0) {
 		for (int32_t i = n; i < pool->getViewCount(); ++i) {
-			$nc($(pool->getView(i)))->setParent(pool);
+			$$nc(pool->getView(i))->setParent(pool);
 		}
 	}
 }
 
 $View* FlowView$FlowStrategy::createView($FlowView* fv, int32_t startOffset, int32_t spanLeft, int32_t rowIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, lv, getLogicalView(fv));
 	$init($Position$Bias);
 	int32_t childIndex = $nc(lv)->getViewIndex(startOffset, $Position$Bias::Forward);
@@ -327,11 +276,11 @@ $View* FlowView$FlowStrategy::createView($FlowView* fv, int32_t startOffset, int
 	if (startOffset == $nc(v)->getStartOffset()) {
 		return v;
 	}
-	$assign(v, $nc(v)->createFragment(startOffset, v->getEndOffset()));
+	$assign(v, v->createFragment(startOffset, v->getEndOffset()));
 	return v;
 }
 
-void clinit$FlowView$FlowStrategy($Class* class$) {
+void FlowView$FlowStrategy::clinit$($Class* clazz) {
 	$load($FlowView);
 	FlowView$FlowStrategy::$assertionsDisabled = !$FlowView::class$->desiredAssertionStatus();
 }
@@ -340,7 +289,49 @@ FlowView$FlowStrategy::FlowView$FlowStrategy() {
 }
 
 $Class* FlowView$FlowStrategy::load$($String* name, bool initialize) {
-	$loadClass(FlowView$FlowStrategy, name, initialize, &_FlowView$FlowStrategy_ClassInfo_, clinit$FlowView$FlowStrategy, allocate$FlowView$FlowStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FlowView$FlowStrategy, $assertionsDisabled)},
+		{"damageStart", "Ljavax/swing/text/Position;", nullptr, 0, $field(FlowView$FlowStrategy, damageStart)},
+		{"viewBuffer", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/View;>;", 0, $field(FlowView$FlowStrategy, viewBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FlowView$FlowStrategy, init$, void)},
+		{"addDamage", "(Ljavax/swing/text/FlowView;I)V", nullptr, 0, $virtualMethod(FlowView$FlowStrategy, addDamage, void, $FlowView*, int32_t)},
+		{"adjustRow", "(Ljavax/swing/text/FlowView;III)V", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, adjustRow, void, $FlowView*, int32_t, int32_t, int32_t)},
+		{"changedUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, changedUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
+		{"createView", "(Ljavax/swing/text/FlowView;III)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, createView, $View*, $FlowView*, int32_t, int32_t, int32_t)},
+		{"getLogicalView", "(Ljavax/swing/text/FlowView;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, getLogicalView, $View*, $FlowView*)},
+		{"insertUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, insertUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
+		{"layout", "(Ljavax/swing/text/FlowView;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, layout, void, $FlowView*)},
+		{"layoutRow", "(Ljavax/swing/text/FlowView;II)I", nullptr, $PROTECTED, $virtualMethod(FlowView$FlowStrategy, layoutRow, int32_t, $FlowView*, int32_t, int32_t)},
+		{"removeUpdate", "(Ljavax/swing/text/FlowView;Ljavax/swing/event/DocumentEvent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FlowView$FlowStrategy, removeUpdate, void, $FlowView*, $DocumentEvent*, $Rectangle*)},
+		{"reparentViews", "(Ljavax/swing/text/View;I)V", nullptr, 0, $virtualMethod(FlowView$FlowStrategy, reparentViews, void, $View*, int32_t)},
+		{"unsetDamage", "()V", nullptr, 0, $virtualMethod(FlowView$FlowStrategy, unsetDamage, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.FlowView$FlowStrategy", "javax.swing.text.FlowView", "FlowStrategy", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.FlowView$FlowStrategy",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.FlowView"
+	};
+	$loadClass(FlowView$FlowStrategy, name, initialize, &classInfo$$, FlowView$FlowStrategy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowView$FlowStrategy);
+	});
 	return class$;
 }
 

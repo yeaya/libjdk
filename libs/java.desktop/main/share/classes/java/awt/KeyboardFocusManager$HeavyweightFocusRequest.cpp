@@ -1,5 +1,4 @@
 #include <java/awt/KeyboardFocusManager$HeavyweightFocusRequest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager$LightweightFocusRequest.h>
 #include <java/awt/KeyboardFocusManager.h>
@@ -23,52 +22,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _KeyboardFocusManager$HeavyweightFocusRequest_FieldInfo_[] = {
-	{"heavyweight", "Ljava/awt/Component;", nullptr, $FINAL, $field(KeyboardFocusManager$HeavyweightFocusRequest, heavyweight)},
-	{"lightweightRequests", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/awt/KeyboardFocusManager$LightweightFocusRequest;>;", $FINAL, $field(KeyboardFocusManager$HeavyweightFocusRequest, lightweightRequests)},
-	{"CLEAR_GLOBAL_FOCUS_OWNER", "Ljava/awt/KeyboardFocusManager$HeavyweightFocusRequest;", nullptr, $STATIC | $FINAL, $staticField(KeyboardFocusManager$HeavyweightFocusRequest, CLEAR_GLOBAL_FOCUS_OWNER)},
-	{}
-};
-
-$MethodInfo _KeyboardFocusManager$HeavyweightFocusRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyboardFocusManager$HeavyweightFocusRequest, init$, void)},
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/Component;ZLjava/awt/event/FocusEvent$Cause;)V", nullptr, 0, $method(KeyboardFocusManager$HeavyweightFocusRequest, init$, void, $Component*, $Component*, bool, $FocusEvent$Cause*)},
-	{"addLightweightRequest", "(Ljava/awt/Component;ZLjava/awt/event/FocusEvent$Cause;)Z", nullptr, 0, $method(KeyboardFocusManager$HeavyweightFocusRequest, addLightweightRequest, bool, $Component*, bool, $FocusEvent$Cause*)},
-	{"getFirstLightweightRequest", "()Ljava/awt/KeyboardFocusManager$LightweightFocusRequest;", nullptr, 0, $method(KeyboardFocusManager$HeavyweightFocusRequest, getFirstLightweightRequest, $KeyboardFocusManager$LightweightFocusRequest*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$HeavyweightFocusRequest, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _KeyboardFocusManager$HeavyweightFocusRequest_InnerClassesInfo_[] = {
-	{"java.awt.KeyboardFocusManager$HeavyweightFocusRequest", "java.awt.KeyboardFocusManager", "HeavyweightFocusRequest", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyboardFocusManager$HeavyweightFocusRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.KeyboardFocusManager$HeavyweightFocusRequest",
-	"java.lang.Object",
-	nullptr,
-	_KeyboardFocusManager$HeavyweightFocusRequest_FieldInfo_,
-	_KeyboardFocusManager$HeavyweightFocusRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyboardFocusManager$HeavyweightFocusRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.KeyboardFocusManager"
-};
-
-$Object* allocate$KeyboardFocusManager$HeavyweightFocusRequest($Class* clazz) {
-	return $of($alloc(KeyboardFocusManager$HeavyweightFocusRequest));
-}
 
 KeyboardFocusManager$HeavyweightFocusRequest* KeyboardFocusManager$HeavyweightFocusRequest::CLEAR_GLOBAL_FOCUS_OWNER = nullptr;
 
@@ -82,7 +39,7 @@ void KeyboardFocusManager$HeavyweightFocusRequest::init$($Component* heavyweight
 	$init($PlatformLogger$Level);
 	if ($nc($KeyboardFocusManager::log)->isLoggable($PlatformLogger$Level::FINE)) {
 		if (heavyweight == nullptr) {
-			$nc($KeyboardFocusManager::log)->fine("Assertion (heavyweight != null) failed"_s);
+			$KeyboardFocusManager::log->fine("Assertion (heavyweight != null) failed"_s);
 		}
 	}
 	$set(this, heavyweight, heavyweight);
@@ -91,20 +48,20 @@ void KeyboardFocusManager$HeavyweightFocusRequest::init$($Component* heavyweight
 }
 
 bool KeyboardFocusManager$HeavyweightFocusRequest::addLightweightRequest($Component* descendant, bool temporary, $FocusEvent$Cause* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($KeyboardFocusManager);
 	$init($PlatformLogger$Level);
 	if ($nc($KeyboardFocusManager::log)->isLoggable($PlatformLogger$Level::FINE)) {
 		if (this == KeyboardFocusManager$HeavyweightFocusRequest::CLEAR_GLOBAL_FOCUS_OWNER) {
-			$nc($KeyboardFocusManager::log)->fine("Assertion (this != HeavyweightFocusRequest.CLEAR_GLOBAL_FOCUS_OWNER) failed"_s);
+			$KeyboardFocusManager::log->fine("Assertion (this != HeavyweightFocusRequest.CLEAR_GLOBAL_FOCUS_OWNER) failed"_s);
 		}
 		if (descendant == nullptr) {
-			$nc($KeyboardFocusManager::log)->fine("Assertion (descendant != null) failed"_s);
+			$KeyboardFocusManager::log->fine("Assertion (descendant != null) failed"_s);
 		}
 	}
-	$var($Component, lastDescendant, ($nc(this->lightweightRequests)->size() > 0) ? $nc(($cast($KeyboardFocusManager$LightweightFocusRequest, $($nc(this->lightweightRequests)->getLast()))))->component : ($Component*)nullptr);
+	$var($Component, lastDescendant, ($nc(this->lightweightRequests)->size() > 0) ? $nc(($$cast($KeyboardFocusManager$LightweightFocusRequest, this->lightweightRequests->getLast())))->component : ($Component*)nullptr);
 	if (descendant != lastDescendant) {
-		$nc(this->lightweightRequests)->add($$new($KeyboardFocusManager$LightweightFocusRequest, descendant, temporary, cause));
+		this->lightweightRequests->add($$new($KeyboardFocusManager$LightweightFocusRequest, descendant, temporary, cause));
 		return true;
 	} else {
 		return false;
@@ -119,7 +76,7 @@ $KeyboardFocusManager$LightweightFocusRequest* KeyboardFocusManager$HeavyweightF
 }
 
 $String* KeyboardFocusManager$HeavyweightFocusRequest::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool first = true;
 	$var($String, str, $str({"HeavyweightFocusRequest[heavyweight="_s, this->heavyweight, ",lightweightRequests="_s}));
 	if (this->lightweightRequests == nullptr) {
@@ -127,7 +84,7 @@ $String* KeyboardFocusManager$HeavyweightFocusRequest::toString() {
 	} else {
 		$plusAssign(str, "["_s);
 		{
-			$var($Iterator, i$, $nc(this->lightweightRequests)->iterator());
+			$var($Iterator, i$, this->lightweightRequests->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyboardFocusManager$LightweightFocusRequest, lwRequest, $cast($KeyboardFocusManager$LightweightFocusRequest, i$->next()));
 				{
@@ -146,7 +103,7 @@ $String* KeyboardFocusManager$HeavyweightFocusRequest::toString() {
 	return str;
 }
 
-void clinit$KeyboardFocusManager$HeavyweightFocusRequest($Class* class$) {
+void KeyboardFocusManager$HeavyweightFocusRequest::clinit$($Class* clazz) {
 	$assignStatic(KeyboardFocusManager$HeavyweightFocusRequest::CLEAR_GLOBAL_FOCUS_OWNER, $new(KeyboardFocusManager$HeavyweightFocusRequest));
 }
 
@@ -154,7 +111,42 @@ KeyboardFocusManager$HeavyweightFocusRequest::KeyboardFocusManager$HeavyweightFo
 }
 
 $Class* KeyboardFocusManager$HeavyweightFocusRequest::load$($String* name, bool initialize) {
-	$loadClass(KeyboardFocusManager$HeavyweightFocusRequest, name, initialize, &_KeyboardFocusManager$HeavyweightFocusRequest_ClassInfo_, clinit$KeyboardFocusManager$HeavyweightFocusRequest, allocate$KeyboardFocusManager$HeavyweightFocusRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"heavyweight", "Ljava/awt/Component;", nullptr, $FINAL, $field(KeyboardFocusManager$HeavyweightFocusRequest, heavyweight)},
+		{"lightweightRequests", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/awt/KeyboardFocusManager$LightweightFocusRequest;>;", $FINAL, $field(KeyboardFocusManager$HeavyweightFocusRequest, lightweightRequests)},
+		{"CLEAR_GLOBAL_FOCUS_OWNER", "Ljava/awt/KeyboardFocusManager$HeavyweightFocusRequest;", nullptr, $STATIC | $FINAL, $staticField(KeyboardFocusManager$HeavyweightFocusRequest, CLEAR_GLOBAL_FOCUS_OWNER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KeyboardFocusManager$HeavyweightFocusRequest, init$, void)},
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/Component;ZLjava/awt/event/FocusEvent$Cause;)V", nullptr, 0, $method(KeyboardFocusManager$HeavyweightFocusRequest, init$, void, $Component*, $Component*, bool, $FocusEvent$Cause*)},
+		{"addLightweightRequest", "(Ljava/awt/Component;ZLjava/awt/event/FocusEvent$Cause;)Z", nullptr, 0, $method(KeyboardFocusManager$HeavyweightFocusRequest, addLightweightRequest, bool, $Component*, bool, $FocusEvent$Cause*)},
+		{"getFirstLightweightRequest", "()Ljava/awt/KeyboardFocusManager$LightweightFocusRequest;", nullptr, 0, $method(KeyboardFocusManager$HeavyweightFocusRequest, getFirstLightweightRequest, $KeyboardFocusManager$LightweightFocusRequest*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$HeavyweightFocusRequest, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.KeyboardFocusManager$HeavyweightFocusRequest", "java.awt.KeyboardFocusManager", "HeavyweightFocusRequest", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.KeyboardFocusManager$HeavyweightFocusRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.KeyboardFocusManager"
+	};
+	$loadClass(KeyboardFocusManager$HeavyweightFocusRequest, name, initialize, &classInfo$$, KeyboardFocusManager$HeavyweightFocusRequest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyboardFocusManager$HeavyweightFocusRequest);
+	});
 	return class$;
 }
 

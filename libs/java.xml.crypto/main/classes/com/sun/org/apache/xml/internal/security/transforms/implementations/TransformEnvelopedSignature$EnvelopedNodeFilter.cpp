@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformEnvelopedSignature$EnvelopedNodeFilter.h>
-
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformEnvelopedSignature.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <org/w3c/dom/Node.h>
@@ -21,43 +20,6 @@ namespace com {
 						namespace security {
 							namespace transforms {
 								namespace implementations {
-
-$FieldInfo _TransformEnvelopedSignature$EnvelopedNodeFilter_FieldInfo_[] = {
-	{"exclude", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $FINAL, $field(TransformEnvelopedSignature$EnvelopedNodeFilter, exclude)},
-	{}
-};
-
-$MethodInfo _TransformEnvelopedSignature$EnvelopedNodeFilter_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(TransformEnvelopedSignature$EnvelopedNodeFilter, init$, void, $Node*)},
-	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(TransformEnvelopedSignature$EnvelopedNodeFilter, isNodeInclude, int32_t, $Node*)},
-	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(TransformEnvelopedSignature$EnvelopedNodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TransformEnvelopedSignature$EnvelopedNodeFilter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter", "com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature", "EnvelopedNodeFilter", $STATIC},
-	{}
-};
-
-$ClassInfo _TransformEnvelopedSignature$EnvelopedNodeFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.signature.NodeFilter",
-	_TransformEnvelopedSignature$EnvelopedNodeFilter_FieldInfo_,
-	_TransformEnvelopedSignature$EnvelopedNodeFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformEnvelopedSignature$EnvelopedNodeFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature"
-};
-
-$Object* allocate$TransformEnvelopedSignature$EnvelopedNodeFilter($Class* clazz) {
-	return $of($alloc(TransformEnvelopedSignature$EnvelopedNodeFilter));
-}
 
 void TransformEnvelopedSignature$EnvelopedNodeFilter::init$($Node* n) {
 	$set(this, exclude, n);
@@ -81,7 +43,38 @@ TransformEnvelopedSignature$EnvelopedNodeFilter::TransformEnvelopedSignature$Env
 }
 
 $Class* TransformEnvelopedSignature$EnvelopedNodeFilter::load$($String* name, bool initialize) {
-	$loadClass(TransformEnvelopedSignature$EnvelopedNodeFilter, name, initialize, &_TransformEnvelopedSignature$EnvelopedNodeFilter_ClassInfo_, allocate$TransformEnvelopedSignature$EnvelopedNodeFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"exclude", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $FINAL, $field(TransformEnvelopedSignature$EnvelopedNodeFilter, exclude)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(TransformEnvelopedSignature$EnvelopedNodeFilter, init$, void, $Node*)},
+		{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(TransformEnvelopedSignature$EnvelopedNodeFilter, isNodeInclude, int32_t, $Node*)},
+		{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(TransformEnvelopedSignature$EnvelopedNodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter", "com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature", "EnvelopedNodeFilter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature$EnvelopedNodeFilter",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.signature.NodeFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformEnvelopedSignature"
+	};
+	$loadClass(TransformEnvelopedSignature$EnvelopedNodeFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformEnvelopedSignature$EnvelopedNodeFilter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/desktop/PreferencesHandler.h>
-
 #include <java/awt/desktop/PreferencesEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _PreferencesHandler_MethodInfo_[] = {
-	{"handlePreferences", "(Ljava/awt/desktop/PreferencesEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreferencesHandler, handlePreferences, void, $PreferencesEvent*)},
-	{}
-};
-
-$ClassInfo _PreferencesHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.PreferencesHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PreferencesHandler_MethodInfo_
-};
-
-$Object* allocate$PreferencesHandler($Class* clazz) {
-	return $of($alloc(PreferencesHandler));
-}
-
 $Class* PreferencesHandler::load$($String* name, bool initialize) {
-	$loadClass(PreferencesHandler, name, initialize, &_PreferencesHandler_ClassInfo_, allocate$PreferencesHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"handlePreferences", "(Ljava/awt/desktop/PreferencesEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreferencesHandler, handlePreferences, void, $PreferencesEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.PreferencesHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PreferencesHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreferencesHandler);
+	});
 	return class$;
 }
 

@@ -35,6 +35,7 @@ class $import Taskbar$Feature : public ::java::lang::Enum {
 public:
 	Taskbar$Feature();
 	static $Array<::java::awt::Taskbar$Feature>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::Taskbar$Feature* valueOf($String* name);
 	static $Array<::java::awt::Taskbar$Feature>* values();

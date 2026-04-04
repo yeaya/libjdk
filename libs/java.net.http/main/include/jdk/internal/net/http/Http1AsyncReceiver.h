@@ -70,6 +70,7 @@ class $import Http1AsyncReceiver : public ::java::lang::Object {
 	$class(Http1AsyncReceiver, 0, ::java::lang::Object)
 public:
 	Http1AsyncReceiver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::Executor* executor, ::jdk::internal::net::http::Http1Exchange* owner);
 	void asyncReceive(::java::nio::ByteBuffer* buf);
 	void checkForErrors();

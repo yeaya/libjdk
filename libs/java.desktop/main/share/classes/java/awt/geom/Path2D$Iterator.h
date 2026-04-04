@@ -22,6 +22,7 @@ class $export Path2D$Iterator : public ::java::awt::geom::PathIterator {
 	$class(Path2D$Iterator, 0, ::java::awt::geom::PathIterator)
 public:
 	Path2D$Iterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::geom::Path2D* path);
 	virtual int32_t getWindingRule() override;
 	virtual bool isDone() override;

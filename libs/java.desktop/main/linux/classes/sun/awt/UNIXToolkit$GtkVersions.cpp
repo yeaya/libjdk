@@ -1,5 +1,4 @@
 #include <sun/awt/UNIXToolkit$GtkVersions.h>
-
 #include <java/lang/Enum.h>
 #include <sun/awt/UNIXToolkit$GtkVersions$Constants.h>
 #include <sun/awt/UNIXToolkit.h>
@@ -21,51 +20,6 @@ using $UNIXToolkit$GtkVersions$Constants = ::sun::awt::UNIXToolkit$GtkVersions$C
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _UNIXToolkit$GtkVersions_FieldInfo_[] = {
-	{"ANY", "Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UNIXToolkit$GtkVersions, ANY)},
-	{"GTK2", "Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UNIXToolkit$GtkVersions, GTK2)},
-	{"GTK3", "Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UNIXToolkit$GtkVersions, GTK3)},
-	{"$VALUES", "[Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UNIXToolkit$GtkVersions, $VALUES)},
-	{"number", "I", nullptr, $FINAL, $field(UNIXToolkit$GtkVersions, number)},
-	{}
-};
-
-$MethodInfo _UNIXToolkit$GtkVersions_MethodInfo_[] = {
-	{"$values", "()[Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit$GtkVersions, $values, $UNIXToolkit$GtkVersionsArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(UNIXToolkit$GtkVersions, init$, void, $String*, int32_t, int32_t)},
-	{"getNumber", "()I", nullptr, $PUBLIC, $method(UNIXToolkit$GtkVersions, getNumber, int32_t)},
-	{"getVersion", "(I)Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit$GtkVersions, getVersion, UNIXToolkit$GtkVersions*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit$GtkVersions, valueOf, UNIXToolkit$GtkVersions*, $String*)},
-	{"values", "()[Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit$GtkVersions, values, $UNIXToolkit$GtkVersionsArray*)},
-	{}
-};
-
-$InnerClassInfo _UNIXToolkit$GtkVersions_InnerClassesInfo_[] = {
-	{"sun.awt.UNIXToolkit$GtkVersions", "sun.awt.UNIXToolkit", "GtkVersions", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"sun.awt.UNIXToolkit$GtkVersions$Constants", "sun.awt.UNIXToolkit$GtkVersions", "Constants", $STATIC},
-	{}
-};
-
-$ClassInfo _UNIXToolkit$GtkVersions_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.awt.UNIXToolkit$GtkVersions",
-	"java.lang.Enum",
-	nullptr,
-	_UNIXToolkit$GtkVersions_FieldInfo_,
-	_UNIXToolkit$GtkVersions_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/awt/UNIXToolkit$GtkVersions;>;",
-	nullptr,
-	_UNIXToolkit$GtkVersions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.UNIXToolkit"
-};
-
-$Object* allocate$UNIXToolkit$GtkVersions($Class* clazz) {
-	return $of($alloc(UNIXToolkit$GtkVersions));
-}
 
 UNIXToolkit$GtkVersions* UNIXToolkit$GtkVersions::ANY = nullptr;
 UNIXToolkit$GtkVersions* UNIXToolkit$GtkVersions::GTK2 = nullptr;
@@ -100,17 +54,11 @@ UNIXToolkit$GtkVersions* UNIXToolkit$GtkVersions::getVersion(int32_t number) {
 	$init(UNIXToolkit$GtkVersions);
 	switch (number) {
 	case $UNIXToolkit$GtkVersions$Constants::GTK2_MAJOR_NUMBER:
-		{
-			return UNIXToolkit$GtkVersions::GTK2;
-		}
+		return UNIXToolkit$GtkVersions::GTK2;
 	case $UNIXToolkit$GtkVersions$Constants::GTK3_MAJOR_NUMBER:
-		{
-			return UNIXToolkit$GtkVersions::GTK3;
-		}
+		return UNIXToolkit$GtkVersions::GTK3;
 	default:
-		{
-			return UNIXToolkit$GtkVersions::ANY;
-		}
+		return UNIXToolkit$GtkVersions::ANY;
 	}
 }
 
@@ -118,7 +66,7 @@ int32_t UNIXToolkit$GtkVersions::getNumber() {
 	return this->number;
 }
 
-void clinit$UNIXToolkit$GtkVersions($Class* class$) {
+void UNIXToolkit$GtkVersions::clinit$($Class* clazz) {
 	$assignStatic(UNIXToolkit$GtkVersions::ANY, $new(UNIXToolkit$GtkVersions, "ANY"_s, 0, 0));
 	$assignStatic(UNIXToolkit$GtkVersions::GTK2, $new(UNIXToolkit$GtkVersions, "GTK2"_s, 1, $UNIXToolkit$GtkVersions$Constants::GTK2_MAJOR_NUMBER));
 	$assignStatic(UNIXToolkit$GtkVersions::GTK3, $new(UNIXToolkit$GtkVersions, "GTK3"_s, 2, $UNIXToolkit$GtkVersions$Constants::GTK3_MAJOR_NUMBER));
@@ -129,7 +77,46 @@ UNIXToolkit$GtkVersions::UNIXToolkit$GtkVersions() {
 }
 
 $Class* UNIXToolkit$GtkVersions::load$($String* name, bool initialize) {
-	$loadClass(UNIXToolkit$GtkVersions, name, initialize, &_UNIXToolkit$GtkVersions_ClassInfo_, clinit$UNIXToolkit$GtkVersions, allocate$UNIXToolkit$GtkVersions);
+	$FieldInfo fieldInfos$$[] = {
+		{"ANY", "Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UNIXToolkit$GtkVersions, ANY)},
+		{"GTK2", "Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UNIXToolkit$GtkVersions, GTK2)},
+		{"GTK3", "Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UNIXToolkit$GtkVersions, GTK3)},
+		{"$VALUES", "[Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UNIXToolkit$GtkVersions, $VALUES)},
+		{"number", "I", nullptr, $FINAL, $field(UNIXToolkit$GtkVersions, number)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UNIXToolkit$GtkVersions, $values, $UNIXToolkit$GtkVersionsArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(UNIXToolkit$GtkVersions, init$, void, $String*, int32_t, int32_t)},
+		{"getNumber", "()I", nullptr, $PUBLIC, $method(UNIXToolkit$GtkVersions, getNumber, int32_t)},
+		{"getVersion", "(I)Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit$GtkVersions, getVersion, UNIXToolkit$GtkVersions*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit$GtkVersions, valueOf, UNIXToolkit$GtkVersions*, $String*)},
+		{"values", "()[Lsun/awt/UNIXToolkit$GtkVersions;", nullptr, $PUBLIC | $STATIC, $staticMethod(UNIXToolkit$GtkVersions, values, $UNIXToolkit$GtkVersionsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.UNIXToolkit$GtkVersions", "sun.awt.UNIXToolkit", "GtkVersions", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"sun.awt.UNIXToolkit$GtkVersions$Constants", "sun.awt.UNIXToolkit$GtkVersions", "Constants", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.awt.UNIXToolkit$GtkVersions",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/awt/UNIXToolkit$GtkVersions;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.UNIXToolkit"
+	};
+	$loadClass(UNIXToolkit$GtkVersions, name, initialize, &classInfo$$, UNIXToolkit$GtkVersions::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UNIXToolkit$GtkVersions));
+	});
 	return class$;
 }
 

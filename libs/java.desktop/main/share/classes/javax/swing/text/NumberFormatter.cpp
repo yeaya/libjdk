@@ -1,5 +1,4 @@
 #include <javax/swing/text/NumberFormatter.h>
-
 #include <java/lang/Number.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
@@ -48,7 +47,6 @@ using $Number = ::java::lang::Number;
 using $Short = ::java::lang::Short;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $Format = ::java::text::Format;
@@ -57,10 +55,7 @@ using $NumberFormat$Field = ::java::text::NumberFormat$Field;
 using $ParseException = ::java::text::ParseException;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
-using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $Document = ::javax::swing::text::Document;
 using $DocumentFilter$FilterBypass = ::javax::swing::text::DocumentFilter$FilterBypass;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
@@ -69,45 +64,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _NumberFormatter_FieldInfo_[] = {
-	{"specialChars", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NumberFormatter, specialChars)},
-	{}
-};
-
-$MethodInfo _NumberFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NumberFormatter, init$, void)},
-	{"<init>", "(Ljava/text/NumberFormat;)V", nullptr, $PUBLIC, $method(NumberFormatter, init$, void, $NumberFormat*)},
-	{"convertValueToValueClass", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(NumberFormatter, convertValueToValueClass, $Object*, Object$*, $Class*)},
-	{"getDecimalFormatSymbols", "()Ljava/text/DecimalFormatSymbols;", nullptr, $PRIVATE, $method(NumberFormatter, getDecimalFormatSymbols, $DecimalFormatSymbols*)},
-	{"getDecimalSeparator", "()C", nullptr, $PRIVATE, $method(NumberFormatter, getDecimalSeparator, char16_t)},
-	{"getFieldFrom", "(II)Ljava/text/NumberFormat$Field;", nullptr, $PRIVATE, $method(NumberFormatter, getFieldFrom, $NumberFormat$Field*, int32_t, int32_t)},
-	{"getMinusSign", "()C", nullptr, $PRIVATE, $method(NumberFormatter, getMinusSign, char16_t)},
-	{"getPositiveSign", "()C", nullptr, $PRIVATE, $method(NumberFormatter, getPositiveSign, char16_t)},
-	{"isLegalInsertText", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(NumberFormatter, isLegalInsertText, bool, $String*)},
-	{"isLiteral", "(Ljava/util/Map;)Z", "(Ljava/util/Map<**>;)Z", 0, $virtualMethod(NumberFormatter, isLiteral, bool, $Map*)},
-	{"isNavigatable", "(I)Z", nullptr, 0, $virtualMethod(NumberFormatter, isNavigatable, bool, int32_t)},
-	{"replace", "(Ljavax/swing/text/DocumentFilter$FilterBypass;IILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, 0, $virtualMethod(NumberFormatter, replace, void, $DocumentFilter$FilterBypass*, int32_t, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
-	{"setFormat", "(Ljava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(NumberFormatter, setFormat, void, $Format*)},
-	{"stringToValue", "(Ljava/lang/String;Ljava/text/Format;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(NumberFormatter, stringToValue, $Object*, $String*, $Format*), "java.text.ParseException"},
-	{"toggleExponentSign", "(IC)Ljava/lang/Object;", nullptr, $PRIVATE, $method(NumberFormatter, toggleExponentSign, $Object*, int32_t, char16_t), "javax.swing.text.BadLocationException,java.text.ParseException"},
-	{"toggleSign", "(Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(NumberFormatter, toggleSign, $Object*, bool), "java.text.ParseException"},
-	{"toggleSignIfNecessary", "(Ljavax/swing/text/DocumentFilter$FilterBypass;IC)Z", nullptr, $PRIVATE, $method(NumberFormatter, toggleSignIfNecessary, bool, $DocumentFilter$FilterBypass*, int32_t, char16_t), "javax.swing.text.BadLocationException"},
-	{}
-};
-
-$ClassInfo _NumberFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.NumberFormatter",
-	"javax.swing.text.InternationalFormatter",
-	nullptr,
-	_NumberFormatter_FieldInfo_,
-	_NumberFormatter_MethodInfo_
-};
-
-$Object* allocate$NumberFormatter($Class* clazz) {
-	return $of($alloc(NumberFormatter));
-}
 
 void NumberFormatter::init$() {
 	NumberFormatter::init$($($NumberFormat::getNumberInstance()));
@@ -122,7 +78,7 @@ void NumberFormatter::init$($NumberFormat* format) {
 }
 
 void NumberFormatter::setFormat($Format* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InternationalFormatter::setFormat(format);
 	$var($DecimalFormatSymbols, dfs, getDecimalFormatSymbols());
 	if (dfs != nullptr) {
@@ -148,40 +104,24 @@ $Object* NumberFormatter::stringToValue($String* text, $Format* f) {
 		return $of(text);
 	}
 	$var($Object, value, $nc(f)->parseObject(text));
-	return $of(convertValueToValueClass(value, getValueClass()));
+	return convertValueToValueClass(value, getValueClass());
 }
 
 $Object* NumberFormatter::convertValueToValueClass(Object$* value, $Class* valueClass) {
 	if (valueClass != nullptr && ($instanceOf($Number, value))) {
 		$var($Number, numberValue, $cast($Number, value));
-		$load($Integer);
 		if (valueClass == $Integer::class$) {
-			return $of($Integer::valueOf($nc(numberValue)->intValue()));
-		} else {
-			$load($Long);
-			if (valueClass == $Long::class$) {
-				return $of($Long::valueOf($nc(numberValue)->longValue()));
-			} else {
-				$load($Float);
-				if (valueClass == $Float::class$) {
-					return $of($Float::valueOf($nc(numberValue)->floatValue()));
-				} else {
-					$load($Double);
-					if (valueClass == $Double::class$) {
-						return $of($Double::valueOf($nc(numberValue)->doubleValue()));
-					} else {
-						$load($Byte);
-						if (valueClass == $Byte::class$) {
-							return $of($Byte::valueOf($nc(numberValue)->byteValue()));
-						} else {
-							$load($Short);
-							if (valueClass == $Short::class$) {
-								return $of($Short::valueOf($nc(numberValue)->shortValue()));
-							}
-						}
-					}
-				}
-			}
+			return $of($Integer::valueOf(numberValue->intValue()));
+		} else if (valueClass == $Long::class$) {
+			return $of($Long::valueOf(numberValue->longValue()));
+		} else if (valueClass == $Float::class$) {
+			return $of($Float::valueOf(numberValue->floatValue()));
+		} else if (valueClass == $Double::class$) {
+			return $of($Double::valueOf(numberValue->doubleValue()));
+		} else if (valueClass == $Byte::class$) {
+			return $of($Byte::valueOf(numberValue->byteValue()));
+		} else if (valueClass == $Short::class$) {
+			return $of($Short::valueOf(numberValue->shortValue()));
 		}
 	}
 	return $of(value);
@@ -210,7 +150,7 @@ char16_t NumberFormatter::getDecimalSeparator() {
 $DecimalFormatSymbols* NumberFormatter::getDecimalFormatSymbols() {
 	$var($Format, f, getFormat());
 	if ($instanceOf($DecimalFormat, f)) {
-		return $nc(($cast($DecimalFormat, f)))->getDecimalFormatSymbols();
+		return $cast($DecimalFormat, f)->getDecimalFormatSymbols();
 	}
 	return nullptr;
 }
@@ -222,7 +162,7 @@ bool NumberFormatter::isLegalInsertText($String* text) {
 	for (int32_t counter = $nc(text)->length() - 1; counter >= 0; --counter) {
 		char16_t aChar = text->charAt(counter);
 		bool var$0 = !$Character::isDigit(aChar);
-		if (var$0 && $nc(this->specialChars)->indexOf((int32_t)aChar) == -1) {
+		if (var$0 && $nc(this->specialChars)->indexOf(aChar) == -1) {
 			return false;
 		}
 	}
@@ -271,9 +211,9 @@ bool NumberFormatter::isNavigatable(int32_t index) {
 }
 
 $NumberFormat$Field* NumberFormatter::getFieldFrom(int32_t index, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isValidMask()) {
-		int32_t max = $nc($($nc($(getFormattedTextField()))->getDocument()))->getLength();
+		int32_t max = $$nc($$nc(getFormattedTextField())->getDocument())->getLength();
 		$var($AttributedCharacterIterator, iterator, getIterator());
 		if (index >= max) {
 			index += direction;
@@ -282,15 +222,11 @@ $NumberFormat$Field* NumberFormatter::getFieldFrom(int32_t index, int32_t direct
 			$nc(iterator)->setIndex(index);
 			$var($Map, attrs, iterator->getAttributes());
 			if (attrs != nullptr && attrs->size() > 0) {
-				{
-					$var($Iterator, i$, $nc($(attrs->keySet()))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Object, key, i$->next());
-						{
-							if ($instanceOf($NumberFormat$Field, key)) {
-								return $cast($NumberFormat$Field, key);
-							}
-						}
+				$var($Iterator, i$, $$nc(attrs->keySet())->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Object, key, i$->next());
+					if ($instanceOf($NumberFormat$Field, key)) {
+						return $cast($NumberFormat$Field, key);
 					}
 				}
 			}
@@ -310,7 +246,7 @@ void NumberFormatter::replace($DocumentFilter$FilterBypass* fb, int32_t offset, 
 }
 
 bool NumberFormatter::toggleSignIfNecessary($DocumentFilter$FilterBypass* fb, int32_t offset, char16_t aChar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = aChar == getMinusSign();
 	if (var$0 || aChar == getPositiveSign()) {
 		$var($NumberFormat$Field, field, getFieldFrom(offset, -1));
@@ -325,7 +261,7 @@ bool NumberFormatter::toggleSignIfNecessary($DocumentFilter$FilterBypass* fb, in
 			if (newValue != nullptr && isValidValue(newValue, false)) {
 				int32_t lc = getLiteralCountTo(offset);
 				$var($String, string, valueToString(newValue));
-				$nc(fb)->remove(0, $nc($(fb->getDocument()))->getLength());
+				$nc(fb)->remove(0, $$nc($nc(fb)->getDocument())->getLength());
 				fb->insertString(0, string, nullptr);
 				updateValue(newValue);
 				repositionCursor(getLiteralCountTo(offset) - lc + offset, 1);
@@ -339,11 +275,11 @@ bool NumberFormatter::toggleSignIfNecessary($DocumentFilter$FilterBypass* fb, in
 }
 
 $Object* NumberFormatter::toggleSign(bool positive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($Object, value, stringToValue($($nc($(getFormattedTextField()))->getText())));
+	$var($Object, value, stringToValue($($$nc(getFormattedTextField())->getText())));
 	if (value != nullptr) {
-		$var($String, string, $of(value)->toString());
+		$var($String, string, value->toString());
 		if (string != nullptr && string->length() > 0) {
 			if (positive) {
 				if (string->charAt(0) == u'-') {
@@ -361,27 +297,27 @@ $Object* NumberFormatter::toggleSign(bool positive) {
 			if (string != nullptr) {
 				$Class* valueClass = getValueClass();
 				if (valueClass == nullptr) {
-					valueClass = $of(value)->getClass();
+					valueClass = value->getClass();
 				}
 				try {
 					$ReflectUtil::checkPackageAccess(valueClass);
 					$SwingUtilities2::checkAccess($nc(valueClass)->getModifiers());
-					$var($Constructor, cons, $nc(valueClass)->getConstructor($$new($ClassArray, {$String::class$})));
+					$var($Constructor, cons, valueClass->getConstructor($$new($ClassArray, {$String::class$})));
 					if (cons != nullptr) {
 						$SwingUtilities2::checkAccess(cons->getModifiers());
-						return $of(cons->newInstance($$new($ObjectArray, {$of(string)})));
+						return cons->newInstance($$new($ObjectArray, {string}));
 					}
 				} catch ($Throwable& ex) {
 				}
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* NumberFormatter::toggleExponentSign(int32_t offset, char16_t aChar) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, string, $nc($(getFormattedTextField()))->getText());
+	$useLocalObjectStack();
+	$var($String, string, $$nc(getFormattedTextField())->getText());
 	int32_t replaceLength = 0;
 	$init($NumberFormat$Field);
 	int32_t loc = getAttributeStart($NumberFormat$Field::EXPONENT_SIGN);
@@ -394,14 +330,48 @@ $Object* NumberFormatter::toggleExponentSign(int32_t offset, char16_t aChar) {
 	} else {
 		$assign(string, getReplaceString(offset, replaceLength, $($String::valueOf(aChar))));
 	}
-	return $of(stringToValue(string));
+	return stringToValue(string);
 }
 
 NumberFormatter::NumberFormatter() {
 }
 
 $Class* NumberFormatter::load$($String* name, bool initialize) {
-	$loadClass(NumberFormatter, name, initialize, &_NumberFormatter_ClassInfo_, allocate$NumberFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"specialChars", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NumberFormatter, specialChars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NumberFormatter, init$, void)},
+		{"<init>", "(Ljava/text/NumberFormat;)V", nullptr, $PUBLIC, $method(NumberFormatter, init$, void, $NumberFormat*)},
+		{"convertValueToValueClass", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(NumberFormatter, convertValueToValueClass, $Object*, Object$*, $Class*)},
+		{"getDecimalFormatSymbols", "()Ljava/text/DecimalFormatSymbols;", nullptr, $PRIVATE, $method(NumberFormatter, getDecimalFormatSymbols, $DecimalFormatSymbols*)},
+		{"getDecimalSeparator", "()C", nullptr, $PRIVATE, $method(NumberFormatter, getDecimalSeparator, char16_t)},
+		{"getFieldFrom", "(II)Ljava/text/NumberFormat$Field;", nullptr, $PRIVATE, $method(NumberFormatter, getFieldFrom, $NumberFormat$Field*, int32_t, int32_t)},
+		{"getMinusSign", "()C", nullptr, $PRIVATE, $method(NumberFormatter, getMinusSign, char16_t)},
+		{"getPositiveSign", "()C", nullptr, $PRIVATE, $method(NumberFormatter, getPositiveSign, char16_t)},
+		{"isLegalInsertText", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(NumberFormatter, isLegalInsertText, bool, $String*)},
+		{"isLiteral", "(Ljava/util/Map;)Z", "(Ljava/util/Map<**>;)Z", 0, $virtualMethod(NumberFormatter, isLiteral, bool, $Map*)},
+		{"isNavigatable", "(I)Z", nullptr, 0, $virtualMethod(NumberFormatter, isNavigatable, bool, int32_t)},
+		{"replace", "(Ljavax/swing/text/DocumentFilter$FilterBypass;IILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, 0, $virtualMethod(NumberFormatter, replace, void, $DocumentFilter$FilterBypass*, int32_t, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
+		{"setFormat", "(Ljava/text/Format;)V", nullptr, $PUBLIC, $virtualMethod(NumberFormatter, setFormat, void, $Format*)},
+		{"stringToValue", "(Ljava/lang/String;Ljava/text/Format;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(NumberFormatter, stringToValue, $Object*, $String*, $Format*), "java.text.ParseException"},
+		{"toggleExponentSign", "(IC)Ljava/lang/Object;", nullptr, $PRIVATE, $method(NumberFormatter, toggleExponentSign, $Object*, int32_t, char16_t), "javax.swing.text.BadLocationException,java.text.ParseException"},
+		{"toggleSign", "(Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(NumberFormatter, toggleSign, $Object*, bool), "java.text.ParseException"},
+		{"toggleSignIfNecessary", "(Ljavax/swing/text/DocumentFilter$FilterBypass;IC)Z", nullptr, $PRIVATE, $method(NumberFormatter, toggleSignIfNecessary, bool, $DocumentFilter$FilterBypass*, int32_t, char16_t), "javax.swing.text.BadLocationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.NumberFormatter",
+		"javax.swing.text.InternationalFormatter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NumberFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NumberFormatter));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TestTransferHandler$UserJComponent.h>
-
 #include <TestTransferHandler.h>
 #include <java/awt/Color.h>
 #include <javax/swing/JComponent.h>
@@ -14,45 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-
-$FieldInfo _TestTransferHandler$UserJComponent_FieldInfo_[] = {
-	{"USER_COLOR", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestTransferHandler$UserJComponent, USER_COLOR)},
-	{"TEST_COLOR", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestTransferHandler$UserJComponent, TEST_COLOR)},
-	{"color", "Ljava/awt/Color;", nullptr, 0, $field(TestTransferHandler$UserJComponent, color)},
-	{}
-};
-
-$MethodInfo _TestTransferHandler$UserJComponent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTransferHandler$UserJComponent, init$, void)},
-	{"getUserColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(TestTransferHandler$UserJComponent, getUserColor, $Color*)},
-	{"setUserColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(TestTransferHandler$UserJComponent, setUserColor, void, $Color*)},
-	{}
-};
-
-$InnerClassInfo _TestTransferHandler$UserJComponent_InnerClassesInfo_[] = {
-	{"TestTransferHandler$UserJComponent", "TestTransferHandler", "UserJComponent", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestTransferHandler$UserJComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestTransferHandler$UserJComponent",
-	"javax.swing.JComponent",
-	nullptr,
-	_TestTransferHandler$UserJComponent_FieldInfo_,
-	_TestTransferHandler$UserJComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestTransferHandler$UserJComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestTransferHandler"
-};
-
-$Object* allocate$TestTransferHandler$UserJComponent($Class* clazz) {
-	return $of($alloc(TestTransferHandler$UserJComponent));
-}
 
 $Color* TestTransferHandler$UserJComponent::USER_COLOR = nullptr;
 $Color* TestTransferHandler$UserJComponent::TEST_COLOR = nullptr;
@@ -70,7 +30,7 @@ void TestTransferHandler$UserJComponent::setUserColor($Color* color) {
 	$set(this, color, color);
 }
 
-void clinit$TestTransferHandler$UserJComponent($Class* class$) {
+void TestTransferHandler$UserJComponent::clinit$($Class* clazz) {
 	$assignStatic(TestTransferHandler$UserJComponent::USER_COLOR, $new($Color, 10, 20, 30));
 	$assignStatic(TestTransferHandler$UserJComponent::TEST_COLOR, $new($Color, 15, 25, 35));
 }
@@ -79,7 +39,40 @@ TestTransferHandler$UserJComponent::TestTransferHandler$UserJComponent() {
 }
 
 $Class* TestTransferHandler$UserJComponent::load$($String* name, bool initialize) {
-	$loadClass(TestTransferHandler$UserJComponent, name, initialize, &_TestTransferHandler$UserJComponent_ClassInfo_, clinit$TestTransferHandler$UserJComponent, allocate$TestTransferHandler$UserJComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"USER_COLOR", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestTransferHandler$UserJComponent, USER_COLOR)},
+		{"TEST_COLOR", "Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TestTransferHandler$UserJComponent, TEST_COLOR)},
+		{"color", "Ljava/awt/Color;", nullptr, 0, $field(TestTransferHandler$UserJComponent, color)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTransferHandler$UserJComponent, init$, void)},
+		{"getUserColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(TestTransferHandler$UserJComponent, getUserColor, $Color*)},
+		{"setUserColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(TestTransferHandler$UserJComponent, setUserColor, void, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestTransferHandler$UserJComponent", "TestTransferHandler", "UserJComponent", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestTransferHandler$UserJComponent",
+		"javax.swing.JComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestTransferHandler"
+	};
+	$loadClass(TestTransferHandler$UserJComponent, name, initialize, &classInfo$$, TestTransferHandler$UserJComponent::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestTransferHandler$UserJComponent));
+	});
 	return class$;
 }
 

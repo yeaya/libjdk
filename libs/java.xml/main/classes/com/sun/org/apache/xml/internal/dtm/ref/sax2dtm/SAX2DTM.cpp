@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
@@ -79,7 +78,6 @@ using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::re
 using $DTMManagerDefault = ::com::sun::org::apache::xml::internal::dtm::ref::DTMManagerDefault;
 using $DTMStringPool = ::com::sun::org::apache::xml::internal::dtm::ref::DTMStringPool;
 using $DTMTreeWalker = ::com::sun::org::apache::xml::internal::dtm::ref::DTMTreeWalker;
-using $ExpandedNameTable = ::com::sun::org::apache::xml::internal::dtm::ref::ExpandedNameTable;
 using $IncrementalSAXSource = ::com::sun::org::apache::xml::internal::dtm::ref::IncrementalSAXSource;
 using $NodeLocator = ::com::sun::org::apache::xml::internal::dtm::ref::NodeLocator;
 using $XMLErrorResources = ::com::sun::org::apache::xml::internal::res::XMLErrorResources;
@@ -93,7 +91,6 @@ using $SystemIDResolver = ::com::sun::org::apache::xml::internal::utils::SystemI
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;
 using $XMLStringFactory = ::com::sun::org::apache::xml::internal::utils::XMLStringFactory;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -104,8 +101,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
 using $Source = ::javax::xml::transform::Source;
 using $SourceLocator = ::javax::xml::transform::SourceLocator;
@@ -130,138 +125,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 								namespace sax2dtm {
-
-$FieldInfo _SAX2DTM_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, DEBUG)},
-	{"m_incrementalSAXSource", "Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;", nullptr, $PRIVATE, $field(SAX2DTM, m_incrementalSAXSource)},
-	{"m_chars", "Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PROTECTED, $field(SAX2DTM, m_chars)},
-	{"m_data", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_data)},
-	{"m_parents", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_parents)},
-	{"m_previous", "I", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_previous)},
-	{"m_prefixMappings", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_prefixMappings)},
-	{"m_contextIndexes", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_contextIndexes)},
-	{"m_textType", "I", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_textType)},
-	{"m_coalescedTextType", "I", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_coalescedTextType)},
-	{"m_locator", "Lorg/xml/sax/Locator;", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_locator)},
-	{"m_systemId", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SAX2DTM, m_systemId)},
-	{"m_insideDTD", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_insideDTD)},
-	{"m_walker", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMTreeWalker;", nullptr, $PROTECTED, $field(SAX2DTM, m_walker)},
-	{"m_valuesOrPrefixes", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMStringPool;", nullptr, $PROTECTED, $field(SAX2DTM, m_valuesOrPrefixes)},
-	{"m_endDocumentOccured", "Z", nullptr, $PROTECTED, $field(SAX2DTM, m_endDocumentOccured)},
-	{"m_dataOrQName", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_dataOrQName)},
-	{"m_idAttributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PROTECTED, $field(SAX2DTM, m_idAttributes)},
-	{"m_fixednames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAX2DTM, m_fixednames)},
-	{"m_entities", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SAX2DTM, m_entities)},
-	{"ENTITY_FIELD_PUBLICID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_PUBLICID)},
-	{"ENTITY_FIELD_SYSTEMID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_SYSTEMID)},
-	{"ENTITY_FIELD_NOTATIONNAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_NOTATIONNAME)},
-	{"ENTITY_FIELD_NAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_NAME)},
-	{"ENTITY_FIELDS_PER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELDS_PER)},
-	{"m_textPendingStart", "I", nullptr, $PROTECTED, $field(SAX2DTM, m_textPendingStart)},
-	{"m_useSourceLocationProperty", "Z", nullptr, $PROTECTED, $field(SAX2DTM, m_useSourceLocationProperty)},
-	{"m_sourceSystemId", "Lcom/sun/org/apache/xml/internal/utils/StringVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_sourceSystemId)},
-	{"m_sourceLine", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_sourceLine)},
-	{"m_sourceColumn", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_sourceColumn)},
-	{"m_pastFirstElement", "Z", nullptr, 0, $field(SAX2DTM, m_pastFirstElement)},
-	{}
-};
-
-$MethodInfo _SAX2DTM_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;Z)V", nullptr, $PUBLIC, $method(SAX2DTM, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;ZIZZ)V", nullptr, $PUBLIC, $method(SAX2DTM, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool, int32_t, bool, bool)},
-	{"_dataOrQName", "(I)I", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, _dataOrQName, int32_t, int32_t)},
-	{"addNewDTMID", "(I)V", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, addNewDTMID, void, int32_t)},
-	{"addNode", "(IIIIIZ)I", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, addNode, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"charactersFlush", "()V", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, charactersFlush, void)},
-	{"clearCoRoutine", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, clearCoRoutine, void)},
-	{"clearCoRoutine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, clearCoRoutine, void, bool)},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"declAlreadyDeclared", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, declAlreadyDeclared, bool, $String*)},
-	{"dispatchCharactersEvents", "(ILorg/xml/sax/ContentHandler;Z)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, dispatchCharactersEvents, void, int32_t, $ContentHandler*, bool), "org.xml.sax.SAXException"},
-	{"dispatchToEvents", "(ILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, dispatchToEvents, void, int32_t, $ContentHandler*), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"getAttributeNode", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getAttributeNode, int32_t, int32_t, $String*, $String*)},
-	{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getContentHandler, $ContentHandler*)},
-	{"getDTDHandler", "()Lorg/xml/sax/DTDHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDTDHandler, $DTDHandler*)},
-	{"getDeclHandler", "()Lorg/xml/sax/ext/DeclHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDeclHandler, $DeclHandler*)},
-	{"getDocumentTypeDeclarationPublicIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDocumentTypeDeclarationPublicIdentifier, $String*)},
-	{"getDocumentTypeDeclarationSystemIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDocumentTypeDeclarationSystemIdentifier, $String*)},
-	{"getElementById", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getElementById, int32_t, $String*)},
-	{"getEntityResolver", "()Lorg/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getEntityResolver, $EntityResolver*)},
-	{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getErrorHandler, $ErrorHandler*)},
-	{"getFixedNames", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getFixedNames, $String*, int32_t)},
-	{"getIdForNamespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getIdForNamespace, int32_t, $String*)},
-	{"getLexicalHandler", "()Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getLexicalHandler, $LexicalHandler*)},
-	{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getLocalName, $String*, int32_t)},
-	{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNamespaceURI, $String*, int32_t)},
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNamespaceURI, $String*, $String*)},
-	{"getNextNodeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, getNextNodeIdentity, int32_t, int32_t)},
-	{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNodeName, $String*, int32_t)},
-	{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNodeNameX, $String*, int32_t)},
-	{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNodeValue, $String*, int32_t)},
-	{"getNumberOfNodes", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNumberOfNodes, int32_t)},
-	{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getPrefix, $String*, int32_t)},
-	{"getPrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getPrefix, $String*, $String*, $String*)},
-	{"getSourceLocatorFor", "(I)Ljavax/xml/transform/SourceLocator;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getSourceLocatorFor, $SourceLocator*, int32_t)},
-	{"getStringValue", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getStringValue, $XMLString*, int32_t)},
-	{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getUnparsedEntityURI, $String*, $String*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, isAttributeSpecified, bool, int32_t)},
-	{"isTextType", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(SAX2DTM, isTextType, bool, int32_t)},
-	{"isWhitespace", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, isWhitespace, bool, int32_t)},
-	{"migrateTo", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, migrateTo, void, $DTMManager*)},
-	{"needsTwoThreads", "()Z", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, needsTwoThreads, bool)},
-	{"nextNode", "()Z", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, nextNode, bool)},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setDocumentLocator, void, $Locator*)},
-	{"setIDAttribute", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setIDAttribute, void, $String*, int32_t)},
-	{"setIncrementalSAXSource", "(Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setIncrementalSAXSource, void, $IncrementalSAXSource*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setProperty, void, $String*, Object$*)},
-	{"setSourceLocation", "()V", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, setSourceLocation, void)},
-	{"setUseSourceLocation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setUseSourceLocation, void, bool)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _SAX2DTM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators",
-	"org.xml.sax.EntityResolver,org.xml.sax.DTDHandler,org.xml.sax.ContentHandler,org.xml.sax.ErrorHandler,org.xml.sax.ext.DeclHandler,org.xml.sax.ext.LexicalHandler",
-	_SAX2DTM_FieldInfo_,
-	_SAX2DTM_MethodInfo_
-};
-
-$Object* allocate$SAX2DTM($Class* clazz) {
-	return $of($alloc(SAX2DTM));
-}
 
 int32_t SAX2DTM::hashCode() {
 	 return this->$DTMDefaultBaseIterators::hashCode();
@@ -353,7 +216,7 @@ void SAX2DTM::clearCoRoutine() {
 void SAX2DTM::clearCoRoutine(bool callDoTerminate) {
 	if (nullptr != this->m_incrementalSAXSource) {
 		if (callDoTerminate) {
-			$nc(this->m_incrementalSAXSource)->deliverMoreNodes(false);
+			this->m_incrementalSAXSource->deliverMoreNodes(false);
 		}
 		$set(this, m_incrementalSAXSource, nullptr);
 	}
@@ -367,7 +230,7 @@ void SAX2DTM::setIncrementalSAXSource($IncrementalSAXSource* incrementalSAXSourc
 }
 
 $ContentHandler* SAX2DTM::getContentHandler() {
-	if ($nc($($nc($of(this->m_incrementalSAXSource))->getClass()->getName()))->equals("com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource_Filter"_s)) {
+	if ($$nc($nc(this->m_incrementalSAXSource)->getClass()->getName())->equals("com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource_Filter"_s)) {
 		return $cast($ContentHandler, this->m_incrementalSAXSource);
 	} else {
 		return this;
@@ -375,7 +238,7 @@ $ContentHandler* SAX2DTM::getContentHandler() {
 }
 
 $LexicalHandler* SAX2DTM::getLexicalHandler() {
-	if ($nc($($nc($of(this->m_incrementalSAXSource))->getClass()->getName()))->equals("com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource_Filter"_s)) {
+	if ($$nc($nc(this->m_incrementalSAXSource)->getClass()->getName())->equals("com.sun.org.apache.xml.internal.dtm.ref.IncrementalSAXSource_Filter"_s)) {
 		return $cast($LexicalHandler, this->m_incrementalSAXSource);
 	} else {
 		return this;
@@ -403,7 +266,7 @@ bool SAX2DTM::needsTwoThreads() {
 }
 
 void SAX2DTM::dispatchCharactersEvents(int32_t nodeHandle, $ContentHandler* ch, bool normalize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t identity = makeNodeIdentity(nodeHandle);
 	if (identity == $DTM::NULL) {
 		return;
@@ -473,7 +336,7 @@ $String* SAX2DTM::getNodeName(int32_t nodeHandle) {
 				return $str({"xmlns:"_s, $($nc(this->m_expandedNameTable)->getLocalName(expandedTypeID))});
 			}
 		} else if (0 == $nc(this->m_expandedNameTable)->getLocalNameID(expandedTypeID)) {
-			return $nc(SAX2DTM::m_fixednames)->get(type);
+			return SAX2DTM::m_fixednames->get(type);
 		} else {
 			return $nc(this->m_expandedNameTable)->getLocalName(expandedTypeID);
 		}
@@ -529,7 +392,7 @@ int32_t SAX2DTM::getNextNodeIdentity(int32_t identity) {
 }
 
 void SAX2DTM::dispatchToEvents(int32_t nodeHandle, $ContentHandler* ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DTMTreeWalker, treeWalker, this->m_walker);
 	$var($ContentHandler, prevCH, $nc(treeWalker)->getcontentHandler());
 	if (nullptr != prevCH) {
@@ -537,18 +400,16 @@ void SAX2DTM::dispatchToEvents(int32_t nodeHandle, $ContentHandler* ch) {
 	}
 	treeWalker->setcontentHandler(ch);
 	treeWalker->setDTM(this);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			treeWalker->traverse(nodeHandle);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			treeWalker->setcontentHandler(nullptr);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		treeWalker->traverse(nodeHandle);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		treeWalker->setcontentHandler(nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -574,7 +435,6 @@ bool SAX2DTM::nextNode() {
 		clearCoRoutine();
 		return false;
 	}
-	$init($Boolean);
 	if (!$equals(gotMore, $Boolean::TRUE)) {
 		clearCoRoutine();
 	}
@@ -596,7 +456,7 @@ int32_t SAX2DTM::addNode(int32_t type, int32_t expandedTypeID, int32_t parentInd
 	$nc(this->m_exptype)->addElement(expandedTypeID);
 	$nc(this->m_dataOrQName)->addElement(dataOrPrefix);
 	if (this->m_prevsib != nullptr) {
-		$nc(this->m_prevsib)->addElement(previousSibling);
+		this->m_prevsib->addElement(previousSibling);
 	}
 	if ($DTM::NULL != previousSibling) {
 		$nc(this->m_nextsib)->setElementAt(nodeIndex, previousSibling);
@@ -606,27 +466,21 @@ int32_t SAX2DTM::addNode(int32_t type, int32_t expandedTypeID, int32_t parentInd
 	}
 	switch (type) {
 	case $DTM::NAMESPACE_NODE:
-		{
-			declareNamespaceInContext(parentIndex, nodeIndex);
-			break;
-		}
+		declareNamespaceInContext(parentIndex, nodeIndex);
+		break;
 	case $DTM::ATTRIBUTE_NODE:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			if ($DTM::NULL == previousSibling && $DTM::NULL != parentIndex) {
-				$nc(this->m_firstch)->setElementAt(nodeIndex, parentIndex);
-			}
-			break;
+		if ($DTM::NULL == previousSibling && $DTM::NULL != parentIndex) {
+			$nc(this->m_firstch)->setElementAt(nodeIndex, parentIndex);
 		}
+		break;
 	}
 	return nodeIndex;
 }
 
 void SAX2DTM::addNewDTMID(int32_t nodeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (this->m_mgr == nullptr) {
 			$throwNew($ClassCastException);
@@ -655,7 +509,7 @@ void SAX2DTM::migrateTo($DTMManager* manager) {
 }
 
 void SAX2DTM::setSourceLocation() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->m_sourceSystemId)->addElement($($nc(this->m_locator)->getSystemId()));
 	$nc(this->m_sourceLine)->addElement($nc(this->m_locator)->getLineNumber());
 	$nc(this->m_sourceColumn)->addElement($nc(this->m_locator)->getColumnNumber());
@@ -691,20 +545,20 @@ $String* SAX2DTM::getLocalName(int32_t nodeHandle) {
 }
 
 $String* SAX2DTM::getUnparsedEntityURI($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, url, ""_s);
 	if (nullptr == this->m_entities) {
 		return url;
 	}
 	int32_t n = $nc(this->m_entities)->size();
 	for (int32_t i = 0; i < n; i += SAX2DTM::ENTITY_FIELDS_PER) {
-		$var($String, ename, $cast($String, $nc(this->m_entities)->get(i + SAX2DTM::ENTITY_FIELD_NAME)));
+		$var($String, ename, $cast($String, this->m_entities->get(i + SAX2DTM::ENTITY_FIELD_NAME)));
 		if (nullptr != ename && ename->equals(name)) {
-			$var($String, nname, $cast($String, $nc(this->m_entities)->get(i + SAX2DTM::ENTITY_FIELD_NOTATIONNAME)));
+			$var($String, nname, $cast($String, this->m_entities->get(i + SAX2DTM::ENTITY_FIELD_NOTATIONNAME)));
 			if (nullptr != nname) {
-				$assign(url, $cast($String, $nc(this->m_entities)->get(i + SAX2DTM::ENTITY_FIELD_SYSTEMID)));
+				$assign(url, $cast($String, this->m_entities->get(i + SAX2DTM::ENTITY_FIELD_SYSTEMID)));
 				if (nullptr == url) {
-					$assign(url, $cast($String, $nc(this->m_entities)->get(i + SAX2DTM::ENTITY_FIELD_PUBLICID)));
+					$assign(url, $cast($String, this->m_entities->get(i + SAX2DTM::ENTITY_FIELD_PUBLICID)));
 				}
 			}
 			break;
@@ -714,7 +568,7 @@ $String* SAX2DTM::getUnparsedEntityURI($String* name) {
 }
 
 $String* SAX2DTM::getPrefix(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t identity = makeNodeIdentity(nodeHandle);
 	int32_t type = _type(identity);
 	if ($DTM::ELEMENT_NODE == type) {
@@ -737,7 +591,7 @@ $String* SAX2DTM::getPrefix(int32_t nodeHandle) {
 }
 
 int32_t SAX2DTM::getAttributeNode(int32_t nodeHandle, $String* namespaceURI, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t attrH = getFirstAttribute(nodeHandle); $DTM::NULL != attrH; attrH = getNextAttribute(attrH)) {
 		$var($String, attrNS, getNamespaceURI(attrH));
 		$var($String, attrName, getLocalName(attrH));
@@ -844,11 +698,11 @@ $String* SAX2DTM::getPrefix($String* qname, $String* uri) {
 	if (nullptr != uri && uri->length() > 0) {
 		do {
 			uriIndex = $nc(this->m_prefixMappings)->indexOf(uri, ++uriIndex);
-		} while (((int32_t)(uriIndex & (uint32_t)1)) == 0);
+		} while ((uriIndex & 1) == 0);
 		if (uriIndex >= 0) {
 			$assign(prefix, $cast($String, $nc(this->m_prefixMappings)->get(uriIndex - 1)));
 		} else if (nullptr != qname) {
-			int32_t indexOfNSSep = qname->indexOf((int32_t)u':');
+			int32_t indexOfNSSep = qname->indexOf(u':');
 			if (qname->equals("xmlns"_s)) {
 				$assign(prefix, ""_s);
 			} else if (qname->startsWith("xmlns:"_s)) {
@@ -860,7 +714,7 @@ $String* SAX2DTM::getPrefix($String* qname, $String* uri) {
 			$assign(prefix, nullptr);
 		}
 	} else if (nullptr != qname) {
-		int32_t indexOfNSSep = qname->indexOf((int32_t)u':');
+		int32_t indexOfNSSep = qname->indexOf(u':');
 		if (indexOfNSSep > 0) {
 			if (qname->startsWith("xmlns:"_s)) {
 				$assign(prefix, qname->substring(indexOfNSSep + 1));
@@ -883,7 +737,7 @@ int32_t SAX2DTM::getIdForNamespace($String* uri) {
 }
 
 $String* SAX2DTM::getNamespaceURI($String* prefix$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, uri, ""_s);
 	int32_t prefixIndex = $nc(this->m_contextIndexes)->peek() - 1;
@@ -892,7 +746,7 @@ $String* SAX2DTM::getNamespaceURI($String* prefix$renamed) {
 	}
 	do {
 		prefixIndex = $nc(this->m_prefixMappings)->indexOf(prefix, ++prefixIndex);
-	} while ((prefixIndex >= 0) && ((int32_t)(prefixIndex & (uint32_t)1)) == 1);
+	} while ((prefixIndex >= 0) && (prefixIndex & 1) == 1);
 	if (prefixIndex > -1) {
 		$assign(uri, $cast($String, $nc(this->m_prefixMappings)->get(prefixIndex + 1)));
 	}
@@ -932,7 +786,7 @@ void SAX2DTM::notationDecl($String* name, $String* publicId, $String* systemId) 
 }
 
 void SAX2DTM::unparsedEntityDecl($String* name, $String* publicId, $String* systemId$renamed, $String* notationName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, systemId, systemId$renamed);
 	if (nullptr == this->m_entities) {
 		$set(this, m_entities, $new($ArrayList));
@@ -940,12 +794,12 @@ void SAX2DTM::unparsedEntityDecl($String* name, $String* publicId, $String* syst
 	try {
 		$assign(systemId, $SystemIDResolver::getAbsoluteURI(systemId, $(getDocumentBaseURI())));
 	} catch ($Exception& e) {
-		$throwNew($SAXException, $cast($Exception, e));
+		$throwNew($SAXException, e);
 	}
 	$nc(this->m_entities)->add(publicId);
-	$nc(this->m_entities)->add(systemId);
-	$nc(this->m_entities)->add(notationName);
-	$nc(this->m_entities)->add(name);
+	this->m_entities->add(systemId);
+	this->m_entities->add(notationName);
+	this->m_entities->add(name);
 }
 
 void SAX2DTM::setDocumentLocator($Locator* locator) {
@@ -954,6 +808,7 @@ void SAX2DTM::setDocumentLocator($Locator* locator) {
 }
 
 void SAX2DTM::startDocument() {
+	;
 	int32_t doc = addNode($DTM::DOCUMENT_NODE, $nc(this->m_expandedNameTable)->getExpandedTypeID($DTM::DOCUMENT_NODE), $DTM::NULL, $DTM::NULL, 0, true);
 	$nc(this->m_parents)->push(doc);
 	this->m_previous = $DTM::NULL;
@@ -961,6 +816,7 @@ void SAX2DTM::startDocument() {
 }
 
 void SAX2DTM::endDocument() {
+	;
 	charactersFlush();
 	$nc(this->m_nextsib)->setElementAt($DTM::NULL, 0);
 	if ($nc(this->m_firstch)->elementAt(0) == $DTMDefaultBase::NOTPROCESSED) {
@@ -978,30 +834,32 @@ void SAX2DTM::endDocument() {
 
 void SAX2DTM::startPrefixMapping($String* prefix$renamed, $String* uri) {
 	$var($String, prefix, prefix$renamed);
+	;
 	if (nullptr == prefix) {
 		$assign(prefix, ""_s);
 	}
 	$nc(this->m_prefixMappings)->add(prefix);
-	$nc(this->m_prefixMappings)->add(uri);
+	this->m_prefixMappings->add(uri);
 }
 
 void SAX2DTM::endPrefixMapping($String* prefix$renamed) {
 	$var($String, prefix, prefix$renamed);
+	;
 	if (nullptr == prefix) {
 		$assign(prefix, ""_s);
 	}
 	int32_t index = $nc(this->m_contextIndexes)->peek() - 1;
 	do {
 		index = $nc(this->m_prefixMappings)->indexOf(prefix, ++index);
-	} while ((index >= 0) && (((int32_t)(index & (uint32_t)1)) == 1));
+	} while ((index >= 0) && ((index & 1) == 1));
 	if (index > -1) {
 		$nc(this->m_prefixMappings)->setElementAt("%@$#^@#"_s, index);
-		$nc(this->m_prefixMappings)->setElementAt("%@$#^@#"_s, index + 1);
+		this->m_prefixMappings->setElementAt("%@$#^@#"_s, index + 1);
 	}
 }
 
 bool SAX2DTM::declAlreadyDeclared($String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startDecls = $nc(this->m_contextIndexes)->peek();
 	$var($Vector, prefixMappings, this->m_prefixMappings);
 	int32_t nDecls = $nc(prefixMappings)->size();
@@ -1018,11 +876,12 @@ bool SAX2DTM::declAlreadyDeclared($String* prefix) {
 }
 
 void SAX2DTM::startElement($String* uri, $String* localName$renamed, $String* qName, $Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, localName, localName$renamed);
+	;
 	charactersFlush();
-	bool var$0 = (localName == nullptr || $nc(localName)->isEmpty());
-	if (var$0 && (uri == nullptr || $nc(uri)->isEmpty())) {
+	bool var$0 = localName == nullptr || localName->isEmpty();
+	if (var$0 && (uri == nullptr || uri->isEmpty())) {
 		$assign(localName, qName);
 	}
 	int32_t exName = $nc(this->m_expandedNameTable)->getExpandedTypeID(uri, localName, $DTM::ELEMENT_NODE);
@@ -1049,7 +908,7 @@ void SAX2DTM::startElement($String* uri, $String* localName$renamed, $String* qN
 		if (prefix == nullptr) {
 			continue;
 		}
-		$var($String, declURL, $cast($String, $nc(this->m_prefixMappings)->get(i + 1)));
+		$var($String, declURL, $cast($String, this->m_prefixMappings->get(i + 1)));
 		exName = $nc(this->m_expandedNameTable)->getExpandedTypeID(nullptr, prefix, $DTM::NAMESPACE_NODE);
 		int32_t val = $nc(this->m_valuesOrPrefixes)->stringToIndex(declURL);
 		prev = addNode($DTM::NAMESPACE_NODE, exName, elemNode, prev, val, false);
@@ -1062,10 +921,10 @@ void SAX2DTM::startElement($String* uri, $String* localName$renamed, $String* qN
 		$assign(prefix, getPrefix(attrQName, attrUri));
 		int32_t nodeType = 0;
 		$var($String, attrLocalName, attributes->getLocalName(i));
-		bool var$1 = (nullptr != attrQName);
+		bool var$1 = nullptr != attrQName;
 		if (var$1) {
 			bool var$2 = attrQName->equals("xmlns"_s);
-			var$1 = (var$2 || attrQName->startsWith("xmlns:"_s));
+			var$1 = var$2 || attrQName->startsWith("xmlns:"_s);
 		}
 		if (var$1) {
 			if (declAlreadyDeclared(prefix)) {
@@ -1074,7 +933,7 @@ void SAX2DTM::startElement($String* uri, $String* localName$renamed, $String* qN
 			nodeType = $DTM::NAMESPACE_NODE;
 		} else {
 			nodeType = $DTM::ATTRIBUTE_NODE;
-			if ($nc($(attributes->getType(i)))->equalsIgnoreCase("ID"_s)) {
+			if ($$nc(attributes->getType(i))->equalsIgnoreCase("ID"_s)) {
 				setIDAttribute(valString, elemNode);
 			}
 		}
@@ -1096,7 +955,7 @@ void SAX2DTM::startElement($String* uri, $String* localName$renamed, $String* qN
 		$nc(this->m_nextsib)->setElementAt($DTM::NULL, prev);
 	}
 	if (nullptr != this->m_wsfilter) {
-		int16_t wsv = $nc(this->m_wsfilter)->getShouldStripSpace(makeNodeHandle(elemNode), this);
+		int16_t wsv = this->m_wsfilter->getShouldStripSpace(makeNodeHandle(elemNode), this);
 		bool shouldStrip = ($DTMWSFilter::INHERIT == wsv) ? getShouldStripWhitespace() : ($DTMWSFilter::STRIP == wsv);
 		pushShouldStripWhitespace(shouldStrip);
 	}
@@ -1105,11 +964,12 @@ void SAX2DTM::startElement($String* uri, $String* localName$renamed, $String* qN
 }
 
 void SAX2DTM::endElement($String* uri, $String* localName, $String* qName) {
+	;
 	charactersFlush();
 	$nc(this->m_contextIndexes)->quickPop(1);
 	int32_t topContextIndex = $nc(this->m_contextIndexes)->peek();
 	if (topContextIndex != $nc(this->m_prefixMappings)->size()) {
-		$nc(this->m_prefixMappings)->setSize(topContextIndex);
+		this->m_prefixMappings->setSize(topContextIndex);
 	}
 	int32_t lastNode = this->m_previous;
 	this->m_previous = $nc(this->m_parents)->pop();
@@ -1136,6 +996,7 @@ void SAX2DTM::ignorableWhitespace($chars* ch, int32_t start, int32_t length) {
 }
 
 void SAX2DTM::processingInstruction($String* target, $String* data) {
+	;
 	charactersFlush();
 	int32_t exName = $nc(this->m_expandedNameTable)->getExpandedTypeID(nullptr, target, $DTM::PROCESSING_INSTRUCTION_NODE);
 	int32_t dataIndex = $nc(this->m_valuesOrPrefixes)->stringToIndex(data);
@@ -1205,14 +1066,14 @@ void SAX2DTM::setProperty($String* property, Object$* value) {
 }
 
 $SourceLocator* SAX2DTM::getSourceLocatorFor(int32_t node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_useSourceLocationProperty) {
 		node = makeNodeIdentity(node);
 		$var($String, var$0, $nc(this->m_sourceSystemId)->elementAt(node));
 		int32_t var$1 = $nc(this->m_sourceLine)->elementAt(node);
 		return $new($NodeLocator, nullptr, var$0, var$1, $nc(this->m_sourceColumn)->elementAt(node));
 	} else if (this->m_locator != nullptr) {
-		return $new($NodeLocator, nullptr, $($nc(this->m_locator)->getSystemId()), -1, -1);
+		return $new($NodeLocator, nullptr, $(this->m_locator->getSystemId()), -1, -1);
 	} else if (this->m_systemId != nullptr) {
 		return $new($NodeLocator, nullptr, this->m_systemId, -1, -1);
 	}
@@ -1220,24 +1081,24 @@ $SourceLocator* SAX2DTM::getSourceLocatorFor(int32_t node) {
 }
 
 $String* SAX2DTM::getFixedNames(int32_t type) {
-	return $nc(SAX2DTM::m_fixednames)->get(type);
+	return SAX2DTM::m_fixednames->get(type);
 }
 
-void clinit$SAX2DTM($Class* class$) {
+void SAX2DTM::clinit$($Class* clazz) {
 	$assignStatic(SAX2DTM::m_fixednames, $new($StringArray, {
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		"#text"_s,
 		"#cdata_section"_s,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		"#comment"_s,
 		"#document"_s,
-		($String*)nullptr,
+		nullptr,
 		"#document-fragment"_s,
-		($String*)nullptr
+		nullptr
 	}));
 }
 
@@ -1245,7 +1106,134 @@ SAX2DTM::SAX2DTM() {
 }
 
 $Class* SAX2DTM::load$($String* name, bool initialize) {
-	$loadClass(SAX2DTM, name, initialize, &_SAX2DTM_ClassInfo_, clinit$SAX2DTM, allocate$SAX2DTM);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, DEBUG)},
+		{"m_incrementalSAXSource", "Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;", nullptr, $PRIVATE, $field(SAX2DTM, m_incrementalSAXSource)},
+		{"m_chars", "Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, $PROTECTED, $field(SAX2DTM, m_chars)},
+		{"m_data", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_data)},
+		{"m_parents", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_parents)},
+		{"m_previous", "I", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_previous)},
+		{"m_prefixMappings", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_prefixMappings)},
+		{"m_contextIndexes", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_contextIndexes)},
+		{"m_textType", "I", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_textType)},
+		{"m_coalescedTextType", "I", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_coalescedTextType)},
+		{"m_locator", "Lorg/xml/sax/Locator;", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_locator)},
+		{"m_systemId", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(SAX2DTM, m_systemId)},
+		{"m_insideDTD", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(SAX2DTM, m_insideDTD)},
+		{"m_walker", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMTreeWalker;", nullptr, $PROTECTED, $field(SAX2DTM, m_walker)},
+		{"m_valuesOrPrefixes", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMStringPool;", nullptr, $PROTECTED, $field(SAX2DTM, m_valuesOrPrefixes)},
+		{"m_endDocumentOccured", "Z", nullptr, $PROTECTED, $field(SAX2DTM, m_endDocumentOccured)},
+		{"m_dataOrQName", "Lcom/sun/org/apache/xml/internal/utils/SuballocatedIntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_dataOrQName)},
+		{"m_idAttributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PROTECTED, $field(SAX2DTM, m_idAttributes)},
+		{"m_fixednames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SAX2DTM, m_fixednames)},
+		{"m_entities", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SAX2DTM, m_entities)},
+		{"ENTITY_FIELD_PUBLICID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_PUBLICID)},
+		{"ENTITY_FIELD_SYSTEMID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_SYSTEMID)},
+		{"ENTITY_FIELD_NOTATIONNAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_NOTATIONNAME)},
+		{"ENTITY_FIELD_NAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELD_NAME)},
+		{"ENTITY_FIELDS_PER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SAX2DTM, ENTITY_FIELDS_PER)},
+		{"m_textPendingStart", "I", nullptr, $PROTECTED, $field(SAX2DTM, m_textPendingStart)},
+		{"m_useSourceLocationProperty", "Z", nullptr, $PROTECTED, $field(SAX2DTM, m_useSourceLocationProperty)},
+		{"m_sourceSystemId", "Lcom/sun/org/apache/xml/internal/utils/StringVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_sourceSystemId)},
+		{"m_sourceLine", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_sourceLine)},
+		{"m_sourceColumn", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, $PROTECTED, $field(SAX2DTM, m_sourceColumn)},
+		{"m_pastFirstElement", "Z", nullptr, 0, $field(SAX2DTM, m_pastFirstElement)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;Z)V", nullptr, $PUBLIC, $method(SAX2DTM, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;Ljavax/xml/transform/Source;ILcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;ZIZZ)V", nullptr, $PUBLIC, $method(SAX2DTM, init$, void, $DTMManager*, $Source*, int32_t, $DTMWSFilter*, $XMLStringFactory*, bool, int32_t, bool, bool)},
+		{"_dataOrQName", "(I)I", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, _dataOrQName, int32_t, int32_t)},
+		{"addNewDTMID", "(I)V", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, addNewDTMID, void, int32_t)},
+		{"addNode", "(IIIIIZ)I", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, addNode, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"charactersFlush", "()V", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, charactersFlush, void)},
+		{"clearCoRoutine", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, clearCoRoutine, void)},
+		{"clearCoRoutine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, clearCoRoutine, void, bool)},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"declAlreadyDeclared", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, declAlreadyDeclared, bool, $String*)},
+		{"dispatchCharactersEvents", "(ILorg/xml/sax/ContentHandler;Z)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, dispatchCharactersEvents, void, int32_t, $ContentHandler*, bool), "org.xml.sax.SAXException"},
+		{"dispatchToEvents", "(ILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, dispatchToEvents, void, int32_t, $ContentHandler*), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"getAttributeNode", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getAttributeNode, int32_t, int32_t, $String*, $String*)},
+		{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getContentHandler, $ContentHandler*)},
+		{"getDTDHandler", "()Lorg/xml/sax/DTDHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDTDHandler, $DTDHandler*)},
+		{"getDeclHandler", "()Lorg/xml/sax/ext/DeclHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDeclHandler, $DeclHandler*)},
+		{"getDocumentTypeDeclarationPublicIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDocumentTypeDeclarationPublicIdentifier, $String*)},
+		{"getDocumentTypeDeclarationSystemIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getDocumentTypeDeclarationSystemIdentifier, $String*)},
+		{"getElementById", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getElementById, int32_t, $String*)},
+		{"getEntityResolver", "()Lorg/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getEntityResolver, $EntityResolver*)},
+		{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getErrorHandler, $ErrorHandler*)},
+		{"getFixedNames", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getFixedNames, $String*, int32_t)},
+		{"getIdForNamespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getIdForNamespace, int32_t, $String*)},
+		{"getLexicalHandler", "()Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getLexicalHandler, $LexicalHandler*)},
+		{"getLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getLocalName, $String*, int32_t)},
+		{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNamespaceURI, $String*, int32_t)},
+		{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNamespaceURI, $String*, $String*)},
+		{"getNextNodeIdentity", "(I)I", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, getNextNodeIdentity, int32_t, int32_t)},
+		{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNodeName, $String*, int32_t)},
+		{"getNodeNameX", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNodeNameX, $String*, int32_t)},
+		{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNodeValue, $String*, int32_t)},
+		{"getNumberOfNodes", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getNumberOfNodes, int32_t)},
+		{"getPrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getPrefix, $String*, int32_t)},
+		{"getPrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getPrefix, $String*, $String*, $String*)},
+		{"getSourceLocatorFor", "(I)Ljavax/xml/transform/SourceLocator;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getSourceLocatorFor, $SourceLocator*, int32_t)},
+		{"getStringValue", "(I)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getStringValue, $XMLString*, int32_t)},
+		{"getUnparsedEntityURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, getUnparsedEntityURI, $String*, $String*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, isAttributeSpecified, bool, int32_t)},
+		{"isTextType", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(SAX2DTM, isTextType, bool, int32_t)},
+		{"isWhitespace", "(I)Z", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, isWhitespace, bool, int32_t)},
+		{"migrateTo", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, migrateTo, void, $DTMManager*)},
+		{"needsTwoThreads", "()Z", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, needsTwoThreads, bool)},
+		{"nextNode", "()Z", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, nextNode, bool)},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setDocumentLocator, void, $Locator*)},
+		{"setIDAttribute", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setIDAttribute, void, $String*, int32_t)},
+		{"setIncrementalSAXSource", "(Lcom/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setIncrementalSAXSource, void, $IncrementalSAXSource*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setProperty, void, $String*, Object$*)},
+		{"setSourceLocation", "()V", nullptr, $PROTECTED, $virtualMethod(SAX2DTM, setSourceLocation, void)},
+		{"setUseSourceLocation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, setUseSourceLocation, void, bool)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(SAX2DTM, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators",
+		"org.xml.sax.EntityResolver,org.xml.sax.DTDHandler,org.xml.sax.ContentHandler,org.xml.sax.ErrorHandler,org.xml.sax.ext.DeclHandler,org.xml.sax.ext.LexicalHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAX2DTM, name, initialize, &classInfo$$, SAX2DTM::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SAX2DTM));
+	});
 	return class$;
 }
 

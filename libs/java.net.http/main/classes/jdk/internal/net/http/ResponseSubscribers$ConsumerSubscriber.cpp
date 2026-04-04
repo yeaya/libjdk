@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$ConsumerSubscriber.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -23,7 +22,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
@@ -34,51 +32,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _ResponseSubscribers$ConsumerSubscriber_FieldInfo_[] = {
-	{"consumer", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ConsumerSubscriber, consumer)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE, $field(ResponseSubscribers$ConsumerSubscriber, subscription)},
-	{"result", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ConsumerSubscriber, result)},
-	{"subscribed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$ConsumerSubscriber, subscribed)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$ConsumerSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;)V", $PUBLIC, $method(ResponseSubscribers$ConsumerSubscriber, init$, void, $Consumer*)},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, getBody, $CompletionStage*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$ConsumerSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber", "jdk.internal.net.http.ResponseSubscribers", "ConsumerSubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$ConsumerSubscriber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	_ResponseSubscribers$ConsumerSubscriber_FieldInfo_,
-	_ResponseSubscribers$ConsumerSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<Ljava/lang/Void;>;",
-	nullptr,
-	_ResponseSubscribers$ConsumerSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$ConsumerSubscriber($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$ConsumerSubscriber));
-}
 
 void ResponseSubscribers$ConsumerSubscriber::init$($Consumer* consumer) {
 	$set(this, result, $new($MinimalFuture));
@@ -92,7 +45,7 @@ $CompletionStage* ResponseSubscribers$ConsumerSubscriber::getBody() {
 
 void ResponseSubscribers$ConsumerSubscriber::onSubscribe($Flow$Subscription* subscription) {
 	$Objects::requireNonNull(subscription);
-	if (!$nc(this->subscribed)->compareAndSet(false, true)) {
+	if (!this->subscribed->compareAndSet(false, true)) {
 		subscription->cancel();
 	} else {
 		$set(this, subscription, subscription);
@@ -101,7 +54,7 @@ void ResponseSubscribers$ConsumerSubscriber::onSubscribe($Flow$Subscription* sub
 }
 
 void ResponseSubscribers$ConsumerSubscriber::onNext($List* items) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(items);
 	{
 		$var($Iterator, i$, items->iterator());
@@ -119,12 +72,12 @@ void ResponseSubscribers$ConsumerSubscriber::onNext($List* items) {
 
 void ResponseSubscribers$ConsumerSubscriber::onError($Throwable* throwable) {
 	$Objects::requireNonNull(throwable);
-	$nc(this->result)->completeExceptionally(throwable);
+	this->result->completeExceptionally(throwable);
 }
 
 void ResponseSubscribers$ConsumerSubscriber::onComplete() {
 	$nc(this->consumer)->accept($($Optional::empty()));
-	$nc(this->result)->complete(nullptr);
+	this->result->complete(nullptr);
 }
 
 void ResponseSubscribers$ConsumerSubscriber::onNext(Object$* items) {
@@ -135,7 +88,46 @@ ResponseSubscribers$ConsumerSubscriber::ResponseSubscribers$ConsumerSubscriber()
 }
 
 $Class* ResponseSubscribers$ConsumerSubscriber::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$ConsumerSubscriber, name, initialize, &_ResponseSubscribers$ConsumerSubscriber_ClassInfo_, allocate$ResponseSubscribers$ConsumerSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"consumer", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ConsumerSubscriber, consumer)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE, $field(ResponseSubscribers$ConsumerSubscriber, subscription)},
+		{"result", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$ConsumerSubscriber, result)},
+		{"subscribed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$ConsumerSubscriber, subscribed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;)V", $PUBLIC, $method(ResponseSubscribers$ConsumerSubscriber, init$, void, $Consumer*)},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, getBody, $CompletionStage*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber", "jdk.internal.net.http.ResponseSubscribers", "ConsumerSubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$ConsumerSubscriber",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$ConsumerSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$ConsumerSubscriber);
+	});
 	return class$;
 }
 

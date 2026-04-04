@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Finishings.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -33,59 +32,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Finishings_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Finishings, serialVersionUID)},
-	{"NONE", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, NONE)},
-	{"STAPLE", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE)},
-	{"COVER", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, COVER)},
-	{"BIND", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, BIND)},
-	{"SADDLE_STITCH", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, SADDLE_STITCH)},
-	{"EDGE_STITCH", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH)},
-	{"STAPLE_TOP_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_TOP_LEFT)},
-	{"STAPLE_BOTTOM_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_BOTTOM_LEFT)},
-	{"STAPLE_TOP_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_TOP_RIGHT)},
-	{"STAPLE_BOTTOM_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_BOTTOM_RIGHT)},
-	{"EDGE_STITCH_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_LEFT)},
-	{"EDGE_STITCH_TOP", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_TOP)},
-	{"EDGE_STITCH_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_RIGHT)},
-	{"EDGE_STITCH_BOTTOM", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_BOTTOM)},
-	{"STAPLE_DUAL_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_LEFT)},
-	{"STAPLE_DUAL_TOP", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_TOP)},
-	{"STAPLE_DUAL_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_RIGHT)},
-	{"STAPLE_DUAL_BOTTOM", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_BOTTOM)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Finishings, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/Finishings;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Finishings, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _Finishings_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Finishings, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Finishings, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Finishings, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Finishings, getName, $String*)},
-	{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(Finishings, getOffset, int32_t)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Finishings, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Finishings_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.Finishings",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_Finishings_FieldInfo_,
-	_Finishings_MethodInfo_
-};
-
-$Object* allocate$Finishings($Class* clazz) {
-	return $of($alloc(Finishings));
-}
 
 $Object* Finishings::clone() {
 	 return this->$EnumSyntax::clone();
@@ -133,11 +79,11 @@ void Finishings::init$(int32_t value) {
 }
 
 $StringArray* Finishings::getStringTable() {
-	return $cast($StringArray, $nc(Finishings::myStringTable)->clone());
+	return $cast($StringArray, Finishings::myStringTable->clone());
 }
 
 $EnumSyntaxArray* Finishings::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(Finishings::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, Finishings::myEnumValueTable->clone());
 }
 
 int32_t Finishings::getOffset() {
@@ -152,7 +98,7 @@ $String* Finishings::getName() {
 	return "finishings"_s;
 }
 
-void clinit$Finishings($Class* class$) {
+void Finishings::clinit$($Class* clazz) {
 	$assignStatic(Finishings::NONE, $new(Finishings, 3));
 	$assignStatic(Finishings::STAPLE, $new(Finishings, 4));
 	$assignStatic(Finishings::COVER, $new(Finishings, 6));
@@ -174,21 +120,21 @@ void clinit$Finishings($Class* class$) {
 	$assignStatic(Finishings::myStringTable, $new($StringArray, {
 		"none"_s,
 		"staple"_s,
-		($String*)nullptr,
+		nullptr,
 		"cover"_s,
 		"bind"_s,
 		"saddle-stitch"_s,
 		"edge-stitch"_s,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		"staple-top-left"_s,
 		"staple-bottom-left"_s,
 		"staple-top-right"_s,
@@ -205,21 +151,21 @@ void clinit$Finishings($Class* class$) {
 	$assignStatic(Finishings::myEnumValueTable, $new($FinishingsArray, {
 		Finishings::NONE,
 		Finishings::STAPLE,
-		(Finishings*)nullptr,
+		nullptr,
 		Finishings::COVER,
 		Finishings::BIND,
 		Finishings::SADDLE_STITCH,
 		Finishings::EDGE_STITCH,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
-		(Finishings*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		Finishings::STAPLE_TOP_LEFT,
 		Finishings::STAPLE_BOTTOM_LEFT,
 		Finishings::STAPLE_TOP_RIGHT,
@@ -239,7 +185,55 @@ Finishings::Finishings() {
 }
 
 $Class* Finishings::load$($String* name, bool initialize) {
-	$loadClass(Finishings, name, initialize, &_Finishings_ClassInfo_, clinit$Finishings, allocate$Finishings);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Finishings, serialVersionUID)},
+		{"NONE", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, NONE)},
+		{"STAPLE", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE)},
+		{"COVER", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, COVER)},
+		{"BIND", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, BIND)},
+		{"SADDLE_STITCH", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, SADDLE_STITCH)},
+		{"EDGE_STITCH", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH)},
+		{"STAPLE_TOP_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_TOP_LEFT)},
+		{"STAPLE_BOTTOM_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_BOTTOM_LEFT)},
+		{"STAPLE_TOP_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_TOP_RIGHT)},
+		{"STAPLE_BOTTOM_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_BOTTOM_RIGHT)},
+		{"EDGE_STITCH_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_LEFT)},
+		{"EDGE_STITCH_TOP", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_TOP)},
+		{"EDGE_STITCH_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_RIGHT)},
+		{"EDGE_STITCH_BOTTOM", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, EDGE_STITCH_BOTTOM)},
+		{"STAPLE_DUAL_LEFT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_LEFT)},
+		{"STAPLE_DUAL_TOP", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_TOP)},
+		{"STAPLE_DUAL_RIGHT", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_RIGHT)},
+		{"STAPLE_DUAL_BOTTOM", "Ljavax/print/attribute/standard/Finishings;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Finishings, STAPLE_DUAL_BOTTOM)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Finishings, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/Finishings;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Finishings, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Finishings, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Finishings, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Finishings, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Finishings, getName, $String*)},
+		{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(Finishings, getOffset, int32_t)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Finishings, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.Finishings",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Finishings, name, initialize, &classInfo$$, Finishings::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Finishings));
+	});
 	return class$;
 }
 

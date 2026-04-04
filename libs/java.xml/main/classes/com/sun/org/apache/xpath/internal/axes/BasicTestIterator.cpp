@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/BasicTestIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
@@ -27,7 +26,6 @@ using $DTMFilter = ::com::sun::org::apache::xml::internal::dtm::DTMFilter;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixResolver;
 using $VariableStack = ::com::sun::org::apache::xpath::internal::VariableStack;
-using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $ChildTestIterator = ::com::sun::org::apache::xpath::internal::axes::ChildTestIterator;
 using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;
@@ -44,35 +42,6 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$FieldInfo _BasicTestIterator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(BasicTestIterator, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BasicTestIterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void, $PrefixResolver*)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;IIZ)V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void, $Compiler*, int32_t, int32_t, bool), "javax.xml.transform.TransformerException"},
-	{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(BasicTestIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
-	{"getNextNode", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(BasicTestIterator, getNextNode, int32_t)},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTestIterator, nextNode, int32_t)},
-	{}
-};
-
-$ClassInfo _BasicTestIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xpath.internal.axes.BasicTestIterator",
-	"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
-	nullptr,
-	_BasicTestIterator_FieldInfo_,
-	_BasicTestIterator_MethodInfo_
-};
-
-$Object* allocate$BasicTestIterator($Class* clazz) {
-	return $of($alloc(BasicTestIterator));
-}
-
 void BasicTestIterator::init$() {
 	$LocPathIterator::init$();
 }
@@ -82,16 +51,15 @@ void BasicTestIterator::init$($PrefixResolver* nscontext) {
 }
 
 void BasicTestIterator::init$($Compiler* compiler, int32_t opPos, int32_t analysis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LocPathIterator::init$(compiler, opPos, analysis, false);
 	int32_t firstStepPos = $OpMap::getFirstChildPos(opPos);
 	int32_t whatToShow = $nc(compiler)->getWhatToShow(firstStepPos);
-	if ((0 == ((int32_t)(whatToShow & (uint32_t)((($DTMFilter::SHOW_ATTRIBUTE | $DTMFilter::SHOW_NAMESPACE) | $DTMFilter::SHOW_ELEMENT) | $DTMFilter::SHOW_PROCESSING_INSTRUCTION)))) || (whatToShow == $DTMFilter::SHOW_ALL)) {
+	if ((0 == (whatToShow & ((($DTMFilter::SHOW_ATTRIBUTE | $DTMFilter::SHOW_NAMESPACE) | $DTMFilter::SHOW_ELEMENT) | $DTMFilter::SHOW_PROCESSING_INSTRUCTION))) || (whatToShow == $DTMFilter::SHOW_ALL)) {
 		initNodeTest(whatToShow);
 	} else {
-		int32_t var$0 = whatToShow;
-		$var($String, var$1, compiler->getStepNS(firstStepPos));
-		initNodeTest(var$0, var$1, $(compiler->getStepLocalName(firstStepPos)));
+		$var($String, var$0, compiler->getStepNS(firstStepPos));
+		initNodeTest(whatToShow, var$0, $(compiler->getStepLocalName(firstStepPos)));
 	}
 	initPredicateInfo(compiler, firstStepPos);
 }
@@ -101,7 +69,7 @@ void BasicTestIterator::init$($Compiler* compiler, int32_t opPos, int32_t analys
 }
 
 int32_t BasicTestIterator::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_foundLast) {
 		this->m_lastFetched = $DTM::NULL;
 		return $DTM::NULL;
@@ -120,47 +88,45 @@ int32_t BasicTestIterator::nextNode() {
 		$assign(vars, nullptr);
 		savedStart = 0;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			do {
-				next = getNextNode();
-				if ($DTM::NULL != next) {
-					if ($DTMIterator::FILTER_ACCEPT == acceptNode(next)) {
-						break;
-					} else {
-						continue;
-					}
-				} else {
-					break;
-				}
-			} while (next != $DTM::NULL);
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		do {
+			next = getNextNode();
 			if ($DTM::NULL != next) {
-				++this->m_pos;
-				var$2 = next;
-				return$1 = true;
-				goto $finally;
+				if ($DTMIterator::FILTER_ACCEPT == acceptNode(next)) {
+					break;
+				} else {
+					continue;
+				}
 			} else {
-				this->m_foundLast = true;
-				var$2 = $DTM::NULL;
-				return$1 = true;
-				goto $finally;
+				break;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (-1 != this->m_stackFrame) {
-				$nc(vars)->setStackFrame(savedStart);
-			}
+		} while (next != $DTM::NULL);
+		if ($DTM::NULL != next) {
+			++this->m_pos;
+			var$2 = next;
+			return$1 = true;
+			goto $finally;
+		} else {
+			this->m_foundLast = true;
+			var$2 = $DTM::NULL;
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (-1 != this->m_stackFrame) {
+			$nc(vars)->setStackFrame(savedStart);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -175,7 +141,31 @@ BasicTestIterator::BasicTestIterator() {
 }
 
 $Class* BasicTestIterator::load$($String* name, bool initialize) {
-	$loadClass(BasicTestIterator, name, initialize, &_BasicTestIterator_ClassInfo_, allocate$BasicTestIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(BasicTestIterator, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void, $PrefixResolver*)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;IIZ)V", nullptr, $PROTECTED, $method(BasicTestIterator, init$, void, $Compiler*, int32_t, int32_t, bool), "javax.xml.transform.TransformerException"},
+		{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(BasicTestIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
+		{"getNextNode", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(BasicTestIterator, getNextNode, int32_t)},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTestIterator, nextNode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xpath.internal.axes.BasicTestIterator",
+		"com.sun.org.apache.xpath.internal.axes.LocPathIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicTestIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTestIterator));
+	});
 	return class$;
 }
 

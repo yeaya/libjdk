@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/datatypes/ObjectList.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,29 +13,25 @@ namespace com {
 						namespace xs {
 							namespace datatypes {
 
-$MethodInfo _ObjectList_MethodInfo_[] = {
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectList, getLength, int32_t)},
-	{"item", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectList, item, $Object*, int32_t)},
-	{}
-};
-
-$ClassInfo _ObjectList_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.datatypes.ObjectList",
-	nullptr,
-	"java.util.List",
-	nullptr,
-	_ObjectList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;"
-};
-
-$Object* allocate$ObjectList($Class* clazz) {
-	return $of($alloc(ObjectList));
-}
-
 $Class* ObjectList::load$($String* name, bool initialize) {
-	$loadClass(ObjectList, name, initialize, &_ObjectList_ClassInfo_, allocate$ObjectList);
+	$MethodInfo methodInfos$$[] = {
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectList, getLength, int32_t)},
+		{"item", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectList, item, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.datatypes.ObjectList",
+		nullptr,
+		"java.util.List",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;"
+	};
+	$loadClass(ObjectList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectList);
+	});
 	return class$;
 }
 

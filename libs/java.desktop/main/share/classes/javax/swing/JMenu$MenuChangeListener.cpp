@@ -1,5 +1,4 @@
 #include <javax/swing/JMenu$MenuChangeListener.h>
-
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/event/ChangeEvent.h>
@@ -17,48 +16,6 @@ using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JMenu$MenuChangeListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JMenu$MenuChangeListener, this$0)},
-	{"isSelected", "Z", nullptr, 0, $field(JMenu$MenuChangeListener, isSelected)},
-	{}
-};
-
-$MethodInfo _JMenu$MenuChangeListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JMenu;)V", nullptr, 0, $method(JMenu$MenuChangeListener, init$, void, $JMenu*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenu$MenuChangeListener, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JMenu$MenuChangeListener_InnerClassesInfo_[] = {
-	{"javax.swing.JMenu$MenuChangeListener", "javax.swing.JMenu", "MenuChangeListener", 0},
-	{}
-};
-
-$ClassInfo _JMenu$MenuChangeListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JMenu$MenuChangeListener",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.io.Serializable",
-	_JMenu$MenuChangeListener_FieldInfo_,
-	_JMenu$MenuChangeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JMenu$MenuChangeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JMenu"
-};
-
-$Object* allocate$JMenu$MenuChangeListener($Class* clazz) {
-	return $of($alloc(JMenu$MenuChangeListener));
-}
 
 int32_t JMenu$MenuChangeListener::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -102,7 +59,43 @@ JMenu$MenuChangeListener::JMenu$MenuChangeListener() {
 }
 
 $Class* JMenu$MenuChangeListener::load$($String* name, bool initialize) {
-	$loadClass(JMenu$MenuChangeListener, name, initialize, &_JMenu$MenuChangeListener_ClassInfo_, allocate$JMenu$MenuChangeListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(JMenu$MenuChangeListener, this$0)},
+		{"isSelected", "Z", nullptr, 0, $field(JMenu$MenuChangeListener, isSelected)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JMenu;)V", nullptr, 0, $method(JMenu$MenuChangeListener, init$, void, $JMenu*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenu$MenuChangeListener, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JMenu$MenuChangeListener", "javax.swing.JMenu", "MenuChangeListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JMenu$MenuChangeListener",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JMenu"
+	};
+	$loadClass(JMenu$MenuChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JMenu$MenuChangeListener));
+	});
 	return class$;
 }
 

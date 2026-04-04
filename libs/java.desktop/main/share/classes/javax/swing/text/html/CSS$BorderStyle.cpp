@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$BorderStyle.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/swing/text/html/CSS$CssValue.h>
@@ -32,46 +31,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$BorderStyle_FieldInfo_[] = {
-	{"style", "Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE | $TRANSIENT, $field(CSS$BorderStyle, style)},
-	{}
-};
-
-$MethodInfo _CSS$BorderStyle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSS$BorderStyle, init$, void)},
-	{"getValue", "()Ljavax/swing/text/html/CSS$Value;", nullptr, 0, $virtualMethod(CSS$BorderStyle, getValue, $CSS$Value*)},
-	{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BorderStyle, parseCssValue, $Object*, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CSS$BorderStyle, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CSS$BorderStyle, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CSS$BorderStyle_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$BorderStyle", "javax.swing.text.html.CSS", "BorderStyle", $STATIC},
-	{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$BorderStyle_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$BorderStyle",
-	"javax.swing.text.html.CSS$CssValue",
-	nullptr,
-	_CSS$BorderStyle_FieldInfo_,
-	_CSS$BorderStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$BorderStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$BorderStyle($Class* clazz) {
-	return $of($alloc(CSS$BorderStyle));
-}
-
 void CSS$BorderStyle::init$() {
 	$CSS$CssValue::init$();
 }
@@ -81,7 +40,7 @@ $CSS$Value* CSS$BorderStyle::getValue() {
 }
 
 $Object* CSS$BorderStyle::parseCssValue($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CSS$Value, cssv, $CSS::getValue(value));
 	if (cssv != nullptr) {
 		$init($CSS$Value);
@@ -89,10 +48,10 @@ $Object* CSS$BorderStyle::parseCssValue($String* value) {
 			$var(CSS$BorderStyle, bs, $new(CSS$BorderStyle));
 			$set(bs, svalue, value);
 			$set(bs, style, cssv);
-			return $of(bs);
+			return bs;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void CSS$BorderStyle::writeObject($ObjectOutputStream* s) {
@@ -100,7 +59,7 @@ void CSS$BorderStyle::writeObject($ObjectOutputStream* s) {
 	if (this->style == nullptr) {
 		s->writeObject(nullptr);
 	} else {
-		s->writeObject($($nc(this->style)->toString()));
+		s->writeObject($(this->style->toString()));
 	}
 }
 
@@ -116,7 +75,41 @@ CSS$BorderStyle::CSS$BorderStyle() {
 }
 
 $Class* CSS$BorderStyle::load$($String* name, bool initialize) {
-	$loadClass(CSS$BorderStyle, name, initialize, &_CSS$BorderStyle_ClassInfo_, allocate$CSS$BorderStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/text/html/CSS$Value;", nullptr, $PRIVATE | $TRANSIENT, $field(CSS$BorderStyle, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSS$BorderStyle, init$, void)},
+		{"getValue", "()Ljavax/swing/text/html/CSS$Value;", nullptr, 0, $virtualMethod(CSS$BorderStyle, getValue, $CSS$Value*)},
+		{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BorderStyle, parseCssValue, $Object*, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CSS$BorderStyle, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CSS$BorderStyle, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$BorderStyle", "javax.swing.text.html.CSS", "BorderStyle", $STATIC},
+		{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$BorderStyle",
+		"javax.swing.text.html.CSS$CssValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$BorderStyle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$BorderStyle);
+	});
 	return class$;
 }
 

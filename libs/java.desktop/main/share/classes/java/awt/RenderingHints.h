@@ -123,6 +123,7 @@ class $export RenderingHints : public ::java::util::Map, public ::java::lang::Cl
 public:
 	RenderingHints();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* init);
 	void init$(::java::awt::RenderingHints$Key* key, Object$* value);
 	virtual void add(::java::awt::RenderingHints* hints);

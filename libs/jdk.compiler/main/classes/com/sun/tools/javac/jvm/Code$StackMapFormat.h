@@ -35,6 +35,7 @@ class $export Code$StackMapFormat : public ::java::lang::Enum {
 public:
 	Code$StackMapFormat();
 	static $Array<::com::sun::tools::javac::jvm::Code$StackMapFormat>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::com::sun::tools::javac::util::Name* getAttributeName(::com::sun::tools::javac::util::Names* names);
 	static ::com::sun::tools::javac::jvm::Code$StackMapFormat* valueOf($String* name);

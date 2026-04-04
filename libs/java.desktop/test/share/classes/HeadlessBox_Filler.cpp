@@ -1,5 +1,4 @@
 #include <HeadlessBox_Filler.h>
-
 #include <HeadlessBox_Filler$1.h>
 #include <HeadlessBox_Filler$2.h>
 #include <HeadlessBox_Filler$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $Box$Filler = ::javax::swing::Box$Filler;
 
-$MethodInfo _HeadlessBox_Filler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessBox_Filler, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessBox_Filler, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessBox_Filler_InnerClassesInfo_[] = {
-	{"HeadlessBox_Filler$3", nullptr, nullptr, 0},
-	{"HeadlessBox_Filler$2", nullptr, nullptr, 0},
-	{"HeadlessBox_Filler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessBox_Filler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessBox_Filler",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessBox_Filler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessBox_Filler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessBox_Filler$3,HeadlessBox_Filler$2,HeadlessBox_Filler$1"
-};
-
-$Object* allocate$HeadlessBox_Filler($Class* clazz) {
-	return $of($alloc(HeadlessBox_Filler));
-}
-
 void HeadlessBox_Filler::init$() {
 }
 
 void HeadlessBox_Filler::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, var$0, $new($Dimension, 10, 10));
 	$var($Dimension, var$1, $new($Dimension, 20, 20));
 	$var($Box$Filler, bf, $new($Box$Filler, var$0, var$1, $$new($Dimension, 30, 30)));
@@ -107,9 +73,9 @@ void HeadlessBox_Filler::main($StringArray* args) {
 	bf->requestFocus();
 	bf->requestFocusInWindow();
 	bf->contains(1, 2);
-	$var($Component, c1, bf->add(static_cast<$Component*>($$new($HeadlessBox_Filler$1))));
-	$var($Component, c2, bf->add(static_cast<$Component*>($$new($HeadlessBox_Filler$2))));
-	$var($Component, c3, bf->add(static_cast<$Component*>($$new($HeadlessBox_Filler$3))));
+	$var($Component, c1, bf->add($$new($HeadlessBox_Filler$1)));
+	$var($Component, c2, bf->add($$new($HeadlessBox_Filler$2)));
+	$var($Component, c3, bf->add($$new($HeadlessBox_Filler$3)));
 	$var($Insets, ins, bf->getInsets());
 	bf->getAlignmentY();
 	bf->getAlignmentX();
@@ -122,26 +88,22 @@ void HeadlessBox_Filler::main($StringArray* args) {
 	bf->setForeground($Color::red);
 	bf->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					bf->setFont(f1);
-					bf->setFont(f2);
-					bf->setFont(f3);
-					bf->setFont(f4);
-					bf->getFontMetrics(f1);
-					bf->getFontMetrics(f2);
-					bf->getFontMetrics(f3);
-					bf->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				bf->setFont(f1);
+				bf->setFont(f2);
+				bf->setFont(f3);
+				bf->setFont(f4);
+				bf->getFontMetrics(f1);
+				bf->getFontMetrics(f2);
+				bf->getFontMetrics(f3);
+				bf->getFontMetrics(f4);
 			}
 		}
 	}
@@ -206,13 +168,11 @@ void HeadlessBox_Filler::main($StringArray* args) {
 	bf->getFont();
 	bf->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(bf));
+	c->add(bf);
 	bf->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			bf->setLocale(locale);
 		}
@@ -269,7 +229,34 @@ HeadlessBox_Filler::HeadlessBox_Filler() {
 }
 
 $Class* HeadlessBox_Filler::load$($String* name, bool initialize) {
-	$loadClass(HeadlessBox_Filler, name, initialize, &_HeadlessBox_Filler_ClassInfo_, allocate$HeadlessBox_Filler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessBox_Filler, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessBox_Filler, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessBox_Filler$3", nullptr, nullptr, 0},
+		{"HeadlessBox_Filler$2", nullptr, nullptr, 0},
+		{"HeadlessBox_Filler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessBox_Filler",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessBox_Filler$3,HeadlessBox_Filler$2,HeadlessBox_Filler$1"
+	};
+	$loadClass(HeadlessBox_Filler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessBox_Filler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/AttributeChangeNotificationFilter.h>
-
 #include <java/util/Vector.h>
 #include <javax/management/AttributeChangeNotification.h>
 #include <javax/management/Notification.h>
@@ -18,48 +17,19 @@ using $Notification = ::javax::management::Notification;
 namespace javax {
 	namespace management {
 
-$FieldInfo _AttributeChangeNotificationFilter_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeChangeNotificationFilter, serialVersionUID)},
-	{"enabledAttributes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(AttributeChangeNotificationFilter, enabledAttributes)},
-	{}
-};
-
-$MethodInfo _AttributeChangeNotificationFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeChangeNotificationFilter, init$, void)},
-	{"disableAllAttributes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, disableAllAttributes, void)},
-	{"disableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, disableAttribute, void, $String*)},
-	{"enableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, enableAttribute, void, $String*), "java.lang.IllegalArgumentException"},
-	{"getEnabledAttributes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, getEnabledAttributes, $Vector*)},
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, isNotificationEnabled, bool, $Notification*)},
-	{}
-};
-
-$ClassInfo _AttributeChangeNotificationFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.AttributeChangeNotificationFilter",
-	"java.lang.Object",
-	"javax.management.NotificationFilter",
-	_AttributeChangeNotificationFilter_FieldInfo_,
-	_AttributeChangeNotificationFilter_MethodInfo_
-};
-
-$Object* allocate$AttributeChangeNotificationFilter($Class* clazz) {
-	return $of($alloc(AttributeChangeNotificationFilter));
-}
-
 void AttributeChangeNotificationFilter::init$() {
 	$set(this, enabledAttributes, $new($Vector));
 }
 
 bool AttributeChangeNotificationFilter::isNotificationEnabled($Notification* notification) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, type, $nc(notification)->getType());
 		$init($AttributeChangeNotification);
-		if ((type == nullptr) || ($nc(type)->equals($AttributeChangeNotification::ATTRIBUTE_CHANGE) == false) || (!($instanceOf($AttributeChangeNotification, notification)))) {
+		if ((type == nullptr) || (type->equals($AttributeChangeNotification::ATTRIBUTE_CHANGE) == false) || (!($instanceOf($AttributeChangeNotification, notification)))) {
 			return false;
 		}
-		$var($String, attributeName, $nc(($cast($AttributeChangeNotification, notification)))->getAttributeName());
+		$var($String, attributeName, $cast($AttributeChangeNotification, notification)->getAttributeName());
 		return $nc(this->enabledAttributes)->contains(attributeName);
 	}
 }
@@ -70,7 +40,7 @@ void AttributeChangeNotificationFilter::enableAttribute($String* name) {
 			$throwNew($IllegalArgumentException, "The name cannot be null."_s);
 		}
 		if (!$nc(this->enabledAttributes)->contains(name)) {
-			$nc(this->enabledAttributes)->addElement(name);
+			this->enabledAttributes->addElement(name);
 		}
 	}
 }
@@ -97,7 +67,31 @@ AttributeChangeNotificationFilter::AttributeChangeNotificationFilter() {
 }
 
 $Class* AttributeChangeNotificationFilter::load$($String* name, bool initialize) {
-	$loadClass(AttributeChangeNotificationFilter, name, initialize, &_AttributeChangeNotificationFilter_ClassInfo_, allocate$AttributeChangeNotificationFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeChangeNotificationFilter, serialVersionUID)},
+		{"enabledAttributes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(AttributeChangeNotificationFilter, enabledAttributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeChangeNotificationFilter, init$, void)},
+		{"disableAllAttributes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, disableAllAttributes, void)},
+		{"disableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, disableAttribute, void, $String*)},
+		{"enableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, enableAttribute, void, $String*), "java.lang.IllegalArgumentException"},
+		{"getEnabledAttributes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, getEnabledAttributes, $Vector*)},
+		{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, isNotificationEnabled, bool, $Notification*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.AttributeChangeNotificationFilter",
+		"java.lang.Object",
+		"javax.management.NotificationFilter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeChangeNotificationFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeChangeNotificationFilter);
+	});
 	return class$;
 }
 

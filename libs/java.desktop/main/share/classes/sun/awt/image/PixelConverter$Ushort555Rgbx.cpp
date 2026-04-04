@@ -1,5 +1,4 @@
 #include <sun/awt/image/PixelConverter$Ushort555Rgbx.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <sun/awt/image/PixelConverter.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _PixelConverter$Ushort555Rgbx_FieldInfo_[] = {
-	{"instance", "Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PixelConverter$Ushort555Rgbx, instance)},
-	{}
-};
-
-$MethodInfo _PixelConverter$Ushort555Rgbx_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PixelConverter$Ushort555Rgbx, init$, void)},
-	{"pixelToRgb", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Ushort555Rgbx, pixelToRgb, int32_t, int32_t, $ColorModel*)},
-	{"rgbToPixel", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Ushort555Rgbx, rgbToPixel, int32_t, int32_t, $ColorModel*)},
-	{}
-};
-
-$InnerClassInfo _PixelConverter$Ushort555Rgbx_InnerClassesInfo_[] = {
-	{"sun.awt.image.PixelConverter$Ushort555Rgbx", "sun.awt.image.PixelConverter", "Ushort555Rgbx", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PixelConverter$Ushort555Rgbx_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.PixelConverter$Ushort555Rgbx",
-	"sun.awt.image.PixelConverter",
-	nullptr,
-	_PixelConverter$Ushort555Rgbx_FieldInfo_,
-	_PixelConverter$Ushort555Rgbx_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PixelConverter$Ushort555Rgbx_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.PixelConverter"
-};
-
-$Object* allocate$PixelConverter$Ushort555Rgbx($Class* clazz) {
-	return $of($alloc(PixelConverter$Ushort555Rgbx));
-}
-
 $PixelConverter* PixelConverter$Ushort555Rgbx::instance = nullptr;
 
 void PixelConverter$Ushort555Rgbx::init$() {
@@ -59,23 +21,23 @@ void PixelConverter$Ushort555Rgbx::init$() {
 }
 
 int32_t PixelConverter$Ushort555Rgbx::rgbToPixel(int32_t rgb, $ColorModel* cm) {
-	return ((((int32_t)(($sr(rgb, 16 + 3 - 11)) & (uint32_t)0x0000F800)) | ((int32_t)(($sr(rgb, 8 + 3 - 6)) & (uint32_t)1984))) | ((int32_t)(($sr(rgb, 0 + 3 - 1)) & (uint32_t)62)));
+	return (((($sr(rgb, 16 + 3 - 11)) & 0xf800) | (($sr(rgb, 8 + 3 - 6)) & 0x07c0)) | (($sr(rgb, 0 + 3 - 1)) & 0x3e));
 }
 
 int32_t PixelConverter$Ushort555Rgbx::pixelToRgb(int32_t pixel, $ColorModel* cm) {
 	int32_t r = 0;
 	int32_t g = 0;
 	int32_t b = 0;
-	r = (int32_t)((pixel >> 11) & (uint32_t)31);
+	r = (pixel >> 11) & 0x1f;
 	r = (r << 3) | (r >> 2);
-	g = (int32_t)((pixel >> 6) & (uint32_t)31);
+	g = (pixel >> 6) & 0x1f;
 	g = (g << 3) | (g >> 2);
-	b = (int32_t)((pixel >> 1) & (uint32_t)31);
+	b = (pixel >> 1) & 0x1f;
 	b = (b << 3) | (b >> 2);
-	return ((((int32_t)0xFF000000 | (r << 16)) | (g << 8)) | (b));
+	return ((((int32_t)0xff000000 | (r << 16)) | (g << 8)) | (b));
 }
 
-void clinit$PixelConverter$Ushort555Rgbx($Class* class$) {
+void PixelConverter$Ushort555Rgbx::clinit$($Class* clazz) {
 	$assignStatic(PixelConverter$Ushort555Rgbx::instance, $new(PixelConverter$Ushort555Rgbx));
 }
 
@@ -83,7 +45,38 @@ PixelConverter$Ushort555Rgbx::PixelConverter$Ushort555Rgbx() {
 }
 
 $Class* PixelConverter$Ushort555Rgbx::load$($String* name, bool initialize) {
-	$loadClass(PixelConverter$Ushort555Rgbx, name, initialize, &_PixelConverter$Ushort555Rgbx_ClassInfo_, clinit$PixelConverter$Ushort555Rgbx, allocate$PixelConverter$Ushort555Rgbx);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PixelConverter$Ushort555Rgbx, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PixelConverter$Ushort555Rgbx, init$, void)},
+		{"pixelToRgb", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Ushort555Rgbx, pixelToRgb, int32_t, int32_t, $ColorModel*)},
+		{"rgbToPixel", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$Ushort555Rgbx, rgbToPixel, int32_t, int32_t, $ColorModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.PixelConverter$Ushort555Rgbx", "sun.awt.image.PixelConverter", "Ushort555Rgbx", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.PixelConverter$Ushort555Rgbx",
+		"sun.awt.image.PixelConverter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.PixelConverter"
+	};
+	$loadClass(PixelConverter$Ushort555Rgbx, name, initialize, &classInfo$$, PixelConverter$Ushort555Rgbx::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PixelConverter$Ushort555Rgbx);
+	});
 	return class$;
 }
 

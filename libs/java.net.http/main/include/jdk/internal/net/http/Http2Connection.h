@@ -143,6 +143,7 @@ class $import Http2Connection : public ::java::lang::Object {
 	$class(Http2Connection, 0, ::java::lang::Object)
 public:
 	Http2Connection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpConnection* connection, ::jdk::internal::net::http::Http2ClientImpl* client2, int32_t nextstreamid, $String* key);
 	void init$(::jdk::internal::net::http::HttpConnection* connection, ::jdk::internal::net::http::Http2ClientImpl* client2, ::jdk::internal::net::http::Exchange* exchange, ::java::util::function::Supplier* initial);
 	void init$(::jdk::internal::net::http::HttpRequestImpl* request, ::jdk::internal::net::http::Http2ClientImpl* h2client, ::jdk::internal::net::http::HttpConnection* connection);
@@ -219,8 +220,8 @@ public:
 	static ::jdk::internal::net::http::common::Logger* DEBUG_LOGGER;
 	::jdk::internal::net::http::common::Logger* debugHpack = nullptr;
 	static ::java::nio::ByteBuffer* EMPTY_TRIGGER;
-	static const int32_t MAX_CLIENT_STREAM_ID = 0x7FFFFFFF; // Integer.MAX_VALUE
-	static const int32_t MAX_SERVER_STREAM_ID = 0x7FFFFFFE; // Integer.MAX_VALUE - 1
+	static const int32_t MAX_CLIENT_STREAM_ID = 0x7fffffff; // Integer.MAX_VALUE
+	static const int32_t MAX_SERVER_STREAM_ID = 0x7ffffffe; // Integer.MAX_VALUE - 1
 	static const int32_t BUFFER = 8;
 	bool finalStream$ = false;
 	$volatile(bool) closed = false;

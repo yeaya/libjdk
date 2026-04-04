@@ -1,5 +1,4 @@
 #include <sun/print/AttributeClass.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/util/Objects.h>
@@ -37,67 +36,6 @@ using $Objects = ::java::util::Objects;
 namespace sun {
 	namespace print {
 
-$FieldInfo _AttributeClass_FieldInfo_[] = {
-	{"myName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeClass, myName)},
-	{"myType", "I", nullptr, $PRIVATE, $field(AttributeClass, myType)},
-	{"nameLen", "I", nullptr, $PRIVATE, $field(AttributeClass, nameLen)},
-	{"myValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeClass, myValue)},
-	{"TAG_UNSUPPORTED_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_UNSUPPORTED_VALUE)},
-	{"TAG_INT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_INT)},
-	{"TAG_BOOL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_BOOL)},
-	{"TAG_ENUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_ENUM)},
-	{"TAG_OCTET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_OCTET)},
-	{"TAG_DATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_DATE)},
-	{"TAG_RESOLUTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_RESOLUTION)},
-	{"TAG_RANGE_INTEGER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_RANGE_INTEGER)},
-	{"TAG_TEXT_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_TEXT_LANGUAGE)},
-	{"TAG_NAME_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_NAME_LANGUAGE)},
-	{"TAG_TEXT_WO_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_TEXT_WO_LANGUAGE)},
-	{"TAG_NAME_WO_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_NAME_WO_LANGUAGE)},
-	{"TAG_KEYWORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_KEYWORD)},
-	{"TAG_URI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_URI)},
-	{"TAG_CHARSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_CHARSET)},
-	{"TAG_NATURALLANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_NATURALLANGUAGE)},
-	{"TAG_MIME_MEDIATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_MIME_MEDIATYPE)},
-	{"TAG_MEMBER_ATTRNAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_MEMBER_ATTRNAME)},
-	{"ATTRIBUTES_CHARSET", "Lsun/print/AttributeClass;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeClass, ATTRIBUTES_CHARSET)},
-	{"ATTRIBUTES_NATURAL_LANGUAGE", "Lsun/print/AttributeClass;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeClass, ATTRIBUTES_NATURAL_LANGUAGE)},
-	{}
-};
-
-$MethodInfo _AttributeClass_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Object;)V", nullptr, $PROTECTED, $method(AttributeClass, init$, void, $String*, int32_t, Object$*)},
-	{"convertToInt", "([B)I", nullptr, $PRIVATE, $method(AttributeClass, convertToInt, int32_t, $bytes*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeClass, equals, bool, Object$*)},
-	{"getArrayOfIntValues", "()[I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getArrayOfIntValues, $ints*)},
-	{"getArrayOfStringValues", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getArrayOfStringValues, $StringArray*)},
-	{"getByteValue", "()B", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getByteValue, int8_t)},
-	{"getIntRangeValue", "()[I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getIntRangeValue, $ints*)},
-	{"getIntValue", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getIntValue, int32_t)},
-	{"getLenChars", "()[C", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getLenChars, $chars*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getName, $String*)},
-	{"getObjectValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getObjectValue, $Object*)},
-	{"getStringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getStringValue, $String*)},
-	{"getType", "()B", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getType, int8_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, toString, $String*)},
-	{"unsignedByteToInt", "(B)I", nullptr, $PRIVATE, $method(AttributeClass, unsignedByteToInt, int32_t, int8_t)},
-	{}
-};
-
-$ClassInfo _AttributeClass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.AttributeClass",
-	"java.lang.Object",
-	nullptr,
-	_AttributeClass_FieldInfo_,
-	_AttributeClass_MethodInfo_
-};
-
-$Object* allocate$AttributeClass($Class* clazz) {
-	return $of($alloc(AttributeClass));
-}
-
 AttributeClass* AttributeClass::ATTRIBUTES_CHARSET = nullptr;
 AttributeClass* AttributeClass::ATTRIBUTES_NATURAL_LANGUAGE = nullptr;
 
@@ -114,17 +52,17 @@ int8_t AttributeClass::getType() {
 
 $chars* AttributeClass::getLenChars() {
 	$var($chars, chars, $new($chars, 2));
-	chars->set(0, (char16_t)0);
+	chars->set(0, 0);
 	chars->set(1, (char16_t)this->nameLen);
 	return chars;
 }
 
 $Object* AttributeClass::getObjectValue() {
-	return $of(this->myValue);
+	return this->myValue;
 }
 
 int32_t AttributeClass::getIntValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bufArray, $cast($bytes, this->myValue));
 	if (bufArray != nullptr) {
 		$var($bytes, buf, $new($bytes, 4));
@@ -137,7 +75,7 @@ int32_t AttributeClass::getIntValue() {
 }
 
 $ints* AttributeClass::getArrayOfIntValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bufArray, $cast($bytes, this->myValue));
 	if (bufArray != nullptr) {
 		$var($ByteArrayInputStream, bufStream, $new($ByteArrayInputStream, bufArray));
@@ -162,7 +100,7 @@ $ints* AttributeClass::getArrayOfIntValues() {
 }
 
 $ints* AttributeClass::getIntRangeValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, range, $new($ints, {
 		0,
 		0
@@ -182,7 +120,7 @@ $ints* AttributeClass::getIntRangeValue() {
 }
 
 $String* AttributeClass::getStringValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, strVal, nullptr);
 	$var($bytes, bufArray, $cast($bytes, this->myValue));
 	if (bufArray != nullptr) {
@@ -199,7 +137,7 @@ $String* AttributeClass::getStringValue() {
 }
 
 $StringArray* AttributeClass::getArrayOfStringValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bufArray, $cast($bytes, this->myValue));
 	if (bufArray != nullptr) {
 		$var($ByteArrayInputStream, bufStream, $new($ByteArrayInputStream, bufArray));
@@ -228,7 +166,7 @@ int8_t AttributeClass::getByteValue() {
 	if ((bufArray != nullptr) && (bufArray->length >= 2)) {
 		return bufArray->get(1);
 	}
-	return (int8_t)0;
+	return 0;
 }
 
 $String* AttributeClass::getName() {
@@ -236,7 +174,7 @@ $String* AttributeClass::getName() {
 }
 
 bool AttributeClass::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(AttributeClass, obj))) {
 		return false;
 	}
@@ -250,10 +188,10 @@ bool AttributeClass::equals(Object$* obj) {
 }
 
 int32_t AttributeClass::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Objects::hash($$new($ObjectArray, {
-		$($of($Integer::valueOf(this->myType))),
-		$of(this->myName),
+		$($Integer::valueOf(this->myType)),
+		this->myName,
 		this->myValue
 	}));
 }
@@ -263,20 +201,20 @@ $String* AttributeClass::toString() {
 }
 
 int32_t AttributeClass::unsignedByteToInt(int8_t b) {
-	return ((int32_t)(b & (uint32_t)255));
+	return (b & 0xff);
 }
 
 int32_t AttributeClass::convertToInt($bytes* buf) {
 	int32_t intVal = 0;
 	int32_t pos = 0;
 	intVal += unsignedByteToInt($nc(buf)->get(pos++)) << 24;
-	intVal += unsignedByteToInt($nc(buf)->get(pos++)) << 16;
-	intVal += unsignedByteToInt($nc(buf)->get(pos++)) << 8;
-	intVal += unsignedByteToInt($nc(buf)->get(pos++)) << 0;
+	intVal += unsignedByteToInt(buf->get(pos++)) << 16;
+	intVal += unsignedByteToInt(buf->get(pos++)) << 8;
+	intVal += unsignedByteToInt(buf->get(pos++)) << 0;
 	return intVal;
 }
 
-void clinit$AttributeClass($Class* class$) {
+void AttributeClass::clinit$($Class* clazz) {
 	$assignStatic(AttributeClass::ATTRIBUTES_CHARSET, $new(AttributeClass, "attributes-charset"_s, AttributeClass::TAG_CHARSET, "utf-8"_s));
 	$assignStatic(AttributeClass::ATTRIBUTES_NATURAL_LANGUAGE, $new(AttributeClass, "attributes-natural-language"_s, AttributeClass::TAG_NATURALLANGUAGE, "en"_s));
 }
@@ -285,7 +223,63 @@ AttributeClass::AttributeClass() {
 }
 
 $Class* AttributeClass::load$($String* name, bool initialize) {
-	$loadClass(AttributeClass, name, initialize, &_AttributeClass_ClassInfo_, clinit$AttributeClass, allocate$AttributeClass);
+	$FieldInfo fieldInfos$$[] = {
+		{"myName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeClass, myName)},
+		{"myType", "I", nullptr, $PRIVATE, $field(AttributeClass, myType)},
+		{"nameLen", "I", nullptr, $PRIVATE, $field(AttributeClass, nameLen)},
+		{"myValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeClass, myValue)},
+		{"TAG_UNSUPPORTED_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_UNSUPPORTED_VALUE)},
+		{"TAG_INT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_INT)},
+		{"TAG_BOOL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_BOOL)},
+		{"TAG_ENUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_ENUM)},
+		{"TAG_OCTET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_OCTET)},
+		{"TAG_DATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_DATE)},
+		{"TAG_RESOLUTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_RESOLUTION)},
+		{"TAG_RANGE_INTEGER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_RANGE_INTEGER)},
+		{"TAG_TEXT_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_TEXT_LANGUAGE)},
+		{"TAG_NAME_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_NAME_LANGUAGE)},
+		{"TAG_TEXT_WO_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_TEXT_WO_LANGUAGE)},
+		{"TAG_NAME_WO_LANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_NAME_WO_LANGUAGE)},
+		{"TAG_KEYWORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_KEYWORD)},
+		{"TAG_URI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_URI)},
+		{"TAG_CHARSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_CHARSET)},
+		{"TAG_NATURALLANGUAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_NATURALLANGUAGE)},
+		{"TAG_MIME_MEDIATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_MIME_MEDIATYPE)},
+		{"TAG_MEMBER_ATTRNAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AttributeClass, TAG_MEMBER_ATTRNAME)},
+		{"ATTRIBUTES_CHARSET", "Lsun/print/AttributeClass;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeClass, ATTRIBUTES_CHARSET)},
+		{"ATTRIBUTES_NATURAL_LANGUAGE", "Lsun/print/AttributeClass;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeClass, ATTRIBUTES_NATURAL_LANGUAGE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/Object;)V", nullptr, $PROTECTED, $method(AttributeClass, init$, void, $String*, int32_t, Object$*)},
+		{"convertToInt", "([B)I", nullptr, $PRIVATE, $method(AttributeClass, convertToInt, int32_t, $bytes*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeClass, equals, bool, Object$*)},
+		{"getArrayOfIntValues", "()[I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getArrayOfIntValues, $ints*)},
+		{"getArrayOfStringValues", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getArrayOfStringValues, $StringArray*)},
+		{"getByteValue", "()B", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getByteValue, int8_t)},
+		{"getIntRangeValue", "()[I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getIntRangeValue, $ints*)},
+		{"getIntValue", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getIntValue, int32_t)},
+		{"getLenChars", "()[C", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getLenChars, $chars*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getName, $String*)},
+		{"getObjectValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getObjectValue, $Object*)},
+		{"getStringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getStringValue, $String*)},
+		{"getType", "()B", nullptr, $PUBLIC, $virtualMethod(AttributeClass, getType, int8_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeClass, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeClass, toString, $String*)},
+		{"unsignedByteToInt", "(B)I", nullptr, $PRIVATE, $method(AttributeClass, unsignedByteToInt, int32_t, int8_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.AttributeClass",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeClass, name, initialize, &classInfo$$, AttributeClass::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeClass);
+	});
 	return class$;
 }
 

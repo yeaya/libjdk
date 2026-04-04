@@ -50,6 +50,7 @@ class SignatureBaseRSA : public ::com::sun::org::apache::xml::internal::security
 	$class(SignatureBaseRSA, 0, ::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithmSpi)
 public:
 	SignatureBaseRSA();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::security::Provider* provider);
 	virtual $String* engineGetJCEAlgorithmString() override;

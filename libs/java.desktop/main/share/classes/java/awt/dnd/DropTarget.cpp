@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DropTarget.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -66,85 +65,6 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _DropTarget_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTarget, serialVersionUID)},
-	{"dropTargetContext", "Ljava/awt/dnd/DropTargetContext;", nullptr, $PRIVATE, $field(DropTarget, dropTargetContext)},
-	{"component", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(DropTarget, component)},
-	{"componentPeer", "Ljava/awt/peer/ComponentPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, componentPeer)},
-	{"nativePeer", "Ljava/awt/dnd/peer/DropTargetPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, nativePeer)},
-	{"actions", "I", nullptr, 0, $field(DropTarget, actions)},
-	{"active", "Z", nullptr, 0, $field(DropTarget, active)},
-	{"autoScroller", "Ljava/awt/dnd/DropTarget$DropTargetAutoScroller;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, autoScroller)},
-	{"dtListener", "Ljava/awt/dnd/DropTargetListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, dtListener)},
-	{"flavorMap", "Ljava/awt/datatransfer/FlavorMap;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, flavorMap)},
-	{"isDraggingInside", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, isDraggingInside)},
-	{}
-};
-
-$MethodInfo _DropTarget_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/dnd/DropTargetListener;ZLjava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, int32_t, $DropTargetListener*, bool, $FlavorMap*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/dnd/DropTargetListener;Z)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, int32_t, $DropTargetListener*, bool), "java.awt.HeadlessException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DropTarget, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, $DropTargetListener*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, int32_t, $DropTargetListener*), "java.awt.HeadlessException"},
-	{"addDropTargetListener", "(Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, addDropTargetListener, void, $DropTargetListener*), "java.util.TooManyListenersException"},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(DropTarget, addNotify, void)},
-	{"clearAutoscroll", "()V", nullptr, $PROTECTED, $virtualMethod(DropTarget, clearAutoscroll, void)},
-	{"createDropTargetAutoScroller", "(Ljava/awt/Component;Ljava/awt/Point;)Ljava/awt/dnd/DropTarget$DropTargetAutoScroller;", nullptr, $PROTECTED, $virtualMethod(DropTarget, createDropTargetAutoScroller, $DropTarget$DropTargetAutoScroller*, $Component*, $Point*)},
-	{"createDropTargetContext", "()Ljava/awt/dnd/DropTargetContext;", nullptr, $PROTECTED, $virtualMethod(DropTarget, createDropTargetContext, $DropTargetContext*)},
-	{"doSetDefaultActions", "(I)V", nullptr, 0, $virtualMethod(DropTarget, doSetDefaultActions, void, int32_t)},
-	{"dragEnter", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dragEnter, void, $DropTargetDragEvent*)},
-	{"dragExit", "(Ljava/awt/dnd/DropTargetEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dragExit, void, $DropTargetEvent*)},
-	{"dragOver", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dragOver, void, $DropTargetDragEvent*)},
-	{"drop", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, drop, void, $DropTargetDropEvent*)},
-	{"dropActionChanged", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dropActionChanged, void, $DropTargetDragEvent*)},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, getComponent, $Component*)},
-	{"getDefaultActions", "()I", nullptr, $PUBLIC, $virtualMethod(DropTarget, getDefaultActions, int32_t)},
-	{"getDropTargetContext", "()Ljava/awt/dnd/DropTargetContext;", nullptr, $PUBLIC, $virtualMethod(DropTarget, getDropTargetContext, $DropTargetContext*)},
-	{"getFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC, $virtualMethod(DropTarget, getFlavorMap, $FlavorMap*)},
-	{"initializeAutoscrolling", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(DropTarget, initializeAutoscrolling, void, $Point*)},
-	{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(DropTarget, isActive, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DropTarget, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removeDropTargetListener", "(Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, removeDropTargetListener, void, $DropTargetListener*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(DropTarget, removeNotify, void)},
-	{"setActive", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, setActive, void, bool)},
-	{"setComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, setComponent, void, $Component*)},
-	{"setDefaultActions", "(I)V", nullptr, $PUBLIC, $virtualMethod(DropTarget, setDefaultActions, void, int32_t)},
-	{"setFlavorMap", "(Ljava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $virtualMethod(DropTarget, setFlavorMap, void, $FlavorMap*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateAutoscroll", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(DropTarget, updateAutoscroll, void, $Point*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DropTarget, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DropTarget_InnerClassesInfo_[] = {
-	{"java.awt.dnd.DropTarget$DropTargetAutoScroller", "java.awt.dnd.DropTarget", "DropTargetAutoScroller", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _DropTarget_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.dnd.DropTarget",
-	"java.lang.Object",
-	"java.awt.dnd.DropTargetListener,java.io.Serializable",
-	_DropTarget_FieldInfo_,
-	_DropTarget_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DropTarget_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.dnd.DropTarget$DropTargetAutoScroller"
-};
-
-$Object* allocate$DropTarget($Class* clazz) {
-	return $of($alloc(DropTarget));
-}
-
 int32_t DropTarget::hashCode() {
 	 return this->$DropTargetListener::hashCode();
 }
@@ -209,7 +129,7 @@ void DropTarget::init$($Component* c, int32_t ops, $DropTargetListener* dtl) {
 
 void DropTarget::setComponent($Component* c) {
 	$synchronized(this) {
-		if (this->component == c || this->component != nullptr && $nc($of(this->component))->equals(c)) {
+		if (this->component == c || this->component != nullptr && this->component->equals(c)) {
 			return;
 		}
 		$var($Component, old, this->component);
@@ -239,7 +159,7 @@ $Component* DropTarget::getComponent() {
 }
 
 void DropTarget::setDefaultActions(int32_t ops) {
-	$nc($(getDropTargetContext()))->setTargetActions((int32_t)(ops & (uint32_t)($DnDConstants::ACTION_COPY_OR_MOVE | $DnDConstants::ACTION_REFERENCE)));
+	$$nc(getDropTargetContext())->setTargetActions(ops & ($DnDConstants::ACTION_COPY_OR_MOVE | $DnDConstants::ACTION_REFERENCE));
 }
 
 void DropTarget::doSetDefaultActions(int32_t ops) {
@@ -284,7 +204,7 @@ void DropTarget::addDropTargetListener($DropTargetListener* dtl) {
 void DropTarget::removeDropTargetListener($DropTargetListener* dtl) {
 	$synchronized(this) {
 		if (dtl != nullptr && this->dtListener != nullptr) {
-			if ($nc($of(this->dtListener))->equals(dtl)) {
+			if (this->dtListener->equals(dtl)) {
 				$set(this, dtListener, nullptr);
 			} else {
 				$throwNew($IllegalArgumentException, "listener mismatch"_s);
@@ -295,15 +215,15 @@ void DropTarget::removeDropTargetListener($DropTargetListener* dtl) {
 
 void DropTarget::dragEnter($DropTargetDragEvent* dtde) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		this->isDraggingInside = true;
 		if (!this->active) {
 			return;
 		}
 		if (this->dtListener != nullptr) {
-			$nc(this->dtListener)->dragEnter(dtde);
+			this->dtListener->dragEnter(dtde);
 		} else {
-			$nc($($nc(dtde)->getDropTargetContext()))->setTargetActions($DnDConstants::ACTION_NONE);
+			$$nc($nc(dtde)->getDropTargetContext())->setTargetActions($DnDConstants::ACTION_NONE);
 		}
 		initializeAutoscrolling($($nc(dtde)->getLocation()));
 	}
@@ -315,7 +235,7 @@ void DropTarget::dragOver($DropTargetDragEvent* dtde) {
 			return;
 		}
 		if (this->dtListener != nullptr && this->active) {
-			$nc(this->dtListener)->dragOver(dtde);
+			this->dtListener->dragOver(dtde);
 		}
 		updateAutoscroll($($nc(dtde)->getLocation()));
 	}
@@ -327,7 +247,7 @@ void DropTarget::dropActionChanged($DropTargetDragEvent* dtde) {
 			return;
 		}
 		if (this->dtListener != nullptr) {
-			$nc(this->dtListener)->dropActionChanged(dtde);
+			this->dtListener->dropActionChanged(dtde);
 		}
 		updateAutoscroll($($nc(dtde)->getLocation()));
 	}
@@ -340,7 +260,7 @@ void DropTarget::dragExit($DropTargetEvent* dte) {
 			return;
 		}
 		if (this->dtListener != nullptr && this->active) {
-			$nc(this->dtListener)->dragExit(dte);
+			this->dtListener->dragExit(dte);
 		}
 		clearAutoscroll();
 	}
@@ -351,7 +271,7 @@ void DropTarget::drop($DropTargetDropEvent* dtde) {
 		this->isDraggingInside = false;
 		clearAutoscroll();
 		if (this->dtListener != nullptr && this->active) {
-			$nc(this->dtListener)->drop(dtde);
+			this->dtListener->drop(dtde);
 		} else {
 			$nc(dtde)->rejectDrop();
 		}
@@ -367,7 +287,7 @@ void DropTarget::setFlavorMap($FlavorMap* fm) {
 }
 
 void DropTarget::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 	$var($ComponentPeer, peer, $nc(acc)->getPeer(this->component));
 	if (peer == nullptr || peer == this->componentPeer) {
@@ -376,22 +296,22 @@ void DropTarget::addNotify() {
 	$set(this, componentPeer, peer);
 	{
 		$var($Component, c, this->component);
-		for (; c != nullptr && $instanceOf($LightweightPeer, peer); $assign(c, $nc(c)->getParent())) {
+		for (; c != nullptr && $instanceOf($LightweightPeer, peer); $assign(c, c->getParent())) {
 			$assign(peer, acc->getPeer(c));
 		}
 	}
 	if ($instanceOf($DropTargetPeer, peer)) {
 		$set(this, nativePeer, $cast($DropTargetPeer, peer));
-		$nc(($cast($DropTargetPeer, peer)))->addDropTarget(this);
+		$cast($DropTargetPeer, peer)->addDropTarget(this);
 	} else {
 		$set(this, nativePeer, nullptr);
 	}
 }
 
 void DropTarget::removeNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nativePeer != nullptr) {
-		$nc(this->nativePeer)->removeDropTarget(this);
+		this->nativePeer->removeDropTarget(this);
 	}
 	$set(this, componentPeer, nullptr);
 	$set(this, nativePeer, nullptr);
@@ -418,17 +338,17 @@ void DropTarget::writeObject($ObjectOutputStream* s) {
 void DropTarget::readObject($ObjectInputStream* s) {
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
 	try {
-		$set(this, dropTargetContext, $cast($DropTargetContext, $nc(f)->get("dropTargetContext"_s, ($Object*)nullptr)));
+		$set(this, dropTargetContext, $cast($DropTargetContext, $nc(f)->get("dropTargetContext"_s, nullptr)));
 	} catch ($IllegalArgumentException& e) {
 	}
 	if (this->dropTargetContext == nullptr) {
 		$set(this, dropTargetContext, createDropTargetContext());
 	}
-	$set(this, component, $cast($Component, $nc(f)->get("component"_s, ($Object*)nullptr)));
+	$set(this, component, $cast($Component, $nc(f)->get("component"_s, nullptr)));
 	this->actions = f->get("actions"_s, $DnDConstants::ACTION_COPY_OR_MOVE);
 	this->active = f->get("active"_s, true);
 	try {
-		$set(this, dtListener, $cast($DropTargetListener, f->get("dtListener"_s, ($Object*)nullptr)));
+		$set(this, dtListener, $cast($DropTargetListener, f->get("dtListener"_s, nullptr)));
 	} catch ($IllegalArgumentException& e) {
 		$set(this, dtListener, $cast($DropTargetListener, s->readObject()));
 	}
@@ -447,13 +367,13 @@ void DropTarget::initializeAutoscrolling($Point* p) {
 
 void DropTarget::updateAutoscroll($Point* dragCursorLocn) {
 	if (this->autoScroller != nullptr) {
-		$nc(this->autoScroller)->updateLocation(dragCursorLocn);
+		this->autoScroller->updateLocation(dragCursorLocn);
 	}
 }
 
 void DropTarget::clearAutoscroll() {
 	if (this->autoScroller != nullptr) {
-		$nc(this->autoScroller)->stop();
+		this->autoScroller->stop();
 		$set(this, autoScroller, nullptr);
 	}
 }
@@ -462,7 +382,80 @@ DropTarget::DropTarget() {
 }
 
 $Class* DropTarget::load$($String* name, bool initialize) {
-	$loadClass(DropTarget, name, initialize, &_DropTarget_ClassInfo_, allocate$DropTarget);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTarget, serialVersionUID)},
+		{"dropTargetContext", "Ljava/awt/dnd/DropTargetContext;", nullptr, $PRIVATE, $field(DropTarget, dropTargetContext)},
+		{"component", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(DropTarget, component)},
+		{"componentPeer", "Ljava/awt/peer/ComponentPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, componentPeer)},
+		{"nativePeer", "Ljava/awt/dnd/peer/DropTargetPeer;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, nativePeer)},
+		{"actions", "I", nullptr, 0, $field(DropTarget, actions)},
+		{"active", "Z", nullptr, 0, $field(DropTarget, active)},
+		{"autoScroller", "Ljava/awt/dnd/DropTarget$DropTargetAutoScroller;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, autoScroller)},
+		{"dtListener", "Ljava/awt/dnd/DropTargetListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, dtListener)},
+		{"flavorMap", "Ljava/awt/datatransfer/FlavorMap;", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, flavorMap)},
+		{"isDraggingInside", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DropTarget, isDraggingInside)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/dnd/DropTargetListener;ZLjava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, int32_t, $DropTargetListener*, bool, $FlavorMap*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/dnd/DropTargetListener;Z)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, int32_t, $DropTargetListener*, bool), "java.awt.HeadlessException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DropTarget, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, $DropTargetListener*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC, $method(DropTarget, init$, void, $Component*, int32_t, $DropTargetListener*), "java.awt.HeadlessException"},
+		{"addDropTargetListener", "(Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, addDropTargetListener, void, $DropTargetListener*), "java.util.TooManyListenersException"},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(DropTarget, addNotify, void)},
+		{"clearAutoscroll", "()V", nullptr, $PROTECTED, $virtualMethod(DropTarget, clearAutoscroll, void)},
+		{"createDropTargetAutoScroller", "(Ljava/awt/Component;Ljava/awt/Point;)Ljava/awt/dnd/DropTarget$DropTargetAutoScroller;", nullptr, $PROTECTED, $virtualMethod(DropTarget, createDropTargetAutoScroller, $DropTarget$DropTargetAutoScroller*, $Component*, $Point*)},
+		{"createDropTargetContext", "()Ljava/awt/dnd/DropTargetContext;", nullptr, $PROTECTED, $virtualMethod(DropTarget, createDropTargetContext, $DropTargetContext*)},
+		{"doSetDefaultActions", "(I)V", nullptr, 0, $virtualMethod(DropTarget, doSetDefaultActions, void, int32_t)},
+		{"dragEnter", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dragEnter, void, $DropTargetDragEvent*)},
+		{"dragExit", "(Ljava/awt/dnd/DropTargetEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dragExit, void, $DropTargetEvent*)},
+		{"dragOver", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dragOver, void, $DropTargetDragEvent*)},
+		{"drop", "(Ljava/awt/dnd/DropTargetDropEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, drop, void, $DropTargetDropEvent*)},
+		{"dropActionChanged", "(Ljava/awt/dnd/DropTargetDragEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, dropActionChanged, void, $DropTargetDragEvent*)},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, getComponent, $Component*)},
+		{"getDefaultActions", "()I", nullptr, $PUBLIC, $virtualMethod(DropTarget, getDefaultActions, int32_t)},
+		{"getDropTargetContext", "()Ljava/awt/dnd/DropTargetContext;", nullptr, $PUBLIC, $virtualMethod(DropTarget, getDropTargetContext, $DropTargetContext*)},
+		{"getFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC, $virtualMethod(DropTarget, getFlavorMap, $FlavorMap*)},
+		{"initializeAutoscrolling", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(DropTarget, initializeAutoscrolling, void, $Point*)},
+		{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(DropTarget, isActive, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DropTarget, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removeDropTargetListener", "(Ljava/awt/dnd/DropTargetListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, removeDropTargetListener, void, $DropTargetListener*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(DropTarget, removeNotify, void)},
+		{"setActive", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, setActive, void, bool)},
+		{"setComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DropTarget, setComponent, void, $Component*)},
+		{"setDefaultActions", "(I)V", nullptr, $PUBLIC, $virtualMethod(DropTarget, setDefaultActions, void, int32_t)},
+		{"setFlavorMap", "(Ljava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $virtualMethod(DropTarget, setFlavorMap, void, $FlavorMap*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateAutoscroll", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(DropTarget, updateAutoscroll, void, $Point*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DropTarget, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.dnd.DropTarget$DropTargetAutoScroller", "java.awt.dnd.DropTarget", "DropTargetAutoScroller", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.dnd.DropTarget",
+		"java.lang.Object",
+		"java.awt.dnd.DropTargetListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.dnd.DropTarget$DropTargetAutoScroller"
+	};
+	$loadClass(DropTarget, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DropTarget));
+	});
 	return class$;
 }
 

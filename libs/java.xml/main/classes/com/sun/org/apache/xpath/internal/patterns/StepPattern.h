@@ -111,7 +111,7 @@ public:
 	virtual void setPredicates($Array<::com::sun::org::apache::xpath::internal::Expression>* predicates);
 	virtual void setRelativePathPattern(::com::sun::org::apache::xpath::internal::patterns::StepPattern* expr);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x7DE50ADB02C28E44;
+	static const int64_t serialVersionUID = (int64_t)0x7de50adb02c28e44;
 	int32_t m_axis = 0;
 	$String* m_targetString = nullptr;
 	::com::sun::org::apache::xpath::internal::patterns::StepPattern* m_relativePathPattern = nullptr;

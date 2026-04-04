@@ -1,5 +1,4 @@
 #include <sun/awt/windows/awtLocalization_fr.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,39 +11,20 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$MethodInfo _awtLocalization_fr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(awtLocalization_fr, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(awtLocalization_fr, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _awtLocalization_fr_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.windows.awtLocalization_fr",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_awtLocalization_fr_MethodInfo_
-};
-
-$Object* allocate$awtLocalization_fr($Class* clazz) {
-	return $of($alloc(awtLocalization_fr));
-}
-
 void awtLocalization_fr::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* awtLocalization_fr::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("allFiles"_s),
-			$of("Tous les fichiers"_s)
+			"allFiles"_s,
+			"Tous les fichiers"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menuFont"_s),
-			$of("SansSerif-plain-11"_s)
+			"menuFont"_s,
+			"SansSerif-plain-11"_s
 		})
 	});
 }
@@ -53,7 +33,22 @@ awtLocalization_fr::awtLocalization_fr() {
 }
 
 $Class* awtLocalization_fr::load$($String* name, bool initialize) {
-	$loadClass(awtLocalization_fr, name, initialize, &_awtLocalization_fr_ClassInfo_, allocate$awtLocalization_fr);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(awtLocalization_fr, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(awtLocalization_fr, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.windows.awtLocalization_fr",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(awtLocalization_fr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(awtLocalization_fr);
+	});
 	return class$;
 }
 

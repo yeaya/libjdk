@@ -1,5 +1,4 @@
 #include <java/awt/Component$BltSubRegionBufferStrategy.h>
-
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Component$BltBufferStrategy.h>
 #include <java/awt/Component.h>
@@ -15,49 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Component$BltSubRegionBufferStrategy_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$BltSubRegionBufferStrategy, this$0)},
-	{}
-};
-
-$MethodInfo _Component$BltSubRegionBufferStrategy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $method(Component$BltSubRegionBufferStrategy, init$, void, $Component*, int32_t, $BufferCapabilities*)},
-	{"show", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Component$BltSubRegionBufferStrategy, show, void, int32_t, int32_t, int32_t, int32_t)},
-	{"showIfNotLost", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Component$BltSubRegionBufferStrategy, showIfNotLost, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Component$BltSubRegionBufferStrategy_InnerClassesInfo_[] = {
-	{"java.awt.Component$BltSubRegionBufferStrategy", "java.awt.Component", "BltSubRegionBufferStrategy", $PRIVATE},
-	{"java.awt.Component$BltBufferStrategy", "java.awt.Component", "BltBufferStrategy", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Component$BltSubRegionBufferStrategy_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Component$BltSubRegionBufferStrategy",
-	"java.awt.Component$BltBufferStrategy",
-	"sun.awt.SubRegionShowable",
-	_Component$BltSubRegionBufferStrategy_FieldInfo_,
-	_Component$BltSubRegionBufferStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$BltSubRegionBufferStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$BltSubRegionBufferStrategy($Class* clazz) {
-	return $of($alloc(Component$BltSubRegionBufferStrategy));
-}
 
 int32_t Component$BltSubRegionBufferStrategy::hashCode() {
 	 return this->$Component$BltBufferStrategy::hashCode();
@@ -100,7 +56,44 @@ Component$BltSubRegionBufferStrategy::Component$BltSubRegionBufferStrategy() {
 }
 
 $Class* Component$BltSubRegionBufferStrategy::load$($String* name, bool initialize) {
-	$loadClass(Component$BltSubRegionBufferStrategy, name, initialize, &_Component$BltSubRegionBufferStrategy_ClassInfo_, allocate$Component$BltSubRegionBufferStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$BltSubRegionBufferStrategy, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $method(Component$BltSubRegionBufferStrategy, init$, void, $Component*, int32_t, $BufferCapabilities*)},
+		{"show", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Component$BltSubRegionBufferStrategy, show, void, int32_t, int32_t, int32_t, int32_t)},
+		{"showIfNotLost", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Component$BltSubRegionBufferStrategy, showIfNotLost, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$BltSubRegionBufferStrategy", "java.awt.Component", "BltSubRegionBufferStrategy", $PRIVATE},
+		{"java.awt.Component$BltBufferStrategy", "java.awt.Component", "BltBufferStrategy", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Component$BltSubRegionBufferStrategy",
+		"java.awt.Component$BltBufferStrategy",
+		"sun.awt.SubRegionShowable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$BltSubRegionBufferStrategy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Component$BltSubRegionBufferStrategy));
+	});
 	return class$;
 }
 

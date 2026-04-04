@@ -1,5 +1,4 @@
 #include <sun/awt/geom/AreaOp$IntOp.h>
-
 #include <sun/awt/geom/AreaOp$CAGOp.h>
 #include <sun/awt/geom/AreaOp.h>
 #include <jcpp.h>
@@ -13,38 +12,6 @@ namespace sun {
 	namespace awt {
 		namespace geom {
 
-$MethodInfo _AreaOp$IntOp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AreaOp$IntOp, init$, void)},
-	{"newClassification", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(AreaOp$IntOp, newClassification, bool, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _AreaOp$IntOp_InnerClassesInfo_[] = {
-	{"sun.awt.geom.AreaOp$IntOp", "sun.awt.geom.AreaOp", "IntOp", $PUBLIC | $STATIC},
-	{"sun.awt.geom.AreaOp$CAGOp", "sun.awt.geom.AreaOp", "CAGOp", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AreaOp$IntOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.geom.AreaOp$IntOp",
-	"sun.awt.geom.AreaOp$CAGOp",
-	nullptr,
-	nullptr,
-	_AreaOp$IntOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AreaOp$IntOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.geom.AreaOp"
-};
-
-$Object* allocate$AreaOp$IntOp($Class* clazz) {
-	return $of($alloc(AreaOp$IntOp));
-}
-
 void AreaOp$IntOp::init$() {
 	$AreaOp$CAGOp::init$();
 }
@@ -57,7 +24,34 @@ AreaOp$IntOp::AreaOp$IntOp() {
 }
 
 $Class* AreaOp$IntOp::load$($String* name, bool initialize) {
-	$loadClass(AreaOp$IntOp, name, initialize, &_AreaOp$IntOp_ClassInfo_, allocate$AreaOp$IntOp);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AreaOp$IntOp, init$, void)},
+		{"newClassification", "(ZZ)Z", nullptr, $PUBLIC, $virtualMethod(AreaOp$IntOp, newClassification, bool, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.geom.AreaOp$IntOp", "sun.awt.geom.AreaOp", "IntOp", $PUBLIC | $STATIC},
+		{"sun.awt.geom.AreaOp$CAGOp", "sun.awt.geom.AreaOp", "CAGOp", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.geom.AreaOp$IntOp",
+		"sun.awt.geom.AreaOp$CAGOp",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.geom.AreaOp"
+	};
+	$loadClass(AreaOp$IntOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AreaOp$IntOp);
+	});
 	return class$;
 }
 

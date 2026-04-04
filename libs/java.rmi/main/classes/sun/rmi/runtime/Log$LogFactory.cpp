@@ -1,5 +1,4 @@
 #include <sun/rmi/runtime/Log$LogFactory.h>
-
 #include <java/util/logging/Level.h>
 #include <sun/rmi/runtime/Log.h>
 #include <jcpp.h>
@@ -14,38 +13,33 @@ namespace sun {
 	namespace rmi {
 		namespace runtime {
 
-$MethodInfo _Log$LogFactory_MethodInfo_[] = {
-	{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log$LogFactory, createLog, $Log*, $String*, $String*, $Level*)},
-	{}
-};
-
-$InnerClassInfo _Log$LogFactory_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.Log$LogFactory", "sun.rmi.runtime.Log", "LogFactory", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Log$LogFactory_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.rmi.runtime.Log$LogFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Log$LogFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log$LogFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.Log"
-};
-
-$Object* allocate$Log$LogFactory($Class* clazz) {
-	return $of($alloc(Log$LogFactory));
-}
-
 $Class* Log$LogFactory::load$($String* name, bool initialize) {
-	$loadClass(Log$LogFactory, name, initialize, &_Log$LogFactory_ClassInfo_, allocate$Log$LogFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log$LogFactory, createLog, $Log*, $String*, $String*, $Level*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.Log$LogFactory", "sun.rmi.runtime.Log", "LogFactory", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.rmi.runtime.Log$LogFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.Log"
+	};
+	$loadClass(Log$LogFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$LogFactory);
+	});
 	return class$;
 }
 

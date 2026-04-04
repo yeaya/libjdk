@@ -1,5 +1,4 @@
 #include <java/awt/image/AreaAveragingScaleFilter.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/ImageFilter.h>
@@ -8,7 +7,6 @@
 #include <jcpp.h>
 
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $ReplicateScaleFilter = ::java::awt::image::ReplicateScaleFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,43 +18,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _AreaAveragingScaleFilter_FieldInfo_[] = {
-	{"rgbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AreaAveragingScaleFilter, rgbmodel)},
-	{"neededHints", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AreaAveragingScaleFilter, neededHints)},
-	{"passthrough", "Z", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, passthrough)},
-	{"reds", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, reds)},
-	{"greens", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, greens)},
-	{"blues", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, blues)},
-	{"alphas", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, alphas)},
-	{"savedy", "I", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, savedy)},
-	{"savedyrem", "I", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, savedyrem)},
-	{}
-};
-
-$MethodInfo _AreaAveragingScaleFilter_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(AreaAveragingScaleFilter, init$, void, int32_t, int32_t)},
-	{"accumPixels", "(IIIILjava/awt/image/ColorModel;Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(AreaAveragingScaleFilter, accumPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, Object$*, int32_t, int32_t)},
-	{"calcRow", "()[I", nullptr, $PRIVATE, $method(AreaAveragingScaleFilter, calcRow, $ints*)},
-	{"makeAccumBuffers", "()V", nullptr, $PRIVATE, $method(AreaAveragingScaleFilter, makeAccumBuffers, void)},
-	{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(AreaAveragingScaleFilter, setHints, void, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(AreaAveragingScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(AreaAveragingScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _AreaAveragingScaleFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.AreaAveragingScaleFilter",
-	"java.awt.image.ReplicateScaleFilter",
-	nullptr,
-	_AreaAveragingScaleFilter_FieldInfo_,
-	_AreaAveragingScaleFilter_MethodInfo_
-};
-
-$Object* allocate$AreaAveragingScaleFilter($Class* clazz) {
-	return $of($alloc(AreaAveragingScaleFilter));
-}
-
 $ColorModel* AreaAveragingScaleFilter::rgbmodel = nullptr;
 
 void AreaAveragingScaleFilter::init$(int32_t width, int32_t height) {
@@ -64,7 +25,7 @@ void AreaAveragingScaleFilter::init$(int32_t width, int32_t height) {
 }
 
 void AreaAveragingScaleFilter::setHints(int32_t hints) {
-	this->passthrough = (((int32_t)(hints & (uint32_t)AreaAveragingScaleFilter::neededHints)) != AreaAveragingScaleFilter::neededHints);
+	this->passthrough = ((hints & AreaAveragingScaleFilter::neededHints) != AreaAveragingScaleFilter::neededHints);
 	$ReplicateScaleFilter::setHints(hints);
 }
 
@@ -89,7 +50,7 @@ $ints* AreaAveragingScaleFilter::calcRow() {
 		} else if (a >= 255) {
 			a = 255;
 		} else {
-			mult = $nc(this->alphas)->get(x) / 255;
+			mult = this->alphas->get(x) / 255;
 		}
 		int32_t r = $Math::round($nc(this->reds)->get(x) / mult);
 		int32_t g = $Math::round($nc(this->greens)->get(x) / mult);
@@ -115,7 +76,7 @@ $ints* AreaAveragingScaleFilter::calcRow() {
 }
 
 void AreaAveragingScaleFilter::accumPixels(int32_t x, int32_t y, int32_t w, int32_t h, $ColorModel* model, Object$* pixels, int32_t off, int32_t scansize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->reds == nullptr) {
 		makeAccumBuffers();
 	}
@@ -159,15 +120,15 @@ void AreaAveragingScaleFilter::accumPixels(int32_t x, int32_t y, int32_t w, int3
 				sxrem = this->destWidth;
 				int32_t rgb = 0;
 				if ($instanceOf($bytes, pixels)) {
-					rgb = (int32_t)($nc(($cast($bytes, pixels)))->get(off + sx) & (uint32_t)255);
+					rgb = $cast($bytes, pixels)->get(off + sx) & 0xff;
 				} else {
-					rgb = $nc(($cast($ints, pixels)))->get(off + sx);
+					rgb = $nc($cast($ints, pixels))->get(off + sx);
 				}
 				rgb = $nc(model)->getRGB(rgb);
 				a = (float)(int32_t)((uint32_t)rgb >> 24);
-				r = (float)((int32_t)((rgb >> 16) & (uint32_t)255));
-				g = (float)((int32_t)((rgb >> 8) & (uint32_t)255));
-				b = (float)((int32_t)(rgb & (uint32_t)255));
+				r = (float)((rgb >> 16) & 0xff);
+				g = (float)((rgb >> 8) & 0xff);
+				b = (float)(rgb & 0xff);
 				if (a != 255.0f) {
 					float ascale = a / 255.0f;
 					r *= ascale;
@@ -229,7 +190,7 @@ void AreaAveragingScaleFilter::setPixels(int32_t x, int32_t y, int32_t w, int32_
 	}
 }
 
-void clinit$AreaAveragingScaleFilter($Class* class$) {
+void AreaAveragingScaleFilter::clinit$($Class* clazz) {
 	$assignStatic(AreaAveragingScaleFilter::rgbmodel, $ColorModel::getRGBdefault());
 }
 
@@ -237,7 +198,39 @@ AreaAveragingScaleFilter::AreaAveragingScaleFilter() {
 }
 
 $Class* AreaAveragingScaleFilter::load$($String* name, bool initialize) {
-	$loadClass(AreaAveragingScaleFilter, name, initialize, &_AreaAveragingScaleFilter_ClassInfo_, clinit$AreaAveragingScaleFilter, allocate$AreaAveragingScaleFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"rgbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AreaAveragingScaleFilter, rgbmodel)},
+		{"neededHints", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AreaAveragingScaleFilter, neededHints)},
+		{"passthrough", "Z", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, passthrough)},
+		{"reds", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, reds)},
+		{"greens", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, greens)},
+		{"blues", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, blues)},
+		{"alphas", "[F", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, alphas)},
+		{"savedy", "I", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, savedy)},
+		{"savedyrem", "I", nullptr, $PRIVATE, $field(AreaAveragingScaleFilter, savedyrem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(AreaAveragingScaleFilter, init$, void, int32_t, int32_t)},
+		{"accumPixels", "(IIIILjava/awt/image/ColorModel;Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(AreaAveragingScaleFilter, accumPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, Object$*, int32_t, int32_t)},
+		{"calcRow", "()[I", nullptr, $PRIVATE, $method(AreaAveragingScaleFilter, calcRow, $ints*)},
+		{"makeAccumBuffers", "()V", nullptr, $PRIVATE, $method(AreaAveragingScaleFilter, makeAccumBuffers, void)},
+		{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(AreaAveragingScaleFilter, setHints, void, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(AreaAveragingScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(AreaAveragingScaleFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.AreaAveragingScaleFilter",
+		"java.awt.image.ReplicateScaleFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AreaAveragingScaleFilter, name, initialize, &classInfo$$, AreaAveragingScaleFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AreaAveragingScaleFilter));
+	});
 	return class$;
 }
 

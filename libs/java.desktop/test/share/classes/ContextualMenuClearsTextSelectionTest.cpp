@@ -1,5 +1,4 @@
 #include <ContextualMenuClearsTextSelectionTest.h>
-
 #include <ContextualMenuClearsTextSelectionTest$1.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
@@ -11,7 +10,6 @@
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseAdapter.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -34,15 +32,11 @@
 
 using $ContextualMenuClearsTextSelectionTest$1 = ::ContextualMenuClearsTextSelectionTest$1;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -66,27 +60,24 @@ public:
 	virtual void run() override {
 		ContextualMenuClearsTextSelectionTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -99,27 +90,24 @@ public:
 	virtual void run() override {
 		ContextualMenuClearsTextSelectionTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -132,27 +120,24 @@ public:
 	virtual void run() override {
 		ContextualMenuClearsTextSelectionTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2, run, void)},
-	{}
-};
-$ClassInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
-	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2);
+	});
 	return class$;
 }
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2::class$ = nullptr;
@@ -165,76 +150,27 @@ public:
 	virtual void run() override {
 		ContextualMenuClearsTextSelectionTest::lambda$main$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3, run, void)},
-	{}
-};
-$ClassInfo ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3::load$($String* name, bool initialize) {
-	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3);
+	});
 	return class$;
 }
 $Class* ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3::class$ = nullptr;
-
-$FieldInfo _ContextualMenuClearsTextSelectionTest_FieldInfo_[] = {
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, robot)},
-	{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, p)},
-	{"textField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, textField)},
-	{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, popupMenu)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, frame)},
-	{"isSelectionCleared", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, isSelectionCleared)},
-	{}
-};
-
-$MethodInfo _ContextualMenuClearsTextSelectionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ContextualMenuClearsTextSelectionTest, createAndShowGUI, void)},
-	{"createPopup", "(Ljavax/swing/JTextField;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ContextualMenuClearsTextSelectionTest, createPopup, void, $JTextField*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$2, void)},
-	{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$3, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextualMenuClearsTextSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ContextualMenuClearsTextSelectionTest_InnerClassesInfo_[] = {
-	{"ContextualMenuClearsTextSelectionTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ContextualMenuClearsTextSelectionTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ContextualMenuClearsTextSelectionTest",
-	"java.lang.Object",
-	nullptr,
-	_ContextualMenuClearsTextSelectionTest_FieldInfo_,
-	_ContextualMenuClearsTextSelectionTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ContextualMenuClearsTextSelectionTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ContextualMenuClearsTextSelectionTest$1"
-};
-
-$Object* allocate$ContextualMenuClearsTextSelectionTest($Class* clazz) {
-	return $of($alloc(ContextualMenuClearsTextSelectionTest));
-}
 
 $Robot* ContextualMenuClearsTextSelectionTest::robot = nullptr;
 $Point* ContextualMenuClearsTextSelectionTest::p = nullptr;
@@ -247,76 +183,73 @@ void ContextualMenuClearsTextSelectionTest::init$() {
 }
 
 void ContextualMenuClearsTextSelectionTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Mac"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($System::getProperty("os.name"_s))->startsWith("Mac"_s)) {
 		$nc($System::out)->println("This test is meant for Mac platform only"_s);
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init(ContextualMenuClearsTextSelectionTest);
-			$assignStatic(ContextualMenuClearsTextSelectionTest::robot, $new($Robot));
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->setAutoDelay(50);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0)));
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1)));
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->delay(200);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseMove($nc(ContextualMenuClearsTextSelectionTest::p)->x + 10, $nc(ContextualMenuClearsTextSelectionTest::p)->y + 10);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->delay(2000);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->keyPress($KeyEvent::VK_CONTROL);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->keyRelease($KeyEvent::VK_CONTROL);
-			$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2)));
-			if (ContextualMenuClearsTextSelectionTest::isSelectionCleared) {
-				$throwNew($RuntimeException, "Text selection is cleared"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(ContextualMenuClearsTextSelectionTest);
-			if (ContextualMenuClearsTextSelectionTest::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3)));
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init(ContextualMenuClearsTextSelectionTest);
+		$assignStatic(ContextualMenuClearsTextSelectionTest::robot, $new($Robot));
+		ContextualMenuClearsTextSelectionTest::robot->setAutoDelay(50);
+		$SwingUtilities::invokeAndWait($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0));
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1));
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->delay(200);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseMove($nc(ContextualMenuClearsTextSelectionTest::p)->x + 10, $nc(ContextualMenuClearsTextSelectionTest::p)->y + 10);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->delay(2000);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->keyPress($KeyEvent::VK_CONTROL);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->keyRelease($KeyEvent::VK_CONTROL);
+		$nc(ContextualMenuClearsTextSelectionTest::robot)->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2));
+		if (ContextualMenuClearsTextSelectionTest::isSelectionCleared) {
+			$throwNew($RuntimeException, "Text selection is cleared"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(ContextualMenuClearsTextSelectionTest);
+		if (ContextualMenuClearsTextSelectionTest::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ContextualMenuClearsTextSelectionTest::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(ContextualMenuClearsTextSelectionTest);
 	$assignStatic(ContextualMenuClearsTextSelectionTest::frame, $new($JFrame));
-	$nc(ContextualMenuClearsTextSelectionTest::frame)->setLayout($$new($BorderLayout));
+	ContextualMenuClearsTextSelectionTest::frame->setLayout($$new($BorderLayout));
 	$nc(ContextualMenuClearsTextSelectionTest::frame)->setSize(200, 200);
 	$assignStatic(ContextualMenuClearsTextSelectionTest::textField, $new($JTextField, "word"_s));
-	$nc(ContextualMenuClearsTextSelectionTest::textField)->setSize(100, 20);
+	ContextualMenuClearsTextSelectionTest::textField->setSize(100, 20);
 	$assignStatic(ContextualMenuClearsTextSelectionTest::popupMenu, $new($JPopupMenu));
-	$nc(ContextualMenuClearsTextSelectionTest::popupMenu)->add($$new($JMenuItem, "Apple"_s));
+	ContextualMenuClearsTextSelectionTest::popupMenu->add($$new($JMenuItem, "Apple"_s));
 	$nc(ContextualMenuClearsTextSelectionTest::popupMenu)->add($$new($JMenuItem, "Pear"_s));
 	$nc(ContextualMenuClearsTextSelectionTest::popupMenu)->add($$new($JMenuItem, "Grape"_s));
 	createPopup(ContextualMenuClearsTextSelectionTest::textField);
-	$init($BorderLayout);
-	$nc(ContextualMenuClearsTextSelectionTest::frame)->add(static_cast<$Component*>(ContextualMenuClearsTextSelectionTest::textField), $of($BorderLayout::NORTH));
+	$nc(ContextualMenuClearsTextSelectionTest::frame)->add(ContextualMenuClearsTextSelectionTest::textField, $BorderLayout::NORTH);
 	$nc(ContextualMenuClearsTextSelectionTest::frame)->setDefaultCloseOperation($WindowConstants::DISPOSE_ON_CLOSE);
 	$nc(ContextualMenuClearsTextSelectionTest::frame)->pack();
 	$nc(ContextualMenuClearsTextSelectionTest::frame)->setVisible(true);
@@ -352,20 +285,60 @@ ContextualMenuClearsTextSelectionTest::ContextualMenuClearsTextSelectionTest() {
 
 $Class* ContextualMenuClearsTextSelectionTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0")) {
 			return ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1")) {
 			return ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2::classInfo$.name)) {
+		if (name->equals("ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2")) {
 			return ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$2$2::load$(name, initialize);
 		}
-		if (name->equals(ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3::classInfo$.name)) {
+		if (name->equals("ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3")) {
 			return ContextualMenuClearsTextSelectionTest$$Lambda$lambda$main$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(ContextualMenuClearsTextSelectionTest, name, initialize, &_ContextualMenuClearsTextSelectionTest_ClassInfo_, allocate$ContextualMenuClearsTextSelectionTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, robot)},
+		{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, p)},
+		{"textField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, textField)},
+		{"popupMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, popupMenu)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, frame)},
+		{"isSelectionCleared", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ContextualMenuClearsTextSelectionTest, isSelectionCleared)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextualMenuClearsTextSelectionTest, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ContextualMenuClearsTextSelectionTest, createAndShowGUI, void)},
+		{"createPopup", "(Ljavax/swing/JTextField;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ContextualMenuClearsTextSelectionTest, createPopup, void, $JTextField*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$2, void)},
+		{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ContextualMenuClearsTextSelectionTest, lambda$main$3, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextualMenuClearsTextSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ContextualMenuClearsTextSelectionTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ContextualMenuClearsTextSelectionTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ContextualMenuClearsTextSelectionTest$1"
+	};
+	$loadClass(ContextualMenuClearsTextSelectionTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextualMenuClearsTextSelectionTest);
+	});
 	return class$;
 }
 

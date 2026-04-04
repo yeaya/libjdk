@@ -1,5 +1,4 @@
 #include <TestUI$2.h>
-
 #include <TestUI.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/concurrent/CountDownLatch.h>
@@ -7,55 +6,11 @@
 
 using $TestUI = ::TestUI;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$FieldInfo _TestUI$2_FieldInfo_[] = {
-	{"this$0", "LTestUI;", nullptr, $FINAL | $SYNTHETIC, $field(TestUI$2, this$0)},
-	{}
-};
-
-$MethodInfo _TestUI$2_MethodInfo_[] = {
-	{"<init>", "(LTestUI;)V", nullptr, 0, $method(TestUI$2, init$, void, $TestUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestUI$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _TestUI$2_EnclosingMethodInfo_ = {
-	"TestUI",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _TestUI$2_InnerClassesInfo_[] = {
-	{"TestUI$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestUI$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestUI$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_TestUI$2_FieldInfo_,
-	_TestUI$2_MethodInfo_,
-	nullptr,
-	&_TestUI$2_EnclosingMethodInfo_,
-	_TestUI$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestUI"
-};
-
-$Object* allocate$TestUI$2($Class* clazz) {
-	return $of($alloc(TestUI$2));
-}
 
 void TestUI$2::init$($TestUI* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +26,42 @@ TestUI$2::TestUI$2() {
 }
 
 $Class* TestUI$2::load$($String* name, bool initialize) {
-	$loadClass(TestUI$2, name, initialize, &_TestUI$2_ClassInfo_, allocate$TestUI$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTestUI;", nullptr, $FINAL | $SYNTHETIC, $field(TestUI$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestUI;)V", nullptr, 0, $method(TestUI$2, init$, void, $TestUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestUI$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestUI",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestUI$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestUI$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestUI"
+	};
+	$loadClass(TestUI$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestUI$2);
+	});
 	return class$;
 }
 

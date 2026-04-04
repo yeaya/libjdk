@@ -1,5 +1,4 @@
 #include <javax/naming/directory/InvalidSearchFilterException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $NamingException = ::javax::naming::NamingException;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _InvalidSearchFilterException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidSearchFilterException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidSearchFilterException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSearchFilterException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSearchFilterException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidSearchFilterException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.InvalidSearchFilterException",
-	"javax.naming.NamingException",
-	nullptr,
-	_InvalidSearchFilterException_FieldInfo_,
-	_InvalidSearchFilterException_MethodInfo_
-};
-
-$Object* allocate$InvalidSearchFilterException($Class* clazz) {
-	return $of($alloc(InvalidSearchFilterException));
-}
 
 void InvalidSearchFilterException::init$() {
 	$NamingException::init$();
@@ -55,7 +30,26 @@ void InvalidSearchFilterException::throw$() {
 }
 
 $Class* InvalidSearchFilterException::load$($String* name, bool initialize) {
-	$loadClass(InvalidSearchFilterException, name, initialize, &_InvalidSearchFilterException_ClassInfo_, allocate$InvalidSearchFilterException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidSearchFilterException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSearchFilterException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSearchFilterException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.InvalidSearchFilterException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidSearchFilterException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidSearchFilterException);
+	});
 	return class$;
 }
 

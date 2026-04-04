@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTextFieldUI$WindowsFieldCaret$SafeScroller.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextFieldUI$WindowsFieldCaret.h>
 #include <com/sun/java/swing/plaf/windows/WindowsTextFieldUI.h>
 #include <java/awt/Insets.h>
@@ -24,7 +23,6 @@ using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $JTextField = ::javax::swing::JTextField;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 
 namespace com {
@@ -34,51 +32,13 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsTextFieldUI$WindowsFieldCaret;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, this$0)},
-	{"r", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, r)},
-	{}
-};
-
-$MethodInfo _WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsTextFieldUI$WindowsFieldCaret;Ljava/awt/Rectangle;)V", nullptr, 0, $method(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, init$, void, $WindowsTextFieldUI$WindowsFieldCaret*, $Rectangle*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, run, void)},
-	{}
-};
-
-$InnerClassInfo _WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret", "com.sun.java.swing.plaf.windows.WindowsTextFieldUI", "WindowsFieldCaret", $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret$SafeScroller", "com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret", "SafeScroller", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret$SafeScroller",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_FieldInfo_,
-	_WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTextFieldUI"
-};
-
-$Object* allocate$WindowsTextFieldUI$WindowsFieldCaret$SafeScroller($Class* clazz) {
-	return $of($alloc(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller));
-}
-
 void WindowsTextFieldUI$WindowsFieldCaret$SafeScroller::init$($WindowsTextFieldUI$WindowsFieldCaret* this$0, $Rectangle* r) {
 	$set(this, this$0, this$0);
 	$set(this, r, r);
 }
 
 void WindowsTextFieldUI$WindowsFieldCaret$SafeScroller::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextField, field, $cast($JTextField, $WindowsTextFieldUI$WindowsFieldCaret::access$000(this->this$0)));
 	if (field != nullptr) {
 		$var($TextUI, ui, $cast($TextUI, field->getUI()));
@@ -96,7 +56,7 @@ void WindowsTextFieldUI$WindowsFieldCaret$SafeScroller::run() {
 		int32_t quarterSpan = vis->getExtent() / 4;
 		if ($nc(this->r)->x < i->left) {
 			vis->setValue(x - quarterSpan);
-		} else if ($nc(this->r)->x + $nc(this->r)->width > i->left + vis->getExtent()) {
+		} else if (this->r->x + this->r->width > i->left + vis->getExtent()) {
 			vis->setValue(x - (3 * quarterSpan));
 		}
 		if (startRect != nullptr) {
@@ -116,7 +76,39 @@ WindowsTextFieldUI$WindowsFieldCaret$SafeScroller::WindowsTextFieldUI$WindowsFie
 }
 
 $Class* WindowsTextFieldUI$WindowsFieldCaret$SafeScroller::load$($String* name, bool initialize) {
-	$loadClass(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, name, initialize, &_WindowsTextFieldUI$WindowsFieldCaret$SafeScroller_ClassInfo_, allocate$WindowsTextFieldUI$WindowsFieldCaret$SafeScroller);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsTextFieldUI$WindowsFieldCaret;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, this$0)},
+		{"r", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, r)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsTextFieldUI$WindowsFieldCaret;Ljava/awt/Rectangle;)V", nullptr, 0, $method(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, init$, void, $WindowsTextFieldUI$WindowsFieldCaret*, $Rectangle*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret", "com.sun.java.swing.plaf.windows.WindowsTextFieldUI", "WindowsFieldCaret", $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret$SafeScroller", "com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret", "SafeScroller", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret$SafeScroller",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTextFieldUI"
+	};
+	$loadClass(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsTextFieldUI$WindowsFieldCaret$SafeScroller);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/HashedPasswordManager$UserCredentials.h>
-
 #include <com/sun/jmx/remote/security/HashedPasswordManager.h>
 #include <jcpp.h>
 
@@ -13,45 +12,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace security {
-
-$FieldInfo _HashedPasswordManager$UserCredentials_FieldInfo_[] = {
-	{"userName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, userName)},
-	{"hashAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, hashAlgorithm)},
-	{"b64Salt", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, b64Salt)},
-	{"b64Hash", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, b64Hash)},
-	{}
-};
-
-$MethodInfo _HashedPasswordManager$UserCredentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HashedPasswordManager$UserCredentials, init$, void, $String*, $String*, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HashedPasswordManager$UserCredentials, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _HashedPasswordManager$UserCredentials_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.security.HashedPasswordManager$UserCredentials", "com.sun.jmx.remote.security.HashedPasswordManager", "UserCredentials", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HashedPasswordManager$UserCredentials_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.remote.security.HashedPasswordManager$UserCredentials",
-	"java.lang.Object",
-	nullptr,
-	_HashedPasswordManager$UserCredentials_FieldInfo_,
-	_HashedPasswordManager$UserCredentials_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HashedPasswordManager$UserCredentials_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.security.HashedPasswordManager"
-};
-
-$Object* allocate$HashedPasswordManager$UserCredentials($Class* clazz) {
-	return $of($alloc(HashedPasswordManager$UserCredentials));
-}
 
 void HashedPasswordManager$UserCredentials::init$($String* userName, $String* hashAlgorithm, $String* b64Salt, $String* b64Hash) {
 	$set(this, userName, userName);
@@ -68,7 +28,40 @@ HashedPasswordManager$UserCredentials::HashedPasswordManager$UserCredentials() {
 }
 
 $Class* HashedPasswordManager$UserCredentials::load$($String* name, bool initialize) {
-	$loadClass(HashedPasswordManager$UserCredentials, name, initialize, &_HashedPasswordManager$UserCredentials_ClassInfo_, allocate$HashedPasswordManager$UserCredentials);
+	$FieldInfo fieldInfos$$[] = {
+		{"userName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, userName)},
+		{"hashAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, hashAlgorithm)},
+		{"b64Salt", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, b64Salt)},
+		{"b64Hash", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HashedPasswordManager$UserCredentials, b64Hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HashedPasswordManager$UserCredentials, init$, void, $String*, $String*, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HashedPasswordManager$UserCredentials, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.security.HashedPasswordManager$UserCredentials", "com.sun.jmx.remote.security.HashedPasswordManager", "UserCredentials", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.remote.security.HashedPasswordManager$UserCredentials",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.security.HashedPasswordManager"
+	};
+	$loadClass(HashedPasswordManager$UserCredentials, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HashedPasswordManager$UserCredentials);
+	});
 	return class$;
 }
 

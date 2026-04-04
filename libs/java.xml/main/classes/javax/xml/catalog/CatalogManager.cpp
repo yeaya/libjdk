@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/CatalogManager.h>
-
 #include <java/net/URI.h>
 #include <javax/xml/catalog/Catalog.h>
 #include <javax/xml/catalog/CatalogFeatures.h>
@@ -24,27 +23,6 @@ using $Util = ::javax::xml::catalog::Util;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$MethodInfo _CatalogManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CatalogManager, init$, void)},
-	{"catalog", "(Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)Ljavax/xml/catalog/Catalog;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CatalogManager, catalog, $Catalog*, $CatalogFeatures*, $URIArray*)},
-	{"catalogResolver", "(Ljavax/xml/catalog/Catalog;)Ljavax/xml/catalog/CatalogResolver;", nullptr, $PUBLIC | $STATIC, $staticMethod(CatalogManager, catalogResolver, $CatalogResolver*, $Catalog*)},
-	{"catalogResolver", "(Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)Ljavax/xml/catalog/CatalogResolver;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CatalogManager, catalogResolver, $CatalogResolver*, $CatalogFeatures*, $URIArray*)},
-	{}
-};
-
-$ClassInfo _CatalogManager_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.xml.catalog.CatalogManager",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CatalogManager_MethodInfo_
-};
-
-$Object* allocate$CatalogManager($Class* clazz) {
-	return $of($alloc(CatalogManager));
-}
 
 void CatalogManager::init$() {
 }
@@ -72,7 +50,24 @@ CatalogManager::CatalogManager() {
 }
 
 $Class* CatalogManager::load$($String* name, bool initialize) {
-	$loadClass(CatalogManager, name, initialize, &_CatalogManager_ClassInfo_, allocate$CatalogManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CatalogManager, init$, void)},
+		{"catalog", "(Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)Ljavax/xml/catalog/Catalog;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CatalogManager, catalog, $Catalog*, $CatalogFeatures*, $URIArray*)},
+		{"catalogResolver", "(Ljavax/xml/catalog/Catalog;)Ljavax/xml/catalog/CatalogResolver;", nullptr, $PUBLIC | $STATIC, $staticMethod(CatalogManager, catalogResolver, $CatalogResolver*, $Catalog*)},
+		{"catalogResolver", "(Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)Ljavax/xml/catalog/CatalogResolver;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(CatalogManager, catalogResolver, $CatalogResolver*, $CatalogFeatures*, $URIArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.xml.catalog.CatalogManager",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CatalogManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatalogManager);
+	});
 	return class$;
 }
 

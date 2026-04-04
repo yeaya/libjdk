@@ -14,7 +14,7 @@ class $import LoggingPermission : public ::java::security::BasicPermission {
 public:
 	LoggingPermission();
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x00E1D36E9045739E;
+	static const int64_t serialVersionUID = (int64_t)0x00e1d36e9045739e;
 };
 
 		} // logging

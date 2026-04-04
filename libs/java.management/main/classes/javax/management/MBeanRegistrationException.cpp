@@ -1,5 +1,4 @@
 #include <javax/management/MBeanRegistrationException.h>
-
 #include <javax/management/MBeanException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $MBeanException = ::javax::management::MBeanException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MBeanRegistrationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanRegistrationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MBeanRegistrationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MBeanRegistrationException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanRegistrationException, init$, void, $Exception*, $String*)},
-	{}
-};
-
-$ClassInfo _MBeanRegistrationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanRegistrationException",
-	"javax.management.MBeanException",
-	nullptr,
-	_MBeanRegistrationException_FieldInfo_,
-	_MBeanRegistrationException_MethodInfo_
-};
-
-$Object* allocate$MBeanRegistrationException($Class* clazz) {
-	return $of($alloc(MBeanRegistrationException));
-}
 
 void MBeanRegistrationException::init$($Exception* e) {
 	$MBeanException::init$(e);
@@ -55,7 +30,26 @@ void MBeanRegistrationException::throw$() {
 }
 
 $Class* MBeanRegistrationException::load$($String* name, bool initialize) {
-	$loadClass(MBeanRegistrationException, name, initialize, &_MBeanRegistrationException_ClassInfo_, allocate$MBeanRegistrationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanRegistrationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MBeanRegistrationException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanRegistrationException, init$, void, $Exception*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanRegistrationException",
+		"javax.management.MBeanException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanRegistrationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanRegistrationException);
+	});
 	return class$;
 }
 

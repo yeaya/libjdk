@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KDCReqBody.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
@@ -49,44 +48,8 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _KDCReqBody_FieldInfo_[] = {
-	{"kdcOptions", "Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC, $field(KDCReqBody, kdcOptions)},
-	{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KDCReqBody, cname)},
-	{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KDCReqBody, sname)},
-	{"from", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KDCReqBody, from)},
-	{"till", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KDCReqBody, till)},
-	{"rtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KDCReqBody, rtime)},
-	{"addresses", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC, $field(KDCReqBody, addresses)},
-	{"nonce", "I", nullptr, $PRIVATE, $field(KDCReqBody, nonce)},
-	{"eType", "[I", nullptr, $PRIVATE, $field(KDCReqBody, eType)},
-	{"encAuthorizationData", "Lsun/security/krb5/EncryptedData;", nullptr, $PRIVATE, $field(KDCReqBody, encAuthorizationData)},
-	{"additionalTickets", "[Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KDCReqBody, additionalTickets)},
-	{}
-};
-
-$MethodInfo _KDCReqBody_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;I[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/EncryptedData;[Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(KDCReqBody, init$, void, $KDCOptions*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, int32_t, $ints*, $HostAddresses*, $EncryptedData*, $TicketArray*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(KDCReqBody, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.KrbException,java.io.IOException"},
-	{"asn1Encode", "(I)[B", nullptr, $PUBLIC, $virtualMethod(KDCReqBody, asn1Encode, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getNonce", "()I", nullptr, $PUBLIC, $virtualMethod(KDCReqBody, getNonce, int32_t)},
-	{}
-};
-
-$ClassInfo _KDCReqBody_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KDCReqBody",
-	"java.lang.Object",
-	nullptr,
-	_KDCReqBody_FieldInfo_,
-	_KDCReqBody_MethodInfo_
-};
-
-$Object* allocate$KDCReqBody($Class* clazz) {
-	return $of($alloc(KDCReqBody));
-}
-
 void KDCReqBody::init$($KDCOptions* new_kdcOptions, $PrincipalName* new_cname, $PrincipalName* new_sname, $KerberosTime* new_from, $KerberosTime* new_till, $KerberosTime* new_rtime, int32_t new_nonce, $ints* new_eType, $HostAddresses* new_addresses, $EncryptedData* new_encAuthorizationData, $TicketArray* new_additionalTickets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, eType, nullptr);
 	$set(this, kdcOptions, new_kdcOptions);
 	$set(this, cname, new_cname);
@@ -106,14 +69,14 @@ void KDCReqBody::init$($KDCOptions* new_kdcOptions, $PrincipalName* new_cname, $
 			if (new_additionalTickets->get(i) == nullptr) {
 				$throwNew($IOException, "Cannot create a KDCReqBody"_s);
 			} else {
-				$nc(this->additionalTickets)->set(i, $cast($Ticket, $($nc(new_additionalTickets->get(i))->clone())));
+				$nc(this->additionalTickets)->set(i, $$cast($Ticket, $nc(new_additionalTickets->get(i))->clone()));
 			}
 		}
 	}
 }
 
 void KDCReqBody::init$($DerValue* encoding, int32_t msgType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, eType, nullptr);
 	$var($DerValue, der, nullptr);
 	$var($DerValue, subDer, nullptr);
@@ -123,39 +86,38 @@ void KDCReqBody::init$($DerValue* encoding, int32_t msgType) {
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$set(this, kdcOptions, $KDCOptions::parse($($nc(encoding)->getData()), (int8_t)0, false));
-	$var($DerInputStream, var$0, $nc(encoding)->getData());
-	int8_t var$1 = (int8_t)1;
-	$set(this, cname, $PrincipalName::parse(var$0, var$1, true, $$new($Realm, "PLACEHOLDER"_s)));
+	$set(this, kdcOptions, $KDCOptions::parse($(encoding->getData()), (int8_t)0, false));
+	$var($DerInputStream, var$0, encoding->getData());
+	$set(this, cname, $PrincipalName::parse(var$0, (int8_t)1, true, $$new($Realm, "PLACEHOLDER"_s)));
 	if ((msgType != $Krb5::KRB_AS_REQ) && (this->cname != nullptr)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$var($Realm, realm, $Realm::parse($($nc(encoding)->getData()), (int8_t)2, false));
+	$var($Realm, realm, $Realm::parse($(encoding->getData()), (int8_t)2, false));
 	if (this->cname != nullptr) {
-		int32_t var$2 = $nc(this->cname)->getNameType();
-		$set(this, cname, $new($PrincipalName, var$2, $($nc(this->cname)->getNameStrings()), realm));
+		int32_t var$1 = this->cname->getNameType();
+		$set(this, cname, $new($PrincipalName, var$1, $(this->cname->getNameStrings()), realm));
 	}
-	$set(this, sname, $PrincipalName::parse($($nc(encoding)->getData()), (int8_t)3, true, realm));
-	$set(this, from, $KerberosTime::parse($($nc(encoding)->getData()), (int8_t)4, true));
-	$set(this, till, $KerberosTime::parse($($nc(encoding)->getData()), (int8_t)5, false));
-	$set(this, rtime, $KerberosTime::parse($($nc(encoding)->getData()), (int8_t)6, true));
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)7) {
-		this->nonce = $nc($($nc($(der->getData()))->getBigInteger()))->intValue();
+	$set(this, sname, $PrincipalName::parse($(encoding->getData()), (int8_t)3, true, realm));
+	$set(this, from, $KerberosTime::parse($(encoding->getData()), (int8_t)4, true));
+	$set(this, till, $KerberosTime::parse($(encoding->getData()), (int8_t)5, false));
+	$set(this, rtime, $KerberosTime::parse($(encoding->getData()), (int8_t)6, true));
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)7) {
+		this->nonce = $$nc($$nc(der->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($(encoding->getData()))->getDerValue());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
 	$var($Vector, v, $new($Vector));
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)8) {
-		$assign(subDer, $nc($(der->getData()))->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)8) {
+		$assign(subDer, $$nc(der->getData())->getDerValue());
 		if ($nc(subDer)->getTag() == $DerValue::tag_SequenceOf) {
-			while ($nc($(subDer->getData()))->available() > 0) {
-				v->addElement($($Integer::valueOf($nc($($nc($(subDer->getData()))->getBigInteger()))->intValue())));
+			while ($$nc(subDer->getData())->available() > 0) {
+				v->addElement($($Integer::valueOf($$nc($$nc(subDer->getData())->getBigInteger())->intValue())));
 			}
 			$set(this, eType, $new($ints, v->size()));
 			for (int32_t i = 0; i < v->size(); ++i) {
-				$nc(this->eType)->set(i, $nc(($cast($Integer, $(v->elementAt(i)))))->intValue());
+				this->eType->set(i, $$sure($Integer, v->elementAt(i))->intValue());
 			}
 		} else {
 			$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
@@ -163,20 +125,20 @@ void KDCReqBody::init$($DerValue* encoding, int32_t msgType) {
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, addresses, $HostAddresses::parse($(encoding->getData()), (int8_t)9, true));
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$set(this, encAuthorizationData, $EncryptedData::parse($(encoding->getData()), (int8_t)10, true));
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$var($Vector, tempTickets, $new($Vector));
-		$assign(der, $nc($(encoding->getData()))->getDerValue());
-		if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)11) {
-			$assign(subDer, $nc($(der->getData()))->getDerValue());
+		$assign(der, $$nc(encoding->getData())->getDerValue());
+		if (($nc(der)->getTag() & (int8_t)31) == (int8_t)11) {
+			$assign(subDer, $$nc(der->getData())->getDerValue());
 			if ($nc(subDer)->getTag() == $DerValue::tag_SequenceOf) {
-				while ($nc($(subDer->getData()))->available() > 0) {
-					tempTickets->addElement($$new($Ticket, $($nc($(subDer->getData()))->getDerValue())));
+				while ($$nc(subDer->getData())->available() > 0) {
+					tempTickets->addElement($$new($Ticket, $($$nc(subDer->getData())->getDerValue())));
 				}
 			} else {
 				$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
@@ -189,48 +151,48 @@ void KDCReqBody::init$($DerValue* encoding, int32_t msgType) {
 			$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 		}
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* KDCReqBody::asn1Encode(int32_t msgType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, v, $new($Vector));
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0);
 	v->addElement($$new($DerValue, var$0, $($nc(this->kdcOptions)->asn1Encode())));
 	if (msgType == $Krb5::KRB_AS_REQ) {
 		if (this->cname != nullptr) {
 			int8_t var$1 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1);
-			v->addElement($$new($DerValue, var$1, $($nc(this->cname)->asn1Encode())));
+			v->addElement($$new($DerValue, var$1, $(this->cname->asn1Encode())));
 		}
 	}
 	if (this->sname != nullptr) {
 		int8_t var$2 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2);
-		v->addElement($$new($DerValue, var$2, $($nc($($nc(this->sname)->getRealm()))->asn1Encode())));
+		v->addElement($$new($DerValue, var$2, $($$nc(this->sname->getRealm())->asn1Encode())));
 		int8_t var$3 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)3);
 		v->addElement($$new($DerValue, var$3, $($nc(this->sname)->asn1Encode())));
 	} else if (this->cname != nullptr) {
 		int8_t var$4 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2);
-		v->addElement($$new($DerValue, var$4, $($nc($($nc(this->cname)->getRealm()))->asn1Encode())));
+		v->addElement($$new($DerValue, var$4, $($$nc(this->cname->getRealm())->asn1Encode())));
 	}
 	if (this->from != nullptr) {
 		int8_t var$5 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)4);
-		v->addElement($$new($DerValue, var$5, $($nc(this->from)->asn1Encode())));
+		v->addElement($$new($DerValue, var$5, $(this->from->asn1Encode())));
 	}
 	int8_t var$6 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)5);
 	v->addElement($$new($DerValue, var$6, $($nc(this->till)->asn1Encode())));
 	if (this->rtime != nullptr) {
 		int8_t var$7 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)6);
-		v->addElement($$new($DerValue, var$7, $($nc(this->rtime)->asn1Encode())));
+		v->addElement($$new($DerValue, var$7, $(this->rtime->asn1Encode())));
 	}
 	$var($DerOutputStream, temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->nonce)));
+	temp->putInteger($($BigInteger::valueOf(this->nonce)));
 	int8_t var$8 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)7);
 	v->addElement($$new($DerValue, var$8, $(temp->toByteArray())));
 	$assign(temp, $new($DerOutputStream));
 	for (int32_t i = 0; i < $nc(this->eType)->length; ++i) {
-		temp->putInteger($($BigInteger::valueOf((int64_t)$nc(this->eType)->get(i))));
+		temp->putInteger($($BigInteger::valueOf(this->eType->get(i))));
 	}
 	$var($DerOutputStream, eTypetemp, $new($DerOutputStream));
 	eTypetemp->write($DerValue::tag_SequenceOf, temp);
@@ -238,16 +200,16 @@ $bytes* KDCReqBody::asn1Encode(int32_t msgType) {
 	v->addElement($$new($DerValue, var$9, $(eTypetemp->toByteArray())));
 	if (this->addresses != nullptr) {
 		int8_t var$10 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)9);
-		v->addElement($$new($DerValue, var$10, $($nc(this->addresses)->asn1Encode())));
+		v->addElement($$new($DerValue, var$10, $(this->addresses->asn1Encode())));
 	}
 	if (this->encAuthorizationData != nullptr) {
 		int8_t var$11 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)10);
-		v->addElement($$new($DerValue, var$11, $($nc(this->encAuthorizationData)->asn1Encode())));
+		v->addElement($$new($DerValue, var$11, $(this->encAuthorizationData->asn1Encode())));
 	}
-	if (this->additionalTickets != nullptr && $nc(this->additionalTickets)->length > 0) {
+	if (this->additionalTickets != nullptr && this->additionalTickets->length > 0) {
 		$assign(temp, $new($DerOutputStream));
 		for (int32_t i = 0; i < $nc(this->additionalTickets)->length; ++i) {
-			temp->write($($nc($nc(this->additionalTickets)->get(i))->asn1Encode()));
+			temp->write($($nc(this->additionalTickets->get(i))->asn1Encode()));
 		}
 		$var($DerOutputStream, ticketsTemp, $new($DerOutputStream));
 		ticketsTemp->write($DerValue::tag_SequenceOf, temp);
@@ -269,7 +231,38 @@ KDCReqBody::KDCReqBody() {
 }
 
 $Class* KDCReqBody::load$($String* name, bool initialize) {
-	$loadClass(KDCReqBody, name, initialize, &_KDCReqBody_ClassInfo_, allocate$KDCReqBody);
+	$FieldInfo fieldInfos$$[] = {
+		{"kdcOptions", "Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC, $field(KDCReqBody, kdcOptions)},
+		{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KDCReqBody, cname)},
+		{"sname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KDCReqBody, sname)},
+		{"from", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KDCReqBody, from)},
+		{"till", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KDCReqBody, till)},
+		{"rtime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KDCReqBody, rtime)},
+		{"addresses", "Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC, $field(KDCReqBody, addresses)},
+		{"nonce", "I", nullptr, $PRIVATE, $field(KDCReqBody, nonce)},
+		{"eType", "[I", nullptr, $PRIVATE, $field(KDCReqBody, eType)},
+		{"encAuthorizationData", "Lsun/security/krb5/EncryptedData;", nullptr, $PRIVATE, $field(KDCReqBody, encAuthorizationData)},
+		{"additionalTickets", "[Lsun/security/krb5/internal/Ticket;", nullptr, $PRIVATE, $field(KDCReqBody, additionalTickets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;I[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/EncryptedData;[Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(KDCReqBody, init$, void, $KDCOptions*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, int32_t, $ints*, $HostAddresses*, $EncryptedData*, $TicketArray*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(KDCReqBody, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.KrbException,java.io.IOException"},
+		{"asn1Encode", "(I)[B", nullptr, $PUBLIC, $virtualMethod(KDCReqBody, asn1Encode, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"getNonce", "()I", nullptr, $PUBLIC, $virtualMethod(KDCReqBody, getNonce, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KDCReqBody",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KDCReqBody, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KDCReqBody);
+	});
 	return class$;
 }
 

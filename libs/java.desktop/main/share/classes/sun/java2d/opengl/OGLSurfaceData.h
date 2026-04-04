@@ -106,6 +106,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool isSurfaceLost() override;
 	virtual bool isValid() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::opengl::OGLGraphicsConfig* gc, ::java::awt::image::ColorModel* cm, int32_t type);
 	bool canHandleComposite(::java::awt::Composite* c);
 	virtual bool canRenderLCDText(::sun::java2d::SunGraphics2D* sg2d) override;

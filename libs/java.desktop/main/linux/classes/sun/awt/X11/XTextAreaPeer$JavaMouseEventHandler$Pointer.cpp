@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer.h>
-
 #include <java/lang/AssertionError.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JScrollBar.h>
@@ -26,54 +25,6 @@ using $XTextAreaPeer$JavaMouseEventHandler$Pointer$Type = ::sun::awt::X11::XText
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer, $assertionsDisabled)},
-	{"type", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PRIVATE, $field(XTextAreaPeer$JavaMouseEventHandler$Pointer, type)},
-	{"bar", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE, $field(XTextAreaPeer$JavaMouseEventHandler$Pointer, bar)},
-	{"button", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(XTextAreaPeer$JavaMouseEventHandler$Pointer, button)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, init$, void)},
-	{"getBar", "()Ljavax/swing/JScrollBar;", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, getBar, $JScrollBar*)},
-	{"getButton", "()Ljavax/swing/JButton;", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, getButton, $JButton*)},
-	{"getType", "()Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, getType, $XTextAreaPeer$JavaMouseEventHandler$Pointer$Type*)},
-	{"isNone", "()Z", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, isNone, bool)},
-	{"setBar", "(Ljavax/swing/JScrollBar;)V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setBar, void, $JScrollBar*)},
-	{"setButton", "(Ljavax/swing/JButton;)V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setButton, void, $JButton*)},
-	{"setNone", "()V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setNone, void)},
-	{"setText", "()V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setText, void)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "sun.awt.X11.XTextAreaPeer", "JavaMouseEventHandler", $PRIVATE | $STATIC | $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "Pointer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "Type", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$JavaMouseEventHandler$Pointer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer",
-	"java.lang.Object",
-	nullptr,
-	_XTextAreaPeer$JavaMouseEventHandler$Pointer_FieldInfo_,
-	_XTextAreaPeer$JavaMouseEventHandler$Pointer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$JavaMouseEventHandler$Pointer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$JavaMouseEventHandler$Pointer($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$JavaMouseEventHandler$Pointer));
-}
 
 bool XTextAreaPeer$JavaMouseEventHandler$Pointer::$assertionsDisabled = false;
 
@@ -129,7 +80,7 @@ void XTextAreaPeer$JavaMouseEventHandler$Pointer::setButton($JButton* button) {
 	$set(this, type, $XTextAreaPeer$JavaMouseEventHandler$Pointer$Type::BUTTON);
 }
 
-void clinit$XTextAreaPeer$JavaMouseEventHandler$Pointer($Class* class$) {
+void XTextAreaPeer$JavaMouseEventHandler$Pointer::clinit$($Class* clazz) {
 	$load($XTextAreaPeer);
 	XTextAreaPeer$JavaMouseEventHandler$Pointer::$assertionsDisabled = !$XTextAreaPeer::class$->desiredAssertionStatus();
 }
@@ -138,7 +89,49 @@ XTextAreaPeer$JavaMouseEventHandler$Pointer::XTextAreaPeer$JavaMouseEventHandler
 }
 
 $Class* XTextAreaPeer$JavaMouseEventHandler$Pointer::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$JavaMouseEventHandler$Pointer, name, initialize, &_XTextAreaPeer$JavaMouseEventHandler$Pointer_ClassInfo_, clinit$XTextAreaPeer$JavaMouseEventHandler$Pointer, allocate$XTextAreaPeer$JavaMouseEventHandler$Pointer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XTextAreaPeer$JavaMouseEventHandler$Pointer, $assertionsDisabled)},
+		{"type", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, $PRIVATE, $field(XTextAreaPeer$JavaMouseEventHandler$Pointer, type)},
+		{"bar", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE, $field(XTextAreaPeer$JavaMouseEventHandler$Pointer, bar)},
+		{"button", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(XTextAreaPeer$JavaMouseEventHandler$Pointer, button)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, init$, void)},
+		{"getBar", "()Ljavax/swing/JScrollBar;", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, getBar, $JScrollBar*)},
+		{"getButton", "()Ljavax/swing/JButton;", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, getButton, $JButton*)},
+		{"getType", "()Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, getType, $XTextAreaPeer$JavaMouseEventHandler$Pointer$Type*)},
+		{"isNone", "()Z", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, isNone, bool)},
+		{"setBar", "(Ljavax/swing/JScrollBar;)V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setBar, void, $JScrollBar*)},
+		{"setButton", "(Ljavax/swing/JButton;)V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setButton, void, $JButton*)},
+		{"setNone", "()V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setNone, void)},
+		{"setText", "()V", nullptr, 0, $method(XTextAreaPeer$JavaMouseEventHandler$Pointer, setText, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "sun.awt.X11.XTextAreaPeer", "JavaMouseEventHandler", $PRIVATE | $STATIC | $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "Pointer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type", "sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer", "Type", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$JavaMouseEventHandler$Pointer, name, initialize, &classInfo$$, XTextAreaPeer$JavaMouseEventHandler$Pointer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XTextAreaPeer$JavaMouseEventHandler$Pointer);
+	});
 	return class$;
 }
 

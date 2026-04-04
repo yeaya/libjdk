@@ -69,6 +69,7 @@ class LoadDocument : public ::java::lang::Object {
 	$class(LoadDocument, 0, ::java::lang::Object)
 public:
 	LoadDocument();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* document($String* uri, $String* base, ::com::sun::org::apache::xalan::internal::xsltc::runtime::AbstractTranslet* translet, ::com::sun::org::apache::xalan::internal::xsltc::DOM* dom);
 	static ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* document($String* uri, $String* base, ::com::sun::org::apache::xalan::internal::xsltc::runtime::AbstractTranslet* translet, ::com::sun::org::apache::xalan::internal::xsltc::DOM* dom, bool cacheDOM);

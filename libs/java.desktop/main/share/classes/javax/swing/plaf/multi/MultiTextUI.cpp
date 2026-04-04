@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/multi/MultiTextUI.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Point.h>
@@ -47,93 +46,6 @@ namespace javax {
 		namespace plaf {
 			namespace multi {
 
-$NamedAttribute MultiTextUI_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _MultiTextUI_MethodAnnotations_modelToView16[] = {
-	{"Ljava/lang/Deprecated;", MultiTextUI_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute MultiTextUI_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _MultiTextUI_MethodAnnotations_modelToView17[] = {
-	{"Ljava/lang/Deprecated;", MultiTextUI_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute MultiTextUI_Attribute_var$2[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _MultiTextUI_MethodAnnotations_viewToModel22[] = {
-	{"Ljava/lang/Deprecated;", MultiTextUI_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute MultiTextUI_Attribute_var$3[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _MultiTextUI_MethodAnnotations_viewToModel23[] = {
-	{"Ljava/lang/Deprecated;", MultiTextUI_Attribute_var$3},
-	{}
-};
-
-$FieldInfo _MultiTextUI_FieldInfo_[] = {
-	{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiTextUI, uis)},
-	{}
-};
-
-$MethodInfo _MultiTextUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiTextUI, init$, void)},
-	{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, contains, bool, $JComponent*, int32_t, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiTextUI, createUI, $ComponentUI*, $JComponent*)},
-	{"damageRange", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t)},
-	{"damageRange", "(Ljavax/swing/text/JTextComponent;IILjavax/swing/text/Position$Bias;Ljavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t, $Position$Bias*, $Position$Bias*)},
-	{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
-	{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
-	{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getEditorKit, $EditorKit*, $JTextComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getNextVisualPositionFrom", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getNextVisualPositionFrom, int32_t, $JTextComponent*, int32_t, $Position$Bias*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getRootView", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getRootView, $View*, $JTextComponent*)},
-	{"getToolTipText", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getToolTipText, $String*, $JTextComponent*, $Point*)},
-	{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getUIs, $ComponentUIArray*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, installUI, void, $JComponent*)},
-	{"modelToView", "(Ljavax/swing/text/JTextComponent;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException", nullptr, _MultiTextUI_MethodAnnotations_modelToView16},
-	{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException", nullptr, _MultiTextUI_MethodAnnotations_modelToView17},
-	{"modelToView2D", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, modelToView2D, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, paint, void, $Graphics*, $JComponent*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, update, void, $Graphics*, $JComponent*)},
-	{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, viewToModel, int32_t, $JTextComponent*, $Point*), nullptr, nullptr, _MultiTextUI_MethodAnnotations_viewToModel22},
-	{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, viewToModel, int32_t, $JTextComponent*, $Point*, $Position$BiasArray*), nullptr, nullptr, _MultiTextUI_MethodAnnotations_viewToModel23},
-	{"viewToModel2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, viewToModel2D, int32_t, $JTextComponent*, $Point2D*, $Position$BiasArray*)},
-	{}
-};
-
-$ClassInfo _MultiTextUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.multi.MultiTextUI",
-	"javax.swing.plaf.TextUI",
-	nullptr,
-	_MultiTextUI_FieldInfo_,
-	_MultiTextUI_MethodInfo_
-};
-
-$Object* allocate$MultiTextUI($Class* clazz) {
-	return $of($alloc(MultiTextUI));
-}
-
 void MultiTextUI::init$() {
 	$TextUI::init$();
 	$set(this, uis, $new($Vector));
@@ -144,122 +56,122 @@ $ComponentUIArray* MultiTextUI::getUIs() {
 }
 
 $String* MultiTextUI::getToolTipText($JTextComponent* a, $Point* b) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, returnValue, $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->getToolTipText(a, b));
+	$useLocalObjectStack();
+	$var($String, returnValue, $$cast($TextUI, $nc(this->uis)->elementAt(0))->getToolTipText(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->getToolTipText(a, b);
+		$$cast($TextUI, this->uis->elementAt(i))->getToolTipText(a, b);
 	}
 	return returnValue;
 }
 
 $Rectangle* MultiTextUI::modelToView($JTextComponent* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
-	$var($Rectangle, returnValue, $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->modelToView(a, b));
+	$useLocalObjectStack();
+	$var($Rectangle, returnValue, $$cast($TextUI, $nc(this->uis)->elementAt(0))->modelToView(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->modelToView(a, b);
+		$$cast($TextUI, this->uis->elementAt(i))->modelToView(a, b);
 	}
 	return returnValue;
 }
 
 $Rectangle* MultiTextUI::modelToView($JTextComponent* a, int32_t b, $Position$Bias* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($Rectangle, returnValue, $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->modelToView(a, b, c));
+	$useLocalObjectStack();
+	$var($Rectangle, returnValue, $$cast($TextUI, $nc(this->uis)->elementAt(0))->modelToView(a, b, c));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->modelToView(a, b, c);
+		$$cast($TextUI, this->uis->elementAt(i))->modelToView(a, b, c);
 	}
 	return returnValue;
 }
 
 $Rectangle2D* MultiTextUI::modelToView2D($JTextComponent* a, int32_t b, $Position$Bias* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($Rectangle2D, returnValue, $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->modelToView2D(a, b, c));
+	$useLocalObjectStack();
+	$var($Rectangle2D, returnValue, $$cast($TextUI, $nc(this->uis)->elementAt(0))->modelToView2D(a, b, c));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->modelToView2D(a, b, c);
+		$$cast($TextUI, this->uis->elementAt(i))->modelToView2D(a, b, c);
 	}
 	return returnValue;
 }
 
 int32_t MultiTextUI::viewToModel($JTextComponent* a, $Point* b) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->viewToModel(a, b);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($TextUI, $nc(this->uis)->elementAt(0))->viewToModel(a, b);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->viewToModel(a, b);
+		$$cast($TextUI, this->uis->elementAt(i))->viewToModel(a, b);
 	}
 	return returnValue;
 }
 
 int32_t MultiTextUI::viewToModel($JTextComponent* a, $Point* b, $Position$BiasArray* c) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->viewToModel(a, b, c);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($TextUI, $nc(this->uis)->elementAt(0))->viewToModel(a, b, c);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->viewToModel(a, b, c);
+		$$cast($TextUI, this->uis->elementAt(i))->viewToModel(a, b, c);
 	}
 	return returnValue;
 }
 
 int32_t MultiTextUI::viewToModel2D($JTextComponent* a, $Point2D* b, $Position$BiasArray* c) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->viewToModel2D(a, b, c);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($TextUI, $nc(this->uis)->elementAt(0))->viewToModel2D(a, b, c);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->viewToModel2D(a, b, c);
+		$$cast($TextUI, this->uis->elementAt(i))->viewToModel2D(a, b, c);
 	}
 	return returnValue;
 }
 
 int32_t MultiTextUI::getNextVisualPositionFrom($JTextComponent* a, int32_t b, $Position$Bias* c, int32_t d, $Position$BiasArray* e) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->getNextVisualPositionFrom(a, b, c, d, e);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($TextUI, $nc(this->uis)->elementAt(0))->getNextVisualPositionFrom(a, b, c, d, e);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->getNextVisualPositionFrom(a, b, c, d, e);
+		$$cast($TextUI, this->uis->elementAt(i))->getNextVisualPositionFrom(a, b, c, d, e);
 	}
 	return returnValue;
 }
 
 void MultiTextUI::damageRange($JTextComponent* a, int32_t b, int32_t c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->damageRange(a, b, c);
+		$$cast($TextUI, this->uis->elementAt(i))->damageRange(a, b, c);
 	}
 }
 
 void MultiTextUI::damageRange($JTextComponent* a, int32_t b, int32_t c, $Position$Bias* d, $Position$Bias* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->damageRange(a, b, c, d, e);
+		$$cast($TextUI, this->uis->elementAt(i))->damageRange(a, b, c, d, e);
 	}
 }
 
 $EditorKit* MultiTextUI::getEditorKit($JTextComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($EditorKit, returnValue, $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->getEditorKit(a));
+	$useLocalObjectStack();
+	$var($EditorKit, returnValue, $$cast($TextUI, $nc(this->uis)->elementAt(0))->getEditorKit(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->getEditorKit(a);
+		$$cast($TextUI, this->uis->elementAt(i))->getEditorKit(a);
 	}
 	return returnValue;
 }
 
 $View* MultiTextUI::getRootView($JTextComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($View, returnValue, $nc((($cast($TextUI, $($nc(this->uis)->elementAt(0))))))->getRootView(a));
+	$useLocalObjectStack();
+	$var($View, returnValue, $$cast($TextUI, $nc(this->uis)->elementAt(0))->getRootView(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($TextUI, $($nc(this->uis)->elementAt(i))))))->getRootView(a);
+		$$cast($TextUI, this->uis->elementAt(i))->getRootView(a);
 	}
 	return returnValue;
 }
 
 bool MultiTextUI::contains($JComponent* a, int32_t b, int32_t c) {
-	$useLocalCurrentObjectStackCache();
-	bool returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->contains(a, b, c);
+	$useLocalObjectStack();
+	bool returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->contains(a, b, c);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->contains(a, b, c);
+		$$sure($ComponentUI, this->uis->elementAt(i))->contains(a, b, c);
 	}
 	return returnValue;
 }
 
 void MultiTextUI::update($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->update(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->update(a, b);
 	}
 }
 
@@ -270,67 +182,67 @@ $ComponentUI* MultiTextUI::createUI($JComponent* a) {
 }
 
 void MultiTextUI::installUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->installUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->installUI(a);
 	}
 }
 
 void MultiTextUI::uninstallUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->uninstallUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->uninstallUI(a);
 	}
 }
 
 void MultiTextUI::paint($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->paint(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->paint(a, b);
 	}
 }
 
 $Dimension* MultiTextUI::getPreferredSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getPreferredSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getPreferredSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getPreferredSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getPreferredSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiTextUI::getMinimumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMinimumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMinimumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMinimumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMinimumSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiTextUI::getMaximumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMaximumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMaximumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMaximumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMaximumSize(a);
 	}
 	return returnValue;
 }
 
 int32_t MultiTextUI::getAccessibleChildrenCount($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChildrenCount(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChildrenCount(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChildrenCount(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChildrenCount(a);
 	}
 	return returnValue;
 }
 
 $Accessible* MultiTextUI::getAccessibleChild($JComponent* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
-	$var($Accessible, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChild(a, b));
+	$useLocalObjectStack();
+	$var($Accessible, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChild(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChild(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChild(a, b);
 	}
 	return returnValue;
 }
@@ -339,7 +251,81 @@ MultiTextUI::MultiTextUI() {
 }
 
 $Class* MultiTextUI::load$($String* name, bool initialize) {
-	$loadClass(MultiTextUI, name, initialize, &_MultiTextUI_ClassInfo_, allocate$MultiTextUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiTextUI, uis)},
+		{}
+	};
+	$NamedAttribute modelToViewmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", modelToViewmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute modelToViewmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", modelToViewmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute viewToModelmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", viewToModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute viewToModelmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", viewToModelmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiTextUI, init$, void)},
+		{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, contains, bool, $JComponent*, int32_t, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiTextUI, createUI, $ComponentUI*, $JComponent*)},
+		{"damageRange", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t)},
+		{"damageRange", "(Ljavax/swing/text/JTextComponent;IILjavax/swing/text/Position$Bias;Ljavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, damageRange, void, $JTextComponent*, int32_t, int32_t, $Position$Bias*, $Position$Bias*)},
+		{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
+		{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
+		{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getEditorKit, $EditorKit*, $JTextComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getNextVisualPositionFrom", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getNextVisualPositionFrom, int32_t, $JTextComponent*, int32_t, $Position$Bias*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getRootView", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getRootView, $View*, $JTextComponent*)},
+		{"getToolTipText", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getToolTipText, $String*, $JTextComponent*, $Point*)},
+		{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, getUIs, $ComponentUIArray*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, installUI, void, $JComponent*)},
+		{"modelToView", "(Ljavax/swing/text/JTextComponent;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$},
+		{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$$1},
+		{"modelToView2D", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, modelToView2D, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, paint, void, $Graphics*, $JComponent*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, update, void, $Graphics*, $JComponent*)},
+		{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, viewToModel, int32_t, $JTextComponent*, $Point*), nullptr, nullptr, viewToModelmethodAnnotations$$},
+		{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MultiTextUI, viewToModel, int32_t, $JTextComponent*, $Point*, $Position$BiasArray*), nullptr, nullptr, viewToModelmethodAnnotations$$$1},
+		{"viewToModel2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(MultiTextUI, viewToModel2D, int32_t, $JTextComponent*, $Point2D*, $Position$BiasArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.multi.MultiTextUI",
+		"javax.swing.plaf.TextUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiTextUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiTextUI);
+	});
 	return class$;
 }
 

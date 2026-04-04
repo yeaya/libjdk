@@ -34,6 +34,7 @@ class $export bug8033699 : public ::java::lang::Object {
 	$class(bug8033699, 0, ::java::lang::Object)
 public:
 	bug8033699();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void changeLAF();
 	static void createAndShowGUI();

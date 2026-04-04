@@ -69,7 +69,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	::java::util::List* rdns = nullptr;
 	$String* unparsed = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xE9DB92FB56620714;
+	static const int64_t serialVersionUID = (int64_t)0xe9db92fb56620714;
 };
 
 		} // ldap

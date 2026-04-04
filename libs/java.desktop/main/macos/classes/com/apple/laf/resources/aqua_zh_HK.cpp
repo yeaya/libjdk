@@ -1,5 +1,4 @@
 #include <com/apple/laf/resources/aqua_zh_HK.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,415 +12,396 @@ namespace com {
 		namespace laf {
 			namespace resources {
 
-$MethodInfo _aqua_zh_HK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(aqua_zh_HK, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(aqua_zh_HK, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _aqua_zh_HK_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.apple.laf.resources.aqua_zh_HK",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_aqua_zh_HK_MethodInfo_
-};
-
-$Object* allocate$aqua_zh_HK($Class* clazz) {
-	return $of($alloc(aqua_zh_HK));
-}
-
 void aqua_zh_HK::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* aqua_zh_HK::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AbstractButton.click.textAndMnemonic"_s),
-			$of(u"按一下"_s)
+			"AbstractButton.click.textAndMnemonic"_s,
+			u"按一下"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.addition.textAndMnemonic"_s),
-			$of(u"附加"_s)
+			"AbstractDocument.addition.textAndMnemonic"_s,
+			u"附加"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.deletion.textAndMnemonic"_s),
-			$of(u"刪除"_s)
+			"AbstractDocument.deletion.textAndMnemonic"_s,
+			u"刪除"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.redo.textAndMnemonic"_s),
-			$of(u"重做"_s)
+			"AbstractDocument.redo.textAndMnemonic"_s,
+			u"重做"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.styleChange.textAndMnemonic"_s),
-			$of(u"樣式變更"_s)
+			"AbstractDocument.styleChange.textAndMnemonic"_s,
+			u"樣式變更"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractDocument.undo.textAndMnemonic"_s),
-			$of(u"還原"_s)
+			"AbstractDocument.undo.textAndMnemonic"_s,
+			u"還原"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractUndoableEdit.redo.textAndMnemonic"_s),
-			$of(u"重做"_s)
+			"AbstractUndoableEdit.redo.textAndMnemonic"_s,
+			u"重做"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AbstractUndoableEdit.undo.textAndMnemonic"_s),
-			$of(u"還原"_s)
+			"AbstractUndoableEdit.undo.textAndMnemonic"_s,
+			u"還原"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.cancel.textAndMnemonic"_s),
-			$of(u"取消"_s)
+			"ColorChooser.cancel.textAndMnemonic"_s,
+			u"取消"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsb.textAndMnemonic"_s),
-			$of("HSB(&H)"_s)
+			"ColorChooser.hsb.textAndMnemonic"_s,
+			"HSB(&H)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbBlue.textAndMnemonic"_s),
-			$of("B"_s)
+			"ColorChooser.hsbBlue.textAndMnemonic"_s,
+			"B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbBrightness.textAndMnemonic"_s),
-			$of("B"_s)
+			"ColorChooser.hsbBrightness.textAndMnemonic"_s,
+			"B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbGreen.textAndMnemonic"_s),
-			$of("G"_s)
+			"ColorChooser.hsbGreen.textAndMnemonic"_s,
+			"G"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbHue.textAndMnemonic"_s),
-			$of("H"_s)
+			"ColorChooser.hsbHue.textAndMnemonic"_s,
+			"H"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbRed.textAndMnemonic"_s),
-			$of("R"_s)
+			"ColorChooser.hsbRed.textAndMnemonic"_s,
+			"R"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.hsbSaturation.textAndMnemonic"_s),
-			$of("S"_s)
+			"ColorChooser.hsbSaturation.textAndMnemonic"_s,
+			"S"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.ok.textAndMnemonic"_s),
-			$of(u"確定"_s)
+			"ColorChooser.ok.textAndMnemonic"_s,
+			u"確定"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.preview.textAndMnemonic"_s),
-			$of(u"預覽"_s)
+			"ColorChooser.preview.textAndMnemonic"_s,
+			u"預覽"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.reset.textAndMnemonic"_s),
-			$of(u"重設(&R)"_s)
+			"ColorChooser.reset.textAndMnemonic"_s,
+			u"重設(&R)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgb.textAndMnemonic"_s),
-			$of("RGB(&G)"_s)
+			"ColorChooser.rgb.textAndMnemonic"_s,
+			"RGB(&G)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbBlue.textAndMnemonic"_s),
-			$of(u"藍(&B)"_s)
+			"ColorChooser.rgbBlue.textAndMnemonic"_s,
+			u"藍(&B)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbGreen.textAndMnemonic"_s),
-			$of(u"綠(&N)"_s)
+			"ColorChooser.rgbGreen.textAndMnemonic"_s,
+			u"綠(&N)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.rgbRed.textAndMnemonic"_s),
-			$of(u"紅(&D)"_s)
+			"ColorChooser.rgbRed.textAndMnemonic"_s,
+			u"紅(&D)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.sample.textAndMnemonic"_s),
-			$of(u"範例文字  範例文字"_s)
+			"ColorChooser.sample.textAndMnemonic"_s,
+			u"範例文字  範例文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.swatches.textAndMnemonic"_s),
-			$of(u"調色板(&S)"_s)
+			"ColorChooser.swatches.textAndMnemonic"_s,
+			u"調色板(&S)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorChooser.swatchesRecent.textAndMnemonic"_s),
-			$of(u"最新選擇:"_s)
+			"ColorChooser.swatchesRecent.textAndMnemonic"_s,
+			u"最新選擇:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ComboBox.togglePopup.textAndMnemonic"_s),
-			$of(u"切換即現式視窗"_s)
+			"ComboBox.togglePopup.textAndMnemonic"_s,
+			u"切換即現式視窗"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.acceptAllFileFilter.textAndMnemonic"_s),
-			$of(u"所有檔案"_s)
+			"FileChooser.acceptAllFileFilter.textAndMnemonic"_s,
+			u"所有檔案"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.by.textAndMnemonic"_s),
-			$of(u"名稱"_s)
+			"FileChooser.by.textAndMnemonic"_s,
+			u"名稱"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.byDate.textAndMnemonic"_s),
-			$of(u"修改日期"_s)
+			"FileChooser.byDate.textAndMnemonic"_s,
+			u"修改日期"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButton.textAndMnemonic"_s),
-			$of(u"取消"_s)
+			"FileChooser.cancelButton.textAndMnemonic"_s,
+			u"取消"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.chooseButton.textAndMnemonic"_s),
-			$of(u"選擇"_s)
+			"FileChooser.chooseButton.textAndMnemonic"_s,
+			u"選擇"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.createButton.textAndMnemonic"_s),
-			$of(u"建立"_s)
+			"FileChooser.createButton.textAndMnemonic"_s,
+			u"建立"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.desktopName"_s),
-			$of(u"桌面"_s)
+			"FileChooser.desktopName"_s,
+			u"桌面"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.directoryDescription.textAndMnemonic"_s),
-			$of(u"目錄"_s)
+			"FileChooser.directoryDescription.textAndMnemonic"_s,
+			u"目錄"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.directoryOpenButton.textAndMnemonic"_s),
-			$of(u"開啟"_s)
+			"FileChooser.directoryOpenButton.textAndMnemonic"_s,
+			u"開啟"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDescription.textAndMnemonic"_s),
-			$of(u"一般檔案"_s)
+			"FileChooser.fileDescription.textAndMnemonic"_s,
+			u"一般檔案"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameLabel.textAndMnemonic"_s),
-			$of(u"檔案:"_s)
+			"FileChooser.fileNameLabel.textAndMnemonic"_s,
+			u"檔案:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeGigaBytes"_s),
-			$of("{0} GB"_s)
+			"FileChooser.fileSizeGigaBytes"_s,
+			"{0} GB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeKiloBytes"_s),
-			$of("{0} KB"_s)
+			"FileChooser.fileSizeKiloBytes"_s,
+			"{0} KB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeMegaBytes"_s),
-			$of("{0} MB"_s)
+			"FileChooser.fileSizeMegaBytes"_s,
+			"{0} MB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesOfTypeLabel.textAndMnemonic"_s),
-			$of(u"檔案格式:"_s)
+			"FileChooser.filesOfTypeLabel.textAndMnemonic"_s,
+			u"檔案格式:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.helpButton.textAndMnemonic"_s),
-			$of(u"說明"_s)
+			"FileChooser.helpButton.textAndMnemonic"_s,
+			u"說明"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.mac.newFolder"_s),
-			$of(u"未命名的資料夾"_s)
+			"FileChooser.mac.newFolder"_s,
+			u"未命名的資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.mac.newFolder.subsequent"_s),
-			$of(u"未命名的資料夾 {0}"_s)
+			"FileChooser.mac.newFolder.subsequent"_s,
+			u"未命名的資料夾 {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderAccessibleName"_s),
-			$of(u"新資料夾"_s)
+			"FileChooser.newFolderAccessibleName"_s,
+			u"新資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderButton.textAndMnemonic"_s),
-			$of(u"新資料夾"_s)
+			"FileChooser.newFolderButton.textAndMnemonic"_s,
+			u"新資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderError.textAndMnemonic"_s),
-			$of(u"建立資料夾時發生錯誤"_s)
+			"FileChooser.newFolderError.textAndMnemonic"_s,
+			u"建立資料夾時發生錯誤"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderErrorSeparator"_s),
-			$of(":"_s)
+			"FileChooser.newFolderErrorSeparator"_s,
+			":"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderExistsError.textAndMnemonic"_s),
-			$of(u"該名稱已經被使用"_s)
+			"FileChooser.newFolderExistsError.textAndMnemonic"_s,
+			u"該名稱已經被使用"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderPrompt.textAndMnemonic"_s),
-			$of(u"新資料夾名稱:"_s)
+			"FileChooser.newFolderPrompt.textAndMnemonic"_s,
+			u"新資料夾名稱:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderTitle.textAndMnemonic"_s),
-			$of(u"新資料夾"_s)
+			"FileChooser.newFolderTitle.textAndMnemonic"_s,
+			u"新資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButton.textAndMnemonic"_s),
-			$of(u"開啟"_s)
+			"FileChooser.openButton.textAndMnemonic"_s,
+			u"開啟"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openDialogTitle.textAndMnemonic"_s),
-			$of(u"開啟"_s)
+			"FileChooser.openDialogTitle.textAndMnemonic"_s,
+			u"開啟"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openTitle.textAndMnemonic"_s),
-			$of(u"開啟"_s)
+			"FileChooser.openTitle.textAndMnemonic"_s,
+			u"開啟"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButton.textAndMnemonic"_s),
-			$of(u"儲存"_s)
+			"FileChooser.saveButton.textAndMnemonic"_s,
+			u"儲存"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogFileNameLabel.textAndMnemonic"_s),
-			$of(u"另存新檔:"_s)
+			"FileChooser.saveDialogFileNameLabel.textAndMnemonic"_s,
+			u"另存新檔:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogTitle.textAndMnemonic"_s),
-			$of(u"儲存"_s)
+			"FileChooser.saveDialogTitle.textAndMnemonic"_s,
+			u"儲存"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveTitle.textAndMnemonic"_s),
-			$of(u"儲存"_s)
+			"FileChooser.saveTitle.textAndMnemonic"_s,
+			u"儲存"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.untitledFileName"_s),
-			$of(u"未命名"_s)
+			"FileChooser.untitledFileName"_s,
+			u"未命名"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.untitledFolderName"_s),
-			$of(u"未命名的資料夾"_s)
+			"FileChooser.untitledFolderName"_s,
+			u"未命名的資料夾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.updateButton.textAndMnemonic"_s),
-			$of(u"更新"_s)
+			"FileChooser.updateButton.textAndMnemonic"_s,
+			u"更新"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.browseFileButton.textAndMnemonic"_s),
-			$of(u"瀏覽..."_s)
+			"FormView.browseFileButton.textAndMnemonic"_s,
+			u"瀏覽..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.resetButton.textAndMnemonic"_s),
-			$of(u"重設"_s)
+			"FormView.resetButton.textAndMnemonic"_s,
+			u"重設"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FormView.submitButton.textAndMnemonic"_s),
-			$of(u"送出查詢"_s)
+			"FormView.submitButton.textAndMnemonic"_s,
+			u"送出查詢"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.closeButtonToolTip"_s),
-			$of(u"關閉"_s)
+			"InternalFrame.closeButtonToolTip"_s,
+			u"關閉"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.iconButtonToolTip"_s),
-			$of(u"最小化"_s)
+			"InternalFrame.iconButtonToolTip"_s,
+			u"最小化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.maxButtonToolTip"_s),
-			$of(u"最大化"_s)
+			"InternalFrame.maxButtonToolTip"_s,
+			u"最大化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrame.restoreButtonToolTip"_s),
-			$of(u"復原"_s)
+			"InternalFrame.restoreButtonToolTip"_s,
+			u"復原"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.closeButton.textAndMnemonic"_s),
-			$of(u"關閉"_s)
+			"InternalFrameTitlePane.closeButton.textAndMnemonic"_s,
+			u"關閉"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.closeButtonAccessibleName"_s),
-			$of(u"關閉"_s)
+			"InternalFrameTitlePane.closeButtonAccessibleName"_s,
+			u"關閉"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.iconifyButtonAccessibleName"_s),
-			$of(u"圖示化"_s)
+			"InternalFrameTitlePane.iconifyButtonAccessibleName"_s,
+			u"圖示化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.maximizeButton.textAndMnemonic"_s),
-			$of(u"最大化"_s)
+			"InternalFrameTitlePane.maximizeButton.textAndMnemonic"_s,
+			u"最大化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.maximizeButtonAccessibleName"_s),
-			$of(u"最大化"_s)
+			"InternalFrameTitlePane.maximizeButtonAccessibleName"_s,
+			u"最大化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.minimizeButton.textAndMnemonic"_s),
-			$of(u"最小化"_s)
+			"InternalFrameTitlePane.minimizeButton.textAndMnemonic"_s,
+			u"最小化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.moveButton.textAndMnemonic"_s),
-			$of(u"移動"_s)
+			"InternalFrameTitlePane.moveButton.textAndMnemonic"_s,
+			u"移動"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.restoreButton.textAndMnemonic"_s),
-			$of(u"復原"_s)
+			"InternalFrameTitlePane.restoreButton.textAndMnemonic"_s,
+			u"復原"_s
 		}),
 		$$new($ObjectArray, {
-			$of("InternalFrameTitlePane.sizeButton.textAndMnemonic"_s),
-			$of(u"大小"_s)
+			"InternalFrameTitlePane.sizeButton.textAndMnemonic"_s,
+			u"大小"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IsindexView.prompt"_s),
-			$of(u"這是一個可搜尋的索引。輸入搜尋關鍵字: "_s)
+			"IsindexView.prompt"_s,
+			u"這是一個可搜尋的索引。輸入搜尋關鍵字: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.cancelButton.textAndMnemonic"_s),
-			$of(u"取消"_s)
+			"OptionPane.cancelButton.textAndMnemonic"_s,
+			u"取消"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.inputDialog.titleAndMnemonic"_s),
-			$of(u"輸入"_s)
+			"OptionPane.inputDialog.titleAndMnemonic"_s,
+			u"輸入"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.messageDialog.titleAndMnemonic"_s),
-			$of(u"訊息"_s)
+			"OptionPane.messageDialog.titleAndMnemonic"_s,
+			u"訊息"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.noButton.textAndMnemonic"_s),
-			$of(u"否(&N)"_s)
+			"OptionPane.noButton.textAndMnemonic"_s,
+			u"否(&N)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.okButton.textAndMnemonic"_s),
-			$of(u"確定"_s)
+			"OptionPane.okButton.textAndMnemonic"_s,
+			u"確定"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.title.textAndMnemonic"_s),
-			$of(u"選取一個選項"_s)
+			"OptionPane.title.textAndMnemonic"_s,
+			u"選取一個選項"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OptionPane.yesButton.textAndMnemonic"_s),
-			$of(u"是(&Y)"_s)
+			"OptionPane.yesButton.textAndMnemonic"_s,
+			u"是(&Y)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.abortButton.textAndMnemonic"_s),
-			$of(u"中止(&A)"_s)
+			"PrintingDialog.abortButton.textAndMnemonic"_s,
+			u"中止(&A)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.abortButtonToolTip.textAndMnemonic"_s),
-			$of(u"中止列印"_s)
+			"PrintingDialog.abortButtonToolTip.textAndMnemonic"_s,
+			u"中止列印"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentAborting.textAndMnemonic"_s),
-			$of(u"正在中止列印..."_s)
+			"PrintingDialog.contentAborting.textAndMnemonic"_s,
+			u"正在中止列印..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentInitial.textAndMnemonic"_s),
-			$of(u"正在列印..."_s)
+			"PrintingDialog.contentInitial.textAndMnemonic"_s,
+			u"正在列印..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.contentProgress.textAndMnemonic"_s),
-			$of(u"已列印第 {0} 頁..."_s)
+			"PrintingDialog.contentProgress.textAndMnemonic"_s,
+			u"已列印第 {0} 頁..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.titleAborting.textAndMnemonic"_s),
-			$of(u"列印 (中止中)"_s)
+			"PrintingDialog.titleAborting.textAndMnemonic"_s,
+			u"列印 (中止中)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PrintingDialog.titleProgress.textAndMnemonic"_s),
-			$of(u"列印中"_s)
+			"PrintingDialog.titleProgress.textAndMnemonic"_s,
+			u"列印中"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ProgressMonitor.progress.textAndMnemonic"_s),
-			$of(u"進度..."_s)
+			"ProgressMonitor.progress.textAndMnemonic"_s,
+			u"進度..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("SplitPane.leftButton.textAndMnemonic"_s),
-			$of(u"左按鈕"_s)
+			"SplitPane.leftButton.textAndMnemonic"_s,
+			u"左按鈕"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SplitPane.rightButton.textAndMnemonic"_s),
-			$of(u"右按鈕"_s)
+			"SplitPane.rightButton.textAndMnemonic"_s,
+			u"右按鈕"_s
 		})
 	});
 }
@@ -430,7 +410,22 @@ aqua_zh_HK::aqua_zh_HK() {
 }
 
 $Class* aqua_zh_HK::load$($String* name, bool initialize) {
-	$loadClass(aqua_zh_HK, name, initialize, &_aqua_zh_HK_ClassInfo_, allocate$aqua_zh_HK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(aqua_zh_HK, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(aqua_zh_HK, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.apple.laf.resources.aqua_zh_HK",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(aqua_zh_HK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(aqua_zh_HK);
+	});
 	return class$;
 }
 

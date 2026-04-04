@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/ManageReferralControl.h>
-
 #include <com/sun/jndi/ldap/BasicControl.h>
 #include <jcpp.h>
 
@@ -15,31 +14,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _ManageReferralControl_FieldInfo_[] = {
-	{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ManageReferralControl, OID)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ManageReferralControl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ManageReferralControl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManageReferralControl, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ManageReferralControl, init$, void, bool)},
-	{}
-};
-
-$ClassInfo _ManageReferralControl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.ManageReferralControl",
-	"com.sun.jndi.ldap.BasicControl",
-	nullptr,
-	_ManageReferralControl_FieldInfo_,
-	_ManageReferralControl_MethodInfo_
-};
-
-$Object* allocate$ManageReferralControl($Class* clazz) {
-	return $of($alloc(ManageReferralControl));
-}
-
 $String* ManageReferralControl::OID = nullptr;
 
 void ManageReferralControl::init$() {
@@ -53,12 +27,32 @@ void ManageReferralControl::init$(bool criticality) {
 ManageReferralControl::ManageReferralControl() {
 }
 
-void clinit$ManageReferralControl($Class* class$) {
+void ManageReferralControl::clinit$($Class* clazz) {
 	$assignStatic(ManageReferralControl::OID, "2.16.840.1.113730.3.4.2"_s);
 }
 
 $Class* ManageReferralControl::load$($String* name, bool initialize) {
-	$loadClass(ManageReferralControl, name, initialize, &_ManageReferralControl_ClassInfo_, clinit$ManageReferralControl, allocate$ManageReferralControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ManageReferralControl, OID)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ManageReferralControl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManageReferralControl, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ManageReferralControl, init$, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.ManageReferralControl",
+		"com.sun.jndi.ldap.BasicControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ManageReferralControl, name, initialize, &classInfo$$, ManageReferralControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ManageReferralControl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/AbstractLdapNamingEnumeration.h>
-
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/LdapEntry.h>
@@ -55,62 +54,8 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _AbstractLdapNamingEnumeration_FieldInfo_[] = {
-	{"listArg", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(AbstractLdapNamingEnumeration, listArg)},
-	{"cleaned", "Z", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, cleaned)},
-	{"res", "Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, res)},
-	{"enumClnt", "Lcom/sun/jndi/ldap/LdapClient;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, enumClnt)},
-	{"cont", "Lcom/sun/jndi/toolkit/ctx/Continuation;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, cont)},
-	{"entries", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapEntry;>;", $PRIVATE, $field(AbstractLdapNamingEnumeration, entries)},
-	{"limit", "I", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, limit)},
-	{"posn", "I", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, posn)},
-	{"homeCtx", "Lcom/sun/jndi/ldap/LdapCtx;", nullptr, $PROTECTED, $field(AbstractLdapNamingEnumeration, homeCtx)},
-	{"refEx", "Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, refEx)},
-	{"errEx", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, errEx)},
-	{"more", "Z", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, more)},
-	{"hasMoreCalled", "Z", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, hasMoreCalled)},
-	{}
-};
-
-$MethodInfo _AbstractLdapNamingEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(AbstractLdapNamingEnumeration, init$, void, $LdapCtx*, $LdapResult*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLdapNamingEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
-	{"cleanup", "()V", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, cleanup, void)},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, close, void)},
-	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractLdapNamingEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
-	{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, finalize, void)},
-	{"getAtom", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, getAtom, $String*, $String*)},
-	{"getNextBatch", "()V", nullptr, $PRIVATE, $method(AbstractLdapNamingEnumeration, getNextBatch, void), "javax.naming.NamingException"},
-	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractLdapNamingEnumeration, getReferredResults, AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, hasMore, bool), "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, hasMoreElements, bool)},
-	{"hasMoreImpl", "()Z", nullptr, $PRIVATE, $method(AbstractLdapNamingEnumeration, hasMoreImpl, bool), "javax.naming.NamingException"},
-	{"hasMoreReferrals", "()Z", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, hasMoreReferrals, bool), "javax.naming.NamingException"},
-	{"next", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, next, $Object*), "javax.naming.NamingException"},
-	{"nextAux", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(AbstractLdapNamingEnumeration, nextAux, $NameClassPair*), "javax.naming.NamingException"},
-	{"nextElement", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, nextElement, $Object*)},
-	{"nextImpl", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(AbstractLdapNamingEnumeration, nextImpl, $NameClassPair*), "javax.naming.NamingException"},
-	{"setNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $FINAL, $method(AbstractLdapNamingEnumeration, setNamingException, void, $NamingException*)},
-	{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED, $virtualMethod(AbstractLdapNamingEnumeration, update, void, AbstractLdapNamingEnumeration*)},
-	{}
-};
-
-$ClassInfo _AbstractLdapNamingEnumeration_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.jndi.ldap.AbstractLdapNamingEnumeration",
-	"java.lang.Object",
-	"com.sun.jndi.ldap.ReferralEnumeration",
-	_AbstractLdapNamingEnumeration_FieldInfo_,
-	_AbstractLdapNamingEnumeration_MethodInfo_,
-	"<T:Ljavax/naming/NameClassPair;>Ljava/lang/Object;Ljavax/naming/NamingEnumeration<TT;>;Lcom/sun/jndi/ldap/ReferralEnumeration<TT;>;"
-};
-
-$Object* allocate$AbstractLdapNamingEnumeration($Class* clazz) {
-	return $of($alloc(AbstractLdapNamingEnumeration));
-}
-
 void AbstractLdapNamingEnumeration::init$($LdapCtx* homeCtx, $LdapResult* answer, $Name* listArg, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->cleaned = false;
 	$set(this, entries, nullptr);
 	this->limit = 0;
@@ -124,8 +69,8 @@ void AbstractLdapNamingEnumeration::init$($LdapCtx* homeCtx, $LdapResult* answer
 		$throw($($nc(cont)->fillInException(e)));
 	}
 	$set(this, res, answer);
-	$set(this, entries, $nc(answer)->entries);
-	this->limit = (this->entries == nullptr) ? 0 : $nc(this->entries)->size();
+	$set(this, entries, answer->entries);
+	this->limit = (this->entries == nullptr) ? 0 : this->entries->size();
 	$set(this, listArg, listArg);
 	$set(this, cont, cont);
 	if (answer->refEx != nullptr) {
@@ -138,10 +83,10 @@ void AbstractLdapNamingEnumeration::init$($LdapCtx* homeCtx, $LdapResult* answer
 
 $Object* AbstractLdapNamingEnumeration::nextElement() {
 	try {
-		return $of(next());
+		return next();
 	} catch ($NamingException& e) {
 		cleanup();
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -163,9 +108,9 @@ void AbstractLdapNamingEnumeration::getNextBatch() {
 		return;
 	}
 	$set(this, entries, $nc(this->res)->entries);
-	this->limit = (this->entries == nullptr) ? 0 : $nc(this->entries)->size();
+	this->limit = (this->entries == nullptr) ? 0 : this->entries->size();
 	this->posn = 0;
-	if (($nc(this->res)->status != $LdapClient::LDAP_SUCCESS) || (($nc(this->res)->status == $LdapClient::LDAP_SUCCESS) && ($nc(this->res)->referrals != nullptr))) {
+	if ((this->res->status != $LdapClient::LDAP_SUCCESS) || ((this->res->status == $LdapClient::LDAP_SUCCESS) && (this->res->referrals != nullptr))) {
 		try {
 			$nc(this->homeCtx)->processReturnCode(this->res, this->listArg);
 		} catch ($LimitExceededException& e) {
@@ -176,14 +121,14 @@ void AbstractLdapNamingEnumeration::getNextBatch() {
 	}
 	if ($nc(this->res)->refEx != nullptr) {
 		if (this->refEx == nullptr) {
-			$set(this, refEx, $nc(this->res)->refEx);
+			$set(this, refEx, this->res->refEx);
 		} else {
-			$set(this, refEx, $nc(this->refEx)->appendUnprocessedReferrals($nc(this->res)->refEx));
+			$set(this, refEx, this->refEx->appendUnprocessedReferrals(this->res->refEx));
 		}
 		$set($nc(this->res), refEx, nullptr);
 	}
 	if ($nc(this->res)->resControls != nullptr) {
-		$set($nc(this->homeCtx), respCtls, $nc(this->res)->resControls);
+		$set($nc(this->homeCtx), respCtls, this->res->resControls);
 	}
 }
 
@@ -204,7 +149,7 @@ $Object* AbstractLdapNamingEnumeration::next() {
 		hasMore();
 	}
 	this->hasMoreCalled = false;
-	return $of(nextImpl());
+	return nextImpl();
 }
 
 bool AbstractLdapNamingEnumeration::hasMoreImpl() {
@@ -254,7 +199,7 @@ $NameClassPair* AbstractLdapNamingEnumeration::nextAux() {
 		$throwNew($NoSuchElementException, "invalid enumeration handle"_s);
 	}
 	$var($LdapEntry, result, $cast($LdapEntry, $nc(this->entries)->elementAt(this->posn++)));
-	return createItem($nc(result)->DN, result->attributes, result->respCtls);
+	return createItem($nc(result)->DN, $nc(result)->attributes, $nc(result)->respCtls);
 }
 
 $String* AbstractLdapNamingEnumeration::getAtom($String* dn) {
@@ -269,7 +214,7 @@ $String* AbstractLdapNamingEnumeration::getAtom($String* dn) {
 
 void AbstractLdapNamingEnumeration::appendUnprocessedReferrals($LdapReferralException* ex) {
 	if (this->refEx != nullptr) {
-		$set(this, refEx, $nc(this->refEx)->appendUnprocessedReferrals(ex));
+		$set(this, refEx, this->refEx->appendUnprocessedReferrals(ex));
 	} else {
 		$set(this, refEx, $nc(ex)->appendUnprocessedReferrals(this->refEx));
 	}
@@ -280,51 +225,49 @@ void AbstractLdapNamingEnumeration::setNamingException($NamingException* e) {
 }
 
 bool AbstractLdapNamingEnumeration::hasMoreReferrals() {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = (this->refEx != nullptr);
+	$useLocalObjectStack();
+	bool var$0 = this->refEx != nullptr;
 	if (var$0) {
-		bool var$1 = $nc(this->refEx)->hasMoreReferrals();
-		var$0 = (var$1 || $nc(this->refEx)->hasMoreReferralExceptions() && !($instanceOf($LimitExceededException, this->errEx)));
+		bool var$1 = this->refEx->hasMoreReferrals();
+		var$0 = var$1 || this->refEx->hasMoreReferralExceptions() && !($instanceOf($LimitExceededException, this->errEx));
 	}
 	if (var$0) {
 		if ($nc(this->homeCtx)->handleReferrals == $LdapClient::LDAP_REF_THROW) {
-			$throw(($cast($NamingException, $($nc(this->refEx)->fillInStackTrace()))));
+			$throw($$cast($NamingException, $nc(this->refEx)->fillInStackTrace()));
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(this->refEx)->getReferralContext($nc(this->homeCtx)->envprops, $nc(this->homeCtx)->reqCtls)));
-			{
-				$var($Throwable, var$2, nullptr);
-				bool break$3 = false;
-				bool continue$4 = false;
+			$var($Throwable, var$2, nullptr);
+			bool break$3 = false;
+			bool continue$4 = false;
+			try {
 				try {
-					try {
-						update($(getReferredResults(refCtx)));
-						// break;
-						break$3 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						if (this->errEx == nullptr) {
-							$set(this, errEx, re->getNamingException());
-						}
-						$set(this, refEx, re);
-						// continue;
-						continue$4 = true;
-						goto $finally;
+					update($(getReferredResults(refCtx)));
+					// break;
+					break$3 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					if (this->errEx == nullptr) {
+						$set(this, errEx, re->getNamingException());
 					}
-				} catch ($Throwable& var$5) {
-					$assign(var$2, var$5);
-				} $finally: {
-					$nc(refCtx)->close();
+					$set(this, refEx, re);
+					// continue;
+					continue$4 = true;
+					goto $finally;
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
-				if (break$3) {
-					break;
-				}
-				if (continue$4) {
-					continue;
-				}
+			} catch ($Throwable& var$5) {
+				$assign(var$2, var$5);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
+			}
+			if (break$3) {
+				break;
+			}
+			if (continue$4) {
+				continue;
 			}
 		}
 		return hasMoreImpl();
@@ -359,12 +302,12 @@ void AbstractLdapNamingEnumeration::cleanup() {
 		return;
 	}
 	if (this->enumClnt != nullptr) {
-		$nc(this->enumClnt)->clearSearchReply(this->res, $nc(this->homeCtx)->reqCtls);
+		this->enumClnt->clearSearchReply(this->res, $nc(this->homeCtx)->reqCtls);
 	}
 	$set(this, enumClnt, nullptr);
 	this->cleaned = true;
 	if (this->homeCtx != nullptr) {
-		$nc(this->homeCtx)->decEnumCount();
+		this->homeCtx->decEnumCount();
 		$set(this, homeCtx, nullptr);
 	}
 }
@@ -377,7 +320,56 @@ AbstractLdapNamingEnumeration::AbstractLdapNamingEnumeration() {
 }
 
 $Class* AbstractLdapNamingEnumeration::load$($String* name, bool initialize) {
-	$loadClass(AbstractLdapNamingEnumeration, name, initialize, &_AbstractLdapNamingEnumeration_ClassInfo_, allocate$AbstractLdapNamingEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"listArg", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(AbstractLdapNamingEnumeration, listArg)},
+		{"cleaned", "Z", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, cleaned)},
+		{"res", "Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, res)},
+		{"enumClnt", "Lcom/sun/jndi/ldap/LdapClient;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, enumClnt)},
+		{"cont", "Lcom/sun/jndi/toolkit/ctx/Continuation;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, cont)},
+		{"entries", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapEntry;>;", $PRIVATE, $field(AbstractLdapNamingEnumeration, entries)},
+		{"limit", "I", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, limit)},
+		{"posn", "I", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, posn)},
+		{"homeCtx", "Lcom/sun/jndi/ldap/LdapCtx;", nullptr, $PROTECTED, $field(AbstractLdapNamingEnumeration, homeCtx)},
+		{"refEx", "Lcom/sun/jndi/ldap/LdapReferralException;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, refEx)},
+		{"errEx", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, errEx)},
+		{"more", "Z", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, more)},
+		{"hasMoreCalled", "Z", nullptr, $PRIVATE, $field(AbstractLdapNamingEnumeration, hasMoreCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(AbstractLdapNamingEnumeration, init$, void, $LdapCtx*, $LdapResult*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLdapNamingEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
+		{"cleanup", "()V", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, cleanup, void)},
+		{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, close, void)},
+		{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractLdapNamingEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
+		{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, finalize, void)},
+		{"getAtom", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, getAtom, $String*, $String*)},
+		{"getNextBatch", "()V", nullptr, $PRIVATE, $method(AbstractLdapNamingEnumeration, getNextBatch, void), "javax.naming.NamingException"},
+		{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractLdapNamingEnumeration, getReferredResults, AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
+		{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, hasMore, bool), "javax.naming.NamingException"},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, hasMoreElements, bool)},
+		{"hasMoreImpl", "()Z", nullptr, $PRIVATE, $method(AbstractLdapNamingEnumeration, hasMoreImpl, bool), "javax.naming.NamingException"},
+		{"hasMoreReferrals", "()Z", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, hasMoreReferrals, bool), "javax.naming.NamingException"},
+		{"next", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, next, $Object*), "javax.naming.NamingException"},
+		{"nextAux", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(AbstractLdapNamingEnumeration, nextAux, $NameClassPair*), "javax.naming.NamingException"},
+		{"nextElement", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, nextElement, $Object*)},
+		{"nextImpl", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(AbstractLdapNamingEnumeration, nextImpl, $NameClassPair*), "javax.naming.NamingException"},
+		{"setNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $FINAL, $method(AbstractLdapNamingEnumeration, setNamingException, void, $NamingException*)},
+		{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED, $virtualMethod(AbstractLdapNamingEnumeration, update, void, AbstractLdapNamingEnumeration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.jndi.ldap.AbstractLdapNamingEnumeration",
+		"java.lang.Object",
+		"com.sun.jndi.ldap.ReferralEnumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljavax/naming/NameClassPair;>Ljava/lang/Object;Ljavax/naming/NamingEnumeration<TT;>;Lcom/sun/jndi/ldap/ReferralEnumeration<TT;>;"
+	};
+	$loadClass(AbstractLdapNamingEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractLdapNamingEnumeration);
+	});
 	return class$;
 }
 

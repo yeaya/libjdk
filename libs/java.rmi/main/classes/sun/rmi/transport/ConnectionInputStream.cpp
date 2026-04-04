@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/ConnectionInputStream.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/DataOutputStream.h>
@@ -43,9 +42,7 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Log = ::sun::rmi::runtime::Log;
 using $MarshalInputStream = ::sun::rmi::server::MarshalInputStream;
 using $Channel = ::sun::rmi::transport::Channel;
@@ -60,37 +57,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _ConnectionInputStream_FieldInfo_[] = {
-	{"dgcAckNeeded", "Z", nullptr, $PRIVATE, $field(ConnectionInputStream, dgcAckNeeded)},
-	{"incomingRefTable", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/Endpoint;Ljava/util/List<Lsun/rmi/transport/LiveRef;>;>;", $PRIVATE, $field(ConnectionInputStream, incomingRefTable)},
-	{"ackID", "Ljava/rmi/server/UID;", nullptr, $PRIVATE, $field(ConnectionInputStream, ackID)},
-	{}
-};
-
-$MethodInfo _ConnectionInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(ConnectionInputStream, init$, void, $InputStream*), "java.io.IOException"},
-	{"discardRefs", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, discardRefs, void)},
-	{"done", "(Lsun/rmi/transport/Connection;)V", nullptr, 0, $virtualMethod(ConnectionInputStream, done, void, $Connection*)},
-	{"readID", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, readID, void), "java.io.IOException"},
-	{"registerRefs", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, registerRefs, void), "java.io.IOException"},
-	{"saveRef", "(Lsun/rmi/transport/LiveRef;)V", nullptr, 0, $virtualMethod(ConnectionInputStream, saveRef, void, $LiveRef*)},
-	{"setAckNeeded", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, setAckNeeded, void)},
-	{}
-};
-
-$ClassInfo _ConnectionInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.ConnectionInputStream",
-	"sun.rmi.server.MarshalInputStream",
-	nullptr,
-	_ConnectionInputStream_FieldInfo_,
-	_ConnectionInputStream_MethodInfo_
-};
-
-$Object* allocate$ConnectionInputStream($Class* clazz) {
-	return $of($alloc(ConnectionInputStream));
-}
-
 void ConnectionInputStream::init$($InputStream* in) {
 	$MarshalInputStream::init$(in);
 	this->dgcAckNeeded = false;
@@ -98,16 +64,16 @@ void ConnectionInputStream::init$($InputStream* in) {
 }
 
 void ConnectionInputStream::readID() {
-	$set(this, ackID, $UID::read(static_cast<$DataInput*>(this)));
+	$set(this, ackID, $UID::read($cast($DataInput, this)));
 }
 
 void ConnectionInputStream::saveRef($LiveRef* ref) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Endpoint, ep, $nc(ref)->getEndpoint());
 	$var($List, refList, $cast($List, $nc(this->incomingRefTable)->get(ep)));
 	if (refList == nullptr) {
 		$assign(refList, $new($ArrayList));
-		$nc(this->incomingRefTable)->put(ep, refList);
+		this->incomingRefTable->put(ep, refList);
 	}
 	$nc(refList)->add(ref);
 }
@@ -117,16 +83,14 @@ void ConnectionInputStream::discardRefs() {
 }
 
 void ConnectionInputStream::registerRefs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->incomingRefTable)->isEmpty()) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->incomingRefTable)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($Endpoint, var$0, $cast($Endpoint, $nc(entry)->getKey()));
-					$DGCClient::registerRefs(var$0, $cast($List, $(entry->getValue())));
-				}
+		$var($Iterator, i$, $$nc(this->incomingRefTable->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($Endpoint, var$0, $cast($Endpoint, $nc(entry)->getKey()));
+				$DGCClient::registerRefs(var$0, $$cast($List, entry->getValue()));
 			}
 		}
 	}
@@ -137,7 +101,7 @@ void ConnectionInputStream::setAckNeeded() {
 }
 
 void ConnectionInputStream::done($Connection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->dgcAckNeeded) {
 		$var($Connection, conn, nullptr);
 		$var($Channel, ch, nullptr);
@@ -153,9 +117,9 @@ void ConnectionInputStream::done($Connection* c) {
 			if (this->ackID == nullptr) {
 				$set(this, ackID, $new($UID));
 			}
-			$nc(this->ackID)->write(static_cast<$DataOutput*>(out));
-			$nc(conn)->releaseOutputStream();
-			$nc($(conn->getInputStream()))->available();
+			$nc(this->ackID)->write($cast($DataOutput, out));
+			conn->releaseOutputStream();
+			$$nc(conn->getInputStream())->available();
 			conn->releaseInputStream();
 		} catch ($RemoteException& e) {
 			reuse = false;
@@ -175,7 +139,33 @@ ConnectionInputStream::ConnectionInputStream() {
 }
 
 $Class* ConnectionInputStream::load$($String* name, bool initialize) {
-	$loadClass(ConnectionInputStream, name, initialize, &_ConnectionInputStream_ClassInfo_, allocate$ConnectionInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"dgcAckNeeded", "Z", nullptr, $PRIVATE, $field(ConnectionInputStream, dgcAckNeeded)},
+		{"incomingRefTable", "Ljava/util/Map;", "Ljava/util/Map<Lsun/rmi/transport/Endpoint;Ljava/util/List<Lsun/rmi/transport/LiveRef;>;>;", $PRIVATE, $field(ConnectionInputStream, incomingRefTable)},
+		{"ackID", "Ljava/rmi/server/UID;", nullptr, $PRIVATE, $field(ConnectionInputStream, ackID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(ConnectionInputStream, init$, void, $InputStream*), "java.io.IOException"},
+		{"discardRefs", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, discardRefs, void)},
+		{"done", "(Lsun/rmi/transport/Connection;)V", nullptr, 0, $virtualMethod(ConnectionInputStream, done, void, $Connection*)},
+		{"readID", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, readID, void), "java.io.IOException"},
+		{"registerRefs", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, registerRefs, void), "java.io.IOException"},
+		{"saveRef", "(Lsun/rmi/transport/LiveRef;)V", nullptr, 0, $virtualMethod(ConnectionInputStream, saveRef, void, $LiveRef*)},
+		{"setAckNeeded", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, setAckNeeded, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.ConnectionInputStream",
+		"sun.rmi.server.MarshalInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConnectionInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConnectionInputStream));
+	});
 	return class$;
 }
 

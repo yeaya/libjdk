@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaFactory.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema.h>
@@ -29,8 +28,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLConfigurationException.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -129,15 +126,12 @@ using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIExcepti
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
-using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
-using $XMLErrorHandler = ::com::sun::org::apache::xerces::internal::xni::parser::XMLErrorHandler;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $Reader = ::java::io::Reader;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -180,71 +174,6 @@ namespace com {
 						namespace jaxp {
 							namespace validation {
 
-$FieldInfo _XMLSchemaFactory_FieldInfo_[] = {
-	{"JAXP_SOURCE_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, JAXP_SOURCE_FEATURE_PREFIX)},
-	{"SCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, SCHEMA_FULL_CHECKING)},
-	{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, USE_GRAMMAR_POOL_ONLY)},
-	{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, XMLGRAMMAR_POOL)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, SECURITY_MANAGER)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, XML_SECURITY_PROPERTY_MANAGER)},
-	{"fXMLSchemaLoader", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fXMLSchemaLoader)},
-	{"fErrorHandler", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fErrorHandler)},
-	{"fLSResourceResolver", "Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fLSResourceResolver)},
-	{"fDOMEntityResolverWrapper", "Lcom/sun/org/apache/xerces/internal/util/DOMEntityResolverWrapper;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fDOMEntityResolverWrapper)},
-	{"fErrorHandlerWrapper", "Lcom/sun/org/apache/xerces/internal/util/ErrorHandlerWrapper;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fErrorHandlerWrapper)},
-	{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fSecurityManager)},
-	{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fSecurityPropertyMgr)},
-	{"fXMLGrammarPoolWrapper", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaFactory$XMLGrammarPoolWrapper;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fXMLGrammarPoolWrapper)},
-	{"fUseGrammarPoolOnly", "Z", nullptr, $PRIVATE, $field(XMLSchemaFactory, fUseGrammarPoolOnly)},
-	{"fXmlFeatures", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fXmlFeatures)},
-	{"fOverrideDefaultParser", "Z", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fOverrideDefaultParser)},
-	{}
-};
-
-$MethodInfo _XMLSchemaFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSchemaFactory, init$, void)},
-	{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getErrorHandler, $ErrorHandler*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getFeature, bool, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getResourceResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getResourceResolver, $LSResourceResolver*)},
-	{"isSchemaLanguageSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, isSchemaLanguageSupported, bool, $String*)},
-	{"newSchema", "([Ljavax/xml/transform/Source;)Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, newSchema, $Schema*, $SourceArray*), "org.xml.sax.SAXException"},
-	{"newSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, newSchema, $Schema*), "org.xml.sax.SAXException"},
-	{"newSchema", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $method(XMLSchemaFactory, newSchema, $Schema*, $XMLGrammarPool*), "org.xml.sax.SAXException"},
-	{"propagateFeatures", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema;)V", nullptr, $PRIVATE, $method(XMLSchemaFactory, propagateFeatures, void, $AbstractXMLSchema*)},
-	{"propagateProperties", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema;)V", nullptr, $PRIVATE, $method(XMLSchemaFactory, propagateProperties, void, $AbstractXMLSchema*)},
-	{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setErrorHandler, void, $ErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setFeature, void, $String*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"setResourceResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setResourceResolver, void, $LSResourceResolver*)},
-	{}
-};
-
-$InnerClassInfo _XMLSchemaFactory_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolWrapper", "com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory", "XMLGrammarPoolWrapper", $STATIC},
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension", "com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory", "XMLGrammarPoolImplExtension", $STATIC},
-	{}
-};
-
-$ClassInfo _XMLSchemaFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory",
-	"javax.xml.validation.SchemaFactory",
-	nullptr,
-	_XMLSchemaFactory_FieldInfo_,
-	_XMLSchemaFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLSchemaFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolWrapper,com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension"
-};
-
-$Object* allocate$XMLSchemaFactory($Class* clazz) {
-	return $of($alloc(XMLSchemaFactory));
-}
-
 $String* XMLSchemaFactory::JAXP_SOURCE_FEATURE_PREFIX = nullptr;
 $String* XMLSchemaFactory::SCHEMA_FULL_CHECKING = nullptr;
 $String* XMLSchemaFactory::USE_GRAMMAR_POOL_ONLY = nullptr;
@@ -253,55 +182,53 @@ $String* XMLSchemaFactory::SECURITY_MANAGER = nullptr;
 $String* XMLSchemaFactory::XML_SECURITY_PROPERTY_MANAGER = nullptr;
 
 void XMLSchemaFactory::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SchemaFactory::init$();
 	$set(this, fXMLSchemaLoader, $new($XMLSchemaLoader));
 	$set(this, fErrorHandlerWrapper, $new($ErrorHandlerWrapper, $($DraconianErrorHandler::getInstance())));
 	$set(this, fDOMEntityResolverWrapper, $new($DOMEntityResolverWrapper));
 	$set(this, fXMLGrammarPoolWrapper, $new($XMLSchemaFactory$XMLGrammarPoolWrapper));
-	$nc(this->fXMLSchemaLoader)->setFeature(XMLSchemaFactory::SCHEMA_FULL_CHECKING, true);
-	$nc(this->fXMLSchemaLoader)->setProperty(XMLSchemaFactory::XMLGRAMMAR_POOL, this->fXMLGrammarPoolWrapper);
-	$nc(this->fXMLSchemaLoader)->setEntityResolver(this->fDOMEntityResolverWrapper);
-	$nc(this->fXMLSchemaLoader)->setErrorHandler(this->fErrorHandlerWrapper);
+	this->fXMLSchemaLoader->setFeature(XMLSchemaFactory::SCHEMA_FULL_CHECKING, true);
+	this->fXMLSchemaLoader->setProperty(XMLSchemaFactory::XMLGRAMMAR_POOL, this->fXMLGrammarPoolWrapper);
+	this->fXMLSchemaLoader->setEntityResolver(this->fDOMEntityResolverWrapper);
+	this->fXMLSchemaLoader->setErrorHandler(this->fErrorHandlerWrapper);
 	this->fUseGrammarPoolOnly = true;
 	$set(this, fSecurityManager, $new($XMLSecurityManager, true));
-	$nc(this->fXMLSchemaLoader)->setProperty(XMLSchemaFactory::SECURITY_MANAGER, this->fSecurityManager);
+	this->fXMLSchemaLoader->setProperty(XMLSchemaFactory::SECURITY_MANAGER, this->fSecurityManager);
 	$set(this, fSecurityPropertyMgr, $new($XMLSecurityPropertyManager));
-	$nc(this->fXMLSchemaLoader)->setProperty(XMLSchemaFactory::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
+	this->fXMLSchemaLoader->setProperty(XMLSchemaFactory::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
 	$init($XMLConstants);
 	$init($JdkXmlUtils);
-	$nc(this->fXMLSchemaLoader)->setFeature($XMLConstants::USE_CATALOG, $JdkXmlUtils::USE_CATALOG_DEFAULT);
+	this->fXMLSchemaLoader->setFeature($XMLConstants::USE_CATALOG, $JdkXmlUtils::USE_CATALOG_DEFAULT);
 	{
 		$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$CatalogFeatures$Feature* f = arr$->get(i$);
 			{
-				$nc(this->fXMLSchemaLoader)->setProperty($($nc(f)->getPropertyName()), nullptr);
+				this->fXMLSchemaLoader->setProperty($($nc(f)->getPropertyName()), nullptr);
 			}
 		}
 	}
 	$init($JdkConstants);
-	$nc(this->fXMLSchemaLoader)->setProperty($JdkConstants::CDATA_CHUNK_SIZE, $($Integer::valueOf($JdkConstants::CDATA_CHUNK_SIZE_DEFAULT)));
+	this->fXMLSchemaLoader->setProperty($JdkConstants::CDATA_CHUNK_SIZE, $($Integer::valueOf($JdkConstants::CDATA_CHUNK_SIZE_DEFAULT)));
 	$set(this, fXmlFeatures, $new($JdkXmlFeatures, $nc(this->fSecurityManager)->isSecureProcessing()));
 	$init($JdkXmlFeatures$XmlFeature);
-	this->fOverrideDefaultParser = $nc(this->fXmlFeatures)->getFeature($JdkXmlFeatures$XmlFeature::JDK_OVERRIDE_PARSER);
-	$nc(this->fXMLSchemaLoader)->setFeature($JdkConstants::OVERRIDE_PARSER, this->fOverrideDefaultParser);
+	this->fOverrideDefaultParser = this->fXmlFeatures->getFeature($JdkXmlFeatures$XmlFeature::JDK_OVERRIDE_PARSER);
+	this->fXMLSchemaLoader->setFeature($JdkConstants::OVERRIDE_PARSER, this->fOverrideDefaultParser);
 }
 
 bool XMLSchemaFactory::isSchemaLanguageSupported($String* schemaLanguage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (schemaLanguage == nullptr) {
-		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "SchemaLanguageNull"_s, nullptr)));
+		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "SchemaLanguageNull"_s, nullptr)));
 	}
 	if ($nc(schemaLanguage)->length() == 0) {
-		$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "SchemaLanguageLengthZero"_s, nullptr)));
+		$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "SchemaLanguageLengthZero"_s, nullptr)));
 	}
 	$init($XMLConstants);
-	bool var$0 = $nc(schemaLanguage)->equals($XMLConstants::W3C_XML_SCHEMA_NS_URI);
+	bool var$0 = schemaLanguage->equals($XMLConstants::W3C_XML_SCHEMA_NS_URI);
 	$init($Constants);
-	return var$0 || $nc(schemaLanguage)->equals($Constants::W3C_XML_SCHEMA10_NS_URI);
+	return var$0 || schemaLanguage->equals($Constants::W3C_XML_SCHEMA10_NS_URI);
 }
 
 $LSResourceResolver* XMLSchemaFactory::getResourceResolver() {
@@ -310,8 +237,8 @@ $LSResourceResolver* XMLSchemaFactory::getResourceResolver() {
 
 void XMLSchemaFactory::setResourceResolver($LSResourceResolver* resourceResolver) {
 	$set(this, fLSResourceResolver, resourceResolver);
-	$nc(this->fDOMEntityResolverWrapper)->setEntityResolver(resourceResolver);
-	$nc(this->fXMLSchemaLoader)->setEntityResolver(this->fDOMEntityResolverWrapper);
+	this->fDOMEntityResolverWrapper->setEntityResolver(resourceResolver);
+	this->fXMLSchemaLoader->setEntityResolver(this->fDOMEntityResolverWrapper);
 }
 
 $ErrorHandler* XMLSchemaFactory::getErrorHandler() {
@@ -320,14 +247,14 @@ $ErrorHandler* XMLSchemaFactory::getErrorHandler() {
 
 void XMLSchemaFactory::setErrorHandler($ErrorHandler* errorHandler) {
 	$set(this, fErrorHandler, errorHandler);
-	$nc(this->fErrorHandlerWrapper)->setErrorHandler(errorHandler != nullptr ? errorHandler : $(static_cast<$ErrorHandler*>($DraconianErrorHandler::getInstance())));
-	$nc(this->fXMLSchemaLoader)->setErrorHandler(this->fErrorHandlerWrapper);
+	this->fErrorHandlerWrapper->setErrorHandler(errorHandler != nullptr ? errorHandler : $$cast($ErrorHandler, $DraconianErrorHandler::getInstance()));
+	this->fXMLSchemaLoader->setErrorHandler(this->fErrorHandlerWrapper);
 }
 
 $Schema* XMLSchemaFactory::newSchema($SourceArray* schemas) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLSchemaFactory$XMLGrammarPoolImplExtension, pool, $new($XMLSchemaFactory$XMLGrammarPoolImplExtension));
-	$nc(this->fXMLGrammarPoolWrapper)->setGrammarPool(pool);
+	this->fXMLGrammarPoolWrapper->setGrammarPool(pool);
 	$var($XMLInputSourceArray, xmlInputSources, $new($XMLInputSourceArray, $nc(schemas)->length));
 	$var($InputStream, inputStream, nullptr);
 	$var($Reader, reader, nullptr);
@@ -335,7 +262,7 @@ $Schema* XMLSchemaFactory::newSchema($SourceArray* schemas) {
 		$var($Source, source, schemas->get(i));
 		if ($instanceOf($StreamSource, source)) {
 			$var($StreamSource, streamSource, $cast($StreamSource, source));
-			$var($String, publicId, $nc(streamSource)->getPublicId());
+			$var($String, publicId, streamSource->getPublicId());
 			$var($String, systemId, streamSource->getSystemId());
 			$assign(inputStream, streamSource->getInputStream());
 			$assign(reader, streamSource->getReader());
@@ -345,44 +272,44 @@ $Schema* XMLSchemaFactory::newSchema($SourceArray* schemas) {
 			xmlInputSources->set(i, xmlInputSource);
 		} else if ($instanceOf($SAXSource, source)) {
 			$var($SAXSource, saxSource, $cast($SAXSource, source));
-			$var($InputSource, inputSource, $nc(saxSource)->getInputSource());
+			$var($InputSource, inputSource, saxSource->getInputSource());
 			if (inputSource == nullptr) {
-				$throwNew($SAXException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "SAXSourceNullInputSource"_s, nullptr)));
+				$throwNew($SAXException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "SAXSourceNullInputSource"_s, nullptr)));
 			}
 			xmlInputSources->set(i, $$new($SAXInputSource, $(saxSource->getXMLReader()), inputSource));
 		} else if ($instanceOf($DOMSource, source)) {
 			$var($DOMSource, domSource, $cast($DOMSource, source));
-			$var($Node, node, $nc(domSource)->getNode());
+			$var($Node, node, domSource->getNode());
 			$var($String, systemID, domSource->getSystemId());
 			xmlInputSources->set(i, $$new($DOMInputSource, node, systemID));
 		} else if ($instanceOf($StAXSource, source)) {
 			$var($StAXSource, staxSource, $cast($StAXSource, source));
-			$var($XMLEventReader, eventReader, $nc(staxSource)->getXMLEventReader());
+			$var($XMLEventReader, eventReader, staxSource->getXMLEventReader());
 			if (eventReader != nullptr) {
 				xmlInputSources->set(i, $$new($StAXInputSource, eventReader));
 			} else {
 				xmlInputSources->set(i, $$new($StAXInputSource, $(staxSource->getXMLStreamReader())));
 			}
 		} else if (source == nullptr) {
-			$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "SchemaSourceArrayMemberNull"_s, nullptr)));
+			$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "SchemaSourceArrayMemberNull"_s, nullptr)));
 		} else {
-			$var($Locale, var$0, $nc(this->fXMLSchemaLoader)->getLocale());
+			$var($Locale, var$0, this->fXMLSchemaLoader->getLocale());
 			$var($String, var$1, "SchemaFactorySourceUnrecognized"_s);
-			$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage(var$0, var$1, $$new($ObjectArray, {$($of($nc($of(source))->getClass()->getName()))}))));
+			$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage(var$0, var$1, $$new($ObjectArray, {$(source->getClass()->getName())}))));
 		}
 	}
 	try {
-		$nc(this->fXMLSchemaLoader)->loadGrammar(xmlInputSources);
+		this->fXMLSchemaLoader->loadGrammar(xmlInputSources);
 	} catch ($XNIException& e) {
 		$throw($($Util::toSAXException(e)));
 	} catch ($IOException& e) {
 		$var($SAXParseException, se, $new($SAXParseException, $(e->getMessage()), nullptr, e));
 		if (this->fErrorHandler != nullptr) {
-			$nc(this->fErrorHandler)->error(se);
+			this->fErrorHandler->error(se);
 		}
 		$throw(se);
 	}
-	$nc(this->fXMLGrammarPoolWrapper)->setGrammarPool(nullptr);
+	this->fXMLGrammarPoolWrapper->setGrammarPool(nullptr);
 	int32_t grammarCount = pool->getGrammarCount();
 	$var($AbstractXMLSchema, schema, nullptr);
 	if (this->fUseGrammarPoolOnly) {
@@ -411,16 +338,16 @@ $Schema* XMLSchemaFactory::newSchema() {
 }
 
 $Schema* XMLSchemaFactory::newSchema($XMLGrammarPool* pool) {
-	$useLocalCurrentObjectStackCache();
-	$var($AbstractXMLSchema, schema, (this->fUseGrammarPoolOnly) ? static_cast<$AbstractXMLSchema*>($new($XMLSchema, $$new($ReadOnlyGrammarPool, pool))) : static_cast<$AbstractXMLSchema*>($new($XMLSchema, pool, false)));
+	$useLocalObjectStack();
+	$var($AbstractXMLSchema, schema, (this->fUseGrammarPoolOnly) ? $new($XMLSchema, $$new($ReadOnlyGrammarPool, pool)) : $new($XMLSchema, pool, false));
 	propagateFeatures(schema);
 	return schema;
 }
 
 bool XMLSchemaFactory::getFeature($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
-		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "FeatureNameNull"_s, nullptr)));
+		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "FeatureNameNull"_s, nullptr)));
 	}
 	if ($nc(name)->startsWith(XMLSchemaFactory::JAXP_SOURCE_FEATURE_PREFIX)) {
 		$init($StreamSource);
@@ -435,58 +362,58 @@ bool XMLSchemaFactory::getFeature($String* name) {
 		}
 	}
 	$init($XMLConstants);
-	if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
-		return (this->fSecurityManager != nullptr && $nc(this->fSecurityManager)->isSecureProcessing());
+	if (name->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
+		return (this->fSecurityManager != nullptr && this->fSecurityManager->isSecureProcessing());
 	} else if (name->equals(XMLSchemaFactory::USE_GRAMMAR_POOL_ONLY)) {
 		return this->fUseGrammarPoolOnly;
 	}
-	int32_t index = $nc(this->fXmlFeatures)->getIndex(name);
+	int32_t index = this->fXmlFeatures->getIndex(name);
 	if (index > -1) {
-		return $nc(this->fXmlFeatures)->getFeature(index);
+		return this->fXmlFeatures->getFeature(index);
 	}
 	try {
-		return $nc(this->fXMLSchemaLoader)->getFeature(name);
+		return this->fXMLSchemaLoader->getFeature(name);
 	} catch ($XMLConfigurationException& e) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $Object* XMLSchemaFactory::getProperty($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
-		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "ProperyNameNull"_s, nullptr)));
+		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "ProperyNameNull"_s, nullptr)));
 	}
 	if ($nc(name)->equals(XMLSchemaFactory::SECURITY_MANAGER)) {
-		return $of(this->fSecurityManager);
+		return this->fSecurityManager;
 	} else if (name->equals(XMLSchemaFactory::XMLGRAMMAR_POOL)) {
-		$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {$of(name)}))));
+		$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {name}))));
 	}
 	try {
-		$var($String, propertyValue, (this->fSecurityManager != nullptr) ? $nc(this->fSecurityManager)->getLimitAsString(name) : ($String*)nullptr);
-		return $of(propertyValue != nullptr ? $of(propertyValue) : $nc(this->fXMLSchemaLoader)->getProperty(name));
+		$var($String, propertyValue, (this->fSecurityManager != nullptr) ? this->fSecurityManager->getLimitAsString(name) : ($String*)nullptr);
+		return propertyValue != nullptr ? $of(propertyValue) : this->fXMLSchemaLoader->getProperty(name);
 	} catch ($XMLConfigurationException& e) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 	$shouldNotReachHere();
 }
 
 void XMLSchemaFactory::setFeature($String* name, bool value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
-		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "FeatureNameNull"_s, nullptr)));
+		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "FeatureNameNull"_s, nullptr)));
 	}
 	if ($nc(name)->startsWith(XMLSchemaFactory::JAXP_SOURCE_FEATURE_PREFIX)) {
 		$init($StreamSource);
@@ -497,11 +424,11 @@ void XMLSchemaFactory::setFeature($String* name, bool value) {
 		bool var$0 = var$1 || name->equals($DOMSource::FEATURE);
 		$init($StAXSource);
 		if (var$0 || name->equals($StAXSource::FEATURE)) {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "feature-read-only"_s, $$new($ObjectArray, {$of(name)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "feature-read-only"_s, $$new($ObjectArray, {name}))));
 		}
 	}
 	$init($XMLConstants);
-	if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
+	if (name->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 		if ($System::getSecurityManager() != nullptr && (!value)) {
 			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage(nullptr, "jaxp-secureprocessing-feature"_s, nullptr)));
 		}
@@ -513,7 +440,7 @@ void XMLSchemaFactory::setFeature($String* name, bool value) {
 			$nc(this->fSecurityPropertyMgr)->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_DTD, $XMLSecurityPropertyManager$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
 			$nc(this->fSecurityPropertyMgr)->setValue($XMLSecurityPropertyManager$Property::ACCESS_EXTERNAL_SCHEMA, $XMLSecurityPropertyManager$State::FSP, $JdkConstants::EXTERNAL_ACCESS_DEFAULT_FSP);
 		}
-		$nc(this->fXMLSchemaLoader)->setProperty(XMLSchemaFactory::SECURITY_MANAGER, this->fSecurityManager);
+		this->fXMLSchemaLoader->setProperty(XMLSchemaFactory::SECURITY_MANAGER, this->fSecurityManager);
 		return;
 	} else if (name->equals(XMLSchemaFactory::USE_GRAMMAR_POOL_ONLY)) {
 		this->fUseGrammarPoolOnly = value;
@@ -527,36 +454,36 @@ void XMLSchemaFactory::setFeature($String* name, bool value) {
 		}
 	}
 	$init($JdkProperty$State);
-	if ((this->fXmlFeatures != nullptr) && $nc(this->fXmlFeatures)->setFeature(name, $JdkProperty$State::APIPROPERTY, $($of($Boolean::valueOf(value))))) {
+	if ((this->fXmlFeatures != nullptr) && this->fXmlFeatures->setFeature(name, $JdkProperty$State::APIPROPERTY, $($Boolean::valueOf(value)))) {
 		$init($JdkProperty$ImplPropMap);
-		bool var$3 = ($JdkProperty$ImplPropMap::OVERRIDEPARSER->is(name));
+		bool var$3 = $JdkProperty$ImplPropMap::OVERRIDEPARSER->is(name);
 		$init($JdkXmlUtils);
-		if (var$3 || $nc(name)->equals($JdkXmlUtils::USE_CATALOG)) {
-			$nc(this->fXMLSchemaLoader)->setFeature(name, value);
+		if (var$3 || name->equals($JdkXmlUtils::USE_CATALOG)) {
+			this->fXMLSchemaLoader->setFeature(name, value);
 		}
 		return;
 	}
 	try {
-		$nc(this->fXMLSchemaLoader)->setFeature(name, value);
+		this->fXMLSchemaLoader->setFeature(name, value);
 	} catch ($XMLConfigurationException& e) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 }
 
 void XMLSchemaFactory::setProperty($String* name, Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
-		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "ProperyNameNull"_s, nullptr)));
+		$throwNew($NullPointerException, $($JAXPValidationMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "ProperyNameNull"_s, nullptr)));
 	}
 	if ($nc(name)->equals(XMLSchemaFactory::SECURITY_MANAGER)) {
 		$set(this, fSecurityManager, $XMLSecurityManager::convert(object, this->fSecurityManager));
-		$nc(this->fXMLSchemaLoader)->setProperty(XMLSchemaFactory::SECURITY_MANAGER, this->fSecurityManager);
+		this->fXMLSchemaLoader->setProperty(XMLSchemaFactory::SECURITY_MANAGER, this->fSecurityManager);
 		return;
 	} else {
 		$init($JdkConstants);
@@ -566,48 +493,48 @@ void XMLSchemaFactory::setProperty($String* name, Object$* object) {
 			} else {
 				$set(this, fSecurityPropertyMgr, $cast($XMLSecurityPropertyManager, object));
 			}
-			$nc(this->fXMLSchemaLoader)->setProperty($JdkConstants::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
+			this->fXMLSchemaLoader->setProperty($JdkConstants::XML_SECURITY_PROPERTY_MANAGER, this->fSecurityPropertyMgr);
 			return;
 		} else if (name->equals(XMLSchemaFactory::XMLGRAMMAR_POOL)) {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {$of(name)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {name}))));
 		}
 	}
 	try {
 		$init($JdkProperty$State);
-		if (this->fSecurityManager == nullptr || !$nc(this->fSecurityManager)->setLimit(name, $JdkProperty$State::APIPROPERTY, object)) {
+		if (this->fSecurityManager == nullptr || !this->fSecurityManager->setLimit(name, $JdkProperty$State::APIPROPERTY, object)) {
 			$init($XMLSecurityPropertyManager$State);
-			if (this->fSecurityPropertyMgr == nullptr || !$nc(this->fSecurityPropertyMgr)->setValue(name, $XMLSecurityPropertyManager$State::APIPROPERTY, object)) {
-				$nc(this->fXMLSchemaLoader)->setProperty(name, object);
+			if (this->fSecurityPropertyMgr == nullptr || !this->fSecurityPropertyMgr->setValue(name, $XMLSecurityPropertyManager$State::APIPROPERTY, object)) {
+				this->fXMLSchemaLoader->setProperty(name, object);
 			}
 		}
 	} catch ($XMLConfigurationException& e) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fXMLSchemaLoader)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($(this->fXMLSchemaLoader->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 }
 
 void XMLSchemaFactory::propagateFeatures($AbstractXMLSchema* schema) {
 	$init($XMLConstants);
-	$nc(schema)->setFeature($XMLConstants::FEATURE_SECURE_PROCESSING, (this->fSecurityManager != nullptr && $nc(this->fSecurityManager)->isSecureProcessing()));
+	$nc(schema)->setFeature($XMLConstants::FEATURE_SECURE_PROCESSING, (this->fSecurityManager != nullptr && this->fSecurityManager->isSecureProcessing()));
 	$init($JdkConstants);
-	schema->setFeature($JdkConstants::OVERRIDE_PARSER, this->fOverrideDefaultParser);
-	$var($StringArray, features, $nc(this->fXMLSchemaLoader)->getRecognizedFeatures());
+	$nc(schema)->setFeature($JdkConstants::OVERRIDE_PARSER, this->fOverrideDefaultParser);
+	$var($StringArray, features, this->fXMLSchemaLoader->getRecognizedFeatures());
 	for (int32_t i = 0; i < $nc(features)->length; ++i) {
-		bool state = $nc(this->fXMLSchemaLoader)->getFeature(features->get(i));
+		bool state = this->fXMLSchemaLoader->getFeature(features->get(i));
 		schema->setFeature(features->get(i), state);
 	}
 }
 
 void XMLSchemaFactory::propagateProperties($AbstractXMLSchema* schema) {
-	$useLocalCurrentObjectStackCache();
-	$var($StringArray, properties, $nc(this->fXMLSchemaLoader)->getRecognizedProperties());
+	$useLocalObjectStack();
+	$var($StringArray, properties, this->fXMLSchemaLoader->getRecognizedProperties());
 	for (int32_t i = 0; i < $nc(properties)->length; ++i) {
-		$var($Object, state, $nc(this->fXMLSchemaLoader)->getProperty(properties->get(i)));
+		$var($Object, state, this->fXMLSchemaLoader->getProperty(properties->get(i)));
 		$nc(schema)->setProperty(properties->get(i), state);
 	}
 }
@@ -615,7 +542,7 @@ void XMLSchemaFactory::propagateProperties($AbstractXMLSchema* schema) {
 XMLSchemaFactory::XMLSchemaFactory() {
 }
 
-void clinit$XMLSchemaFactory($Class* class$) {
+void XMLSchemaFactory::clinit$($Class* clazz) {
 	$assignStatic(XMLSchemaFactory::JAXP_SOURCE_FEATURE_PREFIX, "http://javax.xml.transform"_s);
 	$init($Constants);
 	$assignStatic(XMLSchemaFactory::SCHEMA_FULL_CHECKING, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::SCHEMA_FULL_CHECKING}));
@@ -627,7 +554,66 @@ void clinit$XMLSchemaFactory($Class* class$) {
 }
 
 $Class* XMLSchemaFactory::load$($String* name, bool initialize) {
-	$loadClass(XMLSchemaFactory, name, initialize, &_XMLSchemaFactory_ClassInfo_, clinit$XMLSchemaFactory, allocate$XMLSchemaFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"JAXP_SOURCE_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, JAXP_SOURCE_FEATURE_PREFIX)},
+		{"SCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, SCHEMA_FULL_CHECKING)},
+		{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, USE_GRAMMAR_POOL_ONLY)},
+		{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, XMLGRAMMAR_POOL)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, SECURITY_MANAGER)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLSchemaFactory, XML_SECURITY_PROPERTY_MANAGER)},
+		{"fXMLSchemaLoader", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaLoader;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fXMLSchemaLoader)},
+		{"fErrorHandler", "Lorg/xml/sax/ErrorHandler;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fErrorHandler)},
+		{"fLSResourceResolver", "Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fLSResourceResolver)},
+		{"fDOMEntityResolverWrapper", "Lcom/sun/org/apache/xerces/internal/util/DOMEntityResolverWrapper;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fDOMEntityResolverWrapper)},
+		{"fErrorHandlerWrapper", "Lcom/sun/org/apache/xerces/internal/util/ErrorHandlerWrapper;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fErrorHandlerWrapper)},
+		{"fSecurityManager", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fSecurityManager)},
+		{"fSecurityPropertyMgr", "Lcom/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager;", nullptr, $PRIVATE, $field(XMLSchemaFactory, fSecurityPropertyMgr)},
+		{"fXMLGrammarPoolWrapper", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaFactory$XMLGrammarPoolWrapper;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fXMLGrammarPoolWrapper)},
+		{"fUseGrammarPoolOnly", "Z", nullptr, $PRIVATE, $field(XMLSchemaFactory, fUseGrammarPoolOnly)},
+		{"fXmlFeatures", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fXmlFeatures)},
+		{"fOverrideDefaultParser", "Z", nullptr, $PRIVATE | $FINAL, $field(XMLSchemaFactory, fOverrideDefaultParser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSchemaFactory, init$, void)},
+		{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getErrorHandler, $ErrorHandler*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getFeature, bool, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getResourceResolver", "()Lorg/w3c/dom/ls/LSResourceResolver;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, getResourceResolver, $LSResourceResolver*)},
+		{"isSchemaLanguageSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, isSchemaLanguageSupported, bool, $String*)},
+		{"newSchema", "([Ljavax/xml/transform/Source;)Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, newSchema, $Schema*, $SourceArray*), "org.xml.sax.SAXException"},
+		{"newSchema", "()Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, newSchema, $Schema*), "org.xml.sax.SAXException"},
+		{"newSchema", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)Ljavax/xml/validation/Schema;", nullptr, $PUBLIC, $method(XMLSchemaFactory, newSchema, $Schema*, $XMLGrammarPool*), "org.xml.sax.SAXException"},
+		{"propagateFeatures", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema;)V", nullptr, $PRIVATE, $method(XMLSchemaFactory, propagateFeatures, void, $AbstractXMLSchema*)},
+		{"propagateProperties", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema;)V", nullptr, $PRIVATE, $method(XMLSchemaFactory, propagateProperties, void, $AbstractXMLSchema*)},
+		{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setErrorHandler, void, $ErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setFeature, void, $String*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"setResourceResolver", "(Lorg/w3c/dom/ls/LSResourceResolver;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaFactory, setResourceResolver, void, $LSResourceResolver*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolWrapper", "com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory", "XMLGrammarPoolWrapper", $STATIC},
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension", "com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory", "XMLGrammarPoolImplExtension", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory",
+		"javax.xml.validation.SchemaFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolWrapper,com.sun.org.apache.xerces.internal.jaxp.validation.XMLSchemaFactory$XMLGrammarPoolImplExtension"
+	};
+	$loadClass(XMLSchemaFactory, name, initialize, &classInfo$$, XMLSchemaFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSchemaFactory);
+	});
 	return class$;
 }
 

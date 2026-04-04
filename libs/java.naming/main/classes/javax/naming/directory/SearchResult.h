@@ -29,7 +29,7 @@ public:
 	virtual void setAttributes(::javax::naming::directory::Attributes* attrs);
 	virtual $String* toString() override;
 	::javax::naming::directory::Attributes* attrs = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x80E805ECC9ED1C5C;
+	static const int64_t serialVersionUID = (int64_t)0x80e805ecc9ed1c5c;
 };
 
 		} // directory

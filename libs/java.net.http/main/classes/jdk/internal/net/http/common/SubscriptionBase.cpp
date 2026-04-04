@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SubscriptionBase.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
 #include <java/util/function/Consumer.h>
@@ -23,47 +22,6 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$FieldInfo _SubscriptionBase_FieldInfo_[] = {
-	{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(SubscriptionBase, demand)},
-	{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SubscriptionBase, scheduler)},
-	{"cancelAction", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(SubscriptionBase, cancelAction)},
-	{"cancelled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(SubscriptionBase, cancelled)},
-	{"onError", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $FINAL, $field(SubscriptionBase, onError)},
-	{}
-};
-
-$MethodInfo _SubscriptionBase_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SubscriptionBase, init$, void, $SequentialScheduler*, $Runnable*)},
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PUBLIC, $method(SubscriptionBase, init$, void, $SequentialScheduler*, $Runnable*, $Consumer*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, cancel, void)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, request, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubscriptionBase, toString, $String*)},
-	{"tryDecrement", "()Z", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, tryDecrement, bool)},
-	{"window", "()J", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, window, int64_t)},
-	{}
-};
-
-$InnerClassInfo _SubscriptionBase_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SubscriptionBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.common.SubscriptionBase",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	_SubscriptionBase_FieldInfo_,
-	_SubscriptionBase_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SubscriptionBase_InnerClassesInfo_
-};
-
-$Object* allocate$SubscriptionBase($Class* clazz) {
-	return $of($alloc(SubscriptionBase));
-}
-
 void SubscriptionBase::init$($SequentialScheduler* scheduler, $Runnable* cancelAction) {
 	SubscriptionBase::init$(scheduler, cancelAction, nullptr);
 }
@@ -86,7 +44,7 @@ void SubscriptionBase::request(int64_t n) {
 			if ($nc(this->cancelled)->getAndSet(true)) {
 				return;
 			}
-			$nc(this->onError)->accept(t);
+			this->onError->accept(t);
 		} else {
 			$throw(t);
 		}
@@ -95,9 +53,13 @@ void SubscriptionBase::request(int64_t n) {
 
 $String* SubscriptionBase::toString() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($String, var$0, $$str({"SubscriptionBase: window = "_s, $$str($nc(this->demand)->get()), " cancelled = "_s}));
-		return $concat(var$0, $($nc(this->cancelled)->toString()));
+		$useLocalObjectStack();
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("SubscriptionBase: window = "_s);
+		var$0->append($nc(this->demand)->get());
+		var$0->append(" cancelled = "_s);
+		var$0->append($($nc(this->cancelled)->toString()));
+		return $str(var$0);
 	}
 }
 
@@ -121,7 +83,42 @@ SubscriptionBase::SubscriptionBase() {
 }
 
 $Class* SubscriptionBase::load$($String* name, bool initialize) {
-	$loadClass(SubscriptionBase, name, initialize, &_SubscriptionBase_ClassInfo_, allocate$SubscriptionBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(SubscriptionBase, demand)},
+		{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SubscriptionBase, scheduler)},
+		{"cancelAction", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(SubscriptionBase, cancelAction)},
+		{"cancelled", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $FINAL, $field(SubscriptionBase, cancelled)},
+		{"onError", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $FINAL, $field(SubscriptionBase, onError)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SubscriptionBase, init$, void, $SequentialScheduler*, $Runnable*)},
+		{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PUBLIC, $method(SubscriptionBase, init$, void, $SequentialScheduler*, $Runnable*, $Consumer*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, cancel, void)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, request, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubscriptionBase, toString, $String*)},
+		{"tryDecrement", "()Z", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, tryDecrement, bool)},
+		{"window", "()J", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, window, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.common.SubscriptionBase",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(SubscriptionBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubscriptionBase);
+	});
 	return class$;
 }
 

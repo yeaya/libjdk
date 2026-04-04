@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaName.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <javax/print/attribute/standard/Media.h>
 #include <jcpp.h>
@@ -21,37 +20,6 @@ namespace javax {
 		namespace attribute {
 			namespace standard {
 
-$FieldInfo _MediaName_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaName, serialVersionUID)},
-	{"NA_LETTER_WHITE", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, NA_LETTER_WHITE)},
-	{"NA_LETTER_TRANSPARENT", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, NA_LETTER_TRANSPARENT)},
-	{"ISO_A4_WHITE", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, ISO_A4_WHITE)},
-	{"ISO_A4_TRANSPARENT", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, ISO_A4_TRANSPARENT)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaName, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaName, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _MediaName_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(MediaName, init$, void, int32_t)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MediaName, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MediaName, getStringTable, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MediaName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaName",
-	"javax.print.attribute.standard.Media",
-	nullptr,
-	_MediaName_FieldInfo_,
-	_MediaName_MethodInfo_
-};
-
-$Object* allocate$MediaName($Class* clazz) {
-	return $of($alloc(MediaName));
-}
-
 MediaName* MediaName::NA_LETTER_WHITE = nullptr;
 MediaName* MediaName::NA_LETTER_TRANSPARENT = nullptr;
 MediaName* MediaName::ISO_A4_WHITE = nullptr;
@@ -64,14 +32,14 @@ void MediaName::init$(int32_t value) {
 }
 
 $StringArray* MediaName::getStringTable() {
-	return $cast($StringArray, $nc(MediaName::myStringTable)->clone());
+	return $cast($StringArray, MediaName::myStringTable->clone());
 }
 
 $EnumSyntaxArray* MediaName::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(MediaName::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, MediaName::myEnumValueTable->clone());
 }
 
-void clinit$MediaName($Class* class$) {
+void MediaName::clinit$($Class* clazz) {
 	$assignStatic(MediaName::NA_LETTER_WHITE, $new(MediaName, 0));
 	$assignStatic(MediaName::NA_LETTER_TRANSPARENT, $new(MediaName, 1));
 	$assignStatic(MediaName::ISO_A4_WHITE, $new(MediaName, 2));
@@ -94,7 +62,33 @@ MediaName::MediaName() {
 }
 
 $Class* MediaName::load$($String* name, bool initialize) {
-	$loadClass(MediaName, name, initialize, &_MediaName_ClassInfo_, clinit$MediaName, allocate$MediaName);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaName, serialVersionUID)},
+		{"NA_LETTER_WHITE", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, NA_LETTER_WHITE)},
+		{"NA_LETTER_TRANSPARENT", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, NA_LETTER_TRANSPARENT)},
+		{"ISO_A4_WHITE", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, ISO_A4_WHITE)},
+		{"ISO_A4_TRANSPARENT", "Ljavax/print/attribute/standard/MediaName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaName, ISO_A4_TRANSPARENT)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaName, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaName, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(MediaName, init$, void, int32_t)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MediaName, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MediaName, getStringTable, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaName",
+		"javax.print.attribute.standard.Media",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MediaName, name, initialize, &classInfo$$, MediaName::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MediaName));
+	});
 	return class$;
 }
 

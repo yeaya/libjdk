@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelStandardDirector.h>
-
 #include <com/sun/media/sound/ModelConnectionBlock.h>
 #include <com/sun/media/sound/ModelDirectedPlayer.h>
 #include <com/sun/media/sound/ModelPerformer.h>
@@ -20,53 +19,20 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _ModelStandardDirector_FieldInfo_[] = {
-	{"performers", "[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardDirector, performers)},
-	{"player", "Lcom/sun/media/sound/ModelDirectedPlayer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardDirector, player)},
-	{"noteOnUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardDirector, noteOnUsed)},
-	{"noteOffUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardDirector, noteOffUsed)},
-	{}
-};
-
-$MethodInfo _ModelStandardDirector_MethodInfo_[] = {
-	{"<init>", "([Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelDirectedPlayer;)V", nullptr, $PUBLIC, $method(ModelStandardDirector, init$, void, $ModelPerformerArray*, $ModelDirectedPlayer*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModelStandardDirector, close, void)},
-	{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardDirector, noteOff, void, int32_t, int32_t)},
-	{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardDirector, noteOn, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ModelStandardDirector_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelStandardDirector",
-	"java.lang.Object",
-	"com.sun.media.sound.ModelDirector",
-	_ModelStandardDirector_FieldInfo_,
-	_ModelStandardDirector_MethodInfo_
-};
-
-$Object* allocate$ModelStandardDirector($Class* clazz) {
-	return $of($alloc(ModelStandardDirector));
-}
-
 void ModelStandardDirector::init$($ModelPerformerArray* performers, $ModelDirectedPlayer* player) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->noteOnUsed = false;
 	this->noteOffUsed = false;
-	$set(this, performers, $fcast($ModelPerformerArray, $Arrays::copyOf(performers, $nc(performers)->length)));
+	$set(this, performers, $cast($ModelPerformerArray, $Arrays::copyOf(performers, $nc(performers)->length)));
 	$set(this, player, player);
 	{
 		$var($ModelPerformerArray, arr$, this->performers);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModelPerformer, p, arr$->get(i$));
-			{
-				if ($nc(p)->isReleaseTriggered()) {
-					this->noteOffUsed = true;
-				} else {
-					this->noteOnUsed = true;
-				}
+			if ($nc(p)->isReleaseTriggered()) {
+				this->noteOffUsed = true;
+			} else {
+				this->noteOnUsed = true;
 			}
 		}
 	}
@@ -76,12 +42,12 @@ void ModelStandardDirector::close() {
 }
 
 void ModelStandardDirector::noteOff(int32_t noteNumber, int32_t velocity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->noteOffUsed) {
 		return;
 	}
 	for (int32_t i = 0; i < $nc(this->performers)->length; ++i) {
-		$var($ModelPerformer, p, $nc(this->performers)->get(i));
+		$var($ModelPerformer, p, this->performers->get(i));
 		bool var$0 = $nc(p)->getKeyFrom() <= noteNumber;
 		if (var$0 && p->getKeyTo() >= noteNumber) {
 			bool var$1 = p->getVelFrom() <= velocity;
@@ -95,12 +61,12 @@ void ModelStandardDirector::noteOff(int32_t noteNumber, int32_t velocity) {
 }
 
 void ModelStandardDirector::noteOn(int32_t noteNumber, int32_t velocity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->noteOnUsed) {
 		return;
 	}
 	for (int32_t i = 0; i < $nc(this->performers)->length; ++i) {
-		$var($ModelPerformer, p, $nc(this->performers)->get(i));
+		$var($ModelPerformer, p, this->performers->get(i));
 		bool var$0 = $nc(p)->getKeyFrom() <= noteNumber;
 		if (var$0 && p->getKeyTo() >= noteNumber) {
 			bool var$1 = p->getVelFrom() <= velocity;
@@ -117,7 +83,31 @@ ModelStandardDirector::ModelStandardDirector() {
 }
 
 $Class* ModelStandardDirector::load$($String* name, bool initialize) {
-	$loadClass(ModelStandardDirector, name, initialize, &_ModelStandardDirector_ClassInfo_, allocate$ModelStandardDirector);
+	$FieldInfo fieldInfos$$[] = {
+		{"performers", "[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardDirector, performers)},
+		{"player", "Lcom/sun/media/sound/ModelDirectedPlayer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardDirector, player)},
+		{"noteOnUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardDirector, noteOnUsed)},
+		{"noteOffUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardDirector, noteOffUsed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelDirectedPlayer;)V", nullptr, $PUBLIC, $method(ModelStandardDirector, init$, void, $ModelPerformerArray*, $ModelDirectedPlayer*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModelStandardDirector, close, void)},
+		{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardDirector, noteOff, void, int32_t, int32_t)},
+		{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardDirector, noteOn, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelStandardDirector",
+		"java.lang.Object",
+		"com.sun.media.sound.ModelDirector",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelStandardDirector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelStandardDirector);
+	});
 	return class$;
 }
 

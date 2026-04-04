@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/ntlm/NTLMClient.h>
-
 #include <com/sun/security/ntlm/Client.h>
 #include <com/sun/security/ntlm/NTLMException.h>
 #include <java/io/IOException.h>
@@ -36,7 +35,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
@@ -51,51 +49,13 @@ namespace com {
 			namespace sasl {
 				namespace ntlm {
 
-$FieldInfo _NTLMClient_FieldInfo_[] = {
-	{"NTLM_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_VERSION)},
-	{"NTLM_RANDOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_RANDOM)},
-	{"NTLM_DOMAIN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_DOMAIN)},
-	{"NTLM_HOSTNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_HOSTNAME)},
-	{"client", "Lcom/sun/security/ntlm/Client;", nullptr, $PRIVATE | $FINAL, $field(NTLMClient, client)},
-	{"mech", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NTLMClient, mech)},
-	{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $FINAL, $field(NTLMClient, random)},
-	{"step", "I", nullptr, $PRIVATE, $field(NTLMClient, step)},
-	{}
-};
-
-$MethodInfo _NTLMClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(NTLMClient, init$, void, $String*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(NTLMClient, dispose, void), "javax.security.sasl.SaslException"},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, evaluateChallenge, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMClient, getMechanismName, $String*)},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NTLMClient, getNegotiatedProperty, $Object*, $String*)},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMClient, hasInitialResponse, bool)},
-	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMClient, isComplete, bool)},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$ClassInfo _NTLMClient_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.ntlm.NTLMClient",
-	"java.lang.Object",
-	"javax.security.sasl.SaslClient",
-	_NTLMClient_FieldInfo_,
-	_NTLMClient_MethodInfo_
-};
-
-$Object* allocate$NTLMClient($Class* clazz) {
-	return $of($alloc(NTLMClient));
-}
-
 $String* NTLMClient::NTLM_VERSION = nullptr;
 $String* NTLMClient::NTLM_RANDOM = nullptr;
 $String* NTLMClient::NTLM_DOMAIN = nullptr;
 $String* NTLMClient::NTLM_HOSTNAME = nullptr;
 
 void NTLMClient::init$($String* mech, $String* authzid, $String* protocol, $String* serverName, $Map* props, $CallbackHandler* cbh) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->step = 0;
 	$set(this, mech, mech);
 	$var($String, version, nullptr);
@@ -120,9 +80,9 @@ void NTLMClient::init$($String* mech, $String* authzid, $String* protocol, $Stri
 	$var($PasswordCallback, pcb, $new($PasswordCallback, "Password: "_s, false));
 	try {
 		$nc(cbh)->handle($$new($CallbackArray, {
-			static_cast<$Callback*>(dcb),
-			static_cast<$Callback*>(ncb),
-			static_cast<$Callback*>(pcb)
+			dcb,
+			ncb,
+			pcb
 		}));
 	} catch ($UnsupportedCallbackException& e) {
 		$throwNew($SaslException, "NTLM: Cannot perform callback to acquire realm, username or password"_s, e);
@@ -131,7 +91,7 @@ void NTLMClient::init$($String* mech, $String* authzid, $String* protocol, $Stri
 	}
 	if (hostname == nullptr) {
 		try {
-			$assign(hostname, $nc($($InetAddress::getLocalHost()))->getCanonicalHostName());
+			$assign(hostname, $$nc($InetAddress::getLocalHost())->getCanonicalHostName());
 		} catch ($UnknownHostException& e) {
 			$assign(hostname, "localhost"_s);
 		}
@@ -177,40 +137,30 @@ $Object* NTLMClient::getNegotiatedProperty($String* propName) {
 		$var($String, s7356$, propName);
 		int32_t tmp7356$ = -1;
 		switch ($nc(s7356$)->hashCode()) {
-		case (int32_t)0xA3B21A61:
-			{
-				if (s7356$->equals("javax.security.sasl.qop"_s)) {
-					tmp7356$ = 0;
-				}
-				break;
+		case (int32_t)0xa3b21a61:
+			if (s7356$->equals("javax.security.sasl.qop"_s)) {
+				tmp7356$ = 0;
 			}
-		case 0x00AFECA3:
-			{
-				if (s7356$->equals("com.sun.security.sasl.ntlm.domain"_s)) {
-					tmp7356$ = 1;
-				}
-				break;
+			break;
+		case 0x00afeca3:
+			if (s7356$->equals("com.sun.security.sasl.ntlm.domain"_s)) {
+				tmp7356$ = 1;
 			}
+			break;
 		}
 		switch (tmp7356$) {
 		case 0:
-			{
-				return $of("auth"_s);
-			}
+			return $of("auth"_s);
 		case 1:
-			{
-				return $of($nc(this->client)->getDomain());
-			}
+			return $of(this->client->getDomain());
 		default:
-			{
-				return $of(nullptr);
-			}
+			return nullptr;
 		}
 	}
 }
 
 void NTLMClient::dispose() {
-	$nc(this->client)->dispose();
+	this->client->dispose();
 }
 
 bool NTLMClient::hasInitialResponse() {
@@ -220,12 +170,12 @@ bool NTLMClient::hasInitialResponse() {
 $bytes* NTLMClient::evaluateChallenge($bytes* challenge) {
 	++this->step;
 	if (this->step == 1) {
-		return $nc(this->client)->type1();
+		return this->client->type1();
 	} else {
 		try {
 			$var($bytes, nonce, $new($bytes, 8));
 			$nc(this->random)->nextBytes(nonce);
-			return $nc(this->client)->type3(challenge, nonce);
+			return this->client->type3(challenge, nonce);
 		} catch ($NTLMException& ex) {
 			$throwNew($SaslException, "Type3 creation failed"_s, ex);
 		}
@@ -236,7 +186,7 @@ $bytes* NTLMClient::evaluateChallenge($bytes* challenge) {
 NTLMClient::NTLMClient() {
 }
 
-void clinit$NTLMClient($Class* class$) {
+void NTLMClient::clinit$($Class* clazz) {
 	$assignStatic(NTLMClient::NTLM_VERSION, "com.sun.security.sasl.ntlm.version"_s);
 	$assignStatic(NTLMClient::NTLM_RANDOM, "com.sun.security.sasl.ntlm.random"_s);
 	$assignStatic(NTLMClient::NTLM_DOMAIN, "com.sun.security.sasl.ntlm.domain"_s);
@@ -244,7 +194,40 @@ void clinit$NTLMClient($Class* class$) {
 }
 
 $Class* NTLMClient::load$($String* name, bool initialize) {
-	$loadClass(NTLMClient, name, initialize, &_NTLMClient_ClassInfo_, clinit$NTLMClient, allocate$NTLMClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"NTLM_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_VERSION)},
+		{"NTLM_RANDOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_RANDOM)},
+		{"NTLM_DOMAIN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_DOMAIN)},
+		{"NTLM_HOSTNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NTLMClient, NTLM_HOSTNAME)},
+		{"client", "Lcom/sun/security/ntlm/Client;", nullptr, $PRIVATE | $FINAL, $field(NTLMClient, client)},
+		{"mech", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NTLMClient, mech)},
+		{"random", "Ljava/util/Random;", nullptr, $PRIVATE | $FINAL, $field(NTLMClient, random)},
+		{"step", "I", nullptr, $PRIVATE, $field(NTLMClient, step)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(NTLMClient, init$, void, $String*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(NTLMClient, dispose, void), "javax.security.sasl.SaslException"},
+		{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, evaluateChallenge, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
+		{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMClient, getMechanismName, $String*)},
+		{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NTLMClient, getNegotiatedProperty, $Object*, $String*)},
+		{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMClient, hasInitialResponse, bool)},
+		{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMClient, isComplete, bool)},
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.ntlm.NTLMClient",
+		"java.lang.Object",
+		"javax.security.sasl.SaslClient",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NTLMClient, name, initialize, &classInfo$$, NTLMClient::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NTLMClient);
+	});
 	return class$;
 }
 

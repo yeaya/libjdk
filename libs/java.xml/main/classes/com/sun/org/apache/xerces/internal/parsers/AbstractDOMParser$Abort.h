@@ -26,13 +26,17 @@ class AbstractDOMParser$Abort : public ::java::lang::RuntimeException {
 	$class(AbstractDOMParser$Abort, 0, ::java::lang::RuntimeException)
 public:
 	AbstractDOMParser$Abort();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Throwable* fillInStackTrace() override;
-	static const int64_t serialVersionUID = (int64_t)0x176C71B7E417BE2A;
+	static const int64_t serialVersionUID = (int64_t)0x176c71b7e417be2a;
 	static ::com::sun::org::apache::xerces::internal::parsers::AbstractDOMParser$Abort* INSTANCE;
 	AbstractDOMParser$Abort(const AbstractDOMParser$Abort& e);
 	virtual void throw$() override;
-	inline AbstractDOMParser$Abort* operator ->() {
+	inline AbstractDOMParser$Abort* operator ->() const {
+		return (AbstractDOMParser$Abort*)throwing$;
+	}
+	inline operator AbstractDOMParser$Abort*() const {
 		return (AbstractDOMParser$Abort*)throwing$;
 	}
 };

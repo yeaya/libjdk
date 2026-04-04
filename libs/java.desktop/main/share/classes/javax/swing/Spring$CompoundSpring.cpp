@@ -1,5 +1,4 @@
 #include <javax/swing/Spring$CompoundSpring.h>
-
 #include <javax/swing/Spring$AbstractSpring.h>
 #include <javax/swing/Spring$StaticSpring.h>
 #include <javax/swing/Spring.h>
@@ -18,51 +17,6 @@ using $SpringLayout = ::javax::swing::SpringLayout;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _Spring$CompoundSpring_FieldInfo_[] = {
-	{"s1", "Ljavax/swing/Spring;", nullptr, $PROTECTED, $field(Spring$CompoundSpring, s1)},
-	{"s2", "Ljavax/swing/Spring;", nullptr, $PROTECTED, $field(Spring$CompoundSpring, s2)},
-	{}
-};
-
-$MethodInfo _Spring$CompoundSpring_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(Spring$CompoundSpring, init$, void, $Spring*, $Spring*)},
-	{"clear", "()V", nullptr, $PROTECTED, $virtualMethod(Spring$CompoundSpring, clear, void)},
-	{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getMaximumValue, int32_t)},
-	{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getMinimumValue, int32_t)},
-	{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getPreferredValue, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getValue, int32_t)},
-	{"isCyclic", "(Ljavax/swing/SpringLayout;)Z", nullptr, 0, $virtualMethod(Spring$CompoundSpring, isCyclic, bool, $SpringLayout*)},
-	{"op", "(II)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Spring$CompoundSpring, op, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Spring$CompoundSpring_InnerClassesInfo_[] = {
-	{"javax.swing.Spring$CompoundSpring", "javax.swing.Spring", "CompoundSpring", $STATIC | $ABSTRACT},
-	{"javax.swing.Spring$StaticSpring", "javax.swing.Spring", "StaticSpring", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Spring$CompoundSpring_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.Spring$CompoundSpring",
-	"javax.swing.Spring$StaticSpring",
-	nullptr,
-	_Spring$CompoundSpring_FieldInfo_,
-	_Spring$CompoundSpring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spring$CompoundSpring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Spring"
-};
-
-$Object* allocate$Spring$CompoundSpring($Class* clazz) {
-	return $of($alloc(Spring$CompoundSpring));
-}
 
 void Spring$CompoundSpring::init$($Spring* s1, $Spring* s2) {
 	$Spring$StaticSpring::init$($Spring::UNSET);
@@ -115,14 +69,53 @@ int32_t Spring$CompoundSpring::getValue() {
 
 bool Spring$CompoundSpring::isCyclic($SpringLayout* l) {
 	bool var$0 = $nc(l)->isCyclic(this->s1);
-	return var$0 || $nc(l)->isCyclic(this->s2);
+	return var$0 || l->isCyclic(this->s2);
 }
 
 Spring$CompoundSpring::Spring$CompoundSpring() {
 }
 
 $Class* Spring$CompoundSpring::load$($String* name, bool initialize) {
-	$loadClass(Spring$CompoundSpring, name, initialize, &_Spring$CompoundSpring_ClassInfo_, allocate$Spring$CompoundSpring);
+	$FieldInfo fieldInfos$$[] = {
+		{"s1", "Ljavax/swing/Spring;", nullptr, $PROTECTED, $field(Spring$CompoundSpring, s1)},
+		{"s2", "Ljavax/swing/Spring;", nullptr, $PROTECTED, $field(Spring$CompoundSpring, s2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(Spring$CompoundSpring, init$, void, $Spring*, $Spring*)},
+		{"clear", "()V", nullptr, $PROTECTED, $virtualMethod(Spring$CompoundSpring, clear, void)},
+		{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getMaximumValue, int32_t)},
+		{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getMinimumValue, int32_t)},
+		{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getPreferredValue, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, getValue, int32_t)},
+		{"isCyclic", "(Ljavax/swing/SpringLayout;)Z", nullptr, 0, $virtualMethod(Spring$CompoundSpring, isCyclic, bool, $SpringLayout*)},
+		{"op", "(II)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Spring$CompoundSpring, op, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Spring$CompoundSpring, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Spring$CompoundSpring", "javax.swing.Spring", "CompoundSpring", $STATIC | $ABSTRACT},
+		{"javax.swing.Spring$StaticSpring", "javax.swing.Spring", "StaticSpring", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.Spring$CompoundSpring",
+		"javax.swing.Spring$StaticSpring",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Spring"
+	};
+	$loadClass(Spring$CompoundSpring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spring$CompoundSpring);
+	});
 	return class$;
 }
 

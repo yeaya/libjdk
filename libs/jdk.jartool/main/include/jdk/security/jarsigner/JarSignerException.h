@@ -20,10 +20,13 @@ class $import JarSignerException : public ::java::lang::RuntimeException {
 public:
 	JarSignerException();
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xBE53C9A45B803AA6;
+	static const int64_t serialVersionUID = (int64_t)0xbe53c9a45b803aa6;
 	JarSignerException(const JarSignerException& e);
 	virtual void throw$() override;
-	inline JarSignerException* operator ->() {
+	inline JarSignerException* operator ->() const {
+		return (JarSignerException*)throwing$;
+	}
+	inline operator JarSignerException*() const {
 		return (JarSignerException*)throwing$;
 	}
 };

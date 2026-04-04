@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSAllCM.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaException.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSConstraints.h>
@@ -39,46 +38,6 @@ namespace com {
 							namespace xs {
 								namespace models {
 
-$FieldInfo _XSAllCM_FieldInfo_[] = {
-	{"STATE_START", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAllCM, STATE_START)},
-	{"STATE_VALID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAllCM, STATE_VALID)},
-	{"STATE_CHILD", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAllCM, STATE_CHILD)},
-	{"fAllElements", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $field(XSAllCM, fAllElements)},
-	{"fIsOptionalElement", "[Z", nullptr, $PRIVATE, $field(XSAllCM, fIsOptionalElement)},
-	{"fHasOptionalContent", "Z", nullptr, $PRIVATE, $field(XSAllCM, fHasOptionalContent)},
-	{"fNumElements", "I", nullptr, $PRIVATE, $field(XSAllCM, fNumElements)},
-	{}
-};
-
-$MethodInfo _XSAllCM_MethodInfo_[] = {
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(XSAllCM, init$, void, bool, int32_t)},
-	{"addElement", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;Z)V", nullptr, $PUBLIC, $virtualMethod(XSAllCM, addElement, void, $XSElementDecl*, bool)},
-	{"checkMinMaxBounds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XSAllCM, checkMinMaxBounds, $List*)},
-	{"checkUniqueParticleAttribution", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Z", nullptr, $PUBLIC, $virtualMethod(XSAllCM, checkUniqueParticleAttribution, bool, $SubstitutionGroupHandler*), "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException"},
-	{"endContentModel", "([I)Z", nullptr, $PUBLIC, $virtualMethod(XSAllCM, endContentModel, bool, $ints*)},
-	{"findMatchingDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSAllCM, findMatchingDecl, $Object*, $QName*, $SubstitutionGroupHandler*)},
-	{"getTermName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAllCM, getTermName, $String*, int32_t)},
-	{"isCompactedForUPA", "()Z", nullptr, $PUBLIC, $virtualMethod(XSAllCM, isCompactedForUPA, bool)},
-	{"occurenceInfo", "([I)[I", nullptr, $PUBLIC, $virtualMethod(XSAllCM, occurenceInfo, $ints*, $ints*)},
-	{"oneTransition", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAllCM, oneTransition, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*)},
-	{"startContentModel", "()[I", nullptr, $PUBLIC, $virtualMethod(XSAllCM, startContentModel, $ints*)},
-	{"whatCanGoHere", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSAllCM, whatCanGoHere, $List*, $ints*)},
-	{}
-};
-
-$ClassInfo _XSAllCM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSAllCM",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMValidator",
-	_XSAllCM_FieldInfo_,
-	_XSAllCM_MethodInfo_
-};
-
-$Object* allocate$XSAllCM($Class* clazz) {
-	return $of($alloc(XSAllCM));
-}
-
 void XSAllCM::init$(bool hasOptionalContent, int32_t size) {
 	this->fHasOptionalContent = false;
 	this->fNumElements = 0;
@@ -109,15 +68,15 @@ $Object* XSAllCM::findMatchingDecl($QName* elementName, $SubstitutionGroupHandle
 			break;
 		}
 	}
-	return $of(matchingDecl);
+	return matchingDecl;
 }
 
 $Object* XSAllCM::oneTransition($QName* elementName, $ints* currentState, $SubstitutionGroupHandler* subGroupHandler) {
 	if ($nc(currentState)->get(0) < 0) {
 		currentState->set(0, $XSCMValidator::SUBSEQUENT_ERROR);
-		return $of(findMatchingDecl(elementName, subGroupHandler));
+		return findMatchingDecl(elementName, subGroupHandler);
 	}
-	$nc(currentState)->set(0, XSAllCM::STATE_CHILD);
+	currentState->set(0, XSAllCM::STATE_CHILD);
 	$var($Object, matchingDecl, nullptr);
 	for (int32_t i = 0; i < this->fNumElements; ++i) {
 		if (currentState->get(i + 1) != XSAllCM::STATE_START) {
@@ -126,11 +85,11 @@ $Object* XSAllCM::oneTransition($QName* elementName, $ints* currentState, $Subst
 		$assign(matchingDecl, $nc(subGroupHandler)->getMatchingElemDecl(elementName, $nc(this->fAllElements)->get(i)));
 		if (matchingDecl != nullptr) {
 			currentState->set(i + 1, XSAllCM::STATE_VALID);
-			return $of(matchingDecl);
+			return matchingDecl;
 		}
 	}
 	currentState->set(0, $XSCMValidator::FIRST_ERROR);
-	return $of(findMatchingDecl(elementName, subGroupHandler));
+	return findMatchingDecl(elementName, subGroupHandler);
 }
 
 bool XSAllCM::endContentModel($ints* currentState) {
@@ -150,13 +109,13 @@ bool XSAllCM::endContentModel($ints* currentState) {
 }
 
 bool XSAllCM::checkUniqueParticleAttribution($SubstitutionGroupHandler* subGroupHandler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->fNumElements; ++i) {
 		for (int32_t j = i + 1; j < this->fNumElements; ++j) {
 			if ($XSConstraints::overlapUPA($nc(this->fAllElements)->get(i), $nc(this->fAllElements)->get(j), subGroupHandler)) {
 				$throwNew($XMLSchemaException, "cos-nonambig"_s, $$new($ObjectArray, {
-					$($of($nc($nc(this->fAllElements)->get(i))->toString())),
-					$($of($nc($nc(this->fAllElements)->get(j))->toString()))
+					$($nc($nc(this->fAllElements)->get(i))->toString()),
+					$($nc($nc(this->fAllElements)->get(j))->toString())
 				}));
 			}
 		}
@@ -194,7 +153,42 @@ XSAllCM::XSAllCM() {
 }
 
 $Class* XSAllCM::load$($String* name, bool initialize) {
-	$loadClass(XSAllCM, name, initialize, &_XSAllCM_ClassInfo_, allocate$XSAllCM);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATE_START", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAllCM, STATE_START)},
+		{"STATE_VALID", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAllCM, STATE_VALID)},
+		{"STATE_CHILD", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSAllCM, STATE_CHILD)},
+		{"fAllElements", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $field(XSAllCM, fAllElements)},
+		{"fIsOptionalElement", "[Z", nullptr, $PRIVATE, $field(XSAllCM, fIsOptionalElement)},
+		{"fHasOptionalContent", "Z", nullptr, $PRIVATE, $field(XSAllCM, fHasOptionalContent)},
+		{"fNumElements", "I", nullptr, $PRIVATE, $field(XSAllCM, fNumElements)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(XSAllCM, init$, void, bool, int32_t)},
+		{"addElement", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;Z)V", nullptr, $PUBLIC, $virtualMethod(XSAllCM, addElement, void, $XSElementDecl*, bool)},
+		{"checkMinMaxBounds", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XSAllCM, checkMinMaxBounds, $List*)},
+		{"checkUniqueParticleAttribution", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Z", nullptr, $PUBLIC, $virtualMethod(XSAllCM, checkUniqueParticleAttribution, bool, $SubstitutionGroupHandler*), "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException"},
+		{"endContentModel", "([I)Z", nullptr, $PUBLIC, $virtualMethod(XSAllCM, endContentModel, bool, $ints*)},
+		{"findMatchingDecl", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(XSAllCM, findMatchingDecl, $Object*, $QName*, $SubstitutionGroupHandler*)},
+		{"getTermName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAllCM, getTermName, $String*, int32_t)},
+		{"isCompactedForUPA", "()Z", nullptr, $PUBLIC, $virtualMethod(XSAllCM, isCompactedForUPA, bool)},
+		{"occurenceInfo", "([I)[I", nullptr, $PUBLIC, $virtualMethod(XSAllCM, occurenceInfo, $ints*, $ints*)},
+		{"oneTransition", "(Lcom/sun/org/apache/xerces/internal/xni/QName;[ILcom/sun/org/apache/xerces/internal/impl/xs/SubstitutionGroupHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAllCM, oneTransition, $Object*, $QName*, $ints*, $SubstitutionGroupHandler*)},
+		{"startContentModel", "()[I", nullptr, $PUBLIC, $virtualMethod(XSAllCM, startContentModel, $ints*)},
+		{"whatCanGoHere", "([I)Ljava/util/List;", "([I)Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSAllCM, whatCanGoHere, $List*, $ints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSAllCM",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMValidator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSAllCM, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAllCM);
+	});
 	return class$;
 }
 

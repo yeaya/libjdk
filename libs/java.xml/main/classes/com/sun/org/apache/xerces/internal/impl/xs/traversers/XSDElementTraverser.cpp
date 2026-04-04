@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDElementTraverser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
@@ -84,36 +83,27 @@
 #undef VC_NONE
 
 using $ValidatedInfo = ::com::sun::org::apache::xerces::internal::impl::dv::ValidatedInfo;
-using $ValidationContext = ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext;
 using $XSSimpleType = ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType;
-using $ValidationState = ::com::sun::org::apache::xerces::internal::impl::validation::ValidationState;
 using $SchemaGrammar = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar;
-using $SchemaNamespaceSupport = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaNamespaceSupport;
 using $SchemaSymbols = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaSymbols;
 using $XSAnnotationImpl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAnnotationImpl;
 using $XSComplexTypeDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSComplexTypeDecl;
 using $XSConstraints = ::com::sun::org::apache::xerces::internal::impl::xs::XSConstraints;
-using $XSDeclarationPool = ::com::sun::org::apache::xerces::internal::impl::xs::XSDeclarationPool;
 using $XSElementDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSElementDecl;
 using $XSParticleDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSParticleDecl;
 using $XSAttributeChecker = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSAttributeChecker;
 using $XSDAbstractTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDAbstractTraverser;
-using $XSDComplexTypeTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDComplexTypeTraverser;
 using $XSDHandler = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler;
-using $XSDSimpleTypeTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDSimpleTypeTraverser;
-using $XSDUniqueOrKeyTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDUniqueOrKeyTraverser;
 using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo;
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
-using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -126,7 +116,6 @@ using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Attr = ::org::w3c::dom::Attr;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -138,45 +127,16 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$FieldInfo _XSDElementTraverser_FieldInfo_[] = {
-	{"fTempElementDecl", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PROTECTED | $FINAL, $field(XSDElementTraverser, fTempElementDecl)},
-	{"fDeferTraversingLocalElements", "Z", nullptr, 0, $field(XSDElementTraverser, fDeferTraversingLocalElements)},
-	{}
-};
-
-$MethodInfo _XSDElementTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDElementTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;ZLjava/util/Locale;)V", nullptr, 0, $virtualMethod(XSDElementTraverser, reset, void, $SymbolTable*, bool, $Locale*)},
-	{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, 0, $virtualMethod(XSDElementTraverser, traverseGlobal, $XSElementDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDElementTraverser, traverseLocal, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
-	{"traverseLocal", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;[Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XSDElementTraverser, traverseLocal, void, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*, $StringArray*)},
-	{"traverseNamedElement", "(Lorg/w3c/dom/Element;[Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ZLcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, 0, $virtualMethod(XSDElementTraverser, traverseNamedElement, $XSElementDecl*, $Element*, $ObjectArray*, $XSDocumentInfo*, $SchemaGrammar*, bool, $XSObject*)},
-	{}
-};
-
-$ClassInfo _XSDElementTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDElementTraverser",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
-	nullptr,
-	_XSDElementTraverser_FieldInfo_,
-	_XSDElementTraverser_MethodInfo_
-};
-
-$Object* allocate$XSDElementTraverser($Class* clazz) {
-	return $of($alloc(XSDElementTraverser));
-}
-
 void XSDElementTraverser::init$($XSDHandler* handler, $XSAttributeChecker* gAttrCheck) {
 	$XSDAbstractTraverser::init$(handler, gAttrCheck);
 	$set(this, fTempElementDecl, $new($XSElementDecl));
 }
 
 $XSParticleDecl* XSDElementTraverser::traverseLocal($Element* elmDecl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar, int32_t allContextFlags, $XSObject* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSParticleDecl, particle, nullptr);
 	if ($nc(this->fSchemaHandler)->fDeclPool != nullptr) {
-		$assign(particle, $nc($nc(this->fSchemaHandler)->fDeclPool)->getParticleDecl());
+		$assign(particle, this->fSchemaHandler->fDeclPool->getParticleDecl());
 	} else {
 		$assign(particle, $new($XSParticleDecl));
 	}
@@ -205,7 +165,7 @@ $XSParticleDecl* XSDElementTraverser::traverseLocal($Element* elmDecl, $XSDocume
 }
 
 void XSDElementTraverser::traverseLocal($XSParticleDecl* particle, $Element* elmDecl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar, int32_t allContextFlags, $XSObject* parent, $StringArray* localNSDecls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (localNSDecls != nullptr) {
 		$nc($nc(schemaDoc)->fNamespaceSupport)->setEffectiveContext(localNSDecls);
 	}
@@ -220,7 +180,7 @@ void XSDElementTraverser::traverseLocal($XSParticleDecl* particle, $Element* elm
 		if (refAtt != nullptr) {
 			$assign(element, $cast($XSElementDecl, $nc(this->fSchemaHandler)->getGlobalDecl(schemaDoc, $XSDHandler::ELEMENT_TYPE, refAtt, elmDecl)));
 			$var($Element, child, $DOMUtil::getFirstChildElement(elmDecl));
-			if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+			if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 				$assign(annotation, traverseAnnotationDecl(child, attrValues, false, schemaDoc));
 				$assign(child, $DOMUtil::getNextSiblingElement(child));
 			} else {
@@ -231,8 +191,8 @@ void XSDElementTraverser::traverseLocal($XSParticleDecl* particle, $Element* elm
 			}
 			if (child != nullptr) {
 				reportSchemaError("src-element.2.2"_s, $$new($ObjectArray, {
-					$of(refAtt->rawname),
-					$($of($DOMUtil::getLocalName(child)))
+					refAtt->rawname,
+					$($DOMUtil::getLocalName(child))
 				}), child);
 			}
 		} else {
@@ -253,7 +213,7 @@ void XSDElementTraverser::traverseLocal($XSParticleDecl* particle, $Element* elm
 		$var($XSObjectList, annotations, nullptr);
 		if (annotation != nullptr) {
 			$assign(annotations, $new($XSObjectListImpl));
-			$nc(($cast($XSObjectListImpl, annotations)))->addXSObject(annotation);
+			$cast($XSObjectListImpl, annotations)->addXSObject(annotation);
 		} else {
 			$init($XSObjectListImpl);
 			$assign(annotations, $XSObjectListImpl::EMPTY_LIST);
@@ -261,19 +221,17 @@ void XSDElementTraverser::traverseLocal($XSParticleDecl* particle, $Element* elm
 		$set(particle, fAnnotations, annotations);
 	} else {
 		$init($XSObjectListImpl);
-		$set(particle, fAnnotations, (element != nullptr) ? $nc(element)->fAnnotations : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST));
+		$set(particle, fAnnotations, (element != nullptr) ? element->fAnnotations : $cast($XSObjectList, $XSObjectListImpl::EMPTY_LIST));
 	}
 	$var($Long, defaultVals, $cast($Long, attrValues->get($XSAttributeChecker::ATTIDX_FROMDEFAULT)));
-	$var($XSParticleDecl, var$0, particle);
-	$var($String, var$1, $SchemaSymbols::ELT_ELEMENT);
-	$var($Element, var$2, $cast($Element, $nc(elmDecl)->getParentNode()));
-	int32_t var$3 = allContextFlags;
-	checkOccurrences(var$0, var$1, var$2, var$3, $nc(defaultVals)->longValue());
+	$var($String, var$0, $SchemaSymbols::ELT_ELEMENT);
+	$var($Element, var$1, $cast($Element, elmDecl->getParentNode()));
+	checkOccurrences(particle, var$0, var$1, allContextFlags, $nc(defaultVals)->longValue());
 	$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
 }
 
 $XSElementDecl* XSDElementTraverser::traverseGlobal($Element* elmDecl, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(elmDecl, true, schemaDoc));
 	$var($XSElementDecl, element, traverseNamedElement(elmDecl, attrValues, schemaDoc, grammar, true, nullptr));
 	$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
@@ -281,7 +239,7 @@ $XSElementDecl* XSDElementTraverser::traverseGlobal($Element* elmDecl, $XSDocume
 }
 
 $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $ObjectArray* attrValues, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar, bool isGlobal, $XSObject* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XSAttributeChecker);
 	$var($Boolean, abstractAtt, $cast($Boolean, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_ABSTRACT)));
 	$var($XInt, blockAtt, $cast($XInt, attrValues->get($XSAttributeChecker::ATTIDX_BLOCK)));
@@ -295,7 +253,7 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 	$var($QName, typeAtt, $cast($QName, attrValues->get($XSAttributeChecker::ATTIDX_TYPE)));
 	$var($XSElementDecl, element, nullptr);
 	if ($nc(this->fSchemaHandler)->fDeclPool != nullptr) {
-		$assign(element, $nc($nc(this->fSchemaHandler)->fDeclPool)->getElementDecl());
+		$assign(element, this->fSchemaHandler->fDeclPool->getElementDecl());
 	} else {
 		$assign(element, $new($XSElementDecl));
 	}
@@ -327,16 +285,16 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 			element->fBlock &= (uint16_t)(($XSConstants::DERIVATION_EXTENSION | $XSConstants::DERIVATION_RESTRICTION) | $XSConstants::DERIVATION_SUBSTITUTION);
 		}
 	} else {
-		$nc(element)->fBlock = $nc(blockAtt)->shortValue();
+		$nc(element)->fBlock = blockAtt->shortValue();
 		if ((element->fBlock != $XSConstants::DERIVATION_ALL) && ((element->fBlock | $XSConstants::DERIVATION_EXTENSION_RESTRICTION_SUBSTITION) != $XSConstants::DERIVATION_EXTENSION_RESTRICTION_SUBSTITION)) {
 			reportSchemaError("s4s-att-invalid-value"_s, $$new($ObjectArray, {
-				$of(element->fName),
-				$of("block"_s),
-				$of("must be (#all | List of (extension | restriction | substitution))"_s)
+				element->fName,
+				"block"_s,
+				"must be (#all | List of (extension | restriction | substitution))"_s
 			}), elmDecl);
 		}
 	}
-	$nc(element)->fFinal = finalAtt == nullptr ? $nc(schemaDoc)->fFinalDefault : $nc(finalAtt)->shortValue();
+	$nc(element)->fFinal = finalAtt == nullptr ? $nc(schemaDoc)->fFinalDefault : finalAtt->shortValue();
 	element->fFinal &= (uint16_t)($XSConstants::DERIVATION_EXTENSION | $XSConstants::DERIVATION_RESTRICTION);
 	if ($nc(nillableAtt)->booleanValue()) {
 		element->setIsNillable();
@@ -346,11 +304,11 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 	}
 	if (fixedAtt != nullptr) {
 		$set(element, fDefault, $new($ValidatedInfo));
-		$set($nc(element->fDefault), normalizedValue, fixedAtt);
+		$set(element->fDefault, normalizedValue, fixedAtt);
 		element->setConstraintType($XSConstants::VC_FIXED);
 	} else if (defaultAtt != nullptr) {
 		$set(element, fDefault, $new($ValidatedInfo));
-		$set($nc(element->fDefault), normalizedValue, defaultAtt);
+		$set(element->fDefault, normalizedValue, defaultAtt);
 		element->setConstraintType($XSConstants::VC_DEFAULT);
 	} else {
 		element->setConstraintType($XSConstants::VC_NONE);
@@ -361,7 +319,7 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 	$var($Element, child, $DOMUtil::getFirstChildElement(elmDecl));
 	$var($XSAnnotationImpl, annotation, nullptr);
 	$init($SchemaSymbols);
-	if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		$assign(annotation, traverseAnnotationDecl(child, attrValues, false, schemaDoc));
 		$assign(child, $DOMUtil::getNextSiblingElement(child));
 	} else {
@@ -373,7 +331,7 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 	$var($XSObjectList, annotations, nullptr);
 	if (annotation != nullptr) {
 		$assign(annotations, $new($XSObjectListImpl));
-		$nc(($cast($XSObjectListImpl, annotations)))->addXSObject(annotation);
+		$cast($XSObjectListImpl, annotations)->addXSObject(annotation);
 	} else {
 		$init($XSObjectListImpl);
 		$assign(annotations, $XSObjectListImpl::EMPTY_LIST);
@@ -387,12 +345,10 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 			$assign(elementType, $nc($nc(this->fSchemaHandler)->fComplexTypeTraverser)->traverseLocal(child, schemaDoc, grammar));
 			haveAnonType = true;
 			$assign(child, $DOMUtil::getNextSiblingElement(child));
-		} else {
-			if (childName->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
-				$assign(elementType, $nc($nc(this->fSchemaHandler)->fSimpleTypeTraverser)->traverseLocal(child, schemaDoc, grammar));
-				haveAnonType = true;
-				$assign(child, $DOMUtil::getNextSiblingElement(child));
-			}
+		} else if (childName->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
+			$assign(elementType, $nc($nc(this->fSchemaHandler)->fSimpleTypeTraverser)->traverseLocal(child, schemaDoc, grammar));
+			haveAnonType = true;
+			$assign(child, $DOMUtil::getNextSiblingElement(child));
 		}
 	}
 	if (elementType == nullptr && typeAtt != nullptr) {
@@ -402,7 +358,7 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 		}
 	}
 	if (elementType == nullptr && element->fSubGroup != nullptr) {
-		$assign(elementType, $nc(element->fSubGroup)->fType);
+		$assign(elementType, element->fSubGroup->fType);
 	}
 	if (elementType == nullptr) {
 		$init($SchemaGrammar);
@@ -415,26 +371,24 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 			bool var$0 = child != nullptr;
 			if (var$0) {
 				bool var$2 = $nc(childName)->equals($SchemaSymbols::ELT_KEY);
-				bool var$1 = var$2 || $nc(childName)->equals($SchemaSymbols::ELT_KEYREF);
-				var$0 = (var$1 || $nc(childName)->equals($SchemaSymbols::ELT_UNIQUE));
+				bool var$1 = var$2 || childName->equals($SchemaSymbols::ELT_KEYREF);
+				var$0 = var$1 || childName->equals($SchemaSymbols::ELT_UNIQUE);
 			}
 			if (!(var$0)) {
 				break;
 			}
 			{
-				bool var$3 = childName->equals($SchemaSymbols::ELT_KEY);
+				bool var$3 = $nc(childName)->equals($SchemaSymbols::ELT_KEY);
 				if (var$3 || childName->equals($SchemaSymbols::ELT_UNIQUE)) {
 					$DOMUtil::setHidden(child, $nc(this->fSchemaHandler)->fHiddenNodes);
 					$nc($nc(this->fSchemaHandler)->fUniqueOrKeyTraverser)->traverse(child, element, schemaDoc, grammar);
-					if ($nc($($DOMUtil::getAttrValue(child, $SchemaSymbols::ATT_NAME)))->length() != 0) {
-						$var($String, var$4, (schemaDoc->fTargetNamespace == nullptr) ? $str({","_s, $($DOMUtil::getAttrValue(child, $SchemaSymbols::ATT_NAME))}) : $str({schemaDoc->fTargetNamespace, ","_s, $($DOMUtil::getAttrValue(child, $SchemaSymbols::ATT_NAME))}));
+					if ($$nc($DOMUtil::getAttrValue(child, $SchemaSymbols::ATT_NAME))->length() != 0) {
+						$var($String, var$4, ($nc(schemaDoc)->fTargetNamespace == nullptr) ? $str({","_s, $($DOMUtil::getAttrValue(child, $SchemaSymbols::ATT_NAME))}) : $str({schemaDoc->fTargetNamespace, ","_s, $($DOMUtil::getAttrValue(child, $SchemaSymbols::ATT_NAME))}));
 						$var($Map, var$5, $nc(this->fSchemaHandler)->getIDRegistry());
-						$nc(this->fSchemaHandler)->checkForDuplicateNames(var$4, $XSDHandler::ATTRIBUTE_TYPE, var$5, $($nc(this->fSchemaHandler)->getIDRegistry_sub()), child, schemaDoc);
+						$nc(this->fSchemaHandler)->checkForDuplicateNames(var$4, $XSDHandler::ATTRIBUTE_TYPE, var$5, $(this->fSchemaHandler->getIDRegistry_sub()), child, schemaDoc);
 					}
-				} else {
-					if (childName->equals($SchemaSymbols::ELT_KEYREF)) {
-						$nc(this->fSchemaHandler)->storeKeyRef(child, schemaDoc, element);
-					}
+				} else if (childName->equals($SchemaSymbols::ELT_KEYREF)) {
+					$nc(this->fSchemaHandler)->storeKeyRef(child, schemaDoc, element);
 				}
 				$assign(child, $DOMUtil::getNextSiblingElement(child));
 				if (child != nullptr) {
@@ -446,8 +400,8 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 	if (nameAtt == nullptr) {
 		if (isGlobal) {
 			reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-				$of($SchemaSymbols::ELT_ELEMENT),
-				$of($SchemaSymbols::ATT_NAME)
+				$SchemaSymbols::ELT_ELEMENT,
+				$SchemaSymbols::ATT_NAME
 			}), elmDecl);
 		} else {
 			reportSchemaError("src-element.2.1"_s, nullptr, elmDecl);
@@ -457,47 +411,47 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 	}
 	if (child != nullptr) {
 		reportSchemaError("s4s-elt-must-match.1"_s, $$new($ObjectArray, {
-			$of(nameAtt),
-			$of("(annotation?, (simpleType | complexType)?, (unique | key | keyref)*))"_s),
-			$($of($DOMUtil::getLocalName(child)))
+			nameAtt,
+			"(annotation?, (simpleType | complexType)?, (unique | key | keyref)*))"_s,
+			$($DOMUtil::getLocalName(child))
 		}), child);
 	}
 	if (defaultAtt != nullptr && fixedAtt != nullptr) {
-		reportSchemaError("src-element.1"_s, $$new($ObjectArray, {$of(nameAtt)}), elmDecl);
+		reportSchemaError("src-element.1"_s, $$new($ObjectArray, {nameAtt}), elmDecl);
 	}
 	if (haveAnonType && (typeAtt != nullptr)) {
-		reportSchemaError("src-element.3"_s, $$new($ObjectArray, {$of(nameAtt)}), elmDecl);
+		reportSchemaError("src-element.3"_s, $$new($ObjectArray, {nameAtt}), elmDecl);
 	}
 	checkNotationType(nameAtt, elementType, elmDecl);
 	if (element->fDefault != nullptr) {
-		$nc(this->fValidationState)->setNamespaceSupport(schemaDoc->fNamespaceSupport);
+		$nc(this->fValidationState)->setNamespaceSupport($nc(schemaDoc)->fNamespaceSupport);
 		if ($XSConstraints::ElementDefaultValidImmediate(element->fType, $nc(element->fDefault)->normalizedValue, this->fValidationState, element->fDefault) == nullptr) {
 			reportSchemaError("e-props-correct.2"_s, $$new($ObjectArray, {
-				$of(nameAtt),
-				$of($nc(element->fDefault)->normalizedValue)
+				nameAtt,
+				$nc(element->fDefault)->normalizedValue
 			}), elmDecl);
 			$set(element, fDefault, nullptr);
 			element->setConstraintType($XSConstants::VC_NONE);
 		}
 	}
 	if (element->fSubGroup != nullptr) {
-		if (!$XSConstraints::checkTypeDerivationOk(element->fType, $nc(element->fSubGroup)->fType, $nc(element->fSubGroup)->fFinal)) {
+		if (!$XSConstraints::checkTypeDerivationOk(element->fType, element->fSubGroup->fType, element->fSubGroup->fFinal)) {
 			reportSchemaError("e-props-correct.4"_s, $$new($ObjectArray, {
-				$of(nameAtt),
-				$of($$str({$nc(subGroupAtt)->prefix, ":"_s, subGroupAtt->localpart}))
+				nameAtt,
+				$$str({$nc(subGroupAtt)->prefix, ":"_s, $nc(subGroupAtt)->localpart})
 			}), elmDecl);
 			$set(element, fSubGroup, nullptr);
 		}
 	}
 	if (element->fDefault != nullptr) {
 		bool var$7 = $nc(elementType)->getTypeCategory() == $XSTypeDefinition::SIMPLE_TYPE;
-		bool var$6 = (var$7 && $nc(($cast($XSSimpleType, elementType)))->isIDType());
+		bool var$6 = var$7 && $cast($XSSimpleType, elementType)->isIDType();
 		if (!var$6) {
-			bool var$8 = $nc(elementType)->getTypeCategory() == $XSTypeDefinition::COMPLEX_TYPE;
-			var$6 = (var$8 && $nc(($cast($XSComplexTypeDecl, elementType)))->containsTypeID());
+			bool var$8 = elementType->getTypeCategory() == $XSTypeDefinition::COMPLEX_TYPE;
+			var$6 = var$8 && $cast($XSComplexTypeDecl, elementType)->containsTypeID();
 		}
 		if (var$6) {
-			reportSchemaError("e-props-correct.5"_s, $$new($ObjectArray, {$of(element->fName)}), elmDecl);
+			reportSchemaError("e-props-correct.5"_s, $$new($ObjectArray, {element->fName}), elmDecl);
 			$set(element, fDefault, nullptr);
 			element->setConstraintType($XSConstants::VC_NONE);
 		}
@@ -519,7 +473,7 @@ $XSElementDecl* XSDElementTraverser::traverseNamedElement($Element* elmDecl, $Ob
 			if (element2 != nullptr) {
 				$assign(element, element2);
 			}
-			$nc(this->fSchemaHandler)->addGlobalElementDecl(element);
+			this->fSchemaHandler->addGlobalElementDecl(element);
 		}
 	}
 	return element;
@@ -534,7 +488,31 @@ XSDElementTraverser::XSDElementTraverser() {
 }
 
 $Class* XSDElementTraverser::load$($String* name, bool initialize) {
-	$loadClass(XSDElementTraverser, name, initialize, &_XSDElementTraverser_ClassInfo_, allocate$XSDElementTraverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"fTempElementDecl", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PROTECTED | $FINAL, $field(XSDElementTraverser, fTempElementDecl)},
+		{"fDeferTraversingLocalElements", "Z", nullptr, 0, $field(XSDElementTraverser, fDeferTraversingLocalElements)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDElementTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;ZLjava/util/Locale;)V", nullptr, 0, $virtualMethod(XSDElementTraverser, reset, void, $SymbolTable*, bool, $Locale*)},
+		{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, 0, $virtualMethod(XSDElementTraverser, traverseGlobal, $XSElementDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDElementTraverser, traverseLocal, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*)},
+		{"traverseLocal", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ILcom/sun/org/apache/xerces/internal/xs/XSObject;[Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XSDElementTraverser, traverseLocal, void, $XSParticleDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*, int32_t, $XSObject*, $StringArray*)},
+		{"traverseNamedElement", "(Lorg/w3c/dom/Element;[Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;ZLcom/sun/org/apache/xerces/internal/xs/XSObject;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, 0, $virtualMethod(XSDElementTraverser, traverseNamedElement, $XSElementDecl*, $Element*, $ObjectArray*, $XSDocumentInfo*, $SchemaGrammar*, bool, $XSObject*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDElementTraverser",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractTraverser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSDElementTraverser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDElementTraverser);
+	});
 	return class$;
 }
 

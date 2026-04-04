@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TransportImpl$SendTask$2.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -26,56 +25,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace websocket {
-
-$FieldInfo _TransportImpl$SendTask$2_FieldInfo_[] = {
-	{"this$1", "Ljdk/internal/net/http/websocket/TransportImpl$SendTask;", nullptr, $FINAL | $SYNTHETIC, $field(TransportImpl$SendTask$2, this$1)},
-	{}
-};
-
-$MethodInfo _TransportImpl$SendTask$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl$SendTask;)V", nullptr, 0, $method(TransportImpl$SendTask$2, init$, void, $TransportImpl$SendTask*)},
-	{"onBinary", "(Ljava/nio/ByteBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onBinary, $Object*, $ByteBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*)},
-	{"onClose", "(ILjava/nio/CharBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(ILjava/nio/CharBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onClose, $Object*, int32_t, $CharBuffer*, Object$*, $BiConsumer*, $CompletableFuture*)},
-	{"onEmpty", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onEmpty, $Object*)},
-	{"onPing", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onPing, $Object*, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*)},
-	{"onPong", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onPong, $Object*, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*)},
-	{"onPong", "(Ljava/util/function/Supplier;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onPong, $Object*, $Supplier*, Object$*, $BiConsumer*, $CompletableFuture*)},
-	{"onText", "(Ljava/nio/CharBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/CharBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onText, $Object*, $CharBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*)},
-	{}
-};
-
-$EnclosingMethodInfo _TransportImpl$SendTask$2_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.websocket.TransportImpl$SendTask",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TransportImpl$SendTask$2_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TransportImpl$SendTask", "jdk.internal.net.http.websocket.TransportImpl", "SendTask", $PRIVATE},
-	{"jdk.internal.net.http.websocket.TransportImpl$SendTask$2", nullptr, nullptr, 0},
-	{"jdk.internal.net.http.websocket.MessageQueue$QueueCallback", "jdk.internal.net.http.websocket.MessageQueue", "QueueCallback", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TransportImpl$SendTask$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.websocket.TransportImpl$SendTask$2",
-	"java.lang.Object",
-	"jdk.internal.net.http.websocket.MessageQueue$QueueCallback",
-	_TransportImpl$SendTask$2_FieldInfo_,
-	_TransportImpl$SendTask$2_MethodInfo_,
-	"Ljava/lang/Object;Ljdk/internal/net/http/websocket/MessageQueue$QueueCallback<Ljava/lang/Boolean;Ljava/lang/RuntimeException;>;",
-	&_TransportImpl$SendTask$2_EnclosingMethodInfo_,
-	_TransportImpl$SendTask$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TransportImpl"
-};
-
-$Object* allocate$TransportImpl$SendTask$2($Class* clazz) {
-	return $of($alloc(TransportImpl$SendTask$2));
-}
 
 void TransportImpl$SendTask$2::init$($TransportImpl$SendTask* this$1) {
 	$set(this, this$1, this$1);
@@ -131,7 +80,50 @@ TransportImpl$SendTask$2::TransportImpl$SendTask$2() {
 }
 
 $Class* TransportImpl$SendTask$2::load$($String* name, bool initialize) {
-	$loadClass(TransportImpl$SendTask$2, name, initialize, &_TransportImpl$SendTask$2_ClassInfo_, allocate$TransportImpl$SendTask$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljdk/internal/net/http/websocket/TransportImpl$SendTask;", nullptr, $FINAL | $SYNTHETIC, $field(TransportImpl$SendTask$2, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl$SendTask;)V", nullptr, 0, $method(TransportImpl$SendTask$2, init$, void, $TransportImpl$SendTask*)},
+		{"onBinary", "(Ljava/nio/ByteBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onBinary, $Object*, $ByteBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*)},
+		{"onClose", "(ILjava/nio/CharBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(ILjava/nio/CharBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onClose, $Object*, int32_t, $CharBuffer*, Object$*, $BiConsumer*, $CompletableFuture*)},
+		{"onEmpty", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onEmpty, $Object*)},
+		{"onPing", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onPing, $Object*, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*)},
+		{"onPong", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onPong, $Object*, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*)},
+		{"onPong", "(Ljava/util/function/Supplier;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onPong, $Object*, $Supplier*, Object$*, $BiConsumer*, $CompletableFuture*)},
+		{"onText", "(Ljava/nio/CharBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)Ljava/lang/Boolean;", "<T:Ljava/lang/Object;>(Ljava/nio/CharBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(TransportImpl$SendTask$2, onText, $Object*, $CharBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.websocket.TransportImpl$SendTask",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TransportImpl$SendTask", "jdk.internal.net.http.websocket.TransportImpl", "SendTask", $PRIVATE},
+		{"jdk.internal.net.http.websocket.TransportImpl$SendTask$2", nullptr, nullptr, 0},
+		{"jdk.internal.net.http.websocket.MessageQueue$QueueCallback", "jdk.internal.net.http.websocket.MessageQueue", "QueueCallback", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.websocket.TransportImpl$SendTask$2",
+		"java.lang.Object",
+		"jdk.internal.net.http.websocket.MessageQueue$QueueCallback",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljdk/internal/net/http/websocket/MessageQueue$QueueCallback<Ljava/lang/Boolean;Ljava/lang/RuntimeException;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TransportImpl"
+	};
+	$loadClass(TransportImpl$SendTask$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransportImpl$SendTask$2);
+	});
 	return class$;
 }
 

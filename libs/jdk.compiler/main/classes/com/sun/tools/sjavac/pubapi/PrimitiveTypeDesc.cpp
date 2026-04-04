@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/pubapi/PrimitiveTypeDesc.h>
-
 #include <com/sun/tools/javac/util/StringUtils.h>
 #include <com/sun/tools/sjavac/pubapi/TypeDesc.h>
 #include <javax/lang/model/type/TypeKind.h>
@@ -21,33 +20,8 @@ namespace com {
 			namespace sjavac {
 				namespace pubapi {
 
-$FieldInfo _PrimitiveTypeDesc_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrimitiveTypeDesc, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrimitiveTypeDesc_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(PrimitiveTypeDesc, init$, void, $TypeKind*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrimitiveTypeDesc, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PrimitiveTypeDesc_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.pubapi.PrimitiveTypeDesc",
-	"com.sun.tools.sjavac.pubapi.TypeDesc",
-	nullptr,
-	_PrimitiveTypeDesc_FieldInfo_,
-	_PrimitiveTypeDesc_MethodInfo_
-};
-
-$Object* allocate$PrimitiveTypeDesc($Class* clazz) {
-	return $of($alloc(PrimitiveTypeDesc));
-}
-
 void PrimitiveTypeDesc::init$($TypeKind* typeKind) {
 	$TypeDesc::init$(typeKind);
-	$init($TypeKind);
 	if (!$nc(typeKind)->isPrimitive() && typeKind != $TypeKind::VOID) {
 		$throwNew($IllegalArgumentException, "Only primitives or void accepted"_s);
 	}
@@ -61,7 +35,26 @@ PrimitiveTypeDesc::PrimitiveTypeDesc() {
 }
 
 $Class* PrimitiveTypeDesc::load$($String* name, bool initialize) {
-	$loadClass(PrimitiveTypeDesc, name, initialize, &_PrimitiveTypeDesc_ClassInfo_, allocate$PrimitiveTypeDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrimitiveTypeDesc, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(PrimitiveTypeDesc, init$, void, $TypeKind*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrimitiveTypeDesc, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.pubapi.PrimitiveTypeDesc",
+		"com.sun.tools.sjavac.pubapi.TypeDesc",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrimitiveTypeDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveTypeDesc);
+	});
 	return class$;
 }
 

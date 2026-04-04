@@ -1,10 +1,8 @@
 #include <java/util/prefs/Base64.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -16,40 +14,6 @@ using $Random = ::java::util::Random;
 namespace java {
 	namespace util {
 		namespace prefs {
-
-$FieldInfo _Base64_FieldInfo_[] = {
-	{"intToBase64", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, intToBase64)},
-	{"intToAltBase64", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, intToAltBase64)},
-	{"base64ToInt", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, base64ToInt)},
-	{"altBase64ToInt", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, altBase64ToInt)},
-	{}
-};
-
-$MethodInfo _Base64_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Base64, init$, void)},
-	{"altBase64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(Base64, altBase64ToByteArray, $bytes*, $String*)},
-	{"base64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(Base64, base64ToByteArray, $bytes*, $String*)},
-	{"base64ToByteArray", "(Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, base64ToByteArray, $bytes*, $String*, bool)},
-	{"base64toInt", "(C[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, base64toInt, int32_t, char16_t, $bytes*)},
-	{"byteArrayToAltBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Base64, byteArrayToAltBase64, $String*, $bytes*)},
-	{"byteArrayToBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Base64, byteArrayToBase64, $String*, $bytes*)},
-	{"byteArrayToBase64", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, byteArrayToBase64, $String*, $bytes*, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Base64_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.Base64",
-	"java.lang.Object",
-	nullptr,
-	_Base64_FieldInfo_,
-	_Base64_MethodInfo_
-};
-
-$Object* allocate$Base64($Class* clazz) {
-	return $of($alloc(Base64));
-}
 
 $chars* Base64::intToBase64 = nullptr;
 $chars* Base64::intToAltBase64 = nullptr;
@@ -71,7 +35,7 @@ $String* Base64::byteArrayToAltBase64($bytes* a) {
 
 $String* Base64::byteArrayToBase64($bytes* a, bool alternate) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t aLen = $nc(a)->length;
 	int32_t numFullGroups = aLen / 3;
 	int32_t numBytesInPartialGroup = aLen - 3 * numFullGroups;
@@ -80,24 +44,24 @@ $String* Base64::byteArrayToBase64($bytes* a, bool alternate) {
 	$var($chars, intToAlpha, alternate ? Base64::intToAltBase64 : Base64::intToBase64);
 	int32_t inCursor = 0;
 	for (int32_t i = 0; i < numFullGroups; ++i) {
-		int32_t byte0 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-		int32_t byte1 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-		int32_t byte2 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
+		int32_t byte0 = a->get(inCursor++) & 0xff;
+		int32_t byte1 = a->get(inCursor++) & 0xff;
+		int32_t byte2 = a->get(inCursor++) & 0xff;
 		result->append($nc(intToAlpha)->get(byte0 >> 2));
-		result->append($nc(intToAlpha)->get(((int32_t)((byte0 << 4) & (uint32_t)63)) | (byte1 >> 4)));
-		result->append($nc(intToAlpha)->get(((int32_t)((byte1 << 2) & (uint32_t)63)) | (byte2 >> 6)));
-		result->append($nc(intToAlpha)->get((int32_t)(byte2 & (uint32_t)63)));
+		result->append(intToAlpha->get(((byte0 << 4) & 0x3f) | (byte1 >> 4)));
+		result->append(intToAlpha->get(((byte1 << 2) & 0x3f) | (byte2 >> 6)));
+		result->append(intToAlpha->get(byte2 & 0x3f));
 	}
 	if (numBytesInPartialGroup != 0) {
-		int32_t byte0 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
+		int32_t byte0 = a->get(inCursor++) & 0xff;
 		result->append($nc(intToAlpha)->get(byte0 >> 2));
 		if (numBytesInPartialGroup == 1) {
-			result->append($nc(intToAlpha)->get((int32_t)((byte0 << 4) & (uint32_t)63)));
+			result->append(intToAlpha->get((byte0 << 4) & 0x3f));
 			result->append("=="_s);
 		} else {
-			int32_t byte1 = (int32_t)(a->get(inCursor++) & (uint32_t)255);
-			result->append($nc(intToAlpha)->get(((int32_t)((byte0 << 4) & (uint32_t)63)) | (byte1 >> 4)));
-			result->append($nc(intToAlpha)->get((int32_t)((byte1 << 2) & (uint32_t)63)));
+			int32_t byte1 = a->get(inCursor++) & 0xff;
+			result->append(intToAlpha->get(((byte0 << 4) & 0x3f) | (byte1 >> 4)));
+			result->append(intToAlpha->get((byte1 << 2) & 0x3f));
 			result->append(u'=');
 		}
 	}
@@ -116,7 +80,7 @@ $bytes* Base64::altBase64ToByteArray($String* s) {
 
 $bytes* Base64::base64ToByteArray($String* s, bool alternate) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, alphaToInt, alternate ? Base64::altBase64ToInt : Base64::base64ToInt);
 	int32_t sLen = $nc(s)->length();
 	int32_t numGroups = sLen / 4;
@@ -160,7 +124,7 @@ $bytes* Base64::base64ToByteArray($String* s, bool alternate) {
 
 int32_t Base64::base64toInt(char16_t c, $bytes* alphaToInt) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = $nc(alphaToInt)->get(c);
 	if (result < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal character "_s, $$str(c)}));
@@ -170,9 +134,9 @@ int32_t Base64::base64toInt(char16_t c, $bytes* alphaToInt) {
 
 void Base64::main($StringArray* args) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numRuns = $Integer::parseInt($nc(args)->get(0));
-	int32_t numBytes = $Integer::parseInt($nc(args)->get(1));
+	int32_t numBytes = $Integer::parseInt(args->get(1));
 	$var($Random, rnd, $new($Random));
 	for (int32_t i = 0; i < numRuns; ++i) {
 		for (int32_t j = 0; j < numBytes; ++j) {
@@ -194,7 +158,7 @@ void Base64::main($StringArray* args) {
 	}
 }
 
-void clinit$Base64($Class* class$) {
+void Base64::clinit$($Class* clazz) {
 	$assignStatic(Base64::intToBase64, $new($chars, {
 		u'A',
 		u'B',
@@ -328,258 +292,258 @@ void clinit$Base64($Class* class$) {
 		u'?'
 	}));
 	$assignStatic(Base64::base64ToInt, $new($bytes, {
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)62,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)63,
-		(int8_t)52,
-		(int8_t)53,
-		(int8_t)54,
-		(int8_t)55,
-		(int8_t)56,
-		(int8_t)57,
-		(int8_t)58,
-		(int8_t)59,
-		(int8_t)60,
-		(int8_t)61,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)0,
-		(int8_t)1,
-		(int8_t)2,
-		(int8_t)3,
-		(int8_t)4,
-		(int8_t)5,
-		(int8_t)6,
-		(int8_t)7,
-		(int8_t)8,
-		(int8_t)9,
-		(int8_t)10,
-		(int8_t)11,
-		(int8_t)12,
-		(int8_t)13,
-		(int8_t)14,
-		(int8_t)15,
-		(int8_t)16,
-		(int8_t)17,
-		(int8_t)18,
-		(int8_t)19,
-		(int8_t)20,
-		(int8_t)21,
-		(int8_t)22,
-		(int8_t)23,
-		(int8_t)24,
-		(int8_t)25,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)26,
-		(int8_t)27,
-		(int8_t)28,
-		(int8_t)29,
-		(int8_t)30,
-		(int8_t)31,
-		(int8_t)32,
-		(int8_t)33,
-		(int8_t)34,
-		(int8_t)35,
-		(int8_t)36,
-		(int8_t)37,
-		(int8_t)38,
-		(int8_t)39,
-		(int8_t)40,
-		(int8_t)41,
-		(int8_t)42,
-		(int8_t)43,
-		(int8_t)44,
-		(int8_t)45,
-		(int8_t)46,
-		(int8_t)47,
-		(int8_t)48,
-		(int8_t)49,
-		(int8_t)50,
-		(int8_t)51
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		62,
+		-1,
+		-1,
+		-1,
+		63,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		59,
+		60,
+		61,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		37,
+		38,
+		39,
+		40,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51
 	}));
 	$assignStatic(Base64::altBase64ToInt, $new($bytes, {
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)0,
-		(int8_t)1,
-		(int8_t)2,
-		(int8_t)3,
-		(int8_t)4,
-		(int8_t)5,
-		(int8_t)6,
-		(int8_t)7,
-		(int8_t)8,
-		(int8_t)-1,
-		(int8_t)62,
-		(int8_t)9,
-		(int8_t)10,
-		(int8_t)11,
-		(int8_t)-1,
-		(int8_t)52,
-		(int8_t)53,
-		(int8_t)54,
-		(int8_t)55,
-		(int8_t)56,
-		(int8_t)57,
-		(int8_t)58,
-		(int8_t)59,
-		(int8_t)60,
-		(int8_t)61,
-		(int8_t)12,
-		(int8_t)13,
-		(int8_t)14,
-		(int8_t)-1,
-		(int8_t)15,
-		(int8_t)63,
-		(int8_t)16,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)-1,
-		(int8_t)17,
-		(int8_t)-1,
-		(int8_t)18,
-		(int8_t)19,
-		(int8_t)21,
-		(int8_t)20,
-		(int8_t)26,
-		(int8_t)27,
-		(int8_t)28,
-		(int8_t)29,
-		(int8_t)30,
-		(int8_t)31,
-		(int8_t)32,
-		(int8_t)33,
-		(int8_t)34,
-		(int8_t)35,
-		(int8_t)36,
-		(int8_t)37,
-		(int8_t)38,
-		(int8_t)39,
-		(int8_t)40,
-		(int8_t)41,
-		(int8_t)42,
-		(int8_t)43,
-		(int8_t)44,
-		(int8_t)45,
-		(int8_t)46,
-		(int8_t)47,
-		(int8_t)48,
-		(int8_t)49,
-		(int8_t)50,
-		(int8_t)51,
-		(int8_t)22,
-		(int8_t)23,
-		(int8_t)24,
-		(int8_t)25
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		-1,
+		62,
+		9,
+		10,
+		11,
+		-1,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		59,
+		60,
+		61,
+		12,
+		13,
+		14,
+		-1,
+		15,
+		63,
+		16,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		17,
+		-1,
+		18,
+		19,
+		21,
+		20,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		37,
+		38,
+		39,
+		40,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		22,
+		23,
+		24,
+		25
 	}));
 }
 
@@ -587,7 +551,36 @@ Base64::Base64() {
 }
 
 $Class* Base64::load$($String* name, bool initialize) {
-	$loadClass(Base64, name, initialize, &_Base64_ClassInfo_, clinit$Base64, allocate$Base64);
+	$FieldInfo fieldInfos$$[] = {
+		{"intToBase64", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, intToBase64)},
+		{"intToAltBase64", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, intToAltBase64)},
+		{"base64ToInt", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, base64ToInt)},
+		{"altBase64ToInt", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, altBase64ToInt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Base64, init$, void)},
+		{"altBase64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(Base64, altBase64ToByteArray, $bytes*, $String*)},
+		{"base64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(Base64, base64ToByteArray, $bytes*, $String*)},
+		{"base64ToByteArray", "(Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, base64ToByteArray, $bytes*, $String*, bool)},
+		{"base64toInt", "(C[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, base64toInt, int32_t, char16_t, $bytes*)},
+		{"byteArrayToAltBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Base64, byteArrayToAltBase64, $String*, $bytes*)},
+		{"byteArrayToBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Base64, byteArrayToBase64, $String*, $bytes*)},
+		{"byteArrayToBase64", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, byteArrayToBase64, $String*, $bytes*, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.Base64",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Base64, name, initialize, &classInfo$$, Base64::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Base64);
+	});
 	return class$;
 }
 

@@ -40,6 +40,7 @@ class Cache$Kind : public ::java::lang::Enum {
 public:
 	Cache$Kind();
 	static $Array<::com::sun::beans::util::Cache$Kind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::com::sun::beans::util::Cache$Ref* create(Object$* owner, Object$* referent, ::java::lang::ref::ReferenceQueue* queue) {return nullptr;}
 	static ::com::sun::beans::util::Cache$Kind* valueOf($String* name);

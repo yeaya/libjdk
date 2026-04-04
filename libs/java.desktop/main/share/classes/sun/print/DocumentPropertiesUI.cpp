@@ -1,5 +1,4 @@
 #include <sun/print/DocumentPropertiesUI.h>
-
 #include <java/awt/Window.h>
 #include <java/awt/print/PrinterJob.h>
 #include <javax/print/PrintService.h>
@@ -20,37 +19,12 @@ using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttribu
 namespace sun {
 	namespace print {
 
-$FieldInfo _DocumentPropertiesUI_FieldInfo_[] = {
-	{"DOCUMENTPROPERTIES_ROLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DocumentPropertiesUI, DOCUMENTPROPERTIES_ROLE)},
-	{"DOCPROPERTIESCLASSNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocumentPropertiesUI, DOCPROPERTIESCLASSNAME)},
-	{}
-};
-
-$MethodInfo _DocumentPropertiesUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentPropertiesUI, init$, void)},
-	{"showDocumentProperties", "(Ljava/awt/print/PrinterJob;Ljava/awt/Window;Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentPropertiesUI, showDocumentProperties, $PrintRequestAttributeSet*, $PrinterJob*, $Window*, $PrintService*, $PrintRequestAttributeSet*)},
-	{}
-};
-
-$ClassInfo _DocumentPropertiesUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.print.DocumentPropertiesUI",
-	"java.lang.Object",
-	nullptr,
-	_DocumentPropertiesUI_FieldInfo_,
-	_DocumentPropertiesUI_MethodInfo_
-};
-
-$Object* allocate$DocumentPropertiesUI($Class* clazz) {
-	return $of($alloc(DocumentPropertiesUI));
-}
-
 $String* DocumentPropertiesUI::DOCPROPERTIESCLASSNAME = nullptr;
 
 void DocumentPropertiesUI::init$() {
 }
 
-void clinit$DocumentPropertiesUI($Class* class$) {
+void DocumentPropertiesUI::clinit$($Class* clazz) {
 	$assignStatic(DocumentPropertiesUI::DOCPROPERTIESCLASSNAME, DocumentPropertiesUI::class$->getName());
 }
 
@@ -58,7 +32,27 @@ DocumentPropertiesUI::DocumentPropertiesUI() {
 }
 
 $Class* DocumentPropertiesUI::load$($String* name, bool initialize) {
-	$loadClass(DocumentPropertiesUI, name, initialize, &_DocumentPropertiesUI_ClassInfo_, clinit$DocumentPropertiesUI, allocate$DocumentPropertiesUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOCUMENTPROPERTIES_ROLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DocumentPropertiesUI, DOCUMENTPROPERTIES_ROLE)},
+		{"DOCPROPERTIESCLASSNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocumentPropertiesUI, DOCPROPERTIESCLASSNAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentPropertiesUI, init$, void)},
+		{"showDocumentProperties", "(Ljava/awt/print/PrinterJob;Ljava/awt/Window;Ljavax/print/PrintService;Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentPropertiesUI, showDocumentProperties, $PrintRequestAttributeSet*, $PrinterJob*, $Window*, $PrintService*, $PrintRequestAttributeSet*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.print.DocumentPropertiesUI",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DocumentPropertiesUI, name, initialize, &classInfo$$, DocumentPropertiesUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentPropertiesUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI$ChangeHandler.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
@@ -25,48 +23,12 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifCheckBoxMenuItemUI$ChangeHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifCheckBoxMenuItemUI$ChangeHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MotifCheckBoxMenuItemUI$ChangeHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifCheckBoxMenuItemUI$ChangeHandler, init$, void, $MotifCheckBoxMenuItemUI*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$ChangeHandler, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _MotifCheckBoxMenuItemUI$ChangeHandler_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI", "ChangeHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifCheckBoxMenuItemUI$ChangeHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$ChangeHandler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	_MotifCheckBoxMenuItemUI$ChangeHandler_FieldInfo_,
-	_MotifCheckBoxMenuItemUI$ChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifCheckBoxMenuItemUI$ChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI"
-};
-
-$Object* allocate$MotifCheckBoxMenuItemUI$ChangeHandler($Class* clazz) {
-	return $of($alloc(MotifCheckBoxMenuItemUI$ChangeHandler));
-}
-
 void MotifCheckBoxMenuItemUI$ChangeHandler::init$($MotifCheckBoxMenuItemUI* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void MotifCheckBoxMenuItemUI$ChangeHandler::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, c, $cast($JMenuItem, $nc(e)->getSource()));
 	$LookAndFeel::installProperty(c, "borderPainted"_s, $($Boolean::valueOf($nc(c)->isArmed())));
 }
@@ -75,7 +37,37 @@ MotifCheckBoxMenuItemUI$ChangeHandler::MotifCheckBoxMenuItemUI$ChangeHandler() {
 }
 
 $Class* MotifCheckBoxMenuItemUI$ChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(MotifCheckBoxMenuItemUI$ChangeHandler, name, initialize, &_MotifCheckBoxMenuItemUI$ChangeHandler_ClassInfo_, allocate$MotifCheckBoxMenuItemUI$ChangeHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifCheckBoxMenuItemUI$ChangeHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifCheckBoxMenuItemUI$ChangeHandler, init$, void, $MotifCheckBoxMenuItemUI*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$ChangeHandler, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI", "ChangeHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$ChangeHandler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI"
+	};
+	$loadClass(MotifCheckBoxMenuItemUI$ChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifCheckBoxMenuItemUI$ChangeHandler);
+	});
 	return class$;
 }
 

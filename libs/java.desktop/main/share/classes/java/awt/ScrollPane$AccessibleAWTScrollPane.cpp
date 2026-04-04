@@ -1,14 +1,11 @@
 #include <java/awt/ScrollPane$AccessibleAWTScrollPane.h>
-
 #include <java/awt/Container$AccessibleAWTContainer.h>
-#include <java/awt/Container.h>
 #include <java/awt/ScrollPane.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <jcpp.h>
 
 #undef SCROLL_PANE
 
-using $Container = ::java::awt::Container;
 using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $ScrollPane = ::java::awt::ScrollPane;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -19,44 +16,6 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _ScrollPane$AccessibleAWTScrollPane_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/ScrollPane;", nullptr, $FINAL | $SYNTHETIC, $field(ScrollPane$AccessibleAWTScrollPane, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane$AccessibleAWTScrollPane, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ScrollPane$AccessibleAWTScrollPane_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/ScrollPane;)V", nullptr, $PROTECTED, $method(ScrollPane$AccessibleAWTScrollPane, init$, void, $ScrollPane*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(ScrollPane$AccessibleAWTScrollPane, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _ScrollPane$AccessibleAWTScrollPane_InnerClassesInfo_[] = {
-	{"java.awt.ScrollPane$AccessibleAWTScrollPane", "java.awt.ScrollPane", "AccessibleAWTScrollPane", $PROTECTED},
-	{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ScrollPane$AccessibleAWTScrollPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.ScrollPane$AccessibleAWTScrollPane",
-	"java.awt.Container$AccessibleAWTContainer",
-	nullptr,
-	_ScrollPane$AccessibleAWTScrollPane_FieldInfo_,
-	_ScrollPane$AccessibleAWTScrollPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScrollPane$AccessibleAWTScrollPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.ScrollPane"
-};
-
-$Object* allocate$ScrollPane$AccessibleAWTScrollPane($Class* clazz) {
-	return $of($alloc(ScrollPane$AccessibleAWTScrollPane));
-}
 
 void ScrollPane$AccessibleAWTScrollPane::init$($ScrollPane* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +31,39 @@ ScrollPane$AccessibleAWTScrollPane::ScrollPane$AccessibleAWTScrollPane() {
 }
 
 $Class* ScrollPane$AccessibleAWTScrollPane::load$($String* name, bool initialize) {
-	$loadClass(ScrollPane$AccessibleAWTScrollPane, name, initialize, &_ScrollPane$AccessibleAWTScrollPane_ClassInfo_, allocate$ScrollPane$AccessibleAWTScrollPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/ScrollPane;", nullptr, $FINAL | $SYNTHETIC, $field(ScrollPane$AccessibleAWTScrollPane, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScrollPane$AccessibleAWTScrollPane, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/ScrollPane;)V", nullptr, $PROTECTED, $method(ScrollPane$AccessibleAWTScrollPane, init$, void, $ScrollPane*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(ScrollPane$AccessibleAWTScrollPane, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.ScrollPane$AccessibleAWTScrollPane", "java.awt.ScrollPane", "AccessibleAWTScrollPane", $PROTECTED},
+		{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.ScrollPane$AccessibleAWTScrollPane",
+		"java.awt.Container$AccessibleAWTContainer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.ScrollPane"
+	};
+	$loadClass(ScrollPane$AccessibleAWTScrollPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScrollPane$AccessibleAWTScrollPane));
+	});
 	return class$;
 }
 

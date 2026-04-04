@@ -1,5 +1,4 @@
 #include <sun/print/Win32PrintJob.h>
-
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Pageable.h>
 #include <java/awt/print/Paper.h>
@@ -91,7 +90,6 @@ using $Pageable = ::java::awt::print::Pageable;
 using $Paper = ::java::awt::print::Paper;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterException = ::java::awt::print::PrinterException;
-using $PrinterJob = ::java::awt::print::PrinterJob;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
@@ -107,7 +105,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $CopyOption = ::java::nio::file::CopyOption;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
@@ -118,7 +115,6 @@ using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
 using $DocFlavor$INPUT_STREAM = ::javax::print::DocFlavor$INPUT_STREAM;
 using $DocFlavor$URL = ::javax::print::DocFlavor$URL;
-using $DocPrintJob = ::javax::print::DocPrintJob;
 using $PrintException = ::javax::print::PrintException;
 using $PrintService = ::javax::print::PrintService;
 using $Attribute = ::javax::print::attribute::Attribute;
@@ -157,70 +153,6 @@ using $Win32PrintService = ::sun::print::Win32PrintService;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _Win32PrintJob_FieldInfo_[] = {
-	{"jobListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobListener;>;", $PRIVATE | $TRANSIENT, $field(Win32PrintJob, jobListeners)},
-	{"attrListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobAttributeListener;>;", $PRIVATE | $TRANSIENT, $field(Win32PrintJob, attrListeners)},
-	{"listenedAttributeSets", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/PrintJobAttributeSet;>;", $PRIVATE | $TRANSIENT, $field(Win32PrintJob, listenedAttributeSets)},
-	{"service", "Lsun/print/Win32PrintService;", nullptr, $PRIVATE, $field(Win32PrintJob, service)},
-	{"fidelity", "Z", nullptr, $PRIVATE, $field(Win32PrintJob, fidelity)},
-	{"printing", "Z", nullptr, $PRIVATE, $field(Win32PrintJob, printing)},
-	{"printReturned", "Z", nullptr, $PRIVATE, $field(Win32PrintJob, printReturned)},
-	{"reqAttrSet", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(Win32PrintJob, reqAttrSet)},
-	{"jobAttrSet", "Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PRIVATE, $field(Win32PrintJob, jobAttrSet)},
-	{"job", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE, $field(Win32PrintJob, job)},
-	{"doc", "Ljavax/print/Doc;", nullptr, $PRIVATE, $field(Win32PrintJob, doc)},
-	{"mDestination", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintJob, mDestination)},
-	{"instream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Win32PrintJob, instream)},
-	{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(Win32PrintJob, reader)},
-	{"jobName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintJob, jobName)},
-	{"copies", "I", nullptr, $PRIVATE, $field(Win32PrintJob, copies)},
-	{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(Win32PrintJob, mediaName)},
-	{"mediaSize", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $field(Win32PrintJob, mediaSize)},
-	{"orient", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PRIVATE, $field(Win32PrintJob, orient)},
-	{"hPrintJob", "J", nullptr, $PRIVATE, $field(Win32PrintJob, hPrintJob)},
-	{"PRINTBUFFERLEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintJob, PRINTBUFFERLEN)},
-	{}
-};
-
-$MethodInfo _Win32PrintJob_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/Win32PrintService;)V", nullptr, 0, $method(Win32PrintJob, init$, void, $Win32PrintService*)},
-	{"addPrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, addPrintJobAttributeListener, void, $PrintJobAttributeListener*, $PrintJobAttributeSet*)},
-	{"addPrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, addPrintJobListener, void, $PrintJobListener*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, cancel, void), "javax.print.PrintException"},
-	{"closeDataStreams", "()V", nullptr, $PRIVATE, $method(Win32PrintJob, closeDataStreams, void)},
-	{"endPrintRawData", "()Z", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintJob, endPrintRawData, bool)},
-	{"getAttributeValues", "(Ljavax/print/DocFlavor;)V", nullptr, $PRIVATE, $method(Win32PrintJob, getAttributeValues, void, $DocFlavor*), "javax.print.PrintException"},
-	{"getAttributes", "()Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, getAttributes, $PrintJobAttributeSet*)},
-	{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, getPrintService, $PrintService*)},
-	{"initializeAttributeSets", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintJob, initializeAttributeSets, void, $Doc*, $PrintRequestAttributeSet*)},
-	{"notifyEvent", "(I)V", nullptr, $PRIVATE, $method(Win32PrintJob, notifyEvent, void, int32_t)},
-	{"pageableJob", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, pageableJob, void, $Pageable*), "javax.print.PrintException"},
-	{"print", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, print, void, $Doc*, $PrintRequestAttributeSet*), "javax.print.PrintException"},
-	{"printRawData", "([BI)Z", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintJob, printRawData, bool, $bytes*, int32_t)},
-	{"printableJob", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, printableJob, void, $Printable*), "javax.print.PrintException"},
-	{"removePrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, removePrintJobAttributeListener, void, $PrintJobAttributeListener*)},
-	{"removePrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, removePrintJobListener, void, $PrintJobListener*)},
-	{"startPrintRawData", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintJob, startPrintRawData, bool, $String*, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_endPrintRawData 5
-#define _METHOD_INDEX_printRawData 13
-#define _METHOD_INDEX_startPrintRawData 17
-
-$ClassInfo _Win32PrintJob_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.Win32PrintJob",
-	"java.lang.Object",
-	"javax.print.CancelablePrintJob",
-	_Win32PrintJob_FieldInfo_,
-	_Win32PrintJob_MethodInfo_
-};
-
-$Object* allocate$Win32PrintJob($Class* clazz) {
-	return $of($alloc(Win32PrintJob));
-}
 
 void Win32PrintJob::init$($Win32PrintService* service) {
 	this->printing = false;
@@ -270,15 +202,15 @@ void Win32PrintJob::removePrintJobListener($PrintJobListener* listener) {
 		if (listener == nullptr || this->jobListeners == nullptr) {
 			return;
 		}
-		$nc(this->jobListeners)->remove($of(listener));
-		if ($nc(this->jobListeners)->isEmpty()) {
+		$nc(this->jobListeners)->remove(listener);
+		if (this->jobListeners->isEmpty()) {
 			$set(this, jobListeners, nullptr);
 		}
 	}
 }
 
 void Win32PrintJob::closeDataStreams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->doc == nullptr) {
 		return;
 	}
@@ -289,104 +221,82 @@ void Win32PrintJob::closeDataStreams() {
 		return;
 	}
 	if (this->instream != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->instream)->close();
-				} catch ($IOException& e) {
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, instream, nullptr);
+				this->instream->close();
+			} catch ($IOException& e) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, instream, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else if (this->reader != nullptr) {
-		{
-			$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$2, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->reader)->close();
-				} catch ($IOException& e) {
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				$set(this, reader, nullptr);
+				this->reader->close();
+			} catch ($IOException& e) {
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			$set(this, reader, nullptr);
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	} else if ($instanceOf($InputStream, data)) {
 		try {
-			$nc(($cast($InputStream, data)))->close();
+			$cast($InputStream, data)->close();
 		} catch ($IOException& e) {
 		}
 	} else if ($instanceOf($Reader, data)) {
 		try {
-			$nc(($cast($Reader, data)))->close();
+			$cast($Reader, data)->close();
 		} catch ($IOException& e) {
 		}
 	}
 }
 
 void Win32PrintJob::notifyEvent(int32_t reason) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (reason) {
 	case $PrintJobEvent::DATA_TRANSFER_COMPLETE:
-		{}
 	case $PrintJobEvent::JOB_CANCELED:
-		{}
 	case $PrintJobEvent::JOB_FAILED:
-		{}
 	case $PrintJobEvent::NO_MORE_EVENTS:
-		{}
 	case $PrintJobEvent::JOB_COMPLETE:
-		{
-			closeDataStreams();
-		}
+		closeDataStreams();
 	}
 	$synchronized(this) {
 		if (this->jobListeners != nullptr) {
 			$var($PrintJobListener, listener, nullptr);
 			$var($PrintJobEvent, event, $new($PrintJobEvent, this, reason));
 			for (int32_t i = 0; i < $nc(this->jobListeners)->size(); ++i) {
-				$assign(listener, $cast($PrintJobListener, $nc(this->jobListeners)->elementAt(i)));
+				$assign(listener, $cast($PrintJobListener, this->jobListeners->elementAt(i)));
 				switch (reason) {
 				case $PrintJobEvent::JOB_COMPLETE:
-					{
-						$nc(listener)->printJobCompleted(event);
-						break;
-					}
+					$nc(listener)->printJobCompleted(event);
+					break;
 				case $PrintJobEvent::JOB_CANCELED:
-					{
-						$nc(listener)->printJobCanceled(event);
-						break;
-					}
+					$nc(listener)->printJobCanceled(event);
+					break;
 				case $PrintJobEvent::JOB_FAILED:
-					{
-						$nc(listener)->printJobFailed(event);
-						break;
-					}
+					$nc(listener)->printJobFailed(event);
+					break;
 				case $PrintJobEvent::DATA_TRANSFER_COMPLETE:
-					{
-						$nc(listener)->printDataTransferCompleted(event);
-						break;
-					}
+					$nc(listener)->printDataTransferCompleted(event);
+					break;
 				case $PrintJobEvent::NO_MORE_EVENTS:
-					{
-						$nc(listener)->printJobNoMoreEvents(event);
-						break;
-					}
+					$nc(listener)->printJobNoMoreEvents(event);
+					break;
 				default:
-					{
-						break;
-					}
+					break;
 				}
 			}
 		}
@@ -420,9 +330,9 @@ void Win32PrintJob::removePrintJobAttributeListener($PrintJobAttributeListener* 
 		if (index == -1) {
 			return;
 		} else {
-			$nc(this->attrListeners)->remove(index);
+			this->attrListeners->remove(index);
 			$nc(this->listenedAttributeSets)->remove(index);
-			if ($nc(this->attrListeners)->isEmpty()) {
+			if (this->attrListeners->isEmpty()) {
 				$set(this, attrListeners, nullptr);
 				$set(this, listenedAttributeSets, nullptr);
 			}
@@ -431,7 +341,7 @@ void Win32PrintJob::removePrintJobAttributeListener($PrintJobAttributeListener* 
 }
 
 void Win32PrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		if (this->printing) {
 			$throwNew($PrintException, "already printing"_s);
@@ -493,52 +403,52 @@ void Win32PrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 			return;
 		} catch ($ClassCastException& cce) {
 			notifyEvent($PrintJobEvent::JOB_FAILED);
-			$throwNew($PrintException, static_cast<$Exception*>(cce));
+			$throwNew($PrintException, cce);
 		} catch ($IOException& ioe) {
 			notifyEvent($PrintJobEvent::JOB_FAILED);
-			$throwNew($PrintException, static_cast<$Exception*>(ioe));
+			$throwNew($PrintException, ioe);
 		}
 	} else {
 		$init($DocFlavor$URL);
-		bool var$8 = flavor->equals($DocFlavor$URL::GIF);
-		bool var$7 = var$8 || flavor->equals($DocFlavor$URL::JPEG);
-		if (var$7 || flavor->equals($DocFlavor$URL::PNG)) {
+		bool var$6 = flavor->equals($DocFlavor$URL::GIF);
+		bool var$5 = var$6 || flavor->equals($DocFlavor$URL::JPEG);
+		if (var$5 || flavor->equals($DocFlavor$URL::PNG)) {
 			try {
 				printableJob($$new($ImagePrinter, $cast($URL, data)));
 				$nc(this->service)->wakeNotifier();
 				return;
 			} catch ($ClassCastException& cce) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(cce));
+				$throwNew($PrintException, cce);
 			}
 		} else if ($nc(repClassName)->equals("java.awt.print.Pageable"_s)) {
 			try {
-				pageableJob($cast($Pageable, $(doc->getPrintData())));
+				pageableJob($$cast($Pageable, doc->getPrintData()));
 				$nc(this->service)->wakeNotifier();
 				return;
 			} catch ($ClassCastException& cce) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(cce));
+				$throwNew($PrintException, cce);
 			} catch ($IOException& ioe) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(ioe));
+				$throwNew($PrintException, ioe);
 			}
 		} else if (repClassName->equals("java.awt.print.Printable"_s)) {
 			try {
-				printableJob($cast($Printable, $(doc->getPrintData())));
+				printableJob($$cast($Printable, doc->getPrintData()));
 				$nc(this->service)->wakeNotifier();
 				return;
 			} catch ($ClassCastException& cce) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(cce));
+				$throwNew($PrintException, cce);
 			} catch ($IOException& ioe) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(ioe));
+				$throwNew($PrintException, ioe);
 			}
 		} else {
-			bool var$12 = repClassName->equals("[B"_s);
-			bool var$11 = var$12 || repClassName->equals("java.io.InputStream"_s);
-			if (var$11 || repClassName->equals("java.net.URL"_s)) {
+			bool var$8 = repClassName->equals("[B"_s);
+			bool var$7 = var$8 || repClassName->equals("java.io.InputStream"_s);
+			if (var$7 || repClassName->equals("java.net.URL"_s)) {
 				if (repClassName->equals("java.net.URL"_s)) {
 					$var($URL, url, $cast($URL, data));
 					try {
@@ -562,7 +472,7 @@ void Win32PrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 				if (this->mDestination != nullptr) {
 					try {
 						$init($StandardCopyOption);
-						$Files::copy(this->instream, $($Path::of(this->mDestination, $$new($StringArray, 0))), $$new($CopyOptionArray, {static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING)}));
+						$Files::copy(this->instream, $($Path::of(this->mDestination, $$new($StringArray, 0))), $$new($CopyOptionArray, {$StandardCopyOption::REPLACE_EXISTING}));
 					} catch ($IOException& ioe) {
 						notifyEvent($PrintJobEvent::JOB_FAILED);
 						$throwNew($PrintException, $(ioe->toString()));
@@ -578,36 +488,34 @@ void Win32PrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 				}
 				$var($BufferedInputStream, bin, $new($BufferedInputStream, this->instream));
 				int32_t bread = 0;
-				{
-					$var($Throwable, var$13, nullptr);
+				$var($Throwable, var$9, nullptr);
+				try {
 					try {
-						try {
-							$var($bytes, buffer, $new($bytes, Win32PrintJob::PRINTBUFFERLEN));
-							while ((bread = bin->read(buffer, 0, Win32PrintJob::PRINTBUFFERLEN)) >= 0) {
-								if (!printRawData(buffer, bread)) {
-									bin->close();
-									notifyEvent($PrintJobEvent::JOB_FAILED);
-									$throwNew($PrintException, "Problem while spooling data"_s);
-								}
-							}
-							bin->close();
-							if (!endPrintRawData()) {
+						$var($bytes, buffer, $new($bytes, Win32PrintJob::PRINTBUFFERLEN));
+						while ((bread = bin->read(buffer, 0, Win32PrintJob::PRINTBUFFERLEN)) >= 0) {
+							if (!printRawData(buffer, bread)) {
+								bin->close();
 								notifyEvent($PrintJobEvent::JOB_FAILED);
-								$throwNew($PrintException, "Print job failed to close properly."_s);
+								$throwNew($PrintException, "Problem while spooling data"_s);
 							}
-							notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
-						} catch ($IOException& e) {
-							notifyEvent($PrintJobEvent::JOB_FAILED);
-							$throwNew($PrintException, $(e->toString()));
 						}
-					} catch ($Throwable& var$14) {
-						$assign(var$13, var$14);
-					} /*finally*/ {
-						notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+						bin->close();
+						if (!endPrintRawData()) {
+							notifyEvent($PrintJobEvent::JOB_FAILED);
+							$throwNew($PrintException, "Print job failed to close properly."_s);
+						}
+						notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
+					} catch ($IOException& e) {
+						notifyEvent($PrintJobEvent::JOB_FAILED);
+						$throwNew($PrintException, $(e->toString()));
 					}
-					if (var$13 != nullptr) {
-						$throw(var$13);
-					}
+				} catch ($Throwable& var$10) {
+					$assign(var$9, var$10);
+				} /*finally*/ {
+					notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+				}
+				if (var$9 != nullptr) {
+					$throw(var$9);
 				}
 			} else {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
@@ -619,136 +527,130 @@ void Win32PrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 }
 
 void Win32PrintJob::printableJob($Printable* printable) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$synchronized(this) {
-					if (this->job != nullptr) {
-						$throwNew($PrintException, "already printing"_s);
-					} else {
-						$set(this, job, $new($WPrinterJob));
-					}
-				}
-				$var($PrintService, svc, getPrintService());
-				$nc(this->job)->setPrintService(svc);
-				if (this->copies == 0) {
-					$load($Copies);
-					$var($Copies, c, $cast($Copies, $nc(svc)->getDefaultAttributeValue($Copies::class$)));
-					this->copies = $nc(c)->getValue();
-				}
-				if (this->mediaName == nullptr) {
-					$load($Media);
-					$var($Object, media, $nc(svc)->getDefaultAttributeValue($Media::class$));
-					if ($instanceOf($MediaSizeName, media)) {
-						$set(this, mediaName, $cast($MediaSizeName, media));
-						$set(this, mediaSize, $MediaSize::getMediaSizeForName(this->mediaName));
-					}
-				}
-				if (this->orient == nullptr) {
-					$load($OrientationRequested);
-					$set(this, orient, $cast($OrientationRequested, $nc(svc)->getDefaultAttributeValue($OrientationRequested::class$)));
-				}
-				$nc(this->job)->setCopies(this->copies);
-				$nc(this->job)->setJobName(this->jobName);
-				$var($PageFormat, pf, $new($PageFormat));
-				if (this->mediaSize != nullptr) {
-					$var($Paper, p, $new($Paper));
-					double var$2 = $nc(this->mediaSize)->getX($MediaSize::INCH) * 72.0;
-					p->setSize(var$2, $nc(this->mediaSize)->getY($MediaSize::INCH) * 72.0);
-					double var$3 = p->getWidth() - 144.0;
-					p->setImageableArea(72.0, 72.0, var$3, p->getHeight() - 144.0);
-					pf->setPaper(p);
-				}
-				$init($OrientationRequested);
-				if (this->orient == $OrientationRequested::REVERSE_LANDSCAPE) {
-					pf->setOrientation($PageFormat::REVERSE_LANDSCAPE);
+			$synchronized(this) {
+				if (this->job != nullptr) {
+					$throwNew($PrintException, "already printing"_s);
 				} else {
-					if (this->orient == $OrientationRequested::LANDSCAPE) {
-						pf->setOrientation($PageFormat::LANDSCAPE);
-					}
+					$set(this, job, $new($WPrinterJob));
 				}
-				$nc(this->job)->setPrintable(printable, pf);
-				$nc(this->job)->print(this->reqAttrSet);
-				notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
-				return$1 = true;
-				goto $finally;
-			} catch ($PrinterException& pe) {
-				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(pe));
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			this->printReturned = true;
-			notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+			$var($PrintService, svc, getPrintService());
+			$nc(this->job)->setPrintService(svc);
+			if (this->copies == 0) {
+				$load($Copies);
+				$var($Copies, c, $cast($Copies, $nc(svc)->getDefaultAttributeValue($Copies::class$)));
+				this->copies = $nc(c)->getValue();
+			}
+			if (this->mediaName == nullptr) {
+				$load($Media);
+				$var($Object, media, $nc(svc)->getDefaultAttributeValue($Media::class$));
+				if ($instanceOf($MediaSizeName, media)) {
+					$set(this, mediaName, $cast($MediaSizeName, media));
+					$set(this, mediaSize, $MediaSize::getMediaSizeForName(this->mediaName));
+				}
+			}
+			if (this->orient == nullptr) {
+				$load($OrientationRequested);
+				$set(this, orient, $cast($OrientationRequested, $nc(svc)->getDefaultAttributeValue($OrientationRequested::class$)));
+			}
+			$nc(this->job)->setCopies(this->copies);
+			$nc(this->job)->setJobName(this->jobName);
+			$var($PageFormat, pf, $new($PageFormat));
+			if (this->mediaSize != nullptr) {
+				$var($Paper, p, $new($Paper));
+				double var$2 = this->mediaSize->getX($MediaSize::INCH) * 72.0;
+				p->setSize(var$2, this->mediaSize->getY($MediaSize::INCH) * 72.0);
+				double var$3 = p->getWidth() - 144.0;
+				p->setImageableArea(72.0, 72.0, var$3, p->getHeight() - 144.0);
+				pf->setPaper(p);
+			}
+			$init($OrientationRequested);
+			if (this->orient == $OrientationRequested::REVERSE_LANDSCAPE) {
+				pf->setOrientation($PageFormat::REVERSE_LANDSCAPE);
+			} else if (this->orient == $OrientationRequested::LANDSCAPE) {
+				pf->setOrientation($PageFormat::LANDSCAPE);
+			}
+			$nc(this->job)->setPrintable(printable, pf);
+			$nc(this->job)->print(this->reqAttrSet);
+			notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
+			return$1 = true;
+			goto $finally;
+		} catch ($PrinterException& pe) {
+			notifyEvent($PrintJobEvent::JOB_FAILED);
+			$throwNew($PrintException, pe);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		this->printReturned = true;
+		notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void Win32PrintJob::pageableJob($Pageable* pageable) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$synchronized(this) {
-					if (this->job != nullptr) {
-						$throwNew($PrintException, "already printing"_s);
-					} else {
-						$set(this, job, $new($WPrinterJob));
-					}
+			$synchronized(this) {
+				if (this->job != nullptr) {
+					$throwNew($PrintException, "already printing"_s);
+				} else {
+					$set(this, job, $new($WPrinterJob));
 				}
-				$var($PrintService, svc, getPrintService());
-				$nc(this->job)->setPrintService(svc);
-				if (this->copies == 0) {
-					$load($Copies);
-					$var($Copies, c, $cast($Copies, $nc(svc)->getDefaultAttributeValue($Copies::class$)));
-					this->copies = $nc(c)->getValue();
-				}
-				$nc(this->job)->setCopies(this->copies);
-				$nc(this->job)->setJobName(this->jobName);
-				$nc(this->job)->setPageable(pageable);
-				$nc(this->job)->print(this->reqAttrSet);
-				notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
-				return$1 = true;
-				goto $finally;
-			} catch ($PrinterException& pe) {
-				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(pe));
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			this->printReturned = true;
-			notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+			$var($PrintService, svc, getPrintService());
+			$nc(this->job)->setPrintService(svc);
+			if (this->copies == 0) {
+				$load($Copies);
+				$var($Copies, c, $cast($Copies, $nc(svc)->getDefaultAttributeValue($Copies::class$)));
+				this->copies = $nc(c)->getValue();
+			}
+			$nc(this->job)->setCopies(this->copies);
+			$nc(this->job)->setJobName(this->jobName);
+			$nc(this->job)->setPageable(pageable);
+			$nc(this->job)->print(this->reqAttrSet);
+			notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
+			return$1 = true;
+			goto $finally;
+		} catch ($PrinterException& pe) {
+			notifyEvent($PrintJobEvent::JOB_FAILED);
+			$throwNew($PrintException, pe);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->printReturned = true;
+		notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void Win32PrintJob::initializeAttributeSets($Doc* doc, $PrintRequestAttributeSet* reqSet) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$set(this, reqAttrSet, $new($HashPrintRequestAttributeSet));
 		$set(this, jobAttrSet, $new($HashPrintJobAttributeSet));
 		$var($AttributeArray, attrs, nullptr);
 		if (reqSet != nullptr) {
-			$nc(this->reqAttrSet)->addAll(reqSet);
+			this->reqAttrSet->addAll(reqSet);
 			$assign(attrs, reqSet->toArray());
 			for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
 				if ($instanceOf($PrintJobAttribute, attrs->get(i))) {
@@ -793,18 +695,18 @@ void Win32PrintJob::initializeAttributeSets($Doc* doc, $PrintRequestAttributeSet
 				$var($DocumentName, docName, $cast($DocumentName, docSet->get($DocumentName::class$)));
 				$var($String, var$1, $nc(docName)->getValue());
 				$assign(jobName, $new($JobName, var$1, $(docName->getLocale())));
-				$nc(this->jobAttrSet)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>(jobName)));
+				$nc(this->jobAttrSet)->add($cast($PrintRequestAttribute, jobName));
 			} else {
 				$var($String, str, $str({"JPS Job:"_s, doc}));
 				try {
 					$var($Object, printData, doc->getPrintData());
 					if ($instanceOf($URL, printData)) {
-						$assign(str, $nc((($cast($URL, $(doc->getPrintData())))))->toString());
+						$assign(str, $$cast($URL, doc->getPrintData())->toString());
 					}
 				} catch ($IOException& e) {
 				}
 				$assign(jobName, $new($JobName, str, nullptr));
-				$nc(this->jobAttrSet)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>(jobName)));
+				$nc(this->jobAttrSet)->add($cast($PrintRequestAttribute, jobName));
 			}
 		}
 		$set(this, jobAttrSet, $AttributeSetUtilities::unmodifiableView(this->jobAttrSet));
@@ -812,7 +714,7 @@ void Win32PrintJob::initializeAttributeSets($Doc* doc, $PrintRequestAttributeSet
 }
 
 void Win32PrintJob::getAttributeValues($DocFlavor* flavor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Fidelity);
 	$init($Fidelity);
 	if ($equals($nc(this->reqAttrSet)->get($Fidelity::class$), $Fidelity::FIDELITY_TRUE)) {
@@ -836,7 +738,7 @@ void Win32PrintJob::getAttributeValues($DocFlavor* flavor) {
 		}
 		$load($Destination);
 		if (category == $Destination::class$) {
-			$var($URI, uri, $nc(($cast($Destination, attr)))->getURI());
+			$var($URI, uri, $cast($Destination, attr)->getURI());
 			if (!"file"_s->equals($($nc(uri)->getScheme()))) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
 				$throwNew($PrintException, "Not a file: URI"_s);
@@ -844,7 +746,7 @@ void Win32PrintJob::getAttributeValues($DocFlavor* flavor) {
 				try {
 					$set(this, mDestination, ($$new($File, uri))->getPath());
 				} catch ($Exception& e) {
-					$throwNew($PrintException, $cast($Exception, e));
+					$throwNew($PrintException, e);
 				}
 				$var($SecurityManager, security, $System::getSecurityManager());
 				if (security != nullptr) {
@@ -852,18 +754,18 @@ void Win32PrintJob::getAttributeValues($DocFlavor* flavor) {
 						security->checkWrite(this->mDestination);
 					} catch ($SecurityException& se) {
 						notifyEvent($PrintJobEvent::JOB_FAILED);
-						$throwNew($PrintException, static_cast<$Exception*>(se));
+						$throwNew($PrintException, se);
 					}
 				}
 			}
 		} else {
 			$load($JobName);
 			if (category == $JobName::class$) {
-				$set(this, jobName, $nc(($cast($JobName, attr)))->getValue());
+				$set(this, jobName, $cast($JobName, attr)->getValue());
 			} else {
 				$load($Copies);
 				if (category == $Copies::class$) {
-					this->copies = $nc(($cast($Copies, attr)))->getValue();
+					this->copies = $cast($Copies, attr)->getValue();
 				} else {
 					$load($Media);
 					if (category == $Media::class$) {
@@ -886,25 +788,22 @@ void Win32PrintJob::getAttributeValues($DocFlavor* flavor) {
 }
 
 bool Win32PrintJob::startPrintRawData($String* printerName, $String* jobName) {
-	bool $ret = false;
-	$prepareNative(Win32PrintJob, startPrintRawData, bool, $String* printerName, $String* jobName);
-	$ret = $invokeNative(printerName, jobName);
+	$prepareNative(startPrintRawData, bool, $String* printerName, $String* jobName);
+	bool $ret = $invokeNative(printerName, jobName);
 	$finishNative();
 	return $ret;
 }
 
 bool Win32PrintJob::printRawData($bytes* data, int32_t count) {
-	bool $ret = false;
-	$prepareNative(Win32PrintJob, printRawData, bool, $bytes* data, int32_t count);
-	$ret = $invokeNative(data, count);
+	$prepareNative(printRawData, bool, $bytes* data, int32_t count);
+	bool $ret = $invokeNative(data, count);
 	$finishNative();
 	return $ret;
 }
 
 bool Win32PrintJob::endPrintRawData() {
-	bool $ret = false;
-	$prepareNative(Win32PrintJob, endPrintRawData, bool);
-	$ret = $invokeNative();
+	$prepareNative(endPrintRawData, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -914,7 +813,7 @@ void Win32PrintJob::cancel() {
 		if (!this->printing) {
 			$throwNew($PrintException, "Job is not yet submitted."_s);
 		} else if (this->job != nullptr && !this->printReturned) {
-			$nc(this->job)->cancel();
+			this->job->cancel();
 			notifyEvent($PrintJobEvent::JOB_CANCELED);
 			return;
 		} else {
@@ -927,7 +826,62 @@ Win32PrintJob::Win32PrintJob() {
 }
 
 $Class* Win32PrintJob::load$($String* name, bool initialize) {
-	$loadClass(Win32PrintJob, name, initialize, &_Win32PrintJob_ClassInfo_, allocate$Win32PrintJob);
+	$FieldInfo fieldInfos$$[] = {
+		{"jobListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobListener;>;", $PRIVATE | $TRANSIENT, $field(Win32PrintJob, jobListeners)},
+		{"attrListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobAttributeListener;>;", $PRIVATE | $TRANSIENT, $field(Win32PrintJob, attrListeners)},
+		{"listenedAttributeSets", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/PrintJobAttributeSet;>;", $PRIVATE | $TRANSIENT, $field(Win32PrintJob, listenedAttributeSets)},
+		{"service", "Lsun/print/Win32PrintService;", nullptr, $PRIVATE, $field(Win32PrintJob, service)},
+		{"fidelity", "Z", nullptr, $PRIVATE, $field(Win32PrintJob, fidelity)},
+		{"printing", "Z", nullptr, $PRIVATE, $field(Win32PrintJob, printing)},
+		{"printReturned", "Z", nullptr, $PRIVATE, $field(Win32PrintJob, printReturned)},
+		{"reqAttrSet", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(Win32PrintJob, reqAttrSet)},
+		{"jobAttrSet", "Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PRIVATE, $field(Win32PrintJob, jobAttrSet)},
+		{"job", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE, $field(Win32PrintJob, job)},
+		{"doc", "Ljavax/print/Doc;", nullptr, $PRIVATE, $field(Win32PrintJob, doc)},
+		{"mDestination", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintJob, mDestination)},
+		{"instream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(Win32PrintJob, instream)},
+		{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(Win32PrintJob, reader)},
+		{"jobName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintJob, jobName)},
+		{"copies", "I", nullptr, $PRIVATE, $field(Win32PrintJob, copies)},
+		{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(Win32PrintJob, mediaName)},
+		{"mediaSize", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $field(Win32PrintJob, mediaSize)},
+		{"orient", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PRIVATE, $field(Win32PrintJob, orient)},
+		{"hPrintJob", "J", nullptr, $PRIVATE, $field(Win32PrintJob, hPrintJob)},
+		{"PRINTBUFFERLEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintJob, PRINTBUFFERLEN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/Win32PrintService;)V", nullptr, 0, $method(Win32PrintJob, init$, void, $Win32PrintService*)},
+		{"addPrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, addPrintJobAttributeListener, void, $PrintJobAttributeListener*, $PrintJobAttributeSet*)},
+		{"addPrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, addPrintJobListener, void, $PrintJobListener*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, cancel, void), "javax.print.PrintException"},
+		{"closeDataStreams", "()V", nullptr, $PRIVATE, $method(Win32PrintJob, closeDataStreams, void)},
+		{"endPrintRawData", "()Z", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintJob, endPrintRawData, bool)},
+		{"getAttributeValues", "(Ljavax/print/DocFlavor;)V", nullptr, $PRIVATE, $method(Win32PrintJob, getAttributeValues, void, $DocFlavor*), "javax.print.PrintException"},
+		{"getAttributes", "()Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, getAttributes, $PrintJobAttributeSet*)},
+		{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, getPrintService, $PrintService*)},
+		{"initializeAttributeSets", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintJob, initializeAttributeSets, void, $Doc*, $PrintRequestAttributeSet*)},
+		{"notifyEvent", "(I)V", nullptr, $PRIVATE, $method(Win32PrintJob, notifyEvent, void, int32_t)},
+		{"pageableJob", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, pageableJob, void, $Pageable*), "javax.print.PrintException"},
+		{"print", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, print, void, $Doc*, $PrintRequestAttributeSet*), "javax.print.PrintException"},
+		{"printRawData", "([BI)Z", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintJob, printRawData, bool, $bytes*, int32_t)},
+		{"printableJob", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, printableJob, void, $Printable*), "javax.print.PrintException"},
+		{"removePrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, removePrintJobAttributeListener, void, $PrintJobAttributeListener*)},
+		{"removePrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintJob, removePrintJobListener, void, $PrintJobListener*)},
+		{"startPrintRawData", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintJob, startPrintRawData, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.Win32PrintJob",
+		"java.lang.Object",
+		"javax.print.CancelablePrintJob",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Win32PrintJob, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32PrintJob);
+	});
 	return class$;
 }
 

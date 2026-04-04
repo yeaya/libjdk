@@ -77,6 +77,7 @@ class $import Http2ClientImpl : public ::java::lang::Object {
 	$class(Http2ClientImpl, 0, ::java::lang::Object)
 public:
 	Http2ClientImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpClientImpl* client);
 	virtual ::jdk::internal::net::http::HttpClientImpl* client();
 	void close(::jdk::internal::net::http::Http2Connection* h2c);

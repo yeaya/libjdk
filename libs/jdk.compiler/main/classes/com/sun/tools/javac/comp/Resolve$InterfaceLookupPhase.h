@@ -45,6 +45,7 @@ class $export Resolve$InterfaceLookupPhase : public ::java::lang::Enum {
 public:
 	Resolve$InterfaceLookupPhase();
 	static $Array<::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual ::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase* update(::com::sun::tools::javac::code::Symbol* s, ::com::sun::tools::javac::comp::Resolve* rs) {return nullptr;}
 	static ::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase* valueOf($String* name);

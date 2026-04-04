@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParserImpl.h>
-
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParserException.h>
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParserImpl$1.h>
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParserImpl$2.h>
@@ -81,75 +80,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(XMLParserImpl::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XMLParserImpl$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XMLParserImpl$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserImpl$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo XMLParserImpl$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* XMLParserImpl$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(XMLParserImpl$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserImpl$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLParserImpl$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLParserImpl$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* XMLParserImpl$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _XMLParserImpl_FieldInfo_[] = {
-	{"parserPoolSize", "I", nullptr, $PRIVATE | $STATIC, $staticField(XMLParserImpl, parserPoolSize)},
-	{"DOCUMENT_BUILDERS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ClassLoader;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XMLParserImpl, DOCUMENT_BUILDERS)},
-	{"DOCUMENT_BUILDERS_DISALLOW_DOCTYPE", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ClassLoader;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XMLParserImpl, DOCUMENT_BUILDERS_DISALLOW_DOCTYPE)},
-	{}
-};
-
-$MethodInfo _XMLParserImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserImpl, init$, void)},
-	{"createDocumentBuilder", "(Z)Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, createDocumentBuilder, $DocumentBuilder*, bool), "javax.xml.parsers.ParserConfigurationException"},
-	{"getClassLoader", "(Ljava/lang/Class;)Ljava/lang/ClassLoader;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getClassLoader, $ClassLoader*, $Class*)},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getContextClassLoader, $ClassLoader*)},
-	{"getDocumentBuilder", "(ZLjava/util/Queue;)Ljavax/xml/parsers/DocumentBuilder;", "(ZLjava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)Ljavax/xml/parsers/DocumentBuilder;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getDocumentBuilder, $DocumentBuilder*, bool, $Queue*), "javax.xml.parsers.ParserConfigurationException"},
-	{"getDocumentBuilderQueue", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue;", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getDocumentBuilderQueue, $Queue*, bool, $ClassLoader*), "javax.xml.parsers.ParserConfigurationException"},
-	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLParserImpl, lambda$static$0, $Integer*)},
-	{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl, parse, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
-	{"repoolDocumentBuilder", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue;)V", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)V", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, repoolDocumentBuilder, void, $DocumentBuilder*, $Queue*)},
-	{}
-};
-
-$InnerClassInfo _XMLParserImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLParserImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.parser.XMLParser",
-	_XMLParserImpl_FieldInfo_,
-	_XMLParserImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLParserImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$2,com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$1"
-};
-
-$Object* allocate$XMLParserImpl($Class* clazz) {
-	return $of($alloc(XMLParserImpl));
-}
 
 int32_t XMLParserImpl::parserPoolSize = 0;
 $Map* XMLParserImpl::DOCUMENT_BUILDERS = nullptr;
@@ -159,7 +110,7 @@ void XMLParserImpl::init$() {
 }
 
 $Document* XMLParserImpl::parse($InputStream* inputStream, bool disallowDocTypeDeclarations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ClassLoader, loader, getContextClassLoader());
 		if (loader == nullptr) {
@@ -176,22 +127,22 @@ $Document* XMLParserImpl::parse($InputStream* inputStream, bool disallowDocTypeD
 		repoolDocumentBuilder(documentBuilder, queue);
 		return doc;
 	} catch ($ParserConfigurationException& ex) {
-		$throwNew($XMLParserException, ex, "empty"_s, $$new($ObjectArray, {$of("Error parsing the inputstream"_s)}));
+		$throwNew($XMLParserException, ex, "empty"_s, $$new($ObjectArray, {"Error parsing the inputstream"_s}));
 	} catch ($SAXException& ex) {
-		$throwNew($XMLParserException, ex, "empty"_s, $$new($ObjectArray, {$of("Error parsing the inputstream"_s)}));
+		$throwNew($XMLParserException, ex, "empty"_s, $$new($ObjectArray, {"Error parsing the inputstream"_s}));
 	} catch ($IOException& ex) {
-		$throwNew($XMLParserException, ex, "empty"_s, $$new($ObjectArray, {$of("Error parsing the inputstream"_s)}));
+		$throwNew($XMLParserException, ex, "empty"_s, $$new($ObjectArray, {"Error parsing the inputstream"_s}));
 	}
 	$shouldNotReachHere();
 }
 
 $Queue* XMLParserImpl::getDocumentBuilderQueue(bool disallowDocTypeDeclarations, $ClassLoader* loader) {
 	$init(XMLParserImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, docBuilderCache, disallowDocTypeDeclarations ? XMLParserImpl::DOCUMENT_BUILDERS_DISALLOW_DOCTYPE : XMLParserImpl::DOCUMENT_BUILDERS);
 	$var($Queue, queue, $cast($Queue, $nc(docBuilderCache)->get(loader)));
 	if (queue == nullptr) {
-		$assign(queue, static_cast<$Queue*>(static_cast<$AbstractQueue*>($new($ArrayBlockingQueue, XMLParserImpl::parserPoolSize))));
+		$assign(queue, $cast($AbstractQueue, $new($ArrayBlockingQueue, XMLParserImpl::parserPoolSize)));
 		docBuilderCache->put(loader, queue);
 	}
 	return queue;
@@ -226,22 +177,22 @@ void XMLParserImpl::repoolDocumentBuilder($DocumentBuilder* db, $Queue* queue) {
 
 $ClassLoader* XMLParserImpl::getContextClassLoader() {
 	$init(XMLParserImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
-		return $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($XMLParserImpl$1))));
+		return $cast($ClassLoader, $AccessController::doPrivileged($$new($XMLParserImpl$1)));
 	}
 	return $($Thread::currentThread())->getContextClassLoader();
 }
 
 $ClassLoader* XMLParserImpl::getClassLoader($Class* clazz) {
 	$init(XMLParserImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
-		return $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($XMLParserImpl$2, clazz))));
+		return $cast($ClassLoader, $AccessController::doPrivileged($$new($XMLParserImpl$2, clazz)));
 	}
 	return $nc(clazz)->getClassLoader();
 }
@@ -251,10 +202,10 @@ $Integer* XMLParserImpl::lambda$static$0() {
 	return $Integer::getInteger("com.sun.org.apache.xml.internal.security.parser.pool-size"_s, 20);
 }
 
-void clinit$XMLParserImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XMLParserImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	XMLParserImpl::parserPoolSize = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(XMLParserImpl$$Lambda$lambda$static$0)))))))->intValue();
+	XMLParserImpl::parserPoolSize = $$sure($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(XMLParserImpl$$Lambda$lambda$static$0))))->intValue();
 	$assignStatic(XMLParserImpl::DOCUMENT_BUILDERS, $Collections::synchronizedMap($$new($WeakHashMap)));
 	$assignStatic(XMLParserImpl::DOCUMENT_BUILDERS_DISALLOW_DOCTYPE, $Collections::synchronizedMap($$new($WeakHashMap)));
 }
@@ -264,11 +215,50 @@ XMLParserImpl::XMLParserImpl() {
 
 $Class* XMLParserImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(XMLParserImpl$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$$Lambda$lambda$static$0")) {
 			return XMLParserImpl$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(XMLParserImpl, name, initialize, &_XMLParserImpl_ClassInfo_, clinit$XMLParserImpl, allocate$XMLParserImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"parserPoolSize", "I", nullptr, $PRIVATE | $STATIC, $staticField(XMLParserImpl, parserPoolSize)},
+		{"DOCUMENT_BUILDERS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ClassLoader;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XMLParserImpl, DOCUMENT_BUILDERS)},
+		{"DOCUMENT_BUILDERS_DISALLOW_DOCTYPE", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/ClassLoader;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XMLParserImpl, DOCUMENT_BUILDERS_DISALLOW_DOCTYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserImpl, init$, void)},
+		{"createDocumentBuilder", "(Z)Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, createDocumentBuilder, $DocumentBuilder*, bool), "javax.xml.parsers.ParserConfigurationException"},
+		{"getClassLoader", "(Ljava/lang/Class;)Ljava/lang/ClassLoader;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getClassLoader, $ClassLoader*, $Class*)},
+		{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getContextClassLoader, $ClassLoader*)},
+		{"getDocumentBuilder", "(ZLjava/util/Queue;)Ljavax/xml/parsers/DocumentBuilder;", "(ZLjava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)Ljavax/xml/parsers/DocumentBuilder;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getDocumentBuilder, $DocumentBuilder*, bool, $Queue*), "javax.xml.parsers.ParserConfigurationException"},
+		{"getDocumentBuilderQueue", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue;", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getDocumentBuilderQueue, $Queue*, bool, $ClassLoader*), "javax.xml.parsers.ParserConfigurationException"},
+		{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLParserImpl, lambda$static$0, $Integer*)},
+		{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl, parse, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
+		{"repoolDocumentBuilder", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue;)V", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)V", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, repoolDocumentBuilder, void, $DocumentBuilder*, $Queue*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.parser.XMLParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$2,com.sun.org.apache.xml.internal.security.parser.XMLParserImpl$1"
+	};
+	$loadClass(XMLParserImpl, name, initialize, &classInfo$$, XMLParserImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLParserImpl);
+	});
 	return class$;
 }
 

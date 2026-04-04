@@ -16,10 +16,13 @@ class ServiceProxy$ServiceConfigurationError : public ::java::lang::Error {
 public:
 	ServiceProxy$ServiceConfigurationError();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x6B4DE7D4E1B91EBF;
+	static const int64_t serialVersionUID = (int64_t)0x6b4de7d4e1b91ebf;
 	ServiceProxy$ServiceConfigurationError(const ServiceProxy$ServiceConfigurationError& e);
 	virtual void throw$() override;
-	inline ServiceProxy$ServiceConfigurationError* operator ->() {
+	inline ServiceProxy$ServiceConfigurationError* operator ->() const {
+		return (ServiceProxy$ServiceConfigurationError*)throwing$;
+	}
+	inline operator ServiceProxy$ServiceConfigurationError*() const {
 		return (ServiceProxy$ServiceConfigurationError*)throwing$;
 	}
 };

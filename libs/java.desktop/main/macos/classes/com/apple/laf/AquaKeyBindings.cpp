@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaKeyBindings.h>
-
 #include <com/apple/laf/AquaKeyBindings$AquaMultilineAction.h>
 #include <com/apple/laf/AquaKeyBindings$BindingsProvider.h>
 #include <com/apple/laf/AquaKeyBindings$LateBoundInputMap.h>
@@ -18,7 +17,6 @@
 
 using $AquaKeyBindings$BindingsProviderArray = $Array<::com::apple::laf::AquaKeyBindings$BindingsProvider>;
 using $AquaKeyBindings$AquaMultilineAction = ::com::apple::laf::AquaKeyBindings$AquaMultilineAction;
-using $AquaKeyBindings$BindingsProvider = ::com::apple::laf::AquaKeyBindings$BindingsProvider;
 using $AquaKeyBindings$LateBoundInputMap = ::com::apple::laf::AquaKeyBindings$LateBoundInputMap;
 using $AquaKeyBindings$SimpleBinding = ::com::apple::laf::AquaKeyBindings$SimpleBinding;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
@@ -27,85 +25,16 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JTextField = ::javax::swing::JTextField;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $DefaultEditorKit$DefaultKeyTypedAction = ::javax::swing::text::DefaultEditorKit$DefaultKeyTypedAction;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Keymap = ::javax::swing::text::Keymap;
-using $TextAction = ::javax::swing::text::TextAction;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaKeyBindings_FieldInfo_[] = {
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaKeyBindings;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaKeyBindings, instance$)},
-	{"defaultKeyTypedAction", "Ljavax/swing/text/DefaultEditorKit$DefaultKeyTypedAction;", nullptr, $FINAL, $field(AquaKeyBindings, defaultKeyTypedAction)},
-	{"upMultilineAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, upMultilineAction)},
-	{"downMultilineAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, downMultilineAction)},
-	{"pageUpMultiline", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, pageUpMultiline)},
-	{"pageDownMultiline", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, pageDownMultiline)},
-	{"commonTextEditorBindings", "[Ljava/lang/String;", nullptr, $FINAL, $field(AquaKeyBindings, commonTextEditorBindings)},
-	{"moveUpMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, moveUpMultilineAction)},
-	{"moveDownMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, moveDownMultilineAction)},
-	{"pageUpMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, pageUpMultilineAction)},
-	{"pageDownMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, pageDownMultilineAction)},
-	{}
-};
-
-$MethodInfo _AquaKeyBindings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaKeyBindings, init$, void)},
-	{"getComboBoxInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getComboBoxInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getFormattedTextFieldInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getFormattedTextFieldInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getListInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getListInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getMultiLineTextInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getMultiLineTextInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getPasswordFieldInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getPasswordFieldInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getScrollBarInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getScrollBarInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getScrollBarRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getScrollBarRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getScrollPaneInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getScrollPaneInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getSliderInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getSliderInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getSliderRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getSliderRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getSpinnerInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getSpinnerInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getTableInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTableInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getTableRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTableRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getTextFieldInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTextFieldInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getTreeInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTreeInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"getTreeRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTreeRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
-	{"installAquaUpDownActions", "(Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $virtualMethod(AquaKeyBindings, installAquaUpDownActions, void, $JTextComponent*)},
-	{"instance", "()Lcom/apple/laf/AquaKeyBindings;", nullptr, $STATIC, $staticMethod(AquaKeyBindings, instance, AquaKeyBindings*)},
-	{"setDefaultAction", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AquaKeyBindings, setDefaultAction, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _AquaKeyBindings_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaKeyBindings$AquaMultilineAction", "com.apple.laf.AquaKeyBindings", "AquaMultilineAction", $STATIC},
-	{"com.apple.laf.AquaKeyBindings$DeleteWordAction", "com.apple.laf.AquaKeyBindings", "DeleteWordAction", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaKeyBindings$LateBoundInputMap", "com.apple.laf.AquaKeyBindings", "LateBoundInputMap", $STATIC},
-	{"com.apple.laf.AquaKeyBindings$SimpleBinding", "com.apple.laf.AquaKeyBindings", "SimpleBinding", $STATIC},
-	{"com.apple.laf.AquaKeyBindings$BindingsProvider", "com.apple.laf.AquaKeyBindings", "BindingsProvider", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaKeyBindings_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaKeyBindings",
-	"java.lang.Object",
-	nullptr,
-	_AquaKeyBindings_FieldInfo_,
-	_AquaKeyBindings_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaKeyBindings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaKeyBindings$AquaMultilineAction,com.apple.laf.AquaKeyBindings$DeleteWordAction,com.apple.laf.AquaKeyBindings$LateBoundInputMap,com.apple.laf.AquaKeyBindings$SimpleBinding,com.apple.laf.AquaKeyBindings$BindingsProvider"
-};
-
-$Object* allocate$AquaKeyBindings($Class* clazz) {
-	return $of($alloc(AquaKeyBindings));
-}
 
 $AquaUtils$RecyclableSingleton* AquaKeyBindings::instance$ = nullptr;
 $String* AquaKeyBindings::upMultilineAction = nullptr;
@@ -255,7 +184,7 @@ void AquaKeyBindings::init$() {
 
 AquaKeyBindings* AquaKeyBindings::instance() {
 	$init(AquaKeyBindings);
-	return $cast(AquaKeyBindings, $nc(AquaKeyBindings::instance$)->get());
+	return $cast(AquaKeyBindings, AquaKeyBindings::instance$->get());
 }
 
 void AquaKeyBindings::setDefaultAction($String* keymapName) {
@@ -264,11 +193,11 @@ void AquaKeyBindings::setDefaultAction($String* keymapName) {
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTextFieldInputMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DefaultEditorKit);
 	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {
-		static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, this->commonTextEditorBindings)),
-		static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+		$$new($AquaKeyBindings$SimpleBinding, this->commonTextEditorBindings),
+		$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 			"DOWN"_s,
 			$DefaultEditorKit::endLineAction,
 			"KP_DOWN"_s,
@@ -291,41 +220,41 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTextFieldInputMap() {
 			$DefaultEditorKit::endAction,
 			"control V"_s,
 			$DefaultEditorKit::endAction
-		})))
+		}))
 	}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getPasswordFieldInputMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {
-		static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $($nc($(getTextFieldInputMap()))->getBindings()))),
-		static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+		$$new($AquaKeyBindings$SimpleBinding, $($$nc(getTextFieldInputMap())->getBindings())),
+		$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 			"alt LEFT"_s,
-			($String*)nullptr,
+			nullptr,
 			"alt KP_LEFT"_s,
-			($String*)nullptr,
+			nullptr,
 			"alt RIGHT"_s,
-			($String*)nullptr,
+			nullptr,
 			"alt KP_RIGHT"_s,
-			($String*)nullptr,
+			nullptr,
 			"shift alt LEFT"_s,
-			($String*)nullptr,
+			nullptr,
 			"shift alt KP_LEFT"_s,
-			($String*)nullptr,
+			nullptr,
 			"shift alt RIGHT"_s,
-			($String*)nullptr,
+			nullptr,
 			"shift alt KP_RIGHT"_s,
-			($String*)nullptr
-		})))
+			nullptr
+		}))
 	}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getMultiLineTextInputMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DefaultEditorKit);
 	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {
-		static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, this->commonTextEditorBindings)),
-		static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+		$$new($AquaKeyBindings$SimpleBinding, this->commonTextEditorBindings),
+		$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 			"ENTER"_s,
 			$DefaultEditorKit::insertBreakAction,
 			"DOWN"_s,
@@ -386,15 +315,15 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getMultiLineTextInputMap() 
 			"selection-page-right"_s,
 			"meta shift PAGE_UP"_s,
 			"selection-page-left"_s
-		})))
+		}))
 	}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getFormattedTextFieldInputMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {
-		$(static_cast<$AquaKeyBindings$BindingsProvider*>(getTextFieldInputMap())),
-		static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+		$(getTextFieldInputMap()),
+		$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 			"UP"_s,
 			"increment"_s,
 			"KP_UP"_s,
@@ -405,13 +334,13 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getFormattedTextFieldInputM
 			"decrement"_s,
 			"ESCAPE"_s,
 			"reset-field-edit"_s
-		})))
+		}))
 	}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getComboBoxInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"ESCAPE"_s,
 		"aquaHidePopup"_s,
 		"PAGE_UP"_s,
@@ -434,12 +363,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getComboBoxInputMap() {
 		"aquaSelectNext"_s,
 		"SPACE"_s,
 		"aquaSpacePressed"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getListInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"meta C"_s,
 		"copy"_s,
 		"meta V"_s,
@@ -498,12 +427,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getListInputMap() {
 		"scrollUpExtendSelection"_s,
 		"shift PAGE_DOWN"_s,
 		"scrollDownExtendSelection"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getScrollBarInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"RIGHT"_s,
 		"positiveUnitIncrement"_s,
 		"KP_RIGHT"_s,
@@ -528,12 +457,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getScrollBarInputMap() {
 		"minScroll"_s,
 		"END"_s,
 		"maxScroll"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getScrollBarRightToLeftInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"RIGHT"_s,
 		"negativeUnitIncrement"_s,
 		"KP_RIGHT"_s,
@@ -542,12 +471,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getScrollBarRightToLeftInpu
 		"positiveUnitIncrement"_s,
 		"KP_LEFT"_s,
 		"positiveUnitIncrement"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getScrollPaneInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"RIGHT"_s,
 		"unitScrollRight"_s,
 		"KP_RIGHT"_s,
@@ -572,12 +501,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getScrollPaneInputMap() {
 		"scrollHome"_s,
 		"END"_s,
 		"scrollEnd"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getSliderInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"RIGHT"_s,
 		"positiveUnitIncrement"_s,
 		"KP_RIGHT"_s,
@@ -602,12 +531,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getSliderInputMap() {
 		"minScroll"_s,
 		"END"_s,
 		"maxScroll"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getSliderRightToLeftInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"RIGHT"_s,
 		"negativeUnitIncrement"_s,
 		"KP_RIGHT"_s,
@@ -616,12 +545,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getSliderRightToLeftInputMa
 		"positiveUnitIncrement"_s,
 		"KP_LEFT"_s,
 		"positiveUnitIncrement"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getSpinnerInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"UP"_s,
 		"increment"_s,
 		"KP_UP"_s,
@@ -630,12 +559,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getSpinnerInputMap() {
 		"decrement"_s,
 		"KP_DOWN"_s,
 		"decrement"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTableInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"meta C"_s,
 		"copy"_s,
 		"meta V"_s,
@@ -712,12 +641,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTableInputMap() {
 		"focusHeader"_s,
 		"alt shift TAB"_s,
 		"focusHeader"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTableRightToLeftInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"RIGHT"_s,
 		"selectPreviousColumn"_s,
 		"KP_RIGHT"_s,
@@ -742,12 +671,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTableRightToLeftInputMap
 		"scrollRightExtendSelection"_s,
 		"ctrl shift PAGE_DOWN"_s,
 		"scrollLeftExtendSelection"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTreeInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"meta C"_s,
 		"copy"_s,
 		"meta V"_s,
@@ -812,12 +741,12 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTreeInputMap() {
 		"selectAll"_s,
 		"RETURN"_s,
 		"startEditing"_s
-	})))}));
+	}))}));
 }
 
 $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTreeRightToLeftInputMap() {
-	$useLocalCurrentObjectStackCache();
-	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {static_cast<$AquaKeyBindings$BindingsProvider*>($$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
+	$useLocalObjectStack();
+	return $new($AquaKeyBindings$LateBoundInputMap, $$new($AquaKeyBindings$BindingsProviderArray, {$$new($AquaKeyBindings$SimpleBinding, $$new($StringArray, {
 		"RIGHT"_s,
 		"aquaCollapseNode"_s,
 		"KP_RIGHT"_s,
@@ -842,7 +771,7 @@ $AquaKeyBindings$LateBoundInputMap* AquaKeyBindings::getTreeRightToLeftInputMap(
 		"aquaCollapseNode"_s,
 		"ctrl KP_RIGHT"_s,
 		"aquaCollapseNode"_s
-	})))}));
+	}))}));
 }
 
 void AquaKeyBindings::installAquaUpDownActions($JTextComponent* component) {
@@ -853,7 +782,7 @@ void AquaKeyBindings::installAquaUpDownActions($JTextComponent* component) {
 	actionMap->put(AquaKeyBindings::pageDownMultiline, this->pageDownMultilineAction);
 }
 
-void clinit$AquaKeyBindings($Class* class$) {
+void AquaKeyBindings::clinit$($Class* clazz) {
 	$assignStatic(AquaKeyBindings::upMultilineAction, "aqua-move-up"_s);
 	$assignStatic(AquaKeyBindings::downMultilineAction, "aqua-move-down"_s);
 	$assignStatic(AquaKeyBindings::pageUpMultiline, "aqua-page-up"_s);
@@ -865,7 +794,68 @@ AquaKeyBindings::AquaKeyBindings() {
 }
 
 $Class* AquaKeyBindings::load$($String* name, bool initialize) {
-	$loadClass(AquaKeyBindings, name, initialize, &_AquaKeyBindings_ClassInfo_, clinit$AquaKeyBindings, allocate$AquaKeyBindings);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaKeyBindings;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaKeyBindings, instance$)},
+		{"defaultKeyTypedAction", "Ljavax/swing/text/DefaultEditorKit$DefaultKeyTypedAction;", nullptr, $FINAL, $field(AquaKeyBindings, defaultKeyTypedAction)},
+		{"upMultilineAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, upMultilineAction)},
+		{"downMultilineAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, downMultilineAction)},
+		{"pageUpMultiline", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, pageUpMultiline)},
+		{"pageDownMultiline", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaKeyBindings, pageDownMultiline)},
+		{"commonTextEditorBindings", "[Ljava/lang/String;", nullptr, $FINAL, $field(AquaKeyBindings, commonTextEditorBindings)},
+		{"moveUpMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, moveUpMultilineAction)},
+		{"moveDownMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, moveDownMultilineAction)},
+		{"pageUpMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, pageUpMultilineAction)},
+		{"pageDownMultilineAction", "Ljavax/swing/text/TextAction;", nullptr, $FINAL, $field(AquaKeyBindings, pageDownMultilineAction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaKeyBindings, init$, void)},
+		{"getComboBoxInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getComboBoxInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getFormattedTextFieldInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getFormattedTextFieldInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getListInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getListInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getMultiLineTextInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getMultiLineTextInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getPasswordFieldInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getPasswordFieldInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getScrollBarInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getScrollBarInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getScrollBarRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getScrollBarRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getScrollPaneInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getScrollPaneInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getSliderInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getSliderInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getSliderRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getSliderRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getSpinnerInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getSpinnerInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getTableInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTableInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getTableRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTableRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getTextFieldInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTextFieldInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getTreeInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTreeInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"getTreeRightToLeftInputMap", "()Lcom/apple/laf/AquaKeyBindings$LateBoundInputMap;", nullptr, 0, $virtualMethod(AquaKeyBindings, getTreeRightToLeftInputMap, $AquaKeyBindings$LateBoundInputMap*)},
+		{"installAquaUpDownActions", "(Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $virtualMethod(AquaKeyBindings, installAquaUpDownActions, void, $JTextComponent*)},
+		{"instance", "()Lcom/apple/laf/AquaKeyBindings;", nullptr, $STATIC, $staticMethod(AquaKeyBindings, instance, AquaKeyBindings*)},
+		{"setDefaultAction", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AquaKeyBindings, setDefaultAction, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaKeyBindings$AquaMultilineAction", "com.apple.laf.AquaKeyBindings", "AquaMultilineAction", $STATIC},
+		{"com.apple.laf.AquaKeyBindings$DeleteWordAction", "com.apple.laf.AquaKeyBindings", "DeleteWordAction", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaKeyBindings$LateBoundInputMap", "com.apple.laf.AquaKeyBindings", "LateBoundInputMap", $STATIC},
+		{"com.apple.laf.AquaKeyBindings$SimpleBinding", "com.apple.laf.AquaKeyBindings", "SimpleBinding", $STATIC},
+		{"com.apple.laf.AquaKeyBindings$BindingsProvider", "com.apple.laf.AquaKeyBindings", "BindingsProvider", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaKeyBindings",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaKeyBindings$AquaMultilineAction,com.apple.laf.AquaKeyBindings$DeleteWordAction,com.apple.laf.AquaKeyBindings$LateBoundInputMap,com.apple.laf.AquaKeyBindings$SimpleBinding,com.apple.laf.AquaKeyBindings$BindingsProvider"
+	};
+	$loadClass(AquaKeyBindings, name, initialize, &classInfo$$, AquaKeyBindings::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaKeyBindings);
+	});
 	return class$;
 }
 

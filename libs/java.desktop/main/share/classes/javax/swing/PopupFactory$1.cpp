@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory$1.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/Popup.h>
 #include <javax/swing/PopupFactory.h>
@@ -16,44 +15,6 @@ using $PopupFactory = ::javax::swing::PopupFactory;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _PopupFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PopupFactory$1, init$, void)},
-	{"getHeavyWeightPopup", "(Ljavax/swing/PopupFactory;Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(PopupFactory$1, getHeavyWeightPopup, $Popup*, $PopupFactory*, $Component*, $Component*, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _PopupFactory$1_EnclosingMethodInfo_ = {
-	"javax.swing.PopupFactory",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _PopupFactory$1_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$1", nullptr, nullptr, 0},
-	{"sun.swing.SwingAccessor$PopupFactoryAccessor", "sun.swing.SwingAccessor", "PopupFactoryAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PopupFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.PopupFactory$1",
-	"java.lang.Object",
-	"sun.swing.SwingAccessor$PopupFactoryAccessor",
-	nullptr,
-	_PopupFactory$1_MethodInfo_,
-	nullptr,
-	&_PopupFactory$1_EnclosingMethodInfo_,
-	_PopupFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory"
-};
-
-$Object* allocate$PopupFactory$1($Class* clazz) {
-	return $of($alloc(PopupFactory$1));
-}
-
 void PopupFactory$1::init$() {
 }
 
@@ -65,7 +26,39 @@ PopupFactory$1::PopupFactory$1() {
 }
 
 $Class* PopupFactory$1::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory$1, name, initialize, &_PopupFactory$1_ClassInfo_, allocate$PopupFactory$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PopupFactory$1, init$, void)},
+		{"getHeavyWeightPopup", "(Ljavax/swing/PopupFactory;Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(PopupFactory$1, getHeavyWeightPopup, $Popup*, $PopupFactory*, $Component*, $Component*, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.PopupFactory",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$1", nullptr, nullptr, 0},
+		{"sun.swing.SwingAccessor$PopupFactoryAccessor", "sun.swing.SwingAccessor", "PopupFactoryAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.PopupFactory$1",
+		"java.lang.Object",
+		"sun.swing.SwingAccessor$PopupFactoryAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory"
+	};
+	$loadClass(PopupFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupFactory$1);
+	});
 	return class$;
 }
 

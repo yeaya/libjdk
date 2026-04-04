@@ -1,5 +1,4 @@
 #include <java/sql/PseudoColumnUsage.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -16,37 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _PseudoColumnUsage_FieldInfo_[] = {
-	{"SELECT_LIST_ONLY", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, SELECT_LIST_ONLY)},
-	{"WHERE_CLAUSE_ONLY", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, WHERE_CLAUSE_ONLY)},
-	{"NO_USAGE_RESTRICTIONS", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, NO_USAGE_RESTRICTIONS)},
-	{"USAGE_UNKNOWN", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, USAGE_UNKNOWN)},
-	{"$VALUES", "[Ljava/sql/PseudoColumnUsage;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PseudoColumnUsage, $VALUES)},
-	{}
-};
-
-$MethodInfo _PseudoColumnUsage_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PseudoColumnUsage, $values, $PseudoColumnUsageArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PseudoColumnUsage, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PseudoColumnUsage, valueOf, PseudoColumnUsage*, $String*)},
-	{"values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PseudoColumnUsage, values, $PseudoColumnUsageArray*)},
-	{}
-};
-
-$ClassInfo _PseudoColumnUsage_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.sql.PseudoColumnUsage",
-	"java.lang.Enum",
-	nullptr,
-	_PseudoColumnUsage_FieldInfo_,
-	_PseudoColumnUsage_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/sql/PseudoColumnUsage;>;"
-};
-
-$Object* allocate$PseudoColumnUsage($Class* clazz) {
-	return $of($alloc(PseudoColumnUsage));
-}
 
 PseudoColumnUsage* PseudoColumnUsage::SELECT_LIST_ONLY = nullptr;
 PseudoColumnUsage* PseudoColumnUsage::WHERE_CLAUSE_ONLY = nullptr;
@@ -78,7 +46,7 @@ void PseudoColumnUsage::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$PseudoColumnUsage($Class* class$) {
+void PseudoColumnUsage::clinit$($Class* clazz) {
 	$assignStatic(PseudoColumnUsage::SELECT_LIST_ONLY, $new(PseudoColumnUsage, "SELECT_LIST_ONLY"_s, 0));
 	$assignStatic(PseudoColumnUsage::WHERE_CLAUSE_ONLY, $new(PseudoColumnUsage, "WHERE_CLAUSE_ONLY"_s, 1));
 	$assignStatic(PseudoColumnUsage::NO_USAGE_RESTRICTIONS, $new(PseudoColumnUsage, "NO_USAGE_RESTRICTIONS"_s, 2));
@@ -90,7 +58,33 @@ PseudoColumnUsage::PseudoColumnUsage() {
 }
 
 $Class* PseudoColumnUsage::load$($String* name, bool initialize) {
-	$loadClass(PseudoColumnUsage, name, initialize, &_PseudoColumnUsage_ClassInfo_, clinit$PseudoColumnUsage, allocate$PseudoColumnUsage);
+	$FieldInfo fieldInfos$$[] = {
+		{"SELECT_LIST_ONLY", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, SELECT_LIST_ONLY)},
+		{"WHERE_CLAUSE_ONLY", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, WHERE_CLAUSE_ONLY)},
+		{"NO_USAGE_RESTRICTIONS", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, NO_USAGE_RESTRICTIONS)},
+		{"USAGE_UNKNOWN", "Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PseudoColumnUsage, USAGE_UNKNOWN)},
+		{"$VALUES", "[Ljava/sql/PseudoColumnUsage;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PseudoColumnUsage, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PseudoColumnUsage, $values, $PseudoColumnUsageArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PseudoColumnUsage, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PseudoColumnUsage, valueOf, PseudoColumnUsage*, $String*)},
+		{"values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PseudoColumnUsage, values, $PseudoColumnUsageArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.sql.PseudoColumnUsage",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/sql/PseudoColumnUsage;>;"
+	};
+	$loadClass(PseudoColumnUsage, name, initialize, &classInfo$$, PseudoColumnUsage::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PseudoColumnUsage));
+	});
 	return class$;
 }
 

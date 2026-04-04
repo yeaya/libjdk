@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelByteBuffer.h>
-
 #include <com/sun/media/sound/ModelByteBuffer$RandomFileInputStream.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/DataInputStream.h>
@@ -34,63 +33,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _ModelByteBuffer_FieldInfo_[] = {
-	{"root", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PRIVATE, $field(ModelByteBuffer, root)},
-	{"file", "Ljava/io/File;", nullptr, $PRIVATE, $field(ModelByteBuffer, file)},
-	{"fileoffset", "J", nullptr, $PRIVATE, $field(ModelByteBuffer, fileoffset)},
-	{"buffer", "[B", nullptr, $PRIVATE, $field(ModelByteBuffer, buffer)},
-	{"offset", "J", nullptr, $PRIVATE, $field(ModelByteBuffer, offset)},
-	{"len", "J", nullptr, $PRIVATE | $FINAL, $field(ModelByteBuffer, len)},
-	{}
-};
-
-$MethodInfo _ModelByteBuffer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/ModelByteBuffer;JJZ)V", nullptr, $PRIVATE, $method(ModelByteBuffer, init$, void, ModelByteBuffer*, int64_t, int64_t, bool)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $bytes*)},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $bytes*, int32_t, int32_t)},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $File*)},
-	{"<init>", "(Ljava/io/File;JJ)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $File*, int64_t, int64_t)},
-	{"array", "()[B", nullptr, $PUBLIC, $method(ModelByteBuffer, array, $bytes*)},
-	{"arrayOffset", "()J", nullptr, $PUBLIC, $method(ModelByteBuffer, arrayOffset, int64_t)},
-	{"capacity", "()J", nullptr, $PUBLIC, $method(ModelByteBuffer, capacity, int64_t)},
-	{"getFile", "()Ljava/io/File;", nullptr, $PUBLIC, $method(ModelByteBuffer, getFile, $File*)},
-	{"getFilePointer", "()J", nullptr, $PUBLIC, $method(ModelByteBuffer, getFilePointer, int64_t)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $method(ModelByteBuffer, getInputStream, $InputStream*)},
-	{"getRoot", "()Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, getRoot, ModelByteBuffer*)},
-	{"load", "()V", nullptr, $PUBLIC, $method(ModelByteBuffer, load, void), "java.io.IOException"},
-	{"loadAll", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lcom/sun/media/sound/ModelByteBuffer;>;)V", $PUBLIC | $STATIC, $staticMethod(ModelByteBuffer, loadAll, void, $Collection*), "java.io.IOException"},
-	{"subbuffer", "(J)Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, subbuffer, ModelByteBuffer*, int64_t)},
-	{"subbuffer", "(JJ)Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, subbuffer, ModelByteBuffer*, int64_t, int64_t)},
-	{"subbuffer", "(JJZ)Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, subbuffer, ModelByteBuffer*, int64_t, int64_t, bool)},
-	{"unload", "()V", nullptr, $PUBLIC, $method(ModelByteBuffer, unload, void)},
-	{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(ModelByteBuffer, writeTo, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ModelByteBuffer_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream", "com.sun.media.sound.ModelByteBuffer", "RandomFileInputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ModelByteBuffer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelByteBuffer",
-	"java.lang.Object",
-	nullptr,
-	_ModelByteBuffer_FieldInfo_,
-	_ModelByteBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModelByteBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream"
-};
-
-$Object* allocate$ModelByteBuffer($Class* clazz) {
-	return $of($alloc(ModelByteBuffer));
-}
-
 void ModelByteBuffer::init$(ModelByteBuffer* parent, int64_t beginIndex, int64_t endIndex, bool independent) {
 	$set(this, root, this);
 	$set(this, root, $nc(parent)->root);
@@ -114,10 +56,10 @@ void ModelByteBuffer::init$(ModelByteBuffer* parent, int64_t beginIndex, int64_t
 	this->offset = beginIndex;
 	this->len = endIndex - beginIndex;
 	if (independent) {
-		$set(this, buffer, $nc(this->root)->buffer);
-		if ($nc(this->root)->file != nullptr) {
-			$set(this, file, $nc(this->root)->file);
-			this->fileoffset = $nc(this->root)->fileoffset + arrayOffset();
+		$set(this, buffer, this->root->buffer);
+		if (this->root->file != nullptr) {
+			$set(this, file, this->root->file);
+			this->fileoffset = this->root->fileoffset + arrayOffset();
 			this->offset = 0;
 		} else {
 			this->offset = arrayOffset();
@@ -155,36 +97,32 @@ void ModelByteBuffer::init$($File* file, int64_t offset, int64_t len) {
 }
 
 void ModelByteBuffer::writeTo($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(this->root)->file != nullptr && $nc(this->root)->buffer == nullptr) {
-		{
-			$var($InputStream, is, getInputStream());
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
+	$useLocalObjectStack();
+	if ($nc(this->root)->file != nullptr && this->root->buffer == nullptr) {
+		$var($InputStream, is, getInputStream());
+		$var($Throwable, var$0, nullptr);
+		try {
+			try {
+				$nc(is)->transferTo(out);
+			} catch ($Throwable& t$) {
+				if (is != nullptr) {
 					try {
-						$nc(is)->transferTo(out);
-					} catch ($Throwable& t$) {
-						if (is != nullptr) {
-							try {
-								is->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					if (is != nullptr) {
 						is->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+				$throw(t$);
 			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (is != nullptr) {
+				is->close();
+			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$var($bytes, var$2, array());
@@ -194,7 +132,7 @@ void ModelByteBuffer::writeTo($OutputStream* out) {
 }
 
 $InputStream* ModelByteBuffer::getInputStream() {
-	if ($nc(this->root)->file != nullptr && $nc(this->root)->buffer == nullptr) {
+	if ($nc(this->root)->file != nullptr && this->root->buffer == nullptr) {
 		try {
 			return $new($ModelByteBuffer$RandomFileInputStream, this);
 		} catch ($IOException& e) {
@@ -246,65 +184,61 @@ int64_t ModelByteBuffer::getFilePointer() {
 }
 
 void ModelByteBuffer::loadAll($Collection* col) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, selfile, nullptr);
 	$var($RandomAccessFile, raf, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Iterator, i$, $nc(col)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var(ModelByteBuffer, mbuff, $cast(ModelByteBuffer, i$->next()));
 			{
-				$var($Iterator, i$, $nc(col)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var(ModelByteBuffer, mbuff, $cast(ModelByteBuffer, i$->next()));
-					{
-						$assign(mbuff, $nc(mbuff)->root);
-						if (mbuff->file == nullptr) {
-							continue;
-						}
-						if (mbuff->buffer != nullptr) {
-							continue;
-						}
-						if (selfile == nullptr || !$nc(selfile)->equals(mbuff->file)) {
-							if (raf != nullptr) {
-								raf->close();
-								$assign(raf, nullptr);
-							}
-							$assign(selfile, mbuff->file);
-							$assign(raf, $new($RandomAccessFile, mbuff->file, "r"_s));
-						}
-						$nc(raf)->seek(mbuff->fileoffset);
-						$var($bytes, buffer, $new($bytes, (int32_t)mbuff->capacity()));
-						int32_t read = 0;
-						int32_t avail = buffer->length;
-						while (read != avail) {
-							if (avail - read > 0x00010000) {
-								raf->readFully(buffer, read, 0x00010000);
-								read += 0x00010000;
-							} else {
-								raf->readFully(buffer, read, avail - read);
-								read = avail;
-							}
-						}
-						$set(mbuff, buffer, buffer);
-						mbuff->offset = 0;
+				$assign(mbuff, $nc(mbuff)->root);
+				if ($nc(mbuff)->file == nullptr) {
+					continue;
+				}
+				if (mbuff->buffer != nullptr) {
+					continue;
+				}
+				if (selfile == nullptr || !selfile->equals(mbuff->file)) {
+					if (raf != nullptr) {
+						raf->close();
+						$assign(raf, nullptr);
+					}
+					$assign(selfile, mbuff->file);
+					$assign(raf, $new($RandomAccessFile, mbuff->file, "r"_s));
+				}
+				$nc(raf)->seek(mbuff->fileoffset);
+				$var($bytes, buffer, $new($bytes, (int32_t)mbuff->capacity()));
+				int32_t read = 0;
+				int32_t avail = buffer->length;
+				while (read != avail) {
+					if (avail - read > 0x00010000) {
+						raf->readFully(buffer, read, 0x00010000);
+						read += 0x00010000;
+					} else {
+						raf->readFully(buffer, read, avail - read);
+						read = avail;
 					}
 				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (raf != nullptr) {
-				raf->close();
+				$set(mbuff, buffer, buffer);
+				mbuff->offset = 0;
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (raf != nullptr) {
+			raf->close();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ModelByteBuffer::load() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->root != this) {
 		$nc(this->root)->load();
 		return;
@@ -337,7 +271,58 @@ ModelByteBuffer::ModelByteBuffer() {
 }
 
 $Class* ModelByteBuffer::load$($String* name, bool initialize) {
-	$loadClass(ModelByteBuffer, name, initialize, &_ModelByteBuffer_ClassInfo_, allocate$ModelByteBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PRIVATE, $field(ModelByteBuffer, root)},
+		{"file", "Ljava/io/File;", nullptr, $PRIVATE, $field(ModelByteBuffer, file)},
+		{"fileoffset", "J", nullptr, $PRIVATE, $field(ModelByteBuffer, fileoffset)},
+		{"buffer", "[B", nullptr, $PRIVATE, $field(ModelByteBuffer, buffer)},
+		{"offset", "J", nullptr, $PRIVATE, $field(ModelByteBuffer, offset)},
+		{"len", "J", nullptr, $PRIVATE | $FINAL, $field(ModelByteBuffer, len)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/ModelByteBuffer;JJZ)V", nullptr, $PRIVATE, $method(ModelByteBuffer, init$, void, ModelByteBuffer*, int64_t, int64_t, bool)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $bytes*)},
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $bytes*, int32_t, int32_t)},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $File*)},
+		{"<init>", "(Ljava/io/File;JJ)V", nullptr, $PUBLIC, $method(ModelByteBuffer, init$, void, $File*, int64_t, int64_t)},
+		{"array", "()[B", nullptr, $PUBLIC, $method(ModelByteBuffer, array, $bytes*)},
+		{"arrayOffset", "()J", nullptr, $PUBLIC, $method(ModelByteBuffer, arrayOffset, int64_t)},
+		{"capacity", "()J", nullptr, $PUBLIC, $method(ModelByteBuffer, capacity, int64_t)},
+		{"getFile", "()Ljava/io/File;", nullptr, $PUBLIC, $method(ModelByteBuffer, getFile, $File*)},
+		{"getFilePointer", "()J", nullptr, $PUBLIC, $method(ModelByteBuffer, getFilePointer, int64_t)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $method(ModelByteBuffer, getInputStream, $InputStream*)},
+		{"getRoot", "()Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, getRoot, ModelByteBuffer*)},
+		{"load", "()V", nullptr, $PUBLIC, $method(ModelByteBuffer, load, void), "java.io.IOException"},
+		{"loadAll", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lcom/sun/media/sound/ModelByteBuffer;>;)V", $PUBLIC | $STATIC, $staticMethod(ModelByteBuffer, loadAll, void, $Collection*), "java.io.IOException"},
+		{"subbuffer", "(J)Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, subbuffer, ModelByteBuffer*, int64_t)},
+		{"subbuffer", "(JJ)Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, subbuffer, ModelByteBuffer*, int64_t, int64_t)},
+		{"subbuffer", "(JJZ)Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $PUBLIC, $method(ModelByteBuffer, subbuffer, ModelByteBuffer*, int64_t, int64_t, bool)},
+		{"unload", "()V", nullptr, $PUBLIC, $method(ModelByteBuffer, unload, void)},
+		{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(ModelByteBuffer, writeTo, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream", "com.sun.media.sound.ModelByteBuffer", "RandomFileInputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelByteBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream"
+	};
+	$loadClass(ModelByteBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelByteBuffer);
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class $export StAXSource : public ::javax::xml::transform::Source {
 	$class(StAXSource, 0, ::javax::xml::transform::Source)
 public:
 	StAXSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::xml::stream::XMLEventReader* xmlEventReader);
 	void init$(::javax::xml::stream::XMLStreamReader* xmlStreamReader);
 	virtual $String* getSystemId() override;

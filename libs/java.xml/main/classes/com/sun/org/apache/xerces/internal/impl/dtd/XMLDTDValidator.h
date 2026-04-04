@@ -212,6 +212,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addDTDDefaultAttrsAndValidate(::com::sun::org::apache::xerces::internal::xni::QName* elementName, int32_t elementIndex, ::com::sun::org::apache::xerces::internal::xni::XMLAttributes* attributes);
 	void charDataInContent();

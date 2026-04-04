@@ -159,6 +159,7 @@ class $export CSS$Attribute : public ::java::lang::Object {
 	$class(CSS$Attribute, 0, ::java::lang::Object)
 public:
 	CSS$Attribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* defaultValue, bool inherited);
 	$String* getDefaultValue();
 	bool isInherited();

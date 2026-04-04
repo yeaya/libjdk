@@ -58,6 +58,7 @@ class $export RequestPublishers$FilePublisher : public ::java::net::http::HttpRe
 	$class(RequestPublishers$FilePublisher, 0, ::java::net::http::HttpRequest$BodyPublisher)
 public:
 	RequestPublishers$FilePublisher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* name, int64_t length, ::java::util::function::Function* inputStreamSupplier);
 	virtual int64_t contentLength() override;
 	static ::jdk::internal::net::http::RequestPublishers$FilePublisher* create(::java::nio::file::Path* path);

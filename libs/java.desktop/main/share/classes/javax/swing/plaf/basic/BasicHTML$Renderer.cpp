@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicHTML$Renderer.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -43,64 +42,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicHTML$Renderer_FieldInfo_[] = {
-	{"width", "I", nullptr, $PRIVATE, $field(BasicHTML$Renderer, width)},
-	{"view", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(BasicHTML$Renderer, view)},
-	{"factory", "Ljavax/swing/text/ViewFactory;", nullptr, $PRIVATE, $field(BasicHTML$Renderer, factory)},
-	{"host", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(BasicHTML$Renderer, host)},
-	{}
-};
-
-$MethodInfo _BasicHTML$Renderer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComponent;Ljavax/swing/text/ViewFactory;Ljavax/swing/text/View;)V", nullptr, 0, $method(BasicHTML$Renderer, init$, void, $JComponent*, $ViewFactory*, $View*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getAlignment, float, int32_t)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getAttributes, $AttributeSet*)},
-	{"getContainer", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getContainer, $Container*)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getDocument, $Document*)},
-	{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getElement, $Element*)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getEndOffset, int32_t)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getMinimumSpan, float, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getPreferredSpan, float, int32_t)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getStartOffset, int32_t)},
-	{"getView", "(I)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getView, $View*, int32_t)},
-	{"getViewCount", "()I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getViewCount, int32_t)},
-	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getViewFactory, $ViewFactory*)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"modelToView", "(ILjavax/swing/text/Position$Bias;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, modelToView, $Shape*, int32_t, $Position$Bias*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, paint, void, $Graphics*, $Shape*)},
-	{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, preferenceChanged, void, $View*, bool, bool)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, setParent, void, $View*)},
-	{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, setSize, void, float, float)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _BasicHTML$Renderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicHTML$Renderer", "javax.swing.plaf.basic.BasicHTML", "Renderer", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicHTML$Renderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicHTML$Renderer",
-	"javax.swing.text.View",
-	nullptr,
-	_BasicHTML$Renderer_FieldInfo_,
-	_BasicHTML$Renderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicHTML$Renderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicHTML"
-};
-
-$Object* allocate$BasicHTML$Renderer($Class* clazz) {
-	return $of($alloc(BasicHTML$Renderer));
-}
-
 void BasicHTML$Renderer::init$($JComponent* c, $ViewFactory* f, $View* v) {
 	$View::init$(nullptr);
 	$set(this, host, c);
@@ -108,7 +49,7 @@ void BasicHTML$Renderer::init$($JComponent* c, $ViewFactory* f, $View* v) {
 	$set(this, view, v);
 	$nc(this->view)->setParent(this);
 	float var$0 = $nc(this->view)->getPreferredSpan($View::X_AXIS);
-	setSize(var$0, $nc(this->view)->getPreferredSpan($View::Y_AXIS));
+	setSize(var$0, this->view->getPreferredSpan($View::Y_AXIS));
 }
 
 $AttributeSet* BasicHTML$Renderer::getAttributes() {
@@ -141,7 +82,7 @@ float BasicHTML$Renderer::getAlignment(int32_t axis) {
 
 void BasicHTML$Renderer::paint($Graphics* g, $Shape* allocation) {
 	$var($Rectangle, alloc, $nc(allocation)->getBounds());
-	$nc(this->view)->setSize((float)$nc(alloc)->width, (float)alloc->height);
+	$nc(this->view)->setSize((float)$nc(alloc)->width, (float)$nc(alloc)->height);
 	$nc(this->view)->paint(g, allocation);
 }
 
@@ -202,7 +143,59 @@ BasicHTML$Renderer::BasicHTML$Renderer() {
 }
 
 $Class* BasicHTML$Renderer::load$($String* name, bool initialize) {
-	$loadClass(BasicHTML$Renderer, name, initialize, &_BasicHTML$Renderer_ClassInfo_, allocate$BasicHTML$Renderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, $PRIVATE, $field(BasicHTML$Renderer, width)},
+		{"view", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(BasicHTML$Renderer, view)},
+		{"factory", "Ljavax/swing/text/ViewFactory;", nullptr, $PRIVATE, $field(BasicHTML$Renderer, factory)},
+		{"host", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(BasicHTML$Renderer, host)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;Ljavax/swing/text/ViewFactory;Ljavax/swing/text/View;)V", nullptr, 0, $method(BasicHTML$Renderer, init$, void, $JComponent*, $ViewFactory*, $View*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getAlignment, float, int32_t)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getAttributes, $AttributeSet*)},
+		{"getContainer", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getContainer, $Container*)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getDocument, $Document*)},
+		{"getElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getElement, $Element*)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getEndOffset, int32_t)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getMinimumSpan, float, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getPreferredSpan, float, int32_t)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getStartOffset, int32_t)},
+		{"getView", "(I)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getView, $View*, int32_t)},
+		{"getViewCount", "()I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getViewCount, int32_t)},
+		{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, getViewFactory, $ViewFactory*)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"modelToView", "(ILjavax/swing/text/Position$Bias;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, modelToView, $Shape*, int32_t, $Position$Bias*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, paint, void, $Graphics*, $Shape*)},
+		{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, preferenceChanged, void, $View*, bool, bool)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, setParent, void, $View*)},
+		{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, setSize, void, float, float)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BasicHTML$Renderer, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicHTML$Renderer", "javax.swing.plaf.basic.BasicHTML", "Renderer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicHTML$Renderer",
+		"javax.swing.text.View",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicHTML"
+	};
+	$loadClass(BasicHTML$Renderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicHTML$Renderer);
+	});
 	return class$;
 }
 

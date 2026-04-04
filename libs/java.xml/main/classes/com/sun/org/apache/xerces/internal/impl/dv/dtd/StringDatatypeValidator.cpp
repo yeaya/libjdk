@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/StringDatatypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <jcpp.h>
 
@@ -17,25 +16,6 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$MethodInfo _StringDatatypeValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringDatatypeValidator, init$, void)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(StringDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _StringDatatypeValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.StringDatatypeValidator",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
-	nullptr,
-	_StringDatatypeValidator_MethodInfo_
-};
-
-$Object* allocate$StringDatatypeValidator($Class* clazz) {
-	return $of($alloc(StringDatatypeValidator));
-}
-
 void StringDatatypeValidator::init$() {
 }
 
@@ -46,7 +26,22 @@ StringDatatypeValidator::StringDatatypeValidator() {
 }
 
 $Class* StringDatatypeValidator::load$($String* name, bool initialize) {
-	$loadClass(StringDatatypeValidator, name, initialize, &_StringDatatypeValidator_ClassInfo_, allocate$StringDatatypeValidator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringDatatypeValidator, init$, void)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(StringDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.StringDatatypeValidator",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringDatatypeValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringDatatypeValidator);
+	});
 	return class$;
 }
 

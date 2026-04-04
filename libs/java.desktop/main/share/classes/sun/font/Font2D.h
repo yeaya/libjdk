@@ -83,6 +83,7 @@ class Font2D : public ::java::lang::Object {
 	$class(Font2D, 0, ::java::lang::Object)
 public:
 	Font2D();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canDisplay(char16_t c);
 	virtual bool canDisplay(int32_t cp);

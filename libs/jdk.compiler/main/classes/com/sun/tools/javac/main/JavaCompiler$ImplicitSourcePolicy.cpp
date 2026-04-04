@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy.h>
-
 #include <com/sun/tools/javac/main/JavaCompiler.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,48 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _JavaCompiler$ImplicitSourcePolicy_FieldInfo_[] = {
-	{"NONE", "Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$ImplicitSourcePolicy, NONE)},
-	{"CLASS", "Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$ImplicitSourcePolicy, CLASS)},
-	{"UNSET", "Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$ImplicitSourcePolicy, UNSET)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$ImplicitSourcePolicy, $VALUES)},
-	{}
-};
-
-$MethodInfo _JavaCompiler$ImplicitSourcePolicy_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, $values, $JavaCompiler$ImplicitSourcePolicyArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavaCompiler$ImplicitSourcePolicy, init$, void, $String*, int32_t)},
-	{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, decode, JavaCompiler$ImplicitSourcePolicy*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, valueOf, JavaCompiler$ImplicitSourcePolicy*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, values, $JavaCompiler$ImplicitSourcePolicyArray*)},
-	{}
-};
-
-$InnerClassInfo _JavaCompiler$ImplicitSourcePolicy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.JavaCompiler$ImplicitSourcePolicy", "com.sun.tools.javac.main.JavaCompiler", "ImplicitSourcePolicy", $PROTECTED | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavaCompiler$ImplicitSourcePolicy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.JavaCompiler$ImplicitSourcePolicy",
-	"java.lang.Enum",
-	nullptr,
-	_JavaCompiler$ImplicitSourcePolicy_FieldInfo_,
-	_JavaCompiler$ImplicitSourcePolicy_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;>;",
-	nullptr,
-	_JavaCompiler$ImplicitSourcePolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.JavaCompiler"
-};
-
-$Object* allocate$JavaCompiler$ImplicitSourcePolicy($Class* clazz) {
-	return $of($alloc(JavaCompiler$ImplicitSourcePolicy));
-}
 
 JavaCompiler$ImplicitSourcePolicy* JavaCompiler$ImplicitSourcePolicy::NONE = nullptr;
 JavaCompiler$ImplicitSourcePolicy* JavaCompiler$ImplicitSourcePolicy::CLASS = nullptr;
@@ -95,7 +52,7 @@ JavaCompiler$ImplicitSourcePolicy* JavaCompiler$ImplicitSourcePolicy::decode($St
 	$init(JavaCompiler$ImplicitSourcePolicy);
 	if (option == nullptr) {
 		return JavaCompiler$ImplicitSourcePolicy::UNSET;
-	} else if ($nc(option)->equals("none"_s)) {
+	} else if (option->equals("none"_s)) {
 		return JavaCompiler$ImplicitSourcePolicy::NONE;
 	} else if (option->equals("class"_s)) {
 		return JavaCompiler$ImplicitSourcePolicy::CLASS;
@@ -104,7 +61,7 @@ JavaCompiler$ImplicitSourcePolicy* JavaCompiler$ImplicitSourcePolicy::decode($St
 	}
 }
 
-void clinit$JavaCompiler$ImplicitSourcePolicy($Class* class$) {
+void JavaCompiler$ImplicitSourcePolicy::clinit$($Class* clazz) {
 	$assignStatic(JavaCompiler$ImplicitSourcePolicy::NONE, $new(JavaCompiler$ImplicitSourcePolicy, "NONE"_s, 0));
 	$assignStatic(JavaCompiler$ImplicitSourcePolicy::CLASS, $new(JavaCompiler$ImplicitSourcePolicy, "CLASS"_s, 1));
 	$assignStatic(JavaCompiler$ImplicitSourcePolicy::UNSET, $new(JavaCompiler$ImplicitSourcePolicy, "UNSET"_s, 2));
@@ -115,7 +72,43 @@ JavaCompiler$ImplicitSourcePolicy::JavaCompiler$ImplicitSourcePolicy() {
 }
 
 $Class* JavaCompiler$ImplicitSourcePolicy::load$($String* name, bool initialize) {
-	$loadClass(JavaCompiler$ImplicitSourcePolicy, name, initialize, &_JavaCompiler$ImplicitSourcePolicy_ClassInfo_, clinit$JavaCompiler$ImplicitSourcePolicy, allocate$JavaCompiler$ImplicitSourcePolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$ImplicitSourcePolicy, NONE)},
+		{"CLASS", "Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$ImplicitSourcePolicy, CLASS)},
+		{"UNSET", "Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavaCompiler$ImplicitSourcePolicy, UNSET)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavaCompiler$ImplicitSourcePolicy, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, $values, $JavaCompiler$ImplicitSourcePolicyArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavaCompiler$ImplicitSourcePolicy, init$, void, $String*, int32_t)},
+		{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, decode, JavaCompiler$ImplicitSourcePolicy*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, valueOf, JavaCompiler$ImplicitSourcePolicy*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, values, $JavaCompiler$ImplicitSourcePolicyArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.JavaCompiler$ImplicitSourcePolicy", "com.sun.tools.javac.main.JavaCompiler", "ImplicitSourcePolicy", $PROTECTED | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.JavaCompiler$ImplicitSourcePolicy",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.JavaCompiler"
+	};
+	$loadClass(JavaCompiler$ImplicitSourcePolicy, name, initialize, &classInfo$$, JavaCompiler$ImplicitSourcePolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavaCompiler$ImplicitSourcePolicy));
+	});
 	return class$;
 }
 

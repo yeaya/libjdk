@@ -1,5 +1,4 @@
 #include <sun/font/LayoutPathImpl$EndType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/font/LayoutPathImpl.h>
 #include <jcpp.h>
@@ -17,50 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _LayoutPathImpl$EndType_FieldInfo_[] = {
-	{"PINNED", "Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LayoutPathImpl$EndType, PINNED)},
-	{"EXTENDED", "Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LayoutPathImpl$EndType, EXTENDED)},
-	{"CLOSED", "Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LayoutPathImpl$EndType, CLOSED)},
-	{"$VALUES", "[Lsun/font/LayoutPathImpl$EndType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LayoutPathImpl$EndType, $VALUES)},
-	{}
-};
-
-$MethodInfo _LayoutPathImpl$EndType_MethodInfo_[] = {
-	{"$values", "()[Lsun/font/LayoutPathImpl$EndType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LayoutPathImpl$EndType, $values, $LayoutPathImpl$EndTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LayoutPathImpl$EndType, init$, void, $String*, int32_t)},
-	{"isClosed", "()Z", nullptr, $PUBLIC, $method(LayoutPathImpl$EndType, isClosed, bool)},
-	{"isExtended", "()Z", nullptr, $PUBLIC, $method(LayoutPathImpl$EndType, isExtended, bool)},
-	{"isPinned", "()Z", nullptr, $PUBLIC, $method(LayoutPathImpl$EndType, isPinned, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutPathImpl$EndType, valueOf, LayoutPathImpl$EndType*, $String*)},
-	{"values", "()[Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutPathImpl$EndType, values, $LayoutPathImpl$EndTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _LayoutPathImpl$EndType_InnerClassesInfo_[] = {
-	{"sun.font.LayoutPathImpl$EndType", "sun.font.LayoutPathImpl", "EndType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LayoutPathImpl$EndType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.font.LayoutPathImpl$EndType",
-	"java.lang.Enum",
-	nullptr,
-	_LayoutPathImpl$EndType_FieldInfo_,
-	_LayoutPathImpl$EndType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/font/LayoutPathImpl$EndType;>;",
-	nullptr,
-	_LayoutPathImpl$EndType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.LayoutPathImpl"
-};
-
-$Object* allocate$LayoutPathImpl$EndType($Class* clazz) {
-	return $of($alloc(LayoutPathImpl$EndType));
-}
 
 LayoutPathImpl$EndType* LayoutPathImpl$EndType::PINNED = nullptr;
 LayoutPathImpl$EndType* LayoutPathImpl$EndType::EXTENDED = nullptr;
@@ -102,7 +57,7 @@ bool LayoutPathImpl$EndType::isClosed() {
 	return this == LayoutPathImpl$EndType::CLOSED;
 }
 
-void clinit$LayoutPathImpl$EndType($Class* class$) {
+void LayoutPathImpl$EndType::clinit$($Class* clazz) {
 	$assignStatic(LayoutPathImpl$EndType::PINNED, $new(LayoutPathImpl$EndType, "PINNED"_s, 0));
 	$assignStatic(LayoutPathImpl$EndType::EXTENDED, $new(LayoutPathImpl$EndType, "EXTENDED"_s, 1));
 	$assignStatic(LayoutPathImpl$EndType::CLOSED, $new(LayoutPathImpl$EndType, "CLOSED"_s, 2));
@@ -113,7 +68,45 @@ LayoutPathImpl$EndType::LayoutPathImpl$EndType() {
 }
 
 $Class* LayoutPathImpl$EndType::load$($String* name, bool initialize) {
-	$loadClass(LayoutPathImpl$EndType, name, initialize, &_LayoutPathImpl$EndType_ClassInfo_, clinit$LayoutPathImpl$EndType, allocate$LayoutPathImpl$EndType);
+	$FieldInfo fieldInfos$$[] = {
+		{"PINNED", "Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LayoutPathImpl$EndType, PINNED)},
+		{"EXTENDED", "Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LayoutPathImpl$EndType, EXTENDED)},
+		{"CLOSED", "Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LayoutPathImpl$EndType, CLOSED)},
+		{"$VALUES", "[Lsun/font/LayoutPathImpl$EndType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LayoutPathImpl$EndType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/font/LayoutPathImpl$EndType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LayoutPathImpl$EndType, $values, $LayoutPathImpl$EndTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LayoutPathImpl$EndType, init$, void, $String*, int32_t)},
+		{"isClosed", "()Z", nullptr, $PUBLIC, $method(LayoutPathImpl$EndType, isClosed, bool)},
+		{"isExtended", "()Z", nullptr, $PUBLIC, $method(LayoutPathImpl$EndType, isExtended, bool)},
+		{"isPinned", "()Z", nullptr, $PUBLIC, $method(LayoutPathImpl$EndType, isPinned, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutPathImpl$EndType, valueOf, LayoutPathImpl$EndType*, $String*)},
+		{"values", "()[Lsun/font/LayoutPathImpl$EndType;", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutPathImpl$EndType, values, $LayoutPathImpl$EndTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.LayoutPathImpl$EndType", "sun.font.LayoutPathImpl", "EndType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.font.LayoutPathImpl$EndType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/font/LayoutPathImpl$EndType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.LayoutPathImpl"
+	};
+	$loadClass(LayoutPathImpl$EndType, name, initialize, &classInfo$$, LayoutPathImpl$EndType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LayoutPathImpl$EndType));
+	});
 	return class$;
 }
 

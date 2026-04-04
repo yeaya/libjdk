@@ -1,7 +1,5 @@
 #include <javax/swing/table/DefaultTableColumnModel.h>
-
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/Enumeration.h>
 #include <java/util/EventListener.h>
 #include <java/util/Vector.h>
@@ -10,7 +8,6 @@
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/event/ListSelectionEvent.h>
-#include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/event/TableColumnModelEvent.h>
 #include <javax/swing/event/TableColumnModelListener.h>
 #include <javax/swing/table/TableColumn.h>
@@ -20,20 +17,17 @@
 using $EventListenerArray = $Array<::java::util::EventListener>;
 using $TableColumnModelListenerArray = $Array<::javax::swing::event::TableColumnModelListener>;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
-using $EventListener = ::java::util::EventListener;
 using $Vector = ::java::util::Vector;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
-using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $TableColumnModelEvent = ::javax::swing::event::TableColumnModelEvent;
 using $TableColumnModelListener = ::javax::swing::event::TableColumnModelListener;
 using $TableColumn = ::javax::swing::table::TableColumn;
@@ -42,71 +36,6 @@ using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 namespace javax {
 	namespace swing {
 		namespace table {
-
-$FieldInfo _DefaultTableColumnModel_FieldInfo_[] = {
-	{"tableColumns", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/table/TableColumn;>;", $PROTECTED, $field(DefaultTableColumnModel, tableColumns)},
-	{"selectionModel", "Ljavax/swing/ListSelectionModel;", nullptr, $PROTECTED, $field(DefaultTableColumnModel, selectionModel)},
-	{"columnMargin", "I", nullptr, $PROTECTED, $field(DefaultTableColumnModel, columnMargin)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultTableColumnModel, listenerList)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTableColumnModel, changeEvent)},
-	{"columnSelectionAllowed", "Z", nullptr, $PROTECTED, $field(DefaultTableColumnModel, columnSelectionAllowed)},
-	{"totalColumnWidth", "I", nullptr, $PROTECTED, $field(DefaultTableColumnModel, totalColumnWidth)},
-	{}
-};
-
-$MethodInfo _DefaultTableColumnModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableColumnModel, init$, void)},
-	{"addColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, addColumn, void, $TableColumn*)},
-	{"addColumnModelListener", "(Ljavax/swing/event/TableColumnModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, addColumnModelListener, void, $TableColumnModelListener*)},
-	{"createSelectionModel", "()Ljavax/swing/ListSelectionModel;", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, createSelectionModel, $ListSelectionModel*)},
-	{"fireColumnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnAdded, void, $TableColumnModelEvent*)},
-	{"fireColumnMarginChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnMarginChanged, void)},
-	{"fireColumnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnMoved, void, $TableColumnModelEvent*)},
-	{"fireColumnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnRemoved, void, $TableColumnModelEvent*)},
-	{"fireColumnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnSelectionChanged, void, $ListSelectionEvent*)},
-	{"getColumn", "(I)Ljavax/swing/table/TableColumn;", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumn, $TableColumn*, int32_t)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnCount, int32_t)},
-	{"getColumnIndex", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnIndex, int32_t, Object$*)},
-	{"getColumnIndexAtX", "(I)I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnIndexAtX, int32_t, int32_t)},
-	{"getColumnMargin", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnMargin, int32_t)},
-	{"getColumnModelListeners", "()[Ljavax/swing/event/TableColumnModelListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnModelListeners, $TableColumnModelListenerArray*)},
-	{"getColumnSelectionAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnSelectionAllowed, bool)},
-	{"getColumns", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/table/TableColumn;>;", $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumns, $Enumeration*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultTableColumnModel, getListeners, $EventListenerArray*, $Class*)},
-	{"getSelectedColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getSelectedColumnCount, int32_t)},
-	{"getSelectedColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getSelectedColumns, $ints*)},
-	{"getSelectionModel", "()Ljavax/swing/ListSelectionModel;", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getSelectionModel, $ListSelectionModel*)},
-	{"getTotalColumnWidth", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getTotalColumnWidth, int32_t)},
-	{"invalidateWidthCache", "()V", nullptr, $PRIVATE, $method(DefaultTableColumnModel, invalidateWidthCache, void)},
-	{"moveColumn", "(II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, moveColumn, void, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, propertyChange, void, $PropertyChangeEvent*)},
-	{"recalcWidthCache", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, recalcWidthCache, void)},
-	{"removeColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, removeColumn, void, $TableColumn*)},
-	{"removeColumnModelListener", "(Ljavax/swing/event/TableColumnModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, removeColumnModelListener, void, $TableColumnModelListener*)},
-	{"setColumnMargin", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, setColumnMargin, void, int32_t)},
-	{"setColumnSelectionAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, setColumnSelectionAllowed, void, bool)},
-	{"setSelectionModel", "(Ljavax/swing/ListSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, setSelectionModel, void, $ListSelectionModel*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$ClassInfo _DefaultTableColumnModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.table.DefaultTableColumnModel",
-	"java.lang.Object",
-	"javax.swing.table.TableColumnModel,java.beans.PropertyChangeListener,javax.swing.event.ListSelectionListener,java.io.Serializable",
-	_DefaultTableColumnModel_FieldInfo_,
-	_DefaultTableColumnModel_MethodInfo_
-};
-
-$Object* allocate$DefaultTableColumnModel($Class* clazz) {
-	return $of($alloc(DefaultTableColumnModel));
-}
 
 int32_t DefaultTableColumnModel::hashCode() {
 	 return this->$TableColumnModel::hashCode();
@@ -152,7 +81,7 @@ void DefaultTableColumnModel::removeColumn($TableColumn* column) {
 	int32_t columnIndex = $nc(this->tableColumns)->indexOf(column);
 	if (columnIndex != -1) {
 		if (this->selectionModel != nullptr) {
-			$nc(this->selectionModel)->removeIndexInterval(columnIndex, columnIndex);
+			this->selectionModel->removeIndexInterval(columnIndex, columnIndex);
 		}
 		$nc(column)->removePropertyChangeListener(this);
 		$nc(this->tableColumns)->removeElementAt(columnIndex);
@@ -162,7 +91,7 @@ void DefaultTableColumnModel::removeColumn($TableColumn* column) {
 }
 
 void DefaultTableColumnModel::moveColumn(int32_t columnIndex, int32_t newIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = (columnIndex < 0) || (columnIndex >= getColumnCount()) || (newIndex < 0);
 	if (var$0 || (newIndex >= getColumnCount())) {
 		$throwNew($IllegalArgumentException, "moveColumn() - Index out of range"_s);
@@ -173,7 +102,7 @@ void DefaultTableColumnModel::moveColumn(int32_t columnIndex, int32_t newIndex) 
 		return;
 	}
 	$assign(aColumn, $cast($TableColumn, $nc(this->tableColumns)->elementAt(columnIndex)));
-	$nc(this->tableColumns)->removeElementAt(columnIndex);
+	this->tableColumns->removeElementAt(columnIndex);
 	bool selected = $nc(this->selectionModel)->isSelectedIndex(columnIndex);
 	$nc(this->selectionModel)->removeIndexInterval(columnIndex, columnIndex);
 	$nc(this->tableColumns)->insertElementAt(aColumn, newIndex);
@@ -202,7 +131,7 @@ $Enumeration* DefaultTableColumnModel::getColumns() {
 }
 
 int32_t DefaultTableColumnModel::getColumnIndex(Object$* identifier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (identifier == nullptr) {
 		$throwNew($IllegalArgumentException, "Identifier is null"_s);
 	}
@@ -228,13 +157,13 @@ int32_t DefaultTableColumnModel::getColumnMargin() {
 }
 
 int32_t DefaultTableColumnModel::getColumnIndexAtX(int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x < 0) {
 		return -1;
 	}
 	int32_t cc = getColumnCount();
 	for (int32_t column = 0; column < cc; ++column) {
-		x = x - $nc($(getColumn(column)))->getWidth();
+		x = x - $$nc(getColumn(column))->getWidth();
 		if (x < 0) {
 			return column;
 		}
@@ -277,14 +206,14 @@ bool DefaultTableColumnModel::getColumnSelectionAllowed() {
 
 $ints* DefaultTableColumnModel::getSelectedColumns() {
 	if (this->selectionModel != nullptr) {
-		return $nc(this->selectionModel)->getSelectedIndices();
+		return this->selectionModel->getSelectedIndices();
 	}
 	return $new($ints, 0);
 }
 
 int32_t DefaultTableColumnModel::getSelectedColumnCount() {
 	if (this->selectionModel != nullptr) {
-		return $nc(this->selectionModel)->getSelectedItemsCount();
+		return this->selectionModel->getSelectedItemsCount();
 	}
 	return 0;
 }
@@ -301,7 +230,7 @@ void DefaultTableColumnModel::removeColumnModelListener($TableColumnModelListene
 
 $TableColumnModelListenerArray* DefaultTableColumnModel::getColumnModelListeners() {
 	$load($TableColumnModelListener);
-	return $fcast($TableColumnModelListenerArray, $nc(this->listenerList)->getListeners($TableColumnModelListener::class$));
+	return $cast($TableColumnModelListenerArray, $nc(this->listenerList)->getListeners($TableColumnModelListener::class$));
 }
 
 void DefaultTableColumnModel::fireColumnAdded($TableColumnModelEvent* e) {
@@ -309,7 +238,7 @@ void DefaultTableColumnModel::fireColumnAdded($TableColumnModelEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TableColumnModelListener);
 		if ($equals(listeners->get(i), $TableColumnModelListener::class$)) {
-			$nc(($cast($TableColumnModelListener, listeners->get(i + 1))))->columnAdded(e);
+			$nc($cast($TableColumnModelListener, listeners->get(i + 1)))->columnAdded(e);
 		}
 	}
 }
@@ -319,7 +248,7 @@ void DefaultTableColumnModel::fireColumnRemoved($TableColumnModelEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TableColumnModelListener);
 		if ($equals(listeners->get(i), $TableColumnModelListener::class$)) {
-			$nc(($cast($TableColumnModelListener, listeners->get(i + 1))))->columnRemoved(e);
+			$nc($cast($TableColumnModelListener, listeners->get(i + 1)))->columnRemoved(e);
 		}
 	}
 }
@@ -329,7 +258,7 @@ void DefaultTableColumnModel::fireColumnMoved($TableColumnModelEvent* e) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TableColumnModelListener);
 		if ($equals(listeners->get(i), $TableColumnModelListener::class$)) {
-			$nc(($cast($TableColumnModelListener, listeners->get(i + 1))))->columnMoved(e);
+			$nc($cast($TableColumnModelListener, listeners->get(i + 1)))->columnMoved(e);
 		}
 	}
 }
@@ -339,7 +268,7 @@ void DefaultTableColumnModel::fireColumnSelectionChanged($ListSelectionEvent* e)
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($TableColumnModelListener);
 		if ($equals(listeners->get(i), $TableColumnModelListener::class$)) {
-			$nc(($cast($TableColumnModelListener, listeners->get(i + 1))))->columnSelectionChanged(e);
+			$nc($cast($TableColumnModelListener, listeners->get(i + 1)))->columnSelectionChanged(e);
 		}
 	}
 }
@@ -352,7 +281,7 @@ void DefaultTableColumnModel::fireColumnMarginChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($TableColumnModelListener, listeners->get(i + 1))))->columnMarginChanged(this->changeEvent);
+			$nc($cast($TableColumnModelListener, listeners->get(i + 1)))->columnMarginChanged(this->changeEvent);
 		}
 	}
 }
@@ -378,11 +307,11 @@ $ListSelectionModel* DefaultTableColumnModel::createSelectionModel() {
 }
 
 void DefaultTableColumnModel::recalcWidthCache() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, enumeration, getColumns());
 	this->totalColumnWidth = 0;
 	while ($nc(enumeration)->hasMoreElements()) {
-		this->totalColumnWidth += $nc(($cast($TableColumn, $(enumeration->nextElement()))))->getWidth();
+		this->totalColumnWidth += $$sure($TableColumn, enumeration->nextElement())->getWidth();
 	}
 }
 
@@ -394,7 +323,67 @@ DefaultTableColumnModel::DefaultTableColumnModel() {
 }
 
 $Class* DefaultTableColumnModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultTableColumnModel, name, initialize, &_DefaultTableColumnModel_ClassInfo_, allocate$DefaultTableColumnModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"tableColumns", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/table/TableColumn;>;", $PROTECTED, $field(DefaultTableColumnModel, tableColumns)},
+		{"selectionModel", "Ljavax/swing/ListSelectionModel;", nullptr, $PROTECTED, $field(DefaultTableColumnModel, selectionModel)},
+		{"columnMargin", "I", nullptr, $PROTECTED, $field(DefaultTableColumnModel, columnMargin)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultTableColumnModel, listenerList)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultTableColumnModel, changeEvent)},
+		{"columnSelectionAllowed", "Z", nullptr, $PROTECTED, $field(DefaultTableColumnModel, columnSelectionAllowed)},
+		{"totalColumnWidth", "I", nullptr, $PROTECTED, $field(DefaultTableColumnModel, totalColumnWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableColumnModel, init$, void)},
+		{"addColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, addColumn, void, $TableColumn*)},
+		{"addColumnModelListener", "(Ljavax/swing/event/TableColumnModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, addColumnModelListener, void, $TableColumnModelListener*)},
+		{"createSelectionModel", "()Ljavax/swing/ListSelectionModel;", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, createSelectionModel, $ListSelectionModel*)},
+		{"fireColumnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnAdded, void, $TableColumnModelEvent*)},
+		{"fireColumnMarginChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnMarginChanged, void)},
+		{"fireColumnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnMoved, void, $TableColumnModelEvent*)},
+		{"fireColumnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnRemoved, void, $TableColumnModelEvent*)},
+		{"fireColumnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, fireColumnSelectionChanged, void, $ListSelectionEvent*)},
+		{"getColumn", "(I)Ljavax/swing/table/TableColumn;", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumn, $TableColumn*, int32_t)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnCount, int32_t)},
+		{"getColumnIndex", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnIndex, int32_t, Object$*)},
+		{"getColumnIndexAtX", "(I)I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnIndexAtX, int32_t, int32_t)},
+		{"getColumnMargin", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnMargin, int32_t)},
+		{"getColumnModelListeners", "()[Ljavax/swing/event/TableColumnModelListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnModelListeners, $TableColumnModelListenerArray*)},
+		{"getColumnSelectionAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumnSelectionAllowed, bool)},
+		{"getColumns", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/table/TableColumn;>;", $PUBLIC, $virtualMethod(DefaultTableColumnModel, getColumns, $Enumeration*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultTableColumnModel, getListeners, $EventListenerArray*, $Class*)},
+		{"getSelectedColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getSelectedColumnCount, int32_t)},
+		{"getSelectedColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getSelectedColumns, $ints*)},
+		{"getSelectionModel", "()Ljavax/swing/ListSelectionModel;", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getSelectionModel, $ListSelectionModel*)},
+		{"getTotalColumnWidth", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, getTotalColumnWidth, int32_t)},
+		{"invalidateWidthCache", "()V", nullptr, $PRIVATE, $method(DefaultTableColumnModel, invalidateWidthCache, void)},
+		{"moveColumn", "(II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, moveColumn, void, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, propertyChange, void, $PropertyChangeEvent*)},
+		{"recalcWidthCache", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultTableColumnModel, recalcWidthCache, void)},
+		{"removeColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, removeColumn, void, $TableColumn*)},
+		{"removeColumnModelListener", "(Ljavax/swing/event/TableColumnModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, removeColumnModelListener, void, $TableColumnModelListener*)},
+		{"setColumnMargin", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, setColumnMargin, void, int32_t)},
+		{"setColumnSelectionAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, setColumnSelectionAllowed, void, bool)},
+		{"setSelectionModel", "(Ljavax/swing/ListSelectionModel;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, setSelectionModel, void, $ListSelectionModel*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableColumnModel, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.table.DefaultTableColumnModel",
+		"java.lang.Object",
+		"javax.swing.table.TableColumnModel,java.beans.PropertyChangeListener,javax.swing.event.ListSelectionListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultTableColumnModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTableColumnModel));
+	});
 	return class$;
 }
 

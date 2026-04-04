@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextFieldUI$1.h>
-
 #include <javax/swing/plaf/basic/BasicTextFieldUI.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/GlyphView.h>
@@ -19,48 +18,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicTextFieldUI$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTextFieldUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTextFieldUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTextFieldUI$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTextFieldUI;Ljavax/swing/text/Element;)V", nullptr, 0, $method(BasicTextFieldUI$1, init$, void, $BasicTextFieldUI*, $Element*)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI$1, getMinimumSpan, float, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicTextFieldUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	"create",
-	"(Ljavax/swing/text/Element;)Ljavax/swing/text/View;"
-};
-
-$InnerClassInfo _BasicTextFieldUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextFieldUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicTextFieldUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextFieldUI$1",
-	"javax.swing.text.GlyphView",
-	nullptr,
-	_BasicTextFieldUI$1_FieldInfo_,
-	_BasicTextFieldUI$1_MethodInfo_,
-	nullptr,
-	&_BasicTextFieldUI$1_EnclosingMethodInfo_,
-	_BasicTextFieldUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextFieldUI"
-};
-
-$Object* allocate$BasicTextFieldUI$1($Class* clazz) {
-	return $of($alloc(BasicTextFieldUI$1));
-}
-
 void BasicTextFieldUI$1::init$($BasicTextFieldUI* this$0, $Element* elem) {
 	$set(this, this$0, this$0);
 	$GlyphView::init$(elem);
@@ -74,7 +31,42 @@ BasicTextFieldUI$1::BasicTextFieldUI$1() {
 }
 
 $Class* BasicTextFieldUI$1::load$($String* name, bool initialize) {
-	$loadClass(BasicTextFieldUI$1, name, initialize, &_BasicTextFieldUI$1_ClassInfo_, allocate$BasicTextFieldUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTextFieldUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTextFieldUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTextFieldUI;Ljavax/swing/text/Element;)V", nullptr, 0, $method(BasicTextFieldUI$1, init$, void, $BasicTextFieldUI*, $Element*)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BasicTextFieldUI$1, getMinimumSpan, float, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		"create",
+		"(Ljavax/swing/text/Element;)Ljavax/swing/text/View;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextFieldUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextFieldUI$1",
+		"javax.swing.text.GlyphView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextFieldUI"
+	};
+	$loadClass(BasicTextFieldUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextFieldUI$1));
+	});
 	return class$;
 }
 

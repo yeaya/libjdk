@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$Direction.h>
-
 #include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants.h>
@@ -28,65 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIConstants$Direction_FieldInfo_[] = {
-	{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, SHIFT)},
-	{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, SIZE)},
-	{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, MASK)},
-	{"direction", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, direction)},
-	{"_none", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _none)},
-	{"NONE", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, NONE)},
-	{"_up", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _up)},
-	{"UP", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, UP)},
-	{"_down", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _down)},
-	{"DOWN", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, DOWN)},
-	{"_left", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _left)},
-	{"LEFT", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, LEFT)},
-	{"_right", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _right)},
-	{"RIGHT", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, RIGHT)},
-	{"_north", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _north)},
-	{"NORTH", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, NORTH)},
-	{"_south", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _south)},
-	{"SOUTH", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, SOUTH)},
-	{"_east", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _east)},
-	{"EAST", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, EAST)},
-	{"_west", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _west)},
-	{"WEST", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, WEST)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$Direction_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$Direction, init$, void, int8_t)},
-	{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Direction, apply, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Direction, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$Direction_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$Direction", "apple.laf.JRSUIConstants", "Direction", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$Direction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIConstants$Direction",
-	"apple.laf.JRSUIConstants$Property",
-	nullptr,
-	_JRSUIConstants$Direction_FieldInfo_,
-	_JRSUIConstants$Direction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$Direction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$Direction($Class* clazz) {
-	return $of($alloc(JRSUIConstants$Direction));
-}
-
 $JRSUIConstants$PropertyEncoding* JRSUIConstants$Direction::direction = nullptr;
 JRSUIConstants$Direction* JRSUIConstants$Direction::NONE = nullptr;
 JRSUIConstants$Direction* JRSUIConstants$Direction::UP = nullptr;
@@ -110,7 +50,7 @@ int64_t JRSUIConstants$Direction::apply(int64_t encodedState) {
 	return $JRSUIConstants$Property::apply(encodedState);
 }
 
-void clinit$JRSUIConstants$Direction($Class* class$) {
+void JRSUIConstants$Direction::clinit$($Class* clazz) {
 	$assignStatic(JRSUIConstants$Direction::direction, $new($JRSUIConstants$PropertyEncoding, JRSUIConstants$Direction::MASK, JRSUIConstants$Direction::SHIFT));
 	$assignStatic(JRSUIConstants$Direction::NONE, $new(JRSUIConstants$Direction, JRSUIConstants$Direction::_none));
 	$assignStatic(JRSUIConstants$Direction::UP, $new(JRSUIConstants$Direction, JRSUIConstants$Direction::_up));
@@ -127,7 +67,60 @@ JRSUIConstants$Direction::JRSUIConstants$Direction() {
 }
 
 $Class* JRSUIConstants$Direction::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$Direction, name, initialize, &_JRSUIConstants$Direction_ClassInfo_, clinit$JRSUIConstants$Direction, allocate$JRSUIConstants$Direction);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, SHIFT)},
+		{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, SIZE)},
+		{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, MASK)},
+		{"direction", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, direction)},
+		{"_none", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _none)},
+		{"NONE", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, NONE)},
+		{"_up", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _up)},
+		{"UP", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, UP)},
+		{"_down", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _down)},
+		{"DOWN", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, DOWN)},
+		{"_left", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _left)},
+		{"LEFT", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, LEFT)},
+		{"_right", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _right)},
+		{"RIGHT", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, RIGHT)},
+		{"_north", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _north)},
+		{"NORTH", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, NORTH)},
+		{"_south", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _south)},
+		{"SOUTH", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, SOUTH)},
+		{"_east", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _east)},
+		{"EAST", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, EAST)},
+		{"_west", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Direction, _west)},
+		{"WEST", "Lapple/laf/JRSUIConstants$Direction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Direction, WEST)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$Direction, init$, void, int8_t)},
+		{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Direction, apply, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Direction, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$Direction", "apple.laf.JRSUIConstants", "Direction", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIConstants$Direction",
+		"apple.laf.JRSUIConstants$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$Direction, name, initialize, &classInfo$$, JRSUIConstants$Direction::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$Direction);
+	});
 	return class$;
 }
 

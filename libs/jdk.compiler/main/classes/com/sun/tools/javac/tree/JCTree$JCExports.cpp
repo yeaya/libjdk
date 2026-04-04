@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCExports.h>
-
-#include <com/sun/source/tree/ExportsTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
@@ -16,7 +14,6 @@
 
 #undef EXPORTS
 
-using $ExportsTree = ::com::sun::source::tree::ExportsTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -36,55 +33,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCExports_FieldInfo_[] = {
-	{"qualid", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCExports, qualid)},
-	{"moduleNames", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $field(JCTree$JCExports, moduleNames)},
-	{"directive", "Lcom/sun/tools/javac/code/Directive$ExportsDirective;", nullptr, $PUBLIC, $field(JCTree$JCExports, directive)},
-	{}
-};
-
-$MethodInfo _JCTree$JCExports_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(JCTree$JCExports, init$, void, $JCTree$JCExpression*, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCExports, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, getKind, $Tree$Kind*)},
-	{"getModuleNames", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(JCTree$JCExports, getModuleNames, $1List*)},
-	{"getPackageName", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, getPackageName, $ExpressionTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCExports_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCExports", "com.sun.tools.javac.tree.JCTree", "JCExports", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCDirective", "com.sun.tools.javac.tree.JCTree", "JCDirective", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCExports_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCExports",
-	"com.sun.tools.javac.tree.JCTree$JCDirective",
-	"com.sun.source.tree.ExportsTree",
-	_JCTree$JCExports_FieldInfo_,
-	_JCTree$JCExports_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCExports_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCExports($Class* clazz) {
-	return $of($alloc(JCTree$JCExports));
-}
 
 $String* JCTree$JCExports::toString() {
 	 return this->$JCTree$JCDirective::toString();
@@ -130,7 +78,7 @@ $1List* JCTree$JCExports::getModuleNames() {
 }
 
 $Object* JCTree$JCExports::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitExports(this, d));
+	return $nc(v)->visitExports(this, d);
 }
 
 $JCTree$Tag* JCTree$JCExports::getTag() {
@@ -142,7 +90,50 @@ JCTree$JCExports::JCTree$JCExports() {
 }
 
 $Class* JCTree$JCExports::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCExports, name, initialize, &_JCTree$JCExports_ClassInfo_, allocate$JCTree$JCExports);
+	$FieldInfo fieldInfos$$[] = {
+		{"qualid", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCExports, qualid)},
+		{"moduleNames", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $field(JCTree$JCExports, moduleNames)},
+		{"directive", "Lcom/sun/tools/javac/code/Directive$ExportsDirective;", nullptr, $PUBLIC, $field(JCTree$JCExports, directive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(JCTree$JCExports, init$, void, $JCTree$JCExpression*, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCExports, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, getKind, $Tree$Kind*)},
+		{"getModuleNames", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(JCTree$JCExports, getModuleNames, $1List*)},
+		{"getPackageName", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, getPackageName, $ExpressionTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCExports, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCExports", "com.sun.tools.javac.tree.JCTree", "JCExports", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCDirective", "com.sun.tools.javac.tree.JCTree", "JCDirective", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCExports",
+		"com.sun.tools.javac.tree.JCTree$JCDirective",
+		"com.sun.source.tree.ExportsTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCExports, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCExports));
+	});
 	return class$;
 }
 

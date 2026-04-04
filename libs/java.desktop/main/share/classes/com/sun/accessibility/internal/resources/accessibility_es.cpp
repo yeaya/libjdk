@@ -1,5 +1,4 @@
 #include <com/sun/accessibility/internal/resources/accessibility_es.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,423 +13,404 @@ namespace com {
 			namespace internal {
 				namespace resources {
 
-$MethodInfo _accessibility_es_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(accessibility_es, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(accessibility_es, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _accessibility_es_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.accessibility.internal.resources.accessibility_es",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_accessibility_es_MethodInfo_
-};
-
-$Object* allocate$accessibility_es($Class* clazz) {
-	return $of($alloc(accessibility_es));
-}
-
 void accessibility_es::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* accessibility_es::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("active"_s),
-			$of("activo"_s)
+			"active"_s,
+			"activo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alert"_s),
-			$of("alerta"_s)
+			"alert"_s,
+			"alerta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("armed"_s),
-			$of("armado"_s)
+			"armed"_s,
+			"armado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awtcomponent"_s),
-			$of("componente AWT"_s)
+			"awtcomponent"_s,
+			"componente AWT"_s
 		}),
 		$$new($ObjectArray, {
-			$of("busy"_s),
-			$of("ocupado"_s)
+			"busy"_s,
+			"ocupado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("canvas"_s),
-			$of("lienzo"_s)
+			"canvas"_s,
+			"lienzo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checkbox"_s),
-			$of("casilla de control"_s)
+			"checkbox"_s,
+			"casilla de control"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checked"_s),
-			$of("activado"_s)
+			"checked"_s,
+			"activado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("childNodeOf"_s),
-			$of("nodo secundario de"_s)
+			"childNodeOf"_s,
+			"nodo secundario de"_s
 		}),
 		$$new($ObjectArray, {
-			$of("collapsed"_s),
-			$of("reducido"_s)
+			"collapsed"_s,
+			"reducido"_s
 		}),
 		$$new($ObjectArray, {
-			$of("colorchooser"_s),
-			$of("selector de color"_s)
+			"colorchooser"_s,
+			"selector de color"_s
 		}),
 		$$new($ObjectArray, {
-			$of("columnheader"_s),
-			$of("cabecera de columna"_s)
+			"columnheader"_s,
+			"cabecera de columna"_s
 		}),
 		$$new($ObjectArray, {
-			$of("combobox"_s),
-			$of("cuadro combinado"_s)
+			"combobox"_s,
+			"cuadro combinado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("controlledBy"_s),
-			$of("controlledBy"_s)
+			"controlledBy"_s,
+			"controlledBy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("controllerFor"_s),
-			$of("controllerFor"_s)
+			"controllerFor"_s,
+			"controllerFor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("desktopicon"_s),
-			$of("icono de escritorio"_s)
+			"desktopicon"_s,
+			"icono de escritorio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("desktoppane"_s),
-			$of("panel de escritorio"_s)
+			"desktoppane"_s,
+			"panel de escritorio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog"_s),
-			$of(u"cuadro de diálogo"_s)
+			"dialog"_s,
+			u"cuadro de diálogo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("directorypane"_s),
-			$of("panel de directorio"_s)
+			"directorypane"_s,
+			"panel de directorio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("editable"_s),
-			$of("editable"_s)
+			"editable"_s,
+			"editable"_s
 		}),
 		$$new($ObjectArray, {
-			$of("editbar"_s),
-			$of(u"barra de edición"_s)
+			"editbar"_s,
+			u"barra de edición"_s
 		}),
 		$$new($ObjectArray, {
-			$of("embeddedBy"_s),
-			$of("embebido por"_s)
+			"embeddedBy"_s,
+			"embebido por"_s
 		}),
 		$$new($ObjectArray, {
-			$of("embeds"_s),
-			$of("embebe"_s)
+			"embeds"_s,
+			"embebe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enabled"_s),
-			$of("activado"_s)
+			"enabled"_s,
+			"activado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("expandable"_s),
-			$of("ampliable"_s)
+			"expandable"_s,
+			"ampliable"_s
 		}),
 		$$new($ObjectArray, {
-			$of("expanded"_s),
-			$of("ampliado"_s)
+			"expanded"_s,
+			"ampliado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("filechooser"_s),
-			$of("selector de archivos"_s)
+			"filechooser"_s,
+			"selector de archivos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("filler"_s),
-			$of("rellenador"_s)
+			"filler"_s,
+			"rellenador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("flowsFrom"_s),
-			$of("procede de"_s)
+			"flowsFrom"_s,
+			"procede de"_s
 		}),
 		$$new($ObjectArray, {
-			$of("flowsTo"_s),
-			$of("llega a"_s)
+			"flowsTo"_s,
+			"llega a"_s
 		}),
 		$$new($ObjectArray, {
-			$of("focusable"_s),
-			$of("enfocable"_s)
+			"focusable"_s,
+			"enfocable"_s
 		}),
 		$$new($ObjectArray, {
-			$of("focused"_s),
-			$of("enfocado"_s)
+			"focused"_s,
+			"enfocado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("footer"_s),
-			$of("pie"_s)
+			"footer"_s,
+			"pie"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frame"_s),
-			$of("marco"_s)
+			"frame"_s,
+			"marco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("glasspane"_s),
-			$of("panel de cristal"_s)
+			"glasspane"_s,
+			"panel de cristal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("header"_s),
-			$of("cabecera"_s)
+			"header"_s,
+			"cabecera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("horizontal"_s),
-			$of("horizontal"_s)
+			"horizontal"_s,
+			"horizontal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("htmlcontainer"_s),
-			$of("Contenedor HTML"_s)
+			"htmlcontainer"_s,
+			"Contenedor HTML"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iconified"_s),
-			$of("convertido en icono"_s)
+			"iconified"_s,
+			"convertido en icono"_s
 		}),
 		$$new($ObjectArray, {
-			$of("indeterminate"_s),
-			$of("indeterminada"_s)
+			"indeterminate"_s,
+			"indeterminada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("internalframe"_s),
-			$of("marco interno"_s)
+			"internalframe"_s,
+			"marco interno"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label"_s),
-			$of("etiqueta"_s)
+			"label"_s,
+			"etiqueta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("labelFor"_s),
-			$of("etiqueta para"_s)
+			"labelFor"_s,
+			"etiqueta para"_s
 		}),
 		$$new($ObjectArray, {
-			$of("labeledBy"_s),
-			$of("etiquetado por"_s)
+			"labeledBy"_s,
+			"etiquetado por"_s
 		}),
 		$$new($ObjectArray, {
-			$of("layeredpane"_s),
-			$of("panel en capas"_s)
+			"layeredpane"_s,
+			"panel en capas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("list"_s),
-			$of("lista"_s)
+			"list"_s,
+			"lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("listitem"_s),
-			$of("elemento de lista"_s)
+			"listitem"_s,
+			"elemento de lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("managesDescendants"_s),
-			$of("gestiona descendientes"_s)
+			"managesDescendants"_s,
+			"gestiona descendientes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("memberOf"_s),
-			$of("miembro de"_s)
+			"memberOf"_s,
+			"miembro de"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menu"_s),
-			$of(u"menú"_s)
+			"menu"_s,
+			u"menú"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menubar"_s),
-			$of(u"barra de menús"_s)
+			"menubar"_s,
+			u"barra de menús"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menuitem"_s),
-			$of(u"elemento de menú"_s)
+			"menuitem"_s,
+			u"elemento de menú"_s
 		}),
 		$$new($ObjectArray, {
-			$of("modal"_s),
-			$of("modal"_s)
+			"modal"_s,
+			"modal"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiline"_s),
-			$of(u"línea múltiple"_s)
+			"multiline"_s,
+			u"línea múltiple"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiselectable"_s),
-			$of("multiseleccionable"_s)
+			"multiselectable"_s,
+			"multiseleccionable"_s
 		}),
 		$$new($ObjectArray, {
-			$of("opaque"_s),
-			$of("opaco"_s)
+			"opaque"_s,
+			"opaco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionpane"_s),
-			$of("panel de opciones"_s)
+			"optionpane"_s,
+			"panel de opciones"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pagetab"_s),
-			$of(u"separador de página"_s)
+			"pagetab"_s,
+			u"separador de página"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pagetablist"_s),
-			$of(u"lista de separadores de página"_s)
+			"pagetablist"_s,
+			u"lista de separadores de página"_s
 		}),
 		$$new($ObjectArray, {
-			$of("panel"_s),
-			$of("panel"_s)
+			"panel"_s,
+			"panel"_s
 		}),
 		$$new($ObjectArray, {
-			$of("paragraph"_s),
-			$of(u"párrafo"_s)
+			"paragraph"_s,
+			u"párrafo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("parentWindowOf"_s),
-			$of("ventana principal de"_s)
+			"parentWindowOf"_s,
+			"ventana principal de"_s
 		}),
 		$$new($ObjectArray, {
-			$of("passwordtext"_s),
-			$of(u"texto de contraseña"_s)
+			"passwordtext"_s,
+			u"texto de contraseña"_s
 		}),
 		$$new($ObjectArray, {
-			$of("popupmenu"_s),
-			$of(u"menú emergente"_s)
+			"popupmenu"_s,
+			u"menú emergente"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pressed"_s),
-			$of("pulsado"_s)
+			"pressed"_s,
+			"pulsado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("progressMonitor"_s),
-			$of("monitor de progreso"_s)
+			"progressMonitor"_s,
+			"monitor de progreso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("progressbar"_s),
-			$of("barra de progreso"_s)
+			"progressbar"_s,
+			"barra de progreso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pushbutton"_s),
-			$of(u"botón"_s)
+			"pushbutton"_s,
+			u"botón"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton"_s),
-			$of(u"botón de radio"_s)
+			"radiobutton"_s,
+			u"botón de radio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("resizable"_s),
-			$of("redimensionable"_s)
+			"resizable"_s,
+			"redimensionable"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rootpane"_s),
-			$of(u"panel raíz"_s)
+			"rootpane"_s,
+			u"panel raíz"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rowheader"_s),
-			$of("cabecera de filas"_s)
+			"rowheader"_s,
+			"cabecera de filas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ruler"_s),
-			$of("regla"_s)
+			"ruler"_s,
+			"regla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scrollbar"_s),
-			$of("barra de desplazamiento"_s)
+			"scrollbar"_s,
+			"barra de desplazamiento"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scrollpane"_s),
-			$of("panel de desplazamiento"_s)
+			"scrollpane"_s,
+			"panel de desplazamiento"_s
 		}),
 		$$new($ObjectArray, {
-			$of("selectable"_s),
-			$of("seleccionable"_s)
+			"selectable"_s,
+			"seleccionable"_s
 		}),
 		$$new($ObjectArray, {
-			$of("selected"_s),
-			$of("seleccionado"_s)
+			"selected"_s,
+			"seleccionado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("separator"_s),
-			$of("separador"_s)
+			"separator"_s,
+			"separador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("showing"_s),
-			$of("mostrando"_s)
+			"showing"_s,
+			"mostrando"_s
 		}),
 		$$new($ObjectArray, {
-			$of("singleline"_s),
-			$of(u"línea única"_s)
+			"singleline"_s,
+			u"línea única"_s
 		}),
 		$$new($ObjectArray, {
-			$of("slider"_s),
-			$of("deslizador"_s)
+			"slider"_s,
+			"deslizador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("splitpane"_s),
-			$of(u"panel de división"_s)
+			"splitpane"_s,
+			u"panel de división"_s
 		}),
 		$$new($ObjectArray, {
-			$of("subwindowOf"_s),
-			$of("ventana subordinada de"_s)
+			"subwindowOf"_s,
+			"ventana subordinada de"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swingcomponent"_s),
-			$of("componente swing"_s)
+			"swingcomponent"_s,
+			"componente swing"_s
 		}),
 		$$new($ObjectArray, {
-			$of("table"_s),
-			$of("tabla"_s)
+			"table"_s,
+			"tabla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("text"_s),
-			$of("texto"_s)
+			"text"_s,
+			"texto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("togglebutton"_s),
-			$of(u"botón conmutador"_s)
+			"togglebutton"_s,
+			u"botón conmutador"_s
 		}),
 		$$new($ObjectArray, {
-			$of("toggleexpand"_s),
-			$of(u"conmutar ampliación"_s)
+			"toggleexpand"_s,
+			u"conmutar ampliación"_s
 		}),
 		$$new($ObjectArray, {
-			$of("toolbar"_s),
-			$of("barra de herramientas"_s)
+			"toolbar"_s,
+			"barra de herramientas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tooltip"_s),
-			$of("ayuda de burbuja"_s)
+			"tooltip"_s,
+			"ayuda de burbuja"_s
 		}),
 		$$new($ObjectArray, {
-			$of("transient"_s),
-			$of("transitorio"_s)
+			"transient"_s,
+			"transitorio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tree"_s),
-			$of(u"árbol"_s)
+			"tree"_s,
+			u"árbol"_s
 		}),
 		$$new($ObjectArray, {
-			$of("truncated"_s),
-			$of("truncado"_s)
+			"truncated"_s,
+			"truncado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("unknown"_s),
-			$of("desconocido"_s)
+			"unknown"_s,
+			"desconocido"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vertical"_s),
-			$of("vertical"_s)
+			"vertical"_s,
+			"vertical"_s
 		}),
 		$$new($ObjectArray, {
-			$of("viewport"_s),
-			$of("viewport"_s)
+			"viewport"_s,
+			"viewport"_s
 		}),
 		$$new($ObjectArray, {
-			$of("visible"_s),
-			$of("visible"_s)
+			"visible"_s,
+			"visible"_s
 		}),
 		$$new($ObjectArray, {
-			$of("window"_s),
-			$of("ventana"_s)
+			"window"_s,
+			"ventana"_s
 		})
 	});
 }
@@ -439,7 +419,22 @@ accessibility_es::accessibility_es() {
 }
 
 $Class* accessibility_es::load$($String* name, bool initialize) {
-	$loadClass(accessibility_es, name, initialize, &_accessibility_es_ClassInfo_, allocate$accessibility_es);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(accessibility_es, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(accessibility_es, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.accessibility.internal.resources.accessibility_es",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(accessibility_es, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(accessibility_es);
+	});
 	return class$;
 }
 

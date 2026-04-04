@@ -30,6 +30,7 @@ class $import PsuedoNames : public ::java::lang::Object {
 	$class(PsuedoNames, 0, ::java::lang::Object)
 public:
 	PsuedoNames();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* PSEUDONAME_ANY;
 	static $String* PSEUDONAME_ROOT;

@@ -1,5 +1,4 @@
 #include <sun/awt/OSInfo$WindowsVersion.h>
-
 #include <sun/awt/OSInfo.h>
 #include <jcpp.h>
 
@@ -10,49 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _OSInfo$WindowsVersion_FieldInfo_[] = {
-	{"major", "I", nullptr, $PRIVATE | $FINAL, $field(OSInfo$WindowsVersion, major)},
-	{"minor", "I", nullptr, $PRIVATE | $FINAL, $field(OSInfo$WindowsVersion, minor)},
-	{}
-};
-
-$MethodInfo _OSInfo$WindowsVersion_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PRIVATE, $method(OSInfo$WindowsVersion, init$, void, int32_t, int32_t)},
-	{"compareTo", "(Lsun/awt/OSInfo$WindowsVersion;)I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, compareTo, int32_t, OSInfo$WindowsVersion*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(OSInfo$WindowsVersion, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, equals, bool, Object$*)},
-	{"getMajor", "()I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, getMajor, int32_t)},
-	{"getMinor", "()I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, getMinor, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _OSInfo$WindowsVersion_InnerClassesInfo_[] = {
-	{"sun.awt.OSInfo$WindowsVersion", "sun.awt.OSInfo", "WindowsVersion", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _OSInfo$WindowsVersion_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.OSInfo$WindowsVersion",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_OSInfo$WindowsVersion_FieldInfo_,
-	_OSInfo$WindowsVersion_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/awt/OSInfo$WindowsVersion;>;",
-	nullptr,
-	_OSInfo$WindowsVersion_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.OSInfo"
-};
-
-$Object* allocate$OSInfo$WindowsVersion($Class* clazz) {
-	return $of($alloc(OSInfo$WindowsVersion));
-}
 
 void OSInfo$WindowsVersion::init$(int32_t major, int32_t minor) {
 	this->major = major;
@@ -84,7 +40,7 @@ int32_t OSInfo$WindowsVersion::hashCode() {
 }
 
 $String* OSInfo$WindowsVersion::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$$str(this->major), "."_s, $$str(this->minor)});
 }
 
@@ -96,7 +52,44 @@ OSInfo$WindowsVersion::OSInfo$WindowsVersion() {
 }
 
 $Class* OSInfo$WindowsVersion::load$($String* name, bool initialize) {
-	$loadClass(OSInfo$WindowsVersion, name, initialize, &_OSInfo$WindowsVersion_ClassInfo_, allocate$OSInfo$WindowsVersion);
+	$FieldInfo fieldInfos$$[] = {
+		{"major", "I", nullptr, $PRIVATE | $FINAL, $field(OSInfo$WindowsVersion, major)},
+		{"minor", "I", nullptr, $PRIVATE | $FINAL, $field(OSInfo$WindowsVersion, minor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PRIVATE, $method(OSInfo$WindowsVersion, init$, void, int32_t, int32_t)},
+		{"compareTo", "(Lsun/awt/OSInfo$WindowsVersion;)I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, compareTo, int32_t, OSInfo$WindowsVersion*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(OSInfo$WindowsVersion, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, equals, bool, Object$*)},
+		{"getMajor", "()I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, getMajor, int32_t)},
+		{"getMinor", "()I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, getMinor, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OSInfo$WindowsVersion, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.OSInfo$WindowsVersion", "sun.awt.OSInfo", "WindowsVersion", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.OSInfo$WindowsVersion",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/awt/OSInfo$WindowsVersion;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.OSInfo"
+	};
+	$loadClass(OSInfo$WindowsVersion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OSInfo$WindowsVersion);
+	});
 	return class$;
 }
 

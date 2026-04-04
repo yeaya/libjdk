@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$SubjectDistanceRange.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,38 +15,8 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$SubjectDistanceRange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubjectDistanceRange, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$SubjectDistanceRange_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectDistanceRange", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubjectDistanceRange", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$SubjectDistanceRange_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectDistanceRange",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubjectDistanceRange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubjectDistanceRange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$SubjectDistanceRange($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$SubjectDistanceRange));
-}
-
 void ExifTIFFTagSet$SubjectDistanceRange::init$() {
-	$TIFFTag::init$("SubjectDistanceRange"_s, 0x0000A40C, $sl(1, $TIFFTag::TIFF_SHORT), 1);
+	$TIFFTag::init$("SubjectDistanceRange"_s, 0x0000a40c, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(0, "unknown"_s);
 	addValueName(1, "Macro"_s);
 	addValueName(2, "Close view"_s);
@@ -58,7 +27,32 @@ ExifTIFFTagSet$SubjectDistanceRange::ExifTIFFTagSet$SubjectDistanceRange() {
 }
 
 $Class* ExifTIFFTagSet$SubjectDistanceRange::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$SubjectDistanceRange, name, initialize, &_ExifTIFFTagSet$SubjectDistanceRange_ClassInfo_, allocate$ExifTIFFTagSet$SubjectDistanceRange);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubjectDistanceRange, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectDistanceRange", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubjectDistanceRange", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectDistanceRange",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$SubjectDistanceRange, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$SubjectDistanceRange);
+	});
 	return class$;
 }
 

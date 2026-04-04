@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsSliderUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -44,8 +43,6 @@ using $WindowsSliderUI$WindowsTrackListener = ::com::sun::java::swing::plaf::win
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -66,60 +63,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsSliderUI_FieldInfo_[] = {
-	{"rollover", "Z", nullptr, $PRIVATE, $field(WindowsSliderUI, rollover)},
-	{"pressed", "Z", nullptr, $PRIVATE, $field(WindowsSliderUI, pressed)},
-	{}
-};
-
-$MethodInfo _WindowsSliderUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(WindowsSliderUI, init$, void, $JSlider*)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$000, $Rectangle*, WindowsSliderUI*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$100, $Rectangle*, WindowsSliderUI*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$200, $Rectangle*, WindowsSliderUI*)},
-	{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$300, $JSlider*, WindowsSliderUI*)},
-	{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$400, $Rectangle*, WindowsSliderUI*)},
-	{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$500, $JSlider*, WindowsSliderUI*)},
-	{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$600, $JSlider*, WindowsSliderUI*)},
-	{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$700, $Rectangle*, WindowsSliderUI*)},
-	{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$800, $JSlider*, WindowsSliderUI*)},
-	{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsSliderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, getThumbSize, $Dimension*)},
-	{"getXPThumbPart", "()Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE, $method(WindowsSliderUI, getXPThumbPart, $TMSchema$Part*)},
-	{"paintMajorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMajorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMajorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMajorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMinorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMinorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintMinorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMinorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
-	{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSliderUI, paintThumb, void, $Graphics*)},
-	{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSliderUI, paintTrack, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _WindowsSliderUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsSliderUI$WindowsTrackListener", "com.sun.java.swing.plaf.windows.WindowsSliderUI", "WindowsTrackListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsSliderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsSliderUI",
-	"javax.swing.plaf.basic.BasicSliderUI",
-	nullptr,
-	_WindowsSliderUI_FieldInfo_,
-	_WindowsSliderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsSliderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsSliderUI$WindowsTrackListener"
-};
-
-$Object* allocate$WindowsSliderUI($Class* clazz) {
-	return $of($alloc(WindowsSliderUI));
-}
 
 $JSlider* WindowsSliderUI::access$800(WindowsSliderUI* x0) {
 	$init(WindowsSliderUI);
@@ -182,7 +125,7 @@ $BasicSliderUI$TrackListener* WindowsSliderUI::createTrackListener($JSlider* sli
 }
 
 void WindowsSliderUI::paintTrack($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		bool vertical = ($nc(this->slider)->getOrientation() == $JSlider::VERTICAL);
@@ -202,7 +145,7 @@ void WindowsSliderUI::paintTrack($Graphics* g) {
 }
 
 void WindowsSliderUI::paintMinorTickForHorizSlider($Graphics* g, $Rectangle* tickBounds, int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
@@ -214,7 +157,7 @@ void WindowsSliderUI::paintMinorTickForHorizSlider($Graphics* g, $Rectangle* tic
 }
 
 void WindowsSliderUI::paintMajorTickForHorizSlider($Graphics* g, $Rectangle* tickBounds, int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
@@ -226,7 +169,7 @@ void WindowsSliderUI::paintMajorTickForHorizSlider($Graphics* g, $Rectangle* tic
 }
 
 void WindowsSliderUI::paintMinorTickForVertSlider($Graphics* g, $Rectangle* tickBounds, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
@@ -238,7 +181,7 @@ void WindowsSliderUI::paintMinorTickForVertSlider($Graphics* g, $Rectangle* tick
 }
 
 void WindowsSliderUI::paintMajorTickForVertSlider($Graphics* g, $Rectangle* tickBounds, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
@@ -250,7 +193,7 @@ void WindowsSliderUI::paintMajorTickForVertSlider($Graphics* g, $Rectangle* tick
 }
 
 void WindowsSliderUI::paintThumb($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$TMSchema$Part* part = getXPThumbPart();
@@ -268,14 +211,14 @@ void WindowsSliderUI::paintThumb($Graphics* g) {
 		if (!$nc(this->slider)->isEnabled()) {
 			state = $TMSchema$State::DISABLED;
 		}
-		$nc($(xp->getSkin(this->slider, part)))->paintSkin(g, $nc(this->thumbRect)->x, $nc(this->thumbRect)->y, state);
+		$$nc(xp->getSkin(this->slider, part))->paintSkin(g, $nc(this->thumbRect)->x, $nc(this->thumbRect)->y, state);
 	} else {
 		$BasicSliderUI::paintThumb(g);
 	}
 }
 
 $Dimension* WindowsSliderUI::getThumbSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$var($Dimension, size, $new($Dimension));
@@ -289,12 +232,11 @@ $Dimension* WindowsSliderUI::getThumbSize() {
 }
 
 $TMSchema$Part* WindowsSliderUI::getXPThumbPart() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TMSchema$Part* part = nullptr;
 	bool vertical = ($nc(this->slider)->getOrientation() == $JSlider::VERTICAL);
-	bool leftToRight = $nc($($nc(this->slider)->getComponentOrientation()))->isLeftToRight();
+	bool leftToRight = $$nc($nc(this->slider)->getComponentOrientation())->isLeftToRight();
 	$var($Boolean, paintThumbArrowShape, $cast($Boolean, $nc(this->slider)->getClientProperty("Slider.paintThumbArrowShape"_s)));
-	$init($Boolean);
 	if ((!$nc(this->slider)->getPaintTicks() && paintThumbArrowShape == nullptr) || paintThumbArrowShape == $Boolean::FALSE) {
 		$init($TMSchema$Part);
 		part = vertical ? $TMSchema$Part::TKP_THUMBVERT : $TMSchema$Part::TKP_THUMB;
@@ -309,7 +251,55 @@ WindowsSliderUI::WindowsSliderUI() {
 }
 
 $Class* WindowsSliderUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsSliderUI, name, initialize, &_WindowsSliderUI_ClassInfo_, allocate$WindowsSliderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"rollover", "Z", nullptr, $PRIVATE, $field(WindowsSliderUI, rollover)},
+		{"pressed", "Z", nullptr, $PRIVATE, $field(WindowsSliderUI, pressed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JSlider;)V", nullptr, $PUBLIC, $method(WindowsSliderUI, init$, void, $JSlider*)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$000, $Rectangle*, WindowsSliderUI*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$100, $Rectangle*, WindowsSliderUI*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$200, $Rectangle*, WindowsSliderUI*)},
+		{"access$300", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$300, $JSlider*, WindowsSliderUI*)},
+		{"access$400", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$400, $Rectangle*, WindowsSliderUI*)},
+		{"access$500", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$500, $JSlider*, WindowsSliderUI*)},
+		{"access$600", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$600, $JSlider*, WindowsSliderUI*)},
+		{"access$700", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljava/awt/Rectangle;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$700, $Rectangle*, WindowsSliderUI*)},
+		{"access$800", "(Lcom/sun/java/swing/plaf/windows/WindowsSliderUI;)Ljavax/swing/JSlider;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsSliderUI, access$800, $JSlider*, WindowsSliderUI*)},
+		{"createTrackListener", "(Ljavax/swing/JSlider;)Ljavax/swing/plaf/basic/BasicSliderUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, createTrackListener, $BasicSliderUI$TrackListener*, $JSlider*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsSliderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, getThumbSize, $Dimension*)},
+		{"getXPThumbPart", "()Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE, $method(WindowsSliderUI, getXPThumbPart, $TMSchema$Part*)},
+		{"paintMajorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMajorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMajorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMajorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMinorTickForHorizSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMinorTickForHorizSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintMinorTickForVertSlider", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(WindowsSliderUI, paintMinorTickForVertSlider, void, $Graphics*, $Rectangle*, int32_t)},
+		{"paintThumb", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSliderUI, paintThumb, void, $Graphics*)},
+		{"paintTrack", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSliderUI, paintTrack, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsSliderUI$WindowsTrackListener", "com.sun.java.swing.plaf.windows.WindowsSliderUI", "WindowsTrackListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsSliderUI",
+		"javax.swing.plaf.basic.BasicSliderUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsSliderUI$WindowsTrackListener"
+	};
+	$loadClass(WindowsSliderUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSliderUI);
+	});
 	return class$;
 }
 

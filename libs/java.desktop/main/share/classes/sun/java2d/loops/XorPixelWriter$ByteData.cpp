@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XorPixelWriter$ByteData.h>
-
 #include <java/awt/image/WritableRaster.h>
 #include <sun/java2d/loops/PixelWriter.h>
 #include <sun/java2d/loops/XorPixelWriter.h>
@@ -15,44 +14,6 @@ using $XorPixelWriter = ::sun::java2d::loops::XorPixelWriter;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _XorPixelWriter$ByteData_FieldInfo_[] = {
-	{"xorData", "[B", nullptr, 0, $field(XorPixelWriter$ByteData, xorData)},
-	{}
-};
-
-$MethodInfo _XorPixelWriter$ByteData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(XorPixelWriter$ByteData, init$, void, Object$*, Object$*)},
-	{"setRaster", "(Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$ByteData, setRaster, void, $WritableRaster*)},
-	{"writePixel", "(II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$ByteData, writePixel, void, int32_t, int32_t)},
-	{"xorPixel", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XorPixelWriter$ByteData, xorPixel, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _XorPixelWriter$ByteData_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.XorPixelWriter$ByteData", "sun.java2d.loops.XorPixelWriter", "ByteData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XorPixelWriter$ByteData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.XorPixelWriter$ByteData",
-	"sun.java2d.loops.XorPixelWriter",
-	nullptr,
-	_XorPixelWriter$ByteData_FieldInfo_,
-	_XorPixelWriter$ByteData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XorPixelWriter$ByteData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.XorPixelWriter"
-};
-
-$Object* allocate$XorPixelWriter$ByteData($Class* clazz) {
-	return $of($alloc(XorPixelWriter$ByteData));
-}
 
 void XorPixelWriter$ByteData::init$(Object$* srcPixel, Object$* xorPixel) {
 	$XorPixelWriter::init$();
@@ -80,7 +41,39 @@ XorPixelWriter$ByteData::XorPixelWriter$ByteData() {
 }
 
 $Class* XorPixelWriter$ByteData::load$($String* name, bool initialize) {
-	$loadClass(XorPixelWriter$ByteData, name, initialize, &_XorPixelWriter$ByteData_ClassInfo_, allocate$XorPixelWriter$ByteData);
+	$FieldInfo fieldInfos$$[] = {
+		{"xorData", "[B", nullptr, 0, $field(XorPixelWriter$ByteData, xorData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(XorPixelWriter$ByteData, init$, void, Object$*, Object$*)},
+		{"setRaster", "(Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$ByteData, setRaster, void, $WritableRaster*)},
+		{"writePixel", "(II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$ByteData, writePixel, void, int32_t, int32_t)},
+		{"xorPixel", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XorPixelWriter$ByteData, xorPixel, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.XorPixelWriter$ByteData", "sun.java2d.loops.XorPixelWriter", "ByteData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.XorPixelWriter$ByteData",
+		"sun.java2d.loops.XorPixelWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.XorPixelWriter"
+	};
+	$loadClass(XorPixelWriter$ByteData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XorPixelWriter$ByteData);
+	});
 	return class$;
 }
 

@@ -20,7 +20,10 @@ public:
 	$String* variableName = nullptr;
 	CommandLine$UnmatchedQuote(const CommandLine$UnmatchedQuote& e);
 	virtual void throw$() override;
-	inline CommandLine$UnmatchedQuote* operator ->() {
+	inline CommandLine$UnmatchedQuote* operator ->() const {
+		return (CommandLine$UnmatchedQuote*)throwing$;
+	}
+	inline operator CommandLine$UnmatchedQuote*() const {
 		return (CommandLine$UnmatchedQuote*)throwing$;
 	}
 };

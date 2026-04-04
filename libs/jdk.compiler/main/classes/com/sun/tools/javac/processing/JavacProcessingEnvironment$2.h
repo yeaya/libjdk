@@ -15,6 +15,7 @@ class JavacProcessingEnvironment$2 : public ::java::lang::Object {
 	$class(JavacProcessingEnvironment$2, 0, ::java::lang::Object)
 public:
 	JavacProcessingEnvironment$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$Diagnostic$Kind;
 };
 

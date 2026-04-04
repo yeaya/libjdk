@@ -48,6 +48,7 @@ class $export TestTextPosInPrint : public ::java::awt::print::Printable {
 	$class(TestTextPosInPrint, 0, ::java::awt::print::Printable)
 public:
 	TestTextPosInPrint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* convertMillisToTimeStr(int32_t millis);
 	static void createAndShowTestDialog();
@@ -65,7 +66,7 @@ public:
 	static void pass();
 	virtual int32_t print(::java::awt::Graphics* pg, ::java::awt::print::PageFormat* pf, int32_t pageNum) override;
 	static ::java::util::concurrent::CountDownLatch* testEndedSignal;
-	static const int32_t testTimeout = 0x000493E0;
+	static const int32_t testTimeout = 0x000493e0;
 	static $volatile($String*) testFailureMsg;
 	static $volatile(bool) testPassed;
 	static $volatile(bool) testFinished;

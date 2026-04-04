@@ -61,6 +61,7 @@ class $import BasicColorChooserUI : public ::javax::swing::plaf::ColorChooserUI 
 	$class(BasicColorChooserUI, 0, ::javax::swing::plaf::ColorChooserUI)
 public:
 	BasicColorChooserUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::javax::swing::colorchooser::AbstractColorChooserPanel>* createDefaultChoosers();
 	virtual ::java::beans::PropertyChangeListener* createPropertyChangeListener();

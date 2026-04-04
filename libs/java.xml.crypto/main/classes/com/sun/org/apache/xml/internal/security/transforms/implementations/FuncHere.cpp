@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/FuncHere.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/security/utils/I18n.h>
@@ -49,37 +48,12 @@ namespace com {
 							namespace transforms {
 								namespace implementations {
 
-$FieldInfo _FuncHere_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FuncHere, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncHere_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncHere, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncHere, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncHere, fixupVariables, void, $List*, int32_t)},
-	{}
-};
-
-$ClassInfo _FuncHere_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.FuncHere",
-	"com.sun.org.apache.xpath.internal.functions.Function",
-	nullptr,
-	_FuncHere_FieldInfo_,
-	_FuncHere_MethodInfo_
-};
-
-$Object* allocate$FuncHere($Class* clazz) {
-	return $of($alloc(FuncHere));
-}
-
 void FuncHere::init$() {
 	$Function::init$();
 }
 
 $XObject* FuncHere::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, xpathOwnerNode, $cast($Node, $nc(xctxt)->getOwnerObject()));
 	if (xpathOwnerNode == nullptr) {
 		return nullptr;
@@ -105,27 +79,20 @@ $XObject* FuncHere::execute($XPathContext* xctxt) {
 		int32_t hereNode = $DTM::NULL;
 		switch (dtm->getNodeType(xpathOwnerNodeDTM)) {
 		case $Node::ATTRIBUTE_NODE:
-			{}
 		case $Node::PROCESSING_INSTRUCTION_NODE:
 			{
-				{
-					hereNode = xpathOwnerNodeDTM;
-					$nc(nodeSet)->addNode(hereNode);
-					break;
-				}
+				hereNode = xpathOwnerNodeDTM;
+				$nc(nodeSet)->addNode(hereNode);
+				break;
 			}
 		case $Node::TEXT_NODE:
 			{
-				{
-					hereNode = dtm->getParent(xpathOwnerNodeDTM);
-					$nc(nodeSet)->addNode(hereNode);
-					break;
-				}
-			}
-		default:
-			{
+				hereNode = dtm->getParent(xpathOwnerNodeDTM);
+				$nc(nodeSet)->addNode(hereNode);
 				break;
 			}
+		default:
+			break;
 		}
 	}
 	$nc(nodeSet)->detach();
@@ -139,7 +106,27 @@ FuncHere::FuncHere() {
 }
 
 $Class* FuncHere::load$($String* name, bool initialize) {
-	$loadClass(FuncHere, name, initialize, &_FuncHere_ClassInfo_, allocate$FuncHere);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FuncHere, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncHere, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncHere, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncHere, fixupVariables, void, $List*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.FuncHere",
+		"com.sun.org.apache.xpath.internal.functions.Function",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncHere, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncHere));
+	});
 	return class$;
 }
 

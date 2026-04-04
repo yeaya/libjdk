@@ -31,6 +31,7 @@ class ServiceName : public ::java::lang::Object {
 	$class(ServiceName, 0, ::java::lang::Object)
 public:
 	ServiceName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* DELEGATE;
 	static $String* MLET;

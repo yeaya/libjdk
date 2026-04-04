@@ -1,5 +1,4 @@
 #include <java/applet/Applet.h>
-
 #include <com/sun/media/sound/JavaSoundAudioClip.h>
 #include <java/applet/Applet$AccessibleApplet.h>
 #include <java/applet/AppletContext.h>
@@ -43,85 +42,11 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
-using $Permission = ::java::security::Permission;
 using $Locale = ::java::util::Locale;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 
 namespace java {
 	namespace applet {
-
-$NamedAttribute Applet_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Applet_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Applet_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Applet_FieldInfo_[] = {
-	{"stub", "Ljava/applet/AppletStub;", nullptr, $PRIVATE | $TRANSIENT, $field(Applet, stub)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Applet, serialVersionUID)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, 0, $field(Applet, accessibleContext)},
-	{}
-};
-
-$MethodInfo _Applet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Applet, init$, void), "java.awt.HeadlessException"},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, destroy, void)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Applet, getAccessibleContext, $AccessibleContext*)},
-	{"getAppletContext", "()Ljava/applet/AppletContext;", nullptr, $PUBLIC, $virtualMethod(Applet, getAppletContext, $AppletContext*)},
-	{"getAppletInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Applet, getAppletInfo, $String*)},
-	{"getAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC, $virtualMethod(Applet, getAudioClip, $AudioClip*, $URL*)},
-	{"getAudioClip", "(Ljava/net/URL;Ljava/lang/String;)Ljava/applet/AudioClip;", nullptr, $PUBLIC, $virtualMethod(Applet, getAudioClip, $AudioClip*, $URL*, $String*)},
-	{"getCodeBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Applet, getCodeBase, $URL*)},
-	{"getDocumentBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Applet, getDocumentBase, $URL*)},
-	{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Applet, getImage, $Image*, $URL*)},
-	{"getImage", "(Ljava/net/URL;Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Applet, getImage, $Image*, $URL*, $String*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(Applet, getLocale, $Locale*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Applet, getParameter, $String*, $String*)},
-	{"getParameterInfo", "()[[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Applet, getParameterInfo, $StringArray2*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, init, void)},
-	{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(Applet, isActive, bool)},
-	{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Applet, isValidateRoot, bool)},
-	{"newAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Applet, newAudioClip, $AudioClip*, $URL*)},
-	{"play", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(Applet, play, void, $URL*)},
-	{"play", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Applet, play, void, $URL*, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Applet, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"resize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Applet, resize, void, int32_t, int32_t)},
-	{"resize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Applet, resize, void, $Dimension*)},
-	{"setStub", "(Ljava/applet/AppletStub;)V", nullptr, $PUBLIC | $FINAL, $method(Applet, setStub, void, $AppletStub*)},
-	{"showStatus", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Applet, showStatus, void, $String*)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, stop, void)},
-	{}
-};
-
-$InnerClassInfo _Applet_InnerClassesInfo_[] = {
-	{"java.applet.Applet$AccessibleApplet", "java.applet.Applet", "AccessibleApplet", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Applet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.applet.Applet",
-	"java.awt.Panel",
-	nullptr,
-	_Applet_FieldInfo_,
-	_Applet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Applet_InnerClassesInfo_,
-	_Applet_Annotations_,
-	nullptr,
-	"java.applet.Applet$AccessibleApplet"
-};
-
-$Object* allocate$Applet($Class* clazz) {
-	return $of($alloc(Applet));
-}
 
 void Applet::init$() {
 	$Panel::init$();
@@ -139,7 +64,7 @@ void Applet::readObject($ObjectInputStream* s) {
 }
 
 void Applet::setStub($AppletStub* stub) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stub != nullptr) {
 		$var($SecurityManager, s, $System::getSecurityManager());
 		if (s != nullptr) {
@@ -151,7 +76,7 @@ void Applet::setStub($AppletStub* stub) {
 
 bool Applet::isActive() {
 	if (this->stub != nullptr) {
-		return $nc(this->stub)->isActive();
+		return this->stub->isActive();
 	} else {
 		return false;
 	}
@@ -175,16 +100,16 @@ $AppletContext* Applet::getAppletContext() {
 
 void Applet::resize(int32_t width, int32_t height) {
 	$var($Dimension, d, size());
-	if (($nc(d)->width != width) || ($nc(d)->height != height)) {
+	if (($nc(d)->width != width) || (d->height != height)) {
 		$Panel::resize(width, height);
 		if (this->stub != nullptr) {
-			$nc(this->stub)->appletResize(width, height);
+			this->stub->appletResize(width, height);
 		}
 	}
 }
 
 void Applet::resize($Dimension* d) {
-	resize($nc(d)->width, d->height);
+	resize($nc(d)->width, $nc(d)->height);
 }
 
 bool Applet::isValidateRoot() {
@@ -192,11 +117,11 @@ bool Applet::isValidateRoot() {
 }
 
 void Applet::showStatus($String* msg) {
-	$nc($(getAppletContext()))->showStatus(msg);
+	$$nc(getAppletContext())->showStatus(msg);
 }
 
 $Image* Applet::getImage($URL* url) {
-	return $nc($(getAppletContext()))->getImage(url);
+	return $$nc(getAppletContext())->getImage(url);
 }
 
 $Image* Applet::getImage($URL* url, $String* name) {
@@ -214,7 +139,7 @@ $AudioClip* Applet::newAudioClip($URL* url) {
 }
 
 $AudioClip* Applet::getAudioClip($URL* url) {
-	return $nc($(getAppletContext()))->getAudioClip(url);
+	return $$nc(getAppletContext())->getAudioClip(url);
 }
 
 $AudioClip* Applet::getAudioClip($URL* url, $String* name) {
@@ -279,7 +204,72 @@ Applet::Applet() {
 }
 
 $Class* Applet::load$($String* name, bool initialize) {
-	$loadClass(Applet, name, initialize, &_Applet_ClassInfo_, allocate$Applet);
+	$FieldInfo fieldInfos$$[] = {
+		{"stub", "Ljava/applet/AppletStub;", nullptr, $PRIVATE | $TRANSIENT, $field(Applet, stub)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Applet, serialVersionUID)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, 0, $field(Applet, accessibleContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Applet, init$, void), "java.awt.HeadlessException"},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, destroy, void)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Applet, getAccessibleContext, $AccessibleContext*)},
+		{"getAppletContext", "()Ljava/applet/AppletContext;", nullptr, $PUBLIC, $virtualMethod(Applet, getAppletContext, $AppletContext*)},
+		{"getAppletInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Applet, getAppletInfo, $String*)},
+		{"getAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC, $virtualMethod(Applet, getAudioClip, $AudioClip*, $URL*)},
+		{"getAudioClip", "(Ljava/net/URL;Ljava/lang/String;)Ljava/applet/AudioClip;", nullptr, $PUBLIC, $virtualMethod(Applet, getAudioClip, $AudioClip*, $URL*, $String*)},
+		{"getCodeBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Applet, getCodeBase, $URL*)},
+		{"getDocumentBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Applet, getDocumentBase, $URL*)},
+		{"getImage", "(Ljava/net/URL;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Applet, getImage, $Image*, $URL*)},
+		{"getImage", "(Ljava/net/URL;Ljava/lang/String;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Applet, getImage, $Image*, $URL*, $String*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(Applet, getLocale, $Locale*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Applet, getParameter, $String*, $String*)},
+		{"getParameterInfo", "()[[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Applet, getParameterInfo, $StringArray2*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, init, void)},
+		{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(Applet, isActive, bool)},
+		{"isValidateRoot", "()Z", nullptr, $PUBLIC, $virtualMethod(Applet, isValidateRoot, bool)},
+		{"newAudioClip", "(Ljava/net/URL;)Ljava/applet/AudioClip;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Applet, newAudioClip, $AudioClip*, $URL*)},
+		{"play", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(Applet, play, void, $URL*)},
+		{"play", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Applet, play, void, $URL*, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Applet, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"resize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Applet, resize, void, int32_t, int32_t)},
+		{"resize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Applet, resize, void, $Dimension*)},
+		{"setStub", "(Ljava/applet/AppletStub;)V", nullptr, $PUBLIC | $FINAL, $method(Applet, setStub, void, $AppletStub*)},
+		{"showStatus", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Applet, showStatus, void, $String*)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC, $virtualMethod(Applet, stop, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.applet.Applet$AccessibleApplet", "java.applet.Applet", "AccessibleApplet", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.applet.Applet",
+		"java.awt.Panel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.applet.Applet$AccessibleApplet"
+	};
+	$loadClass(Applet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Applet));
+	});
 	return class$;
 }
 

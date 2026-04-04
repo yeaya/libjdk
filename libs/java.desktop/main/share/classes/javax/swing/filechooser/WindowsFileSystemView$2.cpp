@@ -1,5 +1,4 @@
 #include <javax/swing/filechooser/WindowsFileSystemView$2.h>
-
 #include <java/io/File.h>
 #include <javax/swing/filechooser/FileSystemView$FileSystemRoot.h>
 #include <javax/swing/filechooser/WindowsFileSystemView.h>
@@ -18,49 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace filechooser {
 
-$FieldInfo _WindowsFileSystemView$2_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/filechooser/WindowsFileSystemView;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileSystemView$2, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsFileSystemView$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/filechooser/WindowsFileSystemView;Ljava/io/File;)V", nullptr, 0, $method(WindowsFileSystemView$2, init$, void, $WindowsFileSystemView*, $File*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemView$2, exists, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsFileSystemView$2_EnclosingMethodInfo_ = {
-	"javax.swing.filechooser.WindowsFileSystemView",
-	"createFileSystemRoot",
-	"(Ljava/io/File;)Ljava/io/File;"
-};
-
-$InnerClassInfo _WindowsFileSystemView$2_InnerClassesInfo_[] = {
-	{"javax.swing.filechooser.WindowsFileSystemView$2", nullptr, nullptr, 0},
-	{"javax.swing.filechooser.FileSystemView$FileSystemRoot", "javax.swing.filechooser.FileSystemView", "FileSystemRoot", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsFileSystemView$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.filechooser.WindowsFileSystemView$2",
-	"javax.swing.filechooser.FileSystemView$FileSystemRoot",
-	nullptr,
-	_WindowsFileSystemView$2_FieldInfo_,
-	_WindowsFileSystemView$2_MethodInfo_,
-	nullptr,
-	&_WindowsFileSystemView$2_EnclosingMethodInfo_,
-	_WindowsFileSystemView$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.filechooser.WindowsFileSystemView"
-};
-
-$Object* allocate$WindowsFileSystemView$2($Class* clazz) {
-	return $of($alloc(WindowsFileSystemView$2));
-}
-
 void WindowsFileSystemView$2::init$($WindowsFileSystemView* this$0, $File* f) {
 	$set(this, this$0, this$0);
 	$FileSystemView$FileSystemRoot::init$(f);
@@ -74,7 +30,43 @@ WindowsFileSystemView$2::WindowsFileSystemView$2() {
 }
 
 $Class* WindowsFileSystemView$2::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileSystemView$2, name, initialize, &_WindowsFileSystemView$2_ClassInfo_, allocate$WindowsFileSystemView$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/filechooser/WindowsFileSystemView;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileSystemView$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/filechooser/WindowsFileSystemView;Ljava/io/File;)V", nullptr, 0, $method(WindowsFileSystemView$2, init$, void, $WindowsFileSystemView*, $File*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileSystemView$2, exists, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.filechooser.WindowsFileSystemView",
+		"createFileSystemRoot",
+		"(Ljava/io/File;)Ljava/io/File;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.filechooser.WindowsFileSystemView$2", nullptr, nullptr, 0},
+		{"javax.swing.filechooser.FileSystemView$FileSystemRoot", "javax.swing.filechooser.FileSystemView", "FileSystemRoot", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.filechooser.WindowsFileSystemView$2",
+		"javax.swing.filechooser.FileSystemView$FileSystemRoot",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.filechooser.WindowsFileSystemView"
+	};
+	$loadClass(WindowsFileSystemView$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsFileSystemView$2));
+	});
 	return class$;
 }
 

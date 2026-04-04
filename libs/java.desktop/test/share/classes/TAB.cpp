@@ -1,5 +1,4 @@
 #include <TAB.h>
-
 #include <TAB$1.h>
 #include <TAB$2.h>
 #include <java/awt/Color.h>
@@ -24,7 +23,6 @@
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/table/DefaultTableCellRenderer.h>
-#include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableModel.h>
@@ -39,7 +37,6 @@ using $TAB$1 = ::TAB$1;
 using $TAB$2 = ::TAB$2;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Serializable = ::java::io::Serializable;
@@ -62,9 +59,7 @@ using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
-using $Border = ::javax::swing::border::Border;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableModel = ::javax::swing::table::TableModel;
@@ -78,69 +73,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TAB$$Lambda$lambda$init$0>());
-	}
 	TAB* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TAB$$Lambda$lambda$init$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TAB$$Lambda$lambda$init$0, inst$)},
-	{}
-};
-$MethodInfo TAB$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "(LTAB;)V", nullptr, $PUBLIC, $method(TAB$$Lambda$lambda$init$0, init$, void, TAB*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TAB$$Lambda$lambda$init$0, run, void)},
-	{}
-};
-$ClassInfo TAB$$Lambda$lambda$init$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TAB$$Lambda$lambda$init$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TAB$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
-	$loadClass(TAB$$Lambda$lambda$init$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TAB$$Lambda$lambda$init$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTAB;)V", nullptr, $PUBLIC, $method(TAB$$Lambda$lambda$init$0, init$, void, TAB*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TAB$$Lambda$lambda$init$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TAB$$Lambda$lambda$init$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TAB$$Lambda$lambda$init$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TAB$$Lambda$lambda$init$0);
+	});
 	return class$;
 }
 $Class* TAB$$Lambda$lambda$init$0::class$ = nullptr;
-
-$MethodInfo _TAB_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TAB, init$, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(TAB, init, void)},
-	{"initTest", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(TAB, initTest, void, $Container*)},
-	{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(TAB, lambda$init$0, void)},
-	{}
-};
-
-$InnerClassInfo _TAB_InnerClassesInfo_[] = {
-	{"TAB$2", nullptr, nullptr, 0},
-	{"TAB$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TAB_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TAB",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_TAB_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TAB_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TAB$2,TAB$1"
-};
-
-$Object* allocate$TAB($Class* clazz) {
-	return $of($alloc(TAB));
-}
 
 void TAB::init$() {
 	$JApplet::init$();
@@ -148,7 +106,7 @@ void TAB::init$() {
 
 void TAB::initTest($Container* contentPane) {
 	$init(TAB);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, $new($StringArray, {
 		"First Name"_s,
 		"Last Name"_s,
@@ -158,151 +116,151 @@ void TAB::initTest($Container* contentPane) {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("Mark"_s),
-			$of("Andrews"_s),
-			$of("Red"_s),
-			$of($$new($Integer, 2)),
-			$of($$new($Boolean, true))
+			"Mark"_s,
+			"Andrews"_s,
+			"Red"_s,
+			$$new($Integer, 2),
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Tom"_s),
-			$of("Ball"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 99)),
-			$of($$new($Boolean, false))
+			"Tom"_s,
+			"Ball"_s,
+			"Blue"_s,
+			$$new($Integer, 99),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Alan"_s),
-			$of("Chung"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 838)),
-			$of($$new($Boolean, false))
+			"Alan"_s,
+			"Chung"_s,
+			"Green"_s,
+			$$new($Integer, 838),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Jeff"_s),
-			$of("Dinkins"_s),
-			$of("Turquois"_s),
-			$of($$new($Integer, 8)),
-			$of($$new($Boolean, true))
+			"Jeff"_s,
+			"Dinkins"_s,
+			"Turquois"_s,
+			$$new($Integer, 8),
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Amy"_s),
-			$of("Fowler"_s),
-			$of("Yellow"_s),
-			$of($$new($Integer, 3)),
-			$of($$new($Boolean, false))
+			"Amy"_s,
+			"Fowler"_s,
+			"Yellow"_s,
+			$$new($Integer, 3),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Brian"_s),
-			$of("Gerhold"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 0)),
-			$of($$new($Boolean, false))
+			"Brian"_s,
+			"Gerhold"_s,
+			"Green"_s,
+			$$new($Integer, 0),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("James"_s),
-			$of("Gosling"_s),
-			$of("Pink"_s),
-			$of($$new($Integer, 21)),
-			$of($$new($Boolean, false))
+			"James"_s,
+			"Gosling"_s,
+			"Pink"_s,
+			$$new($Integer, 21),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("David"_s),
-			$of("Karlton"_s),
-			$of("Red"_s),
-			$of($$new($Integer, 1)),
-			$of($$new($Boolean, false))
+			"David"_s,
+			"Karlton"_s,
+			"Red"_s,
+			$$new($Integer, 1),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Dave"_s),
-			$of("Kloba"_s),
-			$of("Yellow"_s),
-			$of($$new($Integer, 14)),
-			$of($$new($Boolean, false))
+			"Dave"_s,
+			"Kloba"_s,
+			"Yellow"_s,
+			$$new($Integer, 14),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Peter"_s),
-			$of("Korn"_s),
-			$of("Purple"_s),
-			$of($$new($Integer, 12)),
-			$of($$new($Boolean, false))
+			"Peter"_s,
+			"Korn"_s,
+			"Purple"_s,
+			$$new($Integer, 12),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Phil"_s),
-			$of("Milne"_s),
-			$of("Purple"_s),
-			$of($$new($Integer, 3)),
-			$of($$new($Boolean, false))
+			"Phil"_s,
+			"Milne"_s,
+			"Purple"_s,
+			$$new($Integer, 3),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Dave"_s),
-			$of("Moore"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 88)),
-			$of($$new($Boolean, false))
+			"Dave"_s,
+			"Moore"_s,
+			"Green"_s,
+			$$new($Integer, 88),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of("Muller"_s),
-			$of("Maroon"_s),
-			$of($$new($Integer, 5)),
-			$of($$new($Boolean, false))
+			"Hans"_s,
+			"Muller"_s,
+			"Maroon"_s,
+			$$new($Integer, 5),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Rick"_s),
-			$of("Levenson"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 2)),
-			$of($$new($Boolean, false))
+			"Rick"_s,
+			"Levenson"_s,
+			"Blue"_s,
+			$$new($Integer, 2),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Tim"_s),
-			$of("Prinzing"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 22)),
-			$of($$new($Boolean, false))
+			"Tim"_s,
+			"Prinzing"_s,
+			"Blue"_s,
+			$$new($Integer, 22),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Chester"_s),
-			$of("Rose"_s),
-			$of("Black"_s),
-			$of($$new($Integer, 0)),
-			$of($$new($Boolean, false))
+			"Chester"_s,
+			"Rose"_s,
+			"Black"_s,
+			$$new($Integer, 0),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Ray"_s),
-			$of("Ryan"_s),
-			$of("Gray"_s),
-			$of($$new($Integer, 77)),
-			$of($$new($Boolean, false))
+			"Ray"_s,
+			"Ryan"_s,
+			"Gray"_s,
+			$$new($Integer, 77),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Georges"_s),
-			$of("Saab"_s),
-			$of("Red"_s),
-			$of($$new($Integer, 4)),
-			$of($$new($Boolean, false))
+			"Georges"_s,
+			"Saab"_s,
+			"Red"_s,
+			$$new($Integer, 4),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Willie"_s),
-			$of("Walker"_s),
-			$of("Phthalo Blue"_s),
-			$of($$new($Integer, 4)),
-			$of($$new($Boolean, false))
+			"Willie"_s,
+			"Walker"_s,
+			"Phthalo Blue"_s,
+			$$new($Integer, 4),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Kathy"_s),
-			$of("Walrath"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 8)),
-			$of($$new($Boolean, false))
+			"Kathy"_s,
+			"Walrath"_s,
+			"Blue"_s,
+			$$new($Integer, 8),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Arnaud"_s),
-			$of("Weber"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 44)),
-			$of($$new($Boolean, false))
+			"Arnaud"_s,
+			"Weber"_s,
+			"Green"_s,
+			$$new($Integer, 44),
+			$$new($Boolean, false)
 		})
 	}));
 	$var($TableModel, dataModel, $new($TAB$1, names, data));
@@ -325,7 +283,7 @@ void TAB::initTest($Container* contentPane) {
 	colorColumn->setCellRenderer(colorColumnRenderer);
 	$var($TableCellRenderer, headerRenderer, colorColumn->getHeaderRenderer());
 	if ($instanceOf($DefaultTableCellRenderer, headerRenderer)) {
-		$nc(($cast($DefaultTableCellRenderer, headerRenderer)))->setToolTipText("Hi Mom!"_s);
+		$cast($DefaultTableCellRenderer, headerRenderer)->setToolTipText("Hi Mom!"_s);
 	}
 	$var($TableColumn, vegetarianColumn, tableView->getColumn("Vegetarian"_s));
 	$nc(vegetarianColumn)->setPreferredWidth(100);
@@ -337,18 +295,18 @@ void TAB::initTest($Container* contentPane) {
 	$var($JScrollPane, scrollpane, $new($JScrollPane, tableView));
 	scrollpane->setBorder($$new($BevelBorder, $BevelBorder::LOWERED));
 	scrollpane->setPreferredSize($$new($Dimension, 430, 200));
-	$nc(contentPane)->add(static_cast<$Component*>(scrollpane));
+	$nc(contentPane)->add(scrollpane);
 }
 
 void TAB::init() {
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(TAB$$Lambda$lambda$init$0, this)));
+	$SwingUtilities::invokeLater($$new(TAB$$Lambda$lambda$init$0, this));
 }
 
 void TAB::lambda$init$0() {
 	try {
 		$UIManager::setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel"_s);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	initTest($(getContentPane()));
 }
@@ -358,11 +316,39 @@ TAB::TAB() {
 
 $Class* TAB::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TAB$$Lambda$lambda$init$0::classInfo$.name)) {
+		if (name->equals("TAB$$Lambda$lambda$init$0")) {
 			return TAB$$Lambda$lambda$init$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TAB, name, initialize, &_TAB_ClassInfo_, allocate$TAB);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TAB, init$, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(TAB, init, void)},
+		{"initTest", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(TAB, initTest, void, $Container*)},
+		{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(TAB, lambda$init$0, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TAB$2", nullptr, nullptr, 0},
+		{"TAB$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TAB",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TAB$2,TAB$1"
+	};
+	$loadClass(TAB, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TAB));
+	});
 	return class$;
 }
 

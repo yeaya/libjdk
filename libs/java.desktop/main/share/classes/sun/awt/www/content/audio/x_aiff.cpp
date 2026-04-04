@@ -1,5 +1,4 @@
 #include <sun/awt/www/content/audio/x_aiff.h>
-
 #include <com/sun/media/sound/JavaSoundAudioClip.h>
 #include <java/net/ContentHandler.h>
 #include <java/net/URLConnection.h>
@@ -17,25 +16,6 @@ namespace sun {
 			namespace content {
 				namespace audio {
 
-$MethodInfo _x_aiff_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(x_aiff, init$, void)},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(x_aiff, getContent, $Object*, $URLConnection*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _x_aiff_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.www.content.audio.x_aiff",
-	"java.net.ContentHandler",
-	nullptr,
-	nullptr,
-	_x_aiff_MethodInfo_
-};
-
-$Object* allocate$x_aiff($Class* clazz) {
-	return $of($alloc(x_aiff));
-}
-
 void x_aiff::init$() {
 	$ContentHandler::init$();
 }
@@ -48,7 +28,22 @@ x_aiff::x_aiff() {
 }
 
 $Class* x_aiff::load$($String* name, bool initialize) {
-	$loadClass(x_aiff, name, initialize, &_x_aiff_ClassInfo_, allocate$x_aiff);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(x_aiff, init$, void)},
+		{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(x_aiff, getContent, $Object*, $URLConnection*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.www.content.audio.x_aiff",
+		"java.net.ContentHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(x_aiff, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(x_aiff);
+	});
 	return class$;
 }
 

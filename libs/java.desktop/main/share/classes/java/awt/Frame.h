@@ -91,6 +91,7 @@ public:
 	using ::java::awt::Window::add;
 	using ::java::awt::Window::getMousePosition;
 	using ::java::awt::Window::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::GraphicsConfiguration* gc);
 	void init$($String* title);
@@ -161,7 +162,7 @@ public:
 	::java::util::Vector* ownedWindows = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x251A08C50F4CB36C;
+	static const int64_t serialVersionUID = (int64_t)0x251a08c50f4cb36c;
 	int32_t frameSerializedDataVersion = 0;
 };
 

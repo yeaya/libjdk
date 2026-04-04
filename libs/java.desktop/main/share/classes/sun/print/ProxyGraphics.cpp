@@ -1,5 +1,4 @@
 #include <sun/print/ProxyGraphics.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -29,85 +28,6 @@ using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 
 namespace sun {
 	namespace print {
-
-$CompoundAttribute _ProxyGraphics_MethodAnnotations_getClipRect37[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ProxyGraphics_FieldInfo_[] = {
-	{"g", "Ljava/awt/Graphics;", nullptr, $PRIVATE, $field(ProxyGraphics, g)},
-	{}
-};
-
-$MethodInfo _ProxyGraphics_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $method(ProxyGraphics, init$, void, $Graphics*)},
-	{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, create, $Graphics*)},
-	{"create", "(IIII)Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, create, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, dispose, void)},
-	{"draw3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, draw3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
-	{"drawPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawPolygon, void, $Polygon*)},
-	{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
-	{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"fill3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fill3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
-	{"fillPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillPolygon, void, $Polygon*)},
-	{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, finalize, void)},
-	{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getClip, $Shape*)},
-	{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getClipBounds, $Rectangle*)},
-	{"getClipBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getClipBounds, $Rectangle*, $Rectangle*)},
-	{"getClipRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ProxyGraphics, getClipRect, $Rectangle*), nullptr, nullptr, _ProxyGraphics_MethodAnnotations_getClipRect37},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getColor, $Color*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getFont, $Font*)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getFontMetrics, $FontMetrics*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, 0, $virtualMethod(ProxyGraphics, getGraphics, $Graphics*)},
-	{"hitClip", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, hitClip, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setClip, void, $Shape*)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setColor, void, $Color*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setFont, void, $Font*)},
-	{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setPaintMode, void)},
-	{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setXORMode, void, $Color*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, toString, $String*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, translate, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ProxyGraphics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.ProxyGraphics",
-	"java.awt.Graphics",
-	nullptr,
-	_ProxyGraphics_FieldInfo_,
-	_ProxyGraphics_MethodInfo_
-};
-
-$Object* allocate$ProxyGraphics($Class* clazz) {
-	return $of($alloc(ProxyGraphics));
-}
 
 void ProxyGraphics::init$($Graphics* graphics) {
 	$Graphics::init$();
@@ -302,12 +222,15 @@ void ProxyGraphics::finalize() {
 }
 
 $String* ProxyGraphics::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$3, $$str({$($of(this)->getClass()->getName()), "[font="_s}));
-	$var($String, var$2, $$concat(var$3, $(getFont())));
-	$var($String, var$1, $$concat(var$2, ",color="_s));
-	$var($String, var$0, $$concat(var$1, $(getColor())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[font="_s);
+	var$0->append($(getFont()));
+	var$0->append(",color="_s);
+	var$0->append($(getColor()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 $Rectangle* ProxyGraphics::getClipRect() {
@@ -326,7 +249,80 @@ ProxyGraphics::ProxyGraphics() {
 }
 
 $Class* ProxyGraphics::load$($String* name, bool initialize) {
-	$loadClass(ProxyGraphics, name, initialize, &_ProxyGraphics_ClassInfo_, allocate$ProxyGraphics);
+	$FieldInfo fieldInfos$$[] = {
+		{"g", "Ljava/awt/Graphics;", nullptr, $PRIVATE, $field(ProxyGraphics, g)},
+		{}
+	};
+	$CompoundAttribute getClipRectmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $method(ProxyGraphics, init$, void, $Graphics*)},
+		{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, create, $Graphics*)},
+		{"create", "(IIII)Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, create, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, dispose, void)},
+		{"draw3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, draw3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
+		{"drawPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawPolygon, void, $Polygon*)},
+		{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
+		{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"fill3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fill3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
+		{"fillPolygon", "(Ljava/awt/Polygon;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillPolygon, void, $Polygon*)},
+		{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, finalize, void)},
+		{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getClip, $Shape*)},
+		{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getClipBounds, $Rectangle*)},
+		{"getClipBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getClipBounds, $Rectangle*, $Rectangle*)},
+		{"getClipRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ProxyGraphics, getClipRect, $Rectangle*), nullptr, nullptr, getClipRectmethodAnnotations$$},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getColor, $Color*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getFont, $Font*)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getFontMetrics, $FontMetrics*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, 0, $virtualMethod(ProxyGraphics, getGraphics, $Graphics*)},
+		{"hitClip", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, hitClip, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setClip, void, $Shape*)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setColor, void, $Color*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setFont, void, $Font*)},
+		{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setPaintMode, void)},
+		{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, setXORMode, void, $Color*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, toString, $String*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics, translate, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.ProxyGraphics",
+		"java.awt.Graphics",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProxyGraphics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyGraphics);
+	});
 	return class$;
 }
 

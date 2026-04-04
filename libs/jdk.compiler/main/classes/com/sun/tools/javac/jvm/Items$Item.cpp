@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$Item.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/jvm/Code.h>
 #include <com/sun/tools/javac/jvm/Items$CondItem.h>
@@ -23,53 +22,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _Items$Item_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$Item, this$0)},
-	{"typecode", "I", nullptr, 0, $field(Items$Item, typecode)},
-	{}
-};
-
-$MethodInfo _Items$Item_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(Items$Item, init$, void, $Items*, int32_t)},
-	{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, coerce, Items$Item*, int32_t)},
-	{"coerce", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, coerce, Items$Item*, $Type*)},
-	{"drop", "()V", nullptr, 0, $virtualMethod(Items$Item, drop, void)},
-	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$Item, duplicate, void)},
-	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, invoke, Items$Item*)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, load, Items$Item*)},
-	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$Item, mkCond, $Items$CondItem*)},
-	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$Item, stash, void, int32_t)},
-	{"store", "()V", nullptr, 0, $virtualMethod(Items$Item, store, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"width", "()I", nullptr, 0, $virtualMethod(Items$Item, width, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Items$Item_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$Item_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.jvm.Items$Item",
-	"java.lang.Object",
-	nullptr,
-	_Items$Item_FieldInfo_,
-	_Items$Item_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$Item_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$Item($Class* clazz) {
-	return $of($alloc(Items$Item));
-}
-
 $String* Items$Item::toString() {
 	 return this->$Object::toString();
 }
@@ -85,11 +37,11 @@ Items$Item* Items$Item::load() {
 }
 
 void Items$Item::store() {
-	$throwNew($AssertionError, $of($$str({"store unsupported: "_s, this})));
+	$throwNew($AssertionError, $$of($str({"store unsupported: "_s, this})));
 }
 
 Items$Item* Items$Item::invoke() {
-	$throwNew($AssertionError, $of(this));
+	$throwNew($AssertionError, this);
 	$shouldNotReachHere();
 }
 
@@ -138,7 +90,48 @@ Items$Item::Items$Item() {
 }
 
 $Class* Items$Item::load$($String* name, bool initialize) {
-	$loadClass(Items$Item, name, initialize, &_Items$Item_ClassInfo_, allocate$Items$Item);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$Item, this$0)},
+		{"typecode", "I", nullptr, 0, $field(Items$Item, typecode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(Items$Item, init$, void, $Items*, int32_t)},
+		{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, coerce, Items$Item*, int32_t)},
+		{"coerce", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, coerce, Items$Item*, $Type*)},
+		{"drop", "()V", nullptr, 0, $virtualMethod(Items$Item, drop, void)},
+		{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$Item, duplicate, void)},
+		{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, invoke, Items$Item*)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, load, Items$Item*)},
+		{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$Item, mkCond, $Items$CondItem*)},
+		{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$Item, stash, void, int32_t)},
+		{"store", "()V", nullptr, 0, $virtualMethod(Items$Item, store, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"width", "()I", nullptr, 0, $virtualMethod(Items$Item, width, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.jvm.Items$Item",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$Item, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$Item);
+	});
 	return class$;
 }
 

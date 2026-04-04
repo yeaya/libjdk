@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/DTDConstants.h>
-
 #include <jcpp.h>
 
 #undef ANY
@@ -47,59 +46,55 @@ namespace javax {
 			namespace html {
 				namespace parser {
 
-$FieldInfo _DTDConstants_FieldInfo_[] = {
-	{"CDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, CDATA)},
-	{"ENTITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ENTITY)},
-	{"ENTITIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ENTITIES)},
-	{"ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ID)},
-	{"IDREF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, IDREF)},
-	{"IDREFS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, IDREFS)},
-	{"NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NAME)},
-	{"NAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NAMES)},
-	{"NMTOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NMTOKEN)},
-	{"NMTOKENS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NMTOKENS)},
-	{"NOTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NOTATION)},
-	{"NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUMBER)},
-	{"NUMBERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUMBERS)},
-	{"NUTOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUTOKEN)},
-	{"NUTOKENS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUTOKENS)},
-	{"RCDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, RCDATA)},
-	{"EMPTY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, EMPTY)},
-	{"MODEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, MODEL)},
-	{"ANY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ANY)},
-	{"FIXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, FIXED)},
-	{"REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, REQUIRED)},
-	{"CURRENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, CURRENT)},
-	{"CONREF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, CONREF)},
-	{"IMPLIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, IMPLIED)},
-	{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, PUBLIC)},
-	{"SDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, SDATA)},
-	{"PI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, PI)},
-	{"STARTTAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, STARTTAG)},
-	{"ENDTAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ENDTAG)},
-	{"MS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, MS)},
-	{"MD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, MD)},
-	{"SYSTEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, SYSTEM)},
-	{"GENERAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, GENERAL)},
-	{"DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, DEFAULT)},
-	{"PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, PARAMETER)},
-	{}
-};
-
-$ClassInfo _DTDConstants_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.html.parser.DTDConstants",
-	nullptr,
-	nullptr,
-	_DTDConstants_FieldInfo_
-};
-
-$Object* allocate$DTDConstants($Class* clazz) {
-	return $of($alloc(DTDConstants));
-}
-
 $Class* DTDConstants::load$($String* name, bool initialize) {
-	$loadClass(DTDConstants, name, initialize, &_DTDConstants_ClassInfo_, allocate$DTDConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"CDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, CDATA)},
+		{"ENTITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ENTITY)},
+		{"ENTITIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ENTITIES)},
+		{"ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ID)},
+		{"IDREF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, IDREF)},
+		{"IDREFS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, IDREFS)},
+		{"NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NAME)},
+		{"NAMES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NAMES)},
+		{"NMTOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NMTOKEN)},
+		{"NMTOKENS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NMTOKENS)},
+		{"NOTATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NOTATION)},
+		{"NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUMBER)},
+		{"NUMBERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUMBERS)},
+		{"NUTOKEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUTOKEN)},
+		{"NUTOKENS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, NUTOKENS)},
+		{"RCDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, RCDATA)},
+		{"EMPTY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, EMPTY)},
+		{"MODEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, MODEL)},
+		{"ANY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ANY)},
+		{"FIXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, FIXED)},
+		{"REQUIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, REQUIRED)},
+		{"CURRENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, CURRENT)},
+		{"CONREF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, CONREF)},
+		{"IMPLIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, IMPLIED)},
+		{"PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, PUBLIC)},
+		{"SDATA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, SDATA)},
+		{"PI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, PI)},
+		{"STARTTAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, STARTTAG)},
+		{"ENDTAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, ENDTAG)},
+		{"MS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, MS)},
+		{"MD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, MD)},
+		{"SYSTEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, SYSTEM)},
+		{"GENERAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, GENERAL)},
+		{"DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, DEFAULT)},
+		{"PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTDConstants, PARAMETER)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.html.parser.DTDConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(DTDConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTDConstants);
+	});
 	return class$;
 }
 

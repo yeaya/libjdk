@@ -22,6 +22,7 @@ class CodeBugDocument : public ::javax::swing::text::DefaultStyledDocument {
 	$class(CodeBugDocument, 0, ::javax::swing::text::DefaultStyledDocument)
 public:
 	CodeBugDocument();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void fillCellSpecs(::java::util::ArrayList* Specs, int32_t colCount);
 	virtual void fillRowSpecs(::java::util::ArrayList* Specs, int32_t rowCount, int32_t colCount);

@@ -52,6 +52,7 @@ namespace java {
 class $export HttpClient$Builder : public ::java::lang::Object {
 	$interface(HttpClient$Builder, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::net::http::HttpClient$Builder* authenticator(::java::net::Authenticator* authenticator) {return nullptr;}
 	virtual ::java::net::http::HttpClient* build() {return nullptr;}
 	virtual ::java::net::http::HttpClient$Builder* connectTimeout(::java::time::Duration* duration) {return nullptr;}

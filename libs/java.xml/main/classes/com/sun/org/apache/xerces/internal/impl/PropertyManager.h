@@ -54,6 +54,7 @@ class PropertyManager : public ::java::lang::Object {
 	$class(PropertyManager, 0, ::java::lang::Object)
 public:
 	PropertyManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t context);
 	void init$(::com::sun::org::apache::xerces::internal::impl::PropertyManager* propertyManager);
 	virtual bool containsProperty($String* property);

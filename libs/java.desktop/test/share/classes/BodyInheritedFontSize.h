@@ -31,6 +31,7 @@ class $export BodyInheritedFontSize : public ::java::lang::Object {
 	$class(BodyInheritedFontSize, 0, ::java::lang::Object)
 public:
 	BodyInheritedFontSize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkFontSize(::javax::swing::JEditorPane* htmlPane, bool w3cUnits, bool debugPrint);
 	static ::javax::swing::JEditorPane* createEditorPane(bool w3cUnits, bool showFrame);

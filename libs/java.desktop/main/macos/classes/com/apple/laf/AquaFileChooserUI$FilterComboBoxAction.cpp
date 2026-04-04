@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$FilterComboBoxAction.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
@@ -15,49 +14,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JComboBox = ::javax::swing::JComboBox;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$FilterComboBoxAction_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$FilterComboBoxAction, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$FilterComboBoxAction_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$FilterComboBoxAction, init$, void, $AquaFileChooserUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$FilterComboBoxAction_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$FilterComboBoxAction", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$FilterComboBoxAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$FilterComboBoxAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_AquaFileChooserUI$FilterComboBoxAction_FieldInfo_,
-	_AquaFileChooserUI$FilterComboBoxAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$FilterComboBoxAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$FilterComboBoxAction($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$FilterComboBoxAction));
-}
 
 void AquaFileChooserUI$FilterComboBoxAction::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -65,10 +26,10 @@ void AquaFileChooserUI$FilterComboBoxAction::init$($AquaFileChooserUI* this$0) {
 }
 
 void AquaFileChooserUI$FilterComboBoxAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, selectedFilter, $nc(this->this$0->filterComboBox)->getSelectedItem());
 	if (!this->this$0->containsFileFilter(selectedFilter)) {
-		$nc($(this->this$0->getFileChooser()))->setFileFilter($cast($FileFilter, selectedFilter));
+		$$nc(this->this$0->getFileChooser())->setFileFilter($cast($FileFilter, selectedFilter));
 	}
 }
 
@@ -76,7 +37,37 @@ AquaFileChooserUI$FilterComboBoxAction::AquaFileChooserUI$FilterComboBoxAction()
 }
 
 $Class* AquaFileChooserUI$FilterComboBoxAction::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$FilterComboBoxAction, name, initialize, &_AquaFileChooserUI$FilterComboBoxAction_ClassInfo_, allocate$AquaFileChooserUI$FilterComboBoxAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$FilterComboBoxAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$FilterComboBoxAction, init$, void, $AquaFileChooserUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$FilterComboBoxAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$FilterComboBoxAction", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$FilterComboBoxAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$FilterComboBoxAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$FilterComboBoxAction));
+	});
 	return class$;
 }
 

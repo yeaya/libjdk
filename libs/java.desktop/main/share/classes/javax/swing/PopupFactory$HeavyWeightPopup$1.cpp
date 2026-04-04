@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory$HeavyWeightPopup$1.h>
-
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
@@ -24,56 +23,13 @@ using $PopupFactory$HeavyWeightPopup = ::javax::swing::PopupFactory$HeavyWeightP
 namespace javax {
 	namespace swing {
 
-$FieldInfo _PopupFactory$HeavyWeightPopup$1_FieldInfo_[] = {
-	{"val$w", "Ljava/awt/Window;", nullptr, $FINAL | $SYNTHETIC, $field(PopupFactory$HeavyWeightPopup$1, val$w)},
-	{}
-};
-
-$MethodInfo _PopupFactory$HeavyWeightPopup$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(PopupFactory$HeavyWeightPopup$1, init$, void, $Window*)},
-	{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeavyWeightPopup$1, windowClosed, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _PopupFactory$HeavyWeightPopup$1_EnclosingMethodInfo_ = {
-	"javax.swing.PopupFactory$HeavyWeightPopup",
-	"recycleHeavyWeightPopup",
-	"(Ljavax/swing/PopupFactory$HeavyWeightPopup;)V"
-};
-
-$InnerClassInfo _PopupFactory$HeavyWeightPopup$1_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$HeavyWeightPopup", "javax.swing.PopupFactory", "HeavyWeightPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$HeavyWeightPopup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PopupFactory$HeavyWeightPopup$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.PopupFactory$HeavyWeightPopup$1",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_PopupFactory$HeavyWeightPopup$1_FieldInfo_,
-	_PopupFactory$HeavyWeightPopup$1_MethodInfo_,
-	nullptr,
-	&_PopupFactory$HeavyWeightPopup$1_EnclosingMethodInfo_,
-	_PopupFactory$HeavyWeightPopup$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory"
-};
-
-$Object* allocate$PopupFactory$HeavyWeightPopup$1($Class* clazz) {
-	return $of($alloc(PopupFactory$HeavyWeightPopup$1));
-}
-
 void PopupFactory$HeavyWeightPopup$1::init$($Window* val$w) {
 	$set(this, val$w, val$w);
 	$WindowAdapter::init$();
 }
 
 void PopupFactory$HeavyWeightPopup$1::windowClosed($WindowEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, popups, nullptr);
 	$load($PopupFactory$HeavyWeightPopup);
 	$synchronized($PopupFactory$HeavyWeightPopup::class$) {
@@ -82,7 +38,7 @@ void PopupFactory$HeavyWeightPopup$1::windowClosed($WindowEvent* e) {
 	}
 	if (popups != nullptr) {
 		for (int32_t counter = popups->size() - 1; counter >= 0; --counter) {
-			$nc(($cast($PopupFactory$HeavyWeightPopup, $(popups->get(counter)))))->_dispose();
+			$$sure($PopupFactory$HeavyWeightPopup, popups->get(counter))->_dispose();
 		}
 	}
 }
@@ -91,7 +47,43 @@ PopupFactory$HeavyWeightPopup$1::PopupFactory$HeavyWeightPopup$1() {
 }
 
 $Class* PopupFactory$HeavyWeightPopup$1::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory$HeavyWeightPopup$1, name, initialize, &_PopupFactory$HeavyWeightPopup$1_ClassInfo_, allocate$PopupFactory$HeavyWeightPopup$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$w", "Ljava/awt/Window;", nullptr, $FINAL | $SYNTHETIC, $field(PopupFactory$HeavyWeightPopup$1, val$w)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(PopupFactory$HeavyWeightPopup$1, init$, void, $Window*)},
+		{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeavyWeightPopup$1, windowClosed, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.PopupFactory$HeavyWeightPopup",
+		"recycleHeavyWeightPopup",
+		"(Ljavax/swing/PopupFactory$HeavyWeightPopup;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$HeavyWeightPopup", "javax.swing.PopupFactory", "HeavyWeightPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$HeavyWeightPopup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.PopupFactory$HeavyWeightPopup$1",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory"
+	};
+	$loadClass(PopupFactory$HeavyWeightPopup$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PopupFactory$HeavyWeightPopup$1));
+	});
 	return class$;
 }
 

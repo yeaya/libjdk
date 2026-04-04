@@ -37,6 +37,7 @@ class MethodFinder : public ::com::sun::beans::finder::AbstractFinder {
 	$class(MethodFinder, 0, ::com::sun::beans::finder::AbstractFinder)
 public:
 	MethodFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $ClassArray* args);
 	static ::java::lang::reflect::Method* findAccessibleMethod(::java::lang::reflect::Method* method);
 	static ::java::lang::reflect::Method* findAccessibleMethod(::java::lang::reflect::Method* method, ::java::lang::reflect::Type* generic);

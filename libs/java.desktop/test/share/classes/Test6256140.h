@@ -17,6 +17,7 @@ class $export Test6256140 : public ::java::lang::Object {
 	$class(Test6256140, 0, ::java::lang::Object)
 public:
 	Test6256140();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static bool isTextEqual();

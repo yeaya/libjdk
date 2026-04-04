@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NotCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
@@ -21,14 +20,11 @@
 #undef IXOR
 
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -46,45 +42,25 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _NotCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(NotCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NotCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NotCall, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _NotCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.NotCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	nullptr,
-	_NotCall_MethodInfo_
-};
-
-$Object* allocate$NotCall($Class* clazz) {
-	return $of($alloc(NotCall));
-}
-
 void NotCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 }
 
 void NotCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$nc($(argument()))->translate(classGen, methodGen);
+	$$nc(argument())->translate(classGen, methodGen);
 	$init($Constants);
 	$nc(il)->append($Constants::ICONST_1);
-	il->append(static_cast<$Instruction*>($Constants::IXOR));
+	il->append($Constants::IXOR);
 }
 
 void NotCall::translateDesynthesized($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$var($Expression, exp, argument());
 	$nc(exp)->translateDesynthesized(classGen, methodGen);
-	$var($BranchHandle, gotoh, $nc(il)->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+	$var($BranchHandle, gotoh, $nc(il)->append($$new($GOTO, nullptr)));
 	$set(this, _trueList, exp->_falseList);
 	$set(this, _falseList, exp->_trueList);
 	$nc(this->_falseList)->add(gotoh);
@@ -94,7 +70,23 @@ NotCall::NotCall() {
 }
 
 $Class* NotCall::load$($String* name, bool initialize) {
-	$loadClass(NotCall, name, initialize, &_NotCall_ClassInfo_, allocate$NotCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(NotCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NotCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NotCall, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.NotCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NotCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotCall);
+	});
 	return class$;
 }
 

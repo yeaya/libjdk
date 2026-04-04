@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/exceptions/AlgorithmAlreadyRegisteredException.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <jcpp.h>
 
@@ -18,45 +17,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace exceptions {
-
-$CompoundAttribute _AlgorithmAlreadyRegisteredException_MethodAnnotations_init$4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AlgorithmAlreadyRegisteredException_MethodAnnotations_init$6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _AlgorithmAlreadyRegisteredException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlgorithmAlreadyRegisteredException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AlgorithmAlreadyRegisteredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*, $Exception*), nullptr, nullptr, _AlgorithmAlreadyRegisteredException_MethodAnnotations_init$4},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _AlgorithmAlreadyRegisteredException_MethodAnnotations_init$6},
-	{}
-};
-
-$ClassInfo _AlgorithmAlreadyRegisteredException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException",
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
-	nullptr,
-	_AlgorithmAlreadyRegisteredException_FieldInfo_,
-	_AlgorithmAlreadyRegisteredException_MethodInfo_
-};
-
-$Object* allocate$AlgorithmAlreadyRegisteredException($Class* clazz) {
-	return $of($alloc(AlgorithmAlreadyRegisteredException));
-}
 
 void AlgorithmAlreadyRegisteredException::init$() {
 	$XMLSecurityException::init$();
@@ -97,7 +57,39 @@ void AlgorithmAlreadyRegisteredException::throw$() {
 }
 
 $Class* AlgorithmAlreadyRegisteredException::load$($String* name, bool initialize) {
-	$loadClass(AlgorithmAlreadyRegisteredException, name, initialize, &_AlgorithmAlreadyRegisteredException_ClassInfo_, allocate$AlgorithmAlreadyRegisteredException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlgorithmAlreadyRegisteredException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$4[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$6[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$4},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AlgorithmAlreadyRegisteredException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(AlgorithmAlreadyRegisteredException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$6},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException",
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlgorithmAlreadyRegisteredException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlgorithmAlreadyRegisteredException);
+	});
 	return class$;
 }
 

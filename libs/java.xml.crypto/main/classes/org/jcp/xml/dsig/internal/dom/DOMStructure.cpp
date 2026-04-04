@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMStructure.h>
-
 #include <java/util/List.h>
 #include <javax/xml/crypto/XMLStructure.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
@@ -25,27 +24,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMStructure_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMStructure, init$, void)},
-	{"equalsContent", "(Ljava/util/List;Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;)Z", $PROTECTED, $virtualMethod(DOMStructure, equalsContent, bool, $List*, $List*)},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMStructure, isFeatureSupported, bool, $String*)},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMStructure, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$ClassInfo _DOMStructure_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"java.lang.Object",
-	"javax.xml.crypto.XMLStructure",
-	nullptr,
-	_DOMStructure_MethodInfo_
-};
-
-$Object* allocate$DOMStructure($Class* clazz) {
-	return $of($alloc(DOMStructure));
-}
-
 void DOMStructure::init$() {
 }
 
@@ -58,24 +36,24 @@ bool DOMStructure::isFeatureSupported($String* feature) {
 }
 
 bool DOMStructure::equalsContent($List* content, $List* otherContent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(content)->size();
 	if (size != $nc(otherContent)->size()) {
 		return false;
 	}
 	for (int32_t i = 0; i < size; ++i) {
-		$var($XMLStructure, oxs, $cast($XMLStructure, $nc(otherContent)->get(i)));
+		$var($XMLStructure, oxs, $cast($XMLStructure, otherContent->get(i)));
 		$var($XMLStructure, xs, $cast($XMLStructure, content->get(i)));
 		if ($instanceOf($DOMStructure, oxs)) {
 			if (!($instanceOf($DOMStructure, xs))) {
 				return false;
 			}
-			$var($Node, otherNode, $nc(($cast($DOMStructure, oxs)))->getNode());
-			$var($Node, node, $nc(($cast($DOMStructure, xs)))->getNode());
+			$var($Node, otherNode, $cast($DOMStructure, oxs)->getNode());
+			$var($Node, node, $nc($cast($DOMStructure, xs))->getNode());
 			if (!$DOMUtils::nodesEqual(node, otherNode)) {
 				return false;
 			}
-		} else if (!($nc($of(xs))->equals(oxs))) {
+		} else if (!($nc(xs)->equals(oxs))) {
 			return false;
 		}
 	}
@@ -86,7 +64,24 @@ DOMStructure::DOMStructure() {
 }
 
 $Class* DOMStructure::load$($String* name, bool initialize) {
-	$loadClass(DOMStructure, name, initialize, &_DOMStructure_ClassInfo_, allocate$DOMStructure);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMStructure, init$, void)},
+		{"equalsContent", "(Ljava/util/List;Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;)Z", $PROTECTED, $virtualMethod(DOMStructure, equalsContent, bool, $List*, $List*)},
+		{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMStructure, isFeatureSupported, bool, $String*)},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMStructure, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"java.lang.Object",
+		"javax.xml.crypto.XMLStructure",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMStructure, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMStructure);
+	});
 	return class$;
 }
 

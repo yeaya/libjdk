@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Fidelity.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Fidelity_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Fidelity, serialVersionUID)},
-	{"FIDELITY_TRUE", "Ljavax/print/attribute/standard/Fidelity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Fidelity, FIDELITY_TRUE)},
-	{"FIDELITY_FALSE", "Ljavax/print/attribute/standard/Fidelity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Fidelity, FIDELITY_FALSE)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Fidelity, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/Fidelity;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Fidelity, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _Fidelity_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Fidelity, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Fidelity, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Fidelity, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Fidelity, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Fidelity, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Fidelity_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.Fidelity",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintJobAttribute,javax.print.attribute.PrintRequestAttribute",
-	_Fidelity_FieldInfo_,
-	_Fidelity_MethodInfo_
-};
-
-$Object* allocate$Fidelity($Class* clazz) {
-	return $of($alloc(Fidelity));
-}
 
 $Object* Fidelity::clone() {
 	 return this->$EnumSyntax::clone();
@@ -88,7 +51,7 @@ $StringArray* Fidelity::getStringTable() {
 }
 
 $EnumSyntaxArray* Fidelity::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, Fidelity::myEnumValueTable);
+	return $cast($EnumSyntaxArray, Fidelity::myEnumValueTable);
 }
 
 $Class* Fidelity::getCategory() {
@@ -99,7 +62,7 @@ $String* Fidelity::getName() {
 	return "ipp-attribute-fidelity"_s;
 }
 
-void clinit$Fidelity($Class* class$) {
+void Fidelity::clinit$($Class* clazz) {
 	$assignStatic(Fidelity::FIDELITY_TRUE, $new(Fidelity, 0));
 	$assignStatic(Fidelity::FIDELITY_FALSE, $new(Fidelity, 1));
 	$assignStatic(Fidelity::myStringTable, $new($StringArray, {
@@ -116,7 +79,38 @@ Fidelity::Fidelity() {
 }
 
 $Class* Fidelity::load$($String* name, bool initialize) {
-	$loadClass(Fidelity, name, initialize, &_Fidelity_ClassInfo_, clinit$Fidelity, allocate$Fidelity);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Fidelity, serialVersionUID)},
+		{"FIDELITY_TRUE", "Ljavax/print/attribute/standard/Fidelity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Fidelity, FIDELITY_TRUE)},
+		{"FIDELITY_FALSE", "Ljavax/print/attribute/standard/Fidelity;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Fidelity, FIDELITY_FALSE)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Fidelity, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/Fidelity;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Fidelity, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Fidelity, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Fidelity, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Fidelity, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Fidelity, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Fidelity, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.Fidelity",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintJobAttribute,javax.print.attribute.PrintRequestAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Fidelity, name, initialize, &classInfo$$, Fidelity::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Fidelity));
+	});
 	return class$;
 }
 

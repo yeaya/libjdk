@@ -1,5 +1,4 @@
 #include <sun/security/jgss/GSSExceptionImpl.h>
-
 #include <org/ietf/jgss/GSSException.h>
 #include <org/ietf/jgss/Oid.h>
 #include <jcpp.h>
@@ -14,34 +13,6 @@ using $Oid = ::org::ietf::jgss::Oid;
 namespace sun {
 	namespace security {
 		namespace jgss {
-
-$FieldInfo _GSSExceptionImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSExceptionImpl, serialVersionUID)},
-	{"majorMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSExceptionImpl, majorMessage)},
-	{}
-};
-
-$MethodInfo _GSSExceptionImpl_MethodInfo_[] = {
-	{"<init>", "(ILorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSExceptionImpl, init$, void, int32_t, $Oid*)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $String*)},
-	{"<init>", "(ILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $Exception*)},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $String*, $Exception*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSExceptionImpl, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _GSSExceptionImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.GSSExceptionImpl",
-	"org.ietf.jgss.GSSException",
-	nullptr,
-	_GSSExceptionImpl_FieldInfo_,
-	_GSSExceptionImpl_MethodInfo_
-};
-
-$Object* allocate$GSSExceptionImpl($Class* clazz) {
-	return $of($alloc(GSSExceptionImpl));
-}
 
 void GSSExceptionImpl::init$(int32_t majorCode, $Oid* mech) {
 	$GSSException::init$(majorCode);
@@ -82,7 +53,30 @@ void GSSExceptionImpl::throw$() {
 }
 
 $Class* GSSExceptionImpl::load$($String* name, bool initialize) {
-	$loadClass(GSSExceptionImpl, name, initialize, &_GSSExceptionImpl_ClassInfo_, allocate$GSSExceptionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSExceptionImpl, serialVersionUID)},
+		{"majorMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSExceptionImpl, majorMessage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSExceptionImpl, init$, void, int32_t, $Oid*)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $String*)},
+		{"<init>", "(ILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $Exception*)},
+		{"<init>", "(ILjava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $String*, $Exception*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSExceptionImpl, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.GSSExceptionImpl",
+		"org.ietf.jgss.GSSException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSExceptionImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSExceptionImpl);
+	});
 	return class$;
 }
 

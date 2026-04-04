@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/FlavorEvent.h>
-
 #include <java/awt/datatransfer/Clipboard.h>
 #include <java/util/EventObject.h>
 #include <jcpp.h>
@@ -14,29 +13,6 @@ namespace java {
 	namespace awt {
 		namespace datatransfer {
 
-$FieldInfo _FlavorEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FlavorEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FlavorEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/datatransfer/Clipboard;)V", nullptr, $PUBLIC, $method(FlavorEvent, init$, void, $Clipboard*)},
-	{}
-};
-
-$ClassInfo _FlavorEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.datatransfer.FlavorEvent",
-	"java.util.EventObject",
-	nullptr,
-	_FlavorEvent_FieldInfo_,
-	_FlavorEvent_MethodInfo_
-};
-
-$Object* allocate$FlavorEvent($Class* clazz) {
-	return $of($alloc(FlavorEvent));
-}
-
 void FlavorEvent::init$($Clipboard* source) {
 	$EventObject::init$(source);
 }
@@ -45,7 +21,25 @@ FlavorEvent::FlavorEvent() {
 }
 
 $Class* FlavorEvent::load$($String* name, bool initialize) {
-	$loadClass(FlavorEvent, name, initialize, &_FlavorEvent_ClassInfo_, allocate$FlavorEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FlavorEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/datatransfer/Clipboard;)V", nullptr, $PUBLIC, $method(FlavorEvent, init$, void, $Clipboard*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.datatransfer.FlavorEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FlavorEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlavorEvent);
+	});
 	return class$;
 }
 

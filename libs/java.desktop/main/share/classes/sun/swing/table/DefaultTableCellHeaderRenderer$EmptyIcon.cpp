@@ -1,5 +1,4 @@
 #include <sun/swing/table/DefaultTableCellHeaderRenderer$EmptyIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
@@ -18,51 +17,6 @@ using $DefaultTableCellHeaderRenderer = ::sun::swing::table::DefaultTableCellHea
 namespace sun {
 	namespace swing {
 		namespace table {
-
-$FieldInfo _DefaultTableCellHeaderRenderer$EmptyIcon_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/table/DefaultTableCellHeaderRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultTableCellHeaderRenderer$EmptyIcon, this$0)},
-	{"width", "I", nullptr, 0, $field(DefaultTableCellHeaderRenderer$EmptyIcon, width)},
-	{"height", "I", nullptr, 0, $field(DefaultTableCellHeaderRenderer$EmptyIcon, height)},
-	{}
-};
-
-$MethodInfo _DefaultTableCellHeaderRenderer$EmptyIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/swing/table/DefaultTableCellHeaderRenderer;)V", nullptr, $PRIVATE, $method(DefaultTableCellHeaderRenderer$EmptyIcon, init$, void, $DefaultTableCellHeaderRenderer*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer$EmptyIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer$EmptyIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer$EmptyIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DefaultTableCellHeaderRenderer$EmptyIcon_InnerClassesInfo_[] = {
-	{"sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon", "sun.swing.table.DefaultTableCellHeaderRenderer", "EmptyIcon", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DefaultTableCellHeaderRenderer$EmptyIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_DefaultTableCellHeaderRenderer$EmptyIcon_FieldInfo_,
-	_DefaultTableCellHeaderRenderer$EmptyIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultTableCellHeaderRenderer$EmptyIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.table.DefaultTableCellHeaderRenderer"
-};
-
-$Object* allocate$DefaultTableCellHeaderRenderer$EmptyIcon($Class* clazz) {
-	return $of($alloc(DefaultTableCellHeaderRenderer$EmptyIcon));
-}
 
 int32_t DefaultTableCellHeaderRenderer$EmptyIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -105,7 +59,46 @@ DefaultTableCellHeaderRenderer$EmptyIcon::DefaultTableCellHeaderRenderer$EmptyIc
 }
 
 $Class* DefaultTableCellHeaderRenderer$EmptyIcon::load$($String* name, bool initialize) {
-	$loadClass(DefaultTableCellHeaderRenderer$EmptyIcon, name, initialize, &_DefaultTableCellHeaderRenderer$EmptyIcon_ClassInfo_, allocate$DefaultTableCellHeaderRenderer$EmptyIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/table/DefaultTableCellHeaderRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultTableCellHeaderRenderer$EmptyIcon, this$0)},
+		{"width", "I", nullptr, 0, $field(DefaultTableCellHeaderRenderer$EmptyIcon, width)},
+		{"height", "I", nullptr, 0, $field(DefaultTableCellHeaderRenderer$EmptyIcon, height)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/swing/table/DefaultTableCellHeaderRenderer;)V", nullptr, $PRIVATE, $method(DefaultTableCellHeaderRenderer$EmptyIcon, init$, void, $DefaultTableCellHeaderRenderer*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer$EmptyIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer$EmptyIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer$EmptyIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon", "sun.swing.table.DefaultTableCellHeaderRenderer", "EmptyIcon", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.table.DefaultTableCellHeaderRenderer"
+	};
+	$loadClass(DefaultTableCellHeaderRenderer$EmptyIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTableCellHeaderRenderer$EmptyIcon));
+	});
 	return class$;
 }
 

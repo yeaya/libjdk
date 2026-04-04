@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSLoaderImpl$XSGrammarMerger.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl.h>
@@ -54,49 +53,12 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$MethodInfo _XSLoaderImpl$XSGrammarMerger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSLoaderImpl$XSGrammarMerger, init$, void)},
-	{"containsGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Z", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, containsGrammar, bool, $XMLGrammarDescription*)},
-	{"getGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, getGrammar, $Grammar*, $XMLGrammarDescription*)},
-	{"mergeSchemaGrammars", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSLoaderImpl$XSGrammarMerger, mergeSchemaGrammars, void, $SchemaGrammar*, $SchemaGrammar*)},
-	{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, putGrammar, void, $Grammar*)},
-	{"retrieveGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, retrieveGrammar, $Grammar*, $XMLGrammarDescription*)},
-	{"retrieveInitialGrammarSet", "(Ljava/lang/String;)[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, retrieveInitialGrammarSet, $GrammarArray*, $String*)},
-	{"toSchemaGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $method(XSLoaderImpl$XSGrammarMerger, toSchemaGrammar, $SchemaGrammar*, $Grammar*)},
-	{}
-};
-
-$InnerClassInfo _XSLoaderImpl$XSGrammarMerger_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger", "com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl", "XSGrammarMerger", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XSLoaderImpl$XSGrammarMerger_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger",
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSGrammarPool",
-	nullptr,
-	nullptr,
-	_XSLoaderImpl$XSGrammarMerger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSLoaderImpl$XSGrammarMerger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl"
-};
-
-$Object* allocate$XSLoaderImpl$XSGrammarMerger($Class* clazz) {
-	return $of($alloc(XSLoaderImpl$XSGrammarMerger));
-}
-
 void XSLoaderImpl$XSGrammarMerger::init$() {
 	$XSGrammarPool::init$();
 }
 
 void XSLoaderImpl$XSGrammarMerger::putGrammar($Grammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SchemaGrammar, cachedGrammar, toSchemaGrammar($($XSGrammarPool::getGrammar($($nc(grammar)->getGrammarDescription())))));
 	if (cachedGrammar != nullptr) {
 		$var($SchemaGrammar, newGrammar, toSchemaGrammar(grammar));
@@ -113,7 +75,7 @@ $SchemaGrammar* XSLoaderImpl$XSGrammarMerger::toSchemaGrammar($Grammar* grammar)
 }
 
 void XSLoaderImpl$XSGrammarMerger::mergeSchemaGrammars($SchemaGrammar* cachedGrammar, $SchemaGrammar* newGrammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSNamedMap, map, $nc(newGrammar)->getComponents($XSConstants::ELEMENT_DECLARATION));
 	int32_t length = $nc(map)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
@@ -123,7 +85,7 @@ void XSLoaderImpl$XSGrammarMerger::mergeSchemaGrammars($SchemaGrammar* cachedGra
 		}
 	}
 	$assign(map, newGrammar->getComponents($XSConstants::ATTRIBUTE_DECLARATION));
-	length = map->getLength();
+	length = $nc(map)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
 		$var($XSAttributeDecl, decl, $cast($XSAttributeDecl, map->item(i)));
 		if ($nc(cachedGrammar)->getGlobalAttributeDecl($($nc(decl)->getName())) == nullptr) {
@@ -131,7 +93,7 @@ void XSLoaderImpl$XSGrammarMerger::mergeSchemaGrammars($SchemaGrammar* cachedGra
 		}
 	}
 	$assign(map, newGrammar->getComponents($XSConstants::TYPE_DEFINITION));
-	length = map->getLength();
+	length = $nc(map)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
 		$var($XSTypeDefinition, decl, $cast($XSTypeDefinition, map->item(i)));
 		if ($nc(cachedGrammar)->getGlobalTypeDecl($($nc(decl)->getName())) == nullptr) {
@@ -139,7 +101,7 @@ void XSLoaderImpl$XSGrammarMerger::mergeSchemaGrammars($SchemaGrammar* cachedGra
 		}
 	}
 	$assign(map, newGrammar->getComponents($XSConstants::ATTRIBUTE_GROUP));
-	length = map->getLength();
+	length = $nc(map)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
 		$var($XSAttributeGroupDecl, decl, $cast($XSAttributeGroupDecl, map->item(i)));
 		if ($nc(cachedGrammar)->getGlobalAttributeGroupDecl($($nc(decl)->getName())) == nullptr) {
@@ -147,7 +109,7 @@ void XSLoaderImpl$XSGrammarMerger::mergeSchemaGrammars($SchemaGrammar* cachedGra
 		}
 	}
 	$assign(map, newGrammar->getComponents($XSConstants::MODEL_GROUP));
-	length = map->getLength();
+	length = $nc(map)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
 		$var($XSGroupDecl, decl, $cast($XSGroupDecl, map->item(i)));
 		if ($nc(cachedGrammar)->getGlobalGroupDecl($($nc(decl)->getName())) == nullptr) {
@@ -155,7 +117,7 @@ void XSLoaderImpl$XSGrammarMerger::mergeSchemaGrammars($SchemaGrammar* cachedGra
 		}
 	}
 	$assign(map, newGrammar->getComponents($XSConstants::NOTATION_DECLARATION));
-	length = map->getLength();
+	length = $nc(map)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
 		$var($XSNotationDecl, decl, $cast($XSNotationDecl, map->item(i)));
 		if ($nc(cachedGrammar)->getGlobalNotationDecl($($nc(decl)->getName())) == nullptr) {
@@ -165,7 +127,7 @@ void XSLoaderImpl$XSGrammarMerger::mergeSchemaGrammars($SchemaGrammar* cachedGra
 	$var($XSObjectList, annotations, newGrammar->getAnnotations());
 	length = $nc(annotations)->getLength();
 	for (int32_t i = 0; i < length; ++i) {
-		$nc(cachedGrammar)->addAnnotation($cast($XSAnnotationImpl, $(annotations->item(i))));
+		$nc(cachedGrammar)->addAnnotation($$cast($XSAnnotationImpl, annotations->item(i)));
 	}
 }
 
@@ -189,7 +151,39 @@ XSLoaderImpl$XSGrammarMerger::XSLoaderImpl$XSGrammarMerger() {
 }
 
 $Class* XSLoaderImpl$XSGrammarMerger::load$($String* name, bool initialize) {
-	$loadClass(XSLoaderImpl$XSGrammarMerger, name, initialize, &_XSLoaderImpl$XSGrammarMerger_ClassInfo_, allocate$XSLoaderImpl$XSGrammarMerger);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSLoaderImpl$XSGrammarMerger, init$, void)},
+		{"containsGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Z", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, containsGrammar, bool, $XMLGrammarDescription*)},
+		{"getGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, getGrammar, $Grammar*, $XMLGrammarDescription*)},
+		{"mergeSchemaGrammars", "(Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSLoaderImpl$XSGrammarMerger, mergeSchemaGrammars, void, $SchemaGrammar*, $SchemaGrammar*)},
+		{"putGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, putGrammar, void, $Grammar*)},
+		{"retrieveGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, retrieveGrammar, $Grammar*, $XMLGrammarDescription*)},
+		{"retrieveInitialGrammarSet", "(Ljava/lang/String;)[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(XSLoaderImpl$XSGrammarMerger, retrieveInitialGrammarSet, $GrammarArray*, $String*)},
+		{"toSchemaGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $method(XSLoaderImpl$XSGrammarMerger, toSchemaGrammar, $SchemaGrammar*, $Grammar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger", "com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl", "XSGrammarMerger", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl$XSGrammarMerger",
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSGrammarPool",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl"
+	};
+	$loadClass(XSLoaderImpl$XSGrammarMerger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSLoaderImpl$XSGrammarMerger);
+	});
 	return class$;
 }
 

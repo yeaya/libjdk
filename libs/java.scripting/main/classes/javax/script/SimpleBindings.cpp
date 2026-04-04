@@ -1,5 +1,4 @@
 #include <javax/script/SimpleBindings.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -26,44 +25,6 @@ using $Set = ::java::util::Set;
 namespace javax {
 	namespace script {
 
-$FieldInfo _SimpleBindings_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(SimpleBindings, map)},
-	{}
-};
-
-$MethodInfo _SimpleBindings_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(SimpleBindings, init$, void, $Map*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleBindings, init$, void)},
-	{"checkKey", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(SimpleBindings, checkKey, void, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, clear, void)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(SimpleBindings, entrySet, $Set*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, get, $Object*, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SimpleBindings, keySet, $Set*)},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, put, $Object*, $String*, Object$*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleBindings, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(SimpleBindings, putAll, void, $Map*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, remove, $Object*, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, size, int32_t)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(SimpleBindings, values, $Collection*)},
-	{}
-};
-
-$ClassInfo _SimpleBindings_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.script.SimpleBindings",
-	"java.lang.Object",
-	"javax.script.Bindings",
-	_SimpleBindings_FieldInfo_,
-	_SimpleBindings_MethodInfo_
-};
-
-$Object* allocate$SimpleBindings($Class* clazz) {
-	return $of($alloc(SimpleBindings));
-}
-
 void SimpleBindings::init$($Map* m) {
 	$set(this, map, $cast($Map, $Objects::requireNonNull(m)));
 }
@@ -74,14 +35,14 @@ void SimpleBindings::init$() {
 
 $Object* SimpleBindings::put($String* name, Object$* value) {
 	checkKey(name);
-	return $of($nc(this->map)->put(name, value));
+	return $nc(this->map)->put(name, value);
 }
 
 void SimpleBindings::putAll($Map* toMerge) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(toMerge), "toMerge map is null"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(toMerge, "toMerge map is null"_s);
 	{
-		$var($Iterator, i$, $nc($($nc(toMerge)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(toMerge)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
@@ -112,7 +73,7 @@ $Set* SimpleBindings::entrySet() {
 
 $Object* SimpleBindings::get(Object$* key) {
 	checkKey(key);
-	return $of($nc(this->map)->get(key));
+	return $nc(this->map)->get(key);
 }
 
 bool SimpleBindings::isEmpty() {
@@ -125,7 +86,7 @@ $Set* SimpleBindings::keySet() {
 
 $Object* SimpleBindings::remove(Object$* key) {
 	checkKey(key);
-	return $of($nc(this->map)->remove(key));
+	return $nc(this->map)->remove(key);
 }
 
 int32_t SimpleBindings::size() {
@@ -147,14 +108,47 @@ void SimpleBindings::checkKey(Object$* key) {
 }
 
 $Object* SimpleBindings::put(Object$* name, Object$* value) {
-	return $of(this->put($cast($String, name), value));
+	return this->put($cast($String, name), value);
 }
 
 SimpleBindings::SimpleBindings() {
 }
 
 $Class* SimpleBindings::load$($String* name, bool initialize) {
-	$loadClass(SimpleBindings, name, initialize, &_SimpleBindings_ClassInfo_, allocate$SimpleBindings);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(SimpleBindings, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(SimpleBindings, init$, void, $Map*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleBindings, init$, void)},
+		{"checkKey", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(SimpleBindings, checkKey, void, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, clear, void)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(SimpleBindings, entrySet, $Set*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, get, $Object*, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SimpleBindings, keySet, $Set*)},
+		{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, put, $Object*, $String*, Object$*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleBindings, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(SimpleBindings, putAll, void, $Map*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, remove, $Object*, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, size, int32_t)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(SimpleBindings, values, $Collection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.script.SimpleBindings",
+		"java.lang.Object",
+		"javax.script.Bindings",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleBindings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleBindings);
+	});
 	return class$;
 }
 

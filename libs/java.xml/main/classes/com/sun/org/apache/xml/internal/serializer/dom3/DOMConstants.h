@@ -105,6 +105,7 @@ class DOMConstants : public ::java::lang::Object {
 	$class(DOMConstants, 0, ::java::lang::Object)
 public:
 	DOMConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* DOM3_REC_URL;
 	static $String* XERCES_URL;

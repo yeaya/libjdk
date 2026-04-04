@@ -1,5 +1,4 @@
 #include <javax/swing/text/AsyncBoxView$ChildLocator.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -26,54 +25,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _AsyncBoxView$ChildLocator_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AsyncBoxView;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncBoxView$ChildLocator, this$0)},
-	{"lastValidOffset", "Ljavax/swing/text/AsyncBoxView$ChildState;", nullptr, $PROTECTED, $field(AsyncBoxView$ChildLocator, lastValidOffset)},
-	{"lastAlloc", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(AsyncBoxView$ChildLocator, lastAlloc)},
-	{"childAlloc", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(AsyncBoxView$ChildLocator, childAlloc)},
-	{}
-};
-
-$MethodInfo _AsyncBoxView$ChildLocator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AsyncBoxView;)V", nullptr, $PUBLIC, $method(AsyncBoxView$ChildLocator, init$, void, $AsyncBoxView*)},
-	{"childChanged", "(Ljavax/swing/text/AsyncBoxView$ChildState;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncBoxView$ChildLocator, childChanged, void, $AsyncBoxView$ChildState*)},
-	{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncBoxView$ChildLocator, getChildAllocation, $Shape*, int32_t, $Shape*)},
-	{"getChildAllocation", "(I)Ljava/awt/Shape;", nullptr, $PROTECTED, $virtualMethod(AsyncBoxView$ChildLocator, getChildAllocation, $Shape*, int32_t)},
-	{"getViewIndexAtPoint", "(FFLjava/awt/Shape;)I", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildLocator, getViewIndexAtPoint, int32_t, float, float, $Shape*)},
-	{"getViewIndexAtVisualOffset", "(F)I", nullptr, $PROTECTED, $virtualMethod(AsyncBoxView$ChildLocator, getViewIndexAtVisualOffset, int32_t, float)},
-	{"intersectsClip", "(Ljava/awt/Shape;Ljava/awt/Rectangle;)Z", nullptr, 0, $virtualMethod(AsyncBoxView$ChildLocator, intersectsClip, bool, $Shape*, $Rectangle*)},
-	{"paintChildren", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncBoxView$ChildLocator, paintChildren, void, $Graphics*)},
-	{"setAllocation", "(Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(AsyncBoxView$ChildLocator, setAllocation, void, $Shape*)},
-	{"updateChildOffsets", "(F)I", nullptr, 0, $virtualMethod(AsyncBoxView$ChildLocator, updateChildOffsets, int32_t, float)},
-	{"updateChildOffsetsToIndex", "(I)V", nullptr, 0, $virtualMethod(AsyncBoxView$ChildLocator, updateChildOffsetsToIndex, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AsyncBoxView$ChildLocator_InnerClassesInfo_[] = {
-	{"javax.swing.text.AsyncBoxView$ChildLocator", "javax.swing.text.AsyncBoxView", "ChildLocator", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AsyncBoxView$ChildLocator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.AsyncBoxView$ChildLocator",
-	"java.lang.Object",
-	nullptr,
-	_AsyncBoxView$ChildLocator_FieldInfo_,
-	_AsyncBoxView$ChildLocator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AsyncBoxView$ChildLocator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AsyncBoxView"
-};
-
-$Object* allocate$AsyncBoxView$ChildLocator($Class* clazz) {
-	return $of($alloc(AsyncBoxView$ChildLocator));
-}
-
 void AsyncBoxView$ChildLocator::init$($AsyncBoxView* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, lastAlloc, $new($Rectangle));
@@ -82,12 +33,12 @@ void AsyncBoxView$ChildLocator::init$($AsyncBoxView* this$0) {
 
 void AsyncBoxView$ChildLocator::childChanged($AsyncBoxView$ChildState* cs) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->lastValidOffset == nullptr) {
 			$set(this, lastValidOffset, cs);
 		} else {
-			int32_t var$1 = $nc($($nc(cs)->getChildView()))->getStartOffset();
-			if (var$1 < $nc($($nc(this->lastValidOffset)->getChildView()))->getStartOffset()) {
+			int32_t var$0 = $$nc($nc(cs)->getChildView())->getStartOffset();
+			if (var$0 < $$nc(this->lastValidOffset->getChildView())->getStartOffset()) {
 				$set(this, lastValidOffset, cs);
 			}
 		}
@@ -96,12 +47,12 @@ void AsyncBoxView$ChildLocator::childChanged($AsyncBoxView$ChildState* cs) {
 
 void AsyncBoxView$ChildLocator::paintChildren($Graphics* g) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Rectangle, clip, $nc(g)->getClipBounds());
-		float targetOffset = (float)((this->this$0->axis == 0) ? $nc(clip)->x - $nc(this->lastAlloc)->x : clip->y - $nc(this->lastAlloc)->y);
+		float targetOffset = (float)((this->this$0->axis == 0) ? $nc(clip)->x - $nc(this->lastAlloc)->x : $nc(clip)->y - $nc(this->lastAlloc)->y);
 		int32_t index = getViewIndexAtVisualOffset(targetOffset);
 		int32_t n = this->this$0->getViewCount();
-		float offs = $nc($(this->this$0->getChildState(index)))->getMajorOffset();
+		float offs = $$nc(this->this$0->getChildState(index))->getMajorOffset();
 		for (int32_t i = index; i < n; ++i) {
 			$var($AsyncBoxView$ChildState, cs, this->this$0->getChildState(i));
 			$nc(cs)->setMajorOffset(offs);
@@ -121,7 +72,7 @@ void AsyncBoxView$ChildLocator::paintChildren($Graphics* g) {
 
 $Shape* AsyncBoxView$ChildLocator::getChildAllocation(int32_t index, $Shape* a) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (a == nullptr) {
 			return nullptr;
 		}
@@ -130,8 +81,8 @@ $Shape* AsyncBoxView$ChildLocator::getChildAllocation(int32_t index, $Shape* a) 
 		if (this->lastValidOffset == nullptr) {
 			$set(this, lastValidOffset, this->this$0->getChildState(0));
 		}
-		int32_t var$0 = $nc($($nc(cs)->getChildView()))->getStartOffset();
-		if (var$0 > $nc($($nc(this->lastValidOffset)->getChildView()))->getStartOffset()) {
+		int32_t var$0 = $$nc($nc(cs)->getChildView())->getStartOffset();
+		if (var$0 > $$nc($nc(this->lastValidOffset)->getChildView())->getStartOffset()) {
 			updateChildOffsetsToIndex(index);
 		}
 		$var($Shape, ca, getChildAllocation(index));
@@ -152,12 +103,12 @@ $Shape* AsyncBoxView$ChildLocator::getChildAllocation(int32_t index) {
 		cs->run();
 	}
 	if (this->this$0->axis == 0) {
-		$nc(this->childAlloc)->x = $nc(this->lastAlloc)->x + $cast(int32_t, $nc(cs)->getMajorOffset());
+		$nc(this->childAlloc)->x = $nc(this->lastAlloc)->x + $cast(int32_t, cs->getMajorOffset());
 		$nc(this->childAlloc)->y = $nc(this->lastAlloc)->y + $cast(int32_t, cs->getMinorOffset());
 		$nc(this->childAlloc)->width = $cast(int32_t, cs->getMajorSpan());
 		$nc(this->childAlloc)->height = $cast(int32_t, cs->getMinorSpan());
 	} else {
-		$nc(this->childAlloc)->y = $nc(this->lastAlloc)->y + $cast(int32_t, $nc(cs)->getMajorOffset());
+		$nc(this->childAlloc)->y = $nc(this->lastAlloc)->y + $cast(int32_t, cs->getMajorOffset());
 		$nc(this->childAlloc)->x = $nc(this->lastAlloc)->x + $cast(int32_t, cs->getMinorOffset());
 		$nc(this->childAlloc)->height = $cast(int32_t, cs->getMajorSpan());
 		$nc(this->childAlloc)->width = $cast(int32_t, cs->getMinorSpan());
@@ -177,7 +128,7 @@ void AsyncBoxView$ChildLocator::setAllocation($Shape* a) {
 }
 
 int32_t AsyncBoxView$ChildLocator::getViewIndexAtVisualOffset(float targetOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = this->this$0->getViewCount();
 	if (n > 0) {
 		bool lastValid = (this->lastValidOffset != nullptr);
@@ -188,7 +139,7 @@ int32_t AsyncBoxView$ChildLocator::getViewIndexAtVisualOffset(float targetOffset
 			if (!lastValid) {
 				return 0;
 			}
-			int32_t pos = $nc($($nc(this->lastValidOffset)->getChildView()))->getStartOffset();
+			int32_t pos = $$nc($nc(this->lastValidOffset)->getChildView())->getStartOffset();
 			$init($Position$Bias);
 			int32_t index = this->this$0->getViewIndex(pos, $Position$Bias::Forward);
 			return index;
@@ -210,10 +161,10 @@ int32_t AsyncBoxView$ChildLocator::getViewIndexAtVisualOffset(float targetOffset
 }
 
 int32_t AsyncBoxView$ChildLocator::updateChildOffsets(float targetOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = this->this$0->getViewCount();
 	int32_t targetIndex = n - 1;
-	int32_t pos = $nc($($nc(this->lastValidOffset)->getChildView()))->getStartOffset();
+	int32_t pos = $$nc($nc(this->lastValidOffset)->getChildView())->getStartOffset();
 	$init($Position$Bias);
 	int32_t startIndex = this->this$0->getViewIndex(pos, $Position$Bias::Forward);
 	float start = $nc(this->lastValidOffset)->getMajorOffset();
@@ -232,8 +183,8 @@ int32_t AsyncBoxView$ChildLocator::updateChildOffsets(float targetOffset) {
 }
 
 void AsyncBoxView$ChildLocator::updateChildOffsetsToIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	int32_t pos = $nc($($nc(this->lastValidOffset)->getChildView()))->getStartOffset();
+	$useLocalObjectStack();
+	int32_t pos = $$nc($nc(this->lastValidOffset)->getChildView())->getStartOffset();
 	$init($Position$Bias);
 	int32_t startIndex = this->this$0->getViewIndex(pos, $Position$Bias::Forward);
 	float lastOffset = $nc(this->lastValidOffset)->getMajorOffset();
@@ -256,7 +207,49 @@ AsyncBoxView$ChildLocator::AsyncBoxView$ChildLocator() {
 }
 
 $Class* AsyncBoxView$ChildLocator::load$($String* name, bool initialize) {
-	$loadClass(AsyncBoxView$ChildLocator, name, initialize, &_AsyncBoxView$ChildLocator_ClassInfo_, allocate$AsyncBoxView$ChildLocator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AsyncBoxView;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncBoxView$ChildLocator, this$0)},
+		{"lastValidOffset", "Ljavax/swing/text/AsyncBoxView$ChildState;", nullptr, $PROTECTED, $field(AsyncBoxView$ChildLocator, lastValidOffset)},
+		{"lastAlloc", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(AsyncBoxView$ChildLocator, lastAlloc)},
+		{"childAlloc", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(AsyncBoxView$ChildLocator, childAlloc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AsyncBoxView;)V", nullptr, $PUBLIC, $method(AsyncBoxView$ChildLocator, init$, void, $AsyncBoxView*)},
+		{"childChanged", "(Ljavax/swing/text/AsyncBoxView$ChildState;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncBoxView$ChildLocator, childChanged, void, $AsyncBoxView$ChildState*)},
+		{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncBoxView$ChildLocator, getChildAllocation, $Shape*, int32_t, $Shape*)},
+		{"getChildAllocation", "(I)Ljava/awt/Shape;", nullptr, $PROTECTED, $virtualMethod(AsyncBoxView$ChildLocator, getChildAllocation, $Shape*, int32_t)},
+		{"getViewIndexAtPoint", "(FFLjava/awt/Shape;)I", nullptr, $PUBLIC, $virtualMethod(AsyncBoxView$ChildLocator, getViewIndexAtPoint, int32_t, float, float, $Shape*)},
+		{"getViewIndexAtVisualOffset", "(F)I", nullptr, $PROTECTED, $virtualMethod(AsyncBoxView$ChildLocator, getViewIndexAtVisualOffset, int32_t, float)},
+		{"intersectsClip", "(Ljava/awt/Shape;Ljava/awt/Rectangle;)Z", nullptr, 0, $virtualMethod(AsyncBoxView$ChildLocator, intersectsClip, bool, $Shape*, $Rectangle*)},
+		{"paintChildren", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AsyncBoxView$ChildLocator, paintChildren, void, $Graphics*)},
+		{"setAllocation", "(Ljava/awt/Shape;)V", nullptr, $PROTECTED, $virtualMethod(AsyncBoxView$ChildLocator, setAllocation, void, $Shape*)},
+		{"updateChildOffsets", "(F)I", nullptr, 0, $virtualMethod(AsyncBoxView$ChildLocator, updateChildOffsets, int32_t, float)},
+		{"updateChildOffsetsToIndex", "(I)V", nullptr, 0, $virtualMethod(AsyncBoxView$ChildLocator, updateChildOffsetsToIndex, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AsyncBoxView$ChildLocator", "javax.swing.text.AsyncBoxView", "ChildLocator", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.AsyncBoxView$ChildLocator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AsyncBoxView"
+	};
+	$loadClass(AsyncBoxView$ChildLocator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncBoxView$ChildLocator);
+	});
 	return class$;
 }
 

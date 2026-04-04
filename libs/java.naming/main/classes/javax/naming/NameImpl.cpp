@@ -1,5 +1,4 @@
 #include <javax/naming/NameImpl.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <java/lang/StringBuffer.h>
@@ -39,77 +38,6 @@ using $NameImplEnumerator = ::javax::naming::NameImplEnumerator;
 namespace javax {
 	namespace naming {
 
-$FieldInfo _NameImpl_FieldInfo_[] = {
-	{"LEFT_TO_RIGHT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, LEFT_TO_RIGHT)},
-	{"RIGHT_TO_LEFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, RIGHT_TO_LEFT)},
-	{"FLAT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, FLAT)},
-	{"components", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(NameImpl, components)},
-	{"syntaxDirection", "B", nullptr, $PRIVATE, $field(NameImpl, syntaxDirection)},
-	{"syntaxSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxSeparator)},
-	{"syntaxSeparator2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxSeparator2)},
-	{"syntaxCaseInsensitive", "Z", nullptr, $PRIVATE, $field(NameImpl, syntaxCaseInsensitive)},
-	{"syntaxTrimBlanks", "Z", nullptr, $PRIVATE, $field(NameImpl, syntaxTrimBlanks)},
-	{"syntaxEscape", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxEscape)},
-	{"syntaxBeginQuote1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxBeginQuote1)},
-	{"syntaxEndQuote1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxEndQuote1)},
-	{"syntaxBeginQuote2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxBeginQuote2)},
-	{"syntaxEndQuote2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxEndQuote2)},
-	{"syntaxAvaSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxAvaSeparator)},
-	{"syntaxTypevalSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxTypevalSeparator)},
-	{"STYLE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_NONE)},
-	{"STYLE_QUOTE1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_QUOTE1)},
-	{"STYLE_QUOTE2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_QUOTE2)},
-	{"STYLE_ESCAPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_ESCAPE)},
-	{"escapingStyle", "I", nullptr, $PRIVATE, $field(NameImpl, escapingStyle)},
-	{}
-};
-
-$MethodInfo _NameImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Properties;)V", nullptr, 0, $method(NameImpl, init$, void, $Properties*)},
-	{"<init>", "(Ljava/util/Properties;Ljava/lang/String;)V", nullptr, 0, $method(NameImpl, init$, void, $Properties*, $String*), "javax.naming.InvalidNameException"},
-	{"<init>", "(Ljava/util/Properties;Ljava/util/Enumeration;)V", "(Ljava/util/Properties;Ljava/util/Enumeration<Ljava/lang/String;>;)V", 0, $method(NameImpl, init$, void, $Properties*, $Enumeration*)},
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameImpl, add, void, $String*), "javax.naming.InvalidNameException"},
-	{"add", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameImpl, add, void, int32_t, $String*), "javax.naming.InvalidNameException"},
-	{"addAll", "(Ljava/util/Enumeration;)Z", "(Ljava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, addAll, bool, $Enumeration*), "javax.naming.InvalidNameException"},
-	{"addAll", "(ILjava/util/Enumeration;)Z", "(ILjava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, addAll, bool, int32_t, $Enumeration*), "javax.naming.InvalidNameException"},
-	{"compareTo", "(Ljavax/naming/NameImpl;)I", nullptr, $PUBLIC, $virtualMethod(NameImpl, compareTo, int32_t, NameImpl*)},
-	{"endsWith", "(ILjava/util/Enumeration;)Z", "(ILjava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, endsWith, bool, int32_t, $Enumeration*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NameImpl, equals, bool, Object$*)},
-	{"extractComp", "(Ljava/lang/String;IILjava/util/Vector;)I", "(Ljava/lang/String;IILjava/util/Vector<Ljava/lang/String;>;)I", $PRIVATE | $FINAL, $method(NameImpl, extractComp, int32_t, $String*, int32_t, int32_t, $Vector*), "javax.naming.InvalidNameException"},
-	{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameImpl, get, $String*, int32_t)},
-	{"getAll", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameImpl, getAll, $Enumeration*)},
-	{"getBoolean", "(Ljava/util/Properties;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NameImpl, getBoolean, bool, $Properties*, $String*)},
-	{"getPrefix", "(I)Ljava/util/Enumeration;", "(I)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameImpl, getPrefix, $Enumeration*, int32_t)},
-	{"getSuffix", "(I)Ljava/util/Enumeration;", "(I)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameImpl, getSuffix, $Enumeration*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NameImpl, hashCode, int32_t)},
-	{"isA", "(Ljava/lang/String;ILjava/lang/String;)Z", nullptr, $PRIVATE | $FINAL, $method(NameImpl, isA, bool, $String*, int32_t, $String*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(NameImpl, isEmpty, bool)},
-	{"isMeta", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(NameImpl, isMeta, bool, $String*, int32_t)},
-	{"isSeparator", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(NameImpl, isSeparator, bool, $String*, int32_t)},
-	{"recordNamingConvention", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $FINAL, $method(NameImpl, recordNamingConvention, void, $Properties*)},
-	{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NameImpl, remove, $Object*, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NameImpl, size, int32_t)},
-	{"skipSeparator", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $FINAL, $method(NameImpl, skipSeparator, int32_t, $String*, int32_t)},
-	{"startsWith", "(ILjava/util/Enumeration;)Z", "(ILjava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, startsWith, bool, int32_t, $Enumeration*)},
-	{"stringifyComp", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(NameImpl, stringifyComp, $String*, $String*)},
-	{"toBoolean", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NameImpl, toBoolean, bool, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _NameImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.naming.NameImpl",
-	"java.lang.Object",
-	nullptr,
-	_NameImpl_FieldInfo_,
-	_NameImpl_MethodInfo_
-};
-
-$Object* allocate$NameImpl($Class* clazz) {
-	return $of($alloc(NameImpl));
-}
-
 bool NameImpl::isA($String* n, int32_t i, $String* match) {
 	return (match != nullptr && $nc(n)->startsWith(match, i));
 }
@@ -136,7 +64,7 @@ int32_t NameImpl::skipSeparator($String* name, int32_t i) {
 }
 
 int32_t NameImpl::extractComp($String* name, int32_t i, int32_t len, $Vector* comps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, beginQuote, nullptr);
 	$var($String, endQuote, nullptr);
 	bool start = true;
@@ -145,8 +73,8 @@ int32_t NameImpl::extractComp($String* name, int32_t i, int32_t len, $Vector* co
 	while (i < len) {
 		bool var$0 = start;
 		if (var$0) {
-			bool var$1 = (one = isA(name, i, this->syntaxBeginQuote1));
-			var$0 = (var$1 || isA(name, i, this->syntaxBeginQuote2));
+			bool var$1 = one = isA(name, i, this->syntaxBeginQuote1);
+			var$0 = var$1 || isA(name, i, this->syntaxBeginQuote2);
 		}
 		if (var$0) {
 			$assign(beginQuote, one ? this->syntaxBeginQuote1 : this->syntaxBeginQuote2);
@@ -181,19 +109,19 @@ int32_t NameImpl::extractComp($String* name, int32_t i, int32_t len, $Vector* co
 				$throw($$new($InvalidNameException, $$str({name, ": unescaped "_s, this->syntaxEscape, " at end of component"_s})));
 			}
 		} else {
-			bool var$5 = isA(name, i, this->syntaxTypevalSeparator);
-			if (var$5) {
-				bool var$6 = (one = isA(name, i + $nc(this->syntaxTypevalSeparator)->length(), this->syntaxBeginQuote1));
-				var$5 = (var$6 || isA(name, i + $nc(this->syntaxTypevalSeparator)->length(), this->syntaxBeginQuote2));
+			bool var$3 = isA(name, i, this->syntaxTypevalSeparator);
+			if (var$3) {
+				bool var$4 = one = isA(name, i + $nc(this->syntaxTypevalSeparator)->length(), this->syntaxBeginQuote1);
+				var$3 = var$4 || isA(name, i + this->syntaxTypevalSeparator->length(), this->syntaxBeginQuote2);
 			}
-			if (var$5) {
+			if (var$3) {
 				$assign(beginQuote, one ? this->syntaxBeginQuote1 : this->syntaxBeginQuote2);
 				$assign(endQuote, one ? this->syntaxEndQuote1 : this->syntaxEndQuote2);
 				i += $nc(this->syntaxTypevalSeparator)->length();
 				answer->append(this->syntaxTypevalSeparator)->append(beginQuote);
 				for (i += $nc(beginQuote)->length(); ((i < len) && !$nc(name)->startsWith(endQuote, i)); ++i) {
-					bool var$7 = isA(name, i, this->syntaxEscape);
-					if (var$7 && isA(name, i + $nc(this->syntaxEscape)->length(), endQuote)) {
+					bool var$5 = isA(name, i, this->syntaxEscape);
+					if (var$5 && isA(name, i + $nc(this->syntaxEscape)->length(), endQuote)) {
 						i += $nc(this->syntaxEscape)->length();
 					}
 					answer->append(name->charAt(i));
@@ -230,7 +158,7 @@ bool NameImpl::toBoolean($String* name) {
 }
 
 void NameImpl::recordNamingConvention($Properties* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, syntaxDirectionStr, $nc(p)->getProperty("jndi.syntax.direction"_s, "flat"_s));
 	if ($nc(syntaxDirectionStr)->equals("left_to_right"_s)) {
 		this->syntaxDirection = NameImpl::LEFT_TO_RIGHT;
@@ -292,7 +220,7 @@ void NameImpl::init$($Properties* syntax) {
 }
 
 void NameImpl::init$($Properties* syntax, $String* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	NameImpl::init$(syntax);
 	bool rToL = (this->syntaxDirection == NameImpl::RIGHT_TO_LEFT);
 	bool compsAllEmpty = true;
@@ -317,15 +245,15 @@ void NameImpl::init$($Properties* syntax, $String* n) {
 }
 
 void NameImpl::init$($Properties* syntax, $Enumeration* comps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	NameImpl::init$(syntax);
 	while ($nc(comps)->hasMoreElements()) {
-		$nc(this->components)->addElement($cast($String, $(comps->nextElement())));
+		$nc(this->components)->addElement($$cast($String, comps->nextElement()));
 	}
 }
 
 $String* NameImpl::stringifyComp($String* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(comp)->length();
 	bool escapeSeparator = false;
 	bool escapeSeparator2 = false;
@@ -381,7 +309,7 @@ $String* NameImpl::stringifyComp($String* comp) {
 			} else if (isA(comp, i, this->syntaxEscape)) {
 				if (i + $nc(this->syntaxEscape)->length() >= len) {
 					strbuf->append(this->syntaxEscape);
-				} else if (isMeta(comp, i + $nc(this->syntaxEscape)->length())) {
+				} else if (isMeta(comp, i + this->syntaxEscape->length())) {
 					strbuf->append(this->syntaxEscape);
 				}
 				strbuf->append(this->syntaxEscape);
@@ -402,16 +330,16 @@ $String* NameImpl::stringifyComp($String* comp) {
 }
 
 $String* NameImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, answer, $new($StringBuffer));
 	$var($String, comp, nullptr);
 	bool compsAllEmpty = true;
 	int32_t size = $nc(this->components)->size();
 	for (int32_t i = 0; i < size; ++i) {
 		if (this->syntaxDirection == NameImpl::RIGHT_TO_LEFT) {
-			$assign(comp, stringifyComp($cast($String, $($nc(this->components)->elementAt(size - 1 - i)))));
+			$assign(comp, stringifyComp($$cast($String, $nc(this->components)->elementAt(size - 1 - i))));
 		} else {
-			$assign(comp, stringifyComp($cast($String, $($nc(this->components)->elementAt(i)))));
+			$assign(comp, stringifyComp($$cast($String, $nc(this->components)->elementAt(i))));
 		}
 		if ((i != 0) && (this->syntaxSeparator != nullptr)) {
 			answer->append(this->syntaxSeparator);
@@ -428,7 +356,7 @@ $String* NameImpl::toString() {
 }
 
 bool NameImpl::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((obj != nullptr) && ($instanceOf(NameImpl, obj))) {
 		$var(NameImpl, target, $cast(NameImpl, obj));
 		int32_t var$0 = target->size();
@@ -457,7 +385,7 @@ bool NameImpl::equals(Object$* obj) {
 }
 
 int32_t NameImpl::compareTo(NameImpl* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == obj) {
 		return 0;
 	}
@@ -518,7 +446,7 @@ bool NameImpl::isEmpty() {
 }
 
 bool NameImpl::startsWith(int32_t posn, $Enumeration* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (posn < 0 || posn > size()) {
 		return false;
 	}
@@ -546,7 +474,7 @@ bool NameImpl::startsWith(int32_t posn, $Enumeration* prefix) {
 }
 
 bool NameImpl::endsWith(int32_t posn, $Enumeration* suffix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startIndex = size() - posn;
 	if (startIndex < 0 || startIndex > size()) {
 		return false;
@@ -575,7 +503,7 @@ bool NameImpl::endsWith(int32_t posn, $Enumeration* suffix) {
 }
 
 bool NameImpl::addAll($Enumeration* comps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool added = false;
 	while ($nc(comps)->hasMoreElements()) {
 		try {
@@ -593,7 +521,7 @@ bool NameImpl::addAll($Enumeration* comps) {
 }
 
 bool NameImpl::addAll(int32_t posn, $Enumeration* comps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool added = false;
 	for (int32_t i = posn; $nc(comps)->hasMoreElements(); ++i) {
 		try {
@@ -626,12 +554,12 @@ void NameImpl::add(int32_t posn, $String* comp) {
 
 $Object* NameImpl::remove(int32_t posn) {
 	$var($Object, r, $nc(this->components)->elementAt(posn));
-	$nc(this->components)->removeElementAt(posn);
-	return $of(r);
+	this->components->removeElementAt(posn);
+	return r;
 }
 
 int32_t NameImpl::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = 0;
 	{
 		$var($Enumeration, e, getAll());
@@ -654,7 +582,73 @@ NameImpl::NameImpl() {
 }
 
 $Class* NameImpl::load$($String* name, bool initialize) {
-	$loadClass(NameImpl, name, initialize, &_NameImpl_ClassInfo_, allocate$NameImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEFT_TO_RIGHT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, LEFT_TO_RIGHT)},
+		{"RIGHT_TO_LEFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, RIGHT_TO_LEFT)},
+		{"FLAT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, FLAT)},
+		{"components", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(NameImpl, components)},
+		{"syntaxDirection", "B", nullptr, $PRIVATE, $field(NameImpl, syntaxDirection)},
+		{"syntaxSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxSeparator)},
+		{"syntaxSeparator2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxSeparator2)},
+		{"syntaxCaseInsensitive", "Z", nullptr, $PRIVATE, $field(NameImpl, syntaxCaseInsensitive)},
+		{"syntaxTrimBlanks", "Z", nullptr, $PRIVATE, $field(NameImpl, syntaxTrimBlanks)},
+		{"syntaxEscape", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxEscape)},
+		{"syntaxBeginQuote1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxBeginQuote1)},
+		{"syntaxEndQuote1", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxEndQuote1)},
+		{"syntaxBeginQuote2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxBeginQuote2)},
+		{"syntaxEndQuote2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxEndQuote2)},
+		{"syntaxAvaSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxAvaSeparator)},
+		{"syntaxTypevalSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NameImpl, syntaxTypevalSeparator)},
+		{"STYLE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_NONE)},
+		{"STYLE_QUOTE1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_QUOTE1)},
+		{"STYLE_QUOTE2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_QUOTE2)},
+		{"STYLE_ESCAPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameImpl, STYLE_ESCAPE)},
+		{"escapingStyle", "I", nullptr, $PRIVATE, $field(NameImpl, escapingStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Properties;)V", nullptr, 0, $method(NameImpl, init$, void, $Properties*)},
+		{"<init>", "(Ljava/util/Properties;Ljava/lang/String;)V", nullptr, 0, $method(NameImpl, init$, void, $Properties*, $String*), "javax.naming.InvalidNameException"},
+		{"<init>", "(Ljava/util/Properties;Ljava/util/Enumeration;)V", "(Ljava/util/Properties;Ljava/util/Enumeration<Ljava/lang/String;>;)V", 0, $method(NameImpl, init$, void, $Properties*, $Enumeration*)},
+		{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameImpl, add, void, $String*), "javax.naming.InvalidNameException"},
+		{"add", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameImpl, add, void, int32_t, $String*), "javax.naming.InvalidNameException"},
+		{"addAll", "(Ljava/util/Enumeration;)Z", "(Ljava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, addAll, bool, $Enumeration*), "javax.naming.InvalidNameException"},
+		{"addAll", "(ILjava/util/Enumeration;)Z", "(ILjava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, addAll, bool, int32_t, $Enumeration*), "javax.naming.InvalidNameException"},
+		{"compareTo", "(Ljavax/naming/NameImpl;)I", nullptr, $PUBLIC, $virtualMethod(NameImpl, compareTo, int32_t, NameImpl*)},
+		{"endsWith", "(ILjava/util/Enumeration;)Z", "(ILjava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, endsWith, bool, int32_t, $Enumeration*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NameImpl, equals, bool, Object$*)},
+		{"extractComp", "(Ljava/lang/String;IILjava/util/Vector;)I", "(Ljava/lang/String;IILjava/util/Vector<Ljava/lang/String;>;)I", $PRIVATE | $FINAL, $method(NameImpl, extractComp, int32_t, $String*, int32_t, int32_t, $Vector*), "javax.naming.InvalidNameException"},
+		{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameImpl, get, $String*, int32_t)},
+		{"getAll", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameImpl, getAll, $Enumeration*)},
+		{"getBoolean", "(Ljava/util/Properties;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NameImpl, getBoolean, bool, $Properties*, $String*)},
+		{"getPrefix", "(I)Ljava/util/Enumeration;", "(I)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameImpl, getPrefix, $Enumeration*, int32_t)},
+		{"getSuffix", "(I)Ljava/util/Enumeration;", "(I)Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NameImpl, getSuffix, $Enumeration*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NameImpl, hashCode, int32_t)},
+		{"isA", "(Ljava/lang/String;ILjava/lang/String;)Z", nullptr, $PRIVATE | $FINAL, $method(NameImpl, isA, bool, $String*, int32_t, $String*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(NameImpl, isEmpty, bool)},
+		{"isMeta", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(NameImpl, isMeta, bool, $String*, int32_t)},
+		{"isSeparator", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(NameImpl, isSeparator, bool, $String*, int32_t)},
+		{"recordNamingConvention", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $FINAL, $method(NameImpl, recordNamingConvention, void, $Properties*)},
+		{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NameImpl, remove, $Object*, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(NameImpl, size, int32_t)},
+		{"skipSeparator", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $FINAL, $method(NameImpl, skipSeparator, int32_t, $String*, int32_t)},
+		{"startsWith", "(ILjava/util/Enumeration;)Z", "(ILjava/util/Enumeration<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(NameImpl, startsWith, bool, int32_t, $Enumeration*)},
+		{"stringifyComp", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(NameImpl, stringifyComp, $String*, $String*)},
+		{"toBoolean", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NameImpl, toBoolean, bool, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.naming.NameImpl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameImpl);
+	});
 	return class$;
 }
 

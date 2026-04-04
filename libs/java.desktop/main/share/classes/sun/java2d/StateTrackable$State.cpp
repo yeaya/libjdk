@@ -1,5 +1,4 @@
 #include <sun/java2d/StateTrackable$State.h>
-
 #include <java/lang/Enum.h>
 #include <sun/java2d/StateTrackable.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _StateTrackable$State_FieldInfo_[] = {
-	{"IMMUTABLE", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, IMMUTABLE)},
-	{"STABLE", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, STABLE)},
-	{"DYNAMIC", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, DYNAMIC)},
-	{"UNTRACKABLE", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, UNTRACKABLE)},
-	{"$VALUES", "[Lsun/java2d/StateTrackable$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StateTrackable$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _StateTrackable$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/java2d/StateTrackable$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StateTrackable$State, $values, $StateTrackable$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StateTrackable$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(StateTrackable$State, valueOf, StateTrackable$State*, $String*)},
-	{"values", "()[Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(StateTrackable$State, values, $StateTrackable$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _StateTrackable$State_InnerClassesInfo_[] = {
-	{"sun.java2d.StateTrackable$State", "sun.java2d.StateTrackable", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StateTrackable$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.java2d.StateTrackable$State",
-	"java.lang.Enum",
-	nullptr,
-	_StateTrackable$State_FieldInfo_,
-	_StateTrackable$State_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/java2d/StateTrackable$State;>;",
-	nullptr,
-	_StateTrackable$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.StateTrackable"
-};
-
-$Object* allocate$StateTrackable$State($Class* clazz) {
-	return $of($alloc(StateTrackable$State));
-}
 
 StateTrackable$State* StateTrackable$State::IMMUTABLE = nullptr;
 StateTrackable$State* StateTrackable$State::STABLE = nullptr;
@@ -91,7 +48,7 @@ void StateTrackable$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StateTrackable$State($Class* class$) {
+void StateTrackable$State::clinit$($Class* clazz) {
 	$assignStatic(StateTrackable$State::IMMUTABLE, $new(StateTrackable$State, "IMMUTABLE"_s, 0));
 	$assignStatic(StateTrackable$State::STABLE, $new(StateTrackable$State, "STABLE"_s, 1));
 	$assignStatic(StateTrackable$State::DYNAMIC, $new(StateTrackable$State, "DYNAMIC"_s, 2));
@@ -103,7 +60,43 @@ StateTrackable$State::StateTrackable$State() {
 }
 
 $Class* StateTrackable$State::load$($String* name, bool initialize) {
-	$loadClass(StateTrackable$State, name, initialize, &_StateTrackable$State_ClassInfo_, clinit$StateTrackable$State, allocate$StateTrackable$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"IMMUTABLE", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, IMMUTABLE)},
+		{"STABLE", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, STABLE)},
+		{"DYNAMIC", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, DYNAMIC)},
+		{"UNTRACKABLE", "Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StateTrackable$State, UNTRACKABLE)},
+		{"$VALUES", "[Lsun/java2d/StateTrackable$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StateTrackable$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/java2d/StateTrackable$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StateTrackable$State, $values, $StateTrackable$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StateTrackable$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(StateTrackable$State, valueOf, StateTrackable$State*, $String*)},
+		{"values", "()[Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(StateTrackable$State, values, $StateTrackable$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.StateTrackable$State", "sun.java2d.StateTrackable", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.java2d.StateTrackable$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/java2d/StateTrackable$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.StateTrackable"
+	};
+	$loadClass(StateTrackable$State, name, initialize, &classInfo$$, StateTrackable$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StateTrackable$State));
+	});
 	return class$;
 }
 

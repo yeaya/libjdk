@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check$CycleChecker.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -44,7 +43,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Check = ::com::sun::tools::javac::comp::Check;
-using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCArrayTypeTree = ::com::sun::tools::javac::tree::JCTree$JCArrayTypeTree;
@@ -57,65 +55,18 @@ using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Check$CycleChecker_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$CycleChecker, this$0)},
-	{"seenClasses", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;", 0, $field(Check$CycleChecker, seenClasses)},
-	{"errorFound", "Z", nullptr, 0, $field(Check$CycleChecker, errorFound)},
-	{"partialCheck", "Z", nullptr, 0, $field(Check$CycleChecker, partialCheck)},
-	{}
-};
-
-$MethodInfo _Check$CycleChecker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$CycleChecker, init$, void, $Check*)},
-	{"checkClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $virtualMethod(Check$CycleChecker, checkClass, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $List*)},
-	{"checkSymbol", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(Check$CycleChecker, checkSymbol, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
-	{}
-};
-
-$InnerClassInfo _Check$CycleChecker_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$CycleChecker", "com.sun.tools.javac.comp.Check", "CycleChecker", 0},
-	{}
-};
-
-$ClassInfo _Check$CycleChecker_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Check$CycleChecker",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Check$CycleChecker_FieldInfo_,
-	_Check$CycleChecker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Check$CycleChecker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check"
-};
-
-$Object* allocate$Check$CycleChecker($Class* clazz) {
-	return $of($alloc(Check$CycleChecker));
-}
 
 void Check$CycleChecker::init$($Check* this$0) {
 	$set(this, this$0, this$0);
@@ -126,127 +77,117 @@ void Check$CycleChecker::init$($Check* this$0) {
 }
 
 void Check$CycleChecker::checkSymbol($JCDiagnostic$DiagnosticPosition* pos, $Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
 	if (sym != nullptr && sym->kind == $Kinds$Kind::TYP) {
 		$var($Env, classEnv, $nc(this->this$0->enter)->getEnv($cast($Symbol$TypeSymbol, sym)));
 		if (classEnv != nullptr) {
 			$var($DiagnosticSource, prevSource, $nc(this->this$0->log)->currentSource());
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$nc(this->this$0->log)->useSource($nc(classEnv->toplevel)->sourcefile);
-					scan(classEnv->tree);
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$nc(this->this$0->log)->useSource($($nc(prevSource)->getFile()));
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				this->this$0->log->useSource($nc(classEnv->toplevel)->sourcefile);
+				scan(classEnv->tree);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				this->this$0->log->useSource($($nc(prevSource)->getFile()));
 			}
-		} else {
-			if (sym->kind == $Kinds$Kind::TYP) {
-				checkClass(pos, sym, $($List::nil()));
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
+		} else if (sym->kind == $Kinds$Kind::TYP) {
+			checkClass(pos, sym, $($List::nil()));
 		}
-	} else {
-		if (sym == nullptr || sym->kind != $Kinds$Kind::PCK) {
-			this->partialCheck = true;
-		}
+	} else if (sym == nullptr || sym->kind != $Kinds$Kind::PCK) {
+		this->partialCheck = true;
 	}
 }
 
 void Check$CycleChecker::visitSelect($JCTree$JCFieldAccess* tree) {
 	$TreeScanner::visitSelect(tree);
-	checkSymbol($($nc(tree)->pos()), tree->sym);
+	checkSymbol($($nc(tree)->pos()), $nc(tree)->sym);
 }
 
 void Check$CycleChecker::visitIdent($JCTree$JCIdent* tree) {
-	checkSymbol($($nc(tree)->pos()), tree->sym);
+	checkSymbol($($nc(tree)->pos()), $nc(tree)->sym);
 }
 
 void Check$CycleChecker::visitTypeApply($JCTree$JCTypeApply* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->clazz));
+	scan($nc(tree)->clazz);
 }
 
 void Check$CycleChecker::visitTypeArray($JCTree$JCArrayTypeTree* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->elemtype));
+	scan($nc(tree)->elemtype);
 }
 
 void Check$CycleChecker::visitClassDef($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, supertypes, $List::nil());
 	if ($cast($JCTree$JCExpression, $nc(tree)->getExtendsClause()) != nullptr) {
 		$assign(supertypes, $nc(supertypes)->prepend($(tree->getExtendsClause())));
 	}
-	if ($cast($List, $nc(tree)->getImplementsClause()) != nullptr) {
-		{
-			$var($Iterator, i$, $nc($($cast($List, tree->getImplementsClause())))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($JCTree, intf, $cast($JCTree, i$->next()));
-				{
-					$assign(supertypes, $nc(supertypes)->prepend(intf));
-				}
+	if ($cast($List, tree->getImplementsClause()) != nullptr) {
+		$var($Iterator, i$, $$sure($List, tree->getImplementsClause())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($JCTree, intf, $cast($JCTree, i$->next()));
+			{
+				$assign(supertypes, $nc(supertypes)->prepend(intf));
 			}
 		}
 	}
-	checkClass($($nc(tree)->pos()), tree->sym, supertypes);
+	checkClass($(tree->pos()), tree->sym, supertypes);
 }
 
 void Check$CycleChecker::checkClass($JCDiagnostic$DiagnosticPosition* pos, $Symbol* c, $List* supertypes) {
-	$useLocalCurrentObjectStackCache();
-	if (((int64_t)($nc(c)->flags_field & (uint64_t)(int64_t)0x40000000)) != 0) {
+	$useLocalObjectStack();
+	if (($nc(c)->flags_field & 0x40000000) != 0) {
 		return;
 	}
 	if ($nc(this->seenClasses)->contains(c)) {
 		this->errorFound = true;
 		this->this$0->noteCyclic(pos, $cast($Symbol$ClassSymbol, c));
-	} else if (!$nc($nc(c)->type)->isErroneous()) {
-		{
-			$var($Throwable, var$0, nullptr);
-			bool return$1 = false;
-			try {
-				$nc(this->seenClasses)->add(c);
-				$init($TypeTag);
-				if ($nc(c->type)->hasTag($TypeTag::CLASS)) {
-					if ($nc(supertypes)->nonEmpty()) {
-						scan(supertypes);
-					} else {
-						$var($Type$ClassType, ct, $cast($Type$ClassType, c->type));
-						if ($nc(ct)->supertype_field == nullptr || $nc(ct)->interfaces_field == nullptr) {
-							this->partialCheck = true;
-							return$1 = true;
-							goto $finally;
-						}
-						checkSymbol(pos, $nc($nc(ct)->supertype_field)->tsym);
-						{
-							$var($Iterator, i$, $nc($nc(ct)->interfaces_field)->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($Type, intf, $cast($Type, i$->next()));
-								{
-									checkSymbol(pos, $nc(intf)->tsym);
-								}
+	} else if (!$nc(c->type)->isErroneous()) {
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		try {
+			$nc(this->seenClasses)->add(c);
+			$init($TypeTag);
+			if ($nc(c->type)->hasTag($TypeTag::CLASS)) {
+				if ($nc(supertypes)->nonEmpty()) {
+					scan(supertypes);
+				} else {
+					$var($Type$ClassType, ct, $cast($Type$ClassType, c->type));
+					if ($nc(ct)->supertype_field == nullptr || ct->interfaces_field == nullptr) {
+						this->partialCheck = true;
+						return$1 = true;
+						goto $finally;
+					}
+					checkSymbol(pos, $nc(ct->supertype_field)->tsym);
+					{
+						$var($Iterator, i$, $nc(ct->interfaces_field)->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($Type, intf, $cast($Type, i$->next()));
+							{
+								checkSymbol(pos, $nc(intf)->tsym);
 							}
 						}
 					}
-					$init($Kinds$Kind);
-					if ($nc(c->owner)->kind == $Kinds$Kind::TYP) {
-						checkSymbol(pos, c->owner);
-					}
 				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} $finally: {
-				$nc(this->seenClasses)->remove(c);
+				$init($Kinds$Kind);
+				if ($nc(c->owner)->kind == $Kinds$Kind::TYP) {
+					checkSymbol(pos, c->owner);
+				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return;
-			}
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} $finally: {
+			$nc(this->seenClasses)->remove(c);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return;
 		}
 	}
 }
@@ -255,7 +196,46 @@ Check$CycleChecker::Check$CycleChecker() {
 }
 
 $Class* Check$CycleChecker::load$($String* name, bool initialize) {
-	$loadClass(Check$CycleChecker, name, initialize, &_Check$CycleChecker_ClassInfo_, allocate$Check$CycleChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$CycleChecker, this$0)},
+		{"seenClasses", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;", 0, $field(Check$CycleChecker, seenClasses)},
+		{"errorFound", "Z", nullptr, 0, $field(Check$CycleChecker, errorFound)},
+		{"partialCheck", "Z", nullptr, 0, $field(Check$CycleChecker, partialCheck)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$CycleChecker, init$, void, $Check*)},
+		{"checkClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $virtualMethod(Check$CycleChecker, checkClass, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $List*)},
+		{"checkSymbol", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(Check$CycleChecker, checkSymbol, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$CycleChecker, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$CycleChecker", "com.sun.tools.javac.comp.Check", "CycleChecker", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Check$CycleChecker",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check"
+	};
+	$loadClass(Check$CycleChecker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$CycleChecker);
+	});
 	return class$;
 }
 

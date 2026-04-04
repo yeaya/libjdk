@@ -98,6 +98,7 @@ class $import ImageView : public ::javax::swing::text::View {
 	$class(ImageView, 0, ::javax::swing::text::View)
 public:
 	ImageView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Element* elem);
 	::java::awt::Dimension* adjustWidthHeight(int32_t newWidth, int32_t newHeight);
 	virtual void changedUpdate(::javax::swing::event::DocumentEvent* e, ::java::awt::Shape* a, ::javax::swing::text::ViewFactory* f) override;

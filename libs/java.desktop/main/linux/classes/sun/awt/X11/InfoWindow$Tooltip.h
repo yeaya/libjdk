@@ -52,6 +52,7 @@ public:
 	using ::sun::awt::X11::InfoWindow::isFocusCycleRoot;
 	using ::sun::awt::X11::InfoWindow::getMousePosition;
 	using ::sun::awt::X11::InfoWindow::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* parent, Object$* target, ::sun::awt::X11::InfoWindow$Tooltip$LiveArguments* liveArguments);
 	void display();
 	virtual void enter();

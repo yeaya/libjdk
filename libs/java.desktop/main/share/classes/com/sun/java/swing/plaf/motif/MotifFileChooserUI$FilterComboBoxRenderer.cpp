@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxRenderer.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <javax/swing/DefaultListCellRenderer.h>
@@ -25,42 +24,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifFileChooserUI$FilterComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$FilterComboBoxRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _MotifFileChooserUI$FilterComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PUBLIC, $method(MotifFileChooserUI$FilterComboBoxRenderer, init$, void, $MotifFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _MotifFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{}
-};
-
-$ClassInfo _MotifFileChooserUI$FilterComboBoxRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_MotifFileChooserUI$FilterComboBoxRenderer_FieldInfo_,
-	_MotifFileChooserUI$FilterComboBoxRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
-};
-
-$Object* allocate$MotifFileChooserUI$FilterComboBoxRenderer($Class* clazz) {
-	return $of($alloc(MotifFileChooserUI$FilterComboBoxRenderer));
-}
-
 void MotifFileChooserUI$FilterComboBoxRenderer::init$($MotifFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
@@ -69,7 +32,7 @@ void MotifFileChooserUI$FilterComboBoxRenderer::init$($MotifFileChooserUI* this$
 $Component* MotifFileChooserUI$FilterComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
 	$DefaultListCellRenderer::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 	if (value != nullptr && $instanceOf($FileFilter, value)) {
-		setText($($nc(($cast($FileFilter, value)))->getDescription()));
+		setText($($cast($FileFilter, value)->getDescription()));
 	}
 	return this;
 }
@@ -78,7 +41,37 @@ MotifFileChooserUI$FilterComboBoxRenderer::MotifFileChooserUI$FilterComboBoxRend
 }
 
 $Class* MotifFileChooserUI$FilterComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(MotifFileChooserUI$FilterComboBoxRenderer, name, initialize, &_MotifFileChooserUI$FilterComboBoxRenderer_ClassInfo_, allocate$MotifFileChooserUI$FilterComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$FilterComboBoxRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PUBLIC, $method(MotifFileChooserUI$FilterComboBoxRenderer, init$, void, $MotifFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
+	};
+	$loadClass(MotifFileChooserUI$FilterComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifFileChooserUI$FilterComboBoxRenderer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/ClassFinder$BadEnclosingMethodAttr.h>
-
 #include <com/sun/tools/javac/code/ClassFinder$BadClassFile.h>
 #include <com/sun/tools/javac/code/ClassFinder.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
@@ -26,42 +25,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _ClassFinder$BadEnclosingMethodAttr_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassFinder$BadEnclosingMethodAttr, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClassFinder$BadEnclosingMethodAttr_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, $PUBLIC, $method(ClassFinder$BadEnclosingMethodAttr, init$, void, $Symbol$TypeSymbol*, $JavaFileObject*, $JCDiagnostic*, $JCDiagnostic$Factory*, $DeferredCompletionFailureHandler*)},
-	{}
-};
-
-$InnerClassInfo _ClassFinder$BadEnclosingMethodAttr_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.ClassFinder$BadEnclosingMethodAttr", "com.sun.tools.javac.code.ClassFinder", "BadEnclosingMethodAttr", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.ClassFinder$BadClassFile", "com.sun.tools.javac.code.ClassFinder", "BadClassFile", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassFinder$BadEnclosingMethodAttr_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.ClassFinder$BadEnclosingMethodAttr",
-	"com.sun.tools.javac.code.ClassFinder$BadClassFile",
-	nullptr,
-	_ClassFinder$BadEnclosingMethodAttr_FieldInfo_,
-	_ClassFinder$BadEnclosingMethodAttr_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassFinder$BadEnclosingMethodAttr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.ClassFinder"
-};
-
-$Object* allocate$ClassFinder$BadEnclosingMethodAttr($Class* clazz) {
-	return $of($alloc(ClassFinder$BadEnclosingMethodAttr));
-}
-
 void ClassFinder$BadEnclosingMethodAttr::init$($Symbol$TypeSymbol* sym, $JavaFileObject* file, $JCDiagnostic* diag, $JCDiagnostic$Factory* diagFactory, $DeferredCompletionFailureHandler* dcfh) {
 	$ClassFinder$BadClassFile::init$(sym, file, diag, diagFactory, dcfh);
 }
@@ -77,7 +40,37 @@ void ClassFinder$BadEnclosingMethodAttr::throw$() {
 }
 
 $Class* ClassFinder$BadEnclosingMethodAttr::load$($String* name, bool initialize) {
-	$loadClass(ClassFinder$BadEnclosingMethodAttr, name, initialize, &_ClassFinder$BadEnclosingMethodAttr_ClassInfo_, allocate$ClassFinder$BadEnclosingMethodAttr);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassFinder$BadEnclosingMethodAttr, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, $PUBLIC, $method(ClassFinder$BadEnclosingMethodAttr, init$, void, $Symbol$TypeSymbol*, $JavaFileObject*, $JCDiagnostic*, $JCDiagnostic$Factory*, $DeferredCompletionFailureHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.ClassFinder$BadEnclosingMethodAttr", "com.sun.tools.javac.code.ClassFinder", "BadEnclosingMethodAttr", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.ClassFinder$BadClassFile", "com.sun.tools.javac.code.ClassFinder", "BadClassFile", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.ClassFinder$BadEnclosingMethodAttr",
+		"com.sun.tools.javac.code.ClassFinder$BadClassFile",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.ClassFinder"
+	};
+	$loadClass(ClassFinder$BadEnclosingMethodAttr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassFinder$BadEnclosingMethodAttr);
+	});
 	return class$;
 }
 

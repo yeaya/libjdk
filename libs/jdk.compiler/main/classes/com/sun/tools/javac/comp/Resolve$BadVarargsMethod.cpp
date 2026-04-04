@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$BadVarargsMethod.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -34,47 +33,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$BadVarargsMethod_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$BadVarargsMethod, this$0)},
-	{"delegatedError", "Lcom/sun/tools/javac/comp/Resolve$ResolveError;", nullptr, 0, $field(Resolve$BadVarargsMethod, delegatedError)},
-	{}
-};
-
-$MethodInfo _Resolve$BadVarargsMethod_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$ResolveError;)V", nullptr, 0, $method(Resolve$BadVarargsMethod, init$, void, $Resolve*, $Resolve$ResolveError*)},
-	{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PROTECTED, $virtualMethod(Resolve$BadVarargsMethod, access, $Symbol*, $Name*, $Symbol$TypeSymbol*)},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$BadVarargsMethod, baseSymbol, $Symbol*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$BadVarargsMethod, exists, bool)},
-	{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$BadVarargsMethod, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$BadVarargsMethod_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$BadVarargsMethod", "com.sun.tools.javac.comp.Resolve", "BadVarargsMethod", 0},
-	{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$BadVarargsMethod_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$BadVarargsMethod",
-	"com.sun.tools.javac.comp.Resolve$ResolveError",
-	nullptr,
-	_Resolve$BadVarargsMethod_FieldInfo_,
-	_Resolve$BadVarargsMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$BadVarargsMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$BadVarargsMethod($Class* clazz) {
-	return $of($alloc(Resolve$BadVarargsMethod));
-}
-
 void Resolve$BadVarargsMethod::init$($Resolve* this$0, $Resolve$ResolveError* delegatedError) {
 	$set(this, this$0, this$0);
 	$Resolve$ResolveError::init$(this$0, $nc(delegatedError)->kind, "badVarargs"_s);
@@ -101,7 +59,42 @@ Resolve$BadVarargsMethod::Resolve$BadVarargsMethod() {
 }
 
 $Class* Resolve$BadVarargsMethod::load$($String* name, bool initialize) {
-	$loadClass(Resolve$BadVarargsMethod, name, initialize, &_Resolve$BadVarargsMethod_ClassInfo_, allocate$Resolve$BadVarargsMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$BadVarargsMethod, this$0)},
+		{"delegatedError", "Lcom/sun/tools/javac/comp/Resolve$ResolveError;", nullptr, 0, $field(Resolve$BadVarargsMethod, delegatedError)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$ResolveError;)V", nullptr, 0, $method(Resolve$BadVarargsMethod, init$, void, $Resolve*, $Resolve$ResolveError*)},
+		{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PROTECTED, $virtualMethod(Resolve$BadVarargsMethod, access, $Symbol*, $Name*, $Symbol$TypeSymbol*)},
+		{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$BadVarargsMethod, baseSymbol, $Symbol*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$BadVarargsMethod, exists, bool)},
+		{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$BadVarargsMethod, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$BadVarargsMethod", "com.sun.tools.javac.comp.Resolve", "BadVarargsMethod", 0},
+		{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$BadVarargsMethod",
+		"com.sun.tools.javac.comp.Resolve$ResolveError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$BadVarargsMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$BadVarargsMethod));
+	});
 	return class$;
 }
 

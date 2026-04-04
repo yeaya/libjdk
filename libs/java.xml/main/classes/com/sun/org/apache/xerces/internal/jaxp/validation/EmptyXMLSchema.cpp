@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/EmptyXMLSchema.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/Grammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
@@ -25,42 +24,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _EmptyXMLSchema_FieldInfo_[] = {
-	{"ZERO_LENGTH_GRAMMAR_ARRAY", "[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EmptyXMLSchema, ZERO_LENGTH_GRAMMAR_ARRAY)},
-	{}
-};
-
-$MethodInfo _EmptyXMLSchema_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyXMLSchema, init$, void)},
-	{"cacheGrammars", "(Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, cacheGrammars, void, $String*, $GrammarArray*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, clear, void)},
-	{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, getGrammarPool, $XMLGrammarPool*)},
-	{"isFullyComposed", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, isFullyComposed, bool)},
-	{"lockPool", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, lockPool, void)},
-	{"retrieveGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, retrieveGrammar, $Grammar*, $XMLGrammarDescription*)},
-	{"retrieveInitialGrammarSet", "(Ljava/lang/String;)[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, retrieveInitialGrammarSet, $GrammarArray*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unlockPool", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, unlockPool, void)},
-	{}
-};
-
-$ClassInfo _EmptyXMLSchema_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.EmptyXMLSchema",
-	"com.sun.org.apache.xerces.internal.jaxp.validation.AbstractXMLSchema",
-	"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarPool",
-	_EmptyXMLSchema_FieldInfo_,
-	_EmptyXMLSchema_MethodInfo_
-};
-
-$Object* allocate$EmptyXMLSchema($Class* clazz) {
-	return $of($alloc(EmptyXMLSchema));
-}
 
 int32_t EmptyXMLSchema::hashCode() {
 	 return this->$AbstractXMLSchema::hashCode();
@@ -116,7 +79,7 @@ bool EmptyXMLSchema::isFullyComposed() {
 	return true;
 }
 
-void clinit$EmptyXMLSchema($Class* class$) {
+void EmptyXMLSchema::clinit$($Class* clazz) {
 	$assignStatic(EmptyXMLSchema::ZERO_LENGTH_GRAMMAR_ARRAY, $new($GrammarArray, 0));
 }
 
@@ -124,7 +87,38 @@ EmptyXMLSchema::EmptyXMLSchema() {
 }
 
 $Class* EmptyXMLSchema::load$($String* name, bool initialize) {
-	$loadClass(EmptyXMLSchema, name, initialize, &_EmptyXMLSchema_ClassInfo_, clinit$EmptyXMLSchema, allocate$EmptyXMLSchema);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZERO_LENGTH_GRAMMAR_ARRAY", "[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EmptyXMLSchema, ZERO_LENGTH_GRAMMAR_ARRAY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyXMLSchema, init$, void)},
+		{"cacheGrammars", "(Ljava/lang/String;[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;)V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, cacheGrammars, void, $String*, $GrammarArray*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, clear, void)},
+		{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, getGrammarPool, $XMLGrammarPool*)},
+		{"isFullyComposed", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, isFullyComposed, bool)},
+		{"lockPool", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, lockPool, void)},
+		{"retrieveGrammar", "(Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;)Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, retrieveGrammar, $Grammar*, $XMLGrammarDescription*)},
+		{"retrieveInitialGrammarSet", "(Ljava/lang/String;)[Lcom/sun/org/apache/xerces/internal/xni/grammars/Grammar;", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, retrieveInitialGrammarSet, $GrammarArray*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unlockPool", "()V", nullptr, $PUBLIC, $virtualMethod(EmptyXMLSchema, unlockPool, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.EmptyXMLSchema",
+		"com.sun.org.apache.xerces.internal.jaxp.validation.AbstractXMLSchema",
+		"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarPool",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EmptyXMLSchema, name, initialize, &classInfo$$, EmptyXMLSchema::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EmptyXMLSchema));
+	});
 	return class$;
 }
 

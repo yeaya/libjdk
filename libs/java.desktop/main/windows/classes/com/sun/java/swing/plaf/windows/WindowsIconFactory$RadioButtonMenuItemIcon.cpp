@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$RadioButtonMenuItemIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -23,44 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsIconFactory$RadioButtonMenuItemIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$RadioButtonMenuItemIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonMenuItemIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonMenuItemIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonMenuItemIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$RadioButtonMenuItemIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonMenuItemIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$RadioButtonMenuItemIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_WindowsIconFactory$RadioButtonMenuItemIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$RadioButtonMenuItemIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$RadioButtonMenuItemIcon($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$RadioButtonMenuItemIcon));
-}
 
 int32_t WindowsIconFactory$RadioButtonMenuItemIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -86,7 +47,7 @@ void WindowsIconFactory$RadioButtonMenuItemIcon::init$() {
 }
 
 void WindowsIconFactory$RadioButtonMenuItemIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	if (b->isSelected() == true) {
@@ -109,7 +70,40 @@ WindowsIconFactory$RadioButtonMenuItemIcon::WindowsIconFactory$RadioButtonMenuIt
 }
 
 $Class* WindowsIconFactory$RadioButtonMenuItemIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$RadioButtonMenuItemIcon, name, initialize, &_WindowsIconFactory$RadioButtonMenuItemIcon_ClassInfo_, allocate$WindowsIconFactory$RadioButtonMenuItemIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$RadioButtonMenuItemIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonMenuItemIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonMenuItemIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$RadioButtonMenuItemIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "RadioButtonMenuItemIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$RadioButtonMenuItemIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$RadioButtonMenuItemIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsIconFactory$RadioButtonMenuItemIcon));
+	});
 	return class$;
 }
 

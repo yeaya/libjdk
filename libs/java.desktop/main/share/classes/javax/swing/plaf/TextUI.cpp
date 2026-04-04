@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/TextUI.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/geom/Point2D.h>
@@ -30,87 +29,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$NamedAttribute TextUI_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _TextUI_MethodAnnotations_getToolTipText6[] = {
-	{"Ljava/lang/Deprecated;", TextUI_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute TextUI_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _TextUI_MethodAnnotations_modelToView8[] = {
-	{"Ljava/lang/Deprecated;", TextUI_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute TextUI_Attribute_var$2[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _TextUI_MethodAnnotations_modelToView9[] = {
-	{"Ljava/lang/Deprecated;", TextUI_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute TextUI_Attribute_var$3[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _TextUI_MethodAnnotations_viewToModel11[] = {
-	{"Ljava/lang/Deprecated;", TextUI_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute TextUI_Attribute_var$4[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _TextUI_MethodAnnotations_viewToModel12[] = {
-	{"Ljava/lang/Deprecated;", TextUI_Attribute_var$4},
-	{}
-};
-
-$MethodInfo _TextUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(TextUI, init$, void)},
-	{"damageRange", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, damageRange, void, $JTextComponent*, int32_t, int32_t)},
-	{"damageRange", "(Ljavax/swing/text/JTextComponent;IILjavax/swing/text/Position$Bias;Ljavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, damageRange, void, $JTextComponent*, int32_t, int32_t, $Position$Bias*, $Position$Bias*)},
-	{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, getEditorKit, $EditorKit*, $JTextComponent*)},
-	{"getNextVisualPositionFrom", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, getNextVisualPositionFrom, int32_t, $JTextComponent*, int32_t, $Position$Bias*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getRootView", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/View;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, getRootView, $View*, $JTextComponent*)},
-	{"getToolTipText", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextUI, getToolTipText, $String*, $JTextComponent*, $Point*), nullptr, nullptr, _TextUI_MethodAnnotations_getToolTipText6},
-	{"getToolTipText2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextUI, getToolTipText2D, $String*, $JTextComponent*, $Point2D*)},
-	{"modelToView", "(Ljavax/swing/text/JTextComponent;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException", nullptr, _TextUI_MethodAnnotations_modelToView8},
-	{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException", nullptr, _TextUI_MethodAnnotations_modelToView9},
-	{"modelToView2D", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextUI, modelToView2D, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)I", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, viewToModel, int32_t, $JTextComponent*, $Point*), nullptr, nullptr, _TextUI_MethodAnnotations_viewToModel11},
-	{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, viewToModel, int32_t, $JTextComponent*, $Point*, $Position$BiasArray*), nullptr, nullptr, _TextUI_MethodAnnotations_viewToModel12},
-	{"viewToModel2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(TextUI, viewToModel2D, int32_t, $JTextComponent*, $Point2D*, $Position$BiasArray*)},
-	{}
-};
-
-$ClassInfo _TextUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.TextUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_TextUI_MethodInfo_
-};
-
-$Object* allocate$TextUI($Class* clazz) {
-	return $of($alloc(TextUI));
-}
-
 void TextUI::init$() {
 	$ComponentUI::init$();
 }
@@ -137,7 +55,74 @@ TextUI::TextUI() {
 }
 
 $Class* TextUI::load$($String* name, bool initialize) {
-	$loadClass(TextUI, name, initialize, &_TextUI_ClassInfo_, allocate$TextUI);
+	$NamedAttribute getToolTipTextmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getToolTipTextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getToolTipTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute modelToViewmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", modelToViewmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute modelToViewmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute modelToViewmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", modelToViewmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute viewToModelmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", viewToModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute viewToModelmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute viewToModelmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", viewToModelmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(TextUI, init$, void)},
+		{"damageRange", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, damageRange, void, $JTextComponent*, int32_t, int32_t)},
+		{"damageRange", "(Ljavax/swing/text/JTextComponent;IILjavax/swing/text/Position$Bias;Ljavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, damageRange, void, $JTextComponent*, int32_t, int32_t, $Position$Bias*, $Position$Bias*)},
+		{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, getEditorKit, $EditorKit*, $JTextComponent*)},
+		{"getNextVisualPositionFrom", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, getNextVisualPositionFrom, int32_t, $JTextComponent*, int32_t, $Position$Bias*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getRootView", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/View;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextUI, getRootView, $View*, $JTextComponent*)},
+		{"getToolTipText", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TextUI, getToolTipText, $String*, $JTextComponent*, $Point*), nullptr, nullptr, getToolTipTextmethodAnnotations$$},
+		{"getToolTipText2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextUI, getToolTipText2D, $String*, $JTextComponent*, $Point2D*)},
+		{"modelToView", "(Ljavax/swing/text/JTextComponent;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$},
+		{"modelToView", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, modelToView, $Rectangle*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException", nullptr, modelToViewmethodAnnotations$$$1},
+		{"modelToView2D", "(Ljavax/swing/text/JTextComponent;ILjavax/swing/text/Position$Bias;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(TextUI, modelToView2D, $Rectangle2D*, $JTextComponent*, int32_t, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;)I", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, viewToModel, int32_t, $JTextComponent*, $Point*), nullptr, nullptr, viewToModelmethodAnnotations$$},
+		{"viewToModel", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Point;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(TextUI, viewToModel, int32_t, $JTextComponent*, $Point*, $Position$BiasArray*), nullptr, nullptr, viewToModelmethodAnnotations$$$1},
+		{"viewToModel2D", "(Ljavax/swing/text/JTextComponent;Ljava/awt/geom/Point2D;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(TextUI, viewToModel2D, int32_t, $JTextComponent*, $Point2D*, $Position$BiasArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.TextUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TextUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextUI);
+	});
 	return class$;
 }
 

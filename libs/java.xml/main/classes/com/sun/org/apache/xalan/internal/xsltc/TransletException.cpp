@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/TransletException.h>
-
 #include <org/xml/sax/SAXException.h>
 #include <jcpp.h>
 
@@ -16,31 +15,6 @@ namespace com {
 				namespace xalan {
 					namespace internal {
 						namespace xsltc {
-
-$FieldInfo _TransletException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TransletException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _TransletException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransletException, init$, void)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(TransletException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransletException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _TransletException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.TransletException",
-	"org.xml.sax.SAXException",
-	nullptr,
-	_TransletException_FieldInfo_,
-	_TransletException_MethodInfo_
-};
-
-$Object* allocate$TransletException($Class* clazz) {
-	return $of($alloc(TransletException));
-}
 
 void TransletException::init$() {
 	$SAXException::init$("Translet error"_s);
@@ -66,7 +40,27 @@ void TransletException::throw$() {
 }
 
 $Class* TransletException::load$($String* name, bool initialize) {
-	$loadClass(TransletException, name, initialize, &_TransletException_ClassInfo_, allocate$TransletException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TransletException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransletException, init$, void)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(TransletException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransletException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.TransletException",
+		"org.xml.sax.SAXException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TransletException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransletException);
+	});
 	return class$;
 }
 

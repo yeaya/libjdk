@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$11.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -30,12 +29,10 @@
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $ClassFile$Version = ::com::sun::tools::javac::jvm::ClassFile$Version;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$AttributeReader = ::com::sun::tools::javac::jvm::ClassReader$AttributeReader;
-using $PoolReader = ::com::sun::tools::javac::jvm::PoolReader;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -65,79 +62,32 @@ public:
 	virtual $Object* map($bytes* sig, int32_t offset, int32_t len) override {
 		 return $of($nc(inst$)->sigToTypeParams(sig, offset, len));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ClassReader$11$$Lambda$sigToTypeParams>());
-	}
 	$ClassReader* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ClassReader$11$$Lambda$sigToTypeParams::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClassReader$11$$Lambda$sigToTypeParams, inst$)},
-	{}
-};
-$MethodInfo ClassReader$11$$Lambda$sigToTypeParams::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(ClassReader$11$$Lambda$sigToTypeParams, init$, void, $ClassReader*)},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$11$$Lambda$sigToTypeParams, map, $Object*, $bytes*, int32_t, int32_t)},
-	{}
-};
-$ClassInfo ClassReader$11$$Lambda$sigToTypeParams::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.ClassReader$11$$Lambda$sigToTypeParams",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.Name$NameMapper",
-	fieldInfos,
-	methodInfos
 };
 $Class* ClassReader$11$$Lambda$sigToTypeParams::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$11$$Lambda$sigToTypeParams, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClassReader$11$$Lambda$sigToTypeParams, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(ClassReader$11$$Lambda$sigToTypeParams, init$, void, $ClassReader*)},
+		{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$11$$Lambda$sigToTypeParams, map, $Object*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.ClassReader$11$$Lambda$sigToTypeParams",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.Name$NameMapper",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassReader$11$$Lambda$sigToTypeParams, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$11$$Lambda$sigToTypeParams);
+	});
 	return class$;
 }
 $Class* ClassReader$11$$Lambda$sigToTypeParams::class$ = nullptr;
-
-$FieldInfo _ClassReader$11_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$11, this$0)},
-	{}
-};
-
-$MethodInfo _ClassReader$11_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$11, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
-	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$11, read, void, $Symbol*, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _ClassReader$11_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.jvm.ClassReader",
-	"initAttributeReaders",
-	"()V"
-};
-
-$InnerClassInfo _ClassReader$11_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$11", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.jvm.ClassReader$AttributeReader", "com.sun.tools.javac.jvm.ClassReader", "AttributeReader", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClassReader$11_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$11",
-	"com.sun.tools.javac.jvm.ClassReader$AttributeReader",
-	nullptr,
-	_ClassReader$11_FieldInfo_,
-	_ClassReader$11_MethodInfo_,
-	nullptr,
-	&_ClassReader$11_EnclosingMethodInfo_,
-	_ClassReader$11_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$11($Class* clazz) {
-	return $of($alloc(ClassReader$11));
-}
 
 void ClassReader$11::init$($ClassReader* this$0, $Name* name, $ClassFile$Version* version, $Set* kinds) {
 	$set(this, this$0, this$0);
@@ -145,36 +95,34 @@ void ClassReader$11::init$($ClassReader* this$0, $Name* name, $ClassFile$Version
 }
 
 void ClassReader$11::read($Symbol* sym, int32_t attrLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
 	if ($nc(sym)->kind == $Kinds$Kind::TYP) {
 		$var($Symbol$ClassSymbol, c, $cast($Symbol$ClassSymbol, sym));
 		this->this$0->readingClassAttr = true;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($Type$ClassType, ct1, $cast($Type$ClassType, c->type));
-				$Assert::check($equals(c, this->this$0->currentOwner));
-				$set($nc(ct1), typarams_field, $cast($List, $nc($($nc(this->this$0->poolReader)->getName(this->this$0->nextChar())))->map(static_cast<$Name$NameMapper*>($$new(ClassReader$11$$Lambda$sigToTypeParams, this->this$0)))));
-				$set(ct1, supertype_field, this->this$0->sigToType());
-				$var($ListBuffer, is, $new($ListBuffer));
-				while (this->this$0->sigp != this->this$0->siglimit) {
-					is->append($(this->this$0->sigToType()));
-				}
-				$set(ct1, interfaces_field, is->toList());
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->this$0->readingClassAttr = false;
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($Type$ClassType, ct1, $cast($Type$ClassType, c->type));
+			$Assert::check($equals(c, this->this$0->currentOwner));
+			$set($nc(ct1), typarams_field, $cast($List, $$nc($nc(this->this$0->poolReader)->getName(this->this$0->nextChar()))->map($$new(ClassReader$11$$Lambda$sigToTypeParams, this->this$0))));
+			$set(ct1, supertype_field, this->this$0->sigToType());
+			$var($ListBuffer, is, $new($ListBuffer));
+			while (this->this$0->sigp != this->this$0->siglimit) {
+				is->append($(this->this$0->sigToType()));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+			$set(ct1, interfaces_field, is->toList());
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->this$0->readingClassAttr = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$var($List, thrown, $nc(sym->type)->getThrownTypes());
 		$set(sym, type, $nc(this->this$0->poolReader)->getType(this->this$0->nextChar()));
-		if (sym->kind == $Kinds$Kind::MTH && $nc($($nc(sym->type)->getThrownTypes()))->isEmpty()) {
+		if (sym->kind == $Kinds$Kind::MTH && $$nc($nc(sym->type)->getThrownTypes())->isEmpty()) {
 			$set($nc($($nc(sym->type)->asMethodType())), thrown, thrown);
 		}
 	}
@@ -185,11 +133,47 @@ ClassReader$11::ClassReader$11() {
 
 $Class* ClassReader$11::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ClassReader$11$$Lambda$sigToTypeParams::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.ClassReader$11$$Lambda$sigToTypeParams")) {
 			return ClassReader$11$$Lambda$sigToTypeParams::load$(name, initialize);
 		}
 	}
-	$loadClass(ClassReader$11, name, initialize, &_ClassReader$11_ClassInfo_, allocate$ClassReader$11);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassReader$11, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$11, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
+		{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$11, read, void, $Symbol*, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.jvm.ClassReader",
+		"initAttributeReaders",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$11", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.jvm.ClassReader$AttributeReader", "com.sun.tools.javac.jvm.ClassReader", "AttributeReader", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$11",
+		"com.sun.tools.javac.jvm.ClassReader$AttributeReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$11);
+	});
 	return class$;
 }
 

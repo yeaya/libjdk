@@ -1,7 +1,5 @@
 #include <com/sun/media/sound/RealTimeSequencer$SequencerReceiver.h>
-
 #include <com/sun/media/sound/AbstractMidiDevice$AbstractReceiver.h>
-#include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/FastShortMessage.h>
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
 #include <com/sun/media/sound/MidiUtils.h>
@@ -15,7 +13,6 @@
 #include <javax/sound/midi/Track.h>
 #include <jcpp.h>
 
-using $AbstractMidiDevice = ::com::sun::media::sound::AbstractMidiDevice;
 using $AbstractMidiDevice$AbstractReceiver = ::com::sun::media::sound::AbstractMidiDevice$AbstractReceiver;
 using $FastShortMessage = ::com::sun::media::sound::FastShortMessage;
 using $MidiUtils = ::com::sun::media::sound::MidiUtils;
@@ -35,50 +32,13 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _RealTimeSequencer$SequencerReceiver_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/RealTimeSequencer;", nullptr, $FINAL | $SYNTHETIC, $field(RealTimeSequencer$SequencerReceiver, this$0)},
-	{}
-};
-
-$MethodInfo _RealTimeSequencer$SequencerReceiver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/RealTimeSequencer;)V", nullptr, 0, $method(RealTimeSequencer$SequencerReceiver, init$, void, $RealTimeSequencer*)},
-	{"implSend", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, 0, $virtualMethod(RealTimeSequencer$SequencerReceiver, implSend, void, $MidiMessage*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _RealTimeSequencer$SequencerReceiver_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RealTimeSequencer$SequencerReceiver", "com.sun.media.sound.RealTimeSequencer", "SequencerReceiver", $FINAL},
-	{"com.sun.media.sound.AbstractMidiDevice$AbstractReceiver", "com.sun.media.sound.AbstractMidiDevice", "AbstractReceiver", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RealTimeSequencer$SequencerReceiver_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RealTimeSequencer$SequencerReceiver",
-	"com.sun.media.sound.AbstractMidiDevice$AbstractReceiver",
-	nullptr,
-	_RealTimeSequencer$SequencerReceiver_FieldInfo_,
-	_RealTimeSequencer$SequencerReceiver_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RealTimeSequencer$SequencerReceiver_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RealTimeSequencer"
-};
-
-$Object* allocate$RealTimeSequencer$SequencerReceiver($Class* clazz) {
-	return $of($alloc(RealTimeSequencer$SequencerReceiver));
-}
-
 void RealTimeSequencer$SequencerReceiver::init$($RealTimeSequencer* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractMidiDevice$AbstractReceiver::init$(this$0);
 }
 
 void RealTimeSequencer$SequencerReceiver::implSend($MidiMessage* message$renamed, int64_t timeStamp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MidiMessage, message, message$renamed);
 	if (this->this$0->recording) {
 		int64_t tickPos = 0;
@@ -93,7 +53,7 @@ void RealTimeSequencer$SequencerReceiver::implSend($MidiMessage* message$renamed
 		if ($nc(message)->getLength() > 1) {
 			if ($instanceOf($ShortMessage, message)) {
 				$var($ShortMessage, sm, $cast($ShortMessage, message));
-				if (((int32_t)(sm->getStatus() & (uint32_t)240)) != 240) {
+				if ((sm->getStatus() & 0xf0) != 0xf0) {
 					$assign(track, $RealTimeSequencer$RecordingTrack::get(this->this$0->recordingTracks, sm->getChannel()));
 				}
 			} else {
@@ -116,7 +76,38 @@ RealTimeSequencer$SequencerReceiver::RealTimeSequencer$SequencerReceiver() {
 }
 
 $Class* RealTimeSequencer$SequencerReceiver::load$($String* name, bool initialize) {
-	$loadClass(RealTimeSequencer$SequencerReceiver, name, initialize, &_RealTimeSequencer$SequencerReceiver_ClassInfo_, allocate$RealTimeSequencer$SequencerReceiver);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/RealTimeSequencer;", nullptr, $FINAL | $SYNTHETIC, $field(RealTimeSequencer$SequencerReceiver, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/RealTimeSequencer;)V", nullptr, 0, $method(RealTimeSequencer$SequencerReceiver, init$, void, $RealTimeSequencer*)},
+		{"implSend", "(Ljavax/sound/midi/MidiMessage;J)V", nullptr, 0, $virtualMethod(RealTimeSequencer$SequencerReceiver, implSend, void, $MidiMessage*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RealTimeSequencer$SequencerReceiver", "com.sun.media.sound.RealTimeSequencer", "SequencerReceiver", $FINAL},
+		{"com.sun.media.sound.AbstractMidiDevice$AbstractReceiver", "com.sun.media.sound.AbstractMidiDevice", "AbstractReceiver", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RealTimeSequencer$SequencerReceiver",
+		"com.sun.media.sound.AbstractMidiDevice$AbstractReceiver",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RealTimeSequencer"
+	};
+	$loadClass(RealTimeSequencer$SequencerReceiver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RealTimeSequencer$SequencerReceiver);
+	});
 	return class$;
 }
 

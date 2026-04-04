@@ -47,6 +47,7 @@ class $export TestWrongCSSFontSize : public ::java::lang::Object {
 	$class(TestWrongCSSFontSize, 0, ::java::lang::Object)
 public:
 	TestWrongCSSFontSize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool w3cUnits);
 	static bool argCapture($StringArray* args);
 	static bool argW3CUnits($StringArray* args);

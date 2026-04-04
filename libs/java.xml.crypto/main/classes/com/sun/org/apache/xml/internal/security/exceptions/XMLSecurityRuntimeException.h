@@ -38,7 +38,10 @@ public:
 	$String* msgID = nullptr;
 	XMLSecurityRuntimeException(const XMLSecurityRuntimeException& e);
 	virtual void throw$() override;
-	inline XMLSecurityRuntimeException* operator ->() {
+	inline XMLSecurityRuntimeException* operator ->() const {
+		return (XMLSecurityRuntimeException*)throwing$;
+	}
+	inline operator XMLSecurityRuntimeException*() const {
 		return (XMLSecurityRuntimeException*)throwing$;
 	}
 };

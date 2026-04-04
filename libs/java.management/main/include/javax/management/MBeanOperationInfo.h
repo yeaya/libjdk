@@ -48,6 +48,7 @@ class $import MBeanOperationInfo : public ::javax::management::MBeanFeatureInfo,
 public:
 	MBeanOperationInfo();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* description, ::java::lang::reflect::Method* method);
 	void init$($String* name, $String* description, $Array<::javax::management::MBeanParameterInfo>* signature, $String* type, int32_t impact);
 	void init$($String* name, $String* description, $Array<::javax::management::MBeanParameterInfo>* signature, $String* type, int32_t impact, ::javax::management::Descriptor* descriptor);
@@ -62,7 +63,7 @@ public:
 	static $Array<::javax::management::MBeanParameterInfo>* parameters($ClassArray* classes, $Array<::java::lang::annotation::Annotation, 2>* annots);
 	virtual $String* toString() override;
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xAA40472295FE839E;
+	static const int64_t serialVersionUID = (int64_t)0xaa40472295fe839e;
 	static $Array<::javax::management::MBeanOperationInfo>* NO_OPERATIONS;
 	static const int32_t INFO = 0;
 	static const int32_t ACTION = 1;

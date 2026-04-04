@@ -323,6 +323,7 @@ class $import XPATHErrorResources_ja : public ::java::util::ListResourceBundle {
 	$class(XPATHErrorResources_ja, 0, ::java::util::ListResourceBundle)
 public:
 	XPATHErrorResources_ja();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $String* ERROR0000;

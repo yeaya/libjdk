@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CTextPipe$Tracer.h>
-
 #include <java/awt/font/GlyphVector.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
@@ -17,40 +16,6 @@ using $CTextPipe = ::sun::lwawt::macosx::CTextPipe;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$MethodInfo _CTextPipe$Tracer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CTextPipe$Tracer, init$, void)},
-	{"doDrawGlyphs", "(Lsun/java2d/SurfaceData;JLjava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(CTextPipe$Tracer, doDrawGlyphs, void, $SurfaceData*, int64_t, $GlyphVector*, float, float)},
-	{"doDrawString", "(Lsun/java2d/SurfaceData;JLjava/lang/String;FF)V", nullptr, 0, $virtualMethod(CTextPipe$Tracer, doDrawString, void, $SurfaceData*, int64_t, $String*, float, float)},
-	{"doOneUnicode", "(Lsun/java2d/SurfaceData;JCFF)V", nullptr, $PUBLIC, $virtualMethod(CTextPipe$Tracer, doOneUnicode, void, $SurfaceData*, int64_t, char16_t, float, float)},
-	{"doUnicodes", "(Lsun/java2d/SurfaceData;J[CIIFF)V", nullptr, $PUBLIC, $virtualMethod(CTextPipe$Tracer, doUnicodes, void, $SurfaceData*, int64_t, $chars*, int32_t, int32_t, float, float)},
-	{}
-};
-
-$InnerClassInfo _CTextPipe$Tracer_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CTextPipe$Tracer", "sun.lwawt.macosx.CTextPipe", "Tracer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CTextPipe$Tracer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CTextPipe$Tracer",
-	"sun.lwawt.macosx.CTextPipe",
-	nullptr,
-	nullptr,
-	_CTextPipe$Tracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CTextPipe$Tracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CTextPipe"
-};
-
-$Object* allocate$CTextPipe$Tracer($Class* clazz) {
-	return $of($alloc(CTextPipe$Tracer));
-}
 
 void CTextPipe$Tracer::init$() {
 	$CTextPipe::init$();
@@ -80,7 +45,36 @@ CTextPipe$Tracer::CTextPipe$Tracer() {
 }
 
 $Class* CTextPipe$Tracer::load$($String* name, bool initialize) {
-	$loadClass(CTextPipe$Tracer, name, initialize, &_CTextPipe$Tracer_ClassInfo_, allocate$CTextPipe$Tracer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CTextPipe$Tracer, init$, void)},
+		{"doDrawGlyphs", "(Lsun/java2d/SurfaceData;JLjava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(CTextPipe$Tracer, doDrawGlyphs, void, $SurfaceData*, int64_t, $GlyphVector*, float, float)},
+		{"doDrawString", "(Lsun/java2d/SurfaceData;JLjava/lang/String;FF)V", nullptr, 0, $virtualMethod(CTextPipe$Tracer, doDrawString, void, $SurfaceData*, int64_t, $String*, float, float)},
+		{"doOneUnicode", "(Lsun/java2d/SurfaceData;JCFF)V", nullptr, $PUBLIC, $virtualMethod(CTextPipe$Tracer, doOneUnicode, void, $SurfaceData*, int64_t, char16_t, float, float)},
+		{"doUnicodes", "(Lsun/java2d/SurfaceData;J[CIIFF)V", nullptr, $PUBLIC, $virtualMethod(CTextPipe$Tracer, doUnicodes, void, $SurfaceData*, int64_t, $chars*, int32_t, int32_t, float, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CTextPipe$Tracer", "sun.lwawt.macosx.CTextPipe", "Tracer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CTextPipe$Tracer",
+		"sun.lwawt.macosx.CTextPipe",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CTextPipe"
+	};
+	$loadClass(CTextPipe$Tracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CTextPipe$Tracer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_chr.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_chr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_chr, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_chr, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_chr_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_chr",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_chr_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_chr($Class* clazz) {
-	return $of($alloc(LocaleNames_chr));
-}
-
 void LocaleNames_chr::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_chr::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_AZ, u"ᎠᏎᏆᏣᏂ"_s);
 	$var($String, metaValue_JP, u"ᏣᏩᏂᏏ"_s);
 	$var($String, metaValue_KG, u"ᎩᎵᏣᎢᏍ"_s);
@@ -64,3212 +44,3212 @@ $ObjectArray2* LocaleNames_chr::getContents() {
 	$var($String, metaValue_chr, u"ᏣᎳᎩ"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ksh"_s),
-			$of(u"ᎪᎶᏂᎠᏂ"_s)
+			"ksh"_s,
+			u"ᎪᎶᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of(u"ᎻᎳᏕᏏ"_s)
+			"mwl"_s,
+			u"ᎻᎳᏕᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of(u"ᏗᎬᏟᎶᏍᏙᏗ"_s)
+			"Zsym"_s,
+			u"ᏗᎬᏟᎶᏍᏙᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsye"_s),
-			$of(u"ᎡᎼᏥ"_s)
+			"Zsye"_s,
+			u"ᎡᎼᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ccp"_s),
-			$of(u"ᏣᎧᎹ"_s)
+			"ccp"_s,
+			u"ᏣᎧᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of(u"ᏘᎹᏁ"_s)
+			"tem"_s,
+			u"ᏘᎹᏁ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("teo"_s),
-			$of(u"ᏖᏐ"_s)
+			"teo"_s,
+			u"ᏖᏐ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of(u"ᎳᏆᏄᏫ"_s)
+			"rap"_s,
+			u"ᎳᏆᏄᏫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of(u"ᎤᎵᏌᎳᏓᏅ ᎤᎦᏚᏛᎢ"_s)
+			"AC"_s,
+			u"ᎤᎵᏌᎳᏓᏅ ᎤᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rar"_s),
-			$of(u"ᎳᎶᏙᎾᎦᏂ"_s)
+			"rar"_s,
+			u"ᎳᎶᏙᎾᎦᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"ᏖᏚᎼ"_s)
+			"tet"_s,
+			u"ᏖᏚᎼ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"ᎠᏂᏙᎳ"_s)
+			"AD"_s,
+			u"ᎠᏂᏙᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"ᏌᏊ ᎢᏳᎾᎵᏍᏔᏅ ᎡᎳᏈ ᎢᎹᎵᏘᏏ"_s)
+			"AE"_s,
+			u"ᏌᏊ ᎢᏳᎾᎵᏍᏔᏅ ᎡᎳᏈ ᎢᎹᎵᏘᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl_BE"_s),
-			$of(u"ᏊᎵᏥᎥᎻ ᏛᏥ"_s)
+			"nl_BE"_s,
+			u"ᏊᎵᏥᎥᎻ ᏛᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"ᎠᏫᎨᏂᏍᏖᏂ"_s)
+			"AF"_s,
+			u"ᎠᏫᎨᏂᏍᏖᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"ᎤᏪᏘ & ᏆᏊᏓ"_s)
+			"AG"_s,
+			u"ᎤᏪᏘ & ᏆᏊᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic"_s),
-			$of(u"ᎢᏗᏯᏈᎩ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.ethiopic"_s,
+			u"ᎢᏗᏯᏈᎩ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"ᎠᏂᎩᎳ"_s)
+			"AI"_s,
+			u"ᎠᏂᎩᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"ᎠᎵᏇᏂᏯ"_s)
+			"AL"_s,
+			u"ᎠᎵᏇᏂᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"ᎠᎵᎻᏂᎠ"_s)
+			"AM"_s,
+			u"ᎠᎵᎻᏂᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"ᎠᏂᎪᎳ"_s)
+			"AO"_s,
+			u"ᎠᏂᎪᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"ᏧᏁᏍᏓᎸ"_s)
+			"AQ"_s,
+			u"ᏧᏁᏍᏓᎸ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"ᎠᏥᏂᏘᏂᎠ"_s)
+			"AR"_s,
+			u"ᎠᏥᏂᏘᏂᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"ᎠᎺᎵᎧ ᏌᎼᎠ"_s)
+			"AS"_s,
+			u"ᎠᎺᎵᎧ ᏌᎼᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"ᎠᏍᏟᏯ"_s)
+			"AT"_s,
+			u"ᎠᏍᏟᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"ᎡᎳᏗᏜ"_s)
+			"AU"_s,
+			u"ᎡᎳᏗᏜ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"ᎠᎷᏆ"_s)
+			"AW"_s,
+			u"ᎠᎷᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of(u"ᎠᎹᏰᏟ ᎩᎵᏏ"_s)
+			"en_US"_s,
+			u"ᎠᎹᏰᏟ ᎩᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"ᎣᎴᏅᏓ ᏚᎦᏚᏛᎢ"_s)
+			"AX"_s,
+			u"ᎣᎴᏅᏓ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(metaValue_AZ)
+			"AZ"_s,
+			metaValue_AZ
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"ᏉᏏᏂᎠ & ᎲᏤᎪᏫᎾ"_s)
+			"BA"_s,
+			u"ᏉᏏᏂᎠ & ᎲᏤᎪᏫᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"ᏆᏇᏙᏍ"_s)
+			"BB"_s,
+			u"ᏆᏇᏙᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of(u"ᏎᏆᏃ"_s)
+			"ceb"_s,
+			u"ᏎᏆᏃ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"ᏆᏂᎦᎵᏕᏍ"_s)
+			"BD"_s,
+			u"ᏆᏂᎦᎵᏕᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of(u"ᎫᎻᎧ"_s)
+			"kum"_s,
+			u"ᎫᎻᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"ᏇᎵᏥᎥᎻ"_s)
+			"BE"_s,
+			u"ᏇᎵᏥᎥᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"ᏋᎩᎾ ᏩᏐ"_s)
+			"BF"_s,
+			u"ᏋᎩᎾ ᏩᏐ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"ᏊᎵᎨᎵᎠ"_s)
+			"BG"_s,
+			u"ᏊᎵᎨᎵᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"ᏆᎭᎴᎢᏂ"_s)
+			"BH"_s,
+			u"ᏆᎭᎴᎢᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"ᏋᎷᏂᏗ"_s)
+			"BI"_s,
+			u"ᏋᎷᏂᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"ᏆᏂᎢᏂ"_s)
+			"BJ"_s,
+			u"ᏆᏂᎢᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of(u"ᎤᏓᏅᏘ ᏆᏕᎳᎻ"_s)
+			"BL"_s,
+			u"ᎤᏓᏅᏘ ᏆᏕᎳᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"ᏆᏊᏓ"_s)
+			"BM"_s,
+			u"ᏆᏊᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of(u"ᎡᏏᏯ"_s)
+			"myv"_s,
+			u"ᎡᏏᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"ᏊᎾᎢ"_s)
+			"BN"_s,
+			u"ᏊᎾᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"ᏉᎵᏫᎠ"_s)
+			"BO"_s,
+			u"ᏉᎵᏫᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of(u"ᎧᎵᏈᎢᏂᎯ ᎾᏍᎩᏁᏛᎳᏂ"_s)
+			"BQ"_s,
+			u"ᎧᎵᏈᎢᏂᎯ ᎾᏍᎩᏁᏛᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"ᏆᏏᎵ"_s)
+			"BR"_s,
+			u"ᏆᏏᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"ᎾᏍᎩ ᏆᎭᎹᏍ"_s)
+			"BS"_s,
+			u"ᎾᏍᎩ ᏆᎭᎹᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xog"_s),
-			$of(u"ᏐᎦ"_s)
+			"xog"_s,
+			u"ᏐᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"ᏊᏔᏂ"_s)
+			"BT"_s,
+			u"ᏊᏔᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"ᏊᏪ ᎤᎦᏚᏛᎢ"_s)
+			"BV"_s,
+			u"ᏊᏪ ᎤᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"ᏆᏣᏩᎾ"_s)
+			"BW"_s,
+			u"ᏆᏣᏩᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"ᏇᎳᎷᏍ"_s)
+			"BY"_s,
+			u"ᏇᎳᎷᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"ᏇᎵᏍ"_s)
+			"BZ"_s,
+			u"ᏇᎵᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.persian"_s),
-			$of(u"ᏇᏏᎠᏂ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.persian"_s,
+			u"ᏇᏏᎠᏂ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hebr"_s),
-			$of(u"ᎠᏂᏈᎷ ᏗᏎᏍᏗ"_s)
+			"type.nu.hebr"_s,
+			u"ᎠᏂᏈᎷ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"ᎨᎾᏓ"_s)
+			"CA"_s,
+			u"ᎨᎾᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"ᎪᎪᏍ (ᎩᎵᏂ) ᏚᎦᏚᏛᎢ"_s)
+			"CC"_s,
+			u"ᎪᎪᏍ (ᎩᎵᏂ) ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzn"_s),
-			$of(u"ᎹᏌᏕᎳᏂ"_s)
+			"mzn"_s,
+			u"ᎹᏌᏕᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"ᎧᏂᎪ - ᎨᏂᏝᏌ"_s)
+			"CD"_s,
+			u"ᎧᏂᎪ - ᎨᏂᏝᏌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"ᎬᎿᎨᏍᏛ ᎠᏰᏟ ᏍᎦᏚᎩ"_s)
+			"CF"_s,
+			u"ᎬᎿᎨᏍᏛ ᎠᏰᏟ ᏍᎦᏚᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"ᎧᏂᎪ - ᏆᏌᏩᎵ"_s)
+			"CG"_s,
+			u"ᎧᏂᎪ - ᏆᏌᏩᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"ᏍᏫᏍ"_s)
+			"CH"_s,
+			u"ᏍᏫᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"ᎢᏬᎵ ᎾᎿ ᎠᎹᏳᎶᏗ"_s)
+			"CI"_s,
+			u"ᎢᏬᎵ ᎾᎿ ᎠᎹᏳᎶᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"ᎠᏓᏍᏓᏴᎲᏍᎩ ᏚᎦᏚᏛᎢ"_s)
+			"CK"_s,
+			u"ᎠᏓᏍᏓᏴᎲᏍᎩ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"ᏥᎵ"_s)
+			"CL"_s,
+			u"ᏥᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"ᎧᎹᎷᏂ"_s)
+			"CM"_s,
+			u"ᎧᎹᎷᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"ᏓᎶᏂᎨᏍᏛ"_s)
+			"CN"_s,
+			u"ᏓᎶᏂᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"ᎪᎸᎻᏈᎢᎠ"_s)
+			"CO"_s,
+			u"ᎪᎸᎻᏈᎢᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of(u"ᎦᏂᏴᏔᏅᎣᏓᎸ ᎤᎦᏚᏛᎢ"_s)
+			"CP"_s,
+			u"ᎦᏂᏴᏔᏅᎣᏓᎸ ᎤᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"ᎪᏍᏓ ᎵᎧ"_s)
+			"CR"_s,
+			u"ᎪᏍᏓ ᎵᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"ᎫᏆ"_s)
+			"CU"_s,
+			u"ᎫᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"ᎢᎬᎾᏕᎾ ᎢᏤᏳᏍᏗ"_s)
+			"CV"_s,
+			u"ᎢᎬᎾᏕᎾ ᎢᏤᏳᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of(u"ᎫᎳᎨᎣ"_s)
+			"CW"_s,
+			u"ᎫᎳᎨᎣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"ᏓᏂᏍᏓᏲᎯᎲ ᎤᎦᏚᏛᎢ"_s)
+			"CX"_s,
+			u"ᏓᏂᏍᏓᏲᎯᎲ ᎤᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"ᏌᎢᏆᏍ"_s)
+			"CY"_s,
+			u"ᏌᎢᏆᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"ᏤᎩᎠ"_s)
+			"CZ"_s,
+			u"ᏤᎩᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of(u"ᎨᎧᏧᎧ"_s)
+			"eka"_s,
+			u"ᎨᎧᏧᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"ᎠᏂᏛᏥ"_s)
+			"DE"_s,
+			u"ᎠᏂᏛᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"ᎠᏥᏂᏏ"_s)
+			"ace"_s,
+			u"ᎠᏥᏂᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cgg"_s),
-			$of(u"ᏥᎦ"_s)
+			"cgg"_s,
+			u"ᏥᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of(u"ᏗᏰᎪ ᎦᏏᏯ"_s)
+			"DG"_s,
+			u"ᏗᏰᎪ ᎦᏏᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.deva"_s),
-			$of(u"ᏕᏫᎾᎦᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.deva"_s,
+			u"ᏕᏫᎾᎦᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"ᏥᏊᏗ"_s)
+			"DJ"_s,
+			u"ᏥᏊᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"ᏗᏂᎹᎦ"_s)
+			"DK"_s,
+			u"ᏗᏂᎹᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of(u"ᏗᏂᎨᏫ ᎤᏃᏪᎶᏙᏗ"_s)
+			"Brai"_s,
+			u"ᏗᏂᎨᏫ ᎤᏃᏪᎶᏙᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"ᏙᎻᏂᎧ"_s)
+			"DM"_s,
+			u"ᏙᎻᏂᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armnlow"_s),
-			$of(u"ᎠᎳᎻᎠᏂ ᏧᏍᏗ ᏗᎪᏪᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.armnlow"_s,
+			u"ᎠᎳᎻᎠᏂ ᏧᏍᏗ ᏗᎪᏪᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"ᏙᎻᏂᎧᏂ ᏍᎦᏚᎩ"_s)
+			"DO"_s,
+			u"ᏙᎻᏂᎧᏂ ᏍᎦᏚᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of(u"ᎪᎶᏂᏔᏃ"_s)
+			"gor"_s,
+			u"ᎪᎶᏂᏔᏃ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of(u"ᏑᏂ"_s)
+			"zun"_s,
+			u"ᏑᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of(u"ᏢᏓᏥ"_s)
+			"tig"_s,
+			u"ᏢᏓᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"ᎠᎵᏥᎵᏯ"_s)
+			"DZ"_s,
+			u"ᎠᎵᏥᎵᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of(u"ᏇᎦᏏᎠᏂ"_s)
+			"pag"_s,
+			u"ᏇᎦᏏᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of(u"ᏑᏔ ᎠᎴ ᎺᎵᏯ"_s)
+			"EA"_s,
+			u"ᏑᏔ ᎠᎴ ᎺᎵᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of(u"ᏆᎹᏆᎾᎦ"_s)
+			"pam"_s,
+			u"ᏆᎹᏆᎾᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"ᎡᏆᏙᎵ"_s)
+			"EC"_s,
+			u"ᎡᏆᏙᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of(u"ᏆᏈᏯᎺᎾᏙ"_s)
+			"pap"_s,
+			u"ᏆᏈᏯᎺᎾᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of(u"ᎠᏓᎾᎦᎺ"_s)
+			"ada"_s,
+			u"ᎠᏓᎾᎦᎺ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"ᎡᏍᏙᏂᏯ"_s)
+			"EE"_s,
+			u"ᎡᏍᏙᏂᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"ᎢᏥᏈᎢ"_s)
+			"EG"_s,
+			u"ᎢᏥᏈᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"ᏭᏕᎵᎬ ᏗᏜ ᏌᎮᎳ"_s)
+			"EH"_s,
+			u"ᏭᏕᎵᎬ ᏗᏜ ᏌᎮᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of(u"ᏆᎳᎤᏩᏂ"_s)
+			"pau"_s,
+			u"ᏆᎳᎤᏩᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of(u"ᏧᎨᏎ"_s)
+			"chk"_s,
+			u"ᏧᎨᏎ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of(metaValue_ML)
+			"chm"_s,
+			metaValue_ML
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of(u"ᎠᏣᏓ"_s)
+			"cho"_s,
+			u"ᎠᏣᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of(metaValue_chr)
+			"chr"_s,
+			metaValue_chr
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"ᎡᎵᏟᏯ"_s)
+			"ER"_s,
+			u"ᎡᎵᏟᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"ᎠᏂᏍᏆᏂᏱ"_s)
+			"ES"_s,
+			u"ᎠᏂᏍᏆᏂᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"ᎢᏗᎣᏈᎠ"_s)
+			"ET"_s,
+			u"ᎢᏗᎣᏈᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of(u"ᏳᎳᏛ ᎠᏂᎤᎾᏓᏡᎬ"_s)
+			"EU"_s,
+			u"ᏳᎳᏛ ᎠᏂᎤᎾᏓᏡᎬ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of(u"ᎩᎴᎪᎵᎠᏂ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.gregorian"_s,
+			u"ᎩᎴᎪᎵᎠᏂ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of(u"ᏳᎶᎠᏍᏓᏅᏅ"_s)
+			"EZ"_s,
+			u"ᏳᎶᎠᏍᏓᏅᏅ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of(u"ᏣᏰᏂ"_s)
+			"chy"_s,
+			u"ᏣᏰᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of(u"ᎫᏣᎳᏘ ᏗᏎᏍᏗ"_s)
+			"type.nu.gujr"_s,
+			u"ᎫᏣᎳᏘ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of(u"ᎠᏗᎨ"_s)
+			"ady"_s,
+			u"ᎠᏗᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"ᏫᏂᎦᏙᎯ"_s)
+			"FI"_s,
+			u"ᏫᏂᎦᏙᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"ᏫᏥ"_s)
+			"FJ"_s,
+			u"ᏫᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"ᏩᎩ ᏚᎦᏚᏛᎢ"_s)
+			"FK"_s,
+			u"ᏩᎩ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"ᎹᎢᏉᏂᏏᏯ"_s)
+			"FM"_s,
+			u"ᎹᎢᏉᏂᏏᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"ᏪᎶ ᏚᎦᏚᏛᎢ"_s)
+			"FO"_s,
+			u"ᏪᎶ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of(metaValue_ta)
+			"Taml"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"ᎦᎸᏥᏱ"_s)
+			"FR"_s,
+			u"ᎦᎸᏥᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"ᎦᏉᏂ"_s)
+			"GA"_s,
+			u"ᎦᏉᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"ᎩᎵᏏᏲ"_s)
+			"GB"_s,
+			u"ᎩᎵᏏᏲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pcm"_s),
-			$of(u"ᎾᎩᎵᎠᏂ ᏈᏥᏂ"_s)
+			"pcm"_s,
+			u"ᎾᎩᎵᎠᏂ ᏈᏥᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"ᏋᎾᏓ"_s)
+			"GD"_s,
+			u"ᏋᎾᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"ᏣᎠᏥᎢ"_s)
+			"GE"_s,
+			u"ᏣᎠᏥᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"ᎠᏂᎦᎸᏥ ᎩᎠ"_s)
+			"GF"_s,
+			u"ᎠᏂᎦᎸᏥ ᎩᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of(u"ᎬᏂᏏ"_s)
+			"GG"_s,
+			u"ᎬᏂᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"ᎦᎠᎾ"_s)
+			"GH"_s,
+			u"ᎦᎠᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"ᏥᏆᎵᏓ"_s)
+			"GI"_s,
+			u"ᏥᏆᎵᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"ᎢᏤᏍᏛᏱ"_s)
+			"GL"_s,
+			u"ᎢᏤᏍᏛᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"ᎦᎹᏈᎢᎠ"_s)
+			"GM"_s,
+			u"ᎦᎹᏈᎢᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"ᎩᎢᏂ"_s)
+			"GN"_s,
+			u"ᎩᎢᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"ᏩᏓᎷᏇ"_s)
+			"GP"_s,
+			u"ᏩᏓᎷᏇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"ᎡᏆᏙᎵᎠᎵ ᎩᎢᏂ"_s)
+			"GQ"_s,
+			u"ᎡᏆᏙᎵᎠᎵ ᎩᎢᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"ᎪᎢᎯ"_s)
+			"GR"_s,
+			u"ᎪᎢᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"ᏧᎦᏃᏮ ᏣᎠᏥᎢ ᎠᎴ ᎾᏍᎩ ᏧᎦᏃᏮ ᎠᏍᏛᎭᏟ ᏚᎦᏚᏛᎢ"_s)
+			"GS"_s,
+			u"ᏧᎦᏃᏮ ᏣᎠᏥᎢ ᎠᎴ ᎾᏍᎩ ᏧᎦᏃᏮ ᎠᏍᏛᎭᏟ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"ᏩᏔᎹᎳ"_s)
+			"GT"_s,
+			u"ᏩᏔᎹᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"ᏆᎻ"_s)
+			"GU"_s,
+			u"ᏆᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"ᎩᎢᏂ-ᏈᏌᎤᏫ"_s)
+			"GW"_s,
+			u"ᎩᎢᏂ-ᏈᏌᎤᏫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"ᏟᎦᎾ"_s)
+			"tlh"_s,
+			u"ᏟᎦᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"ᎦᏯᎾ"_s)
+			"GY"_s,
+			u"ᎦᏯᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ckb"_s),
-			$of(u"ᎠᏰᏟ ᎫᏗᏏ"_s)
+			"ckb"_s,
+			u"ᎠᏰᏟ ᎫᏗᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of(u"Ꮭ ᎦᏬᏂᎯᏍᏗ ᎦᎸᏛᎢ ᏱᎩ"_s)
+			"zxx"_s,
+			u"Ꮭ ᎦᏬᏂᎯᏍᏗ ᎦᎸᏛᎢ ᏱᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_AT"_s),
-			$of(u"ᎠᏟᏯᏂ ᎠᏂᏓᏥ"_s)
+			"de_AT"_s,
+			u"ᎠᏟᏯᏂ ᎠᏂᏓᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"ᎰᏂᎩ ᎪᏂᎩ ᎤᏓᏤᎵᏓ ᏧᏂᎸᏫᏍᏓᏁᏗ ᎢᎬᎾᏕᎾ ᏓᎶᏂᎨᏍᏛ"_s)
+			"HK"_s,
+			u"ᎰᏂᎩ ᎪᏂᎩ ᎤᏓᏤᎵᏓ ᏧᏂᎸᏫᏍᏓᏁᏗ ᎢᎬᎾᏕᎾ ᏓᎶᏂᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"ᎲᏗ ᎤᎦᏚᏛᎢ ᎠᎴ ᎺᎩᏓᎾᎵᏗ ᏚᎦᏚᏛᎢ"_s)
+			"HM"_s,
+			u"ᎲᏗ ᎤᎦᏚᏛᎢ ᎠᎴ ᎺᎩᏓᎾᎵᏗ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"ᎭᏂᏚᎳᏍ"_s)
+			"HN"_s,
+			u"ᎭᏂᏚᎳᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"ᎧᎶᎡᏏᎠ"_s)
+			"HR"_s,
+			u"ᎧᎶᎡᏏᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("agq"_s),
-			$of(u"ᎠᎨᎹ"_s)
+			"agq"_s,
+			u"ᎠᎨᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"ᏍᏫᏏ ᎠᏂᏓᏥ"_s)
+			"gsw"_s,
+			u"ᏍᏫᏏ ᎠᏂᏓᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"ᎮᎢᏘ"_s)
+			"HT"_s,
+			u"ᎮᎢᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"ᎲᏂᎦᎵ"_s)
+			"HU"_s,
+			u"ᎲᏂᎦᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of(u"ᏥᏍᏆ ᏚᎦᏚᏛᎢ"_s)
+			"IC"_s,
+			u"ᏥᏍᏆ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"ᎢᏂᏙᏂᏍᏯ"_s)
+			"ID"_s,
+			u"ᎢᏂᏙᏂᏍᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"ᎠᏲᎳᏂ"_s)
+			"IE"_s,
+			u"ᎠᏲᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of(u"ᏂᏯᏆᎵᏔᏂ"_s)
+			"nap"_s,
+			u"ᏂᏯᏆᎵᏔᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("naq"_s),
-			$of(u"ᎾᎹ"_s)
+			"naq"_s,
+			u"ᎾᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of(u"ᏌᏌ"_s)
+			"zza"_s,
+			u"ᏌᏌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"ᎢᏏᎵᏱ"_s)
+			"IL"_s,
+			u"ᎢᏏᎵᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of(u"ᎤᏍᏗ ᎤᎦᏚᏛᎢ ᎾᎿ ᎠᏍᎦᏯ"_s)
+			"IM"_s,
+			u"ᎤᏍᏗ ᎤᎦᏚᏛᎢ ᎾᎿ ᎠᏍᎦᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"ᎢᏅᏗᎾ"_s)
+			"IN"_s,
+			u"ᎢᏅᏗᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"ᏈᏗᏏ ᏴᏫᏯ ᎠᎺᏉ ᎢᎬᎾᏕᏅ"_s)
+			"IO"_s,
+			u"ᏈᏗᏏ ᏴᏫᏯ ᎠᎺᏉ ᎢᎬᎾᏕᏅ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"ᎢᎳᎩ"_s)
+			"IQ"_s,
+			u"ᎢᎳᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"ᎢᎴᏂ"_s)
+			"IR"_s,
+			u"ᎢᎴᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"ᏧᏁᏍᏓᎸᎯ"_s)
+			"IS"_s,
+			u"ᏧᏁᏍᏓᎸᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"ᎢᏔᎵ"_s)
+			"IT"_s,
+			u"ᎢᏔᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of(u"ᎠᏰᎦᎴᏴᏫᏍᎩ ᎠᎤᏓᏗᏍᏙᏗ"_s)
+			"Zmth"_s,
+			u"ᎠᏰᎦᎴᏴᏫᏍᎩ ᎠᎤᏓᏗᏍᏙᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.thai"_s),
-			$of(u"ᏔᏱ ᏗᏎᏍᏗ"_s)
+			"type.nu.thai"_s,
+			u"ᏔᏱ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.beng"_s),
-			$of(u"ᏇᏂᎦᎳ ᏗᏎᏍᏗ"_s)
+			"type.nu.beng"_s,
+			u"ᏇᏂᎦᎳ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of(u"ᏨᎵᏏ"_s)
+			"JE"_s,
+			u"ᏨᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic"_s),
-			$of(u"ᎢᏍᎳᎻᎩ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.islamic"_s,
+			u"ᎢᏍᎳᎻᎩ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"ᏣᎺᎢᎧ"_s)
+			"JM"_s,
+			u"ᏣᎺᎢᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(u"ᏇᏂᎦᎠ"_s)
+			"Beng"_s,
+			u"ᏇᏂᎦᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"ᏦᏓᏂ"_s)
+			"JO"_s,
+			u"ᏦᏓᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(metaValue_JP)
+			"JP"_s,
+			metaValue_JP
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of(u"ᎠᏱᏄ"_s)
+			"ain"_s,
+			u"ᎠᏱᏄ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("guz"_s),
-			$of(u"ᎫᏏ"_s)
+			"guz"_s,
+			u"ᎫᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.knda"_s),
-			$of(u"ᎧᎾᏓ ᏗᏎᏍᏗ"_s)
+			"type.nu.knda"_s,
+			u"ᎧᎾᏓ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of(u"ᏍᏫᏏ ᎦᎸᎳᏗ ᎠᏂᏓᏥ"_s)
+			"de_CH"_s,
+			u"ᏍᏫᏏ ᎦᎸᎳᏗ ᎠᏂᏓᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.buddhist"_s),
-			$of(u"ᏊᏗᏍᏘ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.buddhist"_s,
+			u"ᏊᏗᏍᏘ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"ᎨᏂᏯ"_s)
+			"KE"_s,
+			u"ᎨᏂᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(metaValue_KG)
+			"KG"_s,
+			metaValue_KG
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of(u"ᎳᏘᏂ ᎠᎹᏰᏟ"_s)
+			"419"_s,
+			u"ᎳᏘᏂ ᎠᎹᏰᏟ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"ᎧᎹᏉᏗᎠᏂ"_s)
+			"KH"_s,
+			u"ᎧᎹᏉᏗᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"ᎧᎵᏆᏘ"_s)
+			"KI"_s,
+			u"ᎧᎵᏆᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"ᎪᎼᎳᏍ"_s)
+			"KM"_s,
+			u"ᎪᎼᎳᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(metaValue_kn)
+			"Knda"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"ᎤᏓᏅᏘ ᎨᏘᏏ ᎠᎴ ᏁᏪᏏ"_s)
+			"KN"_s,
+			u"ᎤᏓᏅᏘ ᎨᏘᏏ ᎠᎴ ᏁᏪᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of(u"ᎨᎾᏓ ᎦᎸᏥ"_s)
+			"fr_CA"_s,
+			u"ᎨᎾᏓ ᎦᎸᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"ᏧᏴᏢ ᎪᎵᎠ"_s)
+			"KP"_s,
+			u"ᏧᏴᏢ ᎪᎵᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"ᏧᎦᏃᏮ ᎪᎵᎠ"_s)
+			"KR"_s,
+			u"ᏧᎦᏃᏮ ᎪᎵᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CH"_s),
-			$of(u"ᏍᏫᏏ ᎦᎸᏥ"_s)
+			"fr_CH"_s,
+			u"ᏍᏫᏏ ᎦᎸᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"ᎫᏪᎢᏘ"_s)
+			"KW"_s,
+			u"ᎫᏪᎢᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of(u"ᏙᎩ ᏈᏏᏂ"_s)
+			"tpi"_s,
+			u"ᏙᎩ ᏈᏏᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"ᎨᎢᎹᏂ ᏚᎦᏚᏛᎢ"_s)
+			"KY"_s,
+			u"ᎨᎢᎹᏂ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"ᎧᏎᎧᏍᏕᏂ"_s)
+			"KZ"_s,
+			u"ᎧᏎᎧᏍᏕᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of(u"ᏲᏂᎢ ᏗᎪᏪᎵ"_s)
+			"Cyrl"_s,
+			u"ᏲᏂᎢ ᏗᎪᏪᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"ᎴᎣᏍ"_s)
+			"LA"_s,
+			u"ᎴᎣᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"ᎴᏆᎾᏂ"_s)
+			"LB"_s,
+			u"ᎴᏆᎾᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"ᎤᏓᏅᏘ ᎷᏏᏯ"_s)
+			"LC"_s,
+			u"ᎤᏓᏅᏘ ᎷᏏᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"ᏈᏥᏂ"_s)
+			"gwi"_s,
+			u"ᏈᏥᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of(u"ᎡᎳᏗ ᎠᏂᏓᏥ"_s)
+			"nds"_s,
+			u"ᎡᎳᏗ ᎠᏂᏓᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"ᎵᎦᏗᏂᏍᏓᏂ"_s)
+			"LI"_s,
+			u"ᎵᎦᏗᏂᏍᏓᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"ᏍᎵ ᎳᏂᎧ"_s)
+			"LK"_s,
+			u"ᏍᎵ ᎳᏂᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"ᎳᏈᎵᏯ"_s)
+			"LR"_s,
+			u"ᎳᏈᎵᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"ᎴᏐᏙ"_s)
+			"LS"_s,
+			u"ᎴᏐᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"ᎵᏗᏪᏂᎠ"_s)
+			"LT"_s,
+			u"ᎵᏗᏪᏂᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"ᎸᎧᏎᏋᎩ"_s)
+			"LU"_s,
+			u"ᎸᎧᏎᏋᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"ᎳᏘᏫᎠ"_s)
+			"LV"_s,
+			u"ᎳᏘᏫᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of(u"ᎧᏔᎧᎾ"_s)
+			"Kana"_s,
+			u"ᎧᏔᎧᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"ᎵᏈᏯ"_s)
+			"LY"_s,
+			u"ᎵᏈᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of(u"ᎳᏗᏃ"_s)
+			"lad"_s,
+			u"ᎳᏗᏃ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vun"_s),
-			$of(u"ᏭᎾᏦ"_s)
+			"vun"_s,
+			u"ᏭᎾᏦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lag"_s),
-			$of(u"ᎳᏂᎩ"_s)
+			"lag"_s,
+			u"ᎳᏂᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of(u"ᏔᎠᎾ"_s)
+			"Thaa"_s,
+			u"ᏔᎠᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"ᎼᎶᎪ"_s)
+			"MA"_s,
+			u"ᎼᎶᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"ᎹᎾᎪ"_s)
+			"MC"_s,
+			u"ᎹᎾᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"ᎹᎵᏙᏫᎠ"_s)
+			"MD"_s,
+			u"ᎹᎵᏙᏫᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of(u"ᎼᏂᏔᏁᎦᎶ"_s)
+			"ME"_s,
+			u"ᎼᏂᏔᏁᎦᎶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of(u"ᎤᏓᏅᏘ ᏡᏡ"_s)
+			"MF"_s,
+			u"ᎤᏓᏅᏘ ᏡᏡ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"ᎹᏓᎦᏍᎧᎵ"_s)
+			"MG"_s,
+			u"ᎹᏓᎦᏍᎧᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"ᎹᏌᎵ ᏚᎦᏚᏛᎢ"_s)
+			"MH"_s,
+			u"ᎹᏌᎵ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of(u"ᎠᎵᎤᏘ"_s)
+			"ale"_s,
+			u"ᎠᎵᎤᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(u"ᏔᏱ ᏔᏯᎴᏂ"_s)
+			"Thai"_s,
+			u"ᏔᏱ ᏔᏯᎴᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"ᏧᏴᏜ ᎹᏎᏙᏂᏯ"_s)
+			"MK"_s,
+			u"ᏧᏴᏜ ᎹᏎᏙᏂᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(metaValue_ML)
+			"ML"_s,
+			metaValue_ML
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"ᎹᏯᎹᎵ (ᏇᎵᎹ)"_s)
+			"MM"_s,
+			u"ᎹᏯᎹᎵ (ᏇᎵᎹ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"ᎹᏂᎪᎵᎠ"_s)
+			"MN"_s,
+			u"ᎹᏂᎪᎵᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of(u"ᏁᏩᎵ"_s)
+			"new"_s,
+			u"ᏁᏩᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"ᎹᎧᎣ (ᎤᏓᏤᎵᏓ ᏧᏂᎸᏫᏍᏓᏁᏗ ᎢᎬᎾᏕᎾ) ᏣᎢ"_s)
+			"MO"_s,
+			u"ᎹᎧᎣ (ᎤᏓᏤᎵᏓ ᏧᏂᎸᏫᏍᏓᏁᏗ ᎢᎬᎾᏕᎾ) ᏣᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"ᏧᏴᏢ ᏗᏜ ᎹᎵᎠᎾ ᏚᎦᏚᏛᎢ"_s)
+			"MP"_s,
+			u"ᏧᏴᏢ ᏗᏜ ᎹᎵᎠᎾ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"ᎹᏘᏂᎨ"_s)
+			"MQ"_s,
+			u"ᎹᏘᏂᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"ᎹᏘᎢᏯ"_s)
+			"MR"_s,
+			u"ᎹᏘᎢᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"ᎹᏂᏘᏌᎳᏗ"_s)
+			"MS"_s,
+			u"ᎹᏂᏘᏌᎳᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"ᎹᎵᏔ"_s)
+			"MT"_s,
+			u"ᎹᎵᏔ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"ᎼᎵᏏᎥᏍ"_s)
+			"MU"_s,
+			u"ᎼᎵᏏᎥᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of(u"ᏧᎦᎾᏮ ᏗᏜ ᎠᎵᏔᎢ"_s)
+			"alt"_s,
+			u"ᏧᎦᎾᏮ ᏗᏜ ᎠᎵᏔᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"ᎹᎵᏗᏫᏍ"_s)
+			"MV"_s,
+			u"ᎹᎵᏗᏫᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"ᎹᎳᏫ"_s)
+			"MW"_s,
+			u"ᎹᎳᏫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"ᎠᏂᏍᏆᏂ"_s)
+			"MX"_s,
+			u"ᎠᏂᏍᏆᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.japanese"_s),
-			$of(u"ᏣᏆᏂᏏ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.japanese"_s,
+			u"ᏣᏆᏂᏏ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"ᎹᎴᏏᎢᎠ"_s)
+			"MY"_s,
+			u"ᎹᎴᏏᎢᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"ᎼᏎᎻᏇᎩ"_s)
+			"MZ"_s,
+			u"ᎼᏎᎻᏇᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"ᎾᎻᏈᎢᏯ"_s)
+			"NA"_s,
+			u"ᎾᎻᏈᎢᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("202"_s),
-			$of(u"ᎭᏫᏂ-ᏌᎭᏩ ᎬᎿᎨᏍᏛ"_s)
+			"202"_s,
+			u"ᎭᏫᏂ-ᏌᎭᏩ ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.hebrew"_s),
-			$of(u"ᎠᏂᏈᎷ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.hebrew"_s,
+			u"ᎠᏂᏈᎷ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"ᎢᏤ ᎧᎵᏙᏂᎠᏂ"_s)
+			"NC"_s,
+			u"ᎢᏤ ᎧᎵᏙᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"ᎾᎢᏨ"_s)
+			"NE"_s,
+			u"ᎾᎢᏨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"ᏃᎵᏬᎵᎩ ᎤᎦᏚᏛᎢ"_s)
+			"NF"_s,
+			u"ᏃᎵᏬᎵᎩ ᎤᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"ᏂᏥᎵᏯ"_s)
+			"NG"_s,
+			u"ᏂᏥᎵᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trv"_s),
-			$of(u"ᏔᎶᎪ"_s)
+			"trv"_s,
+			u"ᏔᎶᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"ᏂᎧᎳᏆ"_s)
+			"NI"_s,
+			u"ᏂᎧᎳᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"ᏁᏛᎳᏂ"_s)
+			"NL"_s,
+			u"ᏁᏛᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"ᏃᏪ"_s)
+			"NO"_s,
+			u"ᏃᏪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(metaValue_NP)
+			"NP"_s,
+			metaValue_NP
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(metaValue_NR)
+			"NR"_s,
+			metaValue_NR
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"ᏂᏳ"_s)
+			"NU"_s,
+			u"ᏂᏳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rof"_s),
-			$of(u"ᎶᎹᏉ"_s)
+			"rof"_s,
+			u"ᎶᎹᏉ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"ᎢᏤ ᏏᎢᎴᏂᏗ"_s)
+			"NZ"_s,
+			u"ᎢᏤ ᏏᎢᎴᏂᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"ᎣᎺᏂ"_s)
+			"OM"_s,
+			u"ᎣᎺᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of(u"ᎠᎾᎩᎧ"_s)
+			"anp"_s,
+			u"ᎠᎾᎩᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crs"_s),
-			$of(u"ᏎᏎᎵᏩ ᏟᏲᎵ ᎠᏂᎦᎸ"_s)
+			"crs"_s,
+			u"ᏎᏎᎵᏩ ᏟᏲᎵ ᎠᏂᎦᎸ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"ᏆᎾᎹ"_s)
+			"PA"_s,
+			u"ᏆᎾᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of(u"ᎩᎵᏏᏲ ᎩᎵᏏ"_s)
+			"en_GB"_s,
+			u"ᎩᎵᏏᏲ ᎩᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"ᏇᎷ"_s)
+			"PE"_s,
+			u"ᏇᎷ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"ᎠᏂᎦᎸᏥ ᏆᎵᏂᏏᎠ"_s)
+			"PF"_s,
+			u"ᎠᏂᎦᎸᏥ ᏆᎵᏂᏏᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"ᏆᏇ ᎢᏤ ᎩᎢᏂ"_s)
+			"PG"_s,
+			u"ᏆᏇ ᎢᏤ ᎩᎢᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"ᎠᏂᏈᎵᎩᏃ"_s)
+			"PH"_s,
+			u"ᎠᏂᏈᎵᎩᏃ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"ᏆᎩᏍᏖᏂ"_s)
+			"PK"_s,
+			u"ᏆᎩᏍᏖᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"ᏉᎳᏂ"_s)
+			"PL"_s,
+			u"ᏉᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of(u"ᎡᏬᏂᏙ"_s)
+			"ewo"_s,
+			u"ᎡᏬᏂᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"ᎤᏓᏅᏘ ᏈᏰ ᎠᎴ ᎻᏇᎶᏂ"_s)
+			"PM"_s,
+			u"ᎤᏓᏅᏘ ᏈᏰ ᎠᎴ ᎻᏇᎶᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"ᏈᎧᎵᏂ ᏚᎦᏚᏛᎢ"_s)
+			"PN"_s,
+			u"ᏈᎧᎵᏂ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"ᏇᎡᏙ ᎵᎢᎪ"_s)
+			"PR"_s,
+			u"ᏇᎡᏙ ᎵᎢᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"ᏆᎴᏍᏗᏂᎠᏂ ᏄᎬᏫᏳᏌᏕᎩ"_s)
+			"PS"_s,
+			u"ᏆᎴᏍᏗᏂᎠᏂ ᏄᎬᏫᏳᏌᏕᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"ᏉᏥᎦᎳ"_s)
+			"PT"_s,
+			u"ᏉᏥᎦᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"ᏆᎴᎠᏫ"_s)
+			"PW"_s,
+			u"ᏆᎴᎠᏫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of(u"ᏂᎠᏏ"_s)
+			"nia"_s,
+			u"ᏂᎠᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.greklow"_s),
-			$of(u"ᎠᏂᎪᎢ ᏧᏍᏗ ᏗᎪᏪᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.greklow"_s,
+			u"ᎠᏂᎪᎢ ᏧᏍᏗ ᏗᎪᏪᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"ᏆᎳᏇᎢᏯ"_s)
+			"PY"_s,
+			u"ᏆᎳᏇᎢᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of(u"ᏛᎹᏊᎧ"_s)
+			"tum"_s,
+			u"ᏛᎹᏊᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(u"ᎠᏂᏈᎵ"_s)
+			"Hebr"_s,
+			u"ᎠᏂᏈᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"ᎧᏔᎵ"_s)
+			"QA"_s,
+			u"ᎧᏔᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of(u"ᏂᏳᏫᏯᏂ"_s)
+			"niu"_s,
+			u"ᏂᏳᏫᏯᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of(u"ᎠᏍᏛ ᎣᏏᏰᏂᎠ"_s)
+			"QO"_s,
+			u"ᎠᏍᏛ ᎣᏏᏰᏂᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of(u"ᎴᏏᎦᏂ"_s)
+			"lez"_s,
+			u"ᎴᏏᎦᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of(metaValue_TV)
+			"tvl"_s,
+			metaValue_TV
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"ᎡᎶᎯ"_s)
+			"001"_s,
+			u"ᎡᎶᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"ᎬᎿᎨᏍᏛ"_s)
+			"002"_s,
+			u"ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of(u"ᏧᏴᏢ ᎠᎹᏰᏟ"_s)
+			"003"_s,
+			u"ᏧᏴᏢ ᎠᎹᏰᏟ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"ᎴᏳᏂᎠᏂ"_s)
+			"RE"_s,
+			u"ᎴᏳᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"ᏧᎦᏃᏮ ᎠᎺᎵᎦ"_s)
+			"005"_s,
+			u"ᏧᎦᏃᏮ ᎠᎺᎵᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of(u"ᎶᏣᏆᏂ"_s)
+			"jbo"_s,
+			u"ᎶᏣᏆᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"ᎣᏏᏰᏂᎠ"_s)
+			"009"_s,
+			u"ᎣᏏᏰᏂᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"ᎶᎹᏂᏯ"_s)
+			"RO"_s,
+			u"ᎶᎹᏂᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of(u"ᏒᏈᏯ"_s)
+			"RS"_s,
+			u"ᏒᏈᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"ᏲᏂᎢ"_s)
+			"RU"_s,
+			u"ᏲᏂᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"ᎶᏩᏂᏓ"_s)
+			"RW"_s,
+			u"ᎶᏩᏂᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"ᏌᎤᏗ ᎡᎴᏈᎠ"_s)
+			"SA"_s,
+			u"ᏌᎤᏗ ᎡᎴᏈᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"ᏐᎶᎹᏂ ᏚᎦᏚᏛᎢ"_s)
+			"SB"_s,
+			u"ᏐᎶᎹᏂ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twq"_s),
-			$of(u"ᏔᏌᏩᎩ"_s)
+			"twq"_s,
+			u"ᏔᏌᏩᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"ᏭᏕᎵᎬ ᏗᏜ ᎬᎿᎨᏍᏛ"_s)
+			"011"_s,
+			u"ᏭᏕᎵᎬ ᏗᏜ ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"ᏏᎡᏥᎵᏍ"_s)
+			"SC"_s,
+			u"ᏏᎡᏥᎵᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"ᏑᏕᏂ"_s)
+			"SD"_s,
+			u"ᏑᏕᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of(u"ᎠᏰᏟ ᎠᎹᏰᏟ"_s)
+			"013"_s,
+			u"ᎠᏰᏟ ᎠᎹᏰᏟ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"ᏍᏫᏕᏂ"_s)
+			"SE"_s,
+			u"ᏍᏫᏕᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"ᏗᎧᎸᎬ ᏗᏜ ᎬᎿᎨᏍᏛ"_s)
+			"014"_s,
+			u"ᏗᎧᎸᎬ ᏗᏜ ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"ᏧᏴᏢ ᏗᏜ ᎬᎿᎨᏍᏛ"_s)
+			"015"_s,
+			u"ᏧᏴᏢ ᏗᏜ ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"ᏏᏂᎦᏉᎵ"_s)
+			"SG"_s,
+			u"ᏏᏂᎦᏉᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"ᎤᏓᏅᏘ ᎮᎵᎾ"_s)
+			"SH"_s,
+			u"ᎤᏓᏅᏘ ᎮᎵᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.strict"_s),
-			$of(u"ᎤᎶᏒᏍᏔᏅᎯ ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s)
+			"type.lb.strict"_s,
+			u"ᎤᎶᏒᏍᏔᏅᎯ ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of(u"ᎠᏰᏟ ᎬᎿᎨᏍᏛ"_s)
+			"017"_s,
+			u"ᎠᏰᏟ ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"ᏍᎶᏫᏂᎠ"_s)
+			"SI"_s,
+			u"ᏍᎶᏫᏂᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"ᏧᎦᎾᏮ ᏗᏜ ᎬᎿᎨᏍᏛ"_s)
+			"018"_s,
+			u"ᏧᎦᎾᏮ ᏗᏜ ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"ᏍᏩᎵᏆᎵᏗ ᎠᎴ ᏤᏂ ᎹᏰᏂ"_s)
+			"SJ"_s,
+			u"ᏍᏩᎵᏆᎵᏗ ᎠᎴ ᏤᏂ ᎹᏰᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"ᎠᎺᎵᎦᎢ"_s)
+			"019"_s,
+			u"ᎠᎺᎵᎦᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"ᏍᎶᏩᎩᎠ"_s)
+			"SK"_s,
+			u"ᏍᎶᏩᎩᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"ᏏᎡᎳ ᎴᎣᏂ"_s)
+			"SL"_s,
+			u"ᏏᎡᎳ ᎴᎣᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"ᎤᏓᏅᏘ ᎹᎵᎢᏃ"_s)
+			"SM"_s,
+			u"ᎤᏓᏅᏘ ᎹᎵᎢᏃ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"ᏏᏂᎦᎵ"_s)
+			"SN"_s,
+			u"ᏏᏂᎦᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(metaValue_SO)
+			"SO"_s,
+			metaValue_SO
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of(u"ᎹᏊᏤ"_s)
+			"arn"_s,
+			u"ᎹᏊᏤ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of(u"ᎠᏩᏈᎰ"_s)
+			"arp"_s,
+			u"ᎠᏩᏈᎰ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.taml"_s),
-			$of(u"ᎤᏦᏍᏗ ᏔᎻᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.taml"_s,
+			u"ᎤᏦᏍᏗ ᏔᎻᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"ᏒᎵᎾᎻ"_s)
+			"SR"_s,
+			u"ᏒᎵᎾᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of(u"ᏧᎦᎾᏮ ᏑᏕᏂ"_s)
+			"SS"_s,
+			u"ᏧᎦᎾᏮ ᏑᏕᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"ᏌᎣ ᏙᎺ ᎠᎴ ᏈᏂᏏᏇ"_s)
+			"ST"_s,
+			u"ᏌᎣ ᏙᎺ ᎠᎴ ᏈᏂᏏᏇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"ᎡᎵᏌᎵᏆᏙᎵ"_s)
+			"SV"_s,
+			u"ᎡᎵᏌᎵᏆᏙᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of(u"ᏏᏂᏘ ᎹᏘᏂ"_s)
+			"SX"_s,
+			u"ᏏᏂᏘ ᎹᏘᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"ᏏᎵᎠ"_s)
+			"SY"_s,
+			u"ᏏᎵᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"ᎡᏍᏩᏘᏂ"_s)
+			"SZ"_s,
+			u"ᎡᏍᏩᏘᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of(u"ᏟᏍᏛᏂ Ꮣ ᎫᎾᎭ"_s)
+			"TA"_s,
+			u"ᏟᏍᏛᏂ Ꮣ ᎫᎾᎭ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asa"_s),
-			$of(u"ᎠᏑ"_s)
+			"asa"_s,
+			u"ᎠᏑ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.ussystem"_s),
-			$of(u"US ᎠᏟᎶᏛ ᏄᏍᏗᏓᏅᎢ"_s)
+			"type.ms.ussystem"_s,
+			u"US ᎠᏟᎶᏛ ᏄᏍᏗᏓᏅᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"ᏧᏴᏢ ᏗᏜ ᎠᎹᏰᏟ"_s)
+			"021"_s,
+			u"ᏧᏴᏢ ᏗᏜ ᎠᎹᏰᏟ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"ᎠᏂᏛᎵᎩ ᎠᎴ ᎨᎢᎪ ᏚᎦᏚᏛᎢ"_s)
+			"TC"_s,
+			u"ᎠᏂᏛᎵᎩ ᎠᎴ ᎨᎢᎪ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yav"_s),
-			$of(u"ᏰᎾᎦᏇᏂ"_s)
+			"yav"_s,
+			u"ᏰᎾᎦᏇᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"ᏣᏗ"_s)
+			"TD"_s,
+			u"ᏣᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"ᎠᏂᎦᎸᏥ ᏧᎦᎾᏮ ᎦᏙᎯ ᎤᎵᏍᏛᎢ"_s)
+			"TF"_s,
+			u"ᎠᏂᎦᎸᏥ ᏧᎦᎾᏮ ᎦᏙᎯ ᎤᎵᏍᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"ᏙᎪ"_s)
+			"TG"_s,
+			u"ᏙᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"ᏔᏯᎴᏂ"_s)
+			"TH"_s,
+			u"ᏔᏯᎴᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"ᏔᏥᎩᏍᏕᏂ"_s)
+			"TJ"_s,
+			u"ᏔᏥᎩᏍᏕᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"ᎨᏆᏙᏯ"_s)
+			"029"_s,
+			u"ᎨᏆᏙᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"ᏙᎨᎳᏭ"_s)
+			"TK"_s,
+			u"ᏙᎨᎳᏭ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"ᏘᎼᎵ-ᎴᏍᏖ"_s)
+			"TL"_s,
+			u"ᏘᎼᎵ-ᎴᏍᏖ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ybb"_s),
-			$of(u"ᏰᎹᏋ"_s)
+			"ybb"_s,
+			u"ᏰᎹᏋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"ᏛᎵᎩᎺᏂᏍᏔᏂ"_s)
+			"TM"_s,
+			u"ᏛᎵᎩᎺᏂᏍᏔᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"ᏚᏂᏏᏍᎠ"_s)
+			"TN"_s,
+			u"ᏚᏂᏏᏍᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"ᏙᎾᎦ"_s)
+			"TO"_s,
+			u"ᏙᎾᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"ᎬᏃ"_s)
+			"TR"_s,
+			u"ᎬᏃ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"ᏟᏂᏕᏗ ᎠᎴ ᏙᏆᎪ"_s)
+			"TT"_s,
+			u"ᏟᏂᏕᏗ ᎠᎴ ᏙᏆᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(metaValue_TV)
+			"TV"_s,
+			metaValue_TV
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"ᏔᎢᏩᏂ"_s)
+			"TW"_s,
+			u"ᏔᎢᏩᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of(u"ᎠᏍᏚᎵᎠᏂ"_s)
+			"ast"_s,
+			u"ᎠᏍᏚᎵᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"ᏖᏂᏏᏂᏯ"_s)
+			"TZ"_s,
+			u"ᏖᏂᏏᏂᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nmg"_s),
-			$of(u"ᏆᏏᏲ"_s)
+			"nmg"_s,
+			u"ᏆᏏᏲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of(u"ᏄᏬᎵᏍᏛᎾ ᎠᏍᏓᏩᏛᏍᏙᏗ"_s)
+			"Zzzz"_s,
+			u"ᏄᏬᎵᏍᏛᎾ ᎠᏍᏓᏩᏛᏍᏙᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"ᏳᎧᎴᏂ"_s)
+			"UA"_s,
+			u"ᏳᎧᎴᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of(u"ᎠᏬᎹᏂᎠᏂ"_s)
+			"rup"_s,
+			u"ᎠᏬᎹᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of(u"ᏗᎧᎸᎬ ᏗᏜ ᏓᎶᏂᎨᏍᏛ"_s)
+			"030"_s,
+			u"ᏗᎧᎸᎬ ᏗᏜ ᏓᎶᏂᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of(u"ᏚᏫᏂᎠᏂ"_s)
+			"tyv"_s,
+			u"ᏚᏫᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of(u"ᎧᏂᎪ ᏍᏩᎯᎵ"_s)
+			"sw_CD"_s,
+			u"ᎧᏂᎪ ᏍᏩᎯᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"ᏧᎦᎾᏮ ᏗᏜ ᏓᎶᏂᎨᏍᏛ"_s)
+			"034"_s,
+			u"ᏧᎦᎾᏮ ᏗᏜ ᏓᎶᏂᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"ᏧᎦᎾᏮ ᏗᎧᎸᎬ ᏓᎶᏂᎨᏍᏛ"_s)
+			"035"_s,
+			u"ᏧᎦᎾᏮ ᏗᎧᎸᎬ ᏓᎶᏂᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"ᏳᎦᏂᏓ"_s)
+			"UG"_s,
+			u"ᏳᎦᏂᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"ᏧᎦᎾᏮ ᏗᏜ ᏳᎳᏛ"_s)
+			"039"_s,
+			u"ᏧᎦᎾᏮ ᏗᏜ ᏳᎳᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(u"ᏏᏅᎭᎳ"_s)
+			"Sinh"_s,
+			u"ᏏᏅᎭᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"U.S. ᎠᏍᏛ ᏚᎦᏚᏛᎢ"_s)
+			"UM"_s,
+			u"U.S. ᎠᏍᏛ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of(u"ᏌᏊ ᎢᏳᎾᎵᏍᏔᏅ ᎠᏰᎵ ᏚᎾᏙᏢᏒ"_s)
+			"UN"_s,
+			u"ᏌᏊ ᎢᏳᎾᎵᏍᏔᏅ ᎠᏰᎵ ᏚᎾᏙᏢᏒ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"ᏌᏊ ᎢᏳᎾᎵᏍᏔᏅ ᏍᎦᏚᎩ"_s)
+			"US"_s,
+			u"ᏌᏊ ᎢᏳᎾᎵᏍᏔᏅ ᏍᎦᏚᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of(u"ᎭᏩᎼ"_s)
+			"haw"_s,
+			u"ᎭᏩᎼ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"ᏳᎷᏇ"_s)
+			"UY"_s,
+			u"ᏳᎷᏇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("prg"_s),
-			$of(u"ᏡᏏᎠᏂ"_s)
+			"prg"_s,
+			u"ᏡᏏᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"ᎤᏍᏇᎩᏍᏖᏂ"_s)
+			"UZ"_s,
+			u"ᎤᏍᏇᎩᏍᏖᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"ᎠᏰᏟ ᎡᎶᎯ ᏓᏟᎶᏍᏗᏓᏅᎢ ᏔᎹᏏᏘ"_s)
+			"tzm"_s,
+			u"ᎠᏰᏟ ᎡᎶᎯ ᏓᏟᎶᏍᏗᏓᏅᎢ ᏔᎹᏏᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nnh"_s),
-			$of(u"ᎾᏥᏰᎹᏊᏂ"_s)
+			"nnh"_s,
+			u"ᎾᏥᏰᎹᏊᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"ᎠᏥᎳᏁᏠ ᎦᏚᎲ"_s)
+			"VA"_s,
+			u"ᎠᏥᎳᏁᏠ ᎦᏚᎲ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"ᎤᏓᏅᏘ ᏫᏂᏏᏂᏗ ᎠᎴ ᎾᏍᎩ ᏇᎾᏗᏁᏍ"_s)
+			"VC"_s,
+			u"ᎤᏓᏅᏘ ᏫᏂᏏᏂᏗ ᎠᎴ ᎾᏍᎩ ᏇᎾᏗᏁᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"ᏪᏁᏑᏪᎳ"_s)
+			"VE"_s,
+			u"ᏪᏁᏑᏪᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"ᏈᏗᏍ ᎠᏒᏂᎸ ᏂᎨᏒᎾ ᏚᎦᏚᏛᎢ"_s)
+			"VG"_s,
+			u"ᏈᏗᏍ ᎠᏒᏂᎸ ᏂᎨᏒᎾ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"U.S. ᎠᏒᏂᎸ ᏂᎨᏒᎾ ᏚᎦᏚᏛᎢ"_s)
+			"VI"_s,
+			u"U.S. ᎠᏒᏂᎸ ᏂᎨᏒᎾ ᏚᎦᏚᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"ᏫᎡᏘᎾᎻ"_s)
+			"VN"_s,
+			u"ᏫᎡᏘᎾᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"ᏩᏂᎤᏩᏚ"_s)
+			"VU"_s,
+			u"ᏩᏂᎤᏩᏚ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of(u"ᏃᎦᏱ"_s)
+			"nog"_s,
+			u"ᏃᎦᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwk"_s),
-			$of(u"Ꮖ"_s)
+			"rwk"_s,
+			u"Ꮖ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of(u"ᎠᏍᏔᎴᏏᎠ"_s)
+			"053"_s,
+			u"ᎠᏍᏔᎴᏏᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of(u"ᎺᎳᏁᏏᎠ"_s)
+			"054"_s,
+			u"ᎺᎳᏁᏏᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"ᏩᎵᏍ ᎠᎴ ᏊᏚᎾ"_s)
+			"WF"_s,
+			u"ᏩᎵᏍ ᎠᎴ ᏊᏚᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of(u"ᎠᏰᏟ ᏧᎾᎵᎪᎯ ᎾᎿ ᎹᎢᏉᏂᏏᏯ ᎢᎬᎾᏕᎾ"_s)
+			"057"_s,
+			u"ᎠᏰᏟ ᏧᎾᎵᎪᎯ ᎾᎿ ᎹᎢᏉᏂᏏᏯ ᎢᎬᎾᏕᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jgo"_s),
-			$of(u"ᎾᎪᏆ"_s)
+			"jgo"_s,
+			u"ᎾᎪᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lkt"_s),
-			$of(u"ᎳᎪᏓ"_s)
+			"lkt"_s,
+			u"ᎳᎪᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wae"_s),
-			$of(u"ᏩᎵᏎᎵ"_s)
+			"wae"_s,
+			u"ᏩᎵᏎᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"ᏌᎼᎠ"_s)
+			"WS"_s,
+			u"ᏌᎼᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of(u"ᏬᎳᏱᏔ"_s)
+			"wal"_s,
+			u"ᏬᎳᏱᏔ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XA"_s),
-			$of(u"ᏡᏙ-ᏄᏍᏛᎢᎥᎧᏁᎬᎢ"_s)
+			"XA"_s,
+			u"ᏡᏙ-ᏄᏍᏛᎢᎥᎧᏁᎬᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of(u"ᏩᎴ"_s)
+			"war"_s,
+			u"ᏩᎴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XB"_s),
-			$of(u"ᏡᏙ-ᏈᏗ"_s)
+			"XB"_s,
+			u"ᏡᏙ-ᏈᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of(u"ᎠᏩᏗ"_s)
+			"awa"_s,
+			u"ᎠᏩᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of(u"ᏆᎵᏂᏏᎠ"_s)
+			"061"_s,
+			u"ᏆᎵᏂᏏᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of(u"ᎪᏐᏉ"_s)
+			"XK"_s,
+			u"ᎪᏐᏉ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(metaValue_gu)
+			"Gujr"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of(u"ᎪᏪᎳᏅ ᏂᎨᏒᎾ"_s)
+			"Zxxx"_s,
+			u"ᎪᏪᎳᏅ ᏂᎨᏒᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"ᏰᎺᏂ"_s)
+			"YE"_s,
+			u"ᏰᎺᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(u"ᎾᎪ"_s)
+			"nqo"_s,
+			u"ᎾᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of(u"ᎠᏟᎶᏍᏗ ᏗᎦᏅᏃᏙᏗ ᏕᎦᏅᏃᏛᎢ"_s)
+			"type.co.standard"_s,
+			u"ᎠᏟᎶᏍᏗ ᏗᎦᏅᏃᏙᏗ ᏕᎦᏅᏃᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"ᎺᏯᏖ"_s)
+			"YT"_s,
+			u"ᎺᏯᏖ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"ᏧᎦᎾᏮ ᎬᎿᎨᏍᏛ"_s)
+			"ZA"_s,
+			u"ᏧᎦᎾᏮ ᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.loose"_s),
-			$of(u"ᏩᎾᎢ ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s)
+			"type.lb.loose"_s,
+			u"ᏩᎾᎢ ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of(u"ᏕᏫᎾᎦᎵ"_s)
+			"Deva"_s,
+			u"ᏕᏫᎾᎦᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.geor"_s),
-			$of(u"ᎩᎴᎪᎵᎠᏂ ᏗᏎᏍᏗ"_s)
+			"type.nu.geor"_s,
+			u"ᎩᎴᎪᎵᎠᏂ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of(u"ᎯᎳᎦᎾ"_s)
+			"Hira"_s,
+			u"ᎯᎳᎦᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"ᏌᎻᏈᏯ"_s)
+			"ZM"_s,
+			u"ᏌᎻᏈᏯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"ᏏᎻᏆᏇ"_s)
+			"ZW"_s,
+			u"ᏏᎻᏆᏇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of(u"ᏄᏬᎵᏍᏛᎾ ᎤᏔᏂᏗᎦᏙᎯ"_s)
+			"ZZ"_s,
+			u"ᏄᏬᎵᏍᏛᎾ ᎤᏔᏂᏗᎦᏙᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.metric"_s),
-			$of(u"ᎠᏂᎩᎸᏥ ᏂᏓᏳᏓᎴᏅᎯ ᏗᏎᏍᏗ ᏄᏍᏗᏓᏅᎢ"_s)
+			"type.ms.metric"_s,
+			u"ᎠᏂᎩᎸᏥ ᏂᏓᏳᏓᎴᏅᎯ ᏗᏎᏍᏗ ᏄᏍᏗᏓᏅᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of(u"ISO-8601 ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.iso8601"_s,
+			u"ISO-8601 ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of(u"ᏧᏴᏢ ᏗᏜ ᏐᏠ"_s)
+			"nso"_s,
+			u"ᏧᏴᏢ ᏗᏜ ᏐᏠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.telu"_s),
-			$of(u"ᏖᎷᎦ ᏗᏎᏍᏗ"_s)
+			"type.nu.telu"_s,
+			u"ᏖᎷᎦ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of(u"ᎶᏏ"_s)
+			"loz"_s,
+			u"ᎶᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmc"_s),
-			$of(u"ᎹᏣᎺ"_s)
+			"jmc"_s,
+			u"ᎹᏣᎺ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hansfin"_s),
-			$of(u"ᎠᎯᏗᎨ ᏓᎶᏂᎨ ᎠᏕᎳ ᏗᏎᏍᏗ"_s)
+			"type.nu.hansfin"_s,
+			u"ᎠᎯᏗᎨ ᏓᎶᏂᎨ ᎠᏕᎳ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"ᎯᎵᎨᎾᏂ"_s)
+			"hil"_s,
+			u"ᎯᎵᎨᎾᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arabext"_s),
-			$of(u"ᎦᏅᎯᏛ ᎠᎳᏈ-ᎡᏂᏗᎩ ᏗᏎᏍᏗ"_s)
+			"type.nu.arabext"_s,
+			u"ᎦᏅᎯᏛ ᎠᎳᏈ-ᎡᏂᏗᎩ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nus"_s),
-			$of(u"ᏄᏪᎵ"_s)
+			"nus"_s,
+			u"ᏄᏪᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of(u"ᏓᎪᏔ"_s)
+			"dak"_s,
+			u"ᏓᎪᏔ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.fullwide"_s),
-			$of(u"ᎧᎵᎢ-ᎾᏯᏛᏒ ᏗᏎᏍᏗ"_s)
+			"type.nu.fullwide"_s,
+			u"ᎧᎵᎢ-ᎾᏯᏛᏒ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of(u"ᏓᎳᏆ"_s)
+			"dar"_s,
+			u"ᏓᎳᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dav"_s),
-			$of(u"ᏔᎢᏔ"_s)
+			"dav"_s,
+			u"ᏔᎢᏔ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrc"_s),
-			$of(u"ᏧᏴᏢ ᏗᏜ ᎷᎵ"_s)
+			"lrc"_s,
+			u"ᏧᏴᏢ ᏗᏜ ᎷᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of(u"ᎤᏚᎷᏘ"_s)
+			"udm"_s,
+			u"ᎤᏚᎷᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(metaValue_km)
+			"Khmr"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of(u"ᏌᏅᏓᏫ"_s)
+			"sad"_s,
+			u"ᏌᏅᏓᏫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.roman"_s),
-			$of(u"ᎠᏂᎶᎻ ᏗᏎᏍᏗ"_s)
+			"type.nu.roman"_s,
+			u"ᎠᏂᎶᎻ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of(u"ᏌᎧᎾ"_s)
+			"sah"_s,
+			u"ᏌᎧᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("saq"_s),
-			$of(u"ᏌᎹᏊᎷ"_s)
+			"saq"_s,
+			u"ᏌᎹᏊᎷ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of(u"ᏌᏂᏔᎵ"_s)
+			"sat"_s,
+			u"ᏌᏂᏔᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sba"_s),
-			$of(u"ᎾᎦᎹᏇ"_s)
+			"sba"_s,
+			u"ᎾᎦᎹᏇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of(u"ᎬᎹᎩ"_s)
+			"Guru"_s,
+			u"ᎬᎹᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of(u"ᎷᏆ-ᎷᎷᎠ"_s)
+			"lua"_s,
+			u"ᎷᏆ-ᎷᎷᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbp"_s),
-			$of(u"ᏌᏁᎫ"_s)
+			"sbp"_s,
+			u"ᏌᏁᎫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of(u"ᏂᏯᎾᎪᎴ"_s)
+			"nyn"_s,
+			u"ᏂᏯᎾᎪᎴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of(u"ᎷᎾᏓ"_s)
+			"lun"_s,
+			u"ᎷᎾᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of(u"ᎷᎣ"_s)
+			"luo"_s,
+			u"ᎷᎣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"ᎠᏈᎵᎩ"_s)
+			"fil"_s,
+			u"ᎠᏈᎵᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of(u"ᎭᎼᏂᎩ"_s)
+			"hmn"_s,
+			u"ᎭᎼᏂᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of(u"ᎻᏐ"_s)
+			"lus"_s,
+			u"ᎻᏐ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of(u"ᏆᎵᏁᏏ"_s)
+			"ban"_s,
+			u"ᏆᎵᏁᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luy"_s),
-			$of(u"ᎷᏱᎠ"_s)
+			"luy"_s,
+			u"ᎷᏱᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"ᏆᏌᎠ"_s)
+			"bas"_s,
+			u"ᏆᏌᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of(u"ᎠᏂᏍᏆᏂᏱ ᏍᏆᏂ"_s)
+			"es_ES"_s,
+			u"ᎠᏂᏍᏆᏂᏱ ᏍᏆᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of(u"ᏍᎦᏗ"_s)
+			"sco"_s,
+			u"ᏍᎦᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of(u"ᏏᏏᎵᎠᏂ"_s)
+			"scn"_s,
+			u"ᏏᏏᎵᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of(u"ᎠᏩᎳ"_s)
+			"aa"_s,
+			u"ᎠᏩᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"ᎠᏆᏏᎠᏂ"_s)
+			"ab"_s,
+			u"ᎠᏆᏏᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"ᎠᎬᎿᎨᏍᏛ"_s)
+			"af"_s,
+			u"ᎠᎬᎿᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"ᎠᎧᎾ"_s)
+			"ak"_s,
+			u"ᎠᎧᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"ᎠᎹᎭᎵᎩ"_s)
+			"am"_s,
+			u"ᎠᎹᎭᎵᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of(u"ᎠᏩᎪᏂᏏ"_s)
+			"an"_s,
+			u"ᎠᏩᎪᏂᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(u"ᎡᎳᏈᎩ"_s)
+			"Arab"_s,
+			u"ᎡᎳᏈᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(u"ᏣᏆᏂᏏ"_s)
+			"Jpan"_s,
+			u"ᏣᏆᏂᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"ᎡᎳᏈ"_s)
+			"ar"_s,
+			u"ᎡᎳᏈ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of(u"ᏣᏩᏂᏏ ᏧᏃᏴᎩ"_s)
+			"Hrkt"_s,
+			u"ᏣᏩᏂᏏ ᏧᏃᏴᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of(u"ᎠᏌᎻᏏ"_s)
+			"as"_s,
+			u"ᎠᏌᎻᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of(u"ᎠᏩᎵᎧ"_s)
+			"av"_s,
+			u"ᎠᏩᎵᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of(u"ᎠᏱᎹᎳ"_s)
+			"ay"_s,
+			u"ᎠᏱᎹᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(metaValue_AZ)
+			"az"_s,
+			metaValue_AZ
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"ᏆᏍᎯᎩᎠ"_s)
+			"ba"_s,
+			u"ᏆᏍᎯᎩᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"ᏇᎳᎷᏏ"_s)
+			"be"_s,
+			u"ᏇᎳᎷᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"ᏊᎵᎨᎵᎠᏂ"_s)
+			"bg"_s,
+			u"ᏊᎵᎨᎵᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of(u"ᏈᏍᎳᎹ"_s)
+			"bi"_s,
+			u"ᏈᏍᎳᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"ᏆᎻᏆᎳ"_s)
+			"bm"_s,
+			u"ᏆᎻᏆᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"ᏇᏂᎦᎳ"_s)
+			"bn"_s,
+			u"ᏇᏂᎦᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(metaValue_bo)
+			"bo"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of(u"ᎩᏟ ᎤᏄᎳᏥ"_s)
+			"dgr"_s,
+			u"ᎩᏟ ᎤᏄᎳᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"ᏇᏙᏂ"_s)
+			"br"_s,
+			u"ᏇᏙᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"ᏆᏍᏂᎠᏂ"_s)
+			"bs"_s,
+			u"ᏆᏍᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("see"_s),
-			$of(u"ᏏᏂᎦ"_s)
+			"see"_s,
+			u"ᏏᏂᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of(u"ᎹᎡᏂᎹᎳ"_s)
+			"Mymr"_s,
+			u"ᎹᎡᏂᎹᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.laoo"_s),
-			$of(u"ᎳᎣ ᏗᏎᏍᏗ"_s)
+			"type.nu.laoo"_s,
+			u"ᎳᎣ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("seh"_s),
-			$of(u"ᏎᎾ"_s)
+			"seh"_s,
+			u"ᏎᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"ᎨᏔᎳᏂ"_s)
+			"ca"_s,
+			u"ᎨᏔᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ses"_s),
-			$of(u"ᎪᏱᎳᏈᎶ ᏎᏂ"_s)
+			"ses"_s,
+			u"ᎪᏱᎳᏈᎶ ᏎᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of(u"ᏤᏤᏂ"_s)
+			"ce"_s,
+			u"ᏤᏤᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of(u"ᏣᎼᎶ"_s)
+			"ch"_s,
+			u"ᏣᎼᎶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"ᎪᎵᏍᎢᎧᏂ"_s)
+			"co"_s,
+			u"ᎪᎵᏍᎢᎧᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(metaValue_or)
+			"Orya"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"ᏤᎩ"_s)
+			"cs"_s,
+			u"ᏤᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of(u"ᏧᏂᎳᏫᏍᏗ ᏍᎳᏫᎪ"_s)
+			"cu"_s,
+			u"ᏧᏂᎳᏫᏍᏗ ᏍᎳᏫᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of(u"ᏧᏩᏏ"_s)
+			"cv"_s,
+			u"ᏧᏩᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"ᏪᎵᏏ"_s)
+			"cy"_s,
+			u"ᏪᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ethi"_s),
-			$of(u"ᎢᏗᏯᏈᎩ ᏗᏎᏍᏗ"_s)
+			"type.nu.ethi"_s,
+			u"ᎢᏗᏯᏈᎩ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"ᏕᏂᏍ"_s)
+			"da"_s,
+			u"ᏕᏂᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"ᏳᎳᏈ ᏉᏧᎩᏍ"_s)
+			"pt_PT"_s,
+			u"ᏳᎳᏈ ᏉᏧᎩᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"ᏙᎢᏥ"_s)
+			"de"_s,
+			u"ᏙᎢᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.standard"_s),
-			$of(u"ᎠᏟᎶᏍᏗ ᎠᏕᎳ ᏱᎬᏁᎸᎯ"_s)
+			"type.cf.standard"_s,
+			u"ᎠᏟᎶᏍᏗ ᎠᏕᎳ ᏱᎬᏁᎸᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of(u"ᏇᎹᏆ"_s)
+			"bem"_s,
+			u"ᏇᎹᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of(u"ᏗᏪᎯ"_s)
+			"dv"_s,
+			u"ᏗᏪᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"ᏔᏘᏂ ᎠᎹᏰᏟ ᏍᏆᏂ"_s)
+			"es_419"_s,
+			u"ᏔᏘᏂ ᎠᎹᏰᏟ ᏍᏆᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of(u"ᏓᏐᏅᎧ"_s)
+			"dz"_s,
+			u"ᏓᏐᏅᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bez"_s),
-			$of(u"ᏇᎾ"_s)
+			"bez"_s,
+			u"ᏇᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.chinese"_s),
-			$of(u"ᏓᎶᏂᎨᏍᏛ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.chinese"_s,
+			u"ᏓᎶᏂᎨᏍᏛ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dje"_s),
-			$of(u"ᏌᎹ"_s)
+			"dje"_s,
+			u"ᏌᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.grek"_s),
-			$of(u"ᎠᏂᎪᎢ ᏗᏎᏍᏗ"_s)
+			"type.nu.grek"_s,
+			u"ᎠᏂᎪᎢ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of(u"ᎡᏪ"_s)
+			"ee"_s,
+			u"ᎡᏪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.normal"_s),
-			$of(u"ᏱᎬᏍᏗᎭᏊ ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s)
+			"type.lb.normal"_s,
+			u"ᏱᎬᏍᏗᎭᏊ ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro_MD"_s),
-			$of(u"ᎹᎵᏙᏫᎠ ᏣᎹᏂᎠᏂ"_s)
+			"ro_MD"_s,
+			u"ᎹᎵᏙᏫᎠ ᏣᎹᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"ᎠᏂᎪᎢ"_s)
+			"el"_s,
+			u"ᎠᏂᎪᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"ᎩᎵᏏ"_s)
+			"en"_s,
+			u"ᎩᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"ᎡᏍᏇᎳᏂᏙ"_s)
+			"eo"_s,
+			u"ᎡᏍᏇᎳᏂᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"ᏍᏆᏂ"_s)
+			"es"_s,
+			u"ᏍᏆᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"ᎡᏍᏙᏂᎠᏂ"_s)
+			"et"_s,
+			u"ᎡᏍᏙᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hanb"_s),
-			$of(u"ᎭᏂ ᎾᎿ ᏆᏉᎼᏬ"_s)
+			"Hanb"_s,
+			u"ᎭᏂ ᎾᎿ ᏆᏉᎼᏬ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"ᏆᏍᎨ"_s)
+			"eu"_s,
+			u"ᏆᏍᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hang"_s),
-			$of(u"ᎭᏂᎫᎵ"_s)
+			"Hang"_s,
+			u"ᎭᏂᎫᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"ᏔᏤᎵᎯᏘ"_s)
+			"shi"_s,
+			u"ᏔᏤᎵᎯᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of(u"ᎦᎸᎳᏗᎨ ᏐᏈᎠᏂ"_s)
+			"hsb"_s,
+			u"ᎦᎸᎳᏗᎨ ᏐᏈᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of(u"ᎭᏂ"_s)
+			"Hani"_s,
+			u"ᎭᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of(u"ᏝᏂ"_s)
+			"shn"_s,
+			u"ᏝᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"ᏇᏏᎠᏂ"_s)
+			"fa"_s,
+			u"ᏇᏏᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of(u"ᎠᎯᏗᎨ"_s)
+			"Hans"_s,
+			u"ᎠᎯᏗᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of(u"ᏭᏗᎵᎬ ᏗᏜ ᏗᏎᏍᏗ"_s)
+			"type.nu.latn"_s,
+			u"ᏭᏗᎵᎬ ᏗᏜ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of(u"ᎤᏦᏍᏗ"_s)
+			"Hant"_s,
+			u"ᎤᏦᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"ᏊᎳᏂ"_s)
+			"ff"_s,
+			u"ᏊᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"ᏈᏂᏍ"_s)
+			"fi"_s,
+			u"ᏈᏂᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of(u"ᏫᏥᎠᏂ"_s)
+			"fj"_s,
+			u"ᏫᏥᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of(u"ᏠᏂ"_s)
+			"fon"_s,
+			u"ᏠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yue"_s),
-			$of(u"ᎨᎾᏙᏂᏏ"_s)
+			"yue"_s,
+			u"ᎨᎾᏙᏂᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"ᏇᎶᎡᏍ"_s)
+			"fo"_s,
+			u"ᏇᎶᎡᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of(u"ᎤᎹᏊᏅᏚ"_s)
+			"umb"_s,
+			u"ᎤᎹᏊᏅᏚ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"ᎦᎸᏥ"_s)
+			"fr"_s,
+			u"ᎦᎸᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"ᏭᏕᎵᎬ ᏗᏜ ᏟᏏᎠᏂ"_s)
+			"fy"_s,
+			u"ᏭᏕᎵᎬ ᏗᏜ ᏟᏏᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"ᎨᎵᎩ"_s)
+			"ga"_s,
+			u"ᎨᎵᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"ᏍᎦᏗ ᎨᎵᎩ"_s)
+			"gd"_s,
+			u"ᏍᎦᏗ ᎨᎵᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"ᎦᎵᏏᎠᏂ"_s)
+			"gl"_s,
+			u"ᎦᎵᏏᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"ᏆᎳᏂ"_s)
+			"gn"_s,
+			u"ᏆᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of(u"ᏉᏣᏊᎵ"_s)
+			"bho"_s,
+			u"ᏉᏣᏊᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of(u"ᏄᏬᎵᏍᏛᎾ ᎦᏬᏂᎯᏍᏗ"_s)
+			"und"_s,
+			u"ᏄᏬᎵᏍᏛᎾ ᎦᏬᏂᎯᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(metaValue_gu)
+			"gu"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of(u"ᎹᎾᎧᏏ"_s)
+			"gv"_s,
+			u"ᎹᎾᎧᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"ᎭᎤᏌ"_s)
+			"ha"_s,
+			u"ᎭᎤᏌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"ᎠᏂᏈᎷ"_s)
+			"he"_s,
+			u"ᎠᏂᏈᎷ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"ᎯᏂᏗ"_s)
+			"hi"_s,
+			u"ᎯᏂᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of(u"ᎠᏂᎱᏆ"_s)
+			"hup"_s,
+			u"ᎠᏂᎱᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of(u"ᏈᏂ"_s)
+			"bin"_s,
+			u"ᏈᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"ᎧᎶᎡᏏᏂ"_s)
+			"hr"_s,
+			u"ᎧᎶᎡᏏᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"ᎮᏏᎠᏂ ᏟᏲᎵ"_s)
+			"ht"_s,
+			u"ᎮᏏᎠᏂ ᏟᏲᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"ᎲᏂᎦᎵᎠᏂ"_s)
+			"hu"_s,
+			u"ᎲᏂᎦᎵᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(metaValue_hy)
+			"hy"_s,
+			metaValue_hy
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of(u"ᎮᎴᎶ"_s)
+			"hz"_s,
+			u"ᎮᎴᎶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"ᎠᏰᏟ ᎦᏬᏂᎯᏍᏗ"_s)
+			"ia"_s,
+			u"ᎠᏰᏟ ᎦᏬᏂᎯᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jamo"_s),
-			$of(u"ᏣᎼ"_s)
+			"Jamo"_s,
+			u"ᏣᎼ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"ᎢᏂᏙᏂᏏᎠ"_s)
+			"id"_s,
+			u"ᎢᏂᏙᏂᏏᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tibt"_s),
-			$of(u"ᏘᏇᏔᏂ ᏗᏎᏍᏗ"_s)
+			"type.nu.tibt"_s,
+			u"ᏘᏇᏔᏂ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"ᎢᎦᎪ"_s)
+			"ig"_s,
+			u"ᎢᎦᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of(u"ᏏᏧᏩᏂ Ᏹ"_s)
+			"ii"_s,
+			u"ᏏᏧᏩᏂ Ᏹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of(u"ᎢᏙ"_s)
+			"io"_s,
+			u"ᎢᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"ᏧᏁᏍᏓᎸᎯᎢᎩ"_s)
+			"is"_s,
+			u"ᏧᏁᏍᏓᎸᎯᎢᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"ᎬᏩᎵᏲᏥᎢ"_s)
+			"it"_s,
+			u"ᎬᏩᎵᏲᏥᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"ᎢᏄᎦᏘᏚ"_s)
+			"iu"_s,
+			u"ᎢᏄᎦᏘᏚ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(metaValue_JP)
+			"ja"_s,
+			metaValue_JP
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(metaValue_ml)
+			"Mlym"_s,
+			metaValue_ml
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of(u"ᏧᎦᎾᏮ ᏗᏜ ᏌᎻ"_s)
+			"sma"_s,
+			u"ᏧᎦᎾᏮ ᏗᏜ ᏌᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(u"ᏆᏌ ᏣᏩ"_s)
+			"jv"_s,
+			u"ᏆᏌ ᏣᏩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"ᎹᏚᎴᏏ"_s)
+			"mad"_s,
+			u"ᎹᏚᎴᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of(u"ᎷᎴ ᏌᎻ"_s)
+			"smj"_s,
+			u"ᎷᎴ ᏌᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of(u"ᎹᎦᎯ"_s)
+			"mag"_s,
+			u"ᎹᎦᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of(u"ᎹᏟᎵ"_s)
+			"mai"_s,
+			u"ᎹᏟᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of(u"ᎢᎾᎵ ᏌᎻ"_s)
+			"smn"_s,
+			u"ᎢᎾᎵ ᏌᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(metaValue_ka)
+			"ka"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of(u"ᏏᎩᏏᎧ"_s)
+			"bla"_s,
+			u"ᏏᎩᏏᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of(u"ᎹᎧᏌ"_s)
+			"mak"_s,
+			u"ᎹᎧᏌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of(u"ᏍᎪᎵᏘ ᏌᎻ"_s)
+			"sms"_s,
+			u"ᏍᎪᎵᏘ ᏌᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of(u"ᎩᎫᏳ"_s)
+			"ki"_s,
+			u"ᎩᎫᏳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of(u"ᎹᏌᏱ"_s)
+			"mas"_s,
+			u"ᎹᏌᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of(u"ᎫᏩᏂᎠᎹ"_s)
+			"kj"_s,
+			u"ᎫᏩᏂᎠᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of(u"ᎧᏌᎧ"_s)
+			"kk"_s,
+			u"ᎧᏌᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of(u"ᎧᎳᎵᏑᏘ"_s)
+			"kl"_s,
+			u"ᎧᎳᎵᏑᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(metaValue_km)
+			"km"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(metaValue_kn)
+			"kn"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(metaValue_ko)
+			"ko"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of(u"ᎧᏄᎵ"_s)
+			"kr"_s,
+			u"ᎧᏄᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"ᎧᏏᎻᎵ"_s)
+			"ks"_s,
+			u"ᎧᏏᎻᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"ᎫᏗᏏ"_s)
+			"ku"_s,
+			u"ᎫᏗᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of(u"ᎪᎻ"_s)
+			"kv"_s,
+			u"ᎪᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of(u"ᏎᎷᎭ"_s)
+			"kw"_s,
+			u"ᏎᎷᎭ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(metaValue_KG)
+			"ky"_s,
+			metaValue_KG
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of(u"ᏐᏂᏂᎨ"_s)
+			"snk"_s,
+			u"ᏐᏂᏂᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(metaValue_la)
+			"la"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of(u"ᎸᎦᏏᎻᏋᎢᏍ"_s)
+			"lb"_s,
+			u"ᎸᎦᏏᎻᏋᎢᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mlym"_s),
-			$of(u"ᎹᎳᏯᎳᎻ ᏗᏎᏍᏗ"_s)
+			"type.nu.mlym"_s,
+			u"ᎹᎳᏯᎳᎻ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of(u"ᎦᏂᏓ"_s)
+			"lg"_s,
+			u"ᎦᏂᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of(u"ᎴᎹᏊᎵᏏ"_s)
+			"li"_s,
+			u"ᎴᎹᏊᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(metaValue_bo)
+			"Tibt"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of(u"ᎵᏂᎦᎳ"_s)
+			"ln"_s,
+			u"ᎵᏂᎦᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of(u"ᏞᎤᎵᎠᏂ"_s)
+			"fur"_s,
+			u"ᏞᎤᎵᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(metaValue_lo)
+			"lo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.uksystem"_s),
-			$of(u"ᏂᎬᎾᏛᎢ ᎤᏓᏤᎵᎦᏯ ᎠᏟᎶᏛ ᏄᏍᏗᏓᏅᎢ"_s)
+			"type.ms.uksystem"_s,
+			u"ᏂᎬᎾᏛᎢ ᎤᏓᏤᎵᎦᏯ ᎠᏟᎶᏛ ᏄᏍᏗᏓᏅᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"ᎵᏚᏩᏂᎠᏂ"_s)
+			"lt"_s,
+			u"ᎵᏚᏩᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of(u"ᎷᏆ-ᎧᏔᎦ"_s)
+			"lu"_s,
+			u"ᎷᏆ-ᎧᏔᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"ᎳᏘᏫᎠᏂ"_s)
+			"lv"_s,
+			u"ᎳᏘᏫᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"ᎹᎳᎦᏏ"_s)
+			"mg"_s,
+			u"ᎹᎳᎦᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of(u"ᎹᏌᎵᏏ"_s)
+			"mh"_s,
+			u"ᎹᏌᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of(u"ᎠᏓᏁᏟᏴᏗᏍᎩ Unicode ᏗᎦᏅᏃᏙᏗ ᏕᎦᏅᏃᏛᎢ"_s)
+			"type.co.ducet"_s,
+			u"ᎠᏓᏁᏟᏴᏗᏍᎩ Unicode ᏗᎦᏅᏃᏙᏗ ᏕᎦᏅᏃᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of(u"ᎹᏫ"_s)
+			"mi"_s,
+			u"ᎹᏫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"ᎹᏎᏙᏂᎠᏂ"_s)
+			"mk"_s,
+			u"ᎹᏎᏙᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(metaValue_ml)
+			"ml"_s,
+			metaValue_ml
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(metaValue_mn)
+			"mn"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"ᎹᎳᏘ"_s)
+			"mr"_s,
+			u"ᎹᎳᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"ᎹᎴ"_s)
+			"ms"_s,
+			u"ᎹᎴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"ᎹᎵᏘᏍ"_s)
+			"mt"_s,
+			u"ᎹᎵᏘᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"ᏋᎻᏍ"_s)
+			"my"_s,
+			u"ᏋᎻᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(metaValue_hy)
+			"Armn"_s,
+			metaValue_hy
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of(u"ᎼᎧᏌ"_s)
+			"mdf"_s,
+			u"ᎼᎧᏌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of(u"ᎡᎳᏗ ᏐᏈᎠᏂ"_s)
+			"dsb"_s,
+			u"ᎡᎳᏗ ᏐᏈᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(metaValue_NR)
+			"na"_s,
+			metaValue_NR
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.search"_s),
-			$of(u"ᏂᎦᎥ-ᎢᏳᏱᎸᏗ ᎠᏱᏍᏗ"_s)
+			"type.co.search"_s,
+			u"ᏂᎦᎥ-ᎢᏳᏱᎸᏗ ᎠᏱᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"ᏃᎵᏪᏥᏂ ᏉᎧᎹᎵ"_s)
+			"nb"_s,
+			u"ᏃᎵᏪᏥᏂ ᏉᎧᎹᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of(u"ᏧᏴᏢ ᏂᏕᏇᎴ"_s)
+			"nd"_s,
+			u"ᏧᏴᏢ ᏂᏕᏇᎴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(metaValue_NP)
+			"ne"_s,
+			metaValue_NP
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of(u"ᎾᏙᎦ"_s)
+			"ng"_s,
+			u"ᎾᏙᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"ᏛᏥ"_s)
+			"nl"_s,
+			u"ᏛᏥ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"ᏃᎵᏪᏥᏂ ᎾᎵᏍᎩ"_s)
+			"nn"_s,
+			u"ᏃᎵᏪᏥᏂ ᎾᎵᏍᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of(u"ᏧᎦᎾᏮ ᏂᏕᏇᎴ"_s)
+			"nr"_s,
+			u"ᏧᎦᎾᏮ ᏂᏕᏇᎴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"ᎾᏩᎰ"_s)
+			"nv"_s,
+			u"ᎾᏩᎰ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of(u"ᏂᏯᏂᏣ"_s)
+			"ny"_s,
+			u"ᏂᏯᏂᏣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of(u"ᎧᏥᏂ"_s)
+			"kac"_s,
+			u"ᎧᏥᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of(u"ᎧᏈᎴ"_s)
+			"kab"_s,
+			u"ᎧᏈᎴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"ᎠᏏᏔᏂ"_s)
+			"oc"_s,
+			u"ᎠᏏᏔᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaj"_s),
-			$of(u"ᏥᏧ"_s)
+			"kaj"_s,
+			u"ᏥᏧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of(u"ᎧᎻᏆ"_s)
+			"kam"_s,
+			u"ᎧᎻᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of(u"ᎺᎾᏕ"_s)
+			"men"_s,
+			u"ᎺᎾᏕ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mer"_s),
-			$of(u"ᎺᎷ"_s)
+			"mer"_s,
+			u"ᎺᎷ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armn"_s),
-			$of(u"ᎠᎳᎻᎠᏂ ᏗᏎᏍᏗ"_s)
+			"type.nu.armn"_s,
+			u"ᎠᎳᎻᎠᏂ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of(u"ᎣᎶᎼ"_s)
+			"om"_s,
+			u"ᎣᎶᎼ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(metaValue_or)
+			"or"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"ᎣᏎᏘᎧ"_s)
+			"os"_s,
+			u"ᎣᏎᏘᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of(u"ᎧᏆᏗᎠᏂ"_s)
+			"kbd"_s,
+			u"ᎧᏆᏗᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mfe"_s),
-			$of(u"ᎼᎵᏏᎡᏂ"_s)
+			"mfe"_s,
+			u"ᎼᎵᏏᎡᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of(u"ᏏᎳᎾᏂ ᏙᏃᎪ"_s)
+			"srn"_s,
+			u"ᏏᎳᎾᏂ ᏙᏃᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"ᏡᏂᏣᏈ"_s)
+			"pa"_s,
+			u"ᏡᏂᏣᏈ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of(u"ᏚᎠᎳ"_s)
+			"dua"_s,
+			u"ᏚᎠᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"ᏉᎵᏍ"_s)
+			"pl"_s,
+			u"ᏉᎵᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.dangi"_s),
-			$of(u"ᏓᏂᎩ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.dangi"_s,
+			u"ᏓᏂᎩ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"ᏆᏍᏙ"_s)
+			"ps"_s,
+			u"ᏆᏍᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"ᏉᏧᎩᏍ"_s)
+			"pt"_s,
+			u"ᏉᏧᎩᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.co"_s),
-			$of(u"ᏗᎦᏅᏃᏙᏗ ᏕᎦᏅᏃᏛᎢ"_s)
+			"key.co"_s,
+			u"ᏗᎦᏅᏃᏙᏗ ᏕᎦᏅᏃᏛᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of(u"ᏆᏏᎵᎢ ᏉᏧᎩᏍ"_s)
+			"pt_BR"_s,
+			u"ᏆᏏᎵᎢ ᏉᏧᎩᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kcg"_s),
-			$of(u"ᏔᏯᏆ"_s)
+			"kcg"_s,
+			u"ᏔᏯᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgh"_s),
-			$of(u"ᎹᎫᏩ-ᎻᏙ"_s)
+			"mgh"_s,
+			u"ᎹᎫᏩ-ᎻᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cf"_s),
-			$of(u"ᎠᏕᎳ ᏱᎬᏁᎸᎯ"_s)
+			"key.cf"_s,
+			u"ᎠᏕᎳ ᏱᎬᏁᎸᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ca"_s),
-			$of(u"ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"key.ca"_s,
+			u"ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(metaValue_lo)
+			"Laoo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("mgo"_s),
-			$of(u"ᎺᎳ’"_s)
+			"mgo"_s,
+			u"ᎺᎳ’"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h23"_s),
-			$of(u"24 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (0–23)"_s)
+			"type.hc.h23"_s,
+			u"24 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (0–23)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h24"_s),
-			$of(u"24 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (1–24)"_s)
+			"type.hc.h24"_s,
+			u"24 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (1–24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssy"_s),
-			$of(u"ᏌᎰ"_s)
+			"ssy"_s,
+			u"ᏌᎰ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymr"_s),
-			$of(u"ᎹᏯᎹᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.mymr"_s,
+			u"ᎹᏯᎹᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of(u"ᎨᏧᏩ"_s)
+			"qu"_s,
+			u"ᎨᏧᏩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brx"_s),
-			$of(u"ᏉᏙ"_s)
+			"brx"_s,
+			u"ᏉᏙ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kde"_s),
-			$of(u"ᎹᎪᏕ"_s)
+			"kde"_s,
+			u"ᎹᎪᏕ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"ᎢᏗᏯᏈᎩ"_s)
+			"Ethi"_s,
+			u"ᎢᏗᏯᏈᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h12"_s),
-			$of(u"12 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (1–12)"_s)
+			"type.hc.h12"_s,
+			u"12 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (1–12)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h11"_s),
-			$of(u"12 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (0–11)"_s)
+			"type.hc.h11"_s,
+			u"12 ᎢᏳᏟᎶᏓ ᏄᏍᏗᏓᏅᎢ (0–11)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"ᎠᏂᎶᎺᏂ"_s)
+			"rm"_s,
+			u"ᎠᏂᎶᎺᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of(u"ᎷᏂᏗ"_s)
+			"rn"_s,
+			u"ᎷᏂᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cu"_s),
-			$of(u"ᎠᏕᎳ"_s)
+			"key.cu"_s,
+			u"ᎠᏕᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"ᎶᎹᏂᎠᏂ"_s)
+			"ro"_s,
+			u"ᎶᎹᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.orya"_s),
-			$of(u"ᎣᏗᎠ ᏗᏎᏍᏗ"_s)
+			"type.nu.orya"_s,
+			u"ᎣᏗᎠ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hanidec"_s),
-			$of(u"ᏓᎶᏂᎨ ᏕᏏᎹᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.hanidec"_s,
+			u"ᏓᎶᏂᎨ ᏕᏏᎹᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"ᏲᏅᎯ"_s)
+			"ru"_s,
+			u"ᏲᏅᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"ᎩᏂᏯᏩᏂᏓ"_s)
+			"rw"_s,
+			u"ᎩᏂᏯᏩᏂᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kea"_s),
-			$of(u"ᎧᏊᏪᏗᎠᏄ"_s)
+			"kea"_s,
+			u"ᎧᏊᏪᏗᎠᏄ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"ᎻᎧᎹᎩ"_s)
+			"mic"_s,
+			u"ᎻᎧᎹᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of(u"ᏑᎫᎹ"_s)
+			"suk"_s,
+			u"ᏑᎫᎹ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_AU"_s),
-			$of(u"ᎡᎳᏗᏜ ᎩᎵᏏ"_s)
+			"en_AU"_s,
+			u"ᎡᎳᏗᏜ ᎩᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"ᏍᏂᏍᎩᏗ"_s)
+			"sa"_s,
+			u"ᏍᏂᏍᎩᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"ᏌᏗᏂᎠᏂ"_s)
+			"sc"_s,
+			u"ᏌᏗᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of(u"ᏏᏂᏗ"_s)
+			"sd"_s,
+			u"ᏏᏂᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"ᏧᏴᏢ ᏗᏜ ᏌᎻ"_s)
+			"se"_s,
+			u"ᏧᏴᏢ ᏗᏜ ᏌᎻ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of(u"ᎻᎾᎧᏆᎤ"_s)
+			"min"_s,
+			u"ᎻᎾᎧᏆᎤ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of(u"ᏌᏂᎪ"_s)
+			"sg"_s,
+			u"ᏌᏂᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"ᏏᎾᎭᎳ"_s)
+			"si"_s,
+			u"ᏏᎾᎭᎳ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"ᏍᎶᏩᎩ"_s)
+			"sk"_s,
+			u"ᏍᎶᏩᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"ᏍᎶᏫᏂᎠᏂ"_s)
+			"sl"_s,
+			u"ᏍᎶᏫᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"ᏌᎼᏯᏂ"_s)
+			"sm"_s,
+			u"ᏌᎼᏯᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of(u"ᏠᎾ"_s)
+			"sn"_s,
+			u"ᏠᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(metaValue_SO)
+			"so"_s,
+			metaValue_SO
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arab"_s),
-			$of(u"ᎠᎳᏈ-ᎡᏂᏗᎩ ᏗᏎᏍᏗ"_s)
+			"type.nu.arab"_s,
+			u"ᎠᎳᏈ-ᎡᏂᏗᎩ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"ᎠᎵᏇᏂ"_s)
+			"sq"_s,
+			u"ᎠᎵᏇᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"ᏒᏈᎠᏂ"_s)
+			"sr"_s,
+			u"ᏒᏈᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of(u"ᏍᏩᏘ"_s)
+			"ss"_s,
+			u"ᏍᏩᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.account"_s),
-			$of(u"ᎠᏕᎳ ᏗᏎᎯᎯ ᎠᏕᎳ ᏱᎬᏁᎸᎯ"_s)
+			"type.cf.account"_s,
+			u"ᎠᏕᎳ ᏗᏎᎯᎯ ᎠᏕᎳ ᏱᎬᏁᎸᎯ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"ᏧᎦᎾᏮ ᏗᏜ ᏐᏠ"_s)
+			"st"_s,
+			u"ᏧᎦᎾᏮ ᏗᏜ ᏐᏠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(u"ᏑᏂᏓᏂᏏ"_s)
+			"su"_s,
+			u"ᏑᏂᏓᏂᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"ᏍᏫᏗᏏ"_s)
+			"sv"_s,
+			u"ᏍᏫᏗᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"ᏍᏩᎯᎵ"_s)
+			"sw"_s,
+			u"ᏍᏩᎯᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hantfin"_s),
-			$of(u"ᎤᏦᏍᏗ ᏓᎶᏂᎨ ᎠᏕᎳ ᏗᏎᏍᏗ"_s)
+			"type.nu.hantfin"_s,
+			u"ᎤᏦᏍᏗ ᏓᎶᏂᎨ ᎠᏕᎳ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibb"_s),
-			$of(u"ᎢᏈᏈᎣ"_s)
+			"ibb"_s,
+			u"ᎢᏈᏈᎣ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of(u"ᎢᏆᏂ"_s)
+			"iba"_s,
+			u"ᎢᏆᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(metaValue_ta)
+			"ta"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"ᏓᎶᎾᎨᏍᏛ"_s)
+			"142"_s,
+			u"ᏓᎶᎾᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of(u"ᎠᏰᏟ ᏓᎶᏂᎨᏍᏛ"_s)
+			"143"_s,
+			u"ᎠᏰᏟ ᏓᎶᏂᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(metaValue_te)
+			"te"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"ᏭᏕᎵᎬ ᏗᏜ ᏓᎶᏂᎨᏍᏛ"_s)
+			"145"_s,
+			u"ᏭᏕᎵᎬ ᏗᏜ ᏓᎶᏂᎨᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of(u"ᏔᏥᎩ"_s)
+			"tg"_s,
+			u"ᏔᏥᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(u"ᏔᏱ"_s)
+			"th"_s,
+			u"ᏔᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"ᏘᎩᎵᏂᎠ"_s)
+			"ti"_s,
+			u"ᏘᎩᎵᏂᎠ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of(u"ᏈᎥᎩᏂᏍ"_s)
+			"bug"_s,
+			u"ᏈᎥᎩᏂᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kfo"_s),
-			$of(u"ᎪᎶ"_s)
+			"kfo"_s,
+			u"ᎪᎶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of(u"ᎨᎾᏓ ᎩᎵᏏ"_s)
+			"en_CA"_s,
+			u"ᎨᎾᏓ ᎩᎵᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"ᎠᏂᎬᎾ"_s)
+			"tk"_s,
+			u"ᎠᏂᎬᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of(u"ᏧᏩᎾ"_s)
+			"tn"_s,
+			u"ᏧᏩᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of(u"ᏙᎾᎦᏂ"_s)
+			"to"_s,
+			u"ᏙᎾᎦᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyo"_s),
-			$of(u"ᏦᎳ-ᏬᏱ"_s)
+			"dyo"_s,
+			u"ᏦᎳ-ᏬᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpan"_s),
-			$of(u"ᏣᏆᏂᏏ ᏗᏎᏍᏗ"_s)
+			"type.nu.jpan"_s,
+			u"ᏣᏆᏂᏏ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"ᎠᎬᎾ"_s)
+			"tr"_s,
+			u"ᎠᎬᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of(u"ᏦᎾᎦ"_s)
+			"ts"_s,
+			u"ᏦᎾᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swb"_s),
-			$of(u"ᎪᎼᎵᎠᏂ"_s)
+			"swb"_s,
+			u"ᎪᎼᎵᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of(u"ᏔᏔ"_s)
+			"tt"_s,
+			u"ᏔᏔ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"ᏔᎯᏘᎠᏂ"_s)
+			"ty"_s,
+			u"ᏔᎯᏘᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"ᏳᎳᏛ"_s)
+			"150"_s,
+			u"ᏳᎳᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"ᏗᎧᎸᎬ ᏗᏜ ᏳᎳᏛ"_s)
+			"151"_s,
+			u"ᏗᎧᎸᎬ ᏗᏜ ᏳᎳᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"ᏧᏴᏢ ᏗᏜ ᏳᎳᏛ"_s)
+			"154"_s,
+			u"ᏧᏴᏢ ᏗᏜ ᏳᎳᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzg"_s),
-			$of(u"ᏓᏌᎦ"_s)
+			"dzg"_s,
+			u"ᏓᏌᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"ᏭᏕᎵᎬ ᏗᏜ ᏳᎳᏛ"_s)
+			"155"_s,
+			u"ᏭᏕᎵᎬ ᏗᏜ ᏳᎳᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of(u"ᏫᎦ"_s)
+			"ug"_s,
+			u"ᏫᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(metaValue_ko)
+			"Kore"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of(u"ᏯᏃᏉ ᏱᎬᏍᏛᏭ"_s)
+			"Zyyy"_s,
+			u"ᏯᏃᏉ ᏱᎬᏍᏛᏭ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"ᏳᎧᎴᏂᎠᏂ"_s)
+			"uk"_s,
+			u"ᏳᎧᎴᏂᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"ᎤᎵᏚ"_s)
+			"ur"_s,
+			u"ᎤᎵᏚ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of(u"ᎧᎳᎻᎧ"_s)
+			"xal"_s,
+			u"ᎧᎳᎻᎧ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"ᎤᏍᏇᎩ"_s)
+			"uz"_s,
+			u"ᎤᏍᏇᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of(u"ᎧᏏ"_s)
+			"kha"_s,
+			u"ᎧᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds_NL"_s),
-			$of(u"ᎡᎳᏗ ᏁᏛᎳᏂ"_s)
+			"nds_NL"_s,
+			u"ᎡᎳᏗ ᏁᏛᎳᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of(u"ᏫᏂᏓ"_s)
+			"ve"_s,
+			u"ᏫᏂᏓ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of(u"ᏍᎦᏚᎩ ᎾᎿ ᏓᎶᏂᎨᏍᏛ ᏅᏙ ᏗᏎᏍᏗ"_s)
+			"type.ca.roc"_s,
+			u"ᏍᎦᏚᎩ ᎾᎿ ᏓᎶᏂᎨᏍᏛ ᏅᏙ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"ᏫᎡᏘᎾᎻᏍ"_s)
+			"vi"_s,
+			u"ᏫᎡᏘᎾᎻᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khq"_s),
-			$of(u"ᎪᏱᎳ ᏥᏂ"_s)
+			"khq"_s,
+			u"ᎪᏱᎳ ᏥᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.hc"_s),
-			$of(u"ᏑᏟᎶᏓ ᎠᏓᏁᏟᏴᏎᎬ (12 vs 24)"_s)
+			"key.hc"_s,
+			u"ᏑᏟᎶᏓ ᎠᏓᏁᏟᏴᏎᎬ (12 vs 24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of(u"ᏬᎳᏊᎩ"_s)
+			"vo"_s,
+			u"ᏬᎳᏊᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("quc"_s),
-			$of(u"ᎩᏤ"_s)
+			"quc"_s,
+			u"ᎩᏤ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of(u"Ꭶ"_s)
+			"gaa"_s,
+			u"Ꭶ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"ᏩᎷᎾ"_s)
+			"wa"_s,
+			u"ᏩᎷᎾ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of(u"ᏏᎵᎠᎩ"_s)
+			"syr"_s,
+			u"ᏏᎵᎠᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(u"ᎪᎢ"_s)
+			"Grek"_s,
+			u"ᎪᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of(u"ᏬᎶᏫ"_s)
+			"wo"_s,
+			u"ᏬᎶᏫ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"ᎠᏟᎶᏍᏗ ᎼᎶᎪ ᏔᎹᏏᏘ"_s)
+			"zgh"_s,
+			u"ᎠᏟᎶᏍᏗ ᎼᎶᎪ ᏔᎹᏏᏘ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of(u"ᎪᎯᏊ ᎢᎬᏥᎩ ᎠᏟᎶᏍᏗ ᎡᎳᏈ"_s)
+			"ar_001"_s,
+			u"ᎪᎯᏊ ᎢᎬᏥᎩ ᎠᏟᎶᏍᏗ ᎡᎳᏈ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(metaValue_mn)
+			"Mong"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of(u"ᎺᏂᏉᎵ"_s)
+			"mni"_s,
+			u"ᎺᏂᏉᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(metaValue_la)
+			"Latn"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hans"_s),
-			$of(u"ᎠᎯᏗᎨ ᏓᎶᏂᎨ ᏗᏎᏍᏗ"_s)
+			"type.nu.hans"_s,
+			u"ᎠᎯᏗᎨ ᏓᎶᏂᎨ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hant"_s),
-			$of(u"ᎤᏦᏍᏗ ᏓᎶᏂᎨ ᏗᏎᏍᏗ"_s)
+			"type.nu.hant"_s,
+			u"ᎤᏦᏍᏗ ᏓᎶᏂᎨ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"ᏠᏌ"_s)
+			"xh"_s,
+			u"ᏠᏌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.romanlow"_s),
-			$of(u"ᎠᏂᎶᎻ ᏧᏍᏗ ᏗᎪᏪᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.romanlow"_s,
+			u"ᎠᏂᎶᎻ ᏧᏍᏗ ᏗᎪᏪᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of(u"ᏟᏂ"_s)
+			"byn"_s,
+			u"ᏟᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"ᎼᎭᎩ"_s)
+			"moh"_s,
+			u"ᎼᎭᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of(u"ᎧᎪ"_s)
+			"kkj"_s,
+			u"ᎧᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"ᏱᏗᏍ"_s)
+			"yi"_s,
+			u"ᏱᏗᏍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of(u"ᎼᏍᏏ"_s)
+			"mos"_s,
+			u"ᎼᏍᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"ᏲᏄᏆ"_s)
+			"yo"_s,
+			u"ᏲᏄᏆ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_MX"_s),
-			$of(u"ᏍᏆᏂᏱ ᏍᏆᏂ"_s)
+			"es_MX"_s,
+			u"ᏍᏆᏂᏱ ᏍᏆᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of(u"ᏩᏱ"_s)
+			"vai"_s,
+			u"ᏩᏱ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kln"_s),
-			$of(u"ᎧᎴᏂᏥᏂ"_s)
+			"kln"_s,
+			u"ᎧᎴᏂᏥᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"ᏓᎶᏂᎨ"_s)
+			"zh"_s,
+			u"ᏓᎶᏂᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of(u"ᏆᏉᎼᏬ"_s)
+			"Bopo"_s,
+			u"ᏆᏉᎼᏬ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.lb"_s),
-			$of(u"ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s)
+			"key.lb"_s,
+			u"ᎠᏍᏓᏅᏅ ᎠᏲᏍᏔᏅᎩ ᏂᏚᏍᏛ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"ᏑᎷ"_s)
+			"zu"_s,
+			u"ᏑᎷ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(metaValue_ka)
+			"Geor"_s,
+			metaValue_ka
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of(u"ᎩᎻᏊᏚ"_s)
+			"kmb"_s,
+			u"ᎩᎻᏊᏚ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpanfin"_s),
-			$of(u"ᏣᏆᏂᏏ ᎠᏕᎳ ᏗᏎᏍᏗ"_s)
+			"type.nu.jpanfin"_s,
+			u"ᏣᏆᏂᏏ ᎠᏕᎳ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"ᎩᏏ"_s)
+			"gez"_s,
+			u"ᎩᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ebu"_s),
-			$of(u"ᎡᎻᏊ"_s)
+			"ebu"_s,
+			u"ᎡᎻᏊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of(u"ᎠᎯᏗᎨ ᏓᎶᏂᎨ"_s)
+			"zh_Hans"_s,
+			u"ᎠᎯᏗᎨ ᏓᎶᏂᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of(u"ᎧᏂᎧᏂ"_s)
+			"kok"_s,
+			u"ᎧᏂᎧᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of(u"ᎤᏦᏍᏗ ᏓᎶᏂᎨ"_s)
+			"zh_Hant"_s,
+			u"ᎤᏦᏍᏗ ᏓᎶᏂᎨ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of(u"ᏇᎴ"_s)
+			"kpe"_s,
+			u"ᏇᎴ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.khmr"_s),
-			$of(u"ᎩᎻᎷ ᏗᏎᏍᏗ"_s)
+			"type.nu.khmr"_s,
+			u"ᎩᎻᎷ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of(u"ᎢᎶᎪ"_s)
+			"ilo"_s,
+			u"ᎢᎶᎪ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mua"_s),
-			$of(u"ᎽᏂᏓᎩ"_s)
+			"mua"_s,
+			u"ᎽᏂᏓᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.guru"_s),
-			$of(u"ᎬᎹᎩ ᏗᏎᏍᏗ"_s)
+			"type.nu.guru"_s,
+			u"ᎬᎹᎩ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of(u"ᏧᏈᏍᏗ ᏗᎦᏬᏂᎯᏍᏗ"_s)
+			"mul"_s,
+			u"ᏧᏈᏍᏗ ᏗᎦᏬᏂᎯᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ms"_s),
-			$of(u"ᎠᏟᎶᏛ ᏄᏍᏗᏓᏅᎢ"_s)
+			"key.ms"_s,
+			u"ᎠᏟᎶᏛ ᏄᏍᏗᏓᏅᎢ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of(u"ᎠᎫᏌ"_s)
+			"mus"_s,
+			u"ᎠᎫᏌ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of(u"ᎩᏇᏘᏏ"_s)
+			"gil"_s,
+			u"ᎩᏇᏘᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cher"_s),
-			$of(metaValue_chr)
+			"Cher"_s,
+			metaValue_chr
 		}),
 		$$new($ObjectArray, {
-			$of("cay"_s),
-			$of(u"ᎧᏳᎦ"_s)
+			"cay"_s,
+			u"ᎧᏳᎦ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tamldec"_s),
-			$of(u"ᏔᎻᎵ ᏗᏎᏍᏗ"_s)
+			"type.nu.tamldec"_s,
+			u"ᏔᎻᎵ ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"ᎧᎳᏣᏱ-ᏆᎵᎧᎵ"_s)
+			"krc"_s,
+			u"ᎧᎳᏣᏱ-ᏆᎵᎧᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of(u"ᎢᏂᎫᏏ"_s)
+			"inh"_s,
+			u"ᎢᏂᎫᏏ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa_AF"_s),
-			$of(u"ᏓᎵ"_s)
+			"fa_AF"_s,
+			u"ᏓᎵ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of(u"ᎧᎴᎵᎠᏂ"_s)
+			"krl"_s,
+			u"ᎧᎴᎵᎠᏂ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of(u"ᎡᏫᎩ"_s)
+			"efi"_s,
+			u"ᎡᏫᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.nu"_s),
-			$of(u"ᏗᏎᏍᏗ"_s)
+			"key.nu"_s,
+			u"ᏗᏎᏍᏗ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of(u"ᎫᎷᎩ"_s)
+			"kru"_s,
+			u"ᎫᎷᎩ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksb"_s),
-			$of(u"ᏝᎻᏆᎸ"_s)
+			"ksb"_s,
+			u"ᏝᎻᏆᎸ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(metaValue_te)
+			"Telu"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("ksf"_s),
-			$of(u"ᏆᏫᎠ"_s)
+			"ksf"_s,
+			u"ᏆᏫᎠ"_s
 		})
 	}));
 	return data;
@@ -3279,7 +3259,22 @@ LocaleNames_chr::LocaleNames_chr() {
 }
 
 $Class* LocaleNames_chr::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_chr, name, initialize, &_LocaleNames_chr_ClassInfo_, allocate$LocaleNames_chr);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_chr, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_chr, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_chr",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_chr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_chr);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/ListView.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -27,69 +26,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::swing::text::Element;
 using $View = ::javax::swing::text::View;
 using $BlockView = ::javax::swing::text::html::BlockView;
-using $StyleSheet = ::javax::swing::text::html::StyleSheet;
-using $StyleSheet$ListPainter = ::javax::swing::text::html::StyleSheet$ListPainter;
 
 namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
 
-$FieldInfo _ListView_FieldInfo_[] = {
-	{"listPainter", "Ljavax/swing/text/html/StyleSheet$ListPainter;", nullptr, $PRIVATE, $field(ListView, listPainter)},
-	{}
-};
-
-$MethodInfo _ListView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ListView, init$, void, $Element*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ListView, getAlignment, float, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ListView, paint, void, $Graphics*, $Shape*)},
-	{"paintChild", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(ListView, paintChild, void, $Graphics*, $Rectangle*, int32_t)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ListView, setPropertiesFromAttributes, void)},
-	{}
-};
-
-$ClassInfo _ListView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.ListView",
-	"javax.swing.text.html.BlockView",
-	nullptr,
-	_ListView_FieldInfo_,
-	_ListView_MethodInfo_
-};
-
-$Object* allocate$ListView($Class* clazz) {
-	return $of($alloc(ListView));
-}
-
 void ListView::init$($Element* elem) {
 	$BlockView::init$(elem, $View::Y_AXIS);
 }
 
 float ListView::getAlignment(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (axis) {
 	case $View::X_AXIS:
-		{
-			return 0.5f;
-		}
+		return 0.5f;
 	case $View::Y_AXIS:
-		{
-			return 0.5f;
-		}
+		return 0.5f;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
 void ListView::paint($Graphics* g, $Shape* allocation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BlockView::paint(g, allocation);
 	$var($Rectangle, alloc, $nc(allocation)->getBounds());
 	$var($Rectangle, clip, $nc(g)->getClipBounds());
-	if (($nc(clip)->x + clip->width) < ($nc(alloc)->x + getLeftInset())) {
+	if (($nc(clip)->x + $nc(clip)->width) < ($nc(alloc)->x + getLeftInset())) {
 		$var($Rectangle, childRect, alloc);
 		$assign(alloc, getInsideAllocation(allocation));
 		int32_t n = getViewCount();
@@ -109,21 +73,43 @@ void ListView::paint($Graphics* g, $Shape* allocation) {
 }
 
 void ListView::paintChild($Graphics* g, $Rectangle* alloc, int32_t index) {
-	$nc(this->listPainter)->paint(g, (float)$nc(alloc)->x, (float)alloc->y, (float)alloc->width, (float)alloc->height, this, index);
+	$nc(this->listPainter)->paint(g, (float)$nc(alloc)->x, (float)$nc(alloc)->y, (float)$nc(alloc)->width, (float)$nc(alloc)->height, this, index);
 	$BlockView::paintChild(g, alloc, index);
 }
 
 void ListView::setPropertiesFromAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BlockView::setPropertiesFromAttributes();
-	$set(this, listPainter, $nc($(getStyleSheet()))->getListPainter($(getAttributes())));
+	$set(this, listPainter, $$nc(getStyleSheet())->getListPainter($(getAttributes())));
 }
 
 ListView::ListView() {
 }
 
 $Class* ListView::load$($String* name, bool initialize) {
-	$loadClass(ListView, name, initialize, &_ListView_ClassInfo_, allocate$ListView);
+	$FieldInfo fieldInfos$$[] = {
+		{"listPainter", "Ljavax/swing/text/html/StyleSheet$ListPainter;", nullptr, $PRIVATE, $field(ListView, listPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ListView, init$, void, $Element*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ListView, getAlignment, float, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ListView, paint, void, $Graphics*, $Shape*)},
+		{"paintChild", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(ListView, paintChild, void, $Graphics*, $Rectangle*, int32_t)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ListView, setPropertiesFromAttributes, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.ListView",
+		"javax.swing.text.html.BlockView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ListView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListView);
+	});
 	return class$;
 }
 

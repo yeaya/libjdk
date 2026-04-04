@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symtab.h>
-
 #include <com/sun/tools/javac/code/ClassFinder.h>
 #include <com/sun/tools/javac/code/Directive$RequiresDirective.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
@@ -149,11 +148,9 @@ using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -172,37 +169,33 @@ public:
 	virtual $Object* apply(Object$* k) override {
 		 return $of($nc(inst$)->lambda$getClassField$0(type, types, $cast($Types$UniqueType, k)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$getClassField$0>());
-	}
 	Symtab* inst$ = nullptr;
 	$Type* type = nullptr;
 	$Types* types = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$lambda$getClassField$0::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getClassField$0, inst$)},
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getClassField$0, type)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getClassField$0, types)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$lambda$getClassField$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$getClassField$0, init$, void, Symtab*, $Type*, $Types*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$getClassField$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$getClassField$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$getClassField$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$getClassField$0::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$getClassField$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getClassField$0, inst$)},
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getClassField$0, type)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getClassField$0, types)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$getClassField$0, init$, void, Symtab*, $Type*, $Types*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$getClassField$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$getClassField$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$getClassField$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$getClassField$0);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$getClassField$0::class$ = nullptr;
@@ -216,33 +209,29 @@ public:
 	virtual void complete($Symbol* sym) override {
 		$nc(inst$)->complete(sym);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$complete$1>());
-	}
 	$Symbol$Completer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$complete$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$complete$1, inst$)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$complete$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$complete$1, init$, void, $Symbol$Completer*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$complete$1, complete, void, $Symbol*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$complete$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$complete$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$complete$1::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$complete$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$complete$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$complete$1, init$, void, $Symbol$Completer*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$complete$1, complete, void, $Symbol*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$complete$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$complete$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$complete$1);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$complete$1::class$ = nullptr;
@@ -256,33 +245,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$toString$2>());
-	}
 	$Name* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$toString$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$toString$2, inst$)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$toString$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$toString$2, init$, void, $Name*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$toString$2, get, $Object*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$toString$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$toString$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$toString$2::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$toString$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$toString$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$toString$2, init$, void, $Name*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$toString$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$toString$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$toString$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$toString$2);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$toString$2::class$ = nullptr;
@@ -295,27 +280,24 @@ public:
 	virtual $Object* apply(Object$* rd) override {
 		 return $of(Symtab::lambda$lookupPackage$1($cast($Directive$RequiresDirective, rd)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$lookupPackage$1$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Symtab$$Lambda$lambda$lookupPackage$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$lookupPackage$1$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$lookupPackage$1$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$lookupPackage$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$lookupPackage$1$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$lookupPackage$1$3::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$lookupPackage$1$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$lookupPackage$1$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$lookupPackage$1$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$lookupPackage$1$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$lookupPackage$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$lookupPackage$1$3);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$lookupPackage$1$3::class$ = nullptr;
@@ -329,33 +311,29 @@ public:
 	virtual bool test(Object$* mod) override {
 		 return $nc(inst$)->lambda$lookupPackage$2($cast($Symbol$ModuleSymbol, mod));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$lookupPackage$2$4>());
-	}
 	Symtab* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$lambda$lookupPackage$2$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$lookupPackage$2$4, inst$)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$lambda$lookupPackage$2$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$lookupPackage$2$4, init$, void, Symtab*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$lookupPackage$2$4, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$lookupPackage$2$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$lookupPackage$2$4",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$lookupPackage$2$4::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$lookupPackage$2$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$lookupPackage$2$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$lookupPackage$2$4, init$, void, Symtab*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$lookupPackage$2$4, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$lookupPackage$2$4",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$lookupPackage$2$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$lookupPackage$2$4);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$lookupPackage$2$4::class$ = nullptr;
@@ -369,33 +347,29 @@ public:
 	virtual $Iterator* iterator() override {
 		 return $nc(inst$)->lambda$getAllClasses$4();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$getAllClasses$4$5>());
-	}
 	Symtab* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$lambda$getAllClasses$4$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getAllClasses$4$5, inst$)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$lambda$getAllClasses$4$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$getAllClasses$4$5, init$, void, Symtab*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$getAllClasses$4$5, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$getAllClasses$4$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$getAllClasses$4$5",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$getAllClasses$4$5::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$getAllClasses$4$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$getAllClasses$4$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$getAllClasses$4$5, init$, void, Symtab*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$getAllClasses$4$5, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$getAllClasses$4$5",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$getAllClasses$4$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$getAllClasses$4$5);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$getAllClasses$4$5::class$ = nullptr;
@@ -406,29 +380,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* n) override {
-		 return $of(Symtab::lambda$doEnterClass$5($cast($Name, n)));
+		 return Symtab::lambda$doEnterClass$5($cast($Name, n));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$doEnterClass$5$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Symtab$$Lambda$lambda$doEnterClass$5$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$doEnterClass$5$6, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$doEnterClass$5$6, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$doEnterClass$5$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$doEnterClass$5$6",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$doEnterClass$5$6::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$doEnterClass$5$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$doEnterClass$5$6, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$doEnterClass$5$6, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$doEnterClass$5$6",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$doEnterClass$5$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$doEnterClass$5$6);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$doEnterClass$5$6::class$ = nullptr;
@@ -442,33 +413,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Symtab::lambda$enterPackage$6(currModule));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$enterPackage$6$7>());
-	}
 	$Symbol$ModuleSymbol* currModule = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$lambda$enterPackage$6$7::fieldInfos[2] = {
-	{"currModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$enterPackage$6$7, currModule)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$lambda$enterPackage$6$7::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$enterPackage$6$7, init$, void, $Symbol$ModuleSymbol*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$enterPackage$6$7, get, $Object*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$enterPackage$6$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$enterPackage$6$7",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$enterPackage$6$7::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$enterPackage$6$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"currModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$enterPackage$6$7, currModule)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$enterPackage$6$7, init$, void, $Symbol$ModuleSymbol*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$enterPackage$6$7, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$enterPackage$6$7",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$enterPackage$6$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$enterPackage$6$7);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$enterPackage$6$7::class$ = nullptr;
@@ -482,33 +449,29 @@ public:
 	virtual void complete($Symbol* s) override {
 		$nc(inst$)->lambda$addRootPackageFor$8(s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$addRootPackageFor$8$8>());
-	}
 	Symtab* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$lambda$addRootPackageFor$8$8::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$addRootPackageFor$8$8, inst$)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$lambda$addRootPackageFor$8$8::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$addRootPackageFor$8$8, init$, void, Symtab*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$addRootPackageFor$8$8, complete, void, $Symbol*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$addRootPackageFor$8$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$addRootPackageFor$8$8",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$addRootPackageFor$8$8::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$addRootPackageFor$8$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$addRootPackageFor$8$8, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$addRootPackageFor$8$8, init$, void, Symtab*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$addRootPackageFor$8$8, complete, void, $Symbol*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$addRootPackageFor$8$8",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$addRootPackageFor$8$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$addRootPackageFor$8$8);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$addRootPackageFor$8$8::class$ = nullptr;
@@ -522,33 +485,29 @@ public:
 	virtual void complete($Symbol* s) override {
 		$nc(inst$)->lambda$enterModule$9(s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$enterModule$9$9>());
-	}
 	Symtab* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Symtab$$Lambda$lambda$enterModule$9$9::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$enterModule$9$9, inst$)},
-	{}
-};
-$MethodInfo Symtab$$Lambda$lambda$enterModule$9$9::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$enterModule$9$9, init$, void, Symtab*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$enterModule$9$9, complete, void, $Symbol*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$enterModule$9$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$enterModule$9$9",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$enterModule$9$9::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$enterModule$9$9, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Symtab$$Lambda$lambda$enterModule$9$9, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$enterModule$9$9, init$, void, Symtab*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$enterModule$9$9, complete, void, $Symbol*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$enterModule$9$9",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$enterModule$9$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$enterModule$9$9);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$enterModule$9$9::class$ = nullptr;
@@ -559,212 +518,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $of(Symtab::lambda$getAllClasses$3($cast($Map, v)));
+		 return Symtab::lambda$getAllClasses$3($cast($Map, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Symtab$$Lambda$lambda$getAllClasses$3$10>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Symtab$$Lambda$lambda$getAllClasses$3$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$getAllClasses$3$10, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$getAllClasses$3$10, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Symtab$$Lambda$lambda$getAllClasses$3$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Symtab$$Lambda$lambda$getAllClasses$3$10",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Symtab$$Lambda$lambda$getAllClasses$3$10::load$($String* name, bool initialize) {
-	$loadClass(Symtab$$Lambda$lambda$getAllClasses$3$10, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Symtab$$Lambda$lambda$getAllClasses$3$10, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symtab$$Lambda$lambda$getAllClasses$3$10, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Symtab$$Lambda$lambda$getAllClasses$3$10",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Symtab$$Lambda$lambda$getAllClasses$3$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab$$Lambda$lambda$getAllClasses$3$10);
+	});
 	return class$;
 }
 $Class* Symtab$$Lambda$lambda$getAllClasses$3$10::class$ = nullptr;
-
-$FieldInfo _Symtab_FieldInfo_[] = {
-	{"symtabKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/Symtab;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Symtab, symtabKey)},
-	{"byteType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, byteType)},
-	{"charType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, charType)},
-	{"shortType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, shortType)},
-	{"intType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, intType)},
-	{"longType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, longType)},
-	{"floatType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, floatType)},
-	{"doubleType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, doubleType)},
-	{"booleanType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, booleanType)},
-	{"botType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, botType)},
-	{"voidType", "Lcom/sun/tools/javac/code/Type$JCVoidType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, voidType)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Symtab, names)},
-	{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PRIVATE | $FINAL, $field(Symtab, messages)},
-	{"initialCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE | $FINAL, $field(Symtab, initialCompleter)},
-	{"moduleCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE | $FINAL, $field(Symtab, moduleCompleter)},
-	{"unnamedModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, unnamedModule)},
-	{"errModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errModule)},
-	{"noModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noModule)},
-	{"rootPackage", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, rootPackage)},
-	{"noSymbol", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noSymbol)},
-	{"errSymbol", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errSymbol)},
-	{"unknownSymbol", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, unknownSymbol)},
-	{"errType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errType)},
-	{"unknownType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, unknownType)},
-	{"arrayClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, arrayClass)},
-	{"arrayCloneMethod", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, arrayCloneMethod)},
-	{"boundClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, boundClass)},
-	{"methodClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodClass)},
-	{"java_base", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, java_base)},
-	{"objectType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, objectType)},
-	{"objectMethodsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, objectMethodsType)},
-	{"objectsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, objectsType)},
-	{"classType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, classType)},
-	{"classLoaderType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, classLoaderType)},
-	{"stringType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringType)},
-	{"stringBufferType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringBufferType)},
-	{"stringBuilderType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringBuilderType)},
-	{"cloneableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, cloneableType)},
-	{"serializableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, serializableType)},
-	{"serializedLambdaType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, serializedLambdaType)},
-	{"varHandleType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, varHandleType)},
-	{"methodHandleType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodHandleType)},
-	{"methodHandleLookupType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodHandleLookupType)},
-	{"methodTypeType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodTypeType)},
-	{"nativeHeaderType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, nativeHeaderType)},
-	{"throwableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, throwableType)},
-	{"errorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errorType)},
-	{"interruptedExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, interruptedExceptionType)},
-	{"illegalArgumentExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, illegalArgumentExceptionType)},
-	{"exceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, exceptionType)},
-	{"runtimeExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, runtimeExceptionType)},
-	{"classNotFoundExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, classNotFoundExceptionType)},
-	{"noClassDefFoundErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noClassDefFoundErrorType)},
-	{"noSuchFieldErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noSuchFieldErrorType)},
-	{"assertionErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, assertionErrorType)},
-	{"incompatibleClassChangeErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, incompatibleClassChangeErrorType)},
-	{"cloneNotSupportedExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, cloneNotSupportedExceptionType)},
-	{"annotationType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, annotationType)},
-	{"enumSym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, enumSym)},
-	{"listType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, listType)},
-	{"collectionsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, collectionsType)},
-	{"comparableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, comparableType)},
-	{"comparatorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, comparatorType)},
-	{"arraysType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, arraysType)},
-	{"iterableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, iterableType)},
-	{"iteratorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, iteratorType)},
-	{"annotationTargetType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, annotationTargetType)},
-	{"overrideType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, overrideType)},
-	{"retentionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, retentionType)},
-	{"deprecatedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, deprecatedType)},
-	{"suppressWarningsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, suppressWarningsType)},
-	{"supplierType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, supplierType)},
-	{"inheritedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, inheritedType)},
-	{"profileType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, profileType)},
-	{"proprietaryType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, proprietaryType)},
-	{"systemType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, systemType)},
-	{"autoCloseableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, autoCloseableType)},
-	{"trustMeType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, trustMeType)},
-	{"lambdaMetafactory", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, lambdaMetafactory)},
-	{"stringConcatFactory", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringConcatFactory)},
-	{"repeatableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, repeatableType)},
-	{"documentedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, documentedType)},
-	{"elementTypeType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, elementTypeType)},
-	{"functionalInterfaceType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, functionalInterfaceType)},
-	{"previewFeatureType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, previewFeatureType)},
-	{"previewFeatureInternalType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, previewFeatureInternalType)},
-	{"typeDescriptorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, typeDescriptorType)},
-	{"recordType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, recordType)},
-	{"switchBootstrapsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, switchBootstrapsType)},
-	{"valueBasedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, valueBasedType)},
-	{"valueBasedInternalType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, valueBasedInternalType)},
-	{"lengthVar", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, lengthVar)},
-	{"enumFinalFinalize", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, enumFinalFinalize)},
-	{"autoCloseableClose", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, autoCloseableClose)},
-	{"typeOfTag", "[Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, typeOfTag)},
-	{"boxedName", "[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(Symtab, boxedName)},
-	{"classes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;>;", $PRIVATE | $FINAL, $field(Symtab, classes)},
-	{"packages", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;>;", $PRIVATE | $FINAL, $field(Symtab, packages)},
-	{"modules", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE | $FINAL, $field(Symtab, modules)},
-	{"classFields", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Types$UniqueType;Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;", $PRIVATE | $FINAL, $field(Symtab, classFields)},
-	{"predefClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, predefClass)},
-	{"EMPTY", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Symtab, EMPTY)},
-	{}
-};
-
-$MethodInfo _Symtab_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Symtab, init$, void, $Context*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"addRootPackageFor", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Symtab, addRootPackageFor, void, $Symbol$ModuleSymbol*)},
-	{"defineClass", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, defineClass, $Symbol$ClassSymbol*, $Name*, $Symbol*)},
-	{"doEnterClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Symtab, doEnterClass, void, $Symbol$ModuleSymbol*, $Symbol$ClassSymbol*)},
-	{"doEnterPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(Symtab, doEnterPackage, void, $Symbol$ModuleSymbol*, $Symbol$PackageSymbol*)},
-	{"enterClass", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Symtab, enterClass, $Type*, $String*)},
-	{"enterClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterClass, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*, $Symbol$TypeSymbol*)},
-	{"enterClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterClass, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*)},
-	{"enterModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterModule, $Symbol$ModuleSymbol*, $Name*)},
-	{"enterPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*)},
-	{"enterSyntheticAnnotation", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Symtab, enterSyntheticAnnotation, $Type*, $String*)},
-	{"getAllClasses", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getAllClasses, $Iterable*)},
-	{"getAllModules", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getAllModules, $Collection*)},
-	{"getClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getClass, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*)},
-	{"getClassField", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getClassField, $Symbol$VarSymbol*, $Type*, $Types*)},
-	{"getClassesForName", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getClassesForName, $Iterable*, $Name*)},
-	{"getModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getModule, $Symbol$ModuleSymbol*, $Name*)},
-	{"getPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*)},
-	{"getPackagesForName", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getPackagesForName, $Iterable*, $Name*)},
-	{"inferModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, inferModule, $Symbol$ModuleSymbol*, $Name*)},
-	{"initType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, initType, void, $Type*, $Symbol$ClassSymbol*)},
-	{"initType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, initType, void, $Type*, $String*)},
-	{"initType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, initType, void, $Type*, $String*, $String*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Symtab;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symtab, instance, Symtab*, $Context*)},
-	{"lambda$addRootPackageFor$8", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$addRootPackageFor$8, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"lambda$doEnterClass$5", "(Lcom/sun/tools/javac/util/Name;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$doEnterClass$5, $Map*, $Name*)},
-	{"lambda$enterModule$9", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$enterModule$9, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"lambda$enterPackage$6", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$enterPackage$6, $String*, $Symbol$ModuleSymbol*)},
-	{"lambda$getAllClasses$3", "(Ljava/util/Map;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$getAllClasses$3, $Iterator*, $Map*)},
-	{"lambda$getAllClasses$4", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$getAllClasses$4, $Iterator*)},
-	{"lambda$getClassField$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Types$UniqueType;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$getClassField$0, $Symbol$VarSymbol*, $Type*, $Types*, $Types$UniqueType*)},
-	{"lambda$lookupPackage$1", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$lookupPackage$1, $Symbol$ModuleSymbol*, $Directive$RequiresDirective*)},
-	{"lambda$lookupPackage$2", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$lookupPackage$2, bool, $Symbol$ModuleSymbol*)},
-	{"listPackageModules", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(Symtab, listPackageModules, $List*, $Name*)},
-	{"lookupPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, lookupPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*)},
-	{"lookupPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;Z)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PRIVATE, $method(Symtab, lookupPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*, bool)},
-	{"packageExists", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PUBLIC, $virtualMethod(Symtab, packageExists, bool, $Symbol$ModuleSymbol*, $Name*)},
-	{"removeClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, removeClass, void, $Symbol$ModuleSymbol*, $Name*)},
-	{"synthesizeBoxTypeIfMissing", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, synthesizeBoxTypeIfMissing, void, $Type*)},
-	{"synthesizeEmptyInterfaceIfMissing", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, synthesizeEmptyInterfaceIfMissing, void, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Symtab_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symtab$7", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symtab$6", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symtab$5", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symtab$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symtab$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symtab$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Symtab$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Symtab_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symtab",
-	"java.lang.Object",
-	nullptr,
-	_Symtab_FieldInfo_,
-	_Symtab_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symtab_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symtab$7,com.sun.tools.javac.code.Symtab$6,com.sun.tools.javac.code.Symtab$5,com.sun.tools.javac.code.Symtab$4,com.sun.tools.javac.code.Symtab$3,com.sun.tools.javac.code.Symtab$2,com.sun.tools.javac.code.Symtab$1"
-};
-
-$Object* allocate$Symtab($Class* clazz) {
-	return $of($alloc(Symtab));
-}
 
 $Context$Key* Symtab::symtabKey = nullptr;
 $Map* Symtab::EMPTY = nullptr;
@@ -779,52 +555,52 @@ Symtab* Symtab::instance($Context* context) {
 }
 
 $Symbol$VarSymbol* Symtab::getClassField($Type* type, $Types* types) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of($new($Types$UniqueType, type, types)));
-	return $cast($Symbol$VarSymbol, $nc(this->classFields)->computeIfAbsent(var$0, static_cast<$Function*>($$new(Symtab$$Lambda$lambda$getClassField$0, this, type, types))));
+	$useLocalObjectStack();
+	$var($Object, var$0, $new($Types$UniqueType, type, types));
+	return $cast($Symbol$VarSymbol, $nc(this->classFields)->computeIfAbsent(var$0, $$new(Symtab$$Lambda$lambda$getClassField$0, this, type, types)));
 }
 
 void Symtab::initType($Type* type, $Symbol$ClassSymbol* c) {
 	$set($nc(type), tsym, c);
-	$nc(this->typeOfTag)->set($nc($(type->getTag()))->ordinal(), type);
+	$nc(this->typeOfTag)->set($$nc(type->getTag())->ordinal(), type);
 }
 
 void Symtab::initType($Type* type, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initType(type, $$new($Symbol$ClassSymbol, 1, $($nc(this->names)->fromString(name)), type, this->rootPackage));
 }
 
 void Symtab::initType($Type* type, $String* name, $String* bname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initType(type, name);
-	int32_t var$0 = $nc($($nc(type)->getTag()))->ordinal();
+	int32_t var$0 = $$nc($nc(type)->getTag())->ordinal();
 	$nc(this->boxedName)->set(var$0, $($nc(this->names)->fromString($$str({"java.lang."_s, bname}))));
 }
 
 $Type* Symtab::enterClass($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc($(enterClass(this->java_base, $($nc(this->names)->fromString(s)))))->type;
 }
 
 void Symtab::synthesizeEmptyInterfaceIfMissing($Type* type) {
 	$var($Symbol$Completer, completer, $nc($nc(type)->tsym)->completer);
-	$set($nc(type->tsym), completer, $new($Symtab$1, this, completer));
+	$set(type->tsym, completer, $new($Symtab$1, this, completer));
 }
 
 void Symtab::synthesizeBoxTypeIfMissing($Type* type) {
-	$useLocalCurrentObjectStackCache();
-	$var($Symbol$ClassSymbol, sym, enterClass(this->java_base, $nc(this->boxedName)->get($nc($($nc(type)->getTag()))->ordinal())));
+	$useLocalObjectStack();
+	$var($Symbol$ClassSymbol, sym, enterClass(this->java_base, $nc(this->boxedName)->get($$nc($nc(type)->getTag())->ordinal())));
 	$var($Symbol$Completer, completer, $nc(sym)->completer);
 	$set(sym, completer, $new($Symtab$2, this, completer, type));
 }
 
 $Type* Symtab::enterSyntheticAnnotation($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$ClassType, type, $cast($Type$ClassType, $nc($(enterClass(this->java_base, $($nc(this->names)->fromString(name)))))->type));
 	$var($Symbol$ClassSymbol, sym, $cast($Symbol$ClassSymbol, $nc(type)->tsym));
 	$init($Symbol$Completer);
 	$set($nc(sym), completer, $Symbol$Completer::NULL_COMPLETER);
-	sym->flags_field = ((1 | 0x40000000) | 8192) | 512;
+	sym->flags_field = ((1 | 0x40000000) | 0x2000) | 0x0200;
 	$set(sym, erasure_field, type);
 	$set(sym, members_field, $Scope$WriteableScope::create(sym));
 	$set(type, typarams_field, $List::nil());
@@ -835,7 +611,7 @@ $Type* Symtab::enterSyntheticAnnotation($String* name) {
 }
 
 void Symtab::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	$set(this, byteType, $new($Type$JCPrimitiveType, $TypeTag::BYTE, nullptr));
 	$set(this, charType, $new($Type$JCPrimitiveType, $TypeTag::CHAR, nullptr));
@@ -853,28 +629,27 @@ void Symtab::init$($Context* context) {
 	$set(this, packages, $new($HashMap));
 	$set(this, modules, $new($LinkedHashMap));
 	$set(this, classFields, $new($HashMap));
-	$nc(context)->put(Symtab::symtabKey, $of(this));
+	$nc(context)->put(Symtab::symtabKey, this);
 	$set(this, names, $Names::instance(context));
 	$set(this, unknownType, $new($Type$UnknownType));
 	$set(this, messages, $JavacMessages::instance(context));
 	$var($MissingInfoHandler, missingInfoHandler, $MissingInfoHandler::instance(context));
 	$Target* target = $Target::instance(context);
 	$set(this, rootPackage, $new($Symbol$RootPackageSymbol, $nc(this->names)->empty, nullptr, missingInfoHandler, $nc(target)->runtimeUseNestAccess()));
-	$set(this, unnamedModule, $new($Symtab$3, this, $nc(this->names)->empty, nullptr));
+	$set(this, unnamedModule, $new($Symtab$3, this, this->names->empty, nullptr));
 	addRootPackageFor(this->unnamedModule);
-	$set($nc(this->unnamedModule), enclosedPackages, $nc($nc(this->unnamedModule)->enclosedPackages)->prepend($nc(this->unnamedModule)->unnamedPackage));
-	$set(this, errModule, $new($Symtab$4, this, $nc(this->names)->empty, nullptr));
+	$set(this->unnamedModule, enclosedPackages, $nc(this->unnamedModule->enclosedPackages)->prepend(this->unnamedModule->unnamedPackage));
+	$set(this, errModule, $new($Symtab$4, this, this->names->empty, nullptr));
 	addRootPackageFor(this->errModule);
-	$set(this, noModule, $new($Symtab$5, this, $nc(this->names)->empty, nullptr));
+	$set(this, noModule, $new($Symtab$5, this, this->names->empty, nullptr));
 	addRootPackageFor(this->noModule);
 	$init($Kinds$Kind);
-	$init($Type);
-	$set(this, noSymbol, $new($Symtab$6, this, $Kinds$Kind::NIL, 0, $nc(this->names)->empty, $Type::noType, this->rootPackage));
-	$set(this, errSymbol, $new($Symbol$ClassSymbol, (1 | 8) | 0x40000000, $nc(this->names)->any, nullptr, this->rootPackage));
-	$set(this, errType, $new($Type$ErrorType, this->errSymbol, static_cast<$Type*>($Type::noType)));
-	$set(this, unknownSymbol, $new($Symbol$ClassSymbol, (1 | 8) | 0x40000000, $($nc(this->names)->fromString("<any?>"_s)), nullptr, this->rootPackage));
-	$set($nc(this->unknownSymbol), members_field, $new($Scope$ErrorScope, this->unknownSymbol));
-	$set($nc(this->unknownSymbol), type, this->unknownType);
+	$set(this, noSymbol, $new($Symtab$6, this, $Kinds$Kind::NIL, 0, this->names->empty, $Type::noType, this->rootPackage));
+	$set(this, errSymbol, $new($Symbol$ClassSymbol, (1 | 8) | 0x40000000, this->names->any, nullptr, this->rootPackage));
+	$set(this, errType, $new($Type$ErrorType, this->errSymbol, $Type::noType));
+	$set(this, unknownSymbol, $new($Symbol$ClassSymbol, (1 | 8) | 0x40000000, $(this->names->fromString("<any?>"_s)), nullptr, this->rootPackage));
+	$set(this->unknownSymbol, members_field, $new($Scope$ErrorScope, this->unknownSymbol));
+	$set(this->unknownSymbol, type, this->unknownType);
 	initType(this->byteType, "byte"_s, "Byte"_s);
 	initType(this->shortType, "short"_s, "Short"_s);
 	initType(this->charType, "char"_s, "Character"_s);
@@ -887,37 +662,37 @@ void Symtab::init$($Context* context) {
 	initType(this->botType, "<nulltype>"_s);
 	initType(this->errType, this->errSymbol);
 	initType(this->unknownType, this->unknownSymbol);
-	$set(this, arrayClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, $nc(this->names)->Array, this->noSymbol));
-	$set(this, boundClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, $nc(this->names)->Bound, this->noSymbol));
-	$set($nc(this->boundClass), members_field, $new($Scope$ErrorScope, this->boundClass));
-	$set(this, methodClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, $nc(this->names)->Method, this->noSymbol));
-	$set($nc(this->methodClass), members_field, $new($Scope$ErrorScope, this->boundClass));
-	$set(this, predefClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, $nc(this->names)->empty, this->rootPackage));
+	$set(this, arrayClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, this->names->Array, this->noSymbol));
+	$set(this, boundClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, this->names->Bound, this->noSymbol));
+	$set(this->boundClass, members_field, $new($Scope$ErrorScope, this->boundClass));
+	$set(this, methodClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, this->names->Method, this->noSymbol));
+	$set(this->methodClass, members_field, $new($Scope$ErrorScope, this->boundClass));
+	$set(this, predefClass, $new($Symbol$ClassSymbol, 1 | 0x40000000, this->names->empty, this->rootPackage));
 	$var($Scope$WriteableScope, scope, $Scope$WriteableScope::create(this->predefClass));
-	$set($nc(this->predefClass), members_field, scope);
-	$set(this, initialCompleter, $nc($($ClassFinder::instance(context)))->getCompleter());
-	$set($nc(this->rootPackage), members_field, $Scope$WriteableScope::create(this->rootPackage));
-	$nc(scope)->enter($nc(this->byteType)->tsym);
-	scope->enter($nc(this->shortType)->tsym);
-	scope->enter($nc(this->charType)->tsym);
-	scope->enter($nc(this->intType)->tsym);
-	scope->enter($nc(this->longType)->tsym);
-	scope->enter($nc(this->floatType)->tsym);
-	scope->enter($nc(this->doubleType)->tsym);
-	scope->enter($nc(this->booleanType)->tsym);
-	scope->enter($nc(this->errType)->tsym);
+	$set(this->predefClass, members_field, scope);
+	$set(this, initialCompleter, $$nc($ClassFinder::instance(context))->getCompleter());
+	$set(this->rootPackage, members_field, $Scope$WriteableScope::create(this->rootPackage));
+	$nc(scope)->enter(this->byteType->tsym);
+	scope->enter(this->shortType->tsym);
+	scope->enter(this->charType->tsym);
+	scope->enter(this->intType->tsym);
+	scope->enter(this->longType->tsym);
+	scope->enter(this->floatType->tsym);
+	scope->enter(this->doubleType->tsym);
+	scope->enter(this->booleanType->tsym);
+	scope->enter(this->errType->tsym);
 	scope->enter(this->errSymbol);
 	$Source* source = $Source::instance(context);
 	$init($Source$Feature);
 	if ($Source$Feature::MODULES->allowedInSource(source)) {
-		$set(this, java_base, enterModule($nc(this->names)->java_base));
+		$set(this, java_base, enterModule(this->names->java_base));
 		$init($Symbol$Completer);
 		$set($nc(this->java_base), completer, $Symbol$Completer::NULL_COMPLETER);
-		$set($nc(this->java_base), visiblePackages, $Collections::emptyMap());
+		$set(this->java_base, visiblePackages, $Collections::emptyMap());
 	} else {
 		$set(this, java_base, this->noModule);
 	}
-	$set(this, moduleCompleter, $nc($($Modules::instance(context)))->getCompleter());
+	$set(this, moduleCompleter, $$nc($Modules::instance(context))->getCompleter());
 	$set(this, objectType, enterClass("java.lang.Object"_s));
 	$set(this, objectMethodsType, enterClass("java.lang.runtime.ObjectMethods"_s));
 	$set(this, objectsType, enterClass("java.util.Objects"_s));
@@ -946,10 +721,10 @@ void Symtab::init$($Context* context) {
 	$set(this, cloneNotSupportedExceptionType, enterClass("java.lang.CloneNotSupportedException"_s));
 	$set(this, annotationType, enterClass("java.lang.annotation.Annotation"_s));
 	$set(this, classLoaderType, enterClass("java.lang.ClassLoader"_s));
-	$set(this, enumSym, enterClass(this->java_base, $nc(this->names)->java_lang_Enum));
+	$set(this, enumSym, enterClass(this->java_base, this->names->java_lang_Enum));
 	$var($List, var$0, $List::nil());
-	$var($Type, var$1, static_cast<$Type*>(this->voidType));
-	$set(this, enumFinalFinalize, $new($Symbol$MethodSymbol, (4 | 16) | (int64_t)0x0000002000000000, $nc(this->names)->finalize$, $$new($Type$MethodType, var$0, var$1, $($List::nil()), this->methodClass), this->enumSym));
+	$var($Type, var$1, this->voidType);
+	$set(this, enumFinalFinalize, $new($Symbol$MethodSymbol, (4 | 0x10) | (int64_t)0x0000002000000000, this->names->finalize$, $$new($Type$MethodType, var$0, var$1, $($List::nil()), this->methodClass), this->enumSym));
 	$set(this, listType, enterClass("java.util.List"_s));
 	$set(this, collectionsType, enterClass("java.util.Collections"_s));
 	$set(this, comparableType, enterClass("java.lang.Comparable"_s));
@@ -970,8 +745,8 @@ void Symtab::init$($Context* context) {
 	$set(this, systemType, enterClass("java.lang.System"_s));
 	$set(this, autoCloseableType, enterClass("java.lang.AutoCloseable"_s));
 	$var($List, var$2, $List::nil());
-	$var($Type, var$3, static_cast<$Type*>(this->voidType));
-	$set(this, autoCloseableClose, $new($Symbol$MethodSymbol, 1, $nc(this->names)->close, $$new($Type$MethodType, var$2, var$3, $($List::of(this->exceptionType)), this->methodClass), $nc(this->autoCloseableType)->tsym));
+	$var($Type, var$3, this->voidType);
+	$set(this, autoCloseableClose, $new($Symbol$MethodSymbol, 1, this->names->close, $$new($Type$MethodType, var$2, var$3, $($List::of(this->exceptionType)), this->methodClass), $nc(this->autoCloseableType)->tsym));
 	$set(this, trustMeType, enterClass("java.lang.SafeVarargs"_s));
 	$set(this, nativeHeaderType, enterClass("java.lang.annotation.Native"_s));
 	$set(this, lambdaMetafactory, enterClass("java.lang.invoke.LambdaMetafactory"_s));
@@ -995,20 +770,20 @@ void Symtab::init$($Context* context) {
 	synthesizeBoxTypeIfMissing(this->voidType);
 	$set(this, proprietaryType, enterSyntheticAnnotation("sun.Proprietary+Annotation"_s));
 	$set(this, profileType, enterSyntheticAnnotation("jdk.Profile+Annotation"_s));
-	$var($Symbol$MethodSymbol, m, $new($Symbol$MethodSymbol, 1 | 1024, $nc(this->names)->value, this->intType, $nc(this->profileType)->tsym));
-	$nc($($nc($nc(this->profileType)->tsym)->members()))->enter(m);
-	$var($Type$ClassType, arrayClassType, $cast($Type$ClassType, $nc(this->arrayClass)->type));
+	$var($Symbol$MethodSymbol, m, $new($Symbol$MethodSymbol, 1 | 0x0400, this->names->value, this->intType, $nc(this->profileType)->tsym));
+	$$nc($nc(this->profileType->tsym)->members())->enter(m);
+	$var($Type$ClassType, arrayClassType, $cast($Type$ClassType, this->arrayClass->type));
 	$set($nc(arrayClassType), supertype_field, this->objectType);
 	$set(arrayClassType, interfaces_field, $List::of(this->cloneableType, this->serializableType));
-	$set($nc(this->arrayClass), members_field, $Scope$WriteableScope::create(this->arrayClass));
-	$set(this, lengthVar, $new($Symbol$VarSymbol, 1 | 16, $nc(this->names)->length, this->intType, this->arrayClass));
-	$nc($($nc(this->arrayClass)->members()))->enter(this->lengthVar);
+	$set(this->arrayClass, members_field, $Scope$WriteableScope::create(this->arrayClass));
+	$set(this, lengthVar, $new($Symbol$VarSymbol, 1 | 0x10, this->names->length, this->intType, this->arrayClass));
+	$$nc(this->arrayClass->members())->enter(this->lengthVar);
 	$var($List, var$4, $List::nil());
 	$var($Type, var$5, this->objectType);
-	$set(this, arrayCloneMethod, $new($Symbol$MethodSymbol, 1, $nc(this->names)->clone$, $$new($Type$MethodType, var$4, var$5, $($List::nil()), this->methodClass), this->arrayClass));
-	$nc($($nc(this->arrayClass)->members()))->enter(this->arrayCloneMethod);
+	$set(this, arrayCloneMethod, $new($Symbol$MethodSymbol, 1, this->names->clone$, $$new($Type$MethodType, var$4, var$5, $($List::nil()), this->methodClass), this->arrayClass));
+	$$nc(this->arrayClass->members())->enter(this->arrayCloneMethod);
 	if (this->java_base != this->noModule) {
-		$set($nc(this->java_base), completer, static_cast<$Symbol$Completer*>($new(Symtab$$Lambda$complete$1, static_cast<$Symbol$Completer*>($nc(this->moduleCompleter)))));
+		$set($nc(this->java_base), completer, $new(Symtab$$Lambda$complete$1, $nc(this->moduleCompleter)));
 	}
 }
 
@@ -1019,7 +794,7 @@ $Symbol$ClassSymbol* Symtab::defineClass($Name* name, $Symbol* owner) {
 }
 
 $Symbol$ClassSymbol* Symtab::enterClass($Symbol$ModuleSymbol* msym, $Name* name, $Symbol$TypeSymbol* owner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(msym);
 	$var($Name, flatname, $Symbol$TypeSymbol::formFlatName(name, owner));
 	$var($Symbol$ClassSymbol, c, getClass(msym, flatname));
@@ -1029,7 +804,7 @@ $Symbol$ClassSymbol* Symtab::enterClass($Symbol$ModuleSymbol* msym, $Name* name,
 	} else {
 		$init($Kinds$Kind);
 		if ((c->name != name || !$equals(c->owner, owner)) && $nc(owner)->kind == $Kinds$Kind::TYP && $nc(c->owner)->kind == $Kinds$Kind::PCK) {
-			$nc($($nc(c->owner)->members()))->remove(c);
+			$$nc(c->owner->members())->remove(c);
 			$set(c, name, name);
 			$set(c, owner, owner);
 			$set(c, fullname, $Symbol$ClassSymbol::formFullName(name, owner));
@@ -1039,9 +814,9 @@ $Symbol$ClassSymbol* Symtab::enterClass($Symbol$ModuleSymbol* msym, $Name* name,
 }
 
 $Symbol$ClassSymbol* Symtab::getClass($Symbol$ModuleSymbol* msym, $Name* flatName) {
-	$useLocalCurrentObjectStackCache();
-	$Assert::checkNonNull($of(msym), static_cast<$Supplier*>($$new(Symtab$$Lambda$toString$2, static_cast<$Name*>($nc(flatName)))));
-	return $cast($Symbol$ClassSymbol, $nc(($cast($Map, $($nc(this->classes)->getOrDefault(flatName, $($Collections::emptyMap()))))))->get(msym));
+	$useLocalObjectStack();
+	$Assert::checkNonNull(msym, $$new(Symtab$$Lambda$toString$2, $nc(flatName)));
+	return $cast($Symbol$ClassSymbol, $$sure($Map, this->classes->getOrDefault(flatName, $($Collections::emptyMap())))->get(msym));
 }
 
 $Symbol$PackageSymbol* Symtab::lookupPackage($Symbol$ModuleSymbol* msym, $Name* flatName) {
@@ -1049,7 +824,7 @@ $Symbol$PackageSymbol* Symtab::lookupPackage($Symbol$ModuleSymbol* msym, $Name* 
 }
 
 $Symbol$PackageSymbol* Symtab::lookupPackage($Symbol$ModuleSymbol* msym, $Name* flatName, bool onlyExisting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(msym);
 	if ($nc(flatName)->isEmpty()) {
 		return $nc(msym)->unnamedPackage;
@@ -1067,7 +842,7 @@ $Symbol$PackageSymbol* Symtab::lookupPackage($Symbol$ModuleSymbol* msym, $Name* 
 	if ((pack != nullptr && pack->exists()) || onlyExisting) {
 		return pack;
 	}
-	bool dependsOnUnnamed = msym->requires != nullptr && $nc($($nc($($nc(msym->requires)->stream()))->map(static_cast<$Function*>($$new(Symtab$$Lambda$lambda$lookupPackage$1$3)))))->anyMatch(static_cast<$Predicate*>($$new(Symtab$$Lambda$lambda$lookupPackage$2$4, this)));
+	bool dependsOnUnnamed = msym->requires != nullptr && $$nc($$nc(msym->requires->stream())->map($$new(Symtab$$Lambda$lambda$lookupPackage$1$3)))->anyMatch($$new(Symtab$$Lambda$lambda$lookupPackage$2$4, this));
 	if (dependsOnUnnamed) {
 		$var($Symbol$PackageSymbol, unnamedPack, getPackage(this->unnamedModule, flatName));
 		if (unnamedPack != nullptr && unnamedPack->exists()) {
@@ -1091,28 +866,28 @@ $Symbol$PackageSymbol* Symtab::lookupPackage($Symbol$ModuleSymbol* msym, $Name* 
 }
 
 void Symtab::removeClass($Symbol$ModuleSymbol* msym, $Name* flatName) {
-	$nc(($cast($Map, $($nc(this->classes)->getOrDefault(flatName, Symtab::EMPTY)))))->remove(msym);
+	$$sure($Map, this->classes->getOrDefault(flatName, Symtab::EMPTY))->remove(msym);
 }
 
 $Iterable* Symtab::getAllClasses() {
-	return static_cast<$Iterable*>($new(Symtab$$Lambda$lambda$getAllClasses$4$5, this));
+	return $new(Symtab$$Lambda$lambda$getAllClasses$4$5, this);
 }
 
 void Symtab::doEnterClass($Symbol$ModuleSymbol* msym, $Symbol$ClassSymbol* cs) {
-	$useLocalCurrentObjectStackCache();
-	$nc(($cast($Map, $($nc(this->classes)->computeIfAbsent($nc(cs)->flatname, static_cast<$Function*>($$new(Symtab$$Lambda$lambda$doEnterClass$5$6)))))))->put(msym, cs);
+	$useLocalObjectStack();
+	$$sure($Map, this->classes->computeIfAbsent($nc(cs)->flatname, $$new(Symtab$$Lambda$lambda$doEnterClass$5$6)))->put(msym, cs);
 }
 
 $Symbol$ClassSymbol* Symtab::enterClass($Symbol$ModuleSymbol* msym, $Name* flatname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(msym);
 	$var($Symbol$PackageSymbol, ps, lookupPackage(msym, $($Convert::packagePart(flatname))));
 	$Assert::checkNonNull(ps);
 	$Assert::checkNonNull($nc(ps)->modle);
-	$var($Symbol$ClassSymbol, c, getClass($nc(ps)->modle, flatname));
+	$var($Symbol$ClassSymbol, c, getClass(ps->modle, flatname));
 	if (c == nullptr) {
 		$assign(c, defineClass($($Convert::shortName(flatname)), ps));
-		doEnterClass($nc(ps)->modle, c);
+		doEnterClass(ps->modle, c);
 		return c;
 	} else {
 		return c;
@@ -1126,12 +901,12 @@ bool Symtab::packageExists($Symbol$ModuleSymbol* msym, $Name* fullname) {
 }
 
 $Symbol$PackageSymbol* Symtab::enterPackage($Symbol$ModuleSymbol* currModule, $Name* fullname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(currModule);
 	$var($Symbol$PackageSymbol, p, getPackage(currModule, fullname));
 	if (p == nullptr) {
 		bool var$0 = !$nc(fullname)->isEmpty();
-		$Assert::check(var$0, static_cast<$Supplier*>($$new(Symtab$$Lambda$lambda$enterPackage$6$7, currModule)));
+		$Assert::check(var$0, $$new(Symtab$$Lambda$lambda$enterPackage$6$7, currModule));
 		$var($Name, var$1, $Convert::shortName(fullname));
 		$assign(p, $new($Symbol$PackageSymbol, var$1, $(enterPackage(currModule, $($Convert::packagePart(fullname))))));
 		$set(p, completer, this->initialCompleter);
@@ -1142,61 +917,59 @@ $Symbol$PackageSymbol* Symtab::enterPackage($Symbol$ModuleSymbol* currModule, $N
 }
 
 void Symtab::doEnterPackage($Symbol$ModuleSymbol* msym, $Symbol$PackageSymbol* pack) {
-	$useLocalCurrentObjectStackCache();
-	$nc(($cast($Map, $($nc(this->packages)->computeIfAbsent($nc(pack)->fullname, static_cast<$Function*>($$new(Symtab$$Lambda$lambda$doEnterClass$5$6)))))))->put(msym, pack);
-	$set($nc(msym), enclosedPackages, $nc(msym->enclosedPackages)->prepend(pack));
+	$useLocalObjectStack();
+	$$sure($Map, this->packages->computeIfAbsent($nc(pack)->fullname, $$new(Symtab$$Lambda$lambda$doEnterClass$5$6)))->put(msym, pack);
+	$set($nc(msym), enclosedPackages, $nc($nc(msym)->enclosedPackages)->prepend(pack));
 }
 
 void Symtab::addRootPackageFor($Symbol$ModuleSymbol* module) {
 	doEnterPackage(module, this->rootPackage);
 	$var($Symbol$PackageSymbol, unnamedPackage, $new($Symtab$7, this, $nc(this->names)->empty, this->rootPackage));
 	$set(unnamedPackage, modle, module);
-	$set(unnamedPackage, completer, static_cast<$Symbol$Completer*>($new(Symtab$$Lambda$lambda$addRootPackageFor$8$8, this)));
+	$set(unnamedPackage, completer, $new(Symtab$$Lambda$lambda$addRootPackageFor$8$8, this));
 	unnamedPackage->flags_field |= 0x00800000;
 	$set($nc(module), unnamedPackage, unnamedPackage);
 }
 
 $Symbol$PackageSymbol* Symtab::getPackage($Symbol$ModuleSymbol* module, $Name* fullname) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($Symbol$PackageSymbol, $nc(($cast($Map, $($nc(this->packages)->getOrDefault(fullname, $($Collections::emptyMap()))))))->get(module));
+	$useLocalObjectStack();
+	return $cast($Symbol$PackageSymbol, $$sure($Map, this->packages->getOrDefault(fullname, $($Collections::emptyMap())))->get(module));
 }
 
 $Symbol$ModuleSymbol* Symtab::enterModule($Name* name) {
-	$var($Symbol$ModuleSymbol, msym, $cast($Symbol$ModuleSymbol, $nc(this->modules)->get(name)));
+	$var($Symbol$ModuleSymbol, msym, $cast($Symbol$ModuleSymbol, this->modules->get(name)));
 	if (msym == nullptr) {
 		$assign(msym, $Symbol$ModuleSymbol::create(name, $nc(this->names)->module_info));
 		addRootPackageFor(msym);
-		$set($nc(msym), completer, static_cast<$Symbol$Completer*>($new(Symtab$$Lambda$lambda$enterModule$9$9, this)));
-		$nc(this->modules)->put(name, msym);
+		$set($nc(msym), completer, $new(Symtab$$Lambda$lambda$enterModule$9$9, this));
+		this->modules->put(name, msym);
 	}
 	return msym;
 }
 
 $Symbol$ModuleSymbol* Symtab::getModule($Name* name) {
-	return $cast($Symbol$ModuleSymbol, $nc(this->modules)->get(name));
+	return $cast($Symbol$ModuleSymbol, this->modules->get(name));
 }
 
 $Symbol$ModuleSymbol* Symtab::inferModule($Name* packageName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(packageName)->isEmpty()) {
 		return this->java_base == this->noModule ? this->noModule : this->unnamedModule;
 	}
 	$var($Symbol$ModuleSymbol, msym, nullptr);
-	$var($Map, map, $cast($Map, $nc(this->packages)->get(packageName)));
+	$var($Map, map, $cast($Map, this->packages->get(packageName)));
 	if (map == nullptr) {
 		return nullptr;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(map)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-			{
-				if (!$nc($($nc(($cast($Symbol$PackageSymbol, $($nc(e)->getValue()))))->members()))->isEmpty()) {
-					if (msym == nullptr) {
-						$assign(msym, $cast($Symbol$ModuleSymbol, e->getKey()));
-					} else {
-						return nullptr;
-					}
+			if (!$$nc($$sure($Symbol$PackageSymbol, $nc(e)->getValue())->members())->isEmpty()) {
+				if (msym == nullptr) {
+					$assign(msym, $cast($Symbol$ModuleSymbol, e->getKey()));
+				} else {
+					return nullptr;
 				}
 			}
 		}
@@ -1205,22 +978,18 @@ $Symbol$ModuleSymbol* Symtab::inferModule($Name* packageName) {
 }
 
 $List* Symtab::listPackageModules($Name* packageName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(packageName)->isEmpty()) {
 		return $List::nil();
 	}
 	$var($List, result, $List::nil());
-	$var($Map, map, $cast($Map, $nc(this->packages)->get(packageName)));
+	$var($Map, map, $cast($Map, this->packages->get(packageName)));
 	if (map != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(map->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-				{
-					if (!$nc($($nc(($cast($Symbol$PackageSymbol, $($nc(e)->getValue()))))->members()))->isEmpty()) {
-						$assign(result, $nc(result)->prepend($cast($Symbol$ModuleSymbol, $(e->getKey()))));
-					}
-				}
+		$var($Iterator, i$, $$nc(map->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+			if (!$$nc($$sure($Symbol$PackageSymbol, $nc(e)->getValue())->members())->isEmpty()) {
+				$assign(result, $nc(result)->prepend($$cast($Symbol$ModuleSymbol, e->getKey())));
 			}
 		}
 	}
@@ -1228,17 +997,17 @@ $List* Symtab::listPackageModules($Name* packageName) {
 }
 
 $Collection* Symtab::getAllModules() {
-	return $nc(this->modules)->values();
+	return this->modules->values();
 }
 
 $Iterable* Symtab::getClassesForName($Name* candidate) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Map, $($nc(this->classes)->getOrDefault(candidate, $($Collections::emptyMap()))))))->values();
+	$useLocalObjectStack();
+	return $$sure($Map, this->classes->getOrDefault(candidate, $($Collections::emptyMap())))->values();
 }
 
 $Iterable* Symtab::getPackagesForName($Name* candidate) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Map, $($nc(this->packages)->getOrDefault(candidate, $($Collections::emptyMap()))))))->values();
+	$useLocalObjectStack();
+	return $$sure($Map, this->packages->getOrDefault(candidate, $($Collections::emptyMap())))->values();
 }
 
 void Symtab::lambda$enterModule$9($Symbol* s) {
@@ -1260,14 +1029,14 @@ $Map* Symtab::lambda$doEnterClass$5($Name* n) {
 }
 
 $Iterator* Symtab::lambda$getAllClasses$4() {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterable, var$0, static_cast<$Iterable*>($nc(this->classes)->values()));
-	return $Iterators::createCompoundIterator(var$0, static_cast<$Function*>($$new(Symtab$$Lambda$lambda$getAllClasses$3$10)));
+	$useLocalObjectStack();
+	$var($Iterable, var$0, this->classes->values());
+	return $Iterators::createCompoundIterator(var$0, $$new(Symtab$$Lambda$lambda$getAllClasses$3$10));
 }
 
 $Iterator* Symtab::lambda$getAllClasses$3($Map* v) {
 	$init(Symtab);
-	return $nc($($nc(v)->values()))->iterator();
+	return $$nc($nc(v)->values())->iterator();
 }
 
 bool Symtab::lambda$lookupPackage$2($Symbol$ModuleSymbol* mod) {
@@ -1280,23 +1049,23 @@ $Symbol$ModuleSymbol* Symtab::lambda$lookupPackage$1($Directive$RequiresDirectiv
 }
 
 $Symbol$VarSymbol* Symtab::lambda$getClassField$0($Type* type, $Types* types, $Types$UniqueType* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, arg, nullptr);
 	$init($TypeTag);
 	bool var$0 = $nc(type)->getTag() == $TypeTag::ARRAY;
-	if (var$0 || $nc(type)->getTag() == $TypeTag::CLASS) {
+	if (var$0 || type->getTag() == $TypeTag::CLASS) {
 		$assign(arg, $nc(types)->erasure(type));
 	} else if (type->isPrimitiveOrVoid()) {
 		$assign(arg, $nc($($nc(types)->boxedClass(type)))->type);
 	} else {
-		$throwNew($AssertionError, $of(type));
+		$throwNew($AssertionError, type);
 	}
 	$var($Type, var$1, $nc(this->classType)->getEnclosingType());
-	$var($Type, t, $new($Type$ClassType, var$1, $($List::of(arg)), $nc(this->classType)->tsym));
-	return $new($Symbol$VarSymbol, (8 | 1) | 16, $nc(this->names)->_class, t, $nc(type)->tsym);
+	$var($Type, t, $new($Type$ClassType, var$1, $($List::of(arg)), this->classType->tsym));
+	return $new($Symbol$VarSymbol, (8 | 1) | 0x10, $nc(this->names)->_class, t, type->tsym);
 }
 
-void clinit$Symtab($Class* class$) {
+void Symtab::clinit$($Class* clazz) {
 	$assignStatic(Symtab::symtabKey, $new($Context$Key));
 	$assignStatic(Symtab::EMPTY, $new($HashMap));
 }
@@ -1306,41 +1075,215 @@ Symtab::Symtab() {
 
 $Class* Symtab::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Symtab$$Lambda$lambda$getClassField$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$getClassField$0")) {
 			return Symtab$$Lambda$lambda$getClassField$0::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$complete$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$complete$1")) {
 			return Symtab$$Lambda$complete$1::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$toString$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$toString$2")) {
 			return Symtab$$Lambda$toString$2::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$lookupPackage$1$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$lookupPackage$1$3")) {
 			return Symtab$$Lambda$lambda$lookupPackage$1$3::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$lookupPackage$2$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$lookupPackage$2$4")) {
 			return Symtab$$Lambda$lambda$lookupPackage$2$4::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$getAllClasses$4$5::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$getAllClasses$4$5")) {
 			return Symtab$$Lambda$lambda$getAllClasses$4$5::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$doEnterClass$5$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$doEnterClass$5$6")) {
 			return Symtab$$Lambda$lambda$doEnterClass$5$6::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$enterPackage$6$7::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$enterPackage$6$7")) {
 			return Symtab$$Lambda$lambda$enterPackage$6$7::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$addRootPackageFor$8$8::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$addRootPackageFor$8$8")) {
 			return Symtab$$Lambda$lambda$addRootPackageFor$8$8::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$enterModule$9$9::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$enterModule$9$9")) {
 			return Symtab$$Lambda$lambda$enterModule$9$9::load$(name, initialize);
 		}
-		if (name->equals(Symtab$$Lambda$lambda$getAllClasses$3$10::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Symtab$$Lambda$lambda$getAllClasses$3$10")) {
 			return Symtab$$Lambda$lambda$getAllClasses$3$10::load$(name, initialize);
 		}
 	}
-	$loadClass(Symtab, name, initialize, &_Symtab_ClassInfo_, clinit$Symtab, allocate$Symtab);
+	$FieldInfo fieldInfos$$[] = {
+		{"symtabKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/Symtab;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Symtab, symtabKey)},
+		{"byteType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, byteType)},
+		{"charType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, charType)},
+		{"shortType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, shortType)},
+		{"intType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, intType)},
+		{"longType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, longType)},
+		{"floatType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, floatType)},
+		{"doubleType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, doubleType)},
+		{"booleanType", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, booleanType)},
+		{"botType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, botType)},
+		{"voidType", "Lcom/sun/tools/javac/code/Type$JCVoidType;", nullptr, $PUBLIC | $FINAL, $field(Symtab, voidType)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Symtab, names)},
+		{"messages", "Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PRIVATE | $FINAL, $field(Symtab, messages)},
+		{"initialCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE | $FINAL, $field(Symtab, initialCompleter)},
+		{"moduleCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE | $FINAL, $field(Symtab, moduleCompleter)},
+		{"unnamedModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, unnamedModule)},
+		{"errModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errModule)},
+		{"noModule", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noModule)},
+		{"rootPackage", "Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, rootPackage)},
+		{"noSymbol", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noSymbol)},
+		{"errSymbol", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errSymbol)},
+		{"unknownSymbol", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, unknownSymbol)},
+		{"errType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errType)},
+		{"unknownType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, unknownType)},
+		{"arrayClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, arrayClass)},
+		{"arrayCloneMethod", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, arrayCloneMethod)},
+		{"boundClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, boundClass)},
+		{"methodClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodClass)},
+		{"java_base", "Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, java_base)},
+		{"objectType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, objectType)},
+		{"objectMethodsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, objectMethodsType)},
+		{"objectsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, objectsType)},
+		{"classType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, classType)},
+		{"classLoaderType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, classLoaderType)},
+		{"stringType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringType)},
+		{"stringBufferType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringBufferType)},
+		{"stringBuilderType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringBuilderType)},
+		{"cloneableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, cloneableType)},
+		{"serializableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, serializableType)},
+		{"serializedLambdaType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, serializedLambdaType)},
+		{"varHandleType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, varHandleType)},
+		{"methodHandleType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodHandleType)},
+		{"methodHandleLookupType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodHandleLookupType)},
+		{"methodTypeType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, methodTypeType)},
+		{"nativeHeaderType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, nativeHeaderType)},
+		{"throwableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, throwableType)},
+		{"errorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, errorType)},
+		{"interruptedExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, interruptedExceptionType)},
+		{"illegalArgumentExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, illegalArgumentExceptionType)},
+		{"exceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, exceptionType)},
+		{"runtimeExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, runtimeExceptionType)},
+		{"classNotFoundExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, classNotFoundExceptionType)},
+		{"noClassDefFoundErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noClassDefFoundErrorType)},
+		{"noSuchFieldErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, noSuchFieldErrorType)},
+		{"assertionErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, assertionErrorType)},
+		{"incompatibleClassChangeErrorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, incompatibleClassChangeErrorType)},
+		{"cloneNotSupportedExceptionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, cloneNotSupportedExceptionType)},
+		{"annotationType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, annotationType)},
+		{"enumSym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, enumSym)},
+		{"listType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, listType)},
+		{"collectionsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, collectionsType)},
+		{"comparableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, comparableType)},
+		{"comparatorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, comparatorType)},
+		{"arraysType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, arraysType)},
+		{"iterableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, iterableType)},
+		{"iteratorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, iteratorType)},
+		{"annotationTargetType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, annotationTargetType)},
+		{"overrideType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, overrideType)},
+		{"retentionType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, retentionType)},
+		{"deprecatedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, deprecatedType)},
+		{"suppressWarningsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, suppressWarningsType)},
+		{"supplierType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, supplierType)},
+		{"inheritedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, inheritedType)},
+		{"profileType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, profileType)},
+		{"proprietaryType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, proprietaryType)},
+		{"systemType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, systemType)},
+		{"autoCloseableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, autoCloseableType)},
+		{"trustMeType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, trustMeType)},
+		{"lambdaMetafactory", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, lambdaMetafactory)},
+		{"stringConcatFactory", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, stringConcatFactory)},
+		{"repeatableType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, repeatableType)},
+		{"documentedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, documentedType)},
+		{"elementTypeType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, elementTypeType)},
+		{"functionalInterfaceType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, functionalInterfaceType)},
+		{"previewFeatureType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, previewFeatureType)},
+		{"previewFeatureInternalType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, previewFeatureInternalType)},
+		{"typeDescriptorType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, typeDescriptorType)},
+		{"recordType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, recordType)},
+		{"switchBootstrapsType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, switchBootstrapsType)},
+		{"valueBasedType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, valueBasedType)},
+		{"valueBasedInternalType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, valueBasedInternalType)},
+		{"lengthVar", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, lengthVar)},
+		{"enumFinalFinalize", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, enumFinalFinalize)},
+		{"autoCloseableClose", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, autoCloseableClose)},
+		{"typeOfTag", "[Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $field(Symtab, typeOfTag)},
+		{"boxedName", "[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(Symtab, boxedName)},
+		{"classes", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;>;", $PRIVATE | $FINAL, $field(Symtab, classes)},
+		{"packages", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;>;", $PRIVATE | $FINAL, $field(Symtab, packages)},
+		{"modules", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE | $FINAL, $field(Symtab, modules)},
+		{"classFields", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Types$UniqueType;Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;", $PRIVATE | $FINAL, $field(Symtab, classFields)},
+		{"predefClass", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Symtab, predefClass)},
+		{"EMPTY", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Symtab, EMPTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Symtab, init$, void, $Context*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"addRootPackageFor", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Symtab, addRootPackageFor, void, $Symbol$ModuleSymbol*)},
+		{"defineClass", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, defineClass, $Symbol$ClassSymbol*, $Name*, $Symbol*)},
+		{"doEnterClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Symtab, doEnterClass, void, $Symbol$ModuleSymbol*, $Symbol$ClassSymbol*)},
+		{"doEnterPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(Symtab, doEnterPackage, void, $Symbol$ModuleSymbol*, $Symbol$PackageSymbol*)},
+		{"enterClass", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Symtab, enterClass, $Type*, $String*)},
+		{"enterClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterClass, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*, $Symbol$TypeSymbol*)},
+		{"enterClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterClass, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*)},
+		{"enterModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterModule, $Symbol$ModuleSymbol*, $Name*)},
+		{"enterPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, enterPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*)},
+		{"enterSyntheticAnnotation", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Symtab, enterSyntheticAnnotation, $Type*, $String*)},
+		{"getAllClasses", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getAllClasses, $Iterable*)},
+		{"getAllModules", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getAllModules, $Collection*)},
+		{"getClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getClass, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*)},
+		{"getClassField", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getClassField, $Symbol$VarSymbol*, $Type*, $Types*)},
+		{"getClassesForName", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getClassesForName, $Iterable*, $Name*)},
+		{"getModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getModule, $Symbol$ModuleSymbol*, $Name*)},
+		{"getPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, getPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*)},
+		{"getPackagesForName", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PUBLIC, $virtualMethod(Symtab, getPackagesForName, $Iterable*, $Name*)},
+		{"inferModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, inferModule, $Symbol$ModuleSymbol*, $Name*)},
+		{"initType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, initType, void, $Type*, $Symbol$ClassSymbol*)},
+		{"initType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, initType, void, $Type*, $String*)},
+		{"initType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, initType, void, $Type*, $String*, $String*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Symtab;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symtab, instance, Symtab*, $Context*)},
+		{"lambda$addRootPackageFor$8", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$addRootPackageFor$8, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"lambda$doEnterClass$5", "(Lcom/sun/tools/javac/util/Name;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$doEnterClass$5, $Map*, $Name*)},
+		{"lambda$enterModule$9", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$enterModule$9, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"lambda$enterPackage$6", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$enterPackage$6, $String*, $Symbol$ModuleSymbol*)},
+		{"lambda$getAllClasses$3", "(Ljava/util/Map;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$getAllClasses$3, $Iterator*, $Map*)},
+		{"lambda$getAllClasses$4", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$getAllClasses$4, $Iterator*)},
+		{"lambda$getClassField$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Types$UniqueType;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$getClassField$0, $Symbol$VarSymbol*, $Type*, $Types*, $Types$UniqueType*)},
+		{"lambda$lookupPackage$1", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symtab, lambda$lookupPackage$1, $Symbol$ModuleSymbol*, $Directive$RequiresDirective*)},
+		{"lambda$lookupPackage$2", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Symtab, lambda$lookupPackage$2, bool, $Symbol$ModuleSymbol*)},
+		{"listPackageModules", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(Symtab, listPackageModules, $List*, $Name*)},
+		{"lookupPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symtab, lookupPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*)},
+		{"lookupPackage", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;Z)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PRIVATE, $method(Symtab, lookupPackage, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*, $Name*, bool)},
+		{"packageExists", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PUBLIC, $virtualMethod(Symtab, packageExists, bool, $Symbol$ModuleSymbol*, $Name*)},
+		{"removeClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, removeClass, void, $Symbol$ModuleSymbol*, $Name*)},
+		{"synthesizeBoxTypeIfMissing", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, synthesizeBoxTypeIfMissing, void, $Type*)},
+		{"synthesizeEmptyInterfaceIfMissing", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Symtab, synthesizeEmptyInterfaceIfMissing, void, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symtab$7", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symtab$6", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symtab$5", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symtab$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symtab$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symtab$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Symtab$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symtab",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symtab$7,com.sun.tools.javac.code.Symtab$6,com.sun.tools.javac.code.Symtab$5,com.sun.tools.javac.code.Symtab$4,com.sun.tools.javac.code.Symtab$3,com.sun.tools.javac.code.Symtab$2,com.sun.tools.javac.code.Symtab$1"
+	};
+	$loadClass(Symtab, name, initialize, &classInfo$$, Symtab::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Symtab);
+	});
 	return class$;
 }
 

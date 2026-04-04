@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/UnsharedNameTable.h>
-
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/Convert.h>
 #include <com/sun/tools/javac/util/Name$Table.h>
@@ -29,49 +28,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _UnsharedNameTable_FieldInfo_[] = {
-	{"hashes", "[Lcom/sun/tools/javac/util/UnsharedNameTable$HashEntry;", nullptr, $PRIVATE, $field(UnsharedNameTable, hashes)},
-	{"hashMask", "I", nullptr, $PRIVATE, $field(UnsharedNameTable, hashMask)},
-	{"index", "I", nullptr, $PUBLIC, $field(UnsharedNameTable, index)},
-	{}
-};
-
-$MethodInfo _UnsharedNameTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;I)V", nullptr, $PUBLIC, $method(UnsharedNameTable, init$, void, $Names*, int32_t)},
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(UnsharedNameTable, init$, void, $Names*)},
-	{"create", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnsharedNameTable, create, $Name$Table*, $Names*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, dispose, void)},
-	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, fromChars, $Name*, $chars*, int32_t, int32_t)},
-	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UnsharedNameTable_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Name$Table", "com.sun.tools.javac.util.Name", "Table", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.UnsharedNameTable$NameImpl", "com.sun.tools.javac.util.UnsharedNameTable", "NameImpl", $STATIC},
-	{"com.sun.tools.javac.util.UnsharedNameTable$HashEntry", "com.sun.tools.javac.util.UnsharedNameTable", "HashEntry", $STATIC},
-	{}
-};
-
-$ClassInfo _UnsharedNameTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.UnsharedNameTable",
-	"com.sun.tools.javac.util.Name$Table",
-	nullptr,
-	_UnsharedNameTable_FieldInfo_,
-	_UnsharedNameTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnsharedNameTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.UnsharedNameTable$NameImpl,com.sun.tools.javac.util.UnsharedNameTable$HashEntry"
-};
-
-$Object* allocate$UnsharedNameTable($Class* clazz) {
-	return $of($alloc(UnsharedNameTable));
-}
-
 $Name$Table* UnsharedNameTable::create($Names* names) {
 	$init(UnsharedNameTable);
 	return $new(UnsharedNameTable, names);
@@ -85,7 +41,7 @@ void UnsharedNameTable::init$($Names* names, int32_t hashSize) {
 }
 
 void UnsharedNameTable::init$($Names* names) {
-	UnsharedNameTable::init$(names, 32768);
+	UnsharedNameTable::init$(names, 0x00008000);
 }
 
 $Name* UnsharedNameTable::fromChars($chars* cs, int32_t start, int32_t len) {
@@ -95,8 +51,8 @@ $Name* UnsharedNameTable::fromChars($chars* cs, int32_t start, int32_t len) {
 }
 
 $Name* UnsharedNameTable::fromUtf($bytes* cs, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
-	int32_t h = (int32_t)(hashValue(cs, start, len) & (uint32_t)this->hashMask);
+	$useLocalObjectStack();
+	int32_t h = hashValue(cs, start, len) & this->hashMask;
 	$var($UnsharedNameTable$HashEntry, element, $nc(this->hashes)->get(h));
 	$var($UnsharedNameTable$NameImpl, n, nullptr);
 	$var($UnsharedNameTable$HashEntry, previousNonNullTableEntry, nullptr);
@@ -107,11 +63,11 @@ $Name* UnsharedNameTable::fromUtf($bytes* cs, int32_t start, int32_t len) {
 			if (firstTableEntry == element) {
 				$nc(this->hashes)->set(h, $assign(firstTableEntry, element->next));
 			} else {
-				$Assert::checkNonNull($of(previousNonNullTableEntry), "previousNonNullTableEntry cannot be null here."_s);
+				$Assert::checkNonNull(previousNonNullTableEntry, "previousNonNullTableEntry cannot be null here."_s);
 				$set($nc(previousNonNullTableEntry), next, element->next);
 			}
 		} else {
-			bool var$0 = $nc(n)->getByteLength() == len;
+			bool var$0 = n->getByteLength() == len;
 			if (var$0 && equals(n->bytes, 0, cs, start, len)) {
 				return n;
 			}
@@ -126,8 +82,8 @@ $Name* UnsharedNameTable::fromUtf($bytes* cs, int32_t start, int32_t len) {
 	if (previousNonNullTableEntry == nullptr) {
 		$nc(this->hashes)->set(h, newEntry);
 	} else {
-		$Assert::checkNull($of($nc(previousNonNullTableEntry)->next), "previousNonNullTableEntry.next must be null."_s);
-		$set($nc(previousNonNullTableEntry), next, newEntry);
+		$Assert::checkNull(previousNonNullTableEntry->next, "previousNonNullTableEntry.next must be null."_s);
+		$set(previousNonNullTableEntry, next, newEntry);
 	}
 	return n;
 }
@@ -140,7 +96,44 @@ UnsharedNameTable::UnsharedNameTable() {
 }
 
 $Class* UnsharedNameTable::load$($String* name, bool initialize) {
-	$loadClass(UnsharedNameTable, name, initialize, &_UnsharedNameTable_ClassInfo_, allocate$UnsharedNameTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"hashes", "[Lcom/sun/tools/javac/util/UnsharedNameTable$HashEntry;", nullptr, $PRIVATE, $field(UnsharedNameTable, hashes)},
+		{"hashMask", "I", nullptr, $PRIVATE, $field(UnsharedNameTable, hashMask)},
+		{"index", "I", nullptr, $PUBLIC, $field(UnsharedNameTable, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Names;I)V", nullptr, $PUBLIC, $method(UnsharedNameTable, init$, void, $Names*, int32_t)},
+		{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(UnsharedNameTable, init$, void, $Names*)},
+		{"create", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnsharedNameTable, create, $Name$Table*, $Names*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, dispose, void)},
+		{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, fromChars, $Name*, $chars*, int32_t, int32_t)},
+		{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Name$Table", "com.sun.tools.javac.util.Name", "Table", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.UnsharedNameTable$NameImpl", "com.sun.tools.javac.util.UnsharedNameTable", "NameImpl", $STATIC},
+		{"com.sun.tools.javac.util.UnsharedNameTable$HashEntry", "com.sun.tools.javac.util.UnsharedNameTable", "HashEntry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.UnsharedNameTable",
+		"com.sun.tools.javac.util.Name$Table",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.UnsharedNameTable$NameImpl,com.sun.tools.javac.util.UnsharedNameTable$HashEntry"
+	};
+	$loadClass(UnsharedNameTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsharedNameTable);
+	});
 	return class$;
 }
 

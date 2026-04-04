@@ -1,5 +1,4 @@
 #include <JapaneseReadingAttributes$1.h>
-
 #include <JapaneseReadingAttributes.h>
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
@@ -15,46 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-using $JTextField = ::javax::swing::JTextField;
-
-$MethodInfo _JapaneseReadingAttributes$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JapaneseReadingAttributes$1, init$, void)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$1, windowClosing, void, $WindowEvent*)},
-	{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$1, windowOpened, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JapaneseReadingAttributes$1_EnclosingMethodInfo_ = {
-	"JapaneseReadingAttributes",
-	"setupUI",
-	"()V"
-};
-
-$InnerClassInfo _JapaneseReadingAttributes$1_InnerClassesInfo_[] = {
-	{"JapaneseReadingAttributes$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JapaneseReadingAttributes$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"JapaneseReadingAttributes$1",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	nullptr,
-	_JapaneseReadingAttributes$1_MethodInfo_,
-	nullptr,
-	&_JapaneseReadingAttributes$1_EnclosingMethodInfo_,
-	_JapaneseReadingAttributes$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JapaneseReadingAttributes"
-};
-
-$Object* allocate$JapaneseReadingAttributes$1($Class* clazz) {
-	return $of($alloc(JapaneseReadingAttributes$1));
-}
 
 void JapaneseReadingAttributes$1::init$() {
 	$WindowAdapter::init$();
@@ -74,7 +33,39 @@ JapaneseReadingAttributes$1::JapaneseReadingAttributes$1() {
 }
 
 $Class* JapaneseReadingAttributes$1::load$($String* name, bool initialize) {
-	$loadClass(JapaneseReadingAttributes$1, name, initialize, &_JapaneseReadingAttributes$1_ClassInfo_, allocate$JapaneseReadingAttributes$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JapaneseReadingAttributes$1, init$, void)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$1, windowClosing, void, $WindowEvent*)},
+		{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$1, windowOpened, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JapaneseReadingAttributes",
+		"setupUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JapaneseReadingAttributes$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JapaneseReadingAttributes$1",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JapaneseReadingAttributes"
+	};
+	$loadClass(JapaneseReadingAttributes$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JapaneseReadingAttributes$1));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_sbp.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,263 +13,244 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_sbp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_sbp, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_sbp, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_sbp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_sbp",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_sbp_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_sbp($Class* clazz) {
-	return $of($alloc(CurrencyNames_sbp));
-}
-
 void CurrencyNames_sbp::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_sbp::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("TZS"_s),
-			$of("TSh"_s)
+			"TZS"_s,
+			"TSh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("Ihela ya Shitwa sha Shiyalabu"_s)
+			"aed"_s,
+			"Ihela ya Shitwa sha Shiyalabu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("Ihela ya Angola"_s)
+			"aoa"_s,
+			"Ihela ya Angola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of("Ihela ya Awusitilaliya"_s)
+			"aud"_s,
+			"Ihela ya Awusitilaliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of("Ihela ya Bahaleni"_s)
+			"bhd"_s,
+			"Ihela ya Bahaleni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("Ihela ya Bulundi"_s)
+			"bif"_s,
+			"Ihela ya Bulundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("Ihela ya Botiswana"_s)
+			"bwp"_s,
+			"Ihela ya Botiswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("Ihela ya Kanada"_s)
+			"cad"_s,
+			"Ihela ya Kanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("Ihela ya Kongo"_s)
+			"cdf"_s,
+			"Ihela ya Kongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of("Ihela ya Uswisi"_s)
+			"chf"_s,
+			"Ihela ya Uswisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("Ihela ya Shina"_s)
+			"cny"_s,
+			"Ihela ya Shina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("Ihela ya Kepuvede"_s)
+			"cve"_s,
+			"Ihela ya Kepuvede"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("Ihela ya Jibuti"_s)
+			"djf"_s,
+			"Ihela ya Jibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of("Ihela ya Alijeliya"_s)
+			"dzd"_s,
+			"Ihela ya Alijeliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of("Ihela ya Misili"_s)
+			"egp"_s,
+			"Ihela ya Misili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("Ihela ya Elitileya"_s)
+			"ern"_s,
+			"Ihela ya Elitileya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("Ihela ya Uhabeshi"_s)
+			"etb"_s,
+			"Ihela ya Uhabeshi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("Ihela ya Ulaya"_s)
+			"eur"_s,
+			"Ihela ya Ulaya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("Ihela ya Uwingelesa"_s)
+			"gbp"_s,
+			"Ihela ya Uwingelesa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of("Ihela ya Ghana"_s)
+			"ghc"_s,
+			"Ihela ya Ghana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("Ihela ya Gambiya"_s)
+			"gmd"_s,
+			"Ihela ya Gambiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of("Ihela ya Gine"_s)
+			"gns"_s,
+			"Ihela ya Gine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("Ihela ya Indiya"_s)
+			"inr"_s,
+			"Ihela ya Indiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of("Ihela ya Japani"_s)
+			"jpy"_s,
+			"Ihela ya Japani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("Ihela ya Kenya"_s)
+			"kes"_s,
+			"Ihela ya Kenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("Ihela ya Komolo"_s)
+			"kmf"_s,
+			"Ihela ya Komolo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of("Ihela ya Libeliya"_s)
+			"lrd"_s,
+			"Ihela ya Libeliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of("Ihela ya Lesoto"_s)
+			"lsl"_s,
+			"Ihela ya Lesoto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of("Ihela ya Libiya"_s)
+			"lyd"_s,
+			"Ihela ya Libiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Ihela ya Moloko"_s)
+			"mad"_s,
+			"Ihela ya Moloko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of("Ihela ya Bukini"_s)
+			"mga"_s,
+			"Ihela ya Bukini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Ihela ya Molitaniya (1973–2017)"_s)
+			"mro"_s,
+			u"Ihela ya Molitaniya (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("Ihela ya Molitaniya"_s)
+			"mru"_s,
+			"Ihela ya Molitaniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of("Ihela ya Molisi"_s)
+			"mur"_s,
+			"Ihela ya Molisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of("Ihela ya Malawi"_s)
+			"mwk"_s,
+			"Ihela ya Malawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("Ihela ya Musumbiji"_s)
+			"mzm"_s,
+			"Ihela ya Musumbiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of("Ihela ya Namibiya"_s)
+			"nad"_s,
+			"Ihela ya Namibiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("Ihela ya Nijeliya"_s)
+			"ngn"_s,
+			"Ihela ya Nijeliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("Ihela ya Lwanda"_s)
+			"rwf"_s,
+			"Ihela ya Lwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("Ihela ya Sawudiya"_s)
+			"sar"_s,
+			"Ihela ya Sawudiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("Ihela ya Shelisheli"_s)
+			"scr"_s,
+			"Ihela ya Shelisheli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("Ihela ya Sudani"_s)
+			"sdg"_s,
+			"Ihela ya Sudani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("Ihela ya Santahelena"_s)
+			"shp"_s,
+			"Ihela ya Santahelena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of("Ihela ya Siela Liyoni"_s)
+			"sll"_s,
+			"Ihela ya Siela Liyoni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of("Ihela ya Somaliya"_s)
+			"sos"_s,
+			"Ihela ya Somaliya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"Ihela ya Sao Tome ni Pilinsipe (1977–2017)"_s)
+			"std"_s,
+			u"Ihela ya Sao Tome ni Pilinsipe (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("Ihela ya Sao Tome ni Pilinsipe"_s)
+			"stn"_s,
+			"Ihela ya Sao Tome ni Pilinsipe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("Ihela ya Uswasi"_s)
+			"szl"_s,
+			"Ihela ya Uswasi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("Ihela ya Tunisiya"_s)
+			"tnd"_s,
+			"Ihela ya Tunisiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of("Ihela ya Tansaniya"_s)
+			"tzs"_s,
+			"Ihela ya Tansaniya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of("Ihela ya Uganda"_s)
+			"ugx"_s,
+			"Ihela ya Uganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of("Ihela ya Malekani"_s)
+			"usd"_s,
+			"Ihela ya Malekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("Ihela ya CFA BEAC"_s)
+			"xaf"_s,
+			"Ihela ya CFA BEAC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("Ihela ya CFA BCEAO"_s)
+			"xof"_s,
+			"Ihela ya CFA BCEAO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of("Ihela ya Afilika Kusini"_s)
+			"zar"_s,
+			"Ihela ya Afilika Kusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"Ihela ya Sambiya (1968–2012)"_s)
+			"zmk"_s,
+			u"Ihela ya Sambiya (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of("Ihela ya Sambiya"_s)
+			"zmw"_s,
+			"Ihela ya Sambiya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of("Ihela ya Simbabwe"_s)
+			"zwd"_s,
+			"Ihela ya Simbabwe"_s
 		})
 	}));
 	return data;
@@ -280,7 +260,22 @@ CurrencyNames_sbp::CurrencyNames_sbp() {
 }
 
 $Class* CurrencyNames_sbp::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_sbp, name, initialize, &_CurrencyNames_sbp_ClassInfo_, allocate$CurrencyNames_sbp);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_sbp, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_sbp, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_sbp",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_sbp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_sbp);
+	});
 	return class$;
 }
 

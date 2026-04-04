@@ -15,6 +15,7 @@ class Lower$2 : public ::java::lang::Object {
 	$class(Lower$2, 0, ::java::lang::Object)
 public:
 	Lower$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$main$Option$PkgInfo;
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;

@@ -46,6 +46,7 @@ class $export FeatureDescriptor : public ::java::lang::Object {
 	$class(FeatureDescriptor, 0, ::java::lang::Object)
 public:
 	FeatureDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::beans::FeatureDescriptor* x, ::java::beans::FeatureDescriptor* y);
 	void init$(::java::beans::FeatureDescriptor* old);

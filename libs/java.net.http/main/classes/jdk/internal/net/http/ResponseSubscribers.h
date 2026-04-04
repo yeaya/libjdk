@@ -62,6 +62,7 @@ class $export ResponseSubscribers : public ::java::lang::Object {
 	$class(ResponseSubscribers, 0, ::java::lang::Object)
 public:
 	ResponseSubscribers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::net::http::HttpResponse$BodySubscriber* createLineStream();
 	static ::java::net::http::HttpResponse$BodySubscriber* createLineStream(::java::nio::charset::Charset* charset);

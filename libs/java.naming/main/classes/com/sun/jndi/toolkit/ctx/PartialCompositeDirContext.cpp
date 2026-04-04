@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/ctx/PartialCompositeDirContext.h>
-
 #include <com/sun/jndi/toolkit/ctx/AtomicContext.h>
 #include <com/sun/jndi/toolkit/ctx/Continuation.h>
 #include <com/sun/jndi/toolkit/ctx/PartialCompositeContext.h>
@@ -37,7 +36,6 @@ using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
 using $NameParser = ::javax::naming::NameParser;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
-using $NamingException = ::javax::naming::NamingException;
 using $NotContextException = ::javax::naming::NotContextException;
 using $OperationNotSupportedException = ::javax::naming::OperationNotSupportedException;
 using $Attributes = ::javax::naming::directory::Attributes;
@@ -50,108 +48,6 @@ namespace com {
 		namespace jndi {
 			namespace toolkit {
 				namespace ctx {
-
-$MethodInfo _PartialCompositeDirContext_MethodInfo_[] = {
-	{"*addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEnvironment", "()Ljava/util/Hashtable;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PartialCompositeDirContext, init$, void)},
-	{"a_bind", "(Ljava/lang/String;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_bind, void, $String*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"a_createSubcontext", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_createSubcontext, $Context*, $String*, $Continuation*), "javax.naming.NamingException"},
-	{"a_destroySubcontext", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_destroySubcontext, void, $String*, $Continuation*), "javax.naming.NamingException"},
-	{"a_getNameParser", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_getNameParser, $NameParser*, $Continuation*), "javax.naming.NamingException"},
-	{"a_list", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_list, $NamingEnumeration*, $Continuation*), "javax.naming.NamingException"},
-	{"a_listBindings", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_listBindings, $NamingEnumeration*, $Continuation*), "javax.naming.NamingException"},
-	{"a_lookup", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_lookup, $Object*, $String*, $Continuation*), "javax.naming.NamingException"},
-	{"a_lookupLink", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_lookupLink, $Object*, $String*, $Continuation*), "javax.naming.NamingException"},
-	{"a_rebind", "(Ljava/lang/String;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_rebind, void, $String*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"a_rename", "(Ljava/lang/String;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_rename, void, $String*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"a_unbind", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_unbind, void, $String*, $Continuation*), "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"c_parseComponent", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/StringHeadTail;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, c_parseComponent, $StringHeadTail*, $String*, $Continuation*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
-	{"getPCDirContext", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/PartialCompositeDirContext;", nullptr, $PROTECTED | $STATIC, $staticMethod(PartialCompositeDirContext, getPCDirContext, PartialCompositeDirContext*, $Continuation*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"p_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_bind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"p_createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_createSubcontext, $DirContext*, $Name*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"p_getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_getAttributes, $Attributes*, $Name*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
-	{"p_getSchema", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_getSchema, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_getSchemaClassDefinition", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_getSchemaClassDefinition, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"p_modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_modifyAttributes, void, $Name*, int32_t, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"p_modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_modifyAttributes, void, $Name*, $ModificationItemArray*, $Continuation*), "javax.naming.NamingException"},
-	{"p_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_rebind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"p_search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
-	{"p_search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_search, $NamingEnumeration*, $Name*, $String*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
-	{"p_search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
-	{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"*removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PartialCompositeDirContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jndi.toolkit.ctx.PartialCompositeDirContext",
-	"com.sun.jndi.toolkit.ctx.AtomicContext",
-	"javax.naming.directory.DirContext",
-	nullptr,
-	_PartialCompositeDirContext_MethodInfo_
-};
-
-$Object* allocate$PartialCompositeDirContext($Class* clazz) {
-	return $of($alloc(PartialCompositeDirContext));
-}
 
 $Object* PartialCompositeDirContext::lookup($String* name) {
 	 return this->$AtomicContext::lookup(name);
@@ -275,19 +171,19 @@ void PartialCompositeDirContext::init$() {
 }
 
 $Attributes* PartialCompositeDirContext::getAttributes($String* name) {
-	return getAttributes(name, ($StringArray*)nullptr);
+	return getAttributes(name, nullptr);
 }
 
 $Attributes* PartialCompositeDirContext::getAttributes($Name* name) {
-	return getAttributes(name, ($StringArray*)nullptr);
+	return getAttributes(name, nullptr);
 }
 
 $Attributes* PartialCompositeDirContext::getAttributes($String* name, $StringArray* attrIds) {
-	return getAttributes(static_cast<$Name*>($$new($CompositeName, name)), attrIds);
+	return getAttributes($$new($CompositeName, name), attrIds);
 }
 
 $Attributes* PartialCompositeDirContext::getAttributes($Name* name, $StringArray* attrIds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -308,11 +204,11 @@ $Attributes* PartialCompositeDirContext::getAttributes($Name* name, $StringArray
 }
 
 void PartialCompositeDirContext::modifyAttributes($String* name, int32_t mod_op, $Attributes* attrs) {
-	modifyAttributes(static_cast<$Name*>($$new($CompositeName, name)), mod_op, attrs);
+	modifyAttributes($$new($CompositeName, name), mod_op, attrs);
 }
 
 void PartialCompositeDirContext::modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -331,11 +227,11 @@ void PartialCompositeDirContext::modifyAttributes($Name* name, int32_t mod_op, $
 }
 
 void PartialCompositeDirContext::modifyAttributes($String* name, $ModificationItemArray* mods) {
-	modifyAttributes(static_cast<$Name*>($$new($CompositeName, name)), mods);
+	modifyAttributes($$new($CompositeName, name), mods);
 }
 
 void PartialCompositeDirContext::modifyAttributes($Name* name, $ModificationItemArray* mods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -354,11 +250,11 @@ void PartialCompositeDirContext::modifyAttributes($Name* name, $ModificationItem
 }
 
 void PartialCompositeDirContext::bind($String* name, Object$* obj, $Attributes* attrs) {
-	bind(static_cast<$Name*>($$new($CompositeName, name)), obj, attrs);
+	bind($$new($CompositeName, name), obj, attrs);
 }
 
 void PartialCompositeDirContext::bind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -377,11 +273,11 @@ void PartialCompositeDirContext::bind($Name* name, Object$* obj, $Attributes* at
 }
 
 void PartialCompositeDirContext::rebind($String* name, Object$* obj, $Attributes* attrs) {
-	rebind(static_cast<$Name*>($$new($CompositeName, name)), obj, attrs);
+	rebind($$new($CompositeName, name), obj, attrs);
 }
 
 void PartialCompositeDirContext::rebind($Name* name, Object$* obj, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -400,11 +296,11 @@ void PartialCompositeDirContext::rebind($Name* name, Object$* obj, $Attributes* 
 }
 
 $DirContext* PartialCompositeDirContext::createSubcontext($String* name, $Attributes* attrs) {
-	return createSubcontext(static_cast<$Name*>($$new($CompositeName, name)), attrs);
+	return createSubcontext($$new($CompositeName, name), attrs);
 }
 
 $DirContext* PartialCompositeDirContext::createSubcontext($Name* name, $Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -425,19 +321,19 @@ $DirContext* PartialCompositeDirContext::createSubcontext($Name* name, $Attribut
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($String* name, $Attributes* matchingAttributes) {
-	return search(name, matchingAttributes, ($StringArray*)nullptr);
+	return search(name, matchingAttributes, nullptr);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($Name* name, $Attributes* matchingAttributes) {
-	return search(name, matchingAttributes, ($StringArray*)nullptr);
+	return search(name, matchingAttributes, nullptr);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($String* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	return search(static_cast<$Name*>($$new($CompositeName, name)), matchingAttributes, attributesToReturn);
+	return search($$new($CompositeName, name), matchingAttributes, attributesToReturn);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -458,11 +354,11 @@ $NamingEnumeration* PartialCompositeDirContext::search($Name* name, $Attributes*
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($String* name, $String* filter, $SearchControls* cons) {
-	return search(static_cast<$Name*>($$new($CompositeName, name)), filter, cons);
+	return search($$new($CompositeName, name), filter, cons);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($Name* name, $String* filter, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -483,11 +379,11 @@ $NamingEnumeration* PartialCompositeDirContext::search($Name* name, $String* fil
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($String* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	return search(static_cast<$Name*>($$new($CompositeName, name)), filterExpr, filterArgs, cons);
+	return search($$new($CompositeName, name), filterExpr, filterArgs, cons);
 }
 
 $NamingEnumeration* PartialCompositeDirContext::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -508,11 +404,11 @@ $NamingEnumeration* PartialCompositeDirContext::search($Name* name, $String* fil
 }
 
 $DirContext* PartialCompositeDirContext::getSchema($String* name) {
-	return getSchema(static_cast<$Name*>($$new($CompositeName, name)));
+	return getSchema($$new($CompositeName, name));
 }
 
 $DirContext* PartialCompositeDirContext::getSchema($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -533,11 +429,11 @@ $DirContext* PartialCompositeDirContext::getSchema($Name* name) {
 }
 
 $DirContext* PartialCompositeDirContext::getSchemaClassDefinition($String* name) {
-	return getSchemaClassDefinition(static_cast<$Name*>($$new($CompositeName, name)));
+	return getSchemaClassDefinition($$new($CompositeName, name));
 }
 
 $DirContext* PartialCompositeDirContext::getSchemaClassDefinition($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(PartialCompositeDirContext, ctx, this);
 	$var($Hashtable, env, p_getEnvironment());
 	$var($Continuation, cont, $new($Continuation, name, env));
@@ -559,7 +455,7 @@ $DirContext* PartialCompositeDirContext::getSchemaClassDefinition($Name* name) {
 
 PartialCompositeDirContext* PartialCompositeDirContext::getPCDirContext($Continuation* cont) {
 	$init(PartialCompositeDirContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PartialCompositeContext, pctx, $PartialCompositeContext::getPCContext(cont));
 	if (!($instanceOf(PartialCompositeDirContext, pctx))) {
 		$throw($($nc(cont)->fillInException($$new($NotContextException, "Resolved object is not a DirContext."_s))));
@@ -568,79 +464,79 @@ PartialCompositeDirContext* PartialCompositeDirContext::getPCDirContext($Continu
 }
 
 $StringHeadTail* PartialCompositeDirContext::c_parseComponent($String* inputName, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 	$shouldNotReachHere();
 }
 
 $Object* PartialCompositeDirContext::a_lookup($String* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 	$shouldNotReachHere();
 }
 
 $Object* PartialCompositeDirContext::a_lookupLink($String* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 	$shouldNotReachHere();
 }
 
 $NamingEnumeration* PartialCompositeDirContext::a_list($Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 	$shouldNotReachHere();
 }
 
 $NamingEnumeration* PartialCompositeDirContext::a_listBindings($Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 	$shouldNotReachHere();
 }
 
 void PartialCompositeDirContext::a_bind($String* name, Object$* obj, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 }
 
 void PartialCompositeDirContext::a_rebind($String* name, Object$* obj, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 }
 
 void PartialCompositeDirContext::a_unbind($String* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 }
 
 void PartialCompositeDirContext::a_destroySubcontext($String* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 }
 
 $Context* PartialCompositeDirContext::a_createSubcontext($String* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 	$shouldNotReachHere();
 }
 
 void PartialCompositeDirContext::a_rename($String* oldname, $Name* newname, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 }
 
 $NameParser* PartialCompositeDirContext::a_getNameParser($Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OperationNotSupportedException, e, $new($OperationNotSupportedException));
 	$throw($($nc(cont)->fillInException(e)));
 	$shouldNotReachHere();
@@ -650,7 +546,105 @@ PartialCompositeDirContext::PartialCompositeDirContext() {
 }
 
 $Class* PartialCompositeDirContext::load$($String* name, bool initialize) {
-	$loadClass(PartialCompositeDirContext, name, initialize, &_PartialCompositeDirContext_ClassInfo_, allocate$PartialCompositeDirContext);
+	$MethodInfo methodInfos$$[] = {
+		{"*addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEnvironment", "()Ljava/util/Hashtable;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PartialCompositeDirContext, init$, void)},
+		{"a_bind", "(Ljava/lang/String;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_bind, void, $String*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"a_createSubcontext", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_createSubcontext, $Context*, $String*, $Continuation*), "javax.naming.NamingException"},
+		{"a_destroySubcontext", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_destroySubcontext, void, $String*, $Continuation*), "javax.naming.NamingException"},
+		{"a_getNameParser", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_getNameParser, $NameParser*, $Continuation*), "javax.naming.NamingException"},
+		{"a_list", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_list, $NamingEnumeration*, $Continuation*), "javax.naming.NamingException"},
+		{"a_listBindings", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_listBindings, $NamingEnumeration*, $Continuation*), "javax.naming.NamingException"},
+		{"a_lookup", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_lookup, $Object*, $String*, $Continuation*), "javax.naming.NamingException"},
+		{"a_lookupLink", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_lookupLink, $Object*, $String*, $Continuation*), "javax.naming.NamingException"},
+		{"a_rebind", "(Ljava/lang/String;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_rebind, void, $String*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"a_rename", "(Ljava/lang/String;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_rename, void, $String*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"a_unbind", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, a_unbind, void, $String*, $Continuation*), "javax.naming.NamingException"},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"c_parseComponent", "(Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/StringHeadTail;", nullptr, $PROTECTED, $virtualMethod(PartialCompositeDirContext, c_parseComponent, $StringHeadTail*, $String*, $Continuation*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
+		{"getPCDirContext", "(Lcom/sun/jndi/toolkit/ctx/Continuation;)Lcom/sun/jndi/toolkit/ctx/PartialCompositeDirContext;", nullptr, $PROTECTED | $STATIC, $staticMethod(PartialCompositeDirContext, getPCDirContext, PartialCompositeDirContext*, $Continuation*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"p_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_bind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"p_createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_createSubcontext, $DirContext*, $Name*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"p_getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_getAttributes, $Attributes*, $Name*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
+		{"p_getSchema", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_getSchema, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_getSchemaClassDefinition", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_getSchemaClassDefinition, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"p_modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_modifyAttributes, void, $Name*, int32_t, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"p_modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_modifyAttributes, void, $Name*, $ModificationItemArray*, $Continuation*), "javax.naming.NamingException"},
+		{"p_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_rebind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"p_search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
+		{"p_search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_search, $NamingEnumeration*, $Name*, $String*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
+		{"p_search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED | $ABSTRACT, $virtualMethod(PartialCompositeDirContext, p_search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
+		{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(PartialCompositeDirContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"*removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(PartialCompositeDirContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jndi.toolkit.ctx.PartialCompositeDirContext",
+		"com.sun.jndi.toolkit.ctx.AtomicContext",
+		"javax.naming.directory.DirContext",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PartialCompositeDirContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PartialCompositeDirContext));
+	});
 	return class$;
 }
 

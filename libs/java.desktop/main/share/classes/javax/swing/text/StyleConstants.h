@@ -43,6 +43,7 @@ class $export StyleConstants : public ::java::lang::Object {
 	$class(StyleConstants, 0, ::java::lang::Object)
 public:
 	StyleConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* representation);
 	static int32_t getAlignment(::javax::swing::text::AttributeSet* a);
 	static ::java::awt::Color* getBackground(::javax::swing::text::AttributeSet* a);

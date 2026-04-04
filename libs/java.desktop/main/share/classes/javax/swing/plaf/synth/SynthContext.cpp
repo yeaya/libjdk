@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthContext.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/synth/Region.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
@@ -23,43 +22,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthContext_FieldInfo_[] = {
-	{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(SynthContext, component)},
-	{"region", "Ljavax/swing/plaf/synth/Region;", nullptr, $PRIVATE, $field(SynthContext, region)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthContext, style)},
-	{"state", "I", nullptr, $PRIVATE, $field(SynthContext, state)},
-	{}
-};
-
-$MethodInfo _SynthContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SynthContext, init$, void)},
-	{"<init>", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;I)V", nullptr, $PUBLIC, $method(SynthContext, init$, void, $JComponent*, $Region*, $SynthStyle*, int32_t)},
-	{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(SynthContext, getComponent, $JComponent*)},
-	{"getComponentState", "()I", nullptr, $PUBLIC, $virtualMethod(SynthContext, getComponentState, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/SynthStyle;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $STATIC, $staticMethod(SynthContext, getContext, SynthContext*, $JComponent*, $SynthStyle*, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $STATIC, $staticMethod(SynthContext, getContext, SynthContext*, $JComponent*, $Region*, $SynthStyle*, int32_t)},
-	{"getPainter", "()Ljavax/swing/plaf/synth/SynthPainter;", nullptr, 0, $virtualMethod(SynthContext, getPainter, $SynthPainter*)},
-	{"getRegion", "()Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC, $virtualMethod(SynthContext, getRegion, $Region*)},
-	{"getStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC, $virtualMethod(SynthContext, getStyle, $SynthStyle*)},
-	{"isSubregion", "()Z", nullptr, 0, $virtualMethod(SynthContext, isSubregion, bool)},
-	{"setComponentState", "(I)V", nullptr, 0, $virtualMethod(SynthContext, setComponentState, void, int32_t)},
-	{"setStyle", "(Ljavax/swing/plaf/synth/SynthStyle;)V", nullptr, 0, $virtualMethod(SynthContext, setStyle, void, $SynthStyle*)},
-	{}
-};
-
-$ClassInfo _SynthContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthContext",
-	"java.lang.Object",
-	nullptr,
-	_SynthContext_FieldInfo_,
-	_SynthContext_MethodInfo_
-};
-
-$Object* allocate$SynthContext($Class* clazz) {
-	return $of($alloc(SynthContext));
-}
 
 SynthContext* SynthContext::getContext($JComponent* c, $SynthStyle* style, int32_t state) {
 	return getContext(c, $($SynthLookAndFeel::getRegion(c)), style, state);
@@ -96,7 +58,7 @@ $Region* SynthContext::getRegion() {
 }
 
 bool SynthContext::isSubregion() {
-	return $nc($(getRegion()))->isSubregion();
+	return $$nc(getRegion())->isSubregion();
 }
 
 void SynthContext::setStyle($SynthStyle* style) {
@@ -116,8 +78,8 @@ int32_t SynthContext::getComponentState() {
 }
 
 $SynthPainter* SynthContext::getPainter() {
-	$useLocalCurrentObjectStackCache();
-	$var($SynthPainter, painter, $nc($(getStyle()))->getPainter(this));
+	$useLocalObjectStack();
+	$var($SynthPainter, painter, $$nc(getStyle())->getPainter(this));
 	if (painter != nullptr) {
 		return painter;
 	}
@@ -129,7 +91,39 @@ SynthContext::SynthContext() {
 }
 
 $Class* SynthContext::load$($String* name, bool initialize) {
-	$loadClass(SynthContext, name, initialize, &_SynthContext_ClassInfo_, allocate$SynthContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(SynthContext, component)},
+		{"region", "Ljavax/swing/plaf/synth/Region;", nullptr, $PRIVATE, $field(SynthContext, region)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthContext, style)},
+		{"state", "I", nullptr, $PRIVATE, $field(SynthContext, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SynthContext, init$, void)},
+		{"<init>", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;I)V", nullptr, $PUBLIC, $method(SynthContext, init$, void, $JComponent*, $Region*, $SynthStyle*, int32_t)},
+		{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(SynthContext, getComponent, $JComponent*)},
+		{"getComponentState", "()I", nullptr, $PUBLIC, $virtualMethod(SynthContext, getComponentState, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/SynthStyle;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $STATIC, $staticMethod(SynthContext, getContext, SynthContext*, $JComponent*, $SynthStyle*, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $STATIC, $staticMethod(SynthContext, getContext, SynthContext*, $JComponent*, $Region*, $SynthStyle*, int32_t)},
+		{"getPainter", "()Ljavax/swing/plaf/synth/SynthPainter;", nullptr, 0, $virtualMethod(SynthContext, getPainter, $SynthPainter*)},
+		{"getRegion", "()Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC, $virtualMethod(SynthContext, getRegion, $Region*)},
+		{"getStyle", "()Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC, $virtualMethod(SynthContext, getStyle, $SynthStyle*)},
+		{"isSubregion", "()Z", nullptr, 0, $virtualMethod(SynthContext, isSubregion, bool)},
+		{"setComponentState", "(I)V", nullptr, 0, $virtualMethod(SynthContext, setComponentState, void, int32_t)},
+		{"setStyle", "(Ljavax/swing/plaf/synth/SynthStyle;)V", nullptr, 0, $virtualMethod(SynthContext, setStyle, void, $SynthStyle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthContext);
+	});
 	return class$;
 }
 

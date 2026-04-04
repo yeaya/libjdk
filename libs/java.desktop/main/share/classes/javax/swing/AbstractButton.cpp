@@ -1,12 +1,10 @@
 #include <javax/swing/AbstractButton.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
-#include <java/awt/ItemSelectable.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
@@ -88,12 +86,10 @@ using $ActionListenerArray = $Array<::java::awt::event::ActionListener>;
 using $ItemListenerArray = $Array<::java::awt::event::ItemListener>;
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
-using $ItemSelectable = ::java::awt::ItemSelectable;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
@@ -113,7 +109,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
-using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AbstractAction = ::javax::swing::AbstractAction;
@@ -125,606 +120,18 @@ using $ButtonModel = ::javax::swing::ButtonModel;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $OverlayLayout = ::javax::swing::OverlayLayout;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute AbstractButton_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", AbstractButton_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_getActionListeners23[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_getChangeListeners24[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_getDisabledIcon25[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_getItemListeners34[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$3},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_getLabel35[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_getSelectedObjects44[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$5[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "the Action instance connected with this ActionEvent source"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setAction64[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$6[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "Whether the border should be painted."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setBorderPainted67[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$7[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "Whether the button should paint the content area or leave it transparent."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setContentAreaFilled68[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$8[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The disabled icon for the button."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setDisabledIcon69[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$9[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The disabled selection icon for the button."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setDisabledSelectedIcon70[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$10[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "the index into the String to draw the keyboard character mnemonic at"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setDisplayedMnemonicIndex71[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$11[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "Whether focus should be painted"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setFocusPainted74[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$12[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "Whether the text of the button should come from the <code>Action</code>."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setHideActionText75[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$12},
-	{}
-};
-
-$Attribute AbstractButton_Attribute_var$14[] = {
-	{'s', "SwingConstants.LEFT"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.RIGHT"},
-	{'s', "SwingConstants.LEADING"},
-	{'s', "SwingConstants.TRAILING"},
-	{'-'}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$13[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', AbstractButton_Attribute_var$14},
-	{"description", 's', "The horizontal alignment of the icon and text."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setHorizontalAlignment76[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$13},
-	{}
-};
-
-$Attribute AbstractButton_Attribute_var$16[] = {
-	{'s', "SwingConstants.LEFT"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.RIGHT"},
-	{'s', "SwingConstants.LEADING"},
-	{'s', "SwingConstants.TRAILING"},
-	{'-'}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$15[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', AbstractButton_Attribute_var$16},
-	{"description", 's', "The horizontal position of the text relative to the icon."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setHorizontalTextPosition77[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$15},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$17[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The button\'s default icon"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setIcon78[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$17},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$18[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "If both the icon and text properties are set, this property defines the space between them."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setIconTextGap80[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$18},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$19[] = {
-	{"description", 's', "Replace by setText(text)"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setLabel81[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$19},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$20[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The space between the button\'s border and the label."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setMargin83[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$20},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$21[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "the keyboard character mnemonic"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setMnemonic84[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$21},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$22[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "the keyboard character mnemonic"},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setMnemonic85[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$22},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$23[] = {
-	{"description", 's', "Model that the Button uses."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setModel87[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$23},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$24[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The pressed icon for the button."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setPressedIcon89[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$24},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$25[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "Whether rollover effects should be enabled."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setRolloverEnabled90[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$25},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$26[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The rollover icon for the button."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setRolloverIcon91[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$26},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$27[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The rollover selected icon for the button."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setRolloverSelectedIcon92[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$27},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$28[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The selected icon for the button."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setSelectedIcon95[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$28},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$29[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The button\'s text."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setText96[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$29},
-	{}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$30[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setUI98[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$30},
-	{}
-};
-
-$Attribute AbstractButton_Attribute_var$32[] = {
-	{'s', "SwingConstants.TOP"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.BOTTOM"},
-	{'-'}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$31[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', AbstractButton_Attribute_var$32},
-	{"description", 's', "The vertical alignment of the icon and text."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setVerticalAlignment100[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$31},
-	{}
-};
-
-$Attribute AbstractButton_Attribute_var$34[] = {
-	{'s', "SwingConstants.TOP"},
-	{'s', "SwingConstants.CENTER"},
-	{'s', "SwingConstants.BOTTOM"},
-	{'-'}
-};
-
-$NamedAttribute AbstractButton_Attribute_var$33[] = {
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', AbstractButton_Attribute_var$34},
-	{"description", 's', "The vertical position of the text relative to the icon."},
-	{}
-};
-
-$CompoundAttribute _AbstractButton_MethodAnnotations_setVerticalTextPosition101[] = {
-	{"Ljava/beans/BeanProperty;", AbstractButton_Attribute_var$33},
-	{}
-};
-
-$FieldInfo _AbstractButton_FieldInfo_[] = {
-	{"MODEL_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, MODEL_CHANGED_PROPERTY)},
-	{"TEXT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, TEXT_CHANGED_PROPERTY)},
-	{"MNEMONIC_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, MNEMONIC_CHANGED_PROPERTY)},
-	{"MARGIN_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, MARGIN_CHANGED_PROPERTY)},
-	{"VERTICAL_ALIGNMENT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, VERTICAL_ALIGNMENT_CHANGED_PROPERTY)},
-	{"HORIZONTAL_ALIGNMENT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, HORIZONTAL_ALIGNMENT_CHANGED_PROPERTY)},
-	{"VERTICAL_TEXT_POSITION_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, VERTICAL_TEXT_POSITION_CHANGED_PROPERTY)},
-	{"HORIZONTAL_TEXT_POSITION_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, HORIZONTAL_TEXT_POSITION_CHANGED_PROPERTY)},
-	{"BORDER_PAINTED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, BORDER_PAINTED_CHANGED_PROPERTY)},
-	{"FOCUS_PAINTED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, FOCUS_PAINTED_CHANGED_PROPERTY)},
-	{"ROLLOVER_ENABLED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ROLLOVER_ENABLED_CHANGED_PROPERTY)},
-	{"CONTENT_AREA_FILLED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, CONTENT_AREA_FILLED_CHANGED_PROPERTY)},
-	{"ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ICON_CHANGED_PROPERTY)},
-	{"PRESSED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, PRESSED_ICON_CHANGED_PROPERTY)},
-	{"SELECTED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, SELECTED_ICON_CHANGED_PROPERTY)},
-	{"ROLLOVER_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ROLLOVER_ICON_CHANGED_PROPERTY)},
-	{"ROLLOVER_SELECTED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ROLLOVER_SELECTED_ICON_CHANGED_PROPERTY)},
-	{"DISABLED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, DISABLED_ICON_CHANGED_PROPERTY)},
-	{"DISABLED_SELECTED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, DISABLED_SELECTED_ICON_CHANGED_PROPERTY)},
-	{"model", "Ljavax/swing/ButtonModel;", nullptr, $PROTECTED, $field(AbstractButton, model)},
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractButton, text)},
-	{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AbstractButton, margin)},
-	{"defaultMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AbstractButton, defaultMargin)},
-	{"defaultIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, defaultIcon)},
-	{"pressedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, pressedIcon)},
-	{"disabledIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, disabledIcon)},
-	{"selectedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, selectedIcon)},
-	{"disabledSelectedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, disabledSelectedIcon)},
-	{"rolloverIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, rolloverIcon)},
-	{"rolloverSelectedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, rolloverSelectedIcon)},
-	{"paintBorder", "Z", nullptr, $PRIVATE, $field(AbstractButton, paintBorder$)},
-	{"paintFocus", "Z", nullptr, $PRIVATE, $field(AbstractButton, paintFocus)},
-	{"rolloverEnabled", "Z", nullptr, $PRIVATE, $field(AbstractButton, rolloverEnabled)},
-	{"contentAreaFilled", "Z", nullptr, $PRIVATE, $field(AbstractButton, contentAreaFilled)},
-	{"verticalAlignment", "I", nullptr, $PRIVATE, $field(AbstractButton, verticalAlignment)},
-	{"horizontalAlignment", "I", nullptr, $PRIVATE, $field(AbstractButton, horizontalAlignment)},
-	{"verticalTextPosition", "I", nullptr, $PRIVATE, $field(AbstractButton, verticalTextPosition)},
-	{"horizontalTextPosition", "I", nullptr, $PRIVATE, $field(AbstractButton, horizontalTextPosition)},
-	{"iconTextGap", "I", nullptr, $PRIVATE, $field(AbstractButton, iconTextGap)},
-	{"mnemonic", "I", nullptr, $PRIVATE, $field(AbstractButton, mnemonic)},
-	{"mnemonicIndex", "I", nullptr, $PRIVATE, $field(AbstractButton, mnemonicIndex)},
-	{"multiClickThreshhold", "J", nullptr, $PRIVATE, $field(AbstractButton, multiClickThreshhold)},
-	{"borderPaintedSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, borderPaintedSet)},
-	{"rolloverEnabledSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, rolloverEnabledSet)},
-	{"iconTextGapSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, iconTextGapSet)},
-	{"contentAreaFilledSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, contentAreaFilledSet)},
-	{"setLayout", "Z", nullptr, $PRIVATE, $field(AbstractButton, setLayout$)},
-	{"defaultCapable", "Z", nullptr, 0, $field(AbstractButton, defaultCapable)},
-	{"handler", "Ljavax/swing/AbstractButton$Handler;", nullptr, $PRIVATE, $field(AbstractButton, handler)},
-	{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(AbstractButton, changeListener)},
-	{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED, $field(AbstractButton, actionListener)},
-	{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $field(AbstractButton, itemListener)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(AbstractButton, changeEvent)},
-	{"hideActionText", "Z", nullptr, $PRIVATE, $field(AbstractButton, hideActionText)},
-	{"action", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AbstractButton, action$)},
-	{"actionPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(AbstractButton, actionPropertyChangeListener)},
-	{}
-};
-
-$MethodInfo _AbstractButton_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractButton, init$, void)},
-	{"access$000", "(Ljavax/swing/AbstractButton;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AbstractButton, access$000, $AccessibleContext*, AbstractButton*)},
-	{"actionPropertyChanged", "(Ljavax/swing/Action;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, actionPropertyChanged, void, $Action*, $String*)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, addActionListener, void, $ActionListener*)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, addChangeListener, void, $ChangeListener*)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, addImpl, void, $Component*, Object$*, int32_t)},
-	{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, addItemListener, void, $ItemListener*)},
-	{"checkHorizontalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(AbstractButton, checkHorizontalKey, int32_t, int32_t, $String*)},
-	{"checkVerticalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(AbstractButton, checkVerticalKey, int32_t, int32_t, $String*)},
-	{"clientPropertyChanged", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractButton, clientPropertyChanged, void, Object$*, Object$*, Object$*)},
-	{"configurePropertiesFromAction", "(Ljavax/swing/Action;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, configurePropertiesFromAction, void, $Action*)},
-	{"createActionListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createActionListener, $ActionListener*)},
-	{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
-	{"createActionPropertyChangeListener0", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, 0, $virtualMethod(AbstractButton, createActionPropertyChangeListener0, $PropertyChangeListener*, $Action*)},
-	{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createChangeListener, $ChangeListener*)},
-	{"createItemListener", "()Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createItemListener, $ItemListener*)},
-	{"doClick", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, doClick, void)},
-	{"doClick", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, doClick, void, int32_t)},
-	{"fireActionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, fireActionPerformed, void, $ActionEvent*)},
-	{"fireItemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, fireItemStateChanged, void, $ItemEvent*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, fireStateChanged, void)},
-	{"getAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getAction, $Action*)},
-	{"getActionCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getActionCommand, $String*)},
-	{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getActionListeners, $ActionListenerArray*), nullptr, nullptr, _AbstractButton_MethodAnnotations_getActionListeners23},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getChangeListeners, $ChangeListenerArray*), nullptr, nullptr, _AbstractButton_MethodAnnotations_getChangeListeners24},
-	{"getDisabledIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getDisabledIcon, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_getDisabledIcon25},
-	{"getDisabledSelectedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getDisabledSelectedIcon, $Icon*)},
-	{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getDisplayedMnemonicIndex, int32_t)},
-	{"getHandler", "()Ljavax/swing/AbstractButton$Handler;", nullptr, $PRIVATE, $method(AbstractButton, getHandler, $AbstractButton$Handler*)},
-	{"getHideActionText", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getHideActionText, bool)},
-	{"getHorizontalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getHorizontalAlignment, int32_t)},
-	{"getHorizontalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getHorizontalTextPosition, int32_t)},
-	{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getIcon, $Icon*)},
-	{"getIconTextGap", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getIconTextGap, int32_t)},
-	{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getItemListeners, $ItemListenerArray*), nullptr, nullptr, _AbstractButton_MethodAnnotations_getItemListeners34},
-	{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AbstractButton, getLabel, $String*), nullptr, nullptr, _AbstractButton_MethodAnnotations_getLabel35},
-	{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getMargin, $Insets*)},
-	{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getMnemonic, int32_t)},
-	{"getModel", "()Ljavax/swing/ButtonModel;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getModel, $ButtonModel*)},
-	{"getMultiClickThreshhold", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getMultiClickThreshhold, int64_t)},
-	{"getPressedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getPressedIcon, $Icon*)},
-	{"getRolloverIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getRolloverIcon, $Icon*)},
-	{"getRolloverSelectedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getRolloverSelectedIcon, $Icon*)},
-	{"getSelectedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getSelectedIcon, $Icon*)},
-	{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getSelectedObjects, $ObjectArray*), nullptr, nullptr, _AbstractButton_MethodAnnotations_getSelectedObjects44},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getText, $String*)},
-	{"getUI", "()Ljavax/swing/plaf/ButtonUI;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getUI, $ComponentUI*)},
-	{"getVerticalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getVerticalAlignment, int32_t)},
-	{"getVerticalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getVerticalTextPosition, int32_t)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"init", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, init, void, $String*, $Icon*)},
-	{"isBorderPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isBorderPainted, bool)},
-	{"isContentAreaFilled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isContentAreaFilled, bool)},
-	{"isFocusPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isFocusPainted, bool)},
-	{"isListener", "(Ljava/lang/Class;Ljava/awt/event/ActionListener;)Z", "(Ljava/lang/Class<*>;Ljava/awt/event/ActionListener;)Z", $PRIVATE, $method(AbstractButton, isListener, bool, $Class*, $ActionListener*)},
-	{"isRolloverEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isRolloverEnabled, bool)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isSelected, bool)},
-	{"largeIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(AbstractButton, largeIconChanged, void, $Action*)},
-	{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, paintBorder, void, $Graphics*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, paramString, $String*)},
-	{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeActionListener, void, $ActionListener*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeChangeListener, void, $ChangeListener*)},
-	{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeItemListener, void, $ItemListener*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeNotify, void)},
-	{"setAction", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setAction, void, $Action*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setAction64},
-	{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setActionCommand, void, $String*)},
-	{"setActionCommandFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(AbstractButton, setActionCommandFromAction, void, $Action*)},
-	{"setBorderPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setBorderPainted, void, bool), nullptr, nullptr, _AbstractButton_MethodAnnotations_setBorderPainted67},
-	{"setContentAreaFilled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setContentAreaFilled, void, bool), nullptr, nullptr, _AbstractButton_MethodAnnotations_setContentAreaFilled68},
-	{"setDisabledIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setDisabledIcon, void, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setDisabledIcon69},
-	{"setDisabledSelectedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setDisabledSelectedIcon, void, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setDisabledSelectedIcon70},
-	{"setDisplayedMnemonicIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setDisplayedMnemonicIndex, void, int32_t), "java.lang.IllegalArgumentException", nullptr, _AbstractButton_MethodAnnotations_setDisplayedMnemonicIndex71},
-	{"setDisplayedMnemonicIndexFromAction", "(Ljavax/swing/Action;Z)V", nullptr, $PRIVATE, $method(AbstractButton, setDisplayedMnemonicIndexFromAction, void, $Action*, bool)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setEnabled, void, bool)},
-	{"setFocusPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setFocusPainted, void, bool), nullptr, nullptr, _AbstractButton_MethodAnnotations_setFocusPainted74},
-	{"setHideActionText", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setHideActionText, void, bool), nullptr, nullptr, _AbstractButton_MethodAnnotations_setHideActionText75},
-	{"setHorizontalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setHorizontalAlignment, void, int32_t), nullptr, nullptr, _AbstractButton_MethodAnnotations_setHorizontalAlignment76},
-	{"setHorizontalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setHorizontalTextPosition, void, int32_t), nullptr, nullptr, _AbstractButton_MethodAnnotations_setHorizontalTextPosition77},
-	{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setIcon, void, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setIcon78},
-	{"setIconFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(AbstractButton, setIconFromAction, void, $Action*)},
-	{"setIconTextGap", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setIconTextGap, void, int32_t), nullptr, nullptr, _AbstractButton_MethodAnnotations_setIconTextGap80},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AbstractButton, setLabel, void, $String*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setLabel81},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setLayout, void, $LayoutManager*)},
-	{"setMargin", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMargin, void, $Insets*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setMargin83},
-	{"setMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMnemonic, void, int32_t), nullptr, nullptr, _AbstractButton_MethodAnnotations_setMnemonic84},
-	{"setMnemonic", "(C)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMnemonic, void, char16_t), nullptr, nullptr, _AbstractButton_MethodAnnotations_setMnemonic85},
-	{"setMnemonicFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(AbstractButton, setMnemonicFromAction, void, $Action*)},
-	{"setModel", "(Ljavax/swing/ButtonModel;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setModel, void, $ButtonModel*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setModel87},
-	{"setMultiClickThreshhold", "(J)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMultiClickThreshhold, void, int64_t)},
-	{"setPressedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setPressedIcon, void, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setPressedIcon89},
-	{"setRolloverEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setRolloverEnabled, void, bool), nullptr, nullptr, _AbstractButton_MethodAnnotations_setRolloverEnabled90},
-	{"setRolloverIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setRolloverIcon, void, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setRolloverIcon91},
-	{"setRolloverSelectedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setRolloverSelectedIcon, void, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setRolloverSelectedIcon92},
-	{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setSelected, void, bool)},
-	{"setSelectedFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(AbstractButton, setSelectedFromAction, void, $Action*)},
-	{"setSelectedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setSelectedIcon, void, $Icon*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setSelectedIcon95},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setText, void, $String*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setText96},
-	{"setTextFromAction", "(Ljavax/swing/Action;Z)V", nullptr, $PRIVATE, $method(AbstractButton, setTextFromAction, void, $Action*, bool)},
-	{"setUI", "(Ljavax/swing/plaf/ButtonUI;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setUI, void, $ButtonUI*), nullptr, nullptr, _AbstractButton_MethodAnnotations_setUI98},
-	{"setUIProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractButton, setUIProperty, void, $String*, Object$*)},
-	{"setVerticalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setVerticalAlignment, void, int32_t), nullptr, nullptr, _AbstractButton_MethodAnnotations_setVerticalAlignment100},
-	{"setVerticalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setVerticalTextPosition, void, int32_t), nullptr, nullptr, _AbstractButton_MethodAnnotations_setVerticalTextPosition101},
-	{"shouldUpdateSelectedStateFromAction", "()Z", nullptr, 0, $virtualMethod(AbstractButton, shouldUpdateSelectedStateFromAction, bool)},
-	{"smallIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(AbstractButton, smallIconChanged, void, $Action*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateDisplayedMnemonicIndex", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(AbstractButton, updateDisplayedMnemonicIndex, void, $String*, int32_t)},
-	{"updateMnemonicProperties", "()V", nullptr, $PRIVATE, $method(AbstractButton, updateMnemonicProperties, void)},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, updateUI, void)},
-	{}
-};
-
-$InnerClassInfo _AbstractButton_InnerClassesInfo_[] = {
-	{"javax.swing.AbstractButton$AccessibleAbstractButton", "javax.swing.AbstractButton", "AccessibleAbstractButton", $PROTECTED | $ABSTRACT},
-	{"javax.swing.AbstractButton$Handler", "javax.swing.AbstractButton", "Handler", 0},
-	{"javax.swing.AbstractButton$ButtonChangeListener", "javax.swing.AbstractButton", "ButtonChangeListener", $PROTECTED},
-	{"javax.swing.AbstractButton$ButtonActionPropertyChangeListener", "javax.swing.AbstractButton", "ButtonActionPropertyChangeListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.AbstractButton",
-	"javax.swing.JComponent",
-	"java.awt.ItemSelectable,javax.swing.SwingConstants",
-	_AbstractButton_FieldInfo_,
-	_AbstractButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractButton_InnerClassesInfo_,
-	_AbstractButton_Annotations_,
-	nullptr,
-	"javax.swing.AbstractButton$AccessibleAbstractButton,javax.swing.AbstractButton$AccessibleAbstractButton$ButtonKeyBinding,javax.swing.AbstractButton$Handler,javax.swing.AbstractButton$ButtonChangeListener,javax.swing.AbstractButton$ButtonActionPropertyChangeListener"
-};
-
-$Object* allocate$AbstractButton($Class* clazz) {
-	return $of($alloc(AbstractButton));
-}
 
 $String* AbstractButton::toString() {
 	 return this->$JComponent::toString();
@@ -828,13 +235,13 @@ $String* AbstractButton::getText() {
 void AbstractButton::setText($String* text) {
 	$var($String, oldValue, this->text);
 	$set(this, text, text);
-	firePropertyChange(AbstractButton::TEXT_CHANGED_PROPERTY, $of(oldValue), $of(text));
+	firePropertyChange(AbstractButton::TEXT_CHANGED_PROPERTY, oldValue, text);
 	updateDisplayedMnemonicIndex(text, getMnemonic());
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, text);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, text);
 	}
-	if (text == nullptr || oldValue == nullptr || !$nc(text)->equals(oldValue)) {
+	if (text == nullptr || oldValue == nullptr || !text->equals(oldValue)) {
 		revalidate();
 		repaint();
 	}
@@ -854,11 +261,11 @@ void AbstractButton::doClick() {
 }
 
 void AbstractButton::doClick(int32_t pressTime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getSize());
 	$nc(this->model)->setArmed(true);
 	$nc(this->model)->setPressed(true);
-	paintImmediately($$new($Rectangle, 0, 0, $nc(size)->width, size->height));
+	paintImmediately($$new($Rectangle, 0, 0, $nc(size)->width, $nc(size)->height));
 	try {
 		$Thread::sleep(pressTime);
 	} catch ($InterruptedException& ie) {
@@ -868,7 +275,7 @@ void AbstractButton::doClick(int32_t pressTime) {
 }
 
 void AbstractButton::setMargin($Insets* m$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, m, m$renamed);
 	if ($instanceOf($UIResource, m)) {
 		$set(this, defaultMargin, m);
@@ -880,15 +287,15 @@ void AbstractButton::setMargin($Insets* m$renamed) {
 	}
 	$var($Insets, old, this->margin);
 	$set(this, margin, m);
-	firePropertyChange(AbstractButton::MARGIN_CHANGED_PROPERTY, $of(old), $of(m));
-	if (old == nullptr || !$nc(old)->equals(m)) {
+	firePropertyChange(AbstractButton::MARGIN_CHANGED_PROPERTY, old, m);
+	if (old == nullptr || !old->equals(m)) {
 		revalidate();
 		repaint();
 	}
 }
 
 $Insets* AbstractButton::getMargin() {
-	return (this->margin == nullptr) ? ($Insets*)nullptr : $cast($Insets, $nc(this->margin)->clone());
+	return (this->margin == nullptr) ? ($Insets*)nullptr : $cast($Insets, this->margin->clone());
 }
 
 $Icon* AbstractButton::getIcon() {
@@ -901,16 +308,16 @@ void AbstractButton::setIcon($Icon* defaultIcon) {
 	if (defaultIcon != oldValue && ($instanceOf($UIResource, this->disabledIcon))) {
 		$set(this, disabledIcon, nullptr);
 	}
-	firePropertyChange(AbstractButton::ICON_CHANGED_PROPERTY, $of(oldValue), $of(defaultIcon));
+	firePropertyChange(AbstractButton::ICON_CHANGED_PROPERTY, oldValue, defaultIcon);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, defaultIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, defaultIcon);
 	}
 	if (defaultIcon != oldValue) {
 		bool var$1 = defaultIcon == nullptr || oldValue == nullptr;
 		if (!var$1) {
-			int32_t var$2 = $nc(defaultIcon)->getIconWidth();
-			var$1 = var$2 != $nc(oldValue)->getIconWidth();
+			int32_t var$2 = defaultIcon->getIconWidth();
+			var$1 = var$2 != oldValue->getIconWidth();
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
@@ -929,16 +336,16 @@ $Icon* AbstractButton::getPressedIcon() {
 }
 
 void AbstractButton::setPressedIcon($Icon* pressedIcon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, oldValue, this->pressedIcon);
 	$set(this, pressedIcon, pressedIcon);
-	firePropertyChange(AbstractButton::PRESSED_ICON_CHANGED_PROPERTY, $of(oldValue), $of(pressedIcon));
+	firePropertyChange(AbstractButton::PRESSED_ICON_CHANGED_PROPERTY, oldValue, pressedIcon);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, pressedIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, pressedIcon);
 	}
 	if (pressedIcon != oldValue) {
-		if ($nc($(getModel()))->isPressed()) {
+		if ($$nc(getModel())->isPressed()) {
 			repaint();
 		}
 	}
@@ -954,10 +361,10 @@ void AbstractButton::setSelectedIcon($Icon* selectedIcon) {
 	if (selectedIcon != oldValue && $instanceOf($UIResource, this->disabledSelectedIcon)) {
 		$set(this, disabledSelectedIcon, nullptr);
 	}
-	firePropertyChange(AbstractButton::SELECTED_ICON_CHANGED_PROPERTY, $of(oldValue), $of(selectedIcon));
+	firePropertyChange(AbstractButton::SELECTED_ICON_CHANGED_PROPERTY, oldValue, selectedIcon);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, selectedIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, selectedIcon);
 	}
 	if (selectedIcon != oldValue) {
 		if (isSelected()) {
@@ -973,10 +380,10 @@ $Icon* AbstractButton::getRolloverIcon() {
 void AbstractButton::setRolloverIcon($Icon* rolloverIcon) {
 	$var($Icon, oldValue, this->rolloverIcon);
 	$set(this, rolloverIcon, rolloverIcon);
-	firePropertyChange(AbstractButton::ROLLOVER_ICON_CHANGED_PROPERTY, $of(oldValue), $of(rolloverIcon));
+	firePropertyChange(AbstractButton::ROLLOVER_ICON_CHANGED_PROPERTY, oldValue, rolloverIcon);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, rolloverIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, rolloverIcon);
 	}
 	setRolloverEnabled(true);
 	if (rolloverIcon != oldValue) {
@@ -991,10 +398,10 @@ $Icon* AbstractButton::getRolloverSelectedIcon() {
 void AbstractButton::setRolloverSelectedIcon($Icon* rolloverSelectedIcon) {
 	$var($Icon, oldValue, this->rolloverSelectedIcon);
 	$set(this, rolloverSelectedIcon, rolloverSelectedIcon);
-	firePropertyChange(AbstractButton::ROLLOVER_SELECTED_ICON_CHANGED_PROPERTY, $of(oldValue), $of(rolloverSelectedIcon));
+	firePropertyChange(AbstractButton::ROLLOVER_SELECTED_ICON_CHANGED_PROPERTY, oldValue, rolloverSelectedIcon);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, rolloverSelectedIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, rolloverSelectedIcon);
 	}
 	setRolloverEnabled(true);
 	if (rolloverSelectedIcon != oldValue) {
@@ -1005,11 +412,11 @@ void AbstractButton::setRolloverSelectedIcon($Icon* rolloverSelectedIcon) {
 }
 
 $Icon* AbstractButton::getDisabledIcon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->disabledIcon == nullptr) {
-		$set(this, disabledIcon, $nc($($UIManager::getLookAndFeel()))->getDisabledIcon(this, $(getIcon())));
+		$set(this, disabledIcon, $$nc($UIManager::getLookAndFeel())->getDisabledIcon(this, $(getIcon())));
 		if (this->disabledIcon != nullptr) {
-			firePropertyChange(AbstractButton::DISABLED_ICON_CHANGED_PROPERTY, ($Object*)nullptr, $of(this->disabledIcon));
+			firePropertyChange(AbstractButton::DISABLED_ICON_CHANGED_PROPERTY, nullptr, this->disabledIcon);
 		}
 	}
 	return this->disabledIcon;
@@ -1018,10 +425,10 @@ $Icon* AbstractButton::getDisabledIcon() {
 void AbstractButton::setDisabledIcon($Icon* disabledIcon) {
 	$var($Icon, oldValue, this->disabledIcon);
 	$set(this, disabledIcon, disabledIcon);
-	firePropertyChange(AbstractButton::DISABLED_ICON_CHANGED_PROPERTY, $of(oldValue), $of(disabledIcon));
+	firePropertyChange(AbstractButton::DISABLED_ICON_CHANGED_PROPERTY, oldValue, disabledIcon);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, disabledIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, disabledIcon);
 	}
 	if (disabledIcon != oldValue) {
 		if (!isEnabled()) {
@@ -1031,10 +438,10 @@ void AbstractButton::setDisabledIcon($Icon* disabledIcon) {
 }
 
 $Icon* AbstractButton::getDisabledSelectedIcon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->disabledSelectedIcon == nullptr) {
 		if (this->selectedIcon != nullptr) {
-			$set(this, disabledSelectedIcon, $nc($($UIManager::getLookAndFeel()))->getDisabledSelectedIcon(this, $(getSelectedIcon())));
+			$set(this, disabledSelectedIcon, $$nc($UIManager::getLookAndFeel())->getDisabledSelectedIcon(this, $(getSelectedIcon())));
 		} else {
 			return getDisabledIcon();
 		}
@@ -1045,16 +452,16 @@ $Icon* AbstractButton::getDisabledSelectedIcon() {
 void AbstractButton::setDisabledSelectedIcon($Icon* disabledSelectedIcon) {
 	$var($Icon, oldValue, this->disabledSelectedIcon);
 	$set(this, disabledSelectedIcon, disabledSelectedIcon);
-	firePropertyChange(AbstractButton::DISABLED_SELECTED_ICON_CHANGED_PROPERTY, $of(oldValue), $of(disabledSelectedIcon));
+	firePropertyChange(AbstractButton::DISABLED_SELECTED_ICON_CHANGED_PROPERTY, oldValue, disabledSelectedIcon);
 	if (this->accessibleContext != nullptr) {
 		$init($AccessibleContext);
-		$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, disabledSelectedIcon);
+		this->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_VISIBLE_DATA_PROPERTY, oldValue, disabledSelectedIcon);
 	}
 	if (disabledSelectedIcon != oldValue) {
 		bool var$1 = disabledSelectedIcon == nullptr || oldValue == nullptr;
 		if (!var$1) {
-			int32_t var$2 = $nc(disabledSelectedIcon)->getIconWidth();
-			var$1 = var$2 != $nc(oldValue)->getIconWidth();
+			int32_t var$2 = disabledSelectedIcon->getIconWidth();
+			var$1 = var$2 != oldValue->getIconWidth();
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
@@ -1163,17 +570,17 @@ int32_t AbstractButton::checkVerticalKey(int32_t key, $String* exception) {
 void AbstractButton::removeNotify() {
 	$JComponent::removeNotify();
 	if (isRolloverEnabled()) {
-		$nc($(getModel()))->setRollover(false);
+		$$nc(getModel())->setRollover(false);
 	}
 }
 
 void AbstractButton::setActionCommand($String* actionCommand) {
-	$nc($(getModel()))->setActionCommand(actionCommand);
+	$$nc(getModel())->setActionCommand(actionCommand);
 }
 
 $String* AbstractButton::getActionCommand() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, ac, $nc($(getModel()))->getActionCommand());
+	$useLocalObjectStack();
+	$var($String, ac, $$nc(getModel())->getActionCommand());
 	if (ac == nullptr) {
 		$assign(ac, getText());
 	}
@@ -1182,7 +589,7 @@ $String* AbstractButton::getActionCommand() {
 
 void AbstractButton::setAction($Action* a) {
 	$var($Action, oldValue, getAction());
-	if (this->action$ == nullptr || !$nc($of(this->action$))->equals(a)) {
+	if (this->action$ == nullptr || !this->action$->equals(a)) {
 		$set(this, action$, a);
 		if (oldValue != nullptr) {
 			removeActionListener(oldValue);
@@ -1198,7 +605,7 @@ void AbstractButton::setAction($Action* a) {
 			$set(this, actionPropertyChangeListener, createActionPropertyChangeListener(this->action$));
 			$nc(this->action$)->addPropertyChangeListener(this->actionPropertyChangeListener);
 		}
-		firePropertyChange("action"_s, $of(oldValue), $of(this->action$));
+		firePropertyChange("action"_s, oldValue, this->action$);
 	}
 }
 
@@ -1233,7 +640,7 @@ void AbstractButton::configurePropertiesFromAction($Action* a) {
 
 void AbstractButton::clientPropertyChanged(Object$* key, Object$* oldValue, Object$* newValue) {
 	if ($equals(key, "hideActionText"_s)) {
-		bool current = ($instanceOf($Boolean, newValue)) ? $nc(($cast($Boolean, newValue)))->booleanValue() : false;
+		bool current = ($instanceOf($Boolean, newValue)) ? $cast($Boolean, newValue)->booleanValue() : false;
 		if (getHideActionText() != current) {
 			setHideActionText(current);
 		}
@@ -1250,42 +657,30 @@ void AbstractButton::actionPropertyChanged($Action* action, $String* propertyNam
 		setTextFromAction(action, true);
 	} else if (propertyName == "enabled"_s) {
 		$AbstractAction::setEnabledFromAction(this, action);
+	} else if (propertyName == $Action::SHORT_DESCRIPTION) {
+		$AbstractAction::setToolTipTextFromAction(this, action);
+	} else if (propertyName == $Action::SMALL_ICON) {
+		smallIconChanged(action);
+	} else if (propertyName == $Action::MNEMONIC_KEY) {
+		setMnemonicFromAction(action);
+	} else if (propertyName == $Action::ACTION_COMMAND_KEY) {
+		setActionCommandFromAction(action);
 	} else {
-		if (propertyName == $Action::SHORT_DESCRIPTION) {
-			$AbstractAction::setToolTipTextFromAction(this, action);
-		} else {
-			if (propertyName == $Action::SMALL_ICON) {
-				smallIconChanged(action);
-			} else {
-				if (propertyName == $Action::MNEMONIC_KEY) {
-					setMnemonicFromAction(action);
-				} else {
-					if (propertyName == $Action::ACTION_COMMAND_KEY) {
-						setActionCommandFromAction(action);
-					} else {
-						bool var$1 = propertyName == $Action::SELECTED_KEY && $AbstractAction::hasSelectedKey(action);
-						if (var$1 && shouldUpdateSelectedStateFromAction()) {
-							setSelectedFromAction(action);
-						} else {
-							if (propertyName == $Action::DISPLAYED_MNEMONIC_INDEX_KEY) {
-								setDisplayedMnemonicIndexFromAction(action, true);
-							} else {
-								if (propertyName == $Action::LARGE_ICON_KEY) {
-									largeIconChanged(action);
-								}
-							}
-						}
-					}
-				}
-			}
+		bool var$0 = propertyName == $Action::SELECTED_KEY && $AbstractAction::hasSelectedKey(action);
+		if (var$0 && shouldUpdateSelectedStateFromAction()) {
+			setSelectedFromAction(action);
+		} else if (propertyName == $Action::DISPLAYED_MNEMONIC_INDEX_KEY) {
+			setDisplayedMnemonicIndexFromAction(action, true);
+		} else if (propertyName == $Action::LARGE_ICON_KEY) {
+			largeIconChanged(action);
 		}
 	}
 }
 
 void AbstractButton::setDisplayedMnemonicIndexFromAction($Action* a, bool fromPropertyChange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Action);
-	$var($Integer, iValue, (a == nullptr) ? ($Integer*)nullptr : $cast($Integer, $nc(a)->getValue($Action::DISPLAYED_MNEMONIC_INDEX_KEY)));
+	$var($Integer, iValue, (a == nullptr) ? ($Integer*)nullptr : $cast($Integer, a->getValue($Action::DISPLAYED_MNEMONIC_INDEX_KEY)));
 	if (fromPropertyChange || iValue != nullptr) {
 		int32_t value = 0;
 		if (iValue == nullptr) {
@@ -1293,7 +688,7 @@ void AbstractButton::setDisplayedMnemonicIndexFromAction($Action* a, bool fromPr
 		} else {
 			value = iValue->intValue();
 			$var($String, text, getText());
-			if (text == nullptr || value >= $nc(text)->length()) {
+			if (text == nullptr || value >= text->length()) {
 				value = -1;
 			}
 		}
@@ -1303,19 +698,19 @@ void AbstractButton::setDisplayedMnemonicIndexFromAction($Action* a, bool fromPr
 
 void AbstractButton::setMnemonicFromAction($Action* a) {
 	$init($Action);
-	$var($Integer, n, (a == nullptr) ? ($Integer*)nullptr : $cast($Integer, $nc(a)->getValue($Action::MNEMONIC_KEY)));
-	setMnemonic((n == nullptr) ? (int32_t)u'\0' : $nc(n)->intValue());
+	$var($Integer, n, (a == nullptr) ? ($Integer*)nullptr : $cast($Integer, a->getValue($Action::MNEMONIC_KEY)));
+	setMnemonic((n == nullptr) ? u'\0' : n->intValue());
 }
 
 void AbstractButton::setTextFromAction($Action* a, bool propertyChange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hideText = getHideActionText();
 	if (!propertyChange) {
 		$init($Action);
-		setText((a != nullptr && !hideText) ? $cast($String, $($nc(a)->getValue($Action::NAME))) : ($String*)nullptr);
+		setText((a != nullptr && !hideText) ? $$cast($String, a->getValue($Action::NAME)) : ($String*)nullptr);
 	} else if (!hideText) {
 		$init($Action);
-		setText($cast($String, $($nc(a)->getValue($Action::NAME))));
+		setText($$cast($String, $nc(a)->getValue($Action::NAME)));
 	}
 }
 
@@ -1344,11 +739,11 @@ void AbstractButton::largeIconChanged($Action* a) {
 
 void AbstractButton::setActionCommandFromAction($Action* a) {
 	$init($Action);
-	setActionCommand((a != nullptr) ? $cast($String, $($nc(a)->getValue($Action::ACTION_COMMAND_KEY))) : ($String*)nullptr);
+	setActionCommand((a != nullptr) ? $$cast($String, a->getValue($Action::ACTION_COMMAND_KEY)) : ($String*)nullptr);
 }
 
 void AbstractButton::setSelectedFromAction($Action* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool selected = false;
 	if (a != nullptr) {
 		selected = $AbstractAction::isSelected(a);
@@ -1357,7 +752,7 @@ void AbstractButton::setSelectedFromAction($Action* a) {
 		setSelected(selected);
 		if (!selected && isSelected()) {
 			if ($instanceOf($DefaultButtonModel, $(getModel()))) {
-				$var($ButtonGroup, group, $nc(($cast($DefaultButtonModel, $(getModel()))))->getGroup());
+				$var($ButtonGroup, group, $$sure($DefaultButtonModel, getModel())->getGroup());
 				if (group != nullptr) {
 					group->clearSelection();
 				}
@@ -1456,13 +851,13 @@ void AbstractButton::setMnemonic(char16_t mnemonic) {
 }
 
 void AbstractButton::setDisplayedMnemonicIndex(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldValue = this->mnemonicIndex;
 	if (index == -1) {
 		this->mnemonicIndex = -1;
 	} else {
 		$var($String, text, getText());
-		int32_t textLength = (text == nullptr) ? 0 : $nc(text)->length();
+		int32_t textLength = (text == nullptr) ? 0 : text->length();
 		if (index < -1 || index >= textLength) {
 			$throwNew($IllegalArgumentException, $$str({"index == "_s, $$str(index)}));
 		}
@@ -1511,7 +906,7 @@ $ButtonModel* AbstractButton::getModel() {
 }
 
 void AbstractButton::setModel($ButtonModel* newModel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonModel, oldModel, getModel());
 	if (oldModel != nullptr) {
 		oldModel->removeChangeListener(this->changeListener);
@@ -1535,7 +930,7 @@ void AbstractButton::setModel($ButtonModel* newModel) {
 		this->mnemonic = u'\0';
 	}
 	updateDisplayedMnemonicIndex($(getText()), this->mnemonic);
-	firePropertyChange(AbstractButton::MODEL_CHANGED_PROPERTY, $of(oldModel), $of(newModel));
+	firePropertyChange(AbstractButton::MODEL_CHANGED_PROPERTY, oldModel, newModel);
 	if (newModel != oldModel) {
 		revalidate();
 		repaint();
@@ -1583,7 +978,7 @@ void AbstractButton::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* AbstractButton::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void AbstractButton::fireStateChanged() {
@@ -1594,7 +989,7 @@ void AbstractButton::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
@@ -1615,7 +1010,7 @@ void AbstractButton::removeActionListener($ActionListener* l) {
 
 $ActionListenerArray* AbstractButton::getActionListeners() {
 	$load($ActionListener);
-	return $fcast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
+	return $cast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
 }
 
 $ChangeListener* AbstractButton::createChangeListener() {
@@ -1623,7 +1018,7 @@ $ChangeListener* AbstractButton::createChangeListener() {
 }
 
 void AbstractButton::fireActionPerformed($ActionEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($ActionEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -1634,17 +1029,16 @@ void AbstractButton::fireActionPerformed($ActionEvent* event) {
 				if (actionCommand == nullptr) {
 					$assign(actionCommand, getActionCommand());
 				}
-				$var($String, var$0, actionCommand);
-				int64_t var$1 = event->getWhen();
-				$assign(e, $new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, var$0, var$1, event->getModifiers()));
+				int64_t var$0 = event->getWhen();
+				$assign(e, $new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, actionCommand, var$0, event->getModifiers()));
 			}
-			$nc(($cast($ActionListener, listeners->get(i + 1))))->actionPerformed(e);
+			$nc($cast($ActionListener, listeners->get(i + 1)))->actionPerformed(e);
 		}
 	}
 }
 
 void AbstractButton::fireItemStateChanged($ItemEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($ItemEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -1653,7 +1047,7 @@ void AbstractButton::fireItemStateChanged($ItemEvent* event) {
 			if (e == nullptr) {
 				$assign(e, $new($ItemEvent, this, $ItemEvent::ITEM_STATE_CHANGED, this, $nc(event)->getStateChange()));
 			}
-			$nc(($cast($ItemListener, listeners->get(i + 1))))->itemStateChanged(e);
+			$nc($cast($ItemListener, listeners->get(i + 1)))->itemStateChanged(e);
 		}
 	}
 	if (this->accessibleContext != nullptr) {
@@ -1662,14 +1056,14 @@ void AbstractButton::fireItemStateChanged($ItemEvent* event) {
 			$init($AccessibleState);
 			$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::SELECTED);
 			$var($String, var$0, $AccessibleContext::ACCESSIBLE_VALUE_PROPERTY);
-			$var($Object, var$1, $of($Integer::valueOf(0)));
+			$var($Object, var$1, $Integer::valueOf(0));
 			$nc(this->accessibleContext)->firePropertyChange(var$0, var$1, $($Integer::valueOf(1)));
 		} else {
 			$init($AccessibleContext);
 			$init($AccessibleState);
 			$nc(this->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, $AccessibleState::SELECTED, nullptr);
 			$var($String, var$2, $AccessibleContext::ACCESSIBLE_VALUE_PROPERTY);
-			$var($Object, var$3, $of($Integer::valueOf(1)));
+			$var($Object, var$3, $Integer::valueOf(1));
 			$nc(this->accessibleContext)->firePropertyChange(var$2, var$3, $($Integer::valueOf(0)));
 		}
 	}
@@ -1711,11 +1105,11 @@ void AbstractButton::removeItemListener($ItemListener* l) {
 
 $ItemListenerArray* AbstractButton::getItemListeners() {
 	$load($ItemListener);
-	return $fcast($ItemListenerArray, $nc(this->listenerList)->getListeners($ItemListener::class$));
+	return $cast($ItemListenerArray, $nc(this->listenerList)->getListeners($ItemListener::class$));
 }
 
 $ObjectArray* AbstractButton::getSelectedObjects() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isSelected() == false) {
 		return nullptr;
 	}
@@ -1746,12 +1140,12 @@ bool AbstractButton::imageUpdate($Image* img, int32_t infoflags, int32_t x, int3
 			$assign(iconDisplayed, getDisabledIcon());
 		}
 	} else {
-		bool var$1 = $nc(this->model)->isPressed();
-		if (var$1 && $nc(this->model)->isArmed()) {
+		bool var$0 = $nc(this->model)->isPressed();
+		if (var$0 && this->model->isArmed()) {
 			$assign(iconDisplayed, getPressedIcon());
 		} else {
-			bool var$3 = isRolloverEnabled();
-			if (var$3 && $nc(this->model)->isRollover()) {
+			bool var$1 = isRolloverEnabled();
+			if (var$1 && $nc(this->model)->isRollover()) {
 				if ($nc(this->model)->isSelected()) {
 					$assign(iconDisplayed, getRolloverSelectedIcon());
 				} else {
@@ -1774,22 +1168,22 @@ bool AbstractButton::imageUpdate($Image* img, int32_t infoflags, int32_t x, int3
 void AbstractButton::setUIProperty($String* propertyName, Object$* value) {
 	if (propertyName == "borderPainted"_s) {
 		if (!this->borderPaintedSet) {
-			setBorderPainted($nc(($cast($Boolean, value)))->booleanValue());
+			setBorderPainted($nc($cast($Boolean, value))->booleanValue());
 			this->borderPaintedSet = false;
 		}
 	} else if (propertyName == "rolloverEnabled"_s) {
 		if (!this->rolloverEnabledSet) {
-			setRolloverEnabled($nc(($cast($Boolean, value)))->booleanValue());
+			setRolloverEnabled($nc($cast($Boolean, value))->booleanValue());
 			this->rolloverEnabledSet = false;
 		}
 	} else if (propertyName == "iconTextGap"_s) {
 		if (!this->iconTextGapSet) {
-			setIconTextGap($nc(($cast($Number, value)))->intValue());
+			setIconTextGap($nc($cast($Number, value))->intValue());
 			this->iconTextGapSet = false;
 		}
 	} else if (propertyName == "contentAreaFilled"_s) {
 		if (!this->contentAreaFilledSet) {
-			setContentAreaFilled($nc(($cast($Boolean, value)))->booleanValue());
+			setContentAreaFilled($nc($cast($Boolean, value))->booleanValue());
 			this->contentAreaFilledSet = false;
 		}
 	} else {
@@ -1798,14 +1192,14 @@ void AbstractButton::setUIProperty($String* propertyName, Object$* value) {
 }
 
 $String* AbstractButton::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, defaultIconString, (this->defaultIcon != nullptr) && (!$equals(this->defaultIcon, this)) ? $nc($of(this->defaultIcon))->toString() : ""_s);
-	$var($String, pressedIconString, (this->pressedIcon != nullptr) && (!$equals(this->pressedIcon, this)) ? $nc($of(this->pressedIcon))->toString() : ""_s);
-	$var($String, disabledIconString, (this->disabledIcon != nullptr) && (!$equals(this->disabledIcon, this)) ? $nc($of(this->disabledIcon))->toString() : ""_s);
-	$var($String, selectedIconString, (this->selectedIcon != nullptr) && (!$equals(this->selectedIcon, this)) ? $nc($of(this->selectedIcon))->toString() : ""_s);
-	$var($String, disabledSelectedIconString, (this->disabledSelectedIcon != nullptr) && (!$equals(this->disabledSelectedIcon, this)) ? $nc($of(this->disabledSelectedIcon))->toString() : ""_s);
-	$var($String, rolloverIconString, (this->rolloverIcon != nullptr) && (!$equals(this->rolloverIcon, this)) ? $nc($of(this->rolloverIcon))->toString() : ""_s);
-	$var($String, rolloverSelectedIconString, (this->rolloverSelectedIcon != nullptr) && (!$equals(this->rolloverSelectedIcon, this)) ? $nc($of(this->rolloverSelectedIcon))->toString() : ""_s);
+	$useLocalObjectStack();
+	$var($String, defaultIconString, (this->defaultIcon != nullptr) && (!$equals(this->defaultIcon, this)) ? this->defaultIcon->toString() : ""_s);
+	$var($String, pressedIconString, (this->pressedIcon != nullptr) && (!$equals(this->pressedIcon, this)) ? this->pressedIcon->toString() : ""_s);
+	$var($String, disabledIconString, (this->disabledIcon != nullptr) && (!$equals(this->disabledIcon, this)) ? this->disabledIcon->toString() : ""_s);
+	$var($String, selectedIconString, (this->selectedIcon != nullptr) && (!$equals(this->selectedIcon, this)) ? this->selectedIcon->toString() : ""_s);
+	$var($String, disabledSelectedIconString, (this->disabledSelectedIcon != nullptr) && (!$equals(this->disabledSelectedIcon, this)) ? this->disabledSelectedIcon->toString() : ""_s);
+	$var($String, rolloverIconString, (this->rolloverIcon != nullptr) && (!$equals(this->rolloverIcon, this)) ? this->rolloverIcon->toString() : ""_s);
+	$var($String, rolloverSelectedIconString, (this->rolloverSelectedIcon != nullptr) && (!$equals(this->rolloverSelectedIcon, this)) ? this->rolloverSelectedIcon->toString() : ""_s);
 	$var($String, paintBorderString, this->paintBorder$ ? "true"_s : "false"_s);
 	$var($String, paintFocusString, this->paintFocus ? "true"_s : "false"_s);
 	$var($String, rolloverEnabledString, this->rolloverEnabled ? "true"_s : "false"_s);
@@ -1823,7 +1217,7 @@ $AbstractButton$Handler* AbstractButton::getHandler() {
 AbstractButton::AbstractButton() {
 }
 
-void clinit$AbstractButton($Class* class$) {
+void AbstractButton::clinit$($Class* clazz) {
 	$assignStatic(AbstractButton::MODEL_CHANGED_PROPERTY, "model"_s);
 	$assignStatic(AbstractButton::TEXT_CHANGED_PROPERTY, "text"_s);
 	$assignStatic(AbstractButton::MNEMONIC_CHANGED_PROPERTY, "mnemonic"_s);
@@ -1846,7 +1240,519 @@ void clinit$AbstractButton($Class* class$) {
 }
 
 $Class* AbstractButton::load$($String* name, bool initialize) {
-	$loadClass(AbstractButton, name, initialize, &_AbstractButton_ClassInfo_, clinit$AbstractButton, allocate$AbstractButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODEL_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, MODEL_CHANGED_PROPERTY)},
+		{"TEXT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, TEXT_CHANGED_PROPERTY)},
+		{"MNEMONIC_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, MNEMONIC_CHANGED_PROPERTY)},
+		{"MARGIN_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, MARGIN_CHANGED_PROPERTY)},
+		{"VERTICAL_ALIGNMENT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, VERTICAL_ALIGNMENT_CHANGED_PROPERTY)},
+		{"HORIZONTAL_ALIGNMENT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, HORIZONTAL_ALIGNMENT_CHANGED_PROPERTY)},
+		{"VERTICAL_TEXT_POSITION_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, VERTICAL_TEXT_POSITION_CHANGED_PROPERTY)},
+		{"HORIZONTAL_TEXT_POSITION_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, HORIZONTAL_TEXT_POSITION_CHANGED_PROPERTY)},
+		{"BORDER_PAINTED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, BORDER_PAINTED_CHANGED_PROPERTY)},
+		{"FOCUS_PAINTED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, FOCUS_PAINTED_CHANGED_PROPERTY)},
+		{"ROLLOVER_ENABLED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ROLLOVER_ENABLED_CHANGED_PROPERTY)},
+		{"CONTENT_AREA_FILLED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, CONTENT_AREA_FILLED_CHANGED_PROPERTY)},
+		{"ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ICON_CHANGED_PROPERTY)},
+		{"PRESSED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, PRESSED_ICON_CHANGED_PROPERTY)},
+		{"SELECTED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, SELECTED_ICON_CHANGED_PROPERTY)},
+		{"ROLLOVER_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ROLLOVER_ICON_CHANGED_PROPERTY)},
+		{"ROLLOVER_SELECTED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, ROLLOVER_SELECTED_ICON_CHANGED_PROPERTY)},
+		{"DISABLED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, DISABLED_ICON_CHANGED_PROPERTY)},
+		{"DISABLED_SELECTED_ICON_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractButton, DISABLED_SELECTED_ICON_CHANGED_PROPERTY)},
+		{"model", "Ljavax/swing/ButtonModel;", nullptr, $PROTECTED, $field(AbstractButton, model)},
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AbstractButton, text)},
+		{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AbstractButton, margin)},
+		{"defaultMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(AbstractButton, defaultMargin)},
+		{"defaultIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, defaultIcon)},
+		{"pressedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, pressedIcon)},
+		{"disabledIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, disabledIcon)},
+		{"selectedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, selectedIcon)},
+		{"disabledSelectedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, disabledSelectedIcon)},
+		{"rolloverIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, rolloverIcon)},
+		{"rolloverSelectedIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(AbstractButton, rolloverSelectedIcon)},
+		{"paintBorder", "Z", nullptr, $PRIVATE, $field(AbstractButton, paintBorder$)},
+		{"paintFocus", "Z", nullptr, $PRIVATE, $field(AbstractButton, paintFocus)},
+		{"rolloverEnabled", "Z", nullptr, $PRIVATE, $field(AbstractButton, rolloverEnabled)},
+		{"contentAreaFilled", "Z", nullptr, $PRIVATE, $field(AbstractButton, contentAreaFilled)},
+		{"verticalAlignment", "I", nullptr, $PRIVATE, $field(AbstractButton, verticalAlignment)},
+		{"horizontalAlignment", "I", nullptr, $PRIVATE, $field(AbstractButton, horizontalAlignment)},
+		{"verticalTextPosition", "I", nullptr, $PRIVATE, $field(AbstractButton, verticalTextPosition)},
+		{"horizontalTextPosition", "I", nullptr, $PRIVATE, $field(AbstractButton, horizontalTextPosition)},
+		{"iconTextGap", "I", nullptr, $PRIVATE, $field(AbstractButton, iconTextGap)},
+		{"mnemonic", "I", nullptr, $PRIVATE, $field(AbstractButton, mnemonic)},
+		{"mnemonicIndex", "I", nullptr, $PRIVATE, $field(AbstractButton, mnemonicIndex)},
+		{"multiClickThreshhold", "J", nullptr, $PRIVATE, $field(AbstractButton, multiClickThreshhold)},
+		{"borderPaintedSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, borderPaintedSet)},
+		{"rolloverEnabledSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, rolloverEnabledSet)},
+		{"iconTextGapSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, iconTextGapSet)},
+		{"contentAreaFilledSet", "Z", nullptr, $PRIVATE, $field(AbstractButton, contentAreaFilledSet)},
+		{"setLayout", "Z", nullptr, $PRIVATE, $field(AbstractButton, setLayout$)},
+		{"defaultCapable", "Z", nullptr, 0, $field(AbstractButton, defaultCapable)},
+		{"handler", "Ljavax/swing/AbstractButton$Handler;", nullptr, $PRIVATE, $field(AbstractButton, handler)},
+		{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(AbstractButton, changeListener)},
+		{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED, $field(AbstractButton, actionListener)},
+		{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $field(AbstractButton, itemListener)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(AbstractButton, changeEvent)},
+		{"hideActionText", "Z", nullptr, $PRIVATE, $field(AbstractButton, hideActionText)},
+		{"action", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(AbstractButton, action$)},
+		{"actionPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(AbstractButton, actionPropertyChangeListener)},
+		{}
+	};
+	$NamedAttribute getActionListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getActionListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getActionListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getChangeListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getChangeListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getChangeListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getDisabledIconmethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute getItemListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getItemListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getItemListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getLabelmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$NamedAttribute getSelectedObjectsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getSelectedObjectsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getSelectedObjectsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setActionmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "the Action instance connected with this ActionEvent source"},
+		{}
+	};
+	$CompoundAttribute setActionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setActionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setBorderPaintedmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "Whether the border should be painted."},
+		{}
+	};
+	$CompoundAttribute setBorderPaintedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setBorderPaintedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setContentAreaFilledmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "Whether the button should paint the content area or leave it transparent."},
+		{}
+	};
+	$CompoundAttribute setContentAreaFilledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setContentAreaFilledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisabledIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The disabled icon for the button."},
+		{}
+	};
+	$CompoundAttribute setDisabledIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisabledIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisabledSelectedIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The disabled selection icon for the button."},
+		{}
+	};
+	$CompoundAttribute setDisabledSelectedIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisabledSelectedIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDisplayedMnemonicIndexmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "the index into the String to draw the keyboard character mnemonic at"},
+		{}
+	};
+	$CompoundAttribute setDisplayedMnemonicIndexmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDisplayedMnemonicIndexmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFocusPaintedmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "Whether focus should be painted"},
+		{}
+	};
+	$CompoundAttribute setFocusPaintedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFocusPaintedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setHideActionTextmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "Whether the text of the button should come from the <code>Action</code>."},
+		{}
+	};
+	$CompoundAttribute setHideActionTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHideActionTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "SwingConstants.LEFT"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.RIGHT"},
+		{'s', "SwingConstants.LEADING"},
+		{'s', "SwingConstants.TRAILING"},
+		{'-'}
+	};
+	$NamedAttribute setHorizontalAlignmentmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The horizontal alignment of the icon and text."},
+		{}
+	};
+	$CompoundAttribute setHorizontalAlignmentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHorizontalAlignmentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$1[] = {
+		{'s', "SwingConstants.LEFT"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.RIGHT"},
+		{'s', "SwingConstants.LEADING"},
+		{'s', "SwingConstants.TRAILING"},
+		{'-'}
+	};
+	$NamedAttribute setHorizontalTextPositionmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$1},
+		{"description", 's', "The horizontal position of the text relative to the icon."},
+		{}
+	};
+	$CompoundAttribute setHorizontalTextPositionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHorizontalTextPositionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The button\'s default icon"},
+		{}
+	};
+	$CompoundAttribute setIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIconTextGapmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "If both the icon and text properties are set, this property defines the space between them."},
+		{}
+	};
+	$CompoundAttribute setIconTextGapmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIconTextGapmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLabelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Replace by setText(text)"},
+		{}
+	};
+	$CompoundAttribute setLabelmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{"Ljava/beans/BeanProperty;", setLabelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMarginmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The space between the button\'s border and the label."},
+		{}
+	};
+	$CompoundAttribute setMarginmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMarginmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMnemonicmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "the keyboard character mnemonic"},
+		{}
+	};
+	$CompoundAttribute setMnemonicmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMnemonicmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMnemonicmethodAnnotations$$$1$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "the keyboard character mnemonic"},
+		{}
+	};
+	$CompoundAttribute setMnemonicmethodAnnotations$$$1[] = {
+		{"Ljava/beans/BeanProperty;", setMnemonicmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute setModelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Model that the Button uses."},
+		{}
+	};
+	$CompoundAttribute setModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setPressedIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The pressed icon for the button."},
+		{}
+	};
+	$CompoundAttribute setPressedIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setPressedIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRolloverEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "Whether rollover effects should be enabled."},
+		{}
+	};
+	$CompoundAttribute setRolloverEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRolloverEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRolloverIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The rollover icon for the button."},
+		{}
+	};
+	$CompoundAttribute setRolloverIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRolloverIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRolloverSelectedIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The rollover selected icon for the button."},
+		{}
+	};
+	$CompoundAttribute setRolloverSelectedIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRolloverSelectedIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedIconmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The selected icon for the button."},
+		{}
+	};
+	$CompoundAttribute setSelectedIconmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedIconmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTextmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The button\'s text."},
+		{}
+	};
+	$CompoundAttribute setTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$2[] = {
+		{'s', "SwingConstants.TOP"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.BOTTOM"},
+		{'-'}
+	};
+	$NamedAttribute setVerticalAlignmentmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$2},
+		{"description", 's', "The vertical alignment of the icon and text."},
+		{}
+	};
+	$CompoundAttribute setVerticalAlignmentmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVerticalAlignmentmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$3[] = {
+		{'s', "SwingConstants.TOP"},
+		{'s', "SwingConstants.CENTER"},
+		{'s', "SwingConstants.BOTTOM"},
+		{'-'}
+	};
+	$NamedAttribute setVerticalTextPositionmethodAnnotations$$$namedAttribute[] = {
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$3},
+		{"description", 's', "The vertical position of the text relative to the icon."},
+		{}
+	};
+	$CompoundAttribute setVerticalTextPositionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setVerticalTextPositionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractButton, init$, void)},
+		{"access$000", "(Ljavax/swing/AbstractButton;)Ljavax/accessibility/AccessibleContext;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AbstractButton, access$000, $AccessibleContext*, AbstractButton*)},
+		{"actionPropertyChanged", "(Ljavax/swing/Action;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, actionPropertyChanged, void, $Action*, $String*)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, addActionListener, void, $ActionListener*)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, addChangeListener, void, $ChangeListener*)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, addImpl, void, $Component*, Object$*, int32_t)},
+		{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, addItemListener, void, $ItemListener*)},
+		{"checkHorizontalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(AbstractButton, checkHorizontalKey, int32_t, int32_t, $String*)},
+		{"checkVerticalKey", "(ILjava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(AbstractButton, checkVerticalKey, int32_t, int32_t, $String*)},
+		{"clientPropertyChanged", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractButton, clientPropertyChanged, void, Object$*, Object$*, Object$*)},
+		{"configurePropertiesFromAction", "(Ljavax/swing/Action;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, configurePropertiesFromAction, void, $Action*)},
+		{"createActionListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createActionListener, $ActionListener*)},
+		{"createActionPropertyChangeListener", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createActionPropertyChangeListener, $PropertyChangeListener*, $Action*)},
+		{"createActionPropertyChangeListener0", "(Ljavax/swing/Action;)Ljava/beans/PropertyChangeListener;", nullptr, 0, $virtualMethod(AbstractButton, createActionPropertyChangeListener0, $PropertyChangeListener*, $Action*)},
+		{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createChangeListener, $ChangeListener*)},
+		{"createItemListener", "()Ljava/awt/event/ItemListener;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, createItemListener, $ItemListener*)},
+		{"doClick", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, doClick, void)},
+		{"doClick", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, doClick, void, int32_t)},
+		{"fireActionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, fireActionPerformed, void, $ActionEvent*)},
+		{"fireItemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, fireItemStateChanged, void, $ItemEvent*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, fireStateChanged, void)},
+		{"getAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getAction, $Action*)},
+		{"getActionCommand", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getActionCommand, $String*)},
+		{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getActionListeners, $ActionListenerArray*), nullptr, nullptr, getActionListenersmethodAnnotations$$},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getChangeListeners, $ChangeListenerArray*), nullptr, nullptr, getChangeListenersmethodAnnotations$$},
+		{"getDisabledIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getDisabledIcon, $Icon*), nullptr, nullptr, getDisabledIconmethodAnnotations$$},
+		{"getDisabledSelectedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getDisabledSelectedIcon, $Icon*)},
+		{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getDisplayedMnemonicIndex, int32_t)},
+		{"getHandler", "()Ljavax/swing/AbstractButton$Handler;", nullptr, $PRIVATE, $method(AbstractButton, getHandler, $AbstractButton$Handler*)},
+		{"getHideActionText", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getHideActionText, bool)},
+		{"getHorizontalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getHorizontalAlignment, int32_t)},
+		{"getHorizontalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getHorizontalTextPosition, int32_t)},
+		{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getIcon, $Icon*)},
+		{"getIconTextGap", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getIconTextGap, int32_t)},
+		{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getItemListeners, $ItemListenerArray*), nullptr, nullptr, getItemListenersmethodAnnotations$$},
+		{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AbstractButton, getLabel, $String*), nullptr, nullptr, getLabelmethodAnnotations$$},
+		{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getMargin, $Insets*)},
+		{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getMnemonic, int32_t)},
+		{"getModel", "()Ljavax/swing/ButtonModel;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getModel, $ButtonModel*)},
+		{"getMultiClickThreshhold", "()J", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getMultiClickThreshhold, int64_t)},
+		{"getPressedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getPressedIcon, $Icon*)},
+		{"getRolloverIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getRolloverIcon, $Icon*)},
+		{"getRolloverSelectedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getRolloverSelectedIcon, $Icon*)},
+		{"getSelectedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getSelectedIcon, $Icon*)},
+		{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getSelectedObjects, $ObjectArray*), nullptr, nullptr, getSelectedObjectsmethodAnnotations$$},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getText, $String*)},
+		{"getUI", "()Ljavax/swing/plaf/ButtonUI;", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getUI, $ComponentUI*)},
+		{"getVerticalAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getVerticalAlignment, int32_t)},
+		{"getVerticalTextPosition", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractButton, getVerticalTextPosition, int32_t)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"init", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, init, void, $String*, $Icon*)},
+		{"isBorderPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isBorderPainted, bool)},
+		{"isContentAreaFilled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isContentAreaFilled, bool)},
+		{"isFocusPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isFocusPainted, bool)},
+		{"isListener", "(Ljava/lang/Class;Ljava/awt/event/ActionListener;)Z", "(Ljava/lang/Class<*>;Ljava/awt/event/ActionListener;)Z", $PRIVATE, $method(AbstractButton, isListener, bool, $Class*, $ActionListener*)},
+		{"isRolloverEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isRolloverEnabled, bool)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractButton, isSelected, bool)},
+		{"largeIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(AbstractButton, largeIconChanged, void, $Action*)},
+		{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AbstractButton, paintBorder, void, $Graphics*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractButton, paramString, $String*)},
+		{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeActionListener, void, $ActionListener*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeChangeListener, void, $ChangeListener*)},
+		{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeItemListener, void, $ItemListener*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, removeNotify, void)},
+		{"setAction", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setAction, void, $Action*), nullptr, nullptr, setActionmethodAnnotations$$},
+		{"setActionCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setActionCommand, void, $String*)},
+		{"setActionCommandFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(AbstractButton, setActionCommandFromAction, void, $Action*)},
+		{"setBorderPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setBorderPainted, void, bool), nullptr, nullptr, setBorderPaintedmethodAnnotations$$},
+		{"setContentAreaFilled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setContentAreaFilled, void, bool), nullptr, nullptr, setContentAreaFilledmethodAnnotations$$},
+		{"setDisabledIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setDisabledIcon, void, $Icon*), nullptr, nullptr, setDisabledIconmethodAnnotations$$},
+		{"setDisabledSelectedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setDisabledSelectedIcon, void, $Icon*), nullptr, nullptr, setDisabledSelectedIconmethodAnnotations$$},
+		{"setDisplayedMnemonicIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setDisplayedMnemonicIndex, void, int32_t), "java.lang.IllegalArgumentException", nullptr, setDisplayedMnemonicIndexmethodAnnotations$$},
+		{"setDisplayedMnemonicIndexFromAction", "(Ljavax/swing/Action;Z)V", nullptr, $PRIVATE, $method(AbstractButton, setDisplayedMnemonicIndexFromAction, void, $Action*, bool)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setEnabled, void, bool)},
+		{"setFocusPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setFocusPainted, void, bool), nullptr, nullptr, setFocusPaintedmethodAnnotations$$},
+		{"setHideActionText", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setHideActionText, void, bool), nullptr, nullptr, setHideActionTextmethodAnnotations$$},
+		{"setHorizontalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setHorizontalAlignment, void, int32_t), nullptr, nullptr, setHorizontalAlignmentmethodAnnotations$$},
+		{"setHorizontalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setHorizontalTextPosition, void, int32_t), nullptr, nullptr, setHorizontalTextPositionmethodAnnotations$$},
+		{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setIcon, void, $Icon*), nullptr, nullptr, setIconmethodAnnotations$$},
+		{"setIconFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(AbstractButton, setIconFromAction, void, $Action*)},
+		{"setIconTextGap", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setIconTextGap, void, int32_t), nullptr, nullptr, setIconTextGapmethodAnnotations$$},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AbstractButton, setLabel, void, $String*), nullptr, nullptr, setLabelmethodAnnotations$$},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setLayout, void, $LayoutManager*)},
+		{"setMargin", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMargin, void, $Insets*), nullptr, nullptr, setMarginmethodAnnotations$$},
+		{"setMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMnemonic, void, int32_t), nullptr, nullptr, setMnemonicmethodAnnotations$$},
+		{"setMnemonic", "(C)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMnemonic, void, char16_t), nullptr, nullptr, setMnemonicmethodAnnotations$$$1},
+		{"setMnemonicFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(AbstractButton, setMnemonicFromAction, void, $Action*)},
+		{"setModel", "(Ljavax/swing/ButtonModel;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setModel, void, $ButtonModel*), nullptr, nullptr, setModelmethodAnnotations$$},
+		{"setMultiClickThreshhold", "(J)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setMultiClickThreshhold, void, int64_t)},
+		{"setPressedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setPressedIcon, void, $Icon*), nullptr, nullptr, setPressedIconmethodAnnotations$$},
+		{"setRolloverEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setRolloverEnabled, void, bool), nullptr, nullptr, setRolloverEnabledmethodAnnotations$$},
+		{"setRolloverIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setRolloverIcon, void, $Icon*), nullptr, nullptr, setRolloverIconmethodAnnotations$$},
+		{"setRolloverSelectedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setRolloverSelectedIcon, void, $Icon*), nullptr, nullptr, setRolloverSelectedIconmethodAnnotations$$},
+		{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setSelected, void, bool)},
+		{"setSelectedFromAction", "(Ljavax/swing/Action;)V", nullptr, $PRIVATE, $method(AbstractButton, setSelectedFromAction, void, $Action*)},
+		{"setSelectedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setSelectedIcon, void, $Icon*), nullptr, nullptr, setSelectedIconmethodAnnotations$$},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setText, void, $String*), nullptr, nullptr, setTextmethodAnnotations$$},
+		{"setTextFromAction", "(Ljavax/swing/Action;Z)V", nullptr, $PRIVATE, $method(AbstractButton, setTextFromAction, void, $Action*, bool)},
+		{"setUI", "(Ljavax/swing/plaf/ButtonUI;)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setUI, void, $ButtonUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"setUIProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AbstractButton, setUIProperty, void, $String*, Object$*)},
+		{"setVerticalAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setVerticalAlignment, void, int32_t), nullptr, nullptr, setVerticalAlignmentmethodAnnotations$$},
+		{"setVerticalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, setVerticalTextPosition, void, int32_t), nullptr, nullptr, setVerticalTextPositionmethodAnnotations$$},
+		{"shouldUpdateSelectedStateFromAction", "()Z", nullptr, 0, $virtualMethod(AbstractButton, shouldUpdateSelectedStateFromAction, bool)},
+		{"smallIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(AbstractButton, smallIconChanged, void, $Action*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateDisplayedMnemonicIndex", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(AbstractButton, updateDisplayedMnemonicIndex, void, $String*, int32_t)},
+		{"updateMnemonicProperties", "()V", nullptr, $PRIVATE, $method(AbstractButton, updateMnemonicProperties, void)},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractButton, updateUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.AbstractButton$AccessibleAbstractButton", "javax.swing.AbstractButton", "AccessibleAbstractButton", $PROTECTED | $ABSTRACT},
+		{"javax.swing.AbstractButton$Handler", "javax.swing.AbstractButton", "Handler", 0},
+		{"javax.swing.AbstractButton$ButtonChangeListener", "javax.swing.AbstractButton", "ButtonChangeListener", $PROTECTED},
+		{"javax.swing.AbstractButton$ButtonActionPropertyChangeListener", "javax.swing.AbstractButton", "ButtonActionPropertyChangeListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.AbstractButton",
+		"javax.swing.JComponent",
+		"java.awt.ItemSelectable,javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.AbstractButton$AccessibleAbstractButton,javax.swing.AbstractButton$AccessibleAbstractButton$ButtonKeyBinding,javax.swing.AbstractButton$Handler,javax.swing.AbstractButton$ButtonChangeListener,javax.swing.AbstractButton$ButtonActionPropertyChangeListener"
+	};
+	$loadClass(AbstractButton, name, initialize, &classInfo$$, AbstractButton::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractButton));
+	});
 	return class$;
 }
 

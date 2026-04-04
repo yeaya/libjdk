@@ -1,12 +1,10 @@
 #include <com/sun/jmx/mbeanserver/JmxMBeanServer$3.h>
-
 #include <com/sun/jmx/mbeanserver/JmxMBeanServer.h>
 #include <com/sun/jmx/mbeanserver/MBeanInstantiator.h>
 #include <com/sun/jmx/mbeanserver/ModifiableClassLoaderRepository.h>
 #include <jcpp.h>
 
 using $JmxMBeanServer = ::com::sun::jmx::mbeanserver::JmxMBeanServer;
-using $MBeanInstantiator = ::com::sun::jmx::mbeanserver::MBeanInstantiator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -18,61 +16,54 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _JmxMBeanServer$3_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jmx/mbeanserver/JmxMBeanServer;", nullptr, $FINAL | $SYNTHETIC, $field(JmxMBeanServer$3, this$0)},
-	{}
-};
-
-$MethodInfo _JmxMBeanServer$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/JmxMBeanServer;)V", nullptr, 0, $method(JmxMBeanServer$3, init$, void, $JmxMBeanServer*)},
-	{"run", "()Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _JmxMBeanServer$3_EnclosingMethodInfo_ = {
-	"com.sun.jmx.mbeanserver.JmxMBeanServer",
-	"initialize",
-	"()V"
-};
-
-$InnerClassInfo _JmxMBeanServer$3_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.JmxMBeanServer$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JmxMBeanServer$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.JmxMBeanServer$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_JmxMBeanServer$3_FieldInfo_,
-	_JmxMBeanServer$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;>;",
-	&_JmxMBeanServer$3_EnclosingMethodInfo_,
-	_JmxMBeanServer$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.JmxMBeanServer"
-};
-
-$Object* allocate$JmxMBeanServer$3($Class* clazz) {
-	return $of($alloc(JmxMBeanServer$3));
-}
-
 void JmxMBeanServer$3::init$($JmxMBeanServer* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* JmxMBeanServer$3::run() {
-	return $of($nc(this->this$0->instantiator)->getClassLoaderRepository());
+	return $nc(this->this$0->instantiator)->getClassLoaderRepository();
 }
 
 JmxMBeanServer$3::JmxMBeanServer$3() {
 }
 
 $Class* JmxMBeanServer$3::load$($String* name, bool initialize) {
-	$loadClass(JmxMBeanServer$3, name, initialize, &_JmxMBeanServer$3_ClassInfo_, allocate$JmxMBeanServer$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jmx/mbeanserver/JmxMBeanServer;", nullptr, $FINAL | $SYNTHETIC, $field(JmxMBeanServer$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/mbeanserver/JmxMBeanServer;)V", nullptr, 0, $method(JmxMBeanServer$3, init$, void, $JmxMBeanServer*)},
+		{"run", "()Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.jmx.mbeanserver.JmxMBeanServer",
+		"initialize",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.JmxMBeanServer$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.JmxMBeanServer$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.JmxMBeanServer"
+	};
+	$loadClass(JmxMBeanServer$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JmxMBeanServer$3);
+	});
 	return class$;
 }
 

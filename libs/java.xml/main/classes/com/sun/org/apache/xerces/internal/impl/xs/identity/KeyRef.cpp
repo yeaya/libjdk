@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/KeyRef.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSIDCDefinition.h>
@@ -24,31 +23,6 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$FieldInfo _KeyRef_FieldInfo_[] = {
-	{"fKey", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey;", nullptr, $PROTECTED, $field(KeyRef, fKey)},
-	{}
-};
-
-$MethodInfo _KeyRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey;)V", nullptr, $PUBLIC, $method(KeyRef, init$, void, $String*, $String*, $String*, $UniqueOrKey*)},
-	{"getKey", "()Lcom/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey;", nullptr, $PUBLIC, $virtualMethod(KeyRef, getKey, $UniqueOrKey*)},
-	{"getRefKey", "()Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $virtualMethod(KeyRef, getRefKey, $XSIDCDefinition*)},
-	{}
-};
-
-$ClassInfo _KeyRef_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.KeyRef",
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.IdentityConstraint",
-	nullptr,
-	_KeyRef_FieldInfo_,
-	_KeyRef_MethodInfo_
-};
-
-$Object* allocate$KeyRef($Class* clazz) {
-	return $of($alloc(KeyRef));
-}
-
 void KeyRef::init$($String* namespace$, $String* identityConstraintName, $String* elemName, $UniqueOrKey* key) {
 	$IdentityConstraint::init$(namespace$, identityConstraintName, elemName);
 	$set(this, fKey, key);
@@ -67,7 +41,27 @@ KeyRef::KeyRef() {
 }
 
 $Class* KeyRef::load$($String* name, bool initialize) {
-	$loadClass(KeyRef, name, initialize, &_KeyRef_ClassInfo_, allocate$KeyRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"fKey", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey;", nullptr, $PROTECTED, $field(KeyRef, fKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey;)V", nullptr, $PUBLIC, $method(KeyRef, init$, void, $String*, $String*, $String*, $UniqueOrKey*)},
+		{"getKey", "()Lcom/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey;", nullptr, $PUBLIC, $virtualMethod(KeyRef, getKey, $UniqueOrKey*)},
+		{"getRefKey", "()Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $virtualMethod(KeyRef, getRefKey, $XSIDCDefinition*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.KeyRef",
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.IdentityConstraint",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyRef);
+	});
 	return class$;
 }
 

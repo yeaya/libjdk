@@ -25,7 +25,7 @@ public:
 	DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent();
 	void init$(::java::awt::AWTEvent* nested, ::sun::awt::AppContext* toNotify);
 	virtual void dispatch() override;
-	static const int64_t serialVersionUID = (int64_t)0xD7693980D4F999C2;
+	static const int64_t serialVersionUID = (int64_t)0xd7693980d4f999c2;
 };
 
 	} // awt

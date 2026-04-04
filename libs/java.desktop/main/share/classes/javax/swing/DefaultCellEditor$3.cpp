@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultCellEditor$3.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/util/EventObject.h>
@@ -25,53 +24,6 @@ using $JComboBox = ::javax::swing::JComboBox;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _DefaultCellEditor$3_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/DefaultCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$3, this$0)},
-	{"val$comboBox", "Ljavax/swing/JComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$3, val$comboBox)},
-	{}
-};
-
-$MethodInfo _DefaultCellEditor$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/DefaultCellEditor;Ljavax/swing/JComboBox;)V", nullptr, 0, $method(DefaultCellEditor$3, init$, void, $DefaultCellEditor*, $JComboBox*)},
-	{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, getCellEditorValue, $Object*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, setValue, void, Object$*)},
-	{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, shouldSelectCell, bool, $EventObject*)},
-	{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, stopCellEditing, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _DefaultCellEditor$3_EnclosingMethodInfo_ = {
-	"javax.swing.DefaultCellEditor",
-	"<init>",
-	"(Ljavax/swing/JComboBox;)V"
-};
-
-$InnerClassInfo _DefaultCellEditor$3_InnerClassesInfo_[] = {
-	{"javax.swing.DefaultCellEditor$3", nullptr, nullptr, 0},
-	{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
-	{}
-};
-
-$ClassInfo _DefaultCellEditor$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.DefaultCellEditor$3",
-	"javax.swing.DefaultCellEditor$EditorDelegate",
-	nullptr,
-	_DefaultCellEditor$3_FieldInfo_,
-	_DefaultCellEditor$3_MethodInfo_,
-	nullptr,
-	&_DefaultCellEditor$3_EnclosingMethodInfo_,
-	_DefaultCellEditor$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.DefaultCellEditor"
-};
-
-$Object* allocate$DefaultCellEditor$3($Class* clazz) {
-	return $of($alloc(DefaultCellEditor$3));
-}
-
 void DefaultCellEditor$3::init$($DefaultCellEditor* this$0, $JComboBox* val$comboBox) {
 	$set(this, this$0, this$0);
 	$set(this, val$comboBox, val$comboBox);
@@ -83,20 +35,20 @@ void DefaultCellEditor$3::setValue(Object$* value) {
 }
 
 $Object* DefaultCellEditor$3::getCellEditorValue() {
-	return $of($nc(this->val$comboBox)->getSelectedItem());
+	return $nc(this->val$comboBox)->getSelectedItem();
 }
 
 bool DefaultCellEditor$3::shouldSelectCell($EventObject* anEvent) {
 	if ($instanceOf($MouseEvent, anEvent)) {
 		$var($MouseEvent, e, $cast($MouseEvent, anEvent));
-		return $nc(e)->getID() != $MouseEvent::MOUSE_DRAGGED;
+		return e->getID() != $MouseEvent::MOUSE_DRAGGED;
 	}
 	return true;
 }
 
 bool DefaultCellEditor$3::stopCellEditing() {
 	if ($nc(this->val$comboBox)->isEditable()) {
-		$nc(this->val$comboBox)->actionPerformed($$new($ActionEvent, this->this$0, 0, ""_s));
+		this->val$comboBox->actionPerformed($$new($ActionEvent, this->this$0, 0, ""_s));
 	}
 	return $DefaultCellEditor$EditorDelegate::stopCellEditing();
 }
@@ -105,7 +57,47 @@ DefaultCellEditor$3::DefaultCellEditor$3() {
 }
 
 $Class* DefaultCellEditor$3::load$($String* name, bool initialize) {
-	$loadClass(DefaultCellEditor$3, name, initialize, &_DefaultCellEditor$3_ClassInfo_, allocate$DefaultCellEditor$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/DefaultCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$3, this$0)},
+		{"val$comboBox", "Ljavax/swing/JComboBox;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$3, val$comboBox)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/DefaultCellEditor;Ljavax/swing/JComboBox;)V", nullptr, 0, $method(DefaultCellEditor$3, init$, void, $DefaultCellEditor*, $JComboBox*)},
+		{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, getCellEditorValue, $Object*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, setValue, void, Object$*)},
+		{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, shouldSelectCell, bool, $EventObject*)},
+		{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$3, stopCellEditing, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.DefaultCellEditor",
+		"<init>",
+		"(Ljavax/swing/JComboBox;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.DefaultCellEditor$3", nullptr, nullptr, 0},
+		{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.DefaultCellEditor$3",
+		"javax.swing.DefaultCellEditor$EditorDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.DefaultCellEditor"
+	};
+	$loadClass(DefaultCellEditor$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultCellEditor$3));
+	});
 	return class$;
 }
 

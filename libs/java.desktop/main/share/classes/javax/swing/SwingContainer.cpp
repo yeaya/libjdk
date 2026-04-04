@@ -1,5 +1,4 @@
 #include <javax/swing/SwingContainer.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,60 +10,52 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace javax {
 	namespace swing {
 
-$Attribute SwingContainer_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute SwingContainer_Attribute_var$0[] = {
-	{"value", '[', SwingContainer_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute SwingContainer_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SwingContainer_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", SwingContainer_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", SwingContainer_Attribute_var$2},
-	{}
-};
-
-$Attribute _SwingContainer_DefaultValue_delegate0 = {
-	's', ""
-};
-
-$Attribute _SwingContainer_DefaultValue_value1 = {
-	'Z', "true"
-};
-
-$MethodInfo _SwingContainer_MethodInfo_[] = {
-	{"delegate", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingContainer, delegate, $String*), nullptr, &_SwingContainer_DefaultValue_delegate0},
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingContainer, value, bool), nullptr, &_SwingContainer_DefaultValue_value1},
-	{}
-};
-
-$ClassInfo _SwingContainer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"javax.swing.SwingContainer",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SwingContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SwingContainer_Annotations_
-};
-
-$Object* allocate$SwingContainer($Class* clazz) {
-	return $of($alloc(SwingContainer));
-}
-
 $Class* SwingContainer::load$($String* name, bool initialize) {
-	$loadClass(SwingContainer, name, initialize, &_SwingContainer_ClassInfo_, allocate$SwingContainer);
+
+	$Attribute delegatedefaultValue$$ = {
+		's', ""
+	};
+
+	$Attribute valuedefaultValue$$ = {
+		'Z', "true"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"delegate", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingContainer, delegate, $String*), nullptr, &delegatedefaultValue$$},
+		{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingContainer, value, bool), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"javax.swing.SwingContainer",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SwingContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingContainer);
+	});
 	return class$;
 }
 

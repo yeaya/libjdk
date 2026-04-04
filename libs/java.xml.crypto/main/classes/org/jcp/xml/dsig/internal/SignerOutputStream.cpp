@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/SignerOutputStream.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/security/Signature.h>
 #include <java/security/SignatureException.h>
@@ -19,31 +18,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 
-$FieldInfo _SignerOutputStream_FieldInfo_[] = {
-	{"sig", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignerOutputStream, sig)},
-	{}
-};
-
-$MethodInfo _SignerOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Signature;)V", nullptr, $PUBLIC, $method(SignerOutputStream, init$, void, $Signature*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SignerOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.SignerOutputStream",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	_SignerOutputStream_FieldInfo_,
-	_SignerOutputStream_MethodInfo_
-};
-
-$Object* allocate$SignerOutputStream($Class* clazz) {
-	return $of($alloc(SignerOutputStream));
-}
-
 void SignerOutputStream::init$($Signature* sig) {
 	$ByteArrayOutputStream::init$();
 	$set(this, sig, sig);
@@ -54,7 +28,7 @@ void SignerOutputStream::write(int32_t arg0) {
 	try {
 		$nc(this->sig)->update((int8_t)arg0);
 	} catch ($SignatureException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -63,7 +37,7 @@ void SignerOutputStream::write($bytes* arg0, int32_t arg1, int32_t arg2) {
 	try {
 		$nc(this->sig)->update(arg0, arg1, arg2);
 	} catch ($SignatureException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -71,7 +45,27 @@ SignerOutputStream::SignerOutputStream() {
 }
 
 $Class* SignerOutputStream::load$($String* name, bool initialize) {
-	$loadClass(SignerOutputStream, name, initialize, &_SignerOutputStream_ClassInfo_, allocate$SignerOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"sig", "Ljava/security/Signature;", nullptr, $PRIVATE | $FINAL, $field(SignerOutputStream, sig)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Signature;)V", nullptr, $PUBLIC, $method(SignerOutputStream, init$, void, $Signature*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.SignerOutputStream",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignerOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SignerOutputStream));
+	});
 	return class$;
 }
 

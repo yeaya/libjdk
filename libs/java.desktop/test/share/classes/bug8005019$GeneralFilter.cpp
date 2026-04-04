@@ -1,5 +1,4 @@
 #include <bug8005019$GeneralFilter.h>
-
 #include <bug8005019.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -14,50 +13,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 using $RowFilter = ::javax::swing::RowFilter;
 using $RowFilter$Entry = ::javax::swing::RowFilter$Entry;
 
-$FieldInfo _bug8005019$GeneralFilter_FieldInfo_[] = {
-	{"columns", "[I", nullptr, $PRIVATE, $field(bug8005019$GeneralFilter, columns)},
-	{"excludes", "Ljava/util/List;", nullptr, 0, $field(bug8005019$GeneralFilter, excludes)},
-	{}
-};
-
-$MethodInfo _bug8005019$GeneralFilter_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, 0, $method(bug8005019$GeneralFilter, init$, void, $ints*)},
-	{"include", "(Ljavax/swing/RowFilter$Entry;)Z", "(Ljavax/swing/RowFilter$Entry<+Ljava/lang/Object;+Ljava/lang/Object;>;)Z", $PUBLIC, $virtualMethod(bug8005019$GeneralFilter, include, bool, $RowFilter$Entry*)},
-	{"include", "(Ljavax/swing/RowFilter$Entry;I)Z", "(Ljavax/swing/RowFilter$Entry<+Ljava/lang/Object;+Ljava/lang/Object;>;I)Z", $PROTECTED, $virtualMethod(bug8005019$GeneralFilter, include, bool, $RowFilter$Entry*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _bug8005019$GeneralFilter_InnerClassesInfo_[] = {
-	{"bug8005019$GeneralFilter", "bug8005019", "GeneralFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug8005019$GeneralFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8005019$GeneralFilter",
-	"javax.swing.RowFilter",
-	nullptr,
-	_bug8005019$GeneralFilter_FieldInfo_,
-	_bug8005019$GeneralFilter_MethodInfo_,
-	"Ljavax/swing/RowFilter<Ljava/lang/Object;Ljava/lang/Object;>;",
-	nullptr,
-	_bug8005019$GeneralFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8005019"
-};
-
-$Object* allocate$bug8005019$GeneralFilter($Class* clazz) {
-	return $of($alloc(bug8005019$GeneralFilter));
-}
-
 void bug8005019$GeneralFilter::init$($ints* columns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RowFilter::init$();
 	$set(this, excludes, $Arrays::asList($$new($IntegerArray, {$($Integer::valueOf(0))})));
 	$set(this, columns, columns);
@@ -66,7 +26,7 @@ void bug8005019$GeneralFilter::init$($ints* columns) {
 bool bug8005019$GeneralFilter::include($RowFilter$Entry* value) {
 	int32_t count = $nc(value)->getValueCount();
 	if ($nc(this->columns)->length > 0) {
-		for (int32_t i = $nc(this->columns)->length - 1; i >= 0; --i) {
+		for (int32_t i = this->columns->length - 1; i >= 0; --i) {
 			int32_t index = $nc(this->columns)->get(i);
 			if (index < count) {
 				if (include(value, index)) {
@@ -92,7 +52,39 @@ bug8005019$GeneralFilter::bug8005019$GeneralFilter() {
 }
 
 $Class* bug8005019$GeneralFilter::load$($String* name, bool initialize) {
-	$loadClass(bug8005019$GeneralFilter, name, initialize, &_bug8005019$GeneralFilter_ClassInfo_, allocate$bug8005019$GeneralFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"columns", "[I", nullptr, $PRIVATE, $field(bug8005019$GeneralFilter, columns)},
+		{"excludes", "Ljava/util/List;", nullptr, 0, $field(bug8005019$GeneralFilter, excludes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([I)V", nullptr, 0, $method(bug8005019$GeneralFilter, init$, void, $ints*)},
+		{"include", "(Ljavax/swing/RowFilter$Entry;)Z", "(Ljavax/swing/RowFilter$Entry<+Ljava/lang/Object;+Ljava/lang/Object;>;)Z", $PUBLIC, $virtualMethod(bug8005019$GeneralFilter, include, bool, $RowFilter$Entry*)},
+		{"include", "(Ljavax/swing/RowFilter$Entry;I)Z", "(Ljavax/swing/RowFilter$Entry<+Ljava/lang/Object;+Ljava/lang/Object;>;I)Z", $PROTECTED, $virtualMethod(bug8005019$GeneralFilter, include, bool, $RowFilter$Entry*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8005019$GeneralFilter", "bug8005019", "GeneralFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8005019$GeneralFilter",
+		"javax.swing.RowFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/RowFilter<Ljava/lang/Object;Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8005019"
+	};
+	$loadClass(bug8005019$GeneralFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8005019$GeneralFilter);
+	});
 	return class$;
 }
 

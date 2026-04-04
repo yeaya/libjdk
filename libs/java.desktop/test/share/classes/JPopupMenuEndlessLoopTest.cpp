@@ -1,5 +1,4 @@
 #include <JPopupMenuEndlessLoopTest.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -36,70 +35,47 @@ public:
 	virtual void run() override {
 		JPopupMenuEndlessLoopTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _JPopupMenuEndlessLoopTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenuEndlessLoopTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JPopupMenuEndlessLoopTest, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JPopupMenuEndlessLoopTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _JPopupMenuEndlessLoopTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JPopupMenuEndlessLoopTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JPopupMenuEndlessLoopTest_MethodInfo_
-};
-
-$Object* allocate$JPopupMenuEndlessLoopTest($Class* clazz) {
-	return $of($alloc(JPopupMenuEndlessLoopTest));
-}
 
 void JPopupMenuEndlessLoopTest::init$() {
 }
 
 void JPopupMenuEndlessLoopTest::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0));
 }
 
 void JPopupMenuEndlessLoopTest::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPopupMenu, popup, $new($JPopupMenu, "Popup Menu"_s));
 	$var($JMenu, menu, $new($JMenu, "Menu"_s));
 	menu->add($$new($JMenuItem, "Menu Item"_s));
-	popup->add(static_cast<$JMenuItem*>(menu));
+	popup->add(menu);
 	menu->doClick();
-	$var($MenuElementArray, elems, $nc($($MenuSelectionManager::defaultManager()))->getSelectedPath());
-	if (elems == nullptr || $nc(elems)->length == 0) {
+	$var($MenuElementArray, elems, $$nc($MenuSelectionManager::defaultManager())->getSelectedPath());
+	if (elems == nullptr || elems->length == 0) {
 		$throwNew($RuntimeException, "Empty Selection"_s);
 	}
-	if (!$equals($nc(elems)->get(0), popup) || !$equals($nc(elems)->get(1), menu)) {
+	if (!$equals($nc(elems)->get(0), popup) || !$equals(elems->get(1), menu)) {
 		$throwNew($RuntimeException, "Necessary menus are not selected!"_s);
 	}
 }
@@ -109,11 +85,27 @@ JPopupMenuEndlessLoopTest::JPopupMenuEndlessLoopTest() {
 
 $Class* JPopupMenuEndlessLoopTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0")) {
 			return JPopupMenuEndlessLoopTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JPopupMenuEndlessLoopTest, name, initialize, &_JPopupMenuEndlessLoopTest_ClassInfo_, allocate$JPopupMenuEndlessLoopTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPopupMenuEndlessLoopTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JPopupMenuEndlessLoopTest, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JPopupMenuEndlessLoopTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JPopupMenuEndlessLoopTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JPopupMenuEndlessLoopTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPopupMenuEndlessLoopTest);
+	});
 	return class$;
 }
 

@@ -172,6 +172,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::remote::rmi::RMIServerImpl* rmiServer, $String* connectionId, ::java::lang::ClassLoader* defaultClassLoader, ::javax::security::auth::Subject* subject, ::java::util::Map* env);
 	virtual void addNotificationListener(::javax::management::ObjectName* name, ::javax::management::ObjectName* listener, ::java::rmi::MarshalledObject* filter, ::java::rmi::MarshalledObject* handback, ::javax::security::auth::Subject* delegationSubject) override;
 	virtual $Array<::java::lang::Integer>* addNotificationListeners($Array<::javax::management::ObjectName>* names, $Array<::java::rmi::MarshalledObject>* filters, $Array<::javax::security::auth::Subject>* delegationSubjects) override;

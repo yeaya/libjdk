@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/ServerConfig$2.h>
-
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <sun/net/httpserver/ServerConfig.h>
@@ -19,49 +18,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _ServerConfig$2_FieldInfo_[] = {
-	{"val$logger", "Ljava/lang/System$Logger;", nullptr, $FINAL | $SYNTHETIC, $field(ServerConfig$2, val$logger)},
-	{}
-};
-
-$MethodInfo _ServerConfig$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/System$Logger;)V", "()V", 0, $method(ServerConfig$2, init$, void, $System$Logger*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ServerConfig$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ServerConfig$2_EnclosingMethodInfo_ = {
-	"sun.net.httpserver.ServerConfig",
-	"checkLegacyProperties",
-	"(Ljava/lang/System$Logger;)V"
-};
-
-$InnerClassInfo _ServerConfig$2_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.ServerConfig$2", nullptr, nullptr, 0},
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ServerConfig$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ServerConfig$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ServerConfig$2_FieldInfo_,
-	_ServerConfig$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_ServerConfig$2_EnclosingMethodInfo_,
-	_ServerConfig$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.ServerConfig"
-};
-
-$Object* allocate$ServerConfig$2($Class* clazz) {
-	return $of($alloc(ServerConfig$2));
-}
-
 void ServerConfig$2::init$($System$Logger* val$logger) {
 	$set(this, val$logger, val$logger);
 }
@@ -79,14 +35,50 @@ $Object* ServerConfig$2::run() {
 		$init($System$Logger$Level);
 		$nc(this->val$logger)->log($System$Logger$Level::WARNING, "sun.net.httpserver.selCacheTimeout property is no longer used."_s);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 ServerConfig$2::ServerConfig$2() {
 }
 
 $Class* ServerConfig$2::load$($String* name, bool initialize) {
-	$loadClass(ServerConfig$2, name, initialize, &_ServerConfig$2_ClassInfo_, allocate$ServerConfig$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$logger", "Ljava/lang/System$Logger;", nullptr, $FINAL | $SYNTHETIC, $field(ServerConfig$2, val$logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/System$Logger;)V", "()V", 0, $method(ServerConfig$2, init$, void, $System$Logger*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ServerConfig$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.httpserver.ServerConfig",
+		"checkLegacyProperties",
+		"(Ljava/lang/System$Logger;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.ServerConfig$2", nullptr, nullptr, 0},
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ServerConfig$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.ServerConfig"
+	};
+	$loadClass(ServerConfig$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerConfig$2);
+	});
 	return class$;
 }
 

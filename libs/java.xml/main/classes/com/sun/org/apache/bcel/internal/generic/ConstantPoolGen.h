@@ -67,6 +67,7 @@ class ConstantPoolGen : public ::java::lang::Object {
 	$class(ConstantPoolGen, 0, ::java::lang::Object)
 public:
 	ConstantPoolGen();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::com::sun::org::apache::bcel::internal::classfile::Constant>* cs);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::ConstantPool* cp);
 	void init$();

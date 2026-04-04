@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/ControlFactory.h>
-
 #include <com/sun/naming/internal/FactoryEnumeration.h>
 #include <com/sun/naming/internal/ResourceManager.h>
 #include <java/util/Hashtable.h>
@@ -23,31 +22,11 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$MethodInfo _ControlFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ControlFactory, init$, void)},
-	{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ControlFactory, getControlInstance, $Control*, $Control*), "javax.naming.NamingException"},
-	{"getControlInstance", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/ldap/Control;", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/Control;", $PUBLIC | $STATIC, $staticMethod(ControlFactory, getControlInstance, $Control*, $Control*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _ControlFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.naming.ldap.ControlFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ControlFactory_MethodInfo_
-};
-
-$Object* allocate$ControlFactory($Class* clazz) {
-	return $of($alloc(ControlFactory));
-}
-
 void ControlFactory::init$() {
 }
 
 $Control* ControlFactory::getControlInstance($Control* ctl, $Context* ctx, $Hashtable* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LdapContext);
 	$var($FactoryEnumeration, factories, $ResourceManager::getFactories($LdapContext::CONTROL_FACTORIES, env, ctx));
 	if (factories == nullptr) {
@@ -66,7 +45,23 @@ ControlFactory::ControlFactory() {
 }
 
 $Class* ControlFactory::load$($String* name, bool initialize) {
-	$loadClass(ControlFactory, name, initialize, &_ControlFactory_ClassInfo_, allocate$ControlFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ControlFactory, init$, void)},
+		{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ControlFactory, getControlInstance, $Control*, $Control*), "javax.naming.NamingException"},
+		{"getControlInstance", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/ldap/Control;", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/Control;", $PUBLIC | $STATIC, $staticMethod(ControlFactory, getControlInstance, $Control*, $Control*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.naming.ldap.ControlFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ControlFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ControlFactory);
+	});
 	return class$;
 }
 

@@ -72,6 +72,7 @@ class $export JTableHeader : public ::javax::swing::JComponent, public ::javax::
 	$class(JTableHeader, 0, ::javax::swing::JComponent, ::javax::swing::event::TableColumnModelListener, ::javax::accessibility::Accessible)
 public:
 	JTableHeader();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::getToolTipText;
 	using ::javax::swing::JComponent::enable;

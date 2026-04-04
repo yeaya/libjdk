@@ -135,6 +135,7 @@ class $import Resolve : public ::java::lang::Object {
 	$class(Resolve, 0, ::java::lang::Object)
 public:
 	Resolve();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::code::Symbol* accessBase(::com::sun::tools::javac::code::Symbol* sym, ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::code::Symbol* location, ::com::sun::tools::javac::code::Type* site, ::com::sun::tools::javac::util::Name* name, bool qualified);
 	virtual ::com::sun::tools::javac::code::Symbol* accessBase(::com::sun::tools::javac::code::Symbol* sym, ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::code::Type* site, ::com::sun::tools::javac::util::Name* name, bool qualified);

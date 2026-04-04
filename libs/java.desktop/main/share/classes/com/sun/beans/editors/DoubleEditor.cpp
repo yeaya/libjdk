@@ -1,5 +1,4 @@
 #include <com/sun/beans/editors/DoubleEditor.h>
-
 #include <com/sun/beans/editors/NumberEditor.h>
 #include <java/beans/PropertyEditorSupport.h>
 #include <jcpp.h>
@@ -14,25 +13,6 @@ namespace com {
 		namespace beans {
 			namespace editors {
 
-$MethodInfo _DoubleEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleEditor, init$, void)},
-	{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DoubleEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
-	{}
-};
-
-$ClassInfo _DoubleEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.editors.DoubleEditor",
-	"com.sun.beans.editors.NumberEditor",
-	nullptr,
-	nullptr,
-	_DoubleEditor_MethodInfo_
-};
-
-$Object* allocate$DoubleEditor($Class* clazz) {
-	return $of($alloc(DoubleEditor));
-}
-
 void DoubleEditor::init$() {
 	$NumberEditor::init$();
 }
@@ -45,7 +25,22 @@ DoubleEditor::DoubleEditor() {
 }
 
 $Class* DoubleEditor::load$($String* name, bool initialize) {
-	$loadClass(DoubleEditor, name, initialize, &_DoubleEditor_ClassInfo_, allocate$DoubleEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleEditor, init$, void)},
+		{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DoubleEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.editors.DoubleEditor",
+		"com.sun.beans.editors.NumberEditor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DoubleEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleEditor);
+	});
 	return class$;
 }
 

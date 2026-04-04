@@ -1,5 +1,4 @@
 #include <sun/font/CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray.h>
-
 #include <sun/font/CStrike$GlyphInfoCache.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_FieldInfo_[] = {
-	{"cache", "[[J", nullptr, $FINAL, $field(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, cache)},
-	{"shift", "I", nullptr, $FINAL, $field(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, shift)},
-	{"secondLayerLength", "I", nullptr, $FINAL, $field(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, secondLayerLength)},
-	{}
-};
-
-$MethodInfo _CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, init$, void, int32_t, int32_t)},
-	{"get", "(I)J", nullptr, $PUBLIC, $virtualMethod(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, get, int64_t, int32_t)},
-	{"put", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, put, void, int32_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_InnerClassesInfo_[] = {
-	{"sun.font.CStrike$GlyphInfoCache", "sun.font.CStrike", "GlyphInfoCache", $PRIVATE | $STATIC},
-	{"sun.font.CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray", "sun.font.CStrike$GlyphInfoCache", "SparseBitShiftingTwoLayerArray", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray",
-	"java.lang.Object",
-	nullptr,
-	_CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_FieldInfo_,
-	_CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.CStrike"
-};
-
-$Object* allocate$CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray($Class* clazz) {
-	return $of($alloc(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray));
-}
 
 void CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray::init$(int32_t size, int32_t shift) {
 	this->shift = shift;
@@ -71,7 +30,7 @@ void CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray::put(int32_t index, i
 	int32_t firstIndex = $sr(index, this->shift);
 	$var($longs, firstLayerRow, $nc(this->cache)->get(firstIndex));
 	if (firstLayerRow == nullptr) {
-		$nc(this->cache)->set(firstIndex, $assign(firstLayerRow, $new($longs, this->secondLayerLength)));
+		this->cache->set(firstIndex, $assign(firstLayerRow, $new($longs, this->secondLayerLength)));
 	}
 	$nc(firstLayerRow)->set(index - (firstIndex * ($sl(1, this->shift))), value);
 }
@@ -80,7 +39,41 @@ CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray::CStrike$GlyphInfoCache$Sp
 }
 
 $Class* CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray::load$($String* name, bool initialize) {
-	$loadClass(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, name, initialize, &_CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray_ClassInfo_, allocate$CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"cache", "[[J", nullptr, $FINAL, $field(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, cache)},
+		{"shift", "I", nullptr, $FINAL, $field(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, shift)},
+		{"secondLayerLength", "I", nullptr, $FINAL, $field(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, secondLayerLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, 0, $method(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, init$, void, int32_t, int32_t)},
+		{"get", "(I)J", nullptr, $PUBLIC, $virtualMethod(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, get, int64_t, int32_t)},
+		{"put", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, put, void, int32_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CStrike$GlyphInfoCache", "sun.font.CStrike", "GlyphInfoCache", $PRIVATE | $STATIC},
+		{"sun.font.CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray", "sun.font.CStrike$GlyphInfoCache", "SparseBitShiftingTwoLayerArray", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.CStrike"
+	};
+	$loadClass(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CStrike$GlyphInfoCache$SparseBitShiftingTwoLayerArray);
+	});
 	return class$;
 }
 

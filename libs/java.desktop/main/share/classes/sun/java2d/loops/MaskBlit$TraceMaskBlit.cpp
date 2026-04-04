@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/MaskBlit$TraceMaskBlit.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _MaskBlit$TraceMaskBlit_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(MaskBlit$TraceMaskBlit, target)},
-	{}
-};
-
-$MethodInfo _MaskBlit$TraceMaskBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/MaskBlit;)V", nullptr, $PUBLIC, $method(MaskBlit$TraceMaskBlit, init$, void, $MaskBlit*)},
-	{"MaskBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII[BII)V", nullptr, $PUBLIC, $virtualMethod(MaskBlit$TraceMaskBlit, MaskBlit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskBlit$TraceMaskBlit, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _MaskBlit$TraceMaskBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.MaskBlit$TraceMaskBlit", "sun.java2d.loops.MaskBlit", "TraceMaskBlit", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MaskBlit$TraceMaskBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.MaskBlit$TraceMaskBlit",
-	"sun.java2d.loops.MaskBlit",
-	nullptr,
-	_MaskBlit$TraceMaskBlit_FieldInfo_,
-	_MaskBlit$TraceMaskBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskBlit$TraceMaskBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.MaskBlit"
-};
-
-$Object* allocate$MaskBlit$TraceMaskBlit($Class* clazz) {
-	return $of($alloc(MaskBlit$TraceMaskBlit));
-}
-
 void MaskBlit$TraceMaskBlit::init$($MaskBlit* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t var$0 = $nc(target)->getNativePrim();
 	$var($SurfaceType, var$1, target->getSourceType());
 	$var($CompositeType, var$2, target->getCompositeType());
@@ -84,7 +46,38 @@ MaskBlit$TraceMaskBlit::MaskBlit$TraceMaskBlit() {
 }
 
 $Class* MaskBlit$TraceMaskBlit::load$($String* name, bool initialize) {
-	$loadClass(MaskBlit$TraceMaskBlit, name, initialize, &_MaskBlit$TraceMaskBlit_ClassInfo_, allocate$MaskBlit$TraceMaskBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(MaskBlit$TraceMaskBlit, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/MaskBlit;)V", nullptr, $PUBLIC, $method(MaskBlit$TraceMaskBlit, init$, void, $MaskBlit*)},
+		{"MaskBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII[BII)V", nullptr, $PUBLIC, $virtualMethod(MaskBlit$TraceMaskBlit, MaskBlit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskBlit$TraceMaskBlit, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.MaskBlit$TraceMaskBlit", "sun.java2d.loops.MaskBlit", "TraceMaskBlit", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.MaskBlit$TraceMaskBlit",
+		"sun.java2d.loops.MaskBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.MaskBlit"
+	};
+	$loadClass(MaskBlit$TraceMaskBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskBlit$TraceMaskBlit);
+	});
 	return class$;
 }
 

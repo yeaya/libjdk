@@ -25,6 +25,7 @@ public:
 	TIFFLZWDecompressor();
 	using ::com::sun::imageio::plugins::tiff::TIFFDecompressor::decodeRaw;
 	using ::com::sun::imageio::plugins::tiff::TIFFDecompressor::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t predictor, int32_t fillOrder);
 	virtual void addStringToTable($bytes* oldString, int8_t newString);
 	virtual void addStringToTable($bytes* string);

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/NOTATIONDatatypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <jcpp.h>
 
@@ -17,25 +16,6 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$MethodInfo _NOTATIONDatatypeValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NOTATIONDatatypeValidator, init$, void)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(NOTATIONDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _NOTATIONDatatypeValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.NOTATIONDatatypeValidator",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
-	nullptr,
-	_NOTATIONDatatypeValidator_MethodInfo_
-};
-
-$Object* allocate$NOTATIONDatatypeValidator($Class* clazz) {
-	return $of($alloc(NOTATIONDatatypeValidator));
-}
-
 void NOTATIONDatatypeValidator::init$() {
 }
 
@@ -46,7 +26,22 @@ NOTATIONDatatypeValidator::NOTATIONDatatypeValidator() {
 }
 
 $Class* NOTATIONDatatypeValidator::load$($String* name, bool initialize) {
-	$loadClass(NOTATIONDatatypeValidator, name, initialize, &_NOTATIONDatatypeValidator_ClassInfo_, allocate$NOTATIONDatatypeValidator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NOTATIONDatatypeValidator, init$, void)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(NOTATIONDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.NOTATIONDatatypeValidator",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NOTATIONDatatypeValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NOTATIONDatatypeValidator);
+	});
 	return class$;
 }
 

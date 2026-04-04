@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobStateReasons.h>
-
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <javax/print/attribute/standard/JobStateReason.h>
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobStateReasons_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobStateReasons, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JobStateReasons_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JobStateReasons, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobStateReasons, init$, void, int32_t)},
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(JobStateReasons, init$, void, int32_t, float)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljavax/print/attribute/standard/JobStateReason;>;)V", $PUBLIC, $method(JobStateReasons, init$, void, $Collection*)},
-	{"add", "(Ljavax/print/attribute/standard/JobStateReason;)Z", nullptr, $PUBLIC, $method(JobStateReasons, add, bool, $JobStateReason*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobStateReasons, add, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobStateReasons, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobStateReasons, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobStateReasons_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.JobStateReasons",
-	"java.util.HashSet",
-	"javax.print.attribute.PrintJobAttribute",
-	_JobStateReasons_FieldInfo_,
-	_JobStateReasons_MethodInfo_,
-	"Ljava/util/HashSet<Ljavax/print/attribute/standard/JobStateReason;>;Ljavax/print/attribute/PrintJobAttribute;"
-};
-
-$Object* allocate$JobStateReasons($Class* clazz) {
-	return $of($alloc(JobStateReasons));
-}
 
 $Object* JobStateReasons::clone() {
 	 return this->$HashSet::clone();
@@ -113,7 +76,38 @@ JobStateReasons::JobStateReasons() {
 }
 
 $Class* JobStateReasons::load$($String* name, bool initialize) {
-	$loadClass(JobStateReasons, name, initialize, &_JobStateReasons_ClassInfo_, allocate$JobStateReasons);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobStateReasons, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JobStateReasons, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobStateReasons, init$, void, int32_t)},
+		{"<init>", "(IF)V", nullptr, $PUBLIC, $method(JobStateReasons, init$, void, int32_t, float)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljavax/print/attribute/standard/JobStateReason;>;)V", $PUBLIC, $method(JobStateReasons, init$, void, $Collection*)},
+		{"add", "(Ljavax/print/attribute/standard/JobStateReason;)Z", nullptr, $PUBLIC, $method(JobStateReasons, add, bool, $JobStateReason*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobStateReasons, add, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobStateReasons, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobStateReasons, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.JobStateReasons",
+		"java.util.HashSet",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/HashSet<Ljavax/print/attribute/standard/JobStateReason;>;Ljavax/print/attribute/PrintJobAttribute;"
+	};
+	$loadClass(JobStateReasons, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobStateReasons));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/font/XMap.h>
-
 #include <java/lang/reflect/Constructor.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -20,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -31,42 +29,11 @@ using $HashMap = ::java::util::HashMap;
 namespace sun {
 	namespace font {
 
-$FieldInfo _XMap_FieldInfo_[] = {
-	{"xMappers", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/XMap;>;", $PRIVATE | $STATIC, $staticField(XMap, xMappers)},
-	{"convertedGlyphs", "[C", nullptr, 0, $field(XMap, convertedGlyphs)},
-	{"SINGLE_BYTE", "I", nullptr, $STATIC | $FINAL, $constField(XMap, SINGLE_BYTE)},
-	{"DOUBLE_BYTE", "I", nullptr, $STATIC | $FINAL, $constField(XMap, DOUBLE_BYTE)},
-	{"SURR_MIN", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMap, SURR_MIN)},
-	{"SURR_MAX", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMap, SURR_MAX)},
-	{}
-};
-
-$MethodInfo _XMap_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IIIZZ)V", nullptr, $PRIVATE, $method(XMap, init$, void, $String*, int32_t, int32_t, int32_t, bool, bool)},
-	{"getXMapper", "(Ljava/lang/String;)Lsun/font/XMap;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XMap, getXMapper, XMap*, $String*)},
-	{"getXMapperInternal", "(Ljava/lang/String;)Lsun/font/XMap;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMap, getXMapperInternal, XMap*, $String*)},
-	{}
-};
-
-$ClassInfo _XMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.XMap",
-	"java.lang.Object",
-	nullptr,
-	_XMap_FieldInfo_,
-	_XMap_MethodInfo_
-};
-
-$Object* allocate$XMap($Class* clazz) {
-	return $of($alloc(XMap));
-}
-
 $HashMap* XMap::xMappers = nullptr;
 
 XMap* XMap::getXMapper($String* encoding) {
-	$load(XMap);
+	$init(XMap);
 	$synchronized(class$) {
-		$init(XMap);
 		$var(XMap, mapper, $cast(XMap, $nc(XMap::xMappers)->get(encoding)));
 		if (mapper == nullptr) {
 			$assign(mapper, getXMapperInternal(encoding));
@@ -80,7 +47,7 @@ XMap* XMap::getXMapperInternal($String* encoding) {
 	$init(XMap);
 	$var($String, jclass, nullptr);
 	int32_t nBytes = XMap::SINGLE_BYTE;
-	int32_t maxU = 0x0000FFFF;
+	int32_t maxU = 0x0000ffff;
 	int32_t minU = 0;
 	bool addAscii = false;
 	bool lowPartOnly = false;
@@ -173,15 +140,15 @@ XMap* XMap::getXMapperInternal($String* encoding) {
 }
 
 void XMap::init$($String* className, int32_t minU, int32_t maxU, int32_t nBytes, bool addAscii, bool lowPartOnly) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($CharsetEncoder, enc, nullptr);
 	if (className != nullptr) {
 		try {
 			if (className->startsWith("sun.awt"_s)) {
-				$assign(enc, $nc(($cast($Charset, $($nc($($Class::forName(className)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))))))->newEncoder());
+				$assign(enc, $$sure($Charset, $$nc($Class::forName(className)->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0)))->newEncoder());
 			} else {
-				$assign(enc, $nc($($Charset::forName(className)))->newEncoder());
+				$assign(enc, $$nc($Charset::forName(className))->newEncoder());
 			}
 		} catch ($Exception& x) {
 			x->printStackTrace();
@@ -190,7 +157,7 @@ void XMap::init$($String* className, int32_t minU, int32_t maxU, int32_t nBytes,
 	if (enc == nullptr) {
 		$set(this, convertedGlyphs, $new($chars, 256));
 		for (int32_t i = 0; i < 256; ++i) {
-			$nc(this->convertedGlyphs)->set(i, (char16_t)i);
+			this->convertedGlyphs->set(i, (char16_t)i);
 		}
 		return;
 	} else {
@@ -213,37 +180,37 @@ void XMap::init$($String* className, int32_t minU, int32_t maxU, int32_t nBytes,
 				bbLen = cbLen * nBytes;
 				$init($CodingErrorAction);
 				$var($CharBuffer, var$0, $CharBuffer::wrap(chars, startCharIndex, cbLen));
-				$nc($($nc($($nc($($nc(enc)->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)))->replaceWith(rbytes)))->encode(var$0, $($ByteBuffer::wrap(bytes, startCharIndex * nBytes, bbLen)), true);
+				$$nc($$nc($$nc(enc->onMalformedInput($CodingErrorAction::REPLACE))->onUnmappableCharacter($CodingErrorAction::REPLACE))->replaceWith(rbytes))->encode(var$0, $($ByteBuffer::wrap(bytes, startCharIndex * nBytes, bbLen)), true);
 				startCharIndex = XMap::SURR_MAX + 1;
 			}
 			cbLen = count - startCharIndex;
 			bbLen = cbLen * nBytes;
 			$init($CodingErrorAction);
 			$var($CharBuffer, var$1, $CharBuffer::wrap(chars, startCharIndex, cbLen));
-			$nc($($nc($($nc($($nc(enc)->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)))->replaceWith(rbytes)))->encode(var$1, $($ByteBuffer::wrap(bytes, startCharIndex * nBytes, bbLen)), true);
+			$$nc($$nc($$nc(enc->onMalformedInput($CodingErrorAction::REPLACE))->onUnmappableCharacter($CodingErrorAction::REPLACE))->replaceWith(rbytes))->encode(var$1, $($ByteBuffer::wrap(bytes, startCharIndex * nBytes, bbLen)), true);
 		} catch ($Exception& e) {
 			e->printStackTrace();
 		}
 		$set(this, convertedGlyphs, $new($chars, 0x00010000));
 		for (int32_t i = 0; i < count; ++i) {
 			if (nBytes == 1) {
-				$nc(this->convertedGlyphs)->set(i + minU, (char16_t)((int32_t)(bytes->get(i) & (uint32_t)255)));
+				this->convertedGlyphs->set(i + minU, (char16_t)(bytes->get(i) & 0xff));
 			} else {
-				$nc(this->convertedGlyphs)->set(i + minU, (char16_t)((((int32_t)(bytes->get(i * 2) & (uint32_t)255)) << 8) + ((int32_t)(bytes->get(i * 2 + 1) & (uint32_t)255))));
+				this->convertedGlyphs->set(i + minU, (char16_t)(((bytes->get(i * 2) & 0xff) << 8) + (bytes->get(i * 2 + 1) & 0xff)));
 			}
 		}
 	}
 	int32_t max = (lowPartOnly) ? 128 : 256;
 	if (addAscii && $nc(this->convertedGlyphs)->length >= 256) {
 		for (int32_t i = 0; i < max; ++i) {
-			if ($nc(this->convertedGlyphs)->get(i) == 0) {
-				$nc(this->convertedGlyphs)->set(i, (char16_t)i);
+			if (this->convertedGlyphs->get(i) == 0) {
+				this->convertedGlyphs->set(i, (char16_t)i);
 			}
 		}
 	}
 }
 
-void clinit$XMap($Class* class$) {
+void XMap::clinit$($Class* clazz) {
 	$assignStatic(XMap::xMappers, $new($HashMap));
 }
 
@@ -251,7 +218,32 @@ XMap::XMap() {
 }
 
 $Class* XMap::load$($String* name, bool initialize) {
-	$loadClass(XMap, name, initialize, &_XMap_ClassInfo_, clinit$XMap, allocate$XMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"xMappers", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/XMap;>;", $PRIVATE | $STATIC, $staticField(XMap, xMappers)},
+		{"convertedGlyphs", "[C", nullptr, 0, $field(XMap, convertedGlyphs)},
+		{"SINGLE_BYTE", "I", nullptr, $STATIC | $FINAL, $constField(XMap, SINGLE_BYTE)},
+		{"DOUBLE_BYTE", "I", nullptr, $STATIC | $FINAL, $constField(XMap, DOUBLE_BYTE)},
+		{"SURR_MIN", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMap, SURR_MIN)},
+		{"SURR_MAX", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMap, SURR_MAX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IIIZZ)V", nullptr, $PRIVATE, $method(XMap, init$, void, $String*, int32_t, int32_t, int32_t, bool, bool)},
+		{"getXMapper", "(Ljava/lang/String;)Lsun/font/XMap;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(XMap, getXMapper, XMap*, $String*)},
+		{"getXMapperInternal", "(Ljava/lang/String;)Lsun/font/XMap;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMap, getXMapperInternal, XMap*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.XMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMap, name, initialize, &classInfo$$, XMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMap);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug6263446.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -51,7 +50,6 @@ using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableModel = ::javax::swing::table::TableModel;
 
 class bug6263446$$Lambda$lambda$main$0 : public $Runnable {
@@ -62,27 +60,24 @@ public:
 	virtual void run() override {
 		bug6263446::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6263446$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$lambda$main$0::class$ = nullptr;
@@ -95,27 +90,24 @@ public:
 	virtual void run() override {
 		bug6263446::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6263446$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -129,33 +121,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$dispose$2>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6263446$$Lambda$dispose$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6263446$$Lambda$dispose$2, inst$)},
-	{}
-};
-$MethodInfo bug6263446$$Lambda$dispose$2::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$dispose$2, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$dispose$2, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$dispose$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$dispose$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$dispose$2::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$dispose$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug6263446$$Lambda$dispose$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$dispose$2, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$dispose$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$dispose$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$dispose$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$dispose$2);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$dispose$2::class$ = nullptr;
@@ -169,33 +157,29 @@ public:
 	virtual void run() override {
 		bug6263446::lambda$setClickCountToStart$2(clicks);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$lambda$setClickCountToStart$2$3>());
-	}
 	int32_t clicks = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6263446$$Lambda$lambda$setClickCountToStart$2$3::fieldInfos[2] = {
-	{"clicks", "I", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, clicks)},
-	{}
-};
-$MethodInfo bug6263446$$Lambda$lambda$setClickCountToStart$2$3::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, init$, void, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$lambda$setClickCountToStart$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$lambda$setClickCountToStart$2$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$lambda$setClickCountToStart$2$3::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"clicks", "I", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, clicks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, init$, void, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$lambda$setClickCountToStart$2$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$lambda$setClickCountToStart$2$3);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$lambda$setClickCountToStart$2$3::class$ = nullptr;
@@ -208,27 +192,24 @@ public:
 	virtual void run() override {
 		bug6263446::lambda$cancelCellEditing$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$lambda$cancelCellEditing$3$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6263446$$Lambda$lambda$cancelCellEditing$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$cancelCellEditing$3$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$cancelCellEditing$3$4, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$lambda$cancelCellEditing$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$lambda$cancelCellEditing$3$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$lambda$cancelCellEditing$3$4::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$lambda$cancelCellEditing$3$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$cancelCellEditing$3$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$cancelCellEditing$3$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$lambda$cancelCellEditing$3$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$lambda$cancelCellEditing$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$lambda$cancelCellEditing$3$4);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$lambda$cancelCellEditing$3$4::class$ = nullptr;
@@ -242,33 +223,29 @@ public:
 	virtual void run() override {
 		bug6263446::lambda$checkSelection$4(sel);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$lambda$checkSelection$4$5>());
-	}
 	$String* sel = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6263446$$Lambda$lambda$checkSelection$4$5::fieldInfos[2] = {
-	{"sel", "Ljava/lang/String;", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$checkSelection$4$5, sel)},
-	{}
-};
-$MethodInfo bug6263446$$Lambda$lambda$checkSelection$4$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$checkSelection$4$5, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$checkSelection$4$5, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$lambda$checkSelection$4$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$lambda$checkSelection$4$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$lambda$checkSelection$4$5::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$lambda$checkSelection$4$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sel", "Ljava/lang/String;", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$checkSelection$4$5, sel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$checkSelection$4$5, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$checkSelection$4$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$lambda$checkSelection$4$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$lambda$checkSelection$4$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$lambda$checkSelection$4$5);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$lambda$checkSelection$4$5::class$ = nullptr;
@@ -282,33 +259,29 @@ public:
 	virtual void run() override {
 		bug6263446::lambda$assertEditing$5(editing);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$lambda$assertEditing$5$6>());
-	}
 	bool editing = false;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6263446$$Lambda$lambda$assertEditing$5$6::fieldInfos[2] = {
-	{"editing", "Z", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$assertEditing$5$6, editing)},
-	{}
-};
-$MethodInfo bug6263446$$Lambda$lambda$assertEditing$5$6::methodInfos[3] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$assertEditing$5$6, init$, void, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$assertEditing$5$6, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$lambda$assertEditing$5$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$lambda$assertEditing$5$6",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$lambda$assertEditing$5$6::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$lambda$assertEditing$5$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"editing", "Z", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$assertEditing$5$6, editing)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$assertEditing$5$6, init$, void, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$assertEditing$5$6, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$lambda$assertEditing$5$6",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$lambda$assertEditing$5$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$lambda$assertEditing$5$6);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$lambda$assertEditing$5$6::class$ = nullptr;
@@ -322,81 +295,32 @@ public:
 	virtual void run() override {
 		bug6263446::lambda$getClickPoint$6(result);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6263446$$Lambda$lambda$getClickPoint$6$7>());
-	}
 	$PointArray* result = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6263446$$Lambda$lambda$getClickPoint$6$7::fieldInfos[2] = {
-	{"result", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$getClickPoint$6$7, result)},
-	{}
-};
-$MethodInfo bug6263446$$Lambda$lambda$getClickPoint$6$7::methodInfos[3] = {
-	{"<init>", "([Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$getClickPoint$6$7, init$, void, $PointArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$getClickPoint$6$7, run, void)},
-	{}
-};
-$ClassInfo bug6263446$$Lambda$lambda$getClickPoint$6$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6263446$$Lambda$lambda$getClickPoint$6$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6263446$$Lambda$lambda$getClickPoint$6$7::load$($String* name, bool initialize) {
-	$loadClass(bug6263446$$Lambda$lambda$getClickPoint$6$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"result", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(bug6263446$$Lambda$lambda$getClickPoint$6$7, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(bug6263446$$Lambda$lambda$getClickPoint$6$7, init$, void, $PointArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446$$Lambda$lambda$getClickPoint$6$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6263446$$Lambda$lambda$getClickPoint$6$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6263446$$Lambda$lambda$getClickPoint$6$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446$$Lambda$lambda$getClickPoint$6$7);
+	});
 	return class$;
 }
 $Class* bug6263446$$Lambda$lambda$getClickPoint$6$7::class$ = nullptr;
-
-$FieldInfo _bug6263446_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446, frame)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446, table)},
-	{"FIRST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446, FIRST)},
-	{"SECOND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446, SECOND)},
-	{"ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446, ALL)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446, robot)},
-	{}
-};
-
-$MethodInfo _bug6263446_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446, init$, void)},
-	{"assertEditing", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, assertEditing, void, bool), "java.lang.Exception"},
-	{"cancelCellEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, cancelCellEditing, void), "java.lang.Exception"},
-	{"checkSelectedText", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, checkSelectedText, void, $String*), "java.lang.Exception"},
-	{"checkSelection", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, checkSelection, void, $String*), "java.lang.Exception"},
-	{"click", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, click, void, int32_t)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, createAndShowGUI, void)},
-	{"createTableModel", "()Ljavax/swing/table/TableModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, createTableModel, $TableModel*)},
-	{"getClickPoint", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, getClickPoint, $Point*), "java.lang.Exception"},
-	{"lambda$assertEditing$5", "(Z)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$assertEditing$5, void, bool)},
-	{"lambda$cancelCellEditing$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$cancelCellEditing$3, void)},
-	{"lambda$checkSelection$4", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$checkSelection$4, void, $String*)},
-	{"lambda$getClickPoint$6", "([Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$getClickPoint$6, void, $PointArray*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$main$1, void)},
-	{"lambda$setClickCountToStart$2", "(I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$setClickCountToStart$2, void, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6263446, main, void, $StringArray*), "java.lang.Exception"},
-	{"setClickCountToStart", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, setClickCountToStart, void, int32_t), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug6263446_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6263446",
-	"java.lang.Object",
-	nullptr,
-	_bug6263446_FieldInfo_,
-	_bug6263446_MethodInfo_
-};
-
-$Object* allocate$bug6263446($Class* clazz) {
-	return $of($alloc(bug6263446));
-}
 
 $JFrame* bug6263446::frame = nullptr;
 $JTable* bug6263446::table = nullptr;
@@ -410,74 +334,72 @@ void bug6263446::init$() {
 
 void bug6263446::main($StringArray* args) {
 	$init(bug6263446);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assignStatic(bug6263446::robot, $new($Robot));
-			$nc(bug6263446::robot)->setAutoDelay(50);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$lambda$main$0)));
-			$nc(bug6263446::robot)->waitForIdle();
-			$nc(bug6263446::robot)->delay(1000);
-			$var($Point, point, getClickPoint());
-			$nc(bug6263446::robot)->mouseMove($nc(point)->x, point->y);
-			$nc(bug6263446::robot)->waitForIdle();
-			click(1);
-			$nc(bug6263446::robot)->waitForIdle();
-			assertEditing(false);
-			click(2);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(nullptr);
-			click(3);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(bug6263446::FIRST);
-			click(4);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(bug6263446::ALL);
-			setClickCountToStart(1);
-			$nc(bug6263446::robot)->waitForIdle();
-			click(1);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(nullptr);
-			click(2);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(bug6263446::FIRST);
-			click(3);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(bug6263446::ALL);
-			setClickCountToStart(3);
-			$nc(bug6263446::robot)->waitForIdle();
-			click(1);
-			$nc(bug6263446::robot)->waitForIdle();
-			assertEditing(false);
-			click(2);
-			$nc(bug6263446::robot)->waitForIdle();
-			assertEditing(false);
-			click(3);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(nullptr);
-			click(4);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(bug6263446::FIRST);
-			click(5);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(bug6263446::ALL);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$lambda$main$1$1)));
-			$nc(bug6263446::robot)->waitForIdle();
-			assertEditing(true);
-			click(2);
-			$nc(bug6263446::robot)->waitForIdle();
-			checkSelectedText(bug6263446::FIRST);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (bug6263446::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$dispose$2, static_cast<$JFrame*>($nc(bug6263446::frame)))));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assignStatic(bug6263446::robot, $new($Robot));
+		bug6263446::robot->setAutoDelay(50);
+		$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$lambda$main$0));
+		$nc(bug6263446::robot)->waitForIdle();
+		$nc(bug6263446::robot)->delay(1000);
+		$var($Point, point, getClickPoint());
+		$nc(bug6263446::robot)->mouseMove($nc(point)->x, $nc(point)->y);
+		$nc(bug6263446::robot)->waitForIdle();
+		click(1);
+		$nc(bug6263446::robot)->waitForIdle();
+		assertEditing(false);
+		click(2);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(nullptr);
+		click(3);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(bug6263446::FIRST);
+		click(4);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(bug6263446::ALL);
+		setClickCountToStart(1);
+		$nc(bug6263446::robot)->waitForIdle();
+		click(1);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(nullptr);
+		click(2);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(bug6263446::FIRST);
+		click(3);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(bug6263446::ALL);
+		setClickCountToStart(3);
+		$nc(bug6263446::robot)->waitForIdle();
+		click(1);
+		$nc(bug6263446::robot)->waitForIdle();
+		assertEditing(false);
+		click(2);
+		$nc(bug6263446::robot)->waitForIdle();
+		assertEditing(false);
+		click(3);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(nullptr);
+		click(4);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(bug6263446::FIRST);
+		click(5);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(bug6263446::ALL);
+		$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$lambda$main$1$1));
+		$nc(bug6263446::robot)->waitForIdle();
+		assertEditing(true);
+		click(2);
+		$nc(bug6263446::robot)->waitForIdle();
+		checkSelectedText(bug6263446::FIRST);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (bug6263446::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$dispose$2, bug6263446::frame));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -493,29 +415,29 @@ void bug6263446::checkSelectedText($String* sel) {
 
 void bug6263446::setClickCountToStart(int32_t clicks) {
 	$init(bug6263446);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, clicks)));
+	$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$lambda$setClickCountToStart$2$3, clicks));
 }
 
 void bug6263446::cancelCellEditing() {
 	$init(bug6263446);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$lambda$cancelCellEditing$3$4)));
+	$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$lambda$cancelCellEditing$3$4));
 }
 
 void bug6263446::checkSelection($String* sel) {
 	$init(bug6263446);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$lambda$checkSelection$4$5, sel)));
+	$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$lambda$checkSelection$4$5, sel));
 }
 
 void bug6263446::assertEditing(bool editing) {
 	$init(bug6263446);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$lambda$assertEditing$5$6, editing)));
+	$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$lambda$assertEditing$5$6, editing));
 }
 
 $Point* bug6263446::getClickPoint() {
 	$init(bug6263446);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, result, $new($PointArray, 1));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6263446$$Lambda$lambda$getClickPoint$6$7, result)));
+	$SwingUtilities::invokeAndWait($$new(bug6263446$$Lambda$lambda$getClickPoint$6$7, result));
 	return result->get(0);
 }
 
@@ -530,18 +452,18 @@ void bug6263446::click(int32_t times) {
 
 $TableModel* bug6263446::createTableModel() {
 	$init(bug6263446);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, columnNames, $new($StringArray, {"Column 0"_s}));
 	$var($StringArray2, data, $new($StringArray2, {$$new($StringArray, {bug6263446::ALL})}));
-	return $new($DefaultTableModel, $fcast($ObjectArray2, data), columnNames);
+	return $new($DefaultTableModel, $cast($ObjectArray2, data), columnNames);
 }
 
 void bug6263446::createAndShowGUI() {
 	$init(bug6263446);
 	$assignStatic(bug6263446::frame, $new($JFrame, "bug6263446"_s));
-	$nc(bug6263446::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug6263446::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$assignStatic(bug6263446::table, $new($JTable, $(createTableModel())));
-	$nc(bug6263446::frame)->add(static_cast<$Component*>(bug6263446::table));
+	$nc(bug6263446::frame)->add(bug6263446::table);
 	$nc(bug6263446::frame)->setAlwaysOnTop(true);
 	$nc(bug6263446::frame)->setLocationRelativeTo(nullptr);
 	$nc(bug6263446::frame)->pack();
@@ -551,9 +473,9 @@ void bug6263446::createAndShowGUI() {
 
 void bug6263446::lambda$getClickPoint$6($PointArray* result) {
 	$init(bug6263446);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, rect, $nc(bug6263446::table)->getCellRect(0, 0, false));
-	$var($Point, point, $new($Point, $nc(rect)->x + rect->width / 5, rect->y + rect->height / 2));
+	$var($Point, point, $new($Point, $nc(rect)->x + $nc(rect)->width / 5, $nc(rect)->y + $nc(rect)->height / 2));
 	$SwingUtilities::convertPointToScreen(point, bug6263446::table);
 	$nc(result)->set(0, point);
 }
@@ -570,7 +492,7 @@ void bug6263446::lambda$assertEditing$5(bool editing) {
 
 void bug6263446::lambda$checkSelection$4($String* sel) {
 	$init(bug6263446);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultCellEditor, editor, $cast($DefaultCellEditor, $nc(bug6263446::table)->getDefaultEditor($String::class$)));
 	$var($JTextField, field, $cast($JTextField, $nc(editor)->getComponent()));
 	$var($String, text, $nc(field)->getSelectedText());
@@ -578,14 +500,14 @@ void bug6263446::lambda$checkSelection$4($String* sel) {
 		if (text != nullptr && text->length() != 0) {
 			$throwNew($RuntimeException, $$str({"Nothing should be selected, but \""_s, text, "\" is selected."_s}));
 		}
-	} else if (!$nc(sel)->equals(text)) {
+	} else if (!sel->equals(text)) {
 		$throwNew($RuntimeException, $$str({"\""_s, sel, "\" should be selected, but \""_s, text, "\" is selected."_s}));
 	}
 }
 
 void bug6263446::lambda$cancelCellEditing$3() {
 	$init(bug6263446);
-	$nc($($nc(bug6263446::table)->getCellEditor()))->cancelCellEditing();
+	$$nc($nc(bug6263446::table)->getCellEditor())->cancelCellEditing();
 }
 
 void bug6263446::lambda$setClickCountToStart$2(int32_t clicks) {
@@ -607,7 +529,7 @@ void bug6263446::lambda$main$0() {
 bug6263446::bug6263446() {
 }
 
-void clinit$bug6263446($Class* class$) {
+void bug6263446::clinit$($Class* clazz) {
 	$assignStatic(bug6263446::FIRST, "AAAAA"_s);
 	$assignStatic(bug6263446::SECOND, "BB"_s);
 	$init(bug6263446);
@@ -616,32 +538,72 @@ void clinit$bug6263446($Class* class$) {
 
 $Class* bug6263446::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6263446$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$lambda$main$0")) {
 			return bug6263446$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(bug6263446$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$lambda$main$1$1")) {
 			return bug6263446$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(bug6263446$$Lambda$dispose$2::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$dispose$2")) {
 			return bug6263446$$Lambda$dispose$2::load$(name, initialize);
 		}
-		if (name->equals(bug6263446$$Lambda$lambda$setClickCountToStart$2$3::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$lambda$setClickCountToStart$2$3")) {
 			return bug6263446$$Lambda$lambda$setClickCountToStart$2$3::load$(name, initialize);
 		}
-		if (name->equals(bug6263446$$Lambda$lambda$cancelCellEditing$3$4::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$lambda$cancelCellEditing$3$4")) {
 			return bug6263446$$Lambda$lambda$cancelCellEditing$3$4::load$(name, initialize);
 		}
-		if (name->equals(bug6263446$$Lambda$lambda$checkSelection$4$5::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$lambda$checkSelection$4$5")) {
 			return bug6263446$$Lambda$lambda$checkSelection$4$5::load$(name, initialize);
 		}
-		if (name->equals(bug6263446$$Lambda$lambda$assertEditing$5$6::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$lambda$assertEditing$5$6")) {
 			return bug6263446$$Lambda$lambda$assertEditing$5$6::load$(name, initialize);
 		}
-		if (name->equals(bug6263446$$Lambda$lambda$getClickPoint$6$7::classInfo$.name)) {
+		if (name->equals("bug6263446$$Lambda$lambda$getClickPoint$6$7")) {
 			return bug6263446$$Lambda$lambda$getClickPoint$6$7::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6263446, name, initialize, &_bug6263446_ClassInfo_, clinit$bug6263446, allocate$bug6263446);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446, frame)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446, table)},
+		{"FIRST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446, FIRST)},
+		{"SECOND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446, SECOND)},
+		{"ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6263446, ALL)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6263446, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6263446, init$, void)},
+		{"assertEditing", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, assertEditing, void, bool), "java.lang.Exception"},
+		{"cancelCellEditing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, cancelCellEditing, void), "java.lang.Exception"},
+		{"checkSelectedText", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, checkSelectedText, void, $String*), "java.lang.Exception"},
+		{"checkSelection", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, checkSelection, void, $String*), "java.lang.Exception"},
+		{"click", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, click, void, int32_t)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, createAndShowGUI, void)},
+		{"createTableModel", "()Ljavax/swing/table/TableModel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, createTableModel, $TableModel*)},
+		{"getClickPoint", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, getClickPoint, $Point*), "java.lang.Exception"},
+		{"lambda$assertEditing$5", "(Z)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$assertEditing$5, void, bool)},
+		{"lambda$cancelCellEditing$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$cancelCellEditing$3, void)},
+		{"lambda$checkSelection$4", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$checkSelection$4, void, $String*)},
+		{"lambda$getClickPoint$6", "([Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$getClickPoint$6, void, $PointArray*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$main$1, void)},
+		{"lambda$setClickCountToStart$2", "(I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6263446, lambda$setClickCountToStart$2, void, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6263446, main, void, $StringArray*), "java.lang.Exception"},
+		{"setClickCountToStart", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6263446, setClickCountToStart, void, int32_t), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6263446",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6263446, name, initialize, &classInfo$$, bug6263446::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446);
+	});
 	return class$;
 }
 

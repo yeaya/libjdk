@@ -68,6 +68,7 @@ class TIFFBaseJPEGCompressor : public ::com::sun::imageio::plugins::tiff::TIFFCo
 	$class(TIFFBaseJPEGCompressor, $HAS_FINALIZE, ::com::sun::imageio::plugins::tiff::TIFFCompressor)
 public:
 	TIFFBaseJPEGCompressor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* compressionType, int32_t compressionTagValue, bool isCompressionLossless, ::javax::imageio::ImageWriteParam* param);
 	virtual int32_t encode($bytes* b, int32_t off, int32_t width, int32_t height, $ints* bitsPerSample, int32_t scanlineStride) override;
 	virtual void finalize() override;

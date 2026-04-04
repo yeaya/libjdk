@@ -27,6 +27,7 @@ class PropertyChangeSupport$PropertyChangeListenerMap : public ::java::beans::Ch
 	$class(PropertyChangeSupport$PropertyChangeListenerMap, 0, ::java::beans::ChangeListenerMap)
 public:
 	PropertyChangeSupport$PropertyChangeListenerMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::beans::PropertyChangeListener* extract(::java::beans::PropertyChangeListener* listener);
 	virtual ::java::util::EventListener* extract(::java::util::EventListener* listener) override;

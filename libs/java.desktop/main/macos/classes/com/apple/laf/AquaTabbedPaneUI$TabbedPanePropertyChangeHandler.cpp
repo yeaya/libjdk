@@ -1,8 +1,6 @@
 #include <com/apple/laf/AquaTabbedPaneUI$TabbedPanePropertyChangeHandler.h>
-
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler.h>
-#include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI.h>
 #include <com/apple/laf/AquaTabbedPaneUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Rectangle.h>
@@ -14,7 +12,6 @@
 
 using $RectangleArray = $Array<::java::awt::Rectangle>;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
-using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
 using $AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler;
 using $AquaTabbedPaneUI = ::com::apple::laf::AquaTabbedPaneUI;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -28,50 +25,13 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, this$0)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;)V", nullptr, $PROTECTED, $method(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, init$, void, $AquaTabbedPaneUI*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneUI$TabbedPanePropertyChangeHandler", "com.apple.laf.AquaTabbedPaneUI", "TabbedPanePropertyChangeHandler", $PROTECTED},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "PropertyChangeHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneUI$TabbedPanePropertyChangeHandler",
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler",
-	nullptr,
-	_AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_FieldInfo_,
-	_AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneUI"
-};
-
-$Object* allocate$AquaTabbedPaneUI$TabbedPanePropertyChangeHandler($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler));
-}
-
 void AquaTabbedPaneUI$TabbedPanePropertyChangeHandler::init$($AquaTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler::init$(this$0);
 }
 
 void AquaTabbedPaneUI$TabbedPanePropertyChangeHandler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(e)->getPropertyName());
 	$init($AquaFocusHandler);
 	if (!$nc($AquaFocusHandler::FRAME_ACTIVE_PROPERTY)->equals(prop)) {
@@ -92,7 +52,38 @@ AquaTabbedPaneUI$TabbedPanePropertyChangeHandler::AquaTabbedPaneUI$TabbedPanePro
 }
 
 $Class* AquaTabbedPaneUI$TabbedPanePropertyChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, name, initialize, &_AquaTabbedPaneUI$TabbedPanePropertyChangeHandler_ClassInfo_, allocate$AquaTabbedPaneUI$TabbedPanePropertyChangeHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;)V", nullptr, $PROTECTED, $method(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, init$, void, $AquaTabbedPaneUI*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneUI$TabbedPanePropertyChangeHandler", "com.apple.laf.AquaTabbedPaneUI", "TabbedPanePropertyChangeHandler", $PROTECTED},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "PropertyChangeHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneUI$TabbedPanePropertyChangeHandler",
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneUI"
+	};
+	$loadClass(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTabbedPaneUI$TabbedPanePropertyChangeHandler);
+	});
 	return class$;
 }
 

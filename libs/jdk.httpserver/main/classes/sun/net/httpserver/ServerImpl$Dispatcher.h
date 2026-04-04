@@ -41,6 +41,7 @@ class ServerImpl$Dispatcher : public ::java::lang::Runnable {
 	$class(ServerImpl$Dispatcher, 0, ::java::lang::Runnable)
 public:
 	ServerImpl$Dispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ServerImpl* this$0);
 	virtual void handle(::java::nio::channels::SocketChannel* chan, ::sun::net::httpserver::HttpConnection* conn);
 	void handleEvent(::sun::net::httpserver::Event* r);

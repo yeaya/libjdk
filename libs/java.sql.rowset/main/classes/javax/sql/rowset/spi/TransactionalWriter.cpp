@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/spi/TransactionalWriter.h>
-
 #include <java/sql/Savepoint.h>
 #include <jcpp.h>
 
@@ -12,28 +11,24 @@ namespace javax {
 		namespace rowset {
 			namespace spi {
 
-$MethodInfo _TransactionalWriter_MethodInfo_[] = {
-	{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, commit, void), "java.sql.SQLException"},
-	{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, rollback, void), "java.sql.SQLException"},
-	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, rollback, void, $Savepoint*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _TransactionalWriter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.rowset.spi.TransactionalWriter",
-	nullptr,
-	"javax.sql.RowSetWriter",
-	nullptr,
-	_TransactionalWriter_MethodInfo_
-};
-
-$Object* allocate$TransactionalWriter($Class* clazz) {
-	return $of($alloc(TransactionalWriter));
-}
-
 $Class* TransactionalWriter::load$($String* name, bool initialize) {
-	$loadClass(TransactionalWriter, name, initialize, &_TransactionalWriter_ClassInfo_, allocate$TransactionalWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, commit, void), "java.sql.SQLException"},
+		{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, rollback, void), "java.sql.SQLException"},
+		{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, rollback, void, $Savepoint*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.rowset.spi.TransactionalWriter",
+		nullptr,
+		"javax.sql.RowSetWriter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TransactionalWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransactionalWriter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/SwingUtilities.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -29,7 +28,6 @@
 #include <java/lang/Runnable.h>
 #include <java/lang/StringBuffer.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleComponent.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -97,7 +95,6 @@ using $RectangleArray = $Array<::java::awt::Rectangle>;
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $Applet = ::java::applet::Applet;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -130,7 +127,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleComponent = ::javax::accessibility::AccessibleComponent;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
@@ -168,115 +164,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 
-$CompoundAttribute _SwingUtilities_MethodAnnotations_findFocusOwner19[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _SwingUtilities_FieldInfo_[] = {
-	{"canAccessEventQueue", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, canAccessEventQueue)},
-	{"eventQueueTested", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, eventQueueTested)},
-	{"suppressDropSupport", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, suppressDropSupport)},
-	{"checkedSuppressDropSupport", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, checkedSuppressDropSupport)},
-	{"sharedOwnerFrameKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities, sharedOwnerFrameKey)},
-	{}
-};
-
-$MethodInfo _SwingUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SwingUtilities, init$, void)},
-	{"appContextGet", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(SwingUtilities, appContextGet, $Object*, Object$*)},
-	{"appContextPut", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, appContextPut, void, Object$*, Object$*)},
-	{"appContextRemove", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, appContextRemove, void, Object$*)},
-	{"calculateInnerArea", "(Ljavax/swing/JComponent;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, calculateInnerArea, $Rectangle*, $JComponent*, $Rectangle*)},
-	{"checkMouseButton", "(Ljava/awt/event/MouseEvent;II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, checkMouseButton, bool, $MouseEvent*, int32_t, int32_t)},
-	{"computeDifference", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)[Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeDifference, $RectangleArray*, $Rectangle*, $Rectangle*)},
-	{"computeIntersection", "(IIIILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeIntersection, $Rectangle*, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
-	{"computeStringWidth", "(Ljava/awt/FontMetrics;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeStringWidth, int32_t, $FontMetrics*, $String*)},
-	{"computeUnion", "(IIIILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeUnion, $Rectangle*, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
-	{"convertMouseEvent", "(Ljava/awt/Component;Ljava/awt/event/MouseEvent;Ljava/awt/Component;)Ljava/awt/event/MouseEvent;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertMouseEvent, $MouseEvent*, $Component*, $MouseEvent*, $Component*)},
-	{"convertPoint", "(Ljava/awt/Component;Ljava/awt/Point;Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPoint, $Point*, $Component*, $Point*, $Component*)},
-	{"convertPoint", "(Ljava/awt/Component;IILjava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPoint, $Point*, $Component*, int32_t, int32_t, $Component*)},
-	{"convertPointFromScreen", "(Ljava/awt/Point;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPointFromScreen, void, $Point*, $Component*)},
-	{"convertPointToScreen", "(Ljava/awt/Point;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPointToScreen, void, $Point*, $Component*)},
-	{"convertRectangle", "(Ljava/awt/Component;Ljava/awt/Rectangle;Ljava/awt/Component;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertRectangle, $Rectangle*, $Component*, $Rectangle*, $Component*)},
-	{"convertScreenLocationToParent", "(Ljava/awt/Container;II)Ljava/awt/Point;", nullptr, $STATIC, $staticMethod(SwingUtilities, convertScreenLocationToParent, $Point*, $Container*, int32_t, int32_t)},
-	{"doesIconReferenceImage", "(Ljavax/swing/Icon;Ljava/awt/Image;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities, doesIconReferenceImage, bool, $Icon*, $Image*)},
-	{"findDisplayedMnemonicIndex", "(Ljava/lang/String;I)I", nullptr, $STATIC, $staticMethod(SwingUtilities, findDisplayedMnemonicIndex, int32_t, $String*, int32_t)},
-	{"findFocusOwner", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(SwingUtilities, findFocusOwner, $Component*, $Component*), nullptr, nullptr, _SwingUtilities_MethodAnnotations_findFocusOwner19},
-	{"getAccessibleAt", "(Ljava/awt/Component;Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleAt, $Accessible*, $Component*, $Point*)},
-	{"getAccessibleChild", "(Ljava/awt/Component;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleChild, $Accessible*, $Component*, int32_t)},
-	{"getAccessibleChildrenCount", "(Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleChildrenCount, int32_t, $Component*)},
-	{"getAccessibleIndexInParent", "(Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleIndexInParent, int32_t, $Component*)},
-	{"getAccessibleStateSet", "(Ljava/awt/Component;)Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleStateSet, $AccessibleStateSet*, $Component*)},
-	{"getAncestorNamed", "(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAncestorNamed, $Container*, $String*, $Component*)},
-	{"getAncestorOfClass", "(Ljava/lang/Class;Ljava/awt/Component;)Ljava/awt/Container;", "(Ljava/lang/Class<*>;Ljava/awt/Component;)Ljava/awt/Container;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAncestorOfClass, $Container*, $Class*, $Component*)},
-	{"getCellRendererPane", "(Ljava/awt/Component;Ljava/awt/Container;)Ljavax/swing/CellRendererPane;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, getCellRendererPane, $CellRendererPane*, $Component*, $Container*)},
-	{"getDeepestComponentAt", "(Ljava/awt/Component;II)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getDeepestComponentAt, $Component*, $Component*, int32_t, int32_t)},
-	{"getLocalBounds", "(Ljava/awt/Component;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getLocalBounds, $Rectangle*, $Component*)},
-	{"getPaintingOrigin", "(Ljavax/swing/JComponent;)Ljavax/swing/JComponent;", nullptr, $STATIC, $staticMethod(SwingUtilities, getPaintingOrigin, $JComponent*, $JComponent*)},
-	{"getRoot", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getRoot, $Component*, $Component*)},
-	{"getRootPane", "(Ljava/awt/Component;)Ljavax/swing/JRootPane;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getRootPane, $JRootPane*, $Component*)},
-	{"getSharedOwnerFrame", "()Ljava/awt/Frame;", nullptr, $STATIC, $staticMethod(SwingUtilities, getSharedOwnerFrame, $Frame*), "java.awt.HeadlessException"},
-	{"getSharedOwnerFrameShutdownListener", "()Ljava/awt/event/WindowListener;", nullptr, $STATIC, $staticMethod(SwingUtilities, getSharedOwnerFrameShutdownListener, $WindowListener*), "java.awt.HeadlessException"},
-	{"getSuppressDropTarget", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, getSuppressDropTarget, bool)},
-	{"getUIActionMap", "(Ljavax/swing/JComponent;)Ljavax/swing/ActionMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUIActionMap, $ActionMap*, $JComponent*)},
-	{"getUIInputMap", "(Ljavax/swing/JComponent;I)Ljavax/swing/InputMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUIInputMap, $InputMap*, $JComponent*, int32_t)},
-	{"getUnwrappedParent", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUnwrappedParent, $Container*, $Component*)},
-	{"getUnwrappedView", "(Ljavax/swing/JViewport;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUnwrappedView, $Component*, $JViewport*)},
-	{"getValidateRoot", "(Ljava/awt/Container;Z)Ljava/awt/Container;", nullptr, $STATIC, $staticMethod(SwingUtilities, getValidateRoot, $Container*, $Container*, bool)},
-	{"getWindowAncestor", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getWindowAncestor, $Window*, $Component*)},
-	{"installSwingDropTargetAsNecessary", "(Ljava/awt/Component;Ljavax/swing/TransferHandler;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, installSwingDropTargetAsNecessary, void, $Component*, $TransferHandler*)},
-	{"invokeAndWait", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, invokeAndWait, void, $Runnable*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
-	{"invokeLater", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, invokeLater, void, $Runnable*)},
-	{"isDescendingFrom", "(Ljava/awt/Component;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isDescendingFrom, bool, $Component*, $Component*)},
-	{"isEventDispatchThread", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isEventDispatchThread, bool)},
-	{"isLeftMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isLeftMouseButton, bool, $MouseEvent*)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities, isLeftToRight, bool, $Component*)},
-	{"isMiddleMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isMiddleMouseButton, bool, $MouseEvent*)},
-	{"isRectangleContainingRectangle", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SwingUtilities, isRectangleContainingRectangle, bool, $Rectangle*, $Rectangle*)},
-	{"isRightMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isRightMouseButton, bool, $MouseEvent*)},
-	{"isValidKeyEventForKeyBindings", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities, isValidKeyEventForKeyBindings, bool, $KeyEvent*)},
-	{"layoutCompoundLabel", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, layoutCompoundLabel, $String*, $JComponent*, $FontMetrics*, $String*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, int32_t)},
-	{"layoutCompoundLabel", "(Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, layoutCompoundLabel, $String*, $FontMetrics*, $String*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, int32_t)},
-	{"layoutCompoundLabelImpl", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, layoutCompoundLabelImpl, $String*, $JComponent*, $FontMetrics*, $String*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, int32_t)},
-	{"loadSystemClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(SwingUtilities, loadSystemClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"notifyAction", "(Ljavax/swing/Action;Ljavax/swing/KeyStroke;Ljava/awt/event/KeyEvent;Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, notifyAction, bool, $Action*, $KeyStroke*, $KeyEvent*, Object$*, int32_t)},
-	{"paintComponent", "(Ljava/awt/Graphics;Ljava/awt/Component;Ljava/awt/Container;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, paintComponent, void, $Graphics*, $Component*, $Container*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintComponent", "(Ljava/awt/Graphics;Ljava/awt/Component;Ljava/awt/Container;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, paintComponent, void, $Graphics*, $Component*, $Container*, $Rectangle*)},
-	{"processKeyBindings", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, processKeyBindings, bool, $KeyEvent*)},
-	{"replaceUIActionMap", "(Ljavax/swing/JComponent;Ljavax/swing/ActionMap;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, replaceUIActionMap, void, $JComponent*, $ActionMap*)},
-	{"replaceUIInputMap", "(Ljavax/swing/JComponent;ILjavax/swing/InputMap;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, replaceUIInputMap, void, $JComponent*, int32_t, $InputMap*)},
-	{"updateComponentTreeUI", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, updateComponentTreeUI, void, $Component*)},
-	{"updateComponentTreeUI0", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, updateComponentTreeUI0, void, $Component*)},
-	{"updateRendererOrEditorUI", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, updateRendererOrEditorUI, void, Object$*)},
-	{"windowForComponent", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, windowForComponent, $Window*, $Component*)},
-	{}
-};
-
-$InnerClassInfo _SwingUtilities_InnerClassesInfo_[] = {
-	{"javax.swing.SwingUtilities$SharedOwnerFrame", "javax.swing.SwingUtilities", "SharedOwnerFrame", $STATIC},
-	{}
-};
-
-$ClassInfo _SwingUtilities_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SwingUtilities",
-	"java.lang.Object",
-	"javax.swing.SwingConstants",
-	_SwingUtilities_FieldInfo_,
-	_SwingUtilities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingUtilities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.SwingUtilities$SharedOwnerFrame"
-};
-
-$Object* allocate$SwingUtilities($Class* clazz) {
-	return $of($alloc(SwingUtilities));
-}
-
 bool SwingUtilities::canAccessEventQueue = false;
 bool SwingUtilities::eventQueueTested = false;
 bool SwingUtilities::suppressDropSupport = false;
@@ -285,10 +172,10 @@ $Object* SwingUtilities::sharedOwnerFrameKey = nullptr;
 
 bool SwingUtilities::getSuppressDropTarget() {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!SwingUtilities::checkedSuppressDropSupport) {
-		SwingUtilities::suppressDropSupport = $nc($($Boolean::valueOf($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "suppressSwingDropSupport"_s))))))))->booleanValue();
+		SwingUtilities::suppressDropSupport = $($Boolean::valueOf($$cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "suppressSwingDropSupport"_s)))))->booleanValue();
 		SwingUtilities::checkedSuppressDropSupport = true;
 	}
 	return SwingUtilities::suppressDropSupport;
@@ -296,7 +183,7 @@ bool SwingUtilities::getSuppressDropTarget() {
 
 void SwingUtilities::installSwingDropTargetAsNecessary($Component* c, $TransferHandler* t) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!getSuppressDropTarget()) {
 		$var($DropTarget, dropHandler, $nc(c)->getDropTarget());
 		if ((dropHandler == nullptr) || ($instanceOf($UIResource, dropHandler))) {
@@ -316,7 +203,7 @@ bool SwingUtilities::isRectangleContainingRectangle($Rectangle* a, $Rectangle* b
 
 $Rectangle* SwingUtilities::getLocalBounds($Component* aComponent) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, b, $new($Rectangle, $($nc(aComponent)->getBounds())));
 	b->x = (b->y = 0);
 	return b;
@@ -324,12 +211,10 @@ $Rectangle* SwingUtilities::getLocalBounds($Component* aComponent) {
 
 $Window* SwingUtilities::getWindowAncestor($Component* c) {
 	$init(SwingUtilities);
-	{
-		$var($Container, p, $nc(c)->getParent());
-		for (; p != nullptr; $assign(p, $nc(p)->getParent())) {
-			if ($instanceOf($Window, p)) {
-				return $cast($Window, p);
-			}
+	$var($Container, p, $nc(c)->getParent());
+	for (; p != nullptr; $assign(p, p->getParent())) {
+		if ($instanceOf($Window, p)) {
+			return $cast($Window, p);
 		}
 	}
 	return nullptr;
@@ -337,10 +222,10 @@ $Window* SwingUtilities::getWindowAncestor($Component* c) {
 
 $Point* SwingUtilities::convertScreenLocationToParent($Container* parent, int32_t x, int32_t y) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Container, p, parent);
-		for (; p != nullptr; $assign(p, $nc(p)->getParent())) {
+		for (; p != nullptr; $assign(p, p->getParent())) {
 			if ($instanceOf($Window, p)) {
 				$var($Point, point, $new($Point, x, y));
 				SwingUtilities::convertPointFromScreen(point, parent);
@@ -353,7 +238,7 @@ $Point* SwingUtilities::convertScreenLocationToParent($Container* parent, int32_
 
 $Point* SwingUtilities::convertPoint($Component* source$renamed, $Point* aPoint, $Component* destination$renamed) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, destination, destination$renamed);
 	$var($Component, source, source$renamed);
 	$var($Point, p, nullptr);
@@ -386,9 +271,9 @@ $Point* SwingUtilities::convertPoint($Component* source, int32_t x, int32_t y, $
 
 $Rectangle* SwingUtilities::convertRectangle($Component* source, $Rectangle* aRectangle, $Component* destination) {
 	$init(SwingUtilities);
-	$var($Point, point, $new($Point, $nc(aRectangle)->x, aRectangle->y));
+	$var($Point, point, $new($Point, $nc(aRectangle)->x, $nc(aRectangle)->y));
 	$assign(point, convertPoint(source, point, destination));
-	return $new($Rectangle, $nc(point)->x, point->y, $nc(aRectangle)->width, aRectangle->height);
+	return $new($Rectangle, $nc(point)->x, $nc(point)->y, aRectangle->width, aRectangle->height);
 }
 
 $Container* SwingUtilities::getAncestorOfClass($Class* c, $Component* comp) {
@@ -405,7 +290,7 @@ $Container* SwingUtilities::getAncestorOfClass($Class* c, $Component* comp) {
 
 $Container* SwingUtilities::getAncestorNamed($String* name, $Component* comp) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (comp == nullptr || name == nullptr) {
 		return nullptr;
 	}
@@ -418,29 +303,25 @@ $Container* SwingUtilities::getAncestorNamed($String* name, $Component* comp) {
 
 $Component* SwingUtilities::getDeepestComponentAt($Component* parent, int32_t x, int32_t y) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(parent)->contains(x, y)) {
 		return nullptr;
 	}
 	if ($instanceOf($Container, parent)) {
-		$var($ComponentArray, components, $nc(($cast($Container, parent)))->getComponents());
+		$var($ComponentArray, components, $cast($Container, parent)->getComponents());
 		{
 			$var($ComponentArray, arr$, components);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, comp, arr$->get(i$));
-				{
+				if (comp != nullptr && comp->isVisible()) {
+					$var($Point, loc, comp->getLocation());
+					if ($instanceOf($Container, comp)) {
+						$assign(comp, getDeepestComponentAt(comp, x - $nc(loc)->x, y - $nc(loc)->y));
+					} else {
+						$assign(comp, comp->getComponentAt(x - $nc(loc)->x, y - $nc(loc)->y));
+					}
 					if (comp != nullptr && comp->isVisible()) {
-						$var($Point, loc, comp->getLocation());
-						if ($instanceOf($Container, comp)) {
-							$assign(comp, getDeepestComponentAt(comp, x - $nc(loc)->x, y - loc->y));
-						} else {
-							$assign(comp, comp->getComponentAt(x - $nc(loc)->x, y - loc->y));
-						}
-						if (comp != nullptr && comp->isVisible()) {
-							return comp;
-						}
+						return comp;
 					}
 				}
 			}
@@ -451,7 +332,7 @@ $Component* SwingUtilities::getDeepestComponentAt($Component* parent, int32_t x,
 
 $MouseEvent* SwingUtilities::convertMouseEvent($Component* source, $MouseEvent* sourceEvent, $Component* destination) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(sourceEvent)->getX();
 	$var($Point, p, convertPoint(source, $$new($Point, var$0, sourceEvent->getY()), destination));
 	$var($Component, newSource, nullptr);
@@ -463,65 +344,62 @@ $MouseEvent* SwingUtilities::convertMouseEvent($Component* source, $MouseEvent* 
 	$var($MouseEvent, newEvent, nullptr);
 	if ($instanceOf($MouseWheelEvent, sourceEvent)) {
 		$var($MouseWheelEvent, sourceWheelEvent, $cast($MouseWheelEvent, sourceEvent));
-		$var($Component, var$1, newSource);
-		int32_t var$2 = $nc(sourceWheelEvent)->getID();
-		int64_t var$3 = sourceWheelEvent->getWhen();
-		int32_t var$5 = sourceWheelEvent->getModifiers();
-		int32_t var$4 = var$5 | sourceWheelEvent->getModifiersEx();
-		int32_t var$6 = $nc(p)->x;
-		int32_t var$7 = p->y;
-		int32_t var$8 = sourceWheelEvent->getXOnScreen();
-		int32_t var$9 = sourceWheelEvent->getYOnScreen();
-		int32_t var$10 = sourceWheelEvent->getClickCount();
-		bool var$11 = sourceWheelEvent->isPopupTrigger();
-		int32_t var$12 = sourceWheelEvent->getScrollType();
-		int32_t var$13 = sourceWheelEvent->getScrollAmount();
-		int32_t var$14 = sourceWheelEvent->getWheelRotation();
-		$assign(newEvent, $new($MouseWheelEvent, var$1, var$2, var$3, var$4, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, var$14, sourceWheelEvent->getPreciseWheelRotation()));
+		int32_t var$1 = sourceWheelEvent->getID();
+		int64_t var$2 = sourceWheelEvent->getWhen();
+		int32_t var$4 = sourceWheelEvent->getModifiers();
+		int32_t var$3 = var$4 | sourceWheelEvent->getModifiersEx();
+		int32_t var$5 = $nc(p)->x;
+		int32_t var$6 = p->y;
+		int32_t var$7 = sourceWheelEvent->getXOnScreen();
+		int32_t var$8 = sourceWheelEvent->getYOnScreen();
+		int32_t var$9 = sourceWheelEvent->getClickCount();
+		bool var$10 = sourceWheelEvent->isPopupTrigger();
+		int32_t var$11 = sourceWheelEvent->getScrollType();
+		int32_t var$12 = sourceWheelEvent->getScrollAmount();
+		int32_t var$13 = sourceWheelEvent->getWheelRotation();
+		$assign(newEvent, $new($MouseWheelEvent, newSource, var$1, var$2, var$3, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, sourceWheelEvent->getPreciseWheelRotation()));
 	} else if ($instanceOf($MenuDragMouseEvent, sourceEvent)) {
 		$var($MenuDragMouseEvent, sourceMenuDragEvent, $cast($MenuDragMouseEvent, sourceEvent));
-		$var($Component, var$15, newSource);
-		int32_t var$16 = $nc(sourceMenuDragEvent)->getID();
-		int64_t var$17 = sourceMenuDragEvent->getWhen();
-		int32_t var$19 = sourceMenuDragEvent->getModifiers();
-		int32_t var$18 = var$19 | sourceMenuDragEvent->getModifiersEx();
-		int32_t var$20 = $nc(p)->x;
-		int32_t var$21 = p->y;
-		int32_t var$22 = sourceMenuDragEvent->getXOnScreen();
-		int32_t var$23 = sourceMenuDragEvent->getYOnScreen();
-		int32_t var$24 = sourceMenuDragEvent->getClickCount();
-		bool var$25 = sourceMenuDragEvent->isPopupTrigger();
-		$var($MenuElementArray, var$26, sourceMenuDragEvent->getPath());
-		$assign(newEvent, $new($MenuDragMouseEvent, var$15, var$16, var$17, var$18, var$20, var$21, var$22, var$23, var$24, var$25, var$26, $(sourceMenuDragEvent->getMenuSelectionManager())));
+		int32_t var$14 = sourceMenuDragEvent->getID();
+		int64_t var$15 = sourceMenuDragEvent->getWhen();
+		int32_t var$17 = sourceMenuDragEvent->getModifiers();
+		int32_t var$16 = var$17 | sourceMenuDragEvent->getModifiersEx();
+		int32_t var$18 = $nc(p)->x;
+		int32_t var$19 = p->y;
+		int32_t var$20 = sourceMenuDragEvent->getXOnScreen();
+		int32_t var$21 = sourceMenuDragEvent->getYOnScreen();
+		int32_t var$22 = sourceMenuDragEvent->getClickCount();
+		bool var$23 = sourceMenuDragEvent->isPopupTrigger();
+		$var($MenuElementArray, var$24, sourceMenuDragEvent->getPath());
+		$assign(newEvent, $new($MenuDragMouseEvent, newSource, var$14, var$15, var$16, var$18, var$19, var$20, var$21, var$22, var$23, var$24, $(sourceMenuDragEvent->getMenuSelectionManager())));
 	} else {
-		$var($Component, var$27, newSource);
-		int32_t var$28 = $nc(sourceEvent)->getID();
-		int64_t var$29 = sourceEvent->getWhen();
-		int32_t var$31 = sourceEvent->getModifiers();
-		int32_t var$30 = var$31 | sourceEvent->getModifiersEx();
-		int32_t var$32 = $nc(p)->x;
-		int32_t var$33 = p->y;
-		int32_t var$34 = sourceEvent->getXOnScreen();
-		int32_t var$35 = sourceEvent->getYOnScreen();
-		int32_t var$36 = sourceEvent->getClickCount();
-		bool var$37 = sourceEvent->isPopupTrigger();
-		$assign(newEvent, $new($MouseEvent, var$27, var$28, var$29, var$30, var$32, var$33, var$34, var$35, var$36, var$37, sourceEvent->getButton()));
+		int32_t var$25 = sourceEvent->getID();
+		int64_t var$26 = sourceEvent->getWhen();
+		int32_t var$28 = sourceEvent->getModifiers();
+		int32_t var$27 = var$28 | sourceEvent->getModifiersEx();
+		int32_t var$29 = $nc(p)->x;
+		int32_t var$30 = p->y;
+		int32_t var$31 = sourceEvent->getXOnScreen();
+		int32_t var$32 = sourceEvent->getYOnScreen();
+		int32_t var$33 = sourceEvent->getClickCount();
+		bool var$34 = sourceEvent->isPopupTrigger();
+		$assign(newEvent, $new($MouseEvent, newSource, var$25, var$26, var$27, var$29, var$30, var$31, var$32, var$33, var$34, sourceEvent->getButton()));
 		$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-		$nc(meAccessor)->setCausedByTouchEvent(newEvent, meAccessor->isCausedByTouchEvent(sourceEvent));
+		$nc(meAccessor)->setCausedByTouchEvent(newEvent, $nc(meAccessor)->isCausedByTouchEvent(sourceEvent));
 	}
 	return newEvent;
 }
 
 void SwingUtilities::convertPointToScreen($Point* p, $Component* c$renamed) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, c$renamed);
 	$var($Rectangle, b, nullptr);
 	int32_t x = 0;
 	int32_t y = 0;
 	do {
 		if ($instanceOf($JComponent, c)) {
-			x = $nc(c)->getX();
+			x = c->getX();
 			y = c->getY();
 		} else if ($instanceOf($Applet, c) || $instanceOf($Window, c)) {
 			try {
@@ -547,14 +425,14 @@ void SwingUtilities::convertPointToScreen($Point* p, $Component* c$renamed) {
 
 void SwingUtilities::convertPointFromScreen($Point* p, $Component* c$renamed) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, c$renamed);
 	$var($Rectangle, b, nullptr);
 	int32_t x = 0;
 	int32_t y = 0;
 	do {
 		if ($instanceOf($JComponent, c)) {
-			x = $nc(c)->getX();
+			x = c->getX();
 			y = c->getY();
 		} else if ($instanceOf($Applet, c) || $instanceOf($Window, c)) {
 			try {
@@ -590,7 +468,7 @@ bool SwingUtilities::isDescendingFrom($Component* a, $Component* b) {
 	}
 	{
 		$var($Container, p, $nc(a)->getParent());
-		for (; p != nullptr; $assign(p, $nc(p)->getParent())) {
+		for (; p != nullptr; $assign(p, p->getParent())) {
 			if ($equals(p, b)) {
 				return true;
 			}
@@ -601,7 +479,7 @@ bool SwingUtilities::isDescendingFrom($Component* a, $Component* b) {
 
 $Rectangle* SwingUtilities::computeIntersection(int32_t x, int32_t y, int32_t width, int32_t height, $Rectangle* dest) {
 	$init(SwingUtilities);
-	int32_t x1 = (x > $nc(dest)->x) ? x : $nc(dest)->x;
+	int32_t x1 = (x > $nc(dest)->x) ? x : dest->x;
 	int32_t x2 = ((x + width) < (dest->x + dest->width)) ? (x + width) : (dest->x + dest->width);
 	int32_t y1 = (y > dest->y) ? y : dest->y;
 	int32_t y2 = ((y + height) < (dest->y + dest->height) ? (y + height) : (dest->y + dest->height));
@@ -617,7 +495,7 @@ $Rectangle* SwingUtilities::computeIntersection(int32_t x, int32_t y, int32_t wi
 
 $Rectangle* SwingUtilities::computeUnion(int32_t x, int32_t y, int32_t width, int32_t height, $Rectangle* dest) {
 	$init(SwingUtilities);
-	int32_t x1 = (x < $nc(dest)->x) ? x : $nc(dest)->x;
+	int32_t x1 = (x < $nc(dest)->x) ? x : dest->x;
 	int32_t x2 = ((x + width) > (dest->x + dest->width)) ? (x + width) : (dest->x + dest->width);
 	int32_t y1 = (y < dest->y) ? y : dest->y;
 	int32_t y2 = ((y + height) > (dest->y + dest->height)) ? (y + height) : (dest->y + dest->height);
@@ -630,7 +508,7 @@ $Rectangle* SwingUtilities::computeUnion(int32_t x, int32_t y, int32_t width, in
 
 $RectangleArray* SwingUtilities::computeDifference($Rectangle* rectA, $Rectangle* rectB) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = rectB == nullptr || !$nc(rectA)->intersects(rectB);
 	if (var$0 || isRectangleContainingRectangle(rectB, rectA)) {
 		return $new($RectangleArray, 0);
@@ -864,24 +742,16 @@ bool SwingUtilities::checkMouseButton($MouseEvent* anEvent, int32_t mouseButton,
 	$init(SwingUtilities);
 	switch ($nc(anEvent)->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{}
 	case $MouseEvent::MOUSE_RELEASED:
-		{}
 	case $MouseEvent::MOUSE_CLICKED:
-		{
-			return (anEvent->getButton() == mouseButton);
-		}
+		return (anEvent->getButton() == mouseButton);
 	case $MouseEvent::MOUSE_ENTERED:
-		{}
 	case $MouseEvent::MOUSE_EXITED:
-		{}
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			return (((int32_t)(anEvent->getModifiersEx() & (uint32_t)mouseButtonDownMask)) != 0);
-		}
+		return ((anEvent->getModifiersEx() & mouseButtonDownMask) != 0);
 	default:
 		{
-			bool var$0 = ((int32_t)(anEvent->getModifiersEx() & (uint32_t)mouseButtonDownMask)) != 0;
+			bool var$0 = (anEvent->getModifiersEx() & mouseButtonDownMask) != 0;
 			return (var$0 || anEvent->getButton() == mouseButton);
 		}
 	}
@@ -913,33 +783,25 @@ $String* SwingUtilities::layoutCompoundLabel($JComponent* c, $FontMetrics* fm, $
 	int32_t hAlign = horizontalAlignment;
 	int32_t hTextPos = horizontalTextPosition;
 	if (c != nullptr) {
-		if (!($nc($(c->getComponentOrientation()))->isLeftToRight())) {
+		if (!($$nc(c->getComponentOrientation())->isLeftToRight())) {
 			orientationIsLeftToRight = false;
 		}
 	}
 	switch (horizontalAlignment) {
 	case $SwingConstants::LEADING:
-		{
-			hAlign = (orientationIsLeftToRight) ? $SwingConstants::LEFT : $SwingConstants::RIGHT;
-			break;
-		}
+		hAlign = (orientationIsLeftToRight) ? $SwingConstants::LEFT : $SwingConstants::RIGHT;
+		break;
 	case $SwingConstants::TRAILING:
-		{
-			hAlign = (orientationIsLeftToRight) ? $SwingConstants::RIGHT : $SwingConstants::LEFT;
-			break;
-		}
+		hAlign = (orientationIsLeftToRight) ? $SwingConstants::RIGHT : $SwingConstants::LEFT;
+		break;
 	}
 	switch (horizontalTextPosition) {
 	case $SwingConstants::LEADING:
-		{
-			hTextPos = (orientationIsLeftToRight) ? $SwingConstants::LEFT : $SwingConstants::RIGHT;
-			break;
-		}
+		hTextPos = (orientationIsLeftToRight) ? $SwingConstants::LEFT : $SwingConstants::RIGHT;
+		break;
 	case $SwingConstants::TRAILING:
-		{
-			hTextPos = (orientationIsLeftToRight) ? $SwingConstants::RIGHT : $SwingConstants::LEFT;
-			break;
-		}
+		hTextPos = (orientationIsLeftToRight) ? $SwingConstants::RIGHT : $SwingConstants::LEFT;
+		break;
 	}
 	return layoutCompoundLabelImpl(c, fm, text, icon, verticalAlignment, hAlign, verticalTextPosition, hTextPos, viewR, iconR, textR, textIconGap);
 }
@@ -951,21 +813,21 @@ $String* SwingUtilities::layoutCompoundLabel($FontMetrics* fm, $String* text, $I
 
 $String* SwingUtilities::layoutCompoundLabelImpl($JComponent* c, $FontMetrics* fm, $String* text$renamed, $Icon* icon, int32_t verticalAlignment, int32_t horizontalAlignment, int32_t verticalTextPosition, int32_t horizontalTextPosition, $Rectangle* viewR, $Rectangle* iconR, $Rectangle* textR, int32_t textIconGap) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, text$renamed);
 	if (icon != nullptr) {
 		$nc(iconR)->width = icon->getIconWidth();
 		iconR->height = icon->getIconHeight();
 	} else {
-		$nc(iconR)->width = (iconR->height = 0);
+		$nc(iconR)->width = ($nc(iconR)->height = 0);
 	}
-	bool textIsEmpty = (text == nullptr) || $nc(text)->isEmpty();
+	bool textIsEmpty = (text == nullptr) || text->isEmpty();
 	int32_t lsb = 0;
 	int32_t rsb = 0;
 	int32_t gap = 0;
 	$var($View, v, nullptr);
 	if (textIsEmpty) {
-		$nc(textR)->width = (textR->height = 0);
+		$nc(textR)->width = ($nc(textR)->height = 0);
 		$assign(text, ""_s);
 		gap = 0;
 	} else {
@@ -976,7 +838,7 @@ $String* SwingUtilities::layoutCompoundLabelImpl($JComponent* c, $FontMetrics* f
 		} else {
 			availTextWidth = $nc(viewR)->width - ($nc(iconR)->width + gap);
 		}
-		$assign(v, (c != nullptr) ? $cast($View, $nc(c)->getClientProperty("html"_s)) : ($View*)nullptr);
+		$assign(v, (c != nullptr) ? $cast($View, c->getClientProperty("html"_s)) : ($View*)nullptr);
 		if (v != nullptr) {
 			$nc(textR)->width = $Math::min(availTextWidth, $cast(int32_t, v->getPreferredSpan($View::X_AXIS)));
 			textR->height = $cast(int32_t, v->getPreferredSpan($View::Y_AXIS));
@@ -997,45 +859,45 @@ $String* SwingUtilities::layoutCompoundLabelImpl($JComponent* c, $FontMetrics* f
 		if (horizontalTextPosition != $SwingConstants::CENTER) {
 			$nc(textR)->y = 0;
 		} else {
-			$nc(textR)->y = -(textR->height + gap);
+			$nc(textR)->y = -($nc(textR)->height + gap);
 		}
 	} else if (verticalTextPosition == $SwingConstants::CENTER) {
-		$nc(textR)->y = ($nc(iconR)->height / 2) - (textR->height / 2);
+		$nc(textR)->y = ($nc(iconR)->height / 2) - ($nc(textR)->height / 2);
 	} else if (horizontalTextPosition != $SwingConstants::CENTER) {
-		$nc(textR)->y = $nc(iconR)->height - textR->height;
+		$nc(textR)->y = $nc(iconR)->height - $nc(textR)->height;
 	} else {
 		$nc(textR)->y = ($nc(iconR)->height + gap);
 	}
 	if (horizontalTextPosition == $SwingConstants::LEFT) {
-		$nc(textR)->x = -(textR->width + gap);
+		$nc(textR)->x = -($nc(textR)->width + gap);
 	} else if (horizontalTextPosition == $SwingConstants::CENTER) {
-		$nc(textR)->x = ($nc(iconR)->width / 2) - (textR->width / 2);
+		$nc(textR)->x = ($nc(iconR)->width / 2) - ($nc(textR)->width / 2);
 	} else {
 		$nc(textR)->x = ($nc(iconR)->width + gap);
 	}
 	int32_t labelR_x = $Math::min($nc(iconR)->x, $nc(textR)->x);
-	int32_t labelR_width = $Math::max($nc(iconR)->x + iconR->width, $nc(textR)->x + textR->width) - labelR_x;
-	int32_t labelR_y = $Math::min($nc(iconR)->y, $nc(textR)->y);
-	int32_t labelR_height = $Math::max($nc(iconR)->y + iconR->height, $nc(textR)->y + textR->height) - labelR_y;
+	int32_t labelR_width = $Math::max(iconR->x + iconR->width, textR->x + textR->width) - labelR_x;
+	int32_t labelR_y = $Math::min(iconR->y, textR->y);
+	int32_t labelR_height = $Math::max(iconR->y + iconR->height, textR->y + textR->height) - labelR_y;
 	int32_t dx = 0;
 	int32_t dy = 0;
 	if (verticalAlignment == $SwingConstants::TOP) {
 		dy = $nc(viewR)->y - labelR_y;
 	} else if (verticalAlignment == $SwingConstants::CENTER) {
-		dy = ($nc(viewR)->y + (viewR->height / 2)) - (labelR_y + (labelR_height / 2));
+		dy = ($nc(viewR)->y + ($nc(viewR)->height / 2)) - (labelR_y + (labelR_height / 2));
 	} else {
-		dy = ($nc(viewR)->y + viewR->height) - (labelR_y + labelR_height);
+		dy = ($nc(viewR)->y + $nc(viewR)->height) - (labelR_y + labelR_height);
 	}
 	if (horizontalAlignment == $SwingConstants::LEFT) {
 		dx = $nc(viewR)->x - labelR_x;
 	} else if (horizontalAlignment == $SwingConstants::RIGHT) {
-		dx = ($nc(viewR)->x + viewR->width) - (labelR_x + labelR_width);
+		dx = ($nc(viewR)->x + $nc(viewR)->width) - (labelR_x + labelR_width);
 	} else {
-		dx = ($nc(viewR)->x + (viewR->width / 2)) - (labelR_x + (labelR_width / 2));
+		dx = ($nc(viewR)->x + ($nc(viewR)->width / 2)) - (labelR_x + (labelR_width / 2));
 	}
-	$nc(textR)->x += dx;
+	textR->x += dx;
 	textR->y += dy;
-	$nc(iconR)->x += dx;
+	iconR->x += dx;
 	iconR->y += dy;
 	if (lsb < 0) {
 		textR->x -= lsb;
@@ -1049,25 +911,25 @@ $String* SwingUtilities::layoutCompoundLabelImpl($JComponent* c, $FontMetrics* f
 
 void SwingUtilities::paintComponent($Graphics* g, $Component* c, $Container* p, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$init(SwingUtilities);
-	$nc($(getCellRendererPane(c, p)))->paintComponent(g, c, p, x, y, w, h, false);
+	$$nc(getCellRendererPane(c, p))->paintComponent(g, c, p, x, y, w, h, false);
 }
 
 void SwingUtilities::paintComponent($Graphics* g, $Component* c, $Container* p, $Rectangle* r) {
 	$init(SwingUtilities);
-	paintComponent(g, c, p, $nc(r)->x, r->y, r->width, r->height);
+	paintComponent(g, c, p, $nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 $CellRendererPane* SwingUtilities::getCellRendererPane($Component* c, $Container* p) {
 	$init(SwingUtilities);
 	$var($Container, shell, $nc(c)->getParent());
 	if ($instanceOf($CellRendererPane, shell)) {
-		if ($nc(shell)->getParent() != p) {
-			$nc(p)->add(static_cast<$Component*>(shell));
+		if (shell->getParent() != p) {
+			$nc(p)->add(shell);
 		}
 	} else {
 		$assign(shell, $new($CellRendererPane));
 		shell->add(c);
-		$nc(p)->add(static_cast<$Component*>(shell));
+		$nc(p)->add(shell);
 	}
 	return $cast($CellRendererPane, shell);
 }
@@ -1082,10 +944,10 @@ void SwingUtilities::updateComponentTreeUI($Component* c) {
 
 void SwingUtilities::updateComponentTreeUI0($Component* c) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JComponent, c)) {
 		$var($JComponent, jc, $cast($JComponent, c));
-		$nc(jc)->updateUI();
+		jc->updateUI();
 		$var($JPopupMenu, jpm, jc->getComponentPopupMenu());
 		if (jpm != nullptr) {
 			updateComponentTreeUI(jpm);
@@ -1093,20 +955,16 @@ void SwingUtilities::updateComponentTreeUI0($Component* c) {
 	}
 	$var($ComponentArray, children, nullptr);
 	if ($instanceOf($JMenu, c)) {
-		$assign(children, $nc(($cast($JMenu, c)))->getMenuComponents());
+		$assign(children, $cast($JMenu, c)->getMenuComponents());
 	} else if ($instanceOf($Container, c)) {
-		$assign(children, $nc(($cast($Container, c)))->getComponents());
+		$assign(children, $cast($Container, c)->getComponents());
 	}
 	if (children != nullptr) {
-		{
-			$var($ComponentArray, arr$, children);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					updateComponentTreeUI0(child);
-				}
+		$var($ComponentArray, arr$, children);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				updateComponentTreeUI0(child);
 			}
 		}
 	}
@@ -1129,14 +987,14 @@ bool SwingUtilities::isEventDispatchThread() {
 
 int32_t SwingUtilities::getAccessibleIndexInParent($Component* c) {
 	$init(SwingUtilities);
-	return $nc($($nc(c)->getAccessibleContext()))->getAccessibleIndexInParent();
+	return $$nc($nc(c)->getAccessibleContext())->getAccessibleIndexInParent();
 }
 
 $Accessible* SwingUtilities::getAccessibleAt($Component* c, $Point* p) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Container, c)) {
-		return $nc($($nc($($nc(c)->getAccessibleContext()))->getAccessibleComponent()))->getAccessibleAt(p);
+		return $$nc($$nc(c->getAccessibleContext())->getAccessibleComponent())->getAccessibleAt(p);
 	} else if ($instanceOf($Accessible, c)) {
 		$var($Accessible, a, $cast($Accessible, c));
 		if (a != nullptr) {
@@ -1153,7 +1011,7 @@ $Accessible* SwingUtilities::getAccessibleAt($Component* c, $Point* p) {
 							$assign(acmp, ac->getAccessibleComponent());
 							if ((acmp != nullptr) && (acmp->isShowing())) {
 								$assign(location, acmp->getLocation());
-								$var($Point, np, $new($Point, $nc(p)->x - $nc(location)->x, p->y - location->y));
+								$var($Point, np, $new($Point, $nc(p)->x - $nc(location)->x, $nc(p)->y - $nc(location)->y));
 								if (acmp->contains(np)) {
 									return a;
 								}
@@ -1170,26 +1028,26 @@ $Accessible* SwingUtilities::getAccessibleAt($Component* c, $Point* p) {
 
 $AccessibleStateSet* SwingUtilities::getAccessibleStateSet($Component* c) {
 	$init(SwingUtilities);
-	return $nc($($nc(c)->getAccessibleContext()))->getAccessibleStateSet();
+	return $$nc($nc(c)->getAccessibleContext())->getAccessibleStateSet();
 }
 
 int32_t SwingUtilities::getAccessibleChildrenCount($Component* c) {
 	$init(SwingUtilities);
-	return $nc($($nc(c)->getAccessibleContext()))->getAccessibleChildrenCount();
+	return $$nc($nc(c)->getAccessibleContext())->getAccessibleChildrenCount();
 }
 
 $Accessible* SwingUtilities::getAccessibleChild($Component* c, int32_t i) {
 	$init(SwingUtilities);
-	return $nc($($nc(c)->getAccessibleContext()))->getAccessibleChild(i);
+	return $$nc($nc(c)->getAccessibleContext())->getAccessibleChild(i);
 }
 
 $Component* SwingUtilities::findFocusOwner($Component* c) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
-	$var($Component, focusOwner, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$useLocalObjectStack();
+	$var($Component, focusOwner, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	{
 		$var($Component, temp, focusOwner);
-		for (; temp != nullptr; $assign(temp, ($instanceOf($Window, temp)) ? ($Component*)nullptr : static_cast<$Component*>($nc(temp)->getParent()))) {
+		for (; temp != nullptr; $assign(temp, ($instanceOf($Window, temp)) ? ($Component*)nullptr : $cast($Component, temp->getParent()))) {
 			if (temp == c) {
 				return focusOwner;
 			}
@@ -1202,9 +1060,9 @@ $JRootPane* SwingUtilities::getRootPane($Component* c$renamed) {
 	$init(SwingUtilities);
 	$var($Component, c, c$renamed);
 	if ($instanceOf($RootPaneContainer, c)) {
-		return $nc(($cast($RootPaneContainer, c)))->getRootPane();
+		return $cast($RootPaneContainer, c)->getRootPane();
 	}
-	for (; c != nullptr; $assign(c, $nc(c)->getParent())) {
+	for (; c != nullptr; $assign(c, c->getParent())) {
 		if ($instanceOf($JRootPane, c)) {
 			return $cast($JRootPane, c);
 		}
@@ -1214,11 +1072,11 @@ $JRootPane* SwingUtilities::getRootPane($Component* c$renamed) {
 
 $Component* SwingUtilities::getRoot($Component* c) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, applet, nullptr);
 	{
 		$var($Component, p, c);
-		for (; p != nullptr; $assign(p, $nc(p)->getParent())) {
+		for (; p != nullptr; $assign(p, p->getParent())) {
 			if ($instanceOf($Window, p)) {
 				return p;
 			}
@@ -1232,11 +1090,11 @@ $Component* SwingUtilities::getRoot($Component* c) {
 
 $JComponent* SwingUtilities::getPaintingOrigin($JComponent* c) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, p, c);
 	while ($instanceOf($JComponent, $assign(p, $nc(p)->getParent()))) {
 		$var($JComponent, jp, $cast($JComponent, p));
-		if (jp->isPaintingOrigin()) {
+		if ($nc(jp)->isPaintingOrigin()) {
 			return jp;
 		}
 	}
@@ -1256,7 +1114,7 @@ bool SwingUtilities::processKeyBindings($KeyEvent* event) {
 		}
 		while (component != nullptr) {
 			if ($instanceOf($JComponent, component)) {
-				return $nc(($cast($JComponent, component)))->processKeyBindings(event, pressed);
+				return $cast($JComponent, component)->processKeyBindings(event, pressed);
 			}
 			if (($instanceOf($Applet, component)) || ($instanceOf($Window, component))) {
 				return $JComponent::processKeyBindingsForAllComponents(event, $cast($Container, component), pressed);
@@ -1274,12 +1132,13 @@ bool SwingUtilities::isValidKeyEventForKeyBindings($KeyEvent* e) {
 
 bool SwingUtilities::notifyAction($Action* action, $KeyStroke* ks, $KeyEvent* event, Object$* sender, int32_t modifiers) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
-	if (action == nullptr || !$nc(action)->accept(sender)) {
+	$useLocalObjectStack();
+	if (action == nullptr || !action->accept(sender)) {
 		return false;
 	}
 	$var($Object, commandO, nullptr);
 	bool stayNull = false;
+	$init($Action);
 	$assign(commandO, $nc(action)->getValue($Action::ACTION_COMMAND_KEY));
 	if (commandO == nullptr && ($instanceOf($JComponent$ActionStandin, action))) {
 		stayNull = true;
@@ -1288,7 +1147,7 @@ bool SwingUtilities::notifyAction($Action* action, $KeyStroke* ks, $KeyEvent* ev
 	}
 	$var($String, command, nullptr);
 	if (commandO != nullptr) {
-		$assign(command, $of(commandO)->toString());
+		$assign(command, commandO->toString());
 	} else if (!stayNull && $nc(event)->getKeyChar() != $KeyEvent::CHAR_UNDEFINED) {
 		$assign(command, $String::valueOf(event->getKeyChar()));
 	} else {
@@ -1300,7 +1159,7 @@ bool SwingUtilities::notifyAction($Action* action, $KeyStroke* ks, $KeyEvent* ev
 
 void SwingUtilities::replaceUIInputMap($JComponent* component, int32_t type, $InputMap* uiInputMap) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, map, $nc(component)->getInputMap(type, (uiInputMap != nullptr)));
 	while (map != nullptr) {
 		$var($InputMap, parent, map->getParent());
@@ -1314,7 +1173,7 @@ void SwingUtilities::replaceUIInputMap($JComponent* component, int32_t type, $In
 
 void SwingUtilities::replaceUIActionMap($JComponent* component, $ActionMap* uiActionMap) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $nc(component)->getActionMap((uiActionMap != nullptr)));
 	while (map != nullptr) {
 		$var($ActionMap, parent, map->getParent());
@@ -1328,7 +1187,7 @@ void SwingUtilities::replaceUIActionMap($JComponent* component, $ActionMap* uiAc
 
 $InputMap* SwingUtilities::getUIInputMap($JComponent* component, int32_t condition) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMap, map, $nc(component)->getInputMap(condition, false));
 	while (map != nullptr) {
 		$var($InputMap, parent, map->getParent());
@@ -1342,7 +1201,7 @@ $InputMap* SwingUtilities::getUIInputMap($JComponent* component, int32_t conditi
 
 $ActionMap* SwingUtilities::getUIActionMap($JComponent* component) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $nc(component)->getActionMap(false));
 	while (map != nullptr) {
 		$var($ActionMap, parent, map->getParent());
@@ -1372,22 +1231,22 @@ $WindowListener* SwingUtilities::getSharedOwnerFrameShutdownListener() {
 
 $Object* SwingUtilities::appContextGet(Object$* key) {
 	$init(SwingUtilities);
-	return $of($nc($($AppContext::getAppContext()))->get(key));
+	return $$nc($AppContext::getAppContext())->get(key);
 }
 
 void SwingUtilities::appContextPut(Object$* key, Object$* value) {
 	$init(SwingUtilities);
-	$nc($($AppContext::getAppContext()))->put(key, value);
+	$$nc($AppContext::getAppContext())->put(key, value);
 }
 
 void SwingUtilities::appContextRemove(Object$* key) {
 	$init(SwingUtilities);
-	$nc($($AppContext::getAppContext()))->remove(key);
+	$$nc($AppContext::getAppContext())->remove(key);
 }
 
 $Class* SwingUtilities::loadSystemClass($String* className) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$ReflectUtil::checkPackageAccess(className);
 	return $Class::forName(className, true, $($($Thread::currentThread())->getContextClassLoader()));
@@ -1395,7 +1254,7 @@ $Class* SwingUtilities::loadSystemClass($String* className) {
 
 bool SwingUtilities::isLeftToRight($Component* c) {
 	$init(SwingUtilities);
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 void SwingUtilities::init$() {
@@ -1404,7 +1263,7 @@ void SwingUtilities::init$() {
 
 bool SwingUtilities::doesIconReferenceImage($Icon* icon, $Image* image) {
 	$init(SwingUtilities);
-	$var($Image, iconImage, (icon != nullptr && ($instanceOf($ImageIcon, icon))) ? $nc(($cast($ImageIcon, icon)))->getImage() : ($Image*)nullptr);
+	$var($Image, iconImage, (icon != nullptr && ($instanceOf($ImageIcon, icon))) ? $cast($ImageIcon, icon)->getImage() : ($Image*)nullptr);
 	return (iconImage == image);
 }
 
@@ -1415,8 +1274,8 @@ int32_t SwingUtilities::findDisplayedMnemonicIndex($String* text, int32_t mnemon
 	}
 	char16_t uc = $Character::toUpperCase((char16_t)mnemonic);
 	char16_t lc = $Character::toLowerCase((char16_t)mnemonic);
-	int32_t uci = $nc(text)->indexOf((int32_t)uc);
-	int32_t lci = text->indexOf((int32_t)lc);
+	int32_t uci = $nc(text)->indexOf(uc);
+	int32_t lci = text->indexOf(lc);
 	if (uci == -1) {
 		return lci;
 	} else if (lci == -1) {
@@ -1428,7 +1287,7 @@ int32_t SwingUtilities::findDisplayedMnemonicIndex($String* text, int32_t mnemon
 
 $Rectangle* SwingUtilities::calculateInnerArea($JComponent* c, $Rectangle* r) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		return nullptr;
 	}
@@ -1454,7 +1313,7 @@ void SwingUtilities::updateRendererOrEditorUI(Object$* rendererOrEditor) {
 		$assign(component, $cast($Component, rendererOrEditor));
 	}
 	if ($instanceOf($DefaultCellEditor, rendererOrEditor)) {
-		$assign(component, $nc(($cast($DefaultCellEditor, rendererOrEditor)))->getComponent());
+		$assign(component, $cast($DefaultCellEditor, rendererOrEditor)->getComponent());
 	}
 	if (component != nullptr) {
 		SwingUtilities::updateComponentTreeUI(component);
@@ -1465,7 +1324,7 @@ $Container* SwingUtilities::getUnwrappedParent($Component* component) {
 	$init(SwingUtilities);
 	$var($Container, parent, $nc(component)->getParent());
 	while ($instanceOf($JLayer, parent)) {
-		$assign(parent, $nc(parent)->getParent());
+		$assign(parent, parent->getParent());
 	}
 	return parent;
 }
@@ -1474,17 +1333,17 @@ $Component* SwingUtilities::getUnwrappedView($JViewport* viewport) {
 	$init(SwingUtilities);
 	$var($Component, view, $nc(viewport)->getView());
 	while ($instanceOf($JLayer, view)) {
-		$assign(view, $nc(($cast($JLayer, view)))->getView());
+		$assign(view, $cast($JLayer, view)->getView());
 	}
 	return view;
 }
 
 $Container* SwingUtilities::getValidateRoot($Container* c$renamed, bool visibleOnly) {
 	$init(SwingUtilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, c, c$renamed);
 	$var($Container, root, nullptr);
-	for (; c != nullptr; $assign(c, $nc(c)->getParent())) {
+	for (; c != nullptr; $assign(c, c->getParent())) {
 		if (!c->isDisplayable() || $instanceOf($CellRendererPane, c)) {
 			return nullptr;
 		}
@@ -1497,8 +1356,8 @@ $Container* SwingUtilities::getValidateRoot($Container* c$renamed, bool visibleO
 		return nullptr;
 	}
 	for (; c != nullptr; $assign(c, c->getParent())) {
-		bool var$0 = !$nc(c)->isDisplayable();
-		if (var$0 || (visibleOnly && !$nc(c)->isVisible())) {
+		bool var$0 = !c->isDisplayable();
+		if (var$0 || (visibleOnly && !c->isVisible())) {
 			return nullptr;
 		}
 		if ($instanceOf($Window, c) || $instanceOf($Applet, c)) {
@@ -1508,7 +1367,7 @@ $Container* SwingUtilities::getValidateRoot($Container* c$renamed, bool visibleO
 	return nullptr;
 }
 
-void clinit$SwingUtilities($Class* class$) {
+void SwingUtilities::clinit$($Class* clazz) {
 	SwingUtilities::canAccessEventQueue = false;
 	SwingUtilities::eventQueueTested = false;
 	$assignStatic(SwingUtilities::sharedOwnerFrameKey, $new($StringBuffer, "SwingUtilities.sharedOwnerFrame"_s));
@@ -1518,7 +1377,109 @@ SwingUtilities::SwingUtilities() {
 }
 
 $Class* SwingUtilities::load$($String* name, bool initialize) {
-	$loadClass(SwingUtilities, name, initialize, &_SwingUtilities_ClassInfo_, clinit$SwingUtilities, allocate$SwingUtilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"canAccessEventQueue", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, canAccessEventQueue)},
+		{"eventQueueTested", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, eventQueueTested)},
+		{"suppressDropSupport", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, suppressDropSupport)},
+		{"checkedSuppressDropSupport", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingUtilities, checkedSuppressDropSupport)},
+		{"sharedOwnerFrameKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingUtilities, sharedOwnerFrameKey)},
+		{}
+	};
+	$CompoundAttribute findFocusOwnermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SwingUtilities, init$, void)},
+		{"appContextGet", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(SwingUtilities, appContextGet, $Object*, Object$*)},
+		{"appContextPut", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, appContextPut, void, Object$*, Object$*)},
+		{"appContextRemove", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, appContextRemove, void, Object$*)},
+		{"calculateInnerArea", "(Ljavax/swing/JComponent;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, calculateInnerArea, $Rectangle*, $JComponent*, $Rectangle*)},
+		{"checkMouseButton", "(Ljava/awt/event/MouseEvent;II)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, checkMouseButton, bool, $MouseEvent*, int32_t, int32_t)},
+		{"computeDifference", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)[Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeDifference, $RectangleArray*, $Rectangle*, $Rectangle*)},
+		{"computeIntersection", "(IIIILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeIntersection, $Rectangle*, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
+		{"computeStringWidth", "(Ljava/awt/FontMetrics;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeStringWidth, int32_t, $FontMetrics*, $String*)},
+		{"computeUnion", "(IIIILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, computeUnion, $Rectangle*, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
+		{"convertMouseEvent", "(Ljava/awt/Component;Ljava/awt/event/MouseEvent;Ljava/awt/Component;)Ljava/awt/event/MouseEvent;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertMouseEvent, $MouseEvent*, $Component*, $MouseEvent*, $Component*)},
+		{"convertPoint", "(Ljava/awt/Component;Ljava/awt/Point;Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPoint, $Point*, $Component*, $Point*, $Component*)},
+		{"convertPoint", "(Ljava/awt/Component;IILjava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPoint, $Point*, $Component*, int32_t, int32_t, $Component*)},
+		{"convertPointFromScreen", "(Ljava/awt/Point;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPointFromScreen, void, $Point*, $Component*)},
+		{"convertPointToScreen", "(Ljava/awt/Point;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertPointToScreen, void, $Point*, $Component*)},
+		{"convertRectangle", "(Ljava/awt/Component;Ljava/awt/Rectangle;Ljava/awt/Component;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, convertRectangle, $Rectangle*, $Component*, $Rectangle*, $Component*)},
+		{"convertScreenLocationToParent", "(Ljava/awt/Container;II)Ljava/awt/Point;", nullptr, $STATIC, $staticMethod(SwingUtilities, convertScreenLocationToParent, $Point*, $Container*, int32_t, int32_t)},
+		{"doesIconReferenceImage", "(Ljavax/swing/Icon;Ljava/awt/Image;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities, doesIconReferenceImage, bool, $Icon*, $Image*)},
+		{"findDisplayedMnemonicIndex", "(Ljava/lang/String;I)I", nullptr, $STATIC, $staticMethod(SwingUtilities, findDisplayedMnemonicIndex, int32_t, $String*, int32_t)},
+		{"findFocusOwner", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(SwingUtilities, findFocusOwner, $Component*, $Component*), nullptr, nullptr, findFocusOwnermethodAnnotations$$},
+		{"getAccessibleAt", "(Ljava/awt/Component;Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleAt, $Accessible*, $Component*, $Point*)},
+		{"getAccessibleChild", "(Ljava/awt/Component;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleChild, $Accessible*, $Component*, int32_t)},
+		{"getAccessibleChildrenCount", "(Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleChildrenCount, int32_t, $Component*)},
+		{"getAccessibleIndexInParent", "(Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleIndexInParent, int32_t, $Component*)},
+		{"getAccessibleStateSet", "(Ljava/awt/Component;)Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAccessibleStateSet, $AccessibleStateSet*, $Component*)},
+		{"getAncestorNamed", "(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAncestorNamed, $Container*, $String*, $Component*)},
+		{"getAncestorOfClass", "(Ljava/lang/Class;Ljava/awt/Component;)Ljava/awt/Container;", "(Ljava/lang/Class<*>;Ljava/awt/Component;)Ljava/awt/Container;", $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getAncestorOfClass, $Container*, $Class*, $Component*)},
+		{"getCellRendererPane", "(Ljava/awt/Component;Ljava/awt/Container;)Ljavax/swing/CellRendererPane;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, getCellRendererPane, $CellRendererPane*, $Component*, $Container*)},
+		{"getDeepestComponentAt", "(Ljava/awt/Component;II)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getDeepestComponentAt, $Component*, $Component*, int32_t, int32_t)},
+		{"getLocalBounds", "(Ljava/awt/Component;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getLocalBounds, $Rectangle*, $Component*)},
+		{"getPaintingOrigin", "(Ljavax/swing/JComponent;)Ljavax/swing/JComponent;", nullptr, $STATIC, $staticMethod(SwingUtilities, getPaintingOrigin, $JComponent*, $JComponent*)},
+		{"getRoot", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getRoot, $Component*, $Component*)},
+		{"getRootPane", "(Ljava/awt/Component;)Ljavax/swing/JRootPane;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getRootPane, $JRootPane*, $Component*)},
+		{"getSharedOwnerFrame", "()Ljava/awt/Frame;", nullptr, $STATIC, $staticMethod(SwingUtilities, getSharedOwnerFrame, $Frame*), "java.awt.HeadlessException"},
+		{"getSharedOwnerFrameShutdownListener", "()Ljava/awt/event/WindowListener;", nullptr, $STATIC, $staticMethod(SwingUtilities, getSharedOwnerFrameShutdownListener, $WindowListener*), "java.awt.HeadlessException"},
+		{"getSuppressDropTarget", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, getSuppressDropTarget, bool)},
+		{"getUIActionMap", "(Ljavax/swing/JComponent;)Ljavax/swing/ActionMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUIActionMap, $ActionMap*, $JComponent*)},
+		{"getUIInputMap", "(Ljavax/swing/JComponent;I)Ljavax/swing/InputMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUIInputMap, $InputMap*, $JComponent*, int32_t)},
+		{"getUnwrappedParent", "(Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUnwrappedParent, $Container*, $Component*)},
+		{"getUnwrappedView", "(Ljavax/swing/JViewport;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getUnwrappedView, $Component*, $JViewport*)},
+		{"getValidateRoot", "(Ljava/awt/Container;Z)Ljava/awt/Container;", nullptr, $STATIC, $staticMethod(SwingUtilities, getValidateRoot, $Container*, $Container*, bool)},
+		{"getWindowAncestor", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, getWindowAncestor, $Window*, $Component*)},
+		{"installSwingDropTargetAsNecessary", "(Ljava/awt/Component;Ljavax/swing/TransferHandler;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, installSwingDropTargetAsNecessary, void, $Component*, $TransferHandler*)},
+		{"invokeAndWait", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, invokeAndWait, void, $Runnable*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
+		{"invokeLater", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, invokeLater, void, $Runnable*)},
+		{"isDescendingFrom", "(Ljava/awt/Component;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isDescendingFrom, bool, $Component*, $Component*)},
+		{"isEventDispatchThread", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isEventDispatchThread, bool)},
+		{"isLeftMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isLeftMouseButton, bool, $MouseEvent*)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities, isLeftToRight, bool, $Component*)},
+		{"isMiddleMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isMiddleMouseButton, bool, $MouseEvent*)},
+		{"isRectangleContainingRectangle", "(Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SwingUtilities, isRectangleContainingRectangle, bool, $Rectangle*, $Rectangle*)},
+		{"isRightMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, isRightMouseButton, bool, $MouseEvent*)},
+		{"isValidKeyEventForKeyBindings", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $STATIC, $staticMethod(SwingUtilities, isValidKeyEventForKeyBindings, bool, $KeyEvent*)},
+		{"layoutCompoundLabel", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, layoutCompoundLabel, $String*, $JComponent*, $FontMetrics*, $String*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, int32_t)},
+		{"layoutCompoundLabel", "(Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, layoutCompoundLabel, $String*, $FontMetrics*, $String*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, int32_t)},
+		{"layoutCompoundLabelImpl", "(Ljavax/swing/JComponent;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, layoutCompoundLabelImpl, $String*, $JComponent*, $FontMetrics*, $String*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, int32_t)},
+		{"loadSystemClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(SwingUtilities, loadSystemClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"notifyAction", "(Ljavax/swing/Action;Ljavax/swing/KeyStroke;Ljava/awt/event/KeyEvent;Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, notifyAction, bool, $Action*, $KeyStroke*, $KeyEvent*, Object$*, int32_t)},
+		{"paintComponent", "(Ljava/awt/Graphics;Ljava/awt/Component;Ljava/awt/Container;IIII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, paintComponent, void, $Graphics*, $Component*, $Container*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintComponent", "(Ljava/awt/Graphics;Ljava/awt/Component;Ljava/awt/Container;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, paintComponent, void, $Graphics*, $Component*, $Container*, $Rectangle*)},
+		{"processKeyBindings", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, processKeyBindings, bool, $KeyEvent*)},
+		{"replaceUIActionMap", "(Ljavax/swing/JComponent;Ljavax/swing/ActionMap;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, replaceUIActionMap, void, $JComponent*, $ActionMap*)},
+		{"replaceUIInputMap", "(Ljavax/swing/JComponent;ILjavax/swing/InputMap;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, replaceUIInputMap, void, $JComponent*, int32_t, $InputMap*)},
+		{"updateComponentTreeUI", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, updateComponentTreeUI, void, $Component*)},
+		{"updateComponentTreeUI0", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingUtilities, updateComponentTreeUI0, void, $Component*)},
+		{"updateRendererOrEditorUI", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(SwingUtilities, updateRendererOrEditorUI, void, Object$*)},
+		{"windowForComponent", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingUtilities, windowForComponent, $Window*, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SwingUtilities$SharedOwnerFrame", "javax.swing.SwingUtilities", "SharedOwnerFrame", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SwingUtilities",
+		"java.lang.Object",
+		"javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.SwingUtilities$SharedOwnerFrame"
+	};
+	$loadClass(SwingUtilities, name, initialize, &classInfo$$, SwingUtilities::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingUtilities);
+	});
 	return class$;
 }
 

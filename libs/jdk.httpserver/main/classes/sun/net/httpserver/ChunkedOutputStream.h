@@ -32,6 +32,7 @@ class ChunkedOutputStream : public ::java::io::FilterOutputStream {
 	$class(ChunkedOutputStream, 0, ::java::io::FilterOutputStream)
 public:
 	ChunkedOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ExchangeImpl* t, ::java::io::OutputStream* src);
 	virtual void close() override;
 	virtual void flush() override;

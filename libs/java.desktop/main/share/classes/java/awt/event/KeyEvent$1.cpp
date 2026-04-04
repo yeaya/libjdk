@@ -1,5 +1,4 @@
 #include <java/awt/event/KeyEvent$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/KeyEvent.h>
 #include <jcpp.h>
@@ -14,48 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$MethodInfo _KeyEvent$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KeyEvent$1, init$, void)},
-	{"getOriginalSource", "(Ljava/awt/event/KeyEvent;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, getOriginalSource, $Component*, $KeyEvent*)},
-	{"isProxyActive", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, isProxyActive, bool, $KeyEvent*)},
-	{"setExtendedKeyCode", "(Ljava/awt/event/KeyEvent;J)V", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, setExtendedKeyCode, void, $KeyEvent*, int64_t)},
-	{"setPrimaryLevelUnicode", "(Ljava/awt/event/KeyEvent;J)V", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, setPrimaryLevelUnicode, void, $KeyEvent*, int64_t)},
-	{"setRawCode", "(Ljava/awt/event/KeyEvent;J)V", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, setRawCode, void, $KeyEvent*, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _KeyEvent$1_EnclosingMethodInfo_ = {
-	"java.awt.event.KeyEvent",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _KeyEvent$1_InnerClassesInfo_[] = {
-	{"java.awt.event.KeyEvent$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$KeyEventAccessor", "sun.awt.AWTAccessor", "KeyEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyEvent$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.event.KeyEvent$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$KeyEventAccessor",
-	nullptr,
-	_KeyEvent$1_MethodInfo_,
-	nullptr,
-	&_KeyEvent$1_EnclosingMethodInfo_,
-	_KeyEvent$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.event.KeyEvent"
-};
-
-$Object* allocate$KeyEvent$1($Class* clazz) {
-	return $of($alloc(KeyEvent$1));
-}
 
 void KeyEvent$1::init$() {
 }
@@ -84,7 +41,43 @@ KeyEvent$1::KeyEvent$1() {
 }
 
 $Class* KeyEvent$1::load$($String* name, bool initialize) {
-	$loadClass(KeyEvent$1, name, initialize, &_KeyEvent$1_ClassInfo_, allocate$KeyEvent$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KeyEvent$1, init$, void)},
+		{"getOriginalSource", "(Ljava/awt/event/KeyEvent;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, getOriginalSource, $Component*, $KeyEvent*)},
+		{"isProxyActive", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, isProxyActive, bool, $KeyEvent*)},
+		{"setExtendedKeyCode", "(Ljava/awt/event/KeyEvent;J)V", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, setExtendedKeyCode, void, $KeyEvent*, int64_t)},
+		{"setPrimaryLevelUnicode", "(Ljava/awt/event/KeyEvent;J)V", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, setPrimaryLevelUnicode, void, $KeyEvent*, int64_t)},
+		{"setRawCode", "(Ljava/awt/event/KeyEvent;J)V", nullptr, $PUBLIC, $virtualMethod(KeyEvent$1, setRawCode, void, $KeyEvent*, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.event.KeyEvent",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.event.KeyEvent$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$KeyEventAccessor", "sun.awt.AWTAccessor", "KeyEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.event.KeyEvent$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$KeyEventAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.event.KeyEvent"
+	};
+	$loadClass(KeyEvent$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyEvent$1);
+	});
 	return class$;
 }
 

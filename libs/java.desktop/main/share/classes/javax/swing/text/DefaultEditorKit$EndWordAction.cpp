@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$EndWordAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/LookAndFeel.h>
@@ -11,13 +10,11 @@
 #include <javax/swing/text/Utilities.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
@@ -28,49 +25,13 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultEditorKit$EndWordAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$EndWordAction, select)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$EndWordAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$EndWordAction, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$EndWordAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$EndWordAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$EndWordAction", "javax.swing.text.DefaultEditorKit", "EndWordAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$EndWordAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$EndWordAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$EndWordAction_FieldInfo_,
-	_DefaultEditorKit$EndWordAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$EndWordAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$EndWordAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$EndWordAction));
-}
-
 void DefaultEditorKit$EndWordAction::init$($String* nm, bool select) {
 	$TextAction::init$(nm);
 	this->select = select;
 }
 
 void DefaultEditorKit$EndWordAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		try {
@@ -82,7 +43,7 @@ void DefaultEditorKit$EndWordAction::actionPerformed($ActionEvent* e) {
 				target->setCaretPosition(endOffs);
 			}
 		} catch ($BadLocationException& bl) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(target);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(target);
 		}
 	}
 }
@@ -91,7 +52,37 @@ DefaultEditorKit$EndWordAction::DefaultEditorKit$EndWordAction() {
 }
 
 $Class* DefaultEditorKit$EndWordAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$EndWordAction, name, initialize, &_DefaultEditorKit$EndWordAction_ClassInfo_, allocate$DefaultEditorKit$EndWordAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$EndWordAction, select)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$EndWordAction, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$EndWordAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$EndWordAction", "javax.swing.text.DefaultEditorKit", "EndWordAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$EndWordAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$EndWordAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$EndWordAction));
+	});
 	return class$;
 }
 

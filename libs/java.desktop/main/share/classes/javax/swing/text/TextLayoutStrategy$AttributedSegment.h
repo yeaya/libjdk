@@ -49,6 +49,7 @@ public:
 	virtual int32_t getIndex() override;
 	virtual int32_t hashCode() override;
 	virtual char16_t last() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::Set* getAllAttributeKeys() override;
 	virtual $Object* getAttribute(::java::text::AttributedCharacterIterator$Attribute* attribute) override;

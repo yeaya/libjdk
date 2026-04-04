@@ -1,27 +1,8 @@
 #include <HpackHeaderTableDriver.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _HpackHeaderTableDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HpackHeaderTableDriver, init$, void)},
-	{}
-};
-
-$ClassInfo _HpackHeaderTableDriver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HpackHeaderTableDriver",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HpackHeaderTableDriver_MethodInfo_
-};
-
-$Object* allocate$HpackHeaderTableDriver($Class* clazz) {
-	return $of($alloc(HpackHeaderTableDriver));
-}
 
 void HpackHeaderTableDriver::init$() {
 }
@@ -30,7 +11,21 @@ HpackHeaderTableDriver::HpackHeaderTableDriver() {
 }
 
 $Class* HpackHeaderTableDriver::load$($String* name, bool initialize) {
-	$loadClass(HpackHeaderTableDriver, name, initialize, &_HpackHeaderTableDriver_ClassInfo_, allocate$HpackHeaderTableDriver);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HpackHeaderTableDriver, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HpackHeaderTableDriver",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HpackHeaderTableDriver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HpackHeaderTableDriver);
+	});
 	return class$;
 }
 

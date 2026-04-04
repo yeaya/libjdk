@@ -1,5 +1,4 @@
 #include <java/rmi/NotBoundException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _NotBoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotBoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotBoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotBoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotBoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NotBoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.NotBoundException",
-	"java.lang.Exception",
-	nullptr,
-	_NotBoundException_FieldInfo_,
-	_NotBoundException_MethodInfo_
-};
-
-$Object* allocate$NotBoundException($Class* clazz) {
-	return $of($alloc(NotBoundException));
-}
 
 void NotBoundException::init$() {
 	$Exception::init$();
@@ -53,7 +28,26 @@ void NotBoundException::throw$() {
 }
 
 $Class* NotBoundException::load$($String* name, bool initialize) {
-	$loadClass(NotBoundException, name, initialize, &_NotBoundException_ClassInfo_, allocate$NotBoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotBoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotBoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotBoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.NotBoundException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotBoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotBoundException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/Rdn.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -8,9 +7,7 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Math.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <javax/naming/InvalidNameException.h>
@@ -40,11 +37,8 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $List = ::java::util::List;
 using $InvalidNameException = ::javax::naming::InvalidNameException;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
@@ -58,69 +52,6 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$FieldInfo _Rdn_FieldInfo_[] = {
-	{"entries", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/naming/ldap/Rdn$RdnEntry;>;", $PRIVATE | $TRANSIENT, $field(Rdn, entries)},
-	{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rdn, DEFAULT_SIZE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rdn, serialVersionUID)},
-	{"escapees", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Rdn, escapees)},
-	{}
-};
-
-$MethodInfo _Rdn_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, $Attributes*), "javax.naming.InvalidNameException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, $String*), "javax.naming.InvalidNameException"},
-	{"<init>", "(Ljavax/naming/ldap/Rdn;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, Rdn*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, $String*, Object$*), "javax.naming.InvalidNameException"},
-	{"<init>", "()V", nullptr, 0, $method(Rdn, init$, void)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Rdn, compareTo, int32_t, Object$*)},
-	{"decodeHexPairs", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, decodeHexPairs, $bytes*, $chars*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Rdn, equals, bool, Object$*)},
-	{"escapeBinaryValue", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, escapeBinaryValue, $String*, $bytes*)},
-	{"escapeStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, escapeStringValue, $String*, $String*)},
-	{"escapeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Rdn, escapeValue, $String*, Object$*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rdn, getType, $String*)},
-	{"getUtf8Octets", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, getUtf8Octets, $bytes*, $chars*, int32_t, int32_t)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Rdn, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Rdn, hashCode, int32_t)},
-	{"isEmptyValue", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(Rdn, isEmptyValue, bool, Object$*)},
-	{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, isWhitespace, bool, char16_t)},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/naming/ldap/Rdn;", nullptr, 0, $virtualMethod(Rdn, put, Rdn*, $String*, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Rdn, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Rdn, size, int32_t)},
-	{"sort", "()V", nullptr, 0, $virtualMethod(Rdn, sort, void)},
-	{"toAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(Rdn, toAttributes, $Attributes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rdn, toString, $String*)},
-	{"unescapeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Rdn, unescapeValue, $Object*, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Rdn, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Rdn_InnerClassesInfo_[] = {
-	{"javax.naming.ldap.Rdn$RdnEntry", "javax.naming.ldap.Rdn", "RdnEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Rdn_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.ldap.Rdn",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Comparable",
-	_Rdn_FieldInfo_,
-	_Rdn_MethodInfo_,
-	"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/Object;>;",
-	nullptr,
-	_Rdn_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.naming.ldap.Rdn$RdnEntry"
-};
-
-$Object* allocate$Rdn($Class* clazz) {
-	return $of($alloc(Rdn));
-}
-
 $Object* Rdn::clone() {
 	 return this->$Serializable::clone();
 }
@@ -132,12 +63,12 @@ void Rdn::finalize() {
 $String* Rdn::escapees = nullptr;
 
 void Rdn::init$($Attributes* attrSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(attrSet)->size() == 0) {
 		$throwNew($InvalidNameException, "Attributes cannot be empty"_s);
 	}
-	$set(this, entries, $new($ArrayList, $nc(attrSet)->size()));
-	$var($NamingEnumeration, attrs, $nc(attrSet)->getAll());
+	$set(this, entries, $new($ArrayList, attrSet->size()));
+	$var($NamingEnumeration, attrs, attrSet->getAll());
 	try {
 		for (int32_t nEntries = 0; $nc(attrs)->hasMore(); ++nEntries) {
 			$var($Rdn$RdnEntry, entry, $new($Rdn$RdnEntry));
@@ -161,7 +92,7 @@ void Rdn::init$($String* rdnString) {
 
 void Rdn::init$(Rdn* rdn) {
 	$set(this, entries, $new($ArrayList, $nc($nc(rdn)->entries)->size()));
-	$nc(this->entries)->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($nc(rdn)->entries))));
+	this->entries->addAll($cast($AbstractCollection, rdn->entries));
 }
 
 void Rdn::init$($String* type, Object$* value) {
@@ -177,7 +108,7 @@ void Rdn::init$($String* type, Object$* value) {
 }
 
 bool Rdn::isEmptyValue(Object$* val) {
-	return (($instanceOf($String, val)) && $nc($of(val))->equals(""_s)) || (($instanceOf($bytes, val)) && ($nc(($cast($bytes, val)))->length == 0));
+	return (($instanceOf($String, val)) && $of(val)->equals(""_s)) || (($instanceOf($bytes, val)) && ($cast($bytes, val)->length == 0));
 }
 
 void Rdn::init$() {
@@ -188,7 +119,7 @@ Rdn* Rdn::put($String* type, Object$* value) {
 	$var($Rdn$RdnEntry, newEntry, $new($Rdn$RdnEntry));
 	$set(newEntry, type, type);
 	if ($instanceOf($bytes, value)) {
-		$set(newEntry, value, $nc(($cast($bytes, value)))->clone());
+		$set(newEntry, value, $cast($bytes, value)->clone());
 	} else {
 		$set(newEntry, value, value);
 	}
@@ -203,29 +134,29 @@ void Rdn::sort() {
 }
 
 $Object* Rdn::getValue() {
-	return $of($nc(($cast($Rdn$RdnEntry, $($nc(this->entries)->get(0)))))->getValue());
+	return $$sure($Rdn$RdnEntry, $nc(this->entries)->get(0))->getValue();
 }
 
 $String* Rdn::getType() {
-	return $nc(($cast($Rdn$RdnEntry, $($nc(this->entries)->get(0)))))->getType();
+	return $$sure($Rdn$RdnEntry, $nc(this->entries)->get(0))->getType();
 }
 
 $String* Rdn::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	int32_t size = $nc(this->entries)->size();
 	if (size > 0) {
-		builder->append($($nc(this->entries)->get(0)));
+		builder->append($(this->entries->get(0)));
 	}
 	for (int32_t next = 1; next < size; ++next) {
 		builder->append(u'+');
-		builder->append($($nc(this->entries)->get(next)));
+		builder->append($(this->entries->get(next)));
 	}
 	return builder->toString();
 }
 
 int32_t Rdn::compareTo(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(Rdn, obj))) {
 		$throwNew($ClassCastException, "The obj is not a Rdn"_s);
 	}
@@ -236,17 +167,17 @@ int32_t Rdn::compareTo(Object$* obj) {
 	int32_t var$0 = $nc(this->entries)->size();
 	int32_t minSize = $Math::min(var$0, $nc($nc(that)->entries)->size());
 	for (int32_t i = 0; i < minSize; ++i) {
-		int32_t diff = $nc(($cast($Rdn$RdnEntry, $($nc(this->entries)->get(i)))))->compareTo($cast($Rdn$RdnEntry, $($nc($nc(that)->entries)->get(i))));
+		int32_t diff = $$sure($Rdn$RdnEntry, $nc(this->entries)->get(i))->compareTo($$cast($Rdn$RdnEntry, $nc(that->entries)->get(i)));
 		if (diff != 0) {
 			return diff;
 		}
 	}
 	int32_t var$1 = $nc(this->entries)->size();
-	return (var$1 - $nc($nc(that)->entries)->size());
+	return (var$1 - $nc(that->entries)->size());
 }
 
 bool Rdn::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -259,7 +190,7 @@ bool Rdn::equals(Object$* obj) {
 		return false;
 	}
 	for (int32_t i = 0; i < $nc(this->entries)->size(); ++i) {
-		if (!$nc(($cast($Rdn$RdnEntry, $($nc(this->entries)->get(i)))))->equals($($nc($nc(that)->entries)->get(i)))) {
+		if (!$$sure($Rdn$RdnEntry, this->entries->get(i))->equals($($nc(that->entries)->get(i)))) {
 			return false;
 		}
 	}
@@ -267,23 +198,23 @@ bool Rdn::equals(Object$* obj) {
 }
 
 int32_t Rdn::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = 0;
 	for (int32_t i = 0; i < $nc(this->entries)->size(); ++i) {
-		hash += $nc(($cast($Rdn$RdnEntry, $($nc(this->entries)->get(i)))))->hashCode();
+		hash += $$sure($Rdn$RdnEntry, this->entries->get(i))->hashCode();
 	}
 	return hash;
 }
 
 $Attributes* Rdn::toAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, attrs, $new($BasicAttributes, true));
 	for (int32_t i = 0; i < $nc(this->entries)->size(); ++i) {
-		$var($Rdn$RdnEntry, entry, $cast($Rdn$RdnEntry, $nc(this->entries)->get(i)));
+		$var($Rdn$RdnEntry, entry, $cast($Rdn$RdnEntry, this->entries->get(i)));
 		$var($String, var$0, $nc(entry)->getType());
 		$var($Attribute, attr, attrs->put(var$0, $(entry->getValue())));
 		if (attr != nullptr) {
-			attr->add($($nc(entry)->getValue()));
+			attr->add($(entry->getValue()));
 			attrs->put(attr);
 		}
 	}
@@ -301,7 +232,7 @@ $String* Rdn::escapeValue(Object$* val) {
 
 $String* Rdn::escapeStringValue($String* val) {
 	$init(Rdn);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, chars, $nc(val)->toCharArray());
 	$var($StringBuilder, builder, $new($StringBuilder, 2 * val->length()));
 	int32_t lead = 0;
@@ -318,7 +249,7 @@ $String* Rdn::escapeStringValue($String* val) {
 	}
 	for (int32_t i = 0; i < chars->length; ++i) {
 		char16_t c = chars->get(i);
-		if ((i < lead) || (i > trail) || ($nc(Rdn::escapees)->indexOf((int32_t)c) >= 0)) {
+		if ((i < lead) || (i > trail) || (Rdn::escapees->indexOf(c) >= 0)) {
 			builder->append(u'\\');
 		}
 		builder->append(c);
@@ -330,17 +261,17 @@ $String* Rdn::escapeBinaryValue($bytes* val) {
 	$init(Rdn);
 	$var($StringBuilder, builder, $new($StringBuilder, 1 + 2 * $nc(val)->length));
 	builder->append("#"_s);
-	for (int32_t i = 0; i < $nc(val)->length; ++i) {
+	for (int32_t i = 0; i < val->length; ++i) {
 		int8_t b = val->get(i);
-		builder->append($Character::forDigit((int32_t)(15 & (uint32_t)((int32_t)((uint32_t)b >> 4))), 16));
-		builder->append($Character::forDigit((int32_t)(15 & (uint32_t)(int32_t)b), 16));
+		builder->append($Character::forDigit(0x0f & ((int32_t)((uint32_t)b >> 4)), 16));
+		builder->append($Character::forDigit(0x0f & b, 16));
 	}
 	return builder->toString();
 }
 
 $Object* Rdn::unescapeValue($String* val) {
 	$init(Rdn);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, chars, $nc(val)->toCharArray());
 	int32_t beg = 0;
 	int32_t end = chars->length;
@@ -357,7 +288,7 @@ $Object* Rdn::unescapeValue($String* val) {
 		return $of(""_s);
 	}
 	if (chars->get(beg) == u'#') {
-		return $of(decodeHexPairs(chars, ++beg, end));
+		return decodeHexPairs(chars, ++beg, end);
 	}
 	if ((chars->get(beg) == u'\"') && (chars->get(end - 1) == u'\"')) {
 		++beg;
@@ -396,11 +327,11 @@ $Object* Rdn::unescapeValue($String* val) {
 
 $bytes* Rdn::decodeHexPairs($chars* chars, int32_t beg, int32_t end) {
 	$init(Rdn);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, $new($bytes, (end - beg) / 2));
 	for (int32_t i = 0; beg + 1 < end; ++i) {
 		int32_t hi = $Character::digit($nc(chars)->get(beg), 16);
-		int32_t lo = $Character::digit($nc(chars)->get(beg + 1), 16);
+		int32_t lo = $Character::digit(chars->get(beg + 1), 16);
 		if (hi < 0 || lo < 0) {
 			break;
 		}
@@ -415,16 +346,16 @@ $bytes* Rdn::decodeHexPairs($chars* chars, int32_t beg, int32_t end) {
 
 $bytes* Rdn::getUtf8Octets($chars* chars, int32_t beg, int32_t end) {
 	$init(Rdn);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, utf8, $new($bytes, (end - beg) / 3));
 	int32_t len = 0;
 	while (true) {
-		bool var$0 = (beg + 2 < end);
+		bool var$0 = beg + 2 < end;
 		if (!(var$0 && ($nc(chars)->get(beg++) == u'\\'))) {
 			break;
 		}
 		{
-			int32_t hi = $Character::digit(chars->get(beg++), 16);
+			int32_t hi = $Character::digit($nc(chars)->get(beg++), 16);
 			int32_t lo = $Character::digit(chars->get(beg++), 16);
 			if (hi < 0 || lo < 0) {
 				break;
@@ -452,7 +383,7 @@ void Rdn::writeObject($ObjectOutputStream* s) {
 }
 
 void Rdn::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	$set(this, entries, $new($ArrayList, Rdn::DEFAULT_SIZE));
 	$var($String, unparsed, $cast($String, s->readObject()));
@@ -466,12 +397,69 @@ void Rdn::readObject($ObjectInputStream* s) {
 Rdn::Rdn() {
 }
 
-void clinit$Rdn($Class* class$) {
+void Rdn::clinit$($Class* clazz) {
 	$assignStatic(Rdn::escapees, ",=+<>#;\"\\"_s);
 }
 
 $Class* Rdn::load$($String* name, bool initialize) {
-	$loadClass(Rdn, name, initialize, &_Rdn_ClassInfo_, clinit$Rdn, allocate$Rdn);
+	$FieldInfo fieldInfos$$[] = {
+		{"entries", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/naming/ldap/Rdn$RdnEntry;>;", $PRIVATE | $TRANSIENT, $field(Rdn, entries)},
+		{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rdn, DEFAULT_SIZE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Rdn, serialVersionUID)},
+		{"escapees", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Rdn, escapees)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, $Attributes*), "javax.naming.InvalidNameException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, $String*), "javax.naming.InvalidNameException"},
+		{"<init>", "(Ljavax/naming/ldap/Rdn;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, Rdn*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Rdn, init$, void, $String*, Object$*), "javax.naming.InvalidNameException"},
+		{"<init>", "()V", nullptr, 0, $method(Rdn, init$, void)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Rdn, compareTo, int32_t, Object$*)},
+		{"decodeHexPairs", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, decodeHexPairs, $bytes*, $chars*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Rdn, equals, bool, Object$*)},
+		{"escapeBinaryValue", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, escapeBinaryValue, $String*, $bytes*)},
+		{"escapeStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, escapeStringValue, $String*, $String*)},
+		{"escapeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Rdn, escapeValue, $String*, Object$*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rdn, getType, $String*)},
+		{"getUtf8Octets", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, getUtf8Octets, $bytes*, $chars*, int32_t, int32_t)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Rdn, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Rdn, hashCode, int32_t)},
+		{"isEmptyValue", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(Rdn, isEmptyValue, bool, Object$*)},
+		{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Rdn, isWhitespace, bool, char16_t)},
+		{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/naming/ldap/Rdn;", nullptr, 0, $virtualMethod(Rdn, put, Rdn*, $String*, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Rdn, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Rdn, size, int32_t)},
+		{"sort", "()V", nullptr, 0, $virtualMethod(Rdn, sort, void)},
+		{"toAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(Rdn, toAttributes, $Attributes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rdn, toString, $String*)},
+		{"unescapeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Rdn, unescapeValue, $Object*, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Rdn, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.naming.ldap.Rdn$RdnEntry", "javax.naming.ldap.Rdn", "RdnEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.ldap.Rdn",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.naming.ldap.Rdn$RdnEntry"
+	};
+	$loadClass(Rdn, name, initialize, &classInfo$$, Rdn::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Rdn));
+	});
 	return class$;
 }
 

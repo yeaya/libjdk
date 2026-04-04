@@ -29,6 +29,7 @@ class DOMURIDereferencer : public ::javax::xml::crypto::URIDereferencer {
 	$class(DOMURIDereferencer, 0, ::javax::xml::crypto::URIDereferencer)
 public:
 	DOMURIDereferencer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::xml::crypto::Data* dereference(::javax::xml::crypto::URIReference* uriRef, ::javax::xml::crypto::XMLCryptoContext* context) override;
 	static ::javax::xml::crypto::URIDereferencer* INSTANCE;

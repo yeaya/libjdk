@@ -35,6 +35,7 @@ class $import AnimationController$PartUIClientPropertyKey : public ::javax::swin
 	$class(AnimationController$PartUIClientPropertyKey, 0, ::javax::swing::UIClientPropertyKey)
 public:
 	AnimationController$PartUIClientPropertyKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::java::swing::plaf::windows::TMSchema$Part* part);
 	static ::com::sun::java::swing::plaf::windows::AnimationController$PartUIClientPropertyKey* getKey(::com::sun::java::swing::plaf::windows::TMSchema$Part* part);
 	virtual $String* toString() override;

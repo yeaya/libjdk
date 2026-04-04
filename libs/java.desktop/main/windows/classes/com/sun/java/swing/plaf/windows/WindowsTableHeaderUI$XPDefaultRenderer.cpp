@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTableHeaderUI$XPDefaultRenderer.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
@@ -61,7 +60,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -74,48 +72,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsTableHeaderUI$XPDefaultRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsTableHeaderUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsTableHeaderUI$XPDefaultRenderer, this$0)},
-	{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, skin)},
-	{"isSelected", "Z", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, isSelected)},
-	{"hasFocus", "Z", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, hasFocus$)},
-	{"hasRollover", "Z", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, hasRollover)},
-	{"column", "I", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, column)},
-	{}
-};
-
-$MethodInfo _WindowsTableHeaderUI$XPDefaultRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsTableHeaderUI;)V", nullptr, 0, $method(WindowsTableHeaderUI$XPDefaultRenderer, init$, void, $WindowsTableHeaderUI*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$XPDefaultRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$XPDefaultRenderer, paint, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _WindowsTableHeaderUI$XPDefaultRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$XPDefaultRenderer", "com.sun.java.swing.plaf.windows.WindowsTableHeaderUI", "XPDefaultRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsTableHeaderUI$XPDefaultRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$XPDefaultRenderer",
-	"sun.swing.table.DefaultTableCellHeaderRenderer",
-	nullptr,
-	_WindowsTableHeaderUI$XPDefaultRenderer_FieldInfo_,
-	_WindowsTableHeaderUI$XPDefaultRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTableHeaderUI$XPDefaultRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI"
-};
-
-$Object* allocate$WindowsTableHeaderUI$XPDefaultRenderer($Class* clazz) {
-	return $of($alloc(WindowsTableHeaderUI$XPDefaultRenderer));
-}
-
 void WindowsTableHeaderUI$XPDefaultRenderer::init$($WindowsTableHeaderUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultTableCellHeaderRenderer::init$();
@@ -123,7 +79,7 @@ void WindowsTableHeaderUI$XPDefaultRenderer::init$($WindowsTableHeaderUI* this$0
 }
 
 $Component* WindowsTableHeaderUI$XPDefaultRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultTableCellHeaderRenderer::getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	this->isSelected = isSelected;
 	this->hasFocus$ = hasFocus;
@@ -132,9 +88,9 @@ $Component* WindowsTableHeaderUI$XPDefaultRenderer::getTableCellRendererComponen
 	if (this->skin == nullptr) {
 		$var($XPStyle, xp, $XPStyle::getXP());
 		$init($TMSchema$Part);
-		$set(this, skin, (xp != nullptr) ? $nc(xp)->getSkin($($WindowsTableHeaderUI::access$100(this->this$0)), $TMSchema$Part::HP_HEADERITEM) : ($XPStyle$Skin*)nullptr);
+		$set(this, skin, (xp != nullptr) ? xp->getSkin($($WindowsTableHeaderUI::access$100(this->this$0)), $TMSchema$Part::HP_HEADERITEM) : ($XPStyle$Skin*)nullptr);
 	}
-	$var($Insets, margins, (this->skin != nullptr) ? $nc(this->skin)->getContentMargin() : ($Insets*)nullptr);
+	$var($Insets, margins, (this->skin != nullptr) ? this->skin->getContentMargin() : ($Insets*)nullptr);
 	$var($Border, border, nullptr);
 	int32_t contentTop = 0;
 	int32_t contentLeft = 0;
@@ -160,15 +116,11 @@ $Component* WindowsTableHeaderUI$XPDefaultRenderer::getTableCellRendererComponen
 			$init($WindowsTableHeaderUI$1);
 			switch ($nc($WindowsTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder)->get((sortOrder)->ordinal())) {
 			case 1:
-				{
-					$assign(sortIcon, $UIManager::getIcon("Table.ascendingSortIcon"_s));
-					break;
-				}
+				$assign(sortIcon, $UIManager::getIcon("Table.ascendingSortIcon"_s));
+				break;
 			case 2:
-				{
-					$assign(sortIcon, $UIManager::getIcon("Table.descendingSortIcon"_s));
-					break;
-				}
+				$assign(sortIcon, $UIManager::getIcon("Table.descendingSortIcon"_s));
+				break;
 			}
 		}
 		if (sortIcon != nullptr) {
@@ -176,7 +128,7 @@ $Component* WindowsTableHeaderUI$XPDefaultRenderer::getTableCellRendererComponen
 			$assign(border, $new($WindowsTableHeaderUI$IconBorder, sortIcon, contentTop, contentLeft, contentBottom, contentRight));
 		} else {
 			$assign(sortIcon, $UIManager::getIcon("Table.ascendingSortIcon"_s));
-			int32_t sortIconHeight = (sortIcon != nullptr) ? $nc(sortIcon)->getIconHeight() : 0;
+			int32_t sortIconHeight = (sortIcon != nullptr) ? sortIcon->getIconHeight() : 0;
 			if (sortIconHeight != 0) {
 				contentBottom = sortIconHeight;
 			}
@@ -191,15 +143,15 @@ $Component* WindowsTableHeaderUI$XPDefaultRenderer::getTableCellRendererComponen
 }
 
 void WindowsTableHeaderUI$XPDefaultRenderer::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getSize());
 	$init($TMSchema$State);
 	$TMSchema$State* state = $TMSchema$State::NORMAL;
-	$var($TableColumn, draggedColumn, $nc($($WindowsTableHeaderUI::access$200(this->this$0)))->getDraggedColumn());
+	$var($TableColumn, draggedColumn, $$nc($WindowsTableHeaderUI::access$200(this->this$0))->getDraggedColumn());
 	bool var$0 = draggedColumn != nullptr;
 	if (var$0) {
 		int32_t var$1 = this->column;
-		$var($TableColumnModel, var$3, $nc($($WindowsTableHeaderUI::access$300(this->this$0)))->getColumnModel());
+		$var($TableColumnModel, var$3, $$nc($WindowsTableHeaderUI::access$300(this->this$0))->getColumnModel());
 		int32_t var$2 = $SwingUtilities2::convertColumnIndexToView(var$3, draggedColumn->getModelIndex());
 		var$0 = var$1 == var$2;
 	}
@@ -209,41 +161,32 @@ void WindowsTableHeaderUI$XPDefaultRenderer::paint($Graphics* g) {
 		state = $TMSchema$State::HOT;
 	}
 	if ($WindowsLookAndFeel::isOnVista()) {
-		$SortOrder* sortOrder = getColumnSortOrder($($nc($($WindowsTableHeaderUI::access$400(this->this$0)))->getTable()), this->column);
+		$SortOrder* sortOrder = getColumnSortOrder($($$nc($WindowsTableHeaderUI::access$400(this->this$0))->getTable()), this->column);
 		if (sortOrder != nullptr) {
 			$init($WindowsTableHeaderUI$1);
 			switch ($nc($WindowsTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder)->get((sortOrder)->ordinal())) {
 			case 1:
-				{}
 			case 2:
-				{
-					switch ($nc($WindowsTableHeaderUI$1::$SwitchMap$com$sun$java$swing$plaf$windows$TMSchema$State)->get($nc((state))->ordinal())) {
-					case 1:
-						{
-							state = $TMSchema$State::SORTEDNORMAL;
-							break;
-						}
-					case 2:
-						{
-							state = $TMSchema$State::SORTEDPRESSED;
-							break;
-						}
-					case 3:
-						{
-							state = $TMSchema$State::SORTEDHOT;
-							break;
-						}
-					default:
-						{}
-					}
+				switch ($nc($WindowsTableHeaderUI$1::$SwitchMap$com$sun$java$swing$plaf$windows$TMSchema$State)->get($nc((state))->ordinal())) {
+				case 1:
+					state = $TMSchema$State::SORTEDNORMAL;
+					break;
+				case 2:
+					state = $TMSchema$State::SORTEDPRESSED;
+					break;
+				case 3:
+					state = $TMSchema$State::SORTEDHOT;
+					break;
+				default:
 					break;
 				}
+				break;
 			default:
-				{}
+				break;
 			}
 		}
 	}
-	$nc(this->skin)->paintSkin(g, 0, 0, $nc(size)->width - 1, size->height - 1, state);
+	$nc(this->skin)->paintSkin(g, 0, 0, $nc(size)->width - 1, $nc(size)->height - 1, state);
 	$DefaultTableCellHeaderRenderer::paint(g);
 }
 
@@ -251,7 +194,43 @@ WindowsTableHeaderUI$XPDefaultRenderer::WindowsTableHeaderUI$XPDefaultRenderer()
 }
 
 $Class* WindowsTableHeaderUI$XPDefaultRenderer::load$($String* name, bool initialize) {
-	$loadClass(WindowsTableHeaderUI$XPDefaultRenderer, name, initialize, &_WindowsTableHeaderUI$XPDefaultRenderer_ClassInfo_, allocate$WindowsTableHeaderUI$XPDefaultRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsTableHeaderUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsTableHeaderUI$XPDefaultRenderer, this$0)},
+		{"skin", "Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, skin)},
+		{"isSelected", "Z", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, isSelected)},
+		{"hasFocus", "Z", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, hasFocus$)},
+		{"hasRollover", "Z", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, hasRollover)},
+		{"column", "I", nullptr, 0, $field(WindowsTableHeaderUI$XPDefaultRenderer, column)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsTableHeaderUI;)V", nullptr, 0, $method(WindowsTableHeaderUI$XPDefaultRenderer, init$, void, $WindowsTableHeaderUI*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$XPDefaultRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$XPDefaultRenderer, paint, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$XPDefaultRenderer", "com.sun.java.swing.plaf.windows.WindowsTableHeaderUI", "XPDefaultRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$XPDefaultRenderer",
+		"sun.swing.table.DefaultTableCellHeaderRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI"
+	};
+	$loadClass(WindowsTableHeaderUI$XPDefaultRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTableHeaderUI$XPDefaultRenderer));
+	});
 	return class$;
 }
 

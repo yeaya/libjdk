@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/IDDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
@@ -33,27 +32,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$MethodInfo _IDDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IDDV, init$, void)},
-	{"checkExtraRules", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(IDDV, checkExtraRules, void, Object$*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IDDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(IDDV, getAllowedFacets, int16_t)},
-	{}
-};
-
-$ClassInfo _IDDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.IDDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	nullptr,
-	_IDDV_MethodInfo_
-};
-
-$Object* allocate$IDDV($Class* clazz) {
-	return $of($alloc(IDDV));
-}
-
 void IDDV::init$() {
 	$TypeValidator::init$();
 }
@@ -65,27 +43,44 @@ int16_t IDDV::getAllowedFacets() {
 $Object* IDDV::getActualValue($String* content, $ValidationContext* context) {
 	if (!$XMLChar::isValidNCName(content)) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("NCName"_s)
+			content,
+			"NCName"_s
 		}));
 	}
 	return $of(content);
 }
 
 void IDDV::checkExtraRules(Object$* value, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, content, $cast($String, value));
 	if ($nc(context)->isIdDeclared(content)) {
-		$throwNew($InvalidDatatypeValueException, "cvc-id.2"_s, $$new($ObjectArray, {$of(content)}));
+		$throwNew($InvalidDatatypeValueException, "cvc-id.2"_s, $$new($ObjectArray, {content}));
 	}
-	$nc(context)->addId(content);
+	context->addId(content);
 }
 
 IDDV::IDDV() {
 }
 
 $Class* IDDV::load$($String* name, bool initialize) {
-	$loadClass(IDDV, name, initialize, &_IDDV_ClassInfo_, allocate$IDDV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IDDV, init$, void)},
+		{"checkExtraRules", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(IDDV, checkExtraRules, void, Object$*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IDDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(IDDV, getAllowedFacets, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.IDDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IDDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IDDV);
+	});
 	return class$;
 }
 

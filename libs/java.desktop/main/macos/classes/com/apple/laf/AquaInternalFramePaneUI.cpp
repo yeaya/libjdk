@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFramePaneUI.h>
-
 #include <com/apple/laf/AquaInternalFramePaneUI$AquaDockingDesktopManager.h>
 #include <com/apple/laf/AquaInternalFramePaneUI$Dock.h>
 #include <com/apple/laf/AquaInternalFramePaneUI$DockLayoutManager.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyVetoException.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
@@ -20,11 +18,9 @@
 using $AquaInternalFramePaneUI$AquaDockingDesktopManager = ::com::apple::laf::AquaInternalFramePaneUI$AquaDockingDesktopManager;
 using $AquaInternalFramePaneUI$Dock = ::com::apple::laf::AquaInternalFramePaneUI$Dock;
 using $AquaInternalFramePaneUI$DockLayoutManager = ::com::apple::laf::AquaInternalFramePaneUI$DockLayoutManager;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -33,7 +29,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
-using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicDesktopPaneUI = ::javax::swing::plaf::basic::BasicDesktopPaneUI;
@@ -41,60 +36,6 @@ using $BasicDesktopPaneUI = ::javax::swing::plaf::basic::BasicDesktopPaneUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaInternalFramePaneUI_FieldInfo_[] = {
-	{"fDock", "Ljavax/swing/JComponent;", nullptr, 0, $field(AquaInternalFramePaneUI, fDock)},
-	{"fLayoutMgr", "Lcom/apple/laf/AquaInternalFramePaneUI$DockLayoutManager;", nullptr, 0, $field(AquaInternalFramePaneUI, fLayoutMgr)},
-	{}
-};
-
-$MethodInfo _AquaInternalFramePaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaInternalFramePaneUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFramePaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getDock", "()Ljavax/swing/JComponent;", nullptr, 0, $virtualMethod(AquaInternalFramePaneUI, getDock, $JComponent*)},
-	{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFramePaneUI, installDesktopManager, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, installUI, void, $JComponent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseReleased, void, $MouseEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFramePaneUI, uninstallDesktopManager, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFramePaneUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFramePaneUI$AquaDockingDesktopManager", "com.apple.laf.AquaInternalFramePaneUI", "AquaDockingDesktopManager", 0},
-	{"com.apple.laf.AquaInternalFramePaneUI$Dock", "com.apple.laf.AquaInternalFramePaneUI", "Dock", 0},
-	{"com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager", "com.apple.laf.AquaInternalFramePaneUI", "DockLayoutManager", 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFramePaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaInternalFramePaneUI",
-	"javax.swing.plaf.basic.BasicDesktopPaneUI",
-	"java.awt.event.MouseListener",
-	_AquaInternalFramePaneUI_FieldInfo_,
-	_AquaInternalFramePaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFramePaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFramePaneUI$AquaDockingDesktopManager,com.apple.laf.AquaInternalFramePaneUI$Dock,com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager"
-};
-
-$Object* allocate$AquaInternalFramePaneUI($Class* clazz) {
-	return $of($alloc(AquaInternalFramePaneUI));
-}
 
 int32_t AquaInternalFramePaneUI::hashCode() {
 	 return this->$BasicDesktopPaneUI::hashCode();
@@ -143,7 +84,7 @@ void AquaInternalFramePaneUI::installUI($JComponent* c) {
 void AquaInternalFramePaneUI::uninstallUI($JComponent* c) {
 	$nc(c)->removeMouseListener(this);
 	if (this->fDock != nullptr) {
-		c->remove(static_cast<$Component*>(this->fDock));
+		c->remove(this->fDock);
 		$set(this, fDock, nullptr);
 	}
 	if (this->fLayoutMgr != nullptr) {
@@ -170,20 +111,20 @@ void AquaInternalFramePaneUI::uninstallDesktopManager() {
 $JComponent* AquaInternalFramePaneUI::getDock() {
 	if (this->fDock == nullptr) {
 		$set(this, fDock, $new($AquaInternalFramePaneUI$Dock, this, this->desktop));
-		$nc(this->desktop)->add(static_cast<$Component*>(this->fDock), $($of($Integer::valueOf(399))));
+		$nc(this->desktop)->add(this->fDock, $($Integer::valueOf(399)));
 	}
 	return this->fDock;
 }
 
 void AquaInternalFramePaneUI::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame, selectedFrame, $nc(this->desktop)->getSelectedFrame());
 	if (selectedFrame != nullptr) {
 		try {
 			selectedFrame->setSelected(false);
 		} catch ($PropertyVetoException& ex) {
 		}
-		$nc($($nc(this->desktop)->getDesktopManager()))->deactivateFrame(selectedFrame);
+		$$nc($nc(this->desktop)->getDesktopManager())->deactivateFrame(selectedFrame);
 	}
 }
 
@@ -203,7 +144,55 @@ AquaInternalFramePaneUI::AquaInternalFramePaneUI() {
 }
 
 $Class* AquaInternalFramePaneUI::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFramePaneUI, name, initialize, &_AquaInternalFramePaneUI_ClassInfo_, allocate$AquaInternalFramePaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDock", "Ljavax/swing/JComponent;", nullptr, 0, $field(AquaInternalFramePaneUI, fDock)},
+		{"fLayoutMgr", "Lcom/apple/laf/AquaInternalFramePaneUI$DockLayoutManager;", nullptr, 0, $field(AquaInternalFramePaneUI, fLayoutMgr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaInternalFramePaneUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaInternalFramePaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getDock", "()Ljavax/swing/JComponent;", nullptr, 0, $virtualMethod(AquaInternalFramePaneUI, getDock, $JComponent*)},
+		{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFramePaneUI, installDesktopManager, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, installUI, void, $JComponent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, mouseReleased, void, $MouseEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(AquaInternalFramePaneUI, uninstallDesktopManager, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFramePaneUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFramePaneUI$AquaDockingDesktopManager", "com.apple.laf.AquaInternalFramePaneUI", "AquaDockingDesktopManager", 0},
+		{"com.apple.laf.AquaInternalFramePaneUI$Dock", "com.apple.laf.AquaInternalFramePaneUI", "Dock", 0},
+		{"com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager", "com.apple.laf.AquaInternalFramePaneUI", "DockLayoutManager", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaInternalFramePaneUI",
+		"javax.swing.plaf.basic.BasicDesktopPaneUI",
+		"java.awt.event.MouseListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFramePaneUI$AquaDockingDesktopManager,com.apple.laf.AquaInternalFramePaneUI$Dock,com.apple.laf.AquaInternalFramePaneUI$DockLayoutManager"
+	};
+	$loadClass(AquaInternalFramePaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFramePaneUI));
+	});
 	return class$;
 }
 

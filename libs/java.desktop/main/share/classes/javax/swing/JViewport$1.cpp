@@ -1,5 +1,4 @@
 #include <javax/swing/JViewport$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/JViewport.h>
@@ -16,48 +15,6 @@ using $JViewport = ::javax::swing::JViewport;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JViewport$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JViewport;", nullptr, $FINAL | $SYNTHETIC, $field(JViewport$1, this$0)},
-	{}
-};
-
-$MethodInfo _JViewport$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JViewport;)V", nullptr, 0, $method(JViewport$1, init$, void, $JViewport*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JViewport$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JViewport$1_EnclosingMethodInfo_ = {
-	"javax.swing.JViewport",
-	"createRepaintTimer",
-	"()Ljavax/swing/Timer;"
-};
-
-$InnerClassInfo _JViewport$1_InnerClassesInfo_[] = {
-	{"javax.swing.JViewport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JViewport$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JViewport$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_JViewport$1_FieldInfo_,
-	_JViewport$1_MethodInfo_,
-	nullptr,
-	&_JViewport$1_EnclosingMethodInfo_,
-	_JViewport$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JViewport"
-};
-
-$Object* allocate$JViewport$1($Class* clazz) {
-	return $of($alloc(JViewport$1));
-}
-
 void JViewport$1::init$($JViewport* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -72,7 +29,42 @@ JViewport$1::JViewport$1() {
 }
 
 $Class* JViewport$1::load$($String* name, bool initialize) {
-	$loadClass(JViewport$1, name, initialize, &_JViewport$1_ClassInfo_, allocate$JViewport$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JViewport;", nullptr, $FINAL | $SYNTHETIC, $field(JViewport$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JViewport;)V", nullptr, 0, $method(JViewport$1, init$, void, $JViewport*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JViewport$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JViewport",
+		"createRepaintTimer",
+		"()Ljavax/swing/Timer;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JViewport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JViewport$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JViewport"
+	};
+	$loadClass(JViewport$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JViewport$1);
+	});
 	return class$;
 }
 

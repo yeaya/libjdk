@@ -29,6 +29,7 @@ class DraconianErrorHandler : public ::org::xml::sax::ErrorHandler {
 	$class(DraconianErrorHandler, 0, ::org::xml::sax::ErrorHandler)
 public:
 	DraconianErrorHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void error(::org::xml::sax::SAXParseException* e) override;
 	virtual void fatalError(::org::xml::sax::SAXParseException* e) override;

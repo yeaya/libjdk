@@ -1,5 +1,4 @@
 #include <sun/management/MappedMXBeanType$CompositeDataMXBeanType$1.h>
-
 #include <java/lang/reflect/Method.h>
 #include <sun/management/MappedMXBeanType$CompositeDataMXBeanType.h>
 #include <sun/management/MappedMXBeanType.h>
@@ -18,49 +17,6 @@ using $MappedMXBeanType$CompositeDataMXBeanType = ::sun::management::MappedMXBea
 namespace sun {
 	namespace management {
 
-$FieldInfo _MappedMXBeanType$CompositeDataMXBeanType$1_FieldInfo_[] = {
-	{"this$0", "Lsun/management/MappedMXBeanType$CompositeDataMXBeanType;", nullptr, $FINAL | $SYNTHETIC, $field(MappedMXBeanType$CompositeDataMXBeanType$1, this$0)},
-	{}
-};
-
-$MethodInfo _MappedMXBeanType$CompositeDataMXBeanType$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/MappedMXBeanType$CompositeDataMXBeanType;)V", nullptr, 0, $method(MappedMXBeanType$CompositeDataMXBeanType$1, init$, void, $MappedMXBeanType$CompositeDataMXBeanType*)},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType$1, run, $Object*), "java.lang.NoSuchMethodException"},
-	{}
-};
-
-$EnclosingMethodInfo _MappedMXBeanType$CompositeDataMXBeanType$1_EnclosingMethodInfo_ = {
-	"sun.management.MappedMXBeanType$CompositeDataMXBeanType",
-	"<init>",
-	"(Ljava/lang/Class;)V"
-};
-
-$InnerClassInfo _MappedMXBeanType$CompositeDataMXBeanType$1_InnerClassesInfo_[] = {
-	{"sun.management.MappedMXBeanType$CompositeDataMXBeanType", "sun.management.MappedMXBeanType", "CompositeDataMXBeanType", $STATIC},
-	{"sun.management.MappedMXBeanType$CompositeDataMXBeanType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MappedMXBeanType$CompositeDataMXBeanType$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MappedMXBeanType$CompositeDataMXBeanType$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_MappedMXBeanType$CompositeDataMXBeanType$1_FieldInfo_,
-	_MappedMXBeanType$CompositeDataMXBeanType$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Method;>;",
-	&_MappedMXBeanType$CompositeDataMXBeanType$1_EnclosingMethodInfo_,
-	_MappedMXBeanType$CompositeDataMXBeanType$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.MappedMXBeanType"
-};
-
-$Object* allocate$MappedMXBeanType$CompositeDataMXBeanType$1($Class* clazz) {
-	return $of($alloc(MappedMXBeanType$CompositeDataMXBeanType$1));
-}
-
 void MappedMXBeanType$CompositeDataMXBeanType$1::init$($MappedMXBeanType$CompositeDataMXBeanType* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -75,7 +31,43 @@ MappedMXBeanType$CompositeDataMXBeanType$1::MappedMXBeanType$CompositeDataMXBean
 }
 
 $Class* MappedMXBeanType$CompositeDataMXBeanType$1::load$($String* name, bool initialize) {
-	$loadClass(MappedMXBeanType$CompositeDataMXBeanType$1, name, initialize, &_MappedMXBeanType$CompositeDataMXBeanType$1_ClassInfo_, allocate$MappedMXBeanType$CompositeDataMXBeanType$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/management/MappedMXBeanType$CompositeDataMXBeanType;", nullptr, $FINAL | $SYNTHETIC, $field(MappedMXBeanType$CompositeDataMXBeanType$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/MappedMXBeanType$CompositeDataMXBeanType;)V", nullptr, 0, $method(MappedMXBeanType$CompositeDataMXBeanType$1, init$, void, $MappedMXBeanType$CompositeDataMXBeanType*)},
+		{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType$1, run, $Object*), "java.lang.NoSuchMethodException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.management.MappedMXBeanType$CompositeDataMXBeanType",
+		"<init>",
+		"(Ljava/lang/Class;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.MappedMXBeanType$CompositeDataMXBeanType", "sun.management.MappedMXBeanType", "CompositeDataMXBeanType", $STATIC},
+		{"sun.management.MappedMXBeanType$CompositeDataMXBeanType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MappedMXBeanType$CompositeDataMXBeanType$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Method;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.MappedMXBeanType"
+	};
+	$loadClass(MappedMXBeanType$CompositeDataMXBeanType$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MappedMXBeanType$CompositeDataMXBeanType$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnectionImpl$RMIServerCommunicatorAdmin.h>
-
 #include <com/sun/jmx/remote/internal/ServerCommunicatorAdmin.h>
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <java/io/IOException.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $ServerCommunicatorAdmin = ::com::sun::jmx::remote::internal::ServerCommunicatorAdmin;
-using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,42 +18,6 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnectionImpl$RMIServerCommunicatorAdmin_FieldInfo_[] = {
-	{"this$0", "Ljavax/management/remote/rmi/RMIConnectionImpl;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnectionImpl$RMIServerCommunicatorAdmin, this$0)},
-	{}
-};
-
-$MethodInfo _RMIConnectionImpl$RMIServerCommunicatorAdmin_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;J)V", nullptr, $PUBLIC, $method(RMIConnectionImpl$RMIServerCommunicatorAdmin, init$, void, $RMIConnectionImpl*, int64_t)},
-	{"doStop", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnectionImpl$RMIServerCommunicatorAdmin, doStop, void)},
-	{}
-};
-
-$InnerClassInfo _RMIConnectionImpl$RMIServerCommunicatorAdmin_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnectionImpl$RMIServerCommunicatorAdmin", "javax.management.remote.rmi.RMIConnectionImpl", "RMIServerCommunicatorAdmin", $PRIVATE},
-	{}
-};
-
-$ClassInfo _RMIConnectionImpl$RMIServerCommunicatorAdmin_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnectionImpl$RMIServerCommunicatorAdmin",
-	"com.sun.jmx.remote.internal.ServerCommunicatorAdmin",
-	nullptr,
-	_RMIConnectionImpl$RMIServerCommunicatorAdmin_FieldInfo_,
-	_RMIConnectionImpl$RMIServerCommunicatorAdmin_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RMIConnectionImpl$RMIServerCommunicatorAdmin_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnectionImpl"
-};
-
-$Object* allocate$RMIConnectionImpl$RMIServerCommunicatorAdmin($Class* clazz) {
-	return $of($alloc(RMIConnectionImpl$RMIServerCommunicatorAdmin));
-}
-
 void RMIConnectionImpl$RMIServerCommunicatorAdmin::init$($RMIConnectionImpl* this$0, int64_t timeout) {
 	$set(this, this$0, this$0);
 	$ServerCommunicatorAdmin::init$(timeout);
@@ -67,7 +29,7 @@ void RMIConnectionImpl$RMIServerCommunicatorAdmin::doStop() {
 	} catch ($IOException& ie) {
 		$init($RMIConnectionImpl);
 		$nc($RMIConnectionImpl::logger)->warning("RMIServerCommunicatorAdmin-doStop"_s, $$str({"Failed to close: "_s, ie}));
-		$nc($RMIConnectionImpl::logger)->debug("RMIServerCommunicatorAdmin-doStop"_s, static_cast<$Throwable*>(ie));
+		$RMIConnectionImpl::logger->debug("RMIServerCommunicatorAdmin-doStop"_s, ie);
 	}
 }
 
@@ -75,7 +37,37 @@ RMIConnectionImpl$RMIServerCommunicatorAdmin::RMIConnectionImpl$RMIServerCommuni
 }
 
 $Class* RMIConnectionImpl$RMIServerCommunicatorAdmin::load$($String* name, bool initialize) {
-	$loadClass(RMIConnectionImpl$RMIServerCommunicatorAdmin, name, initialize, &_RMIConnectionImpl$RMIServerCommunicatorAdmin_ClassInfo_, allocate$RMIConnectionImpl$RMIServerCommunicatorAdmin);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/management/remote/rmi/RMIConnectionImpl;", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnectionImpl$RMIServerCommunicatorAdmin, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;J)V", nullptr, $PUBLIC, $method(RMIConnectionImpl$RMIServerCommunicatorAdmin, init$, void, $RMIConnectionImpl*, int64_t)},
+		{"doStop", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnectionImpl$RMIServerCommunicatorAdmin, doStop, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnectionImpl$RMIServerCommunicatorAdmin", "javax.management.remote.rmi.RMIConnectionImpl", "RMIServerCommunicatorAdmin", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnectionImpl$RMIServerCommunicatorAdmin",
+		"com.sun.jmx.remote.internal.ServerCommunicatorAdmin",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnectionImpl"
+	};
+	$loadClass(RMIConnectionImpl$RMIServerCommunicatorAdmin, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIConnectionImpl$RMIServerCommunicatorAdmin);
+	});
 	return class$;
 }
 

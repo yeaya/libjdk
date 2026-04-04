@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CToolkitThreadBlockedHandler.h>
-
 #include <java/lang/IllegalMonitorStateException.h>
 #include <sun/awt/Mutex.h>
 #include <sun/lwawt/macosx/LWCToolkit.h>
@@ -15,39 +14,6 @@ using $LWCToolkit = ::sun::lwawt::macosx::LWCToolkit;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CToolkitThreadBlockedHandler_FieldInfo_[] = {
-	{"awtRunLoopMediator", "J", nullptr, $PRIVATE, $field(CToolkitThreadBlockedHandler, awtRunLoopMediator)},
-	{"processEvents", "Z", nullptr, $PRIVATE | $FINAL, $field(CToolkitThreadBlockedHandler, processEvents)},
-	{}
-};
-
-$MethodInfo _CToolkitThreadBlockedHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(CToolkitThreadBlockedHandler, init$, void)},
-	{"enter", "()V", nullptr, $PUBLIC, $virtualMethod(CToolkitThreadBlockedHandler, enter, void)},
-	{"exit", "()V", nullptr, $PUBLIC, $virtualMethod(CToolkitThreadBlockedHandler, exit, void)},
-	{"*lock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*unlock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CToolkitThreadBlockedHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CToolkitThreadBlockedHandler",
-	"sun.awt.Mutex",
-	"sun.awt.datatransfer.ToolkitThreadBlockedHandler",
-	_CToolkitThreadBlockedHandler_FieldInfo_,
-	_CToolkitThreadBlockedHandler_MethodInfo_
-};
-
-$Object* allocate$CToolkitThreadBlockedHandler($Class* clazz) {
-	return $of($alloc(CToolkitThreadBlockedHandler));
-}
 
 void CToolkitThreadBlockedHandler::lock() {
 	this->$Mutex::lock();
@@ -105,7 +71,35 @@ CToolkitThreadBlockedHandler::CToolkitThreadBlockedHandler() {
 }
 
 $Class* CToolkitThreadBlockedHandler::load$($String* name, bool initialize) {
-	$loadClass(CToolkitThreadBlockedHandler, name, initialize, &_CToolkitThreadBlockedHandler_ClassInfo_, allocate$CToolkitThreadBlockedHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"awtRunLoopMediator", "J", nullptr, $PRIVATE, $field(CToolkitThreadBlockedHandler, awtRunLoopMediator)},
+		{"processEvents", "Z", nullptr, $PRIVATE | $FINAL, $field(CToolkitThreadBlockedHandler, processEvents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(CToolkitThreadBlockedHandler, init$, void)},
+		{"enter", "()V", nullptr, $PUBLIC, $virtualMethod(CToolkitThreadBlockedHandler, enter, void)},
+		{"exit", "()V", nullptr, $PUBLIC, $virtualMethod(CToolkitThreadBlockedHandler, exit, void)},
+		{"*lock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*unlock", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CToolkitThreadBlockedHandler",
+		"sun.awt.Mutex",
+		"sun.awt.datatransfer.ToolkitThreadBlockedHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CToolkitThreadBlockedHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CToolkitThreadBlockedHandler));
+	});
 	return class$;
 }
 

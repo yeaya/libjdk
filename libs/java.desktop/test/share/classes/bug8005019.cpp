@@ -1,8 +1,6 @@
 #include <bug8005019.h>
-
 #include <bug8005019$1.h>
 #include <bug8005019$GeneralFilter.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/DefaultRowSorter.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/RowFilter.h>
@@ -18,45 +16,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
 using $JTable = ::javax::swing::JTable;
 using $RowFilter = ::javax::swing::RowFilter;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
-using $TableModel = ::javax::swing::table::TableModel;
-
-$MethodInfo _bug8005019_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8005019, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8005019, main, void, $StringArray*), "java.lang.Exception"},
-	{"testSelectionWithFilterTable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8005019, testSelectionWithFilterTable, void)},
-	{}
-};
-
-$InnerClassInfo _bug8005019_InnerClassesInfo_[] = {
-	{"bug8005019$GeneralFilter", "bug8005019", "GeneralFilter", $PRIVATE | $STATIC},
-	{"bug8005019$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8005019_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8005019",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug8005019_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8005019_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8005019$GeneralFilter,bug8005019$1"
-};
-
-$Object* allocate$bug8005019($Class* clazz) {
-	return $of($alloc(bug8005019));
-}
 
 void bug8005019::init$() {
 }
@@ -66,25 +30,52 @@ void bug8005019::main($StringArray* args) {
 }
 
 void bug8005019::testSelectionWithFilterTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultTableModel, model, $new($DefaultTableModel, 0, 1));
 	int32_t last = 2;
 	for (int32_t i = 0; i <= last; ++i) {
-		model->addRow($$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
+		model->addRow($$new($ObjectArray, {$($Integer::valueOf(i))}));
 	}
 	$var($JTable, table, $new($JTable, model));
 	table->setAutoCreateRowSorter(true);
 	table->setRowSelectionInterval(last, last);
 	$var($RowFilter, filter, $new($bug8005019$GeneralFilter, $$new($ints, {0})));
-	$nc(($cast($DefaultRowSorter, $(table->getRowSorter()))))->setRowFilter(filter);
-	model->insertRow(2, $$new($ObjectArray, {$of("x"_s)}));
+	$$sure($DefaultRowSorter, table->getRowSorter())->setRowFilter(filter);
+	model->insertRow(2, $$new($ObjectArray, {"x"_s}));
 }
 
 bug8005019::bug8005019() {
 }
 
 $Class* bug8005019::load$($String* name, bool initialize) {
-	$loadClass(bug8005019, name, initialize, &_bug8005019_ClassInfo_, allocate$bug8005019);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8005019, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8005019, main, void, $StringArray*), "java.lang.Exception"},
+		{"testSelectionWithFilterTable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8005019, testSelectionWithFilterTable, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8005019$GeneralFilter", "bug8005019", "GeneralFilter", $PRIVATE | $STATIC},
+		{"bug8005019$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8005019",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8005019$GeneralFilter,bug8005019$1"
+	};
+	$loadClass(bug8005019, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8005019);
+	});
 	return class$;
 }
 

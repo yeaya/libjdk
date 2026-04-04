@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/RTFReader$ColortblDestination.h>
-
 #include <java/awt/Color.h>
 #include <java/util/Dictionary.h>
 #include <java/util/Vector.h>
@@ -21,53 +20,6 @@ namespace javax {
 		namespace text {
 			namespace rtf {
 
-$FieldInfo _RTFReader$ColortblDestination_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$ColortblDestination, this$0)},
-	{"red", "I", nullptr, 0, $field(RTFReader$ColortblDestination, red)},
-	{"green", "I", nullptr, 0, $field(RTFReader$ColortblDestination, green)},
-	{"blue", "I", nullptr, 0, $field(RTFReader$ColortblDestination, blue)},
-	{"proTemTable", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/Color;>;", 0, $field(RTFReader$ColortblDestination, proTemTable)},
-	{}
-};
-
-$MethodInfo _RTFReader$ColortblDestination_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, $PUBLIC, $method(RTFReader$ColortblDestination, init$, void, $RTFReader*)},
-	{"begingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, begingroup, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, close, void)},
-	{"endgroup", "(Ljava/util/Dictionary;)V", "(Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, endgroup, void, $Dictionary*)},
-	{"handleBinaryBlob", "([B)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleBinaryBlob, void, $bytes*)},
-	{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleKeyword, bool, $String*, int32_t)},
-	{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleKeyword, bool, $String*)},
-	{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleText, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _RTFReader$ColortblDestination_InnerClassesInfo_[] = {
-	{"javax.swing.text.rtf.RTFReader$ColortblDestination", "javax.swing.text.rtf.RTFReader", "ColortblDestination", 0},
-	{"javax.swing.text.rtf.RTFReader$Destination", "javax.swing.text.rtf.RTFReader", "Destination", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RTFReader$ColortblDestination_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.RTFReader$ColortblDestination",
-	"java.lang.Object",
-	"javax.swing.text.rtf.RTFReader$Destination",
-	_RTFReader$ColortblDestination_FieldInfo_,
-	_RTFReader$ColortblDestination_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RTFReader$ColortblDestination_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.rtf.RTFReader"
-};
-
-$Object* allocate$RTFReader$ColortblDestination($Class* clazz) {
-	return $of($alloc(RTFReader$ColortblDestination));
-}
-
 void RTFReader$ColortblDestination::init$($RTFReader* this$0) {
 	$set(this, this$0, this$0);
 	this->red = 0;
@@ -77,7 +29,7 @@ void RTFReader$ColortblDestination::init$($RTFReader* this$0) {
 }
 
 void RTFReader$ColortblDestination::handleText($String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	for (index = 0; index < $nc(text)->length(); ++index) {
 		if (text->charAt(index) == u';') {
@@ -89,7 +41,7 @@ void RTFReader$ColortblDestination::handleText($String* text) {
 }
 
 void RTFReader$ColortblDestination::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->proTemTable)->size();
 	this->this$0->warning($$str({"Done reading color table, "_s, $$str(count), " entries."_s}));
 	$set(this->this$0, colorTable, $new($ColorArray, count));
@@ -126,7 +78,48 @@ RTFReader$ColortblDestination::RTFReader$ColortblDestination() {
 }
 
 $Class* RTFReader$ColortblDestination::load$($String* name, bool initialize) {
-	$loadClass(RTFReader$ColortblDestination, name, initialize, &_RTFReader$ColortblDestination_ClassInfo_, allocate$RTFReader$ColortblDestination);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/rtf/RTFReader;", nullptr, $FINAL | $SYNTHETIC, $field(RTFReader$ColortblDestination, this$0)},
+		{"red", "I", nullptr, 0, $field(RTFReader$ColortblDestination, red)},
+		{"green", "I", nullptr, 0, $field(RTFReader$ColortblDestination, green)},
+		{"blue", "I", nullptr, 0, $field(RTFReader$ColortblDestination, blue)},
+		{"proTemTable", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/awt/Color;>;", 0, $field(RTFReader$ColortblDestination, proTemTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/rtf/RTFReader;)V", nullptr, $PUBLIC, $method(RTFReader$ColortblDestination, init$, void, $RTFReader*)},
+		{"begingroup", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, begingroup, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, close, void)},
+		{"endgroup", "(Ljava/util/Dictionary;)V", "(Ljava/util/Dictionary<Ljava/lang/Object;Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, endgroup, void, $Dictionary*)},
+		{"handleBinaryBlob", "([B)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleBinaryBlob, void, $bytes*)},
+		{"handleKeyword", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleKeyword, bool, $String*, int32_t)},
+		{"handleKeyword", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleKeyword, bool, $String*)},
+		{"handleText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RTFReader$ColortblDestination, handleText, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.rtf.RTFReader$ColortblDestination", "javax.swing.text.rtf.RTFReader", "ColortblDestination", 0},
+		{"javax.swing.text.rtf.RTFReader$Destination", "javax.swing.text.rtf.RTFReader", "Destination", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.RTFReader$ColortblDestination",
+		"java.lang.Object",
+		"javax.swing.text.rtf.RTFReader$Destination",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.rtf.RTFReader"
+	};
+	$loadClass(RTFReader$ColortblDestination, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFReader$ColortblDestination);
+	});
 	return class$;
 }
 

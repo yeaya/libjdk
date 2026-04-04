@@ -84,6 +84,7 @@ class XDataTransferer : public ::sun::awt::datatransfer::DataTransferer {
 	$class(XDataTransferer, 0, ::sun::awt::datatransfer::DataTransferer)
 public:
 	XDataTransferer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::io::ByteArrayOutputStream* convertFileListToBytes(::java::util::ArrayList* fileList) override;
 	virtual $StringArray* dragQueryFile($bytes* bytes) override;

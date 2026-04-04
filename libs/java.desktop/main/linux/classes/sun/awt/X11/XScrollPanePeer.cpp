@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XScrollPanePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Adjustable.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
@@ -34,7 +33,6 @@
 #include <sun/awt/X11/XHorizontalScrollbar.h>
 #include <sun/awt/X11/XScrollPanePeer$XScrollPaneContentWindow.h>
 #include <sun/awt/X11/XScrollbar.h>
-#include <sun/awt/X11/XScrollbarClient.h>
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XVerticalScrollbar.h>
 #include <sun/awt/X11/XWindow.h>
@@ -92,14 +90,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ScrollPaneAdjustableAccessor = ::sun::awt::AWTAccessor$ScrollPaneAdjustableAccessor;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XHorizontalScrollbar = ::sun::awt::X11::XHorizontalScrollbar;
 using $XScrollPanePeer$XScrollPaneContentWindow = ::sun::awt::X11::XScrollPanePeer$XScrollPaneContentWindow;
 using $XScrollbar = ::sun::awt::X11::XScrollbar;
-using $XScrollbarClient = ::sun::awt::X11::XScrollbarClient;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XVerticalScrollbar = ::sun::awt::X11::XVerticalScrollbar;
 using $XWindow = ::sun::awt::X11::XWindow;
@@ -108,126 +103,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XScrollPanePeer_FieldInfo_[] = {
-	{"MARGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, MARGIN)},
-	{"SCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XScrollPanePeer, SCROLLBAR)},
-	{"SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, SPACE)},
-	{"SCROLLBAR_INSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, SCROLLBAR_INSET)},
-	{"VERTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, VERTICAL)},
-	{"HORIZONTAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, HORIZONTAL)},
-	{"vsb", "Lsun/awt/X11/XVerticalScrollbar;", nullptr, 0, $field(XScrollPanePeer, vsb)},
-	{"hsb", "Lsun/awt/X11/XHorizontalScrollbar;", nullptr, 0, $field(XScrollPanePeer, hsb)},
-	{"clip", "Lsun/awt/X11/XWindow;", nullptr, 0, $field(XScrollPanePeer, clip)},
-	{"active", "I", nullptr, 0, $field(XScrollPanePeer, active)},
-	{"hsbSpace", "I", nullptr, 0, $field(XScrollPanePeer, hsbSpace)},
-	{"vsbSpace", "I", nullptr, 0, $field(XScrollPanePeer, vsbSpace)},
-	{"vval", "I", nullptr, 0, $field(XScrollPanePeer, vval)},
-	{"hval", "I", nullptr, 0, $field(XScrollPanePeer, hval)},
-	{"vmax", "I", nullptr, 0, $field(XScrollPanePeer, vmax)},
-	{"hmax", "I", nullptr, 0, $field(XScrollPanePeer, hmax)},
-	{}
-};
-
-$MethodInfo _XScrollPanePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/ScrollPane;)V", nullptr, 0, $method(XScrollPanePeer, init$, void, $ScrollPane*)},
-	{"childResized", "(II)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, childResized, void, int32_t, int32_t)},
-	{"getChildSize", "()Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XScrollPanePeer, getChildSize, $Dimension*)},
-	{"getContentWindow", "()J", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getContentWindow, int64_t)},
-	{"getHScrollbarHeight", "()I", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getHScrollbarHeight, int32_t)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getInsets, $Insets*)},
-	{"getScrollChild", "()Ljava/awt/Component;", nullptr, $PRIVATE, $method(XScrollPanePeer, getScrollChild, $Component*)},
-	{"getVScrollbarWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getVScrollbarWidth, int32_t)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, handleEvent, void, $AWTEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"inHorizontalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XScrollPanePeer, inHorizontalScrollbar, bool, int32_t, int32_t)},
-	{"inVerticalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XScrollPanePeer, inVerticalScrollbar, bool, int32_t, int32_t)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintHorScrollbar", "(Ljava/awt/Graphics;[Ljava/awt/Color;Z)V", nullptr, 0, $virtualMethod(XScrollPanePeer, paintHorScrollbar, void, $Graphics*, $ColorArray*, bool)},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XScrollPanePeer, paintPeer, void, $Graphics*)},
-	{"paintScrollBars", "(Ljava/awt/Graphics;[Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(XScrollPanePeer, paintScrollBars, void, $Graphics*, $ColorArray*)},
-	{"paintVerScrollbar", "(Ljava/awt/Graphics;[Ljava/awt/Color;Z)V", nullptr, 0, $virtualMethod(XScrollPanePeer, paintVerScrollbar, void, $Graphics*, $ColorArray*, bool)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, print, void, $Graphics*)},
-	{"repaintScrollBars", "()V", nullptr, 0, $virtualMethod(XScrollPanePeer, repaintScrollBars, void)},
-	{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, repaintScrollbarRequest, void, $XScrollbar*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"scroll", "(III)V", nullptr, 0, $virtualMethod(XScrollPanePeer, scroll, void, int32_t, int32_t, int32_t)},
-	{"scroll", "(IIII)V", nullptr, 0, $virtualMethod(XScrollPanePeer, scroll, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setAdjustableValue", "(Ljava/awt/ScrollPaneAdjustable;II)V", nullptr, $PRIVATE, $method(XScrollPanePeer, setAdjustableValue, void, $ScrollPaneAdjustable*, int32_t, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setScrollPosition", "(II)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setScrollPosition, void, int32_t, int32_t)},
-	{"setScrollbarSpace", "()Z", nullptr, 0, $virtualMethod(XScrollPanePeer, setScrollbarSpace, bool)},
-	{"setUnitIncrement", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setUnitIncrement, void, $Adjustable*, int32_t)},
-	{"setValue", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setValue, void, $Adjustable*, int32_t)},
-	{"setViewportSize", "()V", nullptr, 0, $virtualMethod(XScrollPanePeer, setViewportSize, void)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XScrollPanePeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XScrollPanePeer$XScrollPaneContentWindow", "sun.awt.X11.XScrollPanePeer", "XScrollPaneContentWindow", $STATIC},
-	{}
-};
-
-$ClassInfo _XScrollPanePeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XScrollPanePeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.ScrollPanePeer,sun.awt.X11.XScrollbarClient",
-	_XScrollPanePeer_FieldInfo_,
-	_XScrollPanePeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XScrollPanePeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XScrollPanePeer$XScrollPaneContentWindow"
-};
-
-$Object* allocate$XScrollPanePeer($Class* clazz) {
-	return $of($alloc(XScrollPanePeer));
-}
 
 void XScrollPanePeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -404,8 +279,8 @@ void XScrollPanePeer::finalize() {
 int32_t XScrollPanePeer::SCROLLBAR = 0;
 
 void XScrollPanePeer::init$($ScrollPane* target) {
-	$useLocalCurrentObjectStackCache();
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$useLocalObjectStack();
+	$XComponentPeer::init$(target);
 	this->active = XScrollPanePeer::VERTICAL;
 	$set(this, clip, nullptr);
 	$var($XWindow, c, $new($XScrollPanePeer$XScrollPaneContentWindow, target, this->window));
@@ -418,7 +293,7 @@ void XScrollPanePeer::init$($ScrollPane* target) {
 		this->vsbSpace = (this->hsbSpace = 0);
 	}
 	int32_t unitIncrement = 1;
-	$var($Adjustable, vAdjustable, $nc(target)->getVAdjustable());
+	$var($Adjustable, vAdjustable, target->getVAdjustable());
 	if (vAdjustable != nullptr) {
 		unitIncrement = vAdjustable->getUnitIncrement();
 	}
@@ -438,7 +313,7 @@ void XScrollPanePeer::init$($ScrollPane* target) {
 }
 
 int64_t XScrollPanePeer::getContentWindow() {
-	return (this->clip == nullptr) ? this->window : $nc(this->clip)->getWindow();
+	return (this->clip == nullptr) ? this->window : this->clip->getWindow();
 }
 
 void XScrollPanePeer::setBounds(int32_t x, int32_t y, int32_t w, int32_t h, int32_t op) {
@@ -471,7 +346,7 @@ void XScrollPanePeer::childResized(int32_t w, int32_t h) {
 }
 
 $Dimension* XScrollPanePeer::getChildSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ScrollPane, sp, $cast($ScrollPane, this->target));
 	if ($nc(sp)->countComponents() > 0) {
 		$var($Component, c, sp->getComponent(0));
@@ -482,7 +357,7 @@ $Dimension* XScrollPanePeer::getChildSize() {
 }
 
 bool XScrollPanePeer::setScrollbarSpace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ScrollPane, sp, $cast($ScrollPane, this->target));
 	bool changed = false;
 	int32_t sbDisplayPolicy = $nc(sp)->getScrollbarDisplayPolicy();
@@ -494,12 +369,12 @@ bool XScrollPanePeer::setScrollbarSpace() {
 		int32_t oldHsbSpace = this->hsbSpace;
 		int32_t oldVsbSpace = this->vsbSpace;
 		this->hsbSpace = ($nc(cSize)->width <= (this->width - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
-		this->vsbSpace = ($nc(cSize)->height <= (this->height - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
+		this->vsbSpace = (cSize->height <= (this->height - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
 		if (this->hsbSpace == 0 && this->vsbSpace != 0) {
-			this->hsbSpace = ($nc(cSize)->width <= (this->width - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
+			this->hsbSpace = (cSize->width <= (this->width - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
 		}
 		if (this->vsbSpace == 0 && this->hsbSpace != 0) {
-			this->vsbSpace = ($nc(cSize)->height <= (this->height - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
+			this->vsbSpace = (cSize->height <= (this->height - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
 		}
 		if (oldHsbSpace != this->hsbSpace || oldVsbSpace != this->vsbSpace) {
 			changed = true;
@@ -521,8 +396,8 @@ bool XScrollPanePeer::setScrollbarSpace() {
 	}
 	bool must_scroll = false;
 	$var($Point, p, $new($Point, 0, 0));
-	if ($nc(($cast($ScrollPane, this->target)))->getComponentCount() > 0) {
-		$assign(p, $nc($($nc(($cast($ScrollPane, this->target)))->getComponent(0)))->location());
+	if ($nc($cast($ScrollPane, this->target))->getComponentCount() > 0) {
+		$assign(p, $$nc($nc($cast($ScrollPane, this->target))->getComponent(0))->location());
 		if ((this->vsbSpace == 0) && ($nc(p)->y < 0)) {
 			p->y = 0;
 			must_scroll = true;
@@ -567,7 +442,7 @@ void XScrollPanePeer::scroll(int32_t x, int32_t y, int32_t flag) {
 }
 
 void XScrollPanePeer::scroll(int32_t x, int32_t y, int32_t flag, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkSecurity();
 	$var($ScrollPane, sp, $cast($ScrollPane, this->target));
 	$var($Component, c, getScrollChild());
@@ -584,49 +459,45 @@ void XScrollPanePeer::scroll(int32_t x, int32_t y, int32_t flag, int32_t type) {
 		$var($Point, p, $nc(c)->location());
 		sx = $nc(p)->x;
 		sy = p->y;
-		if (((int32_t)(flag & (uint32_t)XScrollPanePeer::HORIZONTAL)) != 0) {
+		if ((flag & XScrollPanePeer::HORIZONTAL) != 0) {
 			int32_t var$0 = $nc(this->hsb)->getMaximum();
-			$nc(this->hsb)->setValue($Math::min(x, var$0 - $nc(this->hsb)->getVisibleAmount()));
+			$nc(this->hsb)->setValue($Math::min(x, var$0 - this->hsb->getVisibleAmount()));
 			$var($ScrollPaneAdjustable, hadj, $cast($ScrollPaneAdjustable, sp->getHAdjustable()));
 			setAdjustableValue(hadj, $nc(this->hsb)->getValue(), type);
 			sx = -($nc(this->hsb)->getValue());
 			$var($Graphics, g, getGraphics());
 			if (g != nullptr) {
-				{
-					$var($Throwable, var$1, nullptr);
-					try {
-						paintHorScrollbar(g, colors, true);
-					} catch ($Throwable& var$2) {
-						$assign(var$1, var$2);
-					} /*finally*/ {
-						g->dispose();
-					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
+				$var($Throwable, var$1, nullptr);
+				try {
+					paintHorScrollbar(g, colors, true);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					g->dispose();
+				}
+				if (var$1 != nullptr) {
+					$throw(var$1);
 				}
 			}
 		}
-		if (((int32_t)(flag & (uint32_t)XScrollPanePeer::VERTICAL)) != 0) {
+		if ((flag & XScrollPanePeer::VERTICAL) != 0) {
 			int32_t var$3 = $nc(this->vsb)->getMaximum();
-			$nc(this->vsb)->setValue($Math::min(y, var$3 - $nc(this->vsb)->getVisibleAmount()));
+			$nc(this->vsb)->setValue($Math::min(y, var$3 - this->vsb->getVisibleAmount()));
 			$var($ScrollPaneAdjustable, vadj, $cast($ScrollPaneAdjustable, sp->getVAdjustable()));
 			setAdjustableValue(vadj, $nc(this->vsb)->getValue(), type);
 			sy = -($nc(this->vsb)->getValue());
 			$var($Graphics, g, getGraphics());
 			if (g != nullptr) {
-				{
-					$var($Throwable, var$4, nullptr);
-					try {
-						paintVerScrollbar(g, colors, true);
-					} catch ($Throwable& var$5) {
-						$assign(var$4, var$5);
-					} /*finally*/ {
-						g->dispose();
-					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
-					}
+				$var($Throwable, var$4, nullptr);
+				try {
+					paintVerScrollbar(g, colors, true);
+				} catch ($Throwable& var$5) {
+					$assign(var$4, var$5);
+				} /*finally*/ {
+					g->dispose();
+				}
+				if (var$4 != nullptr) {
+					$throw(var$4);
 				}
 			}
 		}
@@ -635,7 +506,7 @@ void XScrollPanePeer::scroll(int32_t x, int32_t y, int32_t flag, int32_t type) {
 }
 
 void XScrollPanePeer::setAdjustableValue($ScrollPaneAdjustable* adj, int32_t value, int32_t type) {
-	$nc($($AWTAccessor::getScrollPaneAdjustableAccessor()))->setTypedValue(adj, value, type);
+	$$nc($AWTAccessor::getScrollPaneAdjustableAccessor())->setTypedValue(adj, value, type);
 }
 
 void XScrollPanePeer::paintPeer($Graphics* g) {
@@ -661,47 +532,43 @@ void XScrollPanePeer::paintScrollBars($Graphics* g, $ColorArray* colors) {
 }
 
 void XScrollPanePeer::repaintScrollBars() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, getGraphics());
 	$var($ColorArray, colors, getGUIcolors());
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				paintScrollBars(g, colors);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				g->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			paintScrollBars(g, colors);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void XScrollPanePeer::repaintScrollbarRequest($XScrollbar* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, getGraphics());
 	$var($ColorArray, colors, getGUIcolors());
 	if (g != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if ($equals(sb, this->vsb)) {
-					paintVerScrollbar(g, colors, true);
-				} else if ($equals(sb, this->hsb)) {
-					paintHorScrollbar(g, colors, true);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				g->dispose();
+		$var($Throwable, var$0, nullptr);
+		try {
+			if ($equals(sb, this->vsb)) {
+				paintVerScrollbar(g, colors, true);
+			} else if ($equals(sb, this->hsb)) {
+				paintHorScrollbar(g, colors, true);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			g->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -711,17 +578,14 @@ void XScrollPanePeer::handleEvent($AWTEvent* e) {
 	int32_t id = $nc(e)->getID();
 	switch (id) {
 	case $PaintEvent::PAINT:
-		{}
 	case $PaintEvent::UPDATE:
-		{
-			repaintScrollBars();
-			break;
-		}
+		repaintScrollBars();
+		break;
 	}
 }
 
 void XScrollPanePeer::paintHorScrollbar($Graphics* g, $ColorArray* colors, bool paintAll) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hsbSpace <= 0) {
 		return;
 	}
@@ -731,24 +595,22 @@ void XScrollPanePeer::paintHorScrollbar($Graphics* g, $ColorArray* colors, bool 
 	g->fillRect(XScrollPanePeer::MARGIN, this->height - XScrollPanePeer::SCROLLBAR, w, XScrollPanePeer::SPACE);
 	g->fillRect(0, this->height - XScrollPanePeer::SCROLLBAR, XScrollPanePeer::MARGIN, XScrollPanePeer::SCROLLBAR);
 	g->fillRect(XScrollPanePeer::MARGIN + w, this->height - XScrollPanePeer::SCROLLBAR, XScrollPanePeer::MARGIN, XScrollPanePeer::SCROLLBAR);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(ng)->translate(XScrollPanePeer::MARGIN, this->height - (XScrollPanePeer::SCROLLBAR - XScrollPanePeer::SPACE));
-			$nc(this->hsb)->paint(ng, colors, paintAll);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(ng)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(ng)->translate(XScrollPanePeer::MARGIN, this->height - (XScrollPanePeer::SCROLLBAR - XScrollPanePeer::SPACE));
+		$nc(this->hsb)->paint(ng, colors, paintAll);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(ng)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XScrollPanePeer::paintVerScrollbar($Graphics* g, $ColorArray* colors, bool paintAll) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->vsbSpace <= 0) {
 		return;
 	}
@@ -758,19 +620,17 @@ void XScrollPanePeer::paintVerScrollbar($Graphics* g, $ColorArray* colors, bool 
 	g->fillRect(this->width - XScrollPanePeer::SCROLLBAR, XScrollPanePeer::MARGIN, XScrollPanePeer::SPACE, h);
 	g->fillRect(this->width - XScrollPanePeer::SCROLLBAR, 0, XScrollPanePeer::SCROLLBAR, XScrollPanePeer::MARGIN);
 	g->fillRect(this->width - XScrollPanePeer::SCROLLBAR, XScrollPanePeer::MARGIN + h, XScrollPanePeer::SCROLLBAR, XScrollPanePeer::MARGIN);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(ng)->translate(this->width - (XScrollPanePeer::SCROLLBAR - XScrollPanePeer::SPACE), XScrollPanePeer::MARGIN);
-			$nc(this->vsb)->paint(ng, colors, paintAll);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(ng)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(ng)->translate(this->width - (XScrollPanePeer::SCROLLBAR - XScrollPanePeer::SPACE), XScrollPanePeer::MARGIN);
+		$nc(this->vsb)->paint(ng, colors, paintAll);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(ng)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -780,43 +640,37 @@ void XScrollPanePeer::handleJavaMouseEvent($MouseEvent* mouseEvent) {
 	int32_t id = mouseEvent->getID();
 	int32_t x = mouseEvent->getX();
 	int32_t y = mouseEvent->getY();
-	if (((int32_t)(modifiers & (uint32_t)$InputEvent::BUTTON1_MASK)) == 0) {
+	if ((modifiers & $InputEvent::BUTTON1_MASK) == 0) {
 		return;
 	}
 	switch (id) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{
-			if (inVerticalScrollbar(x, y)) {
-				this->active = XScrollPanePeer::VERTICAL;
-				int32_t h = this->height - this->hsbSpace - (2 * XScrollPanePeer::MARGIN);
-				$nc(this->vsb)->handleMouseEvent(id, modifiers, x - (this->width - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE), y - XScrollPanePeer::MARGIN);
-			} else if (inHorizontalScrollbar(x, y)) {
-				this->active = XScrollPanePeer::HORIZONTAL;
-				int32_t w = this->width - 2 * XScrollPanePeer::MARGIN - this->vsbSpace;
-				$nc(this->hsb)->handleMouseEvent(id, modifiers, x - XScrollPanePeer::MARGIN, y - (this->height - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE));
-			}
-			break;
+		if (inVerticalScrollbar(x, y)) {
+			this->active = XScrollPanePeer::VERTICAL;
+			int32_t h = this->height - this->hsbSpace - (2 * XScrollPanePeer::MARGIN);
+			$nc(this->vsb)->handleMouseEvent(id, modifiers, x - (this->width - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE), y - XScrollPanePeer::MARGIN);
+		} else if (inHorizontalScrollbar(x, y)) {
+			this->active = XScrollPanePeer::HORIZONTAL;
+			int32_t w = this->width - 2 * XScrollPanePeer::MARGIN - this->vsbSpace;
+			$nc(this->hsb)->handleMouseEvent(id, modifiers, x - XScrollPanePeer::MARGIN, y - (this->height - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE));
 		}
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			if (this->active == XScrollPanePeer::VERTICAL) {
-				$nc(this->vsb)->handleMouseEvent(id, modifiers, x, y);
-			} else if (this->active == XScrollPanePeer::HORIZONTAL) {
-				$nc(this->hsb)->handleMouseEvent(id, modifiers, x, y);
-			}
-			break;
+		if (this->active == XScrollPanePeer::VERTICAL) {
+			$nc(this->vsb)->handleMouseEvent(id, modifiers, x, y);
+		} else if (this->active == XScrollPanePeer::HORIZONTAL) {
+			$nc(this->hsb)->handleMouseEvent(id, modifiers, x, y);
 		}
+		break;
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			if (this->active == XScrollPanePeer::VERTICAL) {
-				int32_t h = this->height - 2 * XScrollPanePeer::MARGIN - this->hsbSpace;
-				$nc(this->vsb)->handleMouseEvent(id, modifiers, x - (this->width - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE), y - XScrollPanePeer::MARGIN);
-			} else if (this->active == XScrollPanePeer::HORIZONTAL) {
-				int32_t w = this->width - 2 * XScrollPanePeer::MARGIN - this->vsbSpace;
-				$nc(this->hsb)->handleMouseEvent(id, modifiers, x - XScrollPanePeer::MARGIN, y - (this->height - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE));
-			}
-			break;
+		if (this->active == XScrollPanePeer::VERTICAL) {
+			int32_t h = this->height - 2 * XScrollPanePeer::MARGIN - this->hsbSpace;
+			$nc(this->vsb)->handleMouseEvent(id, modifiers, x - (this->width - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE), y - XScrollPanePeer::MARGIN);
+		} else if (this->active == XScrollPanePeer::HORIZONTAL) {
+			int32_t w = this->width - 2 * XScrollPanePeer::MARGIN - this->vsbSpace;
+			$nc(this->hsb)->handleMouseEvent(id, modifiers, x - XScrollPanePeer::MARGIN, y - (this->height - XScrollPanePeer::SCROLLBAR + XScrollPanePeer::SPACE));
 		}
+		break;
 	}
 }
 
@@ -845,7 +699,7 @@ bool XScrollPanePeer::inHorizontalScrollbar(int32_t x, int32_t y) {
 }
 
 $Component* XScrollPanePeer::getScrollChild() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ScrollPane, sp, $cast($ScrollPane, this->target));
 	$var($Component, child, nullptr);
 	try {
@@ -856,7 +710,7 @@ $Component* XScrollPanePeer::getScrollChild() {
 }
 
 void XScrollPanePeer::print($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ScrollPane, sp, $cast($ScrollPane, this->target));
 	$var($Dimension, d, $nc(sp)->size());
 	$var($Color, bg, sp->getBackground());
@@ -880,25 +734,19 @@ void XScrollPanePeer::print($Graphics* g) {
 	int32_t hval = 0;
 	switch (sbDisplay) {
 	case $ScrollPane::SCROLLBARS_NEVER:
-		{
-			this->hsbSpace = (this->vsbSpace = 0);
-			break;
-		}
+		this->hsbSpace = (this->vsbSpace = 0);
+		break;
 	case $ScrollPane::SCROLLBARS_ALWAYS:
-		{
-			this->hsbSpace = (this->vsbSpace = XScrollPanePeer::SCROLLBAR);
-			break;
-		}
+		this->hsbSpace = (this->vsbSpace = XScrollPanePeer::SCROLLBAR);
+		break;
 	case $ScrollPane::SCROLLBARS_AS_NEEDED:
-		{
-			this->hsbSpace = ($nc(cd)->width <= ($nc(d)->width - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
-			this->vsbSpace = ($nc(cd)->height <= ($nc(d)->height - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
-			if (this->hsbSpace == 0 && this->vsbSpace != 0) {
-				this->hsbSpace = ($nc(cd)->width <= ($nc(d)->width - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
-			}
-			if (this->vsbSpace == 0 && this->hsbSpace != 0) {
-				this->vsbSpace = ($nc(cd)->height <= ($nc(d)->height - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
-			}
+		this->hsbSpace = ($nc(cd)->width <= ($nc(d)->width - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
+		this->vsbSpace = (cd->height <= (d->height - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
+		if (this->hsbSpace == 0 && this->vsbSpace != 0) {
+			this->hsbSpace = (cd->width <= (d->width - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
+		}
+		if (this->vsbSpace == 0 && this->hsbSpace != 0) {
+			this->vsbSpace = (cd->height <= (d->height - XScrollPanePeer::SCROLLBAR - 2 * XScrollPanePeer::MARGIN) ? 0 : XScrollPanePeer::SCROLLBAR);
 		}
 	}
 	vvis = (hvis = (vmin = (hmin = (vmax = (hmax = (vval = (hval = 0)))))));
@@ -922,38 +770,34 @@ void XScrollPanePeer::print($Graphics* g) {
 		int32_t sbw = d->width - this->vsbSpace;
 		g->fillRect(1, d->height - XScrollPanePeer::SCROLLBAR - 3, sbw - 1, XScrollPanePeer::SCROLLBAR - 3);
 		$var($Graphics, ng, g->create());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(ng)->translate(0, d->height - (XScrollPanePeer::SCROLLBAR - 2));
-				drawScrollbar(ng, bg, XScrollPanePeer::SCROLLBAR - 2, sbw, hmin, hmax, hval, hvis, true);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(ng)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(ng)->translate(0, d->height - (XScrollPanePeer::SCROLLBAR - 2));
+			drawScrollbar(ng, bg, XScrollPanePeer::SCROLLBAR - 2, sbw, hmin, hmax, hval, hvis, true);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(ng)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (this->vsbSpace > 0) {
 		int32_t sbh = d->height - this->hsbSpace;
 		g->fillRect(d->width - XScrollPanePeer::SCROLLBAR - 3, 1, XScrollPanePeer::SCROLLBAR - 3, sbh - 1);
 		$var($Graphics, ng, g->create());
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$nc(ng)->translate(d->width - (XScrollPanePeer::SCROLLBAR - 2), 0);
-				drawScrollbar(ng, bg, XScrollPanePeer::SCROLLBAR - 2, sbh, vmin, vmax, vval, vvis, false);
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				$nc(ng)->dispose();
-			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$nc(ng)->translate(d->width - (XScrollPanePeer::SCROLLBAR - 2), 0);
+			drawScrollbar(ng, bg, XScrollPanePeer::SCROLLBAR - 2, sbh, vmin, vmax, vval, vvis, false);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			$nc(ng)->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	draw3DRect(g, bg, 0, 0, w - 1, h - 1, false);
@@ -961,9 +805,9 @@ void XScrollPanePeer::print($Graphics* g) {
 	sp->printComponents(g);
 }
 
-void clinit$XScrollPanePeer($Class* class$) {
+void XScrollPanePeer::clinit$($Class* clazz) {
 	{
-		XScrollPanePeer::SCROLLBAR = $nc($($XToolkit::getUIDefaults()))->getInt("ScrollBar.defaultWidth"_s);
+		XScrollPanePeer::SCROLLBAR = $$nc($XToolkit::getUIDefaults())->getInt("ScrollBar.defaultWidth"_s);
 	}
 }
 
@@ -971,7 +815,121 @@ XScrollPanePeer::XScrollPanePeer() {
 }
 
 $Class* XScrollPanePeer::load$($String* name, bool initialize) {
-	$loadClass(XScrollPanePeer, name, initialize, &_XScrollPanePeer_ClassInfo_, clinit$XScrollPanePeer, allocate$XScrollPanePeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"MARGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, MARGIN)},
+		{"SCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XScrollPanePeer, SCROLLBAR)},
+		{"SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, SPACE)},
+		{"SCROLLBAR_INSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, SCROLLBAR_INSET)},
+		{"VERTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, VERTICAL)},
+		{"HORIZONTAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XScrollPanePeer, HORIZONTAL)},
+		{"vsb", "Lsun/awt/X11/XVerticalScrollbar;", nullptr, 0, $field(XScrollPanePeer, vsb)},
+		{"hsb", "Lsun/awt/X11/XHorizontalScrollbar;", nullptr, 0, $field(XScrollPanePeer, hsb)},
+		{"clip", "Lsun/awt/X11/XWindow;", nullptr, 0, $field(XScrollPanePeer, clip)},
+		{"active", "I", nullptr, 0, $field(XScrollPanePeer, active)},
+		{"hsbSpace", "I", nullptr, 0, $field(XScrollPanePeer, hsbSpace)},
+		{"vsbSpace", "I", nullptr, 0, $field(XScrollPanePeer, vsbSpace)},
+		{"vval", "I", nullptr, 0, $field(XScrollPanePeer, vval)},
+		{"hval", "I", nullptr, 0, $field(XScrollPanePeer, hval)},
+		{"vmax", "I", nullptr, 0, $field(XScrollPanePeer, vmax)},
+		{"hmax", "I", nullptr, 0, $field(XScrollPanePeer, hmax)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/ScrollPane;)V", nullptr, 0, $method(XScrollPanePeer, init$, void, $ScrollPane*)},
+		{"childResized", "(II)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, childResized, void, int32_t, int32_t)},
+		{"getChildSize", "()Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XScrollPanePeer, getChildSize, $Dimension*)},
+		{"getContentWindow", "()J", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getContentWindow, int64_t)},
+		{"getHScrollbarHeight", "()I", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getHScrollbarHeight, int32_t)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getInsets, $Insets*)},
+		{"getScrollChild", "()Ljava/awt/Component;", nullptr, $PRIVATE, $method(XScrollPanePeer, getScrollChild, $Component*)},
+		{"getVScrollbarWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, getVScrollbarWidth, int32_t)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, handleEvent, void, $AWTEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"inHorizontalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XScrollPanePeer, inHorizontalScrollbar, bool, int32_t, int32_t)},
+		{"inVerticalScrollbar", "(II)Z", nullptr, 0, $virtualMethod(XScrollPanePeer, inVerticalScrollbar, bool, int32_t, int32_t)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintHorScrollbar", "(Ljava/awt/Graphics;[Ljava/awt/Color;Z)V", nullptr, 0, $virtualMethod(XScrollPanePeer, paintHorScrollbar, void, $Graphics*, $ColorArray*, bool)},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XScrollPanePeer, paintPeer, void, $Graphics*)},
+		{"paintScrollBars", "(Ljava/awt/Graphics;[Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(XScrollPanePeer, paintScrollBars, void, $Graphics*, $ColorArray*)},
+		{"paintVerScrollbar", "(Ljava/awt/Graphics;[Ljava/awt/Color;Z)V", nullptr, 0, $virtualMethod(XScrollPanePeer, paintVerScrollbar, void, $Graphics*, $ColorArray*, bool)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, print, void, $Graphics*)},
+		{"repaintScrollBars", "()V", nullptr, 0, $virtualMethod(XScrollPanePeer, repaintScrollBars, void)},
+		{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, repaintScrollbarRequest, void, $XScrollbar*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"scroll", "(III)V", nullptr, 0, $virtualMethod(XScrollPanePeer, scroll, void, int32_t, int32_t, int32_t)},
+		{"scroll", "(IIII)V", nullptr, 0, $virtualMethod(XScrollPanePeer, scroll, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setAdjustableValue", "(Ljava/awt/ScrollPaneAdjustable;II)V", nullptr, $PRIVATE, $method(XScrollPanePeer, setAdjustableValue, void, $ScrollPaneAdjustable*, int32_t, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setScrollPosition", "(II)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setScrollPosition, void, int32_t, int32_t)},
+		{"setScrollbarSpace", "()Z", nullptr, 0, $virtualMethod(XScrollPanePeer, setScrollbarSpace, bool)},
+		{"setUnitIncrement", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setUnitIncrement, void, $Adjustable*, int32_t)},
+		{"setValue", "(Ljava/awt/Adjustable;I)V", nullptr, $PUBLIC, $virtualMethod(XScrollPanePeer, setValue, void, $Adjustable*, int32_t)},
+		{"setViewportSize", "()V", nullptr, 0, $virtualMethod(XScrollPanePeer, setViewportSize, void)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XScrollPanePeer$XScrollPaneContentWindow", "sun.awt.X11.XScrollPanePeer", "XScrollPaneContentWindow", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XScrollPanePeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.ScrollPanePeer,sun.awt.X11.XScrollbarClient",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XScrollPanePeer$XScrollPaneContentWindow"
+	};
+	$loadClass(XScrollPanePeer, name, initialize, &classInfo$$, XScrollPanePeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XScrollPanePeer));
+	});
 	return class$;
 }
 

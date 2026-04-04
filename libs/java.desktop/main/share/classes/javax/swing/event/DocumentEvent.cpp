@@ -1,5 +1,4 @@
 #include <javax/swing/event/DocumentEvent.h>
-
 #include <javax/swing/event/DocumentEvent$ElementChange.h>
 #include <javax/swing/event/DocumentEvent$EventType.h>
 #include <javax/swing/text/Document.h>
@@ -18,42 +17,37 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _DocumentEvent_MethodInfo_[] = {
-	{"getChange", "(Ljavax/swing/text/Element;)Ljavax/swing/event/DocumentEvent$ElementChange;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getChange, $DocumentEvent$ElementChange*, $Element*)},
-	{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getDocument, $Document*)},
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getLength, int32_t)},
-	{"getOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getOffset, int32_t)},
-	{"getType", "()Ljavax/swing/event/DocumentEvent$EventType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getType, $DocumentEvent$EventType*)},
-	{}
-};
-
-$InnerClassInfo _DocumentEvent_InnerClassesInfo_[] = {
-	{"javax.swing.event.DocumentEvent$ElementChange", "javax.swing.event.DocumentEvent", "ElementChange", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.event.DocumentEvent$EventType", "javax.swing.event.DocumentEvent", "EventType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DocumentEvent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.DocumentEvent",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DocumentEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocumentEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.event.DocumentEvent$ElementChange,javax.swing.event.DocumentEvent$EventType"
-};
-
-$Object* allocate$DocumentEvent($Class* clazz) {
-	return $of($alloc(DocumentEvent));
-}
-
 $Class* DocumentEvent::load$($String* name, bool initialize) {
-	$loadClass(DocumentEvent, name, initialize, &_DocumentEvent_ClassInfo_, allocate$DocumentEvent);
+	$MethodInfo methodInfos$$[] = {
+		{"getChange", "(Ljavax/swing/text/Element;)Ljavax/swing/event/DocumentEvent$ElementChange;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getChange, $DocumentEvent$ElementChange*, $Element*)},
+		{"getDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getDocument, $Document*)},
+		{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getLength, int32_t)},
+		{"getOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getOffset, int32_t)},
+		{"getType", "()Ljavax/swing/event/DocumentEvent$EventType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentEvent, getType, $DocumentEvent$EventType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.event.DocumentEvent$ElementChange", "javax.swing.event.DocumentEvent", "ElementChange", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.event.DocumentEvent$EventType", "javax.swing.event.DocumentEvent", "EventType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.DocumentEvent",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.event.DocumentEvent$ElementChange,javax.swing.event.DocumentEvent$EventType"
+	};
+	$loadClass(DocumentEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentEvent);
+	});
 	return class$;
 }
 

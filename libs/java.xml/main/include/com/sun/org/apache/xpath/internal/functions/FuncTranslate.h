@@ -49,7 +49,7 @@ public:
 	using ::com::sun::org::apache::xpath::internal::functions::Function3Args::execute;
 	void init$();
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
-	static const int64_t serialVersionUID = (int64_t)0xE8C8E607E2AB167E;
+	static const int64_t serialVersionUID = (int64_t)0xe8c8e607e2ab167e;
 };
 
 						} // functions

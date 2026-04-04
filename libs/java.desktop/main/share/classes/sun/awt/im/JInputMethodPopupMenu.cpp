@@ -1,5 +1,4 @@
 #include <sun/awt/im/JInputMethodPopupMenu.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/ActionListener.h>
@@ -11,7 +10,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -24,37 +22,6 @@ using $InputMethodPopupMenu = ::sun::awt::im::InputMethodPopupMenu;
 namespace sun {
 	namespace awt {
 		namespace im {
-
-$FieldInfo _JInputMethodPopupMenu_FieldInfo_[] = {
-	{"delegate", "Ljavax/swing/JPopupMenu;", nullptr, $STATIC, $staticField(JInputMethodPopupMenu, delegate)},
-	{}
-};
-
-$MethodInfo _JInputMethodPopupMenu_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JInputMethodPopupMenu, init$, void, $String*)},
-	{"add", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, add, void, Object$*)},
-	{"addMenuItem", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addMenuItem, void, $String*, $String*, $String*)},
-	{"addMenuItem", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addMenuItem, void, Object$*, $String*, $String*, $String*)},
-	{"addSeparator", "()V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addSeparator, void)},
-	{"addToComponent", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addToComponent, void, $Component*)},
-	{"createSubmenu", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, createSubmenu, $Object*, $String*)},
-	{"removeAll", "()V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, removeAll, void)},
-	{"show", "(Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, show, void, $Component*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _JInputMethodPopupMenu_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.im.JInputMethodPopupMenu",
-	"sun.awt.im.InputMethodPopupMenu",
-	nullptr,
-	_JInputMethodPopupMenu_FieldInfo_,
-	_JInputMethodPopupMenu_MethodInfo_
-};
-
-$Object* allocate$JInputMethodPopupMenu($Class* clazz) {
-	return $of($alloc(JInputMethodPopupMenu));
-}
 
 $JPopupMenu* JInputMethodPopupMenu::delegate = nullptr;
 
@@ -105,13 +72,13 @@ void JInputMethodPopupMenu::addMenuItem(Object$* targetMenu, $String* label, $St
 	menuItem->addActionListener(this);
 	menuItem->setEnabled(command != nullptr);
 	if ($instanceOf($JMenu, targetMenu)) {
-		$nc(($cast($JMenu, targetMenu)))->add(menuItem);
+		$cast($JMenu, targetMenu)->add(menuItem);
 	} else {
-		$nc(($cast($JPopupMenu, targetMenu)))->add(menuItem);
+		$nc($cast($JPopupMenu, targetMenu))->add(menuItem);
 	}
 }
 
-void clinit$JInputMethodPopupMenu($Class* class$) {
+void JInputMethodPopupMenu::clinit$($Class* clazz) {
 	$assignStatic(JInputMethodPopupMenu::delegate, nullptr);
 }
 
@@ -119,7 +86,33 @@ JInputMethodPopupMenu::JInputMethodPopupMenu() {
 }
 
 $Class* JInputMethodPopupMenu::load$($String* name, bool initialize) {
-	$loadClass(JInputMethodPopupMenu, name, initialize, &_JInputMethodPopupMenu_ClassInfo_, clinit$JInputMethodPopupMenu, allocate$JInputMethodPopupMenu);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljavax/swing/JPopupMenu;", nullptr, $STATIC, $staticField(JInputMethodPopupMenu, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JInputMethodPopupMenu, init$, void, $String*)},
+		{"add", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, add, void, Object$*)},
+		{"addMenuItem", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addMenuItem, void, $String*, $String*, $String*)},
+		{"addMenuItem", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addMenuItem, void, Object$*, $String*, $String*, $String*)},
+		{"addSeparator", "()V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addSeparator, void)},
+		{"addToComponent", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, addToComponent, void, $Component*)},
+		{"createSubmenu", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, createSubmenu, $Object*, $String*)},
+		{"removeAll", "()V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, removeAll, void)},
+		{"show", "(Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(JInputMethodPopupMenu, show, void, $Component*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.im.JInputMethodPopupMenu",
+		"sun.awt.im.InputMethodPopupMenu",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JInputMethodPopupMenu, name, initialize, &classInfo$$, JInputMethodPopupMenu::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JInputMethodPopupMenu);
+	});
 	return class$;
 }
 

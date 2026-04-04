@@ -1,5 +1,4 @@
 #include <sun/awt/Win32GraphicsEnvironment.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -32,7 +31,6 @@ using $WeakReference = ::java::lang::ref::WeakReference;
 using $ArrayList = ::java::util::ArrayList;
 using $ListIterator = ::java::util::ListIterator;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
-using $SunDisplayChanger = ::sun::awt::SunDisplayChanger;
 using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
@@ -44,55 +42,6 @@ using $WindowsFlags = ::sun::java2d::windows::WindowsFlags;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _Win32GraphicsEnvironment_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Win32GraphicsEnvironment, $assertionsDisabled)},
-	{"debugScaleX", "F", nullptr, $STATIC | $FINAL, $staticField(Win32GraphicsEnvironment, debugScaleX)},
-	{"debugScaleY", "F", nullptr, $STATIC | $FINAL, $staticField(Win32GraphicsEnvironment, debugScaleY)},
-	{"displayInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Win32GraphicsEnvironment, displayInitialized)},
-	{"oldDevices", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/ref/WeakReference<Lsun/awt/Win32GraphicsDevice;>;>;", $PRIVATE, $field(Win32GraphicsEnvironment, oldDevices)},
-	{"isDWMCompositionEnabled", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Win32GraphicsEnvironment, isDWMCompositionEnabled$)},
-	{}
-};
-
-$MethodInfo _Win32GraphicsEnvironment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Win32GraphicsEnvironment, init$, void)},
-	{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, displayChanged, void)},
-	{"dwmCompositionChanged", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32GraphicsEnvironment, dwmCompositionChanged, void, bool)},
-	{"getDefaultScreen", "()I", nullptr, $PRIVATE | $NATIVE, $method(Win32GraphicsEnvironment, getDefaultScreen, int32_t)},
-	{"getDefaultScreenDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, getDefaultScreenDevice, $GraphicsDevice*)},
-	{"getNumScreens", "()I", nullptr, $PROTECTED | $NATIVE, $virtualMethod(Win32GraphicsEnvironment, getNumScreens, int32_t)},
-	{"getXResolution", "()I", nullptr, $PUBLIC | $NATIVE, $method(Win32GraphicsEnvironment, getXResolution, int32_t)},
-	{"getYResolution", "()I", nullptr, $PUBLIC | $NATIVE, $method(Win32GraphicsEnvironment, getYResolution, int32_t)},
-	{"initDisplay", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32GraphicsEnvironment, initDisplay, void)},
-	{"initDisplayWrapper", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32GraphicsEnvironment, initDisplayWrapper, void)},
-	{"isDWMCompositionEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32GraphicsEnvironment, isDWMCompositionEnabled, bool)},
-	{"isDisplayLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, isDisplayLocal, bool)},
-	{"isFlipStrategyPreferred", "(Ljava/awt/peer/ComponentPeer;)Z", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, isFlipStrategyPreferred, bool, $ComponentPeer*)},
-	{"isVistaOS", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Win32GraphicsEnvironment, isVistaOS, bool)},
-	{"makeScreenDevice", "(I)Ljava/awt/GraphicsDevice;", nullptr, $PROTECTED, $virtualMethod(Win32GraphicsEnvironment, makeScreenDevice, $GraphicsDevice*, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_getDefaultScreen 3
-#define _METHOD_INDEX_getNumScreens 5
-#define _METHOD_INDEX_getXResolution 6
-#define _METHOD_INDEX_getYResolution 7
-#define _METHOD_INDEX_initDisplay 8
-#define _METHOD_INDEX_isVistaOS 13
-
-$ClassInfo _Win32GraphicsEnvironment_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.Win32GraphicsEnvironment",
-	"sun.java2d.SunGraphicsEnvironment",
-	nullptr,
-	_Win32GraphicsEnvironment_FieldInfo_,
-	_Win32GraphicsEnvironment_MethodInfo_
-};
-
-$Object* allocate$Win32GraphicsEnvironment($Class* clazz) {
-	return $of($alloc(Win32GraphicsEnvironment));
-}
-
 bool Win32GraphicsEnvironment::$assertionsDisabled = false;
 float Win32GraphicsEnvironment::debugScaleX = 0.0;
 float Win32GraphicsEnvironment::debugScaleY = 0.0;
@@ -101,7 +50,7 @@ $volatile(bool) Win32GraphicsEnvironment::isDWMCompositionEnabled$ = false;
 
 void Win32GraphicsEnvironment::initDisplay() {
 	$init(Win32GraphicsEnvironment);
-	$prepareNativeStatic(Win32GraphicsEnvironment, initDisplay, void);
+	$prepareNativeStatic(initDisplay, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -119,17 +68,15 @@ void Win32GraphicsEnvironment::init$() {
 }
 
 int32_t Win32GraphicsEnvironment::getNumScreens() {
-	int32_t $ret = 0;
-	$prepareNative(Win32GraphicsEnvironment, getNumScreens, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getNumScreens, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 int32_t Win32GraphicsEnvironment::getDefaultScreen() {
-	int32_t $ret = 0;
-	$prepareNative(Win32GraphicsEnvironment, getDefaultScreen, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getDefaultScreen, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -140,34 +87,32 @@ $GraphicsDevice* Win32GraphicsEnvironment::getDefaultScreenDevice() {
 		$throwNew($AWTError, "no screen devices"_s);
 	}
 	int32_t index = getDefaultScreen();
-	return $nc(screens)->get(0 < index && index < screens->length ? index : 0);
+	return screens->get(0 < index && index < screens->length ? index : 0);
 }
 
 int32_t Win32GraphicsEnvironment::getXResolution() {
-	int32_t $ret = 0;
-	$prepareNative(Win32GraphicsEnvironment, getXResolution, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getXResolution, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 int32_t Win32GraphicsEnvironment::getYResolution() {
-	int32_t $ret = 0;
-	$prepareNative(Win32GraphicsEnvironment, getYResolution, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getYResolution, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void Win32GraphicsEnvironment::displayChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsDeviceArray, newDevices, $new($GraphicsDeviceArray, getNumScreens()));
 	$var($GraphicsDeviceArray, oldScreens, this->screens);
 	if (oldScreens != nullptr) {
 		for (int32_t i = 0; i < oldScreens->length; ++i) {
 			if (!($instanceOf($Win32GraphicsDevice, $nc(this->screens)->get(i)))) {
 				if (!Win32GraphicsEnvironment::$assertionsDisabled) {
-					$throwNew($AssertionError, $of(oldScreens->get(i)));
+					$throwNew($AssertionError, oldScreens->get(i));
 				}
 				continue;
 			}
@@ -191,14 +136,10 @@ void Win32GraphicsEnvironment::displayChanged() {
 	$set(this, screens, newDevices);
 	{
 		$var($GraphicsDeviceArray, arr$, this->screens);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($GraphicsDevice, gd, arr$->get(i$));
-			{
-				if ($instanceOf($DisplayChangedListener, gd)) {
-					$nc(($cast($DisplayChangedListener, gd)))->displayChanged();
-				}
+			if ($instanceOf($DisplayChangedListener, gd)) {
+				$cast($DisplayChangedListener, gd)->displayChanged();
 			}
 		}
 	}
@@ -207,7 +148,7 @@ void Win32GraphicsEnvironment::displayChanged() {
 		{
 			$var($ListIterator, it, $nc(this->oldDevices)->listIterator());
 			for (; $nc(it)->hasNext();) {
-				$var($Win32GraphicsDevice, gd, $cast($Win32GraphicsDevice, $nc(($cast($WeakReference, $(it->next()))))->get()));
+				$var($Win32GraphicsDevice, gd, $cast($Win32GraphicsDevice, $$sure($WeakReference, it->next())->get()));
 				if (gd != nullptr) {
 					gd->invalidate(defScreen);
 					gd->displayChanged();
@@ -236,12 +177,12 @@ bool Win32GraphicsEnvironment::isDisplayLocal() {
 }
 
 bool Win32GraphicsEnvironment::isFlipStrategyPreferred($ComponentPeer* peer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, nullptr);
 	if (peer != nullptr && ($assign(gc, peer->getGraphicsConfiguration())) != nullptr) {
 		$var($GraphicsDevice, gd, $nc(gc)->getDevice());
 		if ($instanceOf($D3DGraphicsDevice, gd)) {
-			return $nc(($cast($D3DGraphicsDevice, gd)))->isD3DEnabledOnDevice();
+			return $cast($D3DGraphicsDevice, gd)->isD3DEnabledOnDevice();
 		}
 	}
 	return false;
@@ -259,22 +200,21 @@ void Win32GraphicsEnvironment::dwmCompositionChanged(bool enabled) {
 
 bool Win32GraphicsEnvironment::isVistaOS() {
 	$init(Win32GraphicsEnvironment);
-	bool $ret = false;
-	$prepareNativeStatic(Win32GraphicsEnvironment, isVistaOS, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isVistaOS, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$Win32GraphicsEnvironment($Class* class$) {
+void Win32GraphicsEnvironment::clinit$($Class* clazz) {
 	Win32GraphicsEnvironment::$assertionsDisabled = !Win32GraphicsEnvironment::class$->desiredAssertionStatus();
 	{
 		$WToolkit::loadLibraries();
 		$WindowsFlags::initFlags();
 		Win32GraphicsEnvironment::initDisplayWrapper();
 		$SurfaceManagerFactory::setInstance($$new($WindowsSurfaceManagerFactory));
-		double sx = (double)-1;
-		double sy = (double)-1;
+		double sx = -1;
+		double sy = -1;
 		if ($SunGraphicsEnvironment::isUIScaleEnabled()) {
 			sx = $SunGraphicsEnvironment::getScaleFactor("sun.java2d.win.uiScaleX"_s);
 			sy = $SunGraphicsEnvironment::getScaleFactor("sun.java2d.win.uiScaleY"_s);
@@ -293,7 +233,44 @@ Win32GraphicsEnvironment::Win32GraphicsEnvironment() {
 }
 
 $Class* Win32GraphicsEnvironment::load$($String* name, bool initialize) {
-	$loadClass(Win32GraphicsEnvironment, name, initialize, &_Win32GraphicsEnvironment_ClassInfo_, clinit$Win32GraphicsEnvironment, allocate$Win32GraphicsEnvironment);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Win32GraphicsEnvironment, $assertionsDisabled)},
+		{"debugScaleX", "F", nullptr, $STATIC | $FINAL, $staticField(Win32GraphicsEnvironment, debugScaleX)},
+		{"debugScaleY", "F", nullptr, $STATIC | $FINAL, $staticField(Win32GraphicsEnvironment, debugScaleY)},
+		{"displayInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Win32GraphicsEnvironment, displayInitialized)},
+		{"oldDevices", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/ref/WeakReference<Lsun/awt/Win32GraphicsDevice;>;>;", $PRIVATE, $field(Win32GraphicsEnvironment, oldDevices)},
+		{"isDWMCompositionEnabled", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Win32GraphicsEnvironment, isDWMCompositionEnabled$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Win32GraphicsEnvironment, init$, void)},
+		{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, displayChanged, void)},
+		{"dwmCompositionChanged", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Win32GraphicsEnvironment, dwmCompositionChanged, void, bool)},
+		{"getDefaultScreen", "()I", nullptr, $PRIVATE | $NATIVE, $method(Win32GraphicsEnvironment, getDefaultScreen, int32_t)},
+		{"getDefaultScreenDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, getDefaultScreenDevice, $GraphicsDevice*)},
+		{"getNumScreens", "()I", nullptr, $PROTECTED | $NATIVE, $virtualMethod(Win32GraphicsEnvironment, getNumScreens, int32_t)},
+		{"getXResolution", "()I", nullptr, $PUBLIC | $NATIVE, $method(Win32GraphicsEnvironment, getXResolution, int32_t)},
+		{"getYResolution", "()I", nullptr, $PUBLIC | $NATIVE, $method(Win32GraphicsEnvironment, getYResolution, int32_t)},
+		{"initDisplay", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32GraphicsEnvironment, initDisplay, void)},
+		{"initDisplayWrapper", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32GraphicsEnvironment, initDisplayWrapper, void)},
+		{"isDWMCompositionEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32GraphicsEnvironment, isDWMCompositionEnabled, bool)},
+		{"isDisplayLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, isDisplayLocal, bool)},
+		{"isFlipStrategyPreferred", "(Ljava/awt/peer/ComponentPeer;)Z", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsEnvironment, isFlipStrategyPreferred, bool, $ComponentPeer*)},
+		{"isVistaOS", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Win32GraphicsEnvironment, isVistaOS, bool)},
+		{"makeScreenDevice", "(I)Ljava/awt/GraphicsDevice;", nullptr, $PROTECTED, $virtualMethod(Win32GraphicsEnvironment, makeScreenDevice, $GraphicsDevice*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.Win32GraphicsEnvironment",
+		"sun.java2d.SunGraphicsEnvironment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Win32GraphicsEnvironment, name, initialize, &classInfo$$, Win32GraphicsEnvironment::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32GraphicsEnvironment));
+	});
 	return class$;
 }
 

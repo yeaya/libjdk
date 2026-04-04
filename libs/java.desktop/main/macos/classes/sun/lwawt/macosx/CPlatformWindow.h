@@ -207,6 +207,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool IS(int32_t bits, int32_t mask);
 	static int32_t SET(int32_t bits, int32_t mask, bool value);

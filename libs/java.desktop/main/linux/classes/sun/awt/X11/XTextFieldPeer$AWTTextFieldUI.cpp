@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextFieldPeer$AWTTextFieldUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifPasswordFieldUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -49,46 +48,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XTextFieldPeer$AWTTextFieldUI_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextFieldPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextFieldPeer$AWTTextFieldUI, this$0)},
-	{"jtf", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(XTextFieldPeer$AWTTextFieldUI, jtf)},
-	{}
-};
-
-$MethodInfo _XTextFieldPeer$AWTTextFieldUI_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XTextFieldPeer;)V", nullptr, 0, $method(XTextFieldPeer$AWTTextFieldUI, init$, void, $XTextFieldPeer*)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, createCaret, $Caret*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, getPropertyPrefix, $String*)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, installKeyboardActions, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, installUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _XTextFieldPeer$AWTTextFieldUI_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextFieldPeer$AWTTextFieldUI", "sun.awt.X11.XTextFieldPeer", "AWTTextFieldUI", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextFieldPeer$AWTTextFieldUI_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextFieldPeer$AWTTextFieldUI",
-	"com.sun.java.swing.plaf.motif.MotifPasswordFieldUI",
-	nullptr,
-	_XTextFieldPeer$AWTTextFieldUI_FieldInfo_,
-	_XTextFieldPeer$AWTTextFieldUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextFieldPeer$AWTTextFieldUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextFieldPeer"
-};
-
-$Object* allocate$XTextFieldPeer$AWTTextFieldUI($Class* clazz) {
-	return $of($alloc(XTextFieldPeer$AWTTextFieldUI));
-}
-
 void XTextFieldPeer$AWTTextFieldUI::init$($XTextFieldPeer* this$0) {
 	$set(this, this$0, this$0);
 	$MotifPasswordFieldUI::init$();
@@ -96,7 +55,7 @@ void XTextFieldPeer$AWTTextFieldUI::init$($XTextFieldPeer* this$0) {
 
 $String* XTextFieldPeer$AWTTextFieldUI::getPropertyPrefix() {
 	$var($JTextComponent, comp, getComponent());
-	if ($instanceOf($JPasswordField, comp) && $nc(($cast($JPasswordField, comp)))->echoCharIsSet()) {
+	if ($instanceOf($JPasswordField, comp) && $cast($JPasswordField, comp)->echoCharIsSet()) {
 		return "PasswordField"_s;
 	} else {
 		return "TextField"_s;
@@ -104,7 +63,7 @@ $String* XTextFieldPeer$AWTTextFieldUI::getPropertyPrefix() {
 }
 
 void XTextFieldPeer$AWTTextFieldUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MotifPasswordFieldUI::installUI(c);
 	$set(this, jtf, $cast($JTextField, c));
 	$var($JTextField, editor, this->jtf);
@@ -149,7 +108,7 @@ void XTextFieldPeer$AWTTextFieldUI::installUI($JComponent* c) {
 }
 
 void XTextFieldPeer$AWTTextFieldUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MotifPasswordFieldUI::installKeyboardActions();
 	$var($JTextComponent, comp, getComponent());
 	$var($UIDefaults, uidefaults, $XToolkit::getUIDefaults());
@@ -168,7 +127,41 @@ XTextFieldPeer$AWTTextFieldUI::XTextFieldPeer$AWTTextFieldUI() {
 }
 
 $Class* XTextFieldPeer$AWTTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(XTextFieldPeer$AWTTextFieldUI, name, initialize, &_XTextFieldPeer$AWTTextFieldUI_ClassInfo_, allocate$XTextFieldPeer$AWTTextFieldUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextFieldPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextFieldPeer$AWTTextFieldUI, this$0)},
+		{"jtf", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(XTextFieldPeer$AWTTextFieldUI, jtf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XTextFieldPeer;)V", nullptr, 0, $method(XTextFieldPeer$AWTTextFieldUI, init$, void, $XTextFieldPeer*)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, createCaret, $Caret*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, getPropertyPrefix, $String*)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, installKeyboardActions, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$AWTTextFieldUI, installUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextFieldPeer$AWTTextFieldUI", "sun.awt.X11.XTextFieldPeer", "AWTTextFieldUI", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextFieldPeer$AWTTextFieldUI",
+		"com.sun.java.swing.plaf.motif.MotifPasswordFieldUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextFieldPeer"
+	};
+	$loadClass(XTextFieldPeer$AWTTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextFieldPeer$AWTTextFieldUI));
+	});
 	return class$;
 }
 

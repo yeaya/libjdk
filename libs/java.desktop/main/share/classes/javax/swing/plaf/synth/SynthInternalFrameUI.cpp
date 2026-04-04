@@ -1,11 +1,9 @@
 #include <javax/swing/plaf/synth/SynthInternalFrameUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
@@ -22,19 +20,16 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <jcpp.h>
 
 #undef ENABLED
 #undef IS_MAXIMUM_PROPERTY
 #undef IS_SELECTED_PROPERTY
 
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -46,84 +41,18 @@ using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthInternalFrameTitlePane = ::javax::swing::plaf::synth::SynthInternalFrameTitlePane;
 using $SynthInternalFrameUI$1 = ::javax::swing::plaf::synth::SynthInternalFrameUI$1;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthInternalFrameUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthInternalFrameUI, style)},
-	{}
-};
-
-$MethodInfo _SynthInternalFrameUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $method(SynthInternalFrameUI, init$, void, $JInternalFrame*)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$000, $JInternalFrame*, SynthInternalFrameUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$100, $JInternalFrame*, SynthInternalFrameUI*)},
-	{"access$200", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$200, $JInternalFrame*, SynthInternalFrameUI*)},
-	{"access$300", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$300, $JInternalFrame*, SynthInternalFrameUI*)},
-	{"access$400", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$400, $JInternalFrame*, SynthInternalFrameUI*)},
-	{"access$502", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;Ljavax/swing/JInternalFrame;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$502, $JInternalFrame*, SynthInternalFrameUI*, $JInternalFrame*)},
-	{"access$602", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;Ljavax/swing/JInternalFrame;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$602, $JInternalFrame*, SynthInternalFrameUI*, $JInternalFrame*)},
-	{"createComponentListener", "()Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, createComponentListener, $ComponentListener*)},
-	{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthInternalFrameUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthInternalFrameUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthInternalFrameUI, updateStyle, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _SynthInternalFrameUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthInternalFrameUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthInternalFrameUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthInternalFrameUI",
-	"javax.swing.plaf.basic.BasicInternalFrameUI",
-	"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
-	_SynthInternalFrameUI_FieldInfo_,
-	_SynthInternalFrameUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthInternalFrameUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthInternalFrameUI$1"
-};
-
-$Object* allocate$SynthInternalFrameUI($Class* clazz) {
-	return $of($alloc(SynthInternalFrameUI));
-}
 
 int32_t SynthInternalFrameUI::hashCode() {
 	 return this->$BasicInternalFrameUI::hashCode();
@@ -212,14 +141,14 @@ void SynthInternalFrameUI::uninstallListeners() {
 }
 
 void SynthInternalFrameUI::updateStyle($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
 	if (this->style != oldStyle) {
 		$var($Icon, frameIcon, $nc(this->frame)->getFrameIcon());
 		if (frameIcon == nullptr || $instanceOf($UIResource, frameIcon)) {
-			$nc(this->frame)->setFrameIcon($($nc($($nc(context)->getStyle()))->getIcon(context, "InternalFrame.icon"_s)));
+			$nc(this->frame)->setFrameIcon($($$nc($nc(context)->getStyle())->getIcon(context, "InternalFrame.icon"_s)));
 		}
 		if (oldStyle != nullptr) {
 			uninstallKeyboardActions();
@@ -251,7 +180,7 @@ int32_t SynthInternalFrameUI::getComponentState($JComponent* c) {
 
 $JComponent* SynthInternalFrameUI::createNorthPane($JInternalFrame* w) {
 	$set(this, titlePane, $new($SynthInternalFrameTitlePane, w));
-	$nc(this->titlePane)->setName("InternalFrame.northPane"_s);
+	this->titlePane->setName("InternalFrame.northPane"_s);
 	return this->titlePane;
 }
 
@@ -264,13 +193,11 @@ $ComponentListener* SynthInternalFrameUI::createComponentListener() {
 }
 
 void SynthInternalFrameUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintInternalFrameBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintInternalFrameBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -283,11 +210,11 @@ void SynthInternalFrameUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthInternalFrameUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintInternalFrameBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintInternalFrameBorder(context, g, x, y, w, h);
 }
 
 void SynthInternalFrameUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthStyle, oldStyle, this->style);
 	$var($JInternalFrame, f, $cast($JInternalFrame, $nc(evt)->getSource()));
 	$var($String, prop, evt->getPropertyName());
@@ -306,7 +233,64 @@ SynthInternalFrameUI::SynthInternalFrameUI() {
 }
 
 $Class* SynthInternalFrameUI::load$($String* name, bool initialize) {
-	$loadClass(SynthInternalFrameUI, name, initialize, &_SynthInternalFrameUI_ClassInfo_, allocate$SynthInternalFrameUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthInternalFrameUI, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $method(SynthInternalFrameUI, init$, void, $JInternalFrame*)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$000, $JInternalFrame*, SynthInternalFrameUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$100, $JInternalFrame*, SynthInternalFrameUI*)},
+		{"access$200", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$200, $JInternalFrame*, SynthInternalFrameUI*)},
+		{"access$300", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$300, $JInternalFrame*, SynthInternalFrameUI*)},
+		{"access$400", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$400, $JInternalFrame*, SynthInternalFrameUI*)},
+		{"access$502", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;Ljavax/swing/JInternalFrame;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$502, $JInternalFrame*, SynthInternalFrameUI*, $JInternalFrame*)},
+		{"access$602", "(Ljavax/swing/plaf/synth/SynthInternalFrameUI;Ljavax/swing/JInternalFrame;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthInternalFrameUI, access$602, $JInternalFrame*, SynthInternalFrameUI*, $JInternalFrame*)},
+		{"createComponentListener", "()Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, createComponentListener, $ComponentListener*)},
+		{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthInternalFrameUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthInternalFrameUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthInternalFrameUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthInternalFrameUI, updateStyle, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthInternalFrameUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthInternalFrameUI",
+		"javax.swing.plaf.basic.BasicInternalFrameUI",
+		"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthInternalFrameUI$1"
+	};
+	$loadClass(SynthInternalFrameUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthInternalFrameUI));
+	});
 	return class$;
 }
 

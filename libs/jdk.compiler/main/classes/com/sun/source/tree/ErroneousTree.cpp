@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ErroneousTree.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ErroneousTree_MethodInfo_[] = {
-	{"getErrorTrees", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ErroneousTree, getErrorTrees, $List*)},
-	{}
-};
-
-$ClassInfo _ErroneousTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ErroneousTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_ErroneousTree_MethodInfo_
-};
-
-$Object* allocate$ErroneousTree($Class* clazz) {
-	return $of($alloc(ErroneousTree));
-}
-
 $Class* ErroneousTree::load$($String* name, bool initialize) {
-	$loadClass(ErroneousTree, name, initialize, &_ErroneousTree_ClassInfo_, allocate$ErroneousTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getErrorTrees", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ErroneousTree, getErrorTrees, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ErroneousTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ErroneousTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ErroneousTree);
+	});
 	return class$;
 }
 

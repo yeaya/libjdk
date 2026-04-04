@@ -40,6 +40,7 @@ class GTKColorType : public ::javax::swing::plaf::synth::ColorType {
 	$class(GTKColorType, 0, ::javax::swing::plaf::synth::ColorType)
 public:
 	GTKColorType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static ::java::awt::Color* adjustColor(::java::awt::Color* color, float hFactor, float lFactor, float sFactor);
 	static int32_t hlsToRGB(float h, float l, float s);

@@ -20,10 +20,13 @@ public:
 	MarshalException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x565E821426C57DB0;
+	static const int64_t serialVersionUID = (int64_t)0x565e821426c57db0;
 	MarshalException(const MarshalException& e);
 	virtual void throw$() override;
-	inline MarshalException* operator ->() {
+	inline MarshalException* operator ->() const {
+		return (MarshalException*)throwing$;
+	}
+	inline operator MarshalException*() const {
 		return (MarshalException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/Paint9Painter$PaintType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/swing/plaf/synth/Paint9Painter.h>
 #include <jcpp.h>
@@ -20,48 +19,6 @@ namespace sun {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _Paint9Painter$PaintType_FieldInfo_[] = {
-	{"CENTER", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, CENTER)},
-	{"TILE", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, TILE)},
-	{"PAINT9_STRETCH", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, PAINT9_STRETCH)},
-	{"PAINT9_TILE", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, PAINT9_TILE)},
-	{"$VALUES", "[Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Paint9Painter$PaintType, $VALUES)},
-	{}
-};
-
-$MethodInfo _Paint9Painter$PaintType_MethodInfo_[] = {
-	{"$values", "()[Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Paint9Painter$PaintType, $values, $Paint9Painter$PaintTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Paint9Painter$PaintType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Paint9Painter$PaintType, valueOf, Paint9Painter$PaintType*, $String*)},
-	{"values", "()[Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Paint9Painter$PaintType, values, $Paint9Painter$PaintTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _Paint9Painter$PaintType_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.Paint9Painter$PaintType", "sun.swing.plaf.synth.Paint9Painter", "PaintType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Paint9Painter$PaintType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.swing.plaf.synth.Paint9Painter$PaintType",
-	"java.lang.Enum",
-	nullptr,
-	_Paint9Painter$PaintType_FieldInfo_,
-	_Paint9Painter$PaintType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/swing/plaf/synth/Paint9Painter$PaintType;>;",
-	nullptr,
-	_Paint9Painter$PaintType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.Paint9Painter"
-};
-
-$Object* allocate$Paint9Painter$PaintType($Class* clazz) {
-	return $of($alloc(Paint9Painter$PaintType));
-}
 
 Paint9Painter$PaintType* Paint9Painter$PaintType::CENTER = nullptr;
 Paint9Painter$PaintType* Paint9Painter$PaintType::TILE = nullptr;
@@ -93,7 +50,7 @@ void Paint9Painter$PaintType::init$($String* $enum$name, int32_t $enum$ordinal) 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Paint9Painter$PaintType($Class* class$) {
+void Paint9Painter$PaintType::clinit$($Class* clazz) {
 	$assignStatic(Paint9Painter$PaintType::CENTER, $new(Paint9Painter$PaintType, "CENTER"_s, 0));
 	$assignStatic(Paint9Painter$PaintType::TILE, $new(Paint9Painter$PaintType, "TILE"_s, 1));
 	$assignStatic(Paint9Painter$PaintType::PAINT9_STRETCH, $new(Paint9Painter$PaintType, "PAINT9_STRETCH"_s, 2));
@@ -105,7 +62,43 @@ Paint9Painter$PaintType::Paint9Painter$PaintType() {
 }
 
 $Class* Paint9Painter$PaintType::load$($String* name, bool initialize) {
-	$loadClass(Paint9Painter$PaintType, name, initialize, &_Paint9Painter$PaintType_ClassInfo_, clinit$Paint9Painter$PaintType, allocate$Paint9Painter$PaintType);
+	$FieldInfo fieldInfos$$[] = {
+		{"CENTER", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, CENTER)},
+		{"TILE", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, TILE)},
+		{"PAINT9_STRETCH", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, PAINT9_STRETCH)},
+		{"PAINT9_TILE", "Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Paint9Painter$PaintType, PAINT9_TILE)},
+		{"$VALUES", "[Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Paint9Painter$PaintType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Paint9Painter$PaintType, $values, $Paint9Painter$PaintTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Paint9Painter$PaintType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Paint9Painter$PaintType, valueOf, Paint9Painter$PaintType*, $String*)},
+		{"values", "()[Lsun/swing/plaf/synth/Paint9Painter$PaintType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Paint9Painter$PaintType, values, $Paint9Painter$PaintTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.Paint9Painter$PaintType", "sun.swing.plaf.synth.Paint9Painter", "PaintType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.swing.plaf.synth.Paint9Painter$PaintType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/swing/plaf/synth/Paint9Painter$PaintType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.Paint9Painter"
+	};
+	$loadClass(Paint9Painter$PaintType, name, initialize, &classInfo$$, Paint9Painter$PaintType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Paint9Painter$PaintType));
+	});
 	return class$;
 }
 

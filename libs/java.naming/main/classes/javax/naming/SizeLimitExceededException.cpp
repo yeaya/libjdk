@@ -1,5 +1,4 @@
 #include <javax/naming/SizeLimitExceededException.h>
-
 #include <javax/naming/LimitExceededException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $LimitExceededException = ::javax::naming::LimitExceededException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _SizeLimitExceededException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SizeLimitExceededException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SizeLimitExceededException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SizeLimitExceededException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SizeLimitExceededException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SizeLimitExceededException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.SizeLimitExceededException",
-	"javax.naming.LimitExceededException",
-	nullptr,
-	_SizeLimitExceededException_FieldInfo_,
-	_SizeLimitExceededException_MethodInfo_
-};
-
-$Object* allocate$SizeLimitExceededException($Class* clazz) {
-	return $of($alloc(SizeLimitExceededException));
-}
 
 void SizeLimitExceededException::init$() {
 	$LimitExceededException::init$();
@@ -54,7 +29,26 @@ void SizeLimitExceededException::throw$() {
 }
 
 $Class* SizeLimitExceededException::load$($String* name, bool initialize) {
-	$loadClass(SizeLimitExceededException, name, initialize, &_SizeLimitExceededException_ClassInfo_, allocate$SizeLimitExceededException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SizeLimitExceededException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SizeLimitExceededException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SizeLimitExceededException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.SizeLimitExceededException",
+		"javax.naming.LimitExceededException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SizeLimitExceededException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SizeLimitExceededException);
+	});
 	return class$;
 }
 

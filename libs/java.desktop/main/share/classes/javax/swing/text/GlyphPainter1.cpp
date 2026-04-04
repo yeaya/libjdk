@@ -1,5 +1,4 @@
 #include <javax/swing/text/GlyphPainter1.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -46,57 +45,16 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _GlyphPainter1_FieldInfo_[] = {
-	{"metrics", "Ljava/awt/FontMetrics;", nullptr, 0, $field(GlyphPainter1, metrics)},
-	{}
-};
-
-$MethodInfo _GlyphPainter1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GlyphPainter1, init$, void)},
-	{"getAscent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getAscent, float, $GlyphView*)},
-	{"getBoundedPosition", "(Ljavax/swing/text/GlyphView;IFF)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getBoundedPosition, int32_t, $GlyphView*, int32_t, float, float)},
-	{"getDescent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getDescent, float, $GlyphView*)},
-	{"getHeight", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getHeight, float, $GlyphView*)},
-	{"getJustificationData", "(Ljavax/swing/text/GlyphView;)[I", nullptr, $PRIVATE, $method(GlyphPainter1, getJustificationData, $ints*, $GlyphView*)},
-	{"getSpan", "(Ljavax/swing/text/GlyphView;IILjavax/swing/text/TabExpander;F)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getSpan, float, $GlyphView*, int32_t, int32_t, $TabExpander*, float)},
-	{"modelToView", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, modelToView, $Shape*, $GlyphView*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljavax/swing/text/GlyphView;Ljava/awt/Graphics;Ljava/awt/Shape;II)V", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, paint, void, $GlyphView*, $Graphics*, $Shape*, int32_t, int32_t)},
-	{"sync", "(Ljavax/swing/text/GlyphView;)V", nullptr, 0, $virtualMethod(GlyphPainter1, sync, void, $GlyphView*)},
-	{"viewToModel", "(Ljavax/swing/text/GlyphView;FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, viewToModel, int32_t, $GlyphView*, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _GlyphPainter1_InnerClassesInfo_[] = {
-	{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GlyphPainter1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.GlyphPainter1",
-	"javax.swing.text.GlyphView$GlyphPainter",
-	nullptr,
-	_GlyphPainter1_FieldInfo_,
-	_GlyphPainter1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphPainter1_InnerClassesInfo_
-};
-
-$Object* allocate$GlyphPainter1($Class* clazz) {
-	return $of($alloc(GlyphPainter1));
-}
-
 void GlyphPainter1::init$() {
 	$GlyphView$GlyphPainter::init$();
 }
 
 float GlyphPainter1::getSpan($GlyphView* v, int32_t p0, int32_t p1, $TabExpander* e, float x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync(v);
 	$var($Segment, text, $nc(v)->getText(p0, p1));
 	$var($ints, justificationData, getJustificationData(v));
-	int32_t width = $Utilities::getTabbedTextWidth(static_cast<$View*>(v), text, this->metrics, $cast(int32_t, x), e, p0, justificationData);
+	int32_t width = $Utilities::getTabbedTextWidth(v, text, this->metrics, $cast(int32_t, x), e, p0, justificationData);
 	$SegmentCache::releaseSharedSegment(text);
 	return (float)width;
 }
@@ -117,7 +75,7 @@ float GlyphPainter1::getDescent($GlyphView* v) {
 }
 
 void GlyphPainter1::paint($GlyphView* v, $Graphics* g, $Shape* a, int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync(v);
 	$var($Segment, text, nullptr);
 	$var($TabExpander, expander, $nc(v)->getTabExpander());
@@ -127,12 +85,12 @@ void GlyphPainter1::paint($GlyphView* v, $Graphics* g, $Shape* a, int32_t p0, in
 	$var($ints, justificationData, getJustificationData(v));
 	if (p != p0) {
 		$assign(text, v->getText(p, p0));
-		float width = $Utilities::getTabbedTextWidth(static_cast<$View*>(v), text, this->metrics, x, expander, p, justificationData);
+		float width = $Utilities::getTabbedTextWidth(v, text, this->metrics, x, expander, p, justificationData);
 		x += width;
 		$SegmentCache::releaseSharedSegment(text);
 	}
 	int32_t var$0 = alloc->y + $nc(this->metrics)->getHeight();
-	float y = (float)(var$0 - $nc(this->metrics)->getDescent());
+	float y = (float)(var$0 - this->metrics->getDescent());
 	$assign(text, v->getText(p0, p1));
 	$nc(g)->setFont($($nc(this->metrics)->getFont()));
 	$Utilities::drawTabbedText(v, text, x, y, g, expander, p0, justificationData, true);
@@ -140,7 +98,7 @@ void GlyphPainter1::paint($GlyphView* v, $Graphics* g, $Shape* a, int32_t p0, in
 }
 
 $Shape* GlyphPainter1::modelToView($GlyphView* v, int32_t pos, $Position$Bias* bias, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync(v);
 	$var($Rectangle, alloc, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : $nc(a)->getBounds());
 	int32_t p0 = $nc(v)->getStartOffset();
@@ -148,20 +106,20 @@ $Shape* GlyphPainter1::modelToView($GlyphView* v, int32_t pos, $Position$Bias* b
 	$var($TabExpander, expander, v->getTabExpander());
 	$var($Segment, text, nullptr);
 	if (pos == p1) {
-		return $new($Rectangle, $nc(alloc)->x + alloc->width, alloc->y, 0, $nc(this->metrics)->getHeight());
+		return $new($Rectangle, $nc(alloc)->x + $nc(alloc)->width, $nc(alloc)->y, 0, $nc(this->metrics)->getHeight());
 	}
 	if ((pos >= p0) && (pos <= p1)) {
 		$assign(text, v->getText(p0, pos));
 		$var($ints, justificationData, getJustificationData(v));
-		int32_t width = $Utilities::getTabbedTextWidth(static_cast<$View*>(v), text, this->metrics, $nc(alloc)->x, expander, p0, justificationData);
+		int32_t width = $Utilities::getTabbedTextWidth(v, text, this->metrics, $nc(alloc)->x, expander, p0, justificationData);
 		$SegmentCache::releaseSharedSegment(text);
-		return $new($Rectangle, $nc(alloc)->x + width, alloc->y, 0, $nc(this->metrics)->getHeight());
+		return $new($Rectangle, alloc->x + width, alloc->y, 0, $nc(this->metrics)->getHeight());
 	}
 	$throwNew($BadLocationException, "modelToView - can\'t convert"_s, p1);
 }
 
 int32_t GlyphPainter1::viewToModel($GlyphView* v, float x, float y, $Shape* a, $Position$BiasArray* biasReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync(v);
 	$var($Rectangle, alloc, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : $nc(a)->getBounds());
 	int32_t p0 = $nc(v)->getStartOffset();
@@ -169,7 +127,7 @@ int32_t GlyphPainter1::viewToModel($GlyphView* v, float x, float y, $Shape* a, $
 	$var($TabExpander, expander, v->getTabExpander());
 	$var($Segment, text, v->getText(p0, p1));
 	$var($ints, justificationData, getJustificationData(v));
-	int32_t offs = $Utilities::getTabbedTextOffset(static_cast<$View*>(v), text, this->metrics, (float)$nc(alloc)->x, x, expander, p0, justificationData);
+	int32_t offs = $Utilities::getTabbedTextOffset(v, text, this->metrics, (float)$nc(alloc)->x, x, expander, p0, justificationData);
 	$SegmentCache::releaseSharedSegment(text);
 	int32_t retValue = p0 + offs;
 	if (retValue == p1) {
@@ -181,7 +139,7 @@ int32_t GlyphPainter1::viewToModel($GlyphView* v, float x, float y, $Shape* a, $
 }
 
 int32_t GlyphPainter1::getBoundedPosition($GlyphView* v, int32_t p0, float x, float len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync(v);
 	$var($TabExpander, expander, $nc(v)->getTabExpander());
 	$var($Segment, s, v->getText(p0, v->getEndOffset()));
@@ -193,26 +151,26 @@ int32_t GlyphPainter1::getBoundedPosition($GlyphView* v, int32_t p0, float x, fl
 }
 
 void GlyphPainter1::sync($GlyphView* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, f, $nc(v)->getFont());
 	$var($FontMetrics, fm, nullptr);
 	$var($Container, c, v->getContainer());
 	if (c != nullptr) {
 		$assign(fm, c->getFontMetrics(f));
 	}
-	bool var$0 = (this->metrics == nullptr) || (!$nc(f)->equals($($nc(this->metrics)->getFont())));
-	if (var$0 || (!$nc($of(this->metrics))->equals(fm))) {
-		$set(this, metrics, (c != nullptr) ? fm : $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics(f));
+	bool var$0 = (this->metrics == nullptr) || (!$nc(f)->equals($(this->metrics->getFont())));
+	if (var$0 || (!this->metrics->equals(fm))) {
+		$set(this, metrics, (c != nullptr) ? fm : $$nc($Toolkit::getDefaultToolkit())->getFontMetrics(f));
 	}
 }
 
 $ints* GlyphPainter1::getJustificationData($GlyphView* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, parent, $nc(v)->getParent());
 	$var($ints, ret, nullptr);
 	if ($instanceOf($ParagraphView$Row, parent)) {
 		$var($ParagraphView$Row, row, $cast($ParagraphView$Row, parent));
-		$assign(ret, $nc(row)->justificationData);
+		$assign(ret, row->justificationData);
 	}
 	return ret;
 }
@@ -221,7 +179,42 @@ GlyphPainter1::GlyphPainter1() {
 }
 
 $Class* GlyphPainter1::load$($String* name, bool initialize) {
-	$loadClass(GlyphPainter1, name, initialize, &_GlyphPainter1_ClassInfo_, allocate$GlyphPainter1);
+	$FieldInfo fieldInfos$$[] = {
+		{"metrics", "Ljava/awt/FontMetrics;", nullptr, 0, $field(GlyphPainter1, metrics)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GlyphPainter1, init$, void)},
+		{"getAscent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getAscent, float, $GlyphView*)},
+		{"getBoundedPosition", "(Ljavax/swing/text/GlyphView;IFF)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getBoundedPosition, int32_t, $GlyphView*, int32_t, float, float)},
+		{"getDescent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getDescent, float, $GlyphView*)},
+		{"getHeight", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getHeight, float, $GlyphView*)},
+		{"getJustificationData", "(Ljavax/swing/text/GlyphView;)[I", nullptr, $PRIVATE, $method(GlyphPainter1, getJustificationData, $ints*, $GlyphView*)},
+		{"getSpan", "(Ljavax/swing/text/GlyphView;IILjavax/swing/text/TabExpander;F)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, getSpan, float, $GlyphView*, int32_t, int32_t, $TabExpander*, float)},
+		{"modelToView", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, modelToView, $Shape*, $GlyphView*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljavax/swing/text/GlyphView;Ljava/awt/Graphics;Ljava/awt/Shape;II)V", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, paint, void, $GlyphView*, $Graphics*, $Shape*, int32_t, int32_t)},
+		{"sync", "(Ljavax/swing/text/GlyphView;)V", nullptr, 0, $virtualMethod(GlyphPainter1, sync, void, $GlyphView*)},
+		{"viewToModel", "(Ljavax/swing/text/GlyphView;FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter1, viewToModel, int32_t, $GlyphView*, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.GlyphPainter1",
+		"javax.swing.text.GlyphView$GlyphPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(GlyphPainter1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphPainter1);
+	});
 	return class$;
 }
 

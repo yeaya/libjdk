@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaKeyBindings$AquaMultilineAction.h>
-
 #include <com/apple/laf/AquaKeyBindings.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/Action.h>
@@ -22,43 +21,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaKeyBindings$AquaMultilineAction_FieldInfo_[] = {
-	{"targetActionName", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaKeyBindings$AquaMultilineAction, targetActionName)},
-	{"proxyActionName", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaKeyBindings$AquaMultilineAction, proxyActionName)},
-	{}
-};
-
-$MethodInfo _AquaKeyBindings$AquaMultilineAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AquaKeyBindings$AquaMultilineAction, init$, void, $String*, $String*, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaKeyBindings$AquaMultilineAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaKeyBindings$AquaMultilineAction_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaKeyBindings$AquaMultilineAction", "com.apple.laf.AquaKeyBindings", "AquaMultilineAction", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaKeyBindings$AquaMultilineAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaKeyBindings$AquaMultilineAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_AquaKeyBindings$AquaMultilineAction_FieldInfo_,
-	_AquaKeyBindings$AquaMultilineAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaKeyBindings$AquaMultilineAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaKeyBindings"
-};
-
-$Object* allocate$AquaKeyBindings$AquaMultilineAction($Class* clazz) {
-	return $of($alloc(AquaKeyBindings$AquaMultilineAction));
-}
-
 void AquaKeyBindings$AquaMultilineAction::init$($String* actionName, $String* targetActionName, $String* proxyActionName) {
 	$TextAction::init$(actionName);
 	$set(this, targetActionName, targetActionName);
@@ -66,7 +28,7 @@ void AquaKeyBindings$AquaMultilineAction::init$($String* actionName, $String* ta
 }
 
 void AquaKeyBindings$AquaMultilineAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, c, getTextComponent(e));
 	$var($ActionMap, actionMap, $nc(c)->getActionMap());
 	$var($Action, targetAction, $nc(actionMap)->get(this->targetActionName));
@@ -83,7 +45,38 @@ AquaKeyBindings$AquaMultilineAction::AquaKeyBindings$AquaMultilineAction() {
 }
 
 $Class* AquaKeyBindings$AquaMultilineAction::load$($String* name, bool initialize) {
-	$loadClass(AquaKeyBindings$AquaMultilineAction, name, initialize, &_AquaKeyBindings$AquaMultilineAction_ClassInfo_, allocate$AquaKeyBindings$AquaMultilineAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"targetActionName", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaKeyBindings$AquaMultilineAction, targetActionName)},
+		{"proxyActionName", "Ljava/lang/String;", nullptr, $FINAL, $field(AquaKeyBindings$AquaMultilineAction, proxyActionName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AquaKeyBindings$AquaMultilineAction, init$, void, $String*, $String*, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaKeyBindings$AquaMultilineAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaKeyBindings$AquaMultilineAction", "com.apple.laf.AquaKeyBindings", "AquaMultilineAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaKeyBindings$AquaMultilineAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaKeyBindings"
+	};
+	$loadClass(AquaKeyBindings$AquaMultilineAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaKeyBindings$AquaMultilineAction));
+	});
 	return class$;
 }
 

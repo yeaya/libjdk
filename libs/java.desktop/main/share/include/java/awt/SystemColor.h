@@ -68,6 +68,7 @@ class $import SystemColor : public ::java::awt::Color {
 	$class(SystemColor, 0, ::java::awt::Color)
 public:
 	SystemColor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t index);
 	$Object* readResolve();
 	virtual $String* toString() override;
@@ -127,7 +128,7 @@ public:
 	static ::java::awt::SystemColor* scrollbar;
 	static ::java::awt::SystemColor* info;
 	static ::java::awt::SystemColor* infoText;
-	static const int64_t serialVersionUID = (int64_t)0x3E7E60742EBE9388;
+	static const int64_t serialVersionUID = (int64_t)0x3e7e60742ebe9388;
 	int32_t index = 0;
 	static $Array<::java::awt::SystemColor>* systemColorObjects;
 };

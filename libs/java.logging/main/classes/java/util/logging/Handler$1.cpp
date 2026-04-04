@@ -1,5 +1,4 @@
 #include <java/util/logging/Handler$1.h>
-
 #include <java/util/logging/Filter.h>
 #include <java/util/logging/Formatter.h>
 #include <java/util/logging/Handler.h>
@@ -21,52 +20,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _Handler$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/Handler;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, this$0)},
-	{"val$encoding", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$encoding)},
-	{"val$formatter", "Ljava/util/logging/Formatter;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$formatter)},
-	{"val$filter", "Ljava/util/logging/Filter;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$filter)},
-	{"val$level", "Ljava/util/logging/Level;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$level)},
-	{}
-};
-
-$MethodInfo _Handler$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Handler;Ljava/util/logging/Level;Ljava/util/logging/Filter;Ljava/util/logging/Formatter;Ljava/lang/String;)V", "()V", 0, $method(Handler$1, init$, void, $Handler*, $Level*, $Filter*, $Formatter*, $String*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Handler$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Handler$1_EnclosingMethodInfo_ = {
-	"java.util.logging.Handler",
-	"<init>",
-	"(Ljava/util/logging/Level;Ljava/util/logging/Formatter;Ljava/util/logging/Formatter;)V"
-};
-
-$InnerClassInfo _Handler$1_InnerClassesInfo_[] = {
-	{"java.util.logging.Handler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Handler$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.Handler$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Handler$1_FieldInfo_,
-	_Handler$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_Handler$1_EnclosingMethodInfo_,
-	_Handler$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.Handler"
-};
-
-$Object* allocate$Handler$1($Class* clazz) {
-	return $of($alloc(Handler$1));
-}
-
 void Handler$1::init$($Handler* this$0, $Level* val$level, $Filter* val$filter, $Formatter* val$formatter, $String* val$encoding) {
 	$set(this, this$0, this$0);
 	$set(this, val$level, val$level);
@@ -87,14 +40,53 @@ $Object* Handler$1::run() {
 		} catch ($Exception& ex2) {
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Handler$1::Handler$1() {
 }
 
 $Class* Handler$1::load$($String* name, bool initialize) {
-	$loadClass(Handler$1, name, initialize, &_Handler$1_ClassInfo_, allocate$Handler$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/Handler;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, this$0)},
+		{"val$encoding", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$encoding)},
+		{"val$formatter", "Ljava/util/logging/Formatter;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$formatter)},
+		{"val$filter", "Ljava/util/logging/Filter;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$filter)},
+		{"val$level", "Ljava/util/logging/Level;", nullptr, $FINAL | $SYNTHETIC, $field(Handler$1, val$level)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/Handler;Ljava/util/logging/Level;Ljava/util/logging/Filter;Ljava/util/logging/Formatter;Ljava/lang/String;)V", "()V", 0, $method(Handler$1, init$, void, $Handler*, $Level*, $Filter*, $Formatter*, $String*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Handler$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.logging.Handler",
+		"<init>",
+		"(Ljava/util/logging/Level;Ljava/util/logging/Formatter;Ljava/util/logging/Formatter;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.Handler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.Handler$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.Handler"
+	};
+	$loadClass(Handler$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Handler$1);
+	});
 	return class$;
 }
 

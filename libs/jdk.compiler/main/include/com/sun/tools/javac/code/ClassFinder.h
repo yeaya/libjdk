@@ -119,6 +119,7 @@ class $import ClassFinder : public ::java::lang::Object {
 	$class(ClassFinder, 0, ::java::lang::Object)
 public:
 	ClassFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	::com::sun::tools::javac::code::Symbol$CompletionFailure* classFileNotFound(::com::sun::tools::javac::code::Symbol$ClassSymbol* c);
 	void complete(::com::sun::tools::javac::code::Symbol* sym);

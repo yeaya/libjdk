@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
-
 #include <com/sun/org/apache/xalan/internal/extensions/ExpressionContext.h>
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
@@ -66,7 +65,6 @@ using $SubContextList = ::com::sun::org::apache::xpath::internal::axes::SubConte
 using $DTMXRTreeFrag = ::com::sun::org::apache::xpath::internal::objects::DTMXRTreeFrag;
 using $XMLStringFactoryImpl = ::com::sun::org::apache::xpath::internal::objects::XMLStringFactoryImpl;
 using $XPATHErrorResources = ::com::sun::org::apache::xpath::internal::res::XPATHErrorResources;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Exception = ::java::lang::Exception;
@@ -76,13 +74,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $Method = ::java::lang::reflect::Method;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Stack = ::java::util::Stack;
 using $ErrorListener = ::javax::xml::transform::ErrorListener;
 using $Source = ::javax::xml::transform::Source;
@@ -97,144 +91,6 @@ namespace com {
 			namespace apache {
 				namespace xpath {
 					namespace internal {
-
-$FieldInfo _XPathContext_FieldInfo_[] = {
-	{"m_last_pushed_rtfdtm", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, 0, $field(XPathContext, m_last_pushed_rtfdtm)},
-	{"m_rtfdtm_stack", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/dtm/DTM;>;", $PRIVATE, $field(XPathContext, m_rtfdtm_stack)},
-	{"m_which_rtfdtm", "I", nullptr, $PRIVATE, $field(XPathContext, m_which_rtfdtm)},
-	{"m_global_rtfdtm", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2RTFDTM;", nullptr, $PRIVATE, $field(XPathContext, m_global_rtfdtm)},
-	{"m_DTMXRTreeFrags", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag;>;", $PRIVATE, $field(XPathContext, m_DTMXRTreeFrags)},
-	{"m_isSecureProcessing", "Z", nullptr, $PRIVATE, $field(XPathContext, m_isSecureProcessing)},
-	{"m_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XPathContext, m_overrideDefaultParser)},
-	{"m_dtmManager", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PROTECTED, $field(XPathContext, m_dtmManager)},
-	{"m_saxLocations", "Lcom/sun/org/apache/xml/internal/utils/ObjectStack;", nullptr, 0, $field(XPathContext, m_saxLocations)},
-	{"m_owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XPathContext, m_owner)},
-	{"m_ownerGetErrorListener", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(XPathContext, m_ownerGetErrorListener)},
-	{"m_variableStacks", "Lcom/sun/org/apache/xpath/internal/VariableStack;", nullptr, $PRIVATE, $field(XPathContext, m_variableStacks)},
-	{"m_errorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(XPathContext, m_errorListener)},
-	{"m_defaultErrorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(XPathContext, m_defaultErrorListener)},
-	{"m_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE, $field(XPathContext, m_uriResolver)},
-	{"m_primaryReader", "Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $field(XPathContext, m_primaryReader)},
-	{"m_contextNodeLists", "Ljava/util/Stack;", "Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;>;", $PRIVATE, $field(XPathContext, m_contextNodeLists)},
-	{"RECURSIONLIMIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XPathContext, RECURSIONLIMIT)},
-	{"m_currentNodes", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PRIVATE, $field(XPathContext, m_currentNodes)},
-	{"m_iteratorRoots", "Lcom/sun/org/apache/xml/internal/utils/NodeVector;", nullptr, $PRIVATE, $field(XPathContext, m_iteratorRoots)},
-	{"m_predicateRoots", "Lcom/sun/org/apache/xml/internal/utils/NodeVector;", nullptr, $PRIVATE, $field(XPathContext, m_predicateRoots)},
-	{"m_currentExpressionNodes", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PRIVATE, $field(XPathContext, m_currentExpressionNodes)},
-	{"m_predicatePos", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PRIVATE, $field(XPathContext, m_predicatePos)},
-	{"m_prefixResolvers", "Lcom/sun/org/apache/xml/internal/utils/ObjectStack;", nullptr, $PRIVATE, $field(XPathContext, m_prefixResolvers)},
-	{"m_axesIteratorStack", "Ljava/util/Stack;", "Ljava/util/Stack<Lcom/sun/org/apache/xpath/internal/axes/SubContextList;>;", $PRIVATE, $field(XPathContext, m_axesIteratorStack)},
-	{"expressionContext", "Lcom/sun/org/apache/xpath/internal/XPathContext$XPathExpressionContext;", nullptr, 0, $field(XPathContext, expressionContext)},
-	{}
-};
-
-$MethodInfo _XPathContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPathContext, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(XPathContext, init$, void, bool)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XPathContext, init$, void, Object$*)},
-	{"createDTMIterator", "(Ljava/lang/Object;I)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, Object$*, int32_t)},
-	{"createDTMIterator", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, $String*, $PrefixResolver*)},
-	{"createDTMIterator", "(ILcom/sun/org/apache/xml/internal/dtm/DTMFilter;Z)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, int32_t, $DTMFilter*, bool)},
-	{"createDTMIterator", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, int32_t)},
-	{"createDocumentFragment", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDocumentFragment, $DTM*)},
-	{"getAxesIteratorStackStacks", "()Ljava/util/Stack;", "()Ljava/util/Stack<Lcom/sun/org/apache/xpath/internal/axes/SubContextList;>;", $PUBLIC, $virtualMethod(XPathContext, getAxesIteratorStackStacks, $Stack*)},
-	{"getContextNode", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getContextNode, int32_t)},
-	{"getContextNodeList", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getContextNodeList, $DTMIterator*)},
-	{"getContextNodeListsStack", "()Ljava/util/Stack;", "()Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;>;", $PUBLIC, $virtualMethod(XPathContext, getContextNodeListsStack, $Stack*)},
-	{"getContextNodes", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getContextNodes, $DTMIterator*)},
-	{"getCurrentExpressionNode", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getCurrentExpressionNode, int32_t)},
-	{"getCurrentExpressionNodeStack", "()Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getCurrentExpressionNodeStack, $IntStack*)},
-	{"getCurrentNode", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getCurrentNode, int32_t)},
-	{"getCurrentNodeList", "()Lcom/sun/org/apache/xpath/internal/axes/SubContextList;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getCurrentNodeList, $SubContextList*)},
-	{"getCurrentNodeStack", "()Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getCurrentNodeStack, $IntStack*)},
-	{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool)},
-	{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTM, $DTM*, int32_t)},
-	{"getDTMHandleFromNode", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMHandleFromNode, int32_t, $Node*)},
-	{"getDTMIdentity", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;)I", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMIdentity, int32_t, $DTM*)},
-	{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMManager, $DTMManager*)},
-	{"getDTMXRTreeFrag", "(I)Lcom/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMXRTreeFrag, $DTMXRTreeFrag*, int32_t)},
-	{"getErrorListener", "()Ljavax/xml/transform/ErrorListener;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getErrorListener, $ErrorListener*)},
-	{"getExpressionContext", "()Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getExpressionContext, $ExpressionContext*)},
-	{"getGlobalRTFDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getGlobalRTFDTM, $DTM*)},
-	{"getIteratorRoot", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getIteratorRoot, int32_t)},
-	{"getNamespaceContext", "()Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getNamespaceContext, $PrefixResolver*)},
-	{"getOwnerObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getOwnerObject, $Object*)},
-	{"getPredicatePos", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getPredicatePos, int32_t)},
-	{"getPredicateRoot", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getPredicateRoot, int32_t)},
-	{"getPrimaryReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getPrimaryReader, $XMLReader*)},
-	{"getRTFDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getRTFDTM, $DTM*)},
-	{"getSAXLocator", "()Ljavax/xml/transform/SourceLocator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getSAXLocator, $SourceLocator*)},
-	{"getSubContextList", "()Lcom/sun/org/apache/xpath/internal/axes/SubContextList;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getSubContextList, $SubContextList*)},
-	{"getURIResolver", "()Ljavax/xml/transform/URIResolver;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getURIResolver, $URIResolver*)},
-	{"getVarStack", "()Lcom/sun/org/apache/xpath/internal/VariableStack;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getVarStack, $VariableStack*)},
-	{"init", "(Z)V", nullptr, $PRIVATE, $method(XPathContext, init, void, bool)},
-	{"isSecureProcessing", "()Z", nullptr, $PUBLIC, $virtualMethod(XPathContext, isSecureProcessing, bool)},
-	{"popContextNodeList", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popContextNodeList, void)},
-	{"popCurrentExpressionNode", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popCurrentExpressionNode, void)},
-	{"popCurrentNode", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popCurrentNode, void)},
-	{"popCurrentNodeAndExpression", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popCurrentNodeAndExpression, void)},
-	{"popExpressionState", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popExpressionState, void)},
-	{"popIteratorRoot", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popIteratorRoot, void)},
-	{"popNamespaceContext", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popNamespaceContext, void)},
-	{"popPredicatePos", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popPredicatePos, void)},
-	{"popPredicateRoot", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popPredicateRoot, void)},
-	{"popRTFContext", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, popRTFContext, void)},
-	{"popSAXLocator", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, popSAXLocator, void)},
-	{"popSubContextList", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popSubContextList, void)},
-	{"pushContextNodeList", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushContextNodeList, void, $DTMIterator*)},
-	{"pushCurrentExpressionNode", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushCurrentExpressionNode, void, int32_t)},
-	{"pushCurrentNode", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushCurrentNode, void, int32_t)},
-	{"pushCurrentNodeAndExpression", "(II)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushCurrentNodeAndExpression, void, int32_t, int32_t)},
-	{"pushExpressionState", "(IILcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushExpressionState, void, int32_t, int32_t, $PrefixResolver*)},
-	{"pushIteratorRoot", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushIteratorRoot, void, int32_t)},
-	{"pushNamespaceContext", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushNamespaceContext, void, $PrefixResolver*)},
-	{"pushNamespaceContextNull", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushNamespaceContextNull, void)},
-	{"pushPredicatePos", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushPredicatePos, void, int32_t)},
-	{"pushPredicateRoot", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushPredicateRoot, void, int32_t)},
-	{"pushRTFContext", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, pushRTFContext, void)},
-	{"pushSAXLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, pushSAXLocator, void, $SourceLocator*)},
-	{"pushSAXLocatorNull", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, pushSAXLocatorNull, void)},
-	{"pushSubContextList", "(Lcom/sun/org/apache/xpath/internal/axes/SubContextList;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushSubContextList, void, $SubContextList*)},
-	{"release", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;Z)Z", nullptr, $PUBLIC, $virtualMethod(XPathContext, release, bool, $DTM*, bool)},
-	{"releaseDTMXRTreeFrags", "()V", nullptr, $PRIVATE | $FINAL, $method(XPathContext, releaseDTMXRTreeFrags, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, reset, void)},
-	{"setAxesIteratorStackStacks", "(Ljava/util/Stack;)V", "(Ljava/util/Stack<Lcom/sun/org/apache/xpath/internal/axes/SubContextList;>;)V", $PUBLIC, $virtualMethod(XPathContext, setAxesIteratorStackStacks, void, $Stack*)},
-	{"setContextNodeListsStack", "(Ljava/util/Stack;)V", "(Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;>;)V", $PUBLIC, $virtualMethod(XPathContext, setContextNodeListsStack, void, $Stack*)},
-	{"setCurrentExpressionNodeStack", "(Lcom/sun/org/apache/xml/internal/utils/IntStack;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setCurrentExpressionNodeStack, void, $IntStack*)},
-	{"setCurrentNodeStack", "(Lcom/sun/org/apache/xml/internal/utils/IntStack;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setCurrentNodeStack, void, $IntStack*)},
-	{"setErrorListener", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setErrorListener, void, $ErrorListener*), "java.lang.IllegalArgumentException"},
-	{"setNamespaceContext", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, setNamespaceContext, void, $PrefixResolver*)},
-	{"setPrimaryReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setPrimaryReader, void, $XMLReader*)},
-	{"setSAXLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setSAXLocator, void, $SourceLocator*)},
-	{"setSecureProcessing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setSecureProcessing, void, bool)},
-	{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setURIResolver, void, $URIResolver*)},
-	{"setVarStack", "(Lcom/sun/org/apache/xpath/internal/VariableStack;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, setVarStack, void, $VariableStack*)},
-	{}
-};
-
-$InnerClassInfo _XPathContext_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.XPathContext$XPathExpressionContext", "com.sun.org.apache.xpath.internal.XPathContext", "XPathExpressionContext", $PUBLIC},
-	{}
-};
-
-$ClassInfo _XPathContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.XPathContext",
-	"com.sun.org.apache.xml.internal.dtm.DTMManager",
-	nullptr,
-	_XPathContext_FieldInfo_,
-	_XPathContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPathContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.XPathContext$XPathExpressionContext"
-};
-
-$Object* allocate$XPathContext($Class* clazz) {
-	return $of($alloc(XPathContext));
-}
 
 $DTMManager* XPathContext::getDTMManager() {
 	return this->m_dtmManager;
@@ -269,7 +125,7 @@ $DTM* XPathContext::createDocumentFragment() {
 }
 
 bool XPathContext::release($DTM* dtm, bool shouldHardDelete) {
-	if (this->m_rtfdtm_stack != nullptr && $nc(this->m_rtfdtm_stack)->contains(dtm)) {
+	if (this->m_rtfdtm_stack != nullptr && this->m_rtfdtm_stack->contains(dtm)) {
 		return false;
 	}
 	return $nc(this->m_dtmManager)->release(dtm, shouldHardDelete);
@@ -343,7 +199,7 @@ void XPathContext::init$(Object$* owner) {
 	$set(this, expressionContext, $new($XPathContext$XPathExpressionContext, this));
 	$set(this, m_owner, owner);
 	try {
-		$set(this, m_ownerGetErrorListener, $nc($of(this->m_owner))->getClass()->getMethod("getErrorListener"_s, $$new($ClassArray, 0)));
+		$set(this, m_ownerGetErrorListener, $nc(this->m_owner)->getClass()->getMethod("getErrorListener"_s, $$new($ClassArray, 0)));
 	} catch ($NoSuchMethodException& nsme) {
 	}
 	init(false);
@@ -359,16 +215,14 @@ void XPathContext::init(bool overrideDefaultParser) {
 }
 
 void XPathContext::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	releaseDTMXRTreeFrags();
 	if (this->m_rtfdtm_stack != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->m_rtfdtm_stack)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($DTM, dtm, $cast($DTM, i$->next()));
-				{
-					$nc(this->m_dtmManager)->release(dtm, true);
-				}
+		$var($Iterator, i$, this->m_rtfdtm_stack->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($DTM, dtm, $cast($DTM, i$->next()));
+			{
+				$nc(this->m_dtmManager)->release(dtm, true);
 			}
 		}
 	}
@@ -415,7 +269,7 @@ $SourceLocator* XPathContext::getSAXLocator() {
 }
 
 $Object* XPathContext::getOwnerObject() {
-	return $of(this->m_owner);
+	return this->m_owner;
 }
 
 $VariableStack* XPathContext::getVarStack() {
@@ -427,7 +281,7 @@ void XPathContext::setVarStack($VariableStack* varStack) {
 }
 
 $ErrorListener* XPathContext::getErrorListener() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (nullptr != this->m_errorListener) {
 		return this->m_errorListener;
@@ -435,7 +289,7 @@ $ErrorListener* XPathContext::getErrorListener() {
 	$var($ErrorListener, retval, nullptr);
 	try {
 		if (nullptr != this->m_ownerGetErrorListener) {
-			$assign(retval, $cast($ErrorListener, $nc(this->m_ownerGetErrorListener)->invoke(this->m_owner, $$new($ObjectArray, 0))));
+			$assign(retval, $cast($ErrorListener, this->m_ownerGetErrorListener->invoke(this->m_owner, $$new($ObjectArray, 0))));
 		}
 	} catch ($Exception& e) {
 	}
@@ -482,7 +336,7 @@ void XPathContext::setContextNodeListsStack($Stack* s) {
 
 $DTMIterator* XPathContext::getContextNodeList() {
 	if ($nc(this->m_contextNodeLists)->size() > 0) {
-		return $cast($DTMIterator, $nc(this->m_contextNodeLists)->peek());
+		return $cast($DTMIterator, this->m_contextNodeLists->peek());
 	} else {
 		return nullptr;
 	}
@@ -496,7 +350,7 @@ void XPathContext::popContextNodeList() {
 	if ($nc(this->m_contextNodeLists)->isEmpty()) {
 		$nc($System::err)->println("Warning: popContextNodeList when stack is empty!"_s);
 	} else {
-		$nc(this->m_contextNodeLists)->pop();
+		this->m_contextNodeLists->pop();
 	}
 }
 
@@ -635,11 +489,11 @@ void XPathContext::popSubContextList() {
 }
 
 $SubContextList* XPathContext::getSubContextList() {
-	return $nc(this->m_axesIteratorStack)->isEmpty() ? ($SubContextList*)nullptr : $cast($SubContextList, $nc(this->m_axesIteratorStack)->peek());
+	return $nc(this->m_axesIteratorStack)->isEmpty() ? ($SubContextList*)nullptr : $cast($SubContextList, this->m_axesIteratorStack->peek());
 }
 
 $SubContextList* XPathContext::getCurrentNodeList() {
-	return $nc(this->m_axesIteratorStack)->isEmpty() ? ($SubContextList*)nullptr : $cast($SubContextList, $nc(this->m_axesIteratorStack)->get(0));
+	return $nc(this->m_axesIteratorStack)->isEmpty() ? ($SubContextList*)nullptr : $cast($SubContextList, this->m_axesIteratorStack->get(0));
 }
 
 int32_t XPathContext::getContextNode() {
@@ -665,7 +519,7 @@ $ExpressionContext* XPathContext::getExpressionContext() {
 }
 
 $DTM* XPathContext::getGlobalRTFDTM() {
-	if (this->m_global_rtfdtm == nullptr || $nc(this->m_global_rtfdtm)->isTreeIncomplete()) {
+	if (this->m_global_rtfdtm == nullptr || this->m_global_rtfdtm->isTreeIncomplete()) {
 		$set(this, m_global_rtfdtm, $cast($SAX2RTFDTM, $nc(this->m_dtmManager)->getDTM(nullptr, true, nullptr, false, false)));
 	}
 	return this->m_global_rtfdtm;
@@ -679,12 +533,12 @@ $DTM* XPathContext::getRTFDTM() {
 		$nc(this->m_rtfdtm_stack)->add(rtfdtm);
 		++this->m_which_rtfdtm;
 	} else if (this->m_which_rtfdtm < 0) {
-		$assign(rtfdtm, $cast($SAX2RTFDTM, $nc(this->m_rtfdtm_stack)->get(++this->m_which_rtfdtm)));
+		$assign(rtfdtm, $cast($SAX2RTFDTM, this->m_rtfdtm_stack->get(++this->m_which_rtfdtm)));
 	} else {
-		$assign(rtfdtm, $cast($SAX2RTFDTM, $nc(this->m_rtfdtm_stack)->get(this->m_which_rtfdtm)));
+		$assign(rtfdtm, $cast($SAX2RTFDTM, this->m_rtfdtm_stack->get(this->m_which_rtfdtm)));
 		if ($nc(rtfdtm)->isTreeIncomplete()) {
 			if (++this->m_which_rtfdtm < $nc(this->m_rtfdtm_stack)->size()) {
-				$assign(rtfdtm, $cast($SAX2RTFDTM, $nc(this->m_rtfdtm_stack)->get(this->m_which_rtfdtm)));
+				$assign(rtfdtm, $cast($SAX2RTFDTM, this->m_rtfdtm_stack->get(this->m_which_rtfdtm)));
 			} else {
 				$assign(rtfdtm, $cast($SAX2RTFDTM, $nc(this->m_dtmManager)->getDTM(nullptr, true, nullptr, false, false)));
 				$nc(this->m_rtfdtm_stack)->add(rtfdtm);
@@ -697,48 +551,48 @@ $DTM* XPathContext::getRTFDTM() {
 void XPathContext::pushRTFContext() {
 	$nc(this->m_last_pushed_rtfdtm)->push(this->m_which_rtfdtm);
 	if (nullptr != this->m_rtfdtm_stack) {
-		$nc((($cast($SAX2RTFDTM, $(getRTFDTM())))))->pushRewindMark();
+		$$cast($SAX2RTFDTM, getRTFDTM())->pushRewindMark();
 	}
 }
 
 void XPathContext::popRTFContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t previous = $nc(this->m_last_pushed_rtfdtm)->pop();
 	if (nullptr == this->m_rtfdtm_stack) {
 		return;
 	}
 	if (this->m_which_rtfdtm == previous) {
 		if (previous >= 0) {
-			bool isEmpty = $nc((($cast($SAX2RTFDTM, $($nc(this->m_rtfdtm_stack)->get(previous))))))->popRewindMark();
+			bool isEmpty = $$cast($SAX2RTFDTM, $nc(this->m_rtfdtm_stack)->get(previous))->popRewindMark();
 		}
 	} else {
 		while (this->m_which_rtfdtm != previous) {
-			bool isEmpty = $nc((($cast($SAX2RTFDTM, $($nc(this->m_rtfdtm_stack)->get(this->m_which_rtfdtm))))))->popRewindMark();
+			bool isEmpty = $$cast($SAX2RTFDTM, $nc(this->m_rtfdtm_stack)->get(this->m_which_rtfdtm))->popRewindMark();
 			--this->m_which_rtfdtm;
 		}
 	}
 }
 
 $DTMXRTreeFrag* XPathContext::getDTMXRTreeFrag(int32_t dtmIdentity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_DTMXRTreeFrags == nullptr) {
 		$set(this, m_DTMXRTreeFrags, $new($HashMap));
 	}
 	if ($nc(this->m_DTMXRTreeFrags)->containsKey($($Integer::valueOf(dtmIdentity)))) {
-		return $cast($DTMXRTreeFrag, $nc(this->m_DTMXRTreeFrags)->get($($Integer::valueOf(dtmIdentity))));
+		return $cast($DTMXRTreeFrag, this->m_DTMXRTreeFrags->get($($Integer::valueOf(dtmIdentity))));
 	} else {
 		$var($DTMXRTreeFrag, frag, $new($DTMXRTreeFrag, dtmIdentity, this));
-		$nc(this->m_DTMXRTreeFrags)->put($($Integer::valueOf(dtmIdentity)), frag);
+		this->m_DTMXRTreeFrags->put($($Integer::valueOf(dtmIdentity)), frag);
 		return frag;
 	}
 }
 
 void XPathContext::releaseDTMXRTreeFrags() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_DTMXRTreeFrags == nullptr) {
 		return;
 	}
-	$var($Iterator, iter, $nc(($($nc(this->m_DTMXRTreeFrags)->values())))->iterator());
+	$var($Iterator, iter, ($$nc($nc(this->m_DTMXRTreeFrags)->values()))->iterator());
 	while ($nc(iter)->hasNext()) {
 		$var($DTMXRTreeFrag, frag, $cast($DTMXRTreeFrag, iter->next()));
 		$nc(frag)->destruct();
@@ -751,7 +605,139 @@ XPathContext::XPathContext() {
 }
 
 $Class* XPathContext::load$($String* name, bool initialize) {
-	$loadClass(XPathContext, name, initialize, &_XPathContext_ClassInfo_, allocate$XPathContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_last_pushed_rtfdtm", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, 0, $field(XPathContext, m_last_pushed_rtfdtm)},
+		{"m_rtfdtm_stack", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/dtm/DTM;>;", $PRIVATE, $field(XPathContext, m_rtfdtm_stack)},
+		{"m_which_rtfdtm", "I", nullptr, $PRIVATE, $field(XPathContext, m_which_rtfdtm)},
+		{"m_global_rtfdtm", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2RTFDTM;", nullptr, $PRIVATE, $field(XPathContext, m_global_rtfdtm)},
+		{"m_DTMXRTreeFrags", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag;>;", $PRIVATE, $field(XPathContext, m_DTMXRTreeFrags)},
+		{"m_isSecureProcessing", "Z", nullptr, $PRIVATE, $field(XPathContext, m_isSecureProcessing)},
+		{"m_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XPathContext, m_overrideDefaultParser)},
+		{"m_dtmManager", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PROTECTED, $field(XPathContext, m_dtmManager)},
+		{"m_saxLocations", "Lcom/sun/org/apache/xml/internal/utils/ObjectStack;", nullptr, 0, $field(XPathContext, m_saxLocations)},
+		{"m_owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XPathContext, m_owner)},
+		{"m_ownerGetErrorListener", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(XPathContext, m_ownerGetErrorListener)},
+		{"m_variableStacks", "Lcom/sun/org/apache/xpath/internal/VariableStack;", nullptr, $PRIVATE, $field(XPathContext, m_variableStacks)},
+		{"m_errorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(XPathContext, m_errorListener)},
+		{"m_defaultErrorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(XPathContext, m_defaultErrorListener)},
+		{"m_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE, $field(XPathContext, m_uriResolver)},
+		{"m_primaryReader", "Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $field(XPathContext, m_primaryReader)},
+		{"m_contextNodeLists", "Ljava/util/Stack;", "Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;>;", $PRIVATE, $field(XPathContext, m_contextNodeLists)},
+		{"RECURSIONLIMIT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XPathContext, RECURSIONLIMIT)},
+		{"m_currentNodes", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PRIVATE, $field(XPathContext, m_currentNodes)},
+		{"m_iteratorRoots", "Lcom/sun/org/apache/xml/internal/utils/NodeVector;", nullptr, $PRIVATE, $field(XPathContext, m_iteratorRoots)},
+		{"m_predicateRoots", "Lcom/sun/org/apache/xml/internal/utils/NodeVector;", nullptr, $PRIVATE, $field(XPathContext, m_predicateRoots)},
+		{"m_currentExpressionNodes", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PRIVATE, $field(XPathContext, m_currentExpressionNodes)},
+		{"m_predicatePos", "Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PRIVATE, $field(XPathContext, m_predicatePos)},
+		{"m_prefixResolvers", "Lcom/sun/org/apache/xml/internal/utils/ObjectStack;", nullptr, $PRIVATE, $field(XPathContext, m_prefixResolvers)},
+		{"m_axesIteratorStack", "Ljava/util/Stack;", "Ljava/util/Stack<Lcom/sun/org/apache/xpath/internal/axes/SubContextList;>;", $PRIVATE, $field(XPathContext, m_axesIteratorStack)},
+		{"expressionContext", "Lcom/sun/org/apache/xpath/internal/XPathContext$XPathExpressionContext;", nullptr, 0, $field(XPathContext, expressionContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPathContext, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(XPathContext, init$, void, bool)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XPathContext, init$, void, Object$*)},
+		{"createDTMIterator", "(Ljava/lang/Object;I)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, Object$*, int32_t)},
+		{"createDTMIterator", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, $String*, $PrefixResolver*)},
+		{"createDTMIterator", "(ILcom/sun/org/apache/xml/internal/dtm/DTMFilter;Z)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, int32_t, $DTMFilter*, bool)},
+		{"createDTMIterator", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDTMIterator, $DTMIterator*, int32_t)},
+		{"createDocumentFragment", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, createDocumentFragment, $DTM*)},
+		{"getAxesIteratorStackStacks", "()Ljava/util/Stack;", "()Ljava/util/Stack<Lcom/sun/org/apache/xpath/internal/axes/SubContextList;>;", $PUBLIC, $virtualMethod(XPathContext, getAxesIteratorStackStacks, $Stack*)},
+		{"getContextNode", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getContextNode, int32_t)},
+		{"getContextNodeList", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getContextNodeList, $DTMIterator*)},
+		{"getContextNodeListsStack", "()Ljava/util/Stack;", "()Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;>;", $PUBLIC, $virtualMethod(XPathContext, getContextNodeListsStack, $Stack*)},
+		{"getContextNodes", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getContextNodes, $DTMIterator*)},
+		{"getCurrentExpressionNode", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getCurrentExpressionNode, int32_t)},
+		{"getCurrentExpressionNodeStack", "()Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getCurrentExpressionNodeStack, $IntStack*)},
+		{"getCurrentNode", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getCurrentNode, int32_t)},
+		{"getCurrentNodeList", "()Lcom/sun/org/apache/xpath/internal/axes/SubContextList;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getCurrentNodeList, $SubContextList*)},
+		{"getCurrentNodeStack", "()Lcom/sun/org/apache/xml/internal/utils/IntStack;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getCurrentNodeStack, $IntStack*)},
+		{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool)},
+		{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTM, $DTM*, int32_t)},
+		{"getDTMHandleFromNode", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMHandleFromNode, int32_t, $Node*)},
+		{"getDTMIdentity", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;)I", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMIdentity, int32_t, $DTM*)},
+		{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMManager, $DTMManager*)},
+		{"getDTMXRTreeFrag", "(I)Lcom/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getDTMXRTreeFrag, $DTMXRTreeFrag*, int32_t)},
+		{"getErrorListener", "()Ljavax/xml/transform/ErrorListener;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getErrorListener, $ErrorListener*)},
+		{"getExpressionContext", "()Lcom/sun/org/apache/xalan/internal/extensions/ExpressionContext;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getExpressionContext, $ExpressionContext*)},
+		{"getGlobalRTFDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getGlobalRTFDTM, $DTM*)},
+		{"getIteratorRoot", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getIteratorRoot, int32_t)},
+		{"getNamespaceContext", "()Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getNamespaceContext, $PrefixResolver*)},
+		{"getOwnerObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getOwnerObject, $Object*)},
+		{"getPredicatePos", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getPredicatePos, int32_t)},
+		{"getPredicateRoot", "()I", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getPredicateRoot, int32_t)},
+		{"getPrimaryReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getPrimaryReader, $XMLReader*)},
+		{"getRTFDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getRTFDTM, $DTM*)},
+		{"getSAXLocator", "()Ljavax/xml/transform/SourceLocator;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getSAXLocator, $SourceLocator*)},
+		{"getSubContextList", "()Lcom/sun/org/apache/xpath/internal/axes/SubContextList;", nullptr, $PUBLIC, $virtualMethod(XPathContext, getSubContextList, $SubContextList*)},
+		{"getURIResolver", "()Ljavax/xml/transform/URIResolver;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getURIResolver, $URIResolver*)},
+		{"getVarStack", "()Lcom/sun/org/apache/xpath/internal/VariableStack;", nullptr, $PUBLIC | $FINAL, $method(XPathContext, getVarStack, $VariableStack*)},
+		{"init", "(Z)V", nullptr, $PRIVATE, $method(XPathContext, init, void, bool)},
+		{"isSecureProcessing", "()Z", nullptr, $PUBLIC, $virtualMethod(XPathContext, isSecureProcessing, bool)},
+		{"popContextNodeList", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popContextNodeList, void)},
+		{"popCurrentExpressionNode", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popCurrentExpressionNode, void)},
+		{"popCurrentNode", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popCurrentNode, void)},
+		{"popCurrentNodeAndExpression", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popCurrentNodeAndExpression, void)},
+		{"popExpressionState", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popExpressionState, void)},
+		{"popIteratorRoot", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popIteratorRoot, void)},
+		{"popNamespaceContext", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popNamespaceContext, void)},
+		{"popPredicatePos", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popPredicatePos, void)},
+		{"popPredicateRoot", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popPredicateRoot, void)},
+		{"popRTFContext", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, popRTFContext, void)},
+		{"popSAXLocator", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, popSAXLocator, void)},
+		{"popSubContextList", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, popSubContextList, void)},
+		{"pushContextNodeList", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushContextNodeList, void, $DTMIterator*)},
+		{"pushCurrentExpressionNode", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushCurrentExpressionNode, void, int32_t)},
+		{"pushCurrentNode", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushCurrentNode, void, int32_t)},
+		{"pushCurrentNodeAndExpression", "(II)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushCurrentNodeAndExpression, void, int32_t, int32_t)},
+		{"pushExpressionState", "(IILcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushExpressionState, void, int32_t, int32_t, $PrefixResolver*)},
+		{"pushIteratorRoot", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushIteratorRoot, void, int32_t)},
+		{"pushNamespaceContext", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushNamespaceContext, void, $PrefixResolver*)},
+		{"pushNamespaceContextNull", "()V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushNamespaceContextNull, void)},
+		{"pushPredicatePos", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushPredicatePos, void, int32_t)},
+		{"pushPredicateRoot", "(I)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushPredicateRoot, void, int32_t)},
+		{"pushRTFContext", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, pushRTFContext, void)},
+		{"pushSAXLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, pushSAXLocator, void, $SourceLocator*)},
+		{"pushSAXLocatorNull", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, pushSAXLocatorNull, void)},
+		{"pushSubContextList", "(Lcom/sun/org/apache/xpath/internal/axes/SubContextList;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, pushSubContextList, void, $SubContextList*)},
+		{"release", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;Z)Z", nullptr, $PUBLIC, $virtualMethod(XPathContext, release, bool, $DTM*, bool)},
+		{"releaseDTMXRTreeFrags", "()V", nullptr, $PRIVATE | $FINAL, $method(XPathContext, releaseDTMXRTreeFrags, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XPathContext, reset, void)},
+		{"setAxesIteratorStackStacks", "(Ljava/util/Stack;)V", "(Ljava/util/Stack<Lcom/sun/org/apache/xpath/internal/axes/SubContextList;>;)V", $PUBLIC, $virtualMethod(XPathContext, setAxesIteratorStackStacks, void, $Stack*)},
+		{"setContextNodeListsStack", "(Ljava/util/Stack;)V", "(Ljava/util/Stack<Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;>;)V", $PUBLIC, $virtualMethod(XPathContext, setContextNodeListsStack, void, $Stack*)},
+		{"setCurrentExpressionNodeStack", "(Lcom/sun/org/apache/xml/internal/utils/IntStack;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setCurrentExpressionNodeStack, void, $IntStack*)},
+		{"setCurrentNodeStack", "(Lcom/sun/org/apache/xml/internal/utils/IntStack;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setCurrentNodeStack, void, $IntStack*)},
+		{"setErrorListener", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setErrorListener, void, $ErrorListener*), "java.lang.IllegalArgumentException"},
+		{"setNamespaceContext", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, setNamespaceContext, void, $PrefixResolver*)},
+		{"setPrimaryReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setPrimaryReader, void, $XMLReader*)},
+		{"setSAXLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setSAXLocator, void, $SourceLocator*)},
+		{"setSecureProcessing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setSecureProcessing, void, bool)},
+		{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathContext, setURIResolver, void, $URIResolver*)},
+		{"setVarStack", "(Lcom/sun/org/apache/xpath/internal/VariableStack;)V", nullptr, $PUBLIC | $FINAL, $method(XPathContext, setVarStack, void, $VariableStack*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.XPathContext$XPathExpressionContext", "com.sun.org.apache.xpath.internal.XPathContext", "XPathExpressionContext", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.XPathContext",
+		"com.sun.org.apache.xml.internal.dtm.DTMManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.XPathContext$XPathExpressionContext"
+	};
+	$loadClass(XPathContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathContext);
+	});
 	return class$;
 }
 

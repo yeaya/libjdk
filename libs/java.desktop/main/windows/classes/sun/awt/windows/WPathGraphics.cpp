@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WPathGraphics.h>
-
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
@@ -39,7 +38,6 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Math.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/Locale.h>
 #include <sun/awt/image/ByteComponentRaster.h>
@@ -89,7 +87,6 @@ using $Font = ::java::awt::Font;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
-using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
 using $Stroke = ::java::awt::Stroke;
 using $Transparency = ::java::awt::Transparency;
@@ -126,7 +123,6 @@ using $Float = ::java::lang::Float;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
 using $ByteComponentRaster = ::sun::awt::image::ByteComponentRaster;
@@ -146,56 +142,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WPathGraphics_FieldInfo_[] = {
-	{"DEFAULT_USER_RES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WPathGraphics, DEFAULT_USER_RES)},
-	{"MIN_DEVICE_LINEWIDTH", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WPathGraphics, MIN_DEVICE_LINEWIDTH)},
-	{"MAX_THINLINE_INCHES", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WPathGraphics, MAX_THINLINE_INCHES)},
-	{"precisionScale", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WPathGraphics, precisionScale)},
-	{"useGDITextLayout", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WPathGraphics, useGDITextLayout)},
-	{"preferGDITextLayout", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WPathGraphics, preferGDITextLayout)},
-	{}
-};
-
-$MethodInfo _WPathGraphics_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;IZ)V", nullptr, 0, $method(WPathGraphics, init$, void, $Graphics2D*, $PrinterJob*, $Printable*, $PageFormat*, int32_t, bool)},
-	{"convertToWPath", "(Ljava/awt/geom/PathIterator;)V", nullptr, $PRIVATE, $method(WPathGraphics, convertToWPath, void, $PathIterator*)},
-	{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, create, $Graphics*)},
-	{"deviceClip", "(Ljava/awt/geom/PathIterator;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceClip, void, $PathIterator*)},
-	{"deviceDrawLine", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceDrawLine, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"deviceFill", "(Ljava/awt/geom/PathIterator;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceFill, void, $PathIterator*, $Color*)},
-	{"deviceFillRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceFillRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"deviceFrameRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceFrameRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, draw, void, $Shape*)},
-	{"drawImageToPlatform", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;IIIIZ)Z", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, drawImageToPlatform, bool, $Image*, $AffineTransform*, $Color*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, drawString, void, $String*, float, float)},
-	{"drawString", "(Ljava/lang/String;FFLjava/awt/Font;Ljava/awt/font/FontRenderContext;F)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, drawString, void, $String*, float, float, $Font*, $FontRenderContext*, float)},
-	{"getAngle", "(Ljava/awt/geom/Point2D$Double;)I", nullptr, $PRIVATE, $method(WPathGraphics, getAngle, int32_t, $Point2D$Double*)},
-	{"getAwScale", "(DD)F", nullptr, $PRIVATE, $method(WPathGraphics, getAwScale, float, double, double)},
-	{"isXP", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WPathGraphics, isXP, bool)},
-	{"okGDIMetrics", "(Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;D)Z", nullptr, $PRIVATE, $method(WPathGraphics, okGDIMetrics, bool, $String*, $Font*, $FontRenderContext*, double)},
-	{"platformFontCount", "(Ljava/awt/Font;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, platformFontCount, int32_t, $Font*, $String*)},
-	{"precisionScaleUp", "([FI)V", nullptr, $PRIVATE, $method(WPathGraphics, precisionScaleUp, void, $floats*, int32_t)},
-	{"printGlyphVector", "(Ljava/awt/font/GlyphVector;FF)Z", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, printGlyphVector, bool, $GlyphVector*, float, float)},
-	{"redrawRegion", "(Ljava/awt/geom/Rectangle2D;DDLjava/awt/Shape;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, redrawRegion, void, $Rectangle2D*, double, double, $Shape*, $AffineTransform*), "java.awt.print.PrinterException"},
-	{"strNeedsTextLayout", "(Ljava/lang/String;Ljava/awt/Font;)Z", nullptr, $PRIVATE, $method(WPathGraphics, strNeedsTextLayout, bool, $String*, $Font*)},
-	{"textOut", "(Ljava/lang/String;Ljava/awt/Font;Lsun/font/PhysicalFont;Ljava/awt/font/FontRenderContext;FIFDDFFFFF)V", nullptr, $PRIVATE, $method(WPathGraphics, textOut, void, $String*, $Font*, $PhysicalFont*, $FontRenderContext*, float, int32_t, float, double, double, float, float, float, float, float)},
-	{}
-};
-
-$ClassInfo _WPathGraphics_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WPathGraphics",
-	"sun.print.PathGraphics",
-	nullptr,
-	_WPathGraphics_FieldInfo_,
-	_WPathGraphics_MethodInfo_
-};
-
-$Object* allocate$WPathGraphics($Class* clazz) {
-	return $of($alloc(WPathGraphics));
-}
-
 float WPathGraphics::MIN_DEVICE_LINEWIDTH = 0.0;
 float WPathGraphics::MAX_THINLINE_INCHES = 0.0;
 float WPathGraphics::precisionScale = 0.0;
@@ -207,8 +153,8 @@ void WPathGraphics::init$($Graphics2D* graphics, $PrinterJob* printerJob, $Print
 }
 
 $Graphics* WPathGraphics::create() {
-	$useLocalCurrentObjectStackCache();
-	$var($Graphics2D, var$0, $cast($Graphics2D, $nc($(getDelegate()))->create()));
+	$useLocalObjectStack();
+	$var($Graphics2D, var$0, $cast($Graphics2D, $$nc(getDelegate())->create()));
 	$var($PrinterJob, var$1, getPrinterJob());
 	$var($Printable, var$2, getPrintable());
 	$var($PageFormat, var$3, getPageFormat());
@@ -217,7 +163,7 @@ $Graphics* WPathGraphics::create() {
 }
 
 void WPathGraphics::draw($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Stroke, stroke, getStroke());
 	if ($instanceOf($BasicStroke, stroke)) {
 		$var($BasicStroke, lineStroke, nullptr);
@@ -227,7 +173,7 @@ void WPathGraphics::draw($Shape* s) {
 		$var($AffineTransform, deviceTransform, nullptr);
 		$var($Point2D$Float, penSize, nullptr);
 		$assign(lineStroke, $cast($BasicStroke, stroke));
-		lineWidth = $nc(lineStroke)->getLineWidth();
+		lineWidth = lineStroke->getLineWidth();
 		$assign(penSize, $new($Point2D$Float, lineWidth, lineWidth));
 		$assign(deviceTransform, getTransform());
 		$nc(deviceTransform)->deltaTransform(penSize, penSize);
@@ -242,12 +188,11 @@ void WPathGraphics::draw($Shape* s) {
 				$nc(inverse)->deltaTransform(minPenSize, minPenSize);
 				float var$1 = $Math::abs(minPenSize->x);
 				minLineWidth = $Math::max(var$1, $Math::abs(minPenSize->y));
-				float var$2 = minLineWidth;
-				int32_t var$3 = lineStroke->getEndCap();
-				int32_t var$4 = lineStroke->getLineJoin();
-				float var$5 = lineStroke->getMiterLimit();
-				$var($floats, var$6, lineStroke->getDashArray());
-				$assign(minLineStroke, $new($BasicStroke, var$2, var$3, var$4, var$5, var$6, lineStroke->getDashPhase()));
+				int32_t var$2 = lineStroke->getEndCap();
+				int32_t var$3 = lineStroke->getLineJoin();
+				float var$4 = lineStroke->getMiterLimit();
+				$var($floats, var$5, lineStroke->getDashArray());
+				$assign(minLineStroke, $new($BasicStroke, minLineWidth, var$2, var$3, var$4, var$5, lineStroke->getDashPhase()));
 				setStroke(minLineStroke);
 			} catch ($NoninvertibleTransformException& e) {
 			}
@@ -266,21 +211,18 @@ void WPathGraphics::drawString($String* str, int32_t x, int32_t y) {
 }
 
 void WPathGraphics::drawString($String* str, float x, float y) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, str);
-	float var$1 = x;
-	float var$2 = y;
-	$var($Font, var$3, getFont());
-	drawString(var$0, var$1, var$2, var$3, $(getFontRenderContext()), 0.0f);
+	$useLocalObjectStack();
+	$var($Font, var$0, getFont());
+	drawString(str, x, y, var$0, $(getFontRenderContext()), 0.0f);
 }
 
 int32_t WPathGraphics::platformFontCount($Font* font, $String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, deviceTransform, getTransform());
 	$var($AffineTransform, fontTransform, $new($AffineTransform, deviceTransform));
-	fontTransform->concatenate($($nc($(getFont()))->getTransform()));
+	fontTransform->concatenate($($$nc(getFont())->getTransform()));
 	int32_t transformType = fontTransform->getType();
-	bool directToGDI = ((transformType != $AffineTransform::TYPE_GENERAL_TRANSFORM) && (((int32_t)(transformType & (uint32_t)$AffineTransform::TYPE_FLIP)) == 0));
+	bool directToGDI = ((transformType != $AffineTransform::TYPE_GENERAL_TRANSFORM) && ((transformType & $AffineTransform::TYPE_FLIP) == 0));
 	if (!directToGDI) {
 		return 0;
 	}
@@ -294,11 +236,11 @@ int32_t WPathGraphics::platformFontCount($Font* font, $String* str) {
 
 bool WPathGraphics::isXP() {
 	$init(WPathGraphics);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osVersion, $System::getProperty("os.version"_s));
 	if (osVersion != nullptr) {
 		$var($Float, version, $Float::valueOf(osVersion));
-		return ($nc(version)->floatValue() >= 5.1f);
+		return (version->floatValue() >= 5.1f);
 	} else {
 		return false;
 	}
@@ -312,12 +254,12 @@ bool WPathGraphics::strNeedsTextLayout($String* str, $Font* font) {
 	} else if (!WPathGraphics::useGDITextLayout) {
 		return true;
 	} else {
-		bool var$2 = WPathGraphics::preferGDITextLayout;
-		if (!var$2) {
-			bool var$3 = isXP();
-			var$2 = (var$3 && $FontUtilities::textLayoutIsCompatible(font));
+		bool var$0 = WPathGraphics::preferGDITextLayout;
+		if (!var$0) {
+			bool var$1 = isXP();
+			var$0 = var$1 && $FontUtilities::textLayoutIsCompatible(font);
 		}
-		if (var$2) {
+		if (var$0) {
 			return false;
 		} else {
 			return true;
@@ -326,7 +268,7 @@ bool WPathGraphics::strNeedsTextLayout($String* str, $Font* font) {
 }
 
 int32_t WPathGraphics::getAngle($Point2D$Double* pt) {
-	double angle = $Math::toDegrees($Math::atan2($nc(pt)->y, pt->x));
+	double angle = $Math::toDegrees($Math::atan2($nc(pt)->y, $nc(pt)->x));
 	if (angle < 0.0) {
 		angle += 360.0;
 	}
@@ -345,7 +287,7 @@ float WPathGraphics::getAwScale(double scaleFactorX, double scaleFactorY) {
 }
 
 void WPathGraphics::drawString($String* str, float x, float y, $Font* font, $FontRenderContext* frc, float targetW) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(str)->length() == 0) {
 		return;
 	}
@@ -365,12 +307,12 @@ void WPathGraphics::drawString($String* str, float x, float y, $Font* font, $Fon
 	}
 	$var($AffineTransform, deviceTransform, getTransform());
 	$var($AffineTransform, fontTransform, $new($AffineTransform, deviceTransform));
-	fontTransform->concatenate($($nc(font)->getTransform()));
+	fontTransform->concatenate($(font->getTransform()));
 	int32_t transformType = fontTransform->getType();
-	bool directToGDI = ((transformType != $AffineTransform::TYPE_GENERAL_TRANSFORM) && (((int32_t)(transformType & (uint32_t)$AffineTransform::TYPE_FLIP)) == 0));
+	bool directToGDI = ((transformType != $AffineTransform::TYPE_GENERAL_TRANSFORM) && ((transformType & $AffineTransform::TYPE_FLIP) == 0));
 	$var($WPrinterJob, wPrinterJob, $cast($WPrinterJob, getPrinterJob()));
 	try {
-		$nc(wPrinterJob)->setTextColor($cast($Color, $(getPaint())));
+		$nc(wPrinterJob)->setTextColor($$cast($Color, getPaint()));
 	} catch ($ClassCastException& e) {
 		directToGDI = false;
 	}
@@ -380,7 +322,7 @@ void WPathGraphics::drawString($String* str, float x, float y, $Font* font, $Fon
 	}
 	$var($Point2D$Float, userpos, $new($Point2D$Float, x, y));
 	$var($Point2D$Float, devpos, $new($Point2D$Float));
-	if ($nc(font)->isTransformed()) {
+	if (font->isTransformed()) {
 		$var($AffineTransform, fontTx, font->getTransform());
 		float translateX = (float)($nc(fontTx)->getTranslateX());
 		float translateY = (float)(fontTx->getTranslateY());
@@ -395,13 +337,13 @@ void WPathGraphics::drawString($String* str, float x, float y, $Font* font, $Fon
 	}
 	$nc(deviceTransform)->transform(userpos, devpos);
 	if (getClip() != nullptr) {
-		deviceClip($($nc($(getClip()))->getPathIterator(deviceTransform)));
+		deviceClip($($$nc(getClip())->getPathIterator(deviceTransform)));
 	}
-	float fontSize = $nc(font)->getSize2D();
+	float fontSize = font->getSize2D();
 	double devResX = $nc(wPrinterJob)->getXRes();
 	double devResY = wPrinterJob->getYRes();
 	double fontDevScaleY = $div(devResY, WPathGraphics::DEFAULT_USER_RES);
-	int32_t orient = $nc($(getPageFormat()))->getOrientation();
+	int32_t orient = $$nc(getPageFormat())->getOrientation();
 	if (orient == $PageFormat::LANDSCAPE || orient == $PageFormat::REVERSE_LANDSCAPE) {
 		double tmp = devResX;
 		devResX = devResY;
@@ -434,10 +376,10 @@ void WPathGraphics::drawString($String* str, float x, float y, $Font* font, $Fon
 		float usery = y;
 		float devx = devpos->x;
 		float devy = devpos->y;
-		$var($chars, chars, $nc(str)->toCharArray());
+		$var($chars, chars, str->toCharArray());
 		int32_t len = chars->length;
 		$var($ints, glyphs, $new($ints, len));
-		$nc($($nc(compFont)->getMapper()))->charsToGlyphs(len, chars, glyphs);
+		$$nc(compFont->getMapper())->charsToGlyphs(len, chars, glyphs);
 		int32_t startChar = 0;
 		int32_t endChar = 0;
 		int32_t slot = 0;
@@ -464,22 +406,22 @@ void WPathGraphics::drawString($String* str, float x, float y, $Font* font, $Fon
 }
 
 bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)($nc(gv)->getLayoutFlags() & (uint32_t)$GlyphVector::FLAG_HAS_TRANSFORMS)) != 0) {
+	$useLocalObjectStack();
+	if (($nc(gv)->getLayoutFlags() & $GlyphVector::FLAG_HAS_TRANSFORMS) != 0) {
 		return false;
 	}
-	if ($nc(gv)->getNumGlyphs() == 0) {
+	if (gv->getNumGlyphs() == 0) {
 		return true;
 	}
 	$var($AffineTransform, deviceTransform, getTransform());
 	$var($AffineTransform, fontTransform, $new($AffineTransform, deviceTransform));
-	$var($Font, font, $nc(gv)->getFont());
+	$var($Font, font, gv->getFont());
 	fontTransform->concatenate($($nc(font)->getTransform()));
 	int32_t transformType = fontTransform->getType();
-	bool directToGDI = ((transformType != $AffineTransform::TYPE_GENERAL_TRANSFORM) && (((int32_t)(transformType & (uint32_t)$AffineTransform::TYPE_FLIP)) == 0));
+	bool directToGDI = ((transformType != $AffineTransform::TYPE_GENERAL_TRANSFORM) && ((transformType & $AffineTransform::TYPE_FLIP) == 0));
 	$var($WPrinterJob, wPrinterJob, $cast($WPrinterJob, getPrinterJob()));
 	try {
-		$nc(wPrinterJob)->setTextColor($cast($Color, $(getPaint())));
+		$nc(wPrinterJob)->setTextColor($$cast($Color, getPaint()));
 	} catch ($ClassCastException& e) {
 		directToGDI = false;
 	}
@@ -492,7 +434,7 @@ bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 	userpos->x += (float)$nc(g0pos)->getX();
 	userpos->y += (float)g0pos->getY();
 	$var($Point2D$Float, devpos, $new($Point2D$Float));
-	if ($nc(font)->isTransformed()) {
+	if (font->isTransformed()) {
 		$var($AffineTransform, fontTx, font->getTransform());
 		float translateX = (float)($nc(fontTx)->getTranslateX());
 		float translateY = (float)(fontTx->getTranslateY());
@@ -507,13 +449,13 @@ bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 	}
 	$nc(deviceTransform)->transform(userpos, devpos);
 	if (getClip() != nullptr) {
-		deviceClip($($nc($(getClip()))->getPathIterator(deviceTransform)));
+		deviceClip($($$nc(getClip())->getPathIterator(deviceTransform)));
 	}
-	float fontSize = $nc(font)->getSize2D();
+	float fontSize = font->getSize2D();
 	double devResX = $nc(wPrinterJob)->getXRes();
 	double devResY = wPrinterJob->getYRes();
 	double fontDevScaleY = $div(devResY, WPathGraphics::DEFAULT_USER_RES);
-	int32_t orient = $nc($(getPageFormat()))->getOrientation();
+	int32_t orient = $$nc(getPageFormat())->getOrientation();
 	if (orient == $PageFormat::LANDSCAPE || orient == $PageFormat::REVERSE_LANDSCAPE) {
 		double tmp = devResX;
 		devResX = devResY;
@@ -542,7 +484,7 @@ bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 	$var($floats, glyphPos, gv->getGlyphPositions(0, numGlyphs, nullptr));
 	int32_t invisibleGlyphCnt = 0;
 	for (int32_t gc = 0; gc < numGlyphs; ++gc) {
-		if (((int32_t)($nc(glyphCodes)->get(gc) & (uint32_t)0x0000FFFF)) >= $CharToGlyphMapper::INVISIBLE_GLYPHS) {
+		if (($nc(glyphCodes)->get(gc) & 0xffff) >= $CharToGlyphMapper::INVISIBLE_GLYPHS) {
 			++invisibleGlyphCnt;
 		}
 	}
@@ -552,7 +494,7 @@ bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 		$var($floats, visiblePositions, $new($floats, visibleGlyphCnt * 2));
 		int32_t index = 0;
 		for (int32_t i = 0; i < numGlyphs; ++i) {
-			if (((int32_t)($nc(glyphCodes)->get(i) & (uint32_t)0x0000FFFF)) < $CharToGlyphMapper::INVISIBLE_GLYPHS) {
+			if (($nc(glyphCodes)->get(i) & 0xffff) < $CharToGlyphMapper::INVISIBLE_GLYPHS) {
 				visibleGlyphCodes->set(index, glyphCodes->get(i));
 				visiblePositions->set(index * 2, $nc(glyphPos)->get(i * 2));
 				visiblePositions->set(index * 2 + 1, glyphPos->get(i * 2 + 1));
@@ -568,7 +510,7 @@ bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 	$nc(advanceTransform)->transform(glyphPos, 0, glyphAdvPos, 0, glyphPos->length / 2);
 	$var($Font2D, font2D, $FontUtilities::getFont2D(font));
 	if ($instanceOf($TrueTypeFont, font2D)) {
-		$var($String, family, $nc(font2D)->getFamilyName(nullptr));
+		$var($String, family, font2D->getFamilyName(nullptr));
 		int32_t var$0 = font->getStyle();
 		int32_t style = var$0 | font2D->getStyle();
 		if (!wPrinterJob->setFont(family, scaledFontSizeY, style, iangle, awScale)) {
@@ -590,7 +532,7 @@ bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 			while (end < numGlyphs && (((int32_t)((uint32_t)glyphCodes->get(end) >> 24)) == slot)) {
 				++end;
 			}
-			$var($PhysicalFont, slotFont, $nc(compFont)->getSlotFont(slot));
+			$var($PhysicalFont, slotFont, compFont->getSlotFont(slot));
 			if (!($instanceOf($TrueTypeFont, slotFont))) {
 				return false;
 			}
@@ -617,7 +559,7 @@ bool WPathGraphics::printGlyphVector($GlyphVector* gv, float x, float y) {
 }
 
 void WPathGraphics::textOut($String* str$renamed, $Font* font, $PhysicalFont* font2D, $FontRenderContext* frc, float deviceSize, int32_t rotation, float awScale, double scaleFactorX, double scaleFactorY, float userx, float usery, float devx, float devy, float targetW) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, str$renamed);
 	$var($String, family, $nc(font2D)->getFamilyName(nullptr));
 	int32_t var$0 = $nc(font)->getStyle();
@@ -652,11 +594,11 @@ void WPathGraphics::textOut($String* str$renamed, $Font* font, $PhysicalFont* fo
 }
 
 bool WPathGraphics::okGDIMetrics($String* str, $Font* font, $FontRenderContext* frc, double scaleX) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bds, $nc(font)->getStringBounds(str, frc));
 	double jdkAdvance = $nc(bds)->getWidth();
 	jdkAdvance = (double)$Math::round(jdkAdvance * scaleX);
-	int32_t gdiAdvance = $nc(($cast($WPrinterJob, $(getPrinterJob()))))->getGDIAdvance(str);
+	int32_t gdiAdvance = $$sure($WPrinterJob, getPrinterJob())->getGDIAdvance(str);
 	if (jdkAdvance > 0 && gdiAdvance > 0) {
 		double diff = $Math::abs(gdiAdvance - jdkAdvance);
 		double ratio = gdiAdvance / jdkAdvance;
@@ -669,7 +611,7 @@ bool WPathGraphics::okGDIMetrics($String* str, $Font* font, $FontRenderContext* 
 }
 
 bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$renamed, $Color* bgcolor$renamed, int32_t srcX, int32_t srcY, int32_t srcWidth, int32_t srcHeight, bool handlingTransparency) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, bgcolor, bgcolor$renamed);
 	$var($AffineTransform, xform, xform$renamed);
 	$var($BufferedImage, img, getBufferedImage(image));
@@ -684,11 +626,11 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 	$nc(fullTransform)->concatenate(xform);
 	$var($doubles, fullMatrix, $new($doubles, 6));
 	fullTransform->getMatrix(fullMatrix);
-	$var($Point2D$Float, unitVectorX, $new($Point2D$Float, (float)1, (float)0));
-	$var($Point2D$Float, unitVectorY, $new($Point2D$Float, (float)0, (float)1));
+	$var($Point2D$Float, unitVectorX, $new($Point2D$Float, 1, 0));
+	$var($Point2D$Float, unitVectorY, $new($Point2D$Float, 0, 1));
 	fullTransform->deltaTransform(unitVectorX, unitVectorX);
 	fullTransform->deltaTransform(unitVectorY, unitVectorY);
-	$var($Point2D$Float, origin, $new($Point2D$Float, (float)0, (float)0));
+	$var($Point2D$Float, origin, $new($Point2D$Float, 0, 0));
 	double scaleX = unitVectorX->distance(origin);
 	double scaleY = unitVectorY->distance(origin);
 	double devResX = $nc(wPrinterJob)->getXRes();
@@ -696,7 +638,7 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 	double devScaleX = $div(devResX, WPathGraphics::DEFAULT_USER_RES);
 	double devScaleY = $div(devResY, WPathGraphics::DEFAULT_USER_RES);
 	int32_t transformType = fullTransform->getType();
-	bool clampScale = (((int32_t)(transformType & (uint32_t)($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM))) != 0);
+	bool clampScale = ((transformType & ($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM)) != 0);
 	if (clampScale) {
 		if (scaleX > devScaleX) {
 			scaleX = devScaleX;
@@ -710,7 +652,7 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 		$var($Rectangle2D$Float, srcRect, $new($Rectangle2D$Float, (float)srcX, (float)srcY, (float)srcWidth, (float)srcHeight));
 		$var($Shape, rotShape, rotTransform->createTransformedShape(srcRect));
 		$var($Rectangle2D, rotBounds, $nc(rotShape)->getBounds2D());
-		double var$0 = rotBounds->getX();
+		double var$0 = $nc(rotBounds)->getX();
 		double var$1 = rotBounds->getY();
 		double var$2 = rotBounds->getWidth() + 0.001;
 		$nc(rotBounds)->setRect(var$0, var$1, var$2, rotBounds->getHeight() + 0.001);
@@ -727,7 +669,7 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 						if (drawBitmaskImage(img, xform, bgcolor, srcX, srcY, srcWidth, srcHeight)) {
 							return true;
 						}
-					} else if ($nc(bgcolor)->getTransparency() == $Transparency::OPAQUE) {
+					} else if (bgcolor->getTransparency() == $Transparency::OPAQUE) {
 						drawOpaque = true;
 					}
 				}
@@ -738,7 +680,7 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 				$assign(bgcolor, nullptr);
 			}
 			bool var$4 = srcX + srcWidth > $nc(img)->getWidth(nullptr);
-			bool var$3 = (var$4 || srcY + srcHeight > $nc(img)->getHeight(nullptr));
+			bool var$3 = var$4 || srcY + srcHeight > img->getHeight(nullptr);
 			if (var$3 && canDoRedraws()) {
 				drawOpaque = false;
 			}
@@ -748,7 +690,7 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 				$var($Rectangle2D$Float, rect, $new($Rectangle2D$Float, (float)srcX, (float)srcY, (float)srcWidth, (float)srcHeight));
 				$var($Shape, shape, fullTransform->createTransformedShape(rect));
 				$var($Rectangle2D, region, $nc(shape)->getBounds2D());
-				double var$5 = region->getX();
+				double var$5 = $nc(region)->getX();
 				double var$6 = region->getY();
 				double var$7 = region->getWidth() + 0.001;
 				$nc(region)->setRect(var$5, var$6, var$7, region->getHeight() + 0.001);
@@ -758,7 +700,7 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 				int32_t maxBytes = 8 * 1024 * 1024;
 				double origDpi = (devResX < devResY) ? devResX : devResY;
 				int32_t dpi = $cast(int32_t, origDpi);
-				double scaleFactor = (double)1;
+				double scaleFactor = 1;
 				double maxSFX = w / (double)boundsWidth;
 				double maxSFY = h / (double)boundsHeight;
 				double maxSF = (maxSFX > maxSFY) ? maxSFY : maxSFX;
@@ -784,14 +726,14 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 			} else {
 				int32_t dibType = $BufferedImage::TYPE_3BYTE_BGR;
 				$var($IndexColorModel, icm, nullptr);
-				$var($ColorModel, cm, $nc(img)->getColorModel());
+				$var($ColorModel, cm, img->getColorModel());
 				int32_t imgType = img->getType();
-				if ($instanceOf($IndexColorModel, cm) && $nc(cm)->getPixelSize() <= 8 && (imgType == $BufferedImage::TYPE_BYTE_BINARY || imgType == $BufferedImage::TYPE_BYTE_INDEXED)) {
+				if ($instanceOf($IndexColorModel, cm) && cm->getPixelSize() <= 8 && (imgType == $BufferedImage::TYPE_BYTE_BINARY || imgType == $BufferedImage::TYPE_BYTE_INDEXED)) {
 					$assign(icm, $cast($IndexColorModel, cm));
 					dibType = imgType;
-					if (imgType == $BufferedImage::TYPE_BYTE_BINARY && $nc(cm)->getPixelSize() == 2) {
+					if (imgType == $BufferedImage::TYPE_BYTE_BINARY && cm->getPixelSize() == 2) {
 						$var($ints, rgbs, $new($ints, 16));
-						$nc(icm)->getRGBs(rgbs);
+						icm->getRGBs(rgbs);
 						bool transparent = icm->getTransparency() != $Transparency::OPAQUE;
 						int32_t transpixel = icm->getTransparentPixel();
 						$assign(icm, $new($IndexColorModel, 4, 16, rgbs, 0, transparent, transpixel, $DataBuffer::TYPE_BYTE));
@@ -811,8 +753,8 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 					int32_t var$12 = deepImage->getWidth();
 					$nc(imageGraphics)->clipRect(0, 0, var$12, deepImage->getHeight());
 					double var$13 = -rotBounds->getX();
-					imageGraphics->translate(var$13, -rotBounds->getY());
-					imageGraphics->transform(rotTransform);
+					$nc(imageGraphics)->translate(var$13, -rotBounds->getY());
+					$nc(imageGraphics)->transform(rotTransform);
 					if (bgcolor == nullptr) {
 						$init($Color);
 						$assign(bgcolor, $Color::white);
@@ -829,9 +771,9 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 				$var($WritableRaster, raster, $nc(deepImage)->getRaster());
 				$var($bytes, data, nullptr);
 				if ($instanceOf($ByteComponentRaster, raster)) {
-					$assign(data, $nc(($cast($ByteComponentRaster, raster)))->getDataStorage());
+					$assign(data, $cast($ByteComponentRaster, raster)->getDataStorage());
 				} else if ($instanceOf($BytePackedRaster, raster)) {
-					$assign(data, $nc(($cast($BytePackedRaster, raster)))->getDataStorage());
+					$assign(data, $cast($BytePackedRaster, raster)->getDataStorage());
 				} else {
 					return false;
 				}
@@ -839,10 +781,10 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 				$var($SampleModel, sm, deepImage->getSampleModel());
 				if ($instanceOf($ComponentSampleModel, sm)) {
 					$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, sm));
-					bitsPerPixel = $nc(csm)->getPixelStride() * 8;
+					bitsPerPixel = csm->getPixelStride() * 8;
 				} else if ($instanceOf($MultiPixelPackedSampleModel, sm)) {
 					$var($MultiPixelPackedSampleModel, mppsm, $cast($MultiPixelPackedSampleModel, sm));
-					bitsPerPixel = $nc(mppsm)->getPixelBitStride();
+					bitsPerPixel = mppsm->getPixelBitStride();
 				} else if (icm != nullptr) {
 					int32_t diw = deepImage->getWidth();
 					int32_t dih = deepImage->getHeight();
@@ -852,14 +794,13 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 				}
 				$var($Shape, holdClip, getClip());
 				clip($($nc(xform)->createTransformedShape(srcRect)));
-				deviceClip($($nc($(getClip()))->getPathIterator($(getTransform()))));
-				$var($bytes, var$17, data);
-				float var$18 = scaledBounds->x;
-				float var$19 = scaledBounds->y;
-				float var$20 = (float)$Math::rint(scaledBounds->width + 0.5);
-				float var$21 = (float)$Math::rint(scaledBounds->height + 0.5);
-				float var$22 = (float)deepImage->getWidth();
-				wPrinterJob->drawDIBImage(var$17, var$18, var$19, var$20, var$21, 0.0f, 0.0f, var$22, (float)deepImage->getHeight(), bitsPerPixel, icm);
+				deviceClip($($$nc(getClip())->getPathIterator($(getTransform()))));
+				float var$17 = scaledBounds->x;
+				float var$18 = scaledBounds->y;
+				float var$19 = (float)$Math::rint(scaledBounds->width + 0.5);
+				float var$20 = (float)$Math::rint(scaledBounds->height + 0.5);
+				float var$21 = (float)deepImage->getWidth();
+				wPrinterJob->drawDIBImage(data, var$17, var$18, var$19, var$20, 0.0f, 0.0f, var$21, (float)deepImage->getHeight(), bitsPerPixel, icm);
 				setClip(holdClip);
 			}
 		}
@@ -868,7 +809,7 @@ bool WPathGraphics::drawImageToPlatform($Image* image, $AffineTransform* xform$r
 }
 
 void WPathGraphics::redrawRegion($Rectangle2D* region, double scaleX, double scaleY, $Shape* savedClip, $AffineTransform* savedTransform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WPrinterJob, wPrinterJob, $cast($WPrinterJob, getPrinterJob()));
 	$var($Printable, painter, getPrintable());
 	$var($PageFormat, pageFormat, getPageFormat());
@@ -883,23 +824,23 @@ void WPathGraphics::redrawRegion($Rectangle2D* region, double scaleX, double sca
 	proxy->fillRect(0, 0, var$1, deepImage->getHeight());
 	int32_t var$2 = deepImage->getWidth();
 	proxy->clipRect(0, 0, var$2, deepImage->getHeight());
-	double var$3 = -$nc(region)->getX();
+	double var$3 = -region->getX();
 	proxy->translate(var$3, -region->getY());
 	float sourceResX = (float)($nc(wPrinterJob)->getXRes() / scaleX);
 	float sourceResY = (float)(wPrinterJob->getYRes() / scaleY);
 	proxy->scale($div(sourceResX, WPathGraphics::DEFAULT_USER_RES), $div(sourceResY, WPathGraphics::DEFAULT_USER_RES));
 	double var$5 = -wPrinterJob->getPhysicalPrintableX($($nc(pageFormat)->getPaper()));
 	double var$4 = var$5 / wPrinterJob->getXRes() * WPathGraphics::DEFAULT_USER_RES;
-	double var$6 = -wPrinterJob->getPhysicalPrintableY($($nc(pageFormat)->getPaper()));
+	double var$6 = -wPrinterJob->getPhysicalPrintableY($(pageFormat->getPaper()));
 	proxy->translate(var$4, var$6 / wPrinterJob->getYRes() * WPathGraphics::DEFAULT_USER_RES);
-	proxy->transform($$new($AffineTransform, $($nc($(getPageFormat()))->getMatrix())));
+	proxy->transform($$new($AffineTransform, $($$nc(getPageFormat())->getMatrix())));
 	proxy->setPaint($Color::black);
 	$nc(painter)->print(proxy, pageFormat, pageIndex);
 	$nc(g)->dispose();
 	if (savedClip != nullptr) {
 		deviceClip($(savedClip->getPathIterator(savedTransform)));
 	}
-	float var$7 = (float)($nc(region)->getX() * scaleX);
+	float var$7 = (float)(region->getX() * scaleX);
 	float var$8 = (float)(region->getY() * scaleY);
 	float var$9 = (float)(region->getWidth() * scaleX);
 	$var($Rectangle2D$Float, scaledBounds, $new($Rectangle2D$Float, var$7, var$8, var$9, (float)(region->getHeight() * scaleY)));
@@ -927,10 +868,10 @@ void WPathGraphics::deviceClip($PathIterator* pathIter) {
 }
 
 void WPathGraphics::deviceFrameRect(int32_t x, int32_t y, int32_t width, int32_t height, $Color* color) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, deviceTransform, getTransform());
 	int32_t transformType = $nc(deviceTransform)->getType();
-	bool usePath = (((int32_t)(transformType & (uint32_t)($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM))) != 0);
+	bool usePath = ((transformType & ($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM)) != 0);
 	if (usePath) {
 		draw($$new($Rectangle2D$Float, (float)x, (float)y, (float)width, (float)height));
 		return;
@@ -938,7 +879,7 @@ void WPathGraphics::deviceFrameRect(int32_t x, int32_t y, int32_t width, int32_t
 	$var($Stroke, stroke, getStroke());
 	if ($instanceOf($BasicStroke, stroke)) {
 		$var($BasicStroke, lineStroke, $cast($BasicStroke, stroke));
-		int32_t endCap = $nc(lineStroke)->getEndCap();
+		int32_t endCap = lineStroke->getEndCap();
 		int32_t lineJoin = lineStroke->getLineJoin();
 		if ((endCap == $BasicStroke::CAP_SQUARE) && (lineJoin == $BasicStroke::JOIN_MITER) && (lineStroke->getMiterLimit() == 10.0f)) {
 			float lineWidth = lineStroke->getLineWidth();
@@ -976,10 +917,10 @@ void WPathGraphics::deviceFrameRect(int32_t x, int32_t y, int32_t width, int32_t
 }
 
 void WPathGraphics::deviceFillRect(int32_t x, int32_t y, int32_t width, int32_t height, $Color* color) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, deviceTransform, getTransform());
 	int32_t transformType = $nc(deviceTransform)->getType();
-	bool usePath = (((int32_t)(transformType & (uint32_t)($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM))) != 0);
+	bool usePath = ((transformType & ($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM)) != 0);
 	if (usePath) {
 		fill($$new($Rectangle2D$Float, (float)x, (float)y, (float)width, (float)height));
 		return;
@@ -998,15 +939,15 @@ void WPathGraphics::deviceFillRect(int32_t x, int32_t y, int32_t width, int32_t 
 }
 
 void WPathGraphics::deviceDrawLine(int32_t xBegin, int32_t yBegin, int32_t xEnd, int32_t yEnd, $Color* color) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Stroke, stroke, getStroke());
 	if ($instanceOf($BasicStroke, stroke)) {
 		$var($BasicStroke, lineStroke, $cast($BasicStroke, stroke));
-		if ($nc(lineStroke)->getDashArray() != nullptr) {
+		if (lineStroke->getDashArray() != nullptr) {
 			draw($$new($Line2D$Float, (float)xBegin, (float)yBegin, (float)xEnd, (float)yEnd));
 			return;
 		}
-		float lineWidth = $nc(lineStroke)->getLineWidth();
+		float lineWidth = lineStroke->getLineWidth();
 		$var($Point2D$Float, penSize, $new($Point2D$Float, lineWidth, lineWidth));
 		$var($AffineTransform, deviceTransform, getTransform());
 		$nc(deviceTransform)->deltaTransform(penSize, penSize);
@@ -1019,10 +960,10 @@ void WPathGraphics::deviceDrawLine(int32_t xBegin, int32_t yBegin, int32_t xEnd,
 		int32_t endCap = lineStroke->getEndCap();
 		int32_t lineJoin = lineStroke->getLineJoin();
 		double var$2 = end_pos->getX();
-		bool var$1 = (var$2 == begin_pos->getX());
+		bool var$1 = var$2 == begin_pos->getX();
 		if (var$1) {
 			double var$3 = end_pos->getY();
-			var$1 = (var$3 == begin_pos->getY());
+			var$1 = var$3 == begin_pos->getY();
 		}
 		if (var$1) {
 			endCap = $BasicStroke::CAP_ROUND;
@@ -1051,12 +992,12 @@ void WPathGraphics::deviceDrawLine(int32_t xBegin, int32_t yBegin, int32_t xEnd,
 
 void WPathGraphics::precisionScaleUp($floats* values, int32_t size) {
 	for (int32_t i = 0; i < size; ++i) {
-		$nc(values)->set(i, values->get(i) * WPathGraphics::precisionScale);
+		$nc(values)->set(i, $nc(values)->get(i) * WPathGraphics::precisionScale);
 	}
 }
 
 void WPathGraphics::convertToWPath($PathIterator* pathIter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($floats, segment, $new($floats, 6));
 	int32_t segmentType = 0;
 	$var($WPrinterJob, wPrinterJob, $cast($WPrinterJob, getPrinterJob()));
@@ -1069,7 +1010,7 @@ void WPathGraphics::convertToWPath($PathIterator* pathIter) {
 	$nc(wPrinterJob)->setPolyFillMode(polyFillRule);
 	wPrinterJob->scaleTransform($div(1.0f, WPathGraphics::precisionScale));
 	wPrinterJob->beginPath();
-	while ($nc(pathIter)->isDone() == false) {
+	while (pathIter->isDone() == false) {
 		segmentType = pathIter->currentSegment(segment);
 		{
 			int32_t lastX = 0;
@@ -1080,40 +1021,30 @@ void WPathGraphics::convertToWPath($PathIterator* pathIter) {
 			float c2y = 0;
 			switch (segmentType) {
 			case $PathIterator::SEG_MOVETO:
-				{
-					precisionScaleUp(segment, 2);
-					wPrinterJob->moveTo(segment->get(0), segment->get(1));
-					break;
-				}
+				precisionScaleUp(segment, 2);
+				wPrinterJob->moveTo(segment->get(0), segment->get(1));
+				break;
 			case $PathIterator::SEG_LINETO:
-				{
-					precisionScaleUp(segment, 2);
-					wPrinterJob->lineTo(segment->get(0), segment->get(1));
-					break;
-				}
+				precisionScaleUp(segment, 2);
+				wPrinterJob->lineTo(segment->get(0), segment->get(1));
+				break;
 			case $PathIterator::SEG_QUADTO:
-				{
-					precisionScaleUp(segment, 4);
-					lastX = wPrinterJob->getPenX();
-					lastY = wPrinterJob->getPenY();
-					c1x = lastX + (segment->get(0) - lastX) * 2 / 3;
-					c1y = lastY + (segment->get(1) - lastY) * 2 / 3;
-					c2x = segment->get(2) - (segment->get(2) - segment->get(0)) * 2 / 3;
-					c2y = segment->get(3) - (segment->get(3) - segment->get(1)) * 2 / 3;
-					wPrinterJob->polyBezierTo(c1x, c1y, c2x, c2y, segment->get(2), segment->get(3));
-					break;
-				}
+				precisionScaleUp(segment, 4);
+				lastX = wPrinterJob->getPenX();
+				lastY = wPrinterJob->getPenY();
+				c1x = lastX + (segment->get(0) - lastX) * 2 / 3;
+				c1y = lastY + (segment->get(1) - lastY) * 2 / 3;
+				c2x = segment->get(2) - (segment->get(2) - segment->get(0)) * 2 / 3;
+				c2y = segment->get(3) - (segment->get(3) - segment->get(1)) * 2 / 3;
+				wPrinterJob->polyBezierTo(c1x, c1y, c2x, c2y, segment->get(2), segment->get(3));
+				break;
 			case $PathIterator::SEG_CUBICTO:
-				{
-					precisionScaleUp(segment, 6);
-					wPrinterJob->polyBezierTo(segment->get(0), segment->get(1), segment->get(2), segment->get(3), segment->get(4), segment->get(5));
-					break;
-				}
+				precisionScaleUp(segment, 6);
+				wPrinterJob->polyBezierTo(segment->get(0), segment->get(1), segment->get(2), segment->get(3), segment->get(4), segment->get(5));
+				break;
 			case $PathIterator::SEG_CLOSE:
-				{
-					wPrinterJob->closeFigure();
-					break;
-				}
+				wPrinterJob->closeFigure();
+				break;
 			}
 		}
 		pathIter->next();
@@ -1122,8 +1053,8 @@ void WPathGraphics::convertToWPath($PathIterator* pathIter) {
 	wPrinterJob->restoreTransform();
 }
 
-void clinit$WPathGraphics($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WPathGraphics::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	WPathGraphics::MIN_DEVICE_LINEWIDTH = 1.2f;
 	WPathGraphics::MAX_THINLINE_INCHES = 0.014f;
 	WPathGraphics::precisionScale = 1000.0f;
@@ -1131,7 +1062,7 @@ void clinit$WPathGraphics($Class* class$) {
 	WPathGraphics::useGDITextLayout = true;
 	WPathGraphics::preferGDITextLayout = false;
 	{
-		$var($String, textLayoutStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.print.enableGDITextLayout"_s)))));
+		$var($String, textLayoutStr, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.print.enableGDITextLayout"_s))));
 		if (textLayoutStr != nullptr) {
 			WPathGraphics::useGDITextLayout = $Boolean::getBoolean(textLayoutStr);
 			if (!WPathGraphics::useGDITextLayout) {
@@ -1148,7 +1079,52 @@ WPathGraphics::WPathGraphics() {
 }
 
 $Class* WPathGraphics::load$($String* name, bool initialize) {
-	$loadClass(WPathGraphics, name, initialize, &_WPathGraphics_ClassInfo_, clinit$WPathGraphics, allocate$WPathGraphics);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_USER_RES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WPathGraphics, DEFAULT_USER_RES)},
+		{"MIN_DEVICE_LINEWIDTH", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WPathGraphics, MIN_DEVICE_LINEWIDTH)},
+		{"MAX_THINLINE_INCHES", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WPathGraphics, MAX_THINLINE_INCHES)},
+		{"precisionScale", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WPathGraphics, precisionScale)},
+		{"useGDITextLayout", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WPathGraphics, useGDITextLayout)},
+		{"preferGDITextLayout", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WPathGraphics, preferGDITextLayout)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;IZ)V", nullptr, 0, $method(WPathGraphics, init$, void, $Graphics2D*, $PrinterJob*, $Printable*, $PageFormat*, int32_t, bool)},
+		{"convertToWPath", "(Ljava/awt/geom/PathIterator;)V", nullptr, $PRIVATE, $method(WPathGraphics, convertToWPath, void, $PathIterator*)},
+		{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, create, $Graphics*)},
+		{"deviceClip", "(Ljava/awt/geom/PathIterator;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceClip, void, $PathIterator*)},
+		{"deviceDrawLine", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceDrawLine, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"deviceFill", "(Ljava/awt/geom/PathIterator;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceFill, void, $PathIterator*, $Color*)},
+		{"deviceFillRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceFillRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"deviceFrameRect", "(IIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, deviceFrameRect, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, draw, void, $Shape*)},
+		{"drawImageToPlatform", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/Color;IIIIZ)Z", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, drawImageToPlatform, bool, $Image*, $AffineTransform*, $Color*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, drawString, void, $String*, float, float)},
+		{"drawString", "(Ljava/lang/String;FFLjava/awt/Font;Ljava/awt/font/FontRenderContext;F)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, drawString, void, $String*, float, float, $Font*, $FontRenderContext*, float)},
+		{"getAngle", "(Ljava/awt/geom/Point2D$Double;)I", nullptr, $PRIVATE, $method(WPathGraphics, getAngle, int32_t, $Point2D$Double*)},
+		{"getAwScale", "(DD)F", nullptr, $PRIVATE, $method(WPathGraphics, getAwScale, float, double, double)},
+		{"isXP", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WPathGraphics, isXP, bool)},
+		{"okGDIMetrics", "(Ljava/lang/String;Ljava/awt/Font;Ljava/awt/font/FontRenderContext;D)Z", nullptr, $PRIVATE, $method(WPathGraphics, okGDIMetrics, bool, $String*, $Font*, $FontRenderContext*, double)},
+		{"platformFontCount", "(Ljava/awt/Font;Ljava/lang/String;)I", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, platformFontCount, int32_t, $Font*, $String*)},
+		{"precisionScaleUp", "([FI)V", nullptr, $PRIVATE, $method(WPathGraphics, precisionScaleUp, void, $floats*, int32_t)},
+		{"printGlyphVector", "(Ljava/awt/font/GlyphVector;FF)Z", nullptr, $PROTECTED, $virtualMethod(WPathGraphics, printGlyphVector, bool, $GlyphVector*, float, float)},
+		{"redrawRegion", "(Ljava/awt/geom/Rectangle2D;DDLjava/awt/Shape;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(WPathGraphics, redrawRegion, void, $Rectangle2D*, double, double, $Shape*, $AffineTransform*), "java.awt.print.PrinterException"},
+		{"strNeedsTextLayout", "(Ljava/lang/String;Ljava/awt/Font;)Z", nullptr, $PRIVATE, $method(WPathGraphics, strNeedsTextLayout, bool, $String*, $Font*)},
+		{"textOut", "(Ljava/lang/String;Ljava/awt/Font;Lsun/font/PhysicalFont;Ljava/awt/font/FontRenderContext;FIFDDFFFFF)V", nullptr, $PRIVATE, $method(WPathGraphics, textOut, void, $String*, $Font*, $PhysicalFont*, $FontRenderContext*, float, int32_t, float, double, double, float, float, float, float, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WPathGraphics",
+		"sun.print.PathGraphics",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WPathGraphics, name, initialize, &classInfo$$, WPathGraphics::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WPathGraphics));
+	});
 	return class$;
 }
 

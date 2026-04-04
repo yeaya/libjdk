@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/Encodings.h>
 #include <java/util/Properties.h>
 #include <javax/xml/transform/OutputKeys.h>
@@ -43,53 +42,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$FieldInfo _OutputPropertiesFactory_FieldInfo_[] = {
-	{"S_BUILTIN_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_EXTENSIONS_URL)},
-	{"S_BUILTIN_OLD_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_OLD_EXTENSIONS_URL)},
-	{"S_BUILTIN_EXTENSIONS_UNIVERSAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_EXTENSIONS_UNIVERSAL)},
-	{"S_KEY_INDENT_AMOUNT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_INDENT_AMOUNT)},
-	{"S_KEY_LINE_SEPARATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_LINE_SEPARATOR)},
-	{"S_KEY_CONTENT_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_CONTENT_HANDLER)},
-	{"S_KEY_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_ENTITIES)},
-	{"S_USE_URL_ESCAPING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_USE_URL_ESCAPING)},
-	{"S_OMIT_META_TAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_OMIT_META_TAG)},
-	{"S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL)},
-	{"S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL_LEN)},
-	{"PROP_XML", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_XML)},
-	{"PROP_XML_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_XML_VALUE)},
-	{"PROP_HTML", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_HTML)},
-	{"PROP_HTML_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_HTML_VALUE)},
-	{"PROP_TEXT", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_TEXT)},
-	{"PROP_TEXT_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_TEXT_VALUE)},
-	{"PROP_UNKNOWN", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_UNKNOWN)},
-	{"PROP_UNKNOWN_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_UNKNOWN_VALUE)},
-	{"m_xml_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_xml_properties)},
-	{"m_html_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_html_properties)},
-	{"m_text_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_text_properties)},
-	{"m_unknown_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_unknown_properties)},
-	{}
-};
-
-$MethodInfo _OutputPropertiesFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OutputPropertiesFactory, init$, void)},
-	{"getDefaultMethodProperties", "(Ljava/lang/String;)Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(OutputPropertiesFactory, getDefaultMethodProperties, $Properties*, $String*)},
-	{"initProperties", "([Ljava/lang/String;[Ljava/lang/String;Ljava/util/Properties;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(OutputPropertiesFactory, initProperties, $Properties*, $StringArray*, $StringArray*, $Properties*)},
-	{}
-};
-
-$ClassInfo _OutputPropertiesFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.OutputPropertiesFactory",
-	"java.lang.Object",
-	nullptr,
-	_OutputPropertiesFactory_FieldInfo_,
-	_OutputPropertiesFactory_MethodInfo_
-};
-
-$Object* allocate$OutputPropertiesFactory($Class* clazz) {
-	return $of($alloc(OutputPropertiesFactory));
-}
-
 $String* OutputPropertiesFactory::S_BUILTIN_EXTENSIONS_URL = nullptr;
 $String* OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_URL = nullptr;
 $String* OutputPropertiesFactory::S_BUILTIN_EXTENSIONS_UNIVERSAL = nullptr;
@@ -119,7 +71,7 @@ void OutputPropertiesFactory::init$() {
 
 $Properties* OutputPropertiesFactory::getDefaultMethodProperties($String* method) {
 	$init(OutputPropertiesFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, defaultProperties, nullptr);
 	if (nullptr == OutputPropertiesFactory::m_xml_properties) {
 		$assignStatic(OutputPropertiesFactory::m_xml_properties, initProperties(OutputPropertiesFactory::PROP_XML, OutputPropertiesFactory::PROP_XML_VALUE, nullptr));
@@ -128,75 +80,57 @@ $Properties* OutputPropertiesFactory::getDefaultMethodProperties($String* method
 		$var($String, s10707$, method);
 		int32_t tmp10707$ = -1;
 		switch ($nc(s10707$)->hashCode()) {
-		case 0x0001D017:
-			{
-				if (s10707$->equals("xml"_s)) {
-					tmp10707$ = 0;
-				}
-				break;
+		case 0x0001d017:
+			if (s10707$->equals("xml"_s)) {
+				tmp10707$ = 0;
 			}
-		case 0x003107AB:
-			{
-				if (s10707$->equals("html"_s)) {
-					tmp10707$ = 1;
-				}
-				break;
+			break;
+		case 0x003107ab:
+			if (s10707$->equals("html"_s)) {
+				tmp10707$ = 1;
 			}
-		case 0x0036452D:
-			{
-				if (s10707$->equals("text"_s)) {
-					tmp10707$ = 2;
-				}
-				break;
+			break;
+		case 0x0036452d:
+			if (s10707$->equals("text"_s)) {
+				tmp10707$ = 2;
 			}
+			break;
 		case 0:
-			{
-				if (s10707$->equals(""_s)) {
-					tmp10707$ = 3;
-				}
-				break;
+			if (s10707$->equals(""_s)) {
+				tmp10707$ = 3;
 			}
+			break;
 		}
 		switch (tmp10707$) {
 		case 0:
-			{
-				$assign(defaultProperties, OutputPropertiesFactory::m_xml_properties);
-				break;
-			}
+			$assign(defaultProperties, OutputPropertiesFactory::m_xml_properties);
+			break;
 		case 1:
-			{
-				if (nullptr == OutputPropertiesFactory::m_html_properties) {
-					$assignStatic(OutputPropertiesFactory::m_html_properties, initProperties(OutputPropertiesFactory::PROP_HTML, OutputPropertiesFactory::PROP_HTML_VALUE, OutputPropertiesFactory::m_xml_properties));
-				}
-				$assign(defaultProperties, OutputPropertiesFactory::m_html_properties);
-				break;
+			if (nullptr == OutputPropertiesFactory::m_html_properties) {
+				$assignStatic(OutputPropertiesFactory::m_html_properties, initProperties(OutputPropertiesFactory::PROP_HTML, OutputPropertiesFactory::PROP_HTML_VALUE, OutputPropertiesFactory::m_xml_properties));
 			}
+			$assign(defaultProperties, OutputPropertiesFactory::m_html_properties);
+			break;
 		case 2:
-			{
-				if (nullptr == OutputPropertiesFactory::m_text_properties) {
-					$assignStatic(OutputPropertiesFactory::m_text_properties, initProperties(OutputPropertiesFactory::PROP_TEXT, OutputPropertiesFactory::PROP_TEXT_VALUE, OutputPropertiesFactory::m_xml_properties));
-					$init($OutputKeys);
-					if (nullptr == $nc(OutputPropertiesFactory::m_text_properties)->getProperty($OutputKeys::ENCODING)) {
-						$var($String, mimeEncoding, $Encodings::getMimeEncoding(nullptr));
-						$nc(OutputPropertiesFactory::m_text_properties)->put($OutputKeys::ENCODING, mimeEncoding);
-					}
+			if (nullptr == OutputPropertiesFactory::m_text_properties) {
+				$assignStatic(OutputPropertiesFactory::m_text_properties, initProperties(OutputPropertiesFactory::PROP_TEXT, OutputPropertiesFactory::PROP_TEXT_VALUE, OutputPropertiesFactory::m_xml_properties));
+				$init($OutputKeys);
+				if (nullptr == $nc(OutputPropertiesFactory::m_text_properties)->getProperty($OutputKeys::ENCODING)) {
+					$var($String, mimeEncoding, $Encodings::getMimeEncoding(nullptr));
+					$nc(OutputPropertiesFactory::m_text_properties)->put($OutputKeys::ENCODING, mimeEncoding);
 				}
-				$assign(defaultProperties, OutputPropertiesFactory::m_text_properties);
-				break;
 			}
+			$assign(defaultProperties, OutputPropertiesFactory::m_text_properties);
+			break;
 		case 3:
-			{
-				if (nullptr == OutputPropertiesFactory::m_unknown_properties) {
-					$assignStatic(OutputPropertiesFactory::m_unknown_properties, initProperties(OutputPropertiesFactory::PROP_UNKNOWN, OutputPropertiesFactory::PROP_UNKNOWN_VALUE, OutputPropertiesFactory::m_xml_properties));
-				}
-				$assign(defaultProperties, OutputPropertiesFactory::m_unknown_properties);
-				break;
+			if (nullptr == OutputPropertiesFactory::m_unknown_properties) {
+				$assignStatic(OutputPropertiesFactory::m_unknown_properties, initProperties(OutputPropertiesFactory::PROP_UNKNOWN, OutputPropertiesFactory::PROP_UNKNOWN_VALUE, OutputPropertiesFactory::m_xml_properties));
 			}
+			$assign(defaultProperties, OutputPropertiesFactory::m_unknown_properties);
+			break;
 		default:
-			{
-				$assign(defaultProperties, OutputPropertiesFactory::m_xml_properties);
-				break;
-			}
+			$assign(defaultProperties, OutputPropertiesFactory::m_xml_properties);
+			break;
 		}
 	}
 	return $new($Properties, defaultProperties);
@@ -204,16 +138,16 @@ $Properties* OutputPropertiesFactory::getDefaultMethodProperties($String* method
 
 $Properties* OutputPropertiesFactory::initProperties($StringArray* keys, $StringArray* values, $Properties* defaults) {
 	$init(OutputPropertiesFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, props, $new($Properties, defaults));
 	for (int32_t i = 0; i < $nc(keys)->length; ++i) {
 		$var($String, sys, $SecuritySupport::getSystemProperty(keys->get(i)));
-		props->put(keys->get(i), (sys == nullptr) ? $of($nc(values)->get(i)) : $of(sys));
+		props->put(keys->get(i), (sys == nullptr) ? $nc(values)->get(i) : sys);
 	}
 	return props;
 }
 
-void clinit$OutputPropertiesFactory($Class* class$) {
+void OutputPropertiesFactory::clinit$($Class* clazz) {
 	$assignStatic(OutputPropertiesFactory::S_BUILTIN_EXTENSIONS_URL, "http://xml.apache.org/xalan"_s);
 	$assignStatic(OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_URL, "http://xml.apache.org/xslt"_s);
 	$assignStatic(OutputPropertiesFactory::S_BUILTIN_EXTENSIONS_UNIVERSAL, $str({"{"_s, OutputPropertiesFactory::S_BUILTIN_EXTENSIONS_URL, "}"_s}));
@@ -224,7 +158,7 @@ void clinit$OutputPropertiesFactory($Class* class$) {
 	$assignStatic(OutputPropertiesFactory::S_USE_URL_ESCAPING, $str({OutputPropertiesFactory::S_BUILTIN_EXTENSIONS_UNIVERSAL, "use-url-escaping"_s}));
 	$assignStatic(OutputPropertiesFactory::S_OMIT_META_TAG, $str({OutputPropertiesFactory::S_BUILTIN_EXTENSIONS_UNIVERSAL, "omit-meta-tag"_s}));
 	$assignStatic(OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL, $str({"{"_s, OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_URL, "}"_s}));
-	OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL_LEN = $nc(OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL)->length();
+	OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL_LEN = OutputPropertiesFactory::S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL->length();
 	$assignStatic(OutputPropertiesFactory::PROP_XML, $new($StringArray, {
 		"method"_s,
 		"version"_s,
@@ -313,7 +247,49 @@ OutputPropertiesFactory::OutputPropertiesFactory() {
 }
 
 $Class* OutputPropertiesFactory::load$($String* name, bool initialize) {
-	$loadClass(OutputPropertiesFactory, name, initialize, &_OutputPropertiesFactory_ClassInfo_, clinit$OutputPropertiesFactory, allocate$OutputPropertiesFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"S_BUILTIN_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_EXTENSIONS_URL)},
+		{"S_BUILTIN_OLD_EXTENSIONS_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_OLD_EXTENSIONS_URL)},
+		{"S_BUILTIN_EXTENSIONS_UNIVERSAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_EXTENSIONS_UNIVERSAL)},
+		{"S_KEY_INDENT_AMOUNT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_INDENT_AMOUNT)},
+		{"S_KEY_LINE_SEPARATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_LINE_SEPARATOR)},
+		{"S_KEY_CONTENT_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_CONTENT_HANDLER)},
+		{"S_KEY_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_KEY_ENTITIES)},
+		{"S_USE_URL_ESCAPING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_USE_URL_ESCAPING)},
+		{"S_OMIT_META_TAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_OMIT_META_TAG)},
+		{"S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL)},
+		{"S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, S_BUILTIN_OLD_EXTENSIONS_UNIVERSAL_LEN)},
+		{"PROP_XML", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_XML)},
+		{"PROP_XML_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_XML_VALUE)},
+		{"PROP_HTML", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_HTML)},
+		{"PROP_HTML_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_HTML_VALUE)},
+		{"PROP_TEXT", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_TEXT)},
+		{"PROP_TEXT_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_TEXT_VALUE)},
+		{"PROP_UNKNOWN", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_UNKNOWN)},
+		{"PROP_UNKNOWN_VALUE", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutputPropertiesFactory, PROP_UNKNOWN_VALUE)},
+		{"m_xml_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_xml_properties)},
+		{"m_html_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_html_properties)},
+		{"m_text_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_text_properties)},
+		{"m_unknown_properties", "Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticField(OutputPropertiesFactory, m_unknown_properties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OutputPropertiesFactory, init$, void)},
+		{"getDefaultMethodProperties", "(Ljava/lang/String;)Ljava/util/Properties;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(OutputPropertiesFactory, getDefaultMethodProperties, $Properties*, $String*)},
+		{"initProperties", "([Ljava/lang/String;[Ljava/lang/String;Ljava/util/Properties;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(OutputPropertiesFactory, initProperties, $Properties*, $StringArray*, $StringArray*, $Properties*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.OutputPropertiesFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutputPropertiesFactory, name, initialize, &classInfo$$, OutputPropertiesFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OutputPropertiesFactory);
+	});
 	return class$;
 }
 

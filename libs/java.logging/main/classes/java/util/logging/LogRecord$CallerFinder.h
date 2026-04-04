@@ -35,6 +35,7 @@ class $export LogRecord$CallerFinder : public ::java::util::function::Predicate 
 	$class(LogRecord$CallerFinder, 0, ::java::util::function::Predicate)
 public:
 	LogRecord$CallerFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::util::Optional* get();
 	bool isLoggerImplFrame($String* cname);

@@ -29,6 +29,7 @@ class FetcherInfo : public ::java::lang::Object {
 	$class(FetcherInfo, 0, ::java::lang::Object)
 public:
 	FetcherInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::image::FetcherInfo* getFetcherInfo();
 	static const int32_t MAX_NUM_FETCHERS_PER_APPCONTEXT = 4;

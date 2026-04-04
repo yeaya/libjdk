@@ -1,5 +1,4 @@
 #include <javax/swing/text/FieldView.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
@@ -56,7 +55,6 @@ using $PlainView = ::javax::swing::text::PlainView;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $Segment = ::javax::swing::text::Segment;
 using $SegmentCache = ::javax::swing::text::SegmentCache;
-using $TabExpander = ::javax::swing::text::TabExpander;
 using $Utilities = ::javax::swing::text::Utilities;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
@@ -66,47 +64,18 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _FieldView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FieldView, init$, void, $Element*)},
-	{"adjustAllocation", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED, $virtualMethod(FieldView, adjustAllocation, $Shape*, $Shape*)},
-	{"adjustPaintRegion", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, 0, $virtualMethod(FieldView, adjustPaintRegion, $Shape*, $Shape*)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $virtualMethod(FieldView, getFontMetrics, $FontMetrics*)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FieldView, getPreferredSpan, float, int32_t)},
-	{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(FieldView, getResizeWeight, int32_t, int32_t)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FieldView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(FieldView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(FieldView, paint, void, $Graphics*, $Shape*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FieldView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"updateVisibilityModel", "()V", nullptr, 0, $virtualMethod(FieldView, updateVisibilityModel, void)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(FieldView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$ClassInfo _FieldView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.FieldView",
-	"javax.swing.text.PlainView",
-	nullptr,
-	nullptr,
-	_FieldView_MethodInfo_
-};
-
-$Object* allocate$FieldView($Class* clazz) {
-	return $of($alloc(FieldView));
-}
-
 void FieldView::init$($Element* elem) {
 	$PlainView::init$(elem);
 }
 
 $FontMetrics* FieldView::getFontMetrics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, getContainer());
-	return $nc(c)->getFontMetrics($(c->getFont()));
+	return $nc(c)->getFontMetrics($($nc(c)->getFont()));
 }
 
 $Shape* FieldView::adjustAllocation($Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a != nullptr) {
 		$var($Rectangle, bounds, a->getBounds());
 		int32_t vspan = $cast(int32_t, getPreferredSpan($View::Y_AXIS));
@@ -119,17 +88,17 @@ $Shape* FieldView::adjustAllocation($Shape* a) {
 		$var($Component, c, getContainer());
 		if ($instanceOf($JTextField, c)) {
 			$var($JTextField, field, $cast($JTextField, c));
-			$var($BoundedRangeModel, vis, $nc(field)->getHorizontalVisibility());
-			int32_t max = $Math::max(hspan, $nc(bounds)->width);
+			$var($BoundedRangeModel, vis, field->getHorizontalVisibility());
+			int32_t max = $Math::max(hspan, bounds->width);
 			int32_t value = $nc(vis)->getValue();
-			int32_t extent = $Math::min(max, $nc(bounds)->width - 1);
+			int32_t extent = $Math::min(max, bounds->width - 1);
 			if ((value + extent) > max) {
 				value = max - extent;
 			}
 			vis->setRangeProperties(value, extent, vis->getMinimum(), max, false);
-			if (hspan < $nc(bounds)->width) {
+			if (hspan < bounds->width) {
 				int32_t slop = bounds->width - 1 - hspan;
-				int32_t align = $nc(($cast($JTextField, c)))->getHorizontalAlignment();
+				int32_t align = $cast($JTextField, c)->getHorizontalAlignment();
 				if ($Utilities::isLeftToRight(c)) {
 					if (align == $SwingConstants::LEADING) {
 						align = $SwingConstants::LEFT;
@@ -143,17 +112,13 @@ $Shape* FieldView::adjustAllocation($Shape* a) {
 				}
 				switch (align) {
 				case $SwingConstants::CENTER:
-					{
-						bounds->x += slop / 2;
-						bounds->width -= slop;
-						break;
-					}
+					bounds->x += slop / 2;
+					bounds->width -= slop;
+					break;
 				case $SwingConstants::RIGHT:
-					{
-						bounds->x += slop;
-						bounds->width -= slop;
-						break;
-					}
+					bounds->x += slop;
+					bounds->width -= slop;
+					break;
 				}
 			} else {
 				bounds->width = hspan;
@@ -166,11 +131,11 @@ $Shape* FieldView::adjustAllocation($Shape* a) {
 }
 
 void FieldView::updateVisibilityModel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, getContainer());
 	if ($instanceOf($JTextField, c)) {
 		$var($JTextField, field, $cast($JTextField, c));
-		$var($BoundedRangeModel, vis, $nc(field)->getHorizontalVisibility());
+		$var($BoundedRangeModel, vis, field->getHorizontalVisibility());
 		int32_t hspan = $cast(int32_t, getPreferredSpan($View::X_AXIS));
 		int32_t extent = $nc(vis)->getExtent();
 		int32_t maximum = $Math::max(hspan, extent);
@@ -187,7 +152,7 @@ void FieldView::updateVisibilityModel() {
 
 void FieldView::paint($Graphics* g, $Shape* a) {
 	$var($Rectangle, r, $cast($Rectangle, a));
-	$nc(g)->clipRect($nc(r)->x, r->y, r->width, r->height);
+	$nc(g)->clipRect($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	$PlainView::paint(g, a);
 }
 
@@ -196,38 +161,32 @@ $Shape* FieldView::adjustPaintRegion($Shape* a) {
 }
 
 float FieldView::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Segment, buff, nullptr)
-		$var($Document, doc, nullptr)
-		int32_t width = 0;
-		switch (axis) {
-		case $View::X_AXIS:
-			{
-				$assign(buff, $SegmentCache::getSharedSegment());
-				$assign(doc, getDocument());
-				try {
-					$var($FontMetrics, fm, getFontMetrics());
-					$nc(doc)->getText(0, doc->getLength(), buff);
-					width = $Utilities::getTabbedTextWidth(buff, fm, 0, static_cast<$TabExpander*>(this), 0);
-					if ($nc(buff)->count > 0) {
-						$var($Component, c, getContainer());
-						this->firstLineOffset = $SwingUtilities2::getLeftSideBearing(($instanceOf($JComponent, c)) ? $cast($JComponent, c) : ($JComponent*)nullptr, fm, $nc(buff->array)->get(buff->offset));
-						this->firstLineOffset = $Math::max(0, -this->firstLineOffset);
-					} else {
-						this->firstLineOffset = 0;
-					}
-				} catch ($BadLocationException& bl) {
-					width = 0;
-				}
-				$SegmentCache::releaseSharedSegment(buff);
-				return (float)(width + this->firstLineOffset);
+	$useLocalObjectStack();
+	$var($Segment, buff, nullptr);
+	$var($Document, doc, nullptr);
+	int32_t width = 0;
+	switch (axis) {
+	case $View::X_AXIS:
+		$assign(buff, $SegmentCache::getSharedSegment());
+		$assign(doc, getDocument());
+		try {
+			$var($FontMetrics, fm, getFontMetrics());
+			$nc(doc)->getText(0, $nc(doc)->getLength(), buff);
+			width = $Utilities::getTabbedTextWidth(buff, fm, 0, this, 0);
+			if ($nc(buff)->count > 0) {
+				$var($Component, c, getContainer());
+				this->firstLineOffset = $SwingUtilities2::getLeftSideBearing(($instanceOf($JComponent, c)) ? $cast($JComponent, c) : ($JComponent*)nullptr, fm, $nc(buff->array)->get(buff->offset));
+				this->firstLineOffset = $Math::max(0, -this->firstLineOffset);
+			} else {
+				this->firstLineOffset = 0;
 			}
-		default:
-			{
-				return $PlainView::getPreferredSpan(axis);
-			}
+		} catch ($BadLocationException& bl) {
+			width = 0;
 		}
+		$SegmentCache::releaseSharedSegment(buff);
+		return (float)(width + this->firstLineOffset);
+	default:
+		return $PlainView::getPreferredSpan(axis);
 	}
 }
 
@@ -260,7 +219,32 @@ FieldView::FieldView() {
 }
 
 $Class* FieldView::load$($String* name, bool initialize) {
-	$loadClass(FieldView, name, initialize, &_FieldView_ClassInfo_, allocate$FieldView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FieldView, init$, void, $Element*)},
+		{"adjustAllocation", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PROTECTED, $virtualMethod(FieldView, adjustAllocation, $Shape*, $Shape*)},
+		{"adjustPaintRegion", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, 0, $virtualMethod(FieldView, adjustPaintRegion, $Shape*, $Shape*)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $virtualMethod(FieldView, getFontMetrics, $FontMetrics*)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(FieldView, getPreferredSpan, float, int32_t)},
+		{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(FieldView, getResizeWeight, int32_t, int32_t)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FieldView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(FieldView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(FieldView, paint, void, $Graphics*, $Shape*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(FieldView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"updateVisibilityModel", "()V", nullptr, 0, $virtualMethod(FieldView, updateVisibilityModel, void)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(FieldView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.FieldView",
+		"javax.swing.text.PlainView",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FieldView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FieldView));
+	});
 	return class$;
 }
 

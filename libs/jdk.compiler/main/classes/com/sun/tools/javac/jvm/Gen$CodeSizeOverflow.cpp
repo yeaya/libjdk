@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Gen$CodeSizeOverflow.h>
-
 #include <com/sun/tools/javac/jvm/Gen.h>
 #include <jcpp.h>
 
@@ -14,41 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Gen$CodeSizeOverflow_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Gen$CodeSizeOverflow, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Gen$CodeSizeOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Gen$CodeSizeOverflow, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Gen$CodeSizeOverflow_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Gen$CodeSizeOverflow", "com.sun.tools.javac.jvm.Gen", "CodeSizeOverflow", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Gen$CodeSizeOverflow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.Gen$CodeSizeOverflow",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Gen$CodeSizeOverflow_FieldInfo_,
-	_Gen$CodeSizeOverflow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Gen$CodeSizeOverflow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Gen"
-};
-
-$Object* allocate$Gen$CodeSizeOverflow($Class* clazz) {
-	return $of($alloc(Gen$CodeSizeOverflow));
-}
 
 void Gen$CodeSizeOverflow::init$() {
 	$RuntimeException::init$();
@@ -65,7 +29,36 @@ void Gen$CodeSizeOverflow::throw$() {
 }
 
 $Class* Gen$CodeSizeOverflow::load$($String* name, bool initialize) {
-	$loadClass(Gen$CodeSizeOverflow, name, initialize, &_Gen$CodeSizeOverflow_ClassInfo_, allocate$Gen$CodeSizeOverflow);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Gen$CodeSizeOverflow, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Gen$CodeSizeOverflow, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Gen$CodeSizeOverflow", "com.sun.tools.javac.jvm.Gen", "CodeSizeOverflow", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.Gen$CodeSizeOverflow",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Gen"
+	};
+	$loadClass(Gen$CodeSizeOverflow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Gen$CodeSizeOverflow);
+	});
 	return class$;
 }
 

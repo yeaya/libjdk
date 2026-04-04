@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
@@ -22,8 +21,6 @@
 #undef XML_DOMAIN
 
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
-using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
-using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLScanner$NameType = ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType;
 using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::msg::XMLMessageFormatter;
@@ -43,45 +40,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XML11DocumentScannerImpl_FieldInfo_[] = {
-	{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(XML11DocumentScannerImpl, fStringBuffer)},
-	{"fStringBuffer2", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(XML11DocumentScannerImpl, fStringBuffer2)},
-	{"fStringBuffer3", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(XML11DocumentScannerImpl, fStringBuffer3)},
-	{}
-};
-
-$MethodInfo _XML11DocumentScannerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DocumentScannerImpl, init$, void)},
-	{"getVersionNotSupportedKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, getVersionNotSupportedKey, $String*)},
-	{"isInvalid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isInvalid, bool, int32_t)},
-	{"isInvalidLiteral", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isInvalidLiteral, bool, int32_t)},
-	{"isUnchangedByNormalization", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)I", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isUnchangedByNormalization, int32_t, $XMLString*)},
-	{"isValidNCName", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNCName, bool, int32_t)},
-	{"isValidNameChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNameChar, bool, int32_t)},
-	{"isValidNameStartChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNameStartChar, bool, int32_t)},
-	{"isValidNameStartHighSurrogate", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNameStartHighSurrogate, bool, int32_t)},
-	{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, normalizeWhitespace, void, $XMLString*)},
-	{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;I)V", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, normalizeWhitespace, void, $XMLString*, int32_t)},
-	{"scanAttributeValue", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Ljava/lang/String;ZLjava/lang/String;Z)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, scanAttributeValue, bool, $XMLString*, $XMLString*, $String*, bool, $String*, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanContent", "(Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;)I", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, scanContent, int32_t, $XMLStringBuffer*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"scanPubidLiteral", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, scanPubidLiteral, bool, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"versionSupported", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, versionSupported, bool, $String*)},
-	{}
-};
-
-$ClassInfo _XML11DocumentScannerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XML11DocumentScannerImpl",
-	"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl",
-	nullptr,
-	_XML11DocumentScannerImpl_FieldInfo_,
-	_XML11DocumentScannerImpl_MethodInfo_
-};
-
-$Object* allocate$XML11DocumentScannerImpl($Class* clazz) {
-	return $of($alloc(XML11DocumentScannerImpl));
-}
 
 void XML11DocumentScannerImpl::init$() {
 	$XMLDocumentScannerImpl::init$();
@@ -118,75 +76,79 @@ int32_t XML11DocumentScannerImpl::scanContent($XMLStringBuffer* content) {
 }
 
 bool XML11DocumentScannerImpl::scanAttributeValue($XMLString* value, $XMLString* nonNormalizedValue, $String* atName, bool checkEntities, $String* eleName, bool isNSURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t quote = $nc(this->fEntityScanner)->peekChar();
 	if (quote != u'\'' && quote != u'\"') {
 		reportFatalError("OpenQuoteExpected"_s, $$new($ObjectArray, {
-			$of(eleName),
-			$of(atName)
+			eleName,
+			atName
 		}));
 	}
 	$init($XMLScanner$NameType);
 	$nc(this->fEntityScanner)->scanChar($XMLScanner$NameType::ATTRIBUTE);
 	int32_t entityDepth = this->fEntityDepth;
 	int32_t c = $nc(this->fEntityScanner)->scanLiteral(quote, value, isNSURI);
+	;
 	int32_t fromIndex = 0;
 	if (c == quote && (fromIndex = isUnchangedByNormalization(value)) == -1) {
 		$nc(nonNormalizedValue)->setValues(value);
 		int32_t cquote = $nc(this->fEntityScanner)->scanChar($XMLScanner$NameType::ATTRIBUTE);
 		if (cquote != quote) {
 			reportFatalError("CloseQuoteExpected"_s, $$new($ObjectArray, {
-				$of(eleName),
-				$of(atName)
+				eleName,
+				atName
 			}));
 		}
 		return true;
 	}
-	$nc(this->fStringBuffer2)->clear();
-	$nc(this->fStringBuffer2)->append(value);
+	this->fStringBuffer2->clear();
+	this->fStringBuffer2->append(value);
 	normalizeWhitespace(value, fromIndex);
+	;
 	if (c != quote) {
 		this->fScanningAttribute = true;
-		$nc(this->fStringBuffer)->clear();
+		this->fStringBuffer->clear();
 		do {
-			$nc(this->fStringBuffer)->append(value);
+			this->fStringBuffer->append(value);
+			;
 			if (c == u'&') {
 				$nc(this->fEntityScanner)->skipChar(u'&', $XMLScanner$NameType::REFERENCE);
 				if (entityDepth == this->fEntityDepth) {
-					$nc(this->fStringBuffer2)->append(u'&');
+					this->fStringBuffer2->append(u'&');
 				}
 				if ($nc(this->fEntityScanner)->skipChar(u'#', $XMLScanner$NameType::REFERENCE)) {
 					if (entityDepth == this->fEntityDepth) {
-						$nc(this->fStringBuffer2)->append(u'#');
+						this->fStringBuffer2->append(u'#');
 					}
 					int32_t ch = scanCharReferenceValue(this->fStringBuffer, this->fStringBuffer2);
 					if (ch != -1) {
+						;
 					}
 				} else {
 					$var($String, entityName, $nc(this->fEntityScanner)->scanName($XMLScanner$NameType::REFERENCE));
 					if (entityName == nullptr) {
 						reportFatalError("NameRequiredInReference"_s, nullptr);
 					} else if (entityDepth == this->fEntityDepth) {
-						$nc(this->fStringBuffer2)->append(entityName);
+						this->fStringBuffer2->append(entityName);
 					}
 					if (!$nc(this->fEntityScanner)->skipChar(u';', $XMLScanner$NameType::REFERENCE)) {
-						reportFatalError("SemicolonRequiredInReference"_s, $$new($ObjectArray, {$of(entityName)}));
+						reportFatalError("SemicolonRequiredInReference"_s, $$new($ObjectArray, {entityName}));
 					} else if (entityDepth == this->fEntityDepth) {
-						$nc(this->fStringBuffer2)->append(u';');
+						this->fStringBuffer2->append(u';');
 					}
 					if (resolveCharacter(entityName, this->fStringBuffer)) {
 						checkEntityLimit(false, $nc($nc(this->fEntityScanner)->fCurrentEntity)->name, 1);
 					} else if ($nc(this->fEntityManager)->isExternalEntity(entityName)) {
-						reportFatalError("ReferenceToExternalEntity"_s, $$new($ObjectArray, {$of(entityName)}));
+						reportFatalError("ReferenceToExternalEntity"_s, $$new($ObjectArray, {entityName}));
 					} else {
 						if (!$nc(this->fEntityManager)->isDeclaredEntity(entityName)) {
 							if (checkEntities) {
 								if (this->fValidation) {
 									$init($XMLMessageFormatter);
-									$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "EntityNotDeclared"_s, $$new($ObjectArray, {$of(entityName)}), $XMLErrorReporter::SEVERITY_ERROR);
+									$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "EntityNotDeclared"_s, $$new($ObjectArray, {entityName}), $XMLErrorReporter::SEVERITY_ERROR);
 								}
 							} else {
-								reportFatalError("EntityNotDeclared"_s, $$new($ObjectArray, {$of(entityName)}));
+								reportFatalError("EntityNotDeclared"_s, $$new($ObjectArray, {entityName}));
 							}
 						}
 						$nc(this->fEntityManager)->startEntity(true, entityName, true);
@@ -194,51 +156,54 @@ bool XML11DocumentScannerImpl::scanAttributeValue($XMLString* value, $XMLString*
 				}
 			} else if (c == u'<') {
 				reportFatalError("LessthanInAttValue"_s, $$new($ObjectArray, {
-					$of(eleName),
-					$of(atName)
+					eleName,
+					atName
 				}));
 				$nc(this->fEntityScanner)->scanChar(nullptr);
 				if (entityDepth == this->fEntityDepth) {
-					$nc(this->fStringBuffer2)->append((char16_t)c);
+					this->fStringBuffer2->append((char16_t)c);
 				}
 			} else if (c == u'%' || c == u']') {
 				$nc(this->fEntityScanner)->scanChar(nullptr);
-				$nc(this->fStringBuffer)->append((char16_t)c);
+				this->fStringBuffer->append((char16_t)c);
 				if (entityDepth == this->fEntityDepth) {
-					$nc(this->fStringBuffer2)->append((char16_t)c);
+					this->fStringBuffer2->append((char16_t)c);
 				}
+				;
 			} else if (c == u'\n' || c == u'\r' || c == 133 || c == 8232) {
 				$nc(this->fEntityScanner)->scanChar(nullptr);
-				$nc(this->fStringBuffer)->append(u' ');
+				this->fStringBuffer->append(u' ');
 				if (entityDepth == this->fEntityDepth) {
-					$nc(this->fStringBuffer2)->append(u'\n');
+					this->fStringBuffer2->append(u'\n');
 				}
 			} else if (c != -1 && $XMLChar::isHighSurrogate(c)) {
-				$nc(this->fStringBuffer3)->clear();
+				this->fStringBuffer3->clear();
 				if (scanSurrogates(this->fStringBuffer3)) {
-					$nc(this->fStringBuffer)->append(static_cast<$XMLString*>(this->fStringBuffer3));
+					this->fStringBuffer->append(this->fStringBuffer3);
 					if (entityDepth == this->fEntityDepth) {
-						$nc(this->fStringBuffer2)->append(static_cast<$XMLString*>(this->fStringBuffer3));
+						this->fStringBuffer2->append(this->fStringBuffer3);
 					}
+					;
 				}
 			} else if (c != -1 && isInvalidLiteral(c)) {
 				reportFatalError("InvalidCharInAttValue"_s, $$new($ObjectArray, {
-					$of(eleName),
-					$of(atName),
-					$($of($Integer::toString(c, 16)))
+					eleName,
+					atName,
+					$($Integer::toString(c, 16))
 				}));
 				$nc(this->fEntityScanner)->scanChar(nullptr);
 				if (entityDepth == this->fEntityDepth) {
-					$nc(this->fStringBuffer2)->append((char16_t)c);
+					this->fStringBuffer2->append((char16_t)c);
 				}
 			}
 			c = $nc(this->fEntityScanner)->scanLiteral(quote, value, isNSURI);
 			if (entityDepth == this->fEntityDepth) {
-				$nc(this->fStringBuffer2)->append(value);
+				this->fStringBuffer2->append(value);
 			}
 			normalizeWhitespace(value);
 		} while (c != quote || entityDepth != this->fEntityDepth);
-		$nc(this->fStringBuffer)->append(value);
+		this->fStringBuffer->append(value);
+		;
 		$nc(value)->setValues(this->fStringBuffer);
 		this->fScanningAttribute = false;
 	}
@@ -246,52 +211,52 @@ bool XML11DocumentScannerImpl::scanAttributeValue($XMLString* value, $XMLString*
 	int32_t cquote = $nc(this->fEntityScanner)->scanChar(nullptr);
 	if (cquote != quote) {
 		reportFatalError("CloseQuoteExpected"_s, $$new($ObjectArray, {
-			$of(eleName),
-			$of(atName)
+			eleName,
+			atName
 		}));
 	}
-	return nonNormalizedValue->equals($nc(value)->ch, value->offset, value->length);
+	return nonNormalizedValue->equals($nc(value)->ch, $nc(value)->offset, $nc(value)->length);
 }
 
 bool XML11DocumentScannerImpl::scanPubidLiteral($XMLString* literal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t quote = $nc(this->fEntityScanner)->scanChar(nullptr);
 	if (quote != u'\'' && quote != u'\"') {
 		reportFatalError("QuoteRequiredInPublicID"_s, nullptr);
 		return false;
 	}
-	$nc(this->fStringBuffer)->clear();
+	this->fStringBuffer->clear();
 	bool skipSpace = true;
 	bool dataok = true;
 	while (true) {
 		int32_t c = $nc(this->fEntityScanner)->scanChar(nullptr);
 		if (c == u' ' || c == u'\n' || c == u'\r' || c == 133 || c == 8232) {
 			if (!skipSpace) {
-				$nc(this->fStringBuffer)->append(u' ');
+				this->fStringBuffer->append(u' ');
 				skipSpace = true;
 			}
 		} else if (c == quote) {
 			if (skipSpace) {
-				--$nc(this->fStringBuffer)->length;
+				--this->fStringBuffer->length;
 			}
 			$nc(literal)->setValues(this->fStringBuffer);
 			break;
 		} else if ($XMLChar::isPubid(c)) {
-			$nc(this->fStringBuffer)->append((char16_t)c);
+			this->fStringBuffer->append((char16_t)c);
 			skipSpace = false;
 		} else if (c == -1) {
 			reportFatalError("PublicIDUnterminated"_s, nullptr);
 			return false;
 		} else {
 			dataok = false;
-			reportFatalError("InvalidCharInPublicID"_s, $$new($ObjectArray, {$($of($Integer::toHexString(c)))}));
+			reportFatalError("InvalidCharInPublicID"_s, $$new($ObjectArray, {$($Integer::toHexString(c))}));
 		}
 	}
 	return dataok;
 }
 
 void XML11DocumentScannerImpl::normalizeWhitespace($XMLString* value) {
-	int32_t end = $nc(value)->offset + value->length;
+	int32_t end = $nc(value)->offset + $nc(value)->length;
 	for (int32_t i = value->offset; i < end; ++i) {
 		int32_t c = $nc(value->ch)->get(i);
 		if ($XMLChar::isSpace(c)) {
@@ -301,7 +266,7 @@ void XML11DocumentScannerImpl::normalizeWhitespace($XMLString* value) {
 }
 
 void XML11DocumentScannerImpl::normalizeWhitespace($XMLString* value, int32_t fromIndex) {
-	int32_t end = $nc(value)->offset + value->length;
+	int32_t end = $nc(value)->offset + $nc(value)->length;
 	for (int32_t i = value->offset + fromIndex; i < end; ++i) {
 		int32_t c = $nc(value->ch)->get(i);
 		if ($XMLChar::isSpace(c)) {
@@ -311,7 +276,7 @@ void XML11DocumentScannerImpl::normalizeWhitespace($XMLString* value, int32_t fr
 }
 
 int32_t XML11DocumentScannerImpl::isUnchangedByNormalization($XMLString* value) {
-	int32_t end = $nc(value)->offset + value->length;
+	int32_t end = $nc(value)->offset + $nc(value)->length;
 	for (int32_t i = value->offset; i < end; ++i) {
 		int32_t c = $nc(value->ch)->get(i);
 		if ($XMLChar::isSpace(c)) {
@@ -347,7 +312,7 @@ bool XML11DocumentScannerImpl::isValidNameStartHighSurrogate(int32_t value) {
 
 bool XML11DocumentScannerImpl::versionSupported($String* version) {
 	bool var$0 = $nc(version)->equals("1.1"_s);
-	return (var$0 || $nc(version)->equals("1.0"_s));
+	return (var$0 || version->equals("1.0"_s));
 }
 
 $String* XML11DocumentScannerImpl::getVersionNotSupportedKey() {
@@ -358,7 +323,41 @@ XML11DocumentScannerImpl::XML11DocumentScannerImpl() {
 }
 
 $Class* XML11DocumentScannerImpl::load$($String* name, bool initialize) {
-	$loadClass(XML11DocumentScannerImpl, name, initialize, &_XML11DocumentScannerImpl_ClassInfo_, allocate$XML11DocumentScannerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(XML11DocumentScannerImpl, fStringBuffer)},
+		{"fStringBuffer2", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(XML11DocumentScannerImpl, fStringBuffer2)},
+		{"fStringBuffer3", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(XML11DocumentScannerImpl, fStringBuffer3)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DocumentScannerImpl, init$, void)},
+		{"getVersionNotSupportedKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, getVersionNotSupportedKey, $String*)},
+		{"isInvalid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isInvalid, bool, int32_t)},
+		{"isInvalidLiteral", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isInvalidLiteral, bool, int32_t)},
+		{"isUnchangedByNormalization", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)I", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isUnchangedByNormalization, int32_t, $XMLString*)},
+		{"isValidNCName", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNCName, bool, int32_t)},
+		{"isValidNameChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNameChar, bool, int32_t)},
+		{"isValidNameStartChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNameStartChar, bool, int32_t)},
+		{"isValidNameStartHighSurrogate", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, isValidNameStartHighSurrogate, bool, int32_t)},
+		{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, normalizeWhitespace, void, $XMLString*)},
+		{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;I)V", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, normalizeWhitespace, void, $XMLString*, int32_t)},
+		{"scanAttributeValue", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Ljava/lang/String;ZLjava/lang/String;Z)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, scanAttributeValue, bool, $XMLString*, $XMLString*, $String*, bool, $String*, bool), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanContent", "(Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;)I", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, scanContent, int32_t, $XMLStringBuffer*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"scanPubidLiteral", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, scanPubidLiteral, bool, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"versionSupported", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DocumentScannerImpl, versionSupported, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XML11DocumentScannerImpl",
+		"com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XML11DocumentScannerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XML11DocumentScannerImpl));
+	});
 	return class$;
 }
 

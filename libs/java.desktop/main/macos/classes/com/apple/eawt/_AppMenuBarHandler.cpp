@@ -1,8 +1,6 @@
 #include <com/apple/eawt/_AppMenuBarHandler.h>
-
 #include <com/apple/laf/AquaMenuBarUI.h>
 #include <com/apple/laf/ScreenMenuBar.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Frame.h>
 #include <java/awt/MenuComponent.h>
@@ -32,10 +30,8 @@
 using $FrameArray = $Array<::java::awt::Frame>;
 using $AquaMenuBarUI = ::com::apple::laf::AquaMenuBarUI;
 using $ScreenMenuBar = ::com::apple::laf::ScreenMenuBar;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,7 +42,6 @@ using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $MenuBarUI = ::javax::swing::plaf::MenuBarUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $CFRetainedResource$CFNativeAction = ::sun::lwawt::macosx::CFRetainedResource$CFNativeAction;
 using $CMenuBar = ::sun::lwawt::macosx::CMenuBar;
 
@@ -62,27 +57,24 @@ public:
 	virtual void run(int64_t menuBarPeer) override {
 		_AppMenuBarHandler::nativeSetDefaultMenuBar(menuBarPeer);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo _AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar, init$, void)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar, run, void, int64_t)},
-	{}
-};
-$ClassInfo _AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.eawt._AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	nullptr,
-	methodInfos
 };
 $Class* _AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar::load$($String* name, bool initialize) {
-	$loadClass(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar, init$, void)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.eawt._AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar);
+	});
 	return class$;
 }
 $Class* _AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar::class$ = nullptr;
@@ -95,103 +87,48 @@ public:
 	virtual void run(int64_t menuBarPeer) override {
 		_AppMenuBarHandler::nativeActivateDefaultMenuBar(menuBarPeer);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo _AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1, init$, void)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1, run, void, int64_t)},
-	{}
-};
-$ClassInfo _AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.eawt._AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	nullptr,
-	methodInfos
 };
 $Class* _AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1::load$($String* name, bool initialize) {
-	$loadClass(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1, init$, void)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.eawt._AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1);
+	});
 	return class$;
 }
 $Class* _AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1::class$ = nullptr;
-
-$FieldInfo __AppMenuBarHandler_FieldInfo_[] = {
-	{"MENU_ABOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(_AppMenuBarHandler, MENU_ABOUT)},
-	{"MENU_PREFS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(_AppMenuBarHandler, MENU_PREFS)},
-	{"instance", "Lcom/apple/eawt/_AppMenuBarHandler;", nullptr, $STATIC | $FINAL, $staticField(_AppMenuBarHandler, instance)},
-	{"defaultMenuBar", "Lcom/apple/laf/ScreenMenuBar;", nullptr, $PRIVATE | $STATIC, $staticField(_AppMenuBarHandler, defaultMenuBar)},
-	{"aboutMenuItemVisible", "Z", nullptr, 0, $field(_AppMenuBarHandler, aboutMenuItemVisible)},
-	{"aboutMenuItemEnabled", "Z", nullptr, 0, $field(_AppMenuBarHandler, aboutMenuItemEnabled)},
-	{"prefsMenuItemVisible", "Z", nullptr, 0, $field(_AppMenuBarHandler, prefsMenuItemVisible)},
-	{"prefsMenuItemEnabled", "Z", nullptr, 0, $field(_AppMenuBarHandler, prefsMenuItemEnabled)},
-	{"prefsMenuItemExplicitlySet", "Z", nullptr, 0, $field(_AppMenuBarHandler, prefsMenuItemExplicitlySet)},
-	{}
-};
-
-$MethodInfo __AppMenuBarHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(_AppMenuBarHandler, init$, void)},
-	{"getInstance", "()Lcom/apple/eawt/_AppMenuBarHandler;", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, getInstance, _AppMenuBarHandler*)},
-	{"initMenuStates", "(ZZZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(_AppMenuBarHandler, initMenuStates, void, bool, bool, bool, bool)},
-	{"installDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, installDefaultMenuBar, void, $JMenuBar*)},
-	{"isAboutMenuItemEnabled", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isAboutMenuItemEnabled, bool)},
-	{"isAboutMenuItemVisible", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isAboutMenuItemVisible, bool)},
-	{"isFrameMinimized", "(Ljava/awt/Frame;)Z", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, isFrameMinimized, bool, $Frame*)},
-	{"isMenuBarActivationNeeded", "()Z", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, isMenuBarActivationNeeded, bool)},
-	{"isPreferencesMenuItemEnabled", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isPreferencesMenuItemEnabled, bool)},
-	{"isPreferencesMenuItemVisible", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isPreferencesMenuItemVisible, bool)},
-	{"nativeActivateDefaultMenuBar", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(_AppMenuBarHandler, nativeActivateDefaultMenuBar, void, int64_t)},
-	{"nativeSetDefaultMenuBar", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(_AppMenuBarHandler, nativeSetDefaultMenuBar, void, int64_t)},
-	{"nativeSetMenuState", "(IZZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(_AppMenuBarHandler, nativeSetMenuState, void, int32_t, bool, bool)},
-	{"setAboutMenuItemEnabled", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setAboutMenuItemEnabled, void, bool)},
-	{"setAboutMenuItemVisible", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setAboutMenuItemVisible, void, bool)},
-	{"setDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setDefaultMenuBar, void, $JMenuBar*)},
-	{"setPreferencesMenuItemEnabled", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setPreferencesMenuItemEnabled, void, bool)},
-	{"setPreferencesMenuItemVisible", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setPreferencesMenuItemVisible, void, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeActivateDefaultMenuBar 10
-#define _METHOD_INDEX_nativeSetDefaultMenuBar 11
-#define _METHOD_INDEX_nativeSetMenuState 12
-
-$ClassInfo __AppMenuBarHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppMenuBarHandler",
-	"java.lang.Object",
-	nullptr,
-	__AppMenuBarHandler_FieldInfo_,
-	__AppMenuBarHandler_MethodInfo_
-};
-
-$Object* allocate$_AppMenuBarHandler($Class* clazz) {
-	return $of($alloc(_AppMenuBarHandler));
-}
 
 _AppMenuBarHandler* _AppMenuBarHandler::instance = nullptr;
 $ScreenMenuBar* _AppMenuBarHandler::defaultMenuBar = nullptr;
 
 void _AppMenuBarHandler::nativeSetMenuState(int32_t menu, bool visible, bool enabled) {
 	$init(_AppMenuBarHandler);
-	$prepareNativeStatic(_AppMenuBarHandler, nativeSetMenuState, void, int32_t menu, bool visible, bool enabled);
+	$prepareNativeStatic(nativeSetMenuState, void, int32_t menu, bool visible, bool enabled);
 	$invokeNativeStatic(menu, visible, enabled);
 	$finishNativeStatic();
 }
 
 void _AppMenuBarHandler::nativeSetDefaultMenuBar(int64_t menuBarPeer) {
 	$init(_AppMenuBarHandler);
-	$prepareNativeStatic(_AppMenuBarHandler, nativeSetDefaultMenuBar, void, int64_t menuBarPeer);
+	$prepareNativeStatic(nativeSetDefaultMenuBar, void, int64_t menuBarPeer);
 	$invokeNativeStatic(menuBarPeer);
 	$finishNativeStatic();
 }
 
 void _AppMenuBarHandler::nativeActivateDefaultMenuBar(int64_t menuBarPeer) {
 	$init(_AppMenuBarHandler);
-	$prepareNativeStatic(_AppMenuBarHandler, nativeActivateDefaultMenuBar, void, int64_t menuBarPeer);
+	$prepareNativeStatic(nativeActivateDefaultMenuBar, void, int64_t menuBarPeer);
 	$invokeNativeStatic(menuBarPeer);
 	$finishNativeStatic();
 }
@@ -204,10 +141,10 @@ _AppMenuBarHandler* _AppMenuBarHandler::getInstance() {
 void _AppMenuBarHandler::initMenuStates(bool aboutMenuItemVisible, bool aboutMenuItemEnabled, bool prefsMenuItemVisible, bool prefsMenuItemEnabled) {
 	$init(_AppMenuBarHandler);
 	$synchronized(_AppMenuBarHandler::instance) {
-		$nc(_AppMenuBarHandler::instance)->aboutMenuItemVisible = aboutMenuItemVisible;
-		$nc(_AppMenuBarHandler::instance)->aboutMenuItemEnabled = aboutMenuItemEnabled;
-		$nc(_AppMenuBarHandler::instance)->prefsMenuItemVisible = prefsMenuItemVisible;
-		$nc(_AppMenuBarHandler::instance)->prefsMenuItemEnabled = prefsMenuItemEnabled;
+		_AppMenuBarHandler::instance->aboutMenuItemVisible = aboutMenuItemVisible;
+		_AppMenuBarHandler::instance->aboutMenuItemEnabled = aboutMenuItemEnabled;
+		_AppMenuBarHandler::instance->prefsMenuItemVisible = prefsMenuItemVisible;
+		_AppMenuBarHandler::instance->prefsMenuItemEnabled = prefsMenuItemEnabled;
 	}
 }
 
@@ -220,13 +157,11 @@ void _AppMenuBarHandler::setDefaultMenuBar($JMenuBar* menuBar) {
 
 bool _AppMenuBarHandler::isMenuBarActivationNeeded() {
 	$init(_AppMenuBarHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FrameArray, frames, $Frame::getFrames());
 	{
 		$var($FrameArray, arr$, frames);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Frame, frame, arr$->get(i$));
 			{
 				bool var$0 = $nc(frame)->isVisible();
@@ -241,15 +176,15 @@ bool _AppMenuBarHandler::isMenuBarActivationNeeded() {
 
 bool _AppMenuBarHandler::isFrameMinimized($Frame* frame) {
 	$init(_AppMenuBarHandler);
-	return ((int32_t)($nc(frame)->getExtendedState() & (uint32_t)$Frame::ICONIFIED)) != 0;
+	return ($nc(frame)->getExtendedState() & $Frame::ICONIFIED) != 0;
 }
 
 void _AppMenuBarHandler::installDefaultMenuBar($JMenuBar* menuBar) {
 	$init(_AppMenuBarHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (menuBar == nullptr) {
 		if (_AppMenuBarHandler::defaultMenuBar != nullptr) {
-			$nc(_AppMenuBarHandler::defaultMenuBar)->removeNotify();
+			_AppMenuBarHandler::defaultMenuBar->removeNotify();
 			$assignStatic(_AppMenuBarHandler::defaultMenuBar, nullptr);
 		}
 		nativeSetDefaultMenuBar(0);
@@ -257,7 +192,7 @@ void _AppMenuBarHandler::installDefaultMenuBar($JMenuBar* menuBar) {
 	}
 	$var($Container, parent, $nc(menuBar)->getParent());
 	if ($instanceOf($JLayeredPane, parent)) {
-		$nc(($cast($JLayeredPane, parent)))->remove(static_cast<$Component*>(menuBar));
+		$cast($JLayeredPane, parent)->remove(menuBar);
 	}
 	$var($MenuBarUI, ui, $cast($MenuBarUI, menuBar->getUI()));
 	if (!($instanceOf($AquaMenuBarUI, ui))) {
@@ -271,18 +206,18 @@ void _AppMenuBarHandler::installDefaultMenuBar($JMenuBar* menuBar) {
 	}
 	if (screenMenuBar != _AppMenuBarHandler::defaultMenuBar) {
 		if (_AppMenuBarHandler::defaultMenuBar != nullptr) {
-			$nc(_AppMenuBarHandler::defaultMenuBar)->removeNotify();
+			_AppMenuBarHandler::defaultMenuBar->removeNotify();
 		}
 		$assignStatic(_AppMenuBarHandler::defaultMenuBar, screenMenuBar);
 		$nc(screenMenuBar)->addNotify();
 	}
-	$var($Object, peer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(screenMenuBar));
+	$var($Object, peer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(screenMenuBar));
 	if (!($instanceOf($CMenuBar, peer))) {
 		$throwNew($IllegalStateException, "Unable to determine native menu bar from provided JMenuBar"_s);
 	}
-	$nc(($cast($CMenuBar, peer)))->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar)));
+	$nc($cast($CMenuBar, peer))->execute($$new(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar));
 	if (isMenuBarActivationNeeded()) {
-		$nc(($cast($CMenuBar, peer)))->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1)));
+		$cast($CMenuBar, peer)->execute($$new(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1));
 	}
 }
 
@@ -344,7 +279,7 @@ bool _AppMenuBarHandler::isPreferencesMenuItemEnabled() {
 	return this->prefsMenuItemEnabled;
 }
 
-void clinit$_AppMenuBarHandler($Class* class$) {
+void _AppMenuBarHandler::clinit$($Class* clazz) {
 	$assignStatic(_AppMenuBarHandler::instance, $new(_AppMenuBarHandler));
 }
 
@@ -353,14 +288,57 @@ _AppMenuBarHandler::_AppMenuBarHandler() {
 
 $Class* _AppMenuBarHandler::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(_AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar::classInfo$.name)) {
+		if (name->equals("com.apple.eawt._AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar")) {
 			return _AppMenuBarHandler$$Lambda$nativeSetDefaultMenuBar::load$(name, initialize);
 		}
-		if (name->equals(_AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1::classInfo$.name)) {
+		if (name->equals("com.apple.eawt._AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1")) {
 			return _AppMenuBarHandler$$Lambda$nativeActivateDefaultMenuBar$1::load$(name, initialize);
 		}
 	}
-	$loadClass(_AppMenuBarHandler, name, initialize, &__AppMenuBarHandler_ClassInfo_, clinit$_AppMenuBarHandler, allocate$_AppMenuBarHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"MENU_ABOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(_AppMenuBarHandler, MENU_ABOUT)},
+		{"MENU_PREFS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(_AppMenuBarHandler, MENU_PREFS)},
+		{"instance", "Lcom/apple/eawt/_AppMenuBarHandler;", nullptr, $STATIC | $FINAL, $staticField(_AppMenuBarHandler, instance)},
+		{"defaultMenuBar", "Lcom/apple/laf/ScreenMenuBar;", nullptr, $PRIVATE | $STATIC, $staticField(_AppMenuBarHandler, defaultMenuBar)},
+		{"aboutMenuItemVisible", "Z", nullptr, 0, $field(_AppMenuBarHandler, aboutMenuItemVisible)},
+		{"aboutMenuItemEnabled", "Z", nullptr, 0, $field(_AppMenuBarHandler, aboutMenuItemEnabled)},
+		{"prefsMenuItemVisible", "Z", nullptr, 0, $field(_AppMenuBarHandler, prefsMenuItemVisible)},
+		{"prefsMenuItemEnabled", "Z", nullptr, 0, $field(_AppMenuBarHandler, prefsMenuItemEnabled)},
+		{"prefsMenuItemExplicitlySet", "Z", nullptr, 0, $field(_AppMenuBarHandler, prefsMenuItemExplicitlySet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(_AppMenuBarHandler, init$, void)},
+		{"getInstance", "()Lcom/apple/eawt/_AppMenuBarHandler;", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, getInstance, _AppMenuBarHandler*)},
+		{"initMenuStates", "(ZZZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(_AppMenuBarHandler, initMenuStates, void, bool, bool, bool, bool)},
+		{"installDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, installDefaultMenuBar, void, $JMenuBar*)},
+		{"isAboutMenuItemEnabled", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isAboutMenuItemEnabled, bool)},
+		{"isAboutMenuItemVisible", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isAboutMenuItemVisible, bool)},
+		{"isFrameMinimized", "(Ljava/awt/Frame;)Z", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, isFrameMinimized, bool, $Frame*)},
+		{"isMenuBarActivationNeeded", "()Z", nullptr, $STATIC, $staticMethod(_AppMenuBarHandler, isMenuBarActivationNeeded, bool)},
+		{"isPreferencesMenuItemEnabled", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isPreferencesMenuItemEnabled, bool)},
+		{"isPreferencesMenuItemVisible", "()Z", nullptr, 0, $virtualMethod(_AppMenuBarHandler, isPreferencesMenuItemVisible, bool)},
+		{"nativeActivateDefaultMenuBar", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(_AppMenuBarHandler, nativeActivateDefaultMenuBar, void, int64_t)},
+		{"nativeSetDefaultMenuBar", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(_AppMenuBarHandler, nativeSetDefaultMenuBar, void, int64_t)},
+		{"nativeSetMenuState", "(IZZ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(_AppMenuBarHandler, nativeSetMenuState, void, int32_t, bool, bool)},
+		{"setAboutMenuItemEnabled", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setAboutMenuItemEnabled, void, bool)},
+		{"setAboutMenuItemVisible", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setAboutMenuItemVisible, void, bool)},
+		{"setDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setDefaultMenuBar, void, $JMenuBar*)},
+		{"setPreferencesMenuItemEnabled", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setPreferencesMenuItemEnabled, void, bool)},
+		{"setPreferencesMenuItemVisible", "(Z)V", nullptr, 0, $virtualMethod(_AppMenuBarHandler, setPreferencesMenuItemVisible, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppMenuBarHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(_AppMenuBarHandler, name, initialize, &classInfo$$, _AppMenuBarHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppMenuBarHandler);
+	});
 	return class$;
 }
 

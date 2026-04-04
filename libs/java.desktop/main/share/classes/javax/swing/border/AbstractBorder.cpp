@@ -1,5 +1,4 @@
 #include <javax/swing/border/AbstractBorder.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -13,7 +12,6 @@
 
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
@@ -26,38 +24,6 @@ using $Border = ::javax::swing::border::Border;
 namespace javax {
 	namespace swing {
 		namespace border {
-
-$MethodInfo _AbstractBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractBorder, init$, void)},
-	{"getBaseline", "(Ljava/awt/Component;II)I", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBaseline, int32_t, $Component*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljava/awt/Component;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $Component*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getInteriorRectangle", "(Ljava/awt/Component;IIII)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getInteriorRectangle, $Rectangle*, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{"getInteriorRectangle", "(Ljava/awt/Component;Ljavax/swing/border/Border;IIII)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractBorder, getInteriorRectangle, $Rectangle*, $Component*, $Border*, int32_t, int32_t, int32_t, int32_t)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, isBorderOpaque, bool)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(AbstractBorder, isLeftToRight, bool, $Component*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.border.AbstractBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,java.io.Serializable",
-	nullptr,
-	_AbstractBorder_MethodInfo_
-};
-
-$Object* allocate$AbstractBorder($Class* clazz) {
-	return $of($alloc(AbstractBorder));
-}
 
 int32_t AbstractBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -90,7 +56,7 @@ $Insets* AbstractBorder::getBorderInsets($Component* c) {
 }
 
 $Insets* AbstractBorder::getBorderInsets($Component* c, $Insets* insets) {
-	$nc(insets)->left = (insets->top = (insets->right = (insets->bottom = 0)));
+	$nc(insets)->left = ($nc(insets)->top = ($nc(insets)->right = ($nc(insets)->bottom = 0)));
 	return insets;
 }
 
@@ -110,7 +76,7 @@ $Rectangle* AbstractBorder::getInteriorRectangle($Component* c, $Border* b, int3
 	} else {
 		$assign(insets, $new($Insets, 0, 0, 0, 0));
 	}
-	return $new($Rectangle, x + $nc(insets)->left, y + insets->top, width - insets->right - insets->left, height - insets->top - insets->bottom);
+	return $new($Rectangle, x + $nc(insets)->left, y + $nc(insets)->top, width - $nc(insets)->right - $nc(insets)->left, height - $nc(insets)->top - $nc(insets)->bottom);
 }
 
 int32_t AbstractBorder::getBaseline($Component* c, int32_t width, int32_t height) {
@@ -130,14 +96,42 @@ $Component$BaselineResizeBehavior* AbstractBorder::getBaselineResizeBehavior($Co
 
 bool AbstractBorder::isLeftToRight($Component* c) {
 	$init(AbstractBorder);
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 AbstractBorder::AbstractBorder() {
 }
 
 $Class* AbstractBorder::load$($String* name, bool initialize) {
-	$loadClass(AbstractBorder, name, initialize, &_AbstractBorder_ClassInfo_, allocate$AbstractBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractBorder, init$, void)},
+		{"getBaseline", "(Ljava/awt/Component;II)I", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBaseline, int32_t, $Component*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljava/awt/Component;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $Component*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getInteriorRectangle", "(Ljava/awt/Component;IIII)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, getInteriorRectangle, $Rectangle*, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{"getInteriorRectangle", "(Ljava/awt/Component;Ljavax/swing/border/Border;IIII)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractBorder, getInteriorRectangle, $Rectangle*, $Component*, $Border*, int32_t, int32_t, int32_t, int32_t)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, isBorderOpaque, bool)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(AbstractBorder, isLeftToRight, bool, $Component*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AbstractBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.border.AbstractBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbstractBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractBorder));
+	});
 	return class$;
 }
 

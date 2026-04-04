@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXBaseWriter$SAXLocation.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXBaseWriter.h>
 #include <org/xml/sax/Locator.h>
 #include <jcpp.h>
@@ -18,49 +17,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _SAX2StAXBaseWriter$SAXLocation_FieldInfo_[] = {
-	{"lineNumber", "I", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, lineNumber)},
-	{"columnNumber", "I", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, columnNumber)},
-	{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, publicId)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, systemId)},
-	{}
-};
-
-$MethodInfo _SAX2StAXBaseWriter$SAXLocation_MethodInfo_[] = {
-	{"<init>", "(Lorg/xml/sax/Locator;)V", nullptr, $PRIVATE, $method(SAX2StAXBaseWriter$SAXLocation, init$, void, $Locator*)},
-	{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getCharacterOffset, int32_t)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getColumnNumber, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getLineNumber, int32_t)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getSystemId, $String*)},
-	{}
-};
-
-$InnerClassInfo _SAX2StAXBaseWriter$SAXLocation_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation", "com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter", "SAXLocation", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SAX2StAXBaseWriter$SAXLocation_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation",
-	"java.lang.Object",
-	"javax.xml.stream.Location",
-	_SAX2StAXBaseWriter$SAXLocation_FieldInfo_,
-	_SAX2StAXBaseWriter$SAXLocation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAX2StAXBaseWriter$SAXLocation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter"
-};
-
-$Object* allocate$SAX2StAXBaseWriter$SAXLocation($Class* clazz) {
-	return $of($alloc(SAX2StAXBaseWriter$SAXLocation));
-}
 
 void SAX2StAXBaseWriter$SAXLocation::init$($Locator* locator) {
 	this->lineNumber = $nc(locator)->getLineNumber();
@@ -93,7 +49,44 @@ SAX2StAXBaseWriter$SAXLocation::SAX2StAXBaseWriter$SAXLocation() {
 }
 
 $Class* SAX2StAXBaseWriter$SAXLocation::load$($String* name, bool initialize) {
-	$loadClass(SAX2StAXBaseWriter$SAXLocation, name, initialize, &_SAX2StAXBaseWriter$SAXLocation_ClassInfo_, allocate$SAX2StAXBaseWriter$SAXLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"lineNumber", "I", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, lineNumber)},
+		{"columnNumber", "I", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, columnNumber)},
+		{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, publicId)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SAX2StAXBaseWriter$SAXLocation, systemId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/xml/sax/Locator;)V", nullptr, $PRIVATE, $method(SAX2StAXBaseWriter$SAXLocation, init$, void, $Locator*)},
+		{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getCharacterOffset, int32_t)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getColumnNumber, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getLineNumber, int32_t)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SAX2StAXBaseWriter$SAXLocation, getSystemId, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation", "com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter", "SAXLocation", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter$SAXLocation",
+		"java.lang.Object",
+		"javax.xml.stream.Location",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.SAX2StAXBaseWriter"
+	};
+	$loadClass(SAX2StAXBaseWriter$SAXLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAX2StAXBaseWriter$SAXLocation);
+	});
 	return class$;
 }
 

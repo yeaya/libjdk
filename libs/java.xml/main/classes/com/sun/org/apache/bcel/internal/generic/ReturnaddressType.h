@@ -36,6 +36,7 @@ class ReturnaddressType : public ::com::sun::org::apache::bcel::internal::generi
 	$class(ReturnaddressType, 0, ::com::sun::org::apache::bcel::internal::generic::Type)
 public:
 	ReturnaddressType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::bcel::internal::generic::InstructionHandle* returnTarget);
 	virtual bool equals(Object$* rat) override;

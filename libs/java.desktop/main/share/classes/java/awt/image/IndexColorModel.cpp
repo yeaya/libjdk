@@ -1,5 +1,4 @@
 #include <java/awt/image/IndexColorModel.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
@@ -58,116 +57,21 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$NamedAttribute IndexColorModel_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _IndexColorModel_MethodAnnotations_finalize13[] = {
-	{"Ljava/lang/Deprecated;", IndexColorModel_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _IndexColorModel_FieldInfo_[] = {
-	{"rgb", "[I", nullptr, $PRIVATE, $field(IndexColorModel, rgb)},
-	{"map_size", "I", nullptr, $PRIVATE, $field(IndexColorModel, map_size)},
-	{"pixel_mask", "I", nullptr, $PRIVATE, $field(IndexColorModel, pixel_mask)},
-	{"transparent_index", "I", nullptr, $PRIVATE, $field(IndexColorModel, transparent_index)},
-	{"allgrayopaque", "Z", nullptr, $PRIVATE, $field(IndexColorModel, allgrayopaque)},
-	{"validBits", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(IndexColorModel, validBits)},
-	{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(IndexColorModel, hashCode$)},
-	{"colorData", "Lsun/awt/image/BufImgSurfaceData$ICMColorData;", nullptr, $PRIVATE, $field(IndexColorModel, colorData)},
-	{"opaqueBits", "[I", nullptr, $PRIVATE | $STATIC, $staticField(IndexColorModel, opaqueBits)},
-	{"alphaBits", "[I", nullptr, $PRIVATE | $STATIC, $staticField(IndexColorModel, alphaBits)},
-	{"CACHESIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexColorModel, CACHESIZE)},
-	{"lookupcache", "[I", nullptr, $PRIVATE, $field(IndexColorModel, lookupcache)},
-	{}
-};
-
-$MethodInfo _IndexColorModel_MethodInfo_[] = {
-	{"<init>", "(II[B[B[B)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*)},
-	{"<init>", "(II[B[B[BI)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*, int32_t)},
-	{"<init>", "(II[B[B[B[B)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
-	{"<init>", "(II[BIZ)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, int32_t, bool)},
-	{"<init>", "(II[BIZI)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, int32_t, bool, int32_t)},
-	{"<init>", "(II[IIZII)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $ints*, int32_t, bool, int32_t, int32_t)},
-	{"<init>", "(II[IIILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $ints*, int32_t, int32_t, $BigInteger*)},
-	{"calcRealMapSize", "(II)I", nullptr, $PRIVATE, $method(IndexColorModel, calcRealMapSize, int32_t, int32_t, int32_t)},
-	{"calculatePixelMask", "()V", nullptr, $PRIVATE, $method(IndexColorModel, calculatePixelMask, void)},
-	{"convertToIntDiscrete", "(Ljava/awt/image/Raster;Z)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, convertToIntDiscrete, $BufferedImage*, $Raster*, bool)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
-	{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, equals, bool, Object$*)},
-	{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(IndexColorModel, finalize, void), nullptr, nullptr, _IndexColorModel_MethodAnnotations_finalize13},
-	{"getAllValid", "()Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(IndexColorModel, getAllValid, $BigInteger*)},
-	{"getAlpha", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getAlpha, int32_t, int32_t)},
-	{"getAlphas", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getAlphas, void, $bytes*)},
-	{"getBlue", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getBlue, int32_t, int32_t)},
-	{"getBlues", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getBlues, void, $bytes*)},
-	{"getComponentSize", "()[I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getComponentSize, $ints*)},
-	{"getComponents", "(I[II)[I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getComponents, $ints*, int32_t, $ints*, int32_t)},
-	{"getComponents", "(Ljava/lang/Object;[II)[I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getComponents, $ints*, Object$*, $ints*, int32_t)},
-	{"getDataElement", "([II)I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getDataElement, int32_t, $ints*, int32_t)},
-	{"getDataElements", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(IndexColorModel, getDataElements, $Object*, int32_t, Object$*)},
-	{"getDataElements", "([IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getDataElements, $Object*, $ints*, int32_t, Object$*)},
-	{"getGreen", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getGreen, int32_t, int32_t)},
-	{"getGreens", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getGreens, void, $bytes*)},
-	{"getMapSize", "()I", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getMapSize, int32_t)},
-	{"getRGB", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getRGB, int32_t, int32_t)},
-	{"getRGBs", "([I)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getRGBs, void, $ints*)},
-	{"getRed", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getRed, int32_t, int32_t)},
-	{"getReds", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getReds, void, $bytes*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getTransparency, int32_t)},
-	{"getTransparentPixel", "()I", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getTransparentPixel, int32_t)},
-	{"getValidPixels", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getValidPixels, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, hashCode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(IndexColorModel, initIDs, void)},
-	{"installpixel", "(Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $PRIVATE, $method(IndexColorModel, installpixel, $Object*, Object$*, int32_t)},
-	{"isCompatibleRaster", "(Ljava/awt/image/Raster;)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isCompatibleRaster, bool, $Raster*)},
-	{"isCompatibleSampleModel", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isCompatibleSampleModel, bool, $SampleModel*)},
-	{"isValid", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isValid, bool, int32_t)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isValid, bool)},
-	{"setRGBs", "(I[B[B[B[B)V", nullptr, $PRIVATE, $method(IndexColorModel, setRGBs, void, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
-	{"setRGBs", "(I[IIZ)V", nullptr, $PRIVATE, $method(IndexColorModel, setRGBs, void, int32_t, $ints*, int32_t, bool)},
-	{"setTransparency", "(I)V", nullptr, $PRIVATE, $method(IndexColorModel, setTransparency, void, int32_t)},
-	{"setTransparentPixel", "(I)V", nullptr, $PRIVATE, $method(IndexColorModel, setTransparentPixel, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 36
-
-$ClassInfo _IndexColorModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.IndexColorModel",
-	"java.awt.image.ColorModel",
-	nullptr,
-	_IndexColorModel_FieldInfo_,
-	_IndexColorModel_MethodInfo_
-};
-
-$Object* allocate$IndexColorModel($Class* clazz) {
-	return $of($alloc(IndexColorModel));
-}
-
 $ints* IndexColorModel::opaqueBits = nullptr;
 $ints* IndexColorModel::alphaBits = nullptr;
 
 void IndexColorModel::initIDs() {
 	$init(IndexColorModel);
-	$prepareNativeStatic(IndexColorModel, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $bytes* b) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = bits;
-	$var($ints, var$1, IndexColorModel::opaqueBits);
-	$var($ColorSpace, var$2, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-	int32_t var$3 = $Transparency::OPAQUE;
-	$ColorModel::init$(var$0, var$1, var$2, false, false, var$3, $ColorModel::getDefaultTransferType(bits));
+	$useLocalObjectStack();
+	$var($ints, var$0, IndexColorModel::opaqueBits);
+	$var($ColorSpace, var$1, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+	$ColorModel::init$(bits, var$0, var$1, false, false, $Transparency::OPAQUE, $ColorModel::getDefaultTransferType(bits));
 	this->transparent_index = -1;
 	$set(this, colorData, nullptr);
 	$set(this, lookupcache, $new($ints, IndexColorModel::CACHESIZE));
@@ -179,12 +83,10 @@ void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $b
 }
 
 void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $bytes* b, int32_t trans) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = bits;
-	$var($ints, var$1, IndexColorModel::opaqueBits);
-	$var($ColorSpace, var$2, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-	int32_t var$3 = $Transparency::OPAQUE;
-	$ColorModel::init$(var$0, var$1, var$2, false, false, var$3, $ColorModel::getDefaultTransferType(bits));
+	$useLocalObjectStack();
+	$var($ints, var$0, IndexColorModel::opaqueBits);
+	$var($ColorSpace, var$1, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+	$ColorModel::init$(bits, var$0, var$1, false, false, $Transparency::OPAQUE, $ColorModel::getDefaultTransferType(bits));
 	this->transparent_index = -1;
 	$set(this, colorData, nullptr);
 	$set(this, lookupcache, $new($ints, IndexColorModel::CACHESIZE));
@@ -197,12 +99,10 @@ void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $b
 }
 
 void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* r, $bytes* g, $bytes* b, $bytes* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = bits;
-	$var($ints, var$1, IndexColorModel::alphaBits);
-	$var($ColorSpace, var$2, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-	int32_t var$3 = $Transparency::TRANSLUCENT;
-	$ColorModel::init$(var$0, var$1, var$2, true, false, var$3, $ColorModel::getDefaultTransferType(bits));
+	$useLocalObjectStack();
+	$var($ints, var$0, IndexColorModel::alphaBits);
+	$var($ColorSpace, var$1, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+	$ColorModel::init$(bits, var$0, var$1, true, false, $Transparency::TRANSLUCENT, $ColorModel::getDefaultTransferType(bits));
 	this->transparent_index = -1;
 	$set(this, colorData, nullptr);
 	$set(this, lookupcache, $new($ints, IndexColorModel::CACHESIZE));
@@ -221,12 +121,10 @@ void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* cmap, int32_t st
 }
 
 void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* cmap, int32_t start, bool hasalpha, int32_t trans) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = bits;
-	$var($ints, var$1, IndexColorModel::opaqueBits);
-	$var($ColorSpace, var$2, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-	int32_t var$3 = $Transparency::OPAQUE;
-	$ColorModel::init$(var$0, var$1, var$2, false, false, var$3, $ColorModel::getDefaultTransferType(bits));
+	$useLocalObjectStack();
+	$var($ints, var$0, IndexColorModel::opaqueBits);
+	$var($ColorSpace, var$1, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+	$ColorModel::init$(bits, var$0, var$1, false, false, $Transparency::OPAQUE, $ColorModel::getDefaultTransferType(bits));
 	this->transparent_index = -1;
 	$set(this, colorData, nullptr);
 	$set(this, lookupcache, $new($ints, IndexColorModel::CACHESIZE));
@@ -243,12 +141,12 @@ void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* cmap, int32_t st
 	bool allgray = true;
 	int32_t transparency = $Transparency::OPAQUE;
 	for (int32_t i = 0; i < size; ++i) {
-		int32_t r = (int32_t)($nc(cmap)->get(j++) & (uint32_t)255);
-		int32_t g = (int32_t)(cmap->get(j++) & (uint32_t)255);
-		int32_t b = (int32_t)(cmap->get(j++) & (uint32_t)255);
+		int32_t r = $nc(cmap)->get(j++) & 0xff;
+		int32_t g = cmap->get(j++) & 0xff;
+		int32_t b = cmap->get(j++) & 0xff;
 		allgray = allgray && (r == g) && (g == b);
 		if (hasalpha) {
-			alpha = (int32_t)(cmap->get(j++) & (uint32_t)255);
+			alpha = cmap->get(j++) & 0xff;
 			if (alpha != 255) {
 				if (alpha == 0) {
 					if (transparency == $Transparency::OPAQUE) {
@@ -272,7 +170,7 @@ void IndexColorModel::init$(int32_t bits, int32_t size, $bytes* cmap, int32_t st
 }
 
 void IndexColorModel::init$(int32_t bits, int32_t size, $ints* cmap, int32_t start, bool hasalpha, int32_t trans, int32_t transferType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ColorModel::init$(bits, IndexColorModel::opaqueBits, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), false, false, $Transparency::OPAQUE, transferType);
 	this->transparent_index = -1;
 	$set(this, colorData, nullptr);
@@ -292,7 +190,7 @@ void IndexColorModel::init$(int32_t bits, int32_t size, $ints* cmap, int32_t sta
 }
 
 void IndexColorModel::init$(int32_t bits, int32_t size, $ints* cmap, int32_t start, int32_t transferType, $BigInteger* validBits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ColorModel::init$(bits, IndexColorModel::alphaBits, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), true, false, $Transparency::TRANSLUCENT, transferType);
 	this->transparent_index = -1;
 	$set(this, colorData, nullptr);
@@ -319,7 +217,7 @@ void IndexColorModel::init$(int32_t bits, int32_t size, $ints* cmap, int32_t sta
 }
 
 void IndexColorModel::setRGBs(int32_t size, $bytes* r, $bytes* g, $bytes* b, $bytes* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (size < 1) {
 		$throwNew($IllegalArgumentException, $$str({"Map size ("_s, $$str(size), ") must be >= 1"_s}));
 	}
@@ -329,12 +227,12 @@ void IndexColorModel::setRGBs(int32_t size, $bytes* r, $bytes* g, $bytes* b, $by
 	int32_t transparency = $Transparency::OPAQUE;
 	bool allgray = true;
 	for (int32_t i = 0; i < size; ++i) {
-		int32_t rc = (int32_t)($nc(r)->get(i) & (uint32_t)255);
-		int32_t gc = (int32_t)($nc(g)->get(i) & (uint32_t)255);
-		int32_t bc = (int32_t)($nc(b)->get(i) & (uint32_t)255);
+		int32_t rc = $nc(r)->get(i) & 0xff;
+		int32_t gc = $nc(g)->get(i) & 0xff;
+		int32_t bc = $nc(b)->get(i) & 0xff;
 		allgray = allgray && (rc == gc) && (gc == bc);
 		if (a != nullptr) {
-			alpha = (int32_t)(a->get(i) & (uint32_t)255);
+			alpha = a->get(i) & 0xff;
 			if (alpha != 255) {
 				if (alpha == 0) {
 					if (transparency == $Transparency::OPAQUE) {
@@ -367,9 +265,9 @@ void IndexColorModel::setRGBs(int32_t size, $ints* cmap, int32_t start, bool has
 			continue;
 		}
 		int32_t cmaprgb = $nc(cmap)->get(j);
-		int32_t r = (int32_t)((cmaprgb >> 16) & (uint32_t)255);
-		int32_t g = (int32_t)((cmaprgb >> 8) & (uint32_t)255);
-		int32_t b = (int32_t)((cmaprgb) & (uint32_t)255);
+		int32_t r = (cmaprgb >> 16) & 0xff;
+		int32_t g = (cmaprgb >> 8) & 0xff;
+		int32_t b = (cmaprgb) & 0xff;
 		allgray = allgray && (r == g) && (g == b);
 		if (hasalpha) {
 			int32_t alpha = (int32_t)((uint32_t)cmaprgb >> 24);
@@ -387,7 +285,7 @@ void IndexColorModel::setRGBs(int32_t size, $ints* cmap, int32_t start, bool has
 				allgray = false;
 			}
 		} else {
-			cmaprgb |= (int32_t)0xFF000000;
+			cmaprgb |= (int32_t)0xff000000;
 		}
 		$nc(this->rgb)->set(i, cmaprgb);
 	}
@@ -416,7 +314,7 @@ $ints* IndexColorModel::getComponentSize() {
 	if (this->nBits == nullptr) {
 		if (this->supportsAlpha) {
 			$set(this, nBits, $new($ints, 4));
-			$nc(this->nBits)->set(3, 8);
+			this->nBits->set(3, 8);
 		} else {
 			$set(this, nBits, $new($ints, 3));
 		}
@@ -463,7 +361,7 @@ void IndexColorModel::getRGBs($ints* rgb) {
 
 void IndexColorModel::setTransparentPixel(int32_t trans) {
 	if (trans >= 0 && trans < this->map_size) {
-		(*$nc(this->rgb))[trans] &= (uint32_t)0x00FFFFFF;
+		(*$nc(this->rgb))[trans] &= (uint32_t)0x00ffffff;
 		this->transparent_index = trans;
 		this->allgrayopaque = false;
 		if (this->transparency == $Transparency::OPAQUE) {
@@ -498,39 +396,39 @@ void IndexColorModel::calculatePixelMask() {
 }
 
 int32_t IndexColorModel::getRed(int32_t pixel) {
-	return (int32_t)(($nc(this->rgb)->get((int32_t)(pixel & (uint32_t)this->pixel_mask)) >> 16) & (uint32_t)255);
+	return ($nc(this->rgb)->get(pixel & this->pixel_mask) >> 16) & 0xff;
 }
 
 int32_t IndexColorModel::getGreen(int32_t pixel) {
-	return (int32_t)(($nc(this->rgb)->get((int32_t)(pixel & (uint32_t)this->pixel_mask)) >> 8) & (uint32_t)255);
+	return ($nc(this->rgb)->get(pixel & this->pixel_mask) >> 8) & 0xff;
 }
 
 int32_t IndexColorModel::getBlue(int32_t pixel) {
-	return (int32_t)($nc(this->rgb)->get((int32_t)(pixel & (uint32_t)this->pixel_mask)) & (uint32_t)255);
+	return $nc(this->rgb)->get(pixel & this->pixel_mask) & 0xff;
 }
 
 int32_t IndexColorModel::getAlpha(int32_t pixel) {
-	return (int32_t)(($nc(this->rgb)->get((int32_t)(pixel & (uint32_t)this->pixel_mask)) >> 24) & (uint32_t)255);
+	return ($nc(this->rgb)->get(pixel & this->pixel_mask) >> 24) & 0xff;
 }
 
 int32_t IndexColorModel::getRGB(int32_t pixel) {
-	return $nc(this->rgb)->get((int32_t)(pixel & (uint32_t)this->pixel_mask));
+	return $nc(this->rgb)->get(pixel & this->pixel_mask);
 }
 
 $Object* IndexColorModel::getDataElements(int32_t rgb, Object$* pixel) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		int32_t red = (int32_t)((rgb >> 16) & (uint32_t)255);
-		int32_t green = (int32_t)((rgb >> 8) & (uint32_t)255);
-		int32_t blue = (int32_t)(rgb & (uint32_t)255);
+		$useLocalObjectStack();
+		int32_t red = (rgb >> 16) & 0xff;
+		int32_t green = (rgb >> 8) & 0xff;
+		int32_t blue = rgb & 0xff;
 		int32_t alpha = ((int32_t)((uint32_t)rgb >> 24));
 		int32_t pix = 0;
 		for (int32_t i = IndexColorModel::CACHESIZE - 2; i >= 0; i -= 2) {
 			if ((pix = $nc(this->lookupcache)->get(i)) == 0) {
 				break;
 			}
-			if (rgb == $nc(this->lookupcache)->get(i + 1)) {
-				return $of(installpixel(pixel, ~pix));
+			if (rgb == this->lookupcache->get(i + 1)) {
+				return installpixel(pixel, ~pix);
 			}
 		}
 		if (this->allgrayopaque) {
@@ -541,7 +439,7 @@ $Object* IndexColorModel::getDataElements(int32_t rgb, Object$* pixel) {
 				if ($nc(this->rgb)->get(i) == 0) {
 					continue;
 				}
-				d = ((int32_t)($nc(this->rgb)->get(i) & (uint32_t)255)) - gray;
+				d = (this->rgb->get(i) & 0xff) - gray;
 				if (d < 0) {
 					d = -d;
 				}
@@ -571,13 +469,13 @@ $Object* IndexColorModel::getDataElements(int32_t rgb, Object$* pixel) {
 					if (lutrgb == 0) {
 						continue;
 					}
-					int32_t tmp = ((int32_t)((lutrgb >> 16) & (uint32_t)255)) - red;
+					int32_t tmp = ((lutrgb >> 16) & 0xff) - red;
 					int32_t currentError = tmp * tmp;
 					if (currentError < smallestError) {
-						tmp = ((int32_t)((lutrgb >> 8) & (uint32_t)255)) - green;
+						tmp = ((lutrgb >> 8) & 0xff) - green;
 						currentError += tmp * tmp;
 						if (currentError < smallestError) {
-							tmp = ((int32_t)(lutrgb & (uint32_t)255)) - blue;
+							tmp = (lutrgb & 0xff) - blue;
 							currentError += tmp * tmp;
 							if (currentError < smallestError) {
 								pix = i;
@@ -595,24 +493,24 @@ $Object* IndexColorModel::getDataElements(int32_t rgb, Object$* pixel) {
 			for (int32_t i = 0; i < this->map_size; ++i) {
 				int32_t lutrgb = $nc(lut)->get(i);
 				if (lutrgb == rgb) {
-					if (this->validBits != nullptr && !$nc(this->validBits)->testBit(i)) {
+					if (this->validBits != nullptr && !this->validBits->testBit(i)) {
 						continue;
 					}
 					pix = i;
 					break;
 				}
-				int32_t tmp = ((int32_t)((lutrgb >> 16) & (uint32_t)255)) - red;
+				int32_t tmp = ((lutrgb >> 16) & 0xff) - red;
 				int32_t currentError = tmp * tmp;
 				if (currentError < smallestError) {
-					tmp = ((int32_t)((lutrgb >> 8) & (uint32_t)255)) - green;
+					tmp = ((lutrgb >> 8) & 0xff) - green;
 					currentError += tmp * tmp;
 					if (currentError < smallestError) {
-						tmp = ((int32_t)(lutrgb & (uint32_t)255)) - blue;
+						tmp = (lutrgb & 0xff) - blue;
 						currentError += tmp * tmp;
 						if (currentError < smallestError) {
 							tmp = ((int32_t)((uint32_t)lutrgb >> 24)) - alpha;
 							currentError += tmp * tmp;
-							if (currentError < smallestError && (this->validBits == nullptr || $nc(this->validBits)->testBit(i))) {
+							if (currentError < smallestError && (this->validBits == nullptr || this->validBits->testBit(i))) {
 								pix = i;
 								smallestError = currentError;
 							}
@@ -623,53 +521,45 @@ $Object* IndexColorModel::getDataElements(int32_t rgb, Object$* pixel) {
 		}
 		$System::arraycopy(this->lookupcache, 2, this->lookupcache, 0, IndexColorModel::CACHESIZE - 2);
 		$nc(this->lookupcache)->set(IndexColorModel::CACHESIZE - 1, rgb);
-		$nc(this->lookupcache)->set(IndexColorModel::CACHESIZE - 2, ~pix);
-		return $of(installpixel(pixel, pix));
+		this->lookupcache->set(IndexColorModel::CACHESIZE - 2, ~pix);
+		return installpixel(pixel, pix);
 	}
 }
 
 $Object* IndexColorModel::installpixel(Object$* pixel$renamed, int32_t pix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, pixel, pixel$renamed);
 	{
-		$var($ints, intObj, nullptr)
-		$var($bytes, byteObj, nullptr)
-		$var($shorts, shortObj, nullptr)
+		$var($ints, intObj, nullptr);
+		$var($bytes, byteObj, nullptr);
+		$var($shorts, shortObj, nullptr);
 		switch (this->transferType) {
 		case $DataBuffer::TYPE_INT:
-			{
-				if (pixel == nullptr) {
-					$assign(pixel, ($assign(intObj, $new($ints, 1))));
-				} else {
-					$assign(intObj, $cast($ints, pixel));
-				}
-				$nc(intObj)->set(0, pix);
-				break;
+			if (pixel == nullptr) {
+				$assign(pixel, $assign(intObj, $new($ints, 1)));
+			} else {
+				$assign(intObj, $cast($ints, pixel));
 			}
+			$nc(intObj)->set(0, pix);
+			break;
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if (pixel == nullptr) {
-					$assign(pixel, ($assign(byteObj, $new($bytes, 1))));
-				} else {
-					$assign(byteObj, $cast($bytes, pixel));
-				}
-				$nc(byteObj)->set(0, (int8_t)pix);
-				break;
+			if (pixel == nullptr) {
+				$assign(pixel, $assign(byteObj, $new($bytes, 1)));
+			} else {
+				$assign(byteObj, $cast($bytes, pixel));
 			}
+			$nc(byteObj)->set(0, (int8_t)pix);
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				if (pixel == nullptr) {
-					$assign(pixel, ($assign(shortObj, $new($shorts, 1))));
-				} else {
-					$assign(shortObj, $cast($shorts, pixel));
-				}
-				$nc(shortObj)->set(0, (int16_t)pix);
-				break;
+			if (pixel == nullptr) {
+				$assign(pixel, $assign(shortObj, $new($shorts, 1)));
+			} else {
+				$assign(shortObj, $cast($shorts, pixel));
 			}
+			$nc(shortObj)->set(0, (int16_t)pix);
+			break;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
 		}
 	}
 	return $of(pixel);
@@ -690,96 +580,80 @@ $ints* IndexColorModel::getComponents(int32_t pixel, $ints* components$renamed, 
 }
 
 $ints* IndexColorModel::getComponents(Object$* pixel, $ints* components, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t intpixel = 0;
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
 		switch (this->transferType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(bdata, $cast($bytes, pixel));
-				intpixel = (int32_t)($nc(bdata)->get(0) & (uint32_t)255);
-				break;
-			}
+			$assign(bdata, $cast($bytes, pixel));
+			intpixel = $nc(bdata)->get(0) & 0xff;
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(sdata, $cast($shorts, pixel));
-				intpixel = (int32_t)($nc(sdata)->get(0) & (uint32_t)0x0000FFFF);
-				break;
-			}
+			$assign(sdata, $cast($shorts, pixel));
+			intpixel = $nc(sdata)->get(0) & 0xffff;
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(idata, $cast($ints, pixel));
-				intpixel = $nc(idata)->get(0);
-				break;
-			}
+			$assign(idata, $cast($ints, pixel));
+			intpixel = $nc(idata)->get(0);
+			break;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
 		}
 	}
 	return getComponents(intpixel, components, offset);
 }
 
 int32_t IndexColorModel::getDataElement($ints* components, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
-	int32_t rgb = (($nc(components)->get(offset + 0) << 16) | (components->get(offset + 1) << 8)) | (components->get(offset + 2));
+	$useLocalObjectStack();
+	int32_t rgb = (($nc(components)->get(offset + 0) << 16) | ($nc(components)->get(offset + 1) << 8)) | ($nc(components)->get(offset + 2));
 	if (this->supportsAlpha) {
 		rgb |= (components->get(offset + 3) << 24);
 	} else {
-		rgb |= (int32_t)0xFF000000;
+		rgb |= (int32_t)0xff000000;
 	}
 	$var($Object, inData, getDataElements(rgb, nullptr));
 	int32_t pixel = 0;
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
 		switch (this->transferType) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(bdata, $cast($bytes, inData));
-				pixel = (int32_t)($nc(bdata)->get(0) & (uint32_t)255);
-				break;
-			}
+			$assign(bdata, $cast($bytes, inData));
+			pixel = $nc(bdata)->get(0) & 0xff;
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{
-				$assign(sdata, $cast($shorts, inData));
-				pixel = $nc(sdata)->get(0);
-				break;
-			}
+			$assign(sdata, $cast($shorts, inData));
+			pixel = $nc(sdata)->get(0);
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(idata, $cast($ints, inData));
-				pixel = $nc(idata)->get(0);
-				break;
-			}
+			$assign(idata, $cast($ints, inData));
+			pixel = $nc(idata)->get(0);
+			break;
 		default:
-			{
-				$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
-			}
+			$throwNew($UnsupportedOperationException, $$str({"This method has not been implemented for transferType "_s, $$str(this->transferType)}));
 		}
 	}
 	return pixel;
 }
 
 $Object* IndexColorModel::getDataElements($ints* components, int32_t offset, Object$* pixel) {
-	int32_t rgb = (($nc(components)->get(offset + 0) << 16) | (components->get(offset + 1) << 8)) | (components->get(offset + 2));
+	int32_t rgb = (($nc(components)->get(offset + 0) << 16) | ($nc(components)->get(offset + 1) << 8)) | ($nc(components)->get(offset + 2));
 	if (this->supportsAlpha) {
 		rgb |= (components->get(offset + 3) << 24);
 	} else {
-		rgb &= (uint32_t)(int32_t)0xFF000000;
+		rgb &= (uint32_t)(int32_t)0xff000000;
 	}
-	return $of(getDataElements(rgb, pixel));
+	return getDataElements(rgb, pixel);
 }
 
 $WritableRaster* IndexColorModel::createCompatibleWritableRaster(int32_t w, int32_t h) {
 	$var($WritableRaster, raster, nullptr);
 	if (this->pixel_bits == 1 || this->pixel_bits == 2 || this->pixel_bits == 4) {
-		$assign(raster, $Raster::createPackedRaster($DataBuffer::TYPE_BYTE, w, h, 1, this->pixel_bits, ($Point*)nullptr));
+		$assign(raster, $Raster::createPackedRaster($DataBuffer::TYPE_BYTE, w, h, 1, this->pixel_bits, nullptr));
 	} else if (this->pixel_bits <= 8) {
 		$assign(raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, w, h, 1, nullptr));
 	} else if (this->pixel_bits <= 16) {
@@ -791,8 +665,8 @@ $WritableRaster* IndexColorModel::createCompatibleWritableRaster(int32_t w, int3
 }
 
 bool IndexColorModel::isCompatibleRaster($Raster* raster) {
-	int32_t size = $nc($($nc(raster)->getSampleModel()))->getSampleSize(0);
-	bool var$0 = (raster->getTransferType() == this->transferType);
+	int32_t size = $$nc($nc(raster)->getSampleModel())->getSampleSize(0);
+	bool var$0 = raster->getTransferType() == this->transferType;
 	return (var$0 && (raster->getNumBands() == 1) && (($sl(1, size)) >= this->map_size));
 }
 
@@ -813,14 +687,14 @@ bool IndexColorModel::isCompatibleSampleModel($SampleModel* sm) {
 	if ($nc(sm)->getTransferType() != this->transferType) {
 		return false;
 	}
-	if ($nc(sm)->getNumBands() != 1) {
+	if (sm->getNumBands() != 1) {
 		return false;
 	}
 	return true;
 }
 
 $BufferedImage* IndexColorModel::convertToIntDiscrete($Raster* raster, bool forceARGB) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, nullptr);
 	if (!isCompatibleRaster(raster)) {
 		$throwNew($IllegalArgumentException, "This raster is not compatiblewith this IndexColorModel."_s);
@@ -828,9 +702,9 @@ $BufferedImage* IndexColorModel::convertToIntDiscrete($Raster* raster, bool forc
 	if (forceARGB || this->transparency == $Transparency::TRANSLUCENT) {
 		$assign(cm, $ColorModel::getRGBdefault());
 	} else if (this->transparency == $Transparency::BITMASK) {
-		$assign(cm, $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000));
+		$assign(cm, $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000));
 	} else {
-		$assign(cm, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+		$assign(cm, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 	}
 	int32_t w = $nc(raster)->getWidth();
 	int32_t h = raster->getHeight();
@@ -847,15 +721,15 @@ $BufferedImage* IndexColorModel::convertToIntDiscrete($Raster* raster, bool forc
 			$assign(data, $DataBuffer::toIntArray(obj));
 		}
 		for (int32_t x = 0; x < w; ++x) {
-			$nc(data)->set(x, $nc(this->rgb)->get((int32_t)(data->get(x) & (uint32_t)this->pixel_mask)));
+			$nc(data)->set(x, $nc(this->rgb)->get($nc(data)->get(x) & this->pixel_mask));
 		}
 		$nc(discreteRaster)->setDataElements(0, y, w, 1, data);
 	}
-	return $new($BufferedImage, cm, discreteRaster, false, ($Hashtable*)nullptr);
+	return $new($BufferedImage, cm, discreteRaster, false, nullptr);
 }
 
 bool IndexColorModel::isValid(int32_t pixel) {
-	return ((pixel >= 0 && pixel < this->map_size) && (this->validBits == nullptr || $nc(this->validBits)->testBit(pixel)));
+	return ((pixel >= 0 && pixel < this->map_size) && (this->validBits == nullptr || this->validBits->testBit(pixel)));
 }
 
 bool IndexColorModel::isValid() {
@@ -874,43 +748,43 @@ void IndexColorModel::finalize() {
 }
 
 $String* IndexColorModel::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($String, $$str({"IndexColorModel: #pixelBits = "_s, $$str(this->pixel_bits), " numComponents = "_s, $$str(this->numComponents), " color space = "_s, this->colorSpace, " transparency = "_s, $$str(this->transparency), " transIndex   = "_s, $$str(this->transparent_index), " has alpha = "_s, $$str(this->supportsAlpha), " isAlphaPre = "_s, $$str(this->isAlphaPremultiplied$)}));
 }
 
 bool IndexColorModel::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(IndexColorModel, obj))) {
 		return false;
 	}
 	$var(IndexColorModel, cm, $cast(IndexColorModel, obj));
 	bool var$4 = this->supportsAlpha != $nc(cm)->hasAlpha();
-	bool var$3 = var$4 || this->isAlphaPremultiplied$ != $nc(cm)->isAlphaPremultiplied();
-	bool var$2 = var$3 || this->pixel_bits != $nc(cm)->getPixelSize();
-	bool var$1 = var$2 || this->transparency != $nc(cm)->getTransparency();
-	bool var$0 = var$1 || this->numComponents != $nc(cm)->getNumComponents();
-	if (var$0 || (!($nc($of(this->colorSpace))->equals($nc(cm)->colorSpace))) || this->transferType != $nc(cm)->transferType || this->map_size != $nc(cm)->map_size || this->transparent_index != $nc(cm)->transparent_index) {
+	bool var$3 = var$4 || this->isAlphaPremultiplied$ != cm->isAlphaPremultiplied();
+	bool var$2 = var$3 || this->pixel_bits != cm->getPixelSize();
+	bool var$1 = var$2 || this->transparency != cm->getTransparency();
+	bool var$0 = var$1 || this->numComponents != cm->getNumComponents();
+	if (var$0 || (!($nc(this->colorSpace)->equals(cm->colorSpace))) || this->transferType != cm->transferType || this->map_size != cm->map_size || this->transparent_index != cm->transparent_index) {
 		return false;
 	}
-	if (!($Arrays::equals(this->nBits, $($nc(cm)->getComponentSize())))) {
+	if (!($Arrays::equals(this->nBits, $(cm->getComponentSize())))) {
 		return false;
 	}
 	bool testValidBits = false;
-	if (this->validBits == $nc(cm)->validBits) {
+	if (this->validBits == cm->validBits) {
 		testValidBits = false;
 	} else if (this->validBits == nullptr || cm->validBits == nullptr) {
 		return false;
-	} else if ($nc(this->validBits)->equals(cm->validBits)) {
+	} else if (this->validBits->equals(cm->validBits)) {
 		testValidBits = false;
 	} else {
 		testValidBits = true;
 	}
 	if (testValidBits) {
 		for (int32_t i = 0; i < this->map_size; ++i) {
-			bool var$5 = $nc(this->rgb)->get(i) != $nc($nc(cm)->rgb)->get(i);
+			bool var$5 = $nc(this->rgb)->get(i) != $nc(cm->rgb)->get(i);
 			if (!var$5) {
 				bool var$6 = $nc(this->validBits)->testBit(i);
-				var$5 = var$6 != $nc($nc(cm)->validBits)->testBit(i);
+				var$5 = var$6 != $nc(cm->validBits)->testBit(i);
 			}
 			if (var$5) {
 				return false;
@@ -918,7 +792,7 @@ bool IndexColorModel::equals(Object$* obj) {
 		}
 	} else {
 		for (int32_t i = 0; i < this->map_size; ++i) {
-			if ($nc(this->rgb)->get(i) != $nc($nc(cm)->rgb)->get(i)) {
+			if ($nc(this->rgb)->get(i) != $nc(cm->rgb)->get(i)) {
 				return false;
 			}
 		}
@@ -936,7 +810,7 @@ int32_t IndexColorModel::hashCode() {
 		result = 89 * result + (this->supportsAlpha ? 1 : 0);
 		result = 89 * result + (this->isAlphaPremultiplied$ ? 1 : 0);
 		result = 89 * result + this->numComponents;
-		result = 89 * result + $nc($of(this->colorSpace))->hashCode();
+		result = 89 * result + $nc(this->colorSpace)->hashCode();
 		result = 89 * result + this->transferType;
 		result = 89 * result + $Arrays::hashCode(this->rgb);
 		result = 89 * result + this->map_size;
@@ -946,7 +820,7 @@ int32_t IndexColorModel::hashCode() {
 	return result;
 }
 
-void clinit$IndexColorModel($Class* class$) {
+void IndexColorModel::clinit$($Class* clazz) {
 	$assignStatic(IndexColorModel::opaqueBits, $new($ints, {
 		8,
 		8,
@@ -968,7 +842,91 @@ IndexColorModel::IndexColorModel() {
 }
 
 $Class* IndexColorModel::load$($String* name, bool initialize) {
-	$loadClass(IndexColorModel, name, initialize, &_IndexColorModel_ClassInfo_, clinit$IndexColorModel, allocate$IndexColorModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"rgb", "[I", nullptr, $PRIVATE, $field(IndexColorModel, rgb)},
+		{"map_size", "I", nullptr, $PRIVATE, $field(IndexColorModel, map_size)},
+		{"pixel_mask", "I", nullptr, $PRIVATE, $field(IndexColorModel, pixel_mask)},
+		{"transparent_index", "I", nullptr, $PRIVATE, $field(IndexColorModel, transparent_index)},
+		{"allgrayopaque", "Z", nullptr, $PRIVATE, $field(IndexColorModel, allgrayopaque)},
+		{"validBits", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(IndexColorModel, validBits)},
+		{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(IndexColorModel, hashCode$)},
+		{"colorData", "Lsun/awt/image/BufImgSurfaceData$ICMColorData;", nullptr, $PRIVATE, $field(IndexColorModel, colorData)},
+		{"opaqueBits", "[I", nullptr, $PRIVATE | $STATIC, $staticField(IndexColorModel, opaqueBits)},
+		{"alphaBits", "[I", nullptr, $PRIVATE | $STATIC, $staticField(IndexColorModel, alphaBits)},
+		{"CACHESIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexColorModel, CACHESIZE)},
+		{"lookupcache", "[I", nullptr, $PRIVATE, $field(IndexColorModel, lookupcache)},
+		{}
+	};
+	$NamedAttribute finalizemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute finalizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", finalizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II[B[B[B)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*)},
+		{"<init>", "(II[B[B[BI)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*, int32_t)},
+		{"<init>", "(II[B[B[B[B)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
+		{"<init>", "(II[BIZ)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, int32_t, bool)},
+		{"<init>", "(II[BIZI)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $bytes*, int32_t, bool, int32_t)},
+		{"<init>", "(II[IIZII)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $ints*, int32_t, bool, int32_t, int32_t)},
+		{"<init>", "(II[IIILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(IndexColorModel, init$, void, int32_t, int32_t, $ints*, int32_t, int32_t, $BigInteger*)},
+		{"calcRealMapSize", "(II)I", nullptr, $PRIVATE, $method(IndexColorModel, calcRealMapSize, int32_t, int32_t, int32_t)},
+		{"calculatePixelMask", "()V", nullptr, $PRIVATE, $method(IndexColorModel, calculatePixelMask, void)},
+		{"convertToIntDiscrete", "(Ljava/awt/image/Raster;Z)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, convertToIntDiscrete, $BufferedImage*, $Raster*, bool)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
+		{"createCompatibleWritableRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, createCompatibleWritableRaster, $WritableRaster*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, equals, bool, Object$*)},
+		{"finalize", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(IndexColorModel, finalize, void), nullptr, nullptr, finalizemethodAnnotations$$},
+		{"getAllValid", "()Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(IndexColorModel, getAllValid, $BigInteger*)},
+		{"getAlpha", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getAlpha, int32_t, int32_t)},
+		{"getAlphas", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getAlphas, void, $bytes*)},
+		{"getBlue", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getBlue, int32_t, int32_t)},
+		{"getBlues", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getBlues, void, $bytes*)},
+		{"getComponentSize", "()[I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getComponentSize, $ints*)},
+		{"getComponents", "(I[II)[I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getComponents, $ints*, int32_t, $ints*, int32_t)},
+		{"getComponents", "(Ljava/lang/Object;[II)[I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getComponents, $ints*, Object$*, $ints*, int32_t)},
+		{"getDataElement", "([II)I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getDataElement, int32_t, $ints*, int32_t)},
+		{"getDataElements", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(IndexColorModel, getDataElements, $Object*, int32_t, Object$*)},
+		{"getDataElements", "([IILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getDataElements, $Object*, $ints*, int32_t, Object$*)},
+		{"getGreen", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getGreen, int32_t, int32_t)},
+		{"getGreens", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getGreens, void, $bytes*)},
+		{"getMapSize", "()I", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getMapSize, int32_t)},
+		{"getRGB", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getRGB, int32_t, int32_t)},
+		{"getRGBs", "([I)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getRGBs, void, $ints*)},
+		{"getRed", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(IndexColorModel, getRed, int32_t, int32_t)},
+		{"getReds", "([B)V", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getReds, void, $bytes*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getTransparency, int32_t)},
+		{"getTransparentPixel", "()I", nullptr, $PUBLIC | $FINAL, $method(IndexColorModel, getTransparentPixel, int32_t)},
+		{"getValidPixels", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, getValidPixels, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, hashCode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(IndexColorModel, initIDs, void)},
+		{"installpixel", "(Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $PRIVATE, $method(IndexColorModel, installpixel, $Object*, Object$*, int32_t)},
+		{"isCompatibleRaster", "(Ljava/awt/image/Raster;)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isCompatibleRaster, bool, $Raster*)},
+		{"isCompatibleSampleModel", "(Ljava/awt/image/SampleModel;)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isCompatibleSampleModel, bool, $SampleModel*)},
+		{"isValid", "(I)Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isValid, bool, int32_t)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, isValid, bool)},
+		{"setRGBs", "(I[B[B[B[B)V", nullptr, $PRIVATE, $method(IndexColorModel, setRGBs, void, int32_t, $bytes*, $bytes*, $bytes*, $bytes*)},
+		{"setRGBs", "(I[IIZ)V", nullptr, $PRIVATE, $method(IndexColorModel, setRGBs, void, int32_t, $ints*, int32_t, bool)},
+		{"setTransparency", "(I)V", nullptr, $PRIVATE, $method(IndexColorModel, setTransparency, void, int32_t)},
+		{"setTransparentPixel", "(I)V", nullptr, $PRIVATE, $method(IndexColorModel, setTransparentPixel, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IndexColorModel, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.IndexColorModel",
+		"java.awt.image.ColorModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IndexColorModel, name, initialize, &classInfo$$, IndexColorModel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IndexColorModel);
+	});
 	return class$;
 }
 

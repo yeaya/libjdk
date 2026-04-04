@@ -35,6 +35,7 @@ class $export MediaSize$Engineering : public ::java::lang::Object {
 	$class(MediaSize$Engineering, 0, ::java::lang::Object)
 public:
 	MediaSize$Engineering();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::print::attribute::standard::MediaSize* A;
 	static ::javax::print::attribute::standard::MediaSize* B;

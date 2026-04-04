@@ -1,6 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/XMLDSigRI$2.h>
-
-#include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -27,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
-using $Provider$Service = ::java::security::Provider$Service;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;
@@ -42,56 +39,13 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _XMLDSigRI$2_FieldInfo_[] = {
-	{"this$0", "Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;", nullptr, $FINAL | $SYNTHETIC, $field(XMLDSigRI$2, this$0)},
-	{"val$p", "Ljava/security/Provider;", nullptr, $FINAL | $SYNTHETIC, $field(XMLDSigRI$2, val$p)},
-	{}
-};
-
-$MethodInfo _XMLDSigRI$2_MethodInfo_[] = {
-	{"<init>", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider;)V", "()V", 0, $method(XMLDSigRI$2, init$, void, $XMLDSigRI*, $Provider*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _XMLDSigRI$2_EnclosingMethodInfo_ = {
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _XMLDSigRI$2_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLDSigRI$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_XMLDSigRI$2_FieldInfo_,
-	_XMLDSigRI$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_XMLDSigRI$2_EnclosingMethodInfo_,
-	_XMLDSigRI$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI"
-};
-
-$Object* allocate$XMLDSigRI$2($Class* clazz) {
-	return $of($alloc(XMLDSigRI$2));
-}
-
 void XMLDSigRI$2::init$($XMLDSigRI* this$0, $Provider* val$p) {
 	$set(this, this$0, this$0);
 	$set(this, val$p, val$p);
 }
 
 $Object* XMLDSigRI$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, MECH_TYPE, $new($HashMap));
 	MECH_TYPE->put("MechanismType"_s, "DOM"_s);
 	$XMLDSigRI::access$000(this->this$0, $$new($XMLDSigRI$ProviderService, this->val$p, "XMLSignatureFactory"_s, "DOM"_s, "org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory"_s));
@@ -109,14 +63,50 @@ $Object* XMLDSigRI$2::run() {
 	$XMLDSigRI::access$1000(this->this$0, $$new($XMLDSigRI$ProviderService, this->val$p, "TransformService"_s, $Transform::XPATH2, "org.jcp.xml.dsig.internal.dom.DOMXPathFilter2Transform"_s, $$new($StringArray, {"XPATH2"_s}), MECH_TYPE));
 	$XMLDSigRI::access$1100(this->this$0, $$new($XMLDSigRI$ProviderService, this->val$p, "TransformService"_s, $Transform::XPATH, "org.jcp.xml.dsig.internal.dom.DOMXPathTransform"_s, $$new($StringArray, {"XPATH"_s}), MECH_TYPE));
 	$XMLDSigRI::access$1200(this->this$0, $$new($XMLDSigRI$ProviderService, this->val$p, "TransformService"_s, $Transform::XSLT, "org.jcp.xml.dsig.internal.dom.DOMXSLTTransform"_s, $$new($StringArray, {"XSLT"_s}), MECH_TYPE));
-	return $of(nullptr);
+	return nullptr;
 }
 
 XMLDSigRI$2::XMLDSigRI$2() {
 }
 
 $Class* XMLDSigRI$2::load$($String* name, bool initialize) {
-	$loadClass(XMLDSigRI$2, name, initialize, &_XMLDSigRI$2_ClassInfo_, allocate$XMLDSigRI$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;", nullptr, $FINAL | $SYNTHETIC, $field(XMLDSigRI$2, this$0)},
+		{"val$p", "Ljava/security/Provider;", nullptr, $FINAL | $SYNTHETIC, $field(XMLDSigRI$2, val$p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider;)V", "()V", 0, $method(XMLDSigRI$2, init$, void, $XMLDSigRI*, $Provider*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI"
+	};
+	$loadClass(XMLDSigRI$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLDSigRI$2);
+	});
 	return class$;
 }
 

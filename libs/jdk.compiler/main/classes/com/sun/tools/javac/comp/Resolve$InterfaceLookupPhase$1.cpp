@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$InterfaceLookupPhase$1.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Resolve$InterfaceLookupPhase.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
@@ -21,50 +20,12 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Resolve$InterfaceLookupPhase$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Resolve$InterfaceLookupPhase$1, init$, void, $String*, int32_t)},
-	{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, 0, $virtualMethod(Resolve$InterfaceLookupPhase$1, update, $Resolve$InterfaceLookupPhase*, $Symbol*, $Resolve*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$InterfaceLookupPhase$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$InterfaceLookupPhase$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase", "com.sun.tools.javac.comp.Resolve", "InterfaceLookupPhase", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Resolve$InterfaceLookupPhase$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$1",
-	"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
-	nullptr,
-	nullptr,
-	_Resolve$InterfaceLookupPhase$1_MethodInfo_,
-	nullptr,
-	&_Resolve$InterfaceLookupPhase$1_EnclosingMethodInfo_,
-	_Resolve$InterfaceLookupPhase$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$InterfaceLookupPhase$1($Class* clazz) {
-	return $of($alloc(Resolve$InterfaceLookupPhase$1));
-}
-
 void Resolve$InterfaceLookupPhase$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Resolve$InterfaceLookupPhase::init$($enum$name, $enum$ordinal);
 }
 
 $Resolve$InterfaceLookupPhase* Resolve$InterfaceLookupPhase$1::update($Symbol* s, $Resolve* rs) {
-	if (((int64_t)($nc(s)->flags() & (uint64_t)(int64_t)((1024 | 512) | 16384))) != 0) {
+	if (($nc(s)->flags() & ((0x0400 | 0x0200) | 0x4000)) != 0) {
 		return this;
 	} else {
 		$init($Resolve$InterfaceLookupPhase);
@@ -76,7 +37,39 @@ Resolve$InterfaceLookupPhase$1::Resolve$InterfaceLookupPhase$1() {
 }
 
 $Class* Resolve$InterfaceLookupPhase$1::load$($String* name, bool initialize) {
-	$loadClass(Resolve$InterfaceLookupPhase$1, name, initialize, &_Resolve$InterfaceLookupPhase$1_ClassInfo_, allocate$Resolve$InterfaceLookupPhase$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Resolve$InterfaceLookupPhase$1, init$, void, $String*, int32_t)},
+		{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, 0, $virtualMethod(Resolve$InterfaceLookupPhase$1, update, $Resolve$InterfaceLookupPhase*, $Symbol*, $Resolve*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase", "com.sun.tools.javac.comp.Resolve", "InterfaceLookupPhase", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase$1",
+		"com.sun.tools.javac.comp.Resolve$InterfaceLookupPhase",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$InterfaceLookupPhase$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$InterfaceLookupPhase$1));
+	});
 	return class$;
 }
 

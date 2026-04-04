@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifEditorPaneUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifEditorPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifEditorPaneUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifEditorPaneUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifEditorPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifEditorPaneUI",
-	"javax.swing.plaf.basic.BasicEditorPaneUI",
-	nullptr,
-	nullptr,
-	_MotifEditorPaneUI_MethodInfo_
-};
-
-$Object* allocate$MotifEditorPaneUI($Class* clazz) {
-	return $of($alloc(MotifEditorPaneUI));
-}
-
 void MotifEditorPaneUI::init$() {
 	$BasicEditorPaneUI::init$();
 }
@@ -59,7 +38,23 @@ MotifEditorPaneUI::MotifEditorPaneUI() {
 }
 
 $Class* MotifEditorPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MotifEditorPaneUI, name, initialize, &_MotifEditorPaneUI_ClassInfo_, allocate$MotifEditorPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifEditorPaneUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifEditorPaneUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifEditorPaneUI",
+		"javax.swing.plaf.basic.BasicEditorPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifEditorPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifEditorPaneUI));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$BadClassFileError.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -32,9 +31,7 @@ using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -47,44 +44,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$BadClassFileError_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$BadClassFileError, this$0)},
-	{"ex", "Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", nullptr, $PRIVATE | $FINAL, $field(Resolve$BadClassFileError, ex)},
-	{}
-};
-
-$MethodInfo _Resolve$BadClassFileError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC, $method(Resolve$BadClassFileError, init$, void, $Resolve*, $Symbol$CompletionFailure*)},
-	{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$BadClassFileError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$BadClassFileError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$BadClassFileError", "com.sun.tools.javac.comp.Resolve", "BadClassFileError", 0},
-	{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$BadClassFileError_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$BadClassFileError",
-	"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
-	nullptr,
-	_Resolve$BadClassFileError_FieldInfo_,
-	_Resolve$BadClassFileError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$BadClassFileError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$BadClassFileError($Class* clazz) {
-	return $of($alloc(Resolve$BadClassFileError));
-}
-
 void Resolve$BadClassFileError::init$($Resolve* this$0, $Symbol$CompletionFailure* ex) {
 	$set(this, this$0, this$0);
 	$init($Kinds$Kind);
@@ -94,14 +53,12 @@ void Resolve$BadClassFileError::init$($Resolve* this$0, $Symbol$CompletionFailur
 }
 
 $JCDiagnostic* Resolve$BadClassFileError::getDiagnostic($JCDiagnostic$DiagnosticType* dkind, $JCDiagnostic$DiagnosticPosition* pos, $Symbol* location, $Type* site, $Name* name, $List* argtypes, $List* typeargtypes) {
-	$useLocalCurrentObjectStackCache();
-	$var($JCDiagnostic$DiagnosticType, var$0, dkind);
-	$var($DiagnosticSource, var$1, $nc(this->this$0->log)->currentSource());
-	$var($JCDiagnostic$DiagnosticPosition, var$2, pos);
-	$var($String, var$3, "cant.access"_s);
-	$var($JCDiagnostic, d, $nc(this->this$0->diags)->create(var$0, var$1, var$2, var$3, $$new($ObjectArray, {
-		$of($nc(this->ex)->sym),
-		$($of($nc(this->ex)->getDetailValue()))
+	$useLocalObjectStack();
+	$var($DiagnosticSource, var$0, $nc(this->this$0->log)->currentSource());
+	$var($String, var$1, "cant.access"_s);
+	$var($JCDiagnostic, d, $nc(this->this$0->diags)->create(dkind, var$0, pos, var$1, $$new($ObjectArray, {
+		$nc(this->ex)->sym,
+		$($nc(this->ex)->getDetailValue())
 	})));
 	$init($JCDiagnostic$DiagnosticFlag);
 	$nc(d)->setFlag($JCDiagnostic$DiagnosticFlag::NON_DEFERRABLE);
@@ -112,7 +69,39 @@ Resolve$BadClassFileError::Resolve$BadClassFileError() {
 }
 
 $Class* Resolve$BadClassFileError::load$($String* name, bool initialize) {
-	$loadClass(Resolve$BadClassFileError, name, initialize, &_Resolve$BadClassFileError_ClassInfo_, allocate$Resolve$BadClassFileError);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$BadClassFileError, this$0)},
+		{"ex", "Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", nullptr, $PRIVATE | $FINAL, $field(Resolve$BadClassFileError, ex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC, $method(Resolve$BadClassFileError, init$, void, $Resolve*, $Symbol$CompletionFailure*)},
+		{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$BadClassFileError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$BadClassFileError", "com.sun.tools.javac.comp.Resolve", "BadClassFileError", 0},
+		{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$BadClassFileError",
+		"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$BadClassFileError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$BadClassFileError));
+	});
 	return class$;
 }
 

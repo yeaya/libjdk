@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextProxy.h>
-
 #include <java/beans/beancontext/BeanContextChild.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace beans {
 		namespace beancontext {
 
-$MethodInfo _BeanContextProxy_MethodInfo_[] = {
-	{"getBeanContextProxy", "()Ljava/beans/beancontext/BeanContextChild;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextProxy, getBeanContextProxy, $BeanContextChild*)},
-	{}
-};
-
-$ClassInfo _BeanContextProxy_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.beans.beancontext.BeanContextProxy",
-	nullptr,
-	nullptr,
-	nullptr,
-	_BeanContextProxy_MethodInfo_
-};
-
-$Object* allocate$BeanContextProxy($Class* clazz) {
-	return $of($alloc(BeanContextProxy));
-}
-
 $Class* BeanContextProxy::load$($String* name, bool initialize) {
-	$loadClass(BeanContextProxy, name, initialize, &_BeanContextProxy_ClassInfo_, allocate$BeanContextProxy);
+	$MethodInfo methodInfos$$[] = {
+		{"getBeanContextProxy", "()Ljava/beans/beancontext/BeanContextChild;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BeanContextProxy, getBeanContextProxy, $BeanContextChild*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.beans.beancontext.BeanContextProxy",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BeanContextProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextProxy);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$WindowsFileChooserUIAccessor.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/io/File.h>
@@ -31,53 +30,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsFileChooserUI$WindowsFileChooserUIAccessor_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$WindowsFileChooserUIAccessor, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI$WindowsFileChooserUIAccessor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI$WindowsFileChooserUIAccessor, init$, void, $WindowsFileChooserUI*)},
-	{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createDetailsView, $JPanel*)},
-	{"createDoubleClickListener", "(Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createDoubleClickListener, $MouseListener*, $JList*)},
-	{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createList, $JPanel*)},
-	{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createListSelectionListener, $ListSelectionListener*)},
-	{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getApproveSelectionAction, $Action*)},
-	{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getChangeToParentDirectoryAction, $Action*)},
-	{"getDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getDirectory, $File*)},
-	{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getFileChooser, $JFileChooser*)},
-	{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getModel, $BasicDirectoryModel*)},
-	{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getNewFolderAction, $Action*)},
-	{"isDirectorySelected", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, isDirectorySelected, bool)},
-	{}
-};
-
-$InnerClassInfo _WindowsFileChooserUI$WindowsFileChooserUIAccessor_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "WindowsFileChooserUIAccessor", $PRIVATE},
-	{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI$WindowsFileChooserUIAccessor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor",
-	"java.lang.Object",
-	"sun.swing.FilePane$FileChooserUIAccessor",
-	_WindowsFileChooserUI$WindowsFileChooserUIAccessor_FieldInfo_,
-	_WindowsFileChooserUI$WindowsFileChooserUIAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFileChooserUI$WindowsFileChooserUIAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
-};
-
-$Object* allocate$WindowsFileChooserUI$WindowsFileChooserUIAccessor($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI$WindowsFileChooserUIAccessor));
-}
 
 void WindowsFileChooserUI$WindowsFileChooserUIAccessor::init$($WindowsFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -131,7 +83,48 @@ WindowsFileChooserUI$WindowsFileChooserUIAccessor::WindowsFileChooserUI$WindowsF
 }
 
 $Class* WindowsFileChooserUI$WindowsFileChooserUIAccessor::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI$WindowsFileChooserUIAccessor, name, initialize, &_WindowsFileChooserUI$WindowsFileChooserUIAccessor_ClassInfo_, allocate$WindowsFileChooserUI$WindowsFileChooserUIAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$WindowsFileChooserUIAccessor, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI$WindowsFileChooserUIAccessor, init$, void, $WindowsFileChooserUI*)},
+		{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createDetailsView, $JPanel*)},
+		{"createDoubleClickListener", "(Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createDoubleClickListener, $MouseListener*, $JList*)},
+		{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createList, $JPanel*)},
+		{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, createListSelectionListener, $ListSelectionListener*)},
+		{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getApproveSelectionAction, $Action*)},
+		{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getChangeToParentDirectoryAction, $Action*)},
+		{"getDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getDirectory, $File*)},
+		{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getFileChooser, $JFileChooser*)},
+		{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getModel, $BasicDirectoryModel*)},
+		{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, getNewFolderAction, $Action*)},
+		{"isDirectorySelected", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$WindowsFileChooserUIAccessor, isDirectorySelected, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "WindowsFileChooserUIAccessor", $PRIVATE},
+		{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor",
+		"java.lang.Object",
+		"sun.swing.FilePane$FileChooserUIAccessor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
+	};
+	$loadClass(WindowsFileChooserUI$WindowsFileChooserUIAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileChooserUI$WindowsFileChooserUIAccessor);
+	});
 	return class$;
 }
 

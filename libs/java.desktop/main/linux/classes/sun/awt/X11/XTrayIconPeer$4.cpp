@@ -1,7 +1,5 @@
 #include <sun/awt/X11/XTrayIconPeer$4.h>
-
 #include <java/awt/TrayIcon.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XEvent.h>
@@ -17,7 +15,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XEvent = ::sun::awt::X11::XEvent;
@@ -30,57 +27,13 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XTrayIconPeer$4_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTrayIconPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTrayIconPeer$4, this$0)},
-	{"xtiPeer", "Lsun/awt/X11/XTrayIconPeer;", nullptr, 0, $field(XTrayIconPeer$4, xtiPeer)},
-	{}
-};
-
-$MethodInfo _XTrayIconPeer$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XTrayIconPeer;)V", nullptr, 0, $method(XTrayIconPeer$4, init$, void, $XTrayIconPeer*)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$4, dispatchEvent, void, $XEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _XTrayIconPeer$4_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XTrayIconPeer",
-	"<init>",
-	"(Ljava/awt/TrayIcon;)V"
-};
-
-$InnerClassInfo _XTrayIconPeer$4_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTrayIconPeer$4", nullptr, nullptr, 0},
-	{"sun.awt.X11.XTrayIconPeer$4$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XTrayIconPeer$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XTrayIconPeer$4",
-	"java.lang.Object",
-	"sun.awt.X11.XEventDispatcher",
-	_XTrayIconPeer$4_FieldInfo_,
-	_XTrayIconPeer$4_MethodInfo_,
-	nullptr,
-	&_XTrayIconPeer$4_EnclosingMethodInfo_,
-	_XTrayIconPeer$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTrayIconPeer"
-};
-
-$Object* allocate$XTrayIconPeer$4($Class* clazz) {
-	return $of($alloc(XTrayIconPeer$4));
-}
-
 void XTrayIconPeer$4::init$($XTrayIconPeer* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, xtiPeer, this->this$0);
 }
 
 void XTrayIconPeer$4::dispatchEvent($XEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = this->this$0->isDisposed();
 	if (var$0 || $nc(ev)->get_type() != $XConstants::ReparentNotify) {
 		return;
@@ -104,7 +57,44 @@ XTrayIconPeer$4::XTrayIconPeer$4() {
 }
 
 $Class* XTrayIconPeer$4::load$($String* name, bool initialize) {
-	$loadClass(XTrayIconPeer$4, name, initialize, &_XTrayIconPeer$4_ClassInfo_, allocate$XTrayIconPeer$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTrayIconPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTrayIconPeer$4, this$0)},
+		{"xtiPeer", "Lsun/awt/X11/XTrayIconPeer;", nullptr, 0, $field(XTrayIconPeer$4, xtiPeer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XTrayIconPeer;)V", nullptr, 0, $method(XTrayIconPeer$4, init$, void, $XTrayIconPeer*)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$4, dispatchEvent, void, $XEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XTrayIconPeer",
+		"<init>",
+		"(Ljava/awt/TrayIcon;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTrayIconPeer$4", nullptr, nullptr, 0},
+		{"sun.awt.X11.XTrayIconPeer$4$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XTrayIconPeer$4",
+		"java.lang.Object",
+		"sun.awt.X11.XEventDispatcher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTrayIconPeer"
+	};
+	$loadClass(XTrayIconPeer$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XTrayIconPeer$4);
+	});
 	return class$;
 }
 

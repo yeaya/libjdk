@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/JISAutoDetect.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -38,55 +37,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _JISAutoDetect_FieldInfo_[] = {
-	{"EUCJP_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, EUCJP_MASK)},
-	{"SJIS2B_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, SJIS2B_MASK)},
-	{"SJIS1B_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, SJIS1B_MASK)},
-	{"EUCJP_KANA1_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, EUCJP_KANA1_MASK)},
-	{"EUCJP_KANA2_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, EUCJP_KANA2_MASK)},
-	{}
-};
-
-$MethodInfo _JISAutoDetect_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JISAutoDetect, init$, void)},
-	{"canEncode", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, canEncode, bool)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, historicalName, $String*)},
-	{"looksLikeJapanese", "(Ljava/nio/CharBuffer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect, looksLikeJapanese, bool, $CharBuffer*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _JISAutoDetect_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.JISAutoDetect$Decoder", "sun.nio.cs.ext.JISAutoDetect", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JISAutoDetect_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.JISAutoDetect",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	_JISAutoDetect_FieldInfo_,
-	_JISAutoDetect_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JISAutoDetect_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.JISAutoDetect$Decoder"
-};
-
-$Object* allocate$JISAutoDetect($Class* clazz) {
-	return $of($alloc(JISAutoDetect));
-}
-
 int32_t JISAutoDetect::hashCode() {
 	 return this->$Charset::hashCode();
 }
@@ -112,7 +62,7 @@ void JISAutoDetect::init$() {
 }
 
 bool JISAutoDetect::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf($SJIS, cs)) || ($instanceOf($EUC_JP, cs)) || ($instanceOf($ISO2022_JP, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf($SJIS, cs)) || ($instanceOf($EUC_JP, cs)) || ($instanceOf($ISO2022_JP, cs)));
 }
 
 bool JISAutoDetect::canEncode() {
@@ -141,7 +91,7 @@ bool JISAutoDetect::looksLikeJapanese($CharBuffer* cb) {
 		if (12352 <= c && c <= 12447 && ++hiragana > 1) {
 			return true;
 		}
-		if (0x0000FF65 <= c && c <= 0x0000FF9F && ++katakana > 1) {
+		if (0x0000ff65 <= c && c <= 0x0000ff9f && ++katakana > 1) {
 			return true;
 		}
 	}
@@ -152,7 +102,50 @@ JISAutoDetect::JISAutoDetect() {
 }
 
 $Class* JISAutoDetect::load$($String* name, bool initialize) {
-	$loadClass(JISAutoDetect, name, initialize, &_JISAutoDetect_ClassInfo_, allocate$JISAutoDetect);
+	$FieldInfo fieldInfos$$[] = {
+		{"EUCJP_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, EUCJP_MASK)},
+		{"SJIS2B_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, SJIS2B_MASK)},
+		{"SJIS1B_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, SJIS1B_MASK)},
+		{"EUCJP_KANA1_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, EUCJP_KANA1_MASK)},
+		{"EUCJP_KANA2_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JISAutoDetect, EUCJP_KANA2_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JISAutoDetect, init$, void)},
+		{"canEncode", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, canEncode, bool)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, historicalName, $String*)},
+		{"looksLikeJapanese", "(Ljava/nio/CharBuffer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect, looksLikeJapanese, bool, $CharBuffer*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.JISAutoDetect$Decoder", "sun.nio.cs.ext.JISAutoDetect", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.JISAutoDetect",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.JISAutoDetect$Decoder"
+	};
+	$loadClass(JISAutoDetect, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JISAutoDetect));
+	});
 	return class$;
 }
 

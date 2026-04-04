@@ -88,6 +88,7 @@ class DataTransferer : public ::java::lang::Object {
 	$class(DataTransferer, 0, ::java::lang::Object)
 public:
 	DataTransferer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::datatransfer::FlavorTable* adaptFlavorMap(::java::awt::datatransfer::FlavorMap* map);
 	::java::io::File* castToFile(Object$* fileObject);

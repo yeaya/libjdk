@@ -1,5 +1,4 @@
 #include <TextViewOOM.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/Window.h>
@@ -23,7 +22,6 @@
 using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $Window = ::java::awt::Window;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -44,27 +42,24 @@ public:
 	virtual void run() override {
 		TextViewOOM::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TextViewOOM$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TextViewOOM$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextViewOOM$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextViewOOM$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo TextViewOOM$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TextViewOOM$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TextViewOOM$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(TextViewOOM$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextViewOOM$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextViewOOM$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TextViewOOM$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TextViewOOM$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextViewOOM$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* TextViewOOM$$Lambda$createAndShowGUI::class$ = nullptr;
@@ -78,33 +73,29 @@ public:
 	virtual void run() override {
 		TextViewOOM::lambda$main$0(sb);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TextViewOOM$$Lambda$lambda$main$0$1>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TextViewOOM$$Lambda$lambda$main$0$1::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(TextViewOOM$$Lambda$lambda$main$0$1, sb)},
-	{}
-};
-$MethodInfo TextViewOOM$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(TextViewOOM$$Lambda$lambda$main$0$1, init$, void, $StringBuilder*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextViewOOM$$Lambda$lambda$main$0$1, run, void)},
-	{}
-};
-$ClassInfo TextViewOOM$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TextViewOOM$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TextViewOOM$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(TextViewOOM$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(TextViewOOM$$Lambda$lambda$main$0$1, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(TextViewOOM$$Lambda$lambda$main$0$1, init$, void, $StringBuilder*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextViewOOM$$Lambda$lambda$main$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TextViewOOM$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextViewOOM$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextViewOOM$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* TextViewOOM$$Lambda$lambda$main$0$1::class$ = nullptr;
@@ -118,65 +109,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TextViewOOM$$Lambda$dispose$2>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TextViewOOM$$Lambda$dispose$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TextViewOOM$$Lambda$dispose$2, inst$)},
-	{}
-};
-$MethodInfo TextViewOOM$$Lambda$dispose$2::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TextViewOOM$$Lambda$dispose$2, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextViewOOM$$Lambda$dispose$2, run, void)},
-	{}
-};
-$ClassInfo TextViewOOM$$Lambda$dispose$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TextViewOOM$$Lambda$dispose$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TextViewOOM$$Lambda$dispose$2::load$($String* name, bool initialize) {
-	$loadClass(TextViewOOM$$Lambda$dispose$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TextViewOOM$$Lambda$dispose$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TextViewOOM$$Lambda$dispose$2, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextViewOOM$$Lambda$dispose$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TextViewOOM$$Lambda$dispose$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextViewOOM$$Lambda$dispose$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextViewOOM$$Lambda$dispose$2);
+	});
 	return class$;
 }
 $Class* TextViewOOM$$Lambda$dispose$2::class$ = nullptr;
-
-$FieldInfo _TextViewOOM_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TextViewOOM, frame)},
-	{"ta", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(TextViewOOM, ta)},
-	{"STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextViewOOM, STRING)},
-	{"N", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextViewOOM, N)},
-	{}
-};
-
-$MethodInfo _TextViewOOM_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextViewOOM, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TextViewOOM, createAndShowGUI, void)},
-	{"lambda$main$0", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextViewOOM, lambda$main$0, void, $StringBuilder*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TextViewOOM, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TextViewOOM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TextViewOOM",
-	"java.lang.Object",
-	nullptr,
-	_TextViewOOM_FieldInfo_,
-	_TextViewOOM_MethodInfo_
-};
-
-$Object* allocate$TextViewOOM($Class* clazz) {
-	return $of($alloc(TextViewOOM));
-}
 
 $JFrame* TextViewOOM::frame = nullptr;
 $JTextArea* TextViewOOM::ta = nullptr;
@@ -190,11 +148,11 @@ void TextViewOOM::createAndShowGUI() {
 	$assignStatic(TextViewOOM::frame, $new($JFrame));
 	$var($JScrollPane, jScrollPane1, $new($JScrollPane));
 	$assignStatic(TextViewOOM::ta, $new($JTextArea));
-	$nc(TextViewOOM::ta)->setEditable(false);
+	TextViewOOM::ta->setEditable(false);
 	$nc(TextViewOOM::ta)->setColumns(20);
 	$nc(TextViewOOM::ta)->setRows(5);
 	jScrollPane1->setViewportView(TextViewOOM::ta);
-	$nc(TextViewOOM::frame)->add(static_cast<$Component*>(TextViewOOM::ta));
+	$nc(TextViewOOM::frame)->add(TextViewOOM::ta);
 	$nc(TextViewOOM::frame)->pack();
 	$nc(TextViewOOM::frame)->setLocationRelativeTo(nullptr);
 	$nc(TextViewOOM::frame)->setVisible(true);
@@ -202,16 +160,16 @@ void TextViewOOM::createAndShowGUI() {
 
 void TextViewOOM::main($StringArray* args) {
 	$init(TextViewOOM);
-	$useLocalCurrentObjectStackCache();
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(TextViewOOM$$Lambda$createAndShowGUI)));
+	$useLocalObjectStack();
+	$EventQueue::invokeAndWait($$new(TextViewOOM$$Lambda$createAndShowGUI));
 	for (int32_t i = 0; i < 10; ++i) {
 		$System::gc();
 		$Thread::sleep(1000);
 	}
-	int64_t var$0 = $nc($($Runtime::getRuntime()))->totalMemory();
-	int64_t mem = var$0 - $nc($($Runtime::getRuntime()))->freeMemory();
+	int64_t var$0 = $$nc($Runtime::getRuntime())->totalMemory();
+	int64_t mem = var$0 - $$nc($Runtime::getRuntime())->freeMemory();
 	$nc($System::err)->println($$str({"Memory before creating the text: "_s, $$str(mem)}));
-	$var($StringBuilder, sb, $new($StringBuilder, TextViewOOM::N * $nc(TextViewOOM::STRING)->length()));
+	$var($StringBuilder, sb, $new($StringBuilder, TextViewOOM::N * TextViewOOM::STRING->length()));
 	for (int32_t i = 0; i < TextViewOOM::N; ++i) {
 		sb->append(TextViewOOM::STRING);
 	}
@@ -219,23 +177,23 @@ void TextViewOOM::main($StringArray* args) {
 		$System::gc();
 		$Thread::sleep(1000);
 	}
-	int64_t var$1 = $nc($($Runtime::getRuntime()))->totalMemory();
-	mem = var$1 - $nc($($Runtime::getRuntime()))->freeMemory();
-	$nc($System::err)->println($$str({"Memory after  creating the text: "_s, $$str(mem)}));
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(TextViewOOM$$Lambda$lambda$main$0$1, sb)));
+	int64_t var$1 = $$nc($Runtime::getRuntime())->totalMemory();
+	mem = var$1 - $$nc($Runtime::getRuntime())->freeMemory();
+	$System::err->println($$str({"Memory after  creating the text: "_s, $$str(mem)}));
+	$EventQueue::invokeAndWait($$new(TextViewOOM$$Lambda$lambda$main$0$1, sb));
 	for (int32_t i = 0; i < 10; ++i) {
 		$System::gc();
 		$Thread::sleep(1000);
 	}
-	int64_t var$2 = $nc($($Runtime::getRuntime()))->totalMemory();
-	mem = var$2 - $nc($($Runtime::getRuntime()))->freeMemory();
-	$nc($System::err)->println($$str({"Final memory  after everything: "_s, $$str(mem)}));
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(TextViewOOM$$Lambda$dispose$2, static_cast<$JFrame*>($nc(TextViewOOM::frame)))));
+	int64_t var$2 = $$nc($Runtime::getRuntime())->totalMemory();
+	mem = var$2 - $$nc($Runtime::getRuntime())->freeMemory();
+	$System::err->println($$str({"Final memory  after everything: "_s, $$str(mem)}));
+	$EventQueue::invokeAndWait($$new(TextViewOOM$$Lambda$dispose$2, $nc(TextViewOOM::frame)));
 }
 
 void TextViewOOM::lambda$main$0($StringBuilder* sb) {
 	$init(TextViewOOM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(TextViewOOM::ta)->setText($($nc(sb)->toString()));
 	for (int32_t i = 0; i < 10; ++i) {
 		$System::gc();
@@ -244,31 +202,55 @@ void TextViewOOM::lambda$main$0($StringBuilder* sb) {
 		} catch ($InterruptedException& iex) {
 		}
 	}
-	int64_t var$0 = $nc($($Runtime::getRuntime()))->totalMemory();
-	int64_t mem1 = var$0 - $nc($($Runtime::getRuntime()))->freeMemory();
+	int64_t var$0 = $$nc($Runtime::getRuntime())->totalMemory();
+	int64_t mem1 = var$0 - $$nc($Runtime::getRuntime())->freeMemory();
 	$nc($System::err)->println($$str({"Memory after  setting the text: "_s, $$str(mem1)}));
 }
 
 TextViewOOM::TextViewOOM() {
 }
 
-void clinit$TextViewOOM($Class* class$) {
-	$assignStatic(TextViewOOM::STRING, $cstr({0xDC00, 0x10BFF}));
+void TextViewOOM::clinit$($Class* clazz) {
+	$assignStatic(TextViewOOM::STRING, $cstr({0xdc00, 0x00010bff}));
 }
 
 $Class* TextViewOOM::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TextViewOOM$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("TextViewOOM$$Lambda$createAndShowGUI")) {
 			return TextViewOOM$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
-		if (name->equals(TextViewOOM$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("TextViewOOM$$Lambda$lambda$main$0$1")) {
 			return TextViewOOM$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
-		if (name->equals(TextViewOOM$$Lambda$dispose$2::classInfo$.name)) {
+		if (name->equals("TextViewOOM$$Lambda$dispose$2")) {
 			return TextViewOOM$$Lambda$dispose$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TextViewOOM, name, initialize, &_TextViewOOM_ClassInfo_, clinit$TextViewOOM, allocate$TextViewOOM);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TextViewOOM, frame)},
+		{"ta", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(TextViewOOM, ta)},
+		{"STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextViewOOM, STRING)},
+		{"N", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TextViewOOM, N)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextViewOOM, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TextViewOOM, createAndShowGUI, void)},
+		{"lambda$main$0", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextViewOOM, lambda$main$0, void, $StringBuilder*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TextViewOOM, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TextViewOOM",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextViewOOM, name, initialize, &classInfo$$, TextViewOOM::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TextViewOOM);
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class $export bug4987336 : public ::javax::swing::JApplet {
 	$class(bug4987336, 0, ::javax::swing::JApplet)
 public:
 	bug4987336();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JApplet::add;
 	using ::javax::swing::JApplet::getMousePosition;
 	void init$();

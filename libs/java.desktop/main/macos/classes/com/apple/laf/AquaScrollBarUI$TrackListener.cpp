@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaScrollBarUI$TrackListener.h>
-
 #include <apple/laf/JRSUIConstants$Hit.h>
 #include <apple/laf/JRSUIConstants$ScrollBarHit.h>
 #include <apple/laf/JRSUIControl.h>
@@ -29,10 +28,8 @@ using $JRSUIConstants$Hit = ::apple::laf::JRSUIConstants$Hit;
 using $JRSUIConstants$ScrollBarHit = ::apple::laf::JRSUIConstants$ScrollBarHit;
 using $JRSUIControl = ::apple::laf::JRSUIControl;
 using $JRSUIUtils$ScrollBar = ::apple::laf::JRSUIUtils$ScrollBar;
-using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaScrollBarUI = ::com::apple::laf::AquaScrollBarUI;
 using $AquaScrollBarUI$HitUtil = ::com::apple::laf::AquaScrollBarUI$HitUtil;
-using $AquaScrollBarUI$ScrollListener = ::com::apple::laf::AquaScrollBarUI$ScrollListener;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
@@ -43,67 +40,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
-using $JScrollBar = ::javax::swing::JScrollBar;
-using $Timer = ::javax::swing::Timer;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaScrollBarUI$TrackListener_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaScrollBarUI$TrackListener, this$0)},
-	{"fCurrentMouseX", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fCurrentMouseX)},
-	{"fCurrentMouseY", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fCurrentMouseY)},
-	{"fInArrows", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fInArrows)},
-	{"fStillInArrow", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fStillInArrow)},
-	{"fStillInTrack", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fStillInTrack)},
-	{"fFirstMouseX", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fFirstMouseX)},
-	{"fFirstMouseY", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fFirstMouseY)},
-	{"fFirstValue", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fFirstValue)},
-	{}
-};
-
-$MethodInfo _AquaScrollBarUI$TrackListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaScrollBarUI;)V", nullptr, $PROTECTED, $method(AquaScrollBarUI$TrackListener, init$, void, $AquaScrollBarUI*)},
-	{"getValueFromOffset", "(III)I", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, getValueFromOffset, int32_t, int32_t, int32_t, int32_t)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$TrackListener, mouseDragged, void, $MouseEvent*)},
-	{"mouseDraggedInArrows", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseDraggedInArrows, void, $MouseEvent*)},
-	{"mouseDraggedInTrack", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseDraggedInTrack, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$TrackListener, mousePressed, void, $MouseEvent*)},
-	{"mousePressedInArrows", "(Ljava/awt/event/MouseEvent;Lapple/laf/JRSUIConstants$Hit;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mousePressedInArrows, void, $MouseEvent*, $JRSUIConstants$Hit*)},
-	{"mousePressedInTrack", "(Ljava/awt/event/MouseEvent;Lapple/laf/JRSUIConstants$Hit;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mousePressedInTrack, void, $MouseEvent*, $JRSUIConstants$Hit*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$TrackListener, mouseReleased, void, $MouseEvent*)},
-	{"mouseReleasedInArrows", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseReleasedInArrows, void, $MouseEvent*)},
-	{"mouseReleasedInTrack", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseReleasedInTrack, void, $MouseEvent*)},
-	{"moveToMouse", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, moveToMouse, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaScrollBarUI$TrackListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaScrollBarUI$TrackListener", "com.apple.laf.AquaScrollBarUI", "TrackListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaScrollBarUI$TrackListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaScrollBarUI$TrackListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_AquaScrollBarUI$TrackListener_FieldInfo_,
-	_AquaScrollBarUI$TrackListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaScrollBarUI$TrackListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaScrollBarUI"
-};
-
-$Object* allocate$AquaScrollBarUI$TrackListener($Class* clazz) {
-	return $of($alloc(AquaScrollBarUI$TrackListener));
-}
 
 void AquaScrollBarUI$TrackListener::init$($AquaScrollBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -148,7 +88,7 @@ void AquaScrollBarUI$TrackListener::mousePressed($MouseEvent* e) {
 }
 
 void AquaScrollBarUI$TrackListener::mouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->fScrollBar)->isEnabled()) {
 		return;
 	}
@@ -189,7 +129,7 @@ int32_t AquaScrollBarUI$TrackListener::getValueFromOffset(int32_t xOffset, int32
 	this->this$0->syncState(this->this$0->fScrollBar);
 	$var($JRSUIControl, var$0, $nc(this->this$0->painter)->getControl());
 	int32_t var$1 = $nc(this->this$0->fScrollBar)->getWidth();
-	double offsetChange = $JRSUIUtils$ScrollBar::getNativeOffsetChange(var$0, 0, 0, var$1, $nc(this->this$0->fScrollBar)->getHeight(), offsetWeCareAbout, visibleAmt, extent);
+	double offsetChange = $JRSUIUtils$ScrollBar::getNativeOffsetChange(var$0, 0, 0, var$1, this->this$0->fScrollBar->getHeight(), offsetWeCareAbout, visibleAmt, extent);
 	int32_t scrollableArea = extent - visibleAmt;
 	int32_t changeByValue = $cast(int32_t, (offsetChange * scrollableArea));
 	int32_t newValue = firstValue + changeByValue;
@@ -217,7 +157,7 @@ void AquaScrollBarUI$TrackListener::mouseReleasedInArrows($MouseEvent* e) {
 }
 
 void AquaScrollBarUI$TrackListener::mouseDraggedInArrows($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(e)->getX();
 	$var($JRSUIConstants$Hit, whichPart, this->this$0->getPartHit(var$0, e->getY()));
 	if ((this->this$0->fMousePart == whichPart) && this->fStillInArrow) {
@@ -249,7 +189,7 @@ void AquaScrollBarUI$TrackListener::mouseReleasedInTrack($MouseEvent* e) {
 }
 
 void AquaScrollBarUI$TrackListener::mousePressedInTrack($MouseEvent* e, $JRSUIConstants$Hit* part) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->this$0->fScrollBar)->setValueIsAdjusting(true);
 	$init($JRSUIConstants$ScrollBarHit);
 	bool shouldScrollToHere = (!$equals(part, $JRSUIConstants$ScrollBarHit::THUMB)) && $JRSUIUtils$ScrollBar::useScrollToClick();
@@ -257,7 +197,7 @@ void AquaScrollBarUI$TrackListener::mousePressedInTrack($MouseEvent* e, $JRSUICo
 		shouldScrollToHere = !shouldScrollToHere;
 	}
 	if (shouldScrollToHere) {
-		int32_t var$0 = $nc(e)->getX();
+		int32_t var$0 = e->getX();
 		$var($Point, p, this->this$0->getScrollToHereStartPoint(var$0, e->getY()));
 		this->fFirstMouseX = $nc(p)->x;
 		this->fFirstMouseY = p->y;
@@ -267,24 +207,22 @@ void AquaScrollBarUI$TrackListener::mousePressedInTrack($MouseEvent* e, $JRSUICo
 		this->this$0->fIsDragging = true;
 		return;
 	}
-	this->fCurrentMouseX = $nc(e)->getX();
+	this->fCurrentMouseX = e->getX();
 	this->fCurrentMouseY = e->getY();
 	int32_t direction = 0;
 	if ($equals(part, $JRSUIConstants$ScrollBarHit::TRACK_MIN)) {
 		$set(this->this$0, fTrackHighlight, $JRSUIConstants$ScrollBarHit::TRACK_MIN);
 		direction = -1;
+	} else if ($equals(part, $JRSUIConstants$ScrollBarHit::TRACK_MAX)) {
+		$set(this->this$0, fTrackHighlight, $JRSUIConstants$ScrollBarHit::TRACK_MAX);
+		direction = 1;
 	} else {
-		if ($equals(part, $JRSUIConstants$ScrollBarHit::TRACK_MAX)) {
-			$set(this->this$0, fTrackHighlight, $JRSUIConstants$ScrollBarHit::TRACK_MAX);
-			direction = 1;
-		} else {
-			this->fFirstValue = $nc(this->this$0->fScrollBar)->getValue();
-			this->fFirstMouseX = this->fCurrentMouseX;
-			this->fFirstMouseY = this->fCurrentMouseY;
-			$set(this->this$0, fTrackHighlight, $JRSUIConstants$ScrollBarHit::THUMB);
-			this->this$0->fIsDragging = true;
-			return;
-		}
+		this->fFirstValue = $nc(this->this$0->fScrollBar)->getValue();
+		this->fFirstMouseX = this->fCurrentMouseX;
+		this->fFirstMouseY = this->fCurrentMouseY;
+		$set(this->this$0, fTrackHighlight, $JRSUIConstants$ScrollBarHit::THUMB);
+		this->this$0->fIsDragging = true;
+		return;
 	}
 	this->this$0->fIsDragging = false;
 	this->fStillInTrack = true;
@@ -312,14 +250,62 @@ void AquaScrollBarUI$TrackListener::moveToMouse($MouseEvent* e) {
 	}
 	$nc(this->this$0->fScrollBar)->setValue(newValue);
 	$var($Rectangle, dirtyRect, this->this$0->getTrackBounds());
-	$nc(this->this$0->fScrollBar)->repaint($nc(dirtyRect)->x, dirtyRect->y, dirtyRect->width, dirtyRect->height);
+	$nc(this->this$0->fScrollBar)->repaint($nc(dirtyRect)->x, $nc(dirtyRect)->y, $nc(dirtyRect)->width, $nc(dirtyRect)->height);
 }
 
 AquaScrollBarUI$TrackListener::AquaScrollBarUI$TrackListener() {
 }
 
 $Class* AquaScrollBarUI$TrackListener::load$($String* name, bool initialize) {
-	$loadClass(AquaScrollBarUI$TrackListener, name, initialize, &_AquaScrollBarUI$TrackListener_ClassInfo_, allocate$AquaScrollBarUI$TrackListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaScrollBarUI$TrackListener, this$0)},
+		{"fCurrentMouseX", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fCurrentMouseX)},
+		{"fCurrentMouseY", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fCurrentMouseY)},
+		{"fInArrows", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fInArrows)},
+		{"fStillInArrow", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fStillInArrow)},
+		{"fStillInTrack", "Z", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fStillInTrack)},
+		{"fFirstMouseX", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fFirstMouseX)},
+		{"fFirstMouseY", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fFirstMouseY)},
+		{"fFirstValue", "I", nullptr, $PROTECTED | $TRANSIENT, $field(AquaScrollBarUI$TrackListener, fFirstValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaScrollBarUI;)V", nullptr, $PROTECTED, $method(AquaScrollBarUI$TrackListener, init$, void, $AquaScrollBarUI*)},
+		{"getValueFromOffset", "(III)I", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, getValueFromOffset, int32_t, int32_t, int32_t, int32_t)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$TrackListener, mouseDragged, void, $MouseEvent*)},
+		{"mouseDraggedInArrows", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseDraggedInArrows, void, $MouseEvent*)},
+		{"mouseDraggedInTrack", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseDraggedInTrack, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$TrackListener, mousePressed, void, $MouseEvent*)},
+		{"mousePressedInArrows", "(Ljava/awt/event/MouseEvent;Lapple/laf/JRSUIConstants$Hit;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mousePressedInArrows, void, $MouseEvent*, $JRSUIConstants$Hit*)},
+		{"mousePressedInTrack", "(Ljava/awt/event/MouseEvent;Lapple/laf/JRSUIConstants$Hit;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mousePressedInTrack, void, $MouseEvent*, $JRSUIConstants$Hit*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollBarUI$TrackListener, mouseReleased, void, $MouseEvent*)},
+		{"mouseReleasedInArrows", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseReleasedInArrows, void, $MouseEvent*)},
+		{"mouseReleasedInTrack", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, mouseReleasedInTrack, void, $MouseEvent*)},
+		{"moveToMouse", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(AquaScrollBarUI$TrackListener, moveToMouse, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaScrollBarUI$TrackListener", "com.apple.laf.AquaScrollBarUI", "TrackListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaScrollBarUI$TrackListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaScrollBarUI"
+	};
+	$loadClass(AquaScrollBarUI$TrackListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaScrollBarUI$TrackListener));
+	});
 	return class$;
 }
 

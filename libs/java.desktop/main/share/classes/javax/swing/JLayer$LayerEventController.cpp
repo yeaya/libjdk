@@ -1,5 +1,4 @@
 #include <javax/swing/JLayer$LayerEventController.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -12,7 +11,6 @@
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/EventObject.h>
 #include <java/util/Iterator.h>
@@ -69,7 +67,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $JLayer = ::javax::swing::JLayer;
@@ -80,57 +77,12 @@ using $LayerUI = ::javax::swing::plaf::LayerUI;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JLayer$LayerEventController_FieldInfo_[] = {
-	{"layerMaskList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Long;>;", $PRIVATE, $field(JLayer$LayerEventController, layerMaskList)},
-	{"currentEventMask", "J", nullptr, $PRIVATE, $field(JLayer$LayerEventController, currentEventMask)},
-	{"ACCEPTED_EVENTS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JLayer$LayerEventController, ACCEPTED_EVENTS)},
-	{}
-};
-
-$MethodInfo _JLayer$LayerEventController_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, init$, void)},
-	{"addAWTEventListener", "(J)V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, addAWTEventListener, void, int64_t)},
-	{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLayer$LayerEventController, eventDispatched, void, $AWTEvent*)},
-	{"getCurrentEventMask", "()J", nullptr, $PRIVATE, $method(JLayer$LayerEventController, getCurrentEventMask, int64_t)},
-	{"isEventEnabled", "(JI)Z", nullptr, $PRIVATE, $method(JLayer$LayerEventController, isEventEnabled, bool, int64_t, int32_t)},
-	{"removeAWTEventListener", "()V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, removeAWTEventListener, void)},
-	{"updateAWTEventListener", "(JJ)V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, updateAWTEventListener, void, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _JLayer$LayerEventController_InnerClassesInfo_[] = {
-	{"javax.swing.JLayer$LayerEventController", "javax.swing.JLayer", "LayerEventController", $PRIVATE | $STATIC},
-	{"javax.swing.JLayer$LayerEventController$2", nullptr, nullptr, 0},
-	{"javax.swing.JLayer$LayerEventController$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JLayer$LayerEventController_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JLayer$LayerEventController",
-	"java.lang.Object",
-	"java.awt.event.AWTEventListener",
-	_JLayer$LayerEventController_FieldInfo_,
-	_JLayer$LayerEventController_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JLayer$LayerEventController_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JLayer"
-};
-
-$Object* allocate$JLayer$LayerEventController($Class* clazz) {
-	return $of($alloc(JLayer$LayerEventController));
-}
-
 void JLayer$LayerEventController::init$() {
 	$set(this, layerMaskList, $new($ArrayList));
 }
 
 void JLayer$LayerEventController::eventDispatched($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, source, $nc(event)->getSource());
 	if ($instanceOf($Component, source)) {
 		$var($Component, component, $cast($Component, source));
@@ -144,7 +96,7 @@ void JLayer$LayerEventController::eventDispatched($AWTEvent* event) {
 					var$1 = isEventEnabled(var$2, event->getID());
 				}
 				bool var$0 = var$1;
-				if (var$0 && (!($instanceOf($InputEvent, event)) || !$nc(($cast($InputEvent, event)))->isConsumed())) {
+				if (var$0 && (!($instanceOf($InputEvent, event)) || !$cast($InputEvent, event)->isConsumed())) {
 					$nc(ui)->eventDispatched(event, l);
 				}
 			}
@@ -154,9 +106,9 @@ void JLayer$LayerEventController::eventDispatched($AWTEvent* event) {
 }
 
 void JLayer$LayerEventController::updateAWTEventListener(int64_t oldEventMask, int64_t newEventMask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldEventMask != 0) {
-		$nc(this->layerMaskList)->remove($($of($Long::valueOf(oldEventMask))));
+		$nc(this->layerMaskList)->remove($($Long::valueOf(oldEventMask)));
 	}
 	if (newEventMask != 0) {
 		$nc(this->layerMaskList)->add($($Long::valueOf(newEventMask)));
@@ -187,23 +139,62 @@ int64_t JLayer$LayerEventController::getCurrentEventMask() {
 
 void JLayer$LayerEventController::addAWTEventListener(int64_t eventMask) {
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JLayer$LayerEventController$1, this, eventMask)));
+	$AccessController::doPrivileged($$new($JLayer$LayerEventController$1, this, eventMask));
 }
 
 void JLayer$LayerEventController::removeAWTEventListener() {
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JLayer$LayerEventController$2, this)));
+	$AccessController::doPrivileged($$new($JLayer$LayerEventController$2, this));
 }
 
 bool JLayer$LayerEventController::isEventEnabled(int64_t eventMask, int32_t id) {
-	return ((((int64_t)(eventMask & (uint64_t)$AWTEvent::COMPONENT_EVENT_MASK)) != 0 && id >= $ComponentEvent::COMPONENT_FIRST && id <= $ComponentEvent::COMPONENT_LAST) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::CONTAINER_EVENT_MASK)) != 0 && id >= $ContainerEvent::CONTAINER_FIRST && id <= $ContainerEvent::CONTAINER_LAST) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::FOCUS_EVENT_MASK)) != 0 && id >= $FocusEvent::FOCUS_FIRST && id <= $FocusEvent::FOCUS_LAST) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::KEY_EVENT_MASK)) != 0 && id >= $KeyEvent::KEY_FIRST && id <= $KeyEvent::KEY_LAST) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::MOUSE_WHEEL_EVENT_MASK)) != 0 && id == $MouseEvent::MOUSE_WHEEL) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::MOUSE_MOTION_EVENT_MASK)) != 0 && (id == $MouseEvent::MOUSE_MOVED || id == $MouseEvent::MOUSE_DRAGGED)) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::MOUSE_EVENT_MASK)) != 0 && id != $MouseEvent::MOUSE_MOVED && id != $MouseEvent::MOUSE_DRAGGED && id != $MouseEvent::MOUSE_WHEEL && id >= $MouseEvent::MOUSE_FIRST && id <= $MouseEvent::MOUSE_LAST) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::INPUT_METHOD_EVENT_MASK)) != 0 && id >= $InputMethodEvent::INPUT_METHOD_FIRST && id <= $InputMethodEvent::INPUT_METHOD_LAST) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::HIERARCHY_EVENT_MASK)) != 0 && id == $HierarchyEvent::HIERARCHY_CHANGED) || (((int64_t)(eventMask & (uint64_t)$AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK)) != 0 && (id == $HierarchyEvent::ANCESTOR_MOVED || id == $HierarchyEvent::ANCESTOR_RESIZED)));
+	return (((eventMask & $AWTEvent::COMPONENT_EVENT_MASK) != 0 && id >= $ComponentEvent::COMPONENT_FIRST && id <= $ComponentEvent::COMPONENT_LAST) || ((eventMask & $AWTEvent::CONTAINER_EVENT_MASK) != 0 && id >= $ContainerEvent::CONTAINER_FIRST && id <= $ContainerEvent::CONTAINER_LAST) || ((eventMask & $AWTEvent::FOCUS_EVENT_MASK) != 0 && id >= $FocusEvent::FOCUS_FIRST && id <= $FocusEvent::FOCUS_LAST) || ((eventMask & $AWTEvent::KEY_EVENT_MASK) != 0 && id >= $KeyEvent::KEY_FIRST && id <= $KeyEvent::KEY_LAST) || ((eventMask & $AWTEvent::MOUSE_WHEEL_EVENT_MASK) != 0 && id == $MouseEvent::MOUSE_WHEEL) || ((eventMask & $AWTEvent::MOUSE_MOTION_EVENT_MASK) != 0 && (id == $MouseEvent::MOUSE_MOVED || id == $MouseEvent::MOUSE_DRAGGED)) || ((eventMask & $AWTEvent::MOUSE_EVENT_MASK) != 0 && id != $MouseEvent::MOUSE_MOVED && id != $MouseEvent::MOUSE_DRAGGED && id != $MouseEvent::MOUSE_WHEEL && id >= $MouseEvent::MOUSE_FIRST && id <= $MouseEvent::MOUSE_LAST) || ((eventMask & $AWTEvent::INPUT_METHOD_EVENT_MASK) != 0 && id >= $InputMethodEvent::INPUT_METHOD_FIRST && id <= $InputMethodEvent::INPUT_METHOD_LAST) || ((eventMask & $AWTEvent::HIERARCHY_EVENT_MASK) != 0 && id == $HierarchyEvent::HIERARCHY_CHANGED) || ((eventMask & $AWTEvent::HIERARCHY_BOUNDS_EVENT_MASK) != 0 && (id == $HierarchyEvent::ANCESTOR_MOVED || id == $HierarchyEvent::ANCESTOR_RESIZED)));
 }
 
 JLayer$LayerEventController::JLayer$LayerEventController() {
 }
 
 $Class* JLayer$LayerEventController::load$($String* name, bool initialize) {
-	$loadClass(JLayer$LayerEventController, name, initialize, &_JLayer$LayerEventController_ClassInfo_, allocate$JLayer$LayerEventController);
+	$FieldInfo fieldInfos$$[] = {
+		{"layerMaskList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Long;>;", $PRIVATE, $field(JLayer$LayerEventController, layerMaskList)},
+		{"currentEventMask", "J", nullptr, $PRIVATE, $field(JLayer$LayerEventController, currentEventMask)},
+		{"ACCEPTED_EVENTS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JLayer$LayerEventController, ACCEPTED_EVENTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, init$, void)},
+		{"addAWTEventListener", "(J)V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, addAWTEventListener, void, int64_t)},
+		{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLayer$LayerEventController, eventDispatched, void, $AWTEvent*)},
+		{"getCurrentEventMask", "()J", nullptr, $PRIVATE, $method(JLayer$LayerEventController, getCurrentEventMask, int64_t)},
+		{"isEventEnabled", "(JI)Z", nullptr, $PRIVATE, $method(JLayer$LayerEventController, isEventEnabled, bool, int64_t, int32_t)},
+		{"removeAWTEventListener", "()V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, removeAWTEventListener, void)},
+		{"updateAWTEventListener", "(JJ)V", nullptr, $PRIVATE, $method(JLayer$LayerEventController, updateAWTEventListener, void, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JLayer$LayerEventController", "javax.swing.JLayer", "LayerEventController", $PRIVATE | $STATIC},
+		{"javax.swing.JLayer$LayerEventController$2", nullptr, nullptr, 0},
+		{"javax.swing.JLayer$LayerEventController$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JLayer$LayerEventController",
+		"java.lang.Object",
+		"java.awt.event.AWTEventListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JLayer"
+	};
+	$loadClass(JLayer$LayerEventController, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JLayer$LayerEventController);
+	});
 	return class$;
 }
 

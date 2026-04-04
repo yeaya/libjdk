@@ -1,5 +1,4 @@
 #include <javax/swing/SwingWorker$2.h>
-
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/FutureTask.h>
 #include <javax/swing/SwingWorker$StateValue.h>
@@ -21,48 +20,6 @@ using $SwingWorker$StateValue = ::javax::swing::SwingWorker$StateValue;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _SwingWorker$2_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/SwingWorker;", nullptr, $FINAL | $SYNTHETIC, $field(SwingWorker$2, this$0)},
-	{}
-};
-
-$MethodInfo _SwingWorker$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/SwingWorker;Ljava/util/concurrent/Callable;)V", nullptr, 0, $method(SwingWorker$2, init$, void, $SwingWorker*, $Callable*)},
-	{"done", "()V", nullptr, $PROTECTED, $virtualMethod(SwingWorker$2, done, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SwingWorker$2_EnclosingMethodInfo_ = {
-	"javax.swing.SwingWorker",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _SwingWorker$2_InnerClassesInfo_[] = {
-	{"javax.swing.SwingWorker$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwingWorker$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.SwingWorker$2",
-	"java.util.concurrent.FutureTask",
-	nullptr,
-	_SwingWorker$2_FieldInfo_,
-	_SwingWorker$2_MethodInfo_,
-	"Ljava/util/concurrent/FutureTask<TT;>;",
-	&_SwingWorker$2_EnclosingMethodInfo_,
-	_SwingWorker$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.SwingWorker"
-};
-
-$Object* allocate$SwingWorker$2($Class* clazz) {
-	return $of($alloc(SwingWorker$2));
-}
-
 void SwingWorker$2::init$($SwingWorker* this$0, $Callable* arg0) {
 	$set(this, this$0, this$0);
 	$FutureTask::init$(arg0);
@@ -78,7 +35,42 @@ SwingWorker$2::SwingWorker$2() {
 }
 
 $Class* SwingWorker$2::load$($String* name, bool initialize) {
-	$loadClass(SwingWorker$2, name, initialize, &_SwingWorker$2_ClassInfo_, allocate$SwingWorker$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/SwingWorker;", nullptr, $FINAL | $SYNTHETIC, $field(SwingWorker$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/SwingWorker;Ljava/util/concurrent/Callable;)V", nullptr, 0, $method(SwingWorker$2, init$, void, $SwingWorker*, $Callable*)},
+		{"done", "()V", nullptr, $PROTECTED, $virtualMethod(SwingWorker$2, done, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.SwingWorker",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SwingWorker$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.SwingWorker$2",
+		"java.util.concurrent.FutureTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/FutureTask<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.SwingWorker"
+	};
+	$loadClass(SwingWorker$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SwingWorker$2));
+	});
 	return class$;
 }
 

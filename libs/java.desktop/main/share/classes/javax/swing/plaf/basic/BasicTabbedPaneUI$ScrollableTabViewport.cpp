@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$ScrollableTabViewport.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JComponent.h>
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $JViewport = ::javax::swing::JViewport;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
@@ -25,46 +23,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$ScrollableTabViewport_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$ScrollableTabViewport, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$ScrollableTabViewport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$ScrollableTabViewport, init$, void, $BasicTabbedPaneUI*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$ScrollableTabViewport_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabViewport", "javax.swing.plaf.basic.BasicTabbedPaneUI", "ScrollableTabViewport", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$ScrollableTabViewport_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabViewport",
-	"javax.swing.JViewport",
-	"javax.swing.plaf.UIResource",
-	_BasicTabbedPaneUI$ScrollableTabViewport_FieldInfo_,
-	_BasicTabbedPaneUI$ScrollableTabViewport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$ScrollableTabViewport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$ScrollableTabViewport($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$ScrollableTabViewport));
-}
 
 $String* BasicTabbedPaneUI$ScrollableTabViewport::toString() {
 	 return this->$JViewport::toString();
@@ -103,7 +61,41 @@ BasicTabbedPaneUI$ScrollableTabViewport::BasicTabbedPaneUI$ScrollableTabViewport
 }
 
 $Class* BasicTabbedPaneUI$ScrollableTabViewport::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$ScrollableTabViewport, name, initialize, &_BasicTabbedPaneUI$ScrollableTabViewport_ClassInfo_, allocate$BasicTabbedPaneUI$ScrollableTabViewport);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$ScrollableTabViewport, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$ScrollableTabViewport, init$, void, $BasicTabbedPaneUI*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabViewport", "javax.swing.plaf.basic.BasicTabbedPaneUI", "ScrollableTabViewport", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$ScrollableTabViewport",
+		"javax.swing.JViewport",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$ScrollableTabViewport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTabbedPaneUI$ScrollableTabViewport));
+	});
 	return class$;
 }
 

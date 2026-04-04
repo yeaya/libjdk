@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/FullDVFactory.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSFacets.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/BaseDVFactory.h>
@@ -85,33 +84,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _FullDVFactory_FieldInfo_[] = {
-	{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(FullDVFactory, URI_SCHEMAFORSCHEMA)},
-	{"fFullTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC, $staticField(FullDVFactory, fFullTypes)},
-	{}
-};
-
-$MethodInfo _FullDVFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FullDVFactory, init$, void)},
-	{"createBuiltInTypes", "(Lcom/sun/org/apache/xerces/internal/util/SymbolHash;)V", nullptr, $STATIC, $staticMethod(FullDVFactory, createBuiltInTypes, void, $SymbolHash*)},
-	{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(FullDVFactory, getBuiltInType, $XSSimpleType*, $String*)},
-	{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(FullDVFactory, getBuiltInTypes, $SymbolHash*)},
-	{}
-};
-
-$ClassInfo _FullDVFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.FullDVFactory",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseDVFactory",
-	nullptr,
-	_FullDVFactory_FieldInfo_,
-	_FullDVFactory_MethodInfo_
-};
-
-$Object* allocate$FullDVFactory($Class* clazz) {
-	return $of($alloc(FullDVFactory));
-}
-
 $String* FullDVFactory::URI_SCHEMAFORSCHEMA = nullptr;
 $SymbolHash* FullDVFactory::fFullTypes = nullptr;
 
@@ -129,7 +101,7 @@ $SymbolHash* FullDVFactory::getBuiltInTypes() {
 
 void FullDVFactory::createBuiltInTypes($SymbolHash* types) {
 	$init(FullDVFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BaseDVFactory::createBuiltInTypes(types);
 	$var($String, DOUBLE, "double"_s);
 	$var($String, DURATION, "duration"_s);
@@ -185,15 +157,15 @@ void FullDVFactory::createBuiltInTypes($SymbolHash* types) {
 	$var($XSSimpleTypeDecl, idrefDV, $new($XSSimpleTypeDecl, ncnameDV, IDREF, $XSSimpleTypeDecl::DV_IDREF, $XSSimpleType::ORDERED_FALSE, false, false, false, true, $XSConstants::IDREF_DT));
 	types->put(IDREF, idrefDV);
 	facets->minLength = 1;
-	$var($XSSimpleTypeDecl, tempDV, $new($XSSimpleTypeDecl, ($String*)nullptr, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, idrefDV, true, ($XSObjectList*)nullptr));
-	$var($XSSimpleTypeDecl, idrefsDV, $new($XSSimpleTypeDecl, tempDV, IDREFS, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, ($XSObjectList*)nullptr));
+	$var($XSSimpleTypeDecl, tempDV, $new($XSSimpleTypeDecl, nullptr, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, idrefDV, true, nullptr));
+	$var($XSSimpleTypeDecl, idrefsDV, $new($XSSimpleTypeDecl, tempDV, IDREFS, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, nullptr));
 	idrefsDV->applyFacets1(facets, $XSSimpleType::FACET_MINLENGTH, (int16_t)0);
 	types->put(IDREFS, idrefsDV);
 	$var($XSSimpleTypeDecl, entityDV, $new($XSSimpleTypeDecl, ncnameDV, ENTITY, $XSSimpleTypeDecl::DV_ENTITY, $XSSimpleType::ORDERED_FALSE, false, false, false, true, $XSConstants::ENTITY_DT));
 	types->put(ENTITY, entityDV);
 	facets->minLength = 1;
-	$assign(tempDV, $new($XSSimpleTypeDecl, ($String*)nullptr, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, entityDV, true, ($XSObjectList*)nullptr));
-	$var($XSSimpleTypeDecl, entitiesDV, $new($XSSimpleTypeDecl, tempDV, ENTITIES, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, ($XSObjectList*)nullptr));
+	$assign(tempDV, $new($XSSimpleTypeDecl, nullptr, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, entityDV, true, nullptr));
+	$var($XSSimpleTypeDecl, entitiesDV, $new($XSSimpleTypeDecl, tempDV, ENTITIES, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, nullptr));
 	entitiesDV->applyFacets1(facets, $XSSimpleType::FACET_MINLENGTH, (int16_t)0);
 	types->put(ENTITIES, entitiesDV);
 	facets->whiteSpace = $XSSimpleType::WS_COLLAPSE;
@@ -201,13 +173,13 @@ void FullDVFactory::createBuiltInTypes($SymbolHash* types) {
 	nmtokenDV->applyFacets1(facets, $XSSimpleType::FACET_WHITESPACE, (int16_t)0, $XSSimpleTypeDecl::SPECIAL_PATTERN_NMTOKEN);
 	types->put(NMTOKEN, nmtokenDV);
 	facets->minLength = 1;
-	$assign(tempDV, $new($XSSimpleTypeDecl, ($String*)nullptr, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, nmtokenDV, true, ($XSObjectList*)nullptr));
-	$var($XSSimpleTypeDecl, nmtokensDV, $new($XSSimpleTypeDecl, tempDV, NMTOKENS, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, ($XSObjectList*)nullptr));
+	$assign(tempDV, $new($XSSimpleTypeDecl, nullptr, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, nmtokenDV, true, nullptr));
+	$var($XSSimpleTypeDecl, nmtokensDV, $new($XSSimpleTypeDecl, tempDV, NMTOKENS, FullDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, nullptr));
 	nmtokensDV->applyFacets1(facets, $XSSimpleType::FACET_MINLENGTH, (int16_t)0);
 	types->put(NMTOKENS, nmtokensDV);
 }
 
-void clinit$FullDVFactory($Class* class$) {
+void FullDVFactory::clinit$($Class* clazz) {
 	$assignStatic(FullDVFactory::URI_SCHEMAFORSCHEMA, "http://www.w3.org/2001/XMLSchema"_s);
 	$assignStatic(FullDVFactory::fFullTypes, $new($SymbolHash, 89));
 	{
@@ -219,7 +191,29 @@ FullDVFactory::FullDVFactory() {
 }
 
 $Class* FullDVFactory::load$($String* name, bool initialize) {
-	$loadClass(FullDVFactory, name, initialize, &_FullDVFactory_ClassInfo_, clinit$FullDVFactory, allocate$FullDVFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(FullDVFactory, URI_SCHEMAFORSCHEMA)},
+		{"fFullTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC, $staticField(FullDVFactory, fFullTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FullDVFactory, init$, void)},
+		{"createBuiltInTypes", "(Lcom/sun/org/apache/xerces/internal/util/SymbolHash;)V", nullptr, $STATIC, $staticMethod(FullDVFactory, createBuiltInTypes, void, $SymbolHash*)},
+		{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(FullDVFactory, getBuiltInType, $XSSimpleType*, $String*)},
+		{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(FullDVFactory, getBuiltInTypes, $SymbolHash*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.FullDVFactory",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseDVFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FullDVFactory, name, initialize, &classInfo$$, FullDVFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FullDVFactory);
+	});
 	return class$;
 }
 

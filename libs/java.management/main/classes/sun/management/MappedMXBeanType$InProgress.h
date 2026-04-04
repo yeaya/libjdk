@@ -12,13 +12,14 @@ class MappedMXBeanType$InProgress : public ::javax::management::openmbean::OpenT
 	$class(MappedMXBeanType$InProgress, 0, ::javax::management::openmbean::OpenType)
 public:
 	MappedMXBeanType$InProgress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool equals(Object$* o) override;
 	virtual int32_t hashCode() override;
 	virtual bool isValue(Object$* o) override;
 	virtual $String* toString() override;
 	static $String* description;
-	static const int64_t serialVersionUID = (int64_t)0xD0A25CDA44ED7B26;
+	static const int64_t serialVersionUID = (int64_t)0xd0a25cda44ed7b26;
 };
 
 	} // management

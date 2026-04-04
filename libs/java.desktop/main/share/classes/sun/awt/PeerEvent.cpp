@@ -1,5 +1,4 @@
 #include <sun/awt/PeerEvent.h>
-
 #include <java/awt/event/InvocationEvent.h>
 #include <java/lang/Runnable.h>
 #include <jcpp.h>
@@ -16,35 +15,6 @@ using $Runnable = ::java::lang::Runnable;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _PeerEvent_FieldInfo_[] = {
-	{"PRIORITY_EVENT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PeerEvent, PRIORITY_EVENT)},
-	{"ULTIMATE_PRIORITY_EVENT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PeerEvent, ULTIMATE_PRIORITY_EVENT)},
-	{"LOW_PRIORITY_EVENT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PeerEvent, LOW_PRIORITY_EVENT)},
-	{"flags", "J", nullptr, $PRIVATE, $field(PeerEvent, flags)},
-	{}
-};
-
-$MethodInfo _PeerEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;J)V", nullptr, $PUBLIC, $method(PeerEvent, init$, void, Object$*, $Runnable*, int64_t)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;Ljava/lang/Object;ZJ)V", nullptr, $PUBLIC, $method(PeerEvent, init$, void, Object$*, $Runnable*, Object$*, bool, int64_t)},
-	{"coalesceEvents", "(Lsun/awt/PeerEvent;)Lsun/awt/PeerEvent;", nullptr, $PUBLIC, $virtualMethod(PeerEvent, coalesceEvents, PeerEvent*, PeerEvent*)},
-	{"getFlags", "()J", nullptr, $PUBLIC, $virtualMethod(PeerEvent, getFlags, int64_t)},
-	{}
-};
-
-$ClassInfo _PeerEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.PeerEvent",
-	"java.awt.event.InvocationEvent",
-	nullptr,
-	_PeerEvent_FieldInfo_,
-	_PeerEvent_MethodInfo_
-};
-
-$Object* allocate$PeerEvent($Class* clazz) {
-	return $of($alloc(PeerEvent));
-}
 
 void PeerEvent::init$(Object$* source, $Runnable* runnable, int64_t flags) {
 	PeerEvent::init$(source, runnable, nullptr, false, flags);
@@ -67,7 +37,31 @@ PeerEvent::PeerEvent() {
 }
 
 $Class* PeerEvent::load$($String* name, bool initialize) {
-	$loadClass(PeerEvent, name, initialize, &_PeerEvent_ClassInfo_, allocate$PeerEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRIORITY_EVENT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PeerEvent, PRIORITY_EVENT)},
+		{"ULTIMATE_PRIORITY_EVENT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PeerEvent, ULTIMATE_PRIORITY_EVENT)},
+		{"LOW_PRIORITY_EVENT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PeerEvent, LOW_PRIORITY_EVENT)},
+		{"flags", "J", nullptr, $PRIVATE, $field(PeerEvent, flags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;J)V", nullptr, $PUBLIC, $method(PeerEvent, init$, void, Object$*, $Runnable*, int64_t)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;Ljava/lang/Object;ZJ)V", nullptr, $PUBLIC, $method(PeerEvent, init$, void, Object$*, $Runnable*, Object$*, bool, int64_t)},
+		{"coalesceEvents", "(Lsun/awt/PeerEvent;)Lsun/awt/PeerEvent;", nullptr, $PUBLIC, $virtualMethod(PeerEvent, coalesceEvents, PeerEvent*, PeerEvent*)},
+		{"getFlags", "()J", nullptr, $PUBLIC, $virtualMethod(PeerEvent, getFlags, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.PeerEvent",
+		"java.awt.event.InvocationEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PeerEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PeerEvent));
+	});
 	return class$;
 }
 

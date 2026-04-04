@@ -17,6 +17,7 @@ class JPEGImageReader$CallBackLock$State : public ::java::lang::Enum {
 public:
 	JPEGImageReader$CallBackLock$State();
 	static $Array<::com::sun::imageio::plugins::jpeg::JPEGImageReader$CallBackLock$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::imageio::plugins::jpeg::JPEGImageReader$CallBackLock$State* valueOf($String* name);
 	static $Array<::com::sun::imageio::plugins::jpeg::JPEGImageReader$CallBackLock$State>* values();

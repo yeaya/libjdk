@@ -19,6 +19,7 @@ public:
 	using ::javax::swing::JInternalFrame::add;
 	using ::javax::swing::JInternalFrame::getMousePosition;
 	using ::javax::swing::JInternalFrame::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* title);
 	virtual void finalize() override;
 	using ::javax::swing::JInternalFrame::setUI;

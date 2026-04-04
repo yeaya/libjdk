@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/DLOAD.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -22,26 +21,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _DLOAD_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DLOAD, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DLOAD, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DLOAD, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _DLOAD_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.DLOAD",
-	"com.sun.org.apache.bcel.internal.generic.LoadInstruction",
-	nullptr,
-	nullptr,
-	_DLOAD_MethodInfo_
-};
-
-$Object* allocate$DLOAD($Class* clazz) {
-	return $of($alloc(DLOAD));
-}
-
 void DLOAD::init$() {
 	$LoadInstruction::init$($Const::DLOAD, $Const::DLOAD_0);
 }
@@ -59,7 +38,23 @@ DLOAD::DLOAD() {
 }
 
 $Class* DLOAD::load$($String* name, bool initialize) {
-	$loadClass(DLOAD, name, initialize, &_DLOAD_ClassInfo_, allocate$DLOAD);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DLOAD, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DLOAD, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DLOAD, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.DLOAD",
+		"com.sun.org.apache.bcel.internal.generic.LoadInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DLOAD, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DLOAD));
+	});
 	return class$;
 }
 

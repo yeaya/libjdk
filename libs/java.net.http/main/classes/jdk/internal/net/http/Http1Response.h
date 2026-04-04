@@ -90,6 +90,7 @@ class $export Http1Response : public ::java::lang::Object {
 	$class(Http1Response, 0, ::java::lang::Object)
 public:
 	Http1Response();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpConnection* conn, ::jdk::internal::net::http::Http1Exchange* exchange, ::jdk::internal::net::http::Http1AsyncReceiver* asyncReceiver);
 	::jdk::internal::net::http::Http1Response$State* advance(::jdk::internal::net::http::Http1Response$State* previous);
 	virtual void completed();

@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/SmartWriter.h>
-
 #include <com/sun/tools/sjavac/Log.h>
 #include <java/io/File.h>
 #include <java/io/StringWriter.h>
@@ -22,36 +21,6 @@ namespace com {
 			namespace sjavac {
 				namespace comp {
 
-$FieldInfo _SmartWriter_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(SmartWriter, name)},
-	{"file", "Ljavax/tools/JavaFileObject;", nullptr, 0, $field(SmartWriter, file)},
-	{"oldContent", "Ljava/lang/String;", nullptr, 0, $field(SmartWriter, oldContent)},
-	{"newContent", "Ljava/io/StringWriter;", nullptr, 0, $field(SmartWriter, newContent)},
-	{"closed", "Z", nullptr, 0, $field(SmartWriter, closed)},
-	{}
-};
-
-$MethodInfo _SmartWriter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SmartWriter, init$, void, $JavaFileObject*, $String*, $String*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, flush, void), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, write, void, $chars*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SmartWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.SmartWriter",
-	"java.io.Writer",
-	nullptr,
-	_SmartWriter_FieldInfo_,
-	_SmartWriter_MethodInfo_
-};
-
-$Object* allocate$SmartWriter($Class* clazz) {
-	return $of($alloc(SmartWriter));
-}
-
 void SmartWriter::init$($JavaFileObject* f, $String* s, $String* n) {
 	$Writer::init$();
 	$set(this, newContent, $new($StringWriter));
@@ -67,7 +36,7 @@ void SmartWriter::write($chars* chars, int32_t i, int32_t i1) {
 }
 
 void SmartWriter::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		return;
 	}
@@ -75,37 +44,35 @@ void SmartWriter::close() {
 	$var($String, s, $nc(this->newContent)->toString());
 	if (!$nc(this->oldContent)->equals(s)) {
 		$init($File);
-		int32_t p = $nc($($nc(this->file)->getName()))->lastIndexOf((int32_t)$File::separatorChar);
+		int32_t p = $$nc($nc(this->file)->getName())->lastIndexOf($File::separatorChar);
 		{
 			$var($Writer, writer, $nc(this->file)->openWriter());
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$nc(writer)->write(s);
-					} catch ($Throwable& t$) {
-						if (writer != nullptr) {
-							try {
-								writer->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+					$nc(writer)->write(s);
+				} catch ($Throwable& t$) {
 					if (writer != nullptr) {
-						writer->close();
+						try {
+							writer->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (writer != nullptr) {
+					writer->close();
 				}
 			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
 		}
-		$Log::debug($$str({"Writing "_s, $($nc($($nc(this->file)->getName()))->substring(p + 1))}));
+		$Log::debug($$str({"Writing "_s, $($$nc($nc(this->file)->getName())->substring(p + 1))}));
 	}
 }
 
@@ -116,7 +83,32 @@ SmartWriter::SmartWriter() {
 }
 
 $Class* SmartWriter::load$($String* name, bool initialize) {
-	$loadClass(SmartWriter, name, initialize, &_SmartWriter_ClassInfo_, allocate$SmartWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(SmartWriter, name)},
+		{"file", "Ljavax/tools/JavaFileObject;", nullptr, 0, $field(SmartWriter, file)},
+		{"oldContent", "Ljava/lang/String;", nullptr, 0, $field(SmartWriter, oldContent)},
+		{"newContent", "Ljava/io/StringWriter;", nullptr, 0, $field(SmartWriter, newContent)},
+		{"closed", "Z", nullptr, 0, $field(SmartWriter, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SmartWriter, init$, void, $JavaFileObject*, $String*, $String*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, flush, void), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, write, void, $chars*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.SmartWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SmartWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SmartWriter));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/beans/util/Cache$Kind.h>
-
 #include <com/sun/beans/util/Cache$Kind$1.h>
 #include <com/sun/beans/util/Cache$Kind$2.h>
 #include <com/sun/beans/util/Cache$Kind$3.h>
@@ -30,54 +29,6 @@ namespace com {
 		namespace beans {
 			namespace util {
 
-$FieldInfo _Cache$Kind_FieldInfo_[] = {
-	{"STRONG", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cache$Kind, STRONG)},
-	{"SOFT", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cache$Kind, SOFT)},
-	{"WEAK", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cache$Kind, WEAK)},
-	{"$VALUES", "[Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Cache$Kind, $VALUES)},
-	{}
-};
-
-$MethodInfo _Cache$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Cache$Kind, $values, $Cache$KindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Cache$Kind, init$, void, $String*, int32_t)},
-	{"create", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Lcom/sun/beans/util/Cache$Ref;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)Lcom/sun/beans/util/Cache$Ref<TT;>;", $ABSTRACT, $virtualMethod(Cache$Kind, create, $Cache$Ref*, Object$*, Object$*, $ReferenceQueue*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cache$Kind, valueOf, Cache$Kind*, $String*)},
-	{"values", "()[Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cache$Kind, values, $Cache$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _Cache$Kind_InnerClassesInfo_[] = {
-	{"com.sun.beans.util.Cache$Kind", "com.sun.beans.util.Cache", "Kind", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.beans.util.Cache$Kind$Weak", "com.sun.beans.util.Cache$Kind", "Weak", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.beans.util.Cache$Kind$Soft", "com.sun.beans.util.Cache$Kind", "Soft", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.beans.util.Cache$Kind$Strong", "com.sun.beans.util.Cache$Kind", "Strong", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.beans.util.Cache$Kind$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.beans.util.Cache$Kind$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.beans.util.Cache$Kind$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Cache$Kind_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
-	"com.sun.beans.util.Cache$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_Cache$Kind_FieldInfo_,
-	_Cache$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/beans/util/Cache$Kind;>;",
-	nullptr,
-	_Cache$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.beans.util.Cache"
-};
-
-$Object* allocate$Cache$Kind($Class* clazz) {
-	return $of($alloc(Cache$Kind));
-}
-
 Cache$Kind* Cache$Kind::STRONG = nullptr;
 Cache$Kind* Cache$Kind::SOFT = nullptr;
 Cache$Kind* Cache$Kind::WEAK = nullptr;
@@ -106,7 +57,7 @@ void Cache$Kind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Cache$Kind($Class* class$) {
+void Cache$Kind::clinit$($Class* clazz) {
 	$assignStatic(Cache$Kind::STRONG, $new($Cache$Kind$1, "STRONG"_s, 0));
 	$assignStatic(Cache$Kind::SOFT, $new($Cache$Kind$2, "SOFT"_s, 1));
 	$assignStatic(Cache$Kind::WEAK, $new($Cache$Kind$3, "WEAK"_s, 2));
@@ -117,7 +68,49 @@ Cache$Kind::Cache$Kind() {
 }
 
 $Class* Cache$Kind::load$($String* name, bool initialize) {
-	$loadClass(Cache$Kind, name, initialize, &_Cache$Kind_ClassInfo_, clinit$Cache$Kind, allocate$Cache$Kind);
+	$FieldInfo fieldInfos$$[] = {
+		{"STRONG", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cache$Kind, STRONG)},
+		{"SOFT", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cache$Kind, SOFT)},
+		{"WEAK", "Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cache$Kind, WEAK)},
+		{"$VALUES", "[Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Cache$Kind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/beans/util/Cache$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Cache$Kind, $values, $Cache$KindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Cache$Kind, init$, void, $String*, int32_t)},
+		{"create", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Lcom/sun/beans/util/Cache$Ref;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)Lcom/sun/beans/util/Cache$Ref<TT;>;", $ABSTRACT, $virtualMethod(Cache$Kind, create, $Cache$Ref*, Object$*, Object$*, $ReferenceQueue*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cache$Kind, valueOf, Cache$Kind*, $String*)},
+		{"values", "()[Lcom/sun/beans/util/Cache$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cache$Kind, values, $Cache$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.util.Cache$Kind", "com.sun.beans.util.Cache", "Kind", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.beans.util.Cache$Kind$Weak", "com.sun.beans.util.Cache$Kind", "Weak", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.beans.util.Cache$Kind$Soft", "com.sun.beans.util.Cache$Kind", "Soft", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.beans.util.Cache$Kind$Strong", "com.sun.beans.util.Cache$Kind", "Strong", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.beans.util.Cache$Kind$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.beans.util.Cache$Kind$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.beans.util.Cache$Kind$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
+		"com.sun.beans.util.Cache$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/beans/util/Cache$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.beans.util.Cache"
+	};
+	$loadClass(Cache$Kind, name, initialize, &classInfo$$, Cache$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Cache$Kind));
+	});
 	return class$;
 }
 

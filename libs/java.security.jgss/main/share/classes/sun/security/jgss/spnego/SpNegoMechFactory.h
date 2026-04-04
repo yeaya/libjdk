@@ -63,6 +63,7 @@ class SpNegoMechFactory : public ::sun::security::jgss::spi::MechanismFactory {
 	$class(SpNegoMechFactory, 0, ::sun::security::jgss::spi::MechanismFactory)
 public:
 	SpNegoMechFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::jgss::GSSCaller* caller);
 	static ::sun::security::jgss::spnego::SpNegoCredElement* getCredFromSubject(::sun::security::jgss::spi::GSSNameSpi* name, bool initiate);

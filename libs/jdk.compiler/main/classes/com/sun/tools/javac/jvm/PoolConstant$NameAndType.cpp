@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/PoolConstant$NameAndType.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$UniqueType.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -25,44 +24,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _PoolConstant$NameAndType_FieldInfo_[] = {
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $FINAL, $field(PoolConstant$NameAndType, name)},
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(PoolConstant$NameAndType, type)},
-	{}
-};
-
-$MethodInfo _PoolConstant$NameAndType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(PoolConstant$NameAndType, init$, void, $Name*, $Type*)},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$NameAndType, poolKey, $Object*, $Types*)},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(PoolConstant$NameAndType, poolTag, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PoolConstant$NameAndType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.PoolConstant$NameAndType", "com.sun.tools.javac.jvm.PoolConstant", "NameAndType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PoolConstant$NameAndType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.PoolConstant$NameAndType",
-	"java.lang.Object",
-	"com.sun.tools.javac.jvm.PoolConstant",
-	_PoolConstant$NameAndType_FieldInfo_,
-	_PoolConstant$NameAndType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PoolConstant$NameAndType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.PoolConstant"
-};
-
-$Object* allocate$PoolConstant$NameAndType($Class* clazz) {
-	return $of($alloc(PoolConstant$NameAndType));
-}
-
 void PoolConstant$NameAndType::init$($Name* name, $Type* type) {
 	$set(this, name, name);
 	$set(this, type, type);
@@ -73,14 +34,46 @@ int32_t PoolConstant$NameAndType::poolTag() {
 }
 
 $Object* PoolConstant$NameAndType::poolKey($Types* types) {
-	return $of($new($Pair, this->name, $$new($Types$UniqueType, this->type, types)));
+	return $new($Pair, this->name, $$new($Types$UniqueType, this->type, types));
 }
 
 PoolConstant$NameAndType::PoolConstant$NameAndType() {
 }
 
 $Class* PoolConstant$NameAndType::load$($String* name, bool initialize) {
-	$loadClass(PoolConstant$NameAndType, name, initialize, &_PoolConstant$NameAndType_ClassInfo_, allocate$PoolConstant$NameAndType);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $FINAL, $field(PoolConstant$NameAndType, name)},
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(PoolConstant$NameAndType, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(PoolConstant$NameAndType, init$, void, $Name*, $Type*)},
+		{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$NameAndType, poolKey, $Object*, $Types*)},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(PoolConstant$NameAndType, poolTag, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.PoolConstant$NameAndType", "com.sun.tools.javac.jvm.PoolConstant", "NameAndType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.PoolConstant$NameAndType",
+		"java.lang.Object",
+		"com.sun.tools.javac.jvm.PoolConstant",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.PoolConstant"
+	};
+	$loadClass(PoolConstant$NameAndType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PoolConstant$NameAndType);
+	});
 	return class$;
 }
 

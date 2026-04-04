@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientImpl$SelectorManager.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -64,14 +63,11 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
-using $Stream = ::java::util::stream::Stream;
 using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
 using $AsyncTriggerEvent = ::jdk::internal::net::http::AsyncTriggerEvent;
-using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $HttpClientImpl$SelectorAttachment = ::jdk::internal::net::http::HttpClientImpl$SelectorAttachment;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Pair = ::jdk::internal::net::http::common::Pair;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
@@ -90,35 +86,31 @@ public:
 	virtual void accept(Object$* e) override {
 		HttpClientImpl$SelectorManager::lambda$run$0(errorList, ex, $cast($AsyncEvent, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorManager$$Lambda$lambda$run$0>());
-	}
 	$List* errorList = nullptr;
 	$IOException* ex = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::fieldInfos[3] = {
-	{"errorList", "Ljava/util/List;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, errorList)},
-	{"ex", "Ljava/io/IOException;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, ex)},
-	{}
-};
-$MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, init$, void, $List*, $IOException*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"errorList", "Ljava/util/List;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, errorList)},
+		{"ex", "Ljava/io/IOException;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, ex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, init$, void, $List*, $IOException*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::class$ = nullptr;
@@ -132,33 +124,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->add(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorManager$$Lambda$add$1>());
-	}
 	$List* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$SelectorManager$$Lambda$add$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$add$1, inst$)},
-	{}
-};
-$MethodInfo HttpClientImpl$SelectorManager$$Lambda$add$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$add$1, init$, void, $List*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$add$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorManager$$Lambda$add$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$add$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorManager$$Lambda$add$1::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorManager$$Lambda$add$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$add$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$add$1, init$, void, $List*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$add$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$add$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorManager$$Lambda$add$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorManager$$Lambda$add$1);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorManager$$Lambda$add$1::class$ = nullptr;
@@ -173,35 +161,31 @@ public:
 	virtual void run() override {
 		HttpClientImpl$SelectorManager::lambda$run$2(sa, eventsOccurred);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2>());
-	}
 	$HttpClientImpl$SelectorAttachment* sa = nullptr;
 	int32_t eventsOccurred = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::fieldInfos[3] = {
-	{"sa", "Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, sa)},
-	{"eventsOccurred", "I", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, eventsOccurred)},
-	{}
-};
-$MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, init$, void, $HttpClientImpl$SelectorAttachment*, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, run, void)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sa", "Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, sa)},
+		{"eventsOccurred", "I", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, eventsOccurred)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, init$, void, $HttpClientImpl$SelectorAttachment*, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::class$ = nullptr;
@@ -215,33 +199,29 @@ public:
 	virtual void accept(Object$* e) override {
 		$nc(inst$)->lambda$run$3($cast($AsyncEvent, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3>());
-	}
 	HttpClientImpl$SelectorManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, inst$)},
-	{}
-};
-$MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, init$, void, HttpClientImpl$SelectorManager*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, init$, void, HttpClientImpl$SelectorManager*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::class$ = nullptr;
@@ -255,33 +235,29 @@ public:
 	virtual void accept(Object$* p) override {
 		$nc(inst$)->lambda$run$4($cast($Pair, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4>());
-	}
 	HttpClientImpl$SelectorManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, inst$)},
-	{}
-};
-$MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, init$, void, HttpClientImpl$SelectorManager*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, init$, void, HttpClientImpl$SelectorManager*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::class$ = nullptr;
@@ -294,98 +270,36 @@ public:
 	virtual void accept(Object$* r) override {
 		HttpClientImpl$SelectorManager::lambda$run$5($cast($Runnable, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, accept, void, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::class$ = nullptr;
-
-$FieldInfo _HttpClientImpl$SelectorManager_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClientImpl$SelectorManager, $assertionsDisabled)},
-	{"MIN_NODEADLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpClientImpl$SelectorManager, MIN_NODEADLINE)},
-	{"MAX_NODEADLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpClientImpl$SelectorManager, MAX_NODEADLINE)},
-	{"DEF_NODEADLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpClientImpl$SelectorManager, DEF_NODEADLINE)},
-	{"NODEADLINE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpClientImpl$SelectorManager, NODEADLINE)},
-	{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, selector)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(HttpClientImpl$SelectorManager, closed)},
-	{"registrations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/net/http/AsyncEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, registrations)},
-	{"deregistrations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/net/http/AsyncTriggerEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, deregistrations)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, debug)},
-	{"debugtimeout", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, debugtimeout)},
-	{"owner", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0, $field(HttpClientImpl$SelectorManager, owner)},
-	{"pool", "Ljdk/internal/net/http/ConnectionPool;", nullptr, 0, $field(HttpClientImpl$SelectorManager, pool)},
-	{}
-};
-
-$MethodInfo _HttpClientImpl$SelectorManager_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, init$, void, $HttpClientImpl*), "java.io.IOException"},
-	{"cancel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, cancel, void, $SocketChannel*)},
-	{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, eventUpdated, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
-	{"handleEvent", "(Ljdk/internal/net/http/AsyncEvent;Ljava/io/IOException;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, handleEvent, void, $AsyncEvent*, $IOException*)},
-	{"lambda$run$0", "(Ljava/util/List;Ljava/io/IOException;Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$0, void, $List*, $IOException*, $AsyncEvent*)},
-	{"lambda$run$2", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$2, void, $HttpClientImpl$SelectorAttachment*, int32_t)},
-	{"lambda$run$3", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl$SelectorManager, lambda$run$3, void, $AsyncEvent*)},
-	{"lambda$run$4", "(Ljdk/internal/net/http/common/Pair;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl$SelectorManager, lambda$run$4, void, $Pair*)},
-	{"lambda$run$5", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$5, void, $Runnable*)},
-	{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, register$, void, $AsyncEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager, run, void)},
-	{"shutdown", "()V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, shutdown, void)},
-	{"wakeupSelector", "()V", nullptr, 0, $method(HttpClientImpl$SelectorManager, wakeupSelector, void)},
-	{}
-};
-
-$InnerClassInfo _HttpClientImpl$SelectorManager_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpClientImpl$SelectorManager", "jdk.internal.net.http.HttpClientImpl", "SelectorManager", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HttpClientImpl$SelectorManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.HttpClientImpl$SelectorManager",
-	"java.lang.Thread",
-	nullptr,
-	_HttpClientImpl$SelectorManager_FieldInfo_,
-	_HttpClientImpl$SelectorManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientImpl$SelectorManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpClientImpl"
-};
-
-$Object* allocate$HttpClientImpl$SelectorManager($Class* clazz) {
-	return $of($alloc(HttpClientImpl$SelectorManager));
-}
 
 bool HttpClientImpl$SelectorManager::$assertionsDisabled = false;
 int64_t HttpClientImpl$SelectorManager::NODEADLINE = 0;
 
 void HttpClientImpl$SelectorManager::init$($HttpClientImpl* ref) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Thread::init$(nullptr, nullptr, $$str({"HttpClient-"_s, $$str($nc(ref)->id), "-SelectorManager"_s}), 0, false);
 	$set(this, owner, ref);
-	$set(this, debug, $nc(ref)->debug);
+	$set(this, debug, ref->debug);
 	$set(this, debugtimeout, ref->debugtimeout);
 	$set(this, pool, ref->connectionPool());
 	$set(this, registrations, $new($ArrayList));
@@ -394,15 +308,15 @@ void HttpClientImpl$SelectorManager::init$($HttpClientImpl* ref) {
 }
 
 void HttpClientImpl$SelectorManager::eventUpdated($AsyncEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($Thread::currentThread(), this)) {
-		$var($SelectionKey, key, $nc($($nc(e)->channel()))->keyFor(this->selector));
+		$var($SelectionKey, key, $$nc($nc(e)->channel())->keyFor(this->selector));
 		if (key != nullptr && key->isValid()) {
 			$var($HttpClientImpl$SelectorAttachment, sa, $cast($HttpClientImpl$SelectorAttachment, key->attachment()));
 			$nc(sa)->register$(e);
 		} else if (e->interestOps() != 0) {
 			if ($nc(this->debug)->on()) {
-				$nc(this->debug)->log("No key for channel"_s);
+				this->debug->log("No key for channel"_s);
 			}
 			e->abort($$new($IOException, "No key for channel"_s));
 		}
@@ -413,7 +327,7 @@ void HttpClientImpl$SelectorManager::eventUpdated($AsyncEvent* e) {
 
 void HttpClientImpl$SelectorManager::register$($AsyncEvent* e) {
 	$synchronized(this) {
-		$nc(this->registrations)->add(e);
+		this->registrations->add(e);
 		$nc(this->selector)->wakeup();
 	}
 }
@@ -434,252 +348,248 @@ void HttpClientImpl$SelectorManager::wakeupSelector() {
 
 void HttpClientImpl$SelectorManager::shutdown() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$Log::logTrace("{0}: shutting down"_s, $$new($ObjectArray, {$($of(getName()))}));
+		$useLocalObjectStack();
+		$Log::logTrace("{0}: shutting down"_s, $$new($ObjectArray, {$(getName())}));
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("SelectorManager shutting down"_s);
+			this->debug->log("SelectorManager shutting down"_s);
 		}
 		this->closed = true;
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->selector)->close();
-				} catch ($IOException& ignored) {
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->owner)->stop();
+				$nc(this->selector)->close();
+			} catch ($IOException& ignored) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->owner)->stop();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void HttpClientImpl$SelectorManager::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, errorList, $new($ArrayList));
 	$var($List, readyList, $new($ArrayList));
 	$var($List, resetList, $new($ArrayList));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if ($Log::channel()) {
-					$Log::logChannel($$str({$(getName()), ": starting"_s}), $$new($ObjectArray, 0));
-				}
-				while (!$($Thread::currentThread())->isInterrupted()) {
-					$synchronized(this) {
-						if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !errorList->isEmpty()) {
-							$throwNew($AssertionError);
-						}
-						if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !readyList->isEmpty()) {
-							$throwNew($AssertionError);
-						}
-						if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !resetList->isEmpty()) {
-							$throwNew($AssertionError);
-						}
-						{
-							$var($Iterator, i$, $nc(this->deregistrations)->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($AsyncTriggerEvent, event, $cast($AsyncTriggerEvent, i$->next()));
-								{
-									$nc(event)->handle();
-								}
-							}
-						}
-						$nc(this->deregistrations)->clear();
-						{
-							$var($Iterator, i$, $nc(this->registrations)->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($AsyncEvent, event, $cast($AsyncEvent, i$->next()));
-								{
-									if ($instanceOf($AsyncTriggerEvent, event)) {
-										readyList->add(event);
-										continue;
-									}
-									$var($SelectableChannel, chan, $nc(event)->channel());
-									$var($SelectionKey, key, nullptr);
-									try {
-										$assign(key, $nc(chan)->keyFor(this->selector));
-										$var($HttpClientImpl$SelectorAttachment, sa, nullptr);
-										if (key == nullptr || !$nc(key)->isValid()) {
-											if (key != nullptr) {
-												$nc(this->selector)->selectNow();
-											}
-											$assign(sa, $new($HttpClientImpl$SelectorAttachment, chan, this->selector));
-										} else {
-											$assign(sa, $cast($HttpClientImpl$SelectorAttachment, key->attachment()));
-										}
-										$nc(sa)->register$(event);
-										if (!chan->isOpen()) {
-											$throwNew($IOException, "Channel closed"_s);
-										}
-									} catch ($IOException& e) {
-										$Log::logTrace("{0}: {1}"_s, $$new($ObjectArray, {
-											$($of(getName())),
-											$of(e)
-										}));
-										if ($nc(this->debug)->on()) {
-											$nc(this->debug)->log($$str({"Got "_s, $($of(e)->getClass()->getName()), " while handling registration events"_s}));
-										}
-										$nc(chan)->close();
-										errorList->add($$new($Pair, event, e));
-										if (key != nullptr) {
-											key->cancel();
-											$nc(this->selector)->selectNow();
-										}
-									}
-								}
-							}
-						}
-						$nc(this->registrations)->clear();
-						$nc($($nc(this->selector)->selectedKeys()))->clear();
+			if ($Log::channel()) {
+				$Log::logChannel($$str({$(getName()), ": starting"_s}), $$new($ObjectArray, 0));
+			}
+			while (!$($Thread::currentThread())->isInterrupted()) {
+				$synchronized(this) {
+					if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !errorList->isEmpty()) {
+						$throwNew($AssertionError);
+					}
+					if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !readyList->isEmpty()) {
+						$throwNew($AssertionError);
+					}
+					if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !resetList->isEmpty()) {
+						$throwNew($AssertionError);
 					}
 					{
-						$var($Iterator, i$, readyList->iterator());
+						$var($Iterator, i$, this->deregistrations->iterator());
 						for (; $nc(i$)->hasNext();) {
-							$var($AsyncEvent, event, $cast($AsyncEvent, i$->next()));
+							$var($AsyncTriggerEvent, event, $cast($AsyncTriggerEvent, i$->next()));
 							{
-								if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !$instanceOf($AsyncTriggerEvent, event)) {
-									$throwNew($AssertionError);
-								}
 								$nc(event)->handle();
 							}
 						}
 					}
-					readyList->clear();
+					this->deregistrations->clear();
 					{
-						$var($Iterator, i$, errorList->iterator());
+						$var($Iterator, i$, this->registrations->iterator());
 						for (; $nc(i$)->hasNext();) {
-							$var($Pair, error, $cast($Pair, i$->next()));
+							$var($AsyncEvent, event, $cast($AsyncEvent, i$->next()));
 							{
-								handleEvent($cast($AsyncEvent, $nc(error)->first), $cast($IOException, error->second));
+								if ($instanceOf($AsyncTriggerEvent, event)) {
+									readyList->add(event);
+									continue;
+								}
+								$var($SelectableChannel, chan, $nc(event)->channel());
+								$var($SelectionKey, key, nullptr);
+								try {
+									$assign(key, $nc(chan)->keyFor(this->selector));
+									$var($HttpClientImpl$SelectorAttachment, sa, nullptr);
+									if (key == nullptr || !key->isValid()) {
+										if (key != nullptr) {
+											$nc(this->selector)->selectNow();
+										}
+										$assign(sa, $new($HttpClientImpl$SelectorAttachment, chan, this->selector));
+									} else {
+										$assign(sa, $cast($HttpClientImpl$SelectorAttachment, key->attachment()));
+									}
+									$nc(sa)->register$(event);
+									if (!chan->isOpen()) {
+										$throwNew($IOException, "Channel closed"_s);
+									}
+								} catch ($IOException& e) {
+									$Log::logTrace("{0}: {1}"_s, $$new($ObjectArray, {
+										$(getName()),
+										e
+									}));
+									if ($nc(this->debug)->on()) {
+										this->debug->log($$str({"Got "_s, $(e->getClass()->getName()), " while handling registration events"_s}));
+									}
+									$nc(chan)->close();
+									errorList->add($$new($Pair, event, e));
+									if (key != nullptr) {
+										key->cancel();
+										$nc(this->selector)->selectNow();
+									}
+								}
 							}
 						}
 					}
-					errorList->clear();
+					this->registrations->clear();
+					$$nc($nc(this->selector)->selectedKeys())->clear();
+				}
+				{
+					$var($Iterator, i$, readyList->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($AsyncEvent, event, $cast($AsyncEvent, i$->next()));
+						{
+							if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !$instanceOf($AsyncTriggerEvent, event)) {
+								$throwNew($AssertionError);
+							}
+							$nc(event)->handle();
+						}
+					}
+				}
+				readyList->clear();
+				{
+					$var($Iterator, i$, errorList->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Pair, error, $cast($Pair, i$->next()));
+						{
+							handleEvent($cast($AsyncEvent, $nc(error)->first), $cast($IOException, $nc(error)->second));
+						}
+					}
+				}
+				errorList->clear();
+				if (!$nc(this->owner)->isReferenced()) {
+					$Log::logTrace("{0}: {1}"_s, $$new($ObjectArray, {
+						$(getName()),
+						"HttpClient no longer referenced. Exiting..."_s
+					}));
+					return$1 = true;
+					goto $finally;
+				}
+				int64_t nextTimeout = $nc(this->owner)->purgeTimeoutsAndReturnNextDeadline();
+				if ($nc(this->debugtimeout)->on()) {
+					this->debugtimeout->log("next timeout: %d"_s, $$new($ObjectArray, {$($Long::valueOf(nextTimeout))}));
+				}
+				int64_t nextExpiry = $nc(this->pool)->purgeExpiredConnectionsAndReturnNextDeadline();
+				if (this->debugtimeout->on()) {
+					this->debugtimeout->log("next expired: %d"_s, $$new($ObjectArray, {$($Long::valueOf(nextExpiry))}));
+				}
+				if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !(nextTimeout >= 0)) {
+					$throwNew($AssertionError);
+				}
+				if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !(nextExpiry >= 0)) {
+					$throwNew($AssertionError);
+				}
+				if (nextTimeout <= 0) {
+					nextTimeout = HttpClientImpl$SelectorManager::NODEADLINE;
+				}
+				if (nextExpiry <= 0) {
+					nextExpiry = HttpClientImpl$SelectorManager::NODEADLINE;
+				} else {
+					nextExpiry = $Math::min(HttpClientImpl$SelectorManager::NODEADLINE, nextExpiry);
+				}
+				int64_t millis = $Math::min(nextExpiry, nextTimeout);
+				if (this->debugtimeout->on()) {
+					this->debugtimeout->log("Next deadline is %d"_s, $$new($ObjectArray, {$($Long::valueOf((millis == 0 ? HttpClientImpl$SelectorManager::NODEADLINE : millis)))}));
+				}
+				int32_t n = this->selector->select(millis == 0 ? HttpClientImpl$SelectorManager::NODEADLINE : millis);
+				if (n == 0) {
 					if (!$nc(this->owner)->isReferenced()) {
 						$Log::logTrace("{0}: {1}"_s, $$new($ObjectArray, {
-							$($of(getName())),
-							$of("HttpClient no longer referenced. Exiting..."_s)
+							$(getName()),
+							"HttpClient no longer referenced. Exiting..."_s
 						}));
 						return$1 = true;
 						goto $finally;
 					}
-					int64_t nextTimeout = $nc(this->owner)->purgeTimeoutsAndReturnNextDeadline();
-					if ($nc(this->debugtimeout)->on()) {
-						$nc(this->debugtimeout)->log("next timeout: %d"_s, $$new($ObjectArray, {$($of($Long::valueOf(nextTimeout)))}));
-					}
-					int64_t nextExpiry = $nc(this->pool)->purgeExpiredConnectionsAndReturnNextDeadline();
-					if ($nc(this->debugtimeout)->on()) {
-						$nc(this->debugtimeout)->log("next expired: %d"_s, $$new($ObjectArray, {$($of($Long::valueOf(nextExpiry)))}));
-					}
-					if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !(nextTimeout >= 0)) {
-						$throwNew($AssertionError);
-					}
-					if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !(nextExpiry >= 0)) {
-						$throwNew($AssertionError);
-					}
-					if (nextTimeout <= 0) {
-						nextTimeout = HttpClientImpl$SelectorManager::NODEADLINE;
-					}
-					if (nextExpiry <= 0) {
-						nextExpiry = HttpClientImpl$SelectorManager::NODEADLINE;
-					} else {
-						nextExpiry = $Math::min(HttpClientImpl$SelectorManager::NODEADLINE, nextExpiry);
-					}
-					int64_t millis = $Math::min(nextExpiry, nextTimeout);
-					if ($nc(this->debugtimeout)->on()) {
-						$nc(this->debugtimeout)->log("Next deadline is %d"_s, $$new($ObjectArray, {$($of($Long::valueOf((millis == 0 ? HttpClientImpl$SelectorManager::NODEADLINE : millis))))}));
-					}
-					int32_t n = $nc(this->selector)->select(millis == 0 ? HttpClientImpl$SelectorManager::NODEADLINE : millis);
-					if (n == 0) {
-						if (!$nc(this->owner)->isReferenced()) {
-							$Log::logTrace("{0}: {1}"_s, $$new($ObjectArray, {
-								$($of(getName())),
-								$of("HttpClient no longer referenced. Exiting..."_s)
-							}));
-							return$1 = true;
-							goto $finally;
-						}
-						$nc(this->owner)->purgeTimeoutsAndReturnNextDeadline();
-						continue;
-					}
-					$var($Set, keys, $nc(this->selector)->selectedKeys());
-					if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !errorList->isEmpty()) {
-						$throwNew($AssertionError);
-					}
-					{
-						$var($Iterator, i$, $nc(keys)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($SelectionKey, key, $cast($SelectionKey, i$->next()));
-							{
-								$var($HttpClientImpl$SelectorAttachment, sa, $cast($HttpClientImpl$SelectorAttachment, $nc(key)->attachment()));
-								if (!key->isValid()) {
-									$var($IOException, ex, $nc($nc(sa)->chan)->isOpen() ? $new($IOException, "Invalid key"_s) : static_cast<$IOException*>($new($ClosedChannelException)));
-									$nc($nc(sa)->pending)->forEach(static_cast<$Consumer*>($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, errorList, ex)));
-									$nc(sa->pending)->clear();
-									continue;
-								}
-								int32_t eventsOccurred = 0;
-								try {
-									eventsOccurred = key->readyOps();
-								} catch ($CancelledKeyException& ex) {
-									$var($IOException, io, $Utils::getIOException(ex));
-									$nc($nc(sa)->pending)->forEach(static_cast<$Consumer*>($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, errorList, io)));
-									$nc(sa->pending)->clear();
-									continue;
-								}
-								$nc($($nc(sa)->events(eventsOccurred)))->forEach(static_cast<$Consumer*>($$new(HttpClientImpl$SelectorManager$$Lambda$add$1, static_cast<$List*>(readyList))));
-								resetList->add(static_cast<$Runnable*>($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, sa, eventsOccurred)));
+					$nc(this->owner)->purgeTimeoutsAndReturnNextDeadline();
+					continue;
+				}
+				$var($Set, keys, this->selector->selectedKeys());
+				if (!HttpClientImpl$SelectorManager::$assertionsDisabled && !errorList->isEmpty()) {
+					$throwNew($AssertionError);
+				}
+				{
+					$var($Iterator, i$, $nc(keys)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($SelectionKey, key, $cast($SelectionKey, i$->next()));
+						{
+							$var($HttpClientImpl$SelectorAttachment, sa, $cast($HttpClientImpl$SelectorAttachment, $nc(key)->attachment()));
+							if (!key->isValid()) {
+								$var($IOException, ex, $nc($nc(sa)->chan)->isOpen() ? $new($IOException, "Invalid key"_s) : $cast($IOException, $new($ClosedChannelException)));
+								$nc(sa->pending)->forEach($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, errorList, ex));
+								sa->pending->clear();
+								continue;
 							}
+							int32_t eventsOccurred = 0;
+							try {
+								eventsOccurred = key->readyOps();
+							} catch ($CancelledKeyException& ex) {
+								$var($IOException, io, $Utils::getIOException(ex));
+								$nc($nc(sa)->pending)->forEach($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, errorList, io));
+								sa->pending->clear();
+								continue;
+							}
+							$$nc($nc(sa)->events(eventsOccurred))->forEach($$new(HttpClientImpl$SelectorManager$$Lambda$add$1, readyList));
+							resetList->add($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, sa, eventsOccurred));
 						}
 					}
-					$nc(this->selector)->selectNow();
-					$nc($($nc(this->selector)->selectedKeys()))->clear();
-					readyList->forEach(static_cast<$Consumer*>($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, this)));
-					readyList->clear();
-					errorList->forEach(static_cast<$Consumer*>($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, this)));
-					errorList->clear();
-					resetList->forEach(static_cast<$Consumer*>($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5)));
-					resetList->clear();
 				}
-			} catch ($Throwable& e) {
-				if (!this->closed) {
-					$var($String, err, $Utils::stackTrace(e));
-					$Log::logError("{0}: {1}: {2}"_s, $$new($ObjectArray, {
-						$($of(getName())),
-						$of("HttpClientImpl shutting down due to fatal error"_s),
-						$of(err)
-					}));
-				}
-				if ($nc(this->debug)->on()) {
-					$nc(this->debug)->log("shutting down"_s, $cast($Throwable, e));
-				}
-				$init($Utils);
-				if ($Utils::ASSERTIONSENABLED && !$nc(this->debug)->on()) {
-					e->printStackTrace($System::err);
-				}
+				this->selector->selectNow();
+				$$nc(this->selector->selectedKeys())->clear();
+				readyList->forEach($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, this));
+				readyList->clear();
+				errorList->forEach($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, this));
+				errorList->clear();
+				resetList->forEach($$new(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5));
+				resetList->clear();
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			if ($Log::channel()) {
-				$Log::logChannel($$str({$(getName()), ": stopping"_s}), $$new($ObjectArray, 0));
+		} catch ($Throwable& e) {
+			if (!this->closed) {
+				$var($String, err, $Utils::stackTrace(e));
+				$Log::logError("{0}: {1}: {2}"_s, $$new($ObjectArray, {
+					$(getName()),
+					"HttpClientImpl shutting down due to fatal error"_s,
+					err
+				}));
 			}
-			shutdown();
+			if ($nc(this->debug)->on()) {
+				this->debug->log("shutting down"_s, e);
+			}
+			$init($Utils);
+			if ($Utils::ASSERTIONSENABLED && !this->debug->on()) {
+				e->printStackTrace($System::err);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		if ($Log::channel()) {
+			$Log::logChannel($$str({$(getName()), ": stopping"_s}), $$new($ObjectArray, 0));
 		}
-		if (return$1) {
-			return;
-		}
+		shutdown();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -697,7 +607,7 @@ void HttpClientImpl$SelectorManager::lambda$run$5($Runnable* r) {
 }
 
 void HttpClientImpl$SelectorManager::lambda$run$4($Pair* p) {
-	handleEvent($cast($AsyncEvent, $nc(p)->first), $cast($IOException, p->second));
+	handleEvent($cast($AsyncEvent, $nc(p)->first), $cast($IOException, $nc(p)->second));
 }
 
 void HttpClientImpl$SelectorManager::lambda$run$3($AsyncEvent* e) {
@@ -714,7 +624,7 @@ void HttpClientImpl$SelectorManager::lambda$run$0($List* errorList, $IOException
 	$nc(errorList)->add($$new($Pair, e, ex));
 }
 
-void clinit$HttpClientImpl$SelectorManager($Class* class$) {
+void HttpClientImpl$SelectorManager::clinit$($Class* clazz) {
 	$load($HttpClientImpl);
 	HttpClientImpl$SelectorManager::$assertionsDisabled = !$HttpClientImpl::class$->desiredAssertionStatus();
 	{
@@ -732,26 +642,79 @@ HttpClientImpl$SelectorManager::HttpClientImpl$SelectorManager() {
 
 $Class* HttpClientImpl$SelectorManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$0")) {
 			return HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$SelectorManager$$Lambda$add$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$add$1")) {
 			return HttpClientImpl$SelectorManager$$Lambda$add$1::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2")) {
 			return HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3")) {
 			return HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4")) {
 			return HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5")) {
 			return HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpClientImpl$SelectorManager, name, initialize, &_HttpClientImpl$SelectorManager_ClassInfo_, clinit$HttpClientImpl$SelectorManager, allocate$HttpClientImpl$SelectorManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClientImpl$SelectorManager, $assertionsDisabled)},
+		{"MIN_NODEADLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpClientImpl$SelectorManager, MIN_NODEADLINE)},
+		{"MAX_NODEADLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpClientImpl$SelectorManager, MAX_NODEADLINE)},
+		{"DEF_NODEADLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpClientImpl$SelectorManager, DEF_NODEADLINE)},
+		{"NODEADLINE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpClientImpl$SelectorManager, NODEADLINE)},
+		{"selector", "Ljava/nio/channels/Selector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, selector)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(HttpClientImpl$SelectorManager, closed)},
+		{"registrations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/net/http/AsyncEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, registrations)},
+		{"deregistrations", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/net/http/AsyncTriggerEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, deregistrations)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, debug)},
+		{"debugtimeout", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$SelectorManager, debugtimeout)},
+		{"owner", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0, $field(HttpClientImpl$SelectorManager, owner)},
+		{"pool", "Ljdk/internal/net/http/ConnectionPool;", nullptr, 0, $field(HttpClientImpl$SelectorManager, pool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, init$, void, $HttpClientImpl*), "java.io.IOException"},
+		{"cancel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, cancel, void, $SocketChannel*)},
+		{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, eventUpdated, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
+		{"handleEvent", "(Ljdk/internal/net/http/AsyncEvent;Ljava/io/IOException;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, handleEvent, void, $AsyncEvent*, $IOException*)},
+		{"lambda$run$0", "(Ljava/util/List;Ljava/io/IOException;Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$0, void, $List*, $IOException*, $AsyncEvent*)},
+		{"lambda$run$2", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$2, void, $HttpClientImpl$SelectorAttachment*, int32_t)},
+		{"lambda$run$3", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl$SelectorManager, lambda$run$3, void, $AsyncEvent*)},
+		{"lambda$run$4", "(Ljdk/internal/net/http/common/Pair;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl$SelectorManager, lambda$run$4, void, $Pair*)},
+		{"lambda$run$5", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$5, void, $Runnable*)},
+		{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, register$, void, $AsyncEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager, run, void)},
+		{"shutdown", "()V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, shutdown, void)},
+		{"wakeupSelector", "()V", nullptr, 0, $method(HttpClientImpl$SelectorManager, wakeupSelector, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpClientImpl$SelectorManager", "jdk.internal.net.http.HttpClientImpl", "SelectorManager", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.HttpClientImpl$SelectorManager",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpClientImpl"
+	};
+	$loadClass(HttpClientImpl$SelectorManager, name, initialize, &classInfo$$, HttpClientImpl$SelectorManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$SelectorManager);
+	});
 	return class$;
 }
 

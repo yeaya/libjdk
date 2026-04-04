@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$AudioAction.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ActionEvent.h>
@@ -25,52 +24,15 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$AudioAction_FieldInfo_[] = {
-	{"audioRunnable", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$AudioAction, audioRunnable)},
-	{"audioResource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$AudioAction, audioResource)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$AudioAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$AudioAction, init$, void, $String*, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$AudioAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$AudioAction_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "AudioAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$AudioAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_WindowsLookAndFeel$AudioAction_FieldInfo_,
-	_WindowsLookAndFeel$AudioAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$AudioAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$AudioAction($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$AudioAction));
-}
-
 void WindowsLookAndFeel$AudioAction::init$($String* name, $String* resource) {
 	$AbstractAction::init$(name);
 	$set(this, audioResource, resource);
 }
 
 void WindowsLookAndFeel$AudioAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->audioRunnable == nullptr) {
-		$set(this, audioRunnable, $cast($Runnable, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty(this->audioResource)));
+		$set(this, audioRunnable, $cast($Runnable, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty(this->audioResource)));
 	}
 	if (this->audioRunnable != nullptr) {
 		$$new($Thread, nullptr, this->audioRunnable, "Audio"_s, 0, false)->start();
@@ -81,7 +43,38 @@ WindowsLookAndFeel$AudioAction::WindowsLookAndFeel$AudioAction() {
 }
 
 $Class* WindowsLookAndFeel$AudioAction::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$AudioAction, name, initialize, &_WindowsLookAndFeel$AudioAction_ClassInfo_, allocate$WindowsLookAndFeel$AudioAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"audioRunnable", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$AudioAction, audioRunnable)},
+		{"audioResource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$AudioAction, audioResource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$AudioAction, init$, void, $String*, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$AudioAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "AudioAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$AudioAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$AudioAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsLookAndFeel$AudioAction));
+	});
 	return class$;
 }
 

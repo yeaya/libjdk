@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSGrammarPool.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSModelImpl.h>
@@ -37,27 +36,6 @@ namespace com {
 							namespace xs {
 								namespace util {
 
-$MethodInfo _XSGrammarPool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSGrammarPool, init$, void)},
-	{"toXSModel", "()Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSGrammarPool, toXSModel, $XSModel*)},
-	{"toXSModel", "(S)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSGrammarPool, toXSModel, $XSModel*, int16_t)},
-	{"toXSModel", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;S)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PROTECTED, $virtualMethod(XSGrammarPool, toXSModel, $XSModel*, $SchemaGrammarArray*, int16_t)},
-	{}
-};
-
-$ClassInfo _XSGrammarPool_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XSGrammarPool",
-	"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl",
-	nullptr,
-	nullptr,
-	_XSGrammarPool_MethodInfo_
-};
-
-$Object* allocate$XSGrammarPool($Class* clazz) {
-	return $of($alloc(XSGrammarPool));
-}
-
 void XSGrammarPool::init$() {
 	$XMLGrammarPoolImpl::init$();
 }
@@ -67,16 +45,14 @@ $XSModel* XSGrammarPool::toXSModel() {
 }
 
 $XSModel* XSGrammarPool::toXSModel(int16_t schemaVersion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(this->fGrammars)->length; ++i) {
-		{
-			$var($XMLGrammarPoolImpl$Entry, entry, $nc(this->fGrammars)->get(i));
-			for (; entry != nullptr; $assign(entry, $nc(entry)->next)) {
-				$init($XMLGrammarDescription);
-				if ($nc($($nc(entry->desc)->getGrammarType()))->equals($XMLGrammarDescription::XML_SCHEMA)) {
-					list->add(entry->grammar);
-				}
+		$var($XMLGrammarPoolImpl$Entry, entry, this->fGrammars->get(i));
+		for (; entry != nullptr; $assign(entry, entry->next)) {
+			$init($XMLGrammarDescription);
+			if ($$nc($nc(entry->desc)->getGrammarType())->equals($XMLGrammarDescription::XML_SCHEMA)) {
+				list->add(entry->grammar);
 			}
 		}
 	}
@@ -84,7 +60,7 @@ $XSModel* XSGrammarPool::toXSModel(int16_t schemaVersion) {
 	if (size == 0) {
 		return toXSModel($$new($SchemaGrammarArray, 0), schemaVersion);
 	}
-	$var($SchemaGrammarArray, gs, $fcast($SchemaGrammarArray, list->toArray($$new($SchemaGrammarArray, size))));
+	$var($SchemaGrammarArray, gs, $cast($SchemaGrammarArray, list->toArray($$new($SchemaGrammarArray, size))));
 	return toXSModel(gs, schemaVersion);
 }
 
@@ -96,7 +72,24 @@ XSGrammarPool::XSGrammarPool() {
 }
 
 $Class* XSGrammarPool::load$($String* name, bool initialize) {
-	$loadClass(XSGrammarPool, name, initialize, &_XSGrammarPool_ClassInfo_, allocate$XSGrammarPool);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSGrammarPool, init$, void)},
+		{"toXSModel", "()Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSGrammarPool, toXSModel, $XSModel*)},
+		{"toXSModel", "(S)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PUBLIC, $virtualMethod(XSGrammarPool, toXSModel, $XSModel*, int16_t)},
+		{"toXSModel", "([Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;S)Lcom/sun/org/apache/xerces/internal/xs/XSModel;", nullptr, $PROTECTED, $virtualMethod(XSGrammarPool, toXSModel, $XSModel*, $SchemaGrammarArray*, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XSGrammarPool",
+		"com.sun.org.apache.xerces.internal.util.XMLGrammarPoolImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSGrammarPool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSGrammarPool);
+	});
 	return class$;
 }
 

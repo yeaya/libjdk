@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipInfo.h>
-
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
@@ -12,7 +11,6 @@
 #include <jdk/nio/zipfs/ZipUtils.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -31,40 +29,16 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$MethodInfo _ZipInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipInfo, init$, void)},
-	{"locoff", "([BI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, locoff, int64_t, $bytes*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipInfo, main, void, $StringArray*), "java.lang.Throwable"},
-	{"print", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ZipInfo, print, void, $String*, $ObjectArray*)},
-	{"printCEN", "([BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printCEN, void, $bytes*, int32_t)},
-	{"printExtra", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printExtra, void, $bytes*, int32_t, int32_t)},
-	{"printLOC", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printLOC, void, $bytes*)},
-	{}
-};
-
-$ClassInfo _ZipInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.nio.zipfs.ZipInfo",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ZipInfo_MethodInfo_
-};
-
-$Object* allocate$ZipInfo($Class* clazz) {
-	return $of($alloc(ZipInfo));
-}
-
 void ZipInfo::init$() {
 }
 
 void ZipInfo::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length < 1) {
 		print("Usage: java ZipInfo zfname"_s, $$new($ObjectArray, 0));
 	} else {
 		$var($Map, env, $Collections::emptyMap());
-		$var($ZipFileSystem, zfs, ($cast($ZipFileSystem, $$new($ZipFileSystemProvider)->newFileSystem($($Paths::get(args->get(0), $$new($StringArray, 0))), env))));
+		$var($ZipFileSystem, zfs, $cast($ZipFileSystem, $$new($ZipFileSystemProvider)->newFileSystem($($Paths::get(args->get(0), $$new($StringArray, 0))), env)));
 		$var($bytes, cen, $nc(zfs)->cen);
 		if (cen == nullptr) {
 			print("zip file is empty%n"_s, $$new($ObjectArray, 0));
@@ -74,7 +48,7 @@ void ZipInfo::main($StringArray* args) {
 		$var($bytes, buf, $new($bytes, 1024));
 		int32_t no = 1;
 		while (pos + 46 < $nc(cen)->length) {
-			print("----------------#%d--------------------%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(no++)))}));
+			print("----------------#%d--------------------%n"_s, $$new($ObjectArray, {$($Integer::valueOf(no++))}));
 			printCEN(cen, pos);
 			int32_t var$0 = 30 + $ZipConstants::CENNAM(cen, pos);
 			int64_t len = var$0 + $ZipConstants::CENEXT(cen, pos) + 46;
@@ -103,88 +77,86 @@ void ZipInfo::print($String* fmt, $ObjectArray* objs) {
 }
 
 void ZipInfo::printLOC($bytes* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	print("%n"_s, $$new($ObjectArray, 0));
 	print("[Local File Header]%n"_s, $$new($ObjectArray, 0));
-	print("    Signature   :   %#010x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::LOCSIG(loc))))}));
+	print("    Signature   :   %#010x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::LOCSIG(loc)))}));
 	if ($ZipConstants::LOCSIG(loc) != $ZipConstants::LOCSIG$) {
 		print("    Wrong signature!"_s, $$new($ObjectArray, 0));
 		return;
 	}
 	print("    Version     :       %#6x    [%d.%d]%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($ZipConstants::LOCVER(loc)))),
-		$($of($Integer::valueOf($ZipConstants::LOCVER(loc) / 10))),
-		$($of($Integer::valueOf($ZipConstants::LOCVER(loc) % 10)))
+		$($Integer::valueOf($ZipConstants::LOCVER(loc))),
+		$($Integer::valueOf($ZipConstants::LOCVER(loc) / 10)),
+		$($Integer::valueOf($ZipConstants::LOCVER(loc) % 10))
 	}));
-	print("    Flag        :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::LOCFLG(loc))))}));
-	print("    Method      :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::LOCHOW(loc))))}));
+	print("    Flag        :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::LOCFLG(loc)))}));
+	print("    Method      :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::LOCHOW(loc)))}));
 	print("    LastMTime   :   %#10x    [%tc]%n"_s, $$new($ObjectArray, {
-		$($of($Long::valueOf($ZipConstants::LOCTIM(loc)))),
-		$($of($Long::valueOf($ZipUtils::dosToJavaTime($ZipConstants::LOCTIM(loc)))))
+		$($Long::valueOf($ZipConstants::LOCTIM(loc))),
+		$($Long::valueOf($ZipUtils::dosToJavaTime($ZipConstants::LOCTIM(loc))))
 	}));
-	print("    CRC         :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::LOCCRC(loc))))}));
-	print("    CSize       :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::LOCSIZ(loc))))}));
-	print("    Size        :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::LOCLEN(loc))))}));
+	print("    CRC         :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::LOCCRC(loc)))}));
+	print("    CSize       :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::LOCSIZ(loc)))}));
+	print("    Size        :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::LOCLEN(loc)))}));
 	print("    NameLength  :       %#6x    [%s]%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($ZipConstants::LOCNAM(loc)))),
-		$of($$new($String, loc, 30, $ZipConstants::LOCNAM(loc)))
+		$($Integer::valueOf($ZipConstants::LOCNAM(loc))),
+		$$new($String, loc, 30, $ZipConstants::LOCNAM(loc))
 	}));
-	print("    ExtraLength :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::LOCEXT(loc))))}));
+	print("    ExtraLength :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::LOCEXT(loc)))}));
 	if ($ZipConstants::LOCEXT(loc) != 0) {
-		$var($bytes, var$0, loc);
-		int32_t var$1 = 30 + $ZipConstants::LOCNAM(loc);
-		printExtra(var$0, var$1, $ZipConstants::LOCEXT(loc));
+		int32_t var$0 = 30 + $ZipConstants::LOCNAM(loc);
+		printExtra(loc, var$0, $ZipConstants::LOCEXT(loc));
 	}
 }
 
 void ZipInfo::printCEN($bytes* cen, int32_t off) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	print("[Central Directory Header]%n"_s, $$new($ObjectArray, 0));
-	print("    Signature   :   %#010x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::CENSIG(cen, off))))}));
+	print("    Signature   :   %#010x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::CENSIG(cen, off)))}));
 	if ($ZipConstants::CENSIG(cen, off) != $ZipConstants::CENSIG$) {
 		print("    Wrong signature!"_s, $$new($ObjectArray, 0));
 		return;
 	}
 	print("    VerMadeby   :       %#6x    [%d, %d.%d]%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($ZipConstants::CENVEM(cen, off)))),
-		$($of($Integer::valueOf(($ZipConstants::CENVEM(cen, off) >> 8)))),
-		$($of($Integer::valueOf(((int32_t)($ZipConstants::CENVEM(cen, off) & (uint32_t)255)) / 10))),
-		$($of($Integer::valueOf(((int32_t)($ZipConstants::CENVEM(cen, off) & (uint32_t)255)) % 10)))
+		$($Integer::valueOf($ZipConstants::CENVEM(cen, off))),
+		$($Integer::valueOf(($ZipConstants::CENVEM(cen, off) >> 8))),
+		$($Integer::valueOf(($ZipConstants::CENVEM(cen, off) & 0xff) / 0x0a)),
+		$($Integer::valueOf(($ZipConstants::CENVEM(cen, off) & 0xff) % 0x0a))
 	}));
 	print("    VerExtract  :       %#6x    [%d.%d]%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($ZipConstants::CENVER(cen, off)))),
-		$($of($Integer::valueOf($ZipConstants::CENVER(cen, off) / 10))),
-		$($of($Integer::valueOf($ZipConstants::CENVER(cen, off) % 10)))
+		$($Integer::valueOf($ZipConstants::CENVER(cen, off))),
+		$($Integer::valueOf($ZipConstants::CENVER(cen, off) / 10)),
+		$($Integer::valueOf($ZipConstants::CENVER(cen, off) % 10))
 	}));
-	print("    Flag        :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::CENFLG(cen, off))))}));
-	print("    Method      :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::CENHOW(cen, off))))}));
+	print("    Flag        :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::CENFLG(cen, off)))}));
+	print("    Method      :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::CENHOW(cen, off)))}));
 	print("    LastMTime   :   %#10x    [%tc]%n"_s, $$new($ObjectArray, {
-		$($of($Long::valueOf($ZipConstants::CENTIM(cen, off)))),
-		$($of($Long::valueOf($ZipUtils::dosToJavaTime($ZipConstants::CENTIM(cen, off)))))
+		$($Long::valueOf($ZipConstants::CENTIM(cen, off))),
+		$($Long::valueOf($ZipUtils::dosToJavaTime($ZipConstants::CENTIM(cen, off))))
 	}));
-	print("    CRC         :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::CENCRC(cen, off))))}));
-	print("    CSize       :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::CENSIZ(cen, off))))}));
-	print("    Size        :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::CENLEN(cen, off))))}));
+	print("    CRC         :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::CENCRC(cen, off)))}));
+	print("    CSize       :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::CENSIZ(cen, off)))}));
+	print("    Size        :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::CENLEN(cen, off)))}));
 	print("    NameLen     :       %#6x    [%s]%n"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($ZipConstants::CENNAM(cen, off)))),
-		$of($$new($String, cen, off + 46, $ZipConstants::CENNAM(cen, off)))
+		$($Integer::valueOf($ZipConstants::CENNAM(cen, off))),
+		$$new($String, cen, off + 46, $ZipConstants::CENNAM(cen, off))
 	}));
-	print("    ExtraLen    :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::CENEXT(cen, off))))}));
+	print("    ExtraLen    :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::CENEXT(cen, off)))}));
 	if ($ZipConstants::CENEXT(cen, off) != 0) {
-		$var($bytes, var$0, cen);
-		int32_t var$1 = off + 46 + $ZipConstants::CENNAM(cen, off);
-		printExtra(var$0, var$1, $ZipConstants::CENEXT(cen, off));
+		int32_t var$0 = off + 46 + $ZipConstants::CENNAM(cen, off);
+		printExtra(cen, var$0, $ZipConstants::CENEXT(cen, off));
 	}
-	print("    CommentLen  :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::CENCOM(cen, off))))}));
-	print("    DiskStart   :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::CENDSK(cen, off))))}));
-	print("    Attrs       :       %#6x%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf($ZipConstants::CENATT(cen, off))))}));
-	print("    AttrsEx     :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::CENATX(cen, off))))}));
-	print("    LocOff      :   %#10x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::CENOFF(cen, off))))}));
+	print("    CommentLen  :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::CENCOM(cen, off)))}));
+	print("    DiskStart   :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::CENDSK(cen, off)))}));
+	print("    Attrs       :       %#6x%n"_s, $$new($ObjectArray, {$($Integer::valueOf($ZipConstants::CENATT(cen, off)))}));
+	print("    AttrsEx     :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::CENATX(cen, off)))}));
+	print("    LocOff      :   %#10x%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::CENOFF(cen, off)))}));
 }
 
 int64_t ZipInfo::locoff($bytes* cen, int32_t pos) {
 	int64_t locoff = $ZipConstants::CENOFF(cen, pos);
-	if (locoff == (int64_t)0x00000000FFFFFFFF) {
+	if (locoff == (int64_t)0x00000000ffffffff) {
 		int32_t off = pos + 46 + $ZipConstants::CENNAM(cen, pos);
 		int32_t end = off + $ZipConstants::CENEXT(cen, pos);
 		while (off + 4 < end) {
@@ -195,10 +167,10 @@ int64_t ZipInfo::locoff($bytes* cen, int32_t pos) {
 				continue;
 			}
 			off += 4;
-			if ($ZipConstants::CENLEN(cen, pos) == (int64_t)0x00000000FFFFFFFF) {
+			if ($ZipConstants::CENLEN(cen, pos) == (int64_t)0x00000000ffffffff) {
 				off += 8;
 			}
-			if ($ZipConstants::CENSIZ(cen, pos) == (int64_t)0x00000000FFFFFFFF) {
+			if ($ZipConstants::CENSIZ(cen, pos) == (int64_t)0x00000000ffffffff) {
 				off += 8;
 			}
 			return $ZipConstants::LL(cen, off);
@@ -208,14 +180,14 @@ int64_t ZipInfo::locoff($bytes* cen, int32_t pos) {
 }
 
 void ZipInfo::printExtra($bytes* extra, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t end = off + len;
 	while (off + 4 <= end) {
 		int32_t tag = $ZipConstants::SH(extra, off);
 		int32_t sz = $ZipConstants::SH(extra, off + 2);
 		print("        [tag=0x%04x, sz=%d, data= "_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(tag))),
-			$($of($Integer::valueOf(sz)))
+			$($Integer::valueOf(tag)),
+			$($Integer::valueOf(sz))
 		}));
 		if (off + sz > end) {
 			print("    Error: Invalid extra data, beyond extra length"_s, $$new($ObjectArray, 0));
@@ -223,23 +195,21 @@ void ZipInfo::printExtra($bytes* extra, int32_t off, int32_t len) {
 		}
 		off += 4;
 		for (int32_t i = 0; i < sz; ++i) {
-			print("%02x "_s, $$new($ObjectArray, {$($of($Byte::valueOf($nc(extra)->get(off + i))))}));
+			print("%02x "_s, $$new($ObjectArray, {$($Byte::valueOf($nc(extra)->get(off + i)))}));
 		}
 		print("]%n"_s, $$new($ObjectArray, 0));
 		{
 			int32_t pos = 0;
 			switch (tag) {
 			case 1:
-				{
-					print("         ->ZIP64: "_s, $$new($ObjectArray, 0));
-					pos = off;
-					while (pos + 8 <= off + sz) {
-						print(" *0x%x "_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipConstants::LL(extra, pos))))}));
-						pos += 8;
-					}
-					print("%n"_s, $$new($ObjectArray, 0));
-					break;
+				print("         ->ZIP64: "_s, $$new($ObjectArray, 0));
+				pos = off;
+				while (pos + 8 <= off + sz) {
+					print(" *0x%x "_s, $$new($ObjectArray, {$($Long::valueOf($ZipConstants::LL(extra, pos)))}));
+					pos += 8;
 				}
+				print("%n"_s, $$new($ObjectArray, 0));
+				break;
 			case 10:
 				{
 					print("         ->PKWare NTFS%n"_s, $$new($ObjectArray, 0));
@@ -247,28 +217,24 @@ void ZipInfo::printExtra($bytes* extra, int32_t off, int32_t len) {
 					if (var$0 || $ZipConstants::SH(extra, off + 6) != 24) {
 						print("    Error: Invalid NTFS sub-tag or subsz"_s, $$new($ObjectArray, 0));
 					}
-					print("            mtime:%tc%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipUtils::winToJavaTime($ZipConstants::LL(extra, off + 8)))))}));
-					print("            atime:%tc%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipUtils::winToJavaTime($ZipConstants::LL(extra, off + 16)))))}));
-					print("            ctime:%tc%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipUtils::winToJavaTime($ZipConstants::LL(extra, off + 24)))))}));
+					print("            mtime:%tc%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipUtils::winToJavaTime($ZipConstants::LL(extra, off + 8))))}));
+					print("            atime:%tc%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipUtils::winToJavaTime($ZipConstants::LL(extra, off + 16))))}));
+					print("            ctime:%tc%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipUtils::winToJavaTime($ZipConstants::LL(extra, off + 24))))}));
 					break;
 				}
 			case 21589:
-				{
-					print("         ->Info-ZIP Extended Timestamp: flag=%x%n"_s, $$new($ObjectArray, {$($of($Byte::valueOf($nc(extra)->get(off))))}));
-					pos = off + 1;
-					while (pos + 4 <= off + sz) {
-						print("            *%tc%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($ZipUtils::unixToJavaTime($ZipConstants::LG(extra, pos)))))}));
-						pos += 4;
-					}
-					break;
+				print("         ->Info-ZIP Extended Timestamp: flag=%x%n"_s, $$new($ObjectArray, {$($Byte::valueOf($nc(extra)->get(off)))}));
+				pos = off + 1;
+				while (pos + 4 <= off + sz) {
+					print("            *%tc%n"_s, $$new($ObjectArray, {$($Long::valueOf($ZipUtils::unixToJavaTime($ZipConstants::LG(extra, pos))))}));
+					pos += 4;
 				}
+				break;
 			default:
-				{
-					print("         ->[tag=%x, size=%d]%n"_s, $$new($ObjectArray, {
-						$($of($Integer::valueOf(tag))),
-						$($of($Integer::valueOf(sz)))
-					}));
-				}
+				print("         ->[tag=%x, size=%d]%n"_s, $$new($ObjectArray, {
+					$($Integer::valueOf(tag)),
+					$($Integer::valueOf(sz))
+				}));
 			}
 		}
 		off += sz;
@@ -279,7 +245,27 @@ ZipInfo::ZipInfo() {
 }
 
 $Class* ZipInfo::load$($String* name, bool initialize) {
-	$loadClass(ZipInfo, name, initialize, &_ZipInfo_ClassInfo_, allocate$ZipInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ZipInfo, init$, void)},
+		{"locoff", "([BI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, locoff, int64_t, $bytes*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipInfo, main, void, $StringArray*), "java.lang.Throwable"},
+		{"print", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ZipInfo, print, void, $String*, $ObjectArray*)},
+		{"printCEN", "([BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printCEN, void, $bytes*, int32_t)},
+		{"printExtra", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printExtra, void, $bytes*, int32_t, int32_t)},
+		{"printLOC", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printLOC, void, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.nio.zipfs.ZipInfo",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ZipInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipInfo);
+	});
 	return class$;
 }
 

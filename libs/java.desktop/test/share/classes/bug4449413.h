@@ -51,6 +51,7 @@ public:
 	using ::javax::swing::JFrame::add;
 	using ::javax::swing::JFrame::getMousePosition;
 	using ::javax::swing::JFrame::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addComponentsToPane();
 	void createAndShowGUI();

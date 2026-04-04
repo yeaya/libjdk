@@ -15,7 +15,7 @@ public:
 	PrintEvent();
 	void init$(Object$* source);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x1FBCC101D63C2747;
+	static const int64_t serialVersionUID = (int64_t)0x1fbcc101d63c2747;
 };
 
 		} // event

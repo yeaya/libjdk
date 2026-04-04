@@ -16,7 +16,10 @@ public:
 	void init$($String* s);
 	InvalidPipeException(const InvalidPipeException& e);
 	virtual void throw$() override;
-	inline InvalidPipeException* operator ->() {
+	inline InvalidPipeException* operator ->() const {
+		return (InvalidPipeException*)throwing$;
+	}
+	inline operator InvalidPipeException*() const {
 		return (InvalidPipeException*)throwing$;
 	}
 };

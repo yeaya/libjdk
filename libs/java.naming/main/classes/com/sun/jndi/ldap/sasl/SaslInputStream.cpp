@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/sasl/SaslInputStream.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -30,45 +29,8 @@ namespace com {
 			namespace ldap {
 				namespace sasl {
 
-$FieldInfo _SaslInputStream_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SaslInputStream, debug)},
-	{"saslBuffer", "[B", nullptr, $PRIVATE, $field(SaslInputStream, saslBuffer)},
-	{"lenBuf", "[B", nullptr, $PRIVATE, $field(SaslInputStream, lenBuf)},
-	{"buf", "[B", nullptr, $PRIVATE, $field(SaslInputStream, buf)},
-	{"bufPos", "I", nullptr, $PRIVATE, $field(SaslInputStream, bufPos)},
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(SaslInputStream, in)},
-	{"sc", "Ljavax/security/sasl/SaslClient;", nullptr, $PRIVATE, $field(SaslInputStream, sc)},
-	{"recvMaxBufSize", "I", nullptr, $PRIVATE, $field(SaslInputStream, recvMaxBufSize)},
-	{}
-};
-
-$MethodInfo _SaslInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/InputStream;)V", nullptr, 0, $method(SaslInputStream, init$, void, $SaslClient*, $InputStream*), "javax.security.sasl.SaslException"},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, close, void), "java.io.IOException"},
-	{"fill", "()I", nullptr, $PRIVATE, $method(SaslInputStream, fill, int32_t), "java.io.IOException"},
-	{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SaslInputStream, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([BI)I", nullptr, $PRIVATE, $method(SaslInputStream, readFully, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SaslInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.ldap.sasl.SaslInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_SaslInputStream_FieldInfo_,
-	_SaslInputStream_MethodInfo_
-};
-
-$Object* allocate$SaslInputStream($Class* clazz) {
-	return $of($alloc(SaslInputStream));
-}
-
 void SaslInputStream::init$($SaslClient* sc, $InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InputStream::init$();
 	$set(this, lenBuf, $new($bytes, 4));
 	$set(this, buf, $new($bytes, 0));
@@ -111,7 +73,7 @@ int32_t SaslInputStream::read($bytes* inBuf, int32_t start, int32_t count) {
 	int32_t avail = $nc(this->buf)->length - this->bufPos;
 	if (count > avail) {
 		$System::arraycopy(this->buf, this->bufPos, inBuf, start, avail);
-		this->bufPos = $nc(this->buf)->length;
+		this->bufPos = this->buf->length;
 		return avail;
 	} else {
 		$System::arraycopy(this->buf, this->bufPos, inBuf, start, count);
@@ -121,7 +83,7 @@ int32_t SaslInputStream::read($bytes* inBuf, int32_t start, int32_t count) {
 }
 
 int32_t SaslInputStream::fill() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t actual = readFully(this->lenBuf, 4);
 	if (actual != 4) {
 		return -1;
@@ -130,6 +92,7 @@ int32_t SaslInputStream::fill() {
 	if (len > this->recvMaxBufSize) {
 		$throwNew($IOException, $$str({$$str(len), "exceeds the negotiated receive buffer size limit:"_s, $$str(this->recvMaxBufSize)}));
 	}
+	;
 	actual = readFully(this->saslBuffer, len);
 	if (actual != len) {
 		$throwNew($EOFException, $$str({"Expecting to read "_s, $$str(len), " bytes but got "_s, $$str(actual), " bytes before EOF"_s}));
@@ -142,8 +105,10 @@ int32_t SaslInputStream::fill() {
 int32_t SaslInputStream::readFully($bytes* inBuf, int32_t total) {
 	int32_t count = 0;
 	int32_t pos = 0;
+	;
 	while (total > 0) {
 		count = $nc(this->in)->read(inBuf, pos, total);
+		;
 		if (count == -1) {
 			return (pos == 0 ? -1 : pos);
 		}
@@ -178,7 +143,7 @@ int32_t SaslInputStream::networkByteOrderToInt($bytes* buf, int32_t start, int32
 	int32_t answer = 0;
 	for (int32_t i = 0; i < count; ++i) {
 		answer <<= 8;
-		answer |= ((int32_t)((int32_t)$nc(buf)->get(start + i) & (uint32_t)255));
+		answer |= ((int32_t)$nc(buf)->get(start + i) & 0xff);
 	}
 	return answer;
 }
@@ -187,7 +152,39 @@ SaslInputStream::SaslInputStream() {
 }
 
 $Class* SaslInputStream::load$($String* name, bool initialize) {
-	$loadClass(SaslInputStream, name, initialize, &_SaslInputStream_ClassInfo_, allocate$SaslInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SaslInputStream, debug)},
+		{"saslBuffer", "[B", nullptr, $PRIVATE, $field(SaslInputStream, saslBuffer)},
+		{"lenBuf", "[B", nullptr, $PRIVATE, $field(SaslInputStream, lenBuf)},
+		{"buf", "[B", nullptr, $PRIVATE, $field(SaslInputStream, buf)},
+		{"bufPos", "I", nullptr, $PRIVATE, $field(SaslInputStream, bufPos)},
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(SaslInputStream, in)},
+		{"sc", "Ljavax/security/sasl/SaslClient;", nullptr, $PRIVATE, $field(SaslInputStream, sc)},
+		{"recvMaxBufSize", "I", nullptr, $PRIVATE, $field(SaslInputStream, recvMaxBufSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/InputStream;)V", nullptr, 0, $method(SaslInputStream, init$, void, $SaslClient*, $InputStream*), "javax.security.sasl.SaslException"},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, close, void), "java.io.IOException"},
+		{"fill", "()I", nullptr, $PRIVATE, $method(SaslInputStream, fill, int32_t), "java.io.IOException"},
+		{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SaslInputStream, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([BI)I", nullptr, $PRIVATE, $method(SaslInputStream, readFully, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.ldap.sasl.SaslInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SaslInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SaslInputStream);
+	});
 	return class$;
 }
 

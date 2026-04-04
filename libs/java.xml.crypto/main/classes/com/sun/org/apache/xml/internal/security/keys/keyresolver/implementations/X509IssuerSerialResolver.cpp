@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/X509IssuerSerialResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/X509Data.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial.h>
@@ -35,10 +34,8 @@ using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUt
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $X509Certificate = ::java::security::cert::X509Certificate;
@@ -56,34 +53,6 @@ namespace com {
 							namespace keys {
 								namespace keyresolver {
 									namespace implementations {
-
-$FieldInfo _X509IssuerSerialResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X509IssuerSerialResolver, LOG)},
-	{}
-};
-
-$MethodInfo _X509IssuerSerialResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X509IssuerSerialResolver, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{}
-};
-
-$ClassInfo _X509IssuerSerialResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.X509IssuerSerialResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_X509IssuerSerialResolver_FieldInfo_,
-	_X509IssuerSerialResolver_MethodInfo_
-};
-
-$Object* allocate$X509IssuerSerialResolver($Class* clazz) {
-	return $of($alloc(X509IssuerSerialResolver));
-}
 
 $Logger* X509IssuerSerialResolver::LOG = nullptr;
 
@@ -114,7 +83,7 @@ $PublicKey* X509IssuerSerialResolver::engineResolvePublicKey($Element* element, 
 }
 
 $X509Certificate* X509IssuerSerialResolver::engineResolveX509Certificate($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509Data, x509data, nullptr);
 	try {
 		$assign(x509data, $new($X509Data, element, baseURI));
@@ -127,33 +96,33 @@ $X509Certificate* X509IssuerSerialResolver::engineResolveX509Certificate($Elemen
 	try {
 		if (storage == nullptr) {
 			$init($Constants);
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$of($Constants::_TAG_X509ISSUERSERIAL)}));
+			$var($ObjectArray, exArgs, $new($ObjectArray, {$Constants::_TAG_X509ISSUERSERIAL}));
 			$var($KeyResolverException, ex, $new($KeyResolverException, "KeyResolver.needStorageResolver"_s, exArgs));
-			$nc(X509IssuerSerialResolver::LOG)->debug(""_s, static_cast<$Throwable*>(ex));
+			$nc(X509IssuerSerialResolver::LOG)->debug(""_s, ex);
 			$throw(ex);
 		}
-		int32_t noOfISS = $nc(x509data)->lengthIssuerSerial();
+		int32_t noOfISS = x509data->lengthIssuerSerial();
 		$var($Iterator, storageIterator, $nc(storage)->getIterator());
 		while ($nc(storageIterator)->hasNext()) {
 			$var($X509Certificate, cert, $cast($X509Certificate, storageIterator->next()));
 			$var($XMLX509IssuerSerial, certSerial, $new($XMLX509IssuerSerial, $($nc(element)->getOwnerDocument()), cert));
-			$nc(X509IssuerSerialResolver::LOG)->debug("Found Certificate Issuer: {}"_s, $$new($ObjectArray, {$($of(certSerial->getIssuerName()))}));
-			$nc(X509IssuerSerialResolver::LOG)->debug("Found Certificate Serial: {}"_s, $$new($ObjectArray, {$($of($nc($(certSerial->getSerialNumber()))->toString()))}));
+			$nc(X509IssuerSerialResolver::LOG)->debug("Found Certificate Issuer: {}"_s, $$new($ObjectArray, {$(certSerial->getIssuerName())}));
+			X509IssuerSerialResolver::LOG->debug("Found Certificate Serial: {}"_s, $$new($ObjectArray, {$($$nc(certSerial->getSerialNumber())->toString())}));
 			for (int32_t i = 0; i < noOfISS; ++i) {
 				$var($XMLX509IssuerSerial, xmliss, x509data->itemIssuerSerial(i));
-				$nc(X509IssuerSerialResolver::LOG)->debug("Found Element Issuer:     {}"_s, $$new($ObjectArray, {$($of($nc(xmliss)->getIssuerName()))}));
-				$nc(X509IssuerSerialResolver::LOG)->debug("Found Element Serial:     {}"_s, $$new($ObjectArray, {$($of($nc($($nc(xmliss)->getSerialNumber()))->toString()))}));
+				X509IssuerSerialResolver::LOG->debug("Found Element Issuer:     {}"_s, $$new($ObjectArray, {$($nc(xmliss)->getIssuerName())}));
+				X509IssuerSerialResolver::LOG->debug("Found Element Serial:     {}"_s, $$new($ObjectArray, {$($$nc(xmliss->getSerialNumber())->toString())}));
 				if (certSerial->equals(xmliss)) {
-					$nc(X509IssuerSerialResolver::LOG)->debug("match !!! "_s);
+					X509IssuerSerialResolver::LOG->debug("match !!! "_s);
 					return cert;
 				}
-				$nc(X509IssuerSerialResolver::LOG)->debug("no match..."_s);
+				X509IssuerSerialResolver::LOG->debug("no match..."_s);
 			}
 		}
 		return nullptr;
 	} catch ($XMLSecurityException& ex) {
-		$nc(X509IssuerSerialResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(ex));
-		$throwNew($KeyResolverException, static_cast<$Exception*>(ex));
+		$nc(X509IssuerSerialResolver::LOG)->debug("XMLSecurityException"_s, ex);
+		$throwNew($KeyResolverException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -166,7 +135,7 @@ $PrivateKey* X509IssuerSerialResolver::engineResolvePrivateKey($Element* element
 	return nullptr;
 }
 
-void clinit$X509IssuerSerialResolver($Class* class$) {
+void X509IssuerSerialResolver::clinit$($Class* clazz) {
 	$assignStatic(X509IssuerSerialResolver::LOG, $LoggerFactory::getLogger(X509IssuerSerialResolver::class$));
 }
 
@@ -174,7 +143,30 @@ X509IssuerSerialResolver::X509IssuerSerialResolver() {
 }
 
 $Class* X509IssuerSerialResolver::load$($String* name, bool initialize) {
-	$loadClass(X509IssuerSerialResolver, name, initialize, &_X509IssuerSerialResolver_ClassInfo_, clinit$X509IssuerSerialResolver, allocate$X509IssuerSerialResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X509IssuerSerialResolver, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X509IssuerSerialResolver, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool)},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(X509IssuerSerialResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.X509IssuerSerialResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509IssuerSerialResolver, name, initialize, &classInfo$$, X509IssuerSerialResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(X509IssuerSerialResolver);
+	});
 	return class$;
 }
 

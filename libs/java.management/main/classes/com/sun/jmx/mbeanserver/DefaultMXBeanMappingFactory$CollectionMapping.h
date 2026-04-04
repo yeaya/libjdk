@@ -38,6 +38,7 @@ class DefaultMXBeanMappingFactory$CollectionMapping : public ::com::sun::jmx::mb
 	$class(DefaultMXBeanMappingFactory$CollectionMapping, 0, ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$NonNullMXBeanMapping)
 public:
 	DefaultMXBeanMappingFactory$CollectionMapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Type* targetType, ::javax::management::openmbean::ArrayType* openArrayType, $Class* openArrayClass, ::com::sun::jmx::mbeanserver::MXBeanMapping* elementMapping);
 	virtual void checkReconstructible() override;
 	virtual $Object* fromNonNullOpenValue(Object$* openValue) override;

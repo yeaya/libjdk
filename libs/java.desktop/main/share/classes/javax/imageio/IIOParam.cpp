@@ -1,5 +1,4 @@
 #include <javax/imageio/IIOParam.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/geom/RectangularShape.h>
@@ -20,56 +19,6 @@ using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 
 namespace javax {
 	namespace imageio {
-
-$FieldInfo _IIOParam_FieldInfo_[] = {
-	{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(IIOParam, sourceRegion)},
-	{"sourceXSubsampling", "I", nullptr, $PROTECTED, $field(IIOParam, sourceXSubsampling)},
-	{"sourceYSubsampling", "I", nullptr, $PROTECTED, $field(IIOParam, sourceYSubsampling)},
-	{"subsamplingXOffset", "I", nullptr, $PROTECTED, $field(IIOParam, subsamplingXOffset)},
-	{"subsamplingYOffset", "I", nullptr, $PROTECTED, $field(IIOParam, subsamplingYOffset)},
-	{"sourceBands", "[I", nullptr, $PROTECTED, $field(IIOParam, sourceBands)},
-	{"destinationType", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PROTECTED, $field(IIOParam, destinationType)},
-	{"destinationOffset", "Ljava/awt/Point;", nullptr, $PROTECTED, $field(IIOParam, destinationOffset)},
-	{"defaultController", "Ljavax/imageio/IIOParamController;", nullptr, $PROTECTED, $field(IIOParam, defaultController)},
-	{"controller", "Ljavax/imageio/IIOParamController;", nullptr, $PROTECTED, $field(IIOParam, controller)},
-	{}
-};
-
-$MethodInfo _IIOParam_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(IIOParam, init$, void)},
-	{"activateController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOParam, activateController, bool)},
-	{"getController", "()Ljavax/imageio/IIOParamController;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getController, $IIOParamController*)},
-	{"getDefaultController", "()Ljavax/imageio/IIOParamController;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getDefaultController, $IIOParamController*)},
-	{"getDestinationOffset", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getDestinationOffset, $Point*)},
-	{"getDestinationType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getDestinationType, $ImageTypeSpecifier*)},
-	{"getSourceBands", "()[I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceBands, $ints*)},
-	{"getSourceRegion", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceRegion, $Rectangle*)},
-	{"getSourceXSubsampling", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceXSubsampling, int32_t)},
-	{"getSourceYSubsampling", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceYSubsampling, int32_t)},
-	{"getSubsamplingXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSubsamplingXOffset, int32_t)},
-	{"getSubsamplingYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSubsamplingYOffset, int32_t)},
-	{"hasController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOParam, hasController, bool)},
-	{"setController", "(Ljavax/imageio/IIOParamController;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setController, void, $IIOParamController*)},
-	{"setDestinationOffset", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setDestinationOffset, void, $Point*)},
-	{"setDestinationType", "(Ljavax/imageio/ImageTypeSpecifier;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setDestinationType, void, $ImageTypeSpecifier*)},
-	{"setSourceBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setSourceBands, void, $ints*)},
-	{"setSourceRegion", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setSourceRegion, void, $Rectangle*)},
-	{"setSourceSubsampling", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setSourceSubsampling, void, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _IIOParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.IIOParam",
-	"java.lang.Object",
-	nullptr,
-	_IIOParam_FieldInfo_,
-	_IIOParam_MethodInfo_
-};
-
-$Object* allocate$IIOParam($Class* clazz) {
-	return $of($alloc(IIOParam));
-}
 
 void IIOParam::init$() {
 	$set(this, sourceRegion, nullptr);
@@ -93,22 +42,22 @@ void IIOParam::setSourceRegion($Rectangle* sourceRegion) {
 	if ($nc(sourceRegion)->x < 0) {
 		$throwNew($IllegalArgumentException, "sourceRegion.x < 0!"_s);
 	}
-	if ($nc(sourceRegion)->y < 0) {
+	if (sourceRegion->y < 0) {
 		$throwNew($IllegalArgumentException, "sourceRegion.y < 0!"_s);
 	}
-	if ($nc(sourceRegion)->width <= 0) {
+	if (sourceRegion->width <= 0) {
 		$throwNew($IllegalArgumentException, "sourceRegion.width <= 0!"_s);
 	}
-	if ($nc(sourceRegion)->height <= 0) {
+	if (sourceRegion->height <= 0) {
 		$throwNew($IllegalArgumentException, "sourceRegion.height <= 0!"_s);
 	}
-	if ($nc(sourceRegion)->width <= this->subsamplingXOffset) {
+	if (sourceRegion->width <= this->subsamplingXOffset) {
 		$throwNew($IllegalStateException, "sourceRegion.width <= subsamplingXOffset!"_s);
 	}
-	if ($nc(sourceRegion)->height <= this->subsamplingYOffset) {
+	if (sourceRegion->height <= this->subsamplingYOffset) {
 		$throwNew($IllegalStateException, "sourceRegion.height <= subsamplingYOffset!"_s);
 	}
-	$set(this, sourceRegion, $cast($Rectangle, $nc(sourceRegion)->clone()));
+	$set(this, sourceRegion, $cast($Rectangle, sourceRegion->clone()));
 }
 
 $Rectangle* IIOParam::getSourceRegion() {
@@ -132,7 +81,7 @@ void IIOParam::setSourceSubsampling(int32_t sourceXSubsampling, int32_t sourceYS
 		$throwNew($IllegalArgumentException, "subsamplingYOffset out of range!"_s);
 	}
 	if (this->sourceRegion != nullptr) {
-		if (subsamplingXOffset >= $nc(this->sourceRegion)->width || subsamplingYOffset >= $nc(this->sourceRegion)->height) {
+		if (subsamplingXOffset >= this->sourceRegion->width || subsamplingYOffset >= this->sourceRegion->height) {
 			$throwNew($IllegalStateException, "region contains no pixels!"_s);
 		}
 	}
@@ -162,7 +111,7 @@ void IIOParam::setSourceBands($ints* sourceBands) {
 	if (sourceBands == nullptr) {
 		$set(this, sourceBands, nullptr);
 	} else {
-		int32_t numBands = $nc(sourceBands)->length;
+		int32_t numBands = sourceBands->length;
 		for (int32_t i = 0; i < numBands; ++i) {
 			int32_t band = sourceBands->get(i);
 			if (band < 0) {
@@ -182,7 +131,7 @@ $ints* IIOParam::getSourceBands() {
 	if (this->sourceBands == nullptr) {
 		return nullptr;
 	}
-	return ($cast($ints, $nc(this->sourceBands)->clone()));
+	return $cast($ints, $nc(this->sourceBands)->clone());
 }
 
 void IIOParam::setDestinationType($ImageTypeSpecifier* destinationType) {
@@ -224,14 +173,59 @@ bool IIOParam::activateController() {
 	if (!hasController()) {
 		$throwNew($IllegalStateException, "hasController() == false!"_s);
 	}
-	return $nc($(getController()))->activate(this);
+	return $$nc(getController())->activate(this);
 }
 
 IIOParam::IIOParam() {
 }
 
 $Class* IIOParam::load$($String* name, bool initialize) {
-	$loadClass(IIOParam, name, initialize, &_IIOParam_ClassInfo_, allocate$IIOParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(IIOParam, sourceRegion)},
+		{"sourceXSubsampling", "I", nullptr, $PROTECTED, $field(IIOParam, sourceXSubsampling)},
+		{"sourceYSubsampling", "I", nullptr, $PROTECTED, $field(IIOParam, sourceYSubsampling)},
+		{"subsamplingXOffset", "I", nullptr, $PROTECTED, $field(IIOParam, subsamplingXOffset)},
+		{"subsamplingYOffset", "I", nullptr, $PROTECTED, $field(IIOParam, subsamplingYOffset)},
+		{"sourceBands", "[I", nullptr, $PROTECTED, $field(IIOParam, sourceBands)},
+		{"destinationType", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PROTECTED, $field(IIOParam, destinationType)},
+		{"destinationOffset", "Ljava/awt/Point;", nullptr, $PROTECTED, $field(IIOParam, destinationOffset)},
+		{"defaultController", "Ljavax/imageio/IIOParamController;", nullptr, $PROTECTED, $field(IIOParam, defaultController)},
+		{"controller", "Ljavax/imageio/IIOParamController;", nullptr, $PROTECTED, $field(IIOParam, controller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(IIOParam, init$, void)},
+		{"activateController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOParam, activateController, bool)},
+		{"getController", "()Ljavax/imageio/IIOParamController;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getController, $IIOParamController*)},
+		{"getDefaultController", "()Ljavax/imageio/IIOParamController;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getDefaultController, $IIOParamController*)},
+		{"getDestinationOffset", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getDestinationOffset, $Point*)},
+		{"getDestinationType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getDestinationType, $ImageTypeSpecifier*)},
+		{"getSourceBands", "()[I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceBands, $ints*)},
+		{"getSourceRegion", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceRegion, $Rectangle*)},
+		{"getSourceXSubsampling", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceXSubsampling, int32_t)},
+		{"getSourceYSubsampling", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSourceYSubsampling, int32_t)},
+		{"getSubsamplingXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSubsamplingXOffset, int32_t)},
+		{"getSubsamplingYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(IIOParam, getSubsamplingYOffset, int32_t)},
+		{"hasController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOParam, hasController, bool)},
+		{"setController", "(Ljavax/imageio/IIOParamController;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setController, void, $IIOParamController*)},
+		{"setDestinationOffset", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setDestinationOffset, void, $Point*)},
+		{"setDestinationType", "(Ljavax/imageio/ImageTypeSpecifier;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setDestinationType, void, $ImageTypeSpecifier*)},
+		{"setSourceBands", "([I)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setSourceBands, void, $ints*)},
+		{"setSourceRegion", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setSourceRegion, void, $Rectangle*)},
+		{"setSourceSubsampling", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(IIOParam, setSourceSubsampling, void, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.IIOParam",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIOParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIOParam);
+	});
 	return class$;
 }
 

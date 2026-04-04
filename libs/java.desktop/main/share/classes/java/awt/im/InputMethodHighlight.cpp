@@ -1,5 +1,4 @@
 #include <java/awt/im/InputMethodHighlight.h>
-
 #include <java/util/Map.h>
 #include <jcpp.h>
 
@@ -19,44 +18,6 @@ using $Map = ::java::util::Map;
 namespace java {
 	namespace awt {
 		namespace im {
-
-$FieldInfo _InputMethodHighlight_FieldInfo_[] = {
-	{"RAW_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodHighlight, RAW_TEXT)},
-	{"CONVERTED_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodHighlight, CONVERTED_TEXT)},
-	{"UNSELECTED_RAW_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, UNSELECTED_RAW_TEXT_HIGHLIGHT)},
-	{"SELECTED_RAW_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, SELECTED_RAW_TEXT_HIGHLIGHT)},
-	{"UNSELECTED_CONVERTED_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, UNSELECTED_CONVERTED_TEXT_HIGHLIGHT)},
-	{"SELECTED_CONVERTED_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, SELECTED_CONVERTED_TEXT_HIGHLIGHT)},
-	{"selected", "Z", nullptr, $PRIVATE, $field(InputMethodHighlight, selected)},
-	{"state", "I", nullptr, $PRIVATE, $field(InputMethodHighlight, state)},
-	{"variation", "I", nullptr, $PRIVATE, $field(InputMethodHighlight, variation)},
-	{"style", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PRIVATE, $field(InputMethodHighlight, style)},
-	{}
-};
-
-$MethodInfo _InputMethodHighlight_MethodInfo_[] = {
-	{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(InputMethodHighlight, init$, void, bool, int32_t)},
-	{"<init>", "(ZII)V", nullptr, $PUBLIC, $method(InputMethodHighlight, init$, void, bool, int32_t, int32_t)},
-	{"<init>", "(ZIILjava/util/Map;)V", "(ZIILjava/util/Map<Ljava/awt/font/TextAttribute;*>;)V", $PUBLIC, $method(InputMethodHighlight, init$, void, bool, int32_t, int32_t, $Map*)},
-	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodHighlight, getState, int32_t)},
-	{"getStyle", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(InputMethodHighlight, getStyle, $Map*)},
-	{"getVariation", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodHighlight, getVariation, int32_t)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(InputMethodHighlight, isSelected, bool)},
-	{}
-};
-
-$ClassInfo _InputMethodHighlight_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.im.InputMethodHighlight",
-	"java.lang.Object",
-	nullptr,
-	_InputMethodHighlight_FieldInfo_,
-	_InputMethodHighlight_MethodInfo_
-};
-
-$Object* allocate$InputMethodHighlight($Class* clazz) {
-	return $of($alloc(InputMethodHighlight));
-}
 
 InputMethodHighlight* InputMethodHighlight::UNSELECTED_RAW_TEXT_HIGHLIGHT = nullptr;
 InputMethodHighlight* InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT = nullptr;
@@ -97,7 +58,7 @@ $Map* InputMethodHighlight::getStyle() {
 	return this->style;
 }
 
-void clinit$InputMethodHighlight($Class* class$) {
+void InputMethodHighlight::clinit$($Class* clazz) {
 	$assignStatic(InputMethodHighlight::UNSELECTED_RAW_TEXT_HIGHLIGHT, $new(InputMethodHighlight, false, InputMethodHighlight::RAW_TEXT));
 	$assignStatic(InputMethodHighlight::SELECTED_RAW_TEXT_HIGHLIGHT, $new(InputMethodHighlight, true, InputMethodHighlight::RAW_TEXT));
 	$assignStatic(InputMethodHighlight::UNSELECTED_CONVERTED_TEXT_HIGHLIGHT, $new(InputMethodHighlight, false, InputMethodHighlight::CONVERTED_TEXT));
@@ -108,7 +69,40 @@ InputMethodHighlight::InputMethodHighlight() {
 }
 
 $Class* InputMethodHighlight::load$($String* name, bool initialize) {
-	$loadClass(InputMethodHighlight, name, initialize, &_InputMethodHighlight_ClassInfo_, clinit$InputMethodHighlight, allocate$InputMethodHighlight);
+	$FieldInfo fieldInfos$$[] = {
+		{"RAW_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodHighlight, RAW_TEXT)},
+		{"CONVERTED_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodHighlight, CONVERTED_TEXT)},
+		{"UNSELECTED_RAW_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, UNSELECTED_RAW_TEXT_HIGHLIGHT)},
+		{"SELECTED_RAW_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, SELECTED_RAW_TEXT_HIGHLIGHT)},
+		{"UNSELECTED_CONVERTED_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, UNSELECTED_CONVERTED_TEXT_HIGHLIGHT)},
+		{"SELECTED_CONVERTED_TEXT_HIGHLIGHT", "Ljava/awt/im/InputMethodHighlight;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputMethodHighlight, SELECTED_CONVERTED_TEXT_HIGHLIGHT)},
+		{"selected", "Z", nullptr, $PRIVATE, $field(InputMethodHighlight, selected)},
+		{"state", "I", nullptr, $PRIVATE, $field(InputMethodHighlight, state)},
+		{"variation", "I", nullptr, $PRIVATE, $field(InputMethodHighlight, variation)},
+		{"style", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PRIVATE, $field(InputMethodHighlight, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZI)V", nullptr, $PUBLIC, $method(InputMethodHighlight, init$, void, bool, int32_t)},
+		{"<init>", "(ZII)V", nullptr, $PUBLIC, $method(InputMethodHighlight, init$, void, bool, int32_t, int32_t)},
+		{"<init>", "(ZIILjava/util/Map;)V", "(ZIILjava/util/Map<Ljava/awt/font/TextAttribute;*>;)V", $PUBLIC, $method(InputMethodHighlight, init$, void, bool, int32_t, int32_t, $Map*)},
+		{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodHighlight, getState, int32_t)},
+		{"getStyle", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(InputMethodHighlight, getStyle, $Map*)},
+		{"getVariation", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodHighlight, getVariation, int32_t)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(InputMethodHighlight, isSelected, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.im.InputMethodHighlight",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMethodHighlight, name, initialize, &classInfo$$, InputMethodHighlight::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMethodHighlight);
+	});
 	return class$;
 }
 

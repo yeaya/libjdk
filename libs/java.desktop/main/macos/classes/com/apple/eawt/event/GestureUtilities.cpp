@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/GestureUtilities.h>
-
 #include <com/apple/eawt/event/GestureHandler.h>
 #include <com/apple/eawt/event/GestureListener.h>
 #include <javax/swing/JComponent.h>
@@ -16,26 +15,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 			namespace event {
-
-$MethodInfo _GestureUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GestureUtilities, init$, void)},
-	{"addGestureListenerTo", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GestureUtilities, addGestureListenerTo, void, $JComponent*, $GestureListener*)},
-	{"removeGestureListenerFrom", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GestureUtilities, removeGestureListenerFrom, void, $JComponent*, $GestureListener*)},
-	{}
-};
-
-$ClassInfo _GestureUtilities_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.apple.eawt.event.GestureUtilities",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GestureUtilities_MethodInfo_
-};
-
-$Object* allocate$GestureUtilities($Class* clazz) {
-	return $of($alloc(GestureUtilities));
-}
 
 void GestureUtilities::init$() {
 }
@@ -58,7 +37,23 @@ GestureUtilities::GestureUtilities() {
 }
 
 $Class* GestureUtilities::load$($String* name, bool initialize) {
-	$loadClass(GestureUtilities, name, initialize, &_GestureUtilities_ClassInfo_, allocate$GestureUtilities);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GestureUtilities, init$, void)},
+		{"addGestureListenerTo", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GestureUtilities, addGestureListenerTo, void, $JComponent*, $GestureListener*)},
+		{"removeGestureListenerFrom", "(Ljavax/swing/JComponent;Lcom/apple/eawt/event/GestureListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GestureUtilities, removeGestureListenerFrom, void, $JComponent*, $GestureListener*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.apple.eawt.event.GestureUtilities",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GestureUtilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GestureUtilities);
+	});
 	return class$;
 }
 

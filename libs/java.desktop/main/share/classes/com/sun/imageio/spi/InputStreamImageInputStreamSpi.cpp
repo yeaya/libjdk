@@ -1,5 +1,4 @@
 #include <com/sun/imageio/spi/InputStreamImageInputStreamSpi.h>
-
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
 #include <java/util/Locale.h>
@@ -25,35 +24,6 @@ namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace spi {
-
-$FieldInfo _InputStreamImageInputStreamSpi_FieldInfo_[] = {
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputStreamImageInputStreamSpi, vendorName)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputStreamImageInputStreamSpi, version)},
-	{"inputClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InputStreamImageInputStreamSpi, inputClass)},
-	{}
-};
-
-$MethodInfo _InputStreamImageInputStreamSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputStreamImageInputStreamSpi, init$, void)},
-	{"canUseCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, canUseCacheFile, bool)},
-	{"createInputStreamInstance", "(Ljava/lang/Object;ZLjava/io/File;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*, bool, $File*), "java.io.IOException"},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, getDescription, $String*, $Locale*)},
-	{"needsCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, needsCacheFile, bool)},
-	{}
-};
-
-$ClassInfo _InputStreamImageInputStreamSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.spi.InputStreamImageInputStreamSpi",
-	"javax.imageio.spi.ImageInputStreamSpi",
-	nullptr,
-	_InputStreamImageInputStreamSpi_FieldInfo_,
-	_InputStreamImageInputStreamSpi_MethodInfo_
-};
-
-$Object* allocate$InputStreamImageInputStreamSpi($Class* clazz) {
-	return $of($alloc(InputStreamImageInputStreamSpi));
-}
 
 $String* InputStreamImageInputStreamSpi::vendorName = nullptr;
 $String* InputStreamImageInputStreamSpi::version = nullptr;
@@ -88,7 +58,7 @@ $ImageInputStream* InputStreamImageInputStreamSpi::createInputStreamInstance(Obj
 	}
 }
 
-void clinit$InputStreamImageInputStreamSpi($Class* class$) {
+void InputStreamImageInputStreamSpi::clinit$($Class* clazz) {
 	$assignStatic(InputStreamImageInputStreamSpi::vendorName, "Oracle Corporation"_s);
 	$assignStatic(InputStreamImageInputStreamSpi::version, "1.0"_s);
 	$load($InputStream);
@@ -99,7 +69,31 @@ InputStreamImageInputStreamSpi::InputStreamImageInputStreamSpi() {
 }
 
 $Class* InputStreamImageInputStreamSpi::load$($String* name, bool initialize) {
-	$loadClass(InputStreamImageInputStreamSpi, name, initialize, &_InputStreamImageInputStreamSpi_ClassInfo_, clinit$InputStreamImageInputStreamSpi, allocate$InputStreamImageInputStreamSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputStreamImageInputStreamSpi, vendorName)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputStreamImageInputStreamSpi, version)},
+		{"inputClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InputStreamImageInputStreamSpi, inputClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputStreamImageInputStreamSpi, init$, void)},
+		{"canUseCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, canUseCacheFile, bool)},
+		{"createInputStreamInstance", "(Ljava/lang/Object;ZLjava/io/File;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*, bool, $File*), "java.io.IOException"},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, getDescription, $String*, $Locale*)},
+		{"needsCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(InputStreamImageInputStreamSpi, needsCacheFile, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.spi.InputStreamImageInputStreamSpi",
+		"javax.imageio.spi.ImageInputStreamSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputStreamImageInputStreamSpi, name, initialize, &classInfo$$, InputStreamImageInputStreamSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InputStreamImageInputStreamSpi);
+	});
 	return class$;
 }
 

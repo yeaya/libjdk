@@ -25,7 +25,7 @@ public:
 	virtual ::javax::management::ObjectName* getObjectName();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xC71A0ACFAD287B76;
+	static const int64_t serialVersionUID = (int64_t)0xc71a0acfad287b76;
 	::javax::management::ObjectName* name = nullptr;
 	$String* className = nullptr;
 };

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/BaseDVFactory.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSFacets.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
@@ -106,36 +105,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _BaseDVFactory_FieldInfo_[] = {
-	{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BaseDVFactory, URI_SCHEMAFORSCHEMA)},
-	{"fBaseTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC, $staticField(BaseDVFactory, fBaseTypes)},
-	{}
-};
-
-$MethodInfo _BaseDVFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseDVFactory, init$, void)},
-	{"createBuiltInTypes", "(Lcom/sun/org/apache/xerces/internal/util/SymbolHash;)V", nullptr, $STATIC, $staticMethod(BaseDVFactory, createBuiltInTypes, void, $SymbolHash*)},
-	{"createTypeList", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, createTypeList, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
-	{"createTypeRestriction", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, createTypeRestriction, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
-	{"createTypeUnion", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, createTypeUnion, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleTypeArray*, $XSObjectList*)},
-	{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, getBuiltInType, $XSSimpleType*, $String*)},
-	{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, getBuiltInTypes, $SymbolHash*)},
-	{}
-};
-
-$ClassInfo _BaseDVFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseDVFactory",
-	"com.sun.org.apache.xerces.internal.impl.dv.SchemaDVFactory",
-	nullptr,
-	_BaseDVFactory_FieldInfo_,
-	_BaseDVFactory_MethodInfo_
-};
-
-$Object* allocate$BaseDVFactory($Class* clazz) {
-	return $of($alloc(BaseDVFactory));
-}
-
 $String* BaseDVFactory::URI_SCHEMAFORSCHEMA = nullptr;
 $SymbolHash* BaseDVFactory::fBaseTypes = nullptr;
 
@@ -168,7 +137,7 @@ $XSSimpleType* BaseDVFactory::createTypeUnion($String* name, $String* targetName
 
 void BaseDVFactory::createBuiltInTypes($SymbolHash* types) {
 	$init(BaseDVFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ANYSIMPLETYPE, "anySimpleType"_s);
 	$var($String, ANYURI, "anyURI"_s);
 	$var($String, BASE64BINARY, "base64Binary"_s);
@@ -271,7 +240,7 @@ void BaseDVFactory::createBuiltInTypes($SymbolHash* types) {
 	types->put(POSITIVEINTEGER, positiveIntegerDV);
 }
 
-void clinit$BaseDVFactory($Class* class$) {
+void BaseDVFactory::clinit$($Class* clazz) {
 	$assignStatic(BaseDVFactory::URI_SCHEMAFORSCHEMA, "http://www.w3.org/2001/XMLSchema"_s);
 	$assignStatic(BaseDVFactory::fBaseTypes, $new($SymbolHash, 53));
 	{
@@ -283,7 +252,32 @@ BaseDVFactory::BaseDVFactory() {
 }
 
 $Class* BaseDVFactory::load$($String* name, bool initialize) {
-	$loadClass(BaseDVFactory, name, initialize, &_BaseDVFactory_ClassInfo_, clinit$BaseDVFactory, allocate$BaseDVFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BaseDVFactory, URI_SCHEMAFORSCHEMA)},
+		{"fBaseTypes", "Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $STATIC, $staticField(BaseDVFactory, fBaseTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaseDVFactory, init$, void)},
+		{"createBuiltInTypes", "(Lcom/sun/org/apache/xerces/internal/util/SymbolHash;)V", nullptr, $STATIC, $staticMethod(BaseDVFactory, createBuiltInTypes, void, $SymbolHash*)},
+		{"createTypeList", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, createTypeList, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
+		{"createTypeRestriction", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, createTypeRestriction, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
+		{"createTypeUnion", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, createTypeUnion, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleTypeArray*, $XSObjectList*)},
+		{"getBuiltInType", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, getBuiltInType, $XSSimpleType*, $String*)},
+		{"getBuiltInTypes", "()Lcom/sun/org/apache/xerces/internal/util/SymbolHash;", nullptr, $PUBLIC, $virtualMethod(BaseDVFactory, getBuiltInTypes, $SymbolHash*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseDVFactory",
+		"com.sun.org.apache.xerces.internal.impl.dv.SchemaDVFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BaseDVFactory, name, initialize, &classInfo$$, BaseDVFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseDVFactory);
+	});
 	return class$;
 }
 

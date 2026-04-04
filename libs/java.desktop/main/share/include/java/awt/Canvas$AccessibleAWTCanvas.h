@@ -26,7 +26,7 @@ public:
 	void init$(::java::awt::Canvas* this$0);
 	virtual ::javax::accessibility::AccessibleRole* getAccessibleRole() override;
 	::java::awt::Canvas* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xA836FB5A1F61DF35;
+	static const int64_t serialVersionUID = (int64_t)0xa836fb5a1f61df35;
 };
 
 	} // awt

@@ -25,6 +25,7 @@ class $export RowIdLifetime : public ::java::lang::Enum {
 public:
 	RowIdLifetime();
 	static $Array<::java::sql::RowIdLifetime>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::sql::RowIdLifetime* valueOf($String* name);
 	static $Array<::java::sql::RowIdLifetime>* values();

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame$FullFrame.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame.h>
 #include <com/sun/tools/javac/jvm/ClassWriter.h>
@@ -9,8 +8,6 @@
 using $TypeArray = $Array<::com::sun::tools::javac::code::Type>;
 using $ClassWriter = ::com::sun::tools::javac::jvm::ClassWriter;
 using $ClassWriter$StackMapTableFrame = ::com::sun::tools::javac::jvm::ClassWriter$StackMapTableFrame;
-using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -21,46 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassWriter$StackMapTableFrame$FullFrame_FieldInfo_[] = {
-	{"offsetDelta", "I", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$FullFrame, offsetDelta)},
-	{"locals", "[Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$FullFrame, locals)},
-	{"stack", "[Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$FullFrame, stack)},
-	{}
-};
-
-$MethodInfo _ClassWriter$StackMapTableFrame$FullFrame_MethodInfo_[] = {
-	{"<init>", "(I[Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(ClassWriter$StackMapTableFrame$FullFrame, init$, void, int32_t, $TypeArray*, $TypeArray*)},
-	{"getFrameType", "()I", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$FullFrame, getFrameType, int32_t)},
-	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$FullFrame, write, void, $ClassWriter*)},
-	{}
-};
-
-$InnerClassInfo _ClassWriter$StackMapTableFrame$FullFrame_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "FullFrame", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassWriter$StackMapTableFrame$FullFrame_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame",
-	"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame",
-	nullptr,
-	_ClassWriter$StackMapTableFrame$FullFrame_FieldInfo_,
-	_ClassWriter$StackMapTableFrame$FullFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassWriter$StackMapTableFrame$FullFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassWriter"
-};
-
-$Object* allocate$ClassWriter$StackMapTableFrame$FullFrame($Class* clazz) {
-	return $of($alloc(ClassWriter$StackMapTableFrame$FullFrame));
-}
 
 void ClassWriter$StackMapTableFrame$FullFrame::init$(int32_t offsetDelta, $TypeArray* locals, $TypeArray* stack) {
 	$ClassWriter$StackMapTableFrame::init$();
@@ -74,29 +31,29 @@ int32_t ClassWriter$StackMapTableFrame$FullFrame::getFrameType() {
 }
 
 void ClassWriter$StackMapTableFrame$FullFrame::write($ClassWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ClassWriter$StackMapTableFrame::write(writer);
 	$nc($nc(writer)->databuf)->appendChar(this->offsetDelta);
 	$nc(writer->databuf)->appendChar($nc(this->locals)->length);
 	if (writer->debugstackmap) {
 		$nc($System::out)->print($$str({" offset_delta="_s, $$str(this->offsetDelta)}));
-		$nc($System::out)->print($$str({" nlocals="_s, $$str($nc(this->locals)->length)}));
+		$System::out->print($$str({" nlocals="_s, $$str(this->locals->length)}));
 	}
-	for (int32_t i = 0; i < $nc(this->locals)->length; ++i) {
+	for (int32_t i = 0; i < this->locals->length; ++i) {
 		if (writer->debugstackmap) {
 			$nc($System::out)->print($$str({" locals["_s, $$str(i), "]="_s}));
 		}
-		writer->writeStackMapType($nc(this->locals)->get(i));
+		writer->writeStackMapType(this->locals->get(i));
 	}
 	$nc(writer->databuf)->appendChar($nc(this->stack)->length);
 	if (writer->debugstackmap) {
-		$nc($System::out)->print($$str({" nstack="_s, $$str($nc(this->stack)->length)}));
+		$nc($System::out)->print($$str({" nstack="_s, $$str(this->stack->length)}));
 	}
-	for (int32_t i = 0; i < $nc(this->stack)->length; ++i) {
+	for (int32_t i = 0; i < this->stack->length; ++i) {
 		if (writer->debugstackmap) {
 			$nc($System::out)->print($$str({" stack["_s, $$str(i), "]="_s}));
 		}
-		writer->writeStackMapType($nc(this->stack)->get(i));
+		writer->writeStackMapType(this->stack->get(i));
 	}
 }
 
@@ -104,7 +61,41 @@ ClassWriter$StackMapTableFrame$FullFrame::ClassWriter$StackMapTableFrame$FullFra
 }
 
 $Class* ClassWriter$StackMapTableFrame$FullFrame::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$StackMapTableFrame$FullFrame, name, initialize, &_ClassWriter$StackMapTableFrame$FullFrame_ClassInfo_, allocate$ClassWriter$StackMapTableFrame$FullFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"offsetDelta", "I", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$FullFrame, offsetDelta)},
+		{"locals", "[Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$FullFrame, locals)},
+		{"stack", "[Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(ClassWriter$StackMapTableFrame$FullFrame, stack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(ClassWriter$StackMapTableFrame$FullFrame, init$, void, int32_t, $TypeArray*, $TypeArray*)},
+		{"getFrameType", "()I", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$FullFrame, getFrameType, int32_t)},
+		{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$FullFrame, write, void, $ClassWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "FullFrame", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame",
+		"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassWriter"
+	};
+	$loadClass(ClassWriter$StackMapTableFrame$FullFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$StackMapTableFrame$FullFrame);
+	});
 	return class$;
 }
 

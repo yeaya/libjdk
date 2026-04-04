@@ -1,16 +1,13 @@
 #include <sun/security/tools/jarsigner/Main.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Enum.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -155,14 +152,12 @@ using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -232,26 +227,19 @@ using $BiConsumer = ::java::util::function::BiConsumer;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Attributes = ::java::util::jar::Attributes;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $Manifest = ::java::util::jar::Manifest;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $JavaUtilZipFileAccess = ::jdk::internal::access::JavaUtilZipFileAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $JarSigner = ::jdk::security::jarsigner::JarSigner;
 using $JarSigner$Builder = ::jdk::security::jarsigner::JarSigner$Builder;
 using $JarSignerException = ::jdk::security::jarsigner::JarSignerException;
-using $ContentInfo = ::sun::security::pkcs::ContentInfo;
 using $PKCS7 = ::sun::security::pkcs::PKCS7;
 using $SignerInfo = ::sun::security::pkcs::SignerInfo;
 using $TimestampToken = ::sun::security::timestamp::TimestampToken;
 using $KeyStoreUtil = ::sun::security::tools::KeyStoreUtil;
-using $BitArray = ::sun::security::util::BitArray;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
@@ -280,27 +268,24 @@ public:
 	virtual bool test(Object$* x) override {
 		 return Main::lambda$parseArgs$0($cast($String, x));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$parseArgs$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$parseArgs$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$parseArgs$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$parseArgs$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$parseArgs$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.tools.jarsigner.Main$$Lambda$lambda$parseArgs$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$parseArgs$0::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$parseArgs$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$parseArgs$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$parseArgs$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.tools.jarsigner.Main$$Lambda$lambda$parseArgs$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$parseArgs$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$parseArgs$0);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$parseArgs$0::class$ = nullptr;
@@ -314,33 +299,29 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->println($cast($String, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$println$1>());
-	}
 	$PrintStream* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Main$$Lambda$println$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$println$1, inst$)},
-	{}
-};
-$MethodInfo Main$$Lambda$println$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(Main$$Lambda$println$1, init$, void, $PrintStream*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$println$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$println$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.tools.jarsigner.Main$$Lambda$println$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Main$$Lambda$println$1::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$println$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Main$$Lambda$println$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(Main$$Lambda$println$1, init$, void, $PrintStream*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$println$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.tools.jarsigner.Main$$Lambda$println$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$println$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$println$1);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$println$1::class$ = nullptr;
@@ -353,27 +334,24 @@ public:
 	virtual void accept(Object$* action, Object$* file) override {
 		Main::lambda$signJar$1($cast($String, action), $cast($String, file));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$signJar$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$signJar$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$signJar$1$2, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$signJar$1$2, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$signJar$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.tools.jarsigner.Main$$Lambda$lambda$signJar$1$2",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$signJar$1$2::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$signJar$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$signJar$1$2, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$signJar$1$2, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.tools.jarsigner.Main$$Lambda$lambda$signJar$1$2",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$signJar$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$signJar$1$2);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$signJar$1$2::class$ = nullptr;
@@ -386,27 +364,24 @@ public:
 	virtual void handle($String* t, $ObjectArray* o) override {
 		Main::lambda$signJar$2(t, o);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$signJar$2$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$signJar$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$signJar$2$3, init$, void)},
-	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$signJar$2$3, handle, void, $String*, $ObjectArray*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$signJar$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.tools.jarsigner.Main$$Lambda$lambda$signJar$2$3",
-	"java.lang.Object",
-	"sun.security.util.Event$Reporter",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$signJar$2$3::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$signJar$2$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$signJar$2$3, init$, void)},
+		{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$signJar$2$3, handle, void, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.tools.jarsigner.Main$$Lambda$lambda$signJar$2$3",
+		"java.lang.Object",
+		"sun.security.util.Event$Reporter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$signJar$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$signJar$2$3);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$signJar$2$3::class$ = nullptr;
@@ -417,29 +392,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(Main::lambda$loadKeyStore$3($cast($X509Certificate, c)));
+		 return Main::lambda$loadKeyStore$3($cast($X509Certificate, c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$loadKeyStore$3$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$loadKeyStore$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$loadKeyStore$3$4, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$loadKeyStore$3$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$loadKeyStore$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.tools.jarsigner.Main$$Lambda$lambda$loadKeyStore$3$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$loadKeyStore$3$4::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$loadKeyStore$3$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$loadKeyStore$3$4, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$loadKeyStore$3$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.tools.jarsigner.Main$$Lambda$lambda$loadKeyStore$3$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$loadKeyStore$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$loadKeyStore$3$4);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$loadKeyStore$3$4::class$ = nullptr;
@@ -452,179 +424,27 @@ public:
 	virtual void handle($String* t, $ObjectArray* o) override {
 		Main::lambda$loadKeyStore$4(t, o);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Main$$Lambda$lambda$loadKeyStore$4$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Main$$Lambda$lambda$loadKeyStore$4$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$loadKeyStore$4$5, init$, void)},
-	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$loadKeyStore$4$5, handle, void, $String*, $ObjectArray*)},
-	{}
-};
-$ClassInfo Main$$Lambda$lambda$loadKeyStore$4$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.tools.jarsigner.Main$$Lambda$lambda$loadKeyStore$4$5",
-	"java.lang.Object",
-	"sun.security.util.Event$Reporter",
-	nullptr,
-	methodInfos
 };
 $Class* Main$$Lambda$lambda$loadKeyStore$4$5::load$($String* name, bool initialize) {
-	$loadClass(Main$$Lambda$lambda$loadKeyStore$4$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$loadKeyStore$4$5, init$, void)},
+		{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$loadKeyStore$4$5, handle, void, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.tools.jarsigner.Main$$Lambda$lambda$loadKeyStore$4$5",
+		"java.lang.Object",
+		"sun.security.util.Event$Reporter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main$$Lambda$lambda$loadKeyStore$4$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$$Lambda$lambda$loadKeyStore$4$5);
+	});
 	return class$;
 }
 $Class* Main$$Lambda$lambda$loadKeyStore$4$5::class$ = nullptr;
-
-$FieldInfo _Main_FieldInfo_[] = {
-	{"rb", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, rb)},
-	{"collator", "Ljava/text/Collator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, collator)},
-	{"NONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, NONE)},
-	{"P11KEYSTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, P11KEYSTORE)},
-	{"SIX_MONTHS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, SIX_MONTHS)},
-	{"ONE_YEAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, ONE_YEAR)},
-	{"JAR_DISABLED_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, JAR_DISABLED_CHECK)},
-	{"CERTPATH_DISABLED_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, CERTPATH_DISABLED_CHECK)},
-	{"LEGACY_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, LEGACY_CHECK)},
-	{"DIGEST_PRIMITIVE_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Main, DIGEST_PRIMITIVE_SET)},
-	{"SIG_PRIMITIVE_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Main, SIG_PRIMITIVE_SET)},
-	{"extraAttrsDetected", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Main, extraAttrsDetected)},
-	{"VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, VERSION)},
-	{"IN_KEYSTORE", "I", nullptr, $STATIC | $FINAL, $constField(Main, IN_KEYSTORE)},
-	{"NOT_ALIAS", "I", nullptr, $STATIC | $FINAL, $constField(Main, NOT_ALIAS)},
-	{"SIGNED_BY_ALIAS", "I", nullptr, $STATIC | $FINAL, $constField(Main, SIGNED_BY_ALIAS)},
-	{"JUZFA", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $STATIC | $FINAL, $staticField(Main, JUZFA)},
-	{"certChain", "[Ljava/security/cert/X509Certificate;", nullptr, 0, $field(Main, certChain)},
-	{"privateKey", "Ljava/security/PrivateKey;", nullptr, 0, $field(Main, privateKey)},
-	{"store", "Ljava/security/KeyStore;", nullptr, 0, $field(Main, store)},
-	{"keystore", "Ljava/lang/String;", nullptr, 0, $field(Main, keystore)},
-	{"nullStream", "Z", nullptr, 0, $field(Main, nullStream)},
-	{"token", "Z", nullptr, 0, $field(Main, token)},
-	{"jarfile", "Ljava/lang/String;", nullptr, 0, $field(Main, jarfile)},
-	{"alias", "Ljava/lang/String;", nullptr, 0, $field(Main, alias)},
-	{"ckaliases", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Main, ckaliases)},
-	{"storepass", "[C", nullptr, 0, $field(Main, storepass)},
-	{"protectedPath", "Z", nullptr, 0, $field(Main, protectedPath)},
-	{"storetype", "Ljava/lang/String;", nullptr, 0, $field(Main, storetype)},
-	{"providerName", "Ljava/lang/String;", nullptr, 0, $field(Main, providerName)},
-	{"providers", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Main, providers)},
-	{"providerClasses", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Main, providerClasses)},
-	{"providerArgs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(Main, providerArgs)},
-	{"keypass", "[C", nullptr, 0, $field(Main, keypass)},
-	{"sigfile", "Ljava/lang/String;", nullptr, 0, $field(Main, sigfile)},
-	{"sigalg", "Ljava/lang/String;", nullptr, 0, $field(Main, sigalg)},
-	{"digestalg", "Ljava/lang/String;", nullptr, 0, $field(Main, digestalg)},
-	{"signedjar", "Ljava/lang/String;", nullptr, 0, $field(Main, signedjar)},
-	{"tsaUrl", "Ljava/lang/String;", nullptr, 0, $field(Main, tsaUrl)},
-	{"tsaAlias", "Ljava/lang/String;", nullptr, 0, $field(Main, tsaAlias)},
-	{"altCertChain", "Ljava/lang/String;", nullptr, 0, $field(Main, altCertChain)},
-	{"tSAPolicyID", "Ljava/lang/String;", nullptr, 0, $field(Main, tSAPolicyID)},
-	{"tSADigestAlg", "Ljava/lang/String;", nullptr, 0, $field(Main, tSADigestAlg)},
-	{"verify", "Z", nullptr, 0, $field(Main, verify)},
-	{"verbose", "Ljava/lang/String;", nullptr, 0, $field(Main, verbose)},
-	{"showcerts", "Z", nullptr, 0, $field(Main, showcerts)},
-	{"debug", "Z", nullptr, 0, $field(Main, debug)},
-	{"signManifest", "Z", nullptr, 0, $field(Main, signManifest)},
-	{"externalSF", "Z", nullptr, 0, $field(Main, externalSF)},
-	{"strict", "Z", nullptr, 0, $field(Main, strict)},
-	{"revocationCheck", "Z", nullptr, 0, $field(Main, revocationCheck)},
-	{"altSignerClass", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, altSignerClass)},
-	{"altSignerClasspath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, altSignerClasspath)},
-	{"zipFile", "Ljava/util/zip/ZipFile;", nullptr, $PRIVATE, $field(Main, zipFile)},
-	{"hasExpiringCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiringCert)},
-	{"hasExpiringTsaCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiringTsaCert)},
-	{"noTimestamp", "Z", nullptr, $PRIVATE, $field(Main, noTimestamp)},
-	{"expireDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(Main, expireDate)},
-	{"tsaExpireDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(Main, tsaExpireDate)},
-	{"hasTimestampBlock", "Z", nullptr, 0, $field(Main, hasTimestampBlock)},
-	{"weakPublicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(Main, weakPublicKey)},
-	{"disabledAlgFound", "Z", nullptr, $PRIVATE, $field(Main, disabledAlgFound)},
-	{"legacyDigestAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, legacyDigestAlg)},
-	{"legacyTsaDigestAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, legacyTsaDigestAlg)},
-	{"legacySigAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, legacySigAlg)},
-	{"legacyAlg", "I", nullptr, $PRIVATE, $field(Main, legacyAlg)},
-	{"disabledAlg", "I", nullptr, $PRIVATE, $field(Main, disabledAlg)},
-	{"hasExpiredCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiredCert)},
-	{"hasExpiredTsaCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiredTsaCert)},
-	{"notYetValidCert", "Z", nullptr, $PRIVATE, $field(Main, notYetValidCert)},
-	{"chainNotValidated", "Z", nullptr, $PRIVATE, $field(Main, chainNotValidated)},
-	{"tsaChainNotValidated", "Z", nullptr, $PRIVATE, $field(Main, tsaChainNotValidated)},
-	{"notSignedByAlias", "Z", nullptr, $PRIVATE, $field(Main, notSignedByAlias)},
-	{"aliasNotInStore", "Z", nullptr, $PRIVATE, $field(Main, aliasNotInStore)},
-	{"hasUnsignedEntry", "Z", nullptr, $PRIVATE, $field(Main, hasUnsignedEntry)},
-	{"badKeyUsage", "Z", nullptr, $PRIVATE, $field(Main, badKeyUsage)},
-	{"badExtendedKeyUsage", "Z", nullptr, $PRIVATE, $field(Main, badExtendedKeyUsage)},
-	{"badNetscapeCertType", "Z", nullptr, $PRIVATE, $field(Main, badNetscapeCertType)},
-	{"signerSelfSigned", "Z", nullptr, $PRIVATE, $field(Main, signerSelfSigned)},
-	{"chainNotValidatedReason", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(Main, chainNotValidatedReason)},
-	{"tsaChainNotValidatedReason", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(Main, tsaChainNotValidatedReason)},
-	{"pkixParameters", "Ljava/security/cert/PKIXBuilderParameters;", nullptr, 0, $field(Main, pkixParameters)},
-	{"trustedCerts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", 0, $field(Main, trustedCerts)},
-	{"validityTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, validityTimeForm)},
-	{"notYetTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, notYetTimeForm)},
-	{"expiredTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, expiredTimeForm)},
-	{"expiringTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, expiringTimeForm)},
-	{"signTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, signTimeForm)},
-	{"cacheForInKS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/CodeSigner;Ljava/lang/Integer;>;", $PRIVATE, $field(Main, cacheForInKS)},
-	{"storeHash", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/security/cert/Certificate;Ljava/lang/String;>;", 0, $field(Main, storeHash)},
-	{"cacheForSignerInfo", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/CodeSigner;Ljava/lang/String;>;", 0, $field(Main, cacheForSignerInfo)},
-	{}
-};
-
-$MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
-	{"certsAndTSInfo", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)Ljava/lang/String;", $PRIVATE, $method(Main, certsAndTSInfo, $String*, $String*, $String*, $List*, $Timestamp*), "java.lang.Exception"},
-	{"checkCertUsage", "(Ljava/security/cert/X509Certificate;[Z)V", nullptr, 0, $virtualMethod(Main, checkCertUsage, void, $X509Certificate*, $booleans*)},
-	{"checkWeakAlg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkWeakAlg, $String*, $String*)},
-	{"checkWeakKey", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkWeakKey, $String*, $PublicKey*)},
-	{"checkWeakSign", "(Ljava/lang/String;Ljava/util/Set;Z)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)V", $PRIVATE, $method(Main, checkWeakSign, void, $String*, $Set*, bool)},
-	{"checkWeakSign", "(Ljava/security/PrivateKey;)V", nullptr, $PRIVATE, $method(Main, checkWeakSign, void, $PrivateKey*)},
-	{"displayMessagesAndResult", "(Z)V", nullptr, $PRIVATE, $method(Main, displayMessagesAndResult, void, bool)},
-	{"error", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*)},
-	{"error", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*, $Throwable*)},
-	{"fullusage", "()V", nullptr, $STATIC, $staticMethod(Main, fullusage, void)},
-	{"getAliasInfo", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, getAliasInfo, void, $String*), "java.lang.Exception"},
-	{"getPass", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $STATIC, $staticMethod(Main, getPass, $chars*, $String*, $String*)},
-	{"getPass", "(Ljava/lang/String;)[C", nullptr, 0, $virtualMethod(Main, getPass, $chars*, $String*)},
-	{"getTsaCert", "(Ljava/lang/String;)Ljava/security/cert/X509Certificate;", nullptr, 0, $virtualMethod(Main, getTsaCert, $X509Certificate*, $String*)},
-	{"inKeyStore", "([Ljava/security/CodeSigner;)I", nullptr, 0, $virtualMethod(Main, inKeyStore, int32_t, $CodeSignerArray*)},
-	{"inKeyStoreForOneSigner", "(Ljava/security/CodeSigner;)I", nullptr, $PRIVATE, $method(Main, inKeyStoreForOneSigner, int32_t, $CodeSigner*)},
-	{"lambda$loadKeyStore$3", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$loadKeyStore$3, $TrustAnchor*, $X509Certificate*)},
-	{"lambda$loadKeyStore$4", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$loadKeyStore$4, void, $String*, $ObjectArray*)},
-	{"lambda$parseArgs$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$parseArgs$0, bool, $String*)},
-	{"lambda$signJar$1", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$signJar$1, void, $String*, $String*)},
-	{"lambda$signJar$2", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$signJar$2, void, $String*, $ObjectArray*)},
-	{"loadKeyStore", "(Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(Main, loadKeyStore, void, $String*, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
-	{"parseArgs", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(Main, parseArgs, $StringArray*, $StringArray*), "java.lang.Exception"},
-	{"printCert", "(ZLjava/lang/String;Ljava/security/cert/Certificate;Ljava/util/Date;Z)Ljava/lang/String;", nullptr, 0, $virtualMethod(Main, printCert, $String*, bool, $String*, $Certificate*, $Date*, bool), "java.lang.Exception"},
-	{"printTimestamp", "(Ljava/lang/String;Ljava/security/Timestamp;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, printTimestamp, $String*, $String*, $Timestamp*)},
-	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main, run, void, $StringArray*)},
-	{"signJar", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, signJar, void, $String*, $String*), "java.lang.Exception"},
-	{"signatureRelated", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Main, signatureRelated, bool, $String*)},
-	{"signerInfo", "(Ljava/security/CodeSigner;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, signerInfo, $String*, $CodeSigner*, $String*), "java.lang.Exception"},
-	{"usage", "()V", nullptr, $STATIC, $staticMethod(Main, usage, void)},
-	{"usageNoArg", "()V", nullptr, $STATIC, $staticMethod(Main, usageNoArg, void)},
-	{"validateCertChain", "(Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)V", "(Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)V", 0, $virtualMethod(Main, validateCertChain, void, $String*, $List*, $Timestamp*), "java.lang.Exception"},
-	{"verifyJar", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, verifyJar, void, $String*), "java.lang.Exception"},
-	{"verifyWithWeak", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)Ljava/lang/String;", $PRIVATE, $method(Main, verifyWithWeak, $String*, $String*, $Set*, bool)},
-	{"verifyWithWeak", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, verifyWithWeak, $String*, $PublicKey*)},
-	{}
-};
-
-$ClassInfo _Main_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.tools.jarsigner.Main",
-	"java.lang.Object",
-	nullptr,
-	_Main_FieldInfo_,
-	_Main_MethodInfo_
-};
-
-$Object* allocate$Main($Class* clazz) {
-	return $of($alloc(Main));
-}
 
 $ResourceBundle* Main::rb = nullptr;
 $Collator* Main::collator = nullptr;
@@ -702,97 +522,91 @@ void Main::main($StringArray* args) {
 }
 
 void Main::run($StringArray* args$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, args, args$renamed);
 	$beforeCallerSensitive();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$assign(args, parseArgs(args));
-				if (this->providers != nullptr) {
-					{
-						$var($Iterator, i$, $nc(this->providers)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($String, provName, $cast($String, i$->next()));
-							{
-								try {
-									$KeyStoreUtil::loadProviderByName(provName, $cast($String, $($nc(this->providerArgs)->get(provName))));
-									if (this->debug) {
-										$nc($System::out)->println($$str({"loadProviderByName: "_s, provName}));
-									}
-								} catch ($IllegalArgumentException& e) {
-									$throwNew($Exception, $($String::format($($nc(Main::rb)->getString("provider.name.not.found"_s)), $$new($ObjectArray, {$of(provName)}))));
-								}
-							}
-						}
-					}
-				}
-				if (this->providerClasses != nullptr) {
-					$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
-					{
-						$var($Iterator, i$, $nc(this->providerClasses)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($String, provClass, $cast($String, i$->next()));
-							{
-								try {
-									$KeyStoreUtil::loadProviderByClass(provClass, $cast($String, $($nc(this->providerArgs)->get(provClass))), cl);
-									if (this->debug) {
-										$nc($System::out)->println($$str({"loadProviderByClass: "_s, provClass}));
-									}
-								} catch ($ClassCastException& cce) {
-									$throwNew($Exception, $($String::format($($nc(Main::rb)->getString("provclass.not.a.provider"_s)), $$new($ObjectArray, {$of(provClass)}))));
-								} catch ($IllegalArgumentException& e) {
-									$var($String, var$1, $String::format($($nc(Main::rb)->getString("provider.class.not.found"_s)), $$new($ObjectArray, {$of(provClass)})));
-									$throwNew($Exception, var$1, $(e->getCause()));
-								}
-							}
-						}
-					}
-				}
-				if (this->verify) {
+			$assign(args, parseArgs(args));
+			if (this->providers != nullptr) {
+				$var($Iterator, i$, this->providers->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($String, provName, $cast($String, i$->next()));
 					try {
-						loadKeyStore(this->keystore, false);
-					} catch ($Exception& e) {
-						if ((this->keystore != nullptr) || (this->storepass != nullptr)) {
-							$var($String, var$2, $($nc(Main::rb)->getString("jarsigner.error."_s)));
-							$nc($System::out)->println($$concat(var$2, $(e->getMessage())));
+						$KeyStoreUtil::loadProviderByName(provName, $$cast($String, $nc(this->providerArgs)->get(provName)));
+						if (this->debug) {
+							$nc($System::out)->println($$str({"loadProviderByName: "_s, provName}));
+						}
+					} catch ($IllegalArgumentException& e) {
+						$throwNew($Exception, $($String::format($($nc(Main::rb)->getString("provider.name.not.found"_s)), $$new($ObjectArray, {provName}))));
+					}
+				}
+			}
+			if (this->providerClasses != nullptr) {
+				$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
+				{
+					$var($Iterator, i$, this->providerClasses->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($String, provClass, $cast($String, i$->next()));
+						try {
+							$KeyStoreUtil::loadProviderByClass(provClass, $$cast($String, $nc(this->providerArgs)->get(provClass)), cl);
 							if (this->debug) {
-								e->printStackTrace();
+								$nc($System::out)->println($$str({"loadProviderByClass: "_s, provClass}));
 							}
-							$System::exit(1);
+						} catch ($ClassCastException& cce) {
+							$throwNew($Exception, $($String::format($($nc(Main::rb)->getString("provclass.not.a.provider"_s)), $$new($ObjectArray, {provClass}))));
+						} catch ($IllegalArgumentException& e) {
+							$var($String, var$1, $String::format($($nc(Main::rb)->getString("provider.class.not.found"_s)), $$new($ObjectArray, {provClass})));
+							$throwNew($Exception, var$1, $(e->getCause()));
 						}
 					}
-					verifyJar(this->jarfile);
-				} else {
-					loadKeyStore(this->keystore, true);
-					getAliasInfo(this->alias);
-					signJar(this->jarfile, this->alias);
 				}
-			} catch ($Exception& e) {
-				$nc($System::out)->println($$str({$($nc(Main::rb)->getString("jarsigner.error."_s)), e}));
-				if (this->debug) {
-					e->printStackTrace();
+			}
+			if (this->verify) {
+				try {
+					loadKeyStore(this->keystore, false);
+				} catch ($Exception& e) {
+					if ((this->keystore != nullptr) || (this->storepass != nullptr)) {
+						$var($StringBuilder, var$2, $new($StringBuilder));
+						var$2->append($($nc(Main::rb)->getString("jarsigner.error."_s)));
+						var$2->append($(e->getMessage()));
+						$nc($System::out)->println($$str(var$2));
+						if (this->debug) {
+							e->printStackTrace();
+						}
+						$System::exit(1);
+					}
 				}
-				$System::exit(1);
+				verifyJar(this->jarfile);
+			} else {
+				loadKeyStore(this->keystore, true);
+				getAliasInfo(this->alias);
+				signJar(this->jarfile, this->alias);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			if (this->keypass != nullptr) {
-				$Arrays::fill(this->keypass, u' ');
-				$set(this, keypass, nullptr);
+		} catch ($Exception& e) {
+			$nc($System::out)->println($$str({$($nc(Main::rb)->getString("jarsigner.error."_s)), e}));
+			if (this->debug) {
+				e->printStackTrace();
 			}
-			if (this->storepass != nullptr) {
-				$Arrays::fill(this->storepass, u' ');
-				$set(this, storepass, nullptr);
-			}
-			$init($Event$ReporterCategory);
-			$Event::clearReportListener($Event$ReporterCategory::CRLCHECK);
+			$System::exit(1);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		if (this->keypass != nullptr) {
+			$Arrays::fill(this->keypass, u' ');
+			$set(this, keypass, nullptr);
 		}
+		if (this->storepass != nullptr) {
+			$Arrays::fill(this->storepass, u' ');
+			$set(this, storepass, nullptr);
+		}
+		$init($Event$ReporterCategory);
+		$Event::clearReportListener($Event$ReporterCategory::CRLCHECK);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (this->strict) {
 		int32_t exitCode = 0;
@@ -818,7 +632,7 @@ void Main::run($StringArray* args$renamed) {
 }
 
 $StringArray* Main::parseArgs($StringArray* args$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, args, args$renamed);
 	int32_t n = 0;
 	if ($nc(args)->length == 0) {
@@ -826,10 +640,10 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 	}
 	$var($String, confFile, nullptr);
 	$var($String, command, "-sign"_s);
-	for (n = 0; n < $nc(args)->length; ++n) {
+	for (n = 0; n < args->length; ++n) {
 		if ($nc(Main::collator)->compare(args->get(n), "-verify"_s) == 0) {
 			$assign(command, "-verify"_s);
-		} else if ($nc(Main::collator)->compare(args->get(n), "-conf"_s) == 0) {
+		} else if (Main::collator->compare(args->get(n), "-conf"_s) == 0) {
 			if (n == args->length - 1) {
 				usageNoArg();
 			}
@@ -839,7 +653,7 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 	if (confFile != nullptr) {
 		$assign(args, $KeyStoreUtil::expandArgs("jarsigner"_s, confFile, command, nullptr, args));
 	}
-	this->debug = $nc($($Arrays::stream(args)))->anyMatch(static_cast<$Predicate*>($$new(Main$$Lambda$lambda$parseArgs$0)));
+	this->debug = $$nc($Arrays::stream(args))->anyMatch($$new(Main$$Lambda$lambda$parseArgs$0));
 	if (this->debug) {
 		$nc($System::out)->println($$str({"Command line args: "_s, $($Arrays::toString(args))}));
 	}
@@ -847,13 +661,13 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 		$var($String, flags, args->get(n));
 		$var($String, modifier, nullptr);
 		if ($nc(flags)->startsWith("-"_s)) {
-			int32_t pos = flags->indexOf((int32_t)u':');
+			int32_t pos = flags->indexOf(u':');
 			if (pos > 0) {
 				$assign(modifier, flags->substring(pos + 1));
 				$assign(flags, flags->substring(0, pos));
 			}
 		}
-		if (!$nc(flags)->startsWith("-"_s)) {
+		if (!flags->startsWith("-"_s)) {
 			if (this->jarfile == nullptr) {
 				$set(this, jarfile, flags);
 			} else {
@@ -864,29 +678,29 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 			if (++n == args->length) {
 				usageNoArg();
 			}
-		} else if ($nc(Main::collator)->compare(flags, "-keystore"_s) == 0) {
+		} else if (Main::collator->compare(flags, "-keystore"_s) == 0) {
 			if (++n == args->length) {
 				usageNoArg();
 			}
 			$set(this, keystore, args->get(n));
-		} else if ($nc(Main::collator)->compare(flags, "-storepass"_s) == 0) {
+		} else if (Main::collator->compare(flags, "-storepass"_s) == 0) {
 			if (++n == args->length) {
 				usageNoArg();
 			}
 			$set(this, storepass, getPass(modifier, args->get(n)));
-		} else if ($nc(Main::collator)->compare(flags, "-storetype"_s) == 0) {
+		} else if (Main::collator->compare(flags, "-storetype"_s) == 0) {
 			if (++n == args->length) {
 				usageNoArg();
 			}
 			$set(this, storetype, args->get(n));
-		} else if ($nc(Main::collator)->compare(flags, "-providerName"_s) == 0) {
+		} else if (Main::collator->compare(flags, "-providerName"_s) == 0) {
 			if (++n == args->length) {
 				usageNoArg();
 			}
 			$set(this, providerName, args->get(n));
 		} else {
-			bool var$1 = $nc(Main::collator)->compare(flags, "-provider"_s) == 0;
-			if (var$1 || $nc(Main::collator)->compare(flags, "-providerClass"_s) == 0) {
+			bool var$0 = Main::collator->compare(flags, "-provider"_s) == 0;
+			if (var$0 || Main::collator->compare(flags, "-providerClass"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
@@ -896,7 +710,7 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 				$nc(this->providerClasses)->add(args->get(n));
 				if (args->length > (n + 1)) {
 					$assign(flags, args->get(n + 1));
-					if ($nc(Main::collator)->compare(flags, "-providerArg"_s) == 0) {
+					if (Main::collator->compare(flags, "-providerArg"_s) == 0) {
 						if (args->length == (n + 2)) {
 							usageNoArg();
 						}
@@ -904,7 +718,7 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 						n += 2;
 					}
 				}
-			} else if ($nc(Main::collator)->compare(flags, "-addprovider"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-addprovider"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
@@ -914,7 +728,7 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 				$nc(this->providers)->add(args->get(n));
 				if (args->length > (n + 1)) {
 					$assign(flags, args->get(n + 1));
-					if ($nc(Main::collator)->compare(flags, "-providerArg"_s) == 0) {
+					if (Main::collator->compare(flags, "-providerArg"_s) == 0) {
 						if (args->length == (n + 2)) {
 							usageNoArg();
 						}
@@ -922,90 +736,90 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 						n += 2;
 					}
 				}
-			} else if ($nc(Main::collator)->compare(flags, "-protected"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-protected"_s) == 0) {
 				this->protectedPath = true;
-			} else if ($nc(Main::collator)->compare(flags, "-certchain"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-certchain"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, altCertChain, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-tsapolicyid"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-tsapolicyid"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, tSAPolicyID, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-tsadigestalg"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-tsadigestalg"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, tSADigestAlg, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-debug"_s) == 0) {
-			} else if ($nc(Main::collator)->compare(flags, "-keypass"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-debug"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-keypass"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, keypass, getPass(modifier, args->get(n)));
-			} else if ($nc(Main::collator)->compare(flags, "-sigfile"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-sigfile"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, sigfile, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-signedjar"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-signedjar"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, signedjar, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-tsa"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-tsa"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, tsaUrl, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-tsacert"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-tsacert"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, tsaAlias, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-altsigner"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-altsigner"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, altSignerClass, args->get(n));
 				$nc($System::err)->println($$str({$($nc(Main::rb)->getString("This.option.is.forremoval"_s)), "-altsigner"_s}));
-			} else if ($nc(Main::collator)->compare(flags, "-altsignerpath"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-altsignerpath"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, altSignerClasspath, args->get(n));
 				$nc($System::err)->println($$str({$($nc(Main::rb)->getString("This.option.is.forremoval"_s)), "-altsignerpath"_s}));
-			} else if ($nc(Main::collator)->compare(flags, "-sectionsonly"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-sectionsonly"_s) == 0) {
 				this->signManifest = false;
-			} else if ($nc(Main::collator)->compare(flags, "-internalsf"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-internalsf"_s) == 0) {
 				this->externalSF = false;
-			} else if ($nc(Main::collator)->compare(flags, "-verify"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-verify"_s) == 0) {
 				this->verify = true;
-			} else if ($nc(Main::collator)->compare(flags, "-verbose"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-verbose"_s) == 0) {
 				$set(this, verbose, (modifier != nullptr) ? modifier : "all"_s);
-			} else if ($nc(Main::collator)->compare(flags, "-sigalg"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-sigalg"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, sigalg, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-digestalg"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-digestalg"_s) == 0) {
 				if (++n == args->length) {
 					usageNoArg();
 				}
 				$set(this, digestalg, args->get(n));
-			} else if ($nc(Main::collator)->compare(flags, "-certs"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-certs"_s) == 0) {
 				this->showcerts = true;
-			} else if ($nc(Main::collator)->compare(flags, "-strict"_s) == 0) {
+			} else if (Main::collator->compare(flags, "-strict"_s) == 0) {
 				this->strict = true;
 			} else {
-				bool var$7 = $nc(Main::collator)->compare(flags, "-?"_s) == 0;
-				bool var$6 = var$7 || $nc(Main::collator)->compare(flags, "-h"_s) == 0;
-				bool var$5 = var$6 || $nc(Main::collator)->compare(flags, "--help"_s) == 0;
-				if (var$5 || $nc(Main::collator)->compare(flags, "-help"_s) == 0) {
+				bool var$3 = Main::collator->compare(flags, "-?"_s) == 0;
+				bool var$2 = var$3 || Main::collator->compare(flags, "-h"_s) == 0;
+				bool var$1 = var$2 || Main::collator->compare(flags, "--help"_s) == 0;
+				if (var$1 || Main::collator->compare(flags, "-help"_s) == 0) {
 					fullusage();
-				} else if ($nc(Main::collator)->compare(flags, "-revCheck"_s) == 0) {
+				} else if (Main::collator->compare(flags, "-revCheck"_s) == 0) {
 					this->revocationCheck = true;
 				} else {
 					$nc($System::err)->println($$str({$($nc(Main::rb)->getString("Illegal.option."_s)), flags}));
@@ -1034,27 +848,27 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 	}
 	$set(this, storetype, $KeyStoreUtil::niceStoreTypeName(this->storetype));
 	try {
-		if (this->signedjar != nullptr && $nc($($$new($File, this->signedjar)->getCanonicalPath()))->equals($($$new($File, this->jarfile)->getCanonicalPath()))) {
+		if (this->signedjar != nullptr && $$nc($$new($File, this->signedjar)->getCanonicalPath())->equals($($$new($File, this->jarfile)->getCanonicalPath()))) {
 			$set(this, signedjar, nullptr);
 		}
 	} catch ($IOException& ioe) {
 	}
-	bool var$8 = $nc(Main::P11KEYSTORE)->equalsIgnoreCase(this->storetype);
-	if (var$8 || $KeyStoreUtil::isWindowsKeyStore(this->storetype)) {
+	bool var$4 = Main::P11KEYSTORE->equalsIgnoreCase(this->storetype);
+	if (var$4 || $KeyStoreUtil::isWindowsKeyStore(this->storetype)) {
 		this->token = true;
 		if (this->keystore == nullptr) {
 			$set(this, keystore, Main::NONE);
 		}
 	}
-	if ($nc(Main::NONE)->equals(this->keystore)) {
+	if (Main::NONE->equals(this->keystore)) {
 		this->nullStream = true;
 	}
 	if (this->token && !this->nullStream) {
-		$nc($System::err)->println($($MessageFormat::format($($nc(Main::rb)->getString(".keystore.must.be.NONE.if.storetype.is.{0}"_s)), $$new($ObjectArray, {$of(this->storetype)}))));
+		$nc($System::err)->println($($MessageFormat::format($($nc(Main::rb)->getString(".keystore.must.be.NONE.if.storetype.is.{0}"_s)), $$new($ObjectArray, {this->storetype}))));
 		usage();
 	}
 	if (this->token && this->keypass != nullptr) {
-		$nc($System::err)->println($($MessageFormat::format($($nc(Main::rb)->getString(".keypass.can.not.be.specified.if.storetype.is.{0}"_s)), $$new($ObjectArray, {$of(this->storetype)}))));
+		$nc($System::err)->println($($MessageFormat::format($($nc(Main::rb)->getString(".keypass.can.not.be.specified.if.storetype.is.{0}"_s)), $$new($ObjectArray, {this->storetype}))));
 		usage();
 	}
 	if (this->protectedPath) {
@@ -1091,478 +905,467 @@ void Main::usageNoArg() {
 void Main::usage() {
 	$init(Main);
 	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString("Please.type.jarsigner.help.for.usage"_s)));
+	$System::out->println($($nc(Main::rb)->getString("Please.type.jarsigner.help.for.usage"_s)));
 	$System::exit(1);
 }
 
 void Main::fullusage() {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($($nc(Main::rb)->getString("Usage.jarsigner.options.jar.file.alias"_s)));
-	$nc($System::out)->println($($nc(Main::rb)->getString(".jarsigner.verify.options.jar.file.alias."_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".keystore.url.keystore.location"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".storepass.password.password.for.keystore.integrity"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".storetype.type.keystore.type"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".keypass.password.password.for.private.key.if.different."_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".certchain.file.name.of.alternative.certchain.file"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".sigfile.file.name.of.SF.DSA.file"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".signedjar.file.name.of.signed.JAR.file"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".digestalg.algorithm.name.of.digest.algorithm"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".sigalg.algorithm.name.of.signature.algorithm"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".verify.verify.a.signed.JAR.file"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".verbose.suboptions.verbose.output.when.signing.verifying."_s)));
-	$nc($System::out)->println($($nc(Main::rb)->getString(".suboptions.can.be.all.grouped.or.summary"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".certs.display.certificates.when.verbose.and.verifying"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".certs.revocation.check"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".tsa.url.location.of.the.Timestamping.Authority"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".tsacert.alias.public.key.certificate.for.Timestamping.Authority"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".tsapolicyid.tsapolicyid.for.Timestamping.Authority"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".tsadigestalg.algorithm.of.digest.data.in.timestamping.request"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".altsigner.class.class.name.of.an.alternative.signing.mechanism"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".altsignerpath.pathlist.location.of.an.alternative.signing.mechanism"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".internalsf.include.the.SF.file.inside.the.signature.block"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".sectionsonly.don.t.compute.hash.of.entire.manifest"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".protected.keystore.has.protected.authentication.path"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".providerName.name.provider.name"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".add.provider.option"_s)));
-	$nc($System::out)->println($($nc(Main::rb)->getString(".providerArg.option.1"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".providerClass.option"_s)));
-	$nc($System::out)->println($($nc(Main::rb)->getString(".providerArg.option.2"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".strict.treat.warnings.as.errors"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".conf.url.specify.a.pre.configured.options.file"_s)));
-	$nc($System::out)->println();
-	$nc($System::out)->println($($nc(Main::rb)->getString(".print.this.help.message"_s)));
-	$nc($System::out)->println();
+	$System::out->println($(Main::rb->getString(".jarsigner.verify.options.jar.file.alias."_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".keystore.url.keystore.location"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".storepass.password.password.for.keystore.integrity"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".storetype.type.keystore.type"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".keypass.password.password.for.private.key.if.different."_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".certchain.file.name.of.alternative.certchain.file"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".sigfile.file.name.of.SF.DSA.file"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".signedjar.file.name.of.signed.JAR.file"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".digestalg.algorithm.name.of.digest.algorithm"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".sigalg.algorithm.name.of.signature.algorithm"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".verify.verify.a.signed.JAR.file"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".verbose.suboptions.verbose.output.when.signing.verifying."_s)));
+	$System::out->println($(Main::rb->getString(".suboptions.can.be.all.grouped.or.summary"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".certs.display.certificates.when.verbose.and.verifying"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".certs.revocation.check"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".tsa.url.location.of.the.Timestamping.Authority"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".tsacert.alias.public.key.certificate.for.Timestamping.Authority"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".tsapolicyid.tsapolicyid.for.Timestamping.Authority"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".tsadigestalg.algorithm.of.digest.data.in.timestamping.request"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".altsigner.class.class.name.of.an.alternative.signing.mechanism"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".altsignerpath.pathlist.location.of.an.alternative.signing.mechanism"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".internalsf.include.the.SF.file.inside.the.signature.block"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".sectionsonly.don.t.compute.hash.of.entire.manifest"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".protected.keystore.has.protected.authentication.path"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".providerName.name.provider.name"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".add.provider.option"_s)));
+	$System::out->println($(Main::rb->getString(".providerArg.option.1"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".providerClass.option"_s)));
+	$System::out->println($(Main::rb->getString(".providerArg.option.2"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".strict.treat.warnings.as.errors"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".conf.url.specify.a.pre.configured.options.file"_s)));
+	$System::out->println();
+	$System::out->println($(Main::rb->getString(".print.this.help.message"_s)));
+	$System::out->println();
 	$System::exit(0);
 }
 
 void Main::verifyJar($String* jarName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool anySigned = false;
 	$var($JarFile, jf, nullptr);
 	$var($Map, digestMap, $new($HashMap));
 	$var($Map, sigMap, $new($HashMap));
 	$var($Map, sigNameMap, $new($HashMap));
 	$var($Map, unparsableSignatures, $new($HashMap));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$assign(jf, $new($JarFile, jarName, true));
-				$var($Vector, entriesVec, $new($Vector));
-				$var($bytes, buffer, $new($bytes, 8192));
-				$var($String, suffix1, "-Digest-Manifest"_s);
-				$init($ManifestDigester);
-				$var($String, suffix2, $str({"-Digest-"_s, $ManifestDigester::MF_MAIN_ATTRS}));
-				int32_t suffixLength1 = suffix1->length();
-				int32_t suffixLength2 = $nc(suffix2)->length();
-				$var($Enumeration, entries, jf->entries());
-				while ($nc(entries)->hasMoreElements()) {
-					$var($JarEntry, je, $cast($JarEntry, entries->nextElement()));
-					entriesVec->addElement(je);
-					{
-						$var($InputStream, is, jf->getInputStream(je));
-						{
-							$var($Throwable, var$2, nullptr);
-							try {
+			$assign(jf, $new($JarFile, jarName, true));
+			$var($Vector, entriesVec, $new($Vector));
+			$var($bytes, buffer, $new($bytes, 8192));
+			$var($String, suffix1, "-Digest-Manifest"_s);
+			$init($ManifestDigester);
+			$var($String, suffix2, $str({"-Digest-"_s, $ManifestDigester::MF_MAIN_ATTRS}));
+			int32_t suffixLength1 = suffix1->length();
+			int32_t suffixLength2 = suffix2->length();
+			$var($Enumeration, entries, jf->entries());
+			while ($nc(entries)->hasMoreElements()) {
+				$var($JarEntry, je, $cast($JarEntry, entries->nextElement()));
+				entriesVec->addElement(je);
+				{
+					$var($InputStream, is, jf->getInputStream(je));
+					$var($Throwable, var$2, nullptr);
+					try {
+						try {
+							$var($String, name, $nc(je)->getName());
+							bool var$3 = signatureRelated(name);
+							if (var$3 && $SignatureFileVerifier::isBlockOrSF(name)) {
+								int32_t var$4 = $nc(name)->lastIndexOf(u'/') + 1;
+								$var($String, alias, $nc(name)->substring(var$4, name->lastIndexOf(u'.')));
 								try {
-									$var($String, name, $nc(je)->getName());
-									bool var$3 = signatureRelated(name);
-									if (var$3 && $SignatureFileVerifier::isBlockOrSF(name)) {
-										int32_t var$4 = name->lastIndexOf((int32_t)u'/') + 1;
-										$var($String, alias, $nc(name)->substring(var$4, name->lastIndexOf((int32_t)u'.')));
-										try {
-											if (name->endsWith(".SF"_s)) {
-												$var($Manifest, sf, $new($Manifest, is));
-												bool found = false;
+									if (name->endsWith(".SF"_s)) {
+										$var($Manifest, sf, $new($Manifest, is));
+										bool found = false;
+										{
+											$var($Iterator, i$, $$nc($$nc(sf->getMainAttributes())->keySet())->iterator());
+											for (; $nc(i$)->hasNext();) {
+												$var($Object, obj, i$->next());
 												{
-													$var($Iterator, i$, $nc($($nc($(sf->getMainAttributes()))->keySet()))->iterator());
-													for (; $nc(i$)->hasNext();) {
-														$var($Object, obj, i$->next());
-														{
-															$var($String, key, $nc($of(obj))->toString());
-															if ($nc(key)->endsWith(suffix1)) {
-																digestMap->put(alias, $(key->substring(0, key->length() - suffixLength1)));
-																found = true;
-																break;
-															} else if (key->endsWith(suffix2)) {
-																digestMap->put(alias, $(key->substring(0, key->length() - suffixLength2)));
-																found = true;
-																break;
-															}
-														}
+													$var($String, key, $nc(obj)->toString());
+													if ($nc(key)->endsWith(suffix1)) {
+														digestMap->put(alias, $(key->substring(0, key->length() - suffixLength1)));
+														found = true;
+														break;
+													} else if (key->endsWith(suffix2)) {
+														digestMap->put(alias, $(key->substring(0, key->length() - suffixLength2)));
+														found = true;
+														break;
 													}
 												}
-												if (!found) {
-													unparsableSignatures->putIfAbsent(alias, $($String::format($($nc(Main::rb)->getString("history.unparsable"_s)), $$new($ObjectArray, {$of(name)}))));
-												}
-											} else {
-												sigNameMap->put(alias, name);
-												sigMap->put(alias, $$new($PKCS7, is));
 											}
-										} catch ($IOException& ioe) {
-											unparsableSignatures->putIfAbsent(alias, $($String::format($($nc(Main::rb)->getString("history.unparsable"_s)), $$new($ObjectArray, {$of(name)}))));
+										}
+										if (!found) {
+											unparsableSignatures->putIfAbsent(alias, $($String::format($($nc(Main::rb)->getString("history.unparsable"_s)), $$new($ObjectArray, {name}))));
 										}
 									} else {
-										while ($nc(is)->read(buffer, 0, buffer->length) != -1) {
-										}
+										sigNameMap->put(alias, name);
+										sigMap->put(alias, $$new($PKCS7, is));
 									}
-								} catch ($Throwable& t$) {
-									if (is != nullptr) {
-										try {
-											is->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-									}
-									$throw(t$);
+								} catch ($IOException& ioe) {
+									unparsableSignatures->putIfAbsent(alias, $($String::format($($nc(Main::rb)->getString("history.unparsable"_s)), $$new($ObjectArray, {name}))));
 								}
-							} catch ($Throwable& var$5) {
-								$assign(var$2, var$5);
-							} /*finally*/ {
-								if (is != nullptr) {
-									is->close();
-								}
-							}
-							if (var$2 != nullptr) {
-								$throw(var$2);
-							}
-						}
-					}
-				}
-				$var($Manifest, man, jf->getManifest());
-				bool hasSignature = false;
-				$var($Map, output, $new($LinkedHashMap));
-				if (man != nullptr) {
-					if (this->verbose != nullptr) {
-						$nc($System::out)->println();
-					}
-					$var($Enumeration, e, entriesVec->elements());
-					$var($String, tab, $nc(Main::rb)->getString("6SPACE"_s));
-					while ($nc(e)->hasMoreElements()) {
-						$var($JarEntry, je, $cast($JarEntry, e->nextElement()));
-						$var($String, name, $nc(je)->getName());
-						if (!Main::extraAttrsDetected && $nc(Main::JUZFA)->getExtraAttributes(je) != -1) {
-							Main::extraAttrsDetected = true;
-						}
-						hasSignature = hasSignature || $SignatureFileVerifier::isBlockOrSF(name);
-						$var($CodeSignerArray, signers, je->getCodeSigners());
-						bool isSigned = (signers != nullptr);
-						anySigned |= isSigned;
-						bool var$6 = !isSigned;
-						if (var$6) {
-							bool var$8 = !je->isDirectory();
-							bool var$7 = (var$8 && !signatureRelated(name));
-							if (!var$7) {
-								bool var$9 = je->isDirectory();
-								var$7 = (var$9 && je->getSize() > 0);
-							}
-							var$6 = (var$7);
-						}
-						bool unsignedEntry = var$6;
-						this->hasUnsignedEntry |= unsignedEntry;
-						int32_t inStoreWithAlias = inKeyStore(signers);
-						bool inStore = ((int32_t)(inStoreWithAlias & (uint32_t)Main::IN_KEYSTORE)) != 0;
-						this->notSignedByAlias |= ((int32_t)(inStoreWithAlias & (uint32_t)Main::NOT_ALIAS)) != 0;
-						if (this->keystore != nullptr) {
-							this->aliasNotInStore |= isSigned && !inStore;
-						}
-						$var($StringBuffer, sb, nullptr);
-						if (this->verbose != nullptr) {
-							$assign(sb, $new($StringBuffer));
-							bool var$11 = (man->getAttributes(name) != nullptr);
-							bool var$10 = var$11 || (man->getAttributes($$str({"./"_s, name})) != nullptr);
-							bool inManifest = (var$10 || (man->getAttributes($$str({"/"_s, name})) != nullptr));
-							sb->append(isSigned ? $($nc(Main::rb)->getString("s"_s)) : $($nc(Main::rb)->getString("SPACE"_s)))->append(inManifest ? $($nc(Main::rb)->getString("m"_s)) : $($nc(Main::rb)->getString("SPACE"_s)))->append(inStore ? $($nc(Main::rb)->getString("k"_s)) : $($nc(Main::rb)->getString("SPACE"_s)))->append(((int32_t)(inStoreWithAlias & (uint32_t)Main::NOT_ALIAS)) != 0 ? $($nc(Main::rb)->getString("X"_s)) : $($nc(Main::rb)->getString("SPACE"_s)))->append(unsignedEntry ? $($nc(Main::rb)->getString("q"_s)) : $($nc(Main::rb)->getString("SPACE"_s)))->append($($nc(Main::rb)->getString("SPACE"_s)));
-							sb->append(u'|');
-						}
-						if (isSigned) {
-							if (this->showcerts) {
-								$nc(sb)->append(u'\n');
-							}
-							{
-								$var($CodeSignerArray, arr$, signers);
-								int32_t len$ = arr$->length;
-								int32_t i$ = 0;
-								for (; i$ < len$; ++i$) {
-									$var($CodeSigner, signer, arr$->get(i$));
-									{
-										$var($String, si, signerInfo(signer, tab));
-										if (this->showcerts) {
-											$nc(sb)->append(si);
-											sb->append(u'\n');
-										}
-									}
-								}
-							}
-						} else if (this->showcerts && !$nc(this->verbose)->equals("all"_s)) {
-							if (signatureRelated(name)) {
-								$nc(sb)->append(u'\n')->append(tab)->append($($nc(Main::rb)->getString(".Signature.related.entries."_s)))->append("\n\n"_s);
-							} else if (unsignedEntry) {
-								$nc(sb)->append(u'\n')->append(tab)->append($($nc(Main::rb)->getString(".Unsigned.entries."_s)))->append("\n\n"_s);
 							} else {
-								$nc(sb)->append(u'\n')->append(tab)->append($($nc(Main::rb)->getString(".Directory.entries."_s)))->append("\n\n"_s);
+								while ($nc(is)->read(buffer, 0, buffer->length) != -1) {
+								}
 							}
+						} catch ($Throwable& t$) {
+							if (is != nullptr) {
+								try {
+									is->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+							}
+							$throw(t$);
 						}
-						if (this->verbose != nullptr) {
-							$var($String, label, $nc(sb)->toString());
-							if (signatureRelated(name)) {
-								$assign(label, $str({"-"_s, label}));
-							}
-							if (!output->containsKey(label)) {
-								output->put(label, $$new($ArrayList));
-							}
-							$var($StringBuilder, fb, $new($StringBuilder));
-							$var($String, s, $Long::toString(je->getSize()));
-							for (int32_t i = 6 - $nc(s)->length(); i > 0; --i) {
-								fb->append(u' ');
-							}
-							fb->append(s)->append(u' ')->append($($$new($Date, je->getTime())->toString()));
-							fb->append(u' ')->append(name);
-							$nc(($cast($List, $(output->get(label)))))->add($(fb->toString()));
+					} catch ($Throwable& var$5) {
+						$assign(var$2, var$5);
+					} /*finally*/ {
+						if (is != nullptr) {
+							is->close();
 						}
 					}
+					if (var$2 != nullptr) {
+						$throw(var$2);
+					}
 				}
+			}
+			$var($Manifest, man, jf->getManifest());
+			bool hasSignature = false;
+			$var($Map, output, $new($LinkedHashMap));
+			if (man != nullptr) {
 				if (this->verbose != nullptr) {
-					{
-						$var($Iterator, i$, $nc($(output->entrySet()))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Map$Entry, s, $cast($Map$Entry, i$->next()));
-							{
-								$var($List, files, $cast($List, $nc(s)->getValue()));
-								$var($String, key, $cast($String, s->getKey()));
-								if ($nc(key)->charAt(0) == u'-') {
-									$assign(key, key->substring(1));
-								}
-								int32_t pipe = $nc(key)->indexOf((int32_t)u'|');
-								if ($nc(this->verbose)->equals("all"_s)) {
-									{
-										$var($Iterator, i$, $nc(files)->iterator());
-										for (; $nc(i$)->hasNext();) {
-											$var($String, f, $cast($String, i$->next()));
-											{
-												$nc($System::out)->println($$str({$(key->substring(0, pipe)), f}));
-												$nc($System::out)->printf($(key->substring(pipe + 1)), $$new($ObjectArray, 0));
-											}
-										}
-									}
-								} else {
-									if ($nc(this->verbose)->equals("grouped"_s)) {
-										{
-											$var($Iterator, i$, $nc(files)->iterator());
-											for (; $nc(i$)->hasNext();) {
-												$var($String, f, $cast($String, i$->next()));
-												{
-													$nc($System::out)->println($$str({$(key->substring(0, pipe)), f}));
-												}
-											}
-										}
-									} else if ($nc(this->verbose)->equals("summary"_s)) {
-										$nc($System::out)->print($(key->substring(0, pipe)));
-										if ($nc(files)->size() > 1) {
-											$var($String, var$12, $$str({$cast($String, $(files->get(0))), " "_s}));
-											$var($String, var$13, $nc(Main::rb)->getString(".and.d.more."_s));
-											$nc($System::out)->println($$concat(var$12, $($String::format(var$13, $$new($ObjectArray, {$($of($Integer::valueOf(files->size() - 1)))})))));
-										} else {
-											$nc($System::out)->println($cast($String, $(files->get(0))));
-										}
-									}
-									$nc($System::out)->printf($(key->substring(pipe + 1)), $$new($ObjectArray, 0));
-								}
-							}
-						}
-					}
 					$nc($System::out)->println();
-					$nc($System::out)->println($($nc(Main::rb)->getString(".s.signature.was.verified."_s)));
-					$nc($System::out)->println($($nc(Main::rb)->getString(".m.entry.is.listed.in.manifest"_s)));
-					$nc($System::out)->println($($nc(Main::rb)->getString(".k.at.least.one.certificate.was.found.in.keystore"_s)));
-					if ($nc(this->ckaliases)->size() > 0) {
-						$nc($System::out)->println($($nc(Main::rb)->getString(".X.not.signed.by.specified.alias.es."_s)));
-					}
-					if (this->hasUnsignedEntry) {
-						$nc($System::out)->println($($nc(Main::rb)->getString(".q.unsigned.entry"_s)));
-					}
 				}
-				if (man == nullptr) {
-					$nc($System::out)->println();
-					$nc($System::out)->println($($nc(Main::rb)->getString("no.manifest."_s)));
-				}
-				if (!this->aliasNotInStore && this->keystore != nullptr) {
-					this->signerSelfSigned = false;
-				}
-				bool var$15 = !digestMap->isEmpty();
-				bool var$14 = var$15 || !sigMap->isEmpty();
-				if (var$14 || !unparsableSignatures->isEmpty()) {
-					if (this->verbose != nullptr) {
-						$nc($System::out)->println();
+				$var($Enumeration, e, entriesVec->elements());
+				$var($String, tab, $nc(Main::rb)->getString("6SPACE"_s));
+				while ($nc(e)->hasMoreElements()) {
+					$var($JarEntry, je, $cast($JarEntry, e->nextElement()));
+					$var($String, name, $nc(je)->getName());
+					if (!Main::extraAttrsDetected && $nc(Main::JUZFA)->getExtraAttributes(je) != -1) {
+						Main::extraAttrsDetected = true;
 					}
-					{
-						$var($Iterator, i$, $nc($(sigMap->keySet()))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($String, s, $cast($String, i$->next()));
-							{
-								if (!digestMap->containsKey(s)) {
-									unparsableSignatures->putIfAbsent(s, $($String::format($($nc(Main::rb)->getString("history.nosf"_s)), $$new($ObjectArray, {$of(s)}))));
-								}
-							}
+					hasSignature = hasSignature || $SignatureFileVerifier::isBlockOrSF(name);
+					$var($CodeSignerArray, signers, je->getCodeSigners());
+					bool isSigned = (signers != nullptr);
+					anySigned |= isSigned;
+					bool var$6 = !isSigned;
+					if (var$6) {
+						bool var$8 = !je->isDirectory();
+						bool var$7 = var$8 && !signatureRelated(name);
+						if (!var$7) {
+							bool var$9 = je->isDirectory();
+							var$7 = var$9 && je->getSize() > 0;
 						}
+						var$6 = var$7;
 					}
-					{
-						$var($Iterator, i$, $nc($(digestMap->keySet()))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($String, s, $cast($String, i$->next()));
-							{
-								$var($PKCS7, p7, $cast($PKCS7, sigMap->get(s)));
-								if (p7 != nullptr) {
-									$var($String, history, nullptr);
-									try {
-										$var($SignerInfo, si, $nc($(p7->getSignerInfos()))->get(0));
-										$var($X509Certificate, signer, $nc(si)->getCertificate(p7));
-										$var($String, digestAlg, $cast($String, digestMap->get(s)));
-										$var($AlgorithmId, var$16, si->getDigestAlgorithmId());
-										$var($AlgorithmId, var$17, si->getDigestEncryptionAlgorithmId());
-										$var($String, sigAlg, $SignerInfo::makeSigAlg(var$16, var$17, si->getAuthenticatedAttributes() == nullptr));
-										$var($PublicKey, key, $nc(signer)->getPublicKey());
-										$var($PKCS7, tsToken, si->getTsToken());
-										if (tsToken != nullptr) {
-											this->hasTimestampBlock = true;
-											$var($SignerInfo, tsSi, $nc($(tsToken->getSignerInfos()))->get(0));
-											$var($X509Certificate, tsSigner, $nc(tsSi)->getCertificate(tsToken));
-											$var($bytes, encTsTokenInfo, $nc($(tsToken->getContentInfo()))->getData());
-											$var($TimestampToken, tsTokenInfo, $new($TimestampToken, encTsTokenInfo));
-											$var($PublicKey, tsKey, $nc(tsSigner)->getPublicKey());
-											$var($String, tsDigestAlg, $nc($(tsTokenInfo->getHashAlgorithm()))->getName());
-											$var($AlgorithmId, var$18, tsSi->getDigestAlgorithmId());
-											$var($AlgorithmId, var$19, tsSi->getDigestEncryptionAlgorithmId());
-											$var($String, tsSigAlg, $SignerInfo::makeSigAlg(var$18, var$19, tsSi->getAuthenticatedAttributes() == nullptr));
-											$var($TimeZone, var$20, $TimeZone::getTimeZone("UTC"_s));
-											$init($Locale$Category);
-											$var($Calendar, c, $Calendar::getInstance(var$20, $($Locale::getDefault($Locale$Category::FORMAT))));
-											$nc(c)->setTime($(tsTokenInfo->getDate()));
-											$var($String, var$21, $nc(Main::rb)->getString("history.with.ts"_s));
-											$assign(history, $String::format(var$21, $$new($ObjectArray, {
-												$($of(signer->getSubjectX500Principal())),
-												$($of(verifyWithWeak(digestAlg, Main::DIGEST_PRIMITIVE_SET, false))),
-												$($of(verifyWithWeak(sigAlg, Main::SIG_PRIMITIVE_SET, false))),
-												$($of(verifyWithWeak(key))),
-												$of(c),
-												$($of(tsSigner->getSubjectX500Principal())),
-												$($of(verifyWithWeak(tsDigestAlg, Main::DIGEST_PRIMITIVE_SET, true))),
-												$($of(verifyWithWeak(tsSigAlg, Main::SIG_PRIMITIVE_SET, true))),
-												$($of(verifyWithWeak(tsKey)))
-											})));
-										} else {
-											$var($String, var$22, $nc(Main::rb)->getString("history.without.ts"_s));
-											$assign(history, $String::format(var$22, $$new($ObjectArray, {
-												$($of(signer->getSubjectX500Principal())),
-												$($of(verifyWithWeak(digestAlg, Main::DIGEST_PRIMITIVE_SET, false))),
-												$($of(verifyWithWeak(sigAlg, Main::SIG_PRIMITIVE_SET, false))),
-												$($of(verifyWithWeak(key)))
-											})));
-										}
-									} catch ($Exception& e) {
-										$var($String, var$23, $nc(Main::rb)->getString("history.unparsable"_s));
-										$assign(history, $String::format(var$23, $$new($ObjectArray, {$(sigNameMap->get(s))})));
-									}
-									if (this->verbose != nullptr) {
-										$nc($System::out)->println(history);
-									}
-								} else {
-									unparsableSignatures->putIfAbsent(s, $($String::format($($nc(Main::rb)->getString("history.nobk"_s)), $$new($ObjectArray, {$of(s)}))));
-								}
-							}
-						}
+					bool unsignedEntry = var$6;
+					this->hasUnsignedEntry |= unsignedEntry;
+					int32_t inStoreWithAlias = inKeyStore(signers);
+					bool inStore = (inStoreWithAlias & Main::IN_KEYSTORE) != 0;
+					this->notSignedByAlias |= (inStoreWithAlias & Main::NOT_ALIAS) != 0;
+					if (this->keystore != nullptr) {
+						this->aliasNotInStore |= isSigned && !inStore;
 					}
+					$var($StringBuffer, sb, nullptr);
 					if (this->verbose != nullptr) {
+						$assign(sb, $new($StringBuffer));
+						bool var$11 = man->getAttributes(name) != nullptr;
+						bool var$10 = var$11 || (man->getAttributes($$str({"./"_s, name})) != nullptr);
+						bool inManifest = (var$10 || (man->getAttributes($$str({"/"_s, name})) != nullptr));
+						sb->append(isSigned ? $(Main::rb->getString("s"_s)) : $(Main::rb->getString("SPACE"_s)))->append(inManifest ? $(Main::rb->getString("m"_s)) : $(Main::rb->getString("SPACE"_s)))->append(inStore ? $(Main::rb->getString("k"_s)) : $(Main::rb->getString("SPACE"_s)))->append((inStoreWithAlias & Main::NOT_ALIAS) != 0 ? $(Main::rb->getString("X"_s)) : $(Main::rb->getString("SPACE"_s)))->append(unsignedEntry ? $(Main::rb->getString("q"_s)) : $(Main::rb->getString("SPACE"_s)))->append($(Main::rb->getString("SPACE"_s)));
+						sb->append(u'|');
+					}
+					if (isSigned) {
+						if (this->showcerts) {
+							$nc(sb)->append(u'\n');
+						}
 						{
-							$var($Iterator, i$, $nc($(unparsableSignatures->keySet()))->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($String, s, $cast($String, i$->next()));
+							$var($CodeSignerArray, arr$, signers);
+							for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+								$var($CodeSigner, signer, arr$->get(i$));
 								{
-									$nc($System::out)->println($cast($String, $(unparsableSignatures->get(s))));
+									$var($String, si, signerInfo(signer, tab));
+									if (this->showcerts) {
+										$nc(sb)->append(si);
+										sb->append(u'\n');
+									}
 								}
+							}
+						}
+					} else if (this->showcerts && !$nc(this->verbose)->equals("all"_s)) {
+						if (signatureRelated(name)) {
+							$nc(sb)->append(u'\n')->append(tab)->append($(Main::rb->getString(".Signature.related.entries."_s)))->append("\n\n"_s);
+						} else if (unsignedEntry) {
+							$nc(sb)->append(u'\n')->append(tab)->append($(Main::rb->getString(".Unsigned.entries."_s)))->append("\n\n"_s);
+						} else {
+							$nc(sb)->append(u'\n')->append(tab)->append($(Main::rb->getString(".Directory.entries."_s)))->append("\n\n"_s);
+						}
+					}
+					if (this->verbose != nullptr) {
+						$var($String, label, $nc(sb)->toString());
+						if (signatureRelated(name)) {
+							$assign(label, $str({"-"_s, label}));
+						}
+						if (!output->containsKey(label)) {
+							output->put(label, $$new($ArrayList));
+						}
+						$var($StringBuilder, fb, $new($StringBuilder));
+						$var($String, s, $Long::toString(je->getSize()));
+						for (int32_t i = 6 - s->length(); i > 0; --i) {
+							fb->append(u' ');
+						}
+						fb->append(s)->append(u' ')->append($($$new($Date, je->getTime())->toString()));
+						fb->append(u' ')->append(name);
+						$$sure($List, output->get(label))->add($(fb->toString()));
+					}
+				}
+			}
+			if (this->verbose != nullptr) {
+				{
+					$var($Iterator, i$, $$nc(output->entrySet())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Map$Entry, s, $cast($Map$Entry, i$->next()));
+						{
+							$var($List, files, $cast($List, $nc(s)->getValue()));
+							$var($String, key, $cast($String, s->getKey()));
+							if ($nc(key)->charAt(0) == u'-') {
+								$assign(key, key->substring(1));
+							}
+							int32_t pipe = key->indexOf(u'|');
+							if (this->verbose->equals("all"_s)) {
+								$var($Iterator, i$, $nc(files)->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($String, f, $cast($String, i$->next()));
+									{
+										$nc($System::out)->println($$str({$(key->substring(0, pipe)), f}));
+										$System::out->printf($(key->substring(pipe + 1)), $$new($ObjectArray, 0));
+									}
+								}
+							} else {
+								if (this->verbose->equals("grouped"_s)) {
+									$var($Iterator, i$, $nc(files)->iterator());
+									for (; $nc(i$)->hasNext();) {
+										$var($String, f, $cast($String, i$->next()));
+										{
+											$nc($System::out)->println($$str({$(key->substring(0, pipe)), f}));
+										}
+									}
+								} else if (this->verbose->equals("summary"_s)) {
+									$nc($System::out)->print($(key->substring(0, pipe)));
+									if ($nc(files)->size() > 1) {
+										$var($StringBuilder, var$12, $new($StringBuilder));
+										var$12->append($$cast($String, files->get(0)));
+										var$12->append(" "_s);
+										$var($String, var$13, $nc(Main::rb)->getString(".and.d.more."_s));
+										var$12->append($($String::format(var$13, $$new($ObjectArray, {$($Integer::valueOf(files->size() - 1))}))));
+										$System::out->println($$str(var$12));
+									} else {
+										$System::out->println($$cast($String, files->get(0)));
+									}
+								}
+								$nc($System::out)->printf($(key->substring(pipe + 1)), $$new($ObjectArray, 0));
 							}
 						}
 					}
 				}
 				$nc($System::out)->println();
-				if (!anySigned) {
-					if (this->disabledAlgFound) {
-						if (this->verbose != nullptr) {
-							$nc($System::out)->println($($nc(Main::rb)->getString("jar.treated.unsigned.see.weak.verbose"_s)));
-							$init($DisabledAlgorithmConstraints);
-							$nc($System::out)->println($$str({"\n  "_s, $DisabledAlgorithmConstraints::PROPERTY_JAR_DISABLED_ALGS, "="_s, $($Security::getProperty($DisabledAlgorithmConstraints::PROPERTY_JAR_DISABLED_ALGS))}));
-						} else {
-							$nc($System::out)->println($($nc(Main::rb)->getString("jar.treated.unsigned.see.weak"_s)));
+				$System::out->println($($nc(Main::rb)->getString(".s.signature.was.verified."_s)));
+				$System::out->println($(Main::rb->getString(".m.entry.is.listed.in.manifest"_s)));
+				$System::out->println($(Main::rb->getString(".k.at.least.one.certificate.was.found.in.keystore"_s)));
+				if ($nc(this->ckaliases)->size() > 0) {
+					$System::out->println($(Main::rb->getString(".X.not.signed.by.specified.alias.es."_s)));
+				}
+				if (this->hasUnsignedEntry) {
+					$System::out->println($(Main::rb->getString(".q.unsigned.entry"_s)));
+				}
+			}
+			if (man == nullptr) {
+				$nc($System::out)->println();
+				$System::out->println($($nc(Main::rb)->getString("no.manifest."_s)));
+			}
+			if (!this->aliasNotInStore && this->keystore != nullptr) {
+				this->signerSelfSigned = false;
+			}
+			bool var$15 = !digestMap->isEmpty();
+			bool var$14 = var$15 || !sigMap->isEmpty();
+			if (var$14 || !unparsableSignatures->isEmpty()) {
+				if (this->verbose != nullptr) {
+					$nc($System::out)->println();
+				}
+				{
+					$var($Iterator, i$, $$nc(sigMap->keySet())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($String, s, $cast($String, i$->next()));
+						if (!digestMap->containsKey(s)) {
+							unparsableSignatures->putIfAbsent(s, $($String::format($($nc(Main::rb)->getString("history.nosf"_s)), $$new($ObjectArray, {s}))));
 						}
-					} else if (hasSignature) {
-						$nc($System::out)->println($($nc(Main::rb)->getString("jar.treated.unsigned"_s)));
-					} else {
-						$nc($System::out)->println($($nc(Main::rb)->getString("jar.is.unsigned"_s)));
 					}
+				}
+				{
+					$var($Iterator, i$, $$nc(digestMap->keySet())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($String, s, $cast($String, i$->next()));
+						{
+							$var($PKCS7, p7, $cast($PKCS7, sigMap->get(s)));
+							if (p7 != nullptr) {
+								$var($String, history, nullptr);
+								try {
+									$var($SignerInfo, si, $nc($(p7->getSignerInfos()))->get(0));
+									$var($X509Certificate, signer, $nc(si)->getCertificate(p7));
+									$var($String, digestAlg, $cast($String, digestMap->get(s)));
+									$var($AlgorithmId, var$16, si->getDigestAlgorithmId());
+									$var($AlgorithmId, var$17, si->getDigestEncryptionAlgorithmId());
+									$var($String, sigAlg, $SignerInfo::makeSigAlg(var$16, var$17, si->getAuthenticatedAttributes() == nullptr));
+									$var($PublicKey, key, $nc(signer)->getPublicKey());
+									$var($PKCS7, tsToken, si->getTsToken());
+									if (tsToken != nullptr) {
+										this->hasTimestampBlock = true;
+										$var($SignerInfo, tsSi, $nc($(tsToken->getSignerInfos()))->get(0));
+										$var($X509Certificate, tsSigner, $nc(tsSi)->getCertificate(tsToken));
+										$var($bytes, encTsTokenInfo, $$nc(tsToken->getContentInfo())->getData());
+										$var($TimestampToken, tsTokenInfo, $new($TimestampToken, encTsTokenInfo));
+										$var($PublicKey, tsKey, $nc(tsSigner)->getPublicKey());
+										$var($String, tsDigestAlg, $$nc(tsTokenInfo->getHashAlgorithm())->getName());
+										$var($AlgorithmId, var$18, tsSi->getDigestAlgorithmId());
+										$var($AlgorithmId, var$19, tsSi->getDigestEncryptionAlgorithmId());
+										$var($String, tsSigAlg, $SignerInfo::makeSigAlg(var$18, var$19, tsSi->getAuthenticatedAttributes() == nullptr));
+										$var($TimeZone, var$20, $TimeZone::getTimeZone("UTC"_s));
+										$init($Locale$Category);
+										$var($Calendar, c, $Calendar::getInstance(var$20, $($Locale::getDefault($Locale$Category::FORMAT))));
+										$nc(c)->setTime($(tsTokenInfo->getDate()));
+										$var($String, var$21, $nc(Main::rb)->getString("history.with.ts"_s));
+										$assign(history, $String::format(var$21, $$new($ObjectArray, {
+											$(signer->getSubjectX500Principal()),
+											$(verifyWithWeak(digestAlg, Main::DIGEST_PRIMITIVE_SET, false)),
+											$(verifyWithWeak(sigAlg, Main::SIG_PRIMITIVE_SET, false)),
+											$(verifyWithWeak(key)),
+											c,
+											$(tsSigner->getSubjectX500Principal()),
+											$(verifyWithWeak(tsDigestAlg, Main::DIGEST_PRIMITIVE_SET, true)),
+											$(verifyWithWeak(tsSigAlg, Main::SIG_PRIMITIVE_SET, true)),
+											$(verifyWithWeak(tsKey))
+										})));
+									} else {
+										$var($String, var$22, $nc(Main::rb)->getString("history.without.ts"_s));
+										$assign(history, $String::format(var$22, $$new($ObjectArray, {
+											$(signer->getSubjectX500Principal()),
+											$(verifyWithWeak(digestAlg, Main::DIGEST_PRIMITIVE_SET, false)),
+											$(verifyWithWeak(sigAlg, Main::SIG_PRIMITIVE_SET, false)),
+											$(verifyWithWeak(key))
+										})));
+									}
+								} catch ($Exception& e) {
+									$var($String, var$23, $nc(Main::rb)->getString("history.unparsable"_s));
+									$assign(history, $String::format(var$23, $$new($ObjectArray, {$(sigNameMap->get(s))})));
+								}
+								if (this->verbose != nullptr) {
+									$nc($System::out)->println(history);
+								}
+							} else {
+								unparsableSignatures->putIfAbsent(s, $($String::format($($nc(Main::rb)->getString("history.nobk"_s)), $$new($ObjectArray, {s}))));
+							}
+						}
+					}
+				}
+				if (this->verbose != nullptr) {
+					$var($Iterator, i$, $$nc(unparsableSignatures->keySet())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($String, s, $cast($String, i$->next()));
+						{
+							$nc($System::out)->println($$cast($String, unparsableSignatures->get(s)));
+						}
+					}
+				}
+			}
+			$nc($System::out)->println();
+			if (!anySigned) {
+				if (this->disabledAlgFound) {
+					if (this->verbose != nullptr) {
+						$System::out->println($($nc(Main::rb)->getString("jar.treated.unsigned.see.weak.verbose"_s)));
+						$init($DisabledAlgorithmConstraints);
+						$System::out->println($$str({"\n  "_s, $DisabledAlgorithmConstraints::PROPERTY_JAR_DISABLED_ALGS, "="_s, $($Security::getProperty($DisabledAlgorithmConstraints::PROPERTY_JAR_DISABLED_ALGS))}));
+					} else {
+						$System::out->println($($nc(Main::rb)->getString("jar.treated.unsigned.see.weak"_s)));
+					}
+				} else if (hasSignature) {
+					$System::out->println($($nc(Main::rb)->getString("jar.treated.unsigned"_s)));
 				} else {
-					displayMessagesAndResult(false);
+					$System::out->println($($nc(Main::rb)->getString("jar.is.unsigned"_s)));
 				}
-				return$1 = true;
-				goto $finally;
-			} catch ($Exception& e) {
-				$nc($System::out)->println($$str({$($nc(Main::rb)->getString("jarsigner."_s)), e}));
-				if (this->debug) {
-					e->printStackTrace();
-				}
+			} else {
+				displayMessagesAndResult(false);
 			}
-		} catch ($Throwable& var$24) {
-			$assign(var$0, var$24);
-		} $finally: {
-			if (jf != nullptr) {
-				jf->close();
+			return$1 = true;
+			goto $finally;
+		} catch ($Exception& e) {
+			$nc($System::out)->println($$str({$($nc(Main::rb)->getString("jarsigner."_s)), e}));
+			if (this->debug) {
+				e->printStackTrace();
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$24) {
+		$assign(var$0, var$24);
+	} $finally: {
+		if (jf != nullptr) {
+			jf->close();
 		}
-		if (return$1) {
-			return;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	$System::exit(1);
 }
 
 void Main::displayMessagesAndResult(bool isSigning) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, nullptr);
 	$var($List, errors, $new($ArrayList));
 	$var($List, warnings, $new($ArrayList));
 	$var($List, info, $new($ArrayList));
-	bool signerNotExpired = this->expireDate == nullptr || $nc(this->expireDate)->after($$new($Date));
+	bool signerNotExpired = this->expireDate == nullptr || this->expireDate->after($$new($Date));
 	if (this->badKeyUsage) {
 		errors->add(isSigning ? $($nc(Main::rb)->getString("The.signer.certificate.s.KeyUsage.extension.doesn.t.allow.code.signing."_s)) : $($nc(Main::rb)->getString("This.jar.contains.entries.whose.signer.certificate.s.KeyUsage.extension.doesn.t.allow.code.signing."_s)));
 	}
@@ -1583,11 +1386,11 @@ void Main::displayMessagesAndResult(bool isSigning) {
 	}
 	if (this->chainNotValidated) {
 		$var($String, var$0, isSigning ? $nc(Main::rb)->getString("The.signer.s.certificate.chain.is.invalid.reason.1"_s) : $nc(Main::rb)->getString("This.jar.contains.entries.whose.certificate.chain.is.invalid.reason.1"_s));
-		errors->add($($String::format(var$0, $$new($ObjectArray, {$($of($nc(this->chainNotValidatedReason)->getLocalizedMessage()))}))));
+		errors->add($($String::format(var$0, $$new($ObjectArray, {$($nc(this->chainNotValidatedReason)->getLocalizedMessage())}))));
 	}
 	if (this->tsaChainNotValidated) {
 		$var($String, var$1, isSigning ? $nc(Main::rb)->getString("The.tsa.certificate.chain.is.invalid.reason.1"_s) : $nc(Main::rb)->getString("This.jar.contains.entries.whose.tsa.certificate.chain.is.invalid.reason.1"_s));
-		errors->add($($String::format(var$1, $$new($ObjectArray, {$($of($nc(this->tsaChainNotValidatedReason)->getLocalizedMessage()))}))));
+		errors->add($($String::format(var$1, $$new($ObjectArray, {$($nc(this->tsaChainNotValidatedReason)->getLocalizedMessage())}))));
 	}
 	if (this->notSignedByAlias) {
 		errors->add($($nc(Main::rb)->getString("This.jar.contains.signed.entries.which.is.not.signed.by.the.specified.alias.es."_s)));
@@ -1599,71 +1402,71 @@ void Main::displayMessagesAndResult(bool isSigning) {
 		errors->add(isSigning ? $($nc(Main::rb)->getString("The.signer.s.certificate.is.self.signed."_s)) : $($nc(Main::rb)->getString("This.jar.contains.entries.whose.signer.certificate.is.self.signed."_s)));
 	}
 	if (isSigning) {
-		if (((int32_t)(this->legacyAlg & (uint32_t)1)) == 1) {
+		if ((this->legacyAlg & 1) == 1) {
 			warnings->add($($String::format($($nc(Main::rb)->getString("The.1.algorithm.specified.for.the.2.option.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {
-				$of(this->digestalg),
-				$of("-digestalg"_s)
+				this->digestalg,
+				"-digestalg"_s
 			}))));
 		}
-		if (((int32_t)(this->disabledAlg & (uint32_t)1)) == 1) {
+		if ((this->disabledAlg & 1) == 1) {
 			errors->add($($String::format($($nc(Main::rb)->getString("The.1.algorithm.specified.for.the.2.option.is.considered.a.security.risk.and.is.disabled."_s)), $$new($ObjectArray, {
-				$of(this->digestalg),
-				$of("-digestalg"_s)
+				this->digestalg,
+				"-digestalg"_s
 			}))));
 		}
-		if (((int32_t)(this->legacyAlg & (uint32_t)2)) == 2) {
+		if ((this->legacyAlg & 2) == 2) {
 			warnings->add($($String::format($($nc(Main::rb)->getString("The.1.algorithm.specified.for.the.2.option.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {
-				$of(this->sigalg),
-				$of("-sigalg"_s)
+				this->sigalg,
+				"-sigalg"_s
 			}))));
 		}
-		if (((int32_t)(this->disabledAlg & (uint32_t)2)) == 2) {
+		if ((this->disabledAlg & 2) == 2) {
 			errors->add($($String::format($($nc(Main::rb)->getString("The.1.algorithm.specified.for.the.2.option.is.considered.a.security.risk.and.is.disabled."_s)), $$new($ObjectArray, {
-				$of(this->sigalg),
-				$of("-sigalg"_s)
+				this->sigalg,
+				"-sigalg"_s
 			}))));
 		}
-		if (((int32_t)(this->legacyAlg & (uint32_t)4)) == 4) {
+		if ((this->legacyAlg & 4) == 4) {
 			warnings->add($($String::format($($nc(Main::rb)->getString("The.1.algorithm.specified.for.the.2.option.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {
-				$of(this->tSADigestAlg),
-				$of("-tsadigestalg"_s)
+				this->tSADigestAlg,
+				"-tsadigestalg"_s
 			}))));
 		}
-		if (((int32_t)(this->disabledAlg & (uint32_t)4)) == 4) {
+		if ((this->disabledAlg & 4) == 4) {
 			errors->add($($String::format($($nc(Main::rb)->getString("The.1.algorithm.specified.for.the.2.option.is.considered.a.security.risk.and.is.disabled."_s)), $$new($ObjectArray, {
-				$of(this->tSADigestAlg),
-				$of("-tsadigestalg"_s)
+				this->tSADigestAlg,
+				"-tsadigestalg"_s
 			}))));
 		}
-		if (((int32_t)(this->legacyAlg & (uint32_t)8)) == 8) {
+		if ((this->legacyAlg & 8) == 8) {
 			$var($String, var$2, $nc(Main::rb)->getString("The.1.signing.key.has.a.keysize.of.2.which.is.considered.a.security.risk..This.key.size.will.be.disabled.in.a.future.update."_s));
 			warnings->add($($String::format(var$2, $$new($ObjectArray, {
-				$($of($nc(this->privateKey)->getAlgorithm())),
-				$($of($Integer::valueOf($KeyUtil::getKeySize(static_cast<$Key*>(this->privateKey)))))
+				$($nc(this->privateKey)->getAlgorithm()),
+				$($Integer::valueOf($KeyUtil::getKeySize(this->privateKey)))
 			}))));
 		}
-		if (((int32_t)(this->disabledAlg & (uint32_t)8)) == 8) {
+		if ((this->disabledAlg & 8) == 8) {
 			$var($String, var$3, $nc(Main::rb)->getString("The.1.signing.key.has.a.keysize.of.2.which.is.considered.a.security.risk.and.is.disabled."_s));
 			errors->add($($String::format(var$3, $$new($ObjectArray, {
-				$($of($nc(this->privateKey)->getAlgorithm())),
-				$($of($Integer::valueOf($KeyUtil::getKeySize(static_cast<$Key*>(this->privateKey)))))
+				$($nc(this->privateKey)->getAlgorithm()),
+				$($Integer::valueOf($KeyUtil::getKeySize(this->privateKey)))
 			}))));
 		}
 	} else {
-		if (((int32_t)(this->legacyAlg & (uint32_t)1)) != 0) {
-			warnings->add($($String::format($($nc(Main::rb)->getString("The.digest.algorithm.1.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {$of(this->legacyDigestAlg)}))));
+		if ((this->legacyAlg & 1) != 0) {
+			warnings->add($($String::format($($nc(Main::rb)->getString("The.digest.algorithm.1.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {this->legacyDigestAlg}))));
 		}
-		if (((int32_t)(this->legacyAlg & (uint32_t)2)) == 2) {
-			warnings->add($($String::format($($nc(Main::rb)->getString("The.signature.algorithm.1.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {$of(this->legacySigAlg)}))));
+		if ((this->legacyAlg & 2) == 2) {
+			warnings->add($($String::format($($nc(Main::rb)->getString("The.signature.algorithm.1.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {this->legacySigAlg}))));
 		}
-		if (((int32_t)(this->legacyAlg & (uint32_t)4)) != 0) {
-			warnings->add($($String::format($($nc(Main::rb)->getString("The.timestamp.digest.algorithm.1.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {$of(this->legacyTsaDigestAlg)}))));
+		if ((this->legacyAlg & 4) != 0) {
+			warnings->add($($String::format($($nc(Main::rb)->getString("The.timestamp.digest.algorithm.1.is.considered.a.security.risk..This.algorithm.will.be.disabled.in.a.future.update."_s)), $$new($ObjectArray, {this->legacyTsaDigestAlg}))));
 		}
-		if (((int32_t)(this->legacyAlg & (uint32_t)8)) == 8) {
+		if ((this->legacyAlg & 8) == 8) {
 			$var($String, var$4, $nc(Main::rb)->getString("The.1.signing.key.has.a.keysize.of.2.which.is.considered.a.security.risk..This.key.size.will.be.disabled.in.a.future.update."_s));
 			warnings->add($($String::format(var$4, $$new($ObjectArray, {
-				$($of($nc(this->weakPublicKey)->getAlgorithm())),
-				$($of($Integer::valueOf($KeyUtil::getKeySize(static_cast<$Key*>(this->weakPublicKey)))))
+				$($nc(this->weakPublicKey)->getAlgorithm()),
+				$($Integer::valueOf($KeyUtil::getKeySize(this->weakPublicKey)))
 			}))));
 		}
 	}
@@ -1674,8 +1477,8 @@ void Main::displayMessagesAndResult(bool isSigning) {
 		} else if (signerNotExpired) {
 			if (this->expireDate != nullptr) {
 				warnings->add($($String::format($($nc(Main::rb)->getString("The.timestamp.expired.1.but.usable.2"_s)), $$new($ObjectArray, {
-					$of(this->tsaExpireDate),
-					$of(this->expireDate)
+					this->tsaExpireDate,
+					this->expireDate
 				}))));
 			}
 			this->hasExpiredTsaCert = false;
@@ -1685,20 +1488,20 @@ void Main::displayMessagesAndResult(bool isSigning) {
 		warnings->add(isSigning ? $($nc(Main::rb)->getString("The.signer.certificate.will.expire.within.six.months."_s)) : $($nc(Main::rb)->getString("This.jar.contains.entries.whose.signer.certificate.will.expire.within.six.months."_s)));
 	}
 	if (this->hasExpiringTsaCert && this->expireDate != nullptr) {
-		if ($nc(this->expireDate)->after(this->tsaExpireDate)) {
+		if (this->expireDate->after(this->tsaExpireDate)) {
 			warnings->add($($String::format($($nc(Main::rb)->getString("The.timestamp.will.expire.within.one.year.on.1.but.2"_s)), $$new($ObjectArray, {
-				$of(this->tsaExpireDate),
-				$of(this->expireDate)
+				this->tsaExpireDate,
+				this->expireDate
 			}))));
 		} else {
-			warnings->add($($String::format($($nc(Main::rb)->getString("The.timestamp.will.expire.within.one.year.on.1"_s)), $$new($ObjectArray, {$of(this->tsaExpireDate)}))));
+			warnings->add($($String::format($($nc(Main::rb)->getString("The.timestamp.will.expire.within.one.year.on.1"_s)), $$new($ObjectArray, {this->tsaExpireDate}))));
 		}
 	}
 	if (this->noTimestamp && this->expireDate != nullptr) {
 		if (this->hasTimestampBlock) {
-			warnings->add($($String::format(isSigning ? $($nc(Main::rb)->getString("invalid.timestamp.signing"_s)) : $($nc(Main::rb)->getString("bad.timestamp.verifying"_s)), $$new($ObjectArray, {$of(this->expireDate)}))));
+			warnings->add($($String::format(isSigning ? $($nc(Main::rb)->getString("invalid.timestamp.signing"_s)) : $($nc(Main::rb)->getString("bad.timestamp.verifying"_s)), $$new($ObjectArray, {this->expireDate}))));
 		} else {
-			warnings->add($($String::format(isSigning ? $($nc(Main::rb)->getString("no.timestamp.signing"_s)) : $($nc(Main::rb)->getString("no.timestamp.verifying"_s)), $$new($ObjectArray, {$of(this->expireDate)}))));
+			warnings->add($($String::format(isSigning ? $($nc(Main::rb)->getString("no.timestamp.signing"_s)) : $($nc(Main::rb)->getString("no.timestamp.verifying"_s)), $$new($ObjectArray, {this->expireDate}))));
 		}
 	}
 	if (Main::extraAttrsDetected) {
@@ -1712,62 +1515,62 @@ void Main::displayMessagesAndResult(bool isSigning) {
 	$nc($System::out)->println(result);
 	if (this->strict) {
 		if (!errors->isEmpty()) {
-			$nc($System::out)->println();
-			$nc($System::out)->println($($nc(Main::rb)->getString("Error."_s)));
-			errors->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::out)))));
+			$System::out->println();
+			$System::out->println($($nc(Main::rb)->getString("Error."_s)));
+			errors->forEach($$new(Main$$Lambda$println$1, $System::out));
 		}
 		if (!warnings->isEmpty()) {
-			$nc($System::out)->println();
-			$nc($System::out)->println($($nc(Main::rb)->getString("Warning."_s)));
-			warnings->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::out)))));
+			$System::out->println();
+			$System::out->println($($nc(Main::rb)->getString("Warning."_s)));
+			warnings->forEach($$new(Main$$Lambda$println$1, $System::out));
 		}
 	} else {
-		bool var$6 = !errors->isEmpty();
-		if (var$6 || !warnings->isEmpty()) {
-			$nc($System::out)->println();
-			$nc($System::out)->println($($nc(Main::rb)->getString("Warning."_s)));
-			errors->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::out)))));
-			warnings->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::out)))));
+		bool var$5 = !errors->isEmpty();
+		if (var$5 || !warnings->isEmpty()) {
+			$System::out->println();
+			$System::out->println($($nc(Main::rb)->getString("Warning."_s)));
+			errors->forEach($$new(Main$$Lambda$println$1, $System::out));
+			warnings->forEach($$new(Main$$Lambda$println$1, $System::out));
 		}
 	}
-	bool var$7 = !isSigning;
-	if (var$7) {
-		bool var$8 = !errors->isEmpty();
-		var$7 = (var$8 || !warnings->isEmpty());
+	bool var$6 = !isSigning;
+	if (var$6) {
+		bool var$7 = !errors->isEmpty();
+		var$6 = var$7 || !warnings->isEmpty();
 	}
-	if (var$7) {
+	if (var$6) {
 		if (!(this->verbose != nullptr && this->showcerts)) {
-			$nc($System::out)->println();
-			$nc($System::out)->println($($nc(Main::rb)->getString("Re.run.with.the.verbose.and.certs.options.for.more.details."_s)));
+			$System::out->println();
+			$System::out->println($($nc(Main::rb)->getString("Re.run.with.the.verbose.and.certs.options.for.more.details."_s)));
 		}
 	}
 	if (isSigning || this->verbose != nullptr) {
 		if (!this->hasExpiringCert && !this->hasExpiredCert && this->expireDate != nullptr && signerNotExpired) {
-			info->add($($String::format($($nc(Main::rb)->getString("The.signer.certificate.will.expire.on.1."_s)), $$new($ObjectArray, {$of(this->expireDate)}))));
+			info->add($($String::format($($nc(Main::rb)->getString("The.signer.certificate.will.expire.on.1."_s)), $$new($ObjectArray, {this->expireDate}))));
 		}
 		if (!this->noTimestamp) {
 			if (!this->hasExpiringTsaCert && !this->hasExpiredTsaCert && this->tsaExpireDate != nullptr) {
 				if (signerNotExpired) {
-					info->add($($String::format($($nc(Main::rb)->getString("The.timestamp.will.expire.on.1."_s)), $$new($ObjectArray, {$of(this->tsaExpireDate)}))));
+					info->add($($String::format($($nc(Main::rb)->getString("The.timestamp.will.expire.on.1."_s)), $$new($ObjectArray, {this->tsaExpireDate}))));
 				} else {
 					info->add($($String::format($($nc(Main::rb)->getString("signer.cert.expired.1.but.timestamp.good.2."_s)), $$new($ObjectArray, {
-						$of(this->expireDate),
-						$of(this->tsaExpireDate)
+						this->expireDate,
+						this->tsaExpireDate
 					}))));
 				}
 			}
 		}
 	}
 	if (!info->isEmpty()) {
-		$nc($System::out)->println();
-		info->forEach(static_cast<$Consumer*>($$new(Main$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::out)))));
+		$System::out->println();
+		info->forEach($$new(Main$$Lambda$println$1, $System::out));
 	}
 }
 
 $String* Main::verifyWithWeak($String* alg, $Set* primitiveSet, bool tsa) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(Main::JAR_DISABLED_CHECK)->permits(primitiveSet, alg, ($AlgorithmParameters*)nullptr)) {
-		if ($nc(Main::LEGACY_CHECK)->permits(primitiveSet, alg, ($AlgorithmParameters*)nullptr)) {
+	$useLocalObjectStack();
+	if (Main::JAR_DISABLED_CHECK->permits(primitiveSet, alg, nullptr)) {
+		if (Main::LEGACY_CHECK->permits(primitiveSet, alg, nullptr)) {
 			return alg;
 		} else {
 			if (primitiveSet == Main::SIG_PRIMITIVE_SET) {
@@ -1780,22 +1583,22 @@ $String* Main::verifyWithWeak($String* alg, $Set* primitiveSet, bool tsa) {
 				this->legacyAlg |= 1;
 				$set(this, legacyDigestAlg, alg);
 			}
-			return $String::format($($nc(Main::rb)->getString("with.weak"_s)), $$new($ObjectArray, {$of(alg)}));
+			return $String::format($($nc(Main::rb)->getString("with.weak"_s)), $$new($ObjectArray, {alg}));
 		}
 	} else {
 		this->disabledAlgFound = true;
-		return $String::format($($nc(Main::rb)->getString("with.disabled"_s)), $$new($ObjectArray, {$of(alg)}));
+		return $String::format($($nc(Main::rb)->getString("with.disabled"_s)), $$new($ObjectArray, {alg}));
 	}
 }
 
 $String* Main::verifyWithWeak($PublicKey* key) {
-	$useLocalCurrentObjectStackCache();
-	int32_t kLen = $KeyUtil::getKeySize(static_cast<$Key*>(key));
-	if ($nc(Main::JAR_DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, static_cast<$Key*>(key))) {
-		if ($nc(Main::LEGACY_CHECK)->permits(Main::SIG_PRIMITIVE_SET, static_cast<$Key*>(key))) {
+	$useLocalObjectStack();
+	int32_t kLen = $KeyUtil::getKeySize(key);
+	if (Main::JAR_DISABLED_CHECK->permits(Main::SIG_PRIMITIVE_SET, key)) {
+		if (Main::LEGACY_CHECK->permits(Main::SIG_PRIMITIVE_SET, key)) {
 			if (kLen >= 0) {
 				$var($String, var$0, $nc(Main::rb)->getString("key.bit"_s));
-				return $String::format(var$0, $$new($ObjectArray, {$($of($Integer::valueOf(kLen)))}));
+				return $String::format(var$0, $$new($ObjectArray, {$($Integer::valueOf(kLen))}));
 			} else {
 				return $nc(Main::rb)->getString("unknown.size"_s);
 			}
@@ -1803,18 +1606,18 @@ $String* Main::verifyWithWeak($PublicKey* key) {
 			$set(this, weakPublicKey, key);
 			this->legacyAlg |= 8;
 			$var($String, var$1, $nc(Main::rb)->getString("key.bit.weak"_s));
-			return $String::format(var$1, $$new($ObjectArray, {$($of($Integer::valueOf(kLen)))}));
+			return $String::format(var$1, $$new($ObjectArray, {$($Integer::valueOf(kLen))}));
 		}
 	} else {
 		this->disabledAlgFound = true;
 		$var($String, var$2, $nc(Main::rb)->getString("key.bit.disabled"_s));
-		return $String::format(var$2, $$new($ObjectArray, {$($of($Integer::valueOf(kLen)))}));
+		return $String::format(var$2, $$new($ObjectArray, {$($Integer::valueOf(kLen))}));
 	}
 }
 
 void Main::checkWeakSign($String* alg, $Set* primitiveSet, bool tsa) {
-	if ($nc(Main::JAR_DISABLED_CHECK)->permits(primitiveSet, alg, ($AlgorithmParameters*)nullptr)) {
-		if (!$nc(Main::LEGACY_CHECK)->permits(primitiveSet, alg, ($AlgorithmParameters*)nullptr)) {
+	if (Main::JAR_DISABLED_CHECK->permits(primitiveSet, alg, nullptr)) {
+		if (!Main::LEGACY_CHECK->permits(primitiveSet, alg, nullptr)) {
 			if (primitiveSet == Main::SIG_PRIMITIVE_SET) {
 				this->legacyAlg |= 2;
 			} else if (tsa) {
@@ -1833,8 +1636,8 @@ void Main::checkWeakSign($String* alg, $Set* primitiveSet, bool tsa) {
 }
 
 void Main::checkWeakSign($PrivateKey* key) {
-	if ($nc(Main::JAR_DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, static_cast<$Key*>(key))) {
-		if (!$nc(Main::LEGACY_CHECK)->permits(Main::SIG_PRIMITIVE_SET, static_cast<$Key*>(key))) {
+	if (Main::JAR_DISABLED_CHECK->permits(Main::SIG_PRIMITIVE_SET, key)) {
+		if (!Main::LEGACY_CHECK->permits(Main::SIG_PRIMITIVE_SET, key)) {
 			this->legacyAlg |= 8;
 		}
 	} else {
@@ -1844,48 +1647,48 @@ void Main::checkWeakSign($PrivateKey* key) {
 
 $String* Main::checkWeakKey($PublicKey* key) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
-	int32_t kLen = $KeyUtil::getKeySize(static_cast<$Key*>(key));
-	if ($nc(Main::CERTPATH_DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, static_cast<$Key*>(key))) {
-		if ($nc(Main::LEGACY_CHECK)->permits(Main::SIG_PRIMITIVE_SET, static_cast<$Key*>(key))) {
+	$useLocalObjectStack();
+	int32_t kLen = $KeyUtil::getKeySize(key);
+	if (Main::CERTPATH_DISABLED_CHECK->permits(Main::SIG_PRIMITIVE_SET, key)) {
+		if (Main::LEGACY_CHECK->permits(Main::SIG_PRIMITIVE_SET, key)) {
 			if (kLen >= 0) {
 				$var($String, var$0, $nc(Main::rb)->getString("key.bit"_s));
-				return $String::format(var$0, $$new($ObjectArray, {$($of($Integer::valueOf(kLen)))}));
+				return $String::format(var$0, $$new($ObjectArray, {$($Integer::valueOf(kLen))}));
 			} else {
 				return $nc(Main::rb)->getString("unknown.size"_s);
 			}
 		} else {
 			$var($String, var$1, $nc(Main::rb)->getString("key.bit.weak"_s));
-			return $String::format(var$1, $$new($ObjectArray, {$($of($Integer::valueOf(kLen)))}));
+			return $String::format(var$1, $$new($ObjectArray, {$($Integer::valueOf(kLen))}));
 		}
 	} else {
 		$var($String, var$2, $nc(Main::rb)->getString("key.bit.disabled"_s));
-		return $String::format(var$2, $$new($ObjectArray, {$($of($Integer::valueOf(kLen)))}));
+		return $String::format(var$2, $$new($ObjectArray, {$($Integer::valueOf(kLen))}));
 	}
 }
 
 $String* Main::checkWeakAlg($String* alg) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
-	if ($nc(Main::CERTPATH_DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, alg, ($AlgorithmParameters*)nullptr)) {
-		if ($nc(Main::LEGACY_CHECK)->permits(Main::SIG_PRIMITIVE_SET, alg, ($AlgorithmParameters*)nullptr)) {
+	$useLocalObjectStack();
+	if (Main::CERTPATH_DISABLED_CHECK->permits(Main::SIG_PRIMITIVE_SET, alg, nullptr)) {
+		if (Main::LEGACY_CHECK->permits(Main::SIG_PRIMITIVE_SET, alg, nullptr)) {
 			return alg;
 		} else {
-			return $String::format($($nc(Main::rb)->getString("with.weak"_s)), $$new($ObjectArray, {$of(alg)}));
+			return $String::format($($nc(Main::rb)->getString("with.weak"_s)), $$new($ObjectArray, {alg}));
 		}
 	} else {
-		return $String::format($($nc(Main::rb)->getString("with.disabled"_s)), $$new($ObjectArray, {$of(alg)}));
+		return $String::format($($nc(Main::rb)->getString("with.disabled"_s)), $$new($ObjectArray, {alg}));
 	}
 }
 
 $String* Main::printCert(bool isTsCert, $String* tab, $Certificate* c, $Date* timestamp, bool checkUsage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, certStr, $new($StringBuilder));
 	$var($String, space, $nc(Main::rb)->getString("SPACE"_s));
 	$var($X509Certificate, x509Cert, nullptr);
 	if ($instanceOf($X509Certificate, c)) {
 		$assign(x509Cert, $cast($X509Certificate, c));
-		certStr->append(tab)->append($($nc(x509Cert)->getType()))->append($($nc(Main::rb)->getString("COMMA"_s)))->append($($nc($($nc(x509Cert)->getSubjectX500Principal()))->toString()));
+		certStr->append(tab)->append($(x509Cert->getType()))->append($(Main::rb->getString("COMMA"_s)))->append($($$nc(x509Cert->getSubjectX500Principal())->toString()));
 	} else {
 		certStr->append(tab)->append($($nc(c)->getType()));
 	}
@@ -1897,20 +1700,20 @@ $String* Main::printCert(bool isTsCert, $String* tab, $Certificate* c, $Date* ti
 		$var($PublicKey, key, x509Cert->getPublicKey());
 		$var($String, sigalg, x509Cert->getSigAlgName());
 		if ($nc(this->trustedCerts)->contains(x509Cert)) {
-			certStr->append("\n"_s)->append(tab)->append("Signature algorithm: "_s)->append(sigalg)->append($($nc(Main::rb)->getString("COMMA"_s)))->append($(checkWeakKey(key)));
+			certStr->append("\n"_s)->append(tab)->append("Signature algorithm: "_s)->append(sigalg)->append($(Main::rb->getString("COMMA"_s)))->append($(checkWeakKey(key)));
 			certStr->append("\n"_s)->append(tab)->append("["_s);
-			certStr->append($($nc(Main::rb)->getString("trusted.certificate"_s)));
+			certStr->append($(Main::rb->getString("trusted.certificate"_s)));
 		} else {
-			certStr->append("\n"_s)->append(tab)->append("Signature algorithm: "_s)->append($(checkWeakAlg(sigalg)))->append($($nc(Main::rb)->getString("COMMA"_s)))->append($(checkWeakKey(key)));
+			certStr->append("\n"_s)->append(tab)->append("Signature algorithm: "_s)->append($(checkWeakAlg(sigalg)))->append($(Main::rb->getString("COMMA"_s)))->append($(checkWeakKey(key)));
 			certStr->append("\n"_s)->append(tab)->append("["_s);
 			$var($Date, notAfter, x509Cert->getNotAfter());
 			try {
 				bool printValidity = true;
 				if (isTsCert) {
-					if (this->tsaExpireDate == nullptr || $nc(this->tsaExpireDate)->after(notAfter)) {
+					if (this->tsaExpireDate == nullptr || this->tsaExpireDate->after(notAfter)) {
 						$set(this, tsaExpireDate, notAfter);
 					}
-				} else if (this->expireDate == nullptr || $nc(this->expireDate)->after(notAfter)) {
+				} else if (this->expireDate == nullptr || this->expireDate->after(notAfter)) {
 					$set(this, expireDate, notAfter);
 				}
 				if (timestamp == nullptr) {
@@ -1924,9 +1727,9 @@ $String* Main::printCert(bool isTsCert, $String* tab, $Certificate* c, $Date* ti
 							this->hasExpiringCert = true;
 						}
 						if (Main::expiringTimeForm == nullptr) {
-							$assignStatic(Main::expiringTimeForm, $new($MessageFormat, $($nc(Main::rb)->getString("certificate.will.expire.on"_s))));
+							$assignStatic(Main::expiringTimeForm, $new($MessageFormat, $(Main::rb->getString("certificate.will.expire.on"_s))));
 						}
-						$var($ObjectArray, source, $new($ObjectArray, {$of(notAfter)}));
+						$var($ObjectArray, source, $new($ObjectArray, {notAfter}));
 						certStr->append($($nc(Main::expiringTimeForm)->format(source)));
 						printValidity = false;
 					}
@@ -1935,11 +1738,11 @@ $String* Main::printCert(bool isTsCert, $String* tab, $Certificate* c, $Date* ti
 				}
 				if (printValidity) {
 					if (Main::validityTimeForm == nullptr) {
-						$assignStatic(Main::validityTimeForm, $new($MessageFormat, $($nc(Main::rb)->getString("certificate.is.valid.from"_s))));
+						$assignStatic(Main::validityTimeForm, $new($MessageFormat, $(Main::rb->getString("certificate.is.valid.from"_s))));
 					}
 					$var($ObjectArray, source, $new($ObjectArray, {
-						$($of(x509Cert->getNotBefore())),
-						$of(notAfter)
+						$(x509Cert->getNotBefore()),
+						notAfter
 					}));
 					certStr->append($($nc(Main::validityTimeForm)->format(source)));
 				}
@@ -1950,18 +1753,18 @@ $String* Main::printCert(bool isTsCert, $String* tab, $Certificate* c, $Date* ti
 					this->hasExpiredCert = true;
 				}
 				if (Main::expiredTimeForm == nullptr) {
-					$assignStatic(Main::expiredTimeForm, $new($MessageFormat, $($nc(Main::rb)->getString("certificate.expired.on"_s))));
+					$assignStatic(Main::expiredTimeForm, $new($MessageFormat, $(Main::rb->getString("certificate.expired.on"_s))));
 				}
-				$var($ObjectArray, source, $new($ObjectArray, {$of(notAfter)}));
+				$var($ObjectArray, source, $new($ObjectArray, {notAfter}));
 				certStr->append($($nc(Main::expiredTimeForm)->format(source)));
 			} catch ($CertificateNotYetValidException& cnyve) {
 				if (!isTsCert) {
 					this->notYetValidCert = true;
 				}
 				if (Main::notYetTimeForm == nullptr) {
-					$assignStatic(Main::notYetTimeForm, $new($MessageFormat, $($nc(Main::rb)->getString("certificate.is.not.valid.until"_s))));
+					$assignStatic(Main::notYetTimeForm, $new($MessageFormat, $(Main::rb->getString("certificate.is.not.valid.until"_s))));
 				}
-				$var($ObjectArray, source, $new($ObjectArray, {$($of(x509Cert->getNotBefore()))}));
+				$var($ObjectArray, source, $new($ObjectArray, {$(x509Cert->getNotBefore())}));
 				certStr->append($($nc(Main::notYetTimeForm)->format(source)));
 			}
 		}
@@ -1986,7 +1789,7 @@ $String* Main::printCert(bool isTsCert, $String* tab, $Certificate* c, $Date* ti
 					}
 					$assign(x, $str({x, "NetscapeCertType"_s}));
 				}
-				certStr->append("\n"_s)->append(tab)->append($($MessageFormat::format($($nc(Main::rb)->getString(".{0}.extension.does.not.support.code.signing."_s)), $$new($ObjectArray, {$of(x)}))));
+				certStr->append("\n"_s)->append(tab)->append($($MessageFormat::format($(Main::rb->getString(".{0}.extension.does.not.support.code.signing."_s)), $$new($ObjectArray, {x}))));
 			}
 		}
 	}
@@ -1994,23 +1797,23 @@ $String* Main::printCert(bool isTsCert, $String* tab, $Certificate* c, $Date* ti
 }
 
 $String* Main::printTimestamp($String* tab, $Timestamp* timestamp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (Main::signTimeForm == nullptr) {
 		$assignStatic(Main::signTimeForm, $new($MessageFormat, $($nc(Main::rb)->getString("entry.was.signed.on"_s))));
 	}
-	$var($ObjectArray, source, $new($ObjectArray, {$($of($nc(timestamp)->getTimestamp()))}));
+	$var($ObjectArray, source, $new($ObjectArray, {$($nc(timestamp)->getTimestamp())}));
 	return $$new($StringBuilder)->append(tab)->append("["_s)->append($($nc(Main::signTimeForm)->format(source)))->append("]"_s)->toString();
 }
 
 int32_t Main::inKeyStoreForOneSigner($CodeSigner* signer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->cacheForInKS)->containsKey(signer)) {
-		return $nc(($cast($Integer, $($nc(this->cacheForInKS)->get(signer)))))->intValue();
+		return $$sure($Integer, this->cacheForInKS->get(signer))->intValue();
 	}
 	int32_t result = 0;
 	if (this->store != nullptr) {
 		try {
-			$var($List, certs, $nc($($nc(signer)->getSignerCertPath()))->getCertificates());
+			$var($List, certs, $$nc($nc(signer)->getSignerCertPath())->getCertificates());
 			{
 				$var($Iterator, i$, $nc(certs)->iterator());
 				for (; $nc(i$)->hasNext();) {
@@ -2018,9 +1821,9 @@ int32_t Main::inKeyStoreForOneSigner($CodeSigner* signer) {
 					{
 						$var($String, alias, $cast($String, $nc(this->storeHash)->get(c)));
 						if (alias == nullptr) {
-							$assign(alias, $nc(this->store)->getCertificateAlias(c));
+							$assign(alias, this->store->getCertificateAlias(c));
 							if (alias != nullptr) {
-								$nc(this->storeHash)->put(c, alias);
+								this->storeHash->put(c, alias);
 							}
 						}
 						if (alias != nullptr) {
@@ -2030,11 +1833,9 @@ int32_t Main::inKeyStoreForOneSigner($CodeSigner* signer) {
 							$var($Iterator, i$, $nc(this->ckaliases)->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($String, ckalias, $cast($String, i$->next()));
-								{
-									if ($nc(c)->equals($($nc(this->store)->getCertificate(ckalias)))) {
-										result |= Main::SIGNED_BY_ALIAS;
-										break;
-									}
+								if ($nc(c)->equals($(this->store->getCertificate(ckalias)))) {
+									result |= Main::SIGNED_BY_ALIAS;
+									break;
 								}
 							}
 						}
@@ -2044,21 +1845,19 @@ int32_t Main::inKeyStoreForOneSigner($CodeSigner* signer) {
 		} catch ($KeyStoreException& kse) {
 		}
 	}
-	$nc(this->cacheForInKS)->put(signer, $($Integer::valueOf(result)));
+	this->cacheForInKS->put(signer, $($Integer::valueOf(result)));
 	return result;
 }
 
 int32_t Main::inKeyStore($CodeSignerArray* signers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (signers == nullptr) {
 		return 0;
 	}
 	int32_t output = 0;
 	{
 		$var($CodeSignerArray, arr$, signers);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CodeSigner, signer, arr$->get(i$));
 			{
 				int32_t result = inKeyStoreForOneSigner(signer);
@@ -2066,14 +1865,14 @@ int32_t Main::inKeyStore($CodeSignerArray* signers) {
 			}
 		}
 	}
-	if ($nc(this->ckaliases)->size() > 0 && ((int32_t)(output & (uint32_t)Main::SIGNED_BY_ALIAS)) == 0) {
+	if ($nc(this->ckaliases)->size() > 0 && (output & Main::SIGNED_BY_ALIAS) == 0) {
 		output |= Main::NOT_ALIAS;
 	}
 	return output;
 }
 
 void Main::signJar($String* jarName, $String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->digestalg == nullptr) {
 		$set(this, digestalg, $JarSigner$Builder::getDefaultDigestAlgorithm());
 	}
@@ -2095,14 +1894,14 @@ void Main::signJar($String* jarName, $String* alias) {
 	}
 	if ($nc(this->sigfile)->length() > 8) {
 		$init($Locale);
-		$set(this, sigfile, $($nc(this->sigfile)->substring(0, 8))->toUpperCase($Locale::ENGLISH));
+		$set(this, sigfile, $(this->sigfile->substring(0, 8))->toUpperCase($Locale::ENGLISH));
 	} else {
 		$init($Locale);
-		$set(this, sigfile, $nc(this->sigfile)->toUpperCase($Locale::ENGLISH));
+		$set(this, sigfile, this->sigfile->toUpperCase($Locale::ENGLISH));
 	}
-	$var($StringBuilder, tmpSigFile, $new($StringBuilder, $nc(this->sigfile)->length()));
-	for (int32_t j = 0; j < $nc(this->sigfile)->length(); ++j) {
-		char16_t c = $nc(this->sigfile)->charAt(j);
+	$var($StringBuilder, tmpSigFile, $new($StringBuilder, this->sigfile->length()));
+	for (int32_t j = 0; j < this->sigfile->length(); ++j) {
+		char16_t c = this->sigfile->charAt(j);
 		if (!((c >= u'A' && c <= u'Z') || (c >= u'0' && c <= u'9') || (c == u'-') || (c == u'_'))) {
 			if (aliasUsed) {
 				c = u'_';
@@ -2126,10 +1925,10 @@ void Main::signJar($String* jarName, $String* alias) {
 	} catch ($IOException& ioe) {
 		error($$str({$($nc(Main::rb)->getString("unable.to.open.jar.file."_s)), jarName}), ioe);
 	}
-	$var($CertPath, cp, $nc($($CertificateFactory::getInstance("X.509"_s)))->generateCertPath($($Arrays::asList(this->certChain))));
+	$var($CertPath, cp, $$nc($CertificateFactory::getInstance("X.509"_s))->generateCertPath($($Arrays::asList(this->certChain))));
 	$var($JarSigner$Builder, builder, $new($JarSigner$Builder, this->privateKey, cp));
 	if (this->verbose != nullptr) {
-		builder->eventHandler(static_cast<$BiConsumer*>($$new(Main$$Lambda$lambda$signJar$1$2)));
+		builder->eventHandler($$new(Main$$Lambda$lambda$signJar$1$2));
 	}
 	if (this->digestalg != nullptr) {
 		builder->digestAlgorithm(this->digestalg);
@@ -2148,10 +1947,12 @@ void Main::signJar($String* jarName, $String* alias) {
 		if (this->verbose != nullptr) {
 			$nc($System::out)->println($($nc(Main::rb)->getString("requesting.a.signature.timestamp"_s)));
 			if (this->tsaUrl != nullptr) {
-				$nc($System::out)->println($$str({$($nc(Main::rb)->getString("TSA.location."_s)), this->tsaUrl}));
+				$System::out->println($$str({$(Main::rb->getString("TSA.location."_s)), this->tsaUrl}));
 			} else if (tsaCert != nullptr) {
-				$var($String, var$0, $($nc(Main::rb)->getString("TSA.certificate."_s)));
-				$nc($System::out)->println($$concat(var$0, $(printCert(true, ""_s, tsaCert, nullptr, false))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(Main::rb->getString("TSA.certificate."_s)));
+				var$0->append($(printCert(true, ""_s, tsaCert, nullptr, false)));
+				$System::out->println($$str(var$0));
 			}
 		}
 		builder->tsa(tsaURI);
@@ -2182,47 +1983,47 @@ void Main::signJar($String* jarName, $String* alias) {
 	}
 	$var($Throwable, failedCause, nullptr);
 	$var($String, failedMessage, nullptr);
-	{
-		$var($Throwable, var$1, nullptr);
+	$var($Throwable, var$1, nullptr);
+	try {
 		try {
-			try {
-				$init($Event$ReporterCategory);
-				$Event::setReportListener($Event$ReporterCategory::ZIPFILEATTRS, static_cast<$Event$Reporter*>($$new(Main$$Lambda$lambda$signJar$2$3)));
-				$nc($(builder->build()))->sign(this->zipFile, fos);
-			} catch ($JarSignerException& e) {
-				$assign(failedCause, e->getCause());
-				if ($instanceOf($SocketTimeoutException, failedCause) || $instanceOf($UnknownHostException, failedCause)) {
-					$var($String, var$5, $($nc(Main::rb)->getString("unable.to.sign.jar."_s)));
-					$var($String, var$4, $$concat(var$5, $($nc(Main::rb)->getString("no.response.from.the.Timestamping.Authority."_s))));
-					$var($String, var$3, $$concat(var$4, "\n  -J-Dhttp.proxyHost=<hostname>\n  -J-Dhttp.proxyPort=<portnumber>\n"_s));
-					$var($String, var$2, $$concat(var$3, $($nc(Main::rb)->getString("or"_s))));
-					$assign(failedMessage, $concat(var$2, "\n  -J-Dhttps.proxyHost=<hostname> \n  -J-Dhttps.proxyPort=<portnumber> "_s));
-				} else {
-					if (failedCause == nullptr) {
-						$assign(failedCause, e);
-					}
-					$assign(failedMessage, $str({$($nc(Main::rb)->getString("unable.to.sign.jar."_s)), failedCause}));
+			$init($Event$ReporterCategory);
+			$Event::setReportListener($Event$ReporterCategory::ZIPFILEATTRS, $$new(Main$$Lambda$lambda$signJar$2$3));
+			$$nc(builder->build())->sign(this->zipFile, fos);
+		} catch ($JarSignerException& e) {
+			$assign(failedCause, e->getCause());
+			if ($instanceOf($SocketTimeoutException, failedCause) || $instanceOf($UnknownHostException, failedCause)) {
+				$var($StringBuilder, var$2, $new($StringBuilder));
+				var$2->append($($nc(Main::rb)->getString("unable.to.sign.jar."_s)));
+				var$2->append($(Main::rb->getString("no.response.from.the.Timestamping.Authority."_s)));
+				var$2->append("\n  -J-Dhttp.proxyHost=<hostname>\n  -J-Dhttp.proxyPort=<portnumber>\n"_s);
+				var$2->append($(Main::rb->getString("or"_s)));
+				var$2->append("\n  -J-Dhttps.proxyHost=<hostname> \n  -J-Dhttps.proxyPort=<portnumber> "_s);
+				$assign(failedMessage, $str(var$2));
+			} else {
+				if (failedCause == nullptr) {
+					$assign(failedCause, e);
 				}
-			} catch ($Exception& e) {
-				$assign(failedCause, e);
 				$assign(failedMessage, $str({$($nc(Main::rb)->getString("unable.to.sign.jar."_s)), failedCause}));
 			}
-		} catch ($Throwable& var$6) {
-			$assign(var$1, var$6);
-		} /*finally*/ {
-			if (this->zipFile != nullptr) {
-				$nc(this->zipFile)->close();
-				$set(this, zipFile, nullptr);
-			}
-			if (fos != nullptr) {
-				fos->close();
-			}
-			$init($Event$ReporterCategory);
-			$Event::clearReportListener($Event$ReporterCategory::ZIPFILEATTRS);
+		} catch ($Exception& e) {
+			$assign(failedCause, e);
+			$assign(failedMessage, $str({$($nc(Main::rb)->getString("unable.to.sign.jar."_s)), failedCause}));
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+	} catch ($Throwable& var$3) {
+		$assign(var$1, var$3);
+	} /*finally*/ {
+		if (this->zipFile != nullptr) {
+			this->zipFile->close();
+			$set(this, zipFile, nullptr);
 		}
+		if (fos != nullptr) {
+			fos->close();
+		}
+		$init($Event$ReporterCategory);
+		$Event::clearReportListener($Event$ReporterCategory::ZIPFILEATTRS);
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 	if (failedCause != nullptr) {
 		signedJarFile->delete$();
@@ -2233,42 +2034,40 @@ void Main::signJar($String* jarName, $String* alias) {
 	}
 	try {
 		$var($JarFile, check, $new($JarFile, signedJarFile));
-		{
-			$var($Throwable, var$7, nullptr);
+		$var($Throwable, var$4, nullptr);
+		try {
 			try {
+				$var($PKCS7, p7, $new($PKCS7, $(check->getInputStream($(check->getEntry($$str({"META-INF/"_s, this->sigfile, "."_s, $($SignatureFileVerifier::getBlockExtension(this->privateKey))})))))));
+				$var($Timestamp, ts, nullptr);
 				try {
-					$var($PKCS7, p7, $new($PKCS7, $(check->getInputStream($(check->getEntry($$str({"META-INF/"_s, this->sigfile, "."_s, $($SignatureFileVerifier::getBlockExtension(this->privateKey))})))))));
-					$var($Timestamp, ts, nullptr);
-					try {
-						$var($SignerInfo, si, $nc($(p7->getSignerInfos()))->get(0));
-						if ($nc(si)->getTsToken() != nullptr) {
-							this->hasTimestampBlock = true;
-						}
-						$assign(ts, $nc(si)->getTimestamp());
-					} catch ($Exception& e) {
-						this->tsaChainNotValidated = true;
-						$set(this, tsaChainNotValidatedReason, e);
+					$var($SignerInfo, si, $nc($(p7->getSignerInfos()))->get(0));
+					if ($nc(si)->getTsToken() != nullptr) {
+						this->hasTimestampBlock = true;
 					}
-					$var($String, result, certsAndTSInfo(""_s, "    "_s, $($Arrays::asList(this->certChain)), ts));
-					if (this->verbose != nullptr) {
-						$nc($System::out)->println(result);
-					}
-				} catch ($Throwable& t$) {
-					try {
-						check->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					$assign(ts, si->getTimestamp());
+				} catch ($Exception& e) {
+					this->tsaChainNotValidated = true;
+					$set(this, tsaChainNotValidatedReason, e);
 				}
-			} catch ($Throwable& var$8) {
-				$assign(var$7, var$8);
-			} /*finally*/ {
-				check->close();
+				$var($String, result, certsAndTSInfo(""_s, "    "_s, $($Arrays::asList(this->certChain)), ts));
+				if (this->verbose != nullptr) {
+					$nc($System::out)->println(result);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					check->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$7 != nullptr) {
-				$throw(var$7);
-			}
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
+		} /*finally*/ {
+			check->close();
+		}
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	} catch ($Exception& e) {
 		if (this->debug) {
@@ -2284,16 +2083,16 @@ void Main::signJar($String* jarName, $String* alias) {
 				} else {
 					$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("attempt.to.rename.signedJarFile.to.jarFile.failed"_s))));
 					$var($ObjectArray, source, $new($ObjectArray, {
-						$of(signedJarFile),
-						$of(jarFile)
+						signedJarFile,
+						jarFile
 					}));
 					error($(form->format(source)));
 				}
 			} else {
 				$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("attempt.to.rename.jarFile.to.origJar.failed"_s))));
 				$var($ObjectArray, source, $new($ObjectArray, {
-					$of(jarFile),
-					$of(origJar)
+					jarFile,
+					origJar
 				}));
 				error($(form->format(source)));
 			}
@@ -2307,11 +2106,11 @@ bool Main::signatureRelated($String* name) {
 }
 
 $String* Main::signerInfo($CodeSigner* signer, $String* tab) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->cacheForSignerInfo)->containsKey(signer)) {
-		return $cast($String, $nc(this->cacheForSignerInfo)->get(signer));
+		return $cast($String, this->cacheForSignerInfo->get(signer));
 	}
-	$var($List, certs, $nc($($nc(signer)->getSignerCertPath()))->getCertificates());
+	$var($List, certs, $$nc($nc(signer)->getSignerCertPath())->getCertificates());
 	$var($Timestamp, ts, signer->getTimestamp());
 	$var($String, tsLine, ""_s);
 	if (ts != nullptr) {
@@ -2323,7 +2122,7 @@ $String* Main::signerInfo($CodeSigner* signer, $String* tab) {
 }
 
 $String* Main::certsAndTSInfo($String* tab1, $String* tab2, $List* certs, $Timestamp* ts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Date, timestamp, nullptr);
 	if (ts != nullptr) {
 		$assign(timestamp, ts->getTimestamp());
@@ -2351,12 +2150,12 @@ $String* Main::certsAndTSInfo($String* tab1, $String* tab2, $List* certs, $Times
 	} catch ($Exception& e) {
 		this->chainNotValidated = true;
 		$set(this, chainNotValidatedReason, e);
-		sb->append(tab2)->append($($nc(Main::rb)->getString(".Invalid.certificate.chain."_s)))->append($(e->getLocalizedMessage()))->append("]\n"_s);
+		sb->append(tab2)->append($(Main::rb->getString(".Invalid.certificate.chain."_s)))->append($(e->getLocalizedMessage()))->append("]\n"_s);
 	}
 	if (ts != nullptr) {
-		sb->append(tab1)->append($($nc(Main::rb)->getString("...TSA"_s)))->append(u'\n');
+		sb->append(tab1)->append($(Main::rb->getString("...TSA"_s)))->append(u'\n');
 		{
-			$var($Iterator, i$, $nc($($nc($(ts->getSignerCertPath()))->getCertificates()))->iterator());
+			$var($Iterator, i$, $$nc($$nc(ts->getSignerCertPath())->getCertificates())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Certificate, c, $cast($Certificate, i$->next()));
 				{
@@ -2367,22 +2166,22 @@ $String* Main::certsAndTSInfo($String* tab1, $String* tab2, $List* certs, $Times
 		}
 		try {
 			$init($Validator);
-			validateCertChain($Validator::VAR_TSA_SERVER, $($nc($(ts->getSignerCertPath()))->getCertificates()), nullptr);
+			validateCertChain($Validator::VAR_TSA_SERVER, $($$nc(ts->getSignerCertPath())->getCertificates()), nullptr);
 		} catch ($Exception& e) {
 			this->tsaChainNotValidated = true;
 			$set(this, tsaChainNotValidatedReason, e);
-			sb->append(tab2)->append($($nc(Main::rb)->getString(".Invalid.TSA.certificate.chain."_s)))->append($(e->getLocalizedMessage()))->append("]\n"_s);
+			sb->append(tab2)->append($(Main::rb->getString(".Invalid.TSA.certificate.chain."_s)))->append($(e->getLocalizedMessage()))->append("]\n"_s);
 		}
 	}
 	bool var$0 = certs->size() == 1;
-	if (var$0 && $KeyStoreUtil::isSelfSigned($cast($X509Certificate, $(certs->get(0))))) {
+	if (var$0 && $KeyStoreUtil::isSelfSigned($$cast($X509Certificate, certs->get(0)))) {
 		this->signerSelfSigned = true;
 	}
 	return sb->toString();
 }
 
 void Main::loadKeyStore($String* keyStoreName$renamed, bool prompt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyStoreName, keyStoreName$renamed);
 	if (!this->nullStream && keyStoreName == nullptr) {
 		$init($File);
@@ -2396,7 +2195,7 @@ void Main::loadKeyStore($String* keyStoreName$renamed, bool prompt) {
 				while ($nc(aliases)->hasMoreElements()) {
 					$var($String, a, $cast($String, aliases->nextElement()));
 					try {
-						$nc(this->trustedCerts)->add($cast($X509Certificate, $(caks->getCertificate(a))));
+						$nc(this->trustedCerts)->add($$cast($X509Certificate, caks->getCertificate(a)));
 					} catch ($Exception& e2) {
 					}
 				}
@@ -2413,89 +2212,95 @@ void Main::loadKeyStore($String* keyStoreName$renamed, bool prompt) {
 		} else if (!this->token && this->storepass == nullptr && prompt) {
 			$set(this, storepass, getPass($($nc(Main::rb)->getString("Enter.Passphrase.for.keystore."_s))));
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (this->nullStream) {
-					$nc(this->store)->load(nullptr, this->storepass);
-				} else {
-					$init($File);
-					$assign(keyStoreName, $nc(keyStoreName)->replace($File::separatorChar, u'/'));
-					$var($URL, url, nullptr);
-					try {
-						$assign(url, $new($URL, keyStoreName));
-					} catch ($MalformedURLException& e) {
-						$assign(url, $nc($($$new($File, keyStoreName)->toURI()))->toURL());
-					}
-					$var($InputStream, is, nullptr);
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							$assign(is, $nc(url)->openStream());
-							$nc(this->store)->load(is, this->storepass);
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							if (is != nullptr) {
-								is->close();
-							}
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				}
-				$var($Enumeration, aliases, $nc(this->store)->aliases());
-				while ($nc(aliases)->hasMoreElements()) {
-					$var($String, a, $cast($String, aliases->nextElement()));
-					try {
-						$var($X509Certificate, c, $cast($X509Certificate, $nc(this->store)->getCertificate(a)));
-						bool var$3 = $nc(this->store)->isCertificateEntry(a);
-						if (var$3 || $nc($($nc(c)->getSubjectX500Principal()))->equals($(c->getIssuerX500Principal()))) {
-							$nc(this->trustedCerts)->add(c);
-						}
-					} catch ($Exception& e2) {
-					}
-				}
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} /*finally*/ {
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (this->nullStream) {
+				$nc(this->store)->load(nullptr, this->storepass);
+			} else {
+				$init($File);
+				$assign(keyStoreName, $nc(keyStoreName)->replace($File::separatorChar, u'/'));
+				$var($URL, url, nullptr);
 				try {
-					$set(this, pkixParameters, $new($PKIXBuilderParameters, $cast($Set, $($nc($($nc($($nc(this->trustedCerts)->stream()))->map(static_cast<$Function*>($$new(Main$$Lambda$lambda$loadKeyStore$3$4)))))->collect($($Collectors::toSet())))), ($CertSelector*)nullptr));
-					if (this->revocationCheck) {
-						$Security::setProperty("ocsp.enable"_s, "true"_s);
-						$System::setProperty("com.sun.security.enableCRLDP"_s, "true"_s);
-						$init($Event$ReporterCategory);
-						$Event::setReportListener($Event$ReporterCategory::CRLCHECK, static_cast<$Event$Reporter*>($$new(Main$$Lambda$lambda$loadKeyStore$4$5)));
+					$assign(url, $new($URL, keyStoreName));
+				} catch ($MalformedURLException& e) {
+					$assign(url, $$nc($$new($File, keyStoreName)->toURI())->toURL());
+				}
+				$var($InputStream, is, nullptr);
+				$var($Throwable, var$1, nullptr);
+				try {
+					$assign(is, $nc(url)->openStream());
+					$nc(this->store)->load(is, this->storepass);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					if (is != nullptr) {
+						is->close();
 					}
-					$nc(this->pkixParameters)->setRevocationEnabled(this->revocationCheck);
-				} catch ($InvalidAlgorithmParameterException& ex) {
+				}
+				if (var$1 != nullptr) {
+					$throw(var$1);
 				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			$var($Enumeration, aliases, $nc(this->store)->aliases());
+			while ($nc(aliases)->hasMoreElements()) {
+				$var($String, a, $cast($String, aliases->nextElement()));
+				try {
+					$var($X509Certificate, c, $cast($X509Certificate, $nc(this->store)->getCertificate(a)));
+					bool var$3 = this->store->isCertificateEntry(a);
+					if (var$3 || $$nc($nc(c)->getSubjectX500Principal())->equals($($nc(c)->getIssuerX500Principal()))) {
+						$nc(this->trustedCerts)->add(c);
+					}
+				} catch ($Exception& e2) {
+				}
+			}
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} /*finally*/ {
+			try {
+				$set(this, pkixParameters, $new($PKIXBuilderParameters, $$cast($Set, $$nc($$nc($nc(this->trustedCerts)->stream())->map($$new(Main$$Lambda$lambda$loadKeyStore$3$4)))->collect($($Collectors::toSet()))), nullptr));
+				if (this->revocationCheck) {
+					$Security::setProperty("ocsp.enable"_s, "true"_s);
+					$System::setProperty("com.sun.security.enableCRLDP"_s, "true"_s);
+					$init($Event$ReporterCategory);
+					$Event::setReportListener($Event$ReporterCategory::CRLCHECK, $$new(Main$$Lambda$lambda$loadKeyStore$4$5));
+				}
+				$nc(this->pkixParameters)->setRevocationEnabled(this->revocationCheck);
+			} catch ($InvalidAlgorithmParameterException& ex) {
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
 	} catch ($IOException& ioe) {
-		$var($String, var$5, $($nc(Main::rb)->getString("keystore.load."_s)));
-		$throwNew($RuntimeException, $$concat(var$5, $(ioe->getMessage())));
+		$var($StringBuilder, var$5, $new($StringBuilder));
+		var$5->append($($nc(Main::rb)->getString("keystore.load."_s)));
+		var$5->append($(ioe->getMessage()));
+		$throwNew($RuntimeException, $$str(var$5));
 	} catch ($CertificateException& ce) {
-		$var($String, var$6, $($nc(Main::rb)->getString("certificate.exception."_s)));
-		$throwNew($RuntimeException, $$concat(var$6, $(ce->getMessage())));
+		$var($StringBuilder, var$6, $new($StringBuilder));
+		var$6->append($($nc(Main::rb)->getString("certificate.exception."_s)));
+		var$6->append($(ce->getMessage()));
+		$throwNew($RuntimeException, $$str(var$6));
 	} catch ($NoSuchProviderException& pe) {
-		$var($String, var$7, $($nc(Main::rb)->getString("keystore.load."_s)));
-		$throwNew($RuntimeException, $$concat(var$7, $(pe->getMessage())));
+		$var($StringBuilder, var$7, $new($StringBuilder));
+		var$7->append($($nc(Main::rb)->getString("keystore.load."_s)));
+		var$7->append($(pe->getMessage()));
+		$throwNew($RuntimeException, $$str(var$7));
 	} catch ($NoSuchAlgorithmException& nsae) {
-		$var($String, var$8, $($nc(Main::rb)->getString("keystore.load."_s)));
-		$throwNew($RuntimeException, $$concat(var$8, $(nsae->getMessage())));
+		$var($StringBuilder, var$8, $new($StringBuilder));
+		var$8->append($($nc(Main::rb)->getString("keystore.load."_s)));
+		var$8->append($(nsae->getMessage()));
+		$throwNew($RuntimeException, $$str(var$8));
 	} catch ($KeyStoreException& kse) {
-		$var($String, var$9, $($nc(Main::rb)->getString("unable.to.instantiate.keystore.class."_s)));
-		$throwNew($RuntimeException, $$concat(var$9, $(kse->getMessage())));
+		$var($StringBuilder, var$9, $new($StringBuilder));
+		var$9->append($($nc(Main::rb)->getString("unable.to.instantiate.keystore.class."_s)));
+		var$9->append($(kse->getMessage()));
+		$throwNew($RuntimeException, $$str(var$9));
 	}
 }
 
 $X509Certificate* Main::getTsaCert($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Certificate, cs, nullptr);
 	try {
 		$assign(cs, $nc(this->store)->getCertificate(alias));
@@ -2504,8 +2309,8 @@ $X509Certificate* Main::getTsaCert($String* alias) {
 	if (cs == nullptr || (!($instanceOf($X509Certificate, cs)))) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Certificate.not.found.for.alias.alias.must.reference.a.valid.KeyStore.entry.containing.an.X.509.public.key.certificate.for.the"_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {
-			$of(alias),
-			$of(alias)
+			alias,
+			alias
 		}));
 		error($(form->format(source)));
 	}
@@ -2513,7 +2318,7 @@ $X509Certificate* Main::getTsaCert($String* alias) {
 }
 
 void Main::checkCertUsage($X509Certificate* userCert, $booleans* bad) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bad != nullptr) {
 		bad->set(0, bad->set(1, bad->set(2, false)));
 	}
@@ -2545,9 +2350,8 @@ void Main::checkCertUsage($X509Certificate* userCert, $booleans* bad) {
 		if (netscapeEx != nullptr) {
 			$var($DerInputStream, in, $new($DerInputStream, netscapeEx));
 			$var($bytes, encoded, in->getOctetString());
-			$assign(encoded, $nc($($$new($DerValue, encoded)->getUnalignedBitString()))->toByteArray());
+			$assign(encoded, $$nc($$new($DerValue, encoded)->getUnalignedBitString())->toByteArray());
 			$var($NetscapeCertTypeExtension, extn, $new($NetscapeCertTypeExtension, encoded));
-			$init($NetscapeCertTypeExtension);
 			$var($Boolean, val, $cast($Boolean, extn->get($NetscapeCertTypeExtension::OBJECT_SIGNING)));
 			if (!$nc(val)->booleanValue()) {
 				if (bad != nullptr) {
@@ -2561,34 +2365,32 @@ void Main::checkCertUsage($X509Certificate* userCert, $booleans* bad) {
 }
 
 void Main::getAliasInfo($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Key, key, nullptr);
 	try {
 		$var($CertificateArray, cs, nullptr);
 		if (this->altCertChain != nullptr) {
 			try {
 				$var($FileInputStream, fis, $new($FileInputStream, this->altCertChain));
-				{
-					$var($Throwable, var$0, nullptr);
+				$var($Throwable, var$0, nullptr);
+				try {
 					try {
+						$assign(cs, $cast($CertificateArray, $$nc($$nc($CertificateFactory::getInstance("X.509"_s))->generateCertificates(fis))->toArray($$new($CertificateArray, 0))));
+					} catch ($Throwable& t$) {
 						try {
-							$assign(cs, $fcast($CertificateArray, $nc($($nc($($CertificateFactory::getInstance("X.509"_s)))->generateCertificates(fis)))->toArray($$new($CertificateArray, 0))));
-						} catch ($Throwable& t$) {
-							try {
-								fis->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-							$throw(t$);
+							fis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						fis->close();
+						$throw(t$);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					fis->close();
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			} catch ($FileNotFoundException& ex) {
 				error($($nc(Main::rb)->getString("File.specified.by.certchain.does.not.exist"_s)));
@@ -2603,14 +2405,14 @@ void Main::getAliasInfo($String* alias) {
 			} catch ($KeyStoreException& kse) {
 			}
 		}
-		if (cs == nullptr || $nc(cs)->length == 0) {
+		if (cs == nullptr || cs->length == 0) {
 			if (this->altCertChain != nullptr) {
 				error($($nc(Main::rb)->getString("Certificate.chain.not.found.in.the.file.specified."_s)));
 			} else {
 				$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Certificate.chain.not.found.for.alias.alias.must.reference.a.valid.KeyStore.key.entry.containing.a.private.key.and"_s))));
 				$var($ObjectArray, source, $new($ObjectArray, {
-					$of(alias),
-					$of(alias)
+					alias,
+					alias
 				}));
 				error($(form->format(source)));
 			}
@@ -2633,7 +2435,7 @@ void Main::getAliasInfo($String* alias) {
 				$throw(e);
 			} else if (this->keypass == nullptr) {
 				$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Enter.key.password.for.alias."_s))));
-				$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
+				$var($ObjectArray, source, $new($ObjectArray, {alias}));
 				$set(this, keypass, getPass($(form->format(source))));
 				$assign(key, $nc(this->store)->getKey(alias, this->keypass));
 			}
@@ -2646,7 +2448,7 @@ void Main::getAliasInfo($String* alias) {
 	}
 	if (!($instanceOf($PrivateKey, key))) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("key.associated.with.alias.not.a.private.key"_s))));
-		$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
+		$var($ObjectArray, source, $new($ObjectArray, {alias}));
 		error($(form->format(source)));
 	} else {
 		$set(this, privateKey, $cast($PrivateKey, key));
@@ -2654,13 +2456,13 @@ void Main::getAliasInfo($String* alias) {
 }
 
 void Main::error($String* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({$($nc(Main::rb)->getString("jarsigner."_s)), message}));
 	$System::exit(1);
 }
 
 void Main::error($String* message, $Throwable* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({$($nc(Main::rb)->getString("jarsigner."_s)), message}));
 	if (this->debug) {
 		$nc(e)->printStackTrace();
@@ -2669,10 +2471,10 @@ void Main::error($String* message, $Throwable* e) {
 }
 
 void Main::validateCertChain($String* variant, $List* certs, $Timestamp* parameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Validator);
-		$nc($($Validator::getInstance($Validator::TYPE_PKIX, variant, this->pkixParameters)))->validate($fcast($X509CertificateArray, $($nc(certs)->toArray($$new($X509CertificateArray, certs->size())))), nullptr, parameter);
+		$$nc($Validator::getInstance($Validator::TYPE_PKIX, variant, this->pkixParameters))->validate($$cast($X509CertificateArray, $nc(certs)->toArray($$new($X509CertificateArray, $nc(certs)->size()))), nullptr, parameter);
 	} catch ($Exception& e) {
 		if (this->debug) {
 			e->printStackTrace();
@@ -2688,7 +2490,7 @@ void Main::validateCertChain($String* variant, $List* certs, $Timestamp* paramet
 				}
 			}
 		}
-		if ($nc(variant)->equals($Validator::VAR_CODE_SIGNING) && $instanceOf($ValidatorException, e)) {
+		if (variant->equals($Validator::VAR_CODE_SIGNING) && $instanceOf($ValidatorException, e)) {
 			bool var$1 = e->getCause() != nullptr;
 			if (var$1 && $instanceOf($CertPathValidatorException, $(e->getCause()))) {
 				$assign(e, $cast($Exception, e->getCause()));
@@ -2710,9 +2512,9 @@ void Main::validateCertChain($String* variant, $List* certs, $Timestamp* paramet
 }
 
 $chars* Main::getPass($String* prompt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->print(prompt);
-	$nc($System::err)->flush();
+	$System::err->flush();
 	try {
 		$var($chars, pass, $Password::readPassword($System::in));
 		if (pass == nullptr) {
@@ -2721,15 +2523,17 @@ $chars* Main::getPass($String* prompt) {
 			return pass;
 		}
 	} catch ($IOException& ioe) {
-		$var($String, var$0, $($nc(Main::rb)->getString("unable.to.read.password."_s)));
-		error($$concat(var$0, $(ioe->getMessage())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($nc(Main::rb)->getString("unable.to.read.password."_s)));
+		var$0->append($(ioe->getMessage()));
+		error($$str(var$0));
 	}
 	return nullptr;
 }
 
 void Main::lambda$loadKeyStore$4($String* t, $ObjectArray* o) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($($String::format($($nc(Main::rb)->getString(t)), o)));
 }
 
@@ -2745,53 +2549,39 @@ void Main::lambda$signJar$2($String* t, $ObjectArray* o) {
 
 void Main::lambda$signJar$1($String* action, $String* file) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($String, s75228$, action);
 		int32_t tmp75228$ = -1;
 		switch ($nc(s75228$)->hashCode()) {
-		case 0x7C788505:
-			{
-				if (s75228$->equals("signing"_s)) {
-					tmp75228$ = 0;
-				}
-				break;
+		case 0x7c788505:
+			if (s75228$->equals("signing"_s)) {
+				tmp75228$ = 0;
 			}
-		case (int32_t)0xAB364FA1:
-			{
-				if (s75228$->equals("adding"_s)) {
-					tmp75228$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xab364fa1:
+			if (s75228$->equals("adding"_s)) {
+				tmp75228$ = 1;
 			}
-		case 0x4ED54746:
-			{
-				if (s75228$->equals("updating"_s)) {
-					tmp75228$ = 2;
-				}
-				break;
+			break;
+		case 0x4ed54746:
+			if (s75228$->equals("updating"_s)) {
+				tmp75228$ = 2;
 			}
+			break;
 		}
 		switch (tmp75228$) {
 		case 0:
-			{
-				$nc($System::out)->println($$str({$($nc(Main::rb)->getString(".signing."_s)), file}));
-				break;
-			}
+			$nc($System::out)->println($$str({$($nc(Main::rb)->getString(".signing."_s)), file}));
+			break;
 		case 1:
-			{
-				$nc($System::out)->println($$str({$($nc(Main::rb)->getString(".adding."_s)), file}));
-				break;
-			}
+			$nc($System::out)->println($$str({$($nc(Main::rb)->getString(".adding."_s)), file}));
+			break;
 		case 2:
-			{
-				$nc($System::out)->println($$str({$($nc(Main::rb)->getString(".updating."_s)), file}));
-				break;
-			}
+			$nc($System::out)->println($$str({$($nc(Main::rb)->getString(".updating."_s)), file}));
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"unknown action: "_s, action}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"unknown action: "_s, action}));
 		}
 	}
 }
@@ -2801,8 +2591,8 @@ bool Main::lambda$parseArgs$0($String* x) {
 	return $nc(Main::collator)->compare(x, "-debug"_s) == 0;
 }
 
-void clinit$Main($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Main::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Main::NONE, "NONE"_s);
 	$assignStatic(Main::P11KEYSTORE, "PKCS11"_s);
 	$assignStatic(Main::VERSION, "1.0"_s);
@@ -2832,26 +2622,170 @@ Main::Main() {
 
 $Class* Main::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Main$$Lambda$lambda$parseArgs$0::classInfo$.name)) {
+		if (name->equals("sun.security.tools.jarsigner.Main$$Lambda$lambda$parseArgs$0")) {
 			return Main$$Lambda$lambda$parseArgs$0::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$println$1::classInfo$.name)) {
+		if (name->equals("sun.security.tools.jarsigner.Main$$Lambda$println$1")) {
 			return Main$$Lambda$println$1::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$signJar$1$2::classInfo$.name)) {
+		if (name->equals("sun.security.tools.jarsigner.Main$$Lambda$lambda$signJar$1$2")) {
 			return Main$$Lambda$lambda$signJar$1$2::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$signJar$2$3::classInfo$.name)) {
+		if (name->equals("sun.security.tools.jarsigner.Main$$Lambda$lambda$signJar$2$3")) {
 			return Main$$Lambda$lambda$signJar$2$3::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$loadKeyStore$3$4::classInfo$.name)) {
+		if (name->equals("sun.security.tools.jarsigner.Main$$Lambda$lambda$loadKeyStore$3$4")) {
 			return Main$$Lambda$lambda$loadKeyStore$3$4::load$(name, initialize);
 		}
-		if (name->equals(Main$$Lambda$lambda$loadKeyStore$4$5::classInfo$.name)) {
+		if (name->equals("sun.security.tools.jarsigner.Main$$Lambda$lambda$loadKeyStore$4$5")) {
 			return Main$$Lambda$lambda$loadKeyStore$4$5::load$(name, initialize);
 		}
 	}
-	$loadClass(Main, name, initialize, &_Main_ClassInfo_, clinit$Main, allocate$Main);
+	$FieldInfo fieldInfos$$[] = {
+		{"rb", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, rb)},
+		{"collator", "Ljava/text/Collator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, collator)},
+		{"NONE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, NONE)},
+		{"P11KEYSTORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, P11KEYSTORE)},
+		{"SIX_MONTHS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, SIX_MONTHS)},
+		{"ONE_YEAR", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, ONE_YEAR)},
+		{"JAR_DISABLED_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, JAR_DISABLED_CHECK)},
+		{"CERTPATH_DISABLED_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, CERTPATH_DISABLED_CHECK)},
+		{"LEGACY_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, LEGACY_CHECK)},
+		{"DIGEST_PRIMITIVE_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Main, DIGEST_PRIMITIVE_SET)},
+		{"SIG_PRIMITIVE_SET", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/CryptoPrimitive;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Main, SIG_PRIMITIVE_SET)},
+		{"extraAttrsDetected", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Main, extraAttrsDetected)},
+		{"VERSION", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Main, VERSION)},
+		{"IN_KEYSTORE", "I", nullptr, $STATIC | $FINAL, $constField(Main, IN_KEYSTORE)},
+		{"NOT_ALIAS", "I", nullptr, $STATIC | $FINAL, $constField(Main, NOT_ALIAS)},
+		{"SIGNED_BY_ALIAS", "I", nullptr, $STATIC | $FINAL, $constField(Main, SIGNED_BY_ALIAS)},
+		{"JUZFA", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $STATIC | $FINAL, $staticField(Main, JUZFA)},
+		{"certChain", "[Ljava/security/cert/X509Certificate;", nullptr, 0, $field(Main, certChain)},
+		{"privateKey", "Ljava/security/PrivateKey;", nullptr, 0, $field(Main, privateKey)},
+		{"store", "Ljava/security/KeyStore;", nullptr, 0, $field(Main, store)},
+		{"keystore", "Ljava/lang/String;", nullptr, 0, $field(Main, keystore)},
+		{"nullStream", "Z", nullptr, 0, $field(Main, nullStream)},
+		{"token", "Z", nullptr, 0, $field(Main, token)},
+		{"jarfile", "Ljava/lang/String;", nullptr, 0, $field(Main, jarfile)},
+		{"alias", "Ljava/lang/String;", nullptr, 0, $field(Main, alias)},
+		{"ckaliases", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Main, ckaliases)},
+		{"storepass", "[C", nullptr, 0, $field(Main, storepass)},
+		{"protectedPath", "Z", nullptr, 0, $field(Main, protectedPath)},
+		{"storetype", "Ljava/lang/String;", nullptr, 0, $field(Main, storetype)},
+		{"providerName", "Ljava/lang/String;", nullptr, 0, $field(Main, providerName)},
+		{"providers", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Main, providers)},
+		{"providerClasses", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(Main, providerClasses)},
+		{"providerArgs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(Main, providerArgs)},
+		{"keypass", "[C", nullptr, 0, $field(Main, keypass)},
+		{"sigfile", "Ljava/lang/String;", nullptr, 0, $field(Main, sigfile)},
+		{"sigalg", "Ljava/lang/String;", nullptr, 0, $field(Main, sigalg)},
+		{"digestalg", "Ljava/lang/String;", nullptr, 0, $field(Main, digestalg)},
+		{"signedjar", "Ljava/lang/String;", nullptr, 0, $field(Main, signedjar)},
+		{"tsaUrl", "Ljava/lang/String;", nullptr, 0, $field(Main, tsaUrl)},
+		{"tsaAlias", "Ljava/lang/String;", nullptr, 0, $field(Main, tsaAlias)},
+		{"altCertChain", "Ljava/lang/String;", nullptr, 0, $field(Main, altCertChain)},
+		{"tSAPolicyID", "Ljava/lang/String;", nullptr, 0, $field(Main, tSAPolicyID)},
+		{"tSADigestAlg", "Ljava/lang/String;", nullptr, 0, $field(Main, tSADigestAlg)},
+		{"verify", "Z", nullptr, 0, $field(Main, verify)},
+		{"verbose", "Ljava/lang/String;", nullptr, 0, $field(Main, verbose)},
+		{"showcerts", "Z", nullptr, 0, $field(Main, showcerts)},
+		{"debug", "Z", nullptr, 0, $field(Main, debug)},
+		{"signManifest", "Z", nullptr, 0, $field(Main, signManifest)},
+		{"externalSF", "Z", nullptr, 0, $field(Main, externalSF)},
+		{"strict", "Z", nullptr, 0, $field(Main, strict)},
+		{"revocationCheck", "Z", nullptr, 0, $field(Main, revocationCheck)},
+		{"altSignerClass", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, altSignerClass)},
+		{"altSignerClasspath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, altSignerClasspath)},
+		{"zipFile", "Ljava/util/zip/ZipFile;", nullptr, $PRIVATE, $field(Main, zipFile)},
+		{"hasExpiringCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiringCert)},
+		{"hasExpiringTsaCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiringTsaCert)},
+		{"noTimestamp", "Z", nullptr, $PRIVATE, $field(Main, noTimestamp)},
+		{"expireDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(Main, expireDate)},
+		{"tsaExpireDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(Main, tsaExpireDate)},
+		{"hasTimestampBlock", "Z", nullptr, 0, $field(Main, hasTimestampBlock)},
+		{"weakPublicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(Main, weakPublicKey)},
+		{"disabledAlgFound", "Z", nullptr, $PRIVATE, $field(Main, disabledAlgFound)},
+		{"legacyDigestAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, legacyDigestAlg)},
+		{"legacyTsaDigestAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, legacyTsaDigestAlg)},
+		{"legacySigAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Main, legacySigAlg)},
+		{"legacyAlg", "I", nullptr, $PRIVATE, $field(Main, legacyAlg)},
+		{"disabledAlg", "I", nullptr, $PRIVATE, $field(Main, disabledAlg)},
+		{"hasExpiredCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiredCert)},
+		{"hasExpiredTsaCert", "Z", nullptr, $PRIVATE, $field(Main, hasExpiredTsaCert)},
+		{"notYetValidCert", "Z", nullptr, $PRIVATE, $field(Main, notYetValidCert)},
+		{"chainNotValidated", "Z", nullptr, $PRIVATE, $field(Main, chainNotValidated)},
+		{"tsaChainNotValidated", "Z", nullptr, $PRIVATE, $field(Main, tsaChainNotValidated)},
+		{"notSignedByAlias", "Z", nullptr, $PRIVATE, $field(Main, notSignedByAlias)},
+		{"aliasNotInStore", "Z", nullptr, $PRIVATE, $field(Main, aliasNotInStore)},
+		{"hasUnsignedEntry", "Z", nullptr, $PRIVATE, $field(Main, hasUnsignedEntry)},
+		{"badKeyUsage", "Z", nullptr, $PRIVATE, $field(Main, badKeyUsage)},
+		{"badExtendedKeyUsage", "Z", nullptr, $PRIVATE, $field(Main, badExtendedKeyUsage)},
+		{"badNetscapeCertType", "Z", nullptr, $PRIVATE, $field(Main, badNetscapeCertType)},
+		{"signerSelfSigned", "Z", nullptr, $PRIVATE, $field(Main, signerSelfSigned)},
+		{"chainNotValidatedReason", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(Main, chainNotValidatedReason)},
+		{"tsaChainNotValidatedReason", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(Main, tsaChainNotValidatedReason)},
+		{"pkixParameters", "Ljava/security/cert/PKIXBuilderParameters;", nullptr, 0, $field(Main, pkixParameters)},
+		{"trustedCerts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;", 0, $field(Main, trustedCerts)},
+		{"validityTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, validityTimeForm)},
+		{"notYetTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, notYetTimeForm)},
+		{"expiredTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, expiredTimeForm)},
+		{"expiringTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, expiringTimeForm)},
+		{"signTimeForm", "Ljava/text/MessageFormat;", nullptr, $PRIVATE | $STATIC, $staticField(Main, signTimeForm)},
+		{"cacheForInKS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/CodeSigner;Ljava/lang/Integer;>;", $PRIVATE, $field(Main, cacheForInKS)},
+		{"storeHash", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/security/cert/Certificate;Ljava/lang/String;>;", 0, $field(Main, storeHash)},
+		{"cacheForSignerInfo", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/CodeSigner;Ljava/lang/String;>;", 0, $field(Main, cacheForSignerInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
+		{"certsAndTSInfo", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)Ljava/lang/String;", $PRIVATE, $method(Main, certsAndTSInfo, $String*, $String*, $String*, $List*, $Timestamp*), "java.lang.Exception"},
+		{"checkCertUsage", "(Ljava/security/cert/X509Certificate;[Z)V", nullptr, 0, $virtualMethod(Main, checkCertUsage, void, $X509Certificate*, $booleans*)},
+		{"checkWeakAlg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkWeakAlg, $String*, $String*)},
+		{"checkWeakKey", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkWeakKey, $String*, $PublicKey*)},
+		{"checkWeakSign", "(Ljava/lang/String;Ljava/util/Set;Z)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)V", $PRIVATE, $method(Main, checkWeakSign, void, $String*, $Set*, bool)},
+		{"checkWeakSign", "(Ljava/security/PrivateKey;)V", nullptr, $PRIVATE, $method(Main, checkWeakSign, void, $PrivateKey*)},
+		{"displayMessagesAndResult", "(Z)V", nullptr, $PRIVATE, $method(Main, displayMessagesAndResult, void, bool)},
+		{"error", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*)},
+		{"error", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*, $Throwable*)},
+		{"fullusage", "()V", nullptr, $STATIC, $staticMethod(Main, fullusage, void)},
+		{"getAliasInfo", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, getAliasInfo, void, $String*), "java.lang.Exception"},
+		{"getPass", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $STATIC, $staticMethod(Main, getPass, $chars*, $String*, $String*)},
+		{"getPass", "(Ljava/lang/String;)[C", nullptr, 0, $virtualMethod(Main, getPass, $chars*, $String*)},
+		{"getTsaCert", "(Ljava/lang/String;)Ljava/security/cert/X509Certificate;", nullptr, 0, $virtualMethod(Main, getTsaCert, $X509Certificate*, $String*)},
+		{"inKeyStore", "([Ljava/security/CodeSigner;)I", nullptr, 0, $virtualMethod(Main, inKeyStore, int32_t, $CodeSignerArray*)},
+		{"inKeyStoreForOneSigner", "(Ljava/security/CodeSigner;)I", nullptr, $PRIVATE, $method(Main, inKeyStoreForOneSigner, int32_t, $CodeSigner*)},
+		{"lambda$loadKeyStore$3", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$loadKeyStore$3, $TrustAnchor*, $X509Certificate*)},
+		{"lambda$loadKeyStore$4", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$loadKeyStore$4, void, $String*, $ObjectArray*)},
+		{"lambda$parseArgs$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$parseArgs$0, bool, $String*)},
+		{"lambda$signJar$1", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$signJar$1, void, $String*, $String*)},
+		{"lambda$signJar$2", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$signJar$2, void, $String*, $ObjectArray*)},
+		{"loadKeyStore", "(Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(Main, loadKeyStore, void, $String*, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
+		{"parseArgs", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(Main, parseArgs, $StringArray*, $StringArray*), "java.lang.Exception"},
+		{"printCert", "(ZLjava/lang/String;Ljava/security/cert/Certificate;Ljava/util/Date;Z)Ljava/lang/String;", nullptr, 0, $virtualMethod(Main, printCert, $String*, bool, $String*, $Certificate*, $Date*, bool), "java.lang.Exception"},
+		{"printTimestamp", "(Ljava/lang/String;Ljava/security/Timestamp;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, printTimestamp, $String*, $String*, $Timestamp*)},
+		{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main, run, void, $StringArray*)},
+		{"signJar", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, signJar, void, $String*, $String*), "java.lang.Exception"},
+		{"signatureRelated", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Main, signatureRelated, bool, $String*)},
+		{"signerInfo", "(Ljava/security/CodeSigner;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, signerInfo, $String*, $CodeSigner*, $String*), "java.lang.Exception"},
+		{"usage", "()V", nullptr, $STATIC, $staticMethod(Main, usage, void)},
+		{"usageNoArg", "()V", nullptr, $STATIC, $staticMethod(Main, usageNoArg, void)},
+		{"validateCertChain", "(Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)V", "(Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)V", 0, $virtualMethod(Main, validateCertChain, void, $String*, $List*, $Timestamp*), "java.lang.Exception"},
+		{"verifyJar", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, verifyJar, void, $String*), "java.lang.Exception"},
+		{"verifyWithWeak", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)Ljava/lang/String;", $PRIVATE, $method(Main, verifyWithWeak, $String*, $String*, $Set*, bool)},
+		{"verifyWithWeak", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, verifyWithWeak, $String*, $PublicKey*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.tools.jarsigner.Main",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Main, name, initialize, &classInfo$$, Main::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Main);
+	});
 	return class$;
 }
 

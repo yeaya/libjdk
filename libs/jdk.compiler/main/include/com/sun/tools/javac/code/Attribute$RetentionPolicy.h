@@ -24,6 +24,7 @@ class $import Attribute$RetentionPolicy : public ::java::lang::Enum {
 public:
 	Attribute$RetentionPolicy();
 	static $Array<::com::sun::tools::javac::code::Attribute$RetentionPolicy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::code::Attribute$RetentionPolicy* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::Attribute$RetentionPolicy>* values();

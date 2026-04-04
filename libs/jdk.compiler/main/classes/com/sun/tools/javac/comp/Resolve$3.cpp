@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$3.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/Resolve$AbstractMethodCheck.h>
@@ -27,50 +26,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$3_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$3, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$3, init$, void, $Resolve*)},
-	{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Resolve$3, checkArg, void, $JCDiagnostic$DiagnosticPosition*, bool, $Type*, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$3, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$3_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$3_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck", "com.sun.tools.javac.comp.Resolve", "AbstractMethodCheck", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$3",
-	"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck",
-	nullptr,
-	_Resolve$3_FieldInfo_,
-	_Resolve$3_MethodInfo_,
-	nullptr,
-	&_Resolve$3_EnclosingMethodInfo_,
-	_Resolve$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$3($Class* clazz) {
-	return $of($alloc(Resolve$3));
-}
-
 void Resolve$3::init$($Resolve* this$0) {
 	$set(this, this$0, this$0);
 	$Resolve$AbstractMethodCheck::init$(this$0);
@@ -87,7 +42,44 @@ Resolve$3::Resolve$3() {
 }
 
 $Class* Resolve$3::load$($String* name, bool initialize) {
-	$loadClass(Resolve$3, name, initialize, &_Resolve$3_ClassInfo_, allocate$Resolve$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$3, init$, void, $Resolve*)},
+		{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Resolve$3, checkArg, void, $JCDiagnostic$DiagnosticPosition*, bool, $Type*, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$3, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck", "com.sun.tools.javac.comp.Resolve", "AbstractMethodCheck", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$3",
+		"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/FlowTube$TubePublisher.h>
-
 #include <jdk/internal/net/http/common/FlowTube.h>
 #include <jcpp.h>
 
@@ -12,34 +11,30 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$InnerClassInfo _FlowTube$TubePublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FlowTube$TubePublisher_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.common.FlowTube$TubePublisher",
-	nullptr,
-	"java.util.concurrent.Flow$Publisher",
-	nullptr,
-	nullptr,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_FlowTube$TubePublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.FlowTube"
-};
-
-$Object* allocate$FlowTube$TubePublisher($Class* clazz) {
-	return $of($alloc(FlowTube$TubePublisher));
-}
-
 $Class* FlowTube$TubePublisher::load$($String* name, bool initialize) {
-	$loadClass(FlowTube$TubePublisher, name, initialize, &_FlowTube$TubePublisher_ClassInfo_, allocate$FlowTube$TubePublisher);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.common.FlowTube$TubePublisher",
+		nullptr,
+		"java.util.concurrent.Flow$Publisher",
+		nullptr,
+		nullptr,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.FlowTube"
+	};
+	$loadClass(FlowTube$TubePublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowTube$TubePublisher);
+	});
 	return class$;
 }
 

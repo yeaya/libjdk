@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/options/Option$26.h>
-
 #include <com/sun/tools/sjavac/options/ArgumentIterator.h>
 #include <com/sun/tools/sjavac/options/Option.h>
 #include <com/sun/tools/sjavac/options/OptionHelper.h>
@@ -22,50 +21,13 @@ namespace com {
 			namespace sjavac {
 				namespace options {
 
-$MethodInfo _Option$26_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Option$26, init$, void, $String*, int32_t, $String*, $String*)},
-	{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED, $virtualMethod(Option$26, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
-	{}
-};
-
-$EnclosingMethodInfo _Option$26_EnclosingMethodInfo_ = {
-	"com.sun.tools.sjavac.options.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$26_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.options.Option$26", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$26_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.sjavac.options.Option$26",
-	"com.sun.tools.sjavac.options.Option",
-	nullptr,
-	nullptr,
-	_Option$26_MethodInfo_,
-	nullptr,
-	&_Option$26_EnclosingMethodInfo_,
-	_Option$26_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.options.Option"
-};
-
-$Object* allocate$Option$26($Class* clazz) {
-	return $of($alloc(Option$26));
-}
-
 void Option$26::init$($String* $enum$name, int32_t $enum$ordinal, $String* arg, $String* description) {
 	$Option::init$($enum$name, $enum$ordinal, arg, description);
 }
 
 void Option$26::processMatching($ArgumentIterator* iter, $OptionHelper* helper) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, p, $nc($($nc(iter)->current()))->substring($nc(this->arg)->length()));
+	$useLocalObjectStack();
+	$var($String, p, $$nc($nc(iter)->current())->substring($nc(this->arg)->length()));
 	$nc(helper)->stateDir($($Paths::get(p, $$new($StringArray, 0))));
 }
 
@@ -73,7 +35,38 @@ Option$26::Option$26() {
 }
 
 $Class* Option$26::load$($String* name, bool initialize) {
-	$loadClass(Option$26, name, initialize, &_Option$26_ClassInfo_, allocate$Option$26);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Option$26, init$, void, $String*, int32_t, $String*, $String*)},
+		{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED, $virtualMethod(Option$26, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.sjavac.options.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.options.Option$26", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.sjavac.options.Option$26",
+		"com.sun.tools.sjavac.options.Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.options.Option"
+	};
+	$loadClass(Option$26, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$26));
+	});
 	return class$;
 }
 

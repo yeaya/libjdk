@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SunFileWriter$NoCloseInputStream.h>
-
 #include <com/sun/media/sound/SunFileWriter.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -15,51 +14,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SunFileWriter$NoCloseInputStream_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SunFileWriter;", nullptr, $FINAL | $SYNTHETIC, $field(SunFileWriter$NoCloseInputStream, this$0)},
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(SunFileWriter$NoCloseInputStream, in)},
-	{}
-};
-
-$MethodInfo _SunFileWriter$NoCloseInputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SunFileWriter;Ljava/io/InputStream;)V", nullptr, 0, $method(SunFileWriter$NoCloseInputStream, init$, void, $SunFileWriter*, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SunFileWriter$NoCloseInputStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SunFileWriter$NoCloseInputStream", "com.sun.media.sound.SunFileWriter", "NoCloseInputStream", $FINAL},
-	{}
-};
-
-$ClassInfo _SunFileWriter$NoCloseInputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SunFileWriter$NoCloseInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_SunFileWriter$NoCloseInputStream_FieldInfo_,
-	_SunFileWriter$NoCloseInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunFileWriter$NoCloseInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SunFileWriter"
-};
-
-$Object* allocate$SunFileWriter$NoCloseInputStream($Class* clazz) {
-	return $of($alloc(SunFileWriter$NoCloseInputStream));
-}
 
 void SunFileWriter$NoCloseInputStream::init$($SunFileWriter* this$0, $InputStream* in) {
 	$set(this, this$0, this$0);
@@ -106,7 +60,46 @@ SunFileWriter$NoCloseInputStream::SunFileWriter$NoCloseInputStream() {
 }
 
 $Class* SunFileWriter$NoCloseInputStream::load$($String* name, bool initialize) {
-	$loadClass(SunFileWriter$NoCloseInputStream, name, initialize, &_SunFileWriter$NoCloseInputStream_ClassInfo_, allocate$SunFileWriter$NoCloseInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SunFileWriter;", nullptr, $FINAL | $SYNTHETIC, $field(SunFileWriter$NoCloseInputStream, this$0)},
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(SunFileWriter$NoCloseInputStream, in)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SunFileWriter;Ljava/io/InputStream;)V", nullptr, 0, $method(SunFileWriter$NoCloseInputStream, init$, void, $SunFileWriter*, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SunFileWriter$NoCloseInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SunFileWriter$NoCloseInputStream", "com.sun.media.sound.SunFileWriter", "NoCloseInputStream", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SunFileWriter$NoCloseInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SunFileWriter"
+	};
+	$loadClass(SunFileWriter$NoCloseInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunFileWriter$NoCloseInputStream);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/TrueElementHandler.h>
-
 #include <com/sun/beans/decoder/NullElementHandler.h>
 #include <jcpp.h>
 
@@ -15,31 +14,11 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$MethodInfo _TrueElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TrueElementHandler, init$, void)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TrueElementHandler, getValue, $Object*)},
-	{}
-};
-
-$ClassInfo _TrueElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.TrueElementHandler",
-	"com.sun.beans.decoder.NullElementHandler",
-	nullptr,
-	nullptr,
-	_TrueElementHandler_MethodInfo_
-};
-
-$Object* allocate$TrueElementHandler($Class* clazz) {
-	return $of($alloc(TrueElementHandler));
-}
-
 void TrueElementHandler::init$() {
 	$NullElementHandler::init$();
 }
 
 $Object* TrueElementHandler::getValue() {
-	$init($Boolean);
 	return $of($Boolean::TRUE);
 }
 
@@ -47,7 +26,22 @@ TrueElementHandler::TrueElementHandler() {
 }
 
 $Class* TrueElementHandler::load$($String* name, bool initialize) {
-	$loadClass(TrueElementHandler, name, initialize, &_TrueElementHandler_ClassInfo_, allocate$TrueElementHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TrueElementHandler, init$, void)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TrueElementHandler, getValue, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.TrueElementHandler",
+		"com.sun.beans.decoder.NullElementHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TrueElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TrueElementHandler));
+	});
 	return class$;
 }
 

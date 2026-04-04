@@ -80,7 +80,7 @@ public:
 	static const int32_t K = 1024;
 	static const int32_t DEFAULT_HEADER_TABLE_SIZE = 4096; // 4 * K
 	static const int32_t DEFAULT_ENABLE_PUSH = 1;
-	static const int32_t DEFAULT_MAX_CONCURRENT_STREAMS = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t DEFAULT_MAX_CONCURRENT_STREAMS = 0x7fffffff; // Integer.MAX_VALUE
 	static const int32_t DEFAULT_INITIAL_WINDOW_SIZE = 65535; // 64 * K - 1
 	static const int32_t DEFAULT_MAX_FRAME_SIZE = 16384; // 16 * K
 };

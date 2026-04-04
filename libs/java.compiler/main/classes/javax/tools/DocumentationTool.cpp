@@ -1,5 +1,4 @@
 #include <javax/tools/DocumentationTool.h>
-
 #include <java/io/Writer.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/charset/Charset.h>
@@ -27,43 +26,6 @@ using $Tool = ::javax::tools::Tool;
 namespace javax {
 	namespace tools {
 
-$MethodInfo _DocumentationTool_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Class;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljavax/tools/DocumentationTool$DocumentationTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Class<*>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljavax/tools/DocumentationTool$DocumentationTask;", $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool, getTask, $DocumentationTool$DocumentationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Class*, $Iterable*, $Iterable*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DocumentationTool_InnerClassesInfo_[] = {
-	{"javax.tools.DocumentationTool$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.tools.DocumentationTool$Location", "javax.tools.DocumentationTool", "Location", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"javax.tools.DocumentationTool$DocumentationTask", "javax.tools.DocumentationTool", "DocumentationTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DocumentationTool_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.tools.DocumentationTool",
-	nullptr,
-	"javax.tools.Tool,javax.tools.OptionChecker",
-	nullptr,
-	_DocumentationTool_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocumentationTool_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.tools.DocumentationTool$1,javax.tools.DocumentationTool$Location,javax.tools.DocumentationTool$DocumentationTask"
-};
-
-$Object* allocate$DocumentationTool($Class* clazz) {
-	return $of($alloc(DocumentationTool));
-}
-
 int32_t DocumentationTool::hashCode() {
 	 return this->$Tool::hashCode();
 }
@@ -85,7 +47,39 @@ void DocumentationTool::finalize() {
 }
 
 $Class* DocumentationTool::load$($String* name, bool initialize) {
-	$loadClass(DocumentationTool, name, initialize, &_DocumentationTool_ClassInfo_, allocate$DocumentationTool);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
+		{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Class;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljavax/tools/DocumentationTool$DocumentationTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Class<*>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljavax/tools/DocumentationTool$DocumentationTask;", $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool, getTask, $DocumentationTool$DocumentationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Class*, $Iterable*, $Iterable*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.DocumentationTool$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.tools.DocumentationTool$Location", "javax.tools.DocumentationTool", "Location", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"javax.tools.DocumentationTool$DocumentationTask", "javax.tools.DocumentationTool", "DocumentationTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.tools.DocumentationTool",
+		nullptr,
+		"javax.tools.Tool,javax.tools.OptionChecker",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.tools.DocumentationTool$1,javax.tools.DocumentationTool$Location,javax.tools.DocumentationTool$DocumentationTask"
+	};
+	$loadClass(DocumentationTool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocumentationTool));
+	});
 	return class$;
 }
 

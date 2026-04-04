@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$5.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -33,95 +32,58 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$5_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Type$5, $SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound)},
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Type$5, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$5_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Type$5_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Type$5_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.code.Type$5",
-	"java.lang.Object",
-	nullptr,
-	_Type$5_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Type$5_EnclosingMethodInfo_,
-	_Type$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$5($Class* clazz) {
-	return $of($alloc(Type$5));
-}
-
 $ints* Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound = nullptr;
 $ints* Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 
-void clinit$Type$5($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Type$5::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound, $new($ints, $($Type$UndetVar$InferenceBound::values())->length));
 	{
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound)->set($Type$UndetVar$InferenceBound::UPPER->ordinal(), 1);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound->set($Type$UndetVar$InferenceBound::UPPER->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound)->set($Type$UndetVar$InferenceBound::LOWER->ordinal(), 2);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound->set($Type$UndetVar$InferenceBound::LOWER->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound)->set($Type$UndetVar$InferenceBound::EQ->ordinal(), 3);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound->set($Type$UndetVar$InferenceBound::EQ->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 1);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 2);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 3);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::INT->ordinal(), 4);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::INT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::LONG->ordinal(), 5);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::LONG->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FLOAT->ordinal(), 6);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FLOAT->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::DOUBLE->ordinal(), 7);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::DOUBLE->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 8);
+			Type$5::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -131,7 +93,38 @@ Type$5::Type$5() {
 }
 
 $Class* Type$5::load$($String* name, bool initialize) {
-	$loadClass(Type$5, name, initialize, &_Type$5_ClassInfo_, clinit$Type$5, allocate$Type$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Type$5, $SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound)},
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Type$5, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.code.Type$5",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$5, name, initialize, &classInfo$$, Type$5::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Type$5);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicToolTipUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -33,7 +32,6 @@ using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -55,57 +53,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicToolTipUI_FieldInfo_[] = {
-	{"sharedInstance", "Ljavax/swing/plaf/basic/BasicToolTipUI;", nullptr, $STATIC, $staticField(BasicToolTipUI, sharedInstance)},
-	{"sharedPropertyChangedListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolTipUI, sharedPropertyChangedListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicToolTipUI, propertyChangeListener)},
-	{}
-};
-
-$MethodInfo _BasicToolTipUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicToolTipUI, init$, void)},
-	{"componentChanged", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicToolTipUI, componentChanged, void, $JComponent*)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JComponent;)Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $method(BasicToolTipUI, createPropertyChangeListener, $PropertyChangeListener*, $JComponent*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicToolTipUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicToolTipUI, installComponents, void, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, installDefaults, void, $JComponent*)},
-	{"installListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, installListeners, void, $JComponent*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, paint, void, $Graphics*, $JComponent*)},
-	{"uninstallComponents", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicToolTipUI, uninstallComponents, void, $JComponent*)},
-	{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, uninstallDefaults, void, $JComponent*)},
-	{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, uninstallListeners, void, $JComponent*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicToolTipUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicToolTipUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicToolTipUI", "PropertyChangeHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicToolTipUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicToolTipUI",
-	"javax.swing.plaf.ToolTipUI",
-	nullptr,
-	_BasicToolTipUI_FieldInfo_,
-	_BasicToolTipUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicToolTipUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicToolTipUI$PropertyChangeHandler"
-};
-
-$Object* allocate$BasicToolTipUI($Class* clazz) {
-	return $of($alloc(BasicToolTipUI));
-}
 
 BasicToolTipUI* BasicToolTipUI::sharedInstance = nullptr;
 $PropertyChangeListener* BasicToolTipUI::sharedPropertyChangedListener = nullptr;
@@ -133,7 +80,6 @@ void BasicToolTipUI::uninstallUI($JComponent* c) {
 
 void BasicToolTipUI::installDefaults($JComponent* c) {
 	$LookAndFeel::installColorsAndFont(c, "ToolTip.background"_s, "ToolTip.foreground"_s, "ToolTip.font"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(c, "opaque"_s, $Boolean::TRUE);
 	componentChanged(c);
 }
@@ -143,7 +89,7 @@ void BasicToolTipUI::uninstallDefaults($JComponent* c) {
 }
 
 void BasicToolTipUI::installComponents($JComponent* c) {
-	$BasicHTML::updateRenderer(c, $($nc(($cast($JToolTip, c)))->getTipText()));
+	$BasicHTML::updateRenderer(c, $($nc($cast($JToolTip, c))->getTipText()));
 }
 
 void BasicToolTipUI::uninstallComponents($JComponent* c) {
@@ -168,17 +114,17 @@ $PropertyChangeListener* BasicToolTipUI::createPropertyChangeListener($JComponen
 }
 
 void BasicToolTipUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, $nc(c)->getFont());
 	$var($FontMetrics, metrics, $SwingUtilities2::getFontMetrics(c, g, font));
 	$var($Dimension, size, c->getSize());
 	$nc(g)->setColor($(c->getForeground()));
-	$var($String, tipText, $nc(($cast($JToolTip, c)))->getTipText());
+	$var($String, tipText, $cast($JToolTip, c)->getTipText());
 	if (tipText == nullptr) {
 		$assign(tipText, ""_s);
 	}
 	$var($Insets, insets, c->getInsets());
-	$var($Rectangle, paintTextR, $new($Rectangle, $nc(insets)->left + 3, insets->top, $nc(size)->width - (insets->left + insets->right) - 6, size->height - (insets->top + insets->bottom)));
+	$var($Rectangle, paintTextR, $new($Rectangle, $nc(insets)->left + 3, $nc(insets)->top, $nc(size)->width - ($nc(insets)->left + $nc(insets)->right) - 6, $nc(size)->height - ($nc(insets)->top + $nc(insets)->bottom)));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, c->getClientProperty($BasicHTML::propertyKey)));
 	if (v != nullptr) {
@@ -190,12 +136,12 @@ void BasicToolTipUI::paint($Graphics* g, $JComponent* c) {
 }
 
 $Dimension* BasicToolTipUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, $nc(c)->getFont());
 	$var($FontMetrics, fm, c->getFontMetrics(font));
 	$var($Insets, insets, c->getInsets());
-	$var($Dimension, prefSize, $new($Dimension, $nc(insets)->left + insets->right, insets->top + insets->bottom));
-	$var($String, text, $nc(($cast($JToolTip, c)))->getTipText());
+	$var($Dimension, prefSize, $new($Dimension, $nc(insets)->left + $nc(insets)->right, $nc(insets)->top + $nc(insets)->bottom));
+	$var($String, text, $cast($JToolTip, c)->getTipText());
 	if (text == nullptr) {
 		$assign(text, ""_s);
 	} else {
@@ -212,7 +158,7 @@ $Dimension* BasicToolTipUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* BasicToolTipUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -224,7 +170,7 @@ $Dimension* BasicToolTipUI::getMinimumSize($JComponent* c) {
 }
 
 $Dimension* BasicToolTipUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -236,7 +182,7 @@ $Dimension* BasicToolTipUI::getMaximumSize($JComponent* c) {
 }
 
 void BasicToolTipUI::componentChanged($JComponent* c) {
-	$var($JComponent, comp, $nc(($cast($JToolTip, c)))->getComponent());
+	$var($JComponent, comp, $nc($cast($JToolTip, c))->getComponent());
 	if (comp != nullptr && !(comp->isEnabled())) {
 		if ($UIManager::getBorder("ToolTip.borderInactive"_s) != nullptr) {
 			$LookAndFeel::installBorder(c, "ToolTip.borderInactive"_s);
@@ -254,7 +200,7 @@ void BasicToolTipUI::componentChanged($JComponent* c) {
 	}
 }
 
-void clinit$BasicToolTipUI($Class* class$) {
+void BasicToolTipUI::clinit$($Class* clazz) {
 	$assignStatic(BasicToolTipUI::sharedInstance, $new(BasicToolTipUI));
 }
 
@@ -262,7 +208,52 @@ BasicToolTipUI::BasicToolTipUI() {
 }
 
 $Class* BasicToolTipUI::load$($String* name, bool initialize) {
-	$loadClass(BasicToolTipUI, name, initialize, &_BasicToolTipUI_ClassInfo_, clinit$BasicToolTipUI, allocate$BasicToolTipUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"sharedInstance", "Ljavax/swing/plaf/basic/BasicToolTipUI;", nullptr, $STATIC, $staticField(BasicToolTipUI, sharedInstance)},
+		{"sharedPropertyChangedListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC, $staticField(BasicToolTipUI, sharedPropertyChangedListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicToolTipUI, propertyChangeListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicToolTipUI, init$, void)},
+		{"componentChanged", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicToolTipUI, componentChanged, void, $JComponent*)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JComponent;)Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $method(BasicToolTipUI, createPropertyChangeListener, $PropertyChangeListener*, $JComponent*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicToolTipUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicToolTipUI, installComponents, void, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, installDefaults, void, $JComponent*)},
+		{"installListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, installListeners, void, $JComponent*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, paint, void, $Graphics*, $JComponent*)},
+		{"uninstallComponents", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicToolTipUI, uninstallComponents, void, $JComponent*)},
+		{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, uninstallDefaults, void, $JComponent*)},
+		{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicToolTipUI, uninstallListeners, void, $JComponent*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolTipUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicToolTipUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicToolTipUI", "PropertyChangeHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicToolTipUI",
+		"javax.swing.plaf.ToolTipUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicToolTipUI$PropertyChangeHandler"
+	};
+	$loadClass(BasicToolTipUI, name, initialize, &classInfo$$, BasicToolTipUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicToolTipUI);
+	});
 	return class$;
 }
 

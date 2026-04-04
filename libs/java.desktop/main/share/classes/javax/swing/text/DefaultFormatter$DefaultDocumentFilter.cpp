@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultFormatter$DefaultDocumentFilter.h>
-
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/DefaultFormatter.h>
@@ -23,49 +22,6 @@ using $Utilities = ::javax::swing::text::Utilities;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultFormatter$DefaultDocumentFilter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/DefaultFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultFormatter$DefaultDocumentFilter, this$0)},
-	{}
-};
-
-$MethodInfo _DefaultFormatter$DefaultDocumentFilter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/DefaultFormatter;)V", nullptr, $PRIVATE, $method(DefaultFormatter$DefaultDocumentFilter, init$, void, $DefaultFormatter*)},
-	{"insertString", "(Ljavax/swing/text/DocumentFilter$FilterBypass;ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatter$DefaultDocumentFilter, insertString, void, $DocumentFilter$FilterBypass*, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
-	{"remove", "(Ljavax/swing/text/DocumentFilter$FilterBypass;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatter$DefaultDocumentFilter, remove, void, $DocumentFilter$FilterBypass*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"replace", "(Ljavax/swing/text/DocumentFilter$FilterBypass;IILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatter$DefaultDocumentFilter, replace, void, $DocumentFilter$FilterBypass*, int32_t, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DefaultFormatter$DefaultDocumentFilter_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultFormatter$DefaultDocumentFilter", "javax.swing.text.DefaultFormatter", "DefaultDocumentFilter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DefaultFormatter$DefaultDocumentFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultFormatter$DefaultDocumentFilter",
-	"javax.swing.text.DocumentFilter",
-	"java.io.Serializable",
-	_DefaultFormatter$DefaultDocumentFilter_FieldInfo_,
-	_DefaultFormatter$DefaultDocumentFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultFormatter$DefaultDocumentFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultFormatter"
-};
-
-$Object* allocate$DefaultFormatter$DefaultDocumentFilter($Class* clazz) {
-	return $of($alloc(DefaultFormatter$DefaultDocumentFilter));
-}
 
 int32_t DefaultFormatter$DefaultDocumentFilter::hashCode() {
 	 return this->$DocumentFilter::hashCode();
@@ -125,7 +81,44 @@ DefaultFormatter$DefaultDocumentFilter::DefaultFormatter$DefaultDocumentFilter()
 }
 
 $Class* DefaultFormatter$DefaultDocumentFilter::load$($String* name, bool initialize) {
-	$loadClass(DefaultFormatter$DefaultDocumentFilter, name, initialize, &_DefaultFormatter$DefaultDocumentFilter_ClassInfo_, allocate$DefaultFormatter$DefaultDocumentFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/DefaultFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultFormatter$DefaultDocumentFilter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/DefaultFormatter;)V", nullptr, $PRIVATE, $method(DefaultFormatter$DefaultDocumentFilter, init$, void, $DefaultFormatter*)},
+		{"insertString", "(Ljavax/swing/text/DocumentFilter$FilterBypass;ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatter$DefaultDocumentFilter, insertString, void, $DocumentFilter$FilterBypass*, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
+		{"remove", "(Ljavax/swing/text/DocumentFilter$FilterBypass;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatter$DefaultDocumentFilter, remove, void, $DocumentFilter$FilterBypass*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"replace", "(Ljavax/swing/text/DocumentFilter$FilterBypass;IILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatter$DefaultDocumentFilter, replace, void, $DocumentFilter$FilterBypass*, int32_t, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultFormatter$DefaultDocumentFilter", "javax.swing.text.DefaultFormatter", "DefaultDocumentFilter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultFormatter$DefaultDocumentFilter",
+		"javax.swing.text.DocumentFilter",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultFormatter"
+	};
+	$loadClass(DefaultFormatter$DefaultDocumentFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultFormatter$DefaultDocumentFilter));
+	});
 	return class$;
 }
 

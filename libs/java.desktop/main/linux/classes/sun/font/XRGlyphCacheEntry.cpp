@@ -1,5 +1,4 @@
 #include <sun/font/XRGlyphCacheEntry.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/Math.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -13,67 +12,11 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $GlyphList = ::sun::font::GlyphList;
 using $StrikeCache = ::sun::font::StrikeCache;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _XRGlyphCacheEntry_FieldInfo_[] = {
-	{"glyphInfoPtr", "J", nullptr, 0, $field(XRGlyphCacheEntry, glyphInfoPtr)},
-	{"lastUsed", "I", nullptr, 0, $field(XRGlyphCacheEntry, lastUsed)},
-	{"pinned", "Z", nullptr, 0, $field(XRGlyphCacheEntry, pinned)},
-	{"xOff", "I", nullptr, 0, $field(XRGlyphCacheEntry, xOff)},
-	{"yOff", "I", nullptr, 0, $field(XRGlyphCacheEntry, yOff)},
-	{"glyphSet", "I", nullptr, 0, $field(XRGlyphCacheEntry, glyphSet)},
-	{}
-};
-
-$MethodInfo _XRGlyphCacheEntry_MethodInfo_[] = {
-	{"<init>", "(JLsun/font/GlyphList;)V", nullptr, $PUBLIC, $method(XRGlyphCacheEntry, init$, void, int64_t, $GlyphList*)},
-	{"getDestinationRowBytes", "(Z)I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getDestinationRowBytes, int32_t, bool)},
-	{"getGlyphDataLenth", "(Z)I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphDataLenth, int32_t, bool)},
-	{"getGlyphID", "(J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRGlyphCacheEntry, getGlyphID, int32_t, int64_t)},
-	{"getGlyphID", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphID, int32_t)},
-	{"getGlyphInfoPtr", "()J", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphInfoPtr, int64_t)},
-	{"getGlyphSet", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphSet, int32_t)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getHeight, int32_t)},
-	{"getLastUsed", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getLastUsed, int32_t)},
-	{"getPaddedWidth", "(Z)I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getPaddedWidth, int32_t, bool)},
-	{"getPixelCnt", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getPixelCnt, int32_t)},
-	{"getSourceRowBytes", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getSourceRowBytes, int32_t)},
-	{"getTopLeftXOffset", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getTopLeftXOffset, float)},
-	{"getTopLeftYOffset", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getTopLeftYOffset, float)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getWidth, int32_t)},
-	{"getXAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getXAdvance, float)},
-	{"getXOff", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getXOff, int32_t)},
-	{"getYAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getYAdvance, float)},
-	{"getYOff", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getYOff, int32_t)},
-	{"isGrayscale", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, isGrayscale, bool, bool)},
-	{"isPinned", "()Z", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, isPinned, bool)},
-	{"setGlyphID", "(JI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XRGlyphCacheEntry, setGlyphID, void, int64_t, int32_t)},
-	{"setGlyphID", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setGlyphID, void, int32_t)},
-	{"setGlyphSet", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setGlyphSet, void, int32_t)},
-	{"setLastUsed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setLastUsed, void, int32_t)},
-	{"setPinned", "()V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setPinned, void)},
-	{"setUnpinned", "()V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setUnpinned, void)},
-	{"writePixelData", "(Ljava/io/ByteArrayOutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, writePixelData, void, $ByteArrayOutputStream*, bool)},
-	{}
-};
-
-$ClassInfo _XRGlyphCacheEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.XRGlyphCacheEntry",
-	"java.lang.Object",
-	nullptr,
-	_XRGlyphCacheEntry_FieldInfo_,
-	_XRGlyphCacheEntry_MethodInfo_
-};
-
-$Object* allocate$XRGlyphCacheEntry($Class* clazz) {
-	return $of($alloc(XRGlyphCacheEntry));
-}
 
 void XRGlyphCacheEntry::init$(int64_t glyphInfoPtr, $GlyphList* gl) {
 	this->glyphInfoPtr = glyphInfoPtr;
@@ -143,7 +86,7 @@ int32_t XRGlyphCacheEntry::getHeight() {
 void XRGlyphCacheEntry::writePixelData($ByteArrayOutputStream* os, bool uploadAsLCD) {
 	$init($StrikeCache);
 	int64_t pixelDataAddress = $nc($StrikeCache::unsafe)->getAddress(this->glyphInfoPtr + $StrikeCache::pixelDataOffset);
-	if (pixelDataAddress == (int64_t)0) {
+	if (pixelDataAddress == 0) {
 		return;
 	}
 	int32_t width = getWidth();
@@ -154,7 +97,7 @@ void XRGlyphCacheEntry::writePixelData($ByteArrayOutputStream* os, bool uploadAs
 		for (int32_t line = 0; line < height; ++line) {
 			for (int32_t x = 0; x < paddedWidth; ++x) {
 				if (x < width) {
-					$nc(os)->write((int32_t)$nc($StrikeCache::unsafe)->getByte(pixelDataAddress + (line * rowBytes + x)));
+					$nc(os)->write($StrikeCache::unsafe->getByte(pixelDataAddress + (line * rowBytes + x)));
 				} else {
 					$nc(os)->write(0);
 				}
@@ -166,9 +109,9 @@ void XRGlyphCacheEntry::writePixelData($ByteArrayOutputStream* os, bool uploadAs
 			int32_t rowBytesWidth = width * 3;
 			int32_t srcpix = 0;
 			while (srcpix < rowBytesWidth) {
-				$nc(os)->write((int32_t)$nc($StrikeCache::unsafe)->getByte(pixelDataAddress + (rowStart + srcpix + 2)));
-				os->write((int32_t)$nc($StrikeCache::unsafe)->getByte(pixelDataAddress + (rowStart + srcpix + 1)));
-				os->write((int32_t)$nc($StrikeCache::unsafe)->getByte(pixelDataAddress + (rowStart + srcpix + 0)));
+				$nc(os)->write($StrikeCache::unsafe->getByte(pixelDataAddress + (rowStart + srcpix + 2)));
+				os->write($StrikeCache::unsafe->getByte(pixelDataAddress + (rowStart + srcpix + 1)));
+				os->write($StrikeCache::unsafe->getByte(pixelDataAddress + (rowStart + srcpix + 0)));
 				os->write(255);
 				srcpix += 3;
 			}
@@ -244,7 +187,57 @@ XRGlyphCacheEntry::XRGlyphCacheEntry() {
 }
 
 $Class* XRGlyphCacheEntry::load$($String* name, bool initialize) {
-	$loadClass(XRGlyphCacheEntry, name, initialize, &_XRGlyphCacheEntry_ClassInfo_, allocate$XRGlyphCacheEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"glyphInfoPtr", "J", nullptr, 0, $field(XRGlyphCacheEntry, glyphInfoPtr)},
+		{"lastUsed", "I", nullptr, 0, $field(XRGlyphCacheEntry, lastUsed)},
+		{"pinned", "Z", nullptr, 0, $field(XRGlyphCacheEntry, pinned)},
+		{"xOff", "I", nullptr, 0, $field(XRGlyphCacheEntry, xOff)},
+		{"yOff", "I", nullptr, 0, $field(XRGlyphCacheEntry, yOff)},
+		{"glyphSet", "I", nullptr, 0, $field(XRGlyphCacheEntry, glyphSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLsun/font/GlyphList;)V", nullptr, $PUBLIC, $method(XRGlyphCacheEntry, init$, void, int64_t, $GlyphList*)},
+		{"getDestinationRowBytes", "(Z)I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getDestinationRowBytes, int32_t, bool)},
+		{"getGlyphDataLenth", "(Z)I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphDataLenth, int32_t, bool)},
+		{"getGlyphID", "(J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRGlyphCacheEntry, getGlyphID, int32_t, int64_t)},
+		{"getGlyphID", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphID, int32_t)},
+		{"getGlyphInfoPtr", "()J", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphInfoPtr, int64_t)},
+		{"getGlyphSet", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getGlyphSet, int32_t)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getHeight, int32_t)},
+		{"getLastUsed", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getLastUsed, int32_t)},
+		{"getPaddedWidth", "(Z)I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getPaddedWidth, int32_t, bool)},
+		{"getPixelCnt", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getPixelCnt, int32_t)},
+		{"getSourceRowBytes", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getSourceRowBytes, int32_t)},
+		{"getTopLeftXOffset", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getTopLeftXOffset, float)},
+		{"getTopLeftYOffset", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getTopLeftYOffset, float)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getWidth, int32_t)},
+		{"getXAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getXAdvance, float)},
+		{"getXOff", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getXOff, int32_t)},
+		{"getYAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getYAdvance, float)},
+		{"getYOff", "()I", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, getYOff, int32_t)},
+		{"isGrayscale", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, isGrayscale, bool, bool)},
+		{"isPinned", "()Z", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, isPinned, bool)},
+		{"setGlyphID", "(JI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XRGlyphCacheEntry, setGlyphID, void, int64_t, int32_t)},
+		{"setGlyphID", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setGlyphID, void, int32_t)},
+		{"setGlyphSet", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setGlyphSet, void, int32_t)},
+		{"setLastUsed", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setLastUsed, void, int32_t)},
+		{"setPinned", "()V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setPinned, void)},
+		{"setUnpinned", "()V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, setUnpinned, void)},
+		{"writePixelData", "(Ljava/io/ByteArrayOutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(XRGlyphCacheEntry, writePixelData, void, $ByteArrayOutputStream*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.XRGlyphCacheEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRGlyphCacheEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XRGlyphCacheEntry);
+	});
 	return class$;
 }
 

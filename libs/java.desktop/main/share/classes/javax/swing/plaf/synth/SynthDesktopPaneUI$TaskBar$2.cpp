@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar$2.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -23,56 +22,13 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthDesktopPaneUI$TaskBar$2_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;", nullptr, $FINAL | $SYNTHETIC, $field(SynthDesktopPaneUI$TaskBar$2, this$0)},
-	{}
-};
-
-$MethodInfo _SynthDesktopPaneUI$TaskBar$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;I)V", nullptr, 0, $method(SynthDesktopPaneUI$TaskBar$2, init$, void, $SynthDesktopPaneUI$TaskBar*, int32_t)},
-	{"paintRaisedBevel", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI$TaskBar$2, paintRaisedBevel, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthDesktopPaneUI$TaskBar$2_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _SynthDesktopPaneUI$TaskBar$2_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthDesktopPaneUI$TaskBar$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2",
-	"javax.swing.border.BevelBorder",
-	nullptr,
-	_SynthDesktopPaneUI$TaskBar$2_FieldInfo_,
-	_SynthDesktopPaneUI$TaskBar$2_MethodInfo_,
-	nullptr,
-	&_SynthDesktopPaneUI$TaskBar$2_EnclosingMethodInfo_,
-	_SynthDesktopPaneUI$TaskBar$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI"
-};
-
-$Object* allocate$SynthDesktopPaneUI$TaskBar$2($Class* clazz) {
-	return $of($alloc(SynthDesktopPaneUI$TaskBar$2));
-}
-
 void SynthDesktopPaneUI$TaskBar$2::init$($SynthDesktopPaneUI$TaskBar* this$0, int32_t bevelType) {
 	$set(this, this$0, this$0);
 	$BevelBorder::init$(bevelType);
 }
 
 void SynthDesktopPaneUI$TaskBar$2::paintRaisedBevel($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, oldColor, $nc(g)->getColor());
 	g->translate(x, y);
 	g->setColor($(getHighlightOuterColor(c)));
@@ -89,7 +45,43 @@ SynthDesktopPaneUI$TaskBar$2::SynthDesktopPaneUI$TaskBar$2() {
 }
 
 $Class* SynthDesktopPaneUI$TaskBar$2::load$($String* name, bool initialize) {
-	$loadClass(SynthDesktopPaneUI$TaskBar$2, name, initialize, &_SynthDesktopPaneUI$TaskBar$2_ClassInfo_, allocate$SynthDesktopPaneUI$TaskBar$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;", nullptr, $FINAL | $SYNTHETIC, $field(SynthDesktopPaneUI$TaskBar$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;I)V", nullptr, 0, $method(SynthDesktopPaneUI$TaskBar$2, init$, void, $SynthDesktopPaneUI$TaskBar*, int32_t)},
+		{"paintRaisedBevel", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI$TaskBar$2, paintRaisedBevel, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2",
+		"javax.swing.border.BevelBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI"
+	};
+	$loadClass(SynthDesktopPaneUI$TaskBar$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthDesktopPaneUI$TaskBar$2));
+	});
 	return class$;
 }
 

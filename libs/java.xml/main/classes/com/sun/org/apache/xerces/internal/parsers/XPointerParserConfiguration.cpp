@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/XPointerParserConfiguration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
@@ -14,7 +13,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
@@ -42,28 +40,19 @@
 #undef XPOINTER_HANDLER_PROPERTY
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $XML11DTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DTDScannerImpl;
-using $XML11DTDProcessor = ::com::sun::org::apache::xerces::internal::impl::dtd::XML11DTDProcessor;
-using $XMLDTDProcessor = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDProcessor;
-using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XIncludeHandler = ::com::sun::org::apache::xerces::internal::xinclude::XIncludeHandler;
 using $XIncludeNamespaceSupport = ::com::sun::org::apache::xerces::internal::xinclude::XIncludeNamespaceSupport;
-using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
-using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDTDScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDScanner;
-using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XPointerHandler = ::com::sun::org::apache::xerces::internal::xpointer::XPointerHandler;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -72,42 +61,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _XPointerParserConfiguration_FieldInfo_[] = {
-	{"fXPointerHandler", "Lcom/sun/org/apache/xerces/internal/xpointer/XPointerHandler;", nullptr, $PRIVATE, $field(XPointerParserConfiguration, fXPointerHandler)},
-	{"fXIncludeHandler", "Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeHandler;", nullptr, $PRIVATE, $field(XPointerParserConfiguration, fXIncludeHandler)},
-	{"ALLOW_UE_AND_NOTATION_EVENTS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, ALLOW_UE_AND_NOTATION_EVENTS)},
-	{"XINCLUDE_FIXUP_BASE_URIS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XINCLUDE_FIXUP_BASE_URIS)},
-	{"XINCLUDE_FIXUP_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XINCLUDE_FIXUP_LANGUAGE)},
-	{"XPOINTER_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XPOINTER_HANDLER)},
-	{"XINCLUDE_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XINCLUDE_HANDLER)},
-	{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, NAMESPACE_CONTEXT)},
-	{}
-};
-
-$MethodInfo _XPointerParserConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
-	{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XPointerParserConfiguration, configurePipeline, void)},
-	{"configureXML11Pipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XPointerParserConfiguration, configureXML11Pipeline, void)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XPointerParserConfiguration, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{}
-};
-
-$ClassInfo _XPointerParserConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.XPointerParserConfiguration",
-	"com.sun.org.apache.xerces.internal.parsers.XML11Configuration",
-	nullptr,
-	_XPointerParserConfiguration_FieldInfo_,
-	_XPointerParserConfiguration_MethodInfo_
-};
-
-$Object* allocate$XPointerParserConfiguration($Class* clazz) {
-	return $of($alloc(XPointerParserConfiguration));
-}
 
 $String* XPointerParserConfiguration::ALLOW_UE_AND_NOTATION_EVENTS = nullptr;
 $String* XPointerParserConfiguration::XINCLUDE_FIXUP_BASE_URIS = nullptr;
@@ -129,7 +82,7 @@ void XPointerParserConfiguration::init$($SymbolTable* symbolTable, $XMLGrammarPo
 }
 
 void XPointerParserConfiguration::init$($SymbolTable* symbolTable, $XMLGrammarPool* grammarPool, $XMLComponentManager* parentSettings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XML11Configuration::init$(symbolTable, grammarPool, parentSettings);
 	$set(this, fXIncludeHandler, $new($XIncludeHandler));
 	addCommonComponent(this->fXIncludeHandler);
@@ -156,7 +109,7 @@ void XPointerParserConfiguration::init$($SymbolTable* symbolTable, $XMLGrammarPo
 }
 
 void XPointerParserConfiguration::configurePipeline() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XML11Configuration::configurePipeline();
 	$nc(this->fDTDScanner)->setDTDHandler(this->fDTDProcessor);
 	$nc(this->fDTDProcessor)->setDTDSource(this->fDTDScanner);
@@ -166,10 +119,9 @@ void XPointerParserConfiguration::configurePipeline() {
 	$nc(this->fXPointerHandler)->setDTDSource(this->fXIncludeHandler);
 	$nc(this->fXPointerHandler)->setDTDHandler(this->fDTDHandler);
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->setDTDSource(this->fXPointerHandler);
+		this->fDTDHandler->setDTDSource(this->fXPointerHandler);
 	}
 	$var($XMLDocumentSource, prev, nullptr);
-	$init($Boolean);
 	if ($equals($nc(this->fFeatures)->get($XML11Configuration::XMLSCHEMA_VALIDATION), $Boolean::TRUE)) {
 		$assign(prev, $nc(this->fSchemaValidator)->getDocumentSource());
 	} else {
@@ -188,7 +140,7 @@ void XPointerParserConfiguration::configurePipeline() {
 }
 
 void XPointerParserConfiguration::configureXML11Pipeline() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XML11Configuration::configureXML11Pipeline();
 	$nc(this->fXML11DTDScanner)->setDTDHandler(this->fXML11DTDProcessor);
 	$nc(this->fXML11DTDProcessor)->setDTDSource(this->fXML11DTDScanner);
@@ -198,10 +150,9 @@ void XPointerParserConfiguration::configureXML11Pipeline() {
 	$nc(this->fXPointerHandler)->setDTDSource(this->fXIncludeHandler);
 	$nc(this->fXPointerHandler)->setDTDHandler(this->fDTDHandler);
 	if (this->fDTDHandler != nullptr) {
-		$nc(this->fDTDHandler)->setDTDSource(this->fXPointerHandler);
+		this->fDTDHandler->setDTDSource(this->fXPointerHandler);
 	}
 	$var($XMLDocumentSource, prev, nullptr);
-	$init($Boolean);
 	if ($equals($nc(this->fFeatures)->get($XML11Configuration::XMLSCHEMA_VALIDATION), $Boolean::TRUE)) {
 		$assign(prev, $nc(this->fSchemaValidator)->getDocumentSource());
 	} else {
@@ -226,7 +177,7 @@ void XPointerParserConfiguration::setProperty($String* propertyId, Object$* valu
 XPointerParserConfiguration::XPointerParserConfiguration() {
 }
 
-void clinit$XPointerParserConfiguration($Class* class$) {
+void XPointerParserConfiguration::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XPointerParserConfiguration::ALLOW_UE_AND_NOTATION_EVENTS, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::ALLOW_DTD_EVENTS_AFTER_ENDDTD_FEATURE}));
 	$assignStatic(XPointerParserConfiguration::XINCLUDE_FIXUP_BASE_URIS, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::XINCLUDE_FIXUP_BASE_URIS_FEATURE}));
@@ -237,7 +188,38 @@ void clinit$XPointerParserConfiguration($Class* class$) {
 }
 
 $Class* XPointerParserConfiguration::load$($String* name, bool initialize) {
-	$loadClass(XPointerParserConfiguration, name, initialize, &_XPointerParserConfiguration_ClassInfo_, clinit$XPointerParserConfiguration, allocate$XPointerParserConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"fXPointerHandler", "Lcom/sun/org/apache/xerces/internal/xpointer/XPointerHandler;", nullptr, $PRIVATE, $field(XPointerParserConfiguration, fXPointerHandler)},
+		{"fXIncludeHandler", "Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeHandler;", nullptr, $PRIVATE, $field(XPointerParserConfiguration, fXIncludeHandler)},
+		{"ALLOW_UE_AND_NOTATION_EVENTS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, ALLOW_UE_AND_NOTATION_EVENTS)},
+		{"XINCLUDE_FIXUP_BASE_URIS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XINCLUDE_FIXUP_BASE_URIS)},
+		{"XINCLUDE_FIXUP_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XINCLUDE_FIXUP_LANGUAGE)},
+		{"XPOINTER_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XPOINTER_HANDLER)},
+		{"XINCLUDE_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, XINCLUDE_HANDLER)},
+		{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XPointerParserConfiguration, NAMESPACE_CONTEXT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(XPointerParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
+		{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XPointerParserConfiguration, configurePipeline, void)},
+		{"configureXML11Pipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XPointerParserConfiguration, configureXML11Pipeline, void)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XPointerParserConfiguration, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.XPointerParserConfiguration",
+		"com.sun.org.apache.xerces.internal.parsers.XML11Configuration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPointerParserConfiguration, name, initialize, &classInfo$$, XPointerParserConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPointerParserConfiguration));
+	});
 	return class$;
 }
 

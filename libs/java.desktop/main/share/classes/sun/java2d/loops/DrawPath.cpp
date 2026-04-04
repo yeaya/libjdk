@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawPath.h>
-
 #include <java/awt/geom/Path2D$Float.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -27,47 +26,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawPath_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPath, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPath, primTypeID)},
-	{}
-};
-
-$MethodInfo _DrawPath_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawPath, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawPath, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawPath", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IILjava/awt/geom/Path2D$Float;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawPath, DrawPath$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, $Path2D$Float*)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawPath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawPath, locate, DrawPath*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawPath, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_DrawPath$ 2
-
-$InnerClassInfo _DrawPath_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawPath$TraceDrawPath", "sun.java2d.loops.DrawPath", "TraceDrawPath", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.DrawPath",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_DrawPath_FieldInfo_,
-	_DrawPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawPath$TraceDrawPath"
-};
-
-$Object* allocate$DrawPath($Class* clazz) {
-	return $of($alloc(DrawPath));
-}
-
 $String* DrawPath::methodSignature = nullptr;
 int32_t DrawPath::primTypeID = 0;
 
@@ -85,7 +43,7 @@ void DrawPath::init$(int64_t pNativePrim, $SurfaceType* srctype, $CompositeType*
 }
 
 void DrawPath::DrawPath$($SunGraphics2D* sg2d, $SurfaceData* sData, int32_t transX, int32_t transY, $Path2D$Float* p2df) {
-	$prepareNative(DrawPath, DrawPath$, void, $SunGraphics2D* sg2d, $SurfaceData* sData, int32_t transX, int32_t transY, $Path2D$Float* p2df);
+	$prepareNative(DrawPath, void, $SunGraphics2D* sg2d, $SurfaceData* sData, int32_t transX, int32_t transY, $Path2D$Float* p2df);
 	$invokeNative(sg2d, sData, transX, transY, p2df);
 	$finishNative();
 }
@@ -94,7 +52,7 @@ $GraphicsPrimitive* DrawPath::traceWrap() {
 	return $new($DrawPath$TraceDrawPath, this);
 }
 
-void clinit$DrawPath($Class* class$) {
+void DrawPath::clinit$($Class* clazz) {
 	$assignStatic(DrawPath::methodSignature, "DrawPath(...)"_s->toString());
 	DrawPath::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 }
@@ -103,7 +61,40 @@ DrawPath::DrawPath() {
 }
 
 $Class* DrawPath::load$($String* name, bool initialize) {
-	$loadClass(DrawPath, name, initialize, &_DrawPath_ClassInfo_, clinit$DrawPath, allocate$DrawPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPath, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawPath, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawPath, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawPath, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawPath", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IILjava/awt/geom/Path2D$Float;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawPath, DrawPath$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, $Path2D$Float*)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawPath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawPath, locate, DrawPath*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawPath, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawPath$TraceDrawPath", "sun.java2d.loops.DrawPath", "TraceDrawPath", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.DrawPath",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawPath$TraceDrawPath"
+	};
+	$loadClass(DrawPath, name, initialize, &classInfo$$, DrawPath::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawPath);
+	});
 	return class$;
 }
 

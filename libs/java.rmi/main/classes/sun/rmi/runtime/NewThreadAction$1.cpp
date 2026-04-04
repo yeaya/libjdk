@@ -1,5 +1,4 @@
 #include <sun/rmi/runtime/NewThreadAction$1.h>
-
 #include <java/lang/ThreadGroup.h>
 #include <jcpp.h>
 
@@ -13,61 +12,55 @@ namespace sun {
 	namespace rmi {
 		namespace runtime {
 
-$MethodInfo _NewThreadAction$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NewThreadAction$1, init$, void)},
-	{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(NewThreadAction$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _NewThreadAction$1_EnclosingMethodInfo_ = {
-	"sun.rmi.runtime.NewThreadAction",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _NewThreadAction$1_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.NewThreadAction$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NewThreadAction$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.runtime.NewThreadAction$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_NewThreadAction$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ThreadGroup;>;",
-	&_NewThreadAction$1_EnclosingMethodInfo_,
-	_NewThreadAction$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.NewThreadAction"
-};
-
-$Object* allocate$NewThreadAction$1($Class* clazz) {
-	return $of($alloc(NewThreadAction$1));
-}
-
 void NewThreadAction$1::init$() {
 }
 
 $Object* NewThreadAction$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, group, $($Thread::currentThread())->getThreadGroup());
 	$var($ThreadGroup, parent, nullptr);
 	while (($assign(parent, $nc(group)->getParent())) != nullptr) {
 		$assign(group, parent);
 	}
-	return $of(group);
+	return group;
 }
 
 NewThreadAction$1::NewThreadAction$1() {
 }
 
 $Class* NewThreadAction$1::load$($String* name, bool initialize) {
-	$loadClass(NewThreadAction$1, name, initialize, &_NewThreadAction$1_ClassInfo_, allocate$NewThreadAction$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NewThreadAction$1, init$, void)},
+		{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(NewThreadAction$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.rmi.runtime.NewThreadAction",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.NewThreadAction$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.runtime.NewThreadAction$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ThreadGroup;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.NewThreadAction"
+	};
+	$loadClass(NewThreadAction$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewThreadAction$1);
+	});
 	return class$;
 }
 

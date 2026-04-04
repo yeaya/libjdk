@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/Algorithm.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/ClassLoaderUtils.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
@@ -133,7 +132,6 @@ using $JavaUtils = ::com::sun::org::apache::xml::internal::security::utils::Java
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
@@ -162,68 +160,15 @@ namespace com {
 						namespace security {
 							namespace algorithms {
 
-$FieldInfo _SignatureAlgorithm_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureAlgorithm, LOG)},
-	{"algorithmHash", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;>;>;", $PRIVATE | $STATIC, $staticField(SignatureAlgorithm, algorithmHash)},
-	{"signatureAlgorithmSpi", "Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;", nullptr, $PRIVATE | $FINAL, $field(SignatureAlgorithm, signatureAlgorithmSpi)},
-	{"algorithmURI", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureAlgorithm, algorithmURI)},
-	{}
-};
-
-$MethodInfo _SignatureAlgorithm_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/security/Provider;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, $Provider*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;ILjava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, int32_t, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;ZLjava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*, bool, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getBaseLocalName, $String*)},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getBaseNamespace, $String*)},
-	{"getJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getJCEAlgorithmString, $String*)},
-	{"getJCEProviderName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getJCEProviderName, $String*)},
-	{"getSignatureAlgorithmSpi", "(Ljava/lang/String;Ljava/security/Provider;)Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureAlgorithm, getSignatureAlgorithmSpi, $SignatureAlgorithmSpi*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SignatureAlgorithm, getURI, $String*)},
-	{"initSign", "(Ljava/security/Key;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"initSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"initSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"initVerify", "(Ljava/security/Key;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"register", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureAlgorithm, register$, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"register", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;>;)V", $PUBLIC | $STATIC, $staticMethod(SignatureAlgorithm, register$, void, $String*, $Class*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureAlgorithm, registerDefaultAlgorithms, void)},
-	{"setParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, setParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"sign", "()[B", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, sign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"update", "([B)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, update, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"update", "(B)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, update, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, update, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"verify", "([B)Z", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, verify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{}
-};
-
-$ClassInfo _SignatureAlgorithm_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithm",
-	"com.sun.org.apache.xml.internal.security.algorithms.Algorithm",
-	nullptr,
-	_SignatureAlgorithm_FieldInfo_,
-	_SignatureAlgorithm_MethodInfo_
-};
-
-$Object* allocate$SignatureAlgorithm($Class* clazz) {
-	return $of($alloc(SignatureAlgorithm));
-}
-
 $Logger* SignatureAlgorithm::LOG = nullptr;
 $Map* SignatureAlgorithm::algorithmHash = nullptr;
 
 void SignatureAlgorithm::init$($Document* doc, $String* algorithmURI) {
-	SignatureAlgorithm::init$(doc, algorithmURI, ($Provider*)nullptr);
+	SignatureAlgorithm::init$(doc, algorithmURI, nullptr);
 }
 
 void SignatureAlgorithm::init$($Document* doc, $String* algorithmURI, $Provider* provider) {
-	SignatureAlgorithm::init$(doc, algorithmURI, provider, ($AlgorithmParameterSpec*)nullptr);
+	SignatureAlgorithm::init$(doc, algorithmURI, provider, nullptr);
 }
 
 void SignatureAlgorithm::init$($Document* doc, $String* algorithmURI, $Provider* provider, $AlgorithmParameterSpec* parameterSpec) {
@@ -232,12 +177,12 @@ void SignatureAlgorithm::init$($Document* doc, $String* algorithmURI, $Provider*
 	$set(this, signatureAlgorithmSpi, getSignatureAlgorithmSpi(algorithmURI, provider));
 	if (parameterSpec != nullptr) {
 		$nc(this->signatureAlgorithmSpi)->engineSetParameter(parameterSpec);
-		$nc(this->signatureAlgorithmSpi)->engineAddContextToElement($(getElement()));
+		this->signatureAlgorithmSpi->engineAddContextToElement($(getElement()));
 	}
 }
 
 void SignatureAlgorithm::init$($Document* doc, $String* algorithmURI, int32_t hmacOutputLength) {
-	SignatureAlgorithm::init$(doc, algorithmURI, hmacOutputLength, ($Provider*)nullptr);
+	SignatureAlgorithm::init$(doc, algorithmURI, hmacOutputLength, nullptr);
 }
 
 void SignatureAlgorithm::init$($Document* doc, $String* algorithmURI, int32_t hmacOutputLength, $Provider* provider) {
@@ -245,11 +190,11 @@ void SignatureAlgorithm::init$($Document* doc, $String* algorithmURI, int32_t hm
 	$set(this, algorithmURI, algorithmURI);
 	$set(this, signatureAlgorithmSpi, getSignatureAlgorithmSpi(algorithmURI, provider));
 	$nc(this->signatureAlgorithmSpi)->engineSetHMACOutputLength(hmacOutputLength);
-	$nc(this->signatureAlgorithmSpi)->engineAddContextToElement($(getElement()));
+	this->signatureAlgorithmSpi->engineAddContextToElement($(getElement()));
 }
 
 void SignatureAlgorithm::init$($Element* element, $String* baseURI) {
-	SignatureAlgorithm::init$(element, baseURI, true, ($Provider*)nullptr);
+	SignatureAlgorithm::init$(element, baseURI, true, nullptr);
 }
 
 void SignatureAlgorithm::init$($Element* element, $String* baseURI, $Provider* provider) {
@@ -257,11 +202,11 @@ void SignatureAlgorithm::init$($Element* element, $String* baseURI, $Provider* p
 }
 
 void SignatureAlgorithm::init$($Element* element, $String* baseURI, bool secureValidation) {
-	SignatureAlgorithm::init$(element, baseURI, secureValidation, ($Provider*)nullptr);
+	SignatureAlgorithm::init$(element, baseURI, secureValidation, nullptr);
 }
 
 void SignatureAlgorithm::init$($Element* element, $String* baseURI, bool secureValidation, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Algorithm::init$(element, baseURI);
 	$set(this, algorithmURI, this->getURI());
 	$var($Attr, attr, $nc(element)->getAttributeNodeNS(nullptr, "Id"_s));
@@ -272,10 +217,10 @@ void SignatureAlgorithm::init$($Element* element, $String* baseURI, bool secureV
 	if (var$0) {
 		$init($XMLSignature);
 		bool var$1 = $nc($XMLSignature::ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5)->equals(this->algorithmURI);
-		var$0 = (var$1 || $nc($XMLSignature::ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5)->equals(this->algorithmURI));
+		var$0 = var$1 || $nc($XMLSignature::ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5)->equals(this->algorithmURI);
 	}
 	if (var$0) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(this->algorithmURI)}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {this->algorithmURI}));
 		$throwNew($XMLSecurityException, "signature.signatureAlgorithm"_s, exArgs);
 	}
 	$set(this, signatureAlgorithmSpi, getSignatureAlgorithmSpi(this->algorithmURI, provider));
@@ -284,52 +229,52 @@ void SignatureAlgorithm::init$($Element* element, $String* baseURI, bool secureV
 
 $SignatureAlgorithmSpi* SignatureAlgorithm::getSignatureAlgorithmSpi($String* algorithmURI, $Provider* provider) {
 	$init(SignatureAlgorithm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$Class* implementingClass = $cast($Class, $nc(SignatureAlgorithm::algorithmHash)->get(algorithmURI));
 		$nc(SignatureAlgorithm::LOG)->debug("Create URI \"{}\" class \"{}\""_s, $$new($ObjectArray, {
-			$of(algorithmURI),
-			$of(implementingClass)
+			algorithmURI,
+			implementingClass
 		}));
 		if (implementingClass == nullptr) {
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
+			$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
 			$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithmNoEx"_s, exArgs);
 		}
 		if (provider != nullptr) {
 			try {
 				$load($Provider);
 				$var($Constructor, constructor, $nc(implementingClass)->getConstructor($$new($ClassArray, {$Provider::class$})));
-				return $cast($SignatureAlgorithmSpi, $nc(constructor)->newInstance($$new($ObjectArray, {$of(provider)})));
+				return $cast($SignatureAlgorithmSpi, $nc(constructor)->newInstance($$new($ObjectArray, {provider})));
 			} catch ($NoSuchMethodException& e) {
-				$nc(SignatureAlgorithm::LOG)->warn("Class \"{}\" does not have a constructor with Provider"_s, $$new($ObjectArray, {$of(implementingClass)}));
+				SignatureAlgorithm::LOG->warn("Class \"{}\" does not have a constructor with Provider"_s, $$new($ObjectArray, {implementingClass}));
 			}
 		}
 		return $cast($SignatureAlgorithmSpi, $JavaUtils::newInstanceWithEmptyConstructor(implementingClass));
 	} catch ($IllegalAccessException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$($of(ex->getMessage()))
+			algorithmURI,
+			$(ex->getMessage())
 		}));
-		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($InstantiationException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$($of(ex->getMessage()))
+			algorithmURI,
+			$(ex->getMessage())
 		}));
-		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($InvocationTargetException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$($of(ex->getMessage()))
+			algorithmURI,
+			$(ex->getMessage())
 		}));
-		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($NullPointerException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$($of(ex->getMessage()))
+			algorithmURI,
+			$(ex->getMessage())
 		}));
-		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
 	$shouldNotReachHere();
 }
@@ -389,17 +334,17 @@ $String* SignatureAlgorithm::getURI() {
 
 void SignatureAlgorithm::register$($String* algorithmURI, $String* implementingClass) {
 	$init(SignatureAlgorithm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JavaUtils::checkRegisterPermission();
 	$nc(SignatureAlgorithm::LOG)->debug("Try to register {} {}"_s, $$new($ObjectArray, {
-		$of(algorithmURI),
-		$of(implementingClass)
+		algorithmURI,
+		implementingClass
 	}));
 	$Class* registeredClass = $cast($Class, $nc(SignatureAlgorithm::algorithmHash)->get(algorithmURI));
 	if (registeredClass != nullptr) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$of(registeredClass)
+			algorithmURI,
+			registeredClass
 		}));
 		$throwNew($AlgorithmAlreadyRegisteredException, "algorithm.alreadyRegistered"_s, exArgs);
 	}
@@ -408,30 +353,30 @@ void SignatureAlgorithm::register$($String* algorithmURI, $String* implementingC
 		$nc(SignatureAlgorithm::algorithmHash)->put(algorithmURI, clazz);
 	} catch ($NullPointerException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$($of(ex->getMessage()))
+			algorithmURI,
+			$(ex->getMessage())
 		}));
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
 }
 
 void SignatureAlgorithm::register$($String* algorithmURI, $Class* implementingClass) {
 	$init(SignatureAlgorithm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JavaUtils::checkRegisterPermission();
 	$nc(SignatureAlgorithm::LOG)->debug("Try to register {} {}"_s, $$new($ObjectArray, {
-		$of(algorithmURI),
-		$of(implementingClass)
+		algorithmURI,
+		implementingClass
 	}));
 	$Class* registeredClass = $cast($Class, $nc(SignatureAlgorithm::algorithmHash)->get(algorithmURI));
 	if (registeredClass != nullptr) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$of(registeredClass)
+			algorithmURI,
+			registeredClass
 		}));
 		$throwNew($AlgorithmAlreadyRegisteredException, "algorithm.alreadyRegistered"_s, exArgs);
 	}
-	$nc(SignatureAlgorithm::algorithmHash)->put(algorithmURI, implementingClass);
+	SignatureAlgorithm::algorithmHash->put(algorithmURI, implementingClass);
 }
 
 void SignatureAlgorithm::registerDefaultAlgorithms() {
@@ -440,67 +385,67 @@ void SignatureAlgorithm::registerDefaultAlgorithms() {
 	$load($SignatureDSA);
 	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_DSA, $SignatureDSA::class$);
 	$load($SignatureDSA$SHA256);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_DSA_SHA256, $SignatureDSA$SHA256::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_DSA_SHA256, $SignatureDSA$SHA256::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1, $SignatureBaseRSA$SignatureRSASHA1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1, $SignatureBaseRSA$SignatureRSASHA1::class$);
 	$load($IntegrityHmac$IntegrityHmacSHA1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA1, $IntegrityHmac$IntegrityHmacSHA1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA1, $IntegrityHmac$IntegrityHmacSHA1::class$);
 	$load($SignatureBaseRSA$SignatureRSAMD5);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5, $SignatureBaseRSA$SignatureRSAMD5::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5, $SignatureBaseRSA$SignatureRSAMD5::class$);
 	$load($SignatureBaseRSA$SignatureRSARIPEMD160);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_RIPEMD160, $SignatureBaseRSA$SignatureRSARIPEMD160::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_RIPEMD160, $SignatureBaseRSA$SignatureRSARIPEMD160::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA224);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224, $SignatureBaseRSA$SignatureRSASHA224::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224, $SignatureBaseRSA$SignatureRSASHA224::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA256);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256, $SignatureBaseRSA$SignatureRSASHA256::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256, $SignatureBaseRSA$SignatureRSASHA256::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA384);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384, $SignatureBaseRSA$SignatureRSASHA384::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384, $SignatureBaseRSA$SignatureRSASHA384::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA512);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512, $SignatureBaseRSA$SignatureRSASHA512::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512, $SignatureBaseRSA$SignatureRSASHA512::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA1MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1_MGF1, $SignatureBaseRSA$SignatureRSASHA1MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1_MGF1, $SignatureBaseRSA$SignatureRSASHA1MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA224MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224_MGF1, $SignatureBaseRSA$SignatureRSASHA224MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224_MGF1, $SignatureBaseRSA$SignatureRSASHA224MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA256MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256_MGF1, $SignatureBaseRSA$SignatureRSASHA256MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256_MGF1, $SignatureBaseRSA$SignatureRSASHA256MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA384MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384_MGF1, $SignatureBaseRSA$SignatureRSASHA384MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384_MGF1, $SignatureBaseRSA$SignatureRSASHA384MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA512MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512_MGF1, $SignatureBaseRSA$SignatureRSASHA512MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512_MGF1, $SignatureBaseRSA$SignatureRSASHA512MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASSAPSS);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_PSS, $SignatureBaseRSA$SignatureRSASSAPSS::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_PSS, $SignatureBaseRSA$SignatureRSASSAPSS::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA3_224MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1, $SignatureBaseRSA$SignatureRSASHA3_224MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1, $SignatureBaseRSA$SignatureRSASHA3_224MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA3_256MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1, $SignatureBaseRSA$SignatureRSASHA3_256MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1, $SignatureBaseRSA$SignatureRSASHA3_256MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA3_384MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1, $SignatureBaseRSA$SignatureRSASHA3_384MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1, $SignatureBaseRSA$SignatureRSASHA3_384MGF1::class$);
 	$load($SignatureBaseRSA$SignatureRSASHA3_512MGF1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1, $SignatureBaseRSA$SignatureRSASHA3_512MGF1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1, $SignatureBaseRSA$SignatureRSASHA3_512MGF1::class$);
 	$load($SignatureECDSA$SignatureECDSASHA1);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA1, $SignatureECDSA$SignatureECDSASHA1::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA1, $SignatureECDSA$SignatureECDSASHA1::class$);
 	$load($SignatureECDSA$SignatureECDSASHA224);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA224, $SignatureECDSA$SignatureECDSASHA224::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA224, $SignatureECDSA$SignatureECDSASHA224::class$);
 	$load($SignatureECDSA$SignatureECDSASHA256);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA256, $SignatureECDSA$SignatureECDSASHA256::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA256, $SignatureECDSA$SignatureECDSASHA256::class$);
 	$load($SignatureECDSA$SignatureECDSASHA384);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA384, $SignatureECDSA$SignatureECDSASHA384::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA384, $SignatureECDSA$SignatureECDSASHA384::class$);
 	$load($SignatureECDSA$SignatureECDSASHA512);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA512, $SignatureECDSA$SignatureECDSASHA512::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA512, $SignatureECDSA$SignatureECDSASHA512::class$);
 	$load($SignatureECDSA$SignatureECDSARIPEMD160);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_RIPEMD160, $SignatureECDSA$SignatureECDSARIPEMD160::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_RIPEMD160, $SignatureECDSA$SignatureECDSARIPEMD160::class$);
 	$load($IntegrityHmac$IntegrityHmacMD5);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5, $IntegrityHmac$IntegrityHmacMD5::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5, $IntegrityHmac$IntegrityHmacMD5::class$);
 	$load($IntegrityHmac$IntegrityHmacRIPEMD160);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_MAC_HMAC_RIPEMD160, $IntegrityHmac$IntegrityHmacRIPEMD160::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_MAC_HMAC_RIPEMD160, $IntegrityHmac$IntegrityHmacRIPEMD160::class$);
 	$load($IntegrityHmac$IntegrityHmacSHA224);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA224, $IntegrityHmac$IntegrityHmacSHA224::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA224, $IntegrityHmac$IntegrityHmacSHA224::class$);
 	$load($IntegrityHmac$IntegrityHmacSHA256);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA256, $IntegrityHmac$IntegrityHmacSHA256::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA256, $IntegrityHmac$IntegrityHmacSHA256::class$);
 	$load($IntegrityHmac$IntegrityHmacSHA384);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA384, $IntegrityHmac$IntegrityHmacSHA384::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA384, $IntegrityHmac$IntegrityHmacSHA384::class$);
 	$load($IntegrityHmac$IntegrityHmacSHA512);
-	$nc(SignatureAlgorithm::algorithmHash)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA512, $IntegrityHmac$IntegrityHmacSHA512::class$);
+	SignatureAlgorithm::algorithmHash->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA512, $IntegrityHmac$IntegrityHmacSHA512::class$);
 }
 
 $String* SignatureAlgorithm::getBaseNamespace() {
@@ -513,16 +458,64 @@ $String* SignatureAlgorithm::getBaseLocalName() {
 	return $Constants::_TAG_SIGNATUREMETHOD;
 }
 
-void clinit$SignatureAlgorithm($Class* class$) {
+void SignatureAlgorithm::clinit$($Class* clazz) {
 	$assignStatic(SignatureAlgorithm::LOG, $LoggerFactory::getLogger(SignatureAlgorithm::class$));
-	$assignStatic(SignatureAlgorithm::algorithmHash, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(SignatureAlgorithm::algorithmHash, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 SignatureAlgorithm::SignatureAlgorithm() {
 }
 
 $Class* SignatureAlgorithm::load$($String* name, bool initialize) {
-	$loadClass(SignatureAlgorithm, name, initialize, &_SignatureAlgorithm_ClassInfo_, clinit$SignatureAlgorithm, allocate$SignatureAlgorithm);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignatureAlgorithm, LOG)},
+		{"algorithmHash", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;>;>;", $PRIVATE | $STATIC, $staticField(SignatureAlgorithm, algorithmHash)},
+		{"signatureAlgorithmSpi", "Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;", nullptr, $PRIVATE | $FINAL, $field(SignatureAlgorithm, signatureAlgorithmSpi)},
+		{"algorithmURI", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureAlgorithm, algorithmURI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/security/Provider;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, $Provider*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;ILjava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Document*, $String*, int32_t, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;ZLjava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureAlgorithm, init$, void, $Element*, $String*, bool, $Provider*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getBaseLocalName, $String*)},
+		{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getBaseNamespace, $String*)},
+		{"getJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getJCEAlgorithmString, $String*)},
+		{"getJCEProviderName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, getJCEProviderName, $String*)},
+		{"getSignatureAlgorithmSpi", "(Ljava/lang/String;Ljava/security/Provider;)Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureAlgorithm, getSignatureAlgorithmSpi, $SignatureAlgorithmSpi*, $String*, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SignatureAlgorithm, getURI, $String*)},
+		{"initSign", "(Ljava/security/Key;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"initSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"initSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"initVerify", "(Ljava/security/Key;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, initVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"register", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureAlgorithm, register$, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"register", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi;>;)V", $PUBLIC | $STATIC, $staticMethod(SignatureAlgorithm, register$, void, $String*, $Class*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException,com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureAlgorithm, registerDefaultAlgorithms, void)},
+		{"setParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, setParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"sign", "()[B", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, sign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"update", "([B)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, update, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"update", "(B)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, update, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, update, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"verify", "([B)Z", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithm, verify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithm",
+		"com.sun.org.apache.xml.internal.security.algorithms.Algorithm",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureAlgorithm, name, initialize, &classInfo$$, SignatureAlgorithm::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureAlgorithm);
+	});
 	return class$;
 }
 

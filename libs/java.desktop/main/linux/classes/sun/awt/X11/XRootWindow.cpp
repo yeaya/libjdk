@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XRootWindow.h>
-
 #include <sun/awt/X11/XBaseWindow.h>
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XCreateWindowParams.h>
@@ -26,40 +25,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XRootWindow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XRootWindow, init$, void)},
-	{"getInstance", "()Lsun/awt/X11/XRootWindow;", nullptr, $STATIC, $staticMethod(XRootWindow, getInstance, XRootWindow*)},
-	{"getWMClass", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XRootWindow, getWMClass, $StringArray*)},
-	{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XRootWindow, getWMName, $String*)},
-	{"getXRootWindow", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(XRootWindow, getXRootWindow, int64_t)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XRootWindow, postInit, void, $XCreateWindowParams*)},
-	{}
-};
-
-$InnerClassInfo _XRootWindow_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XRootWindow$LazyHolder", "sun.awt.X11.XRootWindow", "LazyHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XRootWindow_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XRootWindow",
-	"sun.awt.X11.XBaseWindow",
-	nullptr,
-	nullptr,
-	_XRootWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XRootWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XRootWindow$LazyHolder"
-};
-
-$Object* allocate$XRootWindow($Class* clazz) {
-	return $of($alloc(XRootWindow));
-}
-
 XRootWindow* XRootWindow::getInstance() {
 	$init(XRootWindow);
 	$init($XRootWindow$LazyHolder);
@@ -67,14 +32,13 @@ XRootWindow* XRootWindow::getInstance() {
 }
 
 void XRootWindow::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XBaseWindow);
-	$init($Boolean);
 	$XBaseWindow::init$($$new($XCreateWindowParams, $$new($ObjectArray, {
-		$of($XBaseWindow::DELAYED),
-		$of($Boolean::TRUE),
-		$of($XBaseWindow::EVENT_MASK),
-		$($of($Long::valueOf($XConstants::StructureNotifyMask)))
+		$XBaseWindow::DELAYED,
+		$Boolean::TRUE,
+		$XBaseWindow::EVENT_MASK,
+		$($Long::valueOf($XConstants::StructureNotifyMask))
 	})));
 }
 
@@ -88,7 +52,7 @@ $String* XRootWindow::getWMName() {
 }
 
 $StringArray* XRootWindow::getWMClass() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($StringArray, {
 		$($XToolkit::getAWTAppClassName()),
 		$($XToolkit::getAWTAppClassName())
@@ -97,14 +61,43 @@ $StringArray* XRootWindow::getWMClass() {
 
 int64_t XRootWindow::getXRootWindow() {
 	$init(XRootWindow);
-	return $nc($(getXAWTRootWindow()))->getWindow();
+	return $$nc(getXAWTRootWindow())->getWindow();
 }
 
 XRootWindow::XRootWindow() {
 }
 
 $Class* XRootWindow::load$($String* name, bool initialize) {
-	$loadClass(XRootWindow, name, initialize, &_XRootWindow_ClassInfo_, allocate$XRootWindow);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XRootWindow, init$, void)},
+		{"getInstance", "()Lsun/awt/X11/XRootWindow;", nullptr, $STATIC, $staticMethod(XRootWindow, getInstance, XRootWindow*)},
+		{"getWMClass", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XRootWindow, getWMClass, $StringArray*)},
+		{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XRootWindow, getWMName, $String*)},
+		{"getXRootWindow", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(XRootWindow, getXRootWindow, int64_t)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XRootWindow, postInit, void, $XCreateWindowParams*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XRootWindow$LazyHolder", "sun.awt.X11.XRootWindow", "LazyHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XRootWindow",
+		"sun.awt.X11.XBaseWindow",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XRootWindow$LazyHolder"
+	};
+	$loadClass(XRootWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XRootWindow);
+	});
 	return class$;
 }
 

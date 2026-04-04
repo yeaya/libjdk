@@ -31,6 +31,7 @@ class $export JMXSubjectDomainCombiner : public ::javax::security::auth::Subject
 	$class(JMXSubjectDomainCombiner, 0, ::javax::security::auth::SubjectDomainCombiner)
 public:
 	JMXSubjectDomainCombiner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::security::auth::Subject* s);
 	virtual $Array<::java::security::ProtectionDomain>* combine($Array<::java::security::ProtectionDomain>* current, $Array<::java::security::ProtectionDomain>* assigned) override;
 	static ::java::security::AccessControlContext* getContext(::javax::security::auth::Subject* subject);

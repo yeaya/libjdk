@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicProgressBarUI.h>
-
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
@@ -13,11 +12,7 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/Stroke.h>
-#include <java/awt/event/HierarchyListener.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/JComponent.h>
@@ -47,22 +42,15 @@
 
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
 using $Dimension = ::java::awt::Dimension;
-using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
-using $Stroke = ::java::awt::Stroke;
-using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -78,7 +66,6 @@ using $JProgressBar = ::javax::swing::JProgressBar;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $ProgressBarUI = ::javax::swing::plaf::ProgressBarUI;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
@@ -91,110 +78,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicProgressBarUI_FieldInfo_[] = {
-	{"cachedPercent", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cachedPercent)},
-	{"cellLength", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cellLength)},
-	{"cellSpacing", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cellSpacing)},
-	{"selectionForeground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicProgressBarUI, selectionForeground)},
-	{"selectionBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicProgressBarUI, selectionBackground)},
-	{"animator", "Ljavax/swing/plaf/basic/BasicProgressBarUI$Animator;", nullptr, $PRIVATE, $field(BasicProgressBarUI, animator)},
-	{"progressBar", "Ljavax/swing/JProgressBar;", nullptr, $PROTECTED, $field(BasicProgressBarUI, progressBar)},
-	{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicProgressBarUI, changeListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicProgressBarUI$Handler;", nullptr, $PRIVATE, $field(BasicProgressBarUI, handler)},
-	{"animationIndex", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, animationIndex)},
-	{"numFrames", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, numFrames)},
-	{"repaintInterval", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, repaintInterval)},
-	{"cycleTime", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cycleTime)},
-	{"ADJUSTTIMER", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicProgressBarUI, ADJUSTTIMER)},
-	{"boxRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicProgressBarUI, boxRect)},
-	{"nextPaintRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicProgressBarUI, nextPaintRect)},
-	{"componentInnards", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicProgressBarUI, componentInnards)},
-	{"oldComponentInnards", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicProgressBarUI, oldComponentInnards)},
-	{"delta", "D", nullptr, $PRIVATE, $field(BasicProgressBarUI, delta)},
-	{"maxPosition", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, maxPosition)},
-	{}
-};
-
-$MethodInfo _BasicProgressBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicProgressBarUI, init$, void)},
-	{"cleanUpIndeterminateValues", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, cleanUpIndeterminateValues, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getAmountFull", "(Ljava/awt/Insets;II)I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getAmountFull, int32_t, $Insets*, int32_t, int32_t)},
-	{"getAnimationIndex", "()I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getAnimationIndex, int32_t)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getBox, $Rectangle*, $Rectangle*)},
-	{"getBoxLength", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getBoxLength, int32_t, int32_t, int32_t)},
-	{"getCachedPercent", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, getCachedPercent, int32_t)},
-	{"getCellLength", "()I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getCellLength, int32_t)},
-	{"getCellSpacing", "()I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getCellSpacing, int32_t)},
-	{"getCycleTime", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, getCycleTime, int32_t)},
-	{"getFrameCount", "()I", nullptr, $PROTECTED | $FINAL, $method(BasicProgressBarUI, getFrameCount, int32_t)},
-	{"getGenericBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicProgressBarUI, getGenericBox, $Rectangle*, $Rectangle*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicProgressBarUI$Handler;", nullptr, $PRIVATE, $method(BasicProgressBarUI, getHandler, $BasicProgressBarUI$Handler*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredInnerHorizontal", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getPreferredInnerHorizontal, $Dimension*)},
-	{"getPreferredInnerVertical", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getPreferredInnerVertical, $Dimension*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getRepaintInterval", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, getRepaintInterval, int32_t)},
-	{"getSelectionBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getSelectionBackground, $Color*)},
-	{"getSelectionForeground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getSelectionForeground, $Color*)},
-	{"getStringPlacement", "(Ljava/awt/Graphics;Ljava/lang/String;IIII)Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getStringPlacement, $Point*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t)},
-	{"incrementAnimationIndex", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, incrementAnimationIndex, void)},
-	{"initAnimationIndex", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, initAnimationIndex, void)},
-	{"initCycleTime", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, initCycleTime, int32_t)},
-	{"initIndeterminateDefaults", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, initIndeterminateDefaults, void)},
-	{"initIndeterminateValues", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, initIndeterminateValues, void)},
-	{"initRepaintInterval", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, initRepaintInterval, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintDeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, paintDeterminate, void, $Graphics*, $JComponent*)},
-	{"paintIndeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, paintIndeterminate, void, $Graphics*, $JComponent*)},
-	{"paintString", "(Ljava/awt/Graphics;IIIIILjava/awt/Insets;)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, paintString, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, $Insets*)},
-	{"paintString", "(Ljava/awt/Graphics;IIIIIILjava/awt/Insets;)V", nullptr, $PRIVATE, $method(BasicProgressBarUI, paintString, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Insets*)},
-	{"setAnimationIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, setAnimationIndex, void, int32_t)},
-	{"setCachedPercent", "(I)V", nullptr, $PRIVATE, $method(BasicProgressBarUI, setCachedPercent, void, int32_t)},
-	{"setCellLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, setCellLength, void, int32_t)},
-	{"setCellSpacing", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, setCellSpacing, void, int32_t)},
-	{"sizeChanged", "()Z", nullptr, $PRIVATE, $method(BasicProgressBarUI, sizeChanged, bool)},
-	{"startAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, startAnimationTimer, void)},
-	{"stopAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, stopAnimationTimer, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, uninstallUI, void, $JComponent*)},
-	{"updateSizes", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, updateSizes, void)},
-	{}
-};
-
-$InnerClassInfo _BasicProgressBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicProgressBarUI$Handler", "javax.swing.plaf.basic.BasicProgressBarUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicProgressBarUI$ChangeHandler", "javax.swing.plaf.basic.BasicProgressBarUI", "ChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicProgressBarUI$Animator", "javax.swing.plaf.basic.BasicProgressBarUI", "Animator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicProgressBarUI",
-	"javax.swing.plaf.ProgressBarUI",
-	nullptr,
-	_BasicProgressBarUI_FieldInfo_,
-	_BasicProgressBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicProgressBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicProgressBarUI$Handler,javax.swing.plaf.basic.BasicProgressBarUI$ChangeHandler,javax.swing.plaf.basic.BasicProgressBarUI$Animator"
-};
-
-$Object* allocate$BasicProgressBarUI($Class* clazz) {
-	return $of($alloc(BasicProgressBarUI));
-}
 
 bool BasicProgressBarUI::ADJUSTTIMER = false;
 
@@ -229,7 +112,6 @@ void BasicProgressBarUI::uninstallUI($JComponent* c) {
 }
 
 void BasicProgressBarUI::installDefaults() {
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->progressBar, "opaque"_s, $Boolean::TRUE);
 	$LookAndFeel::installBorder(this->progressBar, "ProgressBar.border"_s);
 	$LookAndFeel::installColorsAndFont(this->progressBar, "ProgressBar.background"_s, "ProgressBar.foreground"_s, "ProgressBar.font"_s);
@@ -268,7 +150,7 @@ void BasicProgressBarUI::startAnimationTimer() {
 
 void BasicProgressBarUI::stopAnimationTimer() {
 	if (this->animator != nullptr) {
-		$nc(this->animator)->stop();
+		this->animator->stop();
 	}
 }
 
@@ -279,10 +161,10 @@ void BasicProgressBarUI::uninstallListeners() {
 }
 
 int32_t BasicProgressBarUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ProgressBarUI::getBaseline(c, width, height);
 	bool var$0 = $nc(this->progressBar)->isStringPainted();
-	if (var$0 && $nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL) {
+	if (var$0 && this->progressBar->getOrientation() == $JProgressBar::HORIZONTAL) {
 		$var($FontMetrics, metrics, $nc(this->progressBar)->getFontMetrics($($nc(this->progressBar)->getFont())));
 		$var($Insets, insets, $nc(this->progressBar)->getInsets());
 		int32_t y = $nc(insets)->top;
@@ -299,7 +181,7 @@ int32_t BasicProgressBarUI::getBaseline($JComponent* c, int32_t width, int32_t h
 $Component$BaselineResizeBehavior* BasicProgressBarUI::getBaselineResizeBehavior($JComponent* c) {
 	$ProgressBarUI::getBaselineResizeBehavior(c);
 	bool var$0 = $nc(this->progressBar)->isStringPainted();
-	if (var$0 && $nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL) {
+	if (var$0 && this->progressBar->getOrientation() == $JProgressBar::HORIZONTAL) {
 		$init($Component$BaselineResizeBehavior);
 		return $Component$BaselineResizeBehavior::CENTER_OFFSET;
 	}
@@ -436,7 +318,7 @@ $Rectangle* BasicProgressBarUI::getGenericBox($Rectangle* r$renamed) {
 			$assign(r, nullptr);
 		} else {
 			r->height = $nc(this->componentInnards)->height;
-			r->y = $nc(this->componentInnards)->y;
+			r->y = this->componentInnards->y;
 		}
 	} else {
 		$nc(r)->height = getBoxLength($nc(this->componentInnards)->height, $nc(this->componentInnards)->width);
@@ -444,7 +326,7 @@ $Rectangle* BasicProgressBarUI::getGenericBox($Rectangle* r$renamed) {
 			$assign(r, nullptr);
 		} else {
 			r->width = $nc(this->componentInnards)->width;
-			r->x = $nc(this->componentInnards)->x;
+			r->x = this->componentInnards->x;
 		}
 	}
 	return r;
@@ -455,12 +337,12 @@ int32_t BasicProgressBarUI::getBoxLength(int32_t availableLength, int32_t otherD
 }
 
 void BasicProgressBarUI::paintIndeterminate($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
 	$var($Insets, b, $nc(this->progressBar)->getInsets());
-	int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->right + b->left);
+	int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->right + $nc(b)->left);
 	int32_t barRectHeight = $nc(this->progressBar)->getHeight() - (b->top + b->bottom);
 	if (barRectWidth <= 0 || barRectHeight <= 0) {
 		return;
@@ -481,12 +363,12 @@ void BasicProgressBarUI::paintIndeterminate($Graphics* g, $JComponent* c) {
 }
 
 void BasicProgressBarUI::paintDeterminate($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
 	$var($Insets, b, $nc(this->progressBar)->getInsets());
-	int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->right + b->left);
+	int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->right + $nc(b)->left);
 	int32_t barRectHeight = $nc(this->progressBar)->getHeight() - (b->top + b->bottom);
 	if (barRectWidth <= 0 || barRectHeight <= 0) {
 		return;
@@ -547,7 +429,7 @@ void BasicProgressBarUI::paintString($Graphics* g, int32_t x, int32_t y, int32_t
 }
 
 void BasicProgressBarUI::paintString($Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height, int32_t fillStart, int32_t amountFull, $Insets* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
@@ -558,26 +440,26 @@ void BasicProgressBarUI::paintString($Graphics* g, int32_t x, int32_t y, int32_t
 	$var($Rectangle, oldClip, g2->getClipBounds());
 	if ($nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL) {
 		g2->setColor($(getSelectionBackground()));
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->progressBar), static_cast<$Graphics*>(g2), progressString, $nc(renderLocation)->x, renderLocation->y);
+		$SwingUtilities2::drawString(this->progressBar, g2, progressString, $nc(renderLocation)->x, $nc(renderLocation)->y);
 		g2->setColor($(getSelectionForeground()));
 		g2->clipRect(fillStart, y, amountFull, height);
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->progressBar), static_cast<$Graphics*>(g2), progressString, $nc(renderLocation)->x, renderLocation->y);
+		$SwingUtilities2::drawString(this->progressBar, g2, progressString, renderLocation->x, renderLocation->y);
 	} else {
 		g2->setColor($(getSelectionBackground()));
 		$init($Math);
 		$var($AffineTransform, rotate, $AffineTransform::getRotateInstance($Math::PI / 2));
-		g2->setFont($($nc($($nc(this->progressBar)->getFont()))->deriveFont(rotate)));
+		g2->setFont($($$nc($nc(this->progressBar)->getFont())->deriveFont(rotate)));
 		$assign(renderLocation, getStringPlacement(g2, progressString, x, y, width, height));
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->progressBar), static_cast<$Graphics*>(g2), progressString, $nc(renderLocation)->x, renderLocation->y);
+		$SwingUtilities2::drawString(this->progressBar, g2, progressString, $nc(renderLocation)->x, $nc(renderLocation)->y);
 		g2->setColor($(getSelectionForeground()));
 		g2->clipRect(x, fillStart, width, amountFull);
-		$SwingUtilities2::drawString(static_cast<$JComponent*>(this->progressBar), static_cast<$Graphics*>(g2), progressString, $nc(renderLocation)->x, renderLocation->y);
+		$SwingUtilities2::drawString(this->progressBar, g2, progressString, renderLocation->x, renderLocation->y);
 	}
 	g2->setClip(oldClip);
 }
 
 $Point* BasicProgressBarUI::getStringPlacement($Graphics* g, $String* progressString, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fontSizer, $SwingUtilities2::getFontMetrics(this->progressBar, g, $($nc(this->progressBar)->getFont())));
 	int32_t stringWidth = $SwingUtilities2::stringWidth(this->progressBar, fontSizer, progressString);
 	if ($nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL) {
@@ -598,7 +480,7 @@ $Point* BasicProgressBarUI::getStringPlacement($Graphics* g, $String* progressSt
 }
 
 $Dimension* BasicProgressBarUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, nullptr);
 	$var($Insets, border, $nc(this->progressBar)->getInsets());
 	$var($FontMetrics, fontSizer, $nc(this->progressBar)->getFontMetrics($($nc(this->progressBar)->getFont())));
@@ -631,7 +513,7 @@ $Dimension* BasicProgressBarUI::getPreferredSize($JComponent* c) {
 			}
 		}
 	}
-	$nc(size)->width += $nc(border)->left + border->right;
+	$nc(size)->width += $nc(border)->left + $nc(border)->right;
 	size->height += border->top + border->bottom;
 	return size;
 }
@@ -763,13 +645,13 @@ void BasicProgressBarUI::cleanUpIndeterminateValues() {
 	this->numFrames = (this->animationIndex = 0);
 	this->maxPosition = 0;
 	this->delta = 0.0;
-	$set(this, boxRect, ($set(this, nextPaintRect, nullptr)));
-	$set(this, componentInnards, ($set(this, oldComponentInnards, nullptr)));
+	$set(this, boxRect, $set(this, nextPaintRect, nullptr));
+	$set(this, componentInnards, $set(this, oldComponentInnards, nullptr));
 	$nc(this->progressBar)->removeHierarchyListener($(getHandler()));
 }
 
 void BasicProgressBarUI::initAnimationIndex() {
-	bool var$0 = ($nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL);
+	bool var$0 = $nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL;
 	if (var$0 && ($BasicGraphicsUtils::isLeftToRight(this->progressBar))) {
 		setAnimationIndex(0);
 	} else {
@@ -777,7 +659,7 @@ void BasicProgressBarUI::initAnimationIndex() {
 	}
 }
 
-void clinit$BasicProgressBarUI($Class* class$) {
+void BasicProgressBarUI::clinit$($Class* clazz) {
 	BasicProgressBarUI::ADJUSTTIMER = true;
 }
 
@@ -785,7 +667,105 @@ BasicProgressBarUI::BasicProgressBarUI() {
 }
 
 $Class* BasicProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(BasicProgressBarUI, name, initialize, &_BasicProgressBarUI_ClassInfo_, clinit$BasicProgressBarUI, allocate$BasicProgressBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"cachedPercent", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cachedPercent)},
+		{"cellLength", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cellLength)},
+		{"cellSpacing", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cellSpacing)},
+		{"selectionForeground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicProgressBarUI, selectionForeground)},
+		{"selectionBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicProgressBarUI, selectionBackground)},
+		{"animator", "Ljavax/swing/plaf/basic/BasicProgressBarUI$Animator;", nullptr, $PRIVATE, $field(BasicProgressBarUI, animator)},
+		{"progressBar", "Ljavax/swing/JProgressBar;", nullptr, $PROTECTED, $field(BasicProgressBarUI, progressBar)},
+		{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(BasicProgressBarUI, changeListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicProgressBarUI$Handler;", nullptr, $PRIVATE, $field(BasicProgressBarUI, handler)},
+		{"animationIndex", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, animationIndex)},
+		{"numFrames", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, numFrames)},
+		{"repaintInterval", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, repaintInterval)},
+		{"cycleTime", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, cycleTime)},
+		{"ADJUSTTIMER", "Z", nullptr, $PRIVATE | $STATIC, $staticField(BasicProgressBarUI, ADJUSTTIMER)},
+		{"boxRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicProgressBarUI, boxRect)},
+		{"nextPaintRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicProgressBarUI, nextPaintRect)},
+		{"componentInnards", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicProgressBarUI, componentInnards)},
+		{"oldComponentInnards", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicProgressBarUI, oldComponentInnards)},
+		{"delta", "D", nullptr, $PRIVATE, $field(BasicProgressBarUI, delta)},
+		{"maxPosition", "I", nullptr, $PRIVATE, $field(BasicProgressBarUI, maxPosition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicProgressBarUI, init$, void)},
+		{"cleanUpIndeterminateValues", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, cleanUpIndeterminateValues, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getAmountFull", "(Ljava/awt/Insets;II)I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getAmountFull, int32_t, $Insets*, int32_t, int32_t)},
+		{"getAnimationIndex", "()I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getAnimationIndex, int32_t)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getBox, $Rectangle*, $Rectangle*)},
+		{"getBoxLength", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getBoxLength, int32_t, int32_t, int32_t)},
+		{"getCachedPercent", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, getCachedPercent, int32_t)},
+		{"getCellLength", "()I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getCellLength, int32_t)},
+		{"getCellSpacing", "()I", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getCellSpacing, int32_t)},
+		{"getCycleTime", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, getCycleTime, int32_t)},
+		{"getFrameCount", "()I", nullptr, $PROTECTED | $FINAL, $method(BasicProgressBarUI, getFrameCount, int32_t)},
+		{"getGenericBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicProgressBarUI, getGenericBox, $Rectangle*, $Rectangle*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicProgressBarUI$Handler;", nullptr, $PRIVATE, $method(BasicProgressBarUI, getHandler, $BasicProgressBarUI$Handler*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredInnerHorizontal", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getPreferredInnerHorizontal, $Dimension*)},
+		{"getPreferredInnerVertical", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getPreferredInnerVertical, $Dimension*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getRepaintInterval", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, getRepaintInterval, int32_t)},
+		{"getSelectionBackground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getSelectionBackground, $Color*)},
+		{"getSelectionForeground", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getSelectionForeground, $Color*)},
+		{"getStringPlacement", "(Ljava/awt/Graphics;Ljava/lang/String;IIII)Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, getStringPlacement, $Point*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t)},
+		{"incrementAnimationIndex", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, incrementAnimationIndex, void)},
+		{"initAnimationIndex", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, initAnimationIndex, void)},
+		{"initCycleTime", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, initCycleTime, int32_t)},
+		{"initIndeterminateDefaults", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, initIndeterminateDefaults, void)},
+		{"initIndeterminateValues", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, initIndeterminateValues, void)},
+		{"initRepaintInterval", "()I", nullptr, $PRIVATE, $method(BasicProgressBarUI, initRepaintInterval, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintDeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, paintDeterminate, void, $Graphics*, $JComponent*)},
+		{"paintIndeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, paintIndeterminate, void, $Graphics*, $JComponent*)},
+		{"paintString", "(Ljava/awt/Graphics;IIIIILjava/awt/Insets;)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, paintString, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, $Insets*)},
+		{"paintString", "(Ljava/awt/Graphics;IIIIIILjava/awt/Insets;)V", nullptr, $PRIVATE, $method(BasicProgressBarUI, paintString, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Insets*)},
+		{"setAnimationIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, setAnimationIndex, void, int32_t)},
+		{"setCachedPercent", "(I)V", nullptr, $PRIVATE, $method(BasicProgressBarUI, setCachedPercent, void, int32_t)},
+		{"setCellLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, setCellLength, void, int32_t)},
+		{"setCellSpacing", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, setCellSpacing, void, int32_t)},
+		{"sizeChanged", "()Z", nullptr, $PRIVATE, $method(BasicProgressBarUI, sizeChanged, bool)},
+		{"startAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, startAnimationTimer, void)},
+		{"stopAnimationTimer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, stopAnimationTimer, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicProgressBarUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicProgressBarUI, uninstallUI, void, $JComponent*)},
+		{"updateSizes", "()V", nullptr, $PRIVATE, $method(BasicProgressBarUI, updateSizes, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicProgressBarUI$Handler", "javax.swing.plaf.basic.BasicProgressBarUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicProgressBarUI$ChangeHandler", "javax.swing.plaf.basic.BasicProgressBarUI", "ChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicProgressBarUI$Animator", "javax.swing.plaf.basic.BasicProgressBarUI", "Animator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicProgressBarUI",
+		"javax.swing.plaf.ProgressBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicProgressBarUI$Handler,javax.swing.plaf.basic.BasicProgressBarUI$ChangeHandler,javax.swing.plaf.basic.BasicProgressBarUI$Animator"
+	};
+	$loadClass(BasicProgressBarUI, name, initialize, &classInfo$$, BasicProgressBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicProgressBarUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/SerializerConstants.h>
-
 #include <jcpp.h>
 
 #undef CDATA_CONTINUE
@@ -29,37 +28,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$FieldInfo _SerializerConstants_FieldInfo_[] = {
-	{"CDATA_CONTINUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, CDATA_CONTINUE)},
-	{"CDATA_DELIMITER_CLOSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, CDATA_DELIMITER_CLOSE)},
-	{"CDATA_DELIMITER_OPEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, CDATA_DELIMITER_OPEN)},
-	{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, EMPTYSTRING)},
-	{"ENTITY_AMP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_AMP)},
-	{"ENTITY_CRLF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_CRLF)},
-	{"ENTITY_GT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_GT)},
-	{"ENTITY_LT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_LT)},
-	{"ENTITY_QUOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_QUOT)},
-	{"XML_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XML_PREFIX)},
-	{"XMLNS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLNS_PREFIX)},
-	{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLNS_URI)},
-	{"DEFAULT_SAX_SERIALIZER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, DEFAULT_SAX_SERIALIZER)},
-	{"XMLVERSION11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLVERSION11)},
-	{"XMLVERSION10", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLVERSION10)},
-	{}
-};
-
-$ClassInfo _SerializerConstants_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.serializer.SerializerConstants",
-	nullptr,
-	nullptr,
-	_SerializerConstants_FieldInfo_
-};
-
-$Object* allocate$SerializerConstants($Class* clazz) {
-	return $of($alloc(SerializerConstants));
-}
-
 $String* SerializerConstants::CDATA_CONTINUE = nullptr;
 $String* SerializerConstants::CDATA_DELIMITER_CLOSE = nullptr;
 $String* SerializerConstants::CDATA_DELIMITER_OPEN = nullptr;
@@ -76,7 +44,7 @@ $String* SerializerConstants::DEFAULT_SAX_SERIALIZER = nullptr;
 $String* SerializerConstants::XMLVERSION11 = nullptr;
 $String* SerializerConstants::XMLVERSION10 = nullptr;
 
-void clinit$SerializerConstants($Class* class$) {
+void SerializerConstants::clinit$($Class* clazz) {
 	$assignStatic(SerializerConstants::CDATA_CONTINUE, "]]]]><![CDATA[>"_s);
 	$assignStatic(SerializerConstants::CDATA_DELIMITER_CLOSE, "]]>"_s);
 	$assignStatic(SerializerConstants::CDATA_DELIMITER_OPEN, "<![CDATA["_s);
@@ -95,7 +63,34 @@ void clinit$SerializerConstants($Class* class$) {
 }
 
 $Class* SerializerConstants::load$($String* name, bool initialize) {
-	$loadClass(SerializerConstants, name, initialize, &_SerializerConstants_ClassInfo_, clinit$SerializerConstants, allocate$SerializerConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"CDATA_CONTINUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, CDATA_CONTINUE)},
+		{"CDATA_DELIMITER_CLOSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, CDATA_DELIMITER_CLOSE)},
+		{"CDATA_DELIMITER_OPEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, CDATA_DELIMITER_OPEN)},
+		{"EMPTYSTRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, EMPTYSTRING)},
+		{"ENTITY_AMP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_AMP)},
+		{"ENTITY_CRLF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_CRLF)},
+		{"ENTITY_GT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_GT)},
+		{"ENTITY_LT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_LT)},
+		{"ENTITY_QUOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, ENTITY_QUOT)},
+		{"XML_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XML_PREFIX)},
+		{"XMLNS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLNS_PREFIX)},
+		{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLNS_URI)},
+		{"DEFAULT_SAX_SERIALIZER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, DEFAULT_SAX_SERIALIZER)},
+		{"XMLVERSION11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLVERSION11)},
+		{"XMLVERSION10", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SerializerConstants, XMLVERSION10)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.serializer.SerializerConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(SerializerConstants, name, initialize, &classInfo$$, SerializerConstants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SerializerConstants);
+	});
 	return class$;
 }
 

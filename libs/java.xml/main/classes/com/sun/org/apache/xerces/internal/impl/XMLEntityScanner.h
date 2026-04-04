@@ -149,6 +149,7 @@ class XMLEntityScanner : public ::com::sun::org::apache::xerces::internal::xni::
 	$class(XMLEntityScanner, 0, ::com::sun::org::apache::xerces::internal::xni::XMLLocator)
 public:
 	XMLEntityScanner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::impl::PropertyManager* propertyManager, ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager* entityManager);
 	virtual bool arrangeCapacity(int32_t length);

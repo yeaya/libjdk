@@ -1,27 +1,8 @@
 #include <TckDriver.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _TckDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TckDriver, init$, void)},
-	{}
-};
-
-$ClassInfo _TckDriver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TckDriver",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TckDriver_MethodInfo_
-};
-
-$Object* allocate$TckDriver($Class* clazz) {
-	return $of($alloc(TckDriver));
-}
 
 void TckDriver::init$() {
 }
@@ -30,7 +11,21 @@ TckDriver::TckDriver() {
 }
 
 $Class* TckDriver::load$($String* name, bool initialize) {
-	$loadClass(TckDriver, name, initialize, &_TckDriver_ClassInfo_, allocate$TckDriver);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TckDriver, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TckDriver",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TckDriver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TckDriver);
+	});
 	return class$;
 }
 

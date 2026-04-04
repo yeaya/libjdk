@@ -1,14 +1,11 @@
 #include <javax/swing/CellRendererPane$AccessibleCellRendererPane.h>
-
 #include <java/awt/Container$AccessibleAWTContainer.h>
-#include <java/awt/Container.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/CellRendererPane.h>
 #include <jcpp.h>
 
 #undef PANEL
 
-using $Container = ::java::awt::Container;
 using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,43 +16,6 @@ using $CellRendererPane = ::javax::swing::CellRendererPane;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _CellRendererPane$AccessibleCellRendererPane_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/CellRendererPane;", nullptr, $FINAL | $SYNTHETIC, $field(CellRendererPane$AccessibleCellRendererPane, this$0)},
-	{}
-};
-
-$MethodInfo _CellRendererPane$AccessibleCellRendererPane_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/CellRendererPane;)V", nullptr, $PROTECTED, $method(CellRendererPane$AccessibleCellRendererPane, init$, void, $CellRendererPane*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(CellRendererPane$AccessibleCellRendererPane, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _CellRendererPane$AccessibleCellRendererPane_InnerClassesInfo_[] = {
-	{"javax.swing.CellRendererPane$AccessibleCellRendererPane", "javax.swing.CellRendererPane", "AccessibleCellRendererPane", $PROTECTED},
-	{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
-	{}
-};
-
-$ClassInfo _CellRendererPane$AccessibleCellRendererPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.CellRendererPane$AccessibleCellRendererPane",
-	"java.awt.Container$AccessibleAWTContainer",
-	nullptr,
-	_CellRendererPane$AccessibleCellRendererPane_FieldInfo_,
-	_CellRendererPane$AccessibleCellRendererPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CellRendererPane$AccessibleCellRendererPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.CellRendererPane"
-};
-
-$Object* allocate$CellRendererPane$AccessibleCellRendererPane($Class* clazz) {
-	return $of($alloc(CellRendererPane$AccessibleCellRendererPane));
-}
 
 void CellRendererPane$AccessibleCellRendererPane::init$($CellRendererPane* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +31,38 @@ CellRendererPane$AccessibleCellRendererPane::CellRendererPane$AccessibleCellRend
 }
 
 $Class* CellRendererPane$AccessibleCellRendererPane::load$($String* name, bool initialize) {
-	$loadClass(CellRendererPane$AccessibleCellRendererPane, name, initialize, &_CellRendererPane$AccessibleCellRendererPane_ClassInfo_, allocate$CellRendererPane$AccessibleCellRendererPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/CellRendererPane;", nullptr, $FINAL | $SYNTHETIC, $field(CellRendererPane$AccessibleCellRendererPane, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/CellRendererPane;)V", nullptr, $PROTECTED, $method(CellRendererPane$AccessibleCellRendererPane, init$, void, $CellRendererPane*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(CellRendererPane$AccessibleCellRendererPane, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.CellRendererPane$AccessibleCellRendererPane", "javax.swing.CellRendererPane", "AccessibleCellRendererPane", $PROTECTED},
+		{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.CellRendererPane$AccessibleCellRendererPane",
+		"java.awt.Container$AccessibleAWTContainer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.CellRendererPane"
+	};
+	$loadClass(CellRendererPane$AccessibleCellRendererPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CellRendererPane$AccessibleCellRendererPane));
+	});
 	return class$;
 }
 

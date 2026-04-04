@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Instruction.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
@@ -14,7 +13,6 @@
 #undef NOT_IMPLEMENTED_ERR
 
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -33,26 +31,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _Instruction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Instruction, init$, void)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Instruction, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Instruction, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Instruction_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
-	nullptr,
-	nullptr,
-	_Instruction_MethodInfo_
-};
-
-$Object* allocate$Instruction($Class* clazz) {
-	return $of($alloc(Instruction));
-}
-
 void Instruction::init$() {
 	$SyntaxTreeNode::init$();
 }
@@ -62,17 +40,33 @@ $Type* Instruction::typeCheck($SymbolTable* stable) {
 }
 
 void Instruction::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ErrorMsg);
-	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::NOT_IMPLEMENTED_ERR, $of($of(this)->getClass()), static_cast<$SyntaxTreeNode*>(this)));
-	$nc($(getParser()))->reportError($Constants::FATAL, msg);
+	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::NOT_IMPLEMENTED_ERR, $of(this)->getClass(), this));
+	$$nc(getParser())->reportError($Constants::FATAL, msg);
 }
 
 Instruction::Instruction() {
 }
 
 $Class* Instruction::load$($String* name, bool initialize) {
-	$loadClass(Instruction, name, initialize, &_Instruction_ClassInfo_, allocate$Instruction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Instruction, init$, void)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Instruction, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Instruction, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.SyntaxTreeNode",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Instruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Instruction);
+	});
 	return class$;
 }
 

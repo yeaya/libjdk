@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/CRC.h>
-
 #include <jcpp.h>
 
 #undef CRC
@@ -14,34 +13,6 @@ namespace com {
 			namespace plugins {
 				namespace png {
 
-$FieldInfo _CRC_FieldInfo_[] = {
-	{"crcTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC, crcTable)},
-	{"crc", "I", nullptr, $PRIVATE, $field(CRC, crc)},
-	{}
-};
-
-$MethodInfo _CRC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CRC, init$, void)},
-	{"getValue", "()I", nullptr, 0, $method(CRC, getValue, int32_t)},
-	{"reset", "()V", nullptr, 0, $method(CRC, reset, void)},
-	{"update", "([BII)V", nullptr, 0, $method(CRC, update, void, $bytes*, int32_t, int32_t)},
-	{"update", "(I)V", nullptr, 0, $method(CRC, update, void, int32_t)},
-	{}
-};
-
-$ClassInfo _CRC_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.CRC",
-	"java.lang.Object",
-	nullptr,
-	_CRC_FieldInfo_,
-	_CRC_MethodInfo_
-};
-
-$Object* allocate$CRC($Class* clazz) {
-	return $of($alloc(CRC));
-}
-
 $ints* CRC::crcTable = nullptr;
 
 void CRC::init$() {
@@ -55,31 +26,31 @@ void CRC::reset() {
 void CRC::update($bytes* data, int32_t off, int32_t len) {
 	int32_t c = this->crc;
 	for (int32_t n = 0; n < len; ++n) {
-		c = $nc(CRC::crcTable)->get((int32_t)((c ^ $nc(data)->get(off + n)) & (uint32_t)255)) ^ ((int32_t)((uint32_t)c >> 8));
+		c = CRC::crcTable->get((c ^ $nc(data)->get(off + n)) & 0xff) ^ ((int32_t)((uint32_t)c >> 8));
 	}
 	this->crc = c;
 }
 
 void CRC::update(int32_t data) {
-	this->crc = $nc(CRC::crcTable)->get((int32_t)((this->crc ^ data) & (uint32_t)255)) ^ ((int32_t)((uint32_t)this->crc >> 8));
+	this->crc = CRC::crcTable->get((this->crc ^ data) & 0xff) ^ ((int32_t)((uint32_t)this->crc >> 8));
 }
 
 int32_t CRC::getValue() {
 	return this->crc ^ -1;
 }
 
-void clinit$CRC($Class* class$) {
+void CRC::clinit$($Class* clazz) {
 	$assignStatic(CRC::crcTable, $new($ints, 256));
 	{
 		for (int32_t n = 0; n < 256; ++n) {
 			int32_t c = n;
 			for (int32_t k = 0; k < 8; ++k) {
-				if (((int32_t)(c & (uint32_t)1)) == 1) {
-					c = (int32_t)0xEDB88320 ^ ((int32_t)((uint32_t)c >> 1));
+				if ((c & 1) == 1) {
+					c = (int32_t)0xedb88320 ^ ((int32_t)((uint32_t)c >> 1));
 				} else {
 					$usrAssign(c, 1);
 				}
-				$nc(CRC::crcTable)->set(n, c);
+				CRC::crcTable->set(n, c);
 			}
 		}
 	}
@@ -89,7 +60,30 @@ CRC::CRC() {
 }
 
 $Class* CRC::load$($String* name, bool initialize) {
-	$loadClass(CRC, name, initialize, &_CRC_ClassInfo_, clinit$CRC, allocate$CRC);
+	$FieldInfo fieldInfos$$[] = {
+		{"crcTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC, crcTable)},
+		{"crc", "I", nullptr, $PRIVATE, $field(CRC, crc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CRC, init$, void)},
+		{"getValue", "()I", nullptr, 0, $method(CRC, getValue, int32_t)},
+		{"reset", "()V", nullptr, 0, $method(CRC, reset, void)},
+		{"update", "([BII)V", nullptr, 0, $method(CRC, update, void, $bytes*, int32_t, int32_t)},
+		{"update", "(I)V", nullptr, 0, $method(CRC, update, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.CRC",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CRC, name, initialize, &classInfo$$, CRC::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CRC);
+	});
 	return class$;
 }
 

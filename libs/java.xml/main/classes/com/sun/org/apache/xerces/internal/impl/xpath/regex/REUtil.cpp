@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/REUtil.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Match.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/ParseException.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression.h>
@@ -22,7 +21,6 @@ using $RegularExpressionArray = $Array<::com::sun::org::apache::xerces::internal
 using $Match = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Match;
 using $ParseException = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::ParseException;
 using $RegularExpression = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::RegularExpression;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,45 +38,6 @@ namespace com {
 							namespace xpath {
 								namespace regex {
 
-$FieldInfo _REUtil_FieldInfo_[] = {
-	{"CACHESIZE", "I", nullptr, $STATIC | $FINAL, $constField(REUtil, CACHESIZE)},
-	{"regexCache", "[Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression;", nullptr, $STATIC | $FINAL, $staticField(REUtil, regexCache)},
-	{}
-};
-
-$MethodInfo _REUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(REUtil, init$, void)},
-	{"composeFromSurrogates", "(II)I", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, composeFromSurrogates, int32_t, int32_t, int32_t)},
-	{"createOptionString", "(I)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, createOptionString, $String*, int32_t)},
-	{"createRegex", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, createRegex, $RegularExpression*, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"decomposeToSurrogates", "(I)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, decomposeToSurrogates, $String*, int32_t)},
-	{"dumpString", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(REUtil, dumpString, void, $String*)},
-	{"getOptionValue", "(I)I", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, getOptionValue, int32_t, int32_t)},
-	{"isHighSurrogate", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, isHighSurrogate, bool, int32_t)},
-	{"isLowSurrogate", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, isLowSurrogate, bool, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, main, void, $StringArray*)},
-	{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, matches, bool, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"matches", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, matches, bool, $String*, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"parseOptions", "(Ljava/lang/String;)I", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, parseOptions, int32_t, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"quoteMeta", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, quoteMeta, $String*, $String*)},
-	{"stripExtendedComment", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(REUtil, stripExtendedComment, $String*, $String*)},
-	{"substring", "(Ljava/text/CharacterIterator;II)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, substring, $String*, $CharacterIterator*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _REUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil",
-	"java.lang.Object",
-	nullptr,
-	_REUtil_FieldInfo_,
-	_REUtil_MethodInfo_
-};
-
-$Object* allocate$REUtil($Class* clazz) {
-	return $of($alloc(REUtil));
-}
-
 $RegularExpressionArray* REUtil::regexCache = nullptr;
 
 void REUtil::init$() {
@@ -86,25 +45,25 @@ void REUtil::init$() {
 
 int32_t REUtil::composeFromSurrogates(int32_t high, int32_t low) {
 	$init(REUtil);
-	return 0x00010000 + ((high - 0x0000D800) << 10) + low - 0x0000DC00;
+	return 0x00010000 + ((high - 0x0000d800) << 10) + low - 0x0000dc00;
 }
 
 bool REUtil::isLowSurrogate(int32_t ch) {
 	$init(REUtil);
-	return ((int32_t)(ch & (uint32_t)0x0000FC00)) == 0x0000DC00;
+	return (ch & 0xfc00) == 0xdc00;
 }
 
 bool REUtil::isHighSurrogate(int32_t ch) {
 	$init(REUtil);
-	return ((int32_t)(ch & (uint32_t)0x0000FC00)) == 0x0000D800;
+	return (ch & 0xfc00) == 0xd800;
 }
 
 $String* REUtil::decomposeToSurrogates(int32_t ch) {
 	$init(REUtil);
 	$var($chars, chs, $new($chars, 2));
 	ch -= 0x00010000;
-	chs->set(0, (char16_t)((ch >> 10) + 0x0000D800));
-	chs->set(1, (char16_t)(((int32_t)(ch & (uint32_t)1023)) + 0x0000DC00));
+	chs->set(0, (char16_t)((ch >> 10) + 0x0000d800));
+	chs->set(1, (char16_t)((ch & 0x03ff) + 0xdc00));
 	return $new($String, chs);
 }
 
@@ -122,64 +81,44 @@ int32_t REUtil::getOptionValue(int32_t ch) {
 	int32_t ret = 0;
 	switch (ch) {
 	case u'i':
-		{
-			ret = $RegularExpression::IGNORE_CASE;
-			break;
-		}
+		ret = $RegularExpression::IGNORE_CASE;
+		break;
 	case u'm':
-		{
-			ret = $RegularExpression::MULTIPLE_LINES;
-			break;
-		}
+		ret = $RegularExpression::MULTIPLE_LINES;
+		break;
 	case u's':
-		{
-			ret = $RegularExpression::SINGLE_LINE;
-			break;
-		}
+		ret = $RegularExpression::SINGLE_LINE;
+		break;
 	case u'x':
-		{
-			ret = $RegularExpression::EXTENDED_COMMENT;
-			break;
-		}
+		ret = $RegularExpression::EXTENDED_COMMENT;
+		break;
 	case u'u':
-		{
-			ret = $RegularExpression::USE_UNICODE_CATEGORY;
-			break;
-		}
+		ret = $RegularExpression::USE_UNICODE_CATEGORY;
+		break;
 	case u'w':
-		{
-			ret = $RegularExpression::UNICODE_WORD_BOUNDARY;
-			break;
-		}
+		ret = $RegularExpression::UNICODE_WORD_BOUNDARY;
+		break;
 	case u'F':
-		{
-			ret = $RegularExpression::PROHIBIT_FIXED_STRING_OPTIMIZATION;
-			break;
-		}
+		ret = $RegularExpression::PROHIBIT_FIXED_STRING_OPTIMIZATION;
+		break;
 	case u'H':
-		{
-			ret = $RegularExpression::PROHIBIT_HEAD_CHARACTER_OPTIMIZATION;
-			break;
-		}
+		ret = $RegularExpression::PROHIBIT_HEAD_CHARACTER_OPTIMIZATION;
+		break;
 	case u'X':
-		{
-			ret = $RegularExpression::XMLSCHEMA_MODE;
-			break;
-		}
+		ret = $RegularExpression::XMLSCHEMA_MODE;
+		break;
 	case u',':
-		{
-			ret = $RegularExpression::SPECIAL_COMMA;
-			break;
-		}
+		ret = $RegularExpression::SPECIAL_COMMA;
+		break;
 	default:
-		{}
+		break;
 	}
 	return ret;
 }
 
 int32_t REUtil::parseOptions($String* opts) {
 	$init(REUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (opts == nullptr) {
 		return 0;
 	}
@@ -196,39 +135,39 @@ int32_t REUtil::parseOptions($String* opts) {
 
 $String* REUtil::createOptionString(int32_t options) {
 	$init(REUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, 9));
-	if (((int32_t)(options & (uint32_t)$RegularExpression::PROHIBIT_FIXED_STRING_OPTIMIZATION)) != 0) {
+	if ((options & $RegularExpression::PROHIBIT_FIXED_STRING_OPTIMIZATION) != 0) {
 		sb->append(u'F');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::PROHIBIT_HEAD_CHARACTER_OPTIMIZATION)) != 0) {
+	if ((options & $RegularExpression::PROHIBIT_HEAD_CHARACTER_OPTIMIZATION) != 0) {
 		sb->append(u'H');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::XMLSCHEMA_MODE)) != 0) {
+	if ((options & $RegularExpression::XMLSCHEMA_MODE) != 0) {
 		sb->append(u'X');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::IGNORE_CASE)) != 0) {
+	if ((options & $RegularExpression::IGNORE_CASE) != 0) {
 		sb->append(u'i');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::MULTIPLE_LINES)) != 0) {
+	if ((options & $RegularExpression::MULTIPLE_LINES) != 0) {
 		sb->append(u'm');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::SINGLE_LINE)) != 0) {
+	if ((options & $RegularExpression::SINGLE_LINE) != 0) {
 		sb->append(u's');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::USE_UNICODE_CATEGORY)) != 0) {
+	if ((options & $RegularExpression::USE_UNICODE_CATEGORY) != 0) {
 		sb->append(u'u');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::UNICODE_WORD_BOUNDARY)) != 0) {
+	if ((options & $RegularExpression::UNICODE_WORD_BOUNDARY) != 0) {
 		sb->append(u'w');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::EXTENDED_COMMENT)) != 0) {
+	if ((options & $RegularExpression::EXTENDED_COMMENT) != 0) {
 		sb->append(u'x');
 	}
-	if (((int32_t)(options & (uint32_t)$RegularExpression::SPECIAL_COMMA)) != 0) {
+	if ((options & $RegularExpression::SPECIAL_COMMA) != 0) {
 		sb->append(u',');
 	}
-	return $nc($(sb->toString()))->intern();
+	return $(sb->toString())->intern();
 }
 
 $String* REUtil::stripExtendedComment($String* regex) {
@@ -293,7 +232,7 @@ $String* REUtil::stripExtendedComment($String* regex) {
 
 void REUtil::main($StringArray* argv) {
 	$init(REUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pattern, nullptr);
 	try {
 		$var($String, options, ""_s);
@@ -302,7 +241,7 @@ void REUtil::main($StringArray* argv) {
 			$nc($System::out)->println("Error:Usage: java REUtil -i|-m|-s|-u|-w|-X regularExpression String"_s);
 			$System::exit(0);
 		}
-		for (int32_t i = 0; i < $nc(argv)->length; ++i) {
+		for (int32_t i = 0; i < argv->length; ++i) {
 			bool var$0 = $nc(argv->get(i))->length() == 0;
 			if (var$0 || $nc(argv->get(i))->charAt(0) != u'-') {
 				if (pattern == nullptr) {
@@ -334,17 +273,20 @@ void REUtil::main($StringArray* argv) {
 		reg->matches(target, match);
 		for (int32_t i = 0; i < match->getNumberOfGroups(); ++i) {
 			if (i == 0) {
-				$nc($System::out)->print("Matched range for the whole pattern: "_s);
+				$System::out->print("Matched range for the whole pattern: "_s);
 			} else {
-				$nc($System::out)->print($$str({"["_s, $$str(i), "]: "_s}));
+				$System::out->print($$str({"["_s, $$str(i), "]: "_s}));
 			}
 			if (match->getBeginning(i) < 0) {
-				$nc($System::out)->println("-1"_s);
+				$System::out->println("-1"_s);
 			} else {
-				$var($String, var$2, $$str({$$str(match->getBeginning(i)), ", "_s}));
-				$var($String, var$1, $$concat(var$2, $$str(match->getEnd(i))));
-				$nc($System::out)->print($$concat(var$1, ", "_s));
-				$nc($System::out)->println($$str({"\""_s, $(match->getCapturedText(i)), "\""_s}));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append(match->getBeginning(i));
+				var$1->append(", "_s);
+				var$1->append(match->getEnd(i));
+				var$1->append(", "_s);
+				$System::out->print($$str(var$1));
+				$System::out->println($$str({"\""_s, $(match->getCapturedText(i)), "\""_s}));
 			}
 		}
 	} catch ($ParseException& pe) {
@@ -353,14 +295,14 @@ void REUtil::main($StringArray* argv) {
 		} else {
 			$nc($System::err)->println($$str({"com.sun.org.apache.xerces.internal.utils.regex.ParseException: "_s, $(pe->getMessage())}));
 			$var($String, indent, "        "_s);
-			$nc($System::err)->println($$str({indent, pattern}));
+			$System::err->println($$str({indent, pattern}));
 			int32_t loc = pe->getLocation();
 			if (loc >= 0) {
-				$nc($System::err)->print(indent);
+				$System::err->print(indent);
 				for (int32_t i = 0; i < loc; ++i) {
-					$nc($System::err)->print("-"_s);
+					$System::err->print("-"_s);
 				}
-				$nc($System::err)->println("^"_s);
+				$System::err->println("^"_s);
 			}
 		}
 	} catch ($Exception& e) {
@@ -370,13 +312,13 @@ void REUtil::main($StringArray* argv) {
 
 $RegularExpression* REUtil::createRegex($String* pattern, $String* options) {
 	$init(REUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RegularExpression, re, nullptr);
 	int32_t intOptions = REUtil::parseOptions(options);
 	$synchronized(REUtil::regexCache) {
 		int32_t i = 0;
 		for (i = 0; i < REUtil::CACHESIZE; ++i) {
-			$var($RegularExpression, cached, $nc(REUtil::regexCache)->get(i));
+			$var($RegularExpression, cached, REUtil::regexCache->get(i));
 			if (cached == nullptr) {
 				i = -1;
 				break;
@@ -389,12 +331,12 @@ $RegularExpression* REUtil::createRegex($String* pattern, $String* options) {
 		if (re != nullptr) {
 			if (i != 0) {
 				$System::arraycopy(REUtil::regexCache, 0, REUtil::regexCache, 1, i);
-				$nc(REUtil::regexCache)->set(0, re);
+				REUtil::regexCache->set(0, re);
 			}
 		} else {
 			$assign(re, $new($RegularExpression, pattern, options));
 			$System::arraycopy(REUtil::regexCache, 0, REUtil::regexCache, 1, REUtil::CACHESIZE - 1);
-			$nc(REUtil::regexCache)->set(0, re);
+			REUtil::regexCache->set(0, re);
 		}
 	}
 	return re;
@@ -402,17 +344,17 @@ $RegularExpression* REUtil::createRegex($String* pattern, $String* options) {
 
 bool REUtil::matches($String* regex, $String* target) {
 	$init(REUtil);
-	return $nc($(REUtil::createRegex(regex, nullptr)))->matches(target);
+	return $$nc(REUtil::createRegex(regex, nullptr))->matches(target);
 }
 
 bool REUtil::matches($String* regex, $String* options, $String* target) {
 	$init(REUtil);
-	return $nc($(REUtil::createRegex(regex, options)))->matches(target);
+	return $$nc(REUtil::createRegex(regex, options))->matches(target);
 }
 
 $String* REUtil::quoteMeta($String* literal) {
 	$init(REUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(literal)->length();
 	$var($StringBuilder, buffer, nullptr);
 	for (int32_t i = 0; i < len; ++i) {
@@ -430,20 +372,20 @@ $String* REUtil::quoteMeta($String* literal) {
 			buffer->append((char16_t)ch);
 		}
 	}
-	return buffer != nullptr ? $nc(buffer)->toString() : literal;
+	return buffer != nullptr ? buffer->toString() : literal;
 }
 
 void REUtil::dumpString($String* v) {
 	$init(REUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(v)->length(); ++i) {
 		$nc($System::out)->print($($Integer::toHexString(v->charAt(i))));
-		$nc($System::out)->print(" "_s);
+		$System::out->print(" "_s);
 	}
 	$nc($System::out)->println();
 }
 
-void clinit$REUtil($Class* class$) {
+void REUtil::clinit$($Class* clazz) {
 	$assignStatic(REUtil::regexCache, $new($RegularExpressionArray, REUtil::CACHESIZE));
 }
 
@@ -451,7 +393,41 @@ REUtil::REUtil() {
 }
 
 $Class* REUtil::load$($String* name, bool initialize) {
-	$loadClass(REUtil, name, initialize, &_REUtil_ClassInfo_, clinit$REUtil, allocate$REUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"CACHESIZE", "I", nullptr, $STATIC | $FINAL, $constField(REUtil, CACHESIZE)},
+		{"regexCache", "[Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression;", nullptr, $STATIC | $FINAL, $staticField(REUtil, regexCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(REUtil, init$, void)},
+		{"composeFromSurrogates", "(II)I", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, composeFromSurrogates, int32_t, int32_t, int32_t)},
+		{"createOptionString", "(I)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, createOptionString, $String*, int32_t)},
+		{"createRegex", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, createRegex, $RegularExpression*, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"decomposeToSurrogates", "(I)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, decomposeToSurrogates, $String*, int32_t)},
+		{"dumpString", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(REUtil, dumpString, void, $String*)},
+		{"getOptionValue", "(I)I", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, getOptionValue, int32_t, int32_t)},
+		{"isHighSurrogate", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, isHighSurrogate, bool, int32_t)},
+		{"isLowSurrogate", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, isLowSurrogate, bool, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, main, void, $StringArray*)},
+		{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, matches, bool, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"matches", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, matches, bool, $String*, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"parseOptions", "(Ljava/lang/String;)I", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, parseOptions, int32_t, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"quoteMeta", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(REUtil, quoteMeta, $String*, $String*)},
+		{"stripExtendedComment", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(REUtil, stripExtendedComment, $String*, $String*)},
+		{"substring", "(Ljava/text/CharacterIterator;II)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(REUtil, substring, $String*, $CharacterIterator*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(REUtil, name, initialize, &classInfo$$, REUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(REUtil);
+	});
 	return class$;
 }
 

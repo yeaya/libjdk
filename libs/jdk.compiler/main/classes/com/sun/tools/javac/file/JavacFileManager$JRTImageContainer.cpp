@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/JavacFileManager$JRTImageContainer.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/file/JRTIndex$CtSym.h>
 #include <com/sun/tools/javac/file/JRTIndex$Entry.h>
@@ -27,7 +26,6 @@
 #include <jcpp.h>
 
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
-using $JRTIndex = ::com::sun::tools::javac::file::JRTIndex;
 using $JRTIndex$Entry = ::com::sun::tools::javac::file::JRTIndex$Entry;
 using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
@@ -36,7 +34,6 @@ using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,9 +42,7 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
@@ -57,78 +52,33 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _JavacFileManager$JRTImageContainer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/JavacFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFileManager$JRTImageContainer, this$0)},
-	{}
-};
-
-$MethodInfo _JavacFileManager$JRTImageContainer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PRIVATE, $method(JavacFileManager$JRTImageContainer, init$, void, $JavacFileManager*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, close, void), "java.io.IOException"},
-	{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
-	{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, indexedDirectories, $Iterable*)},
-	{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
-	{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, maintainsDirectoryIndex, bool)},
-	{}
-};
-
-$InnerClassInfo _JavacFileManager$JRTImageContainer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JavacFileManager$JRTImageContainer", "com.sun.tools.javac.file.JavacFileManager", "JRTImageContainer", $PRIVATE | $FINAL},
-	{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacFileManager$JRTImageContainer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.file.JavacFileManager$JRTImageContainer",
-	"java.lang.Object",
-	"com.sun.tools.javac.file.JavacFileManager$Container",
-	_JavacFileManager$JRTImageContainer_FieldInfo_,
-	_JavacFileManager$JRTImageContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacFileManager$JRTImageContainer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JavacFileManager"
-};
-
-$Object* allocate$JavacFileManager$JRTImageContainer($Class* clazz) {
-	return $of($alloc(JavacFileManager$JRTImageContainer));
-}
-
 void JavacFileManager$JRTImageContainer::init$($JavacFileManager* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void JavacFileManager$JRTImageContainer::list($Path* userPath, $RelativePath$RelativeDirectory* subdirectory, $Set* fileKinds, bool recurse, $ListBuffer* resultList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($JRTIndex$Entry, e, $nc($(this->this$0->getJRTIndex()))->getEntry(subdirectory));
+		$var($JRTIndex$Entry, e, $$nc(this->this$0->getJRTIndex())->getEntry(subdirectory));
 		if (this->this$0->symbolFileEnabled && $nc($nc(e)->ctSym)->hidden) {
 			return;
 		}
 		{
-			$var($Iterator, i$, $nc($($nc($nc(e)->files)->values()))->iterator());
+			$var($Iterator, i$, $$nc($nc($nc(e)->files)->values())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Path, file, $cast($Path, i$->next()));
-				{
-					if ($nc(fileKinds)->contains($($BaseFileManager::getKind(file)))) {
-						$var($JavaFileObject, fe, $PathFileObject::forJRTPath(this->this$0, file));
-						$nc(resultList)->append(fe);
-					}
+				if ($nc(fileKinds)->contains($($BaseFileManager::getKind(file)))) {
+					$var($JavaFileObject, fe, $PathFileObject::forJRTPath(this->this$0, file));
+					$nc(resultList)->append(fe);
 				}
 			}
 		}
 		if (recurse) {
-			{
-				$var($Iterator, i$, $nc(e->subdirs)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($RelativePath$RelativeDirectory, rd, $cast($RelativePath$RelativeDirectory, i$->next()));
-					{
-						list(userPath, rd, fileKinds, recurse, resultList);
-					}
+			$var($Iterator, i$, $nc(e->subdirs)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($RelativePath$RelativeDirectory, rd, $cast($RelativePath$RelativeDirectory, i$->next()));
+				{
+					list(userPath, rd, fileKinds, recurse, resultList);
 				}
 			}
 		}
@@ -139,12 +89,12 @@ void JavacFileManager$JRTImageContainer::list($Path* userPath, $RelativePath$Rel
 }
 
 $JavaFileObject* JavacFileManager$JRTImageContainer::getFileObject($Path* userPath, $RelativePath$RelativeFile* name) {
-	$useLocalCurrentObjectStackCache();
-	$var($JRTIndex$Entry, e, $nc($(this->this$0->getJRTIndex()))->getEntry($($nc(name)->dirname())));
+	$useLocalObjectStack();
+	$var($JRTIndex$Entry, e, $$nc(this->this$0->getJRTIndex())->getEntry($($nc(name)->dirname())));
 	if (this->this$0->symbolFileEnabled && $nc($nc(e)->ctSym)->hidden) {
 		return nullptr;
 	}
-	$var($Path, p, $cast($Path, $nc($nc(e)->files)->get($($nc(name)->basename()))));
+	$var($Path, p, $cast($Path, $nc($nc(e)->files)->get($(name->basename()))));
 	if (p != nullptr) {
 		return $PathFileObject::forJRTPath(this->this$0, p);
 	} else {
@@ -160,14 +110,49 @@ bool JavacFileManager$JRTImageContainer::maintainsDirectoryIndex() {
 }
 
 $Iterable* JavacFileManager$JRTImageContainer::indexedDirectories() {
-	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>($List::nil())));
+	return $cast($AbstractCollection, $List::nil());
 }
 
 JavacFileManager$JRTImageContainer::JavacFileManager$JRTImageContainer() {
 }
 
 $Class* JavacFileManager$JRTImageContainer::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$JRTImageContainer, name, initialize, &_JavacFileManager$JRTImageContainer_ClassInfo_, allocate$JavacFileManager$JRTImageContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/JavacFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFileManager$JRTImageContainer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PRIVATE, $method(JavacFileManager$JRTImageContainer, init$, void, $JavacFileManager*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, close, void), "java.io.IOException"},
+		{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
+		{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, indexedDirectories, $Iterable*)},
+		{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
+		{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$JRTImageContainer, maintainsDirectoryIndex, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JavacFileManager$JRTImageContainer", "com.sun.tools.javac.file.JavacFileManager", "JRTImageContainer", $PRIVATE | $FINAL},
+		{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.file.JavacFileManager$JRTImageContainer",
+		"java.lang.Object",
+		"com.sun.tools.javac.file.JavacFileManager$Container",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JavacFileManager"
+	};
+	$loadClass(JavacFileManager$JRTImageContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$JRTImageContainer);
+	});
 	return class$;
 }
 

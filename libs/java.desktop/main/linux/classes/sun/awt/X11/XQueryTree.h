@@ -29,6 +29,7 @@ class XQueryTree : public ::java::lang::Object {
 	$class(XQueryTree, 0, ::java::lang::Object)
 public:
 	XQueryTree();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t w);
 	virtual void dispose();
 	virtual int32_t execute();

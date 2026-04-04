@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ReturnTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ReturnTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReturnTree, getExpression, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _ReturnTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ReturnTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_ReturnTree_MethodInfo_
-};
-
-$Object* allocate$ReturnTree($Class* clazz) {
-	return $of($alloc(ReturnTree));
-}
-
 $Class* ReturnTree::load$($String* name, bool initialize) {
-	$loadClass(ReturnTree, name, initialize, &_ReturnTree_ClassInfo_, allocate$ReturnTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReturnTree, getExpression, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ReturnTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReturnTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReturnTree);
+	});
 	return class$;
 }
 

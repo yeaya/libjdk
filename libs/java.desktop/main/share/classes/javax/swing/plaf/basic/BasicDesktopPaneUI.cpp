@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -61,7 +60,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $InputMap = ::javax::swing::InputMap;
@@ -83,103 +81,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$CompoundAttribute _BasicDesktopPaneUI_FieldAnnotations_minimizeKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicDesktopPaneUI_FieldAnnotations_maximizeKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicDesktopPaneUI_FieldAnnotations_closeKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicDesktopPaneUI_FieldAnnotations_navigateKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicDesktopPaneUI_FieldAnnotations_navigateKey2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _BasicDesktopPaneUI_FieldInfo_[] = {
-	{"SHARED_ACTION", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI$Actions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicDesktopPaneUI, SHARED_ACTION)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI$Handler;", nullptr, $PRIVATE, $field(BasicDesktopPaneUI, handler)},
-	{"pcl", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicDesktopPaneUI, pcl)},
-	{"desktop", "Ljavax/swing/JDesktopPane;", nullptr, $PROTECTED, $field(BasicDesktopPaneUI, desktop)},
-	{"desktopManager", "Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $field(BasicDesktopPaneUI, desktopManager)},
-	{"minimizeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, minimizeKey), _BasicDesktopPaneUI_FieldAnnotations_minimizeKey},
-	{"maximizeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, maximizeKey), _BasicDesktopPaneUI_FieldAnnotations_maximizeKey},
-	{"closeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, closeKey), _BasicDesktopPaneUI_FieldAnnotations_closeKey},
-	{"navigateKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, navigateKey), _BasicDesktopPaneUI_FieldAnnotations_navigateKey},
-	{"navigateKey2", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, navigateKey2), _BasicDesktopPaneUI_FieldAnnotations_navigateKey2},
-	{}
-};
-
-$MethodInfo _BasicDesktopPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicDesktopPaneUI, init$, void)},
-	{"createInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicDesktopPaneUI, createInputMap, $InputMap*, int32_t)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDesktopPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicDesktopPaneUI$Handler;", nullptr, $PRIVATE, $method(BasicDesktopPaneUI, getHandler, $BasicDesktopPaneUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicDesktopPaneUI, getInputMap, $InputMap*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installDefaults, void)},
-	{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installDesktopManager, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, installUI, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicDesktopPaneUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"registerKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, registerKeyboardActions, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallDefaults, void)},
-	{"uninstallDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallDesktopManager, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, uninstallUI, void, $JComponent*)},
-	{"unregisterKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, unregisterKeyboardActions, void)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$NavigateAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "NavigateAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "MaximizeAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$MinimizeAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "MinimizeAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "CloseAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "OpenAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$Actions", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$BasicDesktopManager", "javax.swing.plaf.basic.BasicDesktopPaneUI", "BasicDesktopManager", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$Handler", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicDesktopPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI",
-	"javax.swing.plaf.DesktopPaneUI",
-	nullptr,
-	_BasicDesktopPaneUI_FieldInfo_,
-	_BasicDesktopPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI$NavigateAction,javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction,javax.swing.plaf.basic.BasicDesktopPaneUI$MinimizeAction,javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction,javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction,javax.swing.plaf.basic.BasicDesktopPaneUI$Actions,javax.swing.plaf.basic.BasicDesktopPaneUI$BasicDesktopManager,javax.swing.plaf.basic.BasicDesktopPaneUI$Handler"
-};
-
-$Object* allocate$BasicDesktopPaneUI($Class* clazz) {
-	return $of($alloc(BasicDesktopPaneUI));
-}
 
 $BasicDesktopPaneUI$Actions* BasicDesktopPaneUI::SHARED_ACTION = nullptr;
 
@@ -210,12 +111,11 @@ void BasicDesktopPaneUI::uninstallUI($JComponent* c) {
 }
 
 void BasicDesktopPaneUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->desktop)->getBackground() == nullptr;
-	if (var$0 || $instanceOf($UIResource, $($nc(this->desktop)->getBackground()))) {
+	if (var$0 || $instanceOf($UIResource, $(this->desktop->getBackground()))) {
 		$nc(this->desktop)->setBackground($($UIManager::getColor("Desktop.background"_s)));
 	}
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->desktop, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -287,7 +187,7 @@ $InputMap* BasicDesktopPaneUI::createInputMap(int32_t condition) {
 
 void BasicDesktopPaneUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicDesktopPaneUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicDesktopPaneUI$Actions);
 	$nc(map)->put($$new($BasicDesktopPaneUI$Actions, $BasicDesktopPaneUI$Actions::RESTORE));
 	map->put($$new($BasicDesktopPaneUI$Actions, $BasicDesktopPaneUI$Actions::CLOSE));
@@ -343,7 +243,7 @@ $BasicDesktopPaneUI$Handler* BasicDesktopPaneUI::getHandler() {
 	return this->handler;
 }
 
-void clinit$BasicDesktopPaneUI($Class* class$) {
+void BasicDesktopPaneUI::clinit$($Class* clazz) {
 	$assignStatic(BasicDesktopPaneUI::SHARED_ACTION, $new($BasicDesktopPaneUI$Actions));
 }
 
@@ -351,7 +251,93 @@ BasicDesktopPaneUI::BasicDesktopPaneUI() {
 }
 
 $Class* BasicDesktopPaneUI::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopPaneUI, name, initialize, &_BasicDesktopPaneUI_ClassInfo_, clinit$BasicDesktopPaneUI, allocate$BasicDesktopPaneUI);
+	$CompoundAttribute minimizeKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute maximizeKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute closeKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute navigateKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute navigateKey2fieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"SHARED_ACTION", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI$Actions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicDesktopPaneUI, SHARED_ACTION)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI$Handler;", nullptr, $PRIVATE, $field(BasicDesktopPaneUI, handler)},
+		{"pcl", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicDesktopPaneUI, pcl)},
+		{"desktop", "Ljavax/swing/JDesktopPane;", nullptr, $PROTECTED, $field(BasicDesktopPaneUI, desktop)},
+		{"desktopManager", "Ljavax/swing/DesktopManager;", nullptr, $PROTECTED, $field(BasicDesktopPaneUI, desktopManager)},
+		{"minimizeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, minimizeKey), minimizeKeyfieldAnnotations$$},
+		{"maximizeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, maximizeKey), maximizeKeyfieldAnnotations$$},
+		{"closeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, closeKey), closeKeyfieldAnnotations$$},
+		{"navigateKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, navigateKey), navigateKeyfieldAnnotations$$},
+		{"navigateKey2", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicDesktopPaneUI, navigateKey2), navigateKey2fieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicDesktopPaneUI, init$, void)},
+		{"createInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicDesktopPaneUI, createInputMap, $InputMap*, int32_t)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDesktopPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicDesktopPaneUI$Handler;", nullptr, $PRIVATE, $method(BasicDesktopPaneUI, getHandler, $BasicDesktopPaneUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicDesktopPaneUI, getInputMap, $InputMap*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installDefaults, void)},
+		{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installDesktopManager, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, installUI, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicDesktopPaneUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"registerKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, registerKeyboardActions, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallDefaults, void)},
+		{"uninstallDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallDesktopManager, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI, uninstallUI, void, $JComponent*)},
+		{"unregisterKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicDesktopPaneUI, unregisterKeyboardActions, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$NavigateAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "NavigateAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "MaximizeAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$MinimizeAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "MinimizeAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "CloseAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "OpenAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$Actions", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$BasicDesktopManager", "javax.swing.plaf.basic.BasicDesktopPaneUI", "BasicDesktopManager", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$Handler", "javax.swing.plaf.basic.BasicDesktopPaneUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI",
+		"javax.swing.plaf.DesktopPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI$NavigateAction,javax.swing.plaf.basic.BasicDesktopPaneUI$MaximizeAction,javax.swing.plaf.basic.BasicDesktopPaneUI$MinimizeAction,javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction,javax.swing.plaf.basic.BasicDesktopPaneUI$OpenAction,javax.swing.plaf.basic.BasicDesktopPaneUI$Actions,javax.swing.plaf.basic.BasicDesktopPaneUI$BasicDesktopManager,javax.swing.plaf.basic.BasicDesktopPaneUI$Handler"
+	};
+	$loadClass(BasicDesktopPaneUI, name, initialize, &classInfo$$, BasicDesktopPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicDesktopPaneUI);
+	});
 	return class$;
 }
 

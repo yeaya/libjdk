@@ -30,6 +30,7 @@ class JFileChooser$WeakPCL : public ::java::beans::PropertyChangeListener {
 	$class(JFileChooser$WeakPCL, 0, ::java::beans::PropertyChangeListener)
 public:
 	JFileChooser$WeakPCL();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* jfc);
 	virtual void propertyChange(::java::beans::PropertyChangeEvent* ev) override;
 	static bool $assertionsDisabled;

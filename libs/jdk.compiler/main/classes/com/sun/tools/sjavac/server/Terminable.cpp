@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/server/Terminable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,26 +10,22 @@ namespace com {
 			namespace sjavac {
 				namespace server {
 
-$MethodInfo _Terminable_MethodInfo_[] = {
-	{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Terminable, shutdown, void, $String*)},
-	{}
-};
-
-$ClassInfo _Terminable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.sjavac.server.Terminable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Terminable_MethodInfo_
-};
-
-$Object* allocate$Terminable($Class* clazz) {
-	return $of($alloc(Terminable));
-}
-
 $Class* Terminable::load$($String* name, bool initialize) {
-	$loadClass(Terminable, name, initialize, &_Terminable_ClassInfo_, allocate$Terminable);
+	$MethodInfo methodInfos$$[] = {
+		{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Terminable, shutdown, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.sjavac.server.Terminable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Terminable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Terminable);
+	});
 	return class$;
 }
 

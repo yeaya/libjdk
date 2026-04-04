@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/DCTree$DCDeprecated.h>
-
-#include <com/sun/source/doctree/DeprecatedTree.h>
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <com/sun/tools/javac/tree/DCTree$DCBlockTag.h>
@@ -10,7 +8,6 @@
 
 #undef DEPRECATED
 
-using $DeprecatedTree = ::com::sun::source::doctree::DeprecatedTree;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
@@ -25,51 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCDeprecated_FieldInfo_[] = {
-	{"body", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDeprecated, body)},
-	{}
-};
-
-$MethodInfo _DCTree$DCDeprecated_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCDeprecated, init$, void, $List*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCDeprecated, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDeprecated, getBody, $List*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCDeprecated, getKind, $DocTree$Kind*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCDeprecated_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCDeprecated", "com.sun.tools.javac.tree.DCTree", "DCDeprecated", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCDeprecated_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCDeprecated",
-	"com.sun.tools.javac.tree.DCTree$DCBlockTag",
-	"com.sun.source.doctree.DeprecatedTree",
-	_DCTree$DCDeprecated_FieldInfo_,
-	_DCTree$DCDeprecated_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCDeprecated_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCDeprecated($Class* clazz) {
-	return $of($alloc(DCTree$DCDeprecated));
-}
 
 $String* DCTree$DCDeprecated::getTagName() {
 	 return this->$DCTree$DCBlockTag::getTagName();
@@ -106,7 +58,7 @@ $DocTree$Kind* DCTree$DCDeprecated::getKind() {
 }
 
 $Object* DCTree$DCDeprecated::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitDeprecated(this, d));
+	return $nc(v)->visitDeprecated(this, d);
 }
 
 $List* DCTree$DCDeprecated::getBody() {
@@ -117,7 +69,46 @@ DCTree$DCDeprecated::DCTree$DCDeprecated() {
 }
 
 $Class* DCTree$DCDeprecated::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCDeprecated, name, initialize, &_DCTree$DCDeprecated_ClassInfo_, allocate$DCTree$DCDeprecated);
+	$FieldInfo fieldInfos$$[] = {
+		{"body", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCDeprecated, body)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCDeprecated, init$, void, $List*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCDeprecated, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCDeprecated, getBody, $List*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCDeprecated, getKind, $DocTree$Kind*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCDeprecated", "com.sun.tools.javac.tree.DCTree", "DCDeprecated", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCDeprecated",
+		"com.sun.tools.javac.tree.DCTree$DCBlockTag",
+		"com.sun.source.doctree.DeprecatedTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCDeprecated, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCDeprecated));
+	});
 	return class$;
 }
 

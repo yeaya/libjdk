@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/RFC2253Parser.h>
@@ -18,7 +17,6 @@ using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security:
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 
@@ -32,33 +30,6 @@ namespace com {
 							namespace keys {
 								namespace content {
 									namespace x509 {
-
-$MethodInfo _XMLX509SubjectName_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Document*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Document*, $X509Certificate*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, equals, bool, Object$*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, getBaseLocalName, $String*)},
-	{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, getSubjectName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLX509SubjectName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509SubjectName",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
-	nullptr,
-	_XMLX509SubjectName_MethodInfo_
-};
-
-$Object* allocate$XMLX509SubjectName($Class* clazz) {
-	return $of($alloc(XMLX509SubjectName));
-}
 
 $Object* XMLX509SubjectName::clone() {
 	 return this->$SignatureElementProxy::clone();
@@ -82,8 +53,8 @@ void XMLX509SubjectName::init$($Document* doc, $String* X509SubjectNameString) {
 }
 
 void XMLX509SubjectName::init$($Document* doc, $X509Certificate* x509certificate) {
-	$useLocalCurrentObjectStackCache();
-	XMLX509SubjectName::init$(doc, $($nc($($nc(x509certificate)->getSubjectX500Principal()))->getName()));
+	$useLocalObjectStack();
+	XMLX509SubjectName::init$(doc, $($$nc($nc(x509certificate)->getSubjectX500Principal())->getName()));
 }
 
 $String* XMLX509SubjectName::getSubjectName() {
@@ -91,7 +62,7 @@ $String* XMLX509SubjectName::getSubjectName() {
 }
 
 bool XMLX509SubjectName::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(XMLX509SubjectName, obj))) {
 		return false;
 	}
@@ -103,7 +74,7 @@ bool XMLX509SubjectName::equals(Object$* obj) {
 
 int32_t XMLX509SubjectName::hashCode() {
 	int32_t result = 17;
-	result = 31 * result + $nc($(this->getSubjectName()))->hashCode();
+	result = 31 * result + $$nc(this->getSubjectName())->hashCode();
 	return result;
 }
 
@@ -116,7 +87,30 @@ XMLX509SubjectName::XMLX509SubjectName() {
 }
 
 $Class* XMLX509SubjectName::load$($String* name, bool initialize) {
-	$loadClass(XMLX509SubjectName, name, initialize, &_XMLX509SubjectName_ClassInfo_, allocate$XMLX509SubjectName);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Document*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Document*, $X509Certificate*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, equals, bool, Object$*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, getBaseLocalName, $String*)},
+		{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, getSubjectName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509SubjectName",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLX509SubjectName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLX509SubjectName));
+	});
 	return class$;
 }
 

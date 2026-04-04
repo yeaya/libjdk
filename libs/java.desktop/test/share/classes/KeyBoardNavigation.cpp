@@ -1,5 +1,4 @@
 #include <KeyBoardNavigation.h>
-
 #include <KeyBoardNavigation$1.h>
 #include <KeyBoardNavigation$2.h>
 #include <java/awt/Color.h>
@@ -24,7 +23,6 @@
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/table/DefaultTableCellRenderer.h>
-#include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableModel.h>
@@ -38,7 +36,6 @@ using $KeyBoardNavigation$1 = ::KeyBoardNavigation$1;
 using $KeyBoardNavigation$2 = ::KeyBoardNavigation$2;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Serializable = ::java::io::Serializable;
@@ -61,9 +58,7 @@ using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
-using $Border = ::javax::swing::border::Border;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableModel = ::javax::swing::table::TableModel;
@@ -77,69 +72,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<KeyBoardNavigation$$Lambda$lambda$init$0>());
-	}
 	KeyBoardNavigation* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo KeyBoardNavigation$$Lambda$lambda$init$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(KeyBoardNavigation$$Lambda$lambda$init$0, inst$)},
-	{}
-};
-$MethodInfo KeyBoardNavigation$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "(LKeyBoardNavigation;)V", nullptr, $PUBLIC, $method(KeyBoardNavigation$$Lambda$lambda$init$0, init$, void, KeyBoardNavigation*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$$Lambda$lambda$init$0, run, void)},
-	{}
-};
-$ClassInfo KeyBoardNavigation$$Lambda$lambda$init$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"KeyBoardNavigation$$Lambda$lambda$init$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* KeyBoardNavigation$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
-	$loadClass(KeyBoardNavigation$$Lambda$lambda$init$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(KeyBoardNavigation$$Lambda$lambda$init$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LKeyBoardNavigation;)V", nullptr, $PUBLIC, $method(KeyBoardNavigation$$Lambda$lambda$init$0, init$, void, KeyBoardNavigation*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$$Lambda$lambda$init$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"KeyBoardNavigation$$Lambda$lambda$init$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyBoardNavigation$$Lambda$lambda$init$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyBoardNavigation$$Lambda$lambda$init$0);
+	});
 	return class$;
 }
 $Class* KeyBoardNavigation$$Lambda$lambda$init$0::class$ = nullptr;
-
-$MethodInfo _KeyBoardNavigation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyBoardNavigation, init$, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation, init, void)},
-	{"initTest", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(KeyBoardNavigation, initTest, void, $Container*)},
-	{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(KeyBoardNavigation, lambda$init$0, void)},
-	{}
-};
-
-$InnerClassInfo _KeyBoardNavigation_InnerClassesInfo_[] = {
-	{"KeyBoardNavigation$2", nullptr, nullptr, 0},
-	{"KeyBoardNavigation$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyBoardNavigation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"KeyBoardNavigation",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_KeyBoardNavigation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyBoardNavigation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"KeyBoardNavigation$2,KeyBoardNavigation$1"
-};
-
-$Object* allocate$KeyBoardNavigation($Class* clazz) {
-	return $of($alloc(KeyBoardNavigation));
-}
 
 void KeyBoardNavigation::init$() {
 	$JApplet::init$();
@@ -147,7 +105,7 @@ void KeyBoardNavigation::init$() {
 
 void KeyBoardNavigation::initTest($Container* contentPane) {
 	$init(KeyBoardNavigation);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, $new($StringArray, {
 		"First Name"_s,
 		"Last Name"_s,
@@ -157,151 +115,151 @@ void KeyBoardNavigation::initTest($Container* contentPane) {
 	}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("Mark"_s),
-			$of("Andrews"_s),
-			$of("Red"_s),
-			$of($$new($Integer, 2)),
-			$of($$new($Boolean, true))
+			"Mark"_s,
+			"Andrews"_s,
+			"Red"_s,
+			$$new($Integer, 2),
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Tom"_s),
-			$of("Ball"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 99)),
-			$of($$new($Boolean, false))
+			"Tom"_s,
+			"Ball"_s,
+			"Blue"_s,
+			$$new($Integer, 99),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Alan"_s),
-			$of("Chung"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 838)),
-			$of($$new($Boolean, false))
+			"Alan"_s,
+			"Chung"_s,
+			"Green"_s,
+			$$new($Integer, 838),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Jeff"_s),
-			$of("Dinkins"_s),
-			$of("Turquois"_s),
-			$of($$new($Integer, 8)),
-			$of($$new($Boolean, true))
+			"Jeff"_s,
+			"Dinkins"_s,
+			"Turquois"_s,
+			$$new($Integer, 8),
+			$$new($Boolean, true)
 		}),
 		$$new($ObjectArray, {
-			$of("Amy"_s),
-			$of("Fowler"_s),
-			$of("Yellow"_s),
-			$of($$new($Integer, 3)),
-			$of($$new($Boolean, false))
+			"Amy"_s,
+			"Fowler"_s,
+			"Yellow"_s,
+			$$new($Integer, 3),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Brian"_s),
-			$of("Gerhold"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 0)),
-			$of($$new($Boolean, false))
+			"Brian"_s,
+			"Gerhold"_s,
+			"Green"_s,
+			$$new($Integer, 0),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("James"_s),
-			$of("Gosling"_s),
-			$of("Pink"_s),
-			$of($$new($Integer, 21)),
-			$of($$new($Boolean, false))
+			"James"_s,
+			"Gosling"_s,
+			"Pink"_s,
+			$$new($Integer, 21),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("David"_s),
-			$of("Karlton"_s),
-			$of("Red"_s),
-			$of($$new($Integer, 1)),
-			$of($$new($Boolean, false))
+			"David"_s,
+			"Karlton"_s,
+			"Red"_s,
+			$$new($Integer, 1),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Dave"_s),
-			$of("Kloba"_s),
-			$of("Yellow"_s),
-			$of($$new($Integer, 14)),
-			$of($$new($Boolean, false))
+			"Dave"_s,
+			"Kloba"_s,
+			"Yellow"_s,
+			$$new($Integer, 14),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Peter"_s),
-			$of("Korn"_s),
-			$of("Purple"_s),
-			$of($$new($Integer, 12)),
-			$of($$new($Boolean, false))
+			"Peter"_s,
+			"Korn"_s,
+			"Purple"_s,
+			$$new($Integer, 12),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Phil"_s),
-			$of("Milne"_s),
-			$of("Purple"_s),
-			$of($$new($Integer, 3)),
-			$of($$new($Boolean, false))
+			"Phil"_s,
+			"Milne"_s,
+			"Purple"_s,
+			$$new($Integer, 3),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Dave"_s),
-			$of("Moore"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 88)),
-			$of($$new($Boolean, false))
+			"Dave"_s,
+			"Moore"_s,
+			"Green"_s,
+			$$new($Integer, 88),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of("Muller"_s),
-			$of("Maroon"_s),
-			$of($$new($Integer, 5)),
-			$of($$new($Boolean, false))
+			"Hans"_s,
+			"Muller"_s,
+			"Maroon"_s,
+			$$new($Integer, 5),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Rick"_s),
-			$of("Levenson"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 2)),
-			$of($$new($Boolean, false))
+			"Rick"_s,
+			"Levenson"_s,
+			"Blue"_s,
+			$$new($Integer, 2),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Tim"_s),
-			$of("Prinzing"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 22)),
-			$of($$new($Boolean, false))
+			"Tim"_s,
+			"Prinzing"_s,
+			"Blue"_s,
+			$$new($Integer, 22),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Chester"_s),
-			$of("Rose"_s),
-			$of("Black"_s),
-			$of($$new($Integer, 0)),
-			$of($$new($Boolean, false))
+			"Chester"_s,
+			"Rose"_s,
+			"Black"_s,
+			$$new($Integer, 0),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Ray"_s),
-			$of("Ryan"_s),
-			$of("Gray"_s),
-			$of($$new($Integer, 77)),
-			$of($$new($Boolean, false))
+			"Ray"_s,
+			"Ryan"_s,
+			"Gray"_s,
+			$$new($Integer, 77),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Georges"_s),
-			$of("Saab"_s),
-			$of("Red"_s),
-			$of($$new($Integer, 4)),
-			$of($$new($Boolean, false))
+			"Georges"_s,
+			"Saab"_s,
+			"Red"_s,
+			$$new($Integer, 4),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Willie"_s),
-			$of("Walker"_s),
-			$of("Phthalo Blue"_s),
-			$of($$new($Integer, 4)),
-			$of($$new($Boolean, false))
+			"Willie"_s,
+			"Walker"_s,
+			"Phthalo Blue"_s,
+			$$new($Integer, 4),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Kathy"_s),
-			$of("Walrath"_s),
-			$of("Blue"_s),
-			$of($$new($Integer, 8)),
-			$of($$new($Boolean, false))
+			"Kathy"_s,
+			"Walrath"_s,
+			"Blue"_s,
+			$$new($Integer, 8),
+			$$new($Boolean, false)
 		}),
 		$$new($ObjectArray, {
-			$of("Arnaud"_s),
-			$of("Weber"_s),
-			$of("Green"_s),
-			$of($$new($Integer, 44)),
-			$of($$new($Boolean, false))
+			"Arnaud"_s,
+			"Weber"_s,
+			"Green"_s,
+			$$new($Integer, 44),
+			$$new($Boolean, false)
 		})
 	}));
 	$var($TableModel, dataModel, $new($KeyBoardNavigation$1, names, data));
@@ -324,7 +282,7 @@ void KeyBoardNavigation::initTest($Container* contentPane) {
 	colorColumn->setCellRenderer(colorColumnRenderer);
 	$var($TableCellRenderer, headerRenderer, colorColumn->getHeaderRenderer());
 	if ($instanceOf($DefaultTableCellRenderer, headerRenderer)) {
-		$nc(($cast($DefaultTableCellRenderer, headerRenderer)))->setToolTipText("Hi Mom!"_s);
+		$cast($DefaultTableCellRenderer, headerRenderer)->setToolTipText("Hi Mom!"_s);
 	}
 	$var($TableColumn, vegetarianColumn, tableView->getColumn("Vegetarian"_s));
 	$nc(vegetarianColumn)->setPreferredWidth(100);
@@ -336,18 +294,18 @@ void KeyBoardNavigation::initTest($Container* contentPane) {
 	$var($JScrollPane, scrollpane, $new($JScrollPane, tableView));
 	scrollpane->setBorder($$new($BevelBorder, $BevelBorder::LOWERED));
 	scrollpane->setPreferredSize($$new($Dimension, 430, 200));
-	$nc(contentPane)->add(static_cast<$Component*>(scrollpane));
+	$nc(contentPane)->add(scrollpane);
 }
 
 void KeyBoardNavigation::init() {
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(KeyBoardNavigation$$Lambda$lambda$init$0, this)));
+	$SwingUtilities::invokeLater($$new(KeyBoardNavigation$$Lambda$lambda$init$0, this));
 }
 
 void KeyBoardNavigation::lambda$init$0() {
 	try {
 		$UIManager::setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel"_s);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	initTest($(getContentPane()));
 }
@@ -357,11 +315,39 @@ KeyBoardNavigation::KeyBoardNavigation() {
 
 $Class* KeyBoardNavigation::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(KeyBoardNavigation$$Lambda$lambda$init$0::classInfo$.name)) {
+		if (name->equals("KeyBoardNavigation$$Lambda$lambda$init$0")) {
 			return KeyBoardNavigation$$Lambda$lambda$init$0::load$(name, initialize);
 		}
 	}
-	$loadClass(KeyBoardNavigation, name, initialize, &_KeyBoardNavigation_ClassInfo_, allocate$KeyBoardNavigation);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyBoardNavigation, init$, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation, init, void)},
+		{"initTest", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(KeyBoardNavigation, initTest, void, $Container*)},
+		{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(KeyBoardNavigation, lambda$init$0, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"KeyBoardNavigation$2", nullptr, nullptr, 0},
+		{"KeyBoardNavigation$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"KeyBoardNavigation",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"KeyBoardNavigation$2,KeyBoardNavigation$1"
+	};
+	$loadClass(KeyBoardNavigation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyBoardNavigation));
+	});
 	return class$;
 }
 

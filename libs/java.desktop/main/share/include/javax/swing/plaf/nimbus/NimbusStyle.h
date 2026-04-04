@@ -84,6 +84,7 @@ class $import NimbusStyle : public ::javax::swing::plaf::synth::SynthStyle {
 public:
 	NimbusStyle();
 	using ::javax::swing::plaf::synth::SynthStyle::installDefaults;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* prefix, ::javax::swing::JComponent* c);
 	bool contains($StringArray* names, $String* name);
 	virtual $Object* get(::javax::swing::plaf::synth::SynthContext* ctx, Object$* key) override;

@@ -1,5 +1,4 @@
 #include <javax/management/ValueExp.h>
-
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
@@ -13,32 +12,27 @@ using $ObjectName = ::javax::management::ObjectName;
 namespace javax {
 	namespace management {
 
-$CompoundAttribute _ValueExp_MethodAnnotations_setMBeanServer1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _ValueExp_MethodInfo_[] = {
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueExp, apply, ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(ValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _ValueExp_MethodAnnotations_setMBeanServer1},
-	{}
-};
-
-$ClassInfo _ValueExp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.ValueExp",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	_ValueExp_MethodInfo_
-};
-
-$Object* allocate$ValueExp($Class* clazz) {
-	return $of($alloc(ValueExp));
-}
-
 $Class* ValueExp::load$($String* name, bool initialize) {
-	$loadClass(ValueExp, name, initialize, &_ValueExp_ClassInfo_, allocate$ValueExp);
+	$CompoundAttribute setMBeanServermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueExp, apply, ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(ValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, setMBeanServermethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.ValueExp",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ValueExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueExp);
+	});
 	return class$;
 }
 

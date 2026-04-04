@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTitlePane$SystemMenuBar.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -13,7 +12,6 @@
 #include <javax/swing/plaf/metal/MetalTitlePane.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ImageObserver = ::java::awt::image::ImageObserver;
@@ -32,51 +30,13 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTitlePane$SystemMenuBar_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$SystemMenuBar, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTitlePane$SystemMenuBar_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PRIVATE, $method(MetalTitlePane$SystemMenuBar, init$, void, $MetalTitlePane*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$SystemMenuBar, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$SystemMenuBar, getPreferredSize, $Dimension*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$SystemMenuBar, paint, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _MetalTitlePane$SystemMenuBar_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTitlePane$SystemMenuBar", "javax.swing.plaf.metal.MetalTitlePane", "SystemMenuBar", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalTitlePane$SystemMenuBar_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTitlePane$SystemMenuBar",
-	"javax.swing.JMenuBar",
-	nullptr,
-	_MetalTitlePane$SystemMenuBar_FieldInfo_,
-	_MetalTitlePane$SystemMenuBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTitlePane$SystemMenuBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTitlePane"
-};
-
-$Object* allocate$MetalTitlePane$SystemMenuBar($Class* clazz) {
-	return $of($alloc(MetalTitlePane$SystemMenuBar));
-}
-
 void MetalTitlePane$SystemMenuBar::init$($MetalTitlePane* this$0) {
 	$set(this, this$0, this$0);
 	$JMenuBar::init$();
 }
 
 void MetalTitlePane$SystemMenuBar::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isOpaque()) {
 		$nc(g)->setColor($(getBackground()));
 		int32_t var$0 = getWidth();
@@ -99,14 +59,46 @@ $Dimension* MetalTitlePane$SystemMenuBar::getMinimumSize() {
 $Dimension* MetalTitlePane$SystemMenuBar::getPreferredSize() {
 	$var($Dimension, size, $JMenuBar::getPreferredSize());
 	int32_t var$0 = $Math::max(16, $nc(size)->width);
-	return $new($Dimension, var$0, $Math::max($nc(size)->height, 16));
+	return $new($Dimension, var$0, $Math::max(size->height, 16));
 }
 
 MetalTitlePane$SystemMenuBar::MetalTitlePane$SystemMenuBar() {
 }
 
 $Class* MetalTitlePane$SystemMenuBar::load$($String* name, bool initialize) {
-	$loadClass(MetalTitlePane$SystemMenuBar, name, initialize, &_MetalTitlePane$SystemMenuBar_ClassInfo_, allocate$MetalTitlePane$SystemMenuBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$SystemMenuBar, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PRIVATE, $method(MetalTitlePane$SystemMenuBar, init$, void, $MetalTitlePane*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$SystemMenuBar, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$SystemMenuBar, getPreferredSize, $Dimension*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$SystemMenuBar, paint, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTitlePane$SystemMenuBar", "javax.swing.plaf.metal.MetalTitlePane", "SystemMenuBar", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTitlePane$SystemMenuBar",
+		"javax.swing.JMenuBar",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTitlePane"
+	};
+	$loadClass(MetalTitlePane$SystemMenuBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTitlePane$SystemMenuBar));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/BadBinaryOpValueExpException.h>
-
 #include <javax/management/ValueExp.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $ValueExp = ::javax::management::ValueExp;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _BadBinaryOpValueExpException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BadBinaryOpValueExpException, serialVersionUID)},
-	{"exp", "Ljavax/management/ValueExp;", nullptr, $PRIVATE, $field(BadBinaryOpValueExpException, exp)},
-	{}
-};
-
-$MethodInfo _BadBinaryOpValueExpException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(BadBinaryOpValueExpException, init$, void, $ValueExp*)},
-	{"getExp", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BadBinaryOpValueExpException, getExp, $ValueExp*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BadBinaryOpValueExpException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _BadBinaryOpValueExpException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.BadBinaryOpValueExpException",
-	"java.lang.Exception",
-	nullptr,
-	_BadBinaryOpValueExpException_FieldInfo_,
-	_BadBinaryOpValueExpException_MethodInfo_
-};
-
-$Object* allocate$BadBinaryOpValueExpException($Class* clazz) {
-	return $of($alloc(BadBinaryOpValueExpException));
-}
 
 void BadBinaryOpValueExpException::init$($ValueExp* exp) {
 	$Exception::init$();
@@ -62,7 +35,28 @@ void BadBinaryOpValueExpException::throw$() {
 }
 
 $Class* BadBinaryOpValueExpException::load$($String* name, bool initialize) {
-	$loadClass(BadBinaryOpValueExpException, name, initialize, &_BadBinaryOpValueExpException_ClassInfo_, allocate$BadBinaryOpValueExpException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BadBinaryOpValueExpException, serialVersionUID)},
+		{"exp", "Ljavax/management/ValueExp;", nullptr, $PRIVATE, $field(BadBinaryOpValueExpException, exp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(BadBinaryOpValueExpException, init$, void, $ValueExp*)},
+		{"getExp", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BadBinaryOpValueExpException, getExp, $ValueExp*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BadBinaryOpValueExpException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.BadBinaryOpValueExpException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BadBinaryOpValueExpException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BadBinaryOpValueExpException);
+	});
 	return class$;
 }
 

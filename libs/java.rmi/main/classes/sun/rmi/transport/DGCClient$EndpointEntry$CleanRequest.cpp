@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/DGCClient$EndpointEntry$CleanRequest.h>
-
 #include <java/rmi/server/ObjID.h>
 #include <sun/rmi/transport/DGCClient$EndpointEntry.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 
-$FieldInfo _DGCClient$EndpointEntry$CleanRequest_FieldInfo_[] = {
-	{"objIDs", "[Ljava/rmi/server/ObjID;", nullptr, $FINAL, $field(DGCClient$EndpointEntry$CleanRequest, objIDs)},
-	{"sequenceNum", "J", nullptr, $FINAL, $field(DGCClient$EndpointEntry$CleanRequest, sequenceNum)},
-	{"strong", "Z", nullptr, $FINAL, $field(DGCClient$EndpointEntry$CleanRequest, strong)},
-	{"failures", "I", nullptr, 0, $field(DGCClient$EndpointEntry$CleanRequest, failures)},
-	{}
-};
-
-$MethodInfo _DGCClient$EndpointEntry$CleanRequest_MethodInfo_[] = {
-	{"<init>", "([Ljava/rmi/server/ObjID;JZ)V", nullptr, 0, $method(DGCClient$EndpointEntry$CleanRequest, init$, void, $ObjIDArray*, int64_t, bool)},
-	{}
-};
-
-$InnerClassInfo _DGCClient$EndpointEntry$CleanRequest_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$CleanRequest", "sun.rmi.transport.DGCClient$EndpointEntry", "CleanRequest", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DGCClient$EndpointEntry$CleanRequest_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.DGCClient$EndpointEntry$CleanRequest",
-	"java.lang.Object",
-	nullptr,
-	_DGCClient$EndpointEntry$CleanRequest_FieldInfo_,
-	_DGCClient$EndpointEntry$CleanRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DGCClient$EndpointEntry$CleanRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.DGCClient"
-};
-
-$Object* allocate$DGCClient$EndpointEntry$CleanRequest($Class* clazz) {
-	return $of($alloc(DGCClient$EndpointEntry$CleanRequest));
-}
-
 void DGCClient$EndpointEntry$CleanRequest::init$($ObjIDArray* objIDs, int64_t sequenceNum, bool strong) {
 	this->failures = 0;
 	$set(this, objIDs, objIDs);
@@ -64,7 +24,40 @@ DGCClient$EndpointEntry$CleanRequest::DGCClient$EndpointEntry$CleanRequest() {
 }
 
 $Class* DGCClient$EndpointEntry$CleanRequest::load$($String* name, bool initialize) {
-	$loadClass(DGCClient$EndpointEntry$CleanRequest, name, initialize, &_DGCClient$EndpointEntry$CleanRequest_ClassInfo_, allocate$DGCClient$EndpointEntry$CleanRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"objIDs", "[Ljava/rmi/server/ObjID;", nullptr, $FINAL, $field(DGCClient$EndpointEntry$CleanRequest, objIDs)},
+		{"sequenceNum", "J", nullptr, $FINAL, $field(DGCClient$EndpointEntry$CleanRequest, sequenceNum)},
+		{"strong", "Z", nullptr, $FINAL, $field(DGCClient$EndpointEntry$CleanRequest, strong)},
+		{"failures", "I", nullptr, 0, $field(DGCClient$EndpointEntry$CleanRequest, failures)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/rmi/server/ObjID;JZ)V", nullptr, 0, $method(DGCClient$EndpointEntry$CleanRequest, init$, void, $ObjIDArray*, int64_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$CleanRequest", "sun.rmi.transport.DGCClient$EndpointEntry", "CleanRequest", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.DGCClient$EndpointEntry$CleanRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.DGCClient"
+	};
+	$loadClass(DGCClient$EndpointEntry$CleanRequest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCClient$EndpointEntry$CleanRequest);
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class $export Http1ChunkedTest$Responses : public ::java::lang::Enum {
 public:
 	Http1ChunkedTest$Responses();
 	static $Array<Http1ChunkedTest$Responses>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* headers, ::java::util::List* body);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* headers, ::java::util::List* body, int64_t delay);
 	static ::Http1ChunkedTest$Responses* valueOf($String* name);

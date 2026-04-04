@@ -22,7 +22,7 @@ public:
 	void init$($String* type, Object$* source, int64_t sequenceNumber, int64_t timeStamp, $String* msg, ::java::lang::Integer* id);
 	virtual $Object* cloneTimerNotification();
 	virtual ::java::lang::Integer* getNotificationID();
-	static const int64_t serialVersionUID = (int64_t)0x18F586F8DBE84856;
+	static const int64_t serialVersionUID = (int64_t)0x18f586f8dbe84856;
 	::java::lang::Integer* notificationID = nullptr;
 };
 

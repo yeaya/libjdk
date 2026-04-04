@@ -37,10 +37,13 @@ public:
 	void init$($String* explanation);
 	void init$();
 	virtual ::javax::naming::Context* getReferralContext(::java::util::Hashtable* env, $Array<::javax::naming::ldap::Control>* reqCtls) {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0xE8D68BE60A29A0EC;
+	static const int64_t serialVersionUID = (int64_t)0xe8d68be60a29a0ec;
 	LdapReferralException(const LdapReferralException& e);
 	virtual void throw$() override;
-	inline LdapReferralException* operator ->() {
+	inline LdapReferralException* operator ->() const {
+		return (LdapReferralException*)throwing$;
+	}
+	inline operator LdapReferralException*() const {
 		return (LdapReferralException*)throwing$;
 	}
 };

@@ -1,11 +1,9 @@
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/Runnable.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/Executor.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
-#include <jdk/internal/net/http/common/SequentialScheduler$DeferredCompleter.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$LockingRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$SchedulableTask.h>
@@ -28,7 +26,6 @@ using $Runnable = ::java::lang::Runnable;
 using $Objects = ::java::util::Objects;
 using $Executor = ::java::util::concurrent::Executor;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-using $SequentialScheduler$DeferredCompleter = ::jdk::internal::net::http::common::SequentialScheduler$DeferredCompleter;
 using $SequentialScheduler$LockingRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$LockingRestartableTask;
 using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 using $SequentialScheduler$SchedulableTask = ::jdk::internal::net::http::common::SequentialScheduler$SchedulableTask;
@@ -40,61 +37,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _SequentialScheduler_FieldInfo_[] = {
-	{"OFFLOAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, OFFLOAD)},
-	{"AGAIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, AGAIN)},
-	{"BEGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, BEGIN)},
-	{"STOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, STOP)},
-	{"END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, END)},
-	{"state", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, state)},
-	{"restartableTask", "Ljdk/internal/net/http/common/SequentialScheduler$RestartableTask;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, restartableTask)},
-	{"completer", "Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, completer)},
-	{"schedulableTask", "Ljdk/internal/net/http/common/SequentialScheduler$SchedulableTask;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, schedulableTask)},
-	{}
-};
-
-$MethodInfo _SequentialScheduler_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler$RestartableTask;)V", nullptr, $PUBLIC, $method(SequentialScheduler, init$, void, $SequentialScheduler$RestartableTask*)},
-	{"isStopped", "()Z", nullptr, $PUBLIC, $method(SequentialScheduler, isStopped, bool)},
-	{"lockingScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $staticMethod(SequentialScheduler, lockingScheduler, SequentialScheduler*, $Runnable*)},
-	{"runOrSchedule", "()V", nullptr, $PUBLIC, $method(SequentialScheduler, runOrSchedule, void)},
-	{"runOrSchedule", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(SequentialScheduler, runOrSchedule, void, $Executor*)},
-	{"runOrSchedule", "(Ljdk/internal/net/http/common/SequentialScheduler$SchedulableTask;Ljava/util/concurrent/Executor;)V", nullptr, $PRIVATE, $method(SequentialScheduler, runOrSchedule, void, $SequentialScheduler$SchedulableTask*, $Executor*)},
-	{"stop", "()V", nullptr, $PUBLIC, $method(SequentialScheduler, stop, void)},
-	{"synchronizedScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $staticMethod(SequentialScheduler, synchronizedScheduler, SequentialScheduler*, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _SequentialScheduler_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SequentialScheduler$TryEndDeferredCompleter", "jdk.internal.net.http.common.SequentialScheduler", "TryEndDeferredCompleter", $PRIVATE},
-	{"jdk.internal.net.http.common.SequentialScheduler$SchedulableTask", "jdk.internal.net.http.common.SequentialScheduler", "SchedulableTask", $PRIVATE | $FINAL},
-	{"jdk.internal.net.http.common.SequentialScheduler$LockingRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "LockingRestartableTask", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "SynchronizedRestartableTask", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "CompleteRestartableTask", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.net.http.common.SequentialScheduler$RestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "RestartableTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter", "jdk.internal.net.http.common.SequentialScheduler", "DeferredCompleter", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SequentialScheduler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.SequentialScheduler",
-	"java.lang.Object",
-	nullptr,
-	_SequentialScheduler_FieldInfo_,
-	_SequentialScheduler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SequentialScheduler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SequentialScheduler$TryEndDeferredCompleter,jdk.internal.net.http.common.SequentialScheduler$SchedulableTask,jdk.internal.net.http.common.SequentialScheduler$LockingRestartableTask,jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask,jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask,jdk.internal.net.http.common.SequentialScheduler$RestartableTask,jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter"
-};
-
-$Object* allocate$SequentialScheduler($Class* clazz) {
-	return $of($alloc(SequentialScheduler));
-}
 
 void SequentialScheduler::init$($SequentialScheduler$RestartableTask* restartableTask) {
 	$set(this, state, $new($AtomicInteger, SequentialScheduler::END));
@@ -112,18 +54,18 @@ void SequentialScheduler::runOrSchedule($Executor* executor) {
 }
 
 void SequentialScheduler::runOrSchedule($SequentialScheduler$SchedulableTask* task, $Executor* executor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
-		int32_t s = $nc(this->state)->get();
+		int32_t s = this->state->get();
 		if (s == SequentialScheduler::END) {
-			if ($nc(this->state)->compareAndSet(SequentialScheduler::END, SequentialScheduler::BEGIN)) {
+			if (this->state->compareAndSet(SequentialScheduler::END, SequentialScheduler::BEGIN)) {
 				break;
 			}
-		} else if (((int32_t)(s & (uint32_t)SequentialScheduler::BEGIN)) != 0) {
-			if ($nc(this->state)->compareAndSet(s, SequentialScheduler::AGAIN | ((int32_t)(s & (uint32_t)SequentialScheduler::OFFLOAD)))) {
+		} else if ((s & SequentialScheduler::BEGIN) != 0) {
+			if (this->state->compareAndSet(s, SequentialScheduler::AGAIN | (s & SequentialScheduler::OFFLOAD))) {
 				return;
 			}
-		} else if (((int32_t)(s & (uint32_t)SequentialScheduler::AGAIN)) != 0 || s == SequentialScheduler::STOP) {
+		} else if ((s & SequentialScheduler::AGAIN) != 0 || s == SequentialScheduler::STOP) {
 			return;
 		} else {
 			$throwNew($InternalError, $($String::valueOf(s)));
@@ -132,16 +74,16 @@ void SequentialScheduler::runOrSchedule($SequentialScheduler$SchedulableTask* ta
 	if (executor == nullptr) {
 		$nc(task)->run();
 	} else {
-		$nc(executor)->execute(task);
+		executor->execute(task);
 	}
 }
 
 bool SequentialScheduler::isStopped() {
-	return $nc(this->state)->get() == SequentialScheduler::STOP;
+	return this->state->get() == SequentialScheduler::STOP;
 }
 
 void SequentialScheduler::stop() {
-	$nc(this->state)->set(SequentialScheduler::STOP);
+	this->state->set(SequentialScheduler::STOP);
 }
 
 SequentialScheduler* SequentialScheduler::synchronizedScheduler($Runnable* mainLoop) {
@@ -156,7 +98,56 @@ SequentialScheduler::SequentialScheduler() {
 }
 
 $Class* SequentialScheduler::load$($String* name, bool initialize) {
-	$loadClass(SequentialScheduler, name, initialize, &_SequentialScheduler_ClassInfo_, allocate$SequentialScheduler);
+	$FieldInfo fieldInfos$$[] = {
+		{"OFFLOAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, OFFLOAD)},
+		{"AGAIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, AGAIN)},
+		{"BEGIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, BEGIN)},
+		{"STOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, STOP)},
+		{"END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SequentialScheduler, END)},
+		{"state", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, state)},
+		{"restartableTask", "Ljdk/internal/net/http/common/SequentialScheduler$RestartableTask;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, restartableTask)},
+		{"completer", "Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, completer)},
+		{"schedulableTask", "Ljdk/internal/net/http/common/SequentialScheduler$SchedulableTask;", nullptr, $PRIVATE | $FINAL, $field(SequentialScheduler, schedulableTask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler$RestartableTask;)V", nullptr, $PUBLIC, $method(SequentialScheduler, init$, void, $SequentialScheduler$RestartableTask*)},
+		{"isStopped", "()Z", nullptr, $PUBLIC, $method(SequentialScheduler, isStopped, bool)},
+		{"lockingScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $staticMethod(SequentialScheduler, lockingScheduler, SequentialScheduler*, $Runnable*)},
+		{"runOrSchedule", "()V", nullptr, $PUBLIC, $method(SequentialScheduler, runOrSchedule, void)},
+		{"runOrSchedule", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(SequentialScheduler, runOrSchedule, void, $Executor*)},
+		{"runOrSchedule", "(Ljdk/internal/net/http/common/SequentialScheduler$SchedulableTask;Ljava/util/concurrent/Executor;)V", nullptr, $PRIVATE, $method(SequentialScheduler, runOrSchedule, void, $SequentialScheduler$SchedulableTask*, $Executor*)},
+		{"stop", "()V", nullptr, $PUBLIC, $method(SequentialScheduler, stop, void)},
+		{"synchronizedScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $staticMethod(SequentialScheduler, synchronizedScheduler, SequentialScheduler*, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SequentialScheduler$TryEndDeferredCompleter", "jdk.internal.net.http.common.SequentialScheduler", "TryEndDeferredCompleter", $PRIVATE},
+		{"jdk.internal.net.http.common.SequentialScheduler$SchedulableTask", "jdk.internal.net.http.common.SequentialScheduler", "SchedulableTask", $PRIVATE | $FINAL},
+		{"jdk.internal.net.http.common.SequentialScheduler$LockingRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "LockingRestartableTask", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "SynchronizedRestartableTask", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "CompleteRestartableTask", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.net.http.common.SequentialScheduler$RestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "RestartableTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter", "jdk.internal.net.http.common.SequentialScheduler", "DeferredCompleter", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.SequentialScheduler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SequentialScheduler$TryEndDeferredCompleter,jdk.internal.net.http.common.SequentialScheduler$SchedulableTask,jdk.internal.net.http.common.SequentialScheduler$LockingRestartableTask,jdk.internal.net.http.common.SequentialScheduler$SynchronizedRestartableTask,jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask,jdk.internal.net.http.common.SequentialScheduler$RestartableTask,jdk.internal.net.http.common.SequentialScheduler$DeferredCompleter"
+	};
+	$loadClass(SequentialScheduler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SequentialScheduler);
+	});
 	return class$;
 }
 

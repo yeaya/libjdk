@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo.h>
-
-#include <com/sun/source/tree/CompilationUnitTree.h>
 #include <com/sun/source/tree/ModifiersTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/Tree.h>
@@ -182,7 +180,6 @@
 #undef XOR
 #undef XOR_ASSIGNMENT
 
-using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
 using $Tree = ::com::sun::source::tree::Tree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreePath = ::com::sun::source::util::TreePath;
@@ -245,7 +242,6 @@ using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariable
 using $JCTree$JCWhileLoop = ::com::sun::tools::javac::tree::JCTree$JCWhileLoop;
 using $JCTree$JCWildcard = ::com::sun::tools::javac::tree::JCTree$JCWildcard;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo$1 = ::com::sun::tools::javac::tree::TreeInfo$1;
 using $TreeInfo$1DiagScanner = ::com::sun::tools::javac::tree::TreeInfo$1DiagScanner;
 using $TreeInfo$1PathFinder = ::com::sun::tools::javac::tree::TreeInfo$1PathFinder;
@@ -272,11 +268,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Iterator = ::java::util::Iterator;
-using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {
@@ -293,27 +287,24 @@ public:
 	virtual bool test(Object$* t) override {
 		 return TreeInfo::lambda$recordFields$0($cast($JCTree, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$recordFields$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$$Lambda$lambda$recordFields$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$recordFields$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$recordFields$0::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$recordFields$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$recordFields$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$recordFields$0);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$recordFields$0::class$ = nullptr;
@@ -326,27 +317,24 @@ public:
 	virtual $Object* apply(Object$* t) override {
 		 return $of(TreeInfo::lambda$recordFields$1($cast($JCTree, t)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$recordFields$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$$Lambda$lambda$recordFields$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$recordFields$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$recordFields$1$1::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$recordFields$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$recordFields$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$recordFields$1$1);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$recordFields$1$1::class$ = nullptr;
@@ -359,27 +347,24 @@ public:
 	virtual bool test(Object$* vd) override {
 		 return TreeInfo::lambda$recordFields$2($cast($JCTree$JCVariableDecl, vd));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$recordFields$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$$Lambda$lambda$recordFields$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$2$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$recordFields$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$recordFields$2$2::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$recordFields$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$2$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$recordFields$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$recordFields$2$2);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$recordFields$2$2::class$ = nullptr;
@@ -392,27 +377,24 @@ public:
 	virtual $Object* apply(Object$* vd) override {
 		 return $of(TreeInfo::lambda$recordFieldTypes$3($cast($JCTree$JCVariableDecl, vd)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$recordFieldTypes$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFieldTypes$3$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFieldTypes$3$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::class$ = nullptr;
@@ -424,35 +406,31 @@ public:
 		$set(this, sym, sym);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(TreeInfo::lambda$diagnosticPositionFor$4(sym, $cast($JCTree, t)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4>());
+		 return TreeInfo::lambda$diagnosticPositionFor$4(sym, $cast($JCTree, t));
 	}
 	$Symbol* sym = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::fieldInfos[2] = {
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, sym)},
-	{}
-};
-$MethodInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, init$, void, $Symbol*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, init$, void, $Symbol*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::class$ = nullptr;
@@ -465,27 +443,24 @@ public:
 	virtual bool test(Object$* t) override {
 		 return TreeInfo::lambda$diagnosticPositionFor$5($cast($JCDiagnostic$DiagnosticPosition, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, test, bool, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::class$ = nullptr;
@@ -496,29 +471,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(TreeInfo::lambda$isErrorEnumSwitch$6($cast($JCTree$JCCase, c)));
+		 return TreeInfo::lambda$isErrorEnumSwitch$6($cast($JCTree$JCCase, c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::class$ = nullptr;
@@ -531,194 +503,47 @@ public:
 	virtual bool test(Object$* p) override {
 		 return TreeInfo::lambda$isErrorEnumSwitch$7($cast($JCTree$JCCaseLabel, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, test, bool, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7);
+	});
 	return class$;
 }
 $Class* TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::class$ = nullptr;
-
-$FieldInfo _TreeInfo_FieldInfo_[] = {
-	{"notExpression", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, notExpression)},
-	{"noPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, noPrec)},
-	{"assignPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, assignPrec)},
-	{"assignopPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, assignopPrec)},
-	{"condPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, condPrec)},
-	{"orPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, orPrec)},
-	{"andPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, andPrec)},
-	{"bitorPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, bitorPrec)},
-	{"bitxorPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, bitxorPrec)},
-	{"bitandPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, bitandPrec)},
-	{"eqPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, eqPrec)},
-	{"ordPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, ordPrec)},
-	{"shiftPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, shiftPrec)},
-	{"addPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, addPrec)},
-	{"mulPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, mulPrec)},
-	{"prefixPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, prefixPrec)},
-	{"postfixPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, postfixPrec)},
-	{"precCount", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, precCount)},
-	{}
-};
-
-$MethodInfo _TreeInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo, init$, void)},
-	{"args", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, args, $List*, $JCTree*)},
-	{"calledMethodName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, calledMethodName, $Name*, $JCTree*)},
-	{"containsTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, containsTypeAnnotation, bool, $JCTree*)},
-	{"declarationFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, declarationFor, $JCTree*, $Symbol*, $JCTree*)},
-	{"diagEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagEndPos, $JCDiagnostic$DiagnosticPosition*, $JCTree*)},
-	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*)},
-	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*, bool)},
-	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $List*)},
-	{"endPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, endPos, int32_t, $JCTree*)},
-	{"finalizerPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeInfo$PosKind;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, finalizerPos, int32_t, $JCTree*, $TreeInfo$PosKind*)},
-	{"firstConstructorCall", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstConstructorCall, $JCTree$JCMethodInvocation*, $JCTree*)},
-	{"firstFlag", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstFlag, int64_t, int64_t)},
-	{"firstStatPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstStatPos, int32_t, $JCTree*)},
-	{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, flagNames, $String*, int64_t)},
-	{"flags", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, flags, int64_t, $JCTree*)},
-	{"fullName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, fullName, $Name*, $JCTree*)},
-	{"getCommentText", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getCommentText, $String*, $Env*, $JCTree*)},
-	{"getCommentTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getCommentTree, $DCTree$DCDocComment*, $Env*, $JCTree*)},
-	{"getConstructorInvocationName", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getConstructorInvocationName, $Name*, $List*, $Names*)},
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getEndPos, int32_t, $JCTree*, $EndPosTable*)},
-	{"getModifiers", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getModifiers, $JCTree$JCModifiers*, $JCTree*)},
-	{"getModule", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getModule, $JCTree$JCModuleDecl*, $JCTree$JCCompilationUnit*)},
-	{"getStartPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getStartPos, int32_t, $JCTree*)},
-	{"hasConstructors", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, hasConstructors, bool, $List*)},
-	{"innermostType", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, innermostType, $JCTree*, $JCTree*, bool)},
-	{"isCanonicalConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isCanonicalConstructor, bool, $JCTree*)},
-	{"isCompactConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isCompactConstructor, bool, $JCTree*)},
-	{"isConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isConstructor, bool, $JCTree*)},
-	{"isDeclaration", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isDeclaration, bool, $JCTree*)},
-	{"isDiamond", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isDiamond, bool, $JCTree*)},
-	{"isEnumInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isEnumInit, bool, $JCTree*)},
-	{"isErrorEnumSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, isErrorEnumSwitch, bool, $JCTree$JCExpression*, $List*)},
-	{"isExpressionStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isExpressionStatement, bool, $JCTree$JCExpression*)},
-	{"isIdentOrThisDotIdent", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isIdentOrThisDotIdent, bool, $JCTree*)},
-	{"isInAnnotation", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Z", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, isInAnnotation, bool, $Env*, $JCTree*)},
-	{"isInitialConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isInitialConstructor, bool, $JCTree*)},
-	{"isModuleInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isModuleInfo, bool, $JCTree$JCCompilationUnit*)},
-	{"isMultiCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isMultiCatch, bool, $JCTree$JCCatch*)},
-	{"isNull", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isNull, bool, $JCTree*)},
-	{"isPackageInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isPackageInfo, bool, $JCTree$JCCompilationUnit*)},
-	{"isReceiverParam", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isReceiverParam, bool, $JCTree*)},
-	{"isSelfCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSelfCall, bool, $JCTree*)},
-	{"isStatement", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isStatement, bool, $JCTree*)},
-	{"isStaticSelector", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Names;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isStaticSelector, bool, $JCTree*, $Names*)},
-	{"isStaticSym", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TreeInfo, isStaticSym, bool, $JCTree*)},
-	{"isSuperCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSuperCall, bool, $JCTree*)},
-	{"isSyntheticInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSyntheticInit, bool, $JCTree*)},
-	{"isThisQualifier", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isThisQualifier, bool, $JCTree*)},
-	{"lambda$diagnosticPositionFor$4", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$diagnosticPositionFor$4, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*)},
-	{"lambda$diagnosticPositionFor$5", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$diagnosticPositionFor$5, bool, $JCDiagnostic$DiagnosticPosition*)},
-	{"lambda$isErrorEnumSwitch$6", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$isErrorEnumSwitch$6, $Stream*, $JCTree$JCCase*)},
-	{"lambda$isErrorEnumSwitch$7", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$isErrorEnumSwitch$7, bool, $JCTree$JCCaseLabel*)},
-	{"lambda$recordFieldTypes$3", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFieldTypes$3, $Type*, $JCTree$JCVariableDecl*)},
-	{"lambda$recordFields$0", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$0, bool, $JCTree*)},
-	{"lambda$recordFields$1", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$1, $JCTree$JCVariableDecl*, $JCTree*)},
-	{"lambda$recordFields$2", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$2, bool, $JCTree$JCVariableDecl*)},
-	{"name", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, name, $Name*, $JCTree*)},
-	{"nonstaticSelect", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, nonstaticSelect, bool, $JCTree*)},
-	{"opPrec", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, opPrec, int32_t, $JCTree$Tag*)},
-	{"pathFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, pathFor, $List*, $JCTree*, $JCTree$JCCompilationUnit*)},
-	{"positionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, positionFor, int32_t, $Symbol*, $JCTree*)},
-	{"primaryPatternTree", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, primaryPatternTree, $JCTree$JCBindingPattern*, $JCTree$JCPattern*)},
-	{"primaryPatternType", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/TreeInfo$PatternPrimaryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, primaryPatternType, $TreeInfo$PatternPrimaryType*, $JCTree$JCPattern*)},
-	{"recordFieldTypes", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, recordFieldTypes, $List*, $JCTree$JCClassDecl*)},
-	{"recordFields", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, recordFields, $List*, $JCTree$JCClassDecl*)},
-	{"referencedStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, referencedStatement, $JCTree*, $JCTree$JCLabeledStatement*)},
-	{"scopeFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, scopeFor, $Env*, $JCTree*, $JCTree$JCCompilationUnit*)},
-	{"scopeFor", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, scopeFor, $Env*, $List*)},
-	{"setPolyKind", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setPolyKind, void, $JCTree*, $JCTree$JCPolyExpression$PolyKind*)},
-	{"setSymbol", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setSymbol, void, $JCTree*, $Symbol*)},
-	{"setVarargsElement", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setVarargsElement, void, $JCTree*, $Type*)},
-	{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, skipParens, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, skipParens, $JCTree*, $JCTree*)},
-	{"symbol", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, symbol, $Symbol*, $JCTree*)},
-	{"symbolFor", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, symbolFor, $Symbol*, $JCTree*)},
-	{"symbolForImpl", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $STATIC, $staticMethod(TreeInfo, symbolForImpl, $Symbol*, $JCTree*)},
-	{"tagToKind", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $STATIC, $staticMethod(TreeInfo, tagToKind, $Tree$Kind*, $JCTree$Tag*)},
-	{"typeIn", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, typeIn, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"types", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, types, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _TreeInfo_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType", "com.sun.tools.javac.tree.TreeInfo", "PatternPrimaryType", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder", "com.sun.tools.javac.tree.TreeInfo", "TypeAnnotationFinder", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.tree.TreeInfo$DeclScanner", "com.sun.tools.javac.tree.TreeInfo", "DeclScanner", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.tree.TreeInfo$PosKind", "com.sun.tools.javac.tree.TreeInfo", "PosKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.tree.TreeInfo$1PathFinder", nullptr, "PathFinder", 0},
-	{"com.sun.tools.javac.tree.TreeInfo$1Result", nullptr, "Result", 0},
-	{"com.sun.tools.javac.tree.TreeInfo$1DiagScanner", nullptr, "DiagScanner", 0},
-	{"com.sun.tools.javac.tree.TreeInfo$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TreeInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeInfo",
-	"java.lang.Object",
-	nullptr,
-	_TreeInfo_FieldInfo_,
-	_TreeInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo$2,com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType,com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder,com.sun.tools.javac.tree.TreeInfo$DeclScanner,com.sun.tools.javac.tree.TreeInfo$PosKind,com.sun.tools.javac.tree.TreeInfo$1PathFinder,com.sun.tools.javac.tree.TreeInfo$1Result,com.sun.tools.javac.tree.TreeInfo$1DiagScanner,com.sun.tools.javac.tree.TreeInfo$1"
-};
-
-$Object* allocate$TreeInfo($Class* clazz) {
-	return $of($alloc(TreeInfo));
-}
 
 void TreeInfo::init$() {
 }
 
 $List* TreeInfo::args($JCTree* t) {
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 	case 1:
-		{
-			return $nc(($cast($JCTree$JCMethodInvocation, t)))->args;
-		}
+		return $cast($JCTree$JCMethodInvocation, t)->args;
 	case 2:
-		{
-			return $nc(($cast($JCTree$JCNewClass, t)))->args;
-		}
+		return $cast($JCTree$JCNewClass, t)->args;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 bool TreeInfo::isConstructor($JCTree* tree) {
 	$init($JCTree$Tag);
 	if ($nc(tree)->hasTag($JCTree$Tag::METHODDEF)) {
-		$var($Name, name, $nc(($cast($JCTree$JCMethodDecl, tree)))->name);
+		$var($Name, name, $cast($JCTree$JCMethodDecl, tree)->name);
 		return name == $nc($nc($nc(name)->table)->names)->init;
 	} else {
 		return false;
@@ -726,50 +551,46 @@ bool TreeInfo::isConstructor($JCTree* tree) {
 }
 
 bool TreeInfo::isCanonicalConstructor($JCTree* tree) {
-	return isConstructor(tree) && ((int64_t)($nc($nc(($cast($JCTree$JCMethodDecl, tree)))->sym)->flags_field & (uint64_t)(int64_t)0x2000000000000000)) != 0;
+	return isConstructor(tree) && ($nc($nc($cast($JCTree$JCMethodDecl, tree))->sym)->flags_field & (int64_t)0x2000000000000000) != 0;
 }
 
 bool TreeInfo::isCompactConstructor($JCTree* tree) {
-	return isCanonicalConstructor(tree) && ((int64_t)($nc($nc(($cast($JCTree$JCMethodDecl, tree)))->sym)->flags_field & (uint64_t)(int64_t)0x0008000000000000)) != 0;
+	return isCanonicalConstructor(tree) && ($nc($nc($cast($JCTree$JCMethodDecl, tree))->sym)->flags_field & (int64_t)0x0008000000000000) != 0;
 }
 
 bool TreeInfo::isReceiverParam($JCTree* tree) {
 	$init($JCTree$Tag);
 	if ($nc(tree)->hasTag($JCTree$Tag::VARDEF)) {
-		return $nc(($cast($JCTree$JCVariableDecl, tree)))->nameexpr != nullptr;
+		return $cast($JCTree$JCVariableDecl, tree)->nameexpr != nullptr;
 	} else {
 		return false;
 	}
 }
 
 bool TreeInfo::hasConstructors($List* trees) {
-	{
-		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			if (isConstructor($cast($JCTree, l->head))) {
-				return true;
-			}
+	$var($List, l, trees);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		if (isConstructor($cast($JCTree, l->head))) {
+			return true;
 		}
 	}
 	return false;
 }
 
 $Name* TreeInfo::getConstructorInvocationName($List* trees, $Names* names) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(trees)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree, tree, $cast($JCTree, i$->next()));
-			{
-				$init($JCTree$Tag);
-				if ($nc(tree)->hasTag($JCTree$Tag::EXEC)) {
-					$var($JCTree$JCExpressionStatement, stat, $cast($JCTree$JCExpressionStatement, tree));
-					if ($nc(stat->expr)->hasTag($JCTree$Tag::APPLY)) {
-						$var($JCTree$JCMethodInvocation, apply, $cast($JCTree$JCMethodInvocation, stat->expr));
-						$var($Name, methName, TreeInfo::name($nc(apply)->meth));
-						if (methName == $nc(names)->_this || methName == $nc(names)->_super) {
-							return methName;
-						}
+			$init($JCTree$Tag);
+			if ($nc(tree)->hasTag($JCTree$Tag::EXEC)) {
+				$var($JCTree$JCExpressionStatement, stat, $cast($JCTree$JCExpressionStatement, tree));
+				if ($nc(stat->expr)->hasTag($JCTree$Tag::APPLY)) {
+					$var($JCTree$JCMethodInvocation, apply, $cast($JCTree$JCMethodInvocation, stat->expr));
+					$var($Name, methName, TreeInfo::name($nc(apply)->meth));
+					if (methName == $nc(names)->_this || methName == names->_super) {
+						return methName;
 					}
 				}
 			}
@@ -784,7 +605,7 @@ bool TreeInfo::isMultiCatch($JCTree$JCCatch* catchClause) {
 }
 
 bool TreeInfo::isSyntheticInit($JCTree* stat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
 	if ($nc(stat)->hasTag($JCTree$Tag::EXEC)) {
 		$var($JCTree$JCExpressionStatement, exec, $cast($JCTree$JCExpressionStatement, stat));
@@ -792,7 +613,7 @@ bool TreeInfo::isSyntheticInit($JCTree* stat) {
 			$var($JCTree$JCAssign, assign, $cast($JCTree$JCAssign, exec->expr));
 			if ($nc($nc(assign)->lhs)->hasTag($JCTree$Tag::SELECT)) {
 				$var($JCTree$JCFieldAccess, select, $cast($JCTree$JCFieldAccess, assign->lhs));
-				if ($nc(select)->sym != nullptr && ((int64_t)($nc(select->sym)->flags() & (uint64_t)(int64_t)4096)) != 0) {
+				if ($nc(select)->sym != nullptr && (select->sym->flags() & 0x1000) != 0) {
 					$var($Name, selected, name(select->selected));
 					if (selected != nullptr && selected == $nc($nc(selected->table)->names)->_this) {
 						return true;
@@ -805,12 +626,12 @@ bool TreeInfo::isSyntheticInit($JCTree* stat) {
 }
 
 $Name* TreeInfo::calledMethodName($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
 	if ($nc(tree)->hasTag($JCTree$Tag::EXEC)) {
 		$var($JCTree$JCExpressionStatement, exec, $cast($JCTree$JCExpressionStatement, tree));
 		if ($nc(exec->expr)->hasTag($JCTree$Tag::APPLY)) {
-			$var($Name, mname, TreeInfo::name($nc(($cast($JCTree$JCMethodInvocation, exec->expr)))->meth));
+			$var($Name, mname, TreeInfo::name($nc($cast($JCTree$JCMethodInvocation, exec->expr))->meth));
 			return mname;
 		}
 	}
@@ -818,63 +639,49 @@ $Name* TreeInfo::calledMethodName($JCTree* tree) {
 }
 
 bool TreeInfo::isSelfCall($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, calledMethodName(tree));
 	if (name != nullptr) {
 		$var($Names, names, $nc(name->table)->names);
-		return name == $nc(names)->_this || name == $nc(names)->_super;
+		return name == $nc(names)->_this || name == names->_super;
 	} else {
 		return false;
 	}
 }
 
 bool TreeInfo::isThisQualifier($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 3:
-		{
-			return isThisQualifier($(skipParens(tree)));
-		}
+		return isThisQualifier($(skipParens(tree)));
 	case 4:
 		{
-			{
-				$var($JCTree$JCIdent, id, $cast($JCTree$JCIdent, tree));
-				return id->name == $nc($nc($nc(id->name)->table)->names)->_this;
-			}
+			$var($JCTree$JCIdent, id, $cast($JCTree$JCIdent, tree));
+			return id->name == $nc($nc($nc(id->name)->table)->names)->_this;
 		}
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool TreeInfo::isIdentOrThisDotIdent($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 3:
-		{
-			return isIdentOrThisDotIdent($(skipParens(tree)));
-		}
+		return isIdentOrThisDotIdent($(skipParens(tree)));
 	case 4:
-		{
-			return true;
-		}
+		return true;
 	case 5:
-		{
-			return isThisQualifier($nc(($cast($JCTree$JCFieldAccess, tree)))->selected);
-		}
+		return isThisQualifier($cast($JCTree$JCFieldAccess, tree)->selected);
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool TreeInfo::isSuperCall($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, calledMethodName(tree));
 	if (name != nullptr) {
 		$var($Names, names, $nc(name->table)->names);
@@ -885,33 +692,33 @@ bool TreeInfo::isSuperCall($JCTree* tree) {
 }
 
 $List* TreeInfo::recordFields($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($List, $nc($($nc($($nc($($nc($($nc($nc(tree)->defs)->stream()))->filter(static_cast<$Predicate*>($$new(TreeInfo$$Lambda$lambda$recordFields$0)))))->map(static_cast<$Function*>($$new(TreeInfo$$Lambda$lambda$recordFields$1$1)))))->filter(static_cast<$Predicate*>($$new(TreeInfo$$Lambda$lambda$recordFields$2$2)))))->collect($($List::collector())));
+	$useLocalObjectStack();
+	return $cast($List, $$nc($$nc($$nc($$nc($nc($nc(tree)->defs)->stream())->filter($$new(TreeInfo$$Lambda$lambda$recordFields$0)))->map($$new(TreeInfo$$Lambda$lambda$recordFields$1$1)))->filter($$new(TreeInfo$$Lambda$lambda$recordFields$2$2)))->collect($($List::collector())));
 }
 
 $List* TreeInfo::recordFieldTypes($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($List, $nc($($nc($($nc($(recordFields(tree)))->stream()))->map(static_cast<$Function*>($$new(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3)))))->collect($($List::collector())));
+	$useLocalObjectStack();
+	return $cast($List, $$nc($$nc($$nc(recordFields(tree))->stream())->map($$new(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3)))->collect($($List::collector())));
 }
 
 bool TreeInfo::isInitialConstructor($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCMethodInvocation, app, firstConstructorCall(tree));
 	if (app == nullptr) {
 		return false;
 	}
 	$var($Name, meth, name($nc(app)->meth));
-	return meth == nullptr || meth != $nc($nc($nc(meth)->table)->names)->_this;
+	return meth == nullptr || meth != $nc($nc(meth->table)->names)->_this;
 }
 
 $JCTree$JCMethodInvocation* TreeInfo::firstConstructorCall($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
 	if (!$nc(tree)->hasTag($JCTree$Tag::METHODDEF)) {
 		return nullptr;
 	}
 	$var($JCTree$JCMethodDecl, md, $cast($JCTree$JCMethodDecl, tree));
-	$var($Names, names, $nc($nc($nc(md)->name)->table)->names);
+	$var($Names, names, $nc($nc(md->name)->table)->names);
 	if (md->name != $nc(names)->init) {
 		return nullptr;
 	}
@@ -931,195 +738,136 @@ $JCTree$JCMethodInvocation* TreeInfo::firstConstructorCall($JCTree* tree) {
 	if ($nc(stats)->isEmpty()) {
 		return nullptr;
 	}
-	if (!$nc(($cast($JCTree$JCStatement, $nc(stats)->head)))->hasTag($JCTree$Tag::EXEC)) {
+	if (!$nc($cast($JCTree$JCStatement, stats->head))->hasTag($JCTree$Tag::EXEC)) {
 		return nullptr;
 	}
-	$var($JCTree$JCExpressionStatement, exec, $cast($JCTree$JCExpressionStatement, $nc(stats)->head));
+	$var($JCTree$JCExpressionStatement, exec, $cast($JCTree$JCExpressionStatement, stats->head));
 	if (!$nc($nc(exec)->expr)->hasTag($JCTree$Tag::APPLY)) {
 		return nullptr;
 	}
-	return $cast($JCTree$JCMethodInvocation, $nc(exec)->expr);
+	return $cast($JCTree$JCMethodInvocation, exec->expr);
 }
 
 bool TreeInfo::isDiamond($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 6:
-		{
-			return $nc($($cast($List, $nc(($cast($JCTree$JCTypeApply, tree)))->getTypeArguments())))->isEmpty();
-		}
+		return $$sure($List, $cast($JCTree$JCTypeApply, tree)->getTypeArguments())->isEmpty();
 	case 2:
-		{
-			return isDiamond($nc(($cast($JCTree$JCNewClass, tree)))->clazz);
-		}
+		return isDiamond($cast($JCTree$JCNewClass, tree)->clazz);
 	case 7:
-		{
-			return isDiamond($nc(($cast($JCTree$JCAnnotatedType, tree)))->underlyingType);
-		}
+		return isDiamond($cast($JCTree$JCAnnotatedType, tree)->underlyingType);
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool TreeInfo::isEnumInit($JCTree* tree) {
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 8:
-		{
-			return ((int64_t)($nc($nc(($cast($JCTree$JCVariableDecl, tree)))->mods)->flags & (uint64_t)(int64_t)16384)) != 0;
-		}
+		return ($nc($cast($JCTree$JCVariableDecl, tree)->mods)->flags & 0x4000) != 0;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 void TreeInfo::setPolyKind($JCTree* tree, $JCTree$JCPolyExpression$PolyKind* pkind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 1:
-		{
-			$set($nc($cast($JCTree$JCMethodInvocation, tree)), polyKind, pkind);
-			break;
-		}
+		$set($cast($JCTree$JCMethodInvocation, tree), polyKind, pkind);
+		break;
 	case 2:
-		{
-			$set($nc($cast($JCTree$JCNewClass, tree)), polyKind, pkind);
-			break;
-		}
+		$set($cast($JCTree$JCNewClass, tree), polyKind, pkind);
+		break;
 	case 9:
-		{
-			$set($nc($cast($JCTree$JCMemberReference, tree)), refPolyKind, pkind);
-			break;
-		}
+		$set($cast($JCTree$JCMemberReference, tree), refPolyKind, pkind);
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unexpected tree: "_s, tree})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unexpected tree: "_s, tree})));
 	}
 }
 
 void TreeInfo::setVarargsElement($JCTree* tree, $Type* varargsElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 1:
-		{
-			$set($nc($cast($JCTree$JCMethodInvocation, tree)), varargsElement, varargsElement);
-			break;
-		}
+		$set($cast($JCTree$JCMethodInvocation, tree), varargsElement, varargsElement);
+		break;
 	case 2:
-		{
-			$set($nc($cast($JCTree$JCNewClass, tree)), varargsElement, varargsElement);
-			break;
-		}
+		$set($cast($JCTree$JCNewClass, tree), varargsElement, varargsElement);
+		break;
 	case 9:
-		{
-			$set($nc($cast($JCTree$JCMemberReference, tree)), varargsElement, varargsElement);
-			break;
-		}
+		$set($cast($JCTree$JCMemberReference, tree), varargsElement, varargsElement);
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unexpected tree: "_s, tree})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unexpected tree: "_s, tree})));
 	}
 }
 
 bool TreeInfo::isExpressionStatement($JCTree$JCExpression* tree) {
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 10:
-		{}
 	case 11:
-		{}
 	case 12:
-		{}
 	case 13:
-		{}
 	case 14:
-		{}
 	case 15:
-		{}
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{}
 	case 19:
-		{}
 	case 20:
-		{}
 	case 21:
-		{}
 	case 22:
-		{}
 	case 23:
-		{}
 	case 24:
-		{}
 	case 25:
-		{}
 	case 1:
-		{}
 	case 2:
-		{}
 	case 26:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool TreeInfo::isStatement($JCTree* tree) {
 	$init($JCTree$Tag);
-	bool var$1 = ($instanceOf($JCTree$JCStatement, tree)) && !$nc(tree)->hasTag($JCTree$Tag::CLASSDEF);
+	bool var$1 = ($instanceOf($JCTree$JCStatement, tree)) && !tree->hasTag($JCTree$Tag::CLASSDEF);
 	bool var$0 = var$1 && !tree->hasTag($JCTree$Tag::BLOCK);
 	return var$0 && !tree->hasTag($JCTree$Tag::METHODDEF);
 }
 
 bool TreeInfo::isStaticSelector($JCTree* base, $Names* names) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (base == nullptr) {
 		return false;
 	}
-	$init($TreeInfo$2);
 	{
-		$var($JCTree$JCIdent, id, nullptr)
-		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(base)->getTag())))->ordinal())) {
+		$init($TreeInfo$2);
+		$var($JCTree$JCIdent, id, nullptr);
+		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(base)->getTag()))->ordinal())) {
 		case 4:
-			{
-				$assign(id, $cast($JCTree$JCIdent, base));
-				return $nc(id)->name != $nc(names)->_this && id->name != names->_super && isStaticSym(base);
-			}
+			$assign(id, $cast($JCTree$JCIdent, base));
+			return $nc(id)->name != $nc(names)->_this && id->name != names->_super && isStaticSym(base);
 		case 5:
 			{
 				bool var$0 = isStaticSym(base);
-				return var$0 && isStaticSelector($nc(($cast($JCTree$JCFieldAccess, base)))->selected, names);
+				return var$0 && isStaticSelector($cast($JCTree$JCFieldAccess, base)->selected, names);
 			}
 		case 6:
-			{}
 		case 27:
-			{
-				return true;
-			}
+			return true;
 		case 7:
-			{
-				return isStaticSelector($nc(($cast($JCTree$JCAnnotatedType, base)))->underlyingType, names);
-			}
+			return isStaticSelector($cast($JCTree$JCAnnotatedType, base)->underlyingType, names);
 		default:
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }
@@ -1127,7 +875,7 @@ bool TreeInfo::isStaticSelector($JCTree* base, $Names* names) {
 bool TreeInfo::isStaticSym($JCTree* tree) {
 	$var($Symbol, sym, symbol(tree));
 	$init($Kinds$Kind);
-	return ($nc(sym)->kind == $Kinds$Kind::TYP || $nc(sym)->kind == $Kinds$Kind::PCK);
+	return ($nc(sym)->kind == $Kinds$Kind::TYP || sym->kind == $Kinds$Kind::PCK);
 }
 
 bool TreeInfo::isNull($JCTree* tree) {
@@ -1137,23 +885,19 @@ bool TreeInfo::isNull($JCTree* tree) {
 	}
 	$var($JCTree$JCLiteral, lit, $cast($JCTree$JCLiteral, tree));
 	$init($TypeTag);
-	return ($nc(lit)->typetag == $TypeTag::BOT);
+	return (lit->typetag == $TypeTag::BOT);
 }
 
 bool TreeInfo::isInAnnotation($Env* env, $JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
-	$var($TreePath, tp, $TreePath::getPath(static_cast<$CompilationUnitTree*>($nc(env)->toplevel), static_cast<$Tree*>(tree)));
+	$useLocalObjectStack();
+	$var($TreePath, tp, $TreePath::getPath($nc(env)->toplevel, tree));
 	if (tp != nullptr) {
-		{
-			$var($Iterator, i$, tp->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Tree, t, $cast($Tree, i$->next()));
-				{
-					$init($Tree$Kind);
-					if ($nc(t)->getKind() == $Tree$Kind::ANNOTATION) {
-						return true;
-					}
-				}
+		$var($Iterator, i$, tp->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Tree, t, $cast($Tree, i$->next()));
+			$init($Tree$Kind);
+			if ($nc(t)->getKind() == $Tree$Kind::ANNOTATION) {
+				return true;
 			}
 		}
 	}
@@ -1162,263 +906,183 @@ bool TreeInfo::isInAnnotation($Env* env, $JCTree* tree) {
 
 $String* TreeInfo::getCommentText($Env* env, $JCTree* tree) {
 	$init($JCTree$Tag);
-	$var($DocCommentTable, docComments, ($nc(tree)->hasTag($JCTree$Tag::TOPLEVEL)) ? $nc(($cast($JCTree$JCCompilationUnit, tree)))->docComments : $nc($nc(env)->toplevel)->docComments);
-	return (docComments == nullptr) ? ($String*)nullptr : $nc(docComments)->getCommentText(tree);
+	$var($DocCommentTable, docComments, ($nc(tree)->hasTag($JCTree$Tag::TOPLEVEL)) ? $cast($JCTree$JCCompilationUnit, tree)->docComments : $nc($nc(env)->toplevel)->docComments);
+	return (docComments == nullptr) ? ($String*)nullptr : docComments->getCommentText(tree);
 }
 
 $DCTree$DCDocComment* TreeInfo::getCommentTree($Env* env, $JCTree* tree) {
 	$init($JCTree$Tag);
-	$var($DocCommentTable, docComments, ($nc(tree)->hasTag($JCTree$Tag::TOPLEVEL)) ? $nc(($cast($JCTree$JCCompilationUnit, tree)))->docComments : $nc($nc(env)->toplevel)->docComments);
-	return (docComments == nullptr) ? ($DCTree$DCDocComment*)nullptr : $nc(docComments)->getCommentTree(tree);
+	$var($DocCommentTable, docComments, ($nc(tree)->hasTag($JCTree$Tag::TOPLEVEL)) ? $cast($JCTree$JCCompilationUnit, tree)->docComments : $nc($nc(env)->toplevel)->docComments);
+	return (docComments == nullptr) ? ($DCTree$DCDocComment*)nullptr : docComments->getCommentTree(tree);
 }
 
 int32_t TreeInfo::firstStatPos($JCTree* tree) {
 	$init($JCTree$Tag);
 	bool var$0 = $nc(tree)->hasTag($JCTree$Tag::BLOCK);
-	if (var$0 && $nc($nc(($cast($JCTree$JCBlock, tree)))->stats)->nonEmpty()) {
-		return $nc(($cast($JCTree$JCStatement, $nc(($cast($JCTree$JCBlock, tree))->stats)->head)))->pos$;
+	if (var$0 && $nc($cast($JCTree$JCBlock, tree)->stats)->nonEmpty()) {
+		return $nc(($cast($JCTree$JCStatement, $nc($cast($JCTree$JCBlock, tree)->stats)->head)))->pos$;
 	} else {
 		return tree->pos$;
 	}
 }
 
 int32_t TreeInfo::endPos($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
-	if ($nc(tree)->hasTag($JCTree$Tag::BLOCK) && $nc(($cast($JCTree$JCBlock, tree)))->endpos != $Position::NOPOS) {
-		return ($cast($JCTree$JCBlock, tree))->endpos;
+	if ($nc(tree)->hasTag($JCTree$Tag::BLOCK) && $cast($JCTree$JCBlock, tree)->endpos != $Position::NOPOS) {
+		return $cast($JCTree$JCBlock, tree)->endpos;
+	} else if (tree->hasTag($JCTree$Tag::SYNCHRONIZED)) {
+		return endPos($cast($JCTree$JCSynchronized, tree)->body);
+	} else if (tree->hasTag($JCTree$Tag::TRY)) {
+		$var($JCTree$JCTry, t, $cast($JCTree$JCTry, tree));
+		return endPos((t->finalizer != nullptr) ? $cast($JCTree, t->finalizer) : ($$cast($JCTree, $nc(t->catchers)->nonEmpty() ? $nc(($$cast($JCTree$JCCatch, t->catchers->last())))->body : t->body)));
+	} else if (tree->hasTag($JCTree$Tag::SWITCH) && $cast($JCTree$JCSwitch, tree)->endpos != $Position::NOPOS) {
+		return $cast($JCTree$JCSwitch, tree)->endpos;
+	} else if (tree->hasTag($JCTree$Tag::SWITCH_EXPRESSION) && $cast($JCTree$JCSwitchExpression, tree)->endpos != $Position::NOPOS) {
+		return $cast($JCTree$JCSwitchExpression, tree)->endpos;
 	} else {
-		if (tree->hasTag($JCTree$Tag::SYNCHRONIZED)) {
-			return endPos($nc(($cast($JCTree$JCSynchronized, tree)))->body);
-		} else {
-			if (tree->hasTag($JCTree$Tag::TRY)) {
-				$var($JCTree$JCTry, t, $cast($JCTree$JCTry, tree));
-				return endPos((t->finalizer != nullptr) ? static_cast<$JCTree*>(t->finalizer) : ($nc(t->catchers)->nonEmpty() ? static_cast<$JCTree*>($nc(($cast($JCTree$JCCatch, $($nc(t->catchers)->last()))))->body) : static_cast<$JCTree*>(t->body)));
-			} else {
-				if (tree->hasTag($JCTree$Tag::SWITCH) && $nc(($cast($JCTree$JCSwitch, tree)))->endpos != $Position::NOPOS) {
-					return ($cast($JCTree$JCSwitch, tree))->endpos;
-				} else {
-					if (tree->hasTag($JCTree$Tag::SWITCH_EXPRESSION) && $nc(($cast($JCTree$JCSwitchExpression, tree)))->endpos != $Position::NOPOS) {
-						return ($cast($JCTree$JCSwitchExpression, tree))->endpos;
-					} else {
-						return tree->pos$;
-					}
-				}
-			}
-		}
+		return tree->pos$;
 	}
 }
 
 int32_t TreeInfo::getStartPos($JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree == nullptr) {
 		return $Position::NOPOS;
 	}
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 28:
 		{
-			{
-				$var($JCTree$JCModuleDecl, md, $cast($JCTree$JCModuleDecl, tree));
-				return $nc($nc(md->mods)->annotations)->isEmpty() ? md->pos$ : $nc(($cast($JCTree$JCAnnotation, $nc($nc(md->mods)->annotations)->head)))->pos$;
-			}
+			$var($JCTree$JCModuleDecl, md, $cast($JCTree$JCModuleDecl, tree));
+			return $nc($nc(md->mods)->annotations)->isEmpty() ? md->pos$ : $nc(($cast($JCTree$JCAnnotation, md->mods->annotations->head)))->pos$;
 		}
 	case 29:
 		{
-			{
-				$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, tree));
-				return $nc(pd->annotations)->isEmpty() ? pd->pos$ : $nc(($cast($JCTree$JCAnnotation, $nc(pd->annotations)->head)))->pos$;
-			}
+			$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, tree));
+			return $nc(pd->annotations)->isEmpty() ? pd->pos$ : $nc(($cast($JCTree$JCAnnotation, pd->annotations->head)))->pos$;
 		}
 	case 1:
-		{
-			return getStartPos($nc(($cast($JCTree$JCMethodInvocation, tree)))->meth);
-		}
+		return getStartPos($cast($JCTree$JCMethodInvocation, tree)->meth);
 	case 14:
-		{
-			return getStartPos($nc(($cast($JCTree$JCAssign, tree)))->lhs);
-		}
+		return getStartPos($cast($JCTree$JCAssign, tree)->lhs);
 	case 15:
-		{}
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{}
 	case 19:
-		{}
 	case 20:
-		{}
 	case 21:
-		{}
 	case 22:
-		{}
 	case 23:
-		{}
 	case 24:
-		{}
 	case 25:
-		{}
 	case 30:
-		{}
 	case 31:
-		{}
 	case 32:
-		{}
 	case 33:
-		{}
 	case 34:
-		{}
 	case 35:
-		{}
 	case 36:
-		{}
 	case 37:
-		{}
 	case 38:
-		{}
 	case 39:
-		{}
 	case 40:
-		{}
 	case 41:
-		{}
 	case 42:
-		{}
 	case 43:
-		{}
 	case 44:
-		{}
 	case 45:
-		{}
 	case 46:
-		{}
 	case 47:
-		{}
 	case 48:
-		{}
 	case 12:
-		{}
 	case 13:
-		{
-			$init($JCTree$JCOperatorExpression$OperandPos);
-			return getStartPos($($nc(($cast($JCTree$JCOperatorExpression, tree)))->getOperand($JCTree$JCOperatorExpression$OperandPos::LEFT)));
-		}
+		$init($JCTree$JCOperatorExpression$OperandPos);
+		return getStartPos($($cast($JCTree$JCOperatorExpression, tree)->getOperand($JCTree$JCOperatorExpression$OperandPos::LEFT)));
 	case 49:
 		{
-			{
-				$var($JCTree$JCClassDecl, node, $cast($JCTree$JCClassDecl, tree));
-				if ($nc(node->mods)->pos$ != $Position::NOPOS) {
-					return $nc(node->mods)->pos$;
-				}
-				break;
+			$var($JCTree$JCClassDecl, node, $cast($JCTree$JCClassDecl, tree));
+			if ($nc(node->mods)->pos$ != $Position::NOPOS) {
+				return node->mods->pos$;
 			}
+			break;
 		}
 	case 50:
-		{
-			return getStartPos($nc(($cast($JCTree$JCConditional, tree)))->cond);
-		}
+		return getStartPos($cast($JCTree$JCConditional, tree)->cond);
 	case 51:
-		{
-			return getStartPos($nc(($cast($JCTree$JCExpressionStatement, tree)))->expr);
-		}
+		return getStartPos($cast($JCTree$JCExpressionStatement, tree)->expr);
 	case 52:
-		{
-			return getStartPos($nc(($cast($JCTree$JCArrayAccess, tree)))->indexed);
-		}
+		return getStartPos($cast($JCTree$JCArrayAccess, tree)->indexed);
 	case 53:
 		{
-			{
-				$var($JCTree$JCMethodDecl, node, $cast($JCTree$JCMethodDecl, tree));
-				if ($nc(node->mods)->pos$ != $Position::NOPOS) {
-					return $nc(node->mods)->pos$;
-				}
-				if ($nc(node->typarams)->nonEmpty()) {
-					return getStartPos($cast($JCTree, $nc(node->typarams)->head));
-				}
-				return node->restype == nullptr ? node->pos$ : getStartPos(node->restype);
+			$var($JCTree$JCMethodDecl, node, $cast($JCTree$JCMethodDecl, tree));
+			if ($nc(node->mods)->pos$ != $Position::NOPOS) {
+				return node->mods->pos$;
 			}
+			if ($nc(node->typarams)->nonEmpty()) {
+				return getStartPos($cast($JCTree, $nc(node->typarams)->head));
+			}
+			return node->restype == nullptr ? node->pos$ : getStartPos(node->restype);
 		}
 	case 5:
-		{
-			return getStartPos($nc(($cast($JCTree$JCFieldAccess, tree)))->selected);
-		}
+		return getStartPos($cast($JCTree$JCFieldAccess, tree)->selected);
 	case 6:
-		{
-			return getStartPos($nc(($cast($JCTree$JCTypeApply, tree)))->clazz);
-		}
+		return getStartPos($cast($JCTree$JCTypeApply, tree)->clazz);
 	case 27:
-		{
-			return getStartPos($nc(($cast($JCTree$JCArrayTypeTree, tree)))->elemtype);
-		}
+		return getStartPos($cast($JCTree$JCArrayTypeTree, tree)->elemtype);
 	case 54:
-		{
-			return getStartPos($nc(($cast($JCTree$JCInstanceOf, tree)))->expr);
-		}
+		return getStartPos($cast($JCTree$JCInstanceOf, tree)->expr);
 	case 7:
 		{
-			{
-				$var($JCTree$JCAnnotatedType, node, $cast($JCTree$JCAnnotatedType, tree));
-				if ($nc(node->annotations)->nonEmpty()) {
-					$init($JCTree$Tag);
-					bool var$0 = $nc(node->underlyingType)->hasTag($JCTree$Tag::TYPEARRAY);
-					if (var$0 || $nc(node->underlyingType)->hasTag($JCTree$Tag::SELECT)) {
-						return getStartPos(node->underlyingType);
-					} else {
-						return getStartPos($cast($JCTree, $nc(node->annotations)->head));
-					}
-				} else {
+			$var($JCTree$JCAnnotatedType, node, $cast($JCTree$JCAnnotatedType, tree));
+			if ($nc(node->annotations)->nonEmpty()) {
+				bool var$0 = $nc(node->underlyingType)->hasTag($JCTree$Tag::TYPEARRAY);
+				if (var$0 || node->underlyingType->hasTag($JCTree$Tag::SELECT)) {
 					return getStartPos(node->underlyingType);
+				} else {
+					return getStartPos($cast($JCTree, $nc(node->annotations)->head));
 				}
+			} else {
+				return getStartPos(node->underlyingType);
 			}
 		}
 	case 2:
 		{
-			{
-				$var($JCTree$JCNewClass, node, $cast($JCTree$JCNewClass, tree));
-				if (node->encl != nullptr) {
-					return getStartPos(node->encl);
-				}
-				break;
+			$var($JCTree$JCNewClass, node, $cast($JCTree$JCNewClass, tree));
+			if (node->encl != nullptr) {
+				return getStartPos(node->encl);
 			}
+			break;
 		}
 	case 8:
 		{
-			{
-				$var($JCTree$JCVariableDecl, node, $cast($JCTree$JCVariableDecl, tree));
-				if (node->startPos != $Position::NOPOS) {
-					return node->startPos;
-				} else if ($nc(node->mods)->pos$ != $Position::NOPOS) {
-					return $nc(node->mods)->pos$;
-				} else if (node->vartype == nullptr || $nc(node->vartype)->pos$ == $Position::NOPOS) {
-					return node->pos$;
-				} else {
-					return getStartPos(node->vartype);
-				}
+			$var($JCTree$JCVariableDecl, node, $cast($JCTree$JCVariableDecl, tree));
+			if (node->startPos != $Position::NOPOS) {
+				return node->startPos;
+			} else if ($nc(node->mods)->pos$ != $Position::NOPOS) {
+				return node->mods->pos$;
+			} else if (node->vartype == nullptr || node->vartype->pos$ == $Position::NOPOS) {
+				return node->pos$;
+			} else {
+				return getStartPos(node->vartype);
 			}
 		}
 	case 55:
 		{
-			{
-				$var($JCTree$JCBindingPattern, node, $cast($JCTree$JCBindingPattern, tree));
-				return getStartPos(node->var);
-			}
+			$var($JCTree$JCBindingPattern, node, $cast($JCTree$JCBindingPattern, tree));
+			return getStartPos(node->var);
 		}
 	case 56:
 		{
-			{
-				$var($JCTree$JCGuardPattern, node, $cast($JCTree$JCGuardPattern, tree));
-				return getStartPos(node->patt);
-			}
+			$var($JCTree$JCGuardPattern, node, $cast($JCTree$JCGuardPattern, tree));
+			return getStartPos(node->patt);
 		}
 	case 26:
 		{
-			{
-				$var($JCTree$JCErroneous, node, $cast($JCTree$JCErroneous, tree));
-				if (node->errs != nullptr && $nc(node->errs)->nonEmpty()) {
-					return getStartPos($cast($JCTree, $nc(node->errs)->head));
-				}
+			$var($JCTree$JCErroneous, node, $cast($JCTree$JCErroneous, tree));
+			if (node->errs != nullptr && node->errs->nonEmpty()) {
+				return getStartPos($cast($JCTree, node->errs->head));
 			}
 		}
 	}
@@ -1426,7 +1090,7 @@ int32_t TreeInfo::getStartPos($JCTree* tree) {
 }
 
 int32_t TreeInfo::getEndPos($JCTree* tree, $EndPosTable* endPosTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree == nullptr) {
 		return $Position::NOPOS;
 	}
@@ -1438,183 +1102,108 @@ int32_t TreeInfo::getEndPos($JCTree* tree, $EndPosTable* endPosTable) {
 		return mapPos;
 	}
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 15:
-		{}
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{}
 	case 19:
-		{}
 	case 20:
-		{}
 	case 21:
-		{}
 	case 22:
-		{}
 	case 23:
-		{}
 	case 24:
-		{}
 	case 25:
-		{}
 	case 30:
-		{}
 	case 31:
-		{}
 	case 32:
-		{}
 	case 33:
-		{}
 	case 34:
-		{}
 	case 35:
-		{}
 	case 36:
-		{}
 	case 37:
-		{}
 	case 38:
-		{}
 	case 39:
-		{}
 	case 40:
-		{}
 	case 41:
-		{}
 	case 42:
-		{}
 	case 43:
-		{}
 	case 44:
-		{}
 	case 45:
-		{}
 	case 46:
-		{}
 	case 47:
-		{}
 	case 48:
-		{}
 	case 57:
-		{}
 	case 58:
-		{}
 	case 59:
-		{}
 	case 60:
-		{}
 	case 10:
-		{}
 	case 11:
-		{
-			$init($JCTree$JCOperatorExpression$OperandPos);
-			return getEndPos($($nc(($cast($JCTree$JCOperatorExpression, tree)))->getOperand($JCTree$JCOperatorExpression$OperandPos::RIGHT)), endPosTable);
-		}
+		$init($JCTree$JCOperatorExpression$OperandPos);
+		return getEndPos($($cast($JCTree$JCOperatorExpression, tree)->getOperand($JCTree$JCOperatorExpression$OperandPos::RIGHT)), endPosTable);
 	case 61:
-		{
-			return getEndPos($cast($JCTree, $($nc($nc(($cast($JCTree$JCCase, tree)))->stats)->last())), endPosTable);
-		}
+		return getEndPos($$cast($JCTree, $nc($cast($JCTree$JCCase, tree)->stats)->last()), endPosTable);
 	case 62:
-		{
-			return getEndPos($nc(($cast($JCTree$JCCatch, tree)))->body, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCCatch, tree)->body, endPosTable);
 	case 50:
-		{
-			return getEndPos($nc(($cast($JCTree$JCConditional, tree)))->falsepart, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCConditional, tree)->falsepart, endPosTable);
 	case 63:
-		{
-			return getEndPos($nc(($cast($JCTree$JCForLoop, tree)))->body, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCForLoop, tree)->body, endPosTable);
 	case 64:
-		{
-			return getEndPos($nc(($cast($JCTree$JCEnhancedForLoop, tree)))->body, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCEnhancedForLoop, tree)->body, endPosTable);
 	case 65:
 		{
-			{
-				$var($JCTree$JCIf, node, $cast($JCTree$JCIf, tree));
-				if (node->elsepart == nullptr) {
-					return getEndPos(node->thenpart, endPosTable);
-				} else {
-					return getEndPos(node->elsepart, endPosTable);
-				}
+			$var($JCTree$JCIf, node, $cast($JCTree$JCIf, tree));
+			if (node->elsepart == nullptr) {
+				return getEndPos(node->thenpart, endPosTable);
+			} else {
+				return getEndPos(node->elsepart, endPosTable);
 			}
 		}
 	case 66:
-		{
-			return getEndPos($nc(($cast($JCTree$JCLabeledStatement, tree)))->body, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCLabeledStatement, tree)->body, endPosTable);
 	case 67:
-		{
-			return getEndPos($cast($JCTree, $($nc($nc(($cast($JCTree$JCModifiers, tree)))->annotations)->last())), endPosTable);
-		}
+		return getEndPos($$cast($JCTree, $nc($cast($JCTree$JCModifiers, tree)->annotations)->last()), endPosTable);
 	case 68:
-		{
-			return getEndPos($nc(($cast($JCTree$JCSynchronized, tree)))->body, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCSynchronized, tree)->body, endPosTable);
 	case 69:
-		{
-			return getEndPos($cast($JCTree, $($nc($nc(($cast($JCTree$JCCompilationUnit, tree)))->defs)->last())), endPosTable);
-		}
+		return getEndPos($$cast($JCTree, $nc($cast($JCTree$JCCompilationUnit, tree)->defs)->last()), endPosTable);
 	case 70:
 		{
-			{
-				$var($JCTree$JCTry, node, $cast($JCTree$JCTry, tree));
-				if (node->finalizer != nullptr) {
-					return getEndPos(node->finalizer, endPosTable);
-				} else if (!$nc(node->catchers)->isEmpty()) {
-					return getEndPos($cast($JCTree, $($nc(node->catchers)->last())), endPosTable);
-				} else {
-					return getEndPos(node->body, endPosTable);
-				}
+			$var($JCTree$JCTry, node, $cast($JCTree$JCTry, tree));
+			if (node->finalizer != nullptr) {
+				return getEndPos(node->finalizer, endPosTable);
+			} else if (!$nc(node->catchers)->isEmpty()) {
+				return getEndPos($$cast($JCTree, $nc(node->catchers)->last()), endPosTable);
+			} else {
+				return getEndPos(node->body, endPosTable);
 			}
 		}
 	case 71:
-		{
-			return getEndPos($nc(($cast($JCTree$JCWildcard, tree)))->inner, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCWildcard, tree)->inner, endPosTable);
 	case 72:
-		{
-			return getEndPos($nc(($cast($JCTree$JCTypeCast, tree)))->expr, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCTypeCast, tree)->expr, endPosTable);
 	case 54:
-		{
-			return getEndPos($nc(($cast($JCTree$JCInstanceOf, tree)))->pattern, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCInstanceOf, tree)->pattern, endPosTable);
 	case 73:
-		{
-			return getEndPos($nc(($cast($JCTree$JCWhileLoop, tree)))->body, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCWhileLoop, tree)->body, endPosTable);
 	case 7:
-		{
-			return getEndPos($nc(($cast($JCTree$JCAnnotatedType, tree)))->underlyingType, endPosTable);
-		}
+		return getEndPos($cast($JCTree$JCAnnotatedType, tree)->underlyingType, endPosTable);
 	case 74:
 		{
-			{
-				$var($JCTree$JCParenthesizedPattern, node, $cast($JCTree$JCParenthesizedPattern, tree));
-				return getEndPos(node->pattern, endPosTable);
-			}
+			$var($JCTree$JCParenthesizedPattern, node, $cast($JCTree$JCParenthesizedPattern, tree));
+			return getEndPos(node->pattern, endPosTable);
 		}
 	case 56:
 		{
-			{
-				$var($JCTree$JCGuardPattern, node, $cast($JCTree$JCGuardPattern, tree));
-				return getEndPos(node->expr, endPosTable);
-			}
+			$var($JCTree$JCGuardPattern, node, $cast($JCTree$JCGuardPattern, tree));
+			return getEndPos(node->expr, endPosTable);
 		}
 	case 26:
 		{
-			{
-				$var($JCTree$JCErroneous, node, $cast($JCTree$JCErroneous, tree));
-				if (node->errs != nullptr && $nc(node->errs)->nonEmpty()) {
-					return getEndPos($cast($JCTree, $($nc(node->errs)->last())), endPosTable);
-				}
+			$var($JCTree$JCErroneous, node, $cast($JCTree$JCErroneous, tree));
+			if (node->errs != nullptr && node->errs->nonEmpty()) {
+				return getEndPos($$cast($JCTree, node->errs->last()), endPosTable);
 			}
 		}
 	}
@@ -1632,12 +1221,10 @@ int32_t TreeInfo::finalizerPos($JCTree* tree, $TreeInfo$PosKind* posKind) {
 		$var($JCTree$JCTry, t, $cast($JCTree$JCTry, tree));
 		$Assert::checkNonNull(t->finalizer);
 		return $nc(posKind)->toPos(t->finalizer);
+	} else if (tree->hasTag($JCTree$Tag::SYNCHRONIZED)) {
+		return endPos($cast($JCTree$JCSynchronized, tree)->body);
 	} else {
-		if (tree->hasTag($JCTree$Tag::SYNCHRONIZED)) {
-			return endPos($nc(($cast($JCTree$JCSynchronized, tree)))->body);
-		} else {
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
@@ -1651,7 +1238,7 @@ $JCDiagnostic$DiagnosticPosition* TreeInfo::diagnosticPositionFor($Symbol* sym, 
 }
 
 $JCDiagnostic$DiagnosticPosition* TreeInfo::diagnosticPositionFor($Symbol* sym, $JCTree* tree, bool returnNullIfNotFound) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 	}
 	$var($TreeInfo$1DiagScanner, s, $new($TreeInfo$1DiagScanner, sym));
@@ -1664,8 +1251,8 @@ $JCDiagnostic$DiagnosticPosition* TreeInfo::diagnosticPositionFor($Symbol* sym, 
 }
 
 $JCDiagnostic$DiagnosticPosition* TreeInfo::diagnosticPositionFor($Symbol* sym, $List* trees) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($JCDiagnostic$DiagnosticPosition, $nc($($nc($($nc($($nc($($nc(trees)->stream()))->map(static_cast<$Function*>($$new(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, sym)))))->filter(static_cast<$Predicate*>($$new(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5)))))->findFirst()))->get());
+	$useLocalObjectStack();
+	return $cast($JCDiagnostic$DiagnosticPosition, $$nc($$nc($$nc($$nc($nc(trees)->stream())->map($$new(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, sym)))->filter($$new(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5)))->findFirst())->get());
 }
 
 $JCTree* TreeInfo::declarationFor($Symbol* sym, $JCTree* tree) {
@@ -1689,7 +1276,7 @@ $List* TreeInfo::pathFor($JCTree* node, $JCTree$JCCompilationUnit* unit) {
 	{
 	}
 	try {
-		$$new($TreeInfo$1PathFinder, node)->scan(static_cast<$JCTree*>(unit));
+		$$new($TreeInfo$1PathFinder, node)->scan(unit);
 	} catch ($TreeInfo$1Result& result) {
 		return result->path;
 	}
@@ -1697,30 +1284,22 @@ $List* TreeInfo::pathFor($JCTree* node, $JCTree$JCCompilationUnit* unit) {
 }
 
 $JCTree* TreeInfo::referencedStatement($JCTree$JCLabeledStatement* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, t, tree);
-	do {
-	$assign(t, $nc(($cast($JCTree$JCLabeledStatement, t)))->body);
 	$init($JCTree$Tag);
+	do {
+	$assign(t, $nc($cast($JCTree$JCLabeledStatement, t))->body);
 	} while ($nc(t)->hasTag($JCTree$Tag::LABELLED));
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($(t->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 	case 75:
-		{}
 	case 73:
-		{}
 	case 63:
-		{}
 	case 64:
-		{}
 	case 76:
-		{
-			return t;
-		}
+		return t;
 	default:
-		{
-			return tree;
-		}
+		return tree;
 	}
 }
 
@@ -1728,7 +1307,7 @@ $JCTree$JCExpression* TreeInfo::skipParens($JCTree$JCExpression* tree$renamed) {
 	$var($JCTree$JCExpression, tree, tree$renamed);
 	$init($JCTree$Tag);
 	while ($nc(tree)->hasTag($JCTree$Tag::PARENS)) {
-		$assign(tree, $nc(($cast($JCTree$JCParens, tree)))->expr);
+		$assign(tree, $cast($JCTree$JCParens, tree)->expr);
 	}
 	return tree;
 }
@@ -1743,11 +1322,11 @@ $JCTree* TreeInfo::skipParens($JCTree* tree) {
 }
 
 $List* TreeInfo::types($List* trees) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, ts, $new($ListBuffer));
 	{
 		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			ts->append($nc(($cast($JCTree, l->head)))->type);
 		}
 	}
@@ -1756,224 +1335,151 @@ $List* TreeInfo::types($List* trees) {
 
 $Name* TreeInfo::name($JCTree* tree) {
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 4:
-		{
-			return $nc(($cast($JCTree$JCIdent, tree)))->name;
-		}
+		return $cast($JCTree$JCIdent, tree)->name;
 	case 5:
-		{
-			return $nc(($cast($JCTree$JCFieldAccess, tree)))->name;
-		}
+		return $cast($JCTree$JCFieldAccess, tree)->name;
 	case 6:
-		{
-			return name($nc(($cast($JCTree$JCTypeApply, tree)))->clazz);
-		}
+		return name($cast($JCTree$JCTypeApply, tree)->clazz);
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $Name* TreeInfo::fullName($JCTree* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	$assign(tree, skipParens(tree));
-	$init($TreeInfo$2);
 	{
-		$var($Name, sname, nullptr)
-		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+		$init($TreeInfo$2);
+		$var($Name, sname, nullptr);
+		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 		case 4:
-			{
-				return $nc(($cast($JCTree$JCIdent, tree)))->name;
-			}
+			return $cast($JCTree$JCIdent, tree)->name;
 		case 5:
-			{
-				$assign(sname, fullName($nc(($cast($JCTree$JCFieldAccess, tree)))->selected));
-				return sname == nullptr ? ($Name*)nullptr : $nc(sname)->append(u'.', $(name(tree)));
-			}
+			$assign(sname, fullName($cast($JCTree$JCFieldAccess, tree)->selected));
+			return sname == nullptr ? ($Name*)nullptr : sname->append(u'.', $(name(tree)));
 		default:
-			{
-				return nullptr;
-			}
+			return nullptr;
 		}
 	}
 }
 
 $Symbol* TreeInfo::symbolFor($JCTree* node) {
 	$var($Symbol, sym, symbolForImpl(node));
-	return sym != nullptr ? $nc(sym)->baseSymbol() : ($Symbol*)nullptr;
+	return sym != nullptr ? sym->baseSymbol() : ($Symbol*)nullptr;
 }
 
 $Symbol* TreeInfo::symbolForImpl($JCTree* node$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, node, node$renamed);
 	$assign(node, skipParens(node));
-	$init($TreeInfo$2);
 	{
-		$var($JCTree$JCCompilationUnit, cut, nullptr)
-		$var($JCTree$JCModuleDecl, moduleDecl, nullptr)
-		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(node)->getTag())))->ordinal())) {
+		$init($TreeInfo$2);
+		$var($JCTree$JCCompilationUnit, cut, nullptr);
+		$var($JCTree$JCModuleDecl, moduleDecl, nullptr);
+		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(node)->getTag()))->ordinal())) {
 		case 69:
-			{
-				$assign(cut, $cast($JCTree$JCCompilationUnit, node));
-				$assign(moduleDecl, $nc(cut)->getModuleDecl());
-				if (isModuleInfo(cut) && moduleDecl != nullptr) {
-					return symbolFor(moduleDecl);
-				}
-				return cut->packge;
+			$assign(cut, $cast($JCTree$JCCompilationUnit, node));
+			$assign(moduleDecl, $nc(cut)->getModuleDecl());
+			if (isModuleInfo(cut) && moduleDecl != nullptr) {
+				return symbolFor(moduleDecl);
 			}
+			return cut->packge;
 		case 28:
-			{
-				return $nc(($cast($JCTree$JCModuleDecl, node)))->sym;
-			}
+			return $cast($JCTree$JCModuleDecl, node)->sym;
 		case 29:
-			{
-				return $nc(($cast($JCTree$JCPackageDecl, node)))->packge;
-			}
+			return $cast($JCTree$JCPackageDecl, node)->packge;
 		case 49:
-			{
-				return $nc(($cast($JCTree$JCClassDecl, node)))->sym;
-			}
+			return $cast($JCTree$JCClassDecl, node)->sym;
 		case 53:
-			{
-				return $nc(($cast($JCTree$JCMethodDecl, node)))->sym;
-			}
+			return $cast($JCTree$JCMethodDecl, node)->sym;
 		case 8:
-			{
-				return $nc(($cast($JCTree$JCVariableDecl, node)))->sym;
-			}
+			return $cast($JCTree$JCVariableDecl, node)->sym;
 		case 4:
-			{
-				return $nc(($cast($JCTree$JCIdent, node)))->sym;
-			}
+			return $cast($JCTree$JCIdent, node)->sym;
 		case 5:
-			{
-				return $nc(($cast($JCTree$JCFieldAccess, node)))->sym;
-			}
+			return $cast($JCTree$JCFieldAccess, node)->sym;
 		case 9:
-			{
-				return $nc(($cast($JCTree$JCMemberReference, node)))->sym;
-			}
+			return $cast($JCTree$JCMemberReference, node)->sym;
 		case 2:
-			{
-				return $nc(($cast($JCTree$JCNewClass, node)))->constructor;
-			}
+			return $cast($JCTree$JCNewClass, node)->constructor;
 		case 1:
-			{
-				return symbolFor($nc(($cast($JCTree$JCMethodInvocation, node)))->meth);
-			}
+			return symbolFor($cast($JCTree$JCMethodInvocation, node)->meth);
 		case 6:
-			{
-				return symbolFor($nc(($cast($JCTree$JCTypeApply, node)))->clazz);
-			}
+			return symbolFor($cast($JCTree$JCTypeApply, node)->clazz);
 		case 77:
-			{}
 		case 78:
-			{}
 		case 79:
-			{
-				if (node->type != nullptr) {
-					return $nc(node->type)->tsym;
-				}
-				return nullptr;
+			if (node->type != nullptr) {
+				return node->type->tsym;
 			}
+			return nullptr;
 		default:
-			{
-				return nullptr;
-			}
+			return nullptr;
 		}
 	}
 }
 
 bool TreeInfo::isDeclaration($JCTree* node$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, node, node$renamed);
 	$assign(node, skipParens(node));
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(node)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(node)->getTag()))->ordinal())) {
 	case 29:
-		{}
 	case 49:
-		{}
 	case 53:
-		{}
 	case 8:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 $Symbol* TreeInfo::symbol($JCTree* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	$assign(tree, skipParens(tree));
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 4:
-		{
-			return $nc(($cast($JCTree$JCIdent, tree)))->sym;
-		}
+		return $cast($JCTree$JCIdent, tree)->sym;
 	case 5:
-		{
-			return $nc(($cast($JCTree$JCFieldAccess, tree)))->sym;
-		}
+		return $cast($JCTree$JCFieldAccess, tree)->sym;
 	case 6:
-		{
-			return symbol($nc(($cast($JCTree$JCTypeApply, tree)))->clazz);
-		}
+		return symbol($cast($JCTree$JCTypeApply, tree)->clazz);
 	case 7:
-		{
-			return symbol($nc(($cast($JCTree$JCAnnotatedType, tree)))->underlyingType);
-		}
+		return symbol($cast($JCTree$JCAnnotatedType, tree)->underlyingType);
 	case 9:
-		{
-			return $nc(($cast($JCTree$JCMemberReference, tree)))->sym;
-		}
+		return $cast($JCTree$JCMemberReference, tree)->sym;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $JCTree$JCModifiers* TreeInfo::getModifiers($JCTree* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	$assign(tree, skipParens(tree));
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 8:
-		{
-			return $nc(($cast($JCTree$JCVariableDecl, tree)))->mods;
-		}
+		return $cast($JCTree$JCVariableDecl, tree)->mods;
 	case 53:
-		{
-			return $nc(($cast($JCTree$JCMethodDecl, tree)))->mods;
-		}
+		return $cast($JCTree$JCMethodDecl, tree)->mods;
 	case 49:
-		{
-			return $nc(($cast($JCTree$JCClassDecl, tree)))->mods;
-		}
+		return $cast($JCTree$JCClassDecl, tree)->mods;
 	case 28:
-		{
-			return $nc(($cast($JCTree$JCModuleDecl, tree)))->mods;
-		}
+		return $cast($JCTree$JCModuleDecl, tree)->mods;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 bool TreeInfo::nonstaticSelect($JCTree* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	$assign(tree, skipParens(tree));
 	$init($JCTree$Tag);
@@ -1981,189 +1487,117 @@ bool TreeInfo::nonstaticSelect($JCTree* tree$renamed) {
 		return false;
 	}
 	$var($JCTree$JCFieldAccess, s, $cast($JCTree$JCFieldAccess, tree));
-	$var($Symbol, e, symbol($nc(s)->selected));
+	$var($Symbol, e, symbol(s->selected));
 	$init($Kinds$Kind);
-	return e == nullptr || ($nc(e)->kind != $Kinds$Kind::PCK && e->kind != $Kinds$Kind::TYP);
+	return e == nullptr || (e->kind != $Kinds$Kind::PCK && e->kind != $Kinds$Kind::TYP);
 }
 
 void TreeInfo::setSymbol($JCTree* tree$renamed, $Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, tree$renamed);
 	$assign(tree, skipParens(tree));
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 4:
-		{
-			$set($nc($cast($JCTree$JCIdent, tree)), sym, sym);
-			break;
-		}
+		$set($cast($JCTree$JCIdent, tree), sym, sym);
+		break;
 	case 5:
-		{
-			$set($nc($cast($JCTree$JCFieldAccess, tree)), sym, sym);
-			break;
-		}
+		$set($cast($JCTree$JCFieldAccess, tree), sym, sym);
+		break;
 	default:
-		{}
+		break;
 	}
 }
 
 int64_t TreeInfo::flags($JCTree* tree) {
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 8:
-		{
-			return $nc($nc(($cast($JCTree$JCVariableDecl, tree)))->mods)->flags;
-		}
+		return $nc($cast($JCTree$JCVariableDecl, tree)->mods)->flags;
 	case 53:
-		{
-			return $nc($nc(($cast($JCTree$JCMethodDecl, tree)))->mods)->flags;
-		}
+		return $nc($cast($JCTree$JCMethodDecl, tree)->mods)->flags;
 	case 49:
-		{
-			return $nc($nc(($cast($JCTree$JCClassDecl, tree)))->mods)->flags;
-		}
+		return $nc($cast($JCTree$JCClassDecl, tree)->mods)->flags;
 	case 80:
-		{
-			return $nc(($cast($JCTree$JCBlock, tree)))->flags;
-		}
+		return $cast($JCTree$JCBlock, tree)->flags;
 	default:
-		{
-			return 0;
-		}
+		return 0;
 	}
 }
 
 int64_t TreeInfo::firstFlag(int64_t flags) {
 	int64_t flag = 1;
-	while (((int64_t)(flag & (uint64_t)flags)) == 0) {
+	while ((flag & flags) == 0) {
 		flag = flag << 1;
 	}
 	return flag;
 }
 
 $String* TreeInfo::flagNames(int64_t flags) {
-	return $nc($($Flags::toString((int64_t)(flags & (uint64_t)(int64_t)0xC000080000000FFF))))->trim();
+	return $$nc($Flags::toString(flags & (int64_t)0xc000080000000fff))->trim();
 }
 
 int32_t TreeInfo::opPrec($JCTree$Tag* op) {
 	$init($TreeInfo$2);
 	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc((op))->ordinal())) {
 	case 57:
-		{}
 	case 58:
-		{}
 	case 59:
-		{}
 	case 60:
-		{}
 	case 10:
-		{}
 	case 11:
-		{
-			return TreeInfo::prefixPrec;
-		}
+		return TreeInfo::prefixPrec;
 	case 12:
-		{}
 	case 13:
-		{}
 	case 81:
-		{
-			return TreeInfo::postfixPrec;
-		}
+		return TreeInfo::postfixPrec;
 	case 14:
-		{
-			return TreeInfo::assignPrec;
-		}
+		return TreeInfo::assignPrec;
 	case 15:
-		{}
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{}
 	case 19:
-		{}
 	case 20:
-		{}
 	case 21:
-		{}
 	case 22:
-		{}
 	case 23:
-		{}
 	case 24:
-		{}
 	case 25:
-		{
-			return TreeInfo::assignopPrec;
-		}
+		return TreeInfo::assignopPrec;
 	case 30:
-		{
-			return TreeInfo::orPrec;
-		}
+		return TreeInfo::orPrec;
 	case 31:
-		{
-			return TreeInfo::andPrec;
-		}
+		return TreeInfo::andPrec;
 	case 35:
-		{}
 	case 36:
-		{
-			return TreeInfo::eqPrec;
-		}
+		return TreeInfo::eqPrec;
 	case 37:
-		{}
 	case 38:
-		{}
 	case 39:
-		{}
 	case 40:
-		{
-			return TreeInfo::ordPrec;
-		}
+		return TreeInfo::ordPrec;
 	case 32:
-		{
-			return TreeInfo::bitorPrec;
-		}
+		return TreeInfo::bitorPrec;
 	case 33:
-		{
-			return TreeInfo::bitxorPrec;
-		}
+		return TreeInfo::bitxorPrec;
 	case 34:
-		{
-			return TreeInfo::bitandPrec;
-		}
+		return TreeInfo::bitandPrec;
 	case 41:
-		{}
 	case 42:
-		{}
 	case 43:
-		{
-			return TreeInfo::shiftPrec;
-		}
+		return TreeInfo::shiftPrec;
 	case 44:
-		{}
 	case 45:
-		{
-			return TreeInfo::addPrec;
-		}
+		return TreeInfo::addPrec;
 	case 46:
-		{}
 	case 47:
-		{}
 	case 48:
-		{
-			return TreeInfo::mulPrec;
-		}
+		return TreeInfo::mulPrec;
 	case 54:
-		{
-			return TreeInfo::ordPrec;
-		}
+		return TreeInfo::ordPrec;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
@@ -2171,296 +1605,187 @@ $Tree$Kind* TreeInfo::tagToKind($JCTree$Tag* tag) {
 	$init($TreeInfo$2);
 	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc((tag))->ordinal())) {
 	case 12:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::POSTFIX_INCREMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::POSTFIX_INCREMENT;
 	case 13:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::POSTFIX_DECREMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::POSTFIX_DECREMENT;
 	case 10:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::PREFIX_INCREMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::PREFIX_INCREMENT;
 	case 11:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::PREFIX_DECREMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::PREFIX_DECREMENT;
 	case 57:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::UNARY_PLUS;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::UNARY_PLUS;
 	case 58:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::UNARY_MINUS;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::UNARY_MINUS;
 	case 60:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::BITWISE_COMPLEMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::BITWISE_COMPLEMENT;
 	case 59:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::LOGICAL_COMPLEMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::LOGICAL_COMPLEMENT;
 	case 46:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::MULTIPLY;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::MULTIPLY;
 	case 47:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::DIVIDE;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::DIVIDE;
 	case 48:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::REMAINDER;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::REMAINDER;
 	case 44:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::PLUS;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::PLUS;
 	case 45:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::MINUS;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::MINUS;
 	case 41:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::LEFT_SHIFT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::LEFT_SHIFT;
 	case 42:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::RIGHT_SHIFT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::RIGHT_SHIFT;
 	case 43:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::UNSIGNED_RIGHT_SHIFT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::UNSIGNED_RIGHT_SHIFT;
 	case 37:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::LESS_THAN;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::LESS_THAN;
 	case 38:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::GREATER_THAN;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::GREATER_THAN;
 	case 39:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::LESS_THAN_EQUAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::LESS_THAN_EQUAL;
 	case 40:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::GREATER_THAN_EQUAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::GREATER_THAN_EQUAL;
 	case 35:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::EQUAL_TO;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::EQUAL_TO;
 	case 36:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::NOT_EQUAL_TO;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::NOT_EQUAL_TO;
 	case 34:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::AND;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::AND;
 	case 33:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::XOR;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::XOR;
 	case 32:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::OR;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::OR;
 	case 31:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::CONDITIONAL_AND;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::CONDITIONAL_AND;
 	case 30:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::CONDITIONAL_OR;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::CONDITIONAL_OR;
 	case 23:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::MULTIPLY_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::MULTIPLY_ASSIGNMENT;
 	case 24:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::DIVIDE_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::DIVIDE_ASSIGNMENT;
 	case 25:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::REMAINDER_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::REMAINDER_ASSIGNMENT;
 	case 21:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::PLUS_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::PLUS_ASSIGNMENT;
 	case 22:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::MINUS_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::MINUS_ASSIGNMENT;
 	case 18:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::LEFT_SHIFT_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::LEFT_SHIFT_ASSIGNMENT;
 	case 19:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::RIGHT_SHIFT_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::RIGHT_SHIFT_ASSIGNMENT;
 	case 20:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::UNSIGNED_RIGHT_SHIFT_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::UNSIGNED_RIGHT_SHIFT_ASSIGNMENT;
 	case 17:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::AND_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::AND_ASSIGNMENT;
 	case 16:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::XOR_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::XOR_ASSIGNMENT;
 	case 15:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::OR_ASSIGNMENT;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::OR_ASSIGNMENT;
 	case 81:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::OTHER;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::OTHER;
 	case 77:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::ANNOTATION;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::ANNOTATION;
 	case 78:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::TYPE_ANNOTATION;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::TYPE_ANNOTATION;
 	case 82:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::EXPORTS;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::EXPORTS;
 	case 83:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::OPENS;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::OPENS;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $JCTree$JCExpression* TreeInfo::typeIn($JCTree$JCExpression* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 7:
-		{
-			return $nc(($cast($JCTree$JCAnnotatedType, tree)))->underlyingType;
-		}
+		return $cast($JCTree$JCAnnotatedType, tree)->underlyingType;
 	case 4:
-		{}
 	case 84:
-		{}
 	case 5:
-		{}
 	case 27:
-		{}
 	case 71:
-		{}
 	case 79:
-		{}
 	case 6:
-		{}
 	case 26:
-		{
-			return tree;
-		}
+		return tree;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unexpected type tree: "_s, tree})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unexpected type tree: "_s, tree})));
 	}
 }
 
 $JCTree* TreeInfo::innermostType($JCTree* type, bool skipAnnos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, lastAnnotatedType, nullptr);
 	$var($JCTree, cur, type);
 	bool loop$break = false;
 	while (true) {
 		$init($TreeInfo$2);
-		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(cur)->getTag())))->ordinal())) {
+		switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(cur)->getTag()))->ordinal())) {
 		case 27:
-			{
-				$assign(lastAnnotatedType, nullptr);
-				$assign(cur, $nc(($cast($JCTree$JCArrayTypeTree, cur)))->elemtype);
-				break;
-			}
+			$assign(lastAnnotatedType, nullptr);
+			$assign(cur, $cast($JCTree$JCArrayTypeTree, cur)->elemtype);
+			break;
 		case 71:
-			{
-				$assign(lastAnnotatedType, nullptr);
-				$assign(cur, $nc(($cast($JCTree$JCWildcard, cur)))->inner);
-				break;
-			}
+			$assign(lastAnnotatedType, nullptr);
+			$assign(cur, $nc($cast($JCTree$JCWildcard, cur))->inner);
+			break;
 		case 7:
-			{
-				$assign(lastAnnotatedType, cur);
-				$assign(cur, $nc(($cast($JCTree$JCAnnotatedType, cur)))->underlyingType);
-				break;
-			}
+			$assign(lastAnnotatedType, cur);
+			$assign(cur, $nc($cast($JCTree$JCAnnotatedType, cur))->underlyingType);
+			break;
 		default:
-			{
-				loop$break = true;
-				break;
-			}
+			loop$break = true;
+			break;
 		}
-
 		if (loop$break) {
 			break;
-		}	}
+		}
+	}
 	if (!skipAnnos && lastAnnotatedType != nullptr) {
 		return lastAnnotatedType;
 	} else {
@@ -2497,78 +1822,60 @@ bool TreeInfo::isPackageInfo($JCTree$JCCompilationUnit* tree) {
 }
 
 bool TreeInfo::isErrorEnumSwitch($JCTree$JCExpression* selector, $List* cases) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	return $nc($nc($nc(selector)->type)->tsym)->kind == $Kinds$Kind::ERR && $nc($($nc($($nc(cases)->stream()))->flatMap(static_cast<$Function*>($$new(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6)))))->allMatch(static_cast<$Predicate*>($$new(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7)));
+	return $nc($nc($nc(selector)->type)->tsym)->kind == $Kinds$Kind::ERR && $$nc($$nc($nc(cases)->stream())->flatMap($$new(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6)))->allMatch($$new(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7));
 }
 
 $TreeInfo$PatternPrimaryType* TreeInfo::primaryPatternType($JCTree$JCPattern* pat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-
-	$var($TreeInfo$PatternPrimaryType, var$0, nullptr)
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(pat)->getTag())))->ordinal())) {
+	$var($TreeInfo$PatternPrimaryType, var$0, nullptr);
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(pat)->getTag()))->ordinal())) {
 	case 55:
-		{
-			$assign(var$0, $new($TreeInfo$PatternPrimaryType, $nc(($cast($JCTree$JCBindingPattern, pat)))->type, true));
-			break;
-		}
+		$assign(var$0, $new($TreeInfo$PatternPrimaryType, $cast($JCTree$JCBindingPattern, pat)->type, true));
+		break;
 	case 56:
 		{
-			{
-				$var($JCTree$JCGuardPattern, guarded, $cast($JCTree$JCGuardPattern, pat));
-				$var($TreeInfo$PatternPrimaryType, nested, primaryPatternType(guarded->patt));
-				bool unconditional = $nc(nested)->unconditional();
-				$init($TypeTag);
-				if ($nc($nc(guarded->expr)->type)->hasTag($TypeTag::BOOLEAN) && unconditional) {
-					unconditional = false;
-					$var($Object, constValue, $nc($nc(guarded->expr)->type)->constValue());
-					if (constValue != nullptr && ($nc(($cast($Integer, constValue)))->intValue()) == 1) {
-						unconditional = true;
-					}
+			$var($JCTree$JCGuardPattern, guarded, $cast($JCTree$JCGuardPattern, pat));
+			$var($TreeInfo$PatternPrimaryType, nested, primaryPatternType(guarded->patt));
+			bool unconditional = $nc(nested)->unconditional();
+			$init($TypeTag);
+			if ($nc($nc(guarded->expr)->type)->hasTag($TypeTag::BOOLEAN) && unconditional) {
+				unconditional = false;
+				$var($Object, constValue, $nc($nc(guarded->expr)->type)->constValue());
+				if (constValue != nullptr && ($cast($Integer, constValue)->intValue()) == 1) {
+					unconditional = true;
 				}
-				$assign(var$0, $new($TreeInfo$PatternPrimaryType, $(nested->type()), unconditional));
-				break;
 			}
-		}
-	case 74:
-		{
-			$assign(var$0, primaryPatternType($nc(($cast($JCTree$JCParenthesizedPattern, pat)))->pattern));
+			$assign(var$0, $new($TreeInfo$PatternPrimaryType, $(nested->type()), unconditional));
 			break;
 		}
+	case 74:
+		$assign(var$0, primaryPatternType($cast($JCTree$JCParenthesizedPattern, pat)->pattern));
+		break;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 	return var$0;
 }
 
 $JCTree$JCBindingPattern* TreeInfo::primaryPatternTree($JCTree$JCPattern* pat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TreeInfo$2);
-
-	$var($JCTree$JCBindingPattern, var$0, nullptr)
-	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(pat)->getTag())))->ordinal())) {
+	$var($JCTree$JCBindingPattern, var$0, nullptr);
+	switch ($nc($TreeInfo$2::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(pat)->getTag()))->ordinal())) {
 	case 55:
-		{
-			$assign(var$0, $cast($JCTree$JCBindingPattern, pat));
-			break;
-		}
+		$assign(var$0, $cast($JCTree$JCBindingPattern, pat));
+		break;
 	case 56:
-		{
-			$assign(var$0, primaryPatternTree($nc(($cast($JCTree$JCGuardPattern, pat)))->patt));
-			break;
-		}
+		$assign(var$0, primaryPatternTree($cast($JCTree$JCGuardPattern, pat)->patt));
+		break;
 	case 74:
-		{
-			$assign(var$0, primaryPatternTree($nc(($cast($JCTree$JCParenthesizedPattern, pat)))->pattern));
-			break;
-		}
+		$assign(var$0, primaryPatternTree($cast($JCTree$JCParenthesizedPattern, pat)->pattern));
+		break;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 	return var$0;
 }
@@ -2595,7 +1902,7 @@ $Type* TreeInfo::lambda$recordFieldTypes$3($JCTree$JCVariableDecl* vd) {
 }
 
 bool TreeInfo::lambda$recordFields$2($JCTree$JCVariableDecl* vd) {
-	return ((int64_t)($nc($($cast($JCTree$JCModifiers, $nc(vd)->getModifiers())))->flags & (uint64_t)($Flags::RECORD))) == (int64_t)0x2000000000000000;
+	return ($nc($$cast($JCTree$JCModifiers, $nc(vd)->getModifiers()))->flags & ($Flags::RECORD)) == (int64_t)0x2000000000000000;
 }
 
 $JCTree$JCVariableDecl* TreeInfo::lambda$recordFields$1($JCTree* t) {
@@ -2612,32 +1919,164 @@ TreeInfo::TreeInfo() {
 
 $Class* TreeInfo::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TreeInfo$$Lambda$lambda$recordFields$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$0")) {
 			return TreeInfo$$Lambda$lambda$recordFields$0::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$$Lambda$lambda$recordFields$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$1$1")) {
 			return TreeInfo$$Lambda$lambda$recordFields$1$1::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$$Lambda$lambda$recordFields$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFields$2$2")) {
 			return TreeInfo$$Lambda$lambda$recordFields$2$2::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$recordFieldTypes$3$3")) {
 			return TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4")) {
 			return TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5")) {
 			return TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6")) {
 			return TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7")) {
 			return TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::load$(name, initialize);
 		}
 	}
-	$loadClass(TreeInfo, name, initialize, &_TreeInfo_ClassInfo_, allocate$TreeInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"notExpression", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, notExpression)},
+		{"noPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, noPrec)},
+		{"assignPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, assignPrec)},
+		{"assignopPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, assignopPrec)},
+		{"condPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, condPrec)},
+		{"orPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, orPrec)},
+		{"andPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, andPrec)},
+		{"bitorPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, bitorPrec)},
+		{"bitxorPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, bitxorPrec)},
+		{"bitandPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, bitandPrec)},
+		{"eqPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, eqPrec)},
+		{"ordPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, ordPrec)},
+		{"shiftPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, shiftPrec)},
+		{"addPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, addPrec)},
+		{"mulPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, mulPrec)},
+		{"prefixPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, prefixPrec)},
+		{"postfixPrec", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, postfixPrec)},
+		{"precCount", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TreeInfo, precCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo, init$, void)},
+		{"args", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, args, $List*, $JCTree*)},
+		{"calledMethodName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, calledMethodName, $Name*, $JCTree*)},
+		{"containsTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, containsTypeAnnotation, bool, $JCTree*)},
+		{"declarationFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, declarationFor, $JCTree*, $Symbol*, $JCTree*)},
+		{"diagEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagEndPos, $JCDiagnostic$DiagnosticPosition*, $JCTree*)},
+		{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*)},
+		{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*, bool)},
+		{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $List*)},
+		{"endPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, endPos, int32_t, $JCTree*)},
+		{"finalizerPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeInfo$PosKind;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, finalizerPos, int32_t, $JCTree*, $TreeInfo$PosKind*)},
+		{"firstConstructorCall", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstConstructorCall, $JCTree$JCMethodInvocation*, $JCTree*)},
+		{"firstFlag", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstFlag, int64_t, int64_t)},
+		{"firstStatPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstStatPos, int32_t, $JCTree*)},
+		{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, flagNames, $String*, int64_t)},
+		{"flags", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, flags, int64_t, $JCTree*)},
+		{"fullName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, fullName, $Name*, $JCTree*)},
+		{"getCommentText", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getCommentText, $String*, $Env*, $JCTree*)},
+		{"getCommentTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getCommentTree, $DCTree$DCDocComment*, $Env*, $JCTree*)},
+		{"getConstructorInvocationName", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getConstructorInvocationName, $Name*, $List*, $Names*)},
+		{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getEndPos, int32_t, $JCTree*, $EndPosTable*)},
+		{"getModifiers", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getModifiers, $JCTree$JCModifiers*, $JCTree*)},
+		{"getModule", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getModule, $JCTree$JCModuleDecl*, $JCTree$JCCompilationUnit*)},
+		{"getStartPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getStartPos, int32_t, $JCTree*)},
+		{"hasConstructors", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, hasConstructors, bool, $List*)},
+		{"innermostType", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, innermostType, $JCTree*, $JCTree*, bool)},
+		{"isCanonicalConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isCanonicalConstructor, bool, $JCTree*)},
+		{"isCompactConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isCompactConstructor, bool, $JCTree*)},
+		{"isConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isConstructor, bool, $JCTree*)},
+		{"isDeclaration", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isDeclaration, bool, $JCTree*)},
+		{"isDiamond", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isDiamond, bool, $JCTree*)},
+		{"isEnumInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isEnumInit, bool, $JCTree*)},
+		{"isErrorEnumSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, isErrorEnumSwitch, bool, $JCTree$JCExpression*, $List*)},
+		{"isExpressionStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isExpressionStatement, bool, $JCTree$JCExpression*)},
+		{"isIdentOrThisDotIdent", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isIdentOrThisDotIdent, bool, $JCTree*)},
+		{"isInAnnotation", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Z", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, isInAnnotation, bool, $Env*, $JCTree*)},
+		{"isInitialConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isInitialConstructor, bool, $JCTree*)},
+		{"isModuleInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isModuleInfo, bool, $JCTree$JCCompilationUnit*)},
+		{"isMultiCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isMultiCatch, bool, $JCTree$JCCatch*)},
+		{"isNull", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isNull, bool, $JCTree*)},
+		{"isPackageInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isPackageInfo, bool, $JCTree$JCCompilationUnit*)},
+		{"isReceiverParam", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isReceiverParam, bool, $JCTree*)},
+		{"isSelfCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSelfCall, bool, $JCTree*)},
+		{"isStatement", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isStatement, bool, $JCTree*)},
+		{"isStaticSelector", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Names;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isStaticSelector, bool, $JCTree*, $Names*)},
+		{"isStaticSym", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TreeInfo, isStaticSym, bool, $JCTree*)},
+		{"isSuperCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSuperCall, bool, $JCTree*)},
+		{"isSyntheticInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSyntheticInit, bool, $JCTree*)},
+		{"isThisQualifier", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isThisQualifier, bool, $JCTree*)},
+		{"lambda$diagnosticPositionFor$4", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$diagnosticPositionFor$4, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*)},
+		{"lambda$diagnosticPositionFor$5", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$diagnosticPositionFor$5, bool, $JCDiagnostic$DiagnosticPosition*)},
+		{"lambda$isErrorEnumSwitch$6", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$isErrorEnumSwitch$6, $Stream*, $JCTree$JCCase*)},
+		{"lambda$isErrorEnumSwitch$7", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$isErrorEnumSwitch$7, bool, $JCTree$JCCaseLabel*)},
+		{"lambda$recordFieldTypes$3", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFieldTypes$3, $Type*, $JCTree$JCVariableDecl*)},
+		{"lambda$recordFields$0", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$0, bool, $JCTree*)},
+		{"lambda$recordFields$1", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$1, $JCTree$JCVariableDecl*, $JCTree*)},
+		{"lambda$recordFields$2", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$2, bool, $JCTree$JCVariableDecl*)},
+		{"name", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, name, $Name*, $JCTree*)},
+		{"nonstaticSelect", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, nonstaticSelect, bool, $JCTree*)},
+		{"opPrec", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, opPrec, int32_t, $JCTree$Tag*)},
+		{"pathFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, pathFor, $List*, $JCTree*, $JCTree$JCCompilationUnit*)},
+		{"positionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, positionFor, int32_t, $Symbol*, $JCTree*)},
+		{"primaryPatternTree", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, primaryPatternTree, $JCTree$JCBindingPattern*, $JCTree$JCPattern*)},
+		{"primaryPatternType", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/TreeInfo$PatternPrimaryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, primaryPatternType, $TreeInfo$PatternPrimaryType*, $JCTree$JCPattern*)},
+		{"recordFieldTypes", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, recordFieldTypes, $List*, $JCTree$JCClassDecl*)},
+		{"recordFields", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, recordFields, $List*, $JCTree$JCClassDecl*)},
+		{"referencedStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, referencedStatement, $JCTree*, $JCTree$JCLabeledStatement*)},
+		{"scopeFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, scopeFor, $Env*, $JCTree*, $JCTree$JCCompilationUnit*)},
+		{"scopeFor", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, scopeFor, $Env*, $List*)},
+		{"setPolyKind", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setPolyKind, void, $JCTree*, $JCTree$JCPolyExpression$PolyKind*)},
+		{"setSymbol", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setSymbol, void, $JCTree*, $Symbol*)},
+		{"setVarargsElement", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setVarargsElement, void, $JCTree*, $Type*)},
+		{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, skipParens, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, skipParens, $JCTree*, $JCTree*)},
+		{"symbol", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, symbol, $Symbol*, $JCTree*)},
+		{"symbolFor", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, symbolFor, $Symbol*, $JCTree*)},
+		{"symbolForImpl", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $STATIC, $staticMethod(TreeInfo, symbolForImpl, $Symbol*, $JCTree*)},
+		{"tagToKind", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $STATIC, $staticMethod(TreeInfo, tagToKind, $Tree$Kind*, $JCTree$Tag*)},
+		{"typeIn", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, typeIn, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"types", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, types, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType", "com.sun.tools.javac.tree.TreeInfo", "PatternPrimaryType", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder", "com.sun.tools.javac.tree.TreeInfo", "TypeAnnotationFinder", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.tree.TreeInfo$DeclScanner", "com.sun.tools.javac.tree.TreeInfo", "DeclScanner", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.tree.TreeInfo$PosKind", "com.sun.tools.javac.tree.TreeInfo", "PosKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.tree.TreeInfo$1PathFinder", nullptr, "PathFinder", 0},
+		{"com.sun.tools.javac.tree.TreeInfo$1Result", nullptr, "Result", 0},
+		{"com.sun.tools.javac.tree.TreeInfo$1DiagScanner", nullptr, "DiagScanner", 0},
+		{"com.sun.tools.javac.tree.TreeInfo$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo$2,com.sun.tools.javac.tree.TreeInfo$PatternPrimaryType,com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder,com.sun.tools.javac.tree.TreeInfo$DeclScanner,com.sun.tools.javac.tree.TreeInfo$PosKind,com.sun.tools.javac.tree.TreeInfo$1PathFinder,com.sun.tools.javac.tree.TreeInfo$1Result,com.sun.tools.javac.tree.TreeInfo$1DiagScanner,com.sun.tools.javac.tree.TreeInfo$1"
+	};
+	$loadClass(TreeInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo);
+	});
 	return class$;
 }
 

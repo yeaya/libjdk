@@ -18,6 +18,7 @@ class PlainClient : public ::javax::security::sasl::SaslClient {
 	$class(PlainClient, $HAS_FINALIZE, ::javax::security::sasl::SaslClient)
 public:
 	PlainClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* authorizationID, $String* authenticationID, $bytes* pw);
 	void clearPassword();
 	virtual void dispose() override;

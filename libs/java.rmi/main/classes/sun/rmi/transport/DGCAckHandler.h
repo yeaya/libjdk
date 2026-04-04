@@ -40,6 +40,7 @@ class $export DGCAckHandler : public ::java::lang::Object {
 	$class(DGCAckHandler, 0, ::java::lang::Object)
 public:
 	DGCAckHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::rmi::server::UID* id);
 	virtual void add(Object$* obj);
 	static ::java::lang::Long* lambda$static$0();

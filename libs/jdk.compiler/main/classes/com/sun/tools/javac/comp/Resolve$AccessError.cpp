@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$AccessError.h>
-
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
@@ -31,7 +30,6 @@
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
@@ -41,9 +39,7 @@ using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -55,47 +51,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$AccessError_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$AccessError, this$0)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(Resolve$AccessError, env)},
-	{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $field(Resolve$AccessError, site)},
-	{}
-};
-
-$MethodInfo _Resolve$AccessError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", 0, $method(Resolve$AccessError, init$, void, $Resolve*, $Env*, $Type*, $Symbol*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$AccessError, exists, bool)},
-	{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$AccessError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
-	{"toString", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Resolve$AccessError, toString, $String*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$AccessError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$AccessError", "com.sun.tools.javac.comp.Resolve", "AccessError", 0},
-	{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$AccessError_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$AccessError",
-	"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
-	nullptr,
-	_Resolve$AccessError_FieldInfo_,
-	_Resolve$AccessError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$AccessError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$AccessError($Class* clazz) {
-	return $of($alloc(Resolve$AccessError));
-}
 
 void Resolve$AccessError::init$($Resolve* this$0, $Env* env, $Type* site, $Symbol* sym) {
 	$set(this, this$0, this$0);
@@ -110,79 +65,69 @@ bool Resolve$AccessError::exists() {
 }
 
 $JCDiagnostic* Resolve$AccessError::getDiagnostic($JCDiagnostic$DiagnosticType* dkind, $JCDiagnostic$DiagnosticPosition* pos, $Symbol* location, $Type* site, $Name* name, $List* argtypes, $List* typeargtypes) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(this->sym)->name == $nc(this->this$0->names)->init && !$equals($nc(this->sym)->owner, $nc(site)->tsym)) {
+	$useLocalObjectStack();
+	if ($nc(this->sym)->name == $nc(this->this$0->names)->init && !$equals(this->sym->owner, $nc(site)->tsym)) {
 		$init($Kinds$Kind);
 		return $$new($Resolve$SymbolNotFoundError, this->this$0, $Kinds$Kind::ABSENT_MTH)->getDiagnostic(dkind, pos, location, site, name, argtypes, typeargtypes);
 	} else {
-		bool var$1 = ((int64_t)($nc(this->sym)->flags() & (uint64_t)(int64_t)1)) != 0;
-		if (var$1 || (this->env != nullptr && this->site != nullptr && !this->this$0->isAccessible(this->env, this->site))) {
+		bool var$0 = (this->sym->flags() & 1) != 0;
+		if (var$0 || (this->env != nullptr && this->site != nullptr && !this->this$0->isAccessible(this->env, this->site))) {
 			$init($Kinds$Kind);
 			if ($nc($nc(this->sym)->owner)->kind == $Kinds$Kind::PCK) {
-				$var($JCDiagnostic$DiagnosticType, var$2, dkind);
-				$var($DiagnosticSource, var$3, $nc(this->this$0->log)->currentSource());
-				$var($JCDiagnostic$DiagnosticPosition, var$4, pos);
-				$var($String, var$5, "not.def.access.package.cant.access"_s);
-				return $nc(this->this$0->diags)->create(var$2, var$3, var$4, var$5, $$new($ObjectArray, {
-					$of(this->sym),
-					$($of($nc(this->sym)->location())),
-					$($of(this->this$0->inaccessiblePackageReason(this->env, $($nc(this->sym)->packge()))))
+				$var($DiagnosticSource, var$1, $nc(this->this$0->log)->currentSource());
+				$var($String, var$2, "not.def.access.package.cant.access"_s);
+				return $nc(this->this$0->diags)->create(dkind, var$1, pos, var$2, $$new($ObjectArray, {
+					this->sym,
+					$(this->sym->location()),
+					$(this->this$0->inaccessiblePackageReason(this->env, $(this->sym->packge())))
 				}));
 			} else {
-				bool var$7 = $nc(this->sym)->packge() != $nc(this->this$0->syms)->rootPackage;
-				if (var$7 && !this->this$0->symbolPackageVisible(this->env, this->sym)) {
-					$var($JCDiagnostic$DiagnosticType, var$8, dkind);
-					$var($DiagnosticSource, var$9, $nc(this->this$0->log)->currentSource());
-					$var($JCDiagnostic$DiagnosticPosition, var$10, pos);
-					$var($String, var$11, "not.def.access.class.intf.cant.access.reason"_s);
-					return $nc(this->this$0->diags)->create(var$8, var$9, var$10, var$11, $$new($ObjectArray, {
-						$of(this->sym),
-						$($of($nc(this->sym)->location())),
-						$($of($nc($($nc(this->sym)->location()))->packge())),
-						$($of(this->this$0->inaccessiblePackageReason(this->env, $($nc(this->sym)->packge()))))
+				bool var$3 = this->sym->packge() != $nc(this->this$0->syms)->rootPackage;
+				if (var$3 && !this->this$0->symbolPackageVisible(this->env, this->sym)) {
+					$var($DiagnosticSource, var$4, $nc(this->this$0->log)->currentSource());
+					$var($String, var$5, "not.def.access.class.intf.cant.access.reason"_s);
+					return $nc(this->this$0->diags)->create(dkind, var$4, pos, var$5, $$new($ObjectArray, {
+						this->sym,
+						$($nc(this->sym)->location()),
+						$($$nc($nc(this->sym)->location())->packge()),
+						$(this->this$0->inaccessiblePackageReason(this->env, $($nc(this->sym)->packge())))
 					}));
 				} else {
-					$var($JCDiagnostic$DiagnosticType, var$12, dkind);
-					$var($DiagnosticSource, var$13, $nc(this->this$0->log)->currentSource());
-					$var($JCDiagnostic$DiagnosticPosition, var$14, pos);
-					$var($String, var$15, "not.def.access.class.intf.cant.access"_s);
-					return $nc(this->this$0->diags)->create(var$12, var$13, var$14, var$15, $$new($ObjectArray, {
-						$of(this->sym),
-						$($of($nc(this->sym)->location()))
+					$var($DiagnosticSource, var$6, $nc(this->this$0->log)->currentSource());
+					$var($String, var$7, "not.def.access.class.intf.cant.access"_s);
+					return $nc(this->this$0->diags)->create(dkind, var$6, pos, var$7, $$new($ObjectArray, {
+						this->sym,
+						$($nc(this->sym)->location())
 					}));
 				}
 			}
-		} else if (((int64_t)($nc(this->sym)->flags() & (uint64_t)(int64_t)(2 | 4))) != 0) {
-			$var($JCDiagnostic$DiagnosticType, var$16, dkind);
-			$var($DiagnosticSource, var$17, $nc(this->this$0->log)->currentSource());
-			$var($JCDiagnostic$DiagnosticPosition, var$18, pos);
-			$var($String, var$19, "report.access"_s);
-			return $nc(this->this$0->diags)->create(var$16, var$17, var$18, var$19, $$new($ObjectArray, {
-				$of(this->sym),
-				$($of($Flags::asFlagSet((int64_t)($nc(this->sym)->flags() & (uint64_t)(int64_t)(2 | 4))))),
-				$($of($nc(this->sym)->location()))
+		} else if (($nc(this->sym)->flags() & (2 | 4)) != 0) {
+			$var($DiagnosticSource, var$8, $nc(this->this$0->log)->currentSource());
+			$var($String, var$9, "report.access"_s);
+			return $nc(this->this$0->diags)->create(dkind, var$8, pos, var$9, $$new($ObjectArray, {
+				this->sym,
+				$($Flags::asFlagSet($nc(this->sym)->flags() & (2 | 4))),
+				$($nc(this->sym)->location())
 			}));
 		} else {
-			$var($JCDiagnostic$DiagnosticType, var$20, dkind);
-			$var($DiagnosticSource, var$21, $nc(this->this$0->log)->currentSource());
-			$var($JCDiagnostic$DiagnosticPosition, var$22, pos);
-			$var($String, var$23, "not.def.public.cant.access"_s);
-			return $nc(this->this$0->diags)->create(var$20, var$21, var$22, var$23, $$new($ObjectArray, {
-				$of(this->sym),
-				$($of($nc(this->sym)->location()))
+			$var($DiagnosticSource, var$10, $nc(this->this$0->log)->currentSource());
+			$var($String, var$11, "not.def.public.cant.access"_s);
+			return $nc(this->this$0->diags)->create(dkind, var$10, pos, var$11, $$new($ObjectArray, {
+				this->sym,
+				$($nc(this->sym)->location())
 			}));
 		}
 	}
 }
 
 $String* Resolve$AccessError::toString($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	sb->append($of(type));
+	sb->append(type);
 	if (type != nullptr) {
-		sb->append("[tsym:"_s)->append($of(type->tsym));
+		sb->append("[tsym:"_s)->append(type->tsym);
 		if (type->tsym != nullptr) {
-			sb->append("packge:"_s)->append($($of($nc(type->tsym)->packge())));
+			sb->append("packge:"_s)->append($(type->tsym->packge()));
 		}
 		sb->append("]"_s);
 	}
@@ -193,7 +138,42 @@ Resolve$AccessError::Resolve$AccessError() {
 }
 
 $Class* Resolve$AccessError::load$($String* name, bool initialize) {
-	$loadClass(Resolve$AccessError, name, initialize, &_Resolve$AccessError_ClassInfo_, allocate$Resolve$AccessError);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$AccessError, this$0)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(Resolve$AccessError, env)},
+		{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $field(Resolve$AccessError, site)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", 0, $method(Resolve$AccessError, init$, void, $Resolve*, $Env*, $Type*, $Symbol*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$AccessError, exists, bool)},
+		{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$AccessError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
+		{"toString", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Resolve$AccessError, toString, $String*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$AccessError", "com.sun.tools.javac.comp.Resolve", "AccessError", 0},
+		{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$AccessError",
+		"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$AccessError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$AccessError));
+	});
 	return class$;
 }
 

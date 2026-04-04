@@ -1,5 +1,4 @@
 #include <sun/tools/jar/CommandLine.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/FileReader.h>
 #include <java/io/Reader.h>
@@ -23,33 +22,13 @@ namespace sun {
 	namespace tools {
 		namespace jar {
 
-$MethodInfo _CommandLine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CommandLine, init$, void)},
-	{"loadCmdFile", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(CommandLine, loadCmdFile, void, $String*, $List*), "java.io.IOException"},
-	{"parse", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CommandLine, parse, $StringArray*, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CommandLine_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.tools.jar.CommandLine",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CommandLine_MethodInfo_
-};
-
-$Object* allocate$CommandLine($Class* clazz) {
-	return $of($alloc(CommandLine));
-}
-
 void CommandLine::init$() {
 }
 
 $StringArray* CommandLine::parse($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, newArgs, $new($ArrayList, $nc(args)->length));
-	for (int32_t i = 0; i < $nc(args)->length; ++i) {
+	for (int32_t i = 0; i < args->length; ++i) {
 		$var($String, arg, args->get(i));
 		bool var$0 = $nc(arg)->length() > 1;
 		if (var$0 && arg->charAt(0) == u'@') {
@@ -63,11 +42,11 @@ $StringArray* CommandLine::parse($StringArray* args) {
 			newArgs->add(arg);
 		}
 	}
-	return $fcast($StringArray, newArgs->toArray($$new($StringArray, newArgs->size())));
+	return $cast($StringArray, newArgs->toArray($$new($StringArray, newArgs->size())));
 }
 
 void CommandLine::loadCmdFile($String* name, $List* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reader, r, $new($BufferedReader, $$new($FileReader, name)));
 	$var($StreamTokenizer, st, $new($StreamTokenizer, r));
 	st->resetSyntax();
@@ -86,7 +65,23 @@ CommandLine::CommandLine() {
 }
 
 $Class* CommandLine::load$($String* name, bool initialize) {
-	$loadClass(CommandLine, name, initialize, &_CommandLine_ClassInfo_, allocate$CommandLine);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CommandLine, init$, void)},
+		{"loadCmdFile", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(CommandLine, loadCmdFile, void, $String*, $List*), "java.io.IOException"},
+		{"parse", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CommandLine, parse, $StringArray*, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.tools.jar.CommandLine",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CommandLine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CommandLine);
+	});
 	return class$;
 }
 

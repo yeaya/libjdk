@@ -16,7 +16,10 @@ public:
 	void init$($String* s);
 	ImageFormatException(const ImageFormatException& e);
 	virtual void throw$() override;
-	inline ImageFormatException* operator ->() {
+	inline ImageFormatException* operator ->() const {
+		return (ImageFormatException*)throwing$;
+	}
+	inline operator ImageFormatException*() const {
 		return (ImageFormatException*)throwing$;
 	}
 };

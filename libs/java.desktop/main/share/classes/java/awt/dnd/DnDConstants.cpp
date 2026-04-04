@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DnDConstants.h>
-
 #include <jcpp.h>
 
 #undef ACTION_COPY
@@ -17,34 +16,6 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _DnDConstants_FieldInfo_[] = {
-	{"ACTION_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_NONE)},
-	{"ACTION_COPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_COPY)},
-	{"ACTION_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_MOVE)},
-	{"ACTION_COPY_OR_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_COPY_OR_MOVE)},
-	{"ACTION_LINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_LINK)},
-	{"ACTION_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_REFERENCE)},
-	{}
-};
-
-$MethodInfo _DnDConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DnDConstants, init$, void)},
-	{}
-};
-
-$ClassInfo _DnDConstants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.dnd.DnDConstants",
-	"java.lang.Object",
-	nullptr,
-	_DnDConstants_FieldInfo_,
-	_DnDConstants_MethodInfo_
-};
-
-$Object* allocate$DnDConstants($Class* clazz) {
-	return $of($alloc(DnDConstants));
-}
-
 void DnDConstants::init$() {
 }
 
@@ -52,7 +23,30 @@ DnDConstants::DnDConstants() {
 }
 
 $Class* DnDConstants::load$($String* name, bool initialize) {
-	$loadClass(DnDConstants, name, initialize, &_DnDConstants_ClassInfo_, allocate$DnDConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACTION_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_NONE)},
+		{"ACTION_COPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_COPY)},
+		{"ACTION_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_MOVE)},
+		{"ACTION_COPY_OR_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_COPY_OR_MOVE)},
+		{"ACTION_LINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_LINK)},
+		{"ACTION_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DnDConstants, ACTION_REFERENCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DnDConstants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.dnd.DnDConstants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DnDConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DnDConstants);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_ro_MD.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_ro_MD_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ro_MD, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ro_MD, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_ro_MD_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_ro_MD",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_ro_MD_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_ro_MD($Class* clazz) {
-	return $of($alloc(CurrencyNames_ro_MD));
-}
-
 void CurrencyNames_ro_MD::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_ro_MD::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("MDL"_s),
-		$of("L"_s)
+		"MDL"_s,
+		"L"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_ro_MD::CurrencyNames_ro_MD() {
 }
 
 $Class* CurrencyNames_ro_MD::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_ro_MD, name, initialize, &_CurrencyNames_ro_MD_ClassInfo_, allocate$CurrencyNames_ro_MD);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ro_MD, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ro_MD, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_ro_MD",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_ro_MD, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_ro_MD);
+	});
 	return class$;
 }
 

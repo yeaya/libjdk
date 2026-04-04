@@ -1,5 +1,4 @@
 #include <sun/awt/image/ByteArrayImageSource.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <sun/awt/image/ImageDecoder.h>
@@ -17,34 +16,6 @@ using $InputStreamImageSource = ::sun::awt::image::InputStreamImageSource;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _ByteArrayImageSource_FieldInfo_[] = {
-	{"imagedata", "[B", nullptr, 0, $field(ByteArrayImageSource, imagedata)},
-	{"imageoffset", "I", nullptr, 0, $field(ByteArrayImageSource, imageoffset)},
-	{"imagelength", "I", nullptr, 0, $field(ByteArrayImageSource, imagelength)},
-	{}
-};
-
-$MethodInfo _ByteArrayImageSource_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ByteArrayImageSource, init$, void, $bytes*)},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ByteArrayImageSource, init$, void, $bytes*, int32_t, int32_t)},
-	{"checkSecurity", "(Ljava/lang/Object;Z)Z", nullptr, $FINAL, $virtualMethod(ByteArrayImageSource, checkSecurity, bool, Object$*, bool)},
-	{"getDecoder", "()Lsun/awt/image/ImageDecoder;", nullptr, $PROTECTED, $virtualMethod(ByteArrayImageSource, getDecoder, $ImageDecoder*)},
-	{}
-};
-
-$ClassInfo _ByteArrayImageSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ByteArrayImageSource",
-	"sun.awt.image.InputStreamImageSource",
-	nullptr,
-	_ByteArrayImageSource_FieldInfo_,
-	_ByteArrayImageSource_MethodInfo_
-};
-
-$Object* allocate$ByteArrayImageSource($Class* clazz) {
-	return $of($alloc(ByteArrayImageSource));
-}
 
 void ByteArrayImageSource::init$($bytes* data) {
 	ByteArrayImageSource::init$(data, 0, $nc(data)->length);
@@ -70,7 +41,30 @@ ByteArrayImageSource::ByteArrayImageSource() {
 }
 
 $Class* ByteArrayImageSource::load$($String* name, bool initialize) {
-	$loadClass(ByteArrayImageSource, name, initialize, &_ByteArrayImageSource_ClassInfo_, allocate$ByteArrayImageSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"imagedata", "[B", nullptr, 0, $field(ByteArrayImageSource, imagedata)},
+		{"imageoffset", "I", nullptr, 0, $field(ByteArrayImageSource, imageoffset)},
+		{"imagelength", "I", nullptr, 0, $field(ByteArrayImageSource, imagelength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ByteArrayImageSource, init$, void, $bytes*)},
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(ByteArrayImageSource, init$, void, $bytes*, int32_t, int32_t)},
+		{"checkSecurity", "(Ljava/lang/Object;Z)Z", nullptr, $FINAL, $virtualMethod(ByteArrayImageSource, checkSecurity, bool, Object$*, bool)},
+		{"getDecoder", "()Lsun/awt/image/ImageDecoder;", nullptr, $PROTECTED, $virtualMethod(ByteArrayImageSource, getDecoder, $ImageDecoder*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ByteArrayImageSource",
+		"sun.awt.image.InputStreamImageSource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ByteArrayImageSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteArrayImageSource));
+	});
 	return class$;
 }
 

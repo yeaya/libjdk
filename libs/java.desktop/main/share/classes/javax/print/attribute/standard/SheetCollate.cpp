@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/SheetCollate.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _SheetCollate_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SheetCollate, serialVersionUID)},
-	{"UNCOLLATED", "Ljavax/print/attribute/standard/SheetCollate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SheetCollate, UNCOLLATED)},
-	{"COLLATED", "Ljavax/print/attribute/standard/SheetCollate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SheetCollate, COLLATED)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SheetCollate, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/SheetCollate;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SheetCollate, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _SheetCollate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(SheetCollate, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(SheetCollate, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(SheetCollate, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SheetCollate, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SheetCollate, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SheetCollate_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.SheetCollate",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_SheetCollate_FieldInfo_,
-	_SheetCollate_MethodInfo_
-};
-
-$Object* allocate$SheetCollate($Class* clazz) {
-	return $of($alloc(SheetCollate));
-}
 
 $Object* SheetCollate::clone() {
 	 return this->$EnumSyntax::clone();
@@ -88,7 +51,7 @@ $StringArray* SheetCollate::getStringTable() {
 }
 
 $EnumSyntaxArray* SheetCollate::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, SheetCollate::myEnumValueTable);
+	return $cast($EnumSyntaxArray, SheetCollate::myEnumValueTable);
 }
 
 $Class* SheetCollate::getCategory() {
@@ -99,7 +62,7 @@ $String* SheetCollate::getName() {
 	return "sheet-collate"_s;
 }
 
-void clinit$SheetCollate($Class* class$) {
+void SheetCollate::clinit$($Class* clazz) {
 	$assignStatic(SheetCollate::UNCOLLATED, $new(SheetCollate, 0));
 	$assignStatic(SheetCollate::COLLATED, $new(SheetCollate, 1));
 	$assignStatic(SheetCollate::myStringTable, $new($StringArray, {
@@ -116,7 +79,38 @@ SheetCollate::SheetCollate() {
 }
 
 $Class* SheetCollate::load$($String* name, bool initialize) {
-	$loadClass(SheetCollate, name, initialize, &_SheetCollate_ClassInfo_, clinit$SheetCollate, allocate$SheetCollate);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SheetCollate, serialVersionUID)},
+		{"UNCOLLATED", "Ljavax/print/attribute/standard/SheetCollate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SheetCollate, UNCOLLATED)},
+		{"COLLATED", "Ljavax/print/attribute/standard/SheetCollate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SheetCollate, COLLATED)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SheetCollate, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/SheetCollate;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SheetCollate, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(SheetCollate, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(SheetCollate, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(SheetCollate, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SheetCollate, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SheetCollate, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.SheetCollate",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.DocAttribute,javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SheetCollate, name, initialize, &classInfo$$, SheetCollate::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SheetCollate));
+	});
 	return class$;
 }
 

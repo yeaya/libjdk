@@ -1,5 +1,4 @@
 #include <sun/misc/Unsafe.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -51,593 +50,6 @@ using $Reflection = ::jdk::internal::reflect::Reflection;
 namespace sun {
 	namespace misc {
 
-$CompoundAttribute _Unsafe_MethodAnnotations_addressSize1[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_allocateInstance2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_allocateMemory3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_arrayBaseOffset4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_arrayIndexScale5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_compareAndSwapInt6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_compareAndSwapLong7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_compareAndSwapObject8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_copyMemory9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_copyMemory10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$NamedAttribute Unsafe_Attribute_var$0[] = {
-	{"since", 's', "15"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_ensureClassInitialized11[] = {
-	{"Ljava/lang/Deprecated;", Unsafe_Attribute_var$0},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_freeMemory12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_fullFence13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getAddress14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getAndAddInt15[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getAndAddLong16[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getAndSetInt17[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getAndSetLong18[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getAndSetObject19[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getBoolean20[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getBooleanVolatile21[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getByte22[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getByte23[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getByteVolatile24[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getChar25[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getChar26[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getCharVolatile27[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getDouble28[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getDouble29[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getDoubleVolatile30[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getFloat31[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getFloat32[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getFloatVolatile33[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getInt34[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getInt35[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getIntVolatile36[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getLoadAverage37[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getLong38[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getLong39[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getLongVolatile40[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getObject41[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getObjectVolatile42[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getShort43[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getShort44[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getShortVolatile45[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_getUnsafe46[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_loadFence48[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_objectFieldOffset49[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_pageSize50[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_park51[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putAddress52[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putBoolean53[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putBooleanVolatile54[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putByte55[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putByte56[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putByteVolatile57[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putChar58[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putChar59[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putCharVolatile60[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putDouble61[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putDouble62[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putDoubleVolatile63[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putFloat64[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putFloat65[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putFloatVolatile66[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putInt67[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putInt68[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putIntVolatile69[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putLong70[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putLong71[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putLongVolatile72[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putObject73[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putObjectVolatile74[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putOrderedInt75[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putOrderedLong76[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putOrderedObject77[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putShort78[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putShort79[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_putShortVolatile80[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_reallocateMemory81[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_setMemory82[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_setMemory83[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$NamedAttribute Unsafe_Attribute_var$1[] = {
-	{"since", 's', "15"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_shouldBeInitialized84[] = {
-	{"Ljava/lang/Deprecated;", Unsafe_Attribute_var$1},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_staticFieldBase85[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_staticFieldOffset86[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_storeFence87[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_throwException88[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Unsafe_MethodAnnotations_unpark89[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _Unsafe_FieldInfo_[] = {
-	{"theUnsafe", "Lsun/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Unsafe, theUnsafe)},
-	{"theInternalUnsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Unsafe, theInternalUnsafe)},
-	{"INVALID_FIELD_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Unsafe, INVALID_FIELD_OFFSET)},
-	{"ARRAY_BOOLEAN_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BOOLEAN_BASE_OFFSET)},
-	{"ARRAY_BYTE_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BYTE_BASE_OFFSET)},
-	{"ARRAY_SHORT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_SHORT_BASE_OFFSET)},
-	{"ARRAY_CHAR_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_CHAR_BASE_OFFSET)},
-	{"ARRAY_INT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_INT_BASE_OFFSET)},
-	{"ARRAY_LONG_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_LONG_BASE_OFFSET)},
-	{"ARRAY_FLOAT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_FLOAT_BASE_OFFSET)},
-	{"ARRAY_DOUBLE_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_DOUBLE_BASE_OFFSET)},
-	{"ARRAY_OBJECT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_OBJECT_BASE_OFFSET)},
-	{"ARRAY_BOOLEAN_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BOOLEAN_INDEX_SCALE)},
-	{"ARRAY_BYTE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BYTE_INDEX_SCALE)},
-	{"ARRAY_SHORT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_SHORT_INDEX_SCALE)},
-	{"ARRAY_CHAR_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_CHAR_INDEX_SCALE)},
-	{"ARRAY_INT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_INT_INDEX_SCALE)},
-	{"ARRAY_LONG_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_LONG_INDEX_SCALE)},
-	{"ARRAY_FLOAT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_FLOAT_INDEX_SCALE)},
-	{"ARRAY_DOUBLE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_DOUBLE_INDEX_SCALE)},
-	{"ARRAY_OBJECT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_OBJECT_INDEX_SCALE)},
-	{"ADDRESS_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ADDRESS_SIZE)},
-	{}
-};
-
-$MethodInfo _Unsafe_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Unsafe, init$, void)},
-	{"addressSize", "()I", nullptr, $PUBLIC, $method(Unsafe, addressSize, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_addressSize1},
-	{"allocateInstance", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $method(Unsafe, allocateInstance, $Object*, $Class*), "java.lang.InstantiationException", nullptr, _Unsafe_MethodAnnotations_allocateInstance2},
-	{"allocateMemory", "(J)J", nullptr, $PUBLIC, $method(Unsafe, allocateMemory, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_allocateMemory3},
-	{"arrayBaseOffset", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC, $method(Unsafe, arrayBaseOffset, int32_t, $Class*), nullptr, nullptr, _Unsafe_MethodAnnotations_arrayBaseOffset4},
-	{"arrayIndexScale", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC, $method(Unsafe, arrayIndexScale, int32_t, $Class*), nullptr, nullptr, _Unsafe_MethodAnnotations_arrayIndexScale5},
-	{"compareAndSwapInt", "(Ljava/lang/Object;JII)Z", nullptr, $PUBLIC | $FINAL, $method(Unsafe, compareAndSwapInt, bool, Object$*, int64_t, int32_t, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_compareAndSwapInt6},
-	{"compareAndSwapLong", "(Ljava/lang/Object;JJJ)Z", nullptr, $PUBLIC | $FINAL, $method(Unsafe, compareAndSwapLong, bool, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_compareAndSwapLong7},
-	{"compareAndSwapObject", "(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(Unsafe, compareAndSwapObject, bool, Object$*, int64_t, Object$*, Object$*), nullptr, nullptr, _Unsafe_MethodAnnotations_compareAndSwapObject8},
-	{"copyMemory", "(Ljava/lang/Object;JLjava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, copyMemory, void, Object$*, int64_t, Object$*, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_copyMemory9},
-	{"copyMemory", "(JJJ)V", nullptr, $PUBLIC, $method(Unsafe, copyMemory, void, int64_t, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_copyMemory10},
-	{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $DEPRECATED, $method(Unsafe, ensureClassInitialized, void, $Class*), nullptr, nullptr, _Unsafe_MethodAnnotations_ensureClassInitialized11},
-	{"freeMemory", "(J)V", nullptr, $PUBLIC, $method(Unsafe, freeMemory, void, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_freeMemory12},
-	{"fullFence", "()V", nullptr, $PUBLIC, $method(Unsafe, fullFence, void), nullptr, nullptr, _Unsafe_MethodAnnotations_fullFence13},
-	{"getAddress", "(J)J", nullptr, $PUBLIC, $method(Unsafe, getAddress, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getAddress14},
-	{"getAndAddInt", "(Ljava/lang/Object;JI)I", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndAddInt, int32_t, Object$*, int64_t, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getAndAddInt15},
-	{"getAndAddLong", "(Ljava/lang/Object;JJ)J", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndAddLong, int64_t, Object$*, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getAndAddLong16},
-	{"getAndSetInt", "(Ljava/lang/Object;JI)I", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndSetInt, int32_t, Object$*, int64_t, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getAndSetInt17},
-	{"getAndSetLong", "(Ljava/lang/Object;JJ)J", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndSetLong, int64_t, Object$*, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getAndSetLong18},
-	{"getAndSetObject", "(Ljava/lang/Object;JLjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndSetObject, $Object*, Object$*, int64_t, Object$*), nullptr, nullptr, _Unsafe_MethodAnnotations_getAndSetObject19},
-	{"getBoolean", "(Ljava/lang/Object;J)Z", nullptr, $PUBLIC, $method(Unsafe, getBoolean, bool, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getBoolean20},
-	{"getBooleanVolatile", "(Ljava/lang/Object;J)Z", nullptr, $PUBLIC, $method(Unsafe, getBooleanVolatile, bool, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getBooleanVolatile21},
-	{"getByte", "(Ljava/lang/Object;J)B", nullptr, $PUBLIC, $method(Unsafe, getByte, int8_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getByte22},
-	{"getByte", "(J)B", nullptr, $PUBLIC, $method(Unsafe, getByte, int8_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getByte23},
-	{"getByteVolatile", "(Ljava/lang/Object;J)B", nullptr, $PUBLIC, $method(Unsafe, getByteVolatile, int8_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getByteVolatile24},
-	{"getChar", "(Ljava/lang/Object;J)C", nullptr, $PUBLIC, $method(Unsafe, getChar, char16_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getChar25},
-	{"getChar", "(J)C", nullptr, $PUBLIC, $method(Unsafe, getChar, char16_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getChar26},
-	{"getCharVolatile", "(Ljava/lang/Object;J)C", nullptr, $PUBLIC, $method(Unsafe, getCharVolatile, char16_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getCharVolatile27},
-	{"getDouble", "(Ljava/lang/Object;J)D", nullptr, $PUBLIC, $method(Unsafe, getDouble, double, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getDouble28},
-	{"getDouble", "(J)D", nullptr, $PUBLIC, $method(Unsafe, getDouble, double, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getDouble29},
-	{"getDoubleVolatile", "(Ljava/lang/Object;J)D", nullptr, $PUBLIC, $method(Unsafe, getDoubleVolatile, double, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getDoubleVolatile30},
-	{"getFloat", "(Ljava/lang/Object;J)F", nullptr, $PUBLIC, $method(Unsafe, getFloat, float, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getFloat31},
-	{"getFloat", "(J)F", nullptr, $PUBLIC, $method(Unsafe, getFloat, float, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getFloat32},
-	{"getFloatVolatile", "(Ljava/lang/Object;J)F", nullptr, $PUBLIC, $method(Unsafe, getFloatVolatile, float, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getFloatVolatile33},
-	{"getInt", "(Ljava/lang/Object;J)I", nullptr, $PUBLIC, $method(Unsafe, getInt, int32_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getInt34},
-	{"getInt", "(J)I", nullptr, $PUBLIC, $method(Unsafe, getInt, int32_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getInt35},
-	{"getIntVolatile", "(Ljava/lang/Object;J)I", nullptr, $PUBLIC, $method(Unsafe, getIntVolatile, int32_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getIntVolatile36},
-	{"getLoadAverage", "([DI)I", nullptr, $PUBLIC, $method(Unsafe, getLoadAverage, int32_t, $doubles*, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getLoadAverage37},
-	{"getLong", "(Ljava/lang/Object;J)J", nullptr, $PUBLIC, $method(Unsafe, getLong, int64_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getLong38},
-	{"getLong", "(J)J", nullptr, $PUBLIC, $method(Unsafe, getLong, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getLong39},
-	{"getLongVolatile", "(Ljava/lang/Object;J)J", nullptr, $PUBLIC, $method(Unsafe, getLongVolatile, int64_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getLongVolatile40},
-	{"getObject", "(Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Unsafe, getObject, $Object*, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getObject41},
-	{"getObjectVolatile", "(Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Unsafe, getObjectVolatile, $Object*, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getObjectVolatile42},
-	{"getShort", "(Ljava/lang/Object;J)S", nullptr, $PUBLIC, $method(Unsafe, getShort, int16_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getShort43},
-	{"getShort", "(J)S", nullptr, $PUBLIC, $method(Unsafe, getShort, int16_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getShort44},
-	{"getShortVolatile", "(Ljava/lang/Object;J)S", nullptr, $PUBLIC, $method(Unsafe, getShortVolatile, int16_t, Object$*, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_getShortVolatile45},
-	{"getUnsafe", "()Lsun/misc/Unsafe;", nullptr, $PUBLIC | $STATIC, $staticMethod(Unsafe, getUnsafe, Unsafe*), nullptr, nullptr, _Unsafe_MethodAnnotations_getUnsafe46},
-	{"invokeCleaner", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Unsafe, invokeCleaner, void, $ByteBuffer*)},
-	{"loadFence", "()V", nullptr, $PUBLIC, $method(Unsafe, loadFence, void), nullptr, nullptr, _Unsafe_MethodAnnotations_loadFence48},
-	{"objectFieldOffset", "(Ljava/lang/reflect/Field;)J", nullptr, $PUBLIC, $method(Unsafe, objectFieldOffset, int64_t, $Field*), nullptr, nullptr, _Unsafe_MethodAnnotations_objectFieldOffset49},
-	{"pageSize", "()I", nullptr, $PUBLIC, $method(Unsafe, pageSize, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_pageSize50},
-	{"park", "(ZJ)V", nullptr, $PUBLIC, $method(Unsafe, park, void, bool, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_park51},
-	{"putAddress", "(JJ)V", nullptr, $PUBLIC, $method(Unsafe, putAddress, void, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putAddress52},
-	{"putBoolean", "(Ljava/lang/Object;JZ)V", nullptr, $PUBLIC, $method(Unsafe, putBoolean, void, Object$*, int64_t, bool), nullptr, nullptr, _Unsafe_MethodAnnotations_putBoolean53},
-	{"putBooleanVolatile", "(Ljava/lang/Object;JZ)V", nullptr, $PUBLIC, $method(Unsafe, putBooleanVolatile, void, Object$*, int64_t, bool), nullptr, nullptr, _Unsafe_MethodAnnotations_putBooleanVolatile54},
-	{"putByte", "(Ljava/lang/Object;JB)V", nullptr, $PUBLIC, $method(Unsafe, putByte, void, Object$*, int64_t, int8_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putByte55},
-	{"putByte", "(JB)V", nullptr, $PUBLIC, $method(Unsafe, putByte, void, int64_t, int8_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putByte56},
-	{"putByteVolatile", "(Ljava/lang/Object;JB)V", nullptr, $PUBLIC, $method(Unsafe, putByteVolatile, void, Object$*, int64_t, int8_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putByteVolatile57},
-	{"putChar", "(Ljava/lang/Object;JC)V", nullptr, $PUBLIC, $method(Unsafe, putChar, void, Object$*, int64_t, char16_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putChar58},
-	{"putChar", "(JC)V", nullptr, $PUBLIC, $method(Unsafe, putChar, void, int64_t, char16_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putChar59},
-	{"putCharVolatile", "(Ljava/lang/Object;JC)V", nullptr, $PUBLIC, $method(Unsafe, putCharVolatile, void, Object$*, int64_t, char16_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putCharVolatile60},
-	{"putDouble", "(Ljava/lang/Object;JD)V", nullptr, $PUBLIC, $method(Unsafe, putDouble, void, Object$*, int64_t, double), nullptr, nullptr, _Unsafe_MethodAnnotations_putDouble61},
-	{"putDouble", "(JD)V", nullptr, $PUBLIC, $method(Unsafe, putDouble, void, int64_t, double), nullptr, nullptr, _Unsafe_MethodAnnotations_putDouble62},
-	{"putDoubleVolatile", "(Ljava/lang/Object;JD)V", nullptr, $PUBLIC, $method(Unsafe, putDoubleVolatile, void, Object$*, int64_t, double), nullptr, nullptr, _Unsafe_MethodAnnotations_putDoubleVolatile63},
-	{"putFloat", "(Ljava/lang/Object;JF)V", nullptr, $PUBLIC, $method(Unsafe, putFloat, void, Object$*, int64_t, float), nullptr, nullptr, _Unsafe_MethodAnnotations_putFloat64},
-	{"putFloat", "(JF)V", nullptr, $PUBLIC, $method(Unsafe, putFloat, void, int64_t, float), nullptr, nullptr, _Unsafe_MethodAnnotations_putFloat65},
-	{"putFloatVolatile", "(Ljava/lang/Object;JF)V", nullptr, $PUBLIC, $method(Unsafe, putFloatVolatile, void, Object$*, int64_t, float), nullptr, nullptr, _Unsafe_MethodAnnotations_putFloatVolatile66},
-	{"putInt", "(Ljava/lang/Object;JI)V", nullptr, $PUBLIC, $method(Unsafe, putInt, void, Object$*, int64_t, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putInt67},
-	{"putInt", "(JI)V", nullptr, $PUBLIC, $method(Unsafe, putInt, void, int64_t, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putInt68},
-	{"putIntVolatile", "(Ljava/lang/Object;JI)V", nullptr, $PUBLIC, $method(Unsafe, putIntVolatile, void, Object$*, int64_t, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putIntVolatile69},
-	{"putLong", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, putLong, void, Object$*, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putLong70},
-	{"putLong", "(JJ)V", nullptr, $PUBLIC, $method(Unsafe, putLong, void, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putLong71},
-	{"putLongVolatile", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, putLongVolatile, void, Object$*, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putLongVolatile72},
-	{"putObject", "(Ljava/lang/Object;JLjava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, putObject, void, Object$*, int64_t, Object$*), nullptr, nullptr, _Unsafe_MethodAnnotations_putObject73},
-	{"putObjectVolatile", "(Ljava/lang/Object;JLjava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, putObjectVolatile, void, Object$*, int64_t, Object$*), nullptr, nullptr, _Unsafe_MethodAnnotations_putObjectVolatile74},
-	{"putOrderedInt", "(Ljava/lang/Object;JI)V", nullptr, $PUBLIC, $method(Unsafe, putOrderedInt, void, Object$*, int64_t, int32_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putOrderedInt75},
-	{"putOrderedLong", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, putOrderedLong, void, Object$*, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putOrderedLong76},
-	{"putOrderedObject", "(Ljava/lang/Object;JLjava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, putOrderedObject, void, Object$*, int64_t, Object$*), nullptr, nullptr, _Unsafe_MethodAnnotations_putOrderedObject77},
-	{"putShort", "(Ljava/lang/Object;JS)V", nullptr, $PUBLIC, $method(Unsafe, putShort, void, Object$*, int64_t, int16_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putShort78},
-	{"putShort", "(JS)V", nullptr, $PUBLIC, $method(Unsafe, putShort, void, int64_t, int16_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putShort79},
-	{"putShortVolatile", "(Ljava/lang/Object;JS)V", nullptr, $PUBLIC, $method(Unsafe, putShortVolatile, void, Object$*, int64_t, int16_t), nullptr, nullptr, _Unsafe_MethodAnnotations_putShortVolatile80},
-	{"reallocateMemory", "(JJ)J", nullptr, $PUBLIC, $method(Unsafe, reallocateMemory, int64_t, int64_t, int64_t), nullptr, nullptr, _Unsafe_MethodAnnotations_reallocateMemory81},
-	{"setMemory", "(Ljava/lang/Object;JJB)V", nullptr, $PUBLIC, $method(Unsafe, setMemory, void, Object$*, int64_t, int64_t, int8_t), nullptr, nullptr, _Unsafe_MethodAnnotations_setMemory82},
-	{"setMemory", "(JJB)V", nullptr, $PUBLIC, $method(Unsafe, setMemory, void, int64_t, int64_t, int8_t), nullptr, nullptr, _Unsafe_MethodAnnotations_setMemory83},
-	{"shouldBeInitialized", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $DEPRECATED, $method(Unsafe, shouldBeInitialized, bool, $Class*), nullptr, nullptr, _Unsafe_MethodAnnotations_shouldBeInitialized84},
-	{"staticFieldBase", "(Ljava/lang/reflect/Field;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Unsafe, staticFieldBase, $Object*, $Field*), nullptr, nullptr, _Unsafe_MethodAnnotations_staticFieldBase85},
-	{"staticFieldOffset", "(Ljava/lang/reflect/Field;)J", nullptr, $PUBLIC, $method(Unsafe, staticFieldOffset, int64_t, $Field*), nullptr, nullptr, _Unsafe_MethodAnnotations_staticFieldOffset86},
-	{"storeFence", "()V", nullptr, $PUBLIC, $method(Unsafe, storeFence, void), nullptr, nullptr, _Unsafe_MethodAnnotations_storeFence87},
-	{"throwException", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Unsafe, throwException, void, $Throwable*), nullptr, nullptr, _Unsafe_MethodAnnotations_throwException88},
-	{"unpark", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, unpark, void, Object$*), nullptr, nullptr, _Unsafe_MethodAnnotations_unpark89},
-	{}
-};
-
-$ClassInfo _Unsafe_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.misc.Unsafe",
-	"java.lang.Object",
-	nullptr,
-	_Unsafe_FieldInfo_,
-	_Unsafe_MethodInfo_
-};
-
-$Object* allocate$Unsafe($Class* clazz) {
-	return $of($alloc(Unsafe));
-}
-
 Unsafe* Unsafe::theUnsafe = nullptr;
 $Unsafe* Unsafe::theInternalUnsafe = nullptr;
 int32_t Unsafe::ARRAY_BOOLEAN_BASE_OFFSET = 0;
@@ -681,7 +93,7 @@ void Unsafe::putInt(Object$* o, int64_t offset, int32_t x) {
 }
 
 $Object* Unsafe::getObject(Object$* o, int64_t offset) {
-	return $of($nc(Unsafe::theInternalUnsafe)->getReference(o, offset));
+	return $nc(Unsafe::theInternalUnsafe)->getReference(o, offset);
 }
 
 void Unsafe::putObject(Object$* o, int64_t offset, Object$* x) {
@@ -837,7 +249,7 @@ void Unsafe::freeMemory(int64_t address) {
 }
 
 int64_t Unsafe::objectFieldOffset($Field* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -845,14 +257,14 @@ int64_t Unsafe::objectFieldOffset($Field* f) {
 	if ($nc(declaringClass)->isHidden()) {
 		$throwNew($UnsupportedOperationException, $$str({"can\'t get field offset on a hidden class: "_s, f}));
 	}
-	if ($nc(declaringClass)->isRecord()) {
+	if (declaringClass->isRecord()) {
 		$throwNew($UnsupportedOperationException, $$str({"can\'t get field offset on a record class: "_s, f}));
 	}
 	return $nc(Unsafe::theInternalUnsafe)->objectFieldOffset(f);
 }
 
 int64_t Unsafe::staticFieldOffset($Field* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -860,14 +272,14 @@ int64_t Unsafe::staticFieldOffset($Field* f) {
 	if ($nc(declaringClass)->isHidden()) {
 		$throwNew($UnsupportedOperationException, $$str({"can\'t get field offset on a hidden class: "_s, f}));
 	}
-	if ($nc(declaringClass)->isRecord()) {
+	if (declaringClass->isRecord()) {
 		$throwNew($UnsupportedOperationException, $$str({"can\'t get field offset on a record class: "_s, f}));
 	}
 	return $nc(Unsafe::theInternalUnsafe)->staticFieldOffset(f);
 }
 
 $Object* Unsafe::staticFieldBase($Field* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -875,10 +287,10 @@ $Object* Unsafe::staticFieldBase($Field* f) {
 	if ($nc(declaringClass)->isHidden()) {
 		$throwNew($UnsupportedOperationException, $$str({"can\'t get base address on a hidden class: "_s, f}));
 	}
-	if ($nc(declaringClass)->isRecord()) {
+	if (declaringClass->isRecord()) {
 		$throwNew($UnsupportedOperationException, $$str({"can\'t get base address on a record class: "_s, f}));
 	}
-	return $of($nc(Unsafe::theInternalUnsafe)->staticFieldBase(f));
+	return $nc(Unsafe::theInternalUnsafe)->staticFieldBase(f);
 }
 
 bool Unsafe::shouldBeInitialized($Class* c) {
@@ -906,7 +318,7 @@ int32_t Unsafe::pageSize() {
 }
 
 $Object* Unsafe::allocateInstance($Class* cls) {
-	return $of($nc(Unsafe::theInternalUnsafe)->allocateInstance(cls));
+	return $nc(Unsafe::theInternalUnsafe)->allocateInstance(cls);
 }
 
 void Unsafe::throwException($Throwable* ee) {
@@ -926,7 +338,7 @@ bool Unsafe::compareAndSwapLong(Object$* o, int64_t offset, int64_t expected, in
 }
 
 $Object* Unsafe::getObjectVolatile(Object$* o, int64_t offset) {
-	return $of($nc(Unsafe::theInternalUnsafe)->getReferenceVolatile(o, offset));
+	return $nc(Unsafe::theInternalUnsafe)->getReferenceVolatile(o, offset);
 }
 
 void Unsafe::putObjectVolatile(Object$* o, int64_t offset, Object$* x) {
@@ -1038,7 +450,7 @@ int64_t Unsafe::getAndSetLong(Object$* o, int64_t offset, int64_t newValue) {
 }
 
 $Object* Unsafe::getAndSetObject(Object$* o, int64_t offset, Object$* newValue) {
-	return $of($nc(Unsafe::theInternalUnsafe)->getAndSetReference(o, offset, newValue));
+	return $nc(Unsafe::theInternalUnsafe)->getAndSetReference(o, offset, newValue);
 }
 
 void Unsafe::loadFence() {
@@ -1060,9 +472,9 @@ void Unsafe::invokeCleaner($ByteBuffer* directBuffer) {
 	$nc(Unsafe::theInternalUnsafe)->invokeCleaner(directBuffer);
 }
 
-void clinit$Unsafe($Class* class$) {
+void Unsafe::clinit$($Class* clazz) {
 	{
-		$Reflection::registerMethodsToFilter(Unsafe::class$, $($Set::of($of("getUnsafe"_s))));
+		$Reflection::registerMethodsToFilter(Unsafe::class$, $($Set::of("getUnsafe"_s)));
 	}
 	$assignStatic(Unsafe::theUnsafe, $new(Unsafe));
 	$assignStatic(Unsafe::theInternalUnsafe, $Unsafe::getUnsafe());
@@ -1091,7 +503,499 @@ Unsafe::Unsafe() {
 }
 
 $Class* Unsafe::load$($String* name, bool initialize) {
-	$loadClass(Unsafe, name, initialize, &_Unsafe_ClassInfo_, clinit$Unsafe, allocate$Unsafe);
+	$FieldInfo fieldInfos$$[] = {
+		{"theUnsafe", "Lsun/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Unsafe, theUnsafe)},
+		{"theInternalUnsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Unsafe, theInternalUnsafe)},
+		{"INVALID_FIELD_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Unsafe, INVALID_FIELD_OFFSET)},
+		{"ARRAY_BOOLEAN_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BOOLEAN_BASE_OFFSET)},
+		{"ARRAY_BYTE_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BYTE_BASE_OFFSET)},
+		{"ARRAY_SHORT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_SHORT_BASE_OFFSET)},
+		{"ARRAY_CHAR_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_CHAR_BASE_OFFSET)},
+		{"ARRAY_INT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_INT_BASE_OFFSET)},
+		{"ARRAY_LONG_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_LONG_BASE_OFFSET)},
+		{"ARRAY_FLOAT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_FLOAT_BASE_OFFSET)},
+		{"ARRAY_DOUBLE_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_DOUBLE_BASE_OFFSET)},
+		{"ARRAY_OBJECT_BASE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_OBJECT_BASE_OFFSET)},
+		{"ARRAY_BOOLEAN_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BOOLEAN_INDEX_SCALE)},
+		{"ARRAY_BYTE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_BYTE_INDEX_SCALE)},
+		{"ARRAY_SHORT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_SHORT_INDEX_SCALE)},
+		{"ARRAY_CHAR_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_CHAR_INDEX_SCALE)},
+		{"ARRAY_INT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_INT_INDEX_SCALE)},
+		{"ARRAY_LONG_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_LONG_INDEX_SCALE)},
+		{"ARRAY_FLOAT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_FLOAT_INDEX_SCALE)},
+		{"ARRAY_DOUBLE_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_DOUBLE_INDEX_SCALE)},
+		{"ARRAY_OBJECT_INDEX_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ARRAY_OBJECT_INDEX_SCALE)},
+		{"ADDRESS_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Unsafe, ADDRESS_SIZE)},
+		{}
+	};
+	$CompoundAttribute addressSizemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute allocateInstancemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute allocateMemorymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute arrayBaseOffsetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute arrayIndexScalemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSwapIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSwapLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSwapObjectmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute copyMemorymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute copyMemorymethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$NamedAttribute ensureClassInitializedmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "15"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute ensureClassInitializedmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", ensureClassInitializedmethodAnnotations$$$namedAttribute},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute freeMemorymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute fullFencemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAddressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndAddLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetObjectmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBooleanmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBooleanVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBytemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBytemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getByteVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getCharmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getCharVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDoublemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDoublemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDoubleVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getFloatmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getFloatmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getFloatVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getIntmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getIntVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLoadAveragemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLongmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLongVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getObjectmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getObjectVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getShortmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getShortmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getShortVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getUnsafemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute loadFencemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute objectFieldOffsetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute pageSizemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute parkmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putAddressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putBooleanmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putBooleanVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putBytemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putBytemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putByteVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putCharmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putCharVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putDoublemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putDoublemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putDoubleVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putFloatmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putFloatmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putFloatVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putIntmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putIntVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putLongmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putLongVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putObjectmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putObjectVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putOrderedIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putOrderedLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putOrderedObjectmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putShortmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putShortmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute putShortVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute reallocateMemorymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setMemorymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setMemorymethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$NamedAttribute shouldBeInitializedmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "15"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute shouldBeInitializedmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", shouldBeInitializedmethodAnnotations$$$namedAttribute},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute staticFieldBasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute staticFieldOffsetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute storeFencemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute throwExceptionmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute unparkmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Unsafe, init$, void)},
+		{"addressSize", "()I", nullptr, $PUBLIC, $method(Unsafe, addressSize, int32_t), nullptr, nullptr, addressSizemethodAnnotations$$},
+		{"allocateInstance", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)Ljava/lang/Object;", $PUBLIC, $method(Unsafe, allocateInstance, $Object*, $Class*), "java.lang.InstantiationException", nullptr, allocateInstancemethodAnnotations$$},
+		{"allocateMemory", "(J)J", nullptr, $PUBLIC, $method(Unsafe, allocateMemory, int64_t, int64_t), nullptr, nullptr, allocateMemorymethodAnnotations$$},
+		{"arrayBaseOffset", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC, $method(Unsafe, arrayBaseOffset, int32_t, $Class*), nullptr, nullptr, arrayBaseOffsetmethodAnnotations$$},
+		{"arrayIndexScale", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC, $method(Unsafe, arrayIndexScale, int32_t, $Class*), nullptr, nullptr, arrayIndexScalemethodAnnotations$$},
+		{"compareAndSwapInt", "(Ljava/lang/Object;JII)Z", nullptr, $PUBLIC | $FINAL, $method(Unsafe, compareAndSwapInt, bool, Object$*, int64_t, int32_t, int32_t), nullptr, nullptr, compareAndSwapIntmethodAnnotations$$},
+		{"compareAndSwapLong", "(Ljava/lang/Object;JJJ)Z", nullptr, $PUBLIC | $FINAL, $method(Unsafe, compareAndSwapLong, bool, Object$*, int64_t, int64_t, int64_t), nullptr, nullptr, compareAndSwapLongmethodAnnotations$$},
+		{"compareAndSwapObject", "(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(Unsafe, compareAndSwapObject, bool, Object$*, int64_t, Object$*, Object$*), nullptr, nullptr, compareAndSwapObjectmethodAnnotations$$},
+		{"copyMemory", "(Ljava/lang/Object;JLjava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, copyMemory, void, Object$*, int64_t, Object$*, int64_t, int64_t), nullptr, nullptr, copyMemorymethodAnnotations$$},
+		{"copyMemory", "(JJJ)V", nullptr, $PUBLIC, $method(Unsafe, copyMemory, void, int64_t, int64_t, int64_t), nullptr, nullptr, copyMemorymethodAnnotations$$$1},
+		{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $DEPRECATED, $method(Unsafe, ensureClassInitialized, void, $Class*), nullptr, nullptr, ensureClassInitializedmethodAnnotations$$},
+		{"freeMemory", "(J)V", nullptr, $PUBLIC, $method(Unsafe, freeMemory, void, int64_t), nullptr, nullptr, freeMemorymethodAnnotations$$},
+		{"fullFence", "()V", nullptr, $PUBLIC, $method(Unsafe, fullFence, void), nullptr, nullptr, fullFencemethodAnnotations$$},
+		{"getAddress", "(J)J", nullptr, $PUBLIC, $method(Unsafe, getAddress, int64_t, int64_t), nullptr, nullptr, getAddressmethodAnnotations$$},
+		{"getAndAddInt", "(Ljava/lang/Object;JI)I", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndAddInt, int32_t, Object$*, int64_t, int32_t), nullptr, nullptr, getAndAddIntmethodAnnotations$$},
+		{"getAndAddLong", "(Ljava/lang/Object;JJ)J", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndAddLong, int64_t, Object$*, int64_t, int64_t), nullptr, nullptr, getAndAddLongmethodAnnotations$$},
+		{"getAndSetInt", "(Ljava/lang/Object;JI)I", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndSetInt, int32_t, Object$*, int64_t, int32_t), nullptr, nullptr, getAndSetIntmethodAnnotations$$},
+		{"getAndSetLong", "(Ljava/lang/Object;JJ)J", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndSetLong, int64_t, Object$*, int64_t, int64_t), nullptr, nullptr, getAndSetLongmethodAnnotations$$},
+		{"getAndSetObject", "(Ljava/lang/Object;JLjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(Unsafe, getAndSetObject, $Object*, Object$*, int64_t, Object$*), nullptr, nullptr, getAndSetObjectmethodAnnotations$$},
+		{"getBoolean", "(Ljava/lang/Object;J)Z", nullptr, $PUBLIC, $method(Unsafe, getBoolean, bool, Object$*, int64_t), nullptr, nullptr, getBooleanmethodAnnotations$$},
+		{"getBooleanVolatile", "(Ljava/lang/Object;J)Z", nullptr, $PUBLIC, $method(Unsafe, getBooleanVolatile, bool, Object$*, int64_t), nullptr, nullptr, getBooleanVolatilemethodAnnotations$$},
+		{"getByte", "(Ljava/lang/Object;J)B", nullptr, $PUBLIC, $method(Unsafe, getByte, int8_t, Object$*, int64_t), nullptr, nullptr, getBytemethodAnnotations$$},
+		{"getByte", "(J)B", nullptr, $PUBLIC, $method(Unsafe, getByte, int8_t, int64_t), nullptr, nullptr, getBytemethodAnnotations$$$1},
+		{"getByteVolatile", "(Ljava/lang/Object;J)B", nullptr, $PUBLIC, $method(Unsafe, getByteVolatile, int8_t, Object$*, int64_t), nullptr, nullptr, getByteVolatilemethodAnnotations$$},
+		{"getChar", "(Ljava/lang/Object;J)C", nullptr, $PUBLIC, $method(Unsafe, getChar, char16_t, Object$*, int64_t), nullptr, nullptr, getCharmethodAnnotations$$},
+		{"getChar", "(J)C", nullptr, $PUBLIC, $method(Unsafe, getChar, char16_t, int64_t), nullptr, nullptr, getCharmethodAnnotations$$$1},
+		{"getCharVolatile", "(Ljava/lang/Object;J)C", nullptr, $PUBLIC, $method(Unsafe, getCharVolatile, char16_t, Object$*, int64_t), nullptr, nullptr, getCharVolatilemethodAnnotations$$},
+		{"getDouble", "(Ljava/lang/Object;J)D", nullptr, $PUBLIC, $method(Unsafe, getDouble, double, Object$*, int64_t), nullptr, nullptr, getDoublemethodAnnotations$$},
+		{"getDouble", "(J)D", nullptr, $PUBLIC, $method(Unsafe, getDouble, double, int64_t), nullptr, nullptr, getDoublemethodAnnotations$$$1},
+		{"getDoubleVolatile", "(Ljava/lang/Object;J)D", nullptr, $PUBLIC, $method(Unsafe, getDoubleVolatile, double, Object$*, int64_t), nullptr, nullptr, getDoubleVolatilemethodAnnotations$$},
+		{"getFloat", "(Ljava/lang/Object;J)F", nullptr, $PUBLIC, $method(Unsafe, getFloat, float, Object$*, int64_t), nullptr, nullptr, getFloatmethodAnnotations$$},
+		{"getFloat", "(J)F", nullptr, $PUBLIC, $method(Unsafe, getFloat, float, int64_t), nullptr, nullptr, getFloatmethodAnnotations$$$1},
+		{"getFloatVolatile", "(Ljava/lang/Object;J)F", nullptr, $PUBLIC, $method(Unsafe, getFloatVolatile, float, Object$*, int64_t), nullptr, nullptr, getFloatVolatilemethodAnnotations$$},
+		{"getInt", "(Ljava/lang/Object;J)I", nullptr, $PUBLIC, $method(Unsafe, getInt, int32_t, Object$*, int64_t), nullptr, nullptr, getIntmethodAnnotations$$},
+		{"getInt", "(J)I", nullptr, $PUBLIC, $method(Unsafe, getInt, int32_t, int64_t), nullptr, nullptr, getIntmethodAnnotations$$$1},
+		{"getIntVolatile", "(Ljava/lang/Object;J)I", nullptr, $PUBLIC, $method(Unsafe, getIntVolatile, int32_t, Object$*, int64_t), nullptr, nullptr, getIntVolatilemethodAnnotations$$},
+		{"getLoadAverage", "([DI)I", nullptr, $PUBLIC, $method(Unsafe, getLoadAverage, int32_t, $doubles*, int32_t), nullptr, nullptr, getLoadAveragemethodAnnotations$$},
+		{"getLong", "(Ljava/lang/Object;J)J", nullptr, $PUBLIC, $method(Unsafe, getLong, int64_t, Object$*, int64_t), nullptr, nullptr, getLongmethodAnnotations$$},
+		{"getLong", "(J)J", nullptr, $PUBLIC, $method(Unsafe, getLong, int64_t, int64_t), nullptr, nullptr, getLongmethodAnnotations$$$1},
+		{"getLongVolatile", "(Ljava/lang/Object;J)J", nullptr, $PUBLIC, $method(Unsafe, getLongVolatile, int64_t, Object$*, int64_t), nullptr, nullptr, getLongVolatilemethodAnnotations$$},
+		{"getObject", "(Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Unsafe, getObject, $Object*, Object$*, int64_t), nullptr, nullptr, getObjectmethodAnnotations$$},
+		{"getObjectVolatile", "(Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Unsafe, getObjectVolatile, $Object*, Object$*, int64_t), nullptr, nullptr, getObjectVolatilemethodAnnotations$$},
+		{"getShort", "(Ljava/lang/Object;J)S", nullptr, $PUBLIC, $method(Unsafe, getShort, int16_t, Object$*, int64_t), nullptr, nullptr, getShortmethodAnnotations$$},
+		{"getShort", "(J)S", nullptr, $PUBLIC, $method(Unsafe, getShort, int16_t, int64_t), nullptr, nullptr, getShortmethodAnnotations$$$1},
+		{"getShortVolatile", "(Ljava/lang/Object;J)S", nullptr, $PUBLIC, $method(Unsafe, getShortVolatile, int16_t, Object$*, int64_t), nullptr, nullptr, getShortVolatilemethodAnnotations$$},
+		{"getUnsafe", "()Lsun/misc/Unsafe;", nullptr, $PUBLIC | $STATIC, $staticMethod(Unsafe, getUnsafe, Unsafe*), nullptr, nullptr, getUnsafemethodAnnotations$$},
+		{"invokeCleaner", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Unsafe, invokeCleaner, void, $ByteBuffer*)},
+		{"loadFence", "()V", nullptr, $PUBLIC, $method(Unsafe, loadFence, void), nullptr, nullptr, loadFencemethodAnnotations$$},
+		{"objectFieldOffset", "(Ljava/lang/reflect/Field;)J", nullptr, $PUBLIC, $method(Unsafe, objectFieldOffset, int64_t, $Field*), nullptr, nullptr, objectFieldOffsetmethodAnnotations$$},
+		{"pageSize", "()I", nullptr, $PUBLIC, $method(Unsafe, pageSize, int32_t), nullptr, nullptr, pageSizemethodAnnotations$$},
+		{"park", "(ZJ)V", nullptr, $PUBLIC, $method(Unsafe, park, void, bool, int64_t), nullptr, nullptr, parkmethodAnnotations$$},
+		{"putAddress", "(JJ)V", nullptr, $PUBLIC, $method(Unsafe, putAddress, void, int64_t, int64_t), nullptr, nullptr, putAddressmethodAnnotations$$},
+		{"putBoolean", "(Ljava/lang/Object;JZ)V", nullptr, $PUBLIC, $method(Unsafe, putBoolean, void, Object$*, int64_t, bool), nullptr, nullptr, putBooleanmethodAnnotations$$},
+		{"putBooleanVolatile", "(Ljava/lang/Object;JZ)V", nullptr, $PUBLIC, $method(Unsafe, putBooleanVolatile, void, Object$*, int64_t, bool), nullptr, nullptr, putBooleanVolatilemethodAnnotations$$},
+		{"putByte", "(Ljava/lang/Object;JB)V", nullptr, $PUBLIC, $method(Unsafe, putByte, void, Object$*, int64_t, int8_t), nullptr, nullptr, putBytemethodAnnotations$$},
+		{"putByte", "(JB)V", nullptr, $PUBLIC, $method(Unsafe, putByte, void, int64_t, int8_t), nullptr, nullptr, putBytemethodAnnotations$$$1},
+		{"putByteVolatile", "(Ljava/lang/Object;JB)V", nullptr, $PUBLIC, $method(Unsafe, putByteVolatile, void, Object$*, int64_t, int8_t), nullptr, nullptr, putByteVolatilemethodAnnotations$$},
+		{"putChar", "(Ljava/lang/Object;JC)V", nullptr, $PUBLIC, $method(Unsafe, putChar, void, Object$*, int64_t, char16_t), nullptr, nullptr, putCharmethodAnnotations$$},
+		{"putChar", "(JC)V", nullptr, $PUBLIC, $method(Unsafe, putChar, void, int64_t, char16_t), nullptr, nullptr, putCharmethodAnnotations$$$1},
+		{"putCharVolatile", "(Ljava/lang/Object;JC)V", nullptr, $PUBLIC, $method(Unsafe, putCharVolatile, void, Object$*, int64_t, char16_t), nullptr, nullptr, putCharVolatilemethodAnnotations$$},
+		{"putDouble", "(Ljava/lang/Object;JD)V", nullptr, $PUBLIC, $method(Unsafe, putDouble, void, Object$*, int64_t, double), nullptr, nullptr, putDoublemethodAnnotations$$},
+		{"putDouble", "(JD)V", nullptr, $PUBLIC, $method(Unsafe, putDouble, void, int64_t, double), nullptr, nullptr, putDoublemethodAnnotations$$$1},
+		{"putDoubleVolatile", "(Ljava/lang/Object;JD)V", nullptr, $PUBLIC, $method(Unsafe, putDoubleVolatile, void, Object$*, int64_t, double), nullptr, nullptr, putDoubleVolatilemethodAnnotations$$},
+		{"putFloat", "(Ljava/lang/Object;JF)V", nullptr, $PUBLIC, $method(Unsafe, putFloat, void, Object$*, int64_t, float), nullptr, nullptr, putFloatmethodAnnotations$$},
+		{"putFloat", "(JF)V", nullptr, $PUBLIC, $method(Unsafe, putFloat, void, int64_t, float), nullptr, nullptr, putFloatmethodAnnotations$$$1},
+		{"putFloatVolatile", "(Ljava/lang/Object;JF)V", nullptr, $PUBLIC, $method(Unsafe, putFloatVolatile, void, Object$*, int64_t, float), nullptr, nullptr, putFloatVolatilemethodAnnotations$$},
+		{"putInt", "(Ljava/lang/Object;JI)V", nullptr, $PUBLIC, $method(Unsafe, putInt, void, Object$*, int64_t, int32_t), nullptr, nullptr, putIntmethodAnnotations$$},
+		{"putInt", "(JI)V", nullptr, $PUBLIC, $method(Unsafe, putInt, void, int64_t, int32_t), nullptr, nullptr, putIntmethodAnnotations$$$1},
+		{"putIntVolatile", "(Ljava/lang/Object;JI)V", nullptr, $PUBLIC, $method(Unsafe, putIntVolatile, void, Object$*, int64_t, int32_t), nullptr, nullptr, putIntVolatilemethodAnnotations$$},
+		{"putLong", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, putLong, void, Object$*, int64_t, int64_t), nullptr, nullptr, putLongmethodAnnotations$$},
+		{"putLong", "(JJ)V", nullptr, $PUBLIC, $method(Unsafe, putLong, void, int64_t, int64_t), nullptr, nullptr, putLongmethodAnnotations$$$1},
+		{"putLongVolatile", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, putLongVolatile, void, Object$*, int64_t, int64_t), nullptr, nullptr, putLongVolatilemethodAnnotations$$},
+		{"putObject", "(Ljava/lang/Object;JLjava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, putObject, void, Object$*, int64_t, Object$*), nullptr, nullptr, putObjectmethodAnnotations$$},
+		{"putObjectVolatile", "(Ljava/lang/Object;JLjava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, putObjectVolatile, void, Object$*, int64_t, Object$*), nullptr, nullptr, putObjectVolatilemethodAnnotations$$},
+		{"putOrderedInt", "(Ljava/lang/Object;JI)V", nullptr, $PUBLIC, $method(Unsafe, putOrderedInt, void, Object$*, int64_t, int32_t), nullptr, nullptr, putOrderedIntmethodAnnotations$$},
+		{"putOrderedLong", "(Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Unsafe, putOrderedLong, void, Object$*, int64_t, int64_t), nullptr, nullptr, putOrderedLongmethodAnnotations$$},
+		{"putOrderedObject", "(Ljava/lang/Object;JLjava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, putOrderedObject, void, Object$*, int64_t, Object$*), nullptr, nullptr, putOrderedObjectmethodAnnotations$$},
+		{"putShort", "(Ljava/lang/Object;JS)V", nullptr, $PUBLIC, $method(Unsafe, putShort, void, Object$*, int64_t, int16_t), nullptr, nullptr, putShortmethodAnnotations$$},
+		{"putShort", "(JS)V", nullptr, $PUBLIC, $method(Unsafe, putShort, void, int64_t, int16_t), nullptr, nullptr, putShortmethodAnnotations$$$1},
+		{"putShortVolatile", "(Ljava/lang/Object;JS)V", nullptr, $PUBLIC, $method(Unsafe, putShortVolatile, void, Object$*, int64_t, int16_t), nullptr, nullptr, putShortVolatilemethodAnnotations$$},
+		{"reallocateMemory", "(JJ)J", nullptr, $PUBLIC, $method(Unsafe, reallocateMemory, int64_t, int64_t, int64_t), nullptr, nullptr, reallocateMemorymethodAnnotations$$},
+		{"setMemory", "(Ljava/lang/Object;JJB)V", nullptr, $PUBLIC, $method(Unsafe, setMemory, void, Object$*, int64_t, int64_t, int8_t), nullptr, nullptr, setMemorymethodAnnotations$$},
+		{"setMemory", "(JJB)V", nullptr, $PUBLIC, $method(Unsafe, setMemory, void, int64_t, int64_t, int8_t), nullptr, nullptr, setMemorymethodAnnotations$$$1},
+		{"shouldBeInitialized", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $DEPRECATED, $method(Unsafe, shouldBeInitialized, bool, $Class*), nullptr, nullptr, shouldBeInitializedmethodAnnotations$$},
+		{"staticFieldBase", "(Ljava/lang/reflect/Field;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Unsafe, staticFieldBase, $Object*, $Field*), nullptr, nullptr, staticFieldBasemethodAnnotations$$},
+		{"staticFieldOffset", "(Ljava/lang/reflect/Field;)J", nullptr, $PUBLIC, $method(Unsafe, staticFieldOffset, int64_t, $Field*), nullptr, nullptr, staticFieldOffsetmethodAnnotations$$},
+		{"storeFence", "()V", nullptr, $PUBLIC, $method(Unsafe, storeFence, void), nullptr, nullptr, storeFencemethodAnnotations$$},
+		{"throwException", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Unsafe, throwException, void, $Throwable*), nullptr, nullptr, throwExceptionmethodAnnotations$$},
+		{"unpark", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Unsafe, unpark, void, Object$*), nullptr, nullptr, unparkmethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.misc.Unsafe",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Unsafe, name, initialize, &classInfo$$, Unsafe::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Unsafe);
+	});
 	return class$;
 }
 

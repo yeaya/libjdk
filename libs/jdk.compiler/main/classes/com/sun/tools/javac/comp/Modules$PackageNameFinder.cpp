@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Modules$PackageNameFinder.h>
-
 #include <com/sun/tools/javac/comp/Modules.h>
 #include <com/sun/tools/javac/util/Name.h>
 #include <javax/tools/JavaFileObject.h>
@@ -17,38 +16,33 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Modules$PackageNameFinder_MethodInfo_[] = {
-	{"findPackageNameOf", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Modules$PackageNameFinder, findPackageNameOf, $Name*, $JavaFileObject*)},
-	{}
-};
-
-$InnerClassInfo _Modules$PackageNameFinder_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Modules$PackageNameFinder", "com.sun.tools.javac.comp.Modules", "PackageNameFinder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Modules$PackageNameFinder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Modules$PackageNameFinder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Modules$PackageNameFinder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Modules$PackageNameFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Modules"
-};
-
-$Object* allocate$Modules$PackageNameFinder($Class* clazz) {
-	return $of($alloc(Modules$PackageNameFinder));
-}
-
 $Class* Modules$PackageNameFinder::load$($String* name, bool initialize) {
-	$loadClass(Modules$PackageNameFinder, name, initialize, &_Modules$PackageNameFinder_ClassInfo_, allocate$Modules$PackageNameFinder);
+	$MethodInfo methodInfos$$[] = {
+		{"findPackageNameOf", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Modules$PackageNameFinder, findPackageNameOf, $Name*, $JavaFileObject*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Modules$PackageNameFinder", "com.sun.tools.javac.comp.Modules", "PackageNameFinder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Modules$PackageNameFinder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Modules"
+	};
+	$loadClass(Modules$PackageNameFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Modules$PackageNameFinder);
+	});
 	return class$;
 }
 

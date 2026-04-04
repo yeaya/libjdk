@@ -1,5 +1,4 @@
 #include <HeadlessJSplitPane.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -34,7 +33,6 @@
 using $ComponentArray = $Array<::java::awt::Component>;
 using $LocaleArray = $Array<::java::util::Locale>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
@@ -43,7 +41,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -53,30 +50,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JSplitPane = ::javax::swing::JSplitPane;
 
-$MethodInfo _HeadlessJSplitPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJSplitPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJSplitPane, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessJSplitPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJSplitPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJSplitPane_MethodInfo_
-};
-
-$Object* allocate$HeadlessJSplitPane($Class* clazz) {
-	return $of($alloc(HeadlessJSplitPane));
-}
-
 void HeadlessJSplitPane::init$() {
 }
 
 void HeadlessJSplitPane::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSplitPane, s, $new($JSplitPane));
 	s->getAccessibleContext();
 	s->isFocusTraversable();
@@ -98,26 +76,22 @@ void HeadlessJSplitPane::main($StringArray* args) {
 	s->setForeground($Color::red);
 	s->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					s->setFont(f1);
-					s->setFont(f2);
-					s->setFont(f3);
-					s->setFont(f4);
-					s->getFontMetrics(f1);
-					s->getFontMetrics(f2);
-					s->getFontMetrics(f3);
-					s->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				s->setFont(f1);
+				s->setFont(f2);
+				s->setFont(f3);
+				s->setFont(f4);
+				s->getFontMetrics(f1);
+				s->getFontMetrics(f2);
+				s->getFontMetrics(f3);
+				s->getFontMetrics(f4);
 			}
 		}
 	}
@@ -179,13 +153,11 @@ void HeadlessJSplitPane::main($StringArray* args) {
 	s->getFont();
 	s->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(s));
+	c->add(s);
 	s->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			s->setLocale(locale);
 		}
@@ -242,7 +214,22 @@ HeadlessJSplitPane::HeadlessJSplitPane() {
 }
 
 $Class* HeadlessJSplitPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJSplitPane, name, initialize, &_HeadlessJSplitPane_ClassInfo_, allocate$HeadlessJSplitPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJSplitPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJSplitPane, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJSplitPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessJSplitPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJSplitPane);
+	});
 	return class$;
 }
 

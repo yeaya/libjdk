@@ -169,6 +169,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addCaretListener(::javax::swing::event::CaretListener* listener);
 	virtual void addInputMethodListener(::java::awt::event::InputMethodListener* l) override;

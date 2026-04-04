@@ -1,5 +1,4 @@
 #include <java/awt/image/FilteredImageSource.h>
-
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/ImageFilter.h>
 #include <java/awt/image/ImageProducer.h>
@@ -17,36 +16,6 @@ using $Hashtable = ::java::util::Hashtable;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _FilteredImageSource_FieldInfo_[] = {
-	{"src", "Ljava/awt/image/ImageProducer;", nullptr, 0, $field(FilteredImageSource, src)},
-	{"filter", "Ljava/awt/image/ImageFilter;", nullptr, 0, $field(FilteredImageSource, filter)},
-	{"proxies", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/image/ImageConsumer;Ljava/awt/image/ImageFilter;>;", $PRIVATE, $field(FilteredImageSource, proxies)},
-	{}
-};
-
-$MethodInfo _FilteredImageSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/ImageProducer;Ljava/awt/image/ImageFilter;)V", nullptr, $PUBLIC, $method(FilteredImageSource, init$, void, $ImageProducer*, $ImageFilter*)},
-	{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, addConsumer, void, $ImageConsumer*)},
-	{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, isConsumer, bool, $ImageConsumer*)},
-	{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, removeConsumer, void, $ImageConsumer*)},
-	{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, requestTopDownLeftRightResend, void, $ImageConsumer*)},
-	{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, startProduction, void, $ImageConsumer*)},
-	{}
-};
-
-$ClassInfo _FilteredImageSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.FilteredImageSource",
-	"java.lang.Object",
-	"java.awt.image.ImageProducer",
-	_FilteredImageSource_FieldInfo_,
-	_FilteredImageSource_MethodInfo_
-};
-
-$Object* allocate$FilteredImageSource($Class* clazz) {
-	return $of($alloc(FilteredImageSource));
-}
 
 void FilteredImageSource::init$($ImageProducer* orig, $ImageFilter* imgf) {
 	$set(this, src, orig);
@@ -68,18 +37,18 @@ void FilteredImageSource::addConsumer($ImageConsumer* ic) {
 
 bool FilteredImageSource::isConsumer($ImageConsumer* ic) {
 	$synchronized(this) {
-		return (this->proxies != nullptr && $nc(this->proxies)->containsKey(ic));
+		return (this->proxies != nullptr && this->proxies->containsKey(ic));
 	}
 }
 
 void FilteredImageSource::removeConsumer($ImageConsumer* ic) {
 	$synchronized(this) {
 		if (this->proxies != nullptr) {
-			$var($ImageFilter, imgf, $cast($ImageFilter, $nc(this->proxies)->get(ic)));
+			$var($ImageFilter, imgf, $cast($ImageFilter, this->proxies->get(ic)));
 			if (imgf != nullptr) {
 				$nc(this->src)->removeConsumer(imgf);
 				$nc(this->proxies)->remove(ic);
-				if ($nc(this->proxies)->isEmpty()) {
+				if (this->proxies->isEmpty()) {
 					$set(this, proxies, nullptr);
 				}
 			}
@@ -104,7 +73,7 @@ void FilteredImageSource::startProduction($ImageConsumer* ic) {
 void FilteredImageSource::requestTopDownLeftRightResend($ImageConsumer* ic) {
 	$synchronized(this) {
 		if (this->proxies != nullptr) {
-			$var($ImageFilter, imgf, $cast($ImageFilter, $nc(this->proxies)->get(ic)));
+			$var($ImageFilter, imgf, $cast($ImageFilter, this->proxies->get(ic)));
 			if (imgf != nullptr) {
 				imgf->resendTopDownLeftRight(this->src);
 			}
@@ -116,7 +85,32 @@ FilteredImageSource::FilteredImageSource() {
 }
 
 $Class* FilteredImageSource::load$($String* name, bool initialize) {
-	$loadClass(FilteredImageSource, name, initialize, &_FilteredImageSource_ClassInfo_, allocate$FilteredImageSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"src", "Ljava/awt/image/ImageProducer;", nullptr, 0, $field(FilteredImageSource, src)},
+		{"filter", "Ljava/awt/image/ImageFilter;", nullptr, 0, $field(FilteredImageSource, filter)},
+		{"proxies", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/awt/image/ImageConsumer;Ljava/awt/image/ImageFilter;>;", $PRIVATE, $field(FilteredImageSource, proxies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/ImageProducer;Ljava/awt/image/ImageFilter;)V", nullptr, $PUBLIC, $method(FilteredImageSource, init$, void, $ImageProducer*, $ImageFilter*)},
+		{"addConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, addConsumer, void, $ImageConsumer*)},
+		{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, isConsumer, bool, $ImageConsumer*)},
+		{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, removeConsumer, void, $ImageConsumer*)},
+		{"requestTopDownLeftRightResend", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, requestTopDownLeftRightResend, void, $ImageConsumer*)},
+		{"startProduction", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilteredImageSource, startProduction, void, $ImageConsumer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.FilteredImageSource",
+		"java.lang.Object",
+		"java.awt.image.ImageProducer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilteredImageSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilteredImageSource);
+	});
 	return class$;
 }
 

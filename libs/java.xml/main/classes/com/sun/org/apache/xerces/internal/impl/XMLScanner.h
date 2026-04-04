@@ -149,6 +149,7 @@ class XMLScanner : public ::com::sun::org::apache::xerces::internal::xni::parser
 	$class(XMLScanner, 0, ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent)
 public:
 	XMLScanner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkEntityLimit(bool isPEDecl, $String* entityName, ::com::sun::org::apache::xerces::internal::xni::XMLString* buffer);
 	virtual void checkEntityLimit(bool isPEDecl, $String* entityName, int32_t len);

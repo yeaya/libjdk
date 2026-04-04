@@ -1,5 +1,4 @@
 #include <sun/java2d/MacOSFlags$PropertyState.h>
-
 #include <java/lang/Enum.h>
 #include <sun/java2d/MacOSFlags.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _MacOSFlags$PropertyState_FieldInfo_[] = {
-	{"ENABLED", "Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MacOSFlags$PropertyState, ENABLED)},
-	{"DISABLED", "Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MacOSFlags$PropertyState, DISABLED)},
-	{"UNSPECIFIED", "Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MacOSFlags$PropertyState, UNSPECIFIED)},
-	{"$VALUES", "[Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MacOSFlags$PropertyState, $VALUES)},
-	{}
-};
-
-$MethodInfo _MacOSFlags$PropertyState_MethodInfo_[] = {
-	{"$values", "()[Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MacOSFlags$PropertyState, $values, $MacOSFlags$PropertyStateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MacOSFlags$PropertyState, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags$PropertyState, valueOf, MacOSFlags$PropertyState*, $String*)},
-	{"values", "()[Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags$PropertyState, values, $MacOSFlags$PropertyStateArray*)},
-	{}
-};
-
-$InnerClassInfo _MacOSFlags$PropertyState_InnerClassesInfo_[] = {
-	{"sun.java2d.MacOSFlags$PropertyState", "sun.java2d.MacOSFlags", "PropertyState", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MacOSFlags$PropertyState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.java2d.MacOSFlags$PropertyState",
-	"java.lang.Enum",
-	nullptr,
-	_MacOSFlags$PropertyState_FieldInfo_,
-	_MacOSFlags$PropertyState_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/java2d/MacOSFlags$PropertyState;>;",
-	nullptr,
-	_MacOSFlags$PropertyState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.MacOSFlags"
-};
-
-$Object* allocate$MacOSFlags$PropertyState($Class* clazz) {
-	return $of($alloc(MacOSFlags$PropertyState));
-}
 
 MacOSFlags$PropertyState* MacOSFlags$PropertyState::ENABLED = nullptr;
 MacOSFlags$PropertyState* MacOSFlags$PropertyState::DISABLED = nullptr;
@@ -87,7 +45,7 @@ void MacOSFlags$PropertyState::init$($String* $enum$name, int32_t $enum$ordinal)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$MacOSFlags$PropertyState($Class* class$) {
+void MacOSFlags$PropertyState::clinit$($Class* clazz) {
 	$assignStatic(MacOSFlags$PropertyState::ENABLED, $new(MacOSFlags$PropertyState, "ENABLED"_s, 0));
 	$assignStatic(MacOSFlags$PropertyState::DISABLED, $new(MacOSFlags$PropertyState, "DISABLED"_s, 1));
 	$assignStatic(MacOSFlags$PropertyState::UNSPECIFIED, $new(MacOSFlags$PropertyState, "UNSPECIFIED"_s, 2));
@@ -98,7 +56,42 @@ MacOSFlags$PropertyState::MacOSFlags$PropertyState() {
 }
 
 $Class* MacOSFlags$PropertyState::load$($String* name, bool initialize) {
-	$loadClass(MacOSFlags$PropertyState, name, initialize, &_MacOSFlags$PropertyState_ClassInfo_, clinit$MacOSFlags$PropertyState, allocate$MacOSFlags$PropertyState);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENABLED", "Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MacOSFlags$PropertyState, ENABLED)},
+		{"DISABLED", "Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MacOSFlags$PropertyState, DISABLED)},
+		{"UNSPECIFIED", "Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MacOSFlags$PropertyState, UNSPECIFIED)},
+		{"$VALUES", "[Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MacOSFlags$PropertyState, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MacOSFlags$PropertyState, $values, $MacOSFlags$PropertyStateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MacOSFlags$PropertyState, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags$PropertyState, valueOf, MacOSFlags$PropertyState*, $String*)},
+		{"values", "()[Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags$PropertyState, values, $MacOSFlags$PropertyStateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.MacOSFlags$PropertyState", "sun.java2d.MacOSFlags", "PropertyState", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.java2d.MacOSFlags$PropertyState",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/java2d/MacOSFlags$PropertyState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.MacOSFlags"
+	};
+	$loadClass(MacOSFlags$PropertyState, name, initialize, &classInfo$$, MacOSFlags$PropertyState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MacOSFlags$PropertyState));
+	});
 	return class$;
 }
 

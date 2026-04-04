@@ -1,5 +1,4 @@
 #include <javax/swing/JRadioButton.h>
-
 #include <java/awt/Component.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -33,97 +32,9 @@ using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JRadioButton_Attribute_var$0[] = {
-	{"description", 's', "A component which can display it\'s state as selected or deselected."},
-	{}
-};
-
-$NamedAttribute JRadioButton_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JRadioButton_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JRadioButton_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JRadioButton_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JRadioButton_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "The AccessibleContext associated with this Button"},
-	{}
-};
-
-$CompoundAttribute _JRadioButton_MethodAnnotations_getAccessibleContext8[] = {
-	{"Ljava/beans/BeanProperty;", JRadioButton_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JRadioButton_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "A string that specifies the name of the L&F class."},
-	{}
-};
-
-$CompoundAttribute _JRadioButton_MethodAnnotations_getUIClassID9[] = {
-	{"Ljava/beans/BeanProperty;", JRadioButton_Attribute_var$3},
-	{}
-};
-
-$FieldInfo _JRadioButton_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRadioButton, uiClassID)},
-	{}
-};
-
-$MethodInfo _JRadioButton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRadioButton, init$, void)},
-	{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $Icon*)},
-	{"<init>", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $Action*)},
-	{"<init>", "(Ljavax/swing/Icon;Z)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $Icon*, bool)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*, $Icon*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;Z)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*, $Icon*, bool)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JRadioButton, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JRadioButton_MethodAnnotations_getAccessibleContext8},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRadioButton, getUIClassID, $String*), nullptr, nullptr, _JRadioButton_MethodAnnotations_getUIClassID9},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JRadioButton, paramString, $String*)},
-	{"setIconFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JRadioButton, setIconFromAction, void, $Action*)},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JRadioButton, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JRadioButton, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JRadioButton_InnerClassesInfo_[] = {
-	{"javax.swing.JRadioButton$AccessibleJRadioButton", "javax.swing.JRadioButton", "AccessibleJRadioButton", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JRadioButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JRadioButton",
-	"javax.swing.JToggleButton",
-	nullptr,
-	_JRadioButton_FieldInfo_,
-	_JRadioButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRadioButton_InnerClassesInfo_,
-	_JRadioButton_Annotations_,
-	nullptr,
-	"javax.swing.JRadioButton$AccessibleJRadioButton"
-};
-
-$Object* allocate$JRadioButton($Class* clazz) {
-	return $of($alloc(JRadioButton));
-}
 
 $String* JRadioButton::uiClassID = nullptr;
 
@@ -163,7 +74,7 @@ void JRadioButton::init$($String* text, $Icon* icon, bool selected) {
 }
 
 void JRadioButton::updateUI() {
-	setUI($cast($ButtonUI, $($UIManager::getUI(this))));
+	setUI($$cast($ButtonUI, $UIManager::getUI(this)));
 }
 
 $String* JRadioButton::getUIClassID() {
@@ -175,11 +86,11 @@ void JRadioButton::setIconFromAction($Action* a) {
 
 void JRadioButton::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JRadioButton::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JRadioButton::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -198,12 +109,86 @@ $AccessibleContext* JRadioButton::getAccessibleContext() {
 JRadioButton::JRadioButton() {
 }
 
-void clinit$JRadioButton($Class* class$) {
+void JRadioButton::clinit$($Class* clazz) {
 	$assignStatic(JRadioButton::uiClassID, "RadioButtonUI"_s);
 }
 
 $Class* JRadioButton::load$($String* name, bool initialize) {
-	$loadClass(JRadioButton, name, initialize, &_JRadioButton_ClassInfo_, clinit$JRadioButton, allocate$JRadioButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRadioButton, uiClassID)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "The AccessibleContext associated with this Button"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "A string that specifies the name of the L&F class."},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRadioButton, init$, void)},
+		{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $Icon*)},
+		{"<init>", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $Action*)},
+		{"<init>", "(Ljavax/swing/Icon;Z)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $Icon*, bool)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*, $Icon*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;Z)V", nullptr, $PUBLIC, $method(JRadioButton, init$, void, $String*, $Icon*, bool)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JRadioButton, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRadioButton, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JRadioButton, paramString, $String*)},
+		{"setIconFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JRadioButton, setIconFromAction, void, $Action*)},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JRadioButton, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JRadioButton, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JRadioButton$AccessibleJRadioButton", "javax.swing.JRadioButton", "AccessibleJRadioButton", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"description", 's', "A component which can display it\'s state as selected or deselected."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JRadioButton",
+		"javax.swing.JToggleButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JRadioButton$AccessibleJRadioButton"
+	};
+	$loadClass(JRadioButton, name, initialize, &classInfo$$, JRadioButton::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JRadioButton));
+	});
 	return class$;
 }
 

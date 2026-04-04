@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextAreaUI.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -56,45 +55,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicTextAreaUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextAreaUI, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, create, $View*, $Element*)},
-	{"createI18N", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(BasicTextAreaUI, createI18N, $View*, $Element*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTextAreaUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI, getPropertyPrefix, $String*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI, installDefaults, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicTextAreaUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph", "javax.swing.plaf.basic.BasicTextAreaUI", "PlainParagraph", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTextAreaUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextAreaUI",
-	"javax.swing.plaf.basic.BasicTextUI",
-	nullptr,
-	nullptr,
-	_BasicTextAreaUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextAreaUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph,javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph$LogicalView"
-};
-
-$Object* allocate$BasicTextAreaUI($Class* clazz) {
-	return $of($alloc(BasicTextAreaUI));
-}
-
 $ComponentUI* BasicTextAreaUI::createUI($JComponent* ta) {
 	$init(BasicTextAreaUI);
 	return $new(BasicTextAreaUI);
@@ -113,11 +73,11 @@ void BasicTextAreaUI::installDefaults() {
 }
 
 void BasicTextAreaUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextUI::propertyChange(evt);
-	bool var$1 = $nc($($nc(evt)->getPropertyName()))->equals("lineWrap"_s);
-	bool var$0 = var$1 || $nc($($nc(evt)->getPropertyName()))->equals("wrapStyleWord"_s);
-	if (var$0 || $nc($($nc(evt)->getPropertyName()))->equals("tabSize"_s)) {
+	bool var$1 = $$nc($nc(evt)->getPropertyName())->equals("lineWrap"_s);
+	bool var$0 = var$1 || $$nc(evt->getPropertyName())->equals("wrapStyleWord"_s);
+	if (var$0 || $$nc(evt->getPropertyName())->equals("tabSize"_s)) {
 		modelChanged();
 	} else if ("editable"_s->equals($(evt->getPropertyName()))) {
 		updateFocusTraversalKeys();
@@ -133,18 +93,17 @@ $Dimension* BasicTextAreaUI::getMinimumSize($JComponent* c) {
 }
 
 $View* BasicTextAreaUI::create($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(elem)->getDocument());
 	$var($Object, i18nFlag, $nc(doc)->getProperty("i18n"_s));
-	$init($Boolean);
-	if ((i18nFlag != nullptr) && $of(i18nFlag)->equals($Boolean::TRUE)) {
+	if ((i18nFlag != nullptr) && i18nFlag->equals($Boolean::TRUE)) {
 		return createI18N(elem);
 	} else {
 		$var($JTextComponent, c, getComponent());
 		if ($instanceOf($JTextArea, c)) {
 			$var($JTextArea, area, $cast($JTextArea, c));
 			$var($View, v, nullptr);
-			if ($nc(area)->getLineWrap()) {
+			if (area->getLineWrap()) {
 				$assign(v, $new($WrappedPlainView, elem, area->getWrapStyleWord()));
 			} else {
 				$assign(v, $new($PlainView, elem));
@@ -161,25 +120,22 @@ $View* BasicTextAreaUI::createI18N($Element* elem) {
 		$init($AbstractDocument);
 		if (kind->equals($AbstractDocument::ContentElementName)) {
 			return $new($BasicTextAreaUI$PlainParagraph, elem);
-		} else {
-			if (kind->equals($AbstractDocument::ParagraphElementName)) {
-				return $new($BoxView, elem, $View::Y_AXIS);
-			}
+		} else if (kind->equals($AbstractDocument::ParagraphElementName)) {
+			return $new($BoxView, elem, $View::Y_AXIS);
 		}
 	}
 	return nullptr;
 }
 
 int32_t BasicTextAreaUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextUI::getBaseline(c, width, height);
-	$var($Object, i18nFlag, $nc($($nc(($cast($JTextComponent, c)))->getDocument()))->getProperty("i18n"_s));
-	$var($Insets, insets, $nc(c)->getInsets());
-	$init($Boolean);
+	$var($Object, i18nFlag, $$nc($nc($cast($JTextComponent, c))->getDocument())->getProperty("i18n"_s));
+	$var($Insets, insets, c->getInsets());
 	if ($nc($Boolean::TRUE)->equals(i18nFlag)) {
 		$var($View, rootView, getRootView($cast($JTextComponent, c)));
 		if ($nc(rootView)->getViewCount() > 0) {
-			height = height - $nc(insets)->top - insets->bottom;
+			height = height - $nc(insets)->top - $nc(insets)->bottom;
 			int32_t baseline = insets->top;
 			int32_t fieldBaseline = $BasicHTML::getBaseline($(rootView->getView(0)), width - insets->left - insets->right, height);
 			if (fieldBaseline < 0) {
@@ -203,7 +159,41 @@ BasicTextAreaUI::BasicTextAreaUI() {
 }
 
 $Class* BasicTextAreaUI::load$($String* name, bool initialize) {
-	$loadClass(BasicTextAreaUI, name, initialize, &_BasicTextAreaUI_ClassInfo_, allocate$BasicTextAreaUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextAreaUI, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, create, $View*, $Element*)},
+		{"createI18N", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(BasicTextAreaUI, createI18N, $View*, $Element*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTextAreaUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI, getPropertyPrefix, $String*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI, installDefaults, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph", "javax.swing.plaf.basic.BasicTextAreaUI", "PlainParagraph", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextAreaUI",
+		"javax.swing.plaf.basic.BasicTextUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph,javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph$LogicalView"
+	};
+	$loadClass(BasicTextAreaUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextAreaUI));
+	});
 	return class$;
 }
 

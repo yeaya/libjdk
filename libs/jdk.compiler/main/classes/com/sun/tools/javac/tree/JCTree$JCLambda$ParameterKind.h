@@ -22,6 +22,7 @@ class $export JCTree$JCLambda$ParameterKind : public ::java::lang::Enum {
 public:
 	JCTree$JCLambda$ParameterKind();
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCLambda$ParameterKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::tree::JCTree$JCLambda$ParameterKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCLambda$ParameterKind>* values();

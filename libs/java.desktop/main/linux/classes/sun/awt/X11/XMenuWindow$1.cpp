@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMenuWindow$1.h>
-
 #include <java/awt/Dimension.h>
 #include <sun/awt/X11/XBaseWindow.h>
 #include <sun/awt/X11/XMenuWindow.h>
@@ -18,62 +17,55 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XMenuWindow$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XMenuWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XMenuWindow$1, this$0)},
-	{}
-};
-
-$MethodInfo _XMenuWindow$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XMenuWindow;)V", nullptr, 0, $method(XMenuWindow$1, init$, void, $XMenuWindow*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _XMenuWindow$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XMenuWindow",
-	"updateSize",
-	"()V"
-};
-
-$InnerClassInfo _XMenuWindow$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XMenuWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMenuWindow$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XMenuWindow$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XMenuWindow$1_FieldInfo_,
-	_XMenuWindow$1_MethodInfo_,
-	nullptr,
-	&_XMenuWindow$1_EnclosingMethodInfo_,
-	_XMenuWindow$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XMenuWindow"
-};
-
-$Object* allocate$XMenuWindow$1($Class* clazz) {
-	return $of($alloc(XMenuWindow$1));
-}
-
 void XMenuWindow$1::init$($XMenuWindow* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void XMenuWindow$1::run() {
 	$var($Dimension, dim, this->this$0->getDesiredSize());
-	this->this$0->reshape(this->this$0->x, this->this$0->y, $nc(dim)->width, dim->height);
+	this->this$0->reshape(this->this$0->x, this->this$0->y, $nc(dim)->width, $nc(dim)->height);
 }
 
 XMenuWindow$1::XMenuWindow$1() {
 }
 
 $Class* XMenuWindow$1::load$($String* name, bool initialize) {
-	$loadClass(XMenuWindow$1, name, initialize, &_XMenuWindow$1_ClassInfo_, allocate$XMenuWindow$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XMenuWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XMenuWindow$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XMenuWindow;)V", nullptr, 0, $method(XMenuWindow$1, init$, void, $XMenuWindow*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XMenuWindow",
+		"updateSize",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XMenuWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XMenuWindow$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XMenuWindow"
+	};
+	$loadClass(XMenuWindow$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMenuWindow$1);
+	});
 	return class$;
 }
 

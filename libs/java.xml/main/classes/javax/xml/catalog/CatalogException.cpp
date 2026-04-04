@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/CatalogException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _CatalogException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CatalogException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CatalogException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CatalogException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CatalogException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _CatalogException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.catalog.CatalogException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_CatalogException_FieldInfo_,
-	_CatalogException_MethodInfo_
-};
-
-$Object* allocate$CatalogException($Class* clazz) {
-	return $of($alloc(CatalogException));
-}
 
 void CatalogException::init$($String* message) {
 	$RuntimeException::init$(message);
@@ -54,7 +29,26 @@ void CatalogException::throw$() {
 }
 
 $Class* CatalogException::load$($String* name, bool initialize) {
-	$loadClass(CatalogException, name, initialize, &_CatalogException_ClassInfo_, allocate$CatalogException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CatalogException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CatalogException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CatalogException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.catalog.CatalogException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CatalogException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatalogException);
+	});
 	return class$;
 }
 

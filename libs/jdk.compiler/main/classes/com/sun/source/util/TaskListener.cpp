@@ -1,5 +1,4 @@
 #include <com/sun/source/util/TaskListener.h>
-
 #include <com/sun/source/util/TaskEvent.h>
 #include <jcpp.h>
 
@@ -12,25 +11,6 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$MethodInfo _TaskListener_MethodInfo_[] = {
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(TaskListener, finished, void, $TaskEvent*)},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(TaskListener, started, void, $TaskEvent*)},
-	{}
-};
-
-$ClassInfo _TaskListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.util.TaskListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TaskListener_MethodInfo_
-};
-
-$Object* allocate$TaskListener($Class* clazz) {
-	return $of($alloc(TaskListener));
-}
-
 void TaskListener::started($TaskEvent* e) {
 }
 
@@ -38,7 +18,22 @@ void TaskListener::finished($TaskEvent* e) {
 }
 
 $Class* TaskListener::load$($String* name, bool initialize) {
-	$loadClass(TaskListener, name, initialize, &_TaskListener_ClassInfo_, allocate$TaskListener);
+	$MethodInfo methodInfos$$[] = {
+		{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(TaskListener, finished, void, $TaskEvent*)},
+		{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(TaskListener, started, void, $TaskEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.util.TaskListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TaskListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TaskListener);
+	});
 	return class$;
 }
 

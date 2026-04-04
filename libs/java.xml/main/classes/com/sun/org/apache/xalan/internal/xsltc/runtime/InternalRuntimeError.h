@@ -19,10 +19,13 @@ class InternalRuntimeError : public ::java::lang::Error {
 public:
 	InternalRuntimeError();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x26E57E08C17DED0B;
+	static const int64_t serialVersionUID = (int64_t)0x26e57e08c17ded0b;
 	InternalRuntimeError(const InternalRuntimeError& e);
 	virtual void throw$() override;
-	inline InternalRuntimeError* operator ->() {
+	inline InternalRuntimeError* operator ->() const {
+		return (InternalRuntimeError*)throwing$;
+	}
+	inline operator InternalRuntimeError*() const {
 		return (InternalRuntimeError*)throwing$;
 	}
 };

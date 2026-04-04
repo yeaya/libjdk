@@ -1,5 +1,4 @@
 #include <java/awt/Desktop$Action.h>
-
 #include <java/awt/Desktop.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -38,68 +37,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Desktop$Action_FieldInfo_[] = {
-	{"OPEN", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, OPEN)},
-	{"EDIT", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, EDIT)},
-	{"PRINT", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, PRINT)},
-	{"MAIL", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, MAIL)},
-	{"BROWSE", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, BROWSE)},
-	{"APP_EVENT_FOREGROUND", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_FOREGROUND)},
-	{"APP_EVENT_HIDDEN", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_HIDDEN)},
-	{"APP_EVENT_REOPENED", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_REOPENED)},
-	{"APP_EVENT_SCREEN_SLEEP", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_SCREEN_SLEEP)},
-	{"APP_EVENT_SYSTEM_SLEEP", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_SYSTEM_SLEEP)},
-	{"APP_EVENT_USER_SESSION", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_USER_SESSION)},
-	{"APP_ABOUT", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_ABOUT)},
-	{"APP_PREFERENCES", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_PREFERENCES)},
-	{"APP_OPEN_FILE", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_OPEN_FILE)},
-	{"APP_PRINT_FILE", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_PRINT_FILE)},
-	{"APP_OPEN_URI", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_OPEN_URI)},
-	{"APP_QUIT_HANDLER", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_QUIT_HANDLER)},
-	{"APP_QUIT_STRATEGY", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_QUIT_STRATEGY)},
-	{"APP_SUDDEN_TERMINATION", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_SUDDEN_TERMINATION)},
-	{"APP_REQUEST_FOREGROUND", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_REQUEST_FOREGROUND)},
-	{"APP_HELP_VIEWER", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_HELP_VIEWER)},
-	{"APP_MENU_BAR", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_MENU_BAR)},
-	{"BROWSE_FILE_DIR", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, BROWSE_FILE_DIR)},
-	{"MOVE_TO_TRASH", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, MOVE_TO_TRASH)},
-	{"$VALUES", "[Ljava/awt/Desktop$Action;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Desktop$Action, $VALUES)},
-	{}
-};
-
-$MethodInfo _Desktop$Action_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/Desktop$Action;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Desktop$Action, $values, $Desktop$ActionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Desktop$Action, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(Desktop$Action, valueOf, Desktop$Action*, $String*)},
-	{"values", "()[Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(Desktop$Action, values, $Desktop$ActionArray*)},
-	{}
-};
-
-$InnerClassInfo _Desktop$Action_InnerClassesInfo_[] = {
-	{"java.awt.Desktop$Action", "java.awt.Desktop", "Action", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Desktop$Action_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.Desktop$Action",
-	"java.lang.Enum",
-	nullptr,
-	_Desktop$Action_FieldInfo_,
-	_Desktop$Action_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/Desktop$Action;>;",
-	nullptr,
-	_Desktop$Action_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Desktop"
-};
-
-$Object* allocate$Desktop$Action($Class* clazz) {
-	return $of($alloc(Desktop$Action));
-}
 
 Desktop$Action* Desktop$Action::OPEN = nullptr;
 Desktop$Action* Desktop$Action::EDIT = nullptr;
@@ -171,7 +108,7 @@ void Desktop$Action::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Desktop$Action($Class* class$) {
+void Desktop$Action::clinit$($Class* clazz) {
 	$assignStatic(Desktop$Action::OPEN, $new(Desktop$Action, "OPEN"_s, 0));
 	$assignStatic(Desktop$Action::EDIT, $new(Desktop$Action, "EDIT"_s, 1));
 	$assignStatic(Desktop$Action::PRINT, $new(Desktop$Action, "PRINT"_s, 2));
@@ -203,7 +140,63 @@ Desktop$Action::Desktop$Action() {
 }
 
 $Class* Desktop$Action::load$($String* name, bool initialize) {
-	$loadClass(Desktop$Action, name, initialize, &_Desktop$Action_ClassInfo_, clinit$Desktop$Action, allocate$Desktop$Action);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPEN", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, OPEN)},
+		{"EDIT", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, EDIT)},
+		{"PRINT", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, PRINT)},
+		{"MAIL", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, MAIL)},
+		{"BROWSE", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, BROWSE)},
+		{"APP_EVENT_FOREGROUND", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_FOREGROUND)},
+		{"APP_EVENT_HIDDEN", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_HIDDEN)},
+		{"APP_EVENT_REOPENED", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_REOPENED)},
+		{"APP_EVENT_SCREEN_SLEEP", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_SCREEN_SLEEP)},
+		{"APP_EVENT_SYSTEM_SLEEP", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_SYSTEM_SLEEP)},
+		{"APP_EVENT_USER_SESSION", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_EVENT_USER_SESSION)},
+		{"APP_ABOUT", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_ABOUT)},
+		{"APP_PREFERENCES", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_PREFERENCES)},
+		{"APP_OPEN_FILE", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_OPEN_FILE)},
+		{"APP_PRINT_FILE", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_PRINT_FILE)},
+		{"APP_OPEN_URI", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_OPEN_URI)},
+		{"APP_QUIT_HANDLER", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_QUIT_HANDLER)},
+		{"APP_QUIT_STRATEGY", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_QUIT_STRATEGY)},
+		{"APP_SUDDEN_TERMINATION", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_SUDDEN_TERMINATION)},
+		{"APP_REQUEST_FOREGROUND", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_REQUEST_FOREGROUND)},
+		{"APP_HELP_VIEWER", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_HELP_VIEWER)},
+		{"APP_MENU_BAR", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, APP_MENU_BAR)},
+		{"BROWSE_FILE_DIR", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, BROWSE_FILE_DIR)},
+		{"MOVE_TO_TRASH", "Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Desktop$Action, MOVE_TO_TRASH)},
+		{"$VALUES", "[Ljava/awt/Desktop$Action;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Desktop$Action, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/Desktop$Action;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Desktop$Action, $values, $Desktop$ActionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Desktop$Action, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(Desktop$Action, valueOf, Desktop$Action*, $String*)},
+		{"values", "()[Ljava/awt/Desktop$Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(Desktop$Action, values, $Desktop$ActionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Desktop$Action", "java.awt.Desktop", "Action", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.Desktop$Action",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/Desktop$Action;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Desktop"
+	};
+	$loadClass(Desktop$Action, name, initialize, &classInfo$$, Desktop$Action::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Desktop$Action));
+	});
 	return class$;
 }
 

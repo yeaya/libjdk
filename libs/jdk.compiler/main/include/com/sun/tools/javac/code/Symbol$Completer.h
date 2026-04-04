@@ -29,6 +29,7 @@ namespace com {
 class $import Symbol$Completer : public ::java::lang::Object {
 	$interface(Symbol$Completer, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void complete(::com::sun::tools::javac::code::Symbol* sym) {}
 	virtual bool isTerminal();
 	static ::com::sun::tools::javac::code::Symbol$Completer* NULL_COMPLETER;

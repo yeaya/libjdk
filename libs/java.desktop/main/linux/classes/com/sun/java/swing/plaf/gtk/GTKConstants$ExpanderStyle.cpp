@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,48 +21,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$ExpanderStyle_FieldInfo_[] = {
-	{"COLLAPSED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, COLLAPSED)},
-	{"SEMI_COLLAPSED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, SEMI_COLLAPSED)},
-	{"SEMI_EXPANDED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, SEMI_EXPANDED)},
-	{"EXPANDED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, EXPANDED)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$ExpanderStyle, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$ExpanderStyle_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$ExpanderStyle, $values, $GTKConstants$ExpanderStyleArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$ExpanderStyle, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ExpanderStyle, valueOf, GTKConstants$ExpanderStyle*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ExpanderStyle, values, $GTKConstants$ExpanderStyleArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$ExpanderStyle_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$ExpanderStyle", "com.sun.java.swing.plaf.gtk.GTKConstants", "ExpanderStyle", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$ExpanderStyle_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$ExpanderStyle",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$ExpanderStyle_FieldInfo_,
-	_GTKConstants$ExpanderStyle_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;>;",
-	nullptr,
-	_GTKConstants$ExpanderStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$ExpanderStyle($Class* clazz) {
-	return $of($alloc(GTKConstants$ExpanderStyle));
-}
 
 GTKConstants$ExpanderStyle* GTKConstants$ExpanderStyle::COLLAPSED = nullptr;
 GTKConstants$ExpanderStyle* GTKConstants$ExpanderStyle::SEMI_COLLAPSED = nullptr;
@@ -95,7 +52,7 @@ void GTKConstants$ExpanderStyle::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$ExpanderStyle($Class* class$) {
+void GTKConstants$ExpanderStyle::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$ExpanderStyle::COLLAPSED, $new(GTKConstants$ExpanderStyle, "COLLAPSED"_s, 0));
 	$assignStatic(GTKConstants$ExpanderStyle::SEMI_COLLAPSED, $new(GTKConstants$ExpanderStyle, "SEMI_COLLAPSED"_s, 1));
 	$assignStatic(GTKConstants$ExpanderStyle::SEMI_EXPANDED, $new(GTKConstants$ExpanderStyle, "SEMI_EXPANDED"_s, 2));
@@ -107,7 +64,43 @@ GTKConstants$ExpanderStyle::GTKConstants$ExpanderStyle() {
 }
 
 $Class* GTKConstants$ExpanderStyle::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$ExpanderStyle, name, initialize, &_GTKConstants$ExpanderStyle_ClassInfo_, clinit$GTKConstants$ExpanderStyle, allocate$GTKConstants$ExpanderStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"COLLAPSED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, COLLAPSED)},
+		{"SEMI_COLLAPSED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, SEMI_COLLAPSED)},
+		{"SEMI_EXPANDED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, SEMI_EXPANDED)},
+		{"EXPANDED", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ExpanderStyle, EXPANDED)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$ExpanderStyle, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$ExpanderStyle, $values, $GTKConstants$ExpanderStyleArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$ExpanderStyle, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ExpanderStyle, valueOf, GTKConstants$ExpanderStyle*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ExpanderStyle, values, $GTKConstants$ExpanderStyleArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$ExpanderStyle", "com.sun.java.swing.plaf.gtk.GTKConstants", "ExpanderStyle", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$ExpanderStyle",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$ExpanderStyle;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$ExpanderStyle, name, initialize, &classInfo$$, GTKConstants$ExpanderStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$ExpanderStyle));
+	});
 	return class$;
 }
 

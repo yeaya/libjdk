@@ -26,6 +26,7 @@ class PortMixer$FloatCtrl : public ::javax::sound::sampled::FloatControl {
 	$class(PortMixer$FloatCtrl, 0, ::javax::sound::sampled::FloatControl)
 public:
 	PortMixer$FloatCtrl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t controlID, $String* name, float min, float max, float precision, $String* units);
 	void init$(int64_t controlID, int32_t type, float min, float max, float precision, $String* units);
 	void init$(int64_t controlID, ::javax::sound::sampled::FloatControl$Type* typ, float min, float max, float precision, $String* units);

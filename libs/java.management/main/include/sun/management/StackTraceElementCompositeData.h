@@ -52,6 +52,7 @@ class $import StackTraceElementCompositeData : public ::sun::management::LazyCom
 	$class(StackTraceElementCompositeData, 0, ::sun::management::LazyCompositeData)
 public:
 	StackTraceElementCompositeData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackTraceElement* ste);
 	static ::java::lang::StackTraceElement* from(::javax::management::openmbean::CompositeData* cd);
 	virtual ::javax::management::openmbean::CompositeData* getCompositeData() override;
@@ -72,7 +73,7 @@ public:
 	static $StringArray* V9_ATTRIBUTES;
 	static ::javax::management::openmbean::CompositeType* STACK_TRACE_ELEMENT_COMPOSITE_TYPE;
 	static ::javax::management::openmbean::CompositeType* V5_COMPOSITE_TYPE;
-	static const int64_t serialVersionUID = (int64_t)0xDA774D9ED76B2C65;
+	static const int64_t serialVersionUID = (int64_t)0xda774d9ed76b2c65;
 };
 
 	} // management

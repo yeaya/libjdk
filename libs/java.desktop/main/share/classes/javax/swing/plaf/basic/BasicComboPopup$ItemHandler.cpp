@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboPopup$ItemHandler.h>
-
 #include <java/awt/event/ItemEvent.h>
 #include <javax/swing/plaf/basic/BasicComboPopup$Handler.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
@@ -11,62 +10,55 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
-using $BasicComboPopup$Handler = ::javax::swing::plaf::basic::BasicComboPopup$Handler;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicComboPopup$ItemHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$ItemHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicComboPopup$ItemHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PROTECTED, $method(BasicComboPopup$ItemHandler, init$, void, $BasicComboPopup*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ItemHandler, itemStateChanged, void, $ItemEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicComboPopup$ItemHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboPopup$ItemHandler", "javax.swing.plaf.basic.BasicComboPopup", "ItemHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicComboPopup$ItemHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboPopup$ItemHandler",
-	"java.lang.Object",
-	"java.awt.event.ItemListener",
-	_BasicComboPopup$ItemHandler_FieldInfo_,
-	_BasicComboPopup$ItemHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboPopup$ItemHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboPopup"
-};
-
-$Object* allocate$BasicComboPopup$ItemHandler($Class* clazz) {
-	return $of($alloc(BasicComboPopup$ItemHandler));
-}
-
 void BasicComboPopup$ItemHandler::init$($BasicComboPopup* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void BasicComboPopup$ItemHandler::itemStateChanged($ItemEvent* e) {
-	$nc($(this->this$0->getHandler()))->itemStateChanged(e);
+	$$nc(this->this$0->getHandler())->itemStateChanged(e);
 }
 
 BasicComboPopup$ItemHandler::BasicComboPopup$ItemHandler() {
 }
 
 $Class* BasicComboPopup$ItemHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicComboPopup$ItemHandler, name, initialize, &_BasicComboPopup$ItemHandler_ClassInfo_, allocate$BasicComboPopup$ItemHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$ItemHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PROTECTED, $method(BasicComboPopup$ItemHandler, init$, void, $BasicComboPopup*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$ItemHandler, itemStateChanged, void, $ItemEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboPopup$ItemHandler", "javax.swing.plaf.basic.BasicComboPopup", "ItemHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboPopup$ItemHandler",
+		"java.lang.Object",
+		"java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboPopup"
+	};
+	$loadClass(BasicComboPopup$ItemHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicComboPopup$ItemHandler);
+	});
 	return class$;
 }
 

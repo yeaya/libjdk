@@ -13,10 +13,13 @@ class $import IntrospectionException : public ::java::lang::Exception {
 public:
 	IntrospectionException();
 	void init$($String* mess);
-	static const int64_t serialVersionUID = (int64_t)0xCC42F2D623EF4625;
+	static const int64_t serialVersionUID = (int64_t)0xcc42f2d623ef4625;
 	IntrospectionException(const IntrospectionException& e);
 	virtual void throw$() override;
-	inline IntrospectionException* operator ->() {
+	inline IntrospectionException* operator ->() const {
+		return (IntrospectionException*)throwing$;
+	}
+	inline operator IntrospectionException*() const {
 		return (IntrospectionException*)throwing$;
 	}
 };

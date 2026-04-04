@@ -1,5 +1,4 @@
 #include <sun/datatransfer/DataFlavorUtil$StandardEncodingsHolder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
@@ -14,49 +13,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 using $DataFlavorUtil = ::sun::datatransfer::DataFlavorUtil;
 
 namespace sun {
 	namespace datatransfer {
-
-$FieldInfo _DataFlavorUtil$StandardEncodingsHolder_FieldInfo_[] = {
-	{"standardEncodings", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$StandardEncodingsHolder, standardEncodings)},
-	{}
-};
-
-$MethodInfo _DataFlavorUtil$StandardEncodingsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$StandardEncodingsHolder, init$, void)},
-	{"load", "()Ljava/util/SortedSet;", "()Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$StandardEncodingsHolder, load, $SortedSet*)},
-	{}
-};
-
-$InnerClassInfo _DataFlavorUtil$StandardEncodingsHolder_InnerClassesInfo_[] = {
-	{"sun.datatransfer.DataFlavorUtil$StandardEncodingsHolder", "sun.datatransfer.DataFlavorUtil", "StandardEncodingsHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DataFlavorUtil$StandardEncodingsHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.datatransfer.DataFlavorUtil$StandardEncodingsHolder",
-	"java.lang.Object",
-	nullptr,
-	_DataFlavorUtil$StandardEncodingsHolder_FieldInfo_,
-	_DataFlavorUtil$StandardEncodingsHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DataFlavorUtil$StandardEncodingsHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.datatransfer.DataFlavorUtil"
-};
-
-$Object* allocate$DataFlavorUtil$StandardEncodingsHolder($Class* clazz) {
-	return $of($alloc(DataFlavorUtil$StandardEncodingsHolder));
-}
 
 $SortedSet* DataFlavorUtil$StandardEncodingsHolder::standardEncodings = nullptr;
 
@@ -65,19 +27,19 @@ void DataFlavorUtil$StandardEncodingsHolder::init$() {
 
 $SortedSet* DataFlavorUtil$StandardEncodingsHolder::load() {
 	$init(DataFlavorUtil$StandardEncodingsHolder);
-	$useLocalCurrentObjectStackCache();
-	$var($SortedSet, tempSet, $new($TreeSet, $($nc($($DataFlavorUtil::getCharsetComparator()))->reversed())));
+	$useLocalObjectStack();
+	$var($SortedSet, tempSet, $new($TreeSet, $($$nc($DataFlavorUtil::getCharsetComparator())->reversed())));
 	tempSet->add("US-ASCII"_s);
 	tempSet->add("ISO-8859-1"_s);
 	tempSet->add("UTF-8"_s);
 	tempSet->add("UTF-16BE"_s);
 	tempSet->add("UTF-16LE"_s);
 	tempSet->add("UTF-16"_s);
-	tempSet->add($($nc($($Charset::defaultCharset()))->name()));
+	tempSet->add($($$nc($Charset::defaultCharset())->name()));
 	return $Collections::unmodifiableSortedSet(tempSet);
 }
 
-void clinit$DataFlavorUtil$StandardEncodingsHolder($Class* class$) {
+void DataFlavorUtil$StandardEncodingsHolder::clinit$($Class* clazz) {
 	$assignStatic(DataFlavorUtil$StandardEncodingsHolder::standardEncodings, DataFlavorUtil$StandardEncodingsHolder::load());
 }
 
@@ -85,7 +47,37 @@ DataFlavorUtil$StandardEncodingsHolder::DataFlavorUtil$StandardEncodingsHolder()
 }
 
 $Class* DataFlavorUtil$StandardEncodingsHolder::load$($String* name, bool initialize) {
-	$loadClass(DataFlavorUtil$StandardEncodingsHolder, name, initialize, &_DataFlavorUtil$StandardEncodingsHolder_ClassInfo_, clinit$DataFlavorUtil$StandardEncodingsHolder, allocate$DataFlavorUtil$StandardEncodingsHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"standardEncodings", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataFlavorUtil$StandardEncodingsHolder, standardEncodings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$StandardEncodingsHolder, init$, void)},
+		{"load", "()Ljava/util/SortedSet;", "()Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$StandardEncodingsHolder, load, $SortedSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.datatransfer.DataFlavorUtil$StandardEncodingsHolder", "sun.datatransfer.DataFlavorUtil", "StandardEncodingsHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.datatransfer.DataFlavorUtil$StandardEncodingsHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.datatransfer.DataFlavorUtil"
+	};
+	$loadClass(DataFlavorUtil$StandardEncodingsHolder, name, initialize, &classInfo$$, DataFlavorUtil$StandardEncodingsHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DataFlavorUtil$StandardEncodingsHolder);
+	});
 	return class$;
 }
 

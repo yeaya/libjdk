@@ -1,5 +1,4 @@
 #include <java/beans/ConstructorProperties.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,52 +10,44 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace beans {
 
-$Attribute ConstructorProperties_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'-'}
-};
-
-$NamedAttribute ConstructorProperties_Attribute_var$0[] = {
-	{"value", '[', ConstructorProperties_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute ConstructorProperties_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _ConstructorProperties_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Target;", ConstructorProperties_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", ConstructorProperties_Attribute_var$2},
-	{}
-};
-
-$MethodInfo _ConstructorProperties_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstructorProperties, value, $StringArray*)},
-	{}
-};
-
-$ClassInfo _ConstructorProperties_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.beans.ConstructorProperties",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_ConstructorProperties_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ConstructorProperties_Annotations_
-};
-
-$Object* allocate$ConstructorProperties($Class* clazz) {
-	return $of($alloc(ConstructorProperties));
-}
-
 $Class* ConstructorProperties::load$($String* name, bool initialize) {
-	$loadClass(ConstructorProperties, name, initialize, &_ConstructorProperties_ClassInfo_, allocate$ConstructorProperties);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstructorProperties, value, $StringArray*)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.beans.ConstructorProperties",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ConstructorProperties, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstructorProperties);
+	});
 	return class$;
 }
 

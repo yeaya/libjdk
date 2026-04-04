@@ -13,6 +13,7 @@ class WDesktopPeer$1 : public ::java::lang::Object {
 	$class(WDesktopPeer$1, 0, ::java::lang::Object)
 public:
 	WDesktopPeer$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$awt$Desktop$Action;
 };
 

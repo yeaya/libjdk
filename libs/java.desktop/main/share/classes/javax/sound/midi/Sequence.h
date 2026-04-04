@@ -38,6 +38,7 @@ class $export Sequence : public ::java::lang::Object {
 	$class(Sequence, 0, ::java::lang::Object)
 public:
 	Sequence();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(float divisionType, int32_t resolution);
 	void init$(float divisionType, int32_t resolution, int32_t numTracks);
 	virtual ::javax::sound::midi::Track* createTrack();

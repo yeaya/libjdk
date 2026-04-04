@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/jaxp/JAXPExtensionsProvider.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <com/sun/org/apache/xpath/internal/functions/FuncExtFunction.h>
@@ -51,35 +50,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _JAXPExtensionsProvider_FieldInfo_[] = {
-	{"resolver", "Ljavax/xml/xpath/XPathFunctionResolver;", nullptr, $PRIVATE | $FINAL, $field(JAXPExtensionsProvider, resolver)},
-	{"extensionInvocationDisabled", "Z", nullptr, $PRIVATE, $field(JAXPExtensionsProvider, extensionInvocationDisabled)},
-	{}
-};
-
-$MethodInfo _JAXPExtensionsProvider_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/xpath/XPathFunctionResolver;)V", nullptr, $PUBLIC, $method(JAXPExtensionsProvider, init$, void, $XPathFunctionResolver*)},
-	{"<init>", "(Ljavax/xml/xpath/XPathFunctionResolver;ZLjdk/xml/internal/JdkXmlFeatures;)V", nullptr, $PUBLIC, $method(JAXPExtensionsProvider, init$, void, $XPathFunctionResolver*, bool, $JdkXmlFeatures*)},
-	{"elementAvailable", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JAXPExtensionsProvider, elementAvailable, bool, $String*, $String*), "javax.xml.transform.TransformerException"},
-	{"extFunction", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/objects/XObject;>;Ljava/lang/Object;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(JAXPExtensionsProvider, extFunction, $Object*, $String*, $String*, $List*, Object$*), "javax.xml.transform.TransformerException"},
-	{"extFunction", "(Lcom/sun/org/apache/xpath/internal/functions/FuncExtFunction;Ljava/util/List;)Ljava/lang/Object;", "(Lcom/sun/org/apache/xpath/internal/functions/FuncExtFunction;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/objects/XObject;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(JAXPExtensionsProvider, extFunction, $Object*, $FuncExtFunction*, $List*), "javax.xml.transform.TransformerException"},
-	{"functionAvailable", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JAXPExtensionsProvider, functionAvailable, bool, $String*, $String*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _JAXPExtensionsProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.jaxp.JAXPExtensionsProvider",
-	"java.lang.Object",
-	"com.sun.org.apache.xpath.internal.ExtensionsProvider",
-	_JAXPExtensionsProvider_FieldInfo_,
-	_JAXPExtensionsProvider_MethodInfo_
-};
-
-$Object* allocate$JAXPExtensionsProvider($Class* clazz) {
-	return $of($alloc(JAXPExtensionsProvider));
-}
-
 void JAXPExtensionsProvider::init$($XPathFunctionResolver* resolver) {
 	this->extensionInvocationDisabled = false;
 	$set(this, resolver, resolver);
@@ -96,11 +66,11 @@ void JAXPExtensionsProvider::init$($XPathFunctionResolver* resolver, bool featur
 }
 
 bool JAXPExtensionsProvider::functionAvailable($String* ns, $String* funcName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (funcName == nullptr) {
 			$init($XPATHErrorResources);
-			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_ARG_CANNOT_BE_NULL, $$new($ObjectArray, {$of("Function Name"_s)})));
+			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_ARG_CANNOT_BE_NULL, $$new($ObjectArray, {"Function Name"_s})));
 			$throwNew($NullPointerException, fmsg);
 		}
 		$var($QName, myQName, $new($QName, ns, funcName));
@@ -120,17 +90,17 @@ bool JAXPExtensionsProvider::elementAvailable($String* ns, $String* elemName) {
 }
 
 $Object* JAXPExtensionsProvider::extFunction($String* ns, $String* funcName, $List* argVec, Object$* methodKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if (funcName == nullptr) {
 			$init($XPATHErrorResources);
-			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_ARG_CANNOT_BE_NULL, $$new($ObjectArray, {$of("Function Name"_s)})));
+			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_ARG_CANNOT_BE_NULL, $$new($ObjectArray, {"Function Name"_s})));
 			$throwNew($NullPointerException, fmsg);
 		}
 		$var($QName, myQName, $new($QName, ns, funcName));
 		if (this->extensionInvocationDisabled) {
 			$init($XPATHErrorResources);
-			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED, $$new($ObjectArray, {$($of(myQName->toString()))})));
+			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED, $$new($ObjectArray, {$(myQName->toString())})));
 			$throwNew($XPathFunctionException, fmsg);
 		}
 		int32_t arity = $nc(argVec)->size();
@@ -139,25 +109,25 @@ $Object* JAXPExtensionsProvider::extFunction($String* ns, $String* funcName, $Li
 		for (int32_t i = 0; i < arity; ++i) {
 			$var($XObject, argument, $cast($XObject, argVec->get(i)));
 			if ($instanceOf($XNodeSet, argument)) {
-				argList->add(i, $($nc(($cast($XNodeSet, argument)))->nodelist()));
+				argList->add(i, $($cast($XNodeSet, argument)->nodelist()));
 			} else if ($instanceOf($XObject, argument)) {
-				$var($Object, passedArgument, $nc(argument)->object());
+				$var($Object, passedArgument, argument->object());
 				argList->add(i, passedArgument);
 			} else {
 				argList->add(i, argument);
 			}
 		}
-		return $of(($nc(xpathFunction)->evaluate(argList)));
+		return ($nc(xpathFunction)->evaluate(argList));
 	} catch ($XPathFunctionException& xfe) {
 		$throwNew($WrappedRuntimeException, xfe);
 	} catch ($Exception& e) {
-		$throwNew($TransformerException, static_cast<$Throwable*>(e));
+		$throwNew($TransformerException, e);
 	}
 	$shouldNotReachHere();
 }
 
 $Object* JAXPExtensionsProvider::extFunction($FuncExtFunction* extFunction, $List* argVec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, namespace$, $nc(extFunction)->getNamespace());
 		$var($String, functionName, extFunction->getFunctionName());
@@ -165,7 +135,7 @@ $Object* JAXPExtensionsProvider::extFunction($FuncExtFunction* extFunction, $Lis
 		$var($QName, myQName, $new($QName, namespace$, functionName));
 		if (this->extensionInvocationDisabled) {
 			$init($XPATHErrorResources);
-			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED, $$new($ObjectArray, {$($of(myQName->toString()))})));
+			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED, $$new($ObjectArray, {$(myQName->toString())})));
 			$throwNew($XPathFunctionException, fmsg);
 		}
 		$var($XPathFunction, xpathFunction, $nc(this->resolver)->resolveFunction(myQName, arity));
@@ -173,19 +143,19 @@ $Object* JAXPExtensionsProvider::extFunction($FuncExtFunction* extFunction, $Lis
 		for (int32_t i = 0; i < arity; ++i) {
 			$var($XObject, argument, $cast($XObject, $nc(argVec)->get(i)));
 			if ($instanceOf($XNodeSet, argument)) {
-				argList->add(i, $($nc(($cast($XNodeSet, argument)))->nodelist()));
+				argList->add(i, $($cast($XNodeSet, argument)->nodelist()));
 			} else if ($instanceOf($XObject, argument)) {
-				$var($Object, passedArgument, $nc(argument)->object());
+				$var($Object, passedArgument, argument->object());
 				argList->add(i, passedArgument);
 			} else {
 				argList->add(i, argument);
 			}
 		}
-		return $of(($nc(xpathFunction)->evaluate(argList)));
+		return ($nc(xpathFunction)->evaluate(argList));
 	} catch ($XPathFunctionException& xfe) {
 		$throwNew($WrappedRuntimeException, xfe);
 	} catch ($Exception& e) {
-		$throwNew($TransformerException, static_cast<$Throwable*>(e));
+		$throwNew($TransformerException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -194,7 +164,31 @@ JAXPExtensionsProvider::JAXPExtensionsProvider() {
 }
 
 $Class* JAXPExtensionsProvider::load$($String* name, bool initialize) {
-	$loadClass(JAXPExtensionsProvider, name, initialize, &_JAXPExtensionsProvider_ClassInfo_, allocate$JAXPExtensionsProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"resolver", "Ljavax/xml/xpath/XPathFunctionResolver;", nullptr, $PRIVATE | $FINAL, $field(JAXPExtensionsProvider, resolver)},
+		{"extensionInvocationDisabled", "Z", nullptr, $PRIVATE, $field(JAXPExtensionsProvider, extensionInvocationDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/xpath/XPathFunctionResolver;)V", nullptr, $PUBLIC, $method(JAXPExtensionsProvider, init$, void, $XPathFunctionResolver*)},
+		{"<init>", "(Ljavax/xml/xpath/XPathFunctionResolver;ZLjdk/xml/internal/JdkXmlFeatures;)V", nullptr, $PUBLIC, $method(JAXPExtensionsProvider, init$, void, $XPathFunctionResolver*, bool, $JdkXmlFeatures*)},
+		{"elementAvailable", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JAXPExtensionsProvider, elementAvailable, bool, $String*, $String*), "javax.xml.transform.TransformerException"},
+		{"extFunction", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/objects/XObject;>;Ljava/lang/Object;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(JAXPExtensionsProvider, extFunction, $Object*, $String*, $String*, $List*, Object$*), "javax.xml.transform.TransformerException"},
+		{"extFunction", "(Lcom/sun/org/apache/xpath/internal/functions/FuncExtFunction;Ljava/util/List;)Ljava/lang/Object;", "(Lcom/sun/org/apache/xpath/internal/functions/FuncExtFunction;Ljava/util/List<Lcom/sun/org/apache/xpath/internal/objects/XObject;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(JAXPExtensionsProvider, extFunction, $Object*, $FuncExtFunction*, $List*), "javax.xml.transform.TransformerException"},
+		{"functionAvailable", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JAXPExtensionsProvider, functionAvailable, bool, $String*, $String*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.jaxp.JAXPExtensionsProvider",
+		"java.lang.Object",
+		"com.sun.org.apache.xpath.internal.ExtensionsProvider",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JAXPExtensionsProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JAXPExtensionsProvider);
+	});
 	return class$;
 }
 

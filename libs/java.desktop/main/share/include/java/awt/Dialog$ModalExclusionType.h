@@ -21,6 +21,7 @@ class $import Dialog$ModalExclusionType : public ::java::lang::Enum {
 public:
 	Dialog$ModalExclusionType();
 	static $Array<::java::awt::Dialog$ModalExclusionType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::Dialog$ModalExclusionType* valueOf($String* name);
 	static $Array<::java::awt::Dialog$ModalExclusionType>* values();

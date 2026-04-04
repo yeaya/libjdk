@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLSurfaceData.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Composite.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -9,9 +8,7 @@
 #include <java/awt/image/Raster.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/SunHints.h>
 #include <sun/awt/image/PixelConverter$ArgbPre.h>
 #include <sun/awt/image/PixelConverter.h>
@@ -41,7 +38,6 @@
 #include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
-#include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/TextPipe.h>
 #include <sun/java2d/pipe/hw/AccelSurface.h>
@@ -93,9 +89,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SunHints = ::sun::awt::SunHints;
 using $PixelConverter$ArgbPre = ::sun::awt::image::PixelConverter$ArgbPre;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
@@ -118,14 +112,9 @@ using $OGLSurfaceData$1 = ::sun::java2d::opengl::OGLSurfaceData$1;
 using $OGLSurfaceDataProxy = ::sun::java2d::opengl::OGLSurfaceDataProxy;
 using $OGLTextRenderer = ::sun::java2d::opengl::OGLTextRenderer;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
 using $ParallelogramPipe = ::sun::java2d::pipe::ParallelogramPipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToParallelogramConverter = ::sun::java2d::pipe::PixelToParallelogramConverter;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $TextPipe = ::sun::java2d::pipe::TextPipe;
 using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
@@ -133,115 +122,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace java2d {
 		namespace opengl {
-
-$FieldInfo _OGLSurfaceData_FieldInfo_[] = {
-	{"FBOBJECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, FBOBJECT)},
-	{"PF_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_ARGB)},
-	{"PF_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_ARGB_PRE)},
-	{"PF_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_RGB)},
-	{"PF_INT_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_RGBX)},
-	{"PF_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_BGR)},
-	{"PF_INT_BGRX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_BGRX)},
-	{"PF_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_565_RGB)},
-	{"PF_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_555_RGB)},
-	{"PF_USHORT_555_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_555_RGBX)},
-	{"PF_BYTE_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_BYTE_GRAY)},
-	{"PF_USHORT_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_GRAY)},
-	{"PF_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_3BYTE_BGR)},
-	{"DESC_OPENGL_SURFACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OGLSurfaceData, DESC_OPENGL_SURFACE)},
-	{"DESC_OPENGL_SURFACE_RTT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OGLSurfaceData, DESC_OPENGL_SURFACE_RTT)},
-	{"DESC_OPENGL_TEXTURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OGLSurfaceData, DESC_OPENGL_TEXTURE)},
-	{"OpenGLSurface", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(OGLSurfaceData, OpenGLSurface)},
-	{"OpenGLSurfaceRTT", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(OGLSurfaceData, OpenGLSurfaceRTT)},
-	{"OpenGLTexture", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(OGLSurfaceData, OpenGLTexture)},
-	{"isFBObjectEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isFBObjectEnabled)},
-	{"isLCDShaderEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isLCDShaderEnabled)},
-	{"isBIOpShaderEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isBIOpShaderEnabled)},
-	{"isGradShaderEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isGradShaderEnabled)},
-	{"graphicsConfig", "Lsun/java2d/opengl/OGLGraphicsConfig;", nullptr, $PRIVATE, $field(OGLSurfaceData, graphicsConfig)},
-	{"type", "I", nullptr, $PROTECTED, $field(OGLSurfaceData, type)},
-	{"nativeWidth", "I", nullptr, $PRIVATE, $field(OGLSurfaceData, nativeWidth)},
-	{"nativeHeight", "I", nullptr, $PRIVATE, $field(OGLSurfaceData, nativeHeight)},
-	{"oglRenderPipe", "Lsun/java2d/opengl/OGLRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglRenderPipe)},
-	{"oglTxRenderPipe", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglTxRenderPipe)},
-	{"oglAAPgramPipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglAAPgramPipe)},
-	{"oglTextPipe", "Lsun/java2d/opengl/OGLTextRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglTextPipe)},
-	{"oglImagePipe", "Lsun/java2d/opengl/OGLDrawImage;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglImagePipe)},
-	{}
-};
-
-$MethodInfo _OGLSurfaceData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getNativeOps", "()J", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/opengl/OGLGraphicsConfig;Ljava/awt/image/ColorModel;I)V", nullptr, $PROTECTED, $method(OGLSurfaceData, init$, void, $OGLGraphicsConfig*, $ColorModel*, int32_t)},
-	{"canHandleComposite", "(Ljava/awt/Composite;)Z", nullptr, $PRIVATE, $method(OGLSurfaceData, canHandleComposite, bool, $Composite*)},
-	{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"dispose", "(JLsun/java2d/opengl/OGLGraphicsConfig;)V", nullptr, $STATIC, $staticMethod(OGLSurfaceData, dispose, void, int64_t, $OGLGraphicsConfig*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, flush, void)},
-	{"getContext", "()Lsun/java2d/opengl/OGLContext;", nullptr, $PUBLIC | $FINAL, $virtualMethod(OGLSurfaceData, getContext, $BufferedContext*)},
-	{"getCustomSurfaceType", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(OGLSurfaceData, getCustomSurfaceType, $SurfaceType*, int32_t)},
-	{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(OGLSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
-	{"getNativeBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, getNativeBounds, $Rectangle*)},
-	{"getNativeResource", "(I)J", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, getNativeResource, int64_t, int32_t)},
-	{"getOGLGraphicsConfig", "()Lsun/java2d/opengl/OGLGraphicsConfig;", nullptr, $FINAL, $method(OGLSurfaceData, getOGLGraphicsConfig, $OGLGraphicsConfig*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getTextureID", "(J)I", nullptr, $PRIVATE | $NATIVE, $method(OGLSurfaceData, getTextureID, int32_t, int64_t)},
-	{"getTextureID", "()I", nullptr, $PUBLIC | $FINAL, $method(OGLSurfaceData, getTextureID, int32_t)},
-	{"getTextureTarget", "(J)I", nullptr, $PRIVATE | $NATIVE, $method(OGLSurfaceData, getTextureTarget, int32_t, int64_t)},
-	{"getTextureTarget", "()I", nullptr, $PUBLIC | $FINAL, $method(OGLSurfaceData, getTextureTarget, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(OGLSurfaceData, getType, int32_t)},
-	{"initFBObject", "(JZZZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(OGLSurfaceData, initFBObject, bool, int64_t, bool, bool, bool, int32_t, int32_t)},
-	{"initFlipBackbuffer", "(J)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(OGLSurfaceData, initFlipBackbuffer, bool, int64_t)},
-	{"initSurface", "(II)V", nullptr, $PROTECTED, $virtualMethod(OGLSurfaceData, initSurface, void, int32_t, int32_t)},
-	{"initSurfaceNow", "(II)V", nullptr, $PRIVATE, $method(OGLSurfaceData, initSurfaceNow, void, int32_t, int32_t)},
-	{"initTexture", "(JZZZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(OGLSurfaceData, initTexture, bool, int64_t, bool, bool, bool, int32_t, int32_t)},
-	{"isOnScreen", "()Z", nullptr, 0, $virtualMethod(OGLSurfaceData, isOnScreen, bool)},
-	{"*isSurfaceLost", "()Z", nullptr, $PUBLIC},
-	{"isTexNonPow2Available", "()Z", nullptr, 0, $virtualMethod(OGLSurfaceData, isTexNonPow2Available, bool)},
-	{"isTexRectAvailable", "()Z", nullptr, 0, $virtualMethod(OGLSurfaceData, isTexRectAvailable, bool)},
-	{"*isValid", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
-	{"*markDirty", "()V", nullptr, $PUBLIC | $FINAL},
-	{"swapBuffers", "(J)V", nullptr, $STATIC, $staticMethod(OGLSurfaceData, swapBuffers, void, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{}
-};
-
-#define _METHOD_INDEX_getTextureID 19
-#define _METHOD_INDEX_getTextureTarget 21
-#define _METHOD_INDEX_initFBObject 24
-#define _METHOD_INDEX_initFlipBackbuffer 25
-#define _METHOD_INDEX_initTexture 28
-
-$InnerClassInfo _OGLSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.OGLSurfaceData$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _OGLSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.opengl.OGLSurfaceData",
-	"sun.java2d.SurfaceData",
-	"sun.java2d.pipe.hw.AccelSurface",
-	_OGLSurfaceData_FieldInfo_,
-	_OGLSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OGLSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.OGLSurfaceData$1"
-};
-
-$Object* allocate$OGLSurfaceData($Class* clazz) {
-	return $of($alloc(OGLSurfaceData));
-}
 
 void OGLSurfaceData::markDirty() {
 	this->$SurfaceData::markDirty();
@@ -296,47 +176,42 @@ $OGLTextRenderer* OGLSurfaceData::oglTextPipe = nullptr;
 $OGLDrawImage* OGLSurfaceData::oglImagePipe = nullptr;
 
 bool OGLSurfaceData::initTexture(int64_t pData, bool isOpaque, bool texNonPow2, bool texRect, int32_t width, int32_t height) {
-	bool $ret = false;
-	$prepareNative(OGLSurfaceData, initTexture, bool, int64_t pData, bool isOpaque, bool texNonPow2, bool texRect, int32_t width, int32_t height);
-	$ret = $invokeNative(pData, isOpaque, texNonPow2, texRect, width, height);
+	$prepareNative(initTexture, bool, int64_t pData, bool isOpaque, bool texNonPow2, bool texRect, int32_t width, int32_t height);
+	bool $ret = $invokeNative(pData, isOpaque, texNonPow2, texRect, width, height);
 	$finishNative();
 	return $ret;
 }
 
 bool OGLSurfaceData::initFBObject(int64_t pData, bool isOpaque, bool texNonPow2, bool texRect, int32_t width, int32_t height) {
-	bool $ret = false;
-	$prepareNative(OGLSurfaceData, initFBObject, bool, int64_t pData, bool isOpaque, bool texNonPow2, bool texRect, int32_t width, int32_t height);
-	$ret = $invokeNative(pData, isOpaque, texNonPow2, texRect, width, height);
+	$prepareNative(initFBObject, bool, int64_t pData, bool isOpaque, bool texNonPow2, bool texRect, int32_t width, int32_t height);
+	bool $ret = $invokeNative(pData, isOpaque, texNonPow2, texRect, width, height);
 	$finishNative();
 	return $ret;
 }
 
 bool OGLSurfaceData::initFlipBackbuffer(int64_t pData) {
-	bool $ret = false;
-	$prepareNative(OGLSurfaceData, initFlipBackbuffer, bool, int64_t pData);
-	$ret = $invokeNative(pData);
+	$prepareNative(initFlipBackbuffer, bool, int64_t pData);
+	bool $ret = $invokeNative(pData);
 	$finishNative();
 	return $ret;
 }
 
 int32_t OGLSurfaceData::getTextureTarget(int64_t pData) {
-	int32_t $ret = 0;
-	$prepareNative(OGLSurfaceData, getTextureTarget, int32_t, int64_t pData);
-	$ret = $invokeNative(pData);
+	$prepareNative(getTextureTarget, int32_t, int64_t pData);
+	int32_t $ret = $invokeNative(pData);
 	$finishNative();
 	return $ret;
 }
 
 int32_t OGLSurfaceData::getTextureID(int64_t pData) {
-	int32_t $ret = 0;
-	$prepareNative(OGLSurfaceData, getTextureID, int32_t, int64_t pData);
-	$ret = $invokeNative(pData);
+	$prepareNative(getTextureID, int32_t, int64_t pData);
+	int32_t $ret = $invokeNative(pData);
 	$finishNative();
 	return $ret;
 }
 
 void OGLSurfaceData::init$($OGLGraphicsConfig* gc, $ColorModel* cm, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SurfaceData::init$($(getCustomSurfaceType(type)), cm);
 	$set(this, graphicsConfig, gc);
 	this->type = type;
@@ -351,17 +226,11 @@ $SurfaceType* OGLSurfaceData::getCustomSurfaceType(int32_t oglType) {
 	$init(OGLSurfaceData);
 	switch (oglType) {
 	case $AccelSurface::TEXTURE:
-		{
-			return OGLSurfaceData::OpenGLTexture;
-		}
+		return OGLSurfaceData::OpenGLTexture;
 	case OGLSurfaceData::FBOBJECT:
-		{
-			return OGLSurfaceData::OpenGLSurfaceRTT;
-		}
+		return OGLSurfaceData::OpenGLSurfaceRTT;
 	default:
-		{
-			return OGLSurfaceData::OpenGLSurface;
-		}
+		return OGLSurfaceData::OpenGLSurface;
 	}
 }
 
@@ -372,28 +241,22 @@ void OGLSurfaceData::initSurfaceNow(int32_t width, int32_t height) {
 	case $AccelSurface::TEXTURE:
 		{
 			int64_t var$0 = getNativeOps();
-			bool var$1 = isOpaque;
-			bool var$2 = isTexNonPow2Available();
-			success = initTexture(var$0, var$1, var$2, isTexRectAvailable(), width, height);
+			bool var$1 = isTexNonPow2Available();
+			success = initTexture(var$0, isOpaque, var$1, isTexRectAvailable(), width, height);
 			break;
 		}
 	case OGLSurfaceData::FBOBJECT:
 		{
-			int64_t var$3 = getNativeOps();
-			bool var$4 = isOpaque;
-			bool var$5 = isTexNonPow2Available();
-			success = initFBObject(var$3, var$4, var$5, isTexRectAvailable(), width, height);
+			int64_t var$2 = getNativeOps();
+			bool var$3 = isTexNonPow2Available();
+			success = initFBObject(var$2, isOpaque, var$3, isTexRectAvailable(), width, height);
 			break;
 		}
 	case $AccelSurface::FLIP_BACKBUFFER:
-		{
-			success = initFlipBackbuffer(getNativeOps());
-			break;
-		}
+		success = initFlipBackbuffer(getNativeOps());
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	if (!success) {
 		$throwNew($OutOfMemoryError, "can\'t create offscreen surface"_s);
@@ -401,34 +264,27 @@ void OGLSurfaceData::initSurfaceNow(int32_t width, int32_t height) {
 }
 
 void OGLSurfaceData::initSurface(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			switch (this->type) {
-			case $AccelSurface::TEXTURE:
-				{}
-			case OGLSurfaceData::FBOBJECT:
-				{
-					$OGLContext::setScratchSurface(this->graphicsConfig);
-					break;
-				}
-			default:
-				{
-					break;
-				}
-			}
-			rq->flushAndInvokeNow($$new($OGLSurfaceData$1, this, width, height));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		switch (this->type) {
+		case $AccelSurface::TEXTURE:
+		case OGLSurfaceData::FBOBJECT:
+			$OGLContext::setScratchSurface(this->graphicsConfig);
+			break;
+		default:
+			break;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		rq->flushAndInvokeNow($$new($OGLSurfaceData$1, this, width, height));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -467,23 +323,23 @@ $Raster* OGLSurfaceData::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
 bool OGLSurfaceData::canRenderLCDText($SunGraphics2D* sg2d) {
 	bool var$1 = $nc(this->graphicsConfig)->isCapPresent(0x00020000);
 	bool var$0 = var$1 && $nc($nc(sg2d)->surfaceData)->getTransparency() == $Transparency::OPAQUE && sg2d->paintState <= $SunGraphics2D::PAINT_OPAQUECOLOR;
-	return var$0 && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || ($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ALPHA && canHandleComposite(sg2d->composite)));
+	return var$0 && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || (sg2d->compositeState <= $SunGraphics2D::COMP_ALPHA && canHandleComposite(sg2d->composite)));
 }
 
 bool OGLSurfaceData::canHandleComposite($Composite* c) {
 	if ($instanceOf($AlphaComposite, c)) {
 		$var($AlphaComposite, ac, $cast($AlphaComposite, c));
-		bool var$0 = $nc(ac)->getRule() == $AlphaComposite::SRC_OVER;
+		bool var$0 = ac->getRule() == $AlphaComposite::SRC_OVER;
 		return var$0 && ac->getAlpha() >= 1.0f;
 	}
 	return false;
 }
 
 void OGLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextPipe, textpipe, nullptr);
 	bool validated = false;
-	if (($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ISCOPY && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) || ($nc(sg2d)->compositeState == $SunGraphics2D::COMP_ALPHA && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && ($nc(($cast($AlphaComposite, sg2d->composite)))->getRule() == $AlphaComposite::SRC_OVER)) || ($nc(sg2d)->compositeState == $SunGraphics2D::COMP_XOR && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR)) {
+	if (($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ISCOPY && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) || (sg2d->compositeState == $SunGraphics2D::COMP_ALPHA && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && ($nc($cast($AlphaComposite, sg2d->composite))->getRule() == $AlphaComposite::SRC_OVER)) || (sg2d->compositeState == $SunGraphics2D::COMP_XOR && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR)) {
 		$assign(textpipe, OGLSurfaceData::oglTextPipe);
 	} else {
 		$SurfaceData::validatePipe(sg2d);
@@ -492,7 +348,7 @@ void OGLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 	}
 	$var($PixelToParallelogramConverter, txPipe, nullptr);
 	$var($OGLRenderer, nonTxPipe, nullptr);
-	if ($nc(sg2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON) {
+	if (sg2d->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON) {
 		if (sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) {
 			if (sg2d->compositeState <= $SunGraphics2D::COMP_XOR) {
 				$assign(txPipe, OGLSurfaceData::oglTxRenderPipe);
@@ -521,7 +377,7 @@ void OGLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 		}
 	}
 	if (txPipe != nullptr) {
-		if ($nc(sg2d)->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
+		if (sg2d->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
 			$set(sg2d, drawpipe, txPipe);
 			$set(sg2d, fillpipe, txPipe);
 		} else if (sg2d->strokeState != $SunGraphics2D::STROKE_THIN) {
@@ -531,11 +387,11 @@ void OGLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 			$set(sg2d, drawpipe, nonTxPipe);
 			$set(sg2d, fillpipe, nonTxPipe);
 		}
-		$set($nc(sg2d), shapepipe, txPipe);
+		$set(sg2d, shapepipe, txPipe);
 	} else if (!validated) {
 		$SurfaceData::validatePipe(sg2d);
 	}
-	$set($nc(sg2d), textpipe, textpipe);
+	$set(sg2d, textpipe, textpipe);
 	$set(sg2d, imagepipe, OGLSurfaceData::oglImagePipe);
 }
 
@@ -558,76 +414,70 @@ bool OGLSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_
 }
 
 void OGLSurfaceData::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	invalidate();
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$OGLContext::setScratchSurface(this->graphicsConfig);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(72);
-			buf->putLong(getNativeOps());
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$OGLContext::setScratchSurface(this->graphicsConfig);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(72);
+		buf->putLong(getNativeOps());
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void OGLSurfaceData::dispose(int64_t pData, $OGLGraphicsConfig* gc) {
 	$init(OGLSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$OGLContext::setScratchSurface(gc);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(73);
-			buf->putLong(pData);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$OGLContext::setScratchSurface(gc);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(73);
+		buf->putLong(pData);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void OGLSurfaceData::swapBuffers(int64_t window) {
 	$init(OGLSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(80);
-			buf->putLong(window);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(80);
+		buf->putLong(window);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -640,28 +490,26 @@ bool OGLSurfaceData::isTexRectAvailable() {
 }
 
 $Rectangle* OGLSurfaceData::getNativeBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($Rectangle, this->nativeWidth, this->nativeHeight));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($Rectangle, this->nativeWidth, this->nativeHeight));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -670,8 +518,8 @@ bool OGLSurfaceData::isOnScreen() {
 	return getType() == $AccelSurface::WINDOW;
 }
 
-void clinit$OGLSurfaceData($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void OGLSurfaceData::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(OGLSurfaceData::DESC_OPENGL_SURFACE, "OpenGL Surface"_s);
 	$assignStatic(OGLSurfaceData::DESC_OPENGL_SURFACE_RTT, "OpenGL Surface (render-to-texture)"_s);
 	$assignStatic(OGLSurfaceData::DESC_OPENGL_TEXTURE, "OpenGL Texture"_s);
@@ -680,16 +528,16 @@ void clinit$OGLSurfaceData($Class* class$) {
 	$init($PixelConverter$ArgbPre);
 	$assignStatic(OGLSurfaceData::OpenGLSurface, $nc($SurfaceType::Any)->deriveSubType(OGLSurfaceData::DESC_OPENGL_SURFACE, $PixelConverter$ArgbPre::instance));
 	$assignStatic(OGLSurfaceData::OpenGLSurfaceRTT, $nc(OGLSurfaceData::OpenGLSurface)->deriveSubType(OGLSurfaceData::DESC_OPENGL_SURFACE_RTT));
-	$assignStatic(OGLSurfaceData::OpenGLTexture, $nc($SurfaceType::Any)->deriveSubType(OGLSurfaceData::DESC_OPENGL_TEXTURE));
+	$assignStatic(OGLSurfaceData::OpenGLTexture, $SurfaceType::Any->deriveSubType(OGLSurfaceData::DESC_OPENGL_TEXTURE));
 	{
 		if (!$GraphicsEnvironment::isHeadless()) {
-			$var($String, fbo, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.opengl.fbobject"_s)))));
+			$var($String, fbo, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.opengl.fbobject"_s))));
 			OGLSurfaceData::isFBObjectEnabled = !"false"_s->equals(fbo);
-			$var($String, lcd, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.opengl.lcdshader"_s)))));
+			$var($String, lcd, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.opengl.lcdshader"_s))));
 			OGLSurfaceData::isLCDShaderEnabled = !"false"_s->equals(lcd);
-			$var($String, biop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.opengl.biopshader"_s)))));
+			$var($String, biop, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.opengl.biopshader"_s))));
 			OGLSurfaceData::isBIOpShaderEnabled = !"false"_s->equals(biop);
-			$var($String, grad, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.opengl.gradshader"_s)))));
+			$var($String, grad, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.opengl.gradshader"_s))));
 			OGLSurfaceData::isGradShaderEnabled = !"false"_s->equals(grad);
 			$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 			$assignStatic(OGLSurfaceData::oglImagePipe, $new($OGLDrawImage));
@@ -711,7 +559,104 @@ OGLSurfaceData::OGLSurfaceData() {
 }
 
 $Class* OGLSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(OGLSurfaceData, name, initialize, &_OGLSurfaceData_ClassInfo_, clinit$OGLSurfaceData, allocate$OGLSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"FBOBJECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, FBOBJECT)},
+		{"PF_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_ARGB)},
+		{"PF_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_ARGB_PRE)},
+		{"PF_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_RGB)},
+		{"PF_INT_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_RGBX)},
+		{"PF_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_BGR)},
+		{"PF_INT_BGRX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_INT_BGRX)},
+		{"PF_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_565_RGB)},
+		{"PF_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_555_RGB)},
+		{"PF_USHORT_555_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_555_RGBX)},
+		{"PF_BYTE_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_BYTE_GRAY)},
+		{"PF_USHORT_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_USHORT_GRAY)},
+		{"PF_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLSurfaceData, PF_3BYTE_BGR)},
+		{"DESC_OPENGL_SURFACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OGLSurfaceData, DESC_OPENGL_SURFACE)},
+		{"DESC_OPENGL_SURFACE_RTT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OGLSurfaceData, DESC_OPENGL_SURFACE_RTT)},
+		{"DESC_OPENGL_TEXTURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OGLSurfaceData, DESC_OPENGL_TEXTURE)},
+		{"OpenGLSurface", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(OGLSurfaceData, OpenGLSurface)},
+		{"OpenGLSurfaceRTT", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(OGLSurfaceData, OpenGLSurfaceRTT)},
+		{"OpenGLTexture", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(OGLSurfaceData, OpenGLTexture)},
+		{"isFBObjectEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isFBObjectEnabled)},
+		{"isLCDShaderEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isLCDShaderEnabled)},
+		{"isBIOpShaderEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isBIOpShaderEnabled)},
+		{"isGradShaderEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(OGLSurfaceData, isGradShaderEnabled)},
+		{"graphicsConfig", "Lsun/java2d/opengl/OGLGraphicsConfig;", nullptr, $PRIVATE, $field(OGLSurfaceData, graphicsConfig)},
+		{"type", "I", nullptr, $PROTECTED, $field(OGLSurfaceData, type)},
+		{"nativeWidth", "I", nullptr, $PRIVATE, $field(OGLSurfaceData, nativeWidth)},
+		{"nativeHeight", "I", nullptr, $PRIVATE, $field(OGLSurfaceData, nativeHeight)},
+		{"oglRenderPipe", "Lsun/java2d/opengl/OGLRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglRenderPipe)},
+		{"oglTxRenderPipe", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglTxRenderPipe)},
+		{"oglAAPgramPipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglAAPgramPipe)},
+		{"oglTextPipe", "Lsun/java2d/opengl/OGLTextRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglTextPipe)},
+		{"oglImagePipe", "Lsun/java2d/opengl/OGLDrawImage;", nullptr, $PROTECTED | $STATIC, $staticField(OGLSurfaceData, oglImagePipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getNativeOps", "()J", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/opengl/OGLGraphicsConfig;Ljava/awt/image/ColorModel;I)V", nullptr, $PROTECTED, $method(OGLSurfaceData, init$, void, $OGLGraphicsConfig*, $ColorModel*, int32_t)},
+		{"canHandleComposite", "(Ljava/awt/Composite;)Z", nullptr, $PRIVATE, $method(OGLSurfaceData, canHandleComposite, bool, $Composite*)},
+		{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"dispose", "(JLsun/java2d/opengl/OGLGraphicsConfig;)V", nullptr, $STATIC, $staticMethod(OGLSurfaceData, dispose, void, int64_t, $OGLGraphicsConfig*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, flush, void)},
+		{"getContext", "()Lsun/java2d/opengl/OGLContext;", nullptr, $PUBLIC | $FINAL, $virtualMethod(OGLSurfaceData, getContext, $BufferedContext*)},
+		{"getCustomSurfaceType", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(OGLSurfaceData, getCustomSurfaceType, $SurfaceType*, int32_t)},
+		{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(OGLSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
+		{"getNativeBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, getNativeBounds, $Rectangle*)},
+		{"getNativeResource", "(I)J", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, getNativeResource, int64_t, int32_t)},
+		{"getOGLGraphicsConfig", "()Lsun/java2d/opengl/OGLGraphicsConfig;", nullptr, $FINAL, $method(OGLSurfaceData, getOGLGraphicsConfig, $OGLGraphicsConfig*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getTextureID", "(J)I", nullptr, $PRIVATE | $NATIVE, $method(OGLSurfaceData, getTextureID, int32_t, int64_t)},
+		{"getTextureID", "()I", nullptr, $PUBLIC | $FINAL, $method(OGLSurfaceData, getTextureID, int32_t)},
+		{"getTextureTarget", "(J)I", nullptr, $PRIVATE | $NATIVE, $method(OGLSurfaceData, getTextureTarget, int32_t, int64_t)},
+		{"getTextureTarget", "()I", nullptr, $PUBLIC | $FINAL, $method(OGLSurfaceData, getTextureTarget, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(OGLSurfaceData, getType, int32_t)},
+		{"initFBObject", "(JZZZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(OGLSurfaceData, initFBObject, bool, int64_t, bool, bool, bool, int32_t, int32_t)},
+		{"initFlipBackbuffer", "(J)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(OGLSurfaceData, initFlipBackbuffer, bool, int64_t)},
+		{"initSurface", "(II)V", nullptr, $PROTECTED, $virtualMethod(OGLSurfaceData, initSurface, void, int32_t, int32_t)},
+		{"initSurfaceNow", "(II)V", nullptr, $PRIVATE, $method(OGLSurfaceData, initSurfaceNow, void, int32_t, int32_t)},
+		{"initTexture", "(JZZZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(OGLSurfaceData, initTexture, bool, int64_t, bool, bool, bool, int32_t, int32_t)},
+		{"isOnScreen", "()Z", nullptr, 0, $virtualMethod(OGLSurfaceData, isOnScreen, bool)},
+		{"*isSurfaceLost", "()Z", nullptr, $PUBLIC},
+		{"isTexNonPow2Available", "()Z", nullptr, 0, $virtualMethod(OGLSurfaceData, isTexNonPow2Available, bool)},
+		{"isTexRectAvailable", "()Z", nullptr, 0, $virtualMethod(OGLSurfaceData, isTexRectAvailable, bool)},
+		{"*isValid", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
+		{"*markDirty", "()V", nullptr, $PUBLIC | $FINAL},
+		{"swapBuffers", "(J)V", nullptr, $STATIC, $staticMethod(OGLSurfaceData, swapBuffers, void, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.OGLSurfaceData$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.opengl.OGLSurfaceData",
+		"sun.java2d.SurfaceData",
+		"sun.java2d.pipe.hw.AccelSurface",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.OGLSurfaceData$1"
+	};
+	$loadClass(OGLSurfaceData, name, initialize, &classInfo$$, OGLSurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OGLSurfaceData));
+	});
 	return class$;
 }
 

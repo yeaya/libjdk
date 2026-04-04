@@ -1,5 +1,4 @@
 #include <Test4461329.h>
-
 #include <java/lang/Error.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JColorChooser.h>
@@ -11,32 +10,12 @@ using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
-
-$MethodInfo _Test4461329_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4461329, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4461329, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Test4461329_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4461329",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Test4461329_MethodInfo_
-};
-
-$Object* allocate$Test4461329($Class* clazz) {
-	return $of($alloc(Test4461329));
-}
 
 void Test4461329::init$() {
 }
 
 void Test4461329::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JColorChooser, chooser, $new($JColorChooser));
 	if (nullptr == chooser->getPreviewPanel()) {
 		$throwNew($Error, "Failed: getPreviewPanel() returned null"_s);
@@ -52,7 +31,22 @@ Test4461329::Test4461329() {
 }
 
 $Class* Test4461329::load$($String* name, bool initialize) {
-	$loadClass(Test4461329, name, initialize, &_Test4461329_ClassInfo_, allocate$Test4461329);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4461329, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4461329, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4461329",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test4461329, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test4461329);
+	});
 	return class$;
 }
 

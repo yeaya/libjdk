@@ -25,6 +25,7 @@ class $import ThreadInfoCompositeData$ThreadInfoCompositeTypes : public ::java::
 	$class(ThreadInfoCompositeData$ThreadInfoCompositeTypes, 0, ::java::lang::Object)
 public:
 	ThreadInfoCompositeData$ThreadInfoCompositeTypes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::management::openmbean::CompositeType* initCompositeType();
 	static ::java::util::Map* initCompositeTypes();

@@ -1,5 +1,4 @@
 #include <Test7034614$BrokenBorder.h>
-
 #include <Test7034614.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -15,50 +14,6 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _Test7034614$BrokenBorder_FieldInfo_[] = {
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(Test7034614$BrokenBorder, insets)},
-	{}
-};
-
-$MethodInfo _Test7034614$BrokenBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Test7034614$BrokenBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(Test7034614$BrokenBorder, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(Test7034614$BrokenBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(Test7034614$BrokenBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "(Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(Test7034614$BrokenBorder, validate, void, $Insets*)},
-	{}
-};
-
-$InnerClassInfo _Test7034614$BrokenBorder_InnerClassesInfo_[] = {
-	{"Test7034614$BrokenBorder", "Test7034614", "BrokenBorder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Test7034614$BrokenBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test7034614$BrokenBorder",
-	"java.awt.Component",
-	"javax.swing.border.Border",
-	_Test7034614$BrokenBorder_FieldInfo_,
-	_Test7034614$BrokenBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test7034614$BrokenBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test7034614"
-};
-
-$Object* allocate$Test7034614$BrokenBorder($Class* clazz) {
-	return $of($alloc(Test7034614$BrokenBorder));
-}
 
 $String* Test7034614$BrokenBorder::toString() {
 	 return this->$Component::toString();
@@ -106,7 +61,45 @@ Test7034614$BrokenBorder::Test7034614$BrokenBorder() {
 }
 
 $Class* Test7034614$BrokenBorder::load$($String* name, bool initialize) {
-	$loadClass(Test7034614$BrokenBorder, name, initialize, &_Test7034614$BrokenBorder_ClassInfo_, allocate$Test7034614$BrokenBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(Test7034614$BrokenBorder, insets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Test7034614$BrokenBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(Test7034614$BrokenBorder, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(Test7034614$BrokenBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(Test7034614$BrokenBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validate", "(Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(Test7034614$BrokenBorder, validate, void, $Insets*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test7034614$BrokenBorder", "Test7034614", "BrokenBorder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test7034614$BrokenBorder",
+		"java.awt.Component",
+		"javax.swing.border.Border",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test7034614"
+	};
+	$loadClass(Test7034614$BrokenBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test7034614$BrokenBorder));
+	});
 	return class$;
 }
 

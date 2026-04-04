@@ -94,6 +94,7 @@ class $import MotifFileChooserUI : public ::javax::swing::plaf::basic::BasicFile
 	$class(MotifFileChooserUI, 0, ::javax::swing::plaf::basic::BasicFileChooserUI)
 public:
 	MotifFileChooserUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* filechooser);
 	virtual void align(::javax::swing::JComponent* c);
 	virtual ::javax::swing::JScrollPane* createDirectoryList();

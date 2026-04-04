@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/DefaultResponseControlFactory.h>
-
 #include <com/sun/jndi/ldap/EntryChangeResponseControl.h>
 #include <java/io/IOException.h>
 #include <javax/naming/NamingException.h>
@@ -26,50 +25,28 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$MethodInfo _DefaultResponseControlFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultResponseControlFactory, init$, void)},
-	{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(DefaultResponseControlFactory, getControlInstance, $Control*, $Control*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _DefaultResponseControlFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.ldap.DefaultResponseControlFactory",
-	"javax.naming.ldap.ControlFactory",
-	nullptr,
-	nullptr,
-	_DefaultResponseControlFactory_MethodInfo_
-};
-
-$Object* allocate$DefaultResponseControlFactory($Class* clazz) {
-	return $of($alloc(DefaultResponseControlFactory));
-}
-
 void DefaultResponseControlFactory::init$() {
 	$ControlFactory::init$();
 }
 
 $Control* DefaultResponseControlFactory::getControlInstance($Control* ctl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, $nc(ctl)->getID());
 	try {
 		$init($SortResponseControl);
 		if ($nc(id)->equals($SortResponseControl::OID)) {
-			$var($String, var$0, id);
-			bool var$1 = ctl->isCritical();
-			return $new($SortResponseControl, var$0, var$1, $(ctl->getEncodedValue()));
+			bool var$0 = ctl->isCritical();
+			return $new($SortResponseControl, id, var$0, $(ctl->getEncodedValue()));
 		} else {
 			$init($PagedResultsResponseControl);
 			if (id->equals($PagedResultsResponseControl::OID)) {
-				$var($String, var$2, id);
-				bool var$3 = ctl->isCritical();
-				return $new($PagedResultsResponseControl, var$2, var$3, $(ctl->getEncodedValue()));
+				bool var$1 = ctl->isCritical();
+				return $new($PagedResultsResponseControl, id, var$1, $(ctl->getEncodedValue()));
 			} else {
 				$init($EntryChangeResponseControl);
 				if (id->equals($EntryChangeResponseControl::OID)) {
-					$var($String, var$4, id);
-					bool var$5 = ctl->isCritical();
-					return $new($EntryChangeResponseControl, var$4, var$5, $(ctl->getEncodedValue()));
+					bool var$2 = ctl->isCritical();
+					return $new($EntryChangeResponseControl, id, var$2, $(ctl->getEncodedValue()));
 				}
 			}
 		}
@@ -85,7 +62,22 @@ DefaultResponseControlFactory::DefaultResponseControlFactory() {
 }
 
 $Class* DefaultResponseControlFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultResponseControlFactory, name, initialize, &_DefaultResponseControlFactory_ClassInfo_, allocate$DefaultResponseControlFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultResponseControlFactory, init$, void)},
+		{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(DefaultResponseControlFactory, getControlInstance, $Control*, $Control*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.ldap.DefaultResponseControlFactory",
+		"javax.naming.ldap.ControlFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultResponseControlFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultResponseControlFactory);
+	});
 	return class$;
 }
 

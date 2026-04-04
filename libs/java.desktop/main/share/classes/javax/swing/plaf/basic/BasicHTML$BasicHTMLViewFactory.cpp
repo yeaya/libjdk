@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicHTML$BasicHTMLViewFactory.h>
-
 #include <javax/swing/plaf/basic/BasicHTML.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/View.h>
@@ -20,38 +19,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicHTML$BasicHTMLViewFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BasicHTML$BasicHTMLViewFactory, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$BasicHTMLViewFactory, create, $View*, $Element*)},
-	{}
-};
-
-$InnerClassInfo _BasicHTML$BasicHTMLViewFactory_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicHTML$BasicHTMLViewFactory", "javax.swing.plaf.basic.BasicHTML", "BasicHTMLViewFactory", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$HTMLFactory", "javax.swing.text.html.HTMLEditorKit", "HTMLFactory", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicHTML$BasicHTMLViewFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicHTML$BasicHTMLViewFactory",
-	"javax.swing.text.html.HTMLEditorKit$HTMLFactory",
-	nullptr,
-	nullptr,
-	_BasicHTML$BasicHTMLViewFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicHTML$BasicHTMLViewFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicHTML"
-};
-
-$Object* allocate$BasicHTML$BasicHTMLViewFactory($Class* clazz) {
-	return $of($alloc(BasicHTML$BasicHTMLViewFactory));
-}
-
 void BasicHTML$BasicHTMLViewFactory::init$() {
 	$HTMLEditorKit$HTMLFactory::init$();
 }
@@ -59,7 +26,7 @@ void BasicHTML$BasicHTMLViewFactory::init$() {
 $View* BasicHTML$BasicHTMLViewFactory::create($Element* elem) {
 	$var($View, view, $HTMLEditorKit$HTMLFactory::create(elem));
 	if ($instanceOf($ImageView, view)) {
-		$nc(($cast($ImageView, view)))->setLoadsSynchronously(true);
+		$cast($ImageView, view)->setLoadsSynchronously(true);
 	}
 	return view;
 }
@@ -68,7 +35,34 @@ BasicHTML$BasicHTMLViewFactory::BasicHTML$BasicHTMLViewFactory() {
 }
 
 $Class* BasicHTML$BasicHTMLViewFactory::load$($String* name, bool initialize) {
-	$loadClass(BasicHTML$BasicHTMLViewFactory, name, initialize, &_BasicHTML$BasicHTMLViewFactory_ClassInfo_, allocate$BasicHTML$BasicHTMLViewFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BasicHTML$BasicHTMLViewFactory, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(BasicHTML$BasicHTMLViewFactory, create, $View*, $Element*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicHTML$BasicHTMLViewFactory", "javax.swing.plaf.basic.BasicHTML", "BasicHTMLViewFactory", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$HTMLFactory", "javax.swing.text.html.HTMLEditorKit", "HTMLFactory", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicHTML$BasicHTMLViewFactory",
+		"javax.swing.text.html.HTMLEditorKit$HTMLFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicHTML"
+	};
+	$loadClass(BasicHTML$BasicHTMLViewFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicHTML$BasicHTMLViewFactory);
+	});
 	return class$;
 }
 

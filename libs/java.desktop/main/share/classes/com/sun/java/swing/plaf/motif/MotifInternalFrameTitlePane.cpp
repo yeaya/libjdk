@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$1.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$2.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MaximizeButton.h>
@@ -14,7 +13,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -46,8 +44,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -71,86 +67,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifInternalFrameTitlePane_FieldInfo_[] = {
-	{"systemButton", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$SystemButton;", nullptr, 0, $field(MotifInternalFrameTitlePane, systemButton)},
-	{"minimizeButton", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MinimizeButton;", nullptr, 0, $field(MotifInternalFrameTitlePane, minimizeButton)},
-	{"maximizeButton", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MaximizeButton;", nullptr, 0, $field(MotifInternalFrameTitlePane, maximizeButton)},
-	{"systemMenu", "Ljavax/swing/JPopupMenu;", nullptr, 0, $field(MotifInternalFrameTitlePane, systemMenu)},
-	{"title", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$Title;", nullptr, 0, $field(MotifInternalFrameTitlePane, title)},
-	{"color", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameTitlePane, color)},
-	{"highlight", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameTitlePane, highlight)},
-	{"shadow", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameTitlePane, shadow)},
-	{"BUTTON_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifInternalFrameTitlePane, BUTTON_SIZE)},
-	{"buttonDimension", "Ljava/awt/Dimension;", nullptr, $STATIC, $staticField(MotifInternalFrameTitlePane, buttonDimension)},
-	{}
-};
-
-$MethodInfo _MotifInternalFrameTitlePane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MotifInternalFrameTitlePane, init$, void, $JInternalFrame*)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$000, $JInternalFrame*, MotifInternalFrameTitlePane*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/Action;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$100, $Action*, MotifInternalFrameTitlePane*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$200, $JInternalFrame*, MotifInternalFrameTitlePane*)},
-	{"access$300", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$300, $JInternalFrame*, MotifInternalFrameTitlePane*)},
-	{"access$400", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$400, $JInternalFrame*, MotifInternalFrameTitlePane*)},
-	{"access$500", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$500, $JInternalFrame*, MotifInternalFrameTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, actionPerformed, void, $ActionEvent*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, addLayoutComponent, void, $String*, $Component*)},
-	{"addSubComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, addSubComponents, void)},
-	{"assembleSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, assembleSystemMenu, void)},
-	{"createButtons", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, createButtons, void)},
-	{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, createLayout, $LayoutManager*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"getButtonMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifInternalFrameTitlePane, getButtonMnemonic, int32_t, $String*)},
-	{"getSystemMenu", "()Ljavax/swing/JPopupMenu;", nullptr, 0, $virtualMethod(MotifInternalFrameTitlePane, getSystemMenu, $JPopupMenu*)},
-	{"hideSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, hideSystemMenu, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, installDefaults, void)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, minimumLayoutSize, $Dimension*, $Container*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, paintComponent, void, $Graphics*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, preferredLayoutSize, $Dimension*, $Container*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, removeLayoutComponent, void, $Component*)},
-	{"setColors", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(MotifInternalFrameTitlePane, setColors, void, $Color*, $Color*, $Color*)},
-	{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, showSystemMenu, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _MotifInternalFrameTitlePane_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "Title", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "SystemButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MaximizeButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MinimizeButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifInternalFrameTitlePane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane",
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
-	"java.awt.LayoutManager,java.awt.event.ActionListener,java.beans.PropertyChangeListener",
-	_MotifInternalFrameTitlePane_FieldInfo_,
-	_MotifInternalFrameTitlePane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifInternalFrameTitlePane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title$2,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title$1,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$2,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1"
-};
-
-$Object* allocate$MotifInternalFrameTitlePane($Class* clazz) {
-	return $of($alloc(MotifInternalFrameTitlePane));
-}
 
 $String* MotifInternalFrameTitlePane::toString() {
 	 return this->$BasicInternalFrameTitlePane::toString();
@@ -209,7 +125,7 @@ void MotifInternalFrameTitlePane::init$($JInternalFrame* frame) {
 }
 
 void MotifInternalFrameTitlePane::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setFont($($UIManager::getFont("InternalFrame.titleFont"_s)));
 	setPreferredSize($$new($Dimension, 100, MotifInternalFrameTitlePane::BUTTON_SIZE));
 }
@@ -231,29 +147,29 @@ $JPopupMenu* MotifInternalFrameTitlePane::getSystemMenu() {
 }
 
 void MotifInternalFrameTitlePane::assembleSystemMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, systemMenu, $new($JPopupMenu));
-	$var($JMenuItem, mi, $nc(this->systemMenu)->add(this->restoreAction));
+	$var($JMenuItem, mi, this->systemMenu->add(this->restoreAction));
 	$nc(mi)->setMnemonic(getButtonMnemonic("restore"_s));
 	$assign(mi, $nc(this->systemMenu)->add(this->moveAction));
-	mi->setMnemonic(getButtonMnemonic("move"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("move"_s));
 	$assign(mi, $nc(this->systemMenu)->add(this->sizeAction));
-	mi->setMnemonic(getButtonMnemonic("size"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("size"_s));
 	$assign(mi, $nc(this->systemMenu)->add(this->iconifyAction));
-	mi->setMnemonic(getButtonMnemonic("minimize"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("minimize"_s));
 	$assign(mi, $nc(this->systemMenu)->add(this->maximizeAction));
-	mi->setMnemonic(getButtonMnemonic("maximize"_s));
-	$nc(this->systemMenu)->add(static_cast<$Component*>($$new($JSeparator)));
+	$nc(mi)->setMnemonic(getButtonMnemonic("maximize"_s));
+	$nc(this->systemMenu)->add($$new($JSeparator));
 	$assign(mi, $nc(this->systemMenu)->add(this->closeAction));
-	mi->setMnemonic(getButtonMnemonic("close"_s));
+	$nc(mi)->setMnemonic(getButtonMnemonic("close"_s));
 	$set(this, systemButton, $new($MotifInternalFrameTitlePane$SystemButton, this));
-	$nc(this->systemButton)->addActionListener($$new($MotifInternalFrameTitlePane$1, this));
+	this->systemButton->addActionListener($$new($MotifInternalFrameTitlePane$1, this));
 	$nc(this->systemButton)->addMouseListener($$new($MotifInternalFrameTitlePane$2, this));
 }
 
 int32_t MotifInternalFrameTitlePane::getButtonMnemonic($String* button) {
 	$init(MotifInternalFrameTitlePane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $Integer::parseInt($($UIManager::getString($$str({"InternalFrameTitlePane."_s, button, "Button.mnemonic"_s}))));
 	} catch ($NumberFormatException& e) {
@@ -264,19 +180,19 @@ int32_t MotifInternalFrameTitlePane::getButtonMnemonic($String* button) {
 
 void MotifInternalFrameTitlePane::createButtons() {
 	$set(this, minimizeButton, $new($MotifInternalFrameTitlePane$MinimizeButton, this));
-	$nc(this->minimizeButton)->addActionListener(this->iconifyAction);
+	this->minimizeButton->addActionListener(this->iconifyAction);
 	$set(this, maximizeButton, $new($MotifInternalFrameTitlePane$MaximizeButton, this));
-	$nc(this->maximizeButton)->addActionListener(this->maximizeAction);
+	this->maximizeButton->addActionListener(this->maximizeAction);
 }
 
 void MotifInternalFrameTitlePane::addSubComponents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, title, $new($MotifInternalFrameTitlePane$Title, this, $($nc(this->frame)->getTitle())));
 	$nc(this->title)->setFont($(getFont()));
-	add(static_cast<$Component*>(this->systemButton));
-	add(static_cast<$Component*>(this->title));
-	add(static_cast<$Component*>(this->minimizeButton));
-	add(static_cast<$Component*>(this->maximizeButton));
+	add(this->systemButton);
+	add(this->title);
+	add(this->minimizeButton);
+	add(this->maximizeButton);
 }
 
 void MotifInternalFrameTitlePane::paintComponent($Graphics* g) {
@@ -292,7 +208,7 @@ void MotifInternalFrameTitlePane::actionPerformed($ActionEvent* e) {
 }
 
 void MotifInternalFrameTitlePane::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(evt)->getPropertyName());
 	$var($JInternalFrame, f, $cast($JInternalFrame, evt->getSource()));
 	bool value = false;
@@ -300,27 +216,23 @@ void MotifInternalFrameTitlePane::propertyChange($PropertyChangeEvent* evt) {
 	if ($nc($JInternalFrame::IS_SELECTED_PROPERTY)->equals(prop)) {
 		repaint();
 	} else if ($nc(prop)->equals("maximizable"_s)) {
-		$init($Boolean);
 		if ($cast($Boolean, evt->getNewValue()) == $Boolean::TRUE) {
-			add(static_cast<$Component*>(this->maximizeButton));
+			add(this->maximizeButton);
 		} else {
-			remove(static_cast<$Component*>(this->maximizeButton));
+			remove(this->maximizeButton);
 		}
 		revalidate();
 		repaint();
 	} else if (prop->equals("iconable"_s)) {
-		$init($Boolean);
 		if ($cast($Boolean, evt->getNewValue()) == $Boolean::TRUE) {
-			add(static_cast<$Component*>(this->minimizeButton));
+			add(this->minimizeButton);
 		} else {
-			remove(static_cast<$Component*>(this->minimizeButton));
+			remove(this->minimizeButton);
 		}
 		revalidate();
 		repaint();
-	} else {
-		if (prop->equals($JInternalFrame::TITLE_PROPERTY)) {
-			repaint();
-		}
+	} else if (prop->equals($JInternalFrame::TITLE_PROPERTY)) {
+		repaint();
 	}
 	enableActions();
 }
@@ -340,7 +252,7 @@ $Dimension* MotifInternalFrameTitlePane::minimumLayoutSize($Container* c) {
 }
 
 void MotifInternalFrameTitlePane::layoutContainer($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = getWidth();
 	$nc(this->systemButton)->setBounds(0, 0, MotifInternalFrameTitlePane::BUTTON_SIZE, MotifInternalFrameTitlePane::BUTTON_SIZE);
 	int32_t x = w - MotifInternalFrameTitlePane::BUTTON_SIZE;
@@ -348,13 +260,13 @@ void MotifInternalFrameTitlePane::layoutContainer($Container* c) {
 		$nc(this->maximizeButton)->setBounds(x, 0, MotifInternalFrameTitlePane::BUTTON_SIZE, MotifInternalFrameTitlePane::BUTTON_SIZE);
 		x -= MotifInternalFrameTitlePane::BUTTON_SIZE;
 	} else if ($nc(this->maximizeButton)->getParent() != nullptr) {
-		$nc($($nc(this->maximizeButton)->getParent()))->remove(static_cast<$Component*>(this->maximizeButton));
+		$$nc($nc(this->maximizeButton)->getParent())->remove(this->maximizeButton);
 	}
 	if ($nc(this->frame)->isIconifiable()) {
 		$nc(this->minimizeButton)->setBounds(x, 0, MotifInternalFrameTitlePane::BUTTON_SIZE, MotifInternalFrameTitlePane::BUTTON_SIZE);
 		x -= MotifInternalFrameTitlePane::BUTTON_SIZE;
 	} else if ($nc(this->minimizeButton)->getParent() != nullptr) {
-		$nc($($nc(this->minimizeButton)->getParent()))->remove(static_cast<$Component*>(this->minimizeButton));
+		$$nc($nc(this->minimizeButton)->getParent())->remove(this->minimizeButton);
 	}
 	$nc(this->title)->setBounds(MotifInternalFrameTitlePane::BUTTON_SIZE, 0, x, MotifInternalFrameTitlePane::BUTTON_SIZE);
 }
@@ -367,7 +279,7 @@ void MotifInternalFrameTitlePane::hideSystemMenu() {
 	$nc(this->systemMenu)->setVisible(false);
 }
 
-void clinit$MotifInternalFrameTitlePane($Class* class$) {
+void MotifInternalFrameTitlePane::clinit$($Class* clazz) {
 	$assignStatic(MotifInternalFrameTitlePane::buttonDimension, $new($Dimension, MotifInternalFrameTitlePane::BUTTON_SIZE, MotifInternalFrameTitlePane::BUTTON_SIZE));
 }
 
@@ -375,7 +287,81 @@ MotifInternalFrameTitlePane::MotifInternalFrameTitlePane() {
 }
 
 $Class* MotifInternalFrameTitlePane::load$($String* name, bool initialize) {
-	$loadClass(MotifInternalFrameTitlePane, name, initialize, &_MotifInternalFrameTitlePane_ClassInfo_, clinit$MotifInternalFrameTitlePane, allocate$MotifInternalFrameTitlePane);
+	$FieldInfo fieldInfos$$[] = {
+		{"systemButton", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$SystemButton;", nullptr, 0, $field(MotifInternalFrameTitlePane, systemButton)},
+		{"minimizeButton", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MinimizeButton;", nullptr, 0, $field(MotifInternalFrameTitlePane, minimizeButton)},
+		{"maximizeButton", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MaximizeButton;", nullptr, 0, $field(MotifInternalFrameTitlePane, maximizeButton)},
+		{"systemMenu", "Ljavax/swing/JPopupMenu;", nullptr, 0, $field(MotifInternalFrameTitlePane, systemMenu)},
+		{"title", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$Title;", nullptr, 0, $field(MotifInternalFrameTitlePane, title)},
+		{"color", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameTitlePane, color)},
+		{"highlight", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameTitlePane, highlight)},
+		{"shadow", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameTitlePane, shadow)},
+		{"BUTTON_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MotifInternalFrameTitlePane, BUTTON_SIZE)},
+		{"buttonDimension", "Ljava/awt/Dimension;", nullptr, $STATIC, $staticField(MotifInternalFrameTitlePane, buttonDimension)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MotifInternalFrameTitlePane, init$, void, $JInternalFrame*)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$000, $JInternalFrame*, MotifInternalFrameTitlePane*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/Action;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$100, $Action*, MotifInternalFrameTitlePane*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$200, $JInternalFrame*, MotifInternalFrameTitlePane*)},
+		{"access$300", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$300, $JInternalFrame*, MotifInternalFrameTitlePane*)},
+		{"access$400", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$400, $JInternalFrame*, MotifInternalFrameTitlePane*)},
+		{"access$500", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifInternalFrameTitlePane, access$500, $JInternalFrame*, MotifInternalFrameTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, actionPerformed, void, $ActionEvent*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, addLayoutComponent, void, $String*, $Component*)},
+		{"addSubComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, addSubComponents, void)},
+		{"assembleSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, assembleSystemMenu, void)},
+		{"createButtons", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, createButtons, void)},
+		{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, createLayout, $LayoutManager*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"getButtonMnemonic", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MotifInternalFrameTitlePane, getButtonMnemonic, int32_t, $String*)},
+		{"getSystemMenu", "()Ljavax/swing/JPopupMenu;", nullptr, 0, $virtualMethod(MotifInternalFrameTitlePane, getSystemMenu, $JPopupMenu*)},
+		{"hideSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, hideSystemMenu, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, installDefaults, void)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, minimumLayoutSize, $Dimension*, $Container*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, paintComponent, void, $Graphics*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, preferredLayoutSize, $Dimension*, $Container*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane, removeLayoutComponent, void, $Component*)},
+		{"setColors", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(MotifInternalFrameTitlePane, setColors, void, $Color*, $Color*, $Color*)},
+		{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, showSystemMenu, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameTitlePane, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "Title", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "SystemButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MaximizeButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "MinimizeButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane",
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane",
+		"java.awt.LayoutManager,java.awt.event.ActionListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title$2,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$Title$1,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MaximizeButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$MinimizeButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$2,com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$1"
+	};
+	$loadClass(MotifInternalFrameTitlePane, name, initialize, &classInfo$$, MotifInternalFrameTitlePane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifInternalFrameTitlePane));
+	});
 	return class$;
 }
 

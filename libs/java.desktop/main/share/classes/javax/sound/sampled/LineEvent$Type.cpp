@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/LineEvent$Type.h>
-
 #include <javax/sound/sampled/LineEvent.h>
 #include <jcpp.h>
 
@@ -16,48 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _LineEvent$Type_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LineEvent$Type, name)},
-	{"OPEN", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, OPEN)},
-	{"CLOSE", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, CLOSE)},
-	{"START", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, START)},
-	{"STOP", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, STOP)},
-	{}
-};
-
-$MethodInfo _LineEvent$Type_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(LineEvent$Type, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LineEvent$Type, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LineEvent$Type, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineEvent$Type, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LineEvent$Type_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.LineEvent$Type", "javax.sound.sampled.LineEvent", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _LineEvent$Type_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.LineEvent$Type",
-	"java.lang.Object",
-	nullptr,
-	_LineEvent$Type_FieldInfo_,
-	_LineEvent$Type_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LineEvent$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.LineEvent"
-};
-
-$Object* allocate$LineEvent$Type($Class* clazz) {
-	return $of($alloc(LineEvent$Type));
-}
 
 LineEvent$Type* LineEvent$Type::OPEN = nullptr;
 LineEvent$Type* LineEvent$Type::CLOSE = nullptr;
@@ -80,7 +37,7 @@ $String* LineEvent$Type::toString() {
 	return this->name;
 }
 
-void clinit$LineEvent$Type($Class* class$) {
+void LineEvent$Type::clinit$($Class* clazz) {
 	$assignStatic(LineEvent$Type::OPEN, $new(LineEvent$Type, "Open"_s));
 	$assignStatic(LineEvent$Type::CLOSE, $new(LineEvent$Type, "Close"_s));
 	$assignStatic(LineEvent$Type::START, $new(LineEvent$Type, "Start"_s));
@@ -91,7 +48,43 @@ LineEvent$Type::LineEvent$Type() {
 }
 
 $Class* LineEvent$Type::load$($String* name, bool initialize) {
-	$loadClass(LineEvent$Type, name, initialize, &_LineEvent$Type_ClassInfo_, clinit$LineEvent$Type, allocate$LineEvent$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LineEvent$Type, name)},
+		{"OPEN", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, OPEN)},
+		{"CLOSE", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, CLOSE)},
+		{"START", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, START)},
+		{"STOP", "Ljavax/sound/sampled/LineEvent$Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LineEvent$Type, STOP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(LineEvent$Type, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LineEvent$Type, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LineEvent$Type, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineEvent$Type, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.LineEvent$Type", "javax.sound.sampled.LineEvent", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.LineEvent$Type",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.LineEvent"
+	};
+	$loadClass(LineEvent$Type, name, initialize, &classInfo$$, LineEvent$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LineEvent$Type);
+	});
 	return class$;
 }
 

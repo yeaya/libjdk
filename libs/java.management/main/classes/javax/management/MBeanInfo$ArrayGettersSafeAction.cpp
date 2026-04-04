@@ -1,5 +1,4 @@
 #include <javax/management/MBeanInfo$ArrayGettersSafeAction.h>
-
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/reflect/Method.h>
 #include <javax/management/MBeanInfo.h>
@@ -17,50 +16,13 @@ using $Method = ::java::lang::reflect::Method;
 namespace javax {
 	namespace management {
 
-$FieldInfo _MBeanInfo$ArrayGettersSafeAction_FieldInfo_[] = {
-	{"subclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MBeanInfo$ArrayGettersSafeAction, subclass)},
-	{"immutableClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MBeanInfo$ArrayGettersSafeAction, immutableClass)},
-	{}
-};
-
-$MethodInfo _MBeanInfo$ArrayGettersSafeAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(MBeanInfo$ArrayGettersSafeAction, init$, void, $Class*, $Class*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo$ArrayGettersSafeAction, run, $Object*)},
-	{}
-};
-
-$InnerClassInfo _MBeanInfo$ArrayGettersSafeAction_InnerClassesInfo_[] = {
-	{"javax.management.MBeanInfo$ArrayGettersSafeAction", "javax.management.MBeanInfo", "ArrayGettersSafeAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MBeanInfo$ArrayGettersSafeAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.MBeanInfo$ArrayGettersSafeAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_MBeanInfo$ArrayGettersSafeAction_FieldInfo_,
-	_MBeanInfo$ArrayGettersSafeAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	nullptr,
-	_MBeanInfo$ArrayGettersSafeAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.MBeanInfo"
-};
-
-$Object* allocate$MBeanInfo$ArrayGettersSafeAction($Class* clazz) {
-	return $of($alloc(MBeanInfo$ArrayGettersSafeAction));
-}
-
 void MBeanInfo$ArrayGettersSafeAction::init$($Class* subclass, $Class* immutableClass) {
 	$set(this, subclass, subclass);
 	$set(this, immutableClass, immutableClass);
 }
 
 $Object* MBeanInfo$ArrayGettersSafeAction::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($MethodArray, methods, $nc(this->immutableClass)->getMethods());
 	for (int32_t i = 0; i < $nc(methods)->length; ++i) {
@@ -86,7 +48,38 @@ MBeanInfo$ArrayGettersSafeAction::MBeanInfo$ArrayGettersSafeAction() {
 }
 
 $Class* MBeanInfo$ArrayGettersSafeAction::load$($String* name, bool initialize) {
-	$loadClass(MBeanInfo$ArrayGettersSafeAction, name, initialize, &_MBeanInfo$ArrayGettersSafeAction_ClassInfo_, allocate$MBeanInfo$ArrayGettersSafeAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"subclass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MBeanInfo$ArrayGettersSafeAction, subclass)},
+		{"immutableClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MBeanInfo$ArrayGettersSafeAction, immutableClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(MBeanInfo$ArrayGettersSafeAction, init$, void, $Class*, $Class*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo$ArrayGettersSafeAction, run, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.MBeanInfo$ArrayGettersSafeAction", "javax.management.MBeanInfo", "ArrayGettersSafeAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.MBeanInfo$ArrayGettersSafeAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.MBeanInfo"
+	};
+	$loadClass(MBeanInfo$ArrayGettersSafeAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanInfo$ArrayGettersSafeAction);
+	});
 	return class$;
 }
 

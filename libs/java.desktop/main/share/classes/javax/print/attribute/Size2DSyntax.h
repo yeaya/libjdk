@@ -35,7 +35,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual $String* toString(int32_t units, $String* unitsName);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x4D7FEA8F7BA9EAB2;
+	static const int64_t serialVersionUID = (int64_t)0x4d7fea8f7ba9eab2;
 	int32_t x = 0;
 	int32_t y = 0;
 	static const int32_t INCH = 25400;

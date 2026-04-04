@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftChannelProxy.h>
-
 #include <javax/sound/midi/MidiChannel.h>
 #include <jcpp.h>
 
@@ -12,57 +11,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SoftChannelProxy_FieldInfo_[] = {
-	{"channel", "Ljavax/sound/midi/MidiChannel;", nullptr, $PRIVATE, $field(SoftChannelProxy, channel)},
-	{}
-};
-
-$MethodInfo _SoftChannelProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftChannelProxy, init$, void)},
-	{"allNotesOff", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, allNotesOff, void)},
-	{"allSoundOff", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, allSoundOff, void)},
-	{"controlChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, controlChange, void, int32_t, int32_t)},
-	{"getChannel", "()Ljavax/sound/midi/MidiChannel;", nullptr, $PUBLIC, $method(SoftChannelProxy, getChannel, $MidiChannel*)},
-	{"getChannelPressure", "()I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getChannelPressure, int32_t)},
-	{"getController", "(I)I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getController, int32_t, int32_t)},
-	{"getMono", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getMono, bool)},
-	{"getMute", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getMute, bool)},
-	{"getOmni", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getOmni, bool)},
-	{"getPitchBend", "()I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getPitchBend, int32_t)},
-	{"getPolyPressure", "(I)I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getPolyPressure, int32_t, int32_t)},
-	{"getProgram", "()I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getProgram, int32_t)},
-	{"getSolo", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getSolo, bool)},
-	{"localControl", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, localControl, bool, bool)},
-	{"noteOff", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, noteOff, void, int32_t)},
-	{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, noteOff, void, int32_t, int32_t)},
-	{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, noteOn, void, int32_t, int32_t)},
-	{"programChange", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, programChange, void, int32_t)},
-	{"programChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, programChange, void, int32_t, int32_t)},
-	{"resetAllControllers", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, resetAllControllers, void)},
-	{"setChannel", "(Ljavax/sound/midi/MidiChannel;)V", nullptr, $PUBLIC, $method(SoftChannelProxy, setChannel, void, $MidiChannel*)},
-	{"setChannelPressure", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setChannelPressure, void, int32_t)},
-	{"setMono", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setMono, void, bool)},
-	{"setMute", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setMute, void, bool)},
-	{"setOmni", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setOmni, void, bool)},
-	{"setPitchBend", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setPitchBend, void, int32_t)},
-	{"setPolyPressure", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setPolyPressure, void, int32_t, int32_t)},
-	{"setSolo", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setSolo, void, bool)},
-	{}
-};
-
-$ClassInfo _SoftChannelProxy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftChannelProxy",
-	"java.lang.Object",
-	"javax.sound.midi.MidiChannel",
-	_SoftChannelProxy_FieldInfo_,
-	_SoftChannelProxy_MethodInfo_
-};
-
-$Object* allocate$SoftChannelProxy($Class* clazz) {
-	return $of($alloc(SoftChannelProxy));
-}
 
 void SoftChannelProxy::init$() {
 	$set(this, channel, nullptr);
@@ -262,7 +210,53 @@ SoftChannelProxy::SoftChannelProxy() {
 }
 
 $Class* SoftChannelProxy::load$($String* name, bool initialize) {
-	$loadClass(SoftChannelProxy, name, initialize, &_SoftChannelProxy_ClassInfo_, allocate$SoftChannelProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"channel", "Ljavax/sound/midi/MidiChannel;", nullptr, $PRIVATE, $field(SoftChannelProxy, channel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftChannelProxy, init$, void)},
+		{"allNotesOff", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, allNotesOff, void)},
+		{"allSoundOff", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, allSoundOff, void)},
+		{"controlChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, controlChange, void, int32_t, int32_t)},
+		{"getChannel", "()Ljavax/sound/midi/MidiChannel;", nullptr, $PUBLIC, $method(SoftChannelProxy, getChannel, $MidiChannel*)},
+		{"getChannelPressure", "()I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getChannelPressure, int32_t)},
+		{"getController", "(I)I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getController, int32_t, int32_t)},
+		{"getMono", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getMono, bool)},
+		{"getMute", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getMute, bool)},
+		{"getOmni", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getOmni, bool)},
+		{"getPitchBend", "()I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getPitchBend, int32_t)},
+		{"getPolyPressure", "(I)I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getPolyPressure, int32_t, int32_t)},
+		{"getProgram", "()I", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getProgram, int32_t)},
+		{"getSolo", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, getSolo, bool)},
+		{"localControl", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, localControl, bool, bool)},
+		{"noteOff", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, noteOff, void, int32_t)},
+		{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, noteOff, void, int32_t, int32_t)},
+		{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, noteOn, void, int32_t, int32_t)},
+		{"programChange", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, programChange, void, int32_t)},
+		{"programChange", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, programChange, void, int32_t, int32_t)},
+		{"resetAllControllers", "()V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, resetAllControllers, void)},
+		{"setChannel", "(Ljavax/sound/midi/MidiChannel;)V", nullptr, $PUBLIC, $method(SoftChannelProxy, setChannel, void, $MidiChannel*)},
+		{"setChannelPressure", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setChannelPressure, void, int32_t)},
+		{"setMono", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setMono, void, bool)},
+		{"setMute", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setMute, void, bool)},
+		{"setOmni", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setOmni, void, bool)},
+		{"setPitchBend", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setPitchBend, void, int32_t)},
+		{"setPolyPressure", "(II)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setPolyPressure, void, int32_t, int32_t)},
+		{"setSolo", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftChannelProxy, setSolo, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftChannelProxy",
+		"java.lang.Object",
+		"javax.sound.midi.MidiChannel",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftChannelProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftChannelProxy);
+	});
 	return class$;
 }
 

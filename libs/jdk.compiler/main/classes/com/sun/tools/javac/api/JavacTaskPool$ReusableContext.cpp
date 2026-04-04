@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacTaskPool$ReusableContext.h>
-
 #include <com/sun/source/tree/CompilationUnitTree.h>
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/source/util/TaskEvent$Kind.h>
@@ -34,7 +33,6 @@
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <javax/tools/DiagnosticListener.h>
-#include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/StandardLocation.h>
 #include <jcpp.h>
@@ -45,7 +43,6 @@
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
-using $TreeScanner = ::com::sun::source::util::TreeScanner;
 using $JavacTaskPool$ReusableContext$1 = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext$1;
 using $JavacTaskPool$ReusableContext$ReusableJavaCompiler = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext$ReusableJavaCompiler;
 using $JavacTaskPool$ReusableContext$ReusableLog = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext$ReusableLog;
@@ -70,15 +67,11 @@ using $Options = ::com::sun::tools::javac::util::Options;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
-using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $StandardLocation = ::javax::tools::StandardLocation;
 
 namespace com {
@@ -86,59 +79,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _JavacTaskPool$ReusableContext_FieldInfo_[] = {
-	{"roots", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/source/tree/CompilationUnitTree;>;", 0, $field(JavacTaskPool$ReusableContext, roots)},
-	{"arguments", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(JavacTaskPool$ReusableContext, arguments)},
-	{"polluted", "Z", nullptr, 0, $field(JavacTaskPool$ReusableContext, polluted)},
-	{"useCount", "I", nullptr, 0, $field(JavacTaskPool$ReusableContext, useCount)},
-	{"timeStamp", "J", nullptr, 0, $field(JavacTaskPool$ReusableContext, timeStamp)},
-	{"pollutionScanner", "Lcom/sun/source/util/TreeScanner;", "Lcom/sun/source/util/TreeScanner<Ljava/lang/Void;Lcom/sun/tools/javac/code/Symtab;>;", 0, $field(JavacTaskPool$ReusableContext, pollutionScanner)},
-	{}
-};
-
-$MethodInfo _JavacTaskPool$ReusableContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(JavacTaskPool$ReusableContext, init$, void, $List*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(JavacTaskPool$ReusableContext, clear, void)},
-	{"drop", "(Lcom/sun/tools/javac/util/Context$Key;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;)V", 0, $virtualMethod(JavacTaskPool$ReusableContext, drop, void, $Context$Key*)},
-	{"drop", "(Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)V", 0, $virtualMethod(JavacTaskPool$ReusableContext, drop, void, $Class*)},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext, finished, void, $TaskEvent*)},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext, started, void, $TaskEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JavacTaskPool$ReusableContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "com.sun.tools.javac.api.JavacTaskPool", "ReusableContext", $STATIC},
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog", "com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "ReusableLog", $STATIC},
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableJavaCompiler", "com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "ReusableJavaCompiler", $STATIC},
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavacTaskPool$ReusableContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.api.JavacTaskPool$ReusableContext",
-	"com.sun.tools.javac.util.Context",
-	"com.sun.source.util.TaskListener",
-	_JavacTaskPool$ReusableContext_FieldInfo_,
-	_JavacTaskPool$ReusableContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacTaskPool$ReusableContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.JavacTaskPool"
-};
-
-$Object* allocate$JavacTaskPool$ReusableContext($Class* clazz) {
-	return $of($alloc(JavacTaskPool$ReusableContext));
-}
 
 int32_t JavacTaskPool$ReusableContext::hashCode() {
 	 return this->$Context::hashCode();
@@ -175,10 +115,10 @@ void JavacTaskPool$ReusableContext::init$($List* arguments) {
 }
 
 void JavacTaskPool$ReusableContext::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($JavaFileManager);
 	$init($StandardLocation);
-	this->polluted |= $nc(($cast($JavaFileManager, $(get($JavaFileManager::class$)))))->hasLocation($StandardLocation::PATCH_MODULE_PATH);
+	this->polluted |= $$sure($JavaFileManager, get($JavaFileManager::class$))->hasLocation($StandardLocation::PATCH_MODULE_PATH);
 	$init($Arguments);
 	drop($Arguments::argsKey);
 	$load($DiagnosticListener);
@@ -196,20 +136,20 @@ void JavacTaskPool$ReusableContext::clear() {
 	$load($PlatformDescription);
 	drop($PlatformDescription::class$);
 	if ($instanceOf($JavacTaskPool$ReusableContext$ReusableLog, $($nc(this->ht)->get($Log::logKey)))) {
-		$nc(($cast($JavacTaskPool$ReusableContext$ReusableLog, $($Log::instance(this)))))->clear();
-		$nc($($Enter::instance(this)))->newRound();
-		$nc(($cast($JavacTaskPool$ReusableContext$ReusableJavaCompiler, $($JavacTaskPool$ReusableContext$ReusableJavaCompiler::instance(this)))))->clear();
-		$nc($($Types::instance(this)))->newRound();
-		$nc($($Check::instance(this)))->newRound();
-		$nc($($Check::instance(this)))->clear();
-		$nc($($Preview::instance(this)))->clear();
-		$nc($($Modules::instance(this)))->newRound();
-		$nc($($Annotate::instance(this)))->newRound();
-		$nc($($CompileStates::instance(this)))->clear();
-		$nc($($MultiTaskListener::instance(this)))->clear();
-		$nc($($Options::instance(this)))->clear();
+		$$sure($JavacTaskPool$ReusableContext$ReusableLog, $Log::instance(this))->clear();
+		$$nc($Enter::instance(this))->newRound();
+		$$sure($JavacTaskPool$ReusableContext$ReusableJavaCompiler, $JavacTaskPool$ReusableContext$ReusableJavaCompiler::instance(this))->clear();
+		$$nc($Types::instance(this))->newRound();
+		$$nc($Check::instance(this))->newRound();
+		$$nc($Check::instance(this))->clear();
+		$$nc($Preview::instance(this))->clear();
+		$$nc($Modules::instance(this))->newRound();
+		$$nc($Annotate::instance(this))->newRound();
+		$$nc($CompileStates::instance(this))->clear();
+		$$nc($MultiTaskListener::instance(this))->clear();
+		$$nc($Options::instance(this))->clear();
 		$var($Symtab, syms, $Symtab::instance(this));
-		$nc(this->pollutionScanner)->scan(static_cast<$Iterable*>(this->roots), $of(syms));
+		$nc(this->pollutionScanner)->scan(this->roots, syms);
 		$nc(this->roots)->clear();
 	}
 }
@@ -236,7 +176,54 @@ JavacTaskPool$ReusableContext::JavacTaskPool$ReusableContext() {
 }
 
 $Class* JavacTaskPool$ReusableContext::load$($String* name, bool initialize) {
-	$loadClass(JavacTaskPool$ReusableContext, name, initialize, &_JavacTaskPool$ReusableContext_ClassInfo_, allocate$JavacTaskPool$ReusableContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"roots", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/source/tree/CompilationUnitTree;>;", 0, $field(JavacTaskPool$ReusableContext, roots)},
+		{"arguments", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(JavacTaskPool$ReusableContext, arguments)},
+		{"polluted", "Z", nullptr, 0, $field(JavacTaskPool$ReusableContext, polluted)},
+		{"useCount", "I", nullptr, 0, $field(JavacTaskPool$ReusableContext, useCount)},
+		{"timeStamp", "J", nullptr, 0, $field(JavacTaskPool$ReusableContext, timeStamp)},
+		{"pollutionScanner", "Lcom/sun/source/util/TreeScanner;", "Lcom/sun/source/util/TreeScanner<Ljava/lang/Void;Lcom/sun/tools/javac/code/Symtab;>;", 0, $field(JavacTaskPool$ReusableContext, pollutionScanner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(JavacTaskPool$ReusableContext, init$, void, $List*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(JavacTaskPool$ReusableContext, clear, void)},
+		{"drop", "(Lcom/sun/tools/javac/util/Context$Key;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;)V", 0, $virtualMethod(JavacTaskPool$ReusableContext, drop, void, $Context$Key*)},
+		{"drop", "(Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)V", 0, $virtualMethod(JavacTaskPool$ReusableContext, drop, void, $Class*)},
+		{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext, finished, void, $TaskEvent*)},
+		{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext, started, void, $TaskEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "com.sun.tools.javac.api.JavacTaskPool", "ReusableContext", $STATIC},
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog", "com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "ReusableLog", $STATIC},
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableJavaCompiler", "com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "ReusableJavaCompiler", $STATIC},
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.api.JavacTaskPool$ReusableContext",
+		"com.sun.tools.javac.util.Context",
+		"com.sun.source.util.TaskListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.JavacTaskPool"
+	};
+	$loadClass(JavacTaskPool$ReusableContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacTaskPool$ReusableContext));
+	});
 	return class$;
 }
 

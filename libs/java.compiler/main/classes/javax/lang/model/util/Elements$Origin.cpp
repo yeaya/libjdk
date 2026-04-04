@@ -1,5 +1,4 @@
 #include <javax/lang/model/util/Elements$Origin.h>
-
 #include <java/lang/Enum.h>
 #include <javax/lang/model/util/Elements.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ namespace javax {
 	namespace lang {
 		namespace model {
 			namespace util {
-
-$FieldInfo _Elements$Origin_FieldInfo_[] = {
-	{"EXPLICIT", "Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Elements$Origin, EXPLICIT)},
-	{"MANDATED", "Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Elements$Origin, MANDATED)},
-	{"SYNTHETIC", "Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Elements$Origin, SYNTHETIC)},
-	{"$VALUES", "[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Elements$Origin, $VALUES)},
-	{}
-};
-
-$MethodInfo _Elements$Origin_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Elements$Origin, $values, $Elements$OriginArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Elements$Origin, init$, void, $String*, int32_t)},
-	{"isDeclared", "()Z", nullptr, $PUBLIC, $method(Elements$Origin, isDeclared, bool)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $staticMethod(Elements$Origin, valueOf, Elements$Origin*, $String*)},
-	{"values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $staticMethod(Elements$Origin, values, $Elements$OriginArray*)},
-	{}
-};
-
-$InnerClassInfo _Elements$Origin_InnerClassesInfo_[] = {
-	{"javax.lang.model.util.Elements$Origin", "javax.lang.model.util.Elements", "Origin", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Elements$Origin_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.lang.model.util.Elements$Origin",
-	"java.lang.Enum",
-	nullptr,
-	_Elements$Origin_FieldInfo_,
-	_Elements$Origin_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/lang/model/util/Elements$Origin;>;",
-	nullptr,
-	_Elements$Origin_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.util.Elements"
-};
-
-$Object* allocate$Elements$Origin($Class* clazz) {
-	return $of($alloc(Elements$Origin));
-}
 
 Elements$Origin* Elements$Origin::EXPLICIT = nullptr;
 Elements$Origin* Elements$Origin::MANDATED = nullptr;
@@ -94,7 +51,7 @@ bool Elements$Origin::isDeclared() {
 	return this != Elements$Origin::SYNTHETIC;
 }
 
-void clinit$Elements$Origin($Class* class$) {
+void Elements$Origin::clinit$($Class* clazz) {
 	$assignStatic(Elements$Origin::EXPLICIT, $new(Elements$Origin, "EXPLICIT"_s, 0));
 	$assignStatic(Elements$Origin::MANDATED, $new(Elements$Origin, "MANDATED"_s, 1));
 	$assignStatic(Elements$Origin::SYNTHETIC, $new(Elements$Origin, "SYNTHETIC"_s, 2));
@@ -105,7 +62,43 @@ Elements$Origin::Elements$Origin() {
 }
 
 $Class* Elements$Origin::load$($String* name, bool initialize) {
-	$loadClass(Elements$Origin, name, initialize, &_Elements$Origin_ClassInfo_, clinit$Elements$Origin, allocate$Elements$Origin);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXPLICIT", "Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Elements$Origin, EXPLICIT)},
+		{"MANDATED", "Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Elements$Origin, MANDATED)},
+		{"SYNTHETIC", "Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Elements$Origin, SYNTHETIC)},
+		{"$VALUES", "[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Elements$Origin, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Elements$Origin, $values, $Elements$OriginArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Elements$Origin, init$, void, $String*, int32_t)},
+		{"isDeclared", "()Z", nullptr, $PUBLIC, $method(Elements$Origin, isDeclared, bool)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $staticMethod(Elements$Origin, valueOf, Elements$Origin*, $String*)},
+		{"values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $staticMethod(Elements$Origin, values, $Elements$OriginArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.util.Elements$Origin", "javax.lang.model.util.Elements", "Origin", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.lang.model.util.Elements$Origin",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/lang/model/util/Elements$Origin;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.util.Elements"
+	};
+	$loadClass(Elements$Origin, name, initialize, &classInfo$$, Elements$Origin::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Elements$Origin));
+	});
 	return class$;
 }
 

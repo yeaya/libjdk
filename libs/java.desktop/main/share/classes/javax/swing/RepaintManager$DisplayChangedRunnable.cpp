@@ -1,5 +1,4 @@
 #include <javax/swing/RepaintManager$DisplayChangedRunnable.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/RepaintManager.h>
 #include <jcpp.h>
@@ -13,49 +12,44 @@ using $RepaintManager = ::javax::swing::RepaintManager;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _RepaintManager$DisplayChangedRunnable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RepaintManager$DisplayChangedRunnable, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$DisplayChangedRunnable, run, void)},
-	{}
-};
-
-$InnerClassInfo _RepaintManager$DisplayChangedRunnable_InnerClassesInfo_[] = {
-	{"javax.swing.RepaintManager$DisplayChangedRunnable", "javax.swing.RepaintManager", "DisplayChangedRunnable", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RepaintManager$DisplayChangedRunnable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.RepaintManager$DisplayChangedRunnable",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_RepaintManager$DisplayChangedRunnable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RepaintManager$DisplayChangedRunnable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RepaintManager"
-};
-
-$Object* allocate$RepaintManager$DisplayChangedRunnable($Class* clazz) {
-	return $of($alloc(RepaintManager$DisplayChangedRunnable));
-}
-
 void RepaintManager$DisplayChangedRunnable::init$() {
 }
 
 void RepaintManager$DisplayChangedRunnable::run() {
-	$nc($($RepaintManager::currentManager(($JComponent*)nullptr)))->displayChanged();
+	$$nc($RepaintManager::currentManager(($JComponent*)nullptr))->displayChanged();
 }
 
 RepaintManager$DisplayChangedRunnable::RepaintManager$DisplayChangedRunnable() {
 }
 
 $Class* RepaintManager$DisplayChangedRunnable::load$($String* name, bool initialize) {
-	$loadClass(RepaintManager$DisplayChangedRunnable, name, initialize, &_RepaintManager$DisplayChangedRunnable_ClassInfo_, allocate$RepaintManager$DisplayChangedRunnable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RepaintManager$DisplayChangedRunnable, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RepaintManager$DisplayChangedRunnable, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RepaintManager$DisplayChangedRunnable", "javax.swing.RepaintManager", "DisplayChangedRunnable", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.RepaintManager$DisplayChangedRunnable",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RepaintManager"
+	};
+	$loadClass(RepaintManager$DisplayChangedRunnable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RepaintManager$DisplayChangedRunnable);
+	});
 	return class$;
 }
 

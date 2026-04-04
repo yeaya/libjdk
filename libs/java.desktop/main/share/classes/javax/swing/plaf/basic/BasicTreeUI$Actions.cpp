@@ -1,11 +1,9 @@
 #include <javax/swing/plaf/basic/BasicTreeUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/SwingConstants.h>
@@ -72,14 +70,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JTree = ::javax::swing::JTree;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
 using $BasicTreeUI$Actions$1 = ::javax::swing::plaf::basic::BasicTreeUI$Actions$1;
-using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreePath = ::javax::swing::tree::TreePath;
 using $TreeSelectionModel = ::javax::swing::tree::TreeSelectionModel;
 using $UIAction = ::sun::swing::UIAction;
@@ -88,98 +84,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTreeUI$Actions_FieldInfo_[] = {
-	{"SELECT_PREVIOUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PREVIOUS)},
-	{"SELECT_PREVIOUS_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PREVIOUS_CHANGE_LEAD)},
-	{"SELECT_PREVIOUS_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PREVIOUS_EXTEND_SELECTION)},
-	{"SELECT_NEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_NEXT)},
-	{"SELECT_NEXT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_NEXT_CHANGE_LEAD)},
-	{"SELECT_NEXT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_NEXT_EXTEND_SELECTION)},
-	{"SELECT_CHILD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_CHILD)},
-	{"SELECT_CHILD_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_CHILD_CHANGE_LEAD)},
-	{"SELECT_PARENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PARENT)},
-	{"SELECT_PARENT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PARENT_CHANGE_LEAD)},
-	{"SCROLL_UP_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_UP_CHANGE_SELECTION)},
-	{"SCROLL_UP_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_UP_CHANGE_LEAD)},
-	{"SCROLL_UP_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_UP_EXTEND_SELECTION)},
-	{"SCROLL_DOWN_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_DOWN_CHANGE_SELECTION)},
-	{"SCROLL_DOWN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_DOWN_EXTEND_SELECTION)},
-	{"SCROLL_DOWN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_DOWN_CHANGE_LEAD)},
-	{"SELECT_FIRST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_FIRST)},
-	{"SELECT_FIRST_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_FIRST_CHANGE_LEAD)},
-	{"SELECT_FIRST_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_FIRST_EXTEND_SELECTION)},
-	{"SELECT_LAST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_LAST)},
-	{"SELECT_LAST_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_LAST_CHANGE_LEAD)},
-	{"SELECT_LAST_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_LAST_EXTEND_SELECTION)},
-	{"TOGGLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, TOGGLE)},
-	{"CANCEL_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, CANCEL_EDITING)},
-	{"START_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, START_EDITING)},
-	{"SELECT_ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_ALL)},
-	{"CLEAR_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, CLEAR_SELECTION)},
-	{"SCROLL_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_LEFT)},
-	{"SCROLL_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_RIGHT)},
-	{"SCROLL_LEFT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_LEFT_EXTEND_SELECTION)},
-	{"SCROLL_RIGHT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_RIGHT_EXTEND_SELECTION)},
-	{"SCROLL_RIGHT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_RIGHT_CHANGE_LEAD)},
-	{"SCROLL_LEFT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_LEFT_CHANGE_LEAD)},
-	{"EXPAND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, EXPAND)},
-	{"COLLAPSE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, COLLAPSE)},
-	{"MOVE_SELECTION_TO_PARENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, MOVE_SELECTION_TO_PARENT)},
-	{"ADD_TO_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, ADD_TO_SELECTION)},
-	{"TOGGLE_AND_ANCHOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, TOGGLE_AND_ANCHOR)},
-	{"EXTEND_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, EXTEND_TO)},
-	{"MOVE_SELECTION_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, MOVE_SELECTION_TO)},
-	{}
-};
-
-$MethodInfo _BasicTreeUI$Actions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BasicTreeUI$Actions, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTreeUI$Actions, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"cancelEditing", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, cancelEditing, void, $JTree*, $BasicTreeUI*)},
-	{"collapse", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, collapse, void, $JTree*, $BasicTreeUI*)},
-	{"expand", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, expand, void, $JTree*, $BasicTreeUI*)},
-	{"extendSelection", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, extendSelection, void, $JTree*, $BasicTreeUI*)},
-	{"home", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, home, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
-	{"increment", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, increment, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
-	{"moveSelectionToParent", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, moveSelectionToParent, void, $JTree*, $BasicTreeUI*)},
-	{"page", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, page, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
-	{"scroll", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;II)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, scroll, void, $JTree*, $BasicTreeUI*, int32_t, int32_t)},
-	{"scrollChangeSelection", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, scrollChangeSelection, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
-	{"selectAll", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;Z)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, selectAll, void, $JTree*, $BasicTreeUI*, bool)},
-	{"startEditing", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, startEditing, void, $JTree*, $BasicTreeUI*)},
-	{"toggle", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, toggle, void, $JTree*, $BasicTreeUI*)},
-	{"traverse", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, traverse, void, $JTree*, $BasicTreeUI*, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicTreeUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTreeUI$Actions", "javax.swing.plaf.basic.BasicTreeUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$Actions$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicTreeUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTreeUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicTreeUI$Actions_FieldInfo_,
-	_BasicTreeUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTreeUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTreeUI"
-};
-
-$Object* allocate$BasicTreeUI$Actions($Class* clazz) {
-	return $of($alloc(BasicTreeUI$Actions));
-}
 
 $String* BasicTreeUI$Actions::SELECT_PREVIOUS = nullptr;
 $String* BasicTreeUI$Actions::SELECT_PREVIOUS_CHANGE_LEAD = nullptr;
@@ -233,14 +137,14 @@ void BasicTreeUI$Actions::init$($String* key) {
 bool BasicTreeUI$Actions::accept(Object$* o) {
 	if ($instanceOf($JTree, o)) {
 		if (getName() == BasicTreeUI$Actions::CANCEL_EDITING) {
-			return $nc(($cast($JTree, o)))->isEditing();
+			return $cast($JTree, o)->isEditing();
 		}
 	}
 	return true;
 }
 
 void BasicTreeUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTree, tree, $cast($JTree, $nc(e)->getSource()));
 	$load($BasicTreeUI);
 	$var($BasicTreeUI, ui, $cast($BasicTreeUI, $BasicLookAndFeel::getUIOfType($($nc(tree)->getUI()), $BasicTreeUI::class$)));
@@ -305,7 +209,7 @@ void BasicTreeUI$Actions::actionPerformed($ActionEvent* e) {
 	} else if (key == BasicTreeUI$Actions::ADD_TO_SELECTION) {
 		if ($nc(ui)->getRowCount(tree) > 0) {
 			int32_t lead = ui->getLeadSelectionRow();
-			if (!$nc(tree)->isRowSelected(lead)) {
+			if (!tree->isRowSelected(lead)) {
 				$var($TreePath, aPath, ui->getAnchorSelectionPath());
 				tree->addSelectionRow(lead);
 				ui->setAnchorSelectionPath(aPath);
@@ -315,7 +219,7 @@ void BasicTreeUI$Actions::actionPerformed($ActionEvent* e) {
 		if ($nc(ui)->getRowCount(tree) > 0) {
 			int32_t lead = ui->getLeadSelectionRow();
 			$var($TreePath, lPath, ui->getLeadSelectionPath());
-			if (!$nc(tree)->isRowSelected(lead)) {
+			if (!tree->isRowSelected(lead)) {
 				tree->addSelectionRow(lead);
 			} else {
 				tree->removeSelectionRow(lead);
@@ -328,7 +232,7 @@ void BasicTreeUI$Actions::actionPerformed($ActionEvent* e) {
 	} else if (key == BasicTreeUI$Actions::MOVE_SELECTION_TO) {
 		if ($nc(ui)->getRowCount(tree) > 0) {
 			int32_t lead = ui->getLeadSelectionRow();
-			$nc(tree)->setSelectionInterval(lead, lead);
+			tree->setSelectionInterval(lead, lead);
 		}
 	} else if (key == BasicTreeUI$Actions::SCROLL_LEFT) {
 		scroll(tree, ui, $SwingConstants::HORIZONTAL, -10);
@@ -352,16 +256,16 @@ void BasicTreeUI$Actions::actionPerformed($ActionEvent* e) {
 }
 
 void BasicTreeUI$Actions::scrollChangeSelection($JTree* tree, $BasicTreeUI* ui, int32_t direction, bool addToSelection, bool changeSelection) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rowCount = 0;
 	if ((rowCount = $nc(ui)->getRowCount(tree)) > 0 && ui->treeSelectionModel != nullptr) {
 		$var($TreePath, newPath, nullptr);
 		$var($Rectangle, visRect, $nc(tree)->getVisibleRect());
 		if (direction == -1) {
-			$assign(newPath, ui->getClosestPathForLocation(tree, $nc(visRect)->x, visRect->y));
-			$nc(visRect)->x = $Math::max(0, visRect->x - visRect->width);
+			$assign(newPath, ui->getClosestPathForLocation(tree, $nc(visRect)->x, $nc(visRect)->y));
+			visRect->x = $Math::max(0, visRect->x - visRect->width);
 		} else {
-			$nc(visRect)->x = $Math::min($Math::max(0, tree->getWidth() - visRect->width), visRect->x + visRect->width);
+			$nc(visRect)->x = $Math::min($Math::max(0, tree->getWidth() - $nc(visRect)->width), $nc(visRect)->x + $nc(visRect)->width);
 			$assign(newPath, ui->getClosestPathForLocation(tree, visRect->x, visRect->y + visRect->height));
 		}
 		tree->scrollRectToVisible(visRect);
@@ -376,7 +280,7 @@ void BasicTreeUI$Actions::scrollChangeSelection($JTree* tree, $BasicTreeUI* ui, 
 }
 
 void BasicTreeUI$Actions::scroll($JTree* component, $BasicTreeUI* ui, int32_t direction, int32_t amount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, visRect, $nc(component)->getVisibleRect());
 	$var($Dimension, size, component->getSize());
 	if (direction == $SwingConstants::HORIZONTAL) {
@@ -392,7 +296,7 @@ void BasicTreeUI$Actions::scroll($JTree* component, $BasicTreeUI* ui, int32_t di
 }
 
 void BasicTreeUI$Actions::extendSelection($JTree* tree, $BasicTreeUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ui)->getRowCount(tree) > 0) {
 		int32_t lead = ui->getLeadSelectionRow();
 		if (lead != -1) {
@@ -410,11 +314,11 @@ void BasicTreeUI$Actions::extendSelection($JTree* tree, $BasicTreeUI* ui) {
 }
 
 void BasicTreeUI$Actions::selectAll($JTree* tree, $BasicTreeUI* ui, bool selectAll) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rowCount = $nc(ui)->getRowCount(tree);
 	if (rowCount > 0) {
 		if (selectAll) {
-			if ($nc($($nc(tree)->getSelectionModel()))->getSelectionMode() == $TreeSelectionModel::SINGLE_TREE_SELECTION) {
+			if ($$nc($nc(tree)->getSelectionModel())->getSelectionMode() == $TreeSelectionModel::SINGLE_TREE_SELECTION) {
 				int32_t lead = ui->getLeadSelectionRow();
 				if (lead != -1) {
 					tree->setSelectionRow(lead);
@@ -426,10 +330,10 @@ void BasicTreeUI$Actions::selectAll($JTree* tree, $BasicTreeUI* ui, bool selectA
 			}
 			$var($TreePath, lastPath, ui->getLeadSelectionPath());
 			$var($TreePath, aPath, ui->getAnchorSelectionPath());
-			if (lastPath != nullptr && !$nc(tree)->isVisible(lastPath)) {
+			if (lastPath != nullptr && !tree->isVisible(lastPath)) {
 				$assign(lastPath, nullptr);
 			}
-			$nc(tree)->setSelectionInterval(0, rowCount - 1);
+			tree->setSelectionInterval(0, rowCount - 1);
 			if (lastPath != nullptr) {
 				ui->setLeadSelectionPath(lastPath);
 			}
@@ -459,7 +363,7 @@ void BasicTreeUI$Actions::cancelEditing($JTree* tree, $BasicTreeUI* ui) {
 }
 
 void BasicTreeUI$Actions::toggle($JTree* tree, $BasicTreeUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t selRow = $nc(ui)->getLeadSelectionRow();
 	if (selRow != -1 && !ui->isLeaf(selRow)) {
 		$var($TreePath, aPath, ui->getAnchorSelectionPath());
@@ -481,8 +385,8 @@ void BasicTreeUI$Actions::collapse($JTree* tree, $BasicTreeUI* ui) {
 }
 
 void BasicTreeUI$Actions::increment($JTree* tree, $BasicTreeUI* ui, int32_t direction, bool addToSelection, bool changeSelection) {
-	$useLocalCurrentObjectStackCache();
-	if (!addToSelection && !changeSelection && $nc($($nc(tree)->getSelectionModel()))->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
+	$useLocalObjectStack();
+	if (!addToSelection && !changeSelection && $$nc($nc(tree)->getSelectionModel())->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
 		changeSelection = true;
 	}
 	int32_t rowCount = 0;
@@ -511,8 +415,8 @@ void BasicTreeUI$Actions::increment($JTree* tree, $BasicTreeUI* ui, int32_t dire
 }
 
 void BasicTreeUI$Actions::traverse($JTree* tree, $BasicTreeUI* ui, int32_t direction, bool changeSelection) {
-	$useLocalCurrentObjectStackCache();
-	if (!changeSelection && $nc($($nc(tree)->getSelectionModel()))->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
+	$useLocalObjectStack();
+	if (!changeSelection && $$nc($nc(tree)->getSelectionModel())->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
 		changeSelection = true;
 	}
 	int32_t rowCount = 0;
@@ -523,7 +427,7 @@ void BasicTreeUI$Actions::traverse($JTree* tree, $BasicTreeUI* ui, int32_t direc
 			newIndex = 0;
 		} else if (direction == 1) {
 			$var($TreePath, minSelPath, ui->getPathForRow(tree, minSelIndex));
-			int32_t childCount = $nc($(tree->getModel()))->getChildCount($($nc(minSelPath)->getLastPathComponent()));
+			int32_t childCount = $$nc(tree->getModel())->getChildCount($($nc(minSelPath)->getLastPathComponent()));
 			newIndex = -1;
 			if (!ui->isLeaf(minSelIndex)) {
 				if (!tree->isExpanded(minSelIndex)) {
@@ -533,8 +437,8 @@ void BasicTreeUI$Actions::traverse($JTree* tree, $BasicTreeUI* ui, int32_t direc
 				}
 			}
 		} else {
-			bool var$1 = !ui->isLeaf(minSelIndex);
-			if (var$1 && tree->isExpanded(minSelIndex)) {
+			bool var$0 = !ui->isLeaf(minSelIndex);
+			if (var$0 && tree->isExpanded(minSelIndex)) {
 				ui->toggleExpandState($(ui->getPathForRow(tree, minSelIndex)));
 				newIndex = -1;
 			} else {
@@ -558,7 +462,7 @@ void BasicTreeUI$Actions::traverse($JTree* tree, $BasicTreeUI* ui, int32_t direc
 }
 
 void BasicTreeUI$Actions::moveSelectionToParent($JTree* tree, $BasicTreeUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t selRow = $nc(ui)->getLeadSelectionRow();
 	$var($TreePath, path, ui->getPathForRow(tree, selRow));
 	if (path != nullptr && path->getPathCount() > 1) {
@@ -571,8 +475,8 @@ void BasicTreeUI$Actions::moveSelectionToParent($JTree* tree, $BasicTreeUI* ui) 
 }
 
 void BasicTreeUI$Actions::page($JTree* tree, $BasicTreeUI* ui, int32_t direction, bool addToSelection, bool changeSelection) {
-	$useLocalCurrentObjectStackCache();
-	if (!addToSelection && !changeSelection && $nc($($nc(tree)->getSelectionModel()))->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
+	$useLocalObjectStack();
+	if (!addToSelection && !changeSelection && $$nc($nc(tree)->getSelectionModel())->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
 		changeSelection = true;
 	}
 	int32_t rowCount = 0;
@@ -582,16 +486,16 @@ void BasicTreeUI$Actions::page($JTree* tree, $BasicTreeUI* ui, int32_t direction
 		$var($TreePath, newPath, nullptr);
 		$var($Rectangle, visRect, tree->getVisibleRect());
 		if (direction == -1) {
-			$assign(newPath, ui->getClosestPathForLocation(tree, $nc(visRect)->x, visRect->y));
+			$assign(newPath, ui->getClosestPathForLocation(tree, $nc(visRect)->x, $nc(visRect)->y));
 			if ($nc(newPath)->equals(lead)) {
-				$nc(visRect)->y = $Math::max(0, visRect->y - visRect->height);
+				visRect->y = $Math::max(0, visRect->y - visRect->height);
 				$assign(newPath, tree->getClosestPathForLocation(visRect->x, visRect->y));
 			}
 		} else {
-			$nc(visRect)->y = $Math::min($nc(maxSize)->height, visRect->y + visRect->height - 1);
+			$nc(visRect)->y = $Math::min($nc(maxSize)->height, $nc(visRect)->y + $nc(visRect)->height - 1);
 			$assign(newPath, tree->getClosestPathForLocation(visRect->x, visRect->y));
 			if ($nc(newPath)->equals(lead)) {
-				visRect->y = $Math::min($nc(maxSize)->height, visRect->y + visRect->height - 1);
+				visRect->y = $Math::min(maxSize->height, visRect->y + visRect->height - 1);
 				$assign(newPath, tree->getClosestPathForLocation(visRect->x, visRect->y));
 			}
 		}
@@ -618,8 +522,8 @@ void BasicTreeUI$Actions::page($JTree* tree, $BasicTreeUI* ui, int32_t direction
 }
 
 void BasicTreeUI$Actions::home($JTree* tree, $BasicTreeUI* ui, int32_t direction, bool addToSelection, bool changeSelection) {
-	$useLocalCurrentObjectStackCache();
-	if (!addToSelection && !changeSelection && $nc($($nc(tree)->getSelectionModel()))->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
+	$useLocalObjectStack();
+	if (!addToSelection && !changeSelection && $$nc($nc(tree)->getSelectionModel())->getSelectionMode() != $TreeSelectionModel::DISCONTIGUOUS_TREE_SELECTION) {
 		changeSelection = true;
 	}
 	int32_t rowCount = $nc(ui)->getRowCount(tree);
@@ -668,7 +572,7 @@ void BasicTreeUI$Actions::home($JTree* tree, $BasicTreeUI* ui, int32_t direction
 BasicTreeUI$Actions::BasicTreeUI$Actions() {
 }
 
-void clinit$BasicTreeUI$Actions($Class* class$) {
+void BasicTreeUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicTreeUI$Actions::SELECT_PREVIOUS, "selectPrevious"_s);
 	$assignStatic(BasicTreeUI$Actions::SELECT_PREVIOUS_CHANGE_LEAD, "selectPreviousChangeLead"_s);
 	$assignStatic(BasicTreeUI$Actions::SELECT_PREVIOUS_EXTEND_SELECTION, "selectPreviousExtendSelection"_s);
@@ -712,7 +616,93 @@ void clinit$BasicTreeUI$Actions($Class* class$) {
 }
 
 $Class* BasicTreeUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicTreeUI$Actions, name, initialize, &_BasicTreeUI$Actions_ClassInfo_, clinit$BasicTreeUI$Actions, allocate$BasicTreeUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"SELECT_PREVIOUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PREVIOUS)},
+		{"SELECT_PREVIOUS_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PREVIOUS_CHANGE_LEAD)},
+		{"SELECT_PREVIOUS_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PREVIOUS_EXTEND_SELECTION)},
+		{"SELECT_NEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_NEXT)},
+		{"SELECT_NEXT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_NEXT_CHANGE_LEAD)},
+		{"SELECT_NEXT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_NEXT_EXTEND_SELECTION)},
+		{"SELECT_CHILD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_CHILD)},
+		{"SELECT_CHILD_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_CHILD_CHANGE_LEAD)},
+		{"SELECT_PARENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PARENT)},
+		{"SELECT_PARENT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_PARENT_CHANGE_LEAD)},
+		{"SCROLL_UP_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_UP_CHANGE_SELECTION)},
+		{"SCROLL_UP_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_UP_CHANGE_LEAD)},
+		{"SCROLL_UP_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_UP_EXTEND_SELECTION)},
+		{"SCROLL_DOWN_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_DOWN_CHANGE_SELECTION)},
+		{"SCROLL_DOWN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_DOWN_EXTEND_SELECTION)},
+		{"SCROLL_DOWN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_DOWN_CHANGE_LEAD)},
+		{"SELECT_FIRST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_FIRST)},
+		{"SELECT_FIRST_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_FIRST_CHANGE_LEAD)},
+		{"SELECT_FIRST_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_FIRST_EXTEND_SELECTION)},
+		{"SELECT_LAST", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_LAST)},
+		{"SELECT_LAST_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_LAST_CHANGE_LEAD)},
+		{"SELECT_LAST_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_LAST_EXTEND_SELECTION)},
+		{"TOGGLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, TOGGLE)},
+		{"CANCEL_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, CANCEL_EDITING)},
+		{"START_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, START_EDITING)},
+		{"SELECT_ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SELECT_ALL)},
+		{"CLEAR_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, CLEAR_SELECTION)},
+		{"SCROLL_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_LEFT)},
+		{"SCROLL_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_RIGHT)},
+		{"SCROLL_LEFT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_LEFT_EXTEND_SELECTION)},
+		{"SCROLL_RIGHT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_RIGHT_EXTEND_SELECTION)},
+		{"SCROLL_RIGHT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_RIGHT_CHANGE_LEAD)},
+		{"SCROLL_LEFT_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, SCROLL_LEFT_CHANGE_LEAD)},
+		{"EXPAND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, EXPAND)},
+		{"COLLAPSE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, COLLAPSE)},
+		{"MOVE_SELECTION_TO_PARENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, MOVE_SELECTION_TO_PARENT)},
+		{"ADD_TO_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, ADD_TO_SELECTION)},
+		{"TOGGLE_AND_ANCHOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, TOGGLE_AND_ANCHOR)},
+		{"EXTEND_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, EXTEND_TO)},
+		{"MOVE_SELECTION_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI$Actions, MOVE_SELECTION_TO)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BasicTreeUI$Actions, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTreeUI$Actions, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"cancelEditing", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, cancelEditing, void, $JTree*, $BasicTreeUI*)},
+		{"collapse", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, collapse, void, $JTree*, $BasicTreeUI*)},
+		{"expand", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, expand, void, $JTree*, $BasicTreeUI*)},
+		{"extendSelection", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, extendSelection, void, $JTree*, $BasicTreeUI*)},
+		{"home", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, home, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
+		{"increment", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, increment, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
+		{"moveSelectionToParent", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, moveSelectionToParent, void, $JTree*, $BasicTreeUI*)},
+		{"page", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, page, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
+		{"scroll", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;II)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, scroll, void, $JTree*, $BasicTreeUI*, int32_t, int32_t)},
+		{"scrollChangeSelection", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, scrollChangeSelection, void, $JTree*, $BasicTreeUI*, int32_t, bool, bool)},
+		{"selectAll", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;Z)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, selectAll, void, $JTree*, $BasicTreeUI*, bool)},
+		{"startEditing", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, startEditing, void, $JTree*, $BasicTreeUI*)},
+		{"toggle", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, toggle, void, $JTree*, $BasicTreeUI*)},
+		{"traverse", "(Ljavax/swing/JTree;Ljavax/swing/plaf/basic/BasicTreeUI;IZ)V", nullptr, $PRIVATE, $method(BasicTreeUI$Actions, traverse, void, $JTree*, $BasicTreeUI*, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTreeUI$Actions", "javax.swing.plaf.basic.BasicTreeUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$Actions$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTreeUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTreeUI"
+	};
+	$loadClass(BasicTreeUI$Actions, name, initialize, &classInfo$$, BasicTreeUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTreeUI$Actions);
+	});
 	return class$;
 }
 

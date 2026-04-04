@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/TCPClient.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/IOException.h>
@@ -7,7 +6,6 @@
 #include <java/io/OutputStream.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <sun/security/krb5/internal/Krb5.h>
 #include <sun/security/krb5/internal/NetClient.h>
 #include <sun/security/util/IOUtils.h>
@@ -18,15 +16,12 @@
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $NetClient = ::sun::security::krb5::internal::NetClient;
 using $IOUtils = ::sun::security::util::IOUtils;
@@ -36,57 +31,26 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _TCPClient_FieldInfo_[] = {
-	{"tcpSocket", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(TCPClient, tcpSocket)},
-	{"out", "Ljava/io/BufferedOutputStream;", nullptr, $PRIVATE, $field(TCPClient, out)},
-	{"in", "Ljava/io/BufferedInputStream;", nullptr, $PRIVATE, $field(TCPClient, in)},
-	{}
-};
-
-$MethodInfo _TCPClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(TCPClient, init$, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TCPClient, close, void), "java.io.IOException"},
-	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPClient, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
-	{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPClient, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
-	{"readFully", "([BI)I", nullptr, $PRIVATE, $method(TCPClient, readFully, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{"receive", "()[B", nullptr, $PUBLIC, $virtualMethod(TCPClient, receive, $bytes*), "java.io.IOException"},
-	{"send", "([B)V", nullptr, $PUBLIC, $virtualMethod(TCPClient, send, void, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TCPClient_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.internal.TCPClient",
-	"sun.security.krb5.internal.NetClient",
-	nullptr,
-	_TCPClient_FieldInfo_,
-	_TCPClient_MethodInfo_
-};
-
-$Object* allocate$TCPClient($Class* clazz) {
-	return $of($alloc(TCPClient));
-}
-
 void TCPClient::init$($String* hostname, int32_t port, int32_t timeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$NetClient::init$();
 	$set(this, tcpSocket, $new($Socket));
-	$nc(this->tcpSocket)->connect($$new($InetSocketAddress, hostname, port), timeout);
-	$set(this, out, $new($BufferedOutputStream, $($nc(this->tcpSocket)->getOutputStream())));
-	$set(this, in, $new($BufferedInputStream, $($nc(this->tcpSocket)->getInputStream())));
-	$nc(this->tcpSocket)->setSoTimeout(timeout);
+	this->tcpSocket->connect($$new($InetSocketAddress, hostname, port), timeout);
+	$set(this, out, $new($BufferedOutputStream, $(this->tcpSocket->getOutputStream())));
+	$set(this, in, $new($BufferedInputStream, $(this->tcpSocket->getInputStream())));
+	this->tcpSocket->setSoTimeout(timeout);
 }
 
 void TCPClient::send($bytes* data) {
 	$var($bytes, lenField, $new($bytes, 4));
 	intToNetworkByteOrder($nc(data)->length, lenField, 0, 4);
 	$nc(this->out)->write(lenField);
-	$nc(this->out)->write(data);
-	$nc(this->out)->flush();
+	this->out->write(data);
+	this->out->flush();
 }
 
 $bytes* TCPClient::receive() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, lenField, $new($bytes, 4));
 	int32_t count = readFully(lenField, 4);
 	if (count != 4) {
@@ -144,7 +108,7 @@ int32_t TCPClient::networkByteOrderToInt($bytes* buf, int32_t start, int32_t cou
 	int32_t answer = 0;
 	for (int32_t i = 0; i < count; ++i) {
 		answer <<= 8;
-		answer |= ((int32_t)((int32_t)$nc(buf)->get(start + i) & (uint32_t)255));
+		answer |= ((int32_t)$nc(buf)->get(start + i) & 0xff);
 	}
 	return answer;
 }
@@ -155,7 +119,7 @@ void TCPClient::intToNetworkByteOrder(int32_t num, $bytes* buf, int32_t start, i
 		$throwNew($IllegalArgumentException, "Cannot handle more than 4 bytes"_s);
 	}
 	for (int32_t i = count - 1; i >= 0; --i) {
-		$nc(buf)->set(start + i, (int8_t)((int32_t)(num & (uint32_t)255)));
+		$nc(buf)->set(start + i, (int8_t)(num & 0xff));
 		$usrAssign(num, 8);
 	}
 }
@@ -164,7 +128,33 @@ TCPClient::TCPClient() {
 }
 
 $Class* TCPClient::load$($String* name, bool initialize) {
-	$loadClass(TCPClient, name, initialize, &_TCPClient_ClassInfo_, allocate$TCPClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"tcpSocket", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(TCPClient, tcpSocket)},
+		{"out", "Ljava/io/BufferedOutputStream;", nullptr, $PRIVATE, $field(TCPClient, out)},
+		{"in", "Ljava/io/BufferedInputStream;", nullptr, $PRIVATE, $field(TCPClient, in)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(TCPClient, init$, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TCPClient, close, void), "java.io.IOException"},
+		{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPClient, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
+		{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPClient, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
+		{"readFully", "([BI)I", nullptr, $PRIVATE, $method(TCPClient, readFully, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{"receive", "()[B", nullptr, $PUBLIC, $virtualMethod(TCPClient, receive, $bytes*), "java.io.IOException"},
+		{"send", "([B)V", nullptr, $PUBLIC, $virtualMethod(TCPClient, send, void, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.internal.TCPClient",
+		"sun.security.krb5.internal.NetClient",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TCPClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TCPClient);
+	});
 	return class$;
 }
 

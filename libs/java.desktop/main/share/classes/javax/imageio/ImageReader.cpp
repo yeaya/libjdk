@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageReader.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BufferedImage.h>
@@ -66,122 +65,6 @@ using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 namespace javax {
 	namespace imageio {
 
-$FieldInfo _ImageReader_FieldInfo_[] = {
-	{"originatingProvider", "Ljavax/imageio/spi/ImageReaderSpi;", nullptr, $PROTECTED, $field(ImageReader, originatingProvider)},
-	{"input", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ImageReader, input)},
-	{"seekForwardOnly", "Z", nullptr, $PROTECTED, $field(ImageReader, seekForwardOnly)},
-	{"ignoreMetadata", "Z", nullptr, $PROTECTED, $field(ImageReader, ignoreMetadata)},
-	{"minIndex", "I", nullptr, $PROTECTED, $field(ImageReader, minIndex)},
-	{"availableLocales", "[Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageReader, availableLocales)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageReader, locale)},
-	{"warningListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOReadWarningListener;>;", $PROTECTED, $field(ImageReader, warningListeners)},
-	{"warningLocales", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Locale;>;", $PROTECTED, $field(ImageReader, warningLocales)},
-	{"progressListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOReadProgressListener;>;", $PROTECTED, $field(ImageReader, progressListeners)},
-	{"updateListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOReadUpdateListener;>;", $PROTECTED, $field(ImageReader, updateListeners)},
-	{"abortFlag", "Z", nullptr, $PRIVATE, $field(ImageReader, abortFlag)},
-	{}
-};
-
-$MethodInfo _ImageReader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PROTECTED, $method(ImageReader, init$, void, $ImageReaderSpi*)},
-	{"abort", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageReader, abort, void)},
-	{"abortRequested", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageReader, abortRequested, bool)},
-	{"addIIOReadProgressListener", "(Ljavax/imageio/event/IIOReadProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, addIIOReadProgressListener, void, $IIOReadProgressListener*)},
-	{"addIIOReadUpdateListener", "(Ljavax/imageio/event/IIOReadUpdateListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, addIIOReadUpdateListener, void, $IIOReadUpdateListener*)},
-	{"addIIOReadWarningListener", "(Ljavax/imageio/event/IIOReadWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, addIIOReadWarningListener, void, $IIOReadWarningListener*)},
-	{"addToList", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(ImageReader, addToList, $List*, $List*, Object$*)},
-	{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, canReadRaster, bool)},
-	{"checkReadParamBandSettings", "(Ljavax/imageio/ImageReadParam;II)V", nullptr, $PROTECTED | $STATIC, $staticMethod(ImageReader, checkReadParamBandSettings, void, $ImageReadParam*, int32_t, int32_t)},
-	{"clearAbortRequest", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageReader, clearAbortRequest, void)},
-	{"computeRegions", "(Ljavax/imageio/ImageReadParam;IILjava/awt/image/BufferedImage;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(ImageReader, computeRegions, void, $ImageReadParam*, int32_t, int32_t, $BufferedImage*, $Rectangle*, $Rectangle*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, dispose, void)},
-	{"getAspectRatio", "(I)F", nullptr, $PUBLIC, $virtualMethod(ImageReader, getAspectRatio, float, int32_t), "java.io.IOException"},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getAvailableLocales, $LocaleArray*)},
-	{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getDefaultReadParam, $ImageReadParam*)},
-	{"getDestination", "(Ljavax/imageio/ImageReadParam;Ljava/util/Iterator;II)Ljava/awt/image/BufferedImage;", "(Ljavax/imageio/ImageReadParam;Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;II)Ljava/awt/image/BufferedImage;", $PROTECTED | $STATIC, $staticMethod(ImageReader, getDestination, $BufferedImage*, $ImageReadParam*, $Iterator*, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"getFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getFormatName, $String*), "java.io.IOException"},
-	{"getHeight", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
-	{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getImageMetadata, $IIOMetadata*, int32_t), "java.io.IOException"},
-	{"getImageMetadata", "(ILjava/lang/String;Ljava/util/Set;)Ljavax/imageio/metadata/IIOMetadata;", "(ILjava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljavax/imageio/metadata/IIOMetadata;", $PUBLIC, $virtualMethod(ImageReader, getImageMetadata, $IIOMetadata*, int32_t, $String*, $Set*), "java.io.IOException"},
-	{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getImageTypes, $Iterator*, int32_t), "java.io.IOException"},
-	{"getInput", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getInput, $Object*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getLocale, $Locale*)},
-	{"getMetadata", "(Ljava/lang/String;Ljava/util/Set;ZI)Ljavax/imageio/metadata/IIOMetadata;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;ZI)Ljavax/imageio/metadata/IIOMetadata;", $PRIVATE, $method(ImageReader, getMetadata, $IIOMetadata*, $String*, $Set*, bool, int32_t), "java.io.IOException"},
-	{"getMinIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getMinIndex, int32_t)},
-	{"getNumImages", "(Z)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
-	{"getNumThumbnails", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getNumThumbnails, int32_t, int32_t), "java.io.IOException"},
-	{"getOriginatingProvider", "()Ljavax/imageio/spi/ImageReaderSpi;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getOriginatingProvider, $ImageReaderSpi*)},
-	{"getRawImageType", "(I)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getRawImageType, $ImageTypeSpecifier*, int32_t), "java.io.IOException"},
-	{"getSourceRegion", "(Ljavax/imageio/ImageReadParam;II)Ljava/awt/Rectangle;", nullptr, $PROTECTED | $STATIC, $staticMethod(ImageReader, getSourceRegion, $Rectangle*, $ImageReadParam*, int32_t, int32_t)},
-	{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getStreamMetadata, $IIOMetadata*), "java.io.IOException"},
-	{"getStreamMetadata", "(Ljava/lang/String;Ljava/util/Set;)Ljavax/imageio/metadata/IIOMetadata;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljavax/imageio/metadata/IIOMetadata;", $PUBLIC, $virtualMethod(ImageReader, getStreamMetadata, $IIOMetadata*, $String*, $Set*), "java.io.IOException"},
-	{"getThumbnailHeight", "(II)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getThumbnailHeight, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"getThumbnailWidth", "(II)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getThumbnailWidth, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"getTileGridXOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileGridXOffset, int32_t, int32_t), "java.io.IOException"},
-	{"getTileGridYOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileGridYOffset, int32_t, int32_t), "java.io.IOException"},
-	{"getTileHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileHeight, int32_t, int32_t), "java.io.IOException"},
-	{"getTileWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileWidth, int32_t, int32_t), "java.io.IOException"},
-	{"getWidth", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
-	{"hasThumbnails", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, hasThumbnails, bool, int32_t), "java.io.IOException"},
-	{"isIgnoringMetadata", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isIgnoringMetadata, bool)},
-	{"isImageTiled", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isImageTiled, bool, int32_t), "java.io.IOException"},
-	{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
-	{"isSeekForwardOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isSeekForwardOnly, bool)},
-	{"processImageComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageComplete, void)},
-	{"processImageProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageProgress, void, float)},
-	{"processImageStarted", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageStarted, void, int32_t)},
-	{"processImageUpdate", "(Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageUpdate, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"processPassComplete", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processPassComplete, void, $BufferedImage*)},
-	{"processPassStarted", "(Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processPassStarted, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"processReadAborted", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processReadAborted, void)},
-	{"processSequenceComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processSequenceComplete, void)},
-	{"processSequenceStarted", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processSequenceStarted, void, int32_t)},
-	{"processThumbnailComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailComplete, void)},
-	{"processThumbnailPassComplete", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailPassComplete, void, $BufferedImage*)},
-	{"processThumbnailPassStarted", "(Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailPassStarted, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"processThumbnailProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailProgress, void, float)},
-	{"processThumbnailStarted", "(II)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailStarted, void, int32_t, int32_t)},
-	{"processThumbnailUpdate", "(Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailUpdate, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"processWarningOccurred", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processWarningOccurred, void, $String*)},
-	{"processWarningOccurred", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processWarningOccurred, void, $String*, $String*)},
-	{"read", "(I)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, read, $BufferedImage*, int32_t), "java.io.IOException"},
-	{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readAll", "(ILjavax/imageio/ImageReadParam;)Ljavax/imageio/IIOImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readAll, $IIOImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readAll", "(Ljava/util/Iterator;)Ljava/util/Iterator;", "(Ljava/util/Iterator<+Ljavax/imageio/ImageReadParam;>;)Ljava/util/Iterator<Ljavax/imageio/IIOImage;>;", $PUBLIC, $virtualMethod(ImageReader, readAll, $Iterator*, $Iterator*), "java.io.IOException"},
-	{"readAsRenderedImage", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readAsRenderedImage, $RenderedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readThumbnail", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readThumbnail, $BufferedImage*, int32_t, int32_t), "java.io.IOException"},
-	{"readTile", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readTile, $BufferedImage*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"readTileRaster", "(III)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readTileRaster, $Raster*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"readerSupportsThumbnails", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, readerSupportsThumbnails, bool)},
-	{"removeAllIIOReadProgressListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeAllIIOReadProgressListeners, void)},
-	{"removeAllIIOReadUpdateListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeAllIIOReadUpdateListeners, void)},
-	{"removeAllIIOReadWarningListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeAllIIOReadWarningListeners, void)},
-	{"removeFromList", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(ImageReader, removeFromList, $List*, $List*, Object$*)},
-	{"removeIIOReadProgressListener", "(Ljavax/imageio/event/IIOReadProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeIIOReadProgressListener, void, $IIOReadProgressListener*)},
-	{"removeIIOReadUpdateListener", "(Ljavax/imageio/event/IIOReadUpdateListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeIIOReadUpdateListener, void, $IIOReadUpdateListener*)},
-	{"removeIIOReadWarningListener", "(Ljavax/imageio/event/IIOReadWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeIIOReadWarningListener, void, $IIOReadWarningListener*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, reset, void)},
-	{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setInput, void, Object$*, bool, bool)},
-	{"setInput", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setInput, void, Object$*, bool)},
-	{"setInput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setInput, void, Object$*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setLocale, void, $Locale*)},
-	{}
-};
-
-$ClassInfo _ImageReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.ImageReader",
-	"java.lang.Object",
-	nullptr,
-	_ImageReader_FieldInfo_,
-	_ImageReader_MethodInfo_
-};
-
-$Object* allocate$ImageReader($Class* clazz) {
-	return $of($alloc(ImageReader));
-}
-
 void ImageReader::init$($ImageReaderSpi* originatingProvider) {
 	$set(this, input, nullptr);
 	this->seekForwardOnly = false;
@@ -209,7 +92,7 @@ void ImageReader::setInput(Object$* input, bool seekForwardOnly, bool ignoreMeta
 	if (input != nullptr) {
 		bool found = false;
 		if (this->originatingProvider != nullptr) {
-			$var($ClassArray, classes, $nc(this->originatingProvider)->getInputTypes());
+			$var($ClassArray, classes, this->originatingProvider->getInputTypes());
 			for (int32_t i = 0; i < $nc(classes)->length; ++i) {
 				if ($nc(classes->get(i))->isInstance(input)) {
 					found = true;
@@ -238,7 +121,7 @@ void ImageReader::setInput(Object$* input) {
 }
 
 $Object* ImageReader::getInput() {
-	return $of(this->input);
+	return this->input;
 }
 
 bool ImageReader::isSeekForwardOnly() {
@@ -257,7 +140,7 @@ $LocaleArray* ImageReader::getAvailableLocales() {
 	if (this->availableLocales == nullptr) {
 		return nullptr;
 	} else {
-		return $cast($LocaleArray, $nc(this->availableLocales)->clone());
+		return $cast($LocaleArray, this->availableLocales->clone());
 	}
 }
 
@@ -294,7 +177,7 @@ float ImageReader::getAspectRatio(int32_t imageIndex) {
 }
 
 $ImageTypeSpecifier* ImageReader::getRawImageType(int32_t imageIndex) {
-	return $cast($ImageTypeSpecifier, $nc($(getImageTypes(imageIndex)))->next());
+	return $cast($ImageTypeSpecifier, $$nc(getImageTypes(imageIndex))->next());
 }
 
 $ImageReadParam* ImageReader::getDefaultReadParam() {
@@ -306,7 +189,7 @@ $IIOMetadata* ImageReader::getStreamMetadata($String* formatName, $Set* nodeName
 }
 
 $IIOMetadata* ImageReader::getMetadata($String* formatName, $Set* nodeNames, bool wantStream, int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (formatName == nullptr) {
 		$throwNew($IllegalArgumentException, "formatName == null!"_s);
 	}
@@ -345,7 +228,7 @@ $BufferedImage* ImageReader::read(int32_t imageIndex) {
 }
 
 $IIOImage* ImageReader::readAll(int32_t imageIndex, $ImageReadParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (imageIndex < getMinIndex()) {
 		$throwNew($IndexOutOfBoundsException, "imageIndex < getMinIndex()!"_s);
 	}
@@ -359,11 +242,11 @@ $IIOImage* ImageReader::readAll(int32_t imageIndex, $ImageReadParam* param) {
 		}
 	}
 	$var($IIOMetadata, metadata, getImageMetadata(imageIndex));
-	return $new($IIOImage, static_cast<$RenderedImage*>(im), static_cast<$List*>(thumbnails), metadata);
+	return $new($IIOImage, im, thumbnails, metadata);
 }
 
 $Iterator* ImageReader::readAll($Iterator* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, output, $new($ArrayList));
 	int32_t imageIndex = getMinIndex();
 	processSequenceStarted(imageIndex);
@@ -394,7 +277,7 @@ $Iterator* ImageReader::readAll($Iterator* params) {
 			}
 		}
 		$var($IIOMetadata, metadata, getImageMetadata(imageIndex));
-		$var($IIOImage, im, $new($IIOImage, static_cast<$RenderedImage*>(bi), static_cast<$List*>(thumbnails), metadata));
+		$var($IIOImage, im, $new($IIOImage, bi, thumbnails, metadata));
 		output->add(im);
 		++imageIndex;
 	}
@@ -465,11 +348,11 @@ int32_t ImageReader::getNumThumbnails(int32_t imageIndex) {
 }
 
 int32_t ImageReader::getThumbnailWidth(int32_t imageIndex, int32_t thumbnailIndex) {
-	return $nc($(readThumbnail(imageIndex, thumbnailIndex)))->getWidth();
+	return $$nc(readThumbnail(imageIndex, thumbnailIndex))->getWidth();
 }
 
 int32_t ImageReader::getThumbnailHeight(int32_t imageIndex, int32_t thumbnailIndex) {
-	return $nc($(readThumbnail(imageIndex, thumbnailIndex)))->getHeight();
+	return $$nc(readThumbnail(imageIndex, thumbnailIndex))->getHeight();
 }
 
 $BufferedImage* ImageReader::readThumbnail(int32_t imageIndex, int32_t thumbnailIndex) {
@@ -530,9 +413,9 @@ void ImageReader::removeIIOReadWarningListener($IIOReadWarningListener* listener
 	}
 	int32_t index = $nc(this->warningListeners)->indexOf(listener);
 	if (index != -1) {
-		$nc(this->warningListeners)->remove(index);
+		this->warningListeners->remove(index);
 		$nc(this->warningLocales)->remove(index);
-		if ($nc(this->warningListeners)->size() == 0) {
+		if (this->warningListeners->size() == 0) {
 			$set(this, warningListeners, nullptr);
 			$set(this, warningLocales, nullptr);
 		}
@@ -581,7 +464,7 @@ void ImageReader::removeAllIIOReadUpdateListeners() {
 }
 
 void ImageReader::processSequenceStarted(int32_t minIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -593,7 +476,7 @@ void ImageReader::processSequenceStarted(int32_t minIndex) {
 }
 
 void ImageReader::processSequenceComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -605,7 +488,7 @@ void ImageReader::processSequenceComplete() {
 }
 
 void ImageReader::processImageStarted(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -617,7 +500,7 @@ void ImageReader::processImageStarted(int32_t imageIndex) {
 }
 
 void ImageReader::processImageProgress(float percentageDone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -629,7 +512,7 @@ void ImageReader::processImageProgress(float percentageDone) {
 }
 
 void ImageReader::processImageComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -641,7 +524,7 @@ void ImageReader::processImageComplete() {
 }
 
 void ImageReader::processThumbnailStarted(int32_t imageIndex, int32_t thumbnailIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -653,7 +536,7 @@ void ImageReader::processThumbnailStarted(int32_t imageIndex, int32_t thumbnailI
 }
 
 void ImageReader::processThumbnailProgress(float percentageDone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -665,7 +548,7 @@ void ImageReader::processThumbnailProgress(float percentageDone) {
 }
 
 void ImageReader::processThumbnailComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -677,7 +560,7 @@ void ImageReader::processThumbnailComplete() {
 }
 
 void ImageReader::processReadAborted() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->progressListeners == nullptr) {
 		return;
 	}
@@ -689,7 +572,7 @@ void ImageReader::processReadAborted() {
 }
 
 void ImageReader::processPassStarted($BufferedImage* theImage, int32_t pass, int32_t minPass, int32_t maxPass, int32_t minX, int32_t minY, int32_t periodX, int32_t periodY, $ints* bands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->updateListeners == nullptr) {
 		return;
 	}
@@ -701,7 +584,7 @@ void ImageReader::processPassStarted($BufferedImage* theImage, int32_t pass, int
 }
 
 void ImageReader::processImageUpdate($BufferedImage* theImage, int32_t minX, int32_t minY, int32_t width, int32_t height, int32_t periodX, int32_t periodY, $ints* bands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->updateListeners == nullptr) {
 		return;
 	}
@@ -713,7 +596,7 @@ void ImageReader::processImageUpdate($BufferedImage* theImage, int32_t minX, int
 }
 
 void ImageReader::processPassComplete($BufferedImage* theImage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->updateListeners == nullptr) {
 		return;
 	}
@@ -725,7 +608,7 @@ void ImageReader::processPassComplete($BufferedImage* theImage) {
 }
 
 void ImageReader::processThumbnailPassStarted($BufferedImage* theThumbnail, int32_t pass, int32_t minPass, int32_t maxPass, int32_t minX, int32_t minY, int32_t periodX, int32_t periodY, $ints* bands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->updateListeners == nullptr) {
 		return;
 	}
@@ -737,7 +620,7 @@ void ImageReader::processThumbnailPassStarted($BufferedImage* theThumbnail, int3
 }
 
 void ImageReader::processThumbnailUpdate($BufferedImage* theThumbnail, int32_t minX, int32_t minY, int32_t width, int32_t height, int32_t periodX, int32_t periodY, $ints* bands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->updateListeners == nullptr) {
 		return;
 	}
@@ -749,7 +632,7 @@ void ImageReader::processThumbnailUpdate($BufferedImage* theThumbnail, int32_t m
 }
 
 void ImageReader::processThumbnailPassComplete($BufferedImage* theThumbnail) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->updateListeners == nullptr) {
 		return;
 	}
@@ -761,7 +644,7 @@ void ImageReader::processThumbnailPassComplete($BufferedImage* theThumbnail) {
 }
 
 void ImageReader::processWarningOccurred($String* warning) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->warningListeners == nullptr) {
 		return;
 	}
@@ -776,7 +659,7 @@ void ImageReader::processWarningOccurred($String* warning) {
 }
 
 void ImageReader::processWarningOccurred($String* baseName, $String* keyword) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->warningListeners == nullptr) {
 		return;
@@ -796,7 +679,7 @@ void ImageReader::processWarningOccurred($String* baseName, $String* keyword) {
 		}
 		$var($ResourceBundle, bundle, nullptr);
 		try {
-			$assign(bundle, $ResourceBundle::getBundle(baseName, locale, $($of(this)->getClass()->getModule())));
+			$assign(bundle, $ResourceBundle::getBundle(baseName, locale, $(this->getClass()->getModule())));
 		} catch ($MissingResourceException& mre) {
 			$throwNew($IllegalArgumentException, "Bundle not found!"_s, mre);
 		}
@@ -825,7 +708,7 @@ void ImageReader::dispose() {
 }
 
 $Rectangle* ImageReader::getSourceRegion($ImageReadParam* param, int32_t srcWidth, int32_t srcHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, sourceRegion, $new($Rectangle, 0, 0, srcWidth, srcHeight));
 	if (param != nullptr) {
 		$var($Rectangle, region, param->getSourceRegion());
@@ -834,7 +717,7 @@ $Rectangle* ImageReader::getSourceRegion($ImageReadParam* param, int32_t srcWidt
 		}
 		int32_t subsampleXOffset = param->getSubsamplingXOffset();
 		int32_t subsampleYOffset = param->getSubsamplingYOffset();
-		sourceRegion->x += subsampleXOffset;
+		$nc(sourceRegion)->x += subsampleXOffset;
 		sourceRegion->y += subsampleYOffset;
 		sourceRegion->width -= subsampleXOffset;
 		sourceRegion->height -= subsampleYOffset;
@@ -843,7 +726,7 @@ $Rectangle* ImageReader::getSourceRegion($ImageReadParam* param, int32_t srcWidt
 }
 
 void ImageReader::computeRegions($ImageReadParam* param, int32_t srcWidth, int32_t srcHeight, $BufferedImage* image, $Rectangle* srcRegion, $Rectangle* destRegion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (srcRegion == nullptr) {
 		$throwNew($IllegalArgumentException, "srcRegion == null!"_s);
 	}
@@ -909,15 +792,15 @@ void ImageReader::computeRegions($ImageReadParam* param, int32_t srcWidth, int32
 }
 
 void ImageReader::checkReadParamBandSettings($ImageReadParam* param, int32_t numSrcBands, int32_t numDstBands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, srcBands, nullptr);
 	$var($ints, dstBands, nullptr);
 	if (param != nullptr) {
 		$assign(srcBands, param->getSourceBands());
 		$assign(dstBands, param->getDestinationBands());
 	}
-	int32_t paramSrcBandLength = (srcBands == nullptr) ? numSrcBands : $nc(srcBands)->length;
-	int32_t paramDstBandLength = (dstBands == nullptr) ? numDstBands : $nc(dstBands)->length;
+	int32_t paramSrcBandLength = (srcBands == nullptr) ? numSrcBands : srcBands->length;
+	int32_t paramDstBandLength = (dstBands == nullptr) ? numDstBands : dstBands->length;
 	if (paramSrcBandLength != paramDstBandLength) {
 		$throwNew($IllegalArgumentException, "ImageReadParam num source & dest bands differ!"_s);
 	}
@@ -938,8 +821,8 @@ void ImageReader::checkReadParamBandSettings($ImageReadParam* param, int32_t num
 }
 
 $BufferedImage* ImageReader::getDestination($ImageReadParam* param, $Iterator* imageTypes, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	if (imageTypes == nullptr || !$nc(imageTypes)->hasNext()) {
+	$useLocalObjectStack();
+	if (imageTypes == nullptr || !imageTypes->hasNext()) {
 		$throwNew($IllegalArgumentException, "imageTypes null or empty!"_s);
 	}
 	if ((int64_t)width * height > $Integer::MAX_VALUE) {
@@ -985,7 +868,118 @@ ImageReader::ImageReader() {
 }
 
 $Class* ImageReader::load$($String* name, bool initialize) {
-	$loadClass(ImageReader, name, initialize, &_ImageReader_ClassInfo_, allocate$ImageReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"originatingProvider", "Ljavax/imageio/spi/ImageReaderSpi;", nullptr, $PROTECTED, $field(ImageReader, originatingProvider)},
+		{"input", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(ImageReader, input)},
+		{"seekForwardOnly", "Z", nullptr, $PROTECTED, $field(ImageReader, seekForwardOnly)},
+		{"ignoreMetadata", "Z", nullptr, $PROTECTED, $field(ImageReader, ignoreMetadata)},
+		{"minIndex", "I", nullptr, $PROTECTED, $field(ImageReader, minIndex)},
+		{"availableLocales", "[Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageReader, availableLocales)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(ImageReader, locale)},
+		{"warningListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOReadWarningListener;>;", $PROTECTED, $field(ImageReader, warningListeners)},
+		{"warningLocales", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Locale;>;", $PROTECTED, $field(ImageReader, warningLocales)},
+		{"progressListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOReadProgressListener;>;", $PROTECTED, $field(ImageReader, progressListeners)},
+		{"updateListeners", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/event/IIOReadUpdateListener;>;", $PROTECTED, $field(ImageReader, updateListeners)},
+		{"abortFlag", "Z", nullptr, $PRIVATE, $field(ImageReader, abortFlag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PROTECTED, $method(ImageReader, init$, void, $ImageReaderSpi*)},
+		{"abort", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageReader, abort, void)},
+		{"abortRequested", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageReader, abortRequested, bool)},
+		{"addIIOReadProgressListener", "(Ljavax/imageio/event/IIOReadProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, addIIOReadProgressListener, void, $IIOReadProgressListener*)},
+		{"addIIOReadUpdateListener", "(Ljavax/imageio/event/IIOReadUpdateListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, addIIOReadUpdateListener, void, $IIOReadUpdateListener*)},
+		{"addIIOReadWarningListener", "(Ljavax/imageio/event/IIOReadWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, addIIOReadWarningListener, void, $IIOReadWarningListener*)},
+		{"addToList", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(ImageReader, addToList, $List*, $List*, Object$*)},
+		{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, canReadRaster, bool)},
+		{"checkReadParamBandSettings", "(Ljavax/imageio/ImageReadParam;II)V", nullptr, $PROTECTED | $STATIC, $staticMethod(ImageReader, checkReadParamBandSettings, void, $ImageReadParam*, int32_t, int32_t)},
+		{"clearAbortRequest", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(ImageReader, clearAbortRequest, void)},
+		{"computeRegions", "(Ljavax/imageio/ImageReadParam;IILjava/awt/image/BufferedImage;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(ImageReader, computeRegions, void, $ImageReadParam*, int32_t, int32_t, $BufferedImage*, $Rectangle*, $Rectangle*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, dispose, void)},
+		{"getAspectRatio", "(I)F", nullptr, $PUBLIC, $virtualMethod(ImageReader, getAspectRatio, float, int32_t), "java.io.IOException"},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getAvailableLocales, $LocaleArray*)},
+		{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getDefaultReadParam, $ImageReadParam*)},
+		{"getDestination", "(Ljavax/imageio/ImageReadParam;Ljava/util/Iterator;II)Ljava/awt/image/BufferedImage;", "(Ljavax/imageio/ImageReadParam;Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;II)Ljava/awt/image/BufferedImage;", $PROTECTED | $STATIC, $staticMethod(ImageReader, getDestination, $BufferedImage*, $ImageReadParam*, $Iterator*, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"getFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getFormatName, $String*), "java.io.IOException"},
+		{"getHeight", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
+		{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getImageMetadata, $IIOMetadata*, int32_t), "java.io.IOException"},
+		{"getImageMetadata", "(ILjava/lang/String;Ljava/util/Set;)Ljavax/imageio/metadata/IIOMetadata;", "(ILjava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljavax/imageio/metadata/IIOMetadata;", $PUBLIC, $virtualMethod(ImageReader, getImageMetadata, $IIOMetadata*, int32_t, $String*, $Set*), "java.io.IOException"},
+		{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getImageTypes, $Iterator*, int32_t), "java.io.IOException"},
+		{"getInput", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getInput, $Object*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getLocale, $Locale*)},
+		{"getMetadata", "(Ljava/lang/String;Ljava/util/Set;ZI)Ljavax/imageio/metadata/IIOMetadata;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;ZI)Ljavax/imageio/metadata/IIOMetadata;", $PRIVATE, $method(ImageReader, getMetadata, $IIOMetadata*, $String*, $Set*, bool, int32_t), "java.io.IOException"},
+		{"getMinIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getMinIndex, int32_t)},
+		{"getNumImages", "(Z)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
+		{"getNumThumbnails", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getNumThumbnails, int32_t, int32_t), "java.io.IOException"},
+		{"getOriginatingProvider", "()Ljavax/imageio/spi/ImageReaderSpi;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getOriginatingProvider, $ImageReaderSpi*)},
+		{"getRawImageType", "(I)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(ImageReader, getRawImageType, $ImageTypeSpecifier*, int32_t), "java.io.IOException"},
+		{"getSourceRegion", "(Ljavax/imageio/ImageReadParam;II)Ljava/awt/Rectangle;", nullptr, $PROTECTED | $STATIC, $staticMethod(ImageReader, getSourceRegion, $Rectangle*, $ImageReadParam*, int32_t, int32_t)},
+		{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getStreamMetadata, $IIOMetadata*), "java.io.IOException"},
+		{"getStreamMetadata", "(Ljava/lang/String;Ljava/util/Set;)Ljavax/imageio/metadata/IIOMetadata;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljavax/imageio/metadata/IIOMetadata;", $PUBLIC, $virtualMethod(ImageReader, getStreamMetadata, $IIOMetadata*, $String*, $Set*), "java.io.IOException"},
+		{"getThumbnailHeight", "(II)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getThumbnailHeight, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"getThumbnailWidth", "(II)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getThumbnailWidth, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"getTileGridXOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileGridXOffset, int32_t, int32_t), "java.io.IOException"},
+		{"getTileGridYOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileGridYOffset, int32_t, int32_t), "java.io.IOException"},
+		{"getTileHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileHeight, int32_t, int32_t), "java.io.IOException"},
+		{"getTileWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(ImageReader, getTileWidth, int32_t, int32_t), "java.io.IOException"},
+		{"getWidth", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
+		{"hasThumbnails", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, hasThumbnails, bool, int32_t), "java.io.IOException"},
+		{"isIgnoringMetadata", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isIgnoringMetadata, bool)},
+		{"isImageTiled", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isImageTiled, bool, int32_t), "java.io.IOException"},
+		{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
+		{"isSeekForwardOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, isSeekForwardOnly, bool)},
+		{"processImageComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageComplete, void)},
+		{"processImageProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageProgress, void, float)},
+		{"processImageStarted", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageStarted, void, int32_t)},
+		{"processImageUpdate", "(Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processImageUpdate, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"processPassComplete", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processPassComplete, void, $BufferedImage*)},
+		{"processPassStarted", "(Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processPassStarted, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"processReadAborted", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processReadAborted, void)},
+		{"processSequenceComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processSequenceComplete, void)},
+		{"processSequenceStarted", "(I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processSequenceStarted, void, int32_t)},
+		{"processThumbnailComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailComplete, void)},
+		{"processThumbnailPassComplete", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailPassComplete, void, $BufferedImage*)},
+		{"processThumbnailPassStarted", "(Ljava/awt/image/BufferedImage;IIIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailPassStarted, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"processThumbnailProgress", "(F)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailProgress, void, float)},
+		{"processThumbnailStarted", "(II)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailStarted, void, int32_t, int32_t)},
+		{"processThumbnailUpdate", "(Ljava/awt/image/BufferedImage;IIIIII[I)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processThumbnailUpdate, void, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"processWarningOccurred", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processWarningOccurred, void, $String*)},
+		{"processWarningOccurred", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ImageReader, processWarningOccurred, void, $String*, $String*)},
+		{"read", "(I)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, read, $BufferedImage*, int32_t), "java.io.IOException"},
+		{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readAll", "(ILjavax/imageio/ImageReadParam;)Ljavax/imageio/IIOImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readAll, $IIOImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readAll", "(Ljava/util/Iterator;)Ljava/util/Iterator;", "(Ljava/util/Iterator<+Ljavax/imageio/ImageReadParam;>;)Ljava/util/Iterator<Ljavax/imageio/IIOImage;>;", $PUBLIC, $virtualMethod(ImageReader, readAll, $Iterator*, $Iterator*), "java.io.IOException"},
+		{"readAsRenderedImage", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readAsRenderedImage, $RenderedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readThumbnail", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readThumbnail, $BufferedImage*, int32_t, int32_t), "java.io.IOException"},
+		{"readTile", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readTile, $BufferedImage*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"readTileRaster", "(III)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(ImageReader, readTileRaster, $Raster*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"readerSupportsThumbnails", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReader, readerSupportsThumbnails, bool)},
+		{"removeAllIIOReadProgressListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeAllIIOReadProgressListeners, void)},
+		{"removeAllIIOReadUpdateListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeAllIIOReadUpdateListeners, void)},
+		{"removeAllIIOReadWarningListeners", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeAllIIOReadWarningListeners, void)},
+		{"removeFromList", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(ImageReader, removeFromList, $List*, $List*, Object$*)},
+		{"removeIIOReadProgressListener", "(Ljavax/imageio/event/IIOReadProgressListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeIIOReadProgressListener, void, $IIOReadProgressListener*)},
+		{"removeIIOReadUpdateListener", "(Ljavax/imageio/event/IIOReadUpdateListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeIIOReadUpdateListener, void, $IIOReadUpdateListener*)},
+		{"removeIIOReadWarningListener", "(Ljavax/imageio/event/IIOReadWarningListener;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, removeIIOReadWarningListener, void, $IIOReadWarningListener*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ImageReader, reset, void)},
+		{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setInput, void, Object$*, bool, bool)},
+		{"setInput", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setInput, void, Object$*, bool)},
+		{"setInput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setInput, void, Object$*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(ImageReader, setLocale, void, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.ImageReader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReader);
+	});
 	return class$;
 }
 

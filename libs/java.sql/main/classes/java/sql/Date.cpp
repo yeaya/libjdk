@@ -1,6 +1,4 @@
 #include <java/sql/Date.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/time/Instant.h>
 #include <java/time/LocalDate.h>
@@ -13,7 +11,6 @@
 #undef MONTH_LENGTH
 #undef YEAR_LENGTH
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -28,113 +25,6 @@ using $Date = ::java::util::Date;
 
 namespace java {
 	namespace sql {
-
-$NamedAttribute Date_Attribute_var$0[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", Date_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Date_Attribute_var$1[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getHours3[] = {
-	{"Ljava/lang/Deprecated;", Date_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Date_Attribute_var$2[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getMinutes4[] = {
-	{"Ljava/lang/Deprecated;", Date_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute Date_Attribute_var$3[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_getSeconds5[] = {
-	{"Ljava/lang/Deprecated;", Date_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute Date_Attribute_var$4[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setHours6[] = {
-	{"Ljava/lang/Deprecated;", Date_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute Date_Attribute_var$5[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setMinutes7[] = {
-	{"Ljava/lang/Deprecated;", Date_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute Date_Attribute_var$6[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Date_MethodAnnotations_setSeconds8[] = {
-	{"Ljava/lang/Deprecated;", Date_Attribute_var$6},
-	{}
-};
-
-$FieldInfo _Date_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Date, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Date_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t), nullptr, nullptr, _Date_MethodAnnotations_init$0},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Date, init$, void, int64_t)},
-	{"formatDecimalInt", "(I[CII)V", nullptr, $STATIC, $staticMethod(Date, formatDecimalInt, void, int32_t, $chars*, int32_t, int32_t)},
-	{"getHours", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getHours, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getHours3},
-	{"getMinutes", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getMinutes, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getMinutes4},
-	{"getSeconds", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getSeconds, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getSeconds5},
-	{"setHours", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setHours, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setHours6},
-	{"setMinutes", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setMinutes, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setMinutes7},
-	{"setSeconds", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setSeconds, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setSeconds8},
-	{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(Date, setTime, void, int64_t)},
-	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Date, toInstant, $Instant*)},
-	{"toLocalDate", "()Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(Date, toLocalDate, $LocalDate*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Date, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, valueOf, Date*, $String*)},
-	{"valueOf", "(Ljava/time/LocalDate;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, valueOf, Date*, $LocalDate*)},
-	{}
-};
-
-$ClassInfo _Date_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.Date",
-	"java.util.Date",
-	nullptr,
-	_Date_FieldInfo_,
-	_Date_MethodInfo_
-};
-
-$Object* allocate$Date($Class* clazz) {
-	return $of($alloc(Date));
-}
 
 void Date::init$(int32_t year, int32_t month, int32_t day) {
 	$Date::init$(year, month, day);
@@ -159,8 +49,8 @@ Date* Date::valueOf($String* s) {
 	int32_t MAX_MONTH = 12;
 	int32_t MAX_DAY = 31;
 	$var(Date, d, nullptr);
-	int32_t firstDash = $nc(s)->indexOf((int32_t)u'-');
-	int32_t secondDash = s->indexOf((int32_t)u'-', firstDash + 1);
+	int32_t firstDash = $nc(s)->indexOf(u'-');
+	int32_t secondDash = s->indexOf(u'-', firstDash + 1);
 	int32_t len = s->length();
 	if ((firstDash > 0) && (secondDash > 0) && (secondDash < len - 1)) {
 		if (firstDash == YEAR_LENGTH && (secondDash - firstDash > 1 && secondDash - firstDash <= MONTH_LENGTH + 1) && (len - secondDash > 1 && len - secondDash <= DAY_LENGTH + 1)) {
@@ -249,7 +139,95 @@ Date::Date() {
 }
 
 $Class* Date::load$($String* name, bool initialize) {
-	$loadClass(Date, name, initialize, &_Date_ClassInfo_, allocate$Date);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Date, serialVersionUID)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getHoursmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute getHoursmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getHoursmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMinutesmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute getMinutesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getMinutesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getSecondsmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute getSecondsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getSecondsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setHoursmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute setHoursmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setHoursmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMinutesmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute setMinutesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setMinutesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSecondsmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute setSecondsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setSecondsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(Date, init$, void, int64_t)},
+		{"formatDecimalInt", "(I[CII)V", nullptr, $STATIC, $staticMethod(Date, formatDecimalInt, void, int32_t, $chars*, int32_t, int32_t)},
+		{"getHours", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getHours, int32_t), nullptr, nullptr, getHoursmethodAnnotations$$},
+		{"getMinutes", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getMinutes, int32_t), nullptr, nullptr, getMinutesmethodAnnotations$$},
+		{"getSeconds", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getSeconds, int32_t), nullptr, nullptr, getSecondsmethodAnnotations$$},
+		{"setHours", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setHours, void, int32_t), nullptr, nullptr, setHoursmethodAnnotations$$},
+		{"setMinutes", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setMinutes, void, int32_t), nullptr, nullptr, setMinutesmethodAnnotations$$},
+		{"setSeconds", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setSeconds, void, int32_t), nullptr, nullptr, setSecondsmethodAnnotations$$},
+		{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(Date, setTime, void, int64_t)},
+		{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Date, toInstant, $Instant*)},
+		{"toLocalDate", "()Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(Date, toLocalDate, $LocalDate*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Date, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, valueOf, Date*, $String*)},
+		{"valueOf", "(Ljava/time/LocalDate;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, valueOf, Date*, $LocalDate*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.Date",
+		"java.util.Date",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Date, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Date));
+	});
 	return class$;
 }
 

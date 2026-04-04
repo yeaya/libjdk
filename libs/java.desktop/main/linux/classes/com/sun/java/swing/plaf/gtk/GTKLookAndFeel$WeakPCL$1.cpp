@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL$1.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKEngine.h>
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory.h>
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL.h>
@@ -17,7 +16,6 @@ using $GTKEngine = ::com::sun::java::swing::plaf::gtk::GTKEngine;
 using $GTKIconFactory = ::com::sun::java::swing::plaf::gtk::GTKIconFactory;
 using $GTKLookAndFeel = ::com::sun::java::swing::plaf::gtk::GTKLookAndFeel;
 using $GTKLookAndFeel$WeakPCL = ::com::sun::java::swing::plaf::gtk::GTKLookAndFeel$WeakPCL;
-using $Component = ::java::awt::Component;
 using $Window = ::java::awt::Window;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,51 +32,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKLookAndFeel$WeakPCL$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL;", nullptr, $FINAL | $SYNTHETIC, $field(GTKLookAndFeel$WeakPCL$1, this$0)},
-	{"val$lnf", "Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(GTKLookAndFeel$WeakPCL$1, val$lnf)},
-	{"val$pce", "Ljava/beans/PropertyChangeEvent;", nullptr, $FINAL | $SYNTHETIC, $field(GTKLookAndFeel$WeakPCL$1, val$pce)},
-	{}
-};
-
-$MethodInfo _GTKLookAndFeel$WeakPCL$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL;Ljava/beans/PropertyChangeEvent;Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;)V", "()V", 0, $method(GTKLookAndFeel$WeakPCL$1, init$, void, $GTKLookAndFeel$WeakPCL*, $PropertyChangeEvent*, $GTKLookAndFeel*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GTKLookAndFeel$WeakPCL$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _GTKLookAndFeel$WeakPCL$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL",
-	"propertyChange",
-	"(Ljava/beans/PropertyChangeEvent;)V"
-};
-
-$InnerClassInfo _GTKLookAndFeel$WeakPCL$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL", "com.sun.java.swing.plaf.gtk.GTKLookAndFeel", "WeakPCL", $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GTKLookAndFeel$WeakPCL$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_GTKLookAndFeel$WeakPCL$1_FieldInfo_,
-	_GTKLookAndFeel$WeakPCL$1_MethodInfo_,
-	nullptr,
-	&_GTKLookAndFeel$WeakPCL$1_EnclosingMethodInfo_,
-	_GTKLookAndFeel$WeakPCL$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-};
-
-$Object* allocate$GTKLookAndFeel$WeakPCL$1($Class* clazz) {
-	return $of($alloc(GTKLookAndFeel$WeakPCL$1));
-}
-
 void GTKLookAndFeel$WeakPCL$1::init$($GTKLookAndFeel$WeakPCL* this$0, $PropertyChangeEvent* val$pce, $GTKLookAndFeel* val$lnf) {
 	$set(this, this$0, this$0);
 	$set(this, val$pce, val$pce);
@@ -86,7 +39,7 @@ void GTKLookAndFeel$WeakPCL$1::init$($GTKLookAndFeel$WeakPCL* this$0, $PropertyC
 }
 
 void GTKLookAndFeel$WeakPCL$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(this->val$pce)->getPropertyName());
 	if ("gnome.Net/ThemeName"_s->equals(name)) {
 		$init($GTKEngine);
@@ -104,7 +57,45 @@ GTKLookAndFeel$WeakPCL$1::GTKLookAndFeel$WeakPCL$1() {
 }
 
 $Class* GTKLookAndFeel$WeakPCL$1::load$($String* name, bool initialize) {
-	$loadClass(GTKLookAndFeel$WeakPCL$1, name, initialize, &_GTKLookAndFeel$WeakPCL$1_ClassInfo_, allocate$GTKLookAndFeel$WeakPCL$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL;", nullptr, $FINAL | $SYNTHETIC, $field(GTKLookAndFeel$WeakPCL$1, this$0)},
+		{"val$lnf", "Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(GTKLookAndFeel$WeakPCL$1, val$lnf)},
+		{"val$pce", "Ljava/beans/PropertyChangeEvent;", nullptr, $FINAL | $SYNTHETIC, $field(GTKLookAndFeel$WeakPCL$1, val$pce)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL;Ljava/beans/PropertyChangeEvent;Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;)V", "()V", 0, $method(GTKLookAndFeel$WeakPCL$1, init$, void, $GTKLookAndFeel$WeakPCL*, $PropertyChangeEvent*, $GTKLookAndFeel*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GTKLookAndFeel$WeakPCL$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL",
+		"propertyChange",
+		"(Ljava/beans/PropertyChangeEvent;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL", "com.sun.java.swing.plaf.gtk.GTKLookAndFeel", "WeakPCL", $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+	};
+	$loadClass(GTKLookAndFeel$WeakPCL$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKLookAndFeel$WeakPCL$1);
+	});
 	return class$;
 }
 

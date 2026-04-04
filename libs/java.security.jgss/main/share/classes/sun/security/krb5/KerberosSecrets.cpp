@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KerberosSecrets.h>
-
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -12,38 +11,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $JavaxSecurityAuthKerberosAccess = ::sun::security::krb5::JavaxSecurityAuthKerberosAccess;
 
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$FieldInfo _KerberosSecrets_FieldInfo_[] = {
-	{"javaxSecurityAuthKerberosAccess", "Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;", nullptr, $PRIVATE | $STATIC, $staticField(KerberosSecrets, javaxSecurityAuthKerberosAccess)},
-	{}
-};
-
-$MethodInfo _KerberosSecrets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KerberosSecrets, init$, void)},
-	{"getJavaxSecurityAuthKerberosAccess", "()Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosSecrets, getJavaxSecurityAuthKerberosAccess, $JavaxSecurityAuthKerberosAccess*)},
-	{"setJavaxSecurityAuthKerberosAccess", "(Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosSecrets, setJavaxSecurityAuthKerberosAccess, void, $JavaxSecurityAuthKerberosAccess*)},
-	{}
-};
-
-$ClassInfo _KerberosSecrets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.KerberosSecrets",
-	"java.lang.Object",
-	nullptr,
-	_KerberosSecrets_FieldInfo_,
-	_KerberosSecrets_MethodInfo_
-};
-
-$Object* allocate$KerberosSecrets($Class* clazz) {
-	return $of($alloc(KerberosSecrets));
-}
 
 $JavaxSecurityAuthKerberosAccess* KerberosSecrets::javaxSecurityAuthKerberosAccess = nullptr;
 
@@ -62,7 +35,7 @@ $JavaxSecurityAuthKerberosAccess* KerberosSecrets::getJavaxSecurityAuthKerberosA
 	if (KerberosSecrets::javaxSecurityAuthKerberosAccess == nullptr) {
 		try {
 			$load($KeyTab);
-			$nc($($MethodHandles::lookup()))->ensureInitialized($KeyTab::class$);
+			$$nc($MethodHandles::lookup())->ensureInitialized($KeyTab::class$);
 		} catch ($IllegalAccessException& e) {
 		}
 	}
@@ -73,7 +46,27 @@ KerberosSecrets::KerberosSecrets() {
 }
 
 $Class* KerberosSecrets::load$($String* name, bool initialize) {
-	$loadClass(KerberosSecrets, name, initialize, &_KerberosSecrets_ClassInfo_, allocate$KerberosSecrets);
+	$FieldInfo fieldInfos$$[] = {
+		{"javaxSecurityAuthKerberosAccess", "Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;", nullptr, $PRIVATE | $STATIC, $staticField(KerberosSecrets, javaxSecurityAuthKerberosAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KerberosSecrets, init$, void)},
+		{"getJavaxSecurityAuthKerberosAccess", "()Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosSecrets, getJavaxSecurityAuthKerberosAccess, $JavaxSecurityAuthKerberosAccess*)},
+		{"setJavaxSecurityAuthKerberosAccess", "(Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosSecrets, setJavaxSecurityAuthKerberosAccess, void, $JavaxSecurityAuthKerberosAccess*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.KerberosSecrets",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KerberosSecrets, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KerberosSecrets);
+	});
 	return class$;
 }
 

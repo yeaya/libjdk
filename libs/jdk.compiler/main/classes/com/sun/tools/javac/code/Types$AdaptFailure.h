@@ -16,10 +16,13 @@ class $export Types$AdaptFailure : public ::java::lang::RuntimeException {
 public:
 	Types$AdaptFailure();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x980D5A177FC80F82;
+	static const int64_t serialVersionUID = (int64_t)0x980d5a177fc80f82;
 	Types$AdaptFailure(const Types$AdaptFailure& e);
 	virtual void throw$() override;
-	inline Types$AdaptFailure* operator ->() {
+	inline Types$AdaptFailure* operator ->() const {
+		return (Types$AdaptFailure*)throwing$;
+	}
+	inline operator Types$AdaptFailure*() const {
 		return (Types$AdaptFailure*)throwing$;
 	}
 };

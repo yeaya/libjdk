@@ -39,6 +39,7 @@ class FcFontConfiguration : public ::sun::awt::FontConfiguration {
 	$class(FcFontConfiguration, 0, ::sun::awt::FontConfiguration)
 public:
 	FcFontConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::SunFontManager* fm);
 	void init$(::sun::font::SunFontManager* fm, bool preferLocaleFonts, bool preferPropFonts);
 	virtual $Array<::sun::awt::FontDescriptor>* buildFontDescriptors(int32_t fontIndex, int32_t styleIndex) override;

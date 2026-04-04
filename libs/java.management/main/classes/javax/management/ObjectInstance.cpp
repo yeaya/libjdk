@@ -1,5 +1,4 @@
 #include <javax/management/ObjectInstance.h>
-
 #include <javax/management/ObjectName.h>
 #include <javax/management/RuntimeOperationsException.h>
 #include <jcpp.h>
@@ -8,50 +7,18 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $ObjectName = ::javax::management::ObjectName;
 using $RuntimeOperationsException = ::javax::management::RuntimeOperationsException;
 
 namespace javax {
 	namespace management {
 
-$FieldInfo _ObjectInstance_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInstance, serialVersionUID)},
-	{"name", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(ObjectInstance, name)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectInstance, className)},
-	{}
-};
-
-$MethodInfo _ObjectInstance_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInstance, init$, void, $String*, $String*), "javax.management.MalformedObjectNameException"},
-	{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInstance, init$, void, $ObjectName*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, equals, bool, Object$*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, getClassName, $String*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, getObjectName, $ObjectName*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ObjectInstance_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.ObjectInstance",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ObjectInstance_FieldInfo_,
-	_ObjectInstance_MethodInfo_
-};
-
-$Object* allocate$ObjectInstance($Class* clazz) {
-	return $of($alloc(ObjectInstance));
-}
-
 void ObjectInstance::init$($String* objectName, $String* className) {
 	ObjectInstance::init$($$new($ObjectName, objectName), className);
 }
 
 void ObjectInstance::init$($ObjectName* objectName, $String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(objectName)->isPattern()) {
 		$var($IllegalArgumentException, iae, $new($IllegalArgumentException, $$str({"Invalid name->"_s, $(objectName->toString())})));
 		$throwNew($RuntimeOperationsException, iae);
@@ -61,7 +28,7 @@ void ObjectInstance::init$($ObjectName* objectName, $String* className) {
 }
 
 bool ObjectInstance::equals(Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(ObjectInstance, object))) {
 		return false;
 	}
@@ -70,13 +37,13 @@ bool ObjectInstance::equals(Object$* object) {
 		return false;
 	}
 	if (this->className == nullptr) {
-		return ($nc(val)->getClassName() == nullptr);
+		return (val->getClassName() == nullptr);
 	}
-	return $nc(this->className)->equals($($nc(val)->getClassName()));
+	return $nc(this->className)->equals($(val->getClassName()));
 }
 
 int32_t ObjectInstance::hashCode() {
-	int32_t classHash = ((this->className == nullptr) ? 0 : $nc(this->className)->hashCode());
+	int32_t classHash = ((this->className == nullptr) ? 0 : this->className->hashCode());
 	return $nc(this->name)->hashCode() ^ classHash;
 }
 
@@ -89,17 +56,46 @@ $String* ObjectInstance::getClassName() {
 }
 
 $String* ObjectInstance::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$(getClassName()), "["_s}));
-	$var($String, var$0, $$concat(var$1, $(getObjectName())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getClassName()));
+	var$0->append("["_s);
+	var$0->append($(getObjectName()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 ObjectInstance::ObjectInstance() {
 }
 
 $Class* ObjectInstance::load$($String* name, bool initialize) {
-	$loadClass(ObjectInstance, name, initialize, &_ObjectInstance_ClassInfo_, allocate$ObjectInstance);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInstance, serialVersionUID)},
+		{"name", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(ObjectInstance, name)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectInstance, className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInstance, init$, void, $String*, $String*), "javax.management.MalformedObjectNameException"},
+		{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInstance, init$, void, $ObjectName*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, equals, bool, Object$*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, getClassName, $String*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, getObjectName, $ObjectName*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.ObjectInstance",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectInstance, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectInstance);
+	});
 	return class$;
 }
 

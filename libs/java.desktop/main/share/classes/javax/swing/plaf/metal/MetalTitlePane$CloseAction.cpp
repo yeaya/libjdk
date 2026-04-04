@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTitlePane$CloseAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/Locale.h>
@@ -22,46 +21,10 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTitlePane$CloseAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$CloseAction, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTitlePane$CloseAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$CloseAction, init$, void, $MetalTitlePane*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$CloseAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _MetalTitlePane$CloseAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTitlePane$CloseAction", "javax.swing.plaf.metal.MetalTitlePane", "CloseAction", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MetalTitlePane$CloseAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTitlePane$CloseAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_MetalTitlePane$CloseAction_FieldInfo_,
-	_MetalTitlePane$CloseAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTitlePane$CloseAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTitlePane"
-};
-
-$Object* allocate$MetalTitlePane$CloseAction($Class* clazz) {
-	return $of($alloc(MetalTitlePane$CloseAction));
-}
-
 void MetalTitlePane$CloseAction::init$($MetalTitlePane* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$AbstractAction::init$($($UIManager::getString($of("MetalTitlePane.closeTitle"_s), $(this$0->getLocale()))));
+	$AbstractAction::init$($($UIManager::getString("MetalTitlePane.closeTitle"_s, $(this$0->getLocale()))));
 }
 
 void MetalTitlePane$CloseAction::actionPerformed($ActionEvent* e) {
@@ -72,7 +35,37 @@ MetalTitlePane$CloseAction::MetalTitlePane$CloseAction() {
 }
 
 $Class* MetalTitlePane$CloseAction::load$($String* name, bool initialize) {
-	$loadClass(MetalTitlePane$CloseAction, name, initialize, &_MetalTitlePane$CloseAction_ClassInfo_, allocate$MetalTitlePane$CloseAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTitlePane$CloseAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTitlePane;)V", nullptr, $PUBLIC, $method(MetalTitlePane$CloseAction, init$, void, $MetalTitlePane*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTitlePane$CloseAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTitlePane$CloseAction", "javax.swing.plaf.metal.MetalTitlePane", "CloseAction", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTitlePane$CloseAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTitlePane"
+	};
+	$loadClass(MetalTitlePane$CloseAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTitlePane$CloseAction));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/GroupEntry$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
 #include <javax/xml/catalog/BaseEntry.h>
@@ -26,77 +25,41 @@ namespace javax {
 	namespace xml {
 		namespace catalog {
 
-$FieldInfo _GroupEntry$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupEntry$1, $SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)},
-	{}
-};
-
-$EnclosingMethodInfo _GroupEntry$1_EnclosingMethodInfo_ = {
-	"javax.xml.catalog.GroupEntry",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _GroupEntry$1_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.GroupEntry$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _GroupEntry$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.xml.catalog.GroupEntry$1",
-	"java.lang.Object",
-	nullptr,
-	_GroupEntry$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_GroupEntry$1_EnclosingMethodInfo_,
-	_GroupEntry$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.GroupEntry"
-};
-
-$Object* allocate$GroupEntry$1($Class* clazz) {
-	return $of($alloc(GroupEntry$1));
-}
-
 $ints* GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType = nullptr;
 
-void clinit$GroupEntry$1($Class* class$) {
+void GroupEntry$1::clinit$($Class* clazz) {
 	$assignStatic(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType, $new($ints, $($BaseEntry$CatalogEntryType::values())->length));
 	{
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::SYSTEM->ordinal(), 1);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::SYSTEM->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::REWRITESYSTEM->ordinal(), 2);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::REWRITESYSTEM->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::SYSTEMSUFFIX->ordinal(), 3);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::SYSTEMSUFFIX->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::GROUP->ordinal(), 4);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::GROUP->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::PUBLIC->ordinal(), 5);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::PUBLIC->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::URI->ordinal(), 6);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::URI->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::REWRITEURI->ordinal(), 7);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::REWRITEURI->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->set($BaseEntry$CatalogEntryType::URISUFFIX->ordinal(), 8);
+			GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType->set($BaseEntry$CatalogEntryType::URISUFFIX->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -106,7 +69,37 @@ GroupEntry$1::GroupEntry$1() {
 }
 
 $Class* GroupEntry$1::load$($String* name, bool initialize) {
-	$loadClass(GroupEntry$1, name, initialize, &_GroupEntry$1_ClassInfo_, clinit$GroupEntry$1, allocate$GroupEntry$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupEntry$1, $SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.xml.catalog.GroupEntry",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.GroupEntry$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.xml.catalog.GroupEntry$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.GroupEntry"
+	};
+	$loadClass(GroupEntry$1, name, initialize, &classInfo$$, GroupEntry$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupEntry$1);
+	});
 	return class$;
 }
 

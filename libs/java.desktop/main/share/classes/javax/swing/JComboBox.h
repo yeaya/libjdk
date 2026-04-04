@@ -75,6 +75,7 @@ class $export JComboBox : public ::javax::swing::JComponent, public ::java::awt:
 	$class(JComboBox, 0, ::javax::swing::JComponent, ::java::awt::ItemSelectable, ::javax::swing::event::ListDataListener, ::java::awt::event::ActionListener, ::javax::accessibility::Accessible)
 public:
 	JComboBox();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

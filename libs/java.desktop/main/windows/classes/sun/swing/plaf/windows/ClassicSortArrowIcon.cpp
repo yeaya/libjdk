@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/windows/ClassicSortArrowIcon.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -21,39 +20,6 @@ namespace sun {
 	namespace swing {
 		namespace plaf {
 			namespace windows {
-
-$FieldInfo _ClassicSortArrowIcon_FieldInfo_[] = {
-	{"X_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassicSortArrowIcon, X_OFFSET)},
-	{"ascending", "Z", nullptr, $PRIVATE, $field(ClassicSortArrowIcon, ascending)},
-	{}
-};
-
-$MethodInfo _ClassicSortArrowIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ClassicSortArrowIcon, init$, void, bool)},
-	{"drawSide", "(Ljava/awt/Graphics;III)V", nullptr, $PRIVATE, $method(ClassicSortArrowIcon, drawSide, void, $Graphics*, int32_t, int32_t, int32_t)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ClassicSortArrowIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ClassicSortArrowIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(ClassicSortArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ClassicSortArrowIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.plaf.windows.ClassicSortArrowIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	_ClassicSortArrowIcon_FieldInfo_,
-	_ClassicSortArrowIcon_MethodInfo_
-};
-
-$Object* allocate$ClassicSortArrowIcon($Class* clazz) {
-	return $of($alloc(ClassicSortArrowIcon));
-}
 
 int32_t ClassicSortArrowIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -80,7 +46,7 @@ void ClassicSortArrowIcon::init$(bool ascending) {
 }
 
 void ClassicSortArrowIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	x += ClassicSortArrowIcon::X_OFFSET;
 	if (this->ascending) {
 		$nc(g)->setColor($($UIManager::getColor("Table.sortIconHighlight"_s)));
@@ -131,7 +97,35 @@ ClassicSortArrowIcon::ClassicSortArrowIcon() {
 }
 
 $Class* ClassicSortArrowIcon::load$($String* name, bool initialize) {
-	$loadClass(ClassicSortArrowIcon, name, initialize, &_ClassicSortArrowIcon_ClassInfo_, allocate$ClassicSortArrowIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"X_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassicSortArrowIcon, X_OFFSET)},
+		{"ascending", "Z", nullptr, $PRIVATE, $field(ClassicSortArrowIcon, ascending)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ClassicSortArrowIcon, init$, void, bool)},
+		{"drawSide", "(Ljava/awt/Graphics;III)V", nullptr, $PRIVATE, $method(ClassicSortArrowIcon, drawSide, void, $Graphics*, int32_t, int32_t, int32_t)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ClassicSortArrowIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ClassicSortArrowIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(ClassicSortArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.plaf.windows.ClassicSortArrowIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassicSortArrowIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassicSortArrowIcon));
+	});
 	return class$;
 }
 

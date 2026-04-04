@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/ApacheOctetStreamData.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <java/io/InputStream.h>
 #include <javax/xml/crypto/OctetStreamData.h>
@@ -18,35 +17,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _ApacheOctetStreamData_FieldInfo_[] = {
-	{"xi", "Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $field(ApacheOctetStreamData, xi)},
-	{}
-};
-
-$MethodInfo _ApacheOctetStreamData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(ApacheOctetStreamData, init$, void, $XMLSignatureInput*), "java.io.IOException"},
-	{"getXMLSignatureInput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ApacheOctetStreamData, getXMLSignatureInput, $XMLSignatureInput*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ApacheOctetStreamData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.ApacheOctetStreamData",
-	"javax.xml.crypto.OctetStreamData",
-	"org.jcp.xml.dsig.internal.dom.ApacheData",
-	_ApacheOctetStreamData_FieldInfo_,
-	_ApacheOctetStreamData_MethodInfo_
-};
-
-$Object* allocate$ApacheOctetStreamData($Class* clazz) {
-	return $of($alloc(ApacheOctetStreamData));
-}
 
 int32_t ApacheOctetStreamData::hashCode() {
 	 return this->$OctetStreamData::hashCode();
@@ -69,7 +39,7 @@ void ApacheOctetStreamData::finalize() {
 }
 
 void ApacheOctetStreamData::init$($XMLSignatureInput* xi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, var$0, $nc(xi)->getOctetStream());
 	$var($String, var$1, xi->getSourceURI());
 	$OctetStreamData::init$(var$0, var$1, $(xi->getMIMEType()));
@@ -84,7 +54,31 @@ ApacheOctetStreamData::ApacheOctetStreamData() {
 }
 
 $Class* ApacheOctetStreamData::load$($String* name, bool initialize) {
-	$loadClass(ApacheOctetStreamData, name, initialize, &_ApacheOctetStreamData_ClassInfo_, allocate$ApacheOctetStreamData);
+	$FieldInfo fieldInfos$$[] = {
+		{"xi", "Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $field(ApacheOctetStreamData, xi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(ApacheOctetStreamData, init$, void, $XMLSignatureInput*), "java.io.IOException"},
+		{"getXMLSignatureInput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ApacheOctetStreamData, getXMLSignatureInput, $XMLSignatureInput*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.ApacheOctetStreamData",
+		"javax.xml.crypto.OctetStreamData",
+		"org.jcp.xml.dsig.internal.dom.ApacheData",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ApacheOctetStreamData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ApacheOctetStreamData));
+	});
 	return class$;
 }
 

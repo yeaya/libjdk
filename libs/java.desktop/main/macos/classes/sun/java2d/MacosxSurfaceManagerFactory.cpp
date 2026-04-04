@@ -1,5 +1,4 @@
 #include <sun/java2d/MacosxSurfaceManagerFactory.h>
-
 #include <sun/awt/CGraphicsDevice.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/awt/image/VolatileSurfaceManager.h>
@@ -20,38 +19,34 @@ using $CGLVolatileSurfaceManager = ::sun::java2d::opengl::CGLVolatileSurfaceMana
 namespace sun {
 	namespace java2d {
 
-$MethodInfo _MacosxSurfaceManagerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MacosxSurfaceManagerFactory, init$, void)},
-	{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC, $virtualMethod(MacosxSurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
-	{}
-};
-
-$ClassInfo _MacosxSurfaceManagerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.MacosxSurfaceManagerFactory",
-	"sun.java2d.SurfaceManagerFactory",
-	nullptr,
-	nullptr,
-	_MacosxSurfaceManagerFactory_MethodInfo_
-};
-
-$Object* allocate$MacosxSurfaceManagerFactory($Class* clazz) {
-	return $of($alloc(MacosxSurfaceManagerFactory));
-}
-
 void MacosxSurfaceManagerFactory::init$() {
 	$SurfaceManagerFactory::init$();
 }
 
 $VolatileSurfaceManager* MacosxSurfaceManagerFactory::createVolatileManager($SunVolatileImage* vImg, Object$* context) {
-	return $CGraphicsDevice::usingMetalPipeline() ? static_cast<$VolatileSurfaceManager*>($new($MTLVolatileSurfaceManager, vImg, context)) : static_cast<$VolatileSurfaceManager*>($new($CGLVolatileSurfaceManager, vImg, context));
+	return $CGraphicsDevice::usingMetalPipeline() ? $cast($VolatileSurfaceManager, $new($MTLVolatileSurfaceManager, vImg, context)) : $cast($VolatileSurfaceManager, $new($CGLVolatileSurfaceManager, vImg, context));
 }
 
 MacosxSurfaceManagerFactory::MacosxSurfaceManagerFactory() {
 }
 
 $Class* MacosxSurfaceManagerFactory::load$($String* name, bool initialize) {
-	$loadClass(MacosxSurfaceManagerFactory, name, initialize, &_MacosxSurfaceManagerFactory_ClassInfo_, allocate$MacosxSurfaceManagerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MacosxSurfaceManagerFactory, init$, void)},
+		{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC, $virtualMethod(MacosxSurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.MacosxSurfaceManagerFactory",
+		"sun.java2d.SurfaceManagerFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MacosxSurfaceManagerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacosxSurfaceManagerFactory);
+	});
 	return class$;
 }
 

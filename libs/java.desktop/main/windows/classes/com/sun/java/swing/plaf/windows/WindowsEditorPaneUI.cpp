@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsEditorPaneUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI$WindowsCaret.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsEditorPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsEditorPaneUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsEditorPaneUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsEditorPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsEditorPaneUI",
-	"javax.swing.plaf.basic.BasicEditorPaneUI",
-	nullptr,
-	nullptr,
-	_WindowsEditorPaneUI_MethodInfo_
-};
-
-$Object* allocate$WindowsEditorPaneUI($Class* clazz) {
-	return $of($alloc(WindowsEditorPaneUI));
-}
-
 void WindowsEditorPaneUI::init$() {
 	$BasicEditorPaneUI::init$();
 }
@@ -59,7 +38,23 @@ WindowsEditorPaneUI::WindowsEditorPaneUI() {
 }
 
 $Class* WindowsEditorPaneUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsEditorPaneUI, name, initialize, &_WindowsEditorPaneUI_ClassInfo_, allocate$WindowsEditorPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsEditorPaneUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsEditorPaneUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsEditorPaneUI",
+		"javax.swing.plaf.basic.BasicEditorPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsEditorPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsEditorPaneUI));
+	});
 	return class$;
 }
 

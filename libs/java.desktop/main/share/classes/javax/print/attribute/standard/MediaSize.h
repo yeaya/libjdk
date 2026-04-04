@@ -35,6 +35,7 @@ public:
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(float x, float y, int32_t units);
 	void init$(int32_t x, int32_t y, int32_t units);
 	void init$(float x, float y, int32_t units, ::javax::print::attribute::standard::MediaSizeName* media);
@@ -47,7 +48,7 @@ public:
 	virtual $String* getName() override;
 	using ::javax::print::attribute::Size2DSyntax::toString;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xE4B068056EF2340D;
+	static const int64_t serialVersionUID = (int64_t)0xe4b068056ef2340d;
 	::javax::print::attribute::standard::MediaSizeName* mediaName = nullptr;
 	static ::java::util::HashMap* mediaMap;
 	static ::java::util::Vector* sizeVector;

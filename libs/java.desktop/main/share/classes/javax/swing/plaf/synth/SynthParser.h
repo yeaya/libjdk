@@ -146,6 +146,7 @@ class SynthParser : public ::org::xml::sax::helpers::DefaultHandler {
 	$class(SynthParser, 0, ::org::xml::sax::helpers::DefaultHandler)
 public:
 	SynthParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addPainterOrMerge(::java::util::List* painters, $String* method, ::javax::swing::plaf::synth::SynthPainter* painter, int32_t direction);
 	virtual void characters($chars* ch, int32_t start, int32_t length) override;

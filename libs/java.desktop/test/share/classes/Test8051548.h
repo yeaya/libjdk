@@ -37,6 +37,7 @@ class $export Test8051548 : public ::java::lang::Object {
 	$class(Test8051548, 0, ::java::lang::Object)
 public:
 	Test8051548();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool colorHasAlpha();
 	static void createAndShowGUI();

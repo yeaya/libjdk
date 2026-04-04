@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$HasSameArgs.h>
-
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
@@ -35,51 +34,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$HasSameArgs_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$HasSameArgs, this$0)},
-	{"strict", "Z", nullptr, 0, $field(Types$HasSameArgs, strict)},
-	{}
-};
-
-$MethodInfo _Types$HasSameArgs_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Z)V", nullptr, $PUBLIC, $method(Types$HasSameArgs, init$, void, $Types*, bool)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitForAll, $Boolean*, $Type$ForAll*, $Type*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitForAll, $Object*, $Type$ForAll*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitMethodType, $Boolean*, $Type$MethodType*, $Type*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitType, $Boolean*, $Type*, $Type*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitType, $Object*, $Type*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$HasSameArgs_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$HasSameArgs", "com.sun.tools.javac.code.Types", "HasSameArgs", $PRIVATE},
-	{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$HasSameArgs_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$HasSameArgs",
-	"com.sun.tools.javac.code.Types$TypeRelation",
-	nullptr,
-	_Types$HasSameArgs_FieldInfo_,
-	_Types$HasSameArgs_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$HasSameArgs_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$HasSameArgs($Class* clazz) {
-	return $of($alloc(Types$HasSameArgs));
-}
-
 void Types$HasSameArgs::init$($Types* this$0, bool strict) {
 	$set(this, this$0, this$0);
 	$Types$TypeRelation::init$();
@@ -98,14 +52,14 @@ $Boolean* Types$HasSameArgs::visitMethodType($Type$MethodType* t, $Type* s) {
 }
 
 $Boolean* Types$HasSameArgs::visitForAll($Type$ForAll* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if (!$nc(s)->hasTag($TypeTag::FORALL)) {
-		return $Boolean::valueOf(this->strict ? false : $nc($(visitMethodType($($nc(t)->asMethodType()), s)))->booleanValue());
+		return $Boolean::valueOf(this->strict ? false : $$nc(visitMethodType($($nc(t)->asMethodType()), s))->booleanValue());
 	}
 	$var($Type$ForAll, forAll, $cast($Type$ForAll, s));
 	bool var$0 = this->this$0->hasSameBounds(t, forAll);
-	return $Boolean::valueOf(var$0 && $nc(($cast($Boolean, $(visit($nc(t)->qtype, $(this->this$0->subst($nc(forAll)->qtype, forAll->tvars, t->tvars)))))))->booleanValue());
+	return $Boolean::valueOf(var$0 && $$sure($Boolean, visit($nc(t)->qtype, $(this->this$0->subst(forAll->qtype, forAll->tvars, $nc(t)->tvars))))->booleanValue());
 }
 
 $Boolean* Types$HasSameArgs::visitErrorType($Type$ErrorType* t, $Type* s) {
@@ -132,7 +86,46 @@ Types$HasSameArgs::Types$HasSameArgs() {
 }
 
 $Class* Types$HasSameArgs::load$($String* name, bool initialize) {
-	$loadClass(Types$HasSameArgs, name, initialize, &_Types$HasSameArgs_ClassInfo_, allocate$Types$HasSameArgs);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$HasSameArgs, this$0)},
+		{"strict", "Z", nullptr, 0, $field(Types$HasSameArgs, strict)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Z)V", nullptr, $PUBLIC, $method(Types$HasSameArgs, init$, void, $Types*, bool)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitForAll, $Boolean*, $Type$ForAll*, $Type*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitMethodType, $Boolean*, $Type$MethodType*, $Type*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$HasSameArgs, visitType, $Boolean*, $Type*, $Type*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HasSameArgs, visitType, $Object*, $Type*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$HasSameArgs", "com.sun.tools.javac.code.Types", "HasSameArgs", $PRIVATE},
+		{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$HasSameArgs",
+		"com.sun.tools.javac.code.Types$TypeRelation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$HasSameArgs, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$HasSameArgs);
+	});
 	return class$;
 }
 

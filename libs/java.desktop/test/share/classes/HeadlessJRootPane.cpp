@@ -1,5 +1,4 @@
 #include <HeadlessJRootPane.h>
-
 #include <HeadlessJRootPane$1.h>
 #include <HeadlessJRootPane$2.h>
 #include <HeadlessJRootPane$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JRootPane = ::javax::swing::JRootPane;
 
-$MethodInfo _HeadlessJRootPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJRootPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJRootPane, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJRootPane_InnerClassesInfo_[] = {
-	{"HeadlessJRootPane$3", nullptr, nullptr, 0},
-	{"HeadlessJRootPane$2", nullptr, nullptr, 0},
-	{"HeadlessJRootPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJRootPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJRootPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJRootPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJRootPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJRootPane$3,HeadlessJRootPane$2,HeadlessJRootPane$1"
-};
-
-$Object* allocate$HeadlessJRootPane($Class* clazz) {
-	return $of($alloc(HeadlessJRootPane));
-}
-
 void HeadlessJRootPane::init$() {
 }
 
 void HeadlessJRootPane::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRootPane, rp, $new($JRootPane));
 	rp->getAccessibleContext();
 	rp->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJRootPane::main($StringArray* args) {
 	rp->getMaximumSize();
 	rp->getMinimumSize();
 	rp->contains(1, 2);
-	$var($Component, c1, rp->add(static_cast<$Component*>($$new($HeadlessJRootPane$1))));
-	$var($Component, c2, rp->add(static_cast<$Component*>($$new($HeadlessJRootPane$2))));
-	$var($Component, c3, rp->add(static_cast<$Component*>($$new($HeadlessJRootPane$3))));
+	$var($Component, c1, rp->add($$new($HeadlessJRootPane$1)));
+	$var($Component, c2, rp->add($$new($HeadlessJRootPane$2)));
+	$var($Component, c3, rp->add($$new($HeadlessJRootPane$3)));
 	$var($Insets, ins, rp->getInsets());
 	rp->getAlignmentY();
 	rp->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJRootPane::main($StringArray* args) {
 	rp->setForeground($Color::red);
 	rp->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					rp->setFont(f1);
-					rp->setFont(f2);
-					rp->setFont(f3);
-					rp->setFont(f4);
-					rp->getFontMetrics(f1);
-					rp->getFontMetrics(f2);
-					rp->getFontMetrics(f3);
-					rp->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				rp->setFont(f1);
+				rp->setFont(f2);
+				rp->setFont(f3);
+				rp->setFont(f4);
+				rp->getFontMetrics(f1);
+				rp->getFontMetrics(f2);
+				rp->getFontMetrics(f3);
+				rp->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJRootPane::main($StringArray* args) {
 	rp->getFont();
 	rp->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(rp));
+	c->add(rp);
 	rp->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			rp->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJRootPane::HeadlessJRootPane() {
 }
 
 $Class* HeadlessJRootPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJRootPane, name, initialize, &_HeadlessJRootPane_ClassInfo_, allocate$HeadlessJRootPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJRootPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJRootPane, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJRootPane$3", nullptr, nullptr, 0},
+		{"HeadlessJRootPane$2", nullptr, nullptr, 0},
+		{"HeadlessJRootPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJRootPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJRootPane$3,HeadlessJRootPane$2,HeadlessJRootPane$1"
+	};
+	$loadClass(HeadlessJRootPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJRootPane);
+	});
 	return class$;
 }
 

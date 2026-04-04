@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Lower$LowerSignatureGenerator.h>
-
 #include <com/sun/tools/javac/code/Types$SignatureGenerator.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/comp/Lower.h>
@@ -19,47 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Lower$LowerSignatureGenerator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$LowerSignatureGenerator, this$0)},
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, 0, $field(Lower$LowerSignatureGenerator, sb)},
-	{}
-};
-
-$MethodInfo _Lower$LowerSignatureGenerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(Lower$LowerSignatureGenerator, init$, void, $Lower*)},
-	{"append", "(C)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, char16_t)},
-	{"append", "([B)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, $bytes*)},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, $Name*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Lower$LowerSignatureGenerator, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Lower$LowerSignatureGenerator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Lower$LowerSignatureGenerator", "com.sun.tools.javac.comp.Lower", "LowerSignatureGenerator", $PRIVATE},
-	{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Lower$LowerSignatureGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Lower$LowerSignatureGenerator",
-	"com.sun.tools.javac.code.Types$SignatureGenerator",
-	nullptr,
-	_Lower$LowerSignatureGenerator_FieldInfo_,
-	_Lower$LowerSignatureGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Lower$LowerSignatureGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Lower"
-};
-
-$Object* allocate$Lower$LowerSignatureGenerator($Class* clazz) {
-	return $of($alloc(Lower$LowerSignatureGenerator));
-}
 
 void Lower$LowerSignatureGenerator::init$($Lower* this$0) {
 	$set(this, this$0, this$0);
@@ -87,7 +45,42 @@ Lower$LowerSignatureGenerator::Lower$LowerSignatureGenerator() {
 }
 
 $Class* Lower$LowerSignatureGenerator::load$($String* name, bool initialize) {
-	$loadClass(Lower$LowerSignatureGenerator, name, initialize, &_Lower$LowerSignatureGenerator_ClassInfo_, allocate$Lower$LowerSignatureGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$LowerSignatureGenerator, this$0)},
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, 0, $field(Lower$LowerSignatureGenerator, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(Lower$LowerSignatureGenerator, init$, void, $Lower*)},
+		{"append", "(C)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, char16_t)},
+		{"append", "([B)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, $bytes*)},
+		{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, $Name*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Lower$LowerSignatureGenerator, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Lower$LowerSignatureGenerator", "com.sun.tools.javac.comp.Lower", "LowerSignatureGenerator", $PRIVATE},
+		{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Lower$LowerSignatureGenerator",
+		"com.sun.tools.javac.code.Types$SignatureGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Lower"
+	};
+	$loadClass(Lower$LowerSignatureGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lower$LowerSignatureGenerator);
+	});
 	return class$;
 }
 

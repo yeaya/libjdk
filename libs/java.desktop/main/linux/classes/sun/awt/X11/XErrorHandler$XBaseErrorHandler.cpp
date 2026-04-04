@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
-
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
@@ -16,37 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XErrorHandler$XBaseErrorHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XErrorHandler$XBaseErrorHandler, init$, void)},
-	{"handleError", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC, $virtualMethod(XErrorHandler$XBaseErrorHandler, handleError, int32_t, int64_t, $XErrorEvent*)},
-	{}
-};
-
-$InnerClassInfo _XErrorHandler$XBaseErrorHandler_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XErrorHandler$XBaseErrorHandler", "sun.awt.X11.XErrorHandler", "XBaseErrorHandler", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XErrorHandler$XBaseErrorHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XErrorHandler$XBaseErrorHandler",
-	"sun.awt.X11.XErrorHandler",
-	nullptr,
-	nullptr,
-	_XErrorHandler$XBaseErrorHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XErrorHandler$XBaseErrorHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XErrorHandler"
-};
-
-$Object* allocate$XErrorHandler$XBaseErrorHandler($Class* clazz) {
-	return $of($alloc(XErrorHandler$XBaseErrorHandler));
-}
-
 void XErrorHandler$XBaseErrorHandler::init$() {
 	$XErrorHandler::init$();
 }
@@ -59,7 +27,33 @@ XErrorHandler$XBaseErrorHandler::XErrorHandler$XBaseErrorHandler() {
 }
 
 $Class* XErrorHandler$XBaseErrorHandler::load$($String* name, bool initialize) {
-	$loadClass(XErrorHandler$XBaseErrorHandler, name, initialize, &_XErrorHandler$XBaseErrorHandler_ClassInfo_, allocate$XErrorHandler$XBaseErrorHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XErrorHandler$XBaseErrorHandler, init$, void)},
+		{"handleError", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC, $virtualMethod(XErrorHandler$XBaseErrorHandler, handleError, int32_t, int64_t, $XErrorEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XErrorHandler$XBaseErrorHandler", "sun.awt.X11.XErrorHandler", "XBaseErrorHandler", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XErrorHandler$XBaseErrorHandler",
+		"sun.awt.X11.XErrorHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XErrorHandler"
+	};
+	$loadClass(XErrorHandler$XBaseErrorHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XErrorHandler$XBaseErrorHandler);
+	});
 	return class$;
 }
 

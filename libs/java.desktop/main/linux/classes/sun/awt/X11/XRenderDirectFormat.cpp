@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XRenderDirectFormat.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,66 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XRenderDirectFormat_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XRenderDirectFormat, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XRenderDirectFormat, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XRenderDirectFormat, pData)},
-	{}
-};
-
-$MethodInfo _XRenderDirectFormat_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XRenderDirectFormat, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XRenderDirectFormat, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XRenderDirectFormat, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XRenderDirectFormat, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XRenderDirectFormat, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRenderDirectFormat, getSize, int32_t)},
-	{"get_alpha", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_alpha, int16_t)},
-	{"get_alphaMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_alphaMask, int16_t)},
-	{"get_blue", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_blue, int16_t)},
-	{"get_blueMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_blueMask, int16_t)},
-	{"get_green", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_green, int16_t)},
-	{"get_greenMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_greenMask, int16_t)},
-	{"get_red", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_red, int16_t)},
-	{"get_redMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_redMask, int16_t)},
-	{"set_alpha", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_alpha, void, int16_t)},
-	{"set_alphaMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_alphaMask, void, int16_t)},
-	{"set_blue", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_blue, void, int16_t)},
-	{"set_blueMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_blueMask, void, int16_t)},
-	{"set_green", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_green, void, int16_t)},
-	{"set_greenMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_greenMask, void, int16_t)},
-	{"set_red", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_red, void, int16_t)},
-	{"set_redMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_redMask, void, int16_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XRenderDirectFormat, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XRenderDirectFormat, zero, void)},
-	{}
-};
-
-$ClassInfo _XRenderDirectFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XRenderDirectFormat",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XRenderDirectFormat_FieldInfo_,
-	_XRenderDirectFormat_MethodInfo_
-};
-
-$Object* allocate$XRenderDirectFormat($Class* clazz) {
-	return $of($alloc(XRenderDirectFormat));
-}
 
 int32_t XRenderDirectFormat::getSize() {
 	$init(XRenderDirectFormat);
@@ -109,7 +55,7 @@ void XRenderDirectFormat::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -228,7 +174,7 @@ $String* XRenderDirectFormat::getFieldsAsString() {
 }
 
 $Object* XRenderDirectFormat::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XRenderDirectFormat::zero() {
@@ -243,7 +189,53 @@ XRenderDirectFormat::XRenderDirectFormat() {
 }
 
 $Class* XRenderDirectFormat::load$($String* name, bool initialize) {
-	$loadClass(XRenderDirectFormat, name, initialize, &_XRenderDirectFormat_ClassInfo_, allocate$XRenderDirectFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XRenderDirectFormat, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XRenderDirectFormat, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XRenderDirectFormat, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XRenderDirectFormat, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XRenderDirectFormat, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XRenderDirectFormat, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XRenderDirectFormat, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XRenderDirectFormat, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XRenderDirectFormat, getSize, int32_t)},
+		{"get_alpha", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_alpha, int16_t)},
+		{"get_alphaMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_alphaMask, int16_t)},
+		{"get_blue", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_blue, int16_t)},
+		{"get_blueMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_blueMask, int16_t)},
+		{"get_green", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_green, int16_t)},
+		{"get_greenMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_greenMask, int16_t)},
+		{"get_red", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_red, int16_t)},
+		{"get_redMask", "()S", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, get_redMask, int16_t)},
+		{"set_alpha", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_alpha, void, int16_t)},
+		{"set_alphaMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_alphaMask, void, int16_t)},
+		{"set_blue", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_blue, void, int16_t)},
+		{"set_blueMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_blueMask, void, int16_t)},
+		{"set_green", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_green, void, int16_t)},
+		{"set_greenMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_greenMask, void, int16_t)},
+		{"set_red", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_red, void, int16_t)},
+		{"set_redMask", "(S)V", nullptr, $PUBLIC, $virtualMethod(XRenderDirectFormat, set_redMask, void, int16_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XRenderDirectFormat, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XRenderDirectFormat, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XRenderDirectFormat",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRenderDirectFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XRenderDirectFormat);
+	});
 	return class$;
 }
 

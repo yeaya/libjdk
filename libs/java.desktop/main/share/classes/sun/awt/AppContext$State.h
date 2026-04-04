@@ -21,6 +21,7 @@ class AppContext$State : public ::java::lang::Enum {
 public:
 	AppContext$State();
 	static $Array<::sun::awt::AppContext$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::awt::AppContext$State* valueOf($String* name);
 	static $Array<::sun::awt::AppContext$State>* values();

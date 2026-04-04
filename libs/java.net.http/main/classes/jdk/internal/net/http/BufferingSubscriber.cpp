@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/BufferingSubscriber.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -12,7 +11,6 @@
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <java/util/ListIterator.h>
@@ -45,7 +43,6 @@ using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscri
 using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
@@ -54,8 +51,6 @@ using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Predicate = ::java::util::function::Predicate;
 using $ToLongFunction = ::java::util::function::ToLongFunction;
-using $LongStream = ::java::util::stream::LongStream;
-using $Stream = ::java::util::stream::Stream;
 using $BufferingSubscriber$DownstreamSubscription = ::jdk::internal::net::http::BufferingSubscriber$DownstreamSubscription;
 using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 
@@ -72,27 +67,24 @@ public:
 	virtual int64_t applyAsLong(Object$* inst$) override {
 		 return $sure($Buffer, inst$)->remaining();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BufferingSubscriber$$Lambda$remaining>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BufferingSubscriber$$Lambda$remaining::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferingSubscriber$$Lambda$remaining, init$, void)},
-	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$$Lambda$remaining, applyAsLong, int64_t, Object$*)},
-	{}
-};
-$ClassInfo BufferingSubscriber$$Lambda$remaining::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.BufferingSubscriber$$Lambda$remaining",
-	"java.lang.Object",
-	"java.util.function.ToLongFunction",
-	nullptr,
-	methodInfos
 };
 $Class* BufferingSubscriber$$Lambda$remaining::load$($String* name, bool initialize) {
-	$loadClass(BufferingSubscriber$$Lambda$remaining, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BufferingSubscriber$$Lambda$remaining, init$, void)},
+		{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$$Lambda$remaining, applyAsLong, int64_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.BufferingSubscriber$$Lambda$remaining",
+		"java.lang.Object",
+		"java.util.function.ToLongFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BufferingSubscriber$$Lambda$remaining, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferingSubscriber$$Lambda$remaining);
+	});
 	return class$;
 }
 $Class* BufferingSubscriber$$Lambda$remaining::class$ = nullptr;
@@ -105,90 +97,27 @@ public:
 	virtual bool test(Object$* b) override {
 		 return BufferingSubscriber::lambda$fromInternalBuffers$0($cast($ByteBuffer, b));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::load$($String* name, bool initialize) {
-	$loadClass(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1);
+	});
 	return class$;
 }
 $Class* BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::class$ = nullptr;
-
-$FieldInfo _BufferingSubscriber_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BufferingSubscriber, $assertionsDisabled)},
-	{"downstreamSubscriber", "Ljava/net/http/HttpResponse$BodySubscriber;", "Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PRIVATE | $FINAL, $field(BufferingSubscriber, downstreamSubscriber)},
-	{"bufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(BufferingSubscriber, bufferSize)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(BufferingSubscriber, subscription)},
-	{"downstreamSubscription", "Ljdk/internal/net/http/BufferingSubscriber$DownstreamSubscription;", "Ljdk/internal/net/http/BufferingSubscriber<TT;>.DownstreamSubscription;", $PRIVATE | $VOLATILE, $field(BufferingSubscriber, downstreamSubscription)},
-	{"buffersLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(BufferingSubscriber, buffersLock)},
-	{"internalBuffers", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/nio/ByteBuffer;>;", $PRIVATE, $field(BufferingSubscriber, internalBuffers)},
-	{"accumulatedBytes", "I", nullptr, $PRIVATE, $field(BufferingSubscriber, accumulatedBytes)},
-	{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(BufferingSubscriber, throwable)},
-	{"UNSUBSCRIBED", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, UNSUBSCRIBED)},
-	{"ACTIVE", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, ACTIVE)},
-	{"ERROR", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, ERROR)},
-	{"CANCELLED", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, CANCELLED)},
-	{"COMPLETE", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, COMPLETE)},
-	{"state", "I", nullptr, $PRIVATE | $VOLATILE, $field(BufferingSubscriber, state)},
-	{}
-};
-
-$MethodInfo _BufferingSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;I)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;I)V", $PUBLIC, $method(BufferingSubscriber, init$, void, $HttpResponse$BodySubscriber*, int32_t)},
-	{"fromInternalBuffers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(BufferingSubscriber, fromInternalBuffers, $List*)},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(BufferingSubscriber, getBody, $CompletionStage*)},
-	{"hasEnoughAccumulatedBytes", "()Z", nullptr, $PRIVATE | $FINAL, $method(BufferingSubscriber, hasEnoughAccumulatedBytes, bool)},
-	{"lambda$fromInternalBuffers$0", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BufferingSubscriber, lambda$fromInternalBuffers$0, bool, $ByteBuffer*)},
-	{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, needsExecutor, bool)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(BufferingSubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BufferingSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PRIVATE | $STATIC | $FINAL, $staticMethod(BufferingSubscriber, remaining, int64_t, $List*)},
-	{}
-};
-
-$InnerClassInfo _BufferingSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.BufferingSubscriber$DownstreamSubscription", "jdk.internal.net.http.BufferingSubscriber", "DownstreamSubscription", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BufferingSubscriber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.BufferingSubscriber",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	_BufferingSubscriber_FieldInfo_,
-	_BufferingSubscriber_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TT;>;",
-	nullptr,
-	_BufferingSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.BufferingSubscriber$DownstreamSubscription,jdk.internal.net.http.BufferingSubscriber$DownstreamSubscription$PushDemandedTask"
-};
-
-$Object* allocate$BufferingSubscriber($Class* clazz) {
-	return $of($alloc(BufferingSubscriber));
-}
 
 bool BufferingSubscriber::$assertionsDisabled = false;
 
@@ -204,8 +133,8 @@ void BufferingSubscriber::init$($HttpResponse$BodySubscriber* downstreamSubscrib
 
 int64_t BufferingSubscriber::remaining($List* buffers) {
 	$init(BufferingSubscriber);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc(buffers)->stream()))->mapToLong(static_cast<$ToLongFunction*>($$new(BufferingSubscriber$$Lambda$remaining)))))->sum();
+	$useLocalObjectStack();
+	return $$nc($$nc($nc(buffers)->stream())->mapToLong($$new(BufferingSubscriber$$Lambda$remaining)))->sum();
 }
 
 bool BufferingSubscriber::needsExecutor() {
@@ -220,7 +149,7 @@ bool BufferingSubscriber::hasEnoughAccumulatedBytes() {
 }
 
 $List* BufferingSubscriber::fromInternalBuffers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!BufferingSubscriber::$assertionsDisabled && !$Thread::holdsLock(this->buffersLock)) {
 		$throwNew($AssertionError);
 	}
@@ -239,7 +168,7 @@ $List* BufferingSubscriber::fromInternalBuffers() {
 				$assign(b, b->slice());
 			}
 			dsts->add(b);
-			leftToFill -= b->remaining();
+			leftToFill -= $nc(b)->remaining();
 			this->accumulatedBytes -= b->remaining();
 			if (leftToFill == 0) {
 				break;
@@ -265,7 +194,7 @@ $List* BufferingSubscriber::fromInternalBuffers() {
 	if (!BufferingSubscriber::$assertionsDisabled && !(this->accumulatedBytes >= 0)) {
 		$throwNew($AssertionError);
 	}
-	if (!BufferingSubscriber::$assertionsDisabled && !$nc($(dsts->stream()))->noneMatch(static_cast<$Predicate*>($$new(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1)))) {
+	if (!BufferingSubscriber::$assertionsDisabled && !$$nc(dsts->stream())->noneMatch($$new(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1))) {
 		$throwNew($AssertionError);
 	}
 	return $Collections::unmodifiableList(dsts);
@@ -304,26 +233,26 @@ void BufferingSubscriber::onNext($List* item) {
 }
 
 void BufferingSubscriber::onError($Throwable* incomingThrowable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(incomingThrowable);
 	int32_t s = this->state;
 	if (!BufferingSubscriber::$assertionsDisabled && !(s == BufferingSubscriber::ACTIVE)) {
-		$throwNew($AssertionError, $of($$str({"Expected ACTIVE, got:"_s, $$str(s)})));
+		$throwNew($AssertionError, $$of($str({"Expected ACTIVE, got:"_s, $$str(s)})));
 	}
 	this->state = BufferingSubscriber::ERROR;
 	$var($Throwable, t, this->throwable);
 	if (!BufferingSubscriber::$assertionsDisabled && !(t == nullptr)) {
-		$throwNew($AssertionError, $of($$str({"Expected null, got:"_s, t})));
+		$throwNew($AssertionError, $$of($str({"Expected null, got:"_s, t})));
 	}
 	$set(this, throwable, incomingThrowable);
 	$nc(this->downstreamSubscription)->pushDemanded();
 }
 
 void BufferingSubscriber::onComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t s = this->state;
 	if (!BufferingSubscriber::$assertionsDisabled && !(s == BufferingSubscriber::ACTIVE)) {
-		$throwNew($AssertionError, $of($$str({"Expected ACTIVE, got:"_s, $$str(s)})));
+		$throwNew($AssertionError, $$of($str({"Expected ACTIVE, got:"_s, $$str(s)})));
 	}
 	this->state = BufferingSubscriber::COMPLETE;
 	$nc(this->downstreamSubscription)->pushDemanded();
@@ -342,7 +271,7 @@ bool BufferingSubscriber::lambda$fromInternalBuffers$0($ByteBuffer* b) {
 	return $nc(b)->position() != 0;
 }
 
-void clinit$BufferingSubscriber($Class* class$) {
+void BufferingSubscriber::clinit$($Class* clazz) {
 	BufferingSubscriber::$assertionsDisabled = !BufferingSubscriber::class$->desiredAssertionStatus();
 }
 
@@ -351,14 +280,68 @@ BufferingSubscriber::BufferingSubscriber() {
 
 $Class* BufferingSubscriber::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BufferingSubscriber$$Lambda$remaining::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.BufferingSubscriber$$Lambda$remaining")) {
 			return BufferingSubscriber$$Lambda$remaining::load$(name, initialize);
 		}
-		if (name->equals(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1")) {
 			return BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(BufferingSubscriber, name, initialize, &_BufferingSubscriber_ClassInfo_, clinit$BufferingSubscriber, allocate$BufferingSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BufferingSubscriber, $assertionsDisabled)},
+		{"downstreamSubscriber", "Ljava/net/http/HttpResponse$BodySubscriber;", "Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PRIVATE | $FINAL, $field(BufferingSubscriber, downstreamSubscriber)},
+		{"bufferSize", "I", nullptr, $PRIVATE | $FINAL, $field(BufferingSubscriber, bufferSize)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(BufferingSubscriber, subscription)},
+		{"downstreamSubscription", "Ljdk/internal/net/http/BufferingSubscriber$DownstreamSubscription;", "Ljdk/internal/net/http/BufferingSubscriber<TT;>.DownstreamSubscription;", $PRIVATE | $VOLATILE, $field(BufferingSubscriber, downstreamSubscription)},
+		{"buffersLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(BufferingSubscriber, buffersLock)},
+		{"internalBuffers", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/nio/ByteBuffer;>;", $PRIVATE, $field(BufferingSubscriber, internalBuffers)},
+		{"accumulatedBytes", "I", nullptr, $PRIVATE, $field(BufferingSubscriber, accumulatedBytes)},
+		{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(BufferingSubscriber, throwable)},
+		{"UNSUBSCRIBED", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, UNSUBSCRIBED)},
+		{"ACTIVE", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, ACTIVE)},
+		{"ERROR", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, ERROR)},
+		{"CANCELLED", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, CANCELLED)},
+		{"COMPLETE", "I", nullptr, $STATIC | $FINAL, $constField(BufferingSubscriber, COMPLETE)},
+		{"state", "I", nullptr, $PRIVATE | $VOLATILE, $field(BufferingSubscriber, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;I)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;I)V", $PUBLIC, $method(BufferingSubscriber, init$, void, $HttpResponse$BodySubscriber*, int32_t)},
+		{"fromInternalBuffers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(BufferingSubscriber, fromInternalBuffers, $List*)},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(BufferingSubscriber, getBody, $CompletionStage*)},
+		{"hasEnoughAccumulatedBytes", "()Z", nullptr, $PRIVATE | $FINAL, $method(BufferingSubscriber, hasEnoughAccumulatedBytes, bool)},
+		{"lambda$fromInternalBuffers$0", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BufferingSubscriber, lambda$fromInternalBuffers$0, bool, $ByteBuffer*)},
+		{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, needsExecutor, bool)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(BufferingSubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BufferingSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PRIVATE | $STATIC | $FINAL, $staticMethod(BufferingSubscriber, remaining, int64_t, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.BufferingSubscriber$DownstreamSubscription", "jdk.internal.net.http.BufferingSubscriber", "DownstreamSubscription", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.BufferingSubscriber",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.BufferingSubscriber$DownstreamSubscription,jdk.internal.net.http.BufferingSubscriber$DownstreamSubscription$PushDemandedTask"
+	};
+	$loadClass(BufferingSubscriber, name, initialize, &classInfo$$, BufferingSubscriber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferingSubscriber);
+	});
 	return class$;
 }
 

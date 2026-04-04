@@ -25,6 +25,7 @@ class BasicMenuItemUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicMenuItemUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicMenuItemUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	static $String* CLICK;

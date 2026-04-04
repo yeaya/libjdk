@@ -40,6 +40,7 @@ class HierMemDirCtx : public ::javax::naming::directory::DirContext {
 	$class(HierMemDirCtx, 0, ::javax::naming::directory::DirContext)
 public:
 	HierMemDirCtx();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool ignoreCase);
 	void init$(::java::util::Hashtable* environment, bool ignoreCase);

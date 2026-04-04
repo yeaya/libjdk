@@ -1,5 +1,4 @@
 #include <sun/font/X11KSC5601$Encoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -29,46 +28,6 @@ using $EUC_KR = ::sun::nio::cs::EUC_KR;
 namespace sun {
 	namespace font {
 
-$FieldInfo _X11KSC5601$Encoder_FieldInfo_[] = {
-	{"this$0", "Lsun/font/X11KSC5601;", nullptr, $FINAL | $SYNTHETIC, $field(X11KSC5601$Encoder, this$0)},
-	{"enc", "Lsun/nio/cs/DoubleByte$Encoder;", nullptr, $PRIVATE, $field(X11KSC5601$Encoder, enc)},
-	{}
-};
-
-$MethodInfo _X11KSC5601$Encoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/X11KSC5601;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(X11KSC5601$Encoder, init$, void, $X11KSC5601*, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(X11KSC5601$Encoder, canEncode, bool, char16_t)},
-	{"encodeDouble", "(C)I", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Encoder, encodeDouble, int32_t, char16_t)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(X11KSC5601$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _X11KSC5601$Encoder_InnerClassesInfo_[] = {
-	{"sun.font.X11KSC5601$Encoder", "sun.font.X11KSC5601", "Encoder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _X11KSC5601$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.X11KSC5601$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_X11KSC5601$Encoder_FieldInfo_,
-	_X11KSC5601$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11KSC5601$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.X11KSC5601"
-};
-
-$Object* allocate$X11KSC5601$Encoder($Class* clazz) {
-	return $of($alloc(X11KSC5601$Encoder));
-}
-
 void X11KSC5601$Encoder::init$($X11KSC5601* this$0, $Charset* cs) {
 	$set(this, this$0, this$0);
 	$CharsetEncoder::init$(cs, 2.0f, 2.0f);
@@ -87,7 +46,7 @@ int32_t X11KSC5601$Encoder::encodeDouble(char16_t c) {
 }
 
 $CoderResult* X11KSC5601$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -98,45 +57,43 @@ $CoderResult* X11KSC5601$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst)
 	int32_t dp = var$2 + dst->position();
 	int32_t var$3 = dst->arrayOffset();
 	int32_t dl = var$3 + dst->limit();
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				if (c <= (char16_t)0x7F) {
-					$assign(var$6, $CoderResult::unmappableForLength(1));
-					return$5 = true;
-					goto $finally;
-				}
-				int32_t ncode = encodeDouble(c);
-				if (ncode != 0 && c != u'\0') {
-					$nc(da)->set(dp++, (int8_t)((int32_t)((ncode >> 8) & (uint32_t)127)));
-					da->set(dp++, (int8_t)((int32_t)(ncode & (uint32_t)127)));
-					++sp;
-					continue;
-				}
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			if (c <= (char16_t)0x7f) {
 				$assign(var$6, $CoderResult::unmappableForLength(1));
 				return$5 = true;
 				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
+			int32_t ncode = encodeDouble(c);
+			if (ncode != 0 && c != u'\0') {
+				$nc(da)->set(dp++, (int8_t)((ncode >> 8) & 0x7f));
+				da->set(dp++, (int8_t)(ncode & 0x7f));
+				++sp;
+				continue;
+			}
+			$assign(var$6, $CoderResult::unmappableForLength(1));
 			return$5 = true;
 			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
@@ -149,7 +106,41 @@ X11KSC5601$Encoder::X11KSC5601$Encoder() {
 }
 
 $Class* X11KSC5601$Encoder::load$($String* name, bool initialize) {
-	$loadClass(X11KSC5601$Encoder, name, initialize, &_X11KSC5601$Encoder_ClassInfo_, allocate$X11KSC5601$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/font/X11KSC5601;", nullptr, $FINAL | $SYNTHETIC, $field(X11KSC5601$Encoder, this$0)},
+		{"enc", "Lsun/nio/cs/DoubleByte$Encoder;", nullptr, $PRIVATE, $field(X11KSC5601$Encoder, enc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/X11KSC5601;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(X11KSC5601$Encoder, init$, void, $X11KSC5601*, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(X11KSC5601$Encoder, canEncode, bool, char16_t)},
+		{"encodeDouble", "(C)I", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Encoder, encodeDouble, int32_t, char16_t)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(X11KSC5601$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(X11KSC5601$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11KSC5601$Encoder", "sun.font.X11KSC5601", "Encoder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.X11KSC5601$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.X11KSC5601"
+	};
+	$loadClass(X11KSC5601$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11KSC5601$Encoder);
+	});
 	return class$;
 }
 

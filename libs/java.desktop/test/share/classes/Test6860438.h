@@ -20,6 +20,7 @@ class $export Test6860438 : public ::java::lang::Object {
 	$class(Test6860438, 0, ::java::lang::Object)
 public:
 	Test6860438();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void check(Object$* key, Object$* value, bool present, int32_t size);
 	virtual void check(bool condition, $String* methodName);

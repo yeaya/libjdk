@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Template.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -35,7 +34,6 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $LiteralElement = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LiteralElement;
@@ -69,65 +67,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _Template_FieldInfo_[] = {
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Template, _name)},
-	{"_mode", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Template, _mode)},
-	{"_pattern", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE, $field(Template, _pattern)},
-	{"_priority", "D", nullptr, $PRIVATE, $field(Template, _priority)},
-	{"_position", "I", nullptr, $PRIVATE, $field(Template, _position)},
-	{"_disabled", "Z", nullptr, $PRIVATE, $field(Template, _disabled)},
-	{"_compiled", "Z", nullptr, $PRIVATE, $field(Template, _compiled)},
-	{"_simplified", "Z", nullptr, $PRIVATE, $field(Template, _simplified)},
-	{"_isSimpleNamedTemplate", "Z", nullptr, $PRIVATE, $field(Template, _isSimpleNamedTemplate)},
-	{"_parameters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;>;", $PRIVATE, $field(Template, _parameters)},
-	{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(Template, _stylesheet)},
-	{}
-};
-
-$MethodInfo _Template_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Template, init$, void)},
-	{"addDependency", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Template, addDependency, void, $TopLevelElement*)},
-	{"addParameter", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;)V", nullptr, $PUBLIC, $method(Template, addParameter, void, $Param*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $method(Template, compareTo, int32_t, Object$*)},
-	{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Template, compile, $InstructionList*, $ClassGenerator*, $MethodGenerator*)},
-	{"disable", "()V", nullptr, $PUBLIC, $method(Template, disable, void)},
-	{"disabled", "()Z", nullptr, $PUBLIC, $method(Template, disabled, bool)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Template, display, void, int32_t)},
-	{"getDependencies", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Template, getDependencies, $List*)},
-	{"getModeName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(Template, getModeName, $QName*)},
-	{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(Template, getName, $QName*)},
-	{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;>;", $PUBLIC, $method(Template, getParameters, $List*)},
-	{"getPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $method(Template, getPattern, $Pattern*)},
-	{"getPosition", "()I", nullptr, $PUBLIC, $method(Template, getPosition, int32_t)},
-	{"getPriority", "()D", nullptr, $PUBLIC, $method(Template, getPriority, double)},
-	{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Template, getStylesheet, $Stylesheet*)},
-	{"hasParams", "()Z", nullptr, $PUBLIC, $method(Template, hasParams, bool)},
-	{"isNamed", "()Z", nullptr, $PUBLIC, $method(Template, isNamed, bool)},
-	{"isSimpleNamedTemplate", "()Z", nullptr, $PUBLIC, $method(Template, isSimpleNamedTemplate, bool)},
-	{"isSimplified", "()Z", nullptr, $PUBLIC, $method(Template, isSimplified, bool)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Template, parseContents, void, $Parser*)},
-	{"parseSimplified", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $method(Template, parseSimplified, void, $Stylesheet*, $Parser*)},
-	{"resolveNamedTemplates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)Z", nullptr, $PRIVATE, $method(Template, resolveNamedTemplates, bool, Template*, $Parser*)},
-	{"setName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(Template, setName, void, $QName*)},
-	{"setSimplified", "()V", nullptr, $PUBLIC, $method(Template, setSimplified, void)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Template, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Template, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Template_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Template",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
-	nullptr,
-	_Template_FieldInfo_,
-	_Template_MethodInfo_
-};
-
-$Object* allocate$Template($Class* clazz) {
-	return $of($alloc(Template));
-}
 
 void Template::init$() {
 	$TopLevelElement::init$();
@@ -217,7 +156,7 @@ int32_t Template::compareTo(Object$* template$) {
 }
 
 void Template::display(int32_t indent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Util::println(u'\n');
 	this->indent(indent);
 	if (this->_name != nullptr) {
@@ -258,7 +197,7 @@ $Stylesheet* Template::getStylesheet() {
 }
 
 void Template::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getAttribute("name"_s));
 	$var($String, mode, getAttribute("mode"_s));
 	$var($String, match, getAttribute("match"_s));
@@ -267,7 +206,7 @@ void Template::parseContents($Parser* parser) {
 	if ($nc(name)->length() > 0) {
 		if (!$XML11Char::isXML11ValidQName(name)) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, $of(name), static_cast<$SyntaxTreeNode*>(this)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, name, this));
 			$nc(parser)->reportError($Constants::ERROR, err);
 		}
 		$set(this, _name, $nc(parser)->getQNameIgnoreDefaultNs(name));
@@ -275,7 +214,7 @@ void Template::parseContents($Parser* parser) {
 	if ($nc(mode)->length() > 0) {
 		if (!$XML11Char::isXML11ValidQName(mode)) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, $of(mode), static_cast<$SyntaxTreeNode*>(this)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, mode, this));
 			$nc(parser)->reportError($Constants::ERROR, err);
 		}
 		$set(this, _mode, $nc(parser)->getQNameIgnoreDefaultNs(mode));
@@ -286,17 +225,16 @@ void Template::parseContents($Parser* parser) {
 	if ($nc(priority)->length() > 0) {
 		this->_priority = $Double::parseDouble(priority);
 	} else if (this->_pattern != nullptr) {
-		this->_priority = $nc(this->_pattern)->getPriority();
+		this->_priority = this->_pattern->getPriority();
 	} else {
-		$init($Double);
 		this->_priority = $Double::NaN;
 	}
 	this->_position = $nc(parser)->getTemplateIndex();
 	if (this->_name != nullptr) {
-		$var(Template, other, $nc($(parser->getSymbolTable()))->addTemplate(this));
+		$var(Template, other, $$nc(parser->getSymbolTable())->addTemplate(this));
 		if (!resolveNamedTemplates(other, parser)) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TEMPLATE_REDEF_ERR, $of(this->_name), static_cast<$SyntaxTreeNode*>(this)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TEMPLATE_REDEF_ERR, this->_name, this));
 			parser->reportError($Constants::ERROR, err);
 		}
 		if (this->_pattern == nullptr && this->_mode == nullptr) {
@@ -304,7 +242,7 @@ void Template::parseContents($Parser* parser) {
 		}
 	}
 	if ($instanceOf($Stylesheet, this->_parent)) {
-		$nc(($cast($Stylesheet, this->_parent)))->addTemplate(this);
+		$cast($Stylesheet, this->_parent)->addTemplate(this);
 	}
 	parser->setTemplate(this);
 	parseChildren(parser);
@@ -312,19 +250,18 @@ void Template::parseContents($Parser* parser) {
 }
 
 void Template::parseSimplified($Stylesheet* stylesheet, $Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, _stylesheet, stylesheet);
 	setParent(stylesheet);
 	$set(this, _name, nullptr);
 	$set(this, _mode, nullptr);
-	$init($Double);
 	this->_priority = $Double::NaN;
 	$set(this, _pattern, $nc(parser)->parsePattern(this, "/"_s));
 	$var($List, contents, $nc(this->_stylesheet)->getContents());
 	$var($SyntaxTreeNode, root, $cast($SyntaxTreeNode, $nc(contents)->get(0)));
 	if ($instanceOf($LiteralElement, root)) {
 		addElement(root);
-		$nc(root)->setParent(this);
+		root->setParent(this);
 		contents->set(0, this);
 		parser->setTemplate(this);
 		root->parseContents(parser);
@@ -334,13 +271,13 @@ void Template::parseSimplified($Stylesheet* stylesheet, $Parser* parser) {
 
 $Type* Template::typeCheck($SymbolTable* stable) {
 	if (this->_pattern != nullptr) {
-		$nc(this->_pattern)->typeCheck(stable);
+		this->_pattern->typeCheck(stable);
 	}
 	return typeCheckContents(stable);
 }
 
 void Template::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if (this->_disabled) {
@@ -355,7 +292,7 @@ void Template::translate($ClassGenerator* classGen, $MethodGenerator* methodGen)
 		il->append($(methodGen->loadHandler()));
 		il->append($(methodGen->loadCurrentNode()));
 		$init($Constants);
-		il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref(className, methodName, $$str({"("_s, $Constants::DOM_INTF_SIG, $Constants::NODE_ITERATOR_SIG, $Constants::TRANSLET_OUTPUT_SIG, "I)V"_s})))));
+		il->append($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref(className, methodName, $$str({"("_s, $Constants::DOM_INTF_SIG, $Constants::NODE_ITERATOR_SIG, $Constants::TRANSLET_OUTPUT_SIG, "I)V"_s}))));
 		return;
 	}
 	if (this->_compiled) {
@@ -391,7 +328,61 @@ Template::Template() {
 }
 
 $Class* Template::load$($String* name, bool initialize) {
-	$loadClass(Template, name, initialize, &_Template_ClassInfo_, allocate$Template);
+	$FieldInfo fieldInfos$$[] = {
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Template, _name)},
+		{"_mode", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Template, _mode)},
+		{"_pattern", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE, $field(Template, _pattern)},
+		{"_priority", "D", nullptr, $PRIVATE, $field(Template, _priority)},
+		{"_position", "I", nullptr, $PRIVATE, $field(Template, _position)},
+		{"_disabled", "Z", nullptr, $PRIVATE, $field(Template, _disabled)},
+		{"_compiled", "Z", nullptr, $PRIVATE, $field(Template, _compiled)},
+		{"_simplified", "Z", nullptr, $PRIVATE, $field(Template, _simplified)},
+		{"_isSimpleNamedTemplate", "Z", nullptr, $PRIVATE, $field(Template, _isSimpleNamedTemplate)},
+		{"_parameters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;>;", $PRIVATE, $field(Template, _parameters)},
+		{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(Template, _stylesheet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Template, init$, void)},
+		{"addDependency", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Template, addDependency, void, $TopLevelElement*)},
+		{"addParameter", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;)V", nullptr, $PUBLIC, $method(Template, addParameter, void, $Param*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $method(Template, compareTo, int32_t, Object$*)},
+		{"compile", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Template, compile, $InstructionList*, $ClassGenerator*, $MethodGenerator*)},
+		{"disable", "()V", nullptr, $PUBLIC, $method(Template, disable, void)},
+		{"disabled", "()Z", nullptr, $PUBLIC, $method(Template, disabled, bool)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Template, display, void, int32_t)},
+		{"getDependencies", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Template, getDependencies, $List*)},
+		{"getModeName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(Template, getModeName, $QName*)},
+		{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(Template, getName, $QName*)},
+		{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;>;", $PUBLIC, $method(Template, getParameters, $List*)},
+		{"getPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $method(Template, getPattern, $Pattern*)},
+		{"getPosition", "()I", nullptr, $PUBLIC, $method(Template, getPosition, int32_t)},
+		{"getPriority", "()D", nullptr, $PUBLIC, $method(Template, getPriority, double)},
+		{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $virtualMethod(Template, getStylesheet, $Stylesheet*)},
+		{"hasParams", "()Z", nullptr, $PUBLIC, $method(Template, hasParams, bool)},
+		{"isNamed", "()Z", nullptr, $PUBLIC, $method(Template, isNamed, bool)},
+		{"isSimpleNamedTemplate", "()Z", nullptr, $PUBLIC, $method(Template, isSimpleNamedTemplate, bool)},
+		{"isSimplified", "()Z", nullptr, $PUBLIC, $method(Template, isSimplified, bool)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Template, parseContents, void, $Parser*)},
+		{"parseSimplified", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $method(Template, parseSimplified, void, $Stylesheet*, $Parser*)},
+		{"resolveNamedTemplates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)Z", nullptr, $PRIVATE, $method(Template, resolveNamedTemplates, bool, Template*, $Parser*)},
+		{"setName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(Template, setName, void, $QName*)},
+		{"setSimplified", "()V", nullptr, $PUBLIC, $method(Template, setSimplified, void)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Template, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Template, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Template",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Template, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Template);
+	});
 	return class$;
 }
 

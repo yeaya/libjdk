@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
 #include <jdk/xml/internal/SecuritySupport.h>
@@ -29,44 +28,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _TypeValidator_FieldInfo_[] = {
-	{"USE_CODE_POINT_COUNT_FOR_STRING_LENGTH", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeValidator, USE_CODE_POINT_COUNT_FOR_STRING_LENGTH)},
-	{"LESS_THAN", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, LESS_THAN)},
-	{"EQUAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, EQUAL)},
-	{"GREATER_THAN", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, GREATER_THAN)},
-	{"INDETERMINATE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, INDETERMINATE)},
-	{}
-};
-
-$MethodInfo _TypeValidator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeValidator, init$, void)},
-	{"checkExtraRules", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(TypeValidator, checkExtraRules, void, Object$*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, compare, int32_t, Object$*, Object$*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeValidator, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeValidator, getAllowedFacets, int16_t)},
-	{"getCodePointLength", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(TypeValidator, getCodePointLength, int32_t, $String*)},
-	{"getDataLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, getDataLength, int32_t, Object$*)},
-	{"getDigit", "(C)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TypeValidator, getDigit, int32_t, char16_t)},
-	{"getFractionDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, getFractionDigits, int32_t, Object$*)},
-	{"getTotalDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, getTotalDigits, int32_t, Object$*)},
-	{"isDigit", "(C)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TypeValidator, isDigit, bool, char16_t)},
-	{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeValidator, isIdentical, bool, Object$*, Object$*)},
-	{}
-};
-
-$ClassInfo _TypeValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	"java.lang.Object",
-	nullptr,
-	_TypeValidator_FieldInfo_,
-	_TypeValidator_MethodInfo_
-};
-
-$Object* allocate$TypeValidator($Class* clazz) {
-	return $of($alloc(TypeValidator));
-}
-
 bool TypeValidator::USE_CODE_POINT_COUNT_FOR_STRING_LENGTH = false;
 
 void TypeValidator::init$() {
@@ -87,7 +48,7 @@ int32_t TypeValidator::getDataLength(Object$* value) {
 	if ($instanceOf($String, value)) {
 		$var($String, str, $cast($String, value));
 		if (!TypeValidator::USE_CODE_POINT_COUNT_FOR_STRING_LENGTH) {
-			return $nc(str)->length();
+			return str->length();
 		}
 		return getCodePointLength(str);
 	}
@@ -127,7 +88,7 @@ int32_t TypeValidator::getDigit(char16_t ch) {
 	return isDigit(ch) ? ch - u'0' : -1;
 }
 
-void clinit$TypeValidator($Class* class$) {
+void TypeValidator::clinit$($Class* clazz) {
 	TypeValidator::USE_CODE_POINT_COUNT_FOR_STRING_LENGTH = $Boolean::parseBoolean($($SecuritySupport::getSystemProperty("com.sun.org.apache.xerces.internal.impl.dv.xs.useCodePointCountForStringLength"_s, "false"_s)));
 }
 
@@ -135,7 +96,40 @@ TypeValidator::TypeValidator() {
 }
 
 $Class* TypeValidator::load$($String* name, bool initialize) {
-	$loadClass(TypeValidator, name, initialize, &_TypeValidator_ClassInfo_, clinit$TypeValidator, allocate$TypeValidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"USE_CODE_POINT_COUNT_FOR_STRING_LENGTH", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeValidator, USE_CODE_POINT_COUNT_FOR_STRING_LENGTH)},
+		{"LESS_THAN", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, LESS_THAN)},
+		{"EQUAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, EQUAL)},
+		{"GREATER_THAN", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, GREATER_THAN)},
+		{"INDETERMINATE", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeValidator, INDETERMINATE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TypeValidator, init$, void)},
+		{"checkExtraRules", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(TypeValidator, checkExtraRules, void, Object$*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, compare, int32_t, Object$*, Object$*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeValidator, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeValidator, getAllowedFacets, int16_t)},
+		{"getCodePointLength", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(TypeValidator, getCodePointLength, int32_t, $String*)},
+		{"getDataLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, getDataLength, int32_t, Object$*)},
+		{"getDigit", "(C)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TypeValidator, getDigit, int32_t, char16_t)},
+		{"getFractionDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, getFractionDigits, int32_t, Object$*)},
+		{"getTotalDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TypeValidator, getTotalDigits, int32_t, Object$*)},
+		{"isDigit", "(C)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(TypeValidator, isDigit, bool, char16_t)},
+		{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeValidator, isIdentical, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeValidator, name, initialize, &classInfo$$, TypeValidator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeValidator);
+	});
 	return class$;
 }
 

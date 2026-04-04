@@ -1,5 +1,4 @@
 #include <javax/management/AttributeChangeNotification.h>
-
 #include <javax/management/Notification.h>
 #include <jcpp.h>
 
@@ -12,38 +11,6 @@ using $Notification = ::javax::management::Notification;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _AttributeChangeNotification_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeChangeNotification, serialVersionUID)},
-	{"ATTRIBUTE_CHANGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeChangeNotification, ATTRIBUTE_CHANGE)},
-	{"attributeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeChangeNotification, attributeName)},
-	{"attributeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeChangeNotification, attributeType)},
-	{"oldValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeChangeNotification, oldValue)},
-	{"newValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeChangeNotification, newValue)},
-	{}
-};
-
-$MethodInfo _AttributeChangeNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AttributeChangeNotification, init$, void, Object$*, int64_t, int64_t, $String*, $String*, $String*, Object$*, Object$*)},
-	{"getAttributeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getAttributeName, $String*)},
-	{"getAttributeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getAttributeType, $String*)},
-	{"getNewValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getNewValue, $Object*)},
-	{"getOldValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getOldValue, $Object*)},
-	{}
-};
-
-$ClassInfo _AttributeChangeNotification_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.AttributeChangeNotification",
-	"javax.management.Notification",
-	nullptr,
-	_AttributeChangeNotification_FieldInfo_,
-	_AttributeChangeNotification_MethodInfo_
-};
-
-$Object* allocate$AttributeChangeNotification($Class* clazz) {
-	return $of($alloc(AttributeChangeNotification));
-}
 
 $String* AttributeChangeNotification::ATTRIBUTE_CHANGE = nullptr;
 
@@ -68,22 +35,49 @@ $String* AttributeChangeNotification::getAttributeType() {
 }
 
 $Object* AttributeChangeNotification::getOldValue() {
-	return $of(this->oldValue);
+	return this->oldValue;
 }
 
 $Object* AttributeChangeNotification::getNewValue() {
-	return $of(this->newValue);
+	return this->newValue;
 }
 
 AttributeChangeNotification::AttributeChangeNotification() {
 }
 
-void clinit$AttributeChangeNotification($Class* class$) {
+void AttributeChangeNotification::clinit$($Class* clazz) {
 	$assignStatic(AttributeChangeNotification::ATTRIBUTE_CHANGE, "jmx.attribute.change"_s);
 }
 
 $Class* AttributeChangeNotification::load$($String* name, bool initialize) {
-	$loadClass(AttributeChangeNotification, name, initialize, &_AttributeChangeNotification_ClassInfo_, clinit$AttributeChangeNotification, allocate$AttributeChangeNotification);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeChangeNotification, serialVersionUID)},
+		{"ATTRIBUTE_CHANGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AttributeChangeNotification, ATTRIBUTE_CHANGE)},
+		{"attributeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeChangeNotification, attributeName)},
+		{"attributeType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeChangeNotification, attributeType)},
+		{"oldValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeChangeNotification, oldValue)},
+		{"newValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AttributeChangeNotification, newValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AttributeChangeNotification, init$, void, Object$*, int64_t, int64_t, $String*, $String*, $String*, Object$*, Object$*)},
+		{"getAttributeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getAttributeName, $String*)},
+		{"getAttributeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getAttributeType, $String*)},
+		{"getNewValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getNewValue, $Object*)},
+		{"getOldValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getOldValue, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.AttributeChangeNotification",
+		"javax.management.Notification",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeChangeNotification, name, initialize, &classInfo$$, AttributeChangeNotification::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeChangeNotification);
+	});
 	return class$;
 }
 

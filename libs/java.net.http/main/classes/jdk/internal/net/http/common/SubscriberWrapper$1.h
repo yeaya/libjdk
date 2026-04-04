@@ -15,6 +15,7 @@ class $export SubscriberWrapper$1 : public ::java::lang::Object {
 	$class(SubscriberWrapper$1, 0, ::java::lang::Object)
 public:
 	SubscriberWrapper$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$net$http$common$SubscriberWrapper$SchedulingAction;
 };
 

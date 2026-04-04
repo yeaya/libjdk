@@ -64,7 +64,7 @@ public:
 	virtual bool waitForID(int32_t id, int64_t ms);
 	::java::awt::Component* target = nullptr;
 	::java::awt::MediaEntry* head = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xF94B6BA266CC97F1;
+	static const int64_t serialVersionUID = (int64_t)0xf94b6ba266cc97f1;
 	static const int32_t LOADING = 1;
 	static const int32_t ABORTED = 2;
 	static const int32_t ERRORED = 4;

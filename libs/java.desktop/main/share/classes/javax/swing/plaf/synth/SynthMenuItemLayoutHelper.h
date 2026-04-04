@@ -55,6 +55,7 @@ class SynthMenuItemLayoutHelper : public ::sun::swing::MenuItemLayoutHelper {
 	$class(SynthMenuItemLayoutHelper, 0, ::sun::swing::MenuItemLayoutHelper)
 public:
 	SynthMenuItemLayoutHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::plaf::synth::SynthContext* context, ::javax::swing::plaf::synth::SynthContext* accContext, ::javax::swing::JMenuItem* mi, ::javax::swing::Icon* checkIcon, ::javax::swing::Icon* arrowIcon, ::java::awt::Rectangle* viewRect, int32_t gap, $String* accDelimiter, bool isLeftToRight, bool useCheckAndArrow, $String* propertyPrefix);
 	virtual bool alignAcceleratorText();
 	virtual void calcMaxWidths() override;

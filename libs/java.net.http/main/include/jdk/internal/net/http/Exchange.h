@@ -99,6 +99,7 @@ class $import Exchange : public ::java::lang::Object {
 	$class(Exchange, 0, ::java::lang::Object)
 public:
 	Exchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpRequestImpl* request, ::jdk::internal::net::http::MultiExchange* multi);
 	void init$(::jdk::internal::net::http::HttpRequestImpl* request, ::jdk::internal::net::http::MultiExchange* multi, ::java::security::AccessControlContext* acc);
 	void cancel();

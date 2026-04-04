@@ -115,6 +115,7 @@ public:
 	virtual bool isEqualNode(::org::w3c::dom::Node* arg) override;
 	virtual bool isSameNode(::org::w3c::dom::Node* other) override;
 	virtual bool isSupported($String* feature, $String* version) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool grammarAccess);
 	void init$(::org::w3c::dom::DocumentType* doctype);

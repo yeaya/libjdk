@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
@@ -341,7 +340,6 @@ using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
 using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
-using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLSecurityManager$Limit = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager$Limit;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
@@ -358,11 +356,9 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Attr = ::org::w3c::dom::Attr;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -373,142 +369,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace traversers {
-
-$FieldInfo _XSAttributeChecker_FieldInfo_[] = {
-	{"ELEMENT_N", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ELEMENT_N)},
-	{"ELEMENT_R", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ELEMENT_R)},
-	{"ATTRIBUTE_N", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTRIBUTE_N)},
-	{"ATTRIBUTE_R", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTRIBUTE_R)},
-	{"ATTIDX_COUNT", "I", nullptr, $PRIVATE | $STATIC, $staticField(XSAttributeChecker, ATTIDX_COUNT)},
-	{"ATTIDX_ABSTRACT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ABSTRACT)},
-	{"ATTIDX_AFORMDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_AFORMDEFAULT)},
-	{"ATTIDX_BASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_BASE)},
-	{"ATTIDX_BLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_BLOCK)},
-	{"ATTIDX_BLOCKDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_BLOCKDEFAULT)},
-	{"ATTIDX_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_DEFAULT)},
-	{"ATTIDX_EFORMDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_EFORMDEFAULT)},
-	{"ATTIDX_FINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FINAL)},
-	{"ATTIDX_FINALDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FINALDEFAULT)},
-	{"ATTIDX_FIXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FIXED)},
-	{"ATTIDX_FORM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FORM)},
-	{"ATTIDX_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ID)},
-	{"ATTIDX_ITEMTYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ITEMTYPE)},
-	{"ATTIDX_MAXOCCURS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MAXOCCURS)},
-	{"ATTIDX_MEMBERTYPES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MEMBERTYPES)},
-	{"ATTIDX_MINOCCURS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MINOCCURS)},
-	{"ATTIDX_MIXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MIXED)},
-	{"ATTIDX_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NAME)},
-	{"ATTIDX_NAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NAMESPACE)},
-	{"ATTIDX_NAMESPACE_LIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NAMESPACE_LIST)},
-	{"ATTIDX_NILLABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NILLABLE)},
-	{"ATTIDX_NONSCHEMA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NONSCHEMA)},
-	{"ATTIDX_PROCESSCONTENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_PROCESSCONTENTS)},
-	{"ATTIDX_PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_PUBLIC)},
-	{"ATTIDX_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_REF)},
-	{"ATTIDX_REFER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_REFER)},
-	{"ATTIDX_SCHEMALOCATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SCHEMALOCATION)},
-	{"ATTIDX_SOURCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SOURCE)},
-	{"ATTIDX_SUBSGROUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SUBSGROUP)},
-	{"ATTIDX_SYSTEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SYSTEM)},
-	{"ATTIDX_TARGETNAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_TARGETNAMESPACE)},
-	{"ATTIDX_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_TYPE)},
-	{"ATTIDX_USE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_USE)},
-	{"ATTIDX_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_VALUE)},
-	{"ATTIDX_ENUMNSDECLS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ENUMNSDECLS)},
-	{"ATTIDX_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_VERSION)},
-	{"ATTIDX_XML_LANG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_XML_LANG)},
-	{"ATTIDX_XPATH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_XPATH)},
-	{"ATTIDX_FROMDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FROMDEFAULT)},
-	{"ATTIDX_ISRETURNED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ISRETURNED)},
-	{"fXIntPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XIntPool;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fXIntPool)},
-	{"INT_QUALIFIED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_QUALIFIED)},
-	{"INT_UNQUALIFIED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_UNQUALIFIED)},
-	{"INT_EMPTY_SET", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_EMPTY_SET)},
-	{"INT_ANY_STRICT", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_STRICT)},
-	{"INT_ANY_LAX", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_LAX)},
-	{"INT_ANY_SKIP", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_SKIP)},
-	{"INT_ANY_ANY", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_ANY)},
-	{"INT_ANY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_LIST)},
-	{"INT_ANY_NOT", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_NOT)},
-	{"INT_USE_OPTIONAL", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_USE_OPTIONAL)},
-	{"INT_USE_REQUIRED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_USE_REQUIRED)},
-	{"INT_USE_PROHIBITED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_USE_PROHIBITED)},
-	{"INT_WS_PRESERVE", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_WS_PRESERVE)},
-	{"INT_WS_REPLACE", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_WS_REPLACE)},
-	{"INT_WS_COLLAPSE", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_WS_COLLAPSE)},
-	{"INT_UNBOUNDED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_UNBOUNDED)},
-	{"fEleAttrsMapG", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/Container;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fEleAttrsMapG)},
-	{"fEleAttrsMapL", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/Container;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fEleAttrsMapL)},
-	{"DT_ANYURI", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_ANYURI)},
-	{"DT_ID", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_ID)},
-	{"DT_QNAME", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_QNAME)},
-	{"DT_STRING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_STRING)},
-	{"DT_TOKEN", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_TOKEN)},
-	{"DT_NCNAME", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_NCNAME)},
-	{"DT_XPATH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_XPATH)},
-	{"DT_XPATH1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_XPATH1)},
-	{"DT_LANGUAGE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_LANGUAGE)},
-	{"DT_COUNT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_COUNT)},
-	{"fExtraDVs", "[Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fExtraDVs)},
-	{"DT_BLOCK", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_BLOCK)},
-	{"DT_BLOCK1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_BLOCK1)},
-	{"DT_FINAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FINAL)},
-	{"DT_FINAL1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FINAL1)},
-	{"DT_FINAL2", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FINAL2)},
-	{"DT_FORM", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FORM)},
-	{"DT_MAXOCCURS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MAXOCCURS)},
-	{"DT_MAXOCCURS1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MAXOCCURS1)},
-	{"DT_MEMBERTYPES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MEMBERTYPES)},
-	{"DT_MINOCCURS1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MINOCCURS1)},
-	{"DT_NAMESPACE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_NAMESPACE)},
-	{"DT_PROCESSCONTENTS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_PROCESSCONTENTS)},
-	{"DT_USE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_USE)},
-	{"DT_WHITESPACE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_WHITESPACE)},
-	{"DT_BOOLEAN", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_BOOLEAN)},
-	{"DT_NONNEGINT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_NONNEGINT)},
-	{"DT_POSINT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_POSINT)},
-	{"fSchemaHandler", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;", nullptr, $PROTECTED, $field(XSAttributeChecker, fSchemaHandler)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XSAttributeChecker, fSymbolTable)},
-	{"fNonSchemaAttrs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PROTECTED, $field(XSAttributeChecker, fNonSchemaAttrs)},
-	{"fNamespaceList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PROTECTED, $field(XSAttributeChecker, fNamespaceList)},
-	{"fSeen", "[Z", nullptr, $PROTECTED, $field(XSAttributeChecker, fSeen)},
-	{"fSeenTemp", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(XSAttributeChecker, fSeenTemp)},
-	{"INIT_POOL_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(XSAttributeChecker, INIT_POOL_SIZE)},
-	{"INC_POOL_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(XSAttributeChecker, INC_POOL_SIZE)},
-	{"fArrayPool", "[[Ljava/lang/Object;", nullptr, 0, $field(XSAttributeChecker, fArrayPool)},
-	{"fTempArray", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(XSAttributeChecker, fTempArray)},
-	{"fPoolPos", "I", nullptr, 0, $field(XSAttributeChecker, fPoolPos)},
-	{}
-};
-
-$MethodInfo _XSAttributeChecker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;)V", nullptr, $PUBLIC, $method(XSAttributeChecker, init$, void, $XSDHandler*)},
-	{"checkAttributes", "(Lorg/w3c/dom/Element;ZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, checkAttributes, $ObjectArray*, $Element*, bool, $XSDocumentInfo*)},
-	{"checkAttributes", "(Lorg/w3c/dom/Element;ZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Z)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, checkAttributes, $ObjectArray*, $Element*, bool, $XSDocumentInfo*, bool)},
-	{"checkNonSchemaAttributes", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGrammarBucket;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, checkNonSchemaAttributes, void, $XSGrammarBucket*)},
-	{"getAvailableArray", "()[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSAttributeChecker, getAvailableArray, $ObjectArray*)},
-	{"normalize", "(Ljava/lang/String;S)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSAttributeChecker, normalize, $String*, $String*, int16_t)},
-	{"reportSchemaError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSAttributeChecker, reportSchemaError, void, $String*, $ObjectArray*, $Element*)},
-	{"reportSchemaFatalError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSAttributeChecker, reportSchemaFatalError, void, $String*, $ObjectArray*, $Element*)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, reset, void, $SymbolTable*)},
-	{"resolveNamespace", "(Lorg/w3c/dom/Element;[Lorg/w3c/dom/Attr;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaNamespaceSupport;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, resolveNamespace, void, $Element*, $AttrArray*, $SchemaNamespaceSupport*)},
-	{"returnAttrArray", "([Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, returnAttrArray, void, $ObjectArray*, $XSDocumentInfo*)},
-	{"validate", "([Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(XSAttributeChecker, validate, $Object*, $ObjectArray*, $String*, $String*, int32_t, $XSDocumentInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _XSAttributeChecker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSAttributeChecker",
-	"java.lang.Object",
-	nullptr,
-	_XSAttributeChecker_FieldInfo_,
-	_XSAttributeChecker_MethodInfo_
-};
-
-$Object* allocate$XSAttributeChecker($Class* clazz) {
-	return $of($alloc(XSAttributeChecker));
-}
 
 $String* XSAttributeChecker::ELEMENT_N = nullptr;
 $String* XSAttributeChecker::ELEMENT_R = nullptr;
@@ -599,7 +459,7 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 }
 
 $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlobal, $XSDocumentInfo* schemaDoc, bool enumAsQName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		return nullptr;
 	}
@@ -609,7 +469,7 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 	$var($String, elName, $DOMUtil::getLocalName(element));
 	$init($SchemaSymbols);
 	if (!$nc($SchemaSymbols::URI_SCHEMAFORSCHEMA)->equals(uri)) {
-		reportSchemaError("s4s-elt-schema-ns"_s, $$new($ObjectArray, {$of(elName)}), element);
+		reportSchemaError("s4s-elt-schema-ns"_s, $$new($ObjectArray, {elName}), element);
 	}
 	$var($Map, eleAttrsMap, XSAttributeChecker::fEleAttrsMapG);
 	$var($String, lookupName, elName);
@@ -621,19 +481,17 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 			} else {
 				$assign(lookupName, XSAttributeChecker::ELEMENT_N);
 			}
-		} else {
-			if (elName->equals($SchemaSymbols::ELT_ATTRIBUTE)) {
-				if ($DOMUtil::getAttr(element, $SchemaSymbols::ATT_REF) != nullptr) {
-					$assign(lookupName, XSAttributeChecker::ATTRIBUTE_R);
-				} else {
-					$assign(lookupName, XSAttributeChecker::ATTRIBUTE_N);
-				}
+		} else if (elName->equals($SchemaSymbols::ELT_ATTRIBUTE)) {
+			if ($DOMUtil::getAttr(element, $SchemaSymbols::ATT_REF) != nullptr) {
+				$assign(lookupName, XSAttributeChecker::ATTRIBUTE_R);
+			} else {
+				$assign(lookupName, XSAttributeChecker::ATTRIBUTE_N);
 			}
 		}
 	}
 	$var($Container, attrList, $cast($Container, $nc(eleAttrsMap)->get(lookupName)));
 	if (attrList == nullptr) {
-		reportSchemaError("s4s-elt-invalid"_s, $$new($ObjectArray, {$of(elName)}), element);
+		reportSchemaError("s4s-elt-invalid"_s, $$new($ObjectArray, {elName}), element);
 		return nullptr;
 	}
 	$var($ObjectArray, attrValues, getAvailableArray());
@@ -652,12 +510,12 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 			if (var$0 || "xmlns"_s->equals(attrName)) {
 				continue;
 			} else {
-				bool var$3 = $nc($SchemaSymbols::ATT_XML_LANG)->equals(attrName);
-				if (var$3) {
-					bool var$4 = $nc($SchemaSymbols::ELT_SCHEMA)->equals(elName);
-					var$3 = (var$4 || $nc($SchemaSymbols::ELT_DOCUMENTATION)->equals(elName));
+				bool var$1 = $nc($SchemaSymbols::ATT_XML_LANG)->equals(attrName);
+				if (var$1) {
+					bool var$2 = $nc($SchemaSymbols::ELT_SCHEMA)->equals(elName);
+					var$1 = var$2 || $nc($SchemaSymbols::ELT_DOCUMENTATION)->equals(elName);
 				}
-				if (var$3) {
+				if (var$1) {
 					$assign(attrURI, nullptr);
 				}
 			}
@@ -665,8 +523,8 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 		if (attrURI != nullptr && attrURI->length() != 0) {
 			if (attrURI->equals($SchemaSymbols::URI_SCHEMAFORSCHEMA)) {
 				reportSchemaError("s4s-att-not-allowed"_s, $$new($ObjectArray, {
-					$of(elName),
-					$of(attrName)
+					elName,
+					attrName
 				}), element);
 			} else {
 				$var($List, temp, nullptr);
@@ -677,15 +535,15 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 				}
 				$nc(temp)->add(attrName);
 				temp->add(attrVal);
-				$nc(attrValues)->set(XSAttributeChecker::ATTIDX_NONSCHEMA, temp);
+				attrValues->set(XSAttributeChecker::ATTIDX_NONSCHEMA, temp);
 			}
 			continue;
 		}
 		$var($OneAttr, oneAttr, $nc(attrList)->get(attrName));
 		if (oneAttr == nullptr) {
 			reportSchemaError("s4s-att-not-allowed"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(attrName)
+				elName,
+				attrName
 			}), element);
 			continue;
 		}
@@ -693,12 +551,12 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 		try {
 			if (oneAttr->dvIndex >= 0) {
 				if (oneAttr->dvIndex != XSAttributeChecker::DT_STRING && oneAttr->dvIndex != XSAttributeChecker::DT_XPATH && oneAttr->dvIndex != XSAttributeChecker::DT_XPATH1) {
-					$var($XSSimpleType, dv, $nc(XSAttributeChecker::fExtraDVs)->get(oneAttr->dvIndex));
-					$var($Object, avalue, $nc(dv)->validate(attrVal, static_cast<$ValidationContext*>($nc(schemaDoc)->fValidationContext), ($ValidatedInfo*)nullptr));
+					$var($XSSimpleType, dv, XSAttributeChecker::fExtraDVs->get(oneAttr->dvIndex));
+					$var($Object, avalue, $nc(dv)->validate(attrVal, schemaDoc->fValidationContext, nullptr));
 					if (oneAttr->dvIndex == XSAttributeChecker::DT_QNAME) {
 						$var($QName, qname, $cast($QName, avalue));
 						$init($XMLSymbols);
-						if ($nc(qname)->prefix == $XMLSymbols::EMPTY_STRING && qname->uri == nullptr && $nc(schemaDoc)->fIsChameleonSchema) {
+						if ($nc(qname)->prefix == $XMLSymbols::EMPTY_STRING && qname->uri == nullptr && schemaDoc->fIsChameleonSchema) {
 							$set(qname, uri, schemaDoc->fTargetNamespace);
 						}
 					}
@@ -711,16 +569,16 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 			}
 		} catch ($InvalidDatatypeValueException& ide) {
 			reportSchemaError("s4s-att-invalid-value"_s, $$new($ObjectArray, {
-				$of(elName),
-				$of(attrName),
-				$($of(ide->getMessage()))
+				elName,
+				attrName,
+				$(ide->getMessage())
 			}), element);
 			if (oneAttr->dfltValue != nullptr) {
 				$nc(attrValues)->set(oneAttr->valueIndex, oneAttr->dfltValue);
 			}
 		}
 		if ($nc(elName)->equals($SchemaSymbols::ELT_ENUMERATION) && enumAsQName) {
-			$nc(attrValues)->set(XSAttributeChecker::ATTIDX_ENUMNSDECLS, $$new($SchemaNamespaceSupport, $nc(schemaDoc)->fNamespaceSupport));
+			$nc(attrValues)->set(XSAttributeChecker::ATTIDX_ENUMNSDECLS, $$new($SchemaNamespaceSupport, schemaDoc->fNamespaceSupport));
 		}
 	}
 	$var($OneAttrArray, reqAttrs, $nc(attrList)->values);
@@ -733,29 +591,29 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 	}
 	$nc(attrValues)->set(XSAttributeChecker::ATTIDX_FROMDEFAULT, $($Long::valueOf(fromDefault)));
 	if (attrValues->get(XSAttributeChecker::ATTIDX_MAXOCCURS) != nullptr) {
-		int32_t min = $nc(($cast($XInt, attrValues->get(XSAttributeChecker::ATTIDX_MINOCCURS))))->intValue();
-		int32_t max = $nc(($cast($XInt, attrValues->get(XSAttributeChecker::ATTIDX_MAXOCCURS))))->intValue();
+		int32_t min = $nc($cast($XInt, attrValues->get(XSAttributeChecker::ATTIDX_MINOCCURS)))->intValue();
+		int32_t max = $nc($cast($XInt, attrValues->get(XSAttributeChecker::ATTIDX_MAXOCCURS)))->intValue();
 		if (max != $SchemaSymbols::OCCURRENCE_UNBOUNDED) {
 			if ($nc(this->fSchemaHandler)->fSecurityManager != nullptr) {
 				$var($String, localName, $nc(element)->getLocalName());
-				bool var$8 = $nc(localName)->equals("element"_s);
-				bool var$7 = (var$8 || $nc(localName)->equals("any"_s));
-				bool var$6 = var$7 && (element->getNextSibling() == nullptr);
-				bool var$5 = var$6 && (element->getPreviousSibling() == nullptr);
-				bool optimize = var$5 && ($nc($($nc($(element->getParentNode()))->getLocalName()))->equals("sequence"_s));
+				bool var$6 = $nc(localName)->equals("element"_s);
+				bool var$5 = var$6 || localName->equals("any"_s);
+				bool var$4 = var$5 && (element->getNextSibling() == nullptr);
+				bool var$3 = var$4 && (element->getPreviousSibling() == nullptr);
+				bool optimize = var$3 && ($$nc($$nc(element->getParentNode())->getLocalName())->equals("sequence"_s));
 				if (!optimize) {
 					$init($XMLSecurityManager$Limit);
 					int32_t maxOccurNodeLimit = $nc($nc(this->fSchemaHandler)->fSecurityManager)->getLimit($XMLSecurityManager$Limit::MAX_OCCUR_NODE_LIMIT);
 					if (max > maxOccurNodeLimit && !$nc($nc(this->fSchemaHandler)->fSecurityManager)->isNoLimit(maxOccurNodeLimit)) {
-						reportSchemaFatalError("MaxOccurLimit"_s, $$new($ObjectArray, {$($of($Integer::valueOf(maxOccurNodeLimit)))}), element);
-						attrValues->set(XSAttributeChecker::ATTIDX_MAXOCCURS, $($nc(XSAttributeChecker::fXIntPool)->getXInt(maxOccurNodeLimit)));
+						reportSchemaFatalError("MaxOccurLimit"_s, $$new($ObjectArray, {$($Integer::valueOf(maxOccurNodeLimit))}), element);
+						attrValues->set(XSAttributeChecker::ATTIDX_MAXOCCURS, $(XSAttributeChecker::fXIntPool->getXInt(maxOccurNodeLimit)));
 						max = maxOccurNodeLimit;
 					}
 				}
 			}
 			if (min > max) {
 				reportSchemaError("p-props-correct.2.1"_s, $$new($ObjectArray, {
-					$of(elName),
+					elName,
 					attrValues->get(XSAttributeChecker::ATTIDX_MINOCCURS),
 					attrValues->get(XSAttributeChecker::ATTIDX_MAXOCCURS)
 				}), element);
@@ -767,9 +625,9 @@ $ObjectArray* XSAttributeChecker::checkAttributes($Element* element, bool isGlob
 }
 
 $Object* XSAttributeChecker::validate($ObjectArray* attrValues, $String* attr, $String* ivalue, int32_t dvIndex, $XSDocumentInfo* schemaDoc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ivalue == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($String, value, $XMLChar::trim(ivalue));
 	$var($Object, retValue, nullptr);
@@ -780,390 +638,323 @@ $Object* XSAttributeChecker::validate($ObjectArray* attrValues, $String* attr, $
 		{
 			$init($SchemaSymbols);
 			bool var$0 = $nc(value)->equals($SchemaSymbols::ATTVAL_FALSE);
-			if (var$0 || $nc(value)->equals($SchemaSymbols::ATTVAL_FALSE_0)) {
-				$init($Boolean);
+			if (var$0 || value->equals($SchemaSymbols::ATTVAL_FALSE_0)) {
 				$assign(retValue, $Boolean::FALSE);
 			} else {
-				bool var$2 = value->equals($SchemaSymbols::ATTVAL_TRUE);
-				if (var$2 || value->equals($SchemaSymbols::ATTVAL_TRUE_1)) {
-					$init($Boolean);
+				bool var$1 = value->equals($SchemaSymbols::ATTVAL_TRUE);
+				if (var$1 || value->equals($SchemaSymbols::ATTVAL_TRUE_1)) {
 					$assign(retValue, $Boolean::TRUE);
 				} else {
 					$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-						$of(value),
-						$of("boolean"_s)
+						value,
+						"boolean"_s
 					}));
 				}
 			}
 			break;
 		}
 	case XSAttributeChecker::DT_NONNEGINT:
-		{
-			try {
-				bool var$3 = $nc(value)->length() > 0;
-				if (var$3 && value->charAt(0) == u'+') {
-					$assign(value, value->substring(1));
-				}
-				$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt($Integer::parseInt(value)));
-			} catch ($NumberFormatException& e) {
-				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-					$of(value),
-					$of("nonNegativeInteger"_s)
-				}));
+		try {
+			bool var$2 = $nc(value)->length() > 0;
+			if (var$2 && value->charAt(0) == u'+') {
+				$assign(value, value->substring(1));
 			}
-			if ($nc(($cast($XInt, retValue)))->intValue() < 0) {
-				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-					$of(value),
-					$of("nonNegativeInteger"_s)
-				}));
-			}
-			break;
+			$assign(retValue, XSAttributeChecker::fXIntPool->getXInt($Integer::parseInt(value)));
+		} catch ($NumberFormatException& e) {
+			$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
+				value,
+				"nonNegativeInteger"_s
+			}));
 		}
+		if ($nc($cast($XInt, retValue))->intValue() < 0) {
+			$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
+				value,
+				"nonNegativeInteger"_s
+			}));
+		}
+		break;
 	case XSAttributeChecker::DT_POSINT:
-		{
-			try {
-				bool var$4 = $nc(value)->length() > 0;
-				if (var$4 && value->charAt(0) == u'+') {
-					$assign(value, value->substring(1));
-				}
-				$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt($Integer::parseInt(value)));
-			} catch ($NumberFormatException& e) {
-				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-					$of(value),
-					$of("positiveInteger"_s)
-				}));
+		try {
+			bool var$3 = $nc(value)->length() > 0;
+			if (var$3 && value->charAt(0) == u'+') {
+				$assign(value, value->substring(1));
 			}
-			if ($nc(($cast($XInt, retValue)))->intValue() <= 0) {
-				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-					$of(value),
-					$of("positiveInteger"_s)
-				}));
-			}
-			break;
+			$assign(retValue, XSAttributeChecker::fXIntPool->getXInt($Integer::parseInt(value)));
+		} catch ($NumberFormatException& e) {
+			$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
+				value,
+				"positiveInteger"_s
+			}));
 		}
+		if ($nc($cast($XInt, retValue))->intValue() <= 0) {
+			$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
+				value,
+				"positiveInteger"_s
+			}));
+		}
+		break;
 	case XSAttributeChecker::DT_BLOCK:
-		{
-			choice = 0;
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
-				choice = ($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION;
-			} else {
-				$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
-				while (t->hasMoreTokens()) {
-					$var($String, token, t->nextToken());
-					if ($nc(token)->equals($SchemaSymbols::ATTVAL_EXTENSION)) {
-						choice |= $XSConstants::DERIVATION_EXTENSION;
-					} else {
-						if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
-							choice |= $XSConstants::DERIVATION_RESTRICTION;
-						} else {
-							if (token->equals($SchemaSymbols::ATTVAL_SUBSTITUTION)) {
-								choice |= $XSConstants::DERIVATION_SUBSTITUTION;
-							} else {
-								$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
-									$of(value),
-									$of("(#all | List of (extension | restriction | substitution))"_s)
-								}));
-							}
-						}
-					}
-				}
-			}
-			$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt(choice));
-			break;
-		}
-	case XSAttributeChecker::DT_BLOCK1:
-		{}
-	case XSAttributeChecker::DT_FINAL:
-		{
-			choice = 0;
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
-				choice = ((($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION) | $XSConstants::DERIVATION_LIST) | $XSConstants::DERIVATION_UNION;
-			} else {
-				$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
-				while (t->hasMoreTokens()) {
-					$var($String, token, t->nextToken());
-					if ($nc(token)->equals($SchemaSymbols::ATTVAL_EXTENSION)) {
-						choice |= $XSConstants::DERIVATION_EXTENSION;
-					} else {
-						if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
-							choice |= $XSConstants::DERIVATION_RESTRICTION;
-						} else {
-							$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
-								$of(value),
-								$of("(#all | List of (extension | restriction))"_s)
-							}));
-						}
-					}
-				}
-			}
-			$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt(choice));
-			break;
-		}
-	case XSAttributeChecker::DT_FINAL1:
-		{
-			choice = 0;
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
-				choice = ((($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION) | $XSConstants::DERIVATION_LIST) | $XSConstants::DERIVATION_UNION;
-			} else {
-				$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
-				while (t->hasMoreTokens()) {
-					$var($String, token, t->nextToken());
-					if ($nc(token)->equals($SchemaSymbols::ATTVAL_LIST)) {
-						choice |= $XSConstants::DERIVATION_LIST;
-					} else {
-						if (token->equals($SchemaSymbols::ATTVAL_UNION)) {
-							choice |= $XSConstants::DERIVATION_UNION;
-						} else {
-							if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
-								choice |= $XSConstants::DERIVATION_RESTRICTION;
-							} else {
-								$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
-									$of(value),
-									$of("(#all | List of (list | union | restriction))"_s)
-								}));
-							}
-						}
-					}
-				}
-			}
-			$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt(choice));
-			break;
-		}
-	case XSAttributeChecker::DT_FINAL2:
-		{
-			choice = 0;
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
-				choice = ((($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION) | $XSConstants::DERIVATION_LIST) | $XSConstants::DERIVATION_UNION;
-			} else {
-				$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
-				while (t->hasMoreTokens()) {
-					$var($String, token, t->nextToken());
-					if ($nc(token)->equals($SchemaSymbols::ATTVAL_EXTENSION)) {
-						choice |= $XSConstants::DERIVATION_EXTENSION;
-					} else {
-						if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
-							choice |= $XSConstants::DERIVATION_RESTRICTION;
-						} else {
-							if (token->equals($SchemaSymbols::ATTVAL_LIST)) {
-								choice |= $XSConstants::DERIVATION_LIST;
-							} else {
-								if (token->equals($SchemaSymbols::ATTVAL_UNION)) {
-									choice |= $XSConstants::DERIVATION_UNION;
-								} else {
-									$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
-										$of(value),
-										$of("(#all | List of (extension | restriction | list | union))"_s)
-									}));
-								}
-							}
-						}
-					}
-				}
-			}
-			$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt(choice));
-			break;
-		}
-	case XSAttributeChecker::DT_FORM:
-		{
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_QUALIFIED)) {
-				$assign(retValue, XSAttributeChecker::INT_QUALIFIED);
-			} else {
-				if (value->equals($SchemaSymbols::ATTVAL_UNQUALIFIED)) {
-					$assign(retValue, XSAttributeChecker::INT_UNQUALIFIED);
+		choice = 0;
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
+			choice = ($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION;
+		} else {
+			$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
+			while (t->hasMoreTokens()) {
+				$var($String, token, t->nextToken());
+				if ($nc(token)->equals($SchemaSymbols::ATTVAL_EXTENSION)) {
+					choice |= $XSConstants::DERIVATION_EXTENSION;
+				} else if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
+					choice |= $XSConstants::DERIVATION_RESTRICTION;
+				} else if (token->equals($SchemaSymbols::ATTVAL_SUBSTITUTION)) {
+					choice |= $XSConstants::DERIVATION_SUBSTITUTION;
 				} else {
-					$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
-						$of(value),
-						$of("(qualified | unqualified)"_s)
-					}));
-				}
-			}
-			break;
-		}
-	case XSAttributeChecker::DT_MAXOCCURS:
-		{
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_UNBOUNDED)) {
-				$assign(retValue, XSAttributeChecker::INT_UNBOUNDED);
-			} else {
-				try {
-					$assign(retValue, validate(attrValues, attr, value, XSAttributeChecker::DT_NONNEGINT, schemaDoc));
-				} catch ($NumberFormatException& e) {
 					$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
-						$of(value),
-						$of("(nonNegativeInteger | unbounded)"_s)
+						value,
+						"(#all | List of (extension | restriction | substitution))"_s
 					}));
 				}
 			}
-			break;
 		}
-	case XSAttributeChecker::DT_MAXOCCURS1:
-		{
-			if ($nc(value)->equals("1"_s)) {
-				$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt(1));
-			} else {
-				$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
-					$of(value),
-					$of("(1)"_s)
-				}));
+		$assign(retValue, XSAttributeChecker::fXIntPool->getXInt(choice));
+		break;
+	case XSAttributeChecker::DT_BLOCK1:
+	case XSAttributeChecker::DT_FINAL:
+		choice = 0;
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
+			choice = ((($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION) | $XSConstants::DERIVATION_LIST) | $XSConstants::DERIVATION_UNION;
+		} else {
+			$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
+			while (t->hasMoreTokens()) {
+				$var($String, token, t->nextToken());
+				if ($nc(token)->equals($SchemaSymbols::ATTVAL_EXTENSION)) {
+					choice |= $XSConstants::DERIVATION_EXTENSION;
+				} else if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
+					choice |= $XSConstants::DERIVATION_RESTRICTION;
+				} else {
+					$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
+						value,
+						"(#all | List of (extension | restriction))"_s
+					}));
+				}
 			}
-			break;
 		}
-	case XSAttributeChecker::DT_MEMBERTYPES:
-		{
-			$assign(memberType, $new($ArrayList));
+		$assign(retValue, XSAttributeChecker::fXIntPool->getXInt(choice));
+		break;
+	case XSAttributeChecker::DT_FINAL1:
+		choice = 0;
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
+			choice = ((($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION) | $XSConstants::DERIVATION_LIST) | $XSConstants::DERIVATION_UNION;
+		} else {
+			$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
+			while (t->hasMoreTokens()) {
+				$var($String, token, t->nextToken());
+				if ($nc(token)->equals($SchemaSymbols::ATTVAL_LIST)) {
+					choice |= $XSConstants::DERIVATION_LIST;
+				} else if (token->equals($SchemaSymbols::ATTVAL_UNION)) {
+					choice |= $XSConstants::DERIVATION_UNION;
+				} else if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
+					choice |= $XSConstants::DERIVATION_RESTRICTION;
+				} else {
+					$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
+						value,
+						"(#all | List of (list | union | restriction))"_s
+					}));
+				}
+			}
+		}
+		$assign(retValue, XSAttributeChecker::fXIntPool->getXInt(choice));
+		break;
+	case XSAttributeChecker::DT_FINAL2:
+		choice = 0;
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_POUNDALL)) {
+			choice = ((($XSConstants::DERIVATION_SUBSTITUTION | $XSConstants::DERIVATION_EXTENSION) | $XSConstants::DERIVATION_RESTRICTION) | $XSConstants::DERIVATION_LIST) | $XSConstants::DERIVATION_UNION;
+		} else {
+			$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
+			while (t->hasMoreTokens()) {
+				$var($String, token, t->nextToken());
+				if ($nc(token)->equals($SchemaSymbols::ATTVAL_EXTENSION)) {
+					choice |= $XSConstants::DERIVATION_EXTENSION;
+				} else if (token->equals($SchemaSymbols::ATTVAL_RESTRICTION)) {
+					choice |= $XSConstants::DERIVATION_RESTRICTION;
+				} else if (token->equals($SchemaSymbols::ATTVAL_LIST)) {
+					choice |= $XSConstants::DERIVATION_LIST;
+				} else if (token->equals($SchemaSymbols::ATTVAL_UNION)) {
+					choice |= $XSConstants::DERIVATION_UNION;
+				} else {
+					$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
+						value,
+						"(#all | List of (extension | restriction | list | union))"_s
+					}));
+				}
+			}
+		}
+		$assign(retValue, XSAttributeChecker::fXIntPool->getXInt(choice));
+		break;
+	case XSAttributeChecker::DT_FORM:
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_QUALIFIED)) {
+			$assign(retValue, XSAttributeChecker::INT_QUALIFIED);
+		} else if (value->equals($SchemaSymbols::ATTVAL_UNQUALIFIED)) {
+			$assign(retValue, XSAttributeChecker::INT_UNQUALIFIED);
+		} else {
+			$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
+				value,
+				"(qualified | unqualified)"_s
+			}));
+		}
+		break;
+	case XSAttributeChecker::DT_MAXOCCURS:
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_UNBOUNDED)) {
+			$assign(retValue, XSAttributeChecker::INT_UNBOUNDED);
+		} else {
 			try {
-				$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
-				while (t->hasMoreTokens()) {
-					$var($String, token, t->nextToken());
-					$var($QName, qname, $cast($QName, $nc($nc(XSAttributeChecker::fExtraDVs)->get(XSAttributeChecker::DT_QNAME))->validate(token, static_cast<$ValidationContext*>($nc(schemaDoc)->fValidationContext), ($ValidatedInfo*)nullptr)));
-					$init($XMLSymbols);
-					if ($nc(qname)->prefix == $XMLSymbols::EMPTY_STRING && qname->uri == nullptr && $nc(schemaDoc)->fIsChameleonSchema) {
-						$set(qname, uri, schemaDoc->fTargetNamespace);
-					}
-					$nc(memberType)->add(qname);
-				}
-				$assign(retValue, memberType);
-			} catch ($InvalidDatatypeValueException& ide) {
-				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.2"_s, $$new($ObjectArray, {
-					$of(value),
-					$of("(List of QName)"_s)
+				$assign(retValue, validate(attrValues, attr, value, XSAttributeChecker::DT_NONNEGINT, schemaDoc));
+			} catch ($NumberFormatException& e) {
+				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
+					value,
+					"(nonNegativeInteger | unbounded)"_s
 				}));
 			}
-			break;
 		}
+		break;
+	case XSAttributeChecker::DT_MAXOCCURS1:
+		if ($nc(value)->equals("1"_s)) {
+			$assign(retValue, XSAttributeChecker::fXIntPool->getXInt(1));
+		} else {
+			$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
+				value,
+				"(1)"_s
+			}));
+		}
+		break;
+	case XSAttributeChecker::DT_MEMBERTYPES:
+		$assign(memberType, $new($ArrayList));
+		try {
+			$var($StringTokenizer, t, $new($StringTokenizer, value, " \n\t\r"_s));
+			while (t->hasMoreTokens()) {
+				$var($String, token, t->nextToken());
+				$var($QName, qname, $cast($QName, $nc(XSAttributeChecker::fExtraDVs->get(XSAttributeChecker::DT_QNAME))->validate(token, $nc(schemaDoc)->fValidationContext, nullptr)));
+				$init($XMLSymbols);
+				if ($nc(qname)->prefix == $XMLSymbols::EMPTY_STRING && qname->uri == nullptr && schemaDoc->fIsChameleonSchema) {
+					$set(qname, uri, schemaDoc->fTargetNamespace);
+				}
+				memberType->add(qname);
+			}
+			$assign(retValue, memberType);
+		} catch ($InvalidDatatypeValueException& ide) {
+			$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.2"_s, $$new($ObjectArray, {
+				value,
+				"(List of QName)"_s
+			}));
+		}
+		break;
 	case XSAttributeChecker::DT_MINOCCURS1:
-		{
-			if ($nc(value)->equals("0"_s)) {
-				$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt(0));
-			} else if (value->equals("1"_s)) {
-				$assign(retValue, $nc(XSAttributeChecker::fXIntPool)->getXInt(1));
-			} else {
-				$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
-					$of(value),
-					$of("(0 | 1)"_s)
+		if ($nc(value)->equals("0"_s)) {
+			$assign(retValue, XSAttributeChecker::fXIntPool->getXInt(0));
+		} else if (value->equals("1"_s)) {
+			$assign(retValue, XSAttributeChecker::fXIntPool->getXInt(1));
+		} else {
+			$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
+				value,
+				"(0 | 1)"_s
+			}));
+		}
+		break;
+	case XSAttributeChecker::DT_NAMESPACE:
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_TWOPOUNDANY)) {
+			$assign(retValue, XSAttributeChecker::INT_ANY_ANY);
+		} else if (value->equals($SchemaSymbols::ATTVAL_TWOPOUNDOTHER)) {
+			$assign(retValue, XSAttributeChecker::INT_ANY_NOT);
+			$var($StringArray, list, $new($StringArray, 2));
+			list->set(0, $nc(schemaDoc)->fTargetNamespace);
+			list->set(1, nullptr);
+			$nc(attrValues)->set(XSAttributeChecker::ATTIDX_NAMESPACE_LIST, list);
+		} else {
+			$assign(retValue, XSAttributeChecker::INT_ANY_LIST);
+			$nc(this->fNamespaceList)->clear();
+			$var($StringTokenizer, tokens, $new($StringTokenizer, value, " \n\t\r"_s));
+			$var($String, token, nullptr);
+			$var($String, tempNamespace, nullptr);
+			try {
+				while (tokens->hasMoreTokens()) {
+					$assign(token, tokens->nextToken());
+					if ($nc(token)->equals($SchemaSymbols::ATTVAL_TWOPOUNDLOCAL)) {
+						$assign(tempNamespace, nullptr);
+					} else if (token->equals($SchemaSymbols::ATTVAL_TWOPOUNDTARGETNS)) {
+						$assign(tempNamespace, $nc(schemaDoc)->fTargetNamespace);
+					} else {
+						$nc(XSAttributeChecker::fExtraDVs->get(XSAttributeChecker::DT_ANYURI))->validate(token, $nc(schemaDoc)->fValidationContext, nullptr);
+						$assign(tempNamespace, $nc(this->fSymbolTable)->addSymbol(token));
+					}
+					if (!$nc(this->fNamespaceList)->contains(tempNamespace)) {
+						this->fNamespaceList->add(tempNamespace);
+					}
+				}
+			} catch ($InvalidDatatypeValueException& ide) {
+				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
+					value,
+					"((##any | ##other) | List of (anyURI | (##targetNamespace | ##local)) )"_s
 				}));
 			}
-			break;
+			int32_t num = $nc(this->fNamespaceList)->size();
+			$var($StringArray, list, $new($StringArray, num));
+			$assign(list, $cast($StringArray, this->fNamespaceList->toArray(list)));
+			$nc(attrValues)->set(XSAttributeChecker::ATTIDX_NAMESPACE_LIST, list);
 		}
-	case XSAttributeChecker::DT_NAMESPACE:
-		{
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_TWOPOUNDANY)) {
-				$assign(retValue, XSAttributeChecker::INT_ANY_ANY);
-			} else {
-				if (value->equals($SchemaSymbols::ATTVAL_TWOPOUNDOTHER)) {
-					$assign(retValue, XSAttributeChecker::INT_ANY_NOT);
-					$var($StringArray, list, $new($StringArray, 2));
-					list->set(0, $nc(schemaDoc)->fTargetNamespace);
-					list->set(1, nullptr);
-					$nc(attrValues)->set(XSAttributeChecker::ATTIDX_NAMESPACE_LIST, list);
-				} else {
-					$assign(retValue, XSAttributeChecker::INT_ANY_LIST);
-					$nc(this->fNamespaceList)->clear();
-					$var($StringTokenizer, tokens, $new($StringTokenizer, value, " \n\t\r"_s));
-					$var($String, token, nullptr);
-					$var($String, tempNamespace, nullptr);
-					try {
-						while (tokens->hasMoreTokens()) {
-							$assign(token, tokens->nextToken());
-							if ($nc(token)->equals($SchemaSymbols::ATTVAL_TWOPOUNDLOCAL)) {
-								$assign(tempNamespace, nullptr);
-							} else {
-								if (token->equals($SchemaSymbols::ATTVAL_TWOPOUNDTARGETNS)) {
-									$assign(tempNamespace, $nc(schemaDoc)->fTargetNamespace);
-								} else {
-									$nc($nc(XSAttributeChecker::fExtraDVs)->get(XSAttributeChecker::DT_ANYURI))->validate(token, static_cast<$ValidationContext*>($nc(schemaDoc)->fValidationContext), ($ValidatedInfo*)nullptr);
-									$assign(tempNamespace, $nc(this->fSymbolTable)->addSymbol(token));
-								}
-							}
-							if (!$nc(this->fNamespaceList)->contains(tempNamespace)) {
-								$nc(this->fNamespaceList)->add(tempNamespace);
-							}
-						}
-					} catch ($InvalidDatatypeValueException& ide) {
-						$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
-							$of(value),
-							$of("((##any | ##other) | List of (anyURI | (##targetNamespace | ##local)) )"_s)
-						}));
-					}
-					int32_t num = $nc(this->fNamespaceList)->size();
-					$var($StringArray, list, $new($StringArray, num));
-					$assign(list, $fcast($StringArray, $nc(this->fNamespaceList)->toArray(list)));
-					$nc(attrValues)->set(XSAttributeChecker::ATTIDX_NAMESPACE_LIST, list);
-				}
-			}
-			break;
-		}
+		break;
 	case XSAttributeChecker::DT_PROCESSCONTENTS:
-		{
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_STRICT)) {
-				$assign(retValue, XSAttributeChecker::INT_ANY_STRICT);
-			} else {
-				if (value->equals($SchemaSymbols::ATTVAL_LAX)) {
-					$assign(retValue, XSAttributeChecker::INT_ANY_LAX);
-				} else {
-					if (value->equals($SchemaSymbols::ATTVAL_SKIP)) {
-						$assign(retValue, XSAttributeChecker::INT_ANY_SKIP);
-					} else {
-						$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
-							$of(value),
-							$of("(lax | skip | strict)"_s)
-						}));
-					}
-				}
-			}
-			break;
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_STRICT)) {
+			$assign(retValue, XSAttributeChecker::INT_ANY_STRICT);
+		} else if (value->equals($SchemaSymbols::ATTVAL_LAX)) {
+			$assign(retValue, XSAttributeChecker::INT_ANY_LAX);
+		} else if (value->equals($SchemaSymbols::ATTVAL_SKIP)) {
+			$assign(retValue, XSAttributeChecker::INT_ANY_SKIP);
+		} else {
+			$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
+				value,
+				"(lax | skip | strict)"_s
+			}));
 		}
+		break;
 	case XSAttributeChecker::DT_USE:
-		{
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_OPTIONAL)) {
-				$assign(retValue, XSAttributeChecker::INT_USE_OPTIONAL);
-			} else {
-				if (value->equals($SchemaSymbols::ATTVAL_REQUIRED)) {
-					$assign(retValue, XSAttributeChecker::INT_USE_REQUIRED);
-				} else {
-					if (value->equals($SchemaSymbols::ATTVAL_PROHIBITED)) {
-						$assign(retValue, XSAttributeChecker::INT_USE_PROHIBITED);
-					} else {
-						$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
-							$of(value),
-							$of("(optional | prohibited | required)"_s)
-						}));
-					}
-				}
-			}
-			break;
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_OPTIONAL)) {
+			$assign(retValue, XSAttributeChecker::INT_USE_OPTIONAL);
+		} else if (value->equals($SchemaSymbols::ATTVAL_REQUIRED)) {
+			$assign(retValue, XSAttributeChecker::INT_USE_REQUIRED);
+		} else if (value->equals($SchemaSymbols::ATTVAL_PROHIBITED)) {
+			$assign(retValue, XSAttributeChecker::INT_USE_PROHIBITED);
+		} else {
+			$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
+				value,
+				"(optional | prohibited | required)"_s
+			}));
 		}
+		break;
 	case XSAttributeChecker::DT_WHITESPACE:
-		{
-			$init($SchemaSymbols);
-			if ($nc(value)->equals($SchemaSymbols::ATTVAL_PRESERVE)) {
-				$assign(retValue, XSAttributeChecker::INT_WS_PRESERVE);
-			} else {
-				if (value->equals($SchemaSymbols::ATTVAL_REPLACE)) {
-					$assign(retValue, XSAttributeChecker::INT_WS_REPLACE);
-				} else {
-					if (value->equals($SchemaSymbols::ATTVAL_COLLAPSE)) {
-						$assign(retValue, XSAttributeChecker::INT_WS_COLLAPSE);
-					} else {
-						$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
-							$of(value),
-							$of("(preserve | replace | collapse)"_s)
-						}));
-					}
-				}
-			}
-			break;
+		$init($SchemaSymbols);
+		if ($nc(value)->equals($SchemaSymbols::ATTVAL_PRESERVE)) {
+			$assign(retValue, XSAttributeChecker::INT_WS_PRESERVE);
+		} else if (value->equals($SchemaSymbols::ATTVAL_REPLACE)) {
+			$assign(retValue, XSAttributeChecker::INT_WS_REPLACE);
+		} else if (value->equals($SchemaSymbols::ATTVAL_COLLAPSE)) {
+			$assign(retValue, XSAttributeChecker::INT_WS_COLLAPSE);
+		} else {
+			$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
+				value,
+				"(preserve | replace | collapse)"_s
+			}));
 		}
+		break;
 	}
-	return $of(retValue);
+	return retValue;
 }
 
 void XSAttributeChecker::reportSchemaFatalError($String* key, $ObjectArray* args, $Element* ele) {
@@ -1175,16 +966,16 @@ void XSAttributeChecker::reportSchemaError($String* key, $ObjectArray* args, $El
 }
 
 void XSAttributeChecker::checkNonSchemaAttributes($XSGrammarBucket* grammarBucket) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSAttributeDecl, attrDecl, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc(this->fNonSchemaAttrs)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fNonSchemaAttrs)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($String, attrRName, $cast($String, $nc(entry)->getKey()));
-				$var($String, attrURI, $nc(attrRName)->substring(0, attrRName->indexOf((int32_t)u',')));
-				$var($String, attrLocal, attrRName->substring(attrRName->indexOf((int32_t)u',') + 1));
+				$var($String, attrURI, $nc(attrRName)->substring(0, $nc(attrRName)->indexOf(u',')));
+				$var($String, attrLocal, attrRName->substring(attrRName->indexOf(u',') + 1));
 				$var($SchemaGrammar, sGrammar, $nc(grammarBucket)->getGrammar(attrURI));
 				if (sGrammar == nullptr) {
 					continue;
@@ -1204,12 +995,12 @@ void XSAttributeChecker::checkNonSchemaAttributes($XSGrammarBucket* grammarBucke
 				for (int32_t i = 1; i < count; i += 2) {
 					$assign(elName, $cast($String, values->get(i)));
 					try {
-						$nc(dv)->validate($cast($String, $(values->get(i + 1))), ($ValidationContext*)nullptr, ($ValidatedInfo*)nullptr);
+						$nc(dv)->validate($$cast($String, values->get(i + 1)), nullptr, nullptr);
 					} catch ($InvalidDatatypeValueException& ide) {
 						reportSchemaError("s4s-att-invalid-value"_s, $$new($ObjectArray, {
-							$of(elName),
-							$of(attrName),
-							$($of(ide->getMessage()))
+							elName,
+							attrName,
+							$(ide->getMessage())
 						}), nullptr);
 					}
 				}
@@ -1220,7 +1011,7 @@ void XSAttributeChecker::checkNonSchemaAttributes($XSGrammarBucket* grammarBucke
 
 $String* XSAttributeChecker::normalize($String* content, int16_t ws) {
 	$init(XSAttributeChecker);
-	int32_t len = content == nullptr ? 0 : $nc(content)->length();
+	int32_t len = content == nullptr ? 0 : content->length();
 	if (len == 0 || ws == $XSSimpleType::WS_PRESERVE) {
 		return content;
 	}
@@ -1228,7 +1019,7 @@ $String* XSAttributeChecker::normalize($String* content, int16_t ws) {
 	if (ws == $XSSimpleType::WS_REPLACE) {
 		char16_t ch = 0;
 		for (int32_t i = 0; i < len; ++i) {
-			ch = content->charAt(i);
+			ch = $nc(content)->charAt(i);
 			if (ch != 9 && ch != 10 && ch != 13) {
 				sb->append(ch);
 			} else {
@@ -1240,7 +1031,7 @@ $String* XSAttributeChecker::normalize($String* content, int16_t ws) {
 		int32_t i = 0;
 		bool isLeading = true;
 		for (i = 0; i < len; ++i) {
-			ch = content->charAt(i);
+			ch = $nc(content)->charAt(i);
 			if (ch != 9 && ch != 10 && ch != 13 && ch != 32) {
 				sb->append(ch);
 				isLeading = false;
@@ -1261,17 +1052,16 @@ $String* XSAttributeChecker::normalize($String* content, int16_t ws) {
 }
 
 $ObjectArray* XSAttributeChecker::getAvailableArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fArrayPool)->length == this->fPoolPos) {
 		$set(this, fArrayPool, $new($ObjectArray2, this->fPoolPos + XSAttributeChecker::INC_POOL_SIZE));
-		for (int32_t i = this->fPoolPos; i < $nc(this->fArrayPool)->length; ++i) {
-			$nc(this->fArrayPool)->set(i, $$new($ObjectArray, XSAttributeChecker::ATTIDX_COUNT));
+		for (int32_t i = this->fPoolPos; i < this->fArrayPool->length; ++i) {
+			this->fArrayPool->set(i, $$new($ObjectArray, XSAttributeChecker::ATTIDX_COUNT));
 		}
 	}
-	$var($ObjectArray, retArray, $nc(this->fArrayPool)->get(this->fPoolPos));
-	$nc(this->fArrayPool)->set(this->fPoolPos++, nullptr);
+	$var($ObjectArray, retArray, this->fArrayPool->get(this->fPoolPos));
+	this->fArrayPool->set(this->fPoolPos++, nullptr);
 	$System::arraycopy(XSAttributeChecker::fTempArray, 0, retArray, 0, XSAttributeChecker::ATTIDX_COUNT - 1);
-	$init($Boolean);
 	$nc(retArray)->set(XSAttributeChecker::ATTIDX_ISRETURNED, $Boolean::FALSE);
 	return retArray;
 }
@@ -1280,18 +1070,18 @@ void XSAttributeChecker::returnAttrArray($ObjectArray* attrArray, $XSDocumentInf
 	if (schemaDoc != nullptr) {
 		$nc(schemaDoc->fNamespaceSupport)->popContext();
 	}
-	if (this->fPoolPos == 0 || attrArray == nullptr || $nc(attrArray)->length != XSAttributeChecker::ATTIDX_COUNT || $nc(($cast($Boolean, $nc(attrArray)->get(XSAttributeChecker::ATTIDX_ISRETURNED))))->booleanValue()) {
+	if (this->fPoolPos == 0 || attrArray == nullptr || attrArray->length != XSAttributeChecker::ATTIDX_COUNT || $nc($cast($Boolean, attrArray->get(XSAttributeChecker::ATTIDX_ISRETURNED)))->booleanValue()) {
 		return;
 	}
 	$nc(attrArray)->set(XSAttributeChecker::ATTIDX_ISRETURNED, $Boolean::TRUE);
 	if (attrArray->get(XSAttributeChecker::ATTIDX_NONSCHEMA) != nullptr) {
-		$nc(($cast($List, attrArray->get(XSAttributeChecker::ATTIDX_NONSCHEMA))))->clear();
+		$nc($cast($List, attrArray->get(XSAttributeChecker::ATTIDX_NONSCHEMA)))->clear();
 	}
 	$nc(this->fArrayPool)->set(--this->fPoolPos, attrArray);
 }
 
 void XSAttributeChecker::resolveNamespace($Element* element, $AttrArray* attrs, $SchemaNamespaceSupport* nsSupport) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(nsSupport)->pushContext();
 	int32_t length = $nc(attrs)->length;
 	$var($Attr, sattr, nullptr);
@@ -1315,8 +1105,8 @@ void XSAttributeChecker::resolveNamespace($Element* element, $AttrArray* attrs, 
 	}
 }
 
-void clinit$XSAttributeChecker($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XSAttributeChecker::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XSAttributeChecker::ELEMENT_N, "element_n"_s);
 	$assignStatic(XSAttributeChecker::ELEMENT_R, "element_r"_s);
 	$assignStatic(XSAttributeChecker::ATTRIBUTE_N, "attribute_n"_s);
@@ -1363,22 +1153,22 @@ void clinit$XSAttributeChecker($Class* class$) {
 	XSAttributeChecker::ATTIDX_FROMDEFAULT = XSAttributeChecker::ATTIDX_COUNT++;
 	XSAttributeChecker::ATTIDX_ISRETURNED = XSAttributeChecker::ATTIDX_COUNT++;
 	$assignStatic(XSAttributeChecker::fXIntPool, $new($XIntPool));
-	$assignStatic(XSAttributeChecker::INT_QUALIFIED, $nc(XSAttributeChecker::fXIntPool)->getXInt($SchemaSymbols::FORM_QUALIFIED));
-	$assignStatic(XSAttributeChecker::INT_UNQUALIFIED, $nc(XSAttributeChecker::fXIntPool)->getXInt($SchemaSymbols::FORM_UNQUALIFIED));
-	$assignStatic(XSAttributeChecker::INT_EMPTY_SET, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSConstants::DERIVATION_NONE));
-	$assignStatic(XSAttributeChecker::INT_ANY_STRICT, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSWildcardDecl::PC_STRICT));
-	$assignStatic(XSAttributeChecker::INT_ANY_LAX, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSWildcardDecl::PC_LAX));
-	$assignStatic(XSAttributeChecker::INT_ANY_SKIP, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSWildcardDecl::PC_SKIP));
-	$assignStatic(XSAttributeChecker::INT_ANY_ANY, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSWildcardDecl::NSCONSTRAINT_ANY));
-	$assignStatic(XSAttributeChecker::INT_ANY_LIST, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSWildcardDecl::NSCONSTRAINT_LIST));
-	$assignStatic(XSAttributeChecker::INT_ANY_NOT, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSWildcardDecl::NSCONSTRAINT_NOT));
-	$assignStatic(XSAttributeChecker::INT_USE_OPTIONAL, $nc(XSAttributeChecker::fXIntPool)->getXInt($SchemaSymbols::USE_OPTIONAL));
-	$assignStatic(XSAttributeChecker::INT_USE_REQUIRED, $nc(XSAttributeChecker::fXIntPool)->getXInt($SchemaSymbols::USE_REQUIRED));
-	$assignStatic(XSAttributeChecker::INT_USE_PROHIBITED, $nc(XSAttributeChecker::fXIntPool)->getXInt($SchemaSymbols::USE_PROHIBITED));
-	$assignStatic(XSAttributeChecker::INT_WS_PRESERVE, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSSimpleType::WS_PRESERVE));
-	$assignStatic(XSAttributeChecker::INT_WS_REPLACE, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSSimpleType::WS_REPLACE));
-	$assignStatic(XSAttributeChecker::INT_WS_COLLAPSE, $nc(XSAttributeChecker::fXIntPool)->getXInt($XSSimpleType::WS_COLLAPSE));
-	$assignStatic(XSAttributeChecker::INT_UNBOUNDED, $nc(XSAttributeChecker::fXIntPool)->getXInt($SchemaSymbols::OCCURRENCE_UNBOUNDED));
+	$assignStatic(XSAttributeChecker::INT_QUALIFIED, XSAttributeChecker::fXIntPool->getXInt($SchemaSymbols::FORM_QUALIFIED));
+	$assignStatic(XSAttributeChecker::INT_UNQUALIFIED, XSAttributeChecker::fXIntPool->getXInt($SchemaSymbols::FORM_UNQUALIFIED));
+	$assignStatic(XSAttributeChecker::INT_EMPTY_SET, XSAttributeChecker::fXIntPool->getXInt($XSConstants::DERIVATION_NONE));
+	$assignStatic(XSAttributeChecker::INT_ANY_STRICT, XSAttributeChecker::fXIntPool->getXInt($XSWildcardDecl::PC_STRICT));
+	$assignStatic(XSAttributeChecker::INT_ANY_LAX, XSAttributeChecker::fXIntPool->getXInt($XSWildcardDecl::PC_LAX));
+	$assignStatic(XSAttributeChecker::INT_ANY_SKIP, XSAttributeChecker::fXIntPool->getXInt($XSWildcardDecl::PC_SKIP));
+	$assignStatic(XSAttributeChecker::INT_ANY_ANY, XSAttributeChecker::fXIntPool->getXInt($XSWildcardDecl::NSCONSTRAINT_ANY));
+	$assignStatic(XSAttributeChecker::INT_ANY_LIST, XSAttributeChecker::fXIntPool->getXInt($XSWildcardDecl::NSCONSTRAINT_LIST));
+	$assignStatic(XSAttributeChecker::INT_ANY_NOT, XSAttributeChecker::fXIntPool->getXInt($XSWildcardDecl::NSCONSTRAINT_NOT));
+	$assignStatic(XSAttributeChecker::INT_USE_OPTIONAL, XSAttributeChecker::fXIntPool->getXInt($SchemaSymbols::USE_OPTIONAL));
+	$assignStatic(XSAttributeChecker::INT_USE_REQUIRED, XSAttributeChecker::fXIntPool->getXInt($SchemaSymbols::USE_REQUIRED));
+	$assignStatic(XSAttributeChecker::INT_USE_PROHIBITED, XSAttributeChecker::fXIntPool->getXInt($SchemaSymbols::USE_PROHIBITED));
+	$assignStatic(XSAttributeChecker::INT_WS_PRESERVE, XSAttributeChecker::fXIntPool->getXInt($XSSimpleType::WS_PRESERVE));
+	$assignStatic(XSAttributeChecker::INT_WS_REPLACE, XSAttributeChecker::fXIntPool->getXInt($XSSimpleType::WS_REPLACE));
+	$assignStatic(XSAttributeChecker::INT_WS_COLLAPSE, XSAttributeChecker::fXIntPool->getXInt($XSSimpleType::WS_COLLAPSE));
+	$assignStatic(XSAttributeChecker::INT_UNBOUNDED, XSAttributeChecker::fXIntPool->getXInt($SchemaSymbols::OCCURRENCE_UNBOUNDED));
 	$assignStatic(XSAttributeChecker::fEleAttrsMapG, $new($HashMap, 29));
 	$assignStatic(XSAttributeChecker::fEleAttrsMapL, $new($HashMap, 79));
 	$assignStatic(XSAttributeChecker::fExtraDVs, $new($XSSimpleTypeArray, XSAttributeChecker::DT_COUNT));
@@ -1386,15 +1176,15 @@ void clinit$XSAttributeChecker($Class* class$) {
 		$init($SchemaGrammar);
 		$var($SchemaGrammar, grammar, $SchemaGrammar::SG_SchemaNS);
 		$init($SchemaSymbols);
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_ANYURI, $cast($XSSimpleType, $($nc(grammar)->getGlobalTypeDecl($SchemaSymbols::ATTVAL_ANYURI))));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_ID, $cast($XSSimpleType, $(grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_ID))));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_QNAME, $cast($XSSimpleType, $(grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_QNAME))));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_STRING, $cast($XSSimpleType, $(grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_STRING))));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_TOKEN, $cast($XSSimpleType, $(grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_TOKEN))));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_NCNAME, $cast($XSSimpleType, $(grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_NCNAME))));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_XPATH, $nc(XSAttributeChecker::fExtraDVs)->get(XSAttributeChecker::DT_STRING));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_XPATH, $nc(XSAttributeChecker::fExtraDVs)->get(XSAttributeChecker::DT_STRING));
-		$nc(XSAttributeChecker::fExtraDVs)->set(XSAttributeChecker::DT_LANGUAGE, $cast($XSSimpleType, $(grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_LANGUAGE))));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_ANYURI, $$cast($XSSimpleType, $nc(grammar)->getGlobalTypeDecl($SchemaSymbols::ATTVAL_ANYURI)));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_ID, $$cast($XSSimpleType, grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_ID)));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_QNAME, $$cast($XSSimpleType, grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_QNAME)));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_STRING, $$cast($XSSimpleType, grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_STRING)));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_TOKEN, $$cast($XSSimpleType, grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_TOKEN)));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_NCNAME, $$cast($XSSimpleType, grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_NCNAME)));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_XPATH, XSAttributeChecker::fExtraDVs->get(XSAttributeChecker::DT_STRING));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_XPATH, XSAttributeChecker::fExtraDVs->get(XSAttributeChecker::DT_STRING));
+		XSAttributeChecker::fExtraDVs->set(XSAttributeChecker::DT_LANGUAGE, $$cast($XSSimpleType, grammar->getGlobalTypeDecl($SchemaSymbols::ATTVAL_LANGUAGE)));
 	}
 	{
 		int32_t attCount = 0;
@@ -1447,8 +1237,6 @@ void clinit$XSAttributeChecker($Class* class$) {
 		int32_t ATT_XPATH_R = attCount++;
 		int32_t ATT_XPATH1_R = attCount++;
 		$var($OneAttrArray, allAttrs, $new($OneAttrArray, attCount));
-		$init($SchemaSymbols);
-		$init($Boolean);
 		allAttrs->set(ATT_ABSTRACT_D, $$new($OneAttr, $SchemaSymbols::ATT_ABSTRACT, XSAttributeChecker::DT_BOOLEAN, XSAttributeChecker::ATTIDX_ABSTRACT, $Boolean::FALSE));
 		allAttrs->set(ATT_ATTRIBUTE_FD_D, $$new($OneAttr, $SchemaSymbols::ATT_ATTRIBUTEFORMDEFAULT, XSAttributeChecker::DT_FORM, XSAttributeChecker::ATTIDX_AFORMDEFAULT, XSAttributeChecker::INT_UNQUALIFIED));
 		allAttrs->set(ATT_BASE_R, $$new($OneAttr, $SchemaSymbols::ATT_BASE, XSAttributeChecker::DT_QNAME, XSAttributeChecker::ATTIDX_BASE, nullptr));
@@ -1466,11 +1254,11 @@ void clinit$XSAttributeChecker($Class* class$) {
 		allAttrs->set(ATT_FORM_N, $$new($OneAttr, $SchemaSymbols::ATT_FORM, XSAttributeChecker::DT_FORM, XSAttributeChecker::ATTIDX_FORM, nullptr));
 		allAttrs->set(ATT_ID_N, $$new($OneAttr, $SchemaSymbols::ATT_ID, XSAttributeChecker::DT_ID, XSAttributeChecker::ATTIDX_ID, nullptr));
 		allAttrs->set(ATT_ITEMTYPE_N, $$new($OneAttr, $SchemaSymbols::ATT_ITEMTYPE, XSAttributeChecker::DT_QNAME, XSAttributeChecker::ATTIDX_ITEMTYPE, nullptr));
-		allAttrs->set(ATT_MAXOCCURS_D, $$new($OneAttr, $SchemaSymbols::ATT_MAXOCCURS, XSAttributeChecker::DT_MAXOCCURS, XSAttributeChecker::ATTIDX_MAXOCCURS, $($nc(XSAttributeChecker::fXIntPool)->getXInt(1))));
-		allAttrs->set(ATT_MAXOCCURS1_D, $$new($OneAttr, $SchemaSymbols::ATT_MAXOCCURS, XSAttributeChecker::DT_MAXOCCURS1, XSAttributeChecker::ATTIDX_MAXOCCURS, $($nc(XSAttributeChecker::fXIntPool)->getXInt(1))));
+		allAttrs->set(ATT_MAXOCCURS_D, $$new($OneAttr, $SchemaSymbols::ATT_MAXOCCURS, XSAttributeChecker::DT_MAXOCCURS, XSAttributeChecker::ATTIDX_MAXOCCURS, $(XSAttributeChecker::fXIntPool->getXInt(1))));
+		allAttrs->set(ATT_MAXOCCURS1_D, $$new($OneAttr, $SchemaSymbols::ATT_MAXOCCURS, XSAttributeChecker::DT_MAXOCCURS1, XSAttributeChecker::ATTIDX_MAXOCCURS, $(XSAttributeChecker::fXIntPool->getXInt(1))));
 		allAttrs->set(ATT_MEMBER_T_N, $$new($OneAttr, $SchemaSymbols::ATT_MEMBERTYPES, XSAttributeChecker::DT_MEMBERTYPES, XSAttributeChecker::ATTIDX_MEMBERTYPES, nullptr));
-		allAttrs->set(ATT_MINOCCURS_D, $$new($OneAttr, $SchemaSymbols::ATT_MINOCCURS, XSAttributeChecker::DT_NONNEGINT, XSAttributeChecker::ATTIDX_MINOCCURS, $($nc(XSAttributeChecker::fXIntPool)->getXInt(1))));
-		allAttrs->set(ATT_MINOCCURS1_D, $$new($OneAttr, $SchemaSymbols::ATT_MINOCCURS, XSAttributeChecker::DT_MINOCCURS1, XSAttributeChecker::ATTIDX_MINOCCURS, $($nc(XSAttributeChecker::fXIntPool)->getXInt(1))));
+		allAttrs->set(ATT_MINOCCURS_D, $$new($OneAttr, $SchemaSymbols::ATT_MINOCCURS, XSAttributeChecker::DT_NONNEGINT, XSAttributeChecker::ATTIDX_MINOCCURS, $(XSAttributeChecker::fXIntPool->getXInt(1))));
+		allAttrs->set(ATT_MINOCCURS1_D, $$new($OneAttr, $SchemaSymbols::ATT_MINOCCURS, XSAttributeChecker::DT_MINOCCURS1, XSAttributeChecker::ATTIDX_MINOCCURS, $(XSAttributeChecker::fXIntPool->getXInt(1))));
 		allAttrs->set(ATT_MIXED_D, $$new($OneAttr, $SchemaSymbols::ATT_MIXED, XSAttributeChecker::DT_BOOLEAN, XSAttributeChecker::ATTIDX_MIXED, $Boolean::FALSE));
 		allAttrs->set(ATT_MIXED_N, $$new($OneAttr, $SchemaSymbols::ATT_MIXED, XSAttributeChecker::DT_BOOLEAN, XSAttributeChecker::ATTIDX_MIXED, nullptr));
 		allAttrs->set(ATT_NAME_R, $$new($OneAttr, $SchemaSymbols::ATT_NAME, XSAttributeChecker::DT_NCNAME, XSAttributeChecker::ATTIDX_NAME, nullptr));
@@ -1504,25 +1292,25 @@ void clinit$XSAttributeChecker($Class* class$) {
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
 		attrList->put($SchemaSymbols::ATT_TYPE, allAttrs->get(ATT_TYPE_N));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_ATTRIBUTE, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_ATTRIBUTE, attrList);
 		$assign(attrList, $Container::getContainer(7));
-		attrList->put($SchemaSymbols::ATT_DEFAULT, allAttrs->get(ATT_DEFAULT_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_DEFAULT, allAttrs->get(ATT_DEFAULT_N));
 		attrList->put($SchemaSymbols::ATT_FIXED, allAttrs->get(ATT_FIXED_N));
 		attrList->put($SchemaSymbols::ATT_FORM, allAttrs->get(ATT_FORM_N));
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
 		attrList->put($SchemaSymbols::ATT_TYPE, allAttrs->get(ATT_TYPE_N));
 		attrList->put($SchemaSymbols::ATT_USE, allAttrs->get(ATT_USE_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put(XSAttributeChecker::ATTRIBUTE_N, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put(XSAttributeChecker::ATTRIBUTE_N, attrList);
 		$assign(attrList, $Container::getContainer(5));
-		attrList->put($SchemaSymbols::ATT_DEFAULT, allAttrs->get(ATT_DEFAULT_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_DEFAULT, allAttrs->get(ATT_DEFAULT_N));
 		attrList->put($SchemaSymbols::ATT_FIXED, allAttrs->get(ATT_FIXED_N));
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_REF, allAttrs->get(ATT_REF_R));
 		attrList->put($SchemaSymbols::ATT_USE, allAttrs->get(ATT_USE_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put(XSAttributeChecker::ATTRIBUTE_R, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put(XSAttributeChecker::ATTRIBUTE_R, attrList);
 		$assign(attrList, $Container::getContainer(10));
-		attrList->put($SchemaSymbols::ATT_ABSTRACT, allAttrs->get(ATT_ABSTRACT_D));
+		$nc(attrList)->put($SchemaSymbols::ATT_ABSTRACT, allAttrs->get(ATT_ABSTRACT_D));
 		attrList->put($SchemaSymbols::ATT_BLOCK, allAttrs->get(ATT_BLOCK_N));
 		attrList->put($SchemaSymbols::ATT_DEFAULT, allAttrs->get(ATT_DEFAULT_N));
 		attrList->put($SchemaSymbols::ATT_FINAL, allAttrs->get(ATT_FINAL_N));
@@ -1532,9 +1320,9 @@ void clinit$XSAttributeChecker($Class* class$) {
 		attrList->put($SchemaSymbols::ATT_NILLABLE, allAttrs->get(ATT_NILLABLE_D));
 		attrList->put($SchemaSymbols::ATT_SUBSTITUTIONGROUP, allAttrs->get(ATT_SUBSTITUTION_G_N));
 		attrList->put($SchemaSymbols::ATT_TYPE, allAttrs->get(ATT_TYPE_N));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_ELEMENT, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_ELEMENT, attrList);
 		$assign(attrList, $Container::getContainer(10));
-		attrList->put($SchemaSymbols::ATT_BLOCK, allAttrs->get(ATT_BLOCK_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_BLOCK, allAttrs->get(ATT_BLOCK_N));
 		attrList->put($SchemaSymbols::ATT_DEFAULT, allAttrs->get(ATT_DEFAULT_N));
 		attrList->put($SchemaSymbols::ATT_FIXED, allAttrs->get(ATT_FIXED_N));
 		attrList->put($SchemaSymbols::ATT_FORM, allAttrs->get(ATT_FORM_N));
@@ -1544,137 +1332,137 @@ void clinit$XSAttributeChecker($Class* class$) {
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
 		attrList->put($SchemaSymbols::ATT_NILLABLE, allAttrs->get(ATT_NILLABLE_D));
 		attrList->put($SchemaSymbols::ATT_TYPE, allAttrs->get(ATT_TYPE_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put(XSAttributeChecker::ELEMENT_N, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put(XSAttributeChecker::ELEMENT_N, attrList);
 		$assign(attrList, $Container::getContainer(4));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MAXOCCURS, allAttrs->get(ATT_MAXOCCURS_D));
 		attrList->put($SchemaSymbols::ATT_MINOCCURS, allAttrs->get(ATT_MINOCCURS_D));
 		attrList->put($SchemaSymbols::ATT_REF, allAttrs->get(ATT_REF_R));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put(XSAttributeChecker::ELEMENT_R, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put(XSAttributeChecker::ELEMENT_R, attrList);
 		$assign(attrList, $Container::getContainer(6));
-		attrList->put($SchemaSymbols::ATT_ABSTRACT, allAttrs->get(ATT_ABSTRACT_D));
+		$nc(attrList)->put($SchemaSymbols::ATT_ABSTRACT, allAttrs->get(ATT_ABSTRACT_D));
 		attrList->put($SchemaSymbols::ATT_BLOCK, allAttrs->get(ATT_BLOCK1_N));
 		attrList->put($SchemaSymbols::ATT_FINAL, allAttrs->get(ATT_FINAL_N));
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MIXED, allAttrs->get(ATT_MIXED_D));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_COMPLEXTYPE, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_COMPLEXTYPE, attrList);
 		$assign(attrList, $Container::getContainer(4));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
 		attrList->put($SchemaSymbols::ATT_PUBLIC, allAttrs->get(ATT_PUBLIC_R));
 		attrList->put($SchemaSymbols::ATT_SYSTEM, allAttrs->get(ATT_SYSTEM_N));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_NOTATION, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_NOTATION, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MIXED, allAttrs->get(ATT_MIXED_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_COMPLEXTYPE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_COMPLEXTYPE, attrList);
 		$assign(attrList, $Container::getContainer(1));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_SIMPLECONTENT, attrList);
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_SIMPLECONTENT, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_BASE, allAttrs->get(ATT_BASE_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_BASE, allAttrs->get(ATT_BASE_N));
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_RESTRICTION, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_RESTRICTION, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_BASE, allAttrs->get(ATT_BASE_R));
+		$nc(attrList)->put($SchemaSymbols::ATT_BASE, allAttrs->get(ATT_BASE_R));
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_EXTENSION, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_EXTENSION, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_REF, allAttrs->get(ATT_REF_R));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_ATTRIBUTEGROUP, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_ATTRIBUTEGROUP, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAMESPACE, allAttrs->get(ATT_NAMESPACE_D));
 		attrList->put($SchemaSymbols::ATT_PROCESSCONTENTS, allAttrs->get(ATT_PROCESS_C_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_ANYATTRIBUTE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_ANYATTRIBUTE, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MIXED, allAttrs->get(ATT_MIXED_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_COMPLEXCONTENT, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_COMPLEXCONTENT, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_ATTRIBUTEGROUP, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_ATTRIBUTEGROUP, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_GROUP, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_GROUP, attrList);
 		$assign(attrList, $Container::getContainer(4));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MAXOCCURS, allAttrs->get(ATT_MAXOCCURS_D));
 		attrList->put($SchemaSymbols::ATT_MINOCCURS, allAttrs->get(ATT_MINOCCURS_D));
 		attrList->put($SchemaSymbols::ATT_REF, allAttrs->get(ATT_REF_R));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_GROUP, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_GROUP, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MAXOCCURS, allAttrs->get(ATT_MAXOCCURS1_D));
 		attrList->put($SchemaSymbols::ATT_MINOCCURS, allAttrs->get(ATT_MINOCCURS1_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_ALL, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_ALL, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MAXOCCURS, allAttrs->get(ATT_MAXOCCURS_D));
 		attrList->put($SchemaSymbols::ATT_MINOCCURS, allAttrs->get(ATT_MINOCCURS_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_CHOICE, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_SEQUENCE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_CHOICE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_SEQUENCE, attrList);
 		$assign(attrList, $Container::getContainer(5));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MAXOCCURS, allAttrs->get(ATT_MAXOCCURS_D));
 		attrList->put($SchemaSymbols::ATT_MINOCCURS, allAttrs->get(ATT_MINOCCURS_D));
 		attrList->put($SchemaSymbols::ATT_NAMESPACE, allAttrs->get(ATT_NAMESPACE_D));
 		attrList->put($SchemaSymbols::ATT_PROCESSCONTENTS, allAttrs->get(ATT_PROCESS_C_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_ANY, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_ANY, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_UNIQUE, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_KEY, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_UNIQUE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_KEY, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
 		attrList->put($SchemaSymbols::ATT_REFER, allAttrs->get(ATT_REFER_R));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_KEYREF, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_KEYREF, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_XPATH, allAttrs->get(ATT_XPATH_R));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_SELECTOR, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_SELECTOR, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_XPATH, allAttrs->get(ATT_XPATH1_R));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_FIELD, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_FIELD, attrList);
 		$assign(attrList, $Container::getContainer(1));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_ANNOTATION, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_ANNOTATION, attrList);
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_ANNOTATION, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_ANNOTATION, attrList);
 		$assign(attrList, $Container::getContainer(1));
-		attrList->put($SchemaSymbols::ATT_SOURCE, allAttrs->get(ATT_SOURCE_N));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_APPINFO, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_APPINFO, attrList);
+		$nc(attrList)->put($SchemaSymbols::ATT_SOURCE, allAttrs->get(ATT_SOURCE_N));
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_APPINFO, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_APPINFO, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_SOURCE, allAttrs->get(ATT_SOURCE_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_SOURCE, allAttrs->get(ATT_SOURCE_N));
 		attrList->put($SchemaSymbols::ATT_XML_LANG, allAttrs->get(ATT_XML_LANG));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_DOCUMENTATION, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_DOCUMENTATION, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_DOCUMENTATION, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_DOCUMENTATION, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_FINAL, allAttrs->get(ATT_FINAL1_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_FINAL, allAttrs->get(ATT_FINAL1_N));
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAME, allAttrs->get(ATT_NAME_R));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_SIMPLETYPE, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_SIMPLETYPE, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_FINAL, allAttrs->get(ATT_FINAL1_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_FINAL, allAttrs->get(ATT_FINAL1_N));
 		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_SIMPLETYPE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_SIMPLETYPE, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_ITEMTYPE, allAttrs->get(ATT_ITEMTYPE_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_LIST, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_LIST, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_MEMBERTYPES, allAttrs->get(ATT_MEMBER_T_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_UNION, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_UNION, attrList);
 		$assign(attrList, $Container::getContainer(8));
-		attrList->put($SchemaSymbols::ATT_ATTRIBUTEFORMDEFAULT, allAttrs->get(ATT_ATTRIBUTE_FD_D));
+		$nc(attrList)->put($SchemaSymbols::ATT_ATTRIBUTEFORMDEFAULT, allAttrs->get(ATT_ATTRIBUTE_FD_D));
 		attrList->put($SchemaSymbols::ATT_BLOCKDEFAULT, allAttrs->get(ATT_BLOCK_D_D));
 		attrList->put($SchemaSymbols::ATT_ELEMENTFORMDEFAULT, allAttrs->get(ATT_ELEMENT_FD_D));
 		attrList->put($SchemaSymbols::ATT_FINALDEFAULT, allAttrs->get(ATT_FINAL_D_D));
@@ -1682,51 +1470,51 @@ void clinit$XSAttributeChecker($Class* class$) {
 		attrList->put($SchemaSymbols::ATT_TARGETNAMESPACE, allAttrs->get(ATT_TARGET_N_N));
 		attrList->put($SchemaSymbols::ATT_VERSION, allAttrs->get(ATT_VERSION_N));
 		attrList->put($SchemaSymbols::ATT_XML_LANG, allAttrs->get(ATT_XML_LANG));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_SCHEMA, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_SCHEMA, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_SCHEMALOCATION, allAttrs->get(ATT_SCHEMA_L_R));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_INCLUDE, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_REDEFINE, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_INCLUDE, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_REDEFINE, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_NAMESPACE, allAttrs->get(ATT_NAMESPACE_N));
 		attrList->put($SchemaSymbols::ATT_SCHEMALOCATION, allAttrs->get(ATT_SCHEMA_L_N));
-		$nc(XSAttributeChecker::fEleAttrsMapG)->put($SchemaSymbols::ELT_IMPORT, attrList);
+		XSAttributeChecker::fEleAttrsMapG->put($SchemaSymbols::ELT_IMPORT, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_VALUE, allAttrs->get(ATT_VALUE_NNI_N));
 		attrList->put($SchemaSymbols::ATT_FIXED, allAttrs->get(ATT_FIXED_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_LENGTH, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_MINLENGTH, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_MAXLENGTH, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_FRACTIONDIGITS, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_LENGTH, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_MINLENGTH, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_MAXLENGTH, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_FRACTIONDIGITS, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_VALUE, allAttrs->get(ATT_VALUE_PI_N));
 		attrList->put($SchemaSymbols::ATT_FIXED, allAttrs->get(ATT_FIXED_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_TOTALDIGITS, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_TOTALDIGITS, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_VALUE, allAttrs->get(ATT_VALUE_STR_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_PATTERN, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_PATTERN, attrList);
 		$assign(attrList, $Container::getContainer(2));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_VALUE, allAttrs->get(ATT_VALUE_STR_N));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_ENUMERATION, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_ENUMERATION, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_VALUE, allAttrs->get(ATT_VALUE_WS_N));
 		attrList->put($SchemaSymbols::ATT_FIXED, allAttrs->get(ATT_FIXED_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_WHITESPACE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_WHITESPACE, attrList);
 		$assign(attrList, $Container::getContainer(3));
-		attrList->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
+		$nc(attrList)->put($SchemaSymbols::ATT_ID, allAttrs->get(ATT_ID_N));
 		attrList->put($SchemaSymbols::ATT_VALUE, allAttrs->get(ATT_VALUE_STR_N));
 		attrList->put($SchemaSymbols::ATT_FIXED, allAttrs->get(ATT_FIXED_D));
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_MAXINCLUSIVE, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_MAXEXCLUSIVE, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_MININCLUSIVE, attrList);
-		$nc(XSAttributeChecker::fEleAttrsMapL)->put($SchemaSymbols::ELT_MINEXCLUSIVE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_MAXINCLUSIVE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_MAXEXCLUSIVE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_MININCLUSIVE, attrList);
+		XSAttributeChecker::fEleAttrsMapL->put($SchemaSymbols::ELT_MINEXCLUSIVE, attrList);
 	}
 	$assignStatic(XSAttributeChecker::fSeenTemp, $new($booleans, XSAttributeChecker::ATTIDX_COUNT));
 	$assignStatic(XSAttributeChecker::fTempArray, $new($ObjectArray, XSAttributeChecker::ATTIDX_COUNT));
@@ -1736,7 +1524,138 @@ XSAttributeChecker::XSAttributeChecker() {
 }
 
 $Class* XSAttributeChecker::load$($String* name, bool initialize) {
-	$loadClass(XSAttributeChecker, name, initialize, &_XSAttributeChecker_ClassInfo_, clinit$XSAttributeChecker, allocate$XSAttributeChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"ELEMENT_N", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ELEMENT_N)},
+		{"ELEMENT_R", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ELEMENT_R)},
+		{"ATTRIBUTE_N", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTRIBUTE_N)},
+		{"ATTRIBUTE_R", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTRIBUTE_R)},
+		{"ATTIDX_COUNT", "I", nullptr, $PRIVATE | $STATIC, $staticField(XSAttributeChecker, ATTIDX_COUNT)},
+		{"ATTIDX_ABSTRACT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ABSTRACT)},
+		{"ATTIDX_AFORMDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_AFORMDEFAULT)},
+		{"ATTIDX_BASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_BASE)},
+		{"ATTIDX_BLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_BLOCK)},
+		{"ATTIDX_BLOCKDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_BLOCKDEFAULT)},
+		{"ATTIDX_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_DEFAULT)},
+		{"ATTIDX_EFORMDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_EFORMDEFAULT)},
+		{"ATTIDX_FINAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FINAL)},
+		{"ATTIDX_FINALDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FINALDEFAULT)},
+		{"ATTIDX_FIXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FIXED)},
+		{"ATTIDX_FORM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FORM)},
+		{"ATTIDX_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ID)},
+		{"ATTIDX_ITEMTYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ITEMTYPE)},
+		{"ATTIDX_MAXOCCURS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MAXOCCURS)},
+		{"ATTIDX_MEMBERTYPES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MEMBERTYPES)},
+		{"ATTIDX_MINOCCURS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MINOCCURS)},
+		{"ATTIDX_MIXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_MIXED)},
+		{"ATTIDX_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NAME)},
+		{"ATTIDX_NAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NAMESPACE)},
+		{"ATTIDX_NAMESPACE_LIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NAMESPACE_LIST)},
+		{"ATTIDX_NILLABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NILLABLE)},
+		{"ATTIDX_NONSCHEMA", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_NONSCHEMA)},
+		{"ATTIDX_PROCESSCONTENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_PROCESSCONTENTS)},
+		{"ATTIDX_PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_PUBLIC)},
+		{"ATTIDX_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_REF)},
+		{"ATTIDX_REFER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_REFER)},
+		{"ATTIDX_SCHEMALOCATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SCHEMALOCATION)},
+		{"ATTIDX_SOURCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SOURCE)},
+		{"ATTIDX_SUBSGROUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SUBSGROUP)},
+		{"ATTIDX_SYSTEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_SYSTEM)},
+		{"ATTIDX_TARGETNAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_TARGETNAMESPACE)},
+		{"ATTIDX_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_TYPE)},
+		{"ATTIDX_USE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_USE)},
+		{"ATTIDX_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_VALUE)},
+		{"ATTIDX_ENUMNSDECLS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ENUMNSDECLS)},
+		{"ATTIDX_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_VERSION)},
+		{"ATTIDX_XML_LANG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_XML_LANG)},
+		{"ATTIDX_XPATH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_XPATH)},
+		{"ATTIDX_FROMDEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_FROMDEFAULT)},
+		{"ATTIDX_ISRETURNED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSAttributeChecker, ATTIDX_ISRETURNED)},
+		{"fXIntPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XIntPool;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fXIntPool)},
+		{"INT_QUALIFIED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_QUALIFIED)},
+		{"INT_UNQUALIFIED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_UNQUALIFIED)},
+		{"INT_EMPTY_SET", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_EMPTY_SET)},
+		{"INT_ANY_STRICT", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_STRICT)},
+		{"INT_ANY_LAX", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_LAX)},
+		{"INT_ANY_SKIP", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_SKIP)},
+		{"INT_ANY_ANY", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_ANY)},
+		{"INT_ANY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_LIST)},
+		{"INT_ANY_NOT", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_ANY_NOT)},
+		{"INT_USE_OPTIONAL", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_USE_OPTIONAL)},
+		{"INT_USE_REQUIRED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_USE_REQUIRED)},
+		{"INT_USE_PROHIBITED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_USE_PROHIBITED)},
+		{"INT_WS_PRESERVE", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_WS_PRESERVE)},
+		{"INT_WS_REPLACE", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_WS_REPLACE)},
+		{"INT_WS_COLLAPSE", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_WS_COLLAPSE)},
+		{"INT_UNBOUNDED", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XInt;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, INT_UNBOUNDED)},
+		{"fEleAttrsMapG", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/Container;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fEleAttrsMapG)},
+		{"fEleAttrsMapL", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/Container;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fEleAttrsMapL)},
+		{"DT_ANYURI", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_ANYURI)},
+		{"DT_ID", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_ID)},
+		{"DT_QNAME", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_QNAME)},
+		{"DT_STRING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_STRING)},
+		{"DT_TOKEN", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_TOKEN)},
+		{"DT_NCNAME", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_NCNAME)},
+		{"DT_XPATH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_XPATH)},
+		{"DT_XPATH1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_XPATH1)},
+		{"DT_LANGUAGE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_LANGUAGE)},
+		{"DT_COUNT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_COUNT)},
+		{"fExtraDVs", "[Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSAttributeChecker, fExtraDVs)},
+		{"DT_BLOCK", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_BLOCK)},
+		{"DT_BLOCK1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_BLOCK1)},
+		{"DT_FINAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FINAL)},
+		{"DT_FINAL1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FINAL1)},
+		{"DT_FINAL2", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FINAL2)},
+		{"DT_FORM", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_FORM)},
+		{"DT_MAXOCCURS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MAXOCCURS)},
+		{"DT_MAXOCCURS1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MAXOCCURS1)},
+		{"DT_MEMBERTYPES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MEMBERTYPES)},
+		{"DT_MINOCCURS1", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_MINOCCURS1)},
+		{"DT_NAMESPACE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_NAMESPACE)},
+		{"DT_PROCESSCONTENTS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_PROCESSCONTENTS)},
+		{"DT_USE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_USE)},
+		{"DT_WHITESPACE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_WHITESPACE)},
+		{"DT_BOOLEAN", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_BOOLEAN)},
+		{"DT_NONNEGINT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_NONNEGINT)},
+		{"DT_POSINT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSAttributeChecker, DT_POSINT)},
+		{"fSchemaHandler", "Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;", nullptr, $PROTECTED, $field(XSAttributeChecker, fSchemaHandler)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XSAttributeChecker, fSymbolTable)},
+		{"fNonSchemaAttrs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PROTECTED, $field(XSAttributeChecker, fNonSchemaAttrs)},
+		{"fNamespaceList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PROTECTED, $field(XSAttributeChecker, fNamespaceList)},
+		{"fSeen", "[Z", nullptr, $PROTECTED, $field(XSAttributeChecker, fSeen)},
+		{"fSeenTemp", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(XSAttributeChecker, fSeenTemp)},
+		{"INIT_POOL_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(XSAttributeChecker, INIT_POOL_SIZE)},
+		{"INC_POOL_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(XSAttributeChecker, INC_POOL_SIZE)},
+		{"fArrayPool", "[[Ljava/lang/Object;", nullptr, 0, $field(XSAttributeChecker, fArrayPool)},
+		{"fTempArray", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(XSAttributeChecker, fTempArray)},
+		{"fPoolPos", "I", nullptr, 0, $field(XSAttributeChecker, fPoolPos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;)V", nullptr, $PUBLIC, $method(XSAttributeChecker, init$, void, $XSDHandler*)},
+		{"checkAttributes", "(Lorg/w3c/dom/Element;ZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, checkAttributes, $ObjectArray*, $Element*, bool, $XSDocumentInfo*)},
+		{"checkAttributes", "(Lorg/w3c/dom/Element;ZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Z)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, checkAttributes, $ObjectArray*, $Element*, bool, $XSDocumentInfo*, bool)},
+		{"checkNonSchemaAttributes", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGrammarBucket;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, checkNonSchemaAttributes, void, $XSGrammarBucket*)},
+		{"getAvailableArray", "()[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XSAttributeChecker, getAvailableArray, $ObjectArray*)},
+		{"normalize", "(Ljava/lang/String;S)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSAttributeChecker, normalize, $String*, $String*, int16_t)},
+		{"reportSchemaError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSAttributeChecker, reportSchemaError, void, $String*, $ObjectArray*, $Element*)},
+		{"reportSchemaFatalError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, 0, $virtualMethod(XSAttributeChecker, reportSchemaFatalError, void, $String*, $ObjectArray*, $Element*)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, reset, void, $SymbolTable*)},
+		{"resolveNamespace", "(Lorg/w3c/dom/Element;[Lorg/w3c/dom/Attr;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaNamespaceSupport;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, resolveNamespace, void, $Element*, $AttrArray*, $SchemaNamespaceSupport*)},
+		{"returnAttrArray", "([Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeChecker, returnAttrArray, void, $ObjectArray*, $XSDocumentInfo*)},
+		{"validate", "([Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;ILcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(XSAttributeChecker, validate, $Object*, $ObjectArray*, $String*, $String*, int32_t, $XSDocumentInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSAttributeChecker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSAttributeChecker, name, initialize, &classInfo$$, XSAttributeChecker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAttributeChecker);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/EventFilterSupport.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <javax/xml/stream/EventFilter.h>
 #include <javax/xml/stream/XMLEventReader.h>
@@ -24,34 +23,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 
-$FieldInfo _EventFilterSupport_FieldInfo_[] = {
-	{"fEventFilter", "Ljavax/xml/stream/EventFilter;", nullptr, 0, $field(EventFilterSupport, fEventFilter)},
-	{}
-};
-
-$MethodInfo _EventFilterSupport_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/EventFilter;)V", nullptr, $PUBLIC, $method(EventFilterSupport, init$, void, $XMLEventReader*, $EventFilter*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, next, $Object*)},
-	{"nextEvent", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, nextEvent, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
-	{"nextTag", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, nextTag, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
-	{"peek", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, peek, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
-	{}
-};
-
-$ClassInfo _EventFilterSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.EventFilterSupport",
-	"javax.xml.stream.util.EventReaderDelegate",
-	nullptr,
-	_EventFilterSupport_FieldInfo_,
-	_EventFilterSupport_MethodInfo_
-};
-
-$Object* allocate$EventFilterSupport($Class* clazz) {
-	return $of($alloc(EventFilterSupport));
-}
-
 void EventFilterSupport::init$($XMLEventReader* eventReader, $EventFilter* eventFilter) {
 	$EventReaderDelegate::init$();
 	setParent(eventReader);
@@ -60,7 +31,7 @@ void EventFilterSupport::init$($XMLEventReader* eventReader, $EventFilter* event
 
 $Object* EventFilterSupport::next() {
 	try {
-		return $of(nextEvent());
+		return nextEvent();
 	} catch ($XMLStreamException& ex) {
 		$throwNew($NoSuchElementException);
 	}
@@ -77,7 +48,7 @@ bool EventFilterSupport::hasNext() {
 }
 
 $XMLEvent* EventFilterSupport::nextEvent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($EventReaderDelegate::hasNext()) {
 		$var($XMLEvent, event, $EventReaderDelegate::nextEvent());
 		if ($nc(this->fEventFilter)->accept(event)) {
@@ -88,7 +59,7 @@ $XMLEvent* EventFilterSupport::nextEvent() {
 }
 
 $XMLEvent* EventFilterSupport::nextTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($EventReaderDelegate::hasNext()) {
 		$var($XMLEvent, event, $EventReaderDelegate::nextTag());
 		if ($nc(this->fEventFilter)->accept(event)) {
@@ -99,7 +70,7 @@ $XMLEvent* EventFilterSupport::nextTag() {
 }
 
 $XMLEvent* EventFilterSupport::peek() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		$var($XMLEvent, event, $EventReaderDelegate::peek());
 		if (event == nullptr) {
@@ -116,7 +87,30 @@ EventFilterSupport::EventFilterSupport() {
 }
 
 $Class* EventFilterSupport::load$($String* name, bool initialize) {
-	$loadClass(EventFilterSupport, name, initialize, &_EventFilterSupport_ClassInfo_, allocate$EventFilterSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"fEventFilter", "Ljavax/xml/stream/EventFilter;", nullptr, 0, $field(EventFilterSupport, fEventFilter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/EventFilter;)V", nullptr, $PUBLIC, $method(EventFilterSupport, init$, void, $XMLEventReader*, $EventFilter*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, next, $Object*)},
+		{"nextEvent", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, nextEvent, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
+		{"nextTag", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, nextTag, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
+		{"peek", "()Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC, $virtualMethod(EventFilterSupport, peek, $XMLEvent*), "javax.xml.stream.XMLStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.EventFilterSupport",
+		"javax.xml.stream.util.EventReaderDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EventFilterSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventFilterSupport);
+	});
 	return class$;
 }
 

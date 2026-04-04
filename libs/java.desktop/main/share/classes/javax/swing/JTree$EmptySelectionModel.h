@@ -34,6 +34,7 @@ class $export JTree$EmptySelectionModel : public ::javax::swing::tree::DefaultTr
 	$class(JTree$EmptySelectionModel, 0, ::javax::swing::tree::DefaultTreeSelectionModel)
 public:
 	JTree$EmptySelectionModel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addPropertyChangeListener(::java::beans::PropertyChangeListener* listener) override;
 	virtual void addSelectionPaths($Array<::javax::swing::tree::TreePath>* paths) override;

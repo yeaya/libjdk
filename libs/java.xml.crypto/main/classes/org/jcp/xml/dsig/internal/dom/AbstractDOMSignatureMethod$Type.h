@@ -27,6 +27,7 @@ class AbstractDOMSignatureMethod$Type : public ::java::lang::Enum {
 public:
 	AbstractDOMSignatureMethod$Type();
 	static $Array<::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod$Type* valueOf($String* name);
 	static $Array<::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod$Type>* values();

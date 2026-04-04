@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsMenuUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
@@ -12,7 +11,6 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
@@ -31,7 +29,6 @@ using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $WindowsGraphicsUtils = ::com::sun::java::swing::plaf::windows::WindowsGraphicsUtils;
 using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel;
 using $WindowsMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUI;
-using $WindowsMenuItemUIAccessor = ::com::sun::java::swing::plaf::windows::WindowsMenuItemUIAccessor;
 using $WindowsMenuUI$1 = ::com::sun::java::swing::plaf::windows::WindowsMenuUI$1;
 using $WindowsMenuUI$WindowsMouseInputHandler = ::com::sun::java::swing::plaf::windows::WindowsMenuUI$WindowsMouseInputHandler;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
@@ -45,7 +42,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
@@ -64,52 +60,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsMenuUI_FieldInfo_[] = {
-	{"menuBarHeight", "Ljava/lang/Integer;", nullptr, $PROTECTED, $field(WindowsMenuUI, menuBarHeight)},
-	{"hotTrackingOn", "Z", nullptr, $PROTECTED, $field(WindowsMenuUI, hotTrackingOn)},
-	{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsMenuUI, accessor)},
-	{}
-};
-
-$MethodInfo _WindowsMenuUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsMenuUI, init$, void)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuUI, access$000, $JMenuItem*, WindowsMenuUI*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuUI, access$100, $JMenuItem*, WindowsMenuUI*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuUI, access$200, $JMenuItem*, WindowsMenuUI*)},
-	{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsMenuUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, installDefaults, void)},
-	{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
-	{}
-};
-
-$InnerClassInfo _WindowsMenuUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsMenuUI$WindowsMouseInputHandler", "com.sun.java.swing.plaf.windows.WindowsMenuUI", "WindowsMouseInputHandler", $PROTECTED},
-	{"com.sun.java.swing.plaf.windows.WindowsMenuUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsMenuUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsMenuUI",
-	"javax.swing.plaf.basic.BasicMenuUI",
-	nullptr,
-	_WindowsMenuUI_FieldInfo_,
-	_WindowsMenuUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsMenuUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsMenuUI$WindowsMouseInputHandler,com.sun.java.swing.plaf.windows.WindowsMenuUI$1"
-};
-
-$Object* allocate$WindowsMenuUI($Class* clazz) {
-	return $of($alloc(WindowsMenuUI));
-}
 
 $JMenuItem* WindowsMenuUI::access$200(WindowsMenuUI* x0) {
 	$init(WindowsMenuUI);
@@ -143,11 +93,11 @@ void WindowsMenuUI::installDefaults() {
 	}
 	$set(this, menuBarHeight, $Integer::valueOf($UIManager::getInt("MenuBar.height"_s)));
 	$var($Object, obj, $UIManager::get("MenuBar.rolloverEnabled"_s));
-	this->hotTrackingOn = ($instanceOf($Boolean, obj)) ? $nc(($cast($Boolean, obj)))->booleanValue() : true;
+	this->hotTrackingOn = ($instanceOf($Boolean, obj)) ? $cast($Boolean, obj)->booleanValue() : true;
 }
 
 void WindowsMenuUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($WindowsMenuItemUI::isVistaPainting()) {
 		$WindowsMenuItemUI::paintBackground(this->accessor, g, menuItem, bgColor);
 		return;
@@ -160,9 +110,9 @@ void WindowsMenuUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color* 
 		bool var$2 = $XPStyle::getXP() != nullptr;
 		if (var$2) {
 			bool var$3 = $nc(model)->isArmed();
-			var$2 = (var$3 || $nc(model)->isSelected());
+			var$2 = var$3 || model->isSelected();
 		}
-		var$0 = (var$2);
+		var$0 = var$2;
 	}
 	if (var$0) {
 		$BasicMenuUI::paintBackground(g, menu, bgColor);
@@ -178,7 +128,7 @@ void WindowsMenuUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color* 
 	g->fillRect(0, 0, menuWidth, menuHeight);
 	if (menu->isOpaque()) {
 		bool var$4 = $nc(model)->isArmed();
-		if (var$4 || $nc(model)->isSelected()) {
+		if (var$4 || model->isSelected()) {
 			g->setColor(shadow);
 			g->drawLine(0, 0, menuWidth - 1, 0);
 			g->drawLine(0, 0, 0, menuHeight - 2);
@@ -186,12 +136,12 @@ void WindowsMenuUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color* 
 			g->drawLine(menuWidth - 1, 0, menuWidth - 1, menuHeight - 2);
 			g->drawLine(0, menuHeight - 2, menuWidth - 1, menuHeight - 2);
 		} else {
-			bool var$6 = model->isRollover();
-			if (var$6 && model->isEnabled()) {
+			bool var$5 = model->isRollover();
+			if (var$5 && model->isEnabled()) {
 				bool otherMenuSelected = false;
-				$var($MenuElementArray, menus, $nc(($cast($JMenuBar, $(menu->getParent()))))->getSubElements());
+				$var($MenuElementArray, menus, $$sure($JMenuBar, menu->getParent())->getSubElements());
 				for (int32_t i = 0; i < $nc(menus)->length; ++i) {
-					if ($nc(($cast($JMenuItem, menus->get(i))))->isSelected()) {
+					if ($nc($cast($JMenuItem, menus->get(i)))->isSelected()) {
 						otherMenuSelected = true;
 						break;
 					}
@@ -216,7 +166,7 @@ void WindowsMenuUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color* 
 }
 
 void WindowsMenuUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($WindowsMenuItemUI::isVistaPainting()) {
 		$WindowsMenuItemUI::paintText(this->accessor, g, menuItem, textRect, text);
 		return;
@@ -226,9 +176,9 @@ void WindowsMenuUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle* te
 	$var($Color, oldColor, $nc(g)->getColor());
 	bool paintRollover = $nc(model)->isRollover();
 	if (paintRollover && $nc(menu)->isTopLevelMenu()) {
-		$var($MenuElementArray, menus, $nc(($cast($JMenuBar, $(menu->getParent()))))->getSubElements());
+		$var($MenuElementArray, menus, $$sure($JMenuBar, menu->getParent())->getSubElements());
 		for (int32_t i = 0; i < $nc(menus)->length; ++i) {
-			if ($nc(($cast($JMenuItem, menus->get(i))))->isSelected()) {
+			if ($nc($cast($JMenuItem, menus->get(i)))->isSelected()) {
 				paintRollover = false;
 				break;
 			}
@@ -237,16 +187,16 @@ void WindowsMenuUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle* te
 	bool var$1 = model->isSelected();
 	if (var$1) {
 		bool var$2 = $WindowsLookAndFeel::isClassicWindows();
-		var$1 = (var$2 || !$nc(menu)->isTopLevelMenu());
+		var$1 = var$2 || !$nc(menu)->isTopLevelMenu();
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (!var$0) {
 		bool var$3 = $XPStyle::getXP() != nullptr;
 		if (var$3) {
 			bool var$4 = paintRollover || model->isArmed();
-			var$3 = (var$4 || model->isSelected());
+			var$3 = var$4 || model->isSelected();
 		}
-		var$0 = (var$3);
+		var$0 = var$3;
 	}
 	if (var$0) {
 		g->setColor(this->selectionForeground);
@@ -261,9 +211,9 @@ $MouseInputListener* WindowsMenuUI::createMouseInputListener($JComponent* c) {
 
 $Dimension* WindowsMenuUI::getPreferredMenuItemSize($JComponent* c, $Icon* checkIcon, $Icon* arrowIcon, int32_t defaultTextIconGap) {
 	$var($Dimension, d, $BasicMenuUI::getPreferredMenuItemSize(c, checkIcon, arrowIcon, defaultTextIconGap));
-	bool var$0 = $instanceOf($JMenu, c) && $nc(($cast($JMenu, c)))->isTopLevelMenu() && this->menuBarHeight != nullptr;
-	if (var$0 && $nc(d)->height < $nc(this->menuBarHeight)->intValue()) {
-		d->height = $nc(this->menuBarHeight)->intValue();
+	bool var$0 = $instanceOf($JMenu, c) && $cast($JMenu, c)->isTopLevelMenu() && this->menuBarHeight != nullptr;
+	if (var$0 && $nc(d)->height < this->menuBarHeight->intValue()) {
+		d->height = this->menuBarHeight->intValue();
 	}
 	return d;
 }
@@ -272,7 +222,47 @@ WindowsMenuUI::WindowsMenuUI() {
 }
 
 $Class* WindowsMenuUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsMenuUI, name, initialize, &_WindowsMenuUI_ClassInfo_, allocate$WindowsMenuUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"menuBarHeight", "Ljava/lang/Integer;", nullptr, $PROTECTED, $field(WindowsMenuUI, menuBarHeight)},
+		{"hotTrackingOn", "Z", nullptr, $PROTECTED, $field(WindowsMenuUI, hotTrackingOn)},
+		{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsMenuUI, accessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsMenuUI, init$, void)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuUI, access$000, $JMenuItem*, WindowsMenuUI*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuUI, access$100, $JMenuItem*, WindowsMenuUI*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuUI, access$200, $JMenuItem*, WindowsMenuUI*)},
+		{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsMenuUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, installDefaults, void)},
+		{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsMenuUI$WindowsMouseInputHandler", "com.sun.java.swing.plaf.windows.WindowsMenuUI", "WindowsMouseInputHandler", $PROTECTED},
+		{"com.sun.java.swing.plaf.windows.WindowsMenuUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsMenuUI",
+		"javax.swing.plaf.basic.BasicMenuUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsMenuUI$WindowsMouseInputHandler,com.sun.java.swing.plaf.windows.WindowsMenuUI$1"
+	};
+	$loadClass(WindowsMenuUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsMenuUI);
+	});
 	return class$;
 }
 

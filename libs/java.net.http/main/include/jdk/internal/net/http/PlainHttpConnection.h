@@ -67,6 +67,7 @@ class $import PlainHttpConnection : public ::jdk::internal::net::http::HttpConne
 	$class(PlainHttpConnection, 0, ::jdk::internal::net::http::HttpConnection)
 public:
 	PlainHttpConnection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::InetSocketAddress* addr, ::jdk::internal::net::http::HttpClientImpl* client);
 	virtual ::jdk::internal::net::http::ConnectionPool$CacheKey* cacheKey() override;
 	bool canRetryConnect($Throwable* e);

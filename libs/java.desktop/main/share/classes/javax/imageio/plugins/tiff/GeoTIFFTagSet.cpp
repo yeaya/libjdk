@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/plugins/tiff/GeoTIFFTagSet$GeoAsciiParams.h>
@@ -37,67 +36,19 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _GeoTIFFTagSet_FieldInfo_[] = {
-	{"theInstance", "Ljavax/imageio/plugins/tiff/GeoTIFFTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(GeoTIFFTagSet, theInstance)},
-	{"TAG_MODEL_PIXEL_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_MODEL_PIXEL_SCALE)},
-	{"TAG_MODEL_TRANSFORMATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_MODEL_TRANSFORMATION)},
-	{"TAG_MODEL_TIE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_MODEL_TIE_POINT)},
-	{"TAG_GEO_KEY_DIRECTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_GEO_KEY_DIRECTORY)},
-	{"TAG_GEO_DOUBLE_PARAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_GEO_DOUBLE_PARAMS)},
-	{"TAG_GEO_ASCII_PARAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_GEO_ASCII_PARAMS)},
-	{"tags", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticField(GeoTIFFTagSet, tags)},
-	{}
-};
-
-$MethodInfo _GeoTIFFTagSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GeoTIFFTagSet, init$, void)},
-	{"getInstance", "()Ljavax/imageio/plugins/tiff/GeoTIFFTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GeoTIFFTagSet, getInstance, GeoTIFFTagSet*)},
-	{"initTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GeoTIFFTagSet, initTags, void)},
-	{}
-};
-
-$InnerClassInfo _GeoTIFFTagSet_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoAsciiParams", $STATIC},
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoDoubleParams", $STATIC},
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoKeyDirectory", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoKeyDirectory", $STATIC},
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelTiepoint", $STATIC},
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTransformation", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelTransformation", $STATIC},
-	{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelPixelScale", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelPixelScale", $STATIC},
-	{}
-};
-
-$ClassInfo _GeoTIFFTagSet_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet",
-	"javax.imageio.plugins.tiff.TIFFTagSet",
-	nullptr,
-	_GeoTIFFTagSet_FieldInfo_,
-	_GeoTIFFTagSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GeoTIFFTagSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams,javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams,javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoKeyDirectory,javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint,javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTransformation,javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelPixelScale"
-};
-
-$Object* allocate$GeoTIFFTagSet($Class* clazz) {
-	return $of($alloc(GeoTIFFTagSet));
-}
-
 GeoTIFFTagSet* GeoTIFFTagSet::theInstance = nullptr;
 $List* GeoTIFFTagSet::tags = nullptr;
 
 void GeoTIFFTagSet::initTags() {
 	$init(GeoTIFFTagSet);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(GeoTIFFTagSet::tags, $new($ArrayList, 42));
-	$nc(GeoTIFFTagSet::tags)->add($$new($GeoTIFFTagSet$ModelPixelScale));
-	$nc(GeoTIFFTagSet::tags)->add($$new($GeoTIFFTagSet$ModelTransformation));
-	$nc(GeoTIFFTagSet::tags)->add($$new($GeoTIFFTagSet$ModelTiepoint));
-	$nc(GeoTIFFTagSet::tags)->add($$new($GeoTIFFTagSet$GeoKeyDirectory));
-	$nc(GeoTIFFTagSet::tags)->add($$new($GeoTIFFTagSet$GeoDoubleParams));
-	$nc(GeoTIFFTagSet::tags)->add($$new($GeoTIFFTagSet$GeoAsciiParams));
+	GeoTIFFTagSet::tags->add($$new($GeoTIFFTagSet$ModelPixelScale));
+	GeoTIFFTagSet::tags->add($$new($GeoTIFFTagSet$ModelTransformation));
+	GeoTIFFTagSet::tags->add($$new($GeoTIFFTagSet$ModelTiepoint));
+	GeoTIFFTagSet::tags->add($$new($GeoTIFFTagSet$GeoKeyDirectory));
+	GeoTIFFTagSet::tags->add($$new($GeoTIFFTagSet$GeoDoubleParams));
+	GeoTIFFTagSet::tags->add($$new($GeoTIFFTagSet$GeoAsciiParams));
 }
 
 void GeoTIFFTagSet::init$() {
@@ -105,9 +56,8 @@ void GeoTIFFTagSet::init$() {
 }
 
 GeoTIFFTagSet* GeoTIFFTagSet::getInstance() {
-	$load(GeoTIFFTagSet);
+	$init(GeoTIFFTagSet);
 	$synchronized(class$) {
-		$init(GeoTIFFTagSet);
 		if (GeoTIFFTagSet::theInstance == nullptr) {
 			initTags();
 			$assignStatic(GeoTIFFTagSet::theInstance, $new(GeoTIFFTagSet));
@@ -117,7 +67,7 @@ GeoTIFFTagSet* GeoTIFFTagSet::getInstance() {
 	}
 }
 
-void clinit$GeoTIFFTagSet($Class* class$) {
+void GeoTIFFTagSet::clinit$($Class* clazz) {
 	$assignStatic(GeoTIFFTagSet::theInstance, nullptr);
 }
 
@@ -125,7 +75,49 @@ GeoTIFFTagSet::GeoTIFFTagSet() {
 }
 
 $Class* GeoTIFFTagSet::load$($String* name, bool initialize) {
-	$loadClass(GeoTIFFTagSet, name, initialize, &_GeoTIFFTagSet_ClassInfo_, clinit$GeoTIFFTagSet, allocate$GeoTIFFTagSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Ljavax/imageio/plugins/tiff/GeoTIFFTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(GeoTIFFTagSet, theInstance)},
+		{"TAG_MODEL_PIXEL_SCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_MODEL_PIXEL_SCALE)},
+		{"TAG_MODEL_TRANSFORMATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_MODEL_TRANSFORMATION)},
+		{"TAG_MODEL_TIE_POINT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_MODEL_TIE_POINT)},
+		{"TAG_GEO_KEY_DIRECTORY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_GEO_KEY_DIRECTORY)},
+		{"TAG_GEO_DOUBLE_PARAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_GEO_DOUBLE_PARAMS)},
+		{"TAG_GEO_ASCII_PARAMS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GeoTIFFTagSet, TAG_GEO_ASCII_PARAMS)},
+		{"tags", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticField(GeoTIFFTagSet, tags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GeoTIFFTagSet, init$, void)},
+		{"getInstance", "()Ljavax/imageio/plugins/tiff/GeoTIFFTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GeoTIFFTagSet, getInstance, GeoTIFFTagSet*)},
+		{"initTags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GeoTIFFTagSet, initTags, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoAsciiParams", $STATIC},
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoDoubleParams", $STATIC},
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoKeyDirectory", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "GeoKeyDirectory", $STATIC},
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelTiepoint", $STATIC},
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTransformation", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelTransformation", $STATIC},
+		{"javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelPixelScale", "javax.imageio.plugins.tiff.GeoTIFFTagSet", "ModelPixelScale", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet",
+		"javax.imageio.plugins.tiff.TIFFTagSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoAsciiParams,javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoDoubleParams,javax.imageio.plugins.tiff.GeoTIFFTagSet$GeoKeyDirectory,javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTiepoint,javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelTransformation,javax.imageio.plugins.tiff.GeoTIFFTagSet$ModelPixelScale"
+	};
+	$loadClass(GeoTIFFTagSet, name, initialize, &classInfo$$, GeoTIFFTagSet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GeoTIFFTagSet);
+	});
 	return class$;
 }
 

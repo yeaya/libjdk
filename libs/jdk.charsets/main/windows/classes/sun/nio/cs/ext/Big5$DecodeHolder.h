@@ -14,6 +14,7 @@ class Big5$DecodeHolder : public ::java::lang::Object {
 	$class(Big5$DecodeHolder, 0, ::java::lang::Object)
 public:
 	Big5$DecodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cSBStr;
 	static $StringArray* b2cStr;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/BMPattern.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Match.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Op$CharOp.h>
@@ -94,7 +93,6 @@ using $ParserForXMLSchema = ::com::sun::org::apache::xerces::internal::impl::xpa
 using $REUtil = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::REUtil;
 using $RangeToken = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::RangeToken;
 using $RegexParser = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::RegexParser;
-using $RegularExpression$ClosureContext = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::RegularExpression$ClosureContext;
 using $RegularExpression$Context = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::RegularExpression$Context;
 using $RegularExpression$ExpressionTarget = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::RegularExpression$ExpressionTarget;
 using $Token = ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token;
@@ -122,115 +120,6 @@ namespace com {
 							namespace xpath {
 								namespace regex {
 
-$FieldInfo _RegularExpression_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, serialVersionUID)},
-	{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(RegularExpression, DEBUG)},
-	{"regex", "Ljava/lang/String;", nullptr, 0, $field(RegularExpression, regex)},
-	{"options", "I", nullptr, 0, $field(RegularExpression, options)},
-	{"nofparen", "I", nullptr, 0, $field(RegularExpression, nofparen)},
-	{"tokentree", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $field(RegularExpression, tokentree)},
-	{"hasBackReferences", "Z", nullptr, 0, $field(RegularExpression, hasBackReferences)},
-	{"minlength", "I", nullptr, $TRANSIENT, $field(RegularExpression, minlength)},
-	{"operations", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;", nullptr, $TRANSIENT, $field(RegularExpression, operations)},
-	{"numberOfClosures", "I", nullptr, $TRANSIENT, $field(RegularExpression, numberOfClosures)},
-	{"context", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$Context;", nullptr, $TRANSIENT, $field(RegularExpression, context)},
-	{"firstChar", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $TRANSIENT, $field(RegularExpression, firstChar)},
-	{"fixedString", "Ljava/lang/String;", nullptr, $TRANSIENT, $field(RegularExpression, fixedString)},
-	{"fixedStringOptions", "I", nullptr, $TRANSIENT, $field(RegularExpression, fixedStringOptions)},
-	{"fixedStringTable", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/BMPattern;", nullptr, $TRANSIENT, $field(RegularExpression, fixedStringTable)},
-	{"fixedStringOnly", "Z", nullptr, $TRANSIENT, $field(RegularExpression, fixedStringOnly)},
-	{"IGNORE_CASE", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, IGNORE_CASE)},
-	{"SINGLE_LINE", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, SINGLE_LINE)},
-	{"MULTIPLE_LINES", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, MULTIPLE_LINES)},
-	{"EXTENDED_COMMENT", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, EXTENDED_COMMENT)},
-	{"USE_UNICODE_CATEGORY", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, USE_UNICODE_CATEGORY)},
-	{"UNICODE_WORD_BOUNDARY", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, UNICODE_WORD_BOUNDARY)},
-	{"PROHIBIT_HEAD_CHARACTER_OPTIMIZATION", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, PROHIBIT_HEAD_CHARACTER_OPTIMIZATION)},
-	{"PROHIBIT_FIXED_STRING_OPTIMIZATION", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, PROHIBIT_FIXED_STRING_OPTIMIZATION)},
-	{"XMLSCHEMA_MODE", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, XMLSCHEMA_MODE)},
-	{"SPECIAL_COMMA", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, SPECIAL_COMMA)},
-	{"WT_IGNORE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, WT_IGNORE)},
-	{"WT_LETTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, WT_LETTER)},
-	{"WT_OTHER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, WT_OTHER)},
-	{"LINE_FEED", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, LINE_FEED)},
-	{"CARRIAGE_RETURN", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, CARRIAGE_RETURN)},
-	{"LINE_SEPARATOR", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, LINE_SEPARATOR)},
-	{"PARAGRAPH_SEPARATOR", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, PARAGRAPH_SEPARATOR)},
-	{}
-};
-
-$MethodInfo _RegularExpression_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RegularExpression, init$, void, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RegularExpression, init$, void, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(RegularExpression, init$, void, $String*, $String*, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;IZI)V", nullptr, 0, $method(RegularExpression, init$, void, $String*, $Token*, int32_t, bool, int32_t)},
-	{"compile", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RegularExpression, compile, void, $Token*)},
-	{"compile", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;Z)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;", nullptr, $PRIVATE, $method(RegularExpression, compile, $Op*, $Token*, $Op*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, equals, bool, Object$*)},
-	{"equals", "(Ljava/lang/String;I)Z", nullptr, 0, $virtualMethod(RegularExpression, equals, bool, $String*, int32_t)},
-	{"getNumberOfGroups", "()I", nullptr, $PUBLIC, $virtualMethod(RegularExpression, getNumberOfGroups, int32_t)},
-	{"getOptions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegularExpression, getOptions, $String*)},
-	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegularExpression, getPattern, $String*)},
-	{"getPreviousWordType", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget;IIII)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, getPreviousWordType, int32_t, $RegularExpression$ExpressionTarget*, int32_t, int32_t, int32_t, int32_t)},
-	{"getWordType", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget;IIII)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, getWordType, int32_t, $RegularExpression$ExpressionTarget*, int32_t, int32_t, int32_t, int32_t)},
-	{"getWordType0", "(CI)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, getWordType0, int32_t, char16_t, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RegularExpression, hashCode, int32_t)},
-	{"isEOLChar", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, isEOLChar, bool, int32_t)},
-	{"isSet", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, isSet, bool, int32_t, int32_t)},
-	{"isWordChar", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, isWordChar, bool, int32_t)},
-	{"match", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$Context;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;III)I", nullptr, $PRIVATE, $method(RegularExpression, match, int32_t, $RegularExpression$Context*, $Op*, int32_t, int32_t, int32_t)},
-	{"matchAnchor", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$Context;II)Z", nullptr, 0, $virtualMethod(RegularExpression, matchAnchor, bool, $RegularExpression$ExpressionTarget*, $Op*, $RegularExpression$Context*, int32_t, int32_t)},
-	{"matchChar", "(IIZ)Z", nullptr, $PRIVATE, $method(RegularExpression, matchChar, bool, int32_t, int32_t, bool)},
-	{"matchIgnoreCase", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, matchIgnoreCase, bool, int32_t, int32_t)},
-	{"matches", "([C)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*)},
-	{"matches", "([CII)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*, int32_t, int32_t)},
-	{"matches", "([CLcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*, $Match*)},
-	{"matches", "([CIILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*, int32_t, int32_t, $Match*)},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*)},
-	{"matches", "(Ljava/lang/String;II)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*, int32_t, int32_t)},
-	{"matches", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*, $Match*)},
-	{"matches", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*, int32_t, int32_t, $Match*)},
-	{"matches", "(Ljava/text/CharacterIterator;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $CharacterIterator*)},
-	{"matches", "(Ljava/text/CharacterIterator;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $CharacterIterator*, $Match*)},
-	{"prepare", "()V", nullptr, 0, $virtualMethod(RegularExpression, prepare, void)},
-	{"setPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"setPattern", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"setPattern", "(Ljava/lang/String;ILjava/util/Locale;)V", nullptr, $PRIVATE, $method(RegularExpression, setPattern, void, $String*, int32_t, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"setPattern", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"setPattern", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*, $String*, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegularExpression, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _RegularExpression_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$Context", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "Context", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ClosureContext", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharacterIteratorTarget", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharArrayTarget", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "StringTarget", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RegularExpression_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_RegularExpression_FieldInfo_,
-	_RegularExpression_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RegularExpression_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$Context,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget"
-};
-
-$Object* allocate$RegularExpression($Class* clazz) {
-	return $of($alloc(RegularExpression));
-}
-
 void RegularExpression::compile($Token* tok) {
 	$synchronized(this) {
 		if (this->operations != nullptr) {
@@ -242,191 +131,152 @@ void RegularExpression::compile($Token* tok) {
 }
 
 $Op* RegularExpression::compile($Token* tok, $Op* next$renamed, bool reverse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Op, next, next$renamed);
 	$var($Op, ret, nullptr);
 	{
-		$var($Op$UnionOp, uni, nullptr)
-		$var($Token, child, nullptr)
+		$var($Op$UnionOp, uni, nullptr);
+		$var($Token, child, nullptr);
 		int32_t min = 0;
 		int32_t max = 0;
-		$var($Token$ConditionToken, ctok, nullptr)
+		$var($Token$ConditionToken, ctok, nullptr);
 		int32_t ref = 0;
-		$var($Op, condition, nullptr)
-		$var($Op, yes, nullptr)
-		$var($Op, no, nullptr)
+		$var($Op, condition, nullptr);
+		$var($Op, yes, nullptr);
+		$var($Op, no, nullptr);
 		switch ($nc(tok)->type) {
 		case $Token::DOT:
-			{
-				$assign(ret, $Op::createDot());
-				$set($nc(ret), next, next);
-				break;
-			}
+			$assign(ret, $Op::createDot());
+			$set($nc(ret), next, next);
+			break;
 		case $Token::CHAR:
-			{
-				$assign(ret, $Op::createChar(tok->getChar()));
-				$set($nc(ret), next, next);
-				break;
-			}
+			$assign(ret, $Op::createChar(tok->getChar()));
+			$set($nc(ret), next, next);
+			break;
 		case $Token::ANCHOR:
-			{
-				$assign(ret, $Op::createAnchor(tok->getChar()));
-				$set($nc(ret), next, next);
-				break;
-			}
+			$assign(ret, $Op::createAnchor(tok->getChar()));
+			$set($nc(ret), next, next);
+			break;
 		case $Token::RANGE:
-			{}
 		case $Token::NRANGE:
-			{
-				$assign(ret, $Op::createRange(tok));
-				$set($nc(ret), next, next);
-				break;
-			}
+			$assign(ret, $Op::createRange(tok));
+			$set($nc(ret), next, next);
+			break;
 		case $Token::CONCAT:
-			{
-				$assign(ret, next);
-				if (!reverse) {
-					for (int32_t i = tok->size() - 1; i >= 0; --i) {
-						$assign(ret, compile($(tok->getChild(i)), ret, false));
-					}
-				} else {
-					for (int32_t i = 0; i < tok->size(); ++i) {
-						$assign(ret, compile($(tok->getChild(i)), ret, true));
-					}
+			$assign(ret, next);
+			if (!reverse) {
+				for (int32_t i = tok->size() - 1; i >= 0; --i) {
+					$assign(ret, compile($(tok->getChild(i)), ret, false));
 				}
-				break;
-			}
-		case $Token::UNION:
-			{
-				$assign(uni, $Op::createUnion(tok->size()));
+			} else {
 				for (int32_t i = 0; i < tok->size(); ++i) {
-					$nc(uni)->addElement($(compile($(tok->getChild(i)), next, reverse)));
+					$assign(ret, compile($(tok->getChild(i)), ret, true));
 				}
-				$assign(ret, uni);
-				break;
 			}
+			break;
+		case $Token::UNION:
+			$assign(uni, $Op::createUnion(tok->size()));
+			for (int32_t i = 0; i < tok->size(); ++i) {
+				$nc(uni)->addElement($(compile($(tok->getChild(i)), next, reverse)));
+			}
+			$assign(ret, uni);
+			break;
 		case $Token::CLOSURE:
-			{}
 		case $Token::NONGREEDYCLOSURE:
-			{
-				$assign(child, tok->getChild(0));
-				min = tok->getMin();
-				max = tok->getMax();
-				if (min >= 0 && min == max) {
-					$assign(ret, next);
-					for (int32_t i = 0; i < min; ++i) {
-						$assign(ret, compile(child, ret, reverse));
-					}
-					break;
-				}
-				if (min > 0 && max > 0) {
-					max -= min;
-				}
-				if (max > 0) {
-					$assign(ret, next);
-					for (int32_t i = 0; i < max; ++i) {
-						$var($Op$ChildOp, q, $Op::createQuestion(tok->type == $Token::NONGREEDYCLOSURE));
-						$set($nc(q), next, next);
-						q->setChild($(compile(child, ret, reverse)));
-						$assign(ret, q);
-					}
-				} else {
-					$var($Op$ChildOp, op, nullptr);
-					if (tok->type == $Token::NONGREEDYCLOSURE) {
-						$assign(op, $Op::createNonGreedyClosure());
-					} else {
-						$assign(op, $Op::createClosure(this->numberOfClosures++));
-					}
-					$set($nc(op), next, next);
-					op->setChild($(compile(child, op, reverse)));
-					$assign(ret, op);
-				}
-				if (min > 0) {
-					for (int32_t i = 0; i < min; ++i) {
-						$assign(ret, compile(child, ret, reverse));
-					}
-				}
-				break;
-			}
-		case $Token::EMPTY:
-			{
+			$assign(child, tok->getChild(0));
+			min = tok->getMin();
+			max = tok->getMax();
+			if (min >= 0 && min == max) {
 				$assign(ret, next);
-				break;
-			}
-		case $Token::STRING:
-			{
-				$assign(ret, $Op::createString($(tok->getString())));
-				$set($nc(ret), next, next);
-				break;
-			}
-		case $Token::BACKREFERENCE:
-			{
-				$assign(ret, $Op::createBackReference(tok->getReferenceNumber()));
-				$set($nc(ret), next, next);
-				break;
-			}
-		case $Token::PAREN:
-			{
-				if (tok->getParenNumber() == 0) {
-					$assign(ret, compile($(tok->getChild(0)), next, reverse));
-				} else if (reverse) {
-					$assign(next, $Op::createCapture(tok->getParenNumber(), next));
-					$assign(next, compile($(tok->getChild(0)), next, reverse));
-					$assign(ret, $Op::createCapture(-tok->getParenNumber(), next));
-				} else {
-					$assign(next, $Op::createCapture(-tok->getParenNumber(), next));
-					$assign(next, compile($(tok->getChild(0)), next, reverse));
-					$assign(ret, $Op::createCapture(tok->getParenNumber(), next));
+				for (int32_t i = 0; i < min; ++i) {
+					$assign(ret, compile(child, ret, reverse));
 				}
 				break;
 			}
+			if (min > 0 && max > 0) {
+				max -= min;
+			}
+			if (max > 0) {
+				$assign(ret, next);
+				for (int32_t i = 0; i < max; ++i) {
+					$var($Op$ChildOp, q, $Op::createQuestion(tok->type == $Token::NONGREEDYCLOSURE));
+					$set($nc(q), next, next);
+					q->setChild($(compile(child, ret, reverse)));
+					$assign(ret, q);
+				}
+			} else {
+				$var($Op$ChildOp, op, nullptr);
+				if (tok->type == $Token::NONGREEDYCLOSURE) {
+					$assign(op, $Op::createNonGreedyClosure());
+				} else {
+					$assign(op, $Op::createClosure(this->numberOfClosures++));
+				}
+				$set($nc(op), next, next);
+				op->setChild($(compile(child, op, reverse)));
+				$assign(ret, op);
+			}
+			if (min > 0) {
+				for (int32_t i = 0; i < min; ++i) {
+					$assign(ret, compile(child, ret, reverse));
+				}
+			}
+			break;
+		case $Token::EMPTY:
+			$assign(ret, next);
+			break;
+		case $Token::STRING:
+			$assign(ret, $Op::createString($(tok->getString())));
+			$set($nc(ret), next, next);
+			break;
+		case $Token::BACKREFERENCE:
+			$assign(ret, $Op::createBackReference(tok->getReferenceNumber()));
+			$set($nc(ret), next, next);
+			break;
+		case $Token::PAREN:
+			if (tok->getParenNumber() == 0) {
+				$assign(ret, compile($(tok->getChild(0)), next, reverse));
+			} else if (reverse) {
+				$assign(next, $Op::createCapture(tok->getParenNumber(), next));
+				$assign(next, compile($(tok->getChild(0)), next, reverse));
+				$assign(ret, $Op::createCapture(-tok->getParenNumber(), next));
+			} else {
+				$assign(next, $Op::createCapture(-tok->getParenNumber(), next));
+				$assign(next, compile($(tok->getChild(0)), next, reverse));
+				$assign(ret, $Op::createCapture(tok->getParenNumber(), next));
+			}
+			break;
 		case $Token::LOOKAHEAD:
-			{
-				$assign(ret, $Op::createLook($Op::LOOKAHEAD, next, $(compile($(tok->getChild(0)), nullptr, false))));
-				break;
-			}
+			$assign(ret, $Op::createLook($Op::LOOKAHEAD, next, $(compile($(tok->getChild(0)), nullptr, false))));
+			break;
 		case $Token::NEGATIVELOOKAHEAD:
-			{
-				$assign(ret, $Op::createLook($Op::NEGATIVELOOKAHEAD, next, $(compile($(tok->getChild(0)), nullptr, false))));
-				break;
-			}
+			$assign(ret, $Op::createLook($Op::NEGATIVELOOKAHEAD, next, $(compile($(tok->getChild(0)), nullptr, false))));
+			break;
 		case $Token::LOOKBEHIND:
-			{
-				$assign(ret, $Op::createLook($Op::LOOKBEHIND, next, $(compile($(tok->getChild(0)), nullptr, true))));
-				break;
-			}
+			$assign(ret, $Op::createLook($Op::LOOKBEHIND, next, $(compile($(tok->getChild(0)), nullptr, true))));
+			break;
 		case $Token::NEGATIVELOOKBEHIND:
-			{
-				$assign(ret, $Op::createLook($Op::NEGATIVELOOKBEHIND, next, $(compile($(tok->getChild(0)), nullptr, true))));
-				break;
-			}
+			$assign(ret, $Op::createLook($Op::NEGATIVELOOKBEHIND, next, $(compile($(tok->getChild(0)), nullptr, true))));
+			break;
 		case $Token::INDEPENDENT:
-			{
-				$assign(ret, $Op::createIndependent(next, $(compile($(tok->getChild(0)), nullptr, reverse))));
-				break;
-			}
+			$assign(ret, $Op::createIndependent(next, $(compile($(tok->getChild(0)), nullptr, reverse))));
+			break;
 		case $Token::MODIFIERGROUP:
 			{
-				$var($Op, var$0, next);
-				$var($Op, var$1, compile($(tok->getChild(0)), nullptr, reverse));
-				int32_t var$2 = $nc(($cast($Token$ModifierToken, tok)))->getOptions();
-				$assign(ret, $Op::createModifier(var$0, var$1, var$2, ($cast($Token$ModifierToken, tok))->getOptionsMask()));
+				$var($Op, var$0, compile($(tok->getChild(0)), nullptr, reverse));
+				int32_t var$1 = $cast($Token$ModifierToken, tok)->getOptions();
+				$assign(ret, $Op::createModifier(next, var$0, var$1, $cast($Token$ModifierToken, tok)->getOptionsMask()));
 				break;
 			}
 		case $Token::CONDITION:
-			{
-				$assign(ctok, $cast($Token$ConditionToken, tok));
-				ref = $nc(ctok)->refNumber;
-				$assign(condition, ctok->condition == nullptr ? ($Op*)nullptr : compile(ctok->condition, nullptr, reverse));
-				$assign(yes, compile(ctok->yes, next, reverse));
-				$assign(no, ctok->no == nullptr ? ($Op*)nullptr : compile(ctok->no, next, reverse));
-				$assign(ret, $Op::createCondition(next, ref, condition, yes, no));
-				break;
-			}
+			$assign(ctok, $cast($Token$ConditionToken, tok));
+			ref = $nc(ctok)->refNumber;
+			$assign(condition, ctok->condition == nullptr ? ($Op*)nullptr : compile(ctok->condition, nullptr, reverse));
+			$assign(yes, compile(ctok->yes, next, reverse));
+			$assign(no, ctok->no == nullptr ? ($Op*)nullptr : compile(ctok->no, next, reverse));
+			$assign(ret, $Op::createCondition(next, ref, condition, yes, no));
+			break;
 		default:
-			{
-				$throwNew($RuntimeException, $$str({"Unknown token type: "_s, $$str(tok->type)}));
-			}
+			$throwNew($RuntimeException, $$str({"Unknown token type: "_s, $$str(tok->type)}));
 		}
 	}
 	return ret;
@@ -445,7 +295,7 @@ bool RegularExpression::matches($chars* target, $Match* match) {
 }
 
 bool RegularExpression::matches($chars* target, int32_t start, int32_t end, $Match* match$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Match, match, match$renamed);
 	$synchronized(this) {
 		if (this->operations == nullptr) {
@@ -457,7 +307,7 @@ bool RegularExpression::matches($chars* target, int32_t start, int32_t end, $Mat
 	}
 	$var($RegularExpression$Context, con, nullptr);
 	$synchronized(this->context) {
-		$assign(con, $nc(this->context)->inuse ? $new($RegularExpression$Context) : this->context);
+		$assign(con, this->context->inuse ? $new($RegularExpression$Context) : this->context);
 		$nc(con)->reset(target, start, end, this->numberOfClosures);
 	}
 	if (match != nullptr) {
@@ -467,12 +317,12 @@ bool RegularExpression::matches($chars* target, int32_t start, int32_t end, $Mat
 		$assign(match, $new($Match));
 		match->setNumberOfGroups(this->nofparen);
 	}
-	$set($nc(con), match, match);
+	$set(con, match, match);
 	if (RegularExpression::isSet(this->options, RegularExpression::XMLSCHEMA_MODE)) {
 		int32_t matchEnd = this->match(con, this->operations, con->start, 1, this->options);
 		if (matchEnd == con->limit) {
 			if (con->match != nullptr) {
-				$nc(con->match)->setBeginning(0, con->start);
+				con->match->setBeginning(0, con->start);
 				$nc(con->match)->setEnd(0, matchEnd);
 			}
 			con->setInUse(false);
@@ -484,7 +334,7 @@ bool RegularExpression::matches($chars* target, int32_t start, int32_t end, $Mat
 		int32_t o = $nc(this->fixedStringTable)->matches(target, con->start, con->limit);
 		if (o >= 0) {
 			if (con->match != nullptr) {
-				$nc(con->match)->setBeginning(0, o);
+				con->match->setBeginning(0, o);
 				$nc(con->match)->setEnd(0, o + $nc(this->fixedString)->length());
 			}
 			con->setInUse(false);
@@ -503,7 +353,7 @@ bool RegularExpression::matches($chars* target, int32_t start, int32_t end, $Mat
 	int32_t limit = con->limit - this->minlength;
 	int32_t matchStart = 0;
 	int32_t matchEnd = -1;
-	if (this->operations != nullptr && $nc(this->operations)->type == $Op::CLOSURE && $nc($($nc(this->operations)->getChild()))->type == $Op::DOT) {
+	if (this->operations != nullptr && this->operations->type == $Op::CLOSURE && $nc($(this->operations->getChild()))->type == $Op::DOT) {
 		if (isSet(this->options, RegularExpression::SINGLE_LINE)) {
 			matchStart = con->start;
 			matchEnd = this->match(con, this->operations, con->start, 1, this->options);
@@ -546,7 +396,7 @@ bool RegularExpression::matches($chars* target, int32_t start, int32_t end, $Mat
 	}
 	if (matchEnd >= 0) {
 		if (con->match != nullptr) {
-			$nc(con->match)->setBeginning(0, matchStart);
+			con->match->setBeginning(0, matchStart);
 			$nc(con->match)->setEnd(0, matchEnd);
 		}
 		con->setInUse(false);
@@ -570,7 +420,7 @@ bool RegularExpression::matches($String* target, $Match* match) {
 }
 
 bool RegularExpression::matches($String* target, int32_t start, int32_t end, $Match* match$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Match, match, match$renamed);
 	$synchronized(this) {
 		if (this->operations == nullptr) {
@@ -582,7 +432,7 @@ bool RegularExpression::matches($String* target, int32_t start, int32_t end, $Ma
 	}
 	$var($RegularExpression$Context, con, nullptr);
 	$synchronized(this->context) {
-		$assign(con, $nc(this->context)->inuse ? $new($RegularExpression$Context) : this->context);
+		$assign(con, this->context->inuse ? $new($RegularExpression$Context) : this->context);
 		$nc(con)->reset(target, start, end, this->numberOfClosures);
 	}
 	if (match != nullptr) {
@@ -592,12 +442,14 @@ bool RegularExpression::matches($String* target, int32_t start, int32_t end, $Ma
 		$assign(match, $new($Match));
 		match->setNumberOfGroups(this->nofparen);
 	}
-	$set($nc(con), match, match);
+	$set(con, match, match);
 	if (RegularExpression::isSet(this->options, RegularExpression::XMLSCHEMA_MODE)) {
+		;
 		int32_t matchEnd = this->match(con, this->operations, con->start, 1, this->options);
+		;
 		if (matchEnd == con->limit) {
 			if (con->match != nullptr) {
-				$nc(con->match)->setBeginning(0, con->start);
+				con->match->setBeginning(0, con->start);
 				$nc(con->match)->setEnd(0, matchEnd);
 			}
 			con->setInUse(false);
@@ -609,7 +461,7 @@ bool RegularExpression::matches($String* target, int32_t start, int32_t end, $Ma
 		int32_t o = $nc(this->fixedStringTable)->matches(target, con->start, con->limit);
 		if (o >= 0) {
 			if (con->match != nullptr) {
-				$nc(con->match)->setBeginning(0, o);
+				con->match->setBeginning(0, o);
 				$nc(con->match)->setEnd(0, o + $nc(this->fixedString)->length());
 			}
 			con->setInUse(false);
@@ -628,7 +480,7 @@ bool RegularExpression::matches($String* target, int32_t start, int32_t end, $Ma
 	int32_t limit = con->limit - this->minlength;
 	int32_t matchStart = 0;
 	int32_t matchEnd = -1;
-	if (this->operations != nullptr && $nc(this->operations)->type == $Op::CLOSURE && $nc($($nc(this->operations)->getChild()))->type == $Op::DOT) {
+	if (this->operations != nullptr && this->operations->type == $Op::CLOSURE && $nc($(this->operations->getChild()))->type == $Op::DOT) {
 		if (isSet(this->options, RegularExpression::SINGLE_LINE)) {
 			matchStart = con->start;
 			matchEnd = this->match(con, this->operations, con->start, 1, this->options);
@@ -671,7 +523,7 @@ bool RegularExpression::matches($String* target, int32_t start, int32_t end, $Ma
 	}
 	if (matchEnd >= 0) {
 		if (con->match != nullptr) {
-			$nc(con->match)->setBeginning(0, matchStart);
+			con->match->setBeginning(0, matchStart);
 			$nc(con->match)->setEnd(0, matchEnd);
 		}
 		con->setInUse(false);
@@ -683,7 +535,7 @@ bool RegularExpression::matches($String* target, int32_t start, int32_t end, $Ma
 }
 
 int32_t RegularExpression::match($RegularExpression$Context* con, $Op* op$renamed, int32_t offset, int32_t dx, int32_t opts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Op, op, op$renamed);
 	$var($RegularExpression$ExpressionTarget, target, $nc(con)->target);
 	$var($Stack, opStack, $new($Stack));
@@ -701,273 +553,236 @@ int32_t RegularExpression::match($RegularExpression$Context* con, $Op* op$rename
 			returned = true;
 		} else {
 			retValue = -1;
-			switch ($nc(op)->type) {
+			switch (op->type) {
 			case $Op::CHAR:
 				{
-					{
-						int32_t o1 = (dx > 0) ? offset : offset - 1;
-						bool var$0 = o1 >= con->limit || o1 < 0;
-						if (!var$0) {
-							int32_t var$1 = op->getData();
-							var$0 = !matchChar(var$1, $nc(target)->charAt(o1), isSetIgnoreCase);
-						}
-						if (var$0) {
-							returned = true;
-							break;
-						}
-						offset += dx;
-						$assign(op, op->next);
+					int32_t o1 = (dx > 0) ? offset : offset - 1;
+					bool var$0 = o1 >= con->limit || o1 < 0;
+					if (!var$0) {
+						int32_t var$1 = op->getData();
+						var$0 = !matchChar(var$1, $nc(target)->charAt(o1), isSetIgnoreCase);
 					}
-					break;
+					if (var$0) {
+						returned = true;
+						break;
+					}
+					offset += dx;
+					$assign(op, op->next);
 				}
+				break;
 			case $Op::DOT:
 				{
-					{
-						int32_t o1 = (dx > 0) ? offset : offset - 1;
-						if (o1 >= con->limit || o1 < 0) {
-							returned = true;
-							break;
-						}
-						if (isSet(opts, RegularExpression::SINGLE_LINE)) {
-							if ($REUtil::isHighSurrogate($nc(target)->charAt(o1)) && o1 + dx >= 0 && o1 + dx < con->limit) {
-								o1 += dx;
-							}
-						} else {
-							int32_t ch = $nc(target)->charAt(o1);
-							if ($REUtil::isHighSurrogate(ch) && o1 + dx >= 0 && o1 + dx < con->limit) {
-								o1 += dx;
-								ch = $REUtil::composeFromSurrogates(ch, target->charAt(o1));
-							}
-							if (isEOLChar(ch)) {
-								returned = true;
-								break;
-							}
-						}
-						offset = (dx > 0) ? o1 + 1 : o1;
-						$assign(op, op->next);
+					int32_t o1 = (dx > 0) ? offset : offset - 1;
+					if (o1 >= con->limit || o1 < 0) {
+						returned = true;
+						break;
 					}
-					break;
-				}
-			case $Op::RANGE:
-				{}
-			case $Op::NRANGE:
-				{
-					{
-						int32_t o1 = (dx > 0) ? offset : offset - 1;
-						if (o1 >= con->limit || o1 < 0) {
-							returned = true;
-							break;
+					if (isSet(opts, RegularExpression::SINGLE_LINE)) {
+						if ($REUtil::isHighSurrogate($nc(target)->charAt(o1)) && o1 + dx >= 0 && o1 + dx < con->limit) {
+							o1 += dx;
 						}
-						int32_t ch = $nc(target)->charAt(offset);
-						if ($REUtil::isHighSurrogate(ch) && o1 + dx < con->limit && o1 + dx >= 0) {
+					} else {
+						int32_t ch = $nc(target)->charAt(o1);
+						if ($REUtil::isHighSurrogate(ch) && o1 + dx >= 0 && o1 + dx < con->limit) {
 							o1 += dx;
 							ch = $REUtil::composeFromSurrogates(ch, target->charAt(o1));
 						}
-						$var($RangeToken, tok, op->getToken());
-						if (!$nc(tok)->match(ch)) {
+						if (isEOLChar(ch)) {
 							returned = true;
 							break;
 						}
-						offset = (dx > 0) ? o1 + 1 : o1;
-						$assign(op, op->next);
 					}
-					break;
+					offset = (dx > 0) ? o1 + 1 : o1;
+					$assign(op, $nc(op)->next);
 				}
+				break;
+			case $Op::RANGE:
+			case $Op::NRANGE:
+				{
+					int32_t o1 = (dx > 0) ? offset : offset - 1;
+					if (o1 >= con->limit || o1 < 0) {
+						returned = true;
+						break;
+					}
+					int32_t ch = $nc(target)->charAt(offset);
+					if ($REUtil::isHighSurrogate(ch) && o1 + dx < con->limit && o1 + dx >= 0) {
+						o1 += dx;
+						ch = $REUtil::composeFromSurrogates(ch, target->charAt(o1));
+					}
+					$var($RangeToken, tok, $nc(op)->getToken());
+					if (!$nc(tok)->match(ch)) {
+						returned = true;
+						break;
+					}
+					offset = (dx > 0) ? o1 + 1 : o1;
+					$assign(op, op->next);
+				}
+				break;
 			case $Op::ANCHOR:
 				{
-					{
-						if (!matchAnchor(target, op, con, offset, opts)) {
-							returned = true;
-							break;
-						}
-						$assign(op, op->next);
+					if (!matchAnchor(target, op, con, offset, opts)) {
+						returned = true;
+						break;
 					}
-					break;
+					$assign(op, $nc(op)->next);
 				}
+				break;
 			case $Op::BACKREFERENCE:
 				{
-					{
-						int32_t refno = op->getData();
-						if (refno <= 0 || refno >= this->nofparen) {
-							$throwNew($RuntimeException, $$str({"Internal Error: Reference number must be more than zero: "_s, $$str(refno)}));
-						}
-						bool var$2 = $nc(con->match)->getBeginning(refno) < 0;
-						if (var$2 || $nc(con->match)->getEnd(refno) < 0) {
+					int32_t refno = $nc(op)->getData();
+					if (refno <= 0 || refno >= this->nofparen) {
+						$throwNew($RuntimeException, $$str({"Internal Error: Reference number must be more than zero: "_s, $$str(refno)}));
+					}
+					bool var$2 = $nc(con->match)->getBeginning(refno) < 0;
+					if (var$2 || con->match->getEnd(refno) < 0) {
+						returned = true;
+						break;
+					}
+					int32_t o2 = $nc(con->match)->getBeginning(refno);
+					int32_t literallen = $nc(con->match)->getEnd(refno) - o2;
+					if (dx > 0) {
+						if (!$nc(target)->regionMatches(isSetIgnoreCase, offset, con->limit, o2, literallen)) {
 							returned = true;
 							break;
 						}
-						int32_t o2 = $nc(con->match)->getBeginning(refno);
-						int32_t literallen = $nc(con->match)->getEnd(refno) - o2;
-						if (dx > 0) {
-							if (!$nc(target)->regionMatches(isSetIgnoreCase, offset, con->limit, o2, literallen)) {
-								returned = true;
-								break;
-							}
-							offset += literallen;
-						} else {
-							if (!$nc(target)->regionMatches(isSetIgnoreCase, offset - literallen, con->limit, o2, literallen)) {
-								returned = true;
-								break;
-							}
-							offset -= literallen;
+						offset += literallen;
+					} else {
+						if (!$nc(target)->regionMatches(isSetIgnoreCase, offset - literallen, con->limit, o2, literallen)) {
+							returned = true;
+							break;
 						}
-						$assign(op, op->next);
+						offset -= literallen;
 					}
-					break;
+					$assign(op, op->next);
 				}
+				break;
 			case $Op::STRING:
 				{
-					{
-						$var($String, literal, op->getString());
-						int32_t literallen = $nc(literal)->length();
-						if (dx > 0) {
-							if (!$nc(target)->regionMatches(isSetIgnoreCase, offset, con->limit, literal, literallen)) {
-								returned = true;
-								break;
-							}
-							offset += literallen;
-						} else {
-							if (!$nc(target)->regionMatches(isSetIgnoreCase, offset - literallen, con->limit, literal, literallen)) {
-								returned = true;
-								break;
-							}
-							offset -= literallen;
-						}
-						$assign(op, op->next);
-					}
-					break;
-				}
-			case $Op::CLOSURE:
-				{
-					{
-						int32_t id = op->getData();
-						if ($nc($nc(con->closureContexts)->get(id))->contains(offset)) {
+					$var($String, literal, $nc(op)->getString());
+					int32_t literallen = $nc(literal)->length();
+					if (dx > 0) {
+						if (!$nc(target)->regionMatches(isSetIgnoreCase, offset, con->limit, literal, literallen)) {
 							returned = true;
 							break;
 						}
-						$nc($nc(con->closureContexts)->get(id))->addOffset(offset);
+						offset += literallen;
+					} else {
+						if (!$nc(target)->regionMatches(isSetIgnoreCase, offset - literallen, con->limit, literal, literallen)) {
+							returned = true;
+							break;
+						}
+						offset -= literallen;
 					}
+					$assign(op, op->next);
+				}
+				break;
+			case $Op::CLOSURE:
+				{
+					int32_t id = $nc(op)->getData();
+					if ($nc($nc(con->closureContexts)->get(id))->contains(offset)) {
+						returned = true;
+						break;
+					}
+					$nc($nc(con->closureContexts)->get(id))->addOffset(offset);
 				}
 			case $Op::QUESTION:
 				{
-					{
-						opStack->push(op);
-						dataStack->push(offset);
-						$assign(op, op->getChild());
-					}
-					break;
+					opStack->push(op);
+					dataStack->push(offset);
+					$assign(op, $nc(op)->getChild());
 				}
+				break;
 			case $Op::NONGREEDYCLOSURE:
-				{}
 			case $Op::NONGREEDYQUESTION:
 				{
-					{
-						opStack->push(op);
-						dataStack->push(offset);
-						$assign(op, op->next);
-					}
-					break;
+					opStack->push(op);
+					dataStack->push(offset);
+					$assign(op, $nc(op)->next);
 				}
+				break;
 			case $Op::UNION:
-				{
-					if (op->size() == 0) {
-						returned = true;
-					} else {
-						opStack->push(op);
-						dataStack->push(0);
-						dataStack->push(offset);
-						$assign(op, op->elementAt(0));
-					}
-					break;
+				if ($nc(op)->size() == 0) {
+					returned = true;
+				} else {
+					opStack->push(op);
+					dataStack->push(0);
+					dataStack->push(offset);
+					$assign(op, op->elementAt(0));
 				}
+				break;
 			case $Op::CAPTURE:
 				{
-					{
-						int32_t refno = op->getData();
-						if (con->match != nullptr) {
-							if (refno > 0) {
-								dataStack->push($nc(con->match)->getBeginning(refno));
-								$nc(con->match)->setBeginning(refno, offset);
-							} else {
-								int32_t index = -refno;
-								dataStack->push($nc(con->match)->getEnd(index));
-								$nc(con->match)->setEnd(index, offset);
-							}
-							opStack->push(op);
-							dataStack->push(offset);
+					int32_t refno = $nc(op)->getData();
+					if (con->match != nullptr) {
+						if (refno > 0) {
+							dataStack->push(con->match->getBeginning(refno));
+							$nc(con->match)->setBeginning(refno, offset);
+						} else {
+							int32_t index = -refno;
+							dataStack->push($nc(con->match)->getEnd(index));
+							$nc(con->match)->setEnd(index, offset);
 						}
-						$assign(op, op->next);
+						opStack->push(op);
+						dataStack->push(offset);
 					}
-					break;
+					$assign(op, op->next);
 				}
+				break;
 			case $Op::LOOKAHEAD:
-				{}
 			case $Op::NEGATIVELOOKAHEAD:
-				{}
 			case $Op::LOOKBEHIND:
-				{}
 			case $Op::NEGATIVELOOKBEHIND:
 				{
-					{
-						opStack->push(op);
-						dataStack->push(dx);
-						dataStack->push(offset);
-						dx = (op->type == $Op::LOOKAHEAD || op->type == $Op::NEGATIVELOOKAHEAD) ? 1 : -1;
-						$assign(op, op->getChild());
-					}
-					break;
+					opStack->push(op);
+					dataStack->push(dx);
+					dataStack->push(offset);
+					dx = ($nc(op)->type == $Op::LOOKAHEAD || op->type == $Op::NEGATIVELOOKAHEAD) ? 1 : -1;
+					$assign(op, op->getChild());
 				}
+				break;
 			case $Op::INDEPENDENT:
 				{
-					{
-						opStack->push(op);
-						dataStack->push(offset);
-						$assign(op, op->getChild());
-					}
-					break;
+					opStack->push(op);
+					dataStack->push(offset);
+					$assign(op, $nc(op)->getChild());
 				}
+				break;
 			case $Op::MODIFIER:
 				{
-					{
-						int32_t localopts = opts;
-						localopts |= op->getData();
-						localopts &= (uint32_t)~op->getData2();
-						opStack->push(op);
-						dataStack->push(opts);
-						dataStack->push(offset);
-						opts = localopts;
-						$assign(op, op->getChild());
-					}
-					break;
+					int32_t localopts = opts;
+					localopts |= $nc(op)->getData();
+					localopts &= (uint32_t)~op->getData2();
+					opStack->push(op);
+					dataStack->push(opts);
+					dataStack->push(offset);
+					opts = localopts;
+					$assign(op, op->getChild());
 				}
+				break;
 			case $Op::CONDITION:
 				{
-					{
-						$var($Op$ConditionOp, cop, $cast($Op$ConditionOp, op));
-						if (cop->refNumber > 0) {
-							if (cop->refNumber >= this->nofparen) {
-								$throwNew($RuntimeException, $$str({"Internal Error: Reference number must be more than zero: "_s, $$str(cop->refNumber)}));
-							}
-							bool var$3 = $nc(con->match)->getBeginning(cop->refNumber) >= 0;
-							if (var$3 && $nc(con->match)->getEnd(cop->refNumber) >= 0) {
-								$assign(op, cop->yes);
-							} else if (cop->no != nullptr) {
-								$assign(op, cop->no);
-							} else {
-								$assign(op, cop->next);
-							}
-						} else {
-							opStack->push(op);
-							dataStack->push(offset);
-							$assign(op, cop->condition);
+					$var($Op$ConditionOp, cop, $cast($Op$ConditionOp, op));
+					if ($nc(cop)->refNumber > 0) {
+						if (cop->refNumber >= this->nofparen) {
+							$throwNew($RuntimeException, $$str({"Internal Error: Reference number must be more than zero: "_s, $$str(cop->refNumber)}));
 						}
+						bool var$3 = $nc(con->match)->getBeginning(cop->refNumber) >= 0;
+						if (var$3 && con->match->getEnd(cop->refNumber) >= 0) {
+							$assign(op, cop->yes);
+						} else if (cop->no != nullptr) {
+							$assign(op, cop->no);
+						} else {
+							$assign(op, cop->next);
+						}
+					} else {
+						opStack->push(op);
+						dataStack->push(offset);
+						$assign(op, cop->condition);
 					}
-					break;
 				}
+				break;
 			default:
-				{
-					$throwNew($RuntimeException, $$str({"Unknown operation type: "_s, $$str(op->type)}));
-				}
+				$throwNew($RuntimeException, $$str({"Unknown operation type: "_s, $$str($nc(op)->type)}));
 			}
 		}
 		while (returned) {
@@ -981,116 +796,93 @@ int32_t RegularExpression::match($RegularExpression$Context* con, $Op* op$rename
 				int32_t saved = 0;
 				switch ($nc(op)->type) {
 				case $Op::CLOSURE:
-					{}
 				case $Op::QUESTION:
-					{
-						if (retValue < 0) {
-							$assign(op, op->next);
-							returned = false;
-						}
-						break;
+					if (retValue < 0) {
+						$assign(op, $nc(op)->next);
+						returned = false;
 					}
+					break;
 				case $Op::NONGREEDYCLOSURE:
-					{}
 				case $Op::NONGREEDYQUESTION:
-					{
-						if (retValue < 0) {
-							$assign(op, op->getChild());
-							returned = false;
-						}
-						break;
+					if (retValue < 0) {
+						$assign(op, $nc(op)->getChild());
+						returned = false;
 					}
+					break;
 				case $Op::UNION:
 					{
-						{
-							int32_t unionIndex = dataStack->pop();
-							if (retValue < 0) {
-								if (++unionIndex < op->size()) {
-									opStack->push(op);
-									dataStack->push(unionIndex);
-									dataStack->push(offset);
-									$assign(op, op->elementAt(unionIndex));
-									returned = false;
-								} else {
-									retValue = -1;
-								}
-							}
-						}
-						break;
-					}
-				case $Op::CAPTURE:
-					{
-						refno = op->getData();
-						saved = dataStack->pop();
+						int32_t unionIndex = dataStack->pop();
+						;
 						if (retValue < 0) {
-							if (refno > 0) {
-								$nc(con->match)->setBeginning(refno, saved);
+							if (++unionIndex < $nc(op)->size()) {
+								opStack->push(op);
+								dataStack->push(unionIndex);
+								dataStack->push(offset);
+								$assign(op, op->elementAt(unionIndex));
+								returned = false;
 							} else {
-								$nc(con->match)->setEnd(-refno, saved);
+								retValue = -1;
 							}
 						}
-						break;
 					}
+					break;
+				case $Op::CAPTURE:
+					refno = $nc(op)->getData();
+					saved = dataStack->pop();
+					if (retValue < 0) {
+						if (refno > 0) {
+							$nc(con->match)->setBeginning(refno, saved);
+						} else {
+							$nc(con->match)->setEnd(-refno, saved);
+						}
+					}
+					break;
 				case $Op::LOOKAHEAD:
-					{}
 				case $Op::LOOKBEHIND:
 					{
-						{
-							dx = dataStack->pop();
-							if (0 <= retValue) {
-								$assign(op, op->next);
-								returned = false;
-							}
-							retValue = -1;
-						}
-						break;
-					}
-				case $Op::NEGATIVELOOKAHEAD:
-					{}
-				case $Op::NEGATIVELOOKBEHIND:
-					{
-						{
-							dx = dataStack->pop();
-							if (0 > retValue) {
-								$assign(op, op->next);
-								returned = false;
-							}
-							retValue = -1;
-						}
-						break;
-					}
-				case $Op::MODIFIER:
-					{
-						opts = dataStack->pop();
-					}
-				case $Op::INDEPENDENT:
-					{
-						if (retValue >= 0) {
-							offset = retValue;
-							$assign(op, op->next);
+						dx = dataStack->pop();
+						if (0 <= retValue) {
+							$assign(op, $nc(op)->next);
 							returned = false;
 						}
-						break;
+						retValue = -1;
 					}
+					break;
+				case $Op::NEGATIVELOOKAHEAD:
+				case $Op::NEGATIVELOOKBEHIND:
+					{
+						dx = dataStack->pop();
+						if (0 > retValue) {
+							$assign(op, $nc(op)->next);
+							returned = false;
+						}
+						retValue = -1;
+					}
+					break;
+				case $Op::MODIFIER:
+					opts = dataStack->pop();
+				case $Op::INDEPENDENT:
+					if (retValue >= 0) {
+						offset = retValue;
+						$assign(op, $nc(op)->next);
+						returned = false;
+					}
+					break;
 				case $Op::CONDITION:
 					{
-						{
-							$var($Op$ConditionOp, cop, $cast($Op$ConditionOp, op));
-							if (0 <= retValue) {
-								$assign(op, cop->yes);
-							} else if (cop->no != nullptr) {
-								$assign(op, cop->no);
-							} else {
-								$assign(op, cop->next);
-							}
+						$var($Op$ConditionOp, cop, $cast($Op$ConditionOp, op));
+						if (0 <= retValue) {
+							$assign(op, $nc(cop)->yes);
+						} else if ($nc(cop)->no != nullptr) {
+							$assign(op, cop->no);
+						} else {
+							$assign(op, cop->next);
 						}
-						returned = false;
-						break;
 					}
+					returned = false;
+					break;
 				default:
-					{
-						break;
-					}
+					break;
 				}
 			}
 		}
@@ -1105,115 +897,101 @@ bool RegularExpression::matchAnchor($RegularExpression$ExpressionTarget* target,
 	bool go = false;
 	switch ($nc(op)->getData()) {
 	case u'^':
-		{
-			if (isSet(opts, RegularExpression::MULTIPLE_LINES)) {
-				if (!(offset == $nc(con)->start || offset > $nc(con)->start && offset < con->limit && isEOLChar($nc(target)->charAt(offset - 1)))) {
-					return false;
-				}
-			} else if (offset != $nc(con)->start) {
+		if (isSet(opts, RegularExpression::MULTIPLE_LINES)) {
+			if (!(offset == $nc(con)->start || offset > con->start && offset < con->limit && isEOLChar($nc(target)->charAt(offset - 1)))) {
 				return false;
 			}
-			break;
+		} else if (offset != $nc(con)->start) {
+			return false;
 		}
+		break;
 	case u'@':
-		{
-			if (!(offset == $nc(con)->start || offset > $nc(con)->start && isEOLChar($nc(target)->charAt(offset - 1)))) {
-				return false;
-			}
-			break;
+		if (!(offset == $nc(con)->start || offset > con->start && isEOLChar($nc(target)->charAt(offset - 1)))) {
+			return false;
 		}
+		break;
 	case u'$':
-		{
-			if (isSet(opts, RegularExpression::MULTIPLE_LINES)) {
-				if (!(offset == $nc(con)->limit || offset < $nc(con)->limit && isEOLChar($nc(target)->charAt(offset)))) {
-					return false;
-				}
-			} else {
-				bool var$2 = offset == $nc(con)->limit || offset + 1 == $nc(con)->limit && isEOLChar($nc(target)->charAt(offset));
-				if (!var$2) {
-					bool var$3 = offset + 2 == $nc(con)->limit && $nc(target)->charAt(offset) == RegularExpression::CARRIAGE_RETURN;
-					var$2 = var$3 && target->charAt(offset + 1) == RegularExpression::LINE_FEED;
-				}
-				if (!(var$2)) {
-					return false;
-				}
-			}
-			break;
-		}
-	case u'A':
-		{
-			if (offset != $nc(con)->start) {
+		if (isSet(opts, RegularExpression::MULTIPLE_LINES)) {
+			if (!(offset == $nc(con)->limit || offset < con->limit && isEOLChar($nc(target)->charAt(offset)))) {
 				return false;
 			}
-			break;
+		} else {
+			bool var$0 = offset == $nc(con)->limit || offset + 1 == con->limit && isEOLChar($nc(target)->charAt(offset));
+			if (!var$0) {
+				bool var$1 = offset + 2 == con->limit && $nc(target)->charAt(offset) == RegularExpression::CARRIAGE_RETURN;
+				var$0 = var$1 && target->charAt(offset + 1) == RegularExpression::LINE_FEED;
+			}
+			if (!(var$0)) {
+				return false;
+			}
 		}
+		break;
+	case u'A':
+		if (offset != $nc(con)->start) {
+			return false;
+		}
+		break;
 	case u'Z':
 		{
-			bool var$4 = offset == $nc(con)->limit || offset + 1 == $nc(con)->limit && isEOLChar($nc(target)->charAt(offset));
-			if (!var$4) {
-				bool var$5 = offset + 2 == $nc(con)->limit && $nc(target)->charAt(offset) == RegularExpression::CARRIAGE_RETURN;
-				var$4 = var$5 && target->charAt(offset + 1) == RegularExpression::LINE_FEED;
+			bool var$2 = offset == $nc(con)->limit || offset + 1 == con->limit && isEOLChar($nc(target)->charAt(offset));
+			if (!var$2) {
+				bool var$3 = offset + 2 == con->limit && $nc(target)->charAt(offset) == RegularExpression::CARRIAGE_RETURN;
+				var$2 = var$3 && target->charAt(offset + 1) == RegularExpression::LINE_FEED;
 			}
-			if (!(var$4)) {
+			if (!(var$2)) {
 				return false;
 			}
 			break;
 		}
 	case u'z':
-		{
-			if (offset != $nc(con)->limit) {
-				return false;
-			}
-			break;
+		if (offset != $nc(con)->limit) {
+			return false;
 		}
+		break;
 	case u'b':
+		if ($nc(con)->length == 0) {
+			return false;
+		}
 		{
-			if ($nc(con)->length == 0) {
+			int32_t after = getWordType(target, con->start, con->limit, offset, opts);
+			if (after == RegularExpression::WT_IGNORE) {
 				return false;
 			}
-			{
-				int32_t after = getWordType(target, $nc(con)->start, con->limit, offset, opts);
-				if (after == RegularExpression::WT_IGNORE) {
-					return false;
-				}
-				int32_t before = getPreviousWordType(target, $nc(con)->start, con->limit, offset, opts);
-				if (after == before) {
-					return false;
-				}
+			int32_t before = getPreviousWordType(target, con->start, con->limit, offset, opts);
+			if (after == before) {
+				return false;
 			}
-			break;
 		}
+		break;
 	case u'B':
-		{
-			if ($nc(con)->length == 0) {
-				go = true;
-			} else {
-				int32_t after = getWordType(target, con->start, con->limit, offset, opts);
-				go = after == RegularExpression::WT_IGNORE || after == getPreviousWordType(target, con->start, con->limit, offset, opts);
-			}
-			if (!go) {
-				return false;
-			}
-			break;
+		if ($nc(con)->length == 0) {
+			go = true;
+		} else {
+			int32_t after = getWordType(target, con->start, con->limit, offset, opts);
+			go = after == RegularExpression::WT_IGNORE || after == getPreviousWordType(target, con->start, con->limit, offset, opts);
 		}
+		if (!go) {
+			return false;
+		}
+		break;
 	case u'<':
 		{
-			if ($nc(con)->length == 0 || offset == $nc(con)->limit) {
+			if ($nc(con)->length == 0 || offset == con->limit) {
 				return false;
 			}
-			bool var$6 = getWordType(target, $nc(con)->start, con->limit, offset, opts) != RegularExpression::WT_LETTER;
-			if (var$6 || getPreviousWordType(target, $nc(con)->start, con->limit, offset, opts) != RegularExpression::WT_OTHER) {
+			bool var$4 = getWordType(target, con->start, con->limit, offset, opts) != RegularExpression::WT_LETTER;
+			if (var$4 || getPreviousWordType(target, con->start, con->limit, offset, opts) != RegularExpression::WT_OTHER) {
 				return false;
 			}
 			break;
 		}
 	case u'>':
 		{
-			if ($nc(con)->length == 0 || offset == $nc(con)->start) {
+			if ($nc(con)->length == 0 || offset == con->start) {
 				return false;
 			}
-			bool var$7 = getWordType(target, $nc(con)->start, con->limit, offset, opts) != RegularExpression::WT_OTHER;
-			if (var$7 || getPreviousWordType(target, $nc(con)->start, con->limit, offset, opts) != RegularExpression::WT_LETTER) {
+			bool var$5 = getWordType(target, con->start, con->limit, offset, opts) != RegularExpression::WT_OTHER;
+			if (var$5 || getPreviousWordType(target, con->start, con->limit, offset, opts) != RegularExpression::WT_LETTER) {
 				return false;
 			}
 			break;
@@ -1244,7 +1022,7 @@ bool RegularExpression::matches($CharacterIterator* target) {
 }
 
 bool RegularExpression::matches($CharacterIterator* target, $Match* match$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Match, match, match$renamed);
 	int32_t start = $nc(target)->getBeginIndex();
 	int32_t end = target->getEndIndex();
@@ -1258,7 +1036,7 @@ bool RegularExpression::matches($CharacterIterator* target, $Match* match$rename
 	}
 	$var($RegularExpression$Context, con, nullptr);
 	$synchronized(this->context) {
-		$assign(con, $nc(this->context)->inuse ? $new($RegularExpression$Context) : this->context);
+		$assign(con, this->context->inuse ? $new($RegularExpression$Context) : this->context);
 		$nc(con)->reset(target, start, end, this->numberOfClosures);
 	}
 	if (match != nullptr) {
@@ -1268,12 +1046,12 @@ bool RegularExpression::matches($CharacterIterator* target, $Match* match$rename
 		$assign(match, $new($Match));
 		match->setNumberOfGroups(this->nofparen);
 	}
-	$set($nc(con), match, match);
+	$set(con, match, match);
 	if (RegularExpression::isSet(this->options, RegularExpression::XMLSCHEMA_MODE)) {
 		int32_t matchEnd = this->match(con, this->operations, con->start, 1, this->options);
 		if (matchEnd == con->limit) {
 			if (con->match != nullptr) {
-				$nc(con->match)->setBeginning(0, con->start);
+				con->match->setBeginning(0, con->start);
 				$nc(con->match)->setEnd(0, matchEnd);
 			}
 			con->setInUse(false);
@@ -1285,7 +1063,7 @@ bool RegularExpression::matches($CharacterIterator* target, $Match* match$rename
 		int32_t o = $nc(this->fixedStringTable)->matches(target, con->start, con->limit);
 		if (o >= 0) {
 			if (con->match != nullptr) {
-				$nc(con->match)->setBeginning(0, o);
+				con->match->setBeginning(0, o);
 				$nc(con->match)->setEnd(0, o + $nc(this->fixedString)->length());
 			}
 			con->setInUse(false);
@@ -1304,7 +1082,7 @@ bool RegularExpression::matches($CharacterIterator* target, $Match* match$rename
 	int32_t limit = con->limit - this->minlength;
 	int32_t matchStart = 0;
 	int32_t matchEnd = -1;
-	if (this->operations != nullptr && $nc(this->operations)->type == $Op::CLOSURE && $nc($($nc(this->operations)->getChild()))->type == $Op::DOT) {
+	if (this->operations != nullptr && this->operations->type == $Op::CLOSURE && $nc($(this->operations->getChild()))->type == $Op::DOT) {
 		if (isSet(this->options, RegularExpression::SINGLE_LINE)) {
 			matchStart = con->start;
 			matchEnd = this->match(con, this->operations, con->start, 1, this->options);
@@ -1347,7 +1125,7 @@ bool RegularExpression::matches($CharacterIterator* target, $Match* match$rename
 	}
 	if (matchEnd >= 0) {
 		if (con->match != nullptr) {
-			$nc(con->match)->setBeginning(0, matchStart);
+			con->match->setBeginning(0, matchStart);
 			$nc(con->match)->setEnd(0, matchEnd);
 		}
 		con->setInUse(false);
@@ -1359,8 +1137,10 @@ bool RegularExpression::matches($CharacterIterator* target, $Match* match$rename
 }
 
 void RegularExpression::prepare() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	this->compile(this->tokentree);
+	;
 	this->minlength = $nc(this->tokentree)->getMinLength();
 	$set(this, firstChar, nullptr);
 	bool var$0 = !isSet(this->options, RegularExpression::PROHIBIT_HEAD_CHARACTER_OPTIMIZATION);
@@ -1370,12 +1150,14 @@ void RegularExpression::prepare() {
 		if (fresult == $Token::FC_TERMINAL) {
 			$nc(firstChar)->compactRanges();
 			$set(this, firstChar, firstChar);
+			;
 		}
 	}
-	if (this->operations != nullptr && ($nc(this->operations)->type == $Op::STRING || $nc(this->operations)->type == $Op::CHAR) && $nc(this->operations)->next == nullptr) {
+	if (this->operations != nullptr && (this->operations->type == $Op::STRING || this->operations->type == $Op::CHAR) && this->operations->next == nullptr) {
+		;
 		this->fixedStringOnly = true;
-		if ($nc(this->operations)->type == $Op::STRING) {
-			$set(this, fixedString, $nc(this->operations)->getString());
+		if (this->operations->type == $Op::STRING) {
+			$set(this, fixedString, this->operations->getString());
 		} else if ($nc(this->operations)->getData() >= 0x00010000) {
 			$set(this, fixedString, $REUtil::decomposeToSurrogates($nc(this->operations)->getData()));
 		} else {
@@ -1386,17 +1168,18 @@ void RegularExpression::prepare() {
 		this->fixedStringOptions = this->options;
 		$set(this, fixedStringTable, $new($BMPattern, this->fixedString, 256, isSet(this->fixedStringOptions, RegularExpression::IGNORE_CASE)));
 	} else {
-		bool var$2 = !isSet(this->options, RegularExpression::PROHIBIT_FIXED_STRING_OPTIMIZATION);
-		if (var$2 && !isSet(this->options, RegularExpression::XMLSCHEMA_MODE)) {
+		bool var$1 = !isSet(this->options, RegularExpression::PROHIBIT_FIXED_STRING_OPTIMIZATION);
+		if (var$1 && !isSet(this->options, RegularExpression::XMLSCHEMA_MODE)) {
 			$var($Token$FixedStringContainer, container, $new($Token$FixedStringContainer));
 			$nc(this->tokentree)->findFixedString(container, this->options);
-			$set(this, fixedString, container->token == nullptr ? ($String*)nullptr : $nc(container->token)->getString());
+			$set(this, fixedString, container->token == nullptr ? ($String*)nullptr : container->token->getString());
 			this->fixedStringOptions = container->options;
-			if (this->fixedString != nullptr && $nc(this->fixedString)->length() < 2) {
+			if (this->fixedString != nullptr && this->fixedString->length() < 2) {
 				$set(this, fixedString, nullptr);
 			}
 			if (this->fixedString != nullptr) {
 				$set(this, fixedStringTable, $new($BMPattern, this->fixedString, 256, isSet(this->fixedStringOptions, RegularExpression::IGNORE_CASE)));
+				;
 			}
 		}
 	}
@@ -1404,7 +1187,7 @@ void RegularExpression::prepare() {
 
 bool RegularExpression::isSet(int32_t options, int32_t flag) {
 	$init(RegularExpression);
-	return ((int32_t)(options & (uint32_t)flag)) == flag;
+	return (options & flag) == flag;
 }
 
 void RegularExpression::init$($String* regex) {
@@ -1459,7 +1242,7 @@ void RegularExpression::setPattern($String* newPattern, $Locale* locale) {
 void RegularExpression::setPattern($String* newPattern, int32_t options, $Locale* locale) {
 	$set(this, regex, newPattern);
 	this->options = options;
-	$var($RegexParser, rp, RegularExpression::isSet(this->options, RegularExpression::XMLSCHEMA_MODE) ? static_cast<$RegexParser*>($new($ParserForXMLSchema, locale)) : $new($RegexParser, locale));
+	$var($RegexParser, rp, RegularExpression::isSet(this->options, RegularExpression::XMLSCHEMA_MODE) ? $cast($RegexParser, $new($ParserForXMLSchema, locale)) : $new($RegexParser, locale));
 	$set(this, tokentree, $nc(rp)->parse(this->regex, this->options));
 	this->nofparen = rp->parennumber;
 	this->hasBackReferences = rp->hasBackReferences;
@@ -1495,7 +1278,7 @@ bool RegularExpression::equals(Object$* obj) {
 		return false;
 	}
 	$var(RegularExpression, r, $cast(RegularExpression, obj));
-	return $nc(this->regex)->equals($nc(r)->regex) && this->options == $nc(r)->options;
+	return $nc(this->regex)->equals($nc(r)->regex) && this->options == r->options;
 }
 
 bool RegularExpression::equals($String* pattern, int32_t options) {
@@ -1503,7 +1286,7 @@ bool RegularExpression::equals($String* pattern, int32_t options) {
 }
 
 int32_t RegularExpression::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(($$str({this->regex, "/"_s, $(this->getOptions())})))->hashCode();
 }
 
@@ -1515,64 +1298,38 @@ int32_t RegularExpression::getWordType0(char16_t ch, int32_t opts) {
 	$init(RegularExpression);
 	if (!isSet(opts, RegularExpression::UNICODE_WORD_BOUNDARY)) {
 		if (isSet(opts, RegularExpression::USE_UNICODE_CATEGORY)) {
-			return ($nc($($Token::getRange("IsWord"_s, true)))->match(ch)) ? RegularExpression::WT_LETTER : RegularExpression::WT_OTHER;
+			return ($$nc($Token::getRange("IsWord"_s, true))->match(ch)) ? RegularExpression::WT_LETTER : RegularExpression::WT_OTHER;
 		}
 		return isWordChar(ch) ? RegularExpression::WT_LETTER : RegularExpression::WT_OTHER;
 	}
 	switch ($Character::getType(ch)) {
 	case $Character::UPPERCASE_LETTER:
-		{}
 	case $Character::LOWERCASE_LETTER:
-		{}
 	case $Character::TITLECASE_LETTER:
-		{}
 	case $Character::MODIFIER_LETTER:
-		{}
 	case $Character::OTHER_LETTER:
-		{}
 	case $Character::LETTER_NUMBER:
-		{}
 	case $Character::DECIMAL_DIGIT_NUMBER:
-		{}
 	case $Character::OTHER_NUMBER:
-		{}
 	case $Character::COMBINING_SPACING_MARK:
-		{
-			return RegularExpression::WT_LETTER;
-		}
+		return RegularExpression::WT_LETTER;
 	case $Character::FORMAT:
-		{}
 	case $Character::NON_SPACING_MARK:
-		{}
 	case $Character::ENCLOSING_MARK:
-		{
+		return RegularExpression::WT_IGNORE;
+	case $Character::CONTROL:
+		switch (ch) {
+		case u'\t':
+		case u'\n':
+		case (char16_t)0x0b:
+		case u'\f':
+		case u'\r':
+			return RegularExpression::WT_OTHER;
+		default:
 			return RegularExpression::WT_IGNORE;
 		}
-	case $Character::CONTROL:
-		{
-			switch (ch) {
-			case u'\t':
-				{}
-			case u'\n':
-				{}
-			case (char16_t)0xB:
-				{}
-			case u'\f':
-				{}
-			case u'\r':
-				{
-					return RegularExpression::WT_OTHER;
-				}
-			default:
-				{
-					return RegularExpression::WT_IGNORE;
-				}
-			}
-		}
 	default:
-		{
-			return RegularExpression::WT_OTHER;
-		}
+		return RegularExpression::WT_OTHER;
 	}
 }
 
@@ -1612,7 +1369,7 @@ bool RegularExpression::matchIgnoreCase(int32_t chardata, int32_t ch) {
 	if (chardata == ch) {
 		return true;
 	}
-	if (chardata > 0x0000FFFF || ch > 0x0000FFFF) {
+	if (chardata > 0x0000ffff || ch > 0x0000ffff) {
 		return false;
 	}
 	char16_t uch1 = $Character::toUpperCase((char16_t)chardata);
@@ -1628,7 +1385,110 @@ RegularExpression::RegularExpression() {
 }
 
 $Class* RegularExpression::load$($String* name, bool initialize) {
-	$loadClass(RegularExpression, name, initialize, &_RegularExpression_ClassInfo_, allocate$RegularExpression);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, serialVersionUID)},
+		{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $constField(RegularExpression, DEBUG)},
+		{"regex", "Ljava/lang/String;", nullptr, 0, $field(RegularExpression, regex)},
+		{"options", "I", nullptr, 0, $field(RegularExpression, options)},
+		{"nofparen", "I", nullptr, 0, $field(RegularExpression, nofparen)},
+		{"tokentree", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $field(RegularExpression, tokentree)},
+		{"hasBackReferences", "Z", nullptr, 0, $field(RegularExpression, hasBackReferences)},
+		{"minlength", "I", nullptr, $TRANSIENT, $field(RegularExpression, minlength)},
+		{"operations", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;", nullptr, $TRANSIENT, $field(RegularExpression, operations)},
+		{"numberOfClosures", "I", nullptr, $TRANSIENT, $field(RegularExpression, numberOfClosures)},
+		{"context", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$Context;", nullptr, $TRANSIENT, $field(RegularExpression, context)},
+		{"firstChar", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, $TRANSIENT, $field(RegularExpression, firstChar)},
+		{"fixedString", "Ljava/lang/String;", nullptr, $TRANSIENT, $field(RegularExpression, fixedString)},
+		{"fixedStringOptions", "I", nullptr, $TRANSIENT, $field(RegularExpression, fixedStringOptions)},
+		{"fixedStringTable", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/BMPattern;", nullptr, $TRANSIENT, $field(RegularExpression, fixedStringTable)},
+		{"fixedStringOnly", "Z", nullptr, $TRANSIENT, $field(RegularExpression, fixedStringOnly)},
+		{"IGNORE_CASE", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, IGNORE_CASE)},
+		{"SINGLE_LINE", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, SINGLE_LINE)},
+		{"MULTIPLE_LINES", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, MULTIPLE_LINES)},
+		{"EXTENDED_COMMENT", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, EXTENDED_COMMENT)},
+		{"USE_UNICODE_CATEGORY", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, USE_UNICODE_CATEGORY)},
+		{"UNICODE_WORD_BOUNDARY", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, UNICODE_WORD_BOUNDARY)},
+		{"PROHIBIT_HEAD_CHARACTER_OPTIMIZATION", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, PROHIBIT_HEAD_CHARACTER_OPTIMIZATION)},
+		{"PROHIBIT_FIXED_STRING_OPTIMIZATION", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, PROHIBIT_FIXED_STRING_OPTIMIZATION)},
+		{"XMLSCHEMA_MODE", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, XMLSCHEMA_MODE)},
+		{"SPECIAL_COMMA", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, SPECIAL_COMMA)},
+		{"WT_IGNORE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, WT_IGNORE)},
+		{"WT_LETTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, WT_LETTER)},
+		{"WT_OTHER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegularExpression, WT_OTHER)},
+		{"LINE_FEED", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, LINE_FEED)},
+		{"CARRIAGE_RETURN", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, CARRIAGE_RETURN)},
+		{"LINE_SEPARATOR", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, LINE_SEPARATOR)},
+		{"PARAGRAPH_SEPARATOR", "I", nullptr, $STATIC | $FINAL, $constField(RegularExpression, PARAGRAPH_SEPARATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RegularExpression, init$, void, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RegularExpression, init$, void, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(RegularExpression, init$, void, $String*, $String*, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;IZI)V", nullptr, 0, $method(RegularExpression, init$, void, $String*, $Token*, int32_t, bool, int32_t)},
+		{"compile", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(RegularExpression, compile, void, $Token*)},
+		{"compile", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;Z)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;", nullptr, $PRIVATE, $method(RegularExpression, compile, $Op*, $Token*, $Op*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, equals, bool, Object$*)},
+		{"equals", "(Ljava/lang/String;I)Z", nullptr, 0, $virtualMethod(RegularExpression, equals, bool, $String*, int32_t)},
+		{"getNumberOfGroups", "()I", nullptr, $PUBLIC, $virtualMethod(RegularExpression, getNumberOfGroups, int32_t)},
+		{"getOptions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegularExpression, getOptions, $String*)},
+		{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegularExpression, getPattern, $String*)},
+		{"getPreviousWordType", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget;IIII)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, getPreviousWordType, int32_t, $RegularExpression$ExpressionTarget*, int32_t, int32_t, int32_t, int32_t)},
+		{"getWordType", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget;IIII)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, getWordType, int32_t, $RegularExpression$ExpressionTarget*, int32_t, int32_t, int32_t, int32_t)},
+		{"getWordType0", "(CI)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, getWordType0, int32_t, char16_t, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RegularExpression, hashCode, int32_t)},
+		{"isEOLChar", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, isEOLChar, bool, int32_t)},
+		{"isSet", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, isSet, bool, int32_t, int32_t)},
+		{"isWordChar", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, isWordChar, bool, int32_t)},
+		{"match", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$Context;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;III)I", nullptr, $PRIVATE, $method(RegularExpression, match, int32_t, $RegularExpression$Context*, $Op*, int32_t, int32_t, int32_t)},
+		{"matchAnchor", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Op;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$Context;II)Z", nullptr, 0, $virtualMethod(RegularExpression, matchAnchor, bool, $RegularExpression$ExpressionTarget*, $Op*, $RegularExpression$Context*, int32_t, int32_t)},
+		{"matchChar", "(IIZ)Z", nullptr, $PRIVATE, $method(RegularExpression, matchChar, bool, int32_t, int32_t, bool)},
+		{"matchIgnoreCase", "(II)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(RegularExpression, matchIgnoreCase, bool, int32_t, int32_t)},
+		{"matches", "([C)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*)},
+		{"matches", "([CII)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*, int32_t, int32_t)},
+		{"matches", "([CLcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*, $Match*)},
+		{"matches", "([CIILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $chars*, int32_t, int32_t, $Match*)},
+		{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*)},
+		{"matches", "(Ljava/lang/String;II)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*, int32_t, int32_t)},
+		{"matches", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*, $Match*)},
+		{"matches", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $String*, int32_t, int32_t, $Match*)},
+		{"matches", "(Ljava/text/CharacterIterator;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $CharacterIterator*)},
+		{"matches", "(Ljava/text/CharacterIterator;Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Match;)Z", nullptr, $PUBLIC, $virtualMethod(RegularExpression, matches, bool, $CharacterIterator*, $Match*)},
+		{"prepare", "()V", nullptr, 0, $virtualMethod(RegularExpression, prepare, void)},
+		{"setPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"setPattern", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"setPattern", "(Ljava/lang/String;ILjava/util/Locale;)V", nullptr, $PRIVATE, $method(RegularExpression, setPattern, void, $String*, int32_t, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"setPattern", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*, $String*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"setPattern", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(RegularExpression, setPattern, void, $String*, $String*, $Locale*), "com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegularExpression, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$Context", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "Context", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ClosureContext", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharacterIteratorTarget", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharArrayTarget", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "StringTarget", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$Context,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharacterIteratorTarget,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$StringTarget,com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget"
+	};
+	$loadClass(RegularExpression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegularExpression);
+	});
 	return class$;
 }
 

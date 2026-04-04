@@ -36,6 +36,7 @@ class Utils : public ::java::lang::Object {
 	$class(Utils, 0, ::java::lang::Object)
 public:
 	Utils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xml::internal::serializer::utils::Messages* messages;
 };

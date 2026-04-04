@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serialize/IndentPrinter.h>
-
 #include <com/sun/org/apache/xml/internal/serialize/OutputFormat.h>
 #include <com/sun/org/apache/xml/internal/serialize/Printer.h>
 #include <java/io/IOException.h>
@@ -26,58 +25,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serialize {
-
-$CompoundAttribute _IndentPrinter_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _IndentPrinter_FieldInfo_[] = {
-	{"_line", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(IndentPrinter, _line)},
-	{"_text", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(IndentPrinter, _text)},
-	{"_spaces", "I", nullptr, $PRIVATE, $field(IndentPrinter, _spaces)},
-	{"_thisIndent", "I", nullptr, $PRIVATE, $field(IndentPrinter, _thisIndent)},
-	{"_nextIndent", "I", nullptr, $PRIVATE, $field(IndentPrinter, _nextIndent)},
-	{}
-};
-
-$MethodInfo _IndentPrinter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(IndentPrinter, init$, void, $Writer*, $OutputFormat*)},
-	{"breakLine", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, breakLine, void)},
-	{"breakLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, breakLine, void, bool)},
-	{"enterDTD", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, enterDTD, void)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, flush, void)},
-	{"flushLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, flushLine, void, bool)},
-	{"getNextIndent", "()I", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, getNextIndent, int32_t)},
-	{"indent", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, indent, void)},
-	{"leaveDTD", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, leaveDTD, $String*)},
-	{"printSpace", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printSpace, void)},
-	{"printText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, $String*)},
-	{"printText", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, $StringBuffer*)},
-	{"printText", "(C)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, char16_t)},
-	{"printText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, $chars*, int32_t, int32_t)},
-	{"setNextIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, setNextIndent, void, int32_t)},
-	{"setThisIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, setThisIndent, void, int32_t)},
-	{"unindent", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, unindent, void)},
-	{}
-};
-
-$ClassInfo _IndentPrinter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serialize.IndentPrinter",
-	"com.sun.org.apache.xml.internal.serialize.Printer",
-	nullptr,
-	_IndentPrinter_FieldInfo_,
-	_IndentPrinter_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_IndentPrinter_Annotations_
-};
-
-$Object* allocate$IndentPrinter($Class* clazz) {
-	return $of($alloc(IndentPrinter));
-}
 
 void IndentPrinter::init$($Writer* writer, $OutputFormat* format) {
 	$Printer::init$(writer, format);
@@ -131,13 +78,13 @@ void IndentPrinter::printSpace() {
 		bool var$0 = $nc(this->_format)->getLineWidth() > 0;
 		if (var$0) {
 			int32_t var$2 = this->_thisIndent + $nc(this->_line)->length() + this->_spaces;
-			int32_t var$1 = var$2 + $nc(this->_text)->length();
-			var$0 = var$1 > $nc(this->_format)->getLineWidth();
+			int32_t var$1 = var$2 + this->_text->length();
+			var$0 = var$1 > this->_format->getLineWidth();
 		}
 		if (var$0) {
 			flushLine(false);
 			try {
-				$nc(this->_writer)->write($($nc(this->_format)->getLineSeparator()));
+				$nc(this->_writer)->write($(this->_format->getLineSeparator()));
 			} catch ($IOException& except) {
 				if (this->_exception == nullptr) {
 					$set(this, _exception, except);
@@ -183,12 +130,12 @@ void IndentPrinter::flushLine(bool preserveSpace) {
 		try {
 			if ($nc(this->_format)->getIndenting() && !preserveSpace) {
 				indent = this->_thisIndent;
-				bool var$0 = (2 * indent) > $nc(this->_format)->getLineWidth();
-				if (var$0 && $nc(this->_format)->getLineWidth() > 0) {
-					indent = $nc(this->_format)->getLineWidth() / 2;
+				bool var$0 = (2 * indent) > this->_format->getLineWidth();
+				if (var$0 && this->_format->getLineWidth() > 0) {
+					indent = this->_format->getLineWidth() / 2;
 				}
 				while (indent > 0) {
-					$nc(this->_writer)->write((int32_t)u' ');
+					$nc(this->_writer)->write(u' ');
 					--indent;
 				}
 			}
@@ -249,7 +196,53 @@ IndentPrinter::IndentPrinter() {
 }
 
 $Class* IndentPrinter::load$($String* name, bool initialize) {
-	$loadClass(IndentPrinter, name, initialize, &_IndentPrinter_ClassInfo_, allocate$IndentPrinter);
+	$FieldInfo fieldInfos$$[] = {
+		{"_line", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(IndentPrinter, _line)},
+		{"_text", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(IndentPrinter, _text)},
+		{"_spaces", "I", nullptr, $PRIVATE, $field(IndentPrinter, _spaces)},
+		{"_thisIndent", "I", nullptr, $PRIVATE, $field(IndentPrinter, _thisIndent)},
+		{"_nextIndent", "I", nullptr, $PRIVATE, $field(IndentPrinter, _nextIndent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(IndentPrinter, init$, void, $Writer*, $OutputFormat*)},
+		{"breakLine", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, breakLine, void)},
+		{"breakLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, breakLine, void, bool)},
+		{"enterDTD", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, enterDTD, void)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, flush, void)},
+		{"flushLine", "(Z)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, flushLine, void, bool)},
+		{"getNextIndent", "()I", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, getNextIndent, int32_t)},
+		{"indent", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, indent, void)},
+		{"leaveDTD", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, leaveDTD, $String*)},
+		{"printSpace", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printSpace, void)},
+		{"printText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, $String*)},
+		{"printText", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, $StringBuffer*)},
+		{"printText", "(C)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, char16_t)},
+		{"printText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, printText, void, $chars*, int32_t, int32_t)},
+		{"setNextIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, setNextIndent, void, int32_t)},
+		{"setThisIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, setThisIndent, void, int32_t)},
+		{"unindent", "()V", nullptr, $PUBLIC, $virtualMethod(IndentPrinter, unindent, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serialize.IndentPrinter",
+		"com.sun.org.apache.xml.internal.serialize.Printer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(IndentPrinter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IndentPrinter);
+	});
 	return class$;
 }
 

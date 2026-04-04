@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_AppReOpenedDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_AppEventMultiplexor.h>
 #include <com/apple/eawt/_AppEventHandler$_NativeEvent.h>
 #include <com/apple/eawt/_AppEventHandler.h>
@@ -21,44 +20,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo __AppEventHandler$_AppReOpenedDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_AppReOpenedDispatcher, this$0)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_AppReOpenedDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_AppReOpenedDispatcher, init$, void, $_AppEventHandler*)},
-	{"performOnListener", "(Ljava/awt/desktop/AppReopenedListener;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_AppReOpenedDispatcher, performOnListener, void, $AppReopenedListener*, $_AppEventHandler$_NativeEvent*)},
-	{"performOnListener", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_AppReOpenedDispatcher, performOnListener, void, Object$*, $_AppEventHandler$_NativeEvent*)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_AppReOpenedDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_AppReOpenedDispatcher", "com.apple.eawt._AppEventHandler", "_AppReOpenedDispatcher", 0},
-	{"com.apple.eawt._AppEventHandler$_AppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_AppEventMultiplexor", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_AppReOpenedDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppEventHandler$_AppReOpenedDispatcher",
-	"com.apple.eawt._AppEventHandler$_AppEventMultiplexor",
-	nullptr,
-	__AppEventHandler$_AppReOpenedDispatcher_FieldInfo_,
-	__AppEventHandler$_AppReOpenedDispatcher_MethodInfo_,
-	"Lcom/apple/eawt/_AppEventHandler$_AppEventMultiplexor<Ljava/awt/desktop/AppReopenedListener;>;",
-	nullptr,
-	__AppEventHandler$_AppReOpenedDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_AppReOpenedDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_AppReOpenedDispatcher));
-}
-
 void _AppEventHandler$_AppReOpenedDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
 	$_AppEventHandler$_AppEventMultiplexor::init$(this$0);
@@ -77,7 +38,39 @@ _AppEventHandler$_AppReOpenedDispatcher::_AppEventHandler$_AppReOpenedDispatcher
 }
 
 $Class* _AppEventHandler$_AppReOpenedDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_AppReOpenedDispatcher, name, initialize, &__AppEventHandler$_AppReOpenedDispatcher_ClassInfo_, allocate$_AppEventHandler$_AppReOpenedDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_AppReOpenedDispatcher, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_AppReOpenedDispatcher, init$, void, $_AppEventHandler*)},
+		{"performOnListener", "(Ljava/awt/desktop/AppReopenedListener;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_AppReOpenedDispatcher, performOnListener, void, $AppReopenedListener*, $_AppEventHandler$_NativeEvent*)},
+		{"performOnListener", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_AppReOpenedDispatcher, performOnListener, void, Object$*, $_AppEventHandler$_NativeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_AppReOpenedDispatcher", "com.apple.eawt._AppEventHandler", "_AppReOpenedDispatcher", 0},
+		{"com.apple.eawt._AppEventHandler$_AppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_AppEventMultiplexor", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppEventHandler$_AppReOpenedDispatcher",
+		"com.apple.eawt._AppEventHandler$_AppEventMultiplexor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/eawt/_AppEventHandler$_AppEventMultiplexor<Ljava/awt/desktop/AppReopenedListener;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_AppReOpenedDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_AppReOpenedDispatcher);
+	});
 	return class$;
 }
 

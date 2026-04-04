@@ -1,9 +1,7 @@
 #include <Test6741426.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/image/BufferedImage.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/LookAndFeel.h>
@@ -21,45 +19,17 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JTextField = ::javax::swing::JTextField;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-
-$FieldInfo _Test6741426_FieldInfo_[] = {
-	{"WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(Test6741426, WIDTH)},
-	{"HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(Test6741426, HEIGHT)},
-	{}
-};
-
-$MethodInfo _Test6741426_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test6741426, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6741426, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6741426, run, void)},
-	{}
-};
-
-$ClassInfo _Test6741426_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6741426",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Test6741426_FieldInfo_,
-	_Test6741426_MethodInfo_
-};
-
-$Object* allocate$Test6741426($Class* clazz) {
-	return $of($alloc(Test6741426));
-}
 
 void Test6741426::init$() {
 }
 
 void Test6741426::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComboBox, cb, $new($JComboBox));
 	$var($JTextField, tf, $new($JTextField));
 	tf->setBorder($(cb->getBorder()));
@@ -70,8 +40,8 @@ void Test6741426::run() {
 
 void Test6741426::main($StringArray* args) {
 	$init(Test6741426);
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($NimbusLookAndFeel)));
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($NimbusLookAndFeel));
 	$SwingUtilities::invokeAndWait($$new(Test6741426));
 }
 
@@ -79,7 +49,28 @@ Test6741426::Test6741426() {
 }
 
 $Class* Test6741426::load$($String* name, bool initialize) {
-	$loadClass(Test6741426, name, initialize, &_Test6741426_ClassInfo_, allocate$Test6741426);
+	$FieldInfo fieldInfos$$[] = {
+		{"WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(Test6741426, WIDTH)},
+		{"HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(Test6741426, HEIGHT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test6741426, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6741426, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6741426, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6741426",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test6741426, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6741426);
+	});
 	return class$;
 }
 

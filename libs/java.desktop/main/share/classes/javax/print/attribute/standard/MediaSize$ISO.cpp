@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaSize$ISO.h>
-
 #include <javax/print/attribute/Size2DSyntax.h>
 #include <javax/print/attribute/standard/MediaSize.h>
 #include <javax/print/attribute/standard/MediaSizeName.h>
@@ -48,67 +47,6 @@ namespace javax {
 		namespace attribute {
 			namespace standard {
 
-$FieldInfo _MediaSize$ISO_FieldInfo_[] = {
-	{"A0", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A0)},
-	{"A1", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A1)},
-	{"A2", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A2)},
-	{"A3", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A3)},
-	{"A4", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A4)},
-	{"A5", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A5)},
-	{"A6", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A6)},
-	{"A7", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A7)},
-	{"A8", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A8)},
-	{"A9", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A9)},
-	{"A10", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A10)},
-	{"B0", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B0)},
-	{"B1", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B1)},
-	{"B2", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B2)},
-	{"B3", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B3)},
-	{"B4", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B4)},
-	{"B5", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B5)},
-	{"B6", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B6)},
-	{"B7", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B7)},
-	{"B8", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B8)},
-	{"B9", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B9)},
-	{"B10", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B10)},
-	{"C3", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C3)},
-	{"C4", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C4)},
-	{"C5", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C5)},
-	{"C6", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C6)},
-	{"DESIGNATED_LONG", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, DESIGNATED_LONG)},
-	{}
-};
-
-$MethodInfo _MediaSize$ISO_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MediaSize$ISO, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MediaSize$ISO_InnerClassesInfo_[] = {
-	{"javax.print.attribute.standard.MediaSize$ISO", "javax.print.attribute.standard.MediaSize", "ISO", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MediaSize$ISO_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaSize$ISO",
-	"java.lang.Object",
-	nullptr,
-	_MediaSize$ISO_FieldInfo_,
-	_MediaSize$ISO_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MediaSize$ISO_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.standard.MediaSize"
-};
-
-$Object* allocate$MediaSize$ISO($Class* clazz) {
-	return $of($alloc(MediaSize$ISO));
-}
-
 $MediaSize* MediaSize$ISO::A0 = nullptr;
 $MediaSize* MediaSize$ISO::A1 = nullptr;
 $MediaSize* MediaSize$ISO::A2 = nullptr;
@@ -140,7 +78,7 @@ $MediaSize* MediaSize$ISO::DESIGNATED_LONG = nullptr;
 void MediaSize$ISO::init$() {
 }
 
-void clinit$MediaSize$ISO($Class* class$) {
+void MediaSize$ISO::clinit$($Class* clazz) {
 	$init($MediaSizeName);
 	$assignStatic(MediaSize$ISO::A0, $new($MediaSize, 841, 1189, $Size2DSyntax::MM, $MediaSizeName::ISO_A0));
 	$assignStatic(MediaSize$ISO::A1, $new($MediaSize, 594, 841, $Size2DSyntax::MM, $MediaSizeName::ISO_A1));
@@ -175,7 +113,62 @@ MediaSize$ISO::MediaSize$ISO() {
 }
 
 $Class* MediaSize$ISO::load$($String* name, bool initialize) {
-	$loadClass(MediaSize$ISO, name, initialize, &_MediaSize$ISO_ClassInfo_, clinit$MediaSize$ISO, allocate$MediaSize$ISO);
+	$FieldInfo fieldInfos$$[] = {
+		{"A0", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A0)},
+		{"A1", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A1)},
+		{"A2", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A2)},
+		{"A3", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A3)},
+		{"A4", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A4)},
+		{"A5", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A5)},
+		{"A6", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A6)},
+		{"A7", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A7)},
+		{"A8", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A8)},
+		{"A9", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A9)},
+		{"A10", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, A10)},
+		{"B0", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B0)},
+		{"B1", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B1)},
+		{"B2", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B2)},
+		{"B3", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B3)},
+		{"B4", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B4)},
+		{"B5", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B5)},
+		{"B6", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B6)},
+		{"B7", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B7)},
+		{"B8", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B8)},
+		{"B9", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B9)},
+		{"B10", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, B10)},
+		{"C3", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C3)},
+		{"C4", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C4)},
+		{"C5", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C5)},
+		{"C6", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, C6)},
+		{"DESIGNATED_LONG", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSize$ISO, DESIGNATED_LONG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MediaSize$ISO, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.standard.MediaSize$ISO", "javax.print.attribute.standard.MediaSize", "ISO", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaSize$ISO",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.standard.MediaSize"
+	};
+	$loadClass(MediaSize$ISO, name, initialize, &classInfo$$, MediaSize$ISO::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MediaSize$ISO);
+	});
 	return class$;
 }
 

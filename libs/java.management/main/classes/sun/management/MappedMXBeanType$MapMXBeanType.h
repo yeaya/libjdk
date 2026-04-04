@@ -21,6 +21,7 @@ class $export MappedMXBeanType$MapMXBeanType : public ::sun::management::MappedM
 	$class(MappedMXBeanType$MapMXBeanType, 0, ::sun::management::MappedMXBeanType)
 public:
 	MappedMXBeanType$MapMXBeanType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::ParameterizedType* pt);
 	virtual ::java::lang::reflect::Type* getJavaType() override;
 	virtual $String* getName() override;

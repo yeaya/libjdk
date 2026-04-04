@@ -1,5 +1,4 @@
 #include <sun/print/PrinterGraphicsConfig.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Rectangle.h>
@@ -32,39 +31,6 @@ using $PrinterGraphicsDevice = ::sun::print::PrinterGraphicsDevice;
 namespace sun {
 	namespace print {
 
-$FieldInfo _PrinterGraphicsConfig_FieldInfo_[] = {
-	{"theModel", "Ljava/awt/image/ColorModel;", nullptr, $STATIC, $staticField(PrinterGraphicsConfig, theModel)},
-	{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, device)},
-	{"pageWidth", "I", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, pageWidth)},
-	{"pageHeight", "I", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, pageHeight)},
-	{"deviceTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, deviceTransform)},
-	{}
-};
-
-$MethodInfo _PrinterGraphicsConfig_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/awt/geom/AffineTransform;II)V", nullptr, $PUBLIC, $method(PrinterGraphicsConfig, init$, void, $String*, $AffineTransform*, int32_t, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getDefaultTransform, $AffineTransform*)},
-	{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getDevice, $GraphicsDevice*)},
-	{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
-	{}
-};
-
-$ClassInfo _PrinterGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.print.PrinterGraphicsConfig",
-	"java.awt.GraphicsConfiguration",
-	nullptr,
-	_PrinterGraphicsConfig_FieldInfo_,
-	_PrinterGraphicsConfig_MethodInfo_
-};
-
-$Object* allocate$PrinterGraphicsConfig($Class* clazz) {
-	return $of($alloc(PrinterGraphicsConfig));
-}
-
 $ColorModel* PrinterGraphicsConfig::theModel = nullptr;
 
 void PrinterGraphicsConfig::init$($String* printerID, $AffineTransform* deviceTx, int32_t pageWid, int32_t pageHgt) {
@@ -90,21 +56,13 @@ $ColorModel* PrinterGraphicsConfig::getColorModel() {
 $ColorModel* PrinterGraphicsConfig::getColorModel(int32_t transparency) {
 	switch (transparency) {
 	case $Transparency::OPAQUE:
-		{
-			return getColorModel();
-		}
+		return getColorModel();
 	case $Transparency::BITMASK:
-		{
-			return $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000);
-		}
+		return $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000);
 	case $Transparency::TRANSLUCENT:
-		{
-			return $ColorModel::getRGBdefault();
-		}
+		return $ColorModel::getRGBdefault();
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -124,7 +82,35 @@ PrinterGraphicsConfig::PrinterGraphicsConfig() {
 }
 
 $Class* PrinterGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(PrinterGraphicsConfig, name, initialize, &_PrinterGraphicsConfig_ClassInfo_, allocate$PrinterGraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"theModel", "Ljava/awt/image/ColorModel;", nullptr, $STATIC, $staticField(PrinterGraphicsConfig, theModel)},
+		{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, device)},
+		{"pageWidth", "I", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, pageWidth)},
+		{"pageHeight", "I", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, pageHeight)},
+		{"deviceTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $FINAL, $field(PrinterGraphicsConfig, deviceTransform)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/awt/geom/AffineTransform;II)V", nullptr, $PUBLIC, $method(PrinterGraphicsConfig, init$, void, $String*, $AffineTransform*, int32_t, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getDefaultTransform, $AffineTransform*)},
+		{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getDevice, $GraphicsDevice*)},
+		{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(PrinterGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.print.PrinterGraphicsConfig",
+		"java.awt.GraphicsConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrinterGraphicsConfig, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrinterGraphicsConfig);
+	});
 	return class$;
 }
 

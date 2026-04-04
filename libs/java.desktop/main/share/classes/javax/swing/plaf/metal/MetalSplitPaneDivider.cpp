@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalSplitPaneDivider.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -25,7 +24,6 @@
 #undef ONE_TOUCH_SIZE
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
@@ -52,64 +50,14 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalSplitPaneDivider_FieldInfo_[] = {
-	{"bumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, bumps)},
-	{"focusBumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, focusBumps)},
-	{"inset", "I", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, inset)},
-	{"controlColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, controlColor)},
-	{"primaryControlColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, primaryControlColor)},
-	{}
-};
-
-$MethodInfo _MetalSplitPaneDivider_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(MetalSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
-	{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalSplitPaneDivider, createLeftOneTouchButton, $JButton*)},
-	{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalSplitPaneDivider, createRightOneTouchButton, $JButton*)},
-	{"getLeftButtonFromSuper", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getLeftButtonFromSuper, $JButton*)},
-	{"getOneTouchOffsetFromSuper", "()I", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getOneTouchOffsetFromSuper, int32_t)},
-	{"getOneTouchSizeFromSuper", "()I", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getOneTouchSizeFromSuper, int32_t)},
-	{"getOrientationFromSuper", "()I", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getOrientationFromSuper, int32_t)},
-	{"getRightButtonFromSuper", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getRightButtonFromSuper, $JButton*)},
-	{"getSplitPaneFromSuper", "()Ljavax/swing/JSplitPane;", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getSplitPaneFromSuper, $JSplitPane*)},
-	{"maybeMakeButtonOpaque", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(MetalSplitPaneDivider, maybeMakeButtonOpaque, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSplitPaneDivider, paint, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _MetalSplitPaneDivider_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalSplitPaneDivider$MetalDividerLayout", "javax.swing.plaf.metal.MetalSplitPaneDivider", "MetalDividerLayout", $PUBLIC},
-	{"javax.swing.plaf.metal.MetalSplitPaneDivider$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.metal.MetalSplitPaneDivider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalSplitPaneDivider_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalSplitPaneDivider",
-	"javax.swing.plaf.basic.BasicSplitPaneDivider",
-	nullptr,
-	_MetalSplitPaneDivider_FieldInfo_,
-	_MetalSplitPaneDivider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalSplitPaneDivider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalSplitPaneDivider$MetalDividerLayout,javax.swing.plaf.metal.MetalSplitPaneDivider$2,javax.swing.plaf.metal.MetalSplitPaneDivider$1"
-};
-
-$Object* allocate$MetalSplitPaneDivider($Class* clazz) {
-	return $of($alloc(MetalSplitPaneDivider));
-}
-
 void MetalSplitPaneDivider::init$($BasicSplitPaneUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicSplitPaneDivider::init$(ui);
-	$var($Color, var$0, static_cast<$Color*>($MetalLookAndFeel::getControlHighlight()));
-	$var($Color, var$1, static_cast<$Color*>($MetalLookAndFeel::getControlDarkShadow()));
+	$var($Color, var$0, $MetalLookAndFeel::getControlHighlight());
+	$var($Color, var$1, $MetalLookAndFeel::getControlDarkShadow());
 	$set(this, bumps, $new($MetalBumps, 10, 10, var$0, var$1, $($MetalLookAndFeel::getControl())));
-	$var($Color, var$2, static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlHighlight()));
-	$var($Color, var$3, static_cast<$Color*>($MetalLookAndFeel::getPrimaryControlDarkShadow()));
+	$var($Color, var$2, $MetalLookAndFeel::getPrimaryControlHighlight());
+	$var($Color, var$3, $MetalLookAndFeel::getPrimaryControlDarkShadow());
 	$set(this, focusBumps, $new($MetalBumps, 10, 10, var$2, var$3, $($UIManager::getColor("SplitPane.dividerFocusColor"_s))));
 	this->inset = 2;
 	$set(this, controlColor, $MetalLookAndFeel::getControl());
@@ -117,7 +65,7 @@ void MetalSplitPaneDivider::init$($BasicSplitPaneUI* ui) {
 }
 
 void MetalSplitPaneDivider::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MetalBumps, usedBumps, nullptr);
 	if ($nc(this->splitPane)->hasFocus()) {
 		$assign(usedBumps, this->focusBumps);
@@ -128,7 +76,7 @@ void MetalSplitPaneDivider::paint($Graphics* g) {
 	}
 	$var($Rectangle, clip, $nc(g)->getClipBounds());
 	$var($Insets, insets, getInsets());
-	g->fillRect($nc(clip)->x, clip->y, clip->width, clip->height);
+	g->fillRect($nc(clip)->x, $nc(clip)->y, $nc(clip)->width, $nc(clip)->height);
 	$var($Dimension, size, getSize());
 	$nc(size)->width -= this->inset * 2;
 	size->height -= this->inset * 2;
@@ -146,7 +94,7 @@ void MetalSplitPaneDivider::paint($Graphics* g) {
 }
 
 $JButton* MetalSplitPaneDivider::createLeftOneTouchButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($MetalSplitPaneDivider$1, this));
 	b->setRequestFocusEnabled(false);
 	b->setCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
@@ -159,12 +107,12 @@ $JButton* MetalSplitPaneDivider::createLeftOneTouchButton() {
 void MetalSplitPaneDivider::maybeMakeButtonOpaque($JComponent* c) {
 	$var($Object, opaque, $UIManager::get("SplitPane.oneTouchButtonsOpaque"_s));
 	if (opaque != nullptr) {
-		$nc(c)->setOpaque($nc(($cast($Boolean, opaque)))->booleanValue());
+		$nc(c)->setOpaque($cast($Boolean, opaque)->booleanValue());
 	}
 }
 
 $JButton* MetalSplitPaneDivider::createRightOneTouchButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($MetalSplitPaneDivider$2, this));
 	b->setCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
 	b->setFocusPainted(false);
@@ -202,7 +150,51 @@ MetalSplitPaneDivider::MetalSplitPaneDivider() {
 }
 
 $Class* MetalSplitPaneDivider::load$($String* name, bool initialize) {
-	$loadClass(MetalSplitPaneDivider, name, initialize, &_MetalSplitPaneDivider_ClassInfo_, allocate$MetalSplitPaneDivider);
+	$FieldInfo fieldInfos$$[] = {
+		{"bumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, bumps)},
+		{"focusBumps", "Ljavax/swing/plaf/metal/MetalBumps;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, focusBumps)},
+		{"inset", "I", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, inset)},
+		{"controlColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, controlColor)},
+		{"primaryControlColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MetalSplitPaneDivider, primaryControlColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(MetalSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
+		{"createLeftOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalSplitPaneDivider, createLeftOneTouchButton, $JButton*)},
+		{"createRightOneTouchButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalSplitPaneDivider, createRightOneTouchButton, $JButton*)},
+		{"getLeftButtonFromSuper", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getLeftButtonFromSuper, $JButton*)},
+		{"getOneTouchOffsetFromSuper", "()I", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getOneTouchOffsetFromSuper, int32_t)},
+		{"getOneTouchSizeFromSuper", "()I", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getOneTouchSizeFromSuper, int32_t)},
+		{"getOrientationFromSuper", "()I", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getOrientationFromSuper, int32_t)},
+		{"getRightButtonFromSuper", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getRightButtonFromSuper, $JButton*)},
+		{"getSplitPaneFromSuper", "()Ljavax/swing/JSplitPane;", nullptr, 0, $virtualMethod(MetalSplitPaneDivider, getSplitPaneFromSuper, $JSplitPane*)},
+		{"maybeMakeButtonOpaque", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(MetalSplitPaneDivider, maybeMakeButtonOpaque, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MetalSplitPaneDivider, paint, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalSplitPaneDivider$MetalDividerLayout", "javax.swing.plaf.metal.MetalSplitPaneDivider", "MetalDividerLayout", $PUBLIC},
+		{"javax.swing.plaf.metal.MetalSplitPaneDivider$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.metal.MetalSplitPaneDivider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalSplitPaneDivider",
+		"javax.swing.plaf.basic.BasicSplitPaneDivider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalSplitPaneDivider$MetalDividerLayout,javax.swing.plaf.metal.MetalSplitPaneDivider$2,javax.swing.plaf.metal.MetalSplitPaneDivider$1"
+	};
+	$loadClass(MetalSplitPaneDivider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalSplitPaneDivider));
+	});
 	return class$;
 }
 

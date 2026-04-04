@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/DurationYearMonthImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/datatype/DurationImpl.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
@@ -24,44 +23,15 @@ namespace com {
 						namespace jaxp {
 							namespace datatype {
 
-$FieldInfo _DurationYearMonthImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DurationYearMonthImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DurationYearMonthImpl_MethodInfo_[] = {
-	{"<init>", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DurationYearMonthImpl, init$, void, bool, $BigInteger*, $BigInteger*)},
-	{"<init>", "(ZII)V", nullptr, $PROTECTED, $method(DurationYearMonthImpl, init$, void, bool, int32_t, int32_t)},
-	{"<init>", "(J)V", nullptr, $PROTECTED, $method(DurationYearMonthImpl, init$, void, int64_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(DurationYearMonthImpl, init$, void, $String*)},
-	{"convertToCanonicalYearMonth", "()V", nullptr, $PRIVATE, $method(DurationYearMonthImpl, convertToCanonicalYearMonth, void)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(DurationYearMonthImpl, getValue, int32_t)},
-	{}
-};
-
-$ClassInfo _DurationYearMonthImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.datatype.DurationYearMonthImpl",
-	"com.sun.org.apache.xerces.internal.jaxp.datatype.DurationImpl",
-	nullptr,
-	_DurationYearMonthImpl_FieldInfo_,
-	_DurationYearMonthImpl_MethodInfo_
-};
-
-$Object* allocate$DurationYearMonthImpl($Class* clazz) {
-	return $of($alloc(DurationYearMonthImpl));
-}
-
 void DurationYearMonthImpl::init$(bool isPositive, $BigInteger* years, $BigInteger* months) {
-	$DurationImpl::init$(isPositive, years, months, ($BigInteger*)nullptr, ($BigInteger*)nullptr, ($BigInteger*)nullptr, ($BigDecimal*)nullptr);
+	$DurationImpl::init$(isPositive, years, months, nullptr, nullptr, nullptr, nullptr);
 	convertToCanonicalYearMonth();
 }
 
 void DurationYearMonthImpl::init$(bool isPositive, int32_t years, int32_t months) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = isPositive;
-	$var($BigInteger, var$1, wrap(years));
-	DurationYearMonthImpl::init$(var$0, var$1, $(wrap(months)));
+	$useLocalObjectStack();
+	$var($BigInteger, var$0, wrap(years));
+	DurationYearMonthImpl::init$(isPositive, var$0, $(wrap(months)));
 }
 
 void DurationYearMonthImpl::init$(int64_t durationInMilliseconds) {
@@ -91,10 +61,10 @@ int32_t DurationYearMonthImpl::getValue() {
 }
 
 void DurationYearMonthImpl::convertToCanonicalYearMonth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (getMonths() >= 12) {
-		$set(this, months, $nc(this->months)->subtract($($BigInteger::valueOf((int64_t)12))));
-		$set(this, years, $nc($($BigInteger::valueOf((int64_t)getYears())))->add($BigInteger::ONE));
+		$set(this, months, $nc(this->months)->subtract($($BigInteger::valueOf(12))));
+		$set(this, years, $($BigInteger::valueOf((int64_t)getYears()))->add($BigInteger::ONE));
 	}
 }
 
@@ -102,7 +72,30 @@ DurationYearMonthImpl::DurationYearMonthImpl() {
 }
 
 $Class* DurationYearMonthImpl::load$($String* name, bool initialize) {
-	$loadClass(DurationYearMonthImpl, name, initialize, &_DurationYearMonthImpl_ClassInfo_, allocate$DurationYearMonthImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DurationYearMonthImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DurationYearMonthImpl, init$, void, bool, $BigInteger*, $BigInteger*)},
+		{"<init>", "(ZII)V", nullptr, $PROTECTED, $method(DurationYearMonthImpl, init$, void, bool, int32_t, int32_t)},
+		{"<init>", "(J)V", nullptr, $PROTECTED, $method(DurationYearMonthImpl, init$, void, int64_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(DurationYearMonthImpl, init$, void, $String*)},
+		{"convertToCanonicalYearMonth", "()V", nullptr, $PRIVATE, $method(DurationYearMonthImpl, convertToCanonicalYearMonth, void)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(DurationYearMonthImpl, getValue, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.datatype.DurationYearMonthImpl",
+		"com.sun.org.apache.xerces.internal.jaxp.datatype.DurationImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DurationYearMonthImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DurationYearMonthImpl));
+	});
 	return class$;
 }
 

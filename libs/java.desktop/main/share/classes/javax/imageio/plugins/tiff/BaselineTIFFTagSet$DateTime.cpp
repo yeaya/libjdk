@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$DateTime.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$DateTime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$DateTime, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$DateTime_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DateTime", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "DateTime", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$DateTime_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DateTime",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$DateTime_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$DateTime_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$DateTime($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$DateTime));
-}
-
 void BaselineTIFFTagSet$DateTime::init$() {
 	$TIFFTag::init$("DateTime"_s, 306, $sl(1, $TIFFTag::TIFF_ASCII), 20);
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$DateTime::BaselineTIFFTagSet$DateTime() {
 }
 
 $Class* BaselineTIFFTagSet$DateTime::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$DateTime, name, initialize, &_BaselineTIFFTagSet$DateTime_ClassInfo_, allocate$BaselineTIFFTagSet$DateTime);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$DateTime, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DateTime", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "DateTime", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$DateTime",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$DateTime, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$DateTime);
+	});
 	return class$;
 }
 

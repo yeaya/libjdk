@@ -52,6 +52,7 @@ class $export BasicEditorPaneUI : public ::javax::swing::plaf::basic::BasicTextU
 	$class(BasicEditorPaneUI, 0, ::javax::swing::plaf::basic::BasicTextUI)
 public:
 	BasicEditorPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addActions(::javax::swing::ActionMap* map, $Array<::javax::swing::Action>* actions);
 	virtual void cleanDisplayProperties();

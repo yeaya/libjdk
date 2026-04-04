@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCSkip.h>
-
-#include <com/sun/source/tree/EmptyStatementTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
@@ -12,7 +10,6 @@
 #undef EMPTY_STATEMENT
 #undef SKIP
 
-using $EmptyStatementTree = ::com::sun::source::tree::EmptyStatementTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
@@ -27,46 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$MethodInfo _JCTree$JCSkip_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(JCTree$JCSkip, init$, void)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSkip, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCSkip, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSkip, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSkip, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCSkip_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCSkip", "com.sun.tools.javac.tree.JCTree", "JCSkip", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCSkip_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCSkip",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.EmptyStatementTree",
-	nullptr,
-	_JCTree$JCSkip_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCSkip_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCSkip($Class* clazz) {
-	return $of($alloc(JCTree$JCSkip));
-}
 
 $String* JCTree$JCSkip::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -102,7 +59,7 @@ $Tree$Kind* JCTree$JCSkip::getKind() {
 }
 
 $Object* JCTree$JCSkip::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitEmptyStatement(this, d));
+	return $nc(v)->visitEmptyStatement(this, d);
 }
 
 $JCTree$Tag* JCTree$JCSkip::getTag() {
@@ -114,7 +71,42 @@ JCTree$JCSkip::JCTree$JCSkip() {
 }
 
 $Class* JCTree$JCSkip::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCSkip, name, initialize, &_JCTree$JCSkip_ClassInfo_, allocate$JCTree$JCSkip);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(JCTree$JCSkip, init$, void)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSkip, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCSkip, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSkip, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSkip, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCSkip", "com.sun.tools.javac.tree.JCTree", "JCSkip", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCSkip",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.EmptyStatementTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCSkip, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCSkip));
+	});
 	return class$;
 }
 

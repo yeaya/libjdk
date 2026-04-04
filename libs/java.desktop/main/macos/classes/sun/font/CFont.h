@@ -57,6 +57,7 @@ public:
 	using ::sun::font::PhysicalFont::getStrike;
 	using ::sun::font::PhysicalFont::getFontMetrics;
 	virtual $Object* clone() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* name, $String* inFamilyName);
 	void init$(::sun::font::CFont* other, $String* logicalFamilyName);

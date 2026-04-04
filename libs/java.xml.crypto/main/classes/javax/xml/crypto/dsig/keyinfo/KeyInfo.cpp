@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/keyinfo/KeyInfo.h>
-
 #include <java/util/List.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
 #include <javax/xml/crypto/XMLStructure.h>
@@ -17,28 +16,24 @@ namespace javax {
 			namespace dsig {
 				namespace keyinfo {
 
-$MethodInfo _KeyInfo_MethodInfo_[] = {
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfo, getContent, $List*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfo, getId, $String*)},
-	{"marshal", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfo, marshal, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$ClassInfo _KeyInfo_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.keyinfo.KeyInfo",
-	nullptr,
-	"javax.xml.crypto.XMLStructure",
-	nullptr,
-	_KeyInfo_MethodInfo_
-};
-
-$Object* allocate$KeyInfo($Class* clazz) {
-	return $of($alloc(KeyInfo));
-}
-
 $Class* KeyInfo::load$($String* name, bool initialize) {
-	$loadClass(KeyInfo, name, initialize, &_KeyInfo_ClassInfo_, allocate$KeyInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfo, getContent, $List*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfo, getId, $String*)},
+		{"marshal", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyInfo, marshal, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.keyinfo.KeyInfo",
+		nullptr,
+		"javax.xml.crypto.XMLStructure",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyInfo);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$ThreadSafePrintable.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Printable.h>
@@ -33,46 +32,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JTable$ThreadSafePrintable_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$ThreadSafePrintable, this$0)},
-	{"printDelegate", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(JTable$ThreadSafePrintable, printDelegate)},
-	{"retVal", "I", nullptr, $PRIVATE, $field(JTable$ThreadSafePrintable, retVal)},
-	{"retThrowable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(JTable$ThreadSafePrintable, retThrowable)},
-	{}
-};
-
-$MethodInfo _JTable$ThreadSafePrintable_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTable;Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $method(JTable$ThreadSafePrintable, init$, void, $JTable*, $Printable*)},
-	{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(JTable$ThreadSafePrintable, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
-	{}
-};
-
-$InnerClassInfo _JTable$ThreadSafePrintable_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$ThreadSafePrintable", "javax.swing.JTable", "ThreadSafePrintable", $PRIVATE},
-	{"javax.swing.JTable$ThreadSafePrintable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTable$ThreadSafePrintable_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$ThreadSafePrintable",
-	"java.lang.Object",
-	"java.awt.print.Printable",
-	_JTable$ThreadSafePrintable_FieldInfo_,
-	_JTable$ThreadSafePrintable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$ThreadSafePrintable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$ThreadSafePrintable($Class* clazz) {
-	return $of($alloc(JTable$ThreadSafePrintable));
-}
-
 void JTable$ThreadSafePrintable::init$($JTable* this$0, $Printable* printDelegate) {
 	$set(this, this$0, this$0);
 	$set(this, printDelegate, printDelegate);
@@ -86,7 +45,7 @@ int32_t JTable$ThreadSafePrintable::print($Graphics* graphics, $PageFormat* page
 		$SwingUtilities::invokeLater(runnable);
 		while (this->retVal == -1 && this->retThrowable == nullptr) {
 			try {
-				$of(runnable)->wait();
+				runnable->wait();
 			} catch ($InterruptedException& ie) {
 			}
 		}
@@ -98,7 +57,7 @@ int32_t JTable$ThreadSafePrintable::print($Graphics* graphics, $PageFormat* page
 			} else if ($instanceOf($Error, this->retThrowable)) {
 				$throw($cast($Error, this->retThrowable));
 			}
-			$throwNew($AssertionError, $of(this->retThrowable));
+			$throwNew($AssertionError, this->retThrowable);
 		}
 		return this->retVal;
 	}
@@ -108,7 +67,41 @@ JTable$ThreadSafePrintable::JTable$ThreadSafePrintable() {
 }
 
 $Class* JTable$ThreadSafePrintable::load$($String* name, bool initialize) {
-	$loadClass(JTable$ThreadSafePrintable, name, initialize, &_JTable$ThreadSafePrintable_ClassInfo_, allocate$JTable$ThreadSafePrintable);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$ThreadSafePrintable, this$0)},
+		{"printDelegate", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(JTable$ThreadSafePrintable, printDelegate)},
+		{"retVal", "I", nullptr, $PRIVATE, $field(JTable$ThreadSafePrintable, retVal)},
+		{"retThrowable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(JTable$ThreadSafePrintable, retThrowable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTable;Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $method(JTable$ThreadSafePrintable, init$, void, $JTable*, $Printable*)},
+		{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(JTable$ThreadSafePrintable, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$ThreadSafePrintable", "javax.swing.JTable", "ThreadSafePrintable", $PRIVATE},
+		{"javax.swing.JTable$ThreadSafePrintable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$ThreadSafePrintable",
+		"java.lang.Object",
+		"java.awt.print.Printable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$ThreadSafePrintable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTable$ThreadSafePrintable);
+	});
 	return class$;
 }
 

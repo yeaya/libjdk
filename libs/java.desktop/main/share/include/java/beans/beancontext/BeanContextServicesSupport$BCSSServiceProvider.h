@@ -23,7 +23,7 @@ public:
 	BeanContextServicesSupport$BCSSServiceProvider();
 	void init$($Class* sc, ::java::beans::beancontext::BeanContextServiceProvider* bcsp);
 	virtual ::java::beans::beancontext::BeanContextServiceProvider* getServiceProvider();
-	static const int64_t serialVersionUID = (int64_t)0x0BF3E001B368542E;
+	static const int64_t serialVersionUID = (int64_t)0x0bf3e001b368542e;
 	::java::beans::beancontext::BeanContextServiceProvider* serviceProvider = nullptr;
 };
 

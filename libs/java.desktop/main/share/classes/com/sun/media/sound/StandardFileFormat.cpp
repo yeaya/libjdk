@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/StandardFileFormat.h>
-
 #include <javax/sound/sampled/AudioFileFormat$Type.h>
 #include <javax/sound/sampled/AudioFileFormat.h>
 #include <javax/sound/sampled/AudioFormat.h>
@@ -23,44 +22,13 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _StandardFileFormat_FieldInfo_[] = {
-	{"byteLength", "J", nullptr, $PRIVATE | $FINAL, $field(StandardFileFormat, byteLength)},
-	{"frameLength", "J", nullptr, $PRIVATE | $FINAL, $field(StandardFileFormat, frameLength)},
-	{}
-};
-
-$MethodInfo _StandardFileFormat_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;J)V", nullptr, 0, $method(StandardFileFormat, init$, void, $AudioFileFormat$Type*, $AudioFormat*, int64_t)},
-	{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;JLjavax/sound/sampled/AudioFormat;J)V", nullptr, 0, $method(StandardFileFormat, init$, void, $AudioFileFormat$Type*, int64_t, $AudioFormat*, int64_t)},
-	{"clip", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardFileFormat, clip, int32_t, int64_t)},
-	{"getLongByteLength", "()J", nullptr, $PUBLIC | $FINAL, $method(StandardFileFormat, getLongByteLength, int64_t)},
-	{"getLongFrameLength", "()J", nullptr, $PUBLIC | $FINAL, $method(StandardFileFormat, getLongFrameLength, int64_t)},
-	{}
-};
-
-$ClassInfo _StandardFileFormat_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.StandardFileFormat",
-	"javax.sound.sampled.AudioFileFormat",
-	nullptr,
-	_StandardFileFormat_FieldInfo_,
-	_StandardFileFormat_MethodInfo_
-};
-
-$Object* allocate$StandardFileFormat($Class* clazz) {
-	return $of($alloc(StandardFileFormat));
-}
-
 void StandardFileFormat::init$($AudioFileFormat$Type* type, $AudioFormat* format, int64_t frameLength) {
 	StandardFileFormat::init$(type, $AudioSystem::NOT_SPECIFIED, format, frameLength);
 }
 
 void StandardFileFormat::init$($AudioFileFormat$Type* type, int64_t byteLength, $AudioFormat* format, int64_t frameLength) {
-	$useLocalCurrentObjectStackCache();
-	$var($AudioFileFormat$Type, var$0, type);
-	int32_t var$1 = clip(byteLength);
-	$var($AudioFormat, var$2, format);
-	$AudioFileFormat::init$(var$0, var$1, var$2, clip(frameLength));
+	int32_t var$0 = clip(byteLength);
+	$AudioFileFormat::init$(type, var$0, format, clip(frameLength));
 	this->byteLength = byteLength;
 	this->frameLength = frameLength;
 }
@@ -85,7 +53,30 @@ StandardFileFormat::StandardFileFormat() {
 }
 
 $Class* StandardFileFormat::load$($String* name, bool initialize) {
-	$loadClass(StandardFileFormat, name, initialize, &_StandardFileFormat_ClassInfo_, allocate$StandardFileFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"byteLength", "J", nullptr, $PRIVATE | $FINAL, $field(StandardFileFormat, byteLength)},
+		{"frameLength", "J", nullptr, $PRIVATE | $FINAL, $field(StandardFileFormat, frameLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;J)V", nullptr, 0, $method(StandardFileFormat, init$, void, $AudioFileFormat$Type*, $AudioFormat*, int64_t)},
+		{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;JLjavax/sound/sampled/AudioFormat;J)V", nullptr, 0, $method(StandardFileFormat, init$, void, $AudioFileFormat$Type*, int64_t, $AudioFormat*, int64_t)},
+		{"clip", "(J)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardFileFormat, clip, int32_t, int64_t)},
+		{"getLongByteLength", "()J", nullptr, $PUBLIC | $FINAL, $method(StandardFileFormat, getLongByteLength, int64_t)},
+		{"getLongFrameLength", "()J", nullptr, $PUBLIC | $FINAL, $method(StandardFileFormat, getLongFrameLength, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.StandardFileFormat",
+		"javax.sound.sampled.AudioFileFormat",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardFileFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardFileFormat);
+	});
 	return class$;
 }
 

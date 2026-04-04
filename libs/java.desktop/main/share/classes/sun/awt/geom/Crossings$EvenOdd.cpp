@@ -1,5 +1,4 @@
 #include <sun/awt/geom/Crossings$EvenOdd.h>
-
 #include <sun/awt/geom/Crossings.h>
 #include <jcpp.h>
 
@@ -12,44 +11,12 @@ namespace sun {
 	namespace awt {
 		namespace geom {
 
-$MethodInfo _Crossings$EvenOdd_MethodInfo_[] = {
-	{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(Crossings$EvenOdd, init$, void, double, double, double, double)},
-	{"covers", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Crossings$EvenOdd, covers, bool, double, double)},
-	{"record", "(DDI)V", nullptr, $PUBLIC, $virtualMethod(Crossings$EvenOdd, record, void, double, double, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Crossings$EvenOdd_InnerClassesInfo_[] = {
-	{"sun.awt.geom.Crossings$EvenOdd", "sun.awt.geom.Crossings", "EvenOdd", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Crossings$EvenOdd_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.geom.Crossings$EvenOdd",
-	"sun.awt.geom.Crossings",
-	nullptr,
-	nullptr,
-	_Crossings$EvenOdd_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Crossings$EvenOdd_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.geom.Crossings"
-};
-
-$Object* allocate$Crossings$EvenOdd($Class* clazz) {
-	return $of($alloc(Crossings$EvenOdd));
-}
-
 void Crossings$EvenOdd::init$(double xlo, double ylo, double xhi, double yhi) {
 	$Crossings::init$(xlo, ylo, xhi, yhi);
 }
 
 bool Crossings$EvenOdd::covers(double ystart, double yend) {
-	return (this->limit == 2 && $nc(this->yranges)->get(0) <= ystart && $nc(this->yranges)->get(1) >= yend);
+	return (this->limit == 2 && $nc(this->yranges)->get(0) <= ystart && this->yranges->get(1) >= yend);
 }
 
 void Crossings$EvenOdd::record(double ystart, double yend, int32_t direction) {
@@ -63,10 +30,10 @@ void Crossings$EvenOdd::record(double ystart, double yend, int32_t direction) {
 	int32_t to = from;
 	while (from < this->limit) {
 		double yrlo = $nc(this->yranges)->get(from++);
-		double yrhi = $nc(this->yranges)->get(from++);
+		double yrhi = this->yranges->get(from++);
 		if (yend < yrlo) {
-			$nc(this->yranges)->set(to++, ystart);
-			$nc(this->yranges)->set(to++, yend);
+			this->yranges->set(to++, ystart);
+			this->yranges->set(to++, yend);
 			ystart = yrlo;
 			yend = yrhi;
 			continue;
@@ -99,8 +66,8 @@ void Crossings$EvenOdd::record(double ystart, double yend, int32_t direction) {
 				ylh = ystart;
 			}
 			if (yll != ylh) {
-				$nc(this->yranges)->set(to++, yll);
-				$nc(this->yranges)->set(to++, ylh);
+				this->yranges->set(to++, yll);
+				this->yranges->set(to++, ylh);
 			}
 			ystart = yhl;
 			yend = yhh;
@@ -119,8 +86,8 @@ void Crossings$EvenOdd::record(double ystart, double yend, int32_t direction) {
 			$System::arraycopy(this->yranges, 0, newranges, 0, to);
 			$set(this, yranges, newranges);
 		}
-		$nc(this->yranges)->set(to++, ystart);
-		$nc(this->yranges)->set(to++, yend);
+		this->yranges->set(to++, ystart);
+		this->yranges->set(to++, yend);
 	}
 	this->limit = to;
 }
@@ -129,7 +96,34 @@ Crossings$EvenOdd::Crossings$EvenOdd() {
 }
 
 $Class* Crossings$EvenOdd::load$($String* name, bool initialize) {
-	$loadClass(Crossings$EvenOdd, name, initialize, &_Crossings$EvenOdd_ClassInfo_, allocate$Crossings$EvenOdd);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(DDDD)V", nullptr, $PUBLIC, $method(Crossings$EvenOdd, init$, void, double, double, double, double)},
+		{"covers", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Crossings$EvenOdd, covers, bool, double, double)},
+		{"record", "(DDI)V", nullptr, $PUBLIC, $virtualMethod(Crossings$EvenOdd, record, void, double, double, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.geom.Crossings$EvenOdd", "sun.awt.geom.Crossings", "EvenOdd", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.geom.Crossings$EvenOdd",
+		"sun.awt.geom.Crossings",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.geom.Crossings"
+	};
+	$loadClass(Crossings$EvenOdd, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Crossings$EvenOdd);
+	});
 	return class$;
 }
 

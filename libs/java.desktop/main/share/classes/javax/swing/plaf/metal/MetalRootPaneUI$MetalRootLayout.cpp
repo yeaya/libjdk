@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalRootPaneUI$MetalRootLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -30,8 +29,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
-using $JMenuBar = ::javax::swing::JMenuBar;
 using $JRootPane = ::javax::swing::JRootPane;
 using $RootPaneUI = ::javax::swing::plaf::RootPaneUI;
 using $MetalRootPaneUI = ::javax::swing::plaf::metal::MetalRootPaneUI;
@@ -41,51 +38,11 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalRootPaneUI$MetalRootLayout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalRootPaneUI$MetalRootLayout, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, addLayoutComponent, void, $Component*, Object$*)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, getLayoutAlignmentY, float, $Container*)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, invalidateLayout, void, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, layoutContainer, void, $Container*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _MetalRootPaneUI$MetalRootLayout_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout", "javax.swing.plaf.metal.MetalRootPaneUI", "MetalRootLayout", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalRootPaneUI$MetalRootLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager2",
-	nullptr,
-	_MetalRootPaneUI$MetalRootLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalRootPaneUI$MetalRootLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalRootPaneUI"
-};
-
-$Object* allocate$MetalRootPaneUI$MetalRootLayout($Class* clazz) {
-	return $of($alloc(MetalRootPaneUI$MetalRootLayout));
-}
-
 void MetalRootPaneUI$MetalRootLayout::init$() {
 }
 
 $Dimension* MetalRootPaneUI$MetalRootLayout::preferredLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, cpd, nullptr);
 	$var($Dimension, mbd, nullptr);
 	$var($Dimension, tpd, nullptr);
@@ -98,7 +55,7 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::preferredLayoutSize($Container* par
 	$var($Insets, i, $nc(parent)->getInsets());
 	$var($JRootPane, root, $cast($JRootPane, parent));
 	if (root->getContentPane() != nullptr) {
-		$assign(cpd, $nc($(root->getContentPane()))->getPreferredSize());
+		$assign(cpd, $$nc(root->getContentPane())->getPreferredSize());
 	} else {
 		$assign(cpd, root->getSize());
 	}
@@ -107,15 +64,15 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::preferredLayoutSize($Container* par
 		cpHeight = cpd->height;
 	}
 	if (root->getJMenuBar() != nullptr) {
-		$assign(mbd, $nc($(root->getJMenuBar()))->getPreferredSize());
+		$assign(mbd, $$nc(root->getJMenuBar())->getPreferredSize());
 		if (mbd != nullptr) {
 			mbWidth = mbd->width;
 			mbHeight = mbd->height;
 		}
 	}
 	bool var$0 = root->getWindowDecorationStyle() != $JRootPane::NONE;
-	if (var$0 && ($instanceOf($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI()))))) {
-		$var($JComponent, titlePane, $nc(($cast($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI())))))->getTitlePane());
+	if (var$0 && ($instanceOf($MetalRootPaneUI, $$cast($RootPaneUI, root->getUI())))) {
+		$var($JComponent, titlePane, $$sure($MetalRootPaneUI, $cast($RootPaneUI, root->getUI()))->getTitlePane());
 		if (titlePane != nullptr) {
 			$assign(tpd, titlePane->getPreferredSize());
 			if (tpd != nullptr) {
@@ -124,11 +81,11 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::preferredLayoutSize($Container* par
 			}
 		}
 	}
-	return $new($Dimension, $Math::max($Math::max(cpWidth, mbWidth), tpWidth) + $nc(i)->left + i->right, cpHeight + mbHeight + tpHeight + i->top + i->bottom);
+	return $new($Dimension, $Math::max($Math::max(cpWidth, mbWidth), tpWidth) + $nc(i)->left + $nc(i)->right, cpHeight + mbHeight + tpHeight + $nc(i)->top + $nc(i)->bottom);
 }
 
 $Dimension* MetalRootPaneUI$MetalRootLayout::minimumLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, cpd, nullptr);
 	$var($Dimension, mbd, nullptr);
 	$var($Dimension, tpd, nullptr);
@@ -141,7 +98,7 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::minimumLayoutSize($Container* paren
 	$var($Insets, i, $nc(parent)->getInsets());
 	$var($JRootPane, root, $cast($JRootPane, parent));
 	if (root->getContentPane() != nullptr) {
-		$assign(cpd, $nc($(root->getContentPane()))->getMinimumSize());
+		$assign(cpd, $$nc(root->getContentPane())->getMinimumSize());
 	} else {
 		$assign(cpd, root->getSize());
 	}
@@ -150,15 +107,15 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::minimumLayoutSize($Container* paren
 		cpHeight = cpd->height;
 	}
 	if (root->getJMenuBar() != nullptr) {
-		$assign(mbd, $nc($(root->getJMenuBar()))->getMinimumSize());
+		$assign(mbd, $$nc(root->getJMenuBar())->getMinimumSize());
 		if (mbd != nullptr) {
 			mbWidth = mbd->width;
 			mbHeight = mbd->height;
 		}
 	}
 	bool var$0 = root->getWindowDecorationStyle() != $JRootPane::NONE;
-	if (var$0 && ($instanceOf($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI()))))) {
-		$var($JComponent, titlePane, $nc(($cast($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI())))))->getTitlePane());
+	if (var$0 && ($instanceOf($MetalRootPaneUI, $$cast($RootPaneUI, root->getUI())))) {
+		$var($JComponent, titlePane, $$sure($MetalRootPaneUI, $cast($RootPaneUI, root->getUI()))->getTitlePane());
 		if (titlePane != nullptr) {
 			$assign(tpd, titlePane->getMinimumSize());
 			if (tpd != nullptr) {
@@ -167,11 +124,11 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::minimumLayoutSize($Container* paren
 			}
 		}
 	}
-	return $new($Dimension, $Math::max($Math::max(cpWidth, mbWidth), tpWidth) + $nc(i)->left + i->right, cpHeight + mbHeight + tpHeight + i->top + i->bottom);
+	return $new($Dimension, $Math::max($Math::max(cpWidth, mbWidth), tpWidth) + $nc(i)->left + $nc(i)->right, cpHeight + mbHeight + tpHeight + $nc(i)->top + $nc(i)->bottom);
 }
 
 $Dimension* MetalRootPaneUI$MetalRootLayout::maximumLayoutSize($Container* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, cpd, nullptr);
 	$var($Dimension, mbd, nullptr);
 	$var($Dimension, tpd, nullptr);
@@ -184,22 +141,22 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::maximumLayoutSize($Container* targe
 	$var($Insets, i, $nc(target)->getInsets());
 	$var($JRootPane, root, $cast($JRootPane, target));
 	if (root->getContentPane() != nullptr) {
-		$assign(cpd, $nc($(root->getContentPane()))->getMaximumSize());
+		$assign(cpd, $$nc(root->getContentPane())->getMaximumSize());
 		if (cpd != nullptr) {
 			cpWidth = cpd->width;
 			cpHeight = cpd->height;
 		}
 	}
 	if (root->getJMenuBar() != nullptr) {
-		$assign(mbd, $nc($(root->getJMenuBar()))->getMaximumSize());
+		$assign(mbd, $$nc(root->getJMenuBar())->getMaximumSize());
 		if (mbd != nullptr) {
 			mbWidth = mbd->width;
 			mbHeight = mbd->height;
 		}
 	}
 	bool var$0 = root->getWindowDecorationStyle() != $JRootPane::NONE;
-	if (var$0 && ($instanceOf($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI()))))) {
-		$var($JComponent, titlePane, $nc(($cast($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI())))))->getTitlePane());
+	if (var$0 && ($instanceOf($MetalRootPaneUI, $$cast($RootPaneUI, root->getUI())))) {
+		$var($JComponent, titlePane, $$sure($MetalRootPaneUI, $cast($RootPaneUI, root->getUI()))->getTitlePane());
 		if (titlePane != nullptr) {
 			$assign(tpd, titlePane->getMaximumSize());
 			if (tpd != nullptr) {
@@ -210,32 +167,32 @@ $Dimension* MetalRootPaneUI$MetalRootLayout::maximumLayoutSize($Container* targe
 	}
 	int32_t maxHeight = $Math::max($Math::max(cpHeight, mbHeight), tpHeight);
 	if (maxHeight != $Integer::MAX_VALUE) {
-		maxHeight = cpHeight + mbHeight + tpHeight + $nc(i)->top + i->bottom;
+		maxHeight = cpHeight + mbHeight + tpHeight + $nc(i)->top + $nc(i)->bottom;
 	}
 	int32_t maxWidth = $Math::max($Math::max(cpWidth, mbWidth), tpWidth);
 	if (maxWidth != $Integer::MAX_VALUE) {
-		maxWidth += $nc(i)->left + i->right;
+		maxWidth += $nc(i)->left + $nc(i)->right;
 	}
 	return $new($Dimension, maxWidth, maxHeight);
 }
 
 void MetalRootPaneUI$MetalRootLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRootPane, root, $cast($JRootPane, parent));
 	$var($Rectangle, b, $nc(root)->getBounds());
 	$var($Insets, i, root->getInsets());
 	int32_t nextY = 0;
-	int32_t w = $nc(b)->width - $nc(i)->right - i->left;
+	int32_t w = $nc(b)->width - $nc(i)->right - $nc(i)->left;
 	int32_t h = b->height - i->top - i->bottom;
 	if (root->getLayeredPane() != nullptr) {
-		$nc($(root->getLayeredPane()))->setBounds(i->left, i->top, w, h);
+		$$nc(root->getLayeredPane())->setBounds(i->left, i->top, w, h);
 	}
 	if (root->getGlassPane() != nullptr) {
-		$nc($(root->getGlassPane()))->setBounds(i->left, i->top, w, h);
+		$$nc(root->getGlassPane())->setBounds(i->left, i->top, w, h);
 	}
 	bool var$0 = root->getWindowDecorationStyle() != $JRootPane::NONE;
-	if (var$0 && ($instanceOf($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI()))))) {
-		$var($JComponent, titlePane, $nc(($cast($MetalRootPaneUI, $($cast($RootPaneUI, root->getUI())))))->getTitlePane());
+	if (var$0 && ($instanceOf($MetalRootPaneUI, $$cast($RootPaneUI, root->getUI())))) {
+		$var($JComponent, titlePane, $$sure($MetalRootPaneUI, $cast($RootPaneUI, root->getUI()))->getTitlePane());
 		if (titlePane != nullptr) {
 			$var($Dimension, tpd, titlePane->getPreferredSize());
 			if (tpd != nullptr) {
@@ -246,13 +203,13 @@ void MetalRootPaneUI$MetalRootLayout::layoutContainer($Container* parent) {
 		}
 	}
 	if (root->getJMenuBar() != nullptr) {
-		$var($Dimension, mbd, $nc($(root->getJMenuBar()))->getPreferredSize());
-		$nc($(root->getJMenuBar()))->setBounds(0, nextY, w, $nc(mbd)->height);
-		nextY += $nc(mbd)->height;
+		$var($Dimension, mbd, $$nc(root->getJMenuBar())->getPreferredSize());
+		$$nc(root->getJMenuBar())->setBounds(0, nextY, w, $nc(mbd)->height);
+		nextY += mbd->height;
 	}
 	if (root->getContentPane() != nullptr) {
-		$var($Dimension, cpd, $nc($(root->getContentPane()))->getPreferredSize());
-		$nc($(root->getContentPane()))->setBounds(0, nextY, w, h < nextY ? 0 : h - nextY);
+		$var($Dimension, cpd, $$nc(root->getContentPane())->getPreferredSize());
+		$$nc(root->getContentPane())->setBounds(0, nextY, w, h < nextY ? 0 : h - nextY);
 	}
 }
 
@@ -280,7 +237,42 @@ MetalRootPaneUI$MetalRootLayout::MetalRootPaneUI$MetalRootLayout() {
 }
 
 $Class* MetalRootPaneUI$MetalRootLayout::load$($String* name, bool initialize) {
-	$loadClass(MetalRootPaneUI$MetalRootLayout, name, initialize, &_MetalRootPaneUI$MetalRootLayout_ClassInfo_, allocate$MetalRootPaneUI$MetalRootLayout);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalRootPaneUI$MetalRootLayout, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, addLayoutComponent, void, $Component*, Object$*)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, getLayoutAlignmentY, float, $Container*)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, invalidateLayout, void, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, layoutContainer, void, $Container*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI$MetalRootLayout, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout", "javax.swing.plaf.metal.MetalRootPaneUI", "MetalRootLayout", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager2",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalRootPaneUI"
+	};
+	$loadClass(MetalRootPaneUI$MetalRootLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalRootPaneUI$MetalRootLayout);
+	});
 	return class$;
 }
 

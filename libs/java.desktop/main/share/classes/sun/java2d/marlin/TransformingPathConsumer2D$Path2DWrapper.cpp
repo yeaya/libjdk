@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/TransformingPathConsumer2D$Path2DWrapper.h>
-
 #include <java/awt/geom/Path2D$Double.h>
 #include <java/lang/InternalError.h>
 #include <sun/java2d/marlin/TransformingPathConsumer2D.h>
@@ -15,49 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _TransformingPathConsumer2D$Path2DWrapper_FieldInfo_[] = {
-	{"p2d", "Ljava/awt/geom/Path2D$Double;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$Path2DWrapper, p2d)},
-	{}
-};
-
-$MethodInfo _TransformingPathConsumer2D$Path2DWrapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TransformingPathConsumer2D$Path2DWrapper, init$, void)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, curveTo, void, double, double, double, double, double, double)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, getNativeConsumer, int64_t)},
-	{"init", "(Ljava/awt/geom/Path2D$Double;)Lsun/java2d/marlin/TransformingPathConsumer2D$Path2DWrapper;", nullptr, 0, $method(TransformingPathConsumer2D$Path2DWrapper, init, TransformingPathConsumer2D$Path2DWrapper*, $Path2D$Double*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _TransformingPathConsumer2D$Path2DWrapper_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper", "sun.java2d.marlin.TransformingPathConsumer2D", "Path2DWrapper", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TransformingPathConsumer2D$Path2DWrapper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_TransformingPathConsumer2D$Path2DWrapper_FieldInfo_,
-	_TransformingPathConsumer2D$Path2DWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformingPathConsumer2D$Path2DWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.TransformingPathConsumer2D"
-};
-
-$Object* allocate$TransformingPathConsumer2D$Path2DWrapper($Class* clazz) {
-	return $of($alloc(TransformingPathConsumer2D$Path2DWrapper));
-}
 
 void TransformingPathConsumer2D$Path2DWrapper::init$() {
 }
@@ -99,7 +55,44 @@ TransformingPathConsumer2D$Path2DWrapper::TransformingPathConsumer2D$Path2DWrapp
 }
 
 $Class* TransformingPathConsumer2D$Path2DWrapper::load$($String* name, bool initialize) {
-	$loadClass(TransformingPathConsumer2D$Path2DWrapper, name, initialize, &_TransformingPathConsumer2D$Path2DWrapper_ClassInfo_, allocate$TransformingPathConsumer2D$Path2DWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"p2d", "Ljava/awt/geom/Path2D$Double;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$Path2DWrapper, p2d)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TransformingPathConsumer2D$Path2DWrapper, init$, void)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, curveTo, void, double, double, double, double, double, double)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, getNativeConsumer, int64_t)},
+		{"init", "(Ljava/awt/geom/Path2D$Double;)Lsun/java2d/marlin/TransformingPathConsumer2D$Path2DWrapper;", nullptr, 0, $method(TransformingPathConsumer2D$Path2DWrapper, init, TransformingPathConsumer2D$Path2DWrapper*, $Path2D$Double*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$Path2DWrapper, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper", "sun.java2d.marlin.TransformingPathConsumer2D", "Path2DWrapper", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.TransformingPathConsumer2D$Path2DWrapper",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.TransformingPathConsumer2D"
+	};
+	$loadClass(TransformingPathConsumer2D$Path2DWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformingPathConsumer2D$Path2DWrapper);
+	});
 	return class$;
 }
 

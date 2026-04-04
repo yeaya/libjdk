@@ -64,6 +64,7 @@ class $import WindowsButtonUI : public ::javax::swing::plaf::basic::BasicButtonU
 	$class(WindowsButtonUI, 0, ::javax::swing::plaf::basic::BasicButtonUI)
 public:
 	WindowsButtonUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual ::java::awt::Color* getFocusColor();

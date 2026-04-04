@@ -19,6 +19,7 @@ class UIDefaults$TextAndMnemonicHashMap : public ::java::util::HashMap {
 	$class(UIDefaults$TextAndMnemonicHashMap, 0, ::java::util::HashMap)
 public:
 	UIDefaults$TextAndMnemonicHashMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* composeKey($String* key, int32_t reduce, $String* sufix);
 	virtual $Object* get(Object$* key) override;

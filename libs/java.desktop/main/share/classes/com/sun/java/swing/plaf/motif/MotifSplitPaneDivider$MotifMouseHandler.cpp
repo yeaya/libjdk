@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifSplitPaneDivider$MotifMouseHandler.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifSplitPaneDivider.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -8,7 +7,6 @@
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$DragController.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$MouseHandler.h>
-#include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
 #include <jcpp.h>
 
 using $MotifSplitPaneDivider = ::com::sun::java::swing::plaf::motif::MotifSplitPaneDivider;
@@ -17,8 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JSplitPane = ::javax::swing::JSplitPane;
-using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneDivider$MouseHandler = ::javax::swing::plaf::basic::BasicSplitPaneDivider$MouseHandler;
 
 namespace com {
@@ -28,44 +24,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifSplitPaneDivider$MotifMouseHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(MotifSplitPaneDivider$MotifMouseHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MotifSplitPaneDivider$MotifMouseHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifSplitPaneDivider;)V", nullptr, $PRIVATE, $method(MotifSplitPaneDivider$MotifMouseHandler, init$, void, $MotifSplitPaneDivider*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider$MotifMouseHandler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider$MotifMouseHandler, mousePressed, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _MotifSplitPaneDivider$MotifMouseHandler_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler", "com.sun.java.swing.plaf.motif.MotifSplitPaneDivider", "MotifMouseHandler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "MouseHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifSplitPaneDivider$MotifMouseHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler",
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler",
-	nullptr,
-	_MotifSplitPaneDivider$MotifMouseHandler_FieldInfo_,
-	_MotifSplitPaneDivider$MotifMouseHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifSplitPaneDivider$MotifMouseHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider"
-};
-
-$Object* allocate$MotifSplitPaneDivider$MotifMouseHandler($Class* clazz) {
-	return $of($alloc(MotifSplitPaneDivider$MotifMouseHandler));
-}
-
 void MotifSplitPaneDivider$MotifMouseHandler::init$($MotifSplitPaneDivider* this$0) {
 	$set(this, this$0, this$0);
 	$BasicSplitPaneDivider$MouseHandler::init$(this$0);
@@ -74,7 +32,7 @@ void MotifSplitPaneDivider$MotifMouseHandler::init$($MotifSplitPaneDivider* this
 void MotifSplitPaneDivider$MotifMouseHandler::mousePressed($MouseEvent* e) {
 	bool var$2 = $equals($nc(e)->getSource(), this->this$0);
 	bool var$1 = var$2 && this->this$0->getDragger() == nullptr;
-	bool var$0 = var$1 && $nc($(this->this$0->getSplitPane()))->isEnabled();
+	bool var$0 = var$1 && $$nc(this->this$0->getSplitPane())->isEnabled();
 	if (var$0) {
 		int32_t var$3 = e->getX();
 		var$0 = this->this$0->isInThumb(var$3, e->getY());
@@ -102,7 +60,39 @@ MotifSplitPaneDivider$MotifMouseHandler::MotifSplitPaneDivider$MotifMouseHandler
 }
 
 $Class* MotifSplitPaneDivider$MotifMouseHandler::load$($String* name, bool initialize) {
-	$loadClass(MotifSplitPaneDivider$MotifMouseHandler, name, initialize, &_MotifSplitPaneDivider$MotifMouseHandler_ClassInfo_, allocate$MotifSplitPaneDivider$MotifMouseHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(MotifSplitPaneDivider$MotifMouseHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifSplitPaneDivider;)V", nullptr, $PRIVATE, $method(MotifSplitPaneDivider$MotifMouseHandler, init$, void, $MotifSplitPaneDivider*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider$MotifMouseHandler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifSplitPaneDivider$MotifMouseHandler, mousePressed, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler", "com.sun.java.swing.plaf.motif.MotifSplitPaneDivider", "MotifMouseHandler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "MouseHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider$MotifMouseHandler",
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$MouseHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifSplitPaneDivider"
+	};
+	$loadClass(MotifSplitPaneDivider$MotifMouseHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifSplitPaneDivider$MotifMouseHandler));
+	});
 	return class$;
 }
 

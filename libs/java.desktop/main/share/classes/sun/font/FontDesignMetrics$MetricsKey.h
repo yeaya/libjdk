@@ -25,6 +25,7 @@ class FontDesignMetrics$MetricsKey : public ::java::lang::Object {
 	$class(FontDesignMetrics$MetricsKey, 0, ::java::lang::Object)
 public:
 	FontDesignMetrics$MetricsKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::Font* font, ::java::awt::font::FontRenderContext* frc);
 	virtual bool equals(Object$* key) override;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TypeMetadata$Entry.h>
-
 #include <com/sun/tools/javac/code/TypeMetadata$Entry$Kind.h>
 #include <com/sun/tools/javac/code/TypeMetadata.h>
 #include <jcpp.h>
@@ -15,40 +14,35 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _TypeMetadata$Entry_MethodInfo_[] = {
-	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeMetadata$Entry, combine, TypeMetadata$Entry*, TypeMetadata$Entry*)},
-	{"kind", "()Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeMetadata$Entry, kind, $TypeMetadata$Entry$Kind*)},
-	{}
-};
-
-$InnerClassInfo _TypeMetadata$Entry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeMetadata$Entry", "com.sun.tools.javac.code.TypeMetadata", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.TypeMetadata$Entry$Kind", "com.sun.tools.javac.code.TypeMetadata$Entry", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TypeMetadata$Entry_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.code.TypeMetadata$Entry",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TypeMetadata$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeMetadata$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeMetadata"
-};
-
-$Object* allocate$TypeMetadata$Entry($Class* clazz) {
-	return $of($alloc(TypeMetadata$Entry));
-}
-
 $Class* TypeMetadata$Entry::load$($String* name, bool initialize) {
-	$loadClass(TypeMetadata$Entry, name, initialize, &_TypeMetadata$Entry_ClassInfo_, allocate$TypeMetadata$Entry);
+	$MethodInfo methodInfos$$[] = {
+		{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeMetadata$Entry, combine, TypeMetadata$Entry*, TypeMetadata$Entry*)},
+		{"kind", "()Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeMetadata$Entry, kind, $TypeMetadata$Entry$Kind*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeMetadata$Entry", "com.sun.tools.javac.code.TypeMetadata", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.TypeMetadata$Entry$Kind", "com.sun.tools.javac.code.TypeMetadata$Entry", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.code.TypeMetadata$Entry",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeMetadata"
+	};
+	$loadClass(TypeMetadata$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeMetadata$Entry);
+	});
 	return class$;
 }
 

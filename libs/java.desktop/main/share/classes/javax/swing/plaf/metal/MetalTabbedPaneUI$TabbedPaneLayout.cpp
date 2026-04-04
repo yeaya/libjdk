@@ -1,7 +1,5 @@
 #include <javax/swing/plaf/metal/MetalTabbedPaneUI$TabbedPaneLayout.h>
-
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$TabbedPaneLayout.h>
-#include <javax/swing/plaf/basic/BasicTabbedPaneUI.h>
 #include <javax/swing/plaf/metal/MetalTabbedPaneUI.h>
 #include <jcpp.h>
 
@@ -9,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
 using $BasicTabbedPaneUI$TabbedPaneLayout = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabbedPaneLayout;
 using $MetalTabbedPaneUI = ::javax::swing::plaf::metal::MetalTabbedPaneUI;
 
@@ -18,48 +15,9 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalTabbedPaneUI$TabbedPaneLayout_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTabbedPaneUI$TabbedPaneLayout, this$0)},
-	{}
-};
-
-$MethodInfo _MetalTabbedPaneUI$TabbedPaneLayout_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalTabbedPaneUI;)V", nullptr, $PUBLIC, $method(MetalTabbedPaneUI$TabbedPaneLayout, init$, void, $MetalTabbedPaneUI*)},
-	{"normalizeTabRuns", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI$TabbedPaneLayout, normalizeTabRuns, void, int32_t, int32_t, int32_t, int32_t)},
-	{"padSelectedTab", "(II)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI$TabbedPaneLayout, padSelectedTab, void, int32_t, int32_t)},
-	{"rotateTabRuns", "(II)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI$TabbedPaneLayout, rotateTabRuns, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalTabbedPaneUI$TabbedPaneLayout_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.metal.MetalTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
-	{}
-};
-
-$ClassInfo _MetalTabbedPaneUI$TabbedPaneLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout",
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
-	nullptr,
-	_MetalTabbedPaneUI$TabbedPaneLayout_FieldInfo_,
-	_MetalTabbedPaneUI$TabbedPaneLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalTabbedPaneUI$TabbedPaneLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalTabbedPaneUI"
-};
-
-$Object* allocate$MetalTabbedPaneUI$TabbedPaneLayout($Class* clazz) {
-	return $of($alloc(MetalTabbedPaneUI$TabbedPaneLayout));
-}
-
 void MetalTabbedPaneUI$TabbedPaneLayout::init$($MetalTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
-	$BasicTabbedPaneUI$TabbedPaneLayout::init$((static_cast<$MetalTabbedPaneUI*>(this$0)));
+	$BasicTabbedPaneUI$TabbedPaneLayout::init$(this$0);
 }
 
 void MetalTabbedPaneUI$TabbedPaneLayout::normalizeTabRuns(int32_t tabPlacement, int32_t tabCount, int32_t start, int32_t max) {
@@ -78,7 +36,40 @@ MetalTabbedPaneUI$TabbedPaneLayout::MetalTabbedPaneUI$TabbedPaneLayout() {
 }
 
 $Class* MetalTabbedPaneUI$TabbedPaneLayout::load$($String* name, bool initialize) {
-	$loadClass(MetalTabbedPaneUI$TabbedPaneLayout, name, initialize, &_MetalTabbedPaneUI$TabbedPaneLayout_ClassInfo_, allocate$MetalTabbedPaneUI$TabbedPaneLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalTabbedPaneUI$TabbedPaneLayout, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalTabbedPaneUI;)V", nullptr, $PUBLIC, $method(MetalTabbedPaneUI$TabbedPaneLayout, init$, void, $MetalTabbedPaneUI*)},
+		{"normalizeTabRuns", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI$TabbedPaneLayout, normalizeTabRuns, void, int32_t, int32_t, int32_t, int32_t)},
+		{"padSelectedTab", "(II)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI$TabbedPaneLayout, padSelectedTab, void, int32_t, int32_t)},
+		{"rotateTabRuns", "(II)V", nullptr, $PROTECTED, $virtualMethod(MetalTabbedPaneUI$TabbedPaneLayout, rotateTabRuns, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.metal.MetalTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTabbedPaneUI$TabbedPaneLayout",
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalTabbedPaneUI"
+	};
+	$loadClass(MetalTabbedPaneUI$TabbedPaneLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalTabbedPaneUI$TabbedPaneLayout);
+	});
 	return class$;
 }
 

@@ -23,12 +23,15 @@ public:
 	virtual $ObjectArray* getArgs();
 	virtual $String* getKey();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x1AEF209F3DE7D52A;
+	static const int64_t serialVersionUID = (int64_t)0x1aef209f3de7d52a;
 	$String* key = nullptr;
 	$ObjectArray* args = nullptr;
 	DatatypeException(const DatatypeException& e);
 	virtual void throw$() override;
-	inline DatatypeException* operator ->() {
+	inline DatatypeException* operator ->() const {
+		return (DatatypeException*)throwing$;
+	}
+	inline operator DatatypeException*() const {
 		return (DatatypeException*)throwing$;
 	}
 };

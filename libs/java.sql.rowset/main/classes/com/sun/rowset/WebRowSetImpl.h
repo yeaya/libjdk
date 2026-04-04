@@ -433,7 +433,7 @@ public:
 	::com::sun::rowset::internal::WebRowSetXmlWriter* xmlWriter = nullptr;
 	int32_t curPosBfrWrite = 0;
 	::javax::sql::rowset::spi::SyncProvider* provider = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x864464F8E2B948E1;
+	static const int64_t serialVersionUID = (int64_t)0x864464f8e2b948e1;
 };
 
 		} // rowset

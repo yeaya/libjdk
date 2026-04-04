@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsClassicLookAndFeel.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <jcpp.h>
 
@@ -14,25 +13,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsClassicLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsClassicLookAndFeel, init$, void)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsClassicLookAndFeel, getName, $String*)},
-	{}
-};
-
-$ClassInfo _WindowsClassicLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel",
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel",
-	nullptr,
-	nullptr,
-	_WindowsClassicLookAndFeel_MethodInfo_
-};
-
-$Object* allocate$WindowsClassicLookAndFeel($Class* clazz) {
-	return $of($alloc(WindowsClassicLookAndFeel));
-}
-
 void WindowsClassicLookAndFeel::init$() {
 	$WindowsLookAndFeel::init$();
 }
@@ -45,7 +25,22 @@ WindowsClassicLookAndFeel::WindowsClassicLookAndFeel() {
 }
 
 $Class* WindowsClassicLookAndFeel::load$($String* name, bool initialize) {
-	$loadClass(WindowsClassicLookAndFeel, name, initialize, &_WindowsClassicLookAndFeel_ClassInfo_, allocate$WindowsClassicLookAndFeel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsClassicLookAndFeel, init$, void)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsClassicLookAndFeel, getName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel",
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsClassicLookAndFeel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsClassicLookAndFeel));
+	});
 	return class$;
 }
 

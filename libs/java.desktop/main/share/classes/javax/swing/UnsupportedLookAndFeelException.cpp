@@ -1,5 +1,4 @@
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,24 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _UnsupportedLookAndFeelException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedLookAndFeelException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnsupportedLookAndFeelException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.UnsupportedLookAndFeelException",
-	"java.lang.Exception",
-	nullptr,
-	nullptr,
-	_UnsupportedLookAndFeelException_MethodInfo_
-};
-
-$Object* allocate$UnsupportedLookAndFeelException($Class* clazz) {
-	return $of($alloc(UnsupportedLookAndFeelException));
-}
 
 void UnsupportedLookAndFeelException::init$($String* s) {
 	$Exception::init$(s);
@@ -42,7 +23,21 @@ void UnsupportedLookAndFeelException::throw$() {
 }
 
 $Class* UnsupportedLookAndFeelException::load$($String* name, bool initialize) {
-	$loadClass(UnsupportedLookAndFeelException, name, initialize, &_UnsupportedLookAndFeelException_ClassInfo_, allocate$UnsupportedLookAndFeelException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnsupportedLookAndFeelException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.UnsupportedLookAndFeelException",
+		"java.lang.Exception",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnsupportedLookAndFeelException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsupportedLookAndFeelException);
+	});
 	return class$;
 }
 

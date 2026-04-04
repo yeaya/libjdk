@@ -33,6 +33,7 @@ class InputStreamImageInputStreamSpi : public ::javax::imageio::spi::ImageInputS
 public:
 	InputStreamImageInputStreamSpi();
 	using ::javax::imageio::spi::ImageInputStreamSpi::createInputStreamInstance;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canUseCacheFile() override;
 	virtual ::javax::imageio::stream::ImageInputStream* createInputStreamInstance(Object$* input, bool useCache, ::java::io::File* cacheDir) override;

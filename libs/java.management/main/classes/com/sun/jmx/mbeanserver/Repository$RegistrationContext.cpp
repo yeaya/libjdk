@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/Repository$RegistrationContext.h>
-
 #include <com/sun/jmx/mbeanserver/Repository.h>
 #include <jcpp.h>
 
@@ -12,39 +11,34 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _Repository$RegistrationContext_MethodInfo_[] = {
-	{"registering", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Repository$RegistrationContext, registering, void)},
-	{"unregistered", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Repository$RegistrationContext, unregistered, void)},
-	{}
-};
-
-$InnerClassInfo _Repository$RegistrationContext_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.Repository$RegistrationContext", "com.sun.jmx.mbeanserver.Repository", "RegistrationContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Repository$RegistrationContext_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jmx.mbeanserver.Repository$RegistrationContext",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Repository$RegistrationContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Repository$RegistrationContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.Repository"
-};
-
-$Object* allocate$Repository$RegistrationContext($Class* clazz) {
-	return $of($alloc(Repository$RegistrationContext));
-}
-
 $Class* Repository$RegistrationContext::load$($String* name, bool initialize) {
-	$loadClass(Repository$RegistrationContext, name, initialize, &_Repository$RegistrationContext_ClassInfo_, allocate$Repository$RegistrationContext);
+	$MethodInfo methodInfos$$[] = {
+		{"registering", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Repository$RegistrationContext, registering, void)},
+		{"unregistered", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Repository$RegistrationContext, unregistered, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.Repository$RegistrationContext", "com.sun.jmx.mbeanserver.Repository", "RegistrationContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jmx.mbeanserver.Repository$RegistrationContext",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.Repository"
+	};
+	$loadClass(Repository$RegistrationContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Repository$RegistrationContext);
+	});
 	return class$;
 }
 

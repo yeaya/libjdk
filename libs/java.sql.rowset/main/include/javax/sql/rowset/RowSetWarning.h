@@ -19,10 +19,13 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode);
 	virtual ::javax::sql::rowset::RowSetWarning* getNextWarning();
 	virtual void setNextWarning(::javax::sql::rowset::RowSetWarning* warning);
-	static const int64_t serialVersionUID = (int64_t)0x5CAE34448B2F1AA6;
+	static const int64_t serialVersionUID = (int64_t)0x5cae34448b2f1aa6;
 	RowSetWarning(const RowSetWarning& e);
 	virtual void throw$() override;
-	inline RowSetWarning* operator ->() {
+	inline RowSetWarning* operator ->() const {
+		return (RowSetWarning*)throwing$;
+	}
+	inline operator RowSetWarning*() const {
 		return (RowSetWarning*)throwing$;
 	}
 };

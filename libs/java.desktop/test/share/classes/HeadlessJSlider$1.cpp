@@ -1,5 +1,4 @@
 #include <HeadlessJSlider$1.h>
-
 #include <HeadlessJSlider.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJSlider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJSlider$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJSlider$1_EnclosingMethodInfo_ = {
-	"HeadlessJSlider",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJSlider$1_InnerClassesInfo_[] = {
-	{"HeadlessJSlider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJSlider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJSlider$1",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJSlider$1_MethodInfo_,
-	nullptr,
-	&_HeadlessJSlider$1_EnclosingMethodInfo_,
-	_HeadlessJSlider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJSlider"
-};
-
-$Object* allocate$HeadlessJSlider$1($Class* clazz) {
-	return $of($alloc(HeadlessJSlider$1));
-}
-
 void HeadlessJSlider$1::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJSlider$1::HeadlessJSlider$1() {
 }
 
 $Class* HeadlessJSlider$1::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJSlider$1, name, initialize, &_HeadlessJSlider$1_ClassInfo_, allocate$HeadlessJSlider$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJSlider$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJSlider",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJSlider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJSlider$1",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJSlider"
+	};
+	$loadClass(HeadlessJSlider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJSlider$1));
+	});
 	return class$;
 }
 

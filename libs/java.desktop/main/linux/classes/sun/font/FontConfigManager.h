@@ -21,6 +21,7 @@ class FontConfigManager : public ::java::lang::Object {
 	$class(FontConfigManager, 0, ::java::lang::Object)
 public:
 	FontConfigManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getFCLocaleStr();
 	static void getFontConfig($String* locale, ::sun::font::FontConfigManager$FontConfigInfo* fcInfo, $Array<::sun::font::FontConfigManager$FcCompFont>* fonts, bool includeFallbacks);

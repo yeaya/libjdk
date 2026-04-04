@@ -17,10 +17,13 @@ class $export FoundIndex : public ::java::lang::RuntimeException {
 public:
 	FoundIndex();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xBF8D490995292582;
+	static const int64_t serialVersionUID = (int64_t)0xbf8d490995292582;
 	FoundIndex(const FoundIndex& e);
 	virtual void throw$() override;
-	inline FoundIndex* operator ->() {
+	inline FoundIndex* operator ->() const {
+		return (FoundIndex*)throwing$;
+	}
+	inline operator FoundIndex*() const {
 		return (FoundIndex*)throwing$;
 	}
 };

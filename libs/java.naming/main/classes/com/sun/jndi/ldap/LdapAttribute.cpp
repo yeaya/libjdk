@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapAttribute.h>
-
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/LdapSchemaParser.h>
 #include <java/io/ObjectOutputStream.h>
@@ -31,14 +30,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
 using $CompositeName = ::javax::naming::CompositeName;
 using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
 using $NameNotFoundException = ::javax::naming::NameNotFoundException;
 using $Attribute = ::javax::naming::directory::Attribute;
-using $Attributes = ::javax::naming::directory::Attributes;
 using $BasicAttribute = ::javax::naming::directory::BasicAttribute;
 using $DirContext = ::javax::naming::directory::DirContext;
 using $InitialDirContext = ::javax::naming::directory::InitialDirContext;
@@ -47,42 +44,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _LdapAttribute_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LdapAttribute, serialVersionUID)},
-	{"baseCtx", "Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $TRANSIENT, $field(LdapAttribute, baseCtx)},
-	{"rdn", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(LdapAttribute, rdn)},
-	{"baseCtxURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapAttribute, baseCtxURL)},
-	{"baseCtxEnv", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;-Ljava/lang/String;>;", $PRIVATE, $field(LdapAttribute, baseCtxEnv)},
-	{}
-};
-
-$MethodInfo _LdapAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapAttribute, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, $PRIVATE, $method(LdapAttribute, init$, void, $String*, $DirContext*, $Name*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, add, bool, Object$*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, clone, $Object*)},
-	{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, getAttributeDefinition, $DirContext*), "javax.naming.NamingException"},
-	{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, getAttributeSyntaxDefinition, $DirContext*), "javax.naming.NamingException"},
-	{"getBaseCtx", "()Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(LdapAttribute, getBaseCtx, $DirContext*), "javax.naming.NamingException"},
-	{"setBaseCtxInfo", "()V", nullptr, $PRIVATE, $method(LdapAttribute, setBaseCtxInfo, void)},
-	{"setParent", "(Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, 0, $method(LdapAttribute, setParent, void, $DirContext*, $Name*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LdapAttribute, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LdapAttribute_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapAttribute",
-	"javax.naming.directory.BasicAttribute",
-	nullptr,
-	_LdapAttribute_FieldInfo_,
-	_LdapAttribute_MethodInfo_
-};
-
-$Object* allocate$LdapAttribute($Class* clazz) {
-	return $of($alloc(LdapAttribute));
-}
 
 $Object* LdapAttribute::clone() {
 	$var(LdapAttribute, attr, $new(LdapAttribute, this->attrID, this->baseCtx, this->rdn));
@@ -121,7 +82,7 @@ $DirContext* LdapAttribute::getBaseCtx() {
 		}
 		$init($Context);
 		$nc(this->baseCtxEnv)->put($Context::INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory"_s);
-		$nc(this->baseCtxEnv)->put($Context::PROVIDER_URL, this->baseCtxURL);
+		this->baseCtxEnv->put($Context::PROVIDER_URL, this->baseCtxURL);
 		$set(this, baseCtx, $new($InitialDirContext, this->baseCtxEnv));
 	}
 	return this->baseCtx;
@@ -133,26 +94,22 @@ void LdapAttribute::writeObject($ObjectOutputStream* out) {
 }
 
 void LdapAttribute::setBaseCtxInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, realEnv, nullptr);
 	$var($Hashtable, secureEnv, nullptr);
 	if (this->baseCtx != nullptr) {
-		$assign(realEnv, $nc(($cast($LdapCtx, this->baseCtx)))->envprops);
-		$set(this, baseCtxURL, $nc(($cast($LdapCtx, this->baseCtx)))->getURL());
+		$assign(realEnv, $cast($LdapCtx, this->baseCtx)->envprops);
+		$set(this, baseCtxURL, $cast($LdapCtx, this->baseCtx)->getURL());
 	}
 	if (realEnv != nullptr && realEnv->size() > 0) {
-		{
-			$var($Iterator, i$, $nc($(realEnv->keySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($String, key, $cast($String, i$->next()));
-				{
-					if ($nc(key)->indexOf("security"_s) != -1) {
-						if (secureEnv == nullptr) {
-							$assign(secureEnv, $cast($Hashtable, realEnv->clone()));
-						}
-						$nc(secureEnv)->remove(key);
-					}
+		$var($Iterator, i$, $$nc(realEnv->keySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($String, key, $cast($String, i$->next()));
+			if ($nc(key)->indexOf("security"_s) != -1) {
+				if (secureEnv == nullptr) {
+					$assign(secureEnv, $cast($Hashtable, realEnv->clone()));
 				}
+				$nc(secureEnv)->remove(key);
 			}
 		}
 	}
@@ -160,12 +117,12 @@ void LdapAttribute::setBaseCtxInfo() {
 }
 
 $DirContext* LdapAttribute::getAttributeSyntaxDefinition() {
-	$useLocalCurrentObjectStackCache();
-	$var($DirContext, schema, $nc($(getBaseCtx()))->getSchema(this->rdn));
+	$useLocalObjectStack();
+	$var($DirContext, schema, $$nc(getBaseCtx())->getSchema(this->rdn));
 	$init($LdapSchemaParser);
 	$var($DirContext, attrDef, $cast($DirContext, $nc(schema)->lookup($$str({$LdapSchemaParser::ATTRIBUTE_DEFINITION_NAME, "/"_s, $(getID())}))));
-	$var($Attribute, syntaxAttr, $nc($($nc(attrDef)->getAttributes(""_s)))->get("SYNTAX"_s));
-	if (syntaxAttr == nullptr || $nc(syntaxAttr)->size() == 0) {
+	$var($Attribute, syntaxAttr, $$nc($nc(attrDef)->getAttributes(""_s))->get("SYNTAX"_s));
+	if (syntaxAttr == nullptr || syntaxAttr->size() == 0) {
 		$throwNew($NameNotFoundException, $$str({$(getID()), " does not have a syntax associated with it"_s}));
 	}
 	$var($String, syntaxName, $cast($String, $nc(syntaxAttr)->get()));
@@ -173,8 +130,8 @@ $DirContext* LdapAttribute::getAttributeSyntaxDefinition() {
 }
 
 $DirContext* LdapAttribute::getAttributeDefinition() {
-	$useLocalCurrentObjectStackCache();
-	$var($DirContext, schema, $nc($(getBaseCtx()))->getSchema(this->rdn));
+	$useLocalObjectStack();
+	$var($DirContext, schema, $$nc(getBaseCtx())->getSchema(this->rdn));
 	$init($LdapSchemaParser);
 	return $cast($DirContext, $nc(schema)->lookup($$str({$LdapSchemaParser::ATTRIBUTE_DEFINITION_NAME, "/"_s, $(getID())})));
 }
@@ -183,7 +140,38 @@ LdapAttribute::LdapAttribute() {
 }
 
 $Class* LdapAttribute::load$($String* name, bool initialize) {
-	$loadClass(LdapAttribute, name, initialize, &_LdapAttribute_ClassInfo_, allocate$LdapAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LdapAttribute, serialVersionUID)},
+		{"baseCtx", "Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE | $TRANSIENT, $field(LdapAttribute, baseCtx)},
+		{"rdn", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(LdapAttribute, rdn)},
+		{"baseCtxURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapAttribute, baseCtxURL)},
+		{"baseCtxEnv", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;-Ljava/lang/String;>;", $PRIVATE, $field(LdapAttribute, baseCtxEnv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapAttribute, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, $PRIVATE, $method(LdapAttribute, init$, void, $String*, $DirContext*, $Name*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, add, bool, Object$*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, clone, $Object*)},
+		{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, getAttributeDefinition, $DirContext*), "javax.naming.NamingException"},
+		{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, getAttributeSyntaxDefinition, $DirContext*), "javax.naming.NamingException"},
+		{"getBaseCtx", "()Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(LdapAttribute, getBaseCtx, $DirContext*), "javax.naming.NamingException"},
+		{"setBaseCtxInfo", "()V", nullptr, $PRIVATE, $method(LdapAttribute, setBaseCtxInfo, void)},
+		{"setParent", "(Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, 0, $method(LdapAttribute, setParent, void, $DirContext*, $Name*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LdapAttribute, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapAttribute",
+		"javax.naming.directory.BasicAttribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LdapAttribute));
+	});
 	return class$;
 }
 

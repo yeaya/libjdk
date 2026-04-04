@@ -68,7 +68,7 @@ public:
 	$String* attrID = nullptr;
 	::java::util::Vector* values = nullptr;
 	bool ordered = false;
-	static const int64_t serialVersionUID = (int64_t)0x5D95D32A668565BE;
+	static const int64_t serialVersionUID = (int64_t)0x5d95d32a668565be;
 };
 
 		} // directory

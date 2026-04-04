@@ -18,6 +18,7 @@ class DataFlavorUtil$StandardEncodingsHolder : public ::java::lang::Object {
 	$class(DataFlavorUtil$StandardEncodingsHolder, 0, ::java::lang::Object)
 public:
 	DataFlavorUtil$StandardEncodingsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::SortedSet* load();
 	static ::java::util::SortedSet* standardEncodings;

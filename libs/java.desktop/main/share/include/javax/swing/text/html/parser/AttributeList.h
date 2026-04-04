@@ -29,6 +29,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* name);
 	void init$($String* name, int32_t type, int32_t modifier, $String* value, ::java::util::Vector* values, ::javax::swing::text::html::parser::AttributeList* next);

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HeaderParser.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/Locale.h>
 #include <jdk/internal/net/http/HeaderParser$ParserIterator.h>
@@ -21,50 +20,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _HeaderParser_FieldInfo_[] = {
-	{"raw", "Ljava/lang/String;", nullptr, 0, $field(HeaderParser, raw)},
-	{"tab", "[[Ljava/lang/String;", nullptr, 0, $field(HeaderParser, tab)},
-	{"nkeys", "I", nullptr, 0, $field(HeaderParser, nkeys)},
-	{"asize", "I", nullptr, 0, $field(HeaderParser, asize)},
-	{}
-};
-
-$MethodInfo _HeaderParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HeaderParser, init$, void, $String*)},
-	{"findKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findKey, $String*, int32_t)},
-	{"findValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, int32_t)},
-	{"findValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, $String*)},
-	{"findValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, $String*, $String*)},
-	{"keys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(HeaderParser, keys, $Iterator*)},
-	{"parse", "()V", nullptr, $PRIVATE, $method(HeaderParser, parse, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _HeaderParser_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HeaderParser$ParserIterator", "jdk.internal.net.http.HeaderParser", "ParserIterator", 0},
-	{}
-};
-
-$ClassInfo _HeaderParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.HeaderParser",
-	"java.lang.Object",
-	nullptr,
-	_HeaderParser_FieldInfo_,
-	_HeaderParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeaderParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HeaderParser$ParserIterator"
-};
-
-$Object* allocate$HeaderParser($Class* clazz) {
-	return $of($alloc(HeaderParser));
-}
-
 void HeaderParser::init$($String* raw) {
 	this->asize = 10;
 	$set(this, raw, raw);
@@ -73,10 +28,10 @@ void HeaderParser::init$($String* raw) {
 }
 
 void HeaderParser::parse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->raw != nullptr) {
-		$set(this, raw, $nc(this->raw)->trim());
-		$var($chars, ca, $nc(this->raw)->toCharArray());
+		$set(this, raw, this->raw->trim());
+		$var($chars, ca, this->raw->toCharArray());
 		int32_t beg = 0;
 		int32_t end = 0;
 		int32_t i = 0;
@@ -185,8 +140,8 @@ $String* HeaderParser::findValue($String* k$renamed, $String* Default) {
 	for (int32_t i = 0; i < this->asize; ++i) {
 		if ($nc($nc(this->tab)->get(i))->get(0) == nullptr) {
 			return Default;
-		} else if (k->equals($nc($nc(this->tab)->get(i))->get(0))) {
-			return $nc($nc(this->tab)->get(i))->get(1);
+		} else if (k->equals($nc(this->tab->get(i))->get(0))) {
+			return $nc(this->tab->get(i))->get(1);
 		}
 	}
 	return Default;
@@ -197,7 +152,7 @@ $Iterator* HeaderParser::keys() {
 }
 
 $String* HeaderParser::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, k, keys());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("{size="_s)->append(this->asize)->append(" nkeys="_s)->append(this->nkeys)->append(u' ');
@@ -220,7 +175,45 @@ HeaderParser::HeaderParser() {
 }
 
 $Class* HeaderParser::load$($String* name, bool initialize) {
-	$loadClass(HeaderParser, name, initialize, &_HeaderParser_ClassInfo_, allocate$HeaderParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"raw", "Ljava/lang/String;", nullptr, 0, $field(HeaderParser, raw)},
+		{"tab", "[[Ljava/lang/String;", nullptr, 0, $field(HeaderParser, tab)},
+		{"nkeys", "I", nullptr, 0, $field(HeaderParser, nkeys)},
+		{"asize", "I", nullptr, 0, $field(HeaderParser, asize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HeaderParser, init$, void, $String*)},
+		{"findKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findKey, $String*, int32_t)},
+		{"findValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, int32_t)},
+		{"findValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, $String*)},
+		{"findValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, findValue, $String*, $String*, $String*)},
+		{"keys", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(HeaderParser, keys, $Iterator*)},
+		{"parse", "()V", nullptr, $PRIVATE, $method(HeaderParser, parse, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderParser, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HeaderParser$ParserIterator", "jdk.internal.net.http.HeaderParser", "ParserIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.HeaderParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HeaderParser$ParserIterator"
+	};
+	$loadClass(HeaderParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeaderParser);
+	});
 	return class$;
 }
 

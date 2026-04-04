@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$6.h>
-
 #include <java/util/logging/LogManager.h>
 #include <java/util/logging/Logger.h>
 #include <jcpp.h>
@@ -15,49 +14,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _LogManager$6_FieldInfo_[] = {
-	{"val$parent", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$6, val$parent)},
-	{"val$logger", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$6, val$logger)},
-	{}
-};
-
-$MethodInfo _LogManager$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", "()V", 0, $method(LogManager$6, init$, void, $Logger*, $Logger*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogManager$6, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LogManager$6_EnclosingMethodInfo_ = {
-	"java.util.logging.LogManager",
-	"doSetParent",
-	"(Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V"
-};
-
-$InnerClassInfo _LogManager$6_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LogManager$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.LogManager$6",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_LogManager$6_FieldInfo_,
-	_LogManager$6_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_LogManager$6_EnclosingMethodInfo_,
-	_LogManager$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$6($Class* clazz) {
-	return $of($alloc(LogManager$6));
-}
-
 void LogManager$6::init$($Logger* val$logger, $Logger* val$parent) {
 	$set(this, val$logger, val$logger);
 	$set(this, val$parent, val$parent);
@@ -65,14 +21,50 @@ void LogManager$6::init$($Logger* val$logger, $Logger* val$parent) {
 
 $Object* LogManager$6::run() {
 	$nc(this->val$logger)->setParent(this->val$parent);
-	return $of(nullptr);
+	return nullptr;
 }
 
 LogManager$6::LogManager$6() {
 }
 
 $Class* LogManager$6::load$($String* name, bool initialize) {
-	$loadClass(LogManager$6, name, initialize, &_LogManager$6_ClassInfo_, allocate$LogManager$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$parent", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$6, val$parent)},
+		{"val$logger", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$6, val$logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", "()V", 0, $method(LogManager$6, init$, void, $Logger*, $Logger*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogManager$6, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.logging.LogManager",
+		"doSetParent",
+		"(Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.LogManager$6",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$6);
+	});
 	return class$;
 }
 

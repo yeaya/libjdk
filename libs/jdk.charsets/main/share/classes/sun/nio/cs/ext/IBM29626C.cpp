@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM29626C.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -22,45 +21,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$MethodInfo _IBM29626C_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IBM29626C, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM29626C, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM29626C, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM29626C, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM29626C, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _IBM29626C_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM29626C$Encoder", "sun.nio.cs.ext.IBM29626C", "Encoder", $STATIC},
-	{"sun.nio.cs.ext.IBM29626C$Decoder", "sun.nio.cs.ext.IBM29626C", "Decoder", $STATIC},
-	{}
-};
-
-$ClassInfo _IBM29626C_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.IBM29626C",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_IBM29626C_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM29626C_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM29626C$Encoder,sun.nio.cs.ext.IBM29626C$Decoder"
-};
-
-$Object* allocate$IBM29626C($Class* clazz) {
-	return $of($alloc(IBM29626C));
-}
 
 int32_t IBM29626C::hashCode() {
 	 return this->$Charset::hashCode();
@@ -91,7 +51,7 @@ $String* IBM29626C::historicalName() {
 }
 
 bool IBM29626C::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(IBM29626C, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(IBM29626C, cs)));
 }
 
 $CharsetDecoder* IBM29626C::newDecoder() {
@@ -106,7 +66,41 @@ IBM29626C::IBM29626C() {
 }
 
 $Class* IBM29626C::load$($String* name, bool initialize) {
-	$loadClass(IBM29626C, name, initialize, &_IBM29626C_ClassInfo_, allocate$IBM29626C);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IBM29626C, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM29626C, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IBM29626C, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM29626C, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM29626C, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM29626C$Encoder", "sun.nio.cs.ext.IBM29626C", "Encoder", $STATIC},
+		{"sun.nio.cs.ext.IBM29626C$Decoder", "sun.nio.cs.ext.IBM29626C", "Decoder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.IBM29626C",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM29626C$Encoder,sun.nio.cs.ext.IBM29626C$Decoder"
+	};
+	$loadClass(IBM29626C, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IBM29626C));
+	});
 	return class$;
 }
 

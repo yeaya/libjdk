@@ -57,6 +57,7 @@ class $import Paint9Painter : public ::sun::swing::CachedPainter {
 	$class(Paint9Painter, 0, ::sun::swing::CachedPainter)
 public:
 	Paint9Painter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t cacheCount);
 	virtual ::java::awt::Image* createImage(::java::awt::Component* c, int32_t w, int32_t h, ::java::awt::GraphicsConfiguration* config, $ObjectArray* args) override;
 	void drawChunk(::java::awt::Image* image, ::java::awt::Graphics* g, bool stretch, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, bool xDirection);

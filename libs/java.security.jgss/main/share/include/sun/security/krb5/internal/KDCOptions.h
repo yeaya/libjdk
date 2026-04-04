@@ -69,6 +69,7 @@ class $import KDCOptions : public ::sun::security::krb5::internal::util::Kerbero
 	$class(KDCOptions, 0, ::sun::security::krb5::internal::util::KerberosFlags)
 public:
 	KDCOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t size, $bytes* data);
 	void init$($booleans* data);

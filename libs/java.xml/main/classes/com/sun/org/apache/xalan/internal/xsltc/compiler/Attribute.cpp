@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Attribute.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/QName.h>
@@ -24,31 +23,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _Attribute_FieldInfo_[] = {
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Attribute, _name)},
-	{}
-};
-
-$MethodInfo _Attribute_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Attribute, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Attribute, display, void, int32_t)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Attribute, parseContents, void, $Parser*)},
-	{}
-};
-
-$ClassInfo _Attribute_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Attribute",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_Attribute_FieldInfo_,
-	_Attribute_MethodInfo_
-};
-
-$Object* allocate$Attribute($Class* clazz) {
-	return $of($alloc(Attribute));
-}
-
 void Attribute::init$() {
 	$Instruction::init$();
 }
@@ -68,7 +42,27 @@ Attribute::Attribute() {
 }
 
 $Class* Attribute::load$($String* name, bool initialize) {
-	$loadClass(Attribute, name, initialize, &_Attribute_ClassInfo_, allocate$Attribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(Attribute, _name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Attribute, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Attribute, display, void, int32_t)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Attribute, parseContents, void, $Parser*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Attribute",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Attribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute);
+	});
 	return class$;
 }
 

@@ -73,6 +73,7 @@ class Variable : public ::com::sun::org::apache::xpath::internal::Expression, pu
 	$class(Variable, 0, ::com::sun::org::apache::xpath::internal::Expression, ::com::sun::org::apache::xpath::internal::axes::PathComponent)
 public:
 	Variable();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::org::apache::xpath::internal::Expression::execute;
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
@@ -94,7 +95,7 @@ public:
 	virtual void setIsGlobal(bool isGlobal);
 	virtual void setQName(::com::sun::org::apache::xml::internal::utils::QName* qname);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xC3D712DD12BE0767;
+	static const int64_t serialVersionUID = (int64_t)0xc3d712dd12be0767;
 	bool m_fixUpWasCalled = false;
 	::com::sun::org::apache::xml::internal::utils::QName* m_qname = nullptr;
 	int32_t m_index = 0;

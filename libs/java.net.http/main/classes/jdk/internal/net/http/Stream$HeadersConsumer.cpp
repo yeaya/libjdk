@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Stream$HeadersConsumer.h>
-
 #include <java/lang/CharSequence.h>
 #include <jdk/internal/net/http/Http2Connection$ValidatingHeadersConsumer.h>
 #include <jdk/internal/net/http/Stream.h>
@@ -16,52 +15,12 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Http2Connection$ValidatingHeadersConsumer = ::jdk::internal::net::http::Http2Connection$ValidatingHeadersConsumer;
 using $Stream = ::jdk::internal::net::http::Stream;
-using $HttpHeadersBuilder = ::jdk::internal::net::http::common::HttpHeadersBuilder;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 
 namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Stream$HeadersConsumer_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$HeadersConsumer, this$0)},
-	{}
-};
-
-$MethodInfo _Stream$HeadersConsumer_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PRIVATE, $method(Stream$HeadersConsumer, init$, void, $Stream*)},
-	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Stream$HeadersConsumer, onDecoded, void, $CharSequence*, $CharSequence*), "java.io.UncheckedIOException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(Stream$HeadersConsumer, reset, void)},
-	{}
-};
-
-$InnerClassInfo _Stream$HeadersConsumer_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Stream$HeadersConsumer", "jdk.internal.net.http.Stream", "HeadersConsumer", $PRIVATE},
-	{"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer", "jdk.internal.net.http.Http2Connection", "ValidatingHeadersConsumer", $STATIC},
-	{}
-};
-
-$ClassInfo _Stream$HeadersConsumer_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.Stream$HeadersConsumer",
-	"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer",
-	nullptr,
-	_Stream$HeadersConsumer_FieldInfo_,
-	_Stream$HeadersConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Stream$HeadersConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Stream"
-};
-
-$Object* allocate$Stream$HeadersConsumer($Class* clazz) {
-	return $of($alloc(Stream$HeadersConsumer));
-}
 
 void Stream$HeadersConsumer::init$($Stream* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +34,7 @@ void Stream$HeadersConsumer::reset() {
 }
 
 void Stream$HeadersConsumer::onDecoded($CharSequence* name, $CharSequence* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, n, $nc(name)->toString());
 	$var($String, v, $nc(value)->toString());
 	$Http2Connection$ValidatingHeadersConsumer::onDecoded(n, v);
@@ -83,9 +42,9 @@ void Stream$HeadersConsumer::onDecoded($CharSequence* name, $CharSequence* value
 	bool var$0 = $Log::headers();
 	if (var$0 && $Log::trace()) {
 		$Log::logTrace("RECEIVED HEADER (streamid={0}): {1}: {2}"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->this$0->streamid))),
-			$of(n),
-			$of(v)
+			$($Integer::valueOf(this->this$0->streamid)),
+			n,
+			v
 		}));
 	}
 }
@@ -94,7 +53,39 @@ Stream$HeadersConsumer::Stream$HeadersConsumer() {
 }
 
 $Class* Stream$HeadersConsumer::load$($String* name, bool initialize) {
-	$loadClass(Stream$HeadersConsumer, name, initialize, &_Stream$HeadersConsumer_ClassInfo_, allocate$Stream$HeadersConsumer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$HeadersConsumer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PRIVATE, $method(Stream$HeadersConsumer, init$, void, $Stream*)},
+		{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Stream$HeadersConsumer, onDecoded, void, $CharSequence*, $CharSequence*), "java.io.UncheckedIOException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(Stream$HeadersConsumer, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Stream$HeadersConsumer", "jdk.internal.net.http.Stream", "HeadersConsumer", $PRIVATE},
+		{"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer", "jdk.internal.net.http.Http2Connection", "ValidatingHeadersConsumer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.Stream$HeadersConsumer",
+		"jdk.internal.net.http.Http2Connection$ValidatingHeadersConsumer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Stream"
+	};
+	$loadClass(Stream$HeadersConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$HeadersConsumer);
+	});
 	return class$;
 }
 

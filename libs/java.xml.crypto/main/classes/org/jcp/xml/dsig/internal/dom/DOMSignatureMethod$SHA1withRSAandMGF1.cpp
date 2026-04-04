@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$SHA1withRSAandMGF1.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/MGF1ParameterSpec.h>
 #include <java/security/spec/PSSParameterSpec.h>
@@ -33,47 +32,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMSignatureMethod$SHA1withRSAandMGF1_FieldInfo_[] = {
-	{"spec", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE | $STATIC, $staticField(DOMSignatureMethod$SHA1withRSAandMGF1, spec)},
-	{}
-};
-
-$MethodInfo _DOMSignatureMethod$SHA1withRSAandMGF1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSAandMGF1, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSAandMGF1, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getAlgorithm, $String*)},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getJCAAlgorithm, $String*)},
-	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getPSSParameterSpec, $PSSParameterSpec*)},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$SHA1withRSAandMGF1_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withRSAandMGF1", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSAPSSSignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$SHA1withRSAandMGF1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod",
-	nullptr,
-	_DOMSignatureMethod$SHA1withRSAandMGF1_FieldInfo_,
-	_DOMSignatureMethod$SHA1withRSAandMGF1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$SHA1withRSAandMGF1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$SHA1withRSAandMGF1($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$SHA1withRSAandMGF1));
-}
-
 $PSSParameterSpec* DOMSignatureMethod$SHA1withRSAandMGF1::spec = nullptr;
 
 void DOMSignatureMethod$SHA1withRSAandMGF1::init$($AlgorithmParameterSpec* params) {
@@ -102,7 +60,7 @@ $AbstractDOMSignatureMethod$Type* DOMSignatureMethod$SHA1withRSAandMGF1::getAlgo
 	return $AbstractDOMSignatureMethod$Type::RSA;
 }
 
-void clinit$DOMSignatureMethod$SHA1withRSAandMGF1($Class* class$) {
+void DOMSignatureMethod$SHA1withRSAandMGF1::clinit$($Class* clazz) {
 	$init($MGF1ParameterSpec);
 	$assignStatic(DOMSignatureMethod$SHA1withRSAandMGF1::spec, $new($PSSParameterSpec, "SHA-1"_s, "MGF1"_s, $MGF1ParameterSpec::SHA1, 20, $PSSParameterSpec::TRAILER_FIELD_BC));
 }
@@ -111,7 +69,42 @@ DOMSignatureMethod$SHA1withRSAandMGF1::DOMSignatureMethod$SHA1withRSAandMGF1() {
 }
 
 $Class* DOMSignatureMethod$SHA1withRSAandMGF1::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$SHA1withRSAandMGF1, name, initialize, &_DOMSignatureMethod$SHA1withRSAandMGF1_ClassInfo_, clinit$DOMSignatureMethod$SHA1withRSAandMGF1, allocate$DOMSignatureMethod$SHA1withRSAandMGF1);
+	$FieldInfo fieldInfos$$[] = {
+		{"spec", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE | $STATIC, $staticField(DOMSignatureMethod$SHA1withRSAandMGF1, spec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSAandMGF1, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSAandMGF1, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getAlgorithm, $String*)},
+		{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+		{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getJCAAlgorithm, $String*)},
+		{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getPSSParameterSpec, $PSSParameterSpec*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withRSAandMGF1", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractRSAPSSSignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withRSAandMGF1",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractRSAPSSSignatureMethod",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$SHA1withRSAandMGF1, name, initialize, &classInfo$$, DOMSignatureMethod$SHA1withRSAandMGF1::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$SHA1withRSAandMGF1));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$16.h>
-
 #include <com/sun/tools/javac/main/JavaCompiler.h>
 #include <com/sun/tools/javac/main/Option$OptionGroup.h>
 #include <com/sun/tools/javac/main/Option$OptionKind.h>
@@ -32,56 +31,19 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$MethodInfo _Option$16_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$16, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$16, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{}
-};
-
-$EnclosingMethodInfo _Option$16_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$16_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$16", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$16_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$16",
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr,
-	_Option$16_MethodInfo_,
-	nullptr,
-	&_Option$16_EnclosingMethodInfo_,
-	_Option$16_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$16($Class* clazz) {
-	return $of($alloc(Option$16));
-}
-
 void Option$16::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group) {
 	$Option::init$($enum$name, $enum$ordinal, text, descrKey, kind, group);
 }
 
 void Option$16::process($OptionHelper* helper, $String* option) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log, log, $nc(helper)->getLog());
 	$var($String, ownName, helper->getOwnName());
 	$init($Log$WriterKind);
 	$init($Log$PrefixKind);
 	$nc(log)->printLines($Log$WriterKind::STDOUT, $Log$PrefixKind::JAVAC, "version"_s, $$new($ObjectArray, {
-		$of(ownName),
-		$($of($JavaCompiler::version()))
+		ownName,
+		$($JavaCompiler::version())
 	}));
 	$Option::process(helper, option);
 }
@@ -90,7 +52,38 @@ Option$16::Option$16() {
 }
 
 $Class* Option$16::load$($String* name, bool initialize) {
-	$loadClass(Option$16, name, initialize, &_Option$16_ClassInfo_, allocate$Option$16);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$16, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+		{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$16, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$16", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$16",
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$16));
+	});
 	return class$;
 }
 

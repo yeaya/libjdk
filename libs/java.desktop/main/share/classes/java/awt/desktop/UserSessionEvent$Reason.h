@@ -24,6 +24,7 @@ class $export UserSessionEvent$Reason : public ::java::lang::Enum {
 public:
 	UserSessionEvent$Reason();
 	static $Array<::java::awt::desktop::UserSessionEvent$Reason>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::desktop::UserSessionEvent$Reason* valueOf($String* name);
 	static $Array<::java::awt::desktop::UserSessionEvent$Reason>* values();

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacFiler$FilerOutputJavaFileObject.h>
-
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
 #include <com/sun/tools/javac/processing/JavacFiler$FilerOutputFileObject.h>
 #include <com/sun/tools/javac/processing/JavacFiler.h>
@@ -31,7 +30,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $Modifier = ::javax::lang::model::element::Modifier;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
@@ -40,61 +38,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace processing {
-
-$FieldInfo _JavacFiler$FilerOutputJavaFileObject_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFiler$FilerOutputJavaFileObject, this$0)},
-	{"javaFileObject", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE | $FINAL, $field(JavacFiler$FilerOutputJavaFileObject, javaFileObject)},
-	{}
-};
-
-$MethodInfo _JavacFiler$FilerOutputJavaFileObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*delete$", "()Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"*getLastModified", "()J", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/JavaFileObject;)V", nullptr, 0, $method(JavacFiler$FilerOutputJavaFileObject, init$, void, $JavacFiler*, $Symbol$ModuleSymbol*, $String*, $JavaFileObject*)},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, getAccessLevel, $Modifier*)},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, getKind, $JavaFileObject$Kind*)},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, getNestingKind, $NestingKind*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JavacFiler$FilerOutputJavaFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputJavaFileObject", $PRIVATE},
-	{"com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputFileObject", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JavacFiler$FilerOutputJavaFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject",
-	"com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject",
-	"javax.tools.JavaFileObject",
-	_JavacFiler$FilerOutputJavaFileObject_FieldInfo_,
-	_JavacFiler$FilerOutputJavaFileObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacFiler$FilerOutputJavaFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacFiler"
-};
-
-$Object* allocate$JavacFiler$FilerOutputJavaFileObject($Class* clazz) {
-	return $of($alloc(JavacFiler$FilerOutputJavaFileObject));
-}
 
 $OutputStream* JavacFiler$FilerOutputJavaFileObject::openOutputStream() {
 	 return this->$JavacFiler$FilerOutputFileObject::openOutputStream();
@@ -178,7 +121,56 @@ JavacFiler$FilerOutputJavaFileObject::JavacFiler$FilerOutputJavaFileObject() {
 }
 
 $Class* JavacFiler$FilerOutputJavaFileObject::load$($String* name, bool initialize) {
-	$loadClass(JavacFiler$FilerOutputJavaFileObject, name, initialize, &_JavacFiler$FilerOutputJavaFileObject_ClassInfo_, allocate$JavacFiler$FilerOutputJavaFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFiler$FilerOutputJavaFileObject, this$0)},
+		{"javaFileObject", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE | $FINAL, $field(JavacFiler$FilerOutputJavaFileObject, javaFileObject)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*delete$", "()Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
+		{"*getLastModified", "()J", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/JavaFileObject;)V", nullptr, 0, $method(JavacFiler$FilerOutputJavaFileObject, init$, void, $JavacFiler*, $Symbol$ModuleSymbol*, $String*, $JavaFileObject*)},
+		{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, getAccessLevel, $Modifier*)},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, getKind, $JavaFileObject$Kind*)},
+		{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, getNestingKind, $NestingKind*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputJavaFileObject", $PRIVATE},
+		{"com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject", "com.sun.tools.javac.processing.JavacFiler", "FilerOutputFileObject", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacFiler$FilerOutputJavaFileObject",
+		"com.sun.tools.javac.processing.JavacFiler$FilerOutputFileObject",
+		"javax.tools.JavaFileObject",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacFiler"
+	};
+	$loadClass(JavacFiler$FilerOutputJavaFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacFiler$FilerOutputJavaFileObject));
+	});
 	return class$;
 }
 

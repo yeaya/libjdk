@@ -1,5 +1,4 @@
 #include <javax/print/DocPrintJob.h>
-
 #include <javax/print/Doc.h>
 #include <javax/print/PrintService.h>
 #include <javax/print/attribute/PrintJobAttributeSet.h>
@@ -20,32 +19,28 @@ using $PrintJobListener = ::javax::print::event::PrintJobListener;
 namespace javax {
 	namespace print {
 
-$MethodInfo _DocPrintJob_MethodInfo_[] = {
-	{"addPrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, addPrintJobAttributeListener, void, $PrintJobAttributeListener*, $PrintJobAttributeSet*)},
-	{"addPrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, addPrintJobListener, void, $PrintJobListener*)},
-	{"getAttributes", "()Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, getAttributes, $PrintJobAttributeSet*)},
-	{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, getPrintService, $PrintService*)},
-	{"print", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, print, void, $Doc*, $PrintRequestAttributeSet*), "javax.print.PrintException"},
-	{"removePrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, removePrintJobAttributeListener, void, $PrintJobAttributeListener*)},
-	{"removePrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, removePrintJobListener, void, $PrintJobListener*)},
-	{}
-};
-
-$ClassInfo _DocPrintJob_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.print.DocPrintJob",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DocPrintJob_MethodInfo_
-};
-
-$Object* allocate$DocPrintJob($Class* clazz) {
-	return $of($alloc(DocPrintJob));
-}
-
 $Class* DocPrintJob::load$($String* name, bool initialize) {
-	$loadClass(DocPrintJob, name, initialize, &_DocPrintJob_ClassInfo_, allocate$DocPrintJob);
+	$MethodInfo methodInfos$$[] = {
+		{"addPrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, addPrintJobAttributeListener, void, $PrintJobAttributeListener*, $PrintJobAttributeSet*)},
+		{"addPrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, addPrintJobListener, void, $PrintJobListener*)},
+		{"getAttributes", "()Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, getAttributes, $PrintJobAttributeSet*)},
+		{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, getPrintService, $PrintService*)},
+		{"print", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, print, void, $Doc*, $PrintRequestAttributeSet*), "javax.print.PrintException"},
+		{"removePrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, removePrintJobAttributeListener, void, $PrintJobAttributeListener*)},
+		{"removePrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocPrintJob, removePrintJobListener, void, $PrintJobListener*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.print.DocPrintJob",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DocPrintJob, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocPrintJob);
+	});
 	return class$;
 }
 

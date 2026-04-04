@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV$XDecimal.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
 #include <java/lang/NumberFormatException.h>
@@ -33,63 +32,6 @@ namespace com {
 						namespace impl {
 							namespace dv {
 								namespace xs {
-
-$FieldInfo _DecimalDV$XDecimal_FieldInfo_[] = {
-	{"sign", "I", nullptr, 0, $field(DecimalDV$XDecimal, sign)},
-	{"totalDigits", "I", nullptr, 0, $field(DecimalDV$XDecimal, totalDigits)},
-	{"intDigits", "I", nullptr, 0, $field(DecimalDV$XDecimal, intDigits)},
-	{"fracDigits", "I", nullptr, 0, $field(DecimalDV$XDecimal, fracDigits)},
-	{"ivalue", "Ljava/lang/String;", nullptr, 0, $field(DecimalDV$XDecimal, ivalue)},
-	{"fvalue", "Ljava/lang/String;", nullptr, 0, $field(DecimalDV$XDecimal, fvalue)},
-	{"integer", "Z", nullptr, 0, $field(DecimalDV$XDecimal, integer)},
-	{"canonical", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalDV$XDecimal, canonical)},
-	{}
-};
-
-$MethodInfo _DecimalDV$XDecimal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(DecimalDV$XDecimal, init$, void, $String*), "java.lang.NumberFormatException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DecimalDV$XDecimal, init$, void, $String*, bool), "java.lang.NumberFormatException"},
-	{"compareTo", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV$XDecimal;)I", nullptr, $PUBLIC, $method(DecimalDV$XDecimal, compareTo, int32_t, DecimalDV$XDecimal*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, equals, bool, Object$*)},
-	{"getBigDecimal", "()Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getBigDecimal, $BigDecimal*)},
-	{"getBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getBigInteger, $BigInteger*), "java.lang.NumberFormatException"},
-	{"getByte", "()B", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getByte, int8_t), "java.lang.NumberFormatException"},
-	{"getInt", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getInt, int32_t), "java.lang.NumberFormatException"},
-	{"getLong", "()J", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getLong, int64_t), "java.lang.NumberFormatException"},
-	{"getShort", "()S", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getShort, int16_t), "java.lang.NumberFormatException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, hashCode, int32_t)},
-	{"initD", "(Ljava/lang/String;)V", nullptr, 0, $method(DecimalDV$XDecimal, initD, void, $String*), "java.lang.NumberFormatException"},
-	{"initI", "(Ljava/lang/String;)V", nullptr, 0, $method(DecimalDV$XDecimal, initI, void, $String*), "java.lang.NumberFormatException"},
-	{"intComp", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV$XDecimal;)I", nullptr, $PRIVATE, $method(DecimalDV$XDecimal, intComp, int32_t, DecimalDV$XDecimal*)},
-	{"makeCanonical", "()V", nullptr, $PRIVATE, $method(DecimalDV$XDecimal, makeCanonical, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DecimalDV$XDecimal, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DecimalDV$XDecimal_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV", "XDecimal", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DecimalDV$XDecimal_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.datatypes.XSDecimal",
-	_DecimalDV$XDecimal_FieldInfo_,
-	_DecimalDV$XDecimal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DecimalDV$XDecimal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV"
-};
-
-$Object* allocate$DecimalDV$XDecimal($Class* clazz) {
-	return $of($alloc(DecimalDV$XDecimal));
-}
 
 void DecimalDV$XDecimal::init$($String* content) {
 	this->sign = 1;
@@ -137,6 +79,7 @@ void DecimalDV$XDecimal::initD($String* content) {
 		++actualIntStart;
 	}
 	for (intEnd = actualIntStart; intEnd < len && $TypeValidator::isDigit(content->charAt(intEnd)); ++intEnd) {
+		;
 	}
 	if (intEnd < len) {
 		if (content->charAt(intEnd) != u'.') {
@@ -189,6 +132,7 @@ void DecimalDV$XDecimal::initI($String* content) {
 		++actualIntStart;
 	}
 	for (intEnd = actualIntStart; intEnd < len && $TypeValidator::isDigit(content->charAt(intEnd)); ++intEnd) {
+		;
 	}
 	if (intEnd < len) {
 		$throwNew($NumberFormatException);
@@ -221,7 +165,7 @@ bool DecimalDV$XDecimal::equals(Object$* val) {
 	if (this->sign == 0) {
 		return true;
 	}
-	bool var$0 = this->intDigits == $nc(oval)->intDigits && this->fracDigits == oval->fracDigits && $nc(this->ivalue)->equals(oval->ivalue);
+	bool var$0 = this->intDigits == oval->intDigits && this->fracDigits == oval->fracDigits && $nc(this->ivalue)->equals(oval->ivalue);
 	return var$0 && $nc(this->fvalue)->equals(oval->fvalue);
 }
 
@@ -252,11 +196,12 @@ int32_t DecimalDV$XDecimal::intComp(DecimalDV$XDecimal* val) {
 	if (this->intDigits != $nc(val)->intDigits) {
 		return this->intDigits > val->intDigits ? 1 : -1;
 	}
-	int32_t ret = $nc(this->ivalue)->compareTo($nc(val)->ivalue);
+	int32_t ret = $nc(this->ivalue)->compareTo(val->ivalue);
 	if (ret != 0) {
 		return ret > 0 ? 1 : -1;
 	}
-	ret = $nc(this->fvalue)->compareTo($nc(val)->fvalue);
+	;
+	ret = $nc(this->fvalue)->compareTo(val->fvalue);
 	return ret == 0 ? 0 : (ret > 0 ? 1 : -1);
 }
 
@@ -355,7 +300,7 @@ int16_t DecimalDV$XDecimal::getShort() {
 		$throwNew($NumberFormatException);
 	}
 	if (this->sign == 0) {
-		return (int16_t)0;
+		return 0;
 	}
 	if (this->sign == 1) {
 		return $Short::parseShort(this->ivalue);
@@ -368,7 +313,7 @@ int8_t DecimalDV$XDecimal::getByte() {
 		$throwNew($NumberFormatException);
 	}
 	if (this->sign == 0) {
-		return (int8_t)0;
+		return 0;
 	}
 	if (this->sign == 1) {
 		return $Byte::parseByte(this->ivalue);
@@ -380,7 +325,58 @@ DecimalDV$XDecimal::DecimalDV$XDecimal() {
 }
 
 $Class* DecimalDV$XDecimal::load$($String* name, bool initialize) {
-	$loadClass(DecimalDV$XDecimal, name, initialize, &_DecimalDV$XDecimal_ClassInfo_, allocate$DecimalDV$XDecimal);
+	$FieldInfo fieldInfos$$[] = {
+		{"sign", "I", nullptr, 0, $field(DecimalDV$XDecimal, sign)},
+		{"totalDigits", "I", nullptr, 0, $field(DecimalDV$XDecimal, totalDigits)},
+		{"intDigits", "I", nullptr, 0, $field(DecimalDV$XDecimal, intDigits)},
+		{"fracDigits", "I", nullptr, 0, $field(DecimalDV$XDecimal, fracDigits)},
+		{"ivalue", "Ljava/lang/String;", nullptr, 0, $field(DecimalDV$XDecimal, ivalue)},
+		{"fvalue", "Ljava/lang/String;", nullptr, 0, $field(DecimalDV$XDecimal, fvalue)},
+		{"integer", "Z", nullptr, 0, $field(DecimalDV$XDecimal, integer)},
+		{"canonical", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DecimalDV$XDecimal, canonical)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(DecimalDV$XDecimal, init$, void, $String*), "java.lang.NumberFormatException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DecimalDV$XDecimal, init$, void, $String*, bool), "java.lang.NumberFormatException"},
+		{"compareTo", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV$XDecimal;)I", nullptr, $PUBLIC, $method(DecimalDV$XDecimal, compareTo, int32_t, DecimalDV$XDecimal*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, equals, bool, Object$*)},
+		{"getBigDecimal", "()Ljava/math/BigDecimal;", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getBigDecimal, $BigDecimal*)},
+		{"getBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getBigInteger, $BigInteger*), "java.lang.NumberFormatException"},
+		{"getByte", "()B", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getByte, int8_t), "java.lang.NumberFormatException"},
+		{"getInt", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getInt, int32_t), "java.lang.NumberFormatException"},
+		{"getLong", "()J", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getLong, int64_t), "java.lang.NumberFormatException"},
+		{"getShort", "()S", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, getShort, int16_t), "java.lang.NumberFormatException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DecimalDV$XDecimal, hashCode, int32_t)},
+		{"initD", "(Ljava/lang/String;)V", nullptr, 0, $method(DecimalDV$XDecimal, initD, void, $String*), "java.lang.NumberFormatException"},
+		{"initI", "(Ljava/lang/String;)V", nullptr, 0, $method(DecimalDV$XDecimal, initI, void, $String*), "java.lang.NumberFormatException"},
+		{"intComp", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV$XDecimal;)I", nullptr, $PRIVATE, $method(DecimalDV$XDecimal, intComp, int32_t, DecimalDV$XDecimal*)},
+		{"makeCanonical", "()V", nullptr, $PRIVATE, $method(DecimalDV$XDecimal, makeCanonical, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DecimalDV$XDecimal, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV", "XDecimal", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.datatypes.XSDecimal",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV"
+	};
+	$loadClass(DecimalDV$XDecimal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DecimalDV$XDecimal);
+	});
 	return class$;
 }
 

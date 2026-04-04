@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReaderResources.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader.h>
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
@@ -21,43 +20,24 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$MethodInfo _JPEGImageReaderResources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageReaderResources, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JPEGImageReaderResources, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _JPEGImageReaderResources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGImageReaderResources",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_JPEGImageReaderResources_MethodInfo_
-};
-
-$Object* allocate$JPEGImageReaderResources($Class* clazz) {
-	return $of($alloc(JPEGImageReaderResources));
-}
-
 void JPEGImageReaderResources::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* JPEGImageReaderResources::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$($of($Integer::toString($JPEGImageReader::WARNING_NO_EOI))),
-			$of("Truncated File - Missing EOI marker"_s)
+			$($Integer::toString($JPEGImageReader::WARNING_NO_EOI)),
+			"Truncated File - Missing EOI marker"_s
 		}),
 		$$new($ObjectArray, {
-			$($of($Integer::toString($JPEGImageReader::WARNING_NO_JFIF_IN_THUMB))),
-			$of("JFIF markers not allowed in JFIF JPEG thumbnail; ignored"_s)
+			$($Integer::toString($JPEGImageReader::WARNING_NO_JFIF_IN_THUMB)),
+			"JFIF markers not allowed in JFIF JPEG thumbnail; ignored"_s
 		}),
 		$$new($ObjectArray, {
-			$($of($Integer::toString($JPEGImageReader::WARNING_IGNORE_INVALID_ICC))),
-			$of("Embedded color profile is invalid; ignored"_s)
+			$($Integer::toString($JPEGImageReader::WARNING_IGNORE_INVALID_ICC)),
+			"Embedded color profile is invalid; ignored"_s
 		})
 	});
 }
@@ -66,7 +46,22 @@ JPEGImageReaderResources::JPEGImageReaderResources() {
 }
 
 $Class* JPEGImageReaderResources::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageReaderResources, name, initialize, &_JPEGImageReaderResources_ClassInfo_, allocate$JPEGImageReaderResources);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageReaderResources, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JPEGImageReaderResources, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGImageReaderResources",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JPEGImageReaderResources, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageReaderResources);
+	});
 	return class$;
 }
 

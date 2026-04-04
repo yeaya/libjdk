@@ -1,5 +1,4 @@
 #include <javax/print/attribute/AttributeSetUtilities$UnmodifiableAttributeSet.h>
-
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/AttributeSetUtilities.h>
@@ -18,58 +17,6 @@ using $UnmodifiableSetException = ::javax::print::attribute::UnmodifiableSetExce
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _AttributeSetUtilities$UnmodifiableAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiableAttributeSet, serialVersionUID)},
-	{"attrset", "Ljavax/print/attribute/AttributeSet;", nullptr, $PRIVATE, $field(AttributeSetUtilities$UnmodifiableAttributeSet, attrset)},
-	{}
-};
-
-$MethodInfo _AttributeSetUtilities$UnmodifiableAttributeSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/print/attribute/AttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiableAttributeSet, init$, void, $AttributeSet*)},
-	{"add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, add, bool, $Attribute*)},
-	{"addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, addAll, bool, $AttributeSet*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, clear, void)},
-	{"containsKey", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, containsKey, bool, $Class*)},
-	{"containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, containsValue, bool, $Attribute*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", "(Ljava/lang/Class<*>;)Ljavax/print/attribute/Attribute;", $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, get, $Attribute*, $Class*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, isEmpty, bool)},
-	{"remove", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, remove, bool, $Class*)},
-	{"remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, remove, bool, $Attribute*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, size, int32_t)},
-	{"toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, toArray, $AttributeArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AttributeSetUtilities$UnmodifiableAttributeSet_InnerClassesInfo_[] = {
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AttributeSetUtilities$UnmodifiableAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
-	"java.lang.Object",
-	"javax.print.attribute.AttributeSet,java.io.Serializable",
-	_AttributeSetUtilities$UnmodifiableAttributeSet_FieldInfo_,
-	_AttributeSetUtilities$UnmodifiableAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities$UnmodifiableAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.AttributeSetUtilities"
-};
-
-$Object* allocate$AttributeSetUtilities$UnmodifiableAttributeSet($Class* clazz) {
-	return $of($alloc(AttributeSetUtilities$UnmodifiableAttributeSet));
-}
 
 $Object* AttributeSetUtilities$UnmodifiableAttributeSet::clone() {
 	 return this->$AttributeSet::clone();
@@ -149,7 +96,53 @@ AttributeSetUtilities$UnmodifiableAttributeSet::AttributeSetUtilities$Unmodifiab
 }
 
 $Class* AttributeSetUtilities$UnmodifiableAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(AttributeSetUtilities$UnmodifiableAttributeSet, name, initialize, &_AttributeSetUtilities$UnmodifiableAttributeSet_ClassInfo_, allocate$AttributeSetUtilities$UnmodifiableAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributeSetUtilities$UnmodifiableAttributeSet, serialVersionUID)},
+		{"attrset", "Ljavax/print/attribute/AttributeSet;", nullptr, $PRIVATE, $field(AttributeSetUtilities$UnmodifiableAttributeSet, attrset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/print/attribute/AttributeSet;)V", nullptr, $PUBLIC, $method(AttributeSetUtilities$UnmodifiableAttributeSet, init$, void, $AttributeSet*)},
+		{"add", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, add, bool, $Attribute*)},
+		{"addAll", "(Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, addAll, bool, $AttributeSet*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, clear, void)},
+		{"containsKey", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, containsKey, bool, $Class*)},
+		{"containsValue", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, containsValue, bool, $Attribute*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", "(Ljava/lang/Class<*>;)Ljavax/print/attribute/Attribute;", $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, get, $Attribute*, $Class*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, isEmpty, bool)},
+		{"remove", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, remove, bool, $Class*)},
+		{"remove", "(Ljavax/print/attribute/Attribute;)Z", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, remove, bool, $Attribute*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, size, int32_t)},
+		{"toArray", "()[Ljavax/print/attribute/Attribute;", nullptr, $PUBLIC, $virtualMethod(AttributeSetUtilities$UnmodifiableAttributeSet, toArray, $AttributeArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet",
+		"java.lang.Object",
+		"javax.print.attribute.AttributeSet,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.AttributeSetUtilities"
+	};
+	$loadClass(AttributeSetUtilities$UnmodifiableAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeSetUtilities$UnmodifiableAttributeSet));
+	});
 	return class$;
 }
 

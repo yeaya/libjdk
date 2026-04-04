@@ -32,6 +32,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($StringArray* notifTypes, $String* name, $String* description);
 	void init$($StringArray* notifTypes, $String* name, $String* description, ::javax::management::Descriptor* descriptor);
 	void init$(::javax::management::modelmbean::ModelMBeanNotificationInfo* inInfo);
@@ -42,8 +43,8 @@ public:
 	virtual $String* toString() override;
 	::javax::management::Descriptor* validDescriptor(::javax::management::Descriptor* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0xB7ACCDAD2FD40147;
-	static const int64_t newSerialVersionUID = (int64_t)0x98ABA0399FEE525B;
+	static const int64_t oldSerialVersionUID = (int64_t)0xb7accdad2fd40147;
+	static const int64_t newSerialVersionUID = (int64_t)0x98aba0399fee525b;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

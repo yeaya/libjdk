@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/UniqueOrKey.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint.h>
 #include <jcpp.h>
 
@@ -17,24 +16,6 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$MethodInfo _UniqueOrKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;S)V", nullptr, $PUBLIC, $method(UniqueOrKey, init$, void, $String*, $String*, $String*, int16_t)},
-	{}
-};
-
-$ClassInfo _UniqueOrKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.UniqueOrKey",
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.IdentityConstraint",
-	nullptr,
-	nullptr,
-	_UniqueOrKey_MethodInfo_
-};
-
-$Object* allocate$UniqueOrKey($Class* clazz) {
-	return $of($alloc(UniqueOrKey));
-}
-
 void UniqueOrKey::init$($String* namespace$, $String* identityConstraintName, $String* elemName, int16_t type) {
 	$IdentityConstraint::init$(namespace$, identityConstraintName, elemName);
 	this->type = type;
@@ -44,7 +25,21 @@ UniqueOrKey::UniqueOrKey() {
 }
 
 $Class* UniqueOrKey::load$($String* name, bool initialize) {
-	$loadClass(UniqueOrKey, name, initialize, &_UniqueOrKey_ClassInfo_, allocate$UniqueOrKey);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;S)V", nullptr, $PUBLIC, $method(UniqueOrKey, init$, void, $String*, $String*, $String*, int16_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.UniqueOrKey",
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.IdentityConstraint",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UniqueOrKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UniqueOrKey);
+	});
 	return class$;
 }
 

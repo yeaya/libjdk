@@ -45,6 +45,7 @@ class $export SAXTransformerFactory : public ::javax::xml::transform::Transforme
 	$class(SAXTransformerFactory, 0, ::javax::xml::transform::TransformerFactory)
 public:
 	SAXTransformerFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::xml::transform::sax::TemplatesHandler* newTemplatesHandler() {return nullptr;}
 	virtual ::javax::xml::transform::sax::TransformerHandler* newTransformerHandler(::javax::xml::transform::Source* src) {return nullptr;}

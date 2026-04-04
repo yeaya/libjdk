@@ -1,5 +1,4 @@
 #include <java/awt/FileDialog.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
@@ -13,7 +12,6 @@
 #include <java/io/File.h>
 #include <java/io/FilenameFilter.h>
 #include <java/io/ObjectInputStream.h>
-#include <sun/awt/AWTAccessor$FileDialogAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/ComponentFactory.h>
 #include <jcpp.h>
@@ -22,14 +20,12 @@
 #undef SAVE
 
 using $FileArray = $Array<::java::io::File>;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $FileDialog$1 = ::java::awt::FileDialog$1;
 using $Frame = ::java::awt::Frame;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Toolkit = ::java::awt::Toolkit;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $FileDialogPeer = ::java::awt::peer::FileDialogPeer;
 using $FilenameFilter = ::java::io::FilenameFilter;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -39,88 +35,16 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$FileDialogAccessor = ::sun::awt::AWTAccessor$FileDialogAccessor;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _FileDialog_FieldInfo_[] = {
-	{"LOAD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileDialog, LOAD)},
-	{"SAVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileDialog, SAVE)},
-	{"mode", "I", nullptr, 0, $field(FileDialog, mode)},
-	{"dir", "Ljava/lang/String;", nullptr, 0, $field(FileDialog, dir)},
-	{"file", "Ljava/lang/String;", nullptr, 0, $field(FileDialog, file)},
-	{"files", "[Ljava/io/File;", nullptr, $PRIVATE, $field(FileDialog, files)},
-	{"multipleMode", "Z", nullptr, $PRIVATE, $field(FileDialog, multipleMode)},
-	{"filter", "Ljava/io/FilenameFilter;", nullptr, 0, $field(FileDialog, filter)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileDialog, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileDialog, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileDialog, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FileDialog_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Frame*)},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Frame*, $String*)},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Frame*, $String*, int32_t)},
-	{"<init>", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Dialog*)},
-	{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Dialog*, $String*)},
-	{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Dialog*, $String*, int32_t)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(FileDialog, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(FileDialog, constructComponentName, $String*)},
-	{"getDirectory", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getDirectory, $String*)},
-	{"getFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getFile, $String*)},
-	{"getFilenameFilter", "()Ljava/io/FilenameFilter;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getFilenameFilter, $FilenameFilter*)},
-	{"getFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getFiles, $FileArray*)},
-	{"getMode", "()I", nullptr, $PUBLIC, $virtualMethod(FileDialog, getMode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileDialog, initIDs, void)},
-	{"isMultipleMode", "()Z", nullptr, $PUBLIC, $virtualMethod(FileDialog, isMultipleMode, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileDialog, paramString, $String*)},
-	{"postsOldMouseEvents", "()Z", nullptr, 0, $virtualMethod(FileDialog, postsOldMouseEvents, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FileDialog, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setDirectory, void, $String*)},
-	{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setFile, void, $String*)},
-	{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileDialog, setFilenameFilter, void, $FilenameFilter*)},
-	{"setFiles", "([Ljava/io/File;)V", nullptr, $PRIVATE, $method(FileDialog, setFiles, void, $FileArray*)},
-	{"setMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setMode, void, int32_t)},
-	{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setMultipleMode, void, bool)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setTitle, void, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 13
-
-$InnerClassInfo _FileDialog_InnerClassesInfo_[] = {
-	{"java.awt.FileDialog$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileDialog_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.FileDialog",
-	"java.awt.Dialog",
-	nullptr,
-	_FileDialog_FieldInfo_,
-	_FileDialog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileDialog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.FileDialog$1"
-};
-
-$Object* allocate$FileDialog($Class* clazz) {
-	return $of($alloc(FileDialog));
-}
 
 $String* FileDialog::base = nullptr;
 int32_t FileDialog::nameCounter = 0;
 
 void FileDialog::initIDs() {
 	$init(FileDialog);
-	$prepareNativeStatic(FileDialog, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -160,20 +84,21 @@ void FileDialog::setTitle($String* title) {
 }
 
 $String* FileDialog::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(FileDialog::class$) {
-		$var($String, var$0, FileDialog::base);
-		return $concat(var$0, $$str(FileDialog::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(FileDialog::base);
+		var$0->append(FileDialog::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void FileDialog::addNotify() {
 	$synchronized(getTreeLock()) {
-		if (this->parent != nullptr && $nc(this->parent)->peer == nullptr) {
-			$nc(this->parent)->addNotify();
+		if (this->parent != nullptr && this->parent->peer == nullptr) {
+			this->parent->addNotify();
 		}
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createFileDialog(this));
+			$set(this, peer, $$nc(getComponentFactory())->createFileDialog(this));
 		}
 		$Dialog::addNotify();
 	}
@@ -186,16 +111,11 @@ int32_t FileDialog::getMode() {
 void FileDialog::setMode(int32_t mode) {
 	switch (mode) {
 	case FileDialog::LOAD:
-		{}
 	case FileDialog::SAVE:
-		{
-			this->mode = mode;
-			break;
-		}
+		this->mode = mode;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "illegal file dialog mode"_s);
-		}
+		$throwNew($IllegalArgumentException, "illegal file dialog mode"_s);
 	}
 }
 
@@ -218,7 +138,7 @@ $String* FileDialog::getFile() {
 $FileArray* FileDialog::getFiles() {
 	$synchronized(getObjectLock()) {
 		if (this->files != nullptr) {
-			return $cast($FileArray, $nc(this->files)->clone());
+			return $cast($FileArray, this->files->clone());
 		} else {
 			return $new($FileArray, 0);
 		}
@@ -267,16 +187,16 @@ void FileDialog::setFilenameFilter($FilenameFilter* filter) {
 
 void FileDialog::readObject($ObjectInputStream* s) {
 	$nc(s)->defaultReadObject();
-	if (this->dir != nullptr && $nc(this->dir)->isEmpty()) {
+	if (this->dir != nullptr && this->dir->isEmpty()) {
 		$set(this, dir, nullptr);
 	}
-	if (this->file != nullptr && $nc(this->file)->isEmpty()) {
+	if (this->file != nullptr && this->file->isEmpty()) {
 		$set(this, file, nullptr);
 	}
 }
 
 $String* FileDialog::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $Dialog::paramString());
 	$plusAssign(str, $$str({",dir= "_s, this->dir}));
 	$plusAssign(str, $$str({",file= "_s, this->file}));
@@ -287,7 +207,7 @@ bool FileDialog::postsOldMouseEvents() {
 	return false;
 }
 
-void clinit$FileDialog($Class* class$) {
+void FileDialog::clinit$($Class* clazz) {
 	$assignStatic(FileDialog::base, "filedlg"_s);
 	FileDialog::nameCounter = 0;
 	{
@@ -305,7 +225,69 @@ FileDialog::FileDialog() {
 }
 
 $Class* FileDialog::load$($String* name, bool initialize) {
-	$loadClass(FileDialog, name, initialize, &_FileDialog_ClassInfo_, clinit$FileDialog, allocate$FileDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOAD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileDialog, LOAD)},
+		{"SAVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileDialog, SAVE)},
+		{"mode", "I", nullptr, 0, $field(FileDialog, mode)},
+		{"dir", "Ljava/lang/String;", nullptr, 0, $field(FileDialog, dir)},
+		{"file", "Ljava/lang/String;", nullptr, 0, $field(FileDialog, file)},
+		{"files", "[Ljava/io/File;", nullptr, $PRIVATE, $field(FileDialog, files)},
+		{"multipleMode", "Z", nullptr, $PRIVATE, $field(FileDialog, multipleMode)},
+		{"filter", "Ljava/io/FilenameFilter;", nullptr, 0, $field(FileDialog, filter)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileDialog, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(FileDialog, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileDialog, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Frame;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Frame*)},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Frame*, $String*)},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Frame*, $String*, int32_t)},
+		{"<init>", "(Ljava/awt/Dialog;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Dialog*)},
+		{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Dialog*, $String*)},
+		{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(FileDialog, init$, void, $Dialog*, $String*, int32_t)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(FileDialog, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(FileDialog, constructComponentName, $String*)},
+		{"getDirectory", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getDirectory, $String*)},
+		{"getFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getFile, $String*)},
+		{"getFilenameFilter", "()Ljava/io/FilenameFilter;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getFilenameFilter, $FilenameFilter*)},
+		{"getFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(FileDialog, getFiles, $FileArray*)},
+		{"getMode", "()I", nullptr, $PUBLIC, $virtualMethod(FileDialog, getMode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileDialog, initIDs, void)},
+		{"isMultipleMode", "()Z", nullptr, $PUBLIC, $virtualMethod(FileDialog, isMultipleMode, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileDialog, paramString, $String*)},
+		{"postsOldMouseEvents", "()Z", nullptr, 0, $virtualMethod(FileDialog, postsOldMouseEvents, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FileDialog, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"setDirectory", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setDirectory, void, $String*)},
+		{"setFile", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setFile, void, $String*)},
+		{"setFilenameFilter", "(Ljava/io/FilenameFilter;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileDialog, setFilenameFilter, void, $FilenameFilter*)},
+		{"setFiles", "([Ljava/io/File;)V", nullptr, $PRIVATE, $method(FileDialog, setFiles, void, $FileArray*)},
+		{"setMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setMode, void, int32_t)},
+		{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setMultipleMode, void, bool)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FileDialog, setTitle, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.FileDialog$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.FileDialog",
+		"java.awt.Dialog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.FileDialog$1"
+	};
+	$loadClass(FileDialog, name, initialize, &classInfo$$, FileDialog::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileDialog));
+	});
 	return class$;
 }
 

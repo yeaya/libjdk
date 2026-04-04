@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$NextWordAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/LookAndFeel.h>
@@ -13,16 +12,13 @@
 #include <javax/swing/text/Utilities.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $TextAction = ::javax::swing::text::TextAction;
@@ -32,49 +28,13 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultEditorKit$NextWordAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$NextWordAction, select)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$NextWordAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$NextWordAction, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$NextWordAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$NextWordAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$NextWordAction", "javax.swing.text.DefaultEditorKit", "NextWordAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$NextWordAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$NextWordAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$NextWordAction_FieldInfo_,
-	_DefaultEditorKit$NextWordAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$NextWordAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$NextWordAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$NextWordAction));
-}
-
 void DefaultEditorKit$NextWordAction::init$($String* nm, bool select) {
 	$TextAction::init$(nm);
 	this->select = select;
 }
 
 void DefaultEditorKit$NextWordAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		int32_t offs = target->getCaretPosition();
@@ -88,7 +48,7 @@ void DefaultEditorKit$NextWordAction::actionPerformed($ActionEvent* e) {
 				offs = curPara->getEndOffset() - 1;
 			}
 		} catch ($BadLocationException& bl) {
-			int32_t end = $nc($(target->getDocument()))->getLength();
+			int32_t end = $$nc(target->getDocument())->getLength();
 			if (offs != end) {
 				if (oldOffs != $nc(curPara)->getEndOffset() - 1) {
 					offs = curPara->getEndOffset() - 1;
@@ -106,7 +66,7 @@ void DefaultEditorKit$NextWordAction::actionPerformed($ActionEvent* e) {
 				target->setCaretPosition(offs);
 			}
 		} else {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(target);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(target);
 		}
 	}
 }
@@ -115,7 +75,37 @@ DefaultEditorKit$NextWordAction::DefaultEditorKit$NextWordAction() {
 }
 
 $Class* DefaultEditorKit$NextWordAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$NextWordAction, name, initialize, &_DefaultEditorKit$NextWordAction_ClassInfo_, allocate$DefaultEditorKit$NextWordAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$NextWordAction, select)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$NextWordAction, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$NextWordAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$NextWordAction", "javax.swing.text.DefaultEditorKit", "NextWordAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$NextWordAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$NextWordAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$NextWordAction));
+	});
 	return class$;
 }
 

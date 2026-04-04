@@ -1,10 +1,8 @@
 #include <sun/java2d/loops/MaskBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/lang/InternalError.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
-#include <sun/java2d/loops/GraphicsPrimitive$GeneralBinaryOp.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
 #include <sun/java2d/loops/GraphicsPrimitiveMgr.h>
 #include <sun/java2d/loops/MaskBlit$General.h>
@@ -15,7 +13,6 @@
 #include <jcpp.h>
 
 using $Composite = ::java::awt::Composite;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -24,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
-using $GraphicsPrimitive$GeneralBinaryOp = ::sun::java2d::loops::GraphicsPrimitive$GeneralBinaryOp;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $MaskBlit$General = ::sun::java2d::loops::MaskBlit$General;
 using $MaskBlit$TraceMaskBlit = ::sun::java2d::loops::MaskBlit$TraceMaskBlit;
@@ -35,51 +31,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace java2d {
 		namespace loops {
-
-$FieldInfo _MaskBlit_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskBlit, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskBlit, primTypeID)},
-	{"blitcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(MaskBlit, blitcache)},
-	{}
-};
-
-$MethodInfo _MaskBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(MaskBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(MaskBlit, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"MaskBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII[BII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskBlit, MaskBlit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskBlit, getFromCache, MaskBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskBlit, locate, MaskBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(MaskBlit, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskBlit, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_MaskBlit$ 2
-
-$InnerClassInfo _MaskBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.MaskBlit$TraceMaskBlit", "sun.java2d.loops.MaskBlit", "TraceMaskBlit", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.MaskBlit$General", "sun.java2d.loops.MaskBlit", "General", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MaskBlit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.MaskBlit",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_MaskBlit_FieldInfo_,
-	_MaskBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.MaskBlit$TraceMaskBlit,sun.java2d.loops.MaskBlit$General"
-};
-
-$Object* allocate$MaskBlit($Class* clazz) {
-	return $of($alloc(MaskBlit));
-}
 
 $String* MaskBlit::methodSignature = nullptr;
 int32_t MaskBlit::primTypeID = 0;
@@ -92,7 +43,7 @@ MaskBlit* MaskBlit::locate($SurfaceType* srctype, $CompositeType* comptype, $Sur
 
 MaskBlit* MaskBlit::getFromCache($SurfaceType* src, $CompositeType* comp, $SurfaceType* dst) {
 	$init(MaskBlit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, o, $nc(MaskBlit::blitcache)->get(src, comp, dst));
 	if (o != nullptr) {
 		return $cast(MaskBlit, o);
@@ -100,9 +51,9 @@ MaskBlit* MaskBlit::getFromCache($SurfaceType* src, $CompositeType* comp, $Surfa
 	$var(MaskBlit, blit, locate(src, comp, dst));
 	if (blit == nullptr) {
 		$nc($System::out)->println("mask blit loop not found for:"_s);
-		$nc($System::out)->println($$str({"src:  "_s, src}));
-		$nc($System::out)->println($$str({"comp: "_s, comp}));
-		$nc($System::out)->println($$str({"dst:  "_s, dst}));
+		$System::out->println($$str({"src:  "_s, src}));
+		$System::out->println($$str({"comp: "_s, comp}));
+		$System::out->println($$str({"dst:  "_s, dst}));
 	} else {
 		$nc(MaskBlit::blitcache)->put(src, comp, dst, blit);
 	}
@@ -118,7 +69,7 @@ void MaskBlit::init$(int64_t pNativePrim, $SurfaceType* srctype, $CompositeType*
 }
 
 void MaskBlit::MaskBlit$($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height, $bytes* mask, int32_t maskoff, int32_t maskscan) {
-	$prepareNative(MaskBlit, MaskBlit$, void, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height, $bytes* mask, int32_t maskoff, int32_t maskscan);
+	$prepareNative(MaskBlit, void, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height, $bytes* mask, int32_t maskoff, int32_t maskscan);
 	$invokeNative(src, dst, comp, clip, srcx, srcy, dstx, dsty, width, height, mask, maskoff, maskscan);
 	$finishNative();
 }
@@ -137,7 +88,7 @@ $GraphicsPrimitive* MaskBlit::traceWrap() {
 	return $new($MaskBlit$TraceMaskBlit, this);
 }
 
-void clinit$MaskBlit($Class* class$) {
+void MaskBlit::clinit$($Class* clazz) {
 	$assignStatic(MaskBlit::methodSignature, "MaskBlit(...)"_s->toString());
 	MaskBlit::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 	$assignStatic(MaskBlit::blitcache, $new($RenderCache, 20));
@@ -150,7 +101,44 @@ MaskBlit::MaskBlit() {
 }
 
 $Class* MaskBlit::load$($String* name, bool initialize) {
-	$loadClass(MaskBlit, name, initialize, &_MaskBlit_ClassInfo_, clinit$MaskBlit, allocate$MaskBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskBlit, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MaskBlit, primTypeID)},
+		{"blitcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(MaskBlit, blitcache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(MaskBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(MaskBlit, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"MaskBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII[BII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(MaskBlit, MaskBlit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskBlit, getFromCache, MaskBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/MaskBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(MaskBlit, locate, MaskBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(MaskBlit, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(MaskBlit, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.MaskBlit$TraceMaskBlit", "sun.java2d.loops.MaskBlit", "TraceMaskBlit", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.MaskBlit$General", "sun.java2d.loops.MaskBlit", "General", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.MaskBlit",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.MaskBlit$TraceMaskBlit,sun.java2d.loops.MaskBlit$General"
+	};
+	$loadClass(MaskBlit, name, initialize, &classInfo$$, MaskBlit::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskBlit);
+	});
 	return class$;
 }
 

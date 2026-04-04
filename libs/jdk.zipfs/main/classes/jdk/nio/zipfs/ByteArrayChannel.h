@@ -57,7 +57,7 @@ public:
 	int32_t last = 0;
 	bool closed = false;
 	bool readonly = false;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7ffffff7; // Integer.MAX_VALUE - 8
 };
 
 		} // zipfs

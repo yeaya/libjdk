@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthToolBarUI$SynthToolBarLayoutManager.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -9,7 +8,6 @@
 #include <java/lang/Math.h>
 #include <javax/swing/Box$Filler.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSeparator.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
@@ -20,7 +18,6 @@
 #undef HORIZONTAL
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -30,7 +27,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Box$Filler = ::javax::swing::Box$Filler;
-using $JComponent = ::javax::swing::JComponent;
 using $JSeparator = ::javax::swing::JSeparator;
 using $JToolBar = ::javax::swing::JToolBar;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
@@ -41,47 +37,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthToolBarUI$SynthToolBarLayoutManager_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthToolBarUI$SynthToolBarLayoutManager, this$0)},
-	{}
-};
-
-$MethodInfo _SynthToolBarUI$SynthToolBarLayoutManager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthToolBarUI;)V", nullptr, 0, $method(SynthToolBarUI$SynthToolBarLayoutManager, init$, void, $SynthToolBarUI*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, addLayoutComponent, void, $String*, $Component*)},
-	{"isGlue", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(SynthToolBarUI$SynthToolBarLayoutManager, isGlue, bool, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _SynthToolBarUI$SynthToolBarLayoutManager_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager", "javax.swing.plaf.synth.SynthToolBarUI", "SynthToolBarLayoutManager", 0},
-	{}
-};
-
-$ClassInfo _SynthToolBarUI$SynthToolBarLayoutManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_SynthToolBarUI$SynthToolBarLayoutManager_FieldInfo_,
-	_SynthToolBarUI$SynthToolBarLayoutManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthToolBarUI$SynthToolBarLayoutManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthToolBarUI"
-};
-
-$Object* allocate$SynthToolBarUI$SynthToolBarLayoutManager($Class* clazz) {
-	return $of($alloc(SynthToolBarUI$SynthToolBarLayoutManager));
-}
 
 void SynthToolBarUI$SynthToolBarLayoutManager::init$($SynthToolBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -94,7 +49,7 @@ void SynthToolBarUI$SynthToolBarLayoutManager::removeLayoutComponent($Component*
 }
 
 $Dimension* SynthToolBarUI$SynthToolBarLayoutManager::minimumLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolBar, tb, $cast($JToolBar, parent));
 	$var($Insets, insets, $nc(tb)->getInsets());
 	$var($Dimension, dim, $new($Dimension));
@@ -118,17 +73,17 @@ $Dimension* SynthToolBarUI$SynthToolBarLayoutManager::minimumLayoutSize($Contain
 			if ($nc(component)->isVisible()) {
 				$assign(compDim, component->getMinimumSize());
 				dim->width = $Math::max(dim->width, $nc(compDim)->width);
-				dim->height += $nc(compDim)->height;
+				dim->height += compDim->height;
 			}
 		}
 	}
-	dim->width += $nc(insets)->left + insets->right;
+	dim->width += $nc(insets)->left + $nc(insets)->right;
 	dim->height += insets->top + insets->bottom;
 	return dim;
 }
 
 $Dimension* SynthToolBarUI$SynthToolBarLayoutManager::preferredLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolBar, tb, $cast($JToolBar, parent));
 	$var($Insets, insets, $nc(tb)->getInsets());
 	$var($Dimension, dim, $new($Dimension));
@@ -152,20 +107,20 @@ $Dimension* SynthToolBarUI$SynthToolBarLayoutManager::preferredLayoutSize($Conta
 			if ($nc(component)->isVisible()) {
 				$assign(compDim, component->getPreferredSize());
 				dim->width = $Math::max(dim->width, $nc(compDim)->width);
-				dim->height += $nc(compDim)->height;
+				dim->height += compDim->height;
 			}
 		}
 	}
-	dim->width += $nc(insets)->left + insets->right;
+	dim->width += $nc(insets)->left + $nc(insets)->right;
 	dim->height += insets->top + insets->bottom;
 	return dim;
 }
 
 void SynthToolBarUI$SynthToolBarLayoutManager::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolBar, tb, $cast($JToolBar, parent));
 	$var($Insets, insets, $nc(tb)->getInsets());
-	bool ltr = $nc($(tb->getComponentOrientation()))->isLeftToRight();
+	bool ltr = $$nc(tb->getComponentOrientation())->isLeftToRight();
 	$var($SynthContext, context, this->this$0->getContext(tb));
 	$var($Component, c, nullptr);
 	$var($Dimension, d, nullptr);
@@ -178,11 +133,11 @@ void SynthToolBarUI$SynthToolBarLayoutManager::layoutContainer($Container* paren
 	if (tb->getOrientation() == $JToolBar::HORIZONTAL) {
 		int32_t handleWidth = tb->isFloatable() ? $SynthGraphicsUtils::getIconWidth(this->this$0->handleIcon, context) : 0;
 		$nc(this->this$0->contentRect)->x = ltr ? handleWidth : 0;
-		$nc(this->this$0->contentRect)->y = 0;
-		$nc(this->this$0->contentRect)->width = tb->getWidth() - handleWidth;
+		this->this$0->contentRect->y = 0;
+		this->this$0->contentRect->width = tb->getWidth() - handleWidth;
 		$nc(this->this$0->contentRect)->height = tb->getHeight();
-		int32_t x = ltr ? handleWidth + $nc(insets)->left : tb->getWidth() - handleWidth - insets->right;
-		int32_t baseY = insets->top;
+		int32_t x = ltr ? handleWidth + $nc(insets)->left : tb->getWidth() - handleWidth - $nc(insets)->right;
+		int32_t baseY = $nc(insets)->top;
 		int32_t baseH = tb->getHeight() - insets->top - insets->bottom;
 		int32_t extraSpacePerGlue = 0;
 		if (glueCount > 0) {
@@ -202,21 +157,21 @@ void SynthToolBarUI$SynthToolBarLayoutManager::layoutContainer($Container* paren
 					y = baseY;
 					h = baseH;
 				} else {
-					y = baseY + (baseH / 2) - ($nc(d)->height / 2);
+					y = baseY + (baseH / 2) - (d->height / 2);
 					h = d->height;
 				}
 				if (isGlue(c)) {
-					$nc(d)->width += extraSpacePerGlue;
+					d->width += extraSpacePerGlue;
 				}
-				c->setBounds(ltr ? x : x - $nc(d)->width, y, d->width, h);
-				x = ltr ? x + $nc(d)->width : x - d->width;
+				c->setBounds(ltr ? x : x - d->width, y, d->width, h);
+				x = ltr ? x + d->width : x - d->width;
 			}
 		}
 	} else {
 		int32_t handleHeight = tb->isFloatable() ? $SynthGraphicsUtils::getIconHeight(this->this$0->handleIcon, context) : 0;
 		$nc(this->this$0->contentRect)->x = 0;
-		$nc(this->this$0->contentRect)->y = handleHeight;
-		$nc(this->this$0->contentRect)->width = tb->getWidth();
+		this->this$0->contentRect->y = handleHeight;
+		this->this$0->contentRect->width = tb->getWidth();
 		$nc(this->this$0->contentRect)->height = tb->getHeight() - handleHeight;
 		int32_t baseX = $nc(insets)->left;
 		int32_t baseW = tb->getWidth() - insets->left - insets->right;
@@ -239,21 +194,21 @@ void SynthToolBarUI$SynthToolBarLayoutManager::layoutContainer($Container* paren
 					x = baseX;
 					w = baseW;
 				} else {
-					x = baseX + (baseW / 2) - ($nc(d)->width / 2);
+					x = baseX + (baseW / 2) - (d->width / 2);
 					w = d->width;
 				}
 				if (isGlue(c)) {
-					$nc(d)->height += extraSpacePerGlue;
+					d->height += extraSpacePerGlue;
 				}
-				c->setBounds(x, y, w, $nc(d)->height);
-				y += $nc(d)->height;
+				c->setBounds(x, y, w, d->height);
+				y += d->height;
 			}
 		}
 	}
 }
 
 bool SynthToolBarUI$SynthToolBarLayoutManager::isGlue($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(c)->isVisible() && $instanceOf($Box$Filler, c)) {
 		$var($Box$Filler, f, $cast($Box$Filler, c));
 		$var($Dimension, min, f->getMinimumSize());
@@ -267,7 +222,42 @@ SynthToolBarUI$SynthToolBarLayoutManager::SynthToolBarUI$SynthToolBarLayoutManag
 }
 
 $Class* SynthToolBarUI$SynthToolBarLayoutManager::load$($String* name, bool initialize) {
-	$loadClass(SynthToolBarUI$SynthToolBarLayoutManager, name, initialize, &_SynthToolBarUI$SynthToolBarLayoutManager_ClassInfo_, allocate$SynthToolBarUI$SynthToolBarLayoutManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthToolBarUI$SynthToolBarLayoutManager, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthToolBarUI;)V", nullptr, 0, $method(SynthToolBarUI$SynthToolBarLayoutManager, init$, void, $SynthToolBarUI*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, addLayoutComponent, void, $String*, $Component*)},
+		{"isGlue", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(SynthToolBarUI$SynthToolBarLayoutManager, isGlue, bool, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI$SynthToolBarLayoutManager, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager", "javax.swing.plaf.synth.SynthToolBarUI", "SynthToolBarLayoutManager", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthToolBarUI"
+	};
+	$loadClass(SynthToolBarUI$SynthToolBarLayoutManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthToolBarUI$SynthToolBarLayoutManager);
+	});
 	return class$;
 }
 

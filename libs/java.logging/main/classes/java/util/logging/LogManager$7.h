@@ -13,6 +13,7 @@ class LogManager$7 : public ::java::lang::Object {
 	$class(LogManager$7, 0, ::java::lang::Object)
 public:
 	LogManager$7();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$util$logging$LogManager$ConfigProperty;
 };
 

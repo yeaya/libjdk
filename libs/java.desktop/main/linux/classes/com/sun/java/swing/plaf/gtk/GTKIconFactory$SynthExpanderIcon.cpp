@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory$SynthExpanderIcon.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory$DelegatingIcon.h>
 #include <com/sun/java/swing/plaf/gtk/GTKIconFactory.h>
 #include <java/awt/Graphics.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 
 namespace com {
 	namespace sun {
@@ -21,40 +19,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$MethodInfo _GTKIconFactory$SynthExpanderIcon_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(GTKIconFactory$SynthExpanderIcon, init$, void, $String*)},
-	{"getIconDimension", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, 0, $virtualMethod(GTKIconFactory$SynthExpanderIcon, getIconDimension, int32_t, $SynthContext*)},
-	{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKIconFactory$SynthExpanderIcon, paintIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"updateSizeIfNecessary", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PRIVATE, $method(GTKIconFactory$SynthExpanderIcon, updateSizeIfNecessary, void, $SynthContext*)},
-	{}
-};
-
-$InnerClassInfo _GTKIconFactory$SynthExpanderIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "SynthExpanderIcon", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "DelegatingIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GTKIconFactory$SynthExpanderIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon",
-	"com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon",
-	nullptr,
-	nullptr,
-	_GTKIconFactory$SynthExpanderIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKIconFactory$SynthExpanderIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKIconFactory"
-};
-
-$Object* allocate$GTKIconFactory$SynthExpanderIcon($Class* clazz) {
-	return $of($alloc(GTKIconFactory$SynthExpanderIcon));
-}
 
 void GTKIconFactory$SynthExpanderIcon::init$($String* method) {
 	$GTKIconFactory$DelegatingIcon::init$(method);
@@ -74,7 +38,7 @@ int32_t GTKIconFactory$SynthExpanderIcon::getIconDimension($SynthContext* contex
 
 void GTKIconFactory$SynthExpanderIcon::updateSizeIfNecessary($SynthContext* context) {
 	if (this->iconDimension == -1 && context != nullptr) {
-		this->iconDimension = $nc($(context->getStyle()))->getInt(context, "Tree.expanderSize"_s, 10);
+		this->iconDimension = $$nc(context->getStyle())->getInt(context, "Tree.expanderSize"_s, 10);
 	}
 }
 
@@ -82,7 +46,36 @@ GTKIconFactory$SynthExpanderIcon::GTKIconFactory$SynthExpanderIcon() {
 }
 
 $Class* GTKIconFactory$SynthExpanderIcon::load$($String* name, bool initialize) {
-	$loadClass(GTKIconFactory$SynthExpanderIcon, name, initialize, &_GTKIconFactory$SynthExpanderIcon_ClassInfo_, allocate$GTKIconFactory$SynthExpanderIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(GTKIconFactory$SynthExpanderIcon, init$, void, $String*)},
+		{"getIconDimension", "(Ljavax/swing/plaf/synth/SynthContext;)I", nullptr, 0, $virtualMethod(GTKIconFactory$SynthExpanderIcon, getIconDimension, int32_t, $SynthContext*)},
+		{"paintIcon", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKIconFactory$SynthExpanderIcon, paintIcon, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"updateSizeIfNecessary", "(Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, $PRIVATE, $method(GTKIconFactory$SynthExpanderIcon, updateSizeIfNecessary, void, $SynthContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "SynthExpanderIcon", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon", "com.sun.java.swing.plaf.gtk.GTKIconFactory", "DelegatingIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKIconFactory$SynthExpanderIcon",
+		"com.sun.java.swing.plaf.gtk.GTKIconFactory$DelegatingIcon",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKIconFactory"
+	};
+	$loadClass(GTKIconFactory$SynthExpanderIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKIconFactory$SynthExpanderIcon));
+	});
 	return class$;
 }
 

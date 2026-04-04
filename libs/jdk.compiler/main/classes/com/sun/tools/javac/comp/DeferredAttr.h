@@ -93,6 +93,7 @@ class $export DeferredAttr : public ::com::sun::tools::javac::tree::JCTree$Visit
 	$class(DeferredAttr, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	DeferredAttr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::tree::JCTree* attribSpeculative(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::comp::Env* env, ::com::sun::tools::javac::comp::Attr$ResultInfo* resultInfo);
 	virtual ::com::sun::tools::javac::tree::JCTree* attribSpeculative(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::comp::Env* env, ::com::sun::tools::javac::comp::Attr$ResultInfo* resultInfo, ::com::sun::tools::javac::comp::ArgumentAttr$LocalCacheContext* localCache);

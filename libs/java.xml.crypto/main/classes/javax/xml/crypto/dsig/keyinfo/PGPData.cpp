@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/keyinfo/PGPData.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -16,39 +15,34 @@ namespace javax {
 			namespace dsig {
 				namespace keyinfo {
 
-$FieldInfo _PGPData_FieldInfo_[] = {
-	{"TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PGPData, TYPE)},
-	{}
-};
-
-$MethodInfo _PGPData_MethodInfo_[] = {
-	{"getExternalElements", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getExternalElements, $List*)},
-	{"getKeyId", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getKeyId, $bytes*)},
-	{"getKeyPacket", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getKeyPacket, $bytes*)},
-	{}
-};
-
-$ClassInfo _PGPData_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.keyinfo.PGPData",
-	nullptr,
-	"javax.xml.crypto.XMLStructure",
-	_PGPData_FieldInfo_,
-	_PGPData_MethodInfo_
-};
-
-$Object* allocate$PGPData($Class* clazz) {
-	return $of($alloc(PGPData));
-}
-
 $String* PGPData::TYPE = nullptr;
 
-void clinit$PGPData($Class* class$) {
+void PGPData::clinit$($Class* clazz) {
 	$assignStatic(PGPData::TYPE, "http://www.w3.org/2000/09/xmldsig#PGPData"_s);
 }
 
 $Class* PGPData::load$($String* name, bool initialize) {
-	$loadClass(PGPData, name, initialize, &_PGPData_ClassInfo_, clinit$PGPData, allocate$PGPData);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PGPData, TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getExternalElements", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getExternalElements, $List*)},
+		{"getKeyId", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getKeyId, $bytes*)},
+		{"getKeyPacket", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getKeyPacket, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.keyinfo.PGPData",
+		nullptr,
+		"javax.xml.crypto.XMLStructure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PGPData, name, initialize, &classInfo$$, PGPData::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PGPData);
+	});
 	return class$;
 }
 

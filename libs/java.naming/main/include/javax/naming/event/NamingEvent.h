@@ -51,7 +51,7 @@ public:
 	int32_t type = 0;
 	::javax::naming::Binding* oldBinding = nullptr;
 	::javax::naming::Binding* newBinding = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x9D18B00289D22F45;
+	static const int64_t serialVersionUID = (int64_t)0x9d18b00289d22f45;
 };
 
 		} // event

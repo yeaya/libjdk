@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/LeftOverInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -18,47 +17,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
 using $ServerConfig = ::sun::net::httpserver::ServerConfig;
-using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _LeftOverInputStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LeftOverInputStream, $assertionsDisabled)},
-	{"t", "Lsun/net/httpserver/ExchangeImpl;", nullptr, $FINAL, $field(LeftOverInputStream, t)},
-	{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, $FINAL, $field(LeftOverInputStream, server)},
-	{"closed", "Z", nullptr, $PROTECTED, $field(LeftOverInputStream, closed)},
-	{"eof", "Z", nullptr, $PROTECTED, $field(LeftOverInputStream, eof)},
-	{"one", "[B", nullptr, 0, $field(LeftOverInputStream, one)},
-	{}
-};
-
-$MethodInfo _LeftOverInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(LeftOverInputStream, init$, void, $ExchangeImpl*, $InputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, close, void), "java.io.IOException"},
-	{"drain", "(J)Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, drain, bool, int64_t), "java.io.IOException"},
-	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isClosed, bool)},
-	{"isDataBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isDataBuffered, bool), "java.io.IOException"},
-	{"isEOF", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isEOF, bool)},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LeftOverInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LeftOverInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readImpl", "([BII)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LeftOverInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LeftOverInputStream_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.net.httpserver.LeftOverInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_LeftOverInputStream_FieldInfo_,
-	_LeftOverInputStream_MethodInfo_
-};
-
-$Object* allocate$LeftOverInputStream($Class* clazz) {
-	return $of($alloc(LeftOverInputStream));
-}
 
 bool LeftOverInputStream::$assertionsDisabled = false;
 
@@ -105,7 +67,7 @@ int32_t LeftOverInputStream::read() {
 		if (c == -1 || c == 0) {
 			return c;
 		} else {
-			return (int32_t)($nc(this->one)->get(0) & (uint32_t)255);
+			return $nc(this->one)->get(0) & 0xff;
 		}
 	}
 }
@@ -137,7 +99,7 @@ bool LeftOverInputStream::drain(int64_t l) {
 	return false;
 }
 
-void clinit$LeftOverInputStream($Class* class$) {
+void LeftOverInputStream::clinit$($Class* clazz) {
 	LeftOverInputStream::$assertionsDisabled = !LeftOverInputStream::class$->desiredAssertionStatus();
 }
 
@@ -145,7 +107,38 @@ LeftOverInputStream::LeftOverInputStream() {
 }
 
 $Class* LeftOverInputStream::load$($String* name, bool initialize) {
-	$loadClass(LeftOverInputStream, name, initialize, &_LeftOverInputStream_ClassInfo_, clinit$LeftOverInputStream, allocate$LeftOverInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LeftOverInputStream, $assertionsDisabled)},
+		{"t", "Lsun/net/httpserver/ExchangeImpl;", nullptr, $FINAL, $field(LeftOverInputStream, t)},
+		{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, $FINAL, $field(LeftOverInputStream, server)},
+		{"closed", "Z", nullptr, $PROTECTED, $field(LeftOverInputStream, closed)},
+		{"eof", "Z", nullptr, $PROTECTED, $field(LeftOverInputStream, eof)},
+		{"one", "[B", nullptr, 0, $field(LeftOverInputStream, one)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(LeftOverInputStream, init$, void, $ExchangeImpl*, $InputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, close, void), "java.io.IOException"},
+		{"drain", "(J)Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, drain, bool, int64_t), "java.io.IOException"},
+		{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isClosed, bool)},
+		{"isDataBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isDataBuffered, bool), "java.io.IOException"},
+		{"isEOF", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isEOF, bool)},
+		{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LeftOverInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LeftOverInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readImpl", "([BII)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LeftOverInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.net.httpserver.LeftOverInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LeftOverInputStream, name, initialize, &classInfo$$, LeftOverInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LeftOverInputStream);
+	});
 	return class$;
 }
 

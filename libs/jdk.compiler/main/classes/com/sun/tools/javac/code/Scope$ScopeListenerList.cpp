@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$ScopeListenerList.h>
-
 #include <com/sun/tools/javac/code/Scope$ScopeListener.h>
 #include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -27,45 +26,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Scope$ScopeListenerList_FieldInfo_[] = {
-	{"listeners", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Ljava/lang/ref/WeakReference<Lcom/sun/tools/javac/code/Scope$ScopeListener;>;>;", 0, $field(Scope$ScopeListenerList, listeners)},
-	{}
-};
-
-$MethodInfo _Scope$ScopeListenerList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Scope$ScopeListenerList, init$, void)},
-	{"add", "(Lcom/sun/tools/javac/code/Scope$ScopeListener;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, add, void, $Scope$ScopeListener*)},
-	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, symbolAdded, void, $Symbol*, $Scope*)},
-	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, symbolRemoved, void, $Symbol*, $Scope*)},
-	{"walkReferences", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;Z)V", nullptr, $PRIVATE, $method(Scope$ScopeListenerList, walkReferences, void, $Symbol*, $Scope*, bool)},
-	{}
-};
-
-$InnerClassInfo _Scope$ScopeListenerList_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$ScopeListenerList", "com.sun.tools.javac.code.Scope", "ScopeListenerList", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Scope$ScopeListenerList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Scope$ScopeListenerList",
-	"java.lang.Object",
-	nullptr,
-	_Scope$ScopeListenerList_FieldInfo_,
-	_Scope$ScopeListenerList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Scope$ScopeListenerList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$ScopeListenerList($Class* clazz) {
-	return $of($alloc(Scope$ScopeListenerList));
-}
-
 void Scope$ScopeListenerList::init$() {
 	$set(this, listeners, $List::nil());
 }
@@ -83,7 +43,7 @@ void Scope$ScopeListenerList::symbolRemoved($Symbol* sym, $Scope* scope) {
 }
 
 void Scope$ScopeListenerList::walkReferences($Symbol* sym, $Scope* scope, bool isRemove) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, newListeners, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(this->listeners)->iterator());
@@ -109,7 +69,40 @@ Scope$ScopeListenerList::Scope$ScopeListenerList() {
 }
 
 $Class* Scope$ScopeListenerList::load$($String* name, bool initialize) {
-	$loadClass(Scope$ScopeListenerList, name, initialize, &_Scope$ScopeListenerList_ClassInfo_, allocate$Scope$ScopeListenerList);
+	$FieldInfo fieldInfos$$[] = {
+		{"listeners", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Ljava/lang/ref/WeakReference<Lcom/sun/tools/javac/code/Scope$ScopeListener;>;>;", 0, $field(Scope$ScopeListenerList, listeners)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Scope$ScopeListenerList, init$, void)},
+		{"add", "(Lcom/sun/tools/javac/code/Scope$ScopeListener;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, add, void, $Scope$ScopeListener*)},
+		{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, symbolAdded, void, $Symbol*, $Scope*)},
+		{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, symbolRemoved, void, $Symbol*, $Scope*)},
+		{"walkReferences", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;Z)V", nullptr, $PRIVATE, $method(Scope$ScopeListenerList, walkReferences, void, $Symbol*, $Scope*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$ScopeListenerList", "com.sun.tools.javac.code.Scope", "ScopeListenerList", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Scope$ScopeListenerList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$ScopeListenerList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scope$ScopeListenerList);
+	});
 	return class$;
 }
 

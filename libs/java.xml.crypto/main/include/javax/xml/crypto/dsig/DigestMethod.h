@@ -17,8 +17,9 @@ namespace javax {
 			namespace dsig {
 
 class $import DigestMethod : public ::javax::xml::crypto::XMLStructure, public ::javax::xml::crypto::AlgorithmMethod {
-	$interface(DigestMethod, $NO_CLASS_INIT, ::javax::xml::crypto::XMLStructure, ::javax::xml::crypto::AlgorithmMethod)
+	$interface(DigestMethod, 0, ::javax::xml::crypto::XMLStructure, ::javax::xml::crypto::AlgorithmMethod)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

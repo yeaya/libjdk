@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XrSwToPMBlit.h>
-
 #include <java/awt/Composite.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/java2d/SurfaceData.h>
@@ -30,30 +29,6 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _XrSwToPMBlit_FieldInfo_[] = {
-	{"pmToSurfaceBlit", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(XrSwToPMBlit, pmToSurfaceBlit)},
-	{}
-};
-
-$MethodInfo _XrSwToPMBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;)V", nullptr, 0, $method(XrSwToPMBlit, init$, void, $SurfaceType*, $SurfaceType*)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(XrSwToPMBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XrSwToPMBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.xr.XrSwToPMBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_XrSwToPMBlit_FieldInfo_,
-	_XrSwToPMBlit_MethodInfo_
-};
-
-$Object* allocate$XrSwToPMBlit($Class* clazz) {
-	return $of($alloc(XrSwToPMBlit));
-}
-
 void XrSwToPMBlit::init$($SurfaceType* srcType, $SurfaceType* dstType) {
 	$init($CompositeType);
 	$Blit::init$(srcType, $CompositeType::AnyAlpha, dstType);
@@ -61,21 +36,19 @@ void XrSwToPMBlit::init$($SurfaceType* srcType, $SurfaceType* dstType) {
 }
 
 void XrSwToPMBlit::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SunToolkit::awtLock();
-			$var($XRSurfaceData, vImgSurface, $XRPMBlitLoops::cacheToTmpSurface(src, $cast($XRSurfaceData, dst), w, h, sx, sy));
-			$nc(this->pmToSurfaceBlit)->Blit$(vImgSurface, dst, comp, clip, 0, 0, dx, dy, w, h);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SunToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SunToolkit::awtLock();
+		$var($XRSurfaceData, vImgSurface, $XRPMBlitLoops::cacheToTmpSurface(src, $cast($XRSurfaceData, dst), w, h, sx, sy));
+		$nc(this->pmToSurfaceBlit)->Blit$(vImgSurface, dst, comp, clip, 0, 0, dx, dy, w, h);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SunToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -83,7 +56,26 @@ XrSwToPMBlit::XrSwToPMBlit() {
 }
 
 $Class* XrSwToPMBlit::load$($String* name, bool initialize) {
-	$loadClass(XrSwToPMBlit, name, initialize, &_XrSwToPMBlit_ClassInfo_, allocate$XrSwToPMBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"pmToSurfaceBlit", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(XrSwToPMBlit, pmToSurfaceBlit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;)V", nullptr, 0, $method(XrSwToPMBlit, init$, void, $SurfaceType*, $SurfaceType*)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(XrSwToPMBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.xr.XrSwToPMBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XrSwToPMBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XrSwToPMBlit);
+	});
 	return class$;
 }
 

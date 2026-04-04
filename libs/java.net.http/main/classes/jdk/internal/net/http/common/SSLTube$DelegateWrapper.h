@@ -52,6 +52,7 @@ class $export SSLTube$DelegateWrapper : public ::jdk::internal::net::http::commo
 	$class(SSLTube$DelegateWrapper, 0, ::jdk::internal::net::http::common::FlowTube$TubeSubscriber)
 public:
 	SSLTube$DelegateWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::Flow$Subscriber* delegate, ::jdk::internal::net::http::common::Logger* debug);
 	virtual void dropSubscription() override;
 	virtual void onComplete() override;

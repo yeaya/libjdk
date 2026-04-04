@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/ShortElementHandler.h>
-
 #include <com/sun/beans/decoder/StringElementHandler.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$MethodInfo _ShortElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ShortElementHandler, init$, void)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortElementHandler, getValue, $Object*, $String*)},
-	{}
-};
-
-$ClassInfo _ShortElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.ShortElementHandler",
-	"com.sun.beans.decoder.StringElementHandler",
-	nullptr,
-	nullptr,
-	_ShortElementHandler_MethodInfo_
-};
-
-$Object* allocate$ShortElementHandler($Class* clazz) {
-	return $of($alloc(ShortElementHandler));
-}
-
 void ShortElementHandler::init$() {
 	$StringElementHandler::init$();
 }
@@ -44,7 +24,22 @@ ShortElementHandler::ShortElementHandler() {
 }
 
 $Class* ShortElementHandler::load$($String* name, bool initialize) {
-	$loadClass(ShortElementHandler, name, initialize, &_ShortElementHandler_ClassInfo_, allocate$ShortElementHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ShortElementHandler, init$, void)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortElementHandler, getValue, $Object*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.ShortElementHandler",
+		"com.sun.beans.decoder.StringElementHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ShortElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortElementHandler);
+	});
 	return class$;
 }
 

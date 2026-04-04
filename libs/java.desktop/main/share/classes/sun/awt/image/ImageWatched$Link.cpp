@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageWatched$Link.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/ImageObserver.h>
 #include <sun/awt/image/ImageWatched.h>
@@ -14,39 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$MethodInfo _ImageWatched$Link_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageWatched$Link, init$, void)},
-	{"isWatcher", "(Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$Link, isWatcher, bool, $ImageObserver*)},
-	{"newInfo", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$Link, newInfo, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"removeWatcher", "(Ljava/awt/image/ImageObserver;)Lsun/awt/image/ImageWatched$Link;", nullptr, $PUBLIC, $virtualMethod(ImageWatched$Link, removeWatcher, ImageWatched$Link*, $ImageObserver*)},
-	{}
-};
-
-$InnerClassInfo _ImageWatched$Link_InnerClassesInfo_[] = {
-	{"sun.awt.image.ImageWatched$Link", "sun.awt.image.ImageWatched", "Link", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ImageWatched$Link_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ImageWatched$Link",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ImageWatched$Link_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageWatched$Link_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.ImageWatched"
-};
-
-$Object* allocate$ImageWatched$Link($Class* clazz) {
-	return $of($alloc(ImageWatched$Link));
-}
 
 void ImageWatched$Link::init$() {
 }
@@ -67,7 +33,35 @@ ImageWatched$Link::ImageWatched$Link() {
 }
 
 $Class* ImageWatched$Link::load$($String* name, bool initialize) {
-	$loadClass(ImageWatched$Link, name, initialize, &_ImageWatched$Link_ClassInfo_, allocate$ImageWatched$Link);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageWatched$Link, init$, void)},
+		{"isWatcher", "(Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$Link, isWatcher, bool, $ImageObserver*)},
+		{"newInfo", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$Link, newInfo, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"removeWatcher", "(Ljava/awt/image/ImageObserver;)Lsun/awt/image/ImageWatched$Link;", nullptr, $PUBLIC, $virtualMethod(ImageWatched$Link, removeWatcher, ImageWatched$Link*, $ImageObserver*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.ImageWatched$Link", "sun.awt.image.ImageWatched", "Link", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ImageWatched$Link",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.ImageWatched"
+	};
+	$loadClass(ImageWatched$Link, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageWatched$Link);
+	});
 	return class$;
 }
 

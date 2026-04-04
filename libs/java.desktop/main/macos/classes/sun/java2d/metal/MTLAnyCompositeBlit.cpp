@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLAnyCompositeBlit.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Composite.h>
 #include <java/awt/image/BufferedImage.h>
@@ -33,34 +32,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLAnyCompositeBlit_FieldInfo_[] = {
-	{"dstTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(MTLAnyCompositeBlit, dstTmp)},
-	{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(MTLAnyCompositeBlit, srcTmp)},
-	{"convertsrc", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(MTLAnyCompositeBlit, convertsrc)},
-	{"convertdst", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(MTLAnyCompositeBlit, convertdst)},
-	{"convertresult", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(MTLAnyCompositeBlit, convertresult)},
-	{}
-};
-
-$MethodInfo _MTLAnyCompositeBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;)V", nullptr, 0, $method(MTLAnyCompositeBlit, init$, void, $SurfaceType*, $Blit*, $Blit*, $Blit*)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLAnyCompositeBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLAnyCompositeBlit_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.metal.MTLAnyCompositeBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_MTLAnyCompositeBlit_FieldInfo_,
-	_MTLAnyCompositeBlit_MethodInfo_
-};
-
-$Object* allocate$MTLAnyCompositeBlit($Class* clazz) {
-	return $of($alloc(MTLAnyCompositeBlit));
-}
-
 void MTLAnyCompositeBlit::init$($SurfaceType* srctype, $Blit* convertsrc, $Blit* convertdst, $Blit* convertresult) {
 	$init($CompositeType);
 	$init($MTLSurfaceData);
@@ -72,12 +43,12 @@ void MTLAnyCompositeBlit::init$($SurfaceType* srctype, $Blit* convertsrc, $Blit*
 
 void MTLAnyCompositeBlit::Blit$($SurfaceData* src$renamed, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceData, src, src$renamed);
 		if (this->convertsrc != nullptr) {
 			$var($SurfaceData, cachedSrc, nullptr);
 			if (this->srcTmp != nullptr) {
-				$assign(cachedSrc, $cast($SurfaceData, $nc(this->srcTmp)->get()));
+				$assign(cachedSrc, $cast($SurfaceData, this->srcTmp->get()));
 			}
 			$assign(src, convertFrom(this->convertsrc, src, sx, sy, w, h, cachedSrc, $BufferedImage::TYPE_INT_ARGB_PRE));
 			if (src != cachedSrc) {
@@ -86,10 +57,10 @@ void MTLAnyCompositeBlit::Blit$($SurfaceData* src$renamed, $SurfaceData* dst, $C
 		}
 		$var($SurfaceData, cachedDst, nullptr);
 		if (this->dstTmp != nullptr) {
-			$assign(cachedDst, $cast($SurfaceData, $nc(this->dstTmp)->get()));
+			$assign(cachedDst, $cast($SurfaceData, this->dstTmp->get()));
 		}
 		$var($SurfaceData, dstBuffer, convertFrom(this->convertdst, dst, dx, dy, w, h, cachedDst, $BufferedImage::TYPE_INT_ARGB_PRE));
-		$var($Region, bufferClip, clip == nullptr ? ($Region*)nullptr : $nc(clip)->getTranslatedRegion(-dx, -dy));
+		$var($Region, bufferClip, clip == nullptr ? ($Region*)nullptr : clip->getTranslatedRegion(-dx, -dy));
 		$var($SurfaceType, var$0, $nc(src)->getSurfaceType());
 		$init($CompositeType);
 		$var($CompositeType, var$1, $CompositeType::Any);
@@ -107,7 +78,30 @@ MTLAnyCompositeBlit::MTLAnyCompositeBlit() {
 }
 
 $Class* MTLAnyCompositeBlit::load$($String* name, bool initialize) {
-	$loadClass(MTLAnyCompositeBlit, name, initialize, &_MTLAnyCompositeBlit_ClassInfo_, allocate$MTLAnyCompositeBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"dstTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(MTLAnyCompositeBlit, dstTmp)},
+		{"srcTmp", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", $PRIVATE, $field(MTLAnyCompositeBlit, srcTmp)},
+		{"convertsrc", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(MTLAnyCompositeBlit, convertsrc)},
+		{"convertdst", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(MTLAnyCompositeBlit, convertdst)},
+		{"convertresult", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(MTLAnyCompositeBlit, convertresult)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;Lsun/java2d/loops/Blit;)V", nullptr, 0, $method(MTLAnyCompositeBlit, init$, void, $SurfaceType*, $Blit*, $Blit*, $Blit*)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MTLAnyCompositeBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.metal.MTLAnyCompositeBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLAnyCompositeBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLAnyCompositeBlit);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultCellEditor$2.h>
-
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/DefaultCellEditor$EditorDelegate.h>
 #include <javax/swing/DefaultCellEditor.h>
@@ -19,51 +18,6 @@ using $JCheckBox = ::javax::swing::JCheckBox;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _DefaultCellEditor$2_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/DefaultCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$2, this$0)},
-	{"val$checkBox", "Ljavax/swing/JCheckBox;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$2, val$checkBox)},
-	{}
-};
-
-$MethodInfo _DefaultCellEditor$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/DefaultCellEditor;Ljavax/swing/JCheckBox;)V", nullptr, 0, $method(DefaultCellEditor$2, init$, void, $DefaultCellEditor*, $JCheckBox*)},
-	{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$2, getCellEditorValue, $Object*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$2, setValue, void, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _DefaultCellEditor$2_EnclosingMethodInfo_ = {
-	"javax.swing.DefaultCellEditor",
-	"<init>",
-	"(Ljavax/swing/JCheckBox;)V"
-};
-
-$InnerClassInfo _DefaultCellEditor$2_InnerClassesInfo_[] = {
-	{"javax.swing.DefaultCellEditor$2", nullptr, nullptr, 0},
-	{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
-	{}
-};
-
-$ClassInfo _DefaultCellEditor$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.DefaultCellEditor$2",
-	"javax.swing.DefaultCellEditor$EditorDelegate",
-	nullptr,
-	_DefaultCellEditor$2_FieldInfo_,
-	_DefaultCellEditor$2_MethodInfo_,
-	nullptr,
-	&_DefaultCellEditor$2_EnclosingMethodInfo_,
-	_DefaultCellEditor$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.DefaultCellEditor"
-};
-
-$Object* allocate$DefaultCellEditor$2($Class* clazz) {
-	return $of($alloc(DefaultCellEditor$2));
-}
-
 void DefaultCellEditor$2::init$($DefaultCellEditor* this$0, $JCheckBox* val$checkBox) {
 	$set(this, this$0, this$0);
 	$set(this, val$checkBox, val$checkBox);
@@ -73,9 +27,9 @@ void DefaultCellEditor$2::init$($DefaultCellEditor* this$0, $JCheckBox* val$chec
 void DefaultCellEditor$2::setValue(Object$* value) {
 	bool selected = false;
 	if ($instanceOf($Boolean, value)) {
-		selected = $nc(($cast($Boolean, value)))->booleanValue();
+		selected = $cast($Boolean, value)->booleanValue();
 	} else if ($instanceOf($String, value)) {
-		selected = $nc($of(value))->equals("true"_s);
+		selected = $of(value)->equals("true"_s);
 	}
 	$nc(this->val$checkBox)->setSelected(selected);
 }
@@ -88,7 +42,45 @@ DefaultCellEditor$2::DefaultCellEditor$2() {
 }
 
 $Class* DefaultCellEditor$2::load$($String* name, bool initialize) {
-	$loadClass(DefaultCellEditor$2, name, initialize, &_DefaultCellEditor$2_ClassInfo_, allocate$DefaultCellEditor$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/DefaultCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$2, this$0)},
+		{"val$checkBox", "Ljavax/swing/JCheckBox;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$2, val$checkBox)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/DefaultCellEditor;Ljavax/swing/JCheckBox;)V", nullptr, 0, $method(DefaultCellEditor$2, init$, void, $DefaultCellEditor*, $JCheckBox*)},
+		{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$2, getCellEditorValue, $Object*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$2, setValue, void, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.DefaultCellEditor",
+		"<init>",
+		"(Ljavax/swing/JCheckBox;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.DefaultCellEditor$2", nullptr, nullptr, 0},
+		{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.DefaultCellEditor$2",
+		"javax.swing.DefaultCellEditor$EditorDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.DefaultCellEditor"
+	};
+	$loadClass(DefaultCellEditor$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultCellEditor$2));
+	});
 	return class$;
 }
 

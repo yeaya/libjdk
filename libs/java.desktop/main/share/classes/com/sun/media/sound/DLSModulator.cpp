@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DLSModulator.h>
-
 #include <jcpp.h>
 
 #undef CONN_DST_CENTER
@@ -71,109 +70,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DLSModulator_FieldInfo_[] = {
-	{"CONN_DST_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_NONE)},
-	{"CONN_DST_GAIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_GAIN)},
-	{"CONN_DST_PITCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_PITCH)},
-	{"CONN_DST_PAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_PAN)},
-	{"CONN_DST_LFO_FREQUENCY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LFO_FREQUENCY)},
-	{"CONN_DST_LFO_STARTDELAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LFO_STARTDELAY)},
-	{"CONN_DST_EG1_ATTACKTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_ATTACKTIME)},
-	{"CONN_DST_EG1_DECAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_DECAYTIME)},
-	{"CONN_DST_EG1_RELEASETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_RELEASETIME)},
-	{"CONN_DST_EG1_SUSTAINLEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_SUSTAINLEVEL)},
-	{"CONN_DST_EG2_ATTACKTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_ATTACKTIME)},
-	{"CONN_DST_EG2_DECAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_DECAYTIME)},
-	{"CONN_DST_EG2_RELEASETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_RELEASETIME)},
-	{"CONN_DST_EG2_SUSTAINLEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_SUSTAINLEVEL)},
-	{"CONN_DST_KEYNUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_KEYNUMBER)},
-	{"CONN_DST_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LEFT)},
-	{"CONN_DST_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_RIGHT)},
-	{"CONN_DST_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_CENTER)},
-	{"CONN_DST_LEFTREAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LEFTREAR)},
-	{"CONN_DST_RIGHTREAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_RIGHTREAR)},
-	{"CONN_DST_LFE_CHANNEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LFE_CHANNEL)},
-	{"CONN_DST_CHORUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_CHORUS)},
-	{"CONN_DST_REVERB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_REVERB)},
-	{"CONN_DST_VIB_FREQUENCY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_VIB_FREQUENCY)},
-	{"CONN_DST_VIB_STARTDELAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_VIB_STARTDELAY)},
-	{"CONN_DST_EG1_DELAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_DELAYTIME)},
-	{"CONN_DST_EG1_HOLDTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_HOLDTIME)},
-	{"CONN_DST_EG1_SHUTDOWNTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_SHUTDOWNTIME)},
-	{"CONN_DST_EG2_DELAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_DELAYTIME)},
-	{"CONN_DST_EG2_HOLDTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_HOLDTIME)},
-	{"CONN_DST_FILTER_CUTOFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_FILTER_CUTOFF)},
-	{"CONN_DST_FILTER_Q", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_FILTER_Q)},
-	{"CONN_SRC_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_NONE)},
-	{"CONN_SRC_LFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_LFO)},
-	{"CONN_SRC_KEYONVELOCITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_KEYONVELOCITY)},
-	{"CONN_SRC_KEYNUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_KEYNUMBER)},
-	{"CONN_SRC_EG1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_EG1)},
-	{"CONN_SRC_EG2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_EG2)},
-	{"CONN_SRC_PITCHWHEEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_PITCHWHEEL)},
-	{"CONN_SRC_CC1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC1)},
-	{"CONN_SRC_CC7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC7)},
-	{"CONN_SRC_CC10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC10)},
-	{"CONN_SRC_CC11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC11)},
-	{"CONN_SRC_RPN0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_RPN0)},
-	{"CONN_SRC_RPN1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_RPN1)},
-	{"CONN_SRC_RPN2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_RPN2)},
-	{"CONN_SRC_POLYPRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_POLYPRESSURE)},
-	{"CONN_SRC_CHANNELPRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CHANNELPRESSURE)},
-	{"CONN_SRC_VIBRATO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_VIBRATO)},
-	{"CONN_SRC_MONOPRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_MONOPRESSURE)},
-	{"CONN_SRC_CC91", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC91)},
-	{"CONN_SRC_CC93", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC93)},
-	{"CONN_TRN_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_NONE)},
-	{"CONN_TRN_CONCAVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_CONCAVE)},
-	{"CONN_TRN_CONVEX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_CONVEX)},
-	{"CONN_TRN_SWITCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_SWITCH)},
-	{"DST_FORMAT_CB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_CB)},
-	{"DST_FORMAT_CENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_CENT)},
-	{"DST_FORMAT_TIMECENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_TIMECENT)},
-	{"DST_FORMAT_PERCENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_PERCENT)},
-	{"source", "I", nullptr, 0, $field(DLSModulator, source)},
-	{"control", "I", nullptr, 0, $field(DLSModulator, control)},
-	{"destination", "I", nullptr, 0, $field(DLSModulator, destination)},
-	{"transform", "I", nullptr, 0, $field(DLSModulator, transform)},
-	{"scale", "I", nullptr, 0, $field(DLSModulator, scale)},
-	{"version", "I", nullptr, 0, $field(DLSModulator, version)},
-	{}
-};
-
-$MethodInfo _DLSModulator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DLSModulator, init$, void)},
-	{"getControl", "()I", nullptr, $PUBLIC, $method(DLSModulator, getControl, int32_t)},
-	{"getDestination", "()I", nullptr, $PUBLIC, $method(DLSModulator, getDestination, int32_t)},
-	{"getDestinationFormat", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSModulator, getDestinationFormat, int32_t, int32_t)},
-	{"getDestinationName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSModulator, getDestinationName, $String*, int32_t)},
-	{"getScale", "()I", nullptr, $PUBLIC, $method(DLSModulator, getScale, int32_t)},
-	{"getSource", "()I", nullptr, $PUBLIC, $method(DLSModulator, getSource, int32_t)},
-	{"getSourceName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSModulator, getSourceName, $String*, int32_t)},
-	{"getTransform", "()I", nullptr, $PUBLIC, $method(DLSModulator, getTransform, int32_t)},
-	{"getVersion", "()I", nullptr, $PUBLIC, $method(DLSModulator, getVersion, int32_t)},
-	{"setControl", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setControl, void, int32_t)},
-	{"setDestination", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setDestination, void, int32_t)},
-	{"setScale", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setScale, void, int32_t)},
-	{"setSource", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setSource, void, int32_t)},
-	{"setTransform", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setTransform, void, int32_t)},
-	{"setVersion", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setVersion, void, int32_t)},
-	{}
-};
-
-$ClassInfo _DLSModulator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DLSModulator",
-	"java.lang.Object",
-	nullptr,
-	_DLSModulator_FieldInfo_,
-	_DLSModulator_MethodInfo_
-};
-
-$Object* allocate$DLSModulator($Class* clazz) {
-	return $of($alloc(DLSModulator));
-}
 
 void DLSModulator::init$() {
 	this->version = 1;
@@ -480,7 +376,105 @@ DLSModulator::DLSModulator() {
 }
 
 $Class* DLSModulator::load$($String* name, bool initialize) {
-	$loadClass(DLSModulator, name, initialize, &_DLSModulator_ClassInfo_, allocate$DLSModulator);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONN_DST_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_NONE)},
+		{"CONN_DST_GAIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_GAIN)},
+		{"CONN_DST_PITCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_PITCH)},
+		{"CONN_DST_PAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_PAN)},
+		{"CONN_DST_LFO_FREQUENCY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LFO_FREQUENCY)},
+		{"CONN_DST_LFO_STARTDELAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LFO_STARTDELAY)},
+		{"CONN_DST_EG1_ATTACKTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_ATTACKTIME)},
+		{"CONN_DST_EG1_DECAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_DECAYTIME)},
+		{"CONN_DST_EG1_RELEASETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_RELEASETIME)},
+		{"CONN_DST_EG1_SUSTAINLEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_SUSTAINLEVEL)},
+		{"CONN_DST_EG2_ATTACKTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_ATTACKTIME)},
+		{"CONN_DST_EG2_DECAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_DECAYTIME)},
+		{"CONN_DST_EG2_RELEASETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_RELEASETIME)},
+		{"CONN_DST_EG2_SUSTAINLEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_SUSTAINLEVEL)},
+		{"CONN_DST_KEYNUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_KEYNUMBER)},
+		{"CONN_DST_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LEFT)},
+		{"CONN_DST_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_RIGHT)},
+		{"CONN_DST_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_CENTER)},
+		{"CONN_DST_LEFTREAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LEFTREAR)},
+		{"CONN_DST_RIGHTREAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_RIGHTREAR)},
+		{"CONN_DST_LFE_CHANNEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_LFE_CHANNEL)},
+		{"CONN_DST_CHORUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_CHORUS)},
+		{"CONN_DST_REVERB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_REVERB)},
+		{"CONN_DST_VIB_FREQUENCY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_VIB_FREQUENCY)},
+		{"CONN_DST_VIB_STARTDELAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_VIB_STARTDELAY)},
+		{"CONN_DST_EG1_DELAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_DELAYTIME)},
+		{"CONN_DST_EG1_HOLDTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_HOLDTIME)},
+		{"CONN_DST_EG1_SHUTDOWNTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG1_SHUTDOWNTIME)},
+		{"CONN_DST_EG2_DELAYTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_DELAYTIME)},
+		{"CONN_DST_EG2_HOLDTIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_EG2_HOLDTIME)},
+		{"CONN_DST_FILTER_CUTOFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_FILTER_CUTOFF)},
+		{"CONN_DST_FILTER_Q", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_DST_FILTER_Q)},
+		{"CONN_SRC_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_NONE)},
+		{"CONN_SRC_LFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_LFO)},
+		{"CONN_SRC_KEYONVELOCITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_KEYONVELOCITY)},
+		{"CONN_SRC_KEYNUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_KEYNUMBER)},
+		{"CONN_SRC_EG1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_EG1)},
+		{"CONN_SRC_EG2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_EG2)},
+		{"CONN_SRC_PITCHWHEEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_PITCHWHEEL)},
+		{"CONN_SRC_CC1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC1)},
+		{"CONN_SRC_CC7", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC7)},
+		{"CONN_SRC_CC10", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC10)},
+		{"CONN_SRC_CC11", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC11)},
+		{"CONN_SRC_RPN0", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_RPN0)},
+		{"CONN_SRC_RPN1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_RPN1)},
+		{"CONN_SRC_RPN2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_RPN2)},
+		{"CONN_SRC_POLYPRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_POLYPRESSURE)},
+		{"CONN_SRC_CHANNELPRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CHANNELPRESSURE)},
+		{"CONN_SRC_VIBRATO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_VIBRATO)},
+		{"CONN_SRC_MONOPRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_MONOPRESSURE)},
+		{"CONN_SRC_CC91", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC91)},
+		{"CONN_SRC_CC93", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_SRC_CC93)},
+		{"CONN_TRN_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_NONE)},
+		{"CONN_TRN_CONCAVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_CONCAVE)},
+		{"CONN_TRN_CONVEX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_CONVEX)},
+		{"CONN_TRN_SWITCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, CONN_TRN_SWITCH)},
+		{"DST_FORMAT_CB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_CB)},
+		{"DST_FORMAT_CENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_CENT)},
+		{"DST_FORMAT_TIMECENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_TIMECENT)},
+		{"DST_FORMAT_PERCENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DLSModulator, DST_FORMAT_PERCENT)},
+		{"source", "I", nullptr, 0, $field(DLSModulator, source)},
+		{"control", "I", nullptr, 0, $field(DLSModulator, control)},
+		{"destination", "I", nullptr, 0, $field(DLSModulator, destination)},
+		{"transform", "I", nullptr, 0, $field(DLSModulator, transform)},
+		{"scale", "I", nullptr, 0, $field(DLSModulator, scale)},
+		{"version", "I", nullptr, 0, $field(DLSModulator, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DLSModulator, init$, void)},
+		{"getControl", "()I", nullptr, $PUBLIC, $method(DLSModulator, getControl, int32_t)},
+		{"getDestination", "()I", nullptr, $PUBLIC, $method(DLSModulator, getDestination, int32_t)},
+		{"getDestinationFormat", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSModulator, getDestinationFormat, int32_t, int32_t)},
+		{"getDestinationName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSModulator, getDestinationName, $String*, int32_t)},
+		{"getScale", "()I", nullptr, $PUBLIC, $method(DLSModulator, getScale, int32_t)},
+		{"getSource", "()I", nullptr, $PUBLIC, $method(DLSModulator, getSource, int32_t)},
+		{"getSourceName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DLSModulator, getSourceName, $String*, int32_t)},
+		{"getTransform", "()I", nullptr, $PUBLIC, $method(DLSModulator, getTransform, int32_t)},
+		{"getVersion", "()I", nullptr, $PUBLIC, $method(DLSModulator, getVersion, int32_t)},
+		{"setControl", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setControl, void, int32_t)},
+		{"setDestination", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setDestination, void, int32_t)},
+		{"setScale", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setScale, void, int32_t)},
+		{"setSource", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setSource, void, int32_t)},
+		{"setTransform", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setTransform, void, int32_t)},
+		{"setVersion", "(I)V", nullptr, $PUBLIC, $method(DLSModulator, setVersion, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DLSModulator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DLSModulator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DLSModulator);
+	});
 	return class$;
 }
 

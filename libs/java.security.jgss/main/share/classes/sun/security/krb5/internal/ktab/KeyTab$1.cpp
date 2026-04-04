@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ktab/KeyTab$1.h>
-
 #include <sun/security/krb5/EncryptionKey.h>
 #include <sun/security/krb5/internal/ktab/KeyTab.h>
 #include <jcpp.h>
@@ -8,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
@@ -19,57 +17,14 @@ namespace sun {
 			namespace internal {
 				namespace ktab {
 
-$FieldInfo _KeyTab$1_FieldInfo_[] = {
-	{"this$0", "Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $FINAL | $SYNTHETIC, $field(KeyTab$1, this$0)},
-	{}
-};
-
-$MethodInfo _KeyTab$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/ktab/KeyTab;)V", nullptr, 0, $method(KeyTab$1, init$, void, $KeyTab*)},
-	{"compare", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)I", nullptr, $PUBLIC, $virtualMethod(KeyTab$1, compare, int32_t, $EncryptionKey*, $EncryptionKey*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KeyTab$1, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _KeyTab$1_EnclosingMethodInfo_ = {
-	"sun.security.krb5.internal.ktab.KeyTab",
-	"readServiceKeys",
-	"(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;"
-};
-
-$InnerClassInfo _KeyTab$1_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.ktab.KeyTab$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyTab$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.internal.ktab.KeyTab$1",
-	"java.lang.Object",
-	"java.util.Comparator",
-	_KeyTab$1_FieldInfo_,
-	_KeyTab$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Lsun/security/krb5/EncryptionKey;>;",
-	&_KeyTab$1_EnclosingMethodInfo_,
-	_KeyTab$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.ktab.KeyTab"
-};
-
-$Object* allocate$KeyTab$1($Class* clazz) {
-	return $of($alloc(KeyTab$1));
-}
-
 void KeyTab$1::init$($KeyTab* this$0) {
 	$set(this, this$0, this$0);
 }
 
 int32_t KeyTab$1::compare($EncryptionKey* o1, $EncryptionKey* o2) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($($nc(o2)->getKeyVersionNumber()))->intValue();
-	return var$0 - $nc($($nc(o1)->getKeyVersionNumber()))->intValue();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc($nc(o2)->getKeyVersionNumber())->intValue();
+	return var$0 - $$nc($nc(o1)->getKeyVersionNumber())->intValue();
 }
 
 int32_t KeyTab$1::compare(Object$* o1, Object$* o2) {
@@ -80,7 +35,43 @@ KeyTab$1::KeyTab$1() {
 }
 
 $Class* KeyTab$1::load$($String* name, bool initialize) {
-	$loadClass(KeyTab$1, name, initialize, &_KeyTab$1_ClassInfo_, allocate$KeyTab$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $FINAL | $SYNTHETIC, $field(KeyTab$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/internal/ktab/KeyTab;)V", nullptr, 0, $method(KeyTab$1, init$, void, $KeyTab*)},
+		{"compare", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)I", nullptr, $PUBLIC, $virtualMethod(KeyTab$1, compare, int32_t, $EncryptionKey*, $EncryptionKey*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KeyTab$1, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.krb5.internal.ktab.KeyTab",
+		"readServiceKeys",
+		"(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.ktab.KeyTab$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.internal.ktab.KeyTab$1",
+		"java.lang.Object",
+		"java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Lsun/security/krb5/EncryptionKey;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.ktab.KeyTab"
+	};
+	$loadClass(KeyTab$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyTab$1);
+	});
 	return class$;
 }
 

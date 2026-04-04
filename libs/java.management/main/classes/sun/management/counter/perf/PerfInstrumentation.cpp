@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/PerfInstrumentation.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/nio/ByteBuffer.h>
@@ -43,8 +42,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
-using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
@@ -66,50 +63,13 @@ namespace sun {
 		namespace counter {
 			namespace perf {
 
-$FieldInfo _PerfInstrumentation_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PerfInstrumentation, $assertionsDisabled)},
-	{"buffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(PerfInstrumentation, buffer)},
-	{"prologue", "Lsun/management/counter/perf/Prologue;", nullptr, $PRIVATE, $field(PerfInstrumentation, prologue)},
-	{"lastModificationTime", "J", nullptr, $PRIVATE, $field(PerfInstrumentation, lastModificationTime)},
-	{"lastUsed", "J", nullptr, $PRIVATE, $field(PerfInstrumentation, lastUsed)},
-	{"nextEntry", "I", nullptr, $PRIVATE, $field(PerfInstrumentation, nextEntry)},
-	{"map", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/String;Lsun/management/counter/Counter;>;", $PRIVATE, $field(PerfInstrumentation, map)},
-	{}
-};
-
-$MethodInfo _PerfInstrumentation_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(PerfInstrumentation, init$, void, $ByteBuffer*)},
-	{"findByPattern", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfInstrumentation, findByPattern, $List*, $String*)},
-	{"getAllCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfInstrumentation, getAllCounters, $List*)},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getMajorVersion, int32_t)},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getMinorVersion, int32_t)},
-	{"getModificationTimeStamp", "()J", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getModificationTimeStamp, int64_t)},
-	{"getNextCounter", "()Lsun/management/counter/Counter;", nullptr, 0, $virtualMethod(PerfInstrumentation, getNextCounter, $Counter*)},
-	{"hasNext", "()Z", nullptr, 0, $virtualMethod(PerfInstrumentation, hasNext, bool)},
-	{"rewind", "()V", nullptr, 0, $virtualMethod(PerfInstrumentation, rewind, void)},
-	{}
-};
-
-$ClassInfo _PerfInstrumentation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.counter.perf.PerfInstrumentation",
-	"java.lang.Object",
-	nullptr,
-	_PerfInstrumentation_FieldInfo_,
-	_PerfInstrumentation_MethodInfo_
-};
-
-$Object* allocate$PerfInstrumentation($Class* clazz) {
-	return $of($alloc(PerfInstrumentation));
-}
-
 bool PerfInstrumentation::$assertionsDisabled = false;
 
 void PerfInstrumentation::init$($ByteBuffer* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, prologue, $new($Prologue, b));
 	$set(this, buffer, b);
-	$nc(this->buffer)->order($($nc(this->prologue)->getByteOrder()));
+	$nc(this->buffer)->order($(this->prologue->getByteOrder()));
 	int32_t major = getMajorVersion();
 	int32_t minor = getMinorVersion();
 	if (major < 2) {
@@ -142,7 +102,7 @@ bool PerfInstrumentation::hasNext() {
 }
 
 $Counter* PerfInstrumentation::getNextCounter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasNext()) {
 		return nullptr;
 	}
@@ -166,43 +126,41 @@ $Counter* PerfInstrumentation::getNextCounter() {
 			$var($Variability, var$2, entry->variability());
 			int32_t var$3 = entry->flags();
 			int32_t var$4 = entry->vectorLength();
-			$assign(counter, static_cast<$Counter*>(static_cast<$AbstractCounter*>(static_cast<$PerfByteArrayCounter*>($new($PerfStringCounter, var$1, var$2, var$3, var$4, $(entry->byteData()))))));
+			$assign(counter, $cast($AbstractCounter, $new($PerfStringCounter, var$1, var$2, var$3, var$4, $(entry->byteData()))));
 		} else if (entry->vectorLength() > 0) {
 			$var($String, var$5, entry->name());
 			$var($Units, var$6, entry->units());
 			$var($Variability, var$7, entry->variability());
 			int32_t var$8 = entry->flags();
 			int32_t var$9 = entry->vectorLength();
-			$assign(counter, static_cast<$Counter*>(static_cast<$AbstractCounter*>($new($PerfByteArrayCounter, var$5, var$6, var$7, var$8, var$9, $(entry->byteData())))));
+			$assign(counter, $cast($AbstractCounter, $new($PerfByteArrayCounter, var$5, var$6, var$7, var$8, var$9, $(entry->byteData()))));
 		} else if (!PerfInstrumentation::$assertionsDisabled) {
 			$throwNew($AssertionError);
 		}
-	} else {
-		if (type == $PerfDataType::LONG) {
-			if (entry->vectorLength() == 0) {
-				$var($String, var$10, entry->name());
-				$var($Units, var$11, entry->units());
-				$var($Variability, var$12, entry->variability());
-				int32_t var$13 = entry->flags();
-				$assign(counter, static_cast<$Counter*>(static_cast<$AbstractCounter*>($new($PerfLongCounter, var$10, var$11, var$12, var$13, $(entry->longData())))));
-			} else {
-				$var($String, var$14, entry->name());
-				$var($Units, var$15, entry->units());
-				$var($Variability, var$16, entry->variability());
-				int32_t var$17 = entry->flags();
-				int32_t var$18 = entry->vectorLength();
-				$assign(counter, static_cast<$Counter*>(static_cast<$AbstractCounter*>($new($PerfLongArrayCounter, var$14, var$15, var$16, var$17, var$18, $(entry->longData())))));
-			}
-		} else if (!PerfInstrumentation::$assertionsDisabled) {
-			$throwNew($AssertionError);
+	} else if (type == $PerfDataType::LONG) {
+		if (entry->vectorLength() == 0) {
+			$var($String, var$10, entry->name());
+			$var($Units, var$11, entry->units());
+			$var($Variability, var$12, entry->variability());
+			int32_t var$13 = entry->flags();
+			$assign(counter, $cast($AbstractCounter, $new($PerfLongCounter, var$10, var$11, var$12, var$13, $(entry->longData()))));
+		} else {
+			$var($String, var$14, entry->name());
+			$var($Units, var$15, entry->units());
+			$var($Variability, var$16, entry->variability());
+			int32_t var$17 = entry->flags();
+			int32_t var$18 = entry->vectorLength();
+			$assign(counter, $cast($AbstractCounter, $new($PerfLongArrayCounter, var$14, var$15, var$16, var$17, var$18, $(entry->longData()))));
 		}
+	} else if (!PerfInstrumentation::$assertionsDisabled) {
+		$throwNew($AssertionError);
 	}
 	return counter;
 }
 
 $List* PerfInstrumentation::getAllCounters() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		while (hasNext()) {
 			$var($Counter, c, getNextCounter());
 			if (c != nullptr) {
@@ -215,7 +173,7 @@ $List* PerfInstrumentation::getAllCounters() {
 
 $List* PerfInstrumentation::findByPattern($String* patternString) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		while (hasNext()) {
 			$var($Counter, c, getNextCounter());
 			if (c != nullptr) {
@@ -226,14 +184,14 @@ $List* PerfInstrumentation::findByPattern($String* patternString) {
 		$var($Matcher, matcher, $nc(pattern)->matcher(""_s));
 		$var($List, matches, $new($ArrayList));
 		{
-			$var($Iterator, i$, $nc($($nc(this->map)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(this->map)->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, me, $cast($Map$Entry, i$->next()));
 				{
 					$var($String, name, $cast($String, $nc(me)->getKey()));
 					$nc(matcher)->reset(name);
 					if (matcher->lookingAt()) {
-						matches->add($cast($Counter, $(me->getValue())));
+						matches->add($$cast($Counter, me->getValue()));
 					}
 				}
 			}
@@ -242,7 +200,7 @@ $List* PerfInstrumentation::findByPattern($String* patternString) {
 	}
 }
 
-void clinit$PerfInstrumentation($Class* class$) {
+void PerfInstrumentation::clinit$($Class* clazz) {
 	PerfInstrumentation::$assertionsDisabled = !PerfInstrumentation::class$->desiredAssertionStatus();
 }
 
@@ -250,7 +208,39 @@ PerfInstrumentation::PerfInstrumentation() {
 }
 
 $Class* PerfInstrumentation::load$($String* name, bool initialize) {
-	$loadClass(PerfInstrumentation, name, initialize, &_PerfInstrumentation_ClassInfo_, clinit$PerfInstrumentation, allocate$PerfInstrumentation);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PerfInstrumentation, $assertionsDisabled)},
+		{"buffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(PerfInstrumentation, buffer)},
+		{"prologue", "Lsun/management/counter/perf/Prologue;", nullptr, $PRIVATE, $field(PerfInstrumentation, prologue)},
+		{"lastModificationTime", "J", nullptr, $PRIVATE, $field(PerfInstrumentation, lastModificationTime)},
+		{"lastUsed", "J", nullptr, $PRIVATE, $field(PerfInstrumentation, lastUsed)},
+		{"nextEntry", "I", nullptr, $PRIVATE, $field(PerfInstrumentation, nextEntry)},
+		{"map", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/String;Lsun/management/counter/Counter;>;", $PRIVATE, $field(PerfInstrumentation, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(PerfInstrumentation, init$, void, $ByteBuffer*)},
+		{"findByPattern", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfInstrumentation, findByPattern, $List*, $String*)},
+		{"getAllCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfInstrumentation, getAllCounters, $List*)},
+		{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getMajorVersion, int32_t)},
+		{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getMinorVersion, int32_t)},
+		{"getModificationTimeStamp", "()J", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getModificationTimeStamp, int64_t)},
+		{"getNextCounter", "()Lsun/management/counter/Counter;", nullptr, 0, $virtualMethod(PerfInstrumentation, getNextCounter, $Counter*)},
+		{"hasNext", "()Z", nullptr, 0, $virtualMethod(PerfInstrumentation, hasNext, bool)},
+		{"rewind", "()V", nullptr, 0, $virtualMethod(PerfInstrumentation, rewind, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.counter.perf.PerfInstrumentation",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PerfInstrumentation, name, initialize, &classInfo$$, PerfInstrumentation::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PerfInstrumentation);
+	});
 	return class$;
 }
 

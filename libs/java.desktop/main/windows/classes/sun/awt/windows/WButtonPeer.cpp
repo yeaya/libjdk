@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WButtonPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -20,7 +19,6 @@
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/windows/WButtonPeer$1.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WObjectPeer.h>
@@ -54,7 +52,6 @@ using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $WButtonPeer$1 = ::sun::awt::windows::WButtonPeer$1;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
@@ -63,86 +60,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WButtonPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Button;)V", nullptr, 0, $method(WButtonPeer, init$, void, $Button*)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WButtonPeer, create, void, $WComponentPeer*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, getMinimumSize, $Dimension*)},
-	{"handleAction", "(JI)V", nullptr, $PUBLIC, $method(WButtonPeer, handleAction, void, int64_t, int32_t)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, handleJavaKeyEvent, bool, $KeyEvent*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WButtonPeer, initIDs, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WButtonPeer, setLabel, void, $String*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, shouldClearRectBeforePaint, bool)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_create 23
-#define _METHOD_INDEX_initIDs 27
-#define _METHOD_INDEX_setLabel 41
-
-$InnerClassInfo _WButtonPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WButtonPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WButtonPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WButtonPeer",
-	"sun.awt.windows.WComponentPeer",
-	"java.awt.peer.ButtonPeer",
-	nullptr,
-	_WButtonPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WButtonPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WButtonPeer$1"
-};
-
-$Object* allocate$WButtonPeer($Class* clazz) {
-	return $of($alloc(WButtonPeer));
-}
 
 bool WButtonPeer::isObscured() {
 	 return this->$WComponentPeer::isObscured();
@@ -301,9 +218,9 @@ void WButtonPeer::finalize() {
 }
 
 $Dimension* WButtonPeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
-	$var($FontMetrics, fm, getFontMetrics($($nc(($cast($Button, this->target)))->getFont())));
-	$var($String, label, $nc(($cast($Button, this->target)))->getLabel());
+	$useLocalObjectStack();
+	$var($FontMetrics, fm, getFontMetrics($($nc($cast($Button, this->target))->getFont())));
+	$var($String, label, $nc($cast($Button, this->target))->getLabel());
 	if (label == nullptr) {
 		$assign(label, ""_s);
 	}
@@ -316,7 +233,7 @@ bool WButtonPeer::isFocusable() {
 }
 
 void WButtonPeer::setLabel($String* label) {
-	$prepareNative(WButtonPeer, setLabel, void, $String* label);
+	$prepareNative(setLabel, void, $String* label);
 	$invokeNative(label);
 	$finishNative();
 }
@@ -326,7 +243,7 @@ void WButtonPeer::init$($Button* target) {
 }
 
 void WButtonPeer::create($WComponentPeer* peer) {
-	$prepareNative(WButtonPeer, create, void, $WComponentPeer* peer);
+	$prepareNative(create, void, $WComponentPeer* peer);
 	$invokeNative(peer);
 	$finishNative();
 }
@@ -341,7 +258,7 @@ bool WButtonPeer::shouldClearRectBeforePaint() {
 
 void WButtonPeer::initIDs() {
 	$init(WButtonPeer);
-	$prepareNativeStatic(WButtonPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -349,18 +266,16 @@ void WButtonPeer::initIDs() {
 bool WButtonPeer::handleJavaKeyEvent($KeyEvent* e) {
 	switch ($nc(e)->getID()) {
 	case $KeyEvent::KEY_RELEASED:
-		{
-			if (e->getKeyCode() == $KeyEvent::VK_SPACE) {
-				int64_t var$0 = e->getWhen();
-				handleAction(var$0, e->getModifiers());
-			}
-			break;
+		if (e->getKeyCode() == $KeyEvent::VK_SPACE) {
+			int64_t var$0 = e->getWhen();
+			handleAction(var$0, e->getModifiers());
 		}
+		break;
 	}
 	return false;
 }
 
-void clinit$WButtonPeer($Class* class$) {
+void WButtonPeer::clinit$($Class* clazz) {
 	{
 		WButtonPeer::initIDs();
 	}
@@ -370,7 +285,78 @@ WButtonPeer::WButtonPeer() {
 }
 
 $Class* WButtonPeer::load$($String* name, bool initialize) {
-	$loadClass(WButtonPeer, name, initialize, &_WButtonPeer_ClassInfo_, clinit$WButtonPeer, allocate$WButtonPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Button;)V", nullptr, 0, $method(WButtonPeer, init$, void, $Button*)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WButtonPeer, create, void, $WComponentPeer*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, getMinimumSize, $Dimension*)},
+		{"handleAction", "(JI)V", nullptr, $PUBLIC, $method(WButtonPeer, handleAction, void, int64_t, int32_t)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, handleJavaKeyEvent, bool, $KeyEvent*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WButtonPeer, initIDs, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WButtonPeer, setLabel, void, $String*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WButtonPeer, shouldClearRectBeforePaint, bool)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WButtonPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WButtonPeer",
+		"sun.awt.windows.WComponentPeer",
+		"java.awt.peer.ButtonPeer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WButtonPeer$1"
+	};
+	$loadClass(WButtonPeer, name, initialize, &classInfo$$, WButtonPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WButtonPeer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/JComponent$KeyboardState.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/JComponent$IntVector.h>
@@ -22,46 +21,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JComponent$KeyboardState_FieldInfo_[] = {
-	{"keyCodesKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JComponent$KeyboardState, keyCodesKey)},
-	{}
-};
-
-$MethodInfo _JComponent$KeyboardState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JComponent$KeyboardState, init$, void)},
-	{"getKeyCodeArray", "()Ljavax/swing/JComponent$IntVector;", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, getKeyCodeArray, $JComponent$IntVector*)},
-	{"keyIsPressed", "(I)Z", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, keyIsPressed, bool, int32_t)},
-	{"registerKeyPressed", "(I)V", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, registerKeyPressed, void, int32_t)},
-	{"registerKeyReleased", "(I)V", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, registerKeyReleased, void, int32_t)},
-	{"shouldProcess", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, shouldProcess, bool, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _JComponent$KeyboardState_InnerClassesInfo_[] = {
-	{"javax.swing.JComponent$KeyboardState", "javax.swing.JComponent", "KeyboardState", $STATIC},
-	{}
-};
-
-$ClassInfo _JComponent$KeyboardState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComponent$KeyboardState",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_JComponent$KeyboardState_FieldInfo_,
-	_JComponent$KeyboardState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComponent$KeyboardState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComponent"
-};
-
-$Object* allocate$JComponent$KeyboardState($Class* clazz) {
-	return $of($alloc(JComponent$KeyboardState));
-}
 
 $Object* JComponent$KeyboardState::keyCodesKey = nullptr;
 
@@ -122,12 +81,10 @@ bool JComponent$KeyboardState::shouldProcess($KeyEvent* e) {
 	$init(JComponent$KeyboardState);
 	switch ($nc(e)->getID()) {
 	case $KeyEvent::KEY_PRESSED:
-		{
-			if (!keyIsPressed(e->getKeyCode())) {
-				registerKeyPressed(e->getKeyCode());
-			}
-			return true;
+		if (!keyIsPressed(e->getKeyCode())) {
+			registerKeyPressed(e->getKeyCode());
 		}
+		return true;
 	case $KeyEvent::KEY_RELEASED:
 		{
 			bool var$0 = keyIsPressed(e->getKeyCode());
@@ -138,17 +95,13 @@ bool JComponent$KeyboardState::shouldProcess($KeyEvent* e) {
 			return false;
 		}
 	case $KeyEvent::KEY_TYPED:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
-void clinit$JComponent$KeyboardState($Class* class$) {
+void JComponent$KeyboardState::clinit$($Class* clazz) {
 	$assignStatic(JComponent$KeyboardState::keyCodesKey, JComponent$KeyboardState::class$);
 }
 
@@ -156,7 +109,41 @@ JComponent$KeyboardState::JComponent$KeyboardState() {
 }
 
 $Class* JComponent$KeyboardState::load$($String* name, bool initialize) {
-	$loadClass(JComponent$KeyboardState, name, initialize, &_JComponent$KeyboardState_ClassInfo_, clinit$JComponent$KeyboardState, allocate$JComponent$KeyboardState);
+	$FieldInfo fieldInfos$$[] = {
+		{"keyCodesKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JComponent$KeyboardState, keyCodesKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JComponent$KeyboardState, init$, void)},
+		{"getKeyCodeArray", "()Ljavax/swing/JComponent$IntVector;", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, getKeyCodeArray, $JComponent$IntVector*)},
+		{"keyIsPressed", "(I)Z", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, keyIsPressed, bool, int32_t)},
+		{"registerKeyPressed", "(I)V", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, registerKeyPressed, void, int32_t)},
+		{"registerKeyReleased", "(I)V", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, registerKeyReleased, void, int32_t)},
+		{"shouldProcess", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $STATIC, $staticMethod(JComponent$KeyboardState, shouldProcess, bool, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComponent$KeyboardState", "javax.swing.JComponent", "KeyboardState", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComponent$KeyboardState",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComponent"
+	};
+	$loadClass(JComponent$KeyboardState, name, initialize, &classInfo$$, JComponent$KeyboardState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JComponent$KeyboardState);
+	});
 	return class$;
 }
 

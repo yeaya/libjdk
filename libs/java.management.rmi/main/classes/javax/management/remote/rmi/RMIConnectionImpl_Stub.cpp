@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnectionImpl_Stub.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AutoCloseable.h>
 #include <java/lang/NoSuchMethodError.h>
@@ -51,9 +50,7 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $MarshalledObject = ::java::rmi::MarshalledObject;
-using $Remote = ::java::rmi::Remote;
 using $UnexpectedException = ::java::rmi::UnexpectedException;
-using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $RemoteStub = ::java::rmi::server::RemoteStub;
 using $Set = ::java::util::Set;
@@ -79,88 +76,6 @@ namespace javax {
 	namespace management {
 		namespace remote {
 			namespace rmi {
-
-$FieldInfo _RMIConnectionImpl_Stub_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectionImpl_Stub, serialVersionUID)},
-	{"$method_addNotificationListener_0", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_addNotificationListener_0)},
-	{"$method_addNotificationListeners_1", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_addNotificationListeners_1)},
-	{"$method_close_2", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_close_2)},
-	{"$method_createMBean_3", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_3)},
-	{"$method_createMBean_4", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_4)},
-	{"$method_createMBean_5", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_5)},
-	{"$method_createMBean_6", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_6)},
-	{"$method_fetchNotifications_7", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_fetchNotifications_7)},
-	{"$method_getAttribute_8", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getAttribute_8)},
-	{"$method_getAttributes_9", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getAttributes_9)},
-	{"$method_getConnectionId_10", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getConnectionId_10)},
-	{"$method_getDefaultDomain_11", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getDefaultDomain_11)},
-	{"$method_getDomains_12", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getDomains_12)},
-	{"$method_getMBeanCount_13", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getMBeanCount_13)},
-	{"$method_getMBeanInfo_14", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getMBeanInfo_14)},
-	{"$method_getObjectInstance_15", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getObjectInstance_15)},
-	{"$method_invoke_16", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_invoke_16)},
-	{"$method_isInstanceOf_17", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_isInstanceOf_17)},
-	{"$method_isRegistered_18", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_isRegistered_18)},
-	{"$method_queryMBeans_19", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_queryMBeans_19)},
-	{"$method_queryNames_20", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_queryNames_20)},
-	{"$method_removeNotificationListener_21", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_removeNotificationListener_21)},
-	{"$method_removeNotificationListener_22", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_removeNotificationListener_22)},
-	{"$method_removeNotificationListeners_23", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_removeNotificationListeners_23)},
-	{"$method_setAttribute_24", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_setAttribute_24)},
-	{"$method_setAttributes_25", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_setAttributes_25)},
-	{"$method_unregisterMBean_26", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_unregisterMBean_26)},
-	{}
-};
-
-$MethodInfo _RMIConnectionImpl_Stub_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RMIConnectionImpl_Stub, init$, void, $RemoteRef*)},
-	{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, addNotificationListener, void, $ObjectName*, $ObjectName*, $MarshalledObject*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"addNotificationListeners", "([Ljavax/management/ObjectName;[Ljava/rmi/MarshalledObject;[Ljavax/security/auth/Subject;)[Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, addNotificationListeners, $IntegerArray*, $ObjectNameArray*, $MarshalledObjectArray*, $SubjectArray*), "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, close, void), "java.io.IOException"},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $MarshalledObject*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*, $MarshalledObject*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
-	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
-	{"fetchNotifications", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, fetchNotifications, $NotificationResult*, int64_t, int32_t, int64_t), "java.io.IOException"},
-	{"getAttribute", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getAttribute, $Object*, $ObjectName*, $String*, $Subject*), "java.io.IOException,javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getAttributes", "(Ljavax/management/ObjectName;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getAttributes, $AttributeList*, $ObjectName*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
-	{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getConnectionId, $String*), "java.io.IOException"},
-	{"getDefaultDomain", "(Ljavax/security/auth/Subject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getDefaultDomain, $String*, $Subject*), "java.io.IOException"},
-	{"getDomains", "(Ljavax/security/auth/Subject;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getDomains, $StringArray*, $Subject*), "java.io.IOException"},
-	{"getMBeanCount", "(Ljavax/security/auth/Subject;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getMBeanCount, $Integer*, $Subject*), "java.io.IOException"},
-	{"getMBeanInfo", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getMBeanInfo, $MBeanInfo*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.IntrospectionException,javax.management.ReflectionException"},
-	{"getObjectInstance", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getObjectInstance, $ObjectInstance*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"invoke", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, invoke, $Object*, $ObjectName*, $String*, $MarshalledObject*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"isInstanceOf", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, isInstanceOf, bool, $ObjectName*, $String*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"isRegistered", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, isRegistered, bool, $ObjectName*, $Subject*), "java.io.IOException"},
-	{"queryMBeans", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)Ljava/util/Set;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, queryMBeans, $Set*, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException"},
-	{"queryNames", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)Ljava/util/Set;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, queryNames, $Set*, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, removeNotificationListener, void, $ObjectName*, $ObjectName*, $MarshalledObject*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, removeNotificationListener, void, $ObjectName*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"removeNotificationListeners", "(Ljavax/management/ObjectName;[Ljava/lang/Integer;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, removeNotificationListeners, void, $ObjectName*, $IntegerArray*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"setAttribute", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, setAttribute, void, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttributes", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, setAttributes, $AttributeList*, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unregisterMBean", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, unregisterMBean, void, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.MBeanRegistrationException"},
-	{}
-};
-
-$ClassInfo _RMIConnectionImpl_Stub_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnectionImpl_Stub",
-	"java.rmi.server.RemoteStub",
-	"javax.management.remote.rmi.RMIConnection",
-	_RMIConnectionImpl_Stub_FieldInfo_,
-	_RMIConnectionImpl_Stub_MethodInfo_
-};
-
-$Object* allocate$RMIConnectionImpl_Stub($Class* clazz) {
-	return $of($alloc(RMIConnectionImpl_Stub));
-}
 
 int32_t RMIConnectionImpl_Stub::hashCode() {
 	 return this->$RemoteStub::hashCode();
@@ -216,13 +131,13 @@ void RMIConnectionImpl_Stub::init$($RemoteRef* ref) {
 
 void RMIConnectionImpl_Stub::addNotificationListener($ObjectName* $param_ObjectName_1, $ObjectName* $param_ObjectName_2, $MarshalledObject* $param_MarshalledObject_3, $MarshalledObject* $param_MarshalledObject_4, $Subject* $param_Subject_5) {
 	try {
-		$nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_addNotificationListener_0, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_ObjectName_2),
-			$of($param_MarshalledObject_3),
-			$of($param_MarshalledObject_4),
-			$of($param_Subject_5)
-		}), 0x88F3B1814F68CCEB);
+		$nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_addNotificationListener_0, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_ObjectName_2,
+			$param_MarshalledObject_3,
+			$param_MarshalledObject_4,
+			$param_Subject_5
+		}), (int64_t)0x88f3b1814f68cceb);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -235,14 +150,14 @@ void RMIConnectionImpl_Stub::addNotificationListener($ObjectName* $param_ObjectN
 }
 
 $IntegerArray* RMIConnectionImpl_Stub::addNotificationListeners($ObjectNameArray* $param_arrayOf_ObjectName_1, $MarshalledObjectArray* $param_arrayOf_MarshalledObject_2, $SubjectArray* $param_arrayOf_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_addNotificationListeners_1, $$new($ObjectArray, {
-			$of($param_arrayOf_ObjectName_1),
-			$of($param_arrayOf_MarshalledObject_2),
-			$of($param_arrayOf_Subject_3)
-		}), 0xB6258D6E656D6EEF));
-		return ($cast($IntegerArray, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_addNotificationListeners_1, $$new($ObjectArray, {
+			$param_arrayOf_ObjectName_1,
+			$param_arrayOf_MarshalledObject_2,
+			$param_arrayOf_Subject_3
+		}), (int64_t)0xb6258d6e656d6eef));
+		return $cast($IntegerArray, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -257,7 +172,7 @@ $IntegerArray* RMIConnectionImpl_Stub::addNotificationListeners($ObjectNameArray
 
 void RMIConnectionImpl_Stub::close() {
 	try {
-		$nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_close_2, nullptr, 0xBE2E5BC7809D0DCC);
+		$nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_close_2, nullptr, (int64_t)0xbe2e5bc7809d0dcc);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -268,16 +183,16 @@ void RMIConnectionImpl_Stub::close() {
 }
 
 $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $ObjectName* $param_ObjectName_2, $MarshalledObject* $param_MarshalledObject_3, $StringArray* $param_arrayOf_String_4, $Subject* $param_Subject_5) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_createMBean_3, $$new($ObjectArray, {
-			$of($param_String_1),
-			$of($param_ObjectName_2),
-			$of($param_MarshalledObject_3),
-			$of($param_arrayOf_String_4),
-			$of($param_Subject_5)
-		}), 0x438DFA6CEA1191A2));
-		return ($cast($ObjectInstance, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_createMBean_3, $$new($ObjectArray, {
+			$param_String_1,
+			$param_ObjectName_2,
+			$param_MarshalledObject_3,
+			$param_arrayOf_String_4,
+			$param_Subject_5
+		}), (int64_t)0x438dfa6cea1191a2));
+		return $cast($ObjectInstance, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -297,17 +212,17 @@ $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $
 }
 
 $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $ObjectName* $param_ObjectName_2, $ObjectName* $param_ObjectName_3, $MarshalledObject* $param_MarshalledObject_4, $StringArray* $param_arrayOf_String_5, $Subject* $param_Subject_6) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_createMBean_4, $$new($ObjectArray, {
-			$of($param_String_1),
-			$of($param_ObjectName_2),
-			$of($param_ObjectName_3),
-			$of($param_MarshalledObject_4),
-			$of($param_arrayOf_String_5),
-			$of($param_Subject_6)
-		}), 0xA4567C41A6370B8F));
-		return ($cast($ObjectInstance, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_createMBean_4, $$new($ObjectArray, {
+			$param_String_1,
+			$param_ObjectName_2,
+			$param_ObjectName_3,
+			$param_MarshalledObject_4,
+			$param_arrayOf_String_5,
+			$param_Subject_6
+		}), (int64_t)0xa4567c41a6370b8f));
+		return $cast($ObjectInstance, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -329,15 +244,15 @@ $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $
 }
 
 $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $ObjectName* $param_ObjectName_2, $ObjectName* $param_ObjectName_3, $Subject* $param_Subject_4) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_createMBean_5, $$new($ObjectArray, {
-			$of($param_String_1),
-			$of($param_ObjectName_2),
-			$of($param_ObjectName_3),
-			$of($param_Subject_4)
-		}), 0x878C5407AEFC625C));
-		return ($cast($ObjectInstance, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_createMBean_5, $$new($ObjectArray, {
+			$param_String_1,
+			$param_ObjectName_2,
+			$param_ObjectName_3,
+			$param_Subject_4
+		}), (int64_t)0x878c5407aefc625c));
+		return $cast($ObjectInstance, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -359,14 +274,14 @@ $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $
 }
 
 $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $ObjectName* $param_ObjectName_2, $Subject* $param_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_createMBean_6, $$new($ObjectArray, {
-			$of($param_String_1),
-			$of($param_ObjectName_2),
-			$of($param_Subject_3)
-		}), 0x22D7FD4A906AC8E6));
-		return ($cast($ObjectInstance, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_createMBean_6, $$new($ObjectArray, {
+			$param_String_1,
+			$param_ObjectName_2,
+			$param_Subject_3
+		}), (int64_t)0x22d7fd4a906ac8e6));
+		return $cast($ObjectInstance, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -386,14 +301,14 @@ $ObjectInstance* RMIConnectionImpl_Stub::createMBean($String* $param_String_1, $
 }
 
 $NotificationResult* RMIConnectionImpl_Stub::fetchNotifications(int64_t $param_long_1, int32_t $param_int_2, int64_t $param_long_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_fetchNotifications_7, $$new($ObjectArray, {
-			$($of($Long::valueOf($param_long_1))),
-			$($of($Integer::valueOf($param_int_2))),
-			$($of($Long::valueOf($param_long_3)))
-		}), 0xBA171F3DC87C75E2));
-		return ($cast($NotificationResult, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_fetchNotifications_7, $$new($ObjectArray, {
+			$($Long::valueOf($param_long_1)),
+			$($Integer::valueOf($param_int_2)),
+			$($Long::valueOf($param_long_3))
+		}), (int64_t)0xba171f3dc87c75e2));
+		return $cast($NotificationResult, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -405,14 +320,14 @@ $NotificationResult* RMIConnectionImpl_Stub::fetchNotifications(int64_t $param_l
 }
 
 $Object* RMIConnectionImpl_Stub::getAttribute($ObjectName* $param_ObjectName_1, $String* $param_String_2, $Subject* $param_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getAttribute_8, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_String_2),
-			$of($param_Subject_3)
-		}), 0xF0E0500A394D7215));
-		return $of($result);
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getAttribute_8, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_String_2,
+			$param_Subject_3
+		}), (int64_t)0xf0e0500a394d7215));
+		return $result;
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -432,14 +347,14 @@ $Object* RMIConnectionImpl_Stub::getAttribute($ObjectName* $param_ObjectName_1, 
 }
 
 $AttributeList* RMIConnectionImpl_Stub::getAttributes($ObjectName* $param_ObjectName_1, $StringArray* $param_arrayOf_String_2, $Subject* $param_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getAttributes_9, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_arrayOf_String_2),
-			$of($param_Subject_3)
-		}), 0x5739D96A8B235C47));
-		return ($cast($AttributeList, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getAttributes_9, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_arrayOf_String_2,
+			$param_Subject_3
+		}), (int64_t)0x5739d96a8b235c47));
+		return $cast($AttributeList, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -456,8 +371,8 @@ $AttributeList* RMIConnectionImpl_Stub::getAttributes($ObjectName* $param_Object
 
 $String* RMIConnectionImpl_Stub::getConnectionId() {
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getConnectionId_10, nullptr, 0xFF0EBEC77DC65363));
-		return ($cast($String, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getConnectionId_10, nullptr, (int64_t)0xff0ebec77dc65363));
+		return $cast($String, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -469,10 +384,10 @@ $String* RMIConnectionImpl_Stub::getConnectionId() {
 }
 
 $String* RMIConnectionImpl_Stub::getDefaultDomain($Subject* $param_Subject_1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getDefaultDomain_11, $$new($ObjectArray, {$of($param_Subject_1)}), 0x53EDA2D82E1BDFA8));
-		return ($cast($String, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getDefaultDomain_11, $$new($ObjectArray, {$param_Subject_1}), (int64_t)0x53eda2d82e1bdfa8));
+		return $cast($String, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -484,10 +399,10 @@ $String* RMIConnectionImpl_Stub::getDefaultDomain($Subject* $param_Subject_1) {
 }
 
 $StringArray* RMIConnectionImpl_Stub::getDomains($Subject* $param_Subject_1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getDomains_12, $$new($ObjectArray, {$of($param_Subject_1)}), 0xA38AB48D41D0F631));
-		return ($cast($StringArray, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getDomains_12, $$new($ObjectArray, {$param_Subject_1}), (int64_t)0xa38ab48d41d0f631));
+		return $cast($StringArray, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -499,10 +414,10 @@ $StringArray* RMIConnectionImpl_Stub::getDomains($Subject* $param_Subject_1) {
 }
 
 $Integer* RMIConnectionImpl_Stub::getMBeanCount($Subject* $param_Subject_1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getMBeanCount_13, $$new($ObjectArray, {$of($param_Subject_1)}), 0xE3A812879DC32EA5));
-		return ($cast($Integer, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getMBeanCount_13, $$new($ObjectArray, {$param_Subject_1}), (int64_t)0xe3a812879dc32ea5));
+		return $cast($Integer, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -514,13 +429,13 @@ $Integer* RMIConnectionImpl_Stub::getMBeanCount($Subject* $param_Subject_1) {
 }
 
 $MBeanInfo* RMIConnectionImpl_Stub::getMBeanInfo($ObjectName* $param_ObjectName_1, $Subject* $param_Subject_2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getMBeanInfo_14, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_Subject_2)
-		}), 0x993CD0F9B9817AF6));
-		return ($cast($MBeanInfo, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getMBeanInfo_14, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_Subject_2
+		}), (int64_t)0x993cd0f9b9817af6));
+		return $cast($MBeanInfo, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -538,13 +453,13 @@ $MBeanInfo* RMIConnectionImpl_Stub::getMBeanInfo($ObjectName* $param_ObjectName_
 }
 
 $ObjectInstance* RMIConnectionImpl_Stub::getObjectInstance($ObjectName* $param_ObjectName_1, $Subject* $param_Subject_2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_getObjectInstance_15, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_Subject_2)
-		}), 0x6073B3361F37BDC2));
-		return ($cast($ObjectInstance, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_getObjectInstance_15, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_Subject_2
+		}), (int64_t)0x6073b3361f37bdc2));
+		return $cast($ObjectInstance, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -558,16 +473,16 @@ $ObjectInstance* RMIConnectionImpl_Stub::getObjectInstance($ObjectName* $param_O
 }
 
 $Object* RMIConnectionImpl_Stub::invoke($ObjectName* $param_ObjectName_1, $String* $param_String_2, $MarshalledObject* $param_MarshalledObject_3, $StringArray* $param_arrayOf_String_4, $Subject* $param_Subject_5) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_invoke_16, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_String_2),
-			$of($param_MarshalledObject_3),
-			$of($param_arrayOf_String_4),
-			$of($param_Subject_5)
-		}), 0x13E7D69417E5DA20));
-		return $of($result);
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_invoke_16, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_String_2,
+			$param_MarshalledObject_3,
+			$param_arrayOf_String_4,
+			$param_Subject_5
+		}), (int64_t)0x13e7d69417e5da20));
+		return $result;
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -585,14 +500,14 @@ $Object* RMIConnectionImpl_Stub::invoke($ObjectName* $param_ObjectName_1, $Strin
 }
 
 bool RMIConnectionImpl_Stub::isInstanceOf($ObjectName* $param_ObjectName_1, $String* $param_String_2, $Subject* $param_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_isInstanceOf_17, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_String_2),
-			$of($param_Subject_3)
-		}), 0xE2327CC9422DBCF2));
-		return $nc(($cast($Boolean, $result)))->booleanValue();
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_isInstanceOf_17, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_String_2,
+			$param_Subject_3
+		}), (int64_t)0xe2327cc9422dbcf2));
+		return $nc($cast($Boolean, $result))->booleanValue();
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -606,13 +521,13 @@ bool RMIConnectionImpl_Stub::isInstanceOf($ObjectName* $param_ObjectName_1, $Str
 }
 
 bool RMIConnectionImpl_Stub::isRegistered($ObjectName* $param_ObjectName_1, $Subject* $param_Subject_2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_isRegistered_18, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_Subject_2)
-		}), 0x738AC4E1CCABA014));
-		return $nc(($cast($Boolean, $result)))->booleanValue();
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_isRegistered_18, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_Subject_2
+		}), (int64_t)0x738ac4e1ccaba014));
+		return $nc($cast($Boolean, $result))->booleanValue();
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -624,14 +539,14 @@ bool RMIConnectionImpl_Stub::isRegistered($ObjectName* $param_ObjectName_1, $Sub
 }
 
 $Set* RMIConnectionImpl_Stub::queryMBeans($ObjectName* $param_ObjectName_1, $MarshalledObject* $param_MarshalledObject_2, $Subject* $param_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_queryMBeans_19, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_MarshalledObject_2),
-			$of($param_Subject_3)
-		}), 0x28774A543CA14DD8));
-		return ($cast($Set, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_queryMBeans_19, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_MarshalledObject_2,
+			$param_Subject_3
+		}), (int64_t)0x28774a543ca14dd8));
+		return $cast($Set, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -643,14 +558,14 @@ $Set* RMIConnectionImpl_Stub::queryMBeans($ObjectName* $param_ObjectName_1, $Mar
 }
 
 $Set* RMIConnectionImpl_Stub::queryNames($ObjectName* $param_ObjectName_1, $MarshalledObject* $param_MarshalledObject_2, $Subject* $param_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_queryNames_20, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_MarshalledObject_2),
-			$of($param_Subject_3)
-		}), 0x7F0473ACB73677DA));
-		return ($cast($Set, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_queryNames_20, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_MarshalledObject_2,
+			$param_Subject_3
+		}), (int64_t)0x7f0473acb73677da));
+		return $cast($Set, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -663,13 +578,13 @@ $Set* RMIConnectionImpl_Stub::queryNames($ObjectName* $param_ObjectName_1, $Mars
 
 void RMIConnectionImpl_Stub::removeNotificationListener($ObjectName* $param_ObjectName_1, $ObjectName* $param_ObjectName_2, $MarshalledObject* $param_MarshalledObject_3, $MarshalledObject* $param_MarshalledObject_4, $Subject* $param_Subject_5) {
 	try {
-		$nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_removeNotificationListener_21, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_ObjectName_2),
-			$of($param_MarshalledObject_3),
-			$of($param_MarshalledObject_4),
-			$of($param_Subject_5)
-		}), 0x23C70088FDB91189);
+		$nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_removeNotificationListener_21, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_ObjectName_2,
+			$param_MarshalledObject_3,
+			$param_MarshalledObject_4,
+			$param_Subject_5
+		}), (int64_t)0x23c70088fdb91189);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -685,11 +600,11 @@ void RMIConnectionImpl_Stub::removeNotificationListener($ObjectName* $param_Obje
 
 void RMIConnectionImpl_Stub::removeNotificationListener($ObjectName* $param_ObjectName_1, $ObjectName* $param_ObjectName_2, $Subject* $param_Subject_3) {
 	try {
-		$nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_removeNotificationListener_22, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_ObjectName_2),
-			$of($param_Subject_3)
-		}), 0x5BA8AEE8FA8E0529);
+		$nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_removeNotificationListener_22, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_ObjectName_2,
+			$param_Subject_3
+		}), (int64_t)0x5ba8aee8fa8e0529);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -705,11 +620,11 @@ void RMIConnectionImpl_Stub::removeNotificationListener($ObjectName* $param_Obje
 
 void RMIConnectionImpl_Stub::removeNotificationListeners($ObjectName* $param_ObjectName_1, $IntegerArray* $param_arrayOf_Integer_2, $Subject* $param_Subject_3) {
 	try {
-		$nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_removeNotificationListeners_23, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_arrayOf_Integer_2),
-			$of($param_Subject_3)
-		}), 0x23604B280B8BBE96);
+		$nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_removeNotificationListeners_23, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_arrayOf_Integer_2,
+			$param_Subject_3
+		}), (int64_t)0x23604b280b8bbe96);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -725,11 +640,11 @@ void RMIConnectionImpl_Stub::removeNotificationListeners($ObjectName* $param_Obj
 
 void RMIConnectionImpl_Stub::setAttribute($ObjectName* $param_ObjectName_1, $MarshalledObject* $param_MarshalledObject_2, $Subject* $param_Subject_3) {
 	try {
-		$nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_setAttribute_24, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_MarshalledObject_2),
-			$of($param_Subject_3)
-		}), 0x5D845744730AFE0C);
+		$nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_setAttribute_24, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_MarshalledObject_2,
+			$param_Subject_3
+		}), (int64_t)0x5d845744730afe0c);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -750,14 +665,14 @@ void RMIConnectionImpl_Stub::setAttribute($ObjectName* $param_ObjectName_1, $Mar
 }
 
 $AttributeList* RMIConnectionImpl_Stub::setAttributes($ObjectName* $param_ObjectName_1, $MarshalledObject* $param_MarshalledObject_2, $Subject* $param_Subject_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Object, $result, $nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_setAttributes_25, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_MarshalledObject_2),
-			$of($param_Subject_3)
-		}), 0xFCCD348C60EF0EE4));
-		return ($cast($AttributeList, $result));
+		$var($Object, $result, $nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_setAttributes_25, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_MarshalledObject_2,
+			$param_Subject_3
+		}), (int64_t)0xfccd348c60ef0ee4));
+		return $cast($AttributeList, $result);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -774,10 +689,10 @@ $AttributeList* RMIConnectionImpl_Stub::setAttributes($ObjectName* $param_Object
 
 void RMIConnectionImpl_Stub::unregisterMBean($ObjectName* $param_ObjectName_1, $Subject* $param_Subject_2) {
 	try {
-		$nc(this->ref)->invoke(static_cast<$Remote*>(static_cast<$RemoteObject*>(static_cast<$RemoteStub*>(this))), RMIConnectionImpl_Stub::$method_unregisterMBean_26, $$new($ObjectArray, {
-			$of($param_ObjectName_1),
-			$of($param_Subject_2)
-		}), 0xFDC958E2C12414D4);
+		$nc(this->ref)->invoke($cast($RemoteStub, this), RMIConnectionImpl_Stub::$method_unregisterMBean_26, $$new($ObjectArray, {
+			$param_ObjectName_1,
+			$param_Subject_2
+		}), (int64_t)0xfdc958e2c12414d4);
 	} catch ($RuntimeException& e) {
 		$throw(e);
 	} catch ($IOException& e) {
@@ -791,8 +706,8 @@ void RMIConnectionImpl_Stub::unregisterMBean($ObjectName* $param_ObjectName_1, $
 	}
 }
 
-void clinit$RMIConnectionImpl_Stub($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RMIConnectionImpl_Stub::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		try {
@@ -807,9 +722,6 @@ void clinit$RMIConnectionImpl_Stub($Class* class$) {
 				$MarshalledObject::class$,
 				$Subject::class$
 			})));
-			$load($ObjectNameArray);
-			$load($MarshalledObjectArray);
-			$load($SubjectArray);
 			$assignStatic(RMIConnectionImpl_Stub::$method_addNotificationListeners_1, $RMIConnection::class$->getMethod("addNotificationListeners"_s, $$new($ClassArray, {
 				$getClass($ObjectNameArray),
 				$getClass($MarshalledObjectArray),
@@ -817,7 +729,6 @@ void clinit$RMIConnectionImpl_Stub($Class* class$) {
 			})));
 			$load($AutoCloseable);
 			$assignStatic(RMIConnectionImpl_Stub::$method_close_2, $AutoCloseable::class$->getMethod("close"_s, $$new($ClassArray, 0)));
-			$load($StringArray);
 			$assignStatic(RMIConnectionImpl_Stub::$method_createMBean_3, $RMIConnection::class$->getMethod("createMBean"_s, $$new($ClassArray, {
 				$String::class$,
 				$ObjectName::class$,
@@ -844,8 +755,6 @@ void clinit$RMIConnectionImpl_Stub($Class* class$) {
 				$ObjectName::class$,
 				$Subject::class$
 			})));
-			$init($Long);
-			$init($Integer);
 			$assignStatic(RMIConnectionImpl_Stub::$method_fetchNotifications_7, $RMIConnection::class$->getMethod("fetchNotifications"_s, $$new($ClassArray, {
 				$Long::TYPE,
 				$Integer::TYPE,
@@ -911,7 +820,6 @@ void clinit$RMIConnectionImpl_Stub($Class* class$) {
 				$ObjectName::class$,
 				$Subject::class$
 			})));
-			$load($IntegerArray);
 			$assignStatic(RMIConnectionImpl_Stub::$method_removeNotificationListeners_23, $RMIConnection::class$->getMethod("removeNotificationListeners"_s, $$new($ClassArray, {
 				$ObjectName::class$,
 				$getClass($IntegerArray),
@@ -941,7 +849,84 @@ RMIConnectionImpl_Stub::RMIConnectionImpl_Stub() {
 }
 
 $Class* RMIConnectionImpl_Stub::load$($String* name, bool initialize) {
-	$loadClass(RMIConnectionImpl_Stub, name, initialize, &_RMIConnectionImpl_Stub_ClassInfo_, clinit$RMIConnectionImpl_Stub, allocate$RMIConnectionImpl_Stub);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RMIConnectionImpl_Stub, serialVersionUID)},
+		{"$method_addNotificationListener_0", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_addNotificationListener_0)},
+		{"$method_addNotificationListeners_1", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_addNotificationListeners_1)},
+		{"$method_close_2", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_close_2)},
+		{"$method_createMBean_3", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_3)},
+		{"$method_createMBean_4", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_4)},
+		{"$method_createMBean_5", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_5)},
+		{"$method_createMBean_6", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_createMBean_6)},
+		{"$method_fetchNotifications_7", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_fetchNotifications_7)},
+		{"$method_getAttribute_8", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getAttribute_8)},
+		{"$method_getAttributes_9", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getAttributes_9)},
+		{"$method_getConnectionId_10", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getConnectionId_10)},
+		{"$method_getDefaultDomain_11", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getDefaultDomain_11)},
+		{"$method_getDomains_12", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getDomains_12)},
+		{"$method_getMBeanCount_13", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getMBeanCount_13)},
+		{"$method_getMBeanInfo_14", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getMBeanInfo_14)},
+		{"$method_getObjectInstance_15", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_getObjectInstance_15)},
+		{"$method_invoke_16", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_invoke_16)},
+		{"$method_isInstanceOf_17", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_isInstanceOf_17)},
+		{"$method_isRegistered_18", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_isRegistered_18)},
+		{"$method_queryMBeans_19", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_queryMBeans_19)},
+		{"$method_queryNames_20", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_queryNames_20)},
+		{"$method_removeNotificationListener_21", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_removeNotificationListener_21)},
+		{"$method_removeNotificationListener_22", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_removeNotificationListener_22)},
+		{"$method_removeNotificationListeners_23", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_removeNotificationListeners_23)},
+		{"$method_setAttribute_24", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_setAttribute_24)},
+		{"$method_setAttributes_25", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_setAttributes_25)},
+		{"$method_unregisterMBean_26", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticField(RMIConnectionImpl_Stub, $method_unregisterMBean_26)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RMIConnectionImpl_Stub, init$, void, $RemoteRef*)},
+		{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, addNotificationListener, void, $ObjectName*, $ObjectName*, $MarshalledObject*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+		{"addNotificationListeners", "([Ljavax/management/ObjectName;[Ljava/rmi/MarshalledObject;[Ljavax/security/auth/Subject;)[Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, addNotificationListeners, $IntegerArray*, $ObjectNameArray*, $MarshalledObjectArray*, $SubjectArray*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, close, void), "java.io.IOException"},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $MarshalledObject*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*, $MarshalledObject*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
+		{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, createMBean, $ObjectInstance*, $String*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceAlreadyExistsException,javax.management.MBeanException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException,javax.management.ReflectionException"},
+		{"fetchNotifications", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, fetchNotifications, $NotificationResult*, int64_t, int32_t, int64_t), "java.io.IOException"},
+		{"getAttribute", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getAttribute, $Object*, $ObjectName*, $String*, $Subject*), "java.io.IOException,javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"getAttributes", "(Ljavax/management/ObjectName;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getAttributes, $AttributeList*, $ObjectName*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
+		{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getConnectionId, $String*), "java.io.IOException"},
+		{"getDefaultDomain", "(Ljavax/security/auth/Subject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getDefaultDomain, $String*, $Subject*), "java.io.IOException"},
+		{"getDomains", "(Ljavax/security/auth/Subject;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getDomains, $StringArray*, $Subject*), "java.io.IOException"},
+		{"getMBeanCount", "(Ljavax/security/auth/Subject;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getMBeanCount, $Integer*, $Subject*), "java.io.IOException"},
+		{"getMBeanInfo", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getMBeanInfo, $MBeanInfo*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.IntrospectionException,javax.management.ReflectionException"},
+		{"getObjectInstance", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, getObjectInstance, $ObjectInstance*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+		{"invoke", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, invoke, $Object*, $ObjectName*, $String*, $MarshalledObject*, $StringArray*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"isInstanceOf", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, isInstanceOf, bool, $ObjectName*, $String*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+		{"isRegistered", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, isRegistered, bool, $ObjectName*, $Subject*), "java.io.IOException"},
+		{"queryMBeans", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)Ljava/util/Set;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, queryMBeans, $Set*, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException"},
+		{"queryNames", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)Ljava/util/Set;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, queryNames, $Set*, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, removeNotificationListener, void, $ObjectName*, $ObjectName*, $MarshalledObject*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, removeNotificationListener, void, $ObjectName*, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"removeNotificationListeners", "(Ljavax/management/ObjectName;[Ljava/lang/Integer;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, removeNotificationListeners, void, $ObjectName*, $IntegerArray*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+		{"setAttribute", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, setAttribute, void, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.AttributeNotFoundException,javax.management.InstanceNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttributes", "(Ljavax/management/ObjectName;Ljava/rmi/MarshalledObject;Ljavax/security/auth/Subject;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, setAttributes, $AttributeList*, $ObjectName*, $MarshalledObject*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ReflectionException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unregisterMBean", "(Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl_Stub, unregisterMBean, void, $ObjectName*, $Subject*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.MBeanRegistrationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnectionImpl_Stub",
+		"java.rmi.server.RemoteStub",
+		"javax.management.remote.rmi.RMIConnection",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RMIConnectionImpl_Stub, name, initialize, &classInfo$$, RMIConnectionImpl_Stub::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RMIConnectionImpl_Stub));
+	});
 	return class$;
 }
 

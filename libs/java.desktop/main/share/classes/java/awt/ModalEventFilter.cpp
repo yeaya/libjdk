@@ -1,5 +1,4 @@
 #include <java/awt/ModalEventFilter.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -14,7 +13,6 @@
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/WindowEvent.h>
-#include <java/lang/Enum.h>
 #include <sun/awt/ModalExclude.h>
 #include <jcpp.h>
 
@@ -28,7 +26,6 @@
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Dialog = ::java::awt::Dialog;
-using $Dialog$ModalityType = ::java::awt::Dialog$ModalityType;
 using $EventFilter$FilterAction = ::java::awt::EventFilter$FilterAction;
 using $ModalEventFilter$1 = ::java::awt::ModalEventFilter$1;
 using $ModalEventFilter$ApplicationModalEventFilter = ::java::awt::ModalEventFilter$ApplicationModalEventFilter;
@@ -39,7 +36,6 @@ using $ActionEvent = ::java::awt::event::ActionEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -47,50 +43,6 @@ using $ModalExclude = ::sun::awt::ModalExclude;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _ModalEventFilter_FieldInfo_[] = {
-	{"modalDialog", "Ljava/awt/Dialog;", nullptr, $PROTECTED, $field(ModalEventFilter, modalDialog)},
-	{"disabled", "Z", nullptr, $PROTECTED, $field(ModalEventFilter, disabled)},
-	{}
-};
-
-$MethodInfo _ModalEventFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Dialog;)V", nullptr, $PROTECTED, $method(ModalEventFilter, init$, void, $Dialog*)},
-	{"acceptEvent", "(Ljava/awt/AWTEvent;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PUBLIC, $virtualMethod(ModalEventFilter, acceptEvent, $EventFilter$FilterAction*, $AWTEvent*)},
-	{"acceptWindow", "(Ljava/awt/Window;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ModalEventFilter, acceptWindow, $EventFilter$FilterAction*, $Window*)},
-	{"compareTo", "(Ljava/awt/ModalEventFilter;)I", nullptr, 0, $virtualMethod(ModalEventFilter, compareTo, int32_t, ModalEventFilter*)},
-	{"createFilterForDialog", "(Ljava/awt/Dialog;)Ljava/awt/ModalEventFilter;", nullptr, $STATIC, $staticMethod(ModalEventFilter, createFilterForDialog, ModalEventFilter*, $Dialog*)},
-	{"disable", "()V", nullptr, 0, $virtualMethod(ModalEventFilter, disable, void)},
-	{"getModalDialog", "()Ljava/awt/Dialog;", nullptr, 0, $virtualMethod(ModalEventFilter, getModalDialog, $Dialog*)},
-	{}
-};
-
-$InnerClassInfo _ModalEventFilter_InnerClassesInfo_[] = {
-	{"java.awt.ModalEventFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.awt.ModalEventFilter$DocumentModalEventFilter", "java.awt.ModalEventFilter", "DocumentModalEventFilter", $PRIVATE | $STATIC},
-	{"java.awt.ModalEventFilter$ApplicationModalEventFilter", "java.awt.ModalEventFilter", "ApplicationModalEventFilter", $PRIVATE | $STATIC},
-	{"java.awt.ModalEventFilter$ToolkitModalEventFilter", "java.awt.ModalEventFilter", "ToolkitModalEventFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ModalEventFilter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.awt.ModalEventFilter",
-	"java.lang.Object",
-	"java.awt.EventFilter",
-	_ModalEventFilter_FieldInfo_,
-	_ModalEventFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModalEventFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.ModalEventFilter$1,java.awt.ModalEventFilter$DocumentModalEventFilter,java.awt.ModalEventFilter$ApplicationModalEventFilter,java.awt.ModalEventFilter$ToolkitModalEventFilter"
-};
-
-$Object* allocate$ModalEventFilter($Class* clazz) {
-	return $of($alloc(ModalEventFilter));
-}
 
 void ModalEventFilter::init$($Dialog* modalDialog) {
 	$set(this, modalDialog, modalDialog);
@@ -102,7 +54,7 @@ $Dialog* ModalEventFilter::getModalDialog() {
 }
 
 $EventFilter$FilterAction* ModalEventFilter::acceptEvent($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->disabled || !$nc(this->modalDialog)->isVisible()) {
 		$init($EventFilter$FilterAction);
 		return $EventFilter$FilterAction::ACCEPT;
@@ -130,7 +82,7 @@ void ModalEventFilter::disable() {
 }
 
 int32_t ModalEventFilter::compareTo(ModalEventFilter* another) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dialog, anotherDialog, $nc(another)->getModalDialog());
 	$var($Component, c, this->modalDialog);
 	while (c != nullptr) {
@@ -160,25 +112,19 @@ int32_t ModalEventFilter::compareTo(ModalEventFilter* another) {
 		}
 		$assign(blocker, blocker->getModalBlocker());
 	}
-	return $nc($($nc(this->modalDialog)->getModalityType()))->compareTo($(static_cast<$Enum*>(anotherDialog->getModalityType())));
+	return $$nc($nc(this->modalDialog)->getModalityType())->compareTo($(anotherDialog->getModalityType()));
 }
 
 ModalEventFilter* ModalEventFilter::createFilterForDialog($Dialog* modalDialog) {
 	$init(ModalEventFilter);
 	$init($ModalEventFilter$1);
-	switch ($nc($ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType)->get($nc(($($nc(modalDialog)->getModalityType())))->ordinal())) {
+	switch ($nc($ModalEventFilter$1::$SwitchMap$java$awt$Dialog$ModalityType)->get(($$nc($nc(modalDialog)->getModalityType()))->ordinal())) {
 	case 1:
-		{
-			return $new($ModalEventFilter$DocumentModalEventFilter, modalDialog);
-		}
+		return $new($ModalEventFilter$DocumentModalEventFilter, modalDialog);
 	case 2:
-		{
-			return $new($ModalEventFilter$ApplicationModalEventFilter, modalDialog);
-		}
+		return $new($ModalEventFilter$ApplicationModalEventFilter, modalDialog);
 	case 3:
-		{
-			return $new($ModalEventFilter$ToolkitModalEventFilter, modalDialog);
-		}
+		return $new($ModalEventFilter$ToolkitModalEventFilter, modalDialog);
 	}
 	return nullptr;
 }
@@ -187,7 +133,45 @@ ModalEventFilter::ModalEventFilter() {
 }
 
 $Class* ModalEventFilter::load$($String* name, bool initialize) {
-	$loadClass(ModalEventFilter, name, initialize, &_ModalEventFilter_ClassInfo_, allocate$ModalEventFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"modalDialog", "Ljava/awt/Dialog;", nullptr, $PROTECTED, $field(ModalEventFilter, modalDialog)},
+		{"disabled", "Z", nullptr, $PROTECTED, $field(ModalEventFilter, disabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Dialog;)V", nullptr, $PROTECTED, $method(ModalEventFilter, init$, void, $Dialog*)},
+		{"acceptEvent", "(Ljava/awt/AWTEvent;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PUBLIC, $virtualMethod(ModalEventFilter, acceptEvent, $EventFilter$FilterAction*, $AWTEvent*)},
+		{"acceptWindow", "(Ljava/awt/Window;)Ljava/awt/EventFilter$FilterAction;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ModalEventFilter, acceptWindow, $EventFilter$FilterAction*, $Window*)},
+		{"compareTo", "(Ljava/awt/ModalEventFilter;)I", nullptr, 0, $virtualMethod(ModalEventFilter, compareTo, int32_t, ModalEventFilter*)},
+		{"createFilterForDialog", "(Ljava/awt/Dialog;)Ljava/awt/ModalEventFilter;", nullptr, $STATIC, $staticMethod(ModalEventFilter, createFilterForDialog, ModalEventFilter*, $Dialog*)},
+		{"disable", "()V", nullptr, 0, $virtualMethod(ModalEventFilter, disable, void)},
+		{"getModalDialog", "()Ljava/awt/Dialog;", nullptr, 0, $virtualMethod(ModalEventFilter, getModalDialog, $Dialog*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.ModalEventFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.awt.ModalEventFilter$DocumentModalEventFilter", "java.awt.ModalEventFilter", "DocumentModalEventFilter", $PRIVATE | $STATIC},
+		{"java.awt.ModalEventFilter$ApplicationModalEventFilter", "java.awt.ModalEventFilter", "ApplicationModalEventFilter", $PRIVATE | $STATIC},
+		{"java.awt.ModalEventFilter$ToolkitModalEventFilter", "java.awt.ModalEventFilter", "ToolkitModalEventFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.awt.ModalEventFilter",
+		"java.lang.Object",
+		"java.awt.EventFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.ModalEventFilter$1,java.awt.ModalEventFilter$DocumentModalEventFilter,java.awt.ModalEventFilter$ApplicationModalEventFilter,java.awt.ModalEventFilter$ToolkitModalEventFilter"
+	};
+	$loadClass(ModalEventFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModalEventFilter);
+	});
 	return class$;
 }
 

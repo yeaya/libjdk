@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$SplitPaneBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -29,50 +28,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicBorders$SplitPaneBorder_FieldInfo_[] = {
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$SplitPaneBorder, highlight)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$SplitPaneBorder, shadow)},
-	{}
-};
-
-$MethodInfo _BasicBorders$SplitPaneBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$SplitPaneBorder, init$, void, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$SplitPaneBorder, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicBorders$SplitPaneBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$SplitPaneBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$SplitPaneBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$SplitPaneBorder", "javax.swing.plaf.basic.BasicBorders", "SplitPaneBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$SplitPaneBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$SplitPaneBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	_BasicBorders$SplitPaneBorder_FieldInfo_,
-	_BasicBorders$SplitPaneBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$SplitPaneBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$SplitPaneBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$SplitPaneBorder));
-}
-
 int32_t BasicBorders$SplitPaneBorder::hashCode() {
 	 return this->$Border::hashCode();
 }
@@ -99,7 +54,7 @@ void BasicBorders$SplitPaneBorder::init$($Color* highlight, $Color* shadow) {
 }
 
 void BasicBorders$SplitPaneBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JSplitPane, c))) {
 		return;
 	}
@@ -114,14 +69,14 @@ void BasicBorders$SplitPaneBorder::paintBorder($Component* c, $Graphics* g, int3
 			$assign(cBounds, child->getBounds());
 			g->setColor(this->shadow);
 			g->drawLine(0, 0, $nc(cBounds)->width + 1, 0);
-			g->drawLine(0, 1, 0, $nc(cBounds)->height + 1);
+			g->drawLine(0, 1, 0, cBounds->height + 1);
 			g->setColor(this->highlight);
-			g->drawLine(0, $nc(cBounds)->height + 1, cBounds->width + 1, cBounds->height + 1);
+			g->drawLine(0, cBounds->height + 1, cBounds->width + 1, cBounds->height + 1);
 		}
 		$assign(child, splitPane->getRightComponent());
 		if (child != nullptr) {
 			$assign(cBounds, child->getBounds());
-			int32_t maxX = $nc(cBounds)->x + cBounds->width;
+			int32_t maxX = $nc(cBounds)->x + $nc(cBounds)->width;
 			int32_t maxY = cBounds->y + cBounds->height;
 			g->setColor(this->shadow);
 			g->drawLine(cBounds->x - 1, 0, maxX, 0);
@@ -134,15 +89,15 @@ void BasicBorders$SplitPaneBorder::paintBorder($Component* c, $Graphics* g, int3
 			$assign(cBounds, child->getBounds());
 			g->setColor(this->shadow);
 			g->drawLine(0, 0, $nc(cBounds)->width + 1, 0);
-			g->drawLine(0, 1, 0, $nc(cBounds)->height);
+			g->drawLine(0, 1, 0, cBounds->height);
 			g->setColor(this->highlight);
-			g->drawLine(1 + $nc(cBounds)->width, 0, 1 + cBounds->width, cBounds->height + 1);
-			g->drawLine(0, $nc(cBounds)->height + 1, 0, cBounds->height + 1);
+			g->drawLine(1 + cBounds->width, 0, 1 + cBounds->width, cBounds->height + 1);
+			g->drawLine(0, cBounds->height + 1, 0, cBounds->height + 1);
 		}
 		$assign(child, splitPane->getRightComponent());
 		if (child != nullptr) {
 			$assign(cBounds, child->getBounds());
-			int32_t maxX = $nc(cBounds)->x + cBounds->width;
+			int32_t maxX = $nc(cBounds)->x + $nc(cBounds)->width;
 			int32_t maxY = cBounds->y + cBounds->height;
 			g->setColor(this->shadow);
 			g->drawLine(0, cBounds->y - 1, 0, maxY);
@@ -166,7 +121,45 @@ BasicBorders$SplitPaneBorder::BasicBorders$SplitPaneBorder() {
 }
 
 $Class* BasicBorders$SplitPaneBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$SplitPaneBorder, name, initialize, &_BasicBorders$SplitPaneBorder_ClassInfo_, allocate$BasicBorders$SplitPaneBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$SplitPaneBorder, highlight)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicBorders$SplitPaneBorder, shadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$SplitPaneBorder, init$, void, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$SplitPaneBorder, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicBorders$SplitPaneBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$SplitPaneBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$SplitPaneBorder", "javax.swing.plaf.basic.BasicBorders", "SplitPaneBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$SplitPaneBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$SplitPaneBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$SplitPaneBorder));
+	});
 	return class$;
 }
 

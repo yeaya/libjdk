@@ -14,6 +14,7 @@ class MacDingbat$Holder : public ::java::lang::Object {
 	$class(MacDingbat$Holder, 0, ::java::lang::Object)
 public:
 	MacDingbat$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cTable;
 	static $chars* b2c;

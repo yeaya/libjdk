@@ -1,11 +1,9 @@
 #include <com/sun/media/sound/SimpleInstrument.h>
-
 #include <com/sun/media/sound/ModelInstrument.h>
 #include <com/sun/media/sound/ModelPatch.h>
 #include <com/sun/media/sound/ModelPerformer.h>
 #include <com/sun/media/sound/SimpleInstrument$SimpleInstrumentPart.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <javax/sound/midi/Patch.h>
@@ -22,9 +20,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Patch = ::javax::sound::midi::Patch;
 using $Soundbank = ::javax::sound::midi::Soundbank;
 
@@ -32,63 +28,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SimpleInstrument_FieldInfo_[] = {
-	{"preset", "I", nullptr, $PROTECTED, $field(SimpleInstrument, preset)},
-	{"bank", "I", nullptr, $PROTECTED, $field(SimpleInstrument, bank)},
-	{"percussion", "Z", nullptr, $PROTECTED, $field(SimpleInstrument, percussion)},
-	{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SimpleInstrument, name)},
-	{"parts", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SimpleInstrument$SimpleInstrumentPart;>;", $PROTECTED, $field(SimpleInstrument, parts)},
-	{}
-};
-
-$MethodInfo _SimpleInstrument_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleInstrument, init$, void)},
-	{"add", "([Lcom/sun/media/sound/ModelPerformer;IIIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"add", "([Lcom/sun/media/sound/ModelPerformer;IIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*, int32_t, int32_t, int32_t, int32_t)},
-	{"add", "([Lcom/sun/media/sound/ModelPerformer;II)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*, int32_t, int32_t)},
-	{"add", "([Lcom/sun/media/sound/ModelPerformer;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*)},
-	{"add", "(Lcom/sun/media/sound/ModelPerformer;IIIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"add", "(Lcom/sun/media/sound/ModelPerformer;IIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*, int32_t, int32_t, int32_t, int32_t)},
-	{"add", "(Lcom/sun/media/sound/ModelPerformer;II)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*, int32_t, int32_t)},
-	{"add", "(Lcom/sun/media/sound/ModelPerformer;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*)},
-	{"add", "(Lcom/sun/media/sound/ModelInstrument;IIIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"add", "(Lcom/sun/media/sound/ModelInstrument;IIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*, int32_t, int32_t, int32_t, int32_t)},
-	{"add", "(Lcom/sun/media/sound/ModelInstrument;II)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*, int32_t, int32_t)},
-	{"add", "(Lcom/sun/media/sound/ModelInstrument;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, clear, void)},
-	{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getData, $Object*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getName, $String*)},
-	{"getPatch", "()Lcom/sun/media/sound/ModelPatch;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getPatch, $Patch*)},
-	{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getPerformers, $ModelPerformerArray*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, setName, void, $String*)},
-	{"setPatch", "(Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, setPatch, void, $Patch*)},
-	{}
-};
-
-$InnerClassInfo _SimpleInstrument_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SimpleInstrument$SimpleInstrumentPart", "com.sun.media.sound.SimpleInstrument", "SimpleInstrumentPart", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SimpleInstrument_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.media.sound.SimpleInstrument",
-	"com.sun.media.sound.ModelInstrument",
-	nullptr,
-	_SimpleInstrument_FieldInfo_,
-	_SimpleInstrument_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SimpleInstrument_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SimpleInstrument$SimpleInstrumentPart"
-};
-
-$Object* allocate$SimpleInstrument($Class* clazz) {
-	return $of($alloc(SimpleInstrument));
-}
 
 void SimpleInstrument::init$() {
 	$ModelInstrument::init$(nullptr, nullptr, nullptr, nullptr);
@@ -159,62 +98,56 @@ void SimpleInstrument::add($ModelInstrument* ins) {
 }
 
 $ModelPerformerArray* SimpleInstrument::getPerformers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t percount = 0;
 	{
 		$var($Iterator, i$, $nc(this->parts)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SimpleInstrument$SimpleInstrumentPart, part, $cast($SimpleInstrument$SimpleInstrumentPart, i$->next()));
 			if ($nc(part)->performers != nullptr) {
-				percount += $nc(part->performers)->length;
+				percount += part->performers->length;
 			}
 		}
 	}
 	$var($ModelPerformerArray, performers, $new($ModelPerformerArray, percount));
 	int32_t px = 0;
 	{
-		$var($Iterator, i$, $nc(this->parts)->iterator());
+		$var($Iterator, i$, this->parts->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SimpleInstrument$SimpleInstrumentPart, part, $cast($SimpleInstrument$SimpleInstrumentPart, i$->next()));
-			{
-				if ($nc(part)->performers != nullptr) {
+			if ($nc(part)->performers != nullptr) {
+				$var($ModelPerformerArray, arr$, part->performers);
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$var($ModelPerformer, mperfm, arr$->get(i$));
 					{
-						$var($ModelPerformerArray, arr$, part->performers);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($ModelPerformer, mperfm, arr$->get(i$));
-							{
-								$var($ModelPerformer, performer, $new($ModelPerformer));
-								performer->setName($(getName()));
-								performers->set(px++, performer);
-								performer->setDefaultConnectionsEnabled($nc(mperfm)->isDefaultConnectionsEnabled());
-								performer->setKeyFrom($nc(mperfm)->getKeyFrom());
-								performer->setKeyTo($nc(mperfm)->getKeyTo());
-								performer->setVelFrom($nc(mperfm)->getVelFrom());
-								performer->setVelTo($nc(mperfm)->getVelTo());
-								performer->setExclusiveClass($nc(mperfm)->getExclusiveClass());
-								performer->setSelfNonExclusive($nc(mperfm)->isSelfNonExclusive());
-								performer->setReleaseTriggered($nc(mperfm)->isReleaseTriggered());
-								if (part->exclusiveClass != -1) {
-									performer->setExclusiveClass(part->exclusiveClass);
-								}
-								if (part->keyFrom > performer->getKeyFrom()) {
-									performer->setKeyFrom(part->keyFrom);
-								}
-								if (part->keyTo < performer->getKeyTo()) {
-									performer->setKeyTo(part->keyTo);
-								}
-								if (part->velFrom > performer->getVelFrom()) {
-									performer->setVelFrom(part->velFrom);
-								}
-								if (part->velTo < performer->getVelTo()) {
-									performer->setVelTo(part->velTo);
-								}
-								$nc($(performer->getOscillators()))->addAll($($nc(mperfm)->getOscillators()));
-								$nc($(performer->getConnectionBlocks()))->addAll($($nc(mperfm)->getConnectionBlocks()));
-							}
+						$var($ModelPerformer, performer, $new($ModelPerformer));
+						performer->setName($(getName()));
+						performers->set(px++, performer);
+						performer->setDefaultConnectionsEnabled($nc(mperfm)->isDefaultConnectionsEnabled());
+						performer->setKeyFrom(mperfm->getKeyFrom());
+						performer->setKeyTo(mperfm->getKeyTo());
+						performer->setVelFrom(mperfm->getVelFrom());
+						performer->setVelTo(mperfm->getVelTo());
+						performer->setExclusiveClass(mperfm->getExclusiveClass());
+						performer->setSelfNonExclusive(mperfm->isSelfNonExclusive());
+						performer->setReleaseTriggered(mperfm->isReleaseTriggered());
+						if (part->exclusiveClass != -1) {
+							performer->setExclusiveClass(part->exclusiveClass);
 						}
+						if (part->keyFrom > performer->getKeyFrom()) {
+							performer->setKeyFrom(part->keyFrom);
+						}
+						if (part->keyTo < performer->getKeyTo()) {
+							performer->setKeyTo(part->keyTo);
+						}
+						if (part->velFrom > performer->getVelFrom()) {
+							performer->setVelFrom(part->velFrom);
+						}
+						if (part->velTo < performer->getVelTo()) {
+							performer->setVelTo(part->velTo);
+						}
+						$$nc(performer->getOscillators())->addAll($(mperfm->getOscillators()));
+						$$nc(performer->getConnectionBlocks())->addAll($(mperfm->getConnectionBlocks()));
 					}
 				}
 			}
@@ -224,7 +157,7 @@ $ModelPerformerArray* SimpleInstrument::getPerformers() {
 }
 
 $Object* SimpleInstrument::getData() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $String* SimpleInstrument::getName() {
@@ -240,9 +173,9 @@ $Patch* SimpleInstrument::getPatch() {
 }
 
 void SimpleInstrument::setPatch($Patch* patch) {
-	if ($instanceOf($ModelPatch, patch) && $nc(($cast($ModelPatch, patch)))->isPercussion()) {
+	if ($instanceOf($ModelPatch, patch) && $cast($ModelPatch, patch)->isPercussion()) {
 		this->percussion = true;
-		this->bank = $nc(patch)->getBank();
+		this->bank = patch->getBank();
 		this->preset = patch->getProgram();
 	} else {
 		this->percussion = false;
@@ -255,7 +188,58 @@ SimpleInstrument::SimpleInstrument() {
 }
 
 $Class* SimpleInstrument::load$($String* name, bool initialize) {
-	$loadClass(SimpleInstrument, name, initialize, &_SimpleInstrument_ClassInfo_, allocate$SimpleInstrument);
+	$FieldInfo fieldInfos$$[] = {
+		{"preset", "I", nullptr, $PROTECTED, $field(SimpleInstrument, preset)},
+		{"bank", "I", nullptr, $PROTECTED, $field(SimpleInstrument, bank)},
+		{"percussion", "Z", nullptr, $PROTECTED, $field(SimpleInstrument, percussion)},
+		{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SimpleInstrument, name)},
+		{"parts", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/SimpleInstrument$SimpleInstrumentPart;>;", $PROTECTED, $field(SimpleInstrument, parts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleInstrument, init$, void)},
+		{"add", "([Lcom/sun/media/sound/ModelPerformer;IIIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"add", "([Lcom/sun/media/sound/ModelPerformer;IIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*, int32_t, int32_t, int32_t, int32_t)},
+		{"add", "([Lcom/sun/media/sound/ModelPerformer;II)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*, int32_t, int32_t)},
+		{"add", "([Lcom/sun/media/sound/ModelPerformer;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformerArray*)},
+		{"add", "(Lcom/sun/media/sound/ModelPerformer;IIIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"add", "(Lcom/sun/media/sound/ModelPerformer;IIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*, int32_t, int32_t, int32_t, int32_t)},
+		{"add", "(Lcom/sun/media/sound/ModelPerformer;II)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*, int32_t, int32_t)},
+		{"add", "(Lcom/sun/media/sound/ModelPerformer;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelPerformer*)},
+		{"add", "(Lcom/sun/media/sound/ModelInstrument;IIIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"add", "(Lcom/sun/media/sound/ModelInstrument;IIII)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*, int32_t, int32_t, int32_t, int32_t)},
+		{"add", "(Lcom/sun/media/sound/ModelInstrument;II)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*, int32_t, int32_t)},
+		{"add", "(Lcom/sun/media/sound/ModelInstrument;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, add, void, $ModelInstrument*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, clear, void)},
+		{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getData, $Object*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getName, $String*)},
+		{"getPatch", "()Lcom/sun/media/sound/ModelPatch;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getPatch, $Patch*)},
+		{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, getPerformers, $ModelPerformerArray*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, setName, void, $String*)},
+		{"setPatch", "(Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $virtualMethod(SimpleInstrument, setPatch, void, $Patch*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SimpleInstrument$SimpleInstrumentPart", "com.sun.media.sound.SimpleInstrument", "SimpleInstrumentPart", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.media.sound.SimpleInstrument",
+		"com.sun.media.sound.ModelInstrument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SimpleInstrument$SimpleInstrumentPart"
+	};
+	$loadClass(SimpleInstrument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleInstrument);
+	});
 	return class$;
 }
 

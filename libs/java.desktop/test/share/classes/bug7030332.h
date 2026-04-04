@@ -22,6 +22,7 @@ public:
 	using ::javax::swing::JApplet::add;
 	using ::javax::swing::JApplet::getMousePosition;
 	using ::javax::swing::JApplet::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::Container* createContentPane();
 	virtual void init() override;

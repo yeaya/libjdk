@@ -67,6 +67,7 @@ class $import JCDiagnostic$Factory : public ::java::lang::Object {
 	$class(JCDiagnostic$Factory, 0, ::java::lang::Object)
 public:
 	JCDiagnostic$Factory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void init$(::com::sun::tools::javac::util::JavacMessages* messages, $String* prefix);
 	virtual ::com::sun::tools::javac::util::JCDiagnostic* create(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType* kind, ::com::sun::tools::javac::util::DiagnosticSource* source, ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, $String* key, $ObjectArray* args);

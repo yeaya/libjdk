@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WTextComponentPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -55,86 +54,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WTextComponentPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TextComponent;)V", nullptr, 0, $method(WTextComponentPeer, init$, void, $TextComponent*)},
-	{"enableEditing", "(Z)V", nullptr, $NATIVE, $virtualMethod(WTextComponentPeer, enableEditing, void, bool)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, getCaretPosition, int32_t)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, getSelectionStart, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, getText, $String*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WTextComponentPeer, initIDs, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WTextComponentPeer, initialize, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"select", "(II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, select, void, int32_t, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, setCaretPosition, void, int32_t)},
-	{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, setEditable, void, bool)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, setText, void, $String*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, shouldClearRectBeforePaint, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"valueChanged", "()V", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, valueChanged, void)},
-	{}
-};
-
-#define _METHOD_INDEX_enableEditing 24
-#define _METHOD_INDEX_getSelectionEnd 26
-#define _METHOD_INDEX_getSelectionStart 27
-#define _METHOD_INDEX_getText 28
-#define _METHOD_INDEX_initIDs 29
-#define _METHOD_INDEX_select 39
-#define _METHOD_INDEX_setText 47
-
-$ClassInfo _WTextComponentPeer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.awt.windows.WTextComponentPeer",
-	"sun.awt.windows.WComponentPeer",
-	"java.awt.peer.TextComponentPeer",
-	nullptr,
-	_WTextComponentPeer_MethodInfo_
-};
-
-$Object* allocate$WTextComponentPeer($Class* clazz) {
-	return $of($alloc(WTextComponentPeer));
-}
 
 bool WTextComponentPeer::isObscured() {
 	 return this->$WComponentPeer::isObscured();
@@ -298,41 +217,38 @@ void WTextComponentPeer::finalize() {
 
 void WTextComponentPeer::setEditable(bool editable) {
 	enableEditing(editable);
-	setBackground($($nc(($cast($TextComponent, this->target)))->getBackground()));
+	setBackground($($nc($cast($TextComponent, this->target))->getBackground()));
 }
 
 $String* WTextComponentPeer::getText() {
-	$var($String, $ret, nullptr);
-	$prepareNative(WTextComponentPeer, getText, $String*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getText, $String*);
+	$var($String, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 void WTextComponentPeer::setText($String* text) {
-	$prepareNative(WTextComponentPeer, setText, void, $String* text);
+	$prepareNative(setText, void, $String* text);
 	$invokeNative(text);
 	$finishNative();
 }
 
 int32_t WTextComponentPeer::getSelectionStart() {
-	int32_t $ret = 0;
-	$prepareNative(WTextComponentPeer, getSelectionStart, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getSelectionStart, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 int32_t WTextComponentPeer::getSelectionEnd() {
-	int32_t $ret = 0;
-	$prepareNative(WTextComponentPeer, getSelectionEnd, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getSelectionEnd, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void WTextComponentPeer::select(int32_t selStart, int32_t selEnd) {
-	$prepareNative(WTextComponentPeer, select, void, int32_t selStart, int32_t selEnd);
+	$prepareNative(select, void, int32_t selStart, int32_t selEnd);
 	$invokeNative(selStart, selEnd);
 	$finishNative();
 }
@@ -342,7 +258,7 @@ void WTextComponentPeer::init$($TextComponent* target) {
 }
 
 void WTextComponentPeer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextComponent, tc, $cast($TextComponent, this->target));
 	$var($String, text, $nc(tc)->getText());
 	if (text != nullptr) {
@@ -355,7 +271,7 @@ void WTextComponentPeer::initialize() {
 }
 
 void WTextComponentPeer::enableEditing(bool e) {
-	$prepareNative(WTextComponentPeer, enableEditing, void, bool e);
+	$prepareNative(enableEditing, void, bool e);
 	$invokeNative(e);
 	$finishNative();
 }
@@ -378,7 +294,7 @@ void WTextComponentPeer::valueChanged() {
 
 void WTextComponentPeer::initIDs() {
 	$init(WTextComponentPeer);
-	$prepareNativeStatic(WTextComponentPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -387,7 +303,7 @@ bool WTextComponentPeer::shouldClearRectBeforePaint() {
 	return false;
 }
 
-void clinit$WTextComponentPeer($Class* class$) {
+void WTextComponentPeer::clinit$($Class* clazz) {
 	{
 		WTextComponentPeer::initIDs();
 	}
@@ -397,7 +313,75 @@ WTextComponentPeer::WTextComponentPeer() {
 }
 
 $Class* WTextComponentPeer::load$($String* name, bool initialize) {
-	$loadClass(WTextComponentPeer, name, initialize, &_WTextComponentPeer_ClassInfo_, clinit$WTextComponentPeer, allocate$WTextComponentPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TextComponent;)V", nullptr, 0, $method(WTextComponentPeer, init$, void, $TextComponent*)},
+		{"enableEditing", "(Z)V", nullptr, $NATIVE, $virtualMethod(WTextComponentPeer, enableEditing, void, bool)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, getCaretPosition, int32_t)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, getSelectionStart, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, getText, $String*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WTextComponentPeer, initIDs, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WTextComponentPeer, initialize, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"select", "(II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, select, void, int32_t, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, setCaretPosition, void, int32_t)},
+		{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, setEditable, void, bool)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WTextComponentPeer, setText, void, $String*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, shouldClearRectBeforePaint, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"valueChanged", "()V", nullptr, $PUBLIC, $virtualMethod(WTextComponentPeer, valueChanged, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.awt.windows.WTextComponentPeer",
+		"sun.awt.windows.WComponentPeer",
+		"java.awt.peer.TextComponentPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WTextComponentPeer, name, initialize, &classInfo$$, WTextComponentPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WTextComponentPeer));
+	});
 	return class$;
 }
 

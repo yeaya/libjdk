@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar$Schema4Annotations.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar$BuiltinSchemaGrammar.h>
@@ -25,7 +24,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSWildcard.h>
 #include <java/util/List.h>
@@ -88,7 +86,6 @@ using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::Namesp
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $XSWildcard = ::com::sun::org::apache::xerces::internal::xs::XSWildcard;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -106,80 +103,16 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _SchemaGrammar$Schema4Annotations_FieldInfo_[] = {
-	{"INSTANCE", "Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar$Schema4Annotations;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SchemaGrammar$Schema4Annotations, INSTANCE)},
-	{}
-};
-
-$MethodInfo _SchemaGrammar$Schema4Annotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, init$, void)},
-	{"addComplexTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addComplexTypeDecl, void, $XSComplexTypeDecl*, $SimpleLocator*)},
-	{"addDocument", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SchemaGrammar$Schema4Annotations, addDocument, void, Object$*, $String*)},
-	{"addGlobalAttributeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalAttributeDecl, void, $XSAttributeDecl*)},
-	{"addGlobalAttributeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SchemaGrammar$Schema4Annotations, addGlobalAttributeDecl, void, $XSAttributeGroupDecl*, $String*)},
-	{"addGlobalAttributeGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalAttributeGroupDecl, void, $XSAttributeGroupDecl*)},
-	{"addGlobalAttributeGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalAttributeGroupDecl, void, $XSAttributeGroupDecl*, $String*)},
-	{"addGlobalComplexTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalComplexTypeDecl, void, $XSComplexTypeDecl*)},
-	{"addGlobalComplexTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalComplexTypeDecl, void, $XSComplexTypeDecl*, $String*)},
-	{"addGlobalElementDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalElementDecl, void, $XSElementDecl*)},
-	{"addGlobalElementDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalElementDecl, void, $XSElementDecl*, $String*)},
-	{"addGlobalElementDeclAll", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalElementDeclAll, void, $XSElementDecl*)},
-	{"addGlobalGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalGroupDecl, void, $XSGroupDecl*)},
-	{"addGlobalGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalGroupDecl, void, $XSGroupDecl*, $String*)},
-	{"addGlobalNotationDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalNotationDecl, void, $XSNotationDecl*)},
-	{"addGlobalNotationDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalNotationDecl, void, $XSNotationDecl*, $String*)},
-	{"addGlobalSimpleTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalSimpleTypeDecl, void, $XSSimpleType*)},
-	{"addGlobalSimpleTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalSimpleTypeDecl, void, $XSSimpleType*, $String*)},
-	{"addGlobalTypeDecl", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalTypeDecl, void, $XSTypeDefinition*)},
-	{"addGlobalTypeDecl", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalTypeDecl, void, $XSTypeDefinition*, $String*)},
-	{"addRedefinedGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addRedefinedGroupDecl, void, $XSGroupDecl*, $XSGroupDecl*, $SimpleLocator*)},
-	{"createAnnotationElementDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createAnnotationElementDecl, $XSElementDecl*, $String*)},
-	{"createAnyLaxWildcardParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createAnyLaxWildcardParticle, $XSParticleDecl*)},
-	{"createChoiceElementParticle", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createChoiceElementParticle, $XSParticleDecl*, $XSElementDecl*)},
-	{"createUnboundedAnyWildcardSequenceParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createUnboundedAnyWildcardSequenceParticle, $XSParticleDecl*)},
-	{"createUnboundedModelGroupParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createUnboundedModelGroupParticle, $XSParticleDecl*)},
-	{"getDOMParser", "()Lcom/sun/org/apache/xerces/internal/parsers/DOMParser;", nullptr, $SYNCHRONIZED, $virtualMethod(SchemaGrammar$Schema4Annotations, getDOMParser, $DOMParser*)},
-	{"getGrammarDescription", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, getGrammarDescription, $XMLGrammarDescription*)},
-	{"getSAXParser", "()Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;", nullptr, $SYNCHRONIZED, $virtualMethod(SchemaGrammar$Schema4Annotations, getSAXParser, $SAXParser*)},
-	{"setImportedGrammars", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)V", $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, setImportedGrammars, void, $List*)},
-	{}
-};
-
-$InnerClassInfo _SchemaGrammar$Schema4Annotations_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$Schema4Annotations", "com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar", "Schema4Annotations", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SchemaGrammar$Schema4Annotations_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$Schema4Annotations",
-	"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar",
-	nullptr,
-	_SchemaGrammar$Schema4Annotations_FieldInfo_,
-	_SchemaGrammar$Schema4Annotations_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SchemaGrammar$Schema4Annotations_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar"
-};
-
-$Object* allocate$SchemaGrammar$Schema4Annotations($Class* clazz) {
-	return $of($alloc(SchemaGrammar$Schema4Annotations));
-}
-
 SchemaGrammar$Schema4Annotations* SchemaGrammar$Schema4Annotations::INSTANCE = nullptr;
 
 void SchemaGrammar$Schema4Annotations::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SchemaGrammar::init$();
 	$init($SchemaSymbols);
 	$set(this, fTargetNamespace, $SchemaSymbols::URI_SCHEMAFORSCHEMA);
 	$set(this, fGrammarDescription, $new($XSDDescription));
-	$nc(this->fGrammarDescription)->fContextType = $XSDDescription::CONTEXT_PREPARSE;
-	$nc(this->fGrammarDescription)->setNamespace($SchemaSymbols::URI_SCHEMAFORSCHEMA);
+	this->fGrammarDescription->fContextType = $XSDDescription::CONTEXT_PREPARSE;
+	this->fGrammarDescription->setNamespace($SchemaSymbols::URI_SCHEMAFORSCHEMA);
 	$set(this, fGlobalAttrDecls, $new($SymbolHash, 1));
 	$set(this, fGlobalAttrGrpDecls, $new($SymbolHash, 1));
 	$set(this, fGlobalElemDecls, $new($SymbolHash, 6));
@@ -202,30 +135,30 @@ void SchemaGrammar$Schema4Annotations::init$() {
 	$nc(this->fGlobalElemDecls)->put($nc(annotationDecl)->fName, annotationDecl);
 	$nc(this->fGlobalElemDecls)->put($nc(documentationDecl)->fName, documentationDecl);
 	$nc(this->fGlobalElemDecls)->put($nc(appinfoDecl)->fName, appinfoDecl);
-	$nc(this->fGlobalElemDeclsExt)->put($$str({","_s, $nc(annotationDecl)->fName}), annotationDecl);
-	$nc(this->fGlobalElemDeclsExt)->put($$str({","_s, $nc(documentationDecl)->fName}), documentationDecl);
-	$nc(this->fGlobalElemDeclsExt)->put($$str({","_s, $nc(appinfoDecl)->fName}), appinfoDecl);
+	$nc(this->fGlobalElemDeclsExt)->put($$str({","_s, annotationDecl->fName}), annotationDecl);
+	$nc(this->fGlobalElemDeclsExt)->put($$str({","_s, documentationDecl->fName}), documentationDecl);
+	$nc(this->fGlobalElemDeclsExt)->put($$str({","_s, appinfoDecl->fName}), appinfoDecl);
 	$nc(this->fAllGlobalElemDecls)->put(annotationDecl, annotationDecl);
 	$nc(this->fAllGlobalElemDecls)->put(documentationDecl, documentationDecl);
 	$nc(this->fAllGlobalElemDecls)->put(appinfoDecl, appinfoDecl);
 	$var($XSComplexTypeDecl, annotationType, $new($XSComplexTypeDecl));
 	$var($XSComplexTypeDecl, documentationType, $new($XSComplexTypeDecl));
 	$var($XSComplexTypeDecl, appinfoType, $new($XSComplexTypeDecl));
-	$set($nc(annotationDecl), fType, annotationType);
-	$set($nc(documentationDecl), fType, documentationType);
-	$set($nc(appinfoDecl), fType, appinfoType);
+	$set(annotationDecl, fType, annotationType);
+	$set(documentationDecl, fType, documentationType);
+	$set(appinfoDecl, fType, appinfoType);
 	$var($XSAttributeGroupDecl, annotationAttrs, $new($XSAttributeGroupDecl));
 	$var($XSAttributeGroupDecl, documentationAttrs, $new($XSAttributeGroupDecl));
 	$var($XSAttributeGroupDecl, appinfoAttrs, $new($XSAttributeGroupDecl));
 	{
 		$var($XSAttributeUseImpl, annotationIDAttr, $new($XSAttributeUseImpl));
 		$set(annotationIDAttr, fAttrDecl, $new($XSAttributeDecl));
-		$nc(annotationIDAttr->fAttrDecl)->setValues($SchemaSymbols::ATT_ID, nullptr, $cast($XSSimpleType, $($nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_ID))), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, annotationType, nullptr);
+		annotationIDAttr->fAttrDecl->setValues($SchemaSymbols::ATT_ID, nullptr, $$cast($XSSimpleType, $nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_ID)), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, annotationType, nullptr);
 		annotationIDAttr->fUse = $SchemaSymbols::USE_OPTIONAL;
 		annotationIDAttr->fConstraintType = $XSConstants::VC_NONE;
 		$var($XSAttributeUseImpl, documentationSourceAttr, $new($XSAttributeUseImpl));
 		$set(documentationSourceAttr, fAttrDecl, $new($XSAttributeDecl));
-		$nc(documentationSourceAttr->fAttrDecl)->setValues($SchemaSymbols::ATT_SOURCE, nullptr, $cast($XSSimpleType, $($nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_ANYURI))), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, documentationType, nullptr);
+		documentationSourceAttr->fAttrDecl->setValues($SchemaSymbols::ATT_SOURCE, nullptr, $$cast($XSSimpleType, $nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_ANYURI)), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, documentationType, nullptr);
 		documentationSourceAttr->fUse = $SchemaSymbols::USE_OPTIONAL;
 		documentationSourceAttr->fConstraintType = $XSConstants::VC_NONE;
 		$var($XSAttributeUseImpl, documentationLangAttr, $new($XSAttributeUseImpl));
@@ -233,18 +166,18 @@ void SchemaGrammar$Schema4Annotations::init$() {
 		$var($String, var$0, "lang"_s->intern());
 		$init($NamespaceContext);
 		$var($String, var$1, $NamespaceContext::XML_URI);
-		$nc(documentationLangAttr->fAttrDecl)->setValues(var$0, var$1, $cast($XSSimpleType, $($nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_LANGUAGE))), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, documentationType, nullptr);
+		documentationLangAttr->fAttrDecl->setValues(var$0, var$1, $$cast($XSSimpleType, $nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_LANGUAGE)), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, documentationType, nullptr);
 		documentationLangAttr->fUse = $SchemaSymbols::USE_OPTIONAL;
 		documentationLangAttr->fConstraintType = $XSConstants::VC_NONE;
 		$var($XSAttributeUseImpl, appinfoSourceAttr, $new($XSAttributeUseImpl));
 		$set(appinfoSourceAttr, fAttrDecl, $new($XSAttributeDecl));
-		$nc(appinfoSourceAttr->fAttrDecl)->setValues($SchemaSymbols::ATT_SOURCE, nullptr, $cast($XSSimpleType, $($nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_ANYURI))), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, appinfoType, nullptr);
+		appinfoSourceAttr->fAttrDecl->setValues($SchemaSymbols::ATT_SOURCE, nullptr, $$cast($XSSimpleType, $nc(this->fGlobalTypeDecls)->get($SchemaSymbols::ATTVAL_ANYURI)), $XSConstants::VC_NONE, $XSConstants::SCOPE_LOCAL, nullptr, appinfoType, nullptr);
 		appinfoSourceAttr->fUse = $SchemaSymbols::USE_OPTIONAL;
 		appinfoSourceAttr->fConstraintType = $XSConstants::VC_NONE;
 		$var($XSWildcardDecl, otherAttrs, $new($XSWildcardDecl));
 		$set(otherAttrs, fNamespaceList, $new($StringArray, {
 			this->fTargetNamespace,
-			($String*)nullptr
+			nullptr
 		}));
 		otherAttrs->fType = $XSWildcard::NSCONSTRAINT_NOT;
 		otherAttrs->fProcessContents = $XSWildcard::PC_LAX;
@@ -262,7 +195,7 @@ void SchemaGrammar$Schema4Annotations::init$() {
 		annotationChoice->fCompositor = $XSModelGroupImpl::MODELGROUP_CHOICE;
 		annotationChoice->fParticleCount = 2;
 		$set(annotationChoice, fParticles, $new($XSParticleDeclArray, 2));
-		$nc(annotationChoice->fParticles)->set(0, $(createChoiceElementParticle(appinfoDecl)));
+		annotationChoice->fParticles->set(0, $(createChoiceElementParticle(appinfoDecl)));
 		$nc(annotationChoice->fParticles)->set(1, $(createChoiceElementParticle(documentationDecl)));
 		$set($nc(annotationParticle), fValue, annotationChoice);
 	}
@@ -388,19 +321,19 @@ $XSParticleDecl* SchemaGrammar$Schema4Annotations::createChoiceElementParticle($
 }
 
 $XSParticleDecl* SchemaGrammar$Schema4Annotations::createUnboundedAnyWildcardSequenceParticle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSParticleDecl, particle, createUnboundedModelGroupParticle());
 	$var($XSModelGroupImpl, sequence, $new($XSModelGroupImpl));
 	sequence->fCompositor = $XSModelGroupImpl::MODELGROUP_SEQUENCE;
 	sequence->fParticleCount = 1;
 	$set(sequence, fParticles, $new($XSParticleDeclArray, 1));
-	$nc(sequence->fParticles)->set(0, $(createAnyLaxWildcardParticle()));
+	sequence->fParticles->set(0, $(createAnyLaxWildcardParticle()));
 	$set($nc(particle), fValue, sequence);
 	return particle;
 }
 
 $XSParticleDecl* SchemaGrammar$Schema4Annotations::createAnyLaxWildcardParticle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSParticleDecl, particle, $new($XSParticleDecl));
 	particle->fMinOccurs = 1;
 	particle->fMaxOccurs = 1;
@@ -413,7 +346,7 @@ $XSParticleDecl* SchemaGrammar$Schema4Annotations::createAnyLaxWildcardParticle(
 	return particle;
 }
 
-void clinit$SchemaGrammar$Schema4Annotations($Class* class$) {
+void SchemaGrammar$Schema4Annotations::clinit$($Class* clazz) {
 	$assignStatic(SchemaGrammar$Schema4Annotations::INSTANCE, $new(SchemaGrammar$Schema4Annotations));
 }
 
@@ -421,7 +354,65 @@ SchemaGrammar$Schema4Annotations::SchemaGrammar$Schema4Annotations() {
 }
 
 $Class* SchemaGrammar$Schema4Annotations::load$($String* name, bool initialize) {
-	$loadClass(SchemaGrammar$Schema4Annotations, name, initialize, &_SchemaGrammar$Schema4Annotations_ClassInfo_, clinit$SchemaGrammar$Schema4Annotations, allocate$SchemaGrammar$Schema4Annotations);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar$Schema4Annotations;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SchemaGrammar$Schema4Annotations, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, init$, void)},
+		{"addComplexTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addComplexTypeDecl, void, $XSComplexTypeDecl*, $SimpleLocator*)},
+		{"addDocument", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SchemaGrammar$Schema4Annotations, addDocument, void, Object$*, $String*)},
+		{"addGlobalAttributeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalAttributeDecl, void, $XSAttributeDecl*)},
+		{"addGlobalAttributeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SchemaGrammar$Schema4Annotations, addGlobalAttributeDecl, void, $XSAttributeGroupDecl*, $String*)},
+		{"addGlobalAttributeGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalAttributeGroupDecl, void, $XSAttributeGroupDecl*)},
+		{"addGlobalAttributeGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalAttributeGroupDecl, void, $XSAttributeGroupDecl*, $String*)},
+		{"addGlobalComplexTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalComplexTypeDecl, void, $XSComplexTypeDecl*)},
+		{"addGlobalComplexTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalComplexTypeDecl, void, $XSComplexTypeDecl*, $String*)},
+		{"addGlobalElementDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalElementDecl, void, $XSElementDecl*)},
+		{"addGlobalElementDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalElementDecl, void, $XSElementDecl*, $String*)},
+		{"addGlobalElementDeclAll", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalElementDeclAll, void, $XSElementDecl*)},
+		{"addGlobalGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalGroupDecl, void, $XSGroupDecl*)},
+		{"addGlobalGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalGroupDecl, void, $XSGroupDecl*, $String*)},
+		{"addGlobalNotationDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalNotationDecl, void, $XSNotationDecl*)},
+		{"addGlobalNotationDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSNotationDecl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalNotationDecl, void, $XSNotationDecl*, $String*)},
+		{"addGlobalSimpleTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalSimpleTypeDecl, void, $XSSimpleType*)},
+		{"addGlobalSimpleTypeDecl", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalSimpleTypeDecl, void, $XSSimpleType*, $String*)},
+		{"addGlobalTypeDecl", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalTypeDecl, void, $XSTypeDefinition*)},
+		{"addGlobalTypeDecl", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addGlobalTypeDecl, void, $XSTypeDefinition*, $String*)},
+		{"addRedefinedGroupDecl", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, addRedefinedGroupDecl, void, $XSGroupDecl*, $XSGroupDecl*, $SimpleLocator*)},
+		{"createAnnotationElementDecl", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createAnnotationElementDecl, $XSElementDecl*, $String*)},
+		{"createAnyLaxWildcardParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createAnyLaxWildcardParticle, $XSParticleDecl*)},
+		{"createChoiceElementParticle", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createChoiceElementParticle, $XSParticleDecl*, $XSElementDecl*)},
+		{"createUnboundedAnyWildcardSequenceParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createUnboundedAnyWildcardSequenceParticle, $XSParticleDecl*)},
+		{"createUnboundedModelGroupParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$Schema4Annotations, createUnboundedModelGroupParticle, $XSParticleDecl*)},
+		{"getDOMParser", "()Lcom/sun/org/apache/xerces/internal/parsers/DOMParser;", nullptr, $SYNCHRONIZED, $virtualMethod(SchemaGrammar$Schema4Annotations, getDOMParser, $DOMParser*)},
+		{"getGrammarDescription", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription;", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, getGrammarDescription, $XMLGrammarDescription*)},
+		{"getSAXParser", "()Lcom/sun/org/apache/xerces/internal/parsers/SAXParser;", nullptr, $SYNCHRONIZED, $virtualMethod(SchemaGrammar$Schema4Annotations, getSAXParser, $SAXParser*)},
+		{"setImportedGrammars", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;>;)V", $PUBLIC, $virtualMethod(SchemaGrammar$Schema4Annotations, setImportedGrammars, void, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$Schema4Annotations", "com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar", "Schema4Annotations", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$Schema4Annotations",
+		"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar"
+	};
+	$loadClass(SchemaGrammar$Schema4Annotations, name, initialize, &classInfo$$, SchemaGrammar$Schema4Annotations::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SchemaGrammar$Schema4Annotations));
+	});
 	return class$;
 }
 

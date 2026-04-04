@@ -29,6 +29,7 @@ class FingerPrint : public ::java::lang::Object {
 	$class(FingerPrint, 0, ::java::lang::Object)
 public:
 	FingerPrint();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* basename, $String* entryName, int32_t mrversion, $bytes* bytes);
 	$String* basename();
 	$String* className();

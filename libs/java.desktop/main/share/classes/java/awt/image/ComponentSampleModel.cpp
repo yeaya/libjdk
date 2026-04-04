@@ -1,5 +1,4 @@
 #include <java/awt/image/ComponentSampleModel.h>
-
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferByte.h>
 #include <java/awt/image/DataBufferDouble.h>
@@ -44,66 +43,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _ComponentSampleModel_FieldInfo_[] = {
-	{"bandOffsets", "[I", nullptr, $PROTECTED, $field(ComponentSampleModel, bandOffsets)},
-	{"bankIndices", "[I", nullptr, $PROTECTED, $field(ComponentSampleModel, bankIndices)},
-	{"numBands", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, numBands)},
-	{"numBanks", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, numBanks)},
-	{"scanlineStride", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, scanlineStride)},
-	{"pixelStride", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, pixelStride)},
-	{}
-};
-
-$MethodInfo _ComponentSampleModel_MethodInfo_[] = {
-	{"<init>", "(IIIII[I)V", nullptr, $PUBLIC, $method(ComponentSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"<init>", "(IIIII[I[I)V", nullptr, $PUBLIC, $method(ComponentSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $ints*)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
-	{"createDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, createDataBuffer, $DataBuffer*)},
-	{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, createSubsetSampleModel, $SampleModel*, $ints*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, equals, bool, Object$*)},
-	{"getBandOffsets", "()[I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getBandOffsets, $ints*)},
-	{"getBankIndices", "()[I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getBankIndices, $ints*)},
-	{"getBufferSize", "()I", nullptr, $PRIVATE, $method(ComponentSampleModel, getBufferSize, int32_t)},
-	{"getDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getDataElements, $Object*, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"getNumDataElements", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ComponentSampleModel, getNumDataElements, int32_t)},
-	{"getOffset", "(II)I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getOffset, int32_t, int32_t, int32_t)},
-	{"getOffset", "(III)I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getOffset, int32_t, int32_t, int32_t, int32_t)},
-	{"getPixel", "(II[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getPixel, $ints*, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getPixelStride", "()I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getPixelStride, int32_t)},
-	{"getPixels", "(IIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getSample", "(IIILjava/awt/image/DataBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSample, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"getSampleDouble", "(IIILjava/awt/image/DataBuffer;)D", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSampleDouble, double, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"getSampleFloat", "(IIILjava/awt/image/DataBuffer;)F", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSampleFloat, float, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"getSampleSize", "()[I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ComponentSampleModel, getSampleSize, $ints*)},
-	{"getSampleSize", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ComponentSampleModel, getSampleSize, int32_t, int32_t)},
-	{"getSamples", "(IIIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getScanlineStride", "()I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getScanlineStride, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, hashCode, int32_t)},
-	{"orderBands", "([II)[I", nullptr, 0, $virtualMethod(ComponentSampleModel, orderBands, $ints*, $ints*, int32_t)},
-	{"setDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setDataElements, void, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"setPixel", "(II[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setPixel, void, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"setPixels", "(IIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"setSample", "(IIIILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSample, void, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"setSample", "(IIIFLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSample, void, int32_t, int32_t, int32_t, float, $DataBuffer*)},
-	{"setSample", "(IIIDLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSample, void, int32_t, int32_t, int32_t, double, $DataBuffer*)},
-	{"setSamples", "(IIIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"verify", "()V", nullptr, $PRIVATE, $method(ComponentSampleModel, verify, void)},
-	{}
-};
-
-$ClassInfo _ComponentSampleModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.ComponentSampleModel",
-	"java.awt.image.SampleModel",
-	nullptr,
-	_ComponentSampleModel_FieldInfo_,
-	_ComponentSampleModel_MethodInfo_
-};
-
-$Object* allocate$ComponentSampleModel($Class* clazz) {
-	return $of($alloc(ComponentSampleModel));
-}
-
 void ComponentSampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t pixelStride, int32_t scanlineStride, $ints* bandOffsets) {
 	$SampleModel::init$(dataType, w, h, $nc(bandOffsets)->length);
 	this->numBands = 1;
@@ -111,8 +50,8 @@ void ComponentSampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t
 	this->dataType = dataType;
 	this->pixelStride = pixelStride;
 	this->scanlineStride = scanlineStride;
-	$set(this, bandOffsets, $cast($ints, $nc(bandOffsets)->clone()));
-	this->numBands = $nc(this->bandOffsets)->length;
+	$set(this, bandOffsets, $cast($ints, bandOffsets->clone()));
+	this->numBands = this->bandOffsets->length;
 	if (pixelStride < 0) {
 		$throwNew($IllegalArgumentException, "Pixel stride must be >= 0"_s);
 	}
@@ -124,22 +63,22 @@ void ComponentSampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t
 	}
 	$set(this, bankIndices, $new($ints, this->numBands));
 	for (int32_t i = 0; i < this->numBands; ++i) {
-		$nc(this->bankIndices)->set(i, 0);
+		this->bankIndices->set(i, 0);
 	}
 	verify();
 }
 
 void ComponentSampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t pixelStride, int32_t scanlineStride, $ints* bankIndices, $ints* bandOffsets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SampleModel::init$(dataType, w, h, $nc(bandOffsets)->length);
 	this->numBands = 1;
 	this->numBanks = 1;
 	this->dataType = dataType;
 	this->pixelStride = pixelStride;
 	this->scanlineStride = scanlineStride;
-	$set(this, bandOffsets, $cast($ints, $nc(bandOffsets)->clone()));
+	$set(this, bandOffsets, $cast($ints, bandOffsets->clone()));
 	$set(this, bankIndices, $cast($ints, $nc(bankIndices)->clone()));
-	if ($nc(this->bandOffsets)->length != $nc(this->bankIndices)->length) {
+	if (this->bandOffsets->length != this->bankIndices->length) {
 		$throwNew($IllegalArgumentException, "Length of bandOffsets must equal length of bankIndices."_s);
 	}
 	if (pixelStride < 0) {
@@ -151,19 +90,19 @@ void ComponentSampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t
 	if ((dataType < $DataBuffer::TYPE_BYTE) || (dataType > $DataBuffer::TYPE_DOUBLE)) {
 		$throwNew($IllegalArgumentException, "Unsupported dataType."_s);
 	}
-	int32_t maxBank = $nc(this->bankIndices)->get(0);
+	int32_t maxBank = this->bankIndices->get(0);
 	if (maxBank < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Index of bank 0 is less than 0 ("_s, $$str(maxBank), ")"_s}));
 	}
-	for (int32_t i = 1; i < $nc(this->bankIndices)->length; ++i) {
-		if ($nc(this->bankIndices)->get(i) > maxBank) {
-			maxBank = $nc(this->bankIndices)->get(i);
-		} else if ($nc(this->bankIndices)->get(i) < 0) {
+	for (int32_t i = 1; i < this->bankIndices->length; ++i) {
+		if (this->bankIndices->get(i) > maxBank) {
+			maxBank = this->bankIndices->get(i);
+		} else if (this->bankIndices->get(i) < 0) {
 			$throwNew($IllegalArgumentException, $$str({"Index of bank "_s, $$str(i), " is less than 0 ("_s, $$str(maxBank), ")"_s}));
 		}
 	}
 	this->numBanks = maxBank + 1;
-	this->numBands = $nc(this->bandOffsets)->length;
+	this->numBands = this->bandOffsets->length;
 	verify();
 }
 
@@ -173,8 +112,8 @@ void ComponentSampleModel::verify() {
 
 int32_t ComponentSampleModel::getBufferSize() {
 	int32_t maxBandOff = $nc(this->bandOffsets)->get(0);
-	for (int32_t i = 1; i < $nc(this->bandOffsets)->length; ++i) {
-		maxBandOff = $Math::max(maxBandOff, $nc(this->bandOffsets)->get(i));
+	for (int32_t i = 1; i < this->bandOffsets->length; ++i) {
+		maxBandOff = $Math::max(maxBandOff, this->bandOffsets->get(i));
 	}
 	if (maxBandOff < 0 || maxBandOff > ($Integer::MAX_VALUE - 1)) {
 		$throwNew($IllegalArgumentException, "Invalid band offset"_s);
@@ -200,7 +139,7 @@ int32_t ComponentSampleModel::getBufferSize() {
 }
 
 $ints* ComponentSampleModel::orderBands($ints* orig, int32_t step) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, map, $new($ints, $nc(orig)->length));
 	$var($ints, ret, $new($ints, orig->length));
 	for (int32_t i = 0; i < map->length; ++i) {
@@ -220,17 +159,17 @@ $ints* ComponentSampleModel::orderBands($ints* orig, int32_t step) {
 }
 
 $SampleModel* ComponentSampleModel::createCompatibleSampleModel(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, ret, nullptr);
 	int64_t size = 0;
 	int32_t minBandOff = $nc(this->bandOffsets)->get(0);
-	int32_t maxBandOff = $nc(this->bandOffsets)->get(0);
-	for (int32_t i = 1; i < $nc(this->bandOffsets)->length; ++i) {
-		minBandOff = $Math::min(minBandOff, $nc(this->bandOffsets)->get(i));
-		maxBandOff = $Math::max(maxBandOff, $nc(this->bandOffsets)->get(i));
+	int32_t maxBandOff = this->bandOffsets->get(0);
+	for (int32_t i = 1; i < this->bandOffsets->length; ++i) {
+		minBandOff = $Math::min(minBandOff, this->bandOffsets->get(i));
+		maxBandOff = $Math::max(maxBandOff, this->bandOffsets->get(i));
 	}
 	maxBandOff -= minBandOff;
-	int32_t bands = $nc(this->bandOffsets)->length;
+	int32_t bands = this->bandOffsets->length;
 	$var($ints, bandOff, nullptr);
 	int32_t pStride = $Math::abs(this->pixelStride);
 	int32_t lStride = $Math::abs(this->scanlineStride);
@@ -238,9 +177,9 @@ $SampleModel* ComponentSampleModel::createCompatibleSampleModel(int32_t w, int32
 	if (pStride > lStride) {
 		if (pStride > bStride) {
 			if (lStride > bStride) {
-				$assign(bandOff, $new($ints, $nc(this->bandOffsets)->length));
+				$assign(bandOff, $new($ints, this->bandOffsets->length));
 				for (int32_t i = 0; i < bands; ++i) {
-					bandOff->set(i, $nc(this->bandOffsets)->get(i) - minBandOff);
+					bandOff->set(i, this->bandOffsets->get(i) - minBandOff);
 				}
 				lStride = bStride + 1;
 				pStride = lStride * h;
@@ -255,7 +194,7 @@ $SampleModel* ComponentSampleModel::createCompatibleSampleModel(int32_t w, int32
 	} else if (pStride > bStride) {
 		$assign(bandOff, $new($ints, $nc(this->bandOffsets)->length));
 		for (int32_t i = 0; i < bands; ++i) {
-			bandOff->set(i, $nc(this->bandOffsets)->get(i) - minBandOff);
+			bandOff->set(i, this->bandOffsets->get(i) - minBandOff);
 		}
 		pStride = bStride + 1;
 		lStride = pStride * w;
@@ -282,14 +221,14 @@ $SampleModel* ComponentSampleModel::createCompatibleSampleModel(int32_t w, int32
 }
 
 $SampleModel* ComponentSampleModel::createSubsetSampleModel($ints* bands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(bands)->length > $nc(this->bankIndices)->length) {
-		$throwNew($RasterFormatException, $$str({"There are only "_s, $$str($nc(this->bankIndices)->length), " bands"_s}));
+		$throwNew($RasterFormatException, $$str({"There are only "_s, $$str(this->bankIndices->length), " bands"_s}));
 	}
-	$var($ints, newBankIndices, $new($ints, $nc(bands)->length));
+	$var($ints, newBankIndices, $new($ints, bands->length));
 	$var($ints, newBandOffsets, $new($ints, bands->length));
 	for (int32_t i = 0; i < bands->length; ++i) {
-		newBankIndices->set(i, $nc(this->bankIndices)->get(bands->get(i)));
+		newBankIndices->set(i, this->bankIndices->get(bands->get(i)));
 		newBandOffsets->set(i, $nc(this->bandOffsets)->get(bands->get(i)));
 	}
 	return $new(ComponentSampleModel, this->dataType, this->width, this->height, this->pixelStride, this->scanlineStride, newBankIndices, newBandOffsets);
@@ -300,35 +239,23 @@ $DataBuffer* ComponentSampleModel::createDataBuffer() {
 	int32_t size = getBufferSize();
 	switch (this->dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			$assign(dataBuffer, $new($DataBufferByte, size, this->numBanks));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferByte, size, this->numBanks));
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			$assign(dataBuffer, $new($DataBufferUShort, size, this->numBanks));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferUShort, size, this->numBanks));
+		break;
 	case $DataBuffer::TYPE_SHORT:
-		{
-			$assign(dataBuffer, $new($DataBufferShort, size, this->numBanks));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferShort, size, this->numBanks));
+		break;
 	case $DataBuffer::TYPE_INT:
-		{
-			$assign(dataBuffer, $new($DataBufferInt, size, this->numBanks));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferInt, size, this->numBanks));
+		break;
 	case $DataBuffer::TYPE_FLOAT:
-		{
-			$assign(dataBuffer, $new($DataBufferFloat, size, this->numBanks));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferFloat, size, this->numBanks));
+		break;
 	case $DataBuffer::TYPE_DOUBLE:
-		{
-			$assign(dataBuffer, $new($DataBufferDouble, size, this->numBanks));
-			break;
-		}
+		$assign(dataBuffer, $new($DataBufferDouble, size, this->numBanks));
+		break;
 	}
 	return dataBuffer;
 }
@@ -377,7 +304,7 @@ int32_t ComponentSampleModel::getNumDataElements() {
 }
 
 $Object* ComponentSampleModel::getDataElements(int32_t x, int32_t y, Object$* obj$renamed, $DataBuffer* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, obj$renamed);
 	if ((x < 0) || (y < 0) || (x >= this->width) || (y >= this->height)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
@@ -386,79 +313,68 @@ $Object* ComponentSampleModel::getDataElements(int32_t x, int32_t y, Object$* ob
 	int32_t numDataElems = getNumDataElements();
 	int32_t pixelOffset = y * this->scanlineStride + x * this->pixelStride;
 	{
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($ints, idata, nullptr)
-		$var($floats, fdata, nullptr)
-		$var($doubles, ddata, nullptr)
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($ints, idata, nullptr);
+		$var($floats, fdata, nullptr);
+		$var($doubles, ddata, nullptr);
 		switch (type) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if (obj == nullptr) {
-					$assign(bdata, $new($bytes, numDataElems));
-				} else {
-					$assign(bdata, $cast($bytes, obj));
-				}
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(bdata)->set(i, (int8_t)$nc(data)->getElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
-				}
-				$assign(obj, $of(bdata));
-				break;
+			if (obj == nullptr) {
+				$assign(bdata, $new($bytes, numDataElems));
+			} else {
+				$assign(bdata, $cast($bytes, obj));
 			}
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(bdata)->set(i, (int8_t)$nc(data)->getElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
+			}
+			$assign(obj, $of(bdata));
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{}
 		case $DataBuffer::TYPE_SHORT:
-			{
-				if (obj == nullptr) {
-					$assign(sdata, $new($shorts, numDataElems));
-				} else {
-					$assign(sdata, $cast($shorts, obj));
-				}
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(sdata)->set(i, (int16_t)$nc(data)->getElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
-				}
-				$assign(obj, $of(sdata));
-				break;
+			if (obj == nullptr) {
+				$assign(sdata, $new($shorts, numDataElems));
+			} else {
+				$assign(sdata, $cast($shorts, obj));
 			}
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(sdata)->set(i, (int16_t)$nc(data)->getElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
+			}
+			$assign(obj, $of(sdata));
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				if (obj == nullptr) {
-					$assign(idata, $new($ints, numDataElems));
-				} else {
-					$assign(idata, $cast($ints, obj));
-				}
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(idata)->set(i, $nc(data)->getElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
-				}
-				$assign(obj, $of(idata));
-				break;
+			if (obj == nullptr) {
+				$assign(idata, $new($ints, numDataElems));
+			} else {
+				$assign(idata, $cast($ints, obj));
 			}
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(idata)->set(i, $nc(data)->getElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
+			}
+			$assign(obj, $of(idata));
+			break;
 		case $DataBuffer::TYPE_FLOAT:
-			{
-				if (obj == nullptr) {
-					$assign(fdata, $new($floats, numDataElems));
-				} else {
-					$assign(fdata, $cast($floats, obj));
-				}
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(fdata)->set(i, $nc(data)->getElemFloat($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
-				}
-				$assign(obj, $of(fdata));
-				break;
+			if (obj == nullptr) {
+				$assign(fdata, $new($floats, numDataElems));
+			} else {
+				$assign(fdata, $cast($floats, obj));
 			}
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(fdata)->set(i, $nc(data)->getElemFloat($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
+			}
+			$assign(obj, $of(fdata));
+			break;
 		case $DataBuffer::TYPE_DOUBLE:
-			{
-				if (obj == nullptr) {
-					$assign(ddata, $new($doubles, numDataElems));
-				} else {
-					$assign(ddata, $cast($doubles, obj));
-				}
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(ddata)->set(i, $nc(data)->getElemDouble($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
-				}
-				$assign(obj, $of(ddata));
-				break;
+			if (obj == nullptr) {
+				$assign(ddata, $new($doubles, numDataElems));
+			} else {
+				$assign(ddata, $cast($doubles, obj));
 			}
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(ddata)->set(i, $nc(data)->getElemDouble($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i)));
+			}
+			$assign(obj, $of(ddata));
+			break;
 		}
 	}
 	return $of(obj);
@@ -556,7 +472,7 @@ $ints* ComponentSampleModel::getSamples(int32_t x, int32_t y, int32_t w, int32_t
 }
 
 void ComponentSampleModel::setDataElements(int32_t x, int32_t y, Object$* obj, $DataBuffer* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((x < 0) || (y < 0) || (x >= this->width) || (y >= this->height)) {
 		$throwNew($ArrayIndexOutOfBoundsException, "Coordinate out of bounds!"_s);
 	}
@@ -564,54 +480,43 @@ void ComponentSampleModel::setDataElements(int32_t x, int32_t y, Object$* obj, $
 	int32_t numDataElems = getNumDataElements();
 	int32_t pixelOffset = y * this->scanlineStride + x * this->pixelStride;
 	{
-		$var($bytes, barray, nullptr)
-		$var($shorts, sarray, nullptr)
-		$var($ints, iarray, nullptr)
-		$var($floats, farray, nullptr)
-		$var($doubles, darray, nullptr)
+		$var($bytes, barray, nullptr);
+		$var($shorts, sarray, nullptr);
+		$var($ints, iarray, nullptr);
+		$var($floats, farray, nullptr);
+		$var($doubles, darray, nullptr);
 		switch (type) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(barray, $cast($bytes, obj));
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(data)->setElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), (int32_t)(((int32_t)$nc(barray)->get(i)) & (uint32_t)255));
-				}
-				break;
+			$assign(barray, $cast($bytes, obj));
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(data)->setElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), ((int32_t)$nc(barray)->get(i)) & 0xff);
 			}
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{}
 		case $DataBuffer::TYPE_SHORT:
-			{
-				$assign(sarray, $cast($shorts, obj));
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(data)->setElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), (int32_t)(((int32_t)$nc(sarray)->get(i)) & (uint32_t)0x0000FFFF));
-				}
-				break;
+			$assign(sarray, $cast($shorts, obj));
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(data)->setElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), ((int32_t)$nc(sarray)->get(i)) & 0xffff);
 			}
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(iarray, $cast($ints, obj));
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(data)->setElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), $nc(iarray)->get(i));
-				}
-				break;
+			$assign(iarray, $cast($ints, obj));
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(data)->setElem($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), $nc(iarray)->get(i));
 			}
+			break;
 		case $DataBuffer::TYPE_FLOAT:
-			{
-				$assign(farray, $cast($floats, obj));
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(data)->setElemFloat($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), $nc(farray)->get(i));
-				}
-				break;
+			$assign(farray, $cast($floats, obj));
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(data)->setElemFloat($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), $nc(farray)->get(i));
 			}
+			break;
 		case $DataBuffer::TYPE_DOUBLE:
-			{
-				$assign(darray, $cast($doubles, obj));
-				for (int32_t i = 0; i < numDataElems; ++i) {
-					$nc(data)->setElemDouble($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), $nc(darray)->get(i));
-				}
-				break;
+			$assign(darray, $cast($doubles, obj));
+			for (int32_t i = 0; i < numDataElems; ++i) {
+				$nc(data)->setElemDouble($nc(this->bankIndices)->get(i), pixelOffset + $nc(this->bandOffsets)->get(i), $nc(darray)->get(i));
 			}
+			break;
 		}
 	}
 }
@@ -703,11 +608,11 @@ int32_t ComponentSampleModel::hashCode() {
 	hash ^= this->dataType;
 	hash <<= 8;
 	for (int32_t i = 0; i < $nc(this->bandOffsets)->length; ++i) {
-		hash ^= $nc(this->bandOffsets)->get(i);
+		hash ^= this->bandOffsets->get(i);
 		hash <<= 8;
 	}
 	for (int32_t i = 0; i < $nc(this->bankIndices)->length; ++i) {
-		hash ^= $nc(this->bankIndices)->get(i);
+		hash ^= this->bankIndices->get(i);
 		hash <<= 8;
 	}
 	hash ^= this->numBanks;
@@ -722,7 +627,62 @@ ComponentSampleModel::ComponentSampleModel() {
 }
 
 $Class* ComponentSampleModel::load$($String* name, bool initialize) {
-	$loadClass(ComponentSampleModel, name, initialize, &_ComponentSampleModel_ClassInfo_, allocate$ComponentSampleModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"bandOffsets", "[I", nullptr, $PROTECTED, $field(ComponentSampleModel, bandOffsets)},
+		{"bankIndices", "[I", nullptr, $PROTECTED, $field(ComponentSampleModel, bankIndices)},
+		{"numBands", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, numBands)},
+		{"numBanks", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, numBanks)},
+		{"scanlineStride", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, scanlineStride)},
+		{"pixelStride", "I", nullptr, $PROTECTED, $field(ComponentSampleModel, pixelStride)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIII[I)V", nullptr, $PUBLIC, $method(ComponentSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"<init>", "(IIIII[I[I)V", nullptr, $PUBLIC, $method(ComponentSampleModel, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $ints*)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, createCompatibleSampleModel, $SampleModel*, int32_t, int32_t)},
+		{"createDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, createDataBuffer, $DataBuffer*)},
+		{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, createSubsetSampleModel, $SampleModel*, $ints*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, equals, bool, Object$*)},
+		{"getBandOffsets", "()[I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getBandOffsets, $ints*)},
+		{"getBankIndices", "()[I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getBankIndices, $ints*)},
+		{"getBufferSize", "()I", nullptr, $PRIVATE, $method(ComponentSampleModel, getBufferSize, int32_t)},
+		{"getDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getDataElements, $Object*, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"getNumDataElements", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ComponentSampleModel, getNumDataElements, int32_t)},
+		{"getOffset", "(II)I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getOffset, int32_t, int32_t, int32_t)},
+		{"getOffset", "(III)I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getOffset, int32_t, int32_t, int32_t, int32_t)},
+		{"getPixel", "(II[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getPixel, $ints*, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getPixelStride", "()I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getPixelStride, int32_t)},
+		{"getPixels", "(IIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getSample", "(IIILjava/awt/image/DataBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSample, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"getSampleDouble", "(IIILjava/awt/image/DataBuffer;)D", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSampleDouble, double, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"getSampleFloat", "(IIILjava/awt/image/DataBuffer;)F", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSampleFloat, float, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"getSampleSize", "()[I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ComponentSampleModel, getSampleSize, $ints*)},
+		{"getSampleSize", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ComponentSampleModel, getSampleSize, int32_t, int32_t)},
+		{"getSamples", "(IIIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getScanlineStride", "()I", nullptr, $PUBLIC | $FINAL, $method(ComponentSampleModel, getScanlineStride, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, hashCode, int32_t)},
+		{"orderBands", "([II)[I", nullptr, 0, $virtualMethod(ComponentSampleModel, orderBands, $ints*, $ints*, int32_t)},
+		{"setDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setDataElements, void, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"setPixel", "(II[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setPixel, void, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"setPixels", "(IIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"setSample", "(IIIILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSample, void, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"setSample", "(IIIFLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSample, void, int32_t, int32_t, int32_t, float, $DataBuffer*)},
+		{"setSample", "(IIIDLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSample, void, int32_t, int32_t, int32_t, double, $DataBuffer*)},
+		{"setSamples", "(IIIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ComponentSampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"verify", "()V", nullptr, $PRIVATE, $method(ComponentSampleModel, verify, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.ComponentSampleModel",
+		"java.awt.image.SampleModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComponentSampleModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentSampleModel);
+	});
 	return class$;
 }
 

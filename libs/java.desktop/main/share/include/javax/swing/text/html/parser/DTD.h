@@ -50,6 +50,7 @@ class $import DTD : public ::javax::swing::text::html::parser::DTDConstants {
 	$class(DTD, 0, ::javax::swing::text::html::parser::DTDConstants)
 public:
 	DTD();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual ::javax::swing::text::html::parser::AttributeList* defAttributeList($String* name, int32_t type, int32_t modifier, $String* value, $String* values, ::javax::swing::text::html::parser::AttributeList* atts);
 	virtual ::javax::swing::text::html::parser::ContentModel* defContentModel(int32_t type, Object$* obj, ::javax::swing::text::html::parser::ContentModel* next);

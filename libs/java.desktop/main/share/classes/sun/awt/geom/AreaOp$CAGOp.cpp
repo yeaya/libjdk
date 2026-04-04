@@ -1,5 +1,4 @@
 #include <sun/awt/geom/AreaOp$CAGOp.h>
-
 #include <sun/awt/geom/AreaOp.h>
 #include <sun/awt/geom/Edge.h>
 #include <jcpp.h>
@@ -21,47 +20,6 @@ using $Edge = ::sun::awt::geom::Edge;
 namespace sun {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _AreaOp$CAGOp_FieldInfo_[] = {
-	{"inLeft", "Z", nullptr, 0, $field(AreaOp$CAGOp, inLeft)},
-	{"inRight", "Z", nullptr, 0, $field(AreaOp$CAGOp, inRight)},
-	{"inResult", "Z", nullptr, 0, $field(AreaOp$CAGOp, inResult)},
-	{}
-};
-
-$MethodInfo _AreaOp$CAGOp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AreaOp$CAGOp, init$, void)},
-	{"classify", "(Lsun/awt/geom/Edge;)I", nullptr, $PUBLIC, $virtualMethod(AreaOp$CAGOp, classify, int32_t, $Edge*)},
-	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(AreaOp$CAGOp, getState, int32_t)},
-	{"newClassification", "(ZZ)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp$CAGOp, newClassification, bool, bool, bool)},
-	{"newRow", "()V", nullptr, $PUBLIC, $virtualMethod(AreaOp$CAGOp, newRow, void)},
-	{}
-};
-
-$InnerClassInfo _AreaOp$CAGOp_InnerClassesInfo_[] = {
-	{"sun.awt.geom.AreaOp$CAGOp", "sun.awt.geom.AreaOp", "CAGOp", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AreaOp$CAGOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.geom.AreaOp$CAGOp",
-	"sun.awt.geom.AreaOp",
-	nullptr,
-	_AreaOp$CAGOp_FieldInfo_,
-	_AreaOp$CAGOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AreaOp$CAGOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.geom.AreaOp"
-};
-
-$Object* allocate$AreaOp$CAGOp($Class* clazz) {
-	return $of($alloc(AreaOp$CAGOp));
-}
 
 void AreaOp$CAGOp::init$() {
 	$AreaOp::init$();
@@ -95,7 +53,42 @@ AreaOp$CAGOp::AreaOp$CAGOp() {
 }
 
 $Class* AreaOp$CAGOp::load$($String* name, bool initialize) {
-	$loadClass(AreaOp$CAGOp, name, initialize, &_AreaOp$CAGOp_ClassInfo_, allocate$AreaOp$CAGOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"inLeft", "Z", nullptr, 0, $field(AreaOp$CAGOp, inLeft)},
+		{"inRight", "Z", nullptr, 0, $field(AreaOp$CAGOp, inRight)},
+		{"inResult", "Z", nullptr, 0, $field(AreaOp$CAGOp, inResult)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AreaOp$CAGOp, init$, void)},
+		{"classify", "(Lsun/awt/geom/Edge;)I", nullptr, $PUBLIC, $virtualMethod(AreaOp$CAGOp, classify, int32_t, $Edge*)},
+		{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(AreaOp$CAGOp, getState, int32_t)},
+		{"newClassification", "(ZZ)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AreaOp$CAGOp, newClassification, bool, bool, bool)},
+		{"newRow", "()V", nullptr, $PUBLIC, $virtualMethod(AreaOp$CAGOp, newRow, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.geom.AreaOp$CAGOp", "sun.awt.geom.AreaOp", "CAGOp", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.geom.AreaOp$CAGOp",
+		"sun.awt.geom.AreaOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.geom.AreaOp"
+	};
+	$loadClass(AreaOp$CAGOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AreaOp$CAGOp);
+	});
 	return class$;
 }
 

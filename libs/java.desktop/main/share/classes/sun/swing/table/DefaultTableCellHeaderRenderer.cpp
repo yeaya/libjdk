@@ -1,5 +1,4 @@
 #include <sun/swing/table/DefaultTableCellHeaderRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/util/List.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/RowSorter$SortKey.h>
@@ -42,10 +40,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
-using $RowSorter = ::javax::swing::RowSorter;
 using $RowSorter$SortKey = ::javax::swing::RowSorter$SortKey;
 using $SortOrder = ::javax::swing::SortOrder;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -59,53 +55,6 @@ using $DefaultTableCellHeaderRenderer$EmptyIcon = ::sun::swing::table::DefaultTa
 namespace sun {
 	namespace swing {
 		namespace table {
-
-$FieldInfo _DefaultTableCellHeaderRenderer_FieldInfo_[] = {
-	{"horizontalTextPositionSet", "Z", nullptr, $PRIVATE, $field(DefaultTableCellHeaderRenderer, horizontalTextPositionSet)},
-	{"sortArrow", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(DefaultTableCellHeaderRenderer, sortArrow)},
-	{"emptyIcon", "Lsun/swing/table/DefaultTableCellHeaderRenderer$EmptyIcon;", nullptr, $PRIVATE, $field(DefaultTableCellHeaderRenderer, emptyIcon)},
-	{}
-};
-
-$MethodInfo _DefaultTableCellHeaderRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableCellHeaderRenderer, init$, void)},
-	{"computeIconPosition", "(Ljava/awt/Graphics;)Ljava/awt/Point;", nullptr, $PRIVATE, $method(DefaultTableCellHeaderRenderer, computeIconPosition, $Point*, $Graphics*)},
-	{"getColumnSortOrder", "(Ljavax/swing/JTable;I)Ljavax/swing/SortOrder;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultTableCellHeaderRenderer, getColumnSortOrder, $SortOrder*, $JTable*, int32_t)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer, paintComponent, void, $Graphics*)},
-	{"setHorizontalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer, setHorizontalTextPosition, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DefaultTableCellHeaderRenderer_InnerClassesInfo_[] = {
-	{"sun.swing.table.DefaultTableCellHeaderRenderer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon", "sun.swing.table.DefaultTableCellHeaderRenderer", "EmptyIcon", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DefaultTableCellHeaderRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.table.DefaultTableCellHeaderRenderer",
-	"javax.swing.table.DefaultTableCellRenderer",
-	"javax.swing.plaf.UIResource",
-	_DefaultTableCellHeaderRenderer_FieldInfo_,
-	_DefaultTableCellHeaderRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultTableCellHeaderRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.table.DefaultTableCellHeaderRenderer$1,sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon"
-};
-
-$Object* allocate$DefaultTableCellHeaderRenderer($Class* clazz) {
-	return $of($alloc(DefaultTableCellHeaderRenderer));
-}
 
 $String* DefaultTableCellHeaderRenderer::toString() {
 	 return this->$DefaultTableCellRenderer::toString();
@@ -139,7 +88,7 @@ void DefaultTableCellHeaderRenderer::setHorizontalTextPosition(int32_t textPosit
 }
 
 $Component* DefaultTableCellHeaderRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, sortIcon, nullptr);
 	bool isPaintingForPrint = false;
 	if (table != nullptr) {
@@ -171,25 +120,19 @@ $Component* DefaultTableCellHeaderRenderer::getTableCellRendererComponent($JTabl
 				$init($DefaultTableCellHeaderRenderer$1);
 				switch ($nc($DefaultTableCellHeaderRenderer$1::$SwitchMap$javax$swing$SortOrder)->get((sortOrder)->ordinal())) {
 				case 1:
-					{
-						$assign(sortIcon, $DefaultLookup::getIcon(this, this->ui, "Table.ascendingSortIcon"_s));
-						break;
-					}
+					$assign(sortIcon, $DefaultLookup::getIcon(this, this->ui, "Table.ascendingSortIcon"_s));
+					break;
 				case 2:
-					{
-						$assign(sortIcon, $DefaultLookup::getIcon(this, this->ui, "Table.descendingSortIcon"_s));
-						break;
-					}
+					$assign(sortIcon, $DefaultLookup::getIcon(this, this->ui, "Table.descendingSortIcon"_s));
+					break;
 				case 3:
-					{
-						$assign(sortIcon, $DefaultLookup::getIcon(this, this->ui, "Table.naturalSortIcon"_s));
-						break;
-					}
+					$assign(sortIcon, $DefaultLookup::getIcon(this, this->ui, "Table.naturalSortIcon"_s));
+					break;
 				}
 			}
 		}
 	}
-	setText(value == nullptr ? ""_s : $($nc($of(value))->toString()));
+	setText(value == nullptr ? ""_s : $($of(value)->toString()));
 	setIcon(sortIcon);
 	$set(this, sortArrow, sortIcon);
 	$var($Border, border, nullptr);
@@ -205,19 +148,19 @@ $Component* DefaultTableCellHeaderRenderer::getTableCellRendererComponent($JTabl
 
 $SortOrder* DefaultTableCellHeaderRenderer::getColumnSortOrder($JTable* table, int32_t column) {
 	$init(DefaultTableCellHeaderRenderer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SortOrder* rv = nullptr;
-	if (table == nullptr || $nc(table)->getRowSorter() == nullptr) {
+	if (table == nullptr || table->getRowSorter() == nullptr) {
 		return rv;
 	}
-	$var($List, sortKeys, $nc($($nc(table)->getRowSorter()))->getSortKeys());
+	$var($List, sortKeys, $$nc($nc(table)->getRowSorter())->getSortKeys());
 	bool var$0 = $nc(sortKeys)->size() > 0;
 	if (var$0) {
-		int32_t var$1 = $nc(($cast($RowSorter$SortKey, $(sortKeys->get(0)))))->getColumn();
+		int32_t var$1 = $$sure($RowSorter$SortKey, sortKeys->get(0))->getColumn();
 		var$0 = var$1 == table->convertColumnIndexToModel(column);
 	}
 	if (var$0) {
-		rv = $nc(($cast($RowSorter$SortKey, $(sortKeys->get(0)))))->getSortOrder();
+		rv = $$sure($RowSorter$SortKey, sortKeys->get(0))->getSortOrder();
 	}
 	return rv;
 }
@@ -225,19 +168,19 @@ $SortOrder* DefaultTableCellHeaderRenderer::getColumnSortOrder($JTable* table, i
 void DefaultTableCellHeaderRenderer::paintComponent($Graphics* g) {
 	bool b = $DefaultLookup::getBoolean(this, this->ui, "TableHeader.rightAlignSortArrow"_s, false);
 	if (b && this->sortArrow != nullptr) {
-		$nc(this->emptyIcon)->width = $nc(this->sortArrow)->getIconWidth();
+		$nc(this->emptyIcon)->width = this->sortArrow->getIconWidth();
 		$nc(this->emptyIcon)->height = $nc(this->sortArrow)->getIconHeight();
 		setIcon(this->emptyIcon);
 		$DefaultTableCellRenderer::paintComponent(g);
 		$var($Point, position, computeIconPosition(g));
-		$nc(this->sortArrow)->paintIcon(this, g, $nc(position)->x, position->y);
+		$nc(this->sortArrow)->paintIcon(this, g, $nc(position)->x, $nc(position)->y);
 	} else {
 		$DefaultTableCellRenderer::paintComponent(g);
 	}
 }
 
 $Point* DefaultTableCellHeaderRenderer::computeIconPosition($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fontMetrics, $nc(g)->getFontMetrics());
 	$var($Rectangle, viewR, $new($Rectangle));
 	$var($Rectangle, textR, $new($Rectangle));
@@ -247,19 +190,15 @@ $Point* DefaultTableCellHeaderRenderer::computeIconPosition($Graphics* g) {
 	viewR->y = i->top;
 	viewR->width = getWidth() - (i->left + i->right);
 	viewR->height = getHeight() - (i->top + i->bottom);
-	$var($FontMetrics, var$0, fontMetrics);
-	$var($String, var$1, getText());
-	$var($Icon, var$2, this->sortArrow);
-	int32_t var$3 = getVerticalAlignment();
-	int32_t var$4 = getHorizontalAlignment();
-	int32_t var$5 = getVerticalTextPosition();
-	int32_t var$6 = getHorizontalTextPosition();
-	$var($Rectangle, var$7, viewR);
-	$var($Rectangle, var$8, iconR);
-	$var($Rectangle, var$9, textR);
-	$SwingUtilities::layoutCompoundLabel(this, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, getIconTextGap());
-	int32_t var$10 = getWidth() - i->right;
-	int32_t x = var$10 - $nc(this->sortArrow)->getIconWidth();
+	$var($String, var$0, getText());
+	$var($Icon, var$1, this->sortArrow);
+	int32_t var$2 = getVerticalAlignment();
+	int32_t var$3 = getHorizontalAlignment();
+	int32_t var$4 = getVerticalTextPosition();
+	int32_t var$5 = getHorizontalTextPosition();
+	$SwingUtilities::layoutCompoundLabel(this, fontMetrics, var$0, var$1, var$2, var$3, var$4, var$5, viewR, iconR, textR, getIconTextGap());
+	int32_t var$6 = getWidth() - i->right;
+	int32_t x = var$6 - $nc(this->sortArrow)->getIconWidth();
 	int32_t y = iconR->y;
 	return $new($Point, x, y);
 }
@@ -268,7 +207,48 @@ DefaultTableCellHeaderRenderer::DefaultTableCellHeaderRenderer() {
 }
 
 $Class* DefaultTableCellHeaderRenderer::load$($String* name, bool initialize) {
-	$loadClass(DefaultTableCellHeaderRenderer, name, initialize, &_DefaultTableCellHeaderRenderer_ClassInfo_, allocate$DefaultTableCellHeaderRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"horizontalTextPositionSet", "Z", nullptr, $PRIVATE, $field(DefaultTableCellHeaderRenderer, horizontalTextPositionSet)},
+		{"sortArrow", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(DefaultTableCellHeaderRenderer, sortArrow)},
+		{"emptyIcon", "Lsun/swing/table/DefaultTableCellHeaderRenderer$EmptyIcon;", nullptr, $PRIVATE, $field(DefaultTableCellHeaderRenderer, emptyIcon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableCellHeaderRenderer, init$, void)},
+		{"computeIconPosition", "(Ljava/awt/Graphics;)Ljava/awt/Point;", nullptr, $PRIVATE, $method(DefaultTableCellHeaderRenderer, computeIconPosition, $Point*, $Graphics*)},
+		{"getColumnSortOrder", "(Ljavax/swing/JTable;I)Ljavax/swing/SortOrder;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultTableCellHeaderRenderer, getColumnSortOrder, $SortOrder*, $JTable*, int32_t)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer, paintComponent, void, $Graphics*)},
+		{"setHorizontalTextPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableCellHeaderRenderer, setHorizontalTextPosition, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.table.DefaultTableCellHeaderRenderer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon", "sun.swing.table.DefaultTableCellHeaderRenderer", "EmptyIcon", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.table.DefaultTableCellHeaderRenderer",
+		"javax.swing.table.DefaultTableCellRenderer",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.table.DefaultTableCellHeaderRenderer$1,sun.swing.table.DefaultTableCellHeaderRenderer$EmptyIcon"
+	};
+	$loadClass(DefaultTableCellHeaderRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTableCellHeaderRenderer));
+	});
 	return class$;
 }
 

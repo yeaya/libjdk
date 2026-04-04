@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicOptionPaneUI.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -12,8 +11,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/HierarchyListener.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
@@ -89,8 +86,6 @@ using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $HierarchyListener = ::java::awt::event::HierarchyListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -101,7 +96,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Locale = ::java::util::Locale;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
@@ -143,96 +137,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicOptionPaneUI_FieldInfo_[] = {
-	{"MinimumWidth", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicOptionPaneUI, MinimumWidth)},
-	{"MinimumHeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicOptionPaneUI, MinimumHeight)},
-	{"newline", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicOptionPaneUI, newline)},
-	{"optionPane", "Ljavax/swing/JOptionPane;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, optionPane)},
-	{"minimumSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, minimumSize)},
-	{"inputComponent", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, inputComponent)},
-	{"initialFocusComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, initialFocusComponent)},
-	{"hasCustomComponents", "Z", nullptr, $PROTECTED, $field(BasicOptionPaneUI, hasCustomComponents)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, propertyChangeListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicOptionPaneUI$Handler;", nullptr, $PRIVATE, $field(BasicOptionPaneUI, handler)},
-	{}
-};
-
-$MethodInfo _BasicOptionPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicOptionPaneUI, init$, void)},
-	{"addButtonComponents", "(Ljava/awt/Container;[Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, addButtonComponents, void, $Container*, $ObjectArray*, int32_t)},
-	{"addIcon", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, addIcon, void, $Container*)},
-	{"addMessageComponents", "(Ljava/awt/Container;Ljava/awt/GridBagConstraints;Ljava/lang/Object;IZ)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, addMessageComponents, void, $Container*, $GridBagConstraints*, Object$*, int32_t, bool)},
-	{"burstStringInto", "(Ljava/awt/Container;Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, burstStringInto, void, $Container*, $String*, int32_t)},
-	{"configureButton", "(Ljavax/swing/JButton;)V", nullptr, $PRIVATE, $method(BasicOptionPaneUI, configureButton, void, $JButton*)},
-	{"configureMessageLabel", "(Ljavax/swing/JLabel;)V", nullptr, $PRIVATE, $method(BasicOptionPaneUI, configureMessageLabel, void, $JLabel*)},
-	{"containsCustomComponents", "(Ljavax/swing/JOptionPane;)Z", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, containsCustomComponents, bool, $JOptionPane*)},
-	{"createButtonActionListener", "(I)Ljava/awt/event/ActionListener;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createButtonActionListener, $ActionListener*, int32_t)},
-	{"createButtonArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createButtonArea, $Container*)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createLayoutManager, $LayoutManager*)},
-	{"createMessageArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createMessageArea, $Container*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createSeparator", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createSeparator, $Container*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getButtons", "()[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getButtons, $ObjectArray*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicOptionPaneUI$Handler;", nullptr, $PRIVATE, $method(BasicOptionPaneUI, getHandler, $BasicOptionPaneUI$Handler*)},
-	{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getIcon, $Icon*)},
-	{"getIconForType", "(I)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getIconForType, $Icon*, int32_t)},
-	{"getInitialValueIndex", "()I", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getInitialValueIndex, int32_t)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicOptionPaneUI, getInputMap, $InputMap*, int32_t)},
-	{"getMaxCharactersPerLineCount", "()I", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getMaxCharactersPerLineCount, int32_t)},
-	{"getMessage", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getMessage, $Object*)},
-	{"getMinimumOptionPaneSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, getMinimumOptionPaneSize, $Dimension*)},
-	{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(BasicOptionPaneUI, getMnemonic, int32_t, $String*, $Locale*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getSizeButtonsToSameWidth", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getSizeButtonsToSameWidth, bool)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, installUI, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicOptionPaneUI, loadActionMap, void, $LazyActionMap*)},
-	{"resetInputValue", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, resetInputValue, void)},
-	{"selectInitialValue", "(Ljavax/swing/JOptionPane;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, selectInitialValue, void, $JOptionPane*)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicOptionPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonFactory", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$Actions", "javax.swing.plaf.basic.BasicOptionPaneUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$MultiplexingTextField", "javax.swing.plaf.basic.BasicOptionPaneUI", "MultiplexingTextField", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$Handler", "javax.swing.plaf.basic.BasicOptionPaneUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonActionListener", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonActionListener", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicOptionPaneUI", "PropertyChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonAreaLayout", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonAreaLayout", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicOptionPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicOptionPaneUI",
-	"javax.swing.plaf.OptionPaneUI",
-	nullptr,
-	_BasicOptionPaneUI_FieldInfo_,
-	_BasicOptionPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicOptionPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory,javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton,javax.swing.plaf.basic.BasicOptionPaneUI$Actions,javax.swing.plaf.basic.BasicOptionPaneUI$MultiplexingTextField,javax.swing.plaf.basic.BasicOptionPaneUI$Handler,javax.swing.plaf.basic.BasicOptionPaneUI$ButtonActionListener,javax.swing.plaf.basic.BasicOptionPaneUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicOptionPaneUI$ButtonAreaLayout,javax.swing.plaf.basic.BasicOptionPaneUI$2,javax.swing.plaf.basic.BasicOptionPaneUI$1"
-};
-
-$Object* allocate$BasicOptionPaneUI($Class* clazz) {
-	return $of($alloc(BasicOptionPaneUI));
-}
-
 $String* BasicOptionPaneUI::newline = nullptr;
 
 void BasicOptionPaneUI::init$() {
@@ -273,7 +177,6 @@ void BasicOptionPaneUI::installDefaults() {
 	$LookAndFeel::installColorsAndFont(this->optionPane, "OptionPane.background"_s, "OptionPane.foreground"_s, "OptionPane.font"_s);
 	$LookAndFeel::installBorder(this->optionPane, "OptionPane.border"_s);
 	$set(this, minimumSize, $UIManager::getDimension("OptionPane.minimumSize"_s));
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->optionPane, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -282,13 +185,13 @@ void BasicOptionPaneUI::uninstallDefaults() {
 }
 
 void BasicOptionPaneUI::installComponents() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->optionPane)->add($(static_cast<$Component*>(createMessageArea())));
+	$useLocalObjectStack();
+	$nc(this->optionPane)->add($(createMessageArea()));
 	$var($Container, separator, createSeparator());
 	if (separator != nullptr) {
-		$nc(this->optionPane)->add(static_cast<$Component*>(separator));
+		$nc(this->optionPane)->add(separator);
 	}
-	$nc(this->optionPane)->add($(static_cast<$Component*>(createButtonArea())));
+	$nc(this->optionPane)->add($(createButtonArea()));
 	$nc(this->optionPane)->applyComponentOrientation($($nc(this->optionPane)->getComponentOrientation()));
 }
 
@@ -357,7 +260,7 @@ $Dimension* BasicOptionPaneUI::getMinimumOptionPaneSize() {
 }
 
 $Dimension* BasicOptionPaneUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(c, this->optionPane)) {
 		$var($Dimension, ourMin, getMinimumOptionPaneSize());
 		$var($LayoutManager, lm, $nc(c)->getLayout());
@@ -365,7 +268,7 @@ $Dimension* BasicOptionPaneUI::getPreferredSize($JComponent* c) {
 			$var($Dimension, lmSize, lm->preferredLayoutSize(c));
 			if (ourMin != nullptr) {
 				int32_t var$0 = $Math::max($nc(lmSize)->width, ourMin->width);
-				return $new($Dimension, var$0, $Math::max($nc(lmSize)->height, ourMin->height));
+				return $new($Dimension, var$0, $Math::max(lmSize->height, ourMin->height));
 			}
 			return lmSize;
 		}
@@ -375,57 +278,53 @@ $Dimension* BasicOptionPaneUI::getPreferredSize($JComponent* c) {
 }
 
 $Container* BasicOptionPaneUI::createMessageArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, top, $new($JPanel));
 	$var($Border, topBorder, $cast($Border, $DefaultLookup::get(this->optionPane, this, "OptionPane.messageAreaBorder"_s)));
 	if (topBorder != nullptr) {
 		top->setBorder(topBorder);
 	}
 	top->setLayout($$new($BorderLayout));
-	$var($Container, body, $new($JPanel, static_cast<$LayoutManager*>($$new($GridBagLayout))));
-	$var($Container, realBody, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($Container, body, $new($JPanel, $$new($GridBagLayout)));
+	$var($Container, realBody, $new($JPanel, $$new($BorderLayout)));
 	body->setName("OptionPane.body"_s);
 	realBody->setName("OptionPane.realBody"_s);
 	if (getIcon() != nullptr) {
 		$var($JPanel, sep, $new($JPanel));
 		sep->setName("OptionPane.separator"_s);
 		sep->setPreferredSize($$new($Dimension, 15, 1));
-		$init($BorderLayout);
-		realBody->add(static_cast<$Component*>(sep), $of($BorderLayout::BEFORE_LINE_BEGINS));
+		realBody->add(sep, $BorderLayout::BEFORE_LINE_BEGINS);
 	}
-	$init($BorderLayout);
-	realBody->add(static_cast<$Component*>(body), $of($BorderLayout::CENTER));
+	realBody->add(body, $BorderLayout::CENTER);
 	$var($GridBagConstraints, cons, $new($GridBagConstraints));
 	cons->gridx = (cons->gridy = 0);
 	cons->gridwidth = $GridBagConstraints::REMAINDER;
 	cons->gridheight = 1;
 	cons->anchor = $DefaultLookup::getInt(this->optionPane, this, "OptionPane.messageAnchor"_s, $GridBagConstraints::CENTER);
 	$set(cons, insets, $new($Insets, 0, 0, 3, 0));
-	$var($Container, var$0, body);
-	$var($GridBagConstraints, var$1, cons);
-	$var($Object, var$2, getMessage());
-	addMessageComponents(var$0, var$1, var$2, getMaxCharactersPerLineCount(), false);
-	top->add(static_cast<$Component*>(realBody), $of($BorderLayout::CENTER));
+	$var($Object, var$0, getMessage());
+	addMessageComponents(body, cons, var$0, getMaxCharactersPerLineCount(), false);
+	top->add(realBody, $BorderLayout::CENTER);
 	addIcon(top);
 	return top;
 }
 
 void BasicOptionPaneUI::addMessageComponents($Container* container, $GridBagConstraints* cons, Object$* msg, int32_t maxll, bool internallyCreated) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (msg == nullptr) {
 		return;
 	}
 	if ($instanceOf($Component, msg)) {
 		if ($instanceOf($JScrollPane, msg) || $instanceOf($JPanel, msg)) {
 			$nc(cons)->fill = $GridBagConstraints::BOTH;
-			cons->weighty = (double)1;
+			cons->weighty = 1;
 		} else {
 			$nc(cons)->fill = $GridBagConstraints::HORIZONTAL;
 		}
-		$nc(cons)->weightx = (double)1;
-		$nc(container)->add($cast($Component, msg), $of(cons));
-		cons->weightx = (double)0;
-		cons->weighty = (double)0;
+		$nc(cons)->weightx = 1;
+		$nc(container)->add($cast($Component, msg), cons);
+		cons->weightx = 0;
+		cons->weighty = 0;
 		cons->fill = $GridBagConstraints::NONE;
 		++cons->gridy;
 		if (!internallyCreated) {
@@ -435,9 +334,7 @@ void BasicOptionPaneUI::addMessageComponents($Container* container, $GridBagCons
 		$var($ObjectArray, msgs, $cast($ObjectArray, msg));
 		{
 			$var($ObjectArray, arr$, msgs);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Object0, o, arr$->get(i$));
 				{
 					addMessageComponents(container, cons, o, maxll, false);
@@ -460,7 +357,7 @@ void BasicOptionPaneUI::addMessageComponents($Container* container, $GridBagCons
 			nll = $nc(BasicOptionPaneUI::newline)->length();
 		} else if ((nl = s->indexOf("\r\n"_s)) >= 0) {
 			nll = 2;
-		} else if ((nl = s->indexOf((int32_t)u'\n')) >= 0) {
+		} else if ((nl = s->indexOf(u'\n')) >= 0) {
 			nll = 1;
 		}
 		if (nl >= 0) {
@@ -488,10 +385,10 @@ void BasicOptionPaneUI::addMessageComponents($Container* container, $GridBagCons
 }
 
 $Object* BasicOptionPaneUI::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, inputComponent, nullptr);
 	if (this->optionPane != nullptr) {
-		if ($nc(this->optionPane)->getWantsInput()) {
+		if (this->optionPane->getWantsInput()) {
 			$var($Object, message, $nc(this->optionPane)->getMessage());
 			$var($ObjectArray, sValues, $nc(this->optionPane)->getSelectionValues());
 			$var($Object, inputValue, $nc(this->optionPane)->getInitialSelectionValue());
@@ -500,12 +397,8 @@ $Object* BasicOptionPaneUI::getMessage() {
 				if (sValues->length < 20) {
 					$var($JComboBox, cBox, $new($JComboBox));
 					cBox->setName("OptionPane.comboBox"_s);
-					{
-						int32_t counter = 0;
-						int32_t maxCounter = sValues->length;
-						for (; counter < maxCounter; ++counter) {
-							cBox->addItem(sValues->get(counter));
-						}
+					for (int32_t counter = 0, maxCounter = sValues->length; counter < maxCounter; ++counter) {
+						cBox->addItem(sValues->get(counter));
 					}
 					if (inputValue != nullptr) {
 						cBox->setSelectedItem(inputValue);
@@ -531,13 +424,13 @@ $Object* BasicOptionPaneUI::getMessage() {
 				tf->setName("OptionPane.textField"_s);
 				tf->setKeyStrokes($$new($KeyStrokeArray, {$($KeyStroke::getKeyStroke("ENTER"_s))}));
 				if (inputValue != nullptr) {
-					$var($String, inputString, $of(inputValue)->toString());
+					$var($String, inputString, inputValue->toString());
 					tf->setText(inputString);
 					tf->setSelectionStart(0);
 					tf->setSelectionEnd($nc(inputString)->length());
 				}
 				tf->addActionListener($(getHandler()));
-				$assign(toAdd, ($set(this, inputComponent, tf)));
+				$assign(toAdd, $set(this, inputComponent, tf));
 			}
 			$var($ObjectArray, newMessage, nullptr);
 			if (message == nullptr) {
@@ -548,29 +441,29 @@ $Object* BasicOptionPaneUI::getMessage() {
 				newMessage->set(0, message);
 				newMessage->set(1, toAdd);
 			}
-			return $of(newMessage);
+			return newMessage;
 		}
-		return $of($nc(this->optionPane)->getMessage());
+		return $nc(this->optionPane)->getMessage();
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void BasicOptionPaneUI::addIcon($Container* top) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, sideIcon, getIcon());
 	if (sideIcon != nullptr) {
 		$var($JLabel, iconLabel, $new($JLabel, sideIcon));
 		iconLabel->setName("OptionPane.iconLabel"_s);
 		iconLabel->setVerticalAlignment($SwingConstants::TOP);
 		$init($BorderLayout);
-		$nc(top)->add(static_cast<$Component*>(iconLabel), $of($BorderLayout::BEFORE_LINE_BEGINS));
+		$nc(top)->add(iconLabel, $BorderLayout::BEFORE_LINE_BEGINS);
 	}
 }
 
 $Icon* BasicOptionPaneUI::getIcon() {
-	$var($Icon, mIcon, this->optionPane == nullptr ? ($Icon*)nullptr : $nc(this->optionPane)->getIcon());
+	$var($Icon, mIcon, this->optionPane == nullptr ? ($Icon*)nullptr : this->optionPane->getIcon());
 	if (mIcon == nullptr && this->optionPane != nullptr) {
-		$assign(mIcon, getIconForType($nc(this->optionPane)->getMessageType()));
+		$assign(mIcon, getIconForType(this->optionPane->getMessageType()));
 	}
 	return mIcon;
 }
@@ -582,25 +475,17 @@ $Icon* BasicOptionPaneUI::getIconForType(int32_t messageType) {
 	$var($String, propertyName, nullptr);
 	switch (messageType) {
 	case 0:
-		{
-			$assign(propertyName, "OptionPane.errorIcon"_s);
-			break;
-		}
+		$assign(propertyName, "OptionPane.errorIcon"_s);
+		break;
 	case 1:
-		{
-			$assign(propertyName, "OptionPane.informationIcon"_s);
-			break;
-		}
+		$assign(propertyName, "OptionPane.informationIcon"_s);
+		break;
 	case 2:
-		{
-			$assign(propertyName, "OptionPane.warningIcon"_s);
-			break;
-		}
+		$assign(propertyName, "OptionPane.warningIcon"_s);
+		break;
 	case 3:
-		{
-			$assign(propertyName, "OptionPane.questionIcon"_s);
-			break;
-		}
+		$assign(propertyName, "OptionPane.questionIcon"_s);
+		break;
 	}
 	if (propertyName != nullptr) {
 		return $cast($Icon, $DefaultLookup::get(this->optionPane, this, propertyName));
@@ -613,15 +498,15 @@ int32_t BasicOptionPaneUI::getMaxCharactersPerLineCount() {
 }
 
 void BasicOptionPaneUI::burstStringInto($Container* c, $String* d, int32_t maxll) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(d)->length();
 	if (len <= 0) {
 		return;
 	}
 	if (len > maxll) {
-		int32_t p = d->lastIndexOf((int32_t)u' ', maxll);
+		int32_t p = d->lastIndexOf(u' ', maxll);
 		if (p <= 0) {
-			p = d->indexOf((int32_t)u' ', maxll);
+			p = d->indexOf(u' ', maxll);
 		}
 		if (p > 0 && p < len) {
 			burstStringInto(c, $(d->substring(0, p)), maxll);
@@ -632,7 +517,7 @@ void BasicOptionPaneUI::burstStringInto($Container* c, $String* d, int32_t maxll
 	$var($JLabel, label, $new($JLabel, d, $JLabel::LEFT));
 	label->setName("OptionPane.label"_s);
 	configureMessageLabel(label);
-	$nc(c)->add(static_cast<$Component*>(label));
+	$nc(c)->add(label);
 }
 
 $Container* BasicOptionPaneUI::createSeparator() {
@@ -640,7 +525,7 @@ $Container* BasicOptionPaneUI::createSeparator() {
 }
 
 $Container* BasicOptionPaneUI::createButtonArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, bottom, $new($JPanel));
 	$var($Border, border, $cast($Border, $DefaultLookup::get(this->optionPane, this, "OptionPane.buttonAreaBorder"_s)));
 	bottom->setName("OptionPane.buttonArea"_s);
@@ -651,14 +536,13 @@ $Container* BasicOptionPaneUI::createButtonArea() {
 	int32_t var$1 = $DefaultLookup::getInt(this->optionPane, this, "OptionPane.buttonPadding"_s, 6);
 	int32_t var$2 = $DefaultLookup::getInt(this->optionPane, this, "OptionPane.buttonOrientation"_s, $SwingConstants::CENTER);
 	bottom->setLayout($$new($BasicOptionPaneUI$ButtonAreaLayout, var$0, var$1, var$2, $DefaultLookup::getBoolean(this->optionPane, this, "OptionPane.isYesLast"_s, false)));
-	$var($Container, var$3, static_cast<$Container*>(bottom));
-	$var($ObjectArray, var$4, getButtons());
-	addButtonComponents(var$3, var$4, getInitialValueIndex());
+	$var($ObjectArray, var$3, getButtons());
+	addButtonComponents(bottom, var$3, getInitialValueIndex());
 	return bottom;
 }
 
 void BasicOptionPaneUI::addButtonComponents($Container* container, $ObjectArray* buttons, int32_t initialIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (buttons != nullptr && buttons->length > 0) {
 		bool sizeButtonsToSame = getSizeButtonsToSameWidth();
 		bool createdAll = true;
@@ -679,16 +563,16 @@ void BasicOptionPaneUI::addButtonComponents($Container* container, $ObjectArray*
 			} else {
 				$var($JButton, aButton, nullptr);
 				if ($instanceOf($BasicOptionPaneUI$ButtonFactory, button)) {
-					$assign(aButton, $nc(($cast($BasicOptionPaneUI$ButtonFactory, button)))->createButton());
+					$assign(aButton, $cast($BasicOptionPaneUI$ButtonFactory, button)->createButton());
 				} else if ($instanceOf($Icon, button)) {
 					$assign(aButton, $new($JButton, $cast($Icon, button)));
 				} else {
-					$assign(aButton, $new($JButton, $($nc($of(button))->toString())));
+					$assign(aButton, $new($JButton, $($nc(button)->toString())));
 				}
 				$nc(aButton)->setName("OptionPane.button"_s);
 				aButton->setMultiClickThreshhold($DefaultLookup::getInt(this->optionPane, this, "OptionPane.buttonClickThreshhold"_s, 0));
 				configureButton(aButton);
-				$nc(container)->add(static_cast<$Component*>(aButton));
+				$nc(container)->add(aButton);
 				$var($ActionListener, buttonListener, createButtonActionListener(counter));
 				if (buttonListener != nullptr) {
 					aButton->addActionListener(buttonListener);
@@ -697,7 +581,7 @@ void BasicOptionPaneUI::addButtonComponents($Container* container, $ObjectArray*
 			}
 			if (sizeButtonsToSame && createdAll && ($instanceOf($JButton, newComponent))) {
 				$nc(createdButtons)->set(counter, $cast($JButton, newComponent));
-				maxWidth = $Math::max(maxWidth, $nc($($nc(newComponent)->getMinimumSize()))->width);
+				maxWidth = $Math::max(maxWidth, $nc($(newComponent->getMinimumSize()))->width);
 			}
 			if (counter == initialIndex) {
 				$set(this, initialFocusComponent, newComponent);
@@ -707,7 +591,7 @@ void BasicOptionPaneUI::addButtonComponents($Container* container, $ObjectArray*
 				}
 			}
 		}
-		$nc(($cast($BasicOptionPaneUI$ButtonAreaLayout, $($nc(container)->getLayout()))))->setSyncAllWidths((sizeButtonsToSame && createdAll));
+		$$sure($BasicOptionPaneUI$ButtonAreaLayout, $nc(container)->getLayout())->setSyncAllWidths((sizeButtonsToSame && createdAll));
 		if ($DefaultLookup::getBoolean(this->optionPane, this, "OptionPane.setButtonMargin"_s, true) && sizeButtonsToSame && createdAll) {
 			$var($JButton, aButton, nullptr);
 			int32_t padSize = 0;
@@ -725,9 +609,9 @@ $ActionListener* BasicOptionPaneUI::createButtonActionListener(int32_t buttonInd
 }
 
 $ObjectArray* BasicOptionPaneUI::getButtons() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->optionPane != nullptr) {
-		$var($ObjectArray, suppliedOptions, $nc(this->optionPane)->getOptions());
+		$var($ObjectArray, suppliedOptions, this->optionPane->getOptions());
 		if (suppliedOptions == nullptr) {
 			$var($ObjectArray, defaultOptions, nullptr);
 			int32_t type = $nc(this->optionPane)->getOptionType();
@@ -735,36 +619,36 @@ $ObjectArray* BasicOptionPaneUI::getButtons() {
 			int32_t minimumWidth = $DefaultLookup::getInt(this->optionPane, this, "OptionPane.buttonMinimumWidth"_s, -1);
 			if (type == $JOptionPane::YES_NO_OPTION) {
 				$assign(defaultOptions, $new($BasicOptionPaneUI$ButtonFactoryArray, 2));
-				$var($String, var$0, $UIManager::getString($of("OptionPane.yesButtonText"_s), l));
+				$var($String, var$0, $UIManager::getString("OptionPane.yesButtonText"_s, l));
 				int32_t var$1 = getMnemonic("OptionPane.yesButtonMnemonic"_s, l);
-				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$0, var$1, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.yesIcon"_s))), minimumWidth));
-				$var($String, var$2, $UIManager::getString($of("OptionPane.noButtonText"_s), l));
+				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$0, var$1, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.yesIcon"_s)), minimumWidth));
+				$var($String, var$2, $UIManager::getString("OptionPane.noButtonText"_s, l));
 				int32_t var$3 = getMnemonic("OptionPane.noButtonMnemonic"_s, l);
-				defaultOptions->set(1, $$new($BasicOptionPaneUI$ButtonFactory, var$2, var$3, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.noIcon"_s))), minimumWidth));
+				defaultOptions->set(1, $$new($BasicOptionPaneUI$ButtonFactory, var$2, var$3, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.noIcon"_s)), minimumWidth));
 			} else if (type == $JOptionPane::YES_NO_CANCEL_OPTION) {
 				$assign(defaultOptions, $new($BasicOptionPaneUI$ButtonFactoryArray, 3));
-				$var($String, var$4, $UIManager::getString($of("OptionPane.yesButtonText"_s), l));
+				$var($String, var$4, $UIManager::getString("OptionPane.yesButtonText"_s, l));
 				int32_t var$5 = getMnemonic("OptionPane.yesButtonMnemonic"_s, l);
-				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$4, var$5, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.yesIcon"_s))), minimumWidth));
-				$var($String, var$6, $UIManager::getString($of("OptionPane.noButtonText"_s), l));
+				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$4, var$5, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.yesIcon"_s)), minimumWidth));
+				$var($String, var$6, $UIManager::getString("OptionPane.noButtonText"_s, l));
 				int32_t var$7 = getMnemonic("OptionPane.noButtonMnemonic"_s, l);
-				defaultOptions->set(1, $$new($BasicOptionPaneUI$ButtonFactory, var$6, var$7, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.noIcon"_s))), minimumWidth));
-				$var($String, var$8, $UIManager::getString($of("OptionPane.cancelButtonText"_s), l));
+				defaultOptions->set(1, $$new($BasicOptionPaneUI$ButtonFactory, var$6, var$7, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.noIcon"_s)), minimumWidth));
+				$var($String, var$8, $UIManager::getString("OptionPane.cancelButtonText"_s, l));
 				int32_t var$9 = getMnemonic("OptionPane.cancelButtonMnemonic"_s, l);
-				defaultOptions->set(2, $$new($BasicOptionPaneUI$ButtonFactory, var$8, var$9, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.cancelIcon"_s))), minimumWidth));
+				defaultOptions->set(2, $$new($BasicOptionPaneUI$ButtonFactory, var$8, var$9, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.cancelIcon"_s)), minimumWidth));
 			} else if (type == $JOptionPane::OK_CANCEL_OPTION) {
 				$assign(defaultOptions, $new($BasicOptionPaneUI$ButtonFactoryArray, 2));
-				$var($String, var$10, $UIManager::getString($of("OptionPane.okButtonText"_s), l));
+				$var($String, var$10, $UIManager::getString("OptionPane.okButtonText"_s, l));
 				int32_t var$11 = getMnemonic("OptionPane.okButtonMnemonic"_s, l);
-				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$10, var$11, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.okIcon"_s))), minimumWidth));
-				$var($String, var$12, $UIManager::getString($of("OptionPane.cancelButtonText"_s), l));
+				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$10, var$11, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.okIcon"_s)), minimumWidth));
+				$var($String, var$12, $UIManager::getString("OptionPane.cancelButtonText"_s, l));
 				int32_t var$13 = getMnemonic("OptionPane.cancelButtonMnemonic"_s, l);
-				defaultOptions->set(1, $$new($BasicOptionPaneUI$ButtonFactory, var$12, var$13, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.cancelIcon"_s))), minimumWidth));
+				defaultOptions->set(1, $$new($BasicOptionPaneUI$ButtonFactory, var$12, var$13, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.cancelIcon"_s)), minimumWidth));
 			} else {
 				$assign(defaultOptions, $new($BasicOptionPaneUI$ButtonFactoryArray, 1));
-				$var($String, var$14, $UIManager::getString($of("OptionPane.okButtonText"_s), l));
+				$var($String, var$14, $UIManager::getString("OptionPane.okButtonText"_s, l));
 				int32_t var$15 = getMnemonic("OptionPane.okButtonMnemonic"_s, l);
-				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$14, var$15, $cast($Icon, $($DefaultLookup::get(this->optionPane, this, "OptionPane.okIcon"_s))), minimumWidth));
+				defaultOptions->set(0, $$new($BasicOptionPaneUI$ButtonFactory, var$14, var$15, $$cast($Icon, $DefaultLookup::get(this->optionPane, this, "OptionPane.okIcon"_s)), minimumWidth));
 			}
 			return defaultOptions;
 		}
@@ -790,15 +674,15 @@ bool BasicOptionPaneUI::getSizeButtonsToSameWidth() {
 }
 
 int32_t BasicOptionPaneUI::getInitialValueIndex() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->optionPane != nullptr) {
-		$var($Object, iv, $nc(this->optionPane)->getInitialValue());
+		$var($Object, iv, this->optionPane->getInitialValue());
 		$var($ObjectArray, options, $nc(this->optionPane)->getOptions());
 		if (options == nullptr) {
 			return 0;
 		} else if (iv != nullptr) {
-			for (int32_t counter = $nc(options)->length - 1; counter >= 0; --counter) {
-				if ($nc($of(options->get(counter)))->equals(iv)) {
+			for (int32_t counter = options->length - 1; counter >= 0; --counter) {
+				if ($nc(options->get(counter))->equals(iv)) {
 					return counter;
 				}
 			}
@@ -808,22 +692,22 @@ int32_t BasicOptionPaneUI::getInitialValueIndex() {
 }
 
 void BasicOptionPaneUI::resetInputValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->inputComponent != nullptr && ($instanceOf($JTextField, this->inputComponent))) {
-		$nc(this->optionPane)->setInputValue($($nc(($cast($JTextField, this->inputComponent)))->getText()));
+		$nc(this->optionPane)->setInputValue($($cast($JTextField, this->inputComponent)->getText()));
 	} else if (this->inputComponent != nullptr && ($instanceOf($JComboBox, this->inputComponent))) {
-		$nc(this->optionPane)->setInputValue($($nc(($cast($JComboBox, this->inputComponent)))->getSelectedItem()));
+		$nc(this->optionPane)->setInputValue($($cast($JComboBox, this->inputComponent)->getSelectedItem()));
 	} else if (this->inputComponent != nullptr) {
-		$nc(this->optionPane)->setInputValue($($nc(($cast($JList, this->inputComponent)))->getSelectedValue()));
+		$nc(this->optionPane)->setInputValue($($cast($JList, this->inputComponent)->getSelectedValue()));
 	}
 }
 
 void BasicOptionPaneUI::selectInitialValue($JOptionPane* op) {
 	if (this->inputComponent != nullptr) {
-		$nc(this->inputComponent)->requestFocus();
+		this->inputComponent->requestFocus();
 	} else {
 		if (this->initialFocusComponent != nullptr) {
-			$nc(this->initialFocusComponent)->requestFocus();
+			this->initialFocusComponent->requestFocus();
 		}
 		if ($instanceOf($JButton, this->initialFocusComponent)) {
 			$var($JRootPane, root, $SwingUtilities::getRootPane(this->initialFocusComponent));
@@ -839,7 +723,7 @@ bool BasicOptionPaneUI::containsCustomComponents($JOptionPane* op) {
 }
 
 void BasicOptionPaneUI::configureMessageLabel($JLabel* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, $cast($Color, $DefaultLookup::get(this->optionPane, this, "OptionPane.messageForeground"_s)));
 	if (color != nullptr) {
 		$nc(label)->setForeground(color);
@@ -857,7 +741,7 @@ void BasicOptionPaneUI::configureButton($JButton* button) {
 	}
 }
 
-void clinit$BasicOptionPaneUI($Class* class$) {
+void BasicOptionPaneUI::clinit$($Class* clazz) {
 	{
 		$assignStatic(BasicOptionPaneUI::newline, $System::lineSeparator());
 		if (BasicOptionPaneUI::newline == nullptr) {
@@ -870,7 +754,91 @@ BasicOptionPaneUI::BasicOptionPaneUI() {
 }
 
 $Class* BasicOptionPaneUI::load$($String* name, bool initialize) {
-	$loadClass(BasicOptionPaneUI, name, initialize, &_BasicOptionPaneUI_ClassInfo_, clinit$BasicOptionPaneUI, allocate$BasicOptionPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"MinimumWidth", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicOptionPaneUI, MinimumWidth)},
+		{"MinimumHeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicOptionPaneUI, MinimumHeight)},
+		{"newline", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(BasicOptionPaneUI, newline)},
+		{"optionPane", "Ljavax/swing/JOptionPane;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, optionPane)},
+		{"minimumSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, minimumSize)},
+		{"inputComponent", "Ljavax/swing/JComponent;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, inputComponent)},
+		{"initialFocusComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, initialFocusComponent)},
+		{"hasCustomComponents", "Z", nullptr, $PROTECTED, $field(BasicOptionPaneUI, hasCustomComponents)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicOptionPaneUI, propertyChangeListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicOptionPaneUI$Handler;", nullptr, $PRIVATE, $field(BasicOptionPaneUI, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicOptionPaneUI, init$, void)},
+		{"addButtonComponents", "(Ljava/awt/Container;[Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, addButtonComponents, void, $Container*, $ObjectArray*, int32_t)},
+		{"addIcon", "(Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, addIcon, void, $Container*)},
+		{"addMessageComponents", "(Ljava/awt/Container;Ljava/awt/GridBagConstraints;Ljava/lang/Object;IZ)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, addMessageComponents, void, $Container*, $GridBagConstraints*, Object$*, int32_t, bool)},
+		{"burstStringInto", "(Ljava/awt/Container;Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, burstStringInto, void, $Container*, $String*, int32_t)},
+		{"configureButton", "(Ljavax/swing/JButton;)V", nullptr, $PRIVATE, $method(BasicOptionPaneUI, configureButton, void, $JButton*)},
+		{"configureMessageLabel", "(Ljavax/swing/JLabel;)V", nullptr, $PRIVATE, $method(BasicOptionPaneUI, configureMessageLabel, void, $JLabel*)},
+		{"containsCustomComponents", "(Ljavax/swing/JOptionPane;)Z", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, containsCustomComponents, bool, $JOptionPane*)},
+		{"createButtonActionListener", "(I)Ljava/awt/event/ActionListener;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createButtonActionListener, $ActionListener*, int32_t)},
+		{"createButtonArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createButtonArea, $Container*)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createLayoutManager, $LayoutManager*)},
+		{"createMessageArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createMessageArea, $Container*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createSeparator", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, createSeparator, $Container*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getButtons", "()[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getButtons, $ObjectArray*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicOptionPaneUI$Handler;", nullptr, $PRIVATE, $method(BasicOptionPaneUI, getHandler, $BasicOptionPaneUI$Handler*)},
+		{"getIcon", "()Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getIcon, $Icon*)},
+		{"getIconForType", "(I)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getIconForType, $Icon*, int32_t)},
+		{"getInitialValueIndex", "()I", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getInitialValueIndex, int32_t)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicOptionPaneUI, getInputMap, $InputMap*, int32_t)},
+		{"getMaxCharactersPerLineCount", "()I", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getMaxCharactersPerLineCount, int32_t)},
+		{"getMessage", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getMessage, $Object*)},
+		{"getMinimumOptionPaneSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, getMinimumOptionPaneSize, $Dimension*)},
+		{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(BasicOptionPaneUI, getMnemonic, int32_t, $String*, $Locale*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getSizeButtonsToSameWidth", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, getSizeButtonsToSameWidth, bool)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, installUI, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicOptionPaneUI, loadActionMap, void, $LazyActionMap*)},
+		{"resetInputValue", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, resetInputValue, void)},
+		{"selectInitialValue", "(Ljavax/swing/JOptionPane;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, selectInitialValue, void, $JOptionPane*)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicOptionPaneUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonFactory", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$Actions", "javax.swing.plaf.basic.BasicOptionPaneUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$MultiplexingTextField", "javax.swing.plaf.basic.BasicOptionPaneUI", "MultiplexingTextField", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$Handler", "javax.swing.plaf.basic.BasicOptionPaneUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonActionListener", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonActionListener", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicOptionPaneUI", "PropertyChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonAreaLayout", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonAreaLayout", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicOptionPaneUI",
+		"javax.swing.plaf.OptionPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory,javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton,javax.swing.plaf.basic.BasicOptionPaneUI$Actions,javax.swing.plaf.basic.BasicOptionPaneUI$MultiplexingTextField,javax.swing.plaf.basic.BasicOptionPaneUI$Handler,javax.swing.plaf.basic.BasicOptionPaneUI$ButtonActionListener,javax.swing.plaf.basic.BasicOptionPaneUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicOptionPaneUI$ButtonAreaLayout,javax.swing.plaf.basic.BasicOptionPaneUI$2,javax.swing.plaf.basic.BasicOptionPaneUI$1"
+	};
+	$loadClass(BasicOptionPaneUI, name, initialize, &classInfo$$, BasicOptionPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicOptionPaneUI);
+	});
 	return class$;
 }
 

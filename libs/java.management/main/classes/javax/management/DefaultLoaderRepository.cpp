@@ -1,5 +1,4 @@
 #include <javax/management/DefaultLoaderRepository.h>
-
 #include <java/lang/ClassLoader.h>
 #include <javax/management/loading/DefaultLoaderRepository.h>
 #include <jcpp.h>
@@ -12,35 +11,6 @@ using $DefaultLoaderRepository = ::javax::management::loading::DefaultLoaderRepo
 
 namespace javax {
 	namespace management {
-
-$CompoundAttribute _DefaultLoaderRepository_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _DefaultLoaderRepository_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLoaderRepository, init$, void)},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(DefaultLoaderRepository, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(DefaultLoaderRepository, loadClassWithout, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _DefaultLoaderRepository_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.DefaultLoaderRepository",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DefaultLoaderRepository_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_DefaultLoaderRepository_Annotations_
-};
-
-$Object* allocate$DefaultLoaderRepository($Class* clazz) {
-	return $of($alloc(DefaultLoaderRepository));
-}
 
 void DefaultLoaderRepository::init$() {
 }
@@ -57,7 +27,31 @@ DefaultLoaderRepository::DefaultLoaderRepository() {
 }
 
 $Class* DefaultLoaderRepository::load$($String* name, bool initialize) {
-	$loadClass(DefaultLoaderRepository, name, initialize, &_DefaultLoaderRepository_ClassInfo_, allocate$DefaultLoaderRepository);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLoaderRepository, init$, void)},
+		{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(DefaultLoaderRepository, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(DefaultLoaderRepository, loadClassWithout, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.DefaultLoaderRepository",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DefaultLoaderRepository, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultLoaderRepository);
+	});
 	return class$;
 }
 

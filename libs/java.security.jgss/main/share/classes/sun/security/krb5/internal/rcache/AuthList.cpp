@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/rcache/AuthList.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -31,34 +30,6 @@ namespace sun {
 			namespace internal {
 				namespace rcache {
 
-$FieldInfo _AuthList_FieldInfo_[] = {
-	{"entries", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/security/krb5/internal/rcache/AuthTimeWithHash;>;", $PRIVATE | $FINAL, $field(AuthList, entries)},
-	{"lifespan", "I", nullptr, $PRIVATE | $FINAL, $field(AuthList, lifespan)},
-	{"oldestTime", "I", nullptr, $PRIVATE | $VOLATILE, $field(AuthList, oldestTime)},
-	{}
-};
-
-$MethodInfo _AuthList_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(AuthList, init$, void, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthList, isEmpty, bool)},
-	{"put", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AuthList, put, void, $AuthTimeWithHash*, $KerberosTime*), "sun.security.krb5.internal.KrbApErrException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthList, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AuthList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.rcache.AuthList",
-	"java.lang.Object",
-	nullptr,
-	_AuthList_FieldInfo_,
-	_AuthList_MethodInfo_
-};
-
-$Object* allocate$AuthList($Class* clazz) {
-	return $of($alloc(AuthList));
-}
-
 void AuthList::init$(int32_t lifespan) {
 	this->oldestTime = $Integer::MIN_VALUE;
 	this->lifespan = lifespan;
@@ -67,26 +38,26 @@ void AuthList::init$(int32_t lifespan) {
 
 void AuthList::put($AuthTimeWithHash* t, $KerberosTime* currentTime) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if ($nc(this->entries)->isEmpty()) {
-			$nc(this->entries)->addFirst(t);
+		$useLocalObjectStack();
+		if (this->entries->isEmpty()) {
+			this->entries->addFirst(t);
 			this->oldestTime = $nc(t)->ctime;
 			return;
 		} else {
-			$var($AuthTimeWithHash, temp, $cast($AuthTimeWithHash, $nc(this->entries)->getFirst()));
+			$var($AuthTimeWithHash, temp, $cast($AuthTimeWithHash, this->entries->getFirst()));
 			int32_t cmp = $nc(temp)->compareTo(t);
 			if (cmp < 0) {
-				$nc(this->entries)->addFirst(t);
+				this->entries->addFirst(t);
 			} else if (cmp == 0) {
 				$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_REPEAT);
 			} else {
-				$var($ListIterator, it, $nc(this->entries)->listIterator(1));
+				$var($ListIterator, it, this->entries->listIterator(1));
 				bool found = false;
 				while ($nc(it)->hasNext()) {
 					$assign(temp, $cast($AuthTimeWithHash, it->next()));
 					cmp = $nc(temp)->compareTo(t);
 					if (cmp < 0) {
-						$nc(this->entries)->add($nc(this->entries)->indexOf(temp), t);
+						this->entries->add(this->entries->indexOf(temp), t);
 						found = true;
 						break;
 					} else if (cmp == 0) {
@@ -94,7 +65,7 @@ void AuthList::put($AuthTimeWithHash* t, $KerberosTime* currentTime) {
 					}
 				}
 				if (!found) {
-					$nc(this->entries)->addLast(t);
+					this->entries->addLast(t);
 				}
 			}
 		}
@@ -102,10 +73,10 @@ void AuthList::put($AuthTimeWithHash* t, $KerberosTime* currentTime) {
 		if (this->oldestTime > timeLimit - 5) {
 			return;
 		}
-		while (!$nc(this->entries)->isEmpty()) {
-			$var($AuthTimeWithHash, removed, $cast($AuthTimeWithHash, $nc(this->entries)->removeLast()));
+		while (!this->entries->isEmpty()) {
+			$var($AuthTimeWithHash, removed, $cast($AuthTimeWithHash, this->entries->removeLast()));
 			if ($nc(removed)->ctime >= timeLimit) {
-				$nc(this->entries)->addLast(removed);
+				this->entries->addLast(removed);
 				this->oldestTime = removed->ctime;
 				return;
 			}
@@ -115,14 +86,14 @@ void AuthList::put($AuthTimeWithHash* t, $KerberosTime* currentTime) {
 }
 
 bool AuthList::isEmpty() {
-	return $nc(this->entries)->isEmpty();
+	return this->entries->isEmpty();
 }
 
 $String* AuthList::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	$var($Iterator, iter, $nc(this->entries)->descendingIterator());
-	int32_t pos = $nc(this->entries)->size();
+	$var($Iterator, iter, this->entries->descendingIterator());
+	int32_t pos = this->entries->size();
 	while ($nc(iter)->hasNext()) {
 		$var($AuthTimeWithHash, at, $cast($AuthTimeWithHash, iter->next()));
 		sb->append(u'#')->append(pos--)->append(": "_s)->append($($nc(at)->toString()))->append(u'\n');
@@ -134,7 +105,30 @@ AuthList::AuthList() {
 }
 
 $Class* AuthList::load$($String* name, bool initialize) {
-	$loadClass(AuthList, name, initialize, &_AuthList_ClassInfo_, allocate$AuthList);
+	$FieldInfo fieldInfos$$[] = {
+		{"entries", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/security/krb5/internal/rcache/AuthTimeWithHash;>;", $PRIVATE | $FINAL, $field(AuthList, entries)},
+		{"lifespan", "I", nullptr, $PRIVATE | $FINAL, $field(AuthList, lifespan)},
+		{"oldestTime", "I", nullptr, $PRIVATE | $VOLATILE, $field(AuthList, oldestTime)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(AuthList, init$, void, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthList, isEmpty, bool)},
+		{"put", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AuthList, put, void, $AuthTimeWithHash*, $KerberosTime*), "sun.security.krb5.internal.KrbApErrException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthList, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.rcache.AuthList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthList);
+	});
 	return class$;
 }
 

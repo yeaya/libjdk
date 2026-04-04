@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WSystemTrayPeer.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/SystemTray.h>
 #include <java/awt/Toolkit.h>
@@ -23,32 +22,6 @@ using $WTrayIconPeer = ::sun::awt::windows::WTrayIconPeer;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WSystemTrayPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/SystemTray;)V", nullptr, 0, $method(WSystemTrayPeer, init$, void, $SystemTray*)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WSystemTrayPeer, disposeImpl, void)},
-	{"getTrayIconSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WSystemTrayPeer, getTrayIconSize, $Dimension*)},
-	{"isSupported", "()Z", nullptr, $PUBLIC, $method(WSystemTrayPeer, isSupported, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _WSystemTrayPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WSystemTrayPeer",
-	"sun.awt.windows.WObjectPeer",
-	"java.awt.peer.SystemTrayPeer",
-	nullptr,
-	_WSystemTrayPeer_MethodInfo_
-};
-
-$Object* allocate$WSystemTrayPeer($Class* clazz) {
-	return $of($alloc(WSystemTrayPeer));
-}
 
 int32_t WSystemTrayPeer::hashCode() {
 	 return this->$WObjectPeer::hashCode();
@@ -80,7 +53,7 @@ $Dimension* WSystemTrayPeer::getTrayIconSize() {
 }
 
 bool WSystemTrayPeer::isSupported() {
-	return $nc(($cast($WToolkit, $($Toolkit::getDefaultToolkit()))))->isTraySupported();
+	return $$sure($WToolkit, $Toolkit::getDefaultToolkit())->isTraySupported();
 }
 
 void WSystemTrayPeer::disposeImpl() {
@@ -90,7 +63,29 @@ WSystemTrayPeer::WSystemTrayPeer() {
 }
 
 $Class* WSystemTrayPeer::load$($String* name, bool initialize) {
-	$loadClass(WSystemTrayPeer, name, initialize, &_WSystemTrayPeer_ClassInfo_, allocate$WSystemTrayPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/SystemTray;)V", nullptr, 0, $method(WSystemTrayPeer, init$, void, $SystemTray*)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WSystemTrayPeer, disposeImpl, void)},
+		{"getTrayIconSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WSystemTrayPeer, getTrayIconSize, $Dimension*)},
+		{"isSupported", "()Z", nullptr, $PUBLIC, $method(WSystemTrayPeer, isSupported, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WSystemTrayPeer",
+		"sun.awt.windows.WObjectPeer",
+		"java.awt.peer.SystemTrayPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WSystemTrayPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WSystemTrayPeer));
+	});
 	return class$;
 }
 

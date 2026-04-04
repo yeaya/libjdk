@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$FilterVisitor.h>
-
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind.h>
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode.h>
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$Node.h>
@@ -24,59 +23,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $EnumMap = ::java::util::EnumMap;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Dependencies$GraphDependencies$FilterVisitor_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies;", nullptr, $FINAL | $SYNTHETIC, $field(Dependencies$GraphDependencies$FilterVisitor, this$0)},
-	{"ck", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, 0, $field(Dependencies$GraphDependencies$FilterVisitor, ck)},
-	{}
-};
-
-$MethodInfo _Dependencies$GraphDependencies$FilterVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;)V", nullptr, $PRIVATE, $method(Dependencies$GraphDependencies$FilterVisitor, init$, void, $Dependencies$GraphDependencies*, $Dependencies$GraphDependencies$CompletionNode$Kind*)},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $Dependencies$GraphDependencies$Node*, $Dependencies$GraphDependencies$Node*, $Void*)},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
-	{"visitNode", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitNode, void, $Dependencies$GraphDependencies$Node*, $Void*)},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Dependencies$GraphDependencies$FilterVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies", "com.sun.tools.javac.util.Dependencies", "GraphDependencies", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies$FilterVisitor", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "FilterVisitor", $PRIVATE},
-	{"com.sun.tools.javac.util.GraphUtils$NodeVisitor", "com.sun.tools.javac.util.GraphUtils", "NodeVisitor", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$ClassSymbol", "com.sun.tools.javac.code.Symbol", "ClassSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.Dependencies$GraphDependencies$Node", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "Node", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Dependencies$GraphDependencies$FilterVisitor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.Dependencies$GraphDependencies$FilterVisitor",
-	"com.sun.tools.javac.util.GraphUtils$NodeVisitor",
-	nullptr,
-	_Dependencies$GraphDependencies$FilterVisitor_FieldInfo_,
-	_Dependencies$GraphDependencies$FilterVisitor_MethodInfo_,
-	"Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;>;",
-	nullptr,
-	_Dependencies$GraphDependencies$FilterVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Dependencies"
-};
-
-$Object* allocate$Dependencies$GraphDependencies$FilterVisitor($Class* clazz) {
-	return $of($alloc(Dependencies$GraphDependencies$FilterVisitor));
-}
 
 void Dependencies$GraphDependencies$FilterVisitor::init$($Dependencies$GraphDependencies* this$0, $Dependencies$GraphDependencies$CompletionNode$Kind* ck) {
 	$set(this, this$0, this$0);
@@ -101,7 +54,7 @@ void Dependencies$GraphDependencies$FilterVisitor::visitNode($Dependencies$Graph
 }
 
 void Dependencies$GraphDependencies$FilterVisitor::visitDependency($GraphUtils$DependencyKind* dk, $Dependencies$GraphDependencies$Node* from, $Dependencies$GraphDependencies$Node* to, $Void* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Dependencies$GraphDependencies$CompletionNode, completionNode, nullptr);
 		bool var$0 = $instanceOf($Dependencies$GraphDependencies$CompletionNode, to);
@@ -111,7 +64,7 @@ void Dependencies$GraphDependencies$FilterVisitor::visitDependency($GraphUtils$D
 		}
 		if (var$0) {
 			if ($nc(completionNode)->ck != this->ck) {
-				$nc(($cast($List, $($nc($nc(from)->depsByKind)->get(dk)))))->remove($of(to));
+				$$sure($List, $nc($nc(from)->depsByKind)->get(dk))->remove(to);
 			}
 		}
 	}
@@ -129,7 +82,45 @@ Dependencies$GraphDependencies$FilterVisitor::Dependencies$GraphDependencies$Fil
 }
 
 $Class* Dependencies$GraphDependencies$FilterVisitor::load$($String* name, bool initialize) {
-	$loadClass(Dependencies$GraphDependencies$FilterVisitor, name, initialize, &_Dependencies$GraphDependencies$FilterVisitor_ClassInfo_, allocate$Dependencies$GraphDependencies$FilterVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies;", nullptr, $FINAL | $SYNTHETIC, $field(Dependencies$GraphDependencies$FilterVisitor, this$0)},
+		{"ck", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, 0, $field(Dependencies$GraphDependencies$FilterVisitor, ck)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;)V", nullptr, $PRIVATE, $method(Dependencies$GraphDependencies$FilterVisitor, init$, void, $Dependencies$GraphDependencies*, $Dependencies$GraphDependencies$CompletionNode$Kind*)},
+		{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $Dependencies$GraphDependencies$Node*, $Dependencies$GraphDependencies$Node*, $Void*)},
+		{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
+		{"visitNode", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitNode, void, $Dependencies$GraphDependencies$Node*, $Void*)},
+		{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Dependencies$GraphDependencies$FilterVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies", "com.sun.tools.javac.util.Dependencies", "GraphDependencies", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies$FilterVisitor", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "FilterVisitor", $PRIVATE},
+		{"com.sun.tools.javac.util.GraphUtils$NodeVisitor", "com.sun.tools.javac.util.GraphUtils", "NodeVisitor", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$ClassSymbol", "com.sun.tools.javac.code.Symbol", "ClassSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.Dependencies$GraphDependencies$Node", "com.sun.tools.javac.util.Dependencies$GraphDependencies", "Node", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.Dependencies$GraphDependencies$FilterVisitor",
+		"com.sun.tools.javac.util.GraphUtils$NodeVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Dependencies"
+	};
+	$loadClass(Dependencies$GraphDependencies$FilterVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dependencies$GraphDependencies$FilterVisitor);
+	});
 	return class$;
 }
 

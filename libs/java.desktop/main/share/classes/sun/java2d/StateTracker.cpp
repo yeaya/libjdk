@@ -1,5 +1,4 @@
 #include <sun/java2d/StateTracker.h>
-
 #include <sun/java2d/StateTracker$1.h>
 #include <sun/java2d/StateTracker$2.h>
 #include <jcpp.h>
@@ -17,52 +16,46 @@ using $StateTracker$2 = ::sun::java2d::StateTracker$2;
 namespace sun {
 	namespace java2d {
 
-$FieldInfo _StateTracker_FieldInfo_[] = {
-	{"ALWAYS_CURRENT", "Lsun/java2d/StateTracker;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTracker, ALWAYS_CURRENT)},
-	{"NEVER_CURRENT", "Lsun/java2d/StateTracker;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTracker, NEVER_CURRENT)},
-	{}
-};
-
-$MethodInfo _StateTracker_MethodInfo_[] = {
-	{"isCurrent", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StateTracker, isCurrent, bool)},
-	{}
-};
-
-$InnerClassInfo _StateTracker_InnerClassesInfo_[] = {
-	{"sun.java2d.StateTracker$2", nullptr, nullptr, 0},
-	{"sun.java2d.StateTracker$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StateTracker_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.StateTracker",
-	nullptr,
-	nullptr,
-	_StateTracker_FieldInfo_,
-	_StateTracker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StateTracker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.StateTracker$2,sun.java2d.StateTracker$1"
-};
-
-$Object* allocate$StateTracker($Class* clazz) {
-	return $of($alloc(StateTracker));
-}
-
 StateTracker* StateTracker::ALWAYS_CURRENT = nullptr;
 StateTracker* StateTracker::NEVER_CURRENT = nullptr;
 
-void clinit$StateTracker($Class* class$) {
+void StateTracker::clinit$($Class* clazz) {
 	$assignStatic(StateTracker::ALWAYS_CURRENT, $new($StateTracker$1));
 	$assignStatic(StateTracker::NEVER_CURRENT, $new($StateTracker$2));
 }
 
 $Class* StateTracker::load$($String* name, bool initialize) {
-	$loadClass(StateTracker, name, initialize, &_StateTracker_ClassInfo_, clinit$StateTracker, allocate$StateTracker);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALWAYS_CURRENT", "Lsun/java2d/StateTracker;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTracker, ALWAYS_CURRENT)},
+		{"NEVER_CURRENT", "Lsun/java2d/StateTracker;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTracker, NEVER_CURRENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"isCurrent", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StateTracker, isCurrent, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.StateTracker$2", nullptr, nullptr, 0},
+		{"sun.java2d.StateTracker$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.StateTracker",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.StateTracker$2,sun.java2d.StateTracker$1"
+	};
+	$loadClass(StateTracker, name, initialize, &classInfo$$, StateTracker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StateTracker);
+	});
 	return class$;
 }
 

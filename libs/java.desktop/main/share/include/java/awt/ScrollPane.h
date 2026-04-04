@@ -58,6 +58,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t scrollbarDisplayPolicy);
 	virtual void addImpl(::java::awt::Component* comp, Object$* constraints, int32_t index) override;
@@ -100,7 +101,7 @@ public:
 	static int32_t nameCounter;
 	static const bool defaultWheelScroll = true;
 	bool wheelScrollingEnabled = false;
-	static const int64_t serialVersionUID = (int64_t)0x6E6B8E7E8AE24B83;
+	static const int64_t serialVersionUID = (int64_t)0x6e6b8e7e8ae24b83;
 };
 
 	} // awt

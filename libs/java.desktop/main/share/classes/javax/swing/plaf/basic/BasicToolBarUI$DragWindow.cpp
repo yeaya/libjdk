@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicToolBarUI$DragWindow.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -15,7 +14,6 @@
 #undef HORIZONTAL
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -34,52 +32,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicToolBarUI$DragWindow_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicToolBarUI$DragWindow, this$0)},
-	{"borderColor", "Ljava/awt/Color;", nullptr, 0, $field(BasicToolBarUI$DragWindow, borderColor)},
-	{"orientation", "I", nullptr, 0, $field(BasicToolBarUI$DragWindow, orientation)},
-	{"offset", "Ljava/awt/Point;", nullptr, 0, $field(BasicToolBarUI$DragWindow, offset)},
-	{}
-};
-
-$MethodInfo _BasicToolBarUI$DragWindow_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicToolBarUI;Ljava/awt/Window;)V", nullptr, 0, $method(BasicToolBarUI$DragWindow, init$, void, $BasicToolBarUI*, $Window*)},
-	{"getBorderColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getBorderColor, $Color*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getInsets, $Insets*)},
-	{"getOffset", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getOffset, $Point*)},
-	{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getOrientation, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, paint, void, $Graphics*)},
-	{"setBorderColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, setBorderColor, void, $Color*)},
-	{"setOffset", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, setOffset, void, $Point*)},
-	{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, setOrientation, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicToolBarUI$DragWindow_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicToolBarUI$DragWindow", "javax.swing.plaf.basic.BasicToolBarUI", "DragWindow", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicToolBarUI$DragWindow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicToolBarUI$DragWindow",
-	"java.awt.Window",
-	nullptr,
-	_BasicToolBarUI$DragWindow_FieldInfo_,
-	_BasicToolBarUI$DragWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicToolBarUI$DragWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicToolBarUI"
-};
-
-$Object* allocate$BasicToolBarUI$DragWindow($Class* clazz) {
-	return $of($alloc(BasicToolBarUI$DragWindow));
-}
-
 void BasicToolBarUI$DragWindow::init$($BasicToolBarUI* this$0, $Window* w) {
 	$set(this, this$0, this$0);
 	$Window::init$(w);
@@ -93,21 +45,21 @@ int32_t BasicToolBarUI$DragWindow::getOrientation() {
 }
 
 void BasicToolBarUI$DragWindow::setOrientation(int32_t o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isShowing()) {
 		if (o == this->orientation) {
 			return;
 		}
 		this->orientation = o;
 		$var($Dimension, size, getSize());
-		setSize($$new($Dimension, $nc(size)->height, size->width));
+		setSize($$new($Dimension, $nc(size)->height, $nc(size)->width));
 		if (this->offset != nullptr) {
 			if ($BasicGraphicsUtils::isLeftToRight(this->this$0->toolBar)) {
 				setOffset($$new($Point, $nc(this->offset)->y, $nc(this->offset)->x));
 			} else if (o == $JToolBar::HORIZONTAL) {
-				setOffset($$new($Point, $nc(size)->height - $nc(this->offset)->y, $nc(this->offset)->x));
+				setOffset($$new($Point, size->height - $nc(this->offset)->y, $nc(this->offset)->x));
 			} else {
-				setOffset($$new($Point, $nc(this->offset)->y, $nc(size)->width - $nc(this->offset)->x));
+				setOffset($$new($Point, $nc(this->offset)->y, size->width - $nc(this->offset)->x));
 			}
 		}
 		repaint();
@@ -147,7 +99,47 @@ BasicToolBarUI$DragWindow::BasicToolBarUI$DragWindow() {
 }
 
 $Class* BasicToolBarUI$DragWindow::load$($String* name, bool initialize) {
-	$loadClass(BasicToolBarUI$DragWindow, name, initialize, &_BasicToolBarUI$DragWindow_ClassInfo_, allocate$BasicToolBarUI$DragWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicToolBarUI$DragWindow, this$0)},
+		{"borderColor", "Ljava/awt/Color;", nullptr, 0, $field(BasicToolBarUI$DragWindow, borderColor)},
+		{"orientation", "I", nullptr, 0, $field(BasicToolBarUI$DragWindow, orientation)},
+		{"offset", "Ljava/awt/Point;", nullptr, 0, $field(BasicToolBarUI$DragWindow, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicToolBarUI;Ljava/awt/Window;)V", nullptr, 0, $method(BasicToolBarUI$DragWindow, init$, void, $BasicToolBarUI*, $Window*)},
+		{"getBorderColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getBorderColor, $Color*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getInsets, $Insets*)},
+		{"getOffset", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getOffset, $Point*)},
+		{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, getOrientation, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, paint, void, $Graphics*)},
+		{"setBorderColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, setBorderColor, void, $Color*)},
+		{"setOffset", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, setOffset, void, $Point*)},
+		{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$DragWindow, setOrientation, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicToolBarUI$DragWindow", "javax.swing.plaf.basic.BasicToolBarUI", "DragWindow", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicToolBarUI$DragWindow",
+		"java.awt.Window",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicToolBarUI"
+	};
+	$loadClass(BasicToolBarUI$DragWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicToolBarUI$DragWindow));
+	});
 	return class$;
 }
 

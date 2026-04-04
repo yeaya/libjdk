@@ -35,7 +35,7 @@ public:
 	virtual int32_t getUserAction();
 	void setNewModifiers();
 	void setOldModifiers();
-	static const int64_t serialVersionUID = (int64_t)0x06AE15E85E4CB287;
+	static const int64_t serialVersionUID = (int64_t)0x06ae15e85e4cb287;
 	static const int32_t JDK_1_3_MODIFIERS = 63; // InputEvent.SHIFT_DOWN_MASK - 1
 	static const int32_t JDK_1_4_MODIFIERS = 16320; // ((InputEvent.ALT_GRAPH_DOWN_MASK << 1) - 1) & ~JDK_1_3_MODIFIERS
 	int32_t targetActions = 0;

@@ -1,5 +1,4 @@
 #include <java/awt/font/ShapeGraphicAttribute.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Shape.h>
 #include <java/awt/font/GraphicAttribute.h>
@@ -29,42 +28,6 @@ namespace java {
 	namespace awt {
 		namespace font {
 
-$FieldInfo _ShapeGraphicAttribute_FieldInfo_[] = {
-	{"fShape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(ShapeGraphicAttribute, fShape)},
-	{"fStroke", "Z", nullptr, $PRIVATE, $field(ShapeGraphicAttribute, fStroke)},
-	{"STROKE", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShapeGraphicAttribute, STROKE)},
-	{"FILL", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShapeGraphicAttribute, FILL)},
-	{"fShapeBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ShapeGraphicAttribute, fShapeBounds)},
-	{}
-};
-
-$MethodInfo _ShapeGraphicAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Shape;IZ)V", nullptr, $PUBLIC, $method(ShapeGraphicAttribute, init$, void, $Shape*, int32_t, bool)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, draw, void, $Graphics2D*, float, float)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, equals, bool, Object$*)},
-	{"equals", "(Ljava/awt/font/ShapeGraphicAttribute;)Z", nullptr, $PUBLIC, $method(ShapeGraphicAttribute, equals, bool, ShapeGraphicAttribute*)},
-	{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getAdvance, float)},
-	{"getAscent", "()F", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getAscent, float)},
-	{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getBounds, $Rectangle2D*)},
-	{"getDescent", "()F", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getDescent, float)},
-	{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getOutline, $Shape*, $AffineTransform*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ShapeGraphicAttribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.font.ShapeGraphicAttribute",
-	"java.awt.font.GraphicAttribute",
-	nullptr,
-	_ShapeGraphicAttribute_FieldInfo_,
-	_ShapeGraphicAttribute_MethodInfo_
-};
-
-$Object* allocate$ShapeGraphicAttribute($Class* clazz) {
-	return $of($alloc(ShapeGraphicAttribute));
-}
-
 void ShapeGraphicAttribute::init$($Shape* shape, int32_t alignment, bool stroke) {
 	$GraphicAttribute::init$(alignment);
 	$set(this, fShape, shape);
@@ -86,22 +49,20 @@ float ShapeGraphicAttribute::getAdvance() {
 
 void ShapeGraphicAttribute::draw($Graphics2D* graphics, float x, float y) {
 	$nc(graphics)->translate($cast(int32_t, x), $cast(int32_t, y));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->fStroke == ShapeGraphicAttribute::STROKE) {
-				graphics->draw(this->fShape);
-			} else {
-				graphics->fill(this->fShape);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			graphics->translate(-$cast(int32_t, x), -$cast(int32_t, y));
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->fStroke == ShapeGraphicAttribute::STROKE) {
+			graphics->draw(this->fShape);
+		} else {
+			graphics->fill(this->fShape);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		graphics->translate(-$cast(int32_t, x), -$cast(int32_t, y));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -116,11 +77,11 @@ $Rectangle2D* ShapeGraphicAttribute::getBounds() {
 }
 
 $Shape* ShapeGraphicAttribute::getOutline($AffineTransform* tx) {
-	return tx == nullptr ? this->fShape : $nc(tx)->createTransformedShape(this->fShape);
+	return tx == nullptr ? this->fShape : tx->createTransformedShape(this->fShape);
 }
 
 int32_t ShapeGraphicAttribute::hashCode() {
-	return $nc($of(this->fShape))->hashCode();
+	return $nc(this->fShape)->hashCode();
 }
 
 bool ShapeGraphicAttribute::equals(Object$* rhs) {
@@ -143,10 +104,10 @@ bool ShapeGraphicAttribute::equals(ShapeGraphicAttribute* rhs) {
 		return false;
 	}
 	int32_t var$0 = getAlignment();
-	if (var$0 != $nc(rhs)->getAlignment()) {
+	if (var$0 != rhs->getAlignment()) {
 		return false;
 	}
-	if (!$nc($of(this->fShape))->equals($nc(rhs)->fShape)) {
+	if (!$nc(this->fShape)->equals(rhs->fShape)) {
 		return false;
 	}
 	return true;
@@ -156,7 +117,38 @@ ShapeGraphicAttribute::ShapeGraphicAttribute() {
 }
 
 $Class* ShapeGraphicAttribute::load$($String* name, bool initialize) {
-	$loadClass(ShapeGraphicAttribute, name, initialize, &_ShapeGraphicAttribute_ClassInfo_, allocate$ShapeGraphicAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"fShape", "Ljava/awt/Shape;", nullptr, $PRIVATE, $field(ShapeGraphicAttribute, fShape)},
+		{"fStroke", "Z", nullptr, $PRIVATE, $field(ShapeGraphicAttribute, fStroke)},
+		{"STROKE", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShapeGraphicAttribute, STROKE)},
+		{"FILL", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShapeGraphicAttribute, FILL)},
+		{"fShapeBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ShapeGraphicAttribute, fShapeBounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Shape;IZ)V", nullptr, $PUBLIC, $method(ShapeGraphicAttribute, init$, void, $Shape*, int32_t, bool)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, draw, void, $Graphics2D*, float, float)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, equals, bool, Object$*)},
+		{"equals", "(Ljava/awt/font/ShapeGraphicAttribute;)Z", nullptr, $PUBLIC, $method(ShapeGraphicAttribute, equals, bool, ShapeGraphicAttribute*)},
+		{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getAdvance, float)},
+		{"getAscent", "()F", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getAscent, float)},
+		{"getBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getBounds, $Rectangle2D*)},
+		{"getDescent", "()F", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getDescent, float)},
+		{"getOutline", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, getOutline, $Shape*, $AffineTransform*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ShapeGraphicAttribute, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.font.ShapeGraphicAttribute",
+		"java.awt.font.GraphicAttribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShapeGraphicAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShapeGraphicAttribute);
+	});
 	return class$;
 }
 

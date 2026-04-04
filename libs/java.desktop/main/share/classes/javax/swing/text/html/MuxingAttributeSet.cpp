@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/MuxingAttributeSet.h>
-
 #include <java/util/Enumeration.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
@@ -22,59 +21,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _MuxingAttributeSet_FieldInfo_[] = {
-	{"attrs", "[Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(MuxingAttributeSet, attrs)},
-	{}
-};
-
-$MethodInfo _MuxingAttributeSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(MuxingAttributeSet, init$, void, $AttributeSetArray*)},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(MuxingAttributeSet, init$, void)},
-	{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, containsAttribute, bool, Object$*, Object$*)},
-	{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, containsAttributes, bool, $AttributeSet*)},
-	{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, copyAttributes, $AttributeSet*)},
-	{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, getAttribute, $Object*, Object$*)},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, getAttributeCount, int32_t)},
-	{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(MuxingAttributeSet, getAttributeNames, $Enumeration*)},
-	{"getAttributes", "()[Ljavax/swing/text/AttributeSet;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, getAttributes, $AttributeSetArray*)},
-	{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, getResolveParent, $AttributeSet*)},
-	{"insertAttributeSetAt", "(Ljavax/swing/text/AttributeSet;I)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, insertAttributeSetAt, void, $AttributeSet*, int32_t)},
-	{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, isDefined, bool, Object$*)},
-	{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, isEqual, bool, $AttributeSet*)},
-	{"removeAttributeSetAt", "(I)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, removeAttributeSetAt, void, int32_t)},
-	{"setAttributes", "([Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, setAttributes, void, $AttributeSetArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MuxingAttributeSet_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration", "javax.swing.text.html.MuxingAttributeSet", "MuxingAttributeNameEnumeration", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MuxingAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.MuxingAttributeSet",
-	"java.lang.Object",
-	"javax.swing.text.AttributeSet,java.io.Serializable",
-	_MuxingAttributeSet_FieldInfo_,
-	_MuxingAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MuxingAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration"
-};
-
-$Object* allocate$MuxingAttributeSet($Class* clazz) {
-	return $of($alloc(MuxingAttributeSet));
-}
 
 int32_t MuxingAttributeSet::hashCode() {
 	 return this->$AttributeSet::hashCode();
@@ -173,12 +119,12 @@ bool MuxingAttributeSet::isDefined(Object$* key) {
 
 bool MuxingAttributeSet::isEqual($AttributeSet* attr) {
 	int32_t var$1 = getAttributeCount();
-	bool var$0 = (var$1 == $nc(attr)->getAttributeCount());
+	bool var$0 = var$1 == $nc(attr)->getAttributeCount();
 	return (var$0 && containsAttributes(attr));
 }
 
 $AttributeSet* MuxingAttributeSet::copyAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSetArray, as, getAttributes());
 	$var($MutableAttributeSet, a, $new($SimpleAttributeSet));
 	int32_t n = 0;
@@ -189,16 +135,16 @@ $AttributeSet* MuxingAttributeSet::copyAttributes() {
 }
 
 $Object* MuxingAttributeSet::getAttribute(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSetArray, as, getAttributes());
 	int32_t n = $nc(as)->length;
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Object, o, $nc(as->get(i))->getAttribute(key));
 		if (o != nullptr) {
-			return $of(o);
+			return o;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Enumeration* MuxingAttributeSet::getAttributeNames() {
@@ -210,12 +156,12 @@ bool MuxingAttributeSet::containsAttribute(Object$* name, Object$* value) {
 }
 
 bool MuxingAttributeSet::containsAttributes($AttributeSet* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool result = true;
 	$var($Enumeration, names, $nc(attrs)->getAttributeNames());
 	while (result && $nc(names)->hasMoreElements()) {
 		$var($Object, name, names->nextElement());
-		result = $nc($of($(attrs->getAttribute(name))))->equals($(getAttribute(name)));
+		result = $$nc(attrs->getAttribute(name))->equals($(getAttribute(name)));
 	}
 	return result;
 }
@@ -228,7 +174,54 @@ MuxingAttributeSet::MuxingAttributeSet() {
 }
 
 $Class* MuxingAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(MuxingAttributeSet, name, initialize, &_MuxingAttributeSet_ClassInfo_, allocate$MuxingAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"attrs", "[Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(MuxingAttributeSet, attrs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $method(MuxingAttributeSet, init$, void, $AttributeSetArray*)},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(MuxingAttributeSet, init$, void)},
+		{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, containsAttribute, bool, Object$*, Object$*)},
+		{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, containsAttributes, bool, $AttributeSet*)},
+		{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, copyAttributes, $AttributeSet*)},
+		{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, getAttribute, $Object*, Object$*)},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, getAttributeCount, int32_t)},
+		{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(MuxingAttributeSet, getAttributeNames, $Enumeration*)},
+		{"getAttributes", "()[Ljavax/swing/text/AttributeSet;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, getAttributes, $AttributeSetArray*)},
+		{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, getResolveParent, $AttributeSet*)},
+		{"insertAttributeSetAt", "(Ljavax/swing/text/AttributeSet;I)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, insertAttributeSetAt, void, $AttributeSet*, int32_t)},
+		{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, isDefined, bool, Object$*)},
+		{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(MuxingAttributeSet, isEqual, bool, $AttributeSet*)},
+		{"removeAttributeSetAt", "(I)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, removeAttributeSetAt, void, int32_t)},
+		{"setAttributes", "([Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(MuxingAttributeSet, setAttributes, void, $AttributeSetArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration", "javax.swing.text.html.MuxingAttributeSet", "MuxingAttributeNameEnumeration", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.MuxingAttributeSet",
+		"java.lang.Object",
+		"javax.swing.text.AttributeSet,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.MuxingAttributeSet$MuxingAttributeNameEnumeration"
+	};
+	$loadClass(MuxingAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MuxingAttributeSet));
+	});
 	return class$;
 }
 

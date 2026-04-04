@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ConditionalExpressionTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,28 +11,24 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ConditionalExpressionTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getCondition, $ExpressionTree*)},
-	{"getFalseExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getFalseExpression, $ExpressionTree*)},
-	{"getTrueExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getTrueExpression, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _ConditionalExpressionTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ConditionalExpressionTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_ConditionalExpressionTree_MethodInfo_
-};
-
-$Object* allocate$ConditionalExpressionTree($Class* clazz) {
-	return $of($alloc(ConditionalExpressionTree));
-}
-
 $Class* ConditionalExpressionTree::load$($String* name, bool initialize) {
-	$loadClass(ConditionalExpressionTree, name, initialize, &_ConditionalExpressionTree_ClassInfo_, allocate$ConditionalExpressionTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getCondition, $ExpressionTree*)},
+		{"getFalseExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getFalseExpression, $ExpressionTree*)},
+		{"getTrueExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getTrueExpression, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ConditionalExpressionTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConditionalExpressionTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConditionalExpressionTree);
+	});
 	return class$;
 }
 

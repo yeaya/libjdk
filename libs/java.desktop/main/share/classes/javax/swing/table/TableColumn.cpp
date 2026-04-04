@@ -1,5 +1,4 @@
 #include <javax/swing/table/TableColumn.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -44,216 +43,6 @@ namespace javax {
 	namespace swing {
 		namespace table {
 
-$CompoundAttribute _TableColumn_FieldAnnotations_resizedPostingDisableCount[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_disableResizedPosting6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_enableResizedPosting7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$0[] = {
-	{"description", 's', "The editor to use for cell values."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setCellEditor24[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$1[] = {
-	{"description", 's', "The renderer to use for cell values."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setCellRenderer25[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$2[] = {
-	{"description", 's', "The header renderer."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setHeaderRenderer26[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$3[] = {
-	{"description", 's', "The text to be used by the header renderer."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setHeaderValue27[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$4[] = {
-	{"description", 's', "A unique identifier for this column."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setIdentifier28[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$5[] = {
-	{"description", 's', "The maximum width of the column."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setMaxWidth29[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$6[] = {
-	{"description", 's', "The minimum width of the column."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setMinWidth30[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$7[] = {
-	{"description", 's', "The model index."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setModelIndex31[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$8[] = {
-	{"description", 's', "The preferred width of the column."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setPreferredWidth32[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$9[] = {
-	{"description", 's', "Whether or not this column can be resized."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setResizable33[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute TableColumn_Attribute_var$10[] = {
-	{"description", 's', "The width of the column."},
-	{}
-};
-
-$CompoundAttribute _TableColumn_MethodAnnotations_setWidth34[] = {
-	{"Ljava/beans/BeanProperty;", TableColumn_Attribute_var$10},
-	{}
-};
-
-$FieldInfo _TableColumn_FieldInfo_[] = {
-	{"COLUMN_WIDTH_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, COLUMN_WIDTH_PROPERTY)},
-	{"HEADER_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, HEADER_VALUE_PROPERTY)},
-	{"HEADER_RENDERER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, HEADER_RENDERER_PROPERTY)},
-	{"CELL_RENDERER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, CELL_RENDERER_PROPERTY)},
-	{"modelIndex", "I", nullptr, $PROTECTED, $field(TableColumn, modelIndex)},
-	{"identifier", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(TableColumn, identifier)},
-	{"width", "I", nullptr, $PROTECTED, $field(TableColumn, width)},
-	{"minWidth", "I", nullptr, $PROTECTED, $field(TableColumn, minWidth)},
-	{"preferredWidth", "I", nullptr, $PRIVATE, $field(TableColumn, preferredWidth)},
-	{"maxWidth", "I", nullptr, $PROTECTED, $field(TableColumn, maxWidth)},
-	{"headerRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $field(TableColumn, headerRenderer)},
-	{"headerValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(TableColumn, headerValue)},
-	{"cellRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $field(TableColumn, cellRenderer)},
-	{"cellEditor", "Ljavax/swing/table/TableCellEditor;", nullptr, $PROTECTED, $field(TableColumn, cellEditor)},
-	{"isResizable", "Z", nullptr, $PROTECTED, $field(TableColumn, isResizable)},
-	{"resizedPostingDisableCount", "I", nullptr, $PROTECTED | $TRANSIENT | $DEPRECATED, $field(TableColumn, resizedPostingDisableCount), _TableColumn_FieldAnnotations_resizedPostingDisableCount},
-	{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PRIVATE, $field(TableColumn, changeSupport)},
-	{}
-};
-
-$MethodInfo _TableColumn_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TableColumn, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TableColumn, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(TableColumn, init$, void, int32_t, int32_t)},
-	{"<init>", "(IILjavax/swing/table/TableCellRenderer;Ljavax/swing/table/TableCellEditor;)V", nullptr, $PUBLIC, $method(TableColumn, init$, void, int32_t, int32_t, $TableCellRenderer*, $TableCellEditor*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TableColumn, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"createDefaultHeaderRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $virtualMethod(TableColumn, createDefaultHeaderRenderer, $TableCellRenderer*)},
-	{"disableResizedPosting", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TableColumn, disableResizedPosting, void), nullptr, nullptr, _TableColumn_MethodAnnotations_disableResizedPosting6},
-	{"enableResizedPosting", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TableColumn, enableResizedPosting, void), nullptr, nullptr, _TableColumn_MethodAnnotations_enableResizedPosting7},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TableColumn, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(TableColumn, firePropertyChange, void, $String*, int32_t, int32_t)},
-	{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PRIVATE, $method(TableColumn, firePropertyChange, void, $String*, bool, bool)},
-	{"getCellEditor", "()Ljavax/swing/table/TableCellEditor;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getCellEditor, $TableCellEditor*)},
-	{"getCellRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getCellRenderer, $TableCellRenderer*)},
-	{"getHeaderRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getHeaderRenderer, $TableCellRenderer*)},
-	{"getHeaderValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getHeaderValue, $Object*)},
-	{"getIdentifier", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getIdentifier, $Object*)},
-	{"getMaxWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getMaxWidth, int32_t)},
-	{"getMinWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getMinWidth, int32_t)},
-	{"getModelIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getModelIndex, int32_t)},
-	{"getPreferredWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getPreferredWidth, int32_t)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TableColumn, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(TableColumn, getResizable, bool)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getWidth, int32_t)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TableColumn, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setCellEditor", "(Ljavax/swing/table/TableCellEditor;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setCellEditor, void, $TableCellEditor*), nullptr, nullptr, _TableColumn_MethodAnnotations_setCellEditor24},
-	{"setCellRenderer", "(Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setCellRenderer, void, $TableCellRenderer*), nullptr, nullptr, _TableColumn_MethodAnnotations_setCellRenderer25},
-	{"setHeaderRenderer", "(Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setHeaderRenderer, void, $TableCellRenderer*), nullptr, nullptr, _TableColumn_MethodAnnotations_setHeaderRenderer26},
-	{"setHeaderValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setHeaderValue, void, Object$*), nullptr, nullptr, _TableColumn_MethodAnnotations_setHeaderValue27},
-	{"setIdentifier", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setIdentifier, void, Object$*), nullptr, nullptr, _TableColumn_MethodAnnotations_setIdentifier28},
-	{"setMaxWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setMaxWidth, void, int32_t), nullptr, nullptr, _TableColumn_MethodAnnotations_setMaxWidth29},
-	{"setMinWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setMinWidth, void, int32_t), nullptr, nullptr, _TableColumn_MethodAnnotations_setMinWidth30},
-	{"setModelIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setModelIndex, void, int32_t), nullptr, nullptr, _TableColumn_MethodAnnotations_setModelIndex31},
-	{"setPreferredWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setPreferredWidth, void, int32_t), nullptr, nullptr, _TableColumn_MethodAnnotations_setPreferredWidth32},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setResizable, void, bool), nullptr, nullptr, _TableColumn_MethodAnnotations_setResizable33},
-	{"setWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setWidth, void, int32_t), nullptr, nullptr, _TableColumn_MethodAnnotations_setWidth34},
-	{"sizeWidthToFit", "()V", nullptr, $PUBLIC, $virtualMethod(TableColumn, sizeWidthToFit, void)},
-	{}
-};
-
-$InnerClassInfo _TableColumn_InnerClassesInfo_[] = {
-	{"javax.swing.table.TableColumn$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TableColumn_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.table.TableColumn",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_TableColumn_FieldInfo_,
-	_TableColumn_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TableColumn_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.table.TableColumn$1"
-};
-
-$Object* allocate$TableColumn($Class* clazz) {
-	return $of($alloc(TableColumn));
-}
-
 $String* TableColumn::COLUMN_WIDTH_PROPERTY = nullptr;
 $String* TableColumn::HEADER_VALUE_PROPERTY = nullptr;
 $String* TableColumn::HEADER_RENDERER_PROPERTY = nullptr;
@@ -285,25 +74,23 @@ void TableColumn::init$(int32_t modelIndex, int32_t width, $TableCellRenderer* c
 
 void TableColumn::firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue) {
 	if (this->changeSupport != nullptr) {
-		$nc(this->changeSupport)->firePropertyChange(propertyName, oldValue, newValue);
+		this->changeSupport->firePropertyChange(propertyName, oldValue, newValue);
 	}
 }
 
 void TableColumn::firePropertyChange($String* propertyName, int32_t oldValue, int32_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		$var($Object, var$1, $of($Integer::valueOf(oldValue)));
-		firePropertyChange(var$0, var$1, $($of($Integer::valueOf(newValue))));
+		$var($Object, var$0, $Integer::valueOf(oldValue));
+		firePropertyChange(propertyName, var$0, $($Integer::valueOf(newValue)));
 	}
 }
 
 void TableColumn::firePropertyChange($String* propertyName, bool oldValue, bool newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		$var($Object, var$1, $of($Boolean::valueOf(oldValue)));
-		firePropertyChange(var$0, var$1, $($of($Boolean::valueOf(newValue))));
+		$var($Object, var$0, $Boolean::valueOf(oldValue));
+		firePropertyChange(propertyName, var$0, $($Boolean::valueOf(newValue)));
 	}
 }
 
@@ -324,7 +111,7 @@ void TableColumn::setIdentifier(Object$* identifier) {
 }
 
 $Object* TableColumn::getIdentifier() {
-	return $of((this->identifier != nullptr) ? this->identifier : getHeaderValue());
+	return (this->identifier != nullptr) ? this->identifier : getHeaderValue();
 }
 
 void TableColumn::setHeaderValue(Object$* headerValue) {
@@ -334,13 +121,13 @@ void TableColumn::setHeaderValue(Object$* headerValue) {
 }
 
 $Object* TableColumn::getHeaderValue() {
-	return $of(this->headerValue);
+	return this->headerValue;
 }
 
 void TableColumn::setHeaderRenderer($TableCellRenderer* headerRenderer) {
 	$var($TableCellRenderer, old, this->headerRenderer);
 	$set(this, headerRenderer, headerRenderer);
-	firePropertyChange("headerRenderer"_s, $of(old), $of(headerRenderer));
+	firePropertyChange("headerRenderer"_s, old, headerRenderer);
 }
 
 $TableCellRenderer* TableColumn::getHeaderRenderer() {
@@ -350,7 +137,7 @@ $TableCellRenderer* TableColumn::getHeaderRenderer() {
 void TableColumn::setCellRenderer($TableCellRenderer* cellRenderer) {
 	$var($TableCellRenderer, old, this->cellRenderer);
 	$set(this, cellRenderer, cellRenderer);
-	firePropertyChange("cellRenderer"_s, $of(old), $of(cellRenderer));
+	firePropertyChange("cellRenderer"_s, old, cellRenderer);
 }
 
 $TableCellRenderer* TableColumn::getCellRenderer() {
@@ -360,7 +147,7 @@ $TableCellRenderer* TableColumn::getCellRenderer() {
 void TableColumn::setCellEditor($TableCellEditor* cellEditor) {
 	$var($TableCellEditor, old, this->cellEditor);
 	$set(this, cellEditor, cellEditor);
-	firePropertyChange("cellEditor"_s, $of(old), $of(cellEditor));
+	firePropertyChange("cellEditor"_s, old, cellEditor);
 }
 
 $TableCellEditor* TableColumn::getCellEditor() {
@@ -430,14 +217,14 @@ bool TableColumn::getResizable() {
 }
 
 void TableColumn::sizeWidthToFit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->headerRenderer == nullptr) {
 		return;
 	}
 	$var($Component, c, $nc(this->headerRenderer)->getTableCellRendererComponent(nullptr, $(getHeaderValue()), false, false, 0, 0));
 	setMinWidth($nc($($nc(c)->getMinimumSize()))->width);
-	setMaxWidth($nc($($nc(c)->getMaximumSize()))->width);
-	setPreferredWidth($nc($($nc(c)->getPreferredSize()))->width);
+	setMaxWidth($nc($(c->getMaximumSize()))->width);
+	setPreferredWidth($nc($(c->getPreferredSize()))->width);
 	setWidth(getPreferredWidth());
 }
 
@@ -461,7 +248,7 @@ void TableColumn::addPropertyChangeListener($PropertyChangeListener* listener) {
 void TableColumn::removePropertyChangeListener($PropertyChangeListener* listener) {
 	$synchronized(this) {
 		if (this->changeSupport != nullptr) {
-			$nc(this->changeSupport)->removePropertyChangeListener(listener);
+			this->changeSupport->removePropertyChangeListener(listener);
 		}
 	}
 }
@@ -484,7 +271,7 @@ $TableCellRenderer* TableColumn::createDefaultHeaderRenderer() {
 TableColumn::TableColumn() {
 }
 
-void clinit$TableColumn($Class* class$) {
+void TableColumn::clinit$($Class* clazz) {
 	$assignStatic(TableColumn::COLUMN_WIDTH_PROPERTY, "columWidth"_s);
 	$assignStatic(TableColumn::HEADER_VALUE_PROPERTY, "headerValue"_s);
 	$assignStatic(TableColumn::HEADER_RENDERER_PROPERTY, "headerRenderer"_s);
@@ -492,7 +279,186 @@ void clinit$TableColumn($Class* class$) {
 }
 
 $Class* TableColumn::load$($String* name, bool initialize) {
-	$loadClass(TableColumn, name, initialize, &_TableColumn_ClassInfo_, clinit$TableColumn, allocate$TableColumn);
+	$CompoundAttribute resizedPostingDisableCountfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"COLUMN_WIDTH_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, COLUMN_WIDTH_PROPERTY)},
+		{"HEADER_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, HEADER_VALUE_PROPERTY)},
+		{"HEADER_RENDERER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, HEADER_RENDERER_PROPERTY)},
+		{"CELL_RENDERER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TableColumn, CELL_RENDERER_PROPERTY)},
+		{"modelIndex", "I", nullptr, $PROTECTED, $field(TableColumn, modelIndex)},
+		{"identifier", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(TableColumn, identifier)},
+		{"width", "I", nullptr, $PROTECTED, $field(TableColumn, width)},
+		{"minWidth", "I", nullptr, $PROTECTED, $field(TableColumn, minWidth)},
+		{"preferredWidth", "I", nullptr, $PRIVATE, $field(TableColumn, preferredWidth)},
+		{"maxWidth", "I", nullptr, $PROTECTED, $field(TableColumn, maxWidth)},
+		{"headerRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $field(TableColumn, headerRenderer)},
+		{"headerValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(TableColumn, headerValue)},
+		{"cellRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $field(TableColumn, cellRenderer)},
+		{"cellEditor", "Ljavax/swing/table/TableCellEditor;", nullptr, $PROTECTED, $field(TableColumn, cellEditor)},
+		{"isResizable", "Z", nullptr, $PROTECTED, $field(TableColumn, isResizable)},
+		{"resizedPostingDisableCount", "I", nullptr, $PROTECTED | $TRANSIENT | $DEPRECATED, $field(TableColumn, resizedPostingDisableCount), resizedPostingDisableCountfieldAnnotations$$},
+		{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PRIVATE, $field(TableColumn, changeSupport)},
+		{}
+	};
+	$CompoundAttribute disableResizedPostingmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute enableResizedPostingmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$NamedAttribute setCellEditormethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The editor to use for cell values."},
+		{}
+	};
+	$CompoundAttribute setCellEditormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCellEditormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setCellRenderermethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The renderer to use for cell values."},
+		{}
+	};
+	$CompoundAttribute setCellRenderermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCellRenderermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setHeaderRenderermethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The header renderer."},
+		{}
+	};
+	$CompoundAttribute setHeaderRenderermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHeaderRenderermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setHeaderValuemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The text to be used by the header renderer."},
+		{}
+	};
+	$CompoundAttribute setHeaderValuemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setHeaderValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setIdentifiermethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "A unique identifier for this column."},
+		{}
+	};
+	$CompoundAttribute setIdentifiermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setIdentifiermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMaxWidthmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The maximum width of the column."},
+		{}
+	};
+	$CompoundAttribute setMaxWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMaxWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMinWidthmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The minimum width of the column."},
+		{}
+	};
+	$CompoundAttribute setMinWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMinWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setModelIndexmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The model index."},
+		{}
+	};
+	$CompoundAttribute setModelIndexmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setModelIndexmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setPreferredWidthmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The preferred width of the column."},
+		{}
+	};
+	$CompoundAttribute setPreferredWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setPreferredWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setResizablemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Whether or not this column can be resized."},
+		{}
+	};
+	$CompoundAttribute setResizablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setResizablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setWidthmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The width of the column."},
+		{}
+	};
+	$CompoundAttribute setWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TableColumn, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(TableColumn, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(TableColumn, init$, void, int32_t, int32_t)},
+		{"<init>", "(IILjavax/swing/table/TableCellRenderer;Ljavax/swing/table/TableCellEditor;)V", nullptr, $PUBLIC, $method(TableColumn, init$, void, int32_t, int32_t, $TableCellRenderer*, $TableCellEditor*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TableColumn, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"createDefaultHeaderRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $virtualMethod(TableColumn, createDefaultHeaderRenderer, $TableCellRenderer*)},
+		{"disableResizedPosting", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TableColumn, disableResizedPosting, void), nullptr, nullptr, disableResizedPostingmethodAnnotations$$},
+		{"enableResizedPosting", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(TableColumn, enableResizedPosting, void), nullptr, nullptr, enableResizedPostingmethodAnnotations$$},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(TableColumn, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(TableColumn, firePropertyChange, void, $String*, int32_t, int32_t)},
+		{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PRIVATE, $method(TableColumn, firePropertyChange, void, $String*, bool, bool)},
+		{"getCellEditor", "()Ljavax/swing/table/TableCellEditor;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getCellEditor, $TableCellEditor*)},
+		{"getCellRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getCellRenderer, $TableCellRenderer*)},
+		{"getHeaderRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getHeaderRenderer, $TableCellRenderer*)},
+		{"getHeaderValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getHeaderValue, $Object*)},
+		{"getIdentifier", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TableColumn, getIdentifier, $Object*)},
+		{"getMaxWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getMaxWidth, int32_t)},
+		{"getMinWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getMinWidth, int32_t)},
+		{"getModelIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getModelIndex, int32_t)},
+		{"getPreferredWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getPreferredWidth, int32_t)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TableColumn, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(TableColumn, getResizable, bool)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TableColumn, getWidth, int32_t)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TableColumn, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setCellEditor", "(Ljavax/swing/table/TableCellEditor;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setCellEditor, void, $TableCellEditor*), nullptr, nullptr, setCellEditormethodAnnotations$$},
+		{"setCellRenderer", "(Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setCellRenderer, void, $TableCellRenderer*), nullptr, nullptr, setCellRenderermethodAnnotations$$},
+		{"setHeaderRenderer", "(Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setHeaderRenderer, void, $TableCellRenderer*), nullptr, nullptr, setHeaderRenderermethodAnnotations$$},
+		{"setHeaderValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setHeaderValue, void, Object$*), nullptr, nullptr, setHeaderValuemethodAnnotations$$},
+		{"setIdentifier", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setIdentifier, void, Object$*), nullptr, nullptr, setIdentifiermethodAnnotations$$},
+		{"setMaxWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setMaxWidth, void, int32_t), nullptr, nullptr, setMaxWidthmethodAnnotations$$},
+		{"setMinWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setMinWidth, void, int32_t), nullptr, nullptr, setMinWidthmethodAnnotations$$},
+		{"setModelIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setModelIndex, void, int32_t), nullptr, nullptr, setModelIndexmethodAnnotations$$},
+		{"setPreferredWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setPreferredWidth, void, int32_t), nullptr, nullptr, setPreferredWidthmethodAnnotations$$},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setResizable, void, bool), nullptr, nullptr, setResizablemethodAnnotations$$},
+		{"setWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(TableColumn, setWidth, void, int32_t), nullptr, nullptr, setWidthmethodAnnotations$$},
+		{"sizeWidthToFit", "()V", nullptr, $PUBLIC, $virtualMethod(TableColumn, sizeWidthToFit, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.table.TableColumn$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.table.TableColumn",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.table.TableColumn$1"
+	};
+	$loadClass(TableColumn, name, initialize, &classInfo$$, TableColumn::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TableColumn);
+	});
 	return class$;
 }
 

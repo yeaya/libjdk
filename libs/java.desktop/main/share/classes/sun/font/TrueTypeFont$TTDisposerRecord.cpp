@@ -1,5 +1,4 @@
 #include <sun/font/TrueTypeFont$TTDisposerRecord.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/channels/FileChannel.h>
 #include <sun/font/TrueTypeFont.h>
@@ -10,46 +9,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileChannel = ::java::nio::channels::FileChannel;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _TrueTypeFont$TTDisposerRecord_FieldInfo_[] = {
-	{"channel", "Ljava/nio/channels/FileChannel;", nullptr, 0, $field(TrueTypeFont$TTDisposerRecord, channel)},
-	{}
-};
-
-$MethodInfo _TrueTypeFont$TTDisposerRecord_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TrueTypeFont$TTDisposerRecord, init$, void)},
-	{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrueTypeFont$TTDisposerRecord, dispose, void)},
-	{}
-};
-
-$InnerClassInfo _TrueTypeFont$TTDisposerRecord_InnerClassesInfo_[] = {
-	{"sun.font.TrueTypeFont$TTDisposerRecord", "sun.font.TrueTypeFont", "TTDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TrueTypeFont$TTDisposerRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.TrueTypeFont$TTDisposerRecord",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_TrueTypeFont$TTDisposerRecord_FieldInfo_,
-	_TrueTypeFont$TTDisposerRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TrueTypeFont$TTDisposerRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.TrueTypeFont"
-};
-
-$Object* allocate$TrueTypeFont$TTDisposerRecord($Class* clazz) {
-	return $of($alloc(TrueTypeFont$TTDisposerRecord));
-}
 
 void TrueTypeFont$TTDisposerRecord::init$() {
 	$set(this, channel, nullptr);
@@ -57,23 +19,21 @@ void TrueTypeFont$TTDisposerRecord::init$() {
 
 void TrueTypeFont$TTDisposerRecord::dispose() {
 	$synchronized(this) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					if (this->channel != nullptr) {
-						$nc(this->channel)->close();
-					}
-				} catch ($IOException& e) {
+				if (this->channel != nullptr) {
+					this->channel->close();
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, channel, nullptr);
+			} catch ($IOException& e) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, channel, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -82,7 +42,37 @@ TrueTypeFont$TTDisposerRecord::TrueTypeFont$TTDisposerRecord() {
 }
 
 $Class* TrueTypeFont$TTDisposerRecord::load$($String* name, bool initialize) {
-	$loadClass(TrueTypeFont$TTDisposerRecord, name, initialize, &_TrueTypeFont$TTDisposerRecord_ClassInfo_, allocate$TrueTypeFont$TTDisposerRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"channel", "Ljava/nio/channels/FileChannel;", nullptr, 0, $field(TrueTypeFont$TTDisposerRecord, channel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TrueTypeFont$TTDisposerRecord, init$, void)},
+		{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TrueTypeFont$TTDisposerRecord, dispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.TrueTypeFont$TTDisposerRecord", "sun.font.TrueTypeFont", "TTDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.TrueTypeFont$TTDisposerRecord",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.TrueTypeFont"
+	};
+	$loadClass(TrueTypeFont$TTDisposerRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TrueTypeFont$TTDisposerRecord);
+	});
 	return class$;
 }
 

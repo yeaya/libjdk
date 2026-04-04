@@ -1,5 +1,4 @@
 #include <jdk/net/ExtendedSocketOptions$ExtSocketOption.h>
-
 #include <jdk/net/ExtendedSocketOptions.h>
 #include <jcpp.h>
 
@@ -10,45 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace jdk {
 	namespace net {
-
-$FieldInfo _ExtendedSocketOptions$ExtSocketOption_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ExtendedSocketOptions$ExtSocketOption, name$)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<TT;>;", $PRIVATE | $FINAL, $field(ExtendedSocketOptions$ExtSocketOption, type$)},
-	{}
-};
-
-$MethodInfo _ExtendedSocketOptions$ExtSocketOption_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(ExtendedSocketOptions$ExtSocketOption, init$, void, $String*, $Class*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, name, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, toString, $String*)},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, type, $Class*)},
-	{}
-};
-
-$InnerClassInfo _ExtendedSocketOptions$ExtSocketOption_InnerClassesInfo_[] = {
-	{"jdk.net.ExtendedSocketOptions$ExtSocketOption", "jdk.net.ExtendedSocketOptions", "ExtSocketOption", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ExtendedSocketOptions$ExtSocketOption_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.net.ExtendedSocketOptions$ExtSocketOption",
-	"java.lang.Object",
-	"java.net.SocketOption",
-	_ExtendedSocketOptions$ExtSocketOption_FieldInfo_,
-	_ExtendedSocketOptions$ExtSocketOption_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/SocketOption<TT;>;",
-	nullptr,
-	_ExtendedSocketOptions$ExtSocketOption_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.net.ExtendedSocketOptions"
-};
-
-$Object* allocate$ExtendedSocketOptions$ExtSocketOption($Class* clazz) {
-	return $of($alloc(ExtendedSocketOptions$ExtSocketOption));
-}
 
 void ExtendedSocketOptions$ExtSocketOption::init$($String* name, $Class* type) {
 	$set(this, name$, name);
@@ -71,7 +31,40 @@ ExtendedSocketOptions$ExtSocketOption::ExtendedSocketOptions$ExtSocketOption() {
 }
 
 $Class* ExtendedSocketOptions$ExtSocketOption::load$($String* name, bool initialize) {
-	$loadClass(ExtendedSocketOptions$ExtSocketOption, name, initialize, &_ExtendedSocketOptions$ExtSocketOption_ClassInfo_, allocate$ExtendedSocketOptions$ExtSocketOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ExtendedSocketOptions$ExtSocketOption, name$)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<TT;>;", $PRIVATE | $FINAL, $field(ExtendedSocketOptions$ExtSocketOption, type$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(ExtendedSocketOptions$ExtSocketOption, init$, void, $String*, $Class*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, name, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, toString, $String*)},
+		{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, type, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.net.ExtendedSocketOptions$ExtSocketOption", "jdk.net.ExtendedSocketOptions", "ExtSocketOption", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.net.ExtendedSocketOptions$ExtSocketOption",
+		"java.lang.Object",
+		"java.net.SocketOption",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/SocketOption<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.net.ExtendedSocketOptions"
+	};
+	$loadClass(ExtendedSocketOptions$ExtSocketOption, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedSocketOptions$ExtSocketOption);
+	});
 	return class$;
 }
 

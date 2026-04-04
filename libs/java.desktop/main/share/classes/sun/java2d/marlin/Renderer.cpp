@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Renderer.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -112,7 +111,6 @@ using $Curve = ::sun::java2d::marlin::Curve;
 using $DMarlinRenderingEngine = ::sun::java2d::marlin::DMarlinRenderingEngine;
 using $DPathConsumer2D = ::sun::java2d::marlin::DPathConsumer2D;
 using $FloatMath = ::sun::java2d::marlin::FloatMath;
-using $IntArrayCache$Reference = ::sun::java2d::marlin::IntArrayCache$Reference;
 using $MarlinCache = ::sun::java2d::marlin::MarlinCache;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $MarlinProperties = ::sun::java2d::marlin::MarlinProperties;
@@ -120,136 +118,10 @@ using $MarlinUtils = ::sun::java2d::marlin::MarlinUtils;
 using $MergeSort = ::sun::java2d::marlin::MergeSort;
 using $OffHeapArray = ::sun::java2d::marlin::OffHeapArray;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
-using $Histogram = ::sun::java2d::marlin::stats::Histogram;
-using $StatLong = ::sun::java2d::marlin::stats::StatLong;
 
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _Renderer_FieldInfo_[] = {
-	{"DISABLE_RENDER", "Z", nullptr, $STATIC | $FINAL, $constField(Renderer, DISABLE_RENDER)},
-	{"ENABLE_BLOCK_FLAGS", "Z", nullptr, $STATIC | $FINAL, $staticField(Renderer, ENABLE_BLOCK_FLAGS)},
-	{"ENABLE_BLOCK_FLAGS_HEURISTICS", "Z", nullptr, $STATIC | $FINAL, $staticField(Renderer, ENABLE_BLOCK_FLAGS_HEURISTICS)},
-	{"ALL_BUT_LSB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, ALL_BUT_LSB)},
-	{"ERR_STEP_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, ERR_STEP_MAX)},
-	{"POWER_2_TO_32", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, POWER_2_TO_32)},
-	{"SUBPIXEL_SCALE_X", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_SCALE_X)},
-	{"SUBPIXEL_SCALE_Y", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_SCALE_Y)},
-	{"SUBPIXEL_MASK_X", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_MASK_X)},
-	{"SUBPIXEL_MASK_Y", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_MASK_Y)},
-	{"RDR_OFFSET_X", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, RDR_OFFSET_X)},
-	{"RDR_OFFSET_Y", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, RDR_OFFSET_Y)},
-	{"SUBPIXEL_TILE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_TILE)},
-	{"INITIAL_BUCKET_ARRAY", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, INITIAL_BUCKET_ARRAY)},
-	{"INITIAL_CROSSING_COUNT", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, INITIAL_CROSSING_COUNT)},
-	{"OFF_CURX_OR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Renderer, OFF_CURX_OR)},
-	{"OFF_ERROR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_ERROR)},
-	{"OFF_BUMP_X", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_BUMP_X)},
-	{"OFF_BUMP_ERR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_BUMP_ERR)},
-	{"OFF_NEXT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_NEXT)},
-	{"OFF_YMAX", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_YMAX)},
-	{"SIZEOF_EDGE_BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, SIZEOF_EDGE_BYTES)},
-	{"CUB_DEC_ERR_SUBPIX", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_DEC_ERR_SUBPIX)},
-	{"CUB_INC_ERR_SUBPIX", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INC_ERR_SUBPIX)},
-	{"SCALE_DY", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, SCALE_DY)},
-	{"CUB_DEC_BND", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, CUB_DEC_BND)},
-	{"CUB_INC_BND", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, CUB_INC_BND)},
-	{"CUB_COUNT_LG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT_LG)},
-	{"CUB_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT)},
-	{"CUB_COUNT_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT_2)},
-	{"CUB_COUNT_3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT_3)},
-	{"CUB_INV_COUNT", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INV_COUNT)},
-	{"CUB_INV_COUNT_2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INV_COUNT_2)},
-	{"CUB_INV_COUNT_3", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INV_COUNT_3)},
-	{"QUAD_DEC_ERR_SUBPIX", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, QUAD_DEC_ERR_SUBPIX)},
-	{"QUAD_DEC_BND", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, QUAD_DEC_BND)},
-	{"crossings", "[I", nullptr, $PRIVATE, $field(Renderer, crossings)},
-	{"aux_crossings", "[I", nullptr, $PRIVATE, $field(Renderer, aux_crossings)},
-	{"edgeCount", "I", nullptr, $PRIVATE, $field(Renderer, edgeCount)},
-	{"edgePtrs", "[I", nullptr, $PRIVATE, $field(Renderer, edgePtrs)},
-	{"aux_edgePtrs", "[I", nullptr, $PRIVATE, $field(Renderer, aux_edgePtrs)},
-	{"activeEdgeMaxUsed", "I", nullptr, $PRIVATE, $field(Renderer, activeEdgeMaxUsed)},
-	{"crossings_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, crossings_ref)},
-	{"edgePtrs_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edgePtrs_ref)},
-	{"aux_crossings_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, aux_crossings_ref)},
-	{"aux_edgePtrs_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, aux_edgePtrs_ref)},
-	{"edgeMinY", "I", nullptr, $PRIVATE, $field(Renderer, edgeMinY)},
-	{"edgeMaxY", "I", nullptr, $PRIVATE, $field(Renderer, edgeMaxY)},
-	{"edgeMinX", "D", nullptr, $PRIVATE, $field(Renderer, edgeMinX)},
-	{"edgeMaxX", "D", nullptr, $PRIVATE, $field(Renderer, edgeMaxX)},
-	{"edges", "Lsun/java2d/marlin/OffHeapArray;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edges)},
-	{"edgeBuckets", "[I", nullptr, $PRIVATE, $field(Renderer, edgeBuckets)},
-	{"edgeBucketCounts", "[I", nullptr, $PRIVATE, $field(Renderer, edgeBucketCounts)},
-	{"buckets_minY", "I", nullptr, $PRIVATE, $field(Renderer, buckets_minY)},
-	{"buckets_maxY", "I", nullptr, $PRIVATE, $field(Renderer, buckets_maxY)},
-	{"edgeBuckets_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edgeBuckets_ref)},
-	{"edgeBucketCounts_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edgeBucketCounts_ref)},
-	{"cache", "Lsun/java2d/marlin/MarlinCache;", nullptr, $FINAL, $field(Renderer, cache)},
-	{"boundsMinX", "I", nullptr, $PRIVATE, $field(Renderer, boundsMinX)},
-	{"boundsMinY", "I", nullptr, $PRIVATE, $field(Renderer, boundsMinY)},
-	{"boundsMaxX", "I", nullptr, $PRIVATE, $field(Renderer, boundsMaxX)},
-	{"boundsMaxY", "I", nullptr, $PRIVATE, $field(Renderer, boundsMaxY)},
-	{"windingRule", "I", nullptr, $PRIVATE, $field(Renderer, windingRule)},
-	{"x0", "D", nullptr, $PRIVATE, $field(Renderer, x0)},
-	{"y0", "D", nullptr, $PRIVATE, $field(Renderer, y0)},
-	{"sx0", "D", nullptr, $PRIVATE, $field(Renderer, sx0)},
-	{"sy0", "D", nullptr, $PRIVATE, $field(Renderer, sy0)},
-	{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $FINAL, $field(Renderer, rdrCtx)},
-	{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $PRIVATE | $FINAL, $field(Renderer, curve)},
-	{"alphaLine", "[I", nullptr, $PRIVATE, $field(Renderer, alphaLine)},
-	{"alphaLine_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, alphaLine_ref)},
-	{"enableBlkFlags", "Z", nullptr, $PRIVATE, $field(Renderer, enableBlkFlags)},
-	{"prevUseBlkFlags", "Z", nullptr, $PRIVATE, $field(Renderer, prevUseBlkFlags)},
-	{"blkFlags", "[I", nullptr, $PRIVATE, $field(Renderer, blkFlags)},
-	{"blkFlags_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, blkFlags_ref)},
-	{"bbox_spminX", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spminX)},
-	{"bbox_spmaxX", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spmaxX)},
-	{"bbox_spminY", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spminY)},
-	{"bbox_spmaxY", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spmaxY)},
-	{}
-};
-
-$MethodInfo _Renderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Renderer, init$, void, $RendererContext*)},
-	{"_endRendering", "(II)V", nullptr, $PRIVATE, $method(Renderer, _endRendering, void, int32_t, int32_t)},
-	{"addLine", "(DDDD)V", nullptr, $PRIVATE, $method(Renderer, addLine, void, double, double, double, double)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(Renderer, closePath, void)},
-	{"copyAARow", "([IIIIZ)V", nullptr, 0, $method(Renderer, copyAARow, void, $ints*, int32_t, int32_t, int32_t, bool)},
-	{"curveBreakIntoLinesAndAdd", "(DDLsun/java2d/marlin/Curve;DD)V", nullptr, $PRIVATE, $method(Renderer, curveBreakIntoLinesAndAdd, void, double, double, $Curve*, double, double)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, curveTo, void, double, double, double, double, double, double)},
-	{"dispose", "()V", nullptr, 0, $method(Renderer, dispose, void)},
-	{"endRendering", "()Z", nullptr, 0, $method(Renderer, endRendering, bool)},
-	{"endRendering", "(I)V", nullptr, 0, $method(Renderer, endRendering, void, int32_t)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(Renderer, getNativeConsumer, int64_t)},
-	{"init", "(IIIII)Lsun/java2d/marlin/Renderer;", nullptr, 0, $method(Renderer, init, Renderer*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(Renderer, pathDone, void)},
-	{"quadBreakIntoLinesAndAdd", "(DDLsun/java2d/marlin/Curve;DD)V", nullptr, $PRIVATE, $method(Renderer, quadBreakIntoLinesAndAdd, void, double, double, $Curve*, double, double)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, quadTo, void, double, double, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tosubpixx", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Renderer, tosubpixx, double, double)},
-	{"tosubpixy", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Renderer, tosubpixy, double, double)},
-	{}
-};
-
-$ClassInfo _Renderer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Renderer",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D,sun.java2d.marlin.MarlinConst",
-	_Renderer_FieldInfo_,
-	_Renderer_MethodInfo_
-};
-
-$Object* allocate$Renderer($Class* clazz) {
-	return $of($alloc(Renderer));
-}
 
 int32_t Renderer::hashCode() {
 	 return this->$DPathConsumer2D::hashCode();
@@ -303,7 +175,7 @@ double Renderer::QUAD_DEC_BND = 0.0;
 void Renderer::quadBreakIntoLinesAndAdd(double x0, double y0, $Curve* c, double x2, double y2) {
 	int32_t count = 1;
 	double var$0 = $Math::abs($nc(c)->dbx);
-	double maxDD = var$0 + $Math::abs($nc(c)->dby) * Renderer::SCALE_DY;
+	double maxDD = var$0 + $Math::abs(c->dby) * Renderer::SCALE_DY;
 	double _DEC_BND = Renderer::QUAD_DEC_BND;
 	while (maxDD >= _DEC_BND) {
 		maxDD /= 4.0;
@@ -317,20 +189,16 @@ void Renderer::quadBreakIntoLinesAndAdd(double x0, double y0, $Curve* c, double 
 	if (count > 1) {
 		double icount = 1.0 / count;
 		double icount2 = icount * icount;
-		double ddx = $nc(c)->dbx * icount2;
+		double ddx = c->dbx * icount2;
 		double ddy = c->dby * icount2;
 		double dx = c->bx * icount2 + c->cx * icount;
 		double dy = c->by * icount2 + c->cy * icount;
-		{
-			double x1 = x0;
-			double y1 = y0;
-			for (; --count > 0; dx += ddx, dy += ddy) {
-				x1 += dx;
-				y1 += dy;
-				addLine(x0, y0, x1, y1);
-				x0 = x1;
-				y0 = y1;
-			}
+		for (double x1 = x0, y1 = y0; --count > 0; dx += ddx, dy += ddy) {
+			x1 += dx;
+			y1 += dy;
+			addLine(x0, y0, x1, y1);
+			x0 = x1;
+			y0 = y1;
 		}
 	}
 	addLine(x0, y0, x2, y2);
@@ -361,65 +229,61 @@ void Renderer::curveBreakIntoLinesAndAdd(double x0, double y0, $Curve* c, double
 	double _DEC_BND = Renderer::CUB_DEC_BND;
 	double _INC_BND = Renderer::CUB_INC_BND;
 	double _SCALE_DY = Renderer::SCALE_DY;
-	{
-		double x1 = x0;
-		double y1 = y0;
-		for (; count > 0;) {
-			while (true) {
-				bool var$0 = (count % 2 == 0);
-				if (var$0) {
-					double var$1 = $Math::abs(ddx);
-					var$0 = ((var$1 + $Math::abs(ddy) * _SCALE_DY) <= _INC_BND);
-				}
-				if (!(var$0)) {
-					break;
-				}
-				{
-					dx = 2.0 * dx + ddx;
-					dy = 2.0 * dy + ddy;
-					ddx = 4.0 * (ddx + dddx);
-					ddy = 4.0 * (ddy + dddy);
-					dddx *= 8.0;
-					dddy *= 8.0;
-					count >>= 1;
-					$init($MarlinConst);
-					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_curveBreak_inc)->add(count);
-					}
-				}
+	for (double x1 = x0, y1 = y0; count > 0;) {
+		while (true) {
+			bool var$0 = count % 2 == 0;
+			if (var$0) {
+				double var$1 = $Math::abs(ddx);
+				var$0 = (var$1 + $Math::abs(ddy) * _SCALE_DY) <= _INC_BND;
 			}
-			while (true) {
-				double var$2 = $Math::abs(ddx);
-				if (!((var$2 + $Math::abs(ddy) * _SCALE_DY) >= _DEC_BND)) {
-					break;
-				}
-				{
-					dddx /= 8.0;
-					dddy /= 8.0;
-					ddx = ddx / 4.0 - dddx;
-					ddy = ddy / 4.0 - dddy;
-					dx = (dx - ddx) / 2.0;
-					dy = (dy - ddy) / 2.0;
-					count <<= 1;
-					$init($MarlinConst);
-					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_curveBreak_dec)->add(count);
-					}
-				}
-			}
-			if (--count == 0) {
+			if (!(var$0)) {
 				break;
 			}
-			x1 += dx;
-			y1 += dy;
-			dx += ddx;
-			dy += ddy;
-			ddx += dddx;
-			ddy += dddy;
-			addLine(x0, y0, x1, y1);
-			x0 = x1;
-			y0 = y1;
+			{
+				dx = 2.0 * dx + ddx;
+				dy = 2.0 * dy + ddy;
+				ddx = 4.0 * (ddx + dddx);
+				ddy = 4.0 * (ddy + dddy);
+				dddx *= 8.0;
+				dddy *= 8.0;
+				count >>= 1;
+				$init($MarlinConst);
+				if ($MarlinConst::DO_STATS) {
+					$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_curveBreak_inc)->add(count);
+				}
+			}
 		}
+		while (true) {
+			double var$2 = $Math::abs(ddx);
+			if (!((var$2 + $Math::abs(ddy) * _SCALE_DY) >= _DEC_BND)) {
+				break;
+			}
+			{
+				dddx /= 8.0;
+				dddy /= 8.0;
+				ddx = ddx / 4.0 - dddx;
+				ddy = ddy / 4.0 - dddy;
+				dx = (dx - ddx) / 2.0;
+				dy = (dy - ddy) / 2.0;
+				count <<= 1;
+				$init($MarlinConst);
+				if ($MarlinConst::DO_STATS) {
+					$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_curveBreak_dec)->add(count);
+				}
+			}
+		}
+		if (--count == 0) {
+			break;
+		}
+		x1 += dx;
+		y1 += dy;
+		dx += ddx;
+		dy += ddy;
+		ddx += dddx;
+		ddy += dddy;
+		addLine(x0, y0, x1, y1);
+		x0 = x1;
+		y0 = y1;
 	}
 	addLine(x0, y0, x3, y3);
 	$init($MarlinConst);
@@ -429,7 +293,8 @@ void Renderer::curveBreakIntoLinesAndAdd(double x0, double y0, $Curve* c, double
 }
 
 void Renderer::addLine(double x1, double y1, double x2, double y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$init($MarlinConst);
 	if ($MarlinConst::DO_STATS) {
 		$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_addLine)->add(1);
@@ -447,6 +312,7 @@ void Renderer::addLine(double x1, double y1, double x2, double y2) {
 	int32_t firstCrossing = $FloatMath::max($FloatMath::ceil_int(y1), this->boundsMinY);
 	int32_t lastCrossing = $FloatMath::min($FloatMath::ceil_int(y2), this->boundsMaxY);
 	if (firstCrossing >= lastCrossing) {
+		;
 		if ($MarlinConst::DO_STATS) {
 			$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_addLine_skip)->add(1);
 		}
@@ -484,18 +350,17 @@ void Renderer::addLine(double x1, double y1, double x2, double y2) {
 		}
 		_edges->resize(edgeNewSize);
 	}
-	$init($OffHeapArray);
 	$var($Unsafe, _unsafe, $OffHeapArray::UNSAFE);
 	int64_t SIZE_INT = 4;
 	int64_t addr = _edges->address + edgePtr;
 	double x1_intercept = x1 + (firstCrossing - y1) * slope;
 	int64_t x1_fixed_biased = ($cast(int64_t, (Renderer::POWER_2_TO_32 * x1_intercept))) + (int64_t)2147483647;
-	$nc(_unsafe)->putInt(addr, ((int32_t)(((int32_t)($sr(x1_fixed_biased, 31))) & (uint32_t)Renderer::ALL_BUT_LSB)) | or$);
+	$nc(_unsafe)->putInt(addr, (((int32_t)($sr(x1_fixed_biased, 31))) & Renderer::ALL_BUT_LSB) | or$);
 	addr += SIZE_INT;
 	_unsafe->putInt(addr, (int32_t)((uint32_t)((int32_t)x1_fixed_biased) >> 1));
 	addr += SIZE_INT;
 	int64_t slope_fixed = $cast(int64_t, (Renderer::POWER_2_TO_32 * slope));
-	_unsafe->putInt(addr, ((int32_t)(((int32_t)($sr(slope_fixed, 31))) & (uint32_t)Renderer::ALL_BUT_LSB)));
+	_unsafe->putInt(addr, (((int32_t)($sr(slope_fixed, 31))) & Renderer::ALL_BUT_LSB));
 	addr += SIZE_INT;
 	_unsafe->putInt(addr, (int32_t)((uint32_t)((int32_t)slope_fixed) >> 1));
 	addr += SIZE_INT;
@@ -506,16 +371,16 @@ void Renderer::addLine(double x1, double y1, double x2, double y2) {
 	_unsafe->putInt(addr, $nc(_edgeBuckets)->get(bucketIdx));
 	addr += SIZE_INT;
 	_unsafe->putInt(addr, lastCrossing);
-	$nc(_edgeBuckets)->set(bucketIdx, edgePtr);
+	_edgeBuckets->set(bucketIdx, edgePtr);
 	(*$nc(_edgeBucketCounts))[bucketIdx] += 2;
 	(*_edgeBucketCounts)[lastCrossing - _boundsMinY] |= 1;
 	_edges->used += _SIZEOF_EDGE_BYTES;
+	;
 }
 
 void Renderer::init$($RendererContext* rdrCtx) {
 	this->edgeMinY = $Integer::MAX_VALUE;
 	this->edgeMaxY = $Integer::MIN_VALUE;
-	$init($Double);
 	this->edgeMinX = $Double::POSITIVE_INFINITY;
 	this->edgeMaxX = $Double::NEGATIVE_INFINITY;
 	this->enableBlkFlags = false;
@@ -544,7 +409,7 @@ void Renderer::init$($RendererContext* rdrCtx) {
 }
 
 Renderer* Renderer::init(int32_t pix_boundsX, int32_t pix_boundsY, int32_t pix_boundsWidth, int32_t pix_boundsHeight, int32_t windingRule) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->windingRule = windingRule;
 	$init($MarlinConst);
 	this->boundsMinX = $sl(pix_boundsX, $MarlinConst::SUBPIXEL_LG_POSITIONS_X);
@@ -558,14 +423,13 @@ Renderer* Renderer::init(int32_t pix_boundsX, int32_t pix_boundsY, int32_t pix_b
 	if (edgeBucketsLength > Renderer::INITIAL_BUCKET_ARRAY) {
 		if ($MarlinConst::DO_STATS) {
 			$nc($nc($nc(this->rdrCtx)->stats$)->stat_array_renderer_edgeBuckets)->add(edgeBucketsLength);
-			$nc($nc($nc(this->rdrCtx)->stats$)->stat_array_renderer_edgeBucketCounts)->add(edgeBucketsLength);
+			$nc(this->rdrCtx->stats$->stat_array_renderer_edgeBucketCounts)->add(edgeBucketsLength);
 		}
 		$set(this, edgeBuckets, $nc(this->edgeBuckets_ref)->getArray(edgeBucketsLength));
 		$set(this, edgeBucketCounts, $nc(this->edgeBucketCounts_ref)->getArray(edgeBucketsLength));
 	}
 	this->edgeMinY = $Integer::MAX_VALUE;
 	this->edgeMaxY = $Integer::MIN_VALUE;
-	$init($Double);
 	this->edgeMinX = $Double::POSITIVE_INFINITY;
 	this->edgeMaxX = $Double::NEGATIVE_INFINITY;
 	this->edgeCount = 0;
@@ -578,10 +442,10 @@ void Renderer::dispose() {
 	$init($MarlinConst);
 	if ($MarlinConst::DO_STATS) {
 		$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_activeEdges)->add(this->activeEdgeMaxUsed);
-		$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_edges)->add($nc(this->edges)->used);
-		$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_edges_count)->add($div($nc(this->edges)->used, Renderer::SIZEOF_EDGE_BYTES));
-		$nc($nc($nc(this->rdrCtx)->stats$)->hist_rdr_edges_count)->add($div($nc(this->edges)->used, Renderer::SIZEOF_EDGE_BYTES));
-		$nc($nc(this->rdrCtx)->stats$)->totalOffHeap += $nc(this->edges)->length;
+		$nc(this->rdrCtx->stats$->stat_rdr_edges)->add($nc(this->edges)->used);
+		$nc(this->rdrCtx->stats$->stat_rdr_edges_count)->add($div(this->edges->used, Renderer::SIZEOF_EDGE_BYTES));
+		$nc(this->rdrCtx->stats$->hist_rdr_edges_count)->add($div(this->edges->used, Renderer::SIZEOF_EDGE_BYTES));
+		this->rdrCtx->stats$->totalOffHeap += this->edges->length;
 	}
 	$set(this, crossings, $nc(this->crossings_ref)->putArray(this->crossings));
 	$set(this, aux_crossings, $nc(this->aux_crossings_ref)->putArray(this->aux_crossings));
@@ -601,8 +465,10 @@ void Renderer::dispose() {
 		$set(this, edgeBucketCounts, $nc(this->edgeBucketCounts_ref)->putArray(this->edgeBucketCounts, 0, 0));
 	}
 	if ($nc(this->edges)->length != $MarlinConst::INITIAL_EDGES_CAPACITY) {
-		$nc(this->edges)->resize($MarlinConst::INITIAL_EDGES_CAPACITY);
+		this->edges->resize($MarlinConst::INITIAL_EDGES_CAPACITY);
 	}
+	;
+	;
 	$DMarlinRenderingEngine::returnRendererContext(this->rdrCtx);
 }
 
@@ -678,7 +544,8 @@ int64_t Renderer::getNativeConsumer() {
 }
 
 void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	int32_t bboxx0 = this->bbox_spminX;
 	int32_t bboxx1 = this->bbox_spmaxX;
 	bool windingRuleEvenOdd = (this->windingRule == $MarlinConst::WIND_EVEN_ODD);
@@ -756,12 +623,12 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 		prevNumCrossings = numCrossings;
 		if (bucketcount != 0) {
 			if ($MarlinConst::DO_STATS) {
-				$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_activeEdges_updates)->add(numCrossings);
+				$nc($nc(this->rdrCtx->stats$)->stat_rdr_activeEdges_updates)->add(numCrossings);
 			}
-			if (((int32_t)(bucketcount & (uint32_t)1)) != 0) {
+			if ((bucketcount & 1) != 0) {
 				addr = addr0 + _OFF_YMAX;
 				for (i = 0, newCount = 0; i < numCrossings; ++i) {
-					ecur = _edgePtrs->get(i);
+					ecur = $nc(_edgePtrs)->get(i);
 					if ($nc(_unsafe)->getInt(addr + ecur) > y) {
 						_edgePtrs->set(newCount++, ecur);
 					}
@@ -771,40 +638,40 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 			ptrLen = bucketcount >> 1;
 			if (ptrLen != 0) {
 				if ($MarlinConst::DO_STATS) {
-					$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_activeEdges_adds)->add(ptrLen);
+					$nc($nc(this->rdrCtx->stats$)->stat_rdr_activeEdges_adds)->add(ptrLen);
 					if (ptrLen > 10) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_activeEdges_adds_high)->add(ptrLen);
+						$nc(this->rdrCtx->stats$->stat_rdr_activeEdges_adds_high)->add(ptrLen);
 					}
 				}
 				ptrEnd = numCrossings + ptrLen;
 				if (edgePtrsLen < ptrEnd) {
 					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_array_renderer_edgePtrs)->add(ptrEnd);
+						$nc($nc(this->rdrCtx->stats$)->stat_array_renderer_edgePtrs)->add(ptrEnd);
 					}
-					$set(this, edgePtrs, ($assign(_edgePtrs, $nc(this->edgePtrs_ref)->widenArray(_edgePtrs, numCrossings, ptrEnd))));
+					$set(this, edgePtrs, $assign(_edgePtrs, $nc(this->edgePtrs_ref)->widenArray(_edgePtrs, numCrossings, ptrEnd)));
 					edgePtrsLen = $nc(_edgePtrs)->length;
 					$nc(this->aux_edgePtrs_ref)->putArray(_aux_edgePtrs);
 					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_array_renderer_aux_edgePtrs)->add(ptrEnd);
+						$nc($nc(this->rdrCtx->stats$)->stat_array_renderer_aux_edgePtrs)->add(ptrEnd);
 					}
-					$set(this, aux_edgePtrs, ($assign(_aux_edgePtrs, $nc(this->aux_edgePtrs_ref)->getArray($ArrayCacheConst::getNewSize(numCrossings, ptrEnd)))));
+					$set(this, aux_edgePtrs, $assign(_aux_edgePtrs, this->aux_edgePtrs_ref->getArray($ArrayCacheConst::getNewSize(numCrossings, ptrEnd))));
 				}
 				addr = addr0 + _OFF_NEXT;
 				for (ecur = $nc(_edgeBuckets)->get(bucket); numCrossings < ptrEnd; ++numCrossings) {
-					_edgePtrs->set(numCrossings, ecur);
+					$nc(_edgePtrs)->set(numCrossings, ecur);
 					ecur = $nc(_unsafe)->getInt(addr + ecur);
 				}
 				if (crossingsLen < numCrossings) {
 					$nc(this->crossings_ref)->putArray(_crossings);
 					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_array_renderer_crossings)->add(numCrossings);
+						$nc($nc(this->rdrCtx->stats$)->stat_array_renderer_crossings)->add(numCrossings);
 					}
-					$set(this, crossings, ($assign(_crossings, $nc(this->crossings_ref)->getArray(numCrossings))));
+					$set(this, crossings, $assign(_crossings, this->crossings_ref->getArray(numCrossings)));
 					$nc(this->aux_crossings_ref)->putArray(_aux_crossings);
 					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_array_renderer_aux_crossings)->add(numCrossings);
+						$nc($nc(this->rdrCtx->stats$)->stat_array_renderer_aux_crossings)->add(numCrossings);
 					}
-					$set(this, aux_crossings, ($assign(_aux_crossings, $nc(this->aux_crossings_ref)->getArray(numCrossings))));
+					$set(this, aux_crossings, $assign(_aux_crossings, this->aux_crossings_ref->getArray(numCrossings)));
 					crossingsLen = $nc(_crossings)->length;
 				}
 				if ($MarlinConst::DO_STATS) {
@@ -817,54 +684,54 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 		if (numCrossings != 0) {
 			if ((ptrLen < 10) || (numCrossings < 40)) {
 				if ($MarlinConst::DO_STATS) {
-					$nc($nc($nc(this->rdrCtx)->stats$)->hist_rdr_crossings)->add(numCrossings);
-					$nc($nc($nc(this->rdrCtx)->stats$)->hist_rdr_crossings_adds)->add(ptrLen);
+					$nc($nc(this->rdrCtx->stats$)->hist_rdr_crossings)->add(numCrossings);
+					$nc(this->rdrCtx->stats$->hist_rdr_crossings_adds)->add(ptrLen);
 				}
 				useBinarySearch = (numCrossings >= 20);
 				lastCross = _MIN_VALUE;
 				for (i = 0; i < numCrossings; ++i) {
-					ecur = _edgePtrs->get(i);
+					ecur = $nc(_edgePtrs)->get(i);
 					addr = addr0 + ecur;
 					curx = $nc(_unsafe)->getInt(addr);
 					cross = curx;
 					curx += _unsafe->getInt(addr + _OFF_BUMP_X);
 					int32_t var$0 = _unsafe->getInt(addr + _OFF_ERROR);
 					err = var$0 + _unsafe->getInt(addr + _OFF_BUMP_ERR);
-					_unsafe->putInt(addr, curx - ((int32_t)((err >> 30) & (uint32_t)_ALL_BUT_LSB)));
-					_unsafe->putInt(addr + _OFF_ERROR, ((int32_t)(err & (uint32_t)_ERR_STEP_MAX)));
+					_unsafe->putInt(addr, curx - ((err >> 30) & _ALL_BUT_LSB));
+					_unsafe->putInt(addr + _OFF_ERROR, (err & _ERR_STEP_MAX));
 					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_crossings_updates)->add(numCrossings);
+						$nc($nc(this->rdrCtx->stats$)->stat_rdr_crossings_updates)->add(numCrossings);
 					}
 					if (cross < lastCross) {
 						if ($MarlinConst::DO_STATS) {
-							$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_crossings_sorts)->add(i);
+							$nc($nc(this->rdrCtx->stats$)->stat_rdr_crossings_sorts)->add(i);
 						}
 						if (useBinarySearch && (i >= prevNumCrossings)) {
 							if ($MarlinConst::DO_STATS) {
-								$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_crossings_bsearch)->add(i);
+								$nc($nc(this->rdrCtx->stats$)->stat_rdr_crossings_bsearch)->add(i);
 							}
 							low = 0;
 							high = i - 1;
 							do {
 								mid = (low + high) >> 1;
-								if (_crossings->get(mid) < cross) {
+								if ($nc(_crossings)->get(mid) < cross) {
 									low = mid + 1;
 								} else {
 									high = mid - 1;
 								}
 							} while (low <= high);
 							for (j = i - 1; j >= low; --j) {
-								_crossings->set(j + 1, _crossings->get(j));
+								$nc(_crossings)->set(j + 1, $nc(_crossings)->get(j));
 								_edgePtrs->set(j + 1, _edgePtrs->get(j));
 							}
-							_crossings->set(low, cross);
+							$nc(_crossings)->set(low, cross);
 							_edgePtrs->set(low, ecur);
 						} else {
 							j = i - 1;
-							_crossings->set(i, _crossings->get(j));
+							$nc(_crossings)->set(i, $nc(_crossings)->get(j));
 							_edgePtrs->set(i, _edgePtrs->get(j));
 							while (true) {
-								bool var$1 = (--j >= 0);
+								bool var$1 = --j >= 0;
 								if (!(var$1 && (_crossings->get(j) > cross))) {
 									break;
 								}
@@ -877,41 +744,41 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 							_edgePtrs->set(j + 1, ecur);
 						}
 					} else {
-						_crossings->set(i, lastCross = cross);
+						$nc(_crossings)->set(i, lastCross = cross);
 					}
 				}
 			} else {
 				if ($MarlinConst::DO_STATS) {
-					$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_crossings_msorts)->add(numCrossings);
-					$nc($nc($nc(this->rdrCtx)->stats$)->hist_rdr_crossings_ratio)->add($div((1000 * ptrLen), numCrossings));
-					$nc($nc($nc(this->rdrCtx)->stats$)->hist_rdr_crossings_msorts)->add(numCrossings);
-					$nc($nc($nc(this->rdrCtx)->stats$)->hist_rdr_crossings_msorts_adds)->add(ptrLen);
+					$nc($nc(this->rdrCtx->stats$)->stat_rdr_crossings_msorts)->add(numCrossings);
+					$nc(this->rdrCtx->stats$->hist_rdr_crossings_ratio)->add($div((1000 * ptrLen), numCrossings));
+					$nc(this->rdrCtx->stats$->hist_rdr_crossings_msorts)->add(numCrossings);
+					$nc(this->rdrCtx->stats$->hist_rdr_crossings_msorts_adds)->add(ptrLen);
 				}
 				lastCross = _MIN_VALUE;
 				for (i = 0; i < numCrossings; ++i) {
-					ecur = _edgePtrs->get(i);
+					ecur = $nc(_edgePtrs)->get(i);
 					addr = addr0 + ecur;
 					curx = $nc(_unsafe)->getInt(addr);
 					cross = curx;
 					curx += _unsafe->getInt(addr + _OFF_BUMP_X);
 					int32_t var$2 = _unsafe->getInt(addr + _OFF_ERROR);
 					err = var$2 + _unsafe->getInt(addr + _OFF_BUMP_ERR);
-					_unsafe->putInt(addr, curx - ((int32_t)((err >> 30) & (uint32_t)_ALL_BUT_LSB)));
-					_unsafe->putInt(addr + _OFF_ERROR, ((int32_t)(err & (uint32_t)_ERR_STEP_MAX)));
+					_unsafe->putInt(addr, curx - ((err >> 30) & _ALL_BUT_LSB));
+					_unsafe->putInt(addr + _OFF_ERROR, (err & _ERR_STEP_MAX));
 					if ($MarlinConst::DO_STATS) {
-						$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_crossings_updates)->add(numCrossings);
+						$nc($nc(this->rdrCtx->stats$)->stat_rdr_crossings_updates)->add(numCrossings);
 					}
 					if (i >= prevNumCrossings) {
-						_crossings->set(i, cross);
+						$nc(_crossings)->set(i, cross);
 					} else if (cross < lastCross) {
 						if ($MarlinConst::DO_STATS) {
-							$nc($nc($nc(this->rdrCtx)->stats$)->stat_rdr_crossings_sorts)->add(i);
+							$nc($nc(this->rdrCtx->stats$)->stat_rdr_crossings_sorts)->add(i);
 						}
 						j = i - 1;
-						$nc(_aux_crossings)->set(i, _aux_crossings->get(j));
-						$nc(_aux_edgePtrs)->set(i, _aux_edgePtrs->get(j));
+						$nc(_aux_crossings)->set(i, $nc(_aux_crossings)->get(j));
+						$nc(_aux_edgePtrs)->set(i, $nc(_aux_edgePtrs)->get(j));
 						while (true) {
-							bool var$3 = (--j >= 0);
+							bool var$3 = --j >= 0;
 							if (!(var$3 && (_aux_crossings->get(j) > cross))) {
 								break;
 							}
@@ -930,7 +797,7 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 				$MergeSort::mergeSortNoCopy(_crossings, _edgePtrs, _aux_crossings, _aux_edgePtrs, numCrossings, prevNumCrossings);
 			}
 			ptrLen = 0;
-			curxo = _crossings->get(0);
+			curxo = $nc(_crossings)->get(0);
 			x0 = curxo >> 1;
 			if (x0 < minX) {
 				minX = x0;
@@ -940,14 +807,14 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 				maxX = x1;
 			}
 			prev = (curx = x0);
-			crorientation = (((int32_t)(curxo & (uint32_t)1)) << 1) - 1;
+			crorientation = ((curxo & 1) << 1) - 1;
 			if (windingRuleEvenOdd) {
 				sum = crorientation;
 				for (i = 1; i < numCrossings; ++i) {
 					curxo = _crossings->get(i);
 					curx = curxo >> 1;
-					crorientation = (((int32_t)(curxo & (uint32_t)1)) << 1) - 1;
-					if (((int32_t)(sum & (uint32_t)1)) != 0) {
+					crorientation = ((curxo & 1) << 1) - 1;
+					if ((sum & 1) != 0) {
 						x0 = (prev > bboxx0) ? prev : bboxx0;
 						if (curx < bboxx1) {
 							x1 = curx;
@@ -968,11 +835,11 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 									$nc(_blkFlags)->set($sr(pix_x, _BLK_SIZE_LG), 1);
 								}
 							} else {
-								tmp = ((int32_t)(x0 & (uint32_t)_SUBPIXEL_MASK_X));
+								tmp = (x0 & _SUBPIXEL_MASK_X);
 								(*$nc(_alpha))[pix_x] += (_SUBPIXEL_POSITIONS_X - tmp);
 								(*_alpha)[pix_x + 1] += tmp;
 								pix_xmax = $sr(x1, _SUBPIXEL_LG_POSITIONS_X);
-								tmp = ((int32_t)(x1 & (uint32_t)_SUBPIXEL_MASK_X));
+								tmp = (x1 & _SUBPIXEL_MASK_X);
 								(*_alpha)[pix_xmax] -= (_SUBPIXEL_POSITIONS_X - tmp);
 								(*_alpha)[pix_xmax + 1] -= tmp;
 								if (useBlkFlags) {
@@ -1013,11 +880,11 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 									$nc(_blkFlags)->set($sr(pix_x, _BLK_SIZE_LG), 1);
 								}
 							} else {
-								tmp = ((int32_t)(x0 & (uint32_t)_SUBPIXEL_MASK_X));
+								tmp = (x0 & _SUBPIXEL_MASK_X);
 								(*$nc(_alpha))[pix_x] += (_SUBPIXEL_POSITIONS_X - tmp);
 								(*_alpha)[pix_x + 1] += tmp;
 								pix_xmax = $sr(x1, _SUBPIXEL_LG_POSITIONS_X);
-								tmp = ((int32_t)(x1 & (uint32_t)_SUBPIXEL_MASK_X));
+								tmp = (x1 & _SUBPIXEL_MASK_X);
 								(*_alpha)[pix_xmax] -= (_SUBPIXEL_POSITIONS_X - tmp);
 								(*_alpha)[pix_xmax + 1] -= tmp;
 								if (useBlkFlags) {
@@ -1033,11 +900,11 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 					}
 					curxo = _crossings->get(i);
 					curx = curxo >> 1;
-					crorientation = (((int32_t)(curxo & (uint32_t)1)) << 1) - 1;
+					crorientation = ((curxo & 1) << 1) - 1;
 				}
 			}
 		}
-		if (((int32_t)(y & (uint32_t)_SUBPIXEL_MASK_Y)) == _SUBPIXEL_MASK_Y) {
+		if ((y & _SUBPIXEL_MASK_Y) == _SUBPIXEL_MASK_Y) {
 			lastY = $sr(y, _SUBPIXEL_LG_POSITIONS_Y);
 			minX = $sr($FloatMath::max(minX, bboxx0), _SUBPIXEL_LG_POSITIONS_X);
 			maxX = $sr($FloatMath::min(maxX, bboxx1), _SUBPIXEL_LG_POSITIONS_X);
@@ -1048,7 +915,7 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 					useBlkFlags = (maxX > _BLK_SIZE) && (maxX > ($sl(($sr(numCrossings, stroking)) - 1, _BLK_SIZE_LG)));
 					if ($MarlinConst::DO_STATS) {
 						tmp = $FloatMath::max(1, (($sr(numCrossings, stroking)) - 1));
-						$nc($nc($nc(this->rdrCtx)->stats$)->hist_tile_generator_encoding_dist)->add($div(maxX, tmp));
+						$nc($nc(this->rdrCtx->stats$)->hist_tile_generator_encoding_dist)->add($div(maxX, tmp));
 					}
 				}
 			} else {
@@ -1075,7 +942,8 @@ void Renderer::_endRendering(int32_t ymin, int32_t ymax) {
 }
 
 bool Renderer::endRendering() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (this->edgeMinY == $Integer::MAX_VALUE) {
 		return false;
 	}
@@ -1099,7 +967,7 @@ bool Renderer::endRendering() {
 	int32_t pmaxY = $sr(spmaxY + Renderer::SUBPIXEL_MASK_Y, $MarlinConst::SUBPIXEL_LG_POSITIONS_Y);
 	$nc(this->cache)->init(pminX, pminY, pmaxX, pmaxY);
 	if (Renderer::ENABLE_BLOCK_FLAGS) {
-		this->enableBlkFlags = $nc(this->cache)->useRLE;
+		this->enableBlkFlags = this->cache->useRLE;
 		this->prevUseBlkFlags = this->enableBlkFlags && !Renderer::ENABLE_BLOCK_FLAGS_HEURISTICS;
 		if (this->enableBlkFlags) {
 			int32_t blkLen = ($sr(pmaxX - pminX, $MarlinConst::BLOCK_SIZE_LG)) + 2;
@@ -1128,6 +996,7 @@ bool Renderer::endRendering() {
 }
 
 void Renderer::endRendering(int32_t pminY) {
+	;
 	$init($MarlinConst);
 	int32_t spminY = $sl(pminY, $MarlinConst::SUBPIXEL_LG_POSITIONS_Y);
 	int32_t fixed_spminY = $FloatMath::max(this->bbox_spminY, spminY);
@@ -1136,9 +1005,11 @@ void Renderer::endRendering(int32_t pminY) {
 		$nc(this->cache)->resetTileLine(pminY);
 		_endRendering(fixed_spminY, spmaxY);
 	}
+	;
 }
 
 void Renderer::copyAARow($ints* alphaRow, int32_t pix_y, int32_t pix_from, int32_t pix_to, bool useBlockFlags) {
+	;
 	if (useBlockFlags) {
 		$init($MarlinConst);
 		if ($MarlinConst::DO_STATS) {
@@ -1152,9 +1023,10 @@ void Renderer::copyAARow($ints* alphaRow, int32_t pix_y, int32_t pix_from, int32
 		}
 		$nc(this->cache)->copyAARowNoRLE(alphaRow, pix_y, pix_from, pix_to);
 	}
+	;
 }
 
-void clinit$Renderer($Class* class$) {
+void Renderer::clinit$($Class* clazz) {
 	Renderer::POWER_2_TO_32 = 4.294967296E9;
 	Renderer::CUB_INV_COUNT = $div(1.0, Renderer::CUB_COUNT);
 	Renderer::CUB_INV_COUNT_2 = $div(1.0, Renderer::CUB_COUNT_2);
@@ -1191,7 +1063,126 @@ Renderer::Renderer() {
 }
 
 $Class* Renderer::load$($String* name, bool initialize) {
-	$loadClass(Renderer, name, initialize, &_Renderer_ClassInfo_, clinit$Renderer, allocate$Renderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DISABLE_RENDER", "Z", nullptr, $STATIC | $FINAL, $constField(Renderer, DISABLE_RENDER)},
+		{"ENABLE_BLOCK_FLAGS", "Z", nullptr, $STATIC | $FINAL, $staticField(Renderer, ENABLE_BLOCK_FLAGS)},
+		{"ENABLE_BLOCK_FLAGS_HEURISTICS", "Z", nullptr, $STATIC | $FINAL, $staticField(Renderer, ENABLE_BLOCK_FLAGS_HEURISTICS)},
+		{"ALL_BUT_LSB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, ALL_BUT_LSB)},
+		{"ERR_STEP_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, ERR_STEP_MAX)},
+		{"POWER_2_TO_32", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, POWER_2_TO_32)},
+		{"SUBPIXEL_SCALE_X", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_SCALE_X)},
+		{"SUBPIXEL_SCALE_Y", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_SCALE_Y)},
+		{"SUBPIXEL_MASK_X", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_MASK_X)},
+		{"SUBPIXEL_MASK_Y", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_MASK_Y)},
+		{"RDR_OFFSET_X", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, RDR_OFFSET_X)},
+		{"RDR_OFFSET_Y", "D", nullptr, $STATIC | $FINAL, $staticField(Renderer, RDR_OFFSET_Y)},
+		{"SUBPIXEL_TILE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, SUBPIXEL_TILE)},
+		{"INITIAL_BUCKET_ARRAY", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, INITIAL_BUCKET_ARRAY)},
+		{"INITIAL_CROSSING_COUNT", "I", nullptr, $STATIC | $FINAL, $staticField(Renderer, INITIAL_CROSSING_COUNT)},
+		{"OFF_CURX_OR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Renderer, OFF_CURX_OR)},
+		{"OFF_ERROR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_ERROR)},
+		{"OFF_BUMP_X", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_BUMP_X)},
+		{"OFF_BUMP_ERR", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_BUMP_ERR)},
+		{"OFF_NEXT", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_NEXT)},
+		{"OFF_YMAX", "J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, OFF_YMAX)},
+		{"SIZEOF_EDGE_BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, SIZEOF_EDGE_BYTES)},
+		{"CUB_DEC_ERR_SUBPIX", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_DEC_ERR_SUBPIX)},
+		{"CUB_INC_ERR_SUBPIX", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INC_ERR_SUBPIX)},
+		{"SCALE_DY", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, SCALE_DY)},
+		{"CUB_DEC_BND", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, CUB_DEC_BND)},
+		{"CUB_INC_BND", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, CUB_INC_BND)},
+		{"CUB_COUNT_LG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT_LG)},
+		{"CUB_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT)},
+		{"CUB_COUNT_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT_2)},
+		{"CUB_COUNT_3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Renderer, CUB_COUNT_3)},
+		{"CUB_INV_COUNT", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INV_COUNT)},
+		{"CUB_INV_COUNT_2", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INV_COUNT_2)},
+		{"CUB_INV_COUNT_3", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, CUB_INV_COUNT_3)},
+		{"QUAD_DEC_ERR_SUBPIX", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Renderer, QUAD_DEC_ERR_SUBPIX)},
+		{"QUAD_DEC_BND", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Renderer, QUAD_DEC_BND)},
+		{"crossings", "[I", nullptr, $PRIVATE, $field(Renderer, crossings)},
+		{"aux_crossings", "[I", nullptr, $PRIVATE, $field(Renderer, aux_crossings)},
+		{"edgeCount", "I", nullptr, $PRIVATE, $field(Renderer, edgeCount)},
+		{"edgePtrs", "[I", nullptr, $PRIVATE, $field(Renderer, edgePtrs)},
+		{"aux_edgePtrs", "[I", nullptr, $PRIVATE, $field(Renderer, aux_edgePtrs)},
+		{"activeEdgeMaxUsed", "I", nullptr, $PRIVATE, $field(Renderer, activeEdgeMaxUsed)},
+		{"crossings_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, crossings_ref)},
+		{"edgePtrs_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edgePtrs_ref)},
+		{"aux_crossings_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, aux_crossings_ref)},
+		{"aux_edgePtrs_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, aux_edgePtrs_ref)},
+		{"edgeMinY", "I", nullptr, $PRIVATE, $field(Renderer, edgeMinY)},
+		{"edgeMaxY", "I", nullptr, $PRIVATE, $field(Renderer, edgeMaxY)},
+		{"edgeMinX", "D", nullptr, $PRIVATE, $field(Renderer, edgeMinX)},
+		{"edgeMaxX", "D", nullptr, $PRIVATE, $field(Renderer, edgeMaxX)},
+		{"edges", "Lsun/java2d/marlin/OffHeapArray;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edges)},
+		{"edgeBuckets", "[I", nullptr, $PRIVATE, $field(Renderer, edgeBuckets)},
+		{"edgeBucketCounts", "[I", nullptr, $PRIVATE, $field(Renderer, edgeBucketCounts)},
+		{"buckets_minY", "I", nullptr, $PRIVATE, $field(Renderer, buckets_minY)},
+		{"buckets_maxY", "I", nullptr, $PRIVATE, $field(Renderer, buckets_maxY)},
+		{"edgeBuckets_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edgeBuckets_ref)},
+		{"edgeBucketCounts_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, edgeBucketCounts_ref)},
+		{"cache", "Lsun/java2d/marlin/MarlinCache;", nullptr, $FINAL, $field(Renderer, cache)},
+		{"boundsMinX", "I", nullptr, $PRIVATE, $field(Renderer, boundsMinX)},
+		{"boundsMinY", "I", nullptr, $PRIVATE, $field(Renderer, boundsMinY)},
+		{"boundsMaxX", "I", nullptr, $PRIVATE, $field(Renderer, boundsMaxX)},
+		{"boundsMaxY", "I", nullptr, $PRIVATE, $field(Renderer, boundsMaxY)},
+		{"windingRule", "I", nullptr, $PRIVATE, $field(Renderer, windingRule)},
+		{"x0", "D", nullptr, $PRIVATE, $field(Renderer, x0)},
+		{"y0", "D", nullptr, $PRIVATE, $field(Renderer, y0)},
+		{"sx0", "D", nullptr, $PRIVATE, $field(Renderer, sx0)},
+		{"sy0", "D", nullptr, $PRIVATE, $field(Renderer, sy0)},
+		{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $FINAL, $field(Renderer, rdrCtx)},
+		{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $PRIVATE | $FINAL, $field(Renderer, curve)},
+		{"alphaLine", "[I", nullptr, $PRIVATE, $field(Renderer, alphaLine)},
+		{"alphaLine_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, alphaLine_ref)},
+		{"enableBlkFlags", "Z", nullptr, $PRIVATE, $field(Renderer, enableBlkFlags)},
+		{"prevUseBlkFlags", "Z", nullptr, $PRIVATE, $field(Renderer, prevUseBlkFlags)},
+		{"blkFlags", "[I", nullptr, $PRIVATE, $field(Renderer, blkFlags)},
+		{"blkFlags_ref", "Lsun/java2d/marlin/IntArrayCache$Reference;", nullptr, $PRIVATE | $FINAL, $field(Renderer, blkFlags_ref)},
+		{"bbox_spminX", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spminX)},
+		{"bbox_spmaxX", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spmaxX)},
+		{"bbox_spminY", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spminY)},
+		{"bbox_spmaxY", "I", nullptr, $PRIVATE, $field(Renderer, bbox_spmaxY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Renderer, init$, void, $RendererContext*)},
+		{"_endRendering", "(II)V", nullptr, $PRIVATE, $method(Renderer, _endRendering, void, int32_t, int32_t)},
+		{"addLine", "(DDDD)V", nullptr, $PRIVATE, $method(Renderer, addLine, void, double, double, double, double)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(Renderer, closePath, void)},
+		{"copyAARow", "([IIIIZ)V", nullptr, 0, $method(Renderer, copyAARow, void, $ints*, int32_t, int32_t, int32_t, bool)},
+		{"curveBreakIntoLinesAndAdd", "(DDLsun/java2d/marlin/Curve;DD)V", nullptr, $PRIVATE, $method(Renderer, curveBreakIntoLinesAndAdd, void, double, double, $Curve*, double, double)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, curveTo, void, double, double, double, double, double, double)},
+		{"dispose", "()V", nullptr, 0, $method(Renderer, dispose, void)},
+		{"endRendering", "()Z", nullptr, 0, $method(Renderer, endRendering, bool)},
+		{"endRendering", "(I)V", nullptr, 0, $method(Renderer, endRendering, void, int32_t)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(Renderer, getNativeConsumer, int64_t)},
+		{"init", "(IIIII)Lsun/java2d/marlin/Renderer;", nullptr, 0, $method(Renderer, init, Renderer*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(Renderer, pathDone, void)},
+		{"quadBreakIntoLinesAndAdd", "(DDLsun/java2d/marlin/Curve;DD)V", nullptr, $PRIVATE, $method(Renderer, quadBreakIntoLinesAndAdd, void, double, double, $Curve*, double, double)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Renderer, quadTo, void, double, double, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tosubpixx", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Renderer, tosubpixx, double, double)},
+		{"tosubpixy", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(Renderer, tosubpixy, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Renderer",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D,sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Renderer, name, initialize, &classInfo$$, Renderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Renderer));
+	});
 	return class$;
 }
 

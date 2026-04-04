@@ -35,6 +35,7 @@ class $export TestTooltipBackgroundColor : public ::java::lang::Object {
 	$class(TestTooltipBackgroundColor, 0, ::java::lang::Object)
 public:
 	TestTooltipBackgroundColor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void blockTillDisplayed(::java::awt::Component* comp);
 	static ::java::awt::Component* findSubComponent(::java::awt::Component* parent, $String* className);

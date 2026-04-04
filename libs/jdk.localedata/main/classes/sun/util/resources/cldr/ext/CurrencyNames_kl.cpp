@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_kl.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,39 +13,20 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_kl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_kl, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_kl, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_kl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_kl",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_kl_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_kl($Class* clazz) {
-	return $of($alloc(CurrencyNames_kl));
-}
-
 void CurrencyNames_kl::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_kl::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("DKK"_s),
-			$of("kr."_s)
+			"DKK"_s,
+			"kr."_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("euro"_s)
+			"eur"_s,
+			"euro"_s
 		})
 	}));
 	return data;
@@ -56,7 +36,22 @@ CurrencyNames_kl::CurrencyNames_kl() {
 }
 
 $Class* CurrencyNames_kl::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_kl, name, initialize, &_CurrencyNames_kl_ClassInfo_, allocate$CurrencyNames_kl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_kl, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_kl, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_kl",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_kl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_kl);
+	});
 	return class$;
 }
 

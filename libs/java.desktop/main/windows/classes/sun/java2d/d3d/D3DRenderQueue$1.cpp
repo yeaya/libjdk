@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DRenderQueue$1.h>
-
 #include <sun/java2d/d3d/D3DRenderQueue.h>
 #include <jcpp.h>
 
@@ -13,43 +12,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DRenderQueue$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DRenderQueue$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DRenderQueue$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _D3DRenderQueue$1_EnclosingMethodInfo_ = {
-	"sun.java2d.d3d.D3DRenderQueue",
-	"getInstance",
-	"()Lsun/java2d/d3d/D3DRenderQueue;"
-};
-
-$InnerClassInfo _D3DRenderQueue$1_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DRenderQueue$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _D3DRenderQueue$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DRenderQueue$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_D3DRenderQueue$1_MethodInfo_,
-	nullptr,
-	&_D3DRenderQueue$1_EnclosingMethodInfo_,
-	_D3DRenderQueue$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DRenderQueue"
-};
-
-$Object* allocate$D3DRenderQueue$1($Class* clazz) {
-	return $of($alloc(D3DRenderQueue$1));
-}
-
 void D3DRenderQueue$1::init$() {
 }
 
@@ -62,7 +24,38 @@ D3DRenderQueue$1::D3DRenderQueue$1() {
 }
 
 $Class* D3DRenderQueue$1::load$($String* name, bool initialize) {
-	$loadClass(D3DRenderQueue$1, name, initialize, &_D3DRenderQueue$1_ClassInfo_, allocate$D3DRenderQueue$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DRenderQueue$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DRenderQueue$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.d3d.D3DRenderQueue",
+		"getInstance",
+		"()Lsun/java2d/d3d/D3DRenderQueue;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DRenderQueue$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DRenderQueue$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DRenderQueue"
+	};
+	$loadClass(D3DRenderQueue$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DRenderQueue$1);
+	});
 	return class$;
 }
 

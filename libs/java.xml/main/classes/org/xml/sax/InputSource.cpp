@@ -1,5 +1,4 @@
 #include <org/xml/sax/InputSource.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
@@ -15,48 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace org {
 	namespace xml {
 		namespace sax {
-
-$FieldInfo _InputSource_FieldInfo_[] = {
-	{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InputSource, publicId)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InputSource, systemId)},
-	{"byteStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(InputSource, byteStream)},
-	{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InputSource, encoding)},
-	{"characterStream", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(InputSource, characterStream)},
-	{}
-};
-
-$MethodInfo _InputSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputSource, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $String*)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $Reader*)},
-	{"getByteStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(InputSource, getByteStream, $InputStream*)},
-	{"getCharacterStream", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(InputSource, getCharacterStream, $Reader*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getEncoding, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getSystemId, $String*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(InputSource, isEmpty, bool)},
-	{"isStreamEmpty", "()Z", nullptr, $PRIVATE, $method(InputSource, isStreamEmpty, bool)},
-	{"setByteStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setByteStream, void, $InputStream*)},
-	{"setCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setCharacterStream, void, $Reader*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setEncoding, void, $String*)},
-	{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setPublicId, void, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setSystemId, void, $String*)},
-	{}
-};
-
-$ClassInfo _InputSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.InputSource",
-	"java.lang.Object",
-	nullptr,
-	_InputSource_FieldInfo_,
-	_InputSource_MethodInfo_
-};
-
-$Object* allocate$InputSource($Class* clazz) {
-	return $of($alloc(InputSource));
-}
 
 void InputSource::init$() {
 }
@@ -121,16 +78,16 @@ bool InputSource::isStreamEmpty() {
 	bool empty = true;
 	try {
 		if (this->byteStream != nullptr) {
-			$nc(this->byteStream)->reset();
-			int32_t bytesRead = $nc(this->byteStream)->available();
+			this->byteStream->reset();
+			int32_t bytesRead = this->byteStream->available();
 			if (bytesRead > 0) {
 				return false;
 			}
 		}
 		if (this->characterStream != nullptr) {
-			$nc(this->characterStream)->reset();
-			int32_t c = $nc(this->characterStream)->read();
-			$nc(this->characterStream)->reset();
+			this->characterStream->reset();
+			int32_t c = this->characterStream->read();
+			this->characterStream->reset();
 			if (c != -1) {
 				return false;
 			}
@@ -145,7 +102,44 @@ InputSource::InputSource() {
 }
 
 $Class* InputSource::load$($String* name, bool initialize) {
-	$loadClass(InputSource, name, initialize, &_InputSource_ClassInfo_, allocate$InputSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"publicId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InputSource, publicId)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InputSource, systemId)},
+		{"byteStream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(InputSource, byteStream)},
+		{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(InputSource, encoding)},
+		{"characterStream", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(InputSource, characterStream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputSource, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $String*)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(InputSource, init$, void, $Reader*)},
+		{"getByteStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(InputSource, getByteStream, $InputStream*)},
+		{"getCharacterStream", "()Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(InputSource, getCharacterStream, $Reader*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getEncoding, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputSource, getSystemId, $String*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(InputSource, isEmpty, bool)},
+		{"isStreamEmpty", "()Z", nullptr, $PRIVATE, $method(InputSource, isStreamEmpty, bool)},
+		{"setByteStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setByteStream, void, $InputStream*)},
+		{"setCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setCharacterStream, void, $Reader*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setEncoding, void, $String*)},
+		{"setPublicId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setPublicId, void, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InputSource, setSystemId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.InputSource",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputSource);
+	});
 	return class$;
 }
 

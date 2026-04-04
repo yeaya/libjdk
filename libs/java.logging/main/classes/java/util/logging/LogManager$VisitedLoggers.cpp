@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$VisitedLoggers.h>
-
 #include <java/util/IdentityHashMap.h>
 #include <java/util/logging/LogManager.h>
 #include <java/util/logging/Logger.h>
@@ -20,46 +19,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _LogManager$VisitedLoggers_FieldInfo_[] = {
-	{"visited", "Ljava/util/IdentityHashMap;", "Ljava/util/IdentityHashMap<Ljava/util/logging/Logger;Ljava/lang/Boolean;>;", $FINAL, $field(LogManager$VisitedLoggers, visited)},
-	{"NEVER", "Ljava/util/logging/LogManager$VisitedLoggers;", nullptr, $STATIC | $FINAL, $staticField(LogManager$VisitedLoggers, NEVER)},
-	{}
-};
-
-$MethodInfo _LogManager$VisitedLoggers_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", "(Ljava/util/IdentityHashMap<Ljava/util/logging/Logger;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(LogManager$VisitedLoggers, init$, void, $IdentityHashMap*)},
-	{"<init>", "()V", nullptr, 0, $method(LogManager$VisitedLoggers, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $method(LogManager$VisitedLoggers, clear, void)},
-	{"test", "(Ljava/util/logging/Logger;)Z", nullptr, $PUBLIC, $method(LogManager$VisitedLoggers, test, bool, $Logger*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LogManager$VisitedLoggers, test, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _LogManager$VisitedLoggers_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$VisitedLoggers", "java.util.logging.LogManager", "VisitedLoggers", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LogManager$VisitedLoggers_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.LogManager$VisitedLoggers",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	_LogManager$VisitedLoggers_FieldInfo_,
-	_LogManager$VisitedLoggers_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Predicate<Ljava/util/logging/Logger;>;",
-	nullptr,
-	_LogManager$VisitedLoggers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$VisitedLoggers($Class* clazz) {
-	return $of($alloc(LogManager$VisitedLoggers));
-}
-
 LogManager$VisitedLoggers* LogManager$VisitedLoggers::NEVER = nullptr;
 
 void LogManager$VisitedLoggers::init$($IdentityHashMap* visited) {
@@ -71,13 +30,12 @@ void LogManager$VisitedLoggers::init$() {
 }
 
 bool LogManager$VisitedLoggers::test($Logger* logger) {
-	$init($Boolean);
-	return this->visited != nullptr && $nc(this->visited)->put(logger, $Boolean::TRUE) != nullptr;
+	return this->visited != nullptr && this->visited->put(logger, $Boolean::TRUE) != nullptr;
 }
 
 void LogManager$VisitedLoggers::clear() {
 	if (this->visited != nullptr) {
-		$nc(this->visited)->clear();
+		this->visited->clear();
 	}
 }
 
@@ -85,7 +43,7 @@ bool LogManager$VisitedLoggers::test(Object$* logger) {
 	return this->test($cast($Logger, logger));
 }
 
-void clinit$LogManager$VisitedLoggers($Class* class$) {
+void LogManager$VisitedLoggers::clinit$($Class* clazz) {
 	$assignStatic(LogManager$VisitedLoggers::NEVER, $new(LogManager$VisitedLoggers, nullptr));
 }
 
@@ -93,7 +51,41 @@ LogManager$VisitedLoggers::LogManager$VisitedLoggers() {
 }
 
 $Class* LogManager$VisitedLoggers::load$($String* name, bool initialize) {
-	$loadClass(LogManager$VisitedLoggers, name, initialize, &_LogManager$VisitedLoggers_ClassInfo_, clinit$LogManager$VisitedLoggers, allocate$LogManager$VisitedLoggers);
+	$FieldInfo fieldInfos$$[] = {
+		{"visited", "Ljava/util/IdentityHashMap;", "Ljava/util/IdentityHashMap<Ljava/util/logging/Logger;Ljava/lang/Boolean;>;", $FINAL, $field(LogManager$VisitedLoggers, visited)},
+		{"NEVER", "Ljava/util/logging/LogManager$VisitedLoggers;", nullptr, $STATIC | $FINAL, $staticField(LogManager$VisitedLoggers, NEVER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/IdentityHashMap;)V", "(Ljava/util/IdentityHashMap<Ljava/util/logging/Logger;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(LogManager$VisitedLoggers, init$, void, $IdentityHashMap*)},
+		{"<init>", "()V", nullptr, 0, $method(LogManager$VisitedLoggers, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $method(LogManager$VisitedLoggers, clear, void)},
+		{"test", "(Ljava/util/logging/Logger;)Z", nullptr, $PUBLIC, $method(LogManager$VisitedLoggers, test, bool, $Logger*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LogManager$VisitedLoggers, test, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$VisitedLoggers", "java.util.logging.LogManager", "VisitedLoggers", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.LogManager$VisitedLoggers",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Predicate<Ljava/util/logging/Logger;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$VisitedLoggers, name, initialize, &classInfo$$, LogManager$VisitedLoggers::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$VisitedLoggers);
+	});
 	return class$;
 }
 

@@ -86,6 +86,7 @@ class SyntaxTreeNode : public ::com::sun::org::apache::xalan::internal::xsltc::c
 	$class(SyntaxTreeNode, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants)
 public:
 	SyntaxTreeNode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t line);
 	void init$($String* uri, $String* prefix, $String* local);

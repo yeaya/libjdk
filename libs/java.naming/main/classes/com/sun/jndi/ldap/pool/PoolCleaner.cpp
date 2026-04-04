@@ -1,11 +1,9 @@
 #include <com/sun/jndi/ldap/pool/PoolCleaner.h>
-
 #include <com/sun/jndi/ldap/pool/Pool.h>
 #include <java/lang/InterruptedException.h>
 #include <jcpp.h>
 
 using $PoolArray = $Array<::com::sun::jndi::ldap::pool::Pool>;
-using $Pool = ::com::sun::jndi::ldap::pool::Pool;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
@@ -16,31 +14,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 				namespace pool {
-
-$FieldInfo _PoolCleaner_FieldInfo_[] = {
-	{"pools", "[Lcom/sun/jndi/ldap/pool/Pool;", nullptr, $PRIVATE | $FINAL, $field(PoolCleaner, pools)},
-	{"period", "J", nullptr, $PRIVATE | $FINAL, $field(PoolCleaner, period)},
-	{}
-};
-
-$MethodInfo _PoolCleaner_MethodInfo_[] = {
-	{"<init>", "(J[Lcom/sun/jndi/ldap/pool/Pool;)V", nullptr, $PUBLIC, $method(PoolCleaner, init$, void, int64_t, $PoolArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PoolCleaner, run, void)},
-	{}
-};
-
-$ClassInfo _PoolCleaner_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.pool.PoolCleaner",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_PoolCleaner_FieldInfo_,
-	_PoolCleaner_MethodInfo_
-};
-
-$Object* allocate$PoolCleaner($Class* clazz) {
-	return $of($alloc(PoolCleaner));
-}
 
 void PoolCleaner::init$(int64_t period, $PoolArray* pools) {
 	this->period = period;
@@ -57,8 +30,8 @@ void PoolCleaner::run() {
 			}
 			threshold = $System::currentTimeMillis() - this->period;
 			for (int32_t i = 0; i < $nc(this->pools)->length; ++i) {
-				if ($nc(this->pools)->get(i) != nullptr) {
-					$nc($nc(this->pools)->get(i))->expire(threshold);
+				if (this->pools->get(i) != nullptr) {
+					$nc(this->pools->get(i))->expire(threshold);
 				}
 			}
 		}
@@ -69,7 +42,27 @@ PoolCleaner::PoolCleaner() {
 }
 
 $Class* PoolCleaner::load$($String* name, bool initialize) {
-	$loadClass(PoolCleaner, name, initialize, &_PoolCleaner_ClassInfo_, allocate$PoolCleaner);
+	$FieldInfo fieldInfos$$[] = {
+		{"pools", "[Lcom/sun/jndi/ldap/pool/Pool;", nullptr, $PRIVATE | $FINAL, $field(PoolCleaner, pools)},
+		{"period", "J", nullptr, $PRIVATE | $FINAL, $field(PoolCleaner, period)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J[Lcom/sun/jndi/ldap/pool/Pool;)V", nullptr, $PUBLIC, $method(PoolCleaner, init$, void, int64_t, $PoolArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PoolCleaner, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.pool.PoolCleaner",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PoolCleaner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PoolCleaner);
+	});
 	return class$;
 }
 

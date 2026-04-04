@@ -1,5 +1,4 @@
 #include <InternalFrameIcon.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -20,7 +19,6 @@
 #include <jcpp.h>
 
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -28,13 +26,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Icon = ::javax::swing::Icon;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
@@ -48,98 +44,68 @@ public:
 	virtual void run() override {
 		InternalFrameIcon::lambda$main$0(laf);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<InternalFrameIcon$$Lambda$lambda$main$0>());
-	}
 	$UIManager$LookAndFeelInfo* laf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo InternalFrameIcon$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(InternalFrameIcon$$Lambda$lambda$main$0, laf)},
-	{}
-};
-$MethodInfo InternalFrameIcon$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(InternalFrameIcon$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalFrameIcon$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo InternalFrameIcon$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"InternalFrameIcon$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* InternalFrameIcon$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameIcon$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(InternalFrameIcon$$Lambda$lambda$main$0, laf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(InternalFrameIcon$$Lambda$lambda$main$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalFrameIcon$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"InternalFrameIcon$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InternalFrameIcon$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameIcon$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* InternalFrameIcon$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _InternalFrameIcon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InternalFrameIcon, init$, void)},
-	{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InternalFrameIcon, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalFrameIcon, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalFrameIcon, run, void)},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIcon, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{}
-};
-
-$ClassInfo _InternalFrameIcon_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"InternalFrameIcon",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_InternalFrameIcon_MethodInfo_
-};
-
-$Object* allocate$InternalFrameIcon($Class* clazz) {
-	return $of($alloc(InternalFrameIcon));
-}
 
 void InternalFrameIcon::init$() {
 }
 
 void InternalFrameIcon::main($StringArray* args) {
 	$init(InternalFrameIcon);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
-			{
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(InternalFrameIcon$$Lambda$lambda$main$0, laf)));
-				$SwingUtilities::invokeAndWait($$new(InternalFrameIcon));
-			}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
+		{
+			$SwingUtilities::invokeAndWait($$new(InternalFrameIcon$$Lambda$lambda$main$0, laf));
+			$SwingUtilities::invokeAndWait($$new(InternalFrameIcon));
 		}
 	}
 }
 
 void InternalFrameIcon::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
 	$init(InternalFrameIcon);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
-		$nc($System::out)->println($$str({"LookAndFeel: "_s, $($nc(laf)->getClassName())}));
+		$nc($System::out)->println($$str({"LookAndFeel: "_s, $(laf->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 	}
 }
 
 void InternalFrameIcon::run() {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, o, $nc($($UIManager::getDefaults()))->get("InternalFrame.icon"_s));
+	$useLocalObjectStack();
+	$var($Object, o, $$nc($UIManager::getDefaults())->get("InternalFrame.icon"_s));
 	if (o != nullptr && !($instanceOf($Icon, o))) {
 		$throwNew($RuntimeException, $$str({"Wrong object: "_s, o}));
 	}
@@ -155,11 +121,29 @@ InternalFrameIcon::InternalFrameIcon() {
 
 $Class* InternalFrameIcon::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(InternalFrameIcon$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("InternalFrameIcon$$Lambda$lambda$main$0")) {
 			return InternalFrameIcon$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(InternalFrameIcon, name, initialize, &_InternalFrameIcon_ClassInfo_, allocate$InternalFrameIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InternalFrameIcon, init$, void)},
+		{"lambda$main$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InternalFrameIcon, lambda$main$0, void, $UIManager$LookAndFeelInfo*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InternalFrameIcon, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InternalFrameIcon, run, void)},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(InternalFrameIcon, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"InternalFrameIcon",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InternalFrameIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameIcon);
+	});
 	return class$;
 }
 

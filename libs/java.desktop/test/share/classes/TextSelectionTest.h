@@ -32,6 +32,7 @@ class $export TextSelectionTest : public ::java::lang::Object {
 	$class(TextSelectionTest, 0, ::java::lang::Object)
 public:
 	TextSelectionTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static void lambda$createAndShowGUI$0(::javax::swing::JFrame* frame, ::java::awt::event::ActionEvent* e);

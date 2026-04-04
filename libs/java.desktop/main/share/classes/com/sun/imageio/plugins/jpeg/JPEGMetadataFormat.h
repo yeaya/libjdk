@@ -28,7 +28,7 @@ public:
 	virtual void addStreamElements($String* parentName);
 	virtual bool canNodeAppear($String* elementName, ::javax::imageio::ImageTypeSpecifier* imageType) override;
 	virtual bool isInSubtree($String* elementName, $String* subtreeName);
-	static const int32_t MAX_JPEG_DATA_SIZE = 0x0000FFFD;
+	static const int32_t MAX_JPEG_DATA_SIZE = 0x0000fffd;
 	$String* resourceBaseName = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/JRTIndex$CtSym.h>
-
 #include <com/sun/tools/javac/file/JRTIndex.h>
 #include <jcpp.h>
 
@@ -15,45 +14,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$FieldInfo _JRTIndex$CtSym_FieldInfo_[] = {
-	{"hidden", "Z", nullptr, $PUBLIC | $FINAL, $field(JRTIndex$CtSym, hidden)},
-	{"proprietary", "Z", nullptr, $PUBLIC | $FINAL, $field(JRTIndex$CtSym, proprietary)},
-	{"minProfile", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(JRTIndex$CtSym, minProfile)},
-	{"EMPTY", "Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $STATIC | $FINAL, $staticField(JRTIndex$CtSym, EMPTY)},
-	{}
-};
-
-$MethodInfo _JRTIndex$CtSym_MethodInfo_[] = {
-	{"<init>", "(ZZLjava/lang/String;)V", nullptr, 0, $method(JRTIndex$CtSym, init$, void, bool, bool, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRTIndex$CtSym, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRTIndex$CtSym_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JRTIndex$CtSym", "com.sun.tools.javac.file.JRTIndex", "CtSym", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRTIndex$CtSym_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.file.JRTIndex$CtSym",
-	"java.lang.Object",
-	nullptr,
-	_JRTIndex$CtSym_FieldInfo_,
-	_JRTIndex$CtSym_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRTIndex$CtSym_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JRTIndex"
-};
-
-$Object* allocate$JRTIndex$CtSym($Class* clazz) {
-	return $of($alloc(JRTIndex$CtSym));
-}
 
 JRTIndex$CtSym* JRTIndex$CtSym::EMPTY = nullptr;
 
@@ -87,7 +47,7 @@ $String* JRTIndex$CtSym::toString() {
 	return sb->toString();
 }
 
-void clinit$JRTIndex$CtSym($Class* class$) {
+void JRTIndex$CtSym::clinit$($Class* clazz) {
 	$assignStatic(JRTIndex$CtSym::EMPTY, $new(JRTIndex$CtSym, false, false, nullptr));
 }
 
@@ -95,7 +55,40 @@ JRTIndex$CtSym::JRTIndex$CtSym() {
 }
 
 $Class* JRTIndex$CtSym::load$($String* name, bool initialize) {
-	$loadClass(JRTIndex$CtSym, name, initialize, &_JRTIndex$CtSym_ClassInfo_, clinit$JRTIndex$CtSym, allocate$JRTIndex$CtSym);
+	$FieldInfo fieldInfos$$[] = {
+		{"hidden", "Z", nullptr, $PUBLIC | $FINAL, $field(JRTIndex$CtSym, hidden)},
+		{"proprietary", "Z", nullptr, $PUBLIC | $FINAL, $field(JRTIndex$CtSym, proprietary)},
+		{"minProfile", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(JRTIndex$CtSym, minProfile)},
+		{"EMPTY", "Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $STATIC | $FINAL, $staticField(JRTIndex$CtSym, EMPTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZLjava/lang/String;)V", nullptr, 0, $method(JRTIndex$CtSym, init$, void, bool, bool, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRTIndex$CtSym, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JRTIndex$CtSym", "com.sun.tools.javac.file.JRTIndex", "CtSym", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.file.JRTIndex$CtSym",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JRTIndex"
+	};
+	$loadClass(JRTIndex$CtSym, name, initialize, &classInfo$$, JRTIndex$CtSym::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRTIndex$CtSym);
+	});
 	return class$;
 }
 

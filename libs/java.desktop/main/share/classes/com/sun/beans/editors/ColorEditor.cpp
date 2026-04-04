@@ -1,5 +1,4 @@
 #include <com/sun/beans/editors/ColorEditor.h>
-
 #include <java/awt/Canvas.h>
 #include <java/awt/Choice.h>
 #include <java/awt/Color.h>
@@ -42,61 +41,6 @@ namespace com {
 		namespace beans {
 			namespace editors {
 
-$FieldInfo _ColorEditor_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ColorEditor, serialVersionUID)},
-	{"colorNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(ColorEditor, colorNames)},
-	{"colors", "[Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorEditor, colors)},
-	{"sample", "Ljava/awt/Canvas;", nullptr, $PRIVATE, $field(ColorEditor, sample)},
-	{"sampleHeight", "I", nullptr, $PRIVATE, $field(ColorEditor, sampleHeight)},
-	{"sampleWidth", "I", nullptr, $PRIVATE, $field(ColorEditor, sampleWidth)},
-	{"hPad", "I", nullptr, $PRIVATE, $field(ColorEditor, hPad)},
-	{"ourWidth", "I", nullptr, $PRIVATE, $field(ColorEditor, ourWidth)},
-	{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorEditor, color)},
-	{"text", "Ljava/awt/TextField;", nullptr, $PRIVATE, $field(ColorEditor, text)},
-	{"choser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(ColorEditor, choser)},
-	{"support", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(ColorEditor, support)},
-	{}
-};
-
-$MethodInfo _ColorEditor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ColorEditor, init$, void)},
-	{"action", "(Ljava/awt/Event;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, action, bool, $Event*, Object$*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"changeColor", "(Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(ColorEditor, changeColor, void, $Color*)},
-	{"getAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getAsText, $String*)},
-	{"getCustomEditor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getCustomEditor, $Component*)},
-	{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getJavaInitializationString, $String*)},
-	{"getTags", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getTags, $StringArray*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getValue, $Object*)},
-	{"isPaintable", "()Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, isPaintable, bool)},
-	{"keyUp", "(Ljava/awt/Event;I)Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, keyUp, bool, $Event*, int32_t)},
-	{"paintValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, paintValue, void, $Graphics*, $Rectangle*)},
-	{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, preferredSize, $Dimension*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, setValue, void, Object$*)},
-	{"supportsCustomEditor", "()Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, supportsCustomEditor, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ColorEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.editors.ColorEditor",
-	"java.awt.Panel",
-	"java.beans.PropertyEditor",
-	_ColorEditor_FieldInfo_,
-	_ColorEditor_MethodInfo_
-};
-
-$Object* allocate$ColorEditor($Class* clazz) {
-	return $of($alloc(ColorEditor));
-}
-
 $String* ColorEditor::toString() {
 	 return this->$Panel::toString();
 }
@@ -137,7 +81,7 @@ void ColorEditor::init$() {
 	}));
 	$init($Color);
 	$set(this, colors, $new($ColorArray, {
-		($Color*)nullptr,
+		nullptr,
 		$Color::white,
 		$Color::lightGray,
 		$Color::gray,
@@ -162,21 +106,21 @@ void ColorEditor::init$() {
 	p->setLayout(nullptr);
 	p->setBackground($Color::black);
 	$set(this, sample, $new($Canvas));
-	p->add(static_cast<$Component*>(this->sample));
+	p->add(this->sample);
 	$nc(this->sample)->reshape(2, 2, this->sampleWidth, this->sampleHeight);
-	add(static_cast<$Component*>(p));
+	add(p);
 	p->reshape(this->ourWidth, 2, this->sampleWidth + 4, this->sampleHeight + 4);
 	this->ourWidth += this->sampleWidth + 4 + this->hPad;
 	$set(this, text, $new($TextField, ""_s, 14));
-	add(static_cast<$Component*>(this->text));
+	add(this->text);
 	$nc(this->text)->reshape(this->ourWidth, 0, 100, 30);
 	this->ourWidth += 100 + this->hPad;
 	$set(this, choser, $new($Choice));
 	int32_t active = 0;
 	for (int32_t i = 0; i < $nc(this->colorNames)->length; ++i) {
-		$nc(this->choser)->addItem($nc(this->colorNames)->get(i));
+		$nc(this->choser)->addItem(this->colorNames->get(i));
 	}
-	add(static_cast<$Component*>(this->choser));
+	add(this->choser);
 	$nc(this->choser)->reshape(this->ourWidth, 0, 100, 30);
 	this->ourWidth += 100 + this->hPad;
 	resize(this->ourWidth, 40);
@@ -202,13 +146,13 @@ bool ColorEditor::keyUp($Event* e, int32_t key) {
 }
 
 void ColorEditor::setAsText($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		changeColor(nullptr);
 		return;
 	}
-	int32_t c1 = $nc(s)->indexOf((int32_t)u',');
-	int32_t c2 = s->indexOf((int32_t)u',', c1 + 1);
+	int32_t c1 = $nc(s)->indexOf(u',');
+	int32_t c2 = s->indexOf(u',', c1 + 1);
 	if (c1 < 0 || c2 < 0) {
 		$throwNew($IllegalArgumentException, s);
 	}
@@ -231,21 +175,25 @@ bool ColorEditor::action($Event* e, Object$* arg) {
 }
 
 $String* ColorEditor::getJavaInitializationString() {
-	return (this->color != nullptr) ? $str({"new java.awt.Color("_s, $$str($nc(this->color)->getRGB()), ",true)"_s}) : "null"_s;
+	return (this->color != nullptr) ? $str({"new java.awt.Color("_s, $$str(this->color->getRGB()), ",true)"_s}) : "null"_s;
 }
 
 void ColorEditor::changeColor($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		$set(this, color, nullptr);
 		$nc(this->text)->setText(""_s);
 		return;
 	}
 	$set(this, color, c);
-	$var($String, var$2, $$str({""_s, $$str($nc(c)->getRed()), ","_s}));
-	$var($String, var$1, $$concat(var$2, $$str(c->getGreen())));
-	$var($String, var$0, $$concat(var$1, ","_s));
-	$nc(this->text)->setText($$concat(var$0, $$str(c->getBlue())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(""_s);
+	var$0->append($nc(c)->getRed());
+	var$0->append(","_s);
+	var$0->append(c->getGreen());
+	var$0->append(","_s);
+	var$0->append(c->getBlue());
+	$nc(this->text)->setText($$str(var$0));
 	int32_t active = 0;
 	for (int32_t i = 0; i < $nc(this->colorNames)->length; ++i) {
 		if ($nc(this->color)->equals($nc(this->colors)->get(i))) {
@@ -255,7 +203,7 @@ void ColorEditor::changeColor($Color* c) {
 	$nc(this->choser)->select(active);
 	$nc(this->sample)->setBackground(this->color);
 	$nc(this->sample)->repaint();
-	$nc(this->support)->firePropertyChange(""_s, ($Object*)nullptr, ($Object*)nullptr);
+	$nc(this->support)->firePropertyChange(""_s, nullptr, nullptr);
 }
 
 $Object* ColorEditor::getValue() {
@@ -270,20 +218,23 @@ void ColorEditor::paintValue($Graphics* gfx, $Rectangle* box) {
 	$var($Color, oldColor, $nc(gfx)->getColor());
 	$init($Color);
 	gfx->setColor($Color::black);
-	gfx->drawRect($nc(box)->x, box->y, box->width - 3, box->height - 3);
+	gfx->drawRect($nc(box)->x, $nc(box)->y, $nc(box)->width - 3, $nc(box)->height - 3);
 	gfx->setColor(this->color);
-	gfx->fillRect($nc(box)->x + 1, box->y + 1, box->width - 4, box->height - 4);
+	gfx->fillRect(box->x + 1, box->y + 1, box->width - 4, box->height - 4);
 	gfx->setColor(oldColor);
 }
 
 $String* ColorEditor::getAsText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, nullptr);
 	if (this->color != nullptr) {
-		$var($String, var$3, $$str({$$str($nc(this->color)->getRed()), ","_s}));
-		$var($String, var$2, $$concat(var$3, $$str($nc(this->color)->getGreen())));
-		$var($String, var$1, $$concat(var$2, ","_s));
-		$assign(var$0, $concat(var$1, $$str($nc(this->color)->getBlue())));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append($nc(this->color)->getRed());
+		var$1->append(","_s);
+		var$1->append(this->color->getGreen());
+		var$1->append(","_s);
+		var$1->append(this->color->getBlue());
+		$assign(var$0, $str(var$1));
 	} else {
 		$assign(var$0, nullptr);
 	}
@@ -314,7 +265,57 @@ ColorEditor::ColorEditor() {
 }
 
 $Class* ColorEditor::load$($String* name, bool initialize) {
-	$loadClass(ColorEditor, name, initialize, &_ColorEditor_ClassInfo_, allocate$ColorEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ColorEditor, serialVersionUID)},
+		{"colorNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(ColorEditor, colorNames)},
+		{"colors", "[Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorEditor, colors)},
+		{"sample", "Ljava/awt/Canvas;", nullptr, $PRIVATE, $field(ColorEditor, sample)},
+		{"sampleHeight", "I", nullptr, $PRIVATE, $field(ColorEditor, sampleHeight)},
+		{"sampleWidth", "I", nullptr, $PRIVATE, $field(ColorEditor, sampleWidth)},
+		{"hPad", "I", nullptr, $PRIVATE, $field(ColorEditor, hPad)},
+		{"ourWidth", "I", nullptr, $PRIVATE, $field(ColorEditor, ourWidth)},
+		{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorEditor, color)},
+		{"text", "Ljava/awt/TextField;", nullptr, $PRIVATE, $field(ColorEditor, text)},
+		{"choser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(ColorEditor, choser)},
+		{"support", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(ColorEditor, support)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ColorEditor, init$, void)},
+		{"action", "(Ljava/awt/Event;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, action, bool, $Event*, Object$*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"changeColor", "(Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(ColorEditor, changeColor, void, $Color*)},
+		{"getAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getAsText, $String*)},
+		{"getCustomEditor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getCustomEditor, $Component*)},
+		{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getJavaInitializationString, $String*)},
+		{"getTags", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getTags, $StringArray*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, getValue, $Object*)},
+		{"isPaintable", "()Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, isPaintable, bool)},
+		{"keyUp", "(Ljava/awt/Event;I)Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, keyUp, bool, $Event*, int32_t)},
+		{"paintValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, paintValue, void, $Graphics*, $Rectangle*)},
+		{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ColorEditor, preferredSize, $Dimension*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ColorEditor, setValue, void, Object$*)},
+		{"supportsCustomEditor", "()Z", nullptr, $PUBLIC, $virtualMethod(ColorEditor, supportsCustomEditor, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.editors.ColorEditor",
+		"java.awt.Panel",
+		"java.beans.PropertyEditor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorEditor));
+	});
 	return class$;
 }
 

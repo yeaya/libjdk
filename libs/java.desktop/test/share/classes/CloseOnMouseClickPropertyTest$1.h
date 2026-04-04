@@ -9,6 +9,7 @@ class CloseOnMouseClickPropertyTest$1 : public ::java::lang::Object {
 	$class(CloseOnMouseClickPropertyTest$1, 0, ::java::lang::Object)
 public:
 	CloseOnMouseClickPropertyTest$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$CloseOnMouseClickPropertyTest$TestType;
 };
 

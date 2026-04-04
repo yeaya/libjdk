@@ -21,6 +21,7 @@ class LayoutPathImpl$EndType : public ::java::lang::Enum {
 public:
 	LayoutPathImpl$EndType();
 	static $Array<::sun::font::LayoutPathImpl$EndType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool isClosed();
 	virtual bool isExtended();

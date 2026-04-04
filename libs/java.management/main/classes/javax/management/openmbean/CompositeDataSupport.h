@@ -48,7 +48,7 @@ public:
 	static ::java::util::SortedMap* makeMap(::java::util::Map* items);
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x6F12361AD2285A64;
+	static const int64_t serialVersionUID = (int64_t)0x6f12361ad2285a64;
 	::java::util::SortedMap* contents = nullptr;
 	::javax::management::openmbean::CompositeType* compositeType = nullptr;
 };

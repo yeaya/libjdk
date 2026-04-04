@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$MethodAttrInfo.h>
-
 #include <com/sun/tools/javac/code/Kinds$KindSelector.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Attr$CheckMode.h>
@@ -33,49 +32,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Attr$MethodAttrInfo_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$MethodAttrInfo, this$0)},
-	{}
-};
-
-$MethodInfo _Attr$MethodAttrInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, $PUBLIC, $method(Attr$MethodAttrInfo, init$, void, $Attr*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Attr$MethodAttrInfo, init$, void, $Attr*, $Check$CheckContext*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Type*)},
-	{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Check$CheckContext*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Type*, $Check$CheckContext*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Type*, $Check$CheckContext*, $Attr$CheckMode*)},
-	{"dup", "(Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Attr$CheckMode*)},
-	{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, needsArgumentAttr, bool, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _Attr$MethodAttrInfo_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$MethodAttrInfo", "com.sun.tools.javac.comp.Attr", "MethodAttrInfo", 0},
-	{"com.sun.tools.javac.comp.Attr$ResultInfo", "com.sun.tools.javac.comp.Attr", "ResultInfo", 0},
-	{}
-};
-
-$ClassInfo _Attr$MethodAttrInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$MethodAttrInfo",
-	"com.sun.tools.javac.comp.Attr$ResultInfo",
-	nullptr,
-	_Attr$MethodAttrInfo_FieldInfo_,
-	_Attr$MethodAttrInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attr$MethodAttrInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$MethodAttrInfo($Class* clazz) {
-	return $of($alloc(Attr$MethodAttrInfo));
-}
 
 void Attr$MethodAttrInfo::init$($Attr* this$0) {
 	Attr$MethodAttrInfo::init$(this$0, $nc(this$0->chk)->basicHandler);
@@ -120,7 +76,44 @@ Attr$MethodAttrInfo::Attr$MethodAttrInfo() {
 }
 
 $Class* Attr$MethodAttrInfo::load$($String* name, bool initialize) {
-	$loadClass(Attr$MethodAttrInfo, name, initialize, &_Attr$MethodAttrInfo_ClassInfo_, allocate$Attr$MethodAttrInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$MethodAttrInfo, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, $PUBLIC, $method(Attr$MethodAttrInfo, init$, void, $Attr*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Attr$MethodAttrInfo, init$, void, $Attr*, $Check$CheckContext*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Type*)},
+		{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Check$CheckContext*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Type*, $Check$CheckContext*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Type*, $Check$CheckContext*, $Attr$CheckMode*)},
+		{"dup", "(Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, dup, $Attr$ResultInfo*, $Attr$CheckMode*)},
+		{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED, $virtualMethod(Attr$MethodAttrInfo, needsArgumentAttr, bool, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$MethodAttrInfo", "com.sun.tools.javac.comp.Attr", "MethodAttrInfo", 0},
+		{"com.sun.tools.javac.comp.Attr$ResultInfo", "com.sun.tools.javac.comp.Attr", "ResultInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$MethodAttrInfo",
+		"com.sun.tools.javac.comp.Attr$ResultInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$MethodAttrInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$MethodAttrInfo);
+	});
 	return class$;
 }
 

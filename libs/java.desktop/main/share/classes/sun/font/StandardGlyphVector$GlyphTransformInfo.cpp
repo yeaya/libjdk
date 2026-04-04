@@ -1,5 +1,4 @@
 #include <sun/font/StandardGlyphVector$GlyphTransformInfo.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Point2D$Float.h>
@@ -13,7 +12,6 @@
 using $StandardGlyphVector$GlyphStrikeArray = $Array<::sun::font::StandardGlyphVector$GlyphStrike>;
 using $Rectangle = ::java::awt::Rectangle;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -21,62 +19,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
-using $FontStrike = ::sun::font::FontStrike;
 using $StandardGlyphVector = ::sun::font::StandardGlyphVector;
 using $StandardGlyphVector$GlyphStrike = ::sun::font::StandardGlyphVector$GlyphStrike;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _StandardGlyphVector$GlyphTransformInfo_FieldInfo_[] = {
-	{"sgv", "Lsun/font/StandardGlyphVector;", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, sgv)},
-	{"indices", "[I", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, indices)},
-	{"transforms", "[D", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, transforms)},
-	{"strikesRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[Lsun/font/StandardGlyphVector$GlyphStrike;>;", 0, $field(StandardGlyphVector$GlyphTransformInfo, strikesRef)},
-	{"haveAllStrikes", "Z", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, haveAllStrikes)},
-	{}
-};
-
-$MethodInfo _StandardGlyphVector$GlyphTransformInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/StandardGlyphVector;)V", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, init$, void, $StandardGlyphVector*)},
-	{"<init>", "(Lsun/font/StandardGlyphVector;Lsun/font/StandardGlyphVector$GlyphTransformInfo;)V", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, init$, void, $StandardGlyphVector*, StandardGlyphVector$GlyphTransformInfo*)},
-	{"equals", "(Lsun/font/StandardGlyphVector$GlyphTransformInfo;)Z", nullptr, $PUBLIC, $method(StandardGlyphVector$GlyphTransformInfo, equals, bool, StandardGlyphVector$GlyphTransformInfo*)},
-	{"getAllStrikes", "()[Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphTransformInfo, getAllStrikes, $StandardGlyphVector$GlyphStrikeArray*)},
-	{"getGlyphTransform", "(I)Ljava/awt/geom/AffineTransform;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, getGlyphTransform, $AffineTransform*, int32_t)},
-	{"getGlyphsPixelBounds", "(Ljava/awt/geom/AffineTransform;FFII)Ljava/awt/Rectangle;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, getGlyphsPixelBounds, $Rectangle*, $AffineTransform*, float, float, int32_t, int32_t)},
-	{"getStrike", "(I)Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, getStrike, $StandardGlyphVector$GlyphStrike*, int32_t)},
-	{"getStrikeArray", "()[Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphTransformInfo, getStrikeArray, $StandardGlyphVector$GlyphStrikeArray*)},
-	{"getStrikeAtIndex", "([Lsun/font/StandardGlyphVector$GlyphStrike;I)Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphTransformInfo, getStrikeAtIndex, $StandardGlyphVector$GlyphStrike*, $StandardGlyphVector$GlyphStrikeArray*, int32_t)},
-	{"setGlyphTransform", "(ILjava/awt/geom/AffineTransform;)V", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, setGlyphTransform, void, int32_t, $AffineTransform*)},
-	{"setupGlyphImages", "([J[FLjava/awt/geom/AffineTransform;)Ljava/lang/Object;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, setupGlyphImages, $Object*, $longs*, $floats*, $AffineTransform*)},
-	{"transformCount", "()I", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, transformCount, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StandardGlyphVector$GlyphTransformInfo_InnerClassesInfo_[] = {
-	{"sun.font.StandardGlyphVector$GlyphTransformInfo", "sun.font.StandardGlyphVector", "GlyphTransformInfo", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StandardGlyphVector$GlyphTransformInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.font.StandardGlyphVector$GlyphTransformInfo",
-	"java.lang.Object",
-	nullptr,
-	_StandardGlyphVector$GlyphTransformInfo_FieldInfo_,
-	_StandardGlyphVector$GlyphTransformInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StandardGlyphVector$GlyphTransformInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.StandardGlyphVector"
-};
-
-$Object* allocate$StandardGlyphVector$GlyphTransformInfo($Class* clazz) {
-	return $of($alloc(StandardGlyphVector$GlyphTransformInfo));
-}
 
 void StandardGlyphVector$GlyphTransformInfo::init$($StandardGlyphVector* sgv) {
 	$set(this, sgv, sgv);
@@ -84,8 +31,8 @@ void StandardGlyphVector$GlyphTransformInfo::init$($StandardGlyphVector* sgv) {
 
 void StandardGlyphVector$GlyphTransformInfo::init$($StandardGlyphVector* sgv, StandardGlyphVector$GlyphTransformInfo* rhs) {
 	$set(this, sgv, sgv);
-	$set(this, indices, $nc(rhs)->indices == nullptr ? ($ints*)nullptr : $cast($ints, $nc($nc(rhs)->indices)->clone()));
-	$set(this, transforms, rhs->transforms == nullptr ? ($doubles*)nullptr : $cast($doubles, $nc(rhs->transforms)->clone()));
+	$set(this, indices, $nc(rhs)->indices == nullptr ? ($ints*)nullptr : $cast($ints, rhs->indices->clone()));
+	$set(this, transforms, rhs->transforms == nullptr ? ($doubles*)nullptr : $cast($doubles, rhs->transforms->clone()));
 	$set(this, strikesRef, nullptr);
 }
 
@@ -99,12 +46,12 @@ bool StandardGlyphVector$GlyphTransformInfo::equals(StandardGlyphVector$GlyphTra
 	if ($nc(this->indices)->length != $nc($nc(rhs)->indices)->length) {
 		return false;
 	}
-	if ($nc(this->transforms)->length != $nc($nc(rhs)->transforms)->length) {
+	if ($nc(this->transforms)->length != $nc(rhs->transforms)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(this->indices)->length; ++i) {
-		int32_t tix = $nc(this->indices)->get(i);
-		int32_t rix = $nc($nc(rhs)->indices)->get(i);
+	for (int32_t i = 0; i < this->indices->length; ++i) {
+		int32_t tix = this->indices->get(i);
+		int32_t rix = rhs->indices->get(i);
 		if ((tix == 0) != (rix == 0)) {
 			return false;
 		}
@@ -112,7 +59,7 @@ bool StandardGlyphVector$GlyphTransformInfo::equals(StandardGlyphVector$GlyphTra
 			tix *= 6;
 			rix *= 6;
 			for (int32_t j = 6; j > 0; --j) {
-				if ($nc(this->indices)->get(--tix) != $nc(rhs->indices)->get(--rix)) {
+				if (this->indices->get(--tix) != rhs->indices->get(--rix)) {
 					return false;
 				}
 			}
@@ -122,10 +69,10 @@ bool StandardGlyphVector$GlyphTransformInfo::equals(StandardGlyphVector$GlyphTra
 }
 
 void StandardGlyphVector$GlyphTransformInfo::setGlyphTransform(int32_t glyphIndex, $AffineTransform* newTX) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, temp, $new($doubles, 6));
 	bool isIdentity = true;
-	if (newTX == nullptr || $nc(newTX)->isIdentity()) {
+	if (newTX == nullptr || newTX->isIdentity()) {
 		temp->set(0, temp->set(3, 1.0));
 	} else {
 		isIdentity = false;
@@ -136,7 +83,7 @@ void StandardGlyphVector$GlyphTransformInfo::setGlyphTransform(int32_t glyphInde
 			return;
 		}
 		$set(this, indices, $new($ints, $nc($nc(this->sgv)->glyphs)->length));
-		$nc(this->indices)->set(glyphIndex, 1);
+		this->indices->set(glyphIndex, 1);
 		$set(this, transforms, temp);
 	} else {
 		bool addSlot = false;
@@ -149,7 +96,7 @@ void StandardGlyphVector$GlyphTransformInfo::setGlyphTransform(int32_t glyphInde
 			bool loop$continue = false;
 			for (i = 0; i < $nc(this->transforms)->length; i += 6) {
 				for (int32_t j = 0; j < 6; ++j) {
-					if ($nc(this->transforms)->get(i + j) != temp->get(j)) {
+					if (this->transforms->get(i + j) != temp->get(j)) {
 						loop$continue = true;
 						break;
 					}
@@ -163,13 +110,13 @@ void StandardGlyphVector$GlyphTransformInfo::setGlyphTransform(int32_t glyphInde
 			}
 			newIndex = i / 6 + 1;
 		}
-		int32_t oldIndex = $nc(this->indices)->get(glyphIndex);
+		int32_t oldIndex = this->indices->get(glyphIndex);
 		if (newIndex != oldIndex) {
 			bool removeSlot = false;
 			if (oldIndex != 0) {
 				removeSlot = true;
-				for (int32_t i = 0; i < $nc(this->indices)->length; ++i) {
-					if ($nc(this->indices)->get(i) == oldIndex && i != glyphIndex) {
+				for (int32_t i = 0; i < this->indices->length; ++i) {
+					if (this->indices->get(i) == oldIndex && i != glyphIndex) {
 						removeSlot = false;
 						break;
 					}
@@ -189,11 +136,11 @@ void StandardGlyphVector$GlyphTransformInfo::setGlyphTransform(int32_t glyphInde
 				}
 				$var($doubles, ttemp, $new($doubles, $nc(this->transforms)->length - 6));
 				$System::arraycopy(this->transforms, 0, ttemp, 0, (oldIndex - 1) * 6);
-				$System::arraycopy(this->transforms, oldIndex * 6, ttemp, (oldIndex - 1) * 6, $nc(this->transforms)->length - oldIndex * 6);
+				$System::arraycopy(this->transforms, oldIndex * 6, ttemp, (oldIndex - 1) * 6, this->transforms->length - oldIndex * 6);
 				$set(this, transforms, ttemp);
 				for (int32_t i = 0; i < $nc(this->indices)->length; ++i) {
-					if ($nc(this->indices)->get(i) > oldIndex) {
-						(*$nc(this->indices))[i] -= 1;
+					if (this->indices->get(i) > oldIndex) {
+						(*this->indices)[i] -= 1;
 					}
 				}
 				if (newIndex > oldIndex) {
@@ -201,8 +148,8 @@ void StandardGlyphVector$GlyphTransformInfo::setGlyphTransform(int32_t glyphInde
 				}
 			} else if (addSlot) {
 				$var($doubles, ttemp, $new($doubles, $nc(this->transforms)->length + 6));
-				$System::arraycopy(this->transforms, 0, ttemp, 0, $nc(this->transforms)->length);
-				$System::arraycopy(temp, 0, ttemp, $nc(this->transforms)->length, 6);
+				$System::arraycopy(this->transforms, 0, ttemp, 0, this->transforms->length);
+				$System::arraycopy(temp, 0, ttemp, this->transforms->length, 6);
 				$set(this, transforms, ttemp);
 			}
 			$nc(this->indices)->set(glyphIndex, newIndex);
@@ -230,7 +177,7 @@ int32_t StandardGlyphVector$GlyphTransformInfo::transformCount() {
 }
 
 $Object* StandardGlyphVector$GlyphTransformInfo::setupGlyphImages($longs* images, $floats* positions, $AffineTransform* tx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc($nc(this->sgv)->glyphs)->length;
 	$var($StandardGlyphVector$GlyphStrikeArray, sl, getAllStrikes());
 	for (int32_t i = 0; i < len; ++i) {
@@ -240,11 +187,11 @@ $Object* StandardGlyphVector$GlyphTransformInfo::setupGlyphImages($longs* images
 		gs->getGlyphPosition(glyphID, i * 2, $nc(this->sgv)->positions, positions);
 	}
 	$nc(tx)->transform(positions, 0, positions, 0, len);
-	return $of(sl);
+	return sl;
 }
 
 $Rectangle* StandardGlyphVector$GlyphTransformInfo::getGlyphsPixelBounds($AffineTransform* tx, float x, float y, int32_t start, int32_t count) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, result, nullptr);
 	$var($Rectangle, r, $new($Rectangle));
 	$var($Point2D$Float, pt, $new($Point2D$Float));
@@ -252,14 +199,14 @@ $Rectangle* StandardGlyphVector$GlyphTransformInfo::getGlyphsPixelBounds($Affine
 	while (--count >= 0) {
 		$var($StandardGlyphVector$GlyphStrike, gs, getStrike(start));
 		pt->x = x + $nc($nc(this->sgv)->positions)->get(n++) + $nc(gs)->dx;
-		pt->y = y + $nc($nc(this->sgv)->positions)->get(n++) + gs->dy;
+		pt->y = y + this->sgv->positions->get(n++) + gs->dy;
 		$nc(tx)->transform(pt, pt);
 		$nc(gs->strike)->getGlyphImageBounds($nc($nc(this->sgv)->glyphs)->get(start++), pt, r);
 		if (!r->isEmpty()) {
 			if (result == nullptr) {
 				$assign(result, $new($Rectangle, r));
 			} else {
-				$nc(result)->add(r);
+				result->add(r);
 			}
 		}
 	}
@@ -291,7 +238,7 @@ $StandardGlyphVector$GlyphStrikeArray* StandardGlyphVector$GlyphTransformInfo::g
 $StandardGlyphVector$GlyphStrikeArray* StandardGlyphVector$GlyphTransformInfo::getStrikeArray() {
 	$var($StandardGlyphVector$GlyphStrikeArray, strikes, nullptr);
 	if (this->strikesRef != nullptr) {
-		$assign(strikes, $cast($StandardGlyphVector$GlyphStrikeArray, $nc(this->strikesRef)->get()));
+		$assign(strikes, $cast($StandardGlyphVector$GlyphStrikeArray, this->strikesRef->get()));
 	}
 	if (strikes == nullptr) {
 		this->haveAllStrikes = false;
@@ -302,7 +249,7 @@ $StandardGlyphVector$GlyphStrikeArray* StandardGlyphVector$GlyphTransformInfo::g
 }
 
 $StandardGlyphVector$GlyphStrike* StandardGlyphVector$GlyphTransformInfo::getStrikeAtIndex($StandardGlyphVector$GlyphStrikeArray* strikes, int32_t strikeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StandardGlyphVector$GlyphStrike, strike, $nc(strikes)->get(strikeIndex));
 	if (strike == nullptr) {
 		if (strikeIndex == 0) {
@@ -321,7 +268,51 @@ StandardGlyphVector$GlyphTransformInfo::StandardGlyphVector$GlyphTransformInfo()
 }
 
 $Class* StandardGlyphVector$GlyphTransformInfo::load$($String* name, bool initialize) {
-	$loadClass(StandardGlyphVector$GlyphTransformInfo, name, initialize, &_StandardGlyphVector$GlyphTransformInfo_ClassInfo_, allocate$StandardGlyphVector$GlyphTransformInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"sgv", "Lsun/font/StandardGlyphVector;", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, sgv)},
+		{"indices", "[I", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, indices)},
+		{"transforms", "[D", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, transforms)},
+		{"strikesRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[Lsun/font/StandardGlyphVector$GlyphStrike;>;", 0, $field(StandardGlyphVector$GlyphTransformInfo, strikesRef)},
+		{"haveAllStrikes", "Z", nullptr, 0, $field(StandardGlyphVector$GlyphTransformInfo, haveAllStrikes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/StandardGlyphVector;)V", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, init$, void, $StandardGlyphVector*)},
+		{"<init>", "(Lsun/font/StandardGlyphVector;Lsun/font/StandardGlyphVector$GlyphTransformInfo;)V", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, init$, void, $StandardGlyphVector*, StandardGlyphVector$GlyphTransformInfo*)},
+		{"equals", "(Lsun/font/StandardGlyphVector$GlyphTransformInfo;)Z", nullptr, $PUBLIC, $method(StandardGlyphVector$GlyphTransformInfo, equals, bool, StandardGlyphVector$GlyphTransformInfo*)},
+		{"getAllStrikes", "()[Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphTransformInfo, getAllStrikes, $StandardGlyphVector$GlyphStrikeArray*)},
+		{"getGlyphTransform", "(I)Ljava/awt/geom/AffineTransform;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, getGlyphTransform, $AffineTransform*, int32_t)},
+		{"getGlyphsPixelBounds", "(Ljava/awt/geom/AffineTransform;FFII)Ljava/awt/Rectangle;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, getGlyphsPixelBounds, $Rectangle*, $AffineTransform*, float, float, int32_t, int32_t)},
+		{"getStrike", "(I)Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, getStrike, $StandardGlyphVector$GlyphStrike*, int32_t)},
+		{"getStrikeArray", "()[Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphTransformInfo, getStrikeArray, $StandardGlyphVector$GlyphStrikeArray*)},
+		{"getStrikeAtIndex", "([Lsun/font/StandardGlyphVector$GlyphStrike;I)Lsun/font/StandardGlyphVector$GlyphStrike;", nullptr, $PRIVATE, $method(StandardGlyphVector$GlyphTransformInfo, getStrikeAtIndex, $StandardGlyphVector$GlyphStrike*, $StandardGlyphVector$GlyphStrikeArray*, int32_t)},
+		{"setGlyphTransform", "(ILjava/awt/geom/AffineTransform;)V", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, setGlyphTransform, void, int32_t, $AffineTransform*)},
+		{"setupGlyphImages", "([J[FLjava/awt/geom/AffineTransform;)Ljava/lang/Object;", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, setupGlyphImages, $Object*, $longs*, $floats*, $AffineTransform*)},
+		{"transformCount", "()I", nullptr, 0, $method(StandardGlyphVector$GlyphTransformInfo, transformCount, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.StandardGlyphVector$GlyphTransformInfo", "sun.font.StandardGlyphVector", "GlyphTransformInfo", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.font.StandardGlyphVector$GlyphTransformInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.StandardGlyphVector"
+	};
+	$loadClass(StandardGlyphVector$GlyphTransformInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardGlyphVector$GlyphTransformInfo);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/BaseFileManager$1.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <java/io/IOException.h>
 #include <java/lang/InterruptedException.h>
@@ -19,48 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$FieldInfo _BaseFileManager$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/BaseFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(BaseFileManager$1, this$0)},
-	{}
-};
-
-$MethodInfo _BaseFileManager$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/lang/String;)V", nullptr, 0, $method(BaseFileManager$1, init$, void, $BaseFileManager*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _BaseFileManager$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.file.BaseFileManager",
-	"deferredClose",
-	"()V"
-};
-
-$InnerClassInfo _BaseFileManager$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.BaseFileManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BaseFileManager$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.BaseFileManager$1",
-	"java.lang.Thread",
-	nullptr,
-	_BaseFileManager$1_FieldInfo_,
-	_BaseFileManager$1_MethodInfo_,
-	nullptr,
-	&_BaseFileManager$1_EnclosingMethodInfo_,
-	_BaseFileManager$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.BaseFileManager"
-};
-
-$Object* allocate$BaseFileManager$1($Class* clazz) {
-	return $of($alloc(BaseFileManager$1));
-}
 
 void BaseFileManager$1::init$($BaseFileManager* this$0, $String* arg0) {
 	$set(this, this$0, this$0);
@@ -87,7 +44,42 @@ BaseFileManager$1::BaseFileManager$1() {
 }
 
 $Class* BaseFileManager$1::load$($String* name, bool initialize) {
-	$loadClass(BaseFileManager$1, name, initialize, &_BaseFileManager$1_ClassInfo_, allocate$BaseFileManager$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/BaseFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(BaseFileManager$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/lang/String;)V", nullptr, 0, $method(BaseFileManager$1, init$, void, $BaseFileManager*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.file.BaseFileManager",
+		"deferredClose",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.BaseFileManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.BaseFileManager$1",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.BaseFileManager"
+	};
+	$loadClass(BaseFileManager$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseFileManager$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthGraphicsUtils$SynthIconWrapper.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/util/ArrayList.h>
@@ -27,57 +26,14 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthGraphicsUtils$SynthIconWrapper_FieldInfo_[] = {
-	{"CACHE", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/SynthGraphicsUtils$SynthIconWrapper;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SynthGraphicsUtils$SynthIconWrapper, CACHE)},
-	{"synthIcon", "Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PRIVATE, $field(SynthGraphicsUtils$SynthIconWrapper, synthIcon)},
-	{"context", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthGraphicsUtils$SynthIconWrapper, context)},
-	{}
-};
-
-$MethodInfo _SynthGraphicsUtils$SynthIconWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthIcon;Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, 0, $method(SynthGraphicsUtils$SynthIconWrapper, init$, void, $SynthIcon*, $SynthContext*)},
-	{"get", "(Ljavax/swing/plaf/synth/SynthIcon;Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthGraphicsUtils$SynthIconWrapper;", nullptr, $STATIC, $staticMethod(SynthGraphicsUtils$SynthIconWrapper, get, SynthGraphicsUtils$SynthIconWrapper*, $SynthIcon*, $SynthContext*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"release", "(Ljavax/swing/plaf/synth/SynthGraphicsUtils$SynthIconWrapper;)V", nullptr, $STATIC, $staticMethod(SynthGraphicsUtils$SynthIconWrapper, release, void, SynthGraphicsUtils$SynthIconWrapper*)},
-	{"reset", "(Ljavax/swing/plaf/synth/SynthIcon;Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, 0, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, reset, void, $SynthIcon*, $SynthContext*)},
-	{}
-};
-
-$InnerClassInfo _SynthGraphicsUtils$SynthIconWrapper_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthGraphicsUtils$SynthIconWrapper", "javax.swing.plaf.synth.SynthGraphicsUtils", "SynthIconWrapper", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthGraphicsUtils$SynthIconWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthGraphicsUtils$SynthIconWrapper",
-	"java.lang.Object",
-	"javax.swing.Icon",
-	_SynthGraphicsUtils$SynthIconWrapper_FieldInfo_,
-	_SynthGraphicsUtils$SynthIconWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthGraphicsUtils$SynthIconWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthGraphicsUtils"
-};
-
-$Object* allocate$SynthGraphicsUtils$SynthIconWrapper($Class* clazz) {
-	return $of($alloc(SynthGraphicsUtils$SynthIconWrapper));
-}
-
 $List* SynthGraphicsUtils$SynthIconWrapper::CACHE = nullptr;
 
 SynthGraphicsUtils$SynthIconWrapper* SynthGraphicsUtils$SynthIconWrapper::get($SynthIcon* icon, $SynthContext* context) {
 	$init(SynthGraphicsUtils$SynthIconWrapper);
 	$synchronized(SynthGraphicsUtils$SynthIconWrapper::CACHE) {
-		int32_t size = $nc(SynthGraphicsUtils$SynthIconWrapper::CACHE)->size();
+		int32_t size = SynthGraphicsUtils$SynthIconWrapper::CACHE->size();
 		if (size > 0) {
-			$var(SynthGraphicsUtils$SynthIconWrapper, wrapper, $cast(SynthGraphicsUtils$SynthIconWrapper, $nc(SynthGraphicsUtils$SynthIconWrapper::CACHE)->remove(size - 1)));
+			$var(SynthGraphicsUtils$SynthIconWrapper, wrapper, $cast(SynthGraphicsUtils$SynthIconWrapper, SynthGraphicsUtils$SynthIconWrapper::CACHE->remove(size - 1)));
 			$nc(wrapper)->reset(icon, context);
 			return wrapper;
 		}
@@ -89,7 +45,7 @@ void SynthGraphicsUtils$SynthIconWrapper::release(SynthGraphicsUtils$SynthIconWr
 	$init(SynthGraphicsUtils$SynthIconWrapper);
 	$nc(wrapper)->reset(nullptr, nullptr);
 	$synchronized(SynthGraphicsUtils$SynthIconWrapper::CACHE) {
-		$nc(SynthGraphicsUtils$SynthIconWrapper::CACHE)->add(wrapper);
+		SynthGraphicsUtils$SynthIconWrapper::CACHE->add(wrapper);
 	}
 }
 
@@ -113,7 +69,7 @@ int32_t SynthGraphicsUtils$SynthIconWrapper::getIconHeight() {
 	return $nc(this->synthIcon)->getIconHeight(this->context);
 }
 
-void clinit$SynthGraphicsUtils$SynthIconWrapper($Class* class$) {
+void SynthGraphicsUtils$SynthIconWrapper::clinit$($Class* clazz) {
 	$assignStatic(SynthGraphicsUtils$SynthIconWrapper::CACHE, $new($ArrayList, 1));
 }
 
@@ -121,7 +77,44 @@ SynthGraphicsUtils$SynthIconWrapper::SynthGraphicsUtils$SynthIconWrapper() {
 }
 
 $Class* SynthGraphicsUtils$SynthIconWrapper::load$($String* name, bool initialize) {
-	$loadClass(SynthGraphicsUtils$SynthIconWrapper, name, initialize, &_SynthGraphicsUtils$SynthIconWrapper_ClassInfo_, clinit$SynthGraphicsUtils$SynthIconWrapper, allocate$SynthGraphicsUtils$SynthIconWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"CACHE", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/plaf/synth/SynthGraphicsUtils$SynthIconWrapper;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SynthGraphicsUtils$SynthIconWrapper, CACHE)},
+		{"synthIcon", "Ljavax/swing/plaf/synth/SynthIcon;", nullptr, $PRIVATE, $field(SynthGraphicsUtils$SynthIconWrapper, synthIcon)},
+		{"context", "Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $field(SynthGraphicsUtils$SynthIconWrapper, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthIcon;Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, 0, $method(SynthGraphicsUtils$SynthIconWrapper, init$, void, $SynthIcon*, $SynthContext*)},
+		{"get", "(Ljavax/swing/plaf/synth/SynthIcon;Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthGraphicsUtils$SynthIconWrapper;", nullptr, $STATIC, $staticMethod(SynthGraphicsUtils$SynthIconWrapper, get, SynthGraphicsUtils$SynthIconWrapper*, $SynthIcon*, $SynthContext*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"release", "(Ljavax/swing/plaf/synth/SynthGraphicsUtils$SynthIconWrapper;)V", nullptr, $STATIC, $staticMethod(SynthGraphicsUtils$SynthIconWrapper, release, void, SynthGraphicsUtils$SynthIconWrapper*)},
+		{"reset", "(Ljavax/swing/plaf/synth/SynthIcon;Ljavax/swing/plaf/synth/SynthContext;)V", nullptr, 0, $virtualMethod(SynthGraphicsUtils$SynthIconWrapper, reset, void, $SynthIcon*, $SynthContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthGraphicsUtils$SynthIconWrapper", "javax.swing.plaf.synth.SynthGraphicsUtils", "SynthIconWrapper", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthGraphicsUtils$SynthIconWrapper",
+		"java.lang.Object",
+		"javax.swing.Icon",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthGraphicsUtils"
+	};
+	$loadClass(SynthGraphicsUtils$SynthIconWrapper, name, initialize, &classInfo$$, SynthGraphicsUtils$SynthIconWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthGraphicsUtils$SynthIconWrapper);
+	});
 	return class$;
 }
 

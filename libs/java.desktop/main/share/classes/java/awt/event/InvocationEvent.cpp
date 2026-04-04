@@ -1,9 +1,7 @@
 #include <java/awt/event/InvocationEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/event/InvocationEvent$1.h>
 #include <java/lang/Runnable.h>
-#include <sun/awt/AWTAccessor$InvocationEventAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <jcpp.h>
 
@@ -20,72 +18,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$InvocationEventAccessor = ::sun::awt::AWTAccessor$InvocationEventAccessor;
 
 namespace java {
 	namespace awt {
 		namespace event {
-
-$FieldInfo _InvocationEvent_FieldInfo_[] = {
-	{"INVOCATION_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InvocationEvent, INVOCATION_FIRST)},
-	{"INVOCATION_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InvocationEvent, INVOCATION_DEFAULT)},
-	{"INVOCATION_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InvocationEvent, INVOCATION_LAST)},
-	{"runnable", "Ljava/lang/Runnable;", nullptr, $PROTECTED, $field(InvocationEvent, runnable)},
-	{"notifier", "Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE, $field(InvocationEvent, notifier)},
-	{"listener", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(InvocationEvent, listener)},
-	{"dispatched", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InvocationEvent, dispatched$)},
-	{"catchExceptions", "Z", nullptr, $PROTECTED, $field(InvocationEvent, catchExceptions)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(InvocationEvent, exception)},
-	{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(InvocationEvent, throwable)},
-	{"when", "J", nullptr, $PRIVATE, $field(InvocationEvent, when)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvocationEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvocationEvent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(InvocationEvent, init$, void, Object$*, $Runnable*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(InvocationEvent, init$, void, Object$*, $Runnable*, Object$*, bool)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;Ljava/lang/Runnable;Z)V", nullptr, $PUBLIC, $method(InvocationEvent, init$, void, Object$*, $Runnable*, $Runnable*, bool)},
-	{"<init>", "(Ljava/lang/Object;ILjava/lang/Runnable;Ljava/lang/Object;Z)V", nullptr, $PROTECTED, $method(InvocationEvent, init$, void, Object$*, int32_t, $Runnable*, Object$*, bool)},
-	{"<init>", "(Ljava/lang/Object;ILjava/lang/Runnable;Ljava/lang/Object;Ljava/lang/Runnable;Z)V", nullptr, $PRIVATE, $method(InvocationEvent, init$, void, Object$*, int32_t, $Runnable*, Object$*, $Runnable*, bool)},
-	{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, dispatch, void)},
-	{"finishedDispatching", "(Z)V", nullptr, $PRIVATE, $method(InvocationEvent, finishedDispatching, void, bool)},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, getException, $Exception*)},
-	{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, getThrowable, $Throwable*)},
-	{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, getWhen, int64_t)},
-	{"isDispatched", "()Z", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, isDispatched, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, paramString, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _InvocationEvent_InnerClassesInfo_[] = {
-	{"java.awt.event.InvocationEvent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InvocationEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.InvocationEvent",
-	"java.awt.AWTEvent",
-	"java.awt.ActiveEvent",
-	_InvocationEvent_FieldInfo_,
-	_InvocationEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InvocationEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.event.InvocationEvent$1"
-};
-
-$Object* allocate$InvocationEvent($Class* clazz) {
-	return $of($alloc(InvocationEvent));
-}
 
 $String* InvocationEvent::toString() {
 	 return this->$AWTEvent::toString();
@@ -136,29 +72,27 @@ void InvocationEvent::init$(Object$* source, int32_t id, $Runnable* runnable, Ob
 }
 
 void InvocationEvent::dispatch() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->catchExceptions) {
-				try {
-					$nc(this->runnable)->run();
-				} catch ($Throwable& t) {
-					if ($instanceOf($Exception, t)) {
-						$set(this, exception, $cast($Exception, t));
-					}
-					$set(this, throwable, t);
-				}
-			} else {
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->catchExceptions) {
+			try {
 				$nc(this->runnable)->run();
+			} catch ($Throwable& t) {
+				if ($instanceOf($Exception, t)) {
+					$set(this, exception, $cast($Exception, t));
+				}
+				$set(this, throwable, t);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			finishedDispatching(true);
+		} else {
+			$nc(this->runnable)->run();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		finishedDispatching(true);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -182,32 +116,28 @@ void InvocationEvent::finishedDispatching(bool dispatched) {
 	this->dispatched$ = dispatched;
 	if (this->notifier != nullptr) {
 		$synchronized(this->notifier) {
-			$nc($of(this->notifier))->notifyAll();
+			$nc(this->notifier)->notifyAll();
 		}
 	}
 	if (this->listener != nullptr) {
-		$nc(this->listener)->run();
+		this->listener->run();
 	}
 }
 
 $String* InvocationEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, typeStr, nullptr);
 	switch (this->id) {
 	case InvocationEvent::INVOCATION_DEFAULT:
-		{
-			$assign(typeStr, "INVOCATION_DEFAULT"_s);
-			break;
-		}
+		$assign(typeStr, "INVOCATION_DEFAULT"_s);
+		break;
 	default:
-		{
-			$assign(typeStr, "unknown type"_s);
-		}
+		$assign(typeStr, "unknown type"_s);
 	}
 	return $str({typeStr, ",runnable="_s, this->runnable, ",notifier="_s, this->notifier, ",catchExceptions="_s, $$str(this->catchExceptions), ",when="_s, $$str(this->when)});
 }
 
-void clinit$InvocationEvent($Class* class$) {
+void InvocationEvent::clinit$($Class* clazz) {
 	{
 		$AWTAccessor::setInvocationEventAccessor($$new($InvocationEvent$1));
 	}
@@ -217,7 +147,62 @@ InvocationEvent::InvocationEvent() {
 }
 
 $Class* InvocationEvent::load$($String* name, bool initialize) {
-	$loadClass(InvocationEvent, name, initialize, &_InvocationEvent_ClassInfo_, clinit$InvocationEvent, allocate$InvocationEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVOCATION_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InvocationEvent, INVOCATION_FIRST)},
+		{"INVOCATION_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InvocationEvent, INVOCATION_DEFAULT)},
+		{"INVOCATION_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InvocationEvent, INVOCATION_LAST)},
+		{"runnable", "Ljava/lang/Runnable;", nullptr, $PROTECTED, $field(InvocationEvent, runnable)},
+		{"notifier", "Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE, $field(InvocationEvent, notifier)},
+		{"listener", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(InvocationEvent, listener)},
+		{"dispatched", "Z", nullptr, $PRIVATE | $VOLATILE, $field(InvocationEvent, dispatched$)},
+		{"catchExceptions", "Z", nullptr, $PROTECTED, $field(InvocationEvent, catchExceptions)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(InvocationEvent, exception)},
+		{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(InvocationEvent, throwable)},
+		{"when", "J", nullptr, $PRIVATE, $field(InvocationEvent, when)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvocationEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(InvocationEvent, init$, void, Object$*, $Runnable*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(InvocationEvent, init$, void, Object$*, $Runnable*, Object$*, bool)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Runnable;Ljava/lang/Runnable;Z)V", nullptr, $PUBLIC, $method(InvocationEvent, init$, void, Object$*, $Runnable*, $Runnable*, bool)},
+		{"<init>", "(Ljava/lang/Object;ILjava/lang/Runnable;Ljava/lang/Object;Z)V", nullptr, $PROTECTED, $method(InvocationEvent, init$, void, Object$*, int32_t, $Runnable*, Object$*, bool)},
+		{"<init>", "(Ljava/lang/Object;ILjava/lang/Runnable;Ljava/lang/Object;Ljava/lang/Runnable;Z)V", nullptr, $PRIVATE, $method(InvocationEvent, init$, void, Object$*, int32_t, $Runnable*, Object$*, $Runnable*, bool)},
+		{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, dispatch, void)},
+		{"finishedDispatching", "(Z)V", nullptr, $PRIVATE, $method(InvocationEvent, finishedDispatching, void, bool)},
+		{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, getException, $Exception*)},
+		{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, getThrowable, $Throwable*)},
+		{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, getWhen, int64_t)},
+		{"isDispatched", "()Z", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, isDispatched, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvocationEvent, paramString, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.event.InvocationEvent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.InvocationEvent",
+		"java.awt.AWTEvent",
+		"java.awt.ActiveEvent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.event.InvocationEvent$1"
+	};
+	$loadClass(InvocationEvent, name, initialize, &classInfo$$, InvocationEvent::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InvocationEvent));
+	});
 	return class$;
 }
 

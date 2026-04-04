@@ -1,5 +1,4 @@
 #include <javax/swing/JList$ListSelectionHandler.h>
-
 #include <javax/swing/JList.h>
 #include <javax/swing/event/ListSelectionEvent.h>
 #include <javax/swing/event/ListSelectionListener.h>
@@ -15,47 +14,6 @@ using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JList$ListSelectionHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JList;", nullptr, $FINAL | $SYNTHETIC, $field(JList$ListSelectionHandler, this$0)},
-	{}
-};
-
-$MethodInfo _JList$ListSelectionHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JList;)V", nullptr, $PRIVATE, $method(JList$ListSelectionHandler, init$, void, $JList*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$ListSelectionHandler, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _JList$ListSelectionHandler_InnerClassesInfo_[] = {
-	{"javax.swing.JList$ListSelectionHandler", "javax.swing.JList", "ListSelectionHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JList$ListSelectionHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JList$ListSelectionHandler",
-	"java.lang.Object",
-	"javax.swing.event.ListSelectionListener,java.io.Serializable",
-	_JList$ListSelectionHandler_FieldInfo_,
-	_JList$ListSelectionHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JList$ListSelectionHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JList"
-};
-
-$Object* allocate$JList$ListSelectionHandler($Class* clazz) {
-	return $of($alloc(JList$ListSelectionHandler));
-}
 
 int32_t JList$ListSelectionHandler::hashCode() {
 	 return this->$ListSelectionListener::hashCode();
@@ -91,7 +49,42 @@ JList$ListSelectionHandler::JList$ListSelectionHandler() {
 }
 
 $Class* JList$ListSelectionHandler::load$($String* name, bool initialize) {
-	$loadClass(JList$ListSelectionHandler, name, initialize, &_JList$ListSelectionHandler_ClassInfo_, allocate$JList$ListSelectionHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JList;", nullptr, $FINAL | $SYNTHETIC, $field(JList$ListSelectionHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JList;)V", nullptr, $PRIVATE, $method(JList$ListSelectionHandler, init$, void, $JList*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JList$ListSelectionHandler, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JList$ListSelectionHandler", "javax.swing.JList", "ListSelectionHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JList$ListSelectionHandler",
+		"java.lang.Object",
+		"javax.swing.event.ListSelectionListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JList"
+	};
+	$loadClass(JList$ListSelectionHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JList$ListSelectionHandler));
+	});
 	return class$;
 }
 

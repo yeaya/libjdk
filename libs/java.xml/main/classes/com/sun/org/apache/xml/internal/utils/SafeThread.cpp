@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/SafeThread.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
@@ -22,39 +21,11 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _SafeThread_FieldInfo_[] = {
-	{"ran", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SafeThread, ran)},
-	{"threadNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SafeThread, threadNumber)},
-	{}
-};
-
-$MethodInfo _SafeThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SafeThread, init$, void, $Runnable*)},
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SafeThread, init$, void, $Runnable*, $String*)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SafeThread, init$, void, $ThreadGroup*, $Runnable*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SafeThread, run, void)},
-	{"threadName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SafeThread, threadName, $String*)},
-	{}
-};
-
-$ClassInfo _SafeThread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.SafeThread",
-	"java.lang.Thread",
-	nullptr,
-	_SafeThread_FieldInfo_,
-	_SafeThread_MethodInfo_
-};
-
-$Object* allocate$SafeThread($Class* clazz) {
-	return $of($alloc(SafeThread));
-}
-
 $AtomicInteger* SafeThread::threadNumber = nullptr;
 
 $String* SafeThread::threadName() {
 	$init(SafeThread);
-	return $str({"SafeThread-"_s, $$str($nc(SafeThread::threadNumber)->getAndIncrement())});
+	return $str({"SafeThread-"_s, $$str(SafeThread::threadNumber->getAndIncrement())});
 }
 
 void SafeThread::init$($Runnable* target) {
@@ -84,7 +55,7 @@ void SafeThread::run() {
 	$Thread::run();
 }
 
-void clinit$SafeThread($Class* class$) {
+void SafeThread::clinit$($Class* clazz) {
 	$assignStatic(SafeThread::threadNumber, $new($AtomicInteger, 1));
 }
 
@@ -92,7 +63,30 @@ SafeThread::SafeThread() {
 }
 
 $Class* SafeThread::load$($String* name, bool initialize) {
-	$loadClass(SafeThread, name, initialize, &_SafeThread_ClassInfo_, clinit$SafeThread, allocate$SafeThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"ran", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SafeThread, ran)},
+		{"threadNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SafeThread, threadNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SafeThread, init$, void, $Runnable*)},
+		{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SafeThread, init$, void, $Runnable*, $String*)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SafeThread, init$, void, $ThreadGroup*, $Runnable*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SafeThread, run, void)},
+		{"threadName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SafeThread, threadName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.SafeThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SafeThread, name, initialize, &classInfo$$, SafeThread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SafeThread);
+	});
 	return class$;
 }
 

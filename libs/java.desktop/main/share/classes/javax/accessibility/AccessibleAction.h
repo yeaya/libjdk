@@ -22,6 +22,7 @@ namespace javax {
 class $export AccessibleAction : public ::java::lang::Object {
 	$interface(AccessibleAction, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool doAccessibleAction(int32_t i) {return false;}
 	virtual int32_t getAccessibleActionCount() {return 0;}
 	virtual $String* getAccessibleActionDescription(int32_t i) {return nullptr;}

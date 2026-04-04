@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLSurfaceData.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Composite.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -12,7 +11,6 @@
 #include <java/awt/image/Raster.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/CGraphicsDevice.h>
 #include <sun/awt/SunHints.h>
 #include <sun/awt/image/PixelConverter$ArgbPre.h>
@@ -46,7 +44,6 @@
 #include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
-#include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/TextPipe.h>
 #include <sun/java2d/pipe/hw/AccelSurface.h>
@@ -98,7 +95,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $Runnable = ::java::lang::Runnable;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
 using $SunHints = ::sun::awt::SunHints;
 using $PixelConverter$ArgbPre = ::sun::awt::image::PixelConverter$ArgbPre;
@@ -125,131 +121,15 @@ using $MTLSurfaceData$MTLOffScreenSurfaceData = ::sun::java2d::metal::MTLSurface
 using $MTLSurfaceDataProxy = ::sun::java2d::metal::MTLSurfaceDataProxy;
 using $MTLTextRenderer = ::sun::java2d::metal::MTLTextRenderer;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
 using $ParallelogramPipe = ::sun::java2d::pipe::ParallelogramPipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToParallelogramConverter = ::sun::java2d::pipe::PixelToParallelogramConverter;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $TextPipe = ::sun::java2d::pipe::TextPipe;
 using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace metal {
-
-$FieldInfo _MTLSurfaceData_FieldInfo_[] = {
-	{"PF_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_ARGB)},
-	{"PF_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_ARGB_PRE)},
-	{"PF_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_RGB)},
-	{"PF_INT_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_RGBX)},
-	{"PF_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_BGR)},
-	{"PF_INT_BGRX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_BGRX)},
-	{"PF_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_565_RGB)},
-	{"PF_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_555_RGB)},
-	{"PF_USHORT_555_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_555_RGBX)},
-	{"PF_BYTE_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_BYTE_GRAY)},
-	{"PF_USHORT_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_GRAY)},
-	{"PF_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_3BYTE_BGR)},
-	{"DESC_MTL_SURFACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLSurfaceData, DESC_MTL_SURFACE)},
-	{"DESC_MTL_SURFACE_RTT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLSurfaceData, DESC_MTL_SURFACE_RTT)},
-	{"DESC_MTL_TEXTURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLSurfaceData, DESC_MTL_TEXTURE)},
-	{"MTLSurface", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(MTLSurfaceData, MTLSurface)},
-	{"MTLSurfaceRTT", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(MTLSurfaceData, MTLSurfaceRTT)},
-	{"MTLTexture", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(MTLSurfaceData, MTLTexture)},
-	{"mtlRenderPipe", "Lsun/java2d/metal/MTLRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlRenderPipe)},
-	{"mtlTxRenderPipe", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlTxRenderPipe)},
-	{"mtlAAPgramPipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlAAPgramPipe)},
-	{"mtlTextPipe", "Lsun/java2d/metal/MTLTextRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlTextPipe)},
-	{"mtlImagePipe", "Lsun/java2d/metal/MTLDrawImage;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlImagePipe)},
-	{"scale", "I", nullptr, $PROTECTED | $FINAL, $field(MTLSurfaceData, scale)},
-	{"width", "I", nullptr, $PROTECTED | $FINAL, $field(MTLSurfaceData, width)},
-	{"height", "I", nullptr, $PROTECTED | $FINAL, $field(MTLSurfaceData, height)},
-	{"type", "I", nullptr, $PROTECTED, $field(MTLSurfaceData, type)},
-	{"graphicsConfig", "Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, $PRIVATE, $field(MTLSurfaceData, graphicsConfig)},
-	{"nativeWidth", "I", nullptr, $PRIVATE, $field(MTLSurfaceData, nativeWidth)},
-	{"nativeHeight", "I", nullptr, $PRIVATE, $field(MTLSurfaceData, nativeHeight)},
-	{}
-};
-
-$MethodInfo _MTLSurfaceData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getNativeOps", "()J", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/metal/MTLLayer;Lsun/java2d/metal/MTLGraphicsConfig;Ljava/awt/image/ColorModel;III)V", nullptr, $PRIVATE, $method(MTLSurfaceData, init$, void, $MTLLayer*, $MTLGraphicsConfig*, $ColorModel*, int32_t, int32_t, int32_t)},
-	{"canHandleComposite", "(Ljava/awt/Composite;)Z", nullptr, $PRIVATE, $method(MTLSurfaceData, canHandleComposite, bool, $Composite*)},
-	{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
-	{"clearWindow", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, clearWindow, void)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createData", "(Lsun/java2d/metal/MTLLayer;)Lsun/java2d/metal/MTLSurfaceData$MTLLayerSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceData, createData, $MTLSurfaceData$MTLLayerSurfaceData*, $MTLLayer*)},
-	{"createData", "(Lsun/java2d/metal/MTLGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/metal/MTLSurfaceData$MTLOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceData, createData, $MTLSurfaceData$MTLOffScreenSurfaceData*, $MTLGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
-	{"dispose", "(JLsun/java2d/metal/MTLGraphicsConfig;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceData, dispose, void, int64_t, $MTLGraphicsConfig*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, flush, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getBounds, $Rectangle*)},
-	{"getContext", "()Lsun/java2d/metal/MTLContext;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MTLSurfaceData, getContext, $BufferedContext*)},
-	{"getCustomSurfaceType", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MTLSurfaceData, getCustomSurfaceType, $SurfaceType*, int32_t)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getDefaultScaleY, double)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getMTLGraphicsConfig", "()Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, $FINAL, $method(MTLSurfaceData, getMTLGraphicsConfig, $MTLGraphicsConfig*)},
-	{"getMTLTexturePointer", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(MTLSurfaceData, getMTLTexturePointer, int64_t, int64_t)},
-	{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(MTLSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
-	{"getNativeBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getNativeBounds, $Rectangle*)},
-	{"getNativeResource", "(I)J", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getNativeResource, int64_t, int32_t)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(MTLSurfaceData, getType, int32_t)},
-	{"initFlipBackbuffer", "(J)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, initFlipBackbuffer, bool, int64_t)},
-	{"initOps", "(Lsun/java2d/metal/MTLGraphicsConfig;JJJIIZ)V", nullptr, $PRIVATE | $NATIVE, $method(MTLSurfaceData, initOps, void, $MTLGraphicsConfig*, int64_t, int64_t, int64_t, int32_t, int32_t, bool)},
-	{"initRTexture", "(JZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, initRTexture, bool, int64_t, bool, int32_t, int32_t)},
-	{"initSurface", "(II)V", nullptr, $PROTECTED, $virtualMethod(MTLSurfaceData, initSurface, void, int32_t, int32_t)},
-	{"initSurfaceNow", "(II)V", nullptr, $PRIVATE, $method(MTLSurfaceData, initSurfaceNow, void, int32_t, int32_t)},
-	{"initTexture", "(JZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, initTexture, bool, int64_t, bool, int32_t, int32_t)},
-	{"isOnScreen", "()Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, isOnScreen, bool)},
-	{"*isSurfaceLost", "()Z", nullptr, $PUBLIC},
-	{"*isValid", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
-	{"*markDirty", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{}
-};
-
-#define _METHOD_INDEX_clearWindow 8
-#define _METHOD_INDEX_getMTLTexturePointer 21
-#define _METHOD_INDEX_initFlipBackbuffer 27
-#define _METHOD_INDEX_initOps 28
-#define _METHOD_INDEX_initRTexture 29
-#define _METHOD_INDEX_initTexture 32
-
-$InnerClassInfo _MTLSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLSurfaceData$MTLOffScreenSurfaceData", "sun.java2d.metal.MTLSurfaceData", "MTLOffScreenSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.metal.MTLSurfaceData$MTLLayerSurfaceData", "sun.java2d.metal.MTLSurfaceData", "MTLLayerSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.metal.MTLSurfaceData$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MTLSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.metal.MTLSurfaceData",
-	"sun.java2d.SurfaceData",
-	"sun.java2d.pipe.hw.AccelSurface",
-	_MTLSurfaceData_FieldInfo_,
-	_MTLSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLSurfaceData$MTLOffScreenSurfaceData,sun.java2d.metal.MTLSurfaceData$MTLLayerSurfaceData,sun.java2d.metal.MTLSurfaceData$1"
-};
-
-$Object* allocate$MTLSurfaceData($Class* clazz) {
-	return $of($alloc(MTLSurfaceData));
-}
 
 void MTLSurfaceData::markDirty() {
 	this->$SurfaceData::markDirty();
@@ -303,33 +183,27 @@ $SurfaceType* MTLSurfaceData::getCustomSurfaceType(int32_t mtlType) {
 	$init(MTLSurfaceData);
 	switch (mtlType) {
 	case $AccelSurface::TEXTURE:
-		{
-			return MTLSurfaceData::MTLTexture;
-		}
+		return MTLSurfaceData::MTLTexture;
 	case $AccelSurface::RT_TEXTURE:
-		{
-			return MTLSurfaceData::MTLSurfaceRTT;
-		}
+		return MTLSurfaceData::MTLSurfaceRTT;
 	default:
-		{
-			return MTLSurfaceData::MTLSurface;
-		}
+		return MTLSurfaceData::MTLSurface;
 	}
 }
 
 void MTLSurfaceData::initOps($MTLGraphicsConfig* gc, int64_t pConfigInfo, int64_t pPeerData, int64_t layerPtr, int32_t xoff, int32_t yoff, bool isOpaque) {
-	$prepareNative(MTLSurfaceData, initOps, void, $MTLGraphicsConfig* gc, int64_t pConfigInfo, int64_t pPeerData, int64_t layerPtr, int32_t xoff, int32_t yoff, bool isOpaque);
+	$prepareNative(initOps, void, $MTLGraphicsConfig* gc, int64_t pConfigInfo, int64_t pPeerData, int64_t layerPtr, int32_t xoff, int32_t yoff, bool isOpaque);
 	$invokeNative(gc, pConfigInfo, pPeerData, layerPtr, xoff, yoff, isOpaque);
 	$finishNative();
 }
 
 void MTLSurfaceData::init$($MTLLayer* layer, $MTLGraphicsConfig* gc, $ColorModel* cm, int32_t type, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SurfaceData::init$($(getCustomSurfaceType(type)), cm);
 	$set(this, graphicsConfig, gc);
 	this->type = type;
 	setBlitProxyKey($($nc(gc)->getProxyKey()));
-	this->scale = type == $AccelSurface::TEXTURE ? 1 : $nc($($cast($CGraphicsDevice, $nc(gc)->getDevice())))->getScaleFactor();
+	this->scale = type == $AccelSurface::TEXTURE ? 1 : $$sure($CGraphicsDevice, gc->getDevice())->getScaleFactor();
 	this->width = width * this->scale;
 	this->height = height * this->scale;
 	int64_t pConfigInfo = gc->getNativeConfigInfo();
@@ -348,10 +222,10 @@ $GraphicsConfiguration* MTLSurfaceData::getDeviceConfiguration() {
 
 $MTLSurfaceData$MTLLayerSurfaceData* MTLSurfaceData::createData($MTLLayer* layer) {
 	$init(MTLSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MTLGraphicsConfig, gc, $cast($MTLGraphicsConfig, $nc(layer)->getGraphicsConfiguration()));
 	$var($Rectangle, r, layer->getBounds());
-	return $new($MTLSurfaceData$MTLLayerSurfaceData, layer, gc, $nc(r)->width, r->height);
+	return $new($MTLSurfaceData$MTLLayerSurfaceData, layer, gc, $nc(r)->width, $nc(r)->height);
 }
 
 $MTLSurfaceData$MTLOffScreenSurfaceData* MTLSurfaceData::createData($MTLGraphicsConfig* gc, int32_t width, int32_t height, $ColorModel* cm, $Image* image, int32_t type) {
@@ -372,31 +246,28 @@ $Rectangle* MTLSurfaceData::getBounds() {
 }
 
 void MTLSurfaceData::clearWindow() {
-	$prepareNative(MTLSurfaceData, clearWindow, void);
+	$prepareNative(clearWindow, void);
 	$invokeNative();
 	$finishNative();
 }
 
 bool MTLSurfaceData::initTexture(int64_t pData, bool isOpaque, int32_t width, int32_t height) {
-	bool $ret = false;
-	$prepareNative(MTLSurfaceData, initTexture, bool, int64_t pData, bool isOpaque, int32_t width, int32_t height);
-	$ret = $invokeNative(pData, isOpaque, width, height);
+	$prepareNative(initTexture, bool, int64_t pData, bool isOpaque, int32_t width, int32_t height);
+	bool $ret = $invokeNative(pData, isOpaque, width, height);
 	$finishNative();
 	return $ret;
 }
 
 bool MTLSurfaceData::initRTexture(int64_t pData, bool isOpaque, int32_t width, int32_t height) {
-	bool $ret = false;
-	$prepareNative(MTLSurfaceData, initRTexture, bool, int64_t pData, bool isOpaque, int32_t width, int32_t height);
-	$ret = $invokeNative(pData, isOpaque, width, height);
+	$prepareNative(initRTexture, bool, int64_t pData, bool isOpaque, int32_t width, int32_t height);
+	bool $ret = $invokeNative(pData, isOpaque, width, height);
 	$finishNative();
 	return $ret;
 }
 
 bool MTLSurfaceData::initFlipBackbuffer(int64_t pData) {
-	bool $ret = false;
-	$prepareNative(MTLSurfaceData, initFlipBackbuffer, bool, int64_t pData);
-	$ret = $invokeNative(pData);
+	$prepareNative(initFlipBackbuffer, bool, int64_t pData);
+	bool $ret = $invokeNative(pData);
 	$finishNative();
 	return $ret;
 }
@@ -410,24 +281,16 @@ void MTLSurfaceData::initSurfaceNow(int32_t width, int32_t height) {
 	bool success = false;
 	switch (this->type) {
 	case $AccelSurface::TEXTURE:
-		{
-			success = initTexture(getNativeOps(), isOpaque, width, height);
-			break;
-		}
+		success = initTexture(getNativeOps(), isOpaque, width, height);
+		break;
 	case $AccelSurface::RT_TEXTURE:
-		{
-			success = initRTexture(getNativeOps(), isOpaque, width, height);
-			break;
-		}
+		success = initRTexture(getNativeOps(), isOpaque, width, height);
+		break;
 	case $AccelSurface::FLIP_BACKBUFFER:
-		{
-			success = initFlipBackbuffer(getNativeOps());
-			break;
-		}
+		success = initFlipBackbuffer(getNativeOps());
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	if (!success) {
 		$throwNew($OutOfMemoryError, "can\'t create offscreen surface"_s);
@@ -435,34 +298,27 @@ void MTLSurfaceData::initSurfaceNow(int32_t width, int32_t height) {
 }
 
 void MTLSurfaceData::initSurface(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			switch (this->type) {
-			case $AccelSurface::TEXTURE:
-				{}
-			case $AccelSurface::RT_TEXTURE:
-				{
-					$MTLContext::setScratchSurface(this->graphicsConfig);
-					break;
-				}
-			default:
-				{
-					break;
-				}
-			}
-			rq->flushAndInvokeNow($$new($MTLSurfaceData$1, this, width, height));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		switch (this->type) {
+		case $AccelSurface::TEXTURE:
+		case $AccelSurface::RT_TEXTURE:
+			$MTLContext::setScratchSurface(this->graphicsConfig);
+			break;
+		default:
+			break;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		rq->flushAndInvokeNow($$new($MTLSurfaceData$1, this, width, height));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -480,23 +336,23 @@ int32_t MTLSurfaceData::getType() {
 
 bool MTLSurfaceData::canRenderLCDText($SunGraphics2D* sg2d) {
 	bool var$0 = $nc($nc(sg2d)->surfaceData)->getTransparency() == $Transparency::OPAQUE && sg2d->paintState <= $SunGraphics2D::PAINT_OPAQUECOLOR;
-	return var$0 && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || ($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ALPHA && canHandleComposite(sg2d->composite)));
+	return var$0 && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || (sg2d->compositeState <= $SunGraphics2D::COMP_ALPHA && canHandleComposite(sg2d->composite)));
 }
 
 bool MTLSurfaceData::canHandleComposite($Composite* c) {
 	if ($instanceOf($AlphaComposite, c)) {
 		$var($AlphaComposite, ac, $cast($AlphaComposite, c));
-		bool var$0 = $nc(ac)->getRule() == $AlphaComposite::SRC_OVER;
+		bool var$0 = ac->getRule() == $AlphaComposite::SRC_OVER;
 		return var$0 && ac->getAlpha() >= 1.0f;
 	}
 	return false;
 }
 
 void MTLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextPipe, textpipe, nullptr);
 	bool validated = false;
-	if (($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ISCOPY && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) || ($nc(sg2d)->compositeState == $SunGraphics2D::COMP_ALPHA && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && ($nc(($cast($AlphaComposite, sg2d->composite)))->getRule() == $AlphaComposite::SRC_OVER)) || ($nc(sg2d)->compositeState == $SunGraphics2D::COMP_XOR && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR)) {
+	if (($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ISCOPY && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) || (sg2d->compositeState == $SunGraphics2D::COMP_ALPHA && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && ($nc($cast($AlphaComposite, sg2d->composite))->getRule() == $AlphaComposite::SRC_OVER)) || (sg2d->compositeState == $SunGraphics2D::COMP_XOR && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR)) {
 		$assign(textpipe, MTLSurfaceData::mtlTextPipe);
 	} else {
 		$SurfaceData::validatePipe(sg2d);
@@ -505,7 +361,7 @@ void MTLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 	}
 	$var($PixelToParallelogramConverter, txPipe, nullptr);
 	$var($MTLRenderer, nonTxPipe, nullptr);
-	if ($nc(sg2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON) {
+	if (sg2d->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON) {
 		if (sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) {
 			if (sg2d->compositeState <= $SunGraphics2D::COMP_XOR) {
 				$assign(txPipe, MTLSurfaceData::mtlTxRenderPipe);
@@ -534,7 +390,7 @@ void MTLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 		}
 	}
 	if (txPipe != nullptr) {
-		if ($nc(sg2d)->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
+		if (sg2d->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
 			$set(sg2d, drawpipe, txPipe);
 			$set(sg2d, fillpipe, txPipe);
 		} else if (sg2d->strokeState != $SunGraphics2D::STROKE_THIN) {
@@ -544,11 +400,11 @@ void MTLSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 			$set(sg2d, drawpipe, nonTxPipe);
 			$set(sg2d, fillpipe, nonTxPipe);
 		}
-		$set($nc(sg2d), shapepipe, txPipe);
+		$set(sg2d, shapepipe, txPipe);
 	} else if (!validated) {
 		$SurfaceData::validatePipe(sg2d);
 	}
-	$set($nc(sg2d), textpipe, textpipe);
+	$set(sg2d, textpipe, textpipe);
 	$set(sg2d, imagepipe, MTLSurfaceData::mtlImagePipe);
 }
 
@@ -563,27 +419,25 @@ $MaskFill* MTLSurfaceData::getMaskFill($SunGraphics2D* sg2d) {
 }
 
 void MTLSurfaceData::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	invalidate();
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$MTLContext::setScratchSurface(this->graphicsConfig);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(72);
-			buf->putLong(getNativeOps());
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$MTLContext::setScratchSurface(this->graphicsConfig);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(72);
+		buf->putLong(getNativeOps());
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -592,9 +446,8 @@ bool MTLSurfaceData::isOnScreen() {
 }
 
 int64_t MTLSurfaceData::getMTLTexturePointer(int64_t pData) {
-	int64_t $ret = 0;
-	$prepareNative(MTLSurfaceData, getMTLTexturePointer, int64_t, int64_t pData);
-	$ret = $invokeNative(pData);
+	$prepareNative(getMTLTexturePointer, int64_t, int64_t pData);
+	int64_t $ret = $invokeNative(pData);
 	$finishNative();
 	return $ret;
 }
@@ -620,58 +473,54 @@ bool MTLSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_
 }
 
 $Rectangle* MTLSurfaceData::getNativeBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($Rectangle, this->nativeWidth, this->nativeHeight));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($Rectangle, this->nativeWidth, this->nativeHeight));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void MTLSurfaceData::dispose(int64_t pData, $MTLGraphicsConfig* gc) {
 	$init(MTLSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$MTLContext::setScratchSurface(gc);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(73);
-			buf->putLong(pData);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$MTLContext::setScratchSurface(gc);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(73);
+		buf->putLong(pData);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$MTLSurfaceData($Class* class$) {
+void MTLSurfaceData::clinit$($Class* clazz) {
 	$assignStatic(MTLSurfaceData::DESC_MTL_SURFACE, "MTL Surface"_s);
 	$assignStatic(MTLSurfaceData::DESC_MTL_SURFACE_RTT, "MTL Surface (render-to-texture)"_s);
 	$assignStatic(MTLSurfaceData::DESC_MTL_TEXTURE, "MTL Texture"_s);
@@ -679,7 +528,7 @@ void clinit$MTLSurfaceData($Class* class$) {
 	$init($PixelConverter$ArgbPre);
 	$assignStatic(MTLSurfaceData::MTLSurface, $nc($SurfaceType::Any)->deriveSubType(MTLSurfaceData::DESC_MTL_SURFACE, $PixelConverter$ArgbPre::instance));
 	$assignStatic(MTLSurfaceData::MTLSurfaceRTT, $nc(MTLSurfaceData::MTLSurface)->deriveSubType(MTLSurfaceData::DESC_MTL_SURFACE_RTT));
-	$assignStatic(MTLSurfaceData::MTLTexture, $nc($SurfaceType::Any)->deriveSubType(MTLSurfaceData::DESC_MTL_TEXTURE));
+	$assignStatic(MTLSurfaceData::MTLTexture, $SurfaceType::Any->deriveSubType(MTLSurfaceData::DESC_MTL_TEXTURE));
 	{
 		if (!$GraphicsEnvironment::isHeadless()) {
 			$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
@@ -702,7 +551,105 @@ MTLSurfaceData::MTLSurfaceData() {
 }
 
 $Class* MTLSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(MTLSurfaceData, name, initialize, &_MTLSurfaceData_ClassInfo_, clinit$MTLSurfaceData, allocate$MTLSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"PF_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_ARGB)},
+		{"PF_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_ARGB_PRE)},
+		{"PF_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_RGB)},
+		{"PF_INT_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_RGBX)},
+		{"PF_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_BGR)},
+		{"PF_INT_BGRX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_INT_BGRX)},
+		{"PF_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_565_RGB)},
+		{"PF_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_555_RGB)},
+		{"PF_USHORT_555_RGBX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_555_RGBX)},
+		{"PF_BYTE_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_BYTE_GRAY)},
+		{"PF_USHORT_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_USHORT_GRAY)},
+		{"PF_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLSurfaceData, PF_3BYTE_BGR)},
+		{"DESC_MTL_SURFACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLSurfaceData, DESC_MTL_SURFACE)},
+		{"DESC_MTL_SURFACE_RTT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLSurfaceData, DESC_MTL_SURFACE_RTT)},
+		{"DESC_MTL_TEXTURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MTLSurfaceData, DESC_MTL_TEXTURE)},
+		{"MTLSurface", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(MTLSurfaceData, MTLSurface)},
+		{"MTLSurfaceRTT", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(MTLSurfaceData, MTLSurfaceRTT)},
+		{"MTLTexture", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(MTLSurfaceData, MTLTexture)},
+		{"mtlRenderPipe", "Lsun/java2d/metal/MTLRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlRenderPipe)},
+		{"mtlTxRenderPipe", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlTxRenderPipe)},
+		{"mtlAAPgramPipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlAAPgramPipe)},
+		{"mtlTextPipe", "Lsun/java2d/metal/MTLTextRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlTextPipe)},
+		{"mtlImagePipe", "Lsun/java2d/metal/MTLDrawImage;", nullptr, $PROTECTED | $STATIC, $staticField(MTLSurfaceData, mtlImagePipe)},
+		{"scale", "I", nullptr, $PROTECTED | $FINAL, $field(MTLSurfaceData, scale)},
+		{"width", "I", nullptr, $PROTECTED | $FINAL, $field(MTLSurfaceData, width)},
+		{"height", "I", nullptr, $PROTECTED | $FINAL, $field(MTLSurfaceData, height)},
+		{"type", "I", nullptr, $PROTECTED, $field(MTLSurfaceData, type)},
+		{"graphicsConfig", "Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, $PRIVATE, $field(MTLSurfaceData, graphicsConfig)},
+		{"nativeWidth", "I", nullptr, $PRIVATE, $field(MTLSurfaceData, nativeWidth)},
+		{"nativeHeight", "I", nullptr, $PRIVATE, $field(MTLSurfaceData, nativeHeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getNativeOps", "()J", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/metal/MTLLayer;Lsun/java2d/metal/MTLGraphicsConfig;Ljava/awt/image/ColorModel;III)V", nullptr, $PRIVATE, $method(MTLSurfaceData, init$, void, $MTLLayer*, $MTLGraphicsConfig*, $ColorModel*, int32_t, int32_t, int32_t)},
+		{"canHandleComposite", "(Ljava/awt/Composite;)Z", nullptr, $PRIVATE, $method(MTLSurfaceData, canHandleComposite, bool, $Composite*)},
+		{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
+		{"clearWindow", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, clearWindow, void)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createData", "(Lsun/java2d/metal/MTLLayer;)Lsun/java2d/metal/MTLSurfaceData$MTLLayerSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceData, createData, $MTLSurfaceData$MTLLayerSurfaceData*, $MTLLayer*)},
+		{"createData", "(Lsun/java2d/metal/MTLGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/metal/MTLSurfaceData$MTLOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceData, createData, $MTLSurfaceData$MTLOffScreenSurfaceData*, $MTLGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
+		{"dispose", "(JLsun/java2d/metal/MTLGraphicsConfig;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLSurfaceData, dispose, void, int64_t, $MTLGraphicsConfig*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, flush, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getBounds, $Rectangle*)},
+		{"getContext", "()Lsun/java2d/metal/MTLContext;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MTLSurfaceData, getContext, $BufferedContext*)},
+		{"getCustomSurfaceType", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(MTLSurfaceData, getCustomSurfaceType, $SurfaceType*, int32_t)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getDefaultScaleY, double)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getMTLGraphicsConfig", "()Lsun/java2d/metal/MTLGraphicsConfig;", nullptr, $FINAL, $method(MTLSurfaceData, getMTLGraphicsConfig, $MTLGraphicsConfig*)},
+		{"getMTLTexturePointer", "(J)J", nullptr, $PRIVATE | $NATIVE, $method(MTLSurfaceData, getMTLTexturePointer, int64_t, int64_t)},
+		{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(MTLSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
+		{"getNativeBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getNativeBounds, $Rectangle*)},
+		{"getNativeResource", "(I)J", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getNativeResource, int64_t, int32_t)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(MTLSurfaceData, getType, int32_t)},
+		{"initFlipBackbuffer", "(J)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, initFlipBackbuffer, bool, int64_t)},
+		{"initOps", "(Lsun/java2d/metal/MTLGraphicsConfig;JJJIIZ)V", nullptr, $PRIVATE | $NATIVE, $method(MTLSurfaceData, initOps, void, $MTLGraphicsConfig*, int64_t, int64_t, int64_t, int32_t, int32_t, bool)},
+		{"initRTexture", "(JZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, initRTexture, bool, int64_t, bool, int32_t, int32_t)},
+		{"initSurface", "(II)V", nullptr, $PROTECTED, $virtualMethod(MTLSurfaceData, initSurface, void, int32_t, int32_t)},
+		{"initSurfaceNow", "(II)V", nullptr, $PRIVATE, $method(MTLSurfaceData, initSurfaceNow, void, int32_t, int32_t)},
+		{"initTexture", "(JZII)Z", nullptr, $PROTECTED | $NATIVE, $virtualMethod(MTLSurfaceData, initTexture, bool, int64_t, bool, int32_t, int32_t)},
+		{"isOnScreen", "()Z", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, isOnScreen, bool)},
+		{"*isSurfaceLost", "()Z", nullptr, $PUBLIC},
+		{"*isValid", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
+		{"*markDirty", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(MTLSurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLSurfaceData$MTLOffScreenSurfaceData", "sun.java2d.metal.MTLSurfaceData", "MTLOffScreenSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.metal.MTLSurfaceData$MTLLayerSurfaceData", "sun.java2d.metal.MTLSurfaceData", "MTLLayerSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.metal.MTLSurfaceData$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.metal.MTLSurfaceData",
+		"sun.java2d.SurfaceData",
+		"sun.java2d.pipe.hw.AccelSurface",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLSurfaceData$MTLOffScreenSurfaceData,sun.java2d.metal.MTLSurfaceData$MTLLayerSurfaceData,sun.java2d.metal.MTLSurfaceData$1"
+	};
+	$loadClass(MTLSurfaceData, name, initialize, &classInfo$$, MTLSurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MTLSurfaceData));
+	});
 	return class$;
 }
 

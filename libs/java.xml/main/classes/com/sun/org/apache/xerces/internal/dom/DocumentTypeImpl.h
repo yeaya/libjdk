@@ -86,6 +86,7 @@ public:
 	virtual bool isDefaultNamespace($String* namespaceURI) override;
 	virtual bool isSameNode(::org::w3c::dom::Node* other) override;
 	virtual bool isSupported($String* feature, $String* version) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument, $String* name);
 	void init$(::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument, $String* qualifiedName, $String* publicID, $String* systemID);
 	virtual ::org::w3c::dom::Node* cloneNode(bool deep) override;
@@ -119,7 +120,7 @@ public:
 	virtual $Object* setUserData($String* key, Object$* data, ::org::w3c::dom::UserDataHandler* handler) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x6B92258C19CC7F95;
+	static const int64_t serialVersionUID = (int64_t)0x6b92258c19cc7f95;
 	$String* name = nullptr;
 	::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl* entities = nullptr;
 	::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl* notations = nullptr;

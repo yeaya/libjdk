@@ -1,5 +1,4 @@
 #include <jdk/xml/internal/JdkXmlFeatures$XmlFeature.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/xml/internal/JdkProperty$ImplPropMap.h>
 #include <jdk/xml/internal/JdkProperty$State.h>
@@ -27,67 +26,6 @@ using $JdkProperty$State = ::jdk::xml::internal::JdkProperty$State;
 namespace jdk {
 	namespace xml {
 		namespace internal {
-
-$FieldInfo _JdkXmlFeatures$XmlFeature_FieldInfo_[] = {
-	{"ENABLE_EXTENSION_FUNCTION", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, ENABLE_EXTENSION_FUNCTION)},
-	{"USE_CATALOG", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, USE_CATALOG)},
-	{"RESET_SYMBOL_TABLE_FEATURE", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, RESET_SYMBOL_TABLE_FEATURE)},
-	{"JDK_OVERRIDE_PARSER", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, JDK_OVERRIDE_PARSER)},
-	{"$VALUES", "[Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JdkXmlFeatures$XmlFeature, $VALUES)},
-	{"implMap", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, implMap)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, name$)},
-	{"nameSP", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, nameSP)},
-	{"differ", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, differ)},
-	{"nameOld", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, nameOld)},
-	{"nameOldSP", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, nameOldSP)},
-	{"valueDefault", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, valueDefault)},
-	{"valueEnforced", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, valueEnforced)},
-	{"hasSystem", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, hasSystem)},
-	{"enforced", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, enforced$)},
-	{}
-};
-
-$MethodInfo _JdkXmlFeatures$XmlFeature_MethodInfo_[] = {
-	{"$values", "()[Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JdkXmlFeatures$XmlFeature, $values, $JdkXmlFeatures$XmlFeatureArray*)},
-	{"<init>", "(Ljava/lang/String;ILjdk/xml/internal/JdkProperty$ImplPropMap;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;ZZZZ)V", "(Ljdk/xml/internal/JdkProperty$ImplPropMap;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;ZZZZ)V", $PRIVATE, $method(JdkXmlFeatures$XmlFeature, init$, void, $String*, int32_t, $JdkProperty$ImplPropMap*, $String*, $String*, bool, $String*, $String*, bool, bool, bool, bool)},
-	{"apiProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, apiProperty, $String*)},
-	{"defaultValue", "()Z", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, defaultValue, bool)},
-	{"enforced", "()Z", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, enforced, bool)},
-	{"enforcedValue", "()Z", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, enforcedValue, bool)},
-	{"equalsPropertyName", "(Ljava/lang/String;)Z", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, equalsPropertyName, bool, $String*)},
-	{"getState", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, getState, $JdkProperty$State*, $String*)},
-	{"hasSystemProperty", "()Z", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, hasSystemProperty, bool)},
-	{"systemProperty", "()Ljava/lang/String;", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, systemProperty, $String*)},
-	{"systemPropertyOld", "()Ljava/lang/String;", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, systemPropertyOld, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlFeatures$XmlFeature, valueOf, JdkXmlFeatures$XmlFeature*, $String*)},
-	{"values", "()[Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlFeatures$XmlFeature, values, $JdkXmlFeatures$XmlFeatureArray*)},
-	{}
-};
-
-$InnerClassInfo _JdkXmlFeatures$XmlFeature_InnerClassesInfo_[] = {
-	{"jdk.xml.internal.JdkXmlFeatures$XmlFeature", "jdk.xml.internal.JdkXmlFeatures", "XmlFeature", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JdkXmlFeatures$XmlFeature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.xml.internal.JdkXmlFeatures$XmlFeature",
-	"java.lang.Enum",
-	nullptr,
-	_JdkXmlFeatures$XmlFeature_FieldInfo_,
-	_JdkXmlFeatures$XmlFeature_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;>;",
-	nullptr,
-	_JdkXmlFeatures$XmlFeature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.xml.internal.JdkXmlFeatures"
-};
-
-$Object* allocate$JdkXmlFeatures$XmlFeature($Class* clazz) {
-	return $of($alloc(JdkXmlFeatures$XmlFeature));
-}
 
 JdkXmlFeatures$XmlFeature* JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION = nullptr;
 JdkXmlFeatures$XmlFeature* JdkXmlFeatures$XmlFeature::USE_CATALOG = nullptr;
@@ -141,7 +79,7 @@ bool JdkXmlFeatures$XmlFeature::equalsPropertyName($String* propertyName) {
 		return this->implMap->is(propertyName);
 	}
 	bool var$0 = $nc(this->name$)->equals(propertyName);
-	return var$0 || (this->nameOld != nullptr && $nc(this->nameOld)->equals(propertyName));
+	return var$0 || (this->nameOld != nullptr && this->nameOld->equals(propertyName));
 }
 
 $String* JdkXmlFeatures$XmlFeature::apiProperty() {
@@ -182,7 +120,7 @@ $JdkProperty$State* JdkXmlFeatures$XmlFeature::getState($String* name) {
 	return nullptr;
 }
 
-void clinit$JdkXmlFeatures$XmlFeature($Class* class$) {
+void JdkXmlFeatures$XmlFeature::clinit$($Class* clazz) {
 	$init($JdkProperty$ImplPropMap);
 	$assignStatic(JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION, $new(JdkXmlFeatures$XmlFeature, "ENABLE_EXTENSION_FUNCTION"_s, 0, $JdkProperty$ImplPropMap::ENABLEEXTFUNC, nullptr, nullptr, true, nullptr, nullptr, true, false, true, true));
 	$assignStatic(JdkXmlFeatures$XmlFeature::USE_CATALOG, $new(JdkXmlFeatures$XmlFeature, "USE_CATALOG"_s, 1, nullptr, "http://javax.xml.XMLConstants/feature/useCatalog"_s, "javax.xml.useCatalog"_s, false, nullptr, nullptr, true, false, true, false));
@@ -195,7 +133,62 @@ JdkXmlFeatures$XmlFeature::JdkXmlFeatures$XmlFeature() {
 }
 
 $Class* JdkXmlFeatures$XmlFeature::load$($String* name, bool initialize) {
-	$loadClass(JdkXmlFeatures$XmlFeature, name, initialize, &_JdkXmlFeatures$XmlFeature_ClassInfo_, clinit$JdkXmlFeatures$XmlFeature, allocate$JdkXmlFeatures$XmlFeature);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENABLE_EXTENSION_FUNCTION", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, ENABLE_EXTENSION_FUNCTION)},
+		{"USE_CATALOG", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, USE_CATALOG)},
+		{"RESET_SYMBOL_TABLE_FEATURE", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, RESET_SYMBOL_TABLE_FEATURE)},
+		{"JDK_OVERRIDE_PARSER", "Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkXmlFeatures$XmlFeature, JDK_OVERRIDE_PARSER)},
+		{"$VALUES", "[Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JdkXmlFeatures$XmlFeature, $VALUES)},
+		{"implMap", "Ljdk/xml/internal/JdkProperty$ImplPropMap;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, implMap)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, name$)},
+		{"nameSP", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, nameSP)},
+		{"differ", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, differ)},
+		{"nameOld", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, nameOld)},
+		{"nameOldSP", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, nameOldSP)},
+		{"valueDefault", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, valueDefault)},
+		{"valueEnforced", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, valueEnforced)},
+		{"hasSystem", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, hasSystem)},
+		{"enforced", "Z", nullptr, $PRIVATE | $FINAL, $field(JdkXmlFeatures$XmlFeature, enforced$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JdkXmlFeatures$XmlFeature, $values, $JdkXmlFeatures$XmlFeatureArray*)},
+		{"<init>", "(Ljava/lang/String;ILjdk/xml/internal/JdkProperty$ImplPropMap;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;ZZZZ)V", "(Ljdk/xml/internal/JdkProperty$ImplPropMap;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;ZZZZ)V", $PRIVATE, $method(JdkXmlFeatures$XmlFeature, init$, void, $String*, int32_t, $JdkProperty$ImplPropMap*, $String*, $String*, bool, $String*, $String*, bool, bool, bool, bool)},
+		{"apiProperty", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, apiProperty, $String*)},
+		{"defaultValue", "()Z", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, defaultValue, bool)},
+		{"enforced", "()Z", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, enforced, bool)},
+		{"enforcedValue", "()Z", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, enforcedValue, bool)},
+		{"equalsPropertyName", "(Ljava/lang/String;)Z", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, equalsPropertyName, bool, $String*)},
+		{"getState", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC, $method(JdkXmlFeatures$XmlFeature, getState, $JdkProperty$State*, $String*)},
+		{"hasSystemProperty", "()Z", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, hasSystemProperty, bool)},
+		{"systemProperty", "()Ljava/lang/String;", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, systemProperty, $String*)},
+		{"systemPropertyOld", "()Ljava/lang/String;", nullptr, 0, $method(JdkXmlFeatures$XmlFeature, systemPropertyOld, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlFeatures$XmlFeature, valueOf, JdkXmlFeatures$XmlFeature*, $String*)},
+		{"values", "()[Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkXmlFeatures$XmlFeature, values, $JdkXmlFeatures$XmlFeatureArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.xml.internal.JdkXmlFeatures$XmlFeature", "jdk.xml.internal.JdkXmlFeatures", "XmlFeature", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.xml.internal.JdkXmlFeatures$XmlFeature",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.xml.internal.JdkXmlFeatures"
+	};
+	$loadClass(JdkXmlFeatures$XmlFeature, name, initialize, &classInfo$$, JdkXmlFeatures$XmlFeature::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JdkXmlFeatures$XmlFeature));
+	});
 	return class$;
 }
 

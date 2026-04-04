@@ -57,6 +57,7 @@ class CPrinterSurfaceData : public ::sun::java2d::OSXSurfaceData {
 public:
 	CPrinterSurfaceData();
 	using ::sun::java2d::OSXSurfaceData::copyArea;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::GraphicsConfiguration* gc, int64_t context);
 	virtual void _flush();
 	virtual ::java::awt::image::BufferedImage* copyArea(::sun::java2d::SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, ::java::awt::image::BufferedImage* dstImage) override;

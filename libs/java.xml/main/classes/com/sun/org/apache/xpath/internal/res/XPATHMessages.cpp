@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/res/XPATHMessages.h>
-
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
 #include <com/sun/org/apache/xpath/internal/res/XPATHErrorResources.h>
 #include <java/text/MessageFormat.h>
@@ -29,33 +28,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace res {
-
-$FieldInfo _XPATHMessages_FieldInfo_[] = {
-	{"XPATHBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(XPATHMessages, XPATHBundle)},
-	{"XPATH_ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPATHMessages, XPATH_ERROR_RESOURCES)},
-	{}
-};
-
-$MethodInfo _XPATHMessages_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPATHMessages, init$, void)},
-	{"createXPATHMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XPATHMessages, createXPATHMessage, $String*, $String*, $ObjectArray*)},
-	{"createXPATHMsg", "(Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(XPATHMessages, createXPATHMsg, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"createXPATHWarning", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XPATHMessages, createXPATHWarning, $String*, $String*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _XPATHMessages_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.res.XPATHMessages",
-	"com.sun.org.apache.xml.internal.res.XMLMessages",
-	nullptr,
-	_XPATHMessages_FieldInfo_,
-	_XPATHMessages_MethodInfo_
-};
-
-$Object* allocate$XPATHMessages($Class* clazz) {
-	return $of($alloc(XPATHMessages));
-}
 
 $ResourceBundle* XPATHMessages::XPATHBundle = nullptr;
 $String* XPATHMessages::XPATH_ERROR_RESOURCES = nullptr;
@@ -90,7 +62,7 @@ $String* XPATHMessages::createXPATHWarning($String* msgKey, $ObjectArray* args) 
 
 $String* XPATHMessages::createXPATHMsg($ResourceBundle* fResourceBundle, $String* msgKey, $ObjectArray* args) {
 	$init(XPATHMessages);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fmsg, nullptr);
 	bool throwex = false;
 	$var($String, msg, nullptr);
@@ -125,7 +97,7 @@ $String* XPATHMessages::createXPATHMsg($ResourceBundle* fResourceBundle, $String
 	return fmsg;
 }
 
-void clinit$XPATHMessages($Class* class$) {
+void XPATHMessages::clinit$($Class* clazz) {
 	$assignStatic(XPATHMessages::XPATH_ERROR_RESOURCES, "com.sun.org.apache.xpath.internal.res.XPATHErrorResources"_s);
 	$assignStatic(XPATHMessages::XPATHBundle, nullptr);
 }
@@ -134,7 +106,29 @@ XPATHMessages::XPATHMessages() {
 }
 
 $Class* XPATHMessages::load$($String* name, bool initialize) {
-	$loadClass(XPATHMessages, name, initialize, &_XPATHMessages_ClassInfo_, clinit$XPATHMessages, allocate$XPATHMessages);
+	$FieldInfo fieldInfos$$[] = {
+		{"XPATHBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(XPATHMessages, XPATHBundle)},
+		{"XPATH_ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPATHMessages, XPATH_ERROR_RESOURCES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPATHMessages, init$, void)},
+		{"createXPATHMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XPATHMessages, createXPATHMessage, $String*, $String*, $ObjectArray*)},
+		{"createXPATHMsg", "(Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(XPATHMessages, createXPATHMsg, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"createXPATHWarning", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XPATHMessages, createXPATHWarning, $String*, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.res.XPATHMessages",
+		"com.sun.org.apache.xml.internal.res.XMLMessages",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPATHMessages, name, initialize, &classInfo$$, XPATHMessages::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPATHMessages);
+	});
 	return class$;
 }
 

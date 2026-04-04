@@ -1,5 +1,4 @@
 #include <bug8023474$CheckboxCellRenderer.h>
-
 #include <bug8023474.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JPanel = ::javax::swing::JPanel;
 using $JTree = ::javax::swing::JTree;
-
-$FieldInfo _bug8023474$CheckboxCellRenderer_FieldInfo_[] = {
-	{"checkbox", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(bug8023474$CheckboxCellRenderer, checkbox)},
-	{}
-};
-
-$MethodInfo _bug8023474$CheckboxCellRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8023474$CheckboxCellRenderer, init$, void)},
-	{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(bug8023474$CheckboxCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _bug8023474$CheckboxCellRenderer_InnerClassesInfo_[] = {
-	{"bug8023474$CheckboxCellRenderer", "bug8023474", "CheckboxCellRenderer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug8023474$CheckboxCellRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8023474$CheckboxCellRenderer",
-	"javax.swing.JPanel",
-	"javax.swing.tree.TreeCellRenderer",
-	_bug8023474$CheckboxCellRenderer_FieldInfo_,
-	_bug8023474$CheckboxCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8023474$CheckboxCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8023474"
-};
-
-$Object* allocate$bug8023474$CheckboxCellRenderer($Class* clazz) {
-	return $of($alloc(bug8023474$CheckboxCellRenderer));
-}
 
 $String* bug8023474$CheckboxCellRenderer::toString() {
 	 return this->$JPanel::toString();
@@ -83,7 +41,7 @@ void bug8023474$CheckboxCellRenderer::init$() {
 	$JPanel::init$();
 	setOpaque(false);
 	$set(this, checkbox, $new($JCheckBox));
-	add(static_cast<$Component*>(this->checkbox));
+	add(this->checkbox);
 }
 
 $Component* bug8023474$CheckboxCellRenderer::getTreeCellRendererComponent($JTree* tree, Object$* value, bool selected, bool expanded, bool leaf, int32_t row, bool hasFocus) {
@@ -96,7 +54,42 @@ bug8023474$CheckboxCellRenderer::bug8023474$CheckboxCellRenderer() {
 }
 
 $Class* bug8023474$CheckboxCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(bug8023474$CheckboxCellRenderer, name, initialize, &_bug8023474$CheckboxCellRenderer_ClassInfo_, allocate$bug8023474$CheckboxCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"checkbox", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(bug8023474$CheckboxCellRenderer, checkbox)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8023474$CheckboxCellRenderer, init$, void)},
+		{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(bug8023474$CheckboxCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8023474$CheckboxCellRenderer", "bug8023474", "CheckboxCellRenderer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8023474$CheckboxCellRenderer",
+		"javax.swing.JPanel",
+		"javax.swing.tree.TreeCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8023474"
+	};
+	$loadClass(bug8023474$CheckboxCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug8023474$CheckboxCellRenderer));
+	});
 	return class$;
 }
 

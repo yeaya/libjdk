@@ -24,13 +24,17 @@ class $import ProxyAuthenticationRequired : public ::java::io::IOException {
 	$class(ProxyAuthenticationRequired, 0, ::java::io::IOException)
 public:
 	ProxyAuthenticationRequired();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Response* proxyResponse);
 	static bool $assertionsDisabled;
 	static const int64_t serialVersionUID = 0;
 	::jdk::internal::net::http::Response* proxyResponse = nullptr;
 	ProxyAuthenticationRequired(const ProxyAuthenticationRequired& e);
 	virtual void throw$() override;
-	inline ProxyAuthenticationRequired* operator ->() {
+	inline ProxyAuthenticationRequired* operator ->() const {
+		return (ProxyAuthenticationRequired*)throwing$;
+	}
+	inline operator ProxyAuthenticationRequired*() const {
 		return (ProxyAuthenticationRequired*)throwing$;
 	}
 };

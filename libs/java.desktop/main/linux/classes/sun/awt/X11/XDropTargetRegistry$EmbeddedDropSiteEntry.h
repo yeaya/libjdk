@@ -20,6 +20,7 @@ class XDropTargetRegistry$EmbeddedDropSiteEntry : public ::java::lang::Object {
 	$class(XDropTargetRegistry$EmbeddedDropSiteEntry, 0, ::java::lang::Object)
 public:
 	XDropTargetRegistry$EmbeddedDropSiteEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t root, int64_t event_mask, ::java::util::List* supportedProtocols);
 	void addSite(int64_t window, bool isXEmbedClient);
 	int64_t getEventMask();

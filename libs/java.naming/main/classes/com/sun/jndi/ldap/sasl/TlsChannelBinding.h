@@ -39,6 +39,7 @@ class TlsChannelBinding : public ::java::lang::Object {
 	$class(TlsChannelBinding, 0, ::java::lang::Object)
 public:
 	TlsChannelBinding();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::jndi::ldap::sasl::TlsChannelBinding$TlsChannelBindingType* cbType, $bytes* cbData);
 	static ::com::sun::jndi::ldap::sasl::TlsChannelBinding* create(::java::security::cert::X509Certificate* serverCertificate);
 	virtual $bytes* getData();

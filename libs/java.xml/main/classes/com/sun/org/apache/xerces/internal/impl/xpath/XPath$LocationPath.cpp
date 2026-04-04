@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$LocationPath.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Axis.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Step.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath.h>
@@ -26,77 +25,72 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 
-$FieldInfo _XPath$LocationPath_FieldInfo_[] = {
-	{"steps", "[Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Step;", nullptr, $PUBLIC | $FINAL, $field(XPath$LocationPath, steps)},
-	{}
-};
-
-$MethodInfo _XPath$LocationPath_MethodInfo_[] = {
-	{"<init>", "([Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Step;)V", nullptr, $PUBLIC, $method(XPath$LocationPath, init$, void, $XPath$StepArray*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$LocationPath;)V", nullptr, $PROTECTED, $method(XPath$LocationPath, init$, void, XPath$LocationPath*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPath$LocationPath, clone, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPath$LocationPath, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _XPath$LocationPath_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$LocationPath", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "LocationPath", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XPath$LocationPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath$LocationPath",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_XPath$LocationPath_FieldInfo_,
-	_XPath$LocationPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPath$LocationPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath"
-};
-
-$Object* allocate$XPath$LocationPath($Class* clazz) {
-	return $of($alloc(XPath$LocationPath));
-}
-
 void XPath$LocationPath::init$($XPath$StepArray* steps) {
 	$set(this, steps, steps);
 }
 
 void XPath$LocationPath::init$(XPath$LocationPath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, steps, $new($XPath$StepArray, $nc($nc(path)->steps)->length));
-	for (int32_t i = 0; i < $nc(this->steps)->length; ++i) {
-		$nc(this->steps)->set(i, $cast($XPath$Step, $($nc($nc(path->steps)->get(i))->clone())));
+	for (int32_t i = 0; i < this->steps->length; ++i) {
+		this->steps->set(i, $$cast($XPath$Step, $nc(path->steps->get(i))->clone()));
 	}
 }
 
 $String* XPath$LocationPath::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, str, $new($StringBuffer));
 	for (int32_t i = 0; i < $nc(this->steps)->length; ++i) {
-		if (i > 0 && ($nc($nc($nc(this->steps)->get(i - 1))->axis)->type != $XPath$Axis::DESCENDANT && $nc($nc($nc(this->steps)->get(i))->axis)->type != $XPath$Axis::DESCENDANT)) {
+		if (i > 0 && ($nc($nc(this->steps->get(i - 1))->axis)->type != $XPath$Axis::DESCENDANT && $nc(this->steps->get(i))->axis->type != $XPath$Axis::DESCENDANT)) {
 			str->append(u'/');
 		}
-		str->append($($nc($nc(this->steps)->get(i))->toString()));
+		str->append($($nc(this->steps->get(i))->toString()));
 	}
+	;
 	return str->toString();
 }
 
 $Object* XPath$LocationPath::clone() {
-	return $of($new(XPath$LocationPath, this));
+	return $new(XPath$LocationPath, this);
 }
 
 XPath$LocationPath::XPath$LocationPath() {
 }
 
 $Class* XPath$LocationPath::load$($String* name, bool initialize) {
-	$loadClass(XPath$LocationPath, name, initialize, &_XPath$LocationPath_ClassInfo_, allocate$XPath$LocationPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"steps", "[Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Step;", nullptr, $PUBLIC | $FINAL, $field(XPath$LocationPath, steps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Step;)V", nullptr, $PUBLIC, $method(XPath$LocationPath, init$, void, $XPath$StepArray*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$LocationPath;)V", nullptr, $PROTECTED, $method(XPath$LocationPath, init$, void, XPath$LocationPath*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPath$LocationPath, clone, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPath$LocationPath, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$LocationPath", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "LocationPath", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath$LocationPath",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath"
+	};
+	$loadClass(XPath$LocationPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPath$LocationPath);
+	});
 	return class$;
 }
 

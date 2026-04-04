@@ -13,6 +13,7 @@ class HTMLCodec$1 : public ::java::lang::Object {
 	$class(HTMLCodec$1, 0, ::java::lang::Object)
 public:
 	HTMLCodec$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$awt$windows$EHTMLReadMode;
 };
 

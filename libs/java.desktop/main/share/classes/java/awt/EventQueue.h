@@ -114,6 +114,7 @@ class $export EventQueue : public ::java::lang::Object {
 	$class(EventQueue, 0, ::java::lang::Object)
 public:
 	EventQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void cacheEQItem(::sun::awt::EventQueueItem* entry);
 	bool coalesceEvent(::java::awt::AWTEvent* e, int32_t priority);

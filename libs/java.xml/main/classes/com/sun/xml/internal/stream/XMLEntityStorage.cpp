@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/XMLEntityStorage.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
@@ -39,7 +38,6 @@ using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::ms
 using $URI = ::com::sun::org::apache::xerces::internal::util::URI;
 using $URI$MalformedURIException = ::com::sun::org::apache::xerces::internal::util::URI$MalformedURIException;
 using $XMLResourceIdentifierImpl = ::com::sun::org::apache::xerces::internal::util::XMLResourceIdentifierImpl;
-using $XMLResourceIdentifier = ::com::sun::org::apache::xerces::internal::xni::XMLResourceIdentifier;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $Entity = ::com::sun::xml::internal::stream::Entity;
 using $Entity$ExternalEntity = ::com::sun::xml::internal::stream::Entity$ExternalEntity;
@@ -61,62 +59,6 @@ namespace com {
 		namespace xml {
 			namespace internal {
 				namespace stream {
-
-$FieldInfo _XMLEntityStorage_FieldInfo_[] = {
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLEntityStorage, ERROR_REPORTER)},
-	{"WARN_ON_DUPLICATE_ENTITYDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLEntityStorage, WARN_ON_DUPLICATE_ENTITYDEF)},
-	{"fWarnDuplicateEntityDef", "Z", nullptr, $PROTECTED, $field(XMLEntityStorage, fWarnDuplicateEntityDef)},
-	{"fEntities", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/xml/internal/stream/Entity;>;", $PROTECTED, $field(XMLEntityStorage, fEntities)},
-	{"fCurrentEntity", "Lcom/sun/xml/internal/stream/Entity$ScannedEntity;", nullptr, $PROTECTED, $field(XMLEntityStorage, fCurrentEntity)},
-	{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PRIVATE, $field(XMLEntityStorage, fEntityManager)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(XMLEntityStorage, fErrorReporter)},
-	{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PROTECTED, $field(XMLEntityStorage, fPropertyManager)},
-	{"fInExternalSubset", "Z", nullptr, $PROTECTED, $field(XMLEntityStorage, fInExternalSubset)},
-	{"gUserDir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gUserDir)},
-	{"gEscapedUserDir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gEscapedUserDir)},
-	{"gNeedEscaping", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gNeedEscaping)},
-	{"gAfterEscaping1", "[C", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gAfterEscaping1)},
-	{"gAfterEscaping2", "[C", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gAfterEscaping2)},
-	{"gHexChs", "[C", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gHexChs)},
-	{}
-};
-
-$MethodInfo _XMLEntityStorage_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLEntityStorage, init$, void, $PropertyManager*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)V", nullptr, $PUBLIC, $method(XMLEntityStorage, init$, void, $XMLEntityManager*)},
-	{"addExternalEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, addExternalEntity, void, $String*, $String*, $String*, $String*)},
-	{"addInternalEntity", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, addInternalEntity, void, $String*, $String*)},
-	{"addUnparsedEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, addUnparsedEntity, void, $String*, $String*, $String*, $String*, $String*)},
-	{"endExternalSubset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, endExternalSubset, void)},
-	{"expandSystemId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLEntityStorage, expandSystemId, $String*, $String*)},
-	{"expandSystemId", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLEntityStorage, expandSystemId, $String*, $String*, $String*)},
-	{"fixURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(XMLEntityStorage, fixURI, $String*, $String*)},
-	{"getEntities", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/xml/internal/stream/Entity;>;", $PUBLIC, $virtualMethod(XMLEntityStorage, getEntities, $Map*)},
-	{"getEntity", "(Ljava/lang/String;)Lcom/sun/xml/internal/stream/Entity;", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, getEntity, $Entity*, $String*)},
-	{"getUserDir", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(XMLEntityStorage, getUserDir, $String*)},
-	{"isDeclaredEntity", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isDeclaredEntity, bool, $String*)},
-	{"isEntityDeclInExternalSubset", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isEntityDeclInExternalSubset, bool, $String*)},
-	{"isExternalEntity", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isExternalEntity, bool, $String*)},
-	{"isUnparsedEntity", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isUnparsedEntity, bool, $String*)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, reset, void, $PropertyManager*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, reset, void)},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"startExternalSubset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, startExternalSubset, void)},
-	{}
-};
-
-$ClassInfo _XMLEntityStorage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.XMLEntityStorage",
-	"java.lang.Object",
-	nullptr,
-	_XMLEntityStorage_FieldInfo_,
-	_XMLEntityStorage_MethodInfo_
-};
-
-$Object* allocate$XMLEntityStorage($Class* clazz) {
-	return $of($alloc(XMLEntityStorage));
-}
 
 $String* XMLEntityStorage::ERROR_REPORTER = nullptr;
 $String* XMLEntityStorage::WARN_ON_DUPLICATE_ENTITYDEF = nullptr;
@@ -167,23 +109,23 @@ $Map* XMLEntityStorage::getEntities() {
 }
 
 void XMLEntityStorage::addInternalEntity($String* name, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->fEntities)->containsKey(name)) {
 		$var($Entity, entity, $new($Entity$InternalEntity, name, text, this->fInExternalSubset));
-		$nc(this->fEntities)->put(name, entity);
+		this->fEntities->put(name, entity);
 	} else if (this->fWarnDuplicateEntityDef) {
 		$init($XMLMessageFormatter);
-		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_DUPLICATE_ENTITY_DEFINITION"_s, $$new($ObjectArray, {$of(name)}), $XMLErrorReporter::SEVERITY_WARNING);
+		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_DUPLICATE_ENTITY_DEFINITION"_s, $$new($ObjectArray, {name}), $XMLErrorReporter::SEVERITY_WARNING);
 	}
 }
 
 void XMLEntityStorage::addExternalEntity($String* name, $String* publicId, $String* literalSystemId, $String* baseSystemId$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, baseSystemId, baseSystemId$renamed);
 	if (!$nc(this->fEntities)->containsKey(name)) {
 		if (baseSystemId == nullptr) {
-			if (this->fCurrentEntity != nullptr && $nc(this->fCurrentEntity)->entityLocation != nullptr) {
-				$assign(baseSystemId, $nc($nc(this->fCurrentEntity)->entityLocation)->getExpandedSystemId());
+			if (this->fCurrentEntity != nullptr && this->fCurrentEntity->entityLocation != nullptr) {
+				$assign(baseSystemId, this->fCurrentEntity->entityLocation->getExpandedSystemId());
 			}
 		}
 		$set(this, fCurrentEntity, $nc(this->fEntityManager)->getCurrentEntity());
@@ -191,7 +133,7 @@ void XMLEntityStorage::addExternalEntity($String* name, $String* publicId, $Stri
 		$nc(this->fEntities)->put(name, entity);
 	} else if (this->fWarnDuplicateEntityDef) {
 		$init($XMLMessageFormatter);
-		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_DUPLICATE_ENTITY_DEFINITION"_s, $$new($ObjectArray, {$of(name)}), $XMLErrorReporter::SEVERITY_WARNING);
+		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_DUPLICATE_ENTITY_DEFINITION"_s, $$new($ObjectArray, {name}), $XMLErrorReporter::SEVERITY_WARNING);
 	}
 }
 
@@ -212,14 +154,14 @@ bool XMLEntityStorage::isEntityDeclInExternalSubset($String* entityName) {
 }
 
 void XMLEntityStorage::addUnparsedEntity($String* name, $String* publicId, $String* systemId, $String* baseSystemId, $String* notation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fCurrentEntity, $nc(this->fEntityManager)->getCurrentEntity());
 	if (!$nc(this->fEntities)->containsKey(name)) {
 		$var($Entity, entity, $new($Entity$ExternalEntity, name, $$new($XMLResourceIdentifierImpl, publicId, systemId, baseSystemId, nullptr), notation, this->fInExternalSubset));
-		$nc(this->fEntities)->put(name, entity);
+		this->fEntities->put(name, entity);
 	} else if (this->fWarnDuplicateEntityDef) {
 		$init($XMLMessageFormatter);
-		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_DUPLICATE_ENTITY_DEFINITION"_s, $$new($ObjectArray, {$of(name)}), $XMLErrorReporter::SEVERITY_WARNING);
+		$nc(this->fErrorReporter)->reportError($XMLMessageFormatter::XML_DOMAIN, "MSG_DUPLICATE_ENTITY_DEFINITION"_s, $$new($ObjectArray, {name}), $XMLErrorReporter::SEVERITY_WARNING);
 	}
 }
 
@@ -242,16 +184,15 @@ $String* XMLEntityStorage::expandSystemId($String* systemId) {
 }
 
 $String* XMLEntityStorage::getUserDir() {
-	$load(XMLEntityStorage);
+	$init(XMLEntityStorage);
 	$synchronized(class$) {
-		$init(XMLEntityStorage);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, userDir, ""_s);
 		try {
 			$assign(userDir, $SecuritySupport::getSystemProperty("user.dir"_s));
 		} catch ($SecurityException& se) {
 		}
-		if (userDir->length() == 0) {
+		if ($nc(userDir)->length() == 0) {
 			return ""_s;
 		}
 		if (userDir->equals(XMLEntityStorage::gUserDir)) {
@@ -299,15 +240,13 @@ $String* XMLEntityStorage::getUserDir() {
 					ch = b + 256;
 					buffer->append(u'%');
 					buffer->append($nc(XMLEntityStorage::gHexChs)->get(ch >> 4));
-					buffer->append($nc(XMLEntityStorage::gHexChs)->get((int32_t)(ch & (uint32_t)15)));
+					buffer->append(XMLEntityStorage::gHexChs->get(ch & 0x0f));
+				} else if ($nc(XMLEntityStorage::gNeedEscaping)->get(b)) {
+					buffer->append(u'%');
+					buffer->append($nc(XMLEntityStorage::gAfterEscaping1)->get(b));
+					buffer->append($nc(XMLEntityStorage::gAfterEscaping2)->get(b));
 				} else {
-					if ($nc(XMLEntityStorage::gNeedEscaping)->get(b)) {
-						buffer->append(u'%');
-						buffer->append($nc(XMLEntityStorage::gAfterEscaping1)->get(b));
-						buffer->append($nc(XMLEntityStorage::gAfterEscaping2)->get(b));
-					} else {
-						buffer->append((char16_t)b);
-					}
+					buffer->append((char16_t)b);
 				}
 			}
 		}
@@ -321,8 +260,8 @@ $String* XMLEntityStorage::getUserDir() {
 
 $String* XMLEntityStorage::expandSystemId($String* systemId, $String* baseSystemId) {
 	$init(XMLEntityStorage);
-	$useLocalCurrentObjectStackCache();
-	if (systemId == nullptr || $nc(systemId)->length() == 0) {
+	$useLocalObjectStack();
+	if (systemId == nullptr || systemId->length() == 0) {
 		return systemId;
 	}
 	try {
@@ -334,15 +273,15 @@ $String* XMLEntityStorage::expandSystemId($String* systemId, $String* baseSystem
 	$var($URI, base, nullptr);
 	$var($URI, uri, nullptr);
 	try {
-		bool var$0 = baseSystemId == nullptr || $nc(baseSystemId)->length() == 0;
-		if (var$0 || $nc(baseSystemId)->equals(systemId)) {
+		bool var$0 = baseSystemId == nullptr || baseSystemId->length() == 0;
+		if (var$0 || baseSystemId->equals(systemId)) {
 			$var($String, dir, getUserDir());
 			$assign(base, $new($URI, "file"_s, ""_s, dir, nullptr, nullptr));
 		} else {
 			try {
 				$assign(base, $new($URI, $(fixURI(baseSystemId))));
 			} catch ($URI$MalformedURIException& e) {
-				if (baseSystemId->indexOf((int32_t)u':') != -1) {
+				if (baseSystemId->indexOf(u':') != -1) {
 					$assign(base, $new($URI, "file"_s, ""_s, $(fixURI(baseSystemId)), nullptr, nullptr));
 				} else {
 					$var($String, dir, getUserDir());
@@ -387,7 +326,7 @@ void XMLEntityStorage::endExternalSubset() {
 	this->fInExternalSubset = false;
 }
 
-void clinit$XMLEntityStorage($Class* class$) {
+void XMLEntityStorage::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XMLEntityStorage::ERROR_REPORTER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ERROR_REPORTER_PROPERTY}));
 	$assignStatic(XMLEntityStorage::WARN_ON_DUPLICATE_ENTITYDEF, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::WARN_ON_DUPLICATE_ENTITYDEF_FEATURE}));
@@ -414,13 +353,13 @@ void clinit$XMLEntityStorage($Class* class$) {
 	}));
 	{
 		for (int32_t i = 0; i <= 31; ++i) {
-			$nc(XMLEntityStorage::gNeedEscaping)->set(i, true);
-			$nc(XMLEntityStorage::gAfterEscaping1)->set(i, $nc(XMLEntityStorage::gHexChs)->get(i >> 4));
-			$nc(XMLEntityStorage::gAfterEscaping2)->set(i, $nc(XMLEntityStorage::gHexChs)->get((int32_t)(i & (uint32_t)15)));
+			XMLEntityStorage::gNeedEscaping->set(i, true);
+			XMLEntityStorage::gAfterEscaping1->set(i, XMLEntityStorage::gHexChs->get(i >> 4));
+			XMLEntityStorage::gAfterEscaping2->set(i, XMLEntityStorage::gHexChs->get(i & 0x0f));
 		}
-		$nc(XMLEntityStorage::gNeedEscaping)->set(127, true);
-		$nc(XMLEntityStorage::gAfterEscaping1)->set(127, u'7');
-		$nc(XMLEntityStorage::gAfterEscaping2)->set(127, u'F');
+		XMLEntityStorage::gNeedEscaping->set(127, true);
+		XMLEntityStorage::gAfterEscaping1->set(127, u'7');
+		XMLEntityStorage::gAfterEscaping2->set(127, u'F');
 		$var($chars, escChs, $new($chars, {
 			u' ',
 			u'<',
@@ -442,9 +381,9 @@ void clinit$XMLEntityStorage($Class* class$) {
 		char16_t ch = 0;
 		for (int32_t i = 0; i < len; ++i) {
 			ch = escChs->get(i);
-			$nc(XMLEntityStorage::gNeedEscaping)->set(ch, true);
-			$nc(XMLEntityStorage::gAfterEscaping1)->set(ch, $nc(XMLEntityStorage::gHexChs)->get(ch >> 4));
-			$nc(XMLEntityStorage::gAfterEscaping2)->set(ch, $nc(XMLEntityStorage::gHexChs)->get((int32_t)(ch & (uint32_t)15)));
+			XMLEntityStorage::gNeedEscaping->set(ch, true);
+			XMLEntityStorage::gAfterEscaping1->set(ch, XMLEntityStorage::gHexChs->get(ch >> 4));
+			XMLEntityStorage::gAfterEscaping2->set(ch, XMLEntityStorage::gHexChs->get(ch & 0x0f));
 		}
 	}
 }
@@ -453,7 +392,58 @@ XMLEntityStorage::XMLEntityStorage() {
 }
 
 $Class* XMLEntityStorage::load$($String* name, bool initialize) {
-	$loadClass(XMLEntityStorage, name, initialize, &_XMLEntityStorage_ClassInfo_, clinit$XMLEntityStorage, allocate$XMLEntityStorage);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLEntityStorage, ERROR_REPORTER)},
+		{"WARN_ON_DUPLICATE_ENTITYDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLEntityStorage, WARN_ON_DUPLICATE_ENTITYDEF)},
+		{"fWarnDuplicateEntityDef", "Z", nullptr, $PROTECTED, $field(XMLEntityStorage, fWarnDuplicateEntityDef)},
+		{"fEntities", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/xml/internal/stream/Entity;>;", $PROTECTED, $field(XMLEntityStorage, fEntities)},
+		{"fCurrentEntity", "Lcom/sun/xml/internal/stream/Entity$ScannedEntity;", nullptr, $PROTECTED, $field(XMLEntityStorage, fCurrentEntity)},
+		{"fEntityManager", "Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;", nullptr, $PRIVATE, $field(XMLEntityStorage, fEntityManager)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(XMLEntityStorage, fErrorReporter)},
+		{"fPropertyManager", "Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;", nullptr, $PROTECTED, $field(XMLEntityStorage, fPropertyManager)},
+		{"fInExternalSubset", "Z", nullptr, $PROTECTED, $field(XMLEntityStorage, fInExternalSubset)},
+		{"gUserDir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gUserDir)},
+		{"gEscapedUserDir", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gEscapedUserDir)},
+		{"gNeedEscaping", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gNeedEscaping)},
+		{"gAfterEscaping1", "[C", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gAfterEscaping1)},
+		{"gAfterEscaping2", "[C", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gAfterEscaping2)},
+		{"gHexChs", "[C", nullptr, $PRIVATE | $STATIC, $staticField(XMLEntityStorage, gHexChs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $method(XMLEntityStorage, init$, void, $PropertyManager*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)V", nullptr, $PUBLIC, $method(XMLEntityStorage, init$, void, $XMLEntityManager*)},
+		{"addExternalEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, addExternalEntity, void, $String*, $String*, $String*, $String*)},
+		{"addInternalEntity", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, addInternalEntity, void, $String*, $String*)},
+		{"addUnparsedEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, addUnparsedEntity, void, $String*, $String*, $String*, $String*, $String*)},
+		{"endExternalSubset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, endExternalSubset, void)},
+		{"expandSystemId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLEntityStorage, expandSystemId, $String*, $String*)},
+		{"expandSystemId", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLEntityStorage, expandSystemId, $String*, $String*, $String*)},
+		{"fixURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(XMLEntityStorage, fixURI, $String*, $String*)},
+		{"getEntities", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/xml/internal/stream/Entity;>;", $PUBLIC, $virtualMethod(XMLEntityStorage, getEntities, $Map*)},
+		{"getEntity", "(Ljava/lang/String;)Lcom/sun/xml/internal/stream/Entity;", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, getEntity, $Entity*, $String*)},
+		{"getUserDir", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(XMLEntityStorage, getUserDir, $String*)},
+		{"isDeclaredEntity", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isDeclaredEntity, bool, $String*)},
+		{"isEntityDeclInExternalSubset", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isEntityDeclInExternalSubset, bool, $String*)},
+		{"isExternalEntity", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isExternalEntity, bool, $String*)},
+		{"isUnparsedEntity", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, isUnparsedEntity, bool, $String*)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/PropertyManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, reset, void, $PropertyManager*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, reset, void)},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, reset, void, $XMLComponentManager*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"startExternalSubset", "()V", nullptr, $PUBLIC, $virtualMethod(XMLEntityStorage, startExternalSubset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.XMLEntityStorage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLEntityStorage, name, initialize, &classInfo$$, XMLEntityStorage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEntityStorage);
+	});
 	return class$;
 }
 

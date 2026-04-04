@@ -95,6 +95,7 @@ class LDAPCertStoreImpl : public ::java::lang::Object {
 	$class(LDAPCertStoreImpl, 0, ::java::lang::Object)
 public:
 	LDAPCertStoreImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* serverName, int32_t port);
 	void createInitialDirContext($String* server, int32_t port);
 	::java::util::Collection* getCRLs(::sun::security::provider::certpath::ldap::LDAPCertStoreImpl$LDAPRequest* request, $String* id, ::java::security::cert::X509CRLSelector* sel);

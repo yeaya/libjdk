@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <jcpp.h>
@@ -18,26 +17,22 @@ namespace com {
 						namespace xni {
 							namespace parser {
 
-$MethodInfo _XMLEntityResolver_MethodInfo_[] = {
-	{"resolveEntity", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEntityResolver, resolveEntity, $XMLInputSource*, $XMLResourceIdentifier*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _XMLEntityResolver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLEntityResolver",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLEntityResolver_MethodInfo_
-};
-
-$Object* allocate$XMLEntityResolver($Class* clazz) {
-	return $of($alloc(XMLEntityResolver));
-}
-
 $Class* XMLEntityResolver::load$($String* name, bool initialize) {
-	$loadClass(XMLEntityResolver, name, initialize, &_XMLEntityResolver_ClassInfo_, allocate$XMLEntityResolver);
+	$MethodInfo methodInfos$$[] = {
+		{"resolveEntity", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;)Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEntityResolver, resolveEntity, $XMLInputSource*, $XMLResourceIdentifier*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLEntityResolver",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLEntityResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEntityResolver);
+	});
 	return class$;
 }
 

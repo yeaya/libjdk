@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$BooleanEditor.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/DefaultCellEditor.h>
@@ -18,38 +17,8 @@ using $JCheckBox = ::javax::swing::JCheckBox;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JTable$BooleanEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$BooleanEditor, init$, void)},
-	{}
-};
-
-$InnerClassInfo _JTable$BooleanEditor_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$BooleanEditor", "javax.swing.JTable", "BooleanEditor", $STATIC},
-	{}
-};
-
-$ClassInfo _JTable$BooleanEditor_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$BooleanEditor",
-	"javax.swing.DefaultCellEditor",
-	nullptr,
-	nullptr,
-	_JTable$BooleanEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$BooleanEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$BooleanEditor($Class* clazz) {
-	return $of($alloc(JTable$BooleanEditor));
-}
-
 void JTable$BooleanEditor::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultCellEditor::init$($$new($JCheckBox));
 	$var($JCheckBox, checkBox, $cast($JCheckBox, getComponent()));
 	$nc(checkBox)->setHorizontalAlignment($JCheckBox::CENTER);
@@ -59,7 +28,32 @@ JTable$BooleanEditor::JTable$BooleanEditor() {
 }
 
 $Class* JTable$BooleanEditor::load$($String* name, bool initialize) {
-	$loadClass(JTable$BooleanEditor, name, initialize, &_JTable$BooleanEditor_ClassInfo_, allocate$JTable$BooleanEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$BooleanEditor, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$BooleanEditor", "javax.swing.JTable", "BooleanEditor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$BooleanEditor",
+		"javax.swing.DefaultCellEditor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$BooleanEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTable$BooleanEditor));
+	});
 	return class$;
 }
 

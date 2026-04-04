@@ -15,6 +15,7 @@ class TransPatterns$3 : public ::java::lang::Object {
 	$class(TransPatterns$3, 0, ::java::lang::Object)
 public:
 	TransPatterns$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;
 };
 

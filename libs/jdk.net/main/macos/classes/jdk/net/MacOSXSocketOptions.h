@@ -23,6 +23,7 @@ class MacOSXSocketOptions : public ::jdk::net::ExtendedSocketOptions$PlatformSoc
 	$class(MacOSXSocketOptions, 0, ::jdk::net::ExtendedSocketOptions$PlatformSocketOptions)
 public:
 	MacOSXSocketOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::jdk::net::UnixDomainPrincipal* getSoPeerCred(int32_t fd) override;
 	static int64_t getSoPeerCred0(int32_t fd);

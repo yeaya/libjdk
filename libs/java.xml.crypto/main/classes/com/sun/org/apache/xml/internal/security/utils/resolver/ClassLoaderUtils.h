@@ -34,6 +34,7 @@ class ClassLoaderUtils : public ::java::lang::Object {
 	$class(ClassLoaderUtils, 0, ::java::lang::Object)
 public:
 	ClassLoaderUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* loadClass($String* className, $Class* callingClass);
 	static $Class* loadClass2($String* className, $Class* callingClass);

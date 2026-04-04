@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconMouseListener.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
@@ -20,11 +19,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
-using $JDesktopPane = ::javax::swing::JDesktopPane;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JPopupMenu = ::javax::swing::JPopupMenu;
 
 namespace com {
 	namespace sun {
@@ -33,56 +28,20 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifDesktopIconUI$DesktopIconMouseListener_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifDesktopIconUI$DesktopIconMouseListener, this$0)},
-	{}
-};
-
-$MethodInfo _MotifDesktopIconUI$DesktopIconMouseListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;)V", nullptr, $PROTECTED, $method(MotifDesktopIconUI$DesktopIconMouseListener, init$, void, $MotifDesktopIconUI*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$DesktopIconMouseListener, mousePressed, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _MotifDesktopIconUI$DesktopIconMouseListener_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "DesktopIconMouseListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifDesktopIconUI$DesktopIconMouseListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_MotifDesktopIconUI$DesktopIconMouseListener_FieldInfo_,
-	_MotifDesktopIconUI$DesktopIconMouseListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifDesktopIconUI$DesktopIconMouseListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI"
-};
-
-$Object* allocate$MotifDesktopIconUI$DesktopIconMouseListener($Class* clazz) {
-	return $of($alloc(MotifDesktopIconUI$DesktopIconMouseListener));
-}
-
 void MotifDesktopIconUI$DesktopIconMouseListener::init$($MotifDesktopIconUI* this$0) {
 	$set(this, this$0, this$0);
 	$MouseAdapter::init$();
 }
 
 void MotifDesktopIconUI$DesktopIconMouseListener::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->getClickCount() > 1) {
 		try {
-			$nc($(this->this$0->getFrame()))->setIcon(false);
+			$$nc(this->this$0->getFrame())->setIcon(false);
 		} catch ($PropertyVetoException& e2) {
 		}
 		$nc(this->this$0->systemMenu)->setVisible(false);
-		$nc($($nc($($nc($(this->this$0->getFrame()))->getDesktopPane()))->getDesktopManager()))->endDraggingFrame($cast($JComponent, $(e->getSource())));
+		$$nc($$nc($$nc(this->this$0->getFrame())->getDesktopPane())->getDesktopManager())->endDraggingFrame($$cast($JComponent, e->getSource()));
 	}
 }
 
@@ -90,7 +49,37 @@ MotifDesktopIconUI$DesktopIconMouseListener::MotifDesktopIconUI$DesktopIconMouse
 }
 
 $Class* MotifDesktopIconUI$DesktopIconMouseListener::load$($String* name, bool initialize) {
-	$loadClass(MotifDesktopIconUI$DesktopIconMouseListener, name, initialize, &_MotifDesktopIconUI$DesktopIconMouseListener_ClassInfo_, allocate$MotifDesktopIconUI$DesktopIconMouseListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifDesktopIconUI$DesktopIconMouseListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI;)V", nullptr, $PROTECTED, $method(MotifDesktopIconUI$DesktopIconMouseListener, init$, void, $MotifDesktopIconUI*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI$DesktopIconMouseListener, mousePressed, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "DesktopIconMouseListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI"
+	};
+	$loadClass(MotifDesktopIconUI$DesktopIconMouseListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifDesktopIconUI$DesktopIconMouseListener));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFLZWCompressor.h>
-
 #include <com/sun/imageio/plugins/common/LZWCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
@@ -23,31 +22,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFLZWCompressor_FieldInfo_[] = {
-	{"predictor", "I", nullptr, $PRIVATE | $FINAL, $field(TIFFLZWCompressor, predictor)},
-	{}
-};
-
-$MethodInfo _TIFFLZWCompressor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TIFFLZWCompressor, init$, void, int32_t)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{"setStream", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWCompressor, setStream, void, $ImageOutputStream*)},
-	{}
-};
-
-$ClassInfo _TIFFLZWCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFLZWCompressor",
-	"com.sun.imageio.plugins.tiff.TIFFCompressor",
-	nullptr,
-	_TIFFLZWCompressor_FieldInfo_,
-	_TIFFLZWCompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFLZWCompressor($Class* clazz) {
-	return $of($alloc(TIFFLZWCompressor));
-}
-
 void TIFFLZWCompressor::init$(int32_t predictorValue) {
 	$TIFFCompressor::init$("LZW"_s, $BaselineTIFFTagSet::COMPRESSION_LZW, true);
 	this->predictor = predictorValue;
@@ -58,7 +32,7 @@ void TIFFLZWCompressor::setStream($ImageOutputStream* stream) {
 }
 
 int32_t TIFFLZWCompressor::encode($bytes* b, int32_t off, int32_t width, int32_t height, $ints* bitsPerSample, int32_t scanlineStride) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LZWCompressor, lzwCompressor, $new($LZWCompressor, this->stream, 8, true));
 	int32_t samplesPerPixel = $nc(bitsPerSample)->length;
 	int32_t bitsPerPixel = 0;
@@ -76,7 +50,7 @@ int32_t TIFFLZWCompressor::encode($bytes* b, int32_t off, int32_t width, int32_t
 			if (usePredictor) {
 				$System::arraycopy(b, off, rowBuf, 0, bytesPerRow);
 				for (int32_t j = bytesPerRow - 1; j >= samplesPerPixel; --j) {
-					(*$nc(rowBuf))[j] -= rowBuf->get(j - samplesPerPixel);
+					(*$nc(rowBuf))[j] -= $nc(rowBuf)->get(j - samplesPerPixel);
 				}
 				lzwCompressor->compress(rowBuf, 0, bytesPerRow);
 			} else {
@@ -94,7 +68,27 @@ TIFFLZWCompressor::TIFFLZWCompressor() {
 }
 
 $Class* TIFFLZWCompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFLZWCompressor, name, initialize, &_TIFFLZWCompressor_ClassInfo_, allocate$TIFFLZWCompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"predictor", "I", nullptr, $PRIVATE | $FINAL, $field(TIFFLZWCompressor, predictor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(TIFFLZWCompressor, init$, void, int32_t)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFLZWCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{"setStream", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TIFFLZWCompressor, setStream, void, $ImageOutputStream*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFLZWCompressor",
+		"com.sun.imageio.plugins.tiff.TIFFCompressor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFLZWCompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFLZWCompressor);
+	});
 	return class$;
 }
 

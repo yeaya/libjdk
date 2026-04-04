@@ -26,6 +26,7 @@ class $export TypeAnnotations$AnnotationType : public ::java::lang::Enum {
 public:
 	TypeAnnotations$AnnotationType();
 	static $Array<::com::sun::tools::javac::code::TypeAnnotations$AnnotationType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::code::TypeAnnotations$AnnotationType* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::TypeAnnotations$AnnotationType>* values();

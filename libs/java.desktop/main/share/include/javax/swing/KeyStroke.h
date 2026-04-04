@@ -25,6 +25,7 @@ class $import KeyStroke : public ::java::awt::AWTKeyStroke {
 	$class(KeyStroke, 0, ::java::awt::AWTKeyStroke)
 public:
 	KeyStroke();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(char16_t keyChar, int32_t keyCode, int32_t modifiers, bool onKeyRelease);
 	static ::javax::swing::KeyStroke* getKeyStroke(char16_t keyChar);
@@ -34,7 +35,7 @@ public:
 	static ::javax::swing::KeyStroke* getKeyStroke(int32_t keyCode, int32_t modifiers);
 	static ::javax::swing::KeyStroke* getKeyStroke($String* s);
 	static ::javax::swing::KeyStroke* getKeyStrokeForEvent(::java::awt::event::KeyEvent* anEvent);
-	static const int64_t serialVersionUID = (int64_t)0x8243C5977576093E;
+	static const int64_t serialVersionUID = (int64_t)0x8243c5977576093e;
 };
 
 	} // swing

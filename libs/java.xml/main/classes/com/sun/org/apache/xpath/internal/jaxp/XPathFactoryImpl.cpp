@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathFactoryImpl.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathImpl.h>
 #include <com/sun/org/apache/xpath/internal/res/XPATHErrorResources.h>
@@ -61,40 +60,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 
-$FieldInfo _XPathFactoryImpl_FieldInfo_[] = {
-	{"CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPathFactoryImpl, CLASS_NAME)},
-	{"xPathFunctionResolver", "Ljavax/xml/xpath/XPathFunctionResolver;", nullptr, $PRIVATE, $field(XPathFactoryImpl, xPathFunctionResolver)},
-	{"xPathVariableResolver", "Ljavax/xml/xpath/XPathVariableResolver;", nullptr, $PRIVATE, $field(XPathFactoryImpl, xPathVariableResolver)},
-	{"_isNotSecureProcessing", "Z", nullptr, $PRIVATE, $field(XPathFactoryImpl, _isNotSecureProcessing)},
-	{"_isSecureMode", "Z", nullptr, $PRIVATE, $field(XPathFactoryImpl, _isSecureMode)},
-	{"_featureManager", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(XPathFactoryImpl, _featureManager)},
-	{}
-};
-
-$MethodInfo _XPathFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPathFactoryImpl, init$, void)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, getFeature, bool, $String*), "javax.xml.xpath.XPathFactoryConfigurationException"},
-	{"isObjectModelSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, isObjectModelSupported, bool, $String*)},
-	{"newXPath", "()Ljavax/xml/xpath/XPath;", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, newXPath, $XPath*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, setFeature, void, $String*, bool), "javax.xml.xpath.XPathFactoryConfigurationException"},
-	{"setXPathFunctionResolver", "(Ljavax/xml/xpath/XPathFunctionResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, setXPathFunctionResolver, void, $XPathFunctionResolver*)},
-	{"setXPathVariableResolver", "(Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, setXPathVariableResolver, void, $XPathVariableResolver*)},
-	{}
-};
-
-$ClassInfo _XPathFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.jaxp.XPathFactoryImpl",
-	"javax.xml.xpath.XPathFactory",
-	nullptr,
-	_XPathFactoryImpl_FieldInfo_,
-	_XPathFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$XPathFactoryImpl($Class* clazz) {
-	return $of($alloc(XPathFactoryImpl));
-}
-
 $String* XPathFactoryImpl::CLASS_NAME = nullptr;
 
 void XPathFactoryImpl::init$() {
@@ -111,19 +76,19 @@ void XPathFactoryImpl::init$() {
 }
 
 bool XPathFactoryImpl::isObjectModelSupported($String* objectModel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (objectModel == nullptr) {
 		$init($XPATHErrorResources);
-		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_OBJECT_MODEL_NULL, $$new($ObjectArray, {$($of($of(this)->getClass()->getName()))})));
+		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_OBJECT_MODEL_NULL, $$new($ObjectArray, {$(this->getClass()->getName())})));
 		$throwNew($NullPointerException, fmsg);
 	}
 	if ($nc(objectModel)->length() == 0) {
 		$init($XPATHErrorResources);
-		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_OBJECT_MODEL_EMPTY, $$new($ObjectArray, {$($of($of(this)->getClass()->getName()))})));
+		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_OBJECT_MODEL_EMPTY, $$new($ObjectArray, {$(this->getClass()->getName())})));
 		$throwNew($IllegalArgumentException, fmsg);
 	}
 	$init($XPathFactory);
-	if ($nc(objectModel)->equals($XPathFactory::DEFAULT_OBJECT_MODEL_URI)) {
+	if (objectModel->equals($XPathFactory::DEFAULT_OBJECT_MODEL_URI)) {
 		return true;
 	}
 	return false;
@@ -134,12 +99,12 @@ $XPath* XPathFactoryImpl::newXPath() {
 }
 
 void XPathFactoryImpl::setFeature($String* name, bool value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$init($XPATHErrorResources);
 		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_FEATURE_NAME_NULL, $$new($ObjectArray, {
-			$of(XPathFactoryImpl::CLASS_NAME),
-			$($of($Boolean::valueOf(value)))
+			XPathFactoryImpl::CLASS_NAME,
+			$($Boolean::valueOf(value))
 		})));
 		$throwNew($NullPointerException, fmsg);
 	}
@@ -148,9 +113,9 @@ void XPathFactoryImpl::setFeature($String* name, bool value) {
 		if ((this->_isSecureMode) && (!value)) {
 			$init($XPATHErrorResources);
 			$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_SECUREPROCESSING_FEATURE, $$new($ObjectArray, {
-				$of(name),
-				$of(XPathFactoryImpl::CLASS_NAME),
-				$($of($Boolean::valueOf(value)))
+				name,
+				XPathFactoryImpl::CLASS_NAME,
+				$($Boolean::valueOf(value))
 			})));
 			$throwNew($XPathFactoryConfigurationException, fmsg);
 		}
@@ -158,67 +123,67 @@ void XPathFactoryImpl::setFeature($String* name, bool value) {
 		if (value && this->_featureManager != nullptr) {
 			$init($JdkXmlFeatures$XmlFeature);
 			$init($JdkProperty$State);
-			$nc(this->_featureManager)->setFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION, $JdkProperty$State::FSP, false);
+			this->_featureManager->setFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION, $JdkProperty$State::FSP, false);
 		}
 		return;
 	}
 	$init($JdkConstants);
-	if ($nc(name)->equals($JdkConstants::ORACLE_FEATURE_SERVICE_MECHANISM)) {
+	if (name->equals($JdkConstants::ORACLE_FEATURE_SERVICE_MECHANISM)) {
 		if (this->_isSecureMode) {
 			return;
 		}
 	}
 	$init($JdkProperty$State);
-	if (this->_featureManager != nullptr && $nc(this->_featureManager)->setFeature(name, $JdkProperty$State::APIPROPERTY, $($of($Boolean::valueOf(value))))) {
+	if (this->_featureManager != nullptr && this->_featureManager->setFeature(name, $JdkProperty$State::APIPROPERTY, $($Boolean::valueOf(value)))) {
 		return;
 	}
 	$init($XPATHErrorResources);
 	$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_FEATURE_UNKNOWN, $$new($ObjectArray, {
-		$of(name),
-		$of(XPathFactoryImpl::CLASS_NAME),
-		$($of($Boolean::valueOf(value)))
+		name,
+		XPathFactoryImpl::CLASS_NAME,
+		$($Boolean::valueOf(value))
 	})));
 	$throwNew($XPathFactoryConfigurationException, fmsg);
 }
 
 bool XPathFactoryImpl::getFeature($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$init($XPATHErrorResources);
-		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_GETTING_NULL_FEATURE, $$new($ObjectArray, {$of(XPathFactoryImpl::CLASS_NAME)})));
+		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_GETTING_NULL_FEATURE, $$new($ObjectArray, {XPathFactoryImpl::CLASS_NAME})));
 		$throwNew($NullPointerException, fmsg);
 	}
 	$init($XMLConstants);
 	if ($nc(name)->equals($XMLConstants::FEATURE_SECURE_PROCESSING)) {
 		return !this->_isNotSecureProcessing;
 	}
-	int32_t index = $nc(this->_featureManager)->getIndex(name);
+	int32_t index = this->_featureManager->getIndex(name);
 	if (index > -1) {
-		return $nc(this->_featureManager)->getFeature(index);
+		return this->_featureManager->getFeature(index);
 	}
 	$init($XPATHErrorResources);
 	$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_GETTING_UNKNOWN_FEATURE, $$new($ObjectArray, {
-		$of(name),
-		$of(XPathFactoryImpl::CLASS_NAME)
+		name,
+		XPathFactoryImpl::CLASS_NAME
 	})));
 	$throwNew($XPathFactoryConfigurationException, fmsg);
 }
 
 void XPathFactoryImpl::setXPathFunctionResolver($XPathFunctionResolver* resolver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (resolver == nullptr) {
 		$init($XPATHErrorResources);
-		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NULL_XPATH_FUNCTION_RESOLVER, $$new($ObjectArray, {$of(XPathFactoryImpl::CLASS_NAME)})));
+		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NULL_XPATH_FUNCTION_RESOLVER, $$new($ObjectArray, {XPathFactoryImpl::CLASS_NAME})));
 		$throwNew($NullPointerException, fmsg);
 	}
 	$set(this, xPathFunctionResolver, resolver);
 }
 
 void XPathFactoryImpl::setXPathVariableResolver($XPathVariableResolver* resolver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (resolver == nullptr) {
 		$init($XPATHErrorResources);
-		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NULL_XPATH_VARIABLE_RESOLVER, $$new($ObjectArray, {$of(XPathFactoryImpl::CLASS_NAME)})));
+		$var($String, fmsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_NULL_XPATH_VARIABLE_RESOLVER, $$new($ObjectArray, {XPathFactoryImpl::CLASS_NAME})));
 		$throwNew($NullPointerException, fmsg);
 	}
 	$set(this, xPathVariableResolver, resolver);
@@ -227,12 +192,41 @@ void XPathFactoryImpl::setXPathVariableResolver($XPathVariableResolver* resolver
 XPathFactoryImpl::XPathFactoryImpl() {
 }
 
-void clinit$XPathFactoryImpl($Class* class$) {
+void XPathFactoryImpl::clinit$($Class* clazz) {
 	$assignStatic(XPathFactoryImpl::CLASS_NAME, "XPathFactoryImpl"_s);
 }
 
 $Class* XPathFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(XPathFactoryImpl, name, initialize, &_XPathFactoryImpl_ClassInfo_, clinit$XPathFactoryImpl, allocate$XPathFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPathFactoryImpl, CLASS_NAME)},
+		{"xPathFunctionResolver", "Ljavax/xml/xpath/XPathFunctionResolver;", nullptr, $PRIVATE, $field(XPathFactoryImpl, xPathFunctionResolver)},
+		{"xPathVariableResolver", "Ljavax/xml/xpath/XPathVariableResolver;", nullptr, $PRIVATE, $field(XPathFactoryImpl, xPathVariableResolver)},
+		{"_isNotSecureProcessing", "Z", nullptr, $PRIVATE, $field(XPathFactoryImpl, _isNotSecureProcessing)},
+		{"_isSecureMode", "Z", nullptr, $PRIVATE, $field(XPathFactoryImpl, _isSecureMode)},
+		{"_featureManager", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(XPathFactoryImpl, _featureManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPathFactoryImpl, init$, void)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, getFeature, bool, $String*), "javax.xml.xpath.XPathFactoryConfigurationException"},
+		{"isObjectModelSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, isObjectModelSupported, bool, $String*)},
+		{"newXPath", "()Ljavax/xml/xpath/XPath;", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, newXPath, $XPath*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, setFeature, void, $String*, bool), "javax.xml.xpath.XPathFactoryConfigurationException"},
+		{"setXPathFunctionResolver", "(Ljavax/xml/xpath/XPathFunctionResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, setXPathFunctionResolver, void, $XPathFunctionResolver*)},
+		{"setXPathVariableResolver", "(Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathFactoryImpl, setXPathVariableResolver, void, $XPathVariableResolver*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.jaxp.XPathFactoryImpl",
+		"javax.xml.xpath.XPathFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathFactoryImpl, name, initialize, &classInfo$$, XPathFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathFactoryImpl);
+	});
 	return class$;
 }
 

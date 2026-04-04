@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/Request$WriteStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
@@ -26,51 +25,6 @@ using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _Request$WriteStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Request$WriteStream, $assertionsDisabled)},
-	{"channel", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(Request$WriteStream, channel)},
-	{"buf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(Request$WriteStream, buf)},
-	{"key", "Ljava/nio/channels/SelectionKey;", nullptr, 0, $field(Request$WriteStream, key)},
-	{"closed", "Z", nullptr, 0, $field(Request$WriteStream, closed)},
-	{"one", "[B", nullptr, 0, $field(Request$WriteStream, one)},
-	{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(Request$WriteStream, server)},
-	{}
-};
-
-$MethodInfo _Request$WriteStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(Request$WriteStream, init$, void, $ServerImpl*, $SocketChannel*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Request$WriteStream, close, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Request$WriteStream_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.Request$WriteStream", "sun.net.httpserver.Request", "WriteStream", $STATIC},
-	{}
-};
-
-$ClassInfo _Request$WriteStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.Request$WriteStream",
-	"java.io.OutputStream",
-	nullptr,
-	_Request$WriteStream_FieldInfo_,
-	_Request$WriteStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Request$WriteStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.Request"
-};
-
-$Object* allocate$Request$WriteStream($Class* clazz) {
-	return $of($alloc(Request$WriteStream));
-}
 
 bool Request$WriteStream::$assertionsDisabled = false;
 
@@ -131,7 +85,7 @@ void Request$WriteStream::close() {
 	this->closed = true;
 }
 
-void clinit$Request$WriteStream($Class* class$) {
+void Request$WriteStream::clinit$($Class* clazz) {
 	$load($Request);
 	Request$WriteStream::$assertionsDisabled = !$Request::class$->desiredAssertionStatus();
 }
@@ -140,7 +94,46 @@ Request$WriteStream::Request$WriteStream() {
 }
 
 $Class* Request$WriteStream::load$($String* name, bool initialize) {
-	$loadClass(Request$WriteStream, name, initialize, &_Request$WriteStream_ClassInfo_, clinit$Request$WriteStream, allocate$Request$WriteStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Request$WriteStream, $assertionsDisabled)},
+		{"channel", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(Request$WriteStream, channel)},
+		{"buf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(Request$WriteStream, buf)},
+		{"key", "Ljava/nio/channels/SelectionKey;", nullptr, 0, $field(Request$WriteStream, key)},
+		{"closed", "Z", nullptr, 0, $field(Request$WriteStream, closed)},
+		{"one", "[B", nullptr, 0, $field(Request$WriteStream, one)},
+		{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(Request$WriteStream, server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(Request$WriteStream, init$, void, $ServerImpl*, $SocketChannel*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Request$WriteStream, close, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.Request$WriteStream", "sun.net.httpserver.Request", "WriteStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.Request$WriteStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.Request"
+	};
+	$loadClass(Request$WriteStream, name, initialize, &classInfo$$, Request$WriteStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Request$WriteStream));
+	});
 	return class$;
 }
 

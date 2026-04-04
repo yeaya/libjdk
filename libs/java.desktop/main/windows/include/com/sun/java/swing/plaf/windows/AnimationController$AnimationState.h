@@ -36,6 +36,7 @@ class $import AnimationController$AnimationState : public ::java::lang::Object {
 	$class(AnimationController$AnimationState, 0, ::java::lang::Object)
 public:
 	AnimationController$AnimationState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::java::swing::plaf::windows::TMSchema$State* startState, int64_t milliseconds, bool isForwardAndReverse);
 	virtual bool isDone();
 	virtual void paintSkin(::com::sun::java::swing::plaf::windows::XPStyle$Skin* skin, ::java::awt::Graphics* _g, int32_t dx, int32_t dy, int32_t dw, int32_t dh, ::com::sun::java::swing::plaf::windows::TMSchema$State* state);

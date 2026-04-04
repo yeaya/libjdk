@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WTaskbarPeer$1.h>
-
 #include <java/awt/Taskbar$Feature.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/awt/windows/WTaskbarPeer.h>
@@ -21,61 +20,25 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WTaskbarPeer$1_FieldInfo_[] = {
-	{"$SwitchMap$java$awt$Taskbar$Feature", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WTaskbarPeer$1, $SwitchMap$java$awt$Taskbar$Feature)},
-	{}
-};
-
-$EnclosingMethodInfo _WTaskbarPeer$1_EnclosingMethodInfo_ = {
-	"sun.awt.windows.WTaskbarPeer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _WTaskbarPeer$1_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WTaskbarPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _WTaskbarPeer$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.awt.windows.WTaskbarPeer$1",
-	"java.lang.Object",
-	nullptr,
-	_WTaskbarPeer$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_WTaskbarPeer$1_EnclosingMethodInfo_,
-	_WTaskbarPeer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WTaskbarPeer"
-};
-
-$Object* allocate$WTaskbarPeer$1($Class* clazz) {
-	return $of($alloc(WTaskbarPeer$1));
-}
-
 $ints* WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature = nullptr;
 
-void clinit$WTaskbarPeer$1($Class* class$) {
+void WTaskbarPeer$1::clinit$($Class* clazz) {
 	$assignStatic(WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature, $new($ints, $($Taskbar$Feature::values())->length));
 	{
 		try {
-			$nc(WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature)->set($Taskbar$Feature::ICON_BADGE_IMAGE_WINDOW->ordinal(), 1);
+			WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature->set($Taskbar$Feature::ICON_BADGE_IMAGE_WINDOW->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature)->set($Taskbar$Feature::PROGRESS_STATE_WINDOW->ordinal(), 2);
+			WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature->set($Taskbar$Feature::PROGRESS_STATE_WINDOW->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature)->set($Taskbar$Feature::PROGRESS_VALUE_WINDOW->ordinal(), 3);
+			WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature->set($Taskbar$Feature::PROGRESS_VALUE_WINDOW->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature)->set($Taskbar$Feature::USER_ATTENTION_WINDOW->ordinal(), 4);
+			WTaskbarPeer$1::$SwitchMap$java$awt$Taskbar$Feature->set($Taskbar$Feature::USER_ATTENTION_WINDOW->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -85,7 +48,37 @@ WTaskbarPeer$1::WTaskbarPeer$1() {
 }
 
 $Class* WTaskbarPeer$1::load$($String* name, bool initialize) {
-	$loadClass(WTaskbarPeer$1, name, initialize, &_WTaskbarPeer$1_ClassInfo_, clinit$WTaskbarPeer$1, allocate$WTaskbarPeer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$awt$Taskbar$Feature", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WTaskbarPeer$1, $SwitchMap$java$awt$Taskbar$Feature)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.windows.WTaskbarPeer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WTaskbarPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.awt.windows.WTaskbarPeer$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WTaskbarPeer"
+	};
+	$loadClass(WTaskbarPeer$1, name, initialize, &classInfo$$, WTaskbarPeer$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WTaskbarPeer$1);
+	});
 	return class$;
 }
 

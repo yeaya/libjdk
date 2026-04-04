@@ -1,5 +1,4 @@
 #include <java/awt/SequencedEvent$2.h>
-
 #include <java/awt/SequencedEvent.h>
 #include <jcpp.h>
 
@@ -12,57 +11,51 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$MethodInfo _SequencedEvent$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SequencedEvent$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SequencedEvent$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SequencedEvent$2_EnclosingMethodInfo_ = {
-	"java.awt.SequencedEvent",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SequencedEvent$2_InnerClassesInfo_[] = {
-	{"java.awt.SequencedEvent$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SequencedEvent$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.SequencedEvent$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_SequencedEvent$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_SequencedEvent$2_EnclosingMethodInfo_,
-	_SequencedEvent$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.SequencedEvent"
-};
-
-$Object* allocate$SequencedEvent$2($Class* clazz) {
-	return $of($alloc(SequencedEvent$2));
-}
-
 void SequencedEvent$2::init$() {
 }
 
 $Object* SequencedEvent$2::run() {
 	$init($SequencedEvent);
 	$SequencedEvent::fxAppThreadIsDispatchThread = "true"_s->equals($($System::getProperty("javafx.embed.singleThread"_s)));
-	return $of(nullptr);
+	return nullptr;
 }
 
 SequencedEvent$2::SequencedEvent$2() {
 }
 
 $Class* SequencedEvent$2::load$($String* name, bool initialize) {
-	$loadClass(SequencedEvent$2, name, initialize, &_SequencedEvent$2_ClassInfo_, allocate$SequencedEvent$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SequencedEvent$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SequencedEvent$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.SequencedEvent",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.SequencedEvent$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.SequencedEvent$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.SequencedEvent"
+	};
+	$loadClass(SequencedEvent$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SequencedEvent$2);
+	});
 	return class$;
 }
 

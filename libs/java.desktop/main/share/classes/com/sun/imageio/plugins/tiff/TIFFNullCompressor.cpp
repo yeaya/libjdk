@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFNullCompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
@@ -11,32 +10,12 @@ using $TIFFCompressor = ::com::sun::imageio::plugins::tiff::TIFFCompressor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
-using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$MethodInfo _TIFFNullCompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFNullCompressor, init$, void)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFNullCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TIFFNullCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFNullCompressor",
-	"com.sun.imageio.plugins.tiff.TIFFCompressor",
-	nullptr,
-	nullptr,
-	_TIFFNullCompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFNullCompressor($Class* clazz) {
-	return $of($alloc(TIFFNullCompressor));
-}
 
 void TIFFNullCompressor::init$() {
 	$TIFFCompressor::init$(""_s, $BaselineTIFFTagSet::COMPRESSION_NONE, true);
@@ -64,7 +43,22 @@ TIFFNullCompressor::TIFFNullCompressor() {
 }
 
 $Class* TIFFNullCompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFNullCompressor, name, initialize, &_TIFFNullCompressor_ClassInfo_, allocate$TIFFNullCompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFNullCompressor, init$, void)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFNullCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFNullCompressor",
+		"com.sun.imageio.plugins.tiff.TIFFCompressor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TIFFNullCompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFNullCompressor);
+	});
 	return class$;
 }
 

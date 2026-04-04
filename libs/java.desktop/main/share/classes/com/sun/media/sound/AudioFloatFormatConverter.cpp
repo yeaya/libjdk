@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AudioFloatFormatConverter.h>
-
 #include <com/sun/media/sound/AudioFloatConverter.h>
 #include <com/sun/media/sound/AudioFloatFormatConverter$AudioFloatFormatConverterInputStream.h>
 #include <com/sun/media/sound/AudioFloatFormatConverter$AudioFloatInputStreamChannelMixer.h>
@@ -49,51 +48,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _AudioFloatFormatConverter_FieldInfo_[] = {
-	{"formats", "[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PRIVATE | $FINAL, $field(AudioFloatFormatConverter, formats)},
-	{}
-};
-
-$MethodInfo _AudioFloatFormatConverter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AudioFloatFormatConverter, init$, void)},
-	{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getAudioInputStream, $AudioInputStream*, $AudioFormat$Encoding*, $AudioInputStream*)},
-	{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
-	{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Lcom/sun/media/sound/AudioFloatInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $method(AudioFloatFormatConverter, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioFloatInputStream*)},
-	{"getSourceEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getSourceEncodings, $AudioFormat$EncodingArray*)},
-	{"getTargetEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getTargetEncodings, $AudioFormat$EncodingArray*)},
-	{"getTargetEncodings", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getTargetEncodings, $AudioFormat$EncodingArray*, $AudioFormat*)},
-	{"getTargetFormats", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getTargetFormats, $AudioFormatArray*, $AudioFormat$Encoding*, $AudioFormat*)},
-	{"isConversionSupported", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, isConversionSupported, bool, $AudioFormat*, $AudioFormat*)},
-	{"isConversionSupported", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, isConversionSupported, bool, $AudioFormat$Encoding*, $AudioFormat*)},
-	{}
-};
-
-$InnerClassInfo _AudioFloatFormatConverter_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamResampler", "com.sun.media.sound.AudioFloatFormatConverter", "AudioFloatInputStreamResampler", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamChannelMixer", "com.sun.media.sound.AudioFloatFormatConverter", "AudioFloatInputStreamChannelMixer", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatFormatConverterInputStream", "com.sun.media.sound.AudioFloatFormatConverter", "AudioFloatFormatConverterInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AudioFloatFormatConverter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AudioFloatFormatConverter",
-	"javax.sound.sampled.spi.FormatConversionProvider",
-	nullptr,
-	_AudioFloatFormatConverter_FieldInfo_,
-	_AudioFloatFormatConverter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioFloatFormatConverter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamResampler,com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamChannelMixer,com.sun.media.sound.AudioFloatFormatConverter$AudioFloatFormatConverterInputStream"
-};
-
-$Object* allocate$AudioFloatFormatConverter($Class* clazz) {
-	return $of($alloc(AudioFloatFormatConverter));
-}
-
 void AudioFloatFormatConverter::init$() {
 	$FormatConversionProvider::init$();
 	$init($AudioFormat$Encoding);
@@ -105,15 +59,19 @@ void AudioFloatFormatConverter::init$() {
 }
 
 $AudioInputStream* AudioFloatFormatConverter::getAudioInputStream($AudioFormat$Encoding* targetEncoding, $AudioInputStream* sourceStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isConversionSupported(targetEncoding, $($nc(sourceStream)->getFormat()))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc($($nc(sourceStream)->getFormat()))->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(targetEncoding)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($$nc(sourceStream->getFormat())->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(targetEncoding)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
-	if ($nc($($nc($($nc(sourceStream)->getFormat()))->getEncoding()))->equals(targetEncoding)) {
+	if ($$nc($$nc(sourceStream->getFormat())->getEncoding())->equals(targetEncoding)) {
 		return sourceStream;
 	}
-	$var($AudioFormat, format, $nc(sourceStream)->getFormat());
+	$var($AudioFormat, format, sourceStream->getFormat());
 	int32_t channels = $nc(format)->getChannels();
 	$var($AudioFormat$Encoding, encoding, targetEncoding);
 	float samplerate = format->getSampleRate();
@@ -127,32 +85,39 @@ $AudioInputStream* AudioFloatFormatConverter::getAudioInputStream($AudioFormat$E
 }
 
 $AudioInputStream* AudioFloatFormatConverter::getAudioInputStream($AudioFormat* targetFormat, $AudioInputStream* sourceStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isConversionSupported(targetFormat, $($nc(sourceStream)->getFormat()))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc($($nc(sourceStream)->getFormat()))->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(targetFormat)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($$nc(sourceStream->getFormat())->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(targetFormat)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	return getAudioInputStream(targetFormat, $($AudioFloatInputStream::getInputStream(sourceStream)));
 }
 
 $AudioInputStream* AudioFloatFormatConverter::getAudioInputStream($AudioFormat* targetFormat, $AudioFloatInputStream* sourceStream$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFloatInputStream, sourceStream, sourceStream$renamed);
 	if (!isConversionSupported(targetFormat, $($nc(sourceStream)->getFormat()))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc($($nc(sourceStream)->getFormat()))->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(targetFormat)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($$nc(sourceStream->getFormat())->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(targetFormat)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	int32_t var$1 = $nc(targetFormat)->getChannels();
-	if (var$1 != $nc($($nc(sourceStream)->getFormat()))->getChannels()) {
+	if (var$1 != $$nc(sourceStream->getFormat())->getChannels()) {
 		$assign(sourceStream, $new($AudioFloatFormatConverter$AudioFloatInputStreamChannelMixer, sourceStream, targetFormat->getChannels()));
 	}
-	float var$2 = $nc(targetFormat)->getSampleRate();
-	if ($Math::abs(var$2 - $nc($($nc(sourceStream)->getFormat()))->getSampleRate()) > 1.0E-6) {
+	float var$2 = targetFormat->getSampleRate();
+	if ($Math::abs(var$2 - $$nc(sourceStream->getFormat())->getSampleRate()) > 1.0E-6) {
 		$assign(sourceStream, $new($AudioFloatFormatConverter$AudioFloatInputStreamResampler, sourceStream, targetFormat));
 	}
-	$var($InputStream, var$3, static_cast<$InputStream*>($new($AudioFloatFormatConverter$AudioFloatFormatConverterInputStream, targetFormat, sourceStream)));
-	$var($AudioFormat, var$4, targetFormat);
-	return $new($AudioInputStream, var$3, var$4, $nc(sourceStream)->getFrameLength());
+	$var($InputStream, var$3, $new($AudioFloatFormatConverter$AudioFloatFormatConverterInputStream, targetFormat, sourceStream));
+	return $new($AudioInputStream, var$3, targetFormat, sourceStream->getFrameLength());
 }
 
 $AudioFormat$EncodingArray* AudioFloatFormatConverter::getSourceEncodings() {
@@ -181,7 +146,7 @@ $AudioFormat$EncodingArray* AudioFloatFormatConverter::getTargetEncodings($Audio
 }
 
 $AudioFormatArray* AudioFloatFormatConverter::getTargetFormats($AudioFormat$Encoding* targetEncoding, $AudioFormat* sourceFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(targetEncoding);
 	if ($AudioFloatConverter::getConverter(sourceFormat) == nullptr) {
 		return $new($AudioFormatArray, 0);
@@ -211,7 +176,7 @@ $AudioFormatArray* AudioFloatFormatConverter::getTargetFormats($AudioFormat$Enco
 		formats->add($$new($AudioFormat, $AudioFormat$Encoding::PCM_FLOAT, (float)$AudioSystem::NOT_SPECIFIED, 64, channels, channels * 8, (float)$AudioSystem::NOT_SPECIFIED, false));
 		formats->add($$new($AudioFormat, $AudioFormat$Encoding::PCM_FLOAT, (float)$AudioSystem::NOT_SPECIFIED, 64, channels, channels * 8, (float)$AudioSystem::NOT_SPECIFIED, true));
 	}
-	return $fcast($AudioFormatArray, formats->toArray($$new($AudioFormatArray, formats->size())));
+	return $cast($AudioFormatArray, formats->toArray($$new($AudioFormatArray, formats->size())));
 }
 
 bool AudioFloatFormatConverter::isConversionSupported($AudioFormat* targetFormat, $AudioFormat* sourceFormat) {
@@ -236,8 +201,8 @@ bool AudioFloatFormatConverter::isConversionSupported($AudioFormat$Encoding* tar
 	if ($AudioFloatConverter::getConverter(sourceFormat) == nullptr) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(this->formats)->length; ++i) {
-		if (targetEncoding->equals($nc(this->formats)->get(i))) {
+	for (int32_t i = 0; i < this->formats->length; ++i) {
+		if (targetEncoding->equals(this->formats->get(i))) {
 			return true;
 		}
 	}
@@ -248,7 +213,46 @@ AudioFloatFormatConverter::AudioFloatFormatConverter() {
 }
 
 $Class* AudioFloatFormatConverter::load$($String* name, bool initialize) {
-	$loadClass(AudioFloatFormatConverter, name, initialize, &_AudioFloatFormatConverter_ClassInfo_, allocate$AudioFloatFormatConverter);
+	$FieldInfo fieldInfos$$[] = {
+		{"formats", "[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PRIVATE | $FINAL, $field(AudioFloatFormatConverter, formats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AudioFloatFormatConverter, init$, void)},
+		{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getAudioInputStream, $AudioInputStream*, $AudioFormat$Encoding*, $AudioInputStream*)},
+		{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
+		{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Lcom/sun/media/sound/AudioFloatInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $method(AudioFloatFormatConverter, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioFloatInputStream*)},
+		{"getSourceEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getSourceEncodings, $AudioFormat$EncodingArray*)},
+		{"getTargetEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getTargetEncodings, $AudioFormat$EncodingArray*)},
+		{"getTargetEncodings", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getTargetEncodings, $AudioFormat$EncodingArray*, $AudioFormat*)},
+		{"getTargetFormats", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, getTargetFormats, $AudioFormatArray*, $AudioFormat$Encoding*, $AudioFormat*)},
+		{"isConversionSupported", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, isConversionSupported, bool, $AudioFormat*, $AudioFormat*)},
+		{"isConversionSupported", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $PUBLIC, $virtualMethod(AudioFloatFormatConverter, isConversionSupported, bool, $AudioFormat$Encoding*, $AudioFormat*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamResampler", "com.sun.media.sound.AudioFloatFormatConverter", "AudioFloatInputStreamResampler", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamChannelMixer", "com.sun.media.sound.AudioFloatFormatConverter", "AudioFloatInputStreamChannelMixer", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatFormatConverterInputStream", "com.sun.media.sound.AudioFloatFormatConverter", "AudioFloatFormatConverterInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AudioFloatFormatConverter",
+		"javax.sound.sampled.spi.FormatConversionProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamResampler,com.sun.media.sound.AudioFloatFormatConverter$AudioFloatInputStreamChannelMixer,com.sun.media.sound.AudioFloatFormatConverter$AudioFloatFormatConverterInputStream"
+	};
+	$loadClass(AudioFloatFormatConverter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFloatFormatConverter);
+	});
 	return class$;
 }
 

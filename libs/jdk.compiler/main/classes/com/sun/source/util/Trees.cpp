@@ -1,5 +1,4 @@
 #include <com/sun/source/util/Trees.h>
-
 #include <com/sun/source/tree/CatchTree.h>
 #include <com/sun/source/tree/ClassTree.h>
 #include <com/sun/source/tree/CompilationUnitTree.h>
@@ -59,46 +58,6 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$MethodInfo _Trees_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Trees, init$, void)},
-	{"getDocComment", "(Lcom/sun/source/util/TreePath;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getDocComment, $String*, $TreePath*)},
-	{"getElement", "(Lcom/sun/source/util/TreePath;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getElement, $Element*, $TreePath*)},
-	{"getJavacTrees", "(Ljava/lang/Class;Ljava/lang/Object;)Lcom/sun/source/util/Trees;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Lcom/sun/source/util/Trees;", $STATIC, $staticMethod(Trees, getJavacTrees, Trees*, $Class*, Object$*)},
-	{"getLub", "(Lcom/sun/source/tree/CatchTree;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getLub, $TypeMirror*, $CatchTree*)},
-	{"getOriginalType", "(Ljavax/lang/model/type/ErrorType;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getOriginalType, $TypeMirror*, $ErrorType*)},
-	{"getPath", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $CompilationUnitTree*, $Tree*)},
-	{"getPath", "(Ljavax/lang/model/element/Element;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $Element*)},
-	{"getPath", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $Element*, $AnnotationMirror*)},
-	{"getPath", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
-	{"getScope", "(Lcom/sun/source/util/TreePath;)Lcom/sun/source/tree/Scope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getScope, $Scope*, $TreePath*)},
-	{"getSourcePositions", "()Lcom/sun/source/util/SourcePositions;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getSourcePositions, $SourcePositions*)},
-	{"getTree", "(Ljavax/lang/model/element/Element;)Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $Tree*, $Element*)},
-	{"getTree", "(Ljavax/lang/model/element/TypeElement;)Lcom/sun/source/tree/ClassTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $ClassTree*, $TypeElement*)},
-	{"getTree", "(Ljavax/lang/model/element/ExecutableElement;)Lcom/sun/source/tree/MethodTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $MethodTree*, $ExecutableElement*)},
-	{"getTree", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $Tree*, $Element*, $AnnotationMirror*)},
-	{"getTree", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $Tree*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
-	{"getTypeMirror", "(Lcom/sun/source/util/TreePath;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTypeMirror, $TypeMirror*, $TreePath*)},
-	{"instance", "(Ljavax/tools/JavaCompiler$CompilationTask;)Lcom/sun/source/util/Trees;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trees, instance, Trees*, $JavaCompiler$CompilationTask*)},
-	{"instance", "(Ljavax/annotation/processing/ProcessingEnvironment;)Lcom/sun/source/util/Trees;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trees, instance, Trees*, $ProcessingEnvironment*)},
-	{"isAccessible", "(Lcom/sun/source/tree/Scope;Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, isAccessible, bool, $Scope*, $TypeElement*)},
-	{"isAccessible", "(Lcom/sun/source/tree/Scope;Ljavax/lang/model/element/Element;Ljavax/lang/model/type/DeclaredType;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, isAccessible, bool, $Scope*, $Element*, $DeclaredType*)},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Lcom/sun/source/tree/Tree;Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Tree*, $CompilationUnitTree*)},
-	{}
-};
-
-$ClassInfo _Trees_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.source.util.Trees",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Trees_MethodInfo_
-};
-
-$Object* allocate$Trees($Class* clazz) {
-	return $of($alloc(Trees));
-}
-
 void Trees::init$() {
 }
 
@@ -112,21 +71,21 @@ Trees* Trees::instance($JavaCompiler$CompilationTask* task) {
 }
 
 Trees* Trees::instance($ProcessingEnvironment* env) {
-	if (!$nc($($nc($of(env))->getClass()->getName()))->equals("com.sun.tools.javac.processing.JavacProcessingEnvironment"_s)) {
+	if (!$$nc($nc($of(env))->getClass()->getName())->equals("com.sun.tools.javac.processing.JavacProcessingEnvironment"_s)) {
 		$throwNew($IllegalArgumentException);
 	}
 	return getJavacTrees($ProcessingEnvironment::class$, env);
 }
 
 Trees* Trees::getJavacTrees($Class* argType, Object$* arg) {
+	$useLocalObjectStack();
 	$load(Trees);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($ClassLoader, cl, $nc($of(arg))->getClass()->getClassLoader());
 		$Class* c = $Class::forName("com.sun.tools.javac.api.JavacTrees"_s, false, cl);
 		argType = $Class::forName($($nc(argType)->getName()), false, cl);
-		$var($Method, m, $nc(c)->getMethod("instance"_s, $$new($ClassArray, {argType})));
+		$var($Method, m, c->getMethod("instance"_s, $$new($ClassArray, {argType})));
 		return $cast(Trees, $nc(m)->invoke(nullptr, $$new($ObjectArray, {arg})));
 	} catch ($ReflectiveOperationException& e) {
 		$throwNew($AssertionError, $of(e));
@@ -138,7 +97,43 @@ Trees::Trees() {
 }
 
 $Class* Trees::load$($String* name, bool initialize) {
-	$loadClass(Trees, name, initialize, &_Trees_ClassInfo_, allocate$Trees);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Trees, init$, void)},
+		{"getDocComment", "(Lcom/sun/source/util/TreePath;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getDocComment, $String*, $TreePath*)},
+		{"getElement", "(Lcom/sun/source/util/TreePath;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getElement, $Element*, $TreePath*)},
+		{"getJavacTrees", "(Ljava/lang/Class;Ljava/lang/Object;)Lcom/sun/source/util/Trees;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Lcom/sun/source/util/Trees;", $STATIC, $staticMethod(Trees, getJavacTrees, Trees*, $Class*, Object$*)},
+		{"getLub", "(Lcom/sun/source/tree/CatchTree;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getLub, $TypeMirror*, $CatchTree*)},
+		{"getOriginalType", "(Ljavax/lang/model/type/ErrorType;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getOriginalType, $TypeMirror*, $ErrorType*)},
+		{"getPath", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $CompilationUnitTree*, $Tree*)},
+		{"getPath", "(Ljavax/lang/model/element/Element;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $Element*)},
+		{"getPath", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $Element*, $AnnotationMirror*)},
+		{"getPath", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getPath, $TreePath*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
+		{"getScope", "(Lcom/sun/source/util/TreePath;)Lcom/sun/source/tree/Scope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getScope, $Scope*, $TreePath*)},
+		{"getSourcePositions", "()Lcom/sun/source/util/SourcePositions;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getSourcePositions, $SourcePositions*)},
+		{"getTree", "(Ljavax/lang/model/element/Element;)Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $Tree*, $Element*)},
+		{"getTree", "(Ljavax/lang/model/element/TypeElement;)Lcom/sun/source/tree/ClassTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $ClassTree*, $TypeElement*)},
+		{"getTree", "(Ljavax/lang/model/element/ExecutableElement;)Lcom/sun/source/tree/MethodTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $MethodTree*, $ExecutableElement*)},
+		{"getTree", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $Tree*, $Element*, $AnnotationMirror*)},
+		{"getTree", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTree, $Tree*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
+		{"getTypeMirror", "(Lcom/sun/source/util/TreePath;)Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, getTypeMirror, $TypeMirror*, $TreePath*)},
+		{"instance", "(Ljavax/tools/JavaCompiler$CompilationTask;)Lcom/sun/source/util/Trees;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trees, instance, Trees*, $JavaCompiler$CompilationTask*)},
+		{"instance", "(Ljavax/annotation/processing/ProcessingEnvironment;)Lcom/sun/source/util/Trees;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trees, instance, Trees*, $ProcessingEnvironment*)},
+		{"isAccessible", "(Lcom/sun/source/tree/Scope;Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, isAccessible, bool, $Scope*, $TypeElement*)},
+		{"isAccessible", "(Lcom/sun/source/tree/Scope;Ljavax/lang/model/element/Element;Ljavax/lang/model/type/DeclaredType;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, isAccessible, bool, $Scope*, $Element*, $DeclaredType*)},
+		{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Lcom/sun/source/tree/Tree;Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Trees, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Tree*, $CompilationUnitTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.source.util.Trees",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Trees, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Trees);
+	});
 	return class$;
 }
 

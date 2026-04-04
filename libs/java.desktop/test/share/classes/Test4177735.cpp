@@ -1,5 +1,4 @@
 #include <Test4177735.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
@@ -8,7 +7,6 @@
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <javax/swing/JColorChooser.h>
 #include <javax/swing/JDialog.h>
@@ -29,47 +27,17 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $JColorChooser = ::javax::swing::JColorChooser;
 using $JDialog = ::javax::swing::JDialog;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorChooserPanel;
-
-$FieldInfo _Test4177735_FieldInfo_[] = {
-	{"DELAY", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test4177735, DELAY)},
-	{"count", "I", nullptr, $PRIVATE, $field(Test4177735, count)},
-	{}
-};
-
-$MethodInfo _Test4177735_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4177735, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4177735, main, void, $StringArray*), "java.lang.Exception"},
-	{"pause", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4177735, pause, void, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test4177735, run, void)},
-	{"show", "(Ljavax/swing/JColorChooser;)Ljavax/swing/JDialog;", nullptr, $STATIC, $staticMethod(Test4177735, show, $JDialog*, $JColorChooser*)},
-	{}
-};
-
-$ClassInfo _Test4177735_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4177735",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Test4177735_FieldInfo_,
-	_Test4177735_MethodInfo_
-};
-
-$Object* allocate$Test4177735($Class* clazz) {
-	return $of($alloc(Test4177735));
-}
 
 void Test4177735::init$() {
 }
 
 void Test4177735::main($StringArray* args) {
 	$init(Test4177735);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hsvIndex = 0;
 	int32_t panelsLength = 0;
 	int32_t finalIndex = 0;
@@ -77,7 +45,7 @@ void Test4177735::main($StringArray* args) {
 	$var($AbstractColorChooserPanelArray, panels, chooser->getChooserPanels());
 	panelsLength = $nc(panels)->length;
 	for (int32_t i = 0; i < panelsLength; ++i) {
-		if ($nc($($nc(panels->get(i))->getDisplayName()))->equals("HSV"_s)) {
+		if ($$nc($nc(panels->get(i))->getDisplayName())->equals("HSV"_s)) {
 			hsvIndex = i;
 		}
 	}
@@ -96,7 +64,7 @@ void Test4177735::main($StringArray* args) {
 
 $JDialog* Test4177735::show($JColorChooser* chooser) {
 	$init(Test4177735);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JDialog, dialog, $JColorChooser::createDialog(nullptr, nullptr, false, chooser, nullptr, nullptr));
 	$nc(dialog)->setVisible(true);
 	$var($Point, point, nullptr);
@@ -119,7 +87,7 @@ void Test4177735::pause(int64_t delay) {
 }
 
 void Test4177735::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, group, $($Thread::currentThread())->getThreadGroup());
 	$var($ThreadArray, threads, $new($ThreadArray, $nc(group)->activeCount()));
 	int32_t count = group->enumerate(threads, false);
@@ -135,7 +103,30 @@ Test4177735::Test4177735() {
 }
 
 $Class* Test4177735::load$($String* name, bool initialize) {
-	$loadClass(Test4177735, name, initialize, &_Test4177735_ClassInfo_, allocate$Test4177735);
+	$FieldInfo fieldInfos$$[] = {
+		{"DELAY", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test4177735, DELAY)},
+		{"count", "I", nullptr, $PRIVATE, $field(Test4177735, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4177735, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4177735, main, void, $StringArray*), "java.lang.Exception"},
+		{"pause", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4177735, pause, void, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test4177735, run, void)},
+		{"show", "(Ljavax/swing/JColorChooser;)Ljavax/swing/JDialog;", nullptr, $STATIC, $staticMethod(Test4177735, show, $JDialog*, $JColorChooser*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4177735",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test4177735, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test4177735);
+	});
 	return class$;
 }
 

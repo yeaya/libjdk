@@ -1,9 +1,7 @@
 #include <sun/security/krb5/internal/tools/KinitOptions.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/time/Instant.h>
 #include <sun/security/krb5/Config.h>
 #include <sun/security/krb5/PrincipalName.h>
@@ -23,8 +21,6 @@
 
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -47,58 +43,10 @@ namespace sun {
 			namespace internal {
 				namespace tools {
 
-$FieldInfo _KinitOptions_FieldInfo_[] = {
-	{"action", "I", nullptr, $PUBLIC, $field(KinitOptions, action)},
-	{"forwardable", "S", nullptr, $PUBLIC, $field(KinitOptions, forwardable)},
-	{"proxiable", "S", nullptr, $PUBLIC, $field(KinitOptions, proxiable)},
-	{"lifetime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KinitOptions, lifetime)},
-	{"renewable_lifetime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KinitOptions, renewable_lifetime)},
-	{"target_service", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, target_service)},
-	{"keytab_file", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, keytab_file)},
-	{"cachename", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, cachename)},
-	{"principal", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KinitOptions, principal)},
-	{"realm", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, realm)},
-	{"password", "[C", nullptr, 0, $field(KinitOptions, password)},
-	{"keytab", "Z", nullptr, $PUBLIC, $field(KinitOptions, keytab)},
-	{"DEBUG", "Z", nullptr, $PRIVATE, $field(KinitOptions, DEBUG)},
-	{"includeAddresses", "Z", nullptr, $PRIVATE, $field(KinitOptions, includeAddresses)},
-	{"useKeytab", "Z", nullptr, $PRIVATE, $field(KinitOptions, useKeytab)},
-	{"ktabName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KinitOptions, ktabName)},
-	{}
-};
-
-$MethodInfo _KinitOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KinitOptions, init$, void), "java.lang.RuntimeException,sun.security.krb5.RealmException"},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KinitOptions, init$, void, $StringArray*), "sun.security.krb5.KrbException,java.lang.RuntimeException,java.io.IOException"},
-	{"getAddressOption", "()Z", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getAddressOption, bool)},
-	{"getDefaultPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, 0, $virtualMethod(KinitOptions, getDefaultPrincipal, $PrincipalName*)},
-	{"getKDCRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getKDCRealm, $String*)},
-	{"getPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getPrincipal, $PrincipalName*)},
-	{"getTime", "(I)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $method(KinitOptions, getTime, $KerberosTime*, int32_t)},
-	{"keytabFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, keytabFileName, $String*)},
-	{"printHelp", "()V", nullptr, 0, $virtualMethod(KinitOptions, printHelp, void)},
-	{"setKDCRealm", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KinitOptions, setKDCRealm, void, $String*), "sun.security.krb5.RealmException"},
-	{"useKeytabFile", "()Z", nullptr, $PUBLIC, $virtualMethod(KinitOptions, useKeytabFile, bool)},
-	{}
-};
-
-$ClassInfo _KinitOptions_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.internal.tools.KinitOptions",
-	"java.lang.Object",
-	nullptr,
-	_KinitOptions_FieldInfo_,
-	_KinitOptions_MethodInfo_
-};
-
-$Object* allocate$KinitOptions($Class* clazz) {
-	return $of($alloc(KinitOptions));
-}
-
 void KinitOptions::init$() {
 	this->action = 1;
-	this->forwardable = (int16_t)0;
-	this->proxiable = (int16_t)0;
+	this->forwardable = 0;
+	this->proxiable = 0;
 	$set(this, password, nullptr);
 	$init($Krb5);
 	this->DEBUG = $Krb5::DEBUG;
@@ -118,17 +66,17 @@ void KinitOptions::setKDCRealm($String* r) {
 $String* KinitOptions::getKDCRealm() {
 	if (this->realm == nullptr) {
 		if (this->principal != nullptr) {
-			return $nc(this->principal)->getRealmString();
+			return this->principal->getRealmString();
 		}
 	}
 	return nullptr;
 }
 
 void KinitOptions::init$($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->action = 1;
-	this->forwardable = (int16_t)0;
-	this->proxiable = (int16_t)0;
+	this->forwardable = 0;
+	this->proxiable = 0;
 	$set(this, password, nullptr);
 	$init($Krb5);
 	this->DEBUG = $Krb5::DEBUG;
@@ -137,18 +85,19 @@ void KinitOptions::init$($StringArray* args) {
 	$var($String, p, nullptr);
 	for (int32_t i = 0; i < $nc(args)->length; ++i) {
 		if ($nc(args->get(i))->equals("-f"_s)) {
-			this->forwardable = (int16_t)1;
+			this->forwardable = 1;
 		} else if ($nc(args->get(i))->equals("-p"_s)) {
-			this->proxiable = (int16_t)1;
+			this->proxiable = 1;
 		} else if ($nc(args->get(i))->equals("-c"_s)) {
 			if ($nc(args->get(i + 1))->startsWith("-"_s)) {
 				$throwNew($IllegalArgumentException, "input format  not correct:  -c  option must be followed by the cache name"_s);
 			}
 			$set(this, cachename, args->get(++i));
-			bool var$0 = ($nc(this->cachename)->length() >= 5);
-			if (var$0 && $($nc(this->cachename)->substring(0, 5))->equalsIgnoreCase("FILE:"_s)) {
-				$set(this, cachename, $nc(this->cachename)->substring(5));
+			bool var$0 = $nc(this->cachename)->length() >= 5;
+			if (var$0 && $(this->cachename->substring(0, 5))->equalsIgnoreCase("FILE:"_s)) {
+				$set(this, cachename, this->cachename->substring(5));
 			}
+			;
 		} else if ($nc(args->get(i))->equals("-A"_s)) {
 			this->includeAddresses = false;
 		} else if ($nc(args->get(i))->equals("-k"_s)) {
@@ -169,10 +118,10 @@ void KinitOptions::init$($StringArray* args) {
 		} else if ($nc(args->get(i))->equals("-r"_s)) {
 			$set(this, renewable_lifetime, getTime($Config::duration(args->get(++i))));
 		} else {
-			bool var$6 = $nc(args->get(i))->equalsIgnoreCase("-?"_s);
-			bool var$5 = var$6 || $nc(args->get(i))->equalsIgnoreCase("-h"_s);
-			bool var$4 = var$5 || $nc(args->get(i))->equalsIgnoreCase("--help"_s);
-			if (var$4 || $nc(args->get(i))->equalsIgnoreCase("-help"_s)) {
+			bool var$3 = $nc(args->get(i))->equalsIgnoreCase("-?"_s);
+			bool var$2 = var$3 || $nc(args->get(i))->equalsIgnoreCase("-h"_s);
+			bool var$1 = var$2 || $nc(args->get(i))->equalsIgnoreCase("--help"_s);
+			if (var$1 || $nc(args->get(i))->equalsIgnoreCase("-help"_s)) {
 				printHelp();
 				$System::exit(0);
 			} else if (p == nullptr) {
@@ -201,7 +150,7 @@ void KinitOptions::init$($StringArray* args) {
 }
 
 $PrincipalName* KinitOptions::getDefaultPrincipal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($CCacheInputStream, cis, $new($CCacheInputStream, $$new($FileInputStream, this->cachename)));
 		int32_t version = 0;
@@ -243,18 +192,18 @@ $PrincipalName* KinitOptions::getDefaultPrincipal() {
 
 void KinitOptions::printHelp() {
 	$nc($System::out)->println("Usage:\n\n1. Initial ticket request:\n    kinit [-A] [-f] [-p] [-c cachename] [-l lifetime] [-r renewable_time]\n          [[-k [-t keytab_file_name]] [principal] [password]"_s);
-	$nc($System::out)->println("2. Renew a ticket:\n    kinit -R [-c cachename] [principal]"_s);
-	$nc($System::out)->println("\nAvailable options to Kerberos 5 ticket request:"_s);
-	$nc($System::out)->println("\t-A   do not include addresses"_s);
-	$nc($System::out)->println("\t-f   forwardable"_s);
-	$nc($System::out)->println("\t-p   proxiable"_s);
-	$nc($System::out)->println("\t-c   cache name (i.e., FILE:\\d:\\myProfiles\\mykrb5cache)"_s);
-	$nc($System::out)->println("\t-l   lifetime"_s);
-	$nc($System::out)->println("\t-r   renewable time (total lifetime a ticket can be renewed)"_s);
-	$nc($System::out)->println("\t-k   use keytab"_s);
-	$nc($System::out)->println("\t-t   keytab file name"_s);
-	$nc($System::out)->println("\tprincipal   the principal name (i.e., qweadf@ATHENA.MIT.EDU qweadf)"_s);
-	$nc($System::out)->println("\tpassword    the principal\'s Kerberos password"_s);
+	$System::out->println("2. Renew a ticket:\n    kinit -R [-c cachename] [principal]"_s);
+	$System::out->println("\nAvailable options to Kerberos 5 ticket request:"_s);
+	$System::out->println("\t-A   do not include addresses"_s);
+	$System::out->println("\t-f   forwardable"_s);
+	$System::out->println("\t-p   proxiable"_s);
+	$System::out->println("\t-c   cache name (i.e., FILE:\\d:\\myProfiles\\mykrb5cache)"_s);
+	$System::out->println("\t-l   lifetime"_s);
+	$System::out->println("\t-r   renewable time (total lifetime a ticket can be renewed)"_s);
+	$System::out->println("\t-k   use keytab"_s);
+	$System::out->println("\t-t   keytab file name"_s);
+	$System::out->println("\tprincipal   the principal name (i.e., qweadf@ATHENA.MIT.EDU qweadf)"_s);
+	$System::out->println("\tpassword    the principal\'s Kerberos password"_s);
 }
 
 bool KinitOptions::getAddressOption() {
@@ -274,15 +223,58 @@ $PrincipalName* KinitOptions::getPrincipal() {
 }
 
 $KerberosTime* KinitOptions::getTime(int32_t s) {
-	$useLocalCurrentObjectStackCache();
-	return $new($KerberosTime, $($nc($($Instant::now()))->plusSeconds(s)));
+	$useLocalObjectStack();
+	return $new($KerberosTime, $($$nc($Instant::now())->plusSeconds(s)));
 }
 
 KinitOptions::KinitOptions() {
 }
 
 $Class* KinitOptions::load$($String* name, bool initialize) {
-	$loadClass(KinitOptions, name, initialize, &_KinitOptions_ClassInfo_, allocate$KinitOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"action", "I", nullptr, $PUBLIC, $field(KinitOptions, action)},
+		{"forwardable", "S", nullptr, $PUBLIC, $field(KinitOptions, forwardable)},
+		{"proxiable", "S", nullptr, $PUBLIC, $field(KinitOptions, proxiable)},
+		{"lifetime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KinitOptions, lifetime)},
+		{"renewable_lifetime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(KinitOptions, renewable_lifetime)},
+		{"target_service", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, target_service)},
+		{"keytab_file", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, keytab_file)},
+		{"cachename", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, cachename)},
+		{"principal", "Lsun/security/krb5/PrincipalName;", nullptr, $PRIVATE, $field(KinitOptions, principal)},
+		{"realm", "Ljava/lang/String;", nullptr, $PUBLIC, $field(KinitOptions, realm)},
+		{"password", "[C", nullptr, 0, $field(KinitOptions, password)},
+		{"keytab", "Z", nullptr, $PUBLIC, $field(KinitOptions, keytab)},
+		{"DEBUG", "Z", nullptr, $PRIVATE, $field(KinitOptions, DEBUG)},
+		{"includeAddresses", "Z", nullptr, $PRIVATE, $field(KinitOptions, includeAddresses)},
+		{"useKeytab", "Z", nullptr, $PRIVATE, $field(KinitOptions, useKeytab)},
+		{"ktabName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KinitOptions, ktabName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KinitOptions, init$, void), "java.lang.RuntimeException,sun.security.krb5.RealmException"},
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KinitOptions, init$, void, $StringArray*), "sun.security.krb5.KrbException,java.lang.RuntimeException,java.io.IOException"},
+		{"getAddressOption", "()Z", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getAddressOption, bool)},
+		{"getDefaultPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, 0, $virtualMethod(KinitOptions, getDefaultPrincipal, $PrincipalName*)},
+		{"getKDCRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getKDCRealm, $String*)},
+		{"getPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getPrincipal, $PrincipalName*)},
+		{"getTime", "(I)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $method(KinitOptions, getTime, $KerberosTime*, int32_t)},
+		{"keytabFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, keytabFileName, $String*)},
+		{"printHelp", "()V", nullptr, 0, $virtualMethod(KinitOptions, printHelp, void)},
+		{"setKDCRealm", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KinitOptions, setKDCRealm, void, $String*), "sun.security.krb5.RealmException"},
+		{"useKeytabFile", "()Z", nullptr, $PUBLIC, $virtualMethod(KinitOptions, useKeytabFile, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.internal.tools.KinitOptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KinitOptions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KinitOptions);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Profile$1.h>
-
 #include <com/sun/tools/javac/jvm/Profile.h>
 #include <com/sun/tools/javac/jvm/Target.h>
 #include <jcpp.h>
@@ -17,43 +16,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$MethodInfo _Profile$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Profile$1, init$, void, $String*, int32_t)},
-	{"isValid", "(Lcom/sun/tools/javac/jvm/Target;)Z", nullptr, $PUBLIC, $virtualMethod(Profile$1, isValid, bool, $Target*)},
-	{}
-};
-
-$EnclosingMethodInfo _Profile$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.jvm.Profile",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Profile$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Profile$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Profile$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.jvm.Profile$1",
-	"com.sun.tools.javac.jvm.Profile",
-	nullptr,
-	nullptr,
-	_Profile$1_MethodInfo_,
-	nullptr,
-	&_Profile$1_EnclosingMethodInfo_,
-	_Profile$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Profile"
-};
-
-$Object* allocate$Profile$1($Class* clazz) {
-	return $of($alloc(Profile$1));
-}
-
 void Profile$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Profile::init$($enum$name, $enum$ordinal);
 }
@@ -66,7 +28,38 @@ Profile$1::Profile$1() {
 }
 
 $Class* Profile$1::load$($String* name, bool initialize) {
-	$loadClass(Profile$1, name, initialize, &_Profile$1_ClassInfo_, allocate$Profile$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Profile$1, init$, void, $String*, int32_t)},
+		{"isValid", "(Lcom/sun/tools/javac/jvm/Target;)Z", nullptr, $PUBLIC, $virtualMethod(Profile$1, isValid, bool, $Target*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.jvm.Profile",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Profile$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.jvm.Profile$1",
+		"com.sun.tools.javac.jvm.Profile",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Profile"
+	};
+	$loadClass(Profile$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Profile$1));
+	});
 	return class$;
 }
 

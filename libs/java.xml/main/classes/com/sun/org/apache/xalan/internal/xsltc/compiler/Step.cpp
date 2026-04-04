@@ -1,9 +1,7 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Step.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ICONST.h>
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
@@ -40,7 +38,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -68,14 +65,12 @@
 using $ALOAD = ::com::sun::org::apache::bcel::internal::generic::ALOAD;
 using $ASTORE = ::com::sun::org::apache::bcel::internal::generic::ASTORE;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $ICONST = ::com::sun::org::apache::bcel::internal::generic::ICONST;
 using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
@@ -106,7 +101,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
@@ -119,49 +113,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _Step_FieldInfo_[] = {
-	{"_axis", "I", nullptr, $PRIVATE, $field(Step, _axis)},
-	{"_predicates", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;", $PRIVATE, $field(Step, _predicates)},
-	{"_hadPredicates", "Z", nullptr, $PRIVATE, $field(Step, _hadPredicates)},
-	{"_nodeType", "I", nullptr, $PRIVATE, $field(Step, _nodeType)},
-	{}
-};
-
-$MethodInfo _Step_MethodInfo_[] = {
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;)V", $PUBLIC, $method(Step, init$, void, int32_t, int32_t, $List*)},
-	{"addPredicates", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;)V", $PUBLIC, $method(Step, addPredicates, void, $List*)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(Step, getAxis, int32_t)},
-	{"getNodeType", "()I", nullptr, $PUBLIC, $method(Step, getNodeType, int32_t)},
-	{"getPredicates", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;", $PUBLIC, $method(Step, getPredicates, $List*)},
-	{"hasParentLocationPath", "()Z", nullptr, $PRIVATE, $method(Step, hasParentLocationPath, bool)},
-	{"hasParentPattern", "()Z", nullptr, $PRIVATE, $method(Step, hasParentPattern, bool)},
-	{"hasPredicates", "()Z", nullptr, $PRIVATE, $method(Step, hasPredicates, bool)},
-	{"isAbbreviatedDDot", "()Z", nullptr, $PUBLIC, $method(Step, isAbbreviatedDDot, bool)},
-	{"isAbbreviatedDot", "()Z", nullptr, $PUBLIC, $method(Step, isAbbreviatedDot, bool)},
-	{"isPredicate", "()Z", nullptr, $PRIVATE, $method(Step, isPredicate, bool)},
-	{"setAxis", "(I)V", nullptr, $PUBLIC, $virtualMethod(Step, setAxis, void, int32_t)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Step, setParser, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Step, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Step, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translatePredicates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC, $method(Step, translatePredicates, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
-	{"translateStep", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PRIVATE, $method(Step, translateStep, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Step, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Step_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Step",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativeLocationPath",
-	nullptr,
-	_Step_FieldInfo_,
-	_Step_MethodInfo_
-};
-
-$Object* allocate$Step($Class* clazz) {
-	return $of($alloc(Step));
-}
-
 void Step::init$(int32_t axis, int32_t nodeType, $List* predicates) {
 	$RelativeLocationPath::init$();
 	this->_hadPredicates = false;
@@ -171,10 +122,10 @@ void Step::init$(int32_t axis, int32_t nodeType, $List* predicates) {
 }
 
 void Step::setParser($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RelativeLocationPath::setParser(parser);
 	if (this->_predicates != nullptr) {
-		int32_t n = $nc(this->_predicates)->size();
+		int32_t n = this->_predicates->size();
 		for (int32_t i = 0; i < n; ++i) {
 			$var($Predicate, exp, $cast($Predicate, $nc(this->_predicates)->get(i)));
 			$nc(exp)->setParser(parser);
@@ -203,7 +154,7 @@ void Step::addPredicates($List* predicates) {
 	if (this->_predicates == nullptr) {
 		$set(this, _predicates, predicates);
 	} else {
-		$nc(this->_predicates)->addAll(predicates);
+		this->_predicates->addAll(predicates);
 	}
 }
 
@@ -217,7 +168,7 @@ bool Step::hasParentLocationPath() {
 }
 
 bool Step::hasPredicates() {
-	return this->_predicates != nullptr && $nc(this->_predicates)->size() > 0;
+	return this->_predicates != nullptr && this->_predicates->size() > 0;
 }
 
 bool Step::isPredicate() {
@@ -240,7 +191,7 @@ bool Step::isAbbreviatedDDot() {
 }
 
 $Type* Step::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->_hadPredicates = hasPredicates();
 	if (isAbbreviatedDot()) {
 		bool var$1 = hasParentPattern();
@@ -252,13 +203,11 @@ $Type* Step::typeCheck($SymbolTable* stable) {
 		$set(this, _type, $Type::NodeSet);
 	}
 	if (this->_predicates != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->_predicates)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Expression, pred, $cast($Expression, i$->next()));
-				{
-					$nc(pred)->typeCheck(stable);
-				}
+		$var($Iterator, i$, this->_predicates->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Expression, pred, $cast($Expression, i$->next()));
+			{
+				$nc(pred)->typeCheck(stable);
 			}
 		}
 	}
@@ -270,7 +219,7 @@ void Step::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 }
 
 void Step::translateStep($ClassGenerator* classGen, $MethodGenerator* methodGen, int32_t predicateIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if (predicateIndex >= 0) {
@@ -278,19 +227,19 @@ void Step::translateStep($ClassGenerator* classGen, $MethodGenerator* methodGen,
 	} else {
 		int32_t star = 0;
 		$var($String, name, nullptr);
-		$var($XSLTC, xsltc, $nc($(getParser()))->getXSLTC());
+		$var($XSLTC, xsltc, $$nc(getParser())->getXSLTC());
 		if (this->_nodeType >= $DTM::NTYPES) {
 			$var($List, ni, $nc(xsltc)->getNamesIndex());
 			$assign(name, $cast($String, $nc(ni)->get(this->_nodeType - $DTM::NTYPES)));
-			star = $nc(name)->lastIndexOf((int32_t)u'*');
+			star = $nc(name)->lastIndexOf(u'*');
 		}
 		if (this->_axis == $Axis::ATTRIBUTE && this->_nodeType != $NodeTest::ATTRIBUTE && this->_nodeType != $NodeTest::ANODE && !hasParentPattern() && star == 0) {
 			$init($Constants);
 			int32_t iter = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getTypedAxisIterator"_s, $$str({"(II)"_s, $Constants::NODE_ITERATOR_SIG}));
 			$nc(il)->append($(methodGen->loadDOM()));
-			il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $Axis::ATTRIBUTE)));
-			il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_nodeType)));
-			il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, iter, 3)));
+			il->append($$new($PUSH, cpg, $Axis::ATTRIBUTE));
+			il->append($$new($PUSH, cpg, this->_nodeType));
+			il->append($$new($INVOKEINTERFACE, iter, 3));
 			return;
 		}
 		$var($SyntaxTreeNode, parent, getParent());
@@ -301,20 +250,20 @@ void Step::translateStep($ClassGenerator* classGen, $MethodGenerator* methodGen,
 			} else if ($instanceOf($ParentLocationPath, parent)) {
 				$init($Constants);
 				int32_t init = $nc(cpg)->addMethodref($Constants::SINGLETON_ITERATOR, "<init>"_s, $$str({"("_s, $Constants::NODE_SIG, ")V"_s}));
-				$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::SINGLETON_ITERATOR))));
-				il->append(static_cast<$Instruction*>($Constants::DUP));
+				$nc(il)->append($$new($NEW, cpg->addClass($Constants::SINGLETON_ITERATOR)));
+				il->append($Constants::DUP);
 				il->append($(methodGen->loadContextNode()));
-				il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, init)));
+				il->append($$new($INVOKESPECIAL, init));
 			} else {
 				$init($Constants);
 				int32_t git = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getAxisIterator"_s, $$str({"(I)"_s, $Constants::NODE_ITERATOR_SIG}));
 				$nc(il)->append($(methodGen->loadDOM()));
-				il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_axis)));
-				il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, git, 2)));
+				il->append($$new($PUSH, cpg, this->_axis));
+				il->append($$new($INVOKEINTERFACE, git, 2));
 			}
 			return;
 		}
-		if (($instanceOf($ParentLocationPath, parent)) && ($instanceOf($ParentLocationPath, $($nc(parent)->getParent())))) {
+		if (($instanceOf($ParentLocationPath, parent)) && ($instanceOf($ParentLocationPath, $(parent->getParent())))) {
 			if ((this->_nodeType == $NodeTest::ELEMENT) && (!this->_hadPredicates)) {
 				this->_nodeType = $NodeTest::ANODE;
 			}
@@ -324,54 +273,44 @@ void Step::translateStep($ClassGenerator* classGen, $MethodGenerator* methodGen,
 			int32_t ty = 0;
 			switch (this->_nodeType) {
 			case $NodeTest::ATTRIBUTE:
-				{
-					this->_axis = $Axis::ATTRIBUTE;
-				}
+				this->_axis = $Axis::ATTRIBUTE;
 			case $NodeTest::ANODE:
-				{
-					$init($Constants);
-					git = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getAxisIterator"_s, $$str({"(I)"_s, $Constants::NODE_ITERATOR_SIG}));
-					$nc(il)->append($(methodGen->loadDOM()));
-					$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_axis)));
-					$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, git, 2)));
-					break;
-				}
+				$init($Constants);
+				git = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getAxisIterator"_s, $$str({"(I)"_s, $Constants::NODE_ITERATOR_SIG}));
+				$nc(il)->append($(methodGen->loadDOM()));
+				il->append($$new($PUSH, cpg, this->_axis));
+				il->append($$new($INVOKEINTERFACE, git, 2));
+				break;
 			default:
-				{
-					if (star > 1) {
-						$var($String, namespace$, nullptr);
-						if (this->_axis == $Axis::ATTRIBUTE) {
-							$assign(namespace$, $nc(name)->substring(0, star - 2));
-						} else {
-							$assign(namespace$, $nc(name)->substring(0, star - 1));
-						}
-						int32_t nsType = $nc(xsltc)->registerNamespace(namespace$);
-						$init($Constants);
-						int32_t ns = cpg->addInterfaceMethodref($Constants::DOM_INTF, "getNamespaceAxisIterator"_s, $$str({"(II)"_s, $Constants::NODE_ITERATOR_SIG}));
-						$nc(il)->append($(methodGen->loadDOM()));
-						il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_axis)));
-						il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, nsType)));
-						il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, ns, 3)));
-						break;
+				if (star > 1) {
+					$var($String, namespace$, nullptr);
+					if (this->_axis == $Axis::ATTRIBUTE) {
+						$assign(namespace$, $nc(name)->substring(0, star - 2));
+					} else {
+						$assign(namespace$, $nc(name)->substring(0, star - 1));
 					}
+					int32_t nsType = $nc(xsltc)->registerNamespace(namespace$);
+					int32_t ns = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getNamespaceAxisIterator"_s, $$str({"(II)"_s, $Constants::NODE_ITERATOR_SIG}));
+					$nc(il)->append($(methodGen->loadDOM()));
+					il->append($$new($PUSH, cpg, this->_axis));
+					il->append($$new($PUSH, cpg, nsType));
+					il->append($$new($INVOKEINTERFACE, ns, 3));
+					break;
 				}
 			case $NodeTest::ELEMENT:
-				{
-					$init($Constants);
-					ty = cpg->addInterfaceMethodref($Constants::DOM_INTF, "getTypedAxisIterator"_s, $$str({"(II)"_s, $Constants::NODE_ITERATOR_SIG}));
-					$nc(il)->append($(methodGen->loadDOM()));
-					$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_axis)));
-					$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_nodeType)));
-					$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, ty, 3)));
-					break;
-				}
+				ty = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getTypedAxisIterator"_s, $$str({"(II)"_s, $Constants::NODE_ITERATOR_SIG}));
+				$nc(il)->append($(methodGen->loadDOM()));
+				il->append($$new($PUSH, cpg, this->_axis));
+				il->append($$new($PUSH, cpg, this->_nodeType));
+				il->append($$new($INVOKEINTERFACE, ty, 3));
+				break;
 			}
 		}
 	}
 }
 
 void Step::translatePredicates($ClassGenerator* classGen, $MethodGenerator* methodGen, int32_t predicateIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	int32_t idx = 0;
@@ -384,80 +323,78 @@ void Step::translatePredicates($ClassGenerator* classGen, $MethodGenerator* meth
 			$nc(il)->append($(methodGen->loadDOM()));
 			if ($nc(step)->isAbbreviatedDot()) {
 				translateStep(classGen, methodGen, predicateIndex);
-				il->append(static_cast<$Instruction*>($$new($ICONST, $DOM::RETURN_CURRENT)));
+				il->append($$new($ICONST, $DOM::RETURN_CURRENT));
 			} else {
 				$var($ParentLocationPath, path, $new($ParentLocationPath, this, step));
-				$set(this, _parent, ($set(step, _parent, path)));
+				$set(this, _parent, $set(step, _parent, path));
 				try {
-					path->typeCheck($($nc($(getParser()))->getSymbolTable()));
+					path->typeCheck($($$nc(getParser())->getSymbolTable()));
 				} catch ($TypeCheckError& e) {
 				}
 				translateStep(classGen, methodGen, predicateIndex);
 				path->translateStep(classGen, methodGen);
-				il->append(static_cast<$Instruction*>($$new($ICONST, $DOM::RETURN_PARENT)));
+				il->append($$new($ICONST, $DOM::RETURN_PARENT));
 			}
 			predicate->translate(classGen, methodGen);
 			$init($Constants);
 			idx = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, $Constants::GET_NODE_VALUE_ITERATOR, $Constants::GET_NODE_VALUE_ITERATOR_SIG);
-			il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, idx, 5)));
+			il->append($$new($INVOKEINTERFACE, idx, 5));
 		} else if (predicate->isNthDescendant()) {
 			$nc(il)->append($(methodGen->loadDOM()));
-			il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, predicate->getPosType())));
+			il->append($$new($PUSH, cpg, predicate->getPosType()));
 			predicate->translate(classGen, methodGen);
-			il->append(static_cast<$Instruction*>($$new($ICONST, 0)));
+			il->append($$new($ICONST, 0));
 			$init($Constants);
 			idx = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getNthDescendant"_s, $$str({"(IIZ)"_s, $Constants::NODE_ITERATOR_SIG}));
-			il->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, idx, 4)));
+			il->append($$new($INVOKEINTERFACE, idx, 4));
 		} else if (predicate->isNthPositionFilter()) {
 			$init($Constants);
 			idx = $nc(cpg)->addMethodref($Constants::NTH_ITERATOR_CLASS, "<init>"_s, $$str({"("_s, $Constants::NODE_ITERATOR_SIG, "I)V"_s}));
 			translatePredicates(classGen, methodGen, predicateIndex);
 			$var($LocalVariableGen, iteratorTemp, methodGen->addLocalVariable("step_tmp1"_s, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)), nullptr, nullptr));
-			$nc(iteratorTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, iteratorTemp->getIndex())))));
+			$nc(iteratorTemp)->setStart($($nc(il)->append($$new($ASTORE, $nc(iteratorTemp)->getIndex()))));
 			predicate->translate(classGen, methodGen);
 			$var($LocalVariableGen, predicateValueTemp, methodGen->addLocalVariable("step_tmp2"_s, $($Util::getJCRefType("I"_s)), nullptr, nullptr));
-			$nc(predicateValueTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ISTORE, predicateValueTemp->getIndex())))));
-			$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::NTH_ITERATOR_CLASS))));
-			il->append(static_cast<$Instruction*>($Constants::DUP));
-			iteratorTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, iteratorTemp->getIndex())))));
-			predicateValueTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ILOAD, predicateValueTemp->getIndex())))));
-			il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, idx)));
+			$nc(predicateValueTemp)->setStart($(il->append($$new($ISTORE, $nc(predicateValueTemp)->getIndex()))));
+			il->append($$new($NEW, cpg->addClass($Constants::NTH_ITERATOR_CLASS)));
+			il->append($Constants::DUP);
+			iteratorTemp->setEnd($(il->append($$new($ALOAD, iteratorTemp->getIndex()))));
+			predicateValueTemp->setEnd($(il->append($$new($ILOAD, predicateValueTemp->getIndex()))));
+			il->append($$new($INVOKESPECIAL, idx));
 		} else {
 			$init($Constants);
 			idx = $nc(cpg)->addMethodref($Constants::CURRENT_NODE_LIST_ITERATOR, "<init>"_s, $$str({"("_s, $Constants::NODE_ITERATOR_SIG, $Constants::CURRENT_NODE_LIST_FILTER_SIG, $Constants::NODE_SIG, $Constants::TRANSLET_SIG, ")V"_s}));
 			translatePredicates(classGen, methodGen, predicateIndex);
 			$var($LocalVariableGen, iteratorTemp, methodGen->addLocalVariable("step_tmp1"_s, $($Util::getJCRefType($Constants::NODE_ITERATOR_SIG)), nullptr, nullptr));
-			$nc(iteratorTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, iteratorTemp->getIndex())))));
+			$nc(iteratorTemp)->setStart($($nc(il)->append($$new($ASTORE, $nc(iteratorTemp)->getIndex()))));
 			predicate->translateFilter(classGen, methodGen);
 			$var($LocalVariableGen, filterTemp, methodGen->addLocalVariable("step_tmp2"_s, $($Util::getJCRefType($Constants::CURRENT_NODE_LIST_FILTER_SIG)), nullptr, nullptr));
-			$nc(filterTemp)->setStart($($nc(il)->append(static_cast<$Instruction*>($$new($ASTORE, filterTemp->getIndex())))));
-			$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::CURRENT_NODE_LIST_ITERATOR))));
-			il->append(static_cast<$Instruction*>($Constants::DUP));
-			iteratorTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, iteratorTemp->getIndex())))));
-			filterTemp->setEnd($(il->append(static_cast<$Instruction*>($$new($ALOAD, filterTemp->getIndex())))));
+			$nc(filterTemp)->setStart($(il->append($$new($ASTORE, $nc(filterTemp)->getIndex()))));
+			il->append($$new($NEW, cpg->addClass($Constants::CURRENT_NODE_LIST_ITERATOR)));
+			il->append($Constants::DUP);
+			iteratorTemp->setEnd($(il->append($$new($ALOAD, iteratorTemp->getIndex()))));
+			filterTemp->setEnd($(il->append($$new($ALOAD, filterTemp->getIndex()))));
 			il->append($(methodGen->loadCurrentNode()));
 			il->append($(classGen->loadTranslet()));
 			if (classGen->isExternal()) {
 				$var($String, className, classGen->getClassName());
-				il->append(static_cast<$Instruction*>($$new($CHECKCAST, cpg->addClass(className))));
+				il->append($$new($CHECKCAST, cpg->addClass(className)));
 			}
-			il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, idx)));
+			il->append($$new($INVOKESPECIAL, idx));
 		}
 	}
 }
 
 $String* Step::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, buffer, $new($StringBuffer, "step(\""_s));
 	buffer->append($($Axis::getNames(this->_axis)))->append("\", "_s)->append(this->_nodeType);
 	if (this->_predicates != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->_predicates)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Expression, pred, $cast($Expression, i$->next()));
-				{
-					buffer->append(", "_s)->append($($nc(pred)->toString()));
-				}
+		$var($Iterator, i$, this->_predicates->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Expression, pred, $cast($Expression, i$->next()));
+			{
+				buffer->append(", "_s)->append($($nc(pred)->toString()));
 			}
 		}
 	}
@@ -468,7 +405,45 @@ Step::Step() {
 }
 
 $Class* Step::load$($String* name, bool initialize) {
-	$loadClass(Step, name, initialize, &_Step_ClassInfo_, allocate$Step);
+	$FieldInfo fieldInfos$$[] = {
+		{"_axis", "I", nullptr, $PRIVATE, $field(Step, _axis)},
+		{"_predicates", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;", $PRIVATE, $field(Step, _predicates)},
+		{"_hadPredicates", "Z", nullptr, $PRIVATE, $field(Step, _hadPredicates)},
+		{"_nodeType", "I", nullptr, $PRIVATE, $field(Step, _nodeType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;)V", $PUBLIC, $method(Step, init$, void, int32_t, int32_t, $List*)},
+		{"addPredicates", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;)V", $PUBLIC, $method(Step, addPredicates, void, $List*)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(Step, getAxis, int32_t)},
+		{"getNodeType", "()I", nullptr, $PUBLIC, $method(Step, getNodeType, int32_t)},
+		{"getPredicates", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Predicate;>;", $PUBLIC, $method(Step, getPredicates, $List*)},
+		{"hasParentLocationPath", "()Z", nullptr, $PRIVATE, $method(Step, hasParentLocationPath, bool)},
+		{"hasParentPattern", "()Z", nullptr, $PRIVATE, $method(Step, hasParentPattern, bool)},
+		{"hasPredicates", "()Z", nullptr, $PRIVATE, $method(Step, hasPredicates, bool)},
+		{"isAbbreviatedDDot", "()Z", nullptr, $PUBLIC, $method(Step, isAbbreviatedDDot, bool)},
+		{"isAbbreviatedDot", "()Z", nullptr, $PUBLIC, $method(Step, isAbbreviatedDot, bool)},
+		{"isPredicate", "()Z", nullptr, $PRIVATE, $method(Step, isPredicate, bool)},
+		{"setAxis", "(I)V", nullptr, $PUBLIC, $virtualMethod(Step, setAxis, void, int32_t)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Step, setParser, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Step, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Step, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translatePredicates", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PUBLIC, $method(Step, translatePredicates, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
+		{"translateStep", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;I)V", nullptr, $PRIVATE, $method(Step, translateStep, void, $ClassGenerator*, $MethodGenerator*, int32_t)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Step, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Step",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativeLocationPath",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Step, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Step);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class $export AttributeValue : public ::java::lang::Object {
 	$class(AttributeValue, 0, ::java::lang::Object)
 public:
 	AttributeValue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value, $StringArray* names);
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;

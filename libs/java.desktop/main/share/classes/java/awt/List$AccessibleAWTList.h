@@ -60,7 +60,7 @@ public:
 	virtual void selectAllAccessibleSelection() override;
 	virtual $String* toString() override;
 	::java::awt::List* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x6DF9E582FFD8E81D;
+	static const int64_t serialVersionUID = (int64_t)0x6df9e582ffd8e81d;
 };
 
 	} // awt

@@ -32,6 +32,7 @@ class HotspotClassLoading : public ::sun::management::HotspotClassLoadingMBean {
 	$class(HotspotClassLoading, 0, ::sun::management::HotspotClassLoadingMBean)
 public:
 	HotspotClassLoading();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::VMManagement* vm);
 	virtual int64_t getClassInitializationTime() override;
 	virtual int64_t getClassLoadingTime() override;

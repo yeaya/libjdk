@@ -33,6 +33,7 @@ public:
 	BytePackedRaster();
 	using ::sun::awt::image::SunWritableRaster::createCompatibleWritableRaster;
 	using ::sun::awt::image::SunWritableRaster::getPixels;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferByte* dataBuffer, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferByte* dataBuffer, ::java::awt::Rectangle* aRegion, ::java::awt::Point* origin, ::sun::awt::image::BytePackedRaster* parent);

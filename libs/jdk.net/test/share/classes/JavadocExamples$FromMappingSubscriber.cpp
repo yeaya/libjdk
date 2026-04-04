@@ -1,5 +1,4 @@
 #include <JavadocExamples$FromMappingSubscriber.h>
-
 #include <JavadocExamples$ObjectMapper.h>
 #include <JavadocExamples.h>
 #include <java/io/IOException.h>
@@ -39,35 +38,31 @@ public:
 		this->targetType = targetType;
 	}
 	virtual $Object* apply(Object$* is) override {
-		 return $of(JavadocExamples$FromMappingSubscriber::lambda$asJSON$1(targetType, $cast($InputStream, is)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1>());
+		 return JavadocExamples$FromMappingSubscriber::lambda$asJSON$1(targetType, $cast($InputStream, is));
 	}
 	$Class* targetType = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::fieldInfos[2] = {
-	{"targetType", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, targetType)},
-	{}
-};
-$MethodInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, init$, void, $Class*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"targetType", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, targetType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, init$, void, $Class*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1);
+	});
 	return class$;
 }
 $Class* JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::class$ = nullptr;
@@ -82,123 +77,84 @@ public:
 	virtual $Object* get() override {
 		 return JavadocExamples$FromMappingSubscriber::lambda$asJSON$0(is, targetType);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1>());
-	}
 	$InputStream* is = nullptr;
 	$Class* targetType = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::fieldInfos[3] = {
-	{"is", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, is)},
-	{"targetType", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, targetType)},
-	{}
-};
-$MethodInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, init$, void, $InputStream*, $Class*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, get, $Object*)},
-	{}
-};
-$ClassInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::load$($String* name, bool initialize) {
-	$loadClass(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, is)},
+		{"targetType", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, targetType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, init$, void, $InputStream*, $Class*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1);
+	});
 	return class$;
 }
 $Class* JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::class$ = nullptr;
-
-$MethodInfo _JavadocExamples$FromMappingSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JavadocExamples$FromMappingSubscriber, init$, void)},
-	{"asJSON", "(Ljava/lang/Class;)Ljava/net/http/HttpResponse$BodySubscriber;", "<W:Ljava/lang/Object;>(Ljava/lang/Class<TW;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/function/Supplier<TW;>;>;", $PUBLIC | $STATIC, $staticMethod(JavadocExamples$FromMappingSubscriber, asJSON, $HttpResponse$BodySubscriber*, $Class*)},
-	{"lambda$asJSON$0", "(Ljava/io/InputStream;Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples$FromMappingSubscriber, lambda$asJSON$0, $Object*, $InputStream*, $Class*)},
-	{"lambda$asJSON$1", "(Ljava/lang/Class;Ljava/io/InputStream;)Ljava/util/function/Supplier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples$FromMappingSubscriber, lambda$asJSON$1, $Supplier*, $Class*, $InputStream*)},
-	{}
-};
-
-$InnerClassInfo _JavadocExamples$FromMappingSubscriber_InnerClassesInfo_[] = {
-	{"JavadocExamples$FromMappingSubscriber", "JavadocExamples", "FromMappingSubscriber", $STATIC},
-	{}
-};
-
-$ClassInfo _JavadocExamples$FromMappingSubscriber_ClassInfo_ = {
-	$ACC_SUPER,
-	"JavadocExamples$FromMappingSubscriber",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JavadocExamples$FromMappingSubscriber_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavadocExamples$FromMappingSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JavadocExamples"
-};
-
-$Object* allocate$JavadocExamples$FromMappingSubscriber($Class* clazz) {
-	return $of($alloc(JavadocExamples$FromMappingSubscriber));
-}
 
 void JavadocExamples$FromMappingSubscriber::init$() {
 }
 
 $HttpResponse$BodySubscriber* JavadocExamples$FromMappingSubscriber::asJSON($Class* targetType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpResponse$BodySubscriber, upstream, $HttpResponse$BodySubscribers::ofInputStream());
-	$var($HttpResponse$BodySubscriber, downstream, $HttpResponse$BodySubscribers::mapping(upstream, static_cast<$Function*>($$new(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, targetType))));
+	$var($HttpResponse$BodySubscriber, downstream, $HttpResponse$BodySubscribers::mapping(upstream, $$new(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, targetType)));
 	return downstream;
 }
 
 $Supplier* JavadocExamples$FromMappingSubscriber::lambda$asJSON$1($Class* targetType, $InputStream* is) {
-	return static_cast<$Supplier*>($new(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, is, targetType));
+	return $new(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, is, targetType);
 }
 
 $Object* JavadocExamples$FromMappingSubscriber::lambda$asJSON$0($InputStream* is, $Class* targetType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, stream, is);
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Object, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($Object, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$var($JavadocExamples$ObjectMapper, objectMapper, $new($JavadocExamples$ObjectMapper));
-					$assign(var$2, objectMapper->readValue(stream, targetType));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (stream != nullptr) {
-						try {
-							stream->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$var($JavadocExamples$ObjectMapper, objectMapper, $new($JavadocExamples$ObjectMapper));
+				$assign(var$2, objectMapper->readValue(stream, targetType));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (stream != nullptr) {
-					stream->close();
+					try {
+						stream->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (stream != nullptr) {
+				stream->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
@@ -211,14 +167,42 @@ JavadocExamples$FromMappingSubscriber::JavadocExamples$FromMappingSubscriber() {
 
 $Class* JavadocExamples$FromMappingSubscriber::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::classInfo$.name)) {
+		if (name->equals("JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1")) {
 			return JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::load$(name, initialize);
 		}
-		if (name->equals(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::classInfo$.name)) {
+		if (name->equals("JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1")) {
 			return JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(JavadocExamples$FromMappingSubscriber, name, initialize, &_JavadocExamples$FromMappingSubscriber_ClassInfo_, allocate$JavadocExamples$FromMappingSubscriber);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JavadocExamples$FromMappingSubscriber, init$, void)},
+		{"asJSON", "(Ljava/lang/Class;)Ljava/net/http/HttpResponse$BodySubscriber;", "<W:Ljava/lang/Object;>(Ljava/lang/Class<TW;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/function/Supplier<TW;>;>;", $PUBLIC | $STATIC, $staticMethod(JavadocExamples$FromMappingSubscriber, asJSON, $HttpResponse$BodySubscriber*, $Class*)},
+		{"lambda$asJSON$0", "(Ljava/io/InputStream;Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples$FromMappingSubscriber, lambda$asJSON$0, $Object*, $InputStream*, $Class*)},
+		{"lambda$asJSON$1", "(Ljava/lang/Class;Ljava/io/InputStream;)Ljava/util/function/Supplier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples$FromMappingSubscriber, lambda$asJSON$1, $Supplier*, $Class*, $InputStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JavadocExamples$FromMappingSubscriber", "JavadocExamples", "FromMappingSubscriber", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JavadocExamples$FromMappingSubscriber",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JavadocExamples"
+	};
+	$loadClass(JavadocExamples$FromMappingSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocExamples$FromMappingSubscriber);
+	});
 	return class$;
 }
 

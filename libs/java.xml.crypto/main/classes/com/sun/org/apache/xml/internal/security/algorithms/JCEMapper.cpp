@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignature.h>
@@ -68,53 +67,6 @@ namespace com {
 						namespace security {
 							namespace algorithms {
 
-$FieldInfo _JCEMapper_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JCEMapper, LOG)},
-	{"algorithmsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;>;", $PRIVATE | $STATIC, $staticField(JCEMapper, algorithmsMap)},
-	{"providerName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JCEMapper, providerName)},
-	{}
-};
-
-$MethodInfo _JCEMapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JCEMapper, init$, void)},
-	{"getAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;", nullptr, $PRIVATE | $STATIC, $staticMethod(JCEMapper, getAlgorithm, $JCEMapper$Algorithm*, $String*)},
-	{"getAlgorithmClassFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getAlgorithmClassFromURI, $String*, $String*)},
-	{"getIVLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getIVLengthFromURI, int32_t, $String*)},
-	{"getJCEKeyAlgorithmFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getJCEKeyAlgorithmFromURI, $String*, $String*)},
-	{"getJCEProviderFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getJCEProviderFromURI, $String*, $String*)},
-	{"getKeyLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getKeyLengthFromURI, int32_t, $String*)},
-	{"getProviderId", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getProviderId, $String*)},
-	{"register", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, register$, void, $String*, $JCEMapper$Algorithm*)},
-	{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, registerDefaultAlgorithms, void)},
-	{"setProviderId", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, setProviderId, void, $String*)},
-	{"translateURItoJCEID", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, translateURItoJCEID, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _JCEMapper_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm", "com.sun.org.apache.xml.internal.security.algorithms.JCEMapper", "Algorithm", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCEMapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper",
-	"java.lang.Object",
-	nullptr,
-	_JCEMapper_FieldInfo_,
-	_JCEMapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCEMapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm"
-};
-
-$Object* allocate$JCEMapper($Class* clazz) {
-	return $of($alloc(JCEMapper));
-}
-
 $Logger* JCEMapper::LOG = nullptr;
 $Map* JCEMapper::algorithmsMap = nullptr;
 $String* JCEMapper::providerName = nullptr;
@@ -130,53 +82,53 @@ void JCEMapper::register$($String* id, $JCEMapper$Algorithm* algorithm) {
 
 void JCEMapper::registerDefaultAlgorithms() {
 	$init(JCEMapper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MessageDigestAlgorithm);
 	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5, $$new($JCEMapper$Algorithm, ""_s, "MD5"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_RIPEMD160, $$new($JCEMapper$Algorithm, ""_s, "RIPEMD160"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA1, $$new($JCEMapper$Algorithm, ""_s, "SHA-1"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA224, $$new($JCEMapper$Algorithm, ""_s, "SHA-224"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA256, $$new($JCEMapper$Algorithm, ""_s, "SHA-256"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA384, $$new($JCEMapper$Algorithm, ""_s, "SHA-384"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA512, $$new($JCEMapper$Algorithm, ""_s, "SHA-512"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_WHIRLPOOL, $$new($JCEMapper$Algorithm, ""_s, "WHIRLPOOL"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_224, $$new($JCEMapper$Algorithm, ""_s, "SHA3-224"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_256, $$new($JCEMapper$Algorithm, ""_s, "SHA3-256"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_384, $$new($JCEMapper$Algorithm, ""_s, "SHA3-384"_s, "MessageDigest"_s));
-	$nc(JCEMapper::algorithmsMap)->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_512, $$new($JCEMapper$Algorithm, ""_s, "SHA3-512"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_RIPEMD160, $$new($JCEMapper$Algorithm, ""_s, "RIPEMD160"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA1, $$new($JCEMapper$Algorithm, ""_s, "SHA-1"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA224, $$new($JCEMapper$Algorithm, ""_s, "SHA-224"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA256, $$new($JCEMapper$Algorithm, ""_s, "SHA-256"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA384, $$new($JCEMapper$Algorithm, ""_s, "SHA-384"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA512, $$new($JCEMapper$Algorithm, ""_s, "SHA-512"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_WHIRLPOOL, $$new($JCEMapper$Algorithm, ""_s, "WHIRLPOOL"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_224, $$new($JCEMapper$Algorithm, ""_s, "SHA3-224"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_256, $$new($JCEMapper$Algorithm, ""_s, "SHA3-256"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_384, $$new($JCEMapper$Algorithm, ""_s, "SHA3-384"_s, "MessageDigest"_s));
+	JCEMapper::algorithmsMap->put($MessageDigestAlgorithm::ALGO_ID_DIGEST_SHA3_512, $$new($JCEMapper$Algorithm, ""_s, "SHA3-512"_s, "MessageDigest"_s));
 	$init($XMLSignature);
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_DSA, $$new($JCEMapper$Algorithm, "DSA"_s, "SHA1withDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_DSA_SHA256, $$new($JCEMapper$Algorithm, "DSA"_s, "SHA256withDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5, $$new($JCEMapper$Algorithm, "RSA"_s, "MD5withRSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_RIPEMD160, $$new($JCEMapper$Algorithm, "RSA"_s, "RIPEMD160withRSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA1withRSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA224withRSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA256withRSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA384withRSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA512withRSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA1withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA224withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA256withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA384withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA512withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-224withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-256withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-384withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-512withRSAandMGF1"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_PSS, $$new($JCEMapper$Algorithm, "RSA"_s, "RSASSA-PSS"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA1, $$new($JCEMapper$Algorithm, "EC"_s, "SHA1withECDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA224, $$new($JCEMapper$Algorithm, "EC"_s, "SHA224withECDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA256, $$new($JCEMapper$Algorithm, "EC"_s, "SHA256withECDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA384, $$new($JCEMapper$Algorithm, "EC"_s, "SHA384withECDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA512, $$new($JCEMapper$Algorithm, "EC"_s, "SHA512withECDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_RIPEMD160, $$new($JCEMapper$Algorithm, "EC"_s, "RIPEMD160withECDSA"_s, "Signature"_s));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5, $$new($JCEMapper$Algorithm, ""_s, "HmacMD5"_s, "Mac"_s, 0, 0));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_MAC_HMAC_RIPEMD160, $$new($JCEMapper$Algorithm, ""_s, "HMACRIPEMD160"_s, "Mac"_s, 0, 0));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA1, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA1"_s, "Mac"_s, 0, 0));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA224, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA224"_s, "Mac"_s, 0, 0));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA256, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA256"_s, "Mac"_s, 0, 0));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA384, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA384"_s, "Mac"_s, 0, 0));
-	$nc(JCEMapper::algorithmsMap)->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA512, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA512"_s, "Mac"_s, 0, 0));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_DSA, $$new($JCEMapper$Algorithm, "DSA"_s, "SHA1withDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_DSA_SHA256, $$new($JCEMapper$Algorithm, "DSA"_s, "SHA256withDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_NOT_RECOMMENDED_RSA_MD5, $$new($JCEMapper$Algorithm, "RSA"_s, "MD5withRSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_RIPEMD160, $$new($JCEMapper$Algorithm, "RSA"_s, "RIPEMD160withRSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA1withRSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA224withRSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA256withRSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA384withRSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA512withRSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA1_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA1withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA224_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA224withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA256_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA256withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA384_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA384withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA512_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA512withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_224_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-224withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_256_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-256withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_384_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-384withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_SHA3_512_MGF1, $$new($JCEMapper$Algorithm, "RSA"_s, "SHA3-512withRSAandMGF1"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_RSA_PSS, $$new($JCEMapper$Algorithm, "RSA"_s, "RSASSA-PSS"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA1, $$new($JCEMapper$Algorithm, "EC"_s, "SHA1withECDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA224, $$new($JCEMapper$Algorithm, "EC"_s, "SHA224withECDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA256, $$new($JCEMapper$Algorithm, "EC"_s, "SHA256withECDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA384, $$new($JCEMapper$Algorithm, "EC"_s, "SHA384withECDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_SHA512, $$new($JCEMapper$Algorithm, "EC"_s, "SHA512withECDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_SIGNATURE_ECDSA_RIPEMD160, $$new($JCEMapper$Algorithm, "EC"_s, "RIPEMD160withECDSA"_s, "Signature"_s));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_MAC_HMAC_NOT_RECOMMENDED_MD5, $$new($JCEMapper$Algorithm, ""_s, "HmacMD5"_s, "Mac"_s, 0, 0));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_MAC_HMAC_RIPEMD160, $$new($JCEMapper$Algorithm, ""_s, "HMACRIPEMD160"_s, "Mac"_s, 0, 0));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA1, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA1"_s, "Mac"_s, 0, 0));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA224, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA224"_s, "Mac"_s, 0, 0));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA256, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA256"_s, "Mac"_s, 0, 0));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA384, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA384"_s, "Mac"_s, 0, 0));
+	JCEMapper::algorithmsMap->put($XMLSignature::ALGO_ID_MAC_HMAC_SHA512, $$new($JCEMapper$Algorithm, ""_s, "HmacSHA512"_s, "Mac"_s, 0, 0));
 }
 
 $String* JCEMapper::translateURItoJCEID($String* algorithmURI) {
@@ -235,7 +187,7 @@ $String* JCEMapper::getJCEProviderFromURI($String* algorithmURI) {
 
 $JCEMapper$Algorithm* JCEMapper::getAlgorithm($String* algorithmURI) {
 	$init(JCEMapper);
-	$nc(JCEMapper::LOG)->debug("Request for URI {}"_s, $$new($ObjectArray, {$of(algorithmURI)}));
+	$nc(JCEMapper::LOG)->debug("Request for URI {}"_s, $$new($ObjectArray, {algorithmURI}));
 	if (algorithmURI != nullptr) {
 		return $cast($JCEMapper$Algorithm, $nc(JCEMapper::algorithmsMap)->get(algorithmURI));
 	}
@@ -253,16 +205,57 @@ void JCEMapper::setProviderId($String* provider) {
 	$assignStatic(JCEMapper::providerName, provider);
 }
 
-void clinit$JCEMapper($Class* class$) {
+void JCEMapper::clinit$($Class* clazz) {
 	$assignStatic(JCEMapper::LOG, $LoggerFactory::getLogger(JCEMapper::class$));
-	$assignStatic(JCEMapper::algorithmsMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(JCEMapper::algorithmsMap, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 JCEMapper::JCEMapper() {
 }
 
 $Class* JCEMapper::load$($String* name, bool initialize) {
-	$loadClass(JCEMapper, name, initialize, &_JCEMapper_ClassInfo_, clinit$JCEMapper, allocate$JCEMapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JCEMapper, LOG)},
+		{"algorithmsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;>;", $PRIVATE | $STATIC, $staticField(JCEMapper, algorithmsMap)},
+		{"providerName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JCEMapper, providerName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JCEMapper, init$, void)},
+		{"getAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;", nullptr, $PRIVATE | $STATIC, $staticMethod(JCEMapper, getAlgorithm, $JCEMapper$Algorithm*, $String*)},
+		{"getAlgorithmClassFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getAlgorithmClassFromURI, $String*, $String*)},
+		{"getIVLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getIVLengthFromURI, int32_t, $String*)},
+		{"getJCEKeyAlgorithmFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getJCEKeyAlgorithmFromURI, $String*, $String*)},
+		{"getJCEProviderFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getJCEProviderFromURI, $String*, $String*)},
+		{"getKeyLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getKeyLengthFromURI, int32_t, $String*)},
+		{"getProviderId", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getProviderId, $String*)},
+		{"register", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, register$, void, $String*, $JCEMapper$Algorithm*)},
+		{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, registerDefaultAlgorithms, void)},
+		{"setProviderId", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, setProviderId, void, $String*)},
+		{"translateURItoJCEID", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, translateURItoJCEID, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm", "com.sun.org.apache.xml.internal.security.algorithms.JCEMapper", "Algorithm", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm"
+	};
+	$loadClass(JCEMapper, name, initialize, &classInfo$$, JCEMapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JCEMapper);
+	});
 	return class$;
 }
 

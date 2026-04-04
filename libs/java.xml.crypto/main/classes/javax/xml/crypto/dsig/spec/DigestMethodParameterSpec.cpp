@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/spec/DigestMethodParameterSpec.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,19 +9,16 @@ namespace javax {
 			namespace dsig {
 				namespace spec {
 
-$ClassInfo _DigestMethodParameterSpec_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dsig.spec.DigestMethodParameterSpec",
-	nullptr,
-	"java.security.spec.AlgorithmParameterSpec"
-};
-
-$Object* allocate$DigestMethodParameterSpec($Class* clazz) {
-	return $of($alloc(DigestMethodParameterSpec));
-}
-
 $Class* DigestMethodParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(DigestMethodParameterSpec, name, initialize, &_DigestMethodParameterSpec_ClassInfo_, allocate$DigestMethodParameterSpec);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dsig.spec.DigestMethodParameterSpec",
+		nullptr,
+		"java.security.spec.AlgorithmParameterSpec"
+	};
+	$loadClass(DigestMethodParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DigestMethodParameterSpec);
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class AlawCodec : public ::javax::sound::sampled::spi::FormatConversionProvider 
 	$class(AlawCodec, 0, ::javax::sound::sampled::spi::FormatConversionProvider)
 public:
 	AlawCodec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::sound::sampled::AudioInputStream* getAudioInputStream(::javax::sound::sampled::AudioFormat$Encoding* targetEncoding, ::javax::sound::sampled::AudioInputStream* sourceStream) override;
 	virtual ::javax::sound::sampled::AudioInputStream* getAudioInputStream(::javax::sound::sampled::AudioFormat* targetFormat, ::javax::sound::sampled::AudioInputStream* sourceStream) override;

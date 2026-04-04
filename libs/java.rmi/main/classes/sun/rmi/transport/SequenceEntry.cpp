@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/SequenceEntry.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace rmi {
 		namespace transport {
-
-$FieldInfo _SequenceEntry_FieldInfo_[] = {
-	{"sequenceNum", "J", nullptr, 0, $field(SequenceEntry, sequenceNum)},
-	{"keep", "Z", nullptr, 0, $field(SequenceEntry, keep)},
-	{}
-};
-
-$MethodInfo _SequenceEntry_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(SequenceEntry, init$, void, int64_t)},
-	{"retain", "(J)V", nullptr, 0, $virtualMethod(SequenceEntry, retain, void, int64_t)},
-	{"update", "(J)V", nullptr, 0, $virtualMethod(SequenceEntry, update, void, int64_t)},
-	{}
-};
-
-$ClassInfo _SequenceEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.SequenceEntry",
-	"java.lang.Object",
-	nullptr,
-	_SequenceEntry_FieldInfo_,
-	_SequenceEntry_MethodInfo_
-};
-
-$Object* allocate$SequenceEntry($Class* clazz) {
-	return $of($alloc(SequenceEntry));
-}
 
 void SequenceEntry::init$(int64_t sequenceNum) {
 	this->sequenceNum = sequenceNum;
@@ -54,7 +27,28 @@ SequenceEntry::SequenceEntry() {
 }
 
 $Class* SequenceEntry::load$($String* name, bool initialize) {
-	$loadClass(SequenceEntry, name, initialize, &_SequenceEntry_ClassInfo_, allocate$SequenceEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"sequenceNum", "J", nullptr, 0, $field(SequenceEntry, sequenceNum)},
+		{"keep", "Z", nullptr, 0, $field(SequenceEntry, keep)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(SequenceEntry, init$, void, int64_t)},
+		{"retain", "(J)V", nullptr, 0, $virtualMethod(SequenceEntry, retain, void, int64_t)},
+		{"update", "(J)V", nullptr, 0, $virtualMethod(SequenceEntry, update, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.SequenceEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SequenceEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SequenceEntry);
+	});
 	return class$;
 }
 

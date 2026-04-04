@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDOMImplementationImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
 #include <org/w3c/dom/DOMImplementation.h>
 #include <jcpp.h>
@@ -18,30 +17,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _DeferredDOMImplementationImpl_FieldInfo_[] = {
-	{"singleton", "Lcom/sun/org/apache/xerces/internal/dom/DeferredDOMImplementationImpl;", nullptr, $STATIC, $staticField(DeferredDOMImplementationImpl, singleton)},
-	{}
-};
-
-$MethodInfo _DeferredDOMImplementationImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeferredDOMImplementationImpl, init$, void)},
-	{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredDOMImplementationImpl, getDOMImplementation, $DOMImplementation*)},
-	{}
-};
-
-$ClassInfo _DeferredDOMImplementationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DeferredDOMImplementationImpl",
-	"com.sun.org.apache.xerces.internal.dom.DOMImplementationImpl",
-	nullptr,
-	_DeferredDOMImplementationImpl_FieldInfo_,
-	_DeferredDOMImplementationImpl_MethodInfo_
-};
-
-$Object* allocate$DeferredDOMImplementationImpl($Class* clazz) {
-	return $of($alloc(DeferredDOMImplementationImpl));
-}
-
 DeferredDOMImplementationImpl* DeferredDOMImplementationImpl::singleton = nullptr;
 
 void DeferredDOMImplementationImpl::init$() {
@@ -53,7 +28,7 @@ $DOMImplementation* DeferredDOMImplementationImpl::getDOMImplementation() {
 	return DeferredDOMImplementationImpl::singleton;
 }
 
-void clinit$DeferredDOMImplementationImpl($Class* class$) {
+void DeferredDOMImplementationImpl::clinit$($Class* clazz) {
 	$assignStatic(DeferredDOMImplementationImpl::singleton, $new(DeferredDOMImplementationImpl));
 }
 
@@ -61,7 +36,26 @@ DeferredDOMImplementationImpl::DeferredDOMImplementationImpl() {
 }
 
 $Class* DeferredDOMImplementationImpl::load$($String* name, bool initialize) {
-	$loadClass(DeferredDOMImplementationImpl, name, initialize, &_DeferredDOMImplementationImpl_ClassInfo_, clinit$DeferredDOMImplementationImpl, allocate$DeferredDOMImplementationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lcom/sun/org/apache/xerces/internal/dom/DeferredDOMImplementationImpl;", nullptr, $STATIC, $staticField(DeferredDOMImplementationImpl, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeferredDOMImplementationImpl, init$, void)},
+		{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredDOMImplementationImpl, getDOMImplementation, $DOMImplementation*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DeferredDOMImplementationImpl",
+		"com.sun.org.apache.xerces.internal.dom.DOMImplementationImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeferredDOMImplementationImpl, name, initialize, &classInfo$$, DeferredDOMImplementationImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredDOMImplementationImpl));
+	});
 	return class$;
 }
 

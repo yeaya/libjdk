@@ -25,6 +25,7 @@ class $export BodyProcessorInputStreamTest : public ::java::lang::Object {
 	$class(BodyProcessorInputStreamTest, 0, ::java::lang::Object)
 public:
 	BodyProcessorInputStreamTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Optional* getCharset(::java::net::http::HttpHeaders* headers);
 	static $String* lambda$getCharset$0($String* x);

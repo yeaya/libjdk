@@ -76,7 +76,7 @@ public:
 	virtual $bytes* wrap($bytes* inBuf, int32_t offset, int32_t len, ::org::ietf::jgss::MessageProp* msgProp) {return nullptr;}
 	virtual void wrap(::java::io::InputStream* inStream, ::java::io::OutputStream* outStream, ::org::ietf::jgss::MessageProp* msgProp) {}
 	static const int32_t DEFAULT_LIFETIME = 0;
-	static const int32_t INDEFINITE_LIFETIME = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t INDEFINITE_LIFETIME = 0x7fffffff; // Integer.MAX_VALUE
 };
 
 		} // jgss

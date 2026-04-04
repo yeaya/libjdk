@@ -1,5 +1,4 @@
 #include <sun/font/CFontManager.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Toolkit.h>
 #include <java/io/File.h>
@@ -42,7 +41,6 @@ using $FontFamilyArray = $Array<::sun::font::FontFamily>;
 using $Font = ::java::awt::Font;
 using $Toolkit = ::java::awt::Toolkit;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -51,12 +49,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $Locale = ::java::util::Locale;
 using $TreeMap = ::java::util::TreeMap;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $FontConfiguration = ::sun::awt::FontConfiguration;
 using $HeadlessToolkit = ::sun::awt::HeadlessToolkit;
@@ -81,101 +77,36 @@ public:
 		$set(this, dirName, dirName);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$registerFontsInDir$0(dirName));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CFontManager$$Lambda$lambda$registerFontsInDir$0>());
+		 return $nc(inst$)->lambda$registerFontsInDir$0(dirName);
 	}
 	CFontManager* inst$ = nullptr;
 	$String* dirName = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CFontManager$$Lambda$lambda$registerFontsInDir$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CFontManager$$Lambda$lambda$registerFontsInDir$0, inst$)},
-	{"dirName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CFontManager$$Lambda$lambda$registerFontsInDir$0, dirName)},
-	{}
-};
-$MethodInfo CFontManager$$Lambda$lambda$registerFontsInDir$0::methodInfos[3] = {
-	{"<init>", "(Lsun/font/CFontManager;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFontManager$$Lambda$lambda$registerFontsInDir$0, init$, void, CFontManager*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CFontManager$$Lambda$lambda$registerFontsInDir$0, run, $Object*)},
-	{}
-};
-$ClassInfo CFontManager$$Lambda$lambda$registerFontsInDir$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.font.CFontManager$$Lambda$lambda$registerFontsInDir$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CFontManager$$Lambda$lambda$registerFontsInDir$0::load$($String* name, bool initialize) {
-	$loadClass(CFontManager$$Lambda$lambda$registerFontsInDir$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CFontManager$$Lambda$lambda$registerFontsInDir$0, inst$)},
+		{"dirName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CFontManager$$Lambda$lambda$registerFontsInDir$0, dirName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/CFontManager;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CFontManager$$Lambda$lambda$registerFontsInDir$0, init$, void, CFontManager*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CFontManager$$Lambda$lambda$registerFontsInDir$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.font.CFontManager$$Lambda$lambda$registerFontsInDir$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CFontManager$$Lambda$lambda$registerFontsInDir$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CFontManager$$Lambda$lambda$registerFontsInDir$0);
+	});
 	return class$;
 }
 $Class* CFontManager$$Lambda$lambda$registerFontsInDir$0::class$ = nullptr;
-
-$FieldInfo _CFontManager_FieldInfo_[] = {
-	{"genericFonts", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/font/Font2D;>;", $PRIVATE | $STATIC, $staticField(CFontManager, genericFonts)},
-	{"waitForFontsToBeLoaded", "Ljava/lang/Object;", nullptr, 0, $field(CFontManager, waitForFontsToBeLoaded)},
-	{"loadedAllFonts", "Z", nullptr, $PRIVATE, $field(CFontManager, loadedAllFonts)},
-	{}
-};
-
-$MethodInfo _CFontManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CFontManager, init$, void)},
-	{"addNativeFontFamilyNames", "(Ljava/util/TreeMap;Ljava/util/Locale;)V", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(CFontManager, addNativeFontFamilyNames, void, $TreeMap*, $Locale*)},
-	{"cloneStyledFont", "(Lsun/font/FontFamily;Ljava/lang/String;I)Z", nullptr, $PROTECTED, $method(CFontManager, cloneStyledFont, bool, $FontFamily*, $String*, int32_t)},
-	{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(CFontManager, createFontConfiguration, $FontConfiguration*)},
-	{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(CFontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
-	{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontManager, getDefaultPlatformFont, $StringArray*)},
-	{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(CFontManager, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
-	{"getFontFamily", "(Ljava/lang/String;Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PROTECTED, $method(CFontManager, getFontFamily, $FontFamily*, $String*, $String*)},
-	{"getFontFamilyWithExtraTry", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PROTECTED, $method(CFontManager, getFontFamilyWithExtraTry, $FontFamily*, $String*, $String*, $String*)},
-	{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFontManager, getFontPath, $String*, bool)},
-	{"getGenericFonts", "()[Lsun/font/Font2D;", nullptr, $PUBLIC | $STATIC, $staticMethod(CFontManager, getGenericFonts, $Font2DArray*)},
-	{"getRegisteredFonts", "()[Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(CFontManager, getRegisteredFonts, $Font2DArray*)},
-	{"lambda$registerFontsInDir$0", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(CFontManager, lambda$registerFontsInDir$0, $StringArray*, $String*)},
-	{"loadFonts", "()V", nullptr, $PUBLIC, $virtualMethod(CFontManager, loadFonts, void)},
-	{"loadNativeDirFonts", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(CFontManager, loadNativeDirFonts, void, $String*)},
-	{"loadNativeFonts", "()V", nullptr, $PRIVATE | $NATIVE, $method(CFontManager, loadNativeFonts, void)},
-	{"populateFontFileNameMap", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(CFontManager, populateFontFileNameMap, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
-	{"registerFont", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CFontManager, registerFont, void, $String*, $String*)},
-	{"registerFontsInDir", "(Ljava/lang/String;ZIZZ)V", nullptr, $PROTECTED, $virtualMethod(CFontManager, registerFontsInDir, void, $String*, bool, int32_t, bool, bool)},
-	{"registerGenericFont", "(Lsun/font/Font2D;)Lsun/font/Font2D;", nullptr, $PUBLIC, $method(CFontManager, registerGenericFont, $Font2D*, $Font2D*)},
-	{"registerGenericFont", "(Lsun/font/Font2D;Z)Lsun/font/Font2D;", nullptr, $PUBLIC, $method(CFontManager, registerGenericFont, $Font2D*, $Font2D*, bool)},
-	{"registerItalicDerived", "()V", nullptr, 0, $method(CFontManager, registerItalicDerived, void)},
-	{"setupLogicalFonts", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CFontManager, setupLogicalFonts, void, $String*, $String*, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_loadNativeDirFonts 14
-#define _METHOD_INDEX_loadNativeFonts 15
-
-$InnerClassInfo _CFontManager_InnerClassesInfo_[] = {
-	{"sun.font.CFontManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CFontManager_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.CFontManager",
-	"sun.font.SunFontManager",
-	nullptr,
-	_CFontManager_FieldInfo_,
-	_CFontManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CFontManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.CFontManager$1"
-};
-
-$Object* allocate$CFontManager($Class* clazz) {
-	return $of($alloc(CFontManager));
-}
 
 $Hashtable* CFontManager::genericFonts = nullptr;
 
@@ -204,8 +135,8 @@ $StringArray* CFontManager::getDefaultPlatformFont() {
 
 $Font2DArray* CFontManager::getGenericFonts() {
 	$init(CFontManager);
-	$useLocalCurrentObjectStackCache();
-	return $fcast($Font2DArray, $nc($($nc(CFontManager::genericFonts)->values()))->toArray($$new($Font2DArray, 0)));
+	$useLocalObjectStack();
+	return $cast($Font2DArray, $$nc($nc(CFontManager::genericFonts)->values())->toArray($$new($Font2DArray, 0)));
 }
 
 $Font2D* CFontManager::registerGenericFont($Font2D* f) {
@@ -213,11 +144,11 @@ $Font2D* CFontManager::registerGenericFont($Font2D* f) {
 }
 
 $Font2D* CFontManager::registerGenericFont($Font2D* f, bool logicalFont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rank = 4;
 	$var($String, fontName, $nc(f)->fullName);
 	$var($String, familyName, f->familyName);
-	if (fontName == nullptr || $nc(fontName)->isEmpty()) {
+	if (fontName == nullptr || fontName->isEmpty()) {
 		return nullptr;
 	}
 	if (logicalFont || !$nc(CFontManager::genericFonts)->containsKey(fontName)) {
@@ -228,7 +159,7 @@ $Font2D* CFontManager::registerGenericFont($Font2D* f, bool logicalFont) {
 		if (family == nullptr) {
 			$assign(family, $new($FontFamily, familyName, false, rank));
 			family->setFont(f, f->style);
-		} else if ($nc(family)->getRank() >= rank) {
+		} else if (family->getRank() >= rank) {
 			family->setFont(f, f->style);
 		}
 		if (!logicalFont) {
@@ -243,7 +174,7 @@ $Font2D* CFontManager::registerGenericFont($Font2D* f, bool logicalFont) {
 }
 
 $Font2DArray* CFontManager::getRegisteredFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font2DArray, regFonts, $SunFontManager::getRegisteredFonts());
 	$var($Font2DArray, genericFonts, getGenericFonts());
 	$var($Font2DArray, allFonts, $new($Font2DArray, $nc(regFonts)->length + $nc(genericFonts)->length));
@@ -253,7 +184,7 @@ $Font2DArray* CFontManager::getRegisteredFonts() {
 }
 
 void CFontManager::addNativeFontFamilyNames($TreeMap* familyNames, $Locale* requestedLocale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font2DArray, genericfonts, getGenericFonts());
 	for (int32_t i = 0; i < $nc(genericfonts)->length; ++i) {
 		if (!($instanceOf($NativeFont, genericfonts->get(i)))) {
@@ -264,22 +195,18 @@ void CFontManager::addNativeFontFamilyNames($TreeMap* familyNames, $Locale* requ
 }
 
 void CFontManager::registerFontsInDir($String* dirName, bool useJavaRasterizer, int32_t fontRank, bool defer, bool resolveSymLinks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($StringArray, files, $cast($StringArray, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(CFontManager$$Lambda$lambda$registerFontsInDir$0, this, dirName)))));
+	$var($StringArray, files, $cast($StringArray, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(CFontManager$$Lambda$lambda$registerFontsInDir$0, this, dirName)))));
 	if (files == nullptr) {
 		return;
 	} else {
-		{
-			$var($StringArray, arr$, files);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, f, arr$->get(i$));
-				{
-					$init($File);
-					loadNativeDirFonts($$str({dirName, $File::separator, f}));
-				}
+		$var($StringArray, arr$, files);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, f, arr$->get(i$));
+			{
+				$init($File);
+				loadNativeDirFonts($$str({dirName, $File::separator, f}));
 			}
 		}
 	}
@@ -287,13 +214,13 @@ void CFontManager::registerFontsInDir($String* dirName, bool useJavaRasterizer, 
 }
 
 void CFontManager::loadNativeDirFonts($String* fontPath) {
-	$prepareNative(CFontManager, loadNativeDirFonts, void, $String* fontPath);
+	$prepareNative(loadNativeDirFonts, void, $String* fontPath);
 	$invokeNative(fontPath);
 	$finishNative();
 }
 
 void CFontManager::loadNativeFonts() {
-	$prepareNative(CFontManager, loadNativeFonts, void);
+	$prepareNative(loadNativeFonts, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -304,7 +231,7 @@ void CFontManager::registerFont($String* fontName, $String* fontFamilyName) {
 }
 
 void CFontManager::registerItalicDerived() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontFamilyArray, famArr, $FontFamily::getAllFontFamilies());
 	for (int32_t i = 0; i < $nc(famArr)->length; ++i) {
 		$var($FontFamily, family, famArr->get(i));
@@ -347,11 +274,11 @@ void CFontManager::registerItalicDerived() {
 }
 
 void CFontManager::loadFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$synchronized(this->waitForFontsToBeLoaded) {
 		$SunFontManager::loadFonts();
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CFontManager$1, this)));
+		$AccessController::doPrivileged($$new($CFontManager$1, this));
 		$var($String, defaultFont, "Lucida Grande"_s);
 		$var($String, defaultFallback, "Lucida Grande"_s);
 		setupLogicalFonts("Dialog"_s, defaultFont, defaultFallback);
@@ -371,7 +298,7 @@ void CFontManager::setupLogicalFonts($String* logicalName, $String* realName, $S
 }
 
 $FontFamily* CFontManager::getFontFamilyWithExtraTry($String* logicalName, $String* realName, $String* fallbackName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontFamily, family, getFontFamily(realName, fallbackName));
 	if (family != nullptr) {
 		return family;
@@ -386,7 +313,7 @@ $FontFamily* CFontManager::getFontFamilyWithExtraTry($String* logicalName, $Stri
 }
 
 $FontFamily* CFontManager::getFontFamily($String* realName, $String* fallbackName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontFamily, family, $FontFamily::getFamily(realName));
 	if (family != nullptr) {
 		return family;
@@ -400,7 +327,7 @@ $FontFamily* CFontManager::getFontFamily($String* realName, $String* fallbackNam
 }
 
 bool CFontManager::cloneStyledFont($FontFamily* realFamily, $String* logicalFamilyName, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (realFamily == nullptr) {
 		return false;
 	}
@@ -416,7 +343,7 @@ bool CFontManager::cloneStyledFont($FontFamily* realFamily, $String* logicalFami
 $String* CFontManager::getFontPath(bool noType1Fonts) {
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($HeadlessToolkit, tk)) {
-		$assign(tk, $nc(($cast($HeadlessToolkit, tk)))->getUnderlyingToolkit());
+		$assign(tk, $cast($HeadlessToolkit, tk)->getUnderlyingToolkit());
 	}
 	if ($instanceOf($LWCToolkit, tk)) {
 		return ""_s;
@@ -436,11 +363,11 @@ void CFontManager::populateFontFileNameMap($HashMap* fontToFileMap, $HashMap* fo
 }
 
 $StringArray* CFontManager::lambda$registerFontsInDir$0($String* dirName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($File, dirName)->list($(getTrueTypeFilter()));
 }
 
-void clinit$CFontManager($Class* class$) {
+void CFontManager::clinit$($Class* clazz) {
 	$assignStatic(CFontManager::genericFonts, $new($Hashtable));
 }
 
@@ -449,11 +376,63 @@ CFontManager::CFontManager() {
 
 $Class* CFontManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CFontManager$$Lambda$lambda$registerFontsInDir$0::classInfo$.name)) {
+		if (name->equals("sun.font.CFontManager$$Lambda$lambda$registerFontsInDir$0")) {
 			return CFontManager$$Lambda$lambda$registerFontsInDir$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CFontManager, name, initialize, &_CFontManager_ClassInfo_, clinit$CFontManager, allocate$CFontManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"genericFonts", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/font/Font2D;>;", $PRIVATE | $STATIC, $staticField(CFontManager, genericFonts)},
+		{"waitForFontsToBeLoaded", "Ljava/lang/Object;", nullptr, 0, $field(CFontManager, waitForFontsToBeLoaded)},
+		{"loadedAllFonts", "Z", nullptr, $PRIVATE, $field(CFontManager, loadedAllFonts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CFontManager, init$, void)},
+		{"addNativeFontFamilyNames", "(Ljava/util/TreeMap;Ljava/util/Locale;)V", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(CFontManager, addNativeFontFamilyNames, void, $TreeMap*, $Locale*)},
+		{"cloneStyledFont", "(Lsun/font/FontFamily;Ljava/lang/String;I)Z", nullptr, $PROTECTED, $method(CFontManager, cloneStyledFont, bool, $FontFamily*, $String*, int32_t)},
+		{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(CFontManager, createFontConfiguration, $FontConfiguration*)},
+		{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(CFontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
+		{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CFontManager, getDefaultPlatformFont, $StringArray*)},
+		{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(CFontManager, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
+		{"getFontFamily", "(Ljava/lang/String;Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PROTECTED, $method(CFontManager, getFontFamily, $FontFamily*, $String*, $String*)},
+		{"getFontFamilyWithExtraTry", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsun/font/FontFamily;", nullptr, $PROTECTED, $method(CFontManager, getFontFamilyWithExtraTry, $FontFamily*, $String*, $String*, $String*)},
+		{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CFontManager, getFontPath, $String*, bool)},
+		{"getGenericFonts", "()[Lsun/font/Font2D;", nullptr, $PUBLIC | $STATIC, $staticMethod(CFontManager, getGenericFonts, $Font2DArray*)},
+		{"getRegisteredFonts", "()[Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(CFontManager, getRegisteredFonts, $Font2DArray*)},
+		{"lambda$registerFontsInDir$0", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(CFontManager, lambda$registerFontsInDir$0, $StringArray*, $String*)},
+		{"loadFonts", "()V", nullptr, $PUBLIC, $virtualMethod(CFontManager, loadFonts, void)},
+		{"loadNativeDirFonts", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(CFontManager, loadNativeDirFonts, void, $String*)},
+		{"loadNativeFonts", "()V", nullptr, $PRIVATE | $NATIVE, $method(CFontManager, loadNativeFonts, void)},
+		{"populateFontFileNameMap", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(CFontManager, populateFontFileNameMap, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
+		{"registerFont", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CFontManager, registerFont, void, $String*, $String*)},
+		{"registerFontsInDir", "(Ljava/lang/String;ZIZZ)V", nullptr, $PROTECTED, $virtualMethod(CFontManager, registerFontsInDir, void, $String*, bool, int32_t, bool, bool)},
+		{"registerGenericFont", "(Lsun/font/Font2D;)Lsun/font/Font2D;", nullptr, $PUBLIC, $method(CFontManager, registerGenericFont, $Font2D*, $Font2D*)},
+		{"registerGenericFont", "(Lsun/font/Font2D;Z)Lsun/font/Font2D;", nullptr, $PUBLIC, $method(CFontManager, registerGenericFont, $Font2D*, $Font2D*, bool)},
+		{"registerItalicDerived", "()V", nullptr, 0, $method(CFontManager, registerItalicDerived, void)},
+		{"setupLogicalFonts", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CFontManager, setupLogicalFonts, void, $String*, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CFontManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.CFontManager",
+		"sun.font.SunFontManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.CFontManager$1"
+	};
+	$loadClass(CFontManager, name, initialize, &classInfo$$, CFontManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CFontManager));
+	});
 	return class$;
 }
 

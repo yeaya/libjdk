@@ -89,6 +89,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::basic::ComboPopup* access$000(::com::apple::laf::AquaComboBoxUI* x0);
 	static ::javax::swing::plaf::basic::ComboPopup* access$100(::com::apple::laf::AquaComboBoxUI* x0);

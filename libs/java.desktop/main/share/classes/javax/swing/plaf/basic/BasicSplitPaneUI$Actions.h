@@ -49,6 +49,7 @@ class BasicSplitPaneUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicSplitPaneUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicSplitPaneUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* ev) override;
 	::java::awt::Component* getFirstAvailableComponent(::java::awt::Component* c);

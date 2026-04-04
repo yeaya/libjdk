@@ -1,5 +1,4 @@
 #include <TestSingleScreenGConfigNotify.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
@@ -49,27 +48,24 @@ public:
 	virtual void run() override {
 		TestSingleScreenGConfigNotify::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestSingleScreenGConfigNotify$$Lambda$lambda$main$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestSingleScreenGConfigNotify$$Lambda$lambda$main$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1, run, void)},
-	{}
-};
-$ClassInfo TestSingleScreenGConfigNotify$$Lambda$lambda$main$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestSingleScreenGConfigNotify$$Lambda$lambda$main$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestSingleScreenGConfigNotify$$Lambda$lambda$main$1::load$($String* name, bool initialize) {
-	$loadClass(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestSingleScreenGConfigNotify$$Lambda$lambda$main$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1);
+	});
 	return class$;
 }
 $Class* TestSingleScreenGConfigNotify$$Lambda$lambda$main$1::class$ = nullptr;
@@ -82,27 +78,24 @@ public:
 	virtual void run() override {
 		TestSingleScreenGConfigNotify::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1, run, void)},
-	{}
-};
-$ClassInfo TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1::load$($String* name, bool initialize) {
-	$loadClass(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1);
+	});
 	return class$;
 }
 $Class* TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1::class$ = nullptr;
@@ -115,62 +108,27 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* evt) override {
 		TestSingleScreenGConfigNotify::lambda$main$0(evt);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	methodInfos
 };
 $Class* TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2::load$($String* name, bool initialize) {
-	$loadClass(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2);
+	});
 	return class$;
 }
 $Class* TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2::class$ = nullptr;
-
-$FieldInfo _TestSingleScreenGConfigNotify_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, name)},
-	{"go", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, go)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, frame)},
-	{"after", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, after)},
-	{"before", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, before)},
-	{"button", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, button)},
-	{}
-};
-
-$MethodInfo _TestSingleScreenGConfigNotify_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify, init$, void)},
-	{"lambda$main$0", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSingleScreenGConfigNotify, lambda$main$0, void, $PropertyChangeEvent*)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSingleScreenGConfigNotify, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSingleScreenGConfigNotify, lambda$main$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestSingleScreenGConfigNotify, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestSingleScreenGConfigNotify_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"TestSingleScreenGConfigNotify",
-	"java.lang.Object",
-	nullptr,
-	_TestSingleScreenGConfigNotify_FieldInfo_,
-	_TestSingleScreenGConfigNotify_MethodInfo_
-};
-
-$Object* allocate$TestSingleScreenGConfigNotify($Class* clazz) {
-	return $of($alloc(TestSingleScreenGConfigNotify));
-}
 
 $String* TestSingleScreenGConfigNotify::name = nullptr;
 $CountDownLatch* TestSingleScreenGConfigNotify::go = nullptr;
@@ -184,11 +142,11 @@ void TestSingleScreenGConfigNotify::init$() {
 
 void TestSingleScreenGConfigNotify::main($StringArray* args) {
 	$init(TestSingleScreenGConfigNotify);
-	$useLocalCurrentObjectStackCache();
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1)));
+	$useLocalObjectStack();
+	$EventQueue::invokeAndWait($$new(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1));
 	$init($TimeUnit);
 	bool called = $nc(TestSingleScreenGConfigNotify::go)->await(10, $TimeUnit::SECONDS);
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1)));
+	$EventQueue::invokeAndWait($$new(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1));
 	if ($Objects::equals(TestSingleScreenGConfigNotify::before, TestSingleScreenGConfigNotify::after) && called) {
 		$throwNew($RuntimeException, "propertyChange() should not be called"_s);
 	}
@@ -206,23 +164,23 @@ void TestSingleScreenGConfigNotify::lambda$main$2() {
 void TestSingleScreenGConfigNotify::lambda$main$1() {
 	$init(TestSingleScreenGConfigNotify);
 	$assignStatic(TestSingleScreenGConfigNotify::frame, $new($JFrame));
-	$nc(TestSingleScreenGConfigNotify::frame)->setSize(300, 300);
+	TestSingleScreenGConfigNotify::frame->setSize(300, 300);
 	$nc(TestSingleScreenGConfigNotify::frame)->setLocationRelativeTo(nullptr);
 	$assignStatic(TestSingleScreenGConfigNotify::button, $new($JButton));
-	$nc(TestSingleScreenGConfigNotify::button)->addPropertyChangeListener(static_cast<$PropertyChangeListener*>($$new(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2)));
+	TestSingleScreenGConfigNotify::button->addPropertyChangeListener($$new(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2));
 	$assignStatic(TestSingleScreenGConfigNotify::before, $nc(TestSingleScreenGConfigNotify::button)->getGraphicsConfiguration());
-	$nc(TestSingleScreenGConfigNotify::frame)->add(static_cast<$Component*>(TestSingleScreenGConfigNotify::button));
+	$nc(TestSingleScreenGConfigNotify::frame)->add(TestSingleScreenGConfigNotify::button);
 	$nc(TestSingleScreenGConfigNotify::frame)->setVisible(true);
 }
 
 void TestSingleScreenGConfigNotify::lambda$main$0($PropertyChangeEvent* evt) {
 	$init(TestSingleScreenGConfigNotify);
-	if ($nc($($nc(evt)->getPropertyName()))->equals(TestSingleScreenGConfigNotify::name)) {
+	if ($$nc($nc(evt)->getPropertyName())->equals(TestSingleScreenGConfigNotify::name)) {
 		$nc(TestSingleScreenGConfigNotify::go)->countDown();
 	}
 }
 
-void clinit$TestSingleScreenGConfigNotify($Class* class$) {
+void TestSingleScreenGConfigNotify::clinit$($Class* clazz) {
 	$assignStatic(TestSingleScreenGConfigNotify::name, "graphicsConfiguration"_s);
 	$assignStatic(TestSingleScreenGConfigNotify::go, $new($CountDownLatch, 1));
 }
@@ -232,17 +190,44 @@ TestSingleScreenGConfigNotify::TestSingleScreenGConfigNotify() {
 
 $Class* TestSingleScreenGConfigNotify::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestSingleScreenGConfigNotify$$Lambda$lambda$main$1::classInfo$.name)) {
+		if (name->equals("TestSingleScreenGConfigNotify$$Lambda$lambda$main$1")) {
 			return TestSingleScreenGConfigNotify$$Lambda$lambda$main$1::load$(name, initialize);
 		}
-		if (name->equals(TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1::classInfo$.name)) {
+		if (name->equals("TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1")) {
 			return TestSingleScreenGConfigNotify$$Lambda$lambda$main$2$1::load$(name, initialize);
 		}
-		if (name->equals(TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2::classInfo$.name)) {
+		if (name->equals("TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2")) {
 			return TestSingleScreenGConfigNotify$$Lambda$lambda$main$0$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TestSingleScreenGConfigNotify, name, initialize, &_TestSingleScreenGConfigNotify_ClassInfo_, clinit$TestSingleScreenGConfigNotify, allocate$TestSingleScreenGConfigNotify);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, name)},
+		{"go", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, go)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, frame)},
+		{"after", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, after)},
+		{"before", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, before)},
+		{"button", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestSingleScreenGConfigNotify, button)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestSingleScreenGConfigNotify, init$, void)},
+		{"lambda$main$0", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSingleScreenGConfigNotify, lambda$main$0, void, $PropertyChangeEvent*)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSingleScreenGConfigNotify, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSingleScreenGConfigNotify, lambda$main$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestSingleScreenGConfigNotify, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"TestSingleScreenGConfigNotify",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestSingleScreenGConfigNotify, name, initialize, &classInfo$$, TestSingleScreenGConfigNotify::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSingleScreenGConfigNotify);
+	});
 	return class$;
 }
 

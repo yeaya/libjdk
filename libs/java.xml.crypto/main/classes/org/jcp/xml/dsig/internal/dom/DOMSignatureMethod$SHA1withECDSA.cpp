@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$SHA1withECDSA.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractECDSASignatureMethod.h>
@@ -25,42 +24,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMSignatureMethod$SHA1withECDSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withECDSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withECDSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getAlgorithm, $String*)},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getJCAAlgorithm, $String*)},
-	{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getJCAFallbackAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$SHA1withECDSA_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withECDSA", $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$SHA1withECDSA_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$SHA1withECDSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$SHA1withECDSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$SHA1withECDSA($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$SHA1withECDSA));
-}
 
 void DOMSignatureMethod$SHA1withECDSA::init$($AlgorithmParameterSpec* params) {
 	$DOMSignatureMethod$AbstractECDSASignatureMethod::init$(params);
@@ -92,7 +55,38 @@ DOMSignatureMethod$SHA1withECDSA::DOMSignatureMethod$SHA1withECDSA() {
 }
 
 $Class* DOMSignatureMethod$SHA1withECDSA::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$SHA1withECDSA, name, initialize, &_DOMSignatureMethod$SHA1withECDSA_ClassInfo_, allocate$DOMSignatureMethod$SHA1withECDSA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withECDSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withECDSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getAlgorithm, $String*)},
+		{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+		{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getJCAAlgorithm, $String*)},
+		{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withECDSA, getJCAFallbackAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "SHA1withECDSA", $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$SHA1withECDSA",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$SHA1withECDSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$SHA1withECDSA));
+	});
 	return class$;
 }
 

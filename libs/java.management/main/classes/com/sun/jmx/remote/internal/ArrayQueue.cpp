@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ArrayQueue.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractList.h>
 #include <jcpp.h>
@@ -17,39 +16,6 @@ namespace com {
 			namespace remote {
 				namespace internal {
 
-$FieldInfo _ArrayQueue_FieldInfo_[] = {
-	{"capacity", "I", nullptr, $PRIVATE, $field(ArrayQueue, capacity)},
-	{"queue", "[Ljava/lang/Object;", "[TT;", $PRIVATE, $field(ArrayQueue, queue)},
-	{"head", "I", nullptr, $PRIVATE, $field(ArrayQueue, head)},
-	{"tail", "I", nullptr, $PRIVATE, $field(ArrayQueue, tail)},
-	{}
-};
-
-$MethodInfo _ArrayQueue_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayQueue, init$, void, int32_t)},
-	{"add", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC, $virtualMethod(ArrayQueue, add, bool, Object$*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC, $virtualMethod(ArrayQueue, get, $Object*, int32_t)},
-	{"newArray", "(I)[Ljava/lang/Object;", "(I)[TT;", $PRIVATE, $method(ArrayQueue, newArray, $ObjectArray*, int32_t)},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC, $virtualMethod(ArrayQueue, remove, $Object*, int32_t)},
-	{"resize", "(I)V", nullptr, $PUBLIC, $virtualMethod(ArrayQueue, resize, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayQueue, size, int32_t)},
-	{}
-};
-
-$ClassInfo _ArrayQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.remote.internal.ArrayQueue",
-	"java.util.AbstractList",
-	nullptr,
-	_ArrayQueue_FieldInfo_,
-	_ArrayQueue_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/AbstractList<TT;>;"
-};
-
-$Object* allocate$ArrayQueue($Class* clazz) {
-	return $of($alloc(ArrayQueue));
-}
-
 void ArrayQueue::init$(int32_t capacity) {
 	$AbstractList::init$();
 	this->capacity = capacity + 1;
@@ -59,7 +25,7 @@ void ArrayQueue::init$(int32_t capacity) {
 }
 
 void ArrayQueue::resize(int32_t newcapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = this->size();
 	if (newcapacity < size) {
 		$throwNew($IndexOutOfBoundsException, "Resizing would lose data"_s);
@@ -100,20 +66,20 @@ $Object* ArrayQueue::remove(int32_t i) {
 		$throwNew($IndexOutOfBoundsException, "Queue empty"_s);
 	}
 	$var($Object0, removed, $nc(this->queue)->get(this->head));
-	$nc(this->queue)->set(this->head, nullptr);
+	this->queue->set(this->head, nullptr);
 	this->head = $mod((this->head + 1), this->capacity);
-	return $of(removed);
+	return removed;
 }
 
 $Object* ArrayQueue::get(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = this->size();
 	if (i < 0 || i >= size) {
 		$var($String, msg, $str({"Index "_s, $$str(i), ", queue size "_s, $$str(size)}));
 		$throwNew($IndexOutOfBoundsException, msg);
 	}
 	int32_t index = $mod((this->head + i), this->capacity);
-	return $of($nc(this->queue)->get(index));
+	return $nc(this->queue)->get(index);
 }
 
 int32_t ArrayQueue::size() {
@@ -128,7 +94,35 @@ ArrayQueue::ArrayQueue() {
 }
 
 $Class* ArrayQueue::load$($String* name, bool initialize) {
-	$loadClass(ArrayQueue, name, initialize, &_ArrayQueue_ClassInfo_, allocate$ArrayQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"capacity", "I", nullptr, $PRIVATE, $field(ArrayQueue, capacity)},
+		{"queue", "[Ljava/lang/Object;", "[TT;", $PRIVATE, $field(ArrayQueue, queue)},
+		{"head", "I", nullptr, $PRIVATE, $field(ArrayQueue, head)},
+		{"tail", "I", nullptr, $PRIVATE, $field(ArrayQueue, tail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayQueue, init$, void, int32_t)},
+		{"add", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC, $virtualMethod(ArrayQueue, add, bool, Object$*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC, $virtualMethod(ArrayQueue, get, $Object*, int32_t)},
+		{"newArray", "(I)[Ljava/lang/Object;", "(I)[TT;", $PRIVATE, $method(ArrayQueue, newArray, $ObjectArray*, int32_t)},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC, $virtualMethod(ArrayQueue, remove, $Object*, int32_t)},
+		{"resize", "(I)V", nullptr, $PUBLIC, $virtualMethod(ArrayQueue, resize, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayQueue, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.remote.internal.ArrayQueue",
+		"java.util.AbstractList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/AbstractList<TT;>;"
+	};
+	$loadClass(ArrayQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayQueue));
+	});
 	return class$;
 }
 

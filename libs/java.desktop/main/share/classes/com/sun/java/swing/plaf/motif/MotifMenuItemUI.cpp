@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifMenuItemUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifMenuItemUI$ChangeHandler.h>
 #include <com/sun/java/swing/plaf/motif/MotifMenuItemUI$MouseInputHandler.h>
 #include <javax/swing/AbstractButton.h>
@@ -18,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -30,46 +28,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifMenuItemUI_FieldInfo_[] = {
-	{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(MotifMenuItemUI, changeListener)},
-	{}
-};
-
-$MethodInfo _MotifMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifMenuItemUI, init$, void)},
-	{"createChangeListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, createChangeListener, $ChangeListener*, $JComponent*)},
-	{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, installListeners, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _MotifMenuItemUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifMenuItemUI", "MouseInputHandler", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifMenuItemUI", "ChangeHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifMenuItemUI",
-	"javax.swing.plaf.basic.BasicMenuItemUI",
-	nullptr,
-	_MotifMenuItemUI_FieldInfo_,
-	_MotifMenuItemUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifMenuItemUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifMenuItemUI$MouseInputHandler,com.sun.java.swing.plaf.motif.MotifMenuItemUI$ChangeHandler"
-};
-
-$Object* allocate$MotifMenuItemUI($Class* clazz) {
-	return $of($alloc(MotifMenuItemUI));
-}
 
 void MotifMenuItemUI::init$() {
 	$BasicMenuItemUI::init$();
@@ -103,7 +61,41 @@ MotifMenuItemUI::MotifMenuItemUI() {
 }
 
 $Class* MotifMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(MotifMenuItemUI, name, initialize, &_MotifMenuItemUI_ClassInfo_, allocate$MotifMenuItemUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(MotifMenuItemUI, changeListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifMenuItemUI, init$, void)},
+		{"createChangeListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, createChangeListener, $ChangeListener*, $JComponent*)},
+		{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, installListeners, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifMenuItemUI, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifMenuItemUI", "MouseInputHandler", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifMenuItemUI", "ChangeHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifMenuItemUI",
+		"javax.swing.plaf.basic.BasicMenuItemUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifMenuItemUI$MouseInputHandler,com.sun.java.swing.plaf.motif.MotifMenuItemUI$ChangeHandler"
+	};
+	$loadClass(MotifMenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifMenuItemUI);
+	});
 	return class$;
 }
 

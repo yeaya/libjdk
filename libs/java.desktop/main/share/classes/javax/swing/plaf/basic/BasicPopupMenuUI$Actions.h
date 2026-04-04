@@ -43,6 +43,7 @@ class BasicPopupMenuUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicPopupMenuUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicPopupMenuUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	void cancel();

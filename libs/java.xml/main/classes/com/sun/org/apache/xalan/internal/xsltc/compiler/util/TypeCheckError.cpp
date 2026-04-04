@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/TypeCheckError.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <jcpp.h>
@@ -23,37 +22,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 								namespace util {
-
-$FieldInfo _TypeCheckError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TypeCheckError, serialVersionUID)},
-	{"_error", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;", nullptr, 0, $field(TypeCheckError, _error)},
-	{"_node", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, 0, $field(TypeCheckError, _node)},
-	{}
-};
-
-$MethodInfo _TypeCheckError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $SyntaxTreeNode*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $ErrorMsg*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $String*, Object$*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $String*, Object$*, Object$*)},
-	{"getErrorMsg", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;", nullptr, $PUBLIC, $virtualMethod(TypeCheckError, getErrorMsg, $ErrorMsg*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeCheckError, getMessage, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeCheckError, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TypeCheckError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError",
-	"java.lang.Exception",
-	nullptr,
-	_TypeCheckError_FieldInfo_,
-	_TypeCheckError_MethodInfo_
-};
-
-$Object* allocate$TypeCheckError($Class* clazz) {
-	return $of($alloc(TypeCheckError));
-}
 
 void TypeCheckError::init$($SyntaxTreeNode* node) {
 	$Exception::init$();
@@ -92,12 +60,12 @@ $String* TypeCheckError::getMessage() {
 }
 
 $String* TypeCheckError::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, nullptr);
 	if (this->_error == nullptr) {
 		if (this->_node != nullptr) {
 			$init($ErrorMsg);
-			$set(this, _error, $new($ErrorMsg, $ErrorMsg::TYPE_CHECK_ERR, $($of($nc($of(this->_node))->toString()))));
+			$set(this, _error, $new($ErrorMsg, $ErrorMsg::TYPE_CHECK_ERR, $(this->_node->toString())));
 		} else {
 			$init($ErrorMsg);
 			$set(this, _error, $new($ErrorMsg, $ErrorMsg::TYPE_CHECK_UNK_LOC_ERR));
@@ -117,7 +85,33 @@ void TypeCheckError::throw$() {
 }
 
 $Class* TypeCheckError::load$($String* name, bool initialize) {
-	$loadClass(TypeCheckError, name, initialize, &_TypeCheckError_ClassInfo_, allocate$TypeCheckError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TypeCheckError, serialVersionUID)},
+		{"_error", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;", nullptr, 0, $field(TypeCheckError, _error)},
+		{"_node", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, 0, $field(TypeCheckError, _node)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $SyntaxTreeNode*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $ErrorMsg*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $String*, Object$*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TypeCheckError, init$, void, $String*, Object$*, Object$*)},
+		{"getErrorMsg", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;", nullptr, $PUBLIC, $virtualMethod(TypeCheckError, getErrorMsg, $ErrorMsg*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeCheckError, getMessage, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeCheckError, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeCheckError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeCheckError);
+	});
 	return class$;
 }
 

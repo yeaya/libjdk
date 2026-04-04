@@ -1,11 +1,9 @@
 #include <com/sun/org/apache/bcel/internal/generic/JSR.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/JsrInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
-#include <com/sun/org/apache/bcel/internal/generic/VariableLengthInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
 #include <java/io/DataOutputStream.h>
 #include <java/lang/Math.h>
@@ -16,11 +14,8 @@
 #undef MAX_VALUE
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $JsrInstruction = ::com::sun::org::apache::bcel::internal::generic::JsrInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $VariableLengthInstruction = ::com::sun::org::apache::bcel::internal::generic::VariableLengthInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -35,33 +30,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _JSR_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(JSR, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(JSR, init$, void, $InstructionHandle*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JSR, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JSR, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(JSR, updatePosition, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _JSR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.JSR",
-	"com.sun.org.apache.bcel.internal.generic.JsrInstruction",
-	"com.sun.org.apache.bcel.internal.generic.VariableLengthInstruction",
-	nullptr,
-	_JSR_MethodInfo_
-};
-
-$Object* allocate$JSR($Class* clazz) {
-	return $of($alloc(JSR));
-}
 
 $String* JSR::toString() {
 	 return this->$JsrInstruction::toString();
@@ -126,7 +94,30 @@ JSR::JSR() {
 }
 
 $Class* JSR::load$($String* name, bool initialize) {
-	$loadClass(JSR, name, initialize, &_JSR_ClassInfo_, allocate$JSR);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(JSR, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(JSR, init$, void, $InstructionHandle*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JSR, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JSR, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(JSR, updatePosition, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.JSR",
+		"com.sun.org.apache.bcel.internal.generic.JsrInstruction",
+		"com.sun.org.apache.bcel.internal.generic.VariableLengthInstruction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JSR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSR));
+	});
 	return class$;
 }
 

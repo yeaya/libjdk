@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Printer.h>
-
 #include <com/sun/tools/javac/api/Messages.h>
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
@@ -10,7 +9,6 @@
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$Visitor.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
@@ -54,7 +52,6 @@ using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSy
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Symbol$Visitor = ::com::sun::tools::javac::code::Symbol$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
@@ -71,7 +68,6 @@ using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -84,99 +80,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Printer_FieldInfo_[] = {
-	{"seenCaptured", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Printer, seenCaptured)},
-	{"PRIME", "I", nullptr, $STATIC | $FINAL, $constField(Printer, PRIME)},
-	{}
-};
-
-$MethodInfo _Printer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Printer, init$, void)},
-	{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Printer, capturedVarId, $String*, $Type$CapturedType*, $Locale*)},
-	{"className", "(Lcom/sun/tools/javac/code/Type$ClassType;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Printer, className, $String*, $Type$ClassType*, bool, $Locale*)},
-	{"createStandardPrinter", "(Lcom/sun/tools/javac/api/Messages;)Lcom/sun/tools/javac/code/Printer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Printer, createStandardPrinter, Printer*, $Messages*)},
-	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT | $ABSTRACT, $virtualMethod(Printer, localize, $String*, $Locale*, $String*, $ObjectArray*)},
-	{"printAnnotations", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Printer, printAnnotations, $String*, $Type*)},
-	{"printAnnotations", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(Printer, printAnnotations, $String*, $Type*, bool)},
-	{"printBaseElementType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(Printer, printBaseElementType, void, $Type*, $StringBuilder*, $Locale*)},
-	{"printBrackets", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(Printer, printBrackets, void, $Type*, $StringBuilder*, $Locale*)},
-	{"printMethodArgs", "(Lcom/sun/tools/javac/util/List;ZLjava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLjava/util/Locale;)Ljava/lang/String;", $PROTECTED, $virtualMethod(Printer, printMethodArgs, $String*, $List*, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visit", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visit, $String*, $Type*, $Locale*)},
-	{"visit", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visit, $String*, $Symbol*, $Locale*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitArrayType, $String*, $Type$ArrayType*, $Locale*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitCapturedType, $String*, $Type$CapturedType*, $Locale*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitClassSymbol, $String*, $Symbol$ClassSymbol*, $Locale*)},
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitClassType, $String*, $Type$ClassType*, $Locale*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitErrorType, $String*, $Type$ErrorType*, $Locale*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitForAll, $String*, $Type$ForAll*, $Locale*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitForAll, $Object*, $Type$ForAll*, Object$*)},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodSymbol, $String*, $Symbol$MethodSymbol*, $Locale*)},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodType, $String*, $Type$MethodType*, $Locale*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitModuleType, $String*, $Type$ModuleType*, $Locale*)},
-	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
-	{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitOperatorSymbol, $String*, $Symbol$OperatorSymbol*, $Locale*)},
-	{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitOperatorSymbol, $Object*, $Symbol$OperatorSymbol*, Object$*)},
-	{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitPackageSymbol, $String*, $Symbol$PackageSymbol*, $Locale*)},
-	{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitPackageSymbol, $Object*, $Symbol$PackageSymbol*, Object$*)},
-	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitPackageType, $String*, $Type$PackageType*, $Locale*)},
-	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitSymbol, $String*, $Symbol*, $Locale*)},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitSymbol, $Object*, $Symbol*, Object$*)},
-	{"visitSymbols", "(Lcom/sun/tools/javac/util/List;Ljava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(Printer, visitSymbols, $String*, $List*, $Locale*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitType, $String*, $Type*, $Locale*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitTypeSymbol, $String*, $Symbol$TypeSymbol*, $Locale*)},
-	{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitTypeSymbol, $Object*, $Symbol$TypeSymbol*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitTypeVar, $String*, $Type$TypeVar*, $Locale*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitTypes", "(Lcom/sun/tools/javac/util/List;Ljava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(Printer, visitTypes, $String*, $List*, $Locale*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitUndetVar, $String*, $Type$UndetVar*, $Locale*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitVarSymbol, $String*, $Symbol$VarSymbol*, $Locale*)},
-	{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitVarSymbol, $Object*, $Symbol$VarSymbol*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitWildcardType, $String*, $Type$WildcardType*, $Locale*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Printer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$Visitor", "com.sun.tools.javac.code.Symbol", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Printer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Printer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Printer",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Type$Visitor,com.sun.tools.javac.code.Symbol$Visitor",
-	_Printer_FieldInfo_,
-	_Printer_MethodInfo_,
-	"Ljava/lang/Object;Lcom/sun/tools/javac/code/Type$Visitor<Ljava/lang/String;Ljava/util/Locale;>;Lcom/sun/tools/javac/code/Symbol$Visitor<Ljava/lang/String;Ljava/util/Locale;>;",
-	nullptr,
-	_Printer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Printer$1"
-};
-
-$Object* allocate$Printer($Class* clazz) {
-	return $of($alloc(Printer));
-}
 
 int32_t Printer::hashCode() {
 	 return this->$Type$Visitor::hashCode();
@@ -208,7 +111,7 @@ Printer* Printer::createStandardPrinter($Messages* messages) {
 }
 
 $String* Printer::visitTypes($List* ts, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, sbuf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(ts)->iterator());
@@ -219,11 +122,11 @@ $String* Printer::visitTypes($List* ts, $Locale* locale) {
 			}
 		}
 	}
-	return $nc($(sbuf->toList()))->toString();
+	return $$nc(sbuf->toList())->toString();
 }
 
 $String* Printer::visitSymbols($List* ts, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, sbuf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(ts)->iterator());
@@ -234,69 +137,78 @@ $String* Printer::visitSymbols($List* ts, $Locale* locale) {
 			}
 		}
 	}
-	return $nc($(sbuf->toList()))->toString();
+	return $$nc(sbuf->toList())->toString();
 }
 
 $String* Printer::visit($Type* t, $Locale* locale) {
-	return $cast($String, $nc(t)->accept(static_cast<$Type$Visitor*>(this), $of(locale)));
+	return $cast($String, $nc(t)->accept(this, locale));
 }
 
 $String* Printer::visit($Symbol* s, $Locale* locale) {
-	return $cast($String, $nc(s)->accept(static_cast<$Symbol$Visitor*>(this), $of(locale)));
+	return $cast($String, $nc(s)->accept(this, locale));
 }
 
 $String* Printer::visitCapturedType($Type$CapturedType* t, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->seenCaptured)->contains(t)) {
-		$var($String, var$0, $(printAnnotations(t)));
-		return $concat(var$0, $(localize(locale, "compiler.misc.type.captureof.1"_s, $$new($ObjectArray, {$($of(capturedVarId(t, locale)))}))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(printAnnotations(t)));
+		var$0->append($(localize(locale, "compiler.misc.type.captureof.1"_s, $$new($ObjectArray, {$(capturedVarId(t, locale))}))));
+		return $str(var$0);
 	} else {
-		{
-			$var($Throwable, var$1, nullptr);
-			$var($String, var$3, nullptr);
-			bool return$2 = false;
-			try {
-				$set(this, seenCaptured, $nc(this->seenCaptured)->prepend(t));
-				$var($String, var$4, $(printAnnotations(t)));
-				$assign(var$3, $concat(var$4, $(localize(locale, "compiler.misc.type.captureof"_s, $$new($ObjectArray, {
-					$($of(capturedVarId(t, locale))),
-					$($of(visit(static_cast<$Type*>($nc(t)->wildcard), locale)))
-				})))));
-				return$2 = true;
-				goto $finally;
-			} catch ($Throwable& var$5) {
-				$assign(var$1, var$5);
-			} $finally: {
-				$set(this, seenCaptured, $nc(this->seenCaptured)->tail);
-			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
-			if (return$2) {
-				return var$3;
-			}
+		$var($Throwable, var$1, nullptr);
+		$var($String, var$3, nullptr);
+		bool return$2 = false;
+		try {
+			$set(this, seenCaptured, $nc(this->seenCaptured)->prepend(t));
+			$var($StringBuilder, var$4, $new($StringBuilder));
+			var$4->append($(printAnnotations(t)));
+			var$4->append($(localize(locale, "compiler.misc.type.captureof"_s, $$new($ObjectArray, {
+				$(capturedVarId(t, locale)),
+				$(visit($nc(t)->wildcard, locale))
+			}))));
+			$assign(var$3, $str(var$4));
+			return$2 = true;
+			goto $finally;
+		} catch ($Throwable& var$5) {
+			$assign(var$1, var$5);
+		} $finally: {
+			$set(this, seenCaptured, $nc(this->seenCaptured)->tail);
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
+		}
+		if (return$2) {
+			return var$3;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $String* Printer::visitForAll($Type$ForAll* t, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$(printAnnotations(t)), "<"_s}));
-	$var($String, var$1, $$concat(var$2, $(visitTypes($nc(t)->tvars, locale))));
-	$var($String, var$0, $$concat(var$1, ">"_s));
-	return $concat(var$0, $(visit($nc(t)->qtype, locale)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(printAnnotations(t)));
+	var$0->append("<"_s);
+	var$0->append($(visitTypes($nc(t)->tvars, locale)));
+	var$0->append(">"_s);
+	var$0->append($(visit(t->qtype, locale)));
+	return $str(var$0);
 }
 
 $String* Printer::visitUndetVar($Type$UndetVar* t, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(t)->getInst() != nullptr) {
-		$var($String, var$0, $(printAnnotations(t)));
-		return $concat(var$0, $(visit($(t->getInst()), locale)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(printAnnotations(t)));
+		var$0->append($(visit($(t->getInst()), locale)));
+		return $str(var$0);
 	} else {
-		$var($String, var$2, $(printAnnotations(t)));
-		$var($String, var$1, $$concat(var$2, $(visit(t->qtype, locale))));
-		return $concat(var$1, "?"_s);
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append($(printAnnotations(t)));
+		var$1->append($(visit(t->qtype, locale)));
+		var$1->append("?"_s);
+		return $str(var$1);
 	}
 }
 
@@ -312,46 +224,46 @@ $String* Printer::printAnnotations($Type* t) {
 }
 
 $String* Printer::printAnnotations($Type* t, bool prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($List, annos, $cast($List, $nc(t)->getAnnotationMirrors()));
 	if (!$nc(annos)->isEmpty()) {
 		if (prefix) {
 			sb->append(u' ');
 		}
-		sb->append($of(annos));
+		sb->append(annos);
 		sb->append(u' ');
 	}
 	return sb->toString();
 }
 
 void Printer::printBaseElementType($Type* t, $StringBuilder* sb, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, arrel, t);
 	$init($TypeTag);
 	while ($nc(arrel)->hasTag($TypeTag::ARRAY)) {
-		$assign(arrel, $nc(($cast($Type$ArrayType, arrel)))->elemtype);
+		$assign(arrel, $cast($Type$ArrayType, arrel)->elemtype);
 	}
 	$nc(sb)->append($(visit(arrel, locale)));
 }
 
 void Printer::printBrackets($Type* t, $StringBuilder* sb, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, arrel, t);
 	$init($TypeTag);
 	while ($nc(arrel)->hasTag($TypeTag::ARRAY)) {
 		$nc(sb)->append($(printAnnotations(arrel, true)));
 		sb->append("[]"_s);
-		$assign(arrel, $nc(($cast($Type$ArrayType, arrel)))->elemtype);
+		$assign(arrel, $cast($Type$ArrayType, arrel)->elemtype);
 	}
 }
 
 $String* Printer::visitClassType($Type$ClassType* t, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$init($TypeTag);
 	$init($Kinds$Kind);
-	if ($nc($($nc(t)->getEnclosingType()))->hasTag($TypeTag::CLASS) && $nc($nc(t->tsym)->owner)->kind == $Kinds$Kind::TYP) {
+	if ($$nc($nc(t)->getEnclosingType())->hasTag($TypeTag::CLASS) && $nc($nc(t->tsym)->owner)->kind == $Kinds$Kind::TYP) {
 		buf->append($(visit($(t->getEnclosingType()), locale)));
 		buf->append(u'.');
 		buf->append($(printAnnotations(t)));
@@ -360,7 +272,7 @@ $String* Printer::visitClassType($Type$ClassType* t, $Locale* locale) {
 		buf->append($(printAnnotations(t)));
 		buf->append($(className(t, true, locale)));
 	}
-	if ($nc($($nc(t)->getTypeArguments()))->nonEmpty()) {
+	if ($$nc(t->getTypeArguments())->nonEmpty()) {
 		buf->append(u'<');
 		buf->append($(visitTypes($(t->getTypeArguments()), locale)));
 		buf->append(u'>');
@@ -369,21 +281,25 @@ $String* Printer::visitClassType($Type$ClassType* t, $Locale* locale) {
 }
 
 $String* Printer::visitMethodType($Type$MethodType* t, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"("_s, $(printMethodArgs($nc(t)->argtypes$, false, locale)), ")"_s}));
-	return $concat(var$0, $(visit($nc(t)->restype, locale)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("("_s);
+	var$0->append($(printMethodArgs($nc(t)->argtypes$, false, locale)));
+	var$0->append(")"_s);
+	var$0->append($(visit(t->restype, locale)));
+	return $str(var$0);
 }
 
 $String* Printer::visitPackageType($Type$PackageType* t, $Locale* locale) {
-	return $nc($($nc($nc(t)->tsym)->getQualifiedName()))->toString();
+	return $$nc($nc($nc(t)->tsym)->getQualifiedName())->toString();
 }
 
 $String* Printer::visitWildcardType($Type$WildcardType* t, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, s, $new($StringBuilder));
-	s->append($of($nc(t)->kind));
+	s->append($nc(t)->kind);
 	$init($BoundKind);
-	if ($nc(t)->kind != $BoundKind::UNBOUND) {
+	if (t->kind != $BoundKind::UNBOUND) {
 		s->append($(printAnnotations(t)));
 		s->append($(visit(t->type, locale)));
 	}
@@ -391,32 +307,32 @@ $String* Printer::visitWildcardType($Type$WildcardType* t, $Locale* locale) {
 }
 
 $String* Printer::visitErrorType($Type$ErrorType* t, $Locale* locale) {
-	return visitType(static_cast<$Type*>(t), locale);
+	return visitType(t, locale);
 }
 
 $String* Printer::visitTypeVar($Type$TypeVar* t, $Locale* locale) {
-	return visitType(static_cast<$Type*>(t), locale);
+	return visitType(t, locale);
 }
 
 $String* Printer::visitModuleType($Type$ModuleType* t, $Locale* locale) {
-	return visitType(static_cast<$Type*>(t), locale);
+	return visitType(t, locale);
 }
 
 $String* Printer::visitType($Type* t, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, s, ($nc(t)->tsym == nullptr || $nc($nc(t)->tsym)->name == nullptr) ? localize(locale, "compiler.misc.type.none"_s, $$new($ObjectArray, 0)) : $nc($nc($nc(t)->tsym)->name)->toString());
+	$useLocalObjectStack();
+	$var($String, s, ($nc(t)->tsym == nullptr || t->tsym->name == nullptr) ? localize(locale, "compiler.misc.type.none"_s, $$new($ObjectArray, 0)) : t->tsym->name->toString());
 	return s;
 }
 
 $String* Printer::className($Type$ClassType* t, bool longform, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, sym, $nc(t)->tsym);
 	bool var$0 = $nc($nc(sym)->name)->length() == 0;
-	if (var$0 && ((int64_t)(sym->flags() & (uint64_t)(int64_t)0x01000000)) != 0) {
+	if (var$0 && (sym->flags() & 0x01000000) != 0) {
 		$var($StringBuilder, s, $new($StringBuilder, $(visit(t->supertype_field, locale))));
 		{
 			$var($List, is, t->interfaces_field);
-			for (; $nc(is)->nonEmpty(); $assign(is, $nc(is)->tail)) {
+			for (; $nc(is)->nonEmpty(); $assign(is, is->tail)) {
 				s->append(u'&');
 				s->append($(visit($cast($Type, is->head), locale)));
 			}
@@ -427,21 +343,21 @@ $String* Printer::className($Type$ClassType* t, bool longform, $Locale* locale) 
 		$var($Type$ClassType, norm, $cast($Type$ClassType, $nc(t->tsym)->type));
 		if (norm == nullptr) {
 			$assign(s, localize(locale, "compiler.misc.anonymous.class"_s, $$new($ObjectArray, {($Object*)nullptr})));
-		} else if ($nc(norm)->interfaces_field != nullptr && $nc(norm->interfaces_field)->nonEmpty()) {
-			$assign(s, localize(locale, "compiler.misc.anonymous.class"_s, $$new($ObjectArray, {$($of(visit($cast($Type, $nc(norm->interfaces_field)->head), locale)))})));
+		} else if (norm->interfaces_field != nullptr && norm->interfaces_field->nonEmpty()) {
+			$assign(s, localize(locale, "compiler.misc.anonymous.class"_s, $$new($ObjectArray, {$(visit($cast($Type, norm->interfaces_field->head), locale))})));
 		} else {
-			$assign(s, localize(locale, "compiler.misc.anonymous.class"_s, $$new($ObjectArray, {$($of(visit(norm->supertype_field, locale)))})));
+			$assign(s, localize(locale, "compiler.misc.anonymous.class"_s, $$new($ObjectArray, {$(visit(norm->supertype_field, locale))})));
 		}
 		return s;
 	} else if (longform) {
-		return $nc($(sym->getQualifiedName()))->toString();
+		return $$nc(sym->getQualifiedName())->toString();
 	} else {
 		return $nc(sym->name)->toString();
 	}
 }
 
 $String* Printer::printMethodArgs($List* args$renamed, bool varArgs, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, args, args$renamed);
 	if (!varArgs) {
 		return visitTypes(args, locale);
@@ -453,11 +369,11 @@ $String* Printer::printMethodArgs($List* args$renamed, bool varArgs, $Locale* lo
 			buf->append(u',');
 		}
 		$init($TypeTag);
-		if ($nc(($cast($Type, $nc(args)->head)))->hasTag($TypeTag::ARRAY)) {
-			buf->append($(visit($nc(($cast($Type$ArrayType, args->head)))->elemtype, locale)));
-			if ($nc($($cast($List, $nc(($cast($Type, args->head)))->getAnnotationMirrors())))->nonEmpty()) {
+		if ($nc($cast($Type, $nc(args)->head))->hasTag($TypeTag::ARRAY)) {
+			buf->append($(visit($nc($cast($Type$ArrayType, args->head))->elemtype, locale)));
+			if ($$sure($List, $nc($cast($Type, args->head))->getAnnotationMirrors())->nonEmpty()) {
 				buf->append(u' ');
-				buf->append($($of($nc(($cast($Type, args->head)))->getAnnotationMirrors())));
+				buf->append($($nc($cast($Type, args->head))->getAnnotationMirrors()));
 				buf->append(u' ');
 			}
 			buf->append("..."_s);
@@ -469,43 +385,45 @@ $String* Printer::printMethodArgs($List* args$renamed, bool varArgs, $Locale* lo
 }
 
 $String* Printer::visitClassSymbol($Symbol$ClassSymbol* sym, $Locale* locale) {
-	return $nc($nc(sym)->name)->isEmpty() ? localize(locale, "compiler.misc.anonymous.class"_s, $$new($ObjectArray, {$of($nc(sym)->flatname)})) : $nc($nc(sym)->fullname)->toString();
+	return $nc($nc(sym)->name)->isEmpty() ? localize(locale, "compiler.misc.anonymous.class"_s, $$new($ObjectArray, {sym->flatname})) : $nc(sym->fullname)->toString();
 }
 
 $String* Printer::visitMethodSymbol($Symbol$MethodSymbol* s, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->isStaticOrInstanceInit()) {
 		return $nc($nc(s->owner)->name)->toString();
 	} else {
-		$var($String, ms, (s->name == $nc($nc($nc(s->name)->table)->names)->init) ? $nc($nc(s->owner)->name)->toString() : $nc(s->name)->toString());
+		$var($String, ms, (s->name == $nc($nc($nc(s->name)->table)->names)->init) ? $nc($nc(s->owner)->name)->toString() : s->name->toString());
 		if (s->type != nullptr) {
 			$init($TypeTag);
-			if ($nc(s->type)->hasTag($TypeTag::FORALL)) {
+			if (s->type->hasTag($TypeTag::FORALL)) {
 				$assign(ms, $str({"<"_s, $(visitTypes($($nc(s->type)->getTypeArguments()), locale)), ">"_s, ms}));
 			}
-			$var($String, var$1, "("_s);
-			$var($List, var$2, $nc(s->type)->getParameterTypes());
-			$var($String, var$0, $$concat(var$1, $(printMethodArgs(var$2, ((int64_t)(s->flags() & (uint64_t)(int64_t)0x0000000400000000)) != 0, locale))));
-			$plusAssign(ms, $$concat(var$0, ")"_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("("_s);
+			$var($List, var$1, $nc(s->type)->getParameterTypes());
+			var$0->append($(printMethodArgs(var$1, (s->flags() & (int64_t)0x0000000400000000) != 0, locale)));
+			var$0->append(")"_s);
+			$plusAssign(ms, $$str(var$0));
 		}
 		return ms;
 	}
 }
 
 $String* Printer::visitOperatorSymbol($Symbol$OperatorSymbol* s, $Locale* locale) {
-	return visitMethodSymbol(static_cast<$Symbol$MethodSymbol*>(s), locale);
+	return visitMethodSymbol(s, locale);
 }
 
 $String* Printer::visitPackageSymbol($Symbol$PackageSymbol* s, $Locale* locale) {
-	return $nc(s)->isUnnamed() ? localize(locale, "compiler.misc.unnamed.package"_s, $$new($ObjectArray, 0)) : $nc($nc(s)->fullname)->toString();
+	return $nc(s)->isUnnamed() ? localize(locale, "compiler.misc.unnamed.package"_s, $$new($ObjectArray, 0)) : $nc(s->fullname)->toString();
 }
 
 $String* Printer::visitTypeSymbol($Symbol$TypeSymbol* s, $Locale* locale) {
-	return visitSymbol(static_cast<$Symbol*>(s), locale);
+	return visitSymbol(s, locale);
 }
 
 $String* Printer::visitVarSymbol($Symbol$VarSymbol* s, $Locale* locale) {
-	return visitSymbol(static_cast<$Symbol*>(s), locale);
+	return visitSymbol(s, locale);
 }
 
 $String* Printer::visitSymbol($Symbol* s, $Locale* locale) {
@@ -592,7 +510,94 @@ Printer::Printer() {
 }
 
 $Class* Printer::load$($String* name, bool initialize) {
-	$loadClass(Printer, name, initialize, &_Printer_ClassInfo_, allocate$Printer);
+	$FieldInfo fieldInfos$$[] = {
+		{"seenCaptured", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Printer, seenCaptured)},
+		{"PRIME", "I", nullptr, $STATIC | $FINAL, $constField(Printer, PRIME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Printer, init$, void)},
+		{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Printer, capturedVarId, $String*, $Type$CapturedType*, $Locale*)},
+		{"className", "(Lcom/sun/tools/javac/code/Type$ClassType;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Printer, className, $String*, $Type$ClassType*, bool, $Locale*)},
+		{"createStandardPrinter", "(Lcom/sun/tools/javac/api/Messages;)Lcom/sun/tools/javac/code/Printer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Printer, createStandardPrinter, Printer*, $Messages*)},
+		{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT | $ABSTRACT, $virtualMethod(Printer, localize, $String*, $Locale*, $String*, $ObjectArray*)},
+		{"printAnnotations", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Printer, printAnnotations, $String*, $Type*)},
+		{"printAnnotations", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(Printer, printAnnotations, $String*, $Type*, bool)},
+		{"printBaseElementType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(Printer, printBaseElementType, void, $Type*, $StringBuilder*, $Locale*)},
+		{"printBrackets", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(Printer, printBrackets, void, $Type*, $StringBuilder*, $Locale*)},
+		{"printMethodArgs", "(Lcom/sun/tools/javac/util/List;ZLjava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLjava/util/Locale;)Ljava/lang/String;", $PROTECTED, $virtualMethod(Printer, printMethodArgs, $String*, $List*, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"visit", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visit, $String*, $Type*, $Locale*)},
+		{"visit", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visit, $String*, $Symbol*, $Locale*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitArrayType, $String*, $Type$ArrayType*, $Locale*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitCapturedType, $String*, $Type$CapturedType*, $Locale*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitClassSymbol, $String*, $Symbol$ClassSymbol*, $Locale*)},
+		{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitClassType, $String*, $Type$ClassType*, $Locale*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitErrorType, $String*, $Type$ErrorType*, $Locale*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitForAll, $String*, $Type$ForAll*, $Locale*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+		{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodSymbol, $String*, $Symbol$MethodSymbol*, $Locale*)},
+		{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitMethodType, $String*, $Type$MethodType*, $Locale*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitModuleType, $String*, $Type$ModuleType*, $Locale*)},
+		{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
+		{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitOperatorSymbol, $String*, $Symbol$OperatorSymbol*, $Locale*)},
+		{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitOperatorSymbol, $Object*, $Symbol$OperatorSymbol*, Object$*)},
+		{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitPackageSymbol, $String*, $Symbol$PackageSymbol*, $Locale*)},
+		{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitPackageSymbol, $Object*, $Symbol$PackageSymbol*, Object$*)},
+		{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitPackageType, $String*, $Type$PackageType*, $Locale*)},
+		{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
+		{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitSymbol, $String*, $Symbol*, $Locale*)},
+		{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitSymbol, $Object*, $Symbol*, Object$*)},
+		{"visitSymbols", "(Lcom/sun/tools/javac/util/List;Ljava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(Printer, visitSymbols, $String*, $List*, $Locale*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitType, $String*, $Type*, $Locale*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitTypeSymbol, $String*, $Symbol$TypeSymbol*, $Locale*)},
+		{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitTypeSymbol, $Object*, $Symbol$TypeSymbol*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitTypeVar, $String*, $Type$TypeVar*, $Locale*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitTypes", "(Lcom/sun/tools/javac/util/List;Ljava/util/Locale;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(Printer, visitTypes, $String*, $List*, $Locale*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitUndetVar, $String*, $Type$UndetVar*, $Locale*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitVarSymbol, $String*, $Symbol$VarSymbol*, $Locale*)},
+		{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitVarSymbol, $Object*, $Symbol$VarSymbol*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Printer, visitWildcardType, $String*, $Type$WildcardType*, $Locale*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Printer, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$Visitor", "com.sun.tools.javac.code.Symbol", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Printer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Printer",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Type$Visitor,com.sun.tools.javac.code.Symbol$Visitor",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lcom/sun/tools/javac/code/Type$Visitor<Ljava/lang/String;Ljava/util/Locale;>;Lcom/sun/tools/javac/code/Symbol$Visitor<Ljava/lang/String;Ljava/util/Locale;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Printer$1"
+	};
+	$loadClass(Printer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Printer));
+	});
 	return class$;
 }
 

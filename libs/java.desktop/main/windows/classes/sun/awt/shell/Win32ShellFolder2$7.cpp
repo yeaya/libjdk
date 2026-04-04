@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$7.h>
-
 #include <sun/awt/shell/Win32ShellFolder2.h>
 #include <jcpp.h>
 
@@ -14,48 +13,6 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _Win32ShellFolder2$7_FieldInfo_[] = {
-	{"val$csidl", "I", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$7, val$csidl)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$7_MethodInfo_[] = {
-	{"<init>", "(I)V", "()V", 0, $method(Win32ShellFolder2$7, init$, void, int32_t)},
-	{"call", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$7, call, $Object*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _Win32ShellFolder2$7_EnclosingMethodInfo_ = {
-	"sun.awt.shell.Win32ShellFolder2",
-	"getFileSystemPath",
-	"(I)Ljava/lang/String;"
-};
-
-$InnerClassInfo _Win32ShellFolder2$7_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$7", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$7",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Win32ShellFolder2$7_FieldInfo_,
-	_Win32ShellFolder2$7_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/String;>;",
-	&_Win32ShellFolder2$7_EnclosingMethodInfo_,
-	_Win32ShellFolder2$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$7($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$7));
-}
-
 void Win32ShellFolder2$7::init$(int32_t val$csidl) {
 	this->val$csidl = val$csidl;
 }
@@ -68,7 +25,42 @@ Win32ShellFolder2$7::Win32ShellFolder2$7() {
 }
 
 $Class* Win32ShellFolder2$7::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$7, name, initialize, &_Win32ShellFolder2$7_ClassInfo_, allocate$Win32ShellFolder2$7);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$csidl", "I", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$7, val$csidl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", "()V", 0, $method(Win32ShellFolder2$7, init$, void, int32_t)},
+		{"call", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$7, call, $Object*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.Win32ShellFolder2",
+		"getFileSystemPath",
+		"(I)Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$7", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$7",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$7);
+	});
 	return class$;
 }
 

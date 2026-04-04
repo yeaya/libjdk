@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl.h>
@@ -49,80 +48,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$CompoundAttribute _XSAttributeDecl_MethodAnnotations_getActualVC1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _XSAttributeDecl_MethodAnnotations_getActualVCType2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _XSAttributeDecl_MethodAnnotations_getConstraintValue6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _XSAttributeDecl_MethodAnnotations_getItemValueTypes8[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _XSAttributeDecl_FieldInfo_[] = {
-	{"SCOPE_ABSENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAttributeDecl, SCOPE_ABSENT)},
-	{"SCOPE_GLOBAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAttributeDecl, SCOPE_GLOBAL)},
-	{"SCOPE_LOCAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAttributeDecl, SCOPE_LOCAL)},
-	{"fName", "Ljava/lang/String;", nullptr, 0, $field(XSAttributeDecl, fName)},
-	{"fTargetNamespace", "Ljava/lang/String;", nullptr, 0, $field(XSAttributeDecl, fTargetNamespace)},
-	{"fType", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, 0, $field(XSAttributeDecl, fType)},
-	{"fUnresolvedTypeName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $field(XSAttributeDecl, fUnresolvedTypeName)},
-	{"fConstraintType", "S", nullptr, 0, $field(XSAttributeDecl, fConstraintType)},
-	{"fScope", "S", nullptr, 0, $field(XSAttributeDecl, fScope)},
-	{"fEnclosingCT", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, 0, $field(XSAttributeDecl, fEnclosingCT)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, 0, $field(XSAttributeDecl, fAnnotations)},
-	{"fDefault", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, 0, $field(XSAttributeDecl, fDefault)},
-	{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSAttributeDecl, fNamespaceItem)},
-	{}
-};
-
-$MethodInfo _XSAttributeDecl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSAttributeDecl, init$, void)},
-	{"getActualVC", "()Ljava/lang/Object;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getActualVC, $Object*), nullptr, nullptr, _XSAttributeDecl_MethodAnnotations_getActualVC1},
-	{"getActualVCType", "()S", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getActualVCType, int16_t), nullptr, nullptr, _XSAttributeDecl_MethodAnnotations_getActualVCType2},
-	{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getAnnotation, $XSAnnotation*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getAnnotations, $XSObjectList*)},
-	{"getConstraintType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getConstraintType, int16_t)},
-	{"getConstraintValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getConstraintValue, $String*), nullptr, nullptr, _XSAttributeDecl_MethodAnnotations_getConstraintValue6},
-	{"getEnclosingCTDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSComplexTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getEnclosingCTDefinition, $XSComplexTypeDefinition*)},
-	{"getItemValueTypes", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getItemValueTypes, $ShortList*), nullptr, nullptr, _XSAttributeDecl_MethodAnnotations_getItemValueTypes8},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getScope", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getScope, int16_t)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getType, int16_t)},
-	{"getTypeDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getTypeDefinition, $XSSimpleTypeDefinition*)},
-	{"getValInfo", "()Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getValInfo, $ValidatedInfo*)},
-	{"getValueConstraintValue", "()Lcom/sun/org/apache/xerces/internal/xs/XSValue;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getValueConstraintValue, $XSValue*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, reset, void)},
-	{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSAttributeDecl, setNamespaceItem, void, $XSNamespaceItem*)},
-	{"setValues", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, setValues, void, $String*, $String*, $XSSimpleType*, int16_t, int16_t, $ValidatedInfo*, $XSComplexTypeDecl*, $XSObjectList*)},
-	{}
-};
-
-$ClassInfo _XSAttributeDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSAttributeDecl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSAttributeDeclaration",
-	_XSAttributeDecl_FieldInfo_,
-	_XSAttributeDecl_MethodInfo_
-};
-
-$Object* allocate$XSAttributeDecl($Class* clazz) {
-	return $of($alloc(XSAttributeDecl));
-}
 
 void XSAttributeDecl::init$() {
 	$set(this, fName, nullptr);
@@ -192,12 +117,12 @@ $String* XSAttributeDecl::getConstraintValue() {
 }
 
 $XSAnnotation* XSAttributeDecl::getAnnotation() {
-	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, $nc(this->fAnnotations)->item(0)) : ($XSAnnotation*)nullptr;
+	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, this->fAnnotations->item(0)) : ($XSAnnotation*)nullptr;
 }
 
 $XSObjectList* XSAttributeDecl::getAnnotations() {
 	$init($XSObjectListImpl);
-	return (this->fAnnotations != nullptr) ? this->fAnnotations : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fAnnotations != nullptr) ? this->fAnnotations : $cast($XSObjectList, $XSObjectListImpl::EMPTY_LIST);
 }
 
 $ValidatedInfo* XSAttributeDecl::getValInfo() {
@@ -213,7 +138,7 @@ void XSAttributeDecl::setNamespaceItem($XSNamespaceItem* namespaceItem) {
 }
 
 $Object* XSAttributeDecl::getActualVC() {
-	return $of(getConstraintType() == $XSConstants::VC_NONE ? ($Object*)nullptr : $nc(this->fDefault)->actualValue);
+	return getConstraintType() == $XSConstants::VC_NONE ? ($Object*)nullptr : $nc(this->fDefault)->actualValue;
 }
 
 int16_t XSAttributeDecl::getActualVCType() {
@@ -232,7 +157,72 @@ XSAttributeDecl::XSAttributeDecl() {
 }
 
 $Class* XSAttributeDecl::load$($String* name, bool initialize) {
-	$loadClass(XSAttributeDecl, name, initialize, &_XSAttributeDecl_ClassInfo_, allocate$XSAttributeDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCOPE_ABSENT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAttributeDecl, SCOPE_ABSENT)},
+		{"SCOPE_GLOBAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAttributeDecl, SCOPE_GLOBAL)},
+		{"SCOPE_LOCAL", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSAttributeDecl, SCOPE_LOCAL)},
+		{"fName", "Ljava/lang/String;", nullptr, 0, $field(XSAttributeDecl, fName)},
+		{"fTargetNamespace", "Ljava/lang/String;", nullptr, 0, $field(XSAttributeDecl, fTargetNamespace)},
+		{"fType", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, 0, $field(XSAttributeDecl, fType)},
+		{"fUnresolvedTypeName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PUBLIC, $field(XSAttributeDecl, fUnresolvedTypeName)},
+		{"fConstraintType", "S", nullptr, 0, $field(XSAttributeDecl, fConstraintType)},
+		{"fScope", "S", nullptr, 0, $field(XSAttributeDecl, fScope)},
+		{"fEnclosingCT", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, 0, $field(XSAttributeDecl, fEnclosingCT)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, 0, $field(XSAttributeDecl, fAnnotations)},
+		{"fDefault", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, 0, $field(XSAttributeDecl, fDefault)},
+		{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSAttributeDecl, fNamespaceItem)},
+		{}
+	};
+	$CompoundAttribute getActualVCmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getActualVCTypemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getConstraintValuemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getItemValueTypesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSAttributeDecl, init$, void)},
+		{"getActualVC", "()Ljava/lang/Object;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getActualVC, $Object*), nullptr, nullptr, getActualVCmethodAnnotations$$},
+		{"getActualVCType", "()S", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getActualVCType, int16_t), nullptr, nullptr, getActualVCTypemethodAnnotations$$},
+		{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getAnnotation, $XSAnnotation*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getAnnotations, $XSObjectList*)},
+		{"getConstraintType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getConstraintType, int16_t)},
+		{"getConstraintValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getConstraintValue, $String*), nullptr, nullptr, getConstraintValuemethodAnnotations$$},
+		{"getEnclosingCTDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSComplexTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getEnclosingCTDefinition, $XSComplexTypeDefinition*)},
+		{"getItemValueTypes", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(XSAttributeDecl, getItemValueTypes, $ShortList*), nullptr, nullptr, getItemValueTypesmethodAnnotations$$},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getScope", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getScope, int16_t)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getType, int16_t)},
+		{"getTypeDefinition", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getTypeDefinition, $XSSimpleTypeDefinition*)},
+		{"getValInfo", "()Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getValInfo, $ValidatedInfo*)},
+		{"getValueConstraintValue", "()Lcom/sun/org/apache/xerces/internal/xs/XSValue;", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, getValueConstraintValue, $XSValue*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, reset, void)},
+		{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSAttributeDecl, setNamespaceItem, void, $XSNamespaceItem*)},
+		{"setValues", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PUBLIC, $virtualMethod(XSAttributeDecl, setValues, void, $String*, $String*, $XSSimpleType*, int16_t, int16_t, $ValidatedInfo*, $XSComplexTypeDecl*, $XSObjectList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSAttributeDecl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSAttributeDeclaration",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSAttributeDecl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAttributeDecl);
+	});
 	return class$;
 }
 

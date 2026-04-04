@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileSystem$1.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/MappedByteBuffer.h>
@@ -39,69 +38,6 @@ using $ZipFileSystem$Entry = ::jdk::nio::zipfs::ZipFileSystem$Entry;
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipFileSystem$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, this$0)},
-	{"val$tmpfile", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$tmpfile)},
-	{"val$isFCH", "Z", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$isFCH)},
-	{"val$u", "Ljdk/nio/zipfs/ZipFileSystem$Entry;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$u)},
-	{"val$forWrite", "Z", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$forWrite)},
-	{"val$fch", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$fch)},
-	{}
-};
-
-$MethodInfo _ZipFileSystem$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/nio/channels/FileChannel;ZLjdk/nio/zipfs/ZipFileSystem$Entry;ZLjava/nio/file/Path;)V", nullptr, 0, $method(ZipFileSystem$1, init$, void, $ZipFileSystem*, $FileChannel*, bool, $ZipFileSystem$Entry*, bool, $Path*)},
-	{"force", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, force, void, bool), "java.io.IOException"},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(ZipFileSystem$1, implCloseChannel, void), "java.io.IOException"},
-	{"lock", "(JJZ)Ljava/nio/channels/FileLock;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, lock, $FileLock*, int64_t, int64_t, bool), "java.io.IOException"},
-	{"map", "(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, map, $MappedByteBuffer*, $FileChannel$MapMode*, int64_t, int64_t)},
-	{"position", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, position, int64_t), "java.io.IOException"},
-	{"position", "(J)Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, position, $SeekableByteChannel*, int64_t), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;J)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, read, int32_t, $ByteBuffer*, int64_t), "java.io.IOException"},
-	{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, read, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, size, int64_t), "java.io.IOException"},
-	{"transferFrom", "(Ljava/nio/channels/ReadableByteChannel;JJ)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, transferFrom, int64_t, $ReadableByteChannel*, int64_t, int64_t), "java.io.IOException"},
-	{"transferTo", "(JJLjava/nio/channels/WritableByteChannel;)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, transferTo, int64_t, int64_t, int64_t, $WritableByteChannel*), "java.io.IOException"},
-	{"truncate", "(J)Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, truncate, $SeekableByteChannel*, int64_t), "java.io.IOException"},
-	{"tryLock", "(JJZ)Ljava/nio/channels/FileLock;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, tryLock, $FileLock*, int64_t, int64_t, bool), "java.io.IOException"},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, write, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/nio/ByteBuffer;J)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, write, int32_t, $ByteBuffer*, int64_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _ZipFileSystem$1_EnclosingMethodInfo_ = {
-	"jdk.nio.zipfs.ZipFileSystem",
-	"newFileChannel",
-	"([BLjava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;"
-};
-
-$InnerClassInfo _ZipFileSystem$1_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileSystem$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ZipFileSystem$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileSystem$1",
-	"java.nio.channels.FileChannel",
-	nullptr,
-	_ZipFileSystem$1_FieldInfo_,
-	_ZipFileSystem$1_MethodInfo_,
-	nullptr,
-	&_ZipFileSystem$1_EnclosingMethodInfo_,
-	_ZipFileSystem$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileSystem"
-};
-
-$Object* allocate$ZipFileSystem$1($Class* clazz) {
-	return $of($alloc(ZipFileSystem$1));
-}
 
 void ZipFileSystem$1::init$($ZipFileSystem* this$0, $FileChannel* val$fch, bool val$forWrite, $ZipFileSystem$Entry* val$u, bool val$isFCH, $Path* val$tmpfile) {
 	$set(this, this$0, this$0);
@@ -184,7 +120,7 @@ void ZipFileSystem$1::implCloseChannel() {
 	$nc(this->val$fch)->close();
 	if (this->val$forWrite) {
 		$nc(this->val$u)->mtime = $System::currentTimeMillis();
-		$nc(this->val$u)->size$ = $Files::size($nc(this->val$u)->file);
+		this->val$u->size$ = $Files::size(this->val$u->file);
 		this->this$0->update(this->val$u);
 	} else if (!this->val$isFCH) {
 		this->this$0->removeTempPathForEntry(this->val$tmpfile);
@@ -195,7 +131,63 @@ ZipFileSystem$1::ZipFileSystem$1() {
 }
 
 $Class* ZipFileSystem$1::load$($String* name, bool initialize) {
-	$loadClass(ZipFileSystem$1, name, initialize, &_ZipFileSystem$1_ClassInfo_, allocate$ZipFileSystem$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, this$0)},
+		{"val$tmpfile", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$tmpfile)},
+		{"val$isFCH", "Z", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$isFCH)},
+		{"val$u", "Ljdk/nio/zipfs/ZipFileSystem$Entry;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$u)},
+		{"val$forWrite", "Z", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$forWrite)},
+		{"val$fch", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$1, val$fch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/nio/channels/FileChannel;ZLjdk/nio/zipfs/ZipFileSystem$Entry;ZLjava/nio/file/Path;)V", nullptr, 0, $method(ZipFileSystem$1, init$, void, $ZipFileSystem*, $FileChannel*, bool, $ZipFileSystem$Entry*, bool, $Path*)},
+		{"force", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, force, void, bool), "java.io.IOException"},
+		{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(ZipFileSystem$1, implCloseChannel, void), "java.io.IOException"},
+		{"lock", "(JJZ)Ljava/nio/channels/FileLock;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, lock, $FileLock*, int64_t, int64_t, bool), "java.io.IOException"},
+		{"map", "(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, map, $MappedByteBuffer*, $FileChannel$MapMode*, int64_t, int64_t)},
+		{"position", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, position, int64_t), "java.io.IOException"},
+		{"position", "(J)Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, position, $SeekableByteChannel*, int64_t), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;J)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, read, int32_t, $ByteBuffer*, int64_t), "java.io.IOException"},
+		{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, read, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, size, int64_t), "java.io.IOException"},
+		{"transferFrom", "(Ljava/nio/channels/ReadableByteChannel;JJ)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, transferFrom, int64_t, $ReadableByteChannel*, int64_t, int64_t), "java.io.IOException"},
+		{"transferTo", "(JJLjava/nio/channels/WritableByteChannel;)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, transferTo, int64_t, int64_t, int64_t, $WritableByteChannel*), "java.io.IOException"},
+		{"truncate", "(J)Ljava/nio/channels/FileChannel;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, truncate, $SeekableByteChannel*, int64_t), "java.io.IOException"},
+		{"tryLock", "(JJZ)Ljava/nio/channels/FileLock;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, tryLock, $FileLock*, int64_t, int64_t, bool), "java.io.IOException"},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, write, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/nio/ByteBuffer;J)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$1, write, int32_t, $ByteBuffer*, int64_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.nio.zipfs.ZipFileSystem",
+		"newFileChannel",
+		"([BLjava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileSystem$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileSystem$1",
+		"java.nio.channels.FileChannel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileSystem"
+	};
+	$loadClass(ZipFileSystem$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipFileSystem$1));
+	});
 	return class$;
 }
 

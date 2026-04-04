@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WWindowPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
@@ -52,7 +51,6 @@
 #include <sun/awt/AWTAccessor$FrameAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
-#include <sun/awt/DisplayChangedListener.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/TimedWindowEvent.h>
 #include <sun/awt/Win32GraphicsConfig.h>
@@ -137,10 +135,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$FrameAccessor = ::sun::awt::AWTAccessor$FrameAccessor;
 using $AppContext = ::sun::awt::AppContext;
-using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $TimedWindowEvent = ::sun::awt::TimedWindowEvent;
 using $Win32GraphicsConfig = ::sun::awt::Win32GraphicsConfig;
@@ -172,232 +167,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->updateGC();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WWindowPeer$$Lambda$updateGC>());
-	}
 	WWindowPeer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WWindowPeer$$Lambda$updateGC::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WWindowPeer$$Lambda$updateGC, inst$)},
-	{}
-};
-$MethodInfo WWindowPeer$$Lambda$updateGC::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $PUBLIC, $method(WWindowPeer$$Lambda$updateGC, init$, void, WWindowPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer$$Lambda$updateGC, run, void)},
-	{}
-};
-$ClassInfo WWindowPeer$$Lambda$updateGC::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WWindowPeer$$Lambda$updateGC",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WWindowPeer$$Lambda$updateGC::load$($String* name, bool initialize) {
-	$loadClass(WWindowPeer$$Lambda$updateGC, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WWindowPeer$$Lambda$updateGC, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WWindowPeer;)V", nullptr, $PUBLIC, $method(WWindowPeer$$Lambda$updateGC, init$, void, WWindowPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer$$Lambda$updateGC, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WWindowPeer$$Lambda$updateGC",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WWindowPeer$$Lambda$updateGC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WWindowPeer$$Lambda$updateGC);
+	});
 	return class$;
 }
 $Class* WWindowPeer$$Lambda$updateGC::class$ = nullptr;
-
-$FieldInfo _WWindowPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, log)},
-	{"screenLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, screenLog)},
-	{"modalBlocker", "Lsun/awt/windows/WWindowPeer;", nullptr, $PRIVATE, $field(WWindowPeer, modalBlocker)},
-	{"isOpaque", "Z", nullptr, $PRIVATE, $field(WWindowPeer, isOpaque)},
-	{"painter", "Lsun/awt/windows/TranslucentWindowPainter;", nullptr, $PRIVATE, $field(WWindowPeer, painter)},
-	{"ACTIVE_WINDOWS_KEY", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, ACTIVE_WINDOWS_KEY)},
-	{"activeWindowListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC, $staticField(WWindowPeer, activeWindowListener)},
-	{"guiDisposedListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, guiDisposedListener)},
-	{"windowListener", "Ljava/awt/event/WindowListener;", nullptr, $PRIVATE, $field(WWindowPeer, windowListener)},
-	{"windowType", "Ljava/awt/Window$Type;", nullptr, $PRIVATE | $VOLATILE, $field(WWindowPeer, windowType)},
-	{"opacity", "F", nullptr, $PRIVATE, $field(WWindowPeer, opacity)},
-	{}
-};
-
-$MethodInfo _WWindowPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(WWindowPeer, init$, void, $Window*)},
-	{"_setResizable", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, _setResizable, void, bool)},
-	{"_setTitle", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, _setTitle, void, $String*)},
-	{"_toFront", "()V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, _toFront, void)},
-	{"addWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WWindowPeer, addWindowListener, void, $WindowListener*)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WWindowPeer, create, void, $WComponentPeer*)},
-	{"createAwtWindow", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, createAwtWindow, void, $WComponentPeer*)},
-	{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, displayChanged, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WWindowPeer, disposeImpl, void)},
-	{"draggedToNewScreen", "()V", nullptr, 0, $virtualMethod(WWindowPeer, draggedToNewScreen, void)},
-	{"focusAllowedFor", "()Z", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, focusAllowedFor, bool)},
-	{"getActiveWindowHandles", "(Ljava/awt/Component;)[J", nullptr, $PUBLIC | $STATIC, $staticMethod(WWindowPeer, getActiveWindowHandles, $longs*, $Component*)},
-	{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, getInsets, $Insets*)},
-	{"getNativeParent", "()Lsun/awt/windows/WComponentPeer;", nullptr, $FINAL, $virtualMethod(WWindowPeer, getNativeParent, $WComponentPeer*)},
-	{"getNativeWindowSize", "()Ljava/awt/Dimension;", nullptr, $NATIVE, $virtualMethod(WWindowPeer, getNativeWindowSize, $Dimension*)},
-	{"getScaledWindowSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, getScaledWindowSize, $Dimension*)},
-	{"getScreenImOn", "()I", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, getScreenImOn, int32_t)},
-	{"getSysIconHeight", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysIconHeight, int32_t)},
-	{"getSysIconWidth", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysIconWidth, int32_t)},
-	{"getSysMinHeight", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysMinHeight, int32_t)},
-	{"getSysMinWidth", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysMinWidth, int32_t)},
-	{"getSysSmIconHeight", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysSmIconHeight, int32_t)},
-	{"getSysSmIconWidth", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysSmIconWidth, int32_t)},
-	{"getTranslucentGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $FINAL, $method(WWindowPeer, getTranslucentGraphics, $Graphics*)},
-	{"grab", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, grab, void)},
-	{"hasWarningWindow", "()Z", nullptr, $PRIVATE, $method(WWindowPeer, hasWarningWindow, bool)},
-	{"hide", "()V", nullptr, 0, $virtualMethod(WWindowPeer, hide, void)},
-	{"initActiveWindowsTracking", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WWindowPeer, initActiveWindowsTracking, void, $Window*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WWindowPeer, initIDs, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WWindowPeer, initialize, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"isModalBlocked", "()Z", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, isModalBlocked, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(WWindowPeer, isTargetUndecorated, bool)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"modalDisable", "(Ljava/awt/Dialog;J)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, modalDisable, void, $Dialog*, int64_t)},
-	{"modalEnable", "(Ljava/awt/Dialog;)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, modalEnable, void, $Dialog*)},
-	{"nativeGrab", "()V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, nativeGrab, void)},
-	{"nativeUngrab", "()V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, nativeUngrab, void)},
-	{"notifyWindowStateChanged", "(II)V", nullptr, $PRIVATE, $method(WWindowPeer, notifyWindowStateChanged, void, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, paint, void, $Graphics*)},
-	{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, paletteChanged, void)},
-	{"preCreate", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WWindowPeer, preCreate, void, $WComponentPeer*)},
-	{"preprocessPostEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WWindowPeer, preprocessPostEvent, void, $AWTEvent*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, print, void, $Graphics*)},
-	{"realShow", "()V", nullptr, $PROTECTED, $virtualMethod(WWindowPeer, realShow, void)},
-	{"removeWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WWindowPeer, removeWindowListener, void, $WindowListener*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"replaceSurfaceDataRecursively", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(WWindowPeer, replaceSurfaceDataRecursively, void, $Component*)},
-	{"repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WWindowPeer, repositionSecurityWarning, void)},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"requestWindowFocus", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, requestWindowFocus, bool, $FocusEvent$Cause*)},
-	{"requestWindowFocus", "(Z)Z", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, requestWindowFocus, bool, bool)},
-	{"reshapeFrame", "(IIII)V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WWindowPeer, reshapeFrame, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setAlwaysOnTop, void, bool)},
-	{"setAlwaysOnTopNative", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, setAlwaysOnTopNative, void, bool)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setBackground, void, $Color*)},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setFocusableWindow", "(Z)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, setFocusableWindow, void, bool)},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(WWindowPeer, setFullScreenExclusiveModeState, void, bool)},
-	{"setIconImagesData", "([III[III)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, setIconImagesData, void, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"setMinSize", "(II)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, setMinSize, void, int32_t, int32_t)},
-	{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setModalBlocked, void, $Dialog*, bool)},
-	{"setOpacity", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, setOpacity, void, int32_t)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setOpaque, void, bool)},
-	{"setOpaqueImpl", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, setOpaqueImpl, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setResizable, void, bool)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setTitle, void, $String*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, shouldClearRectBeforePaint, bool)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, show, void)},
-	{"syncBounds", "()V", nullptr, $FINAL, $virtualMethod(WWindowPeer, syncBounds, void)},
-	{"toBack", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WWindowPeer, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, toFront, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrab", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, ungrab, void)},
-	{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateAlwaysOnTopState, void)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateFocusableWindowState, void)},
-	{"updateGC", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateGC, void)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateIconImages, void)},
-	{"updateInsets", "(Ljava/awt/Insets;)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, updateInsets, void, $Insets*)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateMinimumSize, void)},
-	{"updateWindow", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateWindow, void)},
-	{"updateWindow", "(Z)V", nullptr, $PRIVATE, $method(WWindowPeer, updateWindow, void, bool)},
-	{"updateWindowImpl", "([III)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, updateWindowImpl, void, $ints*, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX__setResizable 28
-#define _METHOD_INDEX__setTitle 29
-#define _METHOD_INDEX__toFront 30
-#define _METHOD_INDEX_createAwtWindow 33
-#define _METHOD_INDEX_getNativeWindowSize 42
-#define _METHOD_INDEX_getScreenImOn 44
-#define _METHOD_INDEX_getSysIconHeight 45
-#define _METHOD_INDEX_getSysIconWidth 46
-#define _METHOD_INDEX_getSysMinHeight 47
-#define _METHOD_INDEX_getSysMinWidth 48
-#define _METHOD_INDEX_getSysSmIconHeight 49
-#define _METHOD_INDEX_getSysSmIconWidth 50
-#define _METHOD_INDEX_initIDs 56
-#define _METHOD_INDEX_modalDisable 64
-#define _METHOD_INDEX_modalEnable 65
-#define _METHOD_INDEX_nativeGrab 66
-#define _METHOD_INDEX_nativeUngrab 67
-#define _METHOD_INDEX_repositionSecurityWarning 78
-#define _METHOD_INDEX_requestWindowFocus 81
-#define _METHOD_INDEX_reshapeFrame 82
-#define _METHOD_INDEX_setAlwaysOnTopNative 84
-#define _METHOD_INDEX_setFocusableWindow 88
-#define _METHOD_INDEX_setFullScreenExclusiveModeState 91
-#define _METHOD_INDEX_setIconImagesData 92
-#define _METHOD_INDEX_setMinSize 93
-#define _METHOD_INDEX_setOpacity 95
-#define _METHOD_INDEX_setOpaqueImpl 98
-#define _METHOD_INDEX_toBack 106
-#define _METHOD_INDEX_updateInsets 116
-#define _METHOD_INDEX_updateWindowImpl 120
-
-$InnerClassInfo _WWindowPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WWindowPeer$ActiveWindowListener", "sun.awt.windows.WWindowPeer", "ActiveWindowListener", $PRIVATE | $STATIC},
-	{"sun.awt.windows.WWindowPeer$GuiDisposedListener", "sun.awt.windows.WWindowPeer", "GuiDisposedListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WWindowPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.windows.WWindowPeer",
-	"sun.awt.windows.WPanelPeer",
-	"java.awt.peer.WindowPeer,sun.awt.DisplayChangedListener",
-	_WWindowPeer_FieldInfo_,
-	_WWindowPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WWindowPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WWindowPeer$ActiveWindowListener,sun.awt.windows.WWindowPeer$GuiDisposedListener"
-};
-
-$Object* allocate$WWindowPeer($Class* clazz) {
-	return $of($alloc(WWindowPeer));
-}
 
 bool WWindowPeer::isObscured() {
 	 return this->$WPanelPeer::isObscured();
@@ -575,22 +370,22 @@ $PropertyChangeListener* WWindowPeer::guiDisposedListener = nullptr;
 
 void WWindowPeer::initIDs() {
 	$init(WWindowPeer);
-	$prepareNativeStatic(WWindowPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void WWindowPeer::disposeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $SunToolkit::targetToAppContext(this->target));
 	$synchronized(appContext) {
-		$var($List, l, $cast($List, $nc(appContext)->get(WWindowPeer::ACTIVE_WINDOWS_KEY)));
+		$var($List, l, $cast($List, appContext->get(WWindowPeer::ACTIVE_WINDOWS_KEY)));
 		if (l != nullptr) {
-			l->remove($of(this));
+			l->remove(this);
 		}
 	}
 	$var($GraphicsConfiguration, gc, getGraphicsConfiguration());
-	$nc(($cast($Win32GraphicsDevice, $($nc(gc)->getDevice()))))->removeDisplayChangedListener(this);
+	$$sure($Win32GraphicsDevice, $nc(gc)->getDevice())->removeDisplayChangedListener(this);
 	$synchronized(getStateLock()) {
 		$var($TranslucentWindowPainter, currentPainter, this->painter);
 		if (currentPainter != nullptr) {
@@ -606,39 +401,39 @@ void WWindowPeer::toFront() {
 }
 
 void WWindowPeer::_toFront() {
-	$prepareNative(WWindowPeer, _toFront, void);
+	$prepareNative(_toFront, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WWindowPeer::toBack() {
-	$prepareNative(WWindowPeer, toBack, void);
+	$prepareNative(toBack, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WWindowPeer::setAlwaysOnTopNative(bool value) {
-	$prepareNative(WWindowPeer, setAlwaysOnTopNative, void, bool value);
+	$prepareNative(setAlwaysOnTopNative, void, bool value);
 	$invokeNative(value);
 	$finishNative();
 }
 
 void WWindowPeer::setAlwaysOnTop(bool value) {
-	if ((value && $nc(($cast($Window, this->target)))->isVisible()) || !value) {
+	if ((value && $nc($cast($Window, this->target))->isVisible()) || !value) {
 		setAlwaysOnTopNative(value);
 	}
 }
 
 void WWindowPeer::updateAlwaysOnTopState() {
-	setAlwaysOnTop($nc(($cast($Window, this->target)))->isAlwaysOnTop());
+	setAlwaysOnTop($nc($cast($Window, this->target))->isAlwaysOnTop());
 }
 
 void WWindowPeer::updateFocusableWindowState() {
-	setFocusableWindow($nc(($cast($Window, this->target)))->isFocusableWindow());
+	setFocusableWindow($nc($cast($Window, this->target))->isFocusableWindow());
 }
 
 void WWindowPeer::setFocusableWindow(bool value) {
-	$prepareNative(WWindowPeer, setFocusableWindow, void, bool value);
+	$prepareNative(setFocusableWindow, void, bool value);
 	$invokeNative(value);
 	$finishNative();
 }
@@ -652,7 +447,7 @@ void WWindowPeer::setTitle($String* title$renamed) {
 }
 
 void WWindowPeer::_setTitle($String* title) {
-	$prepareNative(WWindowPeer, _setTitle, void, $String* title);
+	$prepareNative(_setTitle, void, $String* title);
 	$invokeNative(title);
 	$finishNative();
 }
@@ -662,7 +457,7 @@ void WWindowPeer::setResizable(bool resizable) {
 }
 
 void WWindowPeer::_setResizable(bool resizable) {
-	$prepareNative(WWindowPeer, _setResizable, void, bool resizable);
+	$prepareNative(_setResizable, void, bool resizable);
 	$invokeNative(resizable);
 	$finishNative();
 }
@@ -676,49 +471,49 @@ void WWindowPeer::init$($Window* target) {
 }
 
 void WWindowPeer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WPanelPeer::initialize();
 	updateInsets(this->insets_);
-	if (!$nc(($cast($Window, this->target)))->isFontSet()) {
+	if (!$nc($cast($Window, this->target))->isFontSet()) {
 		$init($WComponentPeer);
-		$nc(($cast($Window, this->target)))->setFont($WComponentPeer::defaultFont);
+		$nc($cast($Window, this->target))->setFont($WComponentPeer::defaultFont);
 		setFont($WComponentPeer::defaultFont);
 	}
-	if (!$nc(($cast($Window, this->target)))->isForegroundSet()) {
+	if (!$nc($cast($Window, this->target))->isForegroundSet()) {
 		$init($SystemColor);
-		$nc(($cast($Window, this->target)))->setForeground($SystemColor::windowText);
+		$nc($cast($Window, this->target))->setForeground($SystemColor::windowText);
 	}
-	if (!$nc(($cast($Window, this->target)))->isBackgroundSet()) {
+	if (!$nc($cast($Window, this->target))->isBackgroundSet()) {
 		$init($SystemColor);
-		$nc(($cast($Window, this->target)))->setBackground($SystemColor::window);
+		$nc($cast($Window, this->target))->setBackground($SystemColor::window);
 	}
 	$var($GraphicsConfiguration, gc, getGraphicsConfiguration());
 	$var($Win32GraphicsDevice, gd, $cast($Win32GraphicsDevice, $nc(gc)->getDevice()));
 	$nc(gd)->addDisplayChangedListener(this);
 	initActiveWindowsTracking($cast($Window, this->target));
 	updateIconImages();
-	$var($Shape, shape, $nc(($cast($Window, this->target)))->getShape());
+	$var($Shape, shape, $nc($cast($Window, this->target))->getShape());
 	if (shape != nullptr) {
-		applyShape($($Region::getInstance(shape, ($AffineTransform*)nullptr)));
+		applyShape($($Region::getInstance(shape, nullptr)));
 	}
-	float opacity = $nc(($cast($Window, this->target)))->getOpacity();
+	float opacity = $nc($cast($Window, this->target))->getOpacity();
 	if (opacity < 1.0f) {
 		setOpacity(opacity);
 	}
 	$synchronized(getStateLock()) {
 		this->isOpaque = true;
-		setOpaque($nc(($cast($Window, this->target)))->isOpaque());
+		setOpaque($nc($cast($Window, this->target))->isOpaque());
 	}
 }
 
 void WWindowPeer::createAwtWindow($WComponentPeer* parent) {
-	$prepareNative(WWindowPeer, createAwtWindow, void, $WComponentPeer* parent);
+	$prepareNative(createAwtWindow, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
 
 void WWindowPeer::preCreate($WComponentPeer* parent) {
-	$set(this, windowType, $nc(($cast($Window, this->target)))->getType());
+	$set(this, windowType, $nc($cast($Window, this->target))->getType());
 }
 
 void WWindowPeer::create($WComponentPeer* parent) {
@@ -727,7 +522,7 @@ void WWindowPeer::create($WComponentPeer* parent) {
 }
 
 $WComponentPeer* WWindowPeer::getNativeParent() {
-	$var($Container, owner, $nc(($cast($Window, this->target)))->getOwner());
+	$var($Container, owner, $nc($cast($Window, this->target))->getOwner());
 	return $cast($WComponentPeer, $WToolkit::targetToPeer(owner));
 }
 
@@ -736,13 +531,13 @@ void WWindowPeer::realShow() {
 }
 
 void WWindowPeer::show() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateFocusableWindowState();
-	bool alwaysOnTop = $nc(($cast($Window, this->target)))->isAlwaysOnTop();
+	bool alwaysOnTop = $nc($cast($Window, this->target))->isAlwaysOnTop();
 	updateGC();
 	realShow();
 	updateMinimumSize();
-	if ($nc(($cast($Window, this->target)))->isAlwaysOnTopSupported() && alwaysOnTop) {
+	if ($nc($cast($Window, this->target))->isAlwaysOnTopSupported() && alwaysOnTop) {
 		setAlwaysOnTop(alwaysOnTop);
 	}
 	$synchronized(getStateLock()) {
@@ -753,7 +548,7 @@ void WWindowPeer::show() {
 	$var($WComponentPeer, owner, getNativeParent());
 	if (owner != nullptr && owner->isLightweightFramePeer()) {
 		$var($Rectangle, b, getBounds());
-		handleExpose(0, 0, $nc(b)->width, b->height);
+		handleExpose(0, 0, $nc(b)->width, $nc(b)->height);
 	}
 }
 
@@ -761,81 +556,74 @@ void WWindowPeer::syncBounds() {
 }
 
 void WWindowPeer::updateInsets($Insets* i) {
-	$prepareNative(WWindowPeer, updateInsets, void, $Insets* i);
+	$prepareNative(updateInsets, void, $Insets* i);
 	$invokeNative(i);
 	$finishNative();
 }
 
 int32_t WWindowPeer::getSysMinWidth() {
 	$init(WWindowPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WWindowPeer, getSysMinWidth, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getSysMinWidth, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WWindowPeer::getSysMinHeight() {
 	$init(WWindowPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WWindowPeer, getSysMinHeight, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getSysMinHeight, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WWindowPeer::getSysIconWidth() {
 	$init(WWindowPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WWindowPeer, getSysIconWidth, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getSysIconWidth, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WWindowPeer::getSysIconHeight() {
 	$init(WWindowPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WWindowPeer, getSysIconHeight, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getSysIconHeight, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WWindowPeer::getSysSmIconWidth() {
 	$init(WWindowPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WWindowPeer, getSysSmIconWidth, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getSysSmIconWidth, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WWindowPeer::getSysSmIconHeight() {
 	$init(WWindowPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WWindowPeer, getSysSmIconHeight, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getSysSmIconHeight, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void WWindowPeer::setIconImagesData($ints* iconRaster, int32_t w, int32_t h, $ints* smallIconRaster, int32_t smw, int32_t smh) {
-	$prepareNative(WWindowPeer, setIconImagesData, void, $ints* iconRaster, int32_t w, int32_t h, $ints* smallIconRaster, int32_t smw, int32_t smh);
+	$prepareNative(setIconImagesData, void, $ints* iconRaster, int32_t w, int32_t h, $ints* smallIconRaster, int32_t smw, int32_t smh);
 	$invokeNative(iconRaster, w, h, smallIconRaster, smw, smh);
 	$finishNative();
 }
 
 void WWindowPeer::reshapeFrame(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$prepareNative(WWindowPeer, reshapeFrame, void, int32_t x, int32_t y, int32_t width, int32_t height);
+	$prepareNative(reshapeFrame, void, int32_t x, int32_t y, int32_t width, int32_t height);
 	$invokeNative(x, y, width, height);
 	$finishNative();
 }
 
 $Dimension* WWindowPeer::getNativeWindowSize() {
-	$var($Dimension, $ret, nullptr);
-	$prepareNative(WWindowPeer, getNativeWindowSize, $Dimension*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getNativeWindowSize, $Dimension*);
+	$var($Dimension, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -853,9 +641,8 @@ bool WWindowPeer::requestWindowFocus($FocusEvent$Cause* cause) {
 }
 
 bool WWindowPeer::requestWindowFocus(bool isMouseEventCause) {
-	bool $ret = false;
-	$prepareNative(WWindowPeer, requestWindowFocus, bool, bool isMouseEventCause);
-	$ret = $invokeNative(isMouseEventCause);
+	$prepareNative(requestWindowFocus, bool, bool isMouseEventCause);
+	bool $ret = $invokeNative(isMouseEventCause);
 	$finishNative();
 	return $ret;
 }
@@ -863,8 +650,8 @@ bool WWindowPeer::requestWindowFocus(bool isMouseEventCause) {
 bool WWindowPeer::focusAllowedFor() {
 	$var($Window, window, $cast($Window, this->target));
 	bool var$1 = !$nc(window)->isVisible();
-	bool var$0 = var$1 || !$nc(window)->isEnabled();
-	if (var$0 || !$nc(window)->isFocusableWindow()) {
+	bool var$0 = var$1 || !window->isEnabled();
+	if (var$0 || !window->isFocusableWindow()) {
 		return false;
 	}
 	if (isModalBlocked()) {
@@ -874,7 +661,7 @@ bool WWindowPeer::focusAllowedFor() {
 }
 
 void WWindowPeer::hide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowListener, listener, this->windowListener);
 	if (listener != nullptr) {
 		listener->windowClosing($$new($WindowEvent, $cast($Window, this->target), $WindowEvent::WINDOW_CLOSING));
@@ -886,40 +673,36 @@ void WWindowPeer::preprocessPostEvent($AWTEvent* event) {
 	if ($instanceOf($WindowEvent, event)) {
 		$var($WindowListener, listener, this->windowListener);
 		if (listener != nullptr) {
-			switch ($nc(event)->getID()) {
+			switch (event->getID()) {
 			case $WindowEvent::WINDOW_CLOSING:
-				{
-					listener->windowClosing($cast($WindowEvent, event));
-					break;
-				}
+				listener->windowClosing($cast($WindowEvent, event));
+				break;
 			case $WindowEvent::WINDOW_ICONIFIED:
-				{
-					listener->windowIconified($cast($WindowEvent, event));
-					break;
-				}
+				listener->windowIconified($cast($WindowEvent, event));
+				break;
 			}
 		}
 	}
 }
 
 void WWindowPeer::notifyWindowStateChanged(int32_t oldState, int32_t newState) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t changed = oldState ^ newState;
 	if (changed == 0) {
 		return;
 	}
 	$init($PlatformLogger$Level);
 	if ($nc(WWindowPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(WWindowPeer::log)->fine("Reporting state change %x -> %x"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(oldState))),
-			$($of($Integer::valueOf(newState)))
+		WWindowPeer::log->fine("Reporting state change %x -> %x"_s, $$new($ObjectArray, {
+			$($Integer::valueOf(oldState)),
+			$($Integer::valueOf(newState))
 		}));
 	}
 	if ($instanceOf($Frame, this->target)) {
-		$nc($($AWTAccessor::getFrameAccessor()))->setExtendedState($cast($Frame, this->target), newState);
+		$$nc($AWTAccessor::getFrameAccessor())->setExtendedState($cast($Frame, this->target), newState);
 	}
-	if (((int32_t)(changed & (uint32_t)$Frame::ICONIFIED)) > 0) {
-		if (((int32_t)(newState & (uint32_t)$Frame::ICONIFIED)) > 0) {
+	if ((changed & $Frame::ICONIFIED) > 0) {
+		if ((newState & $Frame::ICONIFIED) > 0) {
 			postEvent($$new($TimedWindowEvent, $cast($Window, this->target), $WindowEvent::WINDOW_ICONIFIED, nullptr, 0, 0, $System::currentTimeMillis()));
 		} else {
 			postEvent($$new($TimedWindowEvent, $cast($Window, this->target), $WindowEvent::WINDOW_DEICONIFIED, nullptr, 0, 0, $System::currentTimeMillis()));
@@ -941,44 +724,42 @@ void WWindowPeer::removeWindowListener($WindowListener* l) {
 }
 
 void WWindowPeer::updateMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, minimumSize, nullptr);
-	if ($nc(($cast($Component, this->target)))->isMinimumSizeSet()) {
-		$assign(minimumSize, $nc(($cast($Component, this->target)))->getMinimumSize());
+	if ($nc($cast($Component, this->target))->isMinimumSizeSet()) {
+		$assign(minimumSize, $nc($cast($Component, this->target))->getMinimumSize());
 	}
 	if (minimumSize != nullptr) {
 		$var($GraphicsConfiguration, var$0, getGraphicsConfiguration());
 		int32_t var$1 = getSysMinWidth();
 		$var($Dimension, sysMin, $SunGraphicsEnvironment::toUserSpace(var$0, var$1, getSysMinHeight()));
 		int32_t var$2 = $Math::max(minimumSize->width, $nc(sysMin)->width);
-		setMinSize(var$2, $Math::max(minimumSize->height, $nc(sysMin)->height));
+		setMinSize(var$2, $Math::max(minimumSize->height, sysMin->height));
 	} else {
 		setMinSize(0, 0);
 	}
 }
 
 void WWindowPeer::updateIconImages() {
-	$useLocalCurrentObjectStackCache();
-	$var($List, imageList, $nc(($cast($Window, this->target)))->getIconImages());
-	if (imageList == nullptr || $nc(imageList)->size() == 0) {
+	$useLocalObjectStack();
+	$var($List, imageList, $nc($cast($Window, this->target))->getIconImages());
+	if (imageList == nullptr || imageList->size() == 0) {
 		setIconImagesData(nullptr, 0, 0, nullptr, 0, 0);
 	} else {
 		int32_t w = getSysIconWidth();
 		int32_t h = getSysIconHeight();
 		int32_t smw = getSysSmIconWidth();
 		int32_t smh = getSysSmIconHeight();
-		$var($AffineTransform, tx, $nc($(getGraphicsConfiguration()))->getDefaultTransform());
+		$var($AffineTransform, tx, $$nc(getGraphicsConfiguration())->getDefaultTransform());
 		w = $Region::clipScale(w, $nc(tx)->getScaleX());
-		h = $Region::clipScale(h, $nc(tx)->getScaleY());
-		smw = $Region::clipScale(smw, $nc(tx)->getScaleX());
-		smh = $Region::clipScale(smh, $nc(tx)->getScaleY());
+		h = $Region::clipScale(h, tx->getScaleY());
+		smw = $Region::clipScale(smw, tx->getScaleX());
+		smh = $Region::clipScale(smh, tx->getScaleY());
 		$var($DataBufferInt, iconData, $SunToolkit::getScaledIconData(imageList, w, h));
 		$var($DataBufferInt, iconSmData, $SunToolkit::getScaledIconData(imageList, smw, smh));
 		if (iconData != nullptr && iconSmData != nullptr) {
 			$var($ints, var$0, iconData->getData());
-			int32_t var$1 = w;
-			int32_t var$2 = h;
-			setIconImagesData(var$0, var$1, var$2, $(iconSmData->getData()), smw, smh);
+			setIconImagesData(var$0, w, h, $(iconSmData->getData()), smw, smh);
 		} else {
 			setIconImagesData(nullptr, 0, 0, nullptr, 0, 0);
 		}
@@ -986,7 +767,7 @@ void WWindowPeer::updateIconImages() {
 }
 
 void WWindowPeer::setMinSize(int32_t width, int32_t height) {
-	$prepareNative(WWindowPeer, setMinSize, void, int32_t width, int32_t height);
+	$prepareNative(setMinSize, void, int32_t width, int32_t height);
 	$invokeNative(width, height);
 	$finishNative();
 }
@@ -996,24 +777,24 @@ bool WWindowPeer::isModalBlocked() {
 }
 
 void WWindowPeer::setModalBlocked($Dialog* dialog, bool blocked) {
-	$useLocalCurrentObjectStackCache();
-	$synchronized($nc(($cast($Component, $(getTarget()))))->getTreeLock()) {
-		$var(WWindowPeer, blockerPeer, $cast(WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(dialog)));
+	$useLocalObjectStack();
+	$synchronized($$sure($Component, getTarget())->getTreeLock()) {
+		$var(WWindowPeer, blockerPeer, $cast(WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(dialog)));
 		if (blocked) {
 			$set(this, modalBlocker, blockerPeer);
 			if ($instanceOf($WFileDialogPeer, blockerPeer)) {
-				$nc(($cast($WFileDialogPeer, blockerPeer)))->blockWindow(this);
+				$cast($WFileDialogPeer, blockerPeer)->blockWindow(this);
 			} else if ($instanceOf($WPrintDialogPeer, blockerPeer)) {
-				$nc(($cast($WPrintDialogPeer, blockerPeer)))->blockWindow(this);
+				$cast($WPrintDialogPeer, blockerPeer)->blockWindow(this);
 			} else {
 				modalDisable(dialog, $nc(blockerPeer)->getHWnd());
 			}
 		} else {
 			$set(this, modalBlocker, nullptr);
 			if ($instanceOf($WFileDialogPeer, blockerPeer)) {
-				$nc(($cast($WFileDialogPeer, blockerPeer)))->unblockWindow(this);
+				$cast($WFileDialogPeer, blockerPeer)->unblockWindow(this);
 			} else if ($instanceOf($WPrintDialogPeer, blockerPeer)) {
-				$nc(($cast($WPrintDialogPeer, blockerPeer)))->unblockWindow(this);
+				$cast($WPrintDialogPeer, blockerPeer)->unblockWindow(this);
 			} else {
 				modalEnable(dialog);
 			}
@@ -1022,32 +803,32 @@ void WWindowPeer::setModalBlocked($Dialog* dialog, bool blocked) {
 }
 
 void WWindowPeer::modalDisable($Dialog* blocker, int64_t blockerHWnd) {
-	$prepareNative(WWindowPeer, modalDisable, void, $Dialog* blocker, int64_t blockerHWnd);
+	$prepareNative(modalDisable, void, $Dialog* blocker, int64_t blockerHWnd);
 	$invokeNative(blocker, blockerHWnd);
 	$finishNative();
 }
 
 void WWindowPeer::modalEnable($Dialog* blocker) {
-	$prepareNative(WWindowPeer, modalEnable, void, $Dialog* blocker);
+	$prepareNative(modalEnable, void, $Dialog* blocker);
 	$invokeNative(blocker);
 	$finishNative();
 }
 
 $longs* WWindowPeer::getActiveWindowHandles($Component* target) {
 	$init(WWindowPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $SunToolkit::targetToAppContext(target));
 	if (appContext == nullptr) {
 		return nullptr;
 	}
 	$synchronized(appContext) {
-		$var($List, l, $cast($List, $nc(appContext)->get(WWindowPeer::ACTIVE_WINDOWS_KEY)));
+		$var($List, l, $cast($List, appContext->get(WWindowPeer::ACTIVE_WINDOWS_KEY)));
 		if (l == nullptr) {
 			return nullptr;
 		}
 		$var($longs, result, $new($longs, $nc(l)->size()));
 		for (int32_t j = 0; j < l->size(); ++j) {
-			result->set(j, $nc(($cast(WWindowPeer, $(l->get(j)))))->getHWnd());
+			result->set(j, $$sure(WWindowPeer, l->get(j))->getHWnd());
 		}
 		return result;
 	}
@@ -1058,7 +839,7 @@ void WWindowPeer::draggedToNewScreen() {
 }
 
 void WWindowPeer::updateGC() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t scrn = getScreenImOn();
 	$init($PlatformLogger$Level);
 	if ($nc(WWindowPeer::screenLog)->isLoggable($PlatformLogger$Level::FINER)) {
@@ -1066,42 +847,41 @@ void WWindowPeer::updateGC() {
 	}
 	$var($Win32GraphicsDevice, oldDev, $cast($Win32GraphicsDevice, $nc(this->winGraphicsConfig)->getDevice()));
 	$var($Win32GraphicsDevice, newDev, nullptr);
-	$var($GraphicsDeviceArray, devs, $nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getScreenDevices());
+	$var($GraphicsDeviceArray, devs, $$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getScreenDevices());
 	if (scrn >= $nc(devs)->length) {
-		$assign(newDev, $cast($Win32GraphicsDevice, $nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()));
+		$assign(newDev, $cast($Win32GraphicsDevice, $$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice()));
 	} else {
 		$assign(newDev, $cast($Win32GraphicsDevice, devs->get(scrn)));
 	}
 	$set(this, winGraphicsConfig, $cast($Win32GraphicsConfig, $nc(newDev)->getDefaultConfiguration()));
-	if ($nc(WWindowPeer::screenLog)->isLoggable($PlatformLogger$Level::FINE)) {
+	if (WWindowPeer::screenLog->isLoggable($PlatformLogger$Level::FINE)) {
 		if (this->winGraphicsConfig == nullptr) {
-			$nc(WWindowPeer::screenLog)->fine("Assertion (winGraphicsConfig != null) failed"_s);
+			WWindowPeer::screenLog->fine("Assertion (winGraphicsConfig != null) failed"_s);
 		}
 	}
 	if (oldDev != newDev) {
 		$nc(oldDev)->removeDisplayChangedListener(this);
 		newDev->addDisplayChangedListener(this);
 	}
-	$nc($($AWTAccessor::getComponentAccessor()))->setGraphicsConfiguration($cast($Component, this->target), this->winGraphicsConfig);
+	$$nc($AWTAccessor::getComponentAccessor())->setGraphicsConfiguration($cast($Component, this->target), this->winGraphicsConfig);
 }
 
 void WWindowPeer::displayChanged() {
-	$SunToolkit::executeOnEventHandlerThread(this->target, static_cast<$Runnable*>($$new(WWindowPeer$$Lambda$updateGC, this)));
+	$SunToolkit::executeOnEventHandlerThread(this->target, $$new(WWindowPeer$$Lambda$updateGC, this));
 }
 
 void WWindowPeer::paletteChanged() {
 }
 
 int32_t WWindowPeer::getScreenImOn() {
-	int32_t $ret = 0;
-	$prepareNative(WWindowPeer, getScreenImOn, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getScreenImOn, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void WWindowPeer::setFullScreenExclusiveModeState(bool state) {
-	$prepareNative(WWindowPeer, setFullScreenExclusiveModeState, void, bool state);
+	$prepareNative(setFullScreenExclusiveModeState, void, bool state);
 	$invokeNative(state);
 	$finishNative();
 }
@@ -1115,19 +895,19 @@ void WWindowPeer::ungrab() {
 }
 
 void WWindowPeer::nativeGrab() {
-	$prepareNative(WWindowPeer, nativeGrab, void);
+	$prepareNative(nativeGrab, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WWindowPeer::nativeUngrab() {
-	$prepareNative(WWindowPeer, nativeUngrab, void);
+	$prepareNative(nativeUngrab, void);
 	$invokeNative();
 	$finishNative();
 }
 
 bool WWindowPeer::hasWarningWindow() {
-	return $nc(($cast($Window, this->target)))->getWarningString() != nullptr;
+	return $nc($cast($Window, this->target))->getWarningString() != nullptr;
 }
 
 bool WWindowPeer::isTargetUndecorated() {
@@ -1135,13 +915,13 @@ bool WWindowPeer::isTargetUndecorated() {
 }
 
 void WWindowPeer::repositionSecurityWarning() {
-	$prepareNative(WWindowPeer, repositionSecurityWarning, void);
+	$prepareNative(repositionSecurityWarning, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WWindowPeer::print($Graphics* g) {
-	$var($Shape, shape, $nc(($cast($Window, this->target)))->getShape());
+	$var($Shape, shape, $nc($cast($Window, this->target))->getShape());
 	if (shape != nullptr) {
 		$nc(g)->setClip(shape);
 	}
@@ -1149,23 +929,19 @@ void WWindowPeer::print($Graphics* g) {
 }
 
 void WWindowPeer::replaceSurfaceDataRecursively($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Container, c)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, c)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					replaceSurfaceDataRecursively(child);
-				}
+		$var($ComponentArray, arr$, $cast($Container, c)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				replaceSurfaceDataRecursively(child);
 			}
 		}
 	}
-	$var($Object, cp, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(c));
+	$var($Object, cp, $$nc($AWTAccessor::getComponentAccessor())->getPeer(c));
 	if ($instanceOf($WComponentPeer, cp)) {
-		$nc(($cast($WComponentPeer, cp)))->replaceSurfaceDataLater();
+		$cast($WComponentPeer, cp)->replaceSurfaceDataLater();
 	}
 }
 
@@ -1178,28 +954,28 @@ $Graphics* WWindowPeer::getTranslucentGraphics() {
 void WWindowPeer::setBackground($Color* c) {
 	$WPanelPeer::setBackground(c);
 	$synchronized(getStateLock()) {
-		if (!this->isOpaque && $nc(($cast($Window, this->target)))->isVisible()) {
+		if (!this->isOpaque && $nc($cast($Window, this->target))->isVisible()) {
 			updateWindow(true);
 		}
 	}
 }
 
 void WWindowPeer::setOpacity(int32_t iOpacity) {
-	$prepareNative(WWindowPeer, setOpacity, void, int32_t iOpacity);
+	$prepareNative(setOpacity, void, int32_t iOpacity);
 	$invokeNative(iOpacity);
 	$finishNative();
 }
 
 void WWindowPeer::setOpacity(float opacity) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(($cast($SunToolkit, $($nc(($cast($Window, this->target)))->getToolkit()))))->isWindowOpacitySupported()) {
+	$useLocalObjectStack();
+	if (!$$sure($SunToolkit, $nc($cast($Window, this->target))->getToolkit())->isWindowOpacitySupported()) {
 		return;
 	}
 	if (opacity < 0.0f || opacity > 1.0f) {
 		$throwNew($IllegalArgumentException, "The value of opacity should be in the range [0.0f .. 1.0f]."_s);
 	}
 	if (((this->opacity == 1.0f && opacity < 1.0f) || (this->opacity < 1.0f && opacity == 1.0f)) && !$Win32GraphicsEnvironment::isVistaOS()) {
-		replaceSurfaceDataRecursively($cast($Component, $(getTarget())));
+		replaceSurfaceDataRecursively($$cast($Component, getTarget()));
 	}
 	this->opacity = opacity;
 	int32_t maxOpacity = 255;
@@ -1212,20 +988,20 @@ void WWindowPeer::setOpacity(float opacity) {
 	}
 	setOpacity(iOpacity);
 	$synchronized(getStateLock()) {
-		if (!this->isOpaque && $nc(($cast($Window, this->target)))->isVisible()) {
+		if (!this->isOpaque && $nc($cast($Window, this->target))->isVisible()) {
 			updateWindow(true);
 		}
 	}
 }
 
 void WWindowPeer::setOpaqueImpl(bool isOpaque) {
-	$prepareNative(WWindowPeer, setOpaqueImpl, void, bool isOpaque);
+	$prepareNative(setOpaqueImpl, void, bool isOpaque);
 	$invokeNative(isOpaque);
 	$finishNative();
 }
 
 void WWindowPeer::setOpaque(bool isOpaque) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getStateLock()) {
 		if (this->isOpaque == isOpaque) {
 			return;
@@ -1235,7 +1011,7 @@ void WWindowPeer::setOpaque(bool isOpaque) {
 	if (!isOpaque) {
 		$var($SunToolkit, sunToolkit, $cast($SunToolkit, $nc(target)->getToolkit()));
 		bool var$0 = !$nc(sunToolkit)->isWindowTranslucencySupported();
-		if (var$0 || !$nc(sunToolkit)->isTranslucencyCapable($(target->getGraphicsConfiguration()))) {
+		if (var$0 || !sunToolkit->isTranslucencyCapable($(target->getGraphicsConfiguration()))) {
 			return;
 		}
 	}
@@ -1268,7 +1044,7 @@ void WWindowPeer::setOpaque(bool isOpaque) {
 }
 
 void WWindowPeer::updateWindowImpl($ints* data, int32_t width, int32_t height) {
-	$prepareNative(WWindowPeer, updateWindowImpl, void, $ints* data, int32_t width, int32_t height);
+	$prepareNative(updateWindowImpl, void, $ints* data, int32_t width, int32_t height);
 	$invokeNative(data, width, height);
 	$finishNative();
 }
@@ -1278,7 +1054,7 @@ void WWindowPeer::updateWindow() {
 }
 
 void WWindowPeer::updateWindow(bool repaint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, w, $cast($Window, this->target));
 	$synchronized(getStateLock()) {
 		bool var$1 = this->isOpaque || !$nc(w)->isVisible();
@@ -1292,7 +1068,7 @@ void WWindowPeer::updateWindow(bool repaint) {
 		} else {
 			$init($PlatformLogger$Level);
 			if ($nc(WWindowPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(WWindowPeer::log)->finer("Translucent window painter is null in updateWindow"_s);
+				WWindowPeer::log->finer("Translucent window painter is null in updateWindow"_s);
 			}
 		}
 	}
@@ -1300,10 +1076,10 @@ void WWindowPeer::updateWindow(bool repaint) {
 
 void WWindowPeer::initActiveWindowsTracking($Window* w) {
 	$init(WWindowPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$synchronized(appContext) {
-		$var($List, l, $cast($List, $nc(appContext)->get(WWindowPeer::ACTIVE_WINDOWS_KEY)));
+		$var($List, l, $cast($List, appContext->get(WWindowPeer::ACTIVE_WINDOWS_KEY)));
 		if (l == nullptr) {
 			$assign(l, $new($LinkedList));
 			appContext->put(WWindowPeer::ACTIVE_WINDOWS_KEY, l);
@@ -1330,7 +1106,7 @@ bool WWindowPeer::shouldClearRectBeforePaint() {
 	return $WPanelPeer::shouldClearRectBeforePaint();
 }
 
-void clinit$WWindowPeer($Class* class$) {
+void WWindowPeer::clinit$($Class* clazz) {
 	$assignStatic(WWindowPeer::log, $PlatformLogger::getLogger("sun.awt.windows.WWindowPeer"_s));
 	$assignStatic(WWindowPeer::screenLog, $PlatformLogger::getLogger("sun.awt.windows.screen.WWindowPeer"_s));
 	$assignStatic(WWindowPeer::ACTIVE_WINDOWS_KEY, $new($StringBuffer, "active_windows_list"_s));
@@ -1346,11 +1122,170 @@ WWindowPeer::WWindowPeer() {
 
 $Class* WWindowPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WWindowPeer$$Lambda$updateGC::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WWindowPeer$$Lambda$updateGC")) {
 			return WWindowPeer$$Lambda$updateGC::load$(name, initialize);
 		}
 	}
-	$loadClass(WWindowPeer, name, initialize, &_WWindowPeer_ClassInfo_, clinit$WWindowPeer, allocate$WWindowPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, log)},
+		{"screenLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, screenLog)},
+		{"modalBlocker", "Lsun/awt/windows/WWindowPeer;", nullptr, $PRIVATE, $field(WWindowPeer, modalBlocker)},
+		{"isOpaque", "Z", nullptr, $PRIVATE, $field(WWindowPeer, isOpaque)},
+		{"painter", "Lsun/awt/windows/TranslucentWindowPainter;", nullptr, $PRIVATE, $field(WWindowPeer, painter)},
+		{"ACTIVE_WINDOWS_KEY", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, ACTIVE_WINDOWS_KEY)},
+		{"activeWindowListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC, $staticField(WWindowPeer, activeWindowListener)},
+		{"guiDisposedListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WWindowPeer, guiDisposedListener)},
+		{"windowListener", "Ljava/awt/event/WindowListener;", nullptr, $PRIVATE, $field(WWindowPeer, windowListener)},
+		{"windowType", "Ljava/awt/Window$Type;", nullptr, $PRIVATE | $VOLATILE, $field(WWindowPeer, windowType)},
+		{"opacity", "F", nullptr, $PRIVATE, $field(WWindowPeer, opacity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(WWindowPeer, init$, void, $Window*)},
+		{"_setResizable", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, _setResizable, void, bool)},
+		{"_setTitle", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, _setTitle, void, $String*)},
+		{"_toFront", "()V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, _toFront, void)},
+		{"addWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WWindowPeer, addWindowListener, void, $WindowListener*)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WWindowPeer, create, void, $WComponentPeer*)},
+		{"createAwtWindow", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, createAwtWindow, void, $WComponentPeer*)},
+		{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, displayChanged, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WWindowPeer, disposeImpl, void)},
+		{"draggedToNewScreen", "()V", nullptr, 0, $virtualMethod(WWindowPeer, draggedToNewScreen, void)},
+		{"focusAllowedFor", "()Z", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, focusAllowedFor, bool)},
+		{"getActiveWindowHandles", "(Ljava/awt/Component;)[J", nullptr, $PUBLIC | $STATIC, $staticMethod(WWindowPeer, getActiveWindowHandles, $longs*, $Component*)},
+		{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, getInsets, $Insets*)},
+		{"getNativeParent", "()Lsun/awt/windows/WComponentPeer;", nullptr, $FINAL, $virtualMethod(WWindowPeer, getNativeParent, $WComponentPeer*)},
+		{"getNativeWindowSize", "()Ljava/awt/Dimension;", nullptr, $NATIVE, $virtualMethod(WWindowPeer, getNativeWindowSize, $Dimension*)},
+		{"getScaledWindowSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, getScaledWindowSize, $Dimension*)},
+		{"getScreenImOn", "()I", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, getScreenImOn, int32_t)},
+		{"getSysIconHeight", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysIconHeight, int32_t)},
+		{"getSysIconWidth", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysIconWidth, int32_t)},
+		{"getSysMinHeight", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysMinHeight, int32_t)},
+		{"getSysMinWidth", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysMinWidth, int32_t)},
+		{"getSysSmIconHeight", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysSmIconHeight, int32_t)},
+		{"getSysSmIconWidth", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(WWindowPeer, getSysSmIconWidth, int32_t)},
+		{"getTranslucentGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $FINAL, $method(WWindowPeer, getTranslucentGraphics, $Graphics*)},
+		{"grab", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, grab, void)},
+		{"hasWarningWindow", "()Z", nullptr, $PRIVATE, $method(WWindowPeer, hasWarningWindow, bool)},
+		{"hide", "()V", nullptr, 0, $virtualMethod(WWindowPeer, hide, void)},
+		{"initActiveWindowsTracking", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(WWindowPeer, initActiveWindowsTracking, void, $Window*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WWindowPeer, initIDs, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WWindowPeer, initialize, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"isModalBlocked", "()Z", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, isModalBlocked, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(WWindowPeer, isTargetUndecorated, bool)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"modalDisable", "(Ljava/awt/Dialog;J)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, modalDisable, void, $Dialog*, int64_t)},
+		{"modalEnable", "(Ljava/awt/Dialog;)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, modalEnable, void, $Dialog*)},
+		{"nativeGrab", "()V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, nativeGrab, void)},
+		{"nativeUngrab", "()V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, nativeUngrab, void)},
+		{"notifyWindowStateChanged", "(II)V", nullptr, $PRIVATE, $method(WWindowPeer, notifyWindowStateChanged, void, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, paint, void, $Graphics*)},
+		{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, paletteChanged, void)},
+		{"preCreate", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, 0, $virtualMethod(WWindowPeer, preCreate, void, $WComponentPeer*)},
+		{"preprocessPostEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WWindowPeer, preprocessPostEvent, void, $AWTEvent*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, print, void, $Graphics*)},
+		{"realShow", "()V", nullptr, $PROTECTED, $virtualMethod(WWindowPeer, realShow, void)},
+		{"removeWindowListener", "(Ljava/awt/event/WindowListener;)V", nullptr, $SYNCHRONIZED, $virtualMethod(WWindowPeer, removeWindowListener, void, $WindowListener*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"replaceSurfaceDataRecursively", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(WWindowPeer, replaceSurfaceDataRecursively, void, $Component*)},
+		{"repositionSecurityWarning", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WWindowPeer, repositionSecurityWarning, void)},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"requestWindowFocus", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, requestWindowFocus, bool, $FocusEvent$Cause*)},
+		{"requestWindowFocus", "(Z)Z", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, requestWindowFocus, bool, bool)},
+		{"reshapeFrame", "(IIII)V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WWindowPeer, reshapeFrame, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setAlwaysOnTop, void, bool)},
+		{"setAlwaysOnTopNative", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, setAlwaysOnTopNative, void, bool)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setBackground, void, $Color*)},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"setFocusableWindow", "(Z)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, setFocusableWindow, void, bool)},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $FINAL | $NATIVE, $method(WWindowPeer, setFullScreenExclusiveModeState, void, bool)},
+		{"setIconImagesData", "([III[III)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, setIconImagesData, void, $ints*, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"setMinSize", "(II)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, setMinSize, void, int32_t, int32_t)},
+		{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setModalBlocked, void, $Dialog*, bool)},
+		{"setOpacity", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, setOpacity, void, int32_t)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setOpaque, void, bool)},
+		{"setOpaqueImpl", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WWindowPeer, setOpaqueImpl, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setResizable, void, bool)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, setTitle, void, $String*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WWindowPeer, shouldClearRectBeforePaint, bool)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, show, void)},
+		{"syncBounds", "()V", nullptr, $FINAL, $virtualMethod(WWindowPeer, syncBounds, void)},
+		{"toBack", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WWindowPeer, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, toFront, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrab", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, ungrab, void)},
+		{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateAlwaysOnTopState, void)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateFocusableWindowState, void)},
+		{"updateGC", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateGC, void)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateIconImages, void)},
+		{"updateInsets", "(Ljava/awt/Insets;)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, updateInsets, void, $Insets*)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateMinimumSize, void)},
+		{"updateWindow", "()V", nullptr, $PUBLIC, $virtualMethod(WWindowPeer, updateWindow, void)},
+		{"updateWindow", "(Z)V", nullptr, $PRIVATE, $method(WWindowPeer, updateWindow, void, bool)},
+		{"updateWindowImpl", "([III)V", nullptr, $NATIVE, $virtualMethod(WWindowPeer, updateWindowImpl, void, $ints*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WWindowPeer$ActiveWindowListener", "sun.awt.windows.WWindowPeer", "ActiveWindowListener", $PRIVATE | $STATIC},
+		{"sun.awt.windows.WWindowPeer$GuiDisposedListener", "sun.awt.windows.WWindowPeer", "GuiDisposedListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.windows.WWindowPeer",
+		"sun.awt.windows.WPanelPeer",
+		"java.awt.peer.WindowPeer,sun.awt.DisplayChangedListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WWindowPeer$ActiveWindowListener,sun.awt.windows.WWindowPeer$GuiDisposedListener"
+	};
+	$loadClass(WWindowPeer, name, initialize, &classInfo$$, WWindowPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WWindowPeer));
+	});
 	return class$;
 }
 

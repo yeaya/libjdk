@@ -58,6 +58,7 @@ class $import Checksum : public ::java::lang::Object {
 	$class(Checksum, 0, ::java::lang::Object)
 public:
 	Checksum();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* data, int32_t new_cksumType);
 	void init$(int32_t new_cksumType, $bytes* data, ::sun::security::krb5::EncryptionKey* key, int32_t usage);
 	void init$(::sun::security::util::DerValue* encoding);

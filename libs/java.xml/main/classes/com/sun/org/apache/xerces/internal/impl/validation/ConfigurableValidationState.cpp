@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/validation/ConfigurableValidationState.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/validation/ValidationState.h>
 #include <java/util/Iterator.h>
 #include <jcpp.h>
@@ -18,38 +17,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace validation {
-
-$FieldInfo _ConfigurableValidationState_FieldInfo_[] = {
-	{"fIdIdrefChecking", "Z", nullptr, $PRIVATE, $field(ConfigurableValidationState, fIdIdrefChecking)},
-	{"fUnparsedEntityChecking", "Z", nullptr, $PRIVATE, $field(ConfigurableValidationState, fUnparsedEntityChecking)},
-	{}
-};
-
-$MethodInfo _ConfigurableValidationState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigurableValidationState, init$, void)},
-	{"addId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, addId, void, $String*)},
-	{"addIdRef", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, addIdRef, void, $String*)},
-	{"checkIDRefID", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ConfigurableValidationState, checkIDRefID, $Iterator*)},
-	{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, isEntityDeclared, bool, $String*)},
-	{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, isEntityUnparsed, bool, $String*)},
-	{"isIdDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, isIdDeclared, bool, $String*)},
-	{"setIdIdrefChecking", "(Z)V", nullptr, $PUBLIC, $method(ConfigurableValidationState, setIdIdrefChecking, void, bool)},
-	{"setUnparsedEntityChecking", "(Z)V", nullptr, $PUBLIC, $method(ConfigurableValidationState, setUnparsedEntityChecking, void, bool)},
-	{}
-};
-
-$ClassInfo _ConfigurableValidationState_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.validation.ConfigurableValidationState",
-	"com.sun.org.apache.xerces.internal.impl.validation.ValidationState",
-	nullptr,
-	_ConfigurableValidationState_FieldInfo_,
-	_ConfigurableValidationState_MethodInfo_
-};
-
-$Object* allocate$ConfigurableValidationState($Class* clazz) {
-	return $of($alloc(ConfigurableValidationState));
-}
 
 void ConfigurableValidationState::init$() {
 	$ValidationState::init$();
@@ -97,7 +64,34 @@ ConfigurableValidationState::ConfigurableValidationState() {
 }
 
 $Class* ConfigurableValidationState::load$($String* name, bool initialize) {
-	$loadClass(ConfigurableValidationState, name, initialize, &_ConfigurableValidationState_ClassInfo_, allocate$ConfigurableValidationState);
+	$FieldInfo fieldInfos$$[] = {
+		{"fIdIdrefChecking", "Z", nullptr, $PRIVATE, $field(ConfigurableValidationState, fIdIdrefChecking)},
+		{"fUnparsedEntityChecking", "Z", nullptr, $PRIVATE, $field(ConfigurableValidationState, fUnparsedEntityChecking)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigurableValidationState, init$, void)},
+		{"addId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, addId, void, $String*)},
+		{"addIdRef", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, addIdRef, void, $String*)},
+		{"checkIDRefID", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ConfigurableValidationState, checkIDRefID, $Iterator*)},
+		{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, isEntityDeclared, bool, $String*)},
+		{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, isEntityUnparsed, bool, $String*)},
+		{"isIdDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ConfigurableValidationState, isIdDeclared, bool, $String*)},
+		{"setIdIdrefChecking", "(Z)V", nullptr, $PUBLIC, $method(ConfigurableValidationState, setIdIdrefChecking, void, bool)},
+		{"setUnparsedEntityChecking", "(Z)V", nullptr, $PUBLIC, $method(ConfigurableValidationState, setUnparsedEntityChecking, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.validation.ConfigurableValidationState",
+		"com.sun.org.apache.xerces.internal.impl.validation.ValidationState",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConfigurableValidationState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConfigurableValidationState);
+	});
 	return class$;
 }
 

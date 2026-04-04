@@ -1,5 +1,4 @@
 #include <bug7030332$1.h>
-
 #include <bug7030332.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -17,48 +16,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JFrame = ::javax::swing::JFrame;
 
-$MethodInfo _bug7030332$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug7030332$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7030332$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug7030332$1_EnclosingMethodInfo_ = {
-	"bug7030332",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug7030332$1_InnerClassesInfo_[] = {
-	{"bug7030332$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7030332$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7030332$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug7030332$1_MethodInfo_,
-	nullptr,
-	&_bug7030332$1_EnclosingMethodInfo_,
-	_bug7030332$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7030332"
-};
-
-$Object* allocate$bug7030332$1($Class* clazz) {
-	return $of($alloc(bug7030332$1));
-}
-
 void bug7030332$1::init$() {
 }
 
 void bug7030332$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, frame, $new($JFrame));
 	frame->setContentPane($($bug7030332::createContentPane()));
 	frame->setDefaultCloseOperation($JFrame::DISPOSE_ON_CLOSE);
@@ -71,7 +33,38 @@ bug7030332$1::bug7030332$1() {
 }
 
 $Class* bug7030332$1::load$($String* name, bool initialize) {
-	$loadClass(bug7030332$1, name, initialize, &_bug7030332$1_ClassInfo_, allocate$bug7030332$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug7030332$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7030332$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug7030332",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7030332$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7030332$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7030332"
+	};
+	$loadClass(bug7030332$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7030332$1);
+	});
 	return class$;
 }
 

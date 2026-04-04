@@ -50,7 +50,7 @@ public:
 	::java::util::Vector* addrs = nullptr;
 	$String* classFactory = nullptr;
 	$String* classFactoryLocation = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xE8C69EA2A8E98D09;
+	static const int64_t serialVersionUID = (int64_t)0xe8c69ea2a8e98d09;
 };
 
 	} // naming

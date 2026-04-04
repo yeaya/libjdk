@@ -1,7 +1,5 @@
 #include <com/apple/laf/AquaScrollRegionBorder.h>
-
 #include <apple/laf/JRSUIConstants$Focused.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
@@ -24,7 +22,6 @@
 #undef YES
 
 using $JRSUIConstants$Focused = ::apple::laf::JRSUIConstants$Focused;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
 using $JRSUIState = ::apple::laf::JRSUIState;
@@ -45,42 +42,15 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaScrollRegionBorder_FieldInfo_[] = {
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<Lcom/apple/laf/AquaScrollRegionBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaScrollRegionBorder, instance)},
-	{}
-};
-
-$MethodInfo _AquaScrollRegionBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaScrollRegionBorder, init$, void)},
-	{"createPainter", "()Lcom/apple/laf/AquaPainter;", "()Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;", $PROTECTED, $virtualMethod(AquaScrollRegionBorder, createPainter, $AquaPainter*)},
-	{"getScrollRegionBorder", "()Lcom/apple/laf/AquaScrollRegionBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaScrollRegionBorder, getScrollRegionBorder, AquaScrollRegionBorder*)},
-	{"getState", "(Ljavax/swing/JComponent;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaScrollRegionBorder, getState, $JRSUIConstants$State*, $JComponent*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollRegionBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _AquaScrollRegionBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaScrollRegionBorder",
-	"com.apple.laf.AquaBorder",
-	nullptr,
-	_AquaScrollRegionBorder_FieldInfo_,
-	_AquaScrollRegionBorder_MethodInfo_
-};
-
-$Object* allocate$AquaScrollRegionBorder($Class* clazz) {
-	return $of($alloc(AquaScrollRegionBorder));
-}
-
 $AquaUtils$RecyclableSingletonFromDefaultConstructor* AquaScrollRegionBorder::instance = nullptr;
 
 AquaScrollRegionBorder* AquaScrollRegionBorder::getScrollRegionBorder() {
 	$init(AquaScrollRegionBorder);
-	return $cast(AquaScrollRegionBorder, $nc(AquaScrollRegionBorder::instance)->get());
+	return $cast(AquaScrollRegionBorder, AquaScrollRegionBorder::instance->get());
 }
 
 void AquaScrollRegionBorder::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaBorder::init$($$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant)->alterMargins(2, 2, 2, 2))));
 }
 
@@ -96,8 +66,8 @@ void AquaScrollRegionBorder::paintBorder($Component* c, $Graphics* g, int32_t x,
 	$nc($nc(this->painter)->state)->set(state);
 	$init($JRSUIConstants$State);
 	$init($JRSUIConstants$Focused);
-	$nc($nc(this->painter)->state)->set(isFocused(c) && state == $JRSUIConstants$State::ACTIVE ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::NO));
-	$nc(this->painter)->paint(g, c, x, y, width, height);
+	$nc(this->painter->state)->set(isFocused(c) && state == $JRSUIConstants$State::ACTIVE ? $JRSUIConstants$Focused::YES : $JRSUIConstants$Focused::NO);
+	this->painter->paint(g, c, x, y, width, height);
 }
 
 $JRSUIConstants$State* AquaScrollRegionBorder::getState($JComponent* c) {
@@ -113,7 +83,7 @@ $JRSUIConstants$State* AquaScrollRegionBorder::getState($JComponent* c) {
 	return $JRSUIConstants$State::ACTIVE;
 }
 
-void clinit$AquaScrollRegionBorder($Class* class$) {
+void AquaScrollRegionBorder::clinit$($Class* clazz) {
 	$assignStatic(AquaScrollRegionBorder::instance, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaScrollRegionBorder::class$));
 }
 
@@ -121,7 +91,29 @@ AquaScrollRegionBorder::AquaScrollRegionBorder() {
 }
 
 $Class* AquaScrollRegionBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaScrollRegionBorder, name, initialize, &_AquaScrollRegionBorder_ClassInfo_, clinit$AquaScrollRegionBorder, allocate$AquaScrollRegionBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<Lcom/apple/laf/AquaScrollRegionBorder;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaScrollRegionBorder, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaScrollRegionBorder, init$, void)},
+		{"createPainter", "()Lcom/apple/laf/AquaPainter;", "()Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;", $PROTECTED, $virtualMethod(AquaScrollRegionBorder, createPainter, $AquaPainter*)},
+		{"getScrollRegionBorder", "()Lcom/apple/laf/AquaScrollRegionBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaScrollRegionBorder, getScrollRegionBorder, AquaScrollRegionBorder*)},
+		{"getState", "(Ljavax/swing/JComponent;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaScrollRegionBorder, getState, $JRSUIConstants$State*, $JComponent*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaScrollRegionBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaScrollRegionBorder",
+		"com.apple.laf.AquaBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaScrollRegionBorder, name, initialize, &classInfo$$, AquaScrollRegionBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaScrollRegionBorder));
+	});
 	return class$;
 }
 

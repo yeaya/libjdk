@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag.h>
-
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -25,52 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _JCDiagnostic$DiagnosticFlag_FieldInfo_[] = {
-	{"MANDATORY", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, MANDATORY)},
-	{"RESOLVE_ERROR", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, RESOLVE_ERROR)},
-	{"SYNTAX", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, SYNTAX)},
-	{"RECOVERABLE", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, RECOVERABLE)},
-	{"NON_DEFERRABLE", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, NON_DEFERRABLE)},
-	{"COMPRESSED", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, COMPRESSED)},
-	{"API", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, API)},
-	{"SOURCE_LEVEL", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, SOURCE_LEVEL)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCDiagnostic$DiagnosticFlag, $VALUES)},
-	{}
-};
-
-$MethodInfo _JCDiagnostic$DiagnosticFlag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCDiagnostic$DiagnosticFlag, $values, $JCDiagnostic$DiagnosticFlagArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCDiagnostic$DiagnosticFlag, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticFlag, valueOf, JCDiagnostic$DiagnosticFlag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticFlag, values, $JCDiagnostic$DiagnosticFlagArray*)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic$DiagnosticFlag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCDiagnostic$DiagnosticFlag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag",
-	"java.lang.Enum",
-	nullptr,
-	_JCDiagnostic$DiagnosticFlag_FieldInfo_,
-	_JCDiagnostic$DiagnosticFlag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;>;",
-	nullptr,
-	_JCDiagnostic$DiagnosticFlag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic"
-};
-
-$Object* allocate$JCDiagnostic$DiagnosticFlag($Class* clazz) {
-	return $of($alloc(JCDiagnostic$DiagnosticFlag));
-}
 
 JCDiagnostic$DiagnosticFlag* JCDiagnostic$DiagnosticFlag::MANDATORY = nullptr;
 JCDiagnostic$DiagnosticFlag* JCDiagnostic$DiagnosticFlag::RESOLVE_ERROR = nullptr;
@@ -110,7 +63,7 @@ void JCDiagnostic$DiagnosticFlag::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JCDiagnostic$DiagnosticFlag($Class* class$) {
+void JCDiagnostic$DiagnosticFlag::clinit$($Class* clazz) {
 	$assignStatic(JCDiagnostic$DiagnosticFlag::MANDATORY, $new(JCDiagnostic$DiagnosticFlag, "MANDATORY"_s, 0));
 	$assignStatic(JCDiagnostic$DiagnosticFlag::RESOLVE_ERROR, $new(JCDiagnostic$DiagnosticFlag, "RESOLVE_ERROR"_s, 1));
 	$assignStatic(JCDiagnostic$DiagnosticFlag::SYNTAX, $new(JCDiagnostic$DiagnosticFlag, "SYNTAX"_s, 2));
@@ -126,7 +79,47 @@ JCDiagnostic$DiagnosticFlag::JCDiagnostic$DiagnosticFlag() {
 }
 
 $Class* JCDiagnostic$DiagnosticFlag::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic$DiagnosticFlag, name, initialize, &_JCDiagnostic$DiagnosticFlag_ClassInfo_, clinit$JCDiagnostic$DiagnosticFlag, allocate$JCDiagnostic$DiagnosticFlag);
+	$FieldInfo fieldInfos$$[] = {
+		{"MANDATORY", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, MANDATORY)},
+		{"RESOLVE_ERROR", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, RESOLVE_ERROR)},
+		{"SYNTAX", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, SYNTAX)},
+		{"RECOVERABLE", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, RECOVERABLE)},
+		{"NON_DEFERRABLE", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, NON_DEFERRABLE)},
+		{"COMPRESSED", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, COMPRESSED)},
+		{"API", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, API)},
+		{"SOURCE_LEVEL", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCDiagnostic$DiagnosticFlag, SOURCE_LEVEL)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCDiagnostic$DiagnosticFlag, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCDiagnostic$DiagnosticFlag, $values, $JCDiagnostic$DiagnosticFlagArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCDiagnostic$DiagnosticFlag, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticFlag, valueOf, JCDiagnostic$DiagnosticFlag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticFlag, values, $JCDiagnostic$DiagnosticFlagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.JCDiagnostic$DiagnosticFlag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic"
+	};
+	$loadClass(JCDiagnostic$DiagnosticFlag, name, initialize, &classInfo$$, JCDiagnostic$DiagnosticFlag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCDiagnostic$DiagnosticFlag));
+	});
 	return class$;
 }
 

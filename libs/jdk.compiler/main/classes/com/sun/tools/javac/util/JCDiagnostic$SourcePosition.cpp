@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$SourcePosition.h>
-
 #include <com/sun/tools/javac/util/DiagnosticSource.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -8,9 +7,7 @@
 
 #undef NOPOS
 
-using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,53 +20,14 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _JCDiagnostic$SourcePosition_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $FINAL | $SYNTHETIC, $field(JCDiagnostic$SourcePosition, this$0)},
-	{"line", "I", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic$SourcePosition, line)},
-	{"column", "I", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic$SourcePosition, column)},
-	{}
-};
-
-$MethodInfo _JCDiagnostic$SourcePosition_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(JCDiagnostic$SourcePosition, init$, void, $JCDiagnostic*)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SourcePosition, getColumnNumber, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SourcePosition, getLineNumber, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic$SourcePosition_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$SourcePosition", "com.sun.tools.javac.util.JCDiagnostic", "SourcePosition", 0},
-	{}
-};
-
-$ClassInfo _JCDiagnostic$SourcePosition_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.JCDiagnostic$SourcePosition",
-	"java.lang.Object",
-	nullptr,
-	_JCDiagnostic$SourcePosition_FieldInfo_,
-	_JCDiagnostic$SourcePosition_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCDiagnostic$SourcePosition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic"
-};
-
-$Object* allocate$JCDiagnostic$SourcePosition($Class* clazz) {
-	return $of($alloc(JCDiagnostic$SourcePosition));
-}
-
 void JCDiagnostic$SourcePosition::init$($JCDiagnostic* this$0) {
 	$set(this, this$0, this$0);
-	int32_t n = (this$0->position == nullptr ? $Position::NOPOS : $nc(this$0->position)->getPreferredPosition());
+	int32_t n = (this$0->position == nullptr ? $Position::NOPOS : this$0->position->getPreferredPosition());
 	if (n == $Position::NOPOS || this$0->source == nullptr) {
 		this->line = (this->column = -1);
 	} else {
-		this->line = $nc(this$0->source)->getLineNumber(n);
-		this->column = $nc(this$0->source)->getColumnNumber(n, true);
+		this->line = this$0->source->getLineNumber(n);
+		this->column = this$0->source->getColumnNumber(n, true);
 	}
 }
 
@@ -85,7 +43,40 @@ JCDiagnostic$SourcePosition::JCDiagnostic$SourcePosition() {
 }
 
 $Class* JCDiagnostic$SourcePosition::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic$SourcePosition, name, initialize, &_JCDiagnostic$SourcePosition_ClassInfo_, allocate$JCDiagnostic$SourcePosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $FINAL | $SYNTHETIC, $field(JCDiagnostic$SourcePosition, this$0)},
+		{"line", "I", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic$SourcePosition, line)},
+		{"column", "I", nullptr, $PRIVATE | $FINAL, $field(JCDiagnostic$SourcePosition, column)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(JCDiagnostic$SourcePosition, init$, void, $JCDiagnostic*)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SourcePosition, getColumnNumber, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SourcePosition, getLineNumber, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$SourcePosition", "com.sun.tools.javac.util.JCDiagnostic", "SourcePosition", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.JCDiagnostic$SourcePosition",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic"
+	};
+	$loadClass(JCDiagnostic$SourcePosition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JCDiagnostic$SourcePosition);
+	});
 	return class$;
 }
 

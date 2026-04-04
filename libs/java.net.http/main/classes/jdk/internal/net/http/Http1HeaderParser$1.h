@@ -14,6 +14,7 @@ class $export Http1HeaderParser$1 : public ::java::lang::Object {
 	$class(Http1HeaderParser$1, 0, ::java::lang::Object)
 public:
 	Http1HeaderParser$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$jdk$internal$net$http$Http1HeaderParser$State;
 };
 

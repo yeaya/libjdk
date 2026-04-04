@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$3.h>
-
 #include <java/util/logging/LogManager.h>
 #include <java/util/logging/Logger.h>
 #include <jcpp.h>
@@ -16,50 +15,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _LogManager$3_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$3, this$0)},
-	{"val$sysLogger", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$3, val$sysLogger)},
-	{"val$l", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$3, val$l)},
-	{}
-};
-
-$MethodInfo _LogManager$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", "()V", 0, $method(LogManager$3, init$, void, $LogManager*, $Logger*, $Logger*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LogManager$3_EnclosingMethodInfo_ = {
-	"java.util.logging.LogManager",
-	"demandSystemLogger",
-	"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;"
-};
-
-$InnerClassInfo _LogManager$3_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LogManager$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.LogManager$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_LogManager$3_FieldInfo_,
-	_LogManager$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_LogManager$3_EnclosingMethodInfo_,
-	_LogManager$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$3($Class* clazz) {
-	return $of($alloc(LogManager$3));
-}
-
 void LogManager$3::init$($LogManager* this$0, $Logger* val$l, $Logger* val$sysLogger) {
 	$set(this, this$0, this$0);
 	$set(this, val$l, val$l);
@@ -68,14 +23,51 @@ void LogManager$3::init$($LogManager* this$0, $Logger* val$l, $Logger* val$sysLo
 
 $Object* LogManager$3::run() {
 	$nc(this->val$l)->mergeWithSystemLogger(this->val$sysLogger);
-	return $of(nullptr);
+	return nullptr;
 }
 
 LogManager$3::LogManager$3() {
 }
 
 $Class* LogManager$3::load$($String* name, bool initialize) {
-	$loadClass(LogManager$3, name, initialize, &_LogManager$3_ClassInfo_, allocate$LogManager$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$3, this$0)},
+		{"val$sysLogger", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$3, val$sysLogger)},
+		{"val$l", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$3, val$l)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", "()V", 0, $method(LogManager$3, init$, void, $LogManager*, $Logger*, $Logger*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.logging.LogManager",
+		"demandSystemLogger",
+		"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.LogManager$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$3);
+	});
 	return class$;
 }
 

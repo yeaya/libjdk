@@ -1,5 +1,4 @@
 #include <BasicAuthTest$ClientAuth.h>
-
 #include <BasicAuthTest.h>
 #include <java/net/Authenticator.h>
 #include <java/net/PasswordAuthentication.h>
@@ -11,42 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Authenticator = ::java::net::Authenticator;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
-
-$FieldInfo _BasicAuthTest$ClientAuth_FieldInfo_[] = {
-	{"count", "I", nullptr, $VOLATILE, $field(BasicAuthTest$ClientAuth, count)},
-	{}
-};
-
-$MethodInfo _BasicAuthTest$ClientAuth_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BasicAuthTest$ClientAuth, init$, void)},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED, $virtualMethod(BasicAuthTest$ClientAuth, getPasswordAuthentication, $PasswordAuthentication*)},
-	{}
-};
-
-$InnerClassInfo _BasicAuthTest$ClientAuth_InnerClassesInfo_[] = {
-	{"BasicAuthTest$ClientAuth", "BasicAuthTest", "ClientAuth", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicAuthTest$ClientAuth_ClassInfo_ = {
-	$ACC_SUPER,
-	"BasicAuthTest$ClientAuth",
-	"java.net.Authenticator",
-	nullptr,
-	_BasicAuthTest$ClientAuth_FieldInfo_,
-	_BasicAuthTest$ClientAuth_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicAuthTest$ClientAuth_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"BasicAuthTest"
-};
-
-$Object* allocate$BasicAuthTest$ClientAuth($Class* clazz) {
-	return $of($alloc(BasicAuthTest$ClientAuth));
-}
 
 void BasicAuthTest$ClientAuth::init$() {
 	$Authenticator::init$();
@@ -62,7 +25,37 @@ BasicAuthTest$ClientAuth::BasicAuthTest$ClientAuth() {
 }
 
 $Class* BasicAuthTest$ClientAuth::load$($String* name, bool initialize) {
-	$loadClass(BasicAuthTest$ClientAuth, name, initialize, &_BasicAuthTest$ClientAuth_ClassInfo_, allocate$BasicAuthTest$ClientAuth);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "I", nullptr, $VOLATILE, $field(BasicAuthTest$ClientAuth, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BasicAuthTest$ClientAuth, init$, void)},
+		{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED, $virtualMethod(BasicAuthTest$ClientAuth, getPasswordAuthentication, $PasswordAuthentication*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"BasicAuthTest$ClientAuth", "BasicAuthTest", "ClientAuth", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"BasicAuthTest$ClientAuth",
+		"java.net.Authenticator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"BasicAuthTest"
+	};
+	$loadClass(BasicAuthTest$ClientAuth, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicAuthTest$ClientAuth);
+	});
 	return class$;
 }
 

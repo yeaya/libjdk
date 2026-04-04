@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Tokens$Comment$CommentStyle.h>
-
 #include <com/sun/tools/javac/parser/Tokens$Comment.h>
 #include <com/sun/tools/javac/parser/Tokens.h>
 #include <java/lang/Enum.h>
@@ -21,48 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _Tokens$Comment$CommentStyle_FieldInfo_[] = {
-	{"LINE", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Comment$CommentStyle, LINE)},
-	{"BLOCK", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Comment$CommentStyle, BLOCK)},
-	{"JAVADOC", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Comment$CommentStyle, JAVADOC)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tokens$Comment$CommentStyle, $VALUES)},
-	{}
-};
-
-$MethodInfo _Tokens$Comment$CommentStyle_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$Comment$CommentStyle, $values, $Tokens$Comment$CommentStyleArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$Comment$CommentStyle, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Comment$CommentStyle, valueOf, Tokens$Comment$CommentStyle*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Comment$CommentStyle, values, $Tokens$Comment$CommentStyleArray*)},
-	{}
-};
-
-$InnerClassInfo _Tokens$Comment$CommentStyle_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.Tokens$Comment", "com.sun.tools.javac.parser.Tokens", "Comment", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.parser.Tokens$Comment$CommentStyle", "com.sun.tools.javac.parser.Tokens$Comment", "CommentStyle", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Tokens$Comment$CommentStyle_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.Tokens$Comment$CommentStyle",
-	"java.lang.Enum",
-	nullptr,
-	_Tokens$Comment$CommentStyle_FieldInfo_,
-	_Tokens$Comment$CommentStyle_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;>;",
-	nullptr,
-	_Tokens$Comment$CommentStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.Tokens"
-};
-
-$Object* allocate$Tokens$Comment$CommentStyle($Class* clazz) {
-	return $of($alloc(Tokens$Comment$CommentStyle));
-}
 
 Tokens$Comment$CommentStyle* Tokens$Comment$CommentStyle::LINE = nullptr;
 Tokens$Comment$CommentStyle* Tokens$Comment$CommentStyle::BLOCK = nullptr;
@@ -92,7 +49,7 @@ void Tokens$Comment$CommentStyle::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Tokens$Comment$CommentStyle($Class* class$) {
+void Tokens$Comment$CommentStyle::clinit$($Class* clazz) {
 	$assignStatic(Tokens$Comment$CommentStyle::LINE, $new(Tokens$Comment$CommentStyle, "LINE"_s, 0));
 	$assignStatic(Tokens$Comment$CommentStyle::BLOCK, $new(Tokens$Comment$CommentStyle, "BLOCK"_s, 1));
 	$assignStatic(Tokens$Comment$CommentStyle::JAVADOC, $new(Tokens$Comment$CommentStyle, "JAVADOC"_s, 2));
@@ -103,7 +60,43 @@ Tokens$Comment$CommentStyle::Tokens$Comment$CommentStyle() {
 }
 
 $Class* Tokens$Comment$CommentStyle::load$($String* name, bool initialize) {
-	$loadClass(Tokens$Comment$CommentStyle, name, initialize, &_Tokens$Comment$CommentStyle_ClassInfo_, clinit$Tokens$Comment$CommentStyle, allocate$Tokens$Comment$CommentStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"LINE", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Comment$CommentStyle, LINE)},
+		{"BLOCK", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Comment$CommentStyle, BLOCK)},
+		{"JAVADOC", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Comment$CommentStyle, JAVADOC)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tokens$Comment$CommentStyle, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$Comment$CommentStyle, $values, $Tokens$Comment$CommentStyleArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$Comment$CommentStyle, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Comment$CommentStyle, valueOf, Tokens$Comment$CommentStyle*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Comment$CommentStyle, values, $Tokens$Comment$CommentStyleArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.Tokens$Comment", "com.sun.tools.javac.parser.Tokens", "Comment", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.parser.Tokens$Comment$CommentStyle", "com.sun.tools.javac.parser.Tokens$Comment", "CommentStyle", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.Tokens$Comment$CommentStyle",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.Tokens"
+	};
+	$loadClass(Tokens$Comment$CommentStyle, name, initialize, &classInfo$$, Tokens$Comment$CommentStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Tokens$Comment$CommentStyle));
+	});
 	return class$;
 }
 

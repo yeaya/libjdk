@@ -35,6 +35,7 @@ class XDesktopPeer : public ::java::awt::peer::DesktopPeer {
 	$class(XDesktopPeer, 0, ::java::awt::peer::DesktopPeer)
 public:
 	XDesktopPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void browse(::java::net::URI* uri) override;
 	virtual void edit(::java::io::File* file) override;

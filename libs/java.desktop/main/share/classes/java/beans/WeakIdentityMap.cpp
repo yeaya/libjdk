@@ -1,5 +1,4 @@
 #include <java/beans/WeakIdentityMap.h>
-
 #include <java/beans/WeakIdentityMap$Entry.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -21,51 +20,6 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 namespace java {
 	namespace beans {
 
-$FieldInfo _WeakIdentityMap_FieldInfo_[] = {
-	{"MAXIMUM_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WeakIdentityMap, MAXIMUM_CAPACITY)},
-	{"NULL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeakIdentityMap, NULL)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(WeakIdentityMap, queue)},
-	{"table", "[Ljava/beans/WeakIdentityMap$Entry;", "[Ljava/beans/WeakIdentityMap$Entry<TT;>;", $PRIVATE | $VOLATILE, $field(WeakIdentityMap, table)},
-	{"threshold", "I", nullptr, $PRIVATE, $field(WeakIdentityMap, threshold)},
-	{"size", "I", nullptr, $PRIVATE, $field(WeakIdentityMap, size)},
-	{}
-};
-
-$MethodInfo _WeakIdentityMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WeakIdentityMap, init$, void)},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(WeakIdentityMap, create, $Object*, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TT;", $PUBLIC, $virtualMethod(WeakIdentityMap, get, $Object*, Object$*)},
-	{"getIndex", "([Ljava/beans/WeakIdentityMap$Entry;I)I", "([Ljava/beans/WeakIdentityMap$Entry<*>;I)I", $PRIVATE | $STATIC, $staticMethod(WeakIdentityMap, getIndex, int32_t, $WeakIdentityMap$EntryArray*, int32_t)},
-	{"newTable", "(I)[Ljava/beans/WeakIdentityMap$Entry;", "(I)[Ljava/beans/WeakIdentityMap$Entry<TT;>;", $PRIVATE, $method(WeakIdentityMap, newTable, $WeakIdentityMap$EntryArray*, int32_t)},
-	{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(WeakIdentityMap, removeStaleEntries, void)},
-	{"transfer", "([Ljava/beans/WeakIdentityMap$Entry;[Ljava/beans/WeakIdentityMap$Entry;)V", "([Ljava/beans/WeakIdentityMap$Entry<TT;>;[Ljava/beans/WeakIdentityMap$Entry<TT;>;)V", $PRIVATE, $method(WeakIdentityMap, transfer, void, $WeakIdentityMap$EntryArray*, $WeakIdentityMap$EntryArray*)},
-	{}
-};
-
-$InnerClassInfo _WeakIdentityMap_InnerClassesInfo_[] = {
-	{"java.beans.WeakIdentityMap$Entry", "java.beans.WeakIdentityMap", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WeakIdentityMap_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.beans.WeakIdentityMap",
-	"java.lang.Object",
-	nullptr,
-	_WeakIdentityMap_FieldInfo_,
-	_WeakIdentityMap_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_WeakIdentityMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.WeakIdentityMap$Entry"
-};
-
-$Object* allocate$WeakIdentityMap($Class* clazz) {
-	return $of($alloc(WeakIdentityMap));
-}
-
 $Object* WeakIdentityMap::NULL = nullptr;
 
 void WeakIdentityMap::init$() {
@@ -76,7 +30,7 @@ void WeakIdentityMap::init$() {
 }
 
 $Object* WeakIdentityMap::get(Object$* key$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, key, key$renamed);
 	removeStaleEntries();
 	if (key == nullptr) {
@@ -87,9 +41,9 @@ $Object* WeakIdentityMap::get(Object$* key$renamed) {
 	int32_t index = getIndex(table, hash);
 	{
 		$var($WeakIdentityMap$Entry, entry, $nc(table)->get(index));
-		for (; entry != nullptr; $assign(entry, $nc(entry)->next)) {
+		for (; entry != nullptr; $assign(entry, entry->next)) {
 			if (entry->isMatched(key, hash)) {
-				return $of(entry->value);
+				return entry->value;
 			}
 		}
 	}
@@ -97,16 +51,15 @@ $Object* WeakIdentityMap::get(Object$* key$renamed) {
 		index = getIndex(this->table, hash);
 		{
 			$var($WeakIdentityMap$Entry, entry, $nc(this->table)->get(index));
-			for (; entry != nullptr; $assign(entry, $nc(entry)->next)) {
+			for (; entry != nullptr; $assign(entry, entry->next)) {
 				if (entry->isMatched(key, hash)) {
-					return $of(entry->value);
+					return entry->value;
 				}
 			}
 		}
 		$var($Object, value, create(key));
 		$nc(this->table)->set(index, $$new($WeakIdentityMap$Entry, key, hash, value, this->queue, $nc(this->table)->get(index)));
-		int32_t var$0 = ++this->size;
-		if (var$0 >= this->threshold) {
+		if (++this->size >= this->threshold) {
 			if ($nc(this->table)->length == WeakIdentityMap::MAXIMUM_CAPACITY) {
 				this->threshold = $Integer::MAX_VALUE;
 			} else {
@@ -121,18 +74,18 @@ $Object* WeakIdentityMap::get(Object$* key$renamed) {
 				}
 			}
 		}
-		return $of(value);
+		return value;
 	}
 }
 
 void WeakIdentityMap::removeStaleEntries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, ref, $nc(this->queue)->poll());
 	if (ref != nullptr) {
 		$synchronized(WeakIdentityMap::NULL) {
 			do {
 				$var($WeakIdentityMap$Entry, entry, $cast($WeakIdentityMap$Entry, ref));
-				int32_t index = getIndex(this->table, entry->hash);
+				int32_t index = getIndex(this->table, $nc(entry)->hash);
 				$var($WeakIdentityMap$Entry, prev, $nc(this->table)->get(index));
 				$var($WeakIdentityMap$Entry, current, prev);
 				while (current != nullptr) {
@@ -151,14 +104,14 @@ void WeakIdentityMap::removeStaleEntries() {
 					$assign(prev, current);
 					$assign(current, next);
 				}
-				$assign(ref, $nc(this->queue)->poll());
+				$assign(ref, this->queue->poll());
 			} while (ref != nullptr);
 		}
 	}
 }
 
 void WeakIdentityMap::transfer($WeakIdentityMap$EntryArray* oldTable, $WeakIdentityMap$EntryArray* newTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(oldTable)->length; ++i) {
 		$var($WeakIdentityMap$Entry, entry, oldTable->get(i));
 		oldTable->set(i, nullptr);
@@ -185,10 +138,10 @@ $WeakIdentityMap$EntryArray* WeakIdentityMap::newTable(int32_t length) {
 
 int32_t WeakIdentityMap::getIndex($WeakIdentityMap$EntryArray* table, int32_t hash) {
 	$init(WeakIdentityMap);
-	return (int32_t)(hash & (uint32_t)($nc(table)->length - 1));
+	return hash & ($nc(table)->length - 1);
 }
 
-void clinit$WeakIdentityMap($Class* class$) {
+void WeakIdentityMap::clinit$($Class* clazz) {
 	$assignStatic(WeakIdentityMap::NULL, $new($Object));
 }
 
@@ -196,7 +149,46 @@ WeakIdentityMap::WeakIdentityMap() {
 }
 
 $Class* WeakIdentityMap::load$($String* name, bool initialize) {
-	$loadClass(WeakIdentityMap, name, initialize, &_WeakIdentityMap_ClassInfo_, clinit$WeakIdentityMap, allocate$WeakIdentityMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAXIMUM_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WeakIdentityMap, MAXIMUM_CAPACITY)},
+		{"NULL", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeakIdentityMap, NULL)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(WeakIdentityMap, queue)},
+		{"table", "[Ljava/beans/WeakIdentityMap$Entry;", "[Ljava/beans/WeakIdentityMap$Entry<TT;>;", $PRIVATE | $VOLATILE, $field(WeakIdentityMap, table)},
+		{"threshold", "I", nullptr, $PRIVATE, $field(WeakIdentityMap, threshold)},
+		{"size", "I", nullptr, $PRIVATE, $field(WeakIdentityMap, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WeakIdentityMap, init$, void)},
+		{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(WeakIdentityMap, create, $Object*, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TT;", $PUBLIC, $virtualMethod(WeakIdentityMap, get, $Object*, Object$*)},
+		{"getIndex", "([Ljava/beans/WeakIdentityMap$Entry;I)I", "([Ljava/beans/WeakIdentityMap$Entry<*>;I)I", $PRIVATE | $STATIC, $staticMethod(WeakIdentityMap, getIndex, int32_t, $WeakIdentityMap$EntryArray*, int32_t)},
+		{"newTable", "(I)[Ljava/beans/WeakIdentityMap$Entry;", "(I)[Ljava/beans/WeakIdentityMap$Entry<TT;>;", $PRIVATE, $method(WeakIdentityMap, newTable, $WeakIdentityMap$EntryArray*, int32_t)},
+		{"removeStaleEntries", "()V", nullptr, $PRIVATE, $method(WeakIdentityMap, removeStaleEntries, void)},
+		{"transfer", "([Ljava/beans/WeakIdentityMap$Entry;[Ljava/beans/WeakIdentityMap$Entry;)V", "([Ljava/beans/WeakIdentityMap$Entry<TT;>;[Ljava/beans/WeakIdentityMap$Entry<TT;>;)V", $PRIVATE, $method(WeakIdentityMap, transfer, void, $WeakIdentityMap$EntryArray*, $WeakIdentityMap$EntryArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.WeakIdentityMap$Entry", "java.beans.WeakIdentityMap", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.beans.WeakIdentityMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.WeakIdentityMap$Entry"
+	};
+	$loadClass(WeakIdentityMap, name, initialize, &classInfo$$, WeakIdentityMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakIdentityMap);
+	});
 	return class$;
 }
 

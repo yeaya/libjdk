@@ -1,5 +1,4 @@
 #include <java/rmi/UnmarshalException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _UnmarshalException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmarshalException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnmarshalException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmarshalException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnmarshalException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _UnmarshalException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.UnmarshalException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_UnmarshalException_FieldInfo_,
-	_UnmarshalException_MethodInfo_
-};
-
-$Object* allocate$UnmarshalException($Class* clazz) {
-	return $of($alloc(UnmarshalException));
-}
 
 void UnmarshalException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -55,7 +30,26 @@ void UnmarshalException::throw$() {
 }
 
 $Class* UnmarshalException::load$($String* name, bool initialize) {
-	$loadClass(UnmarshalException, name, initialize, &_UnmarshalException_ClassInfo_, allocate$UnmarshalException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmarshalException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmarshalException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnmarshalException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.UnmarshalException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnmarshalException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnmarshalException);
+	});
 	return class$;
 }
 

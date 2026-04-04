@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$TypeAnnotationFinder.h>
-
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotation.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -24,43 +23,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _TreeInfo$TypeAnnotationFinder_FieldInfo_[] = {
-	{"foundTypeAnno", "Z", nullptr, $PUBLIC, $field(TreeInfo$TypeAnnotationFinder, foundTypeAnno)},
-	{}
-};
-
-$MethodInfo _TreeInfo$TypeAnnotationFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TreeInfo$TypeAnnotationFinder, init$, void)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$TypeAnnotationFinder, scan, void, $JCTree*)},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$TypeAnnotationFinder, visitAnnotation, void, $JCTree$JCAnnotation*)},
-	{}
-};
-
-$InnerClassInfo _TreeInfo$TypeAnnotationFinder_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder", "com.sun.tools.javac.tree.TreeInfo", "TypeAnnotationFinder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TreeInfo$TypeAnnotationFinder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_TreeInfo$TypeAnnotationFinder_FieldInfo_,
-	_TreeInfo$TypeAnnotationFinder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeInfo$TypeAnnotationFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$TypeAnnotationFinder($Class* clazz) {
-	return $of($alloc(TreeInfo$TypeAnnotationFinder));
-}
-
 void TreeInfo$TypeAnnotationFinder::init$() {
 	$TreeScanner::init$();
 	this->foundTypeAnno = false;
@@ -82,7 +44,38 @@ TreeInfo$TypeAnnotationFinder::TreeInfo$TypeAnnotationFinder() {
 }
 
 $Class* TreeInfo$TypeAnnotationFinder::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$TypeAnnotationFinder, name, initialize, &_TreeInfo$TypeAnnotationFinder_ClassInfo_, allocate$TreeInfo$TypeAnnotationFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"foundTypeAnno", "Z", nullptr, $PUBLIC, $field(TreeInfo$TypeAnnotationFinder, foundTypeAnno)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TreeInfo$TypeAnnotationFinder, init$, void)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$TypeAnnotationFinder, scan, void, $JCTree*)},
+		{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$TypeAnnotationFinder, visitAnnotation, void, $JCTree$JCAnnotation*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder", "com.sun.tools.javac.tree.TreeInfo", "TypeAnnotationFinder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeInfo$TypeAnnotationFinder",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$TypeAnnotationFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$TypeAnnotationFinder);
+	});
 	return class$;
 }
 

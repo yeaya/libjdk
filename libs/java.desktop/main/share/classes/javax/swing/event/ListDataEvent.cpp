@@ -1,5 +1,4 @@
 #include <javax/swing/event/ListDataEvent.h>
-
 #include <java/lang/Math.h>
 #include <java/util/EventObject.h>
 #include <jcpp.h>
@@ -17,38 +16,6 @@ using $EventObject = ::java::util::EventObject;
 namespace javax {
 	namespace swing {
 		namespace event {
-
-$FieldInfo _ListDataEvent_FieldInfo_[] = {
-	{"CONTENTS_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListDataEvent, CONTENTS_CHANGED)},
-	{"INTERVAL_ADDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListDataEvent, INTERVAL_ADDED)},
-	{"INTERVAL_REMOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListDataEvent, INTERVAL_REMOVED)},
-	{"type", "I", nullptr, $PRIVATE, $field(ListDataEvent, type)},
-	{"index0", "I", nullptr, $PRIVATE, $field(ListDataEvent, index0)},
-	{"index1", "I", nullptr, $PRIVATE, $field(ListDataEvent, index1)},
-	{}
-};
-
-$MethodInfo _ListDataEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;III)V", nullptr, $PUBLIC, $method(ListDataEvent, init$, void, Object$*, int32_t, int32_t, int32_t)},
-	{"getIndex0", "()I", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, getIndex0, int32_t)},
-	{"getIndex1", "()I", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, getIndex1, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, getType, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ListDataEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.ListDataEvent",
-	"java.util.EventObject",
-	nullptr,
-	_ListDataEvent_FieldInfo_,
-	_ListDataEvent_MethodInfo_
-};
-
-$Object* allocate$ListDataEvent($Class* clazz) {
-	return $of($alloc(ListDataEvent));
-}
 
 int32_t ListDataEvent::getType() {
 	return this->type;
@@ -70,7 +37,7 @@ void ListDataEvent::init$(Object$* source, int32_t type, int32_t index0, int32_t
 }
 
 $String* ListDataEvent::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[type="_s, $$str(this->type), ",index0="_s, $$str(this->index0), ",index1="_s, $$str(this->index1), "]"_s});
 }
 
@@ -78,7 +45,34 @@ ListDataEvent::ListDataEvent() {
 }
 
 $Class* ListDataEvent::load$($String* name, bool initialize) {
-	$loadClass(ListDataEvent, name, initialize, &_ListDataEvent_ClassInfo_, allocate$ListDataEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTENTS_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListDataEvent, CONTENTS_CHANGED)},
+		{"INTERVAL_ADDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListDataEvent, INTERVAL_ADDED)},
+		{"INTERVAL_REMOVED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ListDataEvent, INTERVAL_REMOVED)},
+		{"type", "I", nullptr, $PRIVATE, $field(ListDataEvent, type)},
+		{"index0", "I", nullptr, $PRIVATE, $field(ListDataEvent, index0)},
+		{"index1", "I", nullptr, $PRIVATE, $field(ListDataEvent, index1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;III)V", nullptr, $PUBLIC, $method(ListDataEvent, init$, void, Object$*, int32_t, int32_t, int32_t)},
+		{"getIndex0", "()I", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, getIndex0, int32_t)},
+		{"getIndex1", "()I", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, getIndex1, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, getType, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ListDataEvent, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.ListDataEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ListDataEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListDataEvent);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ namespace java {
 class $import LoaderHandler : public ::java::lang::Object {
 	$interface(LoaderHandler, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* getSecurityContext(::java::lang::ClassLoader* loader) {return nullptr;}
 	virtual $Class* loadClass($String* name) {return nullptr;}
 	virtual $Class* loadClass(::java::net::URL* codebase, $String* name) {return nullptr;}

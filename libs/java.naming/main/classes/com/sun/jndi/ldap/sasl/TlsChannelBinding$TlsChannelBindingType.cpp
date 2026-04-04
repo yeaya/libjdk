@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType.h>
-
 #include <com/sun/jndi/ldap/sasl/TlsChannelBinding.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 				namespace sasl {
-
-$FieldInfo _TlsChannelBinding$TlsChannelBindingType_FieldInfo_[] = {
-	{"TLS_UNIQUE", "Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TlsChannelBinding$TlsChannelBindingType, TLS_UNIQUE)},
-	{"TLS_SERVER_END_POINT", "Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TlsChannelBinding$TlsChannelBindingType, TLS_SERVER_END_POINT)},
-	{"$VALUES", "[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TlsChannelBinding$TlsChannelBindingType, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsChannelBinding$TlsChannelBindingType, name$)},
-	{}
-};
-
-$MethodInfo _TlsChannelBinding$TlsChannelBindingType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, $values, $TlsChannelBinding$TlsChannelBindingTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(TlsChannelBinding$TlsChannelBindingType, init$, void, $String*, int32_t, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(TlsChannelBinding$TlsChannelBindingType, getName, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, valueOf, TlsChannelBinding$TlsChannelBindingType*, $String*)},
-	{"values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, values, $TlsChannelBinding$TlsChannelBindingTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _TlsChannelBinding$TlsChannelBindingType_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType", "com.sun.jndi.ldap.sasl.TlsChannelBinding", "TlsChannelBindingType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TlsChannelBinding$TlsChannelBindingType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType",
-	"java.lang.Enum",
-	nullptr,
-	_TlsChannelBinding$TlsChannelBindingType_FieldInfo_,
-	_TlsChannelBinding$TlsChannelBindingType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;>;",
-	nullptr,
-	_TlsChannelBinding$TlsChannelBindingType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.sasl.TlsChannelBinding"
-};
-
-$Object* allocate$TlsChannelBinding$TlsChannelBindingType($Class* clazz) {
-	return $of($alloc(TlsChannelBinding$TlsChannelBindingType));
-}
 
 TlsChannelBinding$TlsChannelBindingType* TlsChannelBinding$TlsChannelBindingType::TLS_UNIQUE = nullptr;
 TlsChannelBinding$TlsChannelBindingType* TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT = nullptr;
@@ -93,7 +50,7 @@ void TlsChannelBinding$TlsChannelBindingType::init$($String* $enum$name, int32_t
 	$set(this, name$, name);
 }
 
-void clinit$TlsChannelBinding$TlsChannelBindingType($Class* class$) {
+void TlsChannelBinding$TlsChannelBindingType::clinit$($Class* clazz) {
 	$assignStatic(TlsChannelBinding$TlsChannelBindingType::TLS_UNIQUE, $new(TlsChannelBinding$TlsChannelBindingType, "TLS_UNIQUE"_s, 0, "tls-unique"_s));
 	$assignStatic(TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT, $new(TlsChannelBinding$TlsChannelBindingType, "TLS_SERVER_END_POINT"_s, 1, "tls-server-end-point"_s));
 	$assignStatic(TlsChannelBinding$TlsChannelBindingType::$VALUES, TlsChannelBinding$TlsChannelBindingType::$values());
@@ -103,7 +60,43 @@ TlsChannelBinding$TlsChannelBindingType::TlsChannelBinding$TlsChannelBindingType
 }
 
 $Class* TlsChannelBinding$TlsChannelBindingType::load$($String* name, bool initialize) {
-	$loadClass(TlsChannelBinding$TlsChannelBindingType, name, initialize, &_TlsChannelBinding$TlsChannelBindingType_ClassInfo_, clinit$TlsChannelBinding$TlsChannelBindingType, allocate$TlsChannelBinding$TlsChannelBindingType);
+	$FieldInfo fieldInfos$$[] = {
+		{"TLS_UNIQUE", "Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TlsChannelBinding$TlsChannelBindingType, TLS_UNIQUE)},
+		{"TLS_SERVER_END_POINT", "Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TlsChannelBinding$TlsChannelBindingType, TLS_SERVER_END_POINT)},
+		{"$VALUES", "[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TlsChannelBinding$TlsChannelBindingType, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsChannelBinding$TlsChannelBindingType, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, $values, $TlsChannelBinding$TlsChannelBindingTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(TlsChannelBinding$TlsChannelBindingType, init$, void, $String*, int32_t, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(TlsChannelBinding$TlsChannelBindingType, getName, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, valueOf, TlsChannelBinding$TlsChannelBindingType*, $String*)},
+		{"values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, values, $TlsChannelBinding$TlsChannelBindingTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType", "com.sun.jndi.ldap.sasl.TlsChannelBinding", "TlsChannelBindingType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.sasl.TlsChannelBinding"
+	};
+	$loadClass(TlsChannelBinding$TlsChannelBindingType, name, initialize, &classInfo$$, TlsChannelBinding$TlsChannelBindingType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TlsChannelBinding$TlsChannelBindingType));
+	});
 	return class$;
 }
 

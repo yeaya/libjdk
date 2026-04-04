@@ -1,5 +1,4 @@
 #include <sun/management/HotspotClassLoading.h>
-
 #include <java/util/List.h>
 #include <sun/management/VMManagement.h>
 #include <jcpp.h>
@@ -17,41 +16,6 @@ using $VMManagement = ::sun::management::VMManagement;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _HotspotClassLoading_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE, $field(HotspotClassLoading, jvm)},
-	{"JAVA_CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, JAVA_CLS)},
-	{"COM_SUN_CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, COM_SUN_CLS)},
-	{"SUN_CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, SUN_CLS)},
-	{"CLS_COUNTER_NAME_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, CLS_COUNTER_NAME_PATTERN)},
-	{}
-};
-
-$MethodInfo _HotspotClassLoading_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotClassLoading, init$, void, $VMManagement*)},
-	{"getClassInitializationTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getClassInitializationTime, int64_t)},
-	{"getClassLoadingTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getClassLoadingTime, int64_t)},
-	{"getClassVerificationTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getClassVerificationTime, int64_t)},
-	{"getInitializedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getInitializedClassCount, int64_t)},
-	{"getInternalClassLoadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotClassLoading, getInternalClassLoadingCounters, $List*)},
-	{"getLoadedClassSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getLoadedClassSize, int64_t)},
-	{"getMethodDataSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getMethodDataSize, int64_t)},
-	{"getUnloadedClassSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getUnloadedClassSize, int64_t)},
-	{}
-};
-
-$ClassInfo _HotspotClassLoading_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.HotspotClassLoading",
-	"java.lang.Object",
-	"sun.management.HotspotClassLoadingMBean",
-	_HotspotClassLoading_FieldInfo_,
-	_HotspotClassLoading_MethodInfo_
-};
-
-$Object* allocate$HotspotClassLoading($Class* clazz) {
-	return $of($alloc(HotspotClassLoading));
-}
 
 $String* HotspotClassLoading::JAVA_CLS = nullptr;
 $String* HotspotClassLoading::COM_SUN_CLS = nullptr;
@@ -97,7 +61,7 @@ $List* HotspotClassLoading::getInternalClassLoadingCounters() {
 HotspotClassLoading::HotspotClassLoading() {
 }
 
-void clinit$HotspotClassLoading($Class* class$) {
+void HotspotClassLoading::clinit$($Class* clazz) {
 	$assignStatic(HotspotClassLoading::JAVA_CLS, "java.cls."_s);
 	$assignStatic(HotspotClassLoading::COM_SUN_CLS, "com.sun.cls."_s);
 	$assignStatic(HotspotClassLoading::SUN_CLS, "sun.cls."_s);
@@ -105,7 +69,37 @@ void clinit$HotspotClassLoading($Class* class$) {
 }
 
 $Class* HotspotClassLoading::load$($String* name, bool initialize) {
-	$loadClass(HotspotClassLoading, name, initialize, &_HotspotClassLoading_ClassInfo_, clinit$HotspotClassLoading, allocate$HotspotClassLoading);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE, $field(HotspotClassLoading, jvm)},
+		{"JAVA_CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, JAVA_CLS)},
+		{"COM_SUN_CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, COM_SUN_CLS)},
+		{"SUN_CLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, SUN_CLS)},
+		{"CLS_COUNTER_NAME_PATTERN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HotspotClassLoading, CLS_COUNTER_NAME_PATTERN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotClassLoading, init$, void, $VMManagement*)},
+		{"getClassInitializationTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getClassInitializationTime, int64_t)},
+		{"getClassLoadingTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getClassLoadingTime, int64_t)},
+		{"getClassVerificationTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getClassVerificationTime, int64_t)},
+		{"getInitializedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getInitializedClassCount, int64_t)},
+		{"getInternalClassLoadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotClassLoading, getInternalClassLoadingCounters, $List*)},
+		{"getLoadedClassSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getLoadedClassSize, int64_t)},
+		{"getMethodDataSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getMethodDataSize, int64_t)},
+		{"getUnloadedClassSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotClassLoading, getUnloadedClassSize, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.HotspotClassLoading",
+		"java.lang.Object",
+		"sun.management.HotspotClassLoadingMBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HotspotClassLoading, name, initialize, &classInfo$$, HotspotClassLoading::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HotspotClassLoading);
+	});
 	return class$;
 }
 

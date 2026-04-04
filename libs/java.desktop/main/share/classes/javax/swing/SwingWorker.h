@@ -49,6 +49,7 @@ class $export SwingWorker : public ::java::util::concurrent::RunnableFuture {
 	$class(SwingWorker, 0, ::java::util::concurrent::RunnableFuture)
 public:
 	SwingWorker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addPropertyChangeListener(::java::beans::PropertyChangeListener* listener);
 	virtual bool cancel(bool mayInterruptIfRunning) override;

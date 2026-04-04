@@ -94,11 +94,11 @@ public:
 	void init(int32_t tokenId, ::sun::security::jgss::krb5::Krb5Context* context);
 	bool verifySignAndSeqNumber($bytes* optionalHeader, $bytes* data, int32_t offset, int32_t len, $bytes* optionalTrailer);
 	static const int32_t TOKEN_NO_CKSUM_SIZE = 16;
-	static const int32_t FILLER = 0x0000FFFF;
+	static const int32_t FILLER = 0x0000ffff;
 	static const int32_t SGN_ALG_DES_MAC_MD5 = 0;
 	static const int32_t SGN_ALG_DES_MAC = 512;
 	static const int32_t SGN_ALG_HMAC_SHA1_DES3_KD = 1024;
-	static const int32_t SEAL_ALG_NONE = 0x0000FFFF;
+	static const int32_t SEAL_ALG_NONE = 0x0000ffff;
 	static const int32_t SEAL_ALG_DES = 0;
 	static const int32_t SEAL_ALG_DES3_KD = 512;
 	static const int32_t SEAL_ALG_ARCFOUR_HMAC = 4096;

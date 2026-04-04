@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
-
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
 #include <java/util/ResourceBundle.h>
@@ -27,37 +26,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace res {
-
-$FieldInfo _XMLMessages_FieldInfo_[] = {
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XMLMessages, fLocale)},
-	{"XMLBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(XMLMessages, XMLBundle)},
-	{"XML_ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLMessages, XML_ERROR_RESOURCES)},
-	{"BAD_CODE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLMessages, BAD_CODE)},
-	{"FORMAT_FAILED", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLMessages, FORMAT_FAILED)},
-	{}
-};
-
-$MethodInfo _XMLMessages_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLMessages, init$, void)},
-	{"createMsg", "(Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XMLMessages, createMsg, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"createXMLMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XMLMessages, createXMLMessage, $String*, $String*, $ObjectArray*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XMLMessages, getLocale, $Locale*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLMessages, setLocale, void, $Locale*)},
-	{}
-};
-
-$ClassInfo _XMLMessages_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.res.XMLMessages",
-	"java.lang.Object",
-	nullptr,
-	_XMLMessages_FieldInfo_,
-	_XMLMessages_MethodInfo_
-};
-
-$Object* allocate$XMLMessages($Class* clazz) {
-	return $of($alloc(XMLMessages));
-}
 
 $ResourceBundle* XMLMessages::XMLBundle = nullptr;
 $String* XMLMessages::XML_ERROR_RESOURCES = nullptr;
@@ -90,7 +58,7 @@ $String* XMLMessages::createXMLMessage($String* msgKey, $ObjectArray* args) {
 
 $String* XMLMessages::createMsg($ResourceBundle* fResourceBundle, $String* msgKey, $ObjectArray* args) {
 	$init(XMLMessages);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fmsg, nullptr);
 	bool throwex = false;
 	$var($String, msg, nullptr);
@@ -123,7 +91,7 @@ $String* XMLMessages::createMsg($ResourceBundle* fResourceBundle, $String* msgKe
 	return fmsg;
 }
 
-void clinit$XMLMessages($Class* class$) {
+void XMLMessages::clinit$($Class* clazz) {
 	$assignStatic(XMLMessages::XML_ERROR_RESOURCES, "com.sun.org.apache.xml.internal.res.XMLErrorResources"_s);
 	$assignStatic(XMLMessages::BAD_CODE, "BAD_CODE"_s);
 	$assignStatic(XMLMessages::FORMAT_FAILED, "FORMAT_FAILED"_s);
@@ -134,7 +102,33 @@ XMLMessages::XMLMessages() {
 }
 
 $Class* XMLMessages::load$($String* name, bool initialize) {
-	$loadClass(XMLMessages, name, initialize, &_XMLMessages_ClassInfo_, clinit$XMLMessages, allocate$XMLMessages);
+	$FieldInfo fieldInfos$$[] = {
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(XMLMessages, fLocale)},
+		{"XMLBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(XMLMessages, XMLBundle)},
+		{"XML_ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLMessages, XML_ERROR_RESOURCES)},
+		{"BAD_CODE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLMessages, BAD_CODE)},
+		{"FORMAT_FAILED", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLMessages, FORMAT_FAILED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLMessages, init$, void)},
+		{"createMsg", "(Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XMLMessages, createMsg, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"createXMLMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(XMLMessages, createXMLMessage, $String*, $String*, $ObjectArray*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XMLMessages, getLocale, $Locale*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(XMLMessages, setLocale, void, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.res.XMLMessages",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLMessages, name, initialize, &classInfo$$, XMLMessages::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLMessages);
+	});
 	return class$;
 }
 

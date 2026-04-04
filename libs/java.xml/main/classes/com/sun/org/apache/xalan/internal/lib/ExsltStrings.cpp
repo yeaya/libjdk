@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltStrings.h>
-
 #include <com/sun/org/apache/xalan/internal/lib/ExsltBase.h>
 #include <com/sun/org/apache/xpath/internal/NodeSet.h>
 #include <java/lang/StringBuffer.h>
@@ -33,55 +32,33 @@ namespace com {
 					namespace internal {
 						namespace lib {
 
-$MethodInfo _ExsltStrings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltStrings, init$, void)},
-	{"align", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, align, $String*, $String*, $String*, $String*)},
-	{"align", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, align, $String*, $String*, $String*)},
-	{"concat", "(Lorg/w3c/dom/NodeList;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, concat, $String*, $NodeList*)},
-	{"padding", "(DLjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, padding, $String*, double, $String*)},
-	{"padding", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, padding, $String*, double)},
-	{"split", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, split, $NodeList*, $String*, $String*)},
-	{"split", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, split, $NodeList*, $String*)},
-	{"tokenize", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, tokenize, $NodeList*, $String*, $String*)},
-	{"tokenize", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, tokenize, $NodeList*, $String*)},
-	{}
-};
-
-$ClassInfo _ExsltStrings_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.lib.ExsltStrings",
-	"com.sun.org.apache.xalan.internal.lib.ExsltBase",
-	nullptr,
-	nullptr,
-	_ExsltStrings_MethodInfo_
-};
-
-$Object* allocate$ExsltStrings($Class* clazz) {
-	return $of($alloc(ExsltStrings));
-}
-
 void ExsltStrings::init$() {
 	$ExsltBase::init$();
 }
 
 $String* ExsltStrings::align($String* targetStr, $String* paddingStr, $String* type) {
 	$init(ExsltStrings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(targetStr)->length();
 	if (var$0 >= $nc(paddingStr)->length()) {
 		return targetStr->substring(0, paddingStr->length());
 	}
 	if ($nc(type)->equals("right"_s)) {
+		$var($StringBuilder, var$1, $new($StringBuilder));
 		int32_t var$2 = paddingStr->length();
-		$var($String, var$1, $($nc(paddingStr)->substring(0, var$2 - $nc(targetStr)->length())));
-		return $concat(var$1, targetStr);
+		var$1->append($(paddingStr->substring(0, var$2 - targetStr->length())));
+		var$1->append(targetStr);
+		return $str(var$1);
 	} else if (type->equals("center"_s)) {
-		int32_t var$3 = $nc(paddingStr)->length();
-		int32_t startIndex = (var$3 - $nc(targetStr)->length()) / 2;
-		$var($String, var$4, $$str({$(paddingStr->substring(0, startIndex)), targetStr}));
-		return $concat(var$4, $(paddingStr->substring(startIndex + targetStr->length())));
+		int32_t var$3 = paddingStr->length();
+		int32_t startIndex = (var$3 - targetStr->length()) / 2;
+		$var($StringBuilder, var$4, $new($StringBuilder));
+		var$4->append($(paddingStr->substring(0, startIndex)));
+		var$4->append(targetStr);
+		var$4->append($(paddingStr->substring(startIndex + targetStr->length())));
+		return $str(var$4);
 	} else {
-		return $str({targetStr, $($nc(paddingStr)->substring($nc(targetStr)->length()))});
+		return $str({targetStr, $(paddingStr->substring(targetStr->length()))});
 	}
 }
 
@@ -92,7 +69,7 @@ $String* ExsltStrings::align($String* targetStr, $String* paddingStr) {
 
 $String* ExsltStrings::concat($NodeList* nl) {
 	$init(ExsltStrings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	for (int32_t i = 0; i < $nc(nl)->getLength(); ++i) {
 		$var($Node, node, nl->item(i));
@@ -106,7 +83,7 @@ $String* ExsltStrings::concat($NodeList* nl) {
 
 $String* ExsltStrings::padding(double length, $String* pattern) {
 	$init(ExsltStrings);
-	if (pattern == nullptr || $nc(pattern)->length() == 0) {
+	if (pattern == nullptr || pattern->length() == 0) {
 		return ""_s;
 	}
 	$var($StringBuffer, sb, $new($StringBuffer));
@@ -117,7 +94,7 @@ $String* ExsltStrings::padding(double length, $String* pattern) {
 		if (index == $nc(pattern)->length()) {
 			index = 0;
 		}
-		sb->append($nc(pattern)->charAt(index));
+		sb->append(pattern->charAt(index));
 		++index;
 		++numAdded;
 	}
@@ -131,7 +108,7 @@ $String* ExsltStrings::padding(double length) {
 
 $NodeList* ExsltStrings::split($String* str, $String* pattern) {
 	$init(ExsltStrings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSet, resultSet, $new($NodeSet));
 	resultSet->setShouldCacheNodes(true);
 	bool done = false;
@@ -149,7 +126,7 @@ $NodeList* ExsltStrings::split($String* str, $String* pattern) {
 		}
 		$var($Document, doc, $JdkXmlUtils::getDOMDocument());
 		$synchronized(doc) {
-			$var($Element, element, $nc(doc)->createElement("token"_s));
+			$var($Element, element, doc->createElement("token"_s));
 			$var($Text, text, doc->createTextNode(token));
 			$nc(element)->appendChild(text);
 			resultSet->addNode(element);
@@ -165,14 +142,14 @@ $NodeList* ExsltStrings::split($String* str) {
 
 $NodeList* ExsltStrings::tokenize($String* toTokenize, $String* delims) {
 	$init(ExsltStrings);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSet, resultSet, $new($NodeSet));
 	if (delims != nullptr && delims->length() > 0) {
 		$var($StringTokenizer, lTokenizer, $new($StringTokenizer, toTokenize, delims));
 		$var($Document, doc, $JdkXmlUtils::getDOMDocument());
 		$synchronized(doc) {
 			while (lTokenizer->hasMoreTokens()) {
-				$var($Element, element, $nc(doc)->createElement("token"_s));
+				$var($Element, element, doc->createElement("token"_s));
 				$nc(element)->appendChild($(doc->createTextNode($(lTokenizer->nextToken()))));
 				resultSet->addNode(element);
 			}
@@ -181,7 +158,7 @@ $NodeList* ExsltStrings::tokenize($String* toTokenize, $String* delims) {
 		$var($Document, doc, $JdkXmlUtils::getDOMDocument());
 		$synchronized(doc) {
 			for (int32_t i = 0; i < $nc(toTokenize)->length(); ++i) {
-				$var($Element, element, $nc(doc)->createElement("token"_s));
+				$var($Element, element, doc->createElement("token"_s));
 				$nc(element)->appendChild($(doc->createTextNode($(toTokenize->substring(i, i + 1)))));
 				resultSet->addNode(element);
 			}
@@ -199,7 +176,30 @@ ExsltStrings::ExsltStrings() {
 }
 
 $Class* ExsltStrings::load$($String* name, bool initialize) {
-	$loadClass(ExsltStrings, name, initialize, &_ExsltStrings_ClassInfo_, allocate$ExsltStrings);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExsltStrings, init$, void)},
+		{"align", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, align, $String*, $String*, $String*, $String*)},
+		{"align", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, align, $String*, $String*, $String*)},
+		{"concat", "(Lorg/w3c/dom/NodeList;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, concat, $String*, $NodeList*)},
+		{"padding", "(DLjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, padding, $String*, double, $String*)},
+		{"padding", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, padding, $String*, double)},
+		{"split", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, split, $NodeList*, $String*, $String*)},
+		{"split", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, split, $NodeList*, $String*)},
+		{"tokenize", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, tokenize, $NodeList*, $String*, $String*)},
+		{"tokenize", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExsltStrings, tokenize, $NodeList*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.lib.ExsltStrings",
+		"com.sun.org.apache.xalan.internal.lib.ExsltBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExsltStrings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExsltStrings);
+	});
 	return class$;
 }
 

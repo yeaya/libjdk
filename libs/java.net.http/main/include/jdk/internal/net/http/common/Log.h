@@ -82,6 +82,7 @@ class $import Log : public ::java::lang::System$Logger {
 	$class(Log, 0, ::java::lang::System$Logger)
 public:
 	Log();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool channel();
 	static void dumpHeaders(::java::lang::StringBuilder* sb, $String* prefix, ::java::net::http::HttpHeaders* headers);

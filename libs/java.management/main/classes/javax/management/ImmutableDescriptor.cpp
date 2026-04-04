@@ -1,5 +1,4 @@
 #include <javax/management/ImmutableDescriptor.h>
-
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -28,17 +27,14 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $1Array = ::java::lang::reflect::Array;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;
 using $Descriptor = ::javax::management::Descriptor;
@@ -47,82 +43,30 @@ using $RuntimeOperationsException = ::javax::management::RuntimeOperationsExcept
 namespace javax {
 	namespace management {
 
-$FieldInfo _ImmutableDescriptor_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImmutableDescriptor, serialVersionUID)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ImmutableDescriptor, names)},
-	{"values", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ImmutableDescriptor, values)},
-	{"hashCode", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ImmutableDescriptor, hashCode$)},
-	{"EMPTY_DESCRIPTOR", "Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImmutableDescriptor, EMPTY_DESCRIPTOR)},
-	{}
-};
-
-$MethodInfo _ImmutableDescriptor_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ImmutableDescriptor, init$, void, $StringArray*, $ObjectArray*)},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(ImmutableDescriptor, init$, void, $StringArray*)},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(ImmutableDescriptor, init$, void, $Map*)},
-	{"checkIllegalFieldName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, checkIllegalFieldName, void, $String*)},
-	{"clone", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, equals, bool, Object$*)},
-	{"fieldIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(ImmutableDescriptor, fieldIndex, int32_t, $String*)},
-	{"findNonEmpty", "([Ljavax/management/Descriptor;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, findNonEmpty, int32_t, $DescriptorArray*, int32_t)},
-	{"getFieldNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, getFieldNames, $StringArray*)},
-	{"getFieldValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, getFieldValue, $Object*, $String*)},
-	{"getFieldValues", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(ImmutableDescriptor, getFieldValues, $ObjectArray*, $StringArray*)},
-	{"getFields", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, getFields, $StringArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, hashCode, int32_t)},
-	{"illegal", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, illegal, void, $String*)},
-	{"isEmpty", "(Ljavax/management/Descriptor;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, isEmpty, bool, $Descriptor*)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, isValid, bool)},
-	{"makeMap", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap;", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap<Ljava/lang/String;*>;", $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, makeMap, $SortedMap*, $StringArray*, $ObjectArray*)},
-	{"makeMap", "([Ljava/lang/String;)Ljava/util/SortedMap;", "([Ljava/lang/String;)Ljava/util/SortedMap<Ljava/lang/String;*>;", $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, makeMap, $SortedMap*, $StringArray*)},
-	{"nonNullDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $STATIC, $staticMethod(ImmutableDescriptor, nonNullDescriptor, $Descriptor*, $Descriptor*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableDescriptor, readResolve, $Object*), "java.io.InvalidObjectException"},
-	{"removeField", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, removeField, void, $String*)},
-	{"setField", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, setField, void, $String*, Object$*), "javax.management.RuntimeOperationsException"},
-	{"setFields", "([Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, setFields, void, $StringArray*, $ObjectArray*), "javax.management.RuntimeOperationsException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, toString, $String*)},
-	{"union", "([Ljavax/management/Descriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ImmutableDescriptor, union$, ImmutableDescriptor*, $DescriptorArray*)},
-	{"unsupported", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, unsupported, void)},
-	{}
-};
-
-$ClassInfo _ImmutableDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.ImmutableDescriptor",
-	"java.lang.Object",
-	"javax.management.Descriptor",
-	_ImmutableDescriptor_FieldInfo_,
-	_ImmutableDescriptor_MethodInfo_
-};
-
-$Object* allocate$ImmutableDescriptor($Class* clazz) {
-	return $of($alloc(ImmutableDescriptor));
-}
-
 ImmutableDescriptor* ImmutableDescriptor::EMPTY_DESCRIPTOR = nullptr;
 
 void ImmutableDescriptor::init$($StringArray* fieldNames, $ObjectArray* fieldValues) {
-	ImmutableDescriptor::init$($(static_cast<$Map*>(makeMap(fieldNames, fieldValues))));
+	ImmutableDescriptor::init$($(makeMap(fieldNames, fieldValues)));
 }
 
 void ImmutableDescriptor::init$($StringArray* fields) {
-	ImmutableDescriptor::init$($(static_cast<$Map*>(makeMap(fields))));
+	ImmutableDescriptor::init$($(makeMap(fields)));
 }
 
 void ImmutableDescriptor::init$($Map* fields) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->hashCode$ = -1;
 	if (fields == nullptr) {
 		$throwNew($IllegalArgumentException, "Null Map"_s);
 	}
 	$var($SortedMap, map, $new($TreeMap, $String::CASE_INSENSITIVE_ORDER));
 	{
-		$var($Iterator, i$, $nc($($nc(fields)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(fields)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($String, name, $cast($String, $nc(entry)->getKey()));
-				if (name == nullptr || $nc(name)->isEmpty()) {
+				if (name == nullptr || name->isEmpty()) {
 					$throwNew($IllegalArgumentException, "Empty or null field name"_s);
 				}
 				if (map->containsKey(name)) {
@@ -133,14 +77,14 @@ void ImmutableDescriptor::init$($Map* fields) {
 		}
 	}
 	int32_t size = map->size();
-	$set(this, names, $fcast($StringArray, $nc($(map->keySet()))->toArray($$new($StringArray, size))));
-	$set(this, values, $nc($(map->values()))->toArray($$new($ObjectArray, size)));
+	$set(this, names, $cast($StringArray, $$nc(map->keySet())->toArray($$new($StringArray, size))));
+	$set(this, values, $$nc(map->values())->toArray($$new($ObjectArray, size)));
 }
 
 $Object* ImmutableDescriptor::readResolve() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bad = false;
-	if (this->names == nullptr || this->values == nullptr || $nc(this->names)->length != $nc(this->values)->length) {
+	if (this->names == nullptr || this->values == nullptr || this->names->length != this->values->length) {
 		bad = true;
 	}
 	if (!bad) {
@@ -149,12 +93,12 @@ $Object* ImmutableDescriptor::readResolve() {
 		}
 		$var($Comparator, compare, $String::CASE_INSENSITIVE_ORDER);
 		$var($String, lastName, ""_s);
-		for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
-			if ($nc(this->names)->get(i) == nullptr || $nc(compare)->compare(lastName, $nc(this->names)->get(i)) >= 0) {
+		for (int32_t i = 0; i < this->names->length; ++i) {
+			if (this->names->get(i) == nullptr || $nc(compare)->compare(lastName, this->names->get(i)) >= 0) {
 				bad = true;
 				break;
 			}
-			$assign(lastName, $nc(this->names)->get(i));
+			$assign(lastName, this->names->get(i));
 		}
 	}
 	if (bad) {
@@ -165,7 +109,7 @@ $Object* ImmutableDescriptor::readResolve() {
 
 $SortedMap* ImmutableDescriptor::makeMap($StringArray* fieldNames, $ObjectArray* fieldValues) {
 	$init(ImmutableDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fieldNames == nullptr || fieldValues == nullptr) {
 		$throwNew($IllegalArgumentException, "Null array parameter"_s);
 	}
@@ -173,12 +117,12 @@ $SortedMap* ImmutableDescriptor::makeMap($StringArray* fieldNames, $ObjectArray*
 		$throwNew($IllegalArgumentException, "Different size arrays"_s);
 	}
 	$var($SortedMap, map, $new($TreeMap, $String::CASE_INSENSITIVE_ORDER));
-	for (int32_t i = 0; i < $nc(fieldNames)->length; ++i) {
+	for (int32_t i = 0; i < fieldNames->length; ++i) {
 		$var($String, name, fieldNames->get(i));
-		if (name == nullptr || $nc(name)->isEmpty()) {
+		if (name == nullptr || name->isEmpty()) {
 			$throwNew($IllegalArgumentException, "Empty or null field name"_s);
 		}
-		$var($Object, old, map->put(name, $nc(fieldValues)->get(i)));
+		$var($Object, old, map->put(name, fieldValues->get(i)));
 		if (old != nullptr) {
 			$throwNew($IllegalArgumentException, $$str({"Duplicate field name: "_s, name}));
 		}
@@ -188,7 +132,7 @@ $SortedMap* ImmutableDescriptor::makeMap($StringArray* fieldNames, $ObjectArray*
 
 $SortedMap* ImmutableDescriptor::makeMap($StringArray* fields) {
 	$init(ImmutableDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fields == nullptr) {
 		$throwNew($IllegalArgumentException, "Null fields parameter"_s);
 	}
@@ -196,7 +140,7 @@ $SortedMap* ImmutableDescriptor::makeMap($StringArray* fields) {
 	$var($StringArray, fieldValues, $new($StringArray, fields->length));
 	for (int32_t i = 0; i < fields->length; ++i) {
 		$var($String, field, fields->get(i));
-		int32_t eq = $nc(field)->indexOf((int32_t)u'=');
+		int32_t eq = $nc(field)->indexOf(u'=');
 		if (eq < 0) {
 			$throwNew($IllegalArgumentException, $$str({"Missing = character: "_s, field}));
 		}
@@ -208,7 +152,7 @@ $SortedMap* ImmutableDescriptor::makeMap($StringArray* fields) {
 
 ImmutableDescriptor* ImmutableDescriptor::union$($DescriptorArray* descriptors) {
 	$init(ImmutableDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = findNonEmpty(descriptors, 0);
 	if (index < 0) {
 		return ImmutableDescriptor::EMPTY_DESCRIPTOR;
@@ -216,46 +160,42 @@ ImmutableDescriptor* ImmutableDescriptor::union$($DescriptorArray* descriptors) 
 	if ($instanceOf(ImmutableDescriptor, $nc(descriptors)->get(index)) && findNonEmpty(descriptors, index + 1) < 0) {
 		return $cast(ImmutableDescriptor, descriptors->get(index));
 	}
-	$var($Map, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, $String::CASE_INSENSITIVE_ORDER))));
+	$var($Map, map, $cast($AbstractMap, $new($TreeMap, $String::CASE_INSENSITIVE_ORDER)));
 	$var(ImmutableDescriptor, biggestImmutable, ImmutableDescriptor::EMPTY_DESCRIPTOR);
 	{
 		$var($DescriptorArray, arr$, descriptors);
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			$var($Descriptor, d, arr$->get(i$));
-			{
-				if (d != nullptr) {
-					$var($StringArray, names, nullptr);
-					if ($instanceOf(ImmutableDescriptor, d)) {
-						$var(ImmutableDescriptor, id, $cast(ImmutableDescriptor, d));
-						$assign(names, id->names);
-						if ($of(id)->getClass() == ImmutableDescriptor::class$ && $nc(names)->length > $nc($nc(biggestImmutable)->names)->length) {
-							$assign(biggestImmutable, id);
-						}
-					} else {
-						$assign(names, d->getFieldNames());
+			if (d != nullptr) {
+				$var($StringArray, names, nullptr);
+				if ($instanceOf(ImmutableDescriptor, d)) {
+					$var(ImmutableDescriptor, id, $cast(ImmutableDescriptor, d));
+					$assign(names, id->names);
+					if ($of(id)->getClass() == ImmutableDescriptor::class$ && $nc(names)->length > $nc($nc(biggestImmutable)->names)->length) {
+						$assign(biggestImmutable, id);
 					}
-					{
-						$var($StringArray, arr$, names);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($String, n, arr$->get(i$));
-							{
-								$var($Object, v, d->getFieldValue(n));
-								$var($Object, old, map->put(n, v));
-								if (old != nullptr) {
-									bool equal = false;
-									if ($of(old)->getClass()->isArray()) {
-										equal = $Arrays::deepEquals($$new($ObjectArray, {old}), $$new($ObjectArray, {v}));
-									} else {
-										equal = $of(old)->equals(v);
-									}
-									if (!equal) {
-										$var($String, msg, $str({"Inconsistent values for descriptor field "_s, n, ": "_s, old, " :: "_s, v}));
-										$throwNew($IllegalArgumentException, msg);
-									}
+				} else {
+					$assign(names, d->getFieldNames());
+				}
+				{
+					$var($StringArray, arr$, names);
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						$var($String, n, arr$->get(i$));
+						{
+							$var($Object, v, d->getFieldValue(n));
+							$var($Object, old, map->put(n, v));
+							if (old != nullptr) {
+								bool equal = false;
+								if (old->getClass()->isArray()) {
+									equal = $Arrays::deepEquals($$new($ObjectArray, {old}), $$new($ObjectArray, {v}));
+								} else {
+									equal = old->equals(v);
+								}
+								if (!equal) {
+									$var($String, msg, $str({"Inconsistent values for descriptor field "_s, n, ": "_s, old, " :: "_s, v}));
+									$throwNew($IllegalArgumentException, msg);
 								}
 							}
 						}
@@ -275,9 +215,9 @@ bool ImmutableDescriptor::isEmpty($Descriptor* d) {
 	if (d == nullptr) {
 		return true;
 	} else if ($instanceOf(ImmutableDescriptor, d)) {
-		return $nc($nc(($cast(ImmutableDescriptor, d)))->names)->length == 0;
+		return $nc($cast(ImmutableDescriptor, d)->names)->length == 0;
 	} else {
-		return ($nc($($nc(d)->getFieldNames()))->length == 0);
+		return ($nc($(d->getFieldNames()))->length == 0);
 	}
 }
 
@@ -296,27 +236,27 @@ int32_t ImmutableDescriptor::fieldIndex($String* name) {
 }
 
 $Object* ImmutableDescriptor::getFieldValue($String* fieldName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkIllegalFieldName(fieldName);
 	int32_t i = fieldIndex(fieldName);
 	if (i < 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($Object0, v, $nc(this->values)->get(i));
-	if (v == nullptr || !$nc($of(v))->getClass()->isArray()) {
-		return $of(v);
+	if (v == nullptr || !v->getClass()->isArray()) {
+		return v;
 	}
 	if ($instanceOf($ObjectArray, v)) {
-		return $of($nc(($cast($ObjectArray, v)))->clone());
+		return $cast($ObjectArray, v)->clone();
 	}
 	int32_t len = $1Array::getLength(v);
-	$var($Object, a, $1Array::newInstance($nc($of(v))->getClass()->getComponentType(), len));
+	$var($Object, a, $1Array::newInstance($nc(v)->getClass()->getComponentType(), len));
 	$System::arraycopy(v, 0, a, 0, len);
-	return $of(a);
+	return a;
 }
 
 $StringArray* ImmutableDescriptor::getFields() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, result, $new($StringArray, $nc(this->names)->length));
 	for (int32_t i = 0; i < result->length; ++i) {
 		$var($Object, value, $nc(this->values)->get(i));
@@ -325,13 +265,13 @@ $StringArray* ImmutableDescriptor::getFields() {
 		} else if (!($instanceOf($String, value))) {
 			$assign(value, $str({"("_s, value, ")"_s}));
 		}
-		result->set(i, $$str({$nc(this->names)->get(i), "="_s, value}));
+		result->set(i, $$str({this->names->get(i), "="_s, value}));
 	}
 	return result;
 }
 
 $ObjectArray* ImmutableDescriptor::getFieldValues($StringArray* fieldNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fieldNames == nullptr) {
 		return $cast($ObjectArray, $nc(this->values)->clone());
 	}
@@ -350,7 +290,7 @@ $StringArray* ImmutableDescriptor::getFieldNames() {
 }
 
 bool ImmutableDescriptor::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -359,24 +299,24 @@ bool ImmutableDescriptor::equals(Object$* o) {
 	}
 	$var($StringArray, onames, nullptr);
 	if ($instanceOf(ImmutableDescriptor, o)) {
-		$assign(onames, $nc(($cast(ImmutableDescriptor, o)))->names);
+		$assign(onames, $cast(ImmutableDescriptor, o)->names);
 	} else {
-		$assign(onames, $nc(($cast($Descriptor, o)))->getFieldNames());
+		$assign(onames, $nc($cast($Descriptor, o))->getFieldNames());
 		$Arrays::sort(onames, $String::CASE_INSENSITIVE_ORDER);
 	}
 	if ($nc(this->names)->length != $nc(onames)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
-		if (!$nc($nc(this->names)->get(i))->equalsIgnoreCase($nc(onames)->get(i))) {
+	for (int32_t i = 0; i < this->names->length; ++i) {
+		if (!$nc(this->names->get(i))->equalsIgnoreCase(onames->get(i))) {
 			return false;
 		}
 	}
 	$var($ObjectArray, ovalues, nullptr);
 	if ($instanceOf(ImmutableDescriptor, o)) {
-		$assign(ovalues, $nc(($cast(ImmutableDescriptor, o)))->values);
+		$assign(ovalues, $cast(ImmutableDescriptor, o)->values);
 	} else {
-		$assign(ovalues, $nc(($cast($Descriptor, o)))->getFieldValues(onames));
+		$assign(ovalues, $nc($cast($Descriptor, o))->getFieldValues(onames));
 	}
 	return $Arrays::deepEquals(this->values, ovalues);
 }
@@ -389,17 +329,17 @@ int32_t ImmutableDescriptor::hashCode() {
 }
 
 $String* ImmutableDescriptor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "{"_s));
 	for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
 		if (i > 0) {
 			sb->append(", "_s);
 		}
-		sb->append($nc(this->names)->get(i))->append("="_s);
+		sb->append(this->names->get(i))->append("="_s);
 		$var($Object, v, $nc(this->values)->get(i));
-		if (v != nullptr && $of(v)->getClass()->isArray()) {
+		if (v != nullptr && v->getClass()->isArray()) {
 			$var($String, s, $Arrays::deepToString($$new($ObjectArray, {v})));
-			$assign(s, $nc(s)->substring(1, s->length() - 1));
+			$assign(s, $nc(s)->substring(1, $nc(s)->length() - 1));
 			$assign(v, s);
 		}
 		sb->append($($String::valueOf(v)));
@@ -422,11 +362,11 @@ void ImmutableDescriptor::setFields($StringArray* fieldNames, $ObjectArray* fiel
 	if ($nc(fieldNames)->length != $nc(fieldValues)->length) {
 		illegal("Different array sizes"_s);
 	}
-	for (int32_t i = 0; i < $nc(fieldNames)->length; ++i) {
+	for (int32_t i = 0; i < fieldNames->length; ++i) {
 		checkIllegalFieldName(fieldNames->get(i));
 	}
-	for (int32_t i = 0; i < $nc(fieldNames)->length; ++i) {
-		setField(fieldNames->get(i), $nc(fieldValues)->get(i));
+	for (int32_t i = 0; i < fieldNames->length; ++i) {
+		setField(fieldNames->get(i), fieldValues->get(i));
 	}
 }
 
@@ -437,7 +377,7 @@ void ImmutableDescriptor::setField($String* fieldName, Object$* fieldValue) {
 		unsupported();
 	}
 	$var($Object0, value, $nc(this->values)->get(i));
-	if ((value == nullptr) ? (fieldValue != nullptr) : !$nc($of(value))->equals(fieldValue)) {
+	if ((value == nullptr) ? (fieldValue != nullptr) : !value->equals(fieldValue)) {
 		unsupported();
 	}
 }
@@ -459,7 +399,7 @@ $Descriptor* ImmutableDescriptor::nonNullDescriptor($Descriptor* d) {
 
 void ImmutableDescriptor::checkIllegalFieldName($String* name) {
 	$init(ImmutableDescriptor);
-	if (name == nullptr || $nc(name)->isEmpty()) {
+	if (name == nullptr || name->isEmpty()) {
 		illegal("Null or empty field name"_s);
 	}
 }
@@ -476,7 +416,7 @@ void ImmutableDescriptor::illegal($String* message) {
 	$throwNew($RuntimeOperationsException, iae);
 }
 
-void clinit$ImmutableDescriptor($Class* class$) {
+void ImmutableDescriptor::clinit$($Class* clazz) {
 	$assignStatic(ImmutableDescriptor::EMPTY_DESCRIPTOR, $new(ImmutableDescriptor, $$new($StringArray, 0)));
 }
 
@@ -484,7 +424,54 @@ ImmutableDescriptor::ImmutableDescriptor() {
 }
 
 $Class* ImmutableDescriptor::load$($String* name, bool initialize) {
-	$loadClass(ImmutableDescriptor, name, initialize, &_ImmutableDescriptor_ClassInfo_, clinit$ImmutableDescriptor, allocate$ImmutableDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImmutableDescriptor, serialVersionUID)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ImmutableDescriptor, names)},
+		{"values", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ImmutableDescriptor, values)},
+		{"hashCode", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ImmutableDescriptor, hashCode$)},
+		{"EMPTY_DESCRIPTOR", "Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ImmutableDescriptor, EMPTY_DESCRIPTOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ImmutableDescriptor, init$, void, $StringArray*, $ObjectArray*)},
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(ImmutableDescriptor, init$, void, $StringArray*)},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(ImmutableDescriptor, init$, void, $Map*)},
+		{"checkIllegalFieldName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, checkIllegalFieldName, void, $String*)},
+		{"clone", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, equals, bool, Object$*)},
+		{"fieldIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(ImmutableDescriptor, fieldIndex, int32_t, $String*)},
+		{"findNonEmpty", "([Ljavax/management/Descriptor;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, findNonEmpty, int32_t, $DescriptorArray*, int32_t)},
+		{"getFieldNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, getFieldNames, $StringArray*)},
+		{"getFieldValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, getFieldValue, $Object*, $String*)},
+		{"getFieldValues", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $virtualMethod(ImmutableDescriptor, getFieldValues, $ObjectArray*, $StringArray*)},
+		{"getFields", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, getFields, $StringArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, hashCode, int32_t)},
+		{"illegal", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, illegal, void, $String*)},
+		{"isEmpty", "(Ljavax/management/Descriptor;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, isEmpty, bool, $Descriptor*)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, isValid, bool)},
+		{"makeMap", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap;", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap<Ljava/lang/String;*>;", $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, makeMap, $SortedMap*, $StringArray*, $ObjectArray*)},
+		{"makeMap", "([Ljava/lang/String;)Ljava/util/SortedMap;", "([Ljava/lang/String;)Ljava/util/SortedMap<Ljava/lang/String;*>;", $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, makeMap, $SortedMap*, $StringArray*)},
+		{"nonNullDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $STATIC, $staticMethod(ImmutableDescriptor, nonNullDescriptor, $Descriptor*, $Descriptor*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableDescriptor, readResolve, $Object*), "java.io.InvalidObjectException"},
+		{"removeField", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, removeField, void, $String*)},
+		{"setField", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, setField, void, $String*, Object$*), "javax.management.RuntimeOperationsException"},
+		{"setFields", "([Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ImmutableDescriptor, setFields, void, $StringArray*, $ObjectArray*), "javax.management.RuntimeOperationsException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableDescriptor, toString, $String*)},
+		{"union", "([Ljavax/management/Descriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ImmutableDescriptor, union$, ImmutableDescriptor*, $DescriptorArray*)},
+		{"unsupported", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ImmutableDescriptor, unsupported, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.ImmutableDescriptor",
+		"java.lang.Object",
+		"javax.management.Descriptor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImmutableDescriptor, name, initialize, &classInfo$$, ImmutableDescriptor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImmutableDescriptor));
+	});
 	return class$;
 }
 

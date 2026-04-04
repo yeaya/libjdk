@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$TypeBoundKind.h>
-
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/BoundKind.h>
@@ -29,45 +28,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _JCTree$TypeBoundKind_FieldInfo_[] = {
-	{"kind", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC, $field(JCTree$TypeBoundKind, kind)},
-	{}
-};
-
-$MethodInfo _JCTree$TypeBoundKind_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/BoundKind;)V", nullptr, $PROTECTED, $method(JCTree$TypeBoundKind, init$, void, $BoundKind*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, getTag, $JCTree$Tag*)},
-	{}
-};
-
-$InnerClassInfo _JCTree$TypeBoundKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$TypeBoundKind", "com.sun.tools.javac.tree.JCTree", "TypeBoundKind", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCTree$TypeBoundKind_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$TypeBoundKind",
-	"com.sun.tools.javac.tree.JCTree",
-	nullptr,
-	_JCTree$TypeBoundKind_FieldInfo_,
-	_JCTree$TypeBoundKind_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$TypeBoundKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$TypeBoundKind($Class* clazz) {
-	return $of($alloc(JCTree$TypeBoundKind));
-}
-
 void JCTree$TypeBoundKind::init$($BoundKind* kind) {
 	$JCTree::init$();
 	$set(this, kind, kind);
@@ -96,7 +56,40 @@ JCTree$TypeBoundKind::JCTree$TypeBoundKind() {
 }
 
 $Class* JCTree$TypeBoundKind::load$($String* name, bool initialize) {
-	$loadClass(JCTree$TypeBoundKind, name, initialize, &_JCTree$TypeBoundKind_ClassInfo_, allocate$JCTree$TypeBoundKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC, $field(JCTree$TypeBoundKind, kind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/BoundKind;)V", nullptr, $PROTECTED, $method(JCTree$TypeBoundKind, init$, void, $BoundKind*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, getTag, $JCTree$Tag*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$TypeBoundKind", "com.sun.tools.javac.tree.JCTree", "TypeBoundKind", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$TypeBoundKind",
+		"com.sun.tools.javac.tree.JCTree",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$TypeBoundKind, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$TypeBoundKind));
+	});
 	return class$;
 }
 

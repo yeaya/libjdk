@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/resources/motif.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,107 +15,88 @@ namespace com {
 					namespace motif {
 						namespace resources {
 
-$MethodInfo _motif_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(motif, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(motif, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _motif_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.resources.motif",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_motif_MethodInfo_
-};
-
-$Object* allocate$motif($Class* clazz) {
-	return $of($alloc(motif));
-}
-
 void motif::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* motif::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.acceptAllFileFilter.textAndMnemonic"_s),
-			$of("*"_s)
+			"FileChooser.acceptAllFileFilter.textAndMnemonic"_s,
+			"*"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButton.textAndMnemonic"_s),
-			$of("Cancel"_s)
+			"FileChooser.cancelButton.textAndMnemonic"_s,
+			"Cancel"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButtonToolTip.textAndMnemonic"_s),
-			$of("Abort file chooser dialog."_s)
+			"FileChooser.cancelButtonToolTip.textAndMnemonic"_s,
+			"Abort file chooser dialog."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.enterFileNameLabel.textAndMnemonic"_s),
-			$of("E&nter file name:"_s)
+			"FileChooser.enterFileNameLabel.textAndMnemonic"_s,
+			"E&nter file name:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.enterFolderNameLabel.textAndMnemonic"_s),
-			$of("Enter folder name:"_s)
+			"FileChooser.enterFolderNameLabel.textAndMnemonic"_s,
+			"Enter folder name:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesLabel.textAndMnemonic"_s),
-			$of("F&iles"_s)
+			"FileChooser.filesLabel.textAndMnemonic"_s,
+			"F&iles"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filterLabel.textAndMnemonic"_s),
-			$of("Filte&r"_s)
+			"FileChooser.filterLabel.textAndMnemonic"_s,
+			"Filte&r"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.foldersLabel.textAndMnemonic"_s),
-			$of("Fo&lders"_s)
+			"FileChooser.foldersLabel.textAndMnemonic"_s,
+			"Fo&lders"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.helpButton.textAndMnemonic"_s),
-			$of("Help"_s)
+			"FileChooser.helpButton.textAndMnemonic"_s,
+			"Help"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.helpButtonToolTip.textAndMnemonic"_s),
-			$of("FileChooser help."_s)
+			"FileChooser.helpButtonToolTip.textAndMnemonic"_s,
+			"FileChooser help."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButton.textAndMnemonic"_s),
-			$of("OK"_s)
+			"FileChooser.openButton.textAndMnemonic"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButtonToolTip.textAndMnemonic"_s),
-			$of("Open selected file."_s)
+			"FileChooser.openButtonToolTip.textAndMnemonic"_s,
+			"Open selected file."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openDialogTitle.textAndMnemonic"_s),
-			$of("Open"_s)
+			"FileChooser.openDialogTitle.textAndMnemonic"_s,
+			"Open"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.pathLabel.textAndMnemonic"_s),
-			$of("Enter &path or folder name:"_s)
+			"FileChooser.pathLabel.textAndMnemonic"_s,
+			"Enter &path or folder name:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButton.textAndMnemonic"_s),
-			$of("Save"_s)
+			"FileChooser.saveButton.textAndMnemonic"_s,
+			"Save"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButtonToolTip.textAndMnemonic"_s),
-			$of("Save selected file."_s)
+			"FileChooser.saveButtonToolTip.textAndMnemonic"_s,
+			"Save selected file."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogTitle.textAndMnemonic"_s),
-			$of("Save"_s)
+			"FileChooser.saveDialogTitle.textAndMnemonic"_s,
+			"Save"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.updateButton.textAndMnemonic"_s),
-			$of("Update"_s)
+			"FileChooser.updateButton.textAndMnemonic"_s,
+			"Update"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.updateButtonToolTip.textAndMnemonic"_s),
-			$of("Update directory listing."_s)
+			"FileChooser.updateButtonToolTip.textAndMnemonic"_s,
+			"Update directory listing."_s
 		})
 	});
 }
@@ -125,7 +105,22 @@ motif::motif() {
 }
 
 $Class* motif::load$($String* name, bool initialize) {
-	$loadClass(motif, name, initialize, &_motif_ClassInfo_, allocate$motif);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(motif, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(motif, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.resources.motif",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(motif, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(motif);
+	});
 	return class$;
 }
 

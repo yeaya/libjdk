@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
-
 #include <com/sun/source/tree/MemberReferenceTree.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,46 +17,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace tree {
-
-$FieldInfo _MemberReferenceTree$ReferenceMode_FieldInfo_[] = {
-	{"INVOKE", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberReferenceTree$ReferenceMode, INVOKE)},
-	{"NEW", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberReferenceTree$ReferenceMode, NEW)},
-	{"$VALUES", "[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberReferenceTree$ReferenceMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _MemberReferenceTree$ReferenceMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberReferenceTree$ReferenceMode, $values, $MemberReferenceTree$ReferenceModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MemberReferenceTree$ReferenceMode, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberReferenceTree$ReferenceMode, valueOf, MemberReferenceTree$ReferenceMode*, $String*)},
-	{"values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberReferenceTree$ReferenceMode, values, $MemberReferenceTree$ReferenceModeArray*)},
-	{}
-};
-
-$InnerClassInfo _MemberReferenceTree$ReferenceMode_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.MemberReferenceTree$ReferenceMode", "com.sun.source.tree.MemberReferenceTree", "ReferenceMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MemberReferenceTree$ReferenceMode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.tree.MemberReferenceTree$ReferenceMode",
-	"java.lang.Enum",
-	nullptr,
-	_MemberReferenceTree$ReferenceMode_FieldInfo_,
-	_MemberReferenceTree$ReferenceMode_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;>;",
-	nullptr,
-	_MemberReferenceTree$ReferenceMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.MemberReferenceTree"
-};
-
-$Object* allocate$MemberReferenceTree$ReferenceMode($Class* clazz) {
-	return $of($alloc(MemberReferenceTree$ReferenceMode));
-}
 
 MemberReferenceTree$ReferenceMode* MemberReferenceTree$ReferenceMode::INVOKE = nullptr;
 MemberReferenceTree$ReferenceMode* MemberReferenceTree$ReferenceMode::NEW = nullptr;
@@ -85,7 +44,7 @@ void MemberReferenceTree$ReferenceMode::init$($String* $enum$name, int32_t $enum
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$MemberReferenceTree$ReferenceMode($Class* class$) {
+void MemberReferenceTree$ReferenceMode::clinit$($Class* clazz) {
 	$assignStatic(MemberReferenceTree$ReferenceMode::INVOKE, $new(MemberReferenceTree$ReferenceMode, "INVOKE"_s, 0));
 	$assignStatic(MemberReferenceTree$ReferenceMode::NEW, $new(MemberReferenceTree$ReferenceMode, "NEW"_s, 1));
 	$assignStatic(MemberReferenceTree$ReferenceMode::$VALUES, MemberReferenceTree$ReferenceMode::$values());
@@ -95,7 +54,41 @@ MemberReferenceTree$ReferenceMode::MemberReferenceTree$ReferenceMode() {
 }
 
 $Class* MemberReferenceTree$ReferenceMode::load$($String* name, bool initialize) {
-	$loadClass(MemberReferenceTree$ReferenceMode, name, initialize, &_MemberReferenceTree$ReferenceMode_ClassInfo_, clinit$MemberReferenceTree$ReferenceMode, allocate$MemberReferenceTree$ReferenceMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVOKE", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberReferenceTree$ReferenceMode, INVOKE)},
+		{"NEW", "Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberReferenceTree$ReferenceMode, NEW)},
+		{"$VALUES", "[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberReferenceTree$ReferenceMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberReferenceTree$ReferenceMode, $values, $MemberReferenceTree$ReferenceModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MemberReferenceTree$ReferenceMode, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberReferenceTree$ReferenceMode, valueOf, MemberReferenceTree$ReferenceMode*, $String*)},
+		{"values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberReferenceTree$ReferenceMode, values, $MemberReferenceTree$ReferenceModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.MemberReferenceTree$ReferenceMode", "com.sun.source.tree.MemberReferenceTree", "ReferenceMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.tree.MemberReferenceTree$ReferenceMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.MemberReferenceTree"
+	};
+	$loadClass(MemberReferenceTree$ReferenceMode, name, initialize, &classInfo$$, MemberReferenceTree$ReferenceMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemberReferenceTree$ReferenceMode));
+	});
 	return class$;
 }
 

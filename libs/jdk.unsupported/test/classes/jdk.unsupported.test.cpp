@@ -1,5 +1,4 @@
 #include <jdk.unsupported.test.h>
-
 #include <jdk.unsupported.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

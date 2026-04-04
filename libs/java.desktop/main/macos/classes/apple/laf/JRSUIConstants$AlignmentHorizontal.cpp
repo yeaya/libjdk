@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$AlignmentHorizontal.h>
-
 #include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants.h>
@@ -22,53 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIConstants$AlignmentHorizontal_FieldInfo_[] = {
-	{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, SHIFT)},
-	{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, SIZE)},
-	{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, MASK)},
-	{"alignmentHorizontal", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, alignmentHorizontal)},
-	{"_left", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, _left)},
-	{"LEFT", "Lapple/laf/JRSUIConstants$AlignmentHorizontal;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, LEFT)},
-	{"_center", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, _center)},
-	{"CENTER", "Lapple/laf/JRSUIConstants$AlignmentHorizontal;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, CENTER)},
-	{"_right", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, _right)},
-	{"RIGHT", "Lapple/laf/JRSUIConstants$AlignmentHorizontal;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, RIGHT)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$AlignmentHorizontal_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$AlignmentHorizontal, init$, void, int8_t)},
-	{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$AlignmentHorizontal, apply, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$AlignmentHorizontal, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$AlignmentHorizontal_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$AlignmentHorizontal", "apple.laf.JRSUIConstants", "AlignmentHorizontal", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$AlignmentHorizontal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIConstants$AlignmentHorizontal",
-	"apple.laf.JRSUIConstants$Property",
-	nullptr,
-	_JRSUIConstants$AlignmentHorizontal_FieldInfo_,
-	_JRSUIConstants$AlignmentHorizontal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$AlignmentHorizontal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$AlignmentHorizontal($Class* clazz) {
-	return $of($alloc(JRSUIConstants$AlignmentHorizontal));
-}
-
 $JRSUIConstants$PropertyEncoding* JRSUIConstants$AlignmentHorizontal::alignmentHorizontal = nullptr;
 JRSUIConstants$AlignmentHorizontal* JRSUIConstants$AlignmentHorizontal::LEFT = nullptr;
 JRSUIConstants$AlignmentHorizontal* JRSUIConstants$AlignmentHorizontal::CENTER = nullptr;
@@ -86,7 +38,7 @@ int64_t JRSUIConstants$AlignmentHorizontal::apply(int64_t encodedState) {
 	return $JRSUIConstants$Property::apply(encodedState);
 }
 
-void clinit$JRSUIConstants$AlignmentHorizontal($Class* class$) {
+void JRSUIConstants$AlignmentHorizontal::clinit$($Class* clazz) {
 	$assignStatic(JRSUIConstants$AlignmentHorizontal::alignmentHorizontal, $new($JRSUIConstants$PropertyEncoding, JRSUIConstants$AlignmentHorizontal::MASK, JRSUIConstants$AlignmentHorizontal::SHIFT));
 	$assignStatic(JRSUIConstants$AlignmentHorizontal::LEFT, $new(JRSUIConstants$AlignmentHorizontal, JRSUIConstants$AlignmentHorizontal::_left));
 	$assignStatic(JRSUIConstants$AlignmentHorizontal::CENTER, $new(JRSUIConstants$AlignmentHorizontal, JRSUIConstants$AlignmentHorizontal::_center));
@@ -97,7 +49,48 @@ JRSUIConstants$AlignmentHorizontal::JRSUIConstants$AlignmentHorizontal() {
 }
 
 $Class* JRSUIConstants$AlignmentHorizontal::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$AlignmentHorizontal, name, initialize, &_JRSUIConstants$AlignmentHorizontal_ClassInfo_, clinit$JRSUIConstants$AlignmentHorizontal, allocate$JRSUIConstants$AlignmentHorizontal);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, SHIFT)},
+		{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, SIZE)},
+		{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, MASK)},
+		{"alignmentHorizontal", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, alignmentHorizontal)},
+		{"_left", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, _left)},
+		{"LEFT", "Lapple/laf/JRSUIConstants$AlignmentHorizontal;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, LEFT)},
+		{"_center", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, _center)},
+		{"CENTER", "Lapple/laf/JRSUIConstants$AlignmentHorizontal;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, CENTER)},
+		{"_right", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$AlignmentHorizontal, _right)},
+		{"RIGHT", "Lapple/laf/JRSUIConstants$AlignmentHorizontal;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$AlignmentHorizontal, RIGHT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$AlignmentHorizontal, init$, void, int8_t)},
+		{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$AlignmentHorizontal, apply, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$AlignmentHorizontal, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$AlignmentHorizontal", "apple.laf.JRSUIConstants", "AlignmentHorizontal", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIConstants$AlignmentHorizontal",
+		"apple.laf.JRSUIConstants$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$AlignmentHorizontal, name, initialize, &classInfo$$, JRSUIConstants$AlignmentHorizontal::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$AlignmentHorizontal);
+	});
 	return class$;
 }
 

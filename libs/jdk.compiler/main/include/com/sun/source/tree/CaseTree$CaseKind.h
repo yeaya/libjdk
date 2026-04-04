@@ -21,6 +21,7 @@ class $import CaseTree$CaseKind : public ::java::lang::Enum {
 public:
 	CaseTree$CaseKind();
 	static $Array<::com::sun::source::tree::CaseTree$CaseKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::source::tree::CaseTree$CaseKind* valueOf($String* name);
 	static $Array<::com::sun::source::tree::CaseTree$CaseKind>* values();

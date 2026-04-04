@@ -1,5 +1,4 @@
 #include <javax/naming/directory/InvalidSearchControlsException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $NamingException = ::javax::naming::NamingException;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _InvalidSearchControlsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidSearchControlsException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidSearchControlsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSearchControlsException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSearchControlsException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidSearchControlsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.InvalidSearchControlsException",
-	"javax.naming.NamingException",
-	nullptr,
-	_InvalidSearchControlsException_FieldInfo_,
-	_InvalidSearchControlsException_MethodInfo_
-};
-
-$Object* allocate$InvalidSearchControlsException($Class* clazz) {
-	return $of($alloc(InvalidSearchControlsException));
-}
 
 void InvalidSearchControlsException::init$() {
 	$NamingException::init$();
@@ -55,7 +30,26 @@ void InvalidSearchControlsException::throw$() {
 }
 
 $Class* InvalidSearchControlsException::load$($String* name, bool initialize) {
-	$loadClass(InvalidSearchControlsException, name, initialize, &_InvalidSearchControlsException_ClassInfo_, allocate$InvalidSearchControlsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidSearchControlsException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSearchControlsException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSearchControlsException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.InvalidSearchControlsException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidSearchControlsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidSearchControlsException);
+	});
 	return class$;
 }
 

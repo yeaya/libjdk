@@ -38,6 +38,7 @@ class PropertyElementHandler : public ::com::sun::beans::decoder::AccessorElemen
 	$class(PropertyElementHandler, 0, ::com::sun::beans::decoder::AccessorElementHandler)
 public:
 	PropertyElementHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addAttribute($String* name, $String* value) override;
 	static ::java::lang::reflect::Method* findGetter($Class* type, $String* name, $ClassArray* args);

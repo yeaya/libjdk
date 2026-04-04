@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
@@ -66,7 +65,6 @@ using $intArray2 = $Array<int32_t, 2>;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $AttrImpl = ::com::sun::org::apache::xerces::internal::dom::AttrImpl;
 using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
-using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DeferredAttrImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredAttrImpl;
 using $DeferredAttrNSImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredAttrNSImpl;
 using $DeferredCDATASectionImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredCDATASectionImpl;
@@ -97,8 +95,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $DOMImplementation = ::org::w3c::dom::DOMImplementation;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
@@ -114,194 +110,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$CompoundAttribute _DeferredDocumentImpl_MethodAnnotations_createDeferredElement16[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DeferredDocumentImpl_MethodAnnotations_createDeferredElement17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DeferredDocumentImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DeferredDocumentImpl, serialVersionUID)},
-	{"DEBUG_PRINT_REF_COUNTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeferredDocumentImpl, DEBUG_PRINT_REF_COUNTS)},
-	{"DEBUG_PRINT_TABLES", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeferredDocumentImpl, DEBUG_PRINT_TABLES)},
-	{"DEBUG_IDS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeferredDocumentImpl, DEBUG_IDS)},
-	{"CHUNK_SHIFT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, CHUNK_SHIFT)},
-	{"CHUNK_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, CHUNK_SIZE)},
-	{"CHUNK_MASK", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, CHUNK_MASK)},
-	{"INITIAL_CHUNK_COUNT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, INITIAL_CHUNK_COUNT)},
-	{"fNodeCount", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeCount)},
-	{"fNodeType", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeType)},
-	{"fNodeName", "[[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeName)},
-	{"fNodeValue", "[[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeValue)},
-	{"fNodeParent", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeParent)},
-	{"fNodeLastChild", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeLastChild)},
-	{"fNodePrevSib", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodePrevSib)},
-	{"fNodeURI", "[[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeURI)},
-	{"fNodeExtra", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeExtra)},
-	{"fIdCount", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fIdCount)},
-	{"fIdName", "[Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fIdName)},
-	{"fIdElement", "[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fIdElement)},
-	{"fNamespacesEnabled", "Z", nullptr, $PROTECTED, $field(DeferredDocumentImpl, fNamespacesEnabled)},
-	{"fBufferStr", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(DeferredDocumentImpl, fBufferStr)},
-	{"fStrChunks", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL | $TRANSIENT, $field(DeferredDocumentImpl, fStrChunks)},
-	{"INIT_ARRAY", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DeferredDocumentImpl, INIT_ARRAY)},
-	{}
-};
-
-$MethodInfo _DeferredDocumentImpl_MethodInfo_[] = {
-	{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
-	{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNodeType", "()S", nullptr, $PUBLIC},
-	{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $FINAL},
-	{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hasAttributes", "()Z", nullptr, $PUBLIC},
-	{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeferredDocumentImpl, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(DeferredDocumentImpl, init$, void, bool)},
-	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(DeferredDocumentImpl, init$, void, bool, bool)},
-	{"appendChild", "(II)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, appendChild, void, int32_t, int32_t)},
-	{"binarySearch", "([IIII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(DeferredDocumentImpl, binarySearch, int32_t, $ints*, int32_t, int32_t, int32_t)},
-	{"clearChunkIndex", "([[III)I", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, clearChunkIndex, int32_t, $intArray2*, int32_t, int32_t)},
-	{"clearChunkValue", "([[Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, clearChunkValue, $String*, $ObjectArray2*, int32_t, int32_t)},
-	{"cloneNode", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, cloneNode, int32_t, int32_t, bool)},
-	{"createChunk", "([[II)V", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, createChunk, void, $intArray2*, int32_t)},
-	{"createChunk", "([[Ljava/lang/Object;I)V", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, createChunk, void, $ObjectArray2*, int32_t)},
-	{"createDeferredAttribute", "(Ljava/lang/String;Ljava/lang/String;Z)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredAttribute, int32_t, $String*, $String*, bool)},
-	{"createDeferredAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredAttribute, int32_t, $String*, $String*, $String*, bool)},
-	{"createDeferredCDATASection", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredCDATASection, int32_t, $String*)},
-	{"createDeferredComment", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredComment, int32_t, $String*)},
-	{"createDeferredDocument", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredDocument, int32_t)},
-	{"createDeferredDocumentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredDocumentType, int32_t, $String*, $String*, $String*)},
-	{"createDeferredElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DeferredDocumentImpl, createDeferredElement, int32_t, $String*, $String*, Object$*), nullptr, nullptr, _DeferredDocumentImpl_MethodAnnotations_createDeferredElement16},
-	{"createDeferredElement", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DeferredDocumentImpl, createDeferredElement, int32_t, $String*), nullptr, nullptr, _DeferredDocumentImpl_MethodAnnotations_createDeferredElement17},
-	{"createDeferredElement", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredElement, int32_t, $String*, $String*)},
-	{"createDeferredElementDefinition", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredElementDefinition, int32_t, $String*)},
-	{"createDeferredEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredEntity, int32_t, $String*, $String*, $String*, $String*, $String*)},
-	{"createDeferredEntityReference", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredEntityReference, int32_t, $String*, $String*)},
-	{"createDeferredNotation", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredNotation, int32_t, $String*, $String*, $String*, $String*)},
-	{"createDeferredProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredProcessingInstruction, int32_t, $String*, $String*)},
-	{"createDeferredTextNode", "(Ljava/lang/String;Z)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredTextNode, int32_t, $String*, bool)},
-	{"createNode", "(S)I", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, createNode, int32_t, int16_t)},
-	{"ensureCapacity", "(I)V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, ensureCapacity, void, int32_t)},
-	{"getAttribute", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getAttribute, $String*, int32_t, $String*)},
-	{"getChunkIndex", "([[III)I", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, getChunkIndex, int32_t, $intArray2*, int32_t, int32_t)},
-	{"getChunkValue", "([[Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, getChunkValue, $String*, $ObjectArray2*, int32_t, int32_t)},
-	{"getDeferredEntityBaseURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getDeferredEntityBaseURI, $String*, int32_t)},
-	{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getImplementation, $DOMImplementation*)},
-	{"getLastChild", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getLastChild, int32_t, int32_t)},
-	{"getLastChild", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getLastChild, int32_t, int32_t, bool)},
-	{"getNamespacesEnabled", "()Z", nullptr, 0, $virtualMethod(DeferredDocumentImpl, getNamespacesEnabled, bool)},
-	{"getNodeExtra", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeExtra, int32_t, int32_t)},
-	{"getNodeExtra", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeExtra, int32_t, int32_t, bool)},
-	{"getNodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeIndex, int32_t)},
-	{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeName, $String*, int32_t)},
-	{"getNodeName", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeName, $String*, int32_t, bool)},
-	{"getNodeObject", "(I)Lcom/sun/org/apache/xerces/internal/dom/DeferredNode;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeObject, $DeferredNode*, int32_t)},
-	{"getNodeType", "(I)S", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeType, int16_t, int32_t)},
-	{"getNodeType", "(IZ)S", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeType, int16_t, int32_t, bool)},
-	{"getNodeURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeURI, $String*, int32_t)},
-	{"getNodeURI", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeURI, $String*, int32_t, bool)},
-	{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValue, $String*, int32_t)},
-	{"getNodeValue", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValue, $String*, int32_t, bool)},
-	{"getNodeValue", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, getNodeValue, $String*, int32_t, int32_t)},
-	{"getNodeValueString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValueString, $String*, int32_t)},
-	{"getNodeValueString", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValueString, $String*, int32_t, bool)},
-	{"getParentNode", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getParentNode, int32_t, int32_t)},
-	{"getParentNode", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getParentNode, int32_t, int32_t, bool)},
-	{"getPrevSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getPrevSibling, int32_t, int32_t)},
-	{"getPrevSibling", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getPrevSibling, int32_t, int32_t, bool)},
-	{"getRealPrevSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getRealPrevSibling, int32_t, int32_t)},
-	{"getRealPrevSibling", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getRealPrevSibling, int32_t, int32_t, bool)},
-	{"getTypeInfo", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getTypeInfo, $Object*, int32_t)},
-	{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"insertBefore", "(III)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, insertBefore, int32_t, int32_t, int32_t, int32_t)},
-	{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"lookupElementDefinition", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, lookupElementDefinition, int32_t, $String*)},
-	{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*normalize", "()V", nullptr, $PUBLIC},
-	{"print", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, print, void)},
-	{"print", "([IIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeferredDocumentImpl, print, void, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{"putIdentifier", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, putIdentifier, void, $String*, int32_t)},
-	{"putIdentifier0", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, putIdentifier0, void, $String*, $Element*)},
-	{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"setAsLastChild", "(II)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setAsLastChild, void, int32_t, int32_t)},
-	{"setAttributeNode", "(II)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setAttributeNode, int32_t, int32_t, int32_t)},
-	{"setChunkIndex", "([[IIII)I", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, setChunkIndex, int32_t, $intArray2*, int32_t, int32_t, int32_t)},
-	{"setChunkValue", "([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, setChunkValue, $String*, $ObjectArray2*, Object$*, int32_t, int32_t)},
-	{"setDeferredAttribute", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setDeferredAttribute, int32_t, int32_t, $String*, $String*, $String*, bool, bool, Object$*)},
-	{"setEntityInfo", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setEntityInfo, void, int32_t, $String*, $String*)},
-	{"setIdAttribute", "(I)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setIdAttribute, void, int32_t)},
-	{"setIdAttributeNode", "(II)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setIdAttributeNode, void, int32_t, int32_t)},
-	{"setInputEncoding", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setInputEncoding, void, int32_t, $String*)},
-	{"setInternalSubset", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setInternalSubset, void, int32_t, $String*)},
-	{"setNamespacesEnabled", "(Z)V", nullptr, 0, $virtualMethod(DeferredDocumentImpl, setNamespacesEnabled, void, bool)},
-	{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setTypeInfo", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setTypeInfo, void, int32_t, Object$*)},
-	{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"synchronizeChildren", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, synchronizeChildren, void)},
-	{"synchronizeChildren", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;I)V", nullptr, $PROTECTED | $FINAL, $method(DeferredDocumentImpl, synchronizeChildren, void, $AttrImpl*, int32_t)},
-	{"synchronizeChildren", "(Lcom/sun/org/apache/xerces/internal/dom/ParentNode;I)V", nullptr, $PROTECTED | $FINAL, $method(DeferredDocumentImpl, synchronizeChildren, void, $ParentNode*, int32_t)},
-	{"synchronizeData", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, synchronizeData, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DeferredDocumentImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$IntVector", "com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl", "IntVector", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount", "com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl", "RefCount", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DeferredDocumentImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl",
-	"com.sun.org.apache.xerces.internal.dom.DocumentImpl",
-	"com.sun.org.apache.xerces.internal.dom.DeferredNode",
-	_DeferredDocumentImpl_FieldInfo_,
-	_DeferredDocumentImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredDocumentImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$IntVector,com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount"
-};
-
-$Object* allocate$DeferredDocumentImpl($Class* clazz) {
-	return $of($alloc(DeferredDocumentImpl));
-}
 
 $Node* DeferredDocumentImpl::cloneNode(bool deep) {
 	 return this->$DocumentImpl::cloneNode(deep);
@@ -512,7 +320,7 @@ int32_t DeferredDocumentImpl::createDeferredDocument() {
 int32_t DeferredDocumentImpl::createDeferredDocumentType($String* rootElementName, $String* publicId, $String* systemId) {
 	int32_t nodeIndex = createNode($Node::DOCUMENT_TYPE_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, rootElementName, chunk, index);
 	setChunkValue(this->fNodeValue, publicId, chunk, index);
 	setChunkValue(this->fNodeURI, systemId, chunk, index);
@@ -521,10 +329,10 @@ int32_t DeferredDocumentImpl::createDeferredDocumentType($String* rootElementNam
 
 void DeferredDocumentImpl::setInternalSubset(int32_t doctypeIndex, $String* subset) {
 	int32_t chunk = $sr(doctypeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(doctypeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = doctypeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t extraDataIndex = createNode($Node::DOCUMENT_TYPE_NODE);
 	int32_t echunk = $sr(extraDataIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t eindex = (int32_t)(extraDataIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t eindex = extraDataIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkIndex(this->fNodeExtra, extraDataIndex, chunk, index);
 	setChunkValue(this->fNodeValue, subset, echunk, eindex);
 }
@@ -532,10 +340,10 @@ void DeferredDocumentImpl::setInternalSubset(int32_t doctypeIndex, $String* subs
 int32_t DeferredDocumentImpl::createDeferredNotation($String* notationName, $String* publicId, $String* systemId, $String* baseURI) {
 	int32_t nodeIndex = createNode($Node::NOTATION_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t extraDataIndex = createNode($Node::NOTATION_NODE);
 	int32_t echunk = $sr(extraDataIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t eindex = (int32_t)(extraDataIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t eindex = extraDataIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, notationName, chunk, index);
 	setChunkValue(this->fNodeValue, publicId, chunk, index);
 	setChunkValue(this->fNodeURI, systemId, chunk, index);
@@ -547,10 +355,10 @@ int32_t DeferredDocumentImpl::createDeferredNotation($String* notationName, $Str
 int32_t DeferredDocumentImpl::createDeferredEntity($String* entityName, $String* publicId, $String* systemId, $String* notationName, $String* baseURI) {
 	int32_t nodeIndex = createNode($Node::ENTITY_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t extraDataIndex = createNode($Node::ENTITY_NODE);
 	int32_t echunk = $sr(extraDataIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t eindex = (int32_t)(extraDataIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t eindex = extraDataIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, entityName, chunk, index);
 	setChunkValue(this->fNodeValue, publicId, chunk, index);
 	setChunkValue(this->fNodeURI, systemId, chunk, index);
@@ -560,7 +368,7 @@ int32_t DeferredDocumentImpl::createDeferredEntity($String* entityName, $String*
 	setChunkValue(this->fNodeURI, nullptr, echunk, eindex);
 	int32_t extraDataIndex2 = createNode($Node::ENTITY_NODE);
 	int32_t echunk2 = $sr(extraDataIndex2, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t eindex2 = (int32_t)(extraDataIndex2 & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t eindex2 = extraDataIndex2 & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkIndex(this->fNodeExtra, extraDataIndex2, echunk, eindex);
 	setChunkValue(this->fNodeName, baseURI, echunk2, eindex2);
 	return nodeIndex;
@@ -579,7 +387,7 @@ void DeferredDocumentImpl::setEntityInfo(int32_t currentEntityDecl, $String* ver
 	int32_t eNodeIndex = getNodeExtra(currentEntityDecl, false);
 	if (eNodeIndex != -1) {
 		int32_t echunk = $sr(eNodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-		int32_t eindex = (int32_t)(eNodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+		int32_t eindex = eNodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 		setChunkValue(this->fNodeValue, version, echunk, eindex);
 		setChunkValue(this->fNodeURI, encoding, echunk, eindex);
 	}
@@ -587,7 +395,7 @@ void DeferredDocumentImpl::setEntityInfo(int32_t currentEntityDecl, $String* ver
 
 void DeferredDocumentImpl::setTypeInfo(int32_t elementNodeIndex, Object$* type) {
 	int32_t elementChunk = $sr(elementNodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t elementIndex = (int32_t)(elementNodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t elementIndex = elementNodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeValue, type, elementChunk, elementIndex);
 }
 
@@ -595,14 +403,14 @@ void DeferredDocumentImpl::setInputEncoding(int32_t currentEntityDecl, $String* 
 	int32_t nodeIndex = getNodeExtra(currentEntityDecl, false);
 	int32_t extraDataIndex = getNodeExtra(nodeIndex, false);
 	int32_t echunk = $sr(extraDataIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t eindex = (int32_t)(extraDataIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t eindex = extraDataIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeValue, value, echunk, eindex);
 }
 
 int32_t DeferredDocumentImpl::createDeferredEntityReference($String* name, $String* baseURI) {
 	int32_t nodeIndex = createNode($Node::ENTITY_REFERENCE_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, name, chunk, index);
 	setChunkValue(this->fNodeValue, baseURI, chunk, index);
 	return nodeIndex;
@@ -611,7 +419,7 @@ int32_t DeferredDocumentImpl::createDeferredEntityReference($String* name, $Stri
 int32_t DeferredDocumentImpl::createDeferredElement($String* elementURI, $String* elementName, Object$* type) {
 	int32_t elementNodeIndex = createNode($Node::ELEMENT_NODE);
 	int32_t elementChunk = $sr(elementNodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t elementIndex = (int32_t)(elementNodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t elementIndex = elementNodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, elementName, elementChunk, elementIndex);
 	setChunkValue(this->fNodeURI, elementURI, elementChunk, elementIndex);
 	setChunkValue(this->fNodeValue, type, elementChunk, elementIndex);
@@ -625,7 +433,7 @@ int32_t DeferredDocumentImpl::createDeferredElement($String* elementName) {
 int32_t DeferredDocumentImpl::createDeferredElement($String* elementURI, $String* elementName) {
 	int32_t elementNodeIndex = createNode($Node::ELEMENT_NODE);
 	int32_t elementChunk = $sr(elementNodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t elementIndex = (int32_t)(elementNodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t elementIndex = elementNodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, elementName, elementChunk, elementIndex);
 	setChunkValue(this->fNodeURI, elementURI, elementChunk, elementIndex);
 	return elementNodeIndex;
@@ -634,10 +442,10 @@ int32_t DeferredDocumentImpl::createDeferredElement($String* elementURI, $String
 int32_t DeferredDocumentImpl::setDeferredAttribute(int32_t elementNodeIndex, $String* attrName, $String* attrURI, $String* attrValue, bool specified, bool id, Object$* type) {
 	int32_t attrNodeIndex = createDeferredAttribute(attrName, attrURI, attrValue, specified);
 	int32_t attrChunk = $sr(attrNodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t attrIndex = (int32_t)(attrNodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t attrIndex = attrNodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkIndex(this->fNodeParent, elementNodeIndex, attrChunk, attrIndex);
 	int32_t elementChunk = $sr(elementNodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t elementIndex = (int32_t)(elementNodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t elementIndex = elementNodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t lastAttrNodeIndex = getChunkIndex(this->fNodeExtra, elementChunk, elementIndex);
 	if (lastAttrNodeIndex != 0) {
 		setChunkIndex(this->fNodePrevSib, lastAttrNodeIndex, attrChunk, attrIndex);
@@ -653,7 +461,7 @@ int32_t DeferredDocumentImpl::setDeferredAttribute(int32_t elementNodeIndex, $St
 	if (type != nullptr) {
 		int32_t extraDataIndex = createNode($DeferredNode::TYPE_NODE);
 		int32_t echunk = $sr(extraDataIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-		int32_t eindex = (int32_t)(extraDataIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+		int32_t eindex = extraDataIndex & DeferredDocumentImpl::CHUNK_MASK;
 		setChunkIndex(this->fNodeLastChild, extraDataIndex, attrChunk, attrIndex);
 		setChunkValue(this->fNodeValue, type, echunk, eindex);
 	}
@@ -667,11 +475,11 @@ int32_t DeferredDocumentImpl::createDeferredAttribute($String* attrName, $String
 int32_t DeferredDocumentImpl::createDeferredAttribute($String* attrName, $String* attrURI, $String* attrValue, bool specified) {
 	int32_t nodeIndex = createNode($NodeImpl::ATTRIBUTE_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, attrName, chunk, index);
 	setChunkValue(this->fNodeURI, attrURI, chunk, index);
 	setChunkValue(this->fNodeValue, attrValue, chunk, index);
-	int32_t extra = specified ? $NodeImpl::SPECIFIED : (int16_t)0;
+	int32_t extra = specified ? $NodeImpl::SPECIFIED : 0;
 	setChunkIndex(this->fNodeExtra, extra, chunk, index);
 	return nodeIndex;
 }
@@ -679,7 +487,7 @@ int32_t DeferredDocumentImpl::createDeferredAttribute($String* attrName, $String
 int32_t DeferredDocumentImpl::createDeferredElementDefinition($String* elementName) {
 	int32_t nodeIndex = createNode($NodeImpl::ELEMENT_DEFINITION_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, elementName, chunk, index);
 	return nodeIndex;
 }
@@ -687,7 +495,7 @@ int32_t DeferredDocumentImpl::createDeferredElementDefinition($String* elementNa
 int32_t DeferredDocumentImpl::createDeferredTextNode($String* data, bool ignorableWhitespace) {
 	int32_t nodeIndex = createNode($Node::TEXT_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeValue, data, chunk, index);
 	setChunkIndex(this->fNodeExtra, ignorableWhitespace ? 1 : 0, chunk, index);
 	return nodeIndex;
@@ -696,7 +504,7 @@ int32_t DeferredDocumentImpl::createDeferredTextNode($String* data, bool ignorab
 int32_t DeferredDocumentImpl::createDeferredCDATASection($String* data) {
 	int32_t nodeIndex = createNode($Node::CDATA_SECTION_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeValue, data, chunk, index);
 	return nodeIndex;
 }
@@ -704,7 +512,7 @@ int32_t DeferredDocumentImpl::createDeferredCDATASection($String* data) {
 int32_t DeferredDocumentImpl::createDeferredProcessingInstruction($String* target, $String* data) {
 	int32_t nodeIndex = createNode($Node::PROCESSING_INSTRUCTION_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, target, chunk, index);
 	setChunkValue(this->fNodeValue, data, chunk, index);
 	return nodeIndex;
@@ -713,18 +521,18 @@ int32_t DeferredDocumentImpl::createDeferredProcessingInstruction($String* targe
 int32_t DeferredDocumentImpl::createDeferredComment($String* data) {
 	int32_t nodeIndex = createNode($Node::COMMENT_NODE);
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeValue, data, chunk, index);
 	return nodeIndex;
 }
 
 int32_t DeferredDocumentImpl::cloneNode(int32_t nodeIndex, bool deep) {
 	int32_t nchunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t nindex = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t nindex = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t nodeType = $nc($nc(this->fNodeType)->get(nchunk))->get(nindex);
 	int32_t cloneIndex = createNode((int16_t)nodeType);
 	int32_t cchunk = $sr(cloneIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t cindex = (int32_t)(cloneIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t cindex = cloneIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkValue(this->fNodeName, $nc($nc(this->fNodeName)->get(nchunk))->get(nindex), cchunk, cindex);
 	setChunkValue(this->fNodeValue, $nc($nc(this->fNodeValue)->get(nchunk))->get(nindex), cchunk, cindex);
 	setChunkValue(this->fNodeURI, $nc($nc(this->fNodeURI)->get(nchunk))->get(nindex), cchunk, cindex);
@@ -750,9 +558,9 @@ int32_t DeferredDocumentImpl::cloneNode(int32_t nodeIndex, bool deep) {
 
 void DeferredDocumentImpl::appendChild(int32_t parentIndex, int32_t childIndex) {
 	int32_t pchunk = $sr(parentIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t pindex = (int32_t)(parentIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t pindex = parentIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t cchunk = $sr(childIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t cindex = (int32_t)(childIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t cindex = childIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkIndex(this->fNodeParent, parentIndex, cchunk, cindex);
 	int32_t olast = getChunkIndex(this->fNodeLastChild, pchunk, pindex);
 	setChunkIndex(this->fNodePrevSib, olast, cchunk, cindex);
@@ -760,11 +568,11 @@ void DeferredDocumentImpl::appendChild(int32_t parentIndex, int32_t childIndex) 
 }
 
 int32_t DeferredDocumentImpl::setAttributeNode(int32_t elemIndex, int32_t attrIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t echunk = $sr(elemIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t eindex = (int32_t)(elemIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t eindex = elemIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t achunk = $sr(attrIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t aindex = (int32_t)(attrIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t aindex = attrIndex & DeferredDocumentImpl::CHUNK_MASK;
 	$var($String, attrName, getChunkValue(this->fNodeName, achunk, aindex));
 	int32_t oldAttrIndex = getChunkIndex(this->fNodeExtra, echunk, eindex);
 	int32_t nextIndex = -1;
@@ -772,7 +580,7 @@ int32_t DeferredDocumentImpl::setAttributeNode(int32_t elemIndex, int32_t attrIn
 	int32_t oaindex = -1;
 	while (oldAttrIndex != -1) {
 		oachunk = $sr(oldAttrIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-		oaindex = (int32_t)(oldAttrIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+		oaindex = oldAttrIndex & DeferredDocumentImpl::CHUNK_MASK;
 		$var($String, oldAttrName, getChunkValue(this->fNodeName, oachunk, oaindex));
 		if ($nc(oldAttrName)->equals(attrName)) {
 			break;
@@ -786,7 +594,7 @@ int32_t DeferredDocumentImpl::setAttributeNode(int32_t elemIndex, int32_t attrIn
 			setChunkIndex(this->fNodeExtra, prevIndex, echunk, eindex);
 		} else {
 			int32_t pchunk = $sr(nextIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-			int32_t pindex = (int32_t)(nextIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+			int32_t pindex = nextIndex & DeferredDocumentImpl::CHUNK_MASK;
 			setChunkIndex(this->fNodePrevSib, prevIndex, pchunk, pindex);
 		}
 		clearChunkIndex(this->fNodeType, oachunk, oaindex);
@@ -796,7 +604,7 @@ int32_t DeferredDocumentImpl::setAttributeNode(int32_t elemIndex, int32_t attrIn
 		clearChunkIndex(this->fNodePrevSib, oachunk, oaindex);
 		int32_t attrTextIndex = clearChunkIndex(this->fNodeLastChild, oachunk, oaindex);
 		int32_t atchunk = $sr(attrTextIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-		int32_t atindex = (int32_t)(attrTextIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+		int32_t atindex = attrTextIndex & DeferredDocumentImpl::CHUNK_MASK;
 		clearChunkIndex(this->fNodeType, atchunk, atindex);
 		clearChunkValue(this->fNodeValue, atchunk, atindex);
 		clearChunkIndex(this->fNodeParent, atchunk, atindex);
@@ -810,7 +618,7 @@ int32_t DeferredDocumentImpl::setAttributeNode(int32_t elemIndex, int32_t attrIn
 
 void DeferredDocumentImpl::setIdAttributeNode(int32_t elemIndex, int32_t attrIndex) {
 	int32_t chunk = $sr(attrIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(attrIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = attrIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t extra = getChunkIndex(this->fNodeExtra, chunk, index);
 	extra = extra | $NodeImpl::ID;
 	setChunkIndex(this->fNodeExtra, extra, chunk, index);
@@ -820,7 +628,7 @@ void DeferredDocumentImpl::setIdAttributeNode(int32_t elemIndex, int32_t attrInd
 
 void DeferredDocumentImpl::setIdAttribute(int32_t attrIndex) {
 	int32_t chunk = $sr(attrIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(attrIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = attrIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t extra = getChunkIndex(this->fNodeExtra, chunk, index);
 	extra = extra | $NodeImpl::ID;
 	setChunkIndex(this->fNodeExtra, extra, chunk, index);
@@ -832,9 +640,9 @@ int32_t DeferredDocumentImpl::insertBefore(int32_t parentIndex, int32_t newChild
 		return newChildIndex;
 	}
 	int32_t nchunk = $sr(newChildIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t nindex = (int32_t)(newChildIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t nindex = newChildIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t rchunk = $sr(refChildIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t rindex = (int32_t)(refChildIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t rindex = refChildIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t previousIndex = getChunkIndex(this->fNodePrevSib, rchunk, rindex);
 	setChunkIndex(this->fNodePrevSib, newChildIndex, rchunk, rindex);
 	setChunkIndex(this->fNodePrevSib, previousIndex, nchunk, nindex);
@@ -843,7 +651,7 @@ int32_t DeferredDocumentImpl::insertBefore(int32_t parentIndex, int32_t newChild
 
 void DeferredDocumentImpl::setAsLastChild(int32_t parentIndex, int32_t childIndex) {
 	int32_t pchunk = $sr(parentIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t pindex = (int32_t)(parentIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t pindex = parentIndex & DeferredDocumentImpl::CHUNK_MASK;
 	setChunkIndex(this->fNodeLastChild, childIndex, pchunk, pindex);
 }
 
@@ -856,7 +664,7 @@ int32_t DeferredDocumentImpl::getParentNode(int32_t nodeIndex, bool free) {
 		return -1;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? clearChunkIndex(this->fNodeParent, chunk, index) : getChunkIndex(this->fNodeParent, chunk, index);
 }
 
@@ -869,7 +677,7 @@ int32_t DeferredDocumentImpl::getLastChild(int32_t nodeIndex, bool free) {
 		return -1;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? clearChunkIndex(this->fNodeLastChild, chunk, index) : getChunkIndex(this->fNodeLastChild, chunk, index);
 }
 
@@ -882,7 +690,7 @@ int32_t DeferredDocumentImpl::getPrevSibling(int32_t nodeIndex, bool free) {
 		return -1;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t type = getChunkIndex(this->fNodeType, chunk, index);
 	if (type == $Node::TEXT_NODE) {
 		do {
@@ -891,7 +699,7 @@ int32_t DeferredDocumentImpl::getPrevSibling(int32_t nodeIndex, bool free) {
 				break;
 			}
 			chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-			index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+			index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 			type = getChunkIndex(this->fNodeType, chunk, index);
 		} while (type == $Node::TEXT_NODE);
 	} else {
@@ -909,7 +717,7 @@ int32_t DeferredDocumentImpl::getRealPrevSibling(int32_t nodeIndex, bool free) {
 		return -1;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? clearChunkIndex(this->fNodePrevSib, chunk, index) : getChunkIndex(this->fNodePrevSib, chunk, index);
 }
 
@@ -920,7 +728,7 @@ int32_t DeferredDocumentImpl::lookupElementDefinition($String* elementName) {
 		int32_t nindex = 0;
 		for (int32_t index = getChunkIndex(this->fNodeLastChild, nchunk, nindex); index != -1; index = getChunkIndex(this->fNodePrevSib, nchunk, nindex)) {
 			nchunk = $sr(index, DeferredDocumentImpl::CHUNK_SHIFT);
-			nindex = (int32_t)(index & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+			nindex = index & DeferredDocumentImpl::CHUNK_MASK;
 			if (getChunkIndex(this->fNodeType, nchunk, nindex) == $Node::DOCUMENT_TYPE_NODE) {
 				docTypeIndex = index;
 				break;
@@ -930,10 +738,10 @@ int32_t DeferredDocumentImpl::lookupElementDefinition($String* elementName) {
 			return -1;
 		}
 		nchunk = $sr(docTypeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-		nindex = (int32_t)(docTypeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+		nindex = docTypeIndex & DeferredDocumentImpl::CHUNK_MASK;
 		for (int32_t index = getChunkIndex(this->fNodeLastChild, nchunk, nindex); index != -1; index = getChunkIndex(this->fNodePrevSib, nchunk, nindex)) {
 			nchunk = $sr(index, DeferredDocumentImpl::CHUNK_SHIFT);
-			nindex = (int32_t)(index & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+			nindex = index & DeferredDocumentImpl::CHUNK_MASK;
 			bool var$0 = getChunkIndex(this->fNodeType, nchunk, nindex) == $NodeImpl::ELEMENT_DEFINITION_NODE;
 			if (var$0 && getChunkValue(this->fNodeName, nchunk, nindex) == elementName) {
 				return index;
@@ -944,12 +752,12 @@ int32_t DeferredDocumentImpl::lookupElementDefinition($String* elementName) {
 }
 
 $DeferredNode* DeferredDocumentImpl::getNodeObject(int32_t nodeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nodeIndex == -1) {
 		return nullptr;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t type = getChunkIndex(this->fNodeType, chunk, index);
 	if (type != $Node::TEXT_NODE && type != $Node::CDATA_SECTION_NODE) {
 		clearChunkIndex(this->fNodeType, chunk, index);
@@ -958,117 +766,94 @@ $DeferredNode* DeferredDocumentImpl::getNodeObject(int32_t nodeIndex) {
 	switch (type) {
 	case $Node::ATTRIBUTE_NODE:
 		{
-			{
-				if (this->fNamespacesEnabled) {
-					$assign(node, $new($DeferredAttrNSImpl, this, nodeIndex));
-				} else {
-					$assign(node, $new($DeferredAttrImpl, this, nodeIndex));
-				}
-				break;
+			if (this->fNamespacesEnabled) {
+				$assign(node, $new($DeferredAttrNSImpl, this, nodeIndex));
+			} else {
+				$assign(node, $new($DeferredAttrImpl, this, nodeIndex));
 			}
+			break;
 		}
 	case $Node::CDATA_SECTION_NODE:
 		{
-			{
-				$assign(node, $new($DeferredCDATASectionImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredCDATASectionImpl, this, nodeIndex));
+			break;
 		}
 	case $Node::COMMENT_NODE:
 		{
-			{
-				$assign(node, $new($DeferredCommentImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredCommentImpl, this, nodeIndex));
+			break;
 		}
 	case $Node::DOCUMENT_NODE:
 		{
-			{
-				$assign(node, this);
-				break;
-			}
+			$assign(node, this);
+			break;
 		}
 	case $Node::DOCUMENT_TYPE_NODE:
 		{
-			{
-				$assign(node, $new($DeferredDocumentTypeImpl, this, nodeIndex));
-				$set(this, docType, $cast($DocumentTypeImpl, node));
-				break;
-			}
+			$assign(node, $new($DeferredDocumentTypeImpl, this, nodeIndex));
+			$set(this, docType, $cast($DocumentTypeImpl, node));
+			break;
 		}
 	case $Node::ELEMENT_NODE:
 		{
-			{
-				if (this->fNamespacesEnabled) {
-					$assign(node, $new($DeferredElementNSImpl, this, nodeIndex));
-				} else {
-					$assign(node, $new($DeferredElementImpl, this, nodeIndex));
-				}
-				if (this->fIdElement != nullptr) {
-					int32_t idIndex = binarySearch(this->fIdElement, 0, this->fIdCount - 1, nodeIndex);
-					while (idIndex != -1) {
-						$var($String, name, $nc(this->fIdName)->get(idIndex));
-						if (name != nullptr) {
-							putIdentifier0(name, $cast($Element, node));
-							$nc(this->fIdName)->set(idIndex, nullptr);
-						}
-						if (idIndex + 1 < this->fIdCount && $nc(this->fIdElement)->get(idIndex + 1) == nodeIndex) {
-							++idIndex;
-						} else {
-							idIndex = -1;
-						}
+			;
+			if (this->fNamespacesEnabled) {
+				$assign(node, $new($DeferredElementNSImpl, this, nodeIndex));
+			} else {
+				$assign(node, $new($DeferredElementImpl, this, nodeIndex));
+			}
+			if (this->fIdElement != nullptr) {
+				int32_t idIndex = binarySearch(this->fIdElement, 0, this->fIdCount - 1, nodeIndex);
+				while (idIndex != -1) {
+					;
+					$var($String, name, $nc(this->fIdName)->get(idIndex));
+					if (name != nullptr) {
+						;
+						putIdentifier0(name, $cast($Element, node));
+						$nc(this->fIdName)->set(idIndex, nullptr);
+					}
+					if (idIndex + 1 < this->fIdCount && $nc(this->fIdElement)->get(idIndex + 1) == nodeIndex) {
+						++idIndex;
+					} else {
+						idIndex = -1;
 					}
 				}
-				break;
 			}
+			break;
 		}
 	case $Node::ENTITY_NODE:
 		{
-			{
-				$assign(node, $new($DeferredEntityImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredEntityImpl, this, nodeIndex));
+			break;
 		}
 	case $Node::ENTITY_REFERENCE_NODE:
 		{
-			{
-				$assign(node, $new($DeferredEntityReferenceImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredEntityReferenceImpl, this, nodeIndex));
+			break;
 		}
 	case $Node::NOTATION_NODE:
 		{
-			{
-				$assign(node, $new($DeferredNotationImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredNotationImpl, this, nodeIndex));
+			break;
 		}
 	case $Node::PROCESSING_INSTRUCTION_NODE:
 		{
-			{
-				$assign(node, $new($DeferredProcessingInstructionImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredProcessingInstructionImpl, this, nodeIndex));
+			break;
 		}
 	case $Node::TEXT_NODE:
 		{
-			{
-				$assign(node, $new($DeferredTextImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredTextImpl, this, nodeIndex));
+			break;
 		}
 	case $NodeImpl::ELEMENT_DEFINITION_NODE:
 		{
-			{
-				$assign(node, $new($DeferredElementDefinitionImpl, this, nodeIndex));
-				break;
-			}
+			$assign(node, $new($DeferredElementDefinitionImpl, this, nodeIndex));
+			break;
 		}
 	default:
 		{
-			{
-				$throwNew($IllegalArgumentException, $$str({"type: "_s, $$str(type)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"type: "_s, $$str(type)}));
 		}
 	}
 	if (node != nullptr) {
@@ -1086,7 +871,7 @@ $String* DeferredDocumentImpl::getNodeName(int32_t nodeIndex, bool free) {
 		return nullptr;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? clearChunkValue(this->fNodeName, chunk, index) : getChunkValue(this->fNodeName, chunk, index);
 }
 
@@ -1095,12 +880,12 @@ $String* DeferredDocumentImpl::getNodeValueString(int32_t nodeIndex) {
 }
 
 $String* DeferredDocumentImpl::getNodeValueString(int32_t nodeIndex, bool free) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nodeIndex == -1) {
 		return nullptr;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	$var($String, value, free ? clearChunkValue(this->fNodeValue, chunk, index) : getChunkValue(this->fNodeValue, chunk, index));
 	if (value == nullptr) {
 		return nullptr;
@@ -1112,21 +897,21 @@ $String* DeferredDocumentImpl::getNodeValueString(int32_t nodeIndex, bool free) 
 			$nc(this->fStrChunks)->add(value);
 			do {
 				chunk = $sr(prevSib, DeferredDocumentImpl::CHUNK_SHIFT);
-				index = (int32_t)(prevSib & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+				index = prevSib & DeferredDocumentImpl::CHUNK_MASK;
 				$assign(value, getChunkValue(this->fNodeValue, chunk, index));
-				$nc(this->fStrChunks)->add(value);
+				this->fStrChunks->add(value);
 				prevSib = getChunkIndex(this->fNodePrevSib, chunk, index);
 				if (prevSib == -1) {
 					break;
 				}
 			} while (getNodeType(prevSib, false) == $Node::TEXT_NODE);
-			int32_t chunkCount = $nc(this->fStrChunks)->size();
+			int32_t chunkCount = this->fStrChunks->size();
 			for (int32_t i = chunkCount - 1; i >= 0; --i) {
-				$nc(this->fBufferStr)->append($cast($String, $($nc(this->fStrChunks)->get(i))));
+				$nc(this->fBufferStr)->append($$cast($String, this->fStrChunks->get(i)));
 			}
 			$assign(value, $nc(this->fBufferStr)->toString());
-			$nc(this->fStrChunks)->clear();
-			$nc(this->fBufferStr)->setLength(0);
+			this->fStrChunks->clear();
+			this->fBufferStr->setLength(0);
 			return value;
 		}
 	} else if (type == $Node::CDATA_SECTION_NODE) {
@@ -1135,17 +920,17 @@ $String* DeferredDocumentImpl::getNodeValueString(int32_t nodeIndex, bool free) 
 			$nc(this->fBufferStr)->append(value);
 			while (child != -1) {
 				chunk = $sr(child, DeferredDocumentImpl::CHUNK_SHIFT);
-				index = (int32_t)(child & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+				index = child & DeferredDocumentImpl::CHUNK_MASK;
 				$assign(value, getChunkValue(this->fNodeValue, chunk, index));
 				$nc(this->fStrChunks)->add(value);
 				child = getChunkIndex(this->fNodePrevSib, chunk, index);
 			}
 			for (int32_t i = $nc(this->fStrChunks)->size() - 1; i >= 0; --i) {
-				$nc(this->fBufferStr)->append($cast($String, $($nc(this->fStrChunks)->get(i))));
+				this->fBufferStr->append($$cast($String, this->fStrChunks->get(i)));
 			}
-			$assign(value, $nc(this->fBufferStr)->toString());
-			$nc(this->fStrChunks)->clear();
-			$nc(this->fBufferStr)->setLength(0);
+			$assign(value, this->fBufferStr->toString());
+			this->fStrChunks->clear();
+			this->fBufferStr->setLength(0);
 			return value;
 		}
 	}
@@ -1157,22 +942,22 @@ $String* DeferredDocumentImpl::getNodeValue(int32_t nodeIndex) {
 }
 
 $Object* DeferredDocumentImpl::getTypeInfo(int32_t nodeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nodeIndex == -1) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
-	$var($Object, value, $nc(this->fNodeValue)->get(chunk) != nullptr ? $nc($nc(this->fNodeValue)->get(chunk))->get(index) : ($Object*)nullptr);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
+	$var($Object, value, $nc(this->fNodeValue)->get(chunk) != nullptr ? $nc(this->fNodeValue->get(chunk))->get(index) : ($Object*)nullptr);
 	if (value != nullptr) {
-		$nc($nc(this->fNodeValue)->get(chunk))->set(index, nullptr);
-		$var($DeferredDocumentImpl$RefCount, c, $cast($DeferredDocumentImpl$RefCount, $nc($nc(this->fNodeValue)->get(chunk))->get(DeferredDocumentImpl::CHUNK_SIZE)));
+		$nc(this->fNodeValue->get(chunk))->set(index, nullptr);
+		$var($DeferredDocumentImpl$RefCount, c, $cast($DeferredDocumentImpl$RefCount, $nc(this->fNodeValue->get(chunk))->get(DeferredDocumentImpl::CHUNK_SIZE)));
 		--$nc(c)->fCount;
 		if (c->fCount == 0) {
-			$nc(this->fNodeValue)->set(chunk, nullptr);
+			this->fNodeValue->set(chunk, nullptr);
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 $String* DeferredDocumentImpl::getNodeValue(int32_t nodeIndex, bool free) {
@@ -1180,7 +965,7 @@ $String* DeferredDocumentImpl::getNodeValue(int32_t nodeIndex, bool free) {
 		return nullptr;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? clearChunkValue(this->fNodeValue, chunk, index) : getChunkValue(this->fNodeValue, chunk, index);
 }
 
@@ -1193,7 +978,7 @@ int32_t DeferredDocumentImpl::getNodeExtra(int32_t nodeIndex, bool free) {
 		return -1;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? clearChunkIndex(this->fNodeExtra, chunk, index) : getChunkIndex(this->fNodeExtra, chunk, index);
 }
 
@@ -1203,10 +988,10 @@ int16_t DeferredDocumentImpl::getNodeType(int32_t nodeIndex) {
 
 int16_t DeferredDocumentImpl::getNodeType(int32_t nodeIndex, bool free) {
 	if (nodeIndex == -1) {
-		return (int16_t)-1;
+		return -1;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? (int16_t)clearChunkIndex(this->fNodeType, chunk, index) : (int16_t)getChunkIndex(this->fNodeType, chunk, index);
 }
 
@@ -1215,11 +1000,11 @@ $String* DeferredDocumentImpl::getAttribute(int32_t elemIndex, $String* name) {
 		return nullptr;
 	}
 	int32_t echunk = $sr(elemIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t eindex = (int32_t)(elemIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t eindex = elemIndex & DeferredDocumentImpl::CHUNK_MASK;
 	int32_t attrIndex = getChunkIndex(this->fNodeExtra, echunk, eindex);
 	while (attrIndex != -1) {
 		int32_t achunk = $sr(attrIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-		int32_t aindex = (int32_t)(attrIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+		int32_t aindex = attrIndex & DeferredDocumentImpl::CHUNK_MASK;
 		if (getChunkValue(this->fNodeName, achunk, aindex) == name) {
 			return getChunkValue(this->fNodeValue, achunk, aindex);
 		}
@@ -1237,12 +1022,13 @@ $String* DeferredDocumentImpl::getNodeURI(int32_t nodeIndex, bool free) {
 		return nullptr;
 	}
 	int32_t chunk = $sr(nodeIndex, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(nodeIndex & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = nodeIndex & DeferredDocumentImpl::CHUNK_MASK;
 	return free ? clearChunkValue(this->fNodeURI, chunk, index) : getChunkValue(this->fNodeURI, chunk, index);
 }
 
 void DeferredDocumentImpl::putIdentifier($String* name, int32_t elementNodeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (this->fIdName == nullptr) {
 		$set(this, fIdName, $new($StringArray, 64));
 		$set(this, fIdElement, $new($ints, 64));
@@ -1255,12 +1041,14 @@ void DeferredDocumentImpl::putIdentifier($String* name, int32_t elementNodeIndex
 		$System::arraycopy(this->fIdElement, 0, idElement, 0, this->fIdCount);
 		$set(this, fIdElement, idElement);
 	}
-	$nc(this->fIdName)->set(this->fIdCount, name);
+	this->fIdName->set(this->fIdCount, name);
 	$nc(this->fIdElement)->set(this->fIdCount, elementNodeIndex);
 	++this->fIdCount;
 }
 
 void DeferredDocumentImpl::print() {
+	;
+	;
 }
 
 int32_t DeferredDocumentImpl::getNodeIndex() {
@@ -1268,7 +1056,7 @@ int32_t DeferredDocumentImpl::getNodeIndex() {
 }
 
 void DeferredDocumentImpl::synchronizeData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	needsSyncData(false);
 	if (this->fIdElement != nullptr) {
 		$var($DeferredDocumentImpl$IntVector, path, $new($DeferredDocumentImpl$IntVector));
@@ -1283,16 +1071,16 @@ void DeferredDocumentImpl::synchronizeData() {
 			do {
 				path->addElement(index);
 				int32_t pchunk = $sr(index, DeferredDocumentImpl::CHUNK_SHIFT);
-				int32_t pindex = (int32_t)(index & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+				int32_t pindex = index & DeferredDocumentImpl::CHUNK_MASK;
 				index = getChunkIndex(this->fNodeParent, pchunk, pindex);
 			} while (index != -1);
-			$var($Node, place, static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(static_cast<$CoreDocumentImpl*>(static_cast<$DocumentImpl*>(this)))))));
+			$var($Node, place, $cast($ParentNode, this));
 			for (int32_t j = path->size() - 2; j >= 0; --j) {
 				index = path->elementAt(j);
 				$var($Node, child, $nc(place)->getLastChild());
 				while (child != nullptr) {
 					if ($instanceOf($DeferredNode, child)) {
-						int32_t nodeIndex = $nc(($cast($DeferredNode, child)))->getNodeIndex();
+						int32_t nodeIndex = $cast($DeferredNode, child)->getNodeIndex();
 						if (nodeIndex == index) {
 							$assign(place, child);
 							break;
@@ -1316,7 +1104,7 @@ void DeferredDocumentImpl::synchronizeData() {
 }
 
 void DeferredDocumentImpl::synchronizeChildren() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (needsSyncData()) {
 		synchronizeData();
 		if (!needsSyncChildren()) {
@@ -1356,7 +1144,7 @@ void DeferredDocumentImpl::synchronizeChildren() {
 }
 
 void DeferredDocumentImpl::synchronizeChildren($AttrImpl* a, int32_t nodeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool orig = getMutationEvents();
 	setMutationEvents(false);
 	$nc(a)->needsSyncChildren(false);
@@ -1391,7 +1179,7 @@ void DeferredDocumentImpl::synchronizeChildren($AttrImpl* a, int32_t nodeIndex) 
 }
 
 void DeferredDocumentImpl::synchronizeChildren($ParentNode* p, int32_t nodeIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool orig = getMutationEvents();
 	setMutationEvents(false);
 	$nc(p)->needsSyncChildren(false);
@@ -1418,7 +1206,7 @@ void DeferredDocumentImpl::synchronizeChildren($ParentNode* p, int32_t nodeIndex
 }
 
 void DeferredDocumentImpl::ensureCapacity(int32_t chunk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fNodeType == nullptr) {
 		$set(this, fNodeType, $new($intArray2, DeferredDocumentImpl::INITIAL_CHUNK_COUNT));
 		$set(this, fNodeName, $new($ObjectArray2, DeferredDocumentImpl::INITIAL_CHUNK_COUNT));
@@ -1428,7 +1216,7 @@ void DeferredDocumentImpl::ensureCapacity(int32_t chunk) {
 		$set(this, fNodePrevSib, $new($intArray2, DeferredDocumentImpl::INITIAL_CHUNK_COUNT));
 		$set(this, fNodeURI, $new($ObjectArray2, DeferredDocumentImpl::INITIAL_CHUNK_COUNT));
 		$set(this, fNodeExtra, $new($intArray2, DeferredDocumentImpl::INITIAL_CHUNK_COUNT));
-	} else if ($nc(this->fNodeType)->length <= chunk) {
+	} else if (this->fNodeType->length <= chunk) {
 		int32_t newsize = chunk * 2;
 		$var($intArray2, newArray, $new($intArray2, newsize));
 		$System::arraycopy(this->fNodeType, 0, newArray, 0, chunk);
@@ -1454,7 +1242,7 @@ void DeferredDocumentImpl::ensureCapacity(int32_t chunk) {
 		$assign(newArray, $new($intArray2, newsize));
 		$System::arraycopy(this->fNodeExtra, 0, newArray, 0, chunk);
 		$set(this, fNodeExtra, newArray);
-	} else if ($nc(this->fNodeType)->get(chunk) != nullptr) {
+	} else if (this->fNodeType->get(chunk) != nullptr) {
 		return;
 	}
 	createChunk(this->fNodeType, chunk);
@@ -1470,7 +1258,7 @@ void DeferredDocumentImpl::ensureCapacity(int32_t chunk) {
 
 int32_t DeferredDocumentImpl::createNode(int16_t nodeType) {
 	int32_t chunk = $sr(this->fNodeCount, DeferredDocumentImpl::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fNodeCount & (uint32_t)DeferredDocumentImpl::CHUNK_MASK);
+	int32_t index = this->fNodeCount & DeferredDocumentImpl::CHUNK_MASK;
 	ensureCapacity(chunk);
 	setChunkIndex(this->fNodeType, nodeType, chunk, index);
 	return this->fNodeCount++;
@@ -1478,13 +1266,16 @@ int32_t DeferredDocumentImpl::createNode(int16_t nodeType) {
 
 int32_t DeferredDocumentImpl::binarySearch($ints* values, int32_t start, int32_t end, int32_t target) {
 	$init(DeferredDocumentImpl);
+	;
 	while (start <= end) {
 		int32_t middle = (int32_t)((uint32_t)(start + end) >> 1);
 		int32_t value = $nc(values)->get(middle);
+		;
 		if (value == target) {
 			while (middle > 0 && values->get(middle - 1) == target) {
 				--middle;
 			}
+			;
 			return middle;
 		}
 		if (value > target) {
@@ -1493,6 +1284,7 @@ int32_t DeferredDocumentImpl::binarySearch($ints* values, int32_t start, int32_t
 			start = middle + 1;
 		}
 	}
+	;
 	return -1;
 }
 
@@ -1502,7 +1294,7 @@ void DeferredDocumentImpl::createChunk($intArray2* data, int32_t chunk) {
 }
 
 void DeferredDocumentImpl::createChunk($ObjectArray2* data, int32_t chunk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(data)->set(chunk, $$new($ObjectArray, DeferredDocumentImpl::CHUNK_SIZE + 1));
 	$nc(data->get(chunk))->set(DeferredDocumentImpl::CHUNK_SIZE, $$new($DeferredDocumentImpl$RefCount));
 }
@@ -1525,7 +1317,7 @@ int32_t DeferredDocumentImpl::setChunkIndex($intArray2* data, int32_t value, int
 }
 
 $String* DeferredDocumentImpl::setChunkValue($ObjectArray2* data, Object$* value, int32_t chunk, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return clearChunkValue(data, chunk, index);
 	}
@@ -1544,11 +1336,11 @@ $String* DeferredDocumentImpl::setChunkValue($ObjectArray2* data, Object$* value
 }
 
 int32_t DeferredDocumentImpl::getChunkIndex($intArray2* data, int32_t chunk, int32_t index) {
-	return $nc(data)->get(chunk) != nullptr ? $nc($nc(data)->get(chunk))->get(index) : -1;
+	return $nc(data)->get(chunk) != nullptr ? $nc(data->get(chunk))->get(index) : -1;
 }
 
 $String* DeferredDocumentImpl::getChunkValue($ObjectArray2* data, int32_t chunk, int32_t index) {
-	return $nc(data)->get(chunk) != nullptr ? $cast($String, $nc($nc(data)->get(chunk))->get(index)) : ($String*)nullptr;
+	return $nc(data)->get(chunk) != nullptr ? $cast($String, $nc(data->get(chunk))->get(index)) : ($String*)nullptr;
 }
 
 $String* DeferredDocumentImpl::getNodeValue(int32_t chunk, int32_t index) {
@@ -1558,12 +1350,12 @@ $String* DeferredDocumentImpl::getNodeValue(int32_t chunk, int32_t index) {
 	} else if ($instanceOf($String, data)) {
 		return $cast($String, data);
 	} else {
-		return $nc($of(data))->toString();
+		return data->toString();
 	}
 }
 
 int32_t DeferredDocumentImpl::clearChunkIndex($intArray2* data, int32_t chunk, int32_t index) {
-	int32_t value = $nc(data)->get(chunk) != nullptr ? $nc($nc(data)->get(chunk))->get(index) : -1;
+	int32_t value = $nc(data)->get(chunk) != nullptr ? $nc(data->get(chunk))->get(index) : -1;
 	if (value != -1) {
 		--(*$nc(data->get(chunk)))[DeferredDocumentImpl::CHUNK_SIZE];
 		$nc(data->get(chunk))->set(index, -1);
@@ -1575,8 +1367,8 @@ int32_t DeferredDocumentImpl::clearChunkIndex($intArray2* data, int32_t chunk, i
 }
 
 $String* DeferredDocumentImpl::clearChunkValue($ObjectArray2* data, int32_t chunk, int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, value, $nc(data)->get(chunk) != nullptr ? $cast($String, $nc($nc(data)->get(chunk))->get(index)) : ($String*)nullptr);
+	$useLocalObjectStack();
+	$var($String, value, $nc(data)->get(chunk) != nullptr ? $cast($String, $nc(data->get(chunk))->get(index)) : ($String*)nullptr);
 	if (value != nullptr) {
 		$nc(data->get(chunk))->set(index, nullptr);
 		$var($DeferredDocumentImpl$RefCount, c, $cast($DeferredDocumentImpl$RefCount, $nc(data->get(chunk))->get(DeferredDocumentImpl::CHUNK_SIZE)));
@@ -1589,6 +1381,7 @@ $String* DeferredDocumentImpl::clearChunkValue($ObjectArray2* data, int32_t chun
 }
 
 void DeferredDocumentImpl::putIdentifier0($String* idName, $Element* element) {
+	;
 	if (this->identifiers == nullptr) {
 		$set(this, identifiers, $new($HashMap));
 	}
@@ -1597,13 +1390,14 @@ void DeferredDocumentImpl::putIdentifier0($String* idName, $Element* element) {
 
 void DeferredDocumentImpl::print($ints* values, int32_t start, int32_t end, int32_t middle, int32_t target) {
 	$init(DeferredDocumentImpl);
+	;
 }
 
-void clinit$DeferredDocumentImpl($Class* class$) {
+void DeferredDocumentImpl::clinit$($Class* clazz) {
 	$assignStatic(DeferredDocumentImpl::INIT_ARRAY, $new($ints, DeferredDocumentImpl::CHUNK_SIZE + 1));
 	{
 		for (int32_t i = 0; i < DeferredDocumentImpl::CHUNK_SIZE; ++i) {
-			$nc(DeferredDocumentImpl::INIT_ARRAY)->set(i, -1);
+			DeferredDocumentImpl::INIT_ARRAY->set(i, -1);
 		}
 	}
 }
@@ -1612,7 +1406,187 @@ DeferredDocumentImpl::DeferredDocumentImpl() {
 }
 
 $Class* DeferredDocumentImpl::load$($String* name, bool initialize) {
-	$loadClass(DeferredDocumentImpl, name, initialize, &_DeferredDocumentImpl_ClassInfo_, clinit$DeferredDocumentImpl, allocate$DeferredDocumentImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DeferredDocumentImpl, serialVersionUID)},
+		{"DEBUG_PRINT_REF_COUNTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeferredDocumentImpl, DEBUG_PRINT_REF_COUNTS)},
+		{"DEBUG_PRINT_TABLES", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeferredDocumentImpl, DEBUG_PRINT_TABLES)},
+		{"DEBUG_IDS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DeferredDocumentImpl, DEBUG_IDS)},
+		{"CHUNK_SHIFT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, CHUNK_SHIFT)},
+		{"CHUNK_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, CHUNK_SIZE)},
+		{"CHUNK_MASK", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, CHUNK_MASK)},
+		{"INITIAL_CHUNK_COUNT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DeferredDocumentImpl, INITIAL_CHUNK_COUNT)},
+		{"fNodeCount", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeCount)},
+		{"fNodeType", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeType)},
+		{"fNodeName", "[[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeName)},
+		{"fNodeValue", "[[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeValue)},
+		{"fNodeParent", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeParent)},
+		{"fNodeLastChild", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeLastChild)},
+		{"fNodePrevSib", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodePrevSib)},
+		{"fNodeURI", "[[Ljava/lang/Object;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeURI)},
+		{"fNodeExtra", "[[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fNodeExtra)},
+		{"fIdCount", "I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fIdCount)},
+		{"fIdName", "[Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fIdName)},
+		{"fIdElement", "[I", nullptr, $PROTECTED | $TRANSIENT, $field(DeferredDocumentImpl, fIdElement)},
+		{"fNamespacesEnabled", "Z", nullptr, $PROTECTED, $field(DeferredDocumentImpl, fNamespacesEnabled)},
+		{"fBufferStr", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(DeferredDocumentImpl, fBufferStr)},
+		{"fStrChunks", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL | $TRANSIENT, $field(DeferredDocumentImpl, fStrChunks)},
+		{"INIT_ARRAY", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DeferredDocumentImpl, INIT_ARRAY)},
+		{}
+	};
+	$CompoundAttribute createDeferredElementmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute createDeferredElementmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
+		{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNodeType", "()S", nullptr, $PUBLIC},
+		{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $FINAL},
+		{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hasAttributes", "()Z", nullptr, $PUBLIC},
+		{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeferredDocumentImpl, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(DeferredDocumentImpl, init$, void, bool)},
+		{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(DeferredDocumentImpl, init$, void, bool, bool)},
+		{"appendChild", "(II)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, appendChild, void, int32_t, int32_t)},
+		{"binarySearch", "([IIII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(DeferredDocumentImpl, binarySearch, int32_t, $ints*, int32_t, int32_t, int32_t)},
+		{"clearChunkIndex", "([[III)I", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, clearChunkIndex, int32_t, $intArray2*, int32_t, int32_t)},
+		{"clearChunkValue", "([[Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, clearChunkValue, $String*, $ObjectArray2*, int32_t, int32_t)},
+		{"cloneNode", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, cloneNode, int32_t, int32_t, bool)},
+		{"createChunk", "([[II)V", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, createChunk, void, $intArray2*, int32_t)},
+		{"createChunk", "([[Ljava/lang/Object;I)V", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, createChunk, void, $ObjectArray2*, int32_t)},
+		{"createDeferredAttribute", "(Ljava/lang/String;Ljava/lang/String;Z)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredAttribute, int32_t, $String*, $String*, bool)},
+		{"createDeferredAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredAttribute, int32_t, $String*, $String*, $String*, bool)},
+		{"createDeferredCDATASection", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredCDATASection, int32_t, $String*)},
+		{"createDeferredComment", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredComment, int32_t, $String*)},
+		{"createDeferredDocument", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredDocument, int32_t)},
+		{"createDeferredDocumentType", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredDocumentType, int32_t, $String*, $String*, $String*)},
+		{"createDeferredElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DeferredDocumentImpl, createDeferredElement, int32_t, $String*, $String*, Object$*), nullptr, nullptr, createDeferredElementmethodAnnotations$$},
+		{"createDeferredElement", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DeferredDocumentImpl, createDeferredElement, int32_t, $String*), nullptr, nullptr, createDeferredElementmethodAnnotations$$$1},
+		{"createDeferredElement", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredElement, int32_t, $String*, $String*)},
+		{"createDeferredElementDefinition", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredElementDefinition, int32_t, $String*)},
+		{"createDeferredEntity", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredEntity, int32_t, $String*, $String*, $String*, $String*, $String*)},
+		{"createDeferredEntityReference", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredEntityReference, int32_t, $String*, $String*)},
+		{"createDeferredNotation", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredNotation, int32_t, $String*, $String*, $String*, $String*)},
+		{"createDeferredProcessingInstruction", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredProcessingInstruction, int32_t, $String*, $String*)},
+		{"createDeferredTextNode", "(Ljava/lang/String;Z)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, createDeferredTextNode, int32_t, $String*, bool)},
+		{"createNode", "(S)I", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, createNode, int32_t, int16_t)},
+		{"ensureCapacity", "(I)V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, ensureCapacity, void, int32_t)},
+		{"getAttribute", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getAttribute, $String*, int32_t, $String*)},
+		{"getChunkIndex", "([[III)I", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, getChunkIndex, int32_t, $intArray2*, int32_t, int32_t)},
+		{"getChunkValue", "([[Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, getChunkValue, $String*, $ObjectArray2*, int32_t, int32_t)},
+		{"getDeferredEntityBaseURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getDeferredEntityBaseURI, $String*, int32_t)},
+		{"getImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getImplementation, $DOMImplementation*)},
+		{"getLastChild", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getLastChild, int32_t, int32_t)},
+		{"getLastChild", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getLastChild, int32_t, int32_t, bool)},
+		{"getNamespacesEnabled", "()Z", nullptr, 0, $virtualMethod(DeferredDocumentImpl, getNamespacesEnabled, bool)},
+		{"getNodeExtra", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeExtra, int32_t, int32_t)},
+		{"getNodeExtra", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeExtra, int32_t, int32_t, bool)},
+		{"getNodeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeIndex, int32_t)},
+		{"getNodeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeName, $String*, int32_t)},
+		{"getNodeName", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeName, $String*, int32_t, bool)},
+		{"getNodeObject", "(I)Lcom/sun/org/apache/xerces/internal/dom/DeferredNode;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeObject, $DeferredNode*, int32_t)},
+		{"getNodeType", "(I)S", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeType, int16_t, int32_t)},
+		{"getNodeType", "(IZ)S", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeType, int16_t, int32_t, bool)},
+		{"getNodeURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeURI, $String*, int32_t)},
+		{"getNodeURI", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeURI, $String*, int32_t, bool)},
+		{"getNodeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValue, $String*, int32_t)},
+		{"getNodeValue", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValue, $String*, int32_t, bool)},
+		{"getNodeValue", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, getNodeValue, $String*, int32_t, int32_t)},
+		{"getNodeValueString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValueString, $String*, int32_t)},
+		{"getNodeValueString", "(IZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getNodeValueString, $String*, int32_t, bool)},
+		{"getParentNode", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getParentNode, int32_t, int32_t)},
+		{"getParentNode", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getParentNode, int32_t, int32_t, bool)},
+		{"getPrevSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getPrevSibling, int32_t, int32_t)},
+		{"getPrevSibling", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getPrevSibling, int32_t, int32_t, bool)},
+		{"getRealPrevSibling", "(I)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getRealPrevSibling, int32_t, int32_t)},
+		{"getRealPrevSibling", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getRealPrevSibling, int32_t, int32_t, bool)},
+		{"getTypeInfo", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, getTypeInfo, $Object*, int32_t)},
+		{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"insertBefore", "(III)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, insertBefore, int32_t, int32_t, int32_t, int32_t)},
+		{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"lookupElementDefinition", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, lookupElementDefinition, int32_t, $String*)},
+		{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*normalize", "()V", nullptr, $PUBLIC},
+		{"print", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, print, void)},
+		{"print", "([IIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DeferredDocumentImpl, print, void, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{"putIdentifier", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, putIdentifier, void, $String*, int32_t)},
+		{"putIdentifier0", "(Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, putIdentifier0, void, $String*, $Element*)},
+		{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"setAsLastChild", "(II)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setAsLastChild, void, int32_t, int32_t)},
+		{"setAttributeNode", "(II)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setAttributeNode, int32_t, int32_t, int32_t)},
+		{"setChunkIndex", "([[IIII)I", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, setChunkIndex, int32_t, $intArray2*, int32_t, int32_t, int32_t)},
+		{"setChunkValue", "([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(DeferredDocumentImpl, setChunkValue, $String*, $ObjectArray2*, Object$*, int32_t, int32_t)},
+		{"setDeferredAttribute", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setDeferredAttribute, int32_t, int32_t, $String*, $String*, $String*, bool, bool, Object$*)},
+		{"setEntityInfo", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setEntityInfo, void, int32_t, $String*, $String*)},
+		{"setIdAttribute", "(I)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setIdAttribute, void, int32_t)},
+		{"setIdAttributeNode", "(II)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setIdAttributeNode, void, int32_t, int32_t)},
+		{"setInputEncoding", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setInputEncoding, void, int32_t, $String*)},
+		{"setInternalSubset", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setInternalSubset, void, int32_t, $String*)},
+		{"setNamespacesEnabled", "(Z)V", nullptr, 0, $virtualMethod(DeferredDocumentImpl, setNamespacesEnabled, void, bool)},
+		{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setTypeInfo", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DeferredDocumentImpl, setTypeInfo, void, int32_t, Object$*)},
+		{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"synchronizeChildren", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, synchronizeChildren, void)},
+		{"synchronizeChildren", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;I)V", nullptr, $PROTECTED | $FINAL, $method(DeferredDocumentImpl, synchronizeChildren, void, $AttrImpl*, int32_t)},
+		{"synchronizeChildren", "(Lcom/sun/org/apache/xerces/internal/dom/ParentNode;I)V", nullptr, $PROTECTED | $FINAL, $method(DeferredDocumentImpl, synchronizeChildren, void, $ParentNode*, int32_t)},
+		{"synchronizeData", "()V", nullptr, $PROTECTED, $virtualMethod(DeferredDocumentImpl, synchronizeData, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$IntVector", "com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl", "IntVector", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount", "com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl", "RefCount", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl",
+		"com.sun.org.apache.xerces.internal.dom.DocumentImpl",
+		"com.sun.org.apache.xerces.internal.dom.DeferredNode",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$IntVector,com.sun.org.apache.xerces.internal.dom.DeferredDocumentImpl$RefCount"
+	};
+	$loadClass(DeferredDocumentImpl, name, initialize, &classInfo$$, DeferredDocumentImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredDocumentImpl));
+	});
 	return class$;
 }
 

@@ -1,9 +1,7 @@
 #include <sun/awt/X11/XLightweightFramePeer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Dimension.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/awt/MenuBar.h>
@@ -30,7 +28,6 @@
 
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
-using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $MenuBar = ::java::awt::MenuBar;
@@ -52,126 +49,10 @@ using $XFramePeer = ::sun::awt::X11::XFramePeer;
 using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $JLightweightFrame = ::sun::swing::JLightweightFrame;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$JLightweightFrameAccessor = ::sun::swing::SwingAccessor$JLightweightFrameAccessor;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XLightweightFramePeer_FieldInfo_[] = {
-	{"overriddenWindowHandle", "J", nullptr, $PRIVATE | $VOLATILE, $field(XLightweightFramePeer, overriddenWindowHandle)},
-	{}
-};
-
-$MethodInfo _XLightweightFramePeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/LightweightFrame;)V", nullptr, 0, $method(XLightweightFramePeer, init$, void, $LightweightFrame*)},
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, addDropTarget, void, $DropTarget*)},
-	{"addDropTarget", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, addDropTarget, void)},
-	{"addToplevelStateListener", "(Lsun/awt/X11/ToplevelStateListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, addToplevelStateListener, void, $ToplevelStateListener*)},
-	{"checkIfOnNewScreen", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, checkIfOnNewScreen, void, $Rectangle*)},
-	{"displayChanged", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, displayChanged, void)},
-	{"dispose", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, dispose, void)},
-	{"emulateActivation", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, emulateActivation, void, bool)},
-	{"getAbsoluteX", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getAbsoluteX, int32_t)},
-	{"getAbsoluteY", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getAbsoluteY, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getBounds, $Rectangle*)},
-	{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getBoundsPrivate, $Rectangle*)},
-	{"getContentWindow", "()J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getContentWindow, int64_t)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, getGraphics, $Graphics*)},
-	{"getHeight", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getHeight, int32_t)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getInsets, $Insets*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getLocationOnScreen, $Point*)},
-	{"getLwTarget", "()Lsun/awt/LightweightFrame;", nullptr, $PRIVATE, $method(XLightweightFramePeer, getLwTarget, $LightweightFrame*)},
-	{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getMWMHints, $PropMwmHints*)},
-	{"getNETWMState", "()Lsun/awt/X11/XAtomList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getNETWMState, $XAtomList*)},
-	{"getOverriddenWindowHandle", "()J", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, getOverriddenWindowHandle, int64_t)},
-	{"getOwnerPeer", "()Lsun/awt/X11/XWindowPeer;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getOwnerPeer, $XWindowPeer*)},
-	{"getShell", "()J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getShell, int64_t)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getSize, $Dimension*)},
-	{"getState", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getState, int32_t)},
-	{"getTargetMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getTargetMinimumSize, $Dimension*)},
-	{"getWidth", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getWidth, int32_t)},
-	{"getX", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getX, int32_t)},
-	{"getY", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getY, int32_t)},
-	{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleButtonPressRelease, void, $XEvent*)},
-	{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleClientMessage, void, $XEvent*)},
-	{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleConfigureNotifyEvent, void, $XEvent*)},
-	{"handleDeiconify", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleDeiconify, void)},
-	{"handleFocusEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleFocusEvent, void, $XEvent*)},
-	{"handleIconify", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleIconify, void)},
-	{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleMapNotifyEvent, void, $XEvent*)},
-	{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleMotionNotify, void, $XEvent*)},
-	{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handlePropertyNotify, void, $XEvent*)},
-	{"handleReparentNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleReparentNotifyEvent, void, $XEvent*)},
-	{"handleStateChange", "(II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleStateChange, void, int32_t, int32_t)},
-	{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleUnmapNotifyEvent, void, $XEvent*)},
-	{"handleVisibilityEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleVisibilityEvent, void, $XEvent*)},
-	{"handleWindowFocusIn", "(J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusIn, void, int64_t)},
-	{"handleWindowFocusInSync", "(J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusInSync, void, int64_t)},
-	{"handleWindowFocusIn_Dispatch", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusIn_Dispatch, void)},
-	{"handleWindowFocusOut", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusOut, void, $Window*, int64_t)},
-	{"handleWindowFocusOutSync", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusOutSync, void, $Window*, int64_t)},
-	{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleXCrossingEvent, void, $XEvent*)},
-	{"isGrabbed", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, isGrabbed, bool)},
-	{"overrideWindowHandle", "(J)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, overrideWindowHandle, void, int64_t)},
-	{"paletteChanged", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, paletteChanged, void)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, print, void, $Graphics*)},
-	{"recursivelySetIcon", "(Ljava/util/List;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, recursivelySetIcon, void, $List*)},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, removeDropTarget, void, $DropTarget*)},
-	{"removeDropTarget", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, removeDropTarget, void)},
-	{"removeToplevelStateListener", "(Lsun/awt/X11/ToplevelStateListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, removeToplevelStateListener, void, $ToplevelStateListener*)},
-	{"repositionSecurityWarning", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, repositionSecurityWarning, void)},
-	{"requestWindowFocus", "(JZ)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, requestWindowFocus, bool, int64_t, bool)},
-	{"requestWindowFocus", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, requestWindowFocus, bool)},
-	{"requestWindowFocus", "(Lsun/awt/X11/XWindowPeer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, requestWindowFocus, bool, $XWindowPeer*)},
-	{"requestXFocus", "(JZ)V", nullptr, $PROTECTED, $virtualMethod(XLightweightFramePeer, requestXFocus, void, int64_t, bool)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setFullScreenExclusiveModeState, void, bool)},
-	{"setGrab", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, setGrab, void, bool)},
-	{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setMWMHints, void, $PropMwmHints*)},
-	{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setMaximizedBounds, void, $Rectangle*)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setMenuBar, void, $MenuBar*)},
-	{"setModalBlocked", "(Ljava/awt/Dialog;ZLjava/util/Vector;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setModalBlocked, void, $Dialog*, bool, $Vector*)},
-	{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setModalBlocked, void, $Dialog*, bool)},
-	{"setNETWMState", "(Lsun/awt/X11/XAtomList;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setNETWMState, void, $XAtomList*)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setOpaque, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setResizable, void, bool)},
-	{"setState", "(I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setState, void, int32_t)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setTitle, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setVisible, void, bool)},
-	{"toBack", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, toFront, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateAlwaysOnTopState, void)},
-	{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, updateCursorImmediately, void)},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateFocusableWindowState, void)},
-	{"updateIconImages", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateIconImages, void)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateMinimumSize, void)},
-	{"updateSecurityWarningVisibility", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateSecurityWarningVisibility, void)},
-	{"updateWindow", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateWindow, void)},
-	{"xSetVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, xSetVisible, void, bool)},
-	{}
-};
-
-$ClassInfo _XLightweightFramePeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XLightweightFramePeer",
-	"sun.awt.X11.XFramePeer",
-	"sun.awt.OverrideNativeWindowHandle",
-	_XLightweightFramePeer_FieldInfo_,
-	_XLightweightFramePeer_MethodInfo_
-};
-
-$Object* allocate$XLightweightFramePeer($Class* clazz) {
-	return $of($alloc(XLightweightFramePeer));
-}
 
 $String* XLightweightFramePeer::toString() {
 	 return this->$XFramePeer::toString();
@@ -194,7 +75,7 @@ void XLightweightFramePeer::finalize() {
 }
 
 void XLightweightFramePeer::init$($LightweightFrame* target) {
-	$XFramePeer::init$(static_cast<$Frame*>(target));
+	$XFramePeer::init$(target);
 	this->overriddenWindowHandle = 0;
 }
 
@@ -203,7 +84,7 @@ $LightweightFrame* XLightweightFramePeer::getLwTarget() {
 }
 
 $Graphics* XLightweightFramePeer::getGraphics() {
-	return $nc($(getLwTarget()))->getGraphics();
+	return $$nc(getLwTarget())->getGraphics();
 }
 
 void XLightweightFramePeer::xSetVisible(bool visible) {
@@ -214,25 +95,25 @@ void XLightweightFramePeer::requestXFocus(int64_t time, bool timeProvided) {
 }
 
 void XLightweightFramePeer::setGrab(bool grab) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (grab) {
-		$nc($(getLwTarget()))->grabFocus();
+		$$nc(getLwTarget())->grabFocus();
 	} else {
-		$nc($(getLwTarget()))->ungrabFocus();
+		$$nc(getLwTarget())->ungrabFocus();
 	}
 }
 
 void XLightweightFramePeer::updateCursorImmediately() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($SwingAccessor::getJLightweightFrameAccessor()))->updateCursor($cast($JLightweightFrame, $(getLwTarget())));
+	$useLocalObjectStack();
+	$$nc($SwingAccessor::getJLightweightFrameAccessor())->updateCursor($$cast($JLightweightFrame, getLwTarget()));
 }
 
 void XLightweightFramePeer::addDropTarget($DropTarget* dt) {
-	$nc($(getLwTarget()))->addDropTarget(dt);
+	$$nc(getLwTarget())->addDropTarget(dt);
 }
 
 void XLightweightFramePeer::removeDropTarget($DropTarget* dt) {
-	$nc($(getLwTarget()))->removeDropTarget(dt);
+	$$nc(getLwTarget())->removeDropTarget(dt);
 }
 
 void XLightweightFramePeer::overrideWindowHandle(int64_t handle) {
@@ -555,7 +436,117 @@ XLightweightFramePeer::XLightweightFramePeer() {
 }
 
 $Class* XLightweightFramePeer::load$($String* name, bool initialize) {
-	$loadClass(XLightweightFramePeer, name, initialize, &_XLightweightFramePeer_ClassInfo_, allocate$XLightweightFramePeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"overriddenWindowHandle", "J", nullptr, $PRIVATE | $VOLATILE, $field(XLightweightFramePeer, overriddenWindowHandle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/LightweightFrame;)V", nullptr, 0, $method(XLightweightFramePeer, init$, void, $LightweightFrame*)},
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, addDropTarget, void, $DropTarget*)},
+		{"addDropTarget", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, addDropTarget, void)},
+		{"addToplevelStateListener", "(Lsun/awt/X11/ToplevelStateListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, addToplevelStateListener, void, $ToplevelStateListener*)},
+		{"checkIfOnNewScreen", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, checkIfOnNewScreen, void, $Rectangle*)},
+		{"displayChanged", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, displayChanged, void)},
+		{"dispose", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, dispose, void)},
+		{"emulateActivation", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, emulateActivation, void, bool)},
+		{"getAbsoluteX", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getAbsoluteX, int32_t)},
+		{"getAbsoluteY", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getAbsoluteY, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getBounds, $Rectangle*)},
+		{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getBoundsPrivate, $Rectangle*)},
+		{"getContentWindow", "()J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getContentWindow, int64_t)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, getGraphics, $Graphics*)},
+		{"getHeight", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getHeight, int32_t)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getInsets, $Insets*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getLocationOnScreen, $Point*)},
+		{"getLwTarget", "()Lsun/awt/LightweightFrame;", nullptr, $PRIVATE, $method(XLightweightFramePeer, getLwTarget, $LightweightFrame*)},
+		{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getMWMHints, $PropMwmHints*)},
+		{"getNETWMState", "()Lsun/awt/X11/XAtomList;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getNETWMState, $XAtomList*)},
+		{"getOverriddenWindowHandle", "()J", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, getOverriddenWindowHandle, int64_t)},
+		{"getOwnerPeer", "()Lsun/awt/X11/XWindowPeer;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getOwnerPeer, $XWindowPeer*)},
+		{"getShell", "()J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getShell, int64_t)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getSize, $Dimension*)},
+		{"getState", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getState, int32_t)},
+		{"getTargetMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getTargetMinimumSize, $Dimension*)},
+		{"getWidth", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getWidth, int32_t)},
+		{"getX", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getX, int32_t)},
+		{"getY", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, getY, int32_t)},
+		{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleButtonPressRelease, void, $XEvent*)},
+		{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleClientMessage, void, $XEvent*)},
+		{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleConfigureNotifyEvent, void, $XEvent*)},
+		{"handleDeiconify", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleDeiconify, void)},
+		{"handleFocusEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleFocusEvent, void, $XEvent*)},
+		{"handleIconify", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleIconify, void)},
+		{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleMapNotifyEvent, void, $XEvent*)},
+		{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleMotionNotify, void, $XEvent*)},
+		{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handlePropertyNotify, void, $XEvent*)},
+		{"handleReparentNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleReparentNotifyEvent, void, $XEvent*)},
+		{"handleStateChange", "(II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleStateChange, void, int32_t, int32_t)},
+		{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleUnmapNotifyEvent, void, $XEvent*)},
+		{"handleVisibilityEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleVisibilityEvent, void, $XEvent*)},
+		{"handleWindowFocusIn", "(J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusIn, void, int64_t)},
+		{"handleWindowFocusInSync", "(J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusInSync, void, int64_t)},
+		{"handleWindowFocusIn_Dispatch", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusIn_Dispatch, void)},
+		{"handleWindowFocusOut", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusOut, void, $Window*, int64_t)},
+		{"handleWindowFocusOutSync", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleWindowFocusOutSync, void, $Window*, int64_t)},
+		{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, handleXCrossingEvent, void, $XEvent*)},
+		{"isGrabbed", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, isGrabbed, bool)},
+		{"overrideWindowHandle", "(J)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, overrideWindowHandle, void, int64_t)},
+		{"paletteChanged", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, paletteChanged, void)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, print, void, $Graphics*)},
+		{"recursivelySetIcon", "(Ljava/util/List;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, recursivelySetIcon, void, $List*)},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, removeDropTarget, void, $DropTarget*)},
+		{"removeDropTarget", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, removeDropTarget, void)},
+		{"removeToplevelStateListener", "(Lsun/awt/X11/ToplevelStateListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, removeToplevelStateListener, void, $ToplevelStateListener*)},
+		{"repositionSecurityWarning", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, repositionSecurityWarning, void)},
+		{"requestWindowFocus", "(JZ)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, requestWindowFocus, bool, int64_t, bool)},
+		{"requestWindowFocus", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, requestWindowFocus, bool)},
+		{"requestWindowFocus", "(Lsun/awt/X11/XWindowPeer;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, requestWindowFocus, bool, $XWindowPeer*)},
+		{"requestXFocus", "(JZ)V", nullptr, $PROTECTED, $virtualMethod(XLightweightFramePeer, requestXFocus, void, int64_t, bool)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setFullScreenExclusiveModeState, void, bool)},
+		{"setGrab", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, setGrab, void, bool)},
+		{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setMWMHints, void, $PropMwmHints*)},
+		{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setMaximizedBounds, void, $Rectangle*)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setMenuBar, void, $MenuBar*)},
+		{"setModalBlocked", "(Ljava/awt/Dialog;ZLjava/util/Vector;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setModalBlocked, void, $Dialog*, bool, $Vector*)},
+		{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setModalBlocked, void, $Dialog*, bool)},
+		{"setNETWMState", "(Lsun/awt/X11/XAtomList;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setNETWMState, void, $XAtomList*)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setOpaque, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setResizable, void, bool)},
+		{"setState", "(I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setState, void, int32_t)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setTitle, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, setVisible, void, bool)},
+		{"toBack", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, toFront, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateAlwaysOnTopState, void)},
+		{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, updateCursorImmediately, void)},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateFocusableWindowState, void)},
+		{"updateIconImages", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateIconImages, void)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateMinimumSize, void)},
+		{"updateSecurityWarningVisibility", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateSecurityWarningVisibility, void)},
+		{"updateWindow", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XLightweightFramePeer, updateWindow, void)},
+		{"xSetVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XLightweightFramePeer, xSetVisible, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XLightweightFramePeer",
+		"sun.awt.X11.XFramePeer",
+		"sun.awt.OverrideNativeWindowHandle",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XLightweightFramePeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XLightweightFramePeer));
+	});
 	return class$;
 }
 

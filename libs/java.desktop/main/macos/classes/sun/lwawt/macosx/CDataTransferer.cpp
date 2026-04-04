@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CDataTransferer.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Image.h>
 #include <java/awt/datatransfer/DataFlavor.h>
@@ -47,7 +46,6 @@ using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $UnsupportedFlavorException = ::java::awt::datatransfer::UnsupportedFlavorException;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -69,73 +67,11 @@ using $Pattern = ::java::util::regex::Pattern;
 using $DataTransferer = ::sun::awt::datatransfer::DataTransferer;
 using $ToolkitThreadBlockedHandler = ::sun::awt::datatransfer::ToolkitThreadBlockedHandler;
 using $CImage = ::sun::lwawt::macosx::CImage;
-using $CImage$Creator = ::sun::lwawt::macosx::CImage$Creator;
 using $CToolkitThreadBlockedHandler = ::sun::lwawt::macosx::CToolkitThreadBlockedHandler;
 
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CDataTransferer_FieldInfo_[] = {
-	{"predefinedClipboardNameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CDataTransferer, predefinedClipboardNameMap)},
-	{"predefinedClipboardFormatMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CDataTransferer, predefinedClipboardFormatMap)},
-	{"predefinedClipboardNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CDataTransferer, predefinedClipboardNames)},
-	{"CF_UNSUPPORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_UNSUPPORTED)},
-	{"CF_STRING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_STRING)},
-	{"CF_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_FILE)},
-	{"CF_TIFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_TIFF)},
-	{"CF_RICH_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_RICH_TEXT)},
-	{"CF_HTML", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_HTML)},
-	{"CF_PDF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_PDF)},
-	{"CF_URL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_URL)},
-	{"CF_PNG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_PNG)},
-	{"CF_JPEG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_JPEG)},
-	{"CF_XPICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_XPICT)},
-	{"fTransferer", "Lsun/lwawt/macosx/CDataTransferer;", nullptr, $PRIVATE | $STATIC, $staticField(CDataTransferer, fTransferer)},
-	{"handler", "Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PRIVATE | $FINAL, $field(CDataTransferer, handler)},
-	{}
-};
-
-$MethodInfo _CDataTransferer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CDataTransferer, init$, void)},
-	{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED, $virtualMethod(CDataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
-	{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, dragQueryFile, $StringArray*, $bytes*)},
-	{"extractURL", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CDataTransferer, extractURL, $String*, $String*)},
-	{"formatForIndex", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(CDataTransferer, formatForIndex, $String*, int64_t)},
-	{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, getDefaultUnicodeEncoding, $String*)},
-	{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CDataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
-	{"getInstanceImpl", "()Lsun/lwawt/macosx/CDataTransferer;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(CDataTransferer, getInstanceImpl, CDataTransferer*)},
-	{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, getNativeForFormat, $String*, int64_t)},
-	{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
-	{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t)},
-	{"isFileFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, isFileFormat, bool, int64_t)},
-	{"isImageFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, isImageFormat, bool, int64_t)},
-	{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
-	{"isURIListFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, isURIListFormat, bool, int64_t)},
-	{"isUriListFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PRIVATE, $method(CDataTransferer, isUriListFlavor, bool, $DataFlavor*)},
-	{"nativeDragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDataTransferer, nativeDragQueryFile, $StringArray*, $bytes*)},
-	{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
-	{"registerFormatWithPasteboard", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $NATIVE, $method(CDataTransferer, registerFormatWithPasteboard, int64_t, $String*)},
-	{"translateBytes", "([BLjava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, translateBytes, $Object*, $bytes*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_formatForIndex 4
-#define _METHOD_INDEX_nativeDragQueryFile 16
-#define _METHOD_INDEX_registerFormatWithPasteboard 18
-
-$ClassInfo _CDataTransferer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CDataTransferer",
-	"sun.awt.datatransfer.DataTransferer",
-	nullptr,
-	_CDataTransferer_FieldInfo_,
-	_CDataTransferer_MethodInfo_
-};
-
-$Object* allocate$CDataTransferer($Class* clazz) {
-	return $of($alloc(CDataTransferer));
-}
 
 $Map* CDataTransferer::predefinedClipboardNameMap = nullptr;
 $Map* CDataTransferer::predefinedClipboardFormatMap = nullptr;
@@ -148,9 +84,8 @@ void CDataTransferer::init$() {
 }
 
 CDataTransferer* CDataTransferer::getInstanceImpl() {
-	$load(CDataTransferer);
+	$init(CDataTransferer);
 	$synchronized(class$) {
-		$init(CDataTransferer);
 		if (CDataTransferer::fTransferer == nullptr) {
 			$assignStatic(CDataTransferer::fTransferer, $new(CDataTransferer));
 		}
@@ -174,55 +109,48 @@ bool CDataTransferer::isImageFormat(int64_t format) {
 	int32_t ifmt = (int32_t)format;
 	switch (ifmt) {
 	case CDataTransferer::CF_TIFF:
-		{}
 	case CDataTransferer::CF_PDF:
-		{}
 	case CDataTransferer::CF_PNG:
-		{}
 	case CDataTransferer::CF_JPEG:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 $Object* CDataTransferer::translateBytes($bytes* bytes$renamed, $DataFlavor* flavor, int64_t format, $Transferable* transferable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, bytes$renamed);
 	$load($URL);
-	if (format == CDataTransferer::CF_URL && $of($URL::class$)->equals($nc(flavor)->getRepresentationClass())) {
-		$var($String, charset, $nc($($Charset::defaultCharset()))->name());
+	if (format == CDataTransferer::CF_URL && $URL::class$->equals($nc(flavor)->getRepresentationClass())) {
+		$var($String, charset, $$nc($Charset::defaultCharset())->name());
 		$init($DataTransferer);
 		if (transferable != nullptr && transferable->isDataFlavorSupported($DataTransferer::javaTextEncodingFlavor)) {
 			try {
 				$init($StandardCharsets);
-				$assign(charset, $new($String, $cast($bytes, $(transferable->getTransferData($DataTransferer::javaTextEncodingFlavor))), $StandardCharsets::UTF_8));
+				$assign(charset, $new($String, $$cast($bytes, transferable->getTransferData($DataTransferer::javaTextEncodingFlavor)), $StandardCharsets::UTF_8));
 			} catch ($UnsupportedFlavorException& cannotHappen) {
 			}
 		}
 		$var($String, xml, $new($String, bytes, charset));
-		return $of($new($URL, $(extractURL(xml))));
+		return $new($URL, $(extractURL(xml)));
 	}
 	if (isUriListFlavor(flavor) && format == CDataTransferer::CF_FILE) {
 		$var($StringArray, strings, dragQueryFile(bytes));
 		if (strings == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		}
-		$assign(bytes, $nc($($String::join($(static_cast<$CharSequence*>($System::getProperty("line.separator"_s))), $fcast($CharSequenceArray, strings))))->getBytes());
+		$assign(bytes, $$nc($String::join($($System::getProperty("line.separator"_s)), $cast($CharSequenceArray, strings)))->getBytes());
 		format = CDataTransferer::CF_STRING;
 	} else if (format == CDataTransferer::CF_STRING) {
 		$init($Normalizer$Form);
-		$assign(bytes, $nc($($Normalizer::normalize($$new($String, bytes, "UTF8"_s), $Normalizer$Form::NFC)))->getBytes("UTF8"_s));
+		$assign(bytes, $$nc($Normalizer::normalize($$new($String, bytes, "UTF8"_s), $Normalizer$Form::NFC))->getBytes("UTF8"_s));
 	}
-	return $of($DataTransferer::translateBytes(bytes, flavor, format, transferable));
+	return $DataTransferer::translateBytes(bytes, flavor, format, transferable);
 }
 
 $String* CDataTransferer::extractURL($String* xml) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern, urlExtractorPattern, $Pattern::compile("<string>(.*)</string>"_s));
 	$var($Matcher, matcher, $nc(urlExtractorPattern)->matcher(xml));
 	if ($nc(matcher)->find()) {
@@ -234,14 +162,14 @@ $String* CDataTransferer::extractURL($String* xml) {
 
 $Long* CDataTransferer::getFormatForNativeAsLong($String* str) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Long, format, $cast($Long, $nc(CDataTransferer::predefinedClipboardNameMap)->get(str)));
 		if (format == nullptr) {
-			if ($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->isHeadlessInstance()) {
-				return $Long::valueOf((int64_t)-1);
+			if ($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->isHeadlessInstance()) {
+				return $Long::valueOf(-1);
 			}
 			$assign(format, $Long::valueOf(registerFormatWithPasteboard(str)));
-			$nc(CDataTransferer::predefinedClipboardNameMap)->put(str, format);
+			CDataTransferer::predefinedClipboardNameMap->put(str, format);
 			$nc(CDataTransferer::predefinedClipboardFormatMap)->put(format, str);
 		}
 		return format;
@@ -249,26 +177,24 @@ $Long* CDataTransferer::getFormatForNativeAsLong($String* str) {
 }
 
 int64_t CDataTransferer::registerFormatWithPasteboard($String* type) {
-	int64_t $ret = 0;
-	$prepareNative(CDataTransferer, registerFormatWithPasteboard, int64_t, $String* type);
-	$ret = $invokeNative(type);
+	$prepareNative(registerFormatWithPasteboard, int64_t, $String* type);
+	int64_t $ret = $invokeNative(type);
 	$finishNative();
 	return $ret;
 }
 
 $String* CDataTransferer::formatForIndex(int64_t index) {
-	$var($String, $ret, nullptr);
-	$prepareNative(CDataTransferer, formatForIndex, $String*, int64_t index);
-	$assign($ret, $invokeNativeObject(index));
+	$prepareNative(formatForIndex, $String*, int64_t index);
+	$var($String, $ret, $invokeNativeObject(index));
 	$finishNative();
 	return $ret;
 }
 
 $String* CDataTransferer::getNativeForFormat(int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, returnValue, nullptr);
-	if (format >= 0 && format < $nc(CDataTransferer::predefinedClipboardNames)->length) {
-		$assign(returnValue, $nc(CDataTransferer::predefinedClipboardNames)->get((int32_t)format));
+	if (format >= 0 && format < CDataTransferer::predefinedClipboardNames->length) {
+		$assign(returnValue, CDataTransferer::predefinedClipboardNames->get((int32_t)format));
 	} else {
 		$var($Long, formatObj, $Long::valueOf(format));
 		$assign(returnValue, $cast($String, $nc(CDataTransferer::predefinedClipboardFormatMap)->get(formatObj)));
@@ -276,12 +202,12 @@ $String* CDataTransferer::getNativeForFormat(int64_t format) {
 			$assign(returnValue, formatForIndex(format));
 			if (returnValue != nullptr) {
 				$nc(CDataTransferer::predefinedClipboardNameMap)->put(returnValue, formatObj);
-				$nc(CDataTransferer::predefinedClipboardFormatMap)->put(formatObj, returnValue);
+				CDataTransferer::predefinedClipboardFormatMap->put(formatObj, returnValue);
 			}
 		}
 	}
 	if (returnValue == nullptr) {
-		$assign(returnValue, $nc(CDataTransferer::predefinedClipboardNames)->get(CDataTransferer::CF_UNSUPPORTED));
+		$assign(returnValue, CDataTransferer::predefinedClipboardNames->get(CDataTransferer::CF_UNSUPPORTED));
 	}
 	return returnValue;
 }
@@ -291,14 +217,13 @@ $ToolkitThreadBlockedHandler* CDataTransferer::getToolkitThreadBlockedHandler() 
 }
 
 $bytes* CDataTransferer::imageToPlatformBytes($Image* image, int64_t format) {
-	return $nc($($CImage::getCreator()))->getPlatformImageBytes(image);
+	return $$nc($CImage::getCreator())->getPlatformImageBytes(image);
 }
 
 $StringArray* CDataTransferer::nativeDragQueryFile($bytes* bytes) {
 	$init(CDataTransferer);
-	$var($StringArray, $ret, nullptr);
-	$prepareNativeStatic(CDataTransferer, nativeDragQueryFile, $StringArray*, $bytes* bytes);
-	$assign($ret, $invokeNativeStaticObject(bytes));
+	$prepareNativeStatic(nativeDragQueryFile, $StringArray*, $bytes* bytes);
+	$var($StringArray, $ret, $invokeNativeStaticObject(bytes));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -314,11 +239,11 @@ $StringArray* CDataTransferer::dragQueryFile($bytes* bytes) {
 }
 
 $Image* CDataTransferer::platformImageBytesToImage($bytes* bytes, int64_t format) {
-	return $nc($($CImage::getCreator()))->createImageFromPlatformImageBytes(bytes);
+	return $$nc($CImage::getCreator())->createImageFromPlatformImageBytes(bytes);
 }
 
 $ByteArrayOutputStream* CDataTransferer::convertFileListToBytes($ArrayList* fileList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 	{
 		$var($Iterator, i$, $nc(fileList)->iterator());
@@ -335,7 +260,7 @@ $ByteArrayOutputStream* CDataTransferer::convertFileListToBytes($ArrayList* file
 }
 
 bool CDataTransferer::isURIListFormat(int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, nat, getNativeForFormat(format));
 	if (nat == nullptr) {
 		return false;
@@ -351,16 +276,16 @@ bool CDataTransferer::isURIListFormat(int64_t format) {
 }
 
 bool CDataTransferer::isUriListFlavor($DataFlavor* df) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($($nc(df)->getPrimaryType()))->equals("text"_s);
-	if (var$0 && $nc($(df->getSubType()))->equals("uri-list"_s)) {
+	$useLocalObjectStack();
+	bool var$0 = $$nc($nc(df)->getPrimaryType())->equals("text"_s);
+	if (var$0 && $$nc(df->getSubType())->equals("uri-list"_s)) {
 		return true;
 	}
 	return false;
 }
 
-void clinit$CDataTransferer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CDataTransferer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(CDataTransferer::predefinedClipboardNames, $new($StringArray, {
 		""_s,
 		"STRING"_s,
@@ -375,11 +300,11 @@ void clinit$CDataTransferer($Class* class$) {
 		"XPICT"_s
 	}));
 	{
-		$var($Map, nameMap, $new($HashMap, $nc(CDataTransferer::predefinedClipboardNames)->length, 1.0f));
-		$var($Map, formatMap, $new($HashMap, $nc(CDataTransferer::predefinedClipboardNames)->length, 1.0f));
-		for (int32_t i = 1; i < $nc(CDataTransferer::predefinedClipboardNames)->length; ++i) {
-			nameMap->put($nc(CDataTransferer::predefinedClipboardNames)->get(i), $($Long::valueOf((int64_t)i)));
-			formatMap->put($($Long::valueOf((int64_t)i)), $nc(CDataTransferer::predefinedClipboardNames)->get(i));
+		$var($Map, nameMap, $new($HashMap, CDataTransferer::predefinedClipboardNames->length, 1.0f));
+		$var($Map, formatMap, $new($HashMap, CDataTransferer::predefinedClipboardNames->length, 1.0f));
+		for (int32_t i = 1; i < CDataTransferer::predefinedClipboardNames->length; ++i) {
+			nameMap->put(CDataTransferer::predefinedClipboardNames->get(i), $($Long::valueOf((int64_t)i)));
+			formatMap->put($($Long::valueOf((int64_t)i)), CDataTransferer::predefinedClipboardNames->get(i));
 		}
 		$assignStatic(CDataTransferer::predefinedClipboardNameMap, $Collections::synchronizedMap(nameMap));
 		$assignStatic(CDataTransferer::predefinedClipboardFormatMap, $Collections::synchronizedMap(formatMap));
@@ -390,7 +315,59 @@ CDataTransferer::CDataTransferer() {
 }
 
 $Class* CDataTransferer::load$($String* name, bool initialize) {
-	$loadClass(CDataTransferer, name, initialize, &_CDataTransferer_ClassInfo_, clinit$CDataTransferer, allocate$CDataTransferer);
+	$FieldInfo fieldInfos$$[] = {
+		{"predefinedClipboardNameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CDataTransferer, predefinedClipboardNameMap)},
+		{"predefinedClipboardFormatMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CDataTransferer, predefinedClipboardFormatMap)},
+		{"predefinedClipboardNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CDataTransferer, predefinedClipboardNames)},
+		{"CF_UNSUPPORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_UNSUPPORTED)},
+		{"CF_STRING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_STRING)},
+		{"CF_FILE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_FILE)},
+		{"CF_TIFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_TIFF)},
+		{"CF_RICH_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_RICH_TEXT)},
+		{"CF_HTML", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_HTML)},
+		{"CF_PDF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_PDF)},
+		{"CF_URL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_URL)},
+		{"CF_PNG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_PNG)},
+		{"CF_JPEG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_JPEG)},
+		{"CF_XPICT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CDataTransferer, CF_XPICT)},
+		{"fTransferer", "Lsun/lwawt/macosx/CDataTransferer;", nullptr, $PRIVATE | $STATIC, $staticField(CDataTransferer, fTransferer)},
+		{"handler", "Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PRIVATE | $FINAL, $field(CDataTransferer, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CDataTransferer, init$, void)},
+		{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED, $virtualMethod(CDataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
+		{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, dragQueryFile, $StringArray*, $bytes*)},
+		{"extractURL", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CDataTransferer, extractURL, $String*, $String*)},
+		{"formatForIndex", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(CDataTransferer, formatForIndex, $String*, int64_t)},
+		{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, getDefaultUnicodeEncoding, $String*)},
+		{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CDataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
+		{"getInstanceImpl", "()Lsun/lwawt/macosx/CDataTransferer;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(CDataTransferer, getInstanceImpl, CDataTransferer*)},
+		{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, getNativeForFormat, $String*, int64_t)},
+		{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
+		{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t)},
+		{"isFileFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, isFileFormat, bool, int64_t)},
+		{"isImageFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, isImageFormat, bool, int64_t)},
+		{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
+		{"isURIListFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, isURIListFormat, bool, int64_t)},
+		{"isUriListFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PRIVATE, $method(CDataTransferer, isUriListFlavor, bool, $DataFlavor*)},
+		{"nativeDragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CDataTransferer, nativeDragQueryFile, $StringArray*, $bytes*)},
+		{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(CDataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
+		{"registerFormatWithPasteboard", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $NATIVE, $method(CDataTransferer, registerFormatWithPasteboard, int64_t, $String*)},
+		{"translateBytes", "([BLjava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CDataTransferer, translateBytes, $Object*, $bytes*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CDataTransferer",
+		"sun.awt.datatransfer.DataTransferer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CDataTransferer, name, initialize, &classInfo$$, CDataTransferer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CDataTransferer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Whitespace$WhitespaceRule.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Whitespace.h>
 #include <jcpp.h>
@@ -21,54 +20,9 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _Whitespace$WhitespaceRule_FieldInfo_[] = {
-	{"_action", "I", nullptr, $PRIVATE | $FINAL, $field(Whitespace$WhitespaceRule, _action)},
-	{"_namespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _namespace)},
-	{"_element", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _element)},
-	{"_type", "I", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _type)},
-	{"_priority", "I", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _priority)},
-	{}
-};
-
-$MethodInfo _Whitespace$WhitespaceRule_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;I)V", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, init$, void, int32_t, $String*, int32_t)},
-	{"compareTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Whitespace$WhitespaceRule;)I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, compareTo, int32_t, Whitespace$WhitespaceRule*)},
-	{"getAction", "()I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getAction, int32_t)},
-	{"getElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getElement, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getNamespace, $String*)},
-	{"getPriority", "()I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getPriority, int32_t)},
-	{"getStrength", "()I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getStrength, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Whitespace$WhitespaceRule_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace$WhitespaceRule", "com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace", "WhitespaceRule", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Whitespace$WhitespaceRule_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace$WhitespaceRule",
-	"java.lang.Object",
-	nullptr,
-	_Whitespace$WhitespaceRule_FieldInfo_,
-	_Whitespace$WhitespaceRule_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Whitespace$WhitespaceRule_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace"
-};
-
-$Object* allocate$Whitespace$WhitespaceRule($Class* clazz) {
-	return $of($alloc(Whitespace$WhitespaceRule));
-}
-
 void Whitespace$WhitespaceRule::init$(int32_t action, $String* element, int32_t precedence) {
 	this->_action = action;
-	int32_t colon = $nc(element)->lastIndexOf((int32_t)u':');
+	int32_t colon = $nc(element)->lastIndexOf(u':');
 	if (colon >= 0) {
 		$set(this, _namespace, element->substring(0, colon));
 		$set(this, _element, element->substring(colon + 1, element->length()));
@@ -93,7 +47,7 @@ void Whitespace$WhitespaceRule::init$(int32_t action, $String* element, int32_t 
 }
 
 int32_t Whitespace$WhitespaceRule::compareTo(Whitespace$WhitespaceRule* other) {
-	return this->_priority < $nc(other)->_priority ? -1 : this->_priority > $nc(other)->_priority ? 1 : 0;
+	return this->_priority < $nc(other)->_priority ? -1 : this->_priority > other->_priority ? 1 : 0;
 }
 
 int32_t Whitespace$WhitespaceRule::getAction() {
@@ -120,7 +74,46 @@ Whitespace$WhitespaceRule::Whitespace$WhitespaceRule() {
 }
 
 $Class* Whitespace$WhitespaceRule::load$($String* name, bool initialize) {
-	$loadClass(Whitespace$WhitespaceRule, name, initialize, &_Whitespace$WhitespaceRule_ClassInfo_, allocate$Whitespace$WhitespaceRule);
+	$FieldInfo fieldInfos$$[] = {
+		{"_action", "I", nullptr, $PRIVATE | $FINAL, $field(Whitespace$WhitespaceRule, _action)},
+		{"_namespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _namespace)},
+		{"_element", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _element)},
+		{"_type", "I", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _type)},
+		{"_priority", "I", nullptr, $PRIVATE, $field(Whitespace$WhitespaceRule, _priority)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;I)V", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, init$, void, int32_t, $String*, int32_t)},
+		{"compareTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Whitespace$WhitespaceRule;)I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, compareTo, int32_t, Whitespace$WhitespaceRule*)},
+		{"getAction", "()I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getAction, int32_t)},
+		{"getElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getElement, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getNamespace, $String*)},
+		{"getPriority", "()I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getPriority, int32_t)},
+		{"getStrength", "()I", nullptr, $PUBLIC, $method(Whitespace$WhitespaceRule, getStrength, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace$WhitespaceRule", "com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace", "WhitespaceRule", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace$WhitespaceRule",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Whitespace"
+	};
+	$loadClass(Whitespace$WhitespaceRule, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Whitespace$WhitespaceRule);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XQueryTree.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/SunToolkit.h>
@@ -10,7 +9,6 @@
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XlibWrapper.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,72 +23,26 @@ using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XQueryTree_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(XQueryTree, unsafe)},
-	{"__executed", "Z", nullptr, $PRIVATE, $field(XQueryTree, __executed)},
-	{"_w", "J", nullptr, 0, $field(XQueryTree, _w)},
-	{"root_ptr", "J", nullptr, 0, $field(XQueryTree, root_ptr)},
-	{"parent_ptr", "J", nullptr, 0, $field(XQueryTree, parent_ptr)},
-	{"children_ptr", "J", nullptr, 0, $field(XQueryTree, children_ptr)},
-	{"nchildren_ptr", "J", nullptr, 0, $field(XQueryTree, nchildren_ptr)},
-	{"disposer", "Lsun/awt/X11/UnsafeXDisposerRecord;", nullptr, 0, $field(XQueryTree, disposer)},
-	{}
-};
-
-$MethodInfo _XQueryTree_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XQueryTree, init$, void, int64_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, dispose, void)},
-	{"execute", "()I", nullptr, $PUBLIC, $virtualMethod(XQueryTree, execute, int32_t)},
-	{"execute", "(Lsun/awt/X11/XErrorHandler;)I", nullptr, $PUBLIC, $virtualMethod(XQueryTree, execute, int32_t, $XErrorHandler*)},
-	{"get_children", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_children, int64_t)},
-	{"get_nchildren", "()I", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_nchildren, int32_t)},
-	{"get_parent", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_parent, int64_t)},
-	{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_root, int64_t)},
-	{"get_w", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_w, int64_t)},
-	{"isDisposed", "()Z", nullptr, $PUBLIC, $virtualMethod(XQueryTree, isDisposed, bool)},
-	{"isExecuted", "()Z", nullptr, $PUBLIC, $virtualMethod(XQueryTree, isExecuted, bool)},
-	{"set_children", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_children, void, int64_t)},
-	{"set_nchildren", "(I)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_nchildren, void, int32_t)},
-	{"set_parent", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_parent, void, int64_t)},
-	{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_root, void, int64_t)},
-	{"set_w", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_w, void, int64_t)},
-	{}
-};
-
-$ClassInfo _XQueryTree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XQueryTree",
-	"java.lang.Object",
-	nullptr,
-	_XQueryTree_FieldInfo_,
-	_XQueryTree_MethodInfo_
-};
-
-$Object* allocate$XQueryTree($Class* clazz) {
-	return $of($alloc(XQueryTree));
-}
-
 $Unsafe* XQueryTree::unsafe = nullptr;
 
 void XQueryTree::init$(int64_t w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->__executed = false;
 	this->root_ptr = $nc(XQueryTree::unsafe)->allocateMemory($Native::getLongSize());
 	this->parent_ptr = $nc(XQueryTree::unsafe)->allocateMemory($Native::getLongSize());
 	this->children_ptr = $nc(XQueryTree::unsafe)->allocateMemory($Native::getLongSize());
 	this->nchildren_ptr = $nc(XQueryTree::unsafe)->allocateMemory($Native::getIntSize());
 	set_w(w);
-	$Disposer::addRecord(this, ($set(this, disposer, $new($UnsafeXDisposerRecord, "XQueryTree"_s, $$new($longs, {
+	$Disposer::addRecord(this, $set(this, disposer, $new($UnsafeXDisposerRecord, "XQueryTree"_s, $$new($longs, {
 		this->root_ptr,
 		this->parent_ptr,
 		this->nchildren_ptr
-	}), $$new($longs, {this->children_ptr})))));
+	}), $$new($longs, {this->children_ptr}))));
 	set_children(0);
 }
 
@@ -100,41 +52,39 @@ int32_t XQueryTree::execute() {
 
 int32_t XQueryTree::execute($XErrorHandler* errorHandler) {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (isDisposed()) {
-				$throwNew($IllegalStateException, "Disposed"_s);
-			}
-			if (this->__executed) {
-				$throwNew($IllegalStateException, "Already executed"_s);
-			}
-			this->__executed = true;
-			if (errorHandler != nullptr) {
-				$XErrorHandlerUtil::WITH_XERROR_HANDLER(errorHandler);
-			}
-			$Native::putLong(this->children_ptr, (int64_t)0);
-			int64_t var$3 = $XToolkit::getDisplay();
-			int32_t status = $XlibWrapper::XQueryTree(var$3, get_w(), this->root_ptr, this->parent_ptr, this->children_ptr, this->nchildren_ptr);
-			if (errorHandler != nullptr) {
-				$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			}
-			var$2 = status;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (isDisposed()) {
+			$throwNew($IllegalStateException, "Disposed"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (this->__executed) {
+			$throwNew($IllegalStateException, "Already executed"_s);
 		}
-		if (return$1) {
-			return var$2;
+		this->__executed = true;
+		if (errorHandler != nullptr) {
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER(errorHandler);
 		}
+		$Native::putLong(this->children_ptr, (int64_t)0);
+		int64_t var$3 = $XToolkit::getDisplay();
+		int32_t status = $XlibWrapper::XQueryTree(var$3, get_w(), this->root_ptr, this->parent_ptr, this->children_ptr, this->nchildren_ptr);
+		if (errorHandler != nullptr) {
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		}
+		var$2 = status;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -149,26 +99,24 @@ bool XQueryTree::isDisposed() {
 
 void XQueryTree::dispose() {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (isDisposed()) {
-				return$1 = true;
-				goto $finally;
-			}
-			$nc(this->disposer)->dispose();
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (isDisposed()) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+		$nc(this->disposer)->dispose();
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -242,7 +190,7 @@ void XQueryTree::set_nchildren(int32_t data) {
 	$Native::putInt(this->nchildren_ptr, data);
 }
 
-void clinit$XQueryTree($Class* class$) {
+void XQueryTree::clinit$($Class* clazz) {
 	$init($XlibWrapper);
 	$assignStatic(XQueryTree::unsafe, $XlibWrapper::unsafe);
 }
@@ -251,7 +199,47 @@ XQueryTree::XQueryTree() {
 }
 
 $Class* XQueryTree::load$($String* name, bool initialize) {
-	$loadClass(XQueryTree, name, initialize, &_XQueryTree_ClassInfo_, clinit$XQueryTree, allocate$XQueryTree);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(XQueryTree, unsafe)},
+		{"__executed", "Z", nullptr, $PRIVATE, $field(XQueryTree, __executed)},
+		{"_w", "J", nullptr, 0, $field(XQueryTree, _w)},
+		{"root_ptr", "J", nullptr, 0, $field(XQueryTree, root_ptr)},
+		{"parent_ptr", "J", nullptr, 0, $field(XQueryTree, parent_ptr)},
+		{"children_ptr", "J", nullptr, 0, $field(XQueryTree, children_ptr)},
+		{"nchildren_ptr", "J", nullptr, 0, $field(XQueryTree, nchildren_ptr)},
+		{"disposer", "Lsun/awt/X11/UnsafeXDisposerRecord;", nullptr, 0, $field(XQueryTree, disposer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XQueryTree, init$, void, int64_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, dispose, void)},
+		{"execute", "()I", nullptr, $PUBLIC, $virtualMethod(XQueryTree, execute, int32_t)},
+		{"execute", "(Lsun/awt/X11/XErrorHandler;)I", nullptr, $PUBLIC, $virtualMethod(XQueryTree, execute, int32_t, $XErrorHandler*)},
+		{"get_children", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_children, int64_t)},
+		{"get_nchildren", "()I", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_nchildren, int32_t)},
+		{"get_parent", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_parent, int64_t)},
+		{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_root, int64_t)},
+		{"get_w", "()J", nullptr, $PUBLIC, $virtualMethod(XQueryTree, get_w, int64_t)},
+		{"isDisposed", "()Z", nullptr, $PUBLIC, $virtualMethod(XQueryTree, isDisposed, bool)},
+		{"isExecuted", "()Z", nullptr, $PUBLIC, $virtualMethod(XQueryTree, isExecuted, bool)},
+		{"set_children", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_children, void, int64_t)},
+		{"set_nchildren", "(I)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_nchildren, void, int32_t)},
+		{"set_parent", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_parent, void, int64_t)},
+		{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_root, void, int64_t)},
+		{"set_w", "(J)V", nullptr, $PUBLIC, $virtualMethod(XQueryTree, set_w, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XQueryTree",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XQueryTree, name, initialize, &classInfo$$, XQueryTree::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XQueryTree);
+	});
 	return class$;
 }
 

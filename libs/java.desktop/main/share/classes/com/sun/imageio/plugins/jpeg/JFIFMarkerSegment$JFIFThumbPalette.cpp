@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbPalette.h>
-
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$IllegalThumbException.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumb.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbUncompressed.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferByte.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/Raster.h>
@@ -32,8 +30,6 @@ using $JPEGImageReader = ::com::sun::imageio::plugins::jpeg::JPEGImageReader;
 using $JPEGImageWriter = ::com::sun::imageio::plugins::jpeg::JPEGImageWriter;
 using $Point = ::java::awt::Point;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ColorModel = ::java::awt::image::ColorModel;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $Raster = ::java::awt::image::Raster;
@@ -54,48 +50,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _JFIFMarkerSegment$JFIFThumbPalette_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$JFIFThumbPalette, this$0)},
-	{"PALETTE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment$JFIFThumbPalette, PALETTE_SIZE)},
-	{}
-};
-
-$MethodInfo _JFIFMarkerSegment$JFIFThumbPalette_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;II)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbPalette, init$, void, $JFIFMarkerSegment*, $JPEGBuffer*, int32_t, int32_t), "java.io.IOException"},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lorg/w3c/dom/Node;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbPalette, init$, void, $JFIFMarkerSegment*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljava/awt/image/BufferedImage;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbPalette, init$, void, $JFIFMarkerSegment*, $BufferedImage*), "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException"},
-	{"getLength", "()I", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbPalette, getLength, int32_t)},
-	{"getThumbnail", "(Ljavax/imageio/stream/ImageInputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbPalette, getThumbnail, $BufferedImage*, $ImageInputStream*, $JPEGImageReader*), "java.io.IOException"},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbPalette, write, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JFIFMarkerSegment$JFIFThumbPalette_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbPalette", 0},
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbUncompressed", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JFIFMarkerSegment$JFIFThumbPalette_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette",
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed",
-	nullptr,
-	_JFIFMarkerSegment$JFIFThumbPalette_FieldInfo_,
-	_JFIFMarkerSegment$JFIFThumbPalette_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFIFMarkerSegment$JFIFThumbPalette_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
-};
-
-$Object* allocate$JFIFMarkerSegment$JFIFThumbPalette($Class* clazz) {
-	return $of($alloc(JFIFMarkerSegment$JFIFThumbPalette));
-}
 
 void JFIFMarkerSegment$JFIFThumbPalette::init$($JFIFMarkerSegment* this$0, $JPEGBuffer* buffer, int32_t width, int32_t height) {
 	$set(this, this$0, this$0);
@@ -121,7 +75,7 @@ int32_t JFIFMarkerSegment$JFIFThumbPalette::getLength() {
 }
 
 $BufferedImage* JFIFMarkerSegment$JFIFThumbPalette::getThumbnail($ImageInputStream* iis, $JPEGImageReader* reader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(iis)->mark();
 	iis->seek(this->streamPos);
 	$var($bytes, palette, $new($bytes, JFIFMarkerSegment$JFIFThumbPalette::PALETTE_SIZE));
@@ -134,11 +88,11 @@ $BufferedImage* JFIFMarkerSegment$JFIFThumbPalette::getThumbnail($ImageInputStre
 	$var($IndexColorModel, cm, $new($IndexColorModel, 8, 256, palette, 0, false));
 	$var($SampleModel, sm, cm->createCompatibleSampleModel(this->thumbWidth, this->thumbHeight));
 	$var($WritableRaster, raster, $Raster::createWritableRaster(sm, buffer, nullptr));
-	return $new($BufferedImage, static_cast<$ColorModel*>(cm), raster, false, ($Hashtable*)nullptr);
+	return $new($BufferedImage, cm, raster, false, nullptr);
 }
 
 void JFIFMarkerSegment$JFIFThumbPalette::write($ImageOutputStream* ios, $JPEGImageWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFIFMarkerSegment$JFIFThumbUncompressed::write(ios, writer);
 	$var($bytes, palette, $new($bytes, 768));
 	$var($IndexColorModel, icm, $cast($IndexColorModel, $nc(this->thumbnail)->getColorModel()));
@@ -161,7 +115,43 @@ JFIFMarkerSegment$JFIFThumbPalette::JFIFMarkerSegment$JFIFThumbPalette() {
 }
 
 $Class* JFIFMarkerSegment$JFIFThumbPalette::load$($String* name, bool initialize) {
-	$loadClass(JFIFMarkerSegment$JFIFThumbPalette, name, initialize, &_JFIFMarkerSegment$JFIFThumbPalette_ClassInfo_, allocate$JFIFMarkerSegment$JFIFThumbPalette);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$JFIFThumbPalette, this$0)},
+		{"PALETTE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment$JFIFThumbPalette, PALETTE_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;II)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbPalette, init$, void, $JFIFMarkerSegment*, $JPEGBuffer*, int32_t, int32_t), "java.io.IOException"},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lorg/w3c/dom/Node;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbPalette, init$, void, $JFIFMarkerSegment*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljava/awt/image/BufferedImage;)V", nullptr, 0, $method(JFIFMarkerSegment$JFIFThumbPalette, init$, void, $JFIFMarkerSegment*, $BufferedImage*), "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$IllegalThumbException"},
+		{"getLength", "()I", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbPalette, getLength, int32_t)},
+		{"getThumbnail", "(Ljavax/imageio/stream/ImageInputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageReader;)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbPalette, getThumbnail, $BufferedImage*, $ImageInputStream*, $JPEGImageReader*), "java.io.IOException"},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;Lcom/sun/imageio/plugins/jpeg/JPEGImageWriter;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$JFIFThumbPalette, write, void, $ImageOutputStream*, $JPEGImageWriter*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbPalette", 0},
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "JFIFThumbUncompressed", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbPalette",
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$JFIFThumbUncompressed",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
+	};
+	$loadClass(JFIFMarkerSegment$JFIFThumbPalette, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFIFMarkerSegment$JFIFThumbPalette);
+	});
 	return class$;
 }
 

@@ -41,6 +41,7 @@ class RuntimeUtil : public ::java::lang::Object {
 	$class(RuntimeUtil, 0, ::java::lang::Object)
 public:
 	RuntimeUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::rmi::runtime::RuntimeUtil* getInstance();
 	::java::util::concurrent::ScheduledThreadPoolExecutor* getScheduler();

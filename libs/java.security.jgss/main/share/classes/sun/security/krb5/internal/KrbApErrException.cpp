@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KrbApErrException.h>
-
 #include <sun/security/krb5/KrbException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _KrbApErrException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbApErrException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _KrbApErrException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(KrbApErrException, init$, void, int32_t)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KrbApErrException, init$, void, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _KrbApErrException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KrbApErrException",
-	"sun.security.krb5.KrbException",
-	nullptr,
-	_KrbApErrException_FieldInfo_,
-	_KrbApErrException_MethodInfo_
-};
-
-$Object* allocate$KrbApErrException($Class* clazz) {
-	return $of($alloc(KrbApErrException));
-}
 
 void KrbApErrException::init$(int32_t i) {
 	$KrbException::init$(i);
@@ -56,7 +31,26 @@ void KrbApErrException::throw$() {
 }
 
 $Class* KrbApErrException::load$($String* name, bool initialize) {
-	$loadClass(KrbApErrException, name, initialize, &_KrbApErrException_ClassInfo_, allocate$KrbApErrException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbApErrException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(KrbApErrException, init$, void, int32_t)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KrbApErrException, init$, void, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KrbApErrException",
+		"sun.security.krb5.KrbException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbApErrException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbApErrException);
+	});
 	return class$;
 }
 

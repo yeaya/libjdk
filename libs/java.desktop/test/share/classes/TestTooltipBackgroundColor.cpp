@@ -1,5 +1,4 @@
 #include <TestTooltipBackgroundColor.h>
-
 #include <TestTooltipBackgroundColor$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -40,9 +38,7 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -69,27 +65,24 @@ public:
 	virtual void run() override {
 		TestTooltipBackgroundColor::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTooltipBackgroundColor$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestTooltipBackgroundColor$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTooltipBackgroundColor$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTooltipBackgroundColor$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestTooltipBackgroundColor$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTooltipBackgroundColor$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestTooltipBackgroundColor$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestTooltipBackgroundColor$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTooltipBackgroundColor$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTooltipBackgroundColor$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTooltipBackgroundColor$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestTooltipBackgroundColor$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTooltipBackgroundColor$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestTooltipBackgroundColor$$Lambda$lambda$main$0::class$ = nullptr;
@@ -103,82 +96,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTooltipBackgroundColor$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestTooltipBackgroundColor$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestTooltipBackgroundColor$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestTooltipBackgroundColor$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestTooltipBackgroundColor$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTooltipBackgroundColor$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestTooltipBackgroundColor$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTooltipBackgroundColor$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestTooltipBackgroundColor$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestTooltipBackgroundColor$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestTooltipBackgroundColor$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestTooltipBackgroundColor$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTooltipBackgroundColor$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTooltipBackgroundColor$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestTooltipBackgroundColor$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTooltipBackgroundColor$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestTooltipBackgroundColor$$Lambda$dispose$1::class$ = nullptr;
-
-$FieldInfo _TestTooltipBackgroundColor_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, frame)},
-	{"label", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, label)},
-	{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, point)},
-	{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, rect)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, robot)},
-	{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestTooltipBackgroundColor, GTK_LAF_CLASS)},
-	{"minColorDifference", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, minColorDifference)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestTooltipBackgroundColor, latch)},
-	{}
-};
-
-$MethodInfo _TestTooltipBackgroundColor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTooltipBackgroundColor, init$, void)},
-	{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTooltipBackgroundColor, blockTillDisplayed, void, $Component*)},
-	{"findSubComponent", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTooltipBackgroundColor, findSubComponent, $Component*, $Component*, $String*)},
-	{"getMaxColorDiff", "(Ljava/awt/Color;Ljava/awt/Color;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTooltipBackgroundColor, getMaxColorDiff, int32_t, $Color*, $Color*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTooltipBackgroundColor, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTooltipBackgroundColor, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestTooltipBackgroundColor_InnerClassesInfo_[] = {
-	{"TestTooltipBackgroundColor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestTooltipBackgroundColor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestTooltipBackgroundColor",
-	"java.lang.Object",
-	nullptr,
-	_TestTooltipBackgroundColor_FieldInfo_,
-	_TestTooltipBackgroundColor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestTooltipBackgroundColor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestTooltipBackgroundColor$1,TestTooltipBackgroundColor$1$2,TestTooltipBackgroundColor$1$1"
-};
-
-$Object* allocate$TestTooltipBackgroundColor($Class* clazz) {
-	return $of($alloc(TestTooltipBackgroundColor));
-}
 
 $JFrame* TestTooltipBackgroundColor::frame = nullptr;
 $JLabel* TestTooltipBackgroundColor::label = nullptr;
@@ -209,23 +152,19 @@ void TestTooltipBackgroundColor::blockTillDisplayed($Component* comp) {
 
 $Component* TestTooltipBackgroundColor::findSubComponent($Component* parent, $String* className) {
 	$init(TestTooltipBackgroundColor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, parentClassName, $nc($of(parent))->getClass()->getName());
 	if ($nc(parentClassName)->contains(className)) {
 		return parent;
 	}
 	if ($instanceOf($Container, parent)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, parent)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					$var($Component, subComponent, findSubComponent(child, className));
-					if (subComponent != nullptr) {
-						return subComponent;
-					}
+		$var($ComponentArray, arr$, $cast($Container, parent)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				$var($Component, subComponent, findSubComponent(child, className));
+				if (subComponent != nullptr) {
+					return subComponent;
 				}
 			}
 		}
@@ -237,73 +176,67 @@ int32_t TestTooltipBackgroundColor::getMaxColorDiff($Color* c1, $Color* c2) {
 	$init(TestTooltipBackgroundColor);
 	int32_t var$1 = $nc(c1)->getRed();
 	int32_t var$0 = $Math::abs(var$1 - $nc(c2)->getRed());
-	int32_t var$3 = $nc(c1)->getGreen();
-	int32_t var$2 = $Math::abs(var$3 - $nc(c2)->getGreen());
-	int32_t var$4 = $nc(c1)->getBlue();
-	return $Math::max(var$0, $Math::max(var$2, $Math::abs(var$4 - $nc(c2)->getBlue())));
+	int32_t var$3 = c1->getGreen();
+	int32_t var$2 = $Math::abs(var$3 - c2->getGreen());
+	int32_t var$4 = c1->getBlue();
+	return $Math::max(var$0, $Math::max(var$2, $Math::abs(var$4 - c2->getBlue())));
 }
 
 void TestTooltipBackgroundColor::main($StringArray* args) {
 	$init(TestTooltipBackgroundColor);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Linux"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($System::getProperty("os.name"_s))->startsWith("Linux"_s)) {
 		$nc($System::out)->println("This test is meant for Linux platform only"_s);
 		return;
 	}
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelInfo, arr$->get(i$));
-			{
-				if ($nc($($nc(lookAndFeelInfo)->getClassName()))->contains(TestTooltipBackgroundColor::GTK_LAF_CLASS)) {
-					try {
-						$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
-					} catch ($UnsupportedLookAndFeelException& ignored) {
-						$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
-						return;
-					}
+			if ($$nc($nc(lookAndFeelInfo)->getClassName())->contains(TestTooltipBackgroundColor::GTK_LAF_CLASS)) {
+				try {
+					$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
+				} catch ($UnsupportedLookAndFeelException& ignored) {
+					$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
+					return;
 				}
 			}
 		}
 	}
 	$assignStatic(TestTooltipBackgroundColor::robot, $new($Robot));
-	$nc(TestTooltipBackgroundColor::robot)->setAutoDelay(100);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($TestTooltipBackgroundColor$1));
-			$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
-			$nc(TestTooltipBackgroundColor::robot)->delay(500);
-			blockTillDisplayed(TestTooltipBackgroundColor::label);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestTooltipBackgroundColor$$Lambda$lambda$main$0)));
-			$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
-			$nc(TestTooltipBackgroundColor::robot)->delay(500);
-			$var($Color, backgroundColor, $nc(TestTooltipBackgroundColor::robot)->getPixelColor($nc(TestTooltipBackgroundColor::point)->x + $nc(TestTooltipBackgroundColor::rect)->width / 2, $nc(TestTooltipBackgroundColor::point)->y + $nc(TestTooltipBackgroundColor::rect)->height * 2));
-			$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
-			$nc(TestTooltipBackgroundColor::robot)->delay(500);
-			$nc(TestTooltipBackgroundColor::robot)->mouseMove($nc(TestTooltipBackgroundColor::point)->x + $nc(TestTooltipBackgroundColor::rect)->width / 2, $nc(TestTooltipBackgroundColor::point)->y + $nc(TestTooltipBackgroundColor::rect)->height / 2);
-			$nc(TestTooltipBackgroundColor::latch)->await();
-			$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
-			$nc(TestTooltipBackgroundColor::robot)->delay(500);
-			$var($Color, highlightColor, $nc(TestTooltipBackgroundColor::robot)->getPixelColor($nc(TestTooltipBackgroundColor::point)->x + $nc(TestTooltipBackgroundColor::rect)->width / 2, $nc(TestTooltipBackgroundColor::point)->y + $nc(TestTooltipBackgroundColor::rect)->height * 2));
-			$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
-			$nc(TestTooltipBackgroundColor::robot)->delay(500);
-			int32_t actualColorDifference = getMaxColorDiff(backgroundColor, highlightColor);
-			if (actualColorDifference < TestTooltipBackgroundColor::minColorDifference) {
-				$throwNew($RuntimeException, "The expected background color for tooltip not found"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (TestTooltipBackgroundColor::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestTooltipBackgroundColor$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestTooltipBackgroundColor::frame)))));
-			}
+	TestTooltipBackgroundColor::robot->setAutoDelay(100);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($TestTooltipBackgroundColor$1));
+		$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
+		$nc(TestTooltipBackgroundColor::robot)->delay(500);
+		blockTillDisplayed(TestTooltipBackgroundColor::label);
+		$SwingUtilities::invokeAndWait($$new(TestTooltipBackgroundColor$$Lambda$lambda$main$0));
+		$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
+		$nc(TestTooltipBackgroundColor::robot)->delay(500);
+		$var($Color, backgroundColor, $nc(TestTooltipBackgroundColor::robot)->getPixelColor($nc(TestTooltipBackgroundColor::point)->x + $nc(TestTooltipBackgroundColor::rect)->width / 2, $nc(TestTooltipBackgroundColor::point)->y + $nc(TestTooltipBackgroundColor::rect)->height * 2));
+		$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
+		$nc(TestTooltipBackgroundColor::robot)->delay(500);
+		$nc(TestTooltipBackgroundColor::robot)->mouseMove($nc(TestTooltipBackgroundColor::point)->x + $nc(TestTooltipBackgroundColor::rect)->width / 2, $nc(TestTooltipBackgroundColor::point)->y + $nc(TestTooltipBackgroundColor::rect)->height / 2);
+		TestTooltipBackgroundColor::latch->await();
+		$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
+		$nc(TestTooltipBackgroundColor::robot)->delay(500);
+		$var($Color, highlightColor, $nc(TestTooltipBackgroundColor::robot)->getPixelColor($nc(TestTooltipBackgroundColor::point)->x + $nc(TestTooltipBackgroundColor::rect)->width / 2, $nc(TestTooltipBackgroundColor::point)->y + $nc(TestTooltipBackgroundColor::rect)->height * 2));
+		$nc(TestTooltipBackgroundColor::robot)->waitForIdle();
+		$nc(TestTooltipBackgroundColor::robot)->delay(500);
+		int32_t actualColorDifference = getMaxColorDiff(backgroundColor, highlightColor);
+		if (actualColorDifference < TestTooltipBackgroundColor::minColorDifference) {
+			$throwNew($RuntimeException, "The expected background color for tooltip not found"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (TestTooltipBackgroundColor::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(TestTooltipBackgroundColor$$Lambda$dispose$1, TestTooltipBackgroundColor::frame));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -313,7 +246,7 @@ void TestTooltipBackgroundColor::lambda$main$0() {
 	$assignStatic(TestTooltipBackgroundColor::rect, $nc(TestTooltipBackgroundColor::label)->getBounds());
 }
 
-void clinit$TestTooltipBackgroundColor($Class* class$) {
+void TestTooltipBackgroundColor::clinit$($Class* clazz) {
 	$assignStatic(TestTooltipBackgroundColor::GTK_LAF_CLASS, "GTKLookAndFeel"_s);
 	TestTooltipBackgroundColor::minColorDifference = 100;
 	$assignStatic(TestTooltipBackgroundColor::latch, $new($CountDownLatch, 1));
@@ -324,14 +257,54 @@ TestTooltipBackgroundColor::TestTooltipBackgroundColor() {
 
 $Class* TestTooltipBackgroundColor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestTooltipBackgroundColor$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestTooltipBackgroundColor$$Lambda$lambda$main$0")) {
 			return TestTooltipBackgroundColor$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestTooltipBackgroundColor$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestTooltipBackgroundColor$$Lambda$dispose$1")) {
 			return TestTooltipBackgroundColor$$Lambda$dispose$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestTooltipBackgroundColor, name, initialize, &_TestTooltipBackgroundColor_ClassInfo_, clinit$TestTooltipBackgroundColor, allocate$TestTooltipBackgroundColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, frame)},
+		{"label", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, label)},
+		{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, point)},
+		{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, rect)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, robot)},
+		{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestTooltipBackgroundColor, GTK_LAF_CLASS)},
+		{"minColorDifference", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestTooltipBackgroundColor, minColorDifference)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestTooltipBackgroundColor, latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTooltipBackgroundColor, init$, void)},
+		{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTooltipBackgroundColor, blockTillDisplayed, void, $Component*)},
+		{"findSubComponent", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTooltipBackgroundColor, findSubComponent, $Component*, $Component*, $String*)},
+		{"getMaxColorDiff", "(Ljava/awt/Color;Ljava/awt/Color;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTooltipBackgroundColor, getMaxColorDiff, int32_t, $Color*, $Color*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTooltipBackgroundColor, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTooltipBackgroundColor, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestTooltipBackgroundColor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestTooltipBackgroundColor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestTooltipBackgroundColor$1,TestTooltipBackgroundColor$1$2,TestTooltipBackgroundColor$1$1"
+	};
+	$loadClass(TestTooltipBackgroundColor, name, initialize, &classInfo$$, TestTooltipBackgroundColor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTooltipBackgroundColor);
+	});
 	return class$;
 }
 

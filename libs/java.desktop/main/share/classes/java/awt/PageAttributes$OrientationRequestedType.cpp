@@ -1,5 +1,4 @@
 #include <java/awt/PageAttributes$OrientationRequestedType.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/PageAttributes.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _PageAttributes$OrientationRequestedType_FieldInfo_[] = {
-	{"I_PORTRAIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OrientationRequestedType, I_PORTRAIT)},
-	{"I_LANDSCAPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OrientationRequestedType, I_LANDSCAPE)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$OrientationRequestedType, NAMES)},
-	{"PORTRAIT", "Ljava/awt/PageAttributes$OrientationRequestedType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OrientationRequestedType, PORTRAIT)},
-	{"LANDSCAPE", "Ljava/awt/PageAttributes$OrientationRequestedType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OrientationRequestedType, LANDSCAPE)},
-	{}
-};
-
-$MethodInfo _PageAttributes$OrientationRequestedType_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$OrientationRequestedType, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OrientationRequestedType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OrientationRequestedType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PageAttributes$OrientationRequestedType_InnerClassesInfo_[] = {
-	{"java.awt.PageAttributes$OrientationRequestedType", "java.awt.PageAttributes", "OrientationRequestedType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PageAttributes$OrientationRequestedType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.PageAttributes$OrientationRequestedType",
-	"java.awt.AttributeValue",
-	nullptr,
-	_PageAttributes$OrientationRequestedType_FieldInfo_,
-	_PageAttributes$OrientationRequestedType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PageAttributes$OrientationRequestedType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.PageAttributes"
-};
-
-$Object* allocate$PageAttributes$OrientationRequestedType($Class* clazz) {
-	return $of($alloc(PageAttributes$OrientationRequestedType));
-}
-
 $StringArray* PageAttributes$OrientationRequestedType::NAMES = nullptr;
 PageAttributes$OrientationRequestedType* PageAttributes$OrientationRequestedType::PORTRAIT = nullptr;
 PageAttributes$OrientationRequestedType* PageAttributes$OrientationRequestedType::LANDSCAPE = nullptr;
@@ -76,7 +34,7 @@ int32_t PageAttributes$OrientationRequestedType::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$PageAttributes$OrientationRequestedType($Class* class$) {
+void PageAttributes$OrientationRequestedType::clinit$($Class* clazz) {
 	$assignStatic(PageAttributes$OrientationRequestedType::NAMES, $new($StringArray, {
 		"portrait"_s,
 		"landscape"_s
@@ -89,7 +47,42 @@ PageAttributes$OrientationRequestedType::PageAttributes$OrientationRequestedType
 }
 
 $Class* PageAttributes$OrientationRequestedType::load$($String* name, bool initialize) {
-	$loadClass(PageAttributes$OrientationRequestedType, name, initialize, &_PageAttributes$OrientationRequestedType_ClassInfo_, clinit$PageAttributes$OrientationRequestedType, allocate$PageAttributes$OrientationRequestedType);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_PORTRAIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OrientationRequestedType, I_PORTRAIT)},
+		{"I_LANDSCAPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$OrientationRequestedType, I_LANDSCAPE)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$OrientationRequestedType, NAMES)},
+		{"PORTRAIT", "Ljava/awt/PageAttributes$OrientationRequestedType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OrientationRequestedType, PORTRAIT)},
+		{"LANDSCAPE", "Ljava/awt/PageAttributes$OrientationRequestedType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$OrientationRequestedType, LANDSCAPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$OrientationRequestedType, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OrientationRequestedType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$OrientationRequestedType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.PageAttributes$OrientationRequestedType", "java.awt.PageAttributes", "OrientationRequestedType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.PageAttributes$OrientationRequestedType",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.PageAttributes"
+	};
+	$loadClass(PageAttributes$OrientationRequestedType, name, initialize, &classInfo$$, PageAttributes$OrientationRequestedType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PageAttributes$OrientationRequestedType);
+	});
 	return class$;
 }
 

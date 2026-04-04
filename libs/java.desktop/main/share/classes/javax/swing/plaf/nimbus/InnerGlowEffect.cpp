@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/InnerGlowEffect.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/plaf/nimbus/InnerShadowEffect.h>
 #include <javax/swing/plaf/nimbus/ShadowEffect.h>
@@ -15,24 +14,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _InnerGlowEffect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InnerGlowEffect, init$, void)},
-	{}
-};
-
-$ClassInfo _InnerGlowEffect_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.InnerGlowEffect",
-	"javax.swing.plaf.nimbus.InnerShadowEffect",
-	nullptr,
-	nullptr,
-	_InnerGlowEffect_MethodInfo_
-};
-
-$Object* allocate$InnerGlowEffect($Class* clazz) {
-	return $of($alloc(InnerGlowEffect));
-}
-
 void InnerGlowEffect::init$() {
 	$InnerShadowEffect::init$();
 	this->distance = 0;
@@ -43,7 +24,21 @@ InnerGlowEffect::InnerGlowEffect() {
 }
 
 $Class* InnerGlowEffect::load$($String* name, bool initialize) {
-	$loadClass(InnerGlowEffect, name, initialize, &_InnerGlowEffect_ClassInfo_, allocate$InnerGlowEffect);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InnerGlowEffect, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.InnerGlowEffect",
+		"javax.swing.plaf.nimbus.InnerShadowEffect",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InnerGlowEffect, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InnerGlowEffect);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MXBeanLookup.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <com/sun/jmx/mbeanserver/WeakIdentityHashMap.h>
@@ -8,7 +7,6 @@
 #include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Map.h>
 #include <javax/management/InstanceAlreadyExistsException.h>
 #include <javax/management/JMX.h>
@@ -29,8 +27,6 @@ using $WeakReference = ::java::lang::ref::WeakReference;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Map = ::java::util::Map;
 using $InstanceAlreadyExistsException = ::javax::management::InstanceAlreadyExistsException;
 using $JMX = ::javax::management::JMX;
 using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
@@ -43,40 +39,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _MXBeanLookup_FieldInfo_[] = {
-	{"currentLookup", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/jmx/mbeanserver/MXBeanLookup;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanLookup, currentLookup)},
-	{"mbsc", "Ljavax/management/MBeanServerConnection;", nullptr, $PRIVATE | $FINAL, $field(MXBeanLookup, mbsc)},
-	{"mxbeanToObjectName", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<Ljava/lang/Object;Ljavax/management/ObjectName;>;", $PRIVATE | $FINAL, $field(MXBeanLookup, mxbeanToObjectName$)},
-	{"objectNameToProxy", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/management/ObjectName;Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;>;", $PRIVATE | $FINAL, $field(MXBeanLookup, objectNameToProxy)},
-	{"mbscToLookup", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<Ljavax/management/MBeanServerConnection;Ljava/lang/ref/WeakReference<Lcom/sun/jmx/mbeanserver/MXBeanLookup;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanLookup, mbscToLookup)},
-	{}
-};
-
-$MethodInfo _MXBeanLookup_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServerConnection;)V", nullptr, $PRIVATE, $method(MXBeanLookup, init$, void, $MBeanServerConnection*)},
-	{"addReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, addReference, void, $ObjectName*, Object$*), "javax.management.InstanceAlreadyExistsException"},
-	{"getLookup", "()Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $staticMethod(MXBeanLookup, getLookup, MXBeanLookup*)},
-	{"lookupFor", "(Ljavax/management/MBeanServerConnection;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $staticMethod(MXBeanLookup, lookupFor, MXBeanLookup*, $MBeanServerConnection*)},
-	{"mxbeanToObjectName", "(Ljava/lang/Object;)Ljavax/management/ObjectName;", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, mxbeanToObjectName, $ObjectName*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{"objectNameToMXBean", "(Ljavax/management/ObjectName;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;)TT;", $SYNCHRONIZED, $virtualMethod(MXBeanLookup, objectNameToMXBean, $Object*, $ObjectName*, $Class*)},
-	{"removeReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, removeReference, bool, $ObjectName*, Object$*)},
-	{"setLookup", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, $STATIC, $staticMethod(MXBeanLookup, setLookup, void, MXBeanLookup*)},
-	{}
-};
-
-$ClassInfo _MXBeanLookup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MXBeanLookup",
-	"java.lang.Object",
-	nullptr,
-	_MXBeanLookup_FieldInfo_,
-	_MXBeanLookup_MethodInfo_
-};
-
-$Object* allocate$MXBeanLookup($Class* clazz) {
-	return $of($alloc(MXBeanLookup));
-}
-
 $ThreadLocal* MXBeanLookup::currentLookup = nullptr;
 $WeakIdentityHashMap* MXBeanLookup::mbscToLookup = nullptr;
 
@@ -88,13 +50,13 @@ void MXBeanLookup::init$($MBeanServerConnection* mbsc) {
 
 MXBeanLookup* MXBeanLookup::lookupFor($MBeanServerConnection* mbsc) {
 	$init(MXBeanLookup);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(MXBeanLookup::mbscToLookup) {
-		$var($WeakReference, weakLookup, $cast($WeakReference, $nc(MXBeanLookup::mbscToLookup)->get(mbsc)));
-		$var(MXBeanLookup, lookup, (weakLookup == nullptr) ? (MXBeanLookup*)nullptr : $cast(MXBeanLookup, $nc(weakLookup)->get()));
+		$var($WeakReference, weakLookup, $cast($WeakReference, MXBeanLookup::mbscToLookup->get(mbsc)));
+		$var(MXBeanLookup, lookup, (weakLookup == nullptr) ? (MXBeanLookup*)nullptr : $cast(MXBeanLookup, weakLookup->get()));
 		if (lookup == nullptr) {
 			$assign(lookup, $new(MXBeanLookup, mbsc));
-			$nc(MXBeanLookup::mbscToLookup)->put(mbsc, $$new($WeakReference, lookup));
+			MXBeanLookup::mbscToLookup->put(mbsc, $$new($WeakReference, lookup));
 		}
 		return lookup;
 	}
@@ -102,30 +64,30 @@ MXBeanLookup* MXBeanLookup::lookupFor($MBeanServerConnection* mbsc) {
 
 $Object* MXBeanLookup::objectNameToMXBean($ObjectName* name, $Class* type) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($WeakReference, wr, $cast($WeakReference, $nc(this->objectNameToProxy)->get(name)));
 		if (wr != nullptr) {
 			$var($Object, proxy, wr->get());
 			if ($nc(type)->isInstance(proxy)) {
-				return $of(type->cast(proxy));
+				return type->cast(proxy);
 			}
 		}
 		$var($Object, proxy, $JMX::newMXBeanProxy(this->mbsc, name, type));
-		$nc(this->objectNameToProxy)->put(name, $$new($WeakReference, proxy));
-		return $of(proxy);
+		this->objectNameToProxy->put(name, $$new($WeakReference, proxy));
+		return proxy;
 	}
 }
 
 $ObjectName* MXBeanLookup::mxbeanToObjectName(Object$* mxbean) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		$var($String, wrong, nullptr);
 		if ($instanceOf($Proxy, mxbean)) {
 			$var($InvocationHandler, ih, $Proxy::getInvocationHandler(mxbean));
 			if ($instanceOf($MBeanServerInvocationHandler, ih)) {
 				$var($MBeanServerInvocationHandler, mbsih, $cast($MBeanServerInvocationHandler, ih));
-				if ($nc($of($($nc(mbsih)->getMBeanServerConnection())))->equals(this->mbsc)) {
+				if ($$nc(mbsih->getMBeanServerConnection())->equals(this->mbsc)) {
 					return mbsih->getObjectName();
 				} else {
 					$assign(wrong, "proxy for a different MBeanServer"_s);
@@ -140,30 +102,30 @@ $ObjectName* MXBeanLookup::mxbeanToObjectName(Object$* mxbean) {
 			}
 			$assign(wrong, "not an MXBean registered in this MBeanServer"_s);
 		}
-		$var($String, s, (mxbean == nullptr) ? "null"_s : $str({"object of type "_s, $($nc($of(mxbean))->getClass()->getName())}));
+		$var($String, s, (mxbean == nullptr) ? "null"_s : $str({"object of type "_s, $($of(mxbean)->getClass()->getName())}));
 		$throwNew($OpenDataException, $$str({"Could not convert "_s, s, " to an ObjectName: "_s, wrong}));
 	}
 }
 
 void MXBeanLookup::addReference($ObjectName* name, Object$* mxbean) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		$var($ObjectName, existing, $cast($ObjectName, $nc(this->mxbeanToObjectName$)->get(mxbean)));
 		if (existing != nullptr) {
-			$var($String, multiname, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "jmx.mxbean.multiname"_s)))));
+			$var($String, multiname, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "jmx.mxbean.multiname"_s))));
 			if (!"true"_s->equalsIgnoreCase(multiname)) {
 				$throwNew($InstanceAlreadyExistsException, $$str({"MXBean already registered with name "_s, existing}));
 			}
 		}
-		$nc(this->mxbeanToObjectName$)->put(mxbean, name);
+		this->mxbeanToObjectName$->put(mxbean, name);
 	}
 }
 
 bool MXBeanLookup::removeReference($ObjectName* name, Object$* mxbean) {
 	$synchronized(this) {
 		if ($nc(name)->equals($($nc(this->mxbeanToObjectName$)->get(mxbean)))) {
-			$nc(this->mxbeanToObjectName$)->remove(mxbean);
+			this->mxbeanToObjectName$->remove(mxbean);
 			return true;
 		} else {
 			return false;
@@ -173,15 +135,15 @@ bool MXBeanLookup::removeReference($ObjectName* name, Object$* mxbean) {
 
 MXBeanLookup* MXBeanLookup::getLookup() {
 	$init(MXBeanLookup);
-	return $cast(MXBeanLookup, $nc(MXBeanLookup::currentLookup)->get());
+	return $cast(MXBeanLookup, MXBeanLookup::currentLookup->get());
 }
 
 void MXBeanLookup::setLookup(MXBeanLookup* lookup) {
 	$init(MXBeanLookup);
-	$nc(MXBeanLookup::currentLookup)->set(lookup);
+	MXBeanLookup::currentLookup->set(lookup);
 }
 
-void clinit$MXBeanLookup($Class* class$) {
+void MXBeanLookup::clinit$($Class* clazz) {
 	$assignStatic(MXBeanLookup::currentLookup, $new($ThreadLocal));
 	$assignStatic(MXBeanLookup::mbscToLookup, $WeakIdentityHashMap::make());
 }
@@ -190,7 +152,36 @@ MXBeanLookup::MXBeanLookup() {
 }
 
 $Class* MXBeanLookup::load$($String* name, bool initialize) {
-	$loadClass(MXBeanLookup, name, initialize, &_MXBeanLookup_ClassInfo_, clinit$MXBeanLookup, allocate$MXBeanLookup);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentLookup", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/jmx/mbeanserver/MXBeanLookup;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanLookup, currentLookup)},
+		{"mbsc", "Ljavax/management/MBeanServerConnection;", nullptr, $PRIVATE | $FINAL, $field(MXBeanLookup, mbsc)},
+		{"mxbeanToObjectName", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<Ljava/lang/Object;Ljavax/management/ObjectName;>;", $PRIVATE | $FINAL, $field(MXBeanLookup, mxbeanToObjectName$)},
+		{"objectNameToProxy", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/management/ObjectName;Ljava/lang/ref/WeakReference<Ljava/lang/Object;>;>;", $PRIVATE | $FINAL, $field(MXBeanLookup, objectNameToProxy)},
+		{"mbscToLookup", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<Ljavax/management/MBeanServerConnection;Ljava/lang/ref/WeakReference<Lcom/sun/jmx/mbeanserver/MXBeanLookup;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MXBeanLookup, mbscToLookup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/MBeanServerConnection;)V", nullptr, $PRIVATE, $method(MXBeanLookup, init$, void, $MBeanServerConnection*)},
+		{"addReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, addReference, void, $ObjectName*, Object$*), "javax.management.InstanceAlreadyExistsException"},
+		{"getLookup", "()Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $staticMethod(MXBeanLookup, getLookup, MXBeanLookup*)},
+		{"lookupFor", "(Ljavax/management/MBeanServerConnection;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $staticMethod(MXBeanLookup, lookupFor, MXBeanLookup*, $MBeanServerConnection*)},
+		{"mxbeanToObjectName", "(Ljava/lang/Object;)Ljavax/management/ObjectName;", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, mxbeanToObjectName, $ObjectName*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{"objectNameToMXBean", "(Ljavax/management/ObjectName;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;)TT;", $SYNCHRONIZED, $virtualMethod(MXBeanLookup, objectNameToMXBean, $Object*, $ObjectName*, $Class*)},
+		{"removeReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, removeReference, bool, $ObjectName*, Object$*)},
+		{"setLookup", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, $STATIC, $staticMethod(MXBeanLookup, setLookup, void, MXBeanLookup*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MXBeanLookup",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MXBeanLookup, name, initialize, &classInfo$$, MXBeanLookup::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBeanLookup);
+	});
 	return class$;
 }
 

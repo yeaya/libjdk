@@ -29,6 +29,7 @@ class ArrayCacheConst : public ::sun::java2d::marlin::MarlinConst {
 	$class(ArrayCacheConst, 0, ::sun::java2d::marlin::MarlinConst)
 public:
 	ArrayCacheConst();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getBucket(int32_t length);
 	static int64_t getNewLargeSize(int64_t curSize, int64_t needSize);

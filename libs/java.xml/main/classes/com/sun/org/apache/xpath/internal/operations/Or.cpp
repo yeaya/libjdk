@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/Or.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/objects/XBoolean.h>
@@ -10,7 +9,6 @@
 #undef S_FALSE
 #undef S_TRUE
 
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XBoolean = ::com::sun::org::apache::xpath::internal::objects::XBoolean;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
@@ -27,42 +25,17 @@ namespace com {
 					namespace internal {
 						namespace operations {
 
-$FieldInfo _Or_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Or, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Or_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Or, init$, void)},
-	{"bool", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Z", nullptr, $PUBLIC, $virtualMethod(Or, bool$, bool, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Or, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _Or_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.Or",
-	"com.sun.org.apache.xpath.internal.operations.Operation",
-	nullptr,
-	_Or_FieldInfo_,
-	_Or_MethodInfo_
-};
-
-$Object* allocate$Or($Class* clazz) {
-	return $of($alloc(Or));
-}
-
 void Or::init$() {
 	$Operation::init$();
 }
 
 $XObject* Or::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XObject, expr1, $nc(this->m_left)->execute(xctxt));
 	if (!$nc(expr1)->bool$()) {
 		$var($XObject, expr2, $nc(this->m_right)->execute(xctxt));
 		$init($XBoolean);
-		return $nc(expr2)->bool$() ? static_cast<$XObject*>($XBoolean::S_TRUE) : static_cast<$XObject*>($XBoolean::S_FALSE);
+		return $nc(expr2)->bool$() ? $XBoolean::S_TRUE : $XBoolean::S_FALSE;
 	} else {
 		$init($XBoolean);
 		return $XBoolean::S_TRUE;
@@ -78,7 +51,27 @@ Or::Or() {
 }
 
 $Class* Or::load$($String* name, bool initialize) {
-	$loadClass(Or, name, initialize, &_Or_ClassInfo_, allocate$Or);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Or, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Or, init$, void)},
+		{"bool", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Z", nullptr, $PUBLIC, $virtualMethod(Or, bool$, bool, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Or, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.Or",
+		"com.sun.org.apache.xpath.internal.operations.Operation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Or, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Or));
+	});
 	return class$;
 }
 

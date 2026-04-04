@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/CanonicalizerPhysical.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/helper/AttrCompare.h>
@@ -33,7 +32,6 @@ using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::sig
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
@@ -56,34 +54,6 @@ namespace com {
 							namespace c14n {
 								namespace implementations {
 
-$MethodInfo _CanonicalizerPhysical_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CanonicalizerPhysical, init$, void)},
-	{"circumventBugIfNeeded", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, circumventBugIfNeeded, void, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerPhysical, engineCanonicalizeSubTree, void, $Node*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerPhysical, engineCanonicalizeSubTree, void, $Node*, $String*, bool, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC, $virtualMethod(CanonicalizerPhysical, engineCanonicalizeXPathNodeSet, void, $Set*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CanonicalizerPhysical, engineGetURI, $String*)},
-	{"handleParent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, handleParent, void, $Element*, $NameSpaceSymbTable*)},
-	{"outputAttributes", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputAttributes, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
-	{"outputAttributesSubtree", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputAttributesSubtree, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
-	{"outputCommentToWriter", "(Lorg/w3c/dom/Comment;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputCommentToWriter, void, $Comment*, $OutputStream*, int32_t), "java.io.IOException"},
-	{"outputPItoWriter", "(Lorg/w3c/dom/ProcessingInstruction;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputPItoWriter, void, $ProcessingInstruction*, $OutputStream*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CanonicalizerPhysical_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerPhysical",
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerBase",
-	nullptr,
-	nullptr,
-	_CanonicalizerPhysical_MethodInfo_
-};
-
-$Object* allocate$CanonicalizerPhysical($Class* clazz) {
-	return $of($alloc(CanonicalizerPhysical));
-}
-
 void CanonicalizerPhysical::init$() {
 	$CanonicalizerBase::init$(true);
 }
@@ -101,10 +71,10 @@ void CanonicalizerPhysical::engineCanonicalizeSubTree($Node* rootNode, $String* 
 }
 
 void CanonicalizerPhysical::outputAttributesSubtree($Element* element, $NameSpaceSymbTable* ns, $Map* cache, $OutputStream* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(element)->hasAttributes()) {
 		$init($CanonicalizerBase);
-		$var($SortedSet, result, $new($TreeSet, static_cast<$Comparator*>($CanonicalizerBase::COMPARE)));
+		$var($SortedSet, result, $new($TreeSet, $CanonicalizerBase::COMPARE));
 		$var($NamedNodeMap, attrs, element->getAttributes());
 		int32_t attrsLength = $nc(attrs)->getLength();
 		for (int32_t i = 0; i < attrsLength; ++i) {
@@ -151,7 +121,31 @@ CanonicalizerPhysical::CanonicalizerPhysical() {
 }
 
 $Class* CanonicalizerPhysical::load$($String* name, bool initialize) {
-	$loadClass(CanonicalizerPhysical, name, initialize, &_CanonicalizerPhysical_ClassInfo_, allocate$CanonicalizerPhysical);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CanonicalizerPhysical, init$, void)},
+		{"circumventBugIfNeeded", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, circumventBugIfNeeded, void, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
+		{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerPhysical, engineCanonicalizeSubTree, void, $Node*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerPhysical, engineCanonicalizeSubTree, void, $Node*, $String*, bool, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC, $virtualMethod(CanonicalizerPhysical, engineCanonicalizeXPathNodeSet, void, $Set*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CanonicalizerPhysical, engineGetURI, $String*)},
+		{"handleParent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, handleParent, void, $Element*, $NameSpaceSymbTable*)},
+		{"outputAttributes", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputAttributes, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
+		{"outputAttributesSubtree", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputAttributesSubtree, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
+		{"outputCommentToWriter", "(Lorg/w3c/dom/Comment;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputCommentToWriter, void, $Comment*, $OutputStream*, int32_t), "java.io.IOException"},
+		{"outputPItoWriter", "(Lorg/w3c/dom/ProcessingInstruction;Ljava/io/OutputStream;I)V", nullptr, $PROTECTED, $virtualMethod(CanonicalizerPhysical, outputPItoWriter, void, $ProcessingInstruction*, $OutputStream*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerPhysical",
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CanonicalizerPhysical, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CanonicalizerPhysical);
+	});
 	return class$;
 }
 

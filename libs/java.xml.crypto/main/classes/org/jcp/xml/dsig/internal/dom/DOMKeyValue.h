@@ -58,6 +58,7 @@ class DOMKeyValue : public ::org::jcp::xml::dsig::internal::dom::DOMStructure, p
 	$class(DOMKeyValue, 0, ::org::jcp::xml::dsig::internal::dom::DOMStructure, ::javax::xml::crypto::dsig::keyinfo::KeyValue)
 public:
 	DOMKeyValue();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	void init$(::java::security::PublicKey* key);

@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/BaseEntry.h>
-
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/util/Objects.h>
@@ -24,57 +23,6 @@ using $Normalizer = ::javax::xml::catalog::Normalizer;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _BaseEntry_FieldInfo_[] = {
-	{"SLASH", "Ljava/lang/String;", nullptr, $FINAL, $field(BaseEntry, SLASH)},
-	{"type", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, 0, $field(BaseEntry, type)},
-	{"id", "Ljava/lang/String;", nullptr, 0, $field(BaseEntry, id)},
-	{"matchId", "Ljava/lang/String;", nullptr, 0, $field(BaseEntry, matchId)},
-	{"baseURI", "Ljava/net/URL;", nullptr, 0, $field(BaseEntry, baseURI)},
-	{"baseSpecified", "Z", nullptr, 0, $field(BaseEntry, baseSpecified)},
-	{}
-};
-
-$MethodInfo _BaseEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;)V", nullptr, $PUBLIC, $method(BaseEntry, init$, void, $BaseEntry$CatalogEntryType*)},
-	{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BaseEntry, init$, void, $BaseEntry$CatalogEntryType*, $String*)},
-	{"getBaseURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getBaseURI, $URL*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getId, $String*)},
-	{"getMatchId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getMatchId, $String*)},
-	{"getType", "()Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getType, $BaseEntry$CatalogEntryType*)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, match, $String*, $String*)},
-	{"match", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, match, $String*, $String*, int32_t)},
-	{"setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(BaseEntry, setBaseURI, void, $String*)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseEntry, setId, void, $String*)},
-	{"setMatchId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseEntry, setMatchId, void, $String*)},
-	{"setType", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;)V", nullptr, $PUBLIC, $virtualMethod(BaseEntry, setType, void, $BaseEntry$CatalogEntryType*)},
-	{"verifyURI", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/String;)Ljava/net/URL;", nullptr, 0, $virtualMethod(BaseEntry, verifyURI, $URL*, $String*, $URL*, $String*)},
-	{}
-};
-
-$InnerClassInfo _BaseEntry_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.BaseEntry$CatalogEntryType", "javax.xml.catalog.BaseEntry", "CatalogEntryType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _BaseEntry_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.xml.catalog.BaseEntry",
-	"java.lang.Object",
-	nullptr,
-	_BaseEntry_FieldInfo_,
-	_BaseEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaseEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.BaseEntry$CatalogEntryType"
-};
-
-$Object* allocate$BaseEntry($Class* clazz) {
-	return $of($alloc(BaseEntry));
-}
 
 void BaseEntry::init$($BaseEntry$CatalogEntryType* type) {
 	$set(this, SLASH, "/"_s);
@@ -130,7 +78,7 @@ $String* BaseEntry::match($String* id, int32_t currentMatch) {
 }
 
 $URL* BaseEntry::verifyURI($String* arg, $URL* base, $String* uri$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uri, uri$renamed);
 	$CatalogMessages::reportNPEOnNull(arg, uri);
 	$var($URL, url, nullptr);
@@ -143,8 +91,8 @@ $URL* BaseEntry::verifyURI($String* arg, $URL* base, $String* uri$renamed) {
 		}
 	} catch ($MalformedURLException& e) {
 		$CatalogMessages::reportIAE("InvalidArgument"_s, $$new($ObjectArray, {
-			$of(uri),
-			$of(arg)
+			uri,
+			arg
 		}), e);
 	}
 	return url;
@@ -154,7 +102,52 @@ BaseEntry::BaseEntry() {
 }
 
 $Class* BaseEntry::load$($String* name, bool initialize) {
-	$loadClass(BaseEntry, name, initialize, &_BaseEntry_ClassInfo_, allocate$BaseEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"SLASH", "Ljava/lang/String;", nullptr, $FINAL, $field(BaseEntry, SLASH)},
+		{"type", "Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, 0, $field(BaseEntry, type)},
+		{"id", "Ljava/lang/String;", nullptr, 0, $field(BaseEntry, id)},
+		{"matchId", "Ljava/lang/String;", nullptr, 0, $field(BaseEntry, matchId)},
+		{"baseURI", "Ljava/net/URL;", nullptr, 0, $field(BaseEntry, baseURI)},
+		{"baseSpecified", "Z", nullptr, 0, $field(BaseEntry, baseSpecified)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;)V", nullptr, $PUBLIC, $method(BaseEntry, init$, void, $BaseEntry$CatalogEntryType*)},
+		{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BaseEntry, init$, void, $BaseEntry$CatalogEntryType*, $String*)},
+		{"getBaseURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getBaseURI, $URL*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getId, $String*)},
+		{"getMatchId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getMatchId, $String*)},
+		{"getType", "()Ljavax/xml/catalog/BaseEntry$CatalogEntryType;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, getType, $BaseEntry$CatalogEntryType*)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, match, $String*, $String*)},
+		{"match", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseEntry, match, $String*, $String*, int32_t)},
+		{"setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(BaseEntry, setBaseURI, void, $String*)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseEntry, setId, void, $String*)},
+		{"setMatchId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseEntry, setMatchId, void, $String*)},
+		{"setType", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;)V", nullptr, $PUBLIC, $virtualMethod(BaseEntry, setType, void, $BaseEntry$CatalogEntryType*)},
+		{"verifyURI", "(Ljava/lang/String;Ljava/net/URL;Ljava/lang/String;)Ljava/net/URL;", nullptr, 0, $virtualMethod(BaseEntry, verifyURI, $URL*, $String*, $URL*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.BaseEntry$CatalogEntryType", "javax.xml.catalog.BaseEntry", "CatalogEntryType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.xml.catalog.BaseEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.BaseEntry$CatalogEntryType"
+	};
+	$loadClass(BaseEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseEntry);
+	});
 	return class$;
 }
 

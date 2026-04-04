@@ -20,10 +20,13 @@ public:
 	DVFactoryException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xCC1CEB7627291454;
+	static const int64_t serialVersionUID = (int64_t)0xcc1ceb7627291454;
 	DVFactoryException(const DVFactoryException& e);
 	virtual void throw$() override;
-	inline DVFactoryException* operator ->() {
+	inline DVFactoryException* operator ->() const {
+		return (DVFactoryException*)throwing$;
+	}
+	inline operator DVFactoryException*() const {
 		return (DVFactoryException*)throwing$;
 	}
 };

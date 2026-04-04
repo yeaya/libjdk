@@ -1,13 +1,10 @@
 #include <sun/print/ServiceDialog$MediaPanel.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/util/EventObject.h>
 #include <java/util/MissingResourceException.h>
 #include <java/util/ResourceBundle.h>
@@ -39,27 +36,19 @@
 #undef TRAILING
 
 using $MediaArray = $Array<::javax::print::attribute::standard::Media>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MissingResourceException = ::java::util::MissingResourceException;
-using $ResourceBundle = ::java::util::ResourceBundle;
 using $Vector = ::java::util::Vector;
-using $PrintService = ::javax::print::PrintService;
 using $Attribute = ::javax::print::attribute::Attribute;
-using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
-using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $Media = ::javax::print::attribute::standard::Media;
 using $MediaSizeName = ::javax::print::attribute::standard::MediaSizeName;
 using $MediaTray = ::javax::print::attribute::standard::MediaTray;
@@ -67,65 +56,12 @@ using $BorderFactory = ::javax::swing::BorderFactory;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $Border = ::javax::swing::border::Border;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $ServiceDialog$MarginsPanel = ::sun::print::ServiceDialog$MarginsPanel;
 using $SunAlternateMedia = ::sun::print::SunAlternateMedia;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog$MediaPanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$MediaPanel, this$0)},
-	{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$MediaPanel, strTitle)},
-	{"lblSize", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MediaPanel, lblSize)},
-	{"lblSource", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MediaPanel, lblSource)},
-	{"cbSize", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, cbSize)},
-	{"cbSource", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, cbSource)},
-	{"sizes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/standard/MediaSizeName;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, sizes)},
-	{"sources", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/standard/MediaTray;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, sources)},
-	{"pnlMargins", "Lsun/print/ServiceDialog$MarginsPanel;", nullptr, $PRIVATE, $field(ServiceDialog$MediaPanel, pnlMargins)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$MediaPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$MediaPanel, init$, void, $ServiceDialog*)},
-	{"addMediaListener", "(Lsun/print/ServiceDialog$MarginsPanel;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MediaPanel, addMediaListener, void, $ServiceDialog$MarginsPanel*)},
-	{"getMediaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ServiceDialog$MediaPanel, getMediaName, $String*, $String*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MediaPanel, itemStateChanged, void, $ItemEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MediaPanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$MediaPanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$MediaPanel", "sun.print.ServiceDialog", "MediaPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$MediaPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$MediaPanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ItemListener",
-	_ServiceDialog$MediaPanel_FieldInfo_,
-	_ServiceDialog$MediaPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$MediaPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$MediaPanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$MediaPanel));
-}
 
 $String* ServiceDialog$MediaPanel::toString() {
 	 return this->$JPanel::toString();
@@ -148,7 +84,7 @@ void ServiceDialog$MediaPanel::finalize() {
 }
 
 void ServiceDialog$MediaPanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, strTitle, $ServiceDialog::getMsg("border.media"_s));
@@ -195,19 +131,19 @@ $String* ServiceDialog$MediaPanel::getMediaName($String* key) {
 }
 
 void ServiceDialog$MediaPanel::itemStateChanged($ItemEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, source, $nc(e)->getSource());
 	if (e->getStateChange() == $ItemEvent::SELECTED) {
 		if ($equals(source, this->cbSize)) {
 			int32_t index = $nc(this->cbSize)->getSelectedIndex();
 			if ((index >= 0) && (index < $nc(this->sizes)->size())) {
-				bool var$0 = ($nc(this->cbSource)->getItemCount() > 1);
-				if (var$0 && ($nc(this->cbSource)->getSelectedIndex() >= 1)) {
+				bool var$0 = $nc(this->cbSource)->getItemCount() > 1;
+				if (var$0 && (this->cbSource->getSelectedIndex() >= 1)) {
 					int32_t src = $nc(this->cbSource)->getSelectedIndex() - 1;
 					$var($MediaTray, mt, $cast($MediaTray, $nc(this->sources)->get(src)));
 					$nc(this->this$0->asCurrent)->add($$new($SunAlternateMedia, mt));
 				}
-				$nc(this->this$0->asCurrent)->add($cast($Attribute, $($nc(this->sizes)->get(index))));
+				$nc(this->this$0->asCurrent)->add($$cast($Attribute, $nc(this->sizes)->get(index)));
 			}
 		} else if ($equals(source, this->cbSource)) {
 			int32_t index = $nc(this->cbSource)->getSelectedIndex();
@@ -218,12 +154,12 @@ void ServiceDialog$MediaPanel::itemStateChanged($ItemEvent* e) {
 				$load($Media);
 				$var($Media, m, $cast($Media, $nc(this->this$0->asCurrent)->get($Media::class$)));
 				if (m == nullptr || $instanceOf($MediaTray, m)) {
-					$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(static_cast<$Media*>(newTray))));
+					$nc(this->this$0->asCurrent)->add($cast($DocAttribute, newTray));
 				} else if ($instanceOf($MediaSizeName, m)) {
 					$var($MediaSizeName, msn, $cast($MediaSizeName, m));
 					$var($Media, def, $cast($Media, $nc(this->this$0->psCurrent)->getDefaultAttributeValue($Media::class$)));
-					if ($instanceOf($MediaSizeName, def) && $nc(def)->equals(msn)) {
-						$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(static_cast<$Media*>(newTray))));
+					if ($instanceOf($MediaSizeName, def) && def->equals(msn)) {
+						$nc(this->this$0->asCurrent)->add($cast($DocAttribute, newTray));
 					} else {
 						$nc(this->this$0->asCurrent)->add($$new($SunAlternateMedia, newTray));
 					}
@@ -233,12 +169,12 @@ void ServiceDialog$MediaPanel::itemStateChanged($ItemEvent* e) {
 				$nc(this->this$0->asCurrent)->remove($SunAlternateMedia::class$);
 				if ($nc(this->cbSize)->getItemCount() > 0) {
 					int32_t size = $nc(this->cbSize)->getSelectedIndex();
-					$nc(this->this$0->asCurrent)->add($cast($Attribute, $($nc(this->sizes)->get(size))));
+					$nc(this->this$0->asCurrent)->add($$cast($Attribute, $nc(this->sizes)->get(size)));
 				}
 			}
 		}
 		if (this->pnlMargins != nullptr) {
-			$nc(this->pnlMargins)->updateInfo();
+			this->pnlMargins->updateInfo();
 		}
 	}
 }
@@ -248,7 +184,7 @@ void ServiceDialog$MediaPanel::addMediaListener($ServiceDialog$MarginsPanel* pnl
 }
 
 void ServiceDialog$MediaPanel::updateInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Media);
 	$Class* mdCategory = $Media::class$;
 	$load($SunAlternateMedia);
@@ -263,17 +199,17 @@ void ServiceDialog$MediaPanel::updateInfo() {
 	$nc(this->sources)->clear();
 	if ($nc(this->this$0->psCurrent)->isAttributeCategorySupported(mdCategory)) {
 		mediaSupported = true;
-		$var($Object, values, $nc(this->this$0->psCurrent)->getSupportedAttributeValues(mdCategory, this->this$0->docFlavor, static_cast<$AttributeSet*>(static_cast<$HashAttributeSet*>(this->this$0->asCurrent))));
+		$var($Object, values, $nc(this->this$0->psCurrent)->getSupportedAttributeValues(mdCategory, this->this$0->docFlavor, $cast($HashAttributeSet, this->this$0->asCurrent)));
 		if ($instanceOf($MediaArray, values)) {
 			$var($MediaArray, media, $cast($MediaArray, values));
-			for (int32_t i = 0; i < $nc(media)->length; ++i) {
+			for (int32_t i = 0; i < media->length; ++i) {
 				$var($Media, medium, media->get(i));
 				if ($instanceOf($MediaSizeName, medium)) {
 					$nc(this->sizes)->add($cast($MediaSizeName, medium));
-					$nc(this->cbSize)->addItem($(getMediaName($($nc(medium)->toString()))));
+					$nc(this->cbSize)->addItem($(getMediaName($(medium->toString()))));
 				} else if ($instanceOf($MediaTray, medium)) {
 					$nc(this->sources)->add($cast($MediaTray, medium));
-					$nc(this->cbSource)->addItem($(getMediaName($($nc(medium)->toString()))));
+					$nc(this->cbSource)->addItem($(getMediaName($(medium->toString()))));
 				}
 			}
 		}
@@ -291,17 +227,17 @@ void ServiceDialog$MediaPanel::updateInfo() {
 		$var($Media, medium, $cast($Media, $nc(this->this$0->asCurrent)->get(mdCategory)));
 		$var($Media, defMedia, $cast($Media, $nc(this->this$0->psCurrent)->getDefaultAttributeValue(mdCategory)));
 		if ($instanceOf($MediaSizeName, defMedia)) {
-			$nc(this->cbSize)->setSelectedIndex($nc(this->sizes)->size() > 0 ? $nc(this->sizes)->indexOf(defMedia) : -1);
+			$nc(this->cbSize)->setSelectedIndex($nc(this->sizes)->size() > 0 ? this->sizes->indexOf(defMedia) : -1);
 		}
-		if (medium == nullptr || !$nc(this->this$0->psCurrent)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(medium)), this->this$0->docFlavor, static_cast<$AttributeSet*>(static_cast<$HashAttributeSet*>(this->this$0->asCurrent)))) {
+		if (medium == nullptr || !$nc(this->this$0->psCurrent)->isAttributeValueSupported($cast($DocAttribute, medium), this->this$0->docFlavor, $cast($HashAttributeSet, this->this$0->asCurrent))) {
 			$assign(medium, defMedia);
 			if (medium == nullptr) {
 				if ($nc(this->sizes)->size() > 0) {
-					$assign(medium, $cast($Media, $nc(this->sizes)->get(0)));
+					$assign(medium, $cast($Media, this->sizes->get(0)));
 				}
 			}
 			if (medium != nullptr) {
-				$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(medium)));
+				$nc(this->this$0->asCurrent)->add($cast($DocAttribute, medium));
 			}
 		}
 		if (medium != nullptr) {
@@ -326,13 +262,13 @@ void ServiceDialog$MediaPanel::updateInfo() {
 		}
 		int32_t selIndex = $nc(this->cbSize)->getSelectedIndex();
 		if ((selIndex >= 0) && (selIndex < $nc(this->sizes)->size())) {
-			$nc(this->this$0->asCurrent)->add($cast($Attribute, $($nc(this->sizes)->get(selIndex))));
+			$nc(this->this$0->asCurrent)->add($$cast($Attribute, this->sizes->get(selIndex)));
 		}
 		selIndex = $nc(this->cbSource)->getSelectedIndex();
 		if ((selIndex >= 1) && (selIndex < ($nc(this->sources)->size() + 1))) {
-			$var($MediaTray, mt, $cast($MediaTray, $nc(this->sources)->get(selIndex - 1)));
+			$var($MediaTray, mt, $cast($MediaTray, this->sources->get(selIndex - 1)));
 			if ($instanceOf($MediaTray, medium)) {
-				$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(static_cast<$Media*>(mt))));
+				$nc(this->this$0->asCurrent)->add($cast($DocAttribute, mt));
 			} else {
 				$nc(this->this$0->asCurrent)->add($$new($SunAlternateMedia, mt));
 			}
@@ -346,7 +282,53 @@ ServiceDialog$MediaPanel::ServiceDialog$MediaPanel() {
 }
 
 $Class* ServiceDialog$MediaPanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$MediaPanel, name, initialize, &_ServiceDialog$MediaPanel_ClassInfo_, allocate$ServiceDialog$MediaPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$MediaPanel, this$0)},
+		{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$MediaPanel, strTitle)},
+		{"lblSize", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MediaPanel, lblSize)},
+		{"lblSource", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$MediaPanel, lblSource)},
+		{"cbSize", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, cbSize)},
+		{"cbSource", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/lang/Object;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, cbSource)},
+		{"sizes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/standard/MediaSizeName;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, sizes)},
+		{"sources", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/standard/MediaTray;>;", $PRIVATE, $field(ServiceDialog$MediaPanel, sources)},
+		{"pnlMargins", "Lsun/print/ServiceDialog$MarginsPanel;", nullptr, $PRIVATE, $field(ServiceDialog$MediaPanel, pnlMargins)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$MediaPanel, init$, void, $ServiceDialog*)},
+		{"addMediaListener", "(Lsun/print/ServiceDialog$MarginsPanel;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MediaPanel, addMediaListener, void, $ServiceDialog$MarginsPanel*)},
+		{"getMediaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ServiceDialog$MediaPanel, getMediaName, $String*, $String*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MediaPanel, itemStateChanged, void, $ItemEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$MediaPanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$MediaPanel", "sun.print.ServiceDialog", "MediaPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$MediaPanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$MediaPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$MediaPanel));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer$1.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer$2.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer$3.h>
@@ -21,7 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -30,53 +28,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _ToStream$CharacterBuffer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/serializer/ToStream;", nullptr, $FINAL | $SYNTHETIC, $field(ToStream$CharacterBuffer, this$0)},
-	{"bufferedCharacters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer$GenericCharacters;>;", $PRIVATE, $field(ToStream$CharacterBuffer, bufferedCharacters)},
-	{}
-};
-
-$MethodInfo _ToStream$CharacterBuffer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/serializer/ToStream;)V", nullptr, $PRIVATE, $method(ToStream$CharacterBuffer, init$, void, $ToStream*)},
-	{"addEntityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, addEntityReference, void, $String*)},
-	{"addRawText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, addRawText, void, $chars*, int32_t, int32_t)},
-	{"addText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, addText, void, $chars*, int32_t, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, clear, void)},
-	{"flush", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, flush, void, bool), "org.xml.sax.SAXException"},
-	{"isAnyCharactersBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, isAnyCharactersBuffered, bool)},
-	{"toChars", "()[C", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, toChars, $chars*)},
-	{}
-};
-
-$InnerClassInfo _ToStream$CharacterBuffer_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "CharacterBuffer", $PRIVATE},
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$GenericCharacters", "com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer", "GenericCharacters", $PRIVATE | $ABSTRACT},
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$3", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ToStream$CharacterBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer",
-	"java.lang.Object",
-	nullptr,
-	_ToStream$CharacterBuffer_FieldInfo_,
-	_ToStream$CharacterBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ToStream$CharacterBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.ToStream"
-};
-
-$Object* allocate$ToStream$CharacterBuffer($Class* clazz) {
-	return $of($alloc(ToStream$CharacterBuffer));
-}
 
 void ToStream$CharacterBuffer::init$($ToStream* this$0) {
 	$set(this, this$0, this$0);
@@ -100,7 +51,7 @@ bool ToStream$CharacterBuffer::isAnyCharactersBuffered() {
 }
 
 void ToStream$CharacterBuffer::flush(bool skipBeginningNewlines) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, itr, $nc(this->bufferedCharacters)->iterator());
 	bool continueSkipBeginningNewlines = skipBeginningNewlines;
 	while ($nc(itr)->hasNext()) {
@@ -111,7 +62,7 @@ void ToStream$CharacterBuffer::flush(bool skipBeginningNewlines) {
 }
 
 $chars* ToStream$CharacterBuffer::toChars() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	{
 		$var($Iterator, i$, $nc(this->bufferedCharacters)->iterator());
@@ -122,7 +73,7 @@ $chars* ToStream$CharacterBuffer::toChars() {
 			}
 		}
 	}
-	return $nc($(sb->toString()))->toCharArray();
+	return $(sb->toString())->toCharArray();
 }
 
 void ToStream$CharacterBuffer::clear() {
@@ -133,7 +84,48 @@ ToStream$CharacterBuffer::ToStream$CharacterBuffer() {
 }
 
 $Class* ToStream$CharacterBuffer::load$($String* name, bool initialize) {
-	$loadClass(ToStream$CharacterBuffer, name, initialize, &_ToStream$CharacterBuffer_ClassInfo_, allocate$ToStream$CharacterBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/serializer/ToStream;", nullptr, $FINAL | $SYNTHETIC, $field(ToStream$CharacterBuffer, this$0)},
+		{"bufferedCharacters", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/serializer/ToStream$CharacterBuffer$GenericCharacters;>;", $PRIVATE, $field(ToStream$CharacterBuffer, bufferedCharacters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/serializer/ToStream;)V", nullptr, $PRIVATE, $method(ToStream$CharacterBuffer, init$, void, $ToStream*)},
+		{"addEntityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, addEntityReference, void, $String*)},
+		{"addRawText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, addRawText, void, $chars*, int32_t, int32_t)},
+		{"addText", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, addText, void, $chars*, int32_t, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, clear, void)},
+		{"flush", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, flush, void, bool), "org.xml.sax.SAXException"},
+		{"isAnyCharactersBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, isAnyCharactersBuffered, bool)},
+		{"toChars", "()[C", nullptr, $PUBLIC, $virtualMethod(ToStream$CharacterBuffer, toChars, $chars*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer", "com.sun.org.apache.xml.internal.serializer.ToStream", "CharacterBuffer", $PRIVATE},
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$GenericCharacters", "com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer", "GenericCharacters", $PRIVATE | $ABSTRACT},
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$3", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ToStream$CharacterBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.ToStream"
+	};
+	$loadClass(ToStream$CharacterBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToStream$CharacterBuffer);
+	});
 	return class$;
 }
 

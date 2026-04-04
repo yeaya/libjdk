@@ -35,6 +35,7 @@ class Request$WriteStream : public ::java::io::OutputStream {
 	$class(Request$WriteStream, 0, ::java::io::OutputStream)
 public:
 	Request$WriteStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ServerImpl* server, ::java::nio::channels::SocketChannel* channel);
 	virtual void close() override;
 	virtual void write(int32_t b) override;

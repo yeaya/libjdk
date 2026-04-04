@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/io/InputStream.h>
 #include <java/io/NotSerializableException.h>
 #include <java/io/ObjectOutputStream.h>
@@ -110,7 +108,6 @@
 using $ComponentArray = $Array<::java::awt::Component>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
@@ -119,7 +116,6 @@ using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $InputStream = ::java::io::InputStream;
 using $NotSerializableException = ::java::io::NotSerializableException;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -136,7 +132,6 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $URL = ::java::net::URL;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
@@ -201,7 +196,6 @@ using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$UIDefaultsAccessor = ::sun::swing::SwingAccessor$UIDefaultsAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 using $SynthFileChooserUI = ::sun::swing::plaf::synth::SynthFileChooserUI;
 
@@ -209,84 +203,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthLookAndFeel_FieldInfo_[] = {
-	{"EMPTY_UIRESOURCE_INSETS", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(SynthLookAndFeel, EMPTY_UIRESOURCE_INSETS)},
-	{"STYLE_FACTORY_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthLookAndFeel, STYLE_FACTORY_KEY)},
-	{"SELECTED_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthLookAndFeel, SELECTED_UI_KEY)},
-	{"SELECTED_UI_STATE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthLookAndFeel, SELECTED_UI_STATE_KEY)},
-	{"lastFactory", "Ljavax/swing/plaf/synth/SynthStyleFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SynthLookAndFeel, lastFactory)},
-	{"lastContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $STATIC, $staticField(SynthLookAndFeel, lastContext)},
-	{"factory", "Ljavax/swing/plaf/synth/SynthStyleFactory;", nullptr, $PRIVATE, $field(SynthLookAndFeel, factory)},
-	{"defaultsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(SynthLookAndFeel, defaultsMap)},
-	{"_handler", "Ljavax/swing/plaf/synth/SynthLookAndFeel$Handler;", nullptr, $PRIVATE, $field(SynthLookAndFeel, _handler)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljavax/swing/LookAndFeel;>;", $PRIVATE | $STATIC, $staticField(SynthLookAndFeel, queue)},
-	{}
-};
-
-$MethodInfo _SynthLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthLookAndFeel, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, createUI, $ComponentUI*, $JComponent*)},
-	{"flushUnreferenced", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel, flushUnreferenced, void)},
-	{"getComponentState", "(Ljava/awt/Component;)I", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getComponentState, int32_t, $Component*)},
-	{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getDefaults, $UIDefaults*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getDescription, $String*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getID, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getName, $String*)},
-	{"getPaintingInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getPaintingInsets, $Insets*, $SynthContext*, $Insets*)},
-	{"getRegion", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, getRegion, $Region*, $JComponent*)},
-	{"getSelectedUI", "()Ljavax/swing/plaf/ComponentUI;", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getSelectedUI, $ComponentUI*)},
-	{"getSelectedUIState", "()I", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getSelectedUIState, int32_t)},
-	{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, getStyle, $SynthStyle*, $JComponent*, $Region*)},
-	{"getStyleFactory", "()Ljavax/swing/plaf/synth/SynthStyleFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, getStyleFactory, $SynthStyleFactory*)},
-	{"getUIOfType", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(SynthLookAndFeel, getUIOfType, $Object*, $ComponentUI*, $Class*)},
-	{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, initialize, void)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, isLeftToRight, bool, $Component*)},
-	{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, isNativeLookAndFeel, bool)},
-	{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, isSupportedLookAndFeel, bool)},
-	{"load", "(Ljava/io/InputStream;Ljava/lang/Class;)V", "(Ljava/io/InputStream;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(SynthLookAndFeel, load, void, $InputStream*, $Class*), "java.text.ParseException"},
-	{"load", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, load, void, $URL*), "java.text.ParseException,java.io.IOException"},
-	{"paintRegion", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel, paintRegion, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{"resetSelectedUI", "()V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, resetSelectedUI, void)},
-	{"setSelectedUI", "(Ljavax/swing/plaf/ComponentUI;ZZZZ)V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, setSelectedUI, void, $ComponentUI*, bool, bool, bool, bool)},
-	{"setStyleFactory", "(Ljavax/swing/plaf/synth/SynthStyleFactory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, setStyleFactory, void, $SynthStyleFactory*)},
-	{"shouldUpdateStyle", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, shouldUpdateStyle, bool, $PropertyChangeEvent*)},
-	{"shouldUpdateStyleOnAncestorChanged", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, shouldUpdateStyleOnAncestorChanged, bool)},
-	{"shouldUpdateStyleOnEvent", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $PROTECTED, $virtualMethod(SynthLookAndFeel, shouldUpdateStyleOnEvent, bool, $PropertyChangeEvent*)},
-	{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, uninitialize, void)},
-	{"update", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, update, void, $SynthContext*, $Graphics*)},
-	{"updateStyle", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/SynthUI;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, updateStyle, $SynthStyle*, $SynthContext*, $SynthUI*)},
-	{"updateStyles", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, updateStyles, void, $Component*)},
-	{"updateSubregion", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, updateSubregion, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{"useLAFConditions", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel, useLAFConditions, bool)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SynthLookAndFeel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SynthLookAndFeel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthLookAndFeel$Handler", "javax.swing.plaf.synth.SynthLookAndFeel", "Handler", $PRIVATE},
-	{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener", "javax.swing.plaf.synth.SynthLookAndFeel", "AATextListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthLookAndFeel",
-	"javax.swing.plaf.basic.BasicLookAndFeel",
-	nullptr,
-	_SynthLookAndFeel_FieldInfo_,
-	_SynthLookAndFeel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthLookAndFeel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthLookAndFeel$Handler,javax.swing.plaf.synth.SynthLookAndFeel$AATextListener,javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1"
-};
-
-$Object* allocate$SynthLookAndFeel($Class* clazz) {
-	return $of($alloc(SynthLookAndFeel));
-}
 
 $Insets* SynthLookAndFeel::EMPTY_UIRESOURCE_INSETS = nullptr;
 $Object* SynthLookAndFeel::STYLE_FACTORY_KEY = nullptr;
@@ -298,12 +214,12 @@ $ReferenceQueue* SynthLookAndFeel::queue = nullptr;
 
 $ComponentUI* SynthLookAndFeel::getSelectedUI() {
 	$init(SynthLookAndFeel);
-	return $cast($ComponentUI, $nc($($AppContext::getAppContext()))->get(SynthLookAndFeel::SELECTED_UI_KEY));
+	return $cast($ComponentUI, $$nc($AppContext::getAppContext())->get(SynthLookAndFeel::SELECTED_UI_KEY));
 }
 
 void SynthLookAndFeel::setSelectedUI($ComponentUI* uix, bool selected, bool focused, bool enabled, bool rollover) {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t selectedUIState = 0;
 	if (selected) {
 		selectedUIState = $SynthConstants::SELECTED;
@@ -330,14 +246,14 @@ void SynthLookAndFeel::setSelectedUI($ComponentUI* uix, bool selected, bool focu
 
 int32_t SynthLookAndFeel::getSelectedUIState() {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
-	$var($Integer, result, $cast($Integer, $nc($($AppContext::getAppContext()))->get(SynthLookAndFeel::SELECTED_UI_STATE_KEY)));
-	return result == nullptr ? 0 : $nc(result)->intValue();
+	$useLocalObjectStack();
+	$var($Integer, result, $cast($Integer, $$nc($AppContext::getAppContext())->get(SynthLookAndFeel::SELECTED_UI_STATE_KEY)));
+	return result == nullptr ? 0 : result->intValue();
 }
 
 void SynthLookAndFeel::resetSelectedUI() {
 	$init(SynthLookAndFeel);
-	$nc($($AppContext::getAppContext()))->remove(SynthLookAndFeel::SELECTED_UI_KEY);
+	$$nc($AppContext::getAppContext())->remove(SynthLookAndFeel::SELECTED_UI_KEY);
 }
 
 void SynthLookAndFeel::setStyleFactory($SynthStyleFactory* cache) {
@@ -376,21 +292,21 @@ int32_t SynthLookAndFeel::getComponentState($Component* c) {
 
 $SynthStyle* SynthLookAndFeel::getStyle($JComponent* c, $Region* region) {
 	$init(SynthLookAndFeel);
-	return $nc($(getStyleFactory()))->getStyle(c, region);
+	return $$nc(getStyleFactory())->getStyle(c, region);
 }
 
 bool SynthLookAndFeel::shouldUpdateStyle($PropertyChangeEvent* event) {
 	$init(SynthLookAndFeel);
 	$var($LookAndFeel, laf, $UIManager::getLookAndFeel());
-	return ($instanceOf(SynthLookAndFeel, laf) && $nc(($cast(SynthLookAndFeel, laf)))->shouldUpdateStyleOnEvent(event));
+	return ($instanceOf(SynthLookAndFeel, laf) && $cast(SynthLookAndFeel, laf)->shouldUpdateStyleOnEvent(event));
 }
 
 $SynthStyle* SynthLookAndFeel::updateStyle($SynthContext* context, $SynthUI* ui) {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, var$0, $nc(context)->getComponent());
 	$var($SynthStyle, newStyle, getStyle(var$0, $(context->getRegion())));
-	$var($SynthStyle, oldStyle, $nc(context)->getStyle());
+	$var($SynthStyle, oldStyle, context->getStyle());
 	if (newStyle != oldStyle) {
 		if (oldStyle != nullptr) {
 			oldStyle->uninstallDefaults(context);
@@ -403,31 +319,27 @@ $SynthStyle* SynthLookAndFeel::updateStyle($SynthContext* context, $SynthUI* ui)
 
 void SynthLookAndFeel::updateStyles($Component* c) {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JComponent, c)) {
-		$var($String, name, $nc(c)->getName());
+		$var($String, name, c->getName());
 		c->setName(nullptr);
 		if (name != nullptr) {
 			c->setName(name);
 		}
-		$nc(($cast($JComponent, c)))->revalidate();
+		$cast($JComponent, c)->revalidate();
 	}
 	$var($ComponentArray, children, nullptr);
 	if ($instanceOf($JMenu, c)) {
-		$assign(children, $nc(($cast($JMenu, c)))->getMenuComponents());
+		$assign(children, $cast($JMenu, c)->getMenuComponents());
 	} else if ($instanceOf($Container, c)) {
-		$assign(children, $nc(($cast($Container, c)))->getComponents());
+		$assign(children, $cast($Container, c)->getComponents());
 	}
 	if (children != nullptr) {
-		{
-			$var($ComponentArray, arr$, children);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					updateStyles(child);
-				}
+		$var($ComponentArray, arr$, children);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				updateStyles(child);
 			}
 		}
 	}
@@ -441,12 +353,12 @@ $Region* SynthLookAndFeel::getRegion($JComponent* c) {
 
 $Insets* SynthLookAndFeel::getPaintingInsets($SynthContext* state, $Insets* insets$renamed) {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, insets$renamed);
 	if ($nc(state)->isSubregion()) {
-		$assign(insets, $nc($(state->getStyle()))->getInsets(state, insets));
+		$assign(insets, $$nc(state->getStyle())->getInsets(state, insets));
 	} else {
-		$assign(insets, $nc($(state->getComponent()))->getInsets(insets));
+		$assign(insets, $$nc(state->getComponent())->getInsets(insets));
 	}
 	return insets;
 }
@@ -463,7 +375,7 @@ void SynthLookAndFeel::updateSubregion($SynthContext* state, $Graphics* g, $Rect
 
 void SynthLookAndFeel::paintRegion($SynthContext* state, $Graphics* g, $Rectangle* bounds) {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, c, $nc(state)->getComponent());
 	$var($SynthStyle, style, state->getStyle());
 	int32_t x = 0;
@@ -476,23 +388,23 @@ void SynthLookAndFeel::paintRegion($SynthContext* state, $Graphics* g, $Rectangl
 		width = $nc(c)->getWidth();
 		height = c->getHeight();
 	} else {
-		x = $nc(bounds)->x;
+		x = bounds->x;
 		y = bounds->y;
 		width = bounds->width;
 		height = bounds->height;
 	}
 	bool subregion = state->isSubregion();
-	bool var$0 = (subregion && $nc(style)->isOpaque(state));
+	bool var$0 = subregion && $nc(style)->isOpaque(state);
 	if (var$0 || (!subregion && $nc(c)->isOpaque())) {
 		$init($ColorType);
-		$nc(g)->setColor($($nc(style)->getColor(state, $ColorType::BACKGROUND)));
+		$nc(g)->setColor($(style->getColor(state, $ColorType::BACKGROUND)));
 		g->fillRect(x, y, width, height);
 	}
 }
 
 bool SynthLookAndFeel::isLeftToRight($Component* c) {
 	$init(SynthLookAndFeel);
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 $Object* SynthLookAndFeel::getUIOfType($ComponentUI* ui, $Class* klass) {
@@ -500,13 +412,13 @@ $Object* SynthLookAndFeel::getUIOfType($ComponentUI* ui, $Class* klass) {
 	if ($nc(klass)->isInstance(ui)) {
 		return $of(ui);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $ComponentUI* SynthLookAndFeel::createUI($JComponent* c) {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
-	$var($String, key, $nc($($nc(c)->getUIClassID()))->intern());
+	$useLocalObjectStack();
+	$var($String, key, $$nc($nc(c)->getUIClassID())->intern());
 	if (key == "ButtonUI"_s) {
 		return $SynthButtonUI::createUI(c);
 	} else if (key == "CheckBoxUI"_s) {
@@ -614,7 +526,7 @@ void SynthLookAndFeel::load($InputStream* input, $Class* resourceBase) {
 }
 
 void SynthLookAndFeel::load($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (url == nullptr) {
 		$throwNew($IllegalArgumentException, "You must supply a valid Synth set URL"_s);
 	}
@@ -626,26 +538,25 @@ void SynthLookAndFeel::load($URL* url) {
 }
 
 void SynthLookAndFeel::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicLookAndFeel::initialize();
 	$DefaultLookup::setDefaultLookup($$new($SynthDefaultLookup));
 	setStyleFactory(this->factory);
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addPropertyChangeListener(this->_handler);
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addPropertyChangeListener(this->_handler);
 }
 
 void SynthLookAndFeel::uninitialize() {
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->removePropertyChangeListener(this->_handler);
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->removePropertyChangeListener(this->_handler);
 	$BasicLookAndFeel::uninitialize();
 }
 
 $UIDefaults* SynthLookAndFeel::getDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, table, $new($UIDefaults, 60, 0.75f));
 	$Region::registerUIs(table);
 	table->setDefaultLocale($($Locale::getDefault()));
-	$nc($($SwingAccessor::getUIDefaultsAccessor()))->addInternalBundle(table, "com.sun.swing.internal.plaf.basic.resources.basic"_s);
-	$nc($($SwingAccessor::getUIDefaultsAccessor()))->addInternalBundle(table, "com.sun.swing.internal.plaf.synth.resources.synth"_s);
-	$init($Boolean);
+	$$nc($SwingAccessor::getUIDefaultsAccessor())->addInternalBundle(table, "com.sun.swing.internal.plaf.basic.resources.basic"_s);
+	$$nc($SwingAccessor::getUIDefaultsAccessor())->addInternalBundle(table, "com.sun.swing.internal.plaf.synth.resources.synth"_s);
 	table->put("TabbedPane.isTabRollover"_s, $Boolean::TRUE);
 	table->put("ColorChooser.swatchesRecentSwatchSize"_s, $$new($Dimension, 10, 10));
 	$init($Color);
@@ -655,40 +566,40 @@ $UIDefaults* SynthLookAndFeel::getDefaults() {
 	table->put("html.pendingImage"_s, $($SwingUtilities2::makeIcon($of(this)->getClass(), $BasicLookAndFeel::class$, "icons/image-delayed.png"_s)));
 	table->put("html.missingImage"_s, $($SwingUtilities2::makeIcon($of(this)->getClass(), $BasicLookAndFeel::class$, "icons/image-failed.png"_s)));
 	table->put("PopupMenu.selectedWindowInputMapBindings"_s, $$new($ObjectArray, {
-		$of("ESCAPE"_s),
-		$of("cancel"_s),
-		$of("DOWN"_s),
-		$of("selectNext"_s),
-		$of("KP_DOWN"_s),
-		$of("selectNext"_s),
-		$of("UP"_s),
-		$of("selectPrevious"_s),
-		$of("KP_UP"_s),
-		$of("selectPrevious"_s),
-		$of("LEFT"_s),
-		$of("selectParent"_s),
-		$of("KP_LEFT"_s),
-		$of("selectParent"_s),
-		$of("RIGHT"_s),
-		$of("selectChild"_s),
-		$of("KP_RIGHT"_s),
-		$of("selectChild"_s),
-		$of("ENTER"_s),
-		$of("return"_s),
-		$of("ctrl ENTER"_s),
-		$of("return"_s),
-		$of("SPACE"_s),
-		$of("return"_s)
+		"ESCAPE"_s,
+		"cancel"_s,
+		"DOWN"_s,
+		"selectNext"_s,
+		"KP_DOWN"_s,
+		"selectNext"_s,
+		"UP"_s,
+		"selectPrevious"_s,
+		"KP_UP"_s,
+		"selectPrevious"_s,
+		"LEFT"_s,
+		"selectParent"_s,
+		"KP_LEFT"_s,
+		"selectParent"_s,
+		"RIGHT"_s,
+		"selectChild"_s,
+		"KP_RIGHT"_s,
+		"selectChild"_s,
+		"ENTER"_s,
+		"return"_s,
+		"ctrl ENTER"_s,
+		"return"_s,
+		"SPACE"_s,
+		"return"_s
 	}));
 	table->put("PopupMenu.selectedWindowInputMapBindings.RightToLeft"_s, $$new($ObjectArray, {
-		$of("LEFT"_s),
-		$of("selectChild"_s),
-		$of("KP_LEFT"_s),
-		$of("selectChild"_s),
-		$of("RIGHT"_s),
-		$of("selectParent"_s),
-		$of("KP_RIGHT"_s),
-		$of("selectParent"_s)
+		"LEFT"_s,
+		"selectChild"_s,
+		"KP_LEFT"_s,
+		"selectChild"_s,
+		"RIGHT"_s,
+		"selectParent"_s,
+		"KP_RIGHT"_s,
+		"selectParent"_s
 	}));
 	flushUnreferenced();
 	$SwingUtilities2::putAATextInfo(useLAFConditions(), table);
@@ -736,13 +647,13 @@ bool SynthLookAndFeel::shouldUpdateStyleOnEvent($PropertyChangeEvent* ev) {
 
 bool SynthLookAndFeel::useLAFConditions() {
 	$init(SynthLookAndFeel);
-	$useLocalCurrentObjectStackCache();
-	$var($String, language, $nc($($Locale::getDefault()))->getLanguage());
+	$useLocalObjectStack();
+	$var($String, language, $$nc($Locale::getDefault())->getLanguage());
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-	$var($String, desktop, ($instanceOf($SunToolkit, tk)) ? $nc(($cast($SunToolkit, tk)))->getDesktop() : ($String*)nullptr);
-	bool var$1 = $nc($($nc($Locale::CHINESE)->getLanguage()))->equals(language);
-	bool var$0 = var$1 || $nc($($nc($Locale::JAPANESE)->getLanguage()))->equals(language);
-	bool isCjkLocale = (var$0 || $nc($($nc($Locale::KOREAN)->getLanguage()))->equals(language));
+	$var($String, desktop, ($instanceOf($SunToolkit, tk)) ? $cast($SunToolkit, tk)->getDesktop() : ($String*)nullptr);
+	bool var$1 = $$nc($nc($Locale::CHINESE)->getLanguage())->equals(language);
+	bool var$0 = var$1 || $$nc($nc($Locale::JAPANESE)->getLanguage())->equals(language);
+	bool isCjkLocale = (var$0 || $$nc($nc($Locale::KOREAN)->getLanguage())->equals(language));
 	bool isGnome = "gnome"_s->equals(desktop);
 	bool isLocal = $SwingUtilities2::isLocalDisplay();
 	return isLocal && (!isGnome || !isCjkLocale);
@@ -760,7 +671,7 @@ void SynthLookAndFeel::writeObject($ObjectOutputStream* out) {
 	$throwNew($NotSerializableException, $($of(this)->getClass()->getName()));
 }
 
-void clinit$SynthLookAndFeel($Class* class$) {
+void SynthLookAndFeel::clinit$($Class* clazz) {
 	$assignStatic(SynthLookAndFeel::EMPTY_UIRESOURCE_INSETS, $new($InsetsUIResource, 0, 0, 0, 0));
 	$assignStatic(SynthLookAndFeel::STYLE_FACTORY_KEY, $new($StringBuffer, "com.sun.java.swing.plaf.gtk.StyleCache"_s));
 	$assignStatic(SynthLookAndFeel::SELECTED_UI_KEY, $new($StringBuilder, "selectedUI"_s));
@@ -772,7 +683,79 @@ SynthLookAndFeel::SynthLookAndFeel() {
 }
 
 $Class* SynthLookAndFeel::load$($String* name, bool initialize) {
-	$loadClass(SynthLookAndFeel, name, initialize, &_SynthLookAndFeel_ClassInfo_, clinit$SynthLookAndFeel, allocate$SynthLookAndFeel);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_UIRESOURCE_INSETS", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(SynthLookAndFeel, EMPTY_UIRESOURCE_INSETS)},
+		{"STYLE_FACTORY_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthLookAndFeel, STYLE_FACTORY_KEY)},
+		{"SELECTED_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthLookAndFeel, SELECTED_UI_KEY)},
+		{"SELECTED_UI_STATE_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthLookAndFeel, SELECTED_UI_STATE_KEY)},
+		{"lastFactory", "Ljavax/swing/plaf/synth/SynthStyleFactory;", nullptr, $PRIVATE | $STATIC, $staticField(SynthLookAndFeel, lastFactory)},
+		{"lastContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $STATIC, $staticField(SynthLookAndFeel, lastContext)},
+		{"factory", "Ljavax/swing/plaf/synth/SynthStyleFactory;", nullptr, $PRIVATE, $field(SynthLookAndFeel, factory)},
+		{"defaultsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(SynthLookAndFeel, defaultsMap)},
+		{"_handler", "Ljavax/swing/plaf/synth/SynthLookAndFeel$Handler;", nullptr, $PRIVATE, $field(SynthLookAndFeel, _handler)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljavax/swing/LookAndFeel;>;", $PRIVATE | $STATIC, $staticField(SynthLookAndFeel, queue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthLookAndFeel, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, createUI, $ComponentUI*, $JComponent*)},
+		{"flushUnreferenced", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel, flushUnreferenced, void)},
+		{"getComponentState", "(Ljava/awt/Component;)I", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getComponentState, int32_t, $Component*)},
+		{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getDefaults, $UIDefaults*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getDescription, $String*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getID, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, getName, $String*)},
+		{"getPaintingInsets", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getPaintingInsets, $Insets*, $SynthContext*, $Insets*)},
+		{"getRegion", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, getRegion, $Region*, $JComponent*)},
+		{"getSelectedUI", "()Ljavax/swing/plaf/ComponentUI;", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getSelectedUI, $ComponentUI*)},
+		{"getSelectedUIState", "()I", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, getSelectedUIState, int32_t)},
+		{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, getStyle, $SynthStyle*, $JComponent*, $Region*)},
+		{"getStyleFactory", "()Ljavax/swing/plaf/synth/SynthStyleFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, getStyleFactory, $SynthStyleFactory*)},
+		{"getUIOfType", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC, $staticMethod(SynthLookAndFeel, getUIOfType, $Object*, $ComponentUI*, $Class*)},
+		{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, initialize, void)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, isLeftToRight, bool, $Component*)},
+		{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, isNativeLookAndFeel, bool)},
+		{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, isSupportedLookAndFeel, bool)},
+		{"load", "(Ljava/io/InputStream;Ljava/lang/Class;)V", "(Ljava/io/InputStream;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(SynthLookAndFeel, load, void, $InputStream*, $Class*), "java.text.ParseException"},
+		{"load", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, load, void, $URL*), "java.text.ParseException,java.io.IOException"},
+		{"paintRegion", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel, paintRegion, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{"resetSelectedUI", "()V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, resetSelectedUI, void)},
+		{"setSelectedUI", "(Ljavax/swing/plaf/ComponentUI;ZZZZ)V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, setSelectedUI, void, $ComponentUI*, bool, bool, bool, bool)},
+		{"setStyleFactory", "(Ljavax/swing/plaf/synth/SynthStyleFactory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, setStyleFactory, void, $SynthStyleFactory*)},
+		{"shouldUpdateStyle", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, shouldUpdateStyle, bool, $PropertyChangeEvent*)},
+		{"shouldUpdateStyleOnAncestorChanged", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, shouldUpdateStyleOnAncestorChanged, bool)},
+		{"shouldUpdateStyleOnEvent", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $PROTECTED, $virtualMethod(SynthLookAndFeel, shouldUpdateStyleOnEvent, bool, $PropertyChangeEvent*)},
+		{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel, uninitialize, void)},
+		{"update", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, update, void, $SynthContext*, $Graphics*)},
+		{"updateStyle", "(Ljavax/swing/plaf/synth/SynthContext;Ljavax/swing/plaf/synth/SynthUI;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, updateStyle, $SynthStyle*, $SynthContext*, $SynthUI*)},
+		{"updateStyles", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthLookAndFeel, updateStyles, void, $Component*)},
+		{"updateSubregion", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $STATIC, $staticMethod(SynthLookAndFeel, updateSubregion, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{"useLAFConditions", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel, useLAFConditions, bool)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SynthLookAndFeel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthLookAndFeel$Handler", "javax.swing.plaf.synth.SynthLookAndFeel", "Handler", $PRIVATE},
+		{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener", "javax.swing.plaf.synth.SynthLookAndFeel", "AATextListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthLookAndFeel",
+		"javax.swing.plaf.basic.BasicLookAndFeel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthLookAndFeel$Handler,javax.swing.plaf.synth.SynthLookAndFeel$AATextListener,javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1"
+	};
+	$loadClass(SynthLookAndFeel, name, initialize, &classInfo$$, SynthLookAndFeel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthLookAndFeel));
+	});
 	return class$;
 }
 

@@ -87,6 +87,7 @@ public:
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual bool isFeatureSupported($String* feature) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::xml::crypto::dsig::CanonicalizationMethod* cm, ::javax::xml::crypto::dsig::SignatureMethod* sm, ::java::util::List* references);
 	void init$(::javax::xml::crypto::dsig::CanonicalizationMethod* cm, ::javax::xml::crypto::dsig::SignatureMethod* sm, ::java::util::List* references, $String* id);
 	void init$(::org::w3c::dom::Element* siElem, ::javax::xml::crypto::XMLCryptoContext* context, ::java::security::Provider* provider);

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Stream$StreamWindowUpdateSender.h>
-
 #include <jdk/internal/net/http/Http2Connection.h>
 #include <jdk/internal/net/http/Stream.h>
 #include <jdk/internal/net/http/WindowUpdateSender.h>
@@ -18,43 +17,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _Stream$StreamWindowUpdateSender_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$StreamWindowUpdateSender, this$0)},
-	{}
-};
-
-$MethodInfo _Stream$StreamWindowUpdateSender_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $method(Stream$StreamWindowUpdateSender, init$, void, $Stream*, $Http2Connection*)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Stream$StreamWindowUpdateSender, dbgString, $String*)},
-	{"getStreamId", "()I", nullptr, 0, $virtualMethod(Stream$StreamWindowUpdateSender, getStreamId, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Stream$StreamWindowUpdateSender_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Stream$StreamWindowUpdateSender", "jdk.internal.net.http.Stream", "StreamWindowUpdateSender", $FINAL},
-	{}
-};
-
-$ClassInfo _Stream$StreamWindowUpdateSender_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.Stream$StreamWindowUpdateSender",
-	"jdk.internal.net.http.WindowUpdateSender",
-	nullptr,
-	_Stream$StreamWindowUpdateSender_FieldInfo_,
-	_Stream$StreamWindowUpdateSender_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Stream$StreamWindowUpdateSender_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Stream"
-};
-
-$Object* allocate$Stream$StreamWindowUpdateSender($Class* clazz) {
-	return $of($alloc(Stream$StreamWindowUpdateSender));
-}
-
 void Stream$StreamWindowUpdateSender::init$($Stream* this$0, $Http2Connection* connection) {
 	$set(this, this$0, this$0);
 	$WindowUpdateSender::init$(connection);
@@ -65,7 +27,7 @@ int32_t Stream$StreamWindowUpdateSender::getStreamId() {
 }
 
 $String* Stream$StreamWindowUpdateSender::dbgString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dbg, this->$WindowUpdateSender::dbgString$);
 	if (dbg != nullptr) {
 		return dbg;
@@ -82,7 +44,38 @@ Stream$StreamWindowUpdateSender::Stream$StreamWindowUpdateSender() {
 }
 
 $Class* Stream$StreamWindowUpdateSender::load$($String* name, bool initialize) {
-	$loadClass(Stream$StreamWindowUpdateSender, name, initialize, &_Stream$StreamWindowUpdateSender_ClassInfo_, allocate$Stream$StreamWindowUpdateSender);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$StreamWindowUpdateSender, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $method(Stream$StreamWindowUpdateSender, init$, void, $Stream*, $Http2Connection*)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Stream$StreamWindowUpdateSender, dbgString, $String*)},
+		{"getStreamId", "()I", nullptr, 0, $virtualMethod(Stream$StreamWindowUpdateSender, getStreamId, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Stream$StreamWindowUpdateSender", "jdk.internal.net.http.Stream", "StreamWindowUpdateSender", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.Stream$StreamWindowUpdateSender",
+		"jdk.internal.net.http.WindowUpdateSender",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Stream"
+	};
+	$loadClass(Stream$StreamWindowUpdateSender, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$StreamWindowUpdateSender);
+	});
 	return class$;
 }
 

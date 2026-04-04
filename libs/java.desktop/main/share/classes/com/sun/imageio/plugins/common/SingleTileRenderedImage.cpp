@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/SingleTileRenderedImage.h>
-
 #include <com/sun/imageio/plugins/common/SimpleRenderedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/Raster.h>
@@ -19,30 +18,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$FieldInfo _SingleTileRenderedImage_FieldInfo_[] = {
-	{"ras", "Ljava/awt/image/Raster;", nullptr, 0, $field(SingleTileRenderedImage, ras)},
-	{}
-};
-
-$MethodInfo _SingleTileRenderedImage_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/Raster;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(SingleTileRenderedImage, init$, void, $Raster*, $ColorModel*)},
-	{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(SingleTileRenderedImage, getTile, $Raster*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SingleTileRenderedImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.SingleTileRenderedImage",
-	"com.sun.imageio.plugins.common.SimpleRenderedImage",
-	nullptr,
-	_SingleTileRenderedImage_FieldInfo_,
-	_SingleTileRenderedImage_MethodInfo_
-};
-
-$Object* allocate$SingleTileRenderedImage($Class* clazz) {
-	return $of($alloc(SingleTileRenderedImage));
-}
 
 void SingleTileRenderedImage::init$($Raster* ras, $ColorModel* colorModel) {
 	$SimpleRenderedImage::init$();
@@ -66,7 +41,26 @@ SingleTileRenderedImage::SingleTileRenderedImage() {
 }
 
 $Class* SingleTileRenderedImage::load$($String* name, bool initialize) {
-	$loadClass(SingleTileRenderedImage, name, initialize, &_SingleTileRenderedImage_ClassInfo_, allocate$SingleTileRenderedImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"ras", "Ljava/awt/image/Raster;", nullptr, 0, $field(SingleTileRenderedImage, ras)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/Raster;Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $method(SingleTileRenderedImage, init$, void, $Raster*, $ColorModel*)},
+		{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(SingleTileRenderedImage, getTile, $Raster*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.SingleTileRenderedImage",
+		"com.sun.imageio.plugins.common.SimpleRenderedImage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SingleTileRenderedImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleTileRenderedImage);
+	});
 	return class$;
 }
 

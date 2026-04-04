@@ -34,6 +34,7 @@ class $import StringBufferPool : public ::java::lang::Object {
 	$class(StringBufferPool, 0, ::java::lang::Object)
 public:
 	StringBufferPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void free(::com::sun::org::apache::xml::internal::utils::FastStringBuffer* sb);
 	static ::com::sun::org::apache::xml::internal::utils::FastStringBuffer* get();

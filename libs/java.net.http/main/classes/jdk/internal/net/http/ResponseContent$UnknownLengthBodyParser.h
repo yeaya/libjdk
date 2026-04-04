@@ -53,6 +53,7 @@ class $export ResponseContent$UnknownLengthBodyParser : public ::jdk::internal::
 	$class(ResponseContent$UnknownLengthBodyParser, 0, ::jdk::internal::net::http::ResponseContent$BodyParser)
 public:
 	ResponseContent$UnknownLengthBodyParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::ResponseContent* this$0, ::java::util::function::Consumer* onComplete);
 	virtual void accept(::java::nio::ByteBuffer* b);
 	virtual void accept(Object$* b) override;

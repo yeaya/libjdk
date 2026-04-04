@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XCreateWindowEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,74 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XCreateWindowEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XCreateWindowEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XCreateWindowEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XCreateWindowEvent, pData)},
-	{}
-};
-
-$MethodInfo _XCreateWindowEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XCreateWindowEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XCreateWindowEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCreateWindowEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCreateWindowEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCreateWindowEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XCreateWindowEvent, getSize, int32_t)},
-	{"get_border_width", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_border_width, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_display, int64_t)},
-	{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_height, int32_t)},
-	{"get_override_redirect", "()Z", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_override_redirect, bool)},
-	{"get_parent", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_parent, int64_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_type, int32_t)},
-	{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_width, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_window, int64_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_x, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_y, int32_t)},
-	{"set_border_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_border_width, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_display, void, int64_t)},
-	{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_height, void, int32_t)},
-	{"set_override_redirect", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_override_redirect, void, bool)},
-	{"set_parent", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_parent, void, int64_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_type, void, int32_t)},
-	{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_width, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_window, void, int64_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_x, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_y, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCreateWindowEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCreateWindowEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XCreateWindowEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XCreateWindowEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XCreateWindowEvent_FieldInfo_,
-	_XCreateWindowEvent_MethodInfo_
-};
-
-$Object* allocate$XCreateWindowEvent($Class* clazz) {
-	return $of($alloc(XCreateWindowEvent));
-}
 
 int32_t XCreateWindowEvent::getSize() {
 	$init(XCreateWindowEvent);
@@ -117,7 +55,7 @@ void XCreateWindowEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -271,7 +209,7 @@ $String* XCreateWindowEvent::getName() {
 }
 
 $String* XCreateWindowEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 480));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -290,7 +228,7 @@ $String* XCreateWindowEvent::getFieldsAsString() {
 }
 
 $Object* XCreateWindowEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XCreateWindowEvent::zero() {
@@ -305,7 +243,61 @@ XCreateWindowEvent::XCreateWindowEvent() {
 }
 
 $Class* XCreateWindowEvent::load$($String* name, bool initialize) {
-	$loadClass(XCreateWindowEvent, name, initialize, &_XCreateWindowEvent_ClassInfo_, allocate$XCreateWindowEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XCreateWindowEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XCreateWindowEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XCreateWindowEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XCreateWindowEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XCreateWindowEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCreateWindowEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCreateWindowEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCreateWindowEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XCreateWindowEvent, getSize, int32_t)},
+		{"get_border_width", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_border_width, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_display, int64_t)},
+		{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_height, int32_t)},
+		{"get_override_redirect", "()Z", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_override_redirect, bool)},
+		{"get_parent", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_parent, int64_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_type, int32_t)},
+		{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_width, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_window, int64_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_x, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, get_y, int32_t)},
+		{"set_border_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_border_width, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_display, void, int64_t)},
+		{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_height, void, int32_t)},
+		{"set_override_redirect", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_override_redirect, void, bool)},
+		{"set_parent", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_parent, void, int64_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_type, void, int32_t)},
+		{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_width, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_window, void, int64_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_x, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCreateWindowEvent, set_y, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCreateWindowEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCreateWindowEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XCreateWindowEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XCreateWindowEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XCreateWindowEvent);
+	});
 	return class$;
 }
 

@@ -38,7 +38,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	KeyResolverException(const KeyResolverException& e);
 	virtual void throw$() override;
-	inline KeyResolverException* operator ->() {
+	inline KeyResolverException* operator ->() const {
+		return (KeyResolverException*)throwing$;
+	}
+	inline operator KeyResolverException*() const {
 		return (KeyResolverException*)throwing$;
 	}
 };

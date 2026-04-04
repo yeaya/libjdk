@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$FontWeight.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/View.h>
@@ -26,47 +25,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$FontWeight_FieldInfo_[] = {
-	{"weight", "I", nullptr, 0, $field(CSS$FontWeight, weight)},
-	{}
-};
-
-$MethodInfo _CSS$FontWeight_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSS$FontWeight, init$, void)},
-	{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontWeight, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
-	{"getValue", "()I", nullptr, 0, $virtualMethod(CSS$FontWeight, getValue, int32_t)},
-	{"isBold", "()Z", nullptr, 0, $virtualMethod(CSS$FontWeight, isBold, bool)},
-	{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontWeight, parseCssValue, $Object*, $String*)},
-	{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontWeight, toStyleConstants, $Object*, $StyleConstants*, $View*)},
-	{}
-};
-
-$InnerClassInfo _CSS$FontWeight_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$FontWeight", "javax.swing.text.html.CSS", "FontWeight", $STATIC},
-	{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$FontWeight_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$FontWeight",
-	"javax.swing.text.html.CSS$CssValue",
-	nullptr,
-	_CSS$FontWeight_FieldInfo_,
-	_CSS$FontWeight_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$FontWeight_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$FontWeight($Class* clazz) {
-	return $of($alloc(CSS$FontWeight));
-}
-
 void CSS$FontWeight::init$() {
 	$CSS$CssValue::init$();
 }
@@ -89,19 +47,17 @@ $Object* CSS$FontWeight::parseCssValue($String* value) {
 			$assign(fw, nullptr);
 		}
 	}
-	return $of(fw);
+	return fw;
 }
 
 $Object* CSS$FontWeight::fromStyleConstants($StyleConstants* key, Object$* value) {
-	$init($Boolean);
 	if ($nc($of(value))->equals($Boolean::TRUE)) {
-		return $of(parseCssValue("bold"_s));
+		return parseCssValue("bold"_s);
 	}
-	return $of(parseCssValue("normal"_s));
+	return parseCssValue("normal"_s);
 }
 
 $Object* CSS$FontWeight::toStyleConstants($StyleConstants* key, $View* v) {
-	$init($Boolean);
 	return $of((this->weight > 500) ? $Boolean::TRUE : $Boolean::FALSE);
 }
 
@@ -113,7 +69,42 @@ CSS$FontWeight::CSS$FontWeight() {
 }
 
 $Class* CSS$FontWeight::load$($String* name, bool initialize) {
-	$loadClass(CSS$FontWeight, name, initialize, &_CSS$FontWeight_ClassInfo_, allocate$CSS$FontWeight);
+	$FieldInfo fieldInfos$$[] = {
+		{"weight", "I", nullptr, 0, $field(CSS$FontWeight, weight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSS$FontWeight, init$, void)},
+		{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontWeight, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
+		{"getValue", "()I", nullptr, 0, $virtualMethod(CSS$FontWeight, getValue, int32_t)},
+		{"isBold", "()Z", nullptr, 0, $virtualMethod(CSS$FontWeight, isBold, bool)},
+		{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontWeight, parseCssValue, $Object*, $String*)},
+		{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontWeight, toStyleConstants, $Object*, $StyleConstants*, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$FontWeight", "javax.swing.text.html.CSS", "FontWeight", $STATIC},
+		{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$FontWeight",
+		"javax.swing.text.html.CSS$CssValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$FontWeight, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$FontWeight);
+	});
 	return class$;
 }
 

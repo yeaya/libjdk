@@ -1,5 +1,4 @@
 #include <LastNodeLowerHalfDrop$2.h>
-
 #include <LastNodeLowerHalfDrop.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JFrame.h>
@@ -10,44 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFrame = ::javax::swing::JFrame;
-
-$MethodInfo _LastNodeLowerHalfDrop$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LastNodeLowerHalfDrop$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastNodeLowerHalfDrop$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _LastNodeLowerHalfDrop$2_EnclosingMethodInfo_ = {
-	"LastNodeLowerHalfDrop",
-	"cleanUp",
-	"()V"
-};
-
-$InnerClassInfo _LastNodeLowerHalfDrop$2_InnerClassesInfo_[] = {
-	{"LastNodeLowerHalfDrop$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LastNodeLowerHalfDrop$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"LastNodeLowerHalfDrop$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_LastNodeLowerHalfDrop$2_MethodInfo_,
-	nullptr,
-	&_LastNodeLowerHalfDrop$2_EnclosingMethodInfo_,
-	_LastNodeLowerHalfDrop$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LastNodeLowerHalfDrop"
-};
-
-$Object* allocate$LastNodeLowerHalfDrop$2($Class* clazz) {
-	return $of($alloc(LastNodeLowerHalfDrop$2));
-}
 
 void LastNodeLowerHalfDrop$2::init$() {
 }
@@ -61,7 +22,38 @@ LastNodeLowerHalfDrop$2::LastNodeLowerHalfDrop$2() {
 }
 
 $Class* LastNodeLowerHalfDrop$2::load$($String* name, bool initialize) {
-	$loadClass(LastNodeLowerHalfDrop$2, name, initialize, &_LastNodeLowerHalfDrop$2_ClassInfo_, allocate$LastNodeLowerHalfDrop$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LastNodeLowerHalfDrop$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LastNodeLowerHalfDrop$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"LastNodeLowerHalfDrop",
+		"cleanUp",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LastNodeLowerHalfDrop$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LastNodeLowerHalfDrop$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LastNodeLowerHalfDrop"
+	};
+	$loadClass(LastNodeLowerHalfDrop$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastNodeLowerHalfDrop$2);
+	});
 	return class$;
 }
 

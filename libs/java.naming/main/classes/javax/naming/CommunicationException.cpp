@@ -1,5 +1,4 @@
 #include <javax/naming/CommunicationException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _CommunicationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CommunicationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CommunicationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CommunicationException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CommunicationException, init$, void)},
-	{}
-};
-
-$ClassInfo _CommunicationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.CommunicationException",
-	"javax.naming.NamingException",
-	nullptr,
-	_CommunicationException_FieldInfo_,
-	_CommunicationException_MethodInfo_
-};
-
-$Object* allocate$CommunicationException($Class* clazz) {
-	return $of($alloc(CommunicationException));
-}
 
 void CommunicationException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void CommunicationException::throw$() {
 }
 
 $Class* CommunicationException::load$($String* name, bool initialize) {
-	$loadClass(CommunicationException, name, initialize, &_CommunicationException_ClassInfo_, allocate$CommunicationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CommunicationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CommunicationException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CommunicationException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.CommunicationException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CommunicationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CommunicationException);
+	});
 	return class$;
 }
 

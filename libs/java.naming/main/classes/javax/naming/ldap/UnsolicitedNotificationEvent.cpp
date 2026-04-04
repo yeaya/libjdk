@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/UnsolicitedNotificationEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/naming/ldap/UnsolicitedNotification.h>
 #include <javax/naming/ldap/UnsolicitedNotificationListener.h>
@@ -15,32 +14,6 @@ using $UnsolicitedNotificationListener = ::javax::naming::ldap::UnsolicitedNotif
 namespace javax {
 	namespace naming {
 		namespace ldap {
-
-$FieldInfo _UnsolicitedNotificationEvent_FieldInfo_[] = {
-	{"notice", "Ljavax/naming/ldap/UnsolicitedNotification;", nullptr, $PRIVATE, $field(UnsolicitedNotificationEvent, notice)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsolicitedNotificationEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnsolicitedNotificationEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljavax/naming/ldap/UnsolicitedNotification;)V", nullptr, $PUBLIC, $method(UnsolicitedNotificationEvent, init$, void, Object$*, $UnsolicitedNotification*)},
-	{"dispatch", "(Ljavax/naming/ldap/UnsolicitedNotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(UnsolicitedNotificationEvent, dispatch, void, $UnsolicitedNotificationListener*)},
-	{"getNotification", "()Ljavax/naming/ldap/UnsolicitedNotification;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedNotificationEvent, getNotification, $UnsolicitedNotification*)},
-	{}
-};
-
-$ClassInfo _UnsolicitedNotificationEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.ldap.UnsolicitedNotificationEvent",
-	"java.util.EventObject",
-	nullptr,
-	_UnsolicitedNotificationEvent_FieldInfo_,
-	_UnsolicitedNotificationEvent_MethodInfo_
-};
-
-$Object* allocate$UnsolicitedNotificationEvent($Class* clazz) {
-	return $of($alloc(UnsolicitedNotificationEvent));
-}
 
 void UnsolicitedNotificationEvent::init$(Object$* src, $UnsolicitedNotification* notice) {
 	$EventObject::init$(src);
@@ -59,7 +32,28 @@ UnsolicitedNotificationEvent::UnsolicitedNotificationEvent() {
 }
 
 $Class* UnsolicitedNotificationEvent::load$($String* name, bool initialize) {
-	$loadClass(UnsolicitedNotificationEvent, name, initialize, &_UnsolicitedNotificationEvent_ClassInfo_, allocate$UnsolicitedNotificationEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"notice", "Ljavax/naming/ldap/UnsolicitedNotification;", nullptr, $PRIVATE, $field(UnsolicitedNotificationEvent, notice)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsolicitedNotificationEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljavax/naming/ldap/UnsolicitedNotification;)V", nullptr, $PUBLIC, $method(UnsolicitedNotificationEvent, init$, void, Object$*, $UnsolicitedNotification*)},
+		{"dispatch", "(Ljavax/naming/ldap/UnsolicitedNotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(UnsolicitedNotificationEvent, dispatch, void, $UnsolicitedNotificationListener*)},
+		{"getNotification", "()Ljavax/naming/ldap/UnsolicitedNotification;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedNotificationEvent, getNotification, $UnsolicitedNotification*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.ldap.UnsolicitedNotificationEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsolicitedNotificationEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsolicitedNotificationEvent);
+	});
 	return class$;
 }
 

@@ -184,6 +184,7 @@ class $export JavaCompiler : public ::java::lang::Object {
 	$class(JavaCompiler, 0, ::java::lang::Object)
 public:
 	JavaCompiler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::java::util::Queue* attribute(::java::util::Queue* envs);
 	virtual ::com::sun::tools::javac::comp::Env* attribute(::com::sun::tools::javac::comp::Env* env);

@@ -67,10 +67,13 @@ public:
 	static const int16_t INVALID_ACCESS_ERR = 15;
 	static const int16_t VALIDATION_ERR = 16;
 	static const int16_t TYPE_MISMATCH_ERR = 17;
-	static const int64_t serialVersionUID = (int64_t)0x5BFA6F78ED3B957C;
+	static const int64_t serialVersionUID = (int64_t)0x5bfa6f78ed3b957c;
 	DOMException(const DOMException& e);
 	virtual void throw$() override;
-	inline DOMException* operator ->() {
+	inline DOMException* operator ->() const {
+		return (DOMException*)throwing$;
+	}
+	inline operator DOMException*() const {
 		return (DOMException*)throwing$;
 	}
 };

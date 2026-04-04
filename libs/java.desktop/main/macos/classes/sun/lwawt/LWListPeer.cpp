@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWListPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -63,7 +62,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JScrollBar = ::javax::swing::JScrollBar;
@@ -76,97 +74,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWListPeer_FieldInfo_[] = {
-	{"DEFAULT_VISIBLE_ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWListPeer, DEFAULT_VISIBLE_ROWS)},
-	{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWListPeer, TEXT)},
-	{}
-};
-
-$MethodInfo _LWListPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/List;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWListPeer, init$, void, $List*, $PlatformComponent*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, add, void, $String*, int32_t)},
-	{"createDelegate", "()Lsun/lwawt/LWListPeer$ScrollableJList;", nullptr, 0, $virtualMethod(LWListPeer, createDelegate, $JComponent*)},
-	{"delItems", "(II)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, delItems, void, int32_t, int32_t)},
-	{"deselect", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, deselect, void, int32_t)},
-	{"getCellSize", "()Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(LWListPeer, getCellSize, $Dimension*)},
-	{"getDelegateFocusOwner", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(LWListPeer, getDelegateFocusOwner, $Component*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getMinimumSize, $Dimension*)},
-	{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getMinimumSize, $Dimension*, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getPreferredSize, $Dimension*)},
-	{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getPreferredSize, $Dimension*, int32_t)},
-	{"getSelectedIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getSelectedIndexes, $ints*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWListPeer, initializeImpl, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWListPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"makeVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, makeVisible, void, int32_t)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, removeAll, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"revalidate", "()V", nullptr, $PRIVATE, $method(LWListPeer, revalidate, void)},
-	{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, select, void, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, setMultipleMode, void, bool)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LWListPeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWListPeer$ScrollableJList", "sun.lwawt.LWListPeer", "ScrollableJList", $FINAL},
-	{}
-};
-
-$ClassInfo _LWListPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWListPeer",
-	"sun.lwawt.LWComponentPeer",
-	"java.awt.peer.ListPeer",
-	_LWListPeer_FieldInfo_,
-	_LWListPeer_MethodInfo_,
-	"Lsun/lwawt/LWComponentPeer<Ljava/awt/List;Lsun/lwawt/LWListPeer$ScrollableJList;>;Ljava/awt/peer/ListPeer;",
-	nullptr,
-	_LWListPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWListPeer$ScrollableJList,sun.lwawt.LWListPeer$ScrollableJList$JListDelegate,sun.lwawt.LWListPeer$ScrollableJList$1"
-};
-
-$Object* allocate$LWListPeer($Class* clazz) {
-	return $of($alloc(LWListPeer));
-}
 
 void LWListPeer::dispose() {
 	this->$LWComponentPeer::dispose();
@@ -323,11 +230,11 @@ void LWListPeer::finalize() {
 $String* LWListPeer::TEXT = nullptr;
 
 void LWListPeer::init$($List* target, $PlatformComponent* platformComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::init$(target, platformComponent);
-	if (!$nc(($cast($List, $(getTarget()))))->isBackgroundSet()) {
+	if (!$$sure($List, getTarget())->isBackgroundSet()) {
 		$init($SystemColor);
-		$nc(($cast($List, $(getTarget()))))->setBackground($SystemColor::text);
+		$$sure($List, getTarget())->setBackground($SystemColor::text);
 	}
 }
 
@@ -336,15 +243,15 @@ $JComponent* LWListPeer::createDelegate() {
 }
 
 void LWListPeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::initializeImpl();
-	setMultipleMode($nc(($cast($List, $(getTarget()))))->isMultipleMode());
-	makeVisible($nc(($cast($List, $(getTarget()))))->getVisibleIndex());
-	$var($ints, selectedIndices, $nc(($cast($List, $(getTarget()))))->getSelectedIndexes());
+	setMultipleMode($$sure($List, getTarget())->isMultipleMode());
+	makeVisible($$sure($List, getTarget())->getVisibleIndex());
+	$var($ints, selectedIndices, $$sure($List, getTarget())->getSelectedIndexes());
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->setSkipStateChangedEvent(true);
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->setSelectedIndices(selectedIndices);
-		$nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->setSkipStateChangedEvent(false);
+		$$sure($LWListPeer$ScrollableJList, getDelegate())->setSkipStateChangedEvent(true);
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->setSelectedIndices(selectedIndices);
+		$$sure($LWListPeer$ScrollableJList, getDelegate())->setSkipStateChangedEvent(false);
 	}
 }
 
@@ -353,67 +260,67 @@ bool LWListPeer::isFocusable() {
 }
 
 $Component* LWListPeer::getDelegateFocusOwner() {
-	return $nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView();
+	return $$sure($LWListPeer$ScrollableJList, getDelegate())->getView();
 }
 
 $ints* LWListPeer::getSelectedIndexes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		return $nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->getSelectedIndices();
+		return $$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->getSelectedIndices();
 	}
 }
 
 void LWListPeer::add($String* item, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getModel()))->add(index, item);
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getModel())->add(index, item);
 		revalidate();
 	}
 }
 
 void LWListPeer::delItems(int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getModel()))->removeRange(start, end);
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getModel())->removeRange(start, end);
 		revalidate();
 	}
 }
 
 void LWListPeer::removeAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getModel()))->removeAllElements();
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getModel())->removeAllElements();
 		revalidate();
 	}
 }
 
 void LWListPeer::select(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->setSkipStateChangedEvent(true);
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->setSelectedIndex(index);
-		$nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->setSkipStateChangedEvent(false);
+		$$sure($LWListPeer$ScrollableJList, getDelegate())->setSkipStateChangedEvent(true);
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->setSelectedIndex(index);
+		$$sure($LWListPeer$ScrollableJList, getDelegate())->setSkipStateChangedEvent(false);
 	}
 }
 
 void LWListPeer::deselect(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->getSelectionModel()))->removeSelectionInterval(index, index);
+		$$nc($$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->getSelectionModel())->removeSelectionInterval(index, index);
 	}
 }
 
 void LWListPeer::makeVisible(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->ensureIndexIsVisible(index);
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->ensureIndexIsVisible(index);
 	}
 }
 
 void LWListPeer::setMultipleMode(bool m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->setSelectionMode(m ? $ListSelectionModel::MULTIPLE_INTERVAL_SELECTION : $ListSelectionModel::SINGLE_SELECTION);
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->setSelectionMode(m ? $ListSelectionModel::MULTIPLE_INTERVAL_SELECTION : $ListSelectionModel::SINGLE_SELECTION);
 	}
 }
 
@@ -430,45 +337,130 @@ $Dimension* LWListPeer::getPreferredSize(int32_t rows) {
 }
 
 $Dimension* LWListPeer::getMinimumSize(int32_t rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
 		$var($Dimension, size, getCellSize());
 		$nc(size)->height *= rows;
-		$var($JScrollBar, vbar, $nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getVerticalScrollBar());
-		size->width += vbar != nullptr ? $nc($($nc(vbar)->getMinimumSize()))->width : 0;
-		$var($Insets, pi, $nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getInsets());
-		$var($Insets, vi, $nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->getInsets());
-		size->width += $nc(pi)->left + pi->right + $nc(vi)->left + vi->right;
+		$var($JScrollBar, vbar, $$sure($LWListPeer$ScrollableJList, getDelegate())->getVerticalScrollBar());
+		size->width += vbar != nullptr ? $nc($(vbar->getMinimumSize()))->width : 0;
+		$var($Insets, pi, $$sure($LWListPeer$ScrollableJList, getDelegate())->getInsets());
+		$var($Insets, vi, $$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->getInsets());
+		size->width += $nc(pi)->left + $nc(pi)->right + $nc(vi)->left + $nc(vi)->right;
 		size->height += pi->top + pi->bottom + vi->top + vi->bottom;
 		return size;
 	}
 }
 
 $Dimension* LWListPeer::getCellSize() {
-	$useLocalCurrentObjectStackCache();
-	$var($JList, jList, $nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView());
+	$useLocalObjectStack();
+	$var($JList, jList, $$sure($LWListPeer$ScrollableJList, getDelegate())->getView());
 	$var($ListCellRenderer, cr, $nc(jList)->getCellRenderer());
 	$var($Component, cell, $nc(cr)->getListCellRendererComponent(jList, LWListPeer::TEXT, 0, false, false));
 	return $nc(cell)->getPreferredSize();
 }
 
 void LWListPeer::revalidate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		$nc($($nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->getView()))->invalidate();
-		$nc(($cast($LWListPeer$ScrollableJList, $(getDelegate()))))->validate();
+		$$nc($$sure($LWListPeer$ScrollableJList, getDelegate())->getView())->invalidate();
+		$$sure($LWListPeer$ScrollableJList, getDelegate())->validate();
 	}
 }
 
 LWListPeer::LWListPeer() {
 }
 
-void clinit$LWListPeer($Class* class$) {
+void LWListPeer::clinit$($Class* clazz) {
 	$assignStatic(LWListPeer::TEXT, "0123456789abcde"_s);
 }
 
 $Class* LWListPeer::load$($String* name, bool initialize) {
-	$loadClass(LWListPeer, name, initialize, &_LWListPeer_ClassInfo_, clinit$LWListPeer, allocate$LWListPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_VISIBLE_ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LWListPeer, DEFAULT_VISIBLE_ROWS)},
+		{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LWListPeer, TEXT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/List;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWListPeer, init$, void, $List*, $PlatformComponent*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, add, void, $String*, int32_t)},
+		{"createDelegate", "()Lsun/lwawt/LWListPeer$ScrollableJList;", nullptr, 0, $virtualMethod(LWListPeer, createDelegate, $JComponent*)},
+		{"delItems", "(II)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, delItems, void, int32_t, int32_t)},
+		{"deselect", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, deselect, void, int32_t)},
+		{"getCellSize", "()Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(LWListPeer, getCellSize, $Dimension*)},
+		{"getDelegateFocusOwner", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(LWListPeer, getDelegateFocusOwner, $Component*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getMinimumSize, $Dimension*)},
+		{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getMinimumSize, $Dimension*, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getPreferredSize, $Dimension*)},
+		{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getPreferredSize, $Dimension*, int32_t)},
+		{"getSelectedIndexes", "()[I", nullptr, $PUBLIC, $virtualMethod(LWListPeer, getSelectedIndexes, $ints*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWListPeer, initializeImpl, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWListPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"makeVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, makeVisible, void, int32_t)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, removeAll, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"revalidate", "()V", nullptr, $PRIVATE, $method(LWListPeer, revalidate, void)},
+		{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, select, void, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LWListPeer, setMultipleMode, void, bool)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWListPeer$ScrollableJList", "sun.lwawt.LWListPeer", "ScrollableJList", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWListPeer",
+		"sun.lwawt.LWComponentPeer",
+		"java.awt.peer.ListPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/lwawt/LWComponentPeer<Ljava/awt/List;Lsun/lwawt/LWListPeer$ScrollableJList;>;Ljava/awt/peer/ListPeer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWListPeer$ScrollableJList,sun.lwawt.LWListPeer$ScrollableJList$JListDelegate,sun.lwawt.LWListPeer$ScrollableJList$1"
+	};
+	$loadClass(LWListPeer, name, initialize, &classInfo$$, LWListPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWListPeer));
+	});
 	return class$;
 }
 

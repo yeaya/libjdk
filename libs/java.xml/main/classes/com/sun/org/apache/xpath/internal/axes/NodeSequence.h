@@ -137,7 +137,7 @@ public:
 	virtual void setShouldCacheNodes(bool b) override;
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::xstr;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x35A7B8BECBFE0B34;
+	static const int64_t serialVersionUID = (int64_t)0x35a7b8becbfe0b34;
 	int32_t m_last = 0;
 	int32_t m_next = 0;
 	::com::sun::org::apache::xpath::internal::axes::NodeSequence$IteratorCache* m_cache = nullptr;

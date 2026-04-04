@@ -1,5 +1,4 @@
 #include <javax/swing/SwingContainerOrderFocusTraversalPolicy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ContainerOrderFocusTraversalPolicy.h>
 #include <jcpp.h>
@@ -11,25 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _SwingContainerOrderFocusTraversalPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SwingContainerOrderFocusTraversalPolicy, init$, void)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(SwingContainerOrderFocusTraversalPolicy, accept, bool, $Component*)},
-	{}
-};
-
-$ClassInfo _SwingContainerOrderFocusTraversalPolicy_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.SwingContainerOrderFocusTraversalPolicy",
-	"java.awt.ContainerOrderFocusTraversalPolicy",
-	nullptr,
-	nullptr,
-	_SwingContainerOrderFocusTraversalPolicy_MethodInfo_
-};
-
-$Object* allocate$SwingContainerOrderFocusTraversalPolicy($Class* clazz) {
-	return $of($alloc(SwingContainerOrderFocusTraversalPolicy));
-}
 
 void SwingContainerOrderFocusTraversalPolicy::init$() {
 	$ContainerOrderFocusTraversalPolicy::init$();
@@ -43,7 +23,22 @@ SwingContainerOrderFocusTraversalPolicy::SwingContainerOrderFocusTraversalPolicy
 }
 
 $Class* SwingContainerOrderFocusTraversalPolicy::load$($String* name, bool initialize) {
-	$loadClass(SwingContainerOrderFocusTraversalPolicy, name, initialize, &_SwingContainerOrderFocusTraversalPolicy_ClassInfo_, allocate$SwingContainerOrderFocusTraversalPolicy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SwingContainerOrderFocusTraversalPolicy, init$, void)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(SwingContainerOrderFocusTraversalPolicy, accept, bool, $Component*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.SwingContainerOrderFocusTraversalPolicy",
+		"java.awt.ContainerOrderFocusTraversalPolicy",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SwingContainerOrderFocusTraversalPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SwingContainerOrderFocusTraversalPolicy));
+	});
 	return class$;
 }
 

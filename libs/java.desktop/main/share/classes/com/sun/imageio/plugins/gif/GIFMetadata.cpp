@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFMetadata.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <javax/imageio/metadata/IIOInvalidTreeException.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
@@ -20,7 +19,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeException;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
-using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {
@@ -29,45 +27,6 @@ namespace com {
 			namespace plugins {
 				namespace gif {
 
-$FieldInfo _GIFMetadata_FieldInfo_[] = {
-	{"UNDEFINED_INTEGER_VALUE", "I", nullptr, $STATIC | $FINAL, $constField(GIFMetadata, UNDEFINED_INTEGER_VALUE)},
-	{}
-};
-
-$MethodInfo _GIFMetadata_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GIFMetadata, init$, void, bool, $String*, $String*, $StringArray*, $StringArray*)},
-	{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getAttribute, $String*, $Node*, $String*, $String*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getAttribute, $String*, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZZ)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getBooleanAttribute, bool, $Node*, $String*, bool, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getBooleanAttribute, bool, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getColorTable", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZI)[B", nullptr, $PROTECTED, $virtualMethod(GIFMetadata, getColorTable, $bytes*, $Node*, $String*, bool, int32_t), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;IZ)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;FZ)F", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getFloatAttribute, float, $Node*, $String*, float, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)F", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getFloatAttribute, float, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;IZZII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getIntAttribute, int32_t, $Node*, $String*, int32_t, bool, bool, int32_t, int32_t), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getIntAttribute, int32_t, $Node*, $String*, bool, int32_t, int32_t), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getStringAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getStringAttribute, $String*, $Node*, $String*, $String*, bool, $StringArray*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GIFMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GIFMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{}
-};
-
-$ClassInfo _GIFMetadata_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.imageio.plugins.gif.GIFMetadata",
-	"javax.imageio.metadata.IIOMetadata",
-	nullptr,
-	_GIFMetadata_FieldInfo_,
-	_GIFMetadata_MethodInfo_
-};
-
-$Object* allocate$GIFMetadata($Class* clazz) {
-	return $of($alloc(GIFMetadata));
-}
-
 void GIFMetadata::fatal($Node* node, $String* reason) {
 	$init(GIFMetadata);
 	$throwNew($IIOInvalidTreeException, reason, node);
@@ -75,8 +34,8 @@ void GIFMetadata::fatal($Node* node, $String* reason) {
 
 $String* GIFMetadata::getStringAttribute($Node* node, $String* name, $String* defaultValue, bool required, $StringArray* range) {
 	$init(GIFMetadata);
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -106,9 +65,9 @@ $String* GIFMetadata::getStringAttribute($Node* node, $String* name, $String* de
 
 int32_t GIFMetadata::getIntAttribute($Node* node, $String* name, int32_t defaultValue, bool required, bool bounded, int32_t min, int32_t max) {
 	$init(GIFMetadata);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, getStringAttribute(node, name, nullptr, required, nullptr));
-	if (value == nullptr || $nc(value)->isEmpty()) {
+	if (value == nullptr || value->isEmpty()) {
 		return defaultValue;
 	}
 	int32_t intValue = defaultValue;
@@ -144,8 +103,8 @@ float GIFMetadata::getFloatAttribute($Node* node, $String* name) {
 
 bool GIFMetadata::getBooleanAttribute($Node* node, $String* name, bool defaultValue, bool required) {
 	$init(GIFMetadata);
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -155,11 +114,11 @@ bool GIFMetadata::getBooleanAttribute($Node* node, $String* name, bool defaultVa
 	}
 	$var($String, value, $nc(attr)->getNodeValue());
 	bool var$0 = $nc(value)->equals("TRUE"_s);
-	if (var$0 || $nc(value)->equals("true"_s)) {
+	if (var$0 || value->equals("true"_s)) {
 		return true;
 	} else {
-		bool var$2 = value->equals("FALSE"_s);
-		if (var$2 || value->equals("false"_s)) {
+		bool var$1 = value->equals("FALSE"_s);
+		if (var$1 || value->equals("false"_s)) {
 			return false;
 		} else {
 			fatal(node, $$str({"Attribute "_s, name, " must be \'TRUE\' or \'FALSE\'!"_s}));
@@ -175,8 +134,8 @@ bool GIFMetadata::getBooleanAttribute($Node* node, $String* name) {
 
 int32_t GIFMetadata::getEnumeratedAttribute($Node* node, $String* name, $StringArray* legalNames, int32_t defaultValue, bool required) {
 	$init(GIFMetadata);
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -201,8 +160,8 @@ int32_t GIFMetadata::getEnumeratedAttribute($Node* node, $String* name, $StringA
 
 $String* GIFMetadata::getAttribute($Node* node, $String* name, $String* defaultValue, bool required) {
 	$init(GIFMetadata);
-	$useLocalCurrentObjectStackCache();
-	$var($Node, attr, $nc($($nc(node)->getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, attr, $$nc($nc(node)->getAttributes())->getNamedItem(name));
 	if (attr == nullptr) {
 		if (!required) {
 			return defaultValue;
@@ -242,7 +201,7 @@ void GIFMetadata::mergeTree($String* formatName, $Node* root) {
 }
 
 $bytes* GIFMetadata::getColorTable($Node* colorTableNode, $String* entryNodeName, bool lengthExpected, int32_t expectedLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, red, $new($bytes, 256));
 	$var($bytes, green, $new($bytes, 256));
 	$var($bytes, blue, $new($bytes, 256));
@@ -252,7 +211,7 @@ $bytes* GIFMetadata::getColorTable($Node* colorTableNode, $String* entryNodeName
 		fatal(colorTableNode, "Palette has no entries!"_s);
 	}
 	while (entry != nullptr) {
-		if (!$nc($(entry->getNodeName()))->equals(entryNodeName)) {
+		if (!$$nc(entry->getNodeName())->equals(entryNodeName)) {
 			fatal(colorTableNode, $$str({"Only a "_s, entryNodeName, " may be a child of a "_s, $(entry->getNodeName()), "!"_s}));
 		}
 		int32_t index = getIntAttribute(entry, "index"_s, true, 0, 255);
@@ -269,14 +228,10 @@ $bytes* GIFMetadata::getColorTable($Node* colorTableNode, $String* entryNodeName
 		fatal(colorTableNode, "Unexpected length for palette!"_s);
 	}
 	$var($bytes, colorTable, $new($bytes, 3 * numEntries));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < numEntries; ++i) {
-			colorTable->set(j++, red->get(i));
-			colorTable->set(j++, green->get(i));
-			colorTable->set(j++, blue->get(i));
-		}
+	for (int32_t i = 0, j = 0; i < numEntries; ++i) {
+		colorTable->set(j++, red->get(i));
+		colorTable->set(j++, green->get(i));
+		colorTable->set(j++, blue->get(i));
 	}
 	return colorTable;
 }
@@ -285,7 +240,41 @@ GIFMetadata::GIFMetadata() {
 }
 
 $Class* GIFMetadata::load$($String* name, bool initialize) {
-	$loadClass(GIFMetadata, name, initialize, &_GIFMetadata_ClassInfo_, allocate$GIFMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNDEFINED_INTEGER_VALUE", "I", nullptr, $STATIC | $FINAL, $constField(GIFMetadata, UNDEFINED_INTEGER_VALUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GIFMetadata, init$, void, bool, $String*, $String*, $StringArray*, $StringArray*)},
+		{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getAttribute, $String*, $Node*, $String*, $String*, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getAttribute, $String*, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZZ)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getBooleanAttribute, bool, $Node*, $String*, bool, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getBooleanAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getBooleanAttribute, bool, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getColorTable", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZI)[B", nullptr, $PROTECTED, $virtualMethod(GIFMetadata, getColorTable, $bytes*, $Node*, $String*, bool, int32_t), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;IZ)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getEnumeratedAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;[Ljava/lang/String;)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getEnumeratedAttribute, int32_t, $Node*, $String*, $StringArray*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;FZ)F", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getFloatAttribute, float, $Node*, $String*, float, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getFloatAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)F", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getFloatAttribute, float, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;IZZII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getIntAttribute, int32_t, $Node*, $String*, int32_t, bool, bool, int32_t, int32_t), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getIntAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getIntAttribute, int32_t, $Node*, $String*, bool, int32_t, int32_t), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getStringAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Z[Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GIFMetadata, getStringAttribute, $String*, $Node*, $String*, $String*, bool, $StringArray*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GIFMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GIFMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.imageio.plugins.gif.GIFMetadata",
+		"javax.imageio.metadata.IIOMetadata",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFMetadata, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFMetadata);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/swing/ImageCache.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/lang/ref/SoftReference.h>
@@ -24,46 +23,6 @@ using $ImageCache$Entry = ::sun::swing::ImageCache$Entry;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _ImageCache_FieldInfo_[] = {
-	{"maxCount", "I", nullptr, $PRIVATE, $field(ImageCache, maxCount)},
-	{"entries", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/ref/SoftReference<Lsun/swing/ImageCache$Entry;>;>;", $PRIVATE | $FINAL, $field(ImageCache, entries)},
-	{}
-};
-
-$MethodInfo _ImageCache_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ImageCache, init$, void, int32_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ImageCache, flush, void)},
-	{"getEntry", "(Ljava/lang/Object;Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)Lsun/swing/ImageCache$Entry;", nullptr, $PRIVATE, $method(ImageCache, getEntry, $ImageCache$Entry*, Object$*, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
-	{"getImage", "(Ljava/lang/Object;Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ImageCache, getImage, $Image*, Object$*, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
-	{"setImage", "(Ljava/lang/Object;Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(ImageCache, setImage, void, Object$*, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*, $Image*)},
-	{"setMaxCount", "(I)V", nullptr, 0, $virtualMethod(ImageCache, setMaxCount, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ImageCache_InnerClassesInfo_[] = {
-	{"sun.swing.ImageCache$Entry", "sun.swing.ImageCache", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ImageCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.ImageCache",
-	"java.lang.Object",
-	nullptr,
-	_ImageCache_FieldInfo_,
-	_ImageCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.ImageCache$Entry"
-};
-
-$Object* allocate$ImageCache($Class* clazz) {
-	return $of($alloc(ImageCache));
-}
-
 void ImageCache::init$(int32_t maxCount) {
 	this->maxCount = maxCount;
 	$set(this, entries, $new($LinkedList));
@@ -74,29 +33,29 @@ void ImageCache::setMaxCount(int32_t maxCount) {
 }
 
 void ImageCache::flush() {
-	$nc(this->entries)->clear();
+	this->entries->clear();
 }
 
 $ImageCache$Entry* ImageCache::getEntry(Object$* key, $GraphicsConfiguration* config, int32_t w, int32_t h, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageCache$Entry, entry, nullptr);
-	$var($Iterator, iter, $nc(this->entries)->listIterator());
+	$var($Iterator, iter, this->entries->listIterator());
 	while ($nc(iter)->hasNext()) {
 		$var($SoftReference, ref, $cast($SoftReference, iter->next()));
 		$assign(entry, $cast($ImageCache$Entry, $nc(ref)->get()));
 		if (entry == nullptr) {
 			iter->remove();
-		} else if ($nc(entry)->equals(config, w, h, args)) {
+		} else if (entry->equals(config, w, h, args)) {
 			iter->remove();
-			$nc(this->entries)->addFirst(ref);
+			this->entries->addFirst(ref);
 			return entry;
 		}
 	}
 	$assign(entry, $new($ImageCache$Entry, config, w, h, args));
-	if ($nc(this->entries)->size() >= this->maxCount) {
-		$nc(this->entries)->removeLast();
+	if (this->entries->size() >= this->maxCount) {
+		this->entries->removeLast();
 	}
-	$nc(this->entries)->addFirst($$new($SoftReference, entry));
+	this->entries->addFirst($$new($SoftReference, entry));
 	return entry;
 }
 
@@ -114,7 +73,41 @@ ImageCache::ImageCache() {
 }
 
 $Class* ImageCache::load$($String* name, bool initialize) {
-	$loadClass(ImageCache, name, initialize, &_ImageCache_ClassInfo_, allocate$ImageCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"maxCount", "I", nullptr, $PRIVATE, $field(ImageCache, maxCount)},
+		{"entries", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/lang/ref/SoftReference<Lsun/swing/ImageCache$Entry;>;>;", $PRIVATE | $FINAL, $field(ImageCache, entries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ImageCache, init$, void, int32_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ImageCache, flush, void)},
+		{"getEntry", "(Ljava/lang/Object;Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)Lsun/swing/ImageCache$Entry;", nullptr, $PRIVATE, $method(ImageCache, getEntry, $ImageCache$Entry*, Object$*, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
+		{"getImage", "(Ljava/lang/Object;Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ImageCache, getImage, $Image*, Object$*, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
+		{"setImage", "(Ljava/lang/Object;Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(ImageCache, setImage, void, Object$*, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*, $Image*)},
+		{"setMaxCount", "(I)V", nullptr, 0, $virtualMethod(ImageCache, setMaxCount, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.ImageCache$Entry", "sun.swing.ImageCache", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.ImageCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.ImageCache$Entry"
+	};
+	$loadClass(ImageCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageCache);
+	});
 	return class$;
 }
 

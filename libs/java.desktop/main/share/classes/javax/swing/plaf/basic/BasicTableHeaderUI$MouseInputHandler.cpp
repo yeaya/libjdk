@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTableHeaderUI$MouseInputHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Cursor.h>
@@ -17,7 +16,6 @@
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
 
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Cursor = ::java::awt::Cursor;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -31,7 +29,6 @@ using $JTable = ::javax::swing::JTable;
 using $RowSorter = ::javax::swing::RowSorter;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicTableHeaderUI = ::javax::swing::plaf::basic::BasicTableHeaderUI;
-using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -41,54 +38,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicTableHeaderUI$MouseInputHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTableHeaderUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTableHeaderUI$MouseInputHandler, this$0)},
-	{"mouseXOffset", "I", nullptr, $PRIVATE, $field(BasicTableHeaderUI$MouseInputHandler, mouseXOffset)},
-	{"otherCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(BasicTableHeaderUI$MouseInputHandler, otherCursor)},
-	{}
-};
-
-$MethodInfo _BasicTableHeaderUI$MouseInputHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTableHeaderUI;)V", nullptr, $PUBLIC, $method(BasicTableHeaderUI$MouseInputHandler, init$, void, $BasicTableHeaderUI*)},
-	{"getResizingColumn", "(Ljava/awt/Point;)Ljavax/swing/table/TableColumn;", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, getResizingColumn, $TableColumn*, $Point*)},
-	{"getResizingColumn", "(Ljava/awt/Point;I)Ljavax/swing/table/TableColumn;", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, getResizingColumn, $TableColumn*, $Point*, int32_t)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
-	{"setDraggedDistance", "(II)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, setDraggedDistance, void, int32_t, int32_t)},
-	{"swapCursor", "()V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, swapCursor, void)},
-	{}
-};
-
-$InnerClassInfo _BasicTableHeaderUI$MouseInputHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler", "javax.swing.plaf.basic.BasicTableHeaderUI", "MouseInputHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTableHeaderUI$MouseInputHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler",
-	"java.lang.Object",
-	"javax.swing.event.MouseInputListener",
-	_BasicTableHeaderUI$MouseInputHandler_FieldInfo_,
-	_BasicTableHeaderUI$MouseInputHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTableHeaderUI$MouseInputHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTableHeaderUI"
-};
-
-$Object* allocate$BasicTableHeaderUI$MouseInputHandler($Class* clazz) {
-	return $of($alloc(BasicTableHeaderUI$MouseInputHandler));
-}
-
 void BasicTableHeaderUI$MouseInputHandler::init$($BasicTableHeaderUI* this$0) {
 	$set(this, this$0, this$0);
 	$init($BasicTableHeaderUI);
@@ -96,7 +45,7 @@ void BasicTableHeaderUI$MouseInputHandler::init$($BasicTableHeaderUI* this$0) {
 }
 
 void BasicTableHeaderUI$MouseInputHandler::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->header)->isEnabled()) {
 		return;
 	}
@@ -119,7 +68,7 @@ $TableColumn* BasicTableHeaderUI$MouseInputHandler::getResizingColumn($Point* p)
 }
 
 $TableColumn* BasicTableHeaderUI$MouseInputHandler::getResizingColumn($Point* p, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (column == -1) {
 		return nullptr;
 	}
@@ -130,7 +79,7 @@ $TableColumn* BasicTableHeaderUI$MouseInputHandler::getResizingColumn($Point* p,
 	}
 	int32_t midPoint = r->x + r->width / 2;
 	int32_t columnIndex = 0;
-	if ($nc($($nc(this->this$0->header)->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($nc(this->this$0->header)->getComponentOrientation())->isLeftToRight()) {
 		columnIndex = ($nc(p)->x < midPoint) ? column - 1 : column;
 	} else {
 		columnIndex = ($nc(p)->x < midPoint) ? column : column - 1;
@@ -138,11 +87,11 @@ $TableColumn* BasicTableHeaderUI$MouseInputHandler::getResizingColumn($Point* p,
 	if (columnIndex == -1) {
 		return nullptr;
 	}
-	return $nc($($nc(this->this$0->header)->getColumnModel()))->getColumn(columnIndex);
+	return $$nc($nc(this->this$0->header)->getColumnModel())->getColumn(columnIndex);
 }
 
 void BasicTableHeaderUI$MouseInputHandler::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->header)->isEnabled()) {
 		return;
 	}
@@ -156,7 +105,7 @@ void BasicTableHeaderUI$MouseInputHandler::mousePressed($MouseEvent* e) {
 		$var($TableColumn, resizingColumn, getResizingColumn(p, index));
 		if ($BasicTableHeaderUI::canResize(resizingColumn, this->this$0->header)) {
 			$nc(this->this$0->header)->setResizingColumn(resizingColumn);
-			if ($nc($($nc(this->this$0->header)->getComponentOrientation()))->isLeftToRight()) {
+			if ($$nc($nc(this->this$0->header)->getComponentOrientation())->isLeftToRight()) {
 				this->mouseXOffset = $nc(p)->x - $nc(resizingColumn)->getWidth();
 			} else {
 				this->mouseXOffset = $nc(p)->x + $nc(resizingColumn)->getWidth();
@@ -181,7 +130,7 @@ void BasicTableHeaderUI$MouseInputHandler::swapCursor() {
 }
 
 void BasicTableHeaderUI$MouseInputHandler::mouseMoved($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->header)->isEnabled()) {
 		return;
 	}
@@ -193,14 +142,14 @@ void BasicTableHeaderUI$MouseInputHandler::mouseMoved($MouseEvent* e) {
 }
 
 void BasicTableHeaderUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->this$0->header)->isEnabled()) {
 		return;
 	}
 	int32_t mouseX = $nc(e)->getX();
 	$var($TableColumn, resizingColumn, $nc(this->this$0->header)->getResizingColumn());
 	$var($TableColumn, draggedColumn, $nc(this->this$0->header)->getDraggedColumn());
-	bool headerLeftToRight = $nc($($nc(this->this$0->header)->getComponentOrientation()))->isLeftToRight();
+	bool headerLeftToRight = $$nc($nc(this->this$0->header)->getComponentOrientation())->isLeftToRight();
 	if (resizingColumn != nullptr) {
 		int32_t oldWidth = resizingColumn->getWidth();
 		int32_t newWidth = 0;
@@ -217,7 +166,7 @@ void BasicTableHeaderUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
 		int32_t columnIndex = this->this$0->viewIndexForColumn(draggedColumn);
 		int32_t newColumnIndex = columnIndex + (headerLeftToRight ? direction : -direction);
 		if (0 <= newColumnIndex && newColumnIndex < $nc(cm)->getColumnCount()) {
-			int32_t width = $nc($(cm->getColumn(newColumnIndex)))->getWidth();
+			int32_t width = $$nc(cm->getColumn(newColumnIndex))->getWidth();
 			if ($Math::abs(draggedDistance) > (width / 2)) {
 				this->mouseXOffset = this->mouseXOffset + direction * width;
 				$nc(this->this$0->header)->setDraggedDistance(draggedDistance - direction * width);
@@ -262,7 +211,7 @@ void BasicTableHeaderUI$MouseInputHandler::mouseExited($MouseEvent* e) {
 void BasicTableHeaderUI$MouseInputHandler::setDraggedDistance(int32_t draggedDistance, int32_t column) {
 	$nc(this->this$0->header)->setDraggedDistance(draggedDistance);
 	if (column != -1) {
-		$nc($($nc(this->this$0->header)->getColumnModel()))->moveColumn(column, column);
+		$$nc($nc(this->this$0->header)->getColumnModel())->moveColumn(column, column);
 	}
 }
 
@@ -270,7 +219,49 @@ BasicTableHeaderUI$MouseInputHandler::BasicTableHeaderUI$MouseInputHandler() {
 }
 
 $Class* BasicTableHeaderUI$MouseInputHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicTableHeaderUI$MouseInputHandler, name, initialize, &_BasicTableHeaderUI$MouseInputHandler_ClassInfo_, allocate$BasicTableHeaderUI$MouseInputHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTableHeaderUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTableHeaderUI$MouseInputHandler, this$0)},
+		{"mouseXOffset", "I", nullptr, $PRIVATE, $field(BasicTableHeaderUI$MouseInputHandler, mouseXOffset)},
+		{"otherCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(BasicTableHeaderUI$MouseInputHandler, otherCursor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTableHeaderUI;)V", nullptr, $PUBLIC, $method(BasicTableHeaderUI$MouseInputHandler, init$, void, $BasicTableHeaderUI*)},
+		{"getResizingColumn", "(Ljava/awt/Point;)Ljavax/swing/table/TableColumn;", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, getResizingColumn, $TableColumn*, $Point*)},
+		{"getResizingColumn", "(Ljava/awt/Point;I)Ljavax/swing/table/TableColumn;", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, getResizingColumn, $TableColumn*, $Point*, int32_t)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
+		{"setDraggedDistance", "(II)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, setDraggedDistance, void, int32_t, int32_t)},
+		{"swapCursor", "()V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$MouseInputHandler, swapCursor, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler", "javax.swing.plaf.basic.BasicTableHeaderUI", "MouseInputHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTableHeaderUI$MouseInputHandler",
+		"java.lang.Object",
+		"javax.swing.event.MouseInputListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTableHeaderUI"
+	};
+	$loadClass(BasicTableHeaderUI$MouseInputHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTableHeaderUI$MouseInputHandler));
+	});
 	return class$;
 }
 

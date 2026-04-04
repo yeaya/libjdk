@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultStyledDocument.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/font/TextAttribute.h>
@@ -14,7 +13,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/DocumentEvent$EventType.h>
-#include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/event/UndoableEditEvent.h>
@@ -83,15 +81,12 @@ using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $DocumentEvent$EventType = ::javax::swing::event::DocumentEvent$EventType;
 using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $UndoableEditEvent = ::javax::swing::event::UndoableEditEvent;
 using $UndoableEditListener = ::javax::swing::event::UndoableEditListener;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AbstractDocument$AbstractElement = ::javax::swing::text::AbstractDocument$AbstractElement;
-using $AbstractDocument$AttributeContext = ::javax::swing::text::AbstractDocument$AttributeContext;
 using $AbstractDocument$BranchElement = ::javax::swing::text::AbstractDocument$BranchElement;
 using $AbstractDocument$Content = ::javax::swing::text::AbstractDocument$Content;
 using $AbstractDocument$DefaultDocumentEvent = ::javax::swing::text::AbstractDocument$DefaultDocumentEvent;
@@ -124,103 +119,6 @@ using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultStyledDocument_FieldInfo_[] = {
-	{"BUFFER_SIZE_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument, BUFFER_SIZE_DEFAULT)},
-	{"buffer", "Ljavax/swing/text/DefaultStyledDocument$ElementBuffer;", nullptr, $PROTECTED, $field(DefaultStyledDocument, buffer)},
-	{"listeningStyles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/Style;>;", $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, listeningStyles)},
-	{"styleChangeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, styleChangeListener)},
-	{"styleContextChangeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, styleContextChangeListener)},
-	{"updateRunnable", "Ljavax/swing/text/DefaultStyledDocument$ChangeUpdateRunnable;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, updateRunnable)},
-	{}
-};
-
-$MethodInfo _DefaultStyledDocument_MethodInfo_[] = {
-	{"*addUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEndPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $FINAL},
-	{"*getLength", "()I", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"*getRootElements", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC},
-	{"*getStartPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $FINAL},
-	{"*getText", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getText", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/AbstractDocument$Content;Ljavax/swing/text/StyleContext;)V", nullptr, $PUBLIC, $method(DefaultStyledDocument, init$, void, $AbstractDocument$Content*, $StyleContext*)},
-	{"<init>", "(Ljavax/swing/text/StyleContext;)V", nullptr, $PUBLIC, $method(DefaultStyledDocument, init$, void, $StyleContext*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultStyledDocument, init$, void)},
-	{"addDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, addDocumentListener, void, $DocumentListener*)},
-	{"addStyle", "(Ljava/lang/String;Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, addStyle, $Style*, $String*, $Style*)},
-	{"create", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, create, void, $DefaultStyledDocument$ElementSpecArray*)},
-	{"createDefaultRoot", "()Ljavax/swing/text/AbstractDocument$AbstractElement;", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, createDefaultRoot, $AbstractDocument$AbstractElement*)},
-	{"createSpecsForInsertAfterNewline", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;Ljava/util/Vector;II)S", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;Ljava/util/Vector<Ljavax/swing/text/DefaultStyledDocument$ElementSpec;>;II)S", 0, $virtualMethod(DefaultStyledDocument, createSpecsForInsertAfterNewline, int16_t, $Element*, $Element*, $AttributeSet*, $Vector*, int32_t, int32_t)},
-	{"createStyleChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, 0, $virtualMethod(DefaultStyledDocument, createStyleChangeListener, $ChangeListener*)},
-	{"createStyleContextChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, 0, $virtualMethod(DefaultStyledDocument, createStyleContextChangeListener, $ChangeListener*)},
-	{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getBackground, $Color*, $AttributeSet*)},
-	{"getCharacterElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getCharacterElement, $Element*, int32_t)},
-	{"getDefaultRootElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getDefaultRootElement, $Element*)},
-	{"getFont", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getFont, $Font*, $AttributeSet*)},
-	{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getForeground, $Color*, $AttributeSet*)},
-	{"getLogicalStyle", "(I)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getLogicalStyle, $Style*, int32_t)},
-	{"getParagraphElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getParagraphElement, $Element*, int32_t)},
-	{"getStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getStyle, $Style*, $String*)},
-	{"getStyleNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(DefaultStyledDocument, getStyleNames, $Enumeration*)},
-	{"insert", "(I[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, insert, void, int32_t, $DefaultStyledDocument$ElementSpecArray*), "javax.swing.text.BadLocationException"},
-	{"*insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC},
-	{"insertUpdate", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, insertUpdate, void, $AbstractDocument$DefaultDocumentEvent*, $AttributeSet*)},
-	{"*putProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultStyledDocument, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"*remove", "(II)V", nullptr, $PUBLIC},
-	{"removeDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, removeDocumentListener, void, $DocumentListener*)},
-	{"removeElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, removeElement, void, $Element*)},
-	{"removeElementImpl", "(Ljavax/swing/text/Element;)V", nullptr, $PRIVATE, $method(DefaultStyledDocument, removeElementImpl, void, $Element*)},
-	{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, removeStyle, void, $String*)},
-	{"*removeUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC},
-	{"removeUpdate", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, removeUpdate, void, $AbstractDocument$DefaultDocumentEvent*)},
-	{"*render", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
-	{"setCharacterAttributes", "(IILjavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, setCharacterAttributes, void, int32_t, int32_t, $AttributeSet*, bool)},
-	{"setLogicalStyle", "(ILjavax/swing/text/Style;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, setLogicalStyle, void, int32_t, $Style*)},
-	{"setParagraphAttributes", "(IILjavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, setParagraphAttributes, void, int32_t, int32_t, $AttributeSet*, bool)},
-	{"styleChanged", "(Ljavax/swing/text/Style;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, styleChanged, void, $Style*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateStylesListeningTo", "()V", nullptr, 0, $virtualMethod(DefaultStyledDocument, updateStylesListeningTo, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultStyledDocument_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultStyledDocument$ChangeUpdateRunnable", "javax.swing.text.DefaultStyledDocument", "ChangeUpdateRunnable", 0},
-	{"javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleContextChangeHandler", $STATIC},
-	{"javax.swing.text.DefaultStyledDocument$StyleChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleChangeHandler", $STATIC},
-	{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
-	{"javax.swing.text.DefaultStyledDocument$StyleChangeUndoableEdit", "javax.swing.text.DefaultStyledDocument", "StyleChangeUndoableEdit", $STATIC},
-	{"javax.swing.text.DefaultStyledDocument$AttributeUndoableEdit", "javax.swing.text.DefaultStyledDocument", "AttributeUndoableEdit", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultStyledDocument$ElementBuffer", "javax.swing.text.DefaultStyledDocument", "ElementBuffer", $PUBLIC},
-	{"javax.swing.text.DefaultStyledDocument$ElementSpec", "javax.swing.text.DefaultStyledDocument", "ElementSpec", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultStyledDocument$SectionElement", "javax.swing.text.DefaultStyledDocument", "SectionElement", $PROTECTED},
-	{}
-};
-
-$ClassInfo _DefaultStyledDocument_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultStyledDocument",
-	"javax.swing.text.AbstractDocument",
-	"javax.swing.text.StyledDocument",
-	_DefaultStyledDocument_FieldInfo_,
-	_DefaultStyledDocument_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultStyledDocument$ChangeUpdateRunnable,javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler,javax.swing.text.DefaultStyledDocument$StyleChangeHandler,javax.swing.text.DefaultStyledDocument$AbstractChangeHandler,javax.swing.text.DefaultStyledDocument$AbstractChangeHandler$DocReference,javax.swing.text.DefaultStyledDocument$StyleChangeUndoableEdit,javax.swing.text.DefaultStyledDocument$AttributeUndoableEdit,javax.swing.text.DefaultStyledDocument$ElementBuffer,javax.swing.text.DefaultStyledDocument$ElementBuffer$ElemChanges,javax.swing.text.DefaultStyledDocument$ElementSpec,javax.swing.text.DefaultStyledDocument$SectionElement"
-};
-
-$Object* allocate$DefaultStyledDocument($Class* clazz) {
-	return $of($alloc(DefaultStyledDocument));
-}
 
 void DefaultStyledDocument::render($Runnable* r) {
 	this->$AbstractDocument::render(r);
@@ -299,7 +197,7 @@ void DefaultStyledDocument::finalize() {
 }
 
 void DefaultStyledDocument::init$($AbstractDocument$Content* c, $StyleContext* styles) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractDocument::init$(c, styles);
 	$set(this, listeningStyles, $new($Vector));
 	$set(this, buffer, $new($DefaultStyledDocument$ElementBuffer, this, $(createDefaultRoot())));
@@ -313,8 +211,8 @@ void DefaultStyledDocument::init$($StyleContext* styles) {
 }
 
 void DefaultStyledDocument::init$() {
-	$useLocalCurrentObjectStackCache();
-	$var($AbstractDocument$Content, var$0, static_cast<$AbstractDocument$Content*>($new($GapContent, DefaultStyledDocument::BUFFER_SIZE_DEFAULT)));
+	$useLocalObjectStack();
+	$var($AbstractDocument$Content, var$0, $new($GapContent, DefaultStyledDocument::BUFFER_SIZE_DEFAULT));
 	DefaultStyledDocument::init$(var$0, $$new($StyleContext));
 }
 
@@ -323,59 +221,13 @@ $Element* DefaultStyledDocument::getDefaultRootElement() {
 }
 
 void DefaultStyledDocument::create($DefaultStyledDocument$ElementSpecArray* data) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				if (getLength() != 0) {
-					remove(0, getLength());
-				}
-				writeLock();
-				$var($AbstractDocument$Content, c, getContent());
-				int32_t n = $nc(data)->length;
-				$var($StringBuilder, sb, $new($StringBuilder));
-				for (int32_t i = 0; i < n; ++i) {
-					$var($DefaultStyledDocument$ElementSpec, es, data->get(i));
-					if ($nc(es)->getLength() > 0) {
-						$var($chars, var$1, es->getArray());
-						int32_t var$2 = es->getOffset();
-						sb->append(var$1, var$2, es->getLength());
-					}
-				}
-				$var($UndoableEdit, cEdit, $nc(c)->insertString(0, $(sb->toString())));
-				int32_t length = sb->length();
-				$init($DocumentEvent$EventType);
-				$var($AbstractDocument$DefaultDocumentEvent, evnt, $new($AbstractDocument$DefaultDocumentEvent, this, 0, length, $DocumentEvent$EventType::INSERT));
-				evnt->addEdit(cEdit);
-				$nc(this->buffer)->create(length, data, evnt);
-				$AbstractDocument::insertUpdate(evnt, nullptr);
-				evnt->end();
-				fireInsertUpdate(evnt);
-				fireUndoableEditUpdate($$new($UndoableEditEvent, this, evnt));
-			} catch ($BadLocationException& ble) {
-				$throwNew($StateInvariantError, "problem initializing"_s);
+			if (getLength() != 0) {
+				remove(0, getLength());
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			writeUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-	}
-}
-
-void DefaultStyledDocument::insert(int32_t offset, $DefaultStyledDocument$ElementSpecArray* data) {
-	$useLocalCurrentObjectStackCache();
-	if (data == nullptr || $nc(data)->length == 0) {
-		return;
-	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
 			writeLock();
 			$var($AbstractDocument$Content, c, getContent());
 			int32_t n = $nc(data)->length;
@@ -383,63 +235,103 @@ void DefaultStyledDocument::insert(int32_t offset, $DefaultStyledDocument$Elemen
 			for (int32_t i = 0; i < n; ++i) {
 				$var($DefaultStyledDocument$ElementSpec, es, data->get(i));
 				if ($nc(es)->getLength() > 0) {
-					$var($chars, var$2, es->getArray());
-					int32_t var$3 = es->getOffset();
-					sb->append(var$2, var$3, es->getLength());
+					$var($chars, var$1, es->getArray());
+					int32_t var$2 = es->getOffset();
+					sb->append(var$1, var$2, es->getLength());
 				}
 			}
-			if (sb->length() == 0) {
-				return$1 = true;
-				goto $finally;
-			}
-			$var($UndoableEdit, cEdit, $nc(c)->insertString(offset, $(sb->toString())));
+			$var($UndoableEdit, cEdit, $nc(c)->insertString(0, $(sb->toString())));
 			int32_t length = sb->length();
 			$init($DocumentEvent$EventType);
-			$var($AbstractDocument$DefaultDocumentEvent, evnt, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::INSERT));
+			$var($AbstractDocument$DefaultDocumentEvent, evnt, $new($AbstractDocument$DefaultDocumentEvent, this, 0, length, $DocumentEvent$EventType::INSERT));
 			evnt->addEdit(cEdit);
-			$nc(this->buffer)->insert(offset, length, data, evnt);
+			$nc(this->buffer)->create(length, data, evnt);
 			$AbstractDocument::insertUpdate(evnt, nullptr);
 			evnt->end();
 			fireInsertUpdate(evnt);
 			fireUndoableEditUpdate($$new($UndoableEditEvent, this, evnt));
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			writeUnlock();
+		} catch ($BadLocationException& ble) {
+			$throwNew($StateInvariantError, "problem initializing"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void DefaultStyledDocument::insert(int32_t offset, $DefaultStyledDocument$ElementSpecArray* data) {
+	$useLocalObjectStack();
+	if (data == nullptr || data->length == 0) {
+		return;
+	}
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		writeLock();
+		$var($AbstractDocument$Content, c, getContent());
+		int32_t n = $nc(data)->length;
+		$var($StringBuilder, sb, $new($StringBuilder));
+		for (int32_t i = 0; i < n; ++i) {
+			$var($DefaultStyledDocument$ElementSpec, es, data->get(i));
+			if ($nc(es)->getLength() > 0) {
+				$var($chars, var$2, es->getArray());
+				int32_t var$3 = es->getOffset();
+				sb->append(var$2, var$3, es->getLength());
+			}
 		}
-		if (return$1) {
-			return;
+		if (sb->length() == 0) {
+			return$1 = true;
+			goto $finally;
 		}
+		$var($UndoableEdit, cEdit, $nc(c)->insertString(offset, $(sb->toString())));
+		int32_t length = sb->length();
+		$init($DocumentEvent$EventType);
+		$var($AbstractDocument$DefaultDocumentEvent, evnt, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::INSERT));
+		evnt->addEdit(cEdit);
+		$nc(this->buffer)->insert(offset, length, data, evnt);
+		$AbstractDocument::insertUpdate(evnt, nullptr);
+		evnt->end();
+		fireInsertUpdate(evnt);
+		fireUndoableEditUpdate($$new($UndoableEditEvent, this, evnt));
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void DefaultStyledDocument::removeElement($Element* elem) {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			writeLock();
-			removeElementImpl(elem);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			writeUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		writeLock();
+		removeElementImpl(elem);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void DefaultStyledDocument::removeElementImpl($Element* elem$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, elem$renamed);
 	if (!$equals($nc(elem)->getDocument(), this)) {
 		$throwNew($IllegalArgumentException, "element doesn\'t belong to document"_s);
 	}
-	$var($AbstractDocument$BranchElement, parent, $cast($AbstractDocument$BranchElement, $nc(elem)->getParentElement()));
+	$var($AbstractDocument$BranchElement, parent, $cast($AbstractDocument$BranchElement, elem->getParentElement()));
 	if (parent == nullptr) {
 		$throwNew($IllegalArgumentException, "can\'t remove the root element"_s);
 	}
@@ -457,11 +349,11 @@ void DefaultStyledDocument::removeElementImpl($Element* elem$renamed) {
 		}
 		removeTo = lastEndOffset - 1;
 		try {
-			if ($nc($($nc(content)->getString(startOffset - 1, 1)))->charAt(0) == u'\n') {
+			if ($$nc($nc(content)->getString(startOffset - 1, 1))->charAt(0) == u'\n') {
 				--removeFrom;
 			}
 		} catch ($BadLocationException& ble) {
-			$throwNew($IllegalStateException, static_cast<$Throwable*>(ble));
+			$throwNew($IllegalStateException, ble);
 		}
 		atEnd = true;
 	}
@@ -488,7 +380,7 @@ void DefaultStyledDocument::removeElementImpl($Element* elem$renamed) {
 				dde->addEdit(ue);
 			}
 		} catch ($BadLocationException& ble) {
-			$throwNew($IllegalStateException, static_cast<$Throwable*>(ble));
+			$throwNew($IllegalStateException, ble);
 		}
 		lastEndOffset -= length;
 	}
@@ -534,41 +426,39 @@ $Style* DefaultStyledDocument::getStyle($String* nm) {
 }
 
 $Enumeration* DefaultStyledDocument::getStyleNames() {
-	return $nc(($cast($StyleContext, $(getAttributeContext()))))->getStyleNames();
+	return $$sure($StyleContext, getAttributeContext())->getStyleNames();
 }
 
 void DefaultStyledDocument::setLogicalStyle(int32_t pos, $Style* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, paragraph, getParagraphElement(pos));
 	if ((paragraph != nullptr) && ($instanceOf($AbstractDocument$AbstractElement, paragraph))) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				writeLock();
-				$var($DefaultStyledDocument$StyleChangeUndoableEdit, edit, $new($DefaultStyledDocument$StyleChangeUndoableEdit, $cast($AbstractDocument$AbstractElement, paragraph), s));
-				$nc(($cast($AbstractDocument$AbstractElement, paragraph)))->setResolveParent(s);
-				int32_t p0 = paragraph->getStartOffset();
-				int32_t p1 = paragraph->getEndOffset();
-				$init($DocumentEvent$EventType);
-				$var($AbstractDocument$DefaultDocumentEvent, e, $new($AbstractDocument$DefaultDocumentEvent, this, p0, p1 - p0, $DocumentEvent$EventType::CHANGE));
-				e->addEdit(edit);
-				e->end();
-				fireChangedUpdate(e);
-				fireUndoableEditUpdate($$new($UndoableEditEvent, this, e));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				writeUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			writeLock();
+			$var($DefaultStyledDocument$StyleChangeUndoableEdit, edit, $new($DefaultStyledDocument$StyleChangeUndoableEdit, $cast($AbstractDocument$AbstractElement, paragraph), s));
+			$cast($AbstractDocument$AbstractElement, paragraph)->setResolveParent(s);
+			int32_t p0 = paragraph->getStartOffset();
+			int32_t p1 = paragraph->getEndOffset();
+			$init($DocumentEvent$EventType);
+			$var($AbstractDocument$DefaultDocumentEvent, e, $new($AbstractDocument$DefaultDocumentEvent, this, p0, p1 - p0, $DocumentEvent$EventType::CHANGE));
+			e->addEdit(edit);
+			e->end();
+			fireChangedUpdate(e);
+			fireUndoableEditUpdate($$new($UndoableEditEvent, this, e));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			writeUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $Style* DefaultStyledDocument::getLogicalStyle(int32_t p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Style, s, nullptr);
 	$var($Element, paragraph, getParagraphElement(p));
 	if (paragraph != nullptr) {
@@ -582,96 +472,91 @@ $Style* DefaultStyledDocument::getLogicalStyle(int32_t p) {
 }
 
 void DefaultStyledDocument::setCharacterAttributes(int32_t offset, int32_t length, $AttributeSet* s, bool replace) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length == 0) {
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			writeLock();
-			$init($DocumentEvent$EventType);
-			$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::CHANGE));
-			$nc(this->buffer)->change(offset, length, changes);
-			$var($AttributeSet, sCopy, $nc(s)->copyAttributes());
-			int32_t lastEnd = 0;
-			for (int32_t pos = offset; pos < (offset + length); pos = lastEnd) {
-				$var($Element, run, getCharacterElement(pos));
-				lastEnd = $nc(run)->getEndOffset();
-				if (pos == lastEnd) {
-					break;
-				}
-				$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, run->getAttributes()));
-				changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, run, sCopy, replace));
-				if (replace) {
-					$nc(attr)->removeAttributes(static_cast<$AttributeSet*>(attr));
-				}
-				$nc(attr)->addAttributes(s);
+	$var($Throwable, var$0, nullptr);
+	try {
+		writeLock();
+		$init($DocumentEvent$EventType);
+		$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::CHANGE));
+		$nc(this->buffer)->change(offset, length, changes);
+		$var($AttributeSet, sCopy, $nc(s)->copyAttributes());
+		int32_t lastEnd = 0;
+		for (int32_t pos = offset; pos < (offset + length); pos = lastEnd) {
+			$var($Element, run, getCharacterElement(pos));
+			lastEnd = $nc(run)->getEndOffset();
+			if (pos == lastEnd) {
+				break;
 			}
-			changes->end();
-			fireChangedUpdate(changes);
-			fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			writeUnlock();
+			$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, run->getAttributes()));
+			changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, run, sCopy, replace));
+			if (replace) {
+				$nc(attr)->removeAttributes(attr);
+			}
+			$nc(attr)->addAttributes(s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		changes->end();
+		fireChangedUpdate(changes);
+		fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void DefaultStyledDocument::setParagraphAttributes(int32_t offset, int32_t length, $AttributeSet* s, bool replace) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			writeLock();
-			$init($DocumentEvent$EventType);
-			$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::CHANGE));
-			$var($AttributeSet, sCopy, $nc(s)->copyAttributes());
-			$var($Element, section, getDefaultRootElement());
-			int32_t index0 = $nc(section)->getElementIndex(offset);
-			int32_t index1 = section->getElementIndex(offset + ((length > 0) ? length - 1 : 0));
-			$init($Boolean);
-			$init($AbstractDocument);
-			bool isI18N = $nc($Boolean::TRUE)->equals($(getProperty($AbstractDocument::I18NProperty)));
-			bool hasRuns = false;
-			for (int32_t i = index0; i <= index1; ++i) {
-				$var($Element, paragraph, section->getElement(i));
-				$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, $nc(paragraph)->getAttributes()));
-				changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, paragraph, sCopy, replace));
-				if (replace) {
-					$nc(attr)->removeAttributes(static_cast<$AttributeSet*>(attr));
-				}
-				$nc(attr)->addAttributes(s);
-				if (isI18N && !hasRuns) {
-					$init($TextAttribute);
-					hasRuns = (attr->getAttribute($TextAttribute::RUN_DIRECTION) != nullptr);
-				}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		writeLock();
+		$init($DocumentEvent$EventType);
+		$var($AbstractDocument$DefaultDocumentEvent, changes, $new($AbstractDocument$DefaultDocumentEvent, this, offset, length, $DocumentEvent$EventType::CHANGE));
+		$var($AttributeSet, sCopy, $nc(s)->copyAttributes());
+		$var($Element, section, getDefaultRootElement());
+		int32_t index0 = $nc(section)->getElementIndex(offset);
+		int32_t index1 = section->getElementIndex(offset + ((length > 0) ? length - 1 : 0));
+		$init($AbstractDocument);
+		bool isI18N = $nc($Boolean::TRUE)->equals($(getProperty($AbstractDocument::I18NProperty)));
+		bool hasRuns = false;
+		for (int32_t i = index0; i <= index1; ++i) {
+			$var($Element, paragraph, section->getElement(i));
+			$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, $nc(paragraph)->getAttributes()));
+			changes->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, paragraph, sCopy, replace));
+			if (replace) {
+				$nc(attr)->removeAttributes(attr);
 			}
-			if (hasRuns) {
-				updateBidi(changes);
+			$nc(attr)->addAttributes(s);
+			if (isI18N && !hasRuns) {
+				$init($TextAttribute);
+				hasRuns = (attr->getAttribute($TextAttribute::RUN_DIRECTION) != nullptr);
 			}
-			changes->end();
-			fireChangedUpdate(changes);
-			fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			writeUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (hasRuns) {
+			updateBidi(changes);
 		}
+		changes->end();
+		fireChangedUpdate(changes);
+		fireUndoableEditUpdate($$new($UndoableEditEvent, this, changes));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		writeUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Element* DefaultStyledDocument::getParagraphElement(int32_t pos) {
 	$var($Element, e, nullptr);
 	for ($assign(e, getDefaultRootElement()); !$nc(e)->isLeaf();) {
-		int32_t index = $nc(e)->getElementIndex(pos);
+		int32_t index = e->getElementIndex(pos);
 		$assign(e, e->getElement(index));
 	}
 	if (e != nullptr) {
@@ -683,14 +568,14 @@ $Element* DefaultStyledDocument::getParagraphElement(int32_t pos) {
 $Element* DefaultStyledDocument::getCharacterElement(int32_t pos) {
 	$var($Element, e, nullptr);
 	for ($assign(e, getDefaultRootElement()); !$nc(e)->isLeaf();) {
-		int32_t index = $nc(e)->getElementIndex(pos);
+		int32_t index = e->getElementIndex(pos);
 		$assign(e, e->getElement(index));
 	}
 	return e;
 }
 
 void DefaultStyledDocument::insertUpdate($AbstractDocument$DefaultDocumentEvent* chng, $AttributeSet* attr$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, attr, attr$renamed);
 	int32_t offset = $nc(chng)->getOffset();
 	int32_t length = chng->getLength();
@@ -701,7 +586,7 @@ void DefaultStyledDocument::insertUpdate($AbstractDocument$DefaultDocumentEvent*
 	$var($Element, paragraph, getParagraphElement(offset + length));
 	$var($AttributeSet, pattr, $nc(paragraph)->getAttributes());
 	$var($Element, pParagraph, getParagraphElement(offset));
-	$var($Element, run, $nc(pParagraph)->getElement(pParagraph->getElementIndex(offset)));
+	$var($Element, run, $nc(pParagraph)->getElement($nc(pParagraph)->getElementIndex(offset)));
 	int32_t endOffset = offset + length;
 	bool insertingAtBoundry = ($nc(run)->getEndOffset() == endOffset);
 	$var($AttributeSet, cattr, run->getAttributes());
@@ -760,7 +645,7 @@ void DefaultStyledDocument::insertUpdate($AbstractDocument$DefaultDocumentEvent*
 				$var($Element, parent, pParagraph->getParentElement());
 				int32_t pParagraphIndex = $nc(parent)->getElementIndex(offset);
 				bool var$1 = (pParagraphIndex + 1) < parent->getElementCount();
-				if (var$1 && !$nc($(parent->getElement(pParagraphIndex + 1)))->isLeaf()) {
+				if (var$1 && !$$nc(parent->getElement(pParagraphIndex + 1))->isLeaf()) {
 					lastStartSpec->setDirection($DefaultStyledDocument$ElementSpec::JoinNextDirection);
 				}
 			}
@@ -773,7 +658,7 @@ void DefaultStyledDocument::insertUpdate($AbstractDocument$DefaultDocumentEvent*
 				$var($Element, nextRun, paragraph->getElement(paragraph->getElementIndex(endOffset)));
 				bool var$4 = $nc(nextRun)->isLeaf();
 				if (var$4 && $nc(attr)->isEqual($(nextRun->getAttributes()))) {
-					$nc(last)->setDirection($DefaultStyledDocument$ElementSpec::JoinNextDirection);
+					last->setDirection($DefaultStyledDocument$ElementSpec::JoinNextDirection);
 				}
 			}
 		} else if (!insertingAtBoundry && lastStartSpec != nullptr && lastStartSpec->getDirection() == $DefaultStyledDocument$ElementSpec::JoinFractureDirection) {
@@ -804,7 +689,7 @@ void DefaultStyledDocument::insertUpdate($AbstractDocument$DefaultDocumentEvent*
 }
 
 int16_t DefaultStyledDocument::createSpecsForInsertAfterNewline($Element* paragraph, $Element* pParagraph, $AttributeSet* pattr, $Vector* parseBuffer, int32_t offset, int32_t endOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(paragraph)->getParentElement() == $nc(pParagraph)->getParentElement()) {
 		$var($DefaultStyledDocument$ElementSpec, spec, $new($DefaultStyledDocument$ElementSpec, pattr, $DefaultStyledDocument$ElementSpec::EndTagType));
 		$nc(parseBuffer)->addElement(spec);
@@ -814,7 +699,7 @@ int16_t DefaultStyledDocument::createSpecsForInsertAfterNewline($Element* paragr
 			return $DefaultStyledDocument$ElementSpec::JoinFractureDirection;
 		}
 		$var($Element, parent, pParagraph->getParentElement());
-		int32_t var$0 = ($nc(parent)->getElementIndex(offset) + 1);
+		int32_t var$0 = $nc(parent)->getElementIndex(offset) + 1;
 		if (var$0 < parent->getElementCount()) {
 			return $DefaultStyledDocument$ElementSpec::JoinNextDirection;
 		}
@@ -838,7 +723,7 @@ int16_t DefaultStyledDocument::createSpecsForInsertAfterNewline($Element* paragr
 			}
 			$var($DefaultStyledDocument$ElementSpec, spec, nullptr);
 			for (int32_t counter = rightParents->size() - 1; counter >= 0; --counter) {
-				$assign(spec, $new($DefaultStyledDocument$ElementSpec, $($nc(($cast($Element, $(rightParents->elementAt(counter)))))->getAttributes()), $DefaultStyledDocument$ElementSpec::StartTagType));
+				$assign(spec, $new($DefaultStyledDocument$ElementSpec, $($$sure($Element, rightParents->elementAt(counter))->getAttributes()), $DefaultStyledDocument$ElementSpec::StartTagType));
 				if (counter > 0) {
 					spec->setDirection($DefaultStyledDocument$ElementSpec::JoinNextDirection);
 				}
@@ -860,7 +745,7 @@ void DefaultStyledDocument::removeUpdate($AbstractDocument$DefaultDocumentEvent*
 }
 
 $AbstractDocument$AbstractElement* DefaultStyledDocument::createDefaultRoot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	writeLock();
 	$var($AbstractDocument$BranchElement, section, $new($DefaultStyledDocument$SectionElement, this));
 	$var($AbstractDocument$BranchElement, paragraph, $new($AbstractDocument$BranchElement, this, section, nullptr));
@@ -895,7 +780,7 @@ void DefaultStyledDocument::styleChanged($Style* style) {
 			$set(this, updateRunnable, $new($DefaultStyledDocument$ChangeUpdateRunnable, this));
 		}
 		$synchronized(this->updateRunnable) {
-			if (!$nc(this->updateRunnable)->isPending) {
+			if (!this->updateRunnable->isPending) {
 				$SwingUtilities::invokeLater(this->updateRunnable);
 				$nc(this->updateRunnable)->isPending = true;
 			}
@@ -904,7 +789,7 @@ void DefaultStyledDocument::styleChanged($Style* style) {
 }
 
 void DefaultStyledDocument::addDocumentListener($DocumentListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->listeningStyles) {
 		$load($DocumentListener);
 		int32_t oldDLCount = $nc(this->listenerList)->getListenerCount($DocumentListener::class$);
@@ -933,13 +818,13 @@ void DefaultStyledDocument::addDocumentListener($DocumentListener* listener) {
 }
 
 void DefaultStyledDocument::removeDocumentListener($DocumentListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->listeningStyles) {
 		$AbstractDocument::removeDocumentListener(listener);
 		$load($DocumentListener);
 		if ($nc(this->listenerList)->getListenerCount($DocumentListener::class$) == 0) {
 			for (int32_t counter = $nc(this->listeningStyles)->size() - 1; counter >= 0; --counter) {
-				$nc(($cast($Style, $($nc(this->listeningStyles)->elementAt(counter)))))->removeChangeListener(this->styleChangeListener);
+				$$sure($Style, $nc(this->listeningStyles)->elementAt(counter))->removeChangeListener(this->styleChangeListener);
 			}
 			$nc(this->listeningStyles)->removeAllElements();
 			if (this->styleContextChangeListener != nullptr) {
@@ -959,7 +844,7 @@ $ChangeListener* DefaultStyledDocument::createStyleContextChangeListener() {
 }
 
 void DefaultStyledDocument::updateStylesListeningTo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->listeningStyles) {
 		$var($StyleContext, styles, $cast($StyleContext, getAttributeContext()));
 		if (this->styleChangeListener == nullptr) {
@@ -968,7 +853,7 @@ void DefaultStyledDocument::updateStylesListeningTo() {
 		if (this->styleChangeListener != nullptr && styles != nullptr) {
 			$var($Enumeration, styleNames, styles->getStyleNames());
 			$var($Vector, v, $cast($Vector, $nc(this->listeningStyles)->clone()));
-			$nc(this->listeningStyles)->removeAllElements();
+			this->listeningStyles->removeAllElements();
 			$var($List, staleListeners, $DefaultStyledDocument$AbstractChangeHandler::getStaleListeners(this->styleChangeListener));
 			while ($nc(styleNames)->hasMoreElements()) {
 				$var($String, name, $cast($String, styleNames->nextElement()));
@@ -1002,10 +887,10 @@ void DefaultStyledDocument::updateStylesListeningTo() {
 }
 
 void DefaultStyledDocument::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, listeningStyles, $new($Vector));
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$set(this, buffer, $cast($DefaultStyledDocument$ElementBuffer, $nc(f)->get("buffer"_s, ($Object*)nullptr)));
+	$set(this, buffer, $cast($DefaultStyledDocument$ElementBuffer, $nc(f)->get("buffer"_s, nullptr)));
 	$load($DocumentListener);
 	if (this->styleContextChangeListener == nullptr && $nc(this->listenerList)->getListenerCount($DocumentListener::class$) > 0) {
 		$set(this, styleContextChangeListener, createStyleContextChangeListener());
@@ -1021,7 +906,98 @@ DefaultStyledDocument::DefaultStyledDocument() {
 }
 
 $Class* DefaultStyledDocument::load$($String* name, bool initialize) {
-	$loadClass(DefaultStyledDocument, name, initialize, &_DefaultStyledDocument_ClassInfo_, allocate$DefaultStyledDocument);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUFFER_SIZE_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument, BUFFER_SIZE_DEFAULT)},
+		{"buffer", "Ljavax/swing/text/DefaultStyledDocument$ElementBuffer;", nullptr, $PROTECTED, $field(DefaultStyledDocument, buffer)},
+		{"listeningStyles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/Style;>;", $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, listeningStyles)},
+		{"styleChangeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, styleChangeListener)},
+		{"styleContextChangeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, styleContextChangeListener)},
+		{"updateRunnable", "Ljavax/swing/text/DefaultStyledDocument$ChangeUpdateRunnable;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultStyledDocument, updateRunnable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEndPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $FINAL},
+		{"*getLength", "()I", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
+		{"*getRootElements", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC},
+		{"*getStartPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $FINAL},
+		{"*getText", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getText", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/AbstractDocument$Content;Ljavax/swing/text/StyleContext;)V", nullptr, $PUBLIC, $method(DefaultStyledDocument, init$, void, $AbstractDocument$Content*, $StyleContext*)},
+		{"<init>", "(Ljavax/swing/text/StyleContext;)V", nullptr, $PUBLIC, $method(DefaultStyledDocument, init$, void, $StyleContext*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultStyledDocument, init$, void)},
+		{"addDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, addDocumentListener, void, $DocumentListener*)},
+		{"addStyle", "(Ljava/lang/String;Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, addStyle, $Style*, $String*, $Style*)},
+		{"create", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, create, void, $DefaultStyledDocument$ElementSpecArray*)},
+		{"createDefaultRoot", "()Ljavax/swing/text/AbstractDocument$AbstractElement;", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, createDefaultRoot, $AbstractDocument$AbstractElement*)},
+		{"createSpecsForInsertAfterNewline", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;Ljava/util/Vector;II)S", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;Ljava/util/Vector<Ljavax/swing/text/DefaultStyledDocument$ElementSpec;>;II)S", 0, $virtualMethod(DefaultStyledDocument, createSpecsForInsertAfterNewline, int16_t, $Element*, $Element*, $AttributeSet*, $Vector*, int32_t, int32_t)},
+		{"createStyleChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, 0, $virtualMethod(DefaultStyledDocument, createStyleChangeListener, $ChangeListener*)},
+		{"createStyleContextChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, 0, $virtualMethod(DefaultStyledDocument, createStyleContextChangeListener, $ChangeListener*)},
+		{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getBackground, $Color*, $AttributeSet*)},
+		{"getCharacterElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getCharacterElement, $Element*, int32_t)},
+		{"getDefaultRootElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getDefaultRootElement, $Element*)},
+		{"getFont", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getFont, $Font*, $AttributeSet*)},
+		{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getForeground, $Color*, $AttributeSet*)},
+		{"getLogicalStyle", "(I)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getLogicalStyle, $Style*, int32_t)},
+		{"getParagraphElement", "(I)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getParagraphElement, $Element*, int32_t)},
+		{"getStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, getStyle, $Style*, $String*)},
+		{"getStyleNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(DefaultStyledDocument, getStyleNames, $Enumeration*)},
+		{"insert", "(I[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, insert, void, int32_t, $DefaultStyledDocument$ElementSpecArray*), "javax.swing.text.BadLocationException"},
+		{"*insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC},
+		{"insertUpdate", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;Ljavax/swing/text/AttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, insertUpdate, void, $AbstractDocument$DefaultDocumentEvent*, $AttributeSet*)},
+		{"*putProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultStyledDocument, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"*remove", "(II)V", nullptr, $PUBLIC},
+		{"removeDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, removeDocumentListener, void, $DocumentListener*)},
+		{"removeElement", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, removeElement, void, $Element*)},
+		{"removeElementImpl", "(Ljavax/swing/text/Element;)V", nullptr, $PRIVATE, $method(DefaultStyledDocument, removeElementImpl, void, $Element*)},
+		{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, removeStyle, void, $String*)},
+		{"*removeUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC},
+		{"removeUpdate", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, removeUpdate, void, $AbstractDocument$DefaultDocumentEvent*)},
+		{"*render", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+		{"setCharacterAttributes", "(IILjavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, setCharacterAttributes, void, int32_t, int32_t, $AttributeSet*, bool)},
+		{"setLogicalStyle", "(ILjavax/swing/text/Style;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, setLogicalStyle, void, int32_t, $Style*)},
+		{"setParagraphAttributes", "(IILjavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument, setParagraphAttributes, void, int32_t, int32_t, $AttributeSet*, bool)},
+		{"styleChanged", "(Ljavax/swing/text/Style;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument, styleChanged, void, $Style*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateStylesListeningTo", "()V", nullptr, 0, $virtualMethod(DefaultStyledDocument, updateStylesListeningTo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultStyledDocument$ChangeUpdateRunnable", "javax.swing.text.DefaultStyledDocument", "ChangeUpdateRunnable", 0},
+		{"javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleContextChangeHandler", $STATIC},
+		{"javax.swing.text.DefaultStyledDocument$StyleChangeHandler", "javax.swing.text.DefaultStyledDocument", "StyleChangeHandler", $STATIC},
+		{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
+		{"javax.swing.text.DefaultStyledDocument$StyleChangeUndoableEdit", "javax.swing.text.DefaultStyledDocument", "StyleChangeUndoableEdit", $STATIC},
+		{"javax.swing.text.DefaultStyledDocument$AttributeUndoableEdit", "javax.swing.text.DefaultStyledDocument", "AttributeUndoableEdit", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultStyledDocument$ElementBuffer", "javax.swing.text.DefaultStyledDocument", "ElementBuffer", $PUBLIC},
+		{"javax.swing.text.DefaultStyledDocument$ElementSpec", "javax.swing.text.DefaultStyledDocument", "ElementSpec", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultStyledDocument$SectionElement", "javax.swing.text.DefaultStyledDocument", "SectionElement", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultStyledDocument",
+		"javax.swing.text.AbstractDocument",
+		"javax.swing.text.StyledDocument",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultStyledDocument$ChangeUpdateRunnable,javax.swing.text.DefaultStyledDocument$StyleContextChangeHandler,javax.swing.text.DefaultStyledDocument$StyleChangeHandler,javax.swing.text.DefaultStyledDocument$AbstractChangeHandler,javax.swing.text.DefaultStyledDocument$AbstractChangeHandler$DocReference,javax.swing.text.DefaultStyledDocument$StyleChangeUndoableEdit,javax.swing.text.DefaultStyledDocument$AttributeUndoableEdit,javax.swing.text.DefaultStyledDocument$ElementBuffer,javax.swing.text.DefaultStyledDocument$ElementBuffer$ElemChanges,javax.swing.text.DefaultStyledDocument$ElementSpec,javax.swing.text.DefaultStyledDocument$SectionElement"
+	};
+	$loadClass(DefaultStyledDocument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultStyledDocument));
+	});
 	return class$;
 }
 

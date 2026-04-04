@@ -53,6 +53,7 @@ class AttributeClass : public ::java::lang::Object {
 	$class(AttributeClass, 0, ::java::lang::Object)
 public:
 	AttributeClass();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t type, Object$* value);
 	int32_t convertToInt($bytes* buf);
 	virtual bool equals(Object$* obj) override;

@@ -19,6 +19,7 @@ class XResources_es : public ::com::sun::org::apache::xml::internal::utils::res:
 	$class(XResources_es, 0, ::com::sun::org::apache::xml::internal::utils::res::XResourceBundle)
 public:
 	XResources_es();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* _contents;

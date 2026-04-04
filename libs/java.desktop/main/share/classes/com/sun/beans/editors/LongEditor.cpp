@@ -1,5 +1,4 @@
 #include <com/sun/beans/editors/LongEditor.h>
-
 #include <com/sun/beans/editors/NumberEditor.h>
 #include <java/beans/PropertyEditorSupport.h>
 #include <jcpp.h>
@@ -13,26 +12,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace editors {
-
-$MethodInfo _LongEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LongEditor, init$, void)},
-	{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LongEditor, getJavaInitializationString, $String*)},
-	{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LongEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
-	{}
-};
-
-$ClassInfo _LongEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.editors.LongEditor",
-	"com.sun.beans.editors.NumberEditor",
-	nullptr,
-	nullptr,
-	_LongEditor_MethodInfo_
-};
-
-$Object* allocate$LongEditor($Class* clazz) {
-	return $of($alloc(LongEditor));
-}
 
 void LongEditor::init$() {
 	$NumberEditor::init$();
@@ -51,7 +30,23 @@ LongEditor::LongEditor() {
 }
 
 $Class* LongEditor::load$($String* name, bool initialize) {
-	$loadClass(LongEditor, name, initialize, &_LongEditor_ClassInfo_, allocate$LongEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LongEditor, init$, void)},
+		{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LongEditor, getJavaInitializationString, $String*)},
+		{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LongEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.editors.LongEditor",
+		"com.sun.beans.editors.NumberEditor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LongEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongEditor);
+	});
 	return class$;
 }
 

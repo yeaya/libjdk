@@ -1,5 +1,4 @@
 #include <com/sun/rowset/internal/CachedRowSetReader.h>
-
 #include <com/sun/rowset/CachedRowSetImpl.h>
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <java/io/IOException.h>
@@ -36,7 +35,6 @@ using $JdbcRowSetResourceBundle = ::com::sun::rowset::JdbcRowSetResourceBundle;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -67,45 +65,6 @@ namespace com {
 		namespace rowset {
 			namespace internal {
 
-$FieldInfo _CachedRowSetReader_FieldInfo_[] = {
-	{"writerCalls", "I", nullptr, $PRIVATE, $field(CachedRowSetReader, writerCalls)},
-	{"userCon", "Z", nullptr, $PRIVATE, $field(CachedRowSetReader, userCon)},
-	{"startPosition", "I", nullptr, $PRIVATE, $field(CachedRowSetReader, startPosition)},
-	{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(CachedRowSetReader, resBundle)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CachedRowSetReader, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CachedRowSetReader_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CachedRowSetReader, init$, void)},
-	{"connect", "(Ljavax/sql/RowSetInternal;)Ljava/sql/Connection;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, connect, $Connection*, $RowSetInternal*), "java.sql.SQLException"},
-	{"decodeParams", "([Ljava/lang/Object;Ljava/sql/PreparedStatement;)V", nullptr, $PRIVATE, $method(CachedRowSetReader, decodeParams, void, $ObjectArray*, $PreparedStatement*), "java.sql.SQLException"},
-	{"getCloseConnection", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetReader, getCloseConnection, bool)},
-	{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, readData, void, $RowSetInternal*), "java.sql.SQLException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CachedRowSetReader, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, reset, bool), "java.sql.SQLException"},
-	{"setStartPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, setStartPosition, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CachedRowSetReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.internal.CachedRowSetReader",
-	"java.lang.Object",
-	"javax.sql.RowSetReader,java.io.Serializable",
-	_CachedRowSetReader_FieldInfo_,
-	_CachedRowSetReader_MethodInfo_
-};
-
-$Object* allocate$CachedRowSetReader($Class* clazz) {
-	return $of($alloc(CachedRowSetReader));
-}
-
 int32_t CachedRowSetReader::hashCode() {
 	 return this->$RowSetReader::hashCode();
 }
@@ -132,95 +91,95 @@ void CachedRowSetReader::init$() {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
 void CachedRowSetReader::readData($RowSetInternal* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Connection, con, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
+			$var($CachedRowSet, crs, $cast($CachedRowSet, caller));
+			bool var$1 = $nc(crs)->getPageSize() == 0;
+			if (var$1 && crs->size() > 0) {
+				crs->close();
+			}
+			this->writerCalls = 0;
+			this->userCon = false;
+			$assign(con, this->connect(caller));
+			if (con == nullptr || crs->getCommand() == nullptr) {
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("crsreader.connecterr"_s))->toString()));
+			}
 			try {
-				$var($CachedRowSet, crs, $cast($CachedRowSet, caller));
-				bool var$1 = $nc(crs)->getPageSize() == 0;
-				if (var$1 && crs->size() > 0) {
-					crs->close();
-				}
-				this->writerCalls = 0;
-				this->userCon = false;
-				$assign(con, this->connect(caller));
-				if (con == nullptr || $nc(crs)->getCommand() == nullptr) {
-					$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("crsreader.connecterr"_s))))->toString()));
-				}
-				try {
-					$nc(con)->setTransactionIsolation($nc(crs)->getTransactionIsolation());
-				} catch ($Exception& ex) {
-				}
-				$var($PreparedStatement, pstmt, $nc(con)->prepareStatement($($nc(crs)->getCommand())));
-				decodeParams($($nc(caller)->getParams()), pstmt);
-				try {
-					$nc(pstmt)->setMaxRows($nc(crs)->getMaxRows());
-					pstmt->setMaxFieldSize($nc(crs)->getMaxFieldSize());
-					pstmt->setEscapeProcessing($nc(crs)->getEscapeProcessing());
-					pstmt->setQueryTimeout($nc(crs)->getQueryTimeout());
-				} catch ($Exception& ex) {
-					$throwNew($SQLException, $(ex->getMessage()));
-				}
-				if ($($nc($($nc(crs)->getCommand()))->toLowerCase())->indexOf("select"_s) != -1) {
-					$var($ResultSet, rs, $nc(pstmt)->executeQuery());
-					if (crs->getPageSize() == 0) {
-						crs->populate(rs);
-					} else {
-						$assign(pstmt, con->prepareStatement($(crs->getCommand()), $ResultSet::TYPE_SCROLL_INSENSITIVE, $ResultSet::CONCUR_UPDATABLE));
-						decodeParams($($nc(caller)->getParams()), pstmt);
-						try {
-							$nc(pstmt)->setMaxRows(crs->getMaxRows());
-							pstmt->setMaxFieldSize(crs->getMaxFieldSize());
-							pstmt->setEscapeProcessing(crs->getEscapeProcessing());
-							pstmt->setQueryTimeout(crs->getQueryTimeout());
-						} catch ($Exception& ex) {
-							$throwNew($SQLException, $(ex->getMessage()));
-						}
-						$assign(rs, $nc(pstmt)->executeQuery());
-						crs->populate(rs, this->startPosition);
-					}
-					$nc(rs)->close();
+				$nc(con)->setTransactionIsolation(crs->getTransactionIsolation());
+			} catch ($Exception& ex) {
+				;
+			}
+			$var($PreparedStatement, pstmt, $nc(con)->prepareStatement($(crs->getCommand())));
+			decodeParams($($nc(caller)->getParams()), pstmt);
+			try {
+				$nc(pstmt)->setMaxRows(crs->getMaxRows());
+				pstmt->setMaxFieldSize(crs->getMaxFieldSize());
+				pstmt->setEscapeProcessing(crs->getEscapeProcessing());
+				pstmt->setQueryTimeout(crs->getQueryTimeout());
+			} catch ($Exception& ex) {
+				$throwNew($SQLException, $(ex->getMessage()));
+			}
+			if ($($$nc(crs->getCommand())->toLowerCase())->indexOf("select"_s) != -1) {
+				$var($ResultSet, rs, $nc(pstmt)->executeQuery());
+				if (crs->getPageSize() == 0) {
+					crs->populate(rs);
 				} else {
-					$nc(pstmt)->executeUpdate();
-				}
-				$nc(pstmt)->close();
-				try {
-					con->commit();
-				} catch ($SQLException& ex) {
-				}
-				if (getCloseConnection() == true) {
-					con->close();
-				}
-			} catch ($SQLException& ex) {
-				$throw(ex);
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			try {
-				if (con != nullptr && getCloseConnection() == true) {
+					$assign(pstmt, con->prepareStatement($(crs->getCommand()), $ResultSet::TYPE_SCROLL_INSENSITIVE, $ResultSet::CONCUR_UPDATABLE));
+					decodeParams($(caller->getParams()), pstmt);
 					try {
-						if (!con->getAutoCommit()) {
-							con->rollback();
-						}
-					} catch ($Exception& dummy) {
+						$nc(pstmt)->setMaxRows(crs->getMaxRows());
+						pstmt->setMaxFieldSize(crs->getMaxFieldSize());
+						pstmt->setEscapeProcessing(crs->getEscapeProcessing());
+						pstmt->setQueryTimeout(crs->getQueryTimeout());
+					} catch ($Exception& ex) {
+						$throwNew($SQLException, $(ex->getMessage()));
 					}
-					con->close();
-					$assign(con, nullptr);
+					$assign(rs, $nc(pstmt)->executeQuery());
+					crs->populate(rs, this->startPosition);
 				}
-			} catch ($SQLException& e) {
+				$nc(rs)->close();
+			} else {
+				$nc(pstmt)->executeUpdate();
 			}
+			$nc(pstmt)->close();
+			try {
+				con->commit();
+			} catch ($SQLException& ex) {
+				;
+			}
+			if (getCloseConnection() == true) {
+				con->close();
+			}
+		} catch ($SQLException& ex) {
+			$throw(ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		try {
+			if (con != nullptr && getCloseConnection() == true) {
+				try {
+					if (!con->getAutoCommit()) {
+						con->rollback();
+					}
+				} catch ($Exception& dummy) {
+				}
+				con->close();
+				$assign(con, nullptr);
+			}
+		} catch ($SQLException& e) {
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -230,37 +189,37 @@ bool CachedRowSetReader::reset() {
 }
 
 $Connection* CachedRowSetReader::connect($RowSetInternal* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($nc(caller)->getConnection() != nullptr) {
 		this->userCon = true;
 		return caller->getConnection();
-	} else if ($nc(($cast($RowSet, caller)))->getDataSourceName() != nullptr) {
+	} else if ($cast($RowSet, caller)->getDataSourceName() != nullptr) {
 		try {
 			$var($Context, ctx, $new($InitialContext));
-			$var($DataSource, ds, $cast($DataSource, ctx->lookup($(($cast($RowSet, caller))->getDataSourceName()))));
-			if (($cast($RowSet, caller))->getUsername() != nullptr) {
-				$var($String, var$0, ($cast($RowSet, caller))->getUsername());
-				return $nc(ds)->getConnection(var$0, $(($cast($RowSet, caller))->getPassword()));
+			$var($DataSource, ds, $cast($DataSource, ctx->lookup($($cast($RowSet, caller)->getDataSourceName()))));
+			if ($cast($RowSet, caller)->getUsername() != nullptr) {
+				$var($String, var$0, $cast($RowSet, caller)->getUsername());
+				return $nc(ds)->getConnection(var$0, $($cast($RowSet, caller)->getPassword()));
 			} else {
 				return $nc(ds)->getConnection();
 			}
 		} catch ($NamingException& ex) {
-			$var($SQLException, sqlEx, $new($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("crsreader.connect"_s))))->toString())));
+			$var($SQLException, sqlEx, $new($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("crsreader.connect"_s))->toString())));
 			sqlEx->initCause(ex);
 			$throw(sqlEx);
 		}
-	} else if (($cast($RowSet, caller))->getUrl() != nullptr) {
-		$var($String, var$1, ($cast($RowSet, caller))->getUrl());
-		$var($String, var$2, ($cast($RowSet, caller))->getUsername());
-		return $DriverManager::getConnection(var$1, var$2, $(($cast($RowSet, caller))->getPassword()));
+	} else if ($cast($RowSet, caller)->getUrl() != nullptr) {
+		$var($String, var$1, $cast($RowSet, caller)->getUrl());
+		$var($String, var$2, $cast($RowSet, caller)->getUsername());
+		return $DriverManager::getConnection(var$1, var$2, $($cast($RowSet, caller)->getPassword()));
 	} else {
 		return nullptr;
 	}
 }
 
 void CachedRowSetReader::decodeParams($ObjectArray* params, $PreparedStatement* pstmt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t arraySize = 0;
 	$var($ObjectArray, param, nullptr);
 	for (int32_t i = 0; i < $nc(params)->length; ++i) {
@@ -268,63 +227,55 @@ void CachedRowSetReader::decodeParams($ObjectArray* params, $PreparedStatement* 
 			$assign(param, $cast($ObjectArray, params->get(i)));
 			if ($nc(param)->length == 2) {
 				if (param->get(0) == nullptr) {
-					$nc(pstmt)->setNull(i + 1, $nc(($cast($Integer, param->get(1))))->intValue());
+					$nc(pstmt)->setNull(i + 1, $nc($cast($Integer, param->get(1)))->intValue());
 					continue;
 				}
 				if ($instanceOf($Date, param->get(0)) || $instanceOf($Time, param->get(0)) || $instanceOf($Timestamp, param->get(0))) {
-					$nc($System::err)->println($($nc($of($($nc(this->resBundle)->handleGetObject("crsreader.datedetected"_s))))->toString()));
+					$nc($System::err)->println($($$nc($nc(this->resBundle)->handleGetObject("crsreader.datedetected"_s))->toString()));
 					if ($instanceOf($Calendar, param->get(1))) {
-						$nc($System::err)->println($($nc($of($($nc(this->resBundle)->handleGetObject("crsreader.caldetected"_s))))->toString()));
+						$System::err->println($($$nc($nc(this->resBundle)->handleGetObject("crsreader.caldetected"_s))->toString()));
 						$nc(pstmt)->setDate(i + 1, $cast($Date, param->get(0)), $cast($Calendar, param->get(1)));
 						continue;
 					} else {
-						$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("crsreader.paramtype"_s))))->toString()));
+						$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("crsreader.paramtype"_s))->toString()));
 					}
 				}
 				if ($instanceOf($Reader, param->get(0))) {
-					$nc(pstmt)->setCharacterStream(i + 1, $cast($Reader, param->get(0)), $nc(($cast($Integer, param->get(1))))->intValue());
+					$nc(pstmt)->setCharacterStream(i + 1, $cast($Reader, param->get(0)), $nc($cast($Integer, param->get(1)))->intValue());
 					continue;
 				}
 				if ($instanceOf($Integer, param->get(1))) {
-					$nc(pstmt)->setObject(i + 1, param->get(0), $nc(($cast($Integer, param->get(1))))->intValue());
+					$nc(pstmt)->setObject(i + 1, param->get(0), $nc($cast($Integer, param->get(1)))->intValue());
 					continue;
 				}
 			} else if (param->length == 3) {
 				if (param->get(0) == nullptr) {
-					$nc(pstmt)->setNull(i + 1, $nc(($cast($Integer, param->get(1))))->intValue(), $cast($String, param->get(2)));
+					$nc(pstmt)->setNull(i + 1, $nc($cast($Integer, param->get(1)))->intValue(), $cast($String, param->get(2)));
 					continue;
 				}
 				if ($instanceOf($InputStream, param->get(0))) {
-					switch ($nc(($cast($Integer, param->get(2))))->intValue()) {
+					switch ($nc($cast($Integer, param->get(2)))->intValue()) {
 					case $CachedRowSetImpl::UNICODE_STREAM_PARAM:
-						{
-							$nc(pstmt)->setUnicodeStream(i + 1, $cast($InputStream, param->get(0)), $nc(($cast($Integer, param->get(1))))->intValue());
-							break;
-						}
+						$nc(pstmt)->setUnicodeStream(i + 1, $cast($InputStream, param->get(0)), $nc($cast($Integer, param->get(1)))->intValue());
+						break;
 					case $CachedRowSetImpl::BINARY_STREAM_PARAM:
-						{
-							$nc(pstmt)->setBinaryStream(i + 1, $cast($InputStream, param->get(0)), $nc(($cast($Integer, param->get(1))))->intValue());
-							break;
-						}
+						$nc(pstmt)->setBinaryStream(i + 1, $cast($InputStream, param->get(0)), $nc($cast($Integer, param->get(1)))->intValue());
+						break;
 					case $CachedRowSetImpl::ASCII_STREAM_PARAM:
-						{
-							$nc(pstmt)->setAsciiStream(i + 1, $cast($InputStream, param->get(0)), $nc(($cast($Integer, param->get(1))))->intValue());
-							break;
-						}
+						$nc(pstmt)->setAsciiStream(i + 1, $cast($InputStream, param->get(0)), $nc($cast($Integer, param->get(1)))->intValue());
+						break;
 					default:
-						{
-							$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("crsreader.paramtype"_s))))->toString()));
-						}
+						$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("crsreader.paramtype"_s))->toString()));
 					}
 				}
 				if ($instanceOf($Integer, param->get(1)) && $instanceOf($Integer, param->get(2))) {
 					int32_t var$0 = i + 1;
 					$var($Object, var$1, param->get(0));
-					int32_t var$2 = $nc(($cast($Integer, param->get(1))))->intValue();
-					$nc(pstmt)->setObject(var$0, var$1, var$2, $nc(($cast($Integer, param->get(2))))->intValue());
+					int32_t var$2 = $nc($cast($Integer, param->get(1)))->intValue();
+					$nc(pstmt)->setObject(var$0, var$1, var$2, $nc($cast($Integer, param->get(2)))->intValue());
 					continue;
 				}
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("crsreader.paramtype"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("crsreader.paramtype"_s))->toString()));
 			} else {
 				$nc(pstmt)->setObject(i + 1, params->get(i));
 				continue;
@@ -351,7 +302,7 @@ void CachedRowSetReader::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -359,7 +310,41 @@ CachedRowSetReader::CachedRowSetReader() {
 }
 
 $Class* CachedRowSetReader::load$($String* name, bool initialize) {
-	$loadClass(CachedRowSetReader, name, initialize, &_CachedRowSetReader_ClassInfo_, allocate$CachedRowSetReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"writerCalls", "I", nullptr, $PRIVATE, $field(CachedRowSetReader, writerCalls)},
+		{"userCon", "Z", nullptr, $PRIVATE, $field(CachedRowSetReader, userCon)},
+		{"startPosition", "I", nullptr, $PRIVATE, $field(CachedRowSetReader, startPosition)},
+		{"resBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE, $field(CachedRowSetReader, resBundle)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CachedRowSetReader, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CachedRowSetReader, init$, void)},
+		{"connect", "(Ljavax/sql/RowSetInternal;)Ljava/sql/Connection;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, connect, $Connection*, $RowSetInternal*), "java.sql.SQLException"},
+		{"decodeParams", "([Ljava/lang/Object;Ljava/sql/PreparedStatement;)V", nullptr, $PRIVATE, $method(CachedRowSetReader, decodeParams, void, $ObjectArray*, $PreparedStatement*), "java.sql.SQLException"},
+		{"getCloseConnection", "()Z", nullptr, $PROTECTED, $virtualMethod(CachedRowSetReader, getCloseConnection, bool)},
+		{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, readData, void, $RowSetInternal*), "java.sql.SQLException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CachedRowSetReader, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, reset, bool), "java.sql.SQLException"},
+		{"setStartPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(CachedRowSetReader, setStartPosition, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.internal.CachedRowSetReader",
+		"java.lang.Object",
+		"javax.sql.RowSetReader,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CachedRowSetReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CachedRowSetReader));
+	});
 	return class$;
 }
 

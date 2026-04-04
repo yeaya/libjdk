@@ -36,6 +36,7 @@ class $import MetalToolTipUI : public ::javax::swing::plaf::basic::BasicToolTipU
 	$class(MetalToolTipUI, 0, ::javax::swing::plaf::basic::BasicToolTipUI)
 public:
 	MetalToolTipUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t calcAccelSpacing(::javax::swing::JComponent* c, ::java::awt::FontMetrics* fm, $String* accel);
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);

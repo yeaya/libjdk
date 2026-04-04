@@ -21,6 +21,7 @@ class XWrapperBase : public ::java::lang::Object {
 	$class(XWrapperBase, 0, ::java::lang::Object)
 public:
 	XWrapperBase();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual int32_t getDataSize() {return 0;}

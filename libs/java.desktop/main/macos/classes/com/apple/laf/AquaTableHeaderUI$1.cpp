@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTableHeaderUI$1.h>
-
 #include <com/apple/laf/AquaTableHeaderUI$1$1.h>
 #include <com/apple/laf/AquaTableHeaderUI$1$2.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
@@ -12,7 +11,6 @@ using $AquaTableHeaderUI$1$1 = ::com::apple::laf::AquaTableHeaderUI$1$1;
 using $AquaTableHeaderUI$1$2 = ::com::apple::laf::AquaTableHeaderUI$1$2;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $ClientPropertyApplicator = ::com::apple::laf::ClientPropertyApplicator;
-using $ClientPropertyApplicator$Property = ::com::apple::laf::ClientPropertyApplicator$Property;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -22,63 +20,57 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaTableHeaderUI$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaTableHeaderUI$1, init$, void)},
-	{"getInstance", "()Lcom/apple/laf/ClientPropertyApplicator;", "()Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;", $PROTECTED, $virtualMethod(AquaTableHeaderUI$1, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaTableHeaderUI$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaTableHeaderUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaTableHeaderUI$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTableHeaderUI$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaTableHeaderUI$1$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaTableHeaderUI$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTableHeaderUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTableHeaderUI$1",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaTableHeaderUI$1_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;>;",
-	&_AquaTableHeaderUI$1_EnclosingMethodInfo_,
-	_AquaTableHeaderUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTableHeaderUI"
-};
-
-$Object* allocate$AquaTableHeaderUI$1($Class* clazz) {
-	return $of($alloc(AquaTableHeaderUI$1));
-}
-
 void AquaTableHeaderUI$1::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
 
 $Object* AquaTableHeaderUI$1::getInstance() {
-	$useLocalCurrentObjectStackCache();
-	return $of($new($ClientPropertyApplicator, $$new($ClientPropertyApplicator$PropertyArray, {
-		static_cast<$ClientPropertyApplicator$Property*>($$new($AquaTableHeaderUI$1$1, this, "JTableHeader.selectedColumn"_s)),
-		static_cast<$ClientPropertyApplicator$Property*>($$new($AquaTableHeaderUI$1$2, this, "JTableHeader.sortDirection"_s))
-	})));
+	$useLocalObjectStack();
+	return $new($ClientPropertyApplicator, $$new($ClientPropertyApplicator$PropertyArray, {
+		$$new($AquaTableHeaderUI$1$1, this, "JTableHeader.selectedColumn"_s),
+		$$new($AquaTableHeaderUI$1$2, this, "JTableHeader.sortDirection"_s)
+	}));
 }
 
 AquaTableHeaderUI$1::AquaTableHeaderUI$1() {
 }
 
 $Class* AquaTableHeaderUI$1::load$($String* name, bool initialize) {
-	$loadClass(AquaTableHeaderUI$1, name, initialize, &_AquaTableHeaderUI$1_ClassInfo_, allocate$AquaTableHeaderUI$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaTableHeaderUI$1, init$, void)},
+		{"getInstance", "()Lcom/apple/laf/ClientPropertyApplicator;", "()Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;", $PROTECTED, $virtualMethod(AquaTableHeaderUI$1, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaTableHeaderUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTableHeaderUI$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaTableHeaderUI$1$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaTableHeaderUI$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTableHeaderUI$1",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTableHeaderUI"
+	};
+	$loadClass(AquaTableHeaderUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTableHeaderUI$1);
+	});
 	return class$;
 }
 

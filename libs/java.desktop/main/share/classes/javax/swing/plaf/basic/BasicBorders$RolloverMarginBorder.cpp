@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$RolloverMarginBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/AbstractButton.h>
@@ -22,37 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicBorders$RolloverMarginBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicBorders$RolloverMarginBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RolloverMarginBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$RolloverMarginBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$RolloverMarginBorder", "javax.swing.plaf.basic.BasicBorders", "RolloverMarginBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$RolloverMarginBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$RolloverMarginBorder",
-	"javax.swing.border.EmptyBorder",
-	nullptr,
-	nullptr,
-	_BasicBorders$RolloverMarginBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$RolloverMarginBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$RolloverMarginBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$RolloverMarginBorder));
-}
-
 void BasicBorders$RolloverMarginBorder::init$() {
 	$EmptyBorder::init$(3, 3, 3, 3);
 }
@@ -60,7 +28,7 @@ void BasicBorders$RolloverMarginBorder::init$() {
 $Insets* BasicBorders$RolloverMarginBorder::getBorderInsets($Component* c, $Insets* insets) {
 	$var($Insets, margin, nullptr);
 	if ($instanceOf($AbstractButton, c)) {
-		$assign(margin, $nc(($cast($AbstractButton, c)))->getMargin());
+		$assign(margin, $cast($AbstractButton, c)->getMargin());
 	}
 	if (margin == nullptr || $instanceOf($UIResource, margin)) {
 		$nc(insets)->left = this->left;
@@ -68,7 +36,7 @@ $Insets* BasicBorders$RolloverMarginBorder::getBorderInsets($Component* c, $Inse
 		insets->right = this->right;
 		insets->bottom = this->bottom;
 	} else {
-		$nc(insets)->left = $nc(margin)->left;
+		$nc(insets)->left = margin->left;
 		insets->top = margin->top;
 		insets->right = margin->right;
 		insets->bottom = margin->bottom;
@@ -80,7 +48,33 @@ BasicBorders$RolloverMarginBorder::BasicBorders$RolloverMarginBorder() {
 }
 
 $Class* BasicBorders$RolloverMarginBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$RolloverMarginBorder, name, initialize, &_BasicBorders$RolloverMarginBorder_ClassInfo_, allocate$BasicBorders$RolloverMarginBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicBorders$RolloverMarginBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RolloverMarginBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$RolloverMarginBorder", "javax.swing.plaf.basic.BasicBorders", "RolloverMarginBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$RolloverMarginBorder",
+		"javax.swing.border.EmptyBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$RolloverMarginBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$RolloverMarginBorder));
+	});
 	return class$;
 }
 

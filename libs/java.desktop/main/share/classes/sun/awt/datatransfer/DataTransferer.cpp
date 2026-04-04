@@ -1,5 +1,4 @@
 #include <sun/awt/datatransfer/DataTransferer.h>
-
 #include <java/awt/EventQueue.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
@@ -23,12 +22,10 @@
 #include <java/io/InputStreamReader.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/SequenceInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/StringReader.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
@@ -48,7 +45,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -127,12 +123,10 @@ using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $Reader = ::java::io::Reader;
 using $SequenceInputStream = ::java::io::SequenceInputStream;
 using $Serializable = ::java::io::Serializable;
 using $StringReader = ::java::io::StringReader;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Exception = ::java::lang::Exception;
@@ -155,7 +149,6 @@ using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
@@ -172,7 +165,6 @@ using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $Stack = ::java::util::Stack;
@@ -215,37 +207,33 @@ public:
 	virtual $Object* run() override {
 		 return $of($nc(inst$)->lambda$removeSuspectedData$0(str, userProtectionDomain));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DataTransferer$$Lambda$lambda$removeSuspectedData$0>());
-	}
 	DataTransferer* inst$ = nullptr;
 	$String* str = nullptr;
 	$ProtectionDomain* userProtectionDomain = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DataTransferer$$Lambda$lambda$removeSuspectedData$0::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$removeSuspectedData$0, inst$)},
-	{"str", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$removeSuspectedData$0, str)},
-	{"userProtectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$removeSuspectedData$0, userProtectionDomain)},
-	{}
-};
-$MethodInfo DataTransferer$$Lambda$lambda$removeSuspectedData$0::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/datatransfer/DataTransferer;Ljava/lang/String;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$removeSuspectedData$0, init$, void, DataTransferer*, $String*, $ProtectionDomain*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$removeSuspectedData$0, run, $Object*)},
-	{}
-};
-$ClassInfo DataTransferer$$Lambda$lambda$removeSuspectedData$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$removeSuspectedData$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* DataTransferer$$Lambda$lambda$removeSuspectedData$0::load$($String* name, bool initialize) {
-	$loadClass(DataTransferer$$Lambda$lambda$removeSuspectedData$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$removeSuspectedData$0, inst$)},
+		{"str", "Ljava/lang/String;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$removeSuspectedData$0, str)},
+		{"userProtectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$removeSuspectedData$0, userProtectionDomain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/datatransfer/DataTransferer;Ljava/lang/String;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$removeSuspectedData$0, init$, void, DataTransferer*, $String*, $ProtectionDomain*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$removeSuspectedData$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$removeSuspectedData$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataTransferer$$Lambda$lambda$removeSuspectedData$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataTransferer$$Lambda$lambda$removeSuspectedData$0);
+	});
 	return class$;
 }
 $Class* DataTransferer$$Lambda$lambda$removeSuspectedData$0::class$ = nullptr;
@@ -261,37 +249,33 @@ public:
 	virtual $Object* run() override {
 		 return $of($nc(inst$)->lambda$castToFiles$1(files, userProtectionDomain));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DataTransferer$$Lambda$lambda$castToFiles$1$1>());
-	}
 	DataTransferer* inst$ = nullptr;
 	$List* files = nullptr;
 	$ProtectionDomain* userProtectionDomain = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DataTransferer$$Lambda$lambda$castToFiles$1$1::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$castToFiles$1$1, inst$)},
-	{"files", "Ljava/util/List;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$castToFiles$1$1, files)},
-	{"userProtectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$castToFiles$1$1, userProtectionDomain)},
-	{}
-};
-$MethodInfo DataTransferer$$Lambda$lambda$castToFiles$1$1::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/datatransfer/DataTransferer;Ljava/util/List;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$castToFiles$1$1, init$, void, DataTransferer*, $List*, $ProtectionDomain*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$castToFiles$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo DataTransferer$$Lambda$lambda$castToFiles$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$castToFiles$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* DataTransferer$$Lambda$lambda$castToFiles$1$1::load$($String* name, bool initialize) {
-	$loadClass(DataTransferer$$Lambda$lambda$castToFiles$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$castToFiles$1$1, inst$)},
+		{"files", "Ljava/util/List;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$castToFiles$1$1, files)},
+		{"userProtectionDomain", "Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$castToFiles$1$1, userProtectionDomain)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/datatransfer/DataTransferer;Ljava/util/List;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$castToFiles$1$1, init$, void, DataTransferer*, $List*, $ProtectionDomain*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$castToFiles$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$castToFiles$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataTransferer$$Lambda$lambda$castToFiles$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataTransferer$$Lambda$lambda$castToFiles$1$1);
+	});
 	return class$;
 }
 $Class* DataTransferer$$Lambda$lambda$castToFiles$1$1::class$ = nullptr;
@@ -303,35 +287,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getConstructors());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DataTransferer$$Lambda$getConstructors$2>());
+		 return $nc(inst$)->getConstructors();
 	}
 	$Class* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DataTransferer$$Lambda$getConstructors$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$getConstructors$2, inst$)},
-	{}
-};
-$MethodInfo DataTransferer$$Lambda$getConstructors$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$getConstructors$2, init$, void, $Class*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$getConstructors$2, run, $Object*)},
-	{}
-};
-$ClassInfo DataTransferer$$Lambda$getConstructors$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.datatransfer.DataTransferer$$Lambda$getConstructors$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* DataTransferer$$Lambda$getConstructors$2::load$($String* name, bool initialize) {
-	$loadClass(DataTransferer$$Lambda$getConstructors$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$getConstructors$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$getConstructors$2, init$, void, $Class*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$getConstructors$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.datatransfer.DataTransferer$$Lambda$getConstructors$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataTransferer$$Lambda$getConstructors$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataTransferer$$Lambda$getConstructors$2);
+	});
 	return class$;
 }
 $Class* DataTransferer$$Lambda$getConstructors$2::class$ = nullptr;
@@ -344,27 +324,24 @@ public:
 	virtual bool test(Object$* c) override {
 		 return DataTransferer::lambda$constructFlavoredObject$2($cast($Constructor, c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3, test, bool, Object$*)},
-	{}
-};
-$ClassInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3::load$($String* name, bool initialize) {
-	$loadClass(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3);
+	});
 	return class$;
 }
 $Class* DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3::class$ = nullptr;
@@ -378,33 +355,29 @@ public:
 	virtual bool test(Object$* c) override {
 		 return DataTransferer::lambda$constructFlavoredObject$3(clazz, $cast($Constructor, c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4>());
-	}
 	$Class* clazz = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4::fieldInfos[2] = {
-	{"clazz", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, clazz)},
-	{}
-};
-$MethodInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, init$, void, $Class*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, test, bool, Object$*)},
-	{}
-};
-$ClassInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4::load$($String* name, bool initialize) {
-	$loadClass(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"clazz", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, clazz)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, init$, void, $Class*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4);
+	});
 	return class$;
 }
 $Class* DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4::class$ = nullptr;
@@ -417,138 +390,36 @@ public:
 		this->dfrc = dfrc;
 	}
 	virtual $Object* get() override {
-		 return $of(DataTransferer::lambda$constructFlavoredObject$4(clazz, dfrc));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5>());
+		 return DataTransferer::lambda$constructFlavoredObject$4(clazz, dfrc);
 	}
 	$Class* clazz = nullptr;
 	$Class* dfrc = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5::fieldInfos[3] = {
-	{"clazz", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, clazz)},
-	{"dfrc", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, dfrc)},
-	{}
-};
-$MethodInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, init$, void, $Class*, $Class*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, get, $Object*)},
-	{}
-};
-$ClassInfo DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5::load$($String* name, bool initialize) {
-	$loadClass(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"clazz", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, clazz)},
+		{"dfrc", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, dfrc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, init$, void, $Class*, $Class*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5);
+	});
 	return class$;
 }
 $Class* DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5::class$ = nullptr;
-
-$FieldInfo _DataTransferer_FieldInfo_[] = {
-	{"javaTextEncodingFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataTransferer, javaTextEncodingFlavor)},
-	{"textNatives", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Long;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, textNatives)},
-	{"nativeCharsets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, nativeCharsets)},
-	{"nativeEOLNs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, nativeEOLNs)},
-	{"nativeTerminators", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, nativeTerminators)},
-	{"DATA_CONVERTER_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, DATA_CONVERTER_KEY)},
-	{"DEPLOYMENT_CACHE_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, DEPLOYMENT_CACHE_PROPERTIES)},
-	{"deploymentCacheDirectoryList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/io/File;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, deploymentCacheDirectoryList)},
-	{}
-};
-
-$MethodInfo _DataTransferer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DataTransferer, init$, void)},
-	{"adaptFlavorMap", "(Ljava/awt/datatransfer/FlavorMap;)Ljava/awt/datatransfer/FlavorTable;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataTransferer, adaptFlavorMap, $FlavorTable*, $FlavorMap*)},
-	{"castToFile", "(Ljava/lang/Object;)Ljava/io/File;", nullptr, $PRIVATE, $method(DataTransferer, castToFile, $File*, Object$*), "java.io.IOException"},
-	{"castToFiles", "(Ljava/util/List;Ljava/security/ProtectionDomain;)Ljava/util/ArrayList;", "(Ljava/util/List<*>;Ljava/security/ProtectionDomain;)Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $method(DataTransferer, castToFiles, $ArrayList*, $List*, $ProtectionDomain*), "java.io.IOException"},
-	{"concatData", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DataTransferer, concatData, $Object*, Object$*, Object$*)},
-	{"constructFlavoredObject", "(Ljava/lang/Object;Ljava/awt/datatransfer/DataFlavor;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/awt/datatransfer/DataFlavor;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(DataTransferer, constructFlavoredObject, $Object*, Object$*, $DataFlavor*, $Class*), "java.io.IOException"},
-	{"convertData", "(Ljava/lang/Object;Ljava/awt/datatransfer/Transferable;JLjava/util/Map;Z)[B", "(Ljava/lang/Object;Ljava/awt/datatransfer/Transferable;JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;Z)[B", $PUBLIC, $virtualMethod(DataTransferer, convertData, $bytes*, Object$*, $Transferable*, int64_t, $Map*, bool), "java.io.IOException"},
-	{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
-	{"convertObjectToBytes", "(Ljava/lang/Object;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DataTransferer, convertObjectToBytes, $bytes*, Object$*), "java.io.IOException"},
-	{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, dragQueryFile, $StringArray*, $bytes*)},
-	{"dragQueryURIs", "(Ljava/io/InputStream;JLjava/awt/datatransfer/Transferable;)[Ljava/net/URI;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, dragQueryURIs, $URIArray*, $InputStream*, int64_t, $Transferable*), "java.io.IOException"},
-	{"getBestCharsetForTextFormat", "(Ljava/lang/Long;Ljava/awt/datatransfer/Transferable;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, getBestCharsetForTextFormat, $String*, $Long*, $Transferable*), "java.io.IOException"},
-	{"getCharsetForTextFormat", "(Ljava/lang/Long;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, getCharsetForTextFormat, $String*, $Long*)},
-	{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, getDefaultUnicodeEncoding, $String*)},
-	{"getFlavorsForFormats", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Map;", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(DataTransferer, getFlavorsForFormats, $Map*, $longs*, $FlavorTable*)},
-	{"getFlavorsForFormatsAsArray", "([JLjava/awt/datatransfer/FlavorTable;)[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(DataTransferer, getFlavorsForFormatsAsArray, $DataFlavorArray*, $longs*, $FlavorTable*)},
-	{"getFlavorsForFormatsAsSet", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Set;", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getFlavorsForFormatsAsSet, $Set*, $longs*, $FlavorTable*)},
-	{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
-	{"getFormatsForFlavors", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap;", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getFormatsForFlavors, $SortedMap*, $DataFlavorArray*, $FlavorTable*)},
-	{"getFormatsForTransferable", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap;", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getFormatsForTransferable, $SortedMap*, $Transferable*, $FlavorTable*)},
-	{"getFormatsForTransferableAsArray", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/FlavorTable;)[J", nullptr, $PUBLIC, $virtualMethod(DataTransferer, getFormatsForTransferableAsArray, $longs*, $Transferable*, $FlavorTable*)},
-	{"getInstance", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(DataTransferer, getInstance, DataTransferer*)},
-	{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, getNativeForFormat, $String*, int64_t)},
-	{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DataTransferer, getPlatformMappingsForFlavor, $LinkedHashSet*, $DataFlavor*)},
-	{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getPlatformMappingsForNative, $LinkedHashSet*, $String*)},
-	{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
-	{"getUserProtectionDomain", "(Ljava/awt/datatransfer/Transferable;)Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataTransferer, getUserProtectionDomain, $ProtectionDomain*, $Transferable*)},
-	{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t), "java.io.IOException"},
-	{"imageToStandardBytes", "(Ljava/awt/Image;Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(DataTransferer, imageToStandardBytes, $bytes*, $Image*, $String*), "java.io.IOException"},
-	{"imageToStandardBytesImpl", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(DataTransferer, imageToStandardBytesImpl, $bytes*, $RenderedImage*, $String*), "java.io.IOException"},
-	{"inputStreamToByteArray", "(Ljava/io/InputStream;)[B", nullptr, $PROTECTED | $STATIC, $staticMethod(DataTransferer, inputStreamToByteArray, $bytes*, $InputStream*), "java.io.IOException"},
-	{"isFileFormat", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, isFileFormat, bool, int64_t)},
-	{"isFileInWebstartedCache", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DataTransferer, isFileInWebstartedCache, bool, $File*)},
-	{"isForbiddenToRead", "(Ljava/io/File;Ljava/security/ProtectionDomain;)Z", nullptr, $PRIVATE, $method(DataTransferer, isForbiddenToRead, bool, $File*, $ProtectionDomain*)},
-	{"isImageFormat", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, isImageFormat, bool, int64_t)},
-	{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
-	{"isTextFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(DataTransferer, isTextFormat, bool, int64_t)},
-	{"isURIListFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(DataTransferer, isURIListFormat, bool, int64_t)},
-	{"keysToLongArray", "(Ljava/util/SortedMap;)[J", "(Ljava/util/SortedMap<Ljava/lang/Long;*>;)[J", $PUBLIC | $STATIC, $staticMethod(DataTransferer, keysToLongArray, $longs*, $SortedMap*)},
-	{"lambda$castToFiles$1", "(Ljava/util/List;Ljava/security/ProtectionDomain;)Ljava/util/ArrayList;", nullptr, $PRIVATE | $SYNTHETIC, $method(DataTransferer, lambda$castToFiles$1, $ArrayList*, $List*, $ProtectionDomain*), "java.lang.Exception"},
-	{"lambda$constructFlavoredObject$2", "(Ljava/lang/reflect/Constructor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DataTransferer, lambda$constructFlavoredObject$2, bool, $Constructor*)},
-	{"lambda$constructFlavoredObject$3", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DataTransferer, lambda$constructFlavoredObject$3, bool, $Class*, $Constructor*)},
-	{"lambda$constructFlavoredObject$4", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DataTransferer, lambda$constructFlavoredObject$4, $IOException*, $Class*, $Class*)},
-	{"lambda$removeSuspectedData$0", "(Ljava/lang/String;Ljava/security/ProtectionDomain;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(DataTransferer, lambda$removeSuspectedData$0, $String*, $String*, $ProtectionDomain*), "java.lang.Exception"},
-	{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
-	{"processDataConversionRequests", "()V", nullptr, $PUBLIC, $virtualMethod(DataTransferer, processDataConversionRequests, void)},
-	{"registerTextFlavorProperties", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DataTransferer, registerTextFlavorProperties, void, $String*, $String*, $String*, $String*)},
-	{"removeSuspectedData", "(Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/Transferable;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DataTransferer, removeSuspectedData, $String*, $DataFlavor*, $Transferable*, $String*), "java.io.IOException"},
-	{"setToSortedDataFlavorArray", "(Ljava/util/Set;)[Ljava/awt/datatransfer/DataFlavor;", "(Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;)[Ljava/awt/datatransfer/DataFlavor;", $PUBLIC | $STATIC, $staticMethod(DataTransferer, setToSortedDataFlavorArray, $DataFlavorArray*, $Set*)},
-	{"standardImageBytesToImage", "([BLjava/lang/String;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, standardImageBytesToImage, $Image*, $bytes*, $String*), "java.io.IOException"},
-	{"translateBytes", "([BLjava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer, translateBytes, $Object*, $bytes*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
-	{"translateBytesToString", "([BJLjava/awt/datatransfer/Transferable;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DataTransferer, translateBytesToString, $String*, $bytes*, int64_t, $Transferable*), "java.io.IOException"},
-	{"translateStream", "(Ljava/io/InputStream;Ljava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer, translateStream, $Object*, $InputStream*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
-	{"translateStreamToInputStream", "(Ljava/io/InputStream;Ljava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DataTransferer, translateStreamToInputStream, $Object*, $InputStream*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
-	{"translateTransferable", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/DataFlavor;J)[B", nullptr, $PUBLIC, $virtualMethod(DataTransferer, translateTransferable, $bytes*, $Transferable*, $DataFlavor*, int64_t), "java.io.IOException"},
-	{"translateTransferableString", "(Ljava/lang/String;J)[B", nullptr, $PRIVATE, $method(DataTransferer, translateTransferableString, $bytes*, $String*, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DataTransferer_InnerClassesInfo_[] = {
-	{"sun.awt.datatransfer.DataTransferer$ReencodingInputStream", "sun.awt.datatransfer.DataTransferer", "ReencodingInputStream", $PUBLIC},
-	{"sun.awt.datatransfer.DataTransferer$2", nullptr, nullptr, 0},
-	{"sun.awt.datatransfer.DataTransferer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DataTransferer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.datatransfer.DataTransferer",
-	"java.lang.Object",
-	nullptr,
-	_DataTransferer_FieldInfo_,
-	_DataTransferer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DataTransferer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.datatransfer.DataTransferer$ReencodingInputStream,sun.awt.datatransfer.DataTransferer$2,sun.awt.datatransfer.DataTransferer$1"
-};
-
-$Object* allocate$DataTransferer($Class* clazz) {
-	return $of($alloc(DataTransferer));
-}
 
 $DataFlavor* DataTransferer::javaTextEncodingFlavor = nullptr;
 $Set* DataTransferer::textNatives = nullptr;
@@ -563,10 +434,9 @@ void DataTransferer::init$() {
 }
 
 DataTransferer* DataTransferer::getInstance() {
-	$load(DataTransferer);
+	$init(DataTransferer);
 	$synchronized(class$) {
-		$init(DataTransferer);
-		return $nc(($cast($ComponentFactory, $($Toolkit::getDefaultToolkit()))))->getDataTransferer();
+		return $$sure($ComponentFactory, $Toolkit::getDefaultToolkit())->getDataTransferer();
 	}
 }
 
@@ -579,17 +449,17 @@ $FlavorTable* DataTransferer::adaptFlavorMap($FlavorMap* map) {
 }
 
 void DataTransferer::registerTextFlavorProperties($String* nat, $String* charset, $String* eoln, $String* terminators) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, format, getFormatForNativeAsLong(nat));
 	$nc(DataTransferer::textNatives)->add(format);
-	$nc(DataTransferer::nativeCharsets)->put(format, (charset != nullptr && charset->length() != 0) ? charset : $($nc($($Charset::defaultCharset()))->name()));
+	$nc(DataTransferer::nativeCharsets)->put(format, (charset != nullptr && charset->length() != 0) ? charset : $($$nc($Charset::defaultCharset())->name()));
 	bool var$0 = eoln != nullptr && eoln->length() != 0;
 	if (var$0 && !eoln->equals("\n"_s)) {
 		$nc(DataTransferer::nativeEOLNs)->put(format, eoln);
 	}
 	if (terminators != nullptr && terminators->length() != 0) {
 		$var($Integer, iTerminators, $Integer::valueOf(terminators));
-		if ($nc(iTerminators)->intValue() > 0) {
+		if (iTerminators->intValue() > 0) {
 			$nc(DataTransferer::nativeTerminators)->put(format, iTerminators);
 		}
 	}
@@ -616,23 +486,23 @@ $SortedMap* DataTransferer::getFormatsForTransferable($Transferable* contents, $
 }
 
 $SortedMap* DataTransferer::getFormatsForFlavors($DataFlavorArray* flavors, $FlavorTable* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, formatMap, $new($HashMap, $nc(flavors)->length));
-	$var($Map, textPlainMap, $new($HashMap, $nc(flavors)->length));
-	$var($Map, indexMap, $new($HashMap, $nc(flavors)->length));
-	$var($Map, textPlainIndexMap, $new($HashMap, $nc(flavors)->length));
+	$var($Map, textPlainMap, $new($HashMap, flavors->length));
+	$var($Map, indexMap, $new($HashMap, flavors->length));
+	$var($Map, textPlainIndexMap, $new($HashMap, flavors->length));
 	int32_t currentIndex = 0;
-	for (int32_t i = $nc(flavors)->length - 1; i >= 0; --i) {
+	for (int32_t i = flavors->length - 1; i >= 0; --i) {
 		$var($DataFlavor, flavor, flavors->get(i));
 		if (flavor == nullptr) {
 			continue;
 		}
 		bool var$4 = $nc(flavor)->isFlavorTextType();
-		bool var$3 = var$4 || $nc(flavor)->isFlavorJavaFileListType();
+		bool var$3 = var$4 || flavor->isFlavorJavaFileListType();
 		bool var$2 = var$3 || $nc($DataFlavor::imageFlavor)->equals(flavor);
-		bool var$1 = var$2 || $nc(flavor)->isRepresentationClassSerializable();
-		bool var$0 = var$1 || $nc(flavor)->isRepresentationClassInputStream();
-		if (var$0 || $nc(flavor)->isRepresentationClassRemote()) {
+		bool var$1 = var$2 || flavor->isRepresentationClassSerializable();
+		bool var$0 = var$1 || flavor->isRepresentationClassInputStream();
+		if (var$0 || flavor->isRepresentationClassRemote()) {
 			$var($List, natives, $nc(map)->getNativesForFlavor(flavor));
 			currentIndex += $nc(natives)->size();
 			{
@@ -645,7 +515,7 @@ $SortedMap* DataTransferer::getFormatsForFlavors($DataFlavorArray* flavors, $Fla
 						formatMap->put(lFormat, flavor);
 						indexMap->put(lFormat, index);
 						bool var$6 = "text"_s->equals($(flavor->getPrimaryType()));
-						bool var$5 = (var$6 && "plain"_s->equals($(flavor->getSubType())));
+						bool var$5 = var$6 && "plain"_s->equals($(flavor->getSubType()));
 						if (var$5 || flavor->equals($DataFlavor::stringFlavor)) {
 							textPlainMap->put(lFormat, flavor);
 							textPlainIndexMap->put(lFormat, index);
@@ -658,7 +528,7 @@ $SortedMap* DataTransferer::getFormatsForFlavors($DataFlavorArray* flavors, $Fla
 	}
 	formatMap->putAll(textPlainMap);
 	indexMap->putAll(textPlainIndexMap);
-	$var($Comparator, comparator, $nc($($DataFlavorUtil::getIndexOrderComparator(indexMap)))->reversed());
+	$var($Comparator, comparator, $$nc($DataFlavorUtil::getIndexOrderComparator(indexMap))->reversed());
 	$var($SortedMap, sortedMap, $new($TreeMap, comparator));
 	sortedMap->putAll(formatMap);
 	return sortedMap;
@@ -669,13 +539,13 @@ $longs* DataTransferer::getFormatsForTransferableAsArray($Transferable* contents
 }
 
 $Map* DataTransferer::getFlavorsForFormats($longs* formats, $FlavorTable* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, flavorMap, $new($HashMap, $nc(formats)->length));
-	$var($Set, mappingSet, $new($HashSet, $nc(formats)->length));
-	$var($Set, flavorSet, $new($HashSet, $nc(formats)->length));
+	$var($Set, mappingSet, $new($HashSet, formats->length));
+	$var($Set, flavorSet, $new($HashSet, formats->length));
 	{
 		$var($longs, arr$, formats);
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			int64_t format = arr$->get(i$);
@@ -688,11 +558,11 @@ $Map* DataTransferer::getFlavorsForFormats($longs* formats, $FlavorTable* map) {
 						$var($DataFlavor, flavor, $cast($DataFlavor, i$->next()));
 						{
 							bool var$4 = $nc(flavor)->isFlavorTextType();
-							bool var$3 = var$4 || $nc(flavor)->isFlavorJavaFileListType();
+							bool var$3 = var$4 || flavor->isFlavorJavaFileListType();
 							bool var$2 = var$3 || $nc($DataFlavor::imageFlavor)->equals(flavor);
-							bool var$1 = var$2 || $nc(flavor)->isRepresentationClassSerializable();
-							bool var$0 = var$1 || $nc(flavor)->isRepresentationClassInputStream();
-							if (var$0 || $nc(flavor)->isRepresentationClassRemote()) {
+							bool var$1 = var$2 || flavor->isRepresentationClassSerializable();
+							bool var$0 = var$1 || flavor->isRepresentationClassInputStream();
+							if (var$0 || flavor->isRepresentationClassRemote()) {
 								$var($AbstractMap$SimpleEntry, mapping, $new($AbstractMap$SimpleEntry, $($Long::valueOf(format)), flavor));
 								flavorMap->put(flavor, $($Long::valueOf(format)));
 								mappingSet->add(mapping);
@@ -730,11 +600,11 @@ $Map* DataTransferer::getFlavorsForFormats($longs* formats, $FlavorTable* map) {
 }
 
 $Set* DataTransferer::getFlavorsForFormatsAsSet($longs* formats, $FlavorTable* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, flavorSet, $new($HashSet, $nc(formats)->length));
 	{
 		$var($longs, arr$, formats);
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			int64_t format = arr$->get(i$);
@@ -746,11 +616,11 @@ $Set* DataTransferer::getFlavorsForFormatsAsSet($longs* formats, $FlavorTable* m
 						$var($DataFlavor, flavor, $cast($DataFlavor, i$->next()));
 						{
 							bool var$4 = $nc(flavor)->isFlavorTextType();
-							bool var$3 = var$4 || $nc(flavor)->isFlavorJavaFileListType();
+							bool var$3 = var$4 || flavor->isFlavorJavaFileListType();
 							bool var$2 = var$3 || $nc($DataFlavor::imageFlavor)->equals(flavor);
-							bool var$1 = var$2 || $nc(flavor)->isRepresentationClassSerializable();
-							bool var$0 = var$1 || $nc(flavor)->isRepresentationClassInputStream();
-							if (var$0 || $nc(flavor)->isRepresentationClassRemote()) {
+							bool var$1 = var$2 || flavor->isRepresentationClassSerializable();
+							bool var$0 = var$1 || flavor->isRepresentationClassInputStream();
+							if (var$0 || flavor->isRepresentationClassRemote()) {
 								flavorSet->add(flavor);
 							}
 						}
@@ -767,7 +637,7 @@ $DataFlavorArray* DataTransferer::getFlavorsForFormatsAsArray($longs* formats, $
 }
 
 $String* DataTransferer::getBestCharsetForTextFormat($Long* lFormat, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, charset, nullptr);
 	bool var$0 = localeTransferable != nullptr && isLocaleDependentTextFormat($nc(lFormat)->longValue());
 	if (var$0 && localeTransferable->isDataFlavorSupported(DataTransferer::javaTextEncodingFlavor)) {
@@ -781,13 +651,13 @@ $String* DataTransferer::getBestCharsetForTextFormat($Long* lFormat, $Transferab
 		$assign(charset, getCharsetForTextFormat(lFormat));
 	}
 	if (charset == nullptr) {
-		$assign(charset, $nc($($Charset::defaultCharset()))->name());
+		$assign(charset, $$nc($Charset::defaultCharset())->name());
 	}
 	return charset;
 }
 
 $bytes* DataTransferer::translateTransferableString($String* str$renamed, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, str$renamed);
 	$var($Long, lFormat, $Long::valueOf(format));
 	$var($String, charset, getBestCharsetForTextFormat(lFormat, nullptr));
@@ -817,7 +687,7 @@ $bytes* DataTransferer::translateTransferableString($String* str$renamed, int64_
 		$var($bytes, terminatedBytes, $new($bytes, bytes->length + numTerminators));
 		$System::arraycopy(bytes, 0, terminatedBytes, 0, bytes->length);
 		for (int32_t i = bytes->length; i < terminatedBytes->length; ++i) {
-			terminatedBytes->set(i, (int8_t)0);
+			terminatedBytes->set(i, 0);
 		}
 		$assign(bytes, terminatedBytes);
 	}
@@ -825,7 +695,7 @@ $bytes* DataTransferer::translateTransferableString($String* str$renamed, int64_
 }
 
 $String* DataTransferer::translateBytesToString($bytes* bytes, int64_t format, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, lFormat, $Long::valueOf(format));
 	$var($String, charset, getBestCharsetForTextFormat(lFormat, localeTransferable));
 	$var($String, eoln, $cast($String, $nc(DataTransferer::nativeEOLNs)->get(lFormat)));
@@ -864,14 +734,10 @@ $String* DataTransferer::translateBytesToString($bytes* bytes, int64_t format, $
 				continue;
 			}
 			match = true;
-			{
-				int32_t k = 0;
-				int32_t l = i;
-				for (; k < eoln_arr->length; ++k, ++l) {
-					if (eoln_arr->get(k) != buf->get(l)) {
-						match = false;
-						break;
-					}
+			for (int32_t k = 0, l = i; k < eoln_arr->length; ++k, ++l) {
+				if (eoln_arr->get(k) != buf->get(l)) {
+					match = false;
+					break;
 				}
 			}
 			if (match) {
@@ -887,7 +753,7 @@ $String* DataTransferer::translateBytesToString($bytes* bytes, int64_t format, $
 }
 
 $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlavor* flavor, int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, nullptr);
 	bool stringSelectionHack = false;
 	try {
@@ -910,9 +776,9 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 	}
 	bool var$0 = stringSelectionHack;
 	if (!var$0) {
-		bool var$2 = $of($String::class$)->equals($nc(flavor)->getRepresentationClass());
+		bool var$2 = $String::class$->equals($nc(flavor)->getRepresentationClass());
 		bool var$1 = var$2 && $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-		var$0 = (var$1 && isTextFormat(format));
+		var$0 = var$1 && isTextFormat(format);
 	}
 	if (var$0) {
 		$var($String, str, removeSuspectedData(flavor, contents, $cast($String, obj)));
@@ -925,34 +791,32 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 		$var($StringBuilder, buf, $new($StringBuilder));
 		{
 			$var($Reader, r, $cast($Reader, obj));
-			{
-				$var($Throwable, var$4, nullptr);
+			$var($Throwable, var$4, nullptr);
+			try {
 				try {
-					try {
-						int32_t c = 0;
-						while ((c = $nc(r)->read()) != -1) {
-							buf->append((char16_t)c);
-						}
-					} catch ($Throwable& t$) {
-						if (r != nullptr) {
-							try {
-								r->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
+					int32_t c = 0;
+					while ((c = $nc(r)->read()) != -1) {
+						buf->append((char16_t)c);
 					}
-				} catch ($Throwable& var$5) {
-					$assign(var$4, var$5);
-				} /*finally*/ {
+				} catch ($Throwable& t$) {
 					if (r != nullptr) {
-						r->close();
+						try {
+							r->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$4 != nullptr) {
-					$throw(var$4);
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
+			} /*finally*/ {
+				if (r != nullptr) {
+					r->close();
 				}
+			}
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 		return translateTransferableString($(buf->toString()), format);
@@ -966,52 +830,43 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 		$var($chars, chars, $new($chars, size));
 		buffer->get(chars, 0, size);
 		return translateTransferableString($$new($String, chars), format);
-	} else {
-		$load($chars);
-		if ($of($getClass($chars))->equals(flavor->getRepresentationClass())) {
-			bool var$7 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-			if (!(var$7 && isTextFormat(format))) {
-				$throwNew($IOException, "cannot transfer non-text data as char array"_s);
-			}
-			return translateTransferableString($$new($String, $cast($chars, obj)), format);
-		} else if (flavor->isRepresentationClassByteBuffer()) {
-			$var($ByteBuffer, buffer, $cast($ByteBuffer, obj));
-			int32_t size = $nc(buffer)->remaining();
-			$var($bytes, bytes, $new($bytes, size));
-			buffer->get(bytes, 0, size);
-			bool var$8 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-			if (var$8 && isTextFormat(format)) {
-				$var($String, sourceEncoding, $DataFlavorUtil::getTextCharset(flavor));
-				return translateTransferableString($$new($String, bytes, sourceEncoding), format);
-			} else {
-				return bytes;
-			}
-		} else {
-			$load($bytes);
-			if ($of($getClass($bytes))->equals(flavor->getRepresentationClass())) {
-				$var($bytes, bytes, $cast($bytes, obj));
-				bool var$9 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-				if (var$9 && isTextFormat(format)) {
-					$var($String, sourceEncoding, $DataFlavorUtil::getTextCharset(flavor));
-					return translateTransferableString($$new($String, bytes, sourceEncoding), format);
-				} else {
-					return bytes;
-				}
-			} else {
-				$init($DataFlavor);
-				if ($nc($DataFlavor::imageFlavor)->equals(flavor)) {
-					if (!isImageFormat(format)) {
-						$throwNew($IOException, "Data translation failed: not an image format"_s);
-					}
-					$var($Image, image, $cast($Image, obj));
-					$var($bytes, bytes, imageToPlatformBytes(image, format));
-					if (bytes == nullptr) {
-						$throwNew($IOException, "Data translation failed: cannot convert java image to native format"_s);
-					}
-					return bytes;
-				}
-			}
+	} else if ($getClass($chars)->equals(flavor->getRepresentationClass())) {
+		bool var$7 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+		if (!(var$7 && isTextFormat(format))) {
+			$throwNew($IOException, "cannot transfer non-text data as char array"_s);
 		}
+		return translateTransferableString($$new($String, $cast($chars, obj)), format);
+	} else if (flavor->isRepresentationClassByteBuffer()) {
+		$var($ByteBuffer, buffer, $cast($ByteBuffer, obj));
+		int32_t size = $nc(buffer)->remaining();
+		$var($bytes, bytes, $new($bytes, size));
+		buffer->get(bytes, 0, size);
+		bool var$8 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+		if (var$8 && isTextFormat(format)) {
+			$var($String, sourceEncoding, $DataFlavorUtil::getTextCharset(flavor));
+			return translateTransferableString($$new($String, bytes, sourceEncoding), format);
+		} else {
+			return bytes;
+		}
+	} else if ($getClass($bytes)->equals(flavor->getRepresentationClass())) {
+		$var($bytes, bytes, $cast($bytes, obj));
+		bool var$9 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+		if (var$9 && isTextFormat(format)) {
+			$var($String, sourceEncoding, $DataFlavorUtil::getTextCharset(flavor));
+			return translateTransferableString($$new($String, bytes, sourceEncoding), format);
+		} else {
+			return bytes;
+		}
+	} else if ($nc($DataFlavor::imageFlavor)->equals(flavor)) {
+		if (!isImageFormat(format)) {
+			$throwNew($IOException, "Data translation failed: not an image format"_s);
+		}
+		$var($Image, image, $cast($Image, obj));
+		$var($bytes, bytes, imageToPlatformBytes(image, format));
+		if (bytes == nullptr) {
+			$throwNew($IOException, "Data translation failed: cannot convert java image to native format"_s);
+		}
+		return bytes;
 	}
 	$var($bytes, theByteArray, nullptr);
 	if (isFileFormat(format)) {
@@ -1024,31 +879,29 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 		$var($ArrayList, fileList, castToFiles(list, userProtectionDomain));
 		{
 			$var($ByteArrayOutputStream, bos, convertFileListToBytes(fileList));
-			{
-				$var($Throwable, var$10, nullptr);
+			$var($Throwable, var$10, nullptr);
+			try {
 				try {
-					try {
-						$assign(theByteArray, $nc(bos)->toByteArray());
-					} catch ($Throwable& t$) {
-						if (bos != nullptr) {
-							try {
-								bos->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
-					}
-				} catch ($Throwable& var$11) {
-					$assign(var$10, var$11);
-				} /*finally*/ {
+					$assign(theByteArray, $nc(bos)->toByteArray());
+				} catch ($Throwable& t$) {
 					if (bos != nullptr) {
-						bos->close();
+						try {
+							bos->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$10 != nullptr) {
-					$throw(var$10);
+			} catch ($Throwable& var$11) {
+				$assign(var$10, var$11);
+			} /*finally*/ {
+				if (bos != nullptr) {
+					bos->close();
 				}
+			}
+			if (var$10 != nullptr) {
+				$throw(var$10);
 			}
 		}
 	} else if (isURIListFormat(format)) {
@@ -1062,7 +915,7 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 			try {
 				$assign(targetCharset, $$new($DataFlavor, nat)->getParameter("charset"_s));
 			} catch ($ClassNotFoundException& cnfe) {
-				$throwNew($IOException, static_cast<$Throwable*>(cnfe));
+				$throwNew($IOException, cnfe);
 			}
 		}
 		if (targetCharset == nullptr) {
@@ -1073,7 +926,7 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 		$var($ArrayList, fileList, castToFiles(list, userProtectionDomain));
 		$var($ArrayList, uriList, $new($ArrayList, $nc(fileList)->size()));
 		{
-			$var($Iterator, i$, $nc(fileList)->iterator());
+			$var($Iterator, i$, fileList->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, fileObject, $cast($String, i$->next()));
 				{
@@ -1084,7 +937,7 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 						$var($String, var$14, uri->getPath());
 						uriList->add($($$new($URI, var$12, var$13, var$14, $(uri->getFragment()))->toString()));
 					} catch ($URISyntaxException& uriSyntaxException) {
-						$throwNew($IOException, static_cast<$Throwable*>(uriSyntaxException));
+						$throwNew($IOException, uriSyntaxException);
 					}
 				}
 			}
@@ -1092,38 +945,36 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 		$var($bytes, eoln, "\r\n"_s->getBytes(targetCharset));
 		{
 			$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
-			{
-				$var($Throwable, var$15, nullptr);
+			$var($Throwable, var$15, nullptr);
+			try {
 				try {
-					try {
-						{
-							$var($Iterator, i$, uriList->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($String, uri, $cast($String, i$->next()));
-								{
-									$var($bytes, bytes, $nc(uri)->getBytes(targetCharset));
-									bos->write(bytes, 0, bytes->length);
-									bos->write(eoln, 0, eoln->length);
-								}
+					{
+						$var($Iterator, i$, uriList->iterator());
+						for (; $nc(i$)->hasNext();) {
+							$var($String, uri, $cast($String, i$->next()));
+							{
+								$var($bytes, bytes, $nc(uri)->getBytes(targetCharset));
+								bos->write(bytes, 0, bytes->length);
+								bos->write(eoln, 0, eoln->length);
 							}
 						}
-						$assign(theByteArray, bos->toByteArray());
-					} catch ($Throwable& t$) {
-						try {
-							bos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
 					}
-				} catch ($Throwable& var$16) {
-					$assign(var$15, var$16);
-				} /*finally*/ {
-					bos->close();
+					$assign(theByteArray, bos->toByteArray());
+				} catch ($Throwable& t$) {
+					try {
+						bos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$15 != nullptr) {
-					$throw(var$15);
-				}
+			} catch ($Throwable& var$16) {
+				$assign(var$15, var$16);
+			} /*finally*/ {
+				bos->close();
+			}
+			if (var$15 != nullptr) {
+				$throw(var$15);
 			}
 		}
 	} else if ($nc(flavor)->isRepresentationClassInputStream()) {
@@ -1132,71 +983,67 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 		}
 		{
 			$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
-			{
-				$var($Throwable, var$17, nullptr);
-				$var($bytes, var$19, nullptr);
-				bool return$18 = false;
+			$var($Throwable, var$17, nullptr);
+			$var($bytes, var$19, nullptr);
+			bool return$18 = false;
+			try {
 				try {
-					try {
-						{
-							$var($InputStream, is, $cast($InputStream, obj));
-							{
-								$var($Throwable, var$20, nullptr);
-								try {
+					{
+						$var($InputStream, is, $cast($InputStream, obj));
+						$var($Throwable, var$20, nullptr);
+						try {
+							try {
+								$nc(is)->mark($Integer::MAX_VALUE);
+								is->transferTo(bos);
+								is->reset();
+							} catch ($Throwable& t$) {
+								if (is != nullptr) {
 									try {
-										$nc(is)->mark($Integer::MAX_VALUE);
-										is->transferTo(bos);
-										is->reset();
-									} catch ($Throwable& t$) {
-										if (is != nullptr) {
-											try {
-												is->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$21) {
-									$assign(var$20, var$21);
-								} /*finally*/ {
-									if (is != nullptr) {
 										is->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
 									}
 								}
-								if (var$20 != nullptr) {
-									$throw(var$20);
-								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$21) {
+							$assign(var$20, var$21);
+						} /*finally*/ {
+							if (is != nullptr) {
+								is->close();
 							}
 						}
-						bool var$22 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-						if (var$22 && isTextFormat(format)) {
-							$var($bytes, bytes, bos->toByteArray());
-							$var($String, sourceEncoding, $DataFlavorUtil::getTextCharset(flavor));
-							$assign(var$19, translateTransferableString($$new($String, bytes, sourceEncoding), format));
-							return$18 = true;
-							goto $finally3;
+						if (var$20 != nullptr) {
+							$throw(var$20);
 						}
-						$assign(theByteArray, bos->toByteArray());
-					} catch ($Throwable& t$) {
-						try {
-							bos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
 					}
-				} catch ($Throwable& var$23) {
-					$assign(var$17, var$23);
-				} $finally3: {
-					bos->close();
+					bool var$22 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+					if (var$22 && isTextFormat(format)) {
+						$var($bytes, bytes, bos->toByteArray());
+						$var($String, sourceEncoding, $DataFlavorUtil::getTextCharset(flavor));
+						$assign(var$19, translateTransferableString($$new($String, bytes, sourceEncoding), format));
+						return$18 = true;
+						goto $finally3;
+					}
+					$assign(theByteArray, bos->toByteArray());
+				} catch ($Throwable& t$) {
+					try {
+						bos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$17 != nullptr) {
-					$throw(var$17);
-				}
-				if (return$18) {
-					return var$19;
-				}
+			} catch ($Throwable& var$23) {
+				$assign(var$17, var$23);
+			} $finally3: {
+				bos->close();
+			}
+			if (var$17 != nullptr) {
+				$throw(var$17);
+			}
+			if (return$18) {
+				return var$19;
 			}
 		}
 	} else if (flavor->isRepresentationClassRemote()) {
@@ -1211,74 +1058,70 @@ $bytes* DataTransferer::translateTransferable($Transferable* contents, $DataFlav
 
 $bytes* DataTransferer::convertObjectToBytes(Object$* object) {
 	$init(DataTransferer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($bytes, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($bytes, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$var($ObjectOutputStream, oos, $new($ObjectOutputStream, bos));
+				$var($Throwable, var$3, nullptr);
+				$var($bytes, var$5, nullptr);
+				bool return$4 = false;
 				try {
-					$var($ObjectOutputStream, oos, $new($ObjectOutputStream, bos));
-					{
-						$var($Throwable, var$3, nullptr);
-						$var($bytes, var$5, nullptr);
-						bool return$4 = false;
-						try {
-							try {
-								oos->writeObject(object);
-								$assign(var$5, bos->toByteArray());
-								return$4 = true;
-								goto $finally1;
-							} catch ($Throwable& t$) {
-								try {
-									oos->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$6) {
-							$assign(var$3, var$6);
-						} $finally1: {
-							oos->close();
-						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
-						}
-						if (return$4) {
-							$assign(var$2, var$5);
-							return$1 = true;
-							goto $finally;
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						bos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						oos->writeObject(object);
+						$assign(var$5, bos->toByteArray());
+						return$4 = true;
+						goto $finally1;
+					} catch ($Throwable& t$) {
+						try {
+							oos->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$6) {
+					$assign(var$3, var$6);
+				} $finally1: {
+					oos->close();
 				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} $finally: {
-				bos->close();
+				if (var$3 != nullptr) {
+					$throw(var$3);
+				}
+				if (return$4) {
+					$assign(var$2, var$5);
+					return$1 = true;
+					goto $finally;
+				}
+			} catch ($Throwable& t$) {
+				try {
+					bos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$7) {
+			$assign(var$0, var$7);
+		} $finally: {
+			bos->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $String* DataTransferer::removeSuspectedData($DataFlavor* flavor, $Transferable* contents, $String* str) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool var$0 = nullptr == $System::getSecurityManager();
 	if (var$0 || !$nc(flavor)->isMimeTypeEqual("text/uri-list"_s)) {
@@ -1286,7 +1129,7 @@ $String* DataTransferer::removeSuspectedData($DataFlavor* flavor, $Transferable*
 	}
 	$var($ProtectionDomain, userProtectionDomain, getUserProtectionDomain(contents));
 	try {
-		return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new(DataTransferer$$Lambda$lambda$removeSuspectedData$0, this, str, userProtectionDomain))));
+		return $cast($String, $AccessController::doPrivileged($cast($PrivilegedExceptionAction, $$new(DataTransferer$$Lambda$lambda$removeSuspectedData$0, this, str, userProtectionDomain))));
 	} catch ($PrivilegedActionException& pae) {
 		$throwNew($IOException, $(pae->getMessage()), pae);
 	}
@@ -1299,7 +1142,7 @@ $ProtectionDomain* DataTransferer::getUserProtectionDomain($Transferable* conten
 }
 
 bool DataTransferer::isForbiddenToRead($File* file, $ProtectionDomain* protectionDomain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nullptr == protectionDomain) {
 		return false;
 	}
@@ -1314,10 +1157,10 @@ bool DataTransferer::isForbiddenToRead($File* file, $ProtectionDomain* protectio
 }
 
 $ArrayList* DataTransferer::castToFiles($List* files, $ProtectionDomain* userProtectionDomain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
-		return $cast($ArrayList, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new(DataTransferer$$Lambda$lambda$castToFiles$1$1, this, files, userProtectionDomain))));
+		return $cast($ArrayList, $AccessController::doPrivileged($cast($PrivilegedExceptionAction, $$new(DataTransferer$$Lambda$lambda$castToFiles$1$1, this, files, userProtectionDomain))));
 	} catch ($PrivilegedActionException& pae) {
 		$throwNew($IOException, $(pae->getMessage()));
 	}
@@ -1327,7 +1170,7 @@ $ArrayList* DataTransferer::castToFiles($List* files, $ProtectionDomain* userPro
 $File* DataTransferer::castToFile(Object$* fileObject) {
 	$var($String, filePath, nullptr);
 	if ($instanceOf($File, fileObject)) {
-		$assign(filePath, $nc(($cast($File, fileObject)))->getCanonicalPath());
+		$assign(filePath, $cast($File, fileObject)->getCanonicalPath());
 	} else if ($instanceOf($String, fileObject)) {
 		$assign(filePath, $cast($String, fileObject));
 	} else {
@@ -1338,40 +1181,34 @@ $File* DataTransferer::castToFile(Object$* fileObject) {
 
 bool DataTransferer::isFileInWebstartedCache($File* f) {
 	$init(DataTransferer);
-	$useLocalCurrentObjectStackCache();
-	if ($nc(DataTransferer::deploymentCacheDirectoryList)->isEmpty()) {
-		{
-			$var($StringArray, arr$, DataTransferer::DEPLOYMENT_CACHE_PROPERTIES);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, cacheDirectoryProperty, arr$->get(i$));
-				{
-					$var($String, cacheDirectoryPath, $System::getProperty(cacheDirectoryProperty));
-					if (cacheDirectoryPath != nullptr) {
-						try {
-							$var($File, cacheDirectory, ($$new($File, cacheDirectoryPath))->getCanonicalFile());
-							if (cacheDirectory != nullptr) {
-								$nc(DataTransferer::deploymentCacheDirectoryList)->add(cacheDirectory);
-							}
-						} catch ($IOException& ioe) {
+	$useLocalObjectStack();
+	if (DataTransferer::deploymentCacheDirectoryList->isEmpty()) {
+		$var($StringArray, arr$, DataTransferer::DEPLOYMENT_CACHE_PROPERTIES);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, cacheDirectoryProperty, arr$->get(i$));
+			{
+				$var($String, cacheDirectoryPath, $System::getProperty(cacheDirectoryProperty));
+				if (cacheDirectoryPath != nullptr) {
+					try {
+						$var($File, cacheDirectory, ($$new($File, cacheDirectoryPath))->getCanonicalFile());
+						if (cacheDirectory != nullptr) {
+							DataTransferer::deploymentCacheDirectoryList->add(cacheDirectory);
 						}
+					} catch ($IOException& ioe) {
 					}
 				}
 			}
 		}
 	}
 	{
-		$var($Iterator, i$, $nc(DataTransferer::deploymentCacheDirectoryList)->iterator());
+		$var($Iterator, i$, DataTransferer::deploymentCacheDirectoryList->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($File, deploymentCacheDirectory, $cast($File, i$->next()));
 			{
-				{
-					$var($File, dir, f);
-					for (; dir != nullptr; $assign(dir, $nc(dir)->getParentFile())) {
-						if (dir->equals(deploymentCacheDirectory)) {
-							return true;
-						}
+				$var($File, dir, f);
+				for (; dir != nullptr; $assign(dir, dir->getParentFile())) {
+					if (dir->equals(deploymentCacheDirectory)) {
+						return true;
 					}
 				}
 			}
@@ -1381,7 +1218,7 @@ bool DataTransferer::isFileInWebstartedCache($File* f) {
 }
 
 $Object* DataTransferer::translateBytes($bytes* bytes$renamed, $DataFlavor* flavor, int64_t format, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, bytes$renamed);
 	$var($Object, theObject, nullptr);
 	if (isFileFormat(format)) {
@@ -1391,7 +1228,7 @@ $Object* DataTransferer::translateBytes($bytes* bytes$renamed, $DataFlavor* flav
 		}
 		$var($StringArray, filenames, dragQueryFile(bytes));
 		if (filenames == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		}
 		$var($FileArray, files, $new($FileArray, $nc(filenames)->length));
 		for (int32_t i = 0; i < filenames->length; ++i) {
@@ -1399,302 +1236,136 @@ $Object* DataTransferer::translateBytes($bytes* bytes$renamed, $DataFlavor* flav
 		}
 		$assign(theObject, $Arrays::asList(files));
 	} else {
-		bool var$1 = isURIListFormat(format);
+		bool var$0 = isURIListFormat(format);
 		$init($DataFlavor);
-		if (var$1 && $nc($DataFlavor::javaFileListFlavor)->equals(flavor)) {
-			{
-				$var($ByteArrayInputStream, str, $new($ByteArrayInputStream, bytes));
-				{
-					$var($Throwable, var$2, nullptr);
-					$var($Object, var$4, nullptr);
-					bool return$3 = false;
-					try {
-						try {
-							$var($URIArray, uris, dragQueryURIs(str, format, localeTransferable));
-							if (uris == nullptr) {
-								$assign(var$4, nullptr);
-								return$3 = true;
-								goto $finally;
-							}
-							$var($List, files, $new($ArrayList));
-							{
-								$var($URIArray, arr$, uris);
-								int32_t len$ = $nc(arr$)->length;
-								int32_t i$ = 0;
-								for (; i$ < len$; ++i$) {
-									$var($URI, uri, arr$->get(i$));
-									{
-										try {
-											files->add($$new($File, uri));
-										} catch ($IllegalArgumentException& illegalArg) {
-										}
-									}
-								}
-							}
-							$assign(theObject, files);
-						} catch ($Throwable& t$) {
+		if (var$0 && $nc($DataFlavor::javaFileListFlavor)->equals(flavor)) {
+			$var($ByteArrayInputStream, str, $new($ByteArrayInputStream, bytes));
+			$var($Throwable, var$1, nullptr);
+			$var($Object, var$3, nullptr);
+			bool return$2 = false;
+			try {
+				try {
+					$var($URIArray, uris, dragQueryURIs(str, format, localeTransferable));
+					if (uris == nullptr) {
+						$assign(var$3, nullptr);
+						return$2 = true;
+						goto $finally;
+					}
+					$var($List, files, $new($ArrayList));
+					{
+						$var($URIArray, arr$, uris);
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+							$var($URI, uri, arr$->get(i$));
 							try {
-								str->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
+								files->add($$new($File, uri));
+							} catch ($IllegalArgumentException& illegalArg) {
 							}
-							$throw(t$);
 						}
-					} catch ($Throwable& var$5) {
-						$assign(var$2, var$5);
-					} $finally: {
+					}
+					$assign(theObject, files);
+				} catch ($Throwable& t$) {
+					try {
 						str->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
-					}
-					if (return$3) {
-						return var$4;
-					}
+					$throw(t$);
 				}
+			} catch ($Throwable& var$4) {
+				$assign(var$1, var$4);
+			} $finally: {
+				str->close();
+			}
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
+			if (return$2) {
+				return var$3;
 			}
 		} else {
-			bool var$9 = $of($String::class$)->equals($nc(flavor)->getRepresentationClass());
-			bool var$8 = var$9 && $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-			if (var$8 && isTextFormat(format)) {
+			bool var$6 = $String::class$->equals($nc(flavor)->getRepresentationClass());
+			bool var$5 = var$6 && $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+			if (var$5 && isTextFormat(format)) {
 				$assign(theObject, translateBytesToString(bytes, format, localeTransferable));
-			} else if ($nc(flavor)->isRepresentationClassReader()) {
-				{
-					$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
-					{
-						$var($Throwable, var$10, nullptr);
+			} else if (flavor->isRepresentationClassReader()) {
+				$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
+				$var($Throwable, var$7, nullptr);
+				try {
+					try {
+						$assign(theObject, translateStream(bais, flavor, format, localeTransferable));
+					} catch ($Throwable& t$) {
 						try {
-							try {
-								$assign(theObject, translateStream(bais, flavor, format, localeTransferable));
-							} catch ($Throwable& t$) {
-								try {
-									bais->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$11) {
-							$assign(var$10, var$11);
-						} /*finally*/ {
 							bais->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
-						if (var$10 != nullptr) {
-							$throw(var$10);
-						}
+						$throw(t$);
 					}
+				} catch ($Throwable& var$8) {
+					$assign(var$7, var$8);
+				} /*finally*/ {
+					bais->close();
+				}
+				if (var$7 != nullptr) {
+					$throw(var$7);
 				}
 			} else if (flavor->isRepresentationClassCharBuffer()) {
-				bool var$12 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-				if (!(var$12 && isTextFormat(format))) {
+				bool var$9 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+				if (!(var$9 && isTextFormat(format))) {
 					$throwNew($IOException, "cannot transfer non-text data as CharBuffer"_s);
 				}
-				$var($CharBuffer, buffer, $CharBuffer::wrap($(static_cast<$CharSequence*>(translateBytesToString(bytes, format, localeTransferable)))));
+				$var($CharBuffer, buffer, $CharBuffer::wrap($(translateBytesToString(bytes, format, localeTransferable))));
 				$assign(theObject, constructFlavoredObject(buffer, flavor, $CharBuffer::class$));
-			} else {
-				$load($chars);
-				if ($of($getClass($chars))->equals(flavor->getRepresentationClass())) {
-					bool var$13 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-					if (!(var$13 && isTextFormat(format))) {
-						$throwNew($IOException, "cannot transfer non-text data as char array"_s);
-					}
-					$assign(theObject, $nc($(translateBytesToString(bytes, format, localeTransferable)))->toCharArray());
-				} else if (flavor->isRepresentationClassByteBuffer()) {
-					bool var$14 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-					if (var$14 && isTextFormat(format)) {
-						$assign(bytes, $nc($(translateBytesToString(bytes, format, localeTransferable)))->getBytes($($DataFlavorUtil::getTextCharset(flavor))));
-					}
-					$var($ByteBuffer, buffer, $ByteBuffer::wrap(bytes));
-					$assign(theObject, constructFlavoredObject(buffer, flavor, $ByteBuffer::class$));
+			} else if ($getClass($chars)->equals(flavor->getRepresentationClass())) {
+				bool var$10 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+				if (!(var$10 && isTextFormat(format))) {
+					$throwNew($IOException, "cannot transfer non-text data as char array"_s);
+				}
+				$assign(theObject, $$nc(translateBytesToString(bytes, format, localeTransferable))->toCharArray());
+			} else if (flavor->isRepresentationClassByteBuffer()) {
+				bool var$11 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+				if (var$11 && isTextFormat(format)) {
+					$assign(bytes, $$nc(translateBytesToString(bytes, format, localeTransferable))->getBytes($($DataFlavorUtil::getTextCharset(flavor))));
+				}
+				$var($ByteBuffer, buffer, $ByteBuffer::wrap(bytes));
+				$assign(theObject, constructFlavoredObject(buffer, flavor, $ByteBuffer::class$));
+			} else if ($getClass($bytes)->equals(flavor->getRepresentationClass())) {
+				bool var$12 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+				if (var$12 && isTextFormat(format)) {
+					$assign(theObject, $$nc(translateBytesToString(bytes, format, localeTransferable))->getBytes($($DataFlavorUtil::getTextCharset(flavor))));
 				} else {
-					$load($bytes);
-					if ($of($getClass($bytes))->equals(flavor->getRepresentationClass())) {
-						bool var$15 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-						if (var$15 && isTextFormat(format)) {
-							$assign(theObject, $nc($(translateBytesToString(bytes, format, localeTransferable)))->getBytes($($DataFlavorUtil::getTextCharset(flavor))));
-						} else {
-							$assign(theObject, bytes);
-						}
-					} else if (flavor->isRepresentationClassInputStream()) {
-						{
-							$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
-							{
-								$var($Throwable, var$16, nullptr);
-								try {
-									try {
-										$assign(theObject, translateStream(bais, flavor, format, localeTransferable));
-									} catch ($Throwable& t$) {
-										try {
-											bais->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$17) {
-									$assign(var$16, var$17);
-								} /*finally*/ {
-									bais->close();
-								}
-								if (var$16 != nullptr) {
-									$throw(var$16);
-								}
-							}
-						}
-					} else if (flavor->isRepresentationClassRemote()) {
+					$assign(theObject, bytes);
+				}
+			} else if (flavor->isRepresentationClassInputStream()) {
+				$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
+				$var($Throwable, var$13, nullptr);
+				try {
+					try {
+						$assign(theObject, translateStream(bais, flavor, format, localeTransferable));
+					} catch ($Throwable& t$) {
 						try {
-							$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
-							{
-								$var($Throwable, var$18, nullptr);
-								try {
-									try {
-										$var($ObjectInputStream, ois, $new($ObjectInputStream, bais));
-										{
-											$var($Throwable, var$19, nullptr);
-											try {
-												try {
-													$assign(theObject, $DataFlavorUtil$RMI::getMarshalledObject($(ois->readObject())));
-												} catch ($Throwable& t$) {
-													try {
-														ois->close();
-													} catch ($Throwable& x2) {
-														t$->addSuppressed(x2);
-													}
-													$throw(t$);
-												}
-											} catch ($Throwable& var$20) {
-												$assign(var$19, var$20);
-											} /*finally*/ {
-												ois->close();
-											}
-											if (var$19 != nullptr) {
-												$throw(var$19);
-											}
-										}
-									} catch ($Throwable& t$) {
-										try {
-											bais->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$21) {
-									$assign(var$18, var$21);
-								} /*finally*/ {
-									bais->close();
-								}
-								if (var$18 != nullptr) {
-									$throw(var$18);
-								}
-							}
-						} catch ($Exception& e) {
-							$throwNew($IOException, $(e->getMessage()));
+							bais->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
 						}
-					} else if (flavor->isRepresentationClassSerializable()) {
-						{
-							$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
-							{
-								$var($Throwable, var$22, nullptr);
-								try {
-									try {
-										$assign(theObject, translateStream(bais, flavor, format, localeTransferable));
-									} catch ($Throwable& t$) {
-										try {
-											bais->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$23) {
-									$assign(var$22, var$23);
-								} /*finally*/ {
-									bais->close();
-								}
-								if (var$22 != nullptr) {
-									$throw(var$22);
-								}
-							}
-						}
-					} else {
-						if ($nc($DataFlavor::imageFlavor)->equals(flavor)) {
-							if (!isImageFormat(format)) {
-								$throwNew($IOException, "data translation failed"_s);
-							}
-							$assign(theObject, platformImageBytesToImage(bytes, format));
-						}
+						$throw(t$);
 					}
+				} catch ($Throwable& var$14) {
+					$assign(var$13, var$14);
+				} /*finally*/ {
+					bais->close();
 				}
-			}
-		}
-	}
-	if (theObject == nullptr) {
-		$throwNew($IOException, "data translation failed"_s);
-	}
-	return $of(theObject);
-}
-
-$Object* DataTransferer::translateStream($InputStream* str, $DataFlavor* flavor, int64_t format, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, theObject, nullptr);
-	bool var$0 = isURIListFormat(format);
-	$init($DataFlavor);
-	if (var$0 && $nc($DataFlavor::javaFileListFlavor)->equals(flavor)) {
-		$var($URIArray, uris, dragQueryURIs(str, format, localeTransferable));
-		if (uris == nullptr) {
-			return $of(nullptr);
-		}
-		$var($List, files, $new($ArrayList));
-		{
-			$var($URIArray, arr$, uris);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($URI, uri, arr$->get(i$));
-				{
+				if (var$13 != nullptr) {
+					$throw(var$13);
+				}
+			} else if (flavor->isRepresentationClassRemote()) {
+				try {
+					$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
+					$var($Throwable, var$15, nullptr);
 					try {
-						files->add($$new($File, uri));
-					} catch ($IllegalArgumentException& illegalArg) {
-					}
-				}
-			}
-		}
-		$assign(theObject, files);
-	} else {
-		bool var$4 = $of($String::class$)->equals($nc(flavor)->getRepresentationClass());
-		bool var$3 = var$4 && $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-		if (var$3 && isTextFormat(format)) {
-			return $of(translateBytesToString($(inputStreamToByteArray(str)), format, localeTransferable));
-		} else {
-			if ($nc($DataFlavor::plainTextFlavor)->equals(flavor)) {
-				$assign(theObject, $new($StringReader, $(translateBytesToString($(inputStreamToByteArray(str)), format, localeTransferable))));
-			} else if ($nc(flavor)->isRepresentationClassInputStream()) {
-				$assign(theObject, translateStreamToInputStream(str, flavor, format, localeTransferable));
-			} else if (flavor->isRepresentationClassReader()) {
-				bool var$5 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-				if (!(var$5 && isTextFormat(format))) {
-					$throwNew($IOException, "cannot transfer non-text data as Reader"_s);
-				}
-				$var($InputStream, is, $cast($InputStream, translateStreamToInputStream(str, $DataFlavor::plainTextFlavor, format, localeTransferable)));
-				$var($String, unicode, $DataFlavorUtil::getTextCharset($DataFlavor::plainTextFlavor));
-				$var($Reader, reader, $new($InputStreamReader, is, unicode));
-				$load($Reader);
-				$assign(theObject, constructFlavoredObject(reader, flavor, $Reader::class$));
-			} else {
-				$load($bytes);
-				if ($of($getClass($bytes))->equals(flavor->getRepresentationClass())) {
-					bool var$6 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-					if (var$6 && isTextFormat(format)) {
-						$assign(theObject, $nc($(translateBytesToString($(inputStreamToByteArray(str)), format, localeTransferable)))->getBytes($($DataFlavorUtil::getTextCharset(flavor))));
-					} else {
-						$assign(theObject, inputStreamToByteArray(str));
-					}
-				} else if (flavor->isRepresentationClassRemote()) {
-					try {
-						$var($ObjectInputStream, ois, $new($ObjectInputStream, str));
-						{
-							$var($Throwable, var$7, nullptr);
+						try {
+							$var($ObjectInputStream, ois, $new($ObjectInputStream, bais));
+							$var($Throwable, var$16, nullptr);
 							try {
 								try {
 									$assign(theObject, $DataFlavorUtil$RMI::getMarshalledObject($(ois->readObject())));
@@ -1706,179 +1377,39 @@ $Object* DataTransferer::translateStream($InputStream* str, $DataFlavor* flavor,
 									}
 									$throw(t$);
 								}
-							} catch ($Throwable& var$8) {
-								$assign(var$7, var$8);
+							} catch ($Throwable& var$17) {
+								$assign(var$16, var$17);
 							} /*finally*/ {
 								ois->close();
 							}
-							if (var$7 != nullptr) {
-								$throw(var$7);
+							if (var$16 != nullptr) {
+								$throw(var$16);
 							}
-						}
-					} catch ($Exception& e) {
-						$throwNew($IOException, $(e->getMessage()));
-					}
-				} else if (flavor->isRepresentationClassSerializable()) {
-					try {
-						$var($ObjectInputStream, ois, $new($ObjectInputStream, str));
-						{
-							$var($Throwable, var$9, nullptr);
+						} catch ($Throwable& t$) {
 							try {
-								try {
-									$assign(theObject, ois->readObject());
-								} catch ($Throwable& t$) {
-									try {
-										ois->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$10) {
-								$assign(var$9, var$10);
-							} /*finally*/ {
-								ois->close();
+								bais->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
 							}
-							if (var$9 != nullptr) {
-								$throw(var$9);
-							}
+							$throw(t$);
 						}
-					} catch ($Exception& e) {
-						$throwNew($IOException, $(e->getMessage()));
+					} catch ($Throwable& var$18) {
+						$assign(var$15, var$18);
+					} /*finally*/ {
+						bais->close();
 					}
-				} else {
-					if ($nc($DataFlavor::imageFlavor)->equals(flavor)) {
-						if (!isImageFormat(format)) {
-							$throwNew($IOException, "data translation failed"_s);
-						}
-						$assign(theObject, platformImageBytesToImage($(inputStreamToByteArray(str)), format));
+					if (var$15 != nullptr) {
+						$throw(var$15);
 					}
+				} catch ($Exception& e) {
+					$throwNew($IOException, $(e->getMessage()));
 				}
-			}
-		}
-	}
-	if (theObject == nullptr) {
-		$throwNew($IOException, "data translation failed"_s);
-	}
-	return $of(theObject);
-}
-
-$Object* DataTransferer::translateStreamToInputStream($InputStream* str$renamed, $DataFlavor* flavor, int64_t format, $Transferable* localeTransferable) {
-	$useLocalCurrentObjectStackCache();
-	$var($InputStream, str, str$renamed);
-	bool var$0 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
-	if (var$0 && isTextFormat(format)) {
-		$assign(str, $new($DataTransferer$ReencodingInputStream, this, str, format, $($DataFlavorUtil::getTextCharset(flavor)), localeTransferable));
-	}
-	$load($InputStream);
-	return $of(constructFlavoredObject(str, flavor, $InputStream::class$));
-}
-
-$Object* DataTransferer::constructFlavoredObject(Object$* arg, $DataFlavor* flavor, $Class* clazz) {
-	$useLocalCurrentObjectStackCache();
-	$beforeCallerSensitive();
-	$Class* dfrc = $nc(flavor)->getRepresentationClass();
-	if ($nc($of(clazz))->equals(dfrc)) {
-		return $of(arg);
-	} else {
-		$var($ConstructorArray, constructors, nullptr);
-		try {
-			$assign(constructors, $cast($ConstructorArray, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DataTransferer$$Lambda$getConstructors$2, static_cast<$Class*>($nc(dfrc)))))));
-		} catch ($SecurityException& se) {
-			$throwNew($IOException, $(se->getMessage()));
-		}
-		$var($Constructor, constructor, $cast($Constructor, $nc($($nc($($nc($($nc($($Stream::of(constructors)))->filter(static_cast<$Predicate*>($$new(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3)))))->filter(static_cast<$Predicate*>($$new(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, clazz)))))->findFirst()))->orElseThrow(static_cast<$Supplier*>($$new(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, clazz, dfrc)))));
-		try {
-			return $of($nc(constructor)->newInstance($$new($ObjectArray, {arg})));
-		} catch ($Exception& e) {
-			$throwNew($IOException, $(e->getMessage()));
-		}
-	}
-	$shouldNotReachHere();
-}
-
-$URIArray* DataTransferer::dragQueryURIs($InputStream* stream, int64_t format, $Transferable* localeTransferable) {
-	$throwNew($IOException, static_cast<$Throwable*>($$new($UnsupportedOperationException, "not implemented on this platform"_s)));
-	$shouldNotReachHere();
-}
-
-$Image* DataTransferer::standardImageBytesToImage($bytes* bytes, $String* mimeType) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, readerIterator, $ImageIO::getImageReadersByMIMEType(mimeType));
-	if (!$nc(readerIterator)->hasNext()) {
-		$throwNew($IOException, $$str({"No registered service provider can decode  an image from "_s, mimeType}));
-	}
-	$var($IOException, ioe, nullptr);
-	while ($nc(readerIterator)->hasNext()) {
-		$var($ImageReader, imageReader, $cast($ImageReader, readerIterator->next()));
-		try {
-			$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($Image, var$2, nullptr);
-				bool return$1 = false;
+			} else if (flavor->isRepresentationClassSerializable()) {
+				$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
+				$var($Throwable, var$19, nullptr);
 				try {
 					try {
-						{
-							$var($Throwable, var$3, nullptr);
-							$var($Image, var$5, nullptr);
-							bool return$4 = false;
-							try {
-								$var($ImageInputStream, imageInputStream, $ImageIO::createImageInputStream(bais));
-								{
-									$var($Throwable, var$6, nullptr);
-									$var($Image, var$8, nullptr);
-									bool return$7 = false;
-									try {
-										try {
-											$var($ImageReadParam, param, $nc(imageReader)->getDefaultReadParam());
-											imageReader->setInput(imageInputStream, true, true);
-											$var($BufferedImage, bufferedImage, imageReader->read(imageReader->getMinIndex(), param));
-											if (bufferedImage != nullptr) {
-												$assign(var$8, bufferedImage);
-												return$7 = true;
-												goto $finally2;
-											}
-										} catch ($Throwable& t$) {
-											if (imageInputStream != nullptr) {
-												try {
-													imageInputStream->close();
-												} catch ($Throwable& x2) {
-													t$->addSuppressed(x2);
-												}
-											}
-											$throw(t$);
-										}
-									} catch ($Throwable& var$9) {
-										$assign(var$6, var$9);
-									} $finally2: {
-										if (imageInputStream != nullptr) {
-											imageInputStream->close();
-										}
-									}
-									if (var$6 != nullptr) {
-										$throw(var$6);
-									}
-									if (return$7) {
-										$assign(var$5, var$8);
-										return$4 = true;
-										goto $finally1;
-									}
-								}
-							} catch ($Throwable& var$10) {
-								$assign(var$3, var$10);
-							} $finally1: {
-								$nc(imageReader)->dispose();
-							}
-							if (var$3 != nullptr) {
-								$throw(var$3);
-							}
-							if (return$4) {
-								$assign(var$2, var$5);
-								return$1 = true;
-								goto $finally;
-							}
-						}
+						$assign(theObject, translateStream(bais, flavor, format, localeTransferable));
 					} catch ($Throwable& t$) {
 						try {
 							bais->close();
@@ -1887,17 +1418,270 @@ $Image* DataTransferer::standardImageBytesToImage($bytes* bytes, $String* mimeTy
 						}
 						$throw(t$);
 					}
-				} catch ($Throwable& var$11) {
-					$assign(var$0, var$11);
-				} $finally: {
+				} catch ($Throwable& var$20) {
+					$assign(var$19, var$20);
+				} /*finally*/ {
 					bais->close();
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+				if (var$19 != nullptr) {
+					$throw(var$19);
 				}
-				if (return$1) {
-					return var$2;
+			} else if ($nc($DataFlavor::imageFlavor)->equals(flavor)) {
+				if (!isImageFormat(format)) {
+					$throwNew($IOException, "data translation failed"_s);
 				}
+				$assign(theObject, platformImageBytesToImage(bytes, format));
+			}
+		}
+	}
+	if (theObject == nullptr) {
+		$throwNew($IOException, "data translation failed"_s);
+	}
+	return theObject;
+}
+
+$Object* DataTransferer::translateStream($InputStream* str, $DataFlavor* flavor, int64_t format, $Transferable* localeTransferable) {
+	$useLocalObjectStack();
+	$var($Object, theObject, nullptr);
+	bool var$0 = isURIListFormat(format);
+	$init($DataFlavor);
+	if (var$0 && $nc($DataFlavor::javaFileListFlavor)->equals(flavor)) {
+		$var($URIArray, uris, dragQueryURIs(str, format, localeTransferable));
+		if (uris == nullptr) {
+			return nullptr;
+		}
+		$var($List, files, $new($ArrayList));
+		{
+			$var($URIArray, arr$, uris);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($URI, uri, arr$->get(i$));
+				try {
+					files->add($$new($File, uri));
+				} catch ($IllegalArgumentException& illegalArg) {
+				}
+			}
+		}
+		$assign(theObject, files);
+	} else {
+		bool var$2 = $String::class$->equals($nc(flavor)->getRepresentationClass());
+		bool var$1 = var$2 && $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+		if (var$1 && isTextFormat(format)) {
+			return $of(translateBytesToString($(inputStreamToByteArray(str)), format, localeTransferable));
+		} else if ($nc($DataFlavor::plainTextFlavor)->equals(flavor)) {
+			$assign(theObject, $new($StringReader, $(translateBytesToString($(inputStreamToByteArray(str)), format, localeTransferable))));
+		} else if (flavor->isRepresentationClassInputStream()) {
+			$assign(theObject, translateStreamToInputStream(str, flavor, format, localeTransferable));
+		} else if (flavor->isRepresentationClassReader()) {
+			bool var$3 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+			if (!(var$3 && isTextFormat(format))) {
+				$throwNew($IOException, "cannot transfer non-text data as Reader"_s);
+			}
+			$var($InputStream, is, $cast($InputStream, translateStreamToInputStream(str, $DataFlavor::plainTextFlavor, format, localeTransferable)));
+			$var($String, unicode, $DataFlavorUtil::getTextCharset($DataFlavor::plainTextFlavor));
+			$var($Reader, reader, $new($InputStreamReader, is, unicode));
+			$load($Reader);
+			$assign(theObject, constructFlavoredObject(reader, flavor, $Reader::class$));
+		} else if ($getClass($bytes)->equals(flavor->getRepresentationClass())) {
+			bool var$4 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+			if (var$4 && isTextFormat(format)) {
+				$assign(theObject, $$nc(translateBytesToString($(inputStreamToByteArray(str)), format, localeTransferable))->getBytes($($DataFlavorUtil::getTextCharset(flavor))));
+			} else {
+				$assign(theObject, inputStreamToByteArray(str));
+			}
+		} else if (flavor->isRepresentationClassRemote()) {
+			try {
+				$var($ObjectInputStream, ois, $new($ObjectInputStream, str));
+				$var($Throwable, var$5, nullptr);
+				try {
+					try {
+						$assign(theObject, $DataFlavorUtil$RMI::getMarshalledObject($(ois->readObject())));
+					} catch ($Throwable& t$) {
+						try {
+							ois->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
+					}
+				} catch ($Throwable& var$6) {
+					$assign(var$5, var$6);
+				} /*finally*/ {
+					ois->close();
+				}
+				if (var$5 != nullptr) {
+					$throw(var$5);
+				}
+			} catch ($Exception& e) {
+				$throwNew($IOException, $(e->getMessage()));
+			}
+		} else if (flavor->isRepresentationClassSerializable()) {
+			try {
+				$var($ObjectInputStream, ois, $new($ObjectInputStream, str));
+				$var($Throwable, var$7, nullptr);
+				try {
+					try {
+						$assign(theObject, ois->readObject());
+					} catch ($Throwable& t$) {
+						try {
+							ois->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
+					}
+				} catch ($Throwable& var$8) {
+					$assign(var$7, var$8);
+				} /*finally*/ {
+					ois->close();
+				}
+				if (var$7 != nullptr) {
+					$throw(var$7);
+				}
+			} catch ($Exception& e) {
+				$throwNew($IOException, $(e->getMessage()));
+			}
+		} else if ($nc($DataFlavor::imageFlavor)->equals(flavor)) {
+			if (!isImageFormat(format)) {
+				$throwNew($IOException, "data translation failed"_s);
+			}
+			$assign(theObject, platformImageBytesToImage($(inputStreamToByteArray(str)), format));
+		}
+	}
+	if (theObject == nullptr) {
+		$throwNew($IOException, "data translation failed"_s);
+	}
+	return theObject;
+}
+
+$Object* DataTransferer::translateStreamToInputStream($InputStream* str$renamed, $DataFlavor* flavor, int64_t format, $Transferable* localeTransferable) {
+	$useLocalObjectStack();
+	$var($InputStream, str, str$renamed);
+	bool var$0 = $DataFlavorUtil::isFlavorCharsetTextType(flavor);
+	if (var$0 && isTextFormat(format)) {
+		$assign(str, $new($DataTransferer$ReencodingInputStream, this, str, format, $($DataFlavorUtil::getTextCharset(flavor)), localeTransferable));
+	}
+	$load($InputStream);
+	return constructFlavoredObject(str, flavor, $InputStream::class$);
+}
+
+$Object* DataTransferer::constructFlavoredObject(Object$* arg, $DataFlavor* flavor, $Class* clazz) {
+	$useLocalObjectStack();
+	$beforeCallerSensitive();
+	$Class* dfrc = $nc(flavor)->getRepresentationClass();
+	if ($nc($of(clazz))->equals(dfrc)) {
+		return $of(arg);
+	} else {
+		$var($ConstructorArray, constructors, nullptr);
+		try {
+			$assign(constructors, $cast($ConstructorArray, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(DataTransferer$$Lambda$getConstructors$2, $nc(dfrc))))));
+		} catch ($SecurityException& se) {
+			$throwNew($IOException, $(se->getMessage()));
+		}
+		$var($Constructor, constructor, $cast($Constructor, $$nc($$nc($$nc($$nc($Stream::of(constructors))->filter($$new(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3)))->filter($$new(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4, clazz)))->findFirst())->orElseThrow($$new(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5, clazz, dfrc))));
+		try {
+			return $nc(constructor)->newInstance($$new($ObjectArray, {arg}));
+		} catch ($Exception& e) {
+			$throwNew($IOException, $(e->getMessage()));
+		}
+	}
+	$shouldNotReachHere();
+}
+
+$URIArray* DataTransferer::dragQueryURIs($InputStream* stream, int64_t format, $Transferable* localeTransferable) {
+	$throwNew($IOException, $$new($UnsupportedOperationException, "not implemented on this platform"_s));
+	$shouldNotReachHere();
+}
+
+$Image* DataTransferer::standardImageBytesToImage($bytes* bytes, $String* mimeType) {
+	$useLocalObjectStack();
+	$var($Iterator, readerIterator, $ImageIO::getImageReadersByMIMEType(mimeType));
+	if (!$nc(readerIterator)->hasNext()) {
+		$throwNew($IOException, $$str({"No registered service provider can decode  an image from "_s, mimeType}));
+	}
+	$var($IOException, ioe, nullptr);
+	while (readerIterator->hasNext()) {
+		$var($ImageReader, imageReader, $cast($ImageReader, readerIterator->next()));
+		try {
+			$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
+			$var($Throwable, var$0, nullptr);
+			$var($Image, var$2, nullptr);
+			bool return$1 = false;
+			try {
+				try {
+					$var($Throwable, var$3, nullptr);
+					$var($Image, var$5, nullptr);
+					bool return$4 = false;
+					try {
+						$var($ImageInputStream, imageInputStream, $ImageIO::createImageInputStream(bais));
+						$var($Throwable, var$6, nullptr);
+						$var($Image, var$8, nullptr);
+						bool return$7 = false;
+						try {
+							try {
+								$var($ImageReadParam, param, $nc(imageReader)->getDefaultReadParam());
+								imageReader->setInput(imageInputStream, true, true);
+								$var($BufferedImage, bufferedImage, imageReader->read(imageReader->getMinIndex(), param));
+								if (bufferedImage != nullptr) {
+									$assign(var$8, bufferedImage);
+									return$7 = true;
+									goto $finally2;
+								}
+							} catch ($Throwable& t$) {
+								if (imageInputStream != nullptr) {
+									try {
+										imageInputStream->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
+									}
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$9) {
+							$assign(var$6, var$9);
+						} $finally2: {
+							if (imageInputStream != nullptr) {
+								imageInputStream->close();
+							}
+						}
+						if (var$6 != nullptr) {
+							$throw(var$6);
+						}
+						if (return$7) {
+							$assign(var$5, var$8);
+							return$4 = true;
+							goto $finally1;
+						}
+					} catch ($Throwable& var$10) {
+						$assign(var$3, var$10);
+					} $finally1: {
+						$nc(imageReader)->dispose();
+					}
+					if (var$3 != nullptr) {
+						$throw(var$3);
+					}
+					if (return$4) {
+						$assign(var$2, var$5);
+						return$1 = true;
+						goto $finally;
+					}
+				} catch ($Throwable& t$) {
+					try {
+						bais->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable& var$11) {
+				$assign(var$0, var$11);
+			} $finally: {
+				bais->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (return$1) {
+				return var$2;
 			}
 		} catch ($IOException& e) {
 			$assign(ioe, e);
@@ -1912,7 +1696,7 @@ $Image* DataTransferer::standardImageBytesToImage($bytes* bytes, $String* mimeTy
 }
 
 $bytes* DataTransferer::imageToStandardBytes($Image* image, $String* mimeType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IOException, originalIOE, nullptr);
 	$var($Iterator, writerIterator, $ImageIO::getImageWritersByMIMEType(mimeType));
 	if (!$nc(writerIterator)->hasNext()) {
@@ -1928,7 +1712,7 @@ $bytes* DataTransferer::imageToStandardBytes($Image* image, $String* mimeType) {
 	int32_t width = 0;
 	int32_t height = 0;
 	if ($instanceOf($ToolkitImage, image)) {
-		$var($ImageRepresentation, ir, $nc(($cast($ToolkitImage, image)))->getImageRep());
+		$var($ImageRepresentation, ir, $cast($ToolkitImage, image)->getImageRep());
 		$nc(ir)->reconstruct($ImageObserver::ALLBITS);
 		width = ir->getWidth();
 		height = ir->getHeight();
@@ -1938,20 +1722,18 @@ $bytes* DataTransferer::imageToStandardBytes($Image* image, $String* mimeType) {
 	}
 	$var($ColorModel, model, $ColorModel::getRGBdefault());
 	$var($WritableRaster, raster, $nc(model)->createCompatibleWritableRaster(width, height));
-	$var($BufferedImage, bufferedImage, $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+	$var($BufferedImage, bufferedImage, $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), nullptr));
 	$var($Graphics, g, bufferedImage->getGraphics());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(g)->drawImage(image, 0, 0, width, height, nullptr);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(g)->drawImage(image, 0, 0, width, height, nullptr);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	try {
 		return imageToStandardBytesImpl(bufferedImage, mimeType);
@@ -1966,7 +1748,7 @@ $bytes* DataTransferer::imageToStandardBytes($Image* image, $String* mimeType) {
 }
 
 $bytes* DataTransferer::imageToStandardBytesImpl($RenderedImage* renderedImage, $String* mimeType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, writerIterator, $ImageIO::getImageWritersByMIMEType(mimeType));
 	$var($ImageTypeSpecifier, typeSpecifier, $new($ImageTypeSpecifier, renderedImage));
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
@@ -1980,33 +1762,31 @@ $bytes* DataTransferer::imageToStandardBytesImpl($RenderedImage* renderedImage, 
 		try {
 			{
 				$var($ImageOutputStream, imageOutputStream, $ImageIO::createImageOutputStream(baos));
-				{
-					$var($Throwable, var$0, nullptr);
+				$var($Throwable, var$0, nullptr);
+				try {
 					try {
-						try {
-							imageWriter->setOutput(imageOutputStream);
-							imageWriter->write(renderedImage);
-							$nc(imageOutputStream)->flush();
-						} catch ($Throwable& t$) {
-							if (imageOutputStream != nullptr) {
-								try {
-									imageOutputStream->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-							}
-							$throw(t$);
-						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
+						imageWriter->setOutput(imageOutputStream);
+						imageWriter->write(renderedImage);
+						$nc(imageOutputStream)->flush();
+					} catch ($Throwable& t$) {
 						if (imageOutputStream != nullptr) {
-							imageOutputStream->close();
+							try {
+								imageOutputStream->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
 						}
+						$throw(t$);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					if (imageOutputStream != nullptr) {
+						imageOutputStream->close();
 					}
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		} catch ($IOException& e) {
@@ -2027,17 +1807,17 @@ $bytes* DataTransferer::imageToStandardBytesImpl($RenderedImage* renderedImage, 
 }
 
 $Object* DataTransferer::concatData(Object$* obj1, Object$* obj2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, str1, nullptr);
 	$var($InputStream, str2, nullptr);
 	if ($instanceOf($bytes, obj1)) {
 		$var($bytes, arr1, $cast($bytes, obj1));
 		if ($instanceOf($bytes, obj2)) {
 			$var($bytes, arr2, $cast($bytes, obj2));
-			$var($bytes, ret, $new($bytes, $nc(arr1)->length + $nc(arr2)->length));
+			$var($bytes, ret, $new($bytes, arr1->length + arr2->length));
 			$System::arraycopy(arr1, 0, ret, 0, arr1->length);
 			$System::arraycopy(arr2, 0, ret, arr1->length, arr2->length);
-			return $of(ret);
+			return ret;
 		} else {
 			$assign(str1, $new($ByteArrayInputStream, arr1));
 			$assign(str2, $cast($InputStream, obj2));
@@ -2050,39 +1830,37 @@ $Object* DataTransferer::concatData(Object$* obj1, Object$* obj2) {
 			$assign(str2, $cast($InputStream, obj2));
 		}
 	}
-	return $of($new($SequenceInputStream, str1, str2));
+	return $new($SequenceInputStream, str1, str2);
 }
 
 $bytes* DataTransferer::convertData(Object$* source, $Transferable* contents, int64_t format, $Map* formatMap, bool isToolkitThread) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ret, nullptr);
 	if (isToolkitThread) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($Stack, stack, $new($Stack));
-				$var($Runnable, dataConverter, $new($DataTransferer$2, this, formatMap, format, contents, stack));
-				$var($AppContext, appContext, $SunToolkit::targetToAppContext(source));
-				$nc($(getToolkitThreadBlockedHandler()))->lock();
-				if (appContext != nullptr) {
-					appContext->put(DataTransferer::DATA_CONVERTER_KEY, dataConverter);
-				}
-				$SunToolkit::executeOnEventHandlerThread(source, dataConverter);
-				while (stack->empty()) {
-					$nc($(getToolkitThreadBlockedHandler()))->enter();
-				}
-				if (appContext != nullptr) {
-					appContext->remove(DataTransferer::DATA_CONVERTER_KEY);
-				}
-				$assign(ret, $cast($bytes, stack->pop()));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc($(getToolkitThreadBlockedHandler()))->unlock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($Stack, stack, $new($Stack));
+			$var($Runnable, dataConverter, $new($DataTransferer$2, this, formatMap, format, contents, stack));
+			$var($AppContext, appContext, $SunToolkit::targetToAppContext(source));
+			$$nc(getToolkitThreadBlockedHandler())->lock();
+			if (appContext != nullptr) {
+				appContext->put(DataTransferer::DATA_CONVERTER_KEY, dataConverter);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			$SunToolkit::executeOnEventHandlerThread(source, dataConverter);
+			while (stack->empty()) {
+				$$nc(getToolkitThreadBlockedHandler())->enter();
 			}
+			if (appContext != nullptr) {
+				appContext->remove(DataTransferer::DATA_CONVERTER_KEY);
+			}
+			$assign(ret, $cast($bytes, stack->pop()));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$$nc(getToolkitThreadBlockedHandler())->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		$var($DataFlavor, flavor, $cast($DataFlavor, $nc(formatMap)->get($($Long::valueOf(format)))));
@@ -2094,40 +1872,38 @@ $bytes* DataTransferer::convertData(Object$* source, $Transferable* contents, in
 }
 
 void DataTransferer::processDataConversionRequests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($EventQueue::isDispatchThread()) {
 		$var($AppContext, appContext, $AppContext::getAppContext());
-		$nc($(getToolkitThreadBlockedHandler()))->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($Runnable, dataConverter, $cast($Runnable, $nc(appContext)->get(DataTransferer::DATA_CONVERTER_KEY)));
-				if (dataConverter != nullptr) {
-					dataConverter->run();
-					appContext->remove(DataTransferer::DATA_CONVERTER_KEY);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc($(getToolkitThreadBlockedHandler()))->unlock();
+		$$nc(getToolkitThreadBlockedHandler())->lock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($Runnable, dataConverter, $cast($Runnable, $nc(appContext)->get(DataTransferer::DATA_CONVERTER_KEY)));
+			if (dataConverter != nullptr) {
+				dataConverter->run();
+				appContext->remove(DataTransferer::DATA_CONVERTER_KEY);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$$nc(getToolkitThreadBlockedHandler())->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $longs* DataTransferer::keysToLongArray($SortedMap* map) {
 	$init(DataTransferer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, keySet, $nc(map)->keySet());
 	$var($longs, retval, $new($longs, $nc(keySet)->size()));
 	int32_t i = 0;
 	{
 		$var($Iterator, iter, keySet->iterator());
 		for (; $nc(iter)->hasNext(); ++i) {
-			retval->set(i, $nc(($cast($Long, $(iter->next()))))->longValue());
+			retval->set(i, $$sure($Long, iter->next())->longValue());
 		}
 	}
 	return retval;
@@ -2135,10 +1911,10 @@ $longs* DataTransferer::keysToLongArray($SortedMap* map) {
 
 $DataFlavorArray* DataTransferer::setToSortedDataFlavorArray($Set* flavorsSet) {
 	$init(DataTransferer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataFlavorArray, flavors, $new($DataFlavorArray, $nc(flavorsSet)->size()));
 	flavorsSet->toArray(flavors);
-	$var($Comparator, comparator, $nc($($DataFlavorUtil::getDataFlavorComparator()))->reversed());
+	$var($Comparator, comparator, $$nc($DataFlavorUtil::getDataFlavorComparator())->reversed());
 	$Arrays::sort(flavors, comparator);
 	return flavors;
 }
@@ -2158,9 +1934,13 @@ $LinkedHashSet* DataTransferer::getPlatformMappingsForFlavor($DataFlavor* df) {
 
 $IOException* DataTransferer::lambda$constructFlavoredObject$4($Class* clazz, $Class* dfrc) {
 	$init(DataTransferer);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"can\'t find <init>(L"_s, clazz, ";)V for class: "_s}));
-	return $new($IOException, $$concat(var$0, $($nc(dfrc)->getName())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("can\'t find <init>(L"_s);
+	var$0->append(clazz);
+	var$0->append(";)V for class: "_s);
+	var$0->append($($nc(dfrc)->getName()));
+	return $new($IOException, $$str(var$0));
 }
 
 bool DataTransferer::lambda$constructFlavoredObject$3($Class* clazz, $Constructor* c) {
@@ -2175,7 +1955,7 @@ bool DataTransferer::lambda$constructFlavoredObject$2($Constructor* c) {
 }
 
 $ArrayList* DataTransferer::lambda$castToFiles$1($List* files, $ProtectionDomain* userProtectionDomain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, fileList, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(files)->iterator());
@@ -2190,7 +1970,7 @@ $ArrayList* DataTransferer::lambda$castToFiles$1($List* files, $ProtectionDomain
 						bool var$2 = isFileInWebstartedCache(file);
 						var$1 = !(var$2 || isForbiddenToRead(file, userProtectionDomain));
 					}
-					var$0 = (var$1);
+					var$0 = var$1;
 				}
 				if (var$0) {
 					fileList->add($($nc(file)->getCanonicalPath()));
@@ -2202,14 +1982,12 @@ $ArrayList* DataTransferer::lambda$castToFiles$1($List* files, $ProtectionDomain
 }
 
 $String* DataTransferer::lambda$removeSuspectedData$0($String* str, $ProtectionDomain* userProtectionDomain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, allowedFiles, $new($StringBuilder, $nc(str)->length()));
-	$var($StringArray, uriArray, $nc(str)->split("(\\s)+"_s));
+	$var($StringArray, uriArray, str->split("(\\s)+"_s));
 	{
 		$var($StringArray, arr$, uriArray);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, fileName, arr$->get(i$));
 			{
 				$var($File, file, $new($File, fileName));
@@ -2230,8 +2008,8 @@ $String* DataTransferer::lambda$removeSuspectedData$0($String* str, $ProtectionD
 	return allowedFiles->toString();
 }
 
-void clinit$DataTransferer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DataTransferer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DataTransferer::DATA_CONVERTER_KEY, "DATA_CONVERTER_KEY"_s);
 	$assignStatic(DataTransferer::textNatives, $Collections::synchronizedSet($$new($HashSet)));
 	$assignStatic(DataTransferer::nativeCharsets, $Collections::synchronizedMap($$new($HashMap)));
@@ -2259,26 +2037,118 @@ DataTransferer::DataTransferer() {
 
 $Class* DataTransferer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DataTransferer$$Lambda$lambda$removeSuspectedData$0::classInfo$.name)) {
+		if (name->equals("sun.awt.datatransfer.DataTransferer$$Lambda$lambda$removeSuspectedData$0")) {
 			return DataTransferer$$Lambda$lambda$removeSuspectedData$0::load$(name, initialize);
 		}
-		if (name->equals(DataTransferer$$Lambda$lambda$castToFiles$1$1::classInfo$.name)) {
+		if (name->equals("sun.awt.datatransfer.DataTransferer$$Lambda$lambda$castToFiles$1$1")) {
 			return DataTransferer$$Lambda$lambda$castToFiles$1$1::load$(name, initialize);
 		}
-		if (name->equals(DataTransferer$$Lambda$getConstructors$2::classInfo$.name)) {
+		if (name->equals("sun.awt.datatransfer.DataTransferer$$Lambda$getConstructors$2")) {
 			return DataTransferer$$Lambda$getConstructors$2::load$(name, initialize);
 		}
-		if (name->equals(DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3::classInfo$.name)) {
+		if (name->equals("sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3")) {
 			return DataTransferer$$Lambda$lambda$constructFlavoredObject$2$3::load$(name, initialize);
 		}
-		if (name->equals(DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4::classInfo$.name)) {
+		if (name->equals("sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4")) {
 			return DataTransferer$$Lambda$lambda$constructFlavoredObject$3$4::load$(name, initialize);
 		}
-		if (name->equals(DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5::classInfo$.name)) {
+		if (name->equals("sun.awt.datatransfer.DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5")) {
 			return DataTransferer$$Lambda$lambda$constructFlavoredObject$4$5::load$(name, initialize);
 		}
 	}
-	$loadClass(DataTransferer, name, initialize, &_DataTransferer_ClassInfo_, clinit$DataTransferer, allocate$DataTransferer);
+	$FieldInfo fieldInfos$$[] = {
+		{"javaTextEncodingFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataTransferer, javaTextEncodingFlavor)},
+		{"textNatives", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/Long;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, textNatives)},
+		{"nativeCharsets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, nativeCharsets)},
+		{"nativeEOLNs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, nativeEOLNs)},
+		{"nativeTerminators", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, nativeTerminators)},
+		{"DATA_CONVERTER_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, DATA_CONVERTER_KEY)},
+		{"DEPLOYMENT_CACHE_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, DEPLOYMENT_CACHE_PROPERTIES)},
+		{"deploymentCacheDirectoryList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/io/File;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DataTransferer, deploymentCacheDirectoryList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DataTransferer, init$, void)},
+		{"adaptFlavorMap", "(Ljava/awt/datatransfer/FlavorMap;)Ljava/awt/datatransfer/FlavorTable;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataTransferer, adaptFlavorMap, $FlavorTable*, $FlavorMap*)},
+		{"castToFile", "(Ljava/lang/Object;)Ljava/io/File;", nullptr, $PRIVATE, $method(DataTransferer, castToFile, $File*, Object$*), "java.io.IOException"},
+		{"castToFiles", "(Ljava/util/List;Ljava/security/ProtectionDomain;)Ljava/util/ArrayList;", "(Ljava/util/List<*>;Ljava/security/ProtectionDomain;)Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $method(DataTransferer, castToFiles, $ArrayList*, $List*, $ProtectionDomain*), "java.io.IOException"},
+		{"concatData", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DataTransferer, concatData, $Object*, Object$*, Object$*)},
+		{"constructFlavoredObject", "(Ljava/lang/Object;Ljava/awt/datatransfer/DataFlavor;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/awt/datatransfer/DataFlavor;Ljava/lang/Class<*>;)Ljava/lang/Object;", $PRIVATE, $method(DataTransferer, constructFlavoredObject, $Object*, Object$*, $DataFlavor*, $Class*), "java.io.IOException"},
+		{"convertData", "(Ljava/lang/Object;Ljava/awt/datatransfer/Transferable;JLjava/util/Map;Z)[B", "(Ljava/lang/Object;Ljava/awt/datatransfer/Transferable;JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;Z)[B", $PUBLIC, $virtualMethod(DataTransferer, convertData, $bytes*, Object$*, $Transferable*, int64_t, $Map*, bool), "java.io.IOException"},
+		{"convertFileListToBytes", "(Ljava/util/ArrayList;)Ljava/io/ByteArrayOutputStream;", "(Ljava/util/ArrayList<Ljava/lang/String;>;)Ljava/io/ByteArrayOutputStream;", $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, convertFileListToBytes, $ByteArrayOutputStream*, $ArrayList*), "java.io.IOException"},
+		{"convertObjectToBytes", "(Ljava/lang/Object;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DataTransferer, convertObjectToBytes, $bytes*, Object$*), "java.io.IOException"},
+		{"dragQueryFile", "([B)[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, dragQueryFile, $StringArray*, $bytes*)},
+		{"dragQueryURIs", "(Ljava/io/InputStream;JLjava/awt/datatransfer/Transferable;)[Ljava/net/URI;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, dragQueryURIs, $URIArray*, $InputStream*, int64_t, $Transferable*), "java.io.IOException"},
+		{"getBestCharsetForTextFormat", "(Ljava/lang/Long;Ljava/awt/datatransfer/Transferable;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, getBestCharsetForTextFormat, $String*, $Long*, $Transferable*), "java.io.IOException"},
+		{"getCharsetForTextFormat", "(Ljava/lang/Long;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, getCharsetForTextFormat, $String*, $Long*)},
+		{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, getDefaultUnicodeEncoding, $String*)},
+		{"getFlavorsForFormats", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Map;", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(DataTransferer, getFlavorsForFormats, $Map*, $longs*, $FlavorTable*)},
+		{"getFlavorsForFormatsAsArray", "([JLjava/awt/datatransfer/FlavorTable;)[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(DataTransferer, getFlavorsForFormatsAsArray, $DataFlavorArray*, $longs*, $FlavorTable*)},
+		{"getFlavorsForFormatsAsSet", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Set;", "([JLjava/awt/datatransfer/FlavorTable;)Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getFlavorsForFormatsAsSet, $Set*, $longs*, $FlavorTable*)},
+		{"getFormatForNativeAsLong", "(Ljava/lang/String;)Ljava/lang/Long;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, getFormatForNativeAsLong, $Long*, $String*)},
+		{"getFormatsForFlavors", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap;", "([Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getFormatsForFlavors, $SortedMap*, $DataFlavorArray*, $FlavorTable*)},
+		{"getFormatsForTransferable", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap;", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/FlavorTable;)Ljava/util/SortedMap<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getFormatsForTransferable, $SortedMap*, $Transferable*, $FlavorTable*)},
+		{"getFormatsForTransferableAsArray", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/FlavorTable;)[J", nullptr, $PUBLIC, $virtualMethod(DataTransferer, getFormatsForTransferableAsArray, $longs*, $Transferable*, $FlavorTable*)},
+		{"getInstance", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(DataTransferer, getInstance, DataTransferer*)},
+		{"getNativeForFormat", "(J)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, getNativeForFormat, $String*, int64_t)},
+		{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DataTransferer, getPlatformMappingsForFlavor, $LinkedHashSet*, $DataFlavor*)},
+		{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC, $virtualMethod(DataTransferer, getPlatformMappingsForNative, $LinkedHashSet*, $String*)},
+		{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
+		{"getUserProtectionDomain", "(Ljava/awt/datatransfer/Transferable;)Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataTransferer, getUserProtectionDomain, $ProtectionDomain*, $Transferable*)},
+		{"imageToPlatformBytes", "(Ljava/awt/Image;J)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, imageToPlatformBytes, $bytes*, $Image*, int64_t), "java.io.IOException"},
+		{"imageToStandardBytes", "(Ljava/awt/Image;Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(DataTransferer, imageToStandardBytes, $bytes*, $Image*, $String*), "java.io.IOException"},
+		{"imageToStandardBytesImpl", "(Ljava/awt/image/RenderedImage;Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(DataTransferer, imageToStandardBytesImpl, $bytes*, $RenderedImage*, $String*), "java.io.IOException"},
+		{"inputStreamToByteArray", "(Ljava/io/InputStream;)[B", nullptr, $PROTECTED | $STATIC, $staticMethod(DataTransferer, inputStreamToByteArray, $bytes*, $InputStream*), "java.io.IOException"},
+		{"isFileFormat", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, isFileFormat, bool, int64_t)},
+		{"isFileInWebstartedCache", "(Ljava/io/File;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DataTransferer, isFileInWebstartedCache, bool, $File*)},
+		{"isForbiddenToRead", "(Ljava/io/File;Ljava/security/ProtectionDomain;)Z", nullptr, $PRIVATE, $method(DataTransferer, isForbiddenToRead, bool, $File*, $ProtectionDomain*)},
+		{"isImageFormat", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, isImageFormat, bool, int64_t)},
+		{"isLocaleDependentTextFormat", "(J)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataTransferer, isLocaleDependentTextFormat, bool, int64_t)},
+		{"isTextFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(DataTransferer, isTextFormat, bool, int64_t)},
+		{"isURIListFormat", "(J)Z", nullptr, $PROTECTED, $virtualMethod(DataTransferer, isURIListFormat, bool, int64_t)},
+		{"keysToLongArray", "(Ljava/util/SortedMap;)[J", "(Ljava/util/SortedMap<Ljava/lang/Long;*>;)[J", $PUBLIC | $STATIC, $staticMethod(DataTransferer, keysToLongArray, $longs*, $SortedMap*)},
+		{"lambda$castToFiles$1", "(Ljava/util/List;Ljava/security/ProtectionDomain;)Ljava/util/ArrayList;", nullptr, $PRIVATE | $SYNTHETIC, $method(DataTransferer, lambda$castToFiles$1, $ArrayList*, $List*, $ProtectionDomain*), "java.lang.Exception"},
+		{"lambda$constructFlavoredObject$2", "(Ljava/lang/reflect/Constructor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DataTransferer, lambda$constructFlavoredObject$2, bool, $Constructor*)},
+		{"lambda$constructFlavoredObject$3", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DataTransferer, lambda$constructFlavoredObject$3, bool, $Class*, $Constructor*)},
+		{"lambda$constructFlavoredObject$4", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DataTransferer, lambda$constructFlavoredObject$4, $IOException*, $Class*, $Class*)},
+		{"lambda$removeSuspectedData$0", "(Ljava/lang/String;Ljava/security/ProtectionDomain;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(DataTransferer, lambda$removeSuspectedData$0, $String*, $String*, $ProtectionDomain*), "java.lang.Exception"},
+		{"platformImageBytesToImage", "([BJ)Ljava/awt/Image;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DataTransferer, platformImageBytesToImage, $Image*, $bytes*, int64_t), "java.io.IOException"},
+		{"processDataConversionRequests", "()V", nullptr, $PUBLIC, $virtualMethod(DataTransferer, processDataConversionRequests, void)},
+		{"registerTextFlavorProperties", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DataTransferer, registerTextFlavorProperties, void, $String*, $String*, $String*, $String*)},
+		{"removeSuspectedData", "(Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/Transferable;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DataTransferer, removeSuspectedData, $String*, $DataFlavor*, $Transferable*, $String*), "java.io.IOException"},
+		{"setToSortedDataFlavorArray", "(Ljava/util/Set;)[Ljava/awt/datatransfer/DataFlavor;", "(Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;)[Ljava/awt/datatransfer/DataFlavor;", $PUBLIC | $STATIC, $staticMethod(DataTransferer, setToSortedDataFlavorArray, $DataFlavorArray*, $Set*)},
+		{"standardImageBytesToImage", "([BLjava/lang/String;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(DataTransferer, standardImageBytesToImage, $Image*, $bytes*, $String*), "java.io.IOException"},
+		{"translateBytes", "([BLjava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer, translateBytes, $Object*, $bytes*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
+		{"translateBytesToString", "([BJLjava/awt/datatransfer/Transferable;)Ljava/lang/String;", nullptr, $PRIVATE, $method(DataTransferer, translateBytesToString, $String*, $bytes*, int64_t, $Transferable*), "java.io.IOException"},
+		{"translateStream", "(Ljava/io/InputStream;Ljava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataTransferer, translateStream, $Object*, $InputStream*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
+		{"translateStreamToInputStream", "(Ljava/io/InputStream;Ljava/awt/datatransfer/DataFlavor;JLjava/awt/datatransfer/Transferable;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(DataTransferer, translateStreamToInputStream, $Object*, $InputStream*, $DataFlavor*, int64_t, $Transferable*), "java.io.IOException"},
+		{"translateTransferable", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/DataFlavor;J)[B", nullptr, $PUBLIC, $virtualMethod(DataTransferer, translateTransferable, $bytes*, $Transferable*, $DataFlavor*, int64_t), "java.io.IOException"},
+		{"translateTransferableString", "(Ljava/lang/String;J)[B", nullptr, $PRIVATE, $method(DataTransferer, translateTransferableString, $bytes*, $String*, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.datatransfer.DataTransferer$ReencodingInputStream", "sun.awt.datatransfer.DataTransferer", "ReencodingInputStream", $PUBLIC},
+		{"sun.awt.datatransfer.DataTransferer$2", nullptr, nullptr, 0},
+		{"sun.awt.datatransfer.DataTransferer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.datatransfer.DataTransferer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.datatransfer.DataTransferer$ReencodingInputStream,sun.awt.datatransfer.DataTransferer$2,sun.awt.datatransfer.DataTransferer$1"
+	};
+	$loadClass(DataTransferer, name, initialize, &classInfo$$, DataTransferer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DataTransferer);
+	});
 	return class$;
 }
 

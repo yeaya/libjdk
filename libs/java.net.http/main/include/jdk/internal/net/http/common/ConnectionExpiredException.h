@@ -25,7 +25,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	ConnectionExpiredException(const ConnectionExpiredException& e);
 	virtual void throw$() override;
-	inline ConnectionExpiredException* operator ->() {
+	inline ConnectionExpiredException* operator ->() const {
+		return (ConnectionExpiredException*)throwing$;
+	}
+	inline operator ConnectionExpiredException*() const {
 		return (ConnectionExpiredException*)throwing$;
 	}
 };

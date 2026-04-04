@@ -1,5 +1,4 @@
 #include <sun/awt/AppContext$GetAppContextLock.h>
-
 #include <sun/awt/AppContext.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AppContext$GetAppContextLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AppContext$GetAppContextLock, init$, void)},
-	{}
-};
-
-$InnerClassInfo _AppContext$GetAppContextLock_InnerClassesInfo_[] = {
-	{"sun.awt.AppContext$GetAppContextLock", "sun.awt.AppContext", "GetAppContextLock", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AppContext$GetAppContextLock_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.AppContext$GetAppContextLock",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AppContext$GetAppContextLock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AppContext$GetAppContextLock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AppContext"
-};
-
-$Object* allocate$AppContext$GetAppContextLock($Class* clazz) {
-	return $of($alloc(AppContext$GetAppContextLock));
-}
-
 void AppContext$GetAppContextLock::init$() {
 }
 
@@ -47,7 +16,32 @@ AppContext$GetAppContextLock::AppContext$GetAppContextLock() {
 }
 
 $Class* AppContext$GetAppContextLock::load$($String* name, bool initialize) {
-	$loadClass(AppContext$GetAppContextLock, name, initialize, &_AppContext$GetAppContextLock_ClassInfo_, allocate$AppContext$GetAppContextLock);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AppContext$GetAppContextLock, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AppContext$GetAppContextLock", "sun.awt.AppContext", "GetAppContextLock", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.AppContext$GetAppContextLock",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AppContext"
+	};
+	$loadClass(AppContext$GetAppContextLock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppContext$GetAppContextLock);
+	});
 	return class$;
 }
 

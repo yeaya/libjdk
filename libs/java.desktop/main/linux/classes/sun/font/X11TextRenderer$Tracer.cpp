@@ -1,5 +1,4 @@
 #include <sun/font/X11TextRenderer$Tracer.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/font/X11TextRenderer.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
@@ -17,37 +16,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace font {
 
-$MethodInfo _X11TextRenderer$Tracer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11TextRenderer$Tracer, init$, void)},
-	{"doDrawGlyphList", "(JJLsun/java2d/pipe/Region;Lsun/font/GlyphList;)V", nullptr, 0, $virtualMethod(X11TextRenderer$Tracer, doDrawGlyphList, void, int64_t, int64_t, $Region*, $GlyphList*)},
-	{}
-};
-
-$InnerClassInfo _X11TextRenderer$Tracer_InnerClassesInfo_[] = {
-	{"sun.font.X11TextRenderer$Tracer", "sun.font.X11TextRenderer", "Tracer", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _X11TextRenderer$Tracer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.X11TextRenderer$Tracer",
-	"sun.font.X11TextRenderer",
-	nullptr,
-	nullptr,
-	_X11TextRenderer$Tracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11TextRenderer$Tracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.X11TextRenderer"
-};
-
-$Object* allocate$X11TextRenderer$Tracer($Class* clazz) {
-	return $of($alloc(X11TextRenderer$Tracer));
-}
-
 void X11TextRenderer$Tracer::init$() {
 	$X11TextRenderer::init$();
 }
@@ -61,7 +29,33 @@ X11TextRenderer$Tracer::X11TextRenderer$Tracer() {
 }
 
 $Class* X11TextRenderer$Tracer::load$($String* name, bool initialize) {
-	$loadClass(X11TextRenderer$Tracer, name, initialize, &_X11TextRenderer$Tracer_ClassInfo_, allocate$X11TextRenderer$Tracer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11TextRenderer$Tracer, init$, void)},
+		{"doDrawGlyphList", "(JJLsun/java2d/pipe/Region;Lsun/font/GlyphList;)V", nullptr, 0, $virtualMethod(X11TextRenderer$Tracer, doDrawGlyphList, void, int64_t, int64_t, $Region*, $GlyphList*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11TextRenderer$Tracer", "sun.font.X11TextRenderer", "Tracer", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.X11TextRenderer$Tracer",
+		"sun.font.X11TextRenderer",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.X11TextRenderer"
+	};
+	$loadClass(X11TextRenderer$Tracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11TextRenderer$Tracer);
+	});
 	return class$;
 }
 

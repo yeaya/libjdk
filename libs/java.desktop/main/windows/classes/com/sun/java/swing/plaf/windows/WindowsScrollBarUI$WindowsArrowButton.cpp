@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsScrollBarUI$WindowsArrowButton.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsScrollBarUI.h>
@@ -51,7 +50,6 @@ using $WindowsScrollBarUI = ::com::sun::java::swing::plaf::windows::WindowsScrol
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,7 +58,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ButtonModel = ::javax::swing::ButtonModel;
-using $JButton = ::javax::swing::JButton;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
@@ -71,44 +68,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsScrollBarUI$WindowsArrowButton_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsScrollBarUI$WindowsArrowButton, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsScrollBarUI$WindowsArrowButton_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsScrollBarUI$WindowsArrowButton, init$, void, $WindowsScrollBarUI*, int32_t, $Color*, $Color*, $Color*, $Color*)},
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;I)V", nullptr, $PUBLIC, $method(WindowsScrollBarUI$WindowsArrowButton, init$, void, $WindowsScrollBarUI*, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI$WindowsArrowButton, getPreferredSize, $Dimension*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI$WindowsArrowButton, paint, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _WindowsScrollBarUI$WindowsArrowButton_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "WindowsArrowButton", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsScrollBarUI$WindowsArrowButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton",
-	"javax.swing.plaf.basic.BasicArrowButton",
-	nullptr,
-	_WindowsScrollBarUI$WindowsArrowButton_FieldInfo_,
-	_WindowsScrollBarUI$WindowsArrowButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsScrollBarUI$WindowsArrowButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsScrollBarUI"
-};
-
-$Object* allocate$WindowsScrollBarUI$WindowsArrowButton($Class* clazz) {
-	return $of($alloc(WindowsScrollBarUI$WindowsArrowButton));
-}
 
 void WindowsScrollBarUI$WindowsArrowButton::init$($WindowsScrollBarUI* this$0, int32_t direction, $Color* background, $Color* shadow, $Color* darkShadow, $Color* highlight) {
 	$set(this, this$0, this$0);
@@ -121,7 +80,7 @@ void WindowsScrollBarUI$WindowsArrowButton::init$($WindowsScrollBarUI* this$0, i
 }
 
 void WindowsScrollBarUI$WindowsArrowButton::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$var($ButtonModel, model, getModel());
@@ -133,179 +92,134 @@ void WindowsScrollBarUI$WindowsArrowButton::paint($Graphics* g) {
 			bool var$2 = this->this$0->isThumbRollover();
 			if (!var$2) {
 				bool var$3 = $equals(this, $WindowsScrollBarUI::access$100(this->this$0));
-				var$2 = (var$3 && $nc($($nc($($WindowsScrollBarUI::access$200(this->this$0)))->getModel()))->isRollover());
+				var$2 = var$3 && $$nc($$nc($WindowsScrollBarUI::access$200(this->this$0))->getModel())->isRollover();
 			}
 			bool var$1 = var$2;
 			if (!var$1) {
 				bool var$4 = $equals(this, $WindowsScrollBarUI::access$300(this->this$0));
-				var$1 = (var$4 && $nc($($nc($($WindowsScrollBarUI::access$400(this->this$0)))->getModel()))->isRollover());
+				var$1 = var$4 && $$nc($$nc($WindowsScrollBarUI::access$400(this->this$0))->getModel())->isRollover();
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		bool jointRollover = var$0;
 		bool var$5 = $nc(model)->isArmed();
 		if (var$5 && model->isPressed()) {
 			switch (this->direction) {
 			case $SwingConstants::NORTH:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::UPPRESSED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::UPPRESSED;
+				break;
 			case $SwingConstants::SOUTH:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::DOWNPRESSED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::DOWNPRESSED;
+				break;
 			case $SwingConstants::WEST:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::LEFTPRESSED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::LEFTPRESSED;
+				break;
 			case $SwingConstants::EAST:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::RIGHTPRESSED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::RIGHTPRESSED;
+				break;
 			}
 		} else if (!model->isEnabled()) {
 			switch (this->direction) {
 			case $SwingConstants::NORTH:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::UPDISABLED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::UPDISABLED;
+				break;
 			case $SwingConstants::SOUTH:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::DOWNDISABLED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::DOWNDISABLED;
+				break;
 			case $SwingConstants::WEST:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::LEFTDISABLED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::LEFTDISABLED;
+				break;
 			case $SwingConstants::EAST:
-				{
-					$init($TMSchema$State);
-					state = $TMSchema$State::RIGHTDISABLED;
-					break;
-				}
+				$init($TMSchema$State);
+				state = $TMSchema$State::RIGHTDISABLED;
+				break;
 			}
 		} else {
-			bool var$7 = model->isRollover();
-			if (var$7 || model->isPressed()) {
+			bool var$6 = model->isRollover();
+			if (var$6 || model->isPressed()) {
 				switch (this->direction) {
 				case $SwingConstants::NORTH:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::UPHOT;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::UPHOT;
+					break;
 				case $SwingConstants::SOUTH:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::DOWNHOT;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::DOWNHOT;
+					break;
 				case $SwingConstants::WEST:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::LEFTHOT;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::LEFTHOT;
+					break;
 				case $SwingConstants::EAST:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::RIGHTHOT;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::RIGHTHOT;
+					break;
 				}
 			} else if (jointRollover) {
 				switch (this->direction) {
 				case $SwingConstants::NORTH:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::UPHOVER;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::UPHOVER;
+					break;
 				case $SwingConstants::SOUTH:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::DOWNHOVER;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::DOWNHOVER;
+					break;
 				case $SwingConstants::WEST:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::LEFTHOVER;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::LEFTHOVER;
+					break;
 				case $SwingConstants::EAST:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::RIGHTHOVER;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::RIGHTHOVER;
+					break;
 				}
 			} else {
 				switch (this->direction) {
 				case $SwingConstants::NORTH:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::UPNORMAL;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::UPNORMAL;
+					break;
 				case $SwingConstants::SOUTH:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::DOWNNORMAL;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::DOWNNORMAL;
+					break;
 				case $SwingConstants::WEST:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::LEFTNORMAL;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::LEFTNORMAL;
+					break;
 				case $SwingConstants::EAST:
-					{
-						$init($TMSchema$State);
-						state = $TMSchema$State::RIGHTNORMAL;
-						break;
-					}
+					$init($TMSchema$State);
+					state = $TMSchema$State::RIGHTNORMAL;
+					break;
 				}
 			}
 		}
-		$var($Graphics, var$8, g);
-		int32_t var$9 = getWidth();
-		$nc(skin)->paintSkin(var$8, 0, 0, var$9, getHeight(), state);
+		int32_t var$7 = getWidth();
+		$nc(skin)->paintSkin(g, 0, 0, var$7, getHeight(), state);
 	} else {
 		$BasicArrowButton::paint(g);
 	}
 }
 
 $Dimension* WindowsScrollBarUI$WindowsArrowButton::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 16;
 	if ($WindowsScrollBarUI::access$500(this->this$0) != nullptr) {
-		switch ($nc($($WindowsScrollBarUI::access$600(this->this$0)))->getOrientation()) {
+		switch ($$nc($WindowsScrollBarUI::access$600(this->this$0))->getOrientation()) {
 		case $JScrollBar::VERTICAL:
-			{
-				size = $nc($($WindowsScrollBarUI::access$700(this->this$0)))->getWidth();
-				break;
-			}
+			size = $$nc($WindowsScrollBarUI::access$700(this->this$0))->getWidth();
+			break;
 		case $JScrollBar::HORIZONTAL:
-			{
-				size = $nc($($WindowsScrollBarUI::access$800(this->this$0)))->getHeight();
-				break;
-			}
+			size = $$nc($WindowsScrollBarUI::access$800(this->this$0))->getHeight();
+			break;
 		}
 		size = $Math::max(size, 5);
 	}
@@ -316,7 +230,39 @@ WindowsScrollBarUI$WindowsArrowButton::WindowsScrollBarUI$WindowsArrowButton() {
 }
 
 $Class* WindowsScrollBarUI$WindowsArrowButton::load$($String* name, bool initialize) {
-	$loadClass(WindowsScrollBarUI$WindowsArrowButton, name, initialize, &_WindowsScrollBarUI$WindowsArrowButton_ClassInfo_, allocate$WindowsScrollBarUI$WindowsArrowButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsScrollBarUI$WindowsArrowButton, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsScrollBarUI$WindowsArrowButton, init$, void, $WindowsScrollBarUI*, int32_t, $Color*, $Color*, $Color*, $Color*)},
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI;I)V", nullptr, $PUBLIC, $method(WindowsScrollBarUI$WindowsArrowButton, init$, void, $WindowsScrollBarUI*, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI$WindowsArrowButton, getPreferredSize, $Dimension*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI$WindowsArrowButton, paint, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "WindowsArrowButton", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$WindowsArrowButton",
+		"javax.swing.plaf.basic.BasicArrowButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsScrollBarUI"
+	};
+	$loadClass(WindowsScrollBarUI$WindowsArrowButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsScrollBarUI$WindowsArrowButton));
+	});
 	return class$;
 }
 

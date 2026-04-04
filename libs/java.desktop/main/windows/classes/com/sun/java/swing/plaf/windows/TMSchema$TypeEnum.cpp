@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/TMSchema$TypeEnum.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema.h>
 #include <java/lang/Enum.h>
@@ -27,55 +26,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _TMSchema$TypeEnum_FieldInfo_[] = {
-	{"BT_IMAGEFILE", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, BT_IMAGEFILE)},
-	{"BT_BORDERFILL", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, BT_BORDERFILL)},
-	{"TST_NONE", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, TST_NONE)},
-	{"TST_SINGLE", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, TST_SINGLE)},
-	{"TST_CONTINUOUS", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, TST_CONTINUOUS)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$TypeEnum, $VALUES)},
-	{"prop", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PRIVATE | $FINAL, $field(TMSchema$TypeEnum, prop)},
-	{"enumName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TMSchema$TypeEnum, enumName)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(TMSchema$TypeEnum, value)},
-	{}
-};
-
-$MethodInfo _TMSchema$TypeEnum_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$TypeEnum, $values, $TMSchema$TypeEnumArray*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/lang/String;I)V", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/lang/String;I)V", $PRIVATE, $method(TMSchema$TypeEnum, init$, void, $String*, int32_t, $TMSchema$Prop*, $String*, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $method(TMSchema$TypeEnum, getName, $String*)},
-	{"getTypeEnum", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;I)Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $STATIC, $staticMethod(TMSchema$TypeEnum, getTypeEnum, TMSchema$TypeEnum*, $TMSchema$Prop*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TMSchema$TypeEnum, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$TypeEnum, valueOf, TMSchema$TypeEnum*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$TypeEnum, values, $TMSchema$TypeEnumArray*)},
-	{}
-};
-
-$InnerClassInfo _TMSchema$TypeEnum_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.TMSchema$TypeEnum", "com.sun.java.swing.plaf.windows.TMSchema", "TypeEnum", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TMSchema$TypeEnum_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.windows.TMSchema$TypeEnum",
-	"java.lang.Enum",
-	nullptr,
-	_TMSchema$TypeEnum_FieldInfo_,
-	_TMSchema$TypeEnum_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;>;",
-	nullptr,
-	_TMSchema$TypeEnum_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.TMSchema"
-};
-
-$Object* allocate$TMSchema$TypeEnum($Class* clazz) {
-	return $of($alloc(TMSchema$TypeEnum));
-}
 
 TMSchema$TypeEnum* TMSchema$TypeEnum::BT_IMAGEFILE = nullptr;
 TMSchema$TypeEnum* TMSchema$TypeEnum::BT_BORDERFILL = nullptr;
@@ -122,23 +72,17 @@ $String* TMSchema$TypeEnum::getName() {
 
 TMSchema$TypeEnum* TMSchema$TypeEnum::getTypeEnum($TMSchema$Prop* prop, int32_t enumval) {
 	$init(TMSchema$TypeEnum);
-	{
-		$var($TMSchema$TypeEnumArray, arr$, TMSchema$TypeEnum::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			TMSchema$TypeEnum* e = arr$->get(i$);
-			{
-				if ($nc(e)->prop == prop && e->value == enumval) {
-					return e;
-				}
-			}
+	$var($TMSchema$TypeEnumArray, arr$, TMSchema$TypeEnum::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		TMSchema$TypeEnum* e = arr$->get(i$);
+		if ($nc(e)->prop == prop && e->value == enumval) {
+			return e;
 		}
 	}
 	return nullptr;
 }
 
-void clinit$TMSchema$TypeEnum($Class* class$) {
+void TMSchema$TypeEnum::clinit$($Class* clazz) {
 	$init($TMSchema$Prop);
 	$assignStatic(TMSchema$TypeEnum::BT_IMAGEFILE, $new(TMSchema$TypeEnum, "BT_IMAGEFILE"_s, 0, $TMSchema$Prop::BGTYPE, "imagefile"_s, 0));
 	$assignStatic(TMSchema$TypeEnum::BT_BORDERFILL, $new(TMSchema$TypeEnum, "BT_BORDERFILL"_s, 1, $TMSchema$Prop::BGTYPE, "borderfill"_s, 1));
@@ -152,7 +96,50 @@ TMSchema$TypeEnum::TMSchema$TypeEnum() {
 }
 
 $Class* TMSchema$TypeEnum::load$($String* name, bool initialize) {
-	$loadClass(TMSchema$TypeEnum, name, initialize, &_TMSchema$TypeEnum_ClassInfo_, clinit$TMSchema$TypeEnum, allocate$TMSchema$TypeEnum);
+	$FieldInfo fieldInfos$$[] = {
+		{"BT_IMAGEFILE", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, BT_IMAGEFILE)},
+		{"BT_BORDERFILL", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, BT_BORDERFILL)},
+		{"TST_NONE", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, TST_NONE)},
+		{"TST_SINGLE", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, TST_SINGLE)},
+		{"TST_CONTINUOUS", "Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$TypeEnum, TST_CONTINUOUS)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$TypeEnum, $VALUES)},
+		{"prop", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PRIVATE | $FINAL, $field(TMSchema$TypeEnum, prop)},
+		{"enumName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TMSchema$TypeEnum, enumName)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(TMSchema$TypeEnum, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$TypeEnum, $values, $TMSchema$TypeEnumArray*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/lang/String;I)V", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;Ljava/lang/String;I)V", $PRIVATE, $method(TMSchema$TypeEnum, init$, void, $String*, int32_t, $TMSchema$Prop*, $String*, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $method(TMSchema$TypeEnum, getName, $String*)},
+		{"getTypeEnum", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;I)Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $STATIC, $staticMethod(TMSchema$TypeEnum, getTypeEnum, TMSchema$TypeEnum*, $TMSchema$Prop*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TMSchema$TypeEnum, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$TypeEnum, valueOf, TMSchema$TypeEnum*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$TypeEnum, values, $TMSchema$TypeEnumArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.TMSchema$TypeEnum", "com.sun.java.swing.plaf.windows.TMSchema", "TypeEnum", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.windows.TMSchema$TypeEnum",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$TypeEnum;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.TMSchema"
+	};
+	$loadClass(TMSchema$TypeEnum, name, initialize, &classInfo$$, TMSchema$TypeEnum::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TMSchema$TypeEnum));
+	});
 	return class$;
 }
 

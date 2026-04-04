@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFonts.h>
-
 #include <com/apple/laf/AquaFonts$1.h>
 #include <com/apple/laf/AquaFonts$2.h>
 #include <com/apple/laf/AquaFonts$3.h>
@@ -33,63 +32,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaFonts_FieldInfo_[] = {
-	{"MAC_DEFAULT_FONT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, MAC_DEFAULT_FONT_NAME)},
-	{"lucida9Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida9Pt)},
-	{"lucida11Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida11Pt)},
-	{"lucida12Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida12Pt)},
-	{"lucida13Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida13Pt)},
-	{"lucida14Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida14Pt)},
-	{"lucida13PtBold", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida13PtBold)},
-	{"lucida14PtBold", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida14PtBold)},
-	{}
-};
-
-$MethodInfo _AquaFonts_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFonts, init$, void)},
-	{"getAlertHeaderFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getAlertHeaderFont, $FontUIResource*)},
-	{"getAlertMessageFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getAlertMessageFont, $FontUIResource*)},
-	{"getControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getControlTextFont, $FontUIResource*)},
-	{"getControlTextSmallFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getControlTextSmallFont, $FontUIResource*)},
-	{"getDockIconFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getDockIconFont, $Font*)},
-	{"getMenuFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getMenuFont, $FontUIResource*)},
-	{"getMiniControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFonts, getMiniControlTextFont, $FontUIResource*)},
-	{"getSmallControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFonts, getSmallControlTextFont, $FontUIResource*)},
-	{"getViewFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getViewFont, $FontUIResource*)},
-	{}
-};
-
-$InnerClassInfo _AquaFonts_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFonts$DerivedUIResourceFont", "com.apple.laf.AquaFonts", "DerivedUIResourceFont", $STATIC},
-	{"com.apple.laf.AquaFonts$7", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFonts$6", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFonts$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFonts$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFonts$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFonts$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFonts$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFonts_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFonts",
-	"java.lang.Object",
-	nullptr,
-	_AquaFonts_FieldInfo_,
-	_AquaFonts_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFonts_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFonts$DerivedUIResourceFont,com.apple.laf.AquaFonts$7,com.apple.laf.AquaFonts$6,com.apple.laf.AquaFonts$5,com.apple.laf.AquaFonts$4,com.apple.laf.AquaFonts$3,com.apple.laf.AquaFonts$2,com.apple.laf.AquaFonts$1"
-};
-
-$Object* allocate$AquaFonts($Class* clazz) {
-	return $of($alloc(AquaFonts));
-}
-
 $String* AquaFonts::MAC_DEFAULT_FONT_NAME = nullptr;
 $AquaUtils$RecyclableSingleton* AquaFonts::lucida9Pt = nullptr;
 $AquaUtils$RecyclableSingleton* AquaFonts::lucida11Pt = nullptr;
@@ -104,50 +46,50 @@ void AquaFonts::init$() {
 
 $FontUIResource* AquaFonts::getMiniControlTextFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida9Pt)->get());
+	return $cast($FontUIResource, AquaFonts::lucida9Pt->get());
 }
 
 $FontUIResource* AquaFonts::getSmallControlTextFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida11Pt)->get());
+	return $cast($FontUIResource, AquaFonts::lucida11Pt->get());
 }
 
 $FontUIResource* AquaFonts::getControlTextFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida13Pt)->get());
+	return $cast($FontUIResource, AquaFonts::lucida13Pt->get());
 }
 
 $FontUIResource* AquaFonts::getControlTextSmallFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida11Pt)->get());
+	return $cast($FontUIResource, AquaFonts::lucida11Pt->get());
 }
 
 $FontUIResource* AquaFonts::getMenuFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida14Pt)->get());
+	return $cast($FontUIResource, AquaFonts::lucida14Pt->get());
 }
 
 $Font* AquaFonts::getDockIconFont() {
 	$init(AquaFonts);
-	return $cast($Font, $nc(AquaFonts::lucida14PtBold)->get());
+	return $cast($Font, AquaFonts::lucida14PtBold->get());
 }
 
 $FontUIResource* AquaFonts::getAlertHeaderFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida13PtBold)->get());
+	return $cast($FontUIResource, AquaFonts::lucida13PtBold->get());
 }
 
 $FontUIResource* AquaFonts::getAlertMessageFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida11Pt)->get());
+	return $cast($FontUIResource, AquaFonts::lucida11Pt->get());
 }
 
 $FontUIResource* AquaFonts::getViewFont() {
 	$init(AquaFonts);
-	return $cast($FontUIResource, $nc(AquaFonts::lucida12Pt)->get());
+	return $cast($FontUIResource, AquaFonts::lucida12Pt->get());
 }
 
-void clinit$AquaFonts($Class* class$) {
+void AquaFonts::clinit$($Class* clazz) {
 	$assignStatic(AquaFonts::MAC_DEFAULT_FONT_NAME, "Lucida Grande"_s);
 	$assignStatic(AquaFonts::lucida9Pt, $new($AquaFonts$1));
 	$assignStatic(AquaFonts::lucida11Pt, $new($AquaFonts$2));
@@ -162,7 +104,58 @@ AquaFonts::AquaFonts() {
 }
 
 $Class* AquaFonts::load$($String* name, bool initialize) {
-	$loadClass(AquaFonts, name, initialize, &_AquaFonts_ClassInfo_, clinit$AquaFonts, allocate$AquaFonts);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAC_DEFAULT_FONT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, MAC_DEFAULT_FONT_NAME)},
+		{"lucida9Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida9Pt)},
+		{"lucida11Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida11Pt)},
+		{"lucida12Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida12Pt)},
+		{"lucida13Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida13Pt)},
+		{"lucida14Pt", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida14Pt)},
+		{"lucida13PtBold", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida13PtBold)},
+		{"lucida14PtBold", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/plaf/FontUIResource;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFonts, lucida14PtBold)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaFonts, init$, void)},
+		{"getAlertHeaderFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getAlertHeaderFont, $FontUIResource*)},
+		{"getAlertMessageFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getAlertMessageFont, $FontUIResource*)},
+		{"getControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getControlTextFont, $FontUIResource*)},
+		{"getControlTextSmallFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getControlTextSmallFont, $FontUIResource*)},
+		{"getDockIconFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getDockIconFont, $Font*)},
+		{"getMenuFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getMenuFont, $FontUIResource*)},
+		{"getMiniControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFonts, getMiniControlTextFont, $FontUIResource*)},
+		{"getSmallControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFonts, getSmallControlTextFont, $FontUIResource*)},
+		{"getViewFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFonts, getViewFont, $FontUIResource*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFonts$DerivedUIResourceFont", "com.apple.laf.AquaFonts", "DerivedUIResourceFont", $STATIC},
+		{"com.apple.laf.AquaFonts$7", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFonts$6", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFonts$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFonts$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFonts$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFonts$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFonts$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFonts",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFonts$DerivedUIResourceFont,com.apple.laf.AquaFonts$7,com.apple.laf.AquaFonts$6,com.apple.laf.AquaFonts$5,com.apple.laf.AquaFonts$4,com.apple.laf.AquaFonts$3,com.apple.laf.AquaFonts$2,com.apple.laf.AquaFonts$1"
+	};
+	$loadClass(AquaFonts, name, initialize, &classInfo$$, AquaFonts::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFonts);
+	});
 	return class$;
 }
 

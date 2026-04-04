@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
-
 #include <com/sun/media/sound/MidiUtils.h>
 #include <java/util/ArrayList.h>
 #include <javax/sound/midi/MidiEvent.h>
@@ -26,58 +25,13 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _MidiUtils$TempoCache_FieldInfo_[] = {
-	{"ticks", "[J", nullptr, 0, $field(MidiUtils$TempoCache, ticks)},
-	{"tempos", "[I", nullptr, 0, $field(MidiUtils$TempoCache, tempos)},
-	{"snapshotIndex", "I", nullptr, 0, $field(MidiUtils$TempoCache, snapshotIndex)},
-	{"snapshotMicro", "I", nullptr, 0, $field(MidiUtils$TempoCache, snapshotMicro)},
-	{"currTempo", "I", nullptr, 0, $field(MidiUtils$TempoCache, currTempo)},
-	{"firstTempoIsFake", "Z", nullptr, $PRIVATE, $field(MidiUtils$TempoCache, firstTempoIsFake)},
-	{}
-};
-
-$MethodInfo _MidiUtils$TempoCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MidiUtils$TempoCache, init$, void)},
-	{"<init>", "(Ljavax/sound/midi/Sequence;)V", nullptr, $PUBLIC, $method(MidiUtils$TempoCache, init$, void, $Sequence*)},
-	{"getCurrTempoMPQ", "()I", nullptr, $PUBLIC, $method(MidiUtils$TempoCache, getCurrTempoMPQ, int32_t)},
-	{"getTempoMPQAt", "(J)F", nullptr, 0, $method(MidiUtils$TempoCache, getTempoMPQAt, float, int64_t)},
-	{"getTempoMPQAt", "(JF)F", nullptr, $SYNCHRONIZED, $method(MidiUtils$TempoCache, getTempoMPQAt, float, int64_t, float)},
-	{"refresh", "(Ljavax/sound/midi/Sequence;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(MidiUtils$TempoCache, refresh, void, $Sequence*)},
-	{}
-};
-
-$InnerClassInfo _MidiUtils$TempoCache_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.MidiUtils$TempoCache", "com.sun.media.sound.MidiUtils", "TempoCache", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MidiUtils$TempoCache_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.MidiUtils$TempoCache",
-	"java.lang.Object",
-	nullptr,
-	_MidiUtils$TempoCache_FieldInfo_,
-	_MidiUtils$TempoCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MidiUtils$TempoCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.MidiUtils"
-};
-
-$Object* allocate$MidiUtils$TempoCache($Class* clazz) {
-	return $of($alloc(MidiUtils$TempoCache));
-}
-
 void MidiUtils$TempoCache::init$() {
 	this->snapshotIndex = 0;
 	this->snapshotMicro = 0;
 	this->firstTempoIsFake = false;
 	$set(this, ticks, $new($longs, 1));
 	$set(this, tempos, $new($ints, 1));
-	$nc(this->tempos)->set(0, 0x0007A120);
+	this->tempos->set(0, 500000);
 	this->snapshotIndex = 0;
 	this->snapshotMicro = 0;
 }
@@ -89,7 +43,7 @@ void MidiUtils$TempoCache::init$($Sequence* seq) {
 
 void MidiUtils$TempoCache::refresh($Sequence* seq) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ArrayList, list, $new($ArrayList));
 		$var($TrackArray, tracks, $nc(seq)->getTracks());
 		if ($nc(tracks)->length > 0) {
@@ -105,7 +59,7 @@ void MidiUtils$TempoCache::refresh($Sequence* seq) {
 		}
 		int32_t size = list->size() + 1;
 		this->firstTempoIsFake = true;
-		if ((size > 1) && ($nc(($cast($MidiEvent, $(list->get(0)))))->getTick() == 0)) {
+		if ((size > 1) && ($$sure($MidiEvent, list->get(0))->getTick() == 0)) {
 			--size;
 			this->firstTempoIsFake = false;
 		}
@@ -113,8 +67,8 @@ void MidiUtils$TempoCache::refresh($Sequence* seq) {
 		$set(this, tempos, $new($ints, size));
 		int32_t e = 0;
 		if (this->firstTempoIsFake) {
-			$nc(this->ticks)->set(0, 0);
-			$nc(this->tempos)->set(0, 0x0007A120);
+			this->ticks->set(0, 0);
+			this->tempos->set(0, 500000);
 			++e;
 		}
 		for (int32_t i = 0; i < list->size(); ++i, ++e) {
@@ -138,7 +92,7 @@ float MidiUtils$TempoCache::getTempoMPQAt(int64_t tick) {
 float MidiUtils$TempoCache::getTempoMPQAt(int64_t tick, float startTempoMPQ) {
 	$synchronized(this) {
 		for (int32_t i = 0; i < $nc(this->ticks)->length; ++i) {
-			if ($nc(this->ticks)->get(i) > tick) {
+			if (this->ticks->get(i) > tick) {
 				if (i > 0) {
 					--i;
 				}
@@ -156,7 +110,46 @@ MidiUtils$TempoCache::MidiUtils$TempoCache() {
 }
 
 $Class* MidiUtils$TempoCache::load$($String* name, bool initialize) {
-	$loadClass(MidiUtils$TempoCache, name, initialize, &_MidiUtils$TempoCache_ClassInfo_, allocate$MidiUtils$TempoCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"ticks", "[J", nullptr, 0, $field(MidiUtils$TempoCache, ticks)},
+		{"tempos", "[I", nullptr, 0, $field(MidiUtils$TempoCache, tempos)},
+		{"snapshotIndex", "I", nullptr, 0, $field(MidiUtils$TempoCache, snapshotIndex)},
+		{"snapshotMicro", "I", nullptr, 0, $field(MidiUtils$TempoCache, snapshotMicro)},
+		{"currTempo", "I", nullptr, 0, $field(MidiUtils$TempoCache, currTempo)},
+		{"firstTempoIsFake", "Z", nullptr, $PRIVATE, $field(MidiUtils$TempoCache, firstTempoIsFake)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MidiUtils$TempoCache, init$, void)},
+		{"<init>", "(Ljavax/sound/midi/Sequence;)V", nullptr, $PUBLIC, $method(MidiUtils$TempoCache, init$, void, $Sequence*)},
+		{"getCurrTempoMPQ", "()I", nullptr, $PUBLIC, $method(MidiUtils$TempoCache, getCurrTempoMPQ, int32_t)},
+		{"getTempoMPQAt", "(J)F", nullptr, 0, $method(MidiUtils$TempoCache, getTempoMPQAt, float, int64_t)},
+		{"getTempoMPQAt", "(JF)F", nullptr, $SYNCHRONIZED, $method(MidiUtils$TempoCache, getTempoMPQAt, float, int64_t, float)},
+		{"refresh", "(Ljavax/sound/midi/Sequence;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(MidiUtils$TempoCache, refresh, void, $Sequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.MidiUtils$TempoCache", "com.sun.media.sound.MidiUtils", "TempoCache", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.MidiUtils$TempoCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.MidiUtils"
+	};
+	$loadClass(MidiUtils$TempoCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiUtils$TempoCache);
+	});
 	return class$;
 }
 

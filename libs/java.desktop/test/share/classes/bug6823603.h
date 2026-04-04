@@ -12,6 +12,7 @@ class $export bug6823603 : public ::java::lang::Object {
 	$class(bug6823603, 0, ::java::lang::Object)
 public:
 	bug6823603();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertEquals($ObjectArray* expectedArray, $ObjectArray* actualArray);
 	static void main($StringArray* args);

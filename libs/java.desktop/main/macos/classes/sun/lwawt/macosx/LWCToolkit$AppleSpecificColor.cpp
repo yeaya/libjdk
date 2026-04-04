@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/LWCToolkit$AppleSpecificColor.h>
-
 #include <java/awt/Color.h>
 #include <sun/lwawt/macosx/LWCToolkit.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ using $LWCToolkit = ::sun::lwawt::macosx::LWCToolkit;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _LWCToolkit$AppleSpecificColor_FieldInfo_[] = {
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(LWCToolkit$AppleSpecificColor, index)},
-	{}
-};
-
-$MethodInfo _LWCToolkit$AppleSpecificColor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(LWCToolkit$AppleSpecificColor, init$, void, int32_t)},
-	{"getRGB", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$AppleSpecificColor, getRGB, int32_t)},
-	{}
-};
-
-$InnerClassInfo _LWCToolkit$AppleSpecificColor_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.LWCToolkit$AppleSpecificColor", "sun.lwawt.macosx.LWCToolkit", "AppleSpecificColor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LWCToolkit$AppleSpecificColor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.LWCToolkit$AppleSpecificColor",
-	"java.awt.Color",
-	nullptr,
-	_LWCToolkit$AppleSpecificColor_FieldInfo_,
-	_LWCToolkit$AppleSpecificColor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWCToolkit$AppleSpecificColor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.LWCToolkit"
-};
-
-$Object* allocate$LWCToolkit$AppleSpecificColor($Class* clazz) {
-	return $of($alloc(LWCToolkit$AppleSpecificColor));
-}
 
 void LWCToolkit$AppleSpecificColor::init$(int32_t index) {
 	$init($LWCToolkit);
@@ -66,7 +29,37 @@ LWCToolkit$AppleSpecificColor::LWCToolkit$AppleSpecificColor() {
 }
 
 $Class* LWCToolkit$AppleSpecificColor::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$AppleSpecificColor, name, initialize, &_LWCToolkit$AppleSpecificColor_ClassInfo_, allocate$LWCToolkit$AppleSpecificColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(LWCToolkit$AppleSpecificColor, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(LWCToolkit$AppleSpecificColor, init$, void, int32_t)},
+		{"getRGB", "()I", nullptr, $PUBLIC, $virtualMethod(LWCToolkit$AppleSpecificColor, getRGB, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.LWCToolkit$AppleSpecificColor", "sun.lwawt.macosx.LWCToolkit", "AppleSpecificColor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.LWCToolkit$AppleSpecificColor",
+		"java.awt.Color",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.LWCToolkit"
+	};
+	$loadClass(LWCToolkit$AppleSpecificColor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWCToolkit$AppleSpecificColor));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/FlowTube$TubeSubscriber.h>
-
 #include <jdk/internal/net/http/common/FlowTube.h>
 #include <jcpp.h>
 
@@ -13,38 +12,6 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$MethodInfo _FlowTube$TubeSubscriber_MethodInfo_[] = {
-	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$TubeSubscriber, dropSubscription, void)},
-	{"supportsRecycling", "()Z", nullptr, $PUBLIC, $virtualMethod(FlowTube$TubeSubscriber, supportsRecycling, bool)},
-	{}
-};
-
-$InnerClassInfo _FlowTube$TubeSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FlowTube$TubeSubscriber_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
-	nullptr,
-	"java.util.concurrent.Flow$Subscriber",
-	nullptr,
-	_FlowTube$TubeSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_FlowTube$TubeSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.FlowTube"
-};
-
-$Object* allocate$FlowTube$TubeSubscriber($Class* clazz) {
-	return $of($alloc(FlowTube$TubeSubscriber));
-}
-
 void FlowTube$TubeSubscriber::dropSubscription() {
 }
 
@@ -53,7 +20,34 @@ bool FlowTube$TubeSubscriber::supportsRecycling() {
 }
 
 $Class* FlowTube$TubeSubscriber::load$($String* name, bool initialize) {
-	$loadClass(FlowTube$TubeSubscriber, name, initialize, &_FlowTube$TubeSubscriber_ClassInfo_, allocate$FlowTube$TubeSubscriber);
+	$MethodInfo methodInfos$$[] = {
+		{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$TubeSubscriber, dropSubscription, void)},
+		{"supportsRecycling", "()Z", nullptr, $PUBLIC, $virtualMethod(FlowTube$TubeSubscriber, supportsRecycling, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
+		nullptr,
+		"java.util.concurrent.Flow$Subscriber",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.FlowTube"
+	};
+	$loadClass(FlowTube$TubeSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowTube$TubeSubscriber);
+	});
 	return class$;
 }
 

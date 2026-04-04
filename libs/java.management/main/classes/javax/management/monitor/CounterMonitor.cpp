@@ -1,5 +1,4 @@
 #include <javax/management/monitor/CounterMonitor.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Comparable.h>
@@ -50,11 +49,9 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $Short = ::java::lang::Short;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Supplier = ::java::util::function::Supplier;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $ObjectName = ::javax::management::ObjectName;
@@ -79,143 +76,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CounterMonitor$$Lambda$toString>());
-	}
 	$StringBuilder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CounterMonitor$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CounterMonitor$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo CounterMonitor$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(CounterMonitor$$Lambda$toString, init$, void, $StringBuilder*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CounterMonitor$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo CounterMonitor$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.management.monitor.CounterMonitor$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* CounterMonitor$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(CounterMonitor$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CounterMonitor$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(CounterMonitor$$Lambda$toString, init$, void, $StringBuilder*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CounterMonitor$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.management.monitor.CounterMonitor$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CounterMonitor$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CounterMonitor$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* CounterMonitor$$Lambda$toString::class$ = nullptr;
-
-$CompoundAttribute _CounterMonitor_MethodAnnotations_getDerivedGauge4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CounterMonitor_MethodAnnotations_getDerivedGaugeTimeStamp7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CounterMonitor_MethodAnnotations_getThreshold15[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CounterMonitor_MethodAnnotations_setThreshold25[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _CounterMonitor_FieldInfo_[] = {
-	{"modulus", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor, modulus)},
-	{"offset", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor, offset)},
-	{"notify", "Z", nullptr, $PRIVATE, $field(CounterMonitor, notify$)},
-	{"differenceMode", "Z", nullptr, $PRIVATE, $field(CounterMonitor, differenceMode)},
-	{"initThreshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor, initThreshold)},
-	{"types", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CounterMonitor, types)},
-	{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CounterMonitor, notifsInfo)},
-	{}
-};
-
-$MethodInfo _CounterMonitor_MethodInfo_[] = {
-	{"*addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
-	{"*getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CounterMonitor, init$, void)},
-	{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", $SYNCHRONIZED, $virtualMethod(CounterMonitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
-	{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(CounterMonitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
-	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDerivedGauge, $Object*, $ObjectName*)},
-	{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, getDerivedGauge, $Number*), nullptr, nullptr, _CounterMonitor_MethodAnnotations_getDerivedGauge4},
-	{"getDerivedGaugeFromComparable", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/Comparable<*>;", $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDerivedGaugeFromComparable, $Comparable*, $ObjectName*, $String*, $Comparable*)},
-	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
-	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, _CounterMonitor_MethodAnnotations_getDerivedGaugeTimeStamp7},
-	{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDifferenceMode, bool)},
-	{"getInitThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getInitThreshold, $Number*)},
-	{"getModulus", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getModulus, $Number*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(CounterMonitor, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getNotify", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getNotify, bool)},
-	{"getOffset", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getOffset, $Number*)},
-	{"getThreshold", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getThreshold, $Number*, $ObjectName*)},
-	{"getThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, getThreshold, $Number*), nullptr, nullptr, _CounterMonitor_MethodAnnotations_getThreshold15},
-	{"*isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(CounterMonitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
-	{"isThresholdTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(CounterMonitor, isThresholdTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
-	{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, $SYNCHRONIZED, $virtualMethod(CounterMonitor, onErrorNotification, void, $MonitorNotification*)},
-	{"*removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setDerivedGaugeWithDifference", "(Ljava/lang/Number;Ljava/lang/Number;Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, setDerivedGaugeWithDifference, void, $Number*, $Number*, $CounterMonitor$CounterMonitorObservedObject*)},
-	{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setDifferenceMode, void, bool)},
-	{"*setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setInitThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setInitThreshold, void, $Number*), "java.lang.IllegalArgumentException"},
-	{"setModulus", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setModulus, void, $Number*), "java.lang.IllegalArgumentException"},
-	{"setNotify", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setNotify, void, bool)},
-	{"*setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
-	{"setOffset", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setOffset, void, $Number*), "java.lang.IllegalArgumentException"},
-	{"setThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, setThreshold, void, $Number*), "java.lang.IllegalArgumentException", nullptr, _CounterMonitor_MethodAnnotations_setThreshold25},
-	{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, stop, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateDerivedGauge", "(Ljava/lang/Object;Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, updateDerivedGauge, bool, Object$*, $CounterMonitor$CounterMonitorObservedObject*)},
-	{"updateNotifications", "(Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)Ljavax/management/monitor/MonitorNotification;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, updateNotifications, $MonitorNotification*, $CounterMonitor$CounterMonitorObservedObject*)},
-	{"updateThreshold", "(Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, updateThreshold, void, $CounterMonitor$CounterMonitorObservedObject*)},
-	{}
-};
-
-$InnerClassInfo _CounterMonitor_InnerClassesInfo_[] = {
-	{"javax.management.monitor.CounterMonitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.management.monitor.CounterMonitor$CounterMonitorObservedObject", "javax.management.monitor.CounterMonitor", "CounterMonitorObservedObject", $STATIC},
-	{}
-};
-
-$ClassInfo _CounterMonitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.monitor.CounterMonitor",
-	"javax.management.monitor.Monitor",
-	"javax.management.monitor.CounterMonitorMBean",
-	_CounterMonitor_FieldInfo_,
-	_CounterMonitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CounterMonitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.CounterMonitor$1,javax.management.monitor.CounterMonitor$CounterMonitorObservedObject"
-};
-
-$Object* allocate$CounterMonitor($Class* clazz) {
-	return $of($alloc(CounterMonitor));
-}
 
 $ObjectName* CounterMonitor::getObservedObject() {
 	 return this->$Monitor::getObservedObject();
@@ -440,7 +326,7 @@ void CounterMonitor::init$() {
 
 void CounterMonitor::start() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isActive()) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
@@ -472,7 +358,7 @@ void CounterMonitor::stop() {
 
 $Object* CounterMonitor::getDerivedGauge($ObjectName* object) {
 	$synchronized(this) {
-		return $of($cast($Number, $Monitor::getDerivedGauge(object)));
+		return $cast($Number, $Monitor::getDerivedGauge(object));
 	}
 }
 
@@ -484,21 +370,21 @@ int64_t CounterMonitor::getDerivedGaugeTimeStamp($ObjectName* object) {
 
 $Number* CounterMonitor::getThreshold($ObjectName* object) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CounterMonitor$CounterMonitorObservedObject, o, $cast($CounterMonitor$CounterMonitorObservedObject, getObservedObject(object)));
 		if (o == nullptr) {
 			return nullptr;
 		}
-		bool var$1 = $nc(this->offset)->longValue() > (int64_t)0;
-		bool var$0 = var$1 && $nc(this->modulus)->longValue() > (int64_t)0;
+		bool var$1 = $nc(this->offset)->longValue() > 0;
+		bool var$0 = var$1 && $nc(this->modulus)->longValue() > 0;
 		if (var$0) {
-			int64_t var$2 = $nc($($nc(o)->getThreshold()))->longValue();
-			var$0 = var$2 > $nc(this->modulus)->longValue();
+			int64_t var$2 = $$nc($nc(o)->getThreshold())->longValue();
+			var$0 = var$2 > this->modulus->longValue();
 		}
 		if (var$0) {
 			return this->initThreshold;
 		} else {
-			return o->getThreshold();
+			return $nc(o)->getThreshold();
 		}
 	}
 }
@@ -511,14 +397,14 @@ $Number* CounterMonitor::getInitThreshold() {
 
 void CounterMonitor::setInitThreshold($Number* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (value == nullptr) {
 			$throwNew($IllegalArgumentException, "Null threshold"_s);
 		}
-		if ($nc(value)->longValue() < (int64_t)0) {
+		if ($nc(value)->longValue() < 0) {
 			$throwNew($IllegalArgumentException, "Negative threshold"_s);
 		}
-		if ($nc($of(this->initThreshold))->equals(value)) {
+		if ($nc(this->initThreshold)->equals(value)) {
 			return;
 		}
 		$set(this, initThreshold, value);
@@ -544,7 +430,7 @@ $Number* CounterMonitor::getDerivedGauge() {
 		if ($nc(this->observedObjects)->isEmpty()) {
 			return nullptr;
 		} else {
-			return $cast($Number, $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(0)))))->getDerivedGauge());
+			return $cast($Number, $$sure($Monitor$ObservedObject, this->observedObjects->get(0))->getDerivedGauge());
 		}
 	}
 }
@@ -554,7 +440,7 @@ int64_t CounterMonitor::getDerivedGaugeTimeStamp() {
 		if ($nc(this->observedObjects)->isEmpty()) {
 			return 0;
 		} else {
-			return $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(0)))))->getDerivedGaugeTimeStamp();
+			return $$sure($Monitor$ObservedObject, this->observedObjects->get(0))->getDerivedGaugeTimeStamp();
 		}
 	}
 }
@@ -579,14 +465,14 @@ $Number* CounterMonitor::getOffset() {
 
 void CounterMonitor::setOffset($Number* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (value == nullptr) {
 			$throwNew($IllegalArgumentException, "Null offset"_s);
 		}
-		if ($nc(value)->longValue() < (int64_t)0) {
+		if ($nc(value)->longValue() < 0) {
 			$throwNew($IllegalArgumentException, "Negative offset"_s);
 		}
-		if ($nc($of(this->offset))->equals(value)) {
+		if ($nc(this->offset)->equals(value)) {
 			return;
 		}
 		$set(this, offset, value);
@@ -611,14 +497,14 @@ $Number* CounterMonitor::getModulus() {
 
 void CounterMonitor::setModulus($Number* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (value == nullptr) {
 			$throwNew($IllegalArgumentException, "Null modulus"_s);
 		}
-		if ($nc(value)->longValue() < (int64_t)0) {
+		if ($nc(value)->longValue() < 0) {
 			$throwNew($IllegalArgumentException, "Negative modulus"_s);
 		}
-		if ($nc($of(this->modulus))->equals(value)) {
+		if ($nc(this->modulus)->equals(value)) {
 			return;
 		}
 		$set(this, modulus, value);
@@ -660,7 +546,7 @@ bool CounterMonitor::getDifferenceMode() {
 
 void CounterMonitor::setDifferenceMode(bool value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->differenceMode == value) {
 			return;
 		}
@@ -682,7 +568,7 @@ void CounterMonitor::setDifferenceMode(bool value) {
 }
 
 $MBeanNotificationInfoArray* CounterMonitor::getNotificationInfo() {
-	return $cast($MBeanNotificationInfoArray, $nc(CounterMonitor::notifsInfo)->clone());
+	return $cast($MBeanNotificationInfoArray, CounterMonitor::notifsInfo->clone());
 }
 
 bool CounterMonitor::updateDerivedGauge(Object$* scanCounter, $CounterMonitor$CounterMonitorObservedObject* o) {
@@ -691,8 +577,8 @@ bool CounterMonitor::updateDerivedGauge(Object$* scanCounter, $CounterMonitor$Co
 		if (this->differenceMode) {
 			if ($nc(o)->getPreviousScanCounter() != nullptr) {
 				setDerivedGaugeWithDifference($cast($Number, scanCounter), nullptr, o);
-				if ($nc(($cast($Number, $(o->getDerivedGauge()))))->longValue() < (int64_t)0) {
-					if ($nc(this->modulus)->longValue() > (int64_t)0) {
+				if ($$sure($Number, o->getDerivedGauge())->longValue() < 0) {
+					if ($nc(this->modulus)->longValue() > 0) {
 						setDerivedGaugeWithDifference($cast($Number, scanCounter), this->modulus, o);
 					}
 					o->setThreshold(this->initThreshold);
@@ -702,7 +588,7 @@ bool CounterMonitor::updateDerivedGauge(Object$* scanCounter, $CounterMonitor$Co
 			} else {
 				is_derived_gauge_valid = false;
 			}
-			$nc(o)->setPreviousScanCounter($cast($Number, scanCounter));
+			o->setPreviousScanCounter($cast($Number, scanCounter));
 		} else {
 			$nc(o)->setDerivedGauge($cast($Number, scanCounter));
 			is_derived_gauge_valid = true;
@@ -713,11 +599,11 @@ bool CounterMonitor::updateDerivedGauge(Object$* scanCounter, $CounterMonitor$Co
 
 $MonitorNotification* CounterMonitor::updateNotifications($CounterMonitor$CounterMonitorObservedObject* o) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($MonitorNotification, n, nullptr);
 		if (!$nc(o)->getEventAlreadyNotified()) {
-			int64_t var$0 = $nc(($cast($Number, $(o->getDerivedGauge()))))->longValue();
-			if (var$0 >= $nc($(o->getThreshold()))->longValue()) {
+			int64_t var$0 = $$sure($Number, o->getDerivedGauge())->longValue();
+			if (var$0 >= $$nc(o->getThreshold())->longValue()) {
 				if (this->notify$) {
 					$assign(n, $new($MonitorNotification, "jmx.monitor.counter.threshold"_s, this, 0, 0, ""_s, nullptr, nullptr, nullptr, $(o->getThreshold())));
 				}
@@ -729,8 +615,8 @@ $MonitorNotification* CounterMonitor::updateNotifications($CounterMonitor$Counte
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			if ($nc($JmxProperties::MONITOR_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-				$var($StringBuilder, strb, $$new($StringBuilder)->append("The notification:"_s)->append("\n\tNotification observed object = "_s)->append($($of(o->getObservedObject())))->append("\n\tNotification observed attribute = "_s)->append($(getObservedAttribute()))->append("\n\tNotification threshold level = "_s)->append($($of(o->getThreshold())))->append("\n\tNotification derived gauge = "_s)->append($(o->getDerivedGauge()))->append("\nhas already been sent"_s));
-				$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, static_cast<$Supplier*>($$new(CounterMonitor$$Lambda$toString, static_cast<$StringBuilder*>(strb))));
+				$var($StringBuilder, strb, $$new($StringBuilder)->append("The notification:"_s)->append("\n\tNotification observed object = "_s)->append($(o->getObservedObject()))->append("\n\tNotification observed attribute = "_s)->append($(getObservedAttribute()))->append("\n\tNotification threshold level = "_s)->append($(o->getThreshold()))->append("\n\tNotification derived gauge = "_s)->append($(o->getDerivedGauge()))->append("\nhas already been sent"_s));
+				$JmxProperties::MONITOR_LOGGER->log($System$Logger$Level::TRACE, $$new(CounterMonitor$$Lambda$toString, strb));
 			}
 		}
 		return n;
@@ -739,57 +625,47 @@ $MonitorNotification* CounterMonitor::updateNotifications($CounterMonitor$Counte
 
 void CounterMonitor::updateThreshold($CounterMonitor$CounterMonitorObservedObject* o) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		int64_t var$0 = $nc(($cast($Number, $($nc(o)->getDerivedGauge()))))->longValue();
-		if (var$0 >= $nc($(o->getThreshold()))->longValue()) {
-			if ($nc(this->offset)->longValue() > (int64_t)0) {
-				int64_t threshold_value = $nc($(o->getThreshold()))->longValue();
-				while ($nc(($cast($Number, $(o->getDerivedGauge()))))->longValue() >= threshold_value) {
+		$useLocalObjectStack();
+		int64_t var$0 = $$sure($Number, $nc(o)->getDerivedGauge())->longValue();
+		if (var$0 >= $$nc(o->getThreshold())->longValue()) {
+			if ($nc(this->offset)->longValue() > 0) {
+				int64_t threshold_value = $$nc(o->getThreshold())->longValue();
+				while ($$sure($Number, o->getDerivedGauge())->longValue() >= threshold_value) {
 					threshold_value += $nc(this->offset)->longValue();
 				}
 				$init($CounterMonitor$1);
-				switch ($nc($CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get($nc(($(o->getType())))->ordinal())) {
+				switch ($nc($CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get(($$nc(o->getType()))->ordinal())) {
 				case 1:
-					{
-						o->setThreshold($($Integer::valueOf((int32_t)threshold_value)));
-						break;
-					}
+					o->setThreshold($($Integer::valueOf((int32_t)threshold_value)));
+					break;
 				case 2:
-					{
-						o->setThreshold($($Byte::valueOf((int8_t)threshold_value)));
-						break;
-					}
+					o->setThreshold($($Byte::valueOf((int8_t)threshold_value)));
+					break;
 				case 3:
-					{
-						o->setThreshold($($Short::valueOf((int16_t)threshold_value)));
-						break;
-					}
+					o->setThreshold($($Short::valueOf((int16_t)threshold_value)));
+					break;
 				case 4:
-					{
-						o->setThreshold($($Long::valueOf(threshold_value)));
-						break;
-					}
+					o->setThreshold($($Long::valueOf(threshold_value)));
+					break;
 				default:
-					{
-						$init($JmxProperties);
-						$init($System$Logger$Level);
-						$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
-						break;
-					}
+					$init($JmxProperties);
+					$init($System$Logger$Level);
+					$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
+					break;
 				}
 				if (!this->differenceMode) {
-					if ($nc(this->modulus)->longValue() > (int64_t)0) {
-						int64_t var$1 = $nc($(o->getThreshold()))->longValue();
-						if (var$1 > $nc(this->modulus)->longValue()) {
+					if ($nc(this->modulus)->longValue() > 0) {
+						int64_t var$1 = $$nc(o->getThreshold())->longValue();
+						if (var$1 > this->modulus->longValue()) {
 							o->setModulusExceeded(true);
-							o->setDerivedGaugeExceeded($cast($Number, $(o->getDerivedGauge())));
+							o->setDerivedGaugeExceeded($$cast($Number, o->getDerivedGauge()));
 						}
 					}
 				}
 				o->setEventAlreadyNotified(false);
 			} else {
 				o->setModulusExceeded(true);
-				o->setDerivedGaugeExceeded($cast($Number, $(o->getDerivedGauge())));
+				o->setDerivedGaugeExceeded($$cast($Number, o->getDerivedGauge()));
 			}
 		}
 	}
@@ -797,41 +673,31 @@ void CounterMonitor::updateThreshold($CounterMonitor$CounterMonitorObservedObjec
 
 void CounterMonitor::setDerivedGaugeWithDifference($Number* scanCounter, $Number* mod, $CounterMonitor$CounterMonitorObservedObject* o) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int64_t var$0 = $nc(scanCounter)->longValue();
-		int64_t derived = var$0 - $nc($($nc(o)->getPreviousScanCounter()))->longValue();
+		int64_t derived = var$0 - $$nc($nc(o)->getPreviousScanCounter())->longValue();
 		if (mod != nullptr) {
 			derived += $nc(this->modulus)->longValue();
 		}
 		$init($CounterMonitor$1);
-		switch ($nc($CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get($nc(($(o->getType())))->ordinal())) {
+		switch ($nc($CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get(($$nc(o->getType()))->ordinal())) {
 		case 1:
-			{
-				o->setDerivedGauge($($Integer::valueOf((int32_t)derived)));
-				break;
-			}
+			o->setDerivedGauge($($Integer::valueOf((int32_t)derived)));
+			break;
 		case 2:
-			{
-				o->setDerivedGauge($($Byte::valueOf((int8_t)derived)));
-				break;
-			}
+			o->setDerivedGauge($($Byte::valueOf((int8_t)derived)));
+			break;
 		case 3:
-			{
-				o->setDerivedGauge($($Short::valueOf((int16_t)derived)));
-				break;
-			}
+			o->setDerivedGauge($($Short::valueOf((int16_t)derived)));
+			break;
 		case 4:
-			{
-				o->setDerivedGauge($($Long::valueOf(derived)));
-				break;
-			}
+			o->setDerivedGauge($($Long::valueOf(derived)));
+			break;
 		default:
-			{
-				$init($JmxProperties);
-				$init($System$Logger$Level);
-				$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
-				break;
-			}
+			$init($JmxProperties);
+			$init($System$Logger$Level);
+			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
+			break;
 		}
 	}
 }
@@ -872,27 +738,27 @@ bool CounterMonitor::isComparableTypeValid($ObjectName* object, $String* attribu
 
 $Comparable* CounterMonitor::getDerivedGaugeFromComparable($ObjectName* object, $String* attribute, $Comparable* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CounterMonitor$CounterMonitorObservedObject, o, $cast($CounterMonitor$CounterMonitorObservedObject, getObservedObject(object)));
 		if (o == nullptr) {
 			return nullptr;
 		}
 		if ($nc(o)->getModulusExceeded()) {
-			int64_t var$0 = $nc(($cast($Number, $(o->getDerivedGauge()))))->longValue();
-			if (var$0 < $nc($(o->getDerivedGaugeExceeded()))->longValue()) {
+			int64_t var$0 = $$sure($Number, o->getDerivedGauge())->longValue();
+			if (var$0 < $$nc(o->getDerivedGaugeExceeded())->longValue()) {
 				o->setThreshold(this->initThreshold);
 				o->setModulusExceeded(false);
 				o->setEventAlreadyNotified(false);
 			}
 		}
-		$nc(o)->setDerivedGaugeValid(updateDerivedGauge(value, o));
+		o->setDerivedGaugeValid(updateDerivedGauge(value, o));
 		return $cast($Comparable, o->getDerivedGauge());
 	}
 }
 
 void CounterMonitor::onErrorNotification($MonitorNotification* notification) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CounterMonitor$CounterMonitorObservedObject, o, $cast($CounterMonitor$CounterMonitorObservedObject, getObservedObject($($nc(notification)->getObservedObject()))));
 		if (o == nullptr) {
 			return;
@@ -905,7 +771,7 @@ void CounterMonitor::onErrorNotification($MonitorNotification* notification) {
 
 $MonitorNotification* CounterMonitor::buildAlarmNotification($ObjectName* object, $String* attribute, $Comparable* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CounterMonitor$CounterMonitorObservedObject, o, $cast($CounterMonitor$CounterMonitorObservedObject, getObservedObject(object)));
 		if (o == nullptr) {
 			return nullptr;
@@ -923,19 +789,19 @@ $MonitorNotification* CounterMonitor::buildAlarmNotification($ObjectName* object
 
 bool CounterMonitor::isThresholdTypeValid($ObjectName* object, $String* attribute, $Comparable* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CounterMonitor$CounterMonitorObservedObject, o, $cast($CounterMonitor$CounterMonitorObservedObject, getObservedObject(object)));
 		if (o == nullptr) {
 			return false;
 		}
 		$Class* c = classForType($($nc(o)->getType()));
-		bool var$1 = $nc(c)->isInstance($($nc(o)->getThreshold()));
+		bool var$1 = $nc(c)->isInstance($(o->getThreshold()));
 		bool var$0 = var$1 && isValidForType(this->offset, c);
 		return (var$0 && isValidForType(this->modulus, c));
 	}
 }
 
-void clinit$CounterMonitor($Class* class$) {
+void CounterMonitor::clinit$($Class* clazz) {
 	$assignStatic(CounterMonitor::types, $new($StringArray, {
 		"jmx.monitor.error.runtime"_s,
 		"jmx.monitor.error.mbean"_s,
@@ -952,11 +818,108 @@ CounterMonitor::CounterMonitor() {
 
 $Class* CounterMonitor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CounterMonitor$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("javax.management.monitor.CounterMonitor$$Lambda$toString")) {
 			return CounterMonitor$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(CounterMonitor, name, initialize, &_CounterMonitor_ClassInfo_, clinit$CounterMonitor, allocate$CounterMonitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"modulus", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor, modulus)},
+		{"offset", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor, offset)},
+		{"notify", "Z", nullptr, $PRIVATE, $field(CounterMonitor, notify$)},
+		{"differenceMode", "Z", nullptr, $PRIVATE, $field(CounterMonitor, differenceMode)},
+		{"initThreshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor, initThreshold)},
+		{"types", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CounterMonitor, types)},
+		{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CounterMonitor, notifsInfo)},
+		{}
+	};
+	$CompoundAttribute getDerivedGaugemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDerivedGaugeTimeStampmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getThresholdmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setThresholdmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
+		{"*getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CounterMonitor, init$, void)},
+		{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", $SYNCHRONIZED, $virtualMethod(CounterMonitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
+		{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(CounterMonitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
+		{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDerivedGauge, $Object*, $ObjectName*)},
+		{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, getDerivedGauge, $Number*), nullptr, nullptr, getDerivedGaugemethodAnnotations$$$1},
+		{"getDerivedGaugeFromComparable", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/Comparable<*>;", $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDerivedGaugeFromComparable, $Comparable*, $ObjectName*, $String*, $Comparable*)},
+		{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
+		{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, getDerivedGaugeTimeStampmethodAnnotations$$$1},
+		{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getDifferenceMode, bool)},
+		{"getInitThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getInitThreshold, $Number*)},
+		{"getModulus", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getModulus, $Number*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(CounterMonitor, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getNotify", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getNotify, bool)},
+		{"getOffset", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getOffset, $Number*)},
+		{"getThreshold", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, getThreshold, $Number*, $ObjectName*)},
+		{"getThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, getThreshold, $Number*), nullptr, nullptr, getThresholdmethodAnnotations$$$1},
+		{"*isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(CounterMonitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
+		{"isThresholdTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(CounterMonitor, isThresholdTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
+		{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, $SYNCHRONIZED, $virtualMethod(CounterMonitor, onErrorNotification, void, $MonitorNotification*)},
+		{"*removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setDerivedGaugeWithDifference", "(Ljava/lang/Number;Ljava/lang/Number;Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, setDerivedGaugeWithDifference, void, $Number*, $Number*, $CounterMonitor$CounterMonitorObservedObject*)},
+		{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setDifferenceMode, void, bool)},
+		{"*setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setInitThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setInitThreshold, void, $Number*), "java.lang.IllegalArgumentException"},
+		{"setModulus", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setModulus, void, $Number*), "java.lang.IllegalArgumentException"},
+		{"setNotify", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setNotify, void, bool)},
+		{"*setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
+		{"setOffset", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, setOffset, void, $Number*), "java.lang.IllegalArgumentException"},
+		{"setThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(CounterMonitor, setThreshold, void, $Number*), "java.lang.IllegalArgumentException", nullptr, setThresholdmethodAnnotations$$},
+		{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CounterMonitor, stop, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateDerivedGauge", "(Ljava/lang/Object;Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, updateDerivedGauge, bool, Object$*, $CounterMonitor$CounterMonitorObservedObject*)},
+		{"updateNotifications", "(Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)Ljavax/management/monitor/MonitorNotification;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, updateNotifications, $MonitorNotification*, $CounterMonitor$CounterMonitorObservedObject*)},
+		{"updateThreshold", "(Ljavax/management/monitor/CounterMonitor$CounterMonitorObservedObject;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CounterMonitor, updateThreshold, void, $CounterMonitor$CounterMonitorObservedObject*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.CounterMonitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.management.monitor.CounterMonitor$CounterMonitorObservedObject", "javax.management.monitor.CounterMonitor", "CounterMonitorObservedObject", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.monitor.CounterMonitor",
+		"javax.management.monitor.Monitor",
+		"javax.management.monitor.CounterMonitorMBean",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.CounterMonitor$1,javax.management.monitor.CounterMonitor$CounterMonitorObservedObject"
+	};
+	$loadClass(CounterMonitor, name, initialize, &classInfo$$, CounterMonitor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CounterMonitor));
+	});
 	return class$;
 }
 

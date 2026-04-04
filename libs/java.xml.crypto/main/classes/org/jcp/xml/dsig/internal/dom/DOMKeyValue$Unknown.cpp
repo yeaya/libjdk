@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$Unknown.h>
-
 #include <java/security/PublicKey.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dom/DOMStructure.h>
@@ -28,43 +27,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMKeyValue$Unknown_FieldInfo_[] = {
-	{"externalPublicKey", "Ljavax/xml/crypto/dom/DOMStructure;", nullptr, $PRIVATE, $field(DOMKeyValue$Unknown, externalPublicKey)},
-	{}
-};
-
-$MethodInfo _DOMKeyValue$Unknown_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$Unknown, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$Unknown, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$Unknown, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$InnerClassInfo _DOMKeyValue$Unknown_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$Unknown", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "Unknown", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMKeyValue$Unknown_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue$Unknown",
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue",
-	nullptr,
-	_DOMKeyValue$Unknown_FieldInfo_,
-	_DOMKeyValue$Unknown_MethodInfo_,
-	"Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue<Ljava/security/PublicKey;>;",
-	nullptr,
-	_DOMKeyValue$Unknown_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
-};
-
-$Object* allocate$DOMKeyValue$Unknown($Class* clazz) {
-	return $of($alloc(DOMKeyValue$Unknown));
-}
-
 void DOMKeyValue$Unknown::init$($Element* elem) {
 	$DOMKeyValue::init$(elem);
 }
@@ -82,7 +44,38 @@ DOMKeyValue$Unknown::DOMKeyValue$Unknown() {
 }
 
 $Class* DOMKeyValue$Unknown::load$($String* name, bool initialize) {
-	$loadClass(DOMKeyValue$Unknown, name, initialize, &_DOMKeyValue$Unknown_ClassInfo_, allocate$DOMKeyValue$Unknown);
+	$FieldInfo fieldInfos$$[] = {
+		{"externalPublicKey", "Ljavax/xml/crypto/dom/DOMStructure;", nullptr, $PRIVATE, $field(DOMKeyValue$Unknown, externalPublicKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$Unknown, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$Unknown, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$Unknown, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$Unknown", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "Unknown", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue$Unknown",
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue<Ljava/security/PublicKey;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
+	};
+	$loadClass(DOMKeyValue$Unknown, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMKeyValue$Unknown));
+	});
 	return class$;
 }
 

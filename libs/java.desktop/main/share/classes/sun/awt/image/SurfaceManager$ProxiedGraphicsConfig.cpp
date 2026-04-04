@@ -1,5 +1,4 @@
 #include <sun/awt/image/SurfaceManager$ProxiedGraphicsConfig.h>
-
 #include <sun/awt/image/SurfaceManager.h>
 #include <jcpp.h>
 
@@ -11,38 +10,33 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _SurfaceManager$ProxiedGraphicsConfig_MethodInfo_[] = {
-	{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManager$ProxiedGraphicsConfig, getProxyKey, $Object*)},
-	{}
-};
-
-$InnerClassInfo _SurfaceManager$ProxiedGraphicsConfig_InnerClassesInfo_[] = {
-	{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SurfaceManager$ProxiedGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SurfaceManager$ProxiedGraphicsConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SurfaceManager$ProxiedGraphicsConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.SurfaceManager"
-};
-
-$Object* allocate$SurfaceManager$ProxiedGraphicsConfig($Class* clazz) {
-	return $of($alloc(SurfaceManager$ProxiedGraphicsConfig));
-}
-
 $Class* SurfaceManager$ProxiedGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(SurfaceManager$ProxiedGraphicsConfig, name, initialize, &_SurfaceManager$ProxiedGraphicsConfig_ClassInfo_, allocate$SurfaceManager$ProxiedGraphicsConfig);
+	$MethodInfo methodInfos$$[] = {
+		{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceManager$ProxiedGraphicsConfig, getProxyKey, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.SurfaceManager"
+	};
+	$loadClass(SurfaceManager$ProxiedGraphicsConfig, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SurfaceManager$ProxiedGraphicsConfig);
+	});
 	return class$;
 }
 

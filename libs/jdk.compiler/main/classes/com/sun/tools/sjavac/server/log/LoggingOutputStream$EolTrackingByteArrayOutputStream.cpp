@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/server/log/LoggingOutputStream$EolTrackingByteArrayOutputStream.h>
-
 #include <com/sun/tools/sjavac/server/log/LoggingOutputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <jcpp.h>
@@ -19,42 +18,6 @@ namespace com {
 				namespace server {
 					namespace log {
 
-$FieldInfo _LoggingOutputStream$EolTrackingByteArrayOutputStream_FieldInfo_[] = {
-	{"EOL", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoggingOutputStream$EolTrackingByteArrayOutputStream, EOL)},
-	{}
-};
-
-$MethodInfo _LoggingOutputStream$EolTrackingByteArrayOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LoggingOutputStream$EolTrackingByteArrayOutputStream, init$, void)},
-	{"isLineComplete", "()Z", nullptr, $PRIVATE, $method(LoggingOutputStream$EolTrackingByteArrayOutputStream, isLineComplete, bool)},
-	{}
-};
-
-$InnerClassInfo _LoggingOutputStream$EolTrackingByteArrayOutputStream_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream", "com.sun.tools.sjavac.server.log.LoggingOutputStream", "EolTrackingByteArrayOutputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LoggingOutputStream$EolTrackingByteArrayOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	_LoggingOutputStream$EolTrackingByteArrayOutputStream_FieldInfo_,
-	_LoggingOutputStream$EolTrackingByteArrayOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoggingOutputStream$EolTrackingByteArrayOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.server.log.LoggingOutputStream"
-};
-
-$Object* allocate$LoggingOutputStream$EolTrackingByteArrayOutputStream($Class* clazz) {
-	return $of($alloc(LoggingOutputStream$EolTrackingByteArrayOutputStream));
-}
-
 $bytes* LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL = nullptr;
 
 void LoggingOutputStream$EolTrackingByteArrayOutputStream::init$() {
@@ -62,26 +25,56 @@ void LoggingOutputStream$EolTrackingByteArrayOutputStream::init$() {
 }
 
 bool LoggingOutputStream$EolTrackingByteArrayOutputStream::isLineComplete() {
-	if (this->count < $nc(LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL)->length) {
+	if (this->count < LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL)->length; ++i) {
-		if ($nc(this->buf)->get(this->count - $nc(LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL)->length + i) != $nc(LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL)->get(i)) {
+	for (int32_t i = 0; i < LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL->length; ++i) {
+		if ($nc(this->buf)->get(this->count - LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL->length + i) != LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL->get(i)) {
 			return false;
 		}
 	}
 	return true;
 }
 
-void clinit$LoggingOutputStream$EolTrackingByteArrayOutputStream($Class* class$) {
-	$assignStatic(LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL, $nc($($System::lineSeparator()))->getBytes());
+void LoggingOutputStream$EolTrackingByteArrayOutputStream::clinit$($Class* clazz) {
+	$assignStatic(LoggingOutputStream$EolTrackingByteArrayOutputStream::EOL, $$nc($System::lineSeparator())->getBytes());
 }
 
 LoggingOutputStream$EolTrackingByteArrayOutputStream::LoggingOutputStream$EolTrackingByteArrayOutputStream() {
 }
 
 $Class* LoggingOutputStream$EolTrackingByteArrayOutputStream::load$($String* name, bool initialize) {
-	$loadClass(LoggingOutputStream$EolTrackingByteArrayOutputStream, name, initialize, &_LoggingOutputStream$EolTrackingByteArrayOutputStream_ClassInfo_, clinit$LoggingOutputStream$EolTrackingByteArrayOutputStream, allocate$LoggingOutputStream$EolTrackingByteArrayOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"EOL", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoggingOutputStream$EolTrackingByteArrayOutputStream, EOL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LoggingOutputStream$EolTrackingByteArrayOutputStream, init$, void)},
+		{"isLineComplete", "()Z", nullptr, $PRIVATE, $method(LoggingOutputStream$EolTrackingByteArrayOutputStream, isLineComplete, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream", "com.sun.tools.sjavac.server.log.LoggingOutputStream", "EolTrackingByteArrayOutputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.sjavac.server.log.LoggingOutputStream$EolTrackingByteArrayOutputStream",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.server.log.LoggingOutputStream"
+	};
+	$loadClass(LoggingOutputStream$EolTrackingByteArrayOutputStream, name, initialize, &classInfo$$, LoggingOutputStream$EolTrackingByteArrayOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LoggingOutputStream$EolTrackingByteArrayOutputStream));
+	});
 	return class$;
 }
 

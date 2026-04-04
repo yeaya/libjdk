@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/BorderUIResource$TitledBorderUIResource.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <javax/swing/border/Border.h>
@@ -21,66 +20,6 @@ using $TitledBorder = ::javax::swing::border::TitledBorder;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$Attribute BorderUIResource$TitledBorderUIResource_Attribute_var$1[] = {
-	{'s', "border"},
-	{'s', "title"},
-	{'s', "titleJustification"},
-	{'s', "titlePosition"},
-	{'s', "titleFont"},
-	{'s', "titleColor"},
-	{'-'}
-};
-
-$NamedAttribute BorderUIResource$TitledBorderUIResource_Attribute_var$0[] = {
-	{"value", '[', BorderUIResource$TitledBorderUIResource_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _BorderUIResource$TitledBorderUIResource_MethodAnnotations_init$5[] = {
-	{"Ljava/beans/ConstructorProperties;", BorderUIResource$TitledBorderUIResource_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _BorderUIResource$TitledBorderUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $String*)},
-	{"<init>", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*)},
-	{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*)},
-	{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*, int32_t, int32_t, $Font*)},
-	{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*, int32_t, int32_t, $Font*, $Color*), nullptr, nullptr, _BorderUIResource$TitledBorderUIResource_MethodAnnotations_init$5},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BorderUIResource$TitledBorderUIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.BorderUIResource$TitledBorderUIResource", "javax.swing.plaf.BorderUIResource", "TitledBorderUIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BorderUIResource$TitledBorderUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.BorderUIResource$TitledBorderUIResource",
-	"javax.swing.border.TitledBorder",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BorderUIResource$TitledBorderUIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BorderUIResource$TitledBorderUIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.BorderUIResource"
-};
-
-$Object* allocate$BorderUIResource$TitledBorderUIResource($Class* clazz) {
-	return $of($alloc(BorderUIResource$TitledBorderUIResource));
-}
 
 int32_t BorderUIResource$TitledBorderUIResource::hashCode() {
 	 return this->$TitledBorder::hashCode();
@@ -130,7 +69,59 @@ BorderUIResource$TitledBorderUIResource::BorderUIResource$TitledBorderUIResource
 }
 
 $Class* BorderUIResource$TitledBorderUIResource::load$($String* name, bool initialize) {
-	$loadClass(BorderUIResource$TitledBorderUIResource, name, initialize, &_BorderUIResource$TitledBorderUIResource_ClassInfo_, allocate$BorderUIResource$TitledBorderUIResource);
+	$Attribute $attribute[] = {
+		{'s', "border"},
+		{'s', "title"},
+		{'s', "titleJustification"},
+		{'s', "titlePosition"},
+		{'s', "titleFont"},
+		{'s', "titleColor"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$5$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$5[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$5$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $String*)},
+		{"<init>", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*)},
+		{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*)},
+		{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*, int32_t, int32_t, $Font*)},
+		{"<init>", "(Ljavax/swing/border/Border;Ljava/lang/String;IILjava/awt/Font;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BorderUIResource$TitledBorderUIResource, init$, void, $Border*, $String*, int32_t, int32_t, $Font*, $Color*), nullptr, nullptr, init$methodAnnotations$$$5},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.BorderUIResource$TitledBorderUIResource", "javax.swing.plaf.BorderUIResource", "TitledBorderUIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.BorderUIResource$TitledBorderUIResource",
+		"javax.swing.border.TitledBorder",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.BorderUIResource"
+	};
+	$loadClass(BorderUIResource$TitledBorderUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BorderUIResource$TitledBorderUIResource));
+	});
 	return class$;
 }
 

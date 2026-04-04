@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor$FileDialogAccessor.h>
-
 #include <java/awt/FileDialog.h>
 #include <java/io/File.h>
 #include <sun/awt/AWTAccessor.h>
@@ -14,41 +13,36 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AWTAccessor$FileDialogAccessor_MethodInfo_[] = {
-	{"isMultipleMode", "(Ljava/awt/FileDialog;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, isMultipleMode, bool, $FileDialog*)},
-	{"setDirectory", "(Ljava/awt/FileDialog;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setDirectory, void, $FileDialog*, $String*)},
-	{"setFile", "(Ljava/awt/FileDialog;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setFile, void, $FileDialog*, $String*)},
-	{"setFiles", "(Ljava/awt/FileDialog;[Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setFiles, void, $FileDialog*, $FileArray*)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor$FileDialogAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$FileDialogAccessor", "sun.awt.AWTAccessor", "FileDialogAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor$FileDialogAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.AWTAccessor$FileDialogAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AWTAccessor$FileDialogAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor$FileDialogAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor"
-};
-
-$Object* allocate$AWTAccessor$FileDialogAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor$FileDialogAccessor));
-}
-
 $Class* AWTAccessor$FileDialogAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor$FileDialogAccessor, name, initialize, &_AWTAccessor$FileDialogAccessor_ClassInfo_, allocate$AWTAccessor$FileDialogAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"isMultipleMode", "(Ljava/awt/FileDialog;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, isMultipleMode, bool, $FileDialog*)},
+		{"setDirectory", "(Ljava/awt/FileDialog;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setDirectory, void, $FileDialog*, $String*)},
+		{"setFile", "(Ljava/awt/FileDialog;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setFile, void, $FileDialog*, $String*)},
+		{"setFiles", "(Ljava/awt/FileDialog;[Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setFiles, void, $FileDialog*, $FileArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$FileDialogAccessor", "sun.awt.AWTAccessor", "FileDialogAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.AWTAccessor$FileDialogAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor"
+	};
+	$loadClass(AWTAccessor$FileDialogAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor$FileDialogAccessor);
+	});
 	return class$;
 }
 

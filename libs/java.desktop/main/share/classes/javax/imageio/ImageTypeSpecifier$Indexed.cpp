@@ -1,11 +1,8 @@
 #include <javax/imageio/ImageTypeSpecifier$Indexed.h>
-
-#include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/MultiPixelPackedSampleModel.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
-#include <java/awt/image/SampleModel.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <jcpp.h>
 
@@ -14,12 +11,10 @@
 #undef TYPE_SHORT
 #undef TYPE_USHORT
 
-using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
-using $SampleModel = ::java::awt::image::SampleModel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -29,46 +24,6 @@ using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 
 namespace javax {
 	namespace imageio {
-
-$FieldInfo _ImageTypeSpecifier$Indexed_FieldInfo_[] = {
-	{"redLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, redLUT)},
-	{"greenLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, greenLUT)},
-	{"blueLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, blueLUT)},
-	{"alphaLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, alphaLUT)},
-	{"bits", "I", nullptr, 0, $field(ImageTypeSpecifier$Indexed, bits)},
-	{"dataType", "I", nullptr, 0, $field(ImageTypeSpecifier$Indexed, dataType)},
-	{}
-};
-
-$MethodInfo _ImageTypeSpecifier$Indexed_MethodInfo_[] = {
-	{"<init>", "([B[B[B[BII)V", nullptr, $PUBLIC, $method(ImageTypeSpecifier$Indexed, init$, void, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ImageTypeSpecifier$Indexed_InnerClassesInfo_[] = {
-	{"javax.imageio.ImageTypeSpecifier$Indexed", "javax.imageio.ImageTypeSpecifier", "Indexed", $STATIC},
-	{}
-};
-
-$ClassInfo _ImageTypeSpecifier$Indexed_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.ImageTypeSpecifier$Indexed",
-	"javax.imageio.ImageTypeSpecifier",
-	nullptr,
-	_ImageTypeSpecifier$Indexed_FieldInfo_,
-	_ImageTypeSpecifier$Indexed_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageTypeSpecifier$Indexed_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.ImageTypeSpecifier"
-};
-
-$Object* allocate$ImageTypeSpecifier$Indexed($Class* clazz) {
-	return $of($alloc(ImageTypeSpecifier$Indexed));
-}
 
 void ImageTypeSpecifier$Indexed::init$($bytes* redLUT, $bytes* greenLUT, $bytes* blueLUT, $bytes* alphaLUT, int32_t bits, int32_t dataType) {
 	$ImageTypeSpecifier::init$();
@@ -89,7 +44,7 @@ void ImageTypeSpecifier$Indexed::init$($bytes* redLUT, $bytes* greenLUT, $bytes*
 	if ($nc(redLUT)->length != len || $nc(greenLUT)->length != len || $nc(blueLUT)->length != len || (alphaLUT != nullptr && alphaLUT->length != len)) {
 		$throwNew($IllegalArgumentException, "LUT has improper length!"_s);
 	}
-	$set(this, redLUT, $cast($bytes, $nc(redLUT)->clone()));
+	$set(this, redLUT, $cast($bytes, redLUT->clone()));
 	$set(this, greenLUT, $cast($bytes, $nc(greenLUT)->clone()));
 	$set(this, blueLUT, $cast($bytes, $nc(blueLUT)->clone()));
 	if (alphaLUT != nullptr) {
@@ -114,7 +69,41 @@ ImageTypeSpecifier$Indexed::ImageTypeSpecifier$Indexed() {
 }
 
 $Class* ImageTypeSpecifier$Indexed::load$($String* name, bool initialize) {
-	$loadClass(ImageTypeSpecifier$Indexed, name, initialize, &_ImageTypeSpecifier$Indexed_ClassInfo_, allocate$ImageTypeSpecifier$Indexed);
+	$FieldInfo fieldInfos$$[] = {
+		{"redLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, redLUT)},
+		{"greenLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, greenLUT)},
+		{"blueLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, blueLUT)},
+		{"alphaLUT", "[B", nullptr, 0, $field(ImageTypeSpecifier$Indexed, alphaLUT)},
+		{"bits", "I", nullptr, 0, $field(ImageTypeSpecifier$Indexed, bits)},
+		{"dataType", "I", nullptr, 0, $field(ImageTypeSpecifier$Indexed, dataType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B[B[B[BII)V", nullptr, $PUBLIC, $method(ImageTypeSpecifier$Indexed, init$, void, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.ImageTypeSpecifier$Indexed", "javax.imageio.ImageTypeSpecifier", "Indexed", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.ImageTypeSpecifier$Indexed",
+		"javax.imageio.ImageTypeSpecifier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.ImageTypeSpecifier"
+	};
+	$loadClass(ImageTypeSpecifier$Indexed, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageTypeSpecifier$Indexed);
+	});
 	return class$;
 }
 

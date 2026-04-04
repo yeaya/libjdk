@@ -35,6 +35,7 @@ class $export SunGraphicsCallback : public ::java::lang::Object {
 	$class(SunGraphicsCallback, 0, ::java::lang::Object)
 public:
 	SunGraphicsCallback();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void constrainGraphics(::java::awt::Graphics* g, ::java::awt::Rectangle* bounds);
 	virtual void run(::java::awt::Component* comp, ::java::awt::Graphics* cg) {}

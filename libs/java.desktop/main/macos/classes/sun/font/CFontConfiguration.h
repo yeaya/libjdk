@@ -27,6 +27,7 @@ class CFontConfiguration : public ::sun::awt::FontConfiguration {
 	$class(CFontConfiguration, 0, ::sun::awt::FontConfiguration)
 public:
 	CFontConfiguration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::SunFontManager* fm);
 	void init$(::sun::font::SunFontManager* fm, bool preferLocaleFonts, bool preferPropFonts);
 	virtual $Array<::sun::font::CompositeFontDescriptor>* get2DCompositeFontInfo() override;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Name$Table.h>
-
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/javac/util/Names.h>
 #include <jcpp.h>
@@ -16,48 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Name$Table_FieldInfo_[] = {
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PUBLIC | $FINAL, $field(Name$Table, names)},
-	{}
-};
-
-$MethodInfo _Name$Table_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, 0, $method(Name$Table, init$, void, $Names*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, dispose, void)},
-	{"equals", "([BI[BII)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(Name$Table, equals, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, fromChars, $Name*, $chars*, int32_t, int32_t)},
-	{"fromString", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name$Table, fromString, $Name*, $String*)},
-	{"fromUtf", "([B)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name$Table, fromUtf, $Name*, $bytes*)},
-	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
-	{"hashValue", "([BII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(Name$Table, hashValue, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Name$Table_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Name$Table", "com.sun.tools.javac.util.Name", "Table", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Name$Table_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.util.Name$Table",
-	"java.lang.Object",
-	nullptr,
-	_Name$Table_FieldInfo_,
-	_Name$Table_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Name$Table_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Name"
-};
-
-$Object* allocate$Name$Table($Class* clazz) {
-	return $of($alloc(Name$Table));
-}
 
 void Name$Table::init$($Names* names) {
 	$set(this, names, names);
@@ -93,7 +50,43 @@ Name$Table::Name$Table() {
 }
 
 $Class* Name$Table::load$($String* name, bool initialize) {
-	$loadClass(Name$Table, name, initialize, &_Name$Table_ClassInfo_, allocate$Name$Table);
+	$FieldInfo fieldInfos$$[] = {
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PUBLIC | $FINAL, $field(Name$Table, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, 0, $method(Name$Table, init$, void, $Names*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, dispose, void)},
+		{"equals", "([BI[BII)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(Name$Table, equals, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, fromChars, $Name*, $chars*, int32_t, int32_t)},
+		{"fromString", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name$Table, fromString, $Name*, $String*)},
+		{"fromUtf", "([B)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name$Table, fromUtf, $Name*, $bytes*)},
+		{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
+		{"hashValue", "([BII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(Name$Table, hashValue, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Name$Table", "com.sun.tools.javac.util.Name", "Table", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.util.Name$Table",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Name"
+	};
+	$loadClass(Name$Table, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Name$Table);
+	});
 	return class$;
 }
 

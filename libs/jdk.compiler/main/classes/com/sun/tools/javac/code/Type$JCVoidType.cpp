@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$JCVoidType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeMetadata.h>
@@ -8,7 +7,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/util/List.h>
-#include <javax/lang/model/type/NoType.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/type/TypeVisitor.h>
 #include <jcpp.h>
@@ -27,7 +25,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $List = ::java::util::List;
-using $NoType = ::javax::lang::model::type::NoType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
@@ -36,50 +33,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$MethodInfo _Type$JCVoidType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Type$JCVoidType, init$, void)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$JCVoidType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$JCVoidType;", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, cloneWithMetadata, Type$JCVoidType*, $TypeMetadata*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCVoidType, getAnnotationMirrors, $List*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, getKind, $TypeKind*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, getTag, $TypeTag*)},
-	{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, isCompound, bool)},
-	{"isPrimitiveOrVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, isPrimitiveOrVoid, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Type$JCVoidType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$JCVoidType", "com.sun.tools.javac.code.Type", "JCVoidType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Type$JCVoidType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$JCVoidType",
-	"com.sun.tools.javac.code.Type",
-	"javax.lang.model.type.NoType",
-	nullptr,
-	_Type$JCVoidType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$JCVoidType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$JCVoidType($Class* clazz) {
-	return $of($alloc(Type$JCVoidType));
-}
 
 $Annotation* Type$JCVoidType::getAnnotation($Class* annotationType) {
 	 return this->$Type::getAnnotation(annotationType);
@@ -134,7 +87,7 @@ bool Type$JCVoidType::isCompound() {
 }
 
 $Object* Type$JCVoidType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitNoType(this, p));
+	return $nc(v)->visitNoType(this, p);
 }
 
 bool Type$JCVoidType::isPrimitiveOrVoid() {
@@ -149,7 +102,46 @@ Type$JCVoidType::Type$JCVoidType() {
 }
 
 $Class* Type$JCVoidType::load$($String* name, bool initialize) {
-	$loadClass(Type$JCVoidType, name, initialize, &_Type$JCVoidType_ClassInfo_, allocate$Type$JCVoidType);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Type$JCVoidType, init$, void)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$JCVoidType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$JCVoidType;", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, cloneWithMetadata, Type$JCVoidType*, $TypeMetadata*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCVoidType, getAnnotationMirrors, $List*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, getKind, $TypeKind*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, getTag, $TypeTag*)},
+		{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, isCompound, bool)},
+		{"isPrimitiveOrVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$JCVoidType, isPrimitiveOrVoid, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$JCVoidType", "com.sun.tools.javac.code.Type", "JCVoidType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$JCVoidType",
+		"com.sun.tools.javac.code.Type",
+		"javax.lang.model.type.NoType",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$JCVoidType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$JCVoidType));
+	});
 	return class$;
 }
 

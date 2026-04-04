@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeCopier.h>
-
 #include <com/sun/source/tree/AnnotatedTypeTree.h>
 #include <com/sun/source/tree/AnnotationTree.h>
 #include <com/sun/source/tree/ArrayAccessTree.h>
@@ -60,7 +59,6 @@
 #include <com/sun/source/tree/ThrowTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/Tree.h>
-#include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/source/tree/TryTree.h>
 #include <com/sun/source/tree/TypeCastTree.h>
 #include <com/sun/source/tree/TypeParameterTree.h>
@@ -218,7 +216,6 @@ using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;
 using $ThrowTree = ::com::sun::source::tree::ThrowTree;
 using $Tree = ::com::sun::source::tree::Tree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
-using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $TryTree = ::com::sun::source::tree::TryTree;
 using $TypeCastTree = ::com::sun::source::tree::TypeCastTree;
 using $TypeParameterTree = ::com::sun::source::tree::TypeParameterTree;
@@ -318,131 +315,27 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _TreeCopier_FieldInfo_[] = {
-	{"M", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE, $field(TreeCopier, M)},
-	{}
-};
-
-$MethodInfo _TreeCopier_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, $PUBLIC, $method(TreeCopier, init$, void, $TreeMaker*)},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(TreeCopier, copy, $JCTree*, $JCTree*)},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;TP;)TT;", $PUBLIC, $virtualMethod(TreeCopier, copy, $JCTree*, $JCTree*, Object$*)},
-	{"copy", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;)Lcom/sun/tools/javac/util/List<TT;>;", $PUBLIC, $virtualMethod(TreeCopier, copy, $List*, $List*)},
-	{"copy", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;TP;)Lcom/sun/tools/javac/util/List<TT;>;", $PUBLIC, $virtualMethod(TreeCopier, copy, $List*, $List*, Object$*)},
-	{"visitAnnotatedType", "(Lcom/sun/source/tree/AnnotatedTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AnnotatedTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAnnotatedType, $Object*, $AnnotatedTypeTree*, Object$*)},
-	{"visitAnnotation", "(Lcom/sun/source/tree/AnnotationTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AnnotationTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAnnotation, $Object*, $AnnotationTree*, Object$*)},
-	{"visitArrayAccess", "(Lcom/sun/source/tree/ArrayAccessTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ArrayAccessTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitArrayAccess, $Object*, $ArrayAccessTree*, Object$*)},
-	{"visitArrayType", "(Lcom/sun/source/tree/ArrayTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ArrayTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitArrayType, $Object*, $ArrayTypeTree*, Object$*)},
-	{"visitAssert", "(Lcom/sun/source/tree/AssertTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AssertTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAssert, $Object*, $AssertTree*, Object$*)},
-	{"visitAssignment", "(Lcom/sun/source/tree/AssignmentTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AssignmentTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAssignment, $Object*, $AssignmentTree*, Object$*)},
-	{"visitBinary", "(Lcom/sun/source/tree/BinaryTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BinaryTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBinary, $Object*, $BinaryTree*, Object$*)},
-	{"visitBindingPattern", "(Lcom/sun/source/tree/BindingPatternTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BindingPatternTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBindingPattern, $Object*, $BindingPatternTree*, Object$*)},
-	{"visitBlock", "(Lcom/sun/source/tree/BlockTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BlockTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBlock, $Object*, $BlockTree*, Object$*)},
-	{"visitBreak", "(Lcom/sun/source/tree/BreakTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BreakTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBreak, $Object*, $BreakTree*, Object$*)},
-	{"visitCase", "(Lcom/sun/source/tree/CaseTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CaseTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCase, $Object*, $CaseTree*, Object$*)},
-	{"visitCatch", "(Lcom/sun/source/tree/CatchTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CatchTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCatch, $Object*, $CatchTree*, Object$*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ClassTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitClass, $Object*, $ClassTree*, Object$*)},
-	{"visitCompilationUnit", "(Lcom/sun/source/tree/CompilationUnitTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CompilationUnitTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCompilationUnit, $Object*, $CompilationUnitTree*, Object$*)},
-	{"visitCompoundAssignment", "(Lcom/sun/source/tree/CompoundAssignmentTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CompoundAssignmentTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCompoundAssignment, $Object*, $CompoundAssignmentTree*, Object$*)},
-	{"visitConditionalExpression", "(Lcom/sun/source/tree/ConditionalExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ConditionalExpressionTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitConditionalExpression, $Object*, $ConditionalExpressionTree*, Object$*)},
-	{"visitContinue", "(Lcom/sun/source/tree/ContinueTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ContinueTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitContinue, $Object*, $ContinueTree*, Object$*)},
-	{"visitDefaultCaseLabel", "(Lcom/sun/source/tree/DefaultCaseLabelTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/DefaultCaseLabelTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitDefaultCaseLabel, $Object*, $DefaultCaseLabelTree*, Object$*)},
-	{"visitDoWhileLoop", "(Lcom/sun/source/tree/DoWhileLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/DoWhileLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitDoWhileLoop, $Object*, $DoWhileLoopTree*, Object$*)},
-	{"visitEmptyStatement", "(Lcom/sun/source/tree/EmptyStatementTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/EmptyStatementTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitEmptyStatement, $Object*, $EmptyStatementTree*, Object$*)},
-	{"visitEnhancedForLoop", "(Lcom/sun/source/tree/EnhancedForLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/EnhancedForLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitEnhancedForLoop, $Object*, $EnhancedForLoopTree*, Object$*)},
-	{"visitErroneous", "(Lcom/sun/source/tree/ErroneousTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ErroneousTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitErroneous, $Object*, $ErroneousTree*, Object$*)},
-	{"visitExports", "(Lcom/sun/source/tree/ExportsTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", "(Lcom/sun/source/tree/ExportsTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", $PUBLIC, $virtualMethod(TreeCopier, visitExports, $Object*, $ExportsTree*, Object$*)},
-	{"visitExpressionStatement", "(Lcom/sun/source/tree/ExpressionStatementTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ExpressionStatementTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitExpressionStatement, $Object*, $ExpressionStatementTree*, Object$*)},
-	{"visitForLoop", "(Lcom/sun/source/tree/ForLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ForLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitForLoop, $Object*, $ForLoopTree*, Object$*)},
-	{"visitGuardedPattern", "(Lcom/sun/source/tree/GuardedPatternTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/GuardedPatternTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitGuardedPattern, $Object*, $GuardedPatternTree*, Object$*)},
-	{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/IdentifierTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitIdentifier, $Object*, $IdentifierTree*, Object$*)},
-	{"visitIf", "(Lcom/sun/source/tree/IfTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/IfTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitIf, $Object*, $IfTree*, Object$*)},
-	{"visitImport", "(Lcom/sun/source/tree/ImportTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ImportTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitImport, $Object*, $ImportTree*, Object$*)},
-	{"visitInstanceOf", "(Lcom/sun/source/tree/InstanceOfTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/InstanceOfTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitInstanceOf, $Object*, $InstanceOfTree*, Object$*)},
-	{"visitIntersectionType", "(Lcom/sun/source/tree/IntersectionTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/IntersectionTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitIntersectionType, $Object*, $IntersectionTypeTree*, Object$*)},
-	{"visitLabeledStatement", "(Lcom/sun/source/tree/LabeledStatementTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/LabeledStatementTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitLabeledStatement, $Object*, $LabeledStatementTree*, Object$*)},
-	{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/LambdaExpressionTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitLambdaExpression, $Object*, $LambdaExpressionTree*, Object$*)},
-	{"visitLiteral", "(Lcom/sun/source/tree/LiteralTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/LiteralTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitLiteral, $Object*, $LiteralTree*, Object$*)},
-	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MemberReferenceTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
-	{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MemberSelectTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMemberSelect, $Object*, $MemberSelectTree*, Object$*)},
-	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MethodTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMethod, $Object*, $MethodTree*, Object$*)},
-	{"visitMethodInvocation", "(Lcom/sun/source/tree/MethodInvocationTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MethodInvocationTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMethodInvocation, $Object*, $MethodInvocationTree*, Object$*)},
-	{"visitModifiers", "(Lcom/sun/source/tree/ModifiersTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ModifiersTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitModifiers, $Object*, $ModifiersTree*, Object$*)},
-	{"visitModule", "(Lcom/sun/source/tree/ModuleTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ModuleTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitModule, $Object*, $ModuleTree*, Object$*)},
-	{"visitNewArray", "(Lcom/sun/source/tree/NewArrayTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/NewArrayTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitNewArray, $Object*, $NewArrayTree*, Object$*)},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/NewClassTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitNewClass, $Object*, $NewClassTree*, Object$*)},
-	{"visitOpens", "(Lcom/sun/source/tree/OpensTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", "(Lcom/sun/source/tree/OpensTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", $PUBLIC, $virtualMethod(TreeCopier, visitOpens, $Object*, $OpensTree*, Object$*)},
-	{"visitOther", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/Tree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitOther, $Object*, $Tree*, Object$*)},
-	{"visitPackage", "(Lcom/sun/source/tree/PackageTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/PackageTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitPackage, $Object*, $PackageTree*, Object$*)},
-	{"visitParameterizedType", "(Lcom/sun/source/tree/ParameterizedTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ParameterizedTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitParameterizedType, $Object*, $ParameterizedTypeTree*, Object$*)},
-	{"visitParenthesized", "(Lcom/sun/source/tree/ParenthesizedTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ParenthesizedTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitParenthesized, $Object*, $ParenthesizedTree*, Object$*)},
-	{"visitParenthesizedPattern", "(Lcom/sun/source/tree/ParenthesizedPatternTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ParenthesizedPatternTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitParenthesizedPattern, $Object*, $ParenthesizedPatternTree*, Object$*)},
-	{"visitPrimitiveType", "(Lcom/sun/source/tree/PrimitiveTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/PrimitiveTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitPrimitiveType, $Object*, $PrimitiveTypeTree*, Object$*)},
-	{"visitProvides", "(Lcom/sun/source/tree/ProvidesTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", "(Lcom/sun/source/tree/ProvidesTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", $PUBLIC, $virtualMethod(TreeCopier, visitProvides, $Object*, $ProvidesTree*, Object$*)},
-	{"visitRequires", "(Lcom/sun/source/tree/RequiresTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCRequires;", "(Lcom/sun/source/tree/RequiresTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCRequires;", $PUBLIC, $virtualMethod(TreeCopier, visitRequires, $Object*, $RequiresTree*, Object$*)},
-	{"visitReturn", "(Lcom/sun/source/tree/ReturnTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ReturnTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitReturn, $Object*, $ReturnTree*, Object$*)},
-	{"visitSwitch", "(Lcom/sun/source/tree/SwitchTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/SwitchTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitSwitch, $Object*, $SwitchTree*, Object$*)},
-	{"visitSwitchExpression", "(Lcom/sun/source/tree/SwitchExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/SwitchExpressionTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitSwitchExpression, $Object*, $SwitchExpressionTree*, Object$*)},
-	{"visitSynchronized", "(Lcom/sun/source/tree/SynchronizedTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/SynchronizedTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitSynchronized, $Object*, $SynchronizedTree*, Object$*)},
-	{"visitThrow", "(Lcom/sun/source/tree/ThrowTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ThrowTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitThrow, $Object*, $ThrowTree*, Object$*)},
-	{"visitTry", "(Lcom/sun/source/tree/TryTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/TryTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitTry, $Object*, $TryTree*, Object$*)},
-	{"visitTypeCast", "(Lcom/sun/source/tree/TypeCastTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/TypeCastTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitTypeCast, $Object*, $TypeCastTree*, Object$*)},
-	{"visitTypeParameter", "(Lcom/sun/source/tree/TypeParameterTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/TypeParameterTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitTypeParameter, $Object*, $TypeParameterTree*, Object$*)},
-	{"visitUnary", "(Lcom/sun/source/tree/UnaryTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/UnaryTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitUnary, $Object*, $UnaryTree*, Object$*)},
-	{"visitUnionType", "(Lcom/sun/source/tree/UnionTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/UnionTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitUnionType, $Object*, $UnionTypeTree*, Object$*)},
-	{"visitUses", "(Lcom/sun/source/tree/UsesTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCUses;", "(Lcom/sun/source/tree/UsesTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCUses;", $PUBLIC, $virtualMethod(TreeCopier, visitUses, $Object*, $UsesTree*, Object$*)},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/VariableTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitVariable, $Object*, $VariableTree*, Object$*)},
-	{"visitWhileLoop", "(Lcom/sun/source/tree/WhileLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/WhileLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitWhileLoop, $Object*, $WhileLoopTree*, Object$*)},
-	{"visitWildcard", "(Lcom/sun/source/tree/WildcardTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/WildcardTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitWildcard, $Object*, $WildcardTree*, Object$*)},
-	{"visitYield", "(Lcom/sun/source/tree/YieldTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/YieldTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitYield, $Object*, $YieldTree*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _TreeCopier_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeCopier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TreeCopier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeCopier",
-	"java.lang.Object",
-	"com.sun.source.tree.TreeVisitor",
-	_TreeCopier_FieldInfo_,
-	_TreeCopier_MethodInfo_,
-	"<P:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/source/tree/TreeVisitor<Lcom/sun/tools/javac/tree/JCTree;TP;>;",
-	nullptr,
-	_TreeCopier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeCopier$1"
-};
-
-$Object* allocate$TreeCopier($Class* clazz) {
-	return $of($alloc(TreeCopier));
-}
-
 void TreeCopier::init$($TreeMaker* M) {
 	$set(this, M, M);
 }
 
 $JCTree* TreeCopier::copy($JCTree* tree) {
-	return copy(tree, ($Object*)nullptr);
+	return copy(tree, nullptr);
 }
 
 $JCTree* TreeCopier::copy($JCTree* tree, Object$* p) {
 	if (tree == nullptr) {
 		return nullptr;
 	}
-	return ($cast($JCTree, $nc(tree)->accept(this, p)));
+	return $cast($JCTree, $nc(tree)->accept(this, p));
 }
 
 $List* TreeCopier::copy($List* trees) {
-	return copy(trees, ($Object*)nullptr);
+	return copy(trees, nullptr);
 }
 
 $List* TreeCopier::copy($List* trees, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (trees == nullptr) {
 		return nullptr;
 	}
@@ -458,554 +351,550 @@ $List* TreeCopier::copy($List* trees, Object$* p) {
 }
 
 $Object* TreeCopier::visitAnnotatedType($AnnotatedTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCAnnotatedType, t, $cast($JCTree$JCAnnotatedType, node));
 	$var($List, annotations, copy($nc(t)->annotations, p));
-	$var($JCTree$JCExpression, underlyingType, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->underlyingType), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->AnnotatedType(annotations, underlyingType));
+	$var($JCTree$JCExpression, underlyingType, $cast($JCTree$JCExpression, copy(t->underlyingType, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->AnnotatedType(annotations, underlyingType));
 }
 
 $Object* TreeCopier::visitAnnotation($AnnotationTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCAnnotation, t, $cast($JCTree$JCAnnotation, node));
 	$var($JCTree, annotationType, copy($nc(t)->annotationType, p));
-	$var($List, args, copy($nc(t)->args, p));
+	$var($List, args, copy(t->args, p));
 	$init($Tree$Kind);
-	if ($nc(t)->getKind() == $Tree$Kind::TYPE_ANNOTATION) {
-		$var($JCTree$JCAnnotation, newTA, $nc($($nc(this->M)->at(t->pos$)))->TypeAnnotation(annotationType, args));
+	if (t->getKind() == $Tree$Kind::TYPE_ANNOTATION) {
+		$var($JCTree$JCAnnotation, newTA, $$nc($nc(this->M)->at(t->pos$))->TypeAnnotation(annotationType, args));
 		$set($nc(newTA), attribute, t->attribute);
 		return $of(newTA);
 	} else {
-		$var($JCTree$JCAnnotation, newT, $nc($($nc(this->M)->at(t->pos$)))->Annotation(annotationType, args));
+		$var($JCTree$JCAnnotation, newT, $$nc($nc(this->M)->at(t->pos$))->Annotation(annotationType, args));
 		$set($nc(newT), attribute, t->attribute);
 		return $of(newT);
 	}
 }
 
 $Object* TreeCopier::visitAssert($AssertTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCAssert, t, $cast($JCTree$JCAssert, node));
-	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->cond), p)));
-	$var($JCTree$JCExpression, detail, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->detail), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Assert(cond, detail));
+	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy($nc(t)->cond, p)));
+	$var($JCTree$JCExpression, detail, $cast($JCTree$JCExpression, copy(t->detail, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Assert(cond, detail));
 }
 
 $Object* TreeCopier::visitAssignment($AssignmentTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCAssign, t, $cast($JCTree$JCAssign, node));
-	$var($JCTree$JCExpression, lhs, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->lhs), p)));
-	$var($JCTree$JCExpression, rhs, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->rhs), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Assign(lhs, rhs));
+	$var($JCTree$JCExpression, lhs, $cast($JCTree$JCExpression, copy($nc(t)->lhs, p)));
+	$var($JCTree$JCExpression, rhs, $cast($JCTree$JCExpression, copy(t->rhs, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Assign(lhs, rhs));
 }
 
 $Object* TreeCopier::visitCompoundAssignment($CompoundAssignmentTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCAssignOp, t, $cast($JCTree$JCAssignOp, node));
-	$var($JCTree, lhs, copy(static_cast<$JCTree*>($nc(t)->lhs), p));
-	$var($JCTree, rhs, copy(static_cast<$JCTree*>($nc(t)->rhs), p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Assignop($($nc(t)->getTag()), lhs, rhs));
+	$var($JCTree, lhs, copy($nc(t)->lhs, p));
+	$var($JCTree, rhs, copy(t->rhs, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Assignop($(t->getTag()), lhs, rhs));
 }
 
 $Object* TreeCopier::visitBinary($BinaryTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCBinary, t, $cast($JCTree$JCBinary, node));
-	$var($JCTree$JCExpression, lhs, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->lhs), p)));
-	$var($JCTree$JCExpression, rhs, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->rhs), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Binary($($nc(t)->getTag()), lhs, rhs));
+	$var($JCTree$JCExpression, lhs, $cast($JCTree$JCExpression, copy($nc(t)->lhs, p)));
+	$var($JCTree$JCExpression, rhs, $cast($JCTree$JCExpression, copy(t->rhs, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Binary($(t->getTag()), lhs, rhs));
 }
 
 $Object* TreeCopier::visitBlock($BlockTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCBlock, t, $cast($JCTree$JCBlock, node));
 	$var($List, stats, copy($nc(t)->stats, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Block($nc(t)->flags, stats));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Block(t->flags, stats));
 }
 
 $Object* TreeCopier::visitBreak($BreakTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCBreak, t, $cast($JCTree$JCBreak, node));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Break($nc(t)->label));
+	return $of($$nc($nc(this->M)->at($nc(t)->pos$))->Break($nc(t)->label));
 }
 
 $Object* TreeCopier::visitYield($YieldTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCYield, t, $cast($JCTree$JCYield, node));
-	$var($JCTree$JCExpression, value, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->value), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Yield(value));
+	$var($JCTree$JCExpression, value, $cast($JCTree$JCExpression, copy($nc(t)->value, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Yield(value));
 }
 
 $Object* TreeCopier::visitCase($CaseTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCCase, t, $cast($JCTree$JCCase, node));
 	$var($List, labels, copy($nc(t)->labels, p));
-	$var($List, stats, copy($nc(t)->stats, p));
+	$var($List, stats, copy(t->stats, p));
 	$var($JCTree, body, nullptr);
 	$init($CaseTree$CaseKind);
 	if ($nc(node)->getCaseKind() == $CaseTree$CaseKind::RULE) {
 		$init($JCTree$Tag);
-		$assign(body, $instanceOf($JCTree$JCExpression, $nc(t)->body) && $nc(($cast($JCTree$JCStatement, $nc(t->stats)->head)))->hasTag($JCTree$Tag::YIELD) ? static_cast<$JCTree*>($nc(($cast($JCTree$JCYield, $nc($nc(t)->stats)->head)))->value) : $cast($JCTree, $nc(t->stats)->head));
+		$assign(body, $instanceOf($JCTree$JCExpression, t->body) && $nc($cast($JCTree$JCStatement, $nc(t->stats)->head))->hasTag($JCTree$Tag::YIELD) ? $cast($JCTree, $cast($JCTree$JCYield, t->stats->head)->value) : $cast($JCTree, $nc(t->stats)->head));
 	} else {
 		$assign(body, nullptr);
 	}
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Case($nc(t)->caseKind, labels, stats, body));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Case(t->caseKind, labels, stats, body));
 }
 
 $Object* TreeCopier::visitCatch($CatchTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCCatch, t, $cast($JCTree$JCCatch, node));
-	$var($JCTree$JCVariableDecl, param, $cast($JCTree$JCVariableDecl, copy(static_cast<$JCTree*>($nc(t)->param), p)));
-	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Catch(param, body));
+	$var($JCTree$JCVariableDecl, param, $cast($JCTree$JCVariableDecl, copy($nc(t)->param, p)));
+	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(t->body, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Catch(param, body));
 }
 
 $Object* TreeCopier::visitClass($ClassTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCClassDecl, t, $cast($JCTree$JCClassDecl, node));
-	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy(static_cast<$JCTree*>($nc(t)->mods), p)));
-	$var($List, typarams, copy($nc(t)->typarams, p));
-	$var($JCTree$JCExpression, extending, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->extending), p)));
-	$var($List, implementing, copy($nc(t)->implementing, p));
-	$var($List, defs, copy($nc(t)->defs, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->ClassDef(mods, $nc(t)->name, typarams, extending, implementing, defs));
+	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy($nc(t)->mods, p)));
+	$var($List, typarams, copy(t->typarams, p));
+	$var($JCTree$JCExpression, extending, $cast($JCTree$JCExpression, copy(t->extending, p)));
+	$var($List, implementing, copy(t->implementing, p));
+	$var($List, defs, copy(t->defs, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->ClassDef(mods, t->name, typarams, extending, implementing, defs));
 }
 
 $Object* TreeCopier::visitConditionalExpression($ConditionalExpressionTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCConditional, t, $cast($JCTree$JCConditional, node));
-	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->cond), p)));
-	$var($JCTree$JCExpression, truepart, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->truepart), p)));
-	$var($JCTree$JCExpression, falsepart, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->falsepart), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Conditional(cond, truepart, falsepart));
+	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy($nc(t)->cond, p)));
+	$var($JCTree$JCExpression, truepart, $cast($JCTree$JCExpression, copy(t->truepart, p)));
+	$var($JCTree$JCExpression, falsepart, $cast($JCTree$JCExpression, copy(t->falsepart, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Conditional(cond, truepart, falsepart));
 }
 
 $Object* TreeCopier::visitContinue($ContinueTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCContinue, t, $cast($JCTree$JCContinue, node));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Continue($nc(t)->label));
+	return $of($$nc($nc(this->M)->at($nc(t)->pos$))->Continue($nc(t)->label));
 }
 
 $Object* TreeCopier::visitDoWhileLoop($DoWhileLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCDoWhileLoop, t, $cast($JCTree$JCDoWhileLoop, node));
-	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->cond), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->DoLoop(body, cond));
+	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy($nc(t)->body, p)));
+	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(t->cond, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->DoLoop(body, cond));
 }
 
 $Object* TreeCopier::visitErroneous($ErroneousTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCErroneous, t, $cast($JCTree$JCErroneous, node));
 	$var($List, errs, copy($nc(t)->errs, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Erroneous(errs));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Erroneous(errs));
 }
 
 $Object* TreeCopier::visitExpressionStatement($ExpressionStatementTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpressionStatement, t, $cast($JCTree$JCExpressionStatement, node));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Exec(expr));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy($nc(t)->expr, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Exec(expr));
 }
 
 $Object* TreeCopier::visitEnhancedForLoop($EnhancedForLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCEnhancedForLoop, t, $cast($JCTree$JCEnhancedForLoop, node));
-	$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, copy(static_cast<$JCTree*>($nc(t)->var), p)));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->ForeachLoop(var, expr, body));
+	$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, copy($nc(t)->var, p)));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(t->expr, p)));
+	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy(t->body, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->ForeachLoop(var, expr, body));
 }
 
 $Object* TreeCopier::visitForLoop($ForLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCForLoop, t, $cast($JCTree$JCForLoop, node));
 	$var($List, init, copy($nc(t)->init, p));
-	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->cond), p)));
-	$var($List, step, copy($nc(t)->step, p));
-	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->ForLoop(init, cond, step, body));
+	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(t->cond, p)));
+	$var($List, step, copy(t->step, p));
+	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy(t->body, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->ForLoop(init, cond, step, body));
 }
 
 $Object* TreeCopier::visitIdentifier($IdentifierTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCIdent, t, $cast($JCTree$JCIdent, node));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Ident($nc(t)->name));
+	return $of($$nc($nc(this->M)->at($nc(t)->pos$))->Ident($nc(t)->name));
 }
 
 $Object* TreeCopier::visitIf($IfTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCIf, t, $cast($JCTree$JCIf, node));
-	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->cond), p)));
-	$var($JCTree$JCStatement, thenpart, $cast($JCTree$JCStatement, copy(static_cast<$JCTree*>($nc(t)->thenpart), p)));
-	$var($JCTree$JCStatement, elsepart, $cast($JCTree$JCStatement, copy(static_cast<$JCTree*>($nc(t)->elsepart), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->If(cond, thenpart, elsepart));
+	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy($nc(t)->cond, p)));
+	$var($JCTree$JCStatement, thenpart, $cast($JCTree$JCStatement, copy(t->thenpart, p)));
+	$var($JCTree$JCStatement, elsepart, $cast($JCTree$JCStatement, copy(t->elsepart, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->If(cond, thenpart, elsepart));
 }
 
 $Object* TreeCopier::visitImport($ImportTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCImport, t, $cast($JCTree$JCImport, node));
 	$var($JCTree, qualid, copy($nc(t)->qualid, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Import(qualid, $nc(t)->staticImport));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Import(qualid, t->staticImport));
 }
 
 $Object* TreeCopier::visitArrayAccess($ArrayAccessTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCArrayAccess, t, $cast($JCTree$JCArrayAccess, node));
-	$var($JCTree$JCExpression, indexed, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->indexed), p)));
-	$var($JCTree$JCExpression, index, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->index), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Indexed(indexed, index));
+	$var($JCTree$JCExpression, indexed, $cast($JCTree$JCExpression, copy($nc(t)->indexed, p)));
+	$var($JCTree$JCExpression, index, $cast($JCTree$JCExpression, copy(t->index, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Indexed(indexed, index));
 }
 
 $Object* TreeCopier::visitLabeledStatement($LabeledStatementTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCLabeledStatement, t, $cast($JCTree$JCLabeledStatement, node));
-	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Labelled($nc(t)->label, body));
+	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy($nc(t)->body, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Labelled(t->label, body));
 }
 
 $Object* TreeCopier::visitLiteral($LiteralTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCLiteral, t, $cast($JCTree$JCLiteral, node));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Literal($nc(t)->typetag, t->value));
+	return $of($$nc($nc(this->M)->at($nc(t)->pos$))->Literal($nc(t)->typetag, $nc(t)->value));
 }
 
 $Object* TreeCopier::visitMethod($MethodTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCMethodDecl, t, $cast($JCTree$JCMethodDecl, node));
-	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy(static_cast<$JCTree*>($nc(t)->mods), p)));
-	$var($JCTree$JCExpression, restype, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->restype), p)));
-	$var($List, typarams, copy($nc(t)->typarams, p));
-	$var($List, params, copy($nc(t)->params, p));
-	$var($JCTree$JCVariableDecl, recvparam, $cast($JCTree$JCVariableDecl, copy(static_cast<$JCTree*>($nc(t)->recvparam), p)));
-	$var($List, thrown, copy($nc(t)->thrown, p));
-	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	$var($JCTree$JCExpression, defaultValue, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->defaultValue), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->MethodDef(mods, $nc(t)->name, restype, typarams, recvparam, params, thrown, body, defaultValue));
+	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy($nc(t)->mods, p)));
+	$var($JCTree$JCExpression, restype, $cast($JCTree$JCExpression, copy(t->restype, p)));
+	$var($List, typarams, copy(t->typarams, p));
+	$var($List, params, copy(t->params, p));
+	$var($JCTree$JCVariableDecl, recvparam, $cast($JCTree$JCVariableDecl, copy(t->recvparam, p)));
+	$var($List, thrown, copy(t->thrown, p));
+	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(t->body, p)));
+	$var($JCTree$JCExpression, defaultValue, $cast($JCTree$JCExpression, copy(t->defaultValue, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->MethodDef(mods, t->name, restype, typarams, recvparam, params, thrown, body, defaultValue));
 }
 
 $Object* TreeCopier::visitMethodInvocation($MethodInvocationTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCMethodInvocation, t, $cast($JCTree$JCMethodInvocation, node));
 	$var($List, typeargs, copy($nc(t)->typeargs, p));
-	$var($JCTree$JCExpression, meth, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->meth), p)));
-	$var($List, args, copy($nc(t)->args, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Apply(typeargs, meth, args));
+	$var($JCTree$JCExpression, meth, $cast($JCTree$JCExpression, copy(t->meth, p)));
+	$var($List, args, copy(t->args, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Apply(typeargs, meth, args));
 }
 
 $Object* TreeCopier::visitModifiers($ModifiersTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCModifiers, t, $cast($JCTree$JCModifiers, node));
 	$var($List, annotations, copy($nc(t)->annotations, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Modifiers($nc(t)->flags, annotations));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Modifiers(t->flags, annotations));
 }
 
 $Object* TreeCopier::visitNewArray($NewArrayTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCNewArray, t, $cast($JCTree$JCNewArray, node));
-	$var($JCTree$JCExpression, elemtype, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->elemtype), p)));
-	$var($List, dims, copy($nc(t)->dims, p));
-	$var($List, elems, copy($nc(t)->elems, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->NewArray(elemtype, dims, elems));
+	$var($JCTree$JCExpression, elemtype, $cast($JCTree$JCExpression, copy($nc(t)->elemtype, p)));
+	$var($List, dims, copy(t->dims, p));
+	$var($List, elems, copy(t->elems, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->NewArray(elemtype, dims, elems));
 }
 
 $Object* TreeCopier::visitNewClass($NewClassTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCNewClass, t, $cast($JCTree$JCNewClass, node));
-	$var($JCTree$JCExpression, encl, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->encl), p)));
-	$var($List, typeargs, copy($nc(t)->typeargs, p));
-	$var($JCTree$JCExpression, clazz, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->clazz), p)));
-	$var($List, args, copy($nc(t)->args, p));
-	$var($JCTree$JCClassDecl, def, $cast($JCTree$JCClassDecl, copy(static_cast<$JCTree*>($nc(t)->def), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->NewClass(encl, typeargs, clazz, args, def));
+	$var($JCTree$JCExpression, encl, $cast($JCTree$JCExpression, copy($nc(t)->encl, p)));
+	$var($List, typeargs, copy(t->typeargs, p));
+	$var($JCTree$JCExpression, clazz, $cast($JCTree$JCExpression, copy(t->clazz, p)));
+	$var($List, args, copy(t->args, p));
+	$var($JCTree$JCClassDecl, def, $cast($JCTree$JCClassDecl, copy(t->def, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->NewClass(encl, typeargs, clazz, args, def));
 }
 
 $Object* TreeCopier::visitLambdaExpression($LambdaExpressionTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCLambda, t, $cast($JCTree$JCLambda, node));
 	$var($List, params, copy($nc(t)->params, p));
-	$var($JCTree, body, copy($nc(t)->body, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Lambda(params, body));
+	$var($JCTree, body, copy(t->body, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Lambda(params, body));
 }
 
 $Object* TreeCopier::visitParenthesized($ParenthesizedTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCParens, t, $cast($JCTree$JCParens, node));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Parens(expr));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy($nc(t)->expr, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Parens(expr));
 }
 
 $Object* TreeCopier::visitReturn($ReturnTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCReturn, t, $cast($JCTree$JCReturn, node));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Return(expr));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy($nc(t)->expr, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Return(expr));
 }
 
 $Object* TreeCopier::visitMemberSelect($MemberSelectTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCFieldAccess, t, $cast($JCTree$JCFieldAccess, node));
-	$var($JCTree$JCExpression, selected, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->selected), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Select(selected, $nc(t)->name));
+	$var($JCTree$JCExpression, selected, $cast($JCTree$JCExpression, copy($nc(t)->selected, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Select(selected, t->name));
 }
 
 $Object* TreeCopier::visitMemberReference($MemberReferenceTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCMemberReference, t, $cast($JCTree$JCMemberReference, node));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	$var($List, typeargs, copy($nc(t)->typeargs, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Reference($nc(t)->mode, t->name, expr, typeargs));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy($nc(t)->expr, p)));
+	$var($List, typeargs, copy(t->typeargs, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Reference(t->mode, t->name, expr, typeargs));
 }
 
 $Object* TreeCopier::visitEmptyStatement($EmptyStatementTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCSkip, t, $cast($JCTree$JCSkip, node));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Skip());
+	return $of($$nc($nc(this->M)->at($nc(t)->pos$))->Skip());
 }
 
 $Object* TreeCopier::visitSwitch($SwitchTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCSwitch, t, $cast($JCTree$JCSwitch, node));
-	$var($JCTree$JCExpression, selector, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->selector), p)));
-	$var($List, cases, copy($nc(t)->cases, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Switch(selector, cases));
+	$var($JCTree$JCExpression, selector, $cast($JCTree$JCExpression, copy($nc(t)->selector, p)));
+	$var($List, cases, copy(t->cases, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Switch(selector, cases));
 }
 
 $Object* TreeCopier::visitSwitchExpression($SwitchExpressionTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCSwitchExpression, t, $cast($JCTree$JCSwitchExpression, node));
-	$var($JCTree$JCExpression, selector, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->selector), p)));
-	$var($List, cases, copy($nc(t)->cases, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->SwitchExpression(selector, cases));
+	$var($JCTree$JCExpression, selector, $cast($JCTree$JCExpression, copy($nc(t)->selector, p)));
+	$var($List, cases, copy(t->cases, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->SwitchExpression(selector, cases));
 }
 
 $Object* TreeCopier::visitSynchronized($SynchronizedTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCSynchronized, t, $cast($JCTree$JCSynchronized, node));
-	$var($JCTree$JCExpression, lock, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->lock), p)));
-	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Synchronized(lock, body));
+	$var($JCTree$JCExpression, lock, $cast($JCTree$JCExpression, copy($nc(t)->lock, p)));
+	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(t->body, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Synchronized(lock, body));
 }
 
 $Object* TreeCopier::visitThrow($ThrowTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCThrow, t, $cast($JCTree$JCThrow, node));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Throw(expr));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy($nc(t)->expr, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Throw(expr));
 }
 
 $Object* TreeCopier::visitCompilationUnit($CompilationUnitTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCCompilationUnit, t, $cast($JCTree$JCCompilationUnit, node));
 	$var($List, defs, copy($nc(t)->defs, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TopLevel(defs));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TopLevel(defs));
 }
 
 $Object* TreeCopier::visitPackage($PackageTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCPackageDecl, t, $cast($JCTree$JCPackageDecl, node));
 	$var($List, annotations, copy($nc(t)->annotations, p));
-	$var($JCTree$JCExpression, pid, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->pid), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->PackageDecl(annotations, pid));
+	$var($JCTree$JCExpression, pid, $cast($JCTree$JCExpression, copy(t->pid, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->PackageDecl(annotations, pid));
 }
 
 $Object* TreeCopier::visitTry($TryTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCTry, t, $cast($JCTree$JCTry, node));
 	$var($List, resources, copy($nc(t)->resources, p));
-	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	$var($List, catchers, copy($nc(t)->catchers, p));
-	$var($JCTree$JCBlock, finalizer, $cast($JCTree$JCBlock, copy(static_cast<$JCTree*>($nc(t)->finalizer), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Try(resources, body, catchers, finalizer));
+	$var($JCTree$JCBlock, body, $cast($JCTree$JCBlock, copy(t->body, p)));
+	$var($List, catchers, copy(t->catchers, p));
+	$var($JCTree$JCBlock, finalizer, $cast($JCTree$JCBlock, copy(t->finalizer, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Try(resources, body, catchers, finalizer));
 }
 
 $Object* TreeCopier::visitParameterizedType($ParameterizedTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCTypeApply, t, $cast($JCTree$JCTypeApply, node));
-	$var($JCTree$JCExpression, clazz, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->clazz), p)));
-	$var($List, arguments, copy($nc(t)->arguments, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeApply(clazz, arguments));
+	$var($JCTree$JCExpression, clazz, $cast($JCTree$JCExpression, copy($nc(t)->clazz, p)));
+	$var($List, arguments, copy(t->arguments, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TypeApply(clazz, arguments));
 }
 
 $Object* TreeCopier::visitUnionType($UnionTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCTypeUnion, t, $cast($JCTree$JCTypeUnion, node));
 	$var($List, components, copy($nc(t)->alternatives, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeUnion(components));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TypeUnion(components));
 }
 
 $Object* TreeCopier::visitIntersectionType($IntersectionTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCTypeIntersection, t, $cast($JCTree$JCTypeIntersection, node));
 	$var($List, bounds, copy($nc(t)->bounds, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeIntersection(bounds));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TypeIntersection(bounds));
 }
 
 $Object* TreeCopier::visitArrayType($ArrayTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCArrayTypeTree, t, $cast($JCTree$JCArrayTypeTree, node));
-	$var($JCTree$JCExpression, elemtype, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->elemtype), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeArray(elemtype));
+	$var($JCTree$JCExpression, elemtype, $cast($JCTree$JCExpression, copy($nc(t)->elemtype, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TypeArray(elemtype));
 }
 
 $Object* TreeCopier::visitTypeCast($TypeCastTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCTypeCast, t, $cast($JCTree$JCTypeCast, node));
 	$var($JCTree, clazz, copy($nc(t)->clazz, p));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeCast(clazz, expr));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(t->expr, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TypeCast(clazz, expr));
 }
 
 $Object* TreeCopier::visitPrimitiveType($PrimitiveTypeTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCPrimitiveTypeTree, t, $cast($JCTree$JCPrimitiveTypeTree, node));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeIdent($nc(t)->typetag));
+	return $of($$nc($nc(this->M)->at($nc(t)->pos$))->TypeIdent($nc(t)->typetag));
 }
 
 $Object* TreeCopier::visitTypeParameter($TypeParameterTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCTypeParameter, t, $cast($JCTree$JCTypeParameter, node));
 	$var($List, annos, copy($nc(t)->annotations, p));
-	$var($List, bounds, copy($nc(t)->bounds, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeParameter($nc(t)->name, bounds, annos));
+	$var($List, bounds, copy(t->bounds, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TypeParameter(t->name, bounds, annos));
 }
 
 $Object* TreeCopier::visitInstanceOf($InstanceOfTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCInstanceOf, t, $cast($JCTree$JCInstanceOf, node));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	$var($JCTree, pattern, copy($nc(t)->pattern, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->TypeTest(expr, pattern));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy($nc(t)->expr, p)));
+	$var($JCTree, pattern, copy(t->pattern, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->TypeTest(expr, pattern));
 }
 
 $Object* TreeCopier::visitBindingPattern($BindingPatternTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCBindingPattern, t, $cast($JCTree$JCBindingPattern, node));
-	$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, copy(static_cast<$JCTree*>($nc(t)->var), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->BindingPattern(var));
+	$var($JCTree$JCVariableDecl, var, $cast($JCTree$JCVariableDecl, copy($nc(t)->var, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->BindingPattern(var));
 }
 
 $Object* TreeCopier::visitGuardedPattern($GuardedPatternTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCGuardPattern, t, $cast($JCTree$JCGuardPattern, node));
-	$var($JCTree$JCPattern, patt, $cast($JCTree$JCPattern, copy(static_cast<$JCTree*>($nc(t)->patt), p)));
-	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->GuardPattern(patt, expr));
+	$var($JCTree$JCPattern, patt, $cast($JCTree$JCPattern, copy($nc(t)->patt, p)));
+	$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(t->expr, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->GuardPattern(patt, expr));
 }
 
 $Object* TreeCopier::visitParenthesizedPattern($ParenthesizedPatternTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCParenthesizedPattern, t, $cast($JCTree$JCParenthesizedPattern, node));
-	$var($JCTree$JCPattern, pattern, $cast($JCTree$JCPattern, copy(static_cast<$JCTree*>($nc(t)->pattern), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->ParenthesizedPattern(pattern));
+	$var($JCTree$JCPattern, pattern, $cast($JCTree$JCPattern, copy($nc(t)->pattern, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->ParenthesizedPattern(pattern));
 }
 
 $Object* TreeCopier::visitDefaultCaseLabel($DefaultCaseLabelTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCDefaultCaseLabel, t, $cast($JCTree$JCDefaultCaseLabel, node));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->DefaultCaseLabel());
+	return $of($$nc($nc(this->M)->at($nc(t)->pos$))->DefaultCaseLabel());
 }
 
 $Object* TreeCopier::visitUnary($UnaryTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCUnary, t, $cast($JCTree$JCUnary, node));
-	$var($JCTree$JCExpression, arg, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->arg), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Unary($($nc(t)->getTag()), arg));
+	$var($JCTree$JCExpression, arg, $cast($JCTree$JCExpression, copy($nc(t)->arg, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Unary($(t->getTag()), arg));
 }
 
 $Object* TreeCopier::visitVariable($VariableTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCVariableDecl, t, $cast($JCTree$JCVariableDecl, node));
-	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy(static_cast<$JCTree*>($nc(t)->mods), p)));
-	$var($JCTree$JCExpression, vartype, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->vartype), p)));
-	if ($nc(t)->nameexpr == nullptr) {
-		$var($JCTree$JCExpression, init, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>(t->init), p)));
-		return $of($nc($($nc(this->M)->at(t->pos$)))->VarDef(mods, t->name, vartype, init));
+	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy($nc(t)->mods, p)));
+	$var($JCTree$JCExpression, vartype, $cast($JCTree$JCExpression, copy(t->vartype, p)));
+	if (t->nameexpr == nullptr) {
+		$var($JCTree$JCExpression, init, $cast($JCTree$JCExpression, copy(t->init, p)));
+		return $of($$nc($nc(this->M)->at(t->pos$))->VarDef(mods, t->name, vartype, init));
 	} else {
-		$var($JCTree$JCExpression, nameexpr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>(t->nameexpr), p)));
-		return $of($nc($($nc(this->M)->at(t->pos$)))->ReceiverVarDef(mods, nameexpr, vartype));
+		$var($JCTree$JCExpression, nameexpr, $cast($JCTree$JCExpression, copy(t->nameexpr, p)));
+		return $of($$nc($nc(this->M)->at(t->pos$))->ReceiverVarDef(mods, nameexpr, vartype));
 	}
 }
 
 $Object* TreeCopier::visitWhileLoop($WhileLoopTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCWhileLoop, t, $cast($JCTree$JCWhileLoop, node));
-	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy(static_cast<$JCTree*>($nc(t)->body), p)));
-	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->cond), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->WhileLoop(cond, body));
+	$var($JCTree$JCStatement, body, $cast($JCTree$JCStatement, copy($nc(t)->body, p)));
+	$var($JCTree$JCExpression, cond, $cast($JCTree$JCExpression, copy(t->cond, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->WhileLoop(cond, body));
 }
 
 $Object* TreeCopier::visitWildcard($WildcardTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCWildcard, t, $cast($JCTree$JCWildcard, node));
-	$var($JCTree$TypeBoundKind, kind, $nc($($nc(this->M)->at($nc($nc(t)->kind)->pos$)))->TypeBoundKind($nc($nc(t)->kind)->kind));
-	$var($JCTree, inner, copy($nc(t)->inner, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Wildcard(kind, inner));
+	$var($JCTree$TypeBoundKind, kind, $$nc($nc(this->M)->at($nc($nc(t)->kind)->pos$))->TypeBoundKind($nc($nc(t)->kind)->kind));
+	$var($JCTree, inner, copy(t->inner, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Wildcard(kind, inner));
 }
 
 $Object* TreeCopier::visitModule($ModuleTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCModuleDecl, t, $cast($JCTree$JCModuleDecl, node));
-	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy(static_cast<$JCTree*>($nc(t)->mods), p)));
-	$var($JCTree$JCExpression, qualId, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->qualId))));
-	$var($List, directives, copy($nc(t)->directives));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->ModuleDef(mods, $($nc(t)->getModuleType()), qualId, directives));
+	$var($JCTree$JCModifiers, mods, $cast($JCTree$JCModifiers, copy($nc(t)->mods, p)));
+	$var($JCTree$JCExpression, qualId, $cast($JCTree$JCExpression, copy(t->qualId)));
+	$var($List, directives, copy(t->directives));
+	return $of($$nc($nc(this->M)->at(t->pos$))->ModuleDef(mods, $(t->getModuleType()), qualId, directives));
 }
 
 $Object* TreeCopier::visitExports($ExportsTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExports, t, $cast($JCTree$JCExports, node));
-	$var($JCTree$JCExpression, qualId, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->qualid), p)));
-	$var($List, moduleNames, copy($nc(t)->moduleNames, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Exports(qualId, moduleNames));
+	$var($JCTree$JCExpression, qualId, $cast($JCTree$JCExpression, copy($nc(t)->qualid, p)));
+	$var($List, moduleNames, copy(t->moduleNames, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Exports(qualId, moduleNames));
 }
 
 $Object* TreeCopier::visitOpens($OpensTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCOpens, t, $cast($JCTree$JCOpens, node));
-	$var($JCTree$JCExpression, qualId, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->qualid), p)));
-	$var($List, moduleNames, copy($nc(t)->moduleNames, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Opens(qualId, moduleNames));
+	$var($JCTree$JCExpression, qualId, $cast($JCTree$JCExpression, copy($nc(t)->qualid, p)));
+	$var($List, moduleNames, copy(t->moduleNames, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Opens(qualId, moduleNames));
 }
 
 $Object* TreeCopier::visitProvides($ProvidesTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCProvides, t, $cast($JCTree$JCProvides, node));
-	$var($JCTree$JCExpression, serviceName, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->serviceName), p)));
-	$var($List, implNames, copy($nc(t)->implNames, p));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Provides(serviceName, implNames));
+	$var($JCTree$JCExpression, serviceName, $cast($JCTree$JCExpression, copy($nc(t)->serviceName, p)));
+	$var($List, implNames, copy(t->implNames, p));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Provides(serviceName, implNames));
 }
 
 $Object* TreeCopier::visitRequires($RequiresTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCRequires, t, $cast($JCTree$JCRequires, node));
-	$var($JCTree$JCExpression, moduleName, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->moduleName), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Requires($nc(t)->isTransitive$, t->isStaticPhase, moduleName));
+	$var($JCTree$JCExpression, moduleName, $cast($JCTree$JCExpression, copy($nc(t)->moduleName, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Requires(t->isTransitive$, t->isStaticPhase, moduleName));
 }
 
 $Object* TreeCopier::visitUses($UsesTree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCUses, t, $cast($JCTree$JCUses, node));
-	$var($JCTree$JCExpression, serviceName, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->qualid), p)));
-	return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->Uses(serviceName));
+	$var($JCTree$JCExpression, serviceName, $cast($JCTree$JCExpression, copy($nc(t)->qualid, p)));
+	return $of($$nc($nc(this->M)->at(t->pos$))->Uses(serviceName));
 }
 
 $Object* TreeCopier::visitOther($Tree* node, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree, tree, $cast($JCTree, node));
 	$init($TreeCopier$1);
-	switch ($nc($TreeCopier$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+	switch ($nc($TreeCopier$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 	case 1:
 		{
-			{
-				$var($JCTree$LetExpr, t, $cast($JCTree$LetExpr, node));
-				$var($List, defs, copy($nc(t)->defs, p));
-				$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(static_cast<$JCTree*>($nc(t)->expr), p)));
-				return $of($nc($($nc(this->M)->at($nc(t)->pos$)))->LetExpr(defs, expr));
-			}
+			$var($JCTree$LetExpr, t, $cast($JCTree$LetExpr, node));
+			$var($List, defs, copy($nc(t)->defs, p));
+			$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, copy(t->expr, p)));
+			return $of($$nc($nc(this->M)->at(t->pos$))->LetExpr(defs, expr));
 		}
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"unknown tree tag: "_s, $(tree->getTag())})));
-		}
+		$throwNew($AssertionError, $$of($str({"unknown tree tag: "_s, $(tree->getTag())})));
 	}
 }
 
@@ -1013,7 +902,105 @@ TreeCopier::TreeCopier() {
 }
 
 $Class* TreeCopier::load$($String* name, bool initialize) {
-	$loadClass(TreeCopier, name, initialize, &_TreeCopier_ClassInfo_, allocate$TreeCopier);
+	$FieldInfo fieldInfos$$[] = {
+		{"M", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE, $field(TreeCopier, M)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, $PUBLIC, $method(TreeCopier, init$, void, $TreeMaker*)},
+		{"copy", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(TreeCopier, copy, $JCTree*, $JCTree*)},
+		{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;TP;)TT;", $PUBLIC, $virtualMethod(TreeCopier, copy, $JCTree*, $JCTree*, Object$*)},
+		{"copy", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;)Lcom/sun/tools/javac/util/List<TT;>;", $PUBLIC, $virtualMethod(TreeCopier, copy, $List*, $List*)},
+		{"copy", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;TP;)Lcom/sun/tools/javac/util/List<TT;>;", $PUBLIC, $virtualMethod(TreeCopier, copy, $List*, $List*, Object$*)},
+		{"visitAnnotatedType", "(Lcom/sun/source/tree/AnnotatedTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AnnotatedTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAnnotatedType, $Object*, $AnnotatedTypeTree*, Object$*)},
+		{"visitAnnotation", "(Lcom/sun/source/tree/AnnotationTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AnnotationTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAnnotation, $Object*, $AnnotationTree*, Object$*)},
+		{"visitArrayAccess", "(Lcom/sun/source/tree/ArrayAccessTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ArrayAccessTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitArrayAccess, $Object*, $ArrayAccessTree*, Object$*)},
+		{"visitArrayType", "(Lcom/sun/source/tree/ArrayTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ArrayTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitArrayType, $Object*, $ArrayTypeTree*, Object$*)},
+		{"visitAssert", "(Lcom/sun/source/tree/AssertTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AssertTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAssert, $Object*, $AssertTree*, Object$*)},
+		{"visitAssignment", "(Lcom/sun/source/tree/AssignmentTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/AssignmentTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitAssignment, $Object*, $AssignmentTree*, Object$*)},
+		{"visitBinary", "(Lcom/sun/source/tree/BinaryTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BinaryTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBinary, $Object*, $BinaryTree*, Object$*)},
+		{"visitBindingPattern", "(Lcom/sun/source/tree/BindingPatternTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BindingPatternTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBindingPattern, $Object*, $BindingPatternTree*, Object$*)},
+		{"visitBlock", "(Lcom/sun/source/tree/BlockTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BlockTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBlock, $Object*, $BlockTree*, Object$*)},
+		{"visitBreak", "(Lcom/sun/source/tree/BreakTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/BreakTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitBreak, $Object*, $BreakTree*, Object$*)},
+		{"visitCase", "(Lcom/sun/source/tree/CaseTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CaseTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCase, $Object*, $CaseTree*, Object$*)},
+		{"visitCatch", "(Lcom/sun/source/tree/CatchTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CatchTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCatch, $Object*, $CatchTree*, Object$*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ClassTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitClass, $Object*, $ClassTree*, Object$*)},
+		{"visitCompilationUnit", "(Lcom/sun/source/tree/CompilationUnitTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CompilationUnitTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCompilationUnit, $Object*, $CompilationUnitTree*, Object$*)},
+		{"visitCompoundAssignment", "(Lcom/sun/source/tree/CompoundAssignmentTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/CompoundAssignmentTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitCompoundAssignment, $Object*, $CompoundAssignmentTree*, Object$*)},
+		{"visitConditionalExpression", "(Lcom/sun/source/tree/ConditionalExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ConditionalExpressionTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitConditionalExpression, $Object*, $ConditionalExpressionTree*, Object$*)},
+		{"visitContinue", "(Lcom/sun/source/tree/ContinueTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ContinueTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitContinue, $Object*, $ContinueTree*, Object$*)},
+		{"visitDefaultCaseLabel", "(Lcom/sun/source/tree/DefaultCaseLabelTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/DefaultCaseLabelTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitDefaultCaseLabel, $Object*, $DefaultCaseLabelTree*, Object$*)},
+		{"visitDoWhileLoop", "(Lcom/sun/source/tree/DoWhileLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/DoWhileLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitDoWhileLoop, $Object*, $DoWhileLoopTree*, Object$*)},
+		{"visitEmptyStatement", "(Lcom/sun/source/tree/EmptyStatementTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/EmptyStatementTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitEmptyStatement, $Object*, $EmptyStatementTree*, Object$*)},
+		{"visitEnhancedForLoop", "(Lcom/sun/source/tree/EnhancedForLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/EnhancedForLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitEnhancedForLoop, $Object*, $EnhancedForLoopTree*, Object$*)},
+		{"visitErroneous", "(Lcom/sun/source/tree/ErroneousTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ErroneousTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitErroneous, $Object*, $ErroneousTree*, Object$*)},
+		{"visitExports", "(Lcom/sun/source/tree/ExportsTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", "(Lcom/sun/source/tree/ExportsTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCExports;", $PUBLIC, $virtualMethod(TreeCopier, visitExports, $Object*, $ExportsTree*, Object$*)},
+		{"visitExpressionStatement", "(Lcom/sun/source/tree/ExpressionStatementTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ExpressionStatementTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitExpressionStatement, $Object*, $ExpressionStatementTree*, Object$*)},
+		{"visitForLoop", "(Lcom/sun/source/tree/ForLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ForLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitForLoop, $Object*, $ForLoopTree*, Object$*)},
+		{"visitGuardedPattern", "(Lcom/sun/source/tree/GuardedPatternTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/GuardedPatternTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitGuardedPattern, $Object*, $GuardedPatternTree*, Object$*)},
+		{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/IdentifierTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitIdentifier, $Object*, $IdentifierTree*, Object$*)},
+		{"visitIf", "(Lcom/sun/source/tree/IfTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/IfTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitIf, $Object*, $IfTree*, Object$*)},
+		{"visitImport", "(Lcom/sun/source/tree/ImportTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ImportTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitImport, $Object*, $ImportTree*, Object$*)},
+		{"visitInstanceOf", "(Lcom/sun/source/tree/InstanceOfTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/InstanceOfTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitInstanceOf, $Object*, $InstanceOfTree*, Object$*)},
+		{"visitIntersectionType", "(Lcom/sun/source/tree/IntersectionTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/IntersectionTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitIntersectionType, $Object*, $IntersectionTypeTree*, Object$*)},
+		{"visitLabeledStatement", "(Lcom/sun/source/tree/LabeledStatementTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/LabeledStatementTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitLabeledStatement, $Object*, $LabeledStatementTree*, Object$*)},
+		{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/LambdaExpressionTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitLambdaExpression, $Object*, $LambdaExpressionTree*, Object$*)},
+		{"visitLiteral", "(Lcom/sun/source/tree/LiteralTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/LiteralTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitLiteral, $Object*, $LiteralTree*, Object$*)},
+		{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MemberReferenceTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
+		{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MemberSelectTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMemberSelect, $Object*, $MemberSelectTree*, Object$*)},
+		{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MethodTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMethod, $Object*, $MethodTree*, Object$*)},
+		{"visitMethodInvocation", "(Lcom/sun/source/tree/MethodInvocationTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/MethodInvocationTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitMethodInvocation, $Object*, $MethodInvocationTree*, Object$*)},
+		{"visitModifiers", "(Lcom/sun/source/tree/ModifiersTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ModifiersTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitModifiers, $Object*, $ModifiersTree*, Object$*)},
+		{"visitModule", "(Lcom/sun/source/tree/ModuleTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ModuleTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitModule, $Object*, $ModuleTree*, Object$*)},
+		{"visitNewArray", "(Lcom/sun/source/tree/NewArrayTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/NewArrayTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitNewArray, $Object*, $NewArrayTree*, Object$*)},
+		{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/NewClassTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitNewClass, $Object*, $NewClassTree*, Object$*)},
+		{"visitOpens", "(Lcom/sun/source/tree/OpensTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", "(Lcom/sun/source/tree/OpensTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCOpens;", $PUBLIC, $virtualMethod(TreeCopier, visitOpens, $Object*, $OpensTree*, Object$*)},
+		{"visitOther", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/Tree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitOther, $Object*, $Tree*, Object$*)},
+		{"visitPackage", "(Lcom/sun/source/tree/PackageTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/PackageTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitPackage, $Object*, $PackageTree*, Object$*)},
+		{"visitParameterizedType", "(Lcom/sun/source/tree/ParameterizedTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ParameterizedTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitParameterizedType, $Object*, $ParameterizedTypeTree*, Object$*)},
+		{"visitParenthesized", "(Lcom/sun/source/tree/ParenthesizedTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ParenthesizedTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitParenthesized, $Object*, $ParenthesizedTree*, Object$*)},
+		{"visitParenthesizedPattern", "(Lcom/sun/source/tree/ParenthesizedPatternTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ParenthesizedPatternTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitParenthesizedPattern, $Object*, $ParenthesizedPatternTree*, Object$*)},
+		{"visitPrimitiveType", "(Lcom/sun/source/tree/PrimitiveTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/PrimitiveTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitPrimitiveType, $Object*, $PrimitiveTypeTree*, Object$*)},
+		{"visitProvides", "(Lcom/sun/source/tree/ProvidesTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", "(Lcom/sun/source/tree/ProvidesTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCProvides;", $PUBLIC, $virtualMethod(TreeCopier, visitProvides, $Object*, $ProvidesTree*, Object$*)},
+		{"visitRequires", "(Lcom/sun/source/tree/RequiresTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCRequires;", "(Lcom/sun/source/tree/RequiresTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCRequires;", $PUBLIC, $virtualMethod(TreeCopier, visitRequires, $Object*, $RequiresTree*, Object$*)},
+		{"visitReturn", "(Lcom/sun/source/tree/ReturnTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ReturnTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitReturn, $Object*, $ReturnTree*, Object$*)},
+		{"visitSwitch", "(Lcom/sun/source/tree/SwitchTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/SwitchTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitSwitch, $Object*, $SwitchTree*, Object$*)},
+		{"visitSwitchExpression", "(Lcom/sun/source/tree/SwitchExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/SwitchExpressionTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitSwitchExpression, $Object*, $SwitchExpressionTree*, Object$*)},
+		{"visitSynchronized", "(Lcom/sun/source/tree/SynchronizedTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/SynchronizedTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitSynchronized, $Object*, $SynchronizedTree*, Object$*)},
+		{"visitThrow", "(Lcom/sun/source/tree/ThrowTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/ThrowTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitThrow, $Object*, $ThrowTree*, Object$*)},
+		{"visitTry", "(Lcom/sun/source/tree/TryTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/TryTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitTry, $Object*, $TryTree*, Object$*)},
+		{"visitTypeCast", "(Lcom/sun/source/tree/TypeCastTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/TypeCastTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitTypeCast, $Object*, $TypeCastTree*, Object$*)},
+		{"visitTypeParameter", "(Lcom/sun/source/tree/TypeParameterTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/TypeParameterTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitTypeParameter, $Object*, $TypeParameterTree*, Object$*)},
+		{"visitUnary", "(Lcom/sun/source/tree/UnaryTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/UnaryTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitUnary, $Object*, $UnaryTree*, Object$*)},
+		{"visitUnionType", "(Lcom/sun/source/tree/UnionTypeTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/UnionTypeTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitUnionType, $Object*, $UnionTypeTree*, Object$*)},
+		{"visitUses", "(Lcom/sun/source/tree/UsesTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCUses;", "(Lcom/sun/source/tree/UsesTree;TP;)Lcom/sun/tools/javac/tree/JCTree$JCUses;", $PUBLIC, $virtualMethod(TreeCopier, visitUses, $Object*, $UsesTree*, Object$*)},
+		{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/VariableTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitVariable, $Object*, $VariableTree*, Object$*)},
+		{"visitWhileLoop", "(Lcom/sun/source/tree/WhileLoopTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/WhileLoopTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitWhileLoop, $Object*, $WhileLoopTree*, Object$*)},
+		{"visitWildcard", "(Lcom/sun/source/tree/WildcardTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/WildcardTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitWildcard, $Object*, $WildcardTree*, Object$*)},
+		{"visitYield", "(Lcom/sun/source/tree/YieldTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/source/tree/YieldTree;TP;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TreeCopier, visitYield, $Object*, $YieldTree*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeCopier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeCopier",
+		"java.lang.Object",
+		"com.sun.source.tree.TreeVisitor",
+		fieldInfos$$,
+		methodInfos$$,
+		"<P:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/source/tree/TreeVisitor<Lcom/sun/tools/javac/tree/JCTree;TP;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeCopier$1"
+	};
+	$loadClass(TreeCopier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeCopier);
+	});
 	return class$;
 }
 

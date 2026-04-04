@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http2Connection$Http2TubeSubscriber.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -10,11 +9,9 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/ConcurrentLinkedQueue.h>
-#include <java/util/concurrent/Executor.h>
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/function/Supplier.h>
 #include <jdk/internal/net/http/Http2Connection.h>
@@ -39,16 +36,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;
-using $Executor = ::java::util::concurrent::Executor;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Supplier = ::java::util::function::Supplier;
 using $Http2Connection = ::jdk::internal::net::http::Http2Connection;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
@@ -66,33 +60,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->processQueue();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Http2Connection$Http2TubeSubscriber$$Lambda$processQueue>());
-	}
 	Http2Connection$Http2TubeSubscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, inst$)},
-	{}
-};
-$MethodInfo Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection$Http2TubeSubscriber;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, init$, void, Http2Connection$Http2TubeSubscriber*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, run, void)},
-	{}
-};
-$ClassInfo Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$processQueue",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::load$($String* name, bool initialize) {
-	$loadClass(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Http2Connection$Http2TubeSubscriber;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, init$, void, Http2Connection$Http2TubeSubscriber*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$processQueue",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue);
+	});
 	return class$;
 }
 $Class* Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::class$ = nullptr;
@@ -106,33 +96,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Http2Connection$Http2TubeSubscriber::lambda$onNext$0(item));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1>());
-	}
 	$List* item = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::fieldInfos[2] = {
-	{"item", "Ljava/util/List;", nullptr, $PUBLIC, $field(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, item)},
-	{}
-};
-$MethodInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, init$, void, $List*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, get, $Object*)},
-	{}
-};
-$ClassInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::load$($String* name, bool initialize) {
-	$loadClass(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"item", "Ljava/util/List;", nullptr, $PUBLIC, $field(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, item)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, init$, void, $List*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1);
+	});
 	return class$;
 }
 $Class* Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::class$ = nullptr;
@@ -146,146 +132,86 @@ public:
 	virtual $Object* get() override {
 		 return $of(Http2Connection$Http2TubeSubscriber::lambda$onError$1(throwable));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2>());
-	}
 	$Throwable* throwable = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::fieldInfos[2] = {
-	{"throwable", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, throwable)},
-	{}
-};
-$MethodInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, init$, void, $Throwable*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, get, $Object*)},
-	{}
-};
-$ClassInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::load$($String* name, bool initialize) {
-	$loadClass(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"throwable", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, throwable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, init$, void, $Throwable*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2);
+	});
 	return class$;
 }
 $Class* Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::class$ = nullptr;
-
-$FieldInfo _Http2Connection$Http2TubeSubscriber_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/Http2Connection;", nullptr, $FINAL | $SYNTHETIC, $field(Http2Connection$Http2TubeSubscriber, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http2Connection$Http2TubeSubscriber, $assertionsDisabled)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, subscription)},
-	{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, completed)},
-	{"dropped", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, dropped)},
-	{"error", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, error)},
-	{"queue", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(Http2Connection$Http2TubeSubscriber, queue)},
-	{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PRIVATE | $FINAL, $field(Http2Connection$Http2TubeSubscriber, scheduler)},
-	{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(Http2Connection$Http2TubeSubscriber, client)},
-	{}
-};
-
-$MethodInfo _Http2Connection$Http2TubeSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(Http2Connection$Http2TubeSubscriber, init$, void, $Http2Connection*, $HttpClientImpl*)},
-	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, dropSubscription, void)},
-	{"lambda$onError$1", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection$Http2TubeSubscriber, lambda$onError$1, $String*, $Throwable*)},
-	{"lambda$onNext$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection$Http2TubeSubscriber, lambda$onNext$0, $String*, $List*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(Http2Connection$Http2TubeSubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{"processQueue", "()V", nullptr, $FINAL, $method(Http2Connection$Http2TubeSubscriber, processQueue, void)},
-	{"runOrSchedule", "()V", nullptr, $PRIVATE | $FINAL, $method(Http2Connection$Http2TubeSubscriber, runOrSchedule, void)},
-	{}
-};
-
-$InnerClassInfo _Http2Connection$Http2TubeSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber", "jdk.internal.net.http.Http2Connection", "Http2TubeSubscriber", $FINAL},
-	{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Http2Connection$Http2TubeSubscriber_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
-	_Http2Connection$Http2TubeSubscriber_FieldInfo_,
-	_Http2Connection$Http2TubeSubscriber_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http2Connection$Http2TubeSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http2Connection"
-};
-
-$Object* allocate$Http2Connection$Http2TubeSubscriber($Class* clazz) {
-	return $of($alloc(Http2Connection$Http2TubeSubscriber));
-}
 
 bool Http2Connection$Http2TubeSubscriber::$assertionsDisabled = false;
 
 void Http2Connection$Http2TubeSubscriber::init$($Http2Connection* this$0, $HttpClientImpl* client) {
 	$set(this, this$0, this$0);
 	$set(this, queue, $new($ConcurrentLinkedQueue));
-	$set(this, scheduler, $SequentialScheduler::lockingScheduler(static_cast<$Runnable*>($$new(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, this))));
+	$set(this, scheduler, $SequentialScheduler::lockingScheduler($$new(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, this)));
 	$set(this, client, $cast($HttpClientImpl, $Objects::requireNonNull(client)));
 }
 
 void Http2Connection$Http2TubeSubscriber::processQueue() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				while (true) {
-					bool var$1 = !$nc(this->queue)->isEmpty();
-					if (!(var$1 && !$nc(this->scheduler)->isStopped())) {
-						break;
-					}
-					{
-						$var($ByteBuffer, buffer, $cast($ByteBuffer, $nc(this->queue)->poll()));
-						if ($nc(this->this$0->debug)->on()) {
-							$nc(this->this$0->debug)->log("sending %d to Http2Connection.asyncReceive"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(buffer)->remaining())))}));
-						}
-						this->this$0->asyncReceive(buffer);
-					}
+			while (true) {
+				bool var$1 = !this->queue->isEmpty();
+				if (!(var$1 && !$nc(this->scheduler)->isStopped())) {
+					break;
 				}
-			} catch ($Throwable& t) {
-				$var($Throwable, x, this->error);
-				if (x == nullptr) {
-					$set(this, error, t);
+				{
+					$var($ByteBuffer, buffer, $cast($ByteBuffer, this->queue->poll()));
+					if ($nc(this->this$0->debug)->on()) {
+						this->this$0->debug->log("sending %d to Http2Connection.asyncReceive"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(buffer)->remaining()))}));
+					}
+					this->this$0->asyncReceive(buffer);
 				}
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
+		} catch ($Throwable& t) {
 			$var($Throwable, x, this->error);
-			if (x != nullptr) {
-				if ($nc(this->this$0->debug)->on()) {
-					$nc(this->this$0->debug)->log("Stopping scheduler"_s, x);
-				}
-				$nc(this->scheduler)->stop();
-				this->this$0->shutdown(x);
+			if (x == nullptr) {
+				$set(this, error, t);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$var($Throwable, x, this->error);
+		if (x != nullptr) {
+			if ($nc(this->this$0->debug)->on()) {
+				this->this$0->debug->log("Stopping scheduler"_s, x);
+			}
+			$nc(this->scheduler)->stop();
+			this->this$0->shutdown(x);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Http2Connection$Http2TubeSubscriber::runOrSchedule() {
 	if ($nc(this->client)->isSelectorThread()) {
-		$nc(this->scheduler)->runOrSchedule($($nc(this->client)->theExecutor()));
+		$nc(this->scheduler)->runOrSchedule($(this->client->theExecutor()));
 	} else {
 		$nc(this->scheduler)->runOrSchedule();
 	}
@@ -299,25 +225,25 @@ void Http2Connection$Http2TubeSubscriber::onSubscribe($Flow$Subscription* subscr
 	this->dropped = false;
 	if (!this->completed) {
 		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("onSubscribe: requesting Long.MAX_VALUE for reading"_s);
+			this->this$0->debug->log("onSubscribe: requesting Long.MAX_VALUE for reading"_s);
 		}
 		$nc(subscription)->request($Long::MAX_VALUE);
 	} else if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("onSubscribe: already completed"_s);
+		this->this$0->debug->log("onSubscribe: already completed"_s);
 	}
 }
 
 void Http2Connection$Http2TubeSubscriber::onNext($List* item) {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log(static_cast<$Supplier*>($$new(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, item)));
+		this->this$0->debug->log($$new(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, item));
 	}
-	$nc(this->queue)->addAll(item);
+	this->queue->addAll(item);
 	runOrSchedule();
 }
 
 void Http2Connection$Http2TubeSubscriber::onError($Throwable* throwable) {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log(static_cast<$Supplier*>($$new(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, throwable)));
+		this->this$0->debug->log($$new(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, throwable));
 	}
 	$set(this, error, throwable);
 	this->completed = true;
@@ -327,7 +253,7 @@ void Http2Connection$Http2TubeSubscriber::onError($Throwable* throwable) {
 void Http2Connection$Http2TubeSubscriber::onComplete() {
 	$var($String, msg, this->this$0->isActive() ? "EOF reached while reading"_s : "Idle connection closed by HTTP/2 peer"_s);
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log(msg);
+		this->this$0->debug->log(msg);
 	}
 	$set(this, error, $new($EOFException, msg));
 	this->completed = true;
@@ -336,7 +262,7 @@ void Http2Connection$Http2TubeSubscriber::onComplete() {
 
 void Http2Connection$Http2TubeSubscriber::dropSubscription() {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("dropSubscription"_s);
+		this->this$0->debug->log("dropSubscription"_s);
 	}
 	this->dropped = true;
 }
@@ -352,13 +278,16 @@ $String* Http2Connection$Http2TubeSubscriber::lambda$onError$1($Throwable* throw
 
 $String* Http2Connection$Http2TubeSubscriber::lambda$onNext$0($List* item) {
 	$init(Http2Connection$Http2TubeSubscriber);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"onNext: got "_s, $$str($Utils::remaining(item)), " bytes in "_s}));
-	$var($String, var$0, $$concat(var$1, $$str($nc(item)->size())));
-	return $concat(var$0, " buffers"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("onNext: got "_s);
+	var$0->append($Utils::remaining(item));
+	var$0->append(" bytes in "_s);
+	var$0->append($nc(item)->size());
+	var$0->append(" buffers"_s);
+	return $str(var$0);
 }
 
-void clinit$Http2Connection$Http2TubeSubscriber($Class* class$) {
+void Http2Connection$Http2TubeSubscriber::clinit$($Class* clazz) {
 	$load($Http2Connection);
 	Http2Connection$Http2TubeSubscriber::$assertionsDisabled = !$Http2Connection::class$->desiredAssertionStatus();
 }
@@ -368,17 +297,65 @@ Http2Connection$Http2TubeSubscriber::Http2Connection$Http2TubeSubscriber() {
 
 $Class* Http2Connection$Http2TubeSubscriber::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$processQueue")) {
 			return Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::load$(name, initialize);
 		}
-		if (name->equals(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1")) {
 			return Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::load$(name, initialize);
 		}
-		if (name->equals(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2")) {
 			return Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(Http2Connection$Http2TubeSubscriber, name, initialize, &_Http2Connection$Http2TubeSubscriber_ClassInfo_, clinit$Http2Connection$Http2TubeSubscriber, allocate$Http2Connection$Http2TubeSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/Http2Connection;", nullptr, $FINAL | $SYNTHETIC, $field(Http2Connection$Http2TubeSubscriber, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http2Connection$Http2TubeSubscriber, $assertionsDisabled)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, subscription)},
+		{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, completed)},
+		{"dropped", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, dropped)},
+		{"error", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(Http2Connection$Http2TubeSubscriber, error)},
+		{"queue", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(Http2Connection$Http2TubeSubscriber, queue)},
+		{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PRIVATE | $FINAL, $field(Http2Connection$Http2TubeSubscriber, scheduler)},
+		{"client", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $PRIVATE | $FINAL, $field(Http2Connection$Http2TubeSubscriber, client)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(Http2Connection$Http2TubeSubscriber, init$, void, $Http2Connection*, $HttpClientImpl*)},
+		{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, dropSubscription, void)},
+		{"lambda$onError$1", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection$Http2TubeSubscriber, lambda$onError$1, $String*, $Throwable*)},
+		{"lambda$onNext$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection$Http2TubeSubscriber, lambda$onNext$0, $String*, $List*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(Http2Connection$Http2TubeSubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{"processQueue", "()V", nullptr, $FINAL, $method(Http2Connection$Http2TubeSubscriber, processQueue, void)},
+		{"runOrSchedule", "()V", nullptr, $PRIVATE | $FINAL, $method(Http2Connection$Http2TubeSubscriber, runOrSchedule, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber", "jdk.internal.net.http.Http2Connection", "Http2TubeSubscriber", $FINAL},
+		{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.Http2Connection$Http2TubeSubscriber",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http2Connection"
+	};
+	$loadClass(Http2Connection$Http2TubeSubscriber, name, initialize, &classInfo$$, Http2Connection$Http2TubeSubscriber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2Connection$Http2TubeSubscriber);
+	});
 	return class$;
 }
 

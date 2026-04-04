@@ -35,6 +35,7 @@ namespace javax {
 class $export JMXConnector : public ::java::io::Closeable {
 	$interface(JMXConnector, 0, ::java::io::Closeable)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void addConnectionNotificationListener(::javax::management::NotificationListener* listener, ::javax::management::NotificationFilter* filter, Object$* handback) {}
 	virtual void close() override {}
 	virtual void connect() {}

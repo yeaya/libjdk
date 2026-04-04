@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$Actions.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI.h>
 #include <java/awt/event/ActionEvent.h>
@@ -31,14 +30,12 @@
 #undef WEST
 
 using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
-using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -47,56 +44,6 @@ using $UIAction = ::sun::swing::UIAction;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTabbedPaneCopyFromBasicUI$Actions_FieldInfo_[] = {
-	{"NEXT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, NEXT)},
-	{"PREVIOUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, PREVIOUS)},
-	{"RIGHT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, RIGHT)},
-	{"LEFT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, LEFT)},
-	{"UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, UP)},
-	{"DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, DOWN)},
-	{"PAGE_UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, PAGE_UP)},
-	{"PAGE_DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, PAGE_DOWN)},
-	{"REQUEST_FOCUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, REQUEST_FOCUS)},
-	{"REQUEST_FOCUS_FOR_VISIBLE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, REQUEST_FOCUS_FOR_VISIBLE)},
-	{"SET_SELECTED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SET_SELECTED)},
-	{"SELECT_FOCUSED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SELECT_FOCUSED)},
-	{"SCROLL_FORWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SCROLL_FORWARD)},
-	{"SCROLL_BACKWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SCROLL_BACKWARD)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneCopyFromBasicUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AquaTabbedPaneCopyFromBasicUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"getUIOfType", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;)Ljava/lang/Object;", $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI$Actions, getUIOfType, $Object*, $ComponentUI*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneCopyFromBasicUI$Actions_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneCopyFromBasicUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$Actions_FieldInfo_,
-	_AquaTabbedPaneCopyFromBasicUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
-};
-
-$Object* allocate$AquaTabbedPaneCopyFromBasicUI$Actions($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneCopyFromBasicUI$Actions));
-}
 
 $String* AquaTabbedPaneCopyFromBasicUI$Actions::NEXT = nullptr;
 $String* AquaTabbedPaneCopyFromBasicUI$Actions::PREVIOUS = nullptr;
@@ -122,11 +69,11 @@ $Object* AquaTabbedPaneCopyFromBasicUI$Actions::getUIOfType($ComponentUI* ui, $C
 	if ($nc(klass)->isInstance(ui)) {
 		return $of(ui);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void AquaTabbedPaneCopyFromBasicUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, getName());
 	$var($JTabbedPane, pane, $cast($JTabbedPane, $nc(e)->getSource()));
 	$load($AquaTabbedPaneCopyFromBasicUI);
@@ -147,47 +94,47 @@ void AquaTabbedPaneCopyFromBasicUI$Actions::actionPerformed($ActionEvent* e) {
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::DOWN) {
 		$nc(ui)->navigateSelectedTab($SwingConstants::SOUTH);
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::PAGE_UP) {
-		int32_t tabPlacement = $nc(pane)->getTabPlacement();
+		int32_t tabPlacement = pane->getTabPlacement();
 		if (tabPlacement == 1 || tabPlacement == 3) {
 			$nc(ui)->navigateSelectedTab($SwingConstants::WEST);
 		} else {
 			$nc(ui)->navigateSelectedTab($SwingConstants::NORTH);
 		}
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::PAGE_DOWN) {
-		int32_t tabPlacement = $nc(pane)->getTabPlacement();
+		int32_t tabPlacement = pane->getTabPlacement();
 		if (tabPlacement == 1 || tabPlacement == 3) {
 			$nc(ui)->navigateSelectedTab($SwingConstants::EAST);
 		} else {
 			$nc(ui)->navigateSelectedTab($SwingConstants::SOUTH);
 		}
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::REQUEST_FOCUS) {
-		$nc(pane)->requestFocus();
+		pane->requestFocus();
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::REQUEST_FOCUS_FOR_VISIBLE) {
 		$nc(ui)->requestFocusForVisibleComponent();
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::SET_SELECTED) {
 		$var($String, command, e->getActionCommand());
 		if (command != nullptr && command->length() > 0) {
-			int32_t mnemonic = $nc($(e->getActionCommand()))->charAt(0);
+			int32_t mnemonic = $$nc(e->getActionCommand())->charAt(0);
 			if (mnemonic >= u'a' && mnemonic <= u'z') {
 				mnemonic -= (u'a' - u'A');
 			}
 			$var($Integer, index, $cast($Integer, $nc($nc(ui)->mnemonicToIndexMap)->get($($Integer::valueOf(mnemonic)))));
-			if (index != nullptr && $nc(pane)->isEnabledAt(index->intValue())) {
+			if (index != nullptr && pane->isEnabledAt(index->intValue())) {
 				pane->setSelectedIndex(index->intValue());
 			}
 		}
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::SELECT_FOCUSED) {
 		int32_t focusIndex = $nc(ui)->getFocusIndex();
 		if (focusIndex != -1) {
-			$nc(pane)->setSelectedIndex(focusIndex);
+			pane->setSelectedIndex(focusIndex);
 		}
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::SCROLL_FORWARD) {
 		if ($nc(ui)->scrollableTabLayoutEnabled()) {
-			$nc(ui->tabScroller)->scrollForward($nc(pane)->getTabPlacement());
+			$nc(ui->tabScroller)->scrollForward(pane->getTabPlacement());
 		}
 	} else if (key == AquaTabbedPaneCopyFromBasicUI$Actions::SCROLL_BACKWARD) {
 		if ($nc(ui)->scrollableTabLayoutEnabled()) {
-			$nc(ui->tabScroller)->scrollBackward($nc(pane)->getTabPlacement());
+			$nc(ui->tabScroller)->scrollBackward(pane->getTabPlacement());
 		}
 	}
 }
@@ -195,7 +142,7 @@ void AquaTabbedPaneCopyFromBasicUI$Actions::actionPerformed($ActionEvent* e) {
 AquaTabbedPaneCopyFromBasicUI$Actions::AquaTabbedPaneCopyFromBasicUI$Actions() {
 }
 
-void clinit$AquaTabbedPaneCopyFromBasicUI$Actions($Class* class$) {
+void AquaTabbedPaneCopyFromBasicUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(AquaTabbedPaneCopyFromBasicUI$Actions::NEXT, "navigateNext"_s);
 	$assignStatic(AquaTabbedPaneCopyFromBasicUI$Actions::PREVIOUS, "navigatePrevious"_s);
 	$assignStatic(AquaTabbedPaneCopyFromBasicUI$Actions::RIGHT, "navigateRight"_s);
@@ -213,7 +160,51 @@ void clinit$AquaTabbedPaneCopyFromBasicUI$Actions($Class* class$) {
 }
 
 $Class* AquaTabbedPaneCopyFromBasicUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneCopyFromBasicUI$Actions, name, initialize, &_AquaTabbedPaneCopyFromBasicUI$Actions_ClassInfo_, clinit$AquaTabbedPaneCopyFromBasicUI$Actions, allocate$AquaTabbedPaneCopyFromBasicUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEXT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, NEXT)},
+		{"PREVIOUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, PREVIOUS)},
+		{"RIGHT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, RIGHT)},
+		{"LEFT", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, LEFT)},
+		{"UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, UP)},
+		{"DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, DOWN)},
+		{"PAGE_UP", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, PAGE_UP)},
+		{"PAGE_DOWN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, PAGE_DOWN)},
+		{"REQUEST_FOCUS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, REQUEST_FOCUS)},
+		{"REQUEST_FOCUS_FOR_VISIBLE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, REQUEST_FOCUS_FOR_VISIBLE)},
+		{"SET_SELECTED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SET_SELECTED)},
+		{"SELECT_FOCUSED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SELECT_FOCUSED)},
+		{"SCROLL_FORWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SCROLL_FORWARD)},
+		{"SCROLL_BACKWARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaTabbedPaneCopyFromBasicUI$Actions, SCROLL_BACKWARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AquaTabbedPaneCopyFromBasicUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"getUIOfType", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljavax/swing/plaf/ComponentUI;Ljava/lang/Class<Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI;>;)Ljava/lang/Object;", $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI$Actions, getUIOfType, $Object*, $ComponentUI*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI"
+	};
+	$loadClass(AquaTabbedPaneCopyFromBasicUI$Actions, name, initialize, &classInfo$$, AquaTabbedPaneCopyFromBasicUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTabbedPaneCopyFromBasicUI$Actions);
+	});
 	return class$;
 }
 

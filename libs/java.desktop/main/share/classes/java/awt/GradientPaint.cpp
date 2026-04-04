@@ -1,5 +1,4 @@
 #include <java/awt/GradientPaint.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/GradientPaintContext.h>
 #include <java/awt/PaintContext.h>
@@ -37,62 +36,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace java {
 	namespace awt {
-
-$Attribute GradientPaint_Attribute_var$1[] = {
-	{'s', "point1"},
-	{'s', "color1"},
-	{'s', "point2"},
-	{'s', "color2"},
-	{'s', "cyclic"},
-	{'-'}
-};
-
-$NamedAttribute GradientPaint_Attribute_var$0[] = {
-	{"value", '[', GradientPaint_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _GradientPaint_MethodAnnotations_init$3[] = {
-	{"Ljava/beans/ConstructorProperties;", GradientPaint_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _GradientPaint_FieldInfo_[] = {
-	{"p1", "Ljava/awt/geom/Point2D$Float;", nullptr, 0, $field(GradientPaint, p1)},
-	{"p2", "Ljava/awt/geom/Point2D$Float;", nullptr, 0, $field(GradientPaint, p2)},
-	{"color1", "Ljava/awt/Color;", nullptr, 0, $field(GradientPaint, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, 0, $field(GradientPaint, color2)},
-	{"cyclic", "Z", nullptr, 0, $field(GradientPaint, cyclic)},
-	{}
-};
-
-$MethodInfo _GradientPaint_MethodInfo_[] = {
-	{"<init>", "(FFLjava/awt/Color;FFLjava/awt/Color;)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, float, float, $Color*, float, float, $Color*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/Color;Ljava/awt/geom/Point2D;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, $Point2D*, $Color*, $Point2D*, $Color*)},
-	{"<init>", "(FFLjava/awt/Color;FFLjava/awt/Color;Z)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, float, float, $Color*, float, float, $Color*, bool)},
-	{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/Color;Ljava/awt/geom/Point2D;Ljava/awt/Color;Z)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, $Point2D*, $Color*, $Point2D*, $Color*, bool), nullptr, nullptr, _GradientPaint_MethodAnnotations_init$3},
-	{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
-	{"getColor1", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getColor1, $Color*)},
-	{"getColor2", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getColor2, $Color*)},
-	{"getPoint1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getPoint1, $Point2D*)},
-	{"getPoint2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getPoint2, $Point2D*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getTransparency, int32_t)},
-	{"isCyclic", "()Z", nullptr, $PUBLIC, $virtualMethod(GradientPaint, isCyclic, bool)},
-	{}
-};
-
-$ClassInfo _GradientPaint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.GradientPaint",
-	"java.lang.Object",
-	"java.awt.Paint",
-	_GradientPaint_FieldInfo_,
-	_GradientPaint_MethodInfo_
-};
-
-$Object* allocate$GradientPaint($Class* clazz) {
-	return $of($alloc(GradientPaint));
-}
 
 void GradientPaint::init$(float x1, float y1, $Color* color1, float x2, float y2, $Color* color2) {
 	if ((color1 == nullptr) || (color2 == nullptr)) {
@@ -153,14 +96,62 @@ $PaintContext* GradientPaint::createContext($ColorModel* cm, $Rectangle* deviceB
 int32_t GradientPaint::getTransparency() {
 	int32_t a1 = $nc(this->color1)->getAlpha();
 	int32_t a2 = $nc(this->color2)->getAlpha();
-	return ((((int32_t)(a1 & (uint32_t)a2)) == 255) ? $Transparency::OPAQUE : $Transparency::TRANSLUCENT);
+	return (((a1 & a2) == 0xff) ? $Transparency::OPAQUE : $Transparency::TRANSLUCENT);
 }
 
 GradientPaint::GradientPaint() {
 }
 
 $Class* GradientPaint::load$($String* name, bool initialize) {
-	$loadClass(GradientPaint, name, initialize, &_GradientPaint_ClassInfo_, allocate$GradientPaint);
+	$FieldInfo fieldInfos$$[] = {
+		{"p1", "Ljava/awt/geom/Point2D$Float;", nullptr, 0, $field(GradientPaint, p1)},
+		{"p2", "Ljava/awt/geom/Point2D$Float;", nullptr, 0, $field(GradientPaint, p2)},
+		{"color1", "Ljava/awt/Color;", nullptr, 0, $field(GradientPaint, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, 0, $field(GradientPaint, color2)},
+		{"cyclic", "Z", nullptr, 0, $field(GradientPaint, cyclic)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "point1"},
+		{'s', "color1"},
+		{'s', "point2"},
+		{'s', "color2"},
+		{'s', "cyclic"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$3$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$3[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$3$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FFLjava/awt/Color;FFLjava/awt/Color;)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, float, float, $Color*, float, float, $Color*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/Color;Ljava/awt/geom/Point2D;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, $Point2D*, $Color*, $Point2D*, $Color*)},
+		{"<init>", "(FFLjava/awt/Color;FFLjava/awt/Color;Z)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, float, float, $Color*, float, float, $Color*, bool)},
+		{"<init>", "(Ljava/awt/geom/Point2D;Ljava/awt/Color;Ljava/awt/geom/Point2D;Ljava/awt/Color;Z)V", nullptr, $PUBLIC, $method(GradientPaint, init$, void, $Point2D*, $Color*, $Point2D*, $Color*, bool), nullptr, nullptr, init$methodAnnotations$$$3},
+		{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
+		{"getColor1", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getColor1, $Color*)},
+		{"getColor2", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getColor2, $Color*)},
+		{"getPoint1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getPoint1, $Point2D*)},
+		{"getPoint2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getPoint2, $Point2D*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(GradientPaint, getTransparency, int32_t)},
+		{"isCyclic", "()Z", nullptr, $PUBLIC, $virtualMethod(GradientPaint, isCyclic, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.GradientPaint",
+		"java.lang.Object",
+		"java.awt.Paint",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GradientPaint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GradientPaint);
+	});
 	return class$;
 }
 

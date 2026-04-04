@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/Utils.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/utils/Messages.h>
 #include <jcpp.h>
 
@@ -17,35 +16,12 @@ namespace com {
 						namespace serializer {
 							namespace utils {
 
-$FieldInfo _Utils_FieldInfo_[] = {
-	{"messages", "Lcom/sun/org/apache/xml/internal/serializer/utils/Messages;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, messages)},
-	{}
-};
-
-$MethodInfo _Utils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils, init$, void)},
-	{}
-};
-
-$ClassInfo _Utils_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.utils.Utils",
-	"java.lang.Object",
-	nullptr,
-	_Utils_FieldInfo_,
-	_Utils_MethodInfo_
-};
-
-$Object* allocate$Utils($Class* clazz) {
-	return $of($alloc(Utils));
-}
-
 $Messages* Utils::messages = nullptr;
 
 void Utils::init$() {
 }
 
-void clinit$Utils($Class* class$) {
+void Utils::clinit$($Class* clazz) {
 	$assignStatic(Utils::messages, $new($Messages, "com.sun.org.apache.xml.internal.serializer.utils.SerializerMessages"_s));
 }
 
@@ -53,7 +29,25 @@ Utils::Utils() {
 }
 
 $Class* Utils::load$($String* name, bool initialize) {
-	$loadClass(Utils, name, initialize, &_Utils_ClassInfo_, clinit$Utils, allocate$Utils);
+	$FieldInfo fieldInfos$$[] = {
+		{"messages", "Lcom/sun/org/apache/xml/internal/serializer/utils/Messages;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Utils, messages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.utils.Utils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utils, name, initialize, &classInfo$$, Utils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils);
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class $export ToolProvider : public ::java::lang::Object {
 	$class(ToolProvider, 0, ::java::lang::Object)
 public:
 	ToolProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::tools::DocumentationTool* getSystemDocumentationTool();
 	static ::javax::tools::JavaCompiler* getSystemJavaCompiler();

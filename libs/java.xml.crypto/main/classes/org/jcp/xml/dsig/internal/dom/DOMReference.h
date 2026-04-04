@@ -98,6 +98,7 @@ public:
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual bool isFeatureSupported($String* feature) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* uri, $String* type, ::javax::xml::crypto::dsig::DigestMethod* dm, ::java::util::List* transforms, $String* id, ::java::security::Provider* provider);
 	void init$($String* uri, $String* type, ::javax::xml::crypto::dsig::DigestMethod* dm, ::java::util::List* appliedTransforms, ::javax::xml::crypto::Data* result, ::java::util::List* transforms, $String* id, ::java::security::Provider* provider);
 	void init$($String* uri, $String* type, ::javax::xml::crypto::dsig::DigestMethod* dm, ::java::util::List* appliedTransforms, ::javax::xml::crypto::Data* result, ::java::util::List* transforms, $String* id, $bytes* digestValue, ::java::security::Provider* provider);

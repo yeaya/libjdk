@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKPainter$TitledBorder.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ShadowType.h>
 #include <com/sun/java/swing/plaf/gtk/GTKEngine$CustomRegion.h>
 #include <com/sun/java/swing/plaf/gtk/GTKEngine.h>
@@ -26,7 +25,6 @@
 #undef TITLED_BORDER
 
 using $GTKConstants$ShadowType = ::com::sun::java::swing::plaf::gtk::GTKConstants$ShadowType;
-using $GTKEngine = ::com::sun::java::swing::plaf::gtk::GTKEngine;
 using $GTKEngine$CustomRegion = ::com::sun::java::swing::plaf::gtk::GTKEngine$CustomRegion;
 using $GTKLookAndFeel = ::com::sun::java::swing::plaf::gtk::GTKLookAndFeel;
 using $GTKPainter = ::com::sun::java::swing::plaf::gtk::GTKPainter;
@@ -51,46 +49,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$MethodInfo _GTKPainter$TitledBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(GTKPainter$TitledBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(GTKPainter$TitledBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(GTKPainter$TitledBorder, getContext, $SynthContext*, $JComponent*)},
-	{"getStyle", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $method(GTKPainter$TitledBorder, getStyle, $SynthStyle*, $JComponent*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(GTKPainter$TitledBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter$TitledBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _GTKPainter$TitledBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "TitledBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _GTKPainter$TitledBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_GTKPainter$TitledBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKPainter$TitledBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKPainter"
-};
-
-$Object* allocate$GTKPainter$TitledBorder($Class* clazz) {
-	return $of($alloc(GTKPainter$TitledBorder));
-}
 
 int32_t GTKPainter$TitledBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -117,7 +75,7 @@ void GTKPainter$TitledBorder::init$() {
 }
 
 void GTKPainter$TitledBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext($cast($JComponent, c)));
 	$var($Region, id, $nc(context)->getRegion());
 	int32_t state = context->getComponentState();
@@ -125,19 +83,19 @@ void GTKPainter$TitledBorder::paintBorder($Component* c, $Graphics* g, int32_t x
 	$init($UNIXToolkit);
 	$synchronized($UNIXToolkit::GTK_LOCK) {
 		$init($GTKPainter);
-		if (!$nc($GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {$of(id)}))) {
-			$nc($GTKPainter::ENGINE)->startPainting(g, x, y, w, h, $$new($ObjectArray, {$of(id)}));
+		if (!$nc($GTKPainter::ENGINE)->paintCachedImage(g, x, y, w, h, $$new($ObjectArray, {id}))) {
+			$GTKPainter::ENGINE->startPainting(g, x, y, w, h, $$new($ObjectArray, {id}));
 			$init($GTKConstants$ShadowType);
-			$nc($GTKPainter::ENGINE)->paintShadow(g, context, id, gtkState, $GTKConstants$ShadowType::ETCHED_IN, "frame"_s, x, y, w, h);
-			$nc($GTKPainter::ENGINE)->finishPainting();
+			$GTKPainter::ENGINE->paintShadow(g, context, id, gtkState, $GTKConstants$ShadowType::ETCHED_IN, "frame"_s, x, y, w, h);
+			$GTKPainter::ENGINE->finishPainting();
 		}
 	}
 }
 
 $Insets* GTKPainter$TitledBorder::getBorderInsets($Component* c, $Insets* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext($cast($JComponent, c)));
-	return $nc($($nc(context)->getStyle()))->getInsets(context, i);
+	return $$nc($nc(context)->getStyle())->getInsets(context, i);
 }
 
 bool GTKPainter$TitledBorder::isBorderOpaque() {
@@ -159,7 +117,42 @@ GTKPainter$TitledBorder::GTKPainter$TitledBorder() {
 }
 
 $Class* GTKPainter$TitledBorder::load$($String* name, bool initialize) {
-	$loadClass(GTKPainter$TitledBorder, name, initialize, &_GTKPainter$TitledBorder_ClassInfo_, allocate$GTKPainter$TitledBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(GTKPainter$TitledBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(GTKPainter$TitledBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(GTKPainter$TitledBorder, getContext, $SynthContext*, $JComponent*)},
+		{"getStyle", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $method(GTKPainter$TitledBorder, getStyle, $SynthStyle*, $JComponent*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(GTKPainter$TitledBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(GTKPainter$TitledBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder", "com.sun.java.swing.plaf.gtk.GTKPainter", "TitledBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKPainter$TitledBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKPainter"
+	};
+	$loadClass(GTKPainter$TitledBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKPainter$TitledBorder));
+	});
 	return class$;
 }
 

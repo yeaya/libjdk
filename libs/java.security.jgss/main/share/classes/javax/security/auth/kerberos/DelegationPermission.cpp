@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/DelegationPermission.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/security/BasicPermission.h>
@@ -28,39 +27,6 @@ namespace javax {
 		namespace auth {
 			namespace kerberos {
 
-$FieldInfo _DelegationPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DelegationPermission, serialVersionUID)},
-	{"subordinate", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(DelegationPermission, subordinate)},
-	{"service", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(DelegationPermission, service)},
-	{}
-};
-
-$MethodInfo _DelegationPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegationPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegationPermission, init$, void, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, implies, bool, $Permission*)},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DelegationPermission, init, void, $String*)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, newPermissionCollection, $PermissionCollection*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DelegationPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DelegationPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DelegationPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.security.auth.kerberos.DelegationPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_DelegationPermission_FieldInfo_,
-	_DelegationPermission_MethodInfo_
-};
-
-$Object* allocate$DelegationPermission($Class* clazz) {
-	return $of($alloc(DelegationPermission));
-}
-
 void DelegationPermission::init$($String* principals) {
 	$BasicPermission::init$(principals);
 	init(principals);
@@ -72,10 +38,10 @@ void DelegationPermission::init$($String* principals, $String* actions) {
 }
 
 void DelegationPermission::init($String* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, t, $new($StringTokenizer, target, "\""_s, true));
 	try {
-		if (!$nc($(t->nextToken()))->equals("\""_s)) {
+		if (!$$nc(t->nextToken())->equals("\""_s)) {
 			$throwNew($IllegalArgumentException, $$str({"Illegal input ["_s, target, "]: improperly quoted"_s}));
 		}
 		$set(this, subordinate, t->nextToken());
@@ -83,7 +49,7 @@ void DelegationPermission::init($String* target) {
 			$throwNew($IllegalArgumentException, $$str({"Illegal input ["_s, target, "]: bad subordinate name"_s}));
 		}
 		t->nextToken();
-		if (!$($nc($(t->nextToken()))->trim())->isEmpty()) {
+		if (!$($$nc(t->nextToken())->trim())->isEmpty()) {
 			$throwNew($IllegalArgumentException, $$str({"Illegal input ["_s, target, "]: improperly separated"_s}));
 		}
 		t->nextToken();
@@ -113,7 +79,7 @@ bool DelegationPermission::equals(Object$* obj) {
 	}
 	$var(DelegationPermission, that, $cast(DelegationPermission, obj));
 	bool var$0 = $nc(this->subordinate)->equals($nc(that)->subordinate);
-	return var$0 && $nc(this->service)->equals($nc(that)->service);
+	return var$0 && $nc(this->service)->equals(that->service);
 }
 
 int32_t DelegationPermission::hashCode() {
@@ -142,7 +108,35 @@ DelegationPermission::DelegationPermission() {
 }
 
 $Class* DelegationPermission::load$($String* name, bool initialize) {
-	$loadClass(DelegationPermission, name, initialize, &_DelegationPermission_ClassInfo_, allocate$DelegationPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DelegationPermission, serialVersionUID)},
+		{"subordinate", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(DelegationPermission, subordinate)},
+		{"service", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(DelegationPermission, service)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegationPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegationPermission, init$, void, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, implies, bool, $Permission*)},
+		{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DelegationPermission, init, void, $String*)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, newPermissionCollection, $PermissionCollection*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DelegationPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DelegationPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.security.auth.kerberos.DelegationPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DelegationPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DelegationPermission));
+	});
 	return class$;
 }
 

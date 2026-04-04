@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/CollationData_vi.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,33 +12,14 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CollationData_vi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CollationData_vi, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CollationData_vi, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CollationData_vi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.CollationData_vi",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_CollationData_vi_MethodInfo_
-};
-
-$Object* allocate$CollationData_vi($Class* clazz) {
-	return $of($alloc(CollationData_vi));
-}
-
 void CollationData_vi::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* CollationData_vi::getContents() {
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("Rule"_s),
-		$of(u"&̀;̉;̃;́;̣&D<đ,Đ&Z<̆<̂<̛"_s)
+		"Rule"_s,
+		u"&̀;̉;̃;́;̣&D<đ,Đ&Z<̆<̂<̛"_s
 	})});
 }
 
@@ -47,7 +27,22 @@ CollationData_vi::CollationData_vi() {
 }
 
 $Class* CollationData_vi::load$($String* name, bool initialize) {
-	$loadClass(CollationData_vi, name, initialize, &_CollationData_vi_ClassInfo_, allocate$CollationData_vi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CollationData_vi, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CollationData_vi, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.CollationData_vi",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CollationData_vi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CollationData_vi);
+	});
 	return class$;
 }
 

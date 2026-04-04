@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$DiamondInitializer.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/comp/Analyzer$AnalyzerCopier.h>
@@ -16,7 +15,6 @@
 #include <com/sun/tools/javac/tree/TreeCopier.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/util/AbstractLog.h>
-#include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$Warning.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Log.h>
@@ -28,9 +26,7 @@
 #undef TYPEAPPLY
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
-using $Analyzer$AnalyzerCopier = ::com::sun::tools::javac::comp::Analyzer$AnalyzerCopier;
 using $Analyzer$AnalyzerMode = ::com::sun::tools::javac::comp::Analyzer$AnalyzerMode;
 using $Analyzer$StatementAnalyzer = ::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
@@ -40,9 +36,7 @@ using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -54,49 +48,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Analyzer$DiamondInitializer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$DiamondInitializer, this$0)},
-	{}
-};
-
-$MethodInfo _Analyzer$DiamondInitializer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$DiamondInitializer, init$, void, $Analyzer*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0, $virtualMethod(Analyzer$DiamondInitializer, match, bool, $JCTree$JCNewClass*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, match, bool, $JCTree*)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Z)V", nullptr, 0, $virtualMethod(Analyzer$DiamondInitializer, process, void, $JCTree$JCNewClass*, $JCTree$JCNewClass*, bool)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, process, void, $JCTree*, $JCTree*, bool)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;", 0, $virtualMethod(Analyzer$DiamondInitializer, rewrite, $List*, $JCTree$JCNewClass*)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, rewrite, $List*, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$DiamondInitializer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$DiamondInitializer", "com.sun.tools.javac.comp.Analyzer", "DiamondInitializer", 0},
-	{"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer", "com.sun.tools.javac.comp.Analyzer", "StatementAnalyzer", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCNewClass", "com.sun.tools.javac.tree.JCTree", "JCNewClass", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Analyzer$DiamondInitializer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$DiamondInitializer",
-	"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer",
-	nullptr,
-	_Analyzer$DiamondInitializer_FieldInfo_,
-	_Analyzer$DiamondInitializer_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;",
-	nullptr,
-	_Analyzer$DiamondInitializer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$DiamondInitializer($Class* clazz) {
-	return $of($alloc(Analyzer$DiamondInitializer));
-}
 
 void Analyzer$DiamondInitializer::init$($Analyzer* this$0) {
 	$set(this, this$0, this$0);
@@ -114,7 +65,7 @@ bool Analyzer$DiamondInitializer::match($JCTree$JCNewClass* tree) {
 $List* Analyzer$DiamondInitializer::rewrite($JCTree$JCNewClass* oldTree) {
 	$init($JCTree$Tag);
 	if ($nc($nc(oldTree)->clazz)->hasTag($JCTree$Tag::TYPEAPPLY)) {
-		$var($JCTree$JCNewClass, nc, $cast($JCTree$JCNewClass, $nc(this->this$0->copier)->copy(static_cast<$JCTree*>(oldTree))));
+		$var($JCTree$JCNewClass, nc, $cast($JCTree$JCNewClass, $nc(this->this$0->copier)->copy(oldTree)));
 		$set($nc($cast($JCTree$JCTypeApply, $nc(nc)->clazz)), arguments, $List::nil());
 		return $List::of(nc);
 	} else {
@@ -123,13 +74,13 @@ $List* Analyzer$DiamondInitializer::rewrite($JCTree$JCNewClass* oldTree) {
 }
 
 void Analyzer$DiamondInitializer::process($JCTree$JCNewClass* oldTree, $JCTree$JCNewClass* newTree, bool hasErrors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasErrors) {
 		$var($List, inferredArgs, nullptr);
 		$var($List, explicitArgs, nullptr);
 		if ($nc(oldTree)->def != nullptr) {
-			$assign(inferredArgs, $nc($nc($nc(newTree)->def)->implementing)->nonEmpty() ? $nc($nc(($cast($JCTree$JCExpression, $($nc($nc($nc(newTree)->def)->implementing)->get(0)))))->type)->getTypeArguments() : $nc($nc($nc(newTree->def)->extending)->type)->getTypeArguments());
-			$assign(explicitArgs, $nc($nc(oldTree->def)->implementing)->nonEmpty() ? $nc($nc(($cast($JCTree$JCExpression, $($nc($nc(oldTree->def)->implementing)->get(0)))))->type)->getTypeArguments() : $nc($nc($nc(oldTree->def)->extending)->type)->getTypeArguments());
+			$assign(inferredArgs, $nc($nc($nc(newTree)->def)->implementing)->nonEmpty() ? $nc($nc(($$cast($JCTree$JCExpression, newTree->def->implementing->get(0))))->type)->getTypeArguments() : $nc($nc(newTree->def->extending)->type)->getTypeArguments());
+			$assign(explicitArgs, $nc($nc(oldTree->def)->implementing)->nonEmpty() ? $nc($nc(($$cast($JCTree$JCExpression, oldTree->def->implementing->get(0))))->type)->getTypeArguments() : $nc($nc(oldTree->def->extending)->type)->getTypeArguments());
 		} else {
 			$assign(inferredArgs, $nc($nc(newTree)->type)->getTypeArguments());
 			$assign(explicitArgs, $nc(oldTree->type)->getTypeArguments());
@@ -142,12 +93,12 @@ void Analyzer$DiamondInitializer::process($JCTree$JCNewClass* oldTree, $JCTree$J
 					if (!$nc(this->this$0->types)->isSameType(t, $cast($Type, $nc(explicitArgs)->head))) {
 						return;
 					}
-					$assign(explicitArgs, $nc(explicitArgs)->tail);
+					$assign(explicitArgs, explicitArgs->tail);
 				}
 			}
 		}
 		$init($CompilerProperties$Warnings);
-		$nc(this->this$0->log)->warning(static_cast<$JCDiagnostic$DiagnosticPosition*>($nc(oldTree)->clazz), $CompilerProperties$Warnings::DiamondRedundantArgs);
+		$nc(this->this$0->log)->warning(oldTree->clazz, $CompilerProperties$Warnings::DiamondRedundantArgs);
 	}
 }
 
@@ -167,7 +118,44 @@ Analyzer$DiamondInitializer::Analyzer$DiamondInitializer() {
 }
 
 $Class* Analyzer$DiamondInitializer::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$DiamondInitializer, name, initialize, &_Analyzer$DiamondInitializer_ClassInfo_, allocate$Analyzer$DiamondInitializer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$DiamondInitializer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$DiamondInitializer, init$, void, $Analyzer*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0, $virtualMethod(Analyzer$DiamondInitializer, match, bool, $JCTree$JCNewClass*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, match, bool, $JCTree*)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Z)V", nullptr, 0, $virtualMethod(Analyzer$DiamondInitializer, process, void, $JCTree$JCNewClass*, $JCTree$JCNewClass*, bool)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, process, void, $JCTree*, $JCTree*, bool)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;", 0, $virtualMethod(Analyzer$DiamondInitializer, rewrite, $List*, $JCTree$JCNewClass*)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, rewrite, $List*, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$DiamondInitializer", "com.sun.tools.javac.comp.Analyzer", "DiamondInitializer", 0},
+		{"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer", "com.sun.tools.javac.comp.Analyzer", "StatementAnalyzer", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCNewClass", "com.sun.tools.javac.tree.JCTree", "JCNewClass", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$DiamondInitializer",
+		"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$DiamondInitializer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$DiamondInitializer);
+	});
 	return class$;
 }
 

@@ -39,6 +39,7 @@ class SynthGraphicsUtils$SynthIconWrapper : public ::javax::swing::Icon {
 	$class(SynthGraphicsUtils$SynthIconWrapper, 0, ::javax::swing::Icon)
 public:
 	SynthGraphicsUtils$SynthIconWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::plaf::synth::SynthIcon* icon, ::javax::swing::plaf::synth::SynthContext* context);
 	static ::javax::swing::plaf::synth::SynthGraphicsUtils$SynthIconWrapper* get(::javax::swing::plaf::synth::SynthIcon* icon, ::javax::swing::plaf::synth::SynthContext* context);
 	virtual int32_t getIconHeight() override;

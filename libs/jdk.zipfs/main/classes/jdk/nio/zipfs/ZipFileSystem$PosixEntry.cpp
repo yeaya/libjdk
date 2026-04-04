@@ -1,11 +1,9 @@
 #include <jdk/nio/zipfs/ZipFileSystem$PosixEntry.h>
-
 #include <java/nio/file/Path.h>
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/nio/file/attribute/GroupPrincipal.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
-#include <java/util/Collection.h>
 #include <java/util/Optional.h>
 #include <java/util/Set.h>
 #include <jdk/nio/zipfs/ZipFileSystem$Entry.h>
@@ -22,8 +20,6 @@ using $Path = ::java::nio::file::Path;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
-using $Collection = ::java::util::Collection;
-using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;
 using $ZipFileSystem$Entry = ::jdk::nio::zipfs::ZipFileSystem$Entry;
@@ -32,66 +28,6 @@ using $ZipFileSystem$IndexNode = ::jdk::nio::zipfs::ZipFileSystem$IndexNode;
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipFileSystem$PosixEntry_FieldInfo_[] = {
-	{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$PosixEntry, this$0)},
-	{"owner", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE, $field(ZipFileSystem$PosixEntry, owner$)},
-	{"group", "Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE, $field(ZipFileSystem$PosixEntry, group$)},
-	{}
-};
-
-$MethodInfo _ZipFileSystem$PosixEntry_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;[BZI)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $bytes*, bool, int32_t)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;[BIZI[Ljava/nio/file/attribute/FileAttribute;)V", "([BIZI[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $bytes*, int32_t, bool, int32_t, $FileAttributeArray*)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;[BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute;)V", "([BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $bytes*, $Path*, int32_t, $FileAttributeArray*)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$PosixEntry;II)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, ZipFileSystem$PosixEntry*, int32_t, int32_t)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$PosixEntry;I)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, ZipFileSystem$PosixEntry*, int32_t)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $ZipFileSystem*, $ZipFileSystem$IndexNode*), "java.io.IOException"},
-	{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$PosixEntry, group, $GroupPrincipal*)},
-	{"*isDirectory", "()Z", nullptr, $PUBLIC},
-	{"*isOther", "()Z", nullptr, $PUBLIC},
-	{"*isRegularFile", "()Z", nullptr, $PUBLIC},
-	{"*isSymbolicLink", "()Z", nullptr, $PUBLIC},
-	{"*lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"*lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
-	{"owner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$PosixEntry, owner, $UserPrincipal*)},
-	{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC, $virtualMethod(ZipFileSystem$PosixEntry, permissions, $Set*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*size", "()J", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ZipFileSystem$PosixEntry_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileSystem$PosixEntry", "jdk.nio.zipfs.ZipFileSystem", "PosixEntry", $FINAL},
-	{"jdk.nio.zipfs.ZipFileSystem$Entry", "jdk.nio.zipfs.ZipFileSystem", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _ZipFileSystem$PosixEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileSystem$PosixEntry",
-	"jdk.nio.zipfs.ZipFileSystem$Entry",
-	"java.nio.file.attribute.PosixFileAttributes",
-	_ZipFileSystem$PosixEntry_FieldInfo_,
-	_ZipFileSystem$PosixEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipFileSystem$PosixEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileSystem"
-};
-
-$Object* allocate$ZipFileSystem$PosixEntry($Class* clazz) {
-	return $of($alloc(ZipFileSystem$PosixEntry));
-}
 
 $String* ZipFileSystem$PosixEntry::toString() {
 	 return this->$ZipFileSystem$Entry::toString();
@@ -172,7 +108,7 @@ void ZipFileSystem$PosixEntry::init$($ZipFileSystem* this$0, $bytes* name, $Path
 
 void ZipFileSystem$PosixEntry::init$($ZipFileSystem* this$0, ZipFileSystem$PosixEntry* e, int32_t type, int32_t compressionMethod) {
 	$set(this, this$0, this$0);
-	$ZipFileSystem$Entry::init$(static_cast<$ZipFileSystem$Entry*>(e), type);
+	$ZipFileSystem$Entry::init$(e, type);
 	$set(this, owner$, this->this$0->defaultOwner);
 	$set(this, group$, this->this$0->defaultGroup);
 	this->method$ = compressionMethod;
@@ -180,7 +116,7 @@ void ZipFileSystem$PosixEntry::init$($ZipFileSystem* this$0, ZipFileSystem$Posix
 
 void ZipFileSystem$PosixEntry::init$($ZipFileSystem* this$0, ZipFileSystem$PosixEntry* e, int32_t type) {
 	$set(this, this$0, this$0);
-	$ZipFileSystem$Entry::init$(static_cast<$ZipFileSystem$Entry*>(e), type);
+	$ZipFileSystem$Entry::init$(e, type);
 	$set(this, owner$, this->this$0->defaultOwner);
 	$set(this, group$, this->this$0->defaultGroup);
 	$set(this, owner$, $nc(e)->owner$);
@@ -203,15 +139,69 @@ $GroupPrincipal* ZipFileSystem$PosixEntry::group() {
 }
 
 $Set* ZipFileSystem$PosixEntry::permissions() {
-	$useLocalCurrentObjectStackCache();
-	return $cast($Set, $nc($(storedPermissions()))->orElse($($Set::copyOf(this->this$0->defaultPermissions))));
+	$useLocalObjectStack();
+	return $cast($Set, $$nc(storedPermissions())->orElse($($Set::copyOf(this->this$0->defaultPermissions))));
 }
 
 ZipFileSystem$PosixEntry::ZipFileSystem$PosixEntry() {
 }
 
 $Class* ZipFileSystem$PosixEntry::load$($String* name, bool initialize) {
-	$loadClass(ZipFileSystem$PosixEntry, name, initialize, &_ZipFileSystem$PosixEntry_ClassInfo_, allocate$ZipFileSystem$PosixEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$PosixEntry, this$0)},
+		{"owner", "Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE, $field(ZipFileSystem$PosixEntry, owner$)},
+		{"group", "Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE, $field(ZipFileSystem$PosixEntry, group$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;[BZI)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $bytes*, bool, int32_t)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;[BIZI[Ljava/nio/file/attribute/FileAttribute;)V", "([BIZI[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $bytes*, int32_t, bool, int32_t, $FileAttributeArray*)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;[BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute;)V", "([BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $bytes*, $Path*, int32_t, $FileAttributeArray*)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$PosixEntry;II)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, ZipFileSystem$PosixEntry*, int32_t, int32_t)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$PosixEntry;I)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, ZipFileSystem$PosixEntry*, int32_t)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, 0, $method(ZipFileSystem$PosixEntry, init$, void, $ZipFileSystem*, $ZipFileSystem*, $ZipFileSystem$IndexNode*), "java.io.IOException"},
+		{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$PosixEntry, group, $GroupPrincipal*)},
+		{"*isDirectory", "()Z", nullptr, $PUBLIC},
+		{"*isOther", "()Z", nullptr, $PUBLIC},
+		{"*isRegularFile", "()Z", nullptr, $PUBLIC},
+		{"*isSymbolicLink", "()Z", nullptr, $PUBLIC},
+		{"*lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
+		{"*lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC},
+		{"owner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$PosixEntry, owner, $UserPrincipal*)},
+		{"permissions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC, $virtualMethod(ZipFileSystem$PosixEntry, permissions, $Set*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*size", "()J", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileSystem$PosixEntry", "jdk.nio.zipfs.ZipFileSystem", "PosixEntry", $FINAL},
+		{"jdk.nio.zipfs.ZipFileSystem$Entry", "jdk.nio.zipfs.ZipFileSystem", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileSystem$PosixEntry",
+		"jdk.nio.zipfs.ZipFileSystem$Entry",
+		"java.nio.file.attribute.PosixFileAttributes",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileSystem"
+	};
+	$loadClass(ZipFileSystem$PosixEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipFileSystem$PosixEntry));
+	});
 	return class$;
 }
 

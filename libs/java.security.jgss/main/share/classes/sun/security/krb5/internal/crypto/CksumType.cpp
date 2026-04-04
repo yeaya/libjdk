@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/CksumType.h>
-
 #include <sun/security/krb5/Checksum.h>
 #include <sun/security/krb5/internal/KdcErrException.h>
 #include <sun/security/krb5/internal/Krb5.h>
@@ -29,7 +28,6 @@
 #undef DEBUG
 #undef KDC_ERR_SUMTYPE_NOSUPP
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -54,39 +52,6 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 
-$FieldInfo _CksumType_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CksumType, DEBUG)},
-	{}
-};
-
-$MethodInfo _CksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CksumType, init$, void)},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, cksumSize, int32_t)},
-	{"cksumType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, cksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, confounderSize, int32_t)},
-	{"getInstance", "(I)Lsun/security/krb5/internal/crypto/CksumType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CksumType, getInstance, CksumType*, int32_t), "sun.security.krb5.internal.KdcErrException"},
-	{"isChecksumEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CksumType, isChecksumEqual, bool, $bytes*, $bytes*)},
-	{"isKeyed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, isKeyed, bool)},
-	{"keySize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, keyType, int32_t)},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{}
-};
-
-$ClassInfo _CksumType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.krb5.internal.crypto.CksumType",
-	"java.lang.Object",
-	nullptr,
-	_CksumType_FieldInfo_,
-	_CksumType_MethodInfo_
-};
-
-$Object* allocate$CksumType($Class* clazz) {
-	return $of($alloc(CksumType));
-}
-
 bool CksumType::DEBUG = false;
 
 void CksumType::init$() {
@@ -94,86 +59,59 @@ void CksumType::init$() {
 
 CksumType* CksumType::getInstance(int32_t cksumTypeConst) {
 	$init(CksumType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CksumType, cksumType, nullptr);
 	$var($String, cksumTypeName, nullptr);
 	switch (cksumTypeConst) {
 	case $Checksum::CKSUMTYPE_CRC32:
-		{
-			$assign(cksumType, $new($Crc32CksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.Crc32CksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($Crc32CksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.Crc32CksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_DES_MAC:
-		{
-			$assign(cksumType, $new($DesMacCksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.DesMacCksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($DesMacCksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.DesMacCksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_DES_MAC_K:
-		{
-			$assign(cksumType, $new($DesMacKCksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.DesMacKCksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($DesMacKCksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.DesMacKCksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_RSA_MD5:
-		{
-			$assign(cksumType, $new($RsaMd5CksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.RsaMd5CksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($RsaMd5CksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.RsaMd5CksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_RSA_MD5_DES:
-		{
-			$assign(cksumType, $new($RsaMd5DesCksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.RsaMd5DesCksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($RsaMd5DesCksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.RsaMd5DesCksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_HMAC_SHA1_DES3_KD:
-		{
-			$assign(cksumType, $new($HmacSha1Des3KdCksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha1Des3KdCksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($HmacSha1Des3KdCksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha1Des3KdCksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_HMAC_SHA1_96_AES128:
-		{
-			$assign(cksumType, $new($HmacSha1Aes128CksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha1Aes128CksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($HmacSha1Aes128CksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha1Aes128CksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_HMAC_SHA1_96_AES256:
-		{
-			$assign(cksumType, $new($HmacSha1Aes256CksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha1Aes256CksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($HmacSha1Aes256CksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha1Aes256CksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_HMAC_SHA256_128_AES128:
-		{
-			$assign(cksumType, $new($HmacSha2Aes128CksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha2Aes128CksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($HmacSha2Aes128CksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha2Aes128CksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_HMAC_SHA384_192_AES256:
-		{
-			$assign(cksumType, $new($HmacSha2Aes256CksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha2Aes256CksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($HmacSha2Aes256CksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacSha2Aes256CksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_HMAC_MD5_ARCFOUR:
-		{
-			$assign(cksumType, $new($HmacMd5ArcFourCksumType));
-			$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacMd5ArcFourCksumType"_s);
-			break;
-		}
+		$assign(cksumType, $new($HmacMd5ArcFourCksumType));
+		$assign(cksumTypeName, "sun.security.krb5.internal.crypto.HmacMd5ArcFourCksumType"_s);
+		break;
 	case $Checksum::CKSUMTYPE_RSA_MD4_DES_K:
-		{}
 	case $Checksum::CKSUMTYPE_RSA_MD4:
-		{}
 	case $Checksum::CKSUMTYPE_RSA_MD4_DES:
-		{}
 	default:
-		{
-			$throwNew($KdcErrException, $Krb5::KDC_ERR_SUMTYPE_NOSUPP);
-		}
+		$throwNew($KdcErrException, $Krb5::KDC_ERR_SUMTYPE_NOSUPP);
 	}
 	if (CksumType::DEBUG) {
 		$nc($System::out)->println($$str({">>> CksumType: "_s, cksumTypeName}));
@@ -192,15 +130,15 @@ bool CksumType::isChecksumEqual($bytes* cksum1, $bytes* cksum2) {
 	if ($nc(cksum1)->length != $nc(cksum2)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(cksum1)->length; ++i) {
-		if (cksum1->get(i) != $nc(cksum2)->get(i)) {
+	for (int32_t i = 0; i < cksum1->length; ++i) {
+		if (cksum1->get(i) != cksum2->get(i)) {
 			return false;
 		}
 	}
 	return true;
 }
 
-void clinit$CksumType($Class* class$) {
+void CksumType::clinit$($Class* clazz) {
 	$init($Krb5);
 	CksumType::DEBUG = $Krb5::DEBUG;
 }
@@ -209,7 +147,35 @@ CksumType::CksumType() {
 }
 
 $Class* CksumType::load$($String* name, bool initialize) {
-	$loadClass(CksumType, name, initialize, &_CksumType_ClassInfo_, clinit$CksumType, allocate$CksumType);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CksumType, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CksumType, init$, void)},
+		{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"cksumSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, cksumSize, int32_t)},
+		{"cksumType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, cksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, confounderSize, int32_t)},
+		{"getInstance", "(I)Lsun/security/krb5/internal/crypto/CksumType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CksumType, getInstance, CksumType*, int32_t), "sun.security.krb5.internal.KdcErrException"},
+		{"isChecksumEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CksumType, isChecksumEqual, bool, $bytes*, $bytes*)},
+		{"isKeyed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, isKeyed, bool)},
+		{"keySize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, keyType, int32_t)},
+		{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.krb5.internal.crypto.CksumType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CksumType, name, initialize, &classInfo$$, CksumType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CksumType);
+	});
 	return class$;
 }
 

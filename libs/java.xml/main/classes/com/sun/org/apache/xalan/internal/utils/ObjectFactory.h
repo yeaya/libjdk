@@ -37,6 +37,7 @@ class ObjectFactory : public ::java::lang::Object {
 	$class(ObjectFactory, 0, ::java::lang::Object)
 public:
 	ObjectFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void debugPrintln(::java::util::function::Supplier* msgGen);
 	static ::java::lang::ClassLoader* findClassLoader();

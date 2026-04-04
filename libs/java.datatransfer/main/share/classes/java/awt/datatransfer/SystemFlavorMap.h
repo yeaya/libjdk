@@ -48,6 +48,7 @@ class $export SystemFlavorMap : public ::java::awt::datatransfer::FlavorTable {
 	$class(SystemFlavorMap, 0, ::java::awt::datatransfer::FlavorTable)
 public:
 	SystemFlavorMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addFlavorForUnencodedNative($String* nat, ::java::awt::datatransfer::DataFlavor* flav);
 	void addUnencodedNativeForFlavor(::java::awt::datatransfer::DataFlavor* flav, $String* nat);

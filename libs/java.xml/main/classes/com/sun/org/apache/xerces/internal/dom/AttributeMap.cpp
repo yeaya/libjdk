@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/AttributeMap.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/AttrNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
@@ -36,7 +35,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $DOMException = ::org::w3c::dom::DOMException;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {
@@ -46,44 +44,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _AttributeMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AttributeMap, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AttributeMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/ElementImpl;Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;)V", nullptr, $PROTECTED, $method(AttributeMap, init$, void, $ElementImpl*, $NamedNodeMapImpl*)},
-	{"addItem", "(Lorg/w3c/dom/Node;)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(AttributeMap, addItem, int32_t, $Node*)},
-	{"cloneContent", "(Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;)V", nullptr, $PROTECTED, $virtualMethod(AttributeMap, cloneContent, void, $NamedNodeMapImpl*)},
-	{"cloneMap", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, cloneMap, $NamedNodeMapImpl*, $NodeImpl*)},
-	{"internalRemoveNamedItem", "(Ljava/lang/String;Z)Lorg/w3c/dom/Node;", nullptr, $PROTECTED | $FINAL, $method(AttributeMap, internalRemoveNamedItem, $Node*, $String*, bool)},
-	{"internalRemoveNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;Z)Lorg/w3c/dom/Node;", nullptr, $PROTECTED | $FINAL, $method(AttributeMap, internalRemoveNamedItemNS, $Node*, $String*, $String*, bool)},
-	{"moveSpecifiedAttributes", "(Lcom/sun/org/apache/xerces/internal/dom/AttributeMap;)V", nullptr, 0, $virtualMethod(AttributeMap, moveSpecifiedAttributes, void, AttributeMap*)},
-	{"reconcileDefaults", "(Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;)V", nullptr, $PROTECTED, $virtualMethod(AttributeMap, reconcileDefaults, void, $NamedNodeMapImpl*)},
-	{"remove", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;IZ)Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $FINAL, $method(AttributeMap, remove, $Node*, $AttrImpl*, int32_t, bool)},
-	{"removeItem", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(AttributeMap, removeItem, $Node*, $Node*, bool), "org.w3c.dom.DOMException"},
-	{"removeNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, removeNamedItem, $Node*, $String*), "org.w3c.dom.DOMException"},
-	{"removeNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, removeNamedItemNS, $Node*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"safeRemoveNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(AttributeMap, safeRemoveNamedItem, $Node*, $String*)},
-	{"safeRemoveNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(AttributeMap, safeRemoveNamedItemNS, $Node*, $String*, $String*)},
-	{"setNamedItem", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, setNamedItem, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"setNamedItemNS", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, setNamedItemNS, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{}
-};
-
-$ClassInfo _AttributeMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.AttributeMap",
-	"com.sun.org.apache.xerces.internal.dom.NamedNodeMapImpl",
-	nullptr,
-	_AttributeMap_FieldInfo_,
-	_AttributeMap_MethodInfo_
-};
-
-$Object* allocate$AttributeMap($Class* clazz) {
-	return $of($alloc(AttributeMap));
-}
 
 void AttributeMap::init$($ElementImpl* ownerNode, $NamedNodeMapImpl* defaults) {
 	$NamedNodeMapImpl::init$(ownerNode);
@@ -96,7 +56,7 @@ void AttributeMap::init$($ElementImpl* ownerNode, $NamedNodeMapImpl* defaults) {
 }
 
 $Node* AttributeMap::setNamedItem($Node* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool errCheck = $nc($($nc(this->ownerNode)->ownerDocument()))->errorChecking;
 	if (errCheck) {
 		if (isReadOnly()) {
@@ -109,7 +69,7 @@ $Node* AttributeMap::setNamedItem($Node* arg) {
 			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "WRONG_DOCUMENT_ERR"_s, nullptr));
 			$throwNew($DOMException, $DOMException::WRONG_DOCUMENT_ERR, msg);
 		}
-		if ($nc(arg)->getNodeType() != $Node::ATTRIBUTE_NODE) {
+		if (arg->getNodeType() != $Node::ATTRIBUTE_NODE) {
 			$init($DOMMessageFormatter);
 			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "HIERARCHY_REQUEST_ERR"_s, nullptr));
 			$throwNew($DOMException, $DOMException::HIERARCHY_REQUEST_ERR, msg);
@@ -124,13 +84,13 @@ $Node* AttributeMap::setNamedItem($Node* arg) {
 		}
 		return arg;
 	}
-	$set($nc(argn), ownerNode, this->ownerNode);
+	$set(argn, ownerNode, this->ownerNode);
 	argn->isOwned(true);
 	int32_t i = findNamePoint($(argn->getNodeName()), 0);
 	$var($AttrImpl, previous, nullptr);
 	if (i >= 0) {
 		$assign(previous, $cast($AttrImpl, $nc(this->nodes)->get(i)));
-		$nc(this->nodes)->set(i, arg);
+		this->nodes->set(i, arg);
 		$set($nc(previous), ownerNode, $nc(this->ownerNode)->ownerDocument());
 		previous->isOwned(false);
 		previous->isSpecified(true);
@@ -141,15 +101,15 @@ $Node* AttributeMap::setNamedItem($Node* arg) {
 		}
 		$nc(this->nodes)->add(i, arg);
 	}
-	$nc($($nc(this->ownerNode)->ownerDocument()))->setAttrNode(argn, previous);
+	$$nc($nc(this->ownerNode)->ownerDocument())->setAttrNode(argn, previous);
 	if (!argn->isNormalized()) {
 		$nc(this->ownerNode)->isNormalized(false);
 	}
-	return static_cast<$Node*>(static_cast<$NodeImpl*>(previous));
+	return $cast($NodeImpl, previous);
 }
 
 $Node* AttributeMap::setNamedItemNS($Node* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool errCheck = $nc($($nc(this->ownerNode)->ownerDocument()))->errorChecking;
 	if (errCheck) {
 		if (isReadOnly()) {
@@ -162,7 +122,7 @@ $Node* AttributeMap::setNamedItemNS($Node* arg) {
 			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "WRONG_DOCUMENT_ERR"_s, nullptr));
 			$throwNew($DOMException, $DOMException::WRONG_DOCUMENT_ERR, msg);
 		}
-		if ($nc(arg)->getNodeType() != $Node::ATTRIBUTE_NODE) {
+		if (arg->getNodeType() != $Node::ATTRIBUTE_NODE) {
 			$init($DOMMessageFormatter);
 			$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "HIERARCHY_REQUEST_ERR"_s, nullptr));
 			$throwNew($DOMException, $DOMException::HIERARCHY_REQUEST_ERR, msg);
@@ -177,14 +137,14 @@ $Node* AttributeMap::setNamedItemNS($Node* arg) {
 		}
 		return arg;
 	}
-	$set($nc(argn), ownerNode, this->ownerNode);
+	$set(argn, ownerNode, this->ownerNode);
 	argn->isOwned(true);
 	$var($String, var$0, argn->getNamespaceURI());
 	int32_t i = findNamePoint(var$0, $(argn->getLocalName()));
 	$var($AttrImpl, previous, nullptr);
 	if (i >= 0) {
 		$assign(previous, $cast($AttrImpl, $nc(this->nodes)->get(i)));
-		$nc(this->nodes)->set(i, arg);
+		this->nodes->set(i, arg);
 		$set($nc(previous), ownerNode, $nc(this->ownerNode)->ownerDocument());
 		previous->isOwned(false);
 		previous->isSpecified(true);
@@ -192,7 +152,7 @@ $Node* AttributeMap::setNamedItemNS($Node* arg) {
 		i = findNamePoint($($nc(arg)->getNodeName()), 0);
 		if (i >= 0) {
 			$assign(previous, $cast($AttrImpl, $nc(this->nodes)->get(i)));
-			$nc(this->nodes)->add(i, arg);
+			this->nodes->add(i, arg);
 		} else {
 			i = -1 - i;
 			if (nullptr == this->nodes) {
@@ -201,11 +161,11 @@ $Node* AttributeMap::setNamedItemNS($Node* arg) {
 			$nc(this->nodes)->add(i, arg);
 		}
 	}
-	$nc($($nc(this->ownerNode)->ownerDocument()))->setAttrNode(argn, previous);
+	$$nc($nc(this->ownerNode)->ownerDocument())->setAttrNode(argn, previous);
 	if (!argn->isNormalized()) {
 		$nc(this->ownerNode)->isNormalized(false);
 	}
-	return static_cast<$Node*>(static_cast<$NodeImpl*>(previous));
+	return $cast($NodeImpl, previous);
 }
 
 $Node* AttributeMap::removeNamedItem($String* name) {
@@ -219,9 +179,9 @@ $Node* AttributeMap::safeRemoveNamedItem($String* name) {
 $Node* AttributeMap::removeItem($Node* item, bool addDefault) {
 	int32_t index = -1;
 	if (this->nodes != nullptr) {
-		int32_t size = $nc(this->nodes)->size();
+		int32_t size = this->nodes->size();
 		for (int32_t i = 0; i < size; ++i) {
-			if ($equals($nc(this->nodes)->get(i), item)) {
+			if ($equals(this->nodes->get(i), item)) {
 				index = i;
 				break;
 			}
@@ -236,7 +196,7 @@ $Node* AttributeMap::removeItem($Node* item, bool addDefault) {
 }
 
 $Node* AttributeMap::internalRemoveNamedItem($String* name, bool raiseEx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isReadOnly()) {
 		$init($DOMMessageFormatter);
 		$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NO_MODIFICATION_ALLOWED_ERR"_s, nullptr));
@@ -252,18 +212,18 @@ $Node* AttributeMap::internalRemoveNamedItem($String* name, bool raiseEx) {
 			return nullptr;
 		}
 	}
-	return remove($cast($AttrImpl, $($nc(this->nodes)->get(i))), i, true);
+	return remove($$cast($AttrImpl, $nc(this->nodes)->get(i)), i, true);
 }
 
 $Node* AttributeMap::remove($AttrImpl* attr, int32_t index, bool addDefault) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CoreDocumentImpl, ownerDocument, $nc(this->ownerNode)->ownerDocument());
 	$var($String, name, $nc(attr)->getNodeName());
 	if (attr->isIdAttribute()) {
 		$nc(ownerDocument)->removeIdentifier($(attr->getValue()));
 	}
 	if (hasDefaults() && addDefault) {
-		$var($NamedNodeMapImpl, defaults, $nc(($cast($ElementImpl, this->ownerNode)))->getDefaultAttributes());
+		$var($NamedNodeMapImpl, defaults, $nc($cast($ElementImpl, this->ownerNode))->getDefaultAttributes());
 		$var($Node, d, nullptr);
 		bool var$0 = defaults != nullptr && ($assign(d, defaults->getNamedItem(name))) != nullptr;
 		if (var$0 && findNamePoint(name, index + 1) < 0) {
@@ -289,7 +249,7 @@ $Node* AttributeMap::remove($AttrImpl* attr, int32_t index, bool addDefault) {
 	attr->isSpecified(true);
 	attr->isIdAttribute(false);
 	$nc(ownerDocument)->removedAttrNode(attr, this->ownerNode, name);
-	return static_cast<$Node*>(static_cast<$NodeImpl*>(attr));
+	return $cast($NodeImpl, attr);
 }
 
 $Node* AttributeMap::removeNamedItemNS($String* namespaceURI, $String* name) {
@@ -301,7 +261,7 @@ $Node* AttributeMap::safeRemoveNamedItemNS($String* namespaceURI, $String* name)
 }
 
 $Node* AttributeMap::internalRemoveNamedItemNS($String* namespaceURI, $String* name, bool raiseEx) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CoreDocumentImpl, ownerDocument, $nc(this->ownerNode)->ownerDocument());
 	if ($nc(ownerDocument)->errorChecking && isReadOnly()) {
 		$init($DOMMessageFormatter);
@@ -320,11 +280,11 @@ $Node* AttributeMap::internalRemoveNamedItemNS($String* namespaceURI, $String* n
 	}
 	$var($AttrImpl, n, $cast($AttrImpl, $nc(this->nodes)->get(i)));
 	if ($nc(n)->isIdAttribute()) {
-		$nc(ownerDocument)->removeIdentifier($(n->getValue()));
+		ownerDocument->removeIdentifier($(n->getValue()));
 	}
-	$var($String, nodeName, $nc(n)->getNodeName());
+	$var($String, nodeName, n->getNodeName());
 	if (hasDefaults()) {
-		$var($NamedNodeMapImpl, defaults, $nc(($cast($ElementImpl, this->ownerNode)))->getDefaultAttributes());
+		$var($NamedNodeMapImpl, defaults, $nc($cast($ElementImpl, this->ownerNode))->getDefaultAttributes());
 		$var($Node, d, nullptr);
 		if (defaults != nullptr && ($assign(d, defaults->getNamedItem(nodeName))) != nullptr) {
 			int32_t j = findNamePoint(nodeName, 0);
@@ -332,13 +292,13 @@ $Node* AttributeMap::internalRemoveNamedItemNS($String* namespaceURI, $String* n
 				$var($NodeImpl, clone, $cast($NodeImpl, $nc(d)->cloneNode(true)));
 				$set($nc(clone), ownerNode, this->ownerNode);
 				if (d->getLocalName() != nullptr) {
-					$set($nc($cast($AttrNSImpl, clone)), namespaceURI, namespaceURI);
+					$set($cast($AttrNSImpl, clone), namespaceURI, namespaceURI);
 				}
 				clone->isOwned(true);
 				clone->isSpecified(false);
 				$nc(this->nodes)->set(i, clone);
 				if (clone->isIdAttribute()) {
-					$nc(ownerDocument)->putIdentifier($(clone->getNodeValue()), $cast($ElementImpl, this->ownerNode));
+					ownerDocument->putIdentifier($(clone->getNodeValue()), $cast($ElementImpl, this->ownerNode));
 				}
 			} else {
 				$nc(this->nodes)->remove(i);
@@ -353,8 +313,8 @@ $Node* AttributeMap::internalRemoveNamedItemNS($String* namespaceURI, $String* n
 	n->isOwned(false);
 	n->isSpecified(true);
 	n->isIdAttribute(false);
-	$nc(ownerDocument)->removedAttrNode(n, this->ownerNode, name);
-	return static_cast<$Node*>(static_cast<$NodeImpl*>(n));
+	ownerDocument->removedAttrNode(n, this->ownerNode, name);
+	return $cast($NodeImpl, n);
 }
 
 $NamedNodeMapImpl* AttributeMap::cloneMap($NodeImpl* ownerNode) {
@@ -365,7 +325,7 @@ $NamedNodeMapImpl* AttributeMap::cloneMap($NodeImpl* ownerNode) {
 }
 
 void AttributeMap::cloneContent($NamedNodeMapImpl* srcmap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, srcnodes, $nc(srcmap)->nodes);
 	if (srcnodes != nullptr) {
 		int32_t size = srcnodes->size();
@@ -373,7 +333,7 @@ void AttributeMap::cloneContent($NamedNodeMapImpl* srcmap) {
 			if (this->nodes == nullptr) {
 				$set(this, nodes, $new($ArrayList, size));
 			} else {
-				$nc(this->nodes)->clear();
+				this->nodes->clear();
 			}
 			for (int32_t i = 0; i < size; ++i) {
 				$var($NodeImpl, n, $cast($NodeImpl, srcnodes->get(i)));
@@ -388,24 +348,24 @@ void AttributeMap::cloneContent($NamedNodeMapImpl* srcmap) {
 }
 
 void AttributeMap::moveSpecifiedAttributes(AttributeMap* srcmap) {
-	$useLocalCurrentObjectStackCache();
-	int32_t nsize = ($nc(srcmap)->nodes != nullptr) ? $nc($nc(srcmap)->nodes)->size() : 0;
+	$useLocalObjectStack();
+	int32_t nsize = ($nc(srcmap)->nodes != nullptr) ? srcmap->nodes->size() : 0;
 	for (int32_t i = nsize - 1; i >= 0; --i) {
 		$var($AttrImpl, attr, $cast($AttrImpl, $nc(srcmap->nodes)->get(i)));
 		if ($nc(attr)->isSpecified()) {
 			srcmap->remove(attr, i, false);
 			if (attr->getLocalName() != nullptr) {
-				setNamedItem(static_cast<$Node*>(static_cast<$NodeImpl*>(attr)));
+				setNamedItem($cast($NodeImpl, attr));
 			} else {
-				setNamedItemNS(static_cast<$Node*>(static_cast<$NodeImpl*>(attr)));
+				setNamedItemNS($cast($NodeImpl, attr));
 			}
 		}
 	}
 }
 
 void AttributeMap::reconcileDefaults($NamedNodeMapImpl* defaults) {
-	$useLocalCurrentObjectStackCache();
-	int32_t nsize = (this->nodes != nullptr) ? $nc(this->nodes)->size() : 0;
+	$useLocalObjectStack();
+	int32_t nsize = (this->nodes != nullptr) ? this->nodes->size() : 0;
 	for (int32_t i = nsize - 1; i >= 0; --i) {
 		$var($AttrImpl, attr, $cast($AttrImpl, $nc(this->nodes)->get(i)));
 		if (!$nc(attr)->isSpecified()) {
@@ -415,7 +375,7 @@ void AttributeMap::reconcileDefaults($NamedNodeMapImpl* defaults) {
 	if (defaults == nullptr) {
 		return;
 	}
-	if (this->nodes == nullptr || $nc(this->nodes)->size() == 0) {
+	if (this->nodes == nullptr || this->nodes->size() == 0) {
 		cloneContent(defaults);
 	} else {
 		int32_t dsize = $nc($nc(defaults)->nodes)->size();
@@ -424,7 +384,7 @@ void AttributeMap::reconcileDefaults($NamedNodeMapImpl* defaults) {
 			int32_t i = findNamePoint($($nc(d)->getNodeName()), 0);
 			if (i < 0) {
 				i = -1 - i;
-				$var($NodeImpl, clone, $cast($NodeImpl, $nc(d)->cloneNode(true)));
+				$var($NodeImpl, clone, $cast($NodeImpl, d->cloneNode(true)));
 				$set($nc(clone), ownerNode, this->ownerNode);
 				clone->isOwned(true);
 				clone->isSpecified(false);
@@ -435,7 +395,7 @@ void AttributeMap::reconcileDefaults($NamedNodeMapImpl* defaults) {
 }
 
 int32_t AttributeMap::addItem($Node* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttrImpl, argn, $cast($AttrImpl, arg));
 	$set($nc(argn), ownerNode, this->ownerNode);
 	argn->isOwned(true);
@@ -455,7 +415,7 @@ int32_t AttributeMap::addItem($Node* arg) {
 			$nc(this->nodes)->add(i, arg);
 		}
 	}
-	$nc($($nc(this->ownerNode)->ownerDocument()))->setAttrNode(argn, nullptr);
+	$$nc($nc(this->ownerNode)->ownerDocument())->setAttrNode(argn, nullptr);
 	return i;
 }
 
@@ -463,7 +423,40 @@ AttributeMap::AttributeMap() {
 }
 
 $Class* AttributeMap::load$($String* name, bool initialize) {
-	$loadClass(AttributeMap, name, initialize, &_AttributeMap_ClassInfo_, allocate$AttributeMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AttributeMap, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/ElementImpl;Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;)V", nullptr, $PROTECTED, $method(AttributeMap, init$, void, $ElementImpl*, $NamedNodeMapImpl*)},
+		{"addItem", "(Lorg/w3c/dom/Node;)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(AttributeMap, addItem, int32_t, $Node*)},
+		{"cloneContent", "(Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;)V", nullptr, $PROTECTED, $virtualMethod(AttributeMap, cloneContent, void, $NamedNodeMapImpl*)},
+		{"cloneMap", "(Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;)Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, cloneMap, $NamedNodeMapImpl*, $NodeImpl*)},
+		{"internalRemoveNamedItem", "(Ljava/lang/String;Z)Lorg/w3c/dom/Node;", nullptr, $PROTECTED | $FINAL, $method(AttributeMap, internalRemoveNamedItem, $Node*, $String*, bool)},
+		{"internalRemoveNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;Z)Lorg/w3c/dom/Node;", nullptr, $PROTECTED | $FINAL, $method(AttributeMap, internalRemoveNamedItemNS, $Node*, $String*, $String*, bool)},
+		{"moveSpecifiedAttributes", "(Lcom/sun/org/apache/xerces/internal/dom/AttributeMap;)V", nullptr, 0, $virtualMethod(AttributeMap, moveSpecifiedAttributes, void, AttributeMap*)},
+		{"reconcileDefaults", "(Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;)V", nullptr, $PROTECTED, $virtualMethod(AttributeMap, reconcileDefaults, void, $NamedNodeMapImpl*)},
+		{"remove", "(Lcom/sun/org/apache/xerces/internal/dom/AttrImpl;IZ)Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $FINAL, $method(AttributeMap, remove, $Node*, $AttrImpl*, int32_t, bool)},
+		{"removeItem", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(AttributeMap, removeItem, $Node*, $Node*, bool), "org.w3c.dom.DOMException"},
+		{"removeNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, removeNamedItem, $Node*, $String*), "org.w3c.dom.DOMException"},
+		{"removeNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, removeNamedItemNS, $Node*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"safeRemoveNamedItem", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(AttributeMap, safeRemoveNamedItem, $Node*, $String*)},
+		{"safeRemoveNamedItemNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(AttributeMap, safeRemoveNamedItemNS, $Node*, $String*, $String*)},
+		{"setNamedItem", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, setNamedItem, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"setNamedItemNS", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(AttributeMap, setNamedItemNS, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.AttributeMap",
+		"com.sun.org.apache.xerces.internal.dom.NamedNodeMapImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeMap));
+	});
 	return class$;
 }
 

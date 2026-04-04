@@ -33,6 +33,7 @@ class PerfDataType : public ::java::lang::Object {
 	$class(PerfDataType, 0, ::java::lang::Object)
 public:
 	PerfDataType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* c, int32_t size);
 	virtual int8_t byteValue();
 	virtual int32_t size();

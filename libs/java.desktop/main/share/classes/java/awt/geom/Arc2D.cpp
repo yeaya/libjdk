@@ -1,5 +1,4 @@
 #include <java/awt/geom/Arc2D.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/ArcIterator.h>
 #include <java/awt/geom/Dimension2D.h>
@@ -40,75 +39,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _Arc2D_FieldInfo_[] = {
-	{"OPEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Arc2D, OPEN)},
-	{"CHORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Arc2D, CHORD)},
-	{"PIE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Arc2D, PIE)},
-	{"type", "I", nullptr, $PRIVATE, $field(Arc2D, type)},
-	{}
-};
-
-$MethodInfo _Arc2D_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Arc2D, init$, void)},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(Arc2D, init$, void, int32_t)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, contains, bool, double, double)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, contains, bool, double, double, double, double)},
-	{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, contains, bool, $Rectangle2D*)},
-	{"contains", "(DDDDLjava/awt/geom/Rectangle2D;)Z", nullptr, $PRIVATE, $method(Arc2D, contains, bool, double, double, double, double, $Rectangle2D*)},
-	{"containsAngle", "(D)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, containsAngle, bool, double)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, equals, bool, Object$*)},
-	{"getAngleExtent", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, getAngleExtent, double)},
-	{"getAngleStart", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, getAngleStart, double)},
-	{"getArcType", "()I", nullptr, $PUBLIC, $virtualMethod(Arc2D, getArcType, int32_t)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getBounds2D, $Rectangle2D*)},
-	{"getEndPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getEndPoint, $Point2D*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"getStartPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getStartPoint, $Point2D*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Arc2D, hashCode, int32_t)},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, intersects, bool, double, double, double, double)},
-	{"makeBounds", "(DDDD)Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Arc2D, makeBounds, $Rectangle2D*, double, double, double, double)},
-	{"normalizeDegrees", "(D)D", nullptr, $STATIC, $staticMethod(Arc2D, normalizeDegrees, double, double)},
-	{"setAngleExtent", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, setAngleExtent, void, double)},
-	{"setAngleStart", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, setAngleStart, void, double)},
-	{"setAngleStart", "(Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setAngleStart, void, $Point2D*)},
-	{"setAngles", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setAngles, void, double, double, double, double)},
-	{"setAngles", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setAngles, void, $Point2D*, $Point2D*)},
-	{"setArc", "(DDDDDDI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, setArc, void, double, double, double, double, double, double, int32_t)},
-	{"setArc", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Dimension2D;DDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArc, void, $Point2D*, $Dimension2D*, double, double, int32_t)},
-	{"setArc", "(Ljava/awt/geom/Rectangle2D;DDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArc, void, $Rectangle2D*, double, double, int32_t)},
-	{"setArc", "(Ljava/awt/geom/Arc2D;)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArc, void, Arc2D*)},
-	{"setArcByCenter", "(DDDDDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArcByCenter, void, double, double, double, double, double, int32_t)},
-	{"setArcByTangent", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;D)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArcByTangent, void, $Point2D*, $Point2D*, $Point2D*, double)},
-	{"setArcType", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArcType, void, int32_t)},
-	{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setFrame, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _Arc2D_InnerClassesInfo_[] = {
-	{"java.awt.geom.Arc2D$Double", "java.awt.geom.Arc2D", "Double", $PUBLIC | $STATIC},
-	{"java.awt.geom.Arc2D$Float", "java.awt.geom.Arc2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Arc2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.Arc2D",
-	"java.awt.geom.RectangularShape",
-	nullptr,
-	_Arc2D_FieldInfo_,
-	_Arc2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Arc2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Arc2D$Double,java.awt.geom.Arc2D$Float"
-};
-
-$Object* allocate$Arc2D($Class* clazz) {
-	return $of($alloc(Arc2D));
-}
-
 void Arc2D::init$() {
 	Arc2D::init$(Arc2D::OPEN);
 }
@@ -125,11 +55,11 @@ int32_t Arc2D::getArcType() {
 $Point2D* Arc2D::getStartPoint() {
 	double angle = $Math::toRadians(-getAngleStart());
 	double var$0 = getX();
-	double var$2 = ($Math::cos(angle) * 0.5 + 0.5);
+	double var$2 = $Math::cos(angle) * 0.5 + 0.5;
 	double var$1 = var$2 * getWidth();
 	double x = var$0 + var$1;
 	double var$3 = getY();
-	double var$5 = ($Math::sin(angle) * 0.5 + 0.5);
+	double var$5 = $Math::sin(angle) * 0.5 + 0.5;
 	double var$4 = var$5 * getHeight();
 	double y = var$3 + var$4;
 	return $new($Point2D$Double, x, y);
@@ -139,11 +69,11 @@ $Point2D* Arc2D::getEndPoint() {
 	double var$0 = -getAngleStart();
 	double angle = $Math::toRadians(var$0 - getAngleExtent());
 	double var$1 = getX();
-	double var$3 = ($Math::cos(angle) * 0.5 + 0.5);
+	double var$3 = $Math::cos(angle) * 0.5 + 0.5;
 	double var$2 = var$3 * getWidth();
 	double x = var$1 + var$2;
 	double var$4 = getY();
-	double var$6 = ($Math::sin(angle) * 0.5 + 0.5);
+	double var$6 = $Math::sin(angle) * 0.5 + 0.5;
 	double var$5 = var$6 * getHeight();
 	double y = var$4 + var$5;
 	return $new($Point2D$Double, x, y);
@@ -182,21 +112,19 @@ void Arc2D::setArcByTangent($Point2D* p1, $Point2D* p2, $Point2D* p3, double rad
 	double var$2 = p1->getX();
 	double ang1 = $Math::atan2(var$0, var$2 - p2->getX());
 	double var$4 = $nc(p3)->getY();
-	double var$3 = var$4 - $nc(p2)->getY();
+	double var$3 = var$4 - p2->getY();
 	double var$5 = p3->getX();
 	double ang2 = $Math::atan2(var$3, var$5 - p2->getX());
 	double diff = ang2 - ang1;
 	if (diff > $Math::PI) {
 		ang2 -= $Math::PI * 2.0;
-	} else {
-		if (diff < -$Math::PI) {
-			ang2 += $Math::PI * 2.0;
-		}
+	} else if (diff < -$Math::PI) {
+		ang2 += $Math::PI * 2.0;
 	}
 	double bisect = (ang1 + ang2) / 2.0;
 	double theta = $Math::abs(ang2 - bisect);
 	double dist = radius / $Math::sin(theta);
-	double var$6 = $nc(p2)->getX();
+	double var$6 = p2->getX();
 	double x = var$6 + dist * $Math::cos(bisect);
 	double var$7 = p2->getY();
 	double y = var$7 + dist * $Math::sin(bisect);
@@ -253,7 +181,7 @@ void Arc2D::setAngles($Point2D* p1, $Point2D* p2) {
 }
 
 void Arc2D::setArcType(int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type < Arc2D::OPEN || type > Arc2D::PIE) {
 		$throwNew($IllegalArgumentException, $$str({"invalid type for Arc: "_s, $$str(type)}));
 	}
@@ -261,12 +189,8 @@ void Arc2D::setArcType(int32_t type) {
 }
 
 void Arc2D::setFrame(double x, double y, double w, double h) {
-	double var$0 = x;
-	double var$1 = y;
-	double var$2 = w;
-	double var$3 = h;
-	double var$4 = getAngleStart();
-	setArc(var$0, var$1, var$2, var$3, var$4, getAngleExtent(), this->type);
+	double var$0 = getAngleStart();
+	setArc(x, y, w, h, var$0, getAngleExtent(), this->type);
 }
 
 $Rectangle2D* Arc2D::getBounds2D() {
@@ -396,12 +320,12 @@ bool Arc2D::contains(double x, double y) {
 	double x2 = $Math::cos(angle);
 	double y2 = $Math::sin(angle);
 	int32_t var$0 = $Line2D::relativeCCW(x1, y1, x2, y2, 2 * normx, 2 * normy);
-	bool inside = (var$0 * $Line2D::relativeCCW(x1, y1, x2, y2, (double)0, (double)0) >= 0);
+	bool inside = (var$0 * $Line2D::relativeCCW(x1, y1, x2, y2, 0, 0) >= 0);
 	return inarc ? !inside : inside;
 }
 
 bool Arc2D::intersects(double x, double y, double w, double h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double aw = getWidth();
 	double ah = getHeight();
 	if (w <= 0 || h <= 0 || aw <= 0 || ah <= 0) {
@@ -429,14 +353,14 @@ bool Arc2D::intersects(double x, double y, double w, double h) {
 	double ex = $nc(ep)->getX();
 	double ey = ep->getY();
 	if (ayc >= y && ayc <= yh) {
-		bool var$0 = (sx < xw && ex < xw && axc < xw && axw > x && containsAngle((double)0));
-		if (var$0 || (sx > x && ex > x && axc > x && ax < xw && containsAngle((double)180))) {
+		bool var$0 = sx < xw && ex < xw && axc < xw && axw > x && containsAngle(0);
+		if (var$0 || (sx > x && ex > x && axc > x && ax < xw && containsAngle(180))) {
 			return true;
 		}
 	}
 	if (axc >= x && axc <= xw) {
-		bool var$1 = (sy > y && ey > y && ayc > y && ay < yh && containsAngle((double)90));
-		if (var$1 || (sy < yh && ey < yh && ayc < yh && ayh > y && containsAngle((double)270))) {
+		bool var$1 = sy > y && ey > y && ayc > y && ay < yh && containsAngle(90);
+		if (var$1 || (sy < yh && ey < yh && ayc < yh && ayh > y && containsAngle(270))) {
 			return true;
 		}
 	}
@@ -496,7 +420,7 @@ bool Arc2D::contains(double x, double y, double w, double h, $Rectangle2D* origr
 	angle += $Math::toRadians(-getAngleExtent());
 	xe = xc + halfW * $Math::cos(angle);
 	ye = yc + halfH * $Math::sin(angle);
-	return !$nc(origrect)->intersectsLine(xc, yc, xe, ye);
+	return !origrect->intersectsLine(xc, yc, xe, ye);
 }
 
 $PathIterator* Arc2D::getPathIterator($AffineTransform* at) {
@@ -521,35 +445,35 @@ bool Arc2D::equals(Object$* obj) {
 	if ($instanceOf(Arc2D, obj)) {
 		$var(Arc2D, a2d, $cast(Arc2D, obj));
 		double var$6 = getX();
-		bool var$5 = (var$6 == $nc(a2d)->getX());
+		bool var$5 = var$6 == a2d->getX();
 		if (var$5) {
 			double var$7 = getY();
-			var$5 = (var$7 == a2d->getY());
+			var$5 = var$7 == a2d->getY();
 		}
 		bool var$4 = var$5;
 		if (var$4) {
 			double var$8 = getWidth();
-			var$4 = (var$8 == a2d->getWidth());
+			var$4 = var$8 == a2d->getWidth();
 		}
 		bool var$3 = var$4;
 		if (var$3) {
 			double var$9 = getHeight();
-			var$3 = (var$9 == a2d->getHeight());
+			var$3 = var$9 == a2d->getHeight();
 		}
 		bool var$2 = var$3;
 		if (var$2) {
 			double var$10 = getAngleStart();
-			var$2 = (var$10 == a2d->getAngleStart());
+			var$2 = var$10 == a2d->getAngleStart();
 		}
 		bool var$1 = var$2;
 		if (var$1) {
 			double var$11 = getAngleExtent();
-			var$1 = (var$11 == a2d->getAngleExtent());
+			var$1 = var$11 == a2d->getAngleExtent();
 		}
 		bool var$0 = var$1;
 		if (var$0) {
 			int32_t var$12 = getArcType();
-			var$0 = (var$12 == a2d->getArcType());
+			var$0 = var$12 == a2d->getArcType();
 		}
 		return (var$0);
 	}
@@ -560,7 +484,70 @@ Arc2D::Arc2D() {
 }
 
 $Class* Arc2D::load$($String* name, bool initialize) {
-	$loadClass(Arc2D, name, initialize, &_Arc2D_ClassInfo_, allocate$Arc2D);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Arc2D, OPEN)},
+		{"CHORD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Arc2D, CHORD)},
+		{"PIE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Arc2D, PIE)},
+		{"type", "I", nullptr, $PRIVATE, $field(Arc2D, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Arc2D, init$, void)},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(Arc2D, init$, void, int32_t)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, contains, bool, double, double)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, contains, bool, double, double, double, double)},
+		{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, contains, bool, $Rectangle2D*)},
+		{"contains", "(DDDDLjava/awt/geom/Rectangle2D;)Z", nullptr, $PRIVATE, $method(Arc2D, contains, bool, double, double, double, double, $Rectangle2D*)},
+		{"containsAngle", "(D)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, containsAngle, bool, double)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, equals, bool, Object$*)},
+		{"getAngleExtent", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, getAngleExtent, double)},
+		{"getAngleStart", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, getAngleStart, double)},
+		{"getArcType", "()I", nullptr, $PUBLIC, $virtualMethod(Arc2D, getArcType, int32_t)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getBounds2D, $Rectangle2D*)},
+		{"getEndPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getEndPoint, $Point2D*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"getStartPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Arc2D, getStartPoint, $Point2D*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Arc2D, hashCode, int32_t)},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Arc2D, intersects, bool, double, double, double, double)},
+		{"makeBounds", "(DDDD)Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Arc2D, makeBounds, $Rectangle2D*, double, double, double, double)},
+		{"normalizeDegrees", "(D)D", nullptr, $STATIC, $staticMethod(Arc2D, normalizeDegrees, double, double)},
+		{"setAngleExtent", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, setAngleExtent, void, double)},
+		{"setAngleStart", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, setAngleStart, void, double)},
+		{"setAngleStart", "(Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setAngleStart, void, $Point2D*)},
+		{"setAngles", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setAngles, void, double, double, double, double)},
+		{"setAngles", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setAngles, void, $Point2D*, $Point2D*)},
+		{"setArc", "(DDDDDDI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arc2D, setArc, void, double, double, double, double, double, double, int32_t)},
+		{"setArc", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Dimension2D;DDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArc, void, $Point2D*, $Dimension2D*, double, double, int32_t)},
+		{"setArc", "(Ljava/awt/geom/Rectangle2D;DDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArc, void, $Rectangle2D*, double, double, int32_t)},
+		{"setArc", "(Ljava/awt/geom/Arc2D;)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArc, void, Arc2D*)},
+		{"setArcByCenter", "(DDDDDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArcByCenter, void, double, double, double, double, double, int32_t)},
+		{"setArcByTangent", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;D)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArcByTangent, void, $Point2D*, $Point2D*, $Point2D*, double)},
+		{"setArcType", "(I)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setArcType, void, int32_t)},
+		{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Arc2D, setFrame, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Arc2D$Double", "java.awt.geom.Arc2D", "Double", $PUBLIC | $STATIC},
+		{"java.awt.geom.Arc2D$Float", "java.awt.geom.Arc2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.Arc2D",
+		"java.awt.geom.RectangularShape",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Arc2D$Double,java.awt.geom.Arc2D$Float"
+	};
+	$loadClass(Arc2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Arc2D));
+	});
 	return class$;
 }
 

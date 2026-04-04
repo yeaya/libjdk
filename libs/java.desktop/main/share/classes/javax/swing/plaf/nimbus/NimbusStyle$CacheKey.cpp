@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/NimbusStyle$CacheKey.h>
-
 #include <javax/swing/plaf/nimbus/NimbusStyle.h>
 #include <jcpp.h>
 
@@ -12,45 +11,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _NimbusStyle$CacheKey_FieldInfo_[] = {
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusStyle$CacheKey, key)},
-	{"xstate", "I", nullptr, $PRIVATE, $field(NimbusStyle$CacheKey, xstate)},
-	{}
-};
-
-$MethodInfo _NimbusStyle$CacheKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;I)V", nullptr, 0, $method(NimbusStyle$CacheKey, init$, void, Object$*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$CacheKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$CacheKey, hashCode, int32_t)},
-	{"init", "(Ljava/lang/Object;I)V", nullptr, 0, $method(NimbusStyle$CacheKey, init, void, Object$*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NimbusStyle$CacheKey_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusStyle$CacheKey", "javax.swing.plaf.nimbus.NimbusStyle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NimbusStyle$CacheKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusStyle$CacheKey",
-	"java.lang.Object",
-	nullptr,
-	_NimbusStyle$CacheKey_FieldInfo_,
-	_NimbusStyle$CacheKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusStyle$CacheKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusStyle"
-};
-
-$Object* allocate$NimbusStyle$CacheKey($Class* clazz) {
-	return $of($alloc(NimbusStyle$CacheKey));
-}
 
 void NimbusStyle$CacheKey::init$(Object$* key, int32_t xstate) {
 	init(key, xstate);
@@ -69,7 +29,7 @@ bool NimbusStyle$CacheKey::equals(Object$* obj) {
 	if (this->xstate != $nc(other)->xstate) {
 		return false;
 	}
-	if (!$nc(this->key)->equals($nc(other)->key)) {
+	if (!$nc(this->key)->equals(other->key)) {
 		return false;
 	}
 	return true;
@@ -86,7 +46,40 @@ NimbusStyle$CacheKey::NimbusStyle$CacheKey() {
 }
 
 $Class* NimbusStyle$CacheKey::load$($String* name, bool initialize) {
-	$loadClass(NimbusStyle$CacheKey, name, initialize, &_NimbusStyle$CacheKey_ClassInfo_, allocate$NimbusStyle$CacheKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(NimbusStyle$CacheKey, key)},
+		{"xstate", "I", nullptr, $PRIVATE, $field(NimbusStyle$CacheKey, xstate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;I)V", nullptr, 0, $method(NimbusStyle$CacheKey, init$, void, Object$*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$CacheKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$CacheKey, hashCode, int32_t)},
+		{"init", "(Ljava/lang/Object;I)V", nullptr, 0, $method(NimbusStyle$CacheKey, init, void, Object$*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusStyle$CacheKey", "javax.swing.plaf.nimbus.NimbusStyle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusStyle$CacheKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusStyle"
+	};
+	$loadClass(NimbusStyle$CacheKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NimbusStyle$CacheKey);
+	});
 	return class$;
 }
 

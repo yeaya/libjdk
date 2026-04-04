@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <org/w3c/dom/Element.h>
 #include <jcpp.h>
@@ -20,53 +19,8 @@ namespace com {
 						namespace security {
 							namespace algorithms {
 
-$FieldInfo _JCEMapper$Algorithm_FieldInfo_[] = {
-	{"requiredKey", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, requiredKey)},
-	{"jceName", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, jceName)},
-	{"algorithmClass", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, algorithmClass)},
-	{"keyLength", "I", nullptr, $FINAL, $field(JCEMapper$Algorithm, keyLength)},
-	{"ivLength", "I", nullptr, $FINAL, $field(JCEMapper$Algorithm, ivLength)},
-	{"jceProvider", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, jceProvider)},
-	{}
-};
-
-$MethodInfo _JCEMapper$Algorithm_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $Element*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*, int32_t, int32_t, $String*)},
-	{}
-};
-
-$InnerClassInfo _JCEMapper$Algorithm_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm", "com.sun.org.apache.xml.internal.security.algorithms.JCEMapper", "Algorithm", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCEMapper$Algorithm_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm",
-	"java.lang.Object",
-	nullptr,
-	_JCEMapper$Algorithm_FieldInfo_,
-	_JCEMapper$Algorithm_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCEMapper$Algorithm_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper"
-};
-
-$Object* allocate$JCEMapper$Algorithm($Class* clazz) {
-	return $of($alloc(JCEMapper$Algorithm));
-}
-
 void JCEMapper$Algorithm::init$($Element* el) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, requiredKey, $nc(el)->getAttributeNS(nullptr, "RequiredKey"_s));
 	$set(this, jceName, el->getAttributeNS(nullptr, "JCEName"_s));
 	$set(this, algorithmClass, el->getAttributeNS(nullptr, "AlgorithmClass"_s));
@@ -112,7 +66,46 @@ JCEMapper$Algorithm::JCEMapper$Algorithm() {
 }
 
 $Class* JCEMapper$Algorithm::load$($String* name, bool initialize) {
-	$loadClass(JCEMapper$Algorithm, name, initialize, &_JCEMapper$Algorithm_ClassInfo_, allocate$JCEMapper$Algorithm);
+	$FieldInfo fieldInfos$$[] = {
+		{"requiredKey", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, requiredKey)},
+		{"jceName", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, jceName)},
+		{"algorithmClass", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, algorithmClass)},
+		{"keyLength", "I", nullptr, $FINAL, $field(JCEMapper$Algorithm, keyLength)},
+		{"ivLength", "I", nullptr, $FINAL, $field(JCEMapper$Algorithm, ivLength)},
+		{"jceProvider", "Ljava/lang/String;", nullptr, $FINAL, $field(JCEMapper$Algorithm, jceProvider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $Element*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*, int32_t, int32_t, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm", "com.sun.org.apache.xml.internal.security.algorithms.JCEMapper", "Algorithm", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper$Algorithm",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.JCEMapper"
+	};
+	$loadClass(JCEMapper$Algorithm, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JCEMapper$Algorithm);
+	});
 	return class$;
 }
 

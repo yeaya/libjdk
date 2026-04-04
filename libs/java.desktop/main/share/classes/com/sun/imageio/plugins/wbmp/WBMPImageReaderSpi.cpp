@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/wbmp/WBMPImageReaderSpi.h>
-
 #include <com/sun/imageio/plugins/common/ReaderUtil.h>
 #include <com/sun/imageio/plugins/wbmp/WBMPImageReader.h>
 #include <com/sun/imageio/plugins/wbmp/WBMPMetadata.h>
@@ -31,39 +30,6 @@ namespace com {
 			namespace plugins {
 				namespace wbmp {
 
-$FieldInfo _WBMPImageReaderSpi_FieldInfo_[] = {
-	{"MAX_WBMP_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WBMPImageReaderSpi, MAX_WBMP_WIDTH)},
-	{"MAX_WBMP_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WBMPImageReaderSpi, MAX_WBMP_HEIGHT)},
-	{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, writerSpiNames)},
-	{"formatNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, formatNames)},
-	{"entensions", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, entensions)},
-	{"mimeType", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, mimeType)},
-	{"registered", "Z", nullptr, $PRIVATE, $field(WBMPImageReaderSpi, registered)},
-	{}
-};
-
-$MethodInfo _WBMPImageReaderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WBMPImageReaderSpi, init$, void)},
-	{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
-	{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "javax.imageio.IIOException"},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReaderSpi, getDescription, $String*, $Locale*)},
-	{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(WBMPImageReaderSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
-	{}
-};
-
-$ClassInfo _WBMPImageReaderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.wbmp.WBMPImageReaderSpi",
-	"javax.imageio.spi.ImageReaderSpi",
-	nullptr,
-	_WBMPImageReaderSpi_FieldInfo_,
-	_WBMPImageReaderSpi_MethodInfo_
-};
-
-$Object* allocate$WBMPImageReaderSpi($Class* clazz) {
-	return $of($alloc(WBMPImageReaderSpi));
-}
-
 $StringArray* WBMPImageReaderSpi::writerSpiNames = nullptr;
 $StringArray* WBMPImageReaderSpi::formatNames = nullptr;
 $StringArray* WBMPImageReaderSpi::entensions = nullptr;
@@ -88,53 +54,51 @@ $String* WBMPImageReaderSpi::getDescription($Locale* locale) {
 }
 
 bool WBMPImageReaderSpi::canDecodeInput(Object$* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ImageInputStream, source))) {
 		return false;
 	}
 	$var($ImageInputStream, stream, $cast($ImageInputStream, source));
 	$nc(stream)->mark();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			int32_t type = stream->readByte();
-			int32_t fixHeaderField = stream->readByte();
-			if (type != 0 || fixHeaderField != 0) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			int32_t width = $ReaderUtil::readMultiByteInteger(stream);
-			int32_t height = $ReaderUtil::readMultiByteInteger(stream);
-			if (width <= 0 || height <= 0) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			int64_t dataLength = stream->length();
-			if (dataLength == -1) {
-				var$2 = (width < WBMPImageReaderSpi::MAX_WBMP_WIDTH) && (height < WBMPImageReaderSpi::MAX_WBMP_HEIGHT);
-				return$1 = true;
-				goto $finally;
-			}
-			dataLength -= stream->getStreamPosition();
-			int64_t scanSize = (width / 8) + ((width % 8) == 0 ? 0 : 1);
-			var$2 = (dataLength == scanSize * height);
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		int32_t type = stream->readByte();
+		int32_t fixHeaderField = stream->readByte();
+		if (type != 0 || fixHeaderField != 0) {
+			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			stream->reset();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int32_t width = $ReaderUtil::readMultiByteInteger(stream);
+		int32_t height = $ReaderUtil::readMultiByteInteger(stream);
+		if (width <= 0 || height <= 0) {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return var$2;
+		int64_t dataLength = stream->length();
+		if (dataLength == -1) {
+			var$2 = (width < WBMPImageReaderSpi::MAX_WBMP_WIDTH) && (height < WBMPImageReaderSpi::MAX_WBMP_HEIGHT);
+			return$1 = true;
+			goto $finally;
 		}
+		dataLength -= stream->getStreamPosition();
+		int64_t scanSize = (width / 8) + ((width % 8) == 0 ? 0 : 1);
+		var$2 = (dataLength == scanSize * height);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		stream->reset();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -143,7 +107,7 @@ $ImageReader* WBMPImageReaderSpi::createReaderInstance(Object$* extension) {
 	return $new($WBMPImageReader, this);
 }
 
-void clinit$WBMPImageReaderSpi($Class* class$) {
+void WBMPImageReaderSpi::clinit$($Class* clazz) {
 	$assignStatic(WBMPImageReaderSpi::writerSpiNames, $new($StringArray, {"com.sun.imageio.plugins.wbmp.WBMPImageWriterSpi"_s}));
 	$assignStatic(WBMPImageReaderSpi::formatNames, $new($StringArray, {
 		"wbmp"_s,
@@ -157,7 +121,35 @@ WBMPImageReaderSpi::WBMPImageReaderSpi() {
 }
 
 $Class* WBMPImageReaderSpi::load$($String* name, bool initialize) {
-	$loadClass(WBMPImageReaderSpi, name, initialize, &_WBMPImageReaderSpi_ClassInfo_, clinit$WBMPImageReaderSpi, allocate$WBMPImageReaderSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_WBMP_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WBMPImageReaderSpi, MAX_WBMP_WIDTH)},
+		{"MAX_WBMP_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WBMPImageReaderSpi, MAX_WBMP_HEIGHT)},
+		{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, writerSpiNames)},
+		{"formatNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, formatNames)},
+		{"entensions", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, entensions)},
+		{"mimeType", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(WBMPImageReaderSpi, mimeType)},
+		{"registered", "Z", nullptr, $PRIVATE, $field(WBMPImageReaderSpi, registered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WBMPImageReaderSpi, init$, void)},
+		{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WBMPImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
+		{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReaderSpi, createReaderInstance, $ImageReader*, Object$*), "javax.imageio.IIOException"},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WBMPImageReaderSpi, getDescription, $String*, $Locale*)},
+		{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(WBMPImageReaderSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.wbmp.WBMPImageReaderSpi",
+		"javax.imageio.spi.ImageReaderSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WBMPImageReaderSpi, name, initialize, &classInfo$$, WBMPImageReaderSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WBMPImageReaderSpi);
+	});
 	return class$;
 }
 

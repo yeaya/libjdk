@@ -36,6 +36,7 @@ public:
 	using ::sun::awt::EmbeddedFrame::add;
 	using ::sun::awt::EmbeddedFrame::getMousePosition;
 	using ::sun::awt::EmbeddedFrame::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t handle);
 	void init$(int64_t handle);

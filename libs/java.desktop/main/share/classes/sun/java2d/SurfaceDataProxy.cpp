@@ -1,13 +1,10 @@
 #include <sun/java2d/SurfaceDataProxy.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
-#include <java/awt/Composite.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/DisplayChangedListener.h>
 #include <sun/java2d/StateTrackable$State.h>
 #include <sun/java2d/StateTracker.h>
@@ -29,10 +26,8 @@
 
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Color = ::java::awt::Color;
-using $Composite = ::java::awt::Composite;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Rectangle = ::java::awt::Rectangle;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -40,7 +35,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $StateTrackable$State = ::sun::java2d::StateTrackable$State;
 using $StateTracker = ::sun::java2d::StateTracker;
@@ -57,71 +51,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _SurfaceDataProxy_FieldInfo_[] = {
-	{"cachingAllowed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceDataProxy, cachingAllowed)},
-	{"defaultThreshold", "I", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceDataProxy, defaultThreshold)},
-	{"UNCACHED", "Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticField(SurfaceDataProxy, UNCACHED)},
-	{"threshold", "I", nullptr, $PRIVATE, $field(SurfaceDataProxy, threshold)},
-	{"srcTracker", "Lsun/java2d/StateTracker;", nullptr, $PRIVATE, $field(SurfaceDataProxy, srcTracker)},
-	{"numtries", "I", nullptr, $PRIVATE, $field(SurfaceDataProxy, numtries)},
-	{"cachedSD", "Lsun/java2d/SurfaceData;", nullptr, $PRIVATE, $field(SurfaceDataProxy, cachedSD)},
-	{"cacheTracker", "Lsun/java2d/StateTracker;", nullptr, $PRIVATE, $field(SurfaceDataProxy, cacheTracker)},
-	{"valid", "Z", nullptr, $PRIVATE, $field(SurfaceDataProxy, valid)},
-	{}
-};
-
-$MethodInfo _SurfaceDataProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SurfaceDataProxy, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SurfaceDataProxy, init$, void, int32_t)},
-	{"activateDisplayListener", "()V", nullptr, $PROTECTED, $virtualMethod(SurfaceDataProxy, activateDisplayListener, void)},
-	{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, displayChanged, void)},
-	{"flush", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, flush, bool, bool)},
-	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SurfaceDataProxy, flush, void)},
-	{"getRetryTracker", "(Lsun/java2d/SurfaceData;)Lsun/java2d/StateTracker;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, getRetryTracker, $StateTracker*, $SurfaceData*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, invalidate, void)},
-	{"isAccelerated", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, isAccelerated, bool)},
-	{"isCachingAllowed", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceDataProxy, isCachingAllowed, bool)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, isValid, bool)},
-	{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, paletteChanged, void)},
-	{"replaceData", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, replaceData, $SurfaceData*, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, updateSurfaceData, void, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{"updateSurfaceDataBg", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, updateSurfaceDataBg, void, $SurfaceData*, $SurfaceData*, int32_t, int32_t, $Color*)},
-	{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SurfaceDataProxy_InnerClassesInfo_[] = {
-	{"sun.awt.image.SurfaceManager$FlushableCacheData", "sun.awt.image.SurfaceManager", "FlushableCacheData", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.java2d.SurfaceDataProxy$CountdownTracker", "sun.java2d.SurfaceDataProxy", "CountdownTracker", $PUBLIC | $STATIC},
-	{"sun.java2d.SurfaceDataProxy$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SurfaceDataProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.SurfaceDataProxy",
-	"java.lang.Object",
-	"sun.awt.DisplayChangedListener,sun.awt.image.SurfaceManager$FlushableCacheData",
-	_SurfaceDataProxy_FieldInfo_,
-	_SurfaceDataProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SurfaceDataProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.SurfaceDataProxy$CountdownTracker,sun.java2d.SurfaceDataProxy$1"
-};
-
-$Object* allocate$SurfaceDataProxy($Class* clazz) {
-	return $of($alloc(SurfaceDataProxy));
-}
 
 int32_t SurfaceDataProxy::hashCode() {
 	 return this->$DisplayChangedListener::hashCode();
@@ -205,7 +134,7 @@ bool SurfaceDataProxy::isAccelerated() {
 void SurfaceDataProxy::activateDisplayListener() {
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	if ($instanceOf($SunGraphicsEnvironment, ge)) {
-		$nc(($cast($SunGraphicsEnvironment, ge)))->addDisplayChangedListener(this);
+		$cast($SunGraphicsEnvironment, ge)->addDisplayChangedListener(this);
 	}
 }
 
@@ -219,18 +148,17 @@ void SurfaceDataProxy::paletteChanged() {
 }
 
 $SurfaceData* SurfaceDataProxy::replaceData($SurfaceData* srcData, int32_t txtype, $CompositeType* comp, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isSupportedOperation(srcData, txtype, comp, bgColor)) {
 		if (!$nc(this->srcTracker)->isCurrent()) {
 			$synchronized(this) {
 				this->numtries = this->threshold;
 				$set(this, srcTracker, $nc(srcData)->getStateTracker());
-				$init($StateTracker);
 				$set(this, cacheTracker, $StateTracker::NEVER_CURRENT);
 			}
 			if (!$nc(this->srcTracker)->isCurrent()) {
 				$init($StateTrackable$State);
-				if ($nc(srcData)->getState() == $StateTrackable$State::UNTRACKABLE) {
+				if (srcData->getState() == $StateTrackable$State::UNTRACKABLE) {
 					invalidate();
 					flush();
 				}
@@ -265,7 +193,7 @@ $SurfaceData* SurfaceDataProxy::replaceData($SurfaceData* srcData, int32_t txtyp
 			}
 			$synchronized(this) {
 				if (curTracker == this->srcTracker && $nc(curTracker)->isCurrent()) {
-					$set(this, cacheTracker, $nc(csd)->getStateTracker());
+					$set(this, cacheTracker, csd->getStateTracker());
 					$set(this, cachedSD, csd);
 				}
 			}
@@ -278,7 +206,7 @@ $SurfaceData* SurfaceDataProxy::replaceData($SurfaceData* srcData, int32_t txtyp
 }
 
 void SurfaceDataProxy::updateSurfaceData($SurfaceData* srcData, $SurfaceData* dstData, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, srcType, $nc(srcData)->getSurfaceType());
 	$var($SurfaceType, dstType, $nc(dstData)->getSurfaceType());
 	$init($CompositeType);
@@ -289,7 +217,7 @@ void SurfaceDataProxy::updateSurfaceData($SurfaceData* srcData, $SurfaceData* ds
 }
 
 void SurfaceDataProxy::updateSurfaceDataBg($SurfaceData* srcData, $SurfaceData* dstData, int32_t w, int32_t h, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, srcType, $nc(srcData)->getSurfaceType());
 	$var($SurfaceType, dstType, $nc(dstData)->getSurfaceType());
 	$init($CompositeType);
@@ -299,18 +227,18 @@ void SurfaceDataProxy::updateSurfaceDataBg($SurfaceData* srcData, $SurfaceData* 
 	dstData->markDirty();
 }
 
-void clinit$SurfaceDataProxy($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SurfaceDataProxy::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		SurfaceDataProxy::cachingAllowed = true;
-		$var($String, manimg, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.managedimages"_s)))));
+		$var($String, manimg, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.managedimages"_s))));
 		if (manimg != nullptr && manimg->equals("false"_s)) {
 			SurfaceDataProxy::cachingAllowed = false;
 			$nc($System::out)->println("Disabling managed images"_s);
 		}
 		SurfaceDataProxy::defaultThreshold = 1;
-		$var($String, num, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.accthreshold"_s)))));
+		$var($String, num, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.accthreshold"_s))));
 		if (num != nullptr) {
 			try {
 				int32_t parsed = $Integer::parseInt(num);
@@ -330,7 +258,66 @@ SurfaceDataProxy::SurfaceDataProxy() {
 }
 
 $Class* SurfaceDataProxy::load$($String* name, bool initialize) {
-	$loadClass(SurfaceDataProxy, name, initialize, &_SurfaceDataProxy_ClassInfo_, clinit$SurfaceDataProxy, allocate$SurfaceDataProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"cachingAllowed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceDataProxy, cachingAllowed)},
+		{"defaultThreshold", "I", nullptr, $PRIVATE | $STATIC, $staticField(SurfaceDataProxy, defaultThreshold)},
+		{"UNCACHED", "Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticField(SurfaceDataProxy, UNCACHED)},
+		{"threshold", "I", nullptr, $PRIVATE, $field(SurfaceDataProxy, threshold)},
+		{"srcTracker", "Lsun/java2d/StateTracker;", nullptr, $PRIVATE, $field(SurfaceDataProxy, srcTracker)},
+		{"numtries", "I", nullptr, $PRIVATE, $field(SurfaceDataProxy, numtries)},
+		{"cachedSD", "Lsun/java2d/SurfaceData;", nullptr, $PRIVATE, $field(SurfaceDataProxy, cachedSD)},
+		{"cacheTracker", "Lsun/java2d/StateTracker;", nullptr, $PRIVATE, $field(SurfaceDataProxy, cacheTracker)},
+		{"valid", "Z", nullptr, $PRIVATE, $field(SurfaceDataProxy, valid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SurfaceDataProxy, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SurfaceDataProxy, init$, void, int32_t)},
+		{"activateDisplayListener", "()V", nullptr, $PROTECTED, $virtualMethod(SurfaceDataProxy, activateDisplayListener, void)},
+		{"displayChanged", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, displayChanged, void)},
+		{"flush", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, flush, bool, bool)},
+		{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SurfaceDataProxy, flush, void)},
+		{"getRetryTracker", "(Lsun/java2d/SurfaceData;)Lsun/java2d/StateTracker;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, getRetryTracker, $StateTracker*, $SurfaceData*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, invalidate, void)},
+		{"isAccelerated", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, isAccelerated, bool)},
+		{"isCachingAllowed", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SurfaceDataProxy, isCachingAllowed, bool)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, isValid, bool)},
+		{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, paletteChanged, void)},
+		{"replaceData", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, replaceData, $SurfaceData*, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, updateSurfaceData, void, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{"updateSurfaceDataBg", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IILjava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(SurfaceDataProxy, updateSurfaceDataBg, void, $SurfaceData*, $SurfaceData*, int32_t, int32_t, $Color*)},
+		{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SurfaceManager$FlushableCacheData", "sun.awt.image.SurfaceManager", "FlushableCacheData", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.java2d.SurfaceDataProxy$CountdownTracker", "sun.java2d.SurfaceDataProxy", "CountdownTracker", $PUBLIC | $STATIC},
+		{"sun.java2d.SurfaceDataProxy$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.SurfaceDataProxy",
+		"java.lang.Object",
+		"sun.awt.DisplayChangedListener,sun.awt.image.SurfaceManager$FlushableCacheData",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.SurfaceDataProxy$CountdownTracker,sun.java2d.SurfaceDataProxy$1"
+	};
+	$loadClass(SurfaceDataProxy, name, initialize, &classInfo$$, SurfaceDataProxy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SurfaceDataProxy));
+	});
 	return class$;
 }
 

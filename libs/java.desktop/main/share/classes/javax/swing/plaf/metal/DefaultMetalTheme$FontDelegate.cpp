@@ -1,8 +1,6 @@
 #include <javax/swing/plaf/metal/DefaultMetalTheme$FontDelegate.h>
-
 #include <java/awt/Font.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/plaf/FontUIResource.h>
 #include <javax/swing/plaf/metal/DefaultMetalTheme$FontDelegate$1.h>
 #include <javax/swing/plaf/metal/DefaultMetalTheme.h>
@@ -15,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $DefaultMetalTheme = ::javax::swing::plaf::metal::DefaultMetalTheme;
 using $DefaultMetalTheme$FontDelegate$1 = ::javax::swing::plaf::metal::DefaultMetalTheme$FontDelegate$1;
@@ -25,45 +22,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _DefaultMetalTheme$FontDelegate_FieldInfo_[] = {
-	{"defaultMapping", "[I", nullptr, $PRIVATE | $STATIC, $staticField(DefaultMetalTheme$FontDelegate, defaultMapping)},
-	{"fonts", "[Ljavax/swing/plaf/FontUIResource;", nullptr, 0, $field(DefaultMetalTheme$FontDelegate, fonts)},
-	{}
-};
-
-$MethodInfo _DefaultMetalTheme$FontDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMetalTheme$FontDelegate, init$, void)},
-	{"getFont", "(I)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme$FontDelegate, getFont, $FontUIResource*, int32_t)},
-	{"getPrivilegedFont", "(I)Ljava/awt/Font;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme$FontDelegate, getPrivilegedFont, $Font*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DefaultMetalTheme$FontDelegate_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "FontDelegate", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultMetalTheme$FontDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate",
-	"java.lang.Object",
-	nullptr,
-	_DefaultMetalTheme$FontDelegate_FieldInfo_,
-	_DefaultMetalTheme$FontDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMetalTheme$FontDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.DefaultMetalTheme"
-};
-
-$Object* allocate$DefaultMetalTheme$FontDelegate($Class* clazz) {
-	return $of($alloc(DefaultMetalTheme$FontDelegate));
-}
-
 $ints* DefaultMetalTheme$FontDelegate::defaultMapping = nullptr;
 
 void DefaultMetalTheme$FontDelegate::init$() {
@@ -71,7 +29,7 @@ void DefaultMetalTheme$FontDelegate::init$() {
 }
 
 $FontUIResource* DefaultMetalTheme$FontDelegate::getFont(int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mappedType = $nc(DefaultMetalTheme$FontDelegate::defaultMapping)->get(type);
 	if ($nc(this->fonts)->get(type) == nullptr) {
 		$var($Font, f, getPrivilegedFont(mappedType));
@@ -87,10 +45,10 @@ $FontUIResource* DefaultMetalTheme$FontDelegate::getFont(int32_t type) {
 
 $Font* DefaultMetalTheme$FontDelegate::getPrivilegedFont(int32_t key) {
 	$beforeCallerSensitive();
-	return $cast($Font, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DefaultMetalTheme$FontDelegate$1, this, key))));
+	return $cast($Font, $AccessController::doPrivileged($$new($DefaultMetalTheme$FontDelegate$1, this, key)));
 }
 
-void clinit$DefaultMetalTheme$FontDelegate($Class* class$) {
+void DefaultMetalTheme$FontDelegate::clinit$($Class* clazz) {
 	$assignStatic(DefaultMetalTheme$FontDelegate::defaultMapping, $new($ints, {
 		0,
 		1,
@@ -105,7 +63,40 @@ DefaultMetalTheme$FontDelegate::DefaultMetalTheme$FontDelegate() {
 }
 
 $Class* DefaultMetalTheme$FontDelegate::load$($String* name, bool initialize) {
-	$loadClass(DefaultMetalTheme$FontDelegate, name, initialize, &_DefaultMetalTheme$FontDelegate_ClassInfo_, clinit$DefaultMetalTheme$FontDelegate, allocate$DefaultMetalTheme$FontDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultMapping", "[I", nullptr, $PRIVATE | $STATIC, $staticField(DefaultMetalTheme$FontDelegate, defaultMapping)},
+		{"fonts", "[Ljavax/swing/plaf/FontUIResource;", nullptr, 0, $field(DefaultMetalTheme$FontDelegate, fonts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMetalTheme$FontDelegate, init$, void)},
+		{"getFont", "(I)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme$FontDelegate, getFont, $FontUIResource*, int32_t)},
+		{"getPrivilegedFont", "(I)Ljava/awt/Font;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme$FontDelegate, getPrivilegedFont, $Font*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "FontDelegate", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.DefaultMetalTheme"
+	};
+	$loadClass(DefaultMetalTheme$FontDelegate, name, initialize, &classInfo$$, DefaultMetalTheme$FontDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMetalTheme$FontDelegate);
+	});
 	return class$;
 }
 

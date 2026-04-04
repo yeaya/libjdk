@@ -1,5 +1,4 @@
 #include <javax/management/DynamicMBean.h>
-
 #include <javax/management/Attribute.h>
 #include <javax/management/AttributeList.h>
 #include <javax/management/MBeanInfo.h>
@@ -14,31 +13,27 @@ using $MBeanInfo = ::javax::management::MBeanInfo;
 namespace javax {
 	namespace management {
 
-$MethodInfo _DynamicMBean_MethodInfo_[] = {
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, getAttributes, $AttributeList*, $StringArray*)},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, getMBeanInfo, $MBeanInfo*)},
-	{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, setAttributes, $AttributeList*, $AttributeList*)},
-	{}
-};
-
-$ClassInfo _DynamicMBean_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.DynamicMBean",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DynamicMBean_MethodInfo_
-};
-
-$Object* allocate$DynamicMBean($Class* clazz) {
-	return $of($alloc(DynamicMBean));
-}
-
 $Class* DynamicMBean::load$($String* name, bool initialize) {
-	$loadClass(DynamicMBean, name, initialize, &_DynamicMBean_ClassInfo_, allocate$DynamicMBean);
+	$MethodInfo methodInfos$$[] = {
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, getAttributes, $AttributeList*, $StringArray*)},
+		{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, getMBeanInfo, $MBeanInfo*)},
+		{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean, setAttributes, $AttributeList*, $AttributeList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.DynamicMBean",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DynamicMBean, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DynamicMBean);
+	});
 	return class$;
 }
 

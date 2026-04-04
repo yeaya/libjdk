@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$RewritingContext.h>
-
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -27,11 +26,8 @@
 #undef ERROR
 #undef VARDEF
 
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$StatementAnalyzer = ::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -63,79 +59,32 @@ public:
 	virtual bool test(Object$* d) override {
 		 return $nc(inst$)->lambda$diagHandler$0($cast($JCDiagnostic, d));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0>());
-	}
 	Analyzer$RewritingContext* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, inst$)},
-	{}
-};
-$MethodInfo Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $method(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, init$, void, Analyzer$RewritingContext*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $method(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, init$, void, Analyzer$RewritingContext*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0);
+	});
 	return class$;
 }
 $Class* Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::class$ = nullptr;
-
-$FieldInfo _Analyzer$RewritingContext_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RewritingContext, this$0)},
-	{"originalTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$RewritingContext, originalTree)},
-	{"oldTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$RewritingContext, oldTree)},
-	{"replacement", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$RewritingContext, replacement)},
-	{"erroneous", "Z", nullptr, 0, $field(Analyzer$RewritingContext, erroneous)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $field(Analyzer$RewritingContext, env)},
-	{"analyzer", "Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer;", "Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;>;", 0, $field(Analyzer$RewritingContext, analyzer)},
-	{}
-};
-
-$MethodInfo _Analyzer$RewritingContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Analyzer$RewritingContext, init$, void, $Analyzer*, $JCTree*, $JCTree*, $JCTree*, $Analyzer$StatementAnalyzer*, $Env*)},
-	{"diagHandler", "()Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;", nullptr, 0, $virtualMethod(Analyzer$RewritingContext, diagHandler, $Log$DeferredDiagnosticHandler*)},
-	{"lambda$diagHandler$0", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Analyzer$RewritingContext, lambda$diagHandler$0, bool, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$RewritingContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$RewritingContext", "com.sun.tools.javac.comp.Analyzer", "RewritingContext", 0},
-	{}
-};
-
-$ClassInfo _Analyzer$RewritingContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$RewritingContext",
-	"java.lang.Object",
-	nullptr,
-	_Analyzer$RewritingContext_FieldInfo_,
-	_Analyzer$RewritingContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Analyzer$RewritingContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$RewritingContext($Class* clazz) {
-	return $of($alloc(Analyzer$RewritingContext));
-}
 
 void Analyzer$RewritingContext::init$($Analyzer* this$0, $JCTree* originalTree, $JCTree* oldTree, $JCTree* replacement, $Analyzer$StatementAnalyzer* analyzer, $Env* env) {
 	$set(this, this$0, this$0);
@@ -146,12 +95,12 @@ void Analyzer$RewritingContext::init$($Analyzer* this$0, $JCTree* originalTree, 
 	$set(this, env, $nc(this$0->attr)->copyEnv(env));
 	$init($JCTree$Tag);
 	if ($nc(originalTree)->hasTag($JCTree$Tag::VARDEF)) {
-		$nc($nc(($cast($AttrContext, $nc(this->env)->info)))->scope)->remove($nc(($cast($JCTree$JCVariableDecl, originalTree)))->sym);
+		$nc($nc(($cast($AttrContext, $nc(this->env)->info)))->scope)->remove($cast($JCTree$JCVariableDecl, originalTree)->sym);
 	}
 }
 
 $Log$DeferredDiagnosticHandler* Analyzer$RewritingContext::diagHandler() {
-	return $new($Log$DeferredDiagnosticHandler, this->this$0->log, static_cast<$Predicate*>($$new(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, this)));
+	return $new($Log$DeferredDiagnosticHandler, this->this$0->log, $$new(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, this));
 }
 
 bool Analyzer$RewritingContext::lambda$diagHandler$0($JCDiagnostic* d) {
@@ -167,11 +116,48 @@ Analyzer$RewritingContext::Analyzer$RewritingContext() {
 
 $Class* Analyzer$RewritingContext::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0")) {
 			return Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Analyzer$RewritingContext, name, initialize, &_Analyzer$RewritingContext_ClassInfo_, allocate$Analyzer$RewritingContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RewritingContext, this$0)},
+		{"originalTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$RewritingContext, originalTree)},
+		{"oldTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$RewritingContext, oldTree)},
+		{"replacement", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$RewritingContext, replacement)},
+		{"erroneous", "Z", nullptr, 0, $field(Analyzer$RewritingContext, erroneous)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $field(Analyzer$RewritingContext, env)},
+		{"analyzer", "Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer;", "Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;>;", 0, $field(Analyzer$RewritingContext, analyzer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Analyzer$RewritingContext, init$, void, $Analyzer*, $JCTree*, $JCTree*, $JCTree*, $Analyzer$StatementAnalyzer*, $Env*)},
+		{"diagHandler", "()Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;", nullptr, 0, $virtualMethod(Analyzer$RewritingContext, diagHandler, $Log$DeferredDiagnosticHandler*)},
+		{"lambda$diagHandler$0", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Analyzer$RewritingContext, lambda$diagHandler$0, bool, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$RewritingContext", "com.sun.tools.javac.comp.Analyzer", "RewritingContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$RewritingContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$RewritingContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$RewritingContext);
+	});
 	return class$;
 }
 

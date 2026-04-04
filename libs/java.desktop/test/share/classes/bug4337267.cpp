@@ -1,11 +1,9 @@
 #include <bug4337267.h>
-
 #include <bug4337267$1.h>
 #include <bug4337267$TestBufferedImage.h>
 #include <bug4337267$TestJPanel.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
@@ -40,14 +38,11 @@ using $bug4337267$1 = ::bug4337267$1;
 using $bug4337267$TestBufferedImage = ::bug4337267$TestBufferedImage;
 using $bug4337267$TestJPanel = ::bug4337267$TestJPanel;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $NumericShaper = ::java::awt::font::NumericShaper;
 using $TextAttribute = ::java::awt::font::TextAttribute;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -72,87 +67,27 @@ public:
 	virtual void run() override {
 		bug4337267::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4337267$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug4337267$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4337267$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4337267$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug4337267$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4337267$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug4337267$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug4337267$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4337267$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4337267$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4337267$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug4337267$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4337267$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug4337267$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug4337267_FieldInfo_[] = {
-	{"p1", "Lbug4337267$TestJPanel;", nullptr, 0, $field(bug4337267, p1)},
-	{"p2", "Lbug4337267$TestJPanel;", nullptr, 0, $field(bug4337267, p2)},
-	{"i1", "Lbug4337267$TestBufferedImage;", nullptr, 0, $field(bug4337267, i1)},
-	{"i2", "Lbug4337267$TestBufferedImage;", nullptr, 0, $field(bug4337267, i2)},
-	{"printq", "[Ljavax/swing/JComponent;", nullptr, 0, $field(bug4337267, printq)},
-	{"window", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug4337267, window)},
-	{"testFailed", "Z", nullptr, $STATIC, $staticField(bug4337267, testFailed)},
-	{"shaped", "Ljava/lang/String;", nullptr, 0, $field(bug4337267, shaped)},
-	{"text", "Ljava/lang/String;", nullptr, 0, $field(bug4337267, text)},
-	{}
-};
-
-$MethodInfo _bug4337267_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4337267, init$, void)},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(bug4337267, assertEquals, void, Object$*, Object$*)},
-	{"createContentPane", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(bug4337267, createContentPane, $Component*)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(bug4337267, fail, void, $String*)},
-	{"initUI", "()V", nullptr, 0, $virtualMethod(bug4337267, initUI, void)},
-	{"injectComponent", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Z)V", nullptr, 0, $virtualMethod(bug4337267, injectComponent, void, $JComponent*, $JComponent*, bool)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4337267, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4337267, main, void, $StringArray*), "java.lang.Exception"},
-	{"printComponent", "(Ljavax/swing/JComponent;Lbug4337267$TestBufferedImage;)V", nullptr, 0, $virtualMethod(bug4337267, printComponent, void, $JComponent*, $bug4337267$TestBufferedImage*)},
-	{"run", "()V", nullptr, 0, $virtualMethod(bug4337267, run, void)},
-	{"setShaping", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(bug4337267, setShaping, void, $JComponent*)},
-	{"testNonTextComponentHTML", "()V", nullptr, 0, $virtualMethod(bug4337267, testNonTextComponentHTML, void)},
-	{"testNonTextComponentPlain", "()V", nullptr, 0, $virtualMethod(bug4337267, testNonTextComponentPlain, void)},
-	{"testTextComponent", "()V", nullptr, 0, $virtualMethod(bug4337267, testTextComponent, void)},
-	{}
-};
-
-$InnerClassInfo _bug4337267_InnerClassesInfo_[] = {
-	{"bug4337267$TestJPanel", "bug4337267", "TestJPanel", $STATIC},
-	{"bug4337267$TestBufferedImage", "bug4337267", "TestBufferedImage", $STATIC},
-	{"bug4337267$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4337267_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4337267",
-	"java.lang.Object",
-	nullptr,
-	_bug4337267_FieldInfo_,
-	_bug4337267_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4337267_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4337267$TestJPanel,bug4337267$TestBufferedImage,bug4337267$1"
-};
-
-$Object* allocate$bug4337267($Class* clazz) {
-	return $of($alloc(bug4337267));
-}
 
 $JFrame* bug4337267::window = nullptr;
 bool bug4337267::testFailed = false;
@@ -171,7 +106,7 @@ void bug4337267::run() {
 
 void bug4337267::initUI() {
 	$assignStatic(bug4337267::window, $new($JFrame, "bug4337267"_s));
-	$nc(bug4337267::window)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug4337267::window->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(bug4337267::window)->setSize(800, 600);
 	$var($Component, content, createContentPane());
 	$nc(bug4337267::window)->add(content);
@@ -184,18 +119,18 @@ void bug4337267::fail($String* message) {
 }
 
 void bug4337267::assertEquals(Object$* o1, Object$* o2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((o1 == nullptr) && (o2 != nullptr)) {
 		fail($$str({"Expected null, got "_s, o2}));
 	} else if ((o1 != nullptr) && (o2 == nullptr)) {
 		fail($$str({"Expected "_s, o1, ", got null"_s}));
-	} else if (!$of(o1)->equals(o2)) {
+	} else if (!$nc($of(o1))->equals(o2)) {
 		fail($$str({"Expected "_s, o1, ", got "_s, o2}));
 	}
 }
 
 void bug4337267::testTextComponent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("testTextComponent:"_s);
 	$var($JTextArea, area1, $new($JTextArea));
 	injectComponent(this->p1, area1, false);
@@ -205,17 +140,17 @@ void bug4337267::testTextComponent() {
 	area2->setText(this->text);
 	$nc(bug4337267::window)->repaint();
 	$set(this, printq, $new($JComponentArray, {
-		static_cast<$JComponent*>(area1),
-		static_cast<$JComponent*>(area2)
+		area1,
+		area2
 	}));
-	printComponent($nc(this->printq)->get(0), this->i1);
+	printComponent(this->printq->get(0), this->i1);
 	printComponent($nc(this->printq)->get(1), this->i2);
 	assertEquals($nc(this->p1)->image, $nc(this->p2)->image);
 	assertEquals(this->i1, this->i2);
 }
 
 void bug4337267::testNonTextComponentHTML() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("testNonTextComponentHTML:"_s);
 	$var($JLabel, label1, $new($JLabel));
 	injectComponent(this->p1, label1, false);
@@ -225,17 +160,17 @@ void bug4337267::testNonTextComponentHTML() {
 	label2->setText($$str({"<html>"_s, this->text}));
 	$nc(bug4337267::window)->repaint();
 	$set(this, printq, $new($JComponentArray, {
-		static_cast<$JComponent*>(label1),
-		static_cast<$JComponent*>(label2)
+		label1,
+		label2
 	}));
-	printComponent($nc(this->printq)->get(0), this->i1);
+	printComponent(this->printq->get(0), this->i1);
 	printComponent($nc(this->printq)->get(1), this->i2);
 	assertEquals($nc(this->p1)->image, $nc(this->p2)->image);
 	assertEquals(this->i1, this->i2);
 }
 
 void bug4337267::testNonTextComponentPlain() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("testNonTextComponentPlain:"_s);
 	$var($JLabel, label1, $new($JLabel));
 	injectComponent(this->p1, label1, false);
@@ -245,10 +180,10 @@ void bug4337267::testNonTextComponentPlain() {
 	label2->setText(this->text);
 	$nc(bug4337267::window)->repaint();
 	$set(this, printq, $new($JComponentArray, {
-		static_cast<$JComponent*>(label1),
-		static_cast<$JComponent*>(label2)
+		label1,
+		label2
 	}));
-	printComponent($nc(this->printq)->get(0), this->i1);
+	printComponent(this->printq->get(0), this->i1);
 	printComponent($nc(this->printq)->get(1), this->i2);
 	assertEquals($nc(this->p1)->image, $nc(this->p2)->image);
 	assertEquals(this->i1, this->i2);
@@ -264,56 +199,54 @@ void bug4337267::injectComponent($JComponent* p, $JComponent* c, bool shape) {
 		setShaping(c);
 	}
 	$nc(p)->removeAll();
-	p->add(static_cast<$Component*>(c));
+	p->add(c);
 }
 
 void bug4337267::printComponent($JComponent* c, $bug4337267$TestBufferedImage* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, g, $nc(i)->getGraphics());
 	$nc(g)->setColor($($nc(c)->getBackground()));
 	int32_t var$0 = i->getWidth();
 	g->fillRect(0, 0, var$0, i->getHeight());
-	$nc(c)->print(g);
+	c->print(g);
 }
 
 $Component* bug4337267::createContentPane() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, $new($Dimension, 500, 100));
 	$set(this, i1, $new($bug4337267$TestBufferedImage, size->width, size->height, $BufferedImage::TYPE_INT_ARGB));
 	$set(this, i2, $new($bug4337267$TestBufferedImage, size->width, size->height, $BufferedImage::TYPE_INT_ARGB));
 	$set(this, p1, $new($bug4337267$TestJPanel));
-	$nc(this->p1)->setPreferredSize(size);
+	this->p1->setPreferredSize(size);
 	$set(this, p2, $new($bug4337267$TestJPanel));
-	$nc(this->p2)->setPreferredSize(size);
+	this->p2->setPreferredSize(size);
 	$var($JPanel, panel, $new($JPanel));
 	panel->setLayout($$new($BoxLayout, panel, $BoxLayout::Y_AXIS));
-	panel->add(static_cast<$Component*>(this->p1));
-	panel->add(static_cast<$Component*>(this->p2));
+	panel->add(this->p1);
+	panel->add(this->p2);
 	return panel;
 }
 
 void bug4337267::main($StringArray* args) {
 	$init(bug4337267);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var(bug4337267, test, $new(bug4337267));
-			$SwingUtilities::invokeAndWait($$new($bug4337267$1, test));
-			if (bug4337267::testFailed) {
-				$throwNew($RuntimeException, "FAIL"_s);
-			}
-			$nc($System::out)->println("OK"_s);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (bug4337267::window != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4337267$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var(bug4337267, test, $new(bug4337267));
+		$SwingUtilities::invokeAndWait($$new($bug4337267$1, test));
+		if (bug4337267::testFailed) {
+			$throwNew($RuntimeException, "FAIL"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$nc($System::out)->println("OK"_s);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (bug4337267::window != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug4337267$$Lambda$lambda$main$0));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -322,7 +255,7 @@ void bug4337267::lambda$main$0() {
 	$nc(bug4337267::window)->dispose();
 }
 
-void clinit$bug4337267($Class* class$) {
+void bug4337267::clinit$($Class* clazz) {
 	bug4337267::testFailed = false;
 }
 
@@ -331,11 +264,62 @@ bug4337267::bug4337267() {
 
 $Class* bug4337267::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4337267$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug4337267$$Lambda$lambda$main$0")) {
 			return bug4337267$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4337267, name, initialize, &_bug4337267_ClassInfo_, clinit$bug4337267, allocate$bug4337267);
+	$FieldInfo fieldInfos$$[] = {
+		{"p1", "Lbug4337267$TestJPanel;", nullptr, 0, $field(bug4337267, p1)},
+		{"p2", "Lbug4337267$TestJPanel;", nullptr, 0, $field(bug4337267, p2)},
+		{"i1", "Lbug4337267$TestBufferedImage;", nullptr, 0, $field(bug4337267, i1)},
+		{"i2", "Lbug4337267$TestBufferedImage;", nullptr, 0, $field(bug4337267, i2)},
+		{"printq", "[Ljavax/swing/JComponent;", nullptr, 0, $field(bug4337267, printq)},
+		{"window", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug4337267, window)},
+		{"testFailed", "Z", nullptr, $STATIC, $staticField(bug4337267, testFailed)},
+		{"shaped", "Ljava/lang/String;", nullptr, 0, $field(bug4337267, shaped)},
+		{"text", "Ljava/lang/String;", nullptr, 0, $field(bug4337267, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4337267, init$, void)},
+		{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(bug4337267, assertEquals, void, Object$*, Object$*)},
+		{"createContentPane", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(bug4337267, createContentPane, $Component*)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(bug4337267, fail, void, $String*)},
+		{"initUI", "()V", nullptr, 0, $virtualMethod(bug4337267, initUI, void)},
+		{"injectComponent", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Z)V", nullptr, 0, $virtualMethod(bug4337267, injectComponent, void, $JComponent*, $JComponent*, bool)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4337267, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4337267, main, void, $StringArray*), "java.lang.Exception"},
+		{"printComponent", "(Ljavax/swing/JComponent;Lbug4337267$TestBufferedImage;)V", nullptr, 0, $virtualMethod(bug4337267, printComponent, void, $JComponent*, $bug4337267$TestBufferedImage*)},
+		{"run", "()V", nullptr, 0, $virtualMethod(bug4337267, run, void)},
+		{"setShaping", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(bug4337267, setShaping, void, $JComponent*)},
+		{"testNonTextComponentHTML", "()V", nullptr, 0, $virtualMethod(bug4337267, testNonTextComponentHTML, void)},
+		{"testNonTextComponentPlain", "()V", nullptr, 0, $virtualMethod(bug4337267, testNonTextComponentPlain, void)},
+		{"testTextComponent", "()V", nullptr, 0, $virtualMethod(bug4337267, testTextComponent, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4337267$TestJPanel", "bug4337267", "TestJPanel", $STATIC},
+		{"bug4337267$TestBufferedImage", "bug4337267", "TestBufferedImage", $STATIC},
+		{"bug4337267$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4337267",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4337267$TestJPanel,bug4337267$TestBufferedImage,bug4337267$1"
+	};
+	$loadClass(bug4337267, name, initialize, &classInfo$$, bug4337267::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4337267);
+	});
 	return class$;
 }
 

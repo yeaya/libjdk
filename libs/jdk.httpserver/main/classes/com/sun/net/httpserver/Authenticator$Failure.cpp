@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/Authenticator$Failure.h>
-
 #include <com/sun/net/httpserver/Authenticator$Result.h>
 #include <com/sun/net/httpserver/Authenticator.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace com {
 		namespace net {
 			namespace httpserver {
 
-$FieldInfo _Authenticator$Failure_FieldInfo_[] = {
-	{"responseCode", "I", nullptr, $PRIVATE, $field(Authenticator$Failure, responseCode)},
-	{}
-};
-
-$MethodInfo _Authenticator$Failure_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Authenticator$Failure, init$, void, int32_t)},
-	{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(Authenticator$Failure, getResponseCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Authenticator$Failure_InnerClassesInfo_[] = {
-	{"com.sun.net.httpserver.Authenticator$Failure", "com.sun.net.httpserver.Authenticator", "Failure", $PUBLIC | $STATIC},
-	{"com.sun.net.httpserver.Authenticator$Result", "com.sun.net.httpserver.Authenticator", "Result", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Authenticator$Failure_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.net.httpserver.Authenticator$Failure",
-	"com.sun.net.httpserver.Authenticator$Result",
-	nullptr,
-	_Authenticator$Failure_FieldInfo_,
-	_Authenticator$Failure_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Authenticator$Failure_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.net.httpserver.Authenticator"
-};
-
-$Object* allocate$Authenticator$Failure($Class* clazz) {
-	return $of($alloc(Authenticator$Failure));
-}
-
 void Authenticator$Failure::init$(int32_t responseCode) {
 	$Authenticator$Result::init$();
 	this->responseCode = responseCode;
@@ -65,7 +27,38 @@ Authenticator$Failure::Authenticator$Failure() {
 }
 
 $Class* Authenticator$Failure::load$($String* name, bool initialize) {
-	$loadClass(Authenticator$Failure, name, initialize, &_Authenticator$Failure_ClassInfo_, allocate$Authenticator$Failure);
+	$FieldInfo fieldInfos$$[] = {
+		{"responseCode", "I", nullptr, $PRIVATE, $field(Authenticator$Failure, responseCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Authenticator$Failure, init$, void, int32_t)},
+		{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(Authenticator$Failure, getResponseCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.net.httpserver.Authenticator$Failure", "com.sun.net.httpserver.Authenticator", "Failure", $PUBLIC | $STATIC},
+		{"com.sun.net.httpserver.Authenticator$Result", "com.sun.net.httpserver.Authenticator", "Result", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.net.httpserver.Authenticator$Failure",
+		"com.sun.net.httpserver.Authenticator$Result",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.net.httpserver.Authenticator"
+	};
+	$loadClass(Authenticator$Failure, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Authenticator$Failure);
+	});
 	return class$;
 }
 

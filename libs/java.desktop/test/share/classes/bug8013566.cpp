@@ -1,12 +1,7 @@
 #include <bug8013566.h>
-
 #include <bug8013566$1.h>
-#include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
-#include <java/lang/Runnable.h>
-#include <javax/swing/GroupLayout$Group.h>
 #include <javax/swing/GroupLayout$ParallelGroup.h>
 #include <javax/swing/GroupLayout$SequentialGroup.h>
 #include <javax/swing/GroupLayout.h>
@@ -21,56 +16,17 @@
 #undef RELATED
 
 using $bug8013566$1 = ::bug8013566$1;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $GroupLayout = ::javax::swing::GroupLayout;
-using $GroupLayout$Group = ::javax::swing::GroupLayout$Group;
-using $GroupLayout$ParallelGroup = ::javax::swing::GroupLayout$ParallelGroup;
-using $GroupLayout$SequentialGroup = ::javax::swing::GroupLayout$SequentialGroup;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $LayoutStyle$ComponentPlacement = ::javax::swing::LayoutStyle$ComponentPlacement;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$MethodInfo _bug8013566_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8013566, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8013566, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljavax/swing/JFrame;)V", nullptr, $STATIC, $staticMethod(bug8013566, test, void, $JFrame*)},
-	{}
-};
-
-$InnerClassInfo _bug8013566_InnerClassesInfo_[] = {
-	{"bug8013566$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8013566_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8013566",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug8013566_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8013566_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8013566$1"
-};
-
-$Object* allocate$bug8013566($Class* clazz) {
-	return $of($alloc(bug8013566));
-}
 
 void bug8013566::init$() {
 }
@@ -81,7 +37,7 @@ void bug8013566::main($StringArray* args) {
 }
 
 void bug8013566::test($JFrame* frame) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, c1, $new($JButton, "Label1"_s));
 	$var($JComponent, c2, $new($JButton, "Label22"_s));
 	$var($JComponent, c3, $new($JButton, "Label333"_s));
@@ -91,8 +47,8 @@ void bug8013566::test($JFrame* frame) {
 	layout->setAutoCreateGaps(true);
 	panel->setLayout(layout);
 	$init($LayoutStyle$ComponentPlacement);
-	layout->setHorizontalGroup($($nc($($nc($(layout->createSequentialGroup()))->addGroup($($nc($($nc($(layout->createParallelGroup()))->addGroup($($nc($($nc($(layout->createSequentialGroup()))->addComponent(c1)))->addPreferredGap($LayoutStyle$ComponentPlacement::RELATED, 50, 200)))))->addComponent(c2)))))->addComponent(c3)));
-	layout->setVerticalGroup($($nc($($nc($($nc($(layout->createSequentialGroup()))->addComponent(c1)))->addComponent(c2)))->addComponent(c3)));
+	layout->setHorizontalGroup($($$nc($$nc(layout->createSequentialGroup())->addGroup($($$nc($$nc(layout->createParallelGroup())->addGroup($($$nc($$nc(layout->createSequentialGroup())->addComponent(c1))->addPreferredGap($LayoutStyle$ComponentPlacement::RELATED, 50, 200))))->addComponent(c2))))->addComponent(c3)));
+	layout->setVerticalGroup($($$nc($$nc($$nc(layout->createSequentialGroup())->addComponent(c1))->addComponent(c2))->addComponent(c3)));
 	$nc(frame)->setContentPane(panel);
 	frame->pack();
 	frame->setVisible(true);
@@ -108,7 +64,33 @@ bug8013566::bug8013566() {
 }
 
 $Class* bug8013566::load$($String* name, bool initialize) {
-	$loadClass(bug8013566, name, initialize, &_bug8013566_ClassInfo_, allocate$bug8013566);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8013566, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8013566, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljavax/swing/JFrame;)V", nullptr, $STATIC, $staticMethod(bug8013566, test, void, $JFrame*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8013566$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8013566",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8013566$1"
+	};
+	$loadClass(bug8013566, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8013566);
+	});
 	return class$;
 }
 

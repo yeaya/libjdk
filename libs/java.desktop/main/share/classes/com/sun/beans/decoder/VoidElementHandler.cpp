@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/VoidElementHandler.h>
-
 #include <com/sun/beans/decoder/ObjectElementHandler.h>
 #include <jcpp.h>
 
@@ -11,25 +10,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$MethodInfo _VoidElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VoidElementHandler, init$, void)},
-	{"isArgument", "()Z", nullptr, $PROTECTED, $virtualMethod(VoidElementHandler, isArgument, bool)},
-	{}
-};
-
-$ClassInfo _VoidElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.VoidElementHandler",
-	"com.sun.beans.decoder.ObjectElementHandler",
-	nullptr,
-	nullptr,
-	_VoidElementHandler_MethodInfo_
-};
-
-$Object* allocate$VoidElementHandler($Class* clazz) {
-	return $of($alloc(VoidElementHandler));
-}
 
 void VoidElementHandler::init$() {
 	$ObjectElementHandler::init$();
@@ -43,7 +23,22 @@ VoidElementHandler::VoidElementHandler() {
 }
 
 $Class* VoidElementHandler::load$($String* name, bool initialize) {
-	$loadClass(VoidElementHandler, name, initialize, &_VoidElementHandler_ClassInfo_, allocate$VoidElementHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VoidElementHandler, init$, void)},
+		{"isArgument", "()Z", nullptr, $PROTECTED, $virtualMethod(VoidElementHandler, isArgument, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.VoidElementHandler",
+		"com.sun.beans.decoder.ObjectElementHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VoidElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VoidElementHandler);
+	});
 	return class$;
 }
 

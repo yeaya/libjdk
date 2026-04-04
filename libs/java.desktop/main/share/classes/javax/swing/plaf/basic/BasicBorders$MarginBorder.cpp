@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$MarginBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/AbstractButton.h>
@@ -23,42 +22,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicBorders$MarginBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicBorders$MarginBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$MarginBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$MarginBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$MarginBorder", "javax.swing.plaf.basic.BasicBorders", "MarginBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$MarginBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$MarginBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicBorders$MarginBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$MarginBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$MarginBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$MarginBorder));
-}
 
 int32_t BasicBorders$MarginBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -85,19 +48,19 @@ void BasicBorders$MarginBorder::init$() {
 }
 
 $Insets* BasicBorders$MarginBorder::getBorderInsets($Component* c, $Insets* insets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, margin, nullptr);
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
-		$assign(margin, $nc(b)->getMargin());
+		$assign(margin, b->getMargin());
 	} else if ($instanceOf($JToolBar, c)) {
 		$var($JToolBar, t, $cast($JToolBar, c));
-		$assign(margin, $nc(t)->getMargin());
+		$assign(margin, t->getMargin());
 	} else if ($instanceOf($JTextComponent, c)) {
 		$var($JTextComponent, t, $cast($JTextComponent, c));
-		$assign(margin, $nc(t)->getMargin());
+		$assign(margin, t->getMargin());
 	}
-	$nc(insets)->top = margin != nullptr ? $nc(margin)->top : 0;
+	$nc(insets)->top = margin != nullptr ? margin->top : 0;
 	insets->left = margin != nullptr ? margin->left : 0;
 	insets->bottom = margin != nullptr ? margin->bottom : 0;
 	insets->right = margin != nullptr ? margin->right : 0;
@@ -108,7 +71,38 @@ BasicBorders$MarginBorder::BasicBorders$MarginBorder() {
 }
 
 $Class* BasicBorders$MarginBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$MarginBorder, name, initialize, &_BasicBorders$MarginBorder_ClassInfo_, allocate$BasicBorders$MarginBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicBorders$MarginBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$MarginBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$MarginBorder", "javax.swing.plaf.basic.BasicBorders", "MarginBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$MarginBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$MarginBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$MarginBorder));
+	});
 	return class$;
 }
 

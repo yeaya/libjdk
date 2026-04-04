@@ -1,6 +1,4 @@
 #include <sun/awt/image/XbmImageDecoder.h>
-
-#include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/io/BufferedInputStream.h>
@@ -18,7 +16,6 @@
 #undef TOPDOWNLEFTRIGHT
 #undef W
 
-using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
@@ -33,32 +30,6 @@ using $InputStreamImageSource = ::sun::awt::image::InputStreamImageSource;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _XbmImageDecoder_FieldInfo_[] = {
-	{"XbmColormap", "[B", nullptr, $PRIVATE | $STATIC, $staticField(XbmImageDecoder, XbmColormap)},
-	{"XbmHints", "I", nullptr, $PRIVATE | $STATIC, $staticField(XbmImageDecoder, XbmHints)},
-	{}
-};
-
-$MethodInfo _XbmImageDecoder_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(XbmImageDecoder, init$, void, $InputStreamImageSource*, $InputStream*)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XbmImageDecoder, error, void, $String*), "sun.awt.image.ImageFormatException"},
-	{"produceImage", "()V", nullptr, $PUBLIC, $virtualMethod(XbmImageDecoder, produceImage, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
-	{}
-};
-
-$ClassInfo _XbmImageDecoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.XbmImageDecoder",
-	"sun.awt.image.ImageDecoder",
-	nullptr,
-	_XbmImageDecoder_FieldInfo_,
-	_XbmImageDecoder_MethodInfo_
-};
-
-$Object* allocate$XbmImageDecoder($Class* clazz) {
-	return $of($alloc(XbmImageDecoder));
-}
 
 $bytes* XbmImageDecoder::XbmColormap = nullptr;
 int32_t XbmImageDecoder::XbmHints = 0;
@@ -76,7 +47,7 @@ void XbmImageDecoder::error($String* s1) {
 }
 
 void XbmImageDecoder::produceImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, nm, $new($chars, 80));
 	int32_t c = 0;
 	int32_t i = 0;
@@ -123,16 +94,16 @@ void XbmImageDecoder::produceImage() {
 				}
 				for (int32_t mask = 1; mask <= 128; mask <<= 1) {
 					if (x < W) {
-						if (((int32_t)(n & (uint32_t)mask)) != 0) {
-							$nc(raster)->set(x, (int8_t)1);
+						if ((n & mask) != 0) {
+							$nc(raster)->set(x, 1);
 						} else {
-							$nc(raster)->set(x, (int8_t)0);
+							$nc(raster)->set(x, 0);
 						}
 					}
 					++x;
 				}
 				if (x >= W) {
-					if (setPixels(0, y, W, 1, static_cast<$ColorModel*>(model), raster, 0, W) <= 0) {
+					if (setPixels(0, y, W, 1, model, raster, 0, W) <= 0) {
 						return;
 					}
 					x = 0;
@@ -176,14 +147,14 @@ void XbmImageDecoder::produceImage() {
 	imageComplete($ImageConsumer::STATICIMAGEDONE, true);
 }
 
-void clinit$XbmImageDecoder($Class* class$) {
+void XbmImageDecoder::clinit$($Class* clazz) {
 	$assignStatic(XbmImageDecoder::XbmColormap, $new($bytes, {
 		(int8_t)255,
 		(int8_t)255,
 		(int8_t)255,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0
+		0,
+		0,
+		0
 	}));
 	XbmImageDecoder::XbmHints = ((($ImageConsumer::TOPDOWNLEFTRIGHT | $ImageConsumer::COMPLETESCANLINES) | $ImageConsumer::SINGLEPASS) | $ImageConsumer::SINGLEFRAME);
 }
@@ -192,7 +163,28 @@ XbmImageDecoder::XbmImageDecoder() {
 }
 
 $Class* XbmImageDecoder::load$($String* name, bool initialize) {
-	$loadClass(XbmImageDecoder, name, initialize, &_XbmImageDecoder_ClassInfo_, clinit$XbmImageDecoder, allocate$XbmImageDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"XbmColormap", "[B", nullptr, $PRIVATE | $STATIC, $staticField(XbmImageDecoder, XbmColormap)},
+		{"XbmHints", "I", nullptr, $PRIVATE | $STATIC, $staticField(XbmImageDecoder, XbmHints)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(XbmImageDecoder, init$, void, $InputStreamImageSource*, $InputStream*)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XbmImageDecoder, error, void, $String*), "sun.awt.image.ImageFormatException"},
+		{"produceImage", "()V", nullptr, $PUBLIC, $virtualMethod(XbmImageDecoder, produceImage, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.XbmImageDecoder",
+		"sun.awt.image.ImageDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XbmImageDecoder, name, initialize, &classInfo$$, XbmImageDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XbmImageDecoder);
+	});
 	return class$;
 }
 

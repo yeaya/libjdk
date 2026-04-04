@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/StringSelection.h>
-
 #include <java/awt/datatransfer/Clipboard.h>
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
@@ -23,41 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace datatransfer {
-
-$FieldInfo _StringSelection_FieldInfo_[] = {
-	{"STRING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSelection, STRING)},
-	{"PLAIN_TEXT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSelection, PLAIN_TEXT)},
-	{"flavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringSelection, flavors)},
-	{"data", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringSelection, data)},
-	{}
-};
-
-$MethodInfo _StringSelection_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringSelection, init$, void, $String*)},
-	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringSelection, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
-	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(StringSelection, getTransferDataFlavors, $DataFlavorArray*)},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(StringSelection, isDataFlavorSupported, bool, $DataFlavor*)},
-	{"lostOwnership", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC, $virtualMethod(StringSelection, lostOwnership, void, $Clipboard*, $Transferable*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _StringSelection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.datatransfer.StringSelection",
-	"java.lang.Object",
-	"java.awt.datatransfer.Transferable,java.awt.datatransfer.ClipboardOwner",
-	_StringSelection_FieldInfo_,
-	_StringSelection_MethodInfo_
-};
-
-$Object* allocate$StringSelection($Class* clazz) {
-	return $of($alloc(StringSelection));
-}
 
 int32_t StringSelection::hashCode() {
 	 return this->$Transferable::hashCode();
@@ -86,12 +50,12 @@ void StringSelection::init$($String* data) {
 }
 
 $DataFlavorArray* StringSelection::getTransferDataFlavors() {
-	return $cast($DataFlavorArray, $nc(StringSelection::flavors)->clone());
+	return $cast($DataFlavorArray, StringSelection::flavors->clone());
 }
 
 bool StringSelection::isDataFlavorSupported($DataFlavor* flavor) {
-	for (int32_t i = 0; i < $nc(StringSelection::flavors)->length; ++i) {
-		if ($nc(flavor)->equals($nc(StringSelection::flavors)->get(i))) {
+	for (int32_t i = 0; i < StringSelection::flavors->length; ++i) {
+		if ($nc(flavor)->equals(StringSelection::flavors->get(i))) {
 			return true;
 		}
 	}
@@ -99,9 +63,9 @@ bool StringSelection::isDataFlavorSupported($DataFlavor* flavor) {
 }
 
 $Object* StringSelection::getTransferData($DataFlavor* flavor) {
-	if ($nc(flavor)->equals($nc(StringSelection::flavors)->get(StringSelection::STRING))) {
-		return $of($of(this->data));
-	} else if (flavor->equals($nc(StringSelection::flavors)->get(StringSelection::PLAIN_TEXT))) {
+	if ($nc(flavor)->equals(StringSelection::flavors->get(StringSelection::STRING))) {
+		return $of(this->data);
+	} else if (flavor->equals(StringSelection::flavors->get(StringSelection::PLAIN_TEXT))) {
 		return $of($new($StringReader, this->data == nullptr ? ""_s : this->data));
 	} else {
 		$throwNew($UnsupportedFlavorException, flavor);
@@ -111,7 +75,7 @@ $Object* StringSelection::getTransferData($DataFlavor* flavor) {
 void StringSelection::lostOwnership($Clipboard* clipboard, $Transferable* contents) {
 }
 
-void clinit$StringSelection($Class* class$) {
+void StringSelection::clinit$($Class* clazz) {
 	$init($DataFlavor);
 	$assignStatic(StringSelection::flavors, $new($DataFlavorArray, {
 		$DataFlavor::stringFlavor,
@@ -123,7 +87,37 @@ StringSelection::StringSelection() {
 }
 
 $Class* StringSelection::load$($String* name, bool initialize) {
-	$loadClass(StringSelection, name, initialize, &_StringSelection_ClassInfo_, clinit$StringSelection, allocate$StringSelection);
+	$FieldInfo fieldInfos$$[] = {
+		{"STRING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSelection, STRING)},
+		{"PLAIN_TEXT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSelection, PLAIN_TEXT)},
+		{"flavors", "[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringSelection, flavors)},
+		{"data", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StringSelection, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringSelection, init$, void, $String*)},
+		{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringSelection, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
+		{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(StringSelection, getTransferDataFlavors, $DataFlavorArray*)},
+		{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(StringSelection, isDataFlavorSupported, bool, $DataFlavor*)},
+		{"lostOwnership", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC, $virtualMethod(StringSelection, lostOwnership, void, $Clipboard*, $Transferable*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.datatransfer.StringSelection",
+		"java.lang.Object",
+		"java.awt.datatransfer.Transferable,java.awt.datatransfer.ClipboardOwner",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringSelection, name, initialize, &classInfo$$, StringSelection::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringSelection));
+	});
 	return class$;
 }
 

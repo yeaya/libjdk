@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/DMarlinRenderingEngine$NormMode$3.h>
-
 #include <java/awt/geom/PathIterator.h>
 #include <sun/java2d/marlin/DMarlinRenderingEngine$NormMode.h>
 #include <sun/java2d/marlin/RendererContext.h>
@@ -17,44 +16,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$MethodInfo _DMarlinRenderingEngine$NormMode$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(DMarlinRenderingEngine$NormMode$3, init$, void, $String*, int32_t)},
-	{"getNormalizingPathIterator", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/geom/PathIterator;)Ljava/awt/geom/PathIterator;", nullptr, 0, $virtualMethod(DMarlinRenderingEngine$NormMode$3, getNormalizingPathIterator, $PathIterator*, $RendererContext*, $PathIterator*)},
-	{}
-};
-
-$EnclosingMethodInfo _DMarlinRenderingEngine$NormMode$3_EnclosingMethodInfo_ = {
-	"sun.java2d.marlin.DMarlinRenderingEngine$NormMode",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DMarlinRenderingEngine$NormMode$3_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.DMarlinRenderingEngine$NormMode", "sun.java2d.marlin.DMarlinRenderingEngine", "NormMode", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
-	{"sun.java2d.marlin.DMarlinRenderingEngine$NormMode$3", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DMarlinRenderingEngine$NormMode$3_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.java2d.marlin.DMarlinRenderingEngine$NormMode$3",
-	"sun.java2d.marlin.DMarlinRenderingEngine$NormMode",
-	nullptr,
-	nullptr,
-	_DMarlinRenderingEngine$NormMode$3_MethodInfo_,
-	nullptr,
-	&_DMarlinRenderingEngine$NormMode$3_EnclosingMethodInfo_,
-	_DMarlinRenderingEngine$NormMode$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.DMarlinRenderingEngine"
-};
-
-$Object* allocate$DMarlinRenderingEngine$NormMode$3($Class* clazz) {
-	return $of($alloc(DMarlinRenderingEngine$NormMode$3));
-}
-
 void DMarlinRenderingEngine$NormMode$3::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$DMarlinRenderingEngine$NormMode::init$($enum$name, $enum$ordinal);
 }
@@ -67,7 +28,39 @@ DMarlinRenderingEngine$NormMode$3::DMarlinRenderingEngine$NormMode$3() {
 }
 
 $Class* DMarlinRenderingEngine$NormMode$3::load$($String* name, bool initialize) {
-	$loadClass(DMarlinRenderingEngine$NormMode$3, name, initialize, &_DMarlinRenderingEngine$NormMode$3_ClassInfo_, allocate$DMarlinRenderingEngine$NormMode$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(DMarlinRenderingEngine$NormMode$3, init$, void, $String*, int32_t)},
+		{"getNormalizingPathIterator", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/geom/PathIterator;)Ljava/awt/geom/PathIterator;", nullptr, 0, $virtualMethod(DMarlinRenderingEngine$NormMode$3, getNormalizingPathIterator, $PathIterator*, $RendererContext*, $PathIterator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.marlin.DMarlinRenderingEngine$NormMode",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.DMarlinRenderingEngine$NormMode", "sun.java2d.marlin.DMarlinRenderingEngine", "NormMode", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
+		{"sun.java2d.marlin.DMarlinRenderingEngine$NormMode$3", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.java2d.marlin.DMarlinRenderingEngine$NormMode$3",
+		"sun.java2d.marlin.DMarlinRenderingEngine$NormMode",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.DMarlinRenderingEngine"
+	};
+	$loadClass(DMarlinRenderingEngine$NormMode$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DMarlinRenderingEngine$NormMode$3));
+	});
 	return class$;
 }
 

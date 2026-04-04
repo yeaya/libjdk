@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/util/BCELComparator.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,27 +12,23 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$MethodInfo _BCELComparator_MethodInfo_[] = {
-	{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BCELComparator, equals, bool, Object$*, Object$*)},
-	{"hashCode", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BCELComparator, hashCode, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _BCELComparator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.util.BCELComparator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_BCELComparator_MethodInfo_
-};
-
-$Object* allocate$BCELComparator($Class* clazz) {
-	return $of($alloc(BCELComparator));
-}
-
 $Class* BCELComparator::load$($String* name, bool initialize) {
-	$loadClass(BCELComparator, name, initialize, &_BCELComparator_ClassInfo_, allocate$BCELComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BCELComparator, equals, bool, Object$*, Object$*)},
+		{"hashCode", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BCELComparator, hashCode, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.util.BCELComparator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BCELComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BCELComparator);
+	});
 	return class$;
 }
 

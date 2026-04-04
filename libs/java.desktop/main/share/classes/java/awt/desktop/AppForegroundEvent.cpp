@@ -1,5 +1,4 @@
 #include <java/awt/desktop/AppForegroundEvent.h>
-
 #include <java/awt/desktop/AppEvent.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _AppForegroundEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AppForegroundEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AppForegroundEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AppForegroundEvent, init$, void)},
-	{}
-};
-
-$ClassInfo _AppForegroundEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.AppForegroundEvent",
-	"java.awt.desktop.AppEvent",
-	nullptr,
-	_AppForegroundEvent_FieldInfo_,
-	_AppForegroundEvent_MethodInfo_
-};
-
-$Object* allocate$AppForegroundEvent($Class* clazz) {
-	return $of($alloc(AppForegroundEvent));
-}
-
 void AppForegroundEvent::init$() {
 	$AppEvent::init$();
 }
@@ -43,7 +19,25 @@ AppForegroundEvent::AppForegroundEvent() {
 }
 
 $Class* AppForegroundEvent::load$($String* name, bool initialize) {
-	$loadClass(AppForegroundEvent, name, initialize, &_AppForegroundEvent_ClassInfo_, allocate$AppForegroundEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AppForegroundEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AppForegroundEvent, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.AppForegroundEvent",
+		"java.awt.desktop.AppEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AppForegroundEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppForegroundEvent);
+	});
 	return class$;
 }
 

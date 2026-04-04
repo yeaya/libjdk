@@ -1,5 +1,4 @@
 #include <java/awt/geom/Ellipse2D$Float.h>
-
 #include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -17,59 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Ellipse2D$Float_FieldInfo_[] = {
-	{"x", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, x)},
-	{"y", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, y)},
-	{"width", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, width)},
-	{"height", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, height)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Ellipse2D$Float, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Ellipse2D$Float_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Ellipse2D$Float, init$, void)},
-	{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Ellipse2D$Float, init$, void, float, float, float, float)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getBounds2D, $Rectangle2D*)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getHeight, double)},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getWidth, double)},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getY, double)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, isEmpty, bool)},
-	{"setFrame", "(FFFF)V", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, setFrame, void, float, float, float, float)},
-	{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, setFrame, void, double, double, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Ellipse2D$Float_InnerClassesInfo_[] = {
-	{"java.awt.geom.Ellipse2D$Float", "java.awt.geom.Ellipse2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Ellipse2D$Float_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.Ellipse2D$Float",
-	"java.awt.geom.Ellipse2D",
-	"java.io.Serializable",
-	_Ellipse2D$Float_FieldInfo_,
-	_Ellipse2D$Float_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Ellipse2D$Float_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Ellipse2D"
-};
-
-$Object* allocate$Ellipse2D$Float($Class* clazz) {
-	return $of($alloc(Ellipse2D$Float));
-}
 
 int32_t Ellipse2D$Float::hashCode() {
 	 return this->$Ellipse2D::hashCode();
@@ -142,7 +88,54 @@ Ellipse2D$Float::Ellipse2D$Float() {
 }
 
 $Class* Ellipse2D$Float::load$($String* name, bool initialize) {
-	$loadClass(Ellipse2D$Float, name, initialize, &_Ellipse2D$Float_ClassInfo_, allocate$Ellipse2D$Float);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, x)},
+		{"y", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, y)},
+		{"width", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, width)},
+		{"height", "F", nullptr, $PUBLIC, $field(Ellipse2D$Float, height)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Ellipse2D$Float, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Ellipse2D$Float, init$, void)},
+		{"<init>", "(FFFF)V", nullptr, $PUBLIC, $method(Ellipse2D$Float, init$, void, float, float, float, float)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getBounds2D, $Rectangle2D*)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getHeight, double)},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getWidth, double)},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, getY, double)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, isEmpty, bool)},
+		{"setFrame", "(FFFF)V", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, setFrame, void, float, float, float, float)},
+		{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Ellipse2D$Float, setFrame, void, double, double, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Ellipse2D$Float", "java.awt.geom.Ellipse2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.Ellipse2D$Float",
+		"java.awt.geom.Ellipse2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Ellipse2D"
+	};
+	$loadClass(Ellipse2D$Float, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Ellipse2D$Float));
+	});
 	return class$;
 }
 

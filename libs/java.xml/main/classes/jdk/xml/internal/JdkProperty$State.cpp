@@ -1,5 +1,4 @@
 #include <jdk/xml/internal/JdkProperty$State.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/xml/internal/JdkProperty.h>
 #include <jcpp.h>
@@ -22,53 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace xml {
 		namespace internal {
-
-$FieldInfo _JdkProperty$State_FieldInfo_[] = {
-	{"DEFAULT", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, DEFAULT)},
-	{"FSP", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, FSP)},
-	{"JAXPDOTPROPERTIES", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, JAXPDOTPROPERTIES)},
-	{"LEGACY_SYSTEMPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, LEGACY_SYSTEMPROPERTY)},
-	{"SYSTEMPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, SYSTEMPROPERTY)},
-	{"LEGACY_APIPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, LEGACY_APIPROPERTY)},
-	{"APIPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, APIPROPERTY)},
-	{"$VALUES", "[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JdkProperty$State, $VALUES)},
-	{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(JdkProperty$State, literal$)},
-	{}
-};
-
-$MethodInfo _JdkProperty$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JdkProperty$State, $values, $JdkProperty$StateArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JdkProperty$State, init$, void, $String*, int32_t, $String*)},
-	{"literal", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$State, literal, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$State, valueOf, JdkProperty$State*, $String*)},
-	{"values", "()[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$State, values, $JdkProperty$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _JdkProperty$State_InnerClassesInfo_[] = {
-	{"jdk.xml.internal.JdkProperty$State", "jdk.xml.internal.JdkProperty", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JdkProperty$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.xml.internal.JdkProperty$State",
-	"java.lang.Enum",
-	nullptr,
-	_JdkProperty$State_FieldInfo_,
-	_JdkProperty$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/xml/internal/JdkProperty$State;>;",
-	nullptr,
-	_JdkProperty$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.xml.internal.JdkProperty"
-};
-
-$Object* allocate$JdkProperty$State($Class* clazz) {
-	return $of($alloc(JdkProperty$State));
-}
 
 JdkProperty$State* JdkProperty$State::DEFAULT = nullptr;
 JdkProperty$State* JdkProperty$State::FSP = nullptr;
@@ -111,7 +63,7 @@ $String* JdkProperty$State::literal() {
 	return this->literal$;
 }
 
-void clinit$JdkProperty$State($Class* class$) {
+void JdkProperty$State::clinit$($Class* clazz) {
 	$assignStatic(JdkProperty$State::DEFAULT, $new(JdkProperty$State, "DEFAULT"_s, 0, "default"_s));
 	$assignStatic(JdkProperty$State::FSP, $new(JdkProperty$State, "FSP"_s, 1, "FEATURE_SECURE_PROCESSING"_s));
 	$assignStatic(JdkProperty$State::JAXPDOTPROPERTIES, $new(JdkProperty$State, "JAXPDOTPROPERTIES"_s, 2, "jaxp.properties"_s));
@@ -126,7 +78,48 @@ JdkProperty$State::JdkProperty$State() {
 }
 
 $Class* JdkProperty$State::load$($String* name, bool initialize) {
-	$loadClass(JdkProperty$State, name, initialize, &_JdkProperty$State_ClassInfo_, clinit$JdkProperty$State, allocate$JdkProperty$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, DEFAULT)},
+		{"FSP", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, FSP)},
+		{"JAXPDOTPROPERTIES", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, JAXPDOTPROPERTIES)},
+		{"LEGACY_SYSTEMPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, LEGACY_SYSTEMPROPERTY)},
+		{"SYSTEMPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, SYSTEMPROPERTY)},
+		{"LEGACY_APIPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, LEGACY_APIPROPERTY)},
+		{"APIPROPERTY", "Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JdkProperty$State, APIPROPERTY)},
+		{"$VALUES", "[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JdkProperty$State, $VALUES)},
+		{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(JdkProperty$State, literal$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JdkProperty$State, $values, $JdkProperty$StateArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JdkProperty$State, init$, void, $String*, int32_t, $String*)},
+		{"literal", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JdkProperty$State, literal, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$State, valueOf, JdkProperty$State*, $String*)},
+		{"values", "()[Ljdk/xml/internal/JdkProperty$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdkProperty$State, values, $JdkProperty$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.xml.internal.JdkProperty$State", "jdk.xml.internal.JdkProperty", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.xml.internal.JdkProperty$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/xml/internal/JdkProperty$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.xml.internal.JdkProperty"
+	};
+	$loadClass(JdkProperty$State, name, initialize, &classInfo$$, JdkProperty$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JdkProperty$State));
+	});
 	return class$;
 }
 

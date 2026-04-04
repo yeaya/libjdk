@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Target.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
 #include <com/sun/tools/javac/util/Context.h>
@@ -41,71 +40,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Target_FieldInfo_[] = {
-	{"JDK1_1", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_1)},
-	{"JDK1_2", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_2)},
-	{"JDK1_3", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_3)},
-	{"JDK1_4", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_4)},
-	{"JDK1_5", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_5)},
-	{"JDK1_6", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_6)},
-	{"JDK1_7", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_7)},
-	{"JDK1_8", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_8)},
-	{"JDK1_9", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_9)},
-	{"JDK1_10", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_10)},
-	{"JDK1_11", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_11)},
-	{"JDK1_12", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_12)},
-	{"JDK1_13", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_13)},
-	{"JDK1_14", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_14)},
-	{"JDK1_15", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_15)},
-	{"JDK1_16", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_16)},
-	{"JDK1_17", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_17)},
-	{"$VALUES", "[Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Target, $VALUES)},
-	{"targetKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/jvm/Target;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Target, targetKey)},
-	{"MIN", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Target, MIN)},
-	{"MAX", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Target, MAX)},
-	{"tab", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/javac/jvm/Target;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Target, tab)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Target, name$)},
-	{"majorVersion", "I", nullptr, $PUBLIC | $FINAL, $field(Target, majorVersion)},
-	{"minorVersion", "I", nullptr, $PUBLIC | $FINAL, $field(Target, minorVersion)},
-	{"DEFAULT", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Target, DEFAULT)},
-	{}
-};
-
-$MethodInfo _Target_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Target, $values, $TargetArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;II)V", "(Ljava/lang/String;II)V", $PRIVATE, $method(Target, init$, void, $String*, int32_t, $String*, int32_t, int32_t)},
-	{"allApiModulesAreRoots", "()Z", nullptr, $PUBLIC, $method(Target, allApiModulesAreRoots, bool)},
-	{"hasMethodParameters", "()Z", nullptr, $PUBLIC, $method(Target, hasMethodParameters, bool)},
-	{"hasNestmateAccess", "()Z", nullptr, $PUBLIC, $method(Target, hasNestmateAccess, bool)},
-	{"hasSealedClasses", "()Z", nullptr, $PUBLIC, $method(Target, hasSealedClasses, bool)},
-	{"hasStringConcatFactory", "()Z", nullptr, $PUBLIC, $method(Target, hasStringConcatFactory, bool)},
-	{"hasVirtualPrivateInvoke", "()Z", nullptr, $PUBLIC, $method(Target, hasVirtualPrivateInvoke, bool)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, instance, Target*, $Context*)},
-	{"isSupported", "()Z", nullptr, $PUBLIC, $method(Target, isSupported, bool)},
-	{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, lookup, Target*, $String*)},
-	{"multiReleaseValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Target, multiReleaseValue, $String*)},
-	{"obsoleteAccStrict", "()Z", nullptr, $PUBLIC, $method(Target, obsoleteAccStrict, bool)},
-	{"runtimeUseNestAccess", "()Z", nullptr, $PUBLIC, $method(Target, runtimeUseNestAccess, bool)},
-	{"syntheticNameChar", "()C", nullptr, $PUBLIC, $method(Target, syntheticNameChar, char16_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, valueOf, Target*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, values, $TargetArray*)},
-	{}
-};
-
-$ClassInfo _Target_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.jvm.Target",
-	"java.lang.Enum",
-	nullptr,
-	_Target_FieldInfo_,
-	_Target_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/Target;>;"
-};
-
-$Object* allocate$Target($Class* clazz) {
-	return $of($alloc(Target));
-}
 
 Target* Target::JDK1_1 = nullptr;
 Target* Target::JDK1_2 = nullptr;
@@ -166,7 +100,7 @@ Target* Target::valueOf($String* name) {
 
 Target* Target::instance($Context* context) {
 	$init(Target);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	Target* instance = $cast(Target, $nc(context)->get(Target::targetKey));
 	if (instance == nullptr) {
 		$var($Options, options, $Options::instance(context));
@@ -178,7 +112,7 @@ Target* Target::instance($Context* context) {
 		if (instance == nullptr) {
 			instance = Target::DEFAULT;
 		}
-		context->put(Target::targetKey, $of(instance));
+		context->put(Target::targetKey, instance);
 	}
 	return instance;
 }
@@ -192,11 +126,11 @@ void Target::init$($String* $enum$name, int32_t $enum$ordinal, $String* name, in
 
 Target* Target::lookup($String* name) {
 	$init(Target);
-	return $cast(Target, $nc(Target::tab)->get(name));
+	return $cast(Target, Target::tab->get(name));
 }
 
 bool Target::isSupported() {
-	return this->compareTo(static_cast<$Enum*>(Target::MIN)) >= 0;
+	return this->compareTo(Target::MIN) >= 0;
 }
 
 char16_t Target::syntheticNameChar() {
@@ -204,11 +138,11 @@ char16_t Target::syntheticNameChar() {
 }
 
 bool Target::hasMethodParameters() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_8)) >= 0;
+	return compareTo(Target::JDK1_8) >= 0;
 }
 
 bool Target::hasStringConcatFactory() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_9)) >= 0;
+	return compareTo(Target::JDK1_9) >= 0;
 }
 
 $String* Target::multiReleaseValue() {
@@ -217,31 +151,31 @@ $String* Target::multiReleaseValue() {
 }
 
 bool Target::allApiModulesAreRoots() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_11)) >= 0;
+	return compareTo(Target::JDK1_11) >= 0;
 }
 
 bool Target::hasNestmateAccess() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_11)) >= 0;
+	return compareTo(Target::JDK1_11) >= 0;
 }
 
 bool Target::runtimeUseNestAccess() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_15)) >= 0;
+	return compareTo(Target::JDK1_15) >= 0;
 }
 
 bool Target::hasVirtualPrivateInvoke() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_11)) >= 0;
+	return compareTo(Target::JDK1_11) >= 0;
 }
 
 bool Target::hasSealedClasses() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_15)) >= 0;
+	return compareTo(Target::JDK1_15) >= 0;
 }
 
 bool Target::obsoleteAccStrict() {
-	return compareTo(static_cast<$Enum*>(Target::JDK1_17)) >= 0;
+	return compareTo(Target::JDK1_17) >= 0;
 }
 
-void clinit$Target($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Target::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Target::JDK1_1, $new(Target, "JDK1_1"_s, 0, "1.1"_s, 45, 3));
 	$assignStatic(Target::JDK1_2, $new(Target, "JDK1_2"_s, 1, "1.2"_s, 46, 0));
 	$assignStatic(Target::JDK1_3, $new(Target, "JDK1_3"_s, 2, "1.3"_s, 47, 0));
@@ -267,21 +201,19 @@ void clinit$Target($Class* class$) {
 	{
 		{
 			$var($TargetArray, arr$, Target::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				Target* t = arr$->get(i$);
 				{
-					$nc(Target::tab)->put($nc(t)->name$, t);
+					Target::tab->put($nc(t)->name$, t);
 				}
 			}
 		}
-		$nc(Target::tab)->put("1.5"_s, Target::JDK1_5);
-		$nc(Target::tab)->put("1.6"_s, Target::JDK1_6);
-		$nc(Target::tab)->put("1.7"_s, Target::JDK1_7);
-		$nc(Target::tab)->put("1.8"_s, Target::JDK1_8);
-		$nc(Target::tab)->put("1.9"_s, Target::JDK1_9);
-		$nc(Target::tab)->put("1.10"_s, Target::JDK1_10);
+		Target::tab->put("1.5"_s, Target::JDK1_5);
+		Target::tab->put("1.6"_s, Target::JDK1_6);
+		Target::tab->put("1.7"_s, Target::JDK1_7);
+		Target::tab->put("1.8"_s, Target::JDK1_8);
+		Target::tab->put("1.9"_s, Target::JDK1_9);
+		Target::tab->put("1.10"_s, Target::JDK1_10);
 	}
 	$assignStatic(Target::DEFAULT, $nc($(Target::values()))->get($nc($(Target::values()))->length - 1));
 }
@@ -290,7 +222,67 @@ Target::Target() {
 }
 
 $Class* Target::load$($String* name, bool initialize) {
-	$loadClass(Target, name, initialize, &_Target_ClassInfo_, clinit$Target, allocate$Target);
+	$FieldInfo fieldInfos$$[] = {
+		{"JDK1_1", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_1)},
+		{"JDK1_2", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_2)},
+		{"JDK1_3", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_3)},
+		{"JDK1_4", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_4)},
+		{"JDK1_5", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_5)},
+		{"JDK1_6", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_6)},
+		{"JDK1_7", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_7)},
+		{"JDK1_8", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_8)},
+		{"JDK1_9", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_9)},
+		{"JDK1_10", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_10)},
+		{"JDK1_11", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_11)},
+		{"JDK1_12", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_12)},
+		{"JDK1_13", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_13)},
+		{"JDK1_14", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_14)},
+		{"JDK1_15", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_15)},
+		{"JDK1_16", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_16)},
+		{"JDK1_17", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Target, JDK1_17)},
+		{"$VALUES", "[Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Target, $VALUES)},
+		{"targetKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/jvm/Target;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Target, targetKey)},
+		{"MIN", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Target, MIN)},
+		{"MAX", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Target, MAX)},
+		{"tab", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/javac/jvm/Target;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Target, tab)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Target, name$)},
+		{"majorVersion", "I", nullptr, $PUBLIC | $FINAL, $field(Target, majorVersion)},
+		{"minorVersion", "I", nullptr, $PUBLIC | $FINAL, $field(Target, minorVersion)},
+		{"DEFAULT", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Target, DEFAULT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Target, $values, $TargetArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;II)V", "(Ljava/lang/String;II)V", $PRIVATE, $method(Target, init$, void, $String*, int32_t, $String*, int32_t, int32_t)},
+		{"allApiModulesAreRoots", "()Z", nullptr, $PUBLIC, $method(Target, allApiModulesAreRoots, bool)},
+		{"hasMethodParameters", "()Z", nullptr, $PUBLIC, $method(Target, hasMethodParameters, bool)},
+		{"hasNestmateAccess", "()Z", nullptr, $PUBLIC, $method(Target, hasNestmateAccess, bool)},
+		{"hasSealedClasses", "()Z", nullptr, $PUBLIC, $method(Target, hasSealedClasses, bool)},
+		{"hasStringConcatFactory", "()Z", nullptr, $PUBLIC, $method(Target, hasStringConcatFactory, bool)},
+		{"hasVirtualPrivateInvoke", "()Z", nullptr, $PUBLIC, $method(Target, hasVirtualPrivateInvoke, bool)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, instance, Target*, $Context*)},
+		{"isSupported", "()Z", nullptr, $PUBLIC, $method(Target, isSupported, bool)},
+		{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, lookup, Target*, $String*)},
+		{"multiReleaseValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Target, multiReleaseValue, $String*)},
+		{"obsoleteAccStrict", "()Z", nullptr, $PUBLIC, $method(Target, obsoleteAccStrict, bool)},
+		{"runtimeUseNestAccess", "()Z", nullptr, $PUBLIC, $method(Target, runtimeUseNestAccess, bool)},
+		{"syntheticNameChar", "()C", nullptr, $PUBLIC, $method(Target, syntheticNameChar, char16_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, valueOf, Target*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(Target, values, $TargetArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.jvm.Target",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/jvm/Target;>;"
+	};
+	$loadClass(Target, name, initialize, &classInfo$$, Target::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Target));
+	});
 	return class$;
 }
 

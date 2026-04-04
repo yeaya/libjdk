@@ -26,6 +26,7 @@ class OffHeapArray : public ::java::lang::Object {
 	$class(OffHeapArray, 0, ::java::lang::Object)
 public:
 	OffHeapArray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* parent, int64_t len);
 	void fill(int8_t val);
 	void free();

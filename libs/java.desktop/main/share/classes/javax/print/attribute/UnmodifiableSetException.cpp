@@ -1,5 +1,4 @@
 #include <javax/print/attribute/UnmodifiableSetException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _UnmodifiableSetException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmodifiableSetException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnmodifiableSetException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnmodifiableSetException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmodifiableSetException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnmodifiableSetException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.UnmodifiableSetException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_UnmodifiableSetException_FieldInfo_,
-	_UnmodifiableSetException_MethodInfo_
-};
-
-$Object* allocate$UnmodifiableSetException($Class* clazz) {
-	return $of($alloc(UnmodifiableSetException));
-}
 
 void UnmodifiableSetException::init$() {
 	$RuntimeException::init$();
@@ -54,7 +29,26 @@ void UnmodifiableSetException::throw$() {
 }
 
 $Class* UnmodifiableSetException::load$($String* name, bool initialize) {
-	$loadClass(UnmodifiableSetException, name, initialize, &_UnmodifiableSetException_ClassInfo_, allocate$UnmodifiableSetException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnmodifiableSetException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnmodifiableSetException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmodifiableSetException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.UnmodifiableSetException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnmodifiableSetException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnmodifiableSetException);
+	});
 	return class$;
 }
 

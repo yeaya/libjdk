@@ -81,6 +81,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::text::View* create(::javax::swing::text::Element* elem) override;
 	virtual ::javax::swing::text::View* create(::javax::swing::text::Element* elem, int32_t p0, int32_t p1);

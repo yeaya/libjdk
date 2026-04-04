@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$Predictor.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$Predictor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Predictor, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$Predictor_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Predictor", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Predictor", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$Predictor_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Predictor",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Predictor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Predictor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$Predictor($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$Predictor));
-}
-
 void BaselineTIFFTagSet$Predictor::init$() {
 	$TIFFTag::init$("Predictor"_s, 317, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(1, "None"_s);
@@ -56,7 +25,32 @@ BaselineTIFFTagSet$Predictor::BaselineTIFFTagSet$Predictor() {
 }
 
 $Class* BaselineTIFFTagSet$Predictor::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$Predictor, name, initialize, &_BaselineTIFFTagSet$Predictor_ClassInfo_, allocate$BaselineTIFFTagSet$Predictor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Predictor, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Predictor", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Predictor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Predictor",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$Predictor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$Predictor);
+	});
 	return class$;
 }
 

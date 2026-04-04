@@ -1,5 +1,4 @@
 #include <javax/swing/ToolTipManager$outsideTimerAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/ToolTipManager.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ using $ToolTipManager = ::javax::swing::ToolTipManager;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _ToolTipManager$outsideTimerAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/ToolTipManager;", nullptr, $FINAL | $SYNTHETIC, $field(ToolTipManager$outsideTimerAction, this$0)},
-	{}
-};
-
-$MethodInfo _ToolTipManager$outsideTimerAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/ToolTipManager;)V", nullptr, $PROTECTED, $method(ToolTipManager$outsideTimerAction, init$, void, $ToolTipManager*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager$outsideTimerAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _ToolTipManager$outsideTimerAction_InnerClassesInfo_[] = {
-	{"javax.swing.ToolTipManager$outsideTimerAction", "javax.swing.ToolTipManager", "outsideTimerAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ToolTipManager$outsideTimerAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ToolTipManager$outsideTimerAction",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_ToolTipManager$outsideTimerAction_FieldInfo_,
-	_ToolTipManager$outsideTimerAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ToolTipManager$outsideTimerAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ToolTipManager"
-};
-
-$Object* allocate$ToolTipManager$outsideTimerAction($Class* clazz) {
-	return $of($alloc(ToolTipManager$outsideTimerAction));
-}
-
 void ToolTipManager$outsideTimerAction::init$($ToolTipManager* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -62,7 +25,37 @@ ToolTipManager$outsideTimerAction::ToolTipManager$outsideTimerAction() {
 }
 
 $Class* ToolTipManager$outsideTimerAction::load$($String* name, bool initialize) {
-	$loadClass(ToolTipManager$outsideTimerAction, name, initialize, &_ToolTipManager$outsideTimerAction_ClassInfo_, allocate$ToolTipManager$outsideTimerAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/ToolTipManager;", nullptr, $FINAL | $SYNTHETIC, $field(ToolTipManager$outsideTimerAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/ToolTipManager;)V", nullptr, $PROTECTED, $method(ToolTipManager$outsideTimerAction, init$, void, $ToolTipManager*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ToolTipManager$outsideTimerAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ToolTipManager$outsideTimerAction", "javax.swing.ToolTipManager", "outsideTimerAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ToolTipManager$outsideTimerAction",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ToolTipManager"
+	};
+	$loadClass(ToolTipManager$outsideTimerAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToolTipManager$outsideTimerAction);
+	});
 	return class$;
 }
 

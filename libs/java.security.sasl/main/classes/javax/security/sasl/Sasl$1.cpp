@@ -1,5 +1,4 @@
 #include <javax/security/sasl/Sasl$1.h>
-
 #include <java/util/Iterator.h>
 #include <javax/security/sasl/Sasl.h>
 #include <javax/security/sasl/SaslClientFactory.h>
@@ -17,49 +16,6 @@ namespace javax {
 	namespace security {
 		namespace sasl {
 
-$FieldInfo _Sasl$1_FieldInfo_[] = {
-	{"val$iter", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Sasl$1, val$iter)},
-	{}
-};
-
-$MethodInfo _Sasl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "()V", 0, $method(Sasl$1, init$, void, $Iterator*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Sasl$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljavax/security/sasl/SaslClientFactory;", nullptr, $PUBLIC, $virtualMethod(Sasl$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Sasl$1_EnclosingMethodInfo_ = {
-	"javax.security.sasl.Sasl",
-	"getSaslClientFactories",
-	"()Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _Sasl$1_InnerClassesInfo_[] = {
-	{"javax.security.sasl.Sasl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Sasl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.sasl.Sasl$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_Sasl$1_FieldInfo_,
-	_Sasl$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljavax/security/sasl/SaslClientFactory;>;",
-	&_Sasl$1_EnclosingMethodInfo_,
-	_Sasl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.sasl.Sasl"
-};
-
-$Object* allocate$Sasl$1($Class* clazz) {
-	return $of($alloc(Sasl$1));
-}
-
 void Sasl$1::init$($Iterator* val$iter) {
 	$set(this, val$iter, val$iter);
 }
@@ -69,14 +25,50 @@ bool Sasl$1::hasMoreElements() {
 }
 
 $Object* Sasl$1::nextElement() {
-	return $of($cast($SaslClientFactory, $nc(this->val$iter)->next()));
+	return $cast($SaslClientFactory, $nc(this->val$iter)->next());
 }
 
 Sasl$1::Sasl$1() {
 }
 
 $Class* Sasl$1::load$($String* name, bool initialize) {
-	$loadClass(Sasl$1, name, initialize, &_Sasl$1_ClassInfo_, allocate$Sasl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$iter", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(Sasl$1, val$iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", "()V", 0, $method(Sasl$1, init$, void, $Iterator*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Sasl$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljavax/security/sasl/SaslClientFactory;", nullptr, $PUBLIC, $virtualMethod(Sasl$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.security.sasl.Sasl",
+		"getSaslClientFactories",
+		"()Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.sasl.Sasl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.sasl.Sasl$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljavax/security/sasl/SaslClientFactory;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.sasl.Sasl"
+	};
+	$loadClass(Sasl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Sasl$1);
+	});
 	return class$;
 }
 

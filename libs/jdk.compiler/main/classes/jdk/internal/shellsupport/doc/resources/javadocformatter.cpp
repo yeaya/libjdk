@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/resources/javadocformatter.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,51 +13,32 @@ namespace jdk {
 			namespace doc {
 				namespace resources {
 
-$MethodInfo _javadocformatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(javadocformatter, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(javadocformatter, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _javadocformatter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.shellsupport.doc.resources.javadocformatter",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_javadocformatter_MethodInfo_
-};
-
-$Object* allocate$javadocformatter($Class* clazz) {
-	return $of($alloc(javadocformatter));
-}
-
 void javadocformatter::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* javadocformatter::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("CAP_Parameters"_s),
-			$of("Parameters:"_s)
+			"CAP_Parameters"_s,
+			"Parameters:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CAP_Returns"_s),
-			$of("Returns:"_s)
+			"CAP_Returns"_s,
+			"Returns:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CAP_Thrown_Exceptions"_s),
-			$of("Thrown Exceptions:"_s)
+			"CAP_Thrown_Exceptions"_s,
+			"Thrown Exceptions:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CAP_TypeParameters"_s),
-			$of("Type Parameters:"_s)
+			"CAP_TypeParameters"_s,
+			"Type Parameters:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Inline_Returns"_s),
-			$of("Returns {0}."_s)
+			"Inline_Returns"_s,
+			"Returns {0}."_s
 		})
 	});
 }
@@ -67,7 +47,22 @@ javadocformatter::javadocformatter() {
 }
 
 $Class* javadocformatter::load$($String* name, bool initialize) {
-	$loadClass(javadocformatter, name, initialize, &_javadocformatter_ClassInfo_, allocate$javadocformatter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(javadocformatter, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(javadocformatter, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.shellsupport.doc.resources.javadocformatter",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(javadocformatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(javadocformatter);
+	});
 	return class$;
 }
 

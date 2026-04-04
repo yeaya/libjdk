@@ -1,5 +1,4 @@
 #include <javax/naming/ServiceUnavailableException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _ServiceUnavailableException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServiceUnavailableException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ServiceUnavailableException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceUnavailableException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceUnavailableException, init$, void)},
-	{}
-};
-
-$ClassInfo _ServiceUnavailableException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.ServiceUnavailableException",
-	"javax.naming.NamingException",
-	nullptr,
-	_ServiceUnavailableException_FieldInfo_,
-	_ServiceUnavailableException_MethodInfo_
-};
-
-$Object* allocate$ServiceUnavailableException($Class* clazz) {
-	return $of($alloc(ServiceUnavailableException));
-}
 
 void ServiceUnavailableException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void ServiceUnavailableException::throw$() {
 }
 
 $Class* ServiceUnavailableException::load$($String* name, bool initialize) {
-	$loadClass(ServiceUnavailableException, name, initialize, &_ServiceUnavailableException_ClassInfo_, allocate$ServiceUnavailableException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServiceUnavailableException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceUnavailableException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceUnavailableException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.ServiceUnavailableException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServiceUnavailableException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceUnavailableException);
+	});
 	return class$;
 }
 

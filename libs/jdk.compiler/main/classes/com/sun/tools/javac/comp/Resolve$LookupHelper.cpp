@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$LookupHelper.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -34,50 +33,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$LookupHelper_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$LookupHelper, this$0)},
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, 0, $field(Resolve$LookupHelper, name)},
-	{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Resolve$LookupHelper, site)},
-	{"argtypes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Resolve$LookupHelper, argtypes)},
-	{"typeargtypes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Resolve$LookupHelper, typeargtypes)},
-	{"maxPhase", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, 0, $field(Resolve$LookupHelper, maxPhase)},
-	{}
-};
-
-$MethodInfo _Resolve$LookupHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", 0, $method(Resolve$LookupHelper, init$, void, $Resolve*, $Name*, $Type*, $List*, $List*, $Resolve$MethodResolutionPhase*)},
-	{"access", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", $ABSTRACT, $virtualMethod(Resolve$LookupHelper, access, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
-	{"debug", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Resolve$LookupHelper, debug, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
-	{"lookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", $ABSTRACT, $virtualMethod(Resolve$LookupHelper, lookup, $Symbol*, $Env*, $Resolve$MethodResolutionPhase*)},
-	{"shouldStop", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Z", nullptr, $FINAL, $method(Resolve$LookupHelper, shouldStop, bool, $Symbol*, $Resolve$MethodResolutionPhase*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$LookupHelper_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$LookupHelper", "com.sun.tools.javac.comp.Resolve", "LookupHelper", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$LookupHelper_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.Resolve$LookupHelper",
-	"java.lang.Object",
-	nullptr,
-	_Resolve$LookupHelper_FieldInfo_,
-	_Resolve$LookupHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$LookupHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$LookupHelper($Class* clazz) {
-	return $of($alloc(Resolve$LookupHelper));
-}
-
 void Resolve$LookupHelper::init$($Resolve* this$0, $Name* name, $Type* site, $List* argtypes, $List* typeargtypes, $Resolve$MethodResolutionPhase* maxPhase) {
 	$set(this, this$0, this$0);
 	$set(this, name, name);
@@ -101,7 +56,45 @@ Resolve$LookupHelper::Resolve$LookupHelper() {
 }
 
 $Class* Resolve$LookupHelper::load$($String* name, bool initialize) {
-	$loadClass(Resolve$LookupHelper, name, initialize, &_Resolve$LookupHelper_ClassInfo_, allocate$Resolve$LookupHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$LookupHelper, this$0)},
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, 0, $field(Resolve$LookupHelper, name)},
+		{"site", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Resolve$LookupHelper, site)},
+		{"argtypes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Resolve$LookupHelper, argtypes)},
+		{"typeargtypes", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Resolve$LookupHelper, typeargtypes)},
+		{"maxPhase", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, 0, $field(Resolve$LookupHelper, maxPhase)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", 0, $method(Resolve$LookupHelper, init$, void, $Resolve*, $Name*, $Type*, $List*, $List*, $Resolve$MethodResolutionPhase*)},
+		{"access", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", $ABSTRACT, $virtualMethod(Resolve$LookupHelper, access, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+		{"debug", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Resolve$LookupHelper, debug, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+		{"lookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", $ABSTRACT, $virtualMethod(Resolve$LookupHelper, lookup, $Symbol*, $Env*, $Resolve$MethodResolutionPhase*)},
+		{"shouldStop", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Z", nullptr, $FINAL, $method(Resolve$LookupHelper, shouldStop, bool, $Symbol*, $Resolve$MethodResolutionPhase*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$LookupHelper", "com.sun.tools.javac.comp.Resolve", "LookupHelper", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.Resolve$LookupHelper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$LookupHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$LookupHelper);
+	});
 	return class$;
 }
 

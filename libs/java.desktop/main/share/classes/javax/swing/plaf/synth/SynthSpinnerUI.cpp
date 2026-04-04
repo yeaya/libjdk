@@ -1,11 +1,8 @@
 #include <javax/swing/plaf/synth/SynthSpinnerUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
@@ -25,7 +22,6 @@
 #include <javax/swing/plaf/synth/SynthSpinnerUI$EditorFocusHandler.h>
 #include <javax/swing/plaf/synth/SynthSpinnerUI$SpinnerLayout.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <jcpp.h>
 
 #undef ENABLED
@@ -35,9 +31,7 @@
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -57,78 +51,14 @@ using $SynthArrowButton = ::javax::swing::plaf::synth::SynthArrowButton;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthSpinnerUI$EditorFocusHandler = ::javax::swing::plaf::synth::SynthSpinnerUI$EditorFocusHandler;
 using $SynthSpinnerUI$SpinnerLayout = ::javax::swing::plaf::synth::SynthSpinnerUI$SpinnerLayout;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthSpinnerUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSpinnerUI, style)},
-	{"editorFocusHandler", "Ljavax/swing/plaf/synth/SynthSpinnerUI$EditorFocusHandler;", nullptr, $PRIVATE, $field(SynthSpinnerUI, editorFocusHandler)},
-	{}
-};
-
-$MethodInfo _SynthSpinnerUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthSpinnerUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthSpinnerUI;)Ljavax/swing/JSpinner;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSpinnerUI, access$000, $JSpinner*, SynthSpinnerUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthSpinnerUI;)Ljavax/swing/JSpinner;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSpinnerUI, access$100, $JSpinner*, SynthSpinnerUI*)},
-	{"createEditor", "()Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createEditor, $JComponent*)},
-	{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createLayout, $LayoutManager*)},
-	{"createNextButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createNextButton, $Component*)},
-	{"createPreviousButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createPreviousButton, $Component*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthSpinnerUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSpinnerUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"replaceEditor", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, replaceEditor, void, $JComponent*, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, update, void, $Graphics*, $JComponent*)},
-	{"updateEditorAlignment", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthSpinnerUI, updateEditorAlignment, void, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(SynthSpinnerUI, updateStyle, void, $JSpinner*)},
-	{}
-};
-
-$InnerClassInfo _SynthSpinnerUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthSpinnerUI$EditorFocusHandler", "javax.swing.plaf.synth.SynthSpinnerUI", "EditorFocusHandler", $PRIVATE},
-	{"javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout", "javax.swing.plaf.synth.SynthSpinnerUI", "SpinnerLayout", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthSpinnerUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthSpinnerUI",
-	"javax.swing.plaf.basic.BasicSpinnerUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthSpinnerUI_FieldInfo_,
-	_SynthSpinnerUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthSpinnerUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthSpinnerUI$EditorFocusHandler,javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout"
-};
-
-$Object* allocate$SynthSpinnerUI($Class* clazz) {
-	return $of($alloc(SynthSpinnerUI));
-}
 
 int32_t SynthSpinnerUI::hashCode() {
 	 return this->$BasicSpinnerUI::hashCode();
@@ -171,12 +101,12 @@ $ComponentUI* SynthSpinnerUI::createUI($JComponent* c) {
 }
 
 void SynthSpinnerUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicSpinnerUI::installListeners();
 	$nc(this->spinner)->addPropertyChangeListener(this);
 	$var($JComponent, editor, $nc(this->spinner)->getEditor());
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
-		$var($JTextField, tf, $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField());
+		$var($JTextField, tf, $cast($JSpinner$DefaultEditor, editor)->getTextField());
 		if (tf != nullptr) {
 			tf->addFocusListener(this->editorFocusHandler);
 		}
@@ -184,12 +114,12 @@ void SynthSpinnerUI::installListeners() {
 }
 
 void SynthSpinnerUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicSpinnerUI::uninstallListeners();
 	$nc(this->spinner)->removePropertyChangeListener(this);
 	$var($JComponent, editor, $nc(this->spinner)->getEditor());
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
-		$var($JTextField, tf, $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField());
+		$var($JTextField, tf, $cast($JSpinner$DefaultEditor, editor)->getTextField());
 		if (tf != nullptr) {
 			tf->removeFocusListener(this->editorFocusHandler);
 		}
@@ -197,7 +127,7 @@ void SynthSpinnerUI::uninstallListeners() {
 }
 
 void SynthSpinnerUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LayoutManager, layout, $nc(this->spinner)->getLayout());
 	if (layout == nullptr || $instanceOf($UIResource, layout)) {
 		$nc(this->spinner)->setLayout($(createLayout()));
@@ -206,7 +136,7 @@ void SynthSpinnerUI::installDefaults() {
 }
 
 void SynthSpinnerUI::updateStyle($JSpinner* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -218,7 +148,7 @@ void SynthSpinnerUI::updateStyle($JSpinner* c) {
 }
 
 void SynthSpinnerUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($UIResource, $($nc(this->spinner)->getLayout()))) {
 		$nc(this->spinner)->setLayout(nullptr);
 	}
@@ -253,17 +183,17 @@ $JComponent* SynthSpinnerUI::createEditor() {
 }
 
 void SynthSpinnerUI::replaceEditor($JComponent* oldEditor, $JComponent* newEditor) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->spinner)->remove(static_cast<$Component*>(oldEditor));
-	$nc(this->spinner)->add(static_cast<$Component*>(newEditor), $of("Editor"_s));
+	$useLocalObjectStack();
+	$nc(this->spinner)->remove(oldEditor);
+	$nc(this->spinner)->add(newEditor, "Editor"_s);
 	if ($instanceOf($JSpinner$DefaultEditor, oldEditor)) {
-		$var($JTextField, tf, $nc(($cast($JSpinner$DefaultEditor, oldEditor)))->getTextField());
+		$var($JTextField, tf, $cast($JSpinner$DefaultEditor, oldEditor)->getTextField());
 		if (tf != nullptr) {
 			tf->removeFocusListener(this->editorFocusHandler);
 		}
 	}
 	if ($instanceOf($JSpinner$DefaultEditor, newEditor)) {
-		$var($JTextField, tf, $nc(($cast($JSpinner$DefaultEditor, newEditor)))->getTextField());
+		$var($JTextField, tf, $cast($JSpinner$DefaultEditor, newEditor)->getTextField());
 		if (tf != nullptr) {
 			tf->addFocusListener(this->editorFocusHandler);
 		}
@@ -271,11 +201,11 @@ void SynthSpinnerUI::replaceEditor($JComponent* oldEditor, $JComponent* newEdito
 }
 
 void SynthSpinnerUI::updateEditorAlignment($JComponent* editor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
 		$var($SynthContext, context, getContext(this->spinner));
-		$var($Integer, alignment, $cast($Integer, $nc($($nc(context)->getStyle()))->get(context, "Spinner.editorAlignment"_s)));
-		$var($JTextField, text, $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField());
+		$var($Integer, alignment, $cast($Integer, $$nc($nc(context)->getStyle())->get(context, "Spinner.editorAlignment"_s)));
+		$var($JTextField, text, $cast($JSpinner$DefaultEditor, editor)->getTextField());
 		if (alignment != nullptr) {
 			$nc(text)->setHorizontalAlignment(alignment->intValue());
 		}
@@ -292,13 +222,11 @@ $SynthContext* SynthSpinnerUI::getContext($JComponent* c, int32_t state) {
 }
 
 void SynthSpinnerUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintSpinnerBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintSpinnerBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -311,17 +239,17 @@ void SynthSpinnerUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthSpinnerUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintSpinnerBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintSpinnerBorder(context, g, x, y, w, h);
 }
 
 void SynthSpinnerUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($JSpinner, spinner, ($cast($JSpinner, $nc(e)->getSource())));
+	$useLocalObjectStack();
+	$var($JSpinner, spinner, $cast($JSpinner, $nc(e)->getSource()));
 	$var($SpinnerUI, spinnerUI, $cast($SpinnerUI, $nc(spinner)->getUI()));
 	if ($instanceOf(SynthSpinnerUI, spinnerUI)) {
 		$var(SynthSpinnerUI, ui, $cast(SynthSpinnerUI, spinnerUI));
 		if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-			$nc(ui)->updateStyle(spinner);
+			ui->updateStyle(spinner);
 		}
 	}
 }
@@ -330,7 +258,63 @@ SynthSpinnerUI::SynthSpinnerUI() {
 }
 
 $Class* SynthSpinnerUI::load$($String* name, bool initialize) {
-	$loadClass(SynthSpinnerUI, name, initialize, &_SynthSpinnerUI_ClassInfo_, allocate$SynthSpinnerUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthSpinnerUI, style)},
+		{"editorFocusHandler", "Ljavax/swing/plaf/synth/SynthSpinnerUI$EditorFocusHandler;", nullptr, $PRIVATE, $field(SynthSpinnerUI, editorFocusHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthSpinnerUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthSpinnerUI;)Ljavax/swing/JSpinner;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSpinnerUI, access$000, $JSpinner*, SynthSpinnerUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthSpinnerUI;)Ljavax/swing/JSpinner;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthSpinnerUI, access$100, $JSpinner*, SynthSpinnerUI*)},
+		{"createEditor", "()Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createEditor, $JComponent*)},
+		{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createLayout, $LayoutManager*)},
+		{"createNextButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createNextButton, $Component*)},
+		{"createPreviousButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, createPreviousButton, $Component*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthSpinnerUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthSpinnerUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"replaceEditor", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, replaceEditor, void, $JComponent*, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthSpinnerUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI, update, void, $Graphics*, $JComponent*)},
+		{"updateEditorAlignment", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthSpinnerUI, updateEditorAlignment, void, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(SynthSpinnerUI, updateStyle, void, $JSpinner*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthSpinnerUI$EditorFocusHandler", "javax.swing.plaf.synth.SynthSpinnerUI", "EditorFocusHandler", $PRIVATE},
+		{"javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout", "javax.swing.plaf.synth.SynthSpinnerUI", "SpinnerLayout", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthSpinnerUI",
+		"javax.swing.plaf.basic.BasicSpinnerUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthSpinnerUI$EditorFocusHandler,javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout"
+	};
+	$loadClass(SynthSpinnerUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthSpinnerUI));
+	});
 	return class$;
 }
 

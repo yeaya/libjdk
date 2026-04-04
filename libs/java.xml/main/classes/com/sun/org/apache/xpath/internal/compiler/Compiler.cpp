@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/compiler/Compiler.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
@@ -132,7 +131,6 @@ using $XSLMessages = ::com::sun::org::apache::xalan::internal::res::XSLMessages;
 using $Axis = ::com::sun::org::apache::xml::internal::dtm::Axis;
 using $DTMFilter = ::com::sun::org::apache::xml::internal::dtm::DTMFilter;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
-using $ObjectVector = ::com::sun::org::apache::xml::internal::utils::ObjectVector;
 using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixResolver;
 using $QName = ::com::sun::org::apache::xml::internal::utils::QName;
 using $SAXSourceLocator = ::com::sun::org::apache::xml::internal::utils::SAXSourceLocator;
@@ -173,7 +171,6 @@ using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $StepPattern = ::com::sun::org::apache::xpath::internal::patterns::StepPattern;
 using $UnionPattern = ::com::sun::org::apache::xpath::internal::patterns::UnionPattern;
 using $XPATHErrorResources = ::com::sun::org::apache::xpath::internal::res::XPATHErrorResources;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -192,83 +189,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace compiler {
-
-$FieldInfo _Compiler_FieldInfo_[] = {
-	{"countOp", "I", nullptr, 0, $field(Compiler, countOp)},
-	{"locPathDepth", "I", nullptr, $PRIVATE, $field(Compiler, locPathDepth)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Compiler, DEBUG)},
-	{"s_nextMethodId", "J", nullptr, $PRIVATE | $STATIC, $staticField(Compiler, s_nextMethodId)},
-	{"m_currentPrefixResolver", "Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PRIVATE, $field(Compiler, m_currentPrefixResolver)},
-	{"m_errorHandler", "Ljavax/xml/transform/ErrorListener;", nullptr, 0, $field(Compiler, m_errorHandler)},
-	{"m_locator", "Ljavax/xml/transform/SourceLocator;", nullptr, 0, $field(Compiler, m_locator)},
-	{"m_functionTable", "Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, $PRIVATE, $field(Compiler, m_functionTable)},
-	{}
-};
-
-$MethodInfo _Compiler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/transform/ErrorListener;Ljavax/xml/transform/SourceLocator;Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;)V", nullptr, $PUBLIC, $method(Compiler, init$, void, $ErrorListener*, $SourceLocator*, $FunctionTable*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Compiler, init$, void)},
-	{"and", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, and$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"arg", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, arg, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"assertion", "(ZLjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, assertion, void, bool, $String*)},
-	{"bool", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, bool$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"compile", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compile, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"compileExpression", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, compileExpression, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"compileExtension", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compileExtension, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"compileFunction", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, 0, $virtualMethod(Compiler, compileFunction, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"compileOperation", "(Lcom/sun/org/apache/xpath/internal/operations/Operation;I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compileOperation, $Expression*, $Operation*, int32_t), "javax.xml.transform.TransformerException"},
-	{"compilePredicates", "(I[Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PRIVATE, $method(Compiler, compilePredicates, void, int32_t, $ExpressionArray*), "javax.xml.transform.TransformerException"},
-	{"compileUnary", "(Lcom/sun/org/apache/xpath/internal/operations/UnaryOperation;I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compileUnary, $Expression*, $UnaryOperation*, int32_t), "javax.xml.transform.TransformerException"},
-	{"countPredicates", "(I)I", nullptr, $PUBLIC, $virtualMethod(Compiler, countPredicates, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"div", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, div, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"equals", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, equals, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
-	{"getCompiledPredicates", "(I)[Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, getCompiledPredicates, $ExpressionArray*, int32_t), "javax.xml.transform.TransformerException"},
-	{"getFunctionTable", "()Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, 0, $virtualMethod(Compiler, getFunctionTable, $FunctionTable*)},
-	{"getLocationPathDepth", "()I", nullptr, $PUBLIC, $virtualMethod(Compiler, getLocationPathDepth, int32_t)},
-	{"getNamespaceContext", "()Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PUBLIC, $virtualMethod(Compiler, getNamespaceContext, $PrefixResolver*)},
-	{"getNextMethodId", "()J", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Compiler, getNextMethodId, int64_t)},
-	{"getWhatToShow", "(I)I", nullptr, $PUBLIC, $virtualMethod(Compiler, getWhatToShow, int32_t, int32_t)},
-	{"group", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, group, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"gt", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, gt, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"gte", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, gte, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"literal", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, literal, $Expression*, int32_t)},
-	{"locationPath", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, locationPath, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"locationPathPattern", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, locationPathPattern, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"lt", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, lt, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"lte", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, lte, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"matchPattern", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, matchPattern, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"minus", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, minus, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"mod", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, mod, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"mult", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, mult, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"neg", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, neg, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"notequals", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, notequals, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"number", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, number, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"numberlit", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, numberlit, $Expression*, int32_t)},
-	{"or", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, or$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"plus", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, plus, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"predicate", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, predicate, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"setNamespaceContext", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, setNamespaceContext, void, $PrefixResolver*)},
-	{"stepPattern", "(IILcom/sun/org/apache/xpath/internal/patterns/StepPattern;)Lcom/sun/org/apache/xpath/internal/patterns/StepPattern;", nullptr, $PROTECTED, $virtualMethod(Compiler, stepPattern, $StepPattern*, int32_t, int32_t, $StepPattern*), "javax.xml.transform.TransformerException"},
-	{"string", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, string, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"union", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, union$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"variable", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, variable, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
-	{"warn", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, warn, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _Compiler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.compiler.Compiler",
-	"com.sun.org.apache.xpath.internal.compiler.OpMap",
-	nullptr,
-	_Compiler_FieldInfo_,
-	_Compiler_MethodInfo_
-};
-
-$Object* allocate$Compiler($Class* clazz) {
-	return $of($alloc(Compiler));
-}
 
 int64_t Compiler::s_nextMethodId = 0;
 
@@ -290,189 +210,125 @@ void Compiler::init$() {
 }
 
 $Expression* Compiler::compileExpression(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		this->countOp = 0;
 		return compile(opPos);
 	} catch ($StackOverflowError& sof) {
 		$init($XPATHErrorResources);
-		error($XPATHErrorResources::ER_COMPILATION_TOO_MANY_OPERATION, $$new($ObjectArray, {$($of($Integer::valueOf(this->countOp)))}));
+		error($XPATHErrorResources::ER_COMPILATION_TOO_MANY_OPERATION, $$new($ObjectArray, {$($Integer::valueOf(this->countOp))}));
 	}
 	return nullptr;
 }
 
 $Expression* Compiler::compile(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t op = getOp(opPos);
 	$var($Expression, expr, nullptr);
 	switch (op) {
 	case $OpCodes::OP_XPATH:
-		{
-			$assign(expr, compile(opPos + 2));
-			break;
-		}
+		$assign(expr, compile(opPos + 2));
+		break;
 	case $OpCodes::OP_OR:
-		{
-			$assign(expr, or$(opPos));
-			break;
-		}
+		$assign(expr, or$(opPos));
+		break;
 	case $OpCodes::OP_AND:
-		{
-			$assign(expr, and$(opPos));
-			break;
-		}
+		$assign(expr, and$(opPos));
+		break;
 	case $OpCodes::OP_NOTEQUALS:
-		{
-			$assign(expr, notequals(opPos));
-			break;
-		}
+		$assign(expr, notequals(opPos));
+		break;
 	case $OpCodes::OP_EQUALS:
-		{
-			$assign(expr, equals(opPos));
-			break;
-		}
+		$assign(expr, equals(opPos));
+		break;
 	case $OpCodes::OP_LTE:
-		{
-			$assign(expr, lte(opPos));
-			break;
-		}
+		$assign(expr, lte(opPos));
+		break;
 	case $OpCodes::OP_LT:
-		{
-			$assign(expr, lt(opPos));
-			break;
-		}
+		$assign(expr, lt(opPos));
+		break;
 	case $OpCodes::OP_GTE:
-		{
-			$assign(expr, gte(opPos));
-			break;
-		}
+		$assign(expr, gte(opPos));
+		break;
 	case $OpCodes::OP_GT:
-		{
-			$assign(expr, gt(opPos));
-			break;
-		}
+		$assign(expr, gt(opPos));
+		break;
 	case $OpCodes::OP_PLUS:
-		{
-			$assign(expr, plus(opPos));
-			break;
-		}
+		$assign(expr, plus(opPos));
+		break;
 	case $OpCodes::OP_MINUS:
-		{
-			$assign(expr, minus(opPos));
-			break;
-		}
+		$assign(expr, minus(opPos));
+		break;
 	case $OpCodes::OP_MULT:
-		{
-			$assign(expr, mult(opPos));
-			break;
-		}
+		$assign(expr, mult(opPos));
+		break;
 	case $OpCodes::OP_DIV:
-		{
-			$assign(expr, div(opPos));
-			break;
-		}
+		$assign(expr, div(opPos));
+		break;
 	case $OpCodes::OP_MOD:
-		{
-			$assign(expr, mod(opPos));
-			break;
-		}
+		$assign(expr, mod(opPos));
+		break;
 	case $OpCodes::OP_NEG:
-		{
-			$assign(expr, neg(opPos));
-			break;
-		}
+		$assign(expr, neg(opPos));
+		break;
 	case $OpCodes::OP_STRING:
-		{
-			$assign(expr, string(opPos));
-			break;
-		}
+		$assign(expr, string(opPos));
+		break;
 	case $OpCodes::OP_BOOL:
-		{
-			$assign(expr, bool$(opPos));
-			break;
-		}
+		$assign(expr, bool$(opPos));
+		break;
 	case $OpCodes::OP_NUMBER:
-		{
-			$assign(expr, number(opPos));
-			break;
-		}
+		$assign(expr, number(opPos));
+		break;
 	case $OpCodes::OP_UNION:
-		{
-			$assign(expr, union$(opPos));
-			break;
-		}
+		$assign(expr, union$(opPos));
+		break;
 	case $OpCodes::OP_LITERAL:
-		{
-			$assign(expr, literal(opPos));
-			break;
-		}
+		$assign(expr, literal(opPos));
+		break;
 	case $OpCodes::OP_VARIABLE:
-		{
-			$assign(expr, variable(opPos));
-			break;
-		}
+		$assign(expr, variable(opPos));
+		break;
 	case $OpCodes::OP_GROUP:
-		{
-			$assign(expr, group(opPos));
-			break;
-		}
+		$assign(expr, group(opPos));
+		break;
 	case $OpCodes::OP_NUMBERLIT:
-		{
-			$assign(expr, numberlit(opPos));
-			break;
-		}
+		$assign(expr, numberlit(opPos));
+		break;
 	case $OpCodes::OP_ARGUMENT:
-		{
-			$assign(expr, arg(opPos));
-			break;
-		}
+		$assign(expr, arg(opPos));
+		break;
 	case $OpCodes::OP_EXTFUNCTION:
-		{
-			$assign(expr, compileExtension(opPos));
-			break;
-		}
+		$assign(expr, compileExtension(opPos));
+		break;
 	case $OpCodes::OP_FUNCTION:
-		{
-			$assign(expr, compileFunction(opPos));
-			break;
-		}
+		$assign(expr, compileFunction(opPos));
+		break;
 	case $OpCodes::OP_LOCATIONPATH:
-		{
-			$assign(expr, locationPath(opPos));
-			break;
-		}
+		$assign(expr, locationPath(opPos));
+		break;
 	case $OpCodes::OP_PREDICATE:
-		{
-			$assign(expr, nullptr);
-			break;
-		}
+		$assign(expr, nullptr);
+		break;
 	case $OpCodes::OP_MATCHPATTERN:
-		{
-			$assign(expr, matchPattern(opPos + 2));
-			break;
-		}
+		$assign(expr, matchPattern(opPos + 2));
+		break;
 	case $OpCodes::OP_LOCATIONPATHPATTERN:
-		{
-			$assign(expr, locationPathPattern(opPos));
-			break;
-		}
+		$assign(expr, locationPathPattern(opPos));
+		break;
 	case $OpCodes::OP_QUO:
-		{
-			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_UNKNOWN_OPCODE, $$new($ObjectArray, {$of("quo"_s)}));
-			break;
-		}
+		$init($XPATHErrorResources);
+		error($XPATHErrorResources::ER_UNKNOWN_OPCODE, $$new($ObjectArray, {"quo"_s}));
+		break;
 	default:
-		{
-			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_UNKNOWN_OPCODE, $$new($ObjectArray, {$($of($Integer::toString(getOp(opPos))))}));
-		}
+		$init($XPATHErrorResources);
+		error($XPATHErrorResources::ER_UNKNOWN_OPCODE, $$new($ObjectArray, {$($Integer::toString(getOp(opPos)))}));
 	}
 	return expr;
 }
 
 $Expression* Compiler::compileOperation($Operation* operation, int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	++this->countOp;
 	int32_t leftPos = getFirstChildPos(opPos);
 	int32_t rightPos = getNextOpPos(leftPos);
@@ -557,21 +413,21 @@ $Expression* Compiler::number(int32_t opPos) {
 
 $Expression* Compiler::literal(int32_t opPos) {
 	opPos = getFirstChildPos(opPos);
-	return $cast($XString, $nc($(getTokenQueue()))->elementAt(getOp(opPos)));
+	return $cast($XString, $$nc(getTokenQueue())->elementAt(getOp(opPos)));
 }
 
 $Expression* Compiler::numberlit(int32_t opPos) {
 	opPos = getFirstChildPos(opPos);
-	return $cast($XNumber, $nc($(getTokenQueue()))->elementAt(getOp(opPos)));
+	return $cast($XNumber, $$nc(getTokenQueue())->elementAt(getOp(opPos)));
 }
 
 $Expression* Compiler::variable(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Variable, var, $new($Variable));
 	opPos = getFirstChildPos(opPos);
 	int32_t nsPos = getOp(opPos);
-	$var($String, namespace$, ($OpCodes::EMPTY == nsPos) ? ($String*)nullptr : $cast($String, $nc($(getTokenQueue()))->elementAt(nsPos)));
-	$var($String, localname, $cast($String, $nc($(getTokenQueue()))->elementAt(getOp(opPos + 1))));
+	$var($String, namespace$, ($OpCodes::EMPTY == nsPos) ? ($String*)nullptr : $cast($String, $$nc(getTokenQueue())->elementAt(nsPos)));
+	$var($String, localname, $cast($String, $$nc(getTokenQueue())->elementAt(getOp(opPos + 1))));
 	$var($QName, qname, $new($QName, namespace$, localname));
 	var->setQName(qname);
 	return var;
@@ -586,27 +442,25 @@ $Expression* Compiler::arg(int32_t opPos) {
 }
 
 $Expression* Compiler::union$(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	++this->locPathDepth;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Expression, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $UnionPathIterator::createUnionIterator(this, opPos));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			--this->locPathDepth;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Expression, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $UnionPathIterator::createUnionIterator(this, opPos));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		--this->locPathDepth;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -620,28 +474,26 @@ $FunctionTable* Compiler::getFunctionTable() {
 }
 
 $Expression* Compiler::locationPath(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	++this->locPathDepth;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Expression, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($DTMIterator, iter, $WalkerFactory::newDTMIterator(this, opPos, (this->locPathDepth == 0)));
-			$assign(var$2, $cast($Expression, iter));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			--this->locPathDepth;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Expression, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($DTMIterator, iter, $WalkerFactory::newDTMIterator(this, opPos, (this->locPathDepth == 0)));
+		$assign(var$2, $cast($Expression, iter));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		--this->locPathDepth;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -651,45 +503,43 @@ $Expression* Compiler::predicate(int32_t opPos) {
 }
 
 $Expression* Compiler::matchPattern(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	++this->locPathDepth;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Expression, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t nextOpPos = opPos;
-			int32_t i = 0;
-			for (i = 0; getOp(nextOpPos) == $OpCodes::OP_LOCATIONPATHPATTERN; ++i) {
-				nextOpPos = getNextOpPos(nextOpPos);
-			}
-			if (i == 1) {
-				$assign(var$2, compile(opPos));
-				return$1 = true;
-				goto $finally;
-			}
-			$var($UnionPattern, up, $new($UnionPattern));
-			$var($StepPatternArray, patterns, $new($StepPatternArray, i));
-			for (i = 0; getOp(opPos) == $OpCodes::OP_LOCATIONPATHPATTERN; ++i) {
-				nextOpPos = getNextOpPos(opPos);
-				patterns->set(i, $cast($StepPattern, $(compile(opPos))));
-				opPos = nextOpPos;
-			}
-			up->setPatterns(patterns);
-			$assign(var$2, up);
+	$var($Throwable, var$0, nullptr);
+	$var($Expression, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t nextOpPos = opPos;
+		int32_t i = 0;
+		for (i = 0; getOp(nextOpPos) == $OpCodes::OP_LOCATIONPATHPATTERN; ++i) {
+			nextOpPos = getNextOpPos(nextOpPos);
+		}
+		if (i == 1) {
+			$assign(var$2, compile(opPos));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			--this->locPathDepth;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$var($UnionPattern, up, $new($UnionPattern));
+		$var($StepPatternArray, patterns, $new($StepPatternArray, i));
+		for (i = 0; getOp(opPos) == $OpCodes::OP_LOCATIONPATHPATTERN; ++i) {
+			nextOpPos = getNextOpPos(opPos);
+			patterns->set(i, $$cast($StepPattern, compile(opPos)));
+			opPos = nextOpPos;
 		}
-		if (return$1) {
-			return var$2;
-		}
+		up->setPatterns(patterns);
+		$assign(var$2, up);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		--this->locPathDepth;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -704,90 +554,53 @@ int32_t Compiler::getWhatToShow(int32_t opPos) {
 	int32_t testType = getOp(opPos + 3);
 	switch (testType) {
 	case $OpCodes::NODETYPE_COMMENT:
-		{
-			return $DTMFilter::SHOW_COMMENT;
-		}
+		return $DTMFilter::SHOW_COMMENT;
 	case $OpCodes::NODETYPE_TEXT:
-		{
-			return $DTMFilter::SHOW_TEXT | $DTMFilter::SHOW_CDATA_SECTION;
-		}
+		return $DTMFilter::SHOW_TEXT | $DTMFilter::SHOW_CDATA_SECTION;
 	case $OpCodes::NODETYPE_PI:
-		{
-			return $DTMFilter::SHOW_PROCESSING_INSTRUCTION;
-		}
+		return $DTMFilter::SHOW_PROCESSING_INSTRUCTION;
 	case $OpCodes::NODETYPE_NODE:
-		{
-			switch (axesType) {
-			case $OpCodes::FROM_NAMESPACE:
-				{
-					return $DTMFilter::SHOW_NAMESPACE;
-				}
-			case $OpCodes::FROM_ATTRIBUTES:
-				{}
-			case $OpCodes::MATCH_ATTRIBUTE:
-				{
-					return $DTMFilter::SHOW_ATTRIBUTE;
-				}
-			case $OpCodes::FROM_SELF:
-				{}
-			case $OpCodes::FROM_ANCESTORS_OR_SELF:
-				{}
-			case $OpCodes::FROM_DESCENDANTS_OR_SELF:
-				{
-					return $DTMFilter::SHOW_ALL;
-				}
-			default:
-				{
-					if (getOp(0) == $OpCodes::OP_MATCHPATTERN) {
-						return (int32_t)(((int32_t)(~$DTMFilter::SHOW_ATTRIBUTE & (uint32_t)~$DTMFilter::SHOW_DOCUMENT)) & (uint32_t)~$DTMFilter::SHOW_DOCUMENT_FRAGMENT);
-					} else {
-						return ~$DTMFilter::SHOW_ATTRIBUTE;
-					}
-				}
+		switch (axesType) {
+		case $OpCodes::FROM_NAMESPACE:
+			return $DTMFilter::SHOW_NAMESPACE;
+		case $OpCodes::FROM_ATTRIBUTES:
+		case $OpCodes::MATCH_ATTRIBUTE:
+			return $DTMFilter::SHOW_ATTRIBUTE;
+		case $OpCodes::FROM_SELF:
+		case $OpCodes::FROM_ANCESTORS_OR_SELF:
+		case $OpCodes::FROM_DESCENDANTS_OR_SELF:
+			return $DTMFilter::SHOW_ALL;
+		default:
+			if (getOp(0) == $OpCodes::OP_MATCHPATTERN) {
+				return (~$DTMFilter::SHOW_ATTRIBUTE & ~$DTMFilter::SHOW_DOCUMENT) & ~$DTMFilter::SHOW_DOCUMENT_FRAGMENT;
+			} else {
+				return ~$DTMFilter::SHOW_ATTRIBUTE;
 			}
 		}
 	case $OpCodes::NODETYPE_ROOT:
-		{
-			return $DTMFilter::SHOW_DOCUMENT | $DTMFilter::SHOW_DOCUMENT_FRAGMENT;
-		}
+		return $DTMFilter::SHOW_DOCUMENT | $DTMFilter::SHOW_DOCUMENT_FRAGMENT;
 	case $OpCodes::NODETYPE_FUNCTEST:
-		{
-			return $NodeTest::SHOW_BYFUNCTION;
-		}
+		return $NodeTest::SHOW_BYFUNCTION;
 	case $OpCodes::NODENAME:
-		{
-			switch (axesType) {
-			case $OpCodes::FROM_NAMESPACE:
-				{
-					return $DTMFilter::SHOW_NAMESPACE;
-				}
-			case $OpCodes::FROM_ATTRIBUTES:
-				{}
-			case $OpCodes::MATCH_ATTRIBUTE:
-				{
-					return $DTMFilter::SHOW_ATTRIBUTE;
-				}
-			case $OpCodes::MATCH_ANY_ANCESTOR:
-				{}
-			case $OpCodes::MATCH_IMMEDIATE_ANCESTOR:
-				{
-					return $DTMFilter::SHOW_ELEMENT;
-				}
-			default:
-				{
-					return $DTMFilter::SHOW_ELEMENT;
-				}
-			}
+		switch (axesType) {
+		case $OpCodes::FROM_NAMESPACE:
+			return $DTMFilter::SHOW_NAMESPACE;
+		case $OpCodes::FROM_ATTRIBUTES:
+		case $OpCodes::MATCH_ATTRIBUTE:
+			return $DTMFilter::SHOW_ATTRIBUTE;
+		case $OpCodes::MATCH_ANY_ANCESTOR:
+		case $OpCodes::MATCH_IMMEDIATE_ANCESTOR:
+			return $DTMFilter::SHOW_ELEMENT;
+		default:
+			return $DTMFilter::SHOW_ELEMENT;
 		}
 	default:
-		{
-			return $DTMFilter::SHOW_ALL;
-		}
+		return $DTMFilter::SHOW_ALL;
 	}
 }
 
 $StepPattern* Compiler::stepPattern(int32_t opPos, int32_t stepCount, $StepPattern* ancestorPattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startOpPos = opPos;
 	int32_t stepType = getOp(opPos);
 	if ($OpCodes::ENDOP == stepType) {
@@ -801,22 +614,21 @@ $StepPattern* Compiler::stepPattern(int32_t opPos, int32_t stepCount, $StepPatte
 		int32_t what = 0;
 		switch (stepType) {
 		case $OpCodes::OP_FUNCTION:
-			{
-				addMagicSelf = false;
-				argLen = getOp(opPos + $OpMap::MAPINDEX_LENGTH);
-				$assign(pattern, $new($FunctionPattern, $(compileFunction(opPos)), $Axis::PARENT, $Axis::CHILD));
-				break;
-			}
+			;
+			addMagicSelf = false;
+			argLen = getOp(opPos + $OpMap::MAPINDEX_LENGTH);
+			$assign(pattern, $new($FunctionPattern, $(compileFunction(opPos)), $Axis::PARENT, $Axis::CHILD));
+			break;
 		case $OpCodes::FROM_ROOT:
-			{
-				addMagicSelf = false;
-				argLen = getArgLengthOfStep(opPos);
-				opPos = getFirstChildPosOfStep(opPos);
-				$assign(pattern, $new($StepPattern, $DTMFilter::SHOW_DOCUMENT | $DTMFilter::SHOW_DOCUMENT_FRAGMENT, $Axis::PARENT, $Axis::CHILD));
-				break;
-			}
+			;
+			addMagicSelf = false;
+			argLen = getArgLengthOfStep(opPos);
+			opPos = getFirstChildPosOfStep(opPos);
+			$assign(pattern, $new($StepPattern, $DTMFilter::SHOW_DOCUMENT | $DTMFilter::SHOW_DOCUMENT_FRAGMENT, $Axis::PARENT, $Axis::CHILD));
+			break;
 		case $OpCodes::MATCH_ATTRIBUTE:
 			{
+				;
 				argLen = getArgLengthOfStep(opPos);
 				opPos = getFirstChildPosOfStep(opPos);
 				$var($String, var$0, getStepNS(startOpPos));
@@ -825,6 +637,7 @@ $StepPattern* Compiler::stepPattern(int32_t opPos, int32_t stepCount, $StepPatte
 			}
 		case $OpCodes::MATCH_ANY_ANCESTOR:
 			{
+				;
 				argLen = getArgLengthOfStep(opPos);
 				opPos = getFirstChildPosOfStep(opPos);
 				what = getWhatToShow(startOpPos);
@@ -838,6 +651,7 @@ $StepPattern* Compiler::stepPattern(int32_t opPos, int32_t stepCount, $StepPatte
 			}
 		case $OpCodes::MATCH_IMMEDIATE_ANCESTOR:
 			{
+				;
 				argLen = getArgLengthOfStep(opPos);
 				opPos = getFirstChildPosOfStep(opPos);
 				int32_t var$3 = getWhatToShow(startOpPos);
@@ -846,11 +660,9 @@ $StepPattern* Compiler::stepPattern(int32_t opPos, int32_t stepCount, $StepPatte
 				break;
 			}
 		default:
-			{
-				$init($XPATHErrorResources);
-				error($XPATHErrorResources::ER_UNKNOWN_MATCH_OPERATION, nullptr);
-				return nullptr;
-			}
+			$init($XPATHErrorResources);
+			error($XPATHErrorResources::ER_UNKNOWN_MATCH_OPERATION, nullptr);
+			return nullptr;
 		}
 	}
 	$nc(pattern)->setPredicates($(getCompiledPredicates(opPos + argLen)));
@@ -882,7 +694,7 @@ int32_t Compiler::countPredicates(int32_t opPos) {
 }
 
 void Compiler::compilePredicates(int32_t opPos, $ExpressionArray* predicates) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; $OpCodes::OP_PREDICATE == getOp(opPos); ++i) {
 		$nc(predicates)->set(i, $(predicate(opPos)));
 		opPos = getNextOpPos(opPos);
@@ -890,7 +702,7 @@ void Compiler::compilePredicates(int32_t opPos, $ExpressionArray* predicates) {
 }
 
 $Expression* Compiler::compileFunction(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t endFunc = opPos + getOp(opPos + 1) - 1;
 	opPos = getFirstChildPos(opPos);
 	int32_t funcID = getOp(opPos);
@@ -898,7 +710,7 @@ $Expression* Compiler::compileFunction(int32_t opPos) {
 	if (-1 != funcID) {
 		$var($Function, func, $nc(this->m_functionTable)->getFunction(funcID));
 		if ($instanceOf($FuncExtFunctionAvailable, func)) {
-			$nc(($cast($FuncExtFunctionAvailable, func)))->setFunctionTable(this->m_functionTable);
+			$cast($FuncExtFunctionAvailable, func)->setFunctionTable(this->m_functionTable);
 		}
 		$nc(func)->postCompileStep(this);
 		try {
@@ -911,8 +723,8 @@ $Expression* Compiler::compileFunction(int32_t opPos) {
 			$var($String, name, $nc(this->m_functionTable)->getFunctionName(funcID));
 			$init($XPATHErrorResources);
 			$nc(this->m_errorHandler)->fatalError($$new($TransformerException, $($XSLMessages::createXPATHMessage($XPATHErrorResources::ER_ONLY_ALLOWS, $$new($ObjectArray, {
-				$of(name),
-				$($of(wnae->getMessage()))
+				name,
+				$(wnae->getMessage())
 			}))), this->m_locator));
 		}
 		return func;
@@ -933,12 +745,12 @@ int64_t Compiler::getNextMethodId() {
 }
 
 $Expression* Compiler::compileExtension(int32_t opPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t endExtFunc = opPos + getOp(opPos + 1) - 1;
 	opPos = getFirstChildPos(opPos);
-	$var($String, ns, $cast($String, $nc($(getTokenQueue()))->elementAt(getOp(opPos))));
+	$var($String, ns, $cast($String, $$nc(getTokenQueue())->elementAt(getOp(opPos))));
 	++opPos;
-	$var($String, funcName, $cast($String, $nc($(getTokenQueue()))->elementAt(getOp(opPos))));
+	$var($String, funcName, $cast($String, $$nc(getTokenQueue())->elementAt(getOp(opPos))));
 	++opPos;
 	$var($Function, extension, $new($FuncExtFunction, ns, funcName, $($String::valueOf(getNextMethodId()))));
 	try {
@@ -950,37 +762,43 @@ $Expression* Compiler::compileExtension(int32_t opPos) {
 			++i;
 		}
 	} catch ($WrongNumberArgsException& wnae) {
+		;
 	}
 	return extension;
 }
 
 void Compiler::warn($String* msg, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fmsg, $XSLMessages::createXPATHWarning(msg, args));
 	if (nullptr != this->m_errorHandler) {
-		$nc(this->m_errorHandler)->warning($$new($TransformerException, fmsg, this->m_locator));
+		this->m_errorHandler->warning($$new($TransformerException, fmsg, this->m_locator));
 	} else {
-		$var($String, var$2, $$str({fmsg, "; file "_s, $($nc(this->m_locator)->getSystemId()), "; line "_s}));
-		$var($String, var$1, $$concat(var$2, $$str($nc(this->m_locator)->getLineNumber())));
-		$var($String, var$0, $$concat(var$1, "; column "_s));
-		$nc($System::out)->println($$concat(var$0, $$str($nc(this->m_locator)->getColumnNumber())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(fmsg);
+		var$0->append("; file "_s);
+		var$0->append($($nc(this->m_locator)->getSystemId()));
+		var$0->append("; line "_s);
+		var$0->append(this->m_locator->getLineNumber());
+		var$0->append("; column "_s);
+		var$0->append(this->m_locator->getColumnNumber());
+		$nc($System::out)->println($$str(var$0));
 	}
 }
 
 void Compiler::assertion(bool b, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!b) {
 		$init($XPATHErrorResources);
-		$var($String, fMsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_INCORRECT_PROGRAMMER_ASSERTION, $$new($ObjectArray, {$of(msg)})));
+		$var($String, fMsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_INCORRECT_PROGRAMMER_ASSERTION, $$new($ObjectArray, {msg})));
 		$throwNew($RuntimeException, fMsg);
 	}
 }
 
 void Compiler::error($String* msg, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fmsg, $XSLMessages::createXPATHMessage(msg, args));
 	if (nullptr != this->m_errorHandler) {
-		$nc(this->m_errorHandler)->fatalError($$new($TransformerException, fmsg, this->m_locator));
+		this->m_errorHandler->fatalError($$new($TransformerException, fmsg, this->m_locator));
 	} else {
 		$throwNew($TransformerException, fmsg, $cast($SAXSourceLocator, this->m_locator));
 	}
@@ -994,7 +812,7 @@ void Compiler::setNamespaceContext($PrefixResolver* pr) {
 	$set(this, m_currentPrefixResolver, pr);
 }
 
-void clinit$Compiler($Class* class$) {
+void Compiler::clinit$($Class* clazz) {
 	Compiler::s_nextMethodId = 0;
 }
 
@@ -1002,7 +820,79 @@ Compiler::Compiler() {
 }
 
 $Class* Compiler::load$($String* name, bool initialize) {
-	$loadClass(Compiler, name, initialize, &_Compiler_ClassInfo_, clinit$Compiler, allocate$Compiler);
+	$FieldInfo fieldInfos$$[] = {
+		{"countOp", "I", nullptr, 0, $field(Compiler, countOp)},
+		{"locPathDepth", "I", nullptr, $PRIVATE, $field(Compiler, locPathDepth)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Compiler, DEBUG)},
+		{"s_nextMethodId", "J", nullptr, $PRIVATE | $STATIC, $staticField(Compiler, s_nextMethodId)},
+		{"m_currentPrefixResolver", "Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PRIVATE, $field(Compiler, m_currentPrefixResolver)},
+		{"m_errorHandler", "Ljavax/xml/transform/ErrorListener;", nullptr, 0, $field(Compiler, m_errorHandler)},
+		{"m_locator", "Ljavax/xml/transform/SourceLocator;", nullptr, 0, $field(Compiler, m_locator)},
+		{"m_functionTable", "Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, $PRIVATE, $field(Compiler, m_functionTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/transform/ErrorListener;Ljavax/xml/transform/SourceLocator;Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;)V", nullptr, $PUBLIC, $method(Compiler, init$, void, $ErrorListener*, $SourceLocator*, $FunctionTable*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Compiler, init$, void)},
+		{"and", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, and$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"arg", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, arg, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"assertion", "(ZLjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, assertion, void, bool, $String*)},
+		{"bool", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, bool$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"compile", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compile, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"compileExpression", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, compileExpression, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"compileExtension", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compileExtension, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"compileFunction", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, 0, $virtualMethod(Compiler, compileFunction, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"compileOperation", "(Lcom/sun/org/apache/xpath/internal/operations/Operation;I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compileOperation, $Expression*, $Operation*, int32_t), "javax.xml.transform.TransformerException"},
+		{"compilePredicates", "(I[Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PRIVATE, $method(Compiler, compilePredicates, void, int32_t, $ExpressionArray*), "javax.xml.transform.TransformerException"},
+		{"compileUnary", "(Lcom/sun/org/apache/xpath/internal/operations/UnaryOperation;I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PRIVATE, $method(Compiler, compileUnary, $Expression*, $UnaryOperation*, int32_t), "javax.xml.transform.TransformerException"},
+		{"countPredicates", "(I)I", nullptr, $PUBLIC, $virtualMethod(Compiler, countPredicates, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"div", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, div, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"equals", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, equals, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
+		{"getCompiledPredicates", "(I)[Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, getCompiledPredicates, $ExpressionArray*, int32_t), "javax.xml.transform.TransformerException"},
+		{"getFunctionTable", "()Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, 0, $virtualMethod(Compiler, getFunctionTable, $FunctionTable*)},
+		{"getLocationPathDepth", "()I", nullptr, $PUBLIC, $virtualMethod(Compiler, getLocationPathDepth, int32_t)},
+		{"getNamespaceContext", "()Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, $PUBLIC, $virtualMethod(Compiler, getNamespaceContext, $PrefixResolver*)},
+		{"getNextMethodId", "()J", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Compiler, getNextMethodId, int64_t)},
+		{"getWhatToShow", "(I)I", nullptr, $PUBLIC, $virtualMethod(Compiler, getWhatToShow, int32_t, int32_t)},
+		{"group", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, group, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"gt", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, gt, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"gte", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, gte, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"literal", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, literal, $Expression*, int32_t)},
+		{"locationPath", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, locationPath, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"locationPathPattern", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, locationPathPattern, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"lt", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, lt, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"lte", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, lte, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"matchPattern", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, matchPattern, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"minus", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, minus, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"mod", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, mod, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"mult", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, mult, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"neg", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, neg, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"notequals", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, notequals, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"number", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, number, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"numberlit", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, numberlit, $Expression*, int32_t)},
+		{"or", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, or$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"plus", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, plus, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"predicate", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(Compiler, predicate, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"setNamespaceContext", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, setNamespaceContext, void, $PrefixResolver*)},
+		{"stepPattern", "(IILcom/sun/org/apache/xpath/internal/patterns/StepPattern;)Lcom/sun/org/apache/xpath/internal/patterns/StepPattern;", nullptr, $PROTECTED, $virtualMethod(Compiler, stepPattern, $StepPattern*, int32_t, int32_t, $StepPattern*), "javax.xml.transform.TransformerException"},
+		{"string", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, string, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"union", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, union$, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"variable", "(I)Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PROTECTED, $virtualMethod(Compiler, variable, $Expression*, int32_t), "javax.xml.transform.TransformerException"},
+		{"warn", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Compiler, warn, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.compiler.Compiler",
+		"com.sun.org.apache.xpath.internal.compiler.OpMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Compiler, name, initialize, &classInfo$$, Compiler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Compiler);
+	});
 	return class$;
 }
 

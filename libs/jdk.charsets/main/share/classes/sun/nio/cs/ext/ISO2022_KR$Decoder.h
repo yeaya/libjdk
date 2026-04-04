@@ -55,6 +55,7 @@ class ISO2022_KR$Decoder : public ::java::nio::charset::CharsetDecoder {
 public:
 	ISO2022_KR$Decoder();
 	using ::java::nio::charset::CharsetDecoder::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	char16_t decode(int8_t byte1, int8_t byte2, int8_t shiftFlag);
 	::java::nio::charset::CoderResult* decodeArrayLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);

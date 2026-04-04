@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_MenuShortcut_PersistenceDelegate.h>
-
 #include <java/awt/MenuShortcut.h>
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
@@ -20,38 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_awt_MenuShortcut_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_MenuShortcut_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_MenuShortcut_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_MenuShortcut_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_MenuShortcut_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_MenuShortcut_PersistenceDelegate", "java.beans.MetaData", "java_awt_MenuShortcut_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_MenuShortcut_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_MenuShortcut_PersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_MenuShortcut_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_MenuShortcut_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_MenuShortcut_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_MenuShortcut_PersistenceDelegate));
-}
-
 void MetaData$java_awt_MenuShortcut_PersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
@@ -61,14 +28,13 @@ bool MetaData$java_awt_MenuShortcut_PersistenceDelegate::mutatesTo(Object$* oldI
 }
 
 $Expression* MetaData$java_awt_MenuShortcut_PersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuShortcut, m, $cast($MenuShortcut, oldInstance));
-	$var($Object, var$0, oldInstance);
-	$var($Object, var$1, $of($nc($of(m))->getClass()));
-	$var($String, var$2, "new"_s);
-	return $new($Expression, var$0, var$1, var$2, $$new($ObjectArray, {
-		$($of($Integer::valueOf(m->getKey()))),
-		$($of($Boolean::valueOf(m->usesShiftModifier())))
+	$var($Object, var$0, $nc(m)->getClass());
+	$var($String, var$1, "new"_s);
+	return $new($Expression, oldInstance, var$0, var$1, $$new($ObjectArray, {
+		$($Integer::valueOf(m->getKey())),
+		$($Boolean::valueOf(m->usesShiftModifier()))
 	}));
 }
 
@@ -76,7 +42,34 @@ MetaData$java_awt_MenuShortcut_PersistenceDelegate::MetaData$java_awt_MenuShortc
 }
 
 $Class* MetaData$java_awt_MenuShortcut_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_MenuShortcut_PersistenceDelegate, name, initialize, &_MetaData$java_awt_MenuShortcut_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_awt_MenuShortcut_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_MenuShortcut_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_MenuShortcut_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_MenuShortcut_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_MenuShortcut_PersistenceDelegate", "java.beans.MetaData", "java_awt_MenuShortcut_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_MenuShortcut_PersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_MenuShortcut_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_MenuShortcut_PersistenceDelegate);
+	});
 	return class$;
 }
 

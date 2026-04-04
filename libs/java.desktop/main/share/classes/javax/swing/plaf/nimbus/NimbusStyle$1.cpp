@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/NimbusStyle$1.h>
-
 #include <javax/swing/plaf/nimbus/NimbusStyle$RuntimeState.h>
 #include <jcpp.h>
 
@@ -13,45 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$MethodInfo _NimbusStyle$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NimbusStyle$1, init$, void)},
-	{"compare", "(Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;)I", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$1, compare, int32_t, $NimbusStyle$RuntimeState*, $NimbusStyle$RuntimeState*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(NimbusStyle$1, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _NimbusStyle$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.nimbus.NimbusStyle",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _NimbusStyle$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusStyle$1", nullptr, nullptr, 0},
-	{"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState", "javax.swing.plaf.nimbus.NimbusStyle", "RuntimeState", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _NimbusStyle$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusStyle$1",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_NimbusStyle$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;>;",
-	&_NimbusStyle$1_EnclosingMethodInfo_,
-	_NimbusStyle$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusStyle"
-};
-
-$Object* allocate$NimbusStyle$1($Class* clazz) {
-	return $of($alloc(NimbusStyle$1));
-}
 
 void NimbusStyle$1::init$() {
 }
@@ -68,7 +28,40 @@ NimbusStyle$1::NimbusStyle$1() {
 }
 
 $Class* NimbusStyle$1::load$($String* name, bool initialize) {
-	$loadClass(NimbusStyle$1, name, initialize, &_NimbusStyle$1_ClassInfo_, allocate$NimbusStyle$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NimbusStyle$1, init$, void)},
+		{"compare", "(Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;)I", nullptr, $PUBLIC, $virtualMethod(NimbusStyle$1, compare, int32_t, $NimbusStyle$RuntimeState*, $NimbusStyle$RuntimeState*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(NimbusStyle$1, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.nimbus.NimbusStyle",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusStyle$1", nullptr, nullptr, 0},
+		{"javax.swing.plaf.nimbus.NimbusStyle$RuntimeState", "javax.swing.plaf.nimbus.NimbusStyle", "RuntimeState", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusStyle$1",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljavax/swing/plaf/nimbus/NimbusStyle$RuntimeState;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusStyle"
+	};
+	$loadClass(NimbusStyle$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NimbusStyle$1);
+	});
 	return class$;
 }
 

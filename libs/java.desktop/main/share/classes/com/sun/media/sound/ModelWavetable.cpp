@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelWavetable.h>
-
 #include <com/sun/media/sound/AudioFloatInputStream.h>
 #include <jcpp.h>
 
@@ -19,39 +18,34 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _ModelWavetable_FieldInfo_[] = {
-	{"LOOP_TYPE_OFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_OFF)},
-	{"LOOP_TYPE_FORWARD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_FORWARD)},
-	{"LOOP_TYPE_RELEASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_RELEASE)},
-	{"LOOP_TYPE_PINGPONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_PINGPONG)},
-	{"LOOP_TYPE_REVERSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_REVERSE)},
-	{}
-};
-
-$MethodInfo _ModelWavetable_MethodInfo_[] = {
-	{"getLoopLength", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getLoopLength, float)},
-	{"getLoopStart", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getLoopStart, float)},
-	{"getLoopType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getLoopType, int32_t)},
-	{"getPitchcorrection", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getPitchcorrection, float)},
-	{"openStream", "()Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, openStream, $AudioFloatInputStream*)},
-	{}
-};
-
-$ClassInfo _ModelWavetable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.ModelWavetable",
-	nullptr,
-	"com.sun.media.sound.ModelOscillator",
-	_ModelWavetable_FieldInfo_,
-	_ModelWavetable_MethodInfo_
-};
-
-$Object* allocate$ModelWavetable($Class* clazz) {
-	return $of($alloc(ModelWavetable));
-}
-
 $Class* ModelWavetable::load$($String* name, bool initialize) {
-	$loadClass(ModelWavetable, name, initialize, &_ModelWavetable_ClassInfo_, allocate$ModelWavetable);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOOP_TYPE_OFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_OFF)},
+		{"LOOP_TYPE_FORWARD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_FORWARD)},
+		{"LOOP_TYPE_RELEASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_RELEASE)},
+		{"LOOP_TYPE_PINGPONG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_PINGPONG)},
+		{"LOOP_TYPE_REVERSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelWavetable, LOOP_TYPE_REVERSE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getLoopLength", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getLoopLength, float)},
+		{"getLoopStart", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getLoopStart, float)},
+		{"getLoopType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getLoopType, int32_t)},
+		{"getPitchcorrection", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, getPitchcorrection, float)},
+		{"openStream", "()Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelWavetable, openStream, $AudioFloatInputStream*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.ModelWavetable",
+		nullptr,
+		"com.sun.media.sound.ModelOscillator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelWavetable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelWavetable);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/JTextComponent$DefaultTransferHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/datatransfer/Clipboard.h>
 #include <java/awt/datatransfer/ClipboardOwner.h>
@@ -41,46 +40,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _JTextComponent$DefaultTransferHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(JTextComponent$DefaultTransferHandler, init$, void)},
-	{"canImport", "(Ljavax/swing/JComponent;[Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, canImport, bool, $JComponent*, $DataFlavorArray*)},
-	{"exportToClipboard", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Clipboard;I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, exportToClipboard, void, $JComponent*, $Clipboard*, int32_t), "java.lang.IllegalStateException"},
-	{"getFlavor", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE, $method(JTextComponent$DefaultTransferHandler, getFlavor, $DataFlavor*, $DataFlavorArray*)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"importData", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, importData, bool, $JComponent*, $Transferable*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JTextComponent$DefaultTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$DefaultTransferHandler", "javax.swing.text.JTextComponent", "DefaultTransferHandler", $STATIC},
-	{}
-};
-
-$ClassInfo _JTextComponent$DefaultTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.JTextComponent$DefaultTransferHandler",
-	"javax.swing.TransferHandler",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_JTextComponent$DefaultTransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextComponent$DefaultTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.JTextComponent"
-};
-
-$Object* allocate$JTextComponent$DefaultTransferHandler($Class* clazz) {
-	return $of($alloc(JTextComponent$DefaultTransferHandler));
-}
-
 int32_t JTextComponent$DefaultTransferHandler::hashCode() {
 	 return this->$TransferHandler::hashCode();
 }
@@ -106,10 +65,10 @@ void JTextComponent$DefaultTransferHandler::init$() {
 }
 
 void JTextComponent$DefaultTransferHandler::exportToClipboard($JComponent* comp, $Clipboard* clipboard, int32_t action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTextComponent, comp)) {
 		$var($JTextComponent, text, $cast($JTextComponent, comp));
-		int32_t p0 = $nc(text)->getSelectionStart();
+		int32_t p0 = text->getSelectionStart();
 		int32_t p1 = text->getSelectionEnd();
 		if (p0 != p1) {
 			try {
@@ -127,17 +86,17 @@ void JTextComponent$DefaultTransferHandler::exportToClipboard($JComponent* comp,
 }
 
 bool JTextComponent$DefaultTransferHandler::importData($JComponent* comp, $Transferable* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTextComponent, comp)) {
 		$var($DataFlavor, flavor, getFlavor($($nc(t)->getTransferDataFlavors())));
 		if (flavor != nullptr) {
-			$var($InputContext, ic, $nc(comp)->getInputContext());
+			$var($InputContext, ic, comp->getInputContext());
 			if (ic != nullptr) {
 				ic->endComposition();
 			}
 			try {
-				$var($String, data, $cast($String, $nc(t)->getTransferData(flavor)));
-				$nc(($cast($JTextComponent, comp)))->replaceSelection(data);
+				$var($String, data, $cast($String, t->getTransferData(flavor)));
+				$cast($JTextComponent, comp)->replaceSelection(data);
 				return true;
 			} catch ($UnsupportedFlavorException& ufe) {
 			} catch ($IOException& ioe) {
@@ -161,20 +120,13 @@ int32_t JTextComponent$DefaultTransferHandler::getSourceActions($JComponent* c) 
 }
 
 $DataFlavor* JTextComponent$DefaultTransferHandler::getFlavor($DataFlavorArray* flavors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (flavors != nullptr) {
-		{
-			$var($DataFlavorArray, arr$, flavors);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($DataFlavor, flavor, arr$->get(i$));
-				{
-					$init($DataFlavor);
-					if ($nc(flavor)->equals($DataFlavor::stringFlavor)) {
-						return flavor;
-					}
-				}
+		$var($DataFlavorArray, arr$, flavors);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($DataFlavor, flavor, arr$->get(i$));
+			if ($nc(flavor)->equals($DataFlavor::stringFlavor)) {
+				return flavor;
 			}
 		}
 	}
@@ -185,7 +137,42 @@ JTextComponent$DefaultTransferHandler::JTextComponent$DefaultTransferHandler() {
 }
 
 $Class* JTextComponent$DefaultTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent$DefaultTransferHandler, name, initialize, &_JTextComponent$DefaultTransferHandler_ClassInfo_, allocate$JTextComponent$DefaultTransferHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(JTextComponent$DefaultTransferHandler, init$, void)},
+		{"canImport", "(Ljavax/swing/JComponent;[Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, canImport, bool, $JComponent*, $DataFlavorArray*)},
+		{"exportToClipboard", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Clipboard;I)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, exportToClipboard, void, $JComponent*, $Clipboard*, int32_t), "java.lang.IllegalStateException"},
+		{"getFlavor", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE, $method(JTextComponent$DefaultTransferHandler, getFlavor, $DataFlavor*, $DataFlavorArray*)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"importData", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;)Z", nullptr, $PUBLIC, $virtualMethod(JTextComponent$DefaultTransferHandler, importData, bool, $JComponent*, $Transferable*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$DefaultTransferHandler", "javax.swing.text.JTextComponent", "DefaultTransferHandler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.JTextComponent$DefaultTransferHandler",
+		"javax.swing.TransferHandler",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.JTextComponent"
+	};
+	$loadClass(JTextComponent$DefaultTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextComponent$DefaultTransferHandler));
+	});
 	return class$;
 }
 

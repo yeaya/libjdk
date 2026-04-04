@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrDiagHandler$PosScanner.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrDiagHandler.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeScanner.h>
@@ -20,44 +19,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$DeferredAttrDiagHandler$PosScanner_FieldInfo_[] = {
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, 0, $field(DeferredAttr$DeferredAttrDiagHandler$PosScanner, pos)},
-	{"found", "Z", nullptr, 0, $field(DeferredAttr$DeferredAttrDiagHandler$PosScanner, found)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$DeferredAttrDiagHandler$PosScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrDiagHandler$PosScanner, init$, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrDiagHandler$PosScanner, scan, void, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$DeferredAttrDiagHandler$PosScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrDiagHandler", $STATIC},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler$PosScanner", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler", "PosScanner", $STATIC},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredAttrDiagHandler$PosScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler$PosScanner",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_DeferredAttr$DeferredAttrDiagHandler$PosScanner_FieldInfo_,
-	_DeferredAttr$DeferredAttrDiagHandler$PosScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$DeferredAttrDiagHandler$PosScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredAttrDiagHandler$PosScanner($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredAttrDiagHandler$PosScanner));
-}
-
 void DeferredAttr$DeferredAttrDiagHandler$PosScanner::init$($JCDiagnostic$DiagnosticPosition* pos) {
 	$TreeScanner::init$();
 	this->found = false;
@@ -75,7 +36,39 @@ DeferredAttr$DeferredAttrDiagHandler$PosScanner::DeferredAttr$DeferredAttrDiagHa
 }
 
 $Class* DeferredAttr$DeferredAttrDiagHandler$PosScanner::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredAttrDiagHandler$PosScanner, name, initialize, &_DeferredAttr$DeferredAttrDiagHandler$PosScanner_ClassInfo_, allocate$DeferredAttr$DeferredAttrDiagHandler$PosScanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, 0, $field(DeferredAttr$DeferredAttrDiagHandler$PosScanner, pos)},
+		{"found", "Z", nullptr, 0, $field(DeferredAttr$DeferredAttrDiagHandler$PosScanner, found)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrDiagHandler$PosScanner, init$, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrDiagHandler$PosScanner, scan, void, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrDiagHandler", $STATIC},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler$PosScanner", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler", "PosScanner", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrDiagHandler$PosScanner",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredAttrDiagHandler$PosScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredAttrDiagHandler$PosScanner);
+	});
 	return class$;
 }
 

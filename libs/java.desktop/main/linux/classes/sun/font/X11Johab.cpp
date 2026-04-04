@@ -1,5 +1,4 @@
 #include <sun/font/X11Johab.h>
-
 #include <java/lang/Error.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -20,38 +19,6 @@ using $X11Johab$Encoder = ::sun::font::X11Johab$Encoder;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _X11Johab_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11Johab, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11Johab, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11Johab, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11Johab, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _X11Johab_InnerClassesInfo_[] = {
-	{"sun.font.X11Johab$Encoder", "sun.font.X11Johab", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X11Johab_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.X11Johab",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_X11Johab_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11Johab_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.X11Johab$Encoder"
-};
-
-$Object* allocate$X11Johab($Class* clazz) {
-	return $of($alloc(X11Johab));
-}
 
 void X11Johab::init$() {
 	$Charset::init$("X11Johab"_s, nullptr);
@@ -74,7 +41,34 @@ X11Johab::X11Johab() {
 }
 
 $Class* X11Johab::load$($String* name, bool initialize) {
-	$loadClass(X11Johab, name, initialize, &_X11Johab_ClassInfo_, allocate$X11Johab);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11Johab, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11Johab, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11Johab, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11Johab, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11Johab$Encoder", "sun.font.X11Johab", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.X11Johab",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.X11Johab$Encoder"
+	};
+	$loadClass(X11Johab, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11Johab);
+	});
 	return class$;
 }
 

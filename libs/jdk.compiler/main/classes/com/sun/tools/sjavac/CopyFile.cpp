@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/CopyFile.h>
-
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/Util.h>
 #include <com/sun/tools/sjavac/comp/CompilationService.h>
@@ -29,7 +28,6 @@ using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
-using $CopyOption = ::java::nio::file::CopyOption;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
@@ -43,27 +41,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 
-$MethodInfo _CopyFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CopyFile, init$, void)},
-	{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CopyFile, setExtra, void, $String*)},
-	{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $virtualMethod(CopyFile, setExtra, void, $Options*)},
-	{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC, $virtualMethod(CopyFile, transform, bool, $CompilationService*, $Map*, $Set*, $Map*, $URI*, $Map*, $Map*, $Map*, $Map*, $Map*, int32_t, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _CopyFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.CopyFile",
-	"java.lang.Object",
-	"com.sun.tools.sjavac.Transformer",
-	nullptr,
-	_CopyFile_MethodInfo_
-};
-
-$Object* allocate$CopyFile($Class* clazz) {
-	return $of($alloc(CopyFile));
-}
-
 void CopyFile::init$() {
 }
 
@@ -74,27 +51,31 @@ void CopyFile::setExtra($Options* a) {
 }
 
 bool CopyFile::transform($CompilationService* compilationService, $Map* pkgSrcs, $Set* visibleSrcs, $Map* oldPackageDependents, $URI* destRoot, $Map* packageArtifacts, $Map* packageDependencies, $Map* packageCpDependencies, $Map* packagePubapis, $Map* dependencyPubapis, int32_t debugLevel, bool incremental, int32_t numCores) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool rc = true;
 	$var($String, dest_filename, nullptr);
 	$var($File, dest, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc(pkgSrcs)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(pkgSrcs)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, pkgName, $cast($String, i$->next()));
 			{
 				$var($String, pkgNameF, $Util::toFileSystemPath(pkgName));
 				{
-					$var($Iterator, i$, $nc(($cast($Set, $(pkgSrcs->get(pkgName)))))->iterator());
+					$var($Iterator, i$, $$sure($Set, pkgSrcs->get(pkgName))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($URI, u, $cast($URI, i$->next()));
 						{
 							$var($File, src, $new($File, u));
 							$var($File, destDir, nullptr);
-							$init($File);
 							$assign(destDir, $new($File, $$str({$($nc(destRoot)->getPath()), $File::separator, pkgNameF})));
-							$var($String, var$0, $$str({$($nc(destRoot)->getPath()), $File::separator, pkgNameF, $File::separator}));
-							$assign(dest_filename, $concat(var$0, $(src->getName())));
+							$var($StringBuilder, var$0, $new($StringBuilder));
+							var$0->append($(destRoot->getPath()));
+							var$0->append($File::separator);
+							var$0->append(pkgNameF);
+							var$0->append($File::separator);
+							var$0->append($(src->getName()));
+							$assign(dest_filename, $str(var$0));
 							$assign(dest, $new($File, dest_filename));
 							if (!destDir->isDirectory()) {
 								if (!destDir->mkdirs()) {
@@ -120,10 +101,14 @@ bool CopyFile::transform($CompilationService* compilationService, $Map* pkgSrcs,
 							try {
 								$var($Path, var$3, src->toPath());
 								$init($StandardCopyOption);
-								$Files::copy(var$3, $(dest->toPath()), $$new($CopyOptionArray, {static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING)}));
+								$Files::copy(var$3, $(dest->toPath()), $$new($CopyOptionArray, {$StandardCopyOption::REPLACE_EXISTING}));
 							} catch ($IOException& e) {
-								$var($String, var$4, $$str({"Could not copy the file "_s, $(src->getPath()), " to "_s}));
-								$Log::error($$concat(var$4, $(dest->getPath())));
+								$var($StringBuilder, var$4, $new($StringBuilder));
+								var$4->append("Could not copy the file "_s);
+								var$4->append($(src->getPath()));
+								var$4->append(" to "_s);
+								var$4->append($(dest->getPath()));
+								$Log::error($$str(var$4));
 								rc = false;
 							}
 						}
@@ -139,7 +124,24 @@ CopyFile::CopyFile() {
 }
 
 $Class* CopyFile::load$($String* name, bool initialize) {
-	$loadClass(CopyFile, name, initialize, &_CopyFile_ClassInfo_, allocate$CopyFile);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CopyFile, init$, void)},
+		{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CopyFile, setExtra, void, $String*)},
+		{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $virtualMethod(CopyFile, setExtra, void, $Options*)},
+		{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC, $virtualMethod(CopyFile, transform, bool, $CompilationService*, $Map*, $Set*, $Map*, $URI*, $Map*, $Map*, $Map*, $Map*, $Map*, int32_t, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.CopyFile",
+		"java.lang.Object",
+		"com.sun.tools.sjavac.Transformer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CopyFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CopyFile);
+	});
 	return class$;
 }
 

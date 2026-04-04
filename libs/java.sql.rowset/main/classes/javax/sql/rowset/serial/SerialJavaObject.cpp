@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/serial/SerialJavaObject.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -13,7 +12,6 @@
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Vector.h>
@@ -43,9 +41,7 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Field = ::java::lang::reflect::Field;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Vector = ::java::util::Vector;
 using $RowSetWarning = ::javax::sql::rowset::RowSetWarning;
 using $SerialException = ::javax::sql::rowset::serial::SerialException;
@@ -56,48 +52,6 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 			namespace serial {
-
-$CompoundAttribute _SerialJavaObject_MethodAnnotations_getFields3[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _SerialJavaObject_FieldInfo_[] = {
-	{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SerialJavaObject, obj)},
-	{"fields", "[Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $TRANSIENT, $field(SerialJavaObject, fields)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialJavaObject, serialVersionUID)},
-	{"chain", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sql/rowset/RowSetWarning;>;", 0, $field(SerialJavaObject, chain)},
-	{}
-};
-
-$MethodInfo _SerialJavaObject_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SerialJavaObject, init$, void, Object$*), "javax.sql.rowset.serial.SerialException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, equals, bool, Object$*)},
-	{"getFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, getFields, $FieldArray*), "javax.sql.rowset.serial.SerialException", nullptr, _SerialJavaObject_MethodAnnotations_getFields3},
-	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, getObject, $Object*), "javax.sql.rowset.serial.SerialException"},
-	{"hasStaticFields", "([Ljava/lang/reflect/Field;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SerialJavaObject, hasStaticFields, bool, $FieldArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialJavaObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setWarning", "(Ljavax/sql/rowset/RowSetWarning;)V", nullptr, $PRIVATE, $method(SerialJavaObject, setWarning, void, $RowSetWarning*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialJavaObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SerialJavaObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.serial.SerialJavaObject",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_SerialJavaObject_FieldInfo_,
-	_SerialJavaObject_MethodInfo_
-};
-
-$Object* allocate$SerialJavaObject($Class* clazz) {
-	return $of($alloc(SerialJavaObject));
-}
 
 $String* SerialJavaObject::toString() {
 	 return this->$Serializable::toString();
@@ -113,7 +67,7 @@ void SerialJavaObject::init$(Object$* obj) {
 	if (!($instanceOf($Serializable, obj))) {
 		setWarning($$new($RowSetWarning, "Warning, the object passed to the constructor does not implement Serializable"_s));
 	}
-	$set(this, fields, $nc(c)->getFields());
+	$set(this, fields, c->getFields());
 	if (hasStaticFields(this->fields)) {
 		$throwNew($SerialException, "Located static fields in object instance. Cannot serialize"_s);
 	}
@@ -121,22 +75,22 @@ void SerialJavaObject::init$(Object$* obj) {
 }
 
 $Object* SerialJavaObject::getObject() {
-	return $of(this->obj);
+	return this->obj;
 }
 
 $FieldArray* SerialJavaObject::getFields() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fields != nullptr) {
-		$Class* c = $nc($of(this->obj))->getClass();
+		$Class* c = $nc(this->obj)->getClass();
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
 			$Class* caller = $Reflection::getCallerClass();
 			$var($ClassLoader, var$0, $nc(caller)->getClassLoader());
-			if ($ReflectUtil::needsPackageAccessCheck(var$0, $($nc(c)->getClassLoader()))) {
+			if ($ReflectUtil::needsPackageAccessCheck(var$0, $(c->getClassLoader()))) {
 				$ReflectUtil::checkPackageAccess(c);
 			}
 		}
-		return $nc(c)->getFields();
+		return c->getFields();
 	} else {
 		$throwNew($SerialException, "SerialJavaObject does not contain a serialized object instance"_s);
 	}
@@ -148,21 +102,21 @@ bool SerialJavaObject::equals(Object$* o) {
 	}
 	if ($instanceOf(SerialJavaObject, o)) {
 		$var(SerialJavaObject, sjo, $cast(SerialJavaObject, o));
-		return $nc($of(this->obj))->equals($nc(sjo)->obj);
+		return $nc(this->obj)->equals(sjo->obj);
 	}
 	return false;
 }
 
 int32_t SerialJavaObject::hashCode() {
-	return 31 + $nc($of(this->obj))->hashCode();
+	return 31 + $nc(this->obj)->hashCode();
 }
 
 $Object* SerialJavaObject::clone() {
 	try {
 		$var(SerialJavaObject, sjo, $cast(SerialJavaObject, $Serializable::clone()));
-		$set($nc(sjo), fields, $fcast($FieldArray, $Arrays::copyOf(this->fields, $nc(this->fields)->length)));
+		$set($nc(sjo), fields, $cast($FieldArray, $Arrays::copyOf(this->fields, $nc(this->fields)->length)));
 		if (this->chain != nullptr) {
-			$set(sjo, chain, $new($Vector, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(this->chain)))));
+			$set(sjo, chain, $new($Vector, $cast($AbstractCollection, this->chain)));
 		}
 		return $of(sjo);
 	} catch ($CloneNotSupportedException& ex) {
@@ -179,16 +133,16 @@ void SerialJavaObject::setWarning($RowSetWarning* e) {
 }
 
 void SerialJavaObject::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ObjectInputStream$GetField, fields1, $nc(s)->readFields());
-	$var($Vector, tmp, $cast($Vector, $nc(fields1)->get("chain"_s, ($Object*)nullptr)));
+	$var($Vector, tmp, $cast($Vector, $nc(fields1)->get("chain"_s, nullptr)));
 	if (tmp != nullptr) {
-		$set(this, chain, $new($Vector, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(tmp)))));
+		$set(this, chain, $new($Vector, $cast($AbstractCollection, tmp)));
 	}
-	$set(this, obj, fields1->get("obj"_s, ($Object*)nullptr));
+	$set(this, obj, fields1->get("obj"_s, nullptr));
 	if (this->obj != nullptr) {
-		$set(this, fields, $nc($of(this->obj))->getClass()->getFields());
+		$set(this, fields, this->obj->getClass()->getFields());
 		if (hasStaticFields(this->fields)) {
 			$throwNew($IOException, "Located static fields in object instance. Cannot serialize"_s);
 		}
@@ -200,24 +154,18 @@ void SerialJavaObject::readObject($ObjectInputStream* s) {
 void SerialJavaObject::writeObject($ObjectOutputStream* s) {
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
 	$nc(fields)->put("obj"_s, this->obj);
-	fields->put("chain"_s, $of(this->chain));
+	fields->put("chain"_s, this->chain);
 	s->writeFields();
 }
 
 bool SerialJavaObject::hasStaticFields($FieldArray* fields) {
 	$init(SerialJavaObject);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($FieldArray, arr$, fields);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Field, field, arr$->get(i$));
-			{
-				if ($nc(field)->getModifiers() == $Modifier::STATIC) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($FieldArray, arr$, fields);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Field, field, arr$->get(i$));
+		if ($nc(field)->getModifiers() == $Modifier::STATIC) {
+			return true;
 		}
 	}
 	return false;
@@ -227,7 +175,43 @@ SerialJavaObject::SerialJavaObject() {
 }
 
 $Class* SerialJavaObject::load$($String* name, bool initialize) {
-	$loadClass(SerialJavaObject, name, initialize, &_SerialJavaObject_ClassInfo_, allocate$SerialJavaObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"obj", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SerialJavaObject, obj)},
+		{"fields", "[Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $TRANSIENT, $field(SerialJavaObject, fields)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialJavaObject, serialVersionUID)},
+		{"chain", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sql/rowset/RowSetWarning;>;", 0, $field(SerialJavaObject, chain)},
+		{}
+	};
+	$CompoundAttribute getFieldsmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SerialJavaObject, init$, void, Object$*), "javax.sql.rowset.serial.SerialException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, equals, bool, Object$*)},
+		{"getFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, getFields, $FieldArray*), "javax.sql.rowset.serial.SerialException", nullptr, getFieldsmethodAnnotations$$},
+		{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, getObject, $Object*), "javax.sql.rowset.serial.SerialException"},
+		{"hasStaticFields", "([Ljava/lang/reflect/Field;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SerialJavaObject, hasStaticFields, bool, $FieldArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialJavaObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setWarning", "(Ljavax/sql/rowset/RowSetWarning;)V", nullptr, $PRIVATE, $method(SerialJavaObject, setWarning, void, $RowSetWarning*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialJavaObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.serial.SerialJavaObject",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialJavaObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerialJavaObject));
+	});
 	return class$;
 }
 

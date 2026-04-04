@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CDropTargetContextPeer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -27,51 +26,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CDropTargetContextPeer_FieldInfo_[] = {
-	{"fNativeDropTransfer", "J", nullptr, $PRIVATE, $field(CDropTargetContextPeer, fNativeDropTransfer)},
-	{"fNativeDataAvailable", "J", nullptr, $PRIVATE, $field(CDropTargetContextPeer, fNativeDataAvailable)},
-	{"fNativeData", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(CDropTargetContextPeer, fNativeData)},
-	{"insideTarget", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE, $field(CDropTargetContextPeer, insideTarget)},
-	{"awtLockAccess", "Ljava/lang/Object;", nullptr, 0, $field(CDropTargetContextPeer, awtLockAccess)},
-	{}
-};
-
-$MethodInfo _CDropTargetContextPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CDropTargetContextPeer, init$, void)},
-	{"addTransfer", "(JJJ)V", nullptr, $PRIVATE | $NATIVE, $method(CDropTargetContextPeer, addTransfer, void, int64_t, int64_t, int64_t)},
-	{"doDropDone", "(ZIZ)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, doDropDone, void, bool, int32_t, bool)},
-	{"dropDone", "(JJZZI)V", nullptr, $PRIVATE | $NATIVE, $method(CDropTargetContextPeer, dropDone, void, int64_t, int64_t, bool, bool, int32_t)},
-	{"getDropTargetContextPeer", "()Lsun/lwawt/macosx/CDropTargetContextPeer;", nullptr, $STATIC, $staticMethod(CDropTargetContextPeer, getDropTargetContextPeer, CDropTargetContextPeer*)},
-	{"getNativeData", "(J)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, getNativeData, $Object*, int64_t)},
-	{"isEventInsideTarget", "(Lsun/awt/dnd/SunDropTargetEvent;)Z", nullptr, $PRIVATE, $method(CDropTargetContextPeer, isEventInsideTarget, bool, $SunDropTargetEvent*)},
-	{"newData", "(J[B)V", nullptr, $PRIVATE, $method(CDropTargetContextPeer, newData, void, int64_t, $bytes*)},
-	{"postDropTargetEvent", "(Ljava/awt/Component;IIII[JJIZ)I", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, postDropTargetEvent, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t, bool)},
-	{"processDropMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processDropMessage, void, $SunDropTargetEvent*)},
-	{"processEnterMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processEnterMessage, void, $SunDropTargetEvent*)},
-	{"processExitMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processExitMessage, void, $SunDropTargetEvent*)},
-	{"processMotionMessage", "(Lsun/awt/dnd/SunDropTargetEvent;Z)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processMotionMessage, void, $SunDropTargetEvent*, bool)},
-	{"startTransfer", "(JJ)J", nullptr, $PRIVATE | $NATIVE, $method(CDropTargetContextPeer, startTransfer, int64_t, int64_t, int64_t)},
-	{"transferFailed", "(J)V", nullptr, $PRIVATE, $method(CDropTargetContextPeer, transferFailed, void, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_addTransfer 1
-#define _METHOD_INDEX_dropDone 3
-#define _METHOD_INDEX_startTransfer 13
-
-$ClassInfo _CDropTargetContextPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CDropTargetContextPeer",
-	"sun.awt.dnd.SunDropTargetContextPeer",
-	nullptr,
-	_CDropTargetContextPeer_FieldInfo_,
-	_CDropTargetContextPeer_MethodInfo_
-};
-
-$Object* allocate$CDropTargetContextPeer($Class* clazz) {
-	return $of($alloc(CDropTargetContextPeer));
-}
-
 CDropTargetContextPeer* CDropTargetContextPeer::getDropTargetContextPeer() {
 	$init(CDropTargetContextPeer);
 	return $new(CDropTargetContextPeer);
@@ -97,18 +51,18 @@ $Object* CDropTargetContextPeer::getNativeData(int64_t format) {
 		}
 		while (format != this->fNativeDataAvailable) {
 			try {
-				$nc($of(this->awtLockAccess))->wait();
+				$nc(this->awtLockAccess)->wait();
 			} catch ($Throwable& e) {
 				e->printStackTrace();
 			}
 		}
 	}
-	return $of(this->fNativeData);
+	return this->fNativeData;
 }
 
 void CDropTargetContextPeer::processMotionMessage($SunDropTargetEvent* event, bool operationChanged) {
 	bool eventInsideTarget = isEventInsideTarget(event);
-	if ($nc($($nc(event)->getComponent()))->getDropTarget() == this->insideTarget) {
+	if ($$nc($nc(event)->getComponent())->getDropTarget() == this->insideTarget) {
 		if (!eventInsideTarget) {
 			processExitMessage(event);
 			return;
@@ -122,9 +76,9 @@ void CDropTargetContextPeer::processMotionMessage($SunDropTargetEvent* event, bo
 }
 
 void CDropTargetContextPeer::processEnterMessage($SunDropTargetEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $nc(event)->getComponent());
-	$var($DropTarget, dt, $nc($(event->getComponent()))->getDropTarget());
+	$var($DropTarget, dt, $$nc(event->getComponent())->getDropTarget());
 	bool var$1 = isEventInsideTarget(event) && dt != this->insideTarget;
 	bool var$0 = var$1 && $nc(c)->isShowing() && dt != nullptr;
 	if (var$0 && dt->isActive()) {
@@ -134,7 +88,7 @@ void CDropTargetContextPeer::processEnterMessage($SunDropTargetEvent* event) {
 }
 
 void CDropTargetContextPeer::processExitMessage($SunDropTargetEvent* event) {
-	if ($nc($($nc(event)->getComponent()))->getDropTarget() == this->insideTarget) {
+	if ($$nc($nc(event)->getComponent())->getDropTarget() == this->insideTarget) {
 		$set(this, insideTarget, nullptr);
 		$SunDropTargetContextPeer::processExitMessage(event);
 	}
@@ -148,7 +102,7 @@ void CDropTargetContextPeer::processDropMessage($SunDropTargetEvent* event) {
 }
 
 bool CDropTargetContextPeer::isEventInsideTarget($SunDropTargetEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, eventSource, $nc(event)->getComponent());
 	$var($Point, screenPoint, event->getPoint());
 	$SwingUtilities::convertPointToScreen(screenPoint, eventSource);
@@ -172,31 +126,30 @@ void CDropTargetContextPeer::doDropDone(bool success, int32_t dropAction, bool i
 void CDropTargetContextPeer::newData(int64_t format, $bytes* data) {
 	this->fNativeDataAvailable = format;
 	$set(this, fNativeData, data);
-	$nc($of(this->awtLockAccess))->notifyAll();
+	$nc(this->awtLockAccess)->notifyAll();
 }
 
 void CDropTargetContextPeer::transferFailed(int64_t format) {
 	this->fNativeDataAvailable = format;
 	$set(this, fNativeData, nullptr);
-	$nc($of(this->awtLockAccess))->notifyAll();
+	$nc(this->awtLockAccess)->notifyAll();
 }
 
 int64_t CDropTargetContextPeer::startTransfer(int64_t nativeDropTarget, int64_t format) {
-	int64_t $ret = 0;
-	$prepareNative(CDropTargetContextPeer, startTransfer, int64_t, int64_t nativeDropTarget, int64_t format);
-	$ret = $invokeNative(nativeDropTarget, format);
+	$prepareNative(startTransfer, int64_t, int64_t nativeDropTarget, int64_t format);
+	int64_t $ret = $invokeNative(nativeDropTarget, format);
 	$finishNative();
 	return $ret;
 }
 
 void CDropTargetContextPeer::addTransfer(int64_t nativeDropTarget, int64_t nativeDropTransfer, int64_t format) {
-	$prepareNative(CDropTargetContextPeer, addTransfer, void, int64_t nativeDropTarget, int64_t nativeDropTransfer, int64_t format);
+	$prepareNative(addTransfer, void, int64_t nativeDropTarget, int64_t nativeDropTransfer, int64_t format);
 	$invokeNative(nativeDropTarget, nativeDropTransfer, format);
 	$finishNative();
 }
 
 void CDropTargetContextPeer::dropDone(int64_t nativeDropTarget, int64_t nativeDropTransfer, bool isLocal, bool success, int32_t dropAction) {
-	$prepareNative(CDropTargetContextPeer, dropDone, void, int64_t nativeDropTarget, int64_t nativeDropTransfer, bool isLocal, bool success, int32_t dropAction);
+	$prepareNative(dropDone, void, int64_t nativeDropTarget, int64_t nativeDropTransfer, bool isLocal, bool success, int32_t dropAction);
 	$invokeNative(nativeDropTarget, nativeDropTransfer, isLocal, success, dropAction);
 	$finishNative();
 }
@@ -205,7 +158,43 @@ CDropTargetContextPeer::CDropTargetContextPeer() {
 }
 
 $Class* CDropTargetContextPeer::load$($String* name, bool initialize) {
-	$loadClass(CDropTargetContextPeer, name, initialize, &_CDropTargetContextPeer_ClassInfo_, allocate$CDropTargetContextPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fNativeDropTransfer", "J", nullptr, $PRIVATE, $field(CDropTargetContextPeer, fNativeDropTransfer)},
+		{"fNativeDataAvailable", "J", nullptr, $PRIVATE, $field(CDropTargetContextPeer, fNativeDataAvailable)},
+		{"fNativeData", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(CDropTargetContextPeer, fNativeData)},
+		{"insideTarget", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE, $field(CDropTargetContextPeer, insideTarget)},
+		{"awtLockAccess", "Ljava/lang/Object;", nullptr, 0, $field(CDropTargetContextPeer, awtLockAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CDropTargetContextPeer, init$, void)},
+		{"addTransfer", "(JJJ)V", nullptr, $PRIVATE | $NATIVE, $method(CDropTargetContextPeer, addTransfer, void, int64_t, int64_t, int64_t)},
+		{"doDropDone", "(ZIZ)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, doDropDone, void, bool, int32_t, bool)},
+		{"dropDone", "(JJZZI)V", nullptr, $PRIVATE | $NATIVE, $method(CDropTargetContextPeer, dropDone, void, int64_t, int64_t, bool, bool, int32_t)},
+		{"getDropTargetContextPeer", "()Lsun/lwawt/macosx/CDropTargetContextPeer;", nullptr, $STATIC, $staticMethod(CDropTargetContextPeer, getDropTargetContextPeer, CDropTargetContextPeer*)},
+		{"getNativeData", "(J)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, getNativeData, $Object*, int64_t)},
+		{"isEventInsideTarget", "(Lsun/awt/dnd/SunDropTargetEvent;)Z", nullptr, $PRIVATE, $method(CDropTargetContextPeer, isEventInsideTarget, bool, $SunDropTargetEvent*)},
+		{"newData", "(J[B)V", nullptr, $PRIVATE, $method(CDropTargetContextPeer, newData, void, int64_t, $bytes*)},
+		{"postDropTargetEvent", "(Ljava/awt/Component;IIII[JJIZ)I", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, postDropTargetEvent, int32_t, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t, bool)},
+		{"processDropMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processDropMessage, void, $SunDropTargetEvent*)},
+		{"processEnterMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processEnterMessage, void, $SunDropTargetEvent*)},
+		{"processExitMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processExitMessage, void, $SunDropTargetEvent*)},
+		{"processMotionMessage", "(Lsun/awt/dnd/SunDropTargetEvent;Z)V", nullptr, $PROTECTED, $virtualMethod(CDropTargetContextPeer, processMotionMessage, void, $SunDropTargetEvent*, bool)},
+		{"startTransfer", "(JJ)J", nullptr, $PRIVATE | $NATIVE, $method(CDropTargetContextPeer, startTransfer, int64_t, int64_t, int64_t)},
+		{"transferFailed", "(J)V", nullptr, $PRIVATE, $method(CDropTargetContextPeer, transferFailed, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CDropTargetContextPeer",
+		"sun.awt.dnd.SunDropTargetContextPeer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CDropTargetContextPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CDropTargetContextPeer));
+	});
 	return class$;
 }
 

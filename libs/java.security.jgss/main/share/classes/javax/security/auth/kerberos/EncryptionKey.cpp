@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/EncryptionKey.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <javax/security/auth/kerberos/KeyImpl.h>
@@ -17,64 +16,30 @@ namespace javax {
 		namespace auth {
 			namespace kerberos {
 
-$FieldInfo _EncryptionKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EncryptionKey, serialVersionUID)},
-	{"key", "Ljavax/security/auth/kerberos/KeyImpl;", nullptr, $PRIVATE | $FINAL, $field(EncryptionKey, key)},
-	{"destroyed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(EncryptionKey, destroyed)},
-	{}
-};
-
-$MethodInfo _EncryptionKey_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $bytes*, int32_t)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, destroy, void), "javax.security.auth.DestroyFailedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getFormat, $String*)},
-	{"getKeyType", "()I", nullptr, $PUBLIC, $method(EncryptionKey, getKeyType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, hashCode, int32_t)},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, isDestroyed, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, toString, $String*)},
-	{}
-};
-
-$ClassInfo _EncryptionKey_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.security.auth.kerberos.EncryptionKey",
-	"java.lang.Object",
-	"javax.crypto.SecretKey",
-	_EncryptionKey_FieldInfo_,
-	_EncryptionKey_MethodInfo_
-};
-
-$Object* allocate$EncryptionKey($Class* clazz) {
-	return $of($alloc(EncryptionKey));
-}
-
 void EncryptionKey::init$($bytes* keyBytes, int32_t keyType) {
 	this->destroyed = false;
 	$set(this, key, $new($KeyImpl, $cast($bytes, $Objects::requireNonNull(keyBytes)), keyType));
 }
 
 int32_t EncryptionKey::getKeyType() {
-	return $nc(this->key)->getKeyType();
+	return this->key->getKeyType();
 }
 
 $String* EncryptionKey::getAlgorithm() {
-	return $nc(this->key)->getAlgorithm();
+	return this->key->getAlgorithm();
 }
 
 $String* EncryptionKey::getFormat() {
-	return $nc(this->key)->getFormat();
+	return this->key->getFormat();
 }
 
 $bytes* EncryptionKey::getEncoded() {
-	return $nc(this->key)->getEncoded();
+	return this->key->getEncoded();
 }
 
 void EncryptionKey::destroy() {
 	if (!this->destroyed) {
-		$nc(this->key)->destroy();
+		this->key->destroy();
 		this->destroyed = true;
 	}
 }
@@ -87,7 +52,7 @@ $String* EncryptionKey::toString() {
 	if (this->destroyed) {
 		return "Destroyed EncryptionKey"_s;
 	}
-	return $str({"key "_s, $($nc(this->key)->toString())});
+	return $str({"key "_s, $(this->key->toString())});
 }
 
 int32_t EncryptionKey::hashCode() {
@@ -100,7 +65,7 @@ int32_t EncryptionKey::hashCode() {
 }
 
 bool EncryptionKey::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(other, this)) {
 		return true;
 	}
@@ -125,7 +90,36 @@ EncryptionKey::EncryptionKey() {
 }
 
 $Class* EncryptionKey::load$($String* name, bool initialize) {
-	$loadClass(EncryptionKey, name, initialize, &_EncryptionKey_ClassInfo_, allocate$EncryptionKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EncryptionKey, serialVersionUID)},
+		{"key", "Ljavax/security/auth/kerberos/KeyImpl;", nullptr, $PRIVATE | $FINAL, $field(EncryptionKey, key)},
+		{"destroyed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(EncryptionKey, destroyed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $bytes*, int32_t)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, destroy, void), "javax.security.auth.DestroyFailedException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getFormat, $String*)},
+		{"getKeyType", "()I", nullptr, $PUBLIC, $method(EncryptionKey, getKeyType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, hashCode, int32_t)},
+		{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, isDestroyed, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.security.auth.kerberos.EncryptionKey",
+		"java.lang.Object",
+		"javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncryptionKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EncryptionKey));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/TableView$TableCell.h>
-
 #include <javax/swing/text/BoxView.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/TableView.h>
@@ -21,59 +20,6 @@ using $View = ::javax::swing::text::View;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$CompoundAttribute _TableView$TableCell_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TableView$TableCell_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$TableCell, this$0)},
-	{"row", "I", nullptr, 0, $field(TableView$TableCell, row)},
-	{"col", "I", nullptr, 0, $field(TableView$TableCell, col)},
-	{}
-};
-
-$MethodInfo _TableView$TableCell_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/TableView;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView$TableCell, init$, void, $TableView*, $Element*)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getColumnCount, int32_t)},
-	{"getGridColumn", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getGridColumn, int32_t)},
-	{"getGridRow", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getGridRow, int32_t)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getRowCount, int32_t)},
-	{"setGridLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, setGridLocation, void, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TableView$TableCell_InnerClassesInfo_[] = {
-	{"javax.swing.text.TableView$TableCell", "javax.swing.text.TableView", "TableCell", $PUBLIC},
-	{"javax.swing.text.TableView$GridCell", "javax.swing.text.TableView", "GridCell", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TableView$TableCell_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.TableView$TableCell",
-	"javax.swing.text.BoxView",
-	"javax.swing.text.TableView$GridCell",
-	_TableView$TableCell_FieldInfo_,
-	_TableView$TableCell_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TableView$TableCell_InnerClassesInfo_,
-	_TableView$TableCell_Annotations_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.TableView"
-};
-
-$Object* allocate$TableView$TableCell($Class* clazz) {
-	return $of($alloc(TableView$TableCell));
-}
 
 int32_t TableView$TableCell::hashCode() {
 	 return this->$BoxView::hashCode();
@@ -125,7 +71,53 @@ TableView$TableCell::TableView$TableCell() {
 }
 
 $Class* TableView$TableCell::load$($String* name, bool initialize) {
-	$loadClass(TableView$TableCell, name, initialize, &_TableView$TableCell_ClassInfo_, allocate$TableView$TableCell);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$TableCell, this$0)},
+		{"row", "I", nullptr, 0, $field(TableView$TableCell, row)},
+		{"col", "I", nullptr, 0, $field(TableView$TableCell, col)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/TableView;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView$TableCell, init$, void, $TableView*, $Element*)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getColumnCount, int32_t)},
+		{"getGridColumn", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getGridColumn, int32_t)},
+		{"getGridRow", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getGridRow, int32_t)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, getRowCount, int32_t)},
+		{"setGridLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(TableView$TableCell, setGridLocation, void, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.TableView$TableCell", "javax.swing.text.TableView", "TableCell", $PUBLIC},
+		{"javax.swing.text.TableView$GridCell", "javax.swing.text.TableView", "GridCell", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.TableView$TableCell",
+		"javax.swing.text.BoxView",
+		"javax.swing.text.TableView$GridCell",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.TableView"
+	};
+	$loadClass(TableView$TableCell, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TableView$TableCell));
+	});
 	return class$;
 }
 

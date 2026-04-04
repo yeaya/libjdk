@@ -17,6 +17,7 @@ class $export ProgressMonitorEscapeKeyPress : public ::java::lang::Object {
 	$class(ProgressMonitorEscapeKeyPress, 0, ::java::lang::Object)
 public:
 	ProgressMonitorEscapeKeyPress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createTestUI();
 	static void disposeTestUI();

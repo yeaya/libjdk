@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/SubjectComber.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Date.h>
 #include <java/util/Iterator.h>
@@ -18,7 +17,6 @@
 
 #undef DEBUG
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -33,39 +31,12 @@ using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
 using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
-using $JavaxSecurityAuthKerberosAccess = ::sun::security::krb5::JavaxSecurityAuthKerberosAccess;
 using $KerberosSecrets = ::sun::security::krb5::KerberosSecrets;
 
 namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$FieldInfo _SubjectComber_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SubjectComber, DEBUG)},
-	{}
-};
-
-$MethodInfo _SubjectComber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SubjectComber, init$, void)},
-	{"find", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(SubjectComber, find, $Object*, $Subject*, $String*, $String*, $Class*)},
-	{"findAux", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;Z)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(SubjectComber, findAux, $Object*, $Subject*, $String*, $String*, $Class*, bool)},
-	{"findMany", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(SubjectComber, findMany, $List*, $Subject*, $String*, $String*, $Class*)},
-	{}
-};
-
-$ClassInfo _SubjectComber_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.SubjectComber",
-	"java.lang.Object",
-	nullptr,
-	_SubjectComber_FieldInfo_,
-	_SubjectComber_MethodInfo_
-};
-
-$Object* allocate$SubjectComber($Class* clazz) {
-	return $of($alloc(SubjectComber));
-}
 
 bool SubjectComber::DEBUG = false;
 
@@ -74,7 +45,7 @@ void SubjectComber::init$() {
 
 $Object* SubjectComber::find($Subject* subject, $String* serverPrincipal, $String* clientPrincipal, $Class* credClass) {
 	$init(SubjectComber);
-	return $of($nc(credClass)->cast($(findAux(subject, serverPrincipal, clientPrincipal, credClass, true))));
+	return $nc(credClass)->cast($(findAux(subject, serverPrincipal, clientPrincipal, credClass, true)));
 }
 
 $List* SubjectComber::findMany($Subject* subject, $String* serverPrincipal, $String* clientPrincipal, $Class* credClass) {
@@ -84,16 +55,16 @@ $List* SubjectComber::findMany($Subject* subject, $String* serverPrincipal, $Str
 
 $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$renamed, $String* clientPrincipal$renamed, $Class* credClass, bool oneOnly) {
 	$init(SubjectComber);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, serverPrincipal, serverPrincipal$renamed);
 	$var($String, clientPrincipal, clientPrincipal$renamed);
 	if (subject == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	} else {
-		$var($List, answer, oneOnly ? ($List*)nullptr : static_cast<$List*>($new($ArrayList)));
+		$var($List, answer, oneOnly ? ($List*)nullptr : $cast($List, $new($ArrayList)));
 		$load($KeyTab);
 		if (credClass == $KeyTab::class$) {
-			$var($Iterator, iterator, $nc($($nc(subject)->getPrivateCredentials($KeyTab::class$)))->iterator());
+			$var($Iterator, iterator, $$nc(subject->getPrivateCredentials($KeyTab::class$))->iterator());
 			while ($nc(iterator)->hasNext()) {
 				$var($KeyTab, t, $cast($KeyTab, iterator->next()));
 				if (serverPrincipal != nullptr && $nc(t)->isBound()) {
@@ -106,14 +77,12 @@ $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$rena
 						bool found = false;
 						{
 							$load($KerberosPrincipal);
-							$var($Iterator, i$, $nc($(subject->getPrincipals($KerberosPrincipal::class$)))->iterator());
+							$var($Iterator, i$, $$nc(subject->getPrincipals($KerberosPrincipal::class$))->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($KerberosPrincipal, princ, $cast($KerberosPrincipal, i$->next()));
-								{
-									if ($nc($($nc(princ)->getName()))->equals(serverPrincipal)) {
-										found = true;
-										break;
-									}
+								if ($$nc($nc(princ)->getName())->equals(serverPrincipal)) {
+									found = true;
+									break;
 								}
 							}
 						}
@@ -126,7 +95,7 @@ $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$rena
 					$nc($System::out)->println($$str({"Found "_s, $(credClass->getSimpleName()), " "_s, t}));
 				}
 				if (oneOnly) {
-					return $of(t);
+					return t;
 				} else {
 					$nc(answer)->add($(credClass->cast(t)));
 				}
@@ -134,11 +103,11 @@ $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$rena
 		} else {
 			$load($KerberosKey);
 			if (credClass == $KerberosKey::class$) {
-				$var($Iterator, iterator, $nc($($nc(subject)->getPrivateCredentials($KerberosKey::class$)))->iterator());
+				$var($Iterator, iterator, $$nc(subject->getPrivateCredentials($KerberosKey::class$))->iterator());
 				while ($nc(iterator)->hasNext()) {
 					$var($KerberosKey, t, $cast($KerberosKey, iterator->next()));
-					$var($String, name, $nc($($nc(t)->getPrincipal()))->getName());
-					if (serverPrincipal == nullptr || $nc(serverPrincipal)->equals(name)) {
+					$var($String, name, $$nc($nc(t)->getPrincipal())->getName());
+					if (serverPrincipal == nullptr || serverPrincipal->equals(name)) {
 						if (SubjectComber::DEBUG) {
 							$nc($System::out)->println($$str({"Found "_s, $(credClass->getSimpleName()), " for "_s, name}));
 						}
@@ -152,20 +121,24 @@ $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$rena
 			} else {
 				$load($KerberosTicket);
 				if (credClass == $KerberosTicket::class$) {
-					$var($Set, pcs, $nc(subject)->getPrivateCredentials());
+					$var($Set, pcs, subject->getPrivateCredentials());
 					$synchronized(pcs) {
-						$var($Iterator, iterator, $nc(pcs)->iterator());
+						$var($Iterator, iterator, pcs->iterator());
 						while ($nc(iterator)->hasNext()) {
 							$var($Object, obj, iterator->next());
 							if ($instanceOf($KerberosTicket, obj)) {
 								$var($KerberosTicket, ticket, $cast($KerberosTicket, obj));
 								if (SubjectComber::DEBUG) {
-									$var($String, var$2, $$str({"Found ticket for "_s, $($nc(ticket)->getClient()), " to go to "_s}));
-									$var($String, var$1, $$concat(var$2, $(ticket->getServer())));
-									$var($String, var$0, $$concat(var$1, " expiring on "_s));
-									$nc($System::out)->println($$concat(var$0, $(ticket->getEndTime())));
+									$var($StringBuilder, var$0, $new($StringBuilder));
+									var$0->append("Found ticket for "_s);
+									var$0->append($(ticket->getClient()));
+									var$0->append(" to go to "_s);
+									var$0->append($(ticket->getServer()));
+									var$0->append(" expiring on "_s);
+									var$0->append($(ticket->getEndTime()));
+									$nc($System::out)->println($$str(var$0));
 								}
-								if (!$nc(ticket)->isCurrent()) {
+								if (!ticket->isCurrent()) {
 									if (!subject->isReadOnly()) {
 										iterator->remove();
 										try {
@@ -180,25 +153,25 @@ $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$rena
 										}
 									}
 								} else {
-									$var($KerberosPrincipal, serverAlias, $nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketGetServerAlias(ticket));
-									bool var$3 = serverPrincipal == nullptr || $nc($($nc($(ticket->getServer()))->getName()))->equals(serverPrincipal);
-									if (var$3 || (serverAlias != nullptr && $nc(serverPrincipal)->equals($(serverAlias->getName())))) {
-										$var($KerberosPrincipal, clientAlias, $nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketGetClientAlias(ticket));
-										bool var$4 = clientPrincipal == nullptr || $nc(clientPrincipal)->equals($($nc($(ticket->getClient()))->getName()));
-										if (var$4 || (clientAlias != nullptr && $nc(clientPrincipal)->equals($(clientAlias->getName())))) {
+									$var($KerberosPrincipal, serverAlias, $$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketGetServerAlias(ticket));
+									bool var$1 = serverPrincipal == nullptr || $$nc($$nc(ticket->getServer())->getName())->equals(serverPrincipal);
+									if (var$1 || (serverAlias != nullptr && serverPrincipal->equals($(serverAlias->getName())))) {
+										$var($KerberosPrincipal, clientAlias, $$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketGetClientAlias(ticket));
+										bool var$2 = clientPrincipal == nullptr || clientPrincipal->equals($($$nc(ticket->getClient())->getName()));
+										if (var$2 || (clientAlias != nullptr && clientPrincipal->equals($(clientAlias->getName())))) {
 											if (oneOnly) {
 												return $of(ticket);
 											} else {
 												if (clientPrincipal == nullptr) {
 													if (clientAlias == nullptr) {
-														$assign(clientPrincipal, $nc($(ticket->getClient()))->getName());
+														$assign(clientPrincipal, $$nc(ticket->getClient())->getName());
 													} else {
 														$assign(clientPrincipal, clientAlias->getName());
 													}
 												}
 												if (serverPrincipal == nullptr) {
 													if (serverAlias == nullptr) {
-														$assign(serverPrincipal, $nc($(ticket->getServer()))->getName());
+														$assign(serverPrincipal, $$nc(ticket->getServer())->getName());
 													} else {
 														$assign(serverPrincipal, serverAlias->getName());
 													}
@@ -214,11 +187,11 @@ $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$rena
 				}
 			}
 		}
-		return $of(answer);
+		return answer;
 	}
 }
 
-void clinit$SubjectComber($Class* class$) {
+void SubjectComber::clinit$($Class* clazz) {
 	$init($Krb5Util);
 	SubjectComber::DEBUG = $Krb5Util::DEBUG;
 }
@@ -227,7 +200,28 @@ SubjectComber::SubjectComber() {
 }
 
 $Class* SubjectComber::load$($String* name, bool initialize) {
-	$loadClass(SubjectComber, name, initialize, &_SubjectComber_ClassInfo_, clinit$SubjectComber, allocate$SubjectComber);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SubjectComber, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SubjectComber, init$, void)},
+		{"find", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(SubjectComber, find, $Object*, $Subject*, $String*, $String*, $Class*)},
+		{"findAux", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;Z)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(SubjectComber, findAux, $Object*, $Subject*, $String*, $String*, $Class*, bool)},
+		{"findMany", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(SubjectComber, findMany, $List*, $Subject*, $String*, $String*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.SubjectComber",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubjectComber, name, initialize, &classInfo$$, SubjectComber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SubjectComber);
+	});
 	return class$;
 }
 

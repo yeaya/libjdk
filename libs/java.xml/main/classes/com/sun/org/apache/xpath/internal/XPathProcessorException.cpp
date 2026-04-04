@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/XPathProcessorException.h>
-
 #include <com/sun/org/apache/xpath/internal/XPathException.h>
 #include <jcpp.h>
 
@@ -15,30 +14,6 @@ namespace com {
 			namespace apache {
 				namespace xpath {
 					namespace internal {
-
-$FieldInfo _XPathProcessorException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XPathProcessorException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XPathProcessorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathProcessorException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XPathProcessorException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _XPathProcessorException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.XPathProcessorException",
-	"com.sun.org.apache.xpath.internal.XPathException",
-	nullptr,
-	_XPathProcessorException_FieldInfo_,
-	_XPathProcessorException_MethodInfo_
-};
-
-$Object* allocate$XPathProcessorException($Class* clazz) {
-	return $of($alloc(XPathProcessorException));
-}
 
 void XPathProcessorException::init$($String* message) {
 	$XPathException::init$(message);
@@ -59,7 +34,26 @@ void XPathProcessorException::throw$() {
 }
 
 $Class* XPathProcessorException::load$($String* name, bool initialize) {
-	$loadClass(XPathProcessorException, name, initialize, &_XPathProcessorException_ClassInfo_, allocate$XPathProcessorException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XPathProcessorException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathProcessorException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XPathProcessorException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.XPathProcessorException",
+		"com.sun.org.apache.xpath.internal.XPathException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathProcessorException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathProcessorException);
+	});
 	return class$;
 }
 

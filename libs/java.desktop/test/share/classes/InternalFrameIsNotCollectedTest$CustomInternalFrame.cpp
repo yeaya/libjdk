@@ -1,52 +1,13 @@
 #include <InternalFrameIsNotCollectedTest$CustomInternalFrame.h>
-
 #include <InternalFrameIsNotCollectedTest.h>
 #include <javax/swing/JInternalFrame.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-
-$FieldInfo _InternalFrameIsNotCollectedTest$CustomInternalFrame_FieldInfo_[] = {
-	{"finalized", "Z", nullptr, $PUBLIC | $STATIC | $VOLATILE, $staticField(InternalFrameIsNotCollectedTest$CustomInternalFrame, finalized)},
-	{"waiter", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticField(InternalFrameIsNotCollectedTest$CustomInternalFrame, waiter)},
-	{}
-};
-
-$MethodInfo _InternalFrameIsNotCollectedTest$CustomInternalFrame_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InternalFrameIsNotCollectedTest$CustomInternalFrame, init$, void, $String*)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(InternalFrameIsNotCollectedTest$CustomInternalFrame, finalize, void)},
-	{}
-};
-
-$InnerClassInfo _InternalFrameIsNotCollectedTest$CustomInternalFrame_InnerClassesInfo_[] = {
-	{"InternalFrameIsNotCollectedTest$CustomInternalFrame", "InternalFrameIsNotCollectedTest", "CustomInternalFrame", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _InternalFrameIsNotCollectedTest$CustomInternalFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InternalFrameIsNotCollectedTest$CustomInternalFrame",
-	"javax.swing.JInternalFrame",
-	nullptr,
-	_InternalFrameIsNotCollectedTest$CustomInternalFrame_FieldInfo_,
-	_InternalFrameIsNotCollectedTest$CustomInternalFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InternalFrameIsNotCollectedTest$CustomInternalFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"InternalFrameIsNotCollectedTest"
-};
-
-$Object* allocate$InternalFrameIsNotCollectedTest$CustomInternalFrame($Class* clazz) {
-	return $of($alloc(InternalFrameIsNotCollectedTest$CustomInternalFrame));
-}
 
 $volatile(bool) InternalFrameIsNotCollectedTest$CustomInternalFrame::finalized = false;
 $Object* InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter = nullptr;
@@ -58,10 +19,10 @@ void InternalFrameIsNotCollectedTest$CustomInternalFrame::init$($String* title) 
 void InternalFrameIsNotCollectedTest$CustomInternalFrame::finalize() {
 	$nc($System::out)->println("Finalized!"_s);
 	InternalFrameIsNotCollectedTest$CustomInternalFrame::finalized = true;
-	$nc($of(InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter))->notifyAll();
+	$nc(InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter)->notifyAll();
 }
 
-void clinit$InternalFrameIsNotCollectedTest$CustomInternalFrame($Class* class$) {
+void InternalFrameIsNotCollectedTest$CustomInternalFrame::clinit$($Class* clazz) {
 	InternalFrameIsNotCollectedTest$CustomInternalFrame::finalized = false;
 	$assignStatic(InternalFrameIsNotCollectedTest$CustomInternalFrame::waiter, $new($Object));
 }
@@ -70,7 +31,38 @@ InternalFrameIsNotCollectedTest$CustomInternalFrame::InternalFrameIsNotCollected
 }
 
 $Class* InternalFrameIsNotCollectedTest$CustomInternalFrame::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameIsNotCollectedTest$CustomInternalFrame, name, initialize, &_InternalFrameIsNotCollectedTest$CustomInternalFrame_ClassInfo_, clinit$InternalFrameIsNotCollectedTest$CustomInternalFrame, allocate$InternalFrameIsNotCollectedTest$CustomInternalFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"finalized", "Z", nullptr, $PUBLIC | $STATIC | $VOLATILE, $staticField(InternalFrameIsNotCollectedTest$CustomInternalFrame, finalized)},
+		{"waiter", "Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticField(InternalFrameIsNotCollectedTest$CustomInternalFrame, waiter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InternalFrameIsNotCollectedTest$CustomInternalFrame, init$, void, $String*)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(InternalFrameIsNotCollectedTest$CustomInternalFrame, finalize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InternalFrameIsNotCollectedTest$CustomInternalFrame", "InternalFrameIsNotCollectedTest", "CustomInternalFrame", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InternalFrameIsNotCollectedTest$CustomInternalFrame",
+		"javax.swing.JInternalFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"InternalFrameIsNotCollectedTest"
+	};
+	$loadClass(InternalFrameIsNotCollectedTest$CustomInternalFrame, name, initialize, &classInfo$$, InternalFrameIsNotCollectedTest$CustomInternalFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InternalFrameIsNotCollectedTest$CustomInternalFrame));
+	});
 	return class$;
 }
 

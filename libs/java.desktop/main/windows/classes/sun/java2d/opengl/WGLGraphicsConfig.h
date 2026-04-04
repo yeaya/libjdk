@@ -78,6 +78,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::Win32GraphicsDevice* device, int32_t visualnum, int64_t configInfo, ::sun::java2d::pipe::hw::ContextCapabilities* oglCaps);
 	virtual void assertOperationSupported(::java::awt::Component* target, int32_t numBuffers, ::java::awt::BufferCapabilities* caps) override;
 	virtual ::java::awt::image::VolatileImage* createBackBuffer(::sun::awt::windows::WComponentPeer* peer) override;

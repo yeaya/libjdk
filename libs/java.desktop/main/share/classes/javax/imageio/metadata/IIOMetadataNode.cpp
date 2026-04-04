@@ -1,5 +1,4 @@
 #include <javax/imageio/metadata/IIOMetadataNode.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/metadata/IIOAttr.h>
@@ -47,108 +46,6 @@ using $UserDataHandler = ::org::w3c::dom::UserDataHandler;
 namespace javax {
 	namespace imageio {
 		namespace metadata {
-
-$FieldInfo _IIOMetadataNode_FieldInfo_[] = {
-	{"nodeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataNode, nodeName)},
-	{"nodeValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataNode, nodeValue)},
-	{"userObject", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(IIOMetadataNode, userObject)},
-	{"parent", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, parent)},
-	{"numChildren", "I", nullptr, $PRIVATE, $field(IIOMetadataNode, numChildren)},
-	{"firstChild", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, firstChild)},
-	{"lastChild", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, lastChild)},
-	{"nextSibling", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, nextSibling)},
-	{"previousSibling", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, previousSibling)},
-	{"attributes", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/metadata/IIOAttr;>;", $PRIVATE, $field(IIOMetadataNode, attributes)},
-	{}
-};
-
-$MethodInfo _IIOMetadataNode_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IIOMetadataNode, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IIOMetadataNode, init$, void, $String*)},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, appendChild, $Node*, $Node*)},
-	{"checkNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(IIOMetadataNode, checkNode, void, $Node*), "org.w3c.dom.DOMException"},
-	{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, cloneNode, $Node*, bool)},
-	{"compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, compareDocumentPosition, int16_t, $Node*), "org.w3c.dom.DOMException"},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttribute, $String*, $String*)},
-	{"getAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributeNS, $String*, $String*, $String*)},
-	{"getAttributeNode", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributeNode, $Attr*, $String*)},
-	{"getAttributeNodeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributeNodeNS, $Attr*, $String*, $String*)},
-	{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributes, $NamedNodeMap*)},
-	{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getBaseURI, $String*), "org.w3c.dom.DOMException"},
-	{"getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getChildNodes, $NodeList*)},
-	{"getElementsByTagName", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getElementsByTagName, $NodeList*, $String*)},
-	{"getElementsByTagName", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Lorg/w3c/dom/Node;>;)V", $PRIVATE, $method(IIOMetadataNode, getElementsByTagName, void, $String*, $List*)},
-	{"getElementsByTagNameNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getElementsByTagNameNS, $NodeList*, $String*, $String*)},
-	{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getFeature, $Object*, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getFirstChild, $Node*)},
-	{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getLastChild, $Node*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getLength, int32_t)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getLocalName, $String*)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNamespaceURI, $String*), "org.w3c.dom.DOMException"},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNextSibling, $Node*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNodeName, $String*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNodeType, int16_t)},
-	{"getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNodeValue, $String*)},
-	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getOwnerDocument, $Document*)},
-	{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getParentNode, $Node*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getPrefix, $String*)},
-	{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getPreviousSibling, $Node*)},
-	{"getSchemaTypeInfo", "()Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getSchemaTypeInfo, $TypeInfo*), "org.w3c.dom.DOMException"},
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getTagName, $String*)},
-	{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getTextContent, $String*), "org.w3c.dom.DOMException"},
-	{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getUserData, $Object*, $String*), "org.w3c.dom.DOMException"},
-	{"getUserObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getUserObject, $Object*)},
-	{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasAttribute, bool, $String*)},
-	{"hasAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasAttributeNS, bool, $String*, $String*)},
-	{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasAttributes, bool)},
-	{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasChildNodes, bool)},
-	{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, insertBefore, $Node*, $Node*, $Node*)},
-	{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isDefaultNamespace, bool, $String*), "org.w3c.dom.DOMException"},
-	{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isEqualNode, bool, $Node*), "org.w3c.dom.DOMException"},
-	{"isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isSameNode, bool, $Node*), "org.w3c.dom.DOMException"},
-	{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isSupported, bool, $String*, $String*)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, item, $Node*, int32_t)},
-	{"lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, lookupNamespaceURI, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, lookupPrefix, $String*, $String*), "org.w3c.dom.DOMException"},
-	{"normalize", "()V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, normalize, void)},
-	{"removeAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeAttribute, void, $String*)},
-	{"removeAttribute", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(IIOMetadataNode, removeAttribute, void, $String*, bool)},
-	{"removeAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeAttributeNS, void, $String*, $String*)},
-	{"removeAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeAttributeNode, $Attr*, $Attr*)},
-	{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeChild, $Node*, $Node*)},
-	{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, replaceChild, $Node*, $Node*, $Node*)},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttribute, void, $String*, $String*)},
-	{"setAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttributeNS, void, $String*, $String*, $String*)},
-	{"setAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttributeNode, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
-	{"setAttributeNodeNS", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttributeNodeNS, $Attr*, $Attr*)},
-	{"setIdAttribute", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setIdAttribute, void, $String*, bool), "org.w3c.dom.DOMException"},
-	{"setIdAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setIdAttributeNS, void, $String*, $String*, bool), "org.w3c.dom.DOMException"},
-	{"setIdAttributeNode", "(Lorg/w3c/dom/Attr;Z)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setIdAttributeNode, void, $Attr*, bool), "org.w3c.dom.DOMException"},
-	{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setNodeValue, void, $String*)},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setPrefix, void, $String*)},
-	{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
-	{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setUserData, $Object*, $String*, Object$*, $UserDataHandler*), "org.w3c.dom.DOMException"},
-	{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setUserObject, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _IIOMetadataNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.metadata.IIOMetadataNode",
-	"java.lang.Object",
-	"org.w3c.dom.Element,org.w3c.dom.NodeList",
-	_IIOMetadataNode_FieldInfo_,
-	_IIOMetadataNode_MethodInfo_
-};
-
-$Object* allocate$IIOMetadataNode($Class* clazz) {
-	return $of($alloc(IIOMetadataNode));
-}
 
 int32_t IIOMetadataNode::hashCode() {
 	 return this->$Element::hashCode();
@@ -255,7 +152,7 @@ $Document* IIOMetadataNode::getOwnerDocument() {
 }
 
 $Node* IIOMetadataNode::insertBefore($Node* newChild, $Node* refChild) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newChild == nullptr) {
 		$throwNew($IllegalArgumentException, "newChild == null!"_s);
 	}
@@ -290,7 +187,7 @@ $Node* IIOMetadataNode::insertBefore($Node* newChild, $Node* refChild) {
 }
 
 $Node* IIOMetadataNode::replaceChild($Node* newChild, $Node* oldChild) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newChild == nullptr) {
 		$throwNew($IllegalArgumentException, "newChild == null!"_s);
 	}
@@ -322,7 +219,7 @@ $Node* IIOMetadataNode::replaceChild($Node* newChild, $Node* oldChild) {
 }
 
 $Node* IIOMetadataNode::removeChild($Node* oldChild) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldChild == nullptr) {
 		$throwNew($IllegalArgumentException, "oldChild == null!"_s);
 	}
@@ -362,15 +259,13 @@ bool IIOMetadataNode::hasChildNodes() {
 }
 
 $Node* IIOMetadataNode::cloneNode(bool deep) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(IIOMetadataNode, newNode, $new(IIOMetadataNode, this->nodeName));
 	newNode->setUserObject($(getUserObject()));
 	if (deep) {
-		{
-			$var(IIOMetadataNode, child, this->firstChild);
-			for (; child != nullptr; $assign(child, $nc(child)->nextSibling)) {
-				newNode->appendChild($(child->cloneNode(true)));
-			}
+		$var(IIOMetadataNode, child, this->firstChild);
+		for (; child != nullptr; $assign(child, child->nextSibling)) {
+			newNode->appendChild($(child->cloneNode(true)));
 		}
 	}
 	return newNode;
@@ -415,11 +310,11 @@ $String* IIOMetadataNode::getAttributeNS($String* namespaceURI, $String* localNa
 }
 
 void IIOMetadataNode::setAttribute($String* name, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool valid = true;
 	$var($chars, chs, $nc(name)->toCharArray());
 	for (int32_t i = 0; i < chs->length; ++i) {
-		if (chs->get(i) >= 0x0000FFFE) {
+		if (chs->get(i) >= 0x0000fffe) {
 			valid = false;
 			break;
 		}
@@ -440,12 +335,12 @@ void IIOMetadataNode::removeAttribute($String* name) {
 }
 
 void IIOMetadataNode::removeAttribute($String* name, bool checkPresent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numAttributes = $nc(this->attributes)->size();
 	for (int32_t i = 0; i < numAttributes; ++i) {
 		$var($IIOAttr, attr, $cast($IIOAttr, $nc(this->attributes)->get(i)));
 		if ($nc(name)->equals($($nc(attr)->getName()))) {
-			$nc(attr)->setOwnerElement(nullptr);
+			attr->setOwnerElement(nullptr);
 			$nc(this->attributes)->remove(i);
 			return;
 		}
@@ -460,8 +355,8 @@ void IIOMetadataNode::removeAttributeNS($String* namespaceURI, $String* localNam
 }
 
 $Attr* IIOMetadataNode::getAttributeNode($String* name) {
-	$useLocalCurrentObjectStackCache();
-	$var($Node, node, $nc($(getAttributes()))->getNamedItem(name));
+	$useLocalObjectStack();
+	$var($Node, node, $$nc(getAttributes())->getNamedItem(name));
 	return $cast($Attr, node);
 }
 
@@ -470,7 +365,7 @@ $Attr* IIOMetadataNode::getAttributeNodeNS($String* namespaceURI, $String* local
 }
 
 $Attr* IIOMetadataNode::setAttributeNode($Attr* newAttr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, owner, $nc(newAttr)->getOwnerElement());
 	if (owner != nullptr) {
 		if ($equals(owner, this)) {
@@ -517,7 +412,7 @@ void IIOMetadataNode::getElementsByTagName($String* name, $List* l) {
 	}
 	$var($Node, child, getFirstChild());
 	while (child != nullptr) {
-		$nc(($cast(IIOMetadataNode, child)))->getElementsByTagName(name, l);
+		$cast(IIOMetadataNode, child)->getElementsByTagName(name, l);
 		$assign(child, child->getNextSibling());
 	}
 }
@@ -554,7 +449,7 @@ $Node* IIOMetadataNode::item(int32_t index) {
 }
 
 $Object* IIOMetadataNode::getUserObject() {
-	return $of(this->userObject);
+	return this->userObject;
 }
 
 void IIOMetadataNode::setUserObject(Object$* userObject) {
@@ -641,7 +536,104 @@ IIOMetadataNode::IIOMetadataNode() {
 }
 
 $Class* IIOMetadataNode::load$($String* name, bool initialize) {
-	$loadClass(IIOMetadataNode, name, initialize, &_IIOMetadataNode_ClassInfo_, allocate$IIOMetadataNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"nodeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataNode, nodeName)},
+		{"nodeValue", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IIOMetadataNode, nodeValue)},
+		{"userObject", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(IIOMetadataNode, userObject)},
+		{"parent", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, parent)},
+		{"numChildren", "I", nullptr, $PRIVATE, $field(IIOMetadataNode, numChildren)},
+		{"firstChild", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, firstChild)},
+		{"lastChild", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, lastChild)},
+		{"nextSibling", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, nextSibling)},
+		{"previousSibling", "Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PRIVATE, $field(IIOMetadataNode, previousSibling)},
+		{"attributes", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/metadata/IIOAttr;>;", $PRIVATE, $field(IIOMetadataNode, attributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IIOMetadataNode, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IIOMetadataNode, init$, void, $String*)},
+		{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, appendChild, $Node*, $Node*)},
+		{"checkNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(IIOMetadataNode, checkNode, void, $Node*), "org.w3c.dom.DOMException"},
+		{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, cloneNode, $Node*, bool)},
+		{"compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, compareDocumentPosition, int16_t, $Node*), "org.w3c.dom.DOMException"},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttribute, $String*, $String*)},
+		{"getAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributeNS, $String*, $String*, $String*)},
+		{"getAttributeNode", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributeNode, $Attr*, $String*)},
+		{"getAttributeNodeNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributeNodeNS, $Attr*, $String*, $String*)},
+		{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getAttributes, $NamedNodeMap*)},
+		{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getBaseURI, $String*), "org.w3c.dom.DOMException"},
+		{"getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getChildNodes, $NodeList*)},
+		{"getElementsByTagName", "(Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getElementsByTagName, $NodeList*, $String*)},
+		{"getElementsByTagName", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Lorg/w3c/dom/Node;>;)V", $PRIVATE, $method(IIOMetadataNode, getElementsByTagName, void, $String*, $List*)},
+		{"getElementsByTagNameNS", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getElementsByTagNameNS, $NodeList*, $String*, $String*)},
+		{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getFeature, $Object*, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getFirstChild, $Node*)},
+		{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getLastChild, $Node*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getLength, int32_t)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getLocalName, $String*)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNamespaceURI, $String*), "org.w3c.dom.DOMException"},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNextSibling, $Node*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNodeName, $String*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNodeType, int16_t)},
+		{"getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getNodeValue, $String*)},
+		{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getOwnerDocument, $Document*)},
+		{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getParentNode, $Node*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getPrefix, $String*)},
+		{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getPreviousSibling, $Node*)},
+		{"getSchemaTypeInfo", "()Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getSchemaTypeInfo, $TypeInfo*), "org.w3c.dom.DOMException"},
+		{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getTagName, $String*)},
+		{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getTextContent, $String*), "org.w3c.dom.DOMException"},
+		{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getUserData, $Object*, $String*), "org.w3c.dom.DOMException"},
+		{"getUserObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, getUserObject, $Object*)},
+		{"hasAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasAttribute, bool, $String*)},
+		{"hasAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasAttributeNS, bool, $String*, $String*)},
+		{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasAttributes, bool)},
+		{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, hasChildNodes, bool)},
+		{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, insertBefore, $Node*, $Node*, $Node*)},
+		{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isDefaultNamespace, bool, $String*), "org.w3c.dom.DOMException"},
+		{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isEqualNode, bool, $Node*), "org.w3c.dom.DOMException"},
+		{"isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isSameNode, bool, $Node*), "org.w3c.dom.DOMException"},
+		{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, isSupported, bool, $String*, $String*)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, item, $Node*, int32_t)},
+		{"lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, lookupNamespaceURI, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, lookupPrefix, $String*, $String*), "org.w3c.dom.DOMException"},
+		{"normalize", "()V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, normalize, void)},
+		{"removeAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeAttribute, void, $String*)},
+		{"removeAttribute", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(IIOMetadataNode, removeAttribute, void, $String*, bool)},
+		{"removeAttributeNS", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeAttributeNS, void, $String*, $String*)},
+		{"removeAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeAttributeNode, $Attr*, $Attr*)},
+		{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, removeChild, $Node*, $Node*)},
+		{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, replaceChild, $Node*, $Node*, $Node*)},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttribute, void, $String*, $String*)},
+		{"setAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttributeNS, void, $String*, $String*, $String*)},
+		{"setAttributeNode", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttributeNode, $Attr*, $Attr*), "org.w3c.dom.DOMException"},
+		{"setAttributeNodeNS", "(Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setAttributeNodeNS, $Attr*, $Attr*)},
+		{"setIdAttribute", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setIdAttribute, void, $String*, bool), "org.w3c.dom.DOMException"},
+		{"setIdAttributeNS", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setIdAttributeNS, void, $String*, $String*, bool), "org.w3c.dom.DOMException"},
+		{"setIdAttributeNode", "(Lorg/w3c/dom/Attr;Z)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setIdAttributeNode, void, $Attr*, bool), "org.w3c.dom.DOMException"},
+		{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setNodeValue, void, $String*)},
+		{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setPrefix, void, $String*)},
+		{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
+		{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setUserData, $Object*, $String*, Object$*, $UserDataHandler*), "org.w3c.dom.DOMException"},
+		{"setUserObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadataNode, setUserObject, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.metadata.IIOMetadataNode",
+		"java.lang.Object",
+		"org.w3c.dom.Element,org.w3c.dom.NodeList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIOMetadataNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IIOMetadataNode));
+	});
 	return class$;
 }
 

@@ -25,6 +25,7 @@ class $export FontSetByUser : public ::java::lang::Runnable {
 	$class(FontSetByUser, 0, ::java::lang::Runnable)
 public:
 	FontSetByUser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0(::javax::swing::UIManager$LookAndFeelInfo* laf);
 	static void main($StringArray* args);

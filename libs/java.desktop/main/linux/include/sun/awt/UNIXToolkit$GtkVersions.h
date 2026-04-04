@@ -21,6 +21,7 @@ class $import UNIXToolkit$GtkVersions : public ::java::lang::Enum {
 public:
 	UNIXToolkit$GtkVersions();
 	static $Array<::sun::awt::UNIXToolkit$GtkVersions>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t number);
 	virtual int32_t getNumber();
 	static ::sun::awt::UNIXToolkit$GtkVersions* getVersion(int32_t number);

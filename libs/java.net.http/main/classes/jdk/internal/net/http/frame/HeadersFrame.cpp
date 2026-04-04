@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/HeadersFrame.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/List.h>
 #include <jdk/internal/net/http/frame/HeaderFrame.h>
@@ -24,47 +23,6 @@ namespace jdk {
 			namespace http {
 				namespace frame {
 
-$FieldInfo _HeadersFrame_FieldInfo_[] = {
-	{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, TYPE)},
-	{"END_STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, END_STREAM)},
-	{"PADDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, PADDED)},
-	{"PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, PRIORITY)},
-	{"padLength", "I", nullptr, $PRIVATE, $field(HeadersFrame, padLength)},
-	{"streamDependency", "I", nullptr, $PRIVATE, $field(HeadersFrame, streamDependency)},
-	{"weight", "I", nullptr, $PRIVATE, $field(HeadersFrame, weight)},
-	{"exclusive", "Z", nullptr, $PRIVATE, $field(HeadersFrame, exclusive)},
-	{}
-};
-
-$MethodInfo _HeadersFrame_MethodInfo_[] = {
-	{"<init>", "(IILjava/util/List;I)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $List*, int32_t)},
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $List*)},
-	{"<init>", "(IILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $ByteBuffer*)},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, flagAsString, $String*, int32_t)},
-	{"getExclusive", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getExclusive, bool)},
-	{"getPadLength", "()I", nullptr, 0, $virtualMethod(HeadersFrame, getPadLength, int32_t)},
-	{"getStreamDependency", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getStreamDependency, int32_t)},
-	{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getWeight, int32_t)},
-	{"length", "()I", nullptr, 0, $virtualMethod(HeadersFrame, length, int32_t)},
-	{"setPadLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, setPadLength, void, int32_t)},
-	{"setPriority", "(IZI)V", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, setPriority, void, int32_t, bool, int32_t)},
-	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, type, int32_t)},
-	{}
-};
-
-$ClassInfo _HeadersFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.frame.HeadersFrame",
-	"jdk.internal.net.http.frame.HeaderFrame",
-	nullptr,
-	_HeadersFrame_FieldInfo_,
-	_HeadersFrame_MethodInfo_
-};
-
-$Object* allocate$HeadersFrame($Class* clazz) {
-	return $of($alloc(HeadersFrame));
-}
-
 void HeadersFrame::init$(int32_t streamid, int32_t flags, $List* headerBlocks, int32_t padLength) {
 	$HeaderFrame::init$(streamid, flags, headerBlocks);
 	if (padLength > 0) {
@@ -77,7 +35,7 @@ void HeadersFrame::init$(int32_t streamid, int32_t flags, $List* headerBlocks) {
 }
 
 void HeadersFrame::init$(int32_t streamid, int32_t flags, $ByteBuffer* headerBlock) {
-	HeadersFrame::init$(streamid, flags, $($List::of($of(headerBlock))));
+	HeadersFrame::init$(streamid, flags, $($List::of(headerBlock)));
 }
 
 int32_t HeadersFrame::type() {
@@ -85,33 +43,24 @@ int32_t HeadersFrame::type() {
 }
 
 int32_t HeadersFrame::length() {
-	return this->headerLength + (((int32_t)(this->flags & (uint32_t)HeadersFrame::PADDED)) != 0 ? (1 + this->padLength) : 0) + (((int32_t)(this->flags & (uint32_t)HeadersFrame::PRIORITY)) != 0 ? 5 : 0);
+	return this->headerLength + ((this->flags & HeadersFrame::PADDED) != 0 ? (1 + this->padLength) : 0) + ((this->flags & HeadersFrame::PRIORITY) != 0 ? 5 : 0);
 }
 
 $String* HeadersFrame::flagAsString(int32_t flag) {
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (flag) {
 	case HeadersFrame::END_STREAM:
-		{
-			$assign(var$0, "END_STREAM"_s);
-			break;
-		}
+		$assign(var$0, "END_STREAM"_s);
+		break;
 	case HeadersFrame::PADDED:
-		{
-			$assign(var$0, "PADDED"_s);
-			break;
-		}
+		$assign(var$0, "PADDED"_s);
+		break;
 	case HeadersFrame::PRIORITY:
-		{
-			$assign(var$0, "PRIORITY"_s);
-			break;
-		}
+		$assign(var$0, "PRIORITY"_s);
+		break;
 	default:
-		{
-			$assign(var$0, $HeaderFrame::flagAsString(flag));
-			break;
-		}
+		$assign(var$0, $HeaderFrame::flagAsString(flag));
+		break;
 	}
 	return var$0;
 }
@@ -148,7 +97,43 @@ HeadersFrame::HeadersFrame() {
 }
 
 $Class* HeadersFrame::load$($String* name, bool initialize) {
-	$loadClass(HeadersFrame, name, initialize, &_HeadersFrame_ClassInfo_, allocate$HeadersFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, TYPE)},
+		{"END_STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, END_STREAM)},
+		{"PADDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, PADDED)},
+		{"PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeadersFrame, PRIORITY)},
+		{"padLength", "I", nullptr, $PRIVATE, $field(HeadersFrame, padLength)},
+		{"streamDependency", "I", nullptr, $PRIVATE, $field(HeadersFrame, streamDependency)},
+		{"weight", "I", nullptr, $PRIVATE, $field(HeadersFrame, weight)},
+		{"exclusive", "Z", nullptr, $PRIVATE, $field(HeadersFrame, exclusive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/util/List;I)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $List*, int32_t)},
+		{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $List*)},
+		{"<init>", "(IILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $ByteBuffer*)},
+		{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, flagAsString, $String*, int32_t)},
+		{"getExclusive", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getExclusive, bool)},
+		{"getPadLength", "()I", nullptr, 0, $virtualMethod(HeadersFrame, getPadLength, int32_t)},
+		{"getStreamDependency", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getStreamDependency, int32_t)},
+		{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getWeight, int32_t)},
+		{"length", "()I", nullptr, 0, $virtualMethod(HeadersFrame, length, int32_t)},
+		{"setPadLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, setPadLength, void, int32_t)},
+		{"setPriority", "(IZI)V", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, setPriority, void, int32_t, bool, int32_t)},
+		{"type", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, type, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.frame.HeadersFrame",
+		"jdk.internal.net.http.frame.HeaderFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeadersFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadersFrame);
+	});
 	return class$;
 }
 

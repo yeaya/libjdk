@@ -1,8 +1,6 @@
 #include <sun/management/NotificationEmitterSupport.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <javax/management/ListenerNotFoundException.h>
@@ -20,7 +18,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $ListenerNotFoundException = ::javax::management::ListenerNotFoundException;
@@ -32,54 +29,13 @@ using $NotificationEmitterSupport$ListenerInfo = ::sun::management::Notification
 namespace sun {
 	namespace management {
 
-$FieldInfo _NotificationEmitterSupport_FieldInfo_[] = {
-	{"listenerLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(NotificationEmitterSupport, listenerLock)},
-	{"listenerList", "Ljava/util/List;", "Ljava/util/List<Lsun/management/NotificationEmitterSupport$ListenerInfo;>;", $PRIVATE, $field(NotificationEmitterSupport, listenerList)},
-	{}
-};
-
-$MethodInfo _NotificationEmitterSupport_MethodInfo_[] = {
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(NotificationEmitterSupport, init$, void)},
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*)},
-	{"hasListeners", "()Z", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, hasListeners, bool)},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
-	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, sendNotification, void, $Notification*)},
-	{}
-};
-
-$InnerClassInfo _NotificationEmitterSupport_InnerClassesInfo_[] = {
-	{"sun.management.NotificationEmitterSupport$ListenerInfo", "sun.management.NotificationEmitterSupport", "ListenerInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _NotificationEmitterSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.management.NotificationEmitterSupport",
-	"java.lang.Object",
-	"javax.management.NotificationEmitter",
-	_NotificationEmitterSupport_FieldInfo_,
-	_NotificationEmitterSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NotificationEmitterSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.management.NotificationEmitterSupport$ListenerInfo"
-};
-
-$Object* allocate$NotificationEmitterSupport($Class* clazz) {
-	return $of($alloc(NotificationEmitterSupport));
-}
-
 void NotificationEmitterSupport::init$() {
 	$set(this, listenerLock, $new($Object));
 	$set(this, listenerList, $Collections::emptyList());
 }
 
 void NotificationEmitterSupport::addNotificationListener($NotificationListener* listener, $NotificationFilter* filter, Object$* handback) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (listener == nullptr) {
 		$throwNew($IllegalArgumentException, "Listener can\'t be null"_s);
 	}
@@ -92,9 +48,9 @@ void NotificationEmitterSupport::addNotificationListener($NotificationListener* 
 }
 
 void NotificationEmitterSupport::removeNotificationListener($NotificationListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->listenerLock) {
-		$var($List, newList, $new($ArrayList, static_cast<$Collection*>(this->listenerList)));
+		$var($List, newList, $new($ArrayList, this->listenerList));
 		for (int32_t i = newList->size() - 1; i >= 0; --i) {
 			$var($NotificationEmitterSupport$ListenerInfo, li, $cast($NotificationEmitterSupport$ListenerInfo, newList->get(i)));
 			if ($nc(li)->listener == listener) {
@@ -110,10 +66,10 @@ void NotificationEmitterSupport::removeNotificationListener($NotificationListene
 }
 
 void NotificationEmitterSupport::removeNotificationListener($NotificationListener* listener, $NotificationFilter* filter, Object$* handback) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool found = false;
 	$synchronized(this->listenerLock) {
-		$var($List, newList, $new($ArrayList, static_cast<$Collection*>(this->listenerList)));
+		$var($List, newList, $new($ArrayList, this->listenerList));
 		int32_t size = newList->size();
 		for (int32_t i = 0; i < size; ++i) {
 			$var($NotificationEmitterSupport$ListenerInfo, li, $cast($NotificationEmitterSupport$ListenerInfo, newList->get(i)));
@@ -135,7 +91,7 @@ void NotificationEmitterSupport::removeNotificationListener($NotificationListene
 }
 
 void NotificationEmitterSupport::sendNotification($Notification* notification) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (notification == nullptr) {
 		return;
 	}
@@ -146,7 +102,7 @@ void NotificationEmitterSupport::sendNotification($Notification* notification) {
 	int32_t size = $nc(currentList)->size();
 	for (int32_t i = 0; i < size; ++i) {
 		$var($NotificationEmitterSupport$ListenerInfo, li, $cast($NotificationEmitterSupport$ListenerInfo, currentList->get(i)));
-		if ($nc(li)->filter == nullptr || $nc($nc(li)->filter)->isNotificationEnabled(notification)) {
+		if ($nc(li)->filter == nullptr || li->filter->isNotificationEnabled(notification)) {
 			try {
 				$nc(li->listener)->handleNotification(notification, li->handback);
 			} catch ($Exception& e) {
@@ -167,7 +123,42 @@ NotificationEmitterSupport::NotificationEmitterSupport() {
 }
 
 $Class* NotificationEmitterSupport::load$($String* name, bool initialize) {
-	$loadClass(NotificationEmitterSupport, name, initialize, &_NotificationEmitterSupport_ClassInfo_, allocate$NotificationEmitterSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"listenerLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(NotificationEmitterSupport, listenerLock)},
+		{"listenerList", "Ljava/util/List;", "Ljava/util/List<Lsun/management/NotificationEmitterSupport$ListenerInfo;>;", $PRIVATE, $field(NotificationEmitterSupport, listenerList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(NotificationEmitterSupport, init$, void)},
+		{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*)},
+		{"hasListeners", "()Z", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, hasListeners, bool)},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
+		{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, sendNotification, void, $Notification*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.NotificationEmitterSupport$ListenerInfo", "sun.management.NotificationEmitterSupport", "ListenerInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.management.NotificationEmitterSupport",
+		"java.lang.Object",
+		"javax.management.NotificationEmitter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.management.NotificationEmitterSupport$ListenerInfo"
+	};
+	$loadClass(NotificationEmitterSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationEmitterSupport);
+	});
 	return class$;
 }
 

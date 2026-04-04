@@ -37,7 +37,7 @@ public:
 	virtual $floats* getMediaWhitePoint() override;
 	virtual $shorts* getTRC(int32_t component) override;
 	static int32_t toTag(int32_t component);
-	static const int64_t serialVersionUID = (int64_t)0x760811B99AC7A706;
+	static const int64_t serialVersionUID = (int64_t)0x760811b99ac7a706;
 	static const int32_t REDCOMPONENT = 0;
 	static const int32_t GREENCOMPONENT = 1;
 	static const int32_t BLUECOMPONENT = 2;

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTrayIconPeer$XTrayIconEmbeddedFrame.h>
-
 #include <java/awt/Window.h>
 #include <sun/awt/X11/XEmbeddedFrame.h>
 #include <sun/awt/X11/XToolkit.h>
@@ -15,40 +14,6 @@ using $XToolkit = ::sun::awt::X11::XToolkit;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$MethodInfo _XTrayIconPeer$XTrayIconEmbeddedFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XTrayIconPeer$XTrayIconEmbeddedFrame, init$, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, dispose, void)},
-	{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, isResizable, bool)},
-	{"isUndecorated", "()Z", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, isUndecorated, bool)},
-	{"realDispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, realDispose, void)},
-	{}
-};
-
-$InnerClassInfo _XTrayIconPeer$XTrayIconEmbeddedFrame_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTrayIconPeer$XTrayIconEmbeddedFrame", "sun.awt.X11.XTrayIconPeer", "XTrayIconEmbeddedFrame", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XTrayIconPeer$XTrayIconEmbeddedFrame_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XTrayIconPeer$XTrayIconEmbeddedFrame",
-	"sun.awt.X11.XEmbeddedFrame",
-	nullptr,
-	nullptr,
-	_XTrayIconPeer$XTrayIconEmbeddedFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTrayIconPeer$XTrayIconEmbeddedFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTrayIconPeer"
-};
-
-$Object* allocate$XTrayIconPeer$XTrayIconEmbeddedFrame($Class* clazz) {
-	return $of($alloc(XTrayIconPeer$XTrayIconEmbeddedFrame));
-}
 
 void XTrayIconPeer$XTrayIconEmbeddedFrame::init$() {
 	$XEmbeddedFrame::init$($XToolkit::getDefaultRootWindow(), true, true);
@@ -73,7 +38,36 @@ XTrayIconPeer$XTrayIconEmbeddedFrame::XTrayIconPeer$XTrayIconEmbeddedFrame() {
 }
 
 $Class* XTrayIconPeer$XTrayIconEmbeddedFrame::load$($String* name, bool initialize) {
-	$loadClass(XTrayIconPeer$XTrayIconEmbeddedFrame, name, initialize, &_XTrayIconPeer$XTrayIconEmbeddedFrame_ClassInfo_, allocate$XTrayIconPeer$XTrayIconEmbeddedFrame);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XTrayIconPeer$XTrayIconEmbeddedFrame, init$, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, dispose, void)},
+		{"isResizable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, isResizable, bool)},
+		{"isUndecorated", "()Z", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, isUndecorated, bool)},
+		{"realDispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTrayIconPeer$XTrayIconEmbeddedFrame, realDispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTrayIconPeer$XTrayIconEmbeddedFrame", "sun.awt.X11.XTrayIconPeer", "XTrayIconEmbeddedFrame", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XTrayIconPeer$XTrayIconEmbeddedFrame",
+		"sun.awt.X11.XEmbeddedFrame",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTrayIconPeer"
+	};
+	$loadClass(XTrayIconPeer$XTrayIconEmbeddedFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTrayIconPeer$XTrayIconEmbeddedFrame));
+	});
 	return class$;
 }
 

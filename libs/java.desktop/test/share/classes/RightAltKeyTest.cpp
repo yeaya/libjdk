@@ -1,16 +1,13 @@
 #include <RightAltKeyTest.h>
-
 #include <RightAltKeyTest$1.h>
 #include <RightAltKeyTest$2.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/io/Serializable.h>
@@ -35,7 +32,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
-#include <javax/swing/event/MenuListener.h>
 #include <jcpp.h>
 
 #undef ALT_GRAPH_DOWN_MASK
@@ -54,14 +50,11 @@ using $RightAltKeyTest$2 = ::RightAltKeyTest$2;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
 using $GridLayout = ::java::awt::GridLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -85,7 +78,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $MenuListener = ::javax::swing::event::MenuListener;
 
 class RightAltKeyTest$$Lambda$lambda$testJMenuItem$0 : public $ActionListener {
 	$class(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, $NO_CLASS_INIT, $ActionListener)
@@ -96,33 +88,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$testJMenuItem$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$lambda$testJMenuItem$0>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$lambda$testJMenuItem$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, inst$)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$lambda$testJMenuItem$0::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, init$, void, RightAltKeyTest*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$lambda$testJMenuItem$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$lambda$testJMenuItem$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$lambda$testJMenuItem$0::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, init$, void, RightAltKeyTest*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$lambda$testJMenuItem$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$lambda$testJMenuItem$0::class$ = nullptr;
@@ -137,35 +125,31 @@ public:
 	virtual void stateChanged($ChangeEvent* e) override {
 		$nc(inst$)->lambda$testJTabbedPane$1(tp, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
 	$JTabbedPane* tp = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, inst$)},
-	{"tp", "Ljavax/swing/JTabbedPane;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, tp)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;Ljavax/swing/JTabbedPane;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, init$, void, RightAltKeyTest*, $JTabbedPane*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, inst$)},
+		{"tp", "Ljavax/swing/JTabbedPane;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, tp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;Ljavax/swing/JTabbedPane;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, init$, void, RightAltKeyTest*, $JTabbedPane*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1::class$ = nullptr;
@@ -179,33 +163,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->testJMenu();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$testJMenu$2>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$testJMenu$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJMenu$2, inst$)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$testJMenu$2::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJMenu$2, init$, void, RightAltKeyTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJMenu$2, run, void)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$testJMenu$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$testJMenu$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$testJMenu$2::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$testJMenu$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJMenu$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJMenu$2, init$, void, RightAltKeyTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJMenu$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$testJMenu$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$testJMenu$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$testJMenu$2);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$testJMenu$2::class$ = nullptr;
@@ -219,33 +199,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->testJMenuItem();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$testJMenuItem$3>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$testJMenuItem$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJMenuItem$3, inst$)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$testJMenuItem$3::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJMenuItem$3, init$, void, RightAltKeyTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJMenuItem$3, run, void)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$testJMenuItem$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$testJMenuItem$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$testJMenuItem$3::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$testJMenuItem$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJMenuItem$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJMenuItem$3, init$, void, RightAltKeyTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJMenuItem$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$testJMenuItem$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$testJMenuItem$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$testJMenuItem$3);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$testJMenuItem$3::class$ = nullptr;
@@ -259,33 +235,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->testJOptionPane();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$testJOptionPane$4>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$testJOptionPane$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJOptionPane$4, inst$)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$testJOptionPane$4::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJOptionPane$4, init$, void, RightAltKeyTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJOptionPane$4, run, void)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$testJOptionPane$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$testJOptionPane$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$testJOptionPane$4::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$testJOptionPane$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJOptionPane$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJOptionPane$4, init$, void, RightAltKeyTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJOptionPane$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$testJOptionPane$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$testJOptionPane$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$testJOptionPane$4);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$testJOptionPane$4::class$ = nullptr;
@@ -299,33 +271,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->testJTabbedPane();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$testJTabbedPane$5>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$testJTabbedPane$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJTabbedPane$5, inst$)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$testJTabbedPane$5::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJTabbedPane$5, init$, void, RightAltKeyTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJTabbedPane$5, run, void)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$testJTabbedPane$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$testJTabbedPane$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$testJTabbedPane$5::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$testJTabbedPane$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJTabbedPane$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJTabbedPane$5, init$, void, RightAltKeyTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJTabbedPane$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$testJTabbedPane$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$testJTabbedPane$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$testJTabbedPane$5);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$testJTabbedPane$5::class$ = nullptr;
@@ -339,33 +307,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->testJTextArea();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$testJTextArea$6>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$testJTextArea$6::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJTextArea$6, inst$)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$testJTextArea$6::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJTextArea$6, init$, void, RightAltKeyTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJTextArea$6, run, void)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$testJTextArea$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$testJTextArea$6",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$testJTextArea$6::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$testJTextArea$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$testJTextArea$6, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$testJTextArea$6, init$, void, RightAltKeyTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$testJTextArea$6, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$testJTextArea$6",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$testJTextArea$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$testJTextArea$6);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$testJTextArea$6::class$ = nullptr;
@@ -379,90 +343,39 @@ public:
 	virtual void run() override {
 		$nc(inst$)->disposeUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RightAltKeyTest$$Lambda$disposeUI$7>());
-	}
 	RightAltKeyTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RightAltKeyTest$$Lambda$disposeUI$7::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$disposeUI$7, inst$)},
-	{}
-};
-$MethodInfo RightAltKeyTest$$Lambda$disposeUI$7::methodInfos[3] = {
-	{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$disposeUI$7, init$, void, RightAltKeyTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$disposeUI$7, run, void)},
-	{}
-};
-$ClassInfo RightAltKeyTest$$Lambda$disposeUI$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RightAltKeyTest$$Lambda$disposeUI$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RightAltKeyTest$$Lambda$disposeUI$7::load$($String* name, bool initialize) {
-	$loadClass(RightAltKeyTest$$Lambda$disposeUI$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RightAltKeyTest$$Lambda$disposeUI$7, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRightAltKeyTest;)V", nullptr, $PUBLIC, $method(RightAltKeyTest$$Lambda$disposeUI$7, init$, void, RightAltKeyTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RightAltKeyTest$$Lambda$disposeUI$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RightAltKeyTest$$Lambda$disposeUI$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RightAltKeyTest$$Lambda$disposeUI$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest$$Lambda$disposeUI$7);
+	});
 	return class$;
 }
 $Class* RightAltKeyTest$$Lambda$disposeUI$7::class$ = nullptr;
-
-$FieldInfo _RightAltKeyTest_FieldInfo_[] = {
-	{"action", "Z", nullptr, 0, $field(RightAltKeyTest, action)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, 0, $field(RightAltKeyTest, frame)},
-	{}
-};
-
-$MethodInfo _RightAltKeyTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RightAltKeyTest, init$, void)},
-	{"disposeUI", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, disposeUI, void)},
-	{"errLog", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(RightAltKeyTest, errLog, void, $String*, $String*), "java.lang.reflect.InvocationTargetException,java.lang.InterruptedException"},
-	{"lambda$testJMenuItem$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RightAltKeyTest, lambda$testJMenuItem$0, void, $ActionEvent*)},
-	{"lambda$testJTabbedPane$1", "(Ljavax/swing/JTabbedPane;Ljavax/swing/event/ChangeEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RightAltKeyTest, lambda$testJTabbedPane$1, void, $JTabbedPane*, $ChangeEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RightAltKeyTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, test, void), "java.lang.Exception"},
-	{"testJMenu", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJMenu, void)},
-	{"testJMenuItem", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJMenuItem, void)},
-	{"testJOptionPane", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJOptionPane, void)},
-	{"testJTabbedPane", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJTabbedPane, void)},
-	{"testJTextArea", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJTextArea, void)},
-	{}
-};
-
-$InnerClassInfo _RightAltKeyTest_InnerClassesInfo_[] = {
-	{"RightAltKeyTest$2", nullptr, nullptr, 0},
-	{"RightAltKeyTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RightAltKeyTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RightAltKeyTest",
-	"java.lang.Object",
-	nullptr,
-	_RightAltKeyTest_FieldInfo_,
-	_RightAltKeyTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RightAltKeyTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"RightAltKeyTest$2,RightAltKeyTest$1"
-};
-
-$Object* allocate$RightAltKeyTest($Class* clazz) {
-	return $of($alloc(RightAltKeyTest));
-}
 
 void RightAltKeyTest::init$() {
 	this->action = false;
 }
 
 void RightAltKeyTest::testJMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $new($JFrame, "Menu Frame"_s));
 	$var($JMenuBar, mb, $new($JMenuBar));
 	$var($JMenu, m1, $new($JMenu, "File"_s));
@@ -479,13 +392,13 @@ void RightAltKeyTest::testJMenu() {
 }
 
 void RightAltKeyTest::testJMenuItem() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $new($JFrame, "Menu Frame"_s));
 	$var($JMenuBar, mb, $new($JMenuBar));
 	$var($JMenu, m1, $new($JMenu, "File"_s));
 	$var($JMenuItem, i1, $new($JMenuItem, "Save"_s));
 	i1->setAccelerator($($KeyStroke::getKeyStroke($KeyEvent::VK_S, $InputEvent::ALT_GRAPH_DOWN_MASK)));
-	i1->addActionListener(static_cast<$ActionListener*>($$new(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, this)));
+	i1->addActionListener($$new(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, this));
 	$nc(this->frame)->setJMenuBar(mb);
 	mb->add(m1);
 	m1->add(i1);
@@ -501,23 +414,23 @@ void RightAltKeyTest::testJOptionPane() {
 }
 
 void RightAltKeyTest::testJTabbedPane() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $new($JFrame));
 	$var($JPanel, p1, $new($JPanel));
 	$var($JPanel, p2, $new($JPanel));
 	$var($JTabbedPane, tp, $new($JTabbedPane));
-	tp->add("Main"_s, static_cast<$Component*>(p1));
-	tp->add("Visit"_s, static_cast<$Component*>(p2));
+	tp->add("Main"_s, p1);
+	tp->add("Visit"_s, p2);
 	tp->setMnemonicAt(0, $KeyEvent::VK_M);
 	tp->setMnemonicAt(1, $KeyEvent::VK_V);
-	tp->addChangeListener(static_cast<$ChangeListener*>($$new(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, this, tp)));
-	$nc(this->frame)->add(static_cast<$Component*>(tp));
+	tp->addChangeListener($$new(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1, this, tp));
+	$nc(this->frame)->add(tp);
 	$nc(this->frame)->setSize(200, 200);
 	$nc(this->frame)->setVisible(true);
 }
 
 void RightAltKeyTest::testJTextArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextField, firstField, $new($JTextField, 10));
 	$var($JTextField, lastField, $new($JTextField, 10));
 	$var($JLabel, firstLabel, $new($JLabel, "First Name"_s, $JLabel::RIGHT));
@@ -528,25 +441,23 @@ void RightAltKeyTest::testJTextArea() {
 	lastLabel->setLabelFor(lastField);
 	$var($JPanel, p, $new($JPanel));
 	p->setLayout($$new($GridLayout, 2, 2, 5, 5));
-	p->add(static_cast<$Component*>(firstLabel));
-	p->add(static_cast<$Component*>(firstField));
-	p->add(static_cast<$Component*>(lastLabel));
-	p->add(static_cast<$Component*>(lastField));
+	p->add(firstLabel);
+	p->add(firstField);
+	p->add(lastLabel);
+	p->add(lastField);
 	$set(this, frame, $new($JFrame, "MnemonicLabels"_s));
 	lastField->addFocusListener($$new($RightAltKeyTest$2, this));
-	$nc(this->frame)->add(static_cast<$Component*>(p));
+	$nc(this->frame)->add(p);
 	$nc(this->frame)->setSize(200, 200);
 	$nc(this->frame)->setVisible(true);
 }
 
 void RightAltKeyTest::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIManager$LookAndFeelInfoArray, lookAndFeels, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, lookAndFeels);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeel, arr$->get(i$));
 			{
 				$UIManager::setLookAndFeel($($nc(lookAndFeel)->getClassName()));
@@ -554,7 +465,7 @@ void RightAltKeyTest::test() {
 				robot->setAutoDelay(100);
 				robot->waitForIdle();
 				this->action = false;
-				$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(RightAltKeyTest$$Lambda$testJMenu$2, this)));
+				$SwingUtilities::invokeLater($$new(RightAltKeyTest$$Lambda$testJMenu$2, this));
 				robot->waitForIdle();
 				robot->keyPress($KeyEvent::VK_ALT_GRAPH);
 				robot->keyPress($KeyEvent::VK_F);
@@ -562,10 +473,10 @@ void RightAltKeyTest::test() {
 				robot->keyRelease($KeyEvent::VK_ALT_GRAPH);
 				robot->waitForIdle();
 				if (!this->action) {
-					errLog("JMenu"_s, $($nc(lookAndFeel)->getClassName()));
+					errLog("JMenu"_s, $(lookAndFeel->getClassName()));
 				}
 				this->action = false;
-				$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(RightAltKeyTest$$Lambda$testJMenuItem$3, this)));
+				$SwingUtilities::invokeLater($$new(RightAltKeyTest$$Lambda$testJMenuItem$3, this));
 				robot->waitForIdle();
 				robot->keyPress($KeyEvent::VK_ALT_GRAPH);
 				robot->keyPress($KeyEvent::VK_S);
@@ -573,10 +484,10 @@ void RightAltKeyTest::test() {
 				robot->keyRelease($KeyEvent::VK_ALT_GRAPH);
 				robot->waitForIdle();
 				if (!this->action) {
-					errLog("JMenuItem"_s, $($nc(lookAndFeel)->getClassName()));
+					errLog("JMenuItem"_s, $(lookAndFeel->getClassName()));
 				}
 				this->action = false;
-				$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(RightAltKeyTest$$Lambda$testJOptionPane$4, this)));
+				$SwingUtilities::invokeLater($$new(RightAltKeyTest$$Lambda$testJOptionPane$4, this));
 				robot->waitForIdle();
 				robot->keyPress($KeyEvent::VK_ALT_GRAPH);
 				robot->keyPress($KeyEvent::VK_Y);
@@ -584,10 +495,10 @@ void RightAltKeyTest::test() {
 				robot->keyRelease($KeyEvent::VK_ALT_GRAPH);
 				robot->waitForIdle();
 				if (!this->action) {
-					errLog("JOptionPane"_s, $($nc(lookAndFeel)->getClassName()));
+					errLog("JOptionPane"_s, $(lookAndFeel->getClassName()));
 				}
 				this->action = false;
-				$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(RightAltKeyTest$$Lambda$testJTabbedPane$5, this)));
+				$SwingUtilities::invokeLater($$new(RightAltKeyTest$$Lambda$testJTabbedPane$5, this));
 				robot->waitForIdle();
 				robot->keyPress($KeyEvent::VK_ALT_GRAPH);
 				robot->keyPress($KeyEvent::VK_V);
@@ -595,10 +506,10 @@ void RightAltKeyTest::test() {
 				robot->keyRelease($KeyEvent::VK_ALT_GRAPH);
 				robot->waitForIdle();
 				if (!this->action) {
-					errLog("JTabbedPane"_s, $($nc(lookAndFeel)->getClassName()));
+					errLog("JTabbedPane"_s, $(lookAndFeel->getClassName()));
 				}
 				this->action = false;
-				$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(RightAltKeyTest$$Lambda$testJTextArea$6, this)));
+				$SwingUtilities::invokeLater($$new(RightAltKeyTest$$Lambda$testJTextArea$6, this));
 				robot->waitForIdle();
 				robot->keyPress($KeyEvent::VK_ALT_GRAPH);
 				robot->keyPress($KeyEvent::VK_L);
@@ -606,7 +517,7 @@ void RightAltKeyTest::test() {
 				robot->keyRelease($KeyEvent::VK_ALT_GRAPH);
 				robot->waitForIdle();
 				if (!this->action) {
-					errLog("JTextArea"_s, $($nc(lookAndFeel)->getClassName()));
+					errLog("JTextArea"_s, $(lookAndFeel->getClassName()));
 				}
 			}
 		}
@@ -620,8 +531,8 @@ void RightAltKeyTest::disposeUI() {
 }
 
 void RightAltKeyTest::errLog($String* componentName, $String* lookAndFeel) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RightAltKeyTest$$Lambda$disposeUI$7, this)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(RightAltKeyTest$$Lambda$disposeUI$7, this));
 	$throwNew($RuntimeException, $$str({"Actions are not performed for "_s, componentName, " with "_s, lookAndFeel, " look and feel."_s}));
 }
 
@@ -647,32 +558,73 @@ RightAltKeyTest::RightAltKeyTest() {
 
 $Class* RightAltKeyTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$lambda$testJMenuItem$0")) {
 			return RightAltKeyTest$$Lambda$lambda$testJMenuItem$0::load$(name, initialize);
 		}
-		if (name->equals(RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1")) {
 			return RightAltKeyTest$$Lambda$lambda$testJTabbedPane$1$1::load$(name, initialize);
 		}
-		if (name->equals(RightAltKeyTest$$Lambda$testJMenu$2::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$testJMenu$2")) {
 			return RightAltKeyTest$$Lambda$testJMenu$2::load$(name, initialize);
 		}
-		if (name->equals(RightAltKeyTest$$Lambda$testJMenuItem$3::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$testJMenuItem$3")) {
 			return RightAltKeyTest$$Lambda$testJMenuItem$3::load$(name, initialize);
 		}
-		if (name->equals(RightAltKeyTest$$Lambda$testJOptionPane$4::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$testJOptionPane$4")) {
 			return RightAltKeyTest$$Lambda$testJOptionPane$4::load$(name, initialize);
 		}
-		if (name->equals(RightAltKeyTest$$Lambda$testJTabbedPane$5::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$testJTabbedPane$5")) {
 			return RightAltKeyTest$$Lambda$testJTabbedPane$5::load$(name, initialize);
 		}
-		if (name->equals(RightAltKeyTest$$Lambda$testJTextArea$6::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$testJTextArea$6")) {
 			return RightAltKeyTest$$Lambda$testJTextArea$6::load$(name, initialize);
 		}
-		if (name->equals(RightAltKeyTest$$Lambda$disposeUI$7::classInfo$.name)) {
+		if (name->equals("RightAltKeyTest$$Lambda$disposeUI$7")) {
 			return RightAltKeyTest$$Lambda$disposeUI$7::load$(name, initialize);
 		}
 	}
-	$loadClass(RightAltKeyTest, name, initialize, &_RightAltKeyTest_ClassInfo_, allocate$RightAltKeyTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"action", "Z", nullptr, 0, $field(RightAltKeyTest, action)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, 0, $field(RightAltKeyTest, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RightAltKeyTest, init$, void)},
+		{"disposeUI", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, disposeUI, void)},
+		{"errLog", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(RightAltKeyTest, errLog, void, $String*, $String*), "java.lang.reflect.InvocationTargetException,java.lang.InterruptedException"},
+		{"lambda$testJMenuItem$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RightAltKeyTest, lambda$testJMenuItem$0, void, $ActionEvent*)},
+		{"lambda$testJTabbedPane$1", "(Ljavax/swing/JTabbedPane;Ljavax/swing/event/ChangeEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RightAltKeyTest, lambda$testJTabbedPane$1, void, $JTabbedPane*, $ChangeEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RightAltKeyTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, test, void), "java.lang.Exception"},
+		{"testJMenu", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJMenu, void)},
+		{"testJMenuItem", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJMenuItem, void)},
+		{"testJOptionPane", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJOptionPane, void)},
+		{"testJTabbedPane", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJTabbedPane, void)},
+		{"testJTextArea", "()V", nullptr, 0, $virtualMethod(RightAltKeyTest, testJTextArea, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RightAltKeyTest$2", nullptr, nullptr, 0},
+		{"RightAltKeyTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RightAltKeyTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"RightAltKeyTest$2,RightAltKeyTest$1"
+	};
+	$loadClass(RightAltKeyTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RightAltKeyTest);
+	});
 	return class$;
 }
 

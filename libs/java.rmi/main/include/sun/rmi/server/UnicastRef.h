@@ -61,6 +61,7 @@ class $import UnicastRef : public ::java::rmi::server::RemoteRef {
 	$class(UnicastRef, 0, ::java::rmi::server::RemoteRef)
 public:
 	UnicastRef();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::rmi::transport::LiveRef* liveRef);
 	virtual void done(::java::rmi::server::RemoteCall* call) override;
@@ -82,7 +83,7 @@ public:
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
 	static ::sun::rmi::runtime::Log* clientRefLog;
 	static ::sun::rmi::runtime::Log* clientCallLog;
-	static const int64_t serialVersionUID = (int64_t)0x729BA1F19D8F4E02;
+	static const int64_t serialVersionUID = (int64_t)0x729ba1f19d8f4e02;
 	::sun::rmi::transport::LiveRef* ref = nullptr;
 };
 

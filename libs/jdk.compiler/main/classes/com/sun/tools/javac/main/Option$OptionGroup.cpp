@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$OptionGroup.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,48 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _Option$OptionGroup_FieldInfo_[] = {
-	{"BASIC", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, BASIC)},
-	{"FILEMANAGER", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, FILEMANAGER)},
-	{"INFO", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, INFO)},
-	{"OPERAND", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, OPERAND)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$OptionGroup, $VALUES)},
-	{}
-};
-
-$MethodInfo _Option$OptionGroup_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$OptionGroup, $values, $Option$OptionGroupArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Option$OptionGroup, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$OptionGroup, valueOf, Option$OptionGroup*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$OptionGroup, values, $Option$OptionGroupArray*)},
-	{}
-};
-
-$InnerClassInfo _Option$OptionGroup_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$OptionGroup", "com.sun.tools.javac.main.Option", "OptionGroup", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$OptionGroup_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$OptionGroup",
-	"java.lang.Enum",
-	nullptr,
-	_Option$OptionGroup_FieldInfo_,
-	_Option$OptionGroup_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option$OptionGroup;>;",
-	nullptr,
-	_Option$OptionGroup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$OptionGroup($Class* clazz) {
-	return $of($alloc(Option$OptionGroup));
-}
 
 Option$OptionGroup* Option$OptionGroup::BASIC = nullptr;
 Option$OptionGroup* Option$OptionGroup::FILEMANAGER = nullptr;
@@ -94,7 +51,7 @@ void Option$OptionGroup::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Option$OptionGroup($Class* class$) {
+void Option$OptionGroup::clinit$($Class* clazz) {
 	$assignStatic(Option$OptionGroup::BASIC, $new(Option$OptionGroup, "BASIC"_s, 0));
 	$assignStatic(Option$OptionGroup::FILEMANAGER, $new(Option$OptionGroup, "FILEMANAGER"_s, 1));
 	$assignStatic(Option$OptionGroup::INFO, $new(Option$OptionGroup, "INFO"_s, 2));
@@ -106,7 +63,43 @@ Option$OptionGroup::Option$OptionGroup() {
 }
 
 $Class* Option$OptionGroup::load$($String* name, bool initialize) {
-	$loadClass(Option$OptionGroup, name, initialize, &_Option$OptionGroup_ClassInfo_, clinit$Option$OptionGroup, allocate$Option$OptionGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASIC", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, BASIC)},
+		{"FILEMANAGER", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, FILEMANAGER)},
+		{"INFO", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, INFO)},
+		{"OPERAND", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$OptionGroup, OPERAND)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$OptionGroup, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$OptionGroup, $values, $Option$OptionGroupArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Option$OptionGroup, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$OptionGroup, valueOf, Option$OptionGroup*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$OptionGroup, values, $Option$OptionGroupArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$OptionGroup", "com.sun.tools.javac.main.Option", "OptionGroup", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$OptionGroup",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option$OptionGroup;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$OptionGroup, name, initialize, &classInfo$$, Option$OptionGroup::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$OptionGroup));
+	});
 	return class$;
 }
 

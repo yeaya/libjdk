@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsSpinnerUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$GlyphButton.h>
@@ -47,31 +46,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsSpinnerUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSpinnerUI, init$, void)},
-	{"createNextButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(WindowsSpinnerUI, createNextButton, $Component*)},
-	{"createPreviousButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(WindowsSpinnerUI, createPreviousButton, $Component*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsSpinnerUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getUIResource", "([Ljava/lang/Object;)Ljavax/swing/plaf/UIResource;", nullptr, $PRIVATE, $method(WindowsSpinnerUI, getUIResource, $UIResource*, $ObjectArray*)},
-	{"getXPState", "(Ljavax/swing/JComponent;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE, $method(WindowsSpinnerUI, getXPState, $TMSchema$State*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSpinnerUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintXPBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(WindowsSpinnerUI, paintXPBackground, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsSpinnerUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsSpinnerUI",
-	"javax.swing.plaf.basic.BasicSpinnerUI",
-	nullptr,
-	nullptr,
-	_WindowsSpinnerUI_MethodInfo_
-};
-
-$Object* allocate$WindowsSpinnerUI($Class* clazz) {
-	return $of($alloc(WindowsSpinnerUI));
-}
-
 void WindowsSpinnerUI::init$() {
 	$BasicSpinnerUI::init$();
 }
@@ -98,7 +72,7 @@ $TMSchema$State* WindowsSpinnerUI::getXPState($JComponent* c) {
 }
 
 void WindowsSpinnerUI::paintXPBackground($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp == nullptr) {
 		return;
@@ -106,13 +80,12 @@ void WindowsSpinnerUI::paintXPBackground($Graphics* g, $JComponent* c) {
 	$init($TMSchema$Part);
 	$var($XPStyle$Skin, skin, $nc(xp)->getSkin(c, $TMSchema$Part::EP_EDIT));
 	$TMSchema$State* state = getXPState(c);
-	$var($Graphics, var$0, g);
-	int32_t var$1 = $nc(c)->getWidth();
-	$nc(skin)->paintSkin(var$0, 0, 0, var$1, c->getHeight(), state);
+	int32_t var$0 = $nc(c)->getWidth();
+	$nc(skin)->paintSkin(g, 0, 0, var$0, c->getHeight(), state);
 }
 
 $Component* WindowsSpinnerUI::createPreviousButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XPStyle::getXP() != nullptr) {
 		$init($TMSchema$Part);
 		$var($JButton, xpButton, $new($XPStyle$GlyphButton, this->spinner, $TMSchema$Part::SPNP_DOWN));
@@ -126,7 +99,7 @@ $Component* WindowsSpinnerUI::createPreviousButton() {
 }
 
 $Component* WindowsSpinnerUI::createNextButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XPStyle::getXP() != nullptr) {
 		$init($TMSchema$Part);
 		$var($JButton, xpButton, $new($XPStyle$GlyphButton, this->spinner, $TMSchema$Part::SPNP_UP));
@@ -152,7 +125,28 @@ WindowsSpinnerUI::WindowsSpinnerUI() {
 }
 
 $Class* WindowsSpinnerUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsSpinnerUI, name, initialize, &_WindowsSpinnerUI_ClassInfo_, allocate$WindowsSpinnerUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsSpinnerUI, init$, void)},
+		{"createNextButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(WindowsSpinnerUI, createNextButton, $Component*)},
+		{"createPreviousButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(WindowsSpinnerUI, createPreviousButton, $Component*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsSpinnerUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getUIResource", "([Ljava/lang/Object;)Ljavax/swing/plaf/UIResource;", nullptr, $PRIVATE, $method(WindowsSpinnerUI, getUIResource, $UIResource*, $ObjectArray*)},
+		{"getXPState", "(Ljavax/swing/JComponent;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE, $method(WindowsSpinnerUI, getXPState, $TMSchema$State*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSpinnerUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintXPBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(WindowsSpinnerUI, paintXPBackground, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsSpinnerUI",
+		"javax.swing.plaf.basic.BasicSpinnerUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsSpinnerUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSpinnerUI);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class $import ExcC14NParameterSpec : public ::javax::xml::crypto::dsig::spec::C1
 	$class(ExcC14NParameterSpec, 0, ::javax::xml::crypto::dsig::spec::C14NMethodParameterSpec)
 public:
 	ExcC14NParameterSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::List* prefixList);
 	::java::util::List* getPrefixList();

@@ -1,5 +1,4 @@
 #include <javax/swing/text/JTextComponent$AccessibleJTextComponent$1.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/IllegalComponentStateException.h>
 #include <java/awt/Point.h>
@@ -26,50 +25,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _JTextComponent$AccessibleJTextComponent$1_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/JTextComponent$AccessibleJTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$AccessibleJTextComponent$1, this$1)},
-	{"val$this$0", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$AccessibleJTextComponent$1, val$this$0)},
-	{}
-};
-
-$MethodInfo _JTextComponent$AccessibleJTextComponent$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/JTextComponent$AccessibleJTextComponent;Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(JTextComponent$AccessibleJTextComponent$1, init$, void, $JTextComponent$AccessibleJTextComponent*, $JTextComponent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent$1, componentMoved, void, $ComponentEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JTextComponent$AccessibleJTextComponent$1_EnclosingMethodInfo_ = {
-	"javax.swing.text.JTextComponent$AccessibleJTextComponent",
-	"<init>",
-	"(Ljavax/swing/text/JTextComponent;)V"
-};
-
-$InnerClassInfo _JTextComponent$AccessibleJTextComponent$1_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTextComponent$AccessibleJTextComponent$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.JTextComponent$AccessibleJTextComponent$1",
-	"java.awt.event.ComponentAdapter",
-	nullptr,
-	_JTextComponent$AccessibleJTextComponent$1_FieldInfo_,
-	_JTextComponent$AccessibleJTextComponent$1_MethodInfo_,
-	nullptr,
-	&_JTextComponent$AccessibleJTextComponent$1_EnclosingMethodInfo_,
-	_JTextComponent$AccessibleJTextComponent$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.JTextComponent"
-};
-
-$Object* allocate$JTextComponent$AccessibleJTextComponent$1($Class* clazz) {
-	return $of($alloc(JTextComponent$AccessibleJTextComponent$1));
-}
-
 void JTextComponent$AccessibleJTextComponent$1::init$($JTextComponent$AccessibleJTextComponent* this$1, $JTextComponent* val$this$0) {
 	$set(this, this$1, this$1);
 	$set(this, val$this$0, val$this$0);
@@ -89,7 +44,44 @@ JTextComponent$AccessibleJTextComponent$1::JTextComponent$AccessibleJTextCompone
 }
 
 $Class* JTextComponent$AccessibleJTextComponent$1::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent$AccessibleJTextComponent$1, name, initialize, &_JTextComponent$AccessibleJTextComponent$1_ClassInfo_, allocate$JTextComponent$AccessibleJTextComponent$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/JTextComponent$AccessibleJTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$AccessibleJTextComponent$1, this$1)},
+		{"val$this$0", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JTextComponent$AccessibleJTextComponent$1, val$this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/JTextComponent$AccessibleJTextComponent;Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(JTextComponent$AccessibleJTextComponent$1, init$, void, $JTextComponent$AccessibleJTextComponent*, $JTextComponent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$AccessibleJTextComponent$1, componentMoved, void, $ComponentEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.JTextComponent$AccessibleJTextComponent",
+		"<init>",
+		"(Ljavax/swing/text/JTextComponent;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.JTextComponent$AccessibleJTextComponent$1",
+		"java.awt.event.ComponentAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.JTextComponent"
+	};
+	$loadClass(JTextComponent$AccessibleJTextComponent$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextComponent$AccessibleJTextComponent$1);
+	});
 	return class$;
 }
 

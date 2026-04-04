@@ -34,6 +34,7 @@ class TimerQueue$DelayedTimer : public ::java::util::concurrent::Delayed {
 	$class(TimerQueue$DelayedTimer, 0, ::java::util::concurrent::Delayed)
 public:
 	TimerQueue$DelayedTimer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::Timer* timer, int64_t nanos);
 	virtual int32_t compareTo(::java::util::concurrent::Delayed* other);
 	virtual int32_t compareTo(Object$* other) override;

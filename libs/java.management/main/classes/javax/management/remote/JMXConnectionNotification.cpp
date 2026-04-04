@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXConnectionNotification.h>
-
 #include <java/lang/Math.h>
 #include <javax/management/Notification.h>
 #include <jcpp.h>
@@ -21,43 +20,13 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$FieldInfo _JMXConnectionNotification_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXConnectionNotification, serialVersionUID)},
-	{"OPENED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, OPENED)},
-	{"CLOSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, CLOSED)},
-	{"FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, FAILED)},
-	{"NOTIFS_LOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, NOTIFS_LOST)},
-	{"connectionId", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JMXConnectionNotification, connectionId)},
-	{}
-};
-
-$MethodInfo _JMXConnectionNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JMXConnectionNotification, init$, void, $String*, Object$*, $String*, int64_t, $String*, Object$*)},
-	{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXConnectionNotification, getConnectionId, $String*)},
-	{"nonNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXConnectionNotification, nonNull, $Object*, Object$*)},
-	{}
-};
-
-$ClassInfo _JMXConnectionNotification_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.JMXConnectionNotification",
-	"javax.management.Notification",
-	nullptr,
-	_JMXConnectionNotification_FieldInfo_,
-	_JMXConnectionNotification_MethodInfo_
-};
-
-$Object* allocate$JMXConnectionNotification($Class* clazz) {
-	return $of($alloc(JMXConnectionNotification));
-}
-
 $String* JMXConnectionNotification::OPENED = nullptr;
 $String* JMXConnectionNotification::CLOSED = nullptr;
 $String* JMXConnectionNotification::FAILED = nullptr;
 $String* JMXConnectionNotification::NOTIFS_LOST = nullptr;
 
 void JMXConnectionNotification::init$($String* type, Object$* source, $String* connectionId, int64_t sequenceNumber, $String* message, Object$* userData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $cast($String, nonNull(type)));
 	$var($Object, var$1, nonNull(source));
 	int64_t var$2 = $Math::max((int64_t)0, sequenceNumber);
@@ -88,7 +57,7 @@ $String* JMXConnectionNotification::getConnectionId() {
 JMXConnectionNotification::JMXConnectionNotification() {
 }
 
-void clinit$JMXConnectionNotification($Class* class$) {
+void JMXConnectionNotification::clinit$($Class* clazz) {
 	$assignStatic(JMXConnectionNotification::OPENED, "jmx.remote.connection.opened"_s);
 	$assignStatic(JMXConnectionNotification::CLOSED, "jmx.remote.connection.closed"_s);
 	$assignStatic(JMXConnectionNotification::FAILED, "jmx.remote.connection.failed"_s);
@@ -96,7 +65,32 @@ void clinit$JMXConnectionNotification($Class* class$) {
 }
 
 $Class* JMXConnectionNotification::load$($String* name, bool initialize) {
-	$loadClass(JMXConnectionNotification, name, initialize, &_JMXConnectionNotification_ClassInfo_, clinit$JMXConnectionNotification, allocate$JMXConnectionNotification);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXConnectionNotification, serialVersionUID)},
+		{"OPENED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, OPENED)},
+		{"CLOSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, CLOSED)},
+		{"FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, FAILED)},
+		{"NOTIFS_LOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectionNotification, NOTIFS_LOST)},
+		{"connectionId", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JMXConnectionNotification, connectionId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JMXConnectionNotification, init$, void, $String*, Object$*, $String*, int64_t, $String*, Object$*)},
+		{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXConnectionNotification, getConnectionId, $String*)},
+		{"nonNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXConnectionNotification, nonNull, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.JMXConnectionNotification",
+		"javax.management.Notification",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXConnectionNotification, name, initialize, &classInfo$$, JMXConnectionNotification::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXConnectionNotification);
+	});
 	return class$;
 }
 

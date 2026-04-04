@@ -29,6 +29,7 @@ public:
 	using ::javax::swing::JComponent::add;
 	using ::javax::swing::JComponent::getMousePosition;
 	using ::javax::swing::JComponent::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Color* getUserColor();
 	using ::javax::swing::JComponent::requestFocus;

@@ -117,6 +117,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* lexicalRepresentation);
 	void init$();
 	void init$(::java::math::BigInteger* year, int32_t month, int32_t day, int32_t hour, int32_t minute, int32_t second, ::java::math::BigDecimal* fractionalSecond, int32_t timezone);
@@ -206,7 +207,7 @@ public:
 	int32_t second = 0;
 	::java::math::BigDecimal* fractionalSecond = nullptr;
 	static ::java::math::BigInteger* BILLION_B;
-	static const int32_t BILLION_I = 0x3B9ACA00;
+	static const int32_t BILLION_I = 0x3b9aca00;
 	static ::java::util::Date* PURE_GREGORIAN_CHANGE;
 	static const int32_t YEAR = 0;
 	static const int32_t MONTH = 1;

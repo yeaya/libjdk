@@ -1,5 +1,4 @@
 #include <bug4927934.h>
-
 #include <bug4927934$1.h>
 #include <bug4927934$2.h>
 #include <java/awt/Robot.h>
@@ -24,7 +23,6 @@
 #include <javax/swing/event/TreeSelectionListener.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <jcpp.h>
 
 #undef VK_LEFT
@@ -36,7 +34,6 @@ using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -48,7 +45,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JFrame = ::javax::swing::JFrame;
 using $JTree = ::javax::swing::JTree;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $TreeExpansionEvent = ::javax::swing::event::TreeExpansionEvent;
@@ -56,7 +52,6 @@ using $TreeSelectionEvent = ::javax::swing::event::TreeSelectionEvent;
 using $TreeSelectionListener = ::javax::swing::event::TreeSelectionListener;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 
 class bug4927934$$Lambda$dispose : public $Runnable {
 	$class(bug4927934$$Lambda$dispose, $NO_CLASS_INIT, $Runnable)
@@ -67,94 +62,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4927934$$Lambda$dispose>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4927934$$Lambda$dispose::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4927934$$Lambda$dispose, inst$)},
-	{}
-};
-$MethodInfo bug4927934$$Lambda$dispose::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(bug4927934$$Lambda$dispose, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4927934$$Lambda$dispose, run, void)},
-	{}
-};
-$ClassInfo bug4927934$$Lambda$dispose::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4927934$$Lambda$dispose",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4927934$$Lambda$dispose::load$($String* name, bool initialize) {
-	$loadClass(bug4927934$$Lambda$dispose, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4927934$$Lambda$dispose, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(bug4927934$$Lambda$dispose, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4927934$$Lambda$dispose, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4927934$$Lambda$dispose",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4927934$$Lambda$dispose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4927934$$Lambda$dispose);
+	});
 	return class$;
 }
 $Class* bug4927934$$Lambda$dispose::class$ = nullptr;
-
-$FieldInfo _bug4927934_FieldInfo_[] = {
-	{"listener", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(bug4927934, listener)},
-	{"focusGained", "Z", nullptr, $STATIC, $staticField(bug4927934, focusGained$)},
-	{"selectionChanged", "Z", nullptr, $PUBLIC | $STATIC, $staticField(bug4927934, selectionChanged)},
-	{"treeExpanded", "Z", nullptr, $PUBLIC | $STATIC, $staticField(bug4927934, treeExpanded$)},
-	{"treeCollapsed", "Z", nullptr, $PUBLIC | $STATIC, $staticField(bug4927934, treeCollapsed$)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug4927934, frame)},
-	{"tree", "Ljavax/swing/JTree;", nullptr, $STATIC, $staticField(bug4927934, tree)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $STATIC, $staticField(bug4927934, robot)},
-	{}
-};
-
-$MethodInfo _bug4927934_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4927934, init$, void)},
-	{"checkSelectionChanged", "(Ljavax/swing/JTree;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, checkSelectionChanged, bool, $JTree*, int32_t)},
-	{"createNodes", "(Ljavax/swing/tree/DefaultMutableTreeNode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, createNodes, void, $DefaultMutableTreeNode*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, focusLost, void, $FocusEvent*)},
-	{"hitKey", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, hitKey, void, int32_t)},
-	{"isTreeCollapsed", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, isTreeCollapsed, bool)},
-	{"isTreeExpanded", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, isTreeExpanded, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4927934, main, void, $StringArray*), "java.lang.Exception"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"treeCollapsed", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, treeCollapsed, void, $TreeExpansionEvent*)},
-	{"treeExpanded", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, treeExpanded, void, $TreeExpansionEvent*)},
-	{"valueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, valueChanged, void, $TreeSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _bug4927934_InnerClassesInfo_[] = {
-	{"bug4927934$2", nullptr, nullptr, 0},
-	{"bug4927934$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4927934_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4927934",
-	"java.lang.Object",
-	"javax.swing.event.TreeSelectionListener,javax.swing.event.TreeExpansionListener,java.awt.event.FocusListener",
-	_bug4927934_FieldInfo_,
-	_bug4927934_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4927934_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4927934$2,bug4927934$1"
-};
-
-$Object* allocate$bug4927934($Class* clazz) {
-	return $of($alloc(bug4927934));
-}
 
 int32_t bug4927934::hashCode() {
 	 return this->$TreeSelectionListener::hashCode();
@@ -190,90 +123,88 @@ void bug4927934::init$() {
 
 void bug4927934::main($StringArray* args) {
 	$init(bug4927934);
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	$assignStatic(bug4927934::robot, $new($Robot));
-	$nc(bug4927934::robot)->setAutoDelay(50);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($bug4927934$1));
-			$nc(bug4927934::robot)->waitForIdle();
-			$Thread::sleep(1000);
-			$SwingUtilities::invokeLater($$new($bug4927934$2));
-			$synchronized(bug4927934::listener) {
-				if (!bug4927934::focusGained$) {
-					$nc($System::out)->println("waiting focusGained..."_s);
-					try {
-						$nc($of(bug4927934::listener))->wait(10000);
-					} catch ($InterruptedException& e) {
-						e->printStackTrace();
-					}
+	bug4927934::robot->setAutoDelay(50);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($bug4927934$1));
+		$nc(bug4927934::robot)->waitForIdle();
+		$Thread::sleep(1000);
+		$SwingUtilities::invokeLater($$new($bug4927934$2));
+		$synchronized(bug4927934::listener) {
+			if (!bug4927934::focusGained$) {
+				$nc($System::out)->println("waiting focusGained..."_s);
+				try {
+					bug4927934::listener->wait(10000);
+				} catch ($InterruptedException& e) {
+					e->printStackTrace();
 				}
 			}
-			bug4927934::selectionChanged = false;
-			hitKey($KeyEvent::VK_RIGHT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!checkSelectionChanged(bug4927934::tree, 0)) {
-				$throwNew($RuntimeException, "Root should be selected"_s);
-			}
-			bug4927934::selectionChanged = false;
-			hitKey($KeyEvent::VK_RIGHT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!checkSelectionChanged(bug4927934::tree, 1)) {
-				$throwNew($RuntimeException, "Node should be selected"_s);
-			}
-			bug4927934::treeExpanded$ = false;
-			hitKey($KeyEvent::VK_RIGHT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!isTreeExpanded()) {
-				$throwNew($RuntimeException, "Node should be expanded"_s);
-			}
-			bug4927934::selectionChanged = false;
-			hitKey($KeyEvent::VK_RIGHT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!checkSelectionChanged(bug4927934::tree, 2)) {
-				$throwNew($RuntimeException, "Leaf1 should be selected"_s);
-			}
-			bug4927934::selectionChanged = false;
-			hitKey($KeyEvent::VK_RIGHT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!checkSelectionChanged(bug4927934::tree, 2)) {
-				$throwNew($RuntimeException, "Leaf1 should be selected"_s);
-			}
-			bug4927934::selectionChanged = false;
-			hitKey($KeyEvent::VK_LEFT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!checkSelectionChanged(bug4927934::tree, 1)) {
-				$throwNew($RuntimeException, "Node should be selected"_s);
-			}
-			bug4927934::treeCollapsed$ = false;
-			hitKey($KeyEvent::VK_LEFT);
-			if (!isTreeCollapsed()) {
-				$throwNew($RuntimeException, "Node should be collapsed"_s);
-			}
-			bug4927934::selectionChanged = false;
-			hitKey($KeyEvent::VK_LEFT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!checkSelectionChanged(bug4927934::tree, 0)) {
-				$throwNew($RuntimeException, "Root should be selected"_s);
-			}
-			bug4927934::treeCollapsed$ = false;
-			hitKey($KeyEvent::VK_LEFT);
-			$nc(bug4927934::robot)->waitForIdle();
-			if (!isTreeCollapsed()) {
-				$throwNew($RuntimeException, "Root should be collapsed"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (bug4927934::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4927934$$Lambda$dispose, static_cast<$JFrame*>($nc(bug4927934::frame)))));
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		bug4927934::selectionChanged = false;
+		hitKey($KeyEvent::VK_RIGHT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!checkSelectionChanged(bug4927934::tree, 0)) {
+			$throwNew($RuntimeException, "Root should be selected"_s);
 		}
+		bug4927934::selectionChanged = false;
+		hitKey($KeyEvent::VK_RIGHT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!checkSelectionChanged(bug4927934::tree, 1)) {
+			$throwNew($RuntimeException, "Node should be selected"_s);
+		}
+		bug4927934::treeExpanded$ = false;
+		hitKey($KeyEvent::VK_RIGHT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!isTreeExpanded()) {
+			$throwNew($RuntimeException, "Node should be expanded"_s);
+		}
+		bug4927934::selectionChanged = false;
+		hitKey($KeyEvent::VK_RIGHT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!checkSelectionChanged(bug4927934::tree, 2)) {
+			$throwNew($RuntimeException, "Leaf1 should be selected"_s);
+		}
+		bug4927934::selectionChanged = false;
+		hitKey($KeyEvent::VK_RIGHT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!checkSelectionChanged(bug4927934::tree, 2)) {
+			$throwNew($RuntimeException, "Leaf1 should be selected"_s);
+		}
+		bug4927934::selectionChanged = false;
+		hitKey($KeyEvent::VK_LEFT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!checkSelectionChanged(bug4927934::tree, 1)) {
+			$throwNew($RuntimeException, "Node should be selected"_s);
+		}
+		bug4927934::treeCollapsed$ = false;
+		hitKey($KeyEvent::VK_LEFT);
+		if (!isTreeCollapsed()) {
+			$throwNew($RuntimeException, "Node should be collapsed"_s);
+		}
+		bug4927934::selectionChanged = false;
+		hitKey($KeyEvent::VK_LEFT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!checkSelectionChanged(bug4927934::tree, 0)) {
+			$throwNew($RuntimeException, "Root should be selected"_s);
+		}
+		bug4927934::treeCollapsed$ = false;
+		hitKey($KeyEvent::VK_LEFT);
+		$nc(bug4927934::robot)->waitForIdle();
+		if (!isTreeCollapsed()) {
+			$throwNew($RuntimeException, "Root should be collapsed"_s);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (bug4927934::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug4927934$$Lambda$dispose, bug4927934::frame));
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -286,13 +217,13 @@ void bug4927934::focusGained($FocusEvent* e) {
 	$synchronized(this) {
 		bug4927934::focusGained$ = true;
 		$nc($System::out)->println("focusGained"_s);
-		$nc($of(bug4927934::listener))->notifyAll();
+		bug4927934::listener->notifyAll();
 	}
 }
 
 void bug4927934::createNodes($DefaultMutableTreeNode* root) {
 	$init(bug4927934);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultMutableTreeNode, node, $new($DefaultMutableTreeNode, "Node"_s));
 	node->add($$new($DefaultMutableTreeNode, "Leaf1"_s));
 	node->add($$new($DefaultMutableTreeNode, "Leaf2"_s));
@@ -326,7 +257,7 @@ void bug4927934::treeExpanded($TreeExpansionEvent* e) {
 
 void bug4927934::hitKey(int32_t key) {
 	$init(bug4927934);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"key "_s, $$str(key), " pressed"_s}));
 	$nc(bug4927934::robot)->keyPress(key);
 	$nc(bug4927934::robot)->keyRelease(key);
@@ -334,12 +265,12 @@ void bug4927934::hitKey(int32_t key) {
 
 bool bug4927934::checkSelectionChanged($JTree* tree, int32_t shouldBeSel) {
 	$init(bug4927934);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(bug4927934::listener) {
 		if (!bug4927934::selectionChanged) {
 			$nc($System::out)->println("waiting for selectionChanged..."_s);
 			try {
-				$nc($of(bug4927934::listener))->wait(5000);
+				bug4927934::listener->wait(5000);
 			} catch ($InterruptedException& e) {
 				e->printStackTrace();
 			}
@@ -356,7 +287,7 @@ bool bug4927934::isTreeExpanded() {
 		if (!bug4927934::treeExpanded$) {
 			$nc($System::out)->println("waiting for treeExpanded..."_s);
 			try {
-				$nc($of(bug4927934::listener))->wait(5000);
+				bug4927934::listener->wait(5000);
 			} catch ($InterruptedException& e) {
 				e->printStackTrace();
 			}
@@ -371,7 +302,7 @@ bool bug4927934::isTreeCollapsed() {
 		if (!bug4927934::treeCollapsed$) {
 			$nc($System::out)->println("waiting for treeCollapsed..."_s);
 			try {
-				$nc($of(bug4927934::listener))->wait(5000);
+				bug4927934::listener->wait(5000);
 			} catch ($InterruptedException& e) {
 				e->printStackTrace();
 			}
@@ -380,7 +311,7 @@ bool bug4927934::isTreeCollapsed() {
 	return bug4927934::treeCollapsed$;
 }
 
-void clinit$bug4927934($Class* class$) {
+void bug4927934::clinit$($Class* clazz) {
 	$assignStatic(bug4927934::listener, $new(bug4927934));
 	bug4927934::focusGained$ = false;
 	bug4927934::selectionChanged = false;
@@ -393,11 +324,63 @@ bug4927934::bug4927934() {
 
 $Class* bug4927934::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4927934$$Lambda$dispose::classInfo$.name)) {
+		if (name->equals("bug4927934$$Lambda$dispose")) {
 			return bug4927934$$Lambda$dispose::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4927934, name, initialize, &_bug4927934_ClassInfo_, clinit$bug4927934, allocate$bug4927934);
+	$FieldInfo fieldInfos$$[] = {
+		{"listener", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(bug4927934, listener)},
+		{"focusGained", "Z", nullptr, $STATIC, $staticField(bug4927934, focusGained$)},
+		{"selectionChanged", "Z", nullptr, $PUBLIC | $STATIC, $staticField(bug4927934, selectionChanged)},
+		{"treeExpanded", "Z", nullptr, $PUBLIC | $STATIC, $staticField(bug4927934, treeExpanded$)},
+		{"treeCollapsed", "Z", nullptr, $PUBLIC | $STATIC, $staticField(bug4927934, treeCollapsed$)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug4927934, frame)},
+		{"tree", "Ljavax/swing/JTree;", nullptr, $STATIC, $staticField(bug4927934, tree)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $STATIC, $staticField(bug4927934, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4927934, init$, void)},
+		{"checkSelectionChanged", "(Ljavax/swing/JTree;I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, checkSelectionChanged, bool, $JTree*, int32_t)},
+		{"createNodes", "(Ljavax/swing/tree/DefaultMutableTreeNode;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, createNodes, void, $DefaultMutableTreeNode*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, focusLost, void, $FocusEvent*)},
+		{"hitKey", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, hitKey, void, int32_t)},
+		{"isTreeCollapsed", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, isTreeCollapsed, bool)},
+		{"isTreeExpanded", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4927934, isTreeExpanded, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4927934, main, void, $StringArray*), "java.lang.Exception"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"treeCollapsed", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, treeCollapsed, void, $TreeExpansionEvent*)},
+		{"treeExpanded", "(Ljavax/swing/event/TreeExpansionEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, treeExpanded, void, $TreeExpansionEvent*)},
+		{"valueChanged", "(Ljavax/swing/event/TreeSelectionEvent;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(bug4927934, valueChanged, void, $TreeSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4927934$2", nullptr, nullptr, 0},
+		{"bug4927934$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4927934",
+		"java.lang.Object",
+		"javax.swing.event.TreeSelectionListener,javax.swing.event.TreeExpansionListener,java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4927934$2,bug4927934$1"
+	};
+	$loadClass(bug4927934, name, initialize, &classInfo$$, bug4927934::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4927934));
+	});
 	return class$;
 }
 

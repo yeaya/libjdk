@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field$Matcher.h>
-
-#include <com/sun/org/apache/xerces/internal/impl/xpath/XPath.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field$XPath.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint.h>
@@ -22,7 +20,6 @@
 #undef POSITIVEINTEGER_DT
 #undef STRING_DT
 
-using $XPath = ::com::sun::org::apache::xerces::internal::impl::xpath::XPath;
 using $Field = ::com::sun::org::apache::xerces::internal::impl::xs::identity::Field;
 using $Field$XPath = ::com::sun::org::apache::xerces::internal::impl::xs::identity::Field$XPath;
 using $IdentityConstraint = ::com::sun::org::apache::xerces::internal::impl::xs::identity::IdentityConstraint;
@@ -48,47 +45,6 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$FieldInfo _Field$Matcher_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $FINAL | $SYNTHETIC, $field(Field$Matcher, this$0)},
-	{"fStore", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/ValueStore;", nullptr, $PROTECTED | $FINAL, $field(Field$Matcher, fStore)},
-	{"fMayMatch", "Z", nullptr, $PROTECTED, $field(Field$Matcher, fMayMatch)},
-	{}
-};
-
-$MethodInfo _Field$Matcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field$XPath;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/ValueStore;)V", nullptr, $PUBLIC, $method(Field$Matcher, init$, void, $Field*, $Field$XPath*, $ValueStore*)},
-	{"convertToPrimitiveKind", "(S)S", nullptr, $PRIVATE, $method(Field$Matcher, convertToPrimitiveKind, int16_t, int16_t)},
-	{"convertToPrimitiveKind", "(Lcom/sun/org/apache/xerces/internal/xs/ShortList;)Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $method(Field$Matcher, convertToPrimitiveKind, $ShortList*, $ShortList*)},
-	{"handleContent", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;ZLjava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PROTECTED, $virtualMethod(Field$Matcher, handleContent, void, $XSTypeDefinition*, bool, Object$*, int16_t, $ShortList*)},
-	{"matched", "(Ljava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;Z)V", nullptr, $PROTECTED, $virtualMethod(Field$Matcher, matched, void, Object$*, int16_t, $ShortList*, bool)},
-	{}
-};
-
-$InnerClassInfo _Field$Matcher_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$Matcher", "com.sun.org.apache.xerces.internal.impl.xs.identity.Field", "Matcher", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Field$Matcher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$Matcher",
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.XPathMatcher",
-	nullptr,
-	_Field$Matcher_FieldInfo_,
-	_Field$Matcher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Field$Matcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Field"
-};
-
-$Object* allocate$Field$Matcher($Class* clazz) {
-	return $of($alloc(Field$Matcher));
-}
-
 void Field$Matcher::init$($Field* this$0, $Field$XPath* xpath, $ValueStore* store) {
 	$set(this, this$0, this$0);
 	$XPathMatcher::init$(xpath);
@@ -97,20 +53,19 @@ void Field$Matcher::init$($Field* this$0, $Field$XPath* xpath, $ValueStore* stor
 }
 
 void Field$Matcher::matched(Object$* actualValue, int16_t valueType, $ShortList* itemValueType, bool isNil) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XPathMatcher::matched(actualValue, valueType, itemValueType, isNil);
 	if (isNil && ($nc(this->this$0->fIdentityConstraint)->getCategory() == $IdentityConstraint::IC_KEY)) {
 		$var($String, code, "KeyMatchesNillable"_s);
 		$nc(this->fStore)->reportError(code, $$new($ObjectArray, {
-			$($of($nc(this->this$0->fIdentityConstraint)->getElementName())),
-			$($of($nc(this->this$0->fIdentityConstraint)->getIdentityConstraintName()))
+			$(this->this$0->fIdentityConstraint->getElementName()),
+			$(this->this$0->fIdentityConstraint->getIdentityConstraintName())
 		}));
 	}
 	$var($Field, var$0, this->this$0);
 	bool var$1 = this->fMayMatch;
-	$var($Object, var$2, actualValue);
-	int16_t var$3 = convertToPrimitiveKind(valueType);
-	$nc(this->fStore)->addValue(var$0, var$1, var$2, var$3, $(convertToPrimitiveKind(itemValueType)));
+	int16_t var$2 = convertToPrimitiveKind(valueType);
+	$nc(this->fStore)->addValue(var$0, var$1, actualValue, var$2, $(convertToPrimitiveKind(itemValueType)));
 	this->fMayMatch = false;
 }
 
@@ -152,16 +107,16 @@ $ShortList* Field$Matcher::convertToPrimitiveKind($ShortList* itemValueType) {
 }
 
 void Field$Matcher::handleContent($XSTypeDefinition* type, bool nillable, Object$* actualValue, int16_t valueType, $ShortList* itemValueType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = type == nullptr;
 	if (!var$0) {
-		bool var$1 = $nc(type)->getTypeCategory() == $XSTypeDefinition::COMPLEX_TYPE;
-		var$0 = var$1 && $nc(($cast($XSComplexTypeDefinition, type)))->getContentType() != $XSComplexTypeDefinition::CONTENTTYPE_SIMPLE;
+		bool var$1 = type->getTypeCategory() == $XSTypeDefinition::COMPLEX_TYPE;
+		var$0 = var$1 && $cast($XSComplexTypeDefinition, type)->getContentType() != $XSComplexTypeDefinition::CONTENTTYPE_SIMPLE;
 	}
 	if (var$0) {
 		$nc(this->fStore)->reportError("cvc-id.3"_s, $$new($ObjectArray, {
-			$($of($nc(this->this$0->fIdentityConstraint)->getName())),
-			$($of($nc(this->this$0->fIdentityConstraint)->getElementName()))
+			$($nc(this->this$0->fIdentityConstraint)->getName()),
+			$($nc(this->this$0->fIdentityConstraint)->getElementName())
 		}));
 	}
 	$set(this, fMatchedString, actualValue);
@@ -172,7 +127,42 @@ Field$Matcher::Field$Matcher() {
 }
 
 $Class* Field$Matcher::load$($String* name, bool initialize) {
-	$loadClass(Field$Matcher, name, initialize, &_Field$Matcher_ClassInfo_, allocate$Field$Matcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $FINAL | $SYNTHETIC, $field(Field$Matcher, this$0)},
+		{"fStore", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/ValueStore;", nullptr, $PROTECTED | $FINAL, $field(Field$Matcher, fStore)},
+		{"fMayMatch", "Z", nullptr, $PROTECTED, $field(Field$Matcher, fMayMatch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field$XPath;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/ValueStore;)V", nullptr, $PUBLIC, $method(Field$Matcher, init$, void, $Field*, $Field$XPath*, $ValueStore*)},
+		{"convertToPrimitiveKind", "(S)S", nullptr, $PRIVATE, $method(Field$Matcher, convertToPrimitiveKind, int16_t, int16_t)},
+		{"convertToPrimitiveKind", "(Lcom/sun/org/apache/xerces/internal/xs/ShortList;)Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $method(Field$Matcher, convertToPrimitiveKind, $ShortList*, $ShortList*)},
+		{"handleContent", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;ZLjava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PROTECTED, $virtualMethod(Field$Matcher, handleContent, void, $XSTypeDefinition*, bool, Object$*, int16_t, $ShortList*)},
+		{"matched", "(Ljava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;Z)V", nullptr, $PROTECTED, $virtualMethod(Field$Matcher, matched, void, Object$*, int16_t, $ShortList*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$Matcher", "com.sun.org.apache.xerces.internal.impl.xs.identity.Field", "Matcher", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$Matcher",
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.XPathMatcher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Field"
+	};
+	$loadClass(Field$Matcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Field$Matcher);
+	});
 	return class$;
 }
 

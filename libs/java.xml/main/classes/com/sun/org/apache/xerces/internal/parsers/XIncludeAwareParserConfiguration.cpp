@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
@@ -17,7 +16,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
@@ -44,10 +42,6 @@
 #undef XMLSCHEMA_VALIDATION
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $XML11DTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DTDScannerImpl;
-using $XML11DTDProcessor = ::com::sun::org::apache::xerces::internal::impl::dtd::XML11DTDProcessor;
-using $XMLDTDProcessor = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDProcessor;
-using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
 using $FeatureState = ::com::sun::org::apache::xerces::internal::util::FeatureState;
 using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::NamespaceSupport;
@@ -55,20 +49,14 @@ using $ParserConfigurationSettings = ::com::sun::org::apache::xerces::internal::
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XIncludeHandler = ::com::sun::org::apache::xerces::internal::xinclude::XIncludeHandler;
 using $XIncludeNamespaceSupport = ::com::sun::org::apache::xerces::internal::xinclude::XIncludeNamespaceSupport;
-using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
-using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
-using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDTDScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDScanner;
-using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -77,46 +65,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _XIncludeAwareParserConfiguration_FieldInfo_[] = {
-	{"ALLOW_UE_AND_NOTATION_EVENTS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, ALLOW_UE_AND_NOTATION_EVENTS)},
-	{"XINCLUDE_FIXUP_BASE_URIS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_FIXUP_BASE_URIS)},
-	{"XINCLUDE_FIXUP_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_FIXUP_LANGUAGE)},
-	{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_FEATURE)},
-	{"XINCLUDE_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_HANDLER)},
-	{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, NAMESPACE_CONTEXT)},
-	{"fXIncludeHandler", "Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeHandler;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fXIncludeHandler)},
-	{"fNonXIncludeNSContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fNonXIncludeNSContext)},
-	{"fXIncludeNSContext", "Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeNamespaceSupport;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fXIncludeNSContext)},
-	{"fCurrentNSContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fCurrentNSContext)},
-	{"fXIncludeEnabled", "Z", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fXIncludeEnabled)},
-	{}
-};
-
-$MethodInfo _XIncludeAwareParserConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
-	{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XIncludeAwareParserConfiguration, configurePipeline, void)},
-	{"configureXML11Pipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XIncludeAwareParserConfiguration, configureXML11Pipeline, void)},
-	{"getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC, $virtualMethod(XIncludeAwareParserConfiguration, getFeatureState, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XIncludeAwareParserConfiguration, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{}
-};
-
-$ClassInfo _XIncludeAwareParserConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.XIncludeAwareParserConfiguration",
-	"com.sun.org.apache.xerces.internal.parsers.XML11Configuration",
-	nullptr,
-	_XIncludeAwareParserConfiguration_FieldInfo_,
-	_XIncludeAwareParserConfiguration_MethodInfo_
-};
-
-$Object* allocate$XIncludeAwareParserConfiguration($Class* clazz) {
-	return $of($alloc(XIncludeAwareParserConfiguration));
-}
 
 $String* XIncludeAwareParserConfiguration::ALLOW_UE_AND_NOTATION_EVENTS = nullptr;
 $String* XIncludeAwareParserConfiguration::XINCLUDE_FIXUP_BASE_URIS = nullptr;
@@ -138,7 +86,7 @@ void XIncludeAwareParserConfiguration::init$($SymbolTable* symbolTable, $XMLGram
 }
 
 void XIncludeAwareParserConfiguration::init$($SymbolTable* symbolTable, $XMLGrammarPool* grammarPool, $XMLComponentManager* parentSettings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XML11Configuration::init$(symbolTable, grammarPool, parentSettings);
 	this->fXIncludeEnabled = false;
 	$var($StringArray, recognizedFeatures, $new($StringArray, {
@@ -161,14 +109,14 @@ void XIncludeAwareParserConfiguration::init$($SymbolTable* symbolTable, $XMLGram
 }
 
 void XIncludeAwareParserConfiguration::configurePipeline() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XML11Configuration::configurePipeline();
 	if (this->fXIncludeEnabled) {
 		if (this->fXIncludeHandler == nullptr) {
 			$set(this, fXIncludeHandler, $new($XIncludeHandler));
 			setProperty(XIncludeAwareParserConfiguration::XINCLUDE_HANDLER, this->fXIncludeHandler);
 			addCommonComponent(this->fXIncludeHandler);
-			$nc(this->fXIncludeHandler)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(static_cast<$XML11Configuration*>(this))));
+			$nc(this->fXIncludeHandler)->reset($cast($ParserConfigurationSettings, this));
 		}
 		if (!$equals(this->fCurrentNSContext, this->fXIncludeNSContext)) {
 			if (this->fXIncludeNSContext == nullptr) {
@@ -183,10 +131,9 @@ void XIncludeAwareParserConfiguration::configurePipeline() {
 		$nc(this->fXIncludeHandler)->setDTDSource(this->fDTDProcessor);
 		$nc(this->fXIncludeHandler)->setDTDHandler(this->fDTDHandler);
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->setDTDSource(this->fXIncludeHandler);
+			this->fDTDHandler->setDTDSource(this->fXIncludeHandler);
 		}
 		$var($XMLDocumentSource, prev, nullptr);
-		$init($Boolean);
 		if ($equals($nc(this->fFeatures)->get($XML11Configuration::XMLSCHEMA_VALIDATION), $Boolean::TRUE)) {
 			$assign(prev, $nc(this->fSchemaValidator)->getDocumentSource());
 		} else {
@@ -207,14 +154,14 @@ void XIncludeAwareParserConfiguration::configurePipeline() {
 }
 
 void XIncludeAwareParserConfiguration::configureXML11Pipeline() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XML11Configuration::configureXML11Pipeline();
 	if (this->fXIncludeEnabled) {
 		if (this->fXIncludeHandler == nullptr) {
 			$set(this, fXIncludeHandler, $new($XIncludeHandler));
 			setProperty(XIncludeAwareParserConfiguration::XINCLUDE_HANDLER, this->fXIncludeHandler);
 			addCommonComponent(this->fXIncludeHandler);
-			$nc(this->fXIncludeHandler)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(static_cast<$XML11Configuration*>(this))));
+			$nc(this->fXIncludeHandler)->reset($cast($ParserConfigurationSettings, this));
 		}
 		if (!$equals(this->fCurrentNSContext, this->fXIncludeNSContext)) {
 			if (this->fXIncludeNSContext == nullptr) {
@@ -229,10 +176,9 @@ void XIncludeAwareParserConfiguration::configureXML11Pipeline() {
 		$nc(this->fXIncludeHandler)->setDTDSource(this->fXML11DTDProcessor);
 		$nc(this->fXIncludeHandler)->setDTDHandler(this->fDTDHandler);
 		if (this->fDTDHandler != nullptr) {
-			$nc(this->fDTDHandler)->setDTDSource(this->fXIncludeHandler);
+			this->fDTDHandler->setDTDSource(this->fXIncludeHandler);
 		}
 		$var($XMLDocumentSource, prev, nullptr);
-		$init($Boolean);
 		if ($equals($nc(this->fFeatures)->get($XML11Configuration::XMLSCHEMA_VALIDATION), $Boolean::TRUE)) {
 			$assign(prev, $nc(this->fSchemaValidator)->getDocumentSource());
 		} else {
@@ -274,7 +220,7 @@ void XIncludeAwareParserConfiguration::setFeature($String* featureId, bool state
 XIncludeAwareParserConfiguration::XIncludeAwareParserConfiguration() {
 }
 
-void clinit$XIncludeAwareParserConfiguration($Class* class$) {
+void XIncludeAwareParserConfiguration::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(XIncludeAwareParserConfiguration::ALLOW_UE_AND_NOTATION_EVENTS, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::ALLOW_DTD_EVENTS_AFTER_ENDDTD_FEATURE}));
 	$assignStatic(XIncludeAwareParserConfiguration::XINCLUDE_FIXUP_BASE_URIS, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::XINCLUDE_FIXUP_BASE_URIS_FEATURE}));
@@ -285,7 +231,42 @@ void clinit$XIncludeAwareParserConfiguration($Class* class$) {
 }
 
 $Class* XIncludeAwareParserConfiguration::load$($String* name, bool initialize) {
-	$loadClass(XIncludeAwareParserConfiguration, name, initialize, &_XIncludeAwareParserConfiguration_ClassInfo_, clinit$XIncludeAwareParserConfiguration, allocate$XIncludeAwareParserConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALLOW_UE_AND_NOTATION_EVENTS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, ALLOW_UE_AND_NOTATION_EVENTS)},
+		{"XINCLUDE_FIXUP_BASE_URIS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_FIXUP_BASE_URIS)},
+		{"XINCLUDE_FIXUP_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_FIXUP_LANGUAGE)},
+		{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_FEATURE)},
+		{"XINCLUDE_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, XINCLUDE_HANDLER)},
+		{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XIncludeAwareParserConfiguration, NAMESPACE_CONTEXT)},
+		{"fXIncludeHandler", "Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeHandler;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fXIncludeHandler)},
+		{"fNonXIncludeNSContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fNonXIncludeNSContext)},
+		{"fXIncludeNSContext", "Lcom/sun/org/apache/xerces/internal/xinclude/XIncludeNamespaceSupport;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fXIncludeNSContext)},
+		{"fCurrentNSContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fCurrentNSContext)},
+		{"fXIncludeEnabled", "Z", nullptr, $PROTECTED, $field(XIncludeAwareParserConfiguration, fXIncludeEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(XIncludeAwareParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
+		{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XIncludeAwareParserConfiguration, configurePipeline, void)},
+		{"configureXML11Pipeline", "()V", nullptr, $PROTECTED, $virtualMethod(XIncludeAwareParserConfiguration, configureXML11Pipeline, void)},
+		{"getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC, $virtualMethod(XIncludeAwareParserConfiguration, getFeatureState, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(XIncludeAwareParserConfiguration, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.XIncludeAwareParserConfiguration",
+		"com.sun.org.apache.xerces.internal.parsers.XML11Configuration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XIncludeAwareParserConfiguration, name, initialize, &classInfo$$, XIncludeAwareParserConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XIncludeAwareParserConfiguration));
+	});
 	return class$;
 }
 

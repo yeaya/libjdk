@@ -1,5 +1,4 @@
 #include <bug8078268$1.h>
-
 #include <bug8078268.h>
 #include <java/io/FileReader.h>
 #include <java/io/Reader.h>
@@ -9,7 +8,6 @@
 
 using $bug8078268 = ::bug8078268;
 using $FileReader = ::java::io::FileReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
@@ -18,52 +16,15 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Document = ::javax::swing::text::Document;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
-$MethodInfo _bug8078268$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8078268$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8078268$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8078268$1_EnclosingMethodInfo_ = {
-	"bug8078268",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8078268$1_InnerClassesInfo_[] = {
-	{"bug8078268$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8078268$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8078268$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8078268$1_MethodInfo_,
-	nullptr,
-	&_bug8078268$1_EnclosingMethodInfo_,
-	_bug8078268$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8078268"
-};
-
-$Object* allocate$bug8078268$1($Class* clazz) {
-	return $of($alloc(bug8078268$1));
-}
-
 void bug8078268$1::init$() {
 }
 
 void bug8078268$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HTMLEditorKit, htmlKit, $new($HTMLEditorKit));
 	$var($Document, doc, htmlKit->createDefaultDocument());
 	try {
-		htmlKit->read(static_cast<$Reader*>($$new($FileReader, $$str({$($bug8078268::getDirURL()), "slowparse.html"_s}))), doc, 0);
+		htmlKit->read($$new($FileReader, $$str({$($bug8078268::getDirURL()), "slowparse.html"_s})), doc, 0);
 		$bug8078268::parsingDone = true;
 	} catch ($Exception& e) {
 		$init($bug8078268);
@@ -75,7 +36,38 @@ bug8078268$1::bug8078268$1() {
 }
 
 $Class* bug8078268$1::load$($String* name, bool initialize) {
-	$loadClass(bug8078268$1, name, initialize, &_bug8078268$1_ClassInfo_, allocate$bug8078268$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8078268$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8078268$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8078268",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8078268$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8078268$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8078268"
+	};
+	$loadClass(bug8078268$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8078268$1);
+	});
 	return class$;
 }
 

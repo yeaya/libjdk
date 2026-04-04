@@ -1,5 +1,4 @@
 #include <java/awt/image/PixelGrabber.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
@@ -36,62 +35,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _PixelGrabber_FieldInfo_[] = {
-	{"producer", "Ljava/awt/image/ImageProducer;", nullptr, 0, $field(PixelGrabber, producer)},
-	{"dstX", "I", nullptr, 0, $field(PixelGrabber, dstX)},
-	{"dstY", "I", nullptr, 0, $field(PixelGrabber, dstY)},
-	{"dstW", "I", nullptr, 0, $field(PixelGrabber, dstW)},
-	{"dstH", "I", nullptr, 0, $field(PixelGrabber, dstH)},
-	{"imageModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(PixelGrabber, imageModel)},
-	{"bytePixels", "[B", nullptr, 0, $field(PixelGrabber, bytePixels)},
-	{"intPixels", "[I", nullptr, 0, $field(PixelGrabber, intPixels)},
-	{"dstOff", "I", nullptr, 0, $field(PixelGrabber, dstOff)},
-	{"dstScan", "I", nullptr, 0, $field(PixelGrabber, dstScan)},
-	{"grabbing", "Z", nullptr, $PRIVATE, $field(PixelGrabber, grabbing)},
-	{"flags", "I", nullptr, $PRIVATE, $field(PixelGrabber, flags)},
-	{"GRABBEDBITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PixelGrabber, GRABBEDBITS)},
-	{"DONEBITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PixelGrabber, DONEBITS)},
-	{}
-};
-
-$MethodInfo _PixelGrabber_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Image;IIII[III)V", nullptr, $PUBLIC, $method(PixelGrabber, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/image/ImageProducer;IIII[III)V", nullptr, $PUBLIC, $method(PixelGrabber, init$, void, $ImageProducer*, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Image;IIIIZ)V", nullptr, $PUBLIC, $method(PixelGrabber, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"abortGrabbing", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, abortGrabbing, void)},
-	{"convertToRGB", "()V", nullptr, $PRIVATE, $method(PixelGrabber, convertToRGB, void)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getColorModel, $ColorModel*)},
-	{"getHeight", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getHeight, int32_t)},
-	{"getPixels", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getPixels, $Object*)},
-	{"getStatus", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getStatus, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getWidth, int32_t)},
-	{"grabPixels", "()Z", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, grabPixels, bool), "java.lang.InterruptedException"},
-	{"grabPixels", "(J)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, grabPixels, bool, int64_t), "java.lang.InterruptedException"},
-	{"imageComplete", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, imageComplete, void, int32_t)},
-	{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setColorModel, void, $ColorModel*)},
-	{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setDimensions, void, int32_t, int32_t)},
-	{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setHints, void, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(PixelGrabber, setProperties, void, $Hashtable*)},
-	{"startGrabbing", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, startGrabbing, void)},
-	{"status", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, status, int32_t)},
-	{}
-};
-
-$ClassInfo _PixelGrabber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.PixelGrabber",
-	"java.lang.Object",
-	"java.awt.image.ImageConsumer",
-	_PixelGrabber_FieldInfo_,
-	_PixelGrabber_MethodInfo_
-};
-
-$Object* allocate$PixelGrabber($Class* clazz) {
-	return $of($alloc(PixelGrabber));
-}
-
 void PixelGrabber::init$($Image* img, int32_t x, int32_t y, int32_t w, int32_t h, $ints* pix, int32_t off, int32_t scansize) {
 	PixelGrabber::init$($($nc(img)->getSource()), x, y, w, h, pix, off, scansize);
 }
@@ -121,7 +64,7 @@ void PixelGrabber::init$($Image* img, int32_t x, int32_t y, int32_t w, int32_t h
 
 void PixelGrabber::startGrabbing() {
 	$synchronized(this) {
-		if (((int32_t)(this->flags & (uint32_t)PixelGrabber::DONEBITS)) != 0) {
+		if ((this->flags & PixelGrabber::DONEBITS) != 0) {
 			return;
 		}
 		if (!this->grabbing) {
@@ -144,8 +87,8 @@ bool PixelGrabber::grabPixels() {
 
 bool PixelGrabber::grabPixels(int64_t ms) {
 	$synchronized(this) {
-		if (((int32_t)(this->flags & (uint32_t)PixelGrabber::DONEBITS)) != 0) {
-			return ((int32_t)(this->flags & (uint32_t)PixelGrabber::GRABBEDBITS)) != 0;
+		if ((this->flags & PixelGrabber::DONEBITS) != 0) {
+			return (this->flags & PixelGrabber::GRABBEDBITS) != 0;
 		}
 		int64_t end = ms + $System::currentTimeMillis();
 		if (!this->grabbing) {
@@ -165,7 +108,7 @@ bool PixelGrabber::grabPixels(int64_t ms) {
 			}
 			$of(this)->wait(timeout);
 		}
-		return ((int32_t)(this->flags & (uint32_t)PixelGrabber::GRABBEDBITS)) != 0;
+		return (this->flags & PixelGrabber::GRABBEDBITS) != 0;
 	}
 }
 
@@ -189,7 +132,7 @@ int32_t PixelGrabber::getHeight() {
 
 $Object* PixelGrabber::getPixels() {
 	$synchronized(this) {
-		return $of((this->bytePixels == nullptr) ? ($of(this->intPixels)) : ($of(this->bytePixels)));
+		return (this->bytePixels == nullptr) ? $of(this->intPixels) : $of(this->bytePixels);
 	}
 }
 
@@ -233,7 +176,7 @@ void PixelGrabber::convertToRGB() {
 	$var($ints, newpixels, $new($ints, size));
 	if (this->bytePixels != nullptr) {
 		for (int32_t i = 0; i < size; ++i) {
-			newpixels->set(i, $nc(this->imageModel)->getRGB((int32_t)($nc(this->bytePixels)->get(i) & (uint32_t)255)));
+			newpixels->set(i, $nc(this->imageModel)->getRGB($nc(this->bytePixels)->get(i) & 0xff));
 		}
 	} else if (this->intPixels != nullptr) {
 		for (int32_t i = 0; i < size; ++i) {
@@ -301,7 +244,7 @@ void PixelGrabber::setPixels(int32_t srcX, int32_t srcY, int32_t srcW, int32_t s
 		int32_t srcRem = srcScan - srcW;
 		for (int32_t h = srcH; h > 0; --h) {
 			for (int32_t w = srcW; w > 0; --w) {
-				$nc(this->intPixels)->set(dstPtr++, $nc(model)->getRGB((int32_t)($nc(pixels)->get(srcOff++) & (uint32_t)255)));
+				$nc(this->intPixels)->set(dstPtr++, $nc(model)->getRGB($nc(pixels)->get(srcOff++) & 0xff));
 			}
 			srcOff += srcRem;
 			dstPtr += dstRem;
@@ -380,27 +323,18 @@ void PixelGrabber::imageComplete(int32_t status) {
 		this->grabbing = false;
 		switch (status) {
 		default:
-			{}
 		case $ImageConsumer::IMAGEERROR:
-			{
-				this->flags |= $ImageObserver::ERROR | $ImageObserver::ABORT;
-				break;
-			}
+			this->flags |= $ImageObserver::ERROR | $ImageObserver::ABORT;
+			break;
 		case $ImageConsumer::IMAGEABORTED:
-			{
-				this->flags |= $ImageObserver::ABORT;
-				break;
-			}
+			this->flags |= $ImageObserver::ABORT;
+			break;
 		case $ImageConsumer::STATICIMAGEDONE:
-			{
-				this->flags |= $ImageObserver::ALLBITS;
-				break;
-			}
+			this->flags |= $ImageObserver::ALLBITS;
+			break;
 		case $ImageConsumer::SINGLEFRAMEDONE:
-			{
-				this->flags |= $ImageObserver::FRAMEBITS;
-				break;
-			}
+			this->flags |= $ImageObserver::FRAMEBITS;
+			break;
 		}
 		$nc(this->producer)->removeConsumer(this);
 		$of(this)->notifyAll();
@@ -417,7 +351,58 @@ PixelGrabber::PixelGrabber() {
 }
 
 $Class* PixelGrabber::load$($String* name, bool initialize) {
-	$loadClass(PixelGrabber, name, initialize, &_PixelGrabber_ClassInfo_, allocate$PixelGrabber);
+	$FieldInfo fieldInfos$$[] = {
+		{"producer", "Ljava/awt/image/ImageProducer;", nullptr, 0, $field(PixelGrabber, producer)},
+		{"dstX", "I", nullptr, 0, $field(PixelGrabber, dstX)},
+		{"dstY", "I", nullptr, 0, $field(PixelGrabber, dstY)},
+		{"dstW", "I", nullptr, 0, $field(PixelGrabber, dstW)},
+		{"dstH", "I", nullptr, 0, $field(PixelGrabber, dstH)},
+		{"imageModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(PixelGrabber, imageModel)},
+		{"bytePixels", "[B", nullptr, 0, $field(PixelGrabber, bytePixels)},
+		{"intPixels", "[I", nullptr, 0, $field(PixelGrabber, intPixels)},
+		{"dstOff", "I", nullptr, 0, $field(PixelGrabber, dstOff)},
+		{"dstScan", "I", nullptr, 0, $field(PixelGrabber, dstScan)},
+		{"grabbing", "Z", nullptr, $PRIVATE, $field(PixelGrabber, grabbing)},
+		{"flags", "I", nullptr, $PRIVATE, $field(PixelGrabber, flags)},
+		{"GRABBEDBITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PixelGrabber, GRABBEDBITS)},
+		{"DONEBITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PixelGrabber, DONEBITS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Image;IIII[III)V", nullptr, $PUBLIC, $method(PixelGrabber, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/image/ImageProducer;IIII[III)V", nullptr, $PUBLIC, $method(PixelGrabber, init$, void, $ImageProducer*, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Image;IIIIZ)V", nullptr, $PUBLIC, $method(PixelGrabber, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"abortGrabbing", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, abortGrabbing, void)},
+		{"convertToRGB", "()V", nullptr, $PRIVATE, $method(PixelGrabber, convertToRGB, void)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getColorModel, $ColorModel*)},
+		{"getHeight", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getHeight, int32_t)},
+		{"getPixels", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getPixels, $Object*)},
+		{"getStatus", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getStatus, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, getWidth, int32_t)},
+		{"grabPixels", "()Z", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, grabPixels, bool), "java.lang.InterruptedException"},
+		{"grabPixels", "(J)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, grabPixels, bool, int64_t), "java.lang.InterruptedException"},
+		{"imageComplete", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, imageComplete, void, int32_t)},
+		{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setColorModel, void, $ColorModel*)},
+		{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setDimensions, void, int32_t, int32_t)},
+		{"setHints", "(I)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setHints, void, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(PixelGrabber, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{"setProperties", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(PixelGrabber, setProperties, void, $Hashtable*)},
+		{"startGrabbing", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, startGrabbing, void)},
+		{"status", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PixelGrabber, status, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.PixelGrabber",
+		"java.lang.Object",
+		"java.awt.image.ImageConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PixelGrabber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PixelGrabber);
+	});
 	return class$;
 }
 

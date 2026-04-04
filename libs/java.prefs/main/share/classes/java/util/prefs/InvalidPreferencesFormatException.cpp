@@ -1,5 +1,4 @@
 #include <java/util/prefs/InvalidPreferencesFormatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,31 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace prefs {
-
-$FieldInfo _InvalidPreferencesFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidPreferencesFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidPreferencesFormatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _InvalidPreferencesFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.prefs.InvalidPreferencesFormatException",
-	"java.lang.Exception",
-	nullptr,
-	_InvalidPreferencesFormatException_FieldInfo_,
-	_InvalidPreferencesFormatException_MethodInfo_
-};
-
-$Object* allocate$InvalidPreferencesFormatException($Class* clazz) {
-	return $of($alloc(InvalidPreferencesFormatException));
-}
 
 void InvalidPreferencesFormatException::init$($Throwable* cause) {
 	$Exception::init$(cause);
@@ -59,7 +33,27 @@ void InvalidPreferencesFormatException::throw$() {
 }
 
 $Class* InvalidPreferencesFormatException::load$($String* name, bool initialize) {
-	$loadClass(InvalidPreferencesFormatException, name, initialize, &_InvalidPreferencesFormatException_ClassInfo_, allocate$InvalidPreferencesFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidPreferencesFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.prefs.InvalidPreferencesFormatException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidPreferencesFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidPreferencesFormatException);
+	});
 	return class$;
 }
 

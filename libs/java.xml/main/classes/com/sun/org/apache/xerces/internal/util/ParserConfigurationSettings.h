@@ -44,6 +44,7 @@ class ParserConfigurationSettings : public ::com::sun::org::apache::xerces::inte
 	$class(ParserConfigurationSettings, 0, ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager)
 public:
 	ParserConfigurationSettings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager* parent);
 	virtual void addRecognizedFeatures($StringArray* featureIds);

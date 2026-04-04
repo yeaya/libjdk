@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$SubscriberAdapter.h>
-
 #include <java/util/List.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -17,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
@@ -28,52 +26,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _ResponseSubscribers$SubscriberAdapter_FieldInfo_[] = {
-	{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<TR;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$SubscriberAdapter, cf)},
-	{"subscriber", "Ljava/util/concurrent/Flow$Subscriber;", "TS;", $PRIVATE | $FINAL, $field(ResponseSubscribers$SubscriberAdapter, subscriber)},
-	{"finisher", "Ljava/util/function/Function;", "Ljava/util/function/Function<-TS;+TR;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$SubscriberAdapter, finisher)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$SubscriberAdapter, subscription)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$SubscriberAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;)V", "(TS;Ljava/util/function/Function<-TS;+TR;>;)V", $PUBLIC, $method(ResponseSubscribers$SubscriberAdapter, init$, void, $Flow$Subscriber*, $Function*)},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TR;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, getBody, $CompletionStage*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ResponseSubscribers$SubscriberAdapter, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$SubscriberAdapter_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter", "jdk.internal.net.http.ResponseSubscribers", "SubscriberAdapter", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$SubscriberAdapter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	_ResponseSubscribers$SubscriberAdapter_FieldInfo_,
-	_ResponseSubscribers$SubscriberAdapter_MethodInfo_,
-	"<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;R:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TR;>;",
-	nullptr,
-	_ResponseSubscribers$SubscriberAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$SubscriberAdapter($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$SubscriberAdapter));
-}
 
 void ResponseSubscribers$SubscriberAdapter::init$($Flow$Subscriber* subscriber, $Function* finisher) {
 	$set(this, cf, $new($MinimalFuture));
@@ -103,39 +55,35 @@ void ResponseSubscribers$SubscriberAdapter::onNext($List* item) {
 
 void ResponseSubscribers$SubscriberAdapter::onError($Throwable* throwable) {
 	$Objects::requireNonNull(throwable);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->subscriber)->onError(throwable);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->cf)->completeExceptionally(throwable);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->subscriber)->onError(throwable);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->cf->completeExceptionally(throwable);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ResponseSubscribers$SubscriberAdapter::onComplete() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->subscriber)->onComplete();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
 		try {
-			$nc(this->subscriber)->onComplete();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			try {
-				$nc(this->cf)->complete($($nc(this->finisher)->apply(this->subscriber)));
-			} catch ($Throwable& throwable) {
-				$nc(this->cf)->completeExceptionally(throwable);
-			}
+			this->cf->complete($($nc(this->finisher)->apply(this->subscriber)));
+		} catch ($Throwable& throwable) {
+			this->cf->completeExceptionally(throwable);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -151,7 +99,47 @@ ResponseSubscribers$SubscriberAdapter::ResponseSubscribers$SubscriberAdapter() {
 }
 
 $Class* ResponseSubscribers$SubscriberAdapter::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$SubscriberAdapter, name, initialize, &_ResponseSubscribers$SubscriberAdapter_ClassInfo_, allocate$ResponseSubscribers$SubscriberAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<TR;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$SubscriberAdapter, cf)},
+		{"subscriber", "Ljava/util/concurrent/Flow$Subscriber;", "TS;", $PRIVATE | $FINAL, $field(ResponseSubscribers$SubscriberAdapter, subscriber)},
+		{"finisher", "Ljava/util/function/Function;", "Ljava/util/function/Function<-TS;+TR;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$SubscriberAdapter, finisher)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$SubscriberAdapter, subscription)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;)V", "(TS;Ljava/util/function/Function<-TS;+TR;>;)V", $PUBLIC, $method(ResponseSubscribers$SubscriberAdapter, init$, void, $Flow$Subscriber*, $Function*)},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TR;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, getBody, $CompletionStage*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ResponseSubscribers$SubscriberAdapter, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter", "jdk.internal.net.http.ResponseSubscribers", "SubscriberAdapter", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$SubscriberAdapter",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;R:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TR;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$SubscriberAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$SubscriberAdapter);
+	});
 	return class$;
 }
 

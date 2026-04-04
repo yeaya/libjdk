@@ -67,6 +67,7 @@ class JNIWriter$TypeSignature : public ::java::lang::Object {
 	$class(JNIWriter$TypeSignature, 0, ::java::lang::Object)
 public:
 	JNIWriter$TypeSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::Types* types);
 	virtual ::java::lang::StringBuilder* getJvmSignature(::com::sun::tools::javac::code::Type* type, bool useFlatname);
 	virtual ::java::lang::StringBuilder* getParameterSignature(::com::sun::tools::javac::code::Type* mType, bool useFlatname);

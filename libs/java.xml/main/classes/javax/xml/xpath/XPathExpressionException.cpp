@@ -1,5 +1,4 @@
 #include <javax/xml/xpath/XPathExpressionException.h>
-
 #include <javax/xml/xpath/XPathException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $XPathException = ::javax::xml::xpath::XPathException;
 namespace javax {
 	namespace xml {
 		namespace xpath {
-
-$FieldInfo _XPathExpressionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathExpressionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XPathExpressionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathExpressionException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XPathExpressionException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _XPathExpressionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.xpath.XPathExpressionException",
-	"javax.xml.xpath.XPathException",
-	nullptr,
-	_XPathExpressionException_FieldInfo_,
-	_XPathExpressionException_MethodInfo_
-};
-
-$Object* allocate$XPathExpressionException($Class* clazz) {
-	return $of($alloc(XPathExpressionException));
-}
 
 void XPathExpressionException::init$($String* message) {
 	$XPathException::init$(message);
@@ -55,7 +30,26 @@ void XPathExpressionException::throw$() {
 }
 
 $Class* XPathExpressionException::load$($String* name, bool initialize) {
-	$loadClass(XPathExpressionException, name, initialize, &_XPathExpressionException_ClassInfo_, allocate$XPathExpressionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathExpressionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathExpressionException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(XPathExpressionException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.xpath.XPathExpressionException",
+		"javax.xml.xpath.XPathException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathExpressionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathExpressionException);
+	});
 	return class$;
 }
 

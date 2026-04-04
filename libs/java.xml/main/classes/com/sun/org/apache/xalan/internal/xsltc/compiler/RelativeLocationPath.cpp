@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <jcpp.h>
 
@@ -16,26 +15,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _RelativeLocationPath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RelativeLocationPath, init$, void)},
-	{"getAxis", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativeLocationPath, getAxis, int32_t)},
-	{"setAxis", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativeLocationPath, setAxis, void, int32_t)},
-	{}
-};
-
-$ClassInfo _RelativeLocationPath_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativeLocationPath",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	nullptr,
-	_RelativeLocationPath_MethodInfo_
-};
-
-$Object* allocate$RelativeLocationPath($Class* clazz) {
-	return $of($alloc(RelativeLocationPath));
-}
-
 void RelativeLocationPath::init$() {
 	$Expression::init$();
 }
@@ -44,7 +23,23 @@ RelativeLocationPath::RelativeLocationPath() {
 }
 
 $Class* RelativeLocationPath::load$($String* name, bool initialize) {
-	$loadClass(RelativeLocationPath, name, initialize, &_RelativeLocationPath_ClassInfo_, allocate$RelativeLocationPath);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RelativeLocationPath, init$, void)},
+		{"getAxis", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativeLocationPath, getAxis, int32_t)},
+		{"setAxis", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativeLocationPath, setAxis, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativeLocationPath",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RelativeLocationPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RelativeLocationPath);
+	});
 	return class$;
 }
 

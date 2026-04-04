@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$GraphStrategy$NodeNotFoundException.h>
-
 #include <com/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph.h>
 #include <com/sun/tools/javac/comp/Infer$GraphStrategy.h>
 #include <jcpp.h>
@@ -17,43 +16,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$GraphStrategy$NodeNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Infer$GraphStrategy$NodeNotFoundException, serialVersionUID)},
-	{"graph", "Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;", nullptr, $TRANSIENT, $field(Infer$GraphStrategy$NodeNotFoundException, graph)},
-	{}
-};
-
-$MethodInfo _Infer$GraphStrategy$NodeNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(Infer$GraphStrategy$NodeNotFoundException, init$, void, $Infer$GraphSolver$InferenceGraph*)},
-	{}
-};
-
-$InnerClassInfo _Infer$GraphStrategy$NodeNotFoundException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$GraphStrategy", "com.sun.tools.javac.comp.Infer", "GraphStrategy", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException", "com.sun.tools.javac.comp.Infer$GraphStrategy", "NodeNotFoundException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Infer$GraphStrategy$NodeNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Infer$GraphStrategy$NodeNotFoundException_FieldInfo_,
-	_Infer$GraphStrategy$NodeNotFoundException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$GraphStrategy$NodeNotFoundException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$GraphStrategy$NodeNotFoundException($Class* clazz) {
-	return $of($alloc(Infer$GraphStrategy$NodeNotFoundException));
-}
-
 void Infer$GraphStrategy$NodeNotFoundException::init$($Infer$GraphSolver$InferenceGraph* graph) {
 	$RuntimeException::init$();
 	$set(this, graph, graph);
@@ -70,7 +32,38 @@ void Infer$GraphStrategy$NodeNotFoundException::throw$() {
 }
 
 $Class* Infer$GraphStrategy$NodeNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(Infer$GraphStrategy$NodeNotFoundException, name, initialize, &_Infer$GraphStrategy$NodeNotFoundException_ClassInfo_, allocate$Infer$GraphStrategy$NodeNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Infer$GraphStrategy$NodeNotFoundException, serialVersionUID)},
+		{"graph", "Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;", nullptr, $TRANSIENT, $field(Infer$GraphStrategy$NodeNotFoundException, graph)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(Infer$GraphStrategy$NodeNotFoundException, init$, void, $Infer$GraphSolver$InferenceGraph*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$GraphStrategy", "com.sun.tools.javac.comp.Infer", "GraphStrategy", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException", "com.sun.tools.javac.comp.Infer$GraphStrategy", "NodeNotFoundException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$GraphStrategy$NodeNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$GraphStrategy$NodeNotFoundException);
+	});
 	return class$;
 }
 

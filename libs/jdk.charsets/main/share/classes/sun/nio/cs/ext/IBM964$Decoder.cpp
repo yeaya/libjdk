@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM964$Decoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -29,51 +28,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _IBM964$Decoder_FieldInfo_[] = {
-	{"SS2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IBM964$Decoder, SS2)},
-	{"SS3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IBM964$Decoder, SS3)},
-	{"mappingTableG2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IBM964$Decoder, mappingTableG2)},
-	{"byteToCharTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, byteToCharTable)},
-	{"mappingTableG1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG1)},
-	{"mappingTableG2a2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG2a2)},
-	{"mappingTableG2ac", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG2ac)},
-	{"mappingTableG2ad", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG2ad)},
-	{}
-};
-
-$MethodInfo _IBM964$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(IBM964$Decoder, init$, void, $Charset*)},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM964$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM964$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(IBM964$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{}
-};
-
-$InnerClassInfo _IBM964$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM964$Decoder", "sun.nio.cs.ext.IBM964", "Decoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _IBM964$Decoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.IBM964$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_IBM964$Decoder_FieldInfo_,
-	_IBM964$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM964$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM964"
-};
-
-$Object* allocate$IBM964$Decoder($Class* clazz) {
-	return $of($alloc(IBM964$Decoder));
-}
-
 $String* IBM964$Decoder::byteToCharTable = nullptr;
 $String* IBM964$Decoder::mappingTableG1 = nullptr;
 $String* IBM964$Decoder::mappingTableG2a2 = nullptr;
@@ -85,7 +39,7 @@ void IBM964$Decoder::init$($Charset* cs) {
 }
 
 $CoderResult* IBM964$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -96,214 +50,210 @@ $CoderResult* IBM964$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst
 	int32_t dp = var$2 + dst->position();
 	int32_t var$3 = dst->arrayOffset();
 	int32_t dl = var$3 + dst->limit();
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				int32_t byte1 = 0;
-				int32_t byte2 = 0;
-				int32_t inputSize = 1;
-				char16_t outputChar = (char16_t)0xFFFD;
-				byte1 = (int32_t)($nc(sa)->get(sp) & (uint32_t)255);
-				if (byte1 == IBM964$Decoder::SS2) {
-					if (sl - sp < 4) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::UNDERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					byte1 = (int32_t)(sa->get(sp + 1) & (uint32_t)255);
-					inputSize = 2;
-					if (byte1 == 162) {
-						$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2a2);
-					} else if (byte1 == 172) {
-						$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ac);
-					} else if (byte1 == 173) {
-						$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ad);
-					} else {
-						$assign(var$6, $CoderResult::malformedForLength(2));
-						return$5 = true;
-						goto $finally;
-					}
-					byte1 = (int32_t)(sa->get(sp + 2) & (uint32_t)255);
-					if (byte1 < 161 || byte1 > 254) {
-						$assign(var$6, $CoderResult::malformedForLength(3));
-						return$5 = true;
-						goto $finally;
-					}
-					byte2 = (int32_t)(sa->get(sp + 3) & (uint32_t)255);
-					if (byte2 < 161 || byte2 > 254) {
-						$assign(var$6, $CoderResult::malformedForLength(4));
-						return$5 = true;
-						goto $finally;
-					}
-					inputSize = 4;
-					outputChar = $nc(this->mappingTableG2)->charAt(((byte1 - 161) * 94) + byte2 - 161);
-				} else if (byte1 == IBM964$Decoder::SS3) {
-					$assign(var$6, $CoderResult::malformedForLength(1));
-					return$5 = true;
-					goto $finally;
-				} else if (byte1 <= 159) {
-					outputChar = $nc(IBM964$Decoder::byteToCharTable)->charAt(byte1);
-				} else if (byte1 < 161 || byte1 > 254) {
-					$assign(var$6, $CoderResult::malformedForLength(1));
-					return$5 = true;
-					goto $finally;
-				} else {
-					if (sl - sp < 2) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::UNDERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					byte2 = (int32_t)(sa->get(sp + 1) & (uint32_t)255);
-					inputSize = 2;
-					if (byte2 < 161 || byte2 > 254) {
-						$assign(var$6, $CoderResult::malformedForLength(2));
-						return$5 = true;
-						goto $finally;
-					}
-					outputChar = $nc(IBM964$Decoder::mappingTableG1)->charAt(((byte1 - 161) * 94) + byte2 - 161);
-				}
-				if (outputChar == (char16_t)0xFFFD) {
-					$assign(var$6, $CoderResult::unmappableForLength(inputSize));
-					return$5 = true;
-					goto $finally;
-				}
-				if (dl - dp < 1) {
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			int32_t byte1 = 0;
+			int32_t byte2 = 0;
+			int32_t inputSize = 1;
+			char16_t outputChar = (char16_t)0xfffd;
+			byte1 = $nc(sa)->get(sp) & 0xff;
+			if (byte1 == IBM964$Decoder::SS2) {
+				if (sl - sp < 4) {
 					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
+					$assign(var$6, $CoderResult::UNDERFLOW);
 					return$5 = true;
 					goto $finally;
 				}
-				$nc(da)->set(dp++, outputChar);
-				sp += inputSize;
+				byte1 = sa->get(sp + 1) & 0xff;
+				inputSize = 2;
+				if (byte1 == 162) {
+					$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2a2);
+				} else if (byte1 == 172) {
+					$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ac);
+				} else if (byte1 == 173) {
+					$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ad);
+				} else {
+					$assign(var$6, $CoderResult::malformedForLength(2));
+					return$5 = true;
+					goto $finally;
+				}
+				byte1 = sa->get(sp + 2) & 0xff;
+				if (byte1 < 161 || byte1 > 254) {
+					$assign(var$6, $CoderResult::malformedForLength(3));
+					return$5 = true;
+					goto $finally;
+				}
+				byte2 = sa->get(sp + 3) & 0xff;
+				if (byte2 < 161 || byte2 > 254) {
+					$assign(var$6, $CoderResult::malformedForLength(4));
+					return$5 = true;
+					goto $finally;
+				}
+				inputSize = 4;
+				outputChar = $nc(this->mappingTableG2)->charAt(((byte1 - 161) * 94) + byte2 - 161);
+			} else if (byte1 == IBM964$Decoder::SS3) {
+				$assign(var$6, $CoderResult::malformedForLength(1));
+				return$5 = true;
+				goto $finally;
+			} else if (byte1 <= 159) {
+				outputChar = $nc(IBM964$Decoder::byteToCharTable)->charAt(byte1);
+			} else if (byte1 < 161 || byte1 > 254) {
+				$assign(var$6, $CoderResult::malformedForLength(1));
+				return$5 = true;
+				goto $finally;
+			} else {
+				if (sl - sp < 2) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::UNDERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				byte2 = sa->get(sp + 1) & 0xff;
+				inputSize = 2;
+				if (byte2 < 161 || byte2 > 254) {
+					$assign(var$6, $CoderResult::malformedForLength(2));
+					return$5 = true;
+					goto $finally;
+				}
+				outputChar = $nc(IBM964$Decoder::mappingTableG1)->charAt(((byte1 - 161) * 94) + byte2 - 161);
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (outputChar == (char16_t)0xfffd) {
+				$assign(var$6, $CoderResult::unmappableForLength(inputSize));
+				return$5 = true;
+				goto $finally;
+			}
+			if (dl - dp < 1) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
+			}
+			$nc(da)->set(dp++, outputChar);
+			sp += inputSize;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* IBM964$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				int32_t byte1 = 0;
-				int32_t byte2 = 0;
-				int32_t inputSize = 1;
-				char16_t outputChar = (char16_t)0xFFFD;
-				byte1 = (int32_t)(src->get() & (uint32_t)255);
-				if (byte1 == IBM964$Decoder::SS2) {
-					if (src->remaining() < 3) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::UNDERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					byte1 = (int32_t)(src->get() & (uint32_t)255);
-					inputSize = 2;
-					if (byte1 == 162) {
-						$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2a2);
-					} else if (byte1 == 172) {
-						$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ac);
-					} else if (byte1 == 173) {
-						$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ad);
-					} else {
-						$assign(var$2, $CoderResult::malformedForLength(2));
-						return$1 = true;
-						goto $finally;
-					}
-					byte1 = (int32_t)(src->get() & (uint32_t)255);
-					if (byte1 < 161 || byte1 > 254) {
-						$assign(var$2, $CoderResult::malformedForLength(3));
-						return$1 = true;
-						goto $finally;
-					}
-					byte2 = (int32_t)(src->get() & (uint32_t)255);
-					if (byte2 < 161 || byte2 > 254) {
-						$assign(var$2, $CoderResult::malformedForLength(4));
-						return$1 = true;
-						goto $finally;
-					}
-					inputSize = 4;
-					outputChar = $nc(this->mappingTableG2)->charAt(((byte1 - 161) * 94) + byte2 - 161);
-				} else if (byte1 == IBM964$Decoder::SS3) {
-					$assign(var$2, $CoderResult::malformedForLength(1));
-					return$1 = true;
-					goto $finally;
-				} else if (byte1 <= 159) {
-					outputChar = $nc(IBM964$Decoder::byteToCharTable)->charAt(byte1);
-				} else if (byte1 < 161 || byte1 > 254) {
-					$assign(var$2, $CoderResult::malformedForLength(1));
-					return$1 = true;
-					goto $finally;
-				} else {
-					if (src->remaining() < 1) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::UNDERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					byte2 = (int32_t)(src->get() & (uint32_t)255);
-					if (byte2 < 161 || byte2 > 254) {
-						$assign(var$2, $CoderResult::malformedForLength(2));
-						return$1 = true;
-						goto $finally;
-					}
-					inputSize = 2;
-					outputChar = $nc(IBM964$Decoder::mappingTableG1)->charAt(((byte1 - 161) * 94) + byte2 - 161);
-				}
-				if (outputChar == (char16_t)0xFFFD) {
-					$assign(var$2, $CoderResult::unmappableForLength(inputSize));
-					return$1 = true;
-					goto $finally;
-				}
-				if (!$nc(dst)->hasRemaining()) {
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			int32_t byte1 = 0;
+			int32_t byte2 = 0;
+			int32_t inputSize = 1;
+			char16_t outputChar = (char16_t)0xfffd;
+			byte1 = src->get() & 0xff;
+			if (byte1 == IBM964$Decoder::SS2) {
+				if (src->remaining() < 3) {
 					$init($CoderResult);
-					$assign(var$2, $CoderResult::OVERFLOW);
+					$assign(var$2, $CoderResult::UNDERFLOW);
 					return$1 = true;
 					goto $finally;
 				}
-				$nc(dst)->put(outputChar);
-				mark += inputSize;
+				byte1 = src->get() & 0xff;
+				inputSize = 2;
+				if (byte1 == 162) {
+					$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2a2);
+				} else if (byte1 == 172) {
+					$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ac);
+				} else if (byte1 == 173) {
+					$set(this, mappingTableG2, IBM964$Decoder::mappingTableG2ad);
+				} else {
+					$assign(var$2, $CoderResult::malformedForLength(2));
+					return$1 = true;
+					goto $finally;
+				}
+				byte1 = src->get() & 0xff;
+				if (byte1 < 161 || byte1 > 254) {
+					$assign(var$2, $CoderResult::malformedForLength(3));
+					return$1 = true;
+					goto $finally;
+				}
+				byte2 = src->get() & 0xff;
+				if (byte2 < 161 || byte2 > 254) {
+					$assign(var$2, $CoderResult::malformedForLength(4));
+					return$1 = true;
+					goto $finally;
+				}
+				inputSize = 4;
+				outputChar = $nc(this->mappingTableG2)->charAt(((byte1 - 161) * 94) + byte2 - 161);
+			} else if (byte1 == IBM964$Decoder::SS3) {
+				$assign(var$2, $CoderResult::malformedForLength(1));
+				return$1 = true;
+				goto $finally;
+			} else if (byte1 <= 159) {
+				outputChar = $nc(IBM964$Decoder::byteToCharTable)->charAt(byte1);
+			} else if (byte1 < 161 || byte1 > 254) {
+				$assign(var$2, $CoderResult::malformedForLength(1));
+				return$1 = true;
+				goto $finally;
+			} else {
+				if (src->remaining() < 1) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::UNDERFLOW);
+					return$1 = true;
+					goto $finally;
+				}
+				byte2 = src->get() & 0xff;
+				if (byte2 < 161 || byte2 > 254) {
+					$assign(var$2, $CoderResult::malformedForLength(2));
+					return$1 = true;
+					goto $finally;
+				}
+				inputSize = 2;
+				outputChar = $nc(IBM964$Decoder::mappingTableG1)->charAt(((byte1 - 161) * 94) + byte2 - 161);
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			if (outputChar == (char16_t)0xfffd) {
+				$assign(var$2, $CoderResult::unmappableForLength(inputSize));
+				return$1 = true;
+				goto $finally;
+			}
+			if (!$nc(dst)->hasRemaining()) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
+			}
+			dst->put(outputChar);
+			mark += inputSize;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -317,9 +267,9 @@ $CoderResult* IBM964$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
 	}
 }
 
-void clinit$IBM964$Decoder($Class* class$) {
+void IBM964$Decoder::clinit$($Class* clazz) {
 	{
-		$assignStatic(IBM964$Decoder::byteToCharTable, $cstr({'\0', 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, '\b', '\t', '\n', 0xB, '\f', '\r', 0xE, 0xF, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7F, 0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0xFFFD, 0xFFFD, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0x9B, 0x9C, 0x9D, 0x9E, 0x9F}));
+		$assignStatic(IBM964$Decoder::byteToCharTable, $cstr({'\0', 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, '\b', '\t', '\n', 0x0b, '\f', '\r', 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7f, 0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0xfffd, 0xfffd, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9a, 0x9b, 0x9c, 0x9d, 0x9e, 0x9f}));
 		$assignStatic(IBM964$Decoder::mappingTableG1, u"　，、。．‧；：？！︰…‥﹐﹑﹒·﹔﹕﹖﹗︱—︲﹘︳╴︴﹏（）︵︶｛｝︷︸〔〕︹︺【】︻︼《》︽︾〈〉︿﹀「」﹁﹂『』﹃﹄﹙﹚﹛﹜﹝﹞‘’“”〝〞‵′＃＆＊※§〃○●△▲◎☆★◇◆□■▽▼㊣℅‾￣＿ˍ﹉﹊﹍﹎﹋﹌﹟﹠﹡＋－×÷±√＜＞＝≦≧≠∞≒≡﹢﹣﹤﹥﹦∼∩∪⊥∠∟⊿㏒㏑∫∮∵∴♀♂⊕⊙↑↓→←↖↗↙↘∥｜／＼∕﹨＄￥〒￠￡％＠℃℉﹩﹪﹫㏕㎜㎝㎞㏎㎡㎎㎏㏄°兙兛兞兝兡兣嗧瓩糎▁▂▃▄▅▆▇█▏▎▍▌▋▊▉┼┴┬┤├▔─│▕┌┐└┘╭╮╰╯═╞╪╡◢◣◥◤╱╲╳������������������������������������������������０１２３４５６７８９ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ〡〢〣〤〥〦〧〨〩十卄卅ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψωㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦㄧㄨㄩ˙ˉˊˇˋ��������������①②③④⑤⑥⑦⑧⑨⑩⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽ⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ����������������������������������������������������������������一丨丶丿乙亅二亠人儿入八冂冖冫几凵刀力勹匕匚匸十卜卩厂厶又口囗土士夊夕大女子宀寸小尢尸屮山巛工己巾干幺广廴廾弋弓彐彡彳心戈戶手支攴文斗斤方无日曰月木欠止歹殳毋比毛氏气水火爪父爻爿片牙牛犬玄玉瓜瓦甘生用田疋疒癶白皮皿目矛矢石示禸禾穴立竹米糸缶网羊羽老而耒耳聿肉臣自至臼舌舛舟艮色艸虍虫血行衣襾見角言谷豆豕豸貝赤走足身車辛辰辵邑酉釆里金長門阜隶隹雨青非面革韋韭音頁風飛食首香馬骨高髟鬥鬯鬲鬼魚鳥鹵鹿麥麻黃黍黑黹黽鼎鼓鼠鼻齊齒龍龜龠�������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������"
 			"����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������"
 			"����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������"
@@ -363,7 +313,46 @@ IBM964$Decoder::IBM964$Decoder() {
 }
 
 $Class* IBM964$Decoder::load$($String* name, bool initialize) {
-	$loadClass(IBM964$Decoder, name, initialize, &_IBM964$Decoder_ClassInfo_, clinit$IBM964$Decoder, allocate$IBM964$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"SS2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IBM964$Decoder, SS2)},
+		{"SS3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IBM964$Decoder, SS3)},
+		{"mappingTableG2", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IBM964$Decoder, mappingTableG2)},
+		{"byteToCharTable", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, byteToCharTable)},
+		{"mappingTableG1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG1)},
+		{"mappingTableG2a2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG2a2)},
+		{"mappingTableG2ac", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG2ac)},
+		{"mappingTableG2ad", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IBM964$Decoder, mappingTableG2ad)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(IBM964$Decoder, init$, void, $Charset*)},
+		{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM964$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM964$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(IBM964$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM964$Decoder", "sun.nio.cs.ext.IBM964", "Decoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.IBM964$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM964"
+	};
+	$loadClass(IBM964$Decoder, name, initialize, &classInfo$$, IBM964$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IBM964$Decoder);
+	});
 	return class$;
 }
 

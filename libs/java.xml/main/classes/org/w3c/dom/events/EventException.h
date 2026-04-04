@@ -18,12 +18,15 @@ class $export EventException : public ::java::lang::RuntimeException {
 public:
 	EventException();
 	void init$(int16_t code, $String* message);
-	static const int64_t serialVersionUID = (int64_t)0x035E6EF04FAF7A5D;
+	static const int64_t serialVersionUID = (int64_t)0x035e6ef04faf7a5d;
 	int16_t code = 0;
 	static const int16_t UNSPECIFIED_EVENT_TYPE_ERR = 0;
 	EventException(const EventException& e);
 	virtual void throw$() override;
-	inline EventException* operator ->() {
+	inline EventException* operator ->() const {
+		return (EventException*)throwing$;
+	}
+	inline operator EventException*() const {
 		return (EventException*)throwing$;
 	}
 };

@@ -45,6 +45,7 @@ class $export ThreadInfo : public ::java::lang::Object {
 	$class(ThreadInfo, 0, ::java::lang::Object)
 public:
 	ThreadInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Thread* t, int32_t state, Object$* lockObj, $Thread* lockOwner, int64_t blockedCount, int64_t blockedTime, int64_t waitedCount, int64_t waitedTime, $Array<::java::lang::StackTraceElement>* stackTrace);
 	void init$($Thread* t, int32_t state, Object$* lockObj, $Thread* lockOwner, int64_t blockedCount, int64_t blockedTime, int64_t waitedCount, int64_t waitedTime, $Array<::java::lang::StackTraceElement>* stackTrace, $ObjectArray* monitors, $ints* stackDepths, $ObjectArray* synchronizers);
 	void init$(::javax::management::openmbean::CompositeData* cd);

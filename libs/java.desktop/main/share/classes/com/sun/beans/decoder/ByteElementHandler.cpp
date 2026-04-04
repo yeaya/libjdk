@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/ByteElementHandler.h>
-
 #include <com/sun/beans/decoder/StringElementHandler.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$MethodInfo _ByteElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ByteElementHandler, init$, void)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteElementHandler, getValue, $Object*, $String*)},
-	{}
-};
-
-$ClassInfo _ByteElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.ByteElementHandler",
-	"com.sun.beans.decoder.StringElementHandler",
-	nullptr,
-	nullptr,
-	_ByteElementHandler_MethodInfo_
-};
-
-$Object* allocate$ByteElementHandler($Class* clazz) {
-	return $of($alloc(ByteElementHandler));
-}
-
 void ByteElementHandler::init$() {
 	$StringElementHandler::init$();
 }
@@ -44,7 +24,22 @@ ByteElementHandler::ByteElementHandler() {
 }
 
 $Class* ByteElementHandler::load$($String* name, bool initialize) {
-	$loadClass(ByteElementHandler, name, initialize, &_ByteElementHandler_ClassInfo_, allocate$ByteElementHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ByteElementHandler, init$, void)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteElementHandler, getValue, $Object*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.ByteElementHandler",
+		"com.sun.beans.decoder.StringElementHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ByteElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteElementHandler);
+	});
 	return class$;
 }
 

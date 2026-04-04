@@ -1,5 +1,4 @@
 #include <sun/font/Decoration.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
@@ -41,49 +40,6 @@ using $Underline = ::sun::font::Underline;
 namespace sun {
 	namespace font {
 
-$FieldInfo _Decoration_FieldInfo_[] = {
-	{"VALUES_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Decoration, VALUES_MASK)},
-	{"PLAIN", "Lsun/font/Decoration;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Decoration, PLAIN)},
-	{}
-};
-
-$MethodInfo _Decoration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Decoration, init$, void)},
-	{"drawTextAndDecorations", "(Lsun/font/Decoration$Label;Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(Decoration, drawTextAndDecorations, void, $Decoration$Label*, $Graphics2D*, float, float)},
-	{"getCharVisualBounds", "(Lsun/font/Decoration$Label;I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Decoration, getCharVisualBounds, $Rectangle2D*, $Decoration$Label*, int32_t)},
-	{"getDecoration", "(Lsun/font/AttributeValues;)Lsun/font/Decoration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoration, getDecoration, Decoration*, $AttributeValues*)},
-	{"getDecoration", "(Ljava/util/Map;)Lsun/font/Decoration;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Lsun/font/Decoration;", $PUBLIC | $STATIC, $staticMethod(Decoration, getDecoration, Decoration*, $Map*)},
-	{"getOutline", "(Lsun/font/Decoration$Label;FF)Ljava/awt/Shape;", nullptr, 0, $virtualMethod(Decoration, getOutline, $Shape*, $Decoration$Label*, float, float)},
-	{"getPlainDecoration", "()Lsun/font/Decoration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoration, getPlainDecoration, Decoration*)},
-	{"getVisualBounds", "(Lsun/font/Decoration$Label;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Decoration, getVisualBounds, $Rectangle2D*, $Decoration$Label*)},
-	{}
-};
-
-$InnerClassInfo _Decoration_InnerClassesInfo_[] = {
-	{"sun.font.Decoration$DecorationImpl", "sun.font.Decoration", "DecorationImpl", $PRIVATE | $STATIC | $FINAL},
-	{"sun.font.Decoration$Label", "sun.font.Decoration", "Label", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Decoration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.Decoration",
-	"java.lang.Object",
-	nullptr,
-	_Decoration_FieldInfo_,
-	_Decoration_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Decoration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.Decoration$DecorationImpl,sun.font.Decoration$Label"
-};
-
-$Object* allocate$Decoration($Class* clazz) {
-	return $of($alloc(Decoration));
-}
-
 int32_t Decoration::VALUES_MASK = 0;
 Decoration* Decoration::PLAIN = nullptr;
 
@@ -97,13 +53,13 @@ Decoration* Decoration::getPlainDecoration() {
 
 Decoration* Decoration::getDecoration($AttributeValues* values$renamed) {
 	$init(Decoration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeValues, values, values$renamed);
-	if (values == nullptr || !$nc(values)->anyDefined(Decoration::VALUES_MASK)) {
+	if (values == nullptr || !values->anyDefined(Decoration::VALUES_MASK)) {
 		return Decoration::PLAIN;
 	}
 	$assign(values, $nc(values)->applyIMHighlight());
-	$var($Paint, var$0, values->getForeground());
+	$var($Paint, var$0, $nc(values)->getForeground());
 	$var($Paint, var$1, values->getBackground());
 	bool var$2 = values->getSwapColors();
 	bool var$3 = values->getStrikethrough();
@@ -135,7 +91,7 @@ $Shape* Decoration::getOutline($Decoration$Label* label, float x, float y) {
 	return $nc(label)->handleGetOutline(x, y);
 }
 
-void clinit$Decoration($Class* class$) {
+void Decoration::clinit$($Class* clazz) {
 	$init($EAttribute);
 	Decoration::VALUES_MASK = $AttributeValues::getMask($$new($EAttributeArray, {
 		$EAttribute::EFOREGROUND,
@@ -153,7 +109,44 @@ Decoration::Decoration() {
 }
 
 $Class* Decoration::load$($String* name, bool initialize) {
-	$loadClass(Decoration, name, initialize, &_Decoration_ClassInfo_, clinit$Decoration, allocate$Decoration);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALUES_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Decoration, VALUES_MASK)},
+		{"PLAIN", "Lsun/font/Decoration;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Decoration, PLAIN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Decoration, init$, void)},
+		{"drawTextAndDecorations", "(Lsun/font/Decoration$Label;Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(Decoration, drawTextAndDecorations, void, $Decoration$Label*, $Graphics2D*, float, float)},
+		{"getCharVisualBounds", "(Lsun/font/Decoration$Label;I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Decoration, getCharVisualBounds, $Rectangle2D*, $Decoration$Label*, int32_t)},
+		{"getDecoration", "(Lsun/font/AttributeValues;)Lsun/font/Decoration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoration, getDecoration, Decoration*, $AttributeValues*)},
+		{"getDecoration", "(Ljava/util/Map;)Lsun/font/Decoration;", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)Lsun/font/Decoration;", $PUBLIC | $STATIC, $staticMethod(Decoration, getDecoration, Decoration*, $Map*)},
+		{"getOutline", "(Lsun/font/Decoration$Label;FF)Ljava/awt/Shape;", nullptr, 0, $virtualMethod(Decoration, getOutline, $Shape*, $Decoration$Label*, float, float)},
+		{"getPlainDecoration", "()Lsun/font/Decoration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoration, getPlainDecoration, Decoration*)},
+		{"getVisualBounds", "(Lsun/font/Decoration$Label;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Decoration, getVisualBounds, $Rectangle2D*, $Decoration$Label*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.Decoration$DecorationImpl", "sun.font.Decoration", "DecorationImpl", $PRIVATE | $STATIC | $FINAL},
+		{"sun.font.Decoration$Label", "sun.font.Decoration", "Label", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.Decoration",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.Decoration$DecorationImpl,sun.font.Decoration$Label"
+	};
+	$loadClass(Decoration, name, initialize, &classInfo$$, Decoration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Decoration);
+	});
 	return class$;
 }
 

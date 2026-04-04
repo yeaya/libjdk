@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/AlphaPaintPipe$TileContext.h>
-
 #include <java/awt/PaintContext.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/lang/ref/WeakReference.h>
@@ -15,55 +14,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WeakReference = ::java::lang::ref::WeakReference;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $AlphaPaintPipe = ::sun::java2d::pipe::AlphaPaintPipe;
 
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _AlphaPaintPipe$TileContext_FieldInfo_[] = {
-	{"sunG2D", "Lsun/java2d/SunGraphics2D;", nullptr, 0, $field(AlphaPaintPipe$TileContext, sunG2D)},
-	{"paintCtxt", "Ljava/awt/PaintContext;", nullptr, 0, $field(AlphaPaintPipe$TileContext, paintCtxt)},
-	{"paintModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(AlphaPaintPipe$TileContext, paintModel)},
-	{"lastRaster", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", 0, $field(AlphaPaintPipe$TileContext, lastRaster)},
-	{"lastData", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", 0, $field(AlphaPaintPipe$TileContext, lastData)},
-	{"lastMask", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(AlphaPaintPipe$TileContext, lastMask)},
-	{"lastBlit", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(AlphaPaintPipe$TileContext, lastBlit)},
-	{"dstData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(AlphaPaintPipe$TileContext, dstData)},
-	{}
-};
-
-$MethodInfo _AlphaPaintPipe$TileContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/SunGraphics2D;Ljava/awt/PaintContext;)V", nullptr, $PUBLIC, $method(AlphaPaintPipe$TileContext, init$, void, $SunGraphics2D*, $PaintContext*)},
-	{}
-};
-
-$InnerClassInfo _AlphaPaintPipe$TileContext_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.AlphaPaintPipe$TileContext", "sun.java2d.pipe.AlphaPaintPipe", "TileContext", $STATIC},
-	{}
-};
-
-$ClassInfo _AlphaPaintPipe$TileContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.pipe.AlphaPaintPipe$TileContext",
-	"java.lang.Object",
-	nullptr,
-	_AlphaPaintPipe$TileContext_FieldInfo_,
-	_AlphaPaintPipe$TileContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AlphaPaintPipe$TileContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.AlphaPaintPipe"
-};
-
-$Object* allocate$AlphaPaintPipe$TileContext($Class* clazz) {
-	return $of($alloc(AlphaPaintPipe$TileContext));
-}
 
 void AlphaPaintPipe$TileContext::init$($SunGraphics2D* sg, $PaintContext* pc) {
 	$set(this, sunG2D, sg);
@@ -73,7 +29,7 @@ void AlphaPaintPipe$TileContext::init$($SunGraphics2D* sg, $PaintContext* pc) {
 	$load($AlphaPaintPipe);
 	$synchronized($AlphaPaintPipe::class$) {
 		$init($AlphaPaintPipe);
-		if ($AlphaPaintPipe::cachedLastColorModel != nullptr && $equals($nc($AlphaPaintPipe::cachedLastColorModel)->get(), this->paintModel)) {
+		if ($AlphaPaintPipe::cachedLastColorModel != nullptr && $equals($AlphaPaintPipe::cachedLastColorModel->get(), this->paintModel)) {
 			$set(this, lastRaster, $AlphaPaintPipe::cachedLastRaster);
 			$set(this, lastData, $AlphaPaintPipe::cachedLastData);
 		}
@@ -84,7 +40,43 @@ AlphaPaintPipe$TileContext::AlphaPaintPipe$TileContext() {
 }
 
 $Class* AlphaPaintPipe$TileContext::load$($String* name, bool initialize) {
-	$loadClass(AlphaPaintPipe$TileContext, name, initialize, &_AlphaPaintPipe$TileContext_ClassInfo_, allocate$AlphaPaintPipe$TileContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"sunG2D", "Lsun/java2d/SunGraphics2D;", nullptr, 0, $field(AlphaPaintPipe$TileContext, sunG2D)},
+		{"paintCtxt", "Ljava/awt/PaintContext;", nullptr, 0, $field(AlphaPaintPipe$TileContext, paintCtxt)},
+		{"paintModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(AlphaPaintPipe$TileContext, paintModel)},
+		{"lastRaster", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", 0, $field(AlphaPaintPipe$TileContext, lastRaster)},
+		{"lastData", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lsun/java2d/SurfaceData;>;", 0, $field(AlphaPaintPipe$TileContext, lastData)},
+		{"lastMask", "Lsun/java2d/loops/MaskBlit;", nullptr, 0, $field(AlphaPaintPipe$TileContext, lastMask)},
+		{"lastBlit", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(AlphaPaintPipe$TileContext, lastBlit)},
+		{"dstData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(AlphaPaintPipe$TileContext, dstData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/SunGraphics2D;Ljava/awt/PaintContext;)V", nullptr, $PUBLIC, $method(AlphaPaintPipe$TileContext, init$, void, $SunGraphics2D*, $PaintContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.AlphaPaintPipe$TileContext", "sun.java2d.pipe.AlphaPaintPipe", "TileContext", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.pipe.AlphaPaintPipe$TileContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.AlphaPaintPipe"
+	};
+	$loadClass(AlphaPaintPipe$TileContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlphaPaintPipe$TileContext);
+	});
 	return class$;
 }
 

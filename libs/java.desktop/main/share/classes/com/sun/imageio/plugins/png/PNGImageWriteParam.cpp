@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/PNGImageWriteParam.h>
-
 #include <java/util/Locale.h>
 #include <javax/imageio/ImageWriteParam.h>
 #include <jcpp.h>
@@ -19,36 +18,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace png {
-
-$FieldInfo _PNGImageWriteParam_FieldInfo_[] = {
-	{"DEFAULT_QUALITY", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, DEFAULT_QUALITY)},
-	{"compressionNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, compressionNames)},
-	{"qualityVals", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, qualityVals)},
-	{"qualityDescs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, qualityDescs)},
-	{}
-};
-
-$MethodInfo _PNGImageWriteParam_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, 0, $method(PNGImageWriteParam, init$, void, $Locale*)},
-	{"getCompressionQualityDescriptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, getCompressionQualityDescriptions, $StringArray*)},
-	{"getCompressionQualityValues", "()[F", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, getCompressionQualityValues, $floats*)},
-	{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, isCompressionLossless, bool)},
-	{"unsetCompression", "()V", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, unsetCompression, void)},
-	{}
-};
-
-$ClassInfo _PNGImageWriteParam_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.PNGImageWriteParam",
-	"javax.imageio.ImageWriteParam",
-	nullptr,
-	_PNGImageWriteParam_FieldInfo_,
-	_PNGImageWriteParam_MethodInfo_
-};
-
-$Object* allocate$PNGImageWriteParam($Class* clazz) {
-	return $of($alloc(PNGImageWriteParam));
-}
 
 float PNGImageWriteParam::DEFAULT_QUALITY = 0.0;
 $StringArray* PNGImageWriteParam::compressionNames = nullptr;
@@ -78,15 +47,15 @@ bool PNGImageWriteParam::isCompressionLossless() {
 
 $StringArray* PNGImageWriteParam::getCompressionQualityDescriptions() {
 	$ImageWriteParam::getCompressionQualityDescriptions();
-	return $cast($StringArray, $nc(PNGImageWriteParam::qualityDescs)->clone());
+	return $cast($StringArray, PNGImageWriteParam::qualityDescs->clone());
 }
 
 $floats* PNGImageWriteParam::getCompressionQualityValues() {
 	$ImageWriteParam::getCompressionQualityValues();
-	return $cast($floats, $nc(PNGImageWriteParam::qualityVals)->clone());
+	return $cast($floats, PNGImageWriteParam::qualityVals->clone());
 }
 
-void clinit$PNGImageWriteParam($Class* class$) {
+void PNGImageWriteParam::clinit$($Class* clazz) {
 	PNGImageWriteParam::DEFAULT_QUALITY = 0.5f;
 	$assignStatic(PNGImageWriteParam::compressionNames, $new($StringArray, {"Deflate"_s}));
 	$assignStatic(PNGImageWriteParam::qualityVals, $new($floats, {
@@ -106,7 +75,32 @@ PNGImageWriteParam::PNGImageWriteParam() {
 }
 
 $Class* PNGImageWriteParam::load$($String* name, bool initialize) {
-	$loadClass(PNGImageWriteParam, name, initialize, &_PNGImageWriteParam_ClassInfo_, clinit$PNGImageWriteParam, allocate$PNGImageWriteParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_QUALITY", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, DEFAULT_QUALITY)},
+		{"compressionNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, compressionNames)},
+		{"qualityVals", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, qualityVals)},
+		{"qualityDescs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriteParam, qualityDescs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, 0, $method(PNGImageWriteParam, init$, void, $Locale*)},
+		{"getCompressionQualityDescriptions", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, getCompressionQualityDescriptions, $StringArray*)},
+		{"getCompressionQualityValues", "()[F", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, getCompressionQualityValues, $floats*)},
+		{"isCompressionLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, isCompressionLossless, bool)},
+		{"unsetCompression", "()V", nullptr, $PUBLIC, $virtualMethod(PNGImageWriteParam, unsetCompression, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.PNGImageWriteParam",
+		"javax.imageio.ImageWriteParam",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PNGImageWriteParam, name, initialize, &classInfo$$, PNGImageWriteParam::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGImageWriteParam);
+	});
 	return class$;
 }
 

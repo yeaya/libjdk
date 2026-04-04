@@ -21,6 +21,7 @@ class $export SwingWorker$StateValue : public ::java::lang::Enum {
 public:
 	SwingWorker$StateValue();
 	static $Array<::javax::swing::SwingWorker$StateValue>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::SwingWorker$StateValue* valueOf($String* name);
 	static $Array<::javax::swing::SwingWorker$StateValue>* values();

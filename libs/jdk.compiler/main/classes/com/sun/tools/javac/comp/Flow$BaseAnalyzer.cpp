@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer.h>
-
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind.h>
@@ -53,52 +52,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Flow$BaseAnalyzer_FieldInfo_[] = {
-	{"pendingExits", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;", 0, $field(Flow$BaseAnalyzer, pendingExits)},
-	{}
-};
-
-$MethodInfo _Flow$BaseAnalyzer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Flow$BaseAnalyzer, init$, void)},
-	{"markDead", "()V", nullptr, $ABSTRACT, $virtualMethod(Flow$BaseAnalyzer, markDead, void)},
-	{"recordExit", "(Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;)V", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer, recordExit, void, $Flow$BaseAnalyzer$PendingExit*)},
-	{"resolveBreaks", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/comp/Flow$Liveness;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;)Lcom/sun/tools/javac/comp/Flow$Liveness;", 0, $virtualMethod(Flow$BaseAnalyzer, resolveBreaks, $Flow$Liveness*, $JCTree*, $ListBuffer*)},
-	{"resolveContinues", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer, resolveContinues, $Flow$Liveness*, $JCTree*)},
-	{"resolveJump", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;)Lcom/sun/tools/javac/comp/Flow$Liveness;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;)Lcom/sun/tools/javac/comp/Flow$Liveness;", $PRIVATE, $method(Flow$BaseAnalyzer, resolveJump, $Flow$Liveness*, $JCTree*, $ListBuffer*, $Flow$BaseAnalyzer$JumpKind*)},
-	{"resolveYields", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/comp/Flow$Liveness;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;)Lcom/sun/tools/javac/comp/Flow$Liveness;", 0, $virtualMethod(Flow$BaseAnalyzer, resolveYields, $Flow$Liveness*, $JCTree*, $ListBuffer*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Flow$BaseAnalyzer, scan, void, $JCTree*)},
-	{"scanSyntheticBreak", "(Lcom/sun/tools/javac/tree/TreeMaker;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $virtualMethod(Flow$BaseAnalyzer, scanSyntheticBreak, void, $TreeMaker*, $JCTree*)},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$BaseAnalyzer, visitPackageDef, void, $JCTree$JCPackageDecl*)},
-	{}
-};
-
-$InnerClassInfo _Flow$BaseAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "PendingExit", $STATIC},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "JumpKind", $STATIC | $ABSTRACT | $ENUM},
-	{}
-};
-
-$ClassInfo _Flow$BaseAnalyzer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Flow$BaseAnalyzer_FieldInfo_,
-	_Flow$BaseAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$BaseAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$BaseAnalyzer($Class* clazz) {
-	return $of($alloc(Flow$BaseAnalyzer));
-}
-
 void Flow$BaseAnalyzer::init$() {
 	$TreeScanner::init$();
 }
@@ -109,14 +62,14 @@ void Flow$BaseAnalyzer::recordExit($Flow$BaseAnalyzer$PendingExit* pe) {
 }
 
 $Flow$Liveness* Flow$BaseAnalyzer::resolveJump($JCTree* tree, $ListBuffer* oldPendingExits, $Flow$BaseAnalyzer$JumpKind* jk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool resolved = false;
 	$var($List, exits, $nc(this->pendingExits)->toList());
 	$set(this, pendingExits, oldPendingExits);
-	for (; $nc(exits)->nonEmpty(); $assign(exits, $nc(exits)->tail)) {
+	for (; $nc(exits)->nonEmpty(); $assign(exits, exits->tail)) {
 		$var($Flow$BaseAnalyzer$PendingExit, exit, $cast($Flow$BaseAnalyzer$PendingExit, exits->head));
 		bool var$0 = $nc($nc(exit)->tree)->hasTag($nc(jk)->treeTag);
-		if (var$0 && $nc(jk)->getTarget(exit->tree) == tree) {
+		if (var$0 && jk->getTarget(exit->tree) == tree) {
 			exit->resolveJump();
 			resolved = true;
 		} else {
@@ -143,7 +96,7 @@ $Flow$Liveness* Flow$BaseAnalyzer::resolveYields($JCTree* tree, $ListBuffer* old
 
 void Flow$BaseAnalyzer::scan($JCTree* tree) {
 	$init($Type);
-	if (tree != nullptr && (tree->type == nullptr || !$equals($nc(tree)->type, $Type::stuckType))) {
+	if (tree != nullptr && (tree->type == nullptr || !$equals(tree->type, $Type::stuckType))) {
 		$TreeScanner::scan(tree);
 	}
 }
@@ -152,16 +105,16 @@ void Flow$BaseAnalyzer::visitPackageDef($JCTree$JCPackageDecl* tree) {
 }
 
 void Flow$BaseAnalyzer::scanSyntheticBreak($TreeMaker* make, $JCTree* swtch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
 	if ($nc(swtch)->hasTag($JCTree$Tag::SWITCH_EXPRESSION)) {
-		$var($JCTree$JCYield, brk, $nc($($nc(make)->at($Position::NOPOS)))->Yield(nullptr));
+		$var($JCTree$JCYield, brk, $$nc($nc(make)->at($Position::NOPOS))->Yield(nullptr));
 		$set($nc(brk), target, swtch);
-		scan(static_cast<$JCTree*>(brk));
+		scan(brk);
 	} else {
-		$var($JCTree$JCBreak, brk, $nc($($nc(make)->at($Position::NOPOS)))->Break(nullptr));
+		$var($JCTree$JCBreak, brk, $$nc($nc(make)->at($Position::NOPOS))->Break(nullptr));
 		$set($nc(brk), target, swtch);
-		scan(static_cast<$JCTree*>(brk));
+		scan(brk);
 	}
 }
 
@@ -169,7 +122,47 @@ Flow$BaseAnalyzer::Flow$BaseAnalyzer() {
 }
 
 $Class* Flow$BaseAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Flow$BaseAnalyzer, name, initialize, &_Flow$BaseAnalyzer_ClassInfo_, allocate$Flow$BaseAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"pendingExits", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;", 0, $field(Flow$BaseAnalyzer, pendingExits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Flow$BaseAnalyzer, init$, void)},
+		{"markDead", "()V", nullptr, $ABSTRACT, $virtualMethod(Flow$BaseAnalyzer, markDead, void)},
+		{"recordExit", "(Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;)V", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer, recordExit, void, $Flow$BaseAnalyzer$PendingExit*)},
+		{"resolveBreaks", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/comp/Flow$Liveness;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;)Lcom/sun/tools/javac/comp/Flow$Liveness;", 0, $virtualMethod(Flow$BaseAnalyzer, resolveBreaks, $Flow$Liveness*, $JCTree*, $ListBuffer*)},
+		{"resolveContinues", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer, resolveContinues, $Flow$Liveness*, $JCTree*)},
+		{"resolveJump", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;)Lcom/sun/tools/javac/comp/Flow$Liveness;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;)Lcom/sun/tools/javac/comp/Flow$Liveness;", $PRIVATE, $method(Flow$BaseAnalyzer, resolveJump, $Flow$Liveness*, $JCTree*, $ListBuffer*, $Flow$BaseAnalyzer$JumpKind*)},
+		{"resolveYields", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/comp/Flow$Liveness;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit;>;)Lcom/sun/tools/javac/comp/Flow$Liveness;", 0, $virtualMethod(Flow$BaseAnalyzer, resolveYields, $Flow$Liveness*, $JCTree*, $ListBuffer*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Flow$BaseAnalyzer, scan, void, $JCTree*)},
+		{"scanSyntheticBreak", "(Lcom/sun/tools/javac/tree/TreeMaker;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PROTECTED, $virtualMethod(Flow$BaseAnalyzer, scanSyntheticBreak, void, $TreeMaker*, $JCTree*)},
+		{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$BaseAnalyzer, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "PendingExit", $STATIC},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$JumpKind", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "JumpKind", $STATIC | $ABSTRACT | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$BaseAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$BaseAnalyzer);
+	});
 	return class$;
 }
 

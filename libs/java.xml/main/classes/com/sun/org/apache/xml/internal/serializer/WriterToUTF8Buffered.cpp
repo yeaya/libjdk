@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/WriterToUTF8Buffered.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/Writer.h>
 #include <jcpp.h>
@@ -20,49 +19,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _WriterToUTF8Buffered_FieldInfo_[] = {
-	{"BYTES_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriterToUTF8Buffered, BYTES_MAX)},
-	{"CHARS_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriterToUTF8Buffered, CHARS_MAX)},
-	{"m_os", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(WriterToUTF8Buffered, m_os)},
-	{"m_outputBytes", "[B", nullptr, $PRIVATE | $FINAL, $field(WriterToUTF8Buffered, m_outputBytes)},
-	{"m_inputChars", "[C", nullptr, $PRIVATE | $FINAL, $field(WriterToUTF8Buffered, m_inputChars)},
-	{"count", "I", nullptr, $PRIVATE, $field(WriterToUTF8Buffered, count)},
-	{}
-};
-
-$MethodInfo _WriterToUTF8Buffered_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(WriterToUTF8Buffered, init$, void, $OutputStream*), "java.io.UnsupportedEncodingException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, flush, void), "java.io.IOException"},
-	{"flushBuffer", "()V", nullptr, $PUBLIC, $method(WriterToUTF8Buffered, flushBuffer, void), "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, getOutputStream, $OutputStream*)},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, getWriter, $Writer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*write", "([C)V", nullptr, $PUBLIC},
-	{"*write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, write, void, $String*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WriterToUTF8Buffered_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.WriterToUTF8Buffered",
-	"java.io.Writer",
-	"com.sun.org.apache.xml.internal.serializer.WriterChain",
-	_WriterToUTF8Buffered_FieldInfo_,
-	_WriterToUTF8Buffered_MethodInfo_
-};
-
-$Object* allocate$WriterToUTF8Buffered($Class* clazz) {
-	return $of($alloc(WriterToUTF8Buffered));
-}
 
 void WriterToUTF8Buffered::write($chars* arg0) {
 	this->$Writer::write(arg0);
@@ -105,19 +61,19 @@ void WriterToUTF8Buffered::write(int32_t c) {
 		flushBuffer();
 	}
 	if (c < 128) {
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(c));
+		this->m_outputBytes->set(this->count++, (int8_t)(c));
 	} else if (c < 2048) {
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(192 + (c >> 6)));
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
+		this->m_outputBytes->set(this->count++, (int8_t)(192 + (c >> 6)));
+		this->m_outputBytes->set(this->count++, (int8_t)(0x80 + (c & 0x3f)));
 	} else if (c < 0x00010000) {
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(224 + (c >> 12)));
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(128 + ((int32_t)((c >> 6) & (uint32_t)63))));
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
+		this->m_outputBytes->set(this->count++, (int8_t)(224 + (c >> 12)));
+		this->m_outputBytes->set(this->count++, (int8_t)(0x80 + ((c >> 6) & 0x3f)));
+		this->m_outputBytes->set(this->count++, (int8_t)(0x80 + (c & 0x3f)));
 	} else {
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(240 + (c >> 18)));
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(128 + ((int32_t)((c >> 12) & (uint32_t)63))));
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(128 + ((int32_t)((c >> 6) & (uint32_t)63))));
-		$nc(this->m_outputBytes)->set(this->count++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
+		this->m_outputBytes->set(this->count++, (int8_t)(240 + (c >> 18)));
+		this->m_outputBytes->set(this->count++, (int8_t)(0x80 + ((c >> 12) & 0x3f)));
+		this->m_outputBytes->set(this->count++, (int8_t)(0x80 + ((c >> 6) & 0x3f)));
+		this->m_outputBytes->set(this->count++, (int8_t)(0x80 + (c & 0x3f)));
 	}
 }
 
@@ -139,7 +95,7 @@ void WriterToUTF8Buffered::write($chars* chars, int32_t start, int32_t length) {
 				end_chunk = start + (int32_t)($div((((int64_t)length) * chunk), chunks));
 				char16_t c = $nc(chars)->get(end_chunk - 1);
 				int32_t ic = chars->get(end_chunk - 1);
-				if (c >= 0x0000D800 && c <= 0x0000DBFF) {
+				if (c >= 0x0000d800 && c <= 0x0000dbff) {
 					if (end_chunk < start + length) {
 						++end_chunk;
 					} else {
@@ -168,28 +124,28 @@ void WriterToUTF8Buffered::write($chars* chars, int32_t start, int32_t length) {
 			$nc(buf_loc)->set(count_loc++, (int8_t)(c));
 		} else if (c < 2048) {
 			$nc(buf_loc)->set(count_loc++, (int8_t)(192 + (c >> 6)));
-			buf_loc->set(count_loc++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
-		} else if (c >= 0x0000D800 && c <= 0x0000DBFF) {
+			buf_loc->set(count_loc++, (int8_t)(0x80 + (c & 0x3f)));
+		} else if (c >= 0x0000d800 && c <= 0x0000dbff) {
 			char16_t high = 0;
 			char16_t low = 0;
 			high = c;
 			++i;
 			low = chars->get(i);
-			$nc(buf_loc)->set(count_loc++, (int8_t)(240 | ((int32_t)(((high + 64) >> 8) & (uint32_t)240))));
-			buf_loc->set(count_loc++, (int8_t)(128 | ((int32_t)(((high + 64) >> 2) & (uint32_t)63))));
-			buf_loc->set(count_loc++, (int8_t)(128 | (((int32_t)((low >> 6) & (uint32_t)15)) + ((int32_t)((high << 4) & (uint32_t)48)))));
-			buf_loc->set(count_loc++, (int8_t)(128 | ((int32_t)(low & (uint32_t)63))));
+			$nc(buf_loc)->set(count_loc++, (int8_t)(0xf0 | (((high + 64) >> 8) & 0xf0)));
+			buf_loc->set(count_loc++, (int8_t)(0x80 | (((high + 64) >> 2) & 0x3f)));
+			buf_loc->set(count_loc++, (int8_t)(0x80 | (((low >> 6) & 0x0f) + ((high << 4) & 0x30))));
+			buf_loc->set(count_loc++, (int8_t)(0x80 | (low & 0x3f)));
 		} else {
 			$nc(buf_loc)->set(count_loc++, (int8_t)(224 + (c >> 12)));
-			buf_loc->set(count_loc++, (int8_t)(128 + ((int32_t)((c >> 6) & (uint32_t)63))));
-			buf_loc->set(count_loc++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
+			buf_loc->set(count_loc++, (int8_t)(0x80 + ((c >> 6) & 0x3f)));
+			buf_loc->set(count_loc++, (int8_t)(0x80 + (c & 0x3f)));
 		}
 	}
 	this->count = count_loc;
 }
 
 void WriterToUTF8Buffered::write($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(s)->length();
 	int32_t lengthx3 = 3 * length;
 	if (lengthx3 >= WriterToUTF8Buffered::BYTES_MAX - this->count) {
@@ -209,8 +165,8 @@ void WriterToUTF8Buffered::write($String* s) {
 				end_chunk = start + (int32_t)($div((((int64_t)length) * chunk), chunks));
 				s->getChars(start_chunk, end_chunk, this->m_inputChars, 0);
 				int32_t len_chunk = (end_chunk - start_chunk);
-				char16_t c = $nc(this->m_inputChars)->get(len_chunk - 1);
-				if (c >= 0x0000D800 && c <= 0x0000DBFF) {
+				char16_t c = this->m_inputChars->get(len_chunk - 1);
+				if (c >= 0x0000d800 && c <= 0x0000dbff) {
 					--end_chunk;
 					--len_chunk;
 					if (chunk == chunks) {
@@ -239,21 +195,21 @@ void WriterToUTF8Buffered::write($String* s) {
 			$nc(buf_loc)->set(count_loc++, (int8_t)(c));
 		} else if (c < 2048) {
 			$nc(buf_loc)->set(count_loc++, (int8_t)(192 + (c >> 6)));
-			buf_loc->set(count_loc++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
-		} else if (c >= 0x0000D800 && c <= 0x0000DBFF) {
+			buf_loc->set(count_loc++, (int8_t)(0x80 + (c & 0x3f)));
+		} else if (c >= 0x0000d800 && c <= 0x0000dbff) {
 			char16_t high = 0;
 			char16_t low = 0;
 			high = c;
 			++i;
 			low = chars->get(i);
-			$nc(buf_loc)->set(count_loc++, (int8_t)(240 | ((int32_t)(((high + 64) >> 8) & (uint32_t)240))));
-			buf_loc->set(count_loc++, (int8_t)(128 | ((int32_t)(((high + 64) >> 2) & (uint32_t)63))));
-			buf_loc->set(count_loc++, (int8_t)(128 | (((int32_t)((low >> 6) & (uint32_t)15)) + ((int32_t)((high << 4) & (uint32_t)48)))));
-			buf_loc->set(count_loc++, (int8_t)(128 | ((int32_t)(low & (uint32_t)63))));
+			$nc(buf_loc)->set(count_loc++, (int8_t)(0xf0 | (((high + 64) >> 8) & 0xf0)));
+			buf_loc->set(count_loc++, (int8_t)(0x80 | (((high + 64) >> 2) & 0x3f)));
+			buf_loc->set(count_loc++, (int8_t)(0x80 | (((low >> 6) & 0x0f) + ((high << 4) & 0x30))));
+			buf_loc->set(count_loc++, (int8_t)(0x80 | (low & 0x3f)));
 		} else {
 			$nc(buf_loc)->set(count_loc++, (int8_t)(224 + (c >> 12)));
-			buf_loc->set(count_loc++, (int8_t)(128 + ((int32_t)((c >> 6) & (uint32_t)63))));
-			buf_loc->set(count_loc++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
+			buf_loc->set(count_loc++, (int8_t)(0x80 + ((c >> 6) & 0x3f)));
+			buf_loc->set(count_loc++, (int8_t)(0x80 + (c & 0x3f)));
 		}
 	}
 	this->count = count_loc;
@@ -288,7 +244,45 @@ WriterToUTF8Buffered::WriterToUTF8Buffered() {
 }
 
 $Class* WriterToUTF8Buffered::load$($String* name, bool initialize) {
-	$loadClass(WriterToUTF8Buffered, name, initialize, &_WriterToUTF8Buffered_ClassInfo_, allocate$WriterToUTF8Buffered);
+	$FieldInfo fieldInfos$$[] = {
+		{"BYTES_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriterToUTF8Buffered, BYTES_MAX)},
+		{"CHARS_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriterToUTF8Buffered, CHARS_MAX)},
+		{"m_os", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(WriterToUTF8Buffered, m_os)},
+		{"m_outputBytes", "[B", nullptr, $PRIVATE | $FINAL, $field(WriterToUTF8Buffered, m_outputBytes)},
+		{"m_inputChars", "[C", nullptr, $PRIVATE | $FINAL, $field(WriterToUTF8Buffered, m_inputChars)},
+		{"count", "I", nullptr, $PRIVATE, $field(WriterToUTF8Buffered, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(WriterToUTF8Buffered, init$, void, $OutputStream*), "java.io.UnsupportedEncodingException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, flush, void), "java.io.IOException"},
+		{"flushBuffer", "()V", nullptr, $PUBLIC, $method(WriterToUTF8Buffered, flushBuffer, void), "java.io.IOException"},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, getOutputStream, $OutputStream*)},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, getWriter, $Writer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*write", "([C)V", nullptr, $PUBLIC},
+		{"*write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WriterToUTF8Buffered, write, void, $String*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.WriterToUTF8Buffered",
+		"java.io.Writer",
+		"com.sun.org.apache.xml.internal.serializer.WriterChain",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WriterToUTF8Buffered, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WriterToUTF8Buffered));
+	});
 	return class$;
 }
 

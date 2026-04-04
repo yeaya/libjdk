@@ -1,5 +1,4 @@
 #include <java/beans/MethodRef.h>
-
 #include <java/lang/ref/SoftReference.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/lang/reflect/Method.h>
@@ -18,35 +17,6 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 namespace java {
 	namespace beans {
 
-$FieldInfo _MethodRef_FieldInfo_[] = {
-	{"signature", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodRef, signature)},
-	{"methodRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/lang/reflect/Method;>;", $PRIVATE, $field(MethodRef, methodRef)},
-	{"typeRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;", $PRIVATE, $field(MethodRef, typeRef)},
-	{}
-};
-
-$MethodInfo _MethodRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodRef, init$, void)},
-	{"find", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(MethodRef, find, $Method*, $Class*, $String*)},
-	{"get", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(MethodRef, get, $Method*)},
-	{"isSet", "()Z", nullptr, 0, $method(MethodRef, isSet, bool)},
-	{"set", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(MethodRef, set, void, $Method*)},
-	{}
-};
-
-$ClassInfo _MethodRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MethodRef",
-	"java.lang.Object",
-	nullptr,
-	_MethodRef_FieldInfo_,
-	_MethodRef_MethodInfo_
-};
-
-$Object* allocate$MethodRef($Class* clazz) {
-	return $of($alloc(MethodRef));
-}
-
 void MethodRef::init$() {
 }
 
@@ -56,7 +26,7 @@ void MethodRef::set($Method* method) {
 		$set(this, methodRef, nullptr);
 		$set(this, typeRef, nullptr);
 	} else {
-		$set(this, signature, $nc(method)->toGenericString());
+		$set(this, signature, method->toGenericString());
 		$set(this, methodRef, $new($SoftReference, method));
 		$set(this, typeRef, $new($WeakReference, method->getDeclaringClass()));
 	}
@@ -67,13 +37,13 @@ bool MethodRef::isSet() {
 }
 
 $Method* MethodRef::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->methodRef == nullptr) {
 		return nullptr;
 	}
 	$var($Method, method, $cast($Method, $nc(this->methodRef)->get()));
 	if (method == nullptr) {
-		$assign(method, find($cast($Class, $($nc(this->typeRef)->get())), this->signature));
+		$assign(method, find($$cast($Class, $nc(this->typeRef)->get()), this->signature));
 		if (method == nullptr) {
 			$set(this, signature, nullptr);
 			$set(this, methodRef, nullptr);
@@ -86,22 +56,16 @@ $Method* MethodRef::get() {
 }
 
 $Method* MethodRef::find($Class* type, $String* signature) {
+	$useLocalObjectStack();
 	$load(MethodRef);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (type != nullptr) {
-		{
-			$var($MethodArray, arr$, type->getMethods());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Method, method, arr$->get(i$));
-				{
-					if ($of(type)->equals($nc(method)->getDeclaringClass())) {
-						if ($nc($($nc(method)->toGenericString()))->equals(signature)) {
-							return method;
-						}
-					}
+		$var($MethodArray, arr$, type->getMethods());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Method, method, arr$->get(i$));
+			if ($of(type)->equals($nc(method)->getDeclaringClass())) {
+				if ($$nc(method->toGenericString())->equals(signature)) {
+					return method;
 				}
 			}
 		}
@@ -113,7 +77,31 @@ MethodRef::MethodRef() {
 }
 
 $Class* MethodRef::load$($String* name, bool initialize) {
-	$loadClass(MethodRef, name, initialize, &_MethodRef_ClassInfo_, allocate$MethodRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"signature", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MethodRef, signature)},
+		{"methodRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/lang/reflect/Method;>;", $PRIVATE, $field(MethodRef, methodRef)},
+		{"typeRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;", $PRIVATE, $field(MethodRef, typeRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodRef, init$, void)},
+		{"find", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(MethodRef, find, $Method*, $Class*, $String*)},
+		{"get", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(MethodRef, get, $Method*)},
+		{"isSet", "()Z", nullptr, 0, $method(MethodRef, isSet, bool)},
+		{"set", "(Ljava/lang/reflect/Method;)V", nullptr, 0, $method(MethodRef, set, void, $Method*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MethodRef",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MethodRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodRef);
+	});
 	return class$;
 }
 

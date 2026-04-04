@@ -1,5 +1,4 @@
 #include <FlowAdaptersCompileOnly$ObjectSubscriber.h>
-
 #include <FlowAdaptersCompileOnly.h>
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <jcpp.h>
@@ -8,41 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-
-$MethodInfo _FlowAdaptersCompileOnly$ObjectSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$ObjectSubscriber, init$, void)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _FlowAdaptersCompileOnly$ObjectSubscriber_InnerClassesInfo_[] = {
-	{"FlowAdaptersCompileOnly$ObjectSubscriber", "FlowAdaptersCompileOnly", "ObjectSubscriber", $STATIC},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FlowAdaptersCompileOnly$ObjectSubscriber_ClassInfo_ = {
-	$ACC_SUPER,
-	"FlowAdaptersCompileOnly$ObjectSubscriber",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscriber",
-	nullptr,
-	_FlowAdaptersCompileOnly$ObjectSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/lang/Object;>;",
-	nullptr,
-	_FlowAdaptersCompileOnly$ObjectSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FlowAdaptersCompileOnly"
-};
-
-$Object* allocate$FlowAdaptersCompileOnly$ObjectSubscriber($Class* clazz) {
-	return $of($alloc(FlowAdaptersCompileOnly$ObjectSubscriber));
-}
 
 void FlowAdaptersCompileOnly$ObjectSubscriber::init$() {
 }
@@ -63,7 +27,37 @@ FlowAdaptersCompileOnly$ObjectSubscriber::FlowAdaptersCompileOnly$ObjectSubscrib
 }
 
 $Class* FlowAdaptersCompileOnly$ObjectSubscriber::load$($String* name, bool initialize) {
-	$loadClass(FlowAdaptersCompileOnly$ObjectSubscriber, name, initialize, &_FlowAdaptersCompileOnly$ObjectSubscriber_ClassInfo_, allocate$FlowAdaptersCompileOnly$ObjectSubscriber);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$ObjectSubscriber, init$, void)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$ObjectSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FlowAdaptersCompileOnly$ObjectSubscriber", "FlowAdaptersCompileOnly", "ObjectSubscriber", $STATIC},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FlowAdaptersCompileOnly$ObjectSubscriber",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscriber",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FlowAdaptersCompileOnly"
+	};
+	$loadClass(FlowAdaptersCompileOnly$ObjectSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowAdaptersCompileOnly$ObjectSubscriber);
+	});
 	return class$;
 }
 

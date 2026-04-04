@@ -41,6 +41,7 @@ class InclusiveNamespaces : public ::com::sun::org::apache::xml::internal::secur
 	$class(InclusiveNamespaces, 0, ::com::sun::org::apache::xml::internal::security::utils::ElementProxy, ::com::sun::org::apache::xml::internal::security::transforms::TransformParam)
 public:
 	InclusiveNamespaces();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

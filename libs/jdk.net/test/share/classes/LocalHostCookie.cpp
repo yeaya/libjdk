@@ -1,5 +1,4 @@
 #include <LocalHostCookie.h>
-
 #include <LocalHostCookie$Server.h>
 #include <java/io/InputStream.h>
 #include <java/net/CookieHandler.h>
@@ -29,38 +28,6 @@ using $URL = ::java::net::URL;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 
-$MethodInfo _LocalHostCookie_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalHostCookie, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalHostCookie, main, void, $StringArray*), "java.lang.Exception"},
-	{"runTest", "()V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie, runTest, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _LocalHostCookie_InnerClassesInfo_[] = {
-	{"LocalHostCookie$MyCookieHandler", "LocalHostCookie", "MyCookieHandler", 0},
-	{"LocalHostCookie$Server", "LocalHostCookie", "Server", 0},
-	{}
-};
-
-$ClassInfo _LocalHostCookie_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LocalHostCookie",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_LocalHostCookie_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocalHostCookie_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"LocalHostCookie$MyCookieHandler,LocalHostCookie$Server"
-};
-
-$Object* allocate$LocalHostCookie($Class* clazz) {
-	return $of($alloc(LocalHostCookie));
-}
-
 void LocalHostCookie::init$() {
 }
 
@@ -69,45 +36,43 @@ void LocalHostCookie::main($StringArray* args) {
 }
 
 void LocalHostCookie::runTest() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalHostCookie$Server, s, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(s, $new($LocalHostCookie$Server, this));
-			s->startServer();
-			$var($URL, url, $new($URL, "http"_s, "localhost"_s, s->getPort(), "/"_s));
-			$init($Proxy);
-			$var($HttpURLConnection, urlConnection, $cast($HttpURLConnection, url->openConnection($Proxy::NO_PROXY)));
-			$nc(urlConnection)->setRequestMethod("GET"_s);
-			urlConnection->setDoOutput(true);
-			urlConnection->connect();
-			urlConnection->getInputStream();
-			$var($CookieHandler, cookieHandler, $CookieHandler::getDefault());
-			if (cookieHandler == nullptr) {
-				$assign(cookieHandler, $new($CookieManager));
-				$CookieHandler::setDefault(cookieHandler);
-			}
-			$var($URI, var$1, $nc($(urlConnection->getURL()))->toURI());
-			$nc(cookieHandler)->put(var$1, $(urlConnection->getHeaderFields()));
-			$var($URI, var$2, $nc($(urlConnection->getURL()))->toURI());
-			$var($Map, map, cookieHandler->get(var$2, $(urlConnection->getHeaderFields())));
-			if ($nc(map)->containsKey("Cookie"_s)) {
-				$var($List, list, $cast($List, map->get("Cookie"_s)));
-				if (list == nullptr || $nc(list)->size() == 0) {
-					$throwNew($RuntimeException, "Test failed!"_s);
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			if (s != nullptr) {
-				s->stopServer();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(s, $new($LocalHostCookie$Server, this));
+		s->startServer();
+		$var($URL, url, $new($URL, "http"_s, "localhost"_s, s->getPort(), "/"_s));
+		$init($Proxy);
+		$var($HttpURLConnection, urlConnection, $cast($HttpURLConnection, url->openConnection($Proxy::NO_PROXY)));
+		$nc(urlConnection)->setRequestMethod("GET"_s);
+		urlConnection->setDoOutput(true);
+		urlConnection->connect();
+		urlConnection->getInputStream();
+		$var($CookieHandler, cookieHandler, $CookieHandler::getDefault());
+		if (cookieHandler == nullptr) {
+			$assign(cookieHandler, $new($CookieManager));
+			$CookieHandler::setDefault(cookieHandler);
+		}
+		$var($URI, var$1, $$nc(urlConnection->getURL())->toURI());
+		$nc(cookieHandler)->put(var$1, $(urlConnection->getHeaderFields()));
+		$var($URI, var$2, $$nc(urlConnection->getURL())->toURI());
+		$var($Map, map, $nc(cookieHandler)->get(var$2, $(urlConnection->getHeaderFields())));
+		if ($nc(map)->containsKey("Cookie"_s)) {
+			$var($List, list, $cast($List, map->get("Cookie"_s)));
+			if (list == nullptr || list->size() == 0) {
+				$throwNew($RuntimeException, "Test failed!"_s);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		if (s != nullptr) {
+			s->stopServer();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -115,7 +80,34 @@ LocalHostCookie::LocalHostCookie() {
 }
 
 $Class* LocalHostCookie::load$($String* name, bool initialize) {
-	$loadClass(LocalHostCookie, name, initialize, &_LocalHostCookie_ClassInfo_, allocate$LocalHostCookie);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocalHostCookie, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalHostCookie, main, void, $StringArray*), "java.lang.Exception"},
+		{"runTest", "()V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie, runTest, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LocalHostCookie$MyCookieHandler", "LocalHostCookie", "MyCookieHandler", 0},
+		{"LocalHostCookie$Server", "LocalHostCookie", "Server", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LocalHostCookie",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"LocalHostCookie$MyCookieHandler,LocalHostCookie$Server"
+	};
+	$loadClass(LocalHostCookie, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalHostCookie);
+	});
 	return class$;
 }
 

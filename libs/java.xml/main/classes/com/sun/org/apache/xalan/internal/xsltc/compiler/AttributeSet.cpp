@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -38,7 +37,6 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
@@ -48,7 +46,6 @@ using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compile
 using $Text = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Text;
 using $TopLevelElement = ::com::sun::org::apache::xalan::internal::xsltc::compiler::TopLevelElement;
 using $UseAttributeSets = ::com::sun::org::apache::xalan::internal::xsltc::compiler::UseAttributeSets;
-using $XSLTC = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XSLTC;
 using $XslAttribute = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XslAttribute;
 using $AttributeSetMethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::AttributeSetMethodGenerator;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -73,41 +70,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _AttributeSet_FieldInfo_[] = {
-	{"AttributeSetPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeSet, AttributeSetPrefix)},
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(AttributeSet, _name)},
-	{"_useSets", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/UseAttributeSets;", nullptr, $PRIVATE, $field(AttributeSet, _useSets)},
-	{"_mergeSet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;", nullptr, $PRIVATE, $field(AttributeSet, _mergeSet)},
-	{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeSet, _method)},
-	{"_ignore", "Z", nullptr, $PRIVATE, $field(AttributeSet, _ignore)},
-	{}
-};
-
-$MethodInfo _AttributeSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AttributeSet, init$, void)},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeSet, getMethodName, $String*)},
-	{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(AttributeSet, getName, $QName*)},
-	{"ignore", "()V", nullptr, $PUBLIC, $method(AttributeSet, ignore, void)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(AttributeSet, parseContents, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeSet, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(AttributeSet, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(AttributeSet, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _AttributeSet_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeSet",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
-	nullptr,
-	_AttributeSet_FieldInfo_,
-	_AttributeSet_MethodInfo_
-};
-
-$Object* allocate$AttributeSet($Class* clazz) {
-	return $of($alloc(AttributeSet));
-}
-
 $String* AttributeSet::AttributeSetPrefix = nullptr;
 
 void AttributeSet::init$() {
@@ -128,25 +90,25 @@ void AttributeSet::ignore() {
 }
 
 void AttributeSet::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getAttribute("name"_s));
 	if (!$XML11Char::isXML11ValidQName(name)) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, $of(name), static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, name, this));
 		$nc(parser)->reportError($Constants::ERROR, err);
 	}
 	$set(this, _name, $nc(parser)->getQNameIgnoreDefaultNs(name));
 	$init($Constants);
-	if ((this->_name == nullptr) || ($nc($($nc(this->_name)->getStringRep()))->equals($Constants::EMPTYSTRING))) {
+	if ((this->_name == nullptr) || ($$nc(this->_name->getStringRep())->equals($Constants::EMPTYSTRING))) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNNAMED_ATTRIBSET_ERR, static_cast<$SyntaxTreeNode*>(this)));
+		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::UNNAMED_ATTRIBSET_ERR, this));
 		parser->reportError($Constants::ERROR, msg);
 	}
 	$var($String, useSets, getAttribute("use-attribute-sets"_s));
 	if ($nc(useSets)->length() > 0) {
 		if (!$Util::isValidQNames(useSets)) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, $of(useSets), static_cast<$SyntaxTreeNode*>(this)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_QNAME_ERR, useSets, this));
 			parser->reportError($Constants::ERROR, err);
 		}
 		$set(this, _useSets, $new($UseAttributeSets, useSets, parser));
@@ -156,28 +118,28 @@ void AttributeSet::parseContents($Parser* parser) {
 	for (int32_t i = 0; i < count; ++i) {
 		$var($SyntaxTreeNode, child, $cast($SyntaxTreeNode, contents->get(i)));
 		if ($instanceOf($XslAttribute, child)) {
-			$nc($(parser->getSymbolTable()))->setCurrentNode(child);
-			$nc(child)->parseContents(parser);
+			$$nc(parser->getSymbolTable())->setCurrentNode(child);
+			child->parseContents(parser);
 		} else if ($instanceOf($Text, child)) {
 		} else {
 			$init($ErrorMsg);
-			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ILLEGAL_CHILD_ERR, static_cast<$SyntaxTreeNode*>(this)));
+			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ILLEGAL_CHILD_ERR, this));
 			parser->reportError($Constants::ERROR, msg);
 		}
 	}
-	$nc($(parser->getSymbolTable()))->setCurrentNode(this);
+	$$nc(parser->getSymbolTable())->setCurrentNode(this);
 }
 
 $Type* AttributeSet::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_ignore) {
 		$init($Type);
 		return ($Type::Void);
 	}
 	$set(this, _mergeSet, $nc(stable)->addAttributeSet(this));
-	$set(this, _method, $str({AttributeSet::AttributeSetPrefix, $$str($nc($(getXSLTC()))->nextAttributeSetSerial())}));
+	$set(this, _method, $str({AttributeSet::AttributeSetPrefix, $$str($$nc(getXSLTC())->nextAttributeSetSerial())}));
 	if (this->_useSets != nullptr) {
-		$nc(this->_useSets)->typeCheck(stable);
+		this->_useSets->typeCheck(stable);
 	}
 	typeCheckContents(stable);
 	$init($Type);
@@ -185,7 +147,7 @@ $Type* AttributeSet::typeCheck($SymbolTable* stable) {
 }
 
 void AttributeSet::translate($ClassGenerator* classGen, $MethodGenerator* methodGen$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodGenerator, methodGen, methodGen$renamed);
 	if (this->_ignore) {
 		return;
@@ -202,32 +164,32 @@ void AttributeSet::translate($ClassGenerator* classGen, $MethodGenerator* method
 		il->append($(methodGen->loadCurrentNode()));
 		$init($Constants);
 		int32_t method = $nc(cpg)->addMethodref($(classGen->getClassName()), methodName, $Constants::ATTR_SET_SIG);
-		il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, method)));
+		il->append($$new($INVOKESPECIAL, method));
 	}
 	if (this->_useSets != nullptr) {
-		$nc(this->_useSets)->translate(classGen, methodGen);
+		this->_useSets->translate(classGen, methodGen);
 	}
 	$var($Iterator, attributes, elements());
 	while ($nc(attributes)->hasNext()) {
 		$var($SyntaxTreeNode, element, $cast($SyntaxTreeNode, attributes->next()));
 		if ($instanceOf($XslAttribute, element)) {
 			$var($XslAttribute, attribute, $cast($XslAttribute, element));
-			$nc(attribute)->translate(classGen, methodGen);
+			attribute->translate(classGen, methodGen);
 		}
 	}
 	$var($InstructionList, il, methodGen->getInstructionList());
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($Constants::RETURN));
+	$nc(il)->append($Constants::RETURN);
 	$nc(classGen)->addMethod(methodGen);
 }
 
 $String* AttributeSet::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, buf, $new($StringBuffer, "attribute-set: "_s));
 	$var($Iterator, attributes, elements());
 	while ($nc(attributes)->hasNext()) {
 		$var($XslAttribute, attribute, $cast($XslAttribute, attributes->next()));
-		buf->append($of(attribute));
+		buf->append(attribute);
 	}
 	return (buf->toString());
 }
@@ -235,12 +197,42 @@ $String* AttributeSet::toString() {
 AttributeSet::AttributeSet() {
 }
 
-void clinit$AttributeSet($Class* class$) {
+void AttributeSet::clinit$($Class* clazz) {
 	$assignStatic(AttributeSet::AttributeSetPrefix, "$as$"_s);
 }
 
 $Class* AttributeSet::load$($String* name, bool initialize) {
-	$loadClass(AttributeSet, name, initialize, &_AttributeSet_ClassInfo_, clinit$AttributeSet, allocate$AttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"AttributeSetPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttributeSet, AttributeSetPrefix)},
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(AttributeSet, _name)},
+		{"_useSets", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/UseAttributeSets;", nullptr, $PRIVATE, $field(AttributeSet, _useSets)},
+		{"_mergeSet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;", nullptr, $PRIVATE, $field(AttributeSet, _mergeSet)},
+		{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AttributeSet, _method)},
+		{"_ignore", "Z", nullptr, $PRIVATE, $field(AttributeSet, _ignore)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AttributeSet, init$, void)},
+		{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeSet, getMethodName, $String*)},
+		{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PUBLIC, $method(AttributeSet, getName, $QName*)},
+		{"ignore", "()V", nullptr, $PUBLIC, $method(AttributeSet, ignore, void)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(AttributeSet, parseContents, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeSet, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(AttributeSet, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(AttributeSet, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeSet",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeSet, name, initialize, &classInfo$$, AttributeSet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeSet);
+	});
 	return class$;
 }
 

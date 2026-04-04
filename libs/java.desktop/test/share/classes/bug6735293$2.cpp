@@ -1,5 +1,4 @@
 #include <bug6735293$2.h>
-
 #include <bug6735293.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JFormattedTextField.h>
@@ -25,55 +24,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JFrame = ::javax::swing::JFrame;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $NavigationFilter = ::javax::swing::text::NavigationFilter;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
-
-$MethodInfo _bug6735293$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6735293$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6735293$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6735293$2_EnclosingMethodInfo_ = {
-	"bug6735293",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6735293$2_InnerClassesInfo_[] = {
-	{"bug6735293$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6735293$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6735293$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6735293$2_MethodInfo_,
-	nullptr,
-	&_bug6735293$2_EnclosingMethodInfo_,
-	_bug6735293$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6735293"
-};
-
-$Object* allocate$bug6735293$2($Class* clazz) {
-	return $of($alloc(bug6735293$2));
-}
 
 void bug6735293$2::init$() {
 }
 
 void bug6735293$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Position$Bias);
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, {$Position$Bias::Forward}));
 	{
@@ -88,34 +47,26 @@ void bug6735293$2::run() {
 		for (; i$ < len$; ++i$) {
 			int32_t direction = arr$->get(i$);
 			{
-				{
-					$var($ints, arr$, $new($ints, {
-						-100,
-						$Integer::MIN_VALUE
-					}));
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						int32_t position = arr$->get(i$);
-						{
-							{
-								$var($Position$BiasArray, arr$, $new($Position$BiasArray, {
-									$Position$Bias::Backward,
-									$Position$Bias::Forward
-								}));
-								int32_t len$ = arr$->length;
-								int32_t i$ = 0;
-								for (; i$ < len$; ++i$) {
-									$var($Position$Bias, bias, arr$->get(i$));
-									{
-										try {
-											$init($bug6735293);
-											$nc($bug6735293::nf)->getNextVisualPositionFrom($bug6735293::jtf, position, bias, direction, biasRet);
-											$throwNew($RuntimeException, $$str({"BadLocationException was not thrown: position = "_s, $$str(position), ", bias = "_s, bias, ", direction = "_s, $$str(direction)}));
-										} catch ($BadLocationException& e) {
-										}
-									}
-								}
+				$var($ints, arr$, $new($ints, {
+					-100,
+					$Integer::MIN_VALUE
+				}));
+				int32_t len$ = arr$->length;
+				int32_t i$ = 0;
+				for (; i$ < len$; ++i$) {
+					int32_t position = arr$->get(i$);
+					{
+						$var($Position$BiasArray, arr$, $new($Position$BiasArray, {
+							$Position$Bias::Backward,
+							$Position$Bias::Forward
+						}));
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+							$var($Position$Bias, bias, arr$->get(i$));
+							try {
+								$init($bug6735293);
+								$nc($bug6735293::nf)->getNextVisualPositionFrom($bug6735293::jtf, position, bias, direction, biasRet);
+								$throwNew($RuntimeException, $$str({"BadLocationException was not thrown: position = "_s, $$str(position), ", bias = "_s, bias, ", direction = "_s, $$str(direction)}));
+							} catch ($BadLocationException& e) {
 							}
 						}
 					}
@@ -131,7 +82,38 @@ bug6735293$2::bug6735293$2() {
 }
 
 $Class* bug6735293$2::load$($String* name, bool initialize) {
-	$loadClass(bug6735293$2, name, initialize, &_bug6735293$2_ClassInfo_, allocate$bug6735293$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6735293$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6735293$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6735293",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6735293$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6735293$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6735293"
+	};
+	$loadClass(bug6735293$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6735293$2);
+	});
 	return class$;
 }
 

@@ -148,7 +148,7 @@ public:
 	::java::awt::Component$BaselineResizeBehavior* baselineResizeBehavior = nullptr;
 	int32_t centerPadding = 0;
 	int32_t centerOffset = 0;
-	static const int64_t serialVersionUID = (int64_t)0xF21F090ECFE626CF;
+	static const int64_t serialVersionUID = (int64_t)0xf21f090ecfe626cf;
 };
 
 	} // awt

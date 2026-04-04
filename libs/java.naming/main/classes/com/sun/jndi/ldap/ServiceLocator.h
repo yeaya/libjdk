@@ -36,6 +36,7 @@ class ServiceLocator : public ::java::lang::Object {
 	$class(ServiceLocator, 0, ::java::lang::Object)
 public:
 	ServiceLocator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* extractHostports($Array<::com::sun::jndi::ldap::ServiceLocator$SrvRecord>* srvRecords);
 	static $StringArray* getLdapService($String* domainName, ::java::util::Map* environment);

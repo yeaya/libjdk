@@ -1,5 +1,4 @@
 #include <javax/swing/event/RowSorterListener.h>
-
 #include <javax/swing/event/RowSorterEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _RowSorterListener_MethodInfo_[] = {
-	{"sorterChanged", "(Ljavax/swing/event/RowSorterEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSorterListener, sorterChanged, void, $RowSorterEvent*)},
-	{}
-};
-
-$ClassInfo _RowSorterListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.RowSorterListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_RowSorterListener_MethodInfo_
-};
-
-$Object* allocate$RowSorterListener($Class* clazz) {
-	return $of($alloc(RowSorterListener));
-}
-
 $Class* RowSorterListener::load$($String* name, bool initialize) {
-	$loadClass(RowSorterListener, name, initialize, &_RowSorterListener_ClassInfo_, allocate$RowSorterListener);
+	$MethodInfo methodInfos$$[] = {
+		{"sorterChanged", "(Ljavax/swing/event/RowSorterEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSorterListener, sorterChanged, void, $RowSorterEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.RowSorterListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RowSorterListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowSorterListener);
+	});
 	return class$;
 }
 

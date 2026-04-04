@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSDFACM$Occurence.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSCMRepeatingLeaf.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSDFACM.h>
@@ -25,44 +24,6 @@ namespace com {
 							namespace xs {
 								namespace models {
 
-$FieldInfo _XSDFACM$Occurence_FieldInfo_[] = {
-	{"minOccurs", "I", nullptr, $FINAL, $field(XSDFACM$Occurence, minOccurs)},
-	{"maxOccurs", "I", nullptr, $FINAL, $field(XSDFACM$Occurence, maxOccurs)},
-	{"elemIndex", "I", nullptr, $FINAL, $field(XSDFACM$Occurence, elemIndex)},
-	{}
-};
-
-$MethodInfo _XSDFACM$Occurence_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMRepeatingLeaf;I)V", nullptr, $PUBLIC, $method(XSDFACM$Occurence, init$, void, $XSCMRepeatingLeaf*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSDFACM$Occurence, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _XSDFACM$Occurence_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence", "com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM", "Occurence", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XSDFACM$Occurence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence",
-	"java.lang.Object",
-	nullptr,
-	_XSDFACM$Occurence_FieldInfo_,
-	_XSDFACM$Occurence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSDFACM$Occurence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM"
-};
-
-$Object* allocate$XSDFACM$Occurence($Class* clazz) {
-	return $of($alloc(XSDFACM$Occurence));
-}
-
 void XSDFACM$Occurence::init$($XSCMRepeatingLeaf* leaf, int32_t elemIndex) {
 	this->minOccurs = $nc(leaf)->getMinOccurs();
 	this->maxOccurs = leaf->getMaxOccurs();
@@ -70,7 +31,7 @@ void XSDFACM$Occurence::init$($XSCMRepeatingLeaf* leaf, int32_t elemIndex) {
 }
 
 $String* XSDFACM$Occurence::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"minOccurs="_s, $$str(this->minOccurs), ";maxOccurs="_s, ((this->maxOccurs != $SchemaSymbols::OCCURRENCE_UNBOUNDED) ? $($Integer::toString(this->maxOccurs)) : "unbounded"_s)});
 }
 
@@ -78,7 +39,39 @@ XSDFACM$Occurence::XSDFACM$Occurence() {
 }
 
 $Class* XSDFACM$Occurence::load$($String* name, bool initialize) {
-	$loadClass(XSDFACM$Occurence, name, initialize, &_XSDFACM$Occurence_ClassInfo_, allocate$XSDFACM$Occurence);
+	$FieldInfo fieldInfos$$[] = {
+		{"minOccurs", "I", nullptr, $FINAL, $field(XSDFACM$Occurence, minOccurs)},
+		{"maxOccurs", "I", nullptr, $FINAL, $field(XSDFACM$Occurence, maxOccurs)},
+		{"elemIndex", "I", nullptr, $FINAL, $field(XSDFACM$Occurence, elemIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMRepeatingLeaf;I)V", nullptr, $PUBLIC, $method(XSDFACM$Occurence, init$, void, $XSCMRepeatingLeaf*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSDFACM$Occurence, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence", "com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM", "Occurence", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM$Occurence",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSDFACM"
+	};
+	$loadClass(XSDFACM$Occurence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDFACM$Occurence);
+	});
 	return class$;
 }
 

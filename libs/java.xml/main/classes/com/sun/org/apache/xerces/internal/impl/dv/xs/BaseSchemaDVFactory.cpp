@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/BaseSchemaDVFactory.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSFacets.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
@@ -158,36 +157,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _BaseSchemaDVFactory_FieldInfo_[] = {
-	{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BaseSchemaDVFactory, URI_SCHEMAFORSCHEMA)},
-	{"fDeclPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;", nullptr, $PROTECTED, $field(BaseSchemaDVFactory, fDeclPool)},
-	{}
-};
-
-$MethodInfo _BaseSchemaDVFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseSchemaDVFactory, init$, void)},
-	{"createBuiltInTypes", "(Lcom/sun/org/apache/xerces/internal/util/SymbolHash;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(BaseSchemaDVFactory, createBuiltInTypes, void, $SymbolHash*, $XSSimpleTypeDecl*)},
-	{"createTypeList", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, createTypeList, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
-	{"createTypeRestriction", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, createTypeRestriction, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
-	{"createTypeUnion", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, createTypeUnion, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleTypeArray*, $XSObjectList*)},
-	{"newXSSimpleTypeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, newXSSimpleTypeDecl, $XSSimpleTypeDecl*)},
-	{"setDeclPool", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;)V", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, setDeclPool, void, $XSDeclarationPool*)},
-	{}
-};
-
-$ClassInfo _BaseSchemaDVFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseSchemaDVFactory",
-	"com.sun.org.apache.xerces.internal.impl.dv.SchemaDVFactory",
-	nullptr,
-	_BaseSchemaDVFactory_FieldInfo_,
-	_BaseSchemaDVFactory_MethodInfo_
-};
-
-$Object* allocate$BaseSchemaDVFactory($Class* clazz) {
-	return $of($alloc(BaseSchemaDVFactory));
-}
-
 $String* BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA = nullptr;
 
 void BaseSchemaDVFactory::init$() {
@@ -197,7 +166,7 @@ void BaseSchemaDVFactory::init$() {
 
 void BaseSchemaDVFactory::createBuiltInTypes($SymbolHash* builtInTypes, $XSSimpleTypeDecl* baseAtomicType) {
 	$init(BaseSchemaDVFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ANYSIMPLETYPE, "anySimpleType"_s);
 	$var($String, ANYURI, "anyURI"_s);
 	$var($String, BASE64BINARY, "base64Binary"_s);
@@ -347,15 +316,15 @@ void BaseSchemaDVFactory::createBuiltInTypes($SymbolHash* builtInTypes, $XSSimpl
 	$var($XSSimpleTypeDecl, idrefDV, $new($XSSimpleTypeDecl, ncnameDV, IDREF, $XSSimpleTypeDecl::DV_IDREF, $XSSimpleType::ORDERED_FALSE, false, false, false, true, $XSConstants::IDREF_DT));
 	builtInTypes->put(IDREF, idrefDV);
 	facets->minLength = 1;
-	$var($XSSimpleTypeDecl, tempDV, $new($XSSimpleTypeDecl, ($String*)nullptr, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, idrefDV, true, ($XSObjectList*)nullptr));
-	$var($XSSimpleTypeDecl, idrefsDV, $new($XSSimpleTypeDecl, tempDV, IDREFS, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, ($XSObjectList*)nullptr));
+	$var($XSSimpleTypeDecl, tempDV, $new($XSSimpleTypeDecl, nullptr, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, idrefDV, true, nullptr));
+	$var($XSSimpleTypeDecl, idrefsDV, $new($XSSimpleTypeDecl, tempDV, IDREFS, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, nullptr));
 	idrefsDV->applyFacets1(facets, $XSSimpleType::FACET_MINLENGTH, (int16_t)0);
 	builtInTypes->put(IDREFS, idrefsDV);
 	$var($XSSimpleTypeDecl, entityDV, $new($XSSimpleTypeDecl, ncnameDV, ENTITY, $XSSimpleTypeDecl::DV_ENTITY, $XSSimpleType::ORDERED_FALSE, false, false, false, true, $XSConstants::ENTITY_DT));
 	builtInTypes->put(ENTITY, entityDV);
 	facets->minLength = 1;
-	$assign(tempDV, $new($XSSimpleTypeDecl, ($String*)nullptr, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, entityDV, true, ($XSObjectList*)nullptr));
-	$var($XSSimpleTypeDecl, entitiesDV, $new($XSSimpleTypeDecl, tempDV, ENTITIES, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, ($XSObjectList*)nullptr));
+	$assign(tempDV, $new($XSSimpleTypeDecl, nullptr, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, entityDV, true, nullptr));
+	$var($XSSimpleTypeDecl, entitiesDV, $new($XSSimpleTypeDecl, tempDV, ENTITIES, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, nullptr));
 	entitiesDV->applyFacets1(facets, $XSSimpleType::FACET_MINLENGTH, (int16_t)0);
 	builtInTypes->put(ENTITIES, entitiesDV);
 	facets->whiteSpace = $XSSimpleType::WS_COLLAPSE;
@@ -363,15 +332,15 @@ void BaseSchemaDVFactory::createBuiltInTypes($SymbolHash* builtInTypes, $XSSimpl
 	nmtokenDV->applyFacets1(facets, $XSSimpleType::FACET_WHITESPACE, (int16_t)0, $XSSimpleTypeDecl::SPECIAL_PATTERN_NMTOKEN);
 	builtInTypes->put(NMTOKEN, nmtokenDV);
 	facets->minLength = 1;
-	$assign(tempDV, $new($XSSimpleTypeDecl, ($String*)nullptr, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, nmtokenDV, true, ($XSObjectList*)nullptr));
-	$var($XSSimpleTypeDecl, nmtokensDV, $new($XSSimpleTypeDecl, tempDV, NMTOKENS, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, ($XSObjectList*)nullptr));
+	$assign(tempDV, $new($XSSimpleTypeDecl, nullptr, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, nmtokenDV, true, nullptr));
+	$var($XSSimpleTypeDecl, nmtokensDV, $new($XSSimpleTypeDecl, tempDV, NMTOKENS, BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, (int16_t)0, false, nullptr));
 	nmtokensDV->applyFacets1(facets, $XSSimpleType::FACET_MINLENGTH, (int16_t)0);
 	builtInTypes->put(NMTOKENS, nmtokensDV);
 }
 
 $XSSimpleType* BaseSchemaDVFactory::createTypeRestriction($String* name, $String* targetNamespace, int16_t finalSet, $XSSimpleType* base, $XSObjectList* annotations) {
 	if (this->fDeclPool != nullptr) {
-		$var($XSSimpleTypeDecl, st, $nc(this->fDeclPool)->getSimpleTypeDecl());
+		$var($XSSimpleTypeDecl, st, this->fDeclPool->getSimpleTypeDecl());
 		return $nc(st)->setRestrictionValues($cast($XSSimpleTypeDecl, base), name, targetNamespace, finalSet, annotations);
 	}
 	return $new($XSSimpleTypeDecl, $cast($XSSimpleTypeDecl, base), name, targetNamespace, finalSet, false, annotations);
@@ -379,19 +348,19 @@ $XSSimpleType* BaseSchemaDVFactory::createTypeRestriction($String* name, $String
 
 $XSSimpleType* BaseSchemaDVFactory::createTypeList($String* name, $String* targetNamespace, int16_t finalSet, $XSSimpleType* itemType, $XSObjectList* annotations) {
 	if (this->fDeclPool != nullptr) {
-		$var($XSSimpleTypeDecl, st, $nc(this->fDeclPool)->getSimpleTypeDecl());
+		$var($XSSimpleTypeDecl, st, this->fDeclPool->getSimpleTypeDecl());
 		return $nc(st)->setListValues(name, targetNamespace, finalSet, $cast($XSSimpleTypeDecl, itemType), annotations);
 	}
 	return $new($XSSimpleTypeDecl, name, targetNamespace, finalSet, $cast($XSSimpleTypeDecl, itemType), false, annotations);
 }
 
 $XSSimpleType* BaseSchemaDVFactory::createTypeUnion($String* name, $String* targetNamespace, int16_t finalSet, $XSSimpleTypeArray* memberTypes, $XSObjectList* annotations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t typeNum = $nc(memberTypes)->length;
 	$var($XSSimpleTypeDeclArray, mtypes, $new($XSSimpleTypeDeclArray, typeNum));
 	$System::arraycopy(memberTypes, 0, mtypes, 0, typeNum);
 	if (this->fDeclPool != nullptr) {
-		$var($XSSimpleTypeDecl, st, $nc(this->fDeclPool)->getSimpleTypeDecl());
+		$var($XSSimpleTypeDecl, st, this->fDeclPool->getSimpleTypeDecl());
 		return $nc(st)->setUnionValues(name, targetNamespace, finalSet, mtypes, annotations);
 	}
 	return $new($XSSimpleTypeDecl, name, targetNamespace, finalSet, mtypes, annotations);
@@ -408,12 +377,37 @@ $XSSimpleTypeDecl* BaseSchemaDVFactory::newXSSimpleTypeDecl() {
 BaseSchemaDVFactory::BaseSchemaDVFactory() {
 }
 
-void clinit$BaseSchemaDVFactory($Class* class$) {
+void BaseSchemaDVFactory::clinit$($Class* clazz) {
 	$assignStatic(BaseSchemaDVFactory::URI_SCHEMAFORSCHEMA, "http://www.w3.org/2001/XMLSchema"_s);
 }
 
 $Class* BaseSchemaDVFactory::load$($String* name, bool initialize) {
-	$loadClass(BaseSchemaDVFactory, name, initialize, &_BaseSchemaDVFactory_ClassInfo_, clinit$BaseSchemaDVFactory, allocate$BaseSchemaDVFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BaseSchemaDVFactory, URI_SCHEMAFORSCHEMA)},
+		{"fDeclPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;", nullptr, $PROTECTED, $field(BaseSchemaDVFactory, fDeclPool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaseSchemaDVFactory, init$, void)},
+		{"createBuiltInTypes", "(Lcom/sun/org/apache/xerces/internal/util/SymbolHash;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(BaseSchemaDVFactory, createBuiltInTypes, void, $SymbolHash*, $XSSimpleTypeDecl*)},
+		{"createTypeList", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, createTypeList, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
+		{"createTypeRestriction", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, createTypeRestriction, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleType*, $XSObjectList*)},
+		{"createTypeUnion", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, createTypeUnion, $XSSimpleType*, $String*, $String*, int16_t, $XSSimpleTypeArray*, $XSObjectList*)},
+		{"newXSSimpleTypeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, newXSSimpleTypeDecl, $XSSimpleTypeDecl*)},
+		{"setDeclPool", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;)V", nullptr, $PUBLIC, $virtualMethod(BaseSchemaDVFactory, setDeclPool, void, $XSDeclarationPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.BaseSchemaDVFactory",
+		"com.sun.org.apache.xerces.internal.impl.dv.SchemaDVFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BaseSchemaDVFactory, name, initialize, &classInfo$$, BaseSchemaDVFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseSchemaDVFactory);
+	});
 	return class$;
 }
 

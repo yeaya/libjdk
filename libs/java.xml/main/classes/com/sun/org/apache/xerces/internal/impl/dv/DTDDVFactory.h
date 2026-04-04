@@ -46,6 +46,7 @@ class DTDDVFactory : public ::java::lang::Object {
 	$class(DTDDVFactory, 0, ::java::lang::Object)
 public:
 	DTDDVFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::DatatypeValidator* getBuiltInDV($String* name) {return nullptr;}
 	virtual ::java::util::Map* getBuiltInTypes() {return nullptr;}

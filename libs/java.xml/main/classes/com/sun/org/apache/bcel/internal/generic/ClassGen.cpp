@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ClassGen.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AccessFlags.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationEntry.h>
@@ -65,7 +64,6 @@ using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::Cla
 using $ClassObserver = ::com::sun::org::apache::bcel::internal::generic::ClassObserver;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionConst = ::com::sun::org::apache::bcel::internal::generic::InstructionConst;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $MethodGen = ::com::sun::org::apache::bcel::internal::generic::MethodGen;
@@ -89,107 +87,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _ClassGen_FieldInfo_[] = {
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ClassGen, className)},
-	{"superClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ClassGen, superClassName)},
-	{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGen, fileName)},
-	{"classNameIndex", "I", nullptr, $PRIVATE, $field(ClassGen, classNameIndex)},
-	{"superclass_name_index", "I", nullptr, $PRIVATE, $field(ClassGen, superclass_name_index)},
-	{"major", "I", nullptr, $PRIVATE, $field(ClassGen, major)},
-	{"minor", "I", nullptr, $PRIVATE, $field(ClassGen, minor)},
-	{"cp", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE, $field(ClassGen, cp)},
-	{"fieldList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Field;>;", $PRIVATE | $FINAL, $field(ClassGen, fieldList)},
-	{"methodList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Method;>;", $PRIVATE | $FINAL, $field(ClassGen, methodList)},
-	{"attributeList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Attribute;>;", $PRIVATE | $FINAL, $field(ClassGen, attributeList)},
-	{"interfaceList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ClassGen, interfaceList)},
-	{"annotationList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE | $FINAL, $field(ClassGen, annotationList)},
-	{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(ClassGen, bcelComparator)},
-	{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/ClassObserver;>;", $PRIVATE, $field(ClassGen, observers)},
-	{}
-};
-
-$MethodInfo _ClassGen_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ClassGen, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $ConstantPoolGen*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassGen, init$, void, $String*, $String*, $String*, int32_t, $StringArray*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;)V", nullptr, $PUBLIC, $method(ClassGen, init$, void, $JavaClass*)},
-	{"addAnnotationEntry", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addAnnotationEntry, void, $AnnotationEntryGen*)},
-	{"addAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addAttribute, void, $Attribute*)},
-	{"addEmptyConstructor", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addEmptyConstructor, void, int32_t)},
-	{"addField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addField, void, $Field*)},
-	{"addInterface", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addInterface, void, $String*)},
-	{"addMethod", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addMethod, void, $Method*)},
-	{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/ClassObserver;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addObserver, void, $ClassObserver*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassGen, clone, $Object*)},
-	{"containsField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;)Z", nullptr, $PUBLIC, $virtualMethod(ClassGen, containsField, bool, $Field*)},
-	{"containsField", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/Field;", nullptr, $PUBLIC, $virtualMethod(ClassGen, containsField, $Field*, $String*)},
-	{"containsMethod", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(ClassGen, containsMethod, $Method*, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClassGen, equals, bool, Object$*)},
-	{"getAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getAnnotationEntries, $AnnotationEntryGenArray*)},
-	{"getAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getAttributes, $AttributeArray*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getClassName, $String*)},
-	{"getClassNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getClassNameIndex, int32_t)},
-	{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassGen, getComparator, $BCELComparator*)},
-	{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getConstantPool, $ConstantPoolGen*)},
-	{"getFields", "()[Lcom/sun/org/apache/bcel/internal/classfile/Field;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getFields, $FieldArray*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getFileName, $String*)},
-	{"getInterfaceNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getInterfaceNames, $StringArray*)},
-	{"getInterfaces", "()[I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getInterfaces, $ints*)},
-	{"getJavaClass", "()Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getJavaClass, $JavaClass*)},
-	{"getMajor", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMajor, int32_t)},
-	{"getMethodAt", "(I)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMethodAt, $Method*, int32_t)},
-	{"getMethods", "()[Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMethods, $MethodArray*)},
-	{"getMinor", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMinor, int32_t)},
-	{"getSuperclassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getSuperclassName, $String*)},
-	{"getSuperclassNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getSuperclassNameIndex, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, hashCode, int32_t)},
-	{"removeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeAttribute, void, $Attribute*)},
-	{"removeField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeField, void, $Field*)},
-	{"removeInterface", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeInterface, void, $String*)},
-	{"removeMethod", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeMethod, void, $Method*)},
-	{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/ClassObserver;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeObserver, void, $ClassObserver*)},
-	{"replaceField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;Lcom/sun/org/apache/bcel/internal/classfile/Field;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, replaceField, void, $Field*, $Field*)},
-	{"replaceMethod", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, replaceMethod, void, $Method*, $Method*)},
-	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setClassName, void, $String*)},
-	{"setClassNameIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setClassNameIndex, void, int32_t)},
-	{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassGen, setComparator, void, $BCELComparator*)},
-	{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setConstantPool, void, $ConstantPoolGen*)},
-	{"setMajor", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMajor, void, int32_t)},
-	{"setMethodAt", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMethodAt, void, $Method*, int32_t)},
-	{"setMethods", "([Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMethods, void, $MethodArray*)},
-	{"setMinor", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMinor, void, int32_t)},
-	{"setSuperclassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setSuperclassName, void, $String*)},
-	{"setSuperclassNameIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setSuperclassNameIndex, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unpackAnnotations", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)[Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PRIVATE, $method(ClassGen, unpackAnnotations, $AnnotationEntryGenArray*, $AttributeArray*)},
-	{"update", "()V", nullptr, $PUBLIC, $virtualMethod(ClassGen, update, void)},
-	{}
-};
-
-$InnerClassInfo _ClassGen_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.ClassGen$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClassGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ClassGen",
-	"com.sun.org.apache.bcel.internal.classfile.AccessFlags",
-	"java.lang.Cloneable",
-	_ClassGen_FieldInfo_,
-	_ClassGen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassGen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.ClassGen$1"
-};
-
-$Object* allocate$ClassGen($Class* clazz) {
-	return $of($alloc(ClassGen));
-}
-
 $String* ClassGen::toString() {
 	 return this->$AccessFlags::toString();
 }
@@ -201,7 +98,7 @@ void ClassGen::finalize() {
 $BCELComparator* ClassGen::bcelComparator = nullptr;
 
 void ClassGen::init$($String* className, $String* superClassName, $String* fileName, int32_t accessFlags, $StringArray* interfaces, $ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AccessFlags::init$(accessFlags);
 	this->classNameIndex = -1;
 	this->superclass_name_index = -1;
@@ -224,15 +121,11 @@ void ClassGen::init$($String* className, $String* superClassName, $String* fileN
 	this->classNameIndex = $nc(cp)->addClass(className);
 	this->superclass_name_index = cp->addClass(superClassName);
 	if (interfaces != nullptr) {
-		{
-			$var($StringArray, arr$, interfaces);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, interface1, arr$->get(i$));
-				{
-					addInterface(interface1);
-				}
+		$var($StringArray, arr$, interfaces);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, interface1, arr$->get(i$));
+			{
+				addInterface(interface1);
 			}
 		}
 	}
@@ -243,7 +136,7 @@ void ClassGen::init$($String* className, $String* superClassName, $String* fileN
 }
 
 void ClassGen::init$($JavaClass* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AccessFlags::init$($nc(clazz)->getAccessFlags());
 	this->classNameIndex = -1;
 	this->superclass_name_index = -1;
@@ -254,7 +147,7 @@ void ClassGen::init$($JavaClass* clazz) {
 	$set(this, attributeList, $new($ArrayList));
 	$set(this, interfaceList, $new($ArrayList));
 	$set(this, annotationList, $new($ArrayList));
-	this->classNameIndex = $nc(clazz)->getClassNameIndex();
+	this->classNameIndex = clazz->getClassNameIndex();
 	this->superclass_name_index = clazz->getSuperclassNameIndex();
 	$set(this, className, clazz->getClassName());
 	$set(this, superClassName, clazz->getSuperclassName());
@@ -269,9 +162,7 @@ void ClassGen::init$($JavaClass* clazz) {
 	$var($StringArray, interfaces, clazz->getInterfaceNames());
 	{
 		$var($StringArray, arr$, interfaces);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, interface1, arr$->get(i$));
 			{
 				addInterface(interface1);
@@ -280,22 +171,16 @@ void ClassGen::init$($JavaClass* clazz) {
 	}
 	{
 		$var($AttributeArray, arr$, attributes);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if (!($instanceOf($Annotations, attribute))) {
-					addAttribute(attribute);
-				}
+			if (!($instanceOf($Annotations, attribute))) {
+				addAttribute(attribute);
 			}
 		}
 	}
 	{
 		$var($AnnotationEntryGenArray, arr$, annotations);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AnnotationEntryGen, annotation, arr$->get(i$));
 			{
 				addAnnotationEntry(annotation);
@@ -304,9 +189,7 @@ void ClassGen::init$($JavaClass* clazz) {
 	}
 	{
 		$var($MethodArray, arr$, methods);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Method, method, arr$->get(i$));
 			{
 				addMethod(method);
@@ -315,9 +198,7 @@ void ClassGen::init$($JavaClass* clazz) {
 	}
 	{
 		$var($FieldArray, arr$, fields);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Field, field, arr$->get(i$));
 			{
 				addField(field);
@@ -327,7 +208,7 @@ void ClassGen::init$($JavaClass* clazz) {
 }
 
 $AnnotationEntryGenArray* ClassGen::unpackAnnotations($AttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, annotationGenObjs, $new($ArrayList));
 	{
 		$var($AttributeArray, arr$, attrs);
@@ -335,44 +216,38 @@ $AnnotationEntryGenArray* ClassGen::unpackAnnotations($AttributeArray* attrs) {
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			$var($Attribute, attr, arr$->get(i$));
-			{
-				if ($instanceOf($RuntimeVisibleAnnotations, attr)) {
-					$var($RuntimeVisibleAnnotations, rva, $cast($RuntimeVisibleAnnotations, attr));
-					$var($AnnotationEntryArray, annos, $nc(rva)->getAnnotationEntries());
-					{
-						$var($AnnotationEntryArray, arr$, annos);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($AnnotationEntry, a, arr$->get(i$));
-							{
-								annotationGenObjs->add($$new($AnnotationEntryGen, a, $(getConstantPool()), false));
-							}
+			if ($instanceOf($RuntimeVisibleAnnotations, attr)) {
+				$var($RuntimeVisibleAnnotations, rva, $cast($RuntimeVisibleAnnotations, attr));
+				$var($AnnotationEntryArray, annos, rva->getAnnotationEntries());
+				{
+					$var($AnnotationEntryArray, arr$, annos);
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						$var($AnnotationEntry, a, arr$->get(i$));
+						{
+							annotationGenObjs->add($$new($AnnotationEntryGen, a, $(getConstantPool()), false));
 						}
 					}
-				} else if ($instanceOf($RuntimeInvisibleAnnotations, attr)) {
-					$var($RuntimeInvisibleAnnotations, ria, $cast($RuntimeInvisibleAnnotations, attr));
-					$var($AnnotationEntryArray, annos, $nc(ria)->getAnnotationEntries());
-					{
-						$var($AnnotationEntryArray, arr$, annos);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($AnnotationEntry, a, arr$->get(i$));
-							{
-								annotationGenObjs->add($$new($AnnotationEntryGen, a, $(getConstantPool()), false));
-							}
+				}
+			} else if ($instanceOf($RuntimeInvisibleAnnotations, attr)) {
+				$var($RuntimeInvisibleAnnotations, ria, $cast($RuntimeInvisibleAnnotations, attr));
+				$var($AnnotationEntryArray, annos, ria->getAnnotationEntries());
+				{
+					$var($AnnotationEntryArray, arr$, annos);
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						$var($AnnotationEntry, a, arr$->get(i$));
+						{
+							annotationGenObjs->add($$new($AnnotationEntryGen, a, $(getConstantPool()), false));
 						}
 					}
 				}
 			}
 		}
 	}
-	return $fcast($AnnotationEntryGenArray, annotationGenObjs->toArray($$new($AnnotationEntryGenArray, annotationGenObjs->size())));
+	return $cast($AnnotationEntryGenArray, annotationGenObjs->toArray($$new($AnnotationEntryGenArray, annotationGenObjs->size())));
 }
 
 $JavaClass* ClassGen::getJavaClass() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, interfaces, getInterfaces());
 	$var($FieldArray, fields, getFields());
 	$var($MethodArray, methods, getMethods());
@@ -382,8 +257,8 @@ $JavaClass* ClassGen::getJavaClass() {
 	} else {
 		$var($AttributeArray, annAttributes, $AnnotationEntryGen::getAnnotationAttributes(this->cp, $(getAnnotationEntries())));
 		$assign(attributes, $new($AttributeArray, $nc(this->attributeList)->size() + $nc(annAttributes)->length));
-		$nc(this->attributeList)->toArray(attributes);
-		$System::arraycopy(annAttributes, 0, attributes, $nc(this->attributeList)->size(), annAttributes->length);
+		this->attributeList->toArray(attributes);
+		$System::arraycopy(annAttributes, 0, attributes, this->attributeList->size(), annAttributes->length);
 	}
 	$var($ConstantPool, _cp, $nc(this->cp)->getFinalConstantPool());
 	return $new($JavaClass, this->classNameIndex, this->superclass_name_index, this->fileName, this->major, this->minor, $AccessFlags::getAccessFlags(), _cp, interfaces, fields, methods, attributes);
@@ -394,7 +269,7 @@ void ClassGen::addInterface($String* name) {
 }
 
 void ClassGen::removeInterface($String* name) {
-	$nc(this->interfaceList)->remove($of(name));
+	$nc(this->interfaceList)->remove(name);
 }
 
 int32_t ClassGen::getMajor() {
@@ -426,12 +301,12 @@ void ClassGen::addMethod($Method* m) {
 }
 
 void ClassGen::addEmptyConstructor(int32_t access_flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $new($InstructionList));
 	$init($InstructionConst);
-	il->append(static_cast<$Instruction*>($InstructionConst::THIS));
-	il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, $nc(this->cp)->addMethodref(this->superClassName, "<init>"_s, "()V"_s))));
-	il->append(static_cast<$Instruction*>($InstructionConst::RETURN));
+	il->append($InstructionConst::THIS);
+	il->append($$new($INVOKESPECIAL, $nc(this->cp)->addMethodref(this->superClassName, "<init>"_s, "()V"_s)));
+	il->append($InstructionConst::RETURN);
 	$init($Type);
 	$var($MethodGen, mg, $new($MethodGen, access_flags, $Type::VOID, $Type::NO_ARGS, nullptr, "<init>"_s, this->className, il, this->cp));
 	mg->setMaxStack(1);
@@ -447,32 +322,26 @@ bool ClassGen::containsField($Field* f) {
 }
 
 $Field* ClassGen::containsField($String* name) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->fieldList)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Field, f, $cast($Field, i$->next()));
-			{
-				if ($nc($($nc(f)->getName()))->equals(name)) {
-					return f;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->fieldList)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Field, f, $cast($Field, i$->next()));
+		if ($$nc($nc(f)->getName())->equals(name)) {
+			return f;
 		}
 	}
 	return nullptr;
 }
 
 $Method* ClassGen::containsMethod($String* name, $String* signature) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->methodList)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Method, m, $cast($Method, i$->next()));
-			{
-				bool var$0 = $nc($($nc(m)->getName()))->equals(name);
-				if (var$0 && $nc($(m->getSignature()))->equals(signature)) {
-					return m;
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->methodList)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Method, m, $cast($Method, i$->next()));
+		{
+			bool var$0 = $$nc($nc(m)->getName())->equals(name);
+			if (var$0 && $$nc(m->getSignature())->equals(signature)) {
+				return m;
 			}
 		}
 	}
@@ -480,11 +349,11 @@ $Method* ClassGen::containsMethod($String* name, $String* signature) {
 }
 
 void ClassGen::removeAttribute($Attribute* a) {
-	$nc(this->attributeList)->remove($of(a));
+	$nc(this->attributeList)->remove(a);
 }
 
 void ClassGen::removeMethod($Method* m) {
-	$nc(this->methodList)->remove($of(m));
+	$nc(this->methodList)->remove(m);
 }
 
 void ClassGen::replaceMethod($Method* old, $Method* new_) {
@@ -493,9 +362,9 @@ void ClassGen::replaceMethod($Method* old, $Method* new_) {
 	}
 	int32_t i = $nc(this->methodList)->indexOf(old);
 	if (i < 0) {
-		$nc(this->methodList)->add(new_);
+		this->methodList->add(new_);
 	} else {
-		$nc(this->methodList)->set(i, new_);
+		this->methodList->set(i, new_);
 	}
 }
 
@@ -505,14 +374,14 @@ void ClassGen::replaceField($Field* old, $Field* new_) {
 	}
 	int32_t i = $nc(this->fieldList)->indexOf(old);
 	if (i < 0) {
-		$nc(this->fieldList)->add(new_);
+		this->fieldList->add(new_);
 	} else {
-		$nc(this->fieldList)->set(i, new_);
+		this->fieldList->set(i, new_);
 	}
 }
 
 void ClassGen::removeField($Field* f) {
-	$nc(this->fieldList)->remove($of(f));
+	$nc(this->fieldList)->remove(f);
 }
 
 $String* ClassGen::getClassName() {
@@ -538,17 +407,15 @@ void ClassGen::setSuperclassName($String* name) {
 }
 
 $MethodArray* ClassGen::getMethods() {
-	return $fcast($MethodArray, $nc(this->methodList)->toArray($$new($MethodArray, $nc(this->methodList)->size())));
+	return $cast($MethodArray, $nc(this->methodList)->toArray($$new($MethodArray, $nc(this->methodList)->size())));
 }
 
 void ClassGen::setMethods($MethodArray* methods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->methodList)->clear();
 	{
 		$var($MethodArray, arr$, methods);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Method, method, arr$->get(i$));
 			{
 				addMethod(method);
@@ -568,30 +435,30 @@ $Method* ClassGen::getMethodAt(int32_t pos) {
 $StringArray* ClassGen::getInterfaceNames() {
 	int32_t size = $nc(this->interfaceList)->size();
 	$var($StringArray, interfaces, $new($StringArray, size));
-	$nc(this->interfaceList)->toArray(interfaces);
+	this->interfaceList->toArray(interfaces);
 	return interfaces;
 }
 
 $ints* ClassGen::getInterfaces() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->interfaceList)->size();
 	$var($ints, interfaces, $new($ints, size));
 	for (int32_t i = 0; i < size; ++i) {
-		interfaces->set(i, $nc(this->cp)->addClass($cast($String, $($nc(this->interfaceList)->get(i)))));
+		interfaces->set(i, $nc(this->cp)->addClass($$cast($String, this->interfaceList->get(i))));
 	}
 	return interfaces;
 }
 
 $FieldArray* ClassGen::getFields() {
-	return $fcast($FieldArray, $nc(this->fieldList)->toArray($$new($FieldArray, $nc(this->fieldList)->size())));
+	return $cast($FieldArray, $nc(this->fieldList)->toArray($$new($FieldArray, $nc(this->fieldList)->size())));
 }
 
 $AttributeArray* ClassGen::getAttributes() {
-	return $fcast($AttributeArray, $nc(this->attributeList)->toArray($$new($AttributeArray, $nc(this->attributeList)->size())));
+	return $cast($AttributeArray, $nc(this->attributeList)->toArray($$new($AttributeArray, $nc(this->attributeList)->size())));
 }
 
 $AnnotationEntryGenArray* ClassGen::getAnnotationEntries() {
-	return $fcast($AnnotationEntryGenArray, $nc(this->annotationList)->toArray($$new($AnnotationEntryGenArray, $nc(this->annotationList)->size())));
+	return $cast($AnnotationEntryGenArray, $nc(this->annotationList)->toArray($$new($AnnotationEntryGenArray, $nc(this->annotationList)->size())));
 }
 
 $ConstantPoolGen* ClassGen::getConstantPool() {
@@ -603,15 +470,15 @@ void ClassGen::setConstantPool($ConstantPoolGen* constant_pool) {
 }
 
 void ClassGen::setClassNameIndex(int32_t class_name_index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->classNameIndex = class_name_index;
-	$set(this, className, $nc($($nc($($nc(this->cp)->getConstantPool()))->getConstantString(class_name_index, $Const::CONSTANT_Class)))->replace(u'/', u'.'));
+	$set(this, className, $$nc($$nc($nc(this->cp)->getConstantPool())->getConstantString(class_name_index, $Const::CONSTANT_Class))->replace(u'/', u'.'));
 }
 
 void ClassGen::setSuperclassNameIndex(int32_t superclass_name_index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->superclass_name_index = superclass_name_index;
-	$set(this, superClassName, $nc($($nc($($nc(this->cp)->getConstantPool()))->getConstantString(superclass_name_index, $Const::CONSTANT_Class)))->replace(u'/', u'.'));
+	$set(this, superClassName, $$nc($$nc($nc(this->cp)->getConstantPool())->getConstantString(superclass_name_index, $Const::CONSTANT_Class))->replace(u'/', u'.'));
 }
 
 int32_t ClassGen::getSuperclassNameIndex() {
@@ -631,20 +498,18 @@ void ClassGen::addObserver($ClassObserver* o) {
 
 void ClassGen::removeObserver($ClassObserver* o) {
 	if (this->observers != nullptr) {
-		$nc(this->observers)->remove($of(o));
+		this->observers->remove(o);
 	}
 }
 
 void ClassGen::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->observers != nullptr) {
-		{
-			$var($Iterator, i$, $nc(this->observers)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($ClassObserver, observer, $cast($ClassObserver, i$->next()));
-				{
-					$nc(observer)->notify(this);
-				}
+		$var($Iterator, i$, this->observers->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($ClassObserver, observer, $cast($ClassObserver, i$->next()));
+			{
+				$nc(observer)->notify(this);
 			}
 		}
 	}
@@ -652,7 +517,7 @@ void ClassGen::update() {
 
 $Object* ClassGen::clone() {
 	try {
-		return $of($AccessFlags::clone());
+		return $AccessFlags::clone();
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($Error, "Clone Not Supported"_s);
 	}
@@ -677,7 +542,7 @@ int32_t ClassGen::hashCode() {
 	return $nc(ClassGen::bcelComparator)->hashCode(this);
 }
 
-void clinit$ClassGen($Class* class$) {
+void ClassGen::clinit$($Class* clazz) {
 	$assignStatic(ClassGen::bcelComparator, $new($ClassGen$1));
 }
 
@@ -685,7 +550,102 @@ ClassGen::ClassGen() {
 }
 
 $Class* ClassGen::load$($String* name, bool initialize) {
-	$loadClass(ClassGen, name, initialize, &_ClassGen_ClassInfo_, clinit$ClassGen, allocate$ClassGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ClassGen, className)},
+		{"superClassName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ClassGen, superClassName)},
+		{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClassGen, fileName)},
+		{"classNameIndex", "I", nullptr, $PRIVATE, $field(ClassGen, classNameIndex)},
+		{"superclass_name_index", "I", nullptr, $PRIVATE, $field(ClassGen, superclass_name_index)},
+		{"major", "I", nullptr, $PRIVATE, $field(ClassGen, major)},
+		{"minor", "I", nullptr, $PRIVATE, $field(ClassGen, minor)},
+		{"cp", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE, $field(ClassGen, cp)},
+		{"fieldList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Field;>;", $PRIVATE | $FINAL, $field(ClassGen, fieldList)},
+		{"methodList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Method;>;", $PRIVATE | $FINAL, $field(ClassGen, methodList)},
+		{"attributeList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Attribute;>;", $PRIVATE | $FINAL, $field(ClassGen, attributeList)},
+		{"interfaceList", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ClassGen, interfaceList)},
+		{"annotationList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE | $FINAL, $field(ClassGen, annotationList)},
+		{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(ClassGen, bcelComparator)},
+		{"observers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/ClassObserver;>;", $PRIVATE, $field(ClassGen, observers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ClassGen, init$, void, $String*, $String*, $String*, int32_t, $StringArray*, $ConstantPoolGen*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassGen, init$, void, $String*, $String*, $String*, int32_t, $StringArray*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;)V", nullptr, $PUBLIC, $method(ClassGen, init$, void, $JavaClass*)},
+		{"addAnnotationEntry", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addAnnotationEntry, void, $AnnotationEntryGen*)},
+		{"addAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addAttribute, void, $Attribute*)},
+		{"addEmptyConstructor", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addEmptyConstructor, void, int32_t)},
+		{"addField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addField, void, $Field*)},
+		{"addInterface", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addInterface, void, $String*)},
+		{"addMethod", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addMethod, void, $Method*)},
+		{"addObserver", "(Lcom/sun/org/apache/bcel/internal/generic/ClassObserver;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, addObserver, void, $ClassObserver*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassGen, clone, $Object*)},
+		{"containsField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;)Z", nullptr, $PUBLIC, $virtualMethod(ClassGen, containsField, bool, $Field*)},
+		{"containsField", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/Field;", nullptr, $PUBLIC, $virtualMethod(ClassGen, containsField, $Field*, $String*)},
+		{"containsMethod", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(ClassGen, containsMethod, $Method*, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClassGen, equals, bool, Object$*)},
+		{"getAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getAnnotationEntries, $AnnotationEntryGenArray*)},
+		{"getAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getAttributes, $AttributeArray*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getClassName, $String*)},
+		{"getClassNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getClassNameIndex, int32_t)},
+		{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassGen, getComparator, $BCELComparator*)},
+		{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getConstantPool, $ConstantPoolGen*)},
+		{"getFields", "()[Lcom/sun/org/apache/bcel/internal/classfile/Field;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getFields, $FieldArray*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getFileName, $String*)},
+		{"getInterfaceNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getInterfaceNames, $StringArray*)},
+		{"getInterfaces", "()[I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getInterfaces, $ints*)},
+		{"getJavaClass", "()Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getJavaClass, $JavaClass*)},
+		{"getMajor", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMajor, int32_t)},
+		{"getMethodAt", "(I)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMethodAt, $Method*, int32_t)},
+		{"getMethods", "()[Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMethods, $MethodArray*)},
+		{"getMinor", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getMinor, int32_t)},
+		{"getSuperclassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassGen, getSuperclassName, $String*)},
+		{"getSuperclassNameIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, getSuperclassNameIndex, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ClassGen, hashCode, int32_t)},
+		{"removeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeAttribute, void, $Attribute*)},
+		{"removeField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeField, void, $Field*)},
+		{"removeInterface", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeInterface, void, $String*)},
+		{"removeMethod", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeMethod, void, $Method*)},
+		{"removeObserver", "(Lcom/sun/org/apache/bcel/internal/generic/ClassObserver;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, removeObserver, void, $ClassObserver*)},
+		{"replaceField", "(Lcom/sun/org/apache/bcel/internal/classfile/Field;Lcom/sun/org/apache/bcel/internal/classfile/Field;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, replaceField, void, $Field*, $Field*)},
+		{"replaceMethod", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, replaceMethod, void, $Method*, $Method*)},
+		{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setClassName, void, $String*)},
+		{"setClassNameIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setClassNameIndex, void, int32_t)},
+		{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassGen, setComparator, void, $BCELComparator*)},
+		{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setConstantPool, void, $ConstantPoolGen*)},
+		{"setMajor", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMajor, void, int32_t)},
+		{"setMethodAt", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMethodAt, void, $Method*, int32_t)},
+		{"setMethods", "([Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMethods, void, $MethodArray*)},
+		{"setMinor", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setMinor, void, int32_t)},
+		{"setSuperclassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setSuperclassName, void, $String*)},
+		{"setSuperclassNameIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassGen, setSuperclassNameIndex, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unpackAnnotations", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)[Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PRIVATE, $method(ClassGen, unpackAnnotations, $AnnotationEntryGenArray*, $AttributeArray*)},
+		{"update", "()V", nullptr, $PUBLIC, $virtualMethod(ClassGen, update, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.ClassGen$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ClassGen",
+		"com.sun.org.apache.bcel.internal.classfile.AccessFlags",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.ClassGen$1"
+	};
+	$loadClass(ClassGen, name, initialize, &classInfo$$, ClassGen::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassGen));
+	});
 	return class$;
 }
 

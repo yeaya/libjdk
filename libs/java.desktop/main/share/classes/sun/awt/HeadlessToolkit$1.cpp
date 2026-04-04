@@ -1,5 +1,4 @@
 #include <sun/awt/HeadlessToolkit$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <jcpp.h>
@@ -13,47 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace awt {
-
-$MethodInfo _HeadlessToolkit$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessToolkit$1, init$, void)},
-	{"clearGlobalFocusOwner", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, clearGlobalFocusOwner, void, $Window*)},
-	{"getCurrentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, getCurrentFocusOwner, $Component*)},
-	{"getCurrentFocusedWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, getCurrentFocusedWindow, $Window*)},
-	{"setCurrentFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, setCurrentFocusOwner, void, $Component*)},
-	{"setCurrentFocusedWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, setCurrentFocusedWindow, void, $Window*)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessToolkit$1_EnclosingMethodInfo_ = {
-	"sun.awt.HeadlessToolkit",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _HeadlessToolkit$1_InnerClassesInfo_[] = {
-	{"sun.awt.HeadlessToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessToolkit$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.HeadlessToolkit$1",
-	"java.lang.Object",
-	"java.awt.peer.KeyboardFocusManagerPeer",
-	nullptr,
-	_HeadlessToolkit$1_MethodInfo_,
-	nullptr,
-	&_HeadlessToolkit$1_EnclosingMethodInfo_,
-	_HeadlessToolkit$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.HeadlessToolkit"
-};
-
-$Object* allocate$HeadlessToolkit$1($Class* clazz) {
-	return $of($alloc(HeadlessToolkit$1));
-}
 
 void HeadlessToolkit$1::init$() {
 }
@@ -79,7 +37,42 @@ HeadlessToolkit$1::HeadlessToolkit$1() {
 }
 
 $Class* HeadlessToolkit$1::load$($String* name, bool initialize) {
-	$loadClass(HeadlessToolkit$1, name, initialize, &_HeadlessToolkit$1_ClassInfo_, allocate$HeadlessToolkit$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessToolkit$1, init$, void)},
+		{"clearGlobalFocusOwner", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, clearGlobalFocusOwner, void, $Window*)},
+		{"getCurrentFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, getCurrentFocusOwner, $Component*)},
+		{"getCurrentFocusedWindow", "()Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, getCurrentFocusedWindow, $Window*)},
+		{"setCurrentFocusOwner", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, setCurrentFocusOwner, void, $Component*)},
+		{"setCurrentFocusedWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(HeadlessToolkit$1, setCurrentFocusedWindow, void, $Window*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.HeadlessToolkit",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.HeadlessToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.HeadlessToolkit$1",
+		"java.lang.Object",
+		"java.awt.peer.KeyboardFocusManagerPeer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.HeadlessToolkit"
+	};
+	$loadClass(HeadlessToolkit$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessToolkit$1);
+	});
 	return class$;
 }
 

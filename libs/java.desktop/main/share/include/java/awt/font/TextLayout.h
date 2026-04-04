@@ -68,6 +68,7 @@ class $import TextLayout : public ::java::lang::Cloneable {
 public:
 	TextLayout();
 	using ::java::lang::Cloneable::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* string, ::java::awt::Font* font, ::java::awt::font::FontRenderContext* frc);
 	void init$($String* string, ::java::util::Map* attributes, ::java::awt::font::FontRenderContext* frc);
 	void init$(::java::text::AttributedCharacterIterator* text, ::java::awt::font::FontRenderContext* frc);

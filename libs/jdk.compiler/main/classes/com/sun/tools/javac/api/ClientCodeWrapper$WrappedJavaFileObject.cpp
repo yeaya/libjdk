@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/ClientCodeWrapper$WrappedJavaFileObject.h>
-
 #include <com/sun/tools/javac/api/ClientCodeWrapper$WrappedFileObject.h>
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
 #include <com/sun/tools/javac/util/ClientCodeException.h>
@@ -34,7 +33,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URI = ::java::net::URI;
 using $Modifier = ::javax::lang::model::element::Modifier;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
@@ -43,60 +41,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _ClientCodeWrapper$WrappedJavaFileObject_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedJavaFileObject, this$0)},
-	{}
-};
-
-$MethodInfo _ClientCodeWrapper$WrappedJavaFileObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*delete$", "()Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"*getLastModified", "()J", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/JavaFileObject;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedJavaFileObject, init$, void, $ClientCodeWrapper*, $JavaFileObject*)},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, getAccessLevel, $Modifier*)},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, getKind, $JavaFileObject$Kind*)},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, getNestingKind, $NestingKind*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
-	{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, toString, $String*)},
-	{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ClientCodeWrapper$WrappedJavaFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileObject", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedJavaFileObject", $PROTECTED},
-	{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedFileObject", $PROTECTED},
-	{}
-};
-
-$ClassInfo _ClientCodeWrapper$WrappedJavaFileObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileObject",
-	"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject",
-	"javax.tools.JavaFileObject",
-	_ClientCodeWrapper$WrappedJavaFileObject_FieldInfo_,
-	_ClientCodeWrapper$WrappedJavaFileObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientCodeWrapper$WrappedJavaFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.ClientCodeWrapper"
-};
-
-$Object* allocate$ClientCodeWrapper$WrappedJavaFileObject($Class* clazz) {
-	return $of($alloc(ClientCodeWrapper$WrappedJavaFileObject));
-}
 
 $URI* ClientCodeWrapper$WrappedJavaFileObject::toUri() {
 	 return this->$ClientCodeWrapper$WrappedFileObject::toUri();
@@ -157,7 +101,7 @@ void ClientCodeWrapper$WrappedJavaFileObject::init$($ClientCodeWrapper* this$0, 
 
 $JavaFileObject$Kind* ClientCodeWrapper$WrappedJavaFileObject::getKind() {
 	try {
-		return $nc(($cast($JavaFileObject, this->clientFileObject)))->getKind();
+		return $nc($cast($JavaFileObject, this->clientFileObject))->getKind();
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -170,7 +114,7 @@ $JavaFileObject$Kind* ClientCodeWrapper$WrappedJavaFileObject::getKind() {
 
 bool ClientCodeWrapper$WrappedJavaFileObject::isNameCompatible($String* simpleName, $JavaFileObject$Kind* kind) {
 	try {
-		return $nc(($cast($JavaFileObject, this->clientFileObject)))->isNameCompatible(simpleName, kind);
+		return $nc($cast($JavaFileObject, this->clientFileObject))->isNameCompatible(simpleName, kind);
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -183,7 +127,7 @@ bool ClientCodeWrapper$WrappedJavaFileObject::isNameCompatible($String* simpleNa
 
 $NestingKind* ClientCodeWrapper$WrappedJavaFileObject::getNestingKind() {
 	try {
-		return $nc(($cast($JavaFileObject, this->clientFileObject)))->getNestingKind();
+		return $nc($cast($JavaFileObject, this->clientFileObject))->getNestingKind();
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -196,7 +140,7 @@ $NestingKind* ClientCodeWrapper$WrappedJavaFileObject::getNestingKind() {
 
 $Modifier* ClientCodeWrapper$WrappedJavaFileObject::getAccessLevel() {
 	try {
-		return $nc(($cast($JavaFileObject, this->clientFileObject)))->getAccessLevel();
+		return $nc($cast($JavaFileObject, this->clientFileObject))->getAccessLevel();
 	} catch ($ClientCodeException& e) {
 		$throw(e);
 	} catch ($RuntimeException& e) {
@@ -215,7 +159,55 @@ ClientCodeWrapper$WrappedJavaFileObject::ClientCodeWrapper$WrappedJavaFileObject
 }
 
 $Class* ClientCodeWrapper$WrappedJavaFileObject::load$($String* name, bool initialize) {
-	$loadClass(ClientCodeWrapper$WrappedJavaFileObject, name, initialize, &_ClientCodeWrapper$WrappedJavaFileObject_ClassInfo_, allocate$ClientCodeWrapper$WrappedJavaFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCodeWrapper$WrappedJavaFileObject, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*delete$", "()Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
+		{"*getLastModified", "()J", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/JavaFileObject;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedJavaFileObject, init$, void, $ClientCodeWrapper*, $JavaFileObject*)},
+		{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, getAccessLevel, $Modifier*)},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, getKind, $JavaFileObject$Kind*)},
+		{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, getNestingKind, $NestingKind*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
+		{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedJavaFileObject, toString, $String*)},
+		{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileObject", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedJavaFileObject", $PROTECTED},
+		{"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject", "com.sun.tools.javac.api.ClientCodeWrapper", "WrappedFileObject", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.ClientCodeWrapper$WrappedJavaFileObject",
+		"com.sun.tools.javac.api.ClientCodeWrapper$WrappedFileObject",
+		"javax.tools.JavaFileObject",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.ClientCodeWrapper"
+	};
+	$loadClass(ClientCodeWrapper$WrappedJavaFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClientCodeWrapper$WrappedJavaFileObject));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/net/http/HttpClient$Redirect.h>
-
 #include <java/lang/Enum.h>
 #include <java/net/http/HttpClient.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace net {
 		namespace http {
-
-$FieldInfo _HttpClient$Redirect_FieldInfo_[] = {
-	{"NEVER", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Redirect, NEVER)},
-	{"ALWAYS", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Redirect, ALWAYS)},
-	{"NORMAL", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Redirect, NORMAL)},
-	{"$VALUES", "[Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClient$Redirect, $VALUES)},
-	{}
-};
-
-$MethodInfo _HttpClient$Redirect_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClient$Redirect, $values, $HttpClient$RedirectArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpClient$Redirect, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Redirect, valueOf, HttpClient$Redirect*, $String*)},
-	{"values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Redirect, values, $HttpClient$RedirectArray*)},
-	{}
-};
-
-$InnerClassInfo _HttpClient$Redirect_InnerClassesInfo_[] = {
-	{"java.net.http.HttpClient$Redirect", "java.net.http.HttpClient", "Redirect", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _HttpClient$Redirect_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.net.http.HttpClient$Redirect",
-	"java.lang.Enum",
-	nullptr,
-	_HttpClient$Redirect_FieldInfo_,
-	_HttpClient$Redirect_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/net/http/HttpClient$Redirect;>;",
-	nullptr,
-	_HttpClient$Redirect_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpClient"
-};
-
-$Object* allocate$HttpClient$Redirect($Class* clazz) {
-	return $of($alloc(HttpClient$Redirect));
-}
 
 HttpClient$Redirect* HttpClient$Redirect::NEVER = nullptr;
 HttpClient$Redirect* HttpClient$Redirect::ALWAYS = nullptr;
@@ -88,7 +46,7 @@ void HttpClient$Redirect::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$HttpClient$Redirect($Class* class$) {
+void HttpClient$Redirect::clinit$($Class* clazz) {
 	$assignStatic(HttpClient$Redirect::NEVER, $new(HttpClient$Redirect, "NEVER"_s, 0));
 	$assignStatic(HttpClient$Redirect::ALWAYS, $new(HttpClient$Redirect, "ALWAYS"_s, 1));
 	$assignStatic(HttpClient$Redirect::NORMAL, $new(HttpClient$Redirect, "NORMAL"_s, 2));
@@ -99,7 +57,42 @@ HttpClient$Redirect::HttpClient$Redirect() {
 }
 
 $Class* HttpClient$Redirect::load$($String* name, bool initialize) {
-	$loadClass(HttpClient$Redirect, name, initialize, &_HttpClient$Redirect_ClassInfo_, clinit$HttpClient$Redirect, allocate$HttpClient$Redirect);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEVER", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Redirect, NEVER)},
+		{"ALWAYS", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Redirect, ALWAYS)},
+		{"NORMAL", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Redirect, NORMAL)},
+		{"$VALUES", "[Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClient$Redirect, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClient$Redirect, $values, $HttpClient$RedirectArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpClient$Redirect, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Redirect, valueOf, HttpClient$Redirect*, $String*)},
+		{"values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Redirect, values, $HttpClient$RedirectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpClient$Redirect", "java.net.http.HttpClient", "Redirect", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.net.http.HttpClient$Redirect",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/net/http/HttpClient$Redirect;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpClient"
+	};
+	$loadClass(HttpClient$Redirect, name, initialize, &classInfo$$, HttpClient$Redirect::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpClient$Redirect));
+	});
 	return class$;
 }
 

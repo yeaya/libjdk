@@ -1,5 +1,4 @@
 #include <sun/font/CreatedFontTracker.h>
-
 #include <java/io/File.h>
 #include <java/io/OutputStream.h>
 #include <java/util/concurrent/Semaphore.h>
@@ -25,53 +24,6 @@ using $CreatedFontTracker$TempFileDeletionHook = ::sun::font::CreatedFontTracker
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CreatedFontTracker_FieldInfo_[] = {
-	{"MAX_FILE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CreatedFontTracker, MAX_FILE_SIZE)},
-	{"MAX_TOTAL_BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CreatedFontTracker, MAX_TOTAL_BYTES)},
-	{"tracker", "Lsun/font/CreatedFontTracker;", nullptr, $STATIC, $staticField(CreatedFontTracker, tracker)},
-	{"numBytes", "I", nullptr, 0, $field(CreatedFontTracker, numBytes)},
-	{}
-};
-
-$MethodInfo _CreatedFontTracker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CreatedFontTracker, init$, void)},
-	{"acquirePermit", "()Z", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, acquirePermit, bool), "java.lang.InterruptedException"},
-	{"add", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, add, void, $File*)},
-	{"addBytes", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CreatedFontTracker, addBytes, void, int32_t)},
-	{"getCS", "()Ljava/util/concurrent/Semaphore;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(CreatedFontTracker, getCS, $Semaphore*)},
-	{"getNumBytes", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CreatedFontTracker, getNumBytes, int32_t)},
-	{"getTracker", "()Lsun/font/CreatedFontTracker;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(CreatedFontTracker, getTracker, CreatedFontTracker*)},
-	{"releasePermit", "()V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, releasePermit, void)},
-	{"remove", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, remove, void, $File*)},
-	{"set", "(Ljava/io/File;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, set, void, $File*, $OutputStream*)},
-	{"subBytes", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CreatedFontTracker, subBytes, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CreatedFontTracker_InnerClassesInfo_[] = {
-	{"sun.font.CreatedFontTracker$TempFileDeletionHook", "sun.font.CreatedFontTracker", "TempFileDeletionHook", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CreatedFontTracker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.CreatedFontTracker",
-	"java.lang.Object",
-	nullptr,
-	_CreatedFontTracker_FieldInfo_,
-	_CreatedFontTracker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CreatedFontTracker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.CreatedFontTracker$TempFileDeletionHook"
-};
-
-$Object* allocate$CreatedFontTracker($Class* clazz) {
-	return $of($alloc(CreatedFontTracker));
-}
 
 CreatedFontTracker* CreatedFontTracker::tracker = nullptr;
 
@@ -111,9 +63,8 @@ void CreatedFontTracker::subBytes(int32_t sz) {
 $Semaphore* CreatedFontTracker::getCS() {
 	$load(CreatedFontTracker);
 	$synchronized(class$) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AppContext, appContext, $AppContext::getAppContext());
-		$load(CreatedFontTracker);
 		$var($Semaphore, cs, $cast($Semaphore, $nc(appContext)->get(CreatedFontTracker::class$)));
 		if (cs == nullptr) {
 			$assign(cs, $new($Semaphore, 5, true));
@@ -125,11 +76,11 @@ $Semaphore* CreatedFontTracker::getCS() {
 
 bool CreatedFontTracker::acquirePermit() {
 	$init($TimeUnit);
-	return $nc($(getCS()))->tryAcquire(120, $TimeUnit::SECONDS);
+	return $$nc(getCS())->tryAcquire(120, $TimeUnit::SECONDS);
 }
 
 void CreatedFontTracker::releasePermit() {
-	$nc($(getCS()))->release();
+	$$nc(getCS())->release();
 }
 
 void CreatedFontTracker::add($File* file) {
@@ -148,7 +99,48 @@ CreatedFontTracker::CreatedFontTracker() {
 }
 
 $Class* CreatedFontTracker::load$($String* name, bool initialize) {
-	$loadClass(CreatedFontTracker, name, initialize, &_CreatedFontTracker_ClassInfo_, allocate$CreatedFontTracker);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_FILE_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CreatedFontTracker, MAX_FILE_SIZE)},
+		{"MAX_TOTAL_BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CreatedFontTracker, MAX_TOTAL_BYTES)},
+		{"tracker", "Lsun/font/CreatedFontTracker;", nullptr, $STATIC, $staticField(CreatedFontTracker, tracker)},
+		{"numBytes", "I", nullptr, 0, $field(CreatedFontTracker, numBytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CreatedFontTracker, init$, void)},
+		{"acquirePermit", "()Z", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, acquirePermit, bool), "java.lang.InterruptedException"},
+		{"add", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, add, void, $File*)},
+		{"addBytes", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CreatedFontTracker, addBytes, void, int32_t)},
+		{"getCS", "()Ljava/util/concurrent/Semaphore;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(CreatedFontTracker, getCS, $Semaphore*)},
+		{"getNumBytes", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CreatedFontTracker, getNumBytes, int32_t)},
+		{"getTracker", "()Lsun/font/CreatedFontTracker;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(CreatedFontTracker, getTracker, CreatedFontTracker*)},
+		{"releasePermit", "()V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, releasePermit, void)},
+		{"remove", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, remove, void, $File*)},
+		{"set", "(Ljava/io/File;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CreatedFontTracker, set, void, $File*, $OutputStream*)},
+		{"subBytes", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CreatedFontTracker, subBytes, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CreatedFontTracker$TempFileDeletionHook", "sun.font.CreatedFontTracker", "TempFileDeletionHook", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.CreatedFontTracker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.CreatedFontTracker$TempFileDeletionHook"
+	};
+	$loadClass(CreatedFontTracker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CreatedFontTracker);
+	});
 	return class$;
 }
 

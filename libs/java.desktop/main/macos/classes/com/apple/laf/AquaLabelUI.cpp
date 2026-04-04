@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaLabelUI.h>
-
 #include <com/apple/laf/AquaMnemonicHandler.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
@@ -37,36 +36,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaLabelUI_FieldInfo_[] = {
-	{"aquaLabelUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaLabelUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaLabelUI, aquaLabelUI)},
-	{"DISABLED_COLOR_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaLabelUI, DISABLED_COLOR_KEY)},
-	{}
-};
-
-$MethodInfo _AquaLabelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLabelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaLabelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getDisabledLabelColor", "(Ljavax/swing/JLabel;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, getDisabledLabelColor, $Color*, $JLabel*)},
-	{"installListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, installListeners, void, $JLabel*)},
-	{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
-	{"paintEnabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, paintEnabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
-	{"uninstallListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, uninstallListeners, void, $JLabel*)},
-	{}
-};
-
-$ClassInfo _AquaLabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaLabelUI",
-	"javax.swing.plaf.basic.BasicLabelUI",
-	nullptr,
-	_AquaLabelUI_FieldInfo_,
-	_AquaLabelUI_MethodInfo_
-};
-
-$Object* allocate$AquaLabelUI($Class* clazz) {
-	return $of($alloc(AquaLabelUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaLabelUI::aquaLabelUI = nullptr;
 $String* AquaLabelUI::DISABLED_COLOR_KEY = nullptr;
 
@@ -76,7 +45,7 @@ void AquaLabelUI::init$() {
 
 $ComponentUI* AquaLabelUI::createUI($JComponent* c) {
 	$init(AquaLabelUI);
-	return $cast($ComponentUI, $nc(AquaLabelUI::aquaLabelUI)->get());
+	return $cast($ComponentUI, AquaLabelUI::aquaLabelUI->get());
 }
 
 void AquaLabelUI::installListeners($JLabel* c) {
@@ -99,7 +68,7 @@ void AquaLabelUI::paintEnabledText($JLabel* l, $Graphics* g, $String* s, int32_t
 }
 
 void AquaLabelUI::paintDisabledText($JLabel* l, $Graphics* g, $String* s, int32_t textX, int32_t textY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t accChar = $nc(l)->getDisplayedMnemonicIndex();
 	if ($AquaMnemonicHandler::isMnemonicHidden()) {
 		accChar = -1;
@@ -114,13 +83,13 @@ void AquaLabelUI::paintDisabledText($JLabel* l, $Graphics* g, $String* s, int32_
 }
 
 $Color* AquaLabelUI::getDisabledLabelColor($JLabel* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, fg, $nc(label)->getForeground());
 	$var($Object, colorProperty, label->getClientProperty(AquaLabelUI::DISABLED_COLOR_KEY));
 	if ($instanceOf($Color, colorProperty)) {
 		$var($Color, disabledColor, $cast($Color, colorProperty));
-		int32_t var$0 = ($nc(fg)->getRGB() << 8);
-		if (var$0 == ($nc(disabledColor)->getRGB() << 8)) {
+		int32_t var$0 = $nc(fg)->getRGB() << 8;
+		if (var$0 == (disabledColor->getRGB() << 8)) {
 			return disabledColor;
 		}
 	}
@@ -132,7 +101,7 @@ $Color* AquaLabelUI::getDisabledLabelColor($JLabel* label) {
 	return newDisabledColor;
 }
 
-void clinit$AquaLabelUI($Class* class$) {
+void AquaLabelUI::clinit$($Class* clazz) {
 	$assignStatic(AquaLabelUI::DISABLED_COLOR_KEY, "Label.disabledForegroundColor"_s);
 	$assignStatic(AquaLabelUI::aquaLabelUI, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaLabelUI::class$));
 }
@@ -141,7 +110,32 @@ AquaLabelUI::AquaLabelUI() {
 }
 
 $Class* AquaLabelUI::load$($String* name, bool initialize) {
-	$loadClass(AquaLabelUI, name, initialize, &_AquaLabelUI_ClassInfo_, clinit$AquaLabelUI, allocate$AquaLabelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"aquaLabelUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaLabelUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaLabelUI, aquaLabelUI)},
+		{"DISABLED_COLOR_KEY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaLabelUI, DISABLED_COLOR_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLabelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaLabelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getDisabledLabelColor", "(Ljavax/swing/JLabel;)Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, getDisabledLabelColor, $Color*, $JLabel*)},
+		{"installListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, installListeners, void, $JLabel*)},
+		{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
+		{"paintEnabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, paintEnabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
+		{"uninstallListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(AquaLabelUI, uninstallListeners, void, $JLabel*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaLabelUI",
+		"javax.swing.plaf.basic.BasicLabelUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaLabelUI, name, initialize, &classInfo$$, AquaLabelUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaLabelUI));
+	});
 	return class$;
 }
 

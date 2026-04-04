@@ -20,6 +20,7 @@ class GroupEntry$PreferType : public ::java::lang::Enum {
 public:
 	GroupEntry$PreferType();
 	static $Array<::javax::xml::catalog::GroupEntry$PreferType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* literal);
 	virtual bool prefer($String* prefer);
 	static ::javax::xml::catalog::GroupEntry$PreferType* valueOf($String* name);

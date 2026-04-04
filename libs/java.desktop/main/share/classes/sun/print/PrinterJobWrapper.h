@@ -26,7 +26,7 @@ public:
 	virtual ::java::awt::print::PrinterJob* getPrinterJob();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x85FC196A93E2D29B;
+	static const int64_t serialVersionUID = (int64_t)0x85fc196a93e2d29b;
 	::java::awt::print::PrinterJob* job = nullptr;
 };
 

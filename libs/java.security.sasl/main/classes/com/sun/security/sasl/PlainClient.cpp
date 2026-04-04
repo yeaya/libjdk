@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/PlainClient.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -23,43 +22,6 @@ namespace com {
 	namespace sun {
 		namespace security {
 			namespace sasl {
-
-$FieldInfo _PlainClient_FieldInfo_[] = {
-	{"completed", "Z", nullptr, $PRIVATE, $field(PlainClient, completed)},
-	{"pw", "[B", nullptr, $PRIVATE, $field(PlainClient, pw)},
-	{"authorizationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PlainClient, authorizationID)},
-	{"authenticationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PlainClient, authenticationID)},
-	{"SEP", "B", nullptr, $PRIVATE | $STATIC, $staticField(PlainClient, SEP)},
-	{}
-};
-
-$MethodInfo _PlainClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, 0, $method(PlainClient, init$, void, $String*, $String*, $bytes*), "javax.security.sasl.SaslException"},
-	{"clearPassword", "()V", nullptr, $PRIVATE, $method(PlainClient, clearPassword, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PlainClient, dispose, void), "javax.security.sasl.SaslException"},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, evaluateChallenge, $bytes*, $bytes*)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(PlainClient, finalize, void)},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PlainClient, getMechanismName, $String*)},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainClient, getNegotiatedProperty, $Object*, $String*)},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainClient, hasInitialResponse, bool)},
-	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainClient, isComplete, bool)},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$ClassInfo _PlainClient_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.PlainClient",
-	"java.lang.Object",
-	"javax.security.sasl.SaslClient",
-	_PlainClient_FieldInfo_,
-	_PlainClient_MethodInfo_
-};
-
-$Object* allocate$PlainClient($Class* clazz) {
-	return $of($alloc(PlainClient));
-}
 
 int8_t PlainClient::SEP = 0;
 
@@ -86,15 +48,15 @@ void PlainClient::dispose() {
 }
 
 $bytes* PlainClient::evaluateChallenge($bytes* challengeData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->completed) {
 		$throwNew($IllegalStateException, "PLAIN authentication already completed"_s);
 	}
 	this->completed = true;
 	$init($StandardCharsets);
-	$var($bytes, authz, (this->authorizationID != nullptr) ? $nc(this->authorizationID)->getBytes($StandardCharsets::UTF_8) : ($bytes*)nullptr);
+	$var($bytes, authz, (this->authorizationID != nullptr) ? this->authorizationID->getBytes($StandardCharsets::UTF_8) : ($bytes*)nullptr);
 	$var($bytes, auth, $nc(this->authenticationID)->getBytes($StandardCharsets::UTF_8));
-	$var($bytes, answer, $new($bytes, $nc(this->pw)->length + auth->length + 2 + (authz == nullptr ? 0 : $nc(authz)->length)));
+	$var($bytes, answer, $new($bytes, $nc(this->pw)->length + auth->length + 2 + (authz == nullptr ? 0 : authz->length)));
 	int32_t pos = 0;
 	if (authz != nullptr) {
 		$System::arraycopy(authz, 0, answer, 0, authz->length);
@@ -104,7 +66,7 @@ $bytes* PlainClient::evaluateChallenge($bytes* challengeData) {
 	$System::arraycopy(auth, 0, answer, pos, auth->length);
 	pos += auth->length;
 	answer->set(pos++, PlainClient::SEP);
-	$System::arraycopy(this->pw, 0, answer, pos, $nc(this->pw)->length);
+	$System::arraycopy(this->pw, 0, answer, pos, this->pw->length);
 	clearPassword();
 	return answer;
 }
@@ -137,7 +99,7 @@ $Object* PlainClient::getNegotiatedProperty($String* propName) {
 		if ($nc(propName)->equals($Sasl::QOP)) {
 			return $of("auth"_s);
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	} else {
 		$throwNew($IllegalStateException, "PLAIN authentication not completed"_s);
@@ -146,8 +108,8 @@ $Object* PlainClient::getNegotiatedProperty($String* propName) {
 
 void PlainClient::clearPassword() {
 	if (this->pw != nullptr) {
-		for (int32_t i = 0; i < $nc(this->pw)->length; ++i) {
-			$nc(this->pw)->set(i, (int8_t)0);
+		for (int32_t i = 0; i < this->pw->length; ++i) {
+			this->pw->set(i, (int8_t)0);
 		}
 		$set(this, pw, nullptr);
 	}
@@ -157,15 +119,47 @@ void PlainClient::finalize() {
 	clearPassword();
 }
 
-void clinit$PlainClient($Class* class$) {
-	PlainClient::SEP = (int8_t)0;
+void PlainClient::clinit$($Class* clazz) {
+	PlainClient::SEP = 0;
 }
 
 PlainClient::PlainClient() {
 }
 
 $Class* PlainClient::load$($String* name, bool initialize) {
-	$loadClass(PlainClient, name, initialize, &_PlainClient_ClassInfo_, clinit$PlainClient, allocate$PlainClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"completed", "Z", nullptr, $PRIVATE, $field(PlainClient, completed)},
+		{"pw", "[B", nullptr, $PRIVATE, $field(PlainClient, pw)},
+		{"authorizationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PlainClient, authorizationID)},
+		{"authenticationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PlainClient, authenticationID)},
+		{"SEP", "B", nullptr, $PRIVATE | $STATIC, $staticField(PlainClient, SEP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, 0, $method(PlainClient, init$, void, $String*, $String*, $bytes*), "javax.security.sasl.SaslException"},
+		{"clearPassword", "()V", nullptr, $PRIVATE, $method(PlainClient, clearPassword, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PlainClient, dispose, void), "javax.security.sasl.SaslException"},
+		{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, evaluateChallenge, $bytes*, $bytes*)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(PlainClient, finalize, void)},
+		{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PlainClient, getMechanismName, $String*)},
+		{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainClient, getNegotiatedProperty, $Object*, $String*)},
+		{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainClient, hasInitialResponse, bool)},
+		{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainClient, isComplete, bool)},
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.PlainClient",
+		"java.lang.Object",
+		"javax.security.sasl.SaslClient",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PlainClient, name, initialize, &classInfo$$, PlainClient::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PlainClient);
+	});
 	return class$;
 }
 

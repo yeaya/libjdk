@@ -1,17 +1,13 @@
 #include <com/sun/org/apache/bcel/internal/generic/MULTIANEWARRAY.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$EXCS.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
-#include <com/sun/org/apache/bcel/internal/generic/AllocationInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArrayType.h>
 #include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadClass.h>
 #include <com/sun/org/apache/bcel/internal/generic/ObjectType.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
@@ -29,16 +25,12 @@ using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ExceptionConst = ::com::sun::org::apache::bcel::internal::ExceptionConst;
 using $ExceptionConst$EXCS = ::com::sun::org::apache::bcel::internal::ExceptionConst$EXCS;
 using $ConstantPool = ::com::sun::org::apache::bcel::internal::classfile::ConstantPool;
-using $AllocationInstruction = ::com::sun::org::apache::bcel::internal::generic::AllocationInstruction;
 using $ArrayType = ::com::sun::org::apache::bcel::internal::generic::ArrayType;
 using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
-using $LoadClass = ::com::sun::org::apache::bcel::internal::generic::LoadClass;
 using $ObjectType = ::com::sun::org::apache::bcel::internal::generic::ObjectType;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -53,45 +45,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _MULTIANEWARRAY_FieldInfo_[] = {
-	{"dimensions", "S", nullptr, $PRIVATE, $field(MULTIANEWARRAY, dimensions)},
-	{}
-};
-
-$MethodInfo _MULTIANEWARRAY_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(MULTIANEWARRAY, init$, void)},
-	{"<init>", "(IS)V", nullptr, $PUBLIC, $method(MULTIANEWARRAY, init$, void, int32_t, int16_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, accept, void, $Visitor*)},
-	{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, consumeStack, int32_t, $ConstantPoolGen*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getDimensions", "()S", nullptr, $PUBLIC | $FINAL, $method(MULTIANEWARRAY, getDimensions, int16_t)},
-	{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MULTIANEWARRAY, getExceptions, $ClassArray*)},
-	{"getLoadClassType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/ObjectType;", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, getLoadClassType, $ObjectType*, $ConstantPoolGen*)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(MULTIANEWARRAY, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, toString, $String*, bool)},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, toString, $String*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _MULTIANEWARRAY_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.MULTIANEWARRAY",
-	"com.sun.org.apache.bcel.internal.generic.CPInstruction",
-	"com.sun.org.apache.bcel.internal.generic.LoadClass,com.sun.org.apache.bcel.internal.generic.AllocationInstruction,com.sun.org.apache.bcel.internal.generic.ExceptionThrower",
-	_MULTIANEWARRAY_FieldInfo_,
-	_MULTIANEWARRAY_MethodInfo_
-};
-
-$Object* allocate$MULTIANEWARRAY($Class* clazz) {
-	return $of($alloc(MULTIANEWARRAY));
-}
 
 $Type* MULTIANEWARRAY::getType($ConstantPoolGen* cpg) {
 	 return this->$CPInstruction::getType(cpg);
@@ -122,7 +75,7 @@ void MULTIANEWARRAY::init$() {
 }
 
 void MULTIANEWARRAY::init$(int32_t index, int16_t dimensions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CPInstruction::init$($Const::MULTIANEWARRAY, index);
 	if (dimensions < 1) {
 		$throwNew($ClassGenException, $$str({"Invalid dimensions value: "_s, $$str(dimensions)}));
@@ -148,15 +101,18 @@ int16_t MULTIANEWARRAY::getDimensions() {
 }
 
 $String* MULTIANEWARRAY::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$($CPInstruction::toString(verbose)), " "_s}));
-	$var($String, var$1, $$concat(var$2, $$str($CPInstruction::getIndex())));
-	$var($String, var$0, $$concat(var$1, " "_s));
-	return $concat(var$0, $$str(this->dimensions));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($CPInstruction::toString(verbose)));
+	var$0->append(" "_s);
+	var$0->append($CPInstruction::getIndex());
+	var$0->append(" "_s);
+	var$0->append(this->dimensions);
+	return $str(var$0);
 }
 
 $String* MULTIANEWARRAY::toString($ConstantPool* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($CPInstruction::toString(cp)), " "_s, $$str(this->dimensions)});
 }
 
@@ -176,7 +132,7 @@ $ClassArray* MULTIANEWARRAY::getExceptions() {
 $ObjectType* MULTIANEWARRAY::getLoadClassType($ConstantPoolGen* cpg) {
 	$var($Type, t, getType(cpg));
 	if ($instanceOf($ArrayType, t)) {
-		$assign(t, $nc(($cast($ArrayType, t)))->getBasicType());
+		$assign(t, $cast($ArrayType, t)->getBasicType());
 	}
 	return ($instanceOf($ObjectType, t)) ? $cast($ObjectType, t) : ($ObjectType*)nullptr;
 }
@@ -194,7 +150,41 @@ MULTIANEWARRAY::MULTIANEWARRAY() {
 }
 
 $Class* MULTIANEWARRAY::load$($String* name, bool initialize) {
-	$loadClass(MULTIANEWARRAY, name, initialize, &_MULTIANEWARRAY_ClassInfo_, allocate$MULTIANEWARRAY);
+	$FieldInfo fieldInfos$$[] = {
+		{"dimensions", "S", nullptr, $PRIVATE, $field(MULTIANEWARRAY, dimensions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(MULTIANEWARRAY, init$, void)},
+		{"<init>", "(IS)V", nullptr, $PUBLIC, $method(MULTIANEWARRAY, init$, void, int32_t, int16_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, accept, void, $Visitor*)},
+		{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, consumeStack, int32_t, $ConstantPoolGen*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getDimensions", "()S", nullptr, $PUBLIC | $FINAL, $method(MULTIANEWARRAY, getDimensions, int16_t)},
+		{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MULTIANEWARRAY, getExceptions, $ClassArray*)},
+		{"getLoadClassType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/ObjectType;", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, getLoadClassType, $ObjectType*, $ConstantPoolGen*)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(MULTIANEWARRAY, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, toString, $String*, bool)},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MULTIANEWARRAY, toString, $String*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.MULTIANEWARRAY",
+		"com.sun.org.apache.bcel.internal.generic.CPInstruction",
+		"com.sun.org.apache.bcel.internal.generic.LoadClass,com.sun.org.apache.bcel.internal.generic.AllocationInstruction,com.sun.org.apache.bcel.internal.generic.ExceptionThrower",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MULTIANEWARRAY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MULTIANEWARRAY));
+	});
 	return class$;
 }
 

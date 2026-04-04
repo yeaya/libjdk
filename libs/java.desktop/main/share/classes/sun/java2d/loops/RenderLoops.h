@@ -33,6 +33,7 @@ class RenderLoops : public ::java::lang::Object {
 	$class(RenderLoops, 0, ::java::lang::Object)
 public:
 	RenderLoops();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t primTypeID;
 	::sun::java2d::loops::DrawLine* drawLineLoop = nullptr;

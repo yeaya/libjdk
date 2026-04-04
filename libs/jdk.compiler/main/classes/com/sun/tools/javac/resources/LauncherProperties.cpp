@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/resources/LauncherProperties.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,35 +11,6 @@ namespace com {
 			namespace javac {
 				namespace resources {
 
-$MethodInfo _LauncherProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherProperties, init$, void)},
-	{}
-};
-
-$InnerClassInfo _LauncherProperties_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.resources.LauncherProperties$Errors", "com.sun.tools.javac.resources.LauncherProperties", "Errors", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _LauncherProperties_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.resources.LauncherProperties",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_LauncherProperties_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LauncherProperties_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.resources.LauncherProperties$Errors"
-};
-
-$Object* allocate$LauncherProperties($Class* clazz) {
-	return $of($alloc(LauncherProperties));
-}
-
 void LauncherProperties::init$() {
 }
 
@@ -48,7 +18,31 @@ LauncherProperties::LauncherProperties() {
 }
 
 $Class* LauncherProperties::load$($String* name, bool initialize) {
-	$loadClass(LauncherProperties, name, initialize, &_LauncherProperties_ClassInfo_, allocate$LauncherProperties);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherProperties, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.resources.LauncherProperties$Errors", "com.sun.tools.javac.resources.LauncherProperties", "Errors", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.resources.LauncherProperties",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.resources.LauncherProperties$Errors"
+	};
+	$loadClass(LauncherProperties, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LauncherProperties);
+	});
 	return class$;
 }
 

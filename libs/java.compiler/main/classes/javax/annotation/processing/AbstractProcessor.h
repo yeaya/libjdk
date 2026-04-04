@@ -50,6 +50,7 @@ class $export AbstractProcessor : public ::javax::annotation::processing::Proces
 	$class(AbstractProcessor, 0, ::javax::annotation::processing::Processor)
 public:
 	AbstractProcessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::util::Set* arrayToSet($StringArray* array, bool stripModulePrefixes, $String* contentType, $String* annotationName);
 	virtual ::java::lang::Iterable* getCompletions(::javax::lang::model::element::Element* element, ::javax::lang::model::element::AnnotationMirror* annotation, ::javax::lang::model::element::ExecutableElement* member, $String* userText) override;

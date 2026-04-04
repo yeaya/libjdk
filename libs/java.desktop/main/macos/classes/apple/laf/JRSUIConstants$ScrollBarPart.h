@@ -41,6 +41,7 @@ class JRSUIConstants$ScrollBarPart : public ::apple::laf::JRSUIConstants$Propert
 	$class(JRSUIConstants$ScrollBarPart, 0, ::apple::laf::JRSUIConstants$Property)
 public:
 	JRSUIConstants$ScrollBarPart();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t value);
 	virtual int64_t apply(int64_t encodedState) override;
 	virtual $String* toString() override;

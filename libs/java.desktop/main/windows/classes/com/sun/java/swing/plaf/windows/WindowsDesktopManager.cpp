@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopManager.h>
-
 #include <java/beans/PropertyVetoException.h>
 #include <java/lang/ref/WeakReference.h>
 #include <javax/swing/DefaultDesktopManager.h>
@@ -20,35 +19,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsDesktopManager_FieldInfo_[] = {
-	{"currentFrameRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljavax/swing/JInternalFrame;>;", $PRIVATE, $field(WindowsDesktopManager, currentFrameRef)},
-	{}
-};
-
-$MethodInfo _WindowsDesktopManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsDesktopManager, init$, void)},
-	{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopManager, activateFrame, void, $JInternalFrame*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _WindowsDesktopManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsDesktopManager",
-	"javax.swing.DefaultDesktopManager",
-	"javax.swing.plaf.UIResource",
-	_WindowsDesktopManager_FieldInfo_,
-	_WindowsDesktopManager_MethodInfo_
-};
-
-$Object* allocate$WindowsDesktopManager($Class* clazz) {
-	return $of($alloc(WindowsDesktopManager));
-}
 
 int32_t WindowsDesktopManager::hashCode() {
 	 return this->$DefaultDesktopManager::hashCode();
@@ -75,7 +45,7 @@ void WindowsDesktopManager::init$() {
 }
 
 void WindowsDesktopManager::activateFrame($JInternalFrame* f) {
-	$var($JInternalFrame, currentFrame, this->currentFrameRef != nullptr ? $cast($JInternalFrame, $nc(this->currentFrameRef)->get()) : ($JInternalFrame*)nullptr);
+	$var($JInternalFrame, currentFrame, this->currentFrameRef != nullptr ? $cast($JInternalFrame, this->currentFrameRef->get()) : ($JInternalFrame*)nullptr);
 	try {
 		$DefaultDesktopManager::activateFrame(f);
 		if (currentFrame != nullptr && f != currentFrame) {
@@ -88,8 +58,8 @@ void WindowsDesktopManager::activateFrame($JInternalFrame* f) {
 						if (!f->isMaximum()) {
 							f->setMaximum(true);
 						} else {
-							bool var$3 = f->isMaximum();
-							if (var$3 && f->isIcon()) {
+							bool var$2 = f->isMaximum();
+							if (var$2 && f->isIcon()) {
 								f->setIcon(false);
 							} else {
 								f->setMaximum(false);
@@ -116,7 +86,31 @@ WindowsDesktopManager::WindowsDesktopManager() {
 }
 
 $Class* WindowsDesktopManager::load$($String* name, bool initialize) {
-	$loadClass(WindowsDesktopManager, name, initialize, &_WindowsDesktopManager_ClassInfo_, allocate$WindowsDesktopManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentFrameRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljavax/swing/JInternalFrame;>;", $PRIVATE, $field(WindowsDesktopManager, currentFrameRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsDesktopManager, init$, void)},
+		{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(WindowsDesktopManager, activateFrame, void, $JInternalFrame*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsDesktopManager",
+		"javax.swing.DefaultDesktopManager",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsDesktopManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsDesktopManager));
+	});
 	return class$;
 }
 

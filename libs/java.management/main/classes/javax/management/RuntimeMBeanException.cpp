@@ -1,5 +1,4 @@
 #include <javax/management/RuntimeMBeanException.h>
-
 #include <javax/management/JMRuntimeException.h>
 #include <jcpp.h>
 
@@ -11,33 +10,6 @@ using $JMRuntimeException = ::javax::management::JMRuntimeException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _RuntimeMBeanException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuntimeMBeanException, serialVersionUID)},
-	{"runtimeException", "Ljava/lang/RuntimeException;", nullptr, $PRIVATE, $field(RuntimeMBeanException, runtimeException)},
-	{}
-};
-
-$MethodInfo _RuntimeMBeanException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(RuntimeMBeanException, init$, void, $RuntimeException*)},
-	{"<init>", "(Ljava/lang/RuntimeException;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimeMBeanException, init$, void, $RuntimeException*, $String*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(RuntimeMBeanException, getCause, $Throwable*)},
-	{"getTargetException", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC, $virtualMethod(RuntimeMBeanException, getTargetException, $RuntimeException*)},
-	{}
-};
-
-$ClassInfo _RuntimeMBeanException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.RuntimeMBeanException",
-	"javax.management.JMRuntimeException",
-	nullptr,
-	_RuntimeMBeanException_FieldInfo_,
-	_RuntimeMBeanException_MethodInfo_
-};
-
-$Object* allocate$RuntimeMBeanException($Class* clazz) {
-	return $of($alloc(RuntimeMBeanException));
-}
 
 void RuntimeMBeanException::init$($RuntimeException* e) {
 	$JMRuntimeException::init$();
@@ -68,7 +40,29 @@ void RuntimeMBeanException::throw$() {
 }
 
 $Class* RuntimeMBeanException::load$($String* name, bool initialize) {
-	$loadClass(RuntimeMBeanException, name, initialize, &_RuntimeMBeanException_ClassInfo_, allocate$RuntimeMBeanException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuntimeMBeanException, serialVersionUID)},
+		{"runtimeException", "Ljava/lang/RuntimeException;", nullptr, $PRIVATE, $field(RuntimeMBeanException, runtimeException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(RuntimeMBeanException, init$, void, $RuntimeException*)},
+		{"<init>", "(Ljava/lang/RuntimeException;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimeMBeanException, init$, void, $RuntimeException*, $String*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(RuntimeMBeanException, getCause, $Throwable*)},
+		{"getTargetException", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC, $virtualMethod(RuntimeMBeanException, getTargetException, $RuntimeException*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.RuntimeMBeanException",
+		"javax.management.JMRuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuntimeMBeanException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuntimeMBeanException);
+	});
 	return class$;
 }
 

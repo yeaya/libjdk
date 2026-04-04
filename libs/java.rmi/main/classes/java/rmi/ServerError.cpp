@@ -1,5 +1,4 @@
 #include <java/rmi/ServerError.h>
-
 #include <java/lang/Error.h>
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
@@ -12,29 +11,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _ServerError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ServerError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(ServerError, init$, void, $String*, $Error*)},
-	{}
-};
-
-$ClassInfo _ServerError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.ServerError",
-	"java.rmi.RemoteException",
-	nullptr,
-	_ServerError_FieldInfo_,
-	_ServerError_MethodInfo_
-};
-
-$Object* allocate$ServerError($Class* clazz) {
-	return $of($alloc(ServerError));
-}
 
 void ServerError::init$($String* s, $Error* err) {
 	$RemoteException::init$(s, err);
@@ -51,7 +27,25 @@ void ServerError::throw$() {
 }
 
 $Class* ServerError::load$($String* name, bool initialize) {
-	$loadClass(ServerError, name, initialize, &_ServerError_ClassInfo_, allocate$ServerError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ServerError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(ServerError, init$, void, $String*, $Error*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.ServerError",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServerError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerError);
+	});
 	return class$;
 }
 

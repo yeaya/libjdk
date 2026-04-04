@@ -37,6 +37,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void addBeanContextMembershipListener(::java::beans::beancontext::BeanContextMembershipListener* bcml) {}
 	virtual ::java::net::URL* getResource($String* name, ::java::beans::beancontext::BeanContextChild* bcc) {return nullptr;}
 	virtual ::java::io::InputStream* getResourceAsStream($String* name, ::java::beans::beancontext::BeanContextChild* bcc) {return nullptr;}

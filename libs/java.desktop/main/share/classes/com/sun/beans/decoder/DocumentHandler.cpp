@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/DocumentHandler.h>
-
 #include <com/sun/beans/decoder/ArrayElementHandler.h>
 #include <com/sun/beans/decoder/BooleanElementHandler.h>
 #include <com/sun/beans/decoder/ByteElementHandler.h>
@@ -26,7 +25,6 @@
 #include <com/sun/beans/decoder/VoidElementHandler.h>
 #include <com/sun/beans/finder/ClassFinder.h>
 #include <java/beans/ExceptionListener.h>
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -37,7 +35,6 @@
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -76,7 +73,6 @@ using $VarElementHandler = ::com::sun::beans::decoder::VarElementHandler;
 using $VoidElementHandler = ::com::sun::beans::decoder::VoidElementHandler;
 using $ClassFinder = ::com::sun::beans::finder::ClassFinder;
 using $ExceptionListener = ::java::beans::ExceptionListener;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -89,16 +85,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $Attributes = ::org::xml::sax::Attributes;
 using $InputSource = ::org::xml::sax::InputSource;
@@ -109,68 +100,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$FieldInfo _DocumentHandler_FieldInfo_[] = {
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(DocumentHandler, acc)},
-	{"handlers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/beans/decoder/ElementHandler;>;>;", $PRIVATE | $FINAL, $field(DocumentHandler, handlers)},
-	{"environment", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(DocumentHandler, environment)},
-	{"objects", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(DocumentHandler, objects)},
-	{"loader", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<Ljava/lang/ClassLoader;>;", $PRIVATE, $field(DocumentHandler, loader)},
-	{"listener", "Ljava/beans/ExceptionListener;", nullptr, $PRIVATE, $field(DocumentHandler, listener)},
-	{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DocumentHandler, owner)},
-	{"handler", "Lcom/sun/beans/decoder/ElementHandler;", nullptr, $PRIVATE, $field(DocumentHandler, handler)},
-	{}
-};
-
-$MethodInfo _DocumentHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentHandler, init$, void)},
-	{"addObject", "(Ljava/lang/Object;)V", nullptr, 0, $method(DocumentHandler, addObject, void, Object$*)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, characters, void, $chars*, int32_t, int32_t)},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, endElement, void, $String*, $String*, $String*)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(DocumentHandler, findClass, $Class*, $String*)},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(DocumentHandler, getClassLoader, $ClassLoader*)},
-	{"getElementHandler", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<+Lcom/sun/beans/decoder/ElementHandler;>;", $PUBLIC, $method(DocumentHandler, getElementHandler, $Class*, $String*)},
-	{"getExceptionListener", "()Ljava/beans/ExceptionListener;", nullptr, $PUBLIC, $method(DocumentHandler, getExceptionListener, $ExceptionListener*)},
-	{"getObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $method(DocumentHandler, getObjects, $ObjectArray*)},
-	{"getOwner", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(DocumentHandler, getOwner, $Object*)},
-	{"getVariable", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(DocumentHandler, getVariable, $Object*, $String*)},
-	{"handleException", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(DocumentHandler, handleException, void, $Exception*)},
-	{"hasVariable", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(DocumentHandler, hasVariable, bool, $String*)},
-	{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(DocumentHandler, parse, void, $InputSource*)},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, resolveEntity, $InputSource*, $String*, $String*)},
-	{"setClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(DocumentHandler, setClassLoader, void, $ClassLoader*)},
-	{"setElementHandler", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/beans/decoder/ElementHandler;>;)V", $PUBLIC, $method(DocumentHandler, setElementHandler, void, $String*, $Class*)},
-	{"setExceptionListener", "(Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $method(DocumentHandler, setExceptionListener, void, $ExceptionListener*)},
-	{"setOwner", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DocumentHandler, setOwner, void, Object$*)},
-	{"setVariable", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DocumentHandler, setVariable, void, $String*, Object$*)},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, startDocument, void)},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$InnerClassInfo _DocumentHandler_InnerClassesInfo_[] = {
-	{"com.sun.beans.decoder.DocumentHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DocumentHandler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.DocumentHandler",
-	"org.xml.sax.helpers.DefaultHandler",
-	nullptr,
-	_DocumentHandler_FieldInfo_,
-	_DocumentHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocumentHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.beans.decoder.DocumentHandler$1"
-};
-
-$Object* allocate$DocumentHandler($Class* clazz) {
-	return $of($alloc(DocumentHandler));
-}
 
 void DocumentHandler::init$() {
 	$DefaultHandler::init$();
@@ -225,7 +154,7 @@ void DocumentHandler::init$() {
 }
 
 $ClassLoader* DocumentHandler::getClassLoader() {
-	return (this->loader != nullptr) ? $cast($ClassLoader, $nc(this->loader)->get()) : ($ClassLoader*)nullptr;
+	return (this->loader != nullptr) ? $cast($ClassLoader, this->loader->get()) : ($ClassLoader*)nullptr;
 }
 
 void DocumentHandler::setClassLoader($ClassLoader* loader) {
@@ -241,7 +170,7 @@ void DocumentHandler::setExceptionListener($ExceptionListener* listener) {
 }
 
 $Object* DocumentHandler::getOwner() {
-	return $of(this->owner);
+	return this->owner;
 }
 
 void DocumentHandler::setOwner(Object$* owner) {
@@ -268,7 +197,7 @@ $Object* DocumentHandler::getVariable($String* id) {
 	if (!$nc(this->environment)->containsKey(id)) {
 		$throwNew($IllegalArgumentException, $$str({"Unbound variable: "_s, id}));
 	}
-	return $of($nc(this->environment)->get(id));
+	return this->environment->get(id);
 }
 
 void DocumentHandler::setVariable($String* id, Object$* value) {
@@ -284,7 +213,7 @@ void DocumentHandler::addObject(Object$* object) {
 }
 
 $InputSource* DocumentHandler::resolveEntity($String* publicId, $String* systemId) {
-	return $new($InputSource, static_cast<$Reader*>($$new($StringReader, ""_s)));
+	return $new($InputSource, $$new($StringReader, ""_s));
 }
 
 void DocumentHandler::startDocument() {
@@ -293,7 +222,7 @@ void DocumentHandler::startDocument() {
 }
 
 void DocumentHandler::startElement($String* uri, $String* localName, $String* qName, $Attributes* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ElementHandler, parent, this->handler);
 	try {
@@ -301,7 +230,7 @@ void DocumentHandler::startElement($String* uri, $String* localName, $String* qN
 		$nc(this->handler)->setOwner(this);
 		$nc(this->handler)->setParent(parent);
 	} catch ($Exception& exception) {
-		$throwNew($SAXException, $cast($Exception, exception));
+		$throwNew($SAXException, exception);
 	}
 	for (int32_t i = 0; i < $nc(attributes)->getLength(); ++i) {
 		try {
@@ -316,22 +245,20 @@ void DocumentHandler::startElement($String* uri, $String* localName, $String* qN
 }
 
 void DocumentHandler::endElement($String* uri, $String* localName, $String* qName) {
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(this->handler)->endElement();
-			} catch ($RuntimeException& exception) {
-				handleException(exception);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, handler, $nc(this->handler)->getParent());
+			$nc(this->handler)->endElement();
+		} catch ($RuntimeException& exception) {
+			handleException(exception);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, handler, $nc(this->handler)->getParent());
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -349,18 +276,18 @@ void DocumentHandler::characters($chars* chars, int32_t start, int32_t length) {
 
 void DocumentHandler::handleException($Exception* exception) {
 	if (this->listener == nullptr) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(exception));
+		$throwNew($IllegalStateException, exception);
 	}
 	$nc(this->listener)->exceptionThrown(exception);
 }
 
 void DocumentHandler::parse($InputSource* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->acc == nullptr) && (nullptr != $System::getSecurityManager())) {
 		$throwNew($SecurityException, "AccessControlContext is not set"_s);
 	}
 	$var($AccessControlContext, stack, $AccessController::getContext());
-	$nc($($SharedSecrets::getJavaSecurityAccess()))->doIntersectionPrivilege($$new($DocumentHandler$1, this, input), stack, this->acc);
+	$$nc($SharedSecrets::getJavaSecurityAccess())->doIntersectionPrivilege($$new($DocumentHandler$1, this, input), stack, this->acc);
 }
 
 $Class* DocumentHandler::findClass($String* name) {
@@ -377,7 +304,63 @@ DocumentHandler::DocumentHandler() {
 }
 
 $Class* DocumentHandler::load$($String* name, bool initialize) {
-	$loadClass(DocumentHandler, name, initialize, &_DocumentHandler_ClassInfo_, allocate$DocumentHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(DocumentHandler, acc)},
+		{"handlers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/beans/decoder/ElementHandler;>;>;", $PRIVATE | $FINAL, $field(DocumentHandler, handlers)},
+		{"environment", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(DocumentHandler, environment)},
+		{"objects", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(DocumentHandler, objects)},
+		{"loader", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<Ljava/lang/ClassLoader;>;", $PRIVATE, $field(DocumentHandler, loader)},
+		{"listener", "Ljava/beans/ExceptionListener;", nullptr, $PRIVATE, $field(DocumentHandler, listener)},
+		{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DocumentHandler, owner)},
+		{"handler", "Lcom/sun/beans/decoder/ElementHandler;", nullptr, $PRIVATE, $field(DocumentHandler, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentHandler, init$, void)},
+		{"addObject", "(Ljava/lang/Object;)V", nullptr, 0, $method(DocumentHandler, addObject, void, Object$*)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, characters, void, $chars*, int32_t, int32_t)},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, endElement, void, $String*, $String*, $String*)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(DocumentHandler, findClass, $Class*, $String*)},
+		{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(DocumentHandler, getClassLoader, $ClassLoader*)},
+		{"getElementHandler", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<+Lcom/sun/beans/decoder/ElementHandler;>;", $PUBLIC, $method(DocumentHandler, getElementHandler, $Class*, $String*)},
+		{"getExceptionListener", "()Ljava/beans/ExceptionListener;", nullptr, $PUBLIC, $method(DocumentHandler, getExceptionListener, $ExceptionListener*)},
+		{"getObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $method(DocumentHandler, getObjects, $ObjectArray*)},
+		{"getOwner", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(DocumentHandler, getOwner, $Object*)},
+		{"getVariable", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(DocumentHandler, getVariable, $Object*, $String*)},
+		{"handleException", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(DocumentHandler, handleException, void, $Exception*)},
+		{"hasVariable", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(DocumentHandler, hasVariable, bool, $String*)},
+		{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $method(DocumentHandler, parse, void, $InputSource*)},
+		{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, resolveEntity, $InputSource*, $String*, $String*)},
+		{"setClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(DocumentHandler, setClassLoader, void, $ClassLoader*)},
+		{"setElementHandler", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/beans/decoder/ElementHandler;>;)V", $PUBLIC, $method(DocumentHandler, setElementHandler, void, $String*, $Class*)},
+		{"setExceptionListener", "(Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $method(DocumentHandler, setExceptionListener, void, $ExceptionListener*)},
+		{"setOwner", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DocumentHandler, setOwner, void, Object$*)},
+		{"setVariable", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DocumentHandler, setVariable, void, $String*, Object$*)},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, startDocument, void)},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(DocumentHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.decoder.DocumentHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.DocumentHandler",
+		"org.xml.sax.helpers.DefaultHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.beans.decoder.DocumentHandler$1"
+	};
+	$loadClass(DocumentHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocumentHandler));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition.h>
-
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_FieldInfo_[] = {
-	{"BOTTOM", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, BOTTOM)},
-	{"AFTER_SUMMARY", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, AFTER_SUMMARY)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, $VALUES)},
-	{}
-};
-
-$MethodInfo _BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, $values, $BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, valueOf, BasicDiagnosticFormatter$BasicConfiguration$SourcePosition*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, values, $BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*)},
-	{}
-};
-
-$InnerClassInfo _BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "com.sun.tools.javac.util.BasicDiagnosticFormatter", "BasicConfiguration", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$SourcePosition", "com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "SourcePosition", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$SourcePosition",
-	"java.lang.Enum",
-	nullptr,
-	_BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_FieldInfo_,
-	_BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;>;",
-	nullptr,
-	_BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.BasicDiagnosticFormatter"
-};
-
-$Object* allocate$BasicDiagnosticFormatter$BasicConfiguration$SourcePosition($Class* clazz) {
-	return $of($alloc(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition));
-}
 
 BasicDiagnosticFormatter$BasicConfiguration$SourcePosition* BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::BOTTOM = nullptr;
 BasicDiagnosticFormatter$BasicConfiguration$SourcePosition* BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::AFTER_SUMMARY = nullptr;
@@ -87,7 +45,7 @@ void BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::init$($String* 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$BasicDiagnosticFormatter$BasicConfiguration$SourcePosition($Class* class$) {
+void BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::clinit$($Class* clazz) {
 	$assignStatic(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::BOTTOM, $new(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, "BOTTOM"_s, 0));
 	$assignStatic(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::AFTER_SUMMARY, $new(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, "AFTER_SUMMARY"_s, 1));
 	$assignStatic(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::$VALUES, BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::$values());
@@ -97,7 +55,42 @@ BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::BasicDiagnosticForma
 }
 
 $Class* BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::load$($String* name, bool initialize) {
-	$loadClass(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, name, initialize, &_BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_ClassInfo_, clinit$BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, allocate$BasicDiagnosticFormatter$BasicConfiguration$SourcePosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"BOTTOM", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, BOTTOM)},
+		{"AFTER_SUMMARY", "Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, AFTER_SUMMARY)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, $values, $BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, valueOf, BasicDiagnosticFormatter$BasicConfiguration$SourcePosition*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, values, $BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "com.sun.tools.javac.util.BasicDiagnosticFormatter", "BasicConfiguration", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$SourcePosition", "com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration", "SourcePosition", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.BasicDiagnosticFormatter$BasicConfiguration$SourcePosition",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.BasicDiagnosticFormatter"
+	};
+	$loadClass(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, name, initialize, &classInfo$$, BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition));
+	});
 	return class$;
 }
 

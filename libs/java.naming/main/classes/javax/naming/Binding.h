@@ -21,7 +21,7 @@ public:
 	virtual void setObject(Object$* obj);
 	virtual $String* toString() override;
 	$Object* boundObj = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x7AAB35CBB5F12F02;
+	static const int64_t serialVersionUID = (int64_t)0x7aab35cbb5f12f02;
 };
 
 	} // naming

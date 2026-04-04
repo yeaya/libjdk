@@ -19,6 +19,7 @@ class FileManager : public ::java::lang::Object {
 	$class(FileManager, 0, ::java::lang::Object)
 public:
 	FileManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t OSTypeToInt($String* type);
 	static $String* _findFolder(int16_t domain, int32_t folderType, bool createIfNeeded);

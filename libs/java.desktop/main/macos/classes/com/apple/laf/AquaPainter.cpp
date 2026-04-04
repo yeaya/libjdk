@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaPainter.h>
-
 #include <apple/laf/JRSUIControl.h>
 #include <apple/laf/JRSUIState.h>
 #include <apple/laf/JRSUIUtils$NineSliceMetricsProvider.h>
@@ -38,55 +37,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaPainter_FieldInfo_[] = {
-	{"boundsRect", "Ljava/awt/Rectangle;", nullptr, $FINAL, $field(AquaPainter, boundsRect)},
-	{"control", "Lapple/laf/JRSUIControl;", nullptr, $FINAL, $field(AquaPainter, control)},
-	{"state", "Lapple/laf/JRSUIState;", "TT;", 0, $field(AquaPainter, state)},
-	{}
-};
-
-$MethodInfo _AquaPainter_MethodInfo_[] = {
-	{"<init>", "(Lapple/laf/JRSUIControl;Lapple/laf/JRSUIState;)V", "(Lapple/laf/JRSUIControl;TT;)V", 0, $method(AquaPainter, init$, void, $JRSUIControl*, $JRSUIState*)},
-	{"create", "(Lapple/laf/JRSUIState;)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*)},
-	{"create", "(Lapple/laf/JRSUIState;IIIIII)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;IIIIII)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"create", "(Lapple/laf/JRSUIState;IIIIIIZ)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;IIIIIIZ)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"create", "(Lapple/laf/JRSUIState;IIIIIIZZZ)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;IIIIIIZZZ)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool, bool)},
-	{"create", "(Lapple/laf/JRSUIState;Lapple/laf/JRSUIUtils$NineSliceMetricsProvider;)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;Lapple/laf/JRSUIUtils$NineSliceMetricsProvider;)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, $JRSUIUtils$NineSliceMetricsProvider*)},
-	{"getControl", "()Lapple/laf/JRSUIControl;", nullptr, $FINAL, $method(AquaPainter, getControl, $JRSUIControl*)},
-	{"getGraphics2D", "(Ljava/awt/Graphics;)Ljava/awt/Graphics2D;", nullptr, $PRIVATE, $method(AquaPainter, getGraphics2D, $Graphics2D*, $Graphics*)},
-	{"paint", "(Ljava/awt/Graphics2D;Lapple/laf/JRSUIState;)V", "(Ljava/awt/Graphics2D;TT;)V", $ABSTRACT, $virtualMethod(AquaPainter, paint, void, $Graphics2D*, $JRSUIState*)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Component;IIII)V", nullptr, $FINAL, $method(AquaPainter, paint, void, $Graphics*, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaPainter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl", "com.apple.laf.AquaPainter", "RecyclableJRSUISlicedImageControl", $PRIVATE | $STATIC},
-	{"com.apple.laf.AquaPainter$AquaPixelsKey", "com.apple.laf.AquaPainter", "AquaPixelsKey", $PRIVATE | $STATIC},
-	{"com.apple.laf.AquaPainter$AquaSingleImagePainter", "com.apple.laf.AquaPainter", "AquaSingleImagePainter", $PRIVATE | $STATIC | $FINAL},
-	{"com.apple.laf.AquaPainter$AquaNineSlicingImagePainter", "com.apple.laf.AquaPainter", "AquaNineSlicingImagePainter", $PRIVATE | $STATIC},
-	{"com.apple.laf.AquaPainter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaPainter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaPainter",
-	"java.lang.Object",
-	nullptr,
-	_AquaPainter_FieldInfo_,
-	_AquaPainter_MethodInfo_,
-	"<T:Lapple/laf/JRSUIState;>Ljava/lang/Object;",
-	nullptr,
-	_AquaPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl,com.apple.laf.AquaPainter$AquaPixelsKey,com.apple.laf.AquaPainter$AquaSingleImagePainter,com.apple.laf.AquaPainter$AquaNineSlicingImagePainter,com.apple.laf.AquaPainter$1"
-};
-
-$Object* allocate$AquaPainter($Class* clazz) {
-	return $of($alloc(AquaPainter));
-}
-
 AquaPainter* AquaPainter::create($JRSUIState* state) {
 	return $new($AquaPainter$AquaSingleImagePainter, state);
 }
@@ -119,8 +69,8 @@ $JRSUIControl* AquaPainter::getControl() {
 }
 
 void AquaPainter::paint($Graphics* g, $Component* c, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->boundsRect)->setBounds(x, y, w, h);
+	$useLocalObjectStack();
+	this->boundsRect->setBounds(x, y, w, h);
 	$var($JRSUIState, nextState, $nc(this->state)->derive());
 	$var($Graphics2D, g2d, getGraphics2D(g));
 	if (g2d != nullptr) {
@@ -130,15 +80,15 @@ void AquaPainter::paint($Graphics* g, $Component* c, int32_t x, int32_t y, int32
 }
 
 $Graphics2D* AquaPainter::getGraphics2D($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $cast($SunGraphics2D, g);
 	} catch ($Exception& ignored) {
 		if ($instanceOf($PeekGraphics, g)) {
-			$nc(g)->fillRect($nc(this->boundsRect)->x, $nc(this->boundsRect)->y, $nc(this->boundsRect)->width, $nc(this->boundsRect)->height);
+			g->fillRect(this->boundsRect->x, this->boundsRect->y, this->boundsRect->width, this->boundsRect->height);
 		} else if ($instanceOf($ProxyGraphics2D, g)) {
 			$var($ProxyGraphics2D, pg, $cast($ProxyGraphics2D, g));
-			$var($Graphics2D, g2d, $nc(pg)->getDelegate());
+			$var($Graphics2D, g2d, pg->getDelegate());
 			if ($instanceOf($SunGraphics2D, g2d)) {
 				return g2d;
 			}
@@ -153,7 +103,50 @@ AquaPainter::AquaPainter() {
 }
 
 $Class* AquaPainter::load$($String* name, bool initialize) {
-	$loadClass(AquaPainter, name, initialize, &_AquaPainter_ClassInfo_, allocate$AquaPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"boundsRect", "Ljava/awt/Rectangle;", nullptr, $FINAL, $field(AquaPainter, boundsRect)},
+		{"control", "Lapple/laf/JRSUIControl;", nullptr, $FINAL, $field(AquaPainter, control)},
+		{"state", "Lapple/laf/JRSUIState;", "TT;", 0, $field(AquaPainter, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lapple/laf/JRSUIControl;Lapple/laf/JRSUIState;)V", "(Lapple/laf/JRSUIControl;TT;)V", 0, $method(AquaPainter, init$, void, $JRSUIControl*, $JRSUIState*)},
+		{"create", "(Lapple/laf/JRSUIState;)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*)},
+		{"create", "(Lapple/laf/JRSUIState;IIIIII)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;IIIIII)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"create", "(Lapple/laf/JRSUIState;IIIIIIZ)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;IIIIIIZ)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"create", "(Lapple/laf/JRSUIState;IIIIIIZZZ)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;IIIIIIZZZ)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool, bool, bool)},
+		{"create", "(Lapple/laf/JRSUIState;Lapple/laf/JRSUIUtils$NineSliceMetricsProvider;)Lcom/apple/laf/AquaPainter;", "<T:Lapple/laf/JRSUIState;>(TT;Lapple/laf/JRSUIUtils$NineSliceMetricsProvider;)Lcom/apple/laf/AquaPainter<TT;>;", $STATIC, $staticMethod(AquaPainter, create, AquaPainter*, $JRSUIState*, $JRSUIUtils$NineSliceMetricsProvider*)},
+		{"getControl", "()Lapple/laf/JRSUIControl;", nullptr, $FINAL, $method(AquaPainter, getControl, $JRSUIControl*)},
+		{"getGraphics2D", "(Ljava/awt/Graphics;)Ljava/awt/Graphics2D;", nullptr, $PRIVATE, $method(AquaPainter, getGraphics2D, $Graphics2D*, $Graphics*)},
+		{"paint", "(Ljava/awt/Graphics2D;Lapple/laf/JRSUIState;)V", "(Ljava/awt/Graphics2D;TT;)V", $ABSTRACT, $virtualMethod(AquaPainter, paint, void, $Graphics2D*, $JRSUIState*)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Component;IIII)V", nullptr, $FINAL, $method(AquaPainter, paint, void, $Graphics*, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl", "com.apple.laf.AquaPainter", "RecyclableJRSUISlicedImageControl", $PRIVATE | $STATIC},
+		{"com.apple.laf.AquaPainter$AquaPixelsKey", "com.apple.laf.AquaPainter", "AquaPixelsKey", $PRIVATE | $STATIC},
+		{"com.apple.laf.AquaPainter$AquaSingleImagePainter", "com.apple.laf.AquaPainter", "AquaSingleImagePainter", $PRIVATE | $STATIC | $FINAL},
+		{"com.apple.laf.AquaPainter$AquaNineSlicingImagePainter", "com.apple.laf.AquaPainter", "AquaNineSlicingImagePainter", $PRIVATE | $STATIC},
+		{"com.apple.laf.AquaPainter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaPainter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Lapple/laf/JRSUIState;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaPainter$RecyclableJRSUISlicedImageControl,com.apple.laf.AquaPainter$AquaPixelsKey,com.apple.laf.AquaPainter$AquaSingleImagePainter,com.apple.laf.AquaPainter$AquaNineSlicingImagePainter,com.apple.laf.AquaPainter$1"
+	};
+	$loadClass(AquaPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaPainter);
+	});
 	return class$;
 }
 

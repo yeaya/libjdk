@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DPaints$RadialGradient.h>
-
 #include <sun/java2d/d3d/D3DPaints$MultiGradient.h>
 #include <sun/java2d/d3d/D3DPaints.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DPaints$RadialGradient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$RadialGradient, init$, void)},
-	{}
-};
-
-$InnerClassInfo _D3DPaints$RadialGradient_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DPaints$RadialGradient", "sun.java2d.d3d.D3DPaints", "RadialGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.d3d.D3DPaints$MultiGradient", "sun.java2d.d3d.D3DPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _D3DPaints$RadialGradient_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DPaints$RadialGradient",
-	"sun.java2d.d3d.D3DPaints$MultiGradient",
-	nullptr,
-	nullptr,
-	_D3DPaints$RadialGradient_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DPaints$RadialGradient_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DPaints"
-};
-
-$Object* allocate$D3DPaints$RadialGradient($Class* clazz) {
-	return $of($alloc(D3DPaints$RadialGradient));
-}
-
 void D3DPaints$RadialGradient::init$() {
 	$D3DPaints$MultiGradient::init$();
 }
@@ -52,7 +20,33 @@ D3DPaints$RadialGradient::D3DPaints$RadialGradient() {
 }
 
 $Class* D3DPaints$RadialGradient::load$($String* name, bool initialize) {
-	$loadClass(D3DPaints$RadialGradient, name, initialize, &_D3DPaints$RadialGradient_ClassInfo_, allocate$D3DPaints$RadialGradient);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$RadialGradient, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DPaints$RadialGradient", "sun.java2d.d3d.D3DPaints", "RadialGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.d3d.D3DPaints$MultiGradient", "sun.java2d.d3d.D3DPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DPaints$RadialGradient",
+		"sun.java2d.d3d.D3DPaints$MultiGradient",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DPaints"
+	};
+	$loadClass(D3DPaints$RadialGradient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DPaints$RadialGradient);
+	});
 	return class$;
 }
 

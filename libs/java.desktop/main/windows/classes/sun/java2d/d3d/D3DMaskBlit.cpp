@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DMaskBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/Paint.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -14,8 +13,6 @@
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/pipe/BufferedMaskBlit.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/RenderQueue.h>
-#include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
 #undef NO_CONTEXT_FLAGS
@@ -32,50 +29,27 @@ using $D3DContext = ::sun::java2d::d3d::D3DContext;
 using $D3DRenderQueue = ::sun::java2d::d3d::D3DRenderQueue;
 using $D3DSurfaceData = ::sun::java2d::d3d::D3DSurfaceData;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
-using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $BufferedMaskBlit = ::sun::java2d::pipe::BufferedMaskBlit;
 using $Region = ::sun::java2d::pipe::Region;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DMaskBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;)V", nullptr, $PRIVATE, $method(D3DMaskBlit, init$, void, $SurfaceType*, $CompositeType*)},
-	{"register", "()V", nullptr, $STATIC, $staticMethod(D3DMaskBlit, register$, void)},
-	{"validateContext", "(Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;)V", nullptr, $PROTECTED, $virtualMethod(D3DMaskBlit, validateContext, void, $SurfaceData*, $Composite*, $Region*)},
-	{}
-};
-
-$ClassInfo _D3DMaskBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DMaskBlit",
-	"sun.java2d.pipe.BufferedMaskBlit",
-	nullptr,
-	nullptr,
-	_D3DMaskBlit_MethodInfo_
-};
-
-$Object* allocate$D3DMaskBlit($Class* clazz) {
-	return $of($alloc(D3DMaskBlit));
-}
-
 void D3DMaskBlit::register$() {
 	$init(D3DMaskBlit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SurfaceType);
 	$init($CompositeType);
 	$var($GraphicsPrimitiveArray, primitives, $new($GraphicsPrimitiveArray, {
-		static_cast<$GraphicsPrimitive*>($$new(D3DMaskBlit, $SurfaceType::IntArgb, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(D3DMaskBlit, $SurfaceType::IntArgbPre, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(D3DMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(D3DMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcNoEa)),
-		static_cast<$GraphicsPrimitive*>($$new(D3DMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(D3DMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcNoEa))
+		$$new(D3DMaskBlit, $SurfaceType::IntArgb, $CompositeType::SrcOver),
+		$$new(D3DMaskBlit, $SurfaceType::IntArgbPre, $CompositeType::SrcOver),
+		$$new(D3DMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcOver),
+		$$new(D3DMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcNoEa),
+		$$new(D3DMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcOver),
+		$$new(D3DMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcNoEa)
 	}));
 	$GraphicsPrimitiveMgr::register$(primitives);
 }
@@ -94,7 +68,23 @@ D3DMaskBlit::D3DMaskBlit() {
 }
 
 $Class* D3DMaskBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DMaskBlit, name, initialize, &_D3DMaskBlit_ClassInfo_, allocate$D3DMaskBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;)V", nullptr, $PRIVATE, $method(D3DMaskBlit, init$, void, $SurfaceType*, $CompositeType*)},
+		{"register", "()V", nullptr, $STATIC, $staticMethod(D3DMaskBlit, register$, void)},
+		{"validateContext", "(Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;)V", nullptr, $PROTECTED, $virtualMethod(D3DMaskBlit, validateContext, void, $SurfaceData*, $Composite*, $Region*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DMaskBlit",
+		"sun.java2d.pipe.BufferedMaskBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DMaskBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DMaskBlit);
+	});
 	return class$;
 }
 

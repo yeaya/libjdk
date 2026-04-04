@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XCanvasPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -39,7 +38,6 @@ using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
@@ -62,77 +60,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XCanvasPeer_FieldInfo_[] = {
-	{"eraseBackgroundDisabled", "Z", nullptr, $PRIVATE, $field(XCanvasPeer, eraseBackgroundDisabled)},
-	{}
-};
-
-$MethodInfo _XCanvasPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(XCanvasPeer, init$, void)},
-	{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XCanvasPeer, init$, void, $XCreateWindowParams*)},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XCanvasPeer, init$, void, $Component*)},
-	{"disableBackgroundErase", "()V", nullptr, $PUBLIC, $virtualMethod(XCanvasPeer, disableBackgroundErase, void)},
-	{"doEraseBackground", "()Z", nullptr, $PROTECTED, $virtualMethod(XCanvasPeer, doEraseBackground, bool)},
-	{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XCanvasPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XCanvasPeer, preInit, void, $XCreateWindowParams*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldFocusOnClick", "()Z", nullptr, $PROTECTED, $virtualMethod(XCanvasPeer, shouldFocusOnClick, bool)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XCanvasPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XCanvasPeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.CanvasPeer",
-	_XCanvasPeer_FieldInfo_,
-	_XCanvasPeer_MethodInfo_
-};
-
-$Object* allocate$XCanvasPeer($Class* clazz) {
-	return $of($alloc(XCanvasPeer));
-}
 
 void XCanvasPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -318,14 +245,14 @@ void XCanvasPeer::preInit($XCreateWindowParams* params) {
 }
 
 $GraphicsConfiguration* XCanvasPeer::getAppropriateGraphicsConfiguration($GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->graphicsConfig == nullptr || gc == nullptr) {
 		return gc;
 	}
-	int32_t screenNum = $nc(($cast($X11GraphicsDevice, $($nc(gc)->getDevice()))))->getScreen();
+	int32_t screenNum = $$sure($X11GraphicsDevice, $nc(gc)->getDevice())->getScreen();
 	$var($X11GraphicsConfig, parentgc, nullptr);
 	int32_t visual = $nc(this->graphicsConfig)->getVisual();
-	$var($X11GraphicsDevice, newDev, $cast($X11GraphicsDevice, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getScreenDevices()))->get(screenNum)));
+	$var($X11GraphicsDevice, newDev, $cast($X11GraphicsDevice, $nc($($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getScreenDevices()))->get(screenNum)));
 	for (int32_t i = 0; i < $nc(newDev)->getNumConfigs(screenNum); ++i) {
 		if (visual == newDev->getConfigVisualId(i, screenNum)) {
 			$set(this, graphicsConfig, $cast($X11GraphicsConfig, $nc($(newDev->getConfigurations()))->get(i)));
@@ -333,7 +260,7 @@ $GraphicsConfiguration* XCanvasPeer::getAppropriateGraphicsConfiguration($Graphi
 		}
 	}
 	if (this->graphicsConfig == nullptr) {
-		$set(this, graphicsConfig, $cast($X11GraphicsConfig, $nc($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getScreenDevices()))->get(screenNum))->getDefaultConfiguration()));
+		$set(this, graphicsConfig, $cast($X11GraphicsConfig, $nc($nc($($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getScreenDevices()))->get(screenNum))->getDefaultConfiguration()));
 	}
 	return this->graphicsConfig;
 }
@@ -354,7 +281,73 @@ XCanvasPeer::XCanvasPeer() {
 }
 
 $Class* XCanvasPeer::load$($String* name, bool initialize) {
-	$loadClass(XCanvasPeer, name, initialize, &_XCanvasPeer_ClassInfo_, allocate$XCanvasPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"eraseBackgroundDisabled", "Z", nullptr, $PRIVATE, $field(XCanvasPeer, eraseBackgroundDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(XCanvasPeer, init$, void)},
+		{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XCanvasPeer, init$, void, $XCreateWindowParams*)},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XCanvasPeer, init$, void, $Component*)},
+		{"disableBackgroundErase", "()V", nullptr, $PUBLIC, $virtualMethod(XCanvasPeer, disableBackgroundErase, void)},
+		{"doEraseBackground", "()Z", nullptr, $PROTECTED, $virtualMethod(XCanvasPeer, doEraseBackground, bool)},
+		{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XCanvasPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XCanvasPeer, preInit, void, $XCreateWindowParams*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldFocusOnClick", "()Z", nullptr, $PROTECTED, $virtualMethod(XCanvasPeer, shouldFocusOnClick, bool)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XCanvasPeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.CanvasPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XCanvasPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XCanvasPeer));
+	});
 	return class$;
 }
 

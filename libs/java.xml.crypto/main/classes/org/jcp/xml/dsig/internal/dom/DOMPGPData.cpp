@@ -1,9 +1,7 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMPGPData.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/lang/ClassCastException.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -30,7 +28,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -50,44 +47,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _DOMPGPData_FieldInfo_[] = {
-	{"keyId", "[B", nullptr, $PRIVATE | $FINAL, $field(DOMPGPData, keyId)},
-	{"keyPacket", "[B", nullptr, $PRIVATE | $FINAL, $field(DOMPGPData, keyPacket)},
-	{"externalElements", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMPGPData, externalElements)},
-	{}
-};
-
-$MethodInfo _DOMPGPData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([BLjava/util/List;)V", "([BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)V", $PUBLIC, $method(DOMPGPData, init$, void, $bytes*, $List*)},
-	{"<init>", "([B[BLjava/util/List;)V", "([B[BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)V", $PUBLIC, $method(DOMPGPData, init$, void, $bytes*, $bytes*, $List*)},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMPGPData, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"checkKeyPacket", "([B)V", nullptr, $PRIVATE, $method(DOMPGPData, checkKeyPacket, void, $bytes*)},
-	{"getExternalElements", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMPGPData, getExternalElements, $List*)},
-	{"getKeyId", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMPGPData, getKeyId, $bytes*)},
-	{"getKeyPacket", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMPGPData, getKeyPacket, $bytes*)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMPGPData, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMPGPData_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMPGPData",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.keyinfo.PGPData",
-	_DOMPGPData_FieldInfo_,
-	_DOMPGPData_MethodInfo_
-};
-
-$Object* allocate$DOMPGPData($Class* clazz) {
-	return $of($alloc(DOMPGPData));
-}
 
 bool DOMPGPData::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
@@ -114,22 +73,18 @@ void DOMPGPData::finalize() {
 }
 
 void DOMPGPData::init$($bytes* keyPacket, $List* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	if (keyPacket == nullptr) {
 		$throwNew($NullPointerException, "keyPacket cannot be null"_s);
 	}
-	if (other == nullptr || $nc(other)->isEmpty()) {
+	if (other == nullptr || other->isEmpty()) {
 		$set(this, externalElements, $Collections::emptyList());
 	} else {
-		$set(this, externalElements, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(other))));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->externalElements)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($XMLStructure, $($nc(this->externalElements)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"other["_s, $$str(i), "] is not a valid PGPData type"_s}));
-				}
+		$set(this, externalElements, $Collections::unmodifiableList($$new($ArrayList, other)));
+		for (int32_t i = 0, size = $nc(this->externalElements)->size(); i < size; ++i) {
+			if (!($instanceOf($XMLStructure, $(this->externalElements->get(i))))) {
+				$throwNew($ClassCastException, $$str({"other["_s, $$str(i), "] is not a valid PGPData type"_s}));
 			}
 		}
 	}
@@ -139,7 +94,7 @@ void DOMPGPData::init$($bytes* keyPacket, $List* other) {
 }
 
 void DOMPGPData::init$($bytes* keyId, $bytes* keyPacket, $List* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	if (keyId == nullptr) {
 		$throwNew($NullPointerException, "keyId cannot be null"_s);
@@ -147,29 +102,25 @@ void DOMPGPData::init$($bytes* keyId, $bytes* keyPacket, $List* other) {
 	if ($nc(keyId)->length != 8) {
 		$throwNew($IllegalArgumentException, "keyId must be 8 bytes long"_s);
 	}
-	if (other == nullptr || $nc(other)->isEmpty()) {
+	if (other == nullptr || other->isEmpty()) {
 		$set(this, externalElements, $Collections::emptyList());
 	} else {
-		$set(this, externalElements, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(other))));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->externalElements)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($XMLStructure, $($nc(this->externalElements)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"other["_s, $$str(i), "] is not a valid PGPData type"_s}));
-				}
+		$set(this, externalElements, $Collections::unmodifiableList($$new($ArrayList, other)));
+		for (int32_t i = 0, size = $nc(this->externalElements)->size(); i < size; ++i) {
+			if (!($instanceOf($XMLStructure, $(this->externalElements->get(i))))) {
+				$throwNew($ClassCastException, $$str({"other["_s, $$str(i), "] is not a valid PGPData type"_s}));
 			}
 		}
 	}
-	$set(this, keyId, $cast($bytes, $nc(keyId)->clone()));
-	$set(this, keyPacket, keyPacket == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(keyPacket)->clone()));
+	$set(this, keyId, $cast($bytes, keyId->clone()));
+	$set(this, keyPacket, keyPacket == nullptr ? ($bytes*)nullptr : $cast($bytes, keyPacket->clone()));
 	if (keyPacket != nullptr) {
 		checkKeyPacket(keyPacket);
 	}
 }
 
 void DOMPGPData::init$($Element* pdElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$var($bytes, pgpKeyId, nullptr);
 	$var($bytes, pgpKeyPacket, nullptr);
@@ -186,8 +137,8 @@ void DOMPGPData::init$($Element* pdElem) {
 				$var($String, content, $XMLUtils::getFullTextChildrenFromNode(childElem));
 				$assign(pgpKeyId, $XMLUtils::decode(content));
 			} else {
-				bool var$2 = "PGPKeyPacket"_s->equals(localName);
-				if (var$2 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
+				bool var$1 = "PGPKeyPacket"_s->equals(localName);
+				if (var$1 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 					$var($String, content, $XMLUtils::getFullTextChildrenFromNode(childElem));
 					$assign(pgpKeyPacket, $XMLUtils::decode(content));
 				} else {
@@ -203,11 +154,11 @@ void DOMPGPData::init$($Element* pdElem) {
 }
 
 $bytes* DOMPGPData::getKeyId() {
-	return this->keyId == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->keyId)->clone());
+	return this->keyId == nullptr ? ($bytes*)nullptr : $cast($bytes, this->keyId->clone());
 }
 
 $bytes* DOMPGPData::getKeyPacket() {
-	return this->keyPacket == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->keyPacket)->clone());
+	return this->keyPacket == nullptr ? ($bytes*)nullptr : $cast($bytes, this->keyPacket->clone());
 }
 
 $List* DOMPGPData::getExternalElements() {
@@ -215,7 +166,7 @@ $List* DOMPGPData::getExternalElements() {
 }
 
 void DOMPGPData::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, pdElem, $DOMUtils::createElement(ownerDoc, "PGPData"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -234,7 +185,7 @@ void DOMPGPData::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* co
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLStructure, extElem, $cast($XMLStructure, i$->next()));
 			{
-				$DOMUtils::appendChild(pdElem, $($nc(($cast($1DOMStructure, extElem)))->getNode()));
+				$DOMUtils::appendChild(pdElem, $($nc($cast($1DOMStructure, extElem))->getNode()));
 			}
 		}
 	}
@@ -245,14 +196,14 @@ void DOMPGPData::checkKeyPacket($bytes* keyPacket) {
 	if ($nc(keyPacket)->length < 3) {
 		$throwNew($IllegalArgumentException, "keypacket must be at least 3 bytes long"_s);
 	}
-	int32_t tag = $nc(keyPacket)->get(0);
-	if (((int32_t)(tag & (uint32_t)128)) != 128) {
+	int32_t tag = keyPacket->get(0);
+	if ((tag & 0x80) != 0x80) {
 		$throwNew($IllegalArgumentException, "keypacket tag is invalid: bit 7 is not set"_s);
 	}
-	if (((int32_t)(tag & (uint32_t)64)) != 64) {
+	if ((tag & 0x40) != 0x40) {
 		$throwNew($IllegalArgumentException, "old keypacket tag format is unsupported"_s);
 	}
-	if (((int32_t)(tag & (uint32_t)6)) != 6 && ((int32_t)(tag & (uint32_t)14)) != 14 && ((int32_t)(tag & (uint32_t)5)) != 5 && ((int32_t)(tag & (uint32_t)7)) != 7) {
+	if ((tag & 6) != 6 && (tag & 0x0e) != 0x0e && (tag & 5) != 5 && (tag & 7) != 7) {
 		$throwNew($IllegalArgumentException, "keypacket tag is invalid: must be 6, 14, 5, or 7"_s);
 	}
 }
@@ -261,7 +212,40 @@ DOMPGPData::DOMPGPData() {
 }
 
 $Class* DOMPGPData::load$($String* name, bool initialize) {
-	$loadClass(DOMPGPData, name, initialize, &_DOMPGPData_ClassInfo_, allocate$DOMPGPData);
+	$FieldInfo fieldInfos$$[] = {
+		{"keyId", "[B", nullptr, $PRIVATE | $FINAL, $field(DOMPGPData, keyId)},
+		{"keyPacket", "[B", nullptr, $PRIVATE | $FINAL, $field(DOMPGPData, keyPacket)},
+		{"externalElements", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE | $FINAL, $field(DOMPGPData, externalElements)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([BLjava/util/List;)V", "([BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)V", $PUBLIC, $method(DOMPGPData, init$, void, $bytes*, $List*)},
+		{"<init>", "([B[BLjava/util/List;)V", "([B[BLjava/util/List<+Ljavax/xml/crypto/XMLStructure;>;)V", $PUBLIC, $method(DOMPGPData, init$, void, $bytes*, $bytes*, $List*)},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMPGPData, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"checkKeyPacket", "([B)V", nullptr, $PRIVATE, $method(DOMPGPData, checkKeyPacket, void, $bytes*)},
+		{"getExternalElements", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMPGPData, getExternalElements, $List*)},
+		{"getKeyId", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMPGPData, getKeyId, $bytes*)},
+		{"getKeyPacket", "()[B", nullptr, $PUBLIC, $virtualMethod(DOMPGPData, getKeyPacket, $bytes*)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMPGPData, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMPGPData",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.keyinfo.PGPData",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMPGPData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMPGPData));
+	});
 	return class$;
 }
 

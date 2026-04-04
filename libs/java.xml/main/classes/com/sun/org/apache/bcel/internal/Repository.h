@@ -47,6 +47,7 @@ class Repository : public ::java::lang::Object {
 	$class(Repository, 0, ::java::lang::Object)
 public:
 	Repository();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::bcel::internal::classfile::JavaClass* addClass(::com::sun::org::apache::bcel::internal::classfile::JavaClass* clazz);
 	static void clearCache();

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/helper/AttrCompare.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/helper/C14nHelper.h>
@@ -9,7 +8,6 @@
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/io/OutputStream.h>
-#include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
@@ -40,8 +38,6 @@ using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
-using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
@@ -62,39 +58,6 @@ namespace com {
 						namespace security {
 							namespace c14n {
 								namespace implementations {
-
-$FieldInfo _Canonicalizer20010315_FieldInfo_[] = {
-	{"firstCall", "Z", nullptr, $PRIVATE, $field(Canonicalizer20010315, firstCall)},
-	{"xmlattrStack", "Lcom/sun/org/apache/xml/internal/security/c14n/implementations/XmlAttrStack;", nullptr, $PRIVATE | $FINAL, $field(Canonicalizer20010315, xmlattrStack)},
-	{"c14n11", "Z", nullptr, $PRIVATE | $FINAL, $field(Canonicalizer20010315, c14n11)},
-	{}
-};
-
-$MethodInfo _Canonicalizer20010315_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Canonicalizer20010315, init$, void, bool)},
-	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(Canonicalizer20010315, init$, void, bool, bool)},
-	{"circumventBugIfNeeded", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PROTECTED, $virtualMethod(Canonicalizer20010315, circumventBugIfNeeded, void, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Canonicalizer20010315, engineCanonicalizeSubTree, void, $Node*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Canonicalizer20010315, engineCanonicalizeSubTree, void, $Node*, $String*, bool, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC, $virtualMethod(Canonicalizer20010315, engineCanonicalizeXPathNodeSet, void, $Set*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"handleParent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PROTECTED, $virtualMethod(Canonicalizer20010315, handleParent, void, $Element*, $NameSpaceSymbTable*)},
-	{"outputAttributes", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(Canonicalizer20010315, outputAttributes, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
-	{"outputAttributesSubtree", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(Canonicalizer20010315, outputAttributesSubtree, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Canonicalizer20010315_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315",
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerBase",
-	nullptr,
-	_Canonicalizer20010315_FieldInfo_,
-	_Canonicalizer20010315_MethodInfo_
-};
-
-$Object* allocate$Canonicalizer20010315($Class* clazz) {
-	return $of($alloc(Canonicalizer20010315));
-}
 
 void Canonicalizer20010315::init$(bool includeComments) {
 	Canonicalizer20010315::init$(includeComments, false);
@@ -120,13 +83,13 @@ void Canonicalizer20010315::engineCanonicalizeSubTree($Node* rootNode, $String* 
 }
 
 void Canonicalizer20010315::outputAttributesSubtree($Element* element, $NameSpaceSymbTable* ns, $Map* cache, $OutputStream* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(element)->hasAttributes() && !this->firstCall) {
 		return;
 	}
 	$init($CanonicalizerBase);
-	$var($SortedSet, result, $new($TreeSet, static_cast<$Comparator*>($CanonicalizerBase::COMPARE)));
-	if ($nc(element)->hasAttributes()) {
+	$var($SortedSet, result, $new($TreeSet, $CanonicalizerBase::COMPARE));
+	if (element->hasAttributes()) {
 		$var($NamedNodeMap, attrs, element->getAttributes());
 		int32_t attrsLength = $nc(attrs)->getLength();
 		for (int32_t i = 0; i < attrsLength; ++i) {
@@ -137,16 +100,16 @@ void Canonicalizer20010315::outputAttributesSubtree($Element* element, $NameSpac
 			if (!$nc($CanonicalizerBase::XMLNS_URI)->equals(NUri)) {
 				result->add(attribute);
 			} else {
-				bool var$1 = $nc($CanonicalizerBase::XML)->equals(NName);
-				if (!(var$1 && $nc($CanonicalizerBase::XML_LANG_URI)->equals(NValue))) {
+				bool var$0 = $nc($CanonicalizerBase::XML)->equals(NName);
+				if (!(var$0 && $nc($CanonicalizerBase::XML_LANG_URI)->equals(NValue))) {
 					$var($Node, n, $nc(ns)->addMappingAndRender(NName, NValue, attribute));
 					if (n != nullptr) {
 						result->add($cast($Attr, n));
 						if ($C14nHelper::namespaceIsRelative(attribute)) {
 							$var($ObjectArray, exArgs, $new($ObjectArray, {
-								$($of(element->getTagName())),
-								$of(NName),
-								$($of(attribute->getNodeValue()))
+								$(element->getTagName()),
+								NName,
+								$(attribute->getNodeValue())
 							}));
 							$throwNew($CanonicalizationException, "c14n.Canonicalizer.RelativeNamespace"_s, exArgs);
 						}
@@ -165,19 +128,19 @@ void Canonicalizer20010315::outputAttributesSubtree($Element* element, $NameSpac
 		for (; $nc(i$)->hasNext();) {
 			$var($Attr, attr, $cast($Attr, i$->next()));
 			{
-				$var($String, var$2, $nc(attr)->getNodeName());
-				outputAttrToWriter(var$2, $(attr->getNodeValue()), writer, cache);
+				$var($String, var$1, $nc(attr)->getNodeName());
+				outputAttrToWriter(var$1, $(attr->getNodeValue()), writer, cache);
 			}
 		}
 	}
 }
 
 void Canonicalizer20010315::outputAttributes($Element* element, $NameSpaceSymbTable* ns, $Map* cache, $OutputStream* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->xmlattrStack)->push($nc(ns)->getLevel());
-	bool isRealVisible = isVisibleDO(element, $nc(ns)->getLevel()) == 1;
+	bool isRealVisible = isVisibleDO(element, ns->getLevel()) == 1;
 	$init($CanonicalizerBase);
-	$var($SortedSet, result, $new($TreeSet, static_cast<$Comparator*>($CanonicalizerBase::COMPARE)));
+	$var($SortedSet, result, $new($TreeSet, $CanonicalizerBase::COMPARE));
 	if ($nc(element)->hasAttributes()) {
 		$var($NamedNodeMap, attrs, element->getAttributes());
 		int32_t attrsLength = $nc(attrs)->getLength();
@@ -193,73 +156,71 @@ void Canonicalizer20010315::outputAttributes($Element* element, $NameSpaceSymbTa
 							result->add(attribute);
 						}
 					} else {
-						$nc(this->xmlattrStack)->addXmlnsAttr(attribute);
+						this->xmlattrStack->addXmlnsAttr(attribute);
 					}
 				} else if (isRealVisible) {
 					result->add(attribute);
 				}
 			} else {
-				bool var$1 = !$nc($CanonicalizerBase::XML)->equals(NName);
-				if (var$1 || !$nc($CanonicalizerBase::XML_LANG_URI)->equals(NValue)) {
+				bool var$0 = !$nc($CanonicalizerBase::XML)->equals(NName);
+				if (var$0 || !$nc($CanonicalizerBase::XML_LANG_URI)->equals(NValue)) {
 					if (isVisible(attribute)) {
-						if (isRealVisible || !$nc(ns)->removeMappingIfRender(NName)) {
+						if (isRealVisible || !ns->removeMappingIfRender(NName)) {
 							$var($Node, n, ns->addMappingAndRender(NName, NValue, attribute));
 							if (n != nullptr) {
 								result->add($cast($Attr, n));
 								if ($C14nHelper::namespaceIsRelative(attribute)) {
 									$var($ObjectArray, exArgs, $new($ObjectArray, {
-										$($of(element->getTagName())),
-										$of(NName),
-										$($of(attribute->getNodeValue()))
+										$(element->getTagName()),
+										NName,
+										$(attribute->getNodeValue())
 									}));
 									$throwNew($CanonicalizationException, "c14n.Canonicalizer.RelativeNamespace"_s, exArgs);
 								}
 							}
 						}
+					} else if (isRealVisible && !$nc($CanonicalizerBase::XMLNS)->equals(NName)) {
+						ns->removeMapping(NName);
 					} else {
-						if (isRealVisible && !$nc($CanonicalizerBase::XMLNS)->equals(NName)) {
-							$nc(ns)->removeMapping(NName);
-						} else {
-							$nc(ns)->addMapping(NName, NValue, attribute);
-						}
+						ns->addMapping(NName, NValue, attribute);
 					}
 				}
 			}
 		}
 	}
 	if (isRealVisible) {
-		$var($Attr, xmlns, $nc(element)->getAttributeNodeNS($CanonicalizerBase::XMLNS_URI, $CanonicalizerBase::XMLNS));
+		$var($Attr, xmlns, element->getAttributeNodeNS($CanonicalizerBase::XMLNS_URI, $CanonicalizerBase::XMLNS));
 		$var($Node, n, nullptr);
 		if (xmlns == nullptr) {
-			$assign(n, $nc(ns)->getMapping($CanonicalizerBase::XMLNS));
+			$assign(n, ns->getMapping($CanonicalizerBase::XMLNS));
 		} else if (!isVisible(xmlns)) {
-			$assign(n, $nc(ns)->addMappingAndRender($CanonicalizerBase::XMLNS, ""_s, $(getNullNode($($nc(xmlns)->getOwnerDocument())))));
+			$assign(n, ns->addMappingAndRender($CanonicalizerBase::XMLNS, ""_s, $(getNullNode($(xmlns->getOwnerDocument())))));
 		}
 		if (n != nullptr) {
 			result->add($cast($Attr, n));
 		}
-		$nc(this->xmlattrStack)->getXmlnsAttr(result);
-		$nc(ns)->getUnrenderedNodes(result);
+		this->xmlattrStack->getXmlnsAttr(result);
+		ns->getUnrenderedNodes(result);
 	}
 	{
 		$var($Iterator, i$, result->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attr, attr, $cast($Attr, i$->next()));
 			{
-				$var($String, var$2, $nc(attr)->getNodeName());
-				outputAttrToWriter(var$2, $(attr->getNodeValue()), writer, cache);
+				$var($String, var$1, $nc(attr)->getNodeName());
+				outputAttrToWriter(var$1, $(attr->getNodeValue()), writer, cache);
 			}
 		}
 	}
 }
 
 void Canonicalizer20010315::circumventBugIfNeeded($XMLSignatureInput* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(input)->isNeedsToBeExpanded()) {
 		return;
 	}
 	$var($Document, doc, nullptr);
-	if ($nc(input)->getSubNode() != nullptr) {
+	if (input->getSubNode() != nullptr) {
 		$assign(doc, $XMLUtils::getOwnerDocument($(input->getSubNode())));
 	} else {
 		$assign(doc, $XMLUtils::getOwnerDocument($(input->getNodeSet())));
@@ -268,13 +229,13 @@ void Canonicalizer20010315::circumventBugIfNeeded($XMLSignatureInput* input) {
 }
 
 void Canonicalizer20010315::handleParent($Element* e, $NameSpaceSymbTable* ns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(e)->hasAttributes();
 	if (var$0 && e->getNamespaceURI() == nullptr) {
 		return;
 	}
 	$nc(this->xmlattrStack)->push(-1);
-	$var($NamedNodeMap, attrs, $nc(e)->getAttributes());
+	$var($NamedNodeMap, attrs, e->getAttributes());
 	int32_t attrsLength = $nc(attrs)->getLength();
 	for (int32_t i = 0; i < attrsLength; ++i) {
 		$var($Attr, attribute, $cast($Attr, attrs->item(i)));
@@ -287,9 +248,9 @@ void Canonicalizer20010315::handleParent($Element* e, $NameSpaceSymbTable* ns) {
 				$nc(ns)->addMapping(NName, NValue, attribute);
 			}
 		} else {
-			bool var$3 = $nc($CanonicalizerBase::XML_LANG_URI)->equals($(attribute->getNamespaceURI()));
-			if (var$3 && (!this->c14n11 || !"id"_s->equals(NName))) {
-				$nc(this->xmlattrStack)->addXmlnsAttr(attribute);
+			bool var$2 = $nc($CanonicalizerBase::XML_LANG_URI)->equals($(attribute->getNamespaceURI()));
+			if (var$2 && (!this->c14n11 || !"id"_s->equals(NName))) {
+				this->xmlattrStack->addXmlnsAttr(attribute);
 			}
 		}
 	}
@@ -297,13 +258,13 @@ void Canonicalizer20010315::handleParent($Element* e, $NameSpaceSymbTable* ns) {
 		$var($String, NName, e->getPrefix());
 		$var($String, NValue, e->getNamespaceURI());
 		$var($String, Name, nullptr);
-		if (NName == nullptr || $nc(NName)->isEmpty()) {
+		if (NName == nullptr || NName->isEmpty()) {
 			$assign(NName, "xmlns"_s);
 			$assign(Name, "xmlns"_s);
 		} else {
 			$assign(Name, $str({"xmlns:"_s, NName}));
 		}
-		$var($Attr, n, $nc($(e->getOwnerDocument()))->createAttributeNS("http://www.w3.org/2000/xmlns/"_s, Name));
+		$var($Attr, n, $$nc(e->getOwnerDocument())->createAttributeNS("http://www.w3.org/2000/xmlns/"_s, Name));
 		$nc(n)->setValue(NValue);
 		$nc(ns)->addMapping(NName, NValue, n);
 	}
@@ -313,7 +274,35 @@ Canonicalizer20010315::Canonicalizer20010315() {
 }
 
 $Class* Canonicalizer20010315::load$($String* name, bool initialize) {
-	$loadClass(Canonicalizer20010315, name, initialize, &_Canonicalizer20010315_ClassInfo_, allocate$Canonicalizer20010315);
+	$FieldInfo fieldInfos$$[] = {
+		{"firstCall", "Z", nullptr, $PRIVATE, $field(Canonicalizer20010315, firstCall)},
+		{"xmlattrStack", "Lcom/sun/org/apache/xml/internal/security/c14n/implementations/XmlAttrStack;", nullptr, $PRIVATE | $FINAL, $field(Canonicalizer20010315, xmlattrStack)},
+		{"c14n11", "Z", nullptr, $PRIVATE | $FINAL, $field(Canonicalizer20010315, c14n11)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Canonicalizer20010315, init$, void, bool)},
+		{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(Canonicalizer20010315, init$, void, bool, bool)},
+		{"circumventBugIfNeeded", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PROTECTED, $virtualMethod(Canonicalizer20010315, circumventBugIfNeeded, void, $XMLSignatureInput*), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException"},
+		{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Canonicalizer20010315, engineCanonicalizeSubTree, void, $Node*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Canonicalizer20010315, engineCanonicalizeSubTree, void, $Node*, $String*, bool, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC, $virtualMethod(Canonicalizer20010315, engineCanonicalizeXPathNodeSet, void, $Set*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"handleParent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;)V", nullptr, $PROTECTED, $virtualMethod(Canonicalizer20010315, handleParent, void, $Element*, $NameSpaceSymbTable*)},
+		{"outputAttributes", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(Canonicalizer20010315, outputAttributes, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
+		{"outputAttributesSubtree", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map;Ljava/io/OutputStream;)V", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable;Ljava/util/Map<Ljava/lang/String;[B>;Ljava/io/OutputStream;)V", $PROTECTED, $virtualMethod(Canonicalizer20010315, outputAttributesSubtree, void, $Element*, $NameSpaceSymbTable*, $Map*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,org.w3c.dom.DOMException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315",
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.CanonicalizerBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Canonicalizer20010315, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Canonicalizer20010315);
+	});
 	return class$;
 }
 

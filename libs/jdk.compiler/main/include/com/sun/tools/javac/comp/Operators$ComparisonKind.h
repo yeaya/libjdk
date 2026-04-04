@@ -24,6 +24,7 @@ class $import Operators$ComparisonKind : public ::java::lang::Enum {
 public:
 	Operators$ComparisonKind();
 	static $Array<::com::sun::tools::javac::comp::Operators$ComparisonKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::comp::Operators$ComparisonKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::comp::Operators$ComparisonKind>* values();

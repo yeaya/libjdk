@@ -12,6 +12,7 @@ class JToggleButton$1 : public ::java::lang::Object {
 	$class(JToggleButton$1, 0, ::java::lang::Object)
 public:
 	JToggleButton$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$awt$event$FocusEvent$Cause;
 };
 

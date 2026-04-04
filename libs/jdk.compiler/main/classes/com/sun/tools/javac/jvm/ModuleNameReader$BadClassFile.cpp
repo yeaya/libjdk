@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ModuleNameReader$BadClassFile.h>
-
 #include <com/sun/tools/javac/jvm/ModuleNameReader.h>
 #include <jcpp.h>
 
@@ -14,41 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ModuleNameReader$BadClassFile_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModuleNameReader$BadClassFile, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ModuleNameReader$BadClassFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ModuleNameReader$BadClassFile, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _ModuleNameReader$BadClassFile_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile", "com.sun.tools.javac.jvm.ModuleNameReader", "BadClassFile", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ModuleNameReader$BadClassFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile",
-	"java.lang.Exception",
-	nullptr,
-	_ModuleNameReader$BadClassFile_FieldInfo_,
-	_ModuleNameReader$BadClassFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleNameReader$BadClassFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ModuleNameReader"
-};
-
-$Object* allocate$ModuleNameReader$BadClassFile($Class* clazz) {
-	return $of($alloc(ModuleNameReader$BadClassFile));
-}
 
 void ModuleNameReader$BadClassFile::init$($String* msg) {
 	$Exception::init$(msg);
@@ -65,7 +29,36 @@ void ModuleNameReader$BadClassFile::throw$() {
 }
 
 $Class* ModuleNameReader$BadClassFile::load$($String* name, bool initialize) {
-	$loadClass(ModuleNameReader$BadClassFile, name, initialize, &_ModuleNameReader$BadClassFile_ClassInfo_, allocate$ModuleNameReader$BadClassFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModuleNameReader$BadClassFile, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ModuleNameReader$BadClassFile, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile", "com.sun.tools.javac.jvm.ModuleNameReader", "BadClassFile", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ModuleNameReader"
+	};
+	$loadClass(ModuleNameReader$BadClassFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleNameReader$BadClassFile);
+	});
 	return class$;
 }
 

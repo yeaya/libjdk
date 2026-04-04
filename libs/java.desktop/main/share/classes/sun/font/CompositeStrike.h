@@ -54,7 +54,7 @@ public:
 	virtual int32_t getNumGlyphs() override;
 	::sun::font::PhysicalStrike* getStrikeForGlyph(int32_t glyphCode);
 	::sun::font::PhysicalStrike* getStrikeForSlot(int32_t slot);
-	static const int32_t SLOTMASK = 0x00FFFFFF;
+	static const int32_t SLOTMASK = 0x00ffffff;
 	::sun::font::CompositeFont* compFont = nullptr;
 	$Array<::sun::font::PhysicalStrike>* strikes = nullptr;
 	int32_t numGlyphs = 0;

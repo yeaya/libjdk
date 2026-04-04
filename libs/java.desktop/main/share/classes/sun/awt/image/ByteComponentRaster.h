@@ -32,6 +32,7 @@ class ByteComponentRaster : public ::sun::awt::image::SunWritableRaster {
 public:
 	ByteComponentRaster();
 	using ::sun::awt::image::SunWritableRaster::createCompatibleWritableRaster;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferByte* dataBuffer, ::java::awt::Point* origin);
 	void init$(::java::awt::image::SampleModel* sampleModel, ::java::awt::image::DataBufferByte* dataBuffer, ::java::awt::Rectangle* aRegion, ::java::awt::Point* origin, ::sun::awt::image::ByteComponentRaster* parent);

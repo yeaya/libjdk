@@ -1,5 +1,4 @@
 #include <sun/management/counter/AbstractCounter.h>
-
 #include <sun/management/counter/AbstractCounter$Flags.h>
 #include <sun/management/counter/Units.h>
 #include <sun/management/counter/Variability.h>
@@ -18,55 +17,6 @@ using $Variability = ::sun::management::counter::Variability;
 namespace sun {
 	namespace management {
 		namespace counter {
-
-$FieldInfo _AbstractCounter_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(AbstractCounter, name)},
-	{"units", "Lsun/management/counter/Units;", nullptr, 0, $field(AbstractCounter, units)},
-	{"variability", "Lsun/management/counter/Variability;", nullptr, 0, $field(AbstractCounter, variability)},
-	{"flags", "I", nullptr, 0, $field(AbstractCounter, flags)},
-	{"vectorLength", "I", nullptr, 0, $field(AbstractCounter, vectorLength)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractCounter, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AbstractCounter_MethodInfo_[] = {
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II)V", nullptr, $PROTECTED, $method(AbstractCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;I)V", nullptr, $PROTECTED, $method(AbstractCounter, init$, void, $String*, $Units*, $Variability*, int32_t)},
-	{"getFlags", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getFlags, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getName, $String*)},
-	{"getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getUnits, $Units*)},
-	{"getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getVariability, $Variability*)},
-	{"getVectorLength", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getVectorLength, int32_t)},
-	{"isInternal", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, isInternal, bool)},
-	{"isVector", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, isVector, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractCounter_InnerClassesInfo_[] = {
-	{"sun.management.counter.AbstractCounter$Flags", "sun.management.counter.AbstractCounter", "Flags", 0},
-	{}
-};
-
-$ClassInfo _AbstractCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.management.counter.AbstractCounter",
-	"java.lang.Object",
-	"sun.management.counter.Counter",
-	_AbstractCounter_FieldInfo_,
-	_AbstractCounter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractCounter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.management.counter.AbstractCounter$Flags"
-};
-
-$Object* allocate$AbstractCounter($Class* clazz) {
-	return $of($alloc(AbstractCounter));
-}
 
 void AbstractCounter::init$($String* name, $Units* units, $Variability* variability, int32_t flags, int32_t vectorLength) {
 	$set(this, name, name);
@@ -101,7 +51,7 @@ int32_t AbstractCounter::getVectorLength() {
 }
 
 bool AbstractCounter::isInternal() {
-	return ((int32_t)(this->flags & (uint32_t)$AbstractCounter$Flags::SUPPORTED)) == 0;
+	return (this->flags & $AbstractCounter$Flags::SUPPORTED) == 0;
 }
 
 int32_t AbstractCounter::getFlags() {
@@ -109,11 +59,14 @@ int32_t AbstractCounter::getFlags() {
 }
 
 $String* AbstractCounter::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$(getName()), ": "_s}));
-	$var($String, var$1, $$concat(var$2, $(getValue())));
-	$var($String, var$0, $$concat(var$1, " "_s));
-	$var($String, result, $concat(var$0, $(getUnits())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getName()));
+	var$0->append(": "_s);
+	var$0->append($(getValue()));
+	var$0->append(" "_s);
+	var$0->append($(getUnits()));
+	$var($String, result, $str(var$0));
 	if (isInternal()) {
 		return $str({result, " [INTERNAL]"_s});
 	} else {
@@ -125,7 +78,50 @@ AbstractCounter::AbstractCounter() {
 }
 
 $Class* AbstractCounter::load$($String* name, bool initialize) {
-	$loadClass(AbstractCounter, name, initialize, &_AbstractCounter_ClassInfo_, allocate$AbstractCounter);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(AbstractCounter, name)},
+		{"units", "Lsun/management/counter/Units;", nullptr, 0, $field(AbstractCounter, units)},
+		{"variability", "Lsun/management/counter/Variability;", nullptr, 0, $field(AbstractCounter, variability)},
+		{"flags", "I", nullptr, 0, $field(AbstractCounter, flags)},
+		{"vectorLength", "I", nullptr, 0, $field(AbstractCounter, vectorLength)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractCounter, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II)V", nullptr, $PROTECTED, $method(AbstractCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;I)V", nullptr, $PROTECTED, $method(AbstractCounter, init$, void, $String*, $Units*, $Variability*, int32_t)},
+		{"getFlags", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getFlags, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getName, $String*)},
+		{"getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getUnits, $Units*)},
+		{"getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getVariability, $Variability*)},
+		{"getVectorLength", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getVectorLength, int32_t)},
+		{"isInternal", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, isInternal, bool)},
+		{"isVector", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, isVector, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.counter.AbstractCounter$Flags", "sun.management.counter.AbstractCounter", "Flags", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.management.counter.AbstractCounter",
+		"java.lang.Object",
+		"sun.management.counter.Counter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.management.counter.AbstractCounter$Flags"
+	};
+	$loadClass(AbstractCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractCounter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug8158734$MyClassloader.h>
-
 #include <bug8158734.h>
 #include <java/lang/ClassLoader.h>
 #include <jcpp.h>
@@ -9,37 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _bug8158734$MyClassloader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8158734$MyClassloader, init$, void)},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(bug8158734$MyClassloader, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _bug8158734$MyClassloader_InnerClassesInfo_[] = {
-	{"bug8158734$MyClassloader", "bug8158734", "MyClassloader", $STATIC},
-	{}
-};
-
-$ClassInfo _bug8158734$MyClassloader_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8158734$MyClassloader",
-	"java.lang.ClassLoader",
-	nullptr,
-	nullptr,
-	_bug8158734$MyClassloader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8158734$MyClassloader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8158734"
-};
-
-$Object* allocate$bug8158734$MyClassloader($Class* clazz) {
-	return $of($alloc(bug8158734$MyClassloader));
-}
 
 void bug8158734$MyClassloader::init$() {
 	$ClassLoader::init$();
@@ -55,7 +23,33 @@ bug8158734$MyClassloader::bug8158734$MyClassloader() {
 }
 
 $Class* bug8158734$MyClassloader::load$($String* name, bool initialize) {
-	$loadClass(bug8158734$MyClassloader, name, initialize, &_bug8158734$MyClassloader_ClassInfo_, allocate$bug8158734$MyClassloader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8158734$MyClassloader, init$, void)},
+		{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(bug8158734$MyClassloader, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8158734$MyClassloader", "bug8158734", "MyClassloader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8158734$MyClassloader",
+		"java.lang.ClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8158734"
+	};
+	$loadClass(bug8158734$MyClassloader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8158734$MyClassloader);
+	});
 	return class$;
 }
 

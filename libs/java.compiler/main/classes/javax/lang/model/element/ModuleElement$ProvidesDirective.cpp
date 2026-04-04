@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/ModuleElement$ProvidesDirective.h>
-
 #include <java/util/List.h>
 #include <javax/lang/model/element/ModuleElement.h>
 #include <javax/lang/model/element/TypeElement.h>
@@ -16,40 +15,35 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _ModuleElement$ProvidesDirective_MethodInfo_[] = {
-	{"getImplementations", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/TypeElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ProvidesDirective, getImplementations, $List*)},
-	{"getService", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ProvidesDirective, getService, $TypeElement*)},
-	{}
-};
-
-$InnerClassInfo _ModuleElement$ProvidesDirective_InnerClassesInfo_[] = {
-	{"javax.lang.model.element.ModuleElement$ProvidesDirective", "javax.lang.model.element.ModuleElement", "ProvidesDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.lang.model.element.ModuleElement$Directive", "javax.lang.model.element.ModuleElement", "Directive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ModuleElement$ProvidesDirective_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.ModuleElement$ProvidesDirective",
-	nullptr,
-	"javax.lang.model.element.ModuleElement$Directive",
-	nullptr,
-	_ModuleElement$ProvidesDirective_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleElement$ProvidesDirective_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.element.ModuleElement"
-};
-
-$Object* allocate$ModuleElement$ProvidesDirective($Class* clazz) {
-	return $of($alloc(ModuleElement$ProvidesDirective));
-}
-
 $Class* ModuleElement$ProvidesDirective::load$($String* name, bool initialize) {
-	$loadClass(ModuleElement$ProvidesDirective, name, initialize, &_ModuleElement$ProvidesDirective_ClassInfo_, allocate$ModuleElement$ProvidesDirective);
+	$MethodInfo methodInfos$$[] = {
+		{"getImplementations", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/TypeElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ProvidesDirective, getImplementations, $List*)},
+		{"getService", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ProvidesDirective, getService, $TypeElement*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.element.ModuleElement$ProvidesDirective", "javax.lang.model.element.ModuleElement", "ProvidesDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.lang.model.element.ModuleElement$Directive", "javax.lang.model.element.ModuleElement", "Directive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.ModuleElement$ProvidesDirective",
+		nullptr,
+		"javax.lang.model.element.ModuleElement$Directive",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.element.ModuleElement"
+	};
+	$loadClass(ModuleElement$ProvidesDirective, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleElement$ProvidesDirective);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/PubAPIs.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -32,7 +31,6 @@ using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Element = ::javax::lang::model::element::Element;
 
 namespace com {
@@ -40,34 +38,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 				namespace comp {
-
-$FieldInfo _PubAPIs_FieldInfo_[] = {
-	{"pubApisKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/sjavac/comp/PubAPIs;>;", $PROTECTED | $STATIC | $FINAL, $staticField(PubAPIs, pubApisKey)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PROTECTED, $field(PubAPIs, log)},
-	{"publicApiPerClass", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PROTECTED, $field(PubAPIs, publicApiPerClass)},
-	{}
-};
-
-$MethodInfo _PubAPIs_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(PubAPIs, init$, void, $Context*)},
-	{"getPubapis", "(Ljava/util/Collection;Z)Ljava/util/Map;", "(Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC, $virtualMethod(PubAPIs, getPubapis, $Map*, $Collection*, bool)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/sjavac/comp/PubAPIs;", nullptr, $PUBLIC | $STATIC, $staticMethod(PubAPIs, instance, PubAPIs*, $Context*)},
-	{"visitPubapi", "(Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $virtualMethod(PubAPIs, visitPubapi, void, $Element*)},
-	{}
-};
-
-$ClassInfo _PubAPIs_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.PubAPIs",
-	"java.lang.Object",
-	nullptr,
-	_PubAPIs_FieldInfo_,
-	_PubAPIs_MethodInfo_
-};
-
-$Object* allocate$PubAPIs($Class* clazz) {
-	return $of($alloc(PubAPIs));
-}
 
 $Context$Key* PubAPIs::pubApisKey = nullptr;
 
@@ -82,15 +52,15 @@ PubAPIs* PubAPIs::instance($Context* context) {
 
 void PubAPIs::init$($Context* context) {
 	$set(this, publicApiPerClass, $new($HashMap));
-	$nc(context)->put(PubAPIs::pubApisKey, $of(this));
+	$nc(context)->put(PubAPIs::pubApisKey, this);
 	$set(this, log, $Log::instance(context));
 }
 
 $Map* PubAPIs::getPubapis($Collection* explicitJFOs, bool explicits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, result, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($($nc(this->publicApiPerClass)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->publicApiPerClass)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol$ClassSymbol, cs, $cast($Symbol$ClassSymbol, i$->next()));
 			{
@@ -98,9 +68,9 @@ $Map* PubAPIs::getPubapis($Collection* explicitJFOs, bool explicits) {
 				if (explicits != amongExplicits) {
 					continue;
 				}
-				$var($String, pkg, $str({":"_s, $nc($($nc(cs)->packge()))->fullname}));
+				$var($String, pkg, $str({":"_s, $nc($(cs->packge()))->fullname}));
 				$var($PubApi, currentPubApi, $cast($PubApi, result->getOrDefault(pkg, $$new($PubApi))));
-				result->put(pkg, $($PubApi::mergeTypes(currentPubApi, $cast($PubApi, $($nc(this->publicApiPerClass)->get(cs))))));
+				result->put(pkg, $($PubApi::mergeTypes(currentPubApi, $$cast($PubApi, $nc(this->publicApiPerClass)->get(cs)))));
 			}
 		}
 	}
@@ -108,7 +78,7 @@ $Map* PubAPIs::getPubapis($Collection* explicitJFOs, bool explicits) {
 }
 
 void PubAPIs::visitPubapi($Element* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		return;
 	}
@@ -117,7 +87,7 @@ void PubAPIs::visitPubapi($Element* e) {
 	$nc(this->publicApiPerClass)->put($cast($Symbol$ClassSymbol, e), $(v->getCollectedPubApi()));
 }
 
-void clinit$PubAPIs($Class* class$) {
+void PubAPIs::clinit$($Class* clazz) {
 	$assignStatic(PubAPIs::pubApisKey, $new($Context$Key));
 }
 
@@ -125,7 +95,30 @@ PubAPIs::PubAPIs() {
 }
 
 $Class* PubAPIs::load$($String* name, bool initialize) {
-	$loadClass(PubAPIs, name, initialize, &_PubAPIs_ClassInfo_, clinit$PubAPIs, allocate$PubAPIs);
+	$FieldInfo fieldInfos$$[] = {
+		{"pubApisKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/sjavac/comp/PubAPIs;>;", $PROTECTED | $STATIC | $FINAL, $staticField(PubAPIs, pubApisKey)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PROTECTED, $field(PubAPIs, log)},
+		{"publicApiPerClass", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PROTECTED, $field(PubAPIs, publicApiPerClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(PubAPIs, init$, void, $Context*)},
+		{"getPubapis", "(Ljava/util/Collection;Z)Ljava/util/Map;", "(Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC, $virtualMethod(PubAPIs, getPubapis, $Map*, $Collection*, bool)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/sjavac/comp/PubAPIs;", nullptr, $PUBLIC | $STATIC, $staticMethod(PubAPIs, instance, PubAPIs*, $Context*)},
+		{"visitPubapi", "(Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $virtualMethod(PubAPIs, visitPubapi, void, $Element*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.PubAPIs",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PubAPIs, name, initialize, &classInfo$$, PubAPIs::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PubAPIs);
+	});
 	return class$;
 }
 

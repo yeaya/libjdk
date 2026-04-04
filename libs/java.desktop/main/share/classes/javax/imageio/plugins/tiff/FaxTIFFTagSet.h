@@ -33,6 +33,7 @@ class $export FaxTIFFTagSet : public ::javax::imageio::plugins::tiff::TIFFTagSet
 	$class(FaxTIFFTagSet, 0, ::javax::imageio::plugins::tiff::TIFFTagSet)
 public:
 	FaxTIFFTagSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::imageio::plugins::tiff::FaxTIFFTagSet* getInstance();
 	static void initTags();

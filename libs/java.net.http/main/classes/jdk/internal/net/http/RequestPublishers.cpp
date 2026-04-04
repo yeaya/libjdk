@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RequestPublishers.h>
-
 #include <java/net/http/HttpRequest$BodyPublisher.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
@@ -22,45 +21,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _RequestPublishers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(RequestPublishers, init$, void)},
-	{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RequestPublishers, concat, $HttpRequest$BodyPublisher*, $HttpRequest$BodyPublisherArray*)},
-	{}
-};
-
-$InnerClassInfo _RequestPublishers_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RequestPublishers$AggregateSubscription", "jdk.internal.net.http.RequestPublishers", "AggregateSubscription", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.RequestPublishers$AggregatePublisher", "jdk.internal.net.http.RequestPublishers", "AggregatePublisher", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.RequestPublishers$PublisherAdapter", "jdk.internal.net.http.RequestPublishers", "PublisherAdapter", $PUBLIC | $STATIC | $FINAL},
-	{"jdk.internal.net.http.RequestPublishers$InputStreamPublisher", "jdk.internal.net.http.RequestPublishers", "InputStreamPublisher", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.RequestPublishers$StreamIterator", "jdk.internal.net.http.RequestPublishers", "StreamIterator", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.RequestPublishers$FilePublisher", "jdk.internal.net.http.RequestPublishers", "FilePublisher", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.RequestPublishers$EmptyPublisher", "jdk.internal.net.http.RequestPublishers", "EmptyPublisher", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.RequestPublishers$StringPublisher", "jdk.internal.net.http.RequestPublishers", "StringPublisher", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.RequestPublishers$IterablePublisher", "jdk.internal.net.http.RequestPublishers", "IterablePublisher", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher", "jdk.internal.net.http.RequestPublishers", "ByteArrayPublisher", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RequestPublishers_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.RequestPublishers",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RequestPublishers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequestPublishers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RequestPublishers$AggregateSubscription,jdk.internal.net.http.RequestPublishers$AggregatePublisher,jdk.internal.net.http.RequestPublishers$PublisherAdapter,jdk.internal.net.http.RequestPublishers$InputStreamPublisher,jdk.internal.net.http.RequestPublishers$StreamIterator,jdk.internal.net.http.RequestPublishers$FilePublisher,jdk.internal.net.http.RequestPublishers$EmptyPublisher,jdk.internal.net.http.RequestPublishers$StringPublisher,jdk.internal.net.http.RequestPublishers$IterablePublisher,jdk.internal.net.http.RequestPublishers$IterablePublisher$ByteBufferIterator,jdk.internal.net.http.RequestPublishers$ByteArrayPublisher"
-};
-
-$Object* allocate$RequestPublishers($Class* clazz) {
-	return $of($alloc(RequestPublishers));
-}
-
 void RequestPublishers::init$() {
 }
 
@@ -78,7 +38,41 @@ RequestPublishers::RequestPublishers() {
 }
 
 $Class* RequestPublishers::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers, name, initialize, &_RequestPublishers_ClassInfo_, allocate$RequestPublishers);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(RequestPublishers, init$, void)},
+		{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RequestPublishers, concat, $HttpRequest$BodyPublisher*, $HttpRequest$BodyPublisherArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RequestPublishers$AggregateSubscription", "jdk.internal.net.http.RequestPublishers", "AggregateSubscription", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.RequestPublishers$AggregatePublisher", "jdk.internal.net.http.RequestPublishers", "AggregatePublisher", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.RequestPublishers$PublisherAdapter", "jdk.internal.net.http.RequestPublishers", "PublisherAdapter", $PUBLIC | $STATIC | $FINAL},
+		{"jdk.internal.net.http.RequestPublishers$InputStreamPublisher", "jdk.internal.net.http.RequestPublishers", "InputStreamPublisher", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.RequestPublishers$StreamIterator", "jdk.internal.net.http.RequestPublishers", "StreamIterator", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.RequestPublishers$FilePublisher", "jdk.internal.net.http.RequestPublishers", "FilePublisher", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.RequestPublishers$EmptyPublisher", "jdk.internal.net.http.RequestPublishers", "EmptyPublisher", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.RequestPublishers$StringPublisher", "jdk.internal.net.http.RequestPublishers", "StringPublisher", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.RequestPublishers$IterablePublisher", "jdk.internal.net.http.RequestPublishers", "IterablePublisher", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher", "jdk.internal.net.http.RequestPublishers", "ByteArrayPublisher", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.RequestPublishers",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RequestPublishers$AggregateSubscription,jdk.internal.net.http.RequestPublishers$AggregatePublisher,jdk.internal.net.http.RequestPublishers$PublisherAdapter,jdk.internal.net.http.RequestPublishers$InputStreamPublisher,jdk.internal.net.http.RequestPublishers$StreamIterator,jdk.internal.net.http.RequestPublishers$FilePublisher,jdk.internal.net.http.RequestPublishers$EmptyPublisher,jdk.internal.net.http.RequestPublishers$StringPublisher,jdk.internal.net.http.RequestPublishers$IterablePublisher,jdk.internal.net.http.RequestPublishers$IterablePublisher$ByteBufferIterator,jdk.internal.net.http.RequestPublishers$ByteArrayPublisher"
+	};
+	$loadClass(RequestPublishers, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers);
+	});
 	return class$;
 }
 

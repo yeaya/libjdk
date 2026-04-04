@@ -1,5 +1,4 @@
 #include <CaretFloatingPointAPITest$CustomCaret.h>
-
 #include <CaretFloatingPointAPITest$CustomCaret$CaretMouseListener.h>
 #include <CaretFloatingPointAPITest.h>
 #include <java/awt/Color.h>
@@ -41,10 +40,7 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
-using $Point2D = ::java::awt::geom::Point2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Double = ::java::awt::geom::Rectangle2D$Double;
 using $Serializable = ::java::io::Serializable;
@@ -76,33 +72,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->repaintNewCaret();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret>());
-	}
 	CaretFloatingPointAPITest$CustomCaret* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, inst$)},
-	{}
-};
-$MethodInfo CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret::methodInfos[3] = {
-	{"<init>", "(LCaretFloatingPointAPITest$CustomCaret;)V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, init$, void, CaretFloatingPointAPITest$CustomCaret*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, run, void)},
-	{}
-};
-$ClassInfo CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret::load$($String* name, bool initialize) {
-	$loadClass(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LCaretFloatingPointAPITest$CustomCaret;)V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, init$, void, CaretFloatingPointAPITest$CustomCaret*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret);
+	});
 	return class$;
 }
 $Class* CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret::class$ = nullptr;
@@ -117,113 +109,34 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$adjustVisibility$0(nloc);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1>());
-	}
 	CaretFloatingPointAPITest$CustomCaret* inst$ = nullptr;
 	$Rectangle* nloc = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, inst$)},
-	{"nloc", "Ljava/awt/Rectangle;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, nloc)},
-	{}
-};
-$MethodInfo CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1::methodInfos[3] = {
-	{"<init>", "(LCaretFloatingPointAPITest$CustomCaret;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, init$, void, CaretFloatingPointAPITest$CustomCaret*, $Rectangle*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, run, void)},
-	{}
-};
-$ClassInfo CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1::load$($String* name, bool initialize) {
-	$loadClass(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, inst$)},
+		{"nloc", "Ljava/awt/Rectangle;", nullptr, $PUBLIC, $field(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, nloc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LCaretFloatingPointAPITest$CustomCaret;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, init$, void, CaretFloatingPointAPITest$CustomCaret*, $Rectangle*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1);
+	});
 	return class$;
 }
 $Class* CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1::class$ = nullptr;
-
-$FieldInfo _CaretFloatingPointAPITest$CustomCaret_FieldInfo_[] = {
-	{"component", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, component)},
-	{"visible", "Z", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, visible)},
-	{"selectionVisible", "Z", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, selectionVisible)},
-	{"blinkRate", "I", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, blinkRate)},
-	{"dot", "I", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, dot)},
-	{"mark", "I", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, mark)},
-	{"dotBias", "Ljavax/swing/text/Position$Bias;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, dotBias)},
-	{"markBias", "Ljavax/swing/text/Position$Bias;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, markBias)},
-	{"selectionTag", "Ljava/lang/Object;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, selectionTag)},
-	{"magicCaretPosition", "Ljava/awt/geom/Point2D;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, magicCaretPosition)},
-	{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, mouseListener)},
-	{}
-};
-
-$MethodInfo _CaretFloatingPointAPITest$CustomCaret_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CaretFloatingPointAPITest$CustomCaret, init$, void)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, addChangeListener, void, $ChangeListener*)},
-	{"adjustVisibility", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, adjustVisibility, void, $Rectangle*)},
-	{"changeCaretPosition", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, changeCaretPosition, void, int32_t, $Position$Bias*)},
-	{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, damage, void, $Rectangle*)},
-	{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, deinstall, void, $JTextComponent*)},
-	{"getBlinkRate", "()I", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getBlinkRate, int32_t)},
-	{"getCaretRectangle", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getCaretRectangle, $Rectangle2D*, $Rectangle2D*)},
-	{"getDot", "()I", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getDot, int32_t)},
-	{"getMagicCaretPosition", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getMagicCaretPosition, $Point*)},
-	{"getMark", "()I", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getMark, int32_t)},
-	{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
-	{"handleSetDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, handleSetDot, void, int32_t, $Position$Bias*)},
-	{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, install, void, $JTextComponent*)},
-	{"isSelectionVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, isSelectionVisible, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, isVisible, bool)},
-	{"lambda$adjustVisibility$0", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CaretFloatingPointAPITest$CustomCaret, lambda$adjustVisibility$0, void, $Rectangle*)},
-	{"moveDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, moveDot, void, int32_t)},
-	{"moveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret, moveDot, void, int32_t, $Position$Bias*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, paint, void, $Graphics*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, removeChangeListener, void, $ChangeListener*)},
-	{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, repaint, void, $Rectangle*)},
-	{"repaintNewCaret", "()V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, repaintNewCaret, void)},
-	{"setBlinkRate", "(I)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setBlinkRate, void, int32_t)},
-	{"setDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setDot, void, int32_t)},
-	{"setDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret, setDot, void, int32_t, $Position$Bias*)},
-	{"setMagicCaretPosition", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setMagicCaretPosition, void, $Point*)},
-	{"setSelectionVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setSelectionVisible, void, bool)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setVisible, void, bool)},
-	{"updateSelection", "()V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret, updateSelection, void)},
-	{}
-};
-
-$InnerClassInfo _CaretFloatingPointAPITest$CustomCaret_InnerClassesInfo_[] = {
-	{"CaretFloatingPointAPITest$CustomCaret", "CaretFloatingPointAPITest", "CustomCaret", $STATIC},
-	{"CaretFloatingPointAPITest$CustomCaret$CaretMouseListener", "CaretFloatingPointAPITest$CustomCaret", "CaretMouseListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CaretFloatingPointAPITest$CustomCaret_ClassInfo_ = {
-	$ACC_SUPER,
-	"CaretFloatingPointAPITest$CustomCaret",
-	"java.lang.Object",
-	"javax.swing.text.Caret",
-	_CaretFloatingPointAPITest$CustomCaret_FieldInfo_,
-	_CaretFloatingPointAPITest$CustomCaret_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CaretFloatingPointAPITest$CustomCaret_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CaretFloatingPointAPITest"
-};
-
-$Object* allocate$CaretFloatingPointAPITest$CustomCaret($Class* clazz) {
-	return $of($alloc(CaretFloatingPointAPITest$CustomCaret));
-}
 
 void CaretFloatingPointAPITest$CustomCaret::init$() {
 	this->selectionVisible = true;
@@ -241,7 +154,7 @@ void CaretFloatingPointAPITest$CustomCaret::deinstall($JTextComponent* c) {
 }
 
 void CaretFloatingPointAPITest$CustomCaret::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->component == nullptr) {
 		return;
 	}
@@ -258,7 +171,7 @@ void CaretFloatingPointAPITest$CustomCaret::paint($Graphics* g) {
 	$var($Rectangle2D, cr, getCaretRectangle(r));
 	repaint($($nc(cr)->getBounds()));
 	$nc(g)->setColor($($nc(this->component)->getCaretColor()));
-	float cx = (float)$nc(cr)->getX();
+	float cx = (float)cr->getX();
 	float cy = (float)cr->getY();
 	float cw = (float)cr->getWidth();
 	float ch = (float)cr->getHeight();
@@ -311,8 +224,8 @@ void CaretFloatingPointAPITest$CustomCaret::setMagicCaretPosition($Point* p) {
 
 $Point* CaretFloatingPointAPITest$CustomCaret::getMagicCaretPosition() {
 	if (this->magicCaretPosition != nullptr) {
-		int32_t var$0 = $cast(int32_t, $nc(this->magicCaretPosition)->getX());
-		return $new($Point, var$0, $cast(int32_t, $nc(this->magicCaretPosition)->getY()));
+		int32_t var$0 = $cast(int32_t, this->magicCaretPosition->getX());
+		return $new($Point, var$0, $cast(int32_t, this->magicCaretPosition->getY()));
 	}
 	return nullptr;
 }
@@ -354,7 +267,7 @@ void CaretFloatingPointAPITest$CustomCaret::moveDot(int32_t dot, $Position$Bias*
 }
 
 void CaretFloatingPointAPITest$CustomCaret::handleSetDot(int32_t dot, $Position$Bias* dotBias$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Position$Bias, dotBias, dotBias$renamed);
 	if (this->component == nullptr) {
 		return;
@@ -380,11 +293,11 @@ void CaretFloatingPointAPITest$CustomCaret::changeCaretPosition(int32_t dot, $Po
 	this->dot = dot;
 	$set(this, dotBias, dotBias);
 	setMagicCaretPosition(nullptr);
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, this)));
+	$SwingUtilities::invokeLater($$new(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret, this));
 }
 
 void CaretFloatingPointAPITest$CustomCaret::updateSelection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Highlighter, h, $nc(this->component)->getHighlighter());
 	if (h != nullptr) {
 		int32_t p0 = $Math::min(this->dot, this->mark);
@@ -403,16 +316,16 @@ void CaretFloatingPointAPITest$CustomCaret::updateSelection() {
 					$set(this, selectionTag, h->addHighlight(p0, p1, p));
 				}
 			} catch ($BadLocationException& e) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				$throwNew($RuntimeException, e);
 			}
 		}
 	}
 }
 
 void CaretFloatingPointAPITest$CustomCaret::repaintNewCaret() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->component != nullptr) {
-		$var($TextUI, mapper, $cast($TextUI, $nc(this->component)->getUI()));
+		$var($TextUI, mapper, $cast($TextUI, this->component->getUI()));
 		$var($Document, doc, $nc(this->component)->getDocument());
 		if ((mapper != nullptr) && (doc != nullptr)) {
 			$var($Rectangle2D, newLoc, nullptr);
@@ -445,14 +358,14 @@ void CaretFloatingPointAPITest$CustomCaret::adjustVisibility($Rectangle* nloc) {
 	if ($SwingUtilities::isEventDispatchThread()) {
 		$nc(this->component)->scrollRectToVisible(nloc);
 	} else {
-		$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, this, nloc)));
+		$SwingUtilities::invokeLater($$new(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1, this, nloc));
 	}
 }
 
 void CaretFloatingPointAPITest$CustomCaret::damage($Rectangle* r) {
 	$synchronized(this) {
 		if (r != nullptr && this->component != nullptr) {
-			$nc(this->component)->repaint(r);
+			this->component->repaint(r);
 		}
 	}
 }
@@ -466,14 +379,83 @@ CaretFloatingPointAPITest$CustomCaret::CaretFloatingPointAPITest$CustomCaret() {
 
 $Class* CaretFloatingPointAPITest$CustomCaret::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret::classInfo$.name)) {
+		if (name->equals("CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret")) {
 			return CaretFloatingPointAPITest$CustomCaret$$Lambda$repaintNewCaret::load$(name, initialize);
 		}
-		if (name->equals(CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1::classInfo$.name)) {
+		if (name->equals("CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1")) {
 			return CaretFloatingPointAPITest$CustomCaret$$Lambda$lambda$adjustVisibility$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(CaretFloatingPointAPITest$CustomCaret, name, initialize, &_CaretFloatingPointAPITest$CustomCaret_ClassInfo_, allocate$CaretFloatingPointAPITest$CustomCaret);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, component)},
+		{"visible", "Z", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, visible)},
+		{"selectionVisible", "Z", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, selectionVisible)},
+		{"blinkRate", "I", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, blinkRate)},
+		{"dot", "I", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, dot)},
+		{"mark", "I", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, mark)},
+		{"dotBias", "Ljavax/swing/text/Position$Bias;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, dotBias)},
+		{"markBias", "Ljavax/swing/text/Position$Bias;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, markBias)},
+		{"selectionTag", "Ljava/lang/Object;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, selectionTag)},
+		{"magicCaretPosition", "Ljava/awt/geom/Point2D;", nullptr, 0, $field(CaretFloatingPointAPITest$CustomCaret, magicCaretPosition)},
+		{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(CaretFloatingPointAPITest$CustomCaret, mouseListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CaretFloatingPointAPITest$CustomCaret, init$, void)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, addChangeListener, void, $ChangeListener*)},
+		{"adjustVisibility", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, adjustVisibility, void, $Rectangle*)},
+		{"changeCaretPosition", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, changeCaretPosition, void, int32_t, $Position$Bias*)},
+		{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, damage, void, $Rectangle*)},
+		{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, deinstall, void, $JTextComponent*)},
+		{"getBlinkRate", "()I", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getBlinkRate, int32_t)},
+		{"getCaretRectangle", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/Rectangle2D;", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getCaretRectangle, $Rectangle2D*, $Rectangle2D*)},
+		{"getDot", "()I", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getDot, int32_t)},
+		{"getMagicCaretPosition", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getMagicCaretPosition, $Point*)},
+		{"getMark", "()I", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getMark, int32_t)},
+		{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
+		{"handleSetDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, handleSetDot, void, int32_t, $Position$Bias*)},
+		{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, install, void, $JTextComponent*)},
+		{"isSelectionVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, isSelectionVisible, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, isVisible, bool)},
+		{"lambda$adjustVisibility$0", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CaretFloatingPointAPITest$CustomCaret, lambda$adjustVisibility$0, void, $Rectangle*)},
+		{"moveDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, moveDot, void, int32_t)},
+		{"moveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret, moveDot, void, int32_t, $Position$Bias*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, paint, void, $Graphics*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, removeChangeListener, void, $ChangeListener*)},
+		{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, repaint, void, $Rectangle*)},
+		{"repaintNewCaret", "()V", nullptr, 0, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, repaintNewCaret, void)},
+		{"setBlinkRate", "(I)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setBlinkRate, void, int32_t)},
+		{"setDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setDot, void, int32_t)},
+		{"setDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret, setDot, void, int32_t, $Position$Bias*)},
+		{"setMagicCaretPosition", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setMagicCaretPosition, void, $Point*)},
+		{"setSelectionVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setSelectionVisible, void, bool)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CaretFloatingPointAPITest$CustomCaret, setVisible, void, bool)},
+		{"updateSelection", "()V", nullptr, $PRIVATE, $method(CaretFloatingPointAPITest$CustomCaret, updateSelection, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CaretFloatingPointAPITest$CustomCaret", "CaretFloatingPointAPITest", "CustomCaret", $STATIC},
+		{"CaretFloatingPointAPITest$CustomCaret$CaretMouseListener", "CaretFloatingPointAPITest$CustomCaret", "CaretMouseListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CaretFloatingPointAPITest$CustomCaret",
+		"java.lang.Object",
+		"javax.swing.text.Caret",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CaretFloatingPointAPITest"
+	};
+	$loadClass(CaretFloatingPointAPITest$CustomCaret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CaretFloatingPointAPITest$CustomCaret);
+	});
 	return class$;
 }
 

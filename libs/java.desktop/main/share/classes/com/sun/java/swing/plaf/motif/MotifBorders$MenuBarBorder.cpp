@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifBorders$MenuBarBorder.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders$ButtonBorder.h>
 #include <com/sun/java/swing/plaf/motif/MotifBorders.h>
 #include <java/awt/Color.h>
@@ -29,52 +28,19 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifBorders$MenuBarBorder_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$MenuBarBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MenuBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MotifBorders$MenuBarBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MenuBarBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifBorders$MenuBarBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder",
-	"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder",
-	nullptr,
-	nullptr,
-	_MotifBorders$MenuBarBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifBorders$MenuBarBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifBorders"
-};
-
-$Object* allocate$MotifBorders$MenuBarBorder($Class* clazz) {
-	return $of($alloc(MotifBorders$MenuBarBorder));
-}
-
 void MotifBorders$MenuBarBorder::init$($Color* shadow, $Color* highlight, $Color* darkShadow, $Color* focus) {
 	$MotifBorders$ButtonBorder::init$(shadow, highlight, darkShadow, focus);
 }
 
 void MotifBorders$MenuBarBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JMenuBar, c))) {
 		return;
 	}
 	$var($JMenuBar, menuBar, $cast($JMenuBar, c));
 	if ($nc(menuBar)->isBorderPainted() == true) {
 		$var($Dimension, size, menuBar->getSize());
-		$MotifBorders::drawBezel(g, x, y, $nc(size)->width, size->height, false, false, this->shadow, this->highlight, this->darkShadow, this->focus);
+		$MotifBorders::drawBezel(g, x, y, $nc(size)->width, $nc(size)->height, false, false, this->shadow, this->highlight, this->darkShadow, this->focus);
 	}
 }
 
@@ -87,7 +53,35 @@ MotifBorders$MenuBarBorder::MotifBorders$MenuBarBorder() {
 }
 
 $Class* MotifBorders$MenuBarBorder::load$($String* name, bool initialize) {
-	$loadClass(MotifBorders$MenuBarBorder, name, initialize, &_MotifBorders$MenuBarBorder_ClassInfo_, allocate$MotifBorders$MenuBarBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$MenuBarBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MenuBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MenuBarBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifBorders$MenuBarBorder",
+		"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifBorders"
+	};
+	$loadClass(MotifBorders$MenuBarBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifBorders$MenuBarBorder));
+	});
 	return class$;
 }
 

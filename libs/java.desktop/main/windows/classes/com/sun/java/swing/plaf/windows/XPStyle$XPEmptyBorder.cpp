@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$XPEmptyBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -35,47 +34,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _XPStyle$XPEmptyBorder_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $FINAL | $SYNTHETIC, $field(XPStyle$XPEmptyBorder, this$0)},
-	{}
-};
-
-$MethodInfo _XPStyle$XPEmptyBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/XPStyle;Ljava/awt/Insets;)V", nullptr, 0, $method(XPStyle$XPEmptyBorder, init$, void, $XPStyle*, $Insets*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XPStyle$XPEmptyBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XPStyle$XPEmptyBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPEmptyBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _XPStyle$XPEmptyBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder",
-	"javax.swing.border.EmptyBorder",
-	"javax.swing.plaf.UIResource",
-	_XPStyle$XPEmptyBorder_FieldInfo_,
-	_XPStyle$XPEmptyBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPStyle$XPEmptyBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.XPStyle"
-};
-
-$Object* allocate$XPStyle$XPEmptyBorder($Class* clazz) {
-	return $of($alloc(XPStyle$XPEmptyBorder));
-}
-
 int32_t XPStyle$XPEmptyBorder::hashCode() {
 	 return this->$EmptyBorder::hashCode();
 }
@@ -98,17 +56,17 @@ void XPStyle$XPEmptyBorder::finalize() {
 
 void XPStyle$XPEmptyBorder::init$($XPStyle* this$0, $Insets* m) {
 	$set(this, this$0, this$0);
-	$EmptyBorder::init$($nc(m)->top + 2, m->left + 2, m->bottom + 2, m->right + 2);
+	$EmptyBorder::init$($nc(m)->top + 2, $nc(m)->left + 2, $nc(m)->bottom + 2, $nc(m)->right + 2);
 }
 
 $Insets* XPStyle$XPEmptyBorder::getBorderInsets($Component* c, $Insets* insets$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, insets$renamed);
 	$assign(insets, $EmptyBorder::getBorderInsets(c, insets));
 	$var($Insets, margin, nullptr);
 	if ($instanceOf($AbstractButton, c)) {
-		$var($Insets, m, $nc(($cast($AbstractButton, c)))->getMargin());
-		if ($instanceOf($JToolBar, $($nc(c)->getParent())) && !($instanceOf($JRadioButton, c)) && !($instanceOf($JCheckBox, c)) && $instanceOf($InsetsUIResource, m)) {
+		$var($Insets, m, $cast($AbstractButton, c)->getMargin());
+		if ($instanceOf($JToolBar, $(c->getParent())) && !($instanceOf($JRadioButton, c)) && !($instanceOf($JCheckBox, c)) && $instanceOf($InsetsUIResource, m)) {
 			$nc(insets)->top -= 2;
 			insets->left -= 2;
 			insets->bottom -= 2;
@@ -117,9 +75,9 @@ $Insets* XPStyle$XPEmptyBorder::getBorderInsets($Component* c, $Insets* insets$r
 			$assign(margin, m);
 		}
 	} else if ($instanceOf($JToolBar, c)) {
-		$assign(margin, $nc(($cast($JToolBar, c)))->getMargin());
+		$assign(margin, $cast($JToolBar, c)->getMargin());
 	} else if ($instanceOf($JTextComponent, c)) {
-		$assign(margin, $nc(($cast($JTextComponent, c)))->getMargin());
+		$assign(margin, $cast($JTextComponent, c)->getMargin());
 	}
 	if (margin != nullptr) {
 		$nc(insets)->top = margin->top + 2;
@@ -134,7 +92,42 @@ XPStyle$XPEmptyBorder::XPStyle$XPEmptyBorder() {
 }
 
 $Class* XPStyle$XPEmptyBorder::load$($String* name, bool initialize) {
-	$loadClass(XPStyle$XPEmptyBorder, name, initialize, &_XPStyle$XPEmptyBorder_ClassInfo_, allocate$XPStyle$XPEmptyBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/XPStyle;", nullptr, $FINAL | $SYNTHETIC, $field(XPStyle$XPEmptyBorder, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/XPStyle;Ljava/awt/Insets;)V", nullptr, 0, $method(XPStyle$XPEmptyBorder, init$, void, $XPStyle*, $Insets*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XPStyle$XPEmptyBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder", "com.sun.java.swing.plaf.windows.XPStyle", "XPEmptyBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.XPStyle$XPEmptyBorder",
+		"javax.swing.border.EmptyBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.XPStyle"
+	};
+	$loadClass(XPStyle$XPEmptyBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPStyle$XPEmptyBorder));
+	});
 	return class$;
 }
 

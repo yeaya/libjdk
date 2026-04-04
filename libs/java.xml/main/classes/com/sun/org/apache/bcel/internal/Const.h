@@ -775,6 +775,7 @@ class Const : public ::java::lang::Object {
 	$class(Const, 0, ::java::lang::Object)
 public:
 	Const();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getAccessName(int32_t index);
 	static $String* getAttributeName(int32_t index);
@@ -791,7 +792,7 @@ public:
 	static int32_t getProduceStack(int32_t index);
 	static $String* getShortTypeName(int32_t index);
 	static $String* getTypeName(int32_t index);
-	static const int32_t JVM_CLASSFILE_MAGIC = 0xCAFEBABE;
+	static const int32_t JVM_CLASSFILE_MAGIC = 0xcafebabe;
 	static const int16_t MAJOR_1_1 = 45;
 	static const int16_t MINOR_1_1 = 3;
 	static const int16_t MAJOR_1_2 = 46;
@@ -824,7 +825,7 @@ public:
 	static const int16_t MINOR_14 = 0;
 	static const int16_t MAJOR = MAJOR_1_1;
 	static const int16_t MINOR = MINOR_1_1;
-	static const int32_t MAX_SHORT = 0x0000FFFF;
+	static const int32_t MAX_SHORT = 0x0000ffff;
 	static const int32_t MAX_BYTE = 255;
 	static const int16_t ACC_PUBLIC = 1;
 	static const int16_t ACC_PRIVATE = 2;
@@ -874,7 +875,7 @@ public:
 	static $String* STATIC_INITIALIZER_NAME;
 	static $String* CONSTRUCTOR_NAME;
 	static $StringArray* INTERFACES_IMPLEMENTED_BY_ARRAYS;
-	static const int32_t MAX_CP_ENTRIES = 0x0000FFFF;
+	static const int32_t MAX_CP_ENTRIES = 0x0000ffff;
 	static const int32_t MAX_CODE_SIZE = 0x00010000;
 	static const int32_t MAX_ARRAY_DIMENSIONS = 255;
 	static const int16_t NOP = 0;

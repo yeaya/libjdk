@@ -27,6 +27,7 @@ class VetoableChangeSupport$VetoableChangeListenerMap : public ::java::beans::Ch
 	$class(VetoableChangeSupport$VetoableChangeListenerMap, 0, ::java::beans::ChangeListenerMap)
 public:
 	VetoableChangeSupport$VetoableChangeListenerMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::beans::VetoableChangeListener* extract(::java::beans::VetoableChangeListener* listener);
 	virtual ::java::util::EventListener* extract(::java::util::EventListener* listener) override;

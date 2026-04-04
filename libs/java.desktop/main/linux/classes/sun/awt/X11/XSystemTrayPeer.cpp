@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XSystemTrayPeer.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/SystemTray.h>
@@ -15,7 +14,6 @@
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XEmbedHelper.h>
 #include <sun/awt/X11/XMSelection.h>
-#include <sun/awt/X11/XMSelectionListener.h>
 #include <sun/awt/X11/XPropertyEvent.h>
 #include <sun/awt/X11/XSystemTrayPeer$1.h>
 #include <sun/awt/X11/XSystemTrayPeer$2.h>
@@ -50,7 +48,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $Native = ::sun::awt::X11::Native;
@@ -59,7 +56,6 @@ using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XEmbedHelper = ::sun::awt::X11::XEmbedHelper;
 using $XMSelection = ::sun::awt::X11::XMSelection;
-using $XMSelectionListener = ::sun::awt::X11::XMSelectionListener;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;
 using $XSystemTrayPeer$1 = ::sun::awt::X11::XSystemTrayPeer$1;
 using $XSystemTrayPeer$2 = ::sun::awt::X11::XSystemTrayPeer$2;
@@ -73,71 +69,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XSystemTrayPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, log)},
-	{"target", "Ljava/awt/SystemTray;", nullptr, 0, $field(XSystemTrayPeer, target)},
-	{"peerInstance", "Lsun/awt/X11/XSystemTrayPeer;", nullptr, $STATIC, $staticField(XSystemTrayPeer, peerInstance)},
-	{"available", "Z", nullptr, $PRIVATE | $VOLATILE, $field(XSystemTrayPeer, available)},
-	{"selection", "Lsun/awt/X11/XMSelection;", nullptr, $PRIVATE | $FINAL, $field(XSystemTrayPeer, selection)},
-	{"SCREEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSystemTrayPeer, SCREEN)},
-	{"SYSTEM_TRAY_PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, SYSTEM_TRAY_PROPERTY_NAME)},
-	{"_NET_SYSTEM_TRAY", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _NET_SYSTEM_TRAY)},
-	{"_XEMBED_INFO", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _XEMBED_INFO)},
-	{"_NET_SYSTEM_TRAY_OPCODE", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _NET_SYSTEM_TRAY_OPCODE)},
-	{"_NET_WM_ICON", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _NET_WM_ICON)},
-	{"SYSTEM_TRAY_REQUEST_DOCK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSystemTrayPeer, SYSTEM_TRAY_REQUEST_DOCK)},
-	{}
-};
-
-$MethodInfo _XSystemTrayPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/SystemTray;)V", nullptr, 0, $method(XSystemTrayPeer, init$, void, $SystemTray*)},
-	{"addTrayIcon", "(Lsun/awt/X11/XTrayIconPeer;)V", nullptr, 0, $virtualMethod(XSystemTrayPeer, addTrayIcon, void, $XTrayIconPeer*), "java.awt.AWTException"},
-	{"createTrayPeers", "()V", nullptr, $PRIVATE, $method(XSystemTrayPeer, createTrayPeers, void)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(XSystemTrayPeer, dispose, void)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(XSystemTrayPeer, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"getPeerInstance", "()Lsun/awt/X11/XSystemTrayPeer;", nullptr, $STATIC, $staticMethod(XSystemTrayPeer, getPeerInstance, XSystemTrayPeer*)},
-	{"getTrayIconSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, getTrayIconSize, $Dimension*)},
-	{"invokeOnEachAppContext", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE, $method(XSystemTrayPeer, invokeOnEachAppContext, void, $Runnable*)},
-	{"isAvailable", "()Z", nullptr, 0, $virtualMethod(XSystemTrayPeer, isAvailable, bool)},
-	{"ownerChanged", "(ILsun/awt/X11/XMSelection;JJJ)V", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, ownerChanged, void, int32_t, $XMSelection*, int64_t, int64_t, int64_t)},
-	{"ownerDeath", "(ILsun/awt/X11/XMSelection;J)V", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, ownerDeath, void, int32_t, $XMSelection*, int64_t)},
-	{"removeTrayPeers", "()V", nullptr, $PRIVATE, $method(XSystemTrayPeer, removeTrayPeers, void)},
-	{"selectionChanged", "(ILsun/awt/X11/XMSelection;JLsun/awt/X11/XPropertyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, selectionChanged, void, int32_t, $XMSelection*, int64_t, $XPropertyEvent*)},
-	{"sendMessage", "(JJJJJ)V", nullptr, 0, $virtualMethod(XSystemTrayPeer, sendMessage, void, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XSystemTrayPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XSystemTrayPeer$3", nullptr, nullptr, 0},
-	{"sun.awt.X11.XSystemTrayPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.X11.XSystemTrayPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XSystemTrayPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XSystemTrayPeer",
-	"java.lang.Object",
-	"java.awt.peer.SystemTrayPeer,sun.awt.X11.XMSelectionListener",
-	_XSystemTrayPeer_FieldInfo_,
-	_XSystemTrayPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSystemTrayPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XSystemTrayPeer$3,sun.awt.X11.XSystemTrayPeer$2,sun.awt.X11.XSystemTrayPeer$1"
-};
-
-$Object* allocate$XSystemTrayPeer($Class* clazz) {
-	return $of($alloc(XSystemTrayPeer));
-}
 
 int32_t XSystemTrayPeer::hashCode() {
 	 return this->$SystemTrayPeer::hashCode();
@@ -168,16 +99,16 @@ $XAtom* XSystemTrayPeer::_NET_SYSTEM_TRAY_OPCODE = nullptr;
 $XAtom* XSystemTrayPeer::_NET_WM_ICON = nullptr;
 
 void XSystemTrayPeer::init$($SystemTray* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, selection, $new($XMSelection, "_NET_SYSTEM_TRAY"_s));
 	$set(this, target, target);
 	$assignStatic(XSystemTrayPeer::peerInstance, this);
-	$nc(this->selection)->addSelectionListener(this);
-	int64_t selection_owner = $nc(this->selection)->getOwner(XSystemTrayPeer::SCREEN);
+	this->selection->addSelectionListener(this);
+	int64_t selection_owner = this->selection->getOwner(XSystemTrayPeer::SCREEN);
 	this->available = (selection_owner != $XConstants::None);
 	$init($PlatformLogger$Level);
 	if ($nc(XSystemTrayPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XSystemTrayPeer::log)->fine($$str({" check if system tray is available. selection owner: "_s, $$str(selection_owner)}));
+		XSystemTrayPeer::log->fine($$str({" check if system tray is available. selection owner: "_s, $$str(selection_owner)}));
 	}
 }
 
@@ -217,23 +148,23 @@ bool XSystemTrayPeer::isAvailable() {
 }
 
 void XSystemTrayPeer::dispose() {
-	$nc(this->selection)->removeSelectionListener(this);
+	this->selection->removeSelectionListener(this);
 }
 
 void XSystemTrayPeer::addTrayIcon($XTrayIconPeer* tiPeer) {
-	$useLocalCurrentObjectStackCache();
-	int64_t selection_owner = $nc(this->selection)->getOwner(XSystemTrayPeer::SCREEN);
+	$useLocalObjectStack();
+	int64_t selection_owner = this->selection->getOwner(XSystemTrayPeer::SCREEN);
 	$init($PlatformLogger$Level);
 	if ($nc(XSystemTrayPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XSystemTrayPeer::log)->fine($$str({" send SYSTEM_TRAY_REQUEST_DOCK message to owner: "_s, $$str(selection_owner)}));
+		XSystemTrayPeer::log->fine($$str({" send SYSTEM_TRAY_REQUEST_DOCK message to owner: "_s, $$str(selection_owner)}));
 	}
 	if (selection_owner == $XConstants::None) {
 		$throwNew($AWTException, "TrayIcon couldn\'t be displayed."_s);
 	}
 	int64_t tray_window = $nc(tiPeer)->getWindow();
 	$var($longs, data, $new($longs, {
-		(int64_t)$XEmbedHelper::XEMBED_VERSION,
-		(int64_t)$XEmbedHelper::XEMBED_MAPPED
+		$XEmbedHelper::XEMBED_VERSION,
+		$XEmbedHelper::XEMBED_MAPPED
 	}));
 	int64_t data_ptr = $Native::card32ToData(data);
 	$nc(XSystemTrayPeer::_XEMBED_INFO)->setAtomData(tray_window, data_ptr, data->length);
@@ -241,42 +172,38 @@ void XSystemTrayPeer::addTrayIcon($XTrayIconPeer* tiPeer) {
 }
 
 void XSystemTrayPeer::sendMessage(int64_t win, int64_t msg, int64_t data1, int64_t data2, int64_t data3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XClientMessageEvent, xev, $new($XClientMessageEvent));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		xev->set_type($XConstants::ClientMessage);
+		xev->set_window(win);
+		xev->set_format(32);
+		xev->set_message_type($nc(XSystemTrayPeer::_NET_SYSTEM_TRAY_OPCODE)->getAtom());
+		xev->set_data(0, 0);
+		xev->set_data(1, msg);
+		xev->set_data(2, data1);
+		xev->set_data(3, data2);
+		xev->set_data(4, data3);
+		$XToolkit::awtLock();
+		$var($Throwable, var$1, nullptr);
 		try {
-			xev->set_type($XConstants::ClientMessage);
-			xev->set_window(win);
-			xev->set_format(32);
-			xev->set_message_type($nc(XSystemTrayPeer::_NET_SYSTEM_TRAY_OPCODE)->getAtom());
-			xev->set_data(0, 0);
-			xev->set_data(1, msg);
-			xev->set_data(2, data1);
-			xev->set_data(3, data2);
-			xev->set_data(4, data3);
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					$XlibWrapper::XSendEvent($XToolkit::getDisplay(), win, false, $XConstants::NoEventMask, xev->pData);
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+			$XlibWrapper::XSendEvent($XToolkit::getDisplay(), win, false, $XConstants::NoEventMask, xev->pData);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			xev->dispose();
+			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		xev->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -301,20 +228,18 @@ void XSystemTrayPeer::removeTrayPeers() {
 }
 
 void XSystemTrayPeer::invokeOnEachAppContext($Runnable* runnable) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($AppContext::getAppContexts()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($AppContext, appContext, $cast($AppContext, i$->next()));
-			{
-				$SunToolkit::invokeLaterOnAppContext(appContext, runnable);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($AppContext::getAppContexts())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($AppContext, appContext, $cast($AppContext, i$->next()));
+		{
+			$SunToolkit::invokeLaterOnAppContext(appContext, runnable);
 		}
 	}
 }
 
-void clinit$XSystemTrayPeer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XSystemTrayPeer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XSystemTrayPeer::SYSTEM_TRAY_PROPERTY_NAME, "systemTray"_s);
 	$assignStatic(XSystemTrayPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XSystemTrayPeer"_s));
 	$assignStatic(XSystemTrayPeer::_NET_SYSTEM_TRAY, $XAtom::get($$str({"_NET_SYSTEM_TRAY_S"_s, $$str(XSystemTrayPeer::SCREEN)})));
@@ -327,7 +252,66 @@ XSystemTrayPeer::XSystemTrayPeer() {
 }
 
 $Class* XSystemTrayPeer::load$($String* name, bool initialize) {
-	$loadClass(XSystemTrayPeer, name, initialize, &_XSystemTrayPeer_ClassInfo_, clinit$XSystemTrayPeer, allocate$XSystemTrayPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, log)},
+		{"target", "Ljava/awt/SystemTray;", nullptr, 0, $field(XSystemTrayPeer, target)},
+		{"peerInstance", "Lsun/awt/X11/XSystemTrayPeer;", nullptr, $STATIC, $staticField(XSystemTrayPeer, peerInstance)},
+		{"available", "Z", nullptr, $PRIVATE | $VOLATILE, $field(XSystemTrayPeer, available)},
+		{"selection", "Lsun/awt/X11/XMSelection;", nullptr, $PRIVATE | $FINAL, $field(XSystemTrayPeer, selection)},
+		{"SCREEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSystemTrayPeer, SCREEN)},
+		{"SYSTEM_TRAY_PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, SYSTEM_TRAY_PROPERTY_NAME)},
+		{"_NET_SYSTEM_TRAY", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _NET_SYSTEM_TRAY)},
+		{"_XEMBED_INFO", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _XEMBED_INFO)},
+		{"_NET_SYSTEM_TRAY_OPCODE", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _NET_SYSTEM_TRAY_OPCODE)},
+		{"_NET_WM_ICON", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSystemTrayPeer, _NET_WM_ICON)},
+		{"SYSTEM_TRAY_REQUEST_DOCK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSystemTrayPeer, SYSTEM_TRAY_REQUEST_DOCK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/SystemTray;)V", nullptr, 0, $method(XSystemTrayPeer, init$, void, $SystemTray*)},
+		{"addTrayIcon", "(Lsun/awt/X11/XTrayIconPeer;)V", nullptr, 0, $virtualMethod(XSystemTrayPeer, addTrayIcon, void, $XTrayIconPeer*), "java.awt.AWTException"},
+		{"createTrayPeers", "()V", nullptr, $PRIVATE, $method(XSystemTrayPeer, createTrayPeers, void)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(XSystemTrayPeer, dispose, void)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(XSystemTrayPeer, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"getPeerInstance", "()Lsun/awt/X11/XSystemTrayPeer;", nullptr, $STATIC, $staticMethod(XSystemTrayPeer, getPeerInstance, XSystemTrayPeer*)},
+		{"getTrayIconSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, getTrayIconSize, $Dimension*)},
+		{"invokeOnEachAppContext", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE, $method(XSystemTrayPeer, invokeOnEachAppContext, void, $Runnable*)},
+		{"isAvailable", "()Z", nullptr, 0, $virtualMethod(XSystemTrayPeer, isAvailable, bool)},
+		{"ownerChanged", "(ILsun/awt/X11/XMSelection;JJJ)V", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, ownerChanged, void, int32_t, $XMSelection*, int64_t, int64_t, int64_t)},
+		{"ownerDeath", "(ILsun/awt/X11/XMSelection;J)V", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, ownerDeath, void, int32_t, $XMSelection*, int64_t)},
+		{"removeTrayPeers", "()V", nullptr, $PRIVATE, $method(XSystemTrayPeer, removeTrayPeers, void)},
+		{"selectionChanged", "(ILsun/awt/X11/XMSelection;JLsun/awt/X11/XPropertyEvent;)V", nullptr, $PUBLIC, $virtualMethod(XSystemTrayPeer, selectionChanged, void, int32_t, $XMSelection*, int64_t, $XPropertyEvent*)},
+		{"sendMessage", "(JJJJJ)V", nullptr, 0, $virtualMethod(XSystemTrayPeer, sendMessage, void, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XSystemTrayPeer$3", nullptr, nullptr, 0},
+		{"sun.awt.X11.XSystemTrayPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.X11.XSystemTrayPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XSystemTrayPeer",
+		"java.lang.Object",
+		"java.awt.peer.SystemTrayPeer,sun.awt.X11.XMSelectionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XSystemTrayPeer$3,sun.awt.X11.XSystemTrayPeer$2,sun.awt.X11.XSystemTrayPeer$1"
+	};
+	$loadClass(XSystemTrayPeer, name, initialize, &classInfo$$, XSystemTrayPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSystemTrayPeer));
+	});
 	return class$;
 }
 

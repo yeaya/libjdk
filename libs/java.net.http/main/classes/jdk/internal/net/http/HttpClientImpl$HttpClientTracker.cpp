@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientImpl$HttpClientTracker.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <jdk/internal/net/http/HttpClientImpl.h>
@@ -16,53 +15,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _HttpClientImpl$HttpClientTracker_FieldInfo_[] = {
-	{"httpCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, httpCount)},
-	{"http2Count", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, http2Count)},
-	{"websocketCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, websocketCount)},
-	{"operationsCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, operationsCount)},
-	{"reference", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<*>;", $FINAL, $field(HttpClientImpl$HttpClientTracker, reference)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, name)},
-	{}
-};
-
-$MethodInfo _HttpClientImpl$HttpClientTracker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference;Ljava/lang/String;)V", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference<*>;Ljava/lang/String;)V", 0, $method(HttpClientImpl$HttpClientTracker, init$, void, $AtomicLong*, $AtomicLong*, $AtomicLong*, $AtomicLong*, $Reference*, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getName, $String*)},
-	{"getOutstandingHttp2Streams", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingHttp2Streams, int64_t)},
-	{"getOutstandingHttpOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingHttpOperations, int64_t)},
-	{"getOutstandingOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingOperations, int64_t)},
-	{"getOutstandingWebSocketOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingWebSocketOperations, int64_t)},
-	{"isFacadeReferenced", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, isFacadeReferenced, bool)},
-	{}
-};
-
-$InnerClassInfo _HttpClientImpl$HttpClientTracker_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpClientImpl$HttpClientTracker", "jdk.internal.net.http.HttpClientImpl", "HttpClientTracker", $STATIC | $FINAL},
-	{"jdk.internal.net.http.common.OperationTrackers$Tracker", "jdk.internal.net.http.common.OperationTrackers", "Tracker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpClientImpl$HttpClientTracker_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.HttpClientImpl$HttpClientTracker",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.OperationTrackers$Tracker",
-	_HttpClientImpl$HttpClientTracker_FieldInfo_,
-	_HttpClientImpl$HttpClientTracker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientImpl$HttpClientTracker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpClientImpl"
-};
-
-$Object* allocate$HttpClientImpl$HttpClientTracker($Class* clazz) {
-	return $of($alloc(HttpClientImpl$HttpClientTracker));
-}
 
 void HttpClientImpl$HttpClientTracker::init$($AtomicLong* http, $AtomicLong* http2, $AtomicLong* ws, $AtomicLong* ops, $Reference* ref, $String* name) {
 	$set(this, httpCount, http);
@@ -101,7 +53,48 @@ HttpClientImpl$HttpClientTracker::HttpClientImpl$HttpClientTracker() {
 }
 
 $Class* HttpClientImpl$HttpClientTracker::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$HttpClientTracker, name, initialize, &_HttpClientImpl$HttpClientTracker_ClassInfo_, allocate$HttpClientImpl$HttpClientTracker);
+	$FieldInfo fieldInfos$$[] = {
+		{"httpCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, httpCount)},
+		{"http2Count", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, http2Count)},
+		{"websocketCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, websocketCount)},
+		{"operationsCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, operationsCount)},
+		{"reference", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<*>;", $FINAL, $field(HttpClientImpl$HttpClientTracker, reference)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(HttpClientImpl$HttpClientTracker, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference;Ljava/lang/String;)V", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference<*>;Ljava/lang/String;)V", 0, $method(HttpClientImpl$HttpClientTracker, init$, void, $AtomicLong*, $AtomicLong*, $AtomicLong*, $AtomicLong*, $Reference*, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getName, $String*)},
+		{"getOutstandingHttp2Streams", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingHttp2Streams, int64_t)},
+		{"getOutstandingHttpOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingHttpOperations, int64_t)},
+		{"getOutstandingOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingOperations, int64_t)},
+		{"getOutstandingWebSocketOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingWebSocketOperations, int64_t)},
+		{"isFacadeReferenced", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, isFacadeReferenced, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpClientImpl$HttpClientTracker", "jdk.internal.net.http.HttpClientImpl", "HttpClientTracker", $STATIC | $FINAL},
+		{"jdk.internal.net.http.common.OperationTrackers$Tracker", "jdk.internal.net.http.common.OperationTrackers", "Tracker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.HttpClientImpl$HttpClientTracker",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.OperationTrackers$Tracker",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpClientImpl"
+	};
+	$loadClass(HttpClientImpl$HttpClientTracker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$HttpClientTracker);
+	});
 	return class$;
 }
 

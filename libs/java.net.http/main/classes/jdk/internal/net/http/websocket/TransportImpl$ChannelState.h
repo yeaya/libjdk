@@ -26,6 +26,7 @@ class TransportImpl$ChannelState : public ::java::lang::Enum {
 public:
 	TransportImpl$ChannelState();
 	static $Array<::jdk::internal::net::http::websocket::TransportImpl$ChannelState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::websocket::TransportImpl$ChannelState* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::websocket::TransportImpl$ChannelState>* values();

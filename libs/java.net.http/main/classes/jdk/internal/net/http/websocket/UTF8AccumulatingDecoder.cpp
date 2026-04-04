@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/UTF8AccumulatingDecoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
@@ -25,8 +24,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
-using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
@@ -39,32 +36,6 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _UTF8AccumulatingDecoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UTF8AccumulatingDecoder, $assertionsDisabled)},
-	{"decoder", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE | $FINAL, $field(UTF8AccumulatingDecoder, decoder)},
-	{"leftovers", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(UTF8AccumulatingDecoder, leftovers)},
-	{}
-};
-
-$MethodInfo _UTF8AccumulatingDecoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(UTF8AccumulatingDecoder, init$, void)},
-	{"decode", "(Ljava/nio/ByteBuffer;Z)Ljava/nio/CharBuffer;", nullptr, 0, $method(UTF8AccumulatingDecoder, decode, $CharBuffer*, $ByteBuffer*, bool), "java.nio.charset.CharacterCodingException"},
-	{}
-};
-
-$ClassInfo _UTF8AccumulatingDecoder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.websocket.UTF8AccumulatingDecoder",
-	"java.lang.Object",
-	nullptr,
-	_UTF8AccumulatingDecoder_FieldInfo_,
-	_UTF8AccumulatingDecoder_MethodInfo_
-};
-
-$Object* allocate$UTF8AccumulatingDecoder($Class* clazz) {
-	return $of($alloc(UTF8AccumulatingDecoder));
-}
-
 bool UTF8AccumulatingDecoder::$assertionsDisabled = false;
 
 void UTF8AccumulatingDecoder::init$() {
@@ -73,19 +44,19 @@ void UTF8AccumulatingDecoder::init$() {
 	{
 		$init($CodingErrorAction);
 		$nc(this->decoder)->onMalformedInput($CodingErrorAction::REPORT);
-		$nc(this->decoder)->onUnmappableCharacter($CodingErrorAction::REPORT);
+		this->decoder->onUnmappableCharacter($CodingErrorAction::REPORT);
 	}
 	$init($Utils);
 	$set(this, leftovers, $Utils::EMPTY_BYTEBUFFER);
 }
 
 $CharBuffer* UTF8AccumulatingDecoder::decode($ByteBuffer* in, bool endOfInput) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, b, nullptr);
 	int32_t rem = $nc(this->leftovers)->remaining();
 	if (rem != 0) {
 		$assign(b, $ByteBuffer::allocate(rem + $nc(in)->remaining()));
-		$nc($($nc($($nc(b)->put(this->leftovers)))->put(in)))->flip();
+		$$nc($$nc($nc(b)->put(this->leftovers))->put(in))->flip();
 	} else {
 		$assign(b, in);
 	}
@@ -94,22 +65,22 @@ $CharBuffer* UTF8AccumulatingDecoder::decode($ByteBuffer* in, bool endOfInput) {
 	if ($nc(r)->isError()) {
 		r->throwException();
 	}
-	if ($nc(b)->hasRemaining()) {
-		$set(this, leftovers, $nc($($nc($($ByteBuffer::allocate(b->remaining())))->put(b)))->flip());
+	if (b->hasRemaining()) {
+		$set(this, leftovers, $$nc($$nc($ByteBuffer::allocate(b->remaining()))->put(b))->flip());
 	} else {
 		$init($Utils);
 		$set(this, leftovers, $Utils::EMPTY_BYTEBUFFER);
 	}
 	if (!($nc(this->leftovers)->remaining() < 4)) {
-		$Log::logError("The size of decoding leftovers is greater than expected: {0}"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(this->leftovers)->remaining())))}));
+		$Log::logError("The size of decoding leftovers is greater than expected: {0}"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(this->leftovers)->remaining()))}));
 	}
-	$nc(b)->position(b->limit());
+	b->position(b->limit());
 	if (!UTF8AccumulatingDecoder::$assertionsDisabled && ! !(endOfInput && $nc(this->leftovers)->hasRemaining())) {
-		$throwNew($AssertionError, $of($$str({$$str(endOfInput), ", "_s, this->leftovers})));
+		$throwNew($AssertionError, $$of($str({$$str(endOfInput), ", "_s, this->leftovers})));
 	}
 	if (endOfInput) {
-		$assign(r, $nc(this->decoder)->flush(out));
-		$nc(this->decoder)->reset();
+		$assign(r, this->decoder->flush(out));
+		this->decoder->reset();
 		if ($nc(r)->isOverflow()) {
 			$throwNew($InternalError, "Not yet implemented"_s);
 		}
@@ -117,7 +88,7 @@ $CharBuffer* UTF8AccumulatingDecoder::decode($ByteBuffer* in, bool endOfInput) {
 	return $nc(out)->flip();
 }
 
-void clinit$UTF8AccumulatingDecoder($Class* class$) {
+void UTF8AccumulatingDecoder::clinit$($Class* clazz) {
 	UTF8AccumulatingDecoder::$assertionsDisabled = !UTF8AccumulatingDecoder::class$->desiredAssertionStatus();
 }
 
@@ -125,7 +96,28 @@ UTF8AccumulatingDecoder::UTF8AccumulatingDecoder() {
 }
 
 $Class* UTF8AccumulatingDecoder::load$($String* name, bool initialize) {
-	$loadClass(UTF8AccumulatingDecoder, name, initialize, &_UTF8AccumulatingDecoder_ClassInfo_, clinit$UTF8AccumulatingDecoder, allocate$UTF8AccumulatingDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UTF8AccumulatingDecoder, $assertionsDisabled)},
+		{"decoder", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE | $FINAL, $field(UTF8AccumulatingDecoder, decoder)},
+		{"leftovers", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(UTF8AccumulatingDecoder, leftovers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(UTF8AccumulatingDecoder, init$, void)},
+		{"decode", "(Ljava/nio/ByteBuffer;Z)Ljava/nio/CharBuffer;", nullptr, 0, $method(UTF8AccumulatingDecoder, decode, $CharBuffer*, $ByteBuffer*, bool), "java.nio.charset.CharacterCodingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.websocket.UTF8AccumulatingDecoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UTF8AccumulatingDecoder, name, initialize, &classInfo$$, UTF8AccumulatingDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UTF8AccumulatingDecoder);
+	});
 	return class$;
 }
 

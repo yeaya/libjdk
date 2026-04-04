@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/JavacFileManager.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/file/FSInfo.h>
 #include <com/sun/tools/javac/file/JRTIndex.h>
@@ -29,7 +28,6 @@
 #include <java/io/UncheckedIOException.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/Module.h>
@@ -58,7 +56,6 @@
 #include <java/nio/file/ProviderNotFoundException.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -122,15 +119,12 @@ using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Factory = ::com::sun::tools::javac::util::Context$Factory;
 using $1List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Options = ::com::sun::tools::javac::util::Options;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -138,9 +132,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $ModuleLayer = ::java::lang::ModuleLayer;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Configuration = ::java::lang::module::Configuration;
@@ -150,7 +142,6 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileVisitOption = ::java::nio::file::FileVisitOption;
 using $Files = ::java::nio::file::Files;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
@@ -160,7 +151,6 @@ using $Paths = ::java::nio::file::Paths;
 using $ProviderNotFoundException = ::java::nio::file::ProviderNotFoundException;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -198,27 +188,24 @@ public:
 	virtual $Path* getPath($String* arg0, $StringArray* arg1) override {
 		 return $Paths::get(arg0, arg1);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$get>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacFileManager$$Lambda$get::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$get, init$, void)},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$get, getPath, $Path*, $String*, $StringArray*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$get::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$get",
-	"java.lang.Object",
-	"javax.tools.StandardJavaFileManager$PathFactory",
-	nullptr,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$get::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$get, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$get, init$, void)},
+		{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$get, getPath, $Path*, $String*, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$get",
+		"java.lang.Object",
+		"javax.tools.StandardJavaFileManager$PathFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$get, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$get);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$get::class$ = nullptr;
@@ -231,27 +218,24 @@ public:
 	virtual $Object* make($Context* c) override {
 		 return $of(JavacFileManager::lambda$preRegister$0(c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$lambda$preRegister$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacFileManager$$Lambda$lambda$preRegister$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$preRegister$0$1, init$, void)},
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$preRegister$0$1, make, $Object*, $Context*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$lambda$preRegister$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$preRegister$0$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.Context$Factory",
-	nullptr,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$lambda$preRegister$0$1::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$lambda$preRegister$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$preRegister$0$1, init$, void)},
+		{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$preRegister$0$1, make, $Object*, $Context*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$preRegister$0$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.Context$Factory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$lambda$preRegister$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$lambda$preRegister$0$1);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$lambda$preRegister$0$1::class$ = nullptr;
@@ -263,35 +247,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* location) override {
-		 return $of($nc(inst$)->indexPathsAndContainersByRelativeDirectory($cast($JavaFileManager$Location, location)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2>());
+		 return $nc(inst$)->indexPathsAndContainersByRelativeDirectory($cast($JavaFileManager$Location, location));
 	}
 	JavacFileManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, inst$)},
-	{}
-};
-$MethodInfo JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, init$, void, JavacFileManager*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, init$, void, JavacFileManager*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2::class$ = nullptr;
@@ -304,37 +284,33 @@ public:
 		$set(this, location, location);
 	}
 	virtual $Object* apply(Object$* d) override {
-		 return $of($nc(inst$)->lambda$pathsAndContainers$1(location, $cast($RelativePath$RelativeDirectory, d)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3>());
+		 return $nc(inst$)->lambda$pathsAndContainers$1(location, $cast($RelativePath$RelativeDirectory, d));
 	}
 	JavacFileManager* inst$ = nullptr;
 	$JavaFileManager$Location* location = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, inst$)},
-	{"location", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, location)},
-	{}
-};
-$MethodInfo JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, init$, void, JavacFileManager*, $JavaFileManager$Location*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, inst$)},
+		{"location", "Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, location)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, init$, void, JavacFileManager*, $JavaFileManager$Location*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::class$ = nullptr;
@@ -346,35 +322,31 @@ public:
 		$set(this, nonIndexingContainers, nonIndexingContainers);
 	}
 	virtual $Object* apply(Object$* d) override {
-		 return $of(JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2(nonIndexingContainers, $cast($RelativePath$RelativeDirectory, d)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4>());
+		 return JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2(nonIndexingContainers, $cast($RelativePath$RelativeDirectory, d));
 	}
 	$List* nonIndexingContainers = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::fieldInfos[2] = {
-	{"nonIndexingContainers", "Ljava/util/List;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, nonIndexingContainers)},
-	{}
-};
-$MethodInfo JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, init$, void, $List*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"nonIndexingContainers", "Ljava/util/List;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, nonIndexingContainers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, init$, void, $List*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::class$ = nullptr;
@@ -387,27 +359,24 @@ public:
 	virtual void accept(Object$* pathAndContainerList) override {
 		JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3($cast($List, pathAndContainerList));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5, accept, void, Object$*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5::class$ = nullptr;
@@ -421,33 +390,29 @@ public:
 	virtual $Iterator* iterator() override {
 		 return JavacFileManager::lambda$asPaths$4(files);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$lambda$asPaths$4$6>());
-	}
 	$Iterable* files = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavacFileManager$$Lambda$lambda$asPaths$4$6::fieldInfos[2] = {
-	{"files", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$asPaths$4$6, files)},
-	{}
-};
-$MethodInfo JavacFileManager$$Lambda$lambda$asPaths$4$6::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$asPaths$4$6, init$, void, $Iterable*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$asPaths$4$6, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$lambda$asPaths$4$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$asPaths$4$6",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$lambda$asPaths$4$6::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$lambda$asPaths$4$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"files", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$asPaths$4$6, files)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$asPaths$4$6, init$, void, $Iterable*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$asPaths$4$6, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$asPaths$4$6",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$lambda$asPaths$4$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$lambda$asPaths$4$6);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$lambda$asPaths$4$6::class$ = nullptr;
@@ -461,170 +426,32 @@ public:
 	virtual $Iterator* iterator() override {
 		 return JavacFileManager::lambda$asFiles$5(paths);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacFileManager$$Lambda$lambda$asFiles$5$7>());
-	}
 	$Iterable* paths = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavacFileManager$$Lambda$lambda$asFiles$5$7::fieldInfos[2] = {
-	{"paths", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$asFiles$5$7, paths)},
-	{}
-};
-$MethodInfo JavacFileManager$$Lambda$lambda$asFiles$5$7::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$asFiles$5$7, init$, void, $Iterable*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$asFiles$5$7, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo JavacFileManager$$Lambda$lambda$asFiles$5$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$asFiles$5$7",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavacFileManager$$Lambda$lambda$asFiles$5$7::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$$Lambda$lambda$asFiles$5$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"paths", "Ljava/lang/Iterable;", nullptr, $PUBLIC, $field(JavacFileManager$$Lambda$lambda$asFiles$5$7, paths)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(JavacFileManager$$Lambda$lambda$asFiles$5$7, init$, void, $Iterable*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$$Lambda$lambda$asFiles$5$7, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$asFiles$5$7",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavacFileManager$$Lambda$lambda$asFiles$5$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$$Lambda$lambda$asFiles$5$7);
+	});
 	return class$;
 }
 $Class* JavacFileManager$$Lambda$lambda$asFiles$5$7::class$ = nullptr;
-
-$FieldInfo _JavacFileManager_FieldInfo_[] = {
-	{"fsInfo", "Lcom/sun/tools/javac/file/FSInfo;", nullptr, $PRIVATE, $field(JavacFileManager, fsInfo)},
-	{"SOURCE_OR_CLASS", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, SOURCE_OR_CLASS)},
-	{"symbolFileEnabled", "Z", nullptr, $PROTECTED, $field(JavacFileManager, symbolFileEnabled)},
-	{"pathFactory", "Ljavax/tools/StandardJavaFileManager$PathFactory;", nullptr, $PRIVATE, $field(JavacFileManager, pathFactory)},
-	{"sortFiles", "Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PROTECTED, $field(JavacFileManager, sortFiles)},
-	{"pathsAndContainersByLocationAndRelativeDirectory", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileManager$Location;Ljava/util/Map<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;>;>;", $PRIVATE, $field(JavacFileManager, pathsAndContainersByLocationAndRelativeDirectory)},
-	{"nonIndexingContainersByLocation", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileManager$Location;Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;>;", $PRIVATE, $field(JavacFileManager, nonIndexingContainersByLocation)},
-	{"containers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Lcom/sun/tools/javac/file/JavacFileManager$Container;>;", $PRIVATE | $FINAL, $field(JavacFileManager, containers)},
-	{"MISSING_CONTAINER", "Lcom/sun/tools/javac/file/JavacFileManager$Container;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, MISSING_CONTAINER)},
-	{"jrtIndex", "Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PRIVATE, $field(JavacFileManager, jrtIndex)},
-	{"NO_FILE_VISIT_OPTIONS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/FileVisitOption;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, NO_FILE_VISIT_OPTIONS)},
-	{"FOLLOW_LINKS_OPTIONS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/FileVisitOption;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, FOLLOW_LINKS_OPTIONS)},
-	{"fileSystemIsCaseSensitive", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, fileSystemIsCaseSensitive)},
-	{}
-};
-
-$MethodInfo _JavacFileManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;ZLjava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(JavacFileManager, init$, void, $Context*, bool, $Charset*)},
-	{"asFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<Ljava/io/File;>;", $PRIVATE | $STATIC, $staticMethod(JavacFileManager, asFiles, $Iterable*, $Iterable*)},
-	{"asPath", "(Ljavax/tools/FileObject;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, asPath, $Path*, $FileObject*)},
-	{"asPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PRIVATE | $STATIC, $staticMethod(JavacFileManager, asPaths, $Iterable*, $Iterable*)},
-	{"caseMapCheck", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath;)Z", nullptr, $PRIVATE, $method(JavacFileManager, caseMapCheck, bool, $Path*, $RelativePath*)},
-	{"checkModuleOrientedOrOutputLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, checkModuleOrientedOrOutputLocation, void, $JavaFileManager$Location*)},
-	{"checkNotModuleOrientedLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, checkNotModuleOrientedLocation, void, $JavaFileManager$Location*)},
-	{"checkOutputLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, checkOutputLocation, void, $JavaFileManager$Location*)},
-	{"clearCachesForLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, clearCachesForLocation, void, $JavaFileManager$Location*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, close, void), "java.io.IOException"},
-	{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, contains, bool, $JavaFileManager$Location*, $FileObject*), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, flush, void)},
-	{"getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getClassLoader, $ClassLoader*, $JavaFileManager$Location*)},
-	{"getClassOutDir", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(JavacFileManager, getClassOutDir, $Path*)},
-	{"getContainer", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/JavacFileManager$Container;", nullptr, $SYNCHRONIZED, $virtualMethod(JavacFileManager, getContainer, $JavacFileManager$Container*, $Path*), "java.io.IOException"},
-	{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
-	{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(JavacFileManager, getFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $RelativePath$RelativeFile*), "java.io.IOException"},
-	{"getFileForOutput", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getFileForOutput, $JavaFileObject*, $String*, $JavaFileObject$Kind*, $JavaFileObject*), "java.io.IOException"},
-	{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
-	{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(JavacFileManager, getFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $RelativePath$RelativeFile*, $FileObject*), "java.io.IOException"},
-	{"getJRTIndex", "()Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JavacFileManager, getJRTIndex, $JRTIndex*)},
-	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
-	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
-	{"getJavaFileObject", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObject, $JavaFileObject*, $String*)},
-	{"getJavaFileObject", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObject, $JavaFileObject*, $Path*)},
-	{"getJavaFileObjects", "([Ljava/lang/String;)Ljava/lang/Iterable;", "([Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(JavacFileManager, getJavaFileObjects, $Iterable*, $StringArray*)},
-	{"getJavaFileObjects", "([Ljava/io/File;)Ljava/lang/Iterable;", "([Ljava/io/File;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(JavacFileManager, getJavaFileObjects, $Iterable*, $FileArray*)},
-	{"getJavaFileObjects", "([Ljava/nio/file/Path;)Ljava/lang/Iterable;", "([Ljava/nio/file/Path;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(JavacFileManager, getJavaFileObjects, $Iterable*, $PathArray*)},
-	{"getJavaFileObjectsFromFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObjectsFromFiles, $Iterable*, $Iterable*)},
-	{"getJavaFileObjectsFromPaths", "(Ljava/util/Collection;)Ljava/lang/Iterable;", "(Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Collection*)},
-	{"getJavaFileObjectsFromStrings", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljava/lang/String;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObjectsFromStrings, $Iterable*, $Iterable*)},
-	{"getLocation", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/io/File;>;", $PUBLIC, $virtualMethod(JavacFileManager, getLocation, $Iterable*, $JavaFileManager$Location*)},
-	{"getLocationAsPaths", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Collection;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Collection<+Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(JavacFileManager, getLocationAsPaths, $Iterable*, $JavaFileManager$Location*)},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $String*), "java.io.IOException"},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
-	{"getMessage", "(Ljava/io/IOException;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, getMessage, $String*, $IOException*)},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $method(JavacFileManager, getPath, $Path*, $String*, $StringArray*)},
-	{"getRelativeName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, getRelativeName, $String*, $File*)},
-	{"getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC, $virtualMethod(JavacFileManager, getServiceLoader, $ServiceLoader*, $JavaFileManager$Location*, $Class*), "java.io.IOException"},
-	{"getSourceOutDir", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(JavacFileManager, getSourceOutDir, $Path*)},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, handleOption, bool, $Option*, $String*)},
-	{"hasExplicitLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PROTECTED, $virtualMethod(JavacFileManager, hasExplicitLocation, bool, $JavaFileManager$Location*)},
-	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, hasLocation, bool, $JavaFileManager$Location*)},
-	{"indexPathsAndContainersByRelativeDirectory", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Map;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Map<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;>;", $PRIVATE, $method(JavacFileManager, indexPathsAndContainersByRelativeDirectory, $Map*, $JavaFileManager$Location*)},
-	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
-	{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, inferModuleName, $String*, $JavaFileManager$Location*)},
-	{"isRelativeUri", "(Ljava/net/URI;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(JavacFileManager, isRelativeUri, bool, $URI*)},
-	{"isRelativeUri", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(JavacFileManager, isRelativeUri, bool, $String*)},
-	{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, isSameFile, bool, $FileObject*, $FileObject*)},
-	{"*isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"isSymbolFileEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, isSymbolFileEnabled, bool)},
-	{"isValidFile", "(Ljava/lang/String;Ljava/util/Set;)Z", "(Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;)Z", $PRIVATE, $method(JavacFileManager, isValidFile, bool, $String*, $Set*)},
-	{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacFileManager, isValidName, bool, $String*)},
-	{"lambda$asFiles$5", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$asFiles$5, $Iterator*, $Iterable*)},
-	{"lambda$asPaths$4", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$asPaths$4, $Iterator*, $Iterable*)},
-	{"lambda$indexPathsAndContainersByRelativeDirectory$2", "(Ljava/util/List;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$indexPathsAndContainersByRelativeDirectory$2, $List*, $List*, $RelativePath$RelativeDirectory*)},
-	{"lambda$indexPathsAndContainersByRelativeDirectory$3", "(Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$indexPathsAndContainersByRelativeDirectory$3, void, $List*)},
-	{"lambda$pathsAndContainers$1", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacFileManager, lambda$pathsAndContainers$1, $List*, $JavaFileManager$Location*, $RelativePath$RelativeDirectory*)},
-	{"lambda$preRegister$0", "(Lcom/sun/tools/javac/util/Context;)Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$preRegister$0, $JavaFileManager*, $Context*)},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
-	{"listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", $PUBLIC, $virtualMethod(JavacFileManager, listLocationsForModules, $Iterable*, $JavaFileManager$Location*), "java.io.IOException"},
-	{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(JavacFileManager, pathsAndContainers, $List*, $JavaFileManager$Location*, $RelativePath$RelativeDirectory*), "java.io.IOException"},
-	{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(JavacFileManager, pathsAndContainers, $List*, $JavaFileManager$Location*)},
-	{"preRegister", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, preRegister, void, $Context*)},
-	{"printAscii", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(JavacFileManager, printAscii, void, $String*, $ObjectArray*)},
-	{"setContext", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, setContext, void, $Context*)},
-	{"setLocation", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(JavacFileManager, setLocation, void, $JavaFileManager$Location*, $Iterable*), "java.io.IOException"},
-	{"setLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(JavacFileManager, setLocationForModule, void, $JavaFileManager$Location*, $String*, $Collection*), "java.io.IOException"},
-	{"setLocationFromPaths", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(JavacFileManager, setLocationFromPaths, void, $JavaFileManager$Location*, $Collection*), "java.io.IOException"},
-	{"setPathFactory", "(Ljavax/tools/StandardJavaFileManager$PathFactory;)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, setPathFactory, void, $StandardJavaFileManager$PathFactory*)},
-	{"setSymbolFileEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, setSymbolFileEnabled, void, bool)},
-	{"testName", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, testName, void, $String*, bool, bool)},
-	{"toArray", "(Ljava/nio/CharBuffer;)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, toArray, $chars*, $CharBuffer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateClassName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacFileManager, validateClassName, void, $String*)},
-	{"validatePackageName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacFileManager, validatePackageName, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _JavacFileManager_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JavacFileManager$PathAndContainer", "com.sun.tools.javac.file.JavacFileManager", "PathAndContainer", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer", "com.sun.tools.javac.file.JavacFileManager", "ArchiveContainer", $PRIVATE | $FINAL},
-	{"com.sun.tools.javac.file.JavacFileManager$DirectoryContainer", "com.sun.tools.javac.file.JavacFileManager", "DirectoryContainer", $PRIVATE | $FINAL},
-	{"com.sun.tools.javac.file.JavacFileManager$JRTImageContainer", "com.sun.tools.javac.file.JavacFileManager", "JRTImageContainer", $PRIVATE | $FINAL},
-	{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.file.JavacFileManager$SortFiles", "com.sun.tools.javac.file.JavacFileManager", "SortFiles", $PROTECTED | $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.file.JavacFileManager$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.file.JavacFileManager$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.file.JavacFileManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavacFileManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.file.JavacFileManager",
-	"com.sun.tools.javac.file.BaseFileManager",
-	"javax.tools.StandardJavaFileManager",
-	_JavacFileManager_FieldInfo_,
-	_JavacFileManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacFileManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JavacFileManager$PathAndContainer,com.sun.tools.javac.file.JavacFileManager$ArchiveContainer,com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$2,com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$1,com.sun.tools.javac.file.JavacFileManager$DirectoryContainer,com.sun.tools.javac.file.JavacFileManager$JRTImageContainer,com.sun.tools.javac.file.JavacFileManager$Container,com.sun.tools.javac.file.JavacFileManager$SortFiles,com.sun.tools.javac.file.JavacFileManager$SortFiles$2,com.sun.tools.javac.file.JavacFileManager$SortFiles$1,com.sun.tools.javac.file.JavacFileManager$2,com.sun.tools.javac.file.JavacFileManager$3,com.sun.tools.javac.file.JavacFileManager$1"
-};
-
-$Object* allocate$JavacFileManager($Class* clazz) {
-	return $of($alloc(JavacFileManager));
-}
 
 bool JavacFileManager::handleOption($String* current, $Iterator* remaining) {
 	 return this->$BaseFileManager::handleOption(current, remaining);
@@ -662,29 +489,29 @@ bool JavacFileManager::fileSystemIsCaseSensitive = false;
 
 $chars* JavacFileManager::toArray($CharBuffer* buffer) {
 	$init(JavacFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(buffer)->hasArray()) {
-		return $cast($chars, $nc($($nc($(buffer->compact()))->flip()))->array());
+		return $cast($chars, $$nc($$nc(buffer->compact())->flip())->array());
 	} else {
-		return $nc($(buffer->toString()))->toCharArray();
+		return $$nc(buffer->toString())->toCharArray();
 	}
 }
 
 void JavacFileManager::preRegister($Context* context) {
 	$init(JavacFileManager);
 	$load($JavaFileManager);
-	$nc(context)->put($JavaFileManager::class$, static_cast<$Context$Factory*>($$new(JavacFileManager$$Lambda$lambda$preRegister$0$1)));
+	$nc(context)->put($JavaFileManager::class$, $cast($Context$Factory, $$new(JavacFileManager$$Lambda$lambda$preRegister$0$1)));
 }
 
 void JavacFileManager::init$($Context* context, bool register$, $Charset* charset) {
 	$BaseFileManager::init$(charset);
-	$set(this, pathFactory, static_cast<$StandardJavaFileManager$PathFactory*>($new(JavacFileManager$$Lambda$get)));
+	$set(this, pathFactory, $new(JavacFileManager$$Lambda$get));
 	$set(this, pathsAndContainersByLocationAndRelativeDirectory, $new($HashMap));
 	$set(this, nonIndexingContainersByLocation, $new($HashMap));
 	$set(this, containers, $new($HashMap));
 	if (register$) {
 		$load($JavaFileManager);
-		$nc(context)->put($JavaFileManager::class$, $of(this));
+		$nc(context)->put($JavaFileManager::class$, this);
 	}
 	setContext(context);
 }
@@ -718,13 +545,13 @@ bool JavacFileManager::isSymbolFileEnabled() {
 }
 
 $JavaFileObject* JavacFileManager::getJavaFileObject($String* name) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($JavaFileObject, $nc($($nc($(getJavaFileObjects($$new($StringArray, {name}))))->iterator()))->next());
+	$useLocalObjectStack();
+	return $cast($JavaFileObject, $$nc($$nc(getJavaFileObjects($$new($StringArray, {name})))->iterator())->next());
 }
 
 $JavaFileObject* JavacFileManager::getJavaFileObject($Path* file) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($JavaFileObject, $nc($($nc($(getJavaFileObjects($$new($PathArray, {file}))))->iterator()))->next());
+	$useLocalObjectStack();
+	return $cast($JavaFileObject, $$nc($$nc(getJavaFileObjects($$new($PathArray, {file})))->iterator())->next());
 }
 
 $JavaFileObject* JavacFileManager::getFileForOutput($String* classname, $JavaFileObject$Kind* kind, $JavaFileObject* sibling) {
@@ -733,37 +560,31 @@ $JavaFileObject* JavacFileManager::getFileForOutput($String* classname, $JavaFil
 }
 
 $Iterable* JavacFileManager::getJavaFileObjectsFromStrings($Iterable* names) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, paths, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(names)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, name, $cast($String, i$->next()));
-			paths->append($(getPath($cast($String, $(nullCheck($of(name)))), $$new($StringArray, 0))));
+			paths->append($(getPath($$cast($String, nullCheck(name)), $$new($StringArray, 0))));
 		}
 	}
-	return getJavaFileObjectsFromPaths($(static_cast<$Collection*>(static_cast<$AbstractCollection*>(paths->toList()))));
+	return getJavaFileObjectsFromPaths($$cast($AbstractCollection, paths->toList()));
 }
 
 $Iterable* JavacFileManager::getJavaFileObjects($StringArray* names) {
-	$useLocalCurrentObjectStackCache();
-	return getJavaFileObjectsFromStrings($($Arrays::asList($cast($StringArray, $(nullCheck($of(names)))))));
+	$useLocalObjectStack();
+	return getJavaFileObjectsFromStrings($($Arrays::asList($$cast($StringArray, nullCheck(names)))));
 }
 
 bool JavacFileManager::isValidName($String* name) {
 	$init(JavacFileManager);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, $nc(name)->split("\\."_s, -1));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, s, arr$->get(i$));
-			{
-				if (!$SourceVersion::isIdentifier(s)) {
-					return false;
-				}
-			}
+	$useLocalObjectStack();
+	$var($StringArray, arr$, $nc(name)->split("\\."_s, -1));
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, s, arr$->get(i$));
+		if (!$SourceVersion::isIdentifier(s)) {
+			return false;
 		}
 	}
 	return true;
@@ -786,40 +607,40 @@ void JavacFileManager::validatePackageName($String* packageName) {
 
 void JavacFileManager::testName($String* name, bool isValidPackageName, bool isValidClassName) {
 	$init(JavacFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		validatePackageName(name);
 		if (!isValidPackageName) {
-			$throwNew($AssertionError, $of($$str({"Invalid package name accepted: "_s, name})));
+			$throwNew($AssertionError, $$of($str({"Invalid package name accepted: "_s, name})));
 		}
-		printAscii("Valid package name: \"%s\""_s, $$new($ObjectArray, {$of(name)}));
+		printAscii("Valid package name: \"%s\""_s, $$new($ObjectArray, {name}));
 	} catch ($IllegalArgumentException& e) {
 		if (isValidPackageName) {
-			$throwNew($AssertionError, $of($$str({"Valid package name rejected: "_s, name})));
+			$throwNew($AssertionError, $$of($str({"Valid package name rejected: "_s, name})));
 		}
-		printAscii("Invalid package name: \"%s\""_s, $$new($ObjectArray, {$of(name)}));
+		printAscii("Invalid package name: \"%s\""_s, $$new($ObjectArray, {name}));
 	}
 	try {
 		validateClassName(name);
 		if (!isValidClassName) {
-			$throwNew($AssertionError, $of($$str({"Invalid class name accepted: "_s, name})));
+			$throwNew($AssertionError, $$of($str({"Invalid class name accepted: "_s, name})));
 		}
-		printAscii("Valid class name: \"%s\""_s, $$new($ObjectArray, {$of(name)}));
+		printAscii("Valid class name: \"%s\""_s, $$new($ObjectArray, {name}));
 	} catch ($IllegalArgumentException& e) {
 		if (isValidClassName) {
-			$throwNew($AssertionError, $of($$str({"Valid class name rejected: "_s, name})));
+			$throwNew($AssertionError, $$of($str({"Valid class name rejected: "_s, name})));
 		}
-		printAscii("Invalid class name: \"%s\""_s, $$new($ObjectArray, {$of(name)}));
+		printAscii("Invalid class name: \"%s\""_s, $$new($ObjectArray, {name}));
 	}
 }
 
 void JavacFileManager::printAscii($String* format, $ObjectArray* args) {
 	$init(JavacFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, message, nullptr);
 	try {
 		$var($String, ascii, "US-ASCII"_s);
-		$assign(message, $new($String, $($nc($($String::format(nullptr, format, args)))->getBytes(ascii)), ascii));
+		$assign(message, $new($String, $($$nc($String::format(nullptr, format, args))->getBytes(ascii)), ascii));
 	} catch ($UnsupportedEncodingException& ex) {
 		$throwNew($AssertionError, $of(ex));
 	}
@@ -828,21 +649,21 @@ void JavacFileManager::printAscii($String* format, $ObjectArray* args) {
 
 $JavacFileManager$Container* JavacFileManager::getContainer($Path* path) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($JavacFileManager$Container, fs, $cast($JavacFileManager$Container, $nc(this->containers)->get(path)));
+		$useLocalObjectStack();
+		$var($JavacFileManager$Container, fs, $cast($JavacFileManager$Container, this->containers->get(path)));
 		if (fs != nullptr) {
 			return fs;
 		}
 		bool var$0 = $nc(this->fsInfo)->isFile(path);
 		$init($Locations);
 		if (var$0 && $nc(path)->equals($Locations::thisSystemModules)) {
-			$nc(this->containers)->put(path, $assign(fs, $new($JavacFileManager$JRTImageContainer, this)));
+			this->containers->put(path, $assign(fs, $new($JavacFileManager$JRTImageContainer, this)));
 			return fs;
 		}
 		$var($Path, realPath, $nc(this->fsInfo)->getCanonicalFile(path));
-		$assign(fs, $cast($JavacFileManager$Container, $nc(this->containers)->get(realPath)));
+		$assign(fs, $cast($JavacFileManager$Container, this->containers->get(realPath)));
 		if (fs != nullptr) {
-			$nc(this->containers)->put(path, fs);
+			this->containers->put(path, fs);
 			return fs;
 		}
 		$var($BasicFileAttributes, attr, nullptr);
@@ -859,14 +680,14 @@ $JavacFileManager$Container* JavacFileManager::getContainer($Path* path) {
 				try {
 					$assign(fs, $new($JavacFileManager$ArchiveContainer, this, path));
 				} catch ($ProviderNotFoundException& ex) {
-					$throwNew($IOException, static_cast<$Throwable*>(ex));
+					$throwNew($IOException, ex);
 				} catch ($SecurityException& ex) {
-					$throwNew($IOException, static_cast<$Throwable*>(ex));
+					$throwNew($IOException, ex);
 				}
 			}
 		}
-		$nc(this->containers)->put(realPath, fs);
-		$nc(this->containers)->put(path, fs);
+		this->containers->put(realPath, fs);
+		this->containers->put(path, fs);
 		return fs;
 	}
 }
@@ -886,7 +707,7 @@ bool JavacFileManager::isValidFile($String* s, $Set* fileKinds) {
 }
 
 bool JavacFileManager::caseMapCheck($Path* f, $RelativePath* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (JavacFileManager::fileSystemIsCaseSensitive) {
 		return true;
 	}
@@ -894,8 +715,8 @@ bool JavacFileManager::caseMapCheck($Path* f, $RelativePath* name) {
 	char16_t sep = 0;
 	try {
 		$init($LinkOption);
-		$assign(path, $nc($($nc(f)->toRealPath($$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}))))->toString());
-		sep = $nc($($nc($(f->getFileSystem()))->getSeparator()))->charAt(0);
+		$assign(path, $$nc($nc(f)->toRealPath($$new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS})))->toString());
+		sep = $$nc($$nc(f->getFileSystem())->getSeparator())->charAt(0);
 	} catch ($IOException& ex) {
 		return false;
 	}
@@ -928,14 +749,14 @@ void JavacFileManager::flush() {
 }
 
 void JavacFileManager::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->deferredCloseTimeout > 0) {
 		deferredClose();
 		return;
 	}
 	$nc(this->locations)->close();
 	{
-		$var($Iterator, i$, $nc($($nc(this->containers)->values()))->iterator());
+		$var($Iterator, i$, $$nc(this->containers->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JavacFileManager$Container, container, $cast($JavacFileManager$Container, i$->next()));
 			{
@@ -943,14 +764,14 @@ void JavacFileManager::close() {
 			}
 		}
 	}
-	$nc(this->containers)->clear();
+	this->containers->clear();
 	$nc(this->pathsAndContainersByLocationAndRelativeDirectory)->clear();
 	$nc(this->nonIndexingContainersByLocation)->clear();
 	$nc(this->contentCache)->clear();
 }
 
 $ClassLoader* JavacFileManager::getClassLoader($JavaFileManager$Location* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkNotModuleOrientedLocation(location);
 	$var($Iterable, path, getLocation(location));
 	if (path == nullptr) {
@@ -961,27 +782,25 @@ $ClassLoader* JavacFileManager::getClassLoader($JavaFileManager$Location* locati
 		$var($Iterator, i$, $nc(path)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($File, f, $cast($File, i$->next()));
-			{
-				try {
-					lb->append($($nc($($nc(f)->toURI()))->toURL()));
-				} catch ($MalformedURLException& e) {
-					$throwNew($AssertionError, $of(e));
-				}
+			try {
+				lb->append($($$nc($nc(f)->toURI())->toURL()));
+			} catch ($MalformedURLException& e) {
+				$throwNew($AssertionError, $of(e));
 			}
 		}
 	}
-	return getClassLoader($fcast($URLArray, $(lb->toArray($$new($URLArray, lb->size())))));
+	return getClassLoader($$cast($URLArray, lb->toArray($$new($URLArray, lb->size()))));
 }
 
 $Iterable* JavacFileManager::list($JavaFileManager$Location* location, $String* packageName, $Set* kinds, bool recurse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkNotModuleOrientedLocation(location);
-	nullCheck($of(packageName));
-	nullCheck(static_cast<$Collection*>(kinds));
+	nullCheck(packageName);
+	nullCheck(kinds);
 	$var($RelativePath$RelativeDirectory, subdirectory, $RelativePath$RelativeDirectory::forPackage(packageName));
 	$var($ListBuffer, results, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($(pathsAndContainers(location, subdirectory)))->iterator());
+		$var($Iterator, i$, $$nc(pathsAndContainers(location, subdirectory))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JavacFileManager$PathAndContainer, pathAndContainer, $cast($JavacFileManager$PathAndContainer, i$->next()));
 			{
@@ -991,11 +810,11 @@ $Iterable* JavacFileManager::list($JavaFileManager$Location* location, $String* 
 			}
 		}
 	}
-	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(results->toList())));
+	return $cast($AbstractCollection, results->toList());
 }
 
 $String* JavacFileManager::inferBinaryName($JavaFileManager$Location* location, $JavaFileObject* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkNotModuleOrientedLocation(location);
 	$Objects::requireNonNull(file);
 	$var($Iterable, path, getLocationAsPaths(location));
@@ -1018,9 +837,9 @@ $String* JavacFileManager::inferBinaryName($JavaFileManager$Location* location, 
 }
 
 bool JavacFileManager::isSameFile($FileObject* a, $FileObject* b) {
-	$useLocalCurrentObjectStackCache();
-	nullCheck($of(a));
-	nullCheck($of(b));
+	$useLocalObjectStack();
+	nullCheck(a);
+	nullCheck(b);
 	{
 		$var($PathFileObject, pathFileObjectA, nullptr);
 		$var($PathFileObject, pathFileObjectB, nullptr);
@@ -1046,20 +865,20 @@ bool JavacFileManager::isSameFile($FileObject* a, $FileObject* b) {
 }
 
 bool JavacFileManager::hasLocation($JavaFileManager$Location* location) {
-	nullCheck($of(location));
+	nullCheck(location);
 	return $nc(this->locations)->hasLocation(location);
 }
 
 bool JavacFileManager::hasExplicitLocation($JavaFileManager$Location* location) {
-	nullCheck($of(location));
+	nullCheck(location);
 	return $nc(this->locations)->hasExplicitLocation(location);
 }
 
 $JavaFileObject* JavacFileManager::getJavaFileForInput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkNotModuleOrientedLocation(location);
-	nullCheck($of(className));
-	nullCheck($of(kind));
+	nullCheck(className);
+	nullCheck(kind);
 	if (!$nc(JavacFileManager::SOURCE_OR_CLASS)->contains(kind)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid kind: "_s, kind}));
 	}
@@ -1067,9 +886,9 @@ $JavaFileObject* JavacFileManager::getJavaFileForInput($JavaFileManager$Location
 }
 
 $FileObject* JavacFileManager::getFileForInput($JavaFileManager$Location* location, $String* packageName, $String* relativeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkNotModuleOrientedLocation(location);
-	nullCheck($of(packageName));
+	nullCheck(packageName);
 	if (!isRelativeUri(relativeName)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid relative name: "_s, relativeName}));
 	}
@@ -1078,7 +897,7 @@ $FileObject* JavacFileManager::getFileForInput($JavaFileManager$Location* locati
 }
 
 $JavaFileObject* JavacFileManager::getFileForInput($JavaFileManager$Location* location, $RelativePath$RelativeFile* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterable, path, getLocationAsPaths(location));
 	if (path == nullptr) {
 		return nullptr;
@@ -1088,7 +907,7 @@ $JavaFileObject* JavacFileManager::getFileForInput($JavaFileManager$Location* lo
 		for (; $nc(i$)->hasNext();) {
 			$var($Path, file, $cast($Path, i$->next()));
 			{
-				$var($JavaFileObject, fo, $nc($(getContainer(file)))->getFileObject(file, name));
+				$var($JavaFileObject, fo, $$nc(getContainer(file))->getFileObject(file, name));
 				if (fo != nullptr) {
 					return fo;
 				}
@@ -1099,10 +918,10 @@ $JavaFileObject* JavacFileManager::getFileForInput($JavaFileManager$Location* lo
 }
 
 $JavaFileObject* JavacFileManager::getJavaFileForOutput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind, $FileObject* sibling) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkOutputLocation(location);
-	nullCheck($of(className));
-	nullCheck($of(kind));
+	nullCheck(className);
+	nullCheck(kind);
 	if (!$nc(JavacFileManager::SOURCE_OR_CLASS)->contains(kind)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid kind: "_s, kind}));
 	}
@@ -1110,9 +929,9 @@ $JavaFileObject* JavacFileManager::getJavaFileForOutput($JavaFileManager$Locatio
 }
 
 $FileObject* JavacFileManager::getFileForOutput($JavaFileManager$Location* location, $String* packageName, $String* relativeName, $FileObject* sibling) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkOutputLocation(location);
-	nullCheck($of(packageName));
+	nullCheck(packageName);
 	if (!isRelativeUri(relativeName)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid relative name: "_s, relativeName}));
 	}
@@ -1121,7 +940,7 @@ $FileObject* JavacFileManager::getFileForOutput($JavaFileManager$Location* locat
 }
 
 $JavaFileObject* JavacFileManager::getFileForOutput($JavaFileManager$Location* location, $RelativePath$RelativeFile* fileName, $FileObject* sibling) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, dir, nullptr);
 	$init($StandardLocation);
 	if ($equals(location, $StandardLocation::CLASS_OUTPUT)) {
@@ -1149,20 +968,18 @@ $JavaFileObject* JavacFileManager::getFileForOutput($JavaFileManager$Location* l
 				}
 			}
 		}
+	} else if ($equals(location, $StandardLocation::SOURCE_OUTPUT)) {
+		$assign(dir, getSourceOutDir() != nullptr ? getSourceOutDir() : getClassOutDir());
 	} else {
-		if ($equals(location, $StandardLocation::SOURCE_OUTPUT)) {
-			$assign(dir, getSourceOutDir() != nullptr ? getSourceOutDir() : getClassOutDir());
-		} else {
-			$var($Iterable, path, $nc(this->locations)->getLocation(location));
-			$assign(dir, nullptr);
-			{
-				$var($Iterator, i$, $nc(path)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Path, f, $cast($Path, i$->next()));
-					{
-						$assign(dir, f);
-						break;
-					}
+		$var($Iterable, path, $nc(this->locations)->getLocation(location));
+		$assign(dir, nullptr);
+		{
+			$var($Iterator, i$, $nc(path)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Path, f, $cast($Path, i$->next()));
+				{
+					$assign(dir, f);
+					break;
 				}
 			}
 		}
@@ -1180,7 +997,7 @@ $JavaFileObject* JavacFileManager::getFileForOutput($JavaFileManager$Location* l
 }
 
 $Iterable* JavacFileManager::getJavaFileObjectsFromFiles($Iterable* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, result, nullptr);
 	{
 		$var($Collection, collection, nullptr);
@@ -1206,11 +1023,11 @@ $Iterable* JavacFileManager::getJavaFileObjectsFromFiles($Iterable* files) {
 			}
 		}
 	}
-	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(result))));
+	return $cast($AbstractCollection, result);
 }
 
 $Iterable* JavacFileManager::getJavaFileObjectsFromPaths($Collection* paths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, result, nullptr);
 	if (paths != nullptr) {
 		$assign(result, $new($ArrayList, paths->size()));
@@ -1224,53 +1041,53 @@ $Iterable* JavacFileManager::getJavaFileObjectsFromPaths($Collection* paths) {
 	} else {
 		$assign(result, $new($ArrayList));
 	}
-	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(result))));
+	return $cast($AbstractCollection, result);
 }
 
 $Iterable* JavacFileManager::getJavaFileObjects($FileArray* files) {
-	$useLocalCurrentObjectStackCache();
-	return getJavaFileObjectsFromFiles($($Arrays::asList($cast($FileArray, $(nullCheck($of(files)))))));
+	$useLocalObjectStack();
+	return getJavaFileObjectsFromFiles($($Arrays::asList($$cast($FileArray, nullCheck(files)))));
 }
 
 $Iterable* JavacFileManager::getJavaFileObjects($PathArray* paths) {
-	$useLocalCurrentObjectStackCache();
-	return getJavaFileObjectsFromPaths($(static_cast<$Collection*>($Arrays::asList($cast($PathArray, $(nullCheck($of(paths))))))));
+	$useLocalObjectStack();
+	return getJavaFileObjectsFromPaths($($Arrays::asList($$cast($PathArray, nullCheck(paths)))));
 }
 
 void JavacFileManager::setLocation($JavaFileManager$Location* location, $Iterable* searchpath) {
-	nullCheck($of(location));
+	nullCheck(location);
 	$nc(this->locations)->setLocation(location, $(asPaths(searchpath)));
 	clearCachesForLocation(location);
 }
 
 void JavacFileManager::setLocationFromPaths($JavaFileManager$Location* location, $Collection* searchpath) {
-	nullCheck($of(location));
+	nullCheck(location);
 	$nc(this->locations)->setLocation(location, $(nullCheck(searchpath)));
 	clearCachesForLocation(location);
 }
 
 $Iterable* JavacFileManager::getLocation($JavaFileManager$Location* location) {
-	nullCheck($of(location));
+	nullCheck(location);
 	return asFiles($($nc(this->locations)->getLocation(location)));
 }
 
 $Iterable* JavacFileManager::getLocationAsPaths($JavaFileManager$Location* location) {
-	nullCheck($of(location));
+	nullCheck(location);
 	return $nc(this->locations)->getLocation(location);
 }
 
 $List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location, $RelativePath$RelativeDirectory* relativeDirectory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $cast($List, $nc(($cast($Map, $($nc(this->pathsAndContainersByLocationAndRelativeDirectory)->computeIfAbsent(location, static_cast<$Function*>($$new(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, this)))))))->computeIfAbsent(relativeDirectory, static_cast<$Function*>($$new(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, this, location))));
+		return $cast($List, $$sure($Map, $nc(this->pathsAndContainersByLocationAndRelativeDirectory)->computeIfAbsent(location, $$new(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, this)))->computeIfAbsent(relativeDirectory, $$new(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, this, location)));
 	} catch ($UncheckedIOException& e) {
-		$throw($($cast($IOException, e->getCause())));
+		$throw($$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
 
 $Map* JavacFileManager::indexPathsAndContainersByRelativeDirectory($JavaFileManager$Location* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, result, $new($HashMap));
 	$var($List, allPathsAndContainers, pathsAndContainers(location));
 	$var($List, nonIndexingContainers, $new($ArrayList));
@@ -1278,10 +1095,8 @@ $Map* JavacFileManager::indexPathsAndContainersByRelativeDirectory($JavaFileMana
 		$var($Iterator, i$, $nc(allPathsAndContainers)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JavacFileManager$PathAndContainer, pathAndContainer, $cast($JavacFileManager$PathAndContainer, i$->next()));
-			{
-				if (!$nc($nc(pathAndContainer)->container)->maintainsDirectoryIndex()) {
-					nonIndexingContainers->add(pathAndContainer);
-				}
+			if (!$nc($nc(pathAndContainer)->container)->maintainsDirectoryIndex()) {
+				nonIndexingContainers->add(pathAndContainer);
 			}
 		}
 	}
@@ -1292,13 +1107,11 @@ $Map* JavacFileManager::indexPathsAndContainersByRelativeDirectory($JavaFileMana
 			{
 				$var($JavacFileManager$Container, container, $nc(pathAndContainer)->container);
 				if ($nc(container)->maintainsDirectoryIndex()) {
-					{
-						$var($Iterator, i$, $nc($(container->indexedDirectories()))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($RelativePath$RelativeDirectory, directory, $cast($RelativePath$RelativeDirectory, i$->next()));
-							{
-								$nc(($cast($List, $(result->computeIfAbsent(directory, static_cast<$Function*>($$new(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, nonIndexingContainers)))))))->add(pathAndContainer);
-							}
+					$var($Iterator, i$, $$nc(container->indexedDirectories())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($RelativePath$RelativeDirectory, directory, $cast($RelativePath$RelativeDirectory, i$->next()));
+						{
+							$$sure($List, result->computeIfAbsent(directory, $$new(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, nonIndexingContainers)))->add(pathAndContainer);
 						}
 					}
 				}
@@ -1306,19 +1119,19 @@ $Map* JavacFileManager::indexPathsAndContainersByRelativeDirectory($JavaFileMana
 		}
 	}
 	$nc(this->nonIndexingContainersByLocation)->put(location, nonIndexingContainers);
-	$nc($(result->values()))->forEach(static_cast<$Consumer*>($$new(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5)));
+	$$nc(result->values())->forEach($$new(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5));
 	return result;
 }
 
 $List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, paths, $cast($Collection, getLocationAsPaths(location)));
 	if (paths == nullptr) {
 		return $1List::nil();
 	}
 	$var($List, pathsAndContainers, $new($ArrayList, $nc(paths)->size()));
 	{
-		$var($Iterator, i$, $nc(paths)->iterator());
+		$var($Iterator, i$, paths->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Path, path, $cast($Path, i$->next()));
 			{
@@ -1336,8 +1149,8 @@ $List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location)
 }
 
 bool JavacFileManager::contains($JavaFileManager$Location* location, $FileObject* fo) {
-	nullCheck($of(location));
-	nullCheck($of(fo));
+	nullCheck(location);
+	nullCheck(fo);
 	$var($Path, p, asPath(fo));
 	return $nc(this->locations)->contains(location, p);
 }
@@ -1355,7 +1168,7 @@ $Path* JavacFileManager::getSourceOutDir() {
 $JavaFileManager$Location* JavacFileManager::getLocationForModule($JavaFileManager$Location* location$renamed, $String* moduleName) {
 	$var($JavaFileManager$Location, location, location$renamed);
 	checkModuleOrientedOrOutputLocation(location);
-	nullCheck($of(moduleName));
+	nullCheck(moduleName);
 	$init($StandardLocation);
 	if ($equals(location, $StandardLocation::SOURCE_OUTPUT) && getSourceOutDir() == nullptr) {
 		$assign(location, $StandardLocation::CLASS_OUTPUT);
@@ -1364,19 +1177,18 @@ $JavaFileManager$Location* JavacFileManager::getLocationForModule($JavaFileManag
 }
 
 $ServiceLoader* JavacFileManager::getServiceLoader($JavaFileManager$Location* location, $Class* service) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	nullCheck($of(location));
-	nullCheck($of(service));
-	$nc($($of(this)->getClass()->getModule()))->addUses(service);
+	nullCheck(location);
+	nullCheck(service);
+	$$nc($of(this)->getClass()->getModule())->addUses(service);
 	if ($nc(location)->isModuleOrientedLocation()) {
 		$var($Collection, paths, $nc(this->locations)->getLocation(location));
-		$var($ModuleFinder, finder, $ModuleFinder::of($fcast($PathArray, $($nc(paths)->toArray($$new($PathArray, paths->size()))))));
+		$var($ModuleFinder, finder, $ModuleFinder::of($$cast($PathArray, $nc(paths)->toArray($$new($PathArray, $nc(paths)->size())))));
 		$var($ModuleLayer, bootLayer, $ModuleLayer::boot());
 		$var($ModuleFinder, var$0, $ModuleFinder::of($$new($PathArray, 0)));
-		$var($ModuleFinder, var$1, finder);
-		$var($Configuration, cf, $nc($($nc(bootLayer)->configuration()))->resolveAndBind(var$0, var$1, $(static_cast<$Collection*>($Collections::emptySet()))));
-		$var($ModuleLayer, layer, bootLayer->defineModulesWithOneLoader(cf, $($ClassLoader::getSystemClassLoader())));
+		$var($Configuration, cf, $$nc($nc(bootLayer)->configuration())->resolveAndBind(var$0, finder, $($Collections::emptySet())));
+		$var($ModuleLayer, layer, $nc(bootLayer)->defineModulesWithOneLoader(cf, $($ClassLoader::getSystemClassLoader())));
 		return $ServiceLoader::load(layer, service);
 	} else {
 		return $ServiceLoader::load(service, $(getClassLoader(location)));
@@ -1384,7 +1196,7 @@ $ServiceLoader* JavacFileManager::getServiceLoader($JavaFileManager$Location* lo
 }
 
 $JavaFileManager$Location* JavacFileManager::getLocationForModule($JavaFileManager$Location* location, $JavaFileObject* fo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkModuleOrientedOrOutputLocation(location);
 	$var($PathFileObject, pathFileObject, nullptr);
 	bool var$0 = $instanceOf($PathFileObject, fo);
@@ -1400,12 +1212,11 @@ $JavaFileManager$Location* JavacFileManager::getLocationForModule($JavaFileManag
 }
 
 void JavacFileManager::setLocationForModule($JavaFileManager$Location* location, $String* moduleName, $Collection* paths) {
-	$useLocalCurrentObjectStackCache();
-	nullCheck($of(location));
+	$useLocalObjectStack();
+	nullCheck(location);
 	checkModuleOrientedOrOutputLocation(location);
-	$var($JavaFileManager$Location, var$0, location);
-	$var($String, var$1, $cast($String, nullCheck($of(moduleName))));
-	$nc(this->locations)->setLocationForModule(var$0, var$1, $(nullCheck(paths)));
+	$var($String, var$0, $cast($String, nullCheck(moduleName)));
+	$nc(this->locations)->setLocationForModule(location, var$0, $(nullCheck(paths)));
 	clearCachesForLocation(location);
 }
 
@@ -1420,7 +1231,7 @@ $Iterable* JavacFileManager::listLocationsForModules($JavaFileManager$Location* 
 }
 
 $Path* JavacFileManager::asPath($FileObject* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($PathFileObject, pathFileObject, nullptr);
 		bool var$0 = $instanceOf($PathFileObject, file);
@@ -1438,20 +1249,20 @@ $Path* JavacFileManager::asPath($FileObject* file) {
 
 bool JavacFileManager::isRelativeUri($URI* uri) {
 	$init(JavacFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(uri)->isAbsolute()) {
 		return false;
 	}
-	$var($String, path, $nc($($nc(uri)->normalize()))->getPath());
+	$var($String, path, $$nc(uri->normalize())->getPath());
 	if ($nc(path)->length() == 0) {
 		return false;
 	}
-	if (!$nc(path)->equals($(uri->getPath()))) {
+	if (!path->equals($(uri->getPath()))) {
 		return false;
 	}
-	bool var$1 = $nc(path)->startsWith("/"_s);
-	bool var$0 = var$1 || $nc(path)->startsWith("./"_s);
-	if (var$0 || $nc(path)->startsWith("../"_s)) {
+	bool var$1 = path->startsWith("/"_s);
+	bool var$0 = var$1 || path->startsWith("./"_s);
+	if (var$0 || path->startsWith("../"_s)) {
 		return false;
 	}
 	return true;
@@ -1469,10 +1280,9 @@ bool JavacFileManager::isRelativeUri($String* u) {
 
 $String* JavacFileManager::getRelativeName($File* file) {
 	$init(JavacFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(file)->isAbsolute()) {
-		$init($File);
-		$var($String, result, $nc($(file->getPath()))->replace($File::separatorChar, u'/'));
+		$var($String, result, $$nc(file->getPath())->replace($File::separatorChar, u'/'));
 		if (isRelativeUri(result)) {
 			return result;
 		}
@@ -1494,7 +1304,7 @@ $String* JavacFileManager::getMessage($IOException* e) {
 }
 
 void JavacFileManager::checkOutputLocation($JavaFileManager$Location* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(location);
 	if (!location->isOutputLocation()) {
 		$throwNew($IllegalArgumentException, $$str({"location is not an output location: "_s, $(location->getName())}));
@@ -1502,7 +1312,7 @@ void JavacFileManager::checkOutputLocation($JavaFileManager$Location* location) 
 }
 
 void JavacFileManager::checkModuleOrientedOrOutputLocation($JavaFileManager$Location* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(location);
 	bool var$0 = !location->isModuleOrientedLocation();
 	if (var$0 && !location->isOutputLocation()) {
@@ -1511,7 +1321,7 @@ void JavacFileManager::checkModuleOrientedOrOutputLocation($JavaFileManager$Loca
 }
 
 void JavacFileManager::checkNotModuleOrientedLocation($JavaFileManager$Location* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(location);
 	if (location->isModuleOrientedLocation()) {
 		$throwNew($IllegalArgumentException, $$str({"location is module-oriented: "_s, $(location->getName())}));
@@ -1523,7 +1333,7 @@ $Iterable* JavacFileManager::asPaths($Iterable* files) {
 	if (files == nullptr) {
 		return nullptr;
 	}
-	return static_cast<$Iterable*>($new(JavacFileManager$$Lambda$lambda$asPaths$4$6, files));
+	return $new(JavacFileManager$$Lambda$lambda$asPaths$4$6, files);
 }
 
 $Iterable* JavacFileManager::asFiles($Iterable* paths) {
@@ -1531,7 +1341,7 @@ $Iterable* JavacFileManager::asFiles($Iterable* paths) {
 	if (paths == nullptr) {
 		return nullptr;
 	}
-	return static_cast<$Iterable*>($new(JavacFileManager$$Lambda$lambda$asFiles$5$7, paths));
+	return $new(JavacFileManager$$Lambda$lambda$asFiles$5$7, paths);
 }
 
 bool JavacFileManager::handleOption($Option* option, $String* value) {
@@ -1544,7 +1354,7 @@ bool JavacFileManager::handleOption($Option* option, $String* value) {
 }
 
 void JavacFileManager::clearCachesForLocation($JavaFileManager$Location* location) {
-	nullCheck($of(location));
+	nullCheck(location);
 	$nc(this->pathsAndContainersByLocationAndRelativeDirectory)->remove(location);
 	$nc(this->nonIndexingContainersByLocation)->remove(location);
 }
@@ -1566,7 +1376,7 @@ void JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3($List
 
 $List* JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2($List* nonIndexingContainers, $RelativePath$RelativeDirectory* d) {
 	$init(JavacFileManager);
-	return $new($ArrayList, static_cast<$Collection*>(nonIndexingContainers));
+	return $new($ArrayList, nonIndexingContainers);
 }
 
 $List* JavacFileManager::lambda$pathsAndContainers$1($JavaFileManager$Location* location, $RelativePath$RelativeDirectory* d) {
@@ -1575,16 +1385,16 @@ $List* JavacFileManager::lambda$pathsAndContainers$1($JavaFileManager$Location* 
 
 $JavaFileManager* JavacFileManager::lambda$preRegister$0($Context* c) {
 	$init(JavacFileManager);
-	return static_cast<$JavaFileManager*>(static_cast<$BaseFileManager*>($new(JavacFileManager, c, true, nullptr)));
+	return $cast($BaseFileManager, $new(JavacFileManager, c, true, nullptr));
 }
 
-void clinit$JavacFileManager($Class* class$) {
+void JavacFileManager::clinit$($Class* clazz) {
 	$init($JavaFileObject$Kind);
 	$assignStatic(JavacFileManager::SOURCE_OR_CLASS, $Set::of($JavaFileObject$Kind::SOURCE, $JavaFileObject$Kind::CLASS));
 	$assignStatic(JavacFileManager::MISSING_CONTAINER, $new($JavacFileManager$1));
 	$assignStatic(JavacFileManager::NO_FILE_VISIT_OPTIONS, $Set::of());
 	$init($FileVisitOption);
-	$assignStatic(JavacFileManager::FOLLOW_LINKS_OPTIONS, $Set::of($of($FileVisitOption::FOLLOW_LINKS)));
+	$assignStatic(JavacFileManager::FOLLOW_LINKS_OPTIONS, $Set::of($FileVisitOption::FOLLOW_LINKS));
 	$init($File);
 	JavacFileManager::fileSystemIsCaseSensitive = $File::separatorChar == u'/';
 }
@@ -1594,32 +1404,160 @@ JavacFileManager::JavacFileManager() {
 
 $Class* JavacFileManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavacFileManager$$Lambda$get::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$get")) {
 			return JavacFileManager$$Lambda$get::load$(name, initialize);
 		}
-		if (name->equals(JavacFileManager$$Lambda$lambda$preRegister$0$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$preRegister$0$1")) {
 			return JavacFileManager$$Lambda$lambda$preRegister$0$1::load$(name, initialize);
 		}
-		if (name->equals(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2")) {
 			return JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2::load$(name, initialize);
 		}
-		if (name->equals(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3")) {
 			return JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::load$(name, initialize);
 		}
-		if (name->equals(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4")) {
 			return JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::load$(name, initialize);
 		}
-		if (name->equals(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5")) {
 			return JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5::load$(name, initialize);
 		}
-		if (name->equals(JavacFileManager$$Lambda$lambda$asPaths$4$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$asPaths$4$6")) {
 			return JavacFileManager$$Lambda$lambda$asPaths$4$6::load$(name, initialize);
 		}
-		if (name->equals(JavacFileManager$$Lambda$lambda$asFiles$5$7::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.JavacFileManager$$Lambda$lambda$asFiles$5$7")) {
 			return JavacFileManager$$Lambda$lambda$asFiles$5$7::load$(name, initialize);
 		}
 	}
-	$loadClass(JavacFileManager, name, initialize, &_JavacFileManager_ClassInfo_, clinit$JavacFileManager, allocate$JavacFileManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"fsInfo", "Lcom/sun/tools/javac/file/FSInfo;", nullptr, $PRIVATE, $field(JavacFileManager, fsInfo)},
+		{"SOURCE_OR_CLASS", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, SOURCE_OR_CLASS)},
+		{"symbolFileEnabled", "Z", nullptr, $PROTECTED, $field(JavacFileManager, symbolFileEnabled)},
+		{"pathFactory", "Ljavax/tools/StandardJavaFileManager$PathFactory;", nullptr, $PRIVATE, $field(JavacFileManager, pathFactory)},
+		{"sortFiles", "Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PROTECTED, $field(JavacFileManager, sortFiles)},
+		{"pathsAndContainersByLocationAndRelativeDirectory", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileManager$Location;Ljava/util/Map<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;>;>;", $PRIVATE, $field(JavacFileManager, pathsAndContainersByLocationAndRelativeDirectory)},
+		{"nonIndexingContainersByLocation", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileManager$Location;Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;>;", $PRIVATE, $field(JavacFileManager, nonIndexingContainersByLocation)},
+		{"containers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Lcom/sun/tools/javac/file/JavacFileManager$Container;>;", $PRIVATE | $FINAL, $field(JavacFileManager, containers)},
+		{"MISSING_CONTAINER", "Lcom/sun/tools/javac/file/JavacFileManager$Container;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, MISSING_CONTAINER)},
+		{"jrtIndex", "Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PRIVATE, $field(JavacFileManager, jrtIndex)},
+		{"NO_FILE_VISIT_OPTIONS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/FileVisitOption;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, NO_FILE_VISIT_OPTIONS)},
+		{"FOLLOW_LINKS_OPTIONS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/nio/file/FileVisitOption;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, FOLLOW_LINKS_OPTIONS)},
+		{"fileSystemIsCaseSensitive", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavacFileManager, fileSystemIsCaseSensitive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;ZLjava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(JavacFileManager, init$, void, $Context*, bool, $Charset*)},
+		{"asFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<Ljava/io/File;>;", $PRIVATE | $STATIC, $staticMethod(JavacFileManager, asFiles, $Iterable*, $Iterable*)},
+		{"asPath", "(Ljavax/tools/FileObject;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, asPath, $Path*, $FileObject*)},
+		{"asPaths", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PRIVATE | $STATIC, $staticMethod(JavacFileManager, asPaths, $Iterable*, $Iterable*)},
+		{"caseMapCheck", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath;)Z", nullptr, $PRIVATE, $method(JavacFileManager, caseMapCheck, bool, $Path*, $RelativePath*)},
+		{"checkModuleOrientedOrOutputLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, checkModuleOrientedOrOutputLocation, void, $JavaFileManager$Location*)},
+		{"checkNotModuleOrientedLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, checkNotModuleOrientedLocation, void, $JavaFileManager$Location*)},
+		{"checkOutputLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, checkOutputLocation, void, $JavaFileManager$Location*)},
+		{"clearCachesForLocation", "(Ljavax/tools/JavaFileManager$Location;)V", nullptr, $PRIVATE, $method(JavacFileManager, clearCachesForLocation, void, $JavaFileManager$Location*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, close, void), "java.io.IOException"},
+		{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, contains, bool, $JavaFileManager$Location*, $FileObject*), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, flush, void)},
+		{"getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getClassLoader, $ClassLoader*, $JavaFileManager$Location*)},
+		{"getClassOutDir", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(JavacFileManager, getClassOutDir, $Path*)},
+		{"getContainer", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/JavacFileManager$Container;", nullptr, $SYNCHRONIZED, $virtualMethod(JavacFileManager, getContainer, $JavacFileManager$Container*, $Path*), "java.io.IOException"},
+		{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
+		{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(JavacFileManager, getFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $RelativePath$RelativeFile*), "java.io.IOException"},
+		{"getFileForOutput", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getFileForOutput, $JavaFileObject*, $String*, $JavaFileObject$Kind*, $JavaFileObject*), "java.io.IOException"},
+		{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
+		{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(JavacFileManager, getFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $RelativePath$RelativeFile*, $FileObject*), "java.io.IOException"},
+		{"getJRTIndex", "()Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JavacFileManager, getJRTIndex, $JRTIndex*)},
+		{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
+		{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
+		{"getJavaFileObject", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObject, $JavaFileObject*, $String*)},
+		{"getJavaFileObject", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObject, $JavaFileObject*, $Path*)},
+		{"getJavaFileObjects", "([Ljava/lang/String;)Ljava/lang/Iterable;", "([Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(JavacFileManager, getJavaFileObjects, $Iterable*, $StringArray*)},
+		{"getJavaFileObjects", "([Ljava/io/File;)Ljava/lang/Iterable;", "([Ljava/io/File;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(JavacFileManager, getJavaFileObjects, $Iterable*, $FileArray*)},
+		{"getJavaFileObjects", "([Ljava/nio/file/Path;)Ljava/lang/Iterable;", "([Ljava/nio/file/Path;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $TRANSIENT, $virtualMethod(JavacFileManager, getJavaFileObjects, $Iterable*, $PathArray*)},
+		{"getJavaFileObjectsFromFiles", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/io/File;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObjectsFromFiles, $Iterable*, $Iterable*)},
+		{"getJavaFileObjectsFromPaths", "(Ljava/util/Collection;)Ljava/lang/Iterable;", "(Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObjectsFromPaths, $Iterable*, $Collection*)},
+		{"getJavaFileObjectsFromStrings", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljava/lang/String;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, getJavaFileObjectsFromStrings, $Iterable*, $Iterable*)},
+		{"getLocation", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<+Ljava/io/File;>;", $PUBLIC, $virtualMethod(JavacFileManager, getLocation, $Iterable*, $JavaFileManager$Location*)},
+		{"getLocationAsPaths", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Collection;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Collection<+Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(JavacFileManager, getLocationAsPaths, $Iterable*, $JavaFileManager$Location*)},
+		{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $String*), "java.io.IOException"},
+		{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
+		{"getMessage", "(Ljava/io/IOException;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, getMessage, $String*, $IOException*)},
+		{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $TRANSIENT, $method(JavacFileManager, getPath, $Path*, $String*, $StringArray*)},
+		{"getRelativeName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, getRelativeName, $String*, $File*)},
+		{"getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC, $virtualMethod(JavacFileManager, getServiceLoader, $ServiceLoader*, $JavaFileManager$Location*, $Class*), "java.io.IOException"},
+		{"getSourceOutDir", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(JavacFileManager, getSourceOutDir, $Path*)},
+		{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, handleOption, bool, $Option*, $String*)},
+		{"hasExplicitLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PROTECTED, $virtualMethod(JavacFileManager, hasExplicitLocation, bool, $JavaFileManager$Location*)},
+		{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, hasLocation, bool, $JavaFileManager$Location*)},
+		{"indexPathsAndContainersByRelativeDirectory", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Map;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/Map<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;>;", $PRIVATE, $method(JavacFileManager, indexPathsAndContainersByRelativeDirectory, $Map*, $JavaFileManager$Location*)},
+		{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
+		{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, inferModuleName, $String*, $JavaFileManager$Location*)},
+		{"isRelativeUri", "(Ljava/net/URI;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(JavacFileManager, isRelativeUri, bool, $URI*)},
+		{"isRelativeUri", "(Ljava/lang/String;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(JavacFileManager, isRelativeUri, bool, $String*)},
+		{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, isSameFile, bool, $FileObject*, $FileObject*)},
+		{"*isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
+		{"isSymbolFileEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, isSymbolFileEnabled, bool)},
+		{"isValidFile", "(Ljava/lang/String;Ljava/util/Set;)Z", "(Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;)Z", $PRIVATE, $method(JavacFileManager, isValidFile, bool, $String*, $Set*)},
+		{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacFileManager, isValidName, bool, $String*)},
+		{"lambda$asFiles$5", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$asFiles$5, $Iterator*, $Iterable*)},
+		{"lambda$asPaths$4", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$asPaths$4, $Iterator*, $Iterable*)},
+		{"lambda$indexPathsAndContainersByRelativeDirectory$2", "(Ljava/util/List;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$indexPathsAndContainersByRelativeDirectory$2, $List*, $List*, $RelativePath$RelativeDirectory*)},
+		{"lambda$indexPathsAndContainersByRelativeDirectory$3", "(Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$indexPathsAndContainersByRelativeDirectory$3, void, $List*)},
+		{"lambda$pathsAndContainers$1", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacFileManager, lambda$pathsAndContainers$1, $List*, $JavaFileManager$Location*, $RelativePath$RelativeDirectory*)},
+		{"lambda$preRegister$0", "(Lcom/sun/tools/javac/util/Context;)Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager, lambda$preRegister$0, $JavaFileManager*, $Context*)},
+		{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
+		{"listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", $PUBLIC, $virtualMethod(JavacFileManager, listLocationsForModules, $Iterable*, $JavaFileManager$Location*), "java.io.IOException"},
+		{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(JavacFileManager, pathsAndContainers, $List*, $JavaFileManager$Location*, $RelativePath$RelativeDirectory*), "java.io.IOException"},
+		{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(JavacFileManager, pathsAndContainers, $List*, $JavaFileManager$Location*)},
+		{"preRegister", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, preRegister, void, $Context*)},
+		{"printAscii", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(JavacFileManager, printAscii, void, $String*, $ObjectArray*)},
+		{"setContext", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, setContext, void, $Context*)},
+		{"setLocation", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(JavacFileManager, setLocation, void, $JavaFileManager$Location*, $Iterable*), "java.io.IOException"},
+		{"setLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(JavacFileManager, setLocationForModule, void, $JavaFileManager$Location*, $String*, $Collection*), "java.io.IOException"},
+		{"setLocationFromPaths", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection;)V", "(Ljavax/tools/JavaFileManager$Location;Ljava/util/Collection<+Ljava/nio/file/Path;>;)V", $PUBLIC, $virtualMethod(JavacFileManager, setLocationFromPaths, void, $JavaFileManager$Location*, $Collection*), "java.io.IOException"},
+		{"setPathFactory", "(Ljavax/tools/StandardJavaFileManager$PathFactory;)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, setPathFactory, void, $StandardJavaFileManager$PathFactory*)},
+		{"setSymbolFileEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager, setSymbolFileEnabled, void, bool)},
+		{"testName", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, testName, void, $String*, bool, bool)},
+		{"toArray", "(Ljava/nio/CharBuffer;)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager, toArray, $chars*, $CharBuffer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validateClassName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacFileManager, validateClassName, void, $String*)},
+		{"validatePackageName", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacFileManager, validatePackageName, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JavacFileManager$PathAndContainer", "com.sun.tools.javac.file.JavacFileManager", "PathAndContainer", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.file.JavacFileManager$ArchiveContainer", "com.sun.tools.javac.file.JavacFileManager", "ArchiveContainer", $PRIVATE | $FINAL},
+		{"com.sun.tools.javac.file.JavacFileManager$DirectoryContainer", "com.sun.tools.javac.file.JavacFileManager", "DirectoryContainer", $PRIVATE | $FINAL},
+		{"com.sun.tools.javac.file.JavacFileManager$JRTImageContainer", "com.sun.tools.javac.file.JavacFileManager", "JRTImageContainer", $PRIVATE | $FINAL},
+		{"com.sun.tools.javac.file.JavacFileManager$Container", "com.sun.tools.javac.file.JavacFileManager", "Container", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.file.JavacFileManager$SortFiles", "com.sun.tools.javac.file.JavacFileManager", "SortFiles", $PROTECTED | $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.file.JavacFileManager$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.file.JavacFileManager$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.file.JavacFileManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.file.JavacFileManager",
+		"com.sun.tools.javac.file.BaseFileManager",
+		"javax.tools.StandardJavaFileManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JavacFileManager$PathAndContainer,com.sun.tools.javac.file.JavacFileManager$ArchiveContainer,com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$2,com.sun.tools.javac.file.JavacFileManager$ArchiveContainer$1,com.sun.tools.javac.file.JavacFileManager$DirectoryContainer,com.sun.tools.javac.file.JavacFileManager$JRTImageContainer,com.sun.tools.javac.file.JavacFileManager$Container,com.sun.tools.javac.file.JavacFileManager$SortFiles,com.sun.tools.javac.file.JavacFileManager$SortFiles$2,com.sun.tools.javac.file.JavacFileManager$SortFiles$1,com.sun.tools.javac.file.JavacFileManager$2,com.sun.tools.javac.file.JavacFileManager$3,com.sun.tools.javac.file.JavacFileManager$1"
+	};
+	$loadClass(JavacFileManager, name, initialize, &classInfo$$, JavacFileManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacFileManager));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/beans/BeanDescriptor.h>
-
 #include <java/beans/FeatureDescriptor.h>
 #include <java/beans/JavaBean.h>
 #include <java/lang/annotation/Annotation.h>
@@ -13,53 +12,23 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $SwingContainer = ::javax::swing::SwingContainer;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _BeanDescriptor_FieldInfo_[] = {
-	{"beanClassRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(BeanDescriptor, beanClassRef)},
-	{"customizerClassRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(BeanDescriptor, customizerClassRef)},
-	{}
-};
-
-$MethodInfo _BeanDescriptor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(BeanDescriptor, init$, void, $Class*)},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(BeanDescriptor, init$, void, $Class*, $Class*)},
-	{"<init>", "(Ljava/beans/BeanDescriptor;)V", nullptr, 0, $method(BeanDescriptor, init$, void, BeanDescriptor*)},
-	{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(BeanDescriptor, appendTo, void, $StringBuilder*)},
-	{"getBeanClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanDescriptor, getBeanClass, $Class*)},
-	{"getCustomizerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanDescriptor, getCustomizerClass, $Class*)},
-	{}
-};
-
-$ClassInfo _BeanDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.BeanDescriptor",
-	"java.beans.FeatureDescriptor",
-	nullptr,
-	_BeanDescriptor_FieldInfo_,
-	_BeanDescriptor_MethodInfo_
-};
-
-$Object* allocate$BeanDescriptor($Class* clazz) {
-	return $of($alloc(BeanDescriptor));
-}
 
 void BeanDescriptor::init$($Class* beanClass) {
 	BeanDescriptor::init$(beanClass, nullptr);
 }
 
 void BeanDescriptor::init$($Class* beanClass, $Class* customizerClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FeatureDescriptor::init$();
 	$set(this, beanClassRef, getWeakReference(beanClass));
 	$set(this, customizerClassRef, getWeakReference(customizerClass));
 	$var($String, name, $nc(beanClass)->getName());
-	while ($nc(name)->indexOf((int32_t)u'.') >= 0) {
-		$assign(name, name->substring(name->indexOf((int32_t)u'.') + 1));
+	while ($nc(name)->indexOf(u'.') >= 0) {
+		$assign(name, name->substring(name->indexOf(u'.') + 1));
 	}
 	setName(name);
 	$load($JavaBean);
@@ -80,11 +49,11 @@ void BeanDescriptor::init$($Class* beanClass, $Class* customizerClass) {
 }
 
 $Class* BeanDescriptor::getBeanClass() {
-	return (this->beanClassRef != nullptr) ? $cast($Class, $nc(this->beanClassRef)->get()) : ($Class*)nullptr;
+	return (this->beanClassRef != nullptr) ? $cast($Class, this->beanClassRef->get()) : ($Class*)nullptr;
 }
 
 $Class* BeanDescriptor::getCustomizerClass() {
-	return (this->customizerClassRef != nullptr) ? $cast($Class, $nc(this->customizerClassRef)->get()) : ($Class*)nullptr;
+	return (this->customizerClassRef != nullptr) ? $cast($Class, this->customizerClassRef->get()) : ($Class*)nullptr;
 }
 
 void BeanDescriptor::init$(BeanDescriptor* old) {
@@ -102,7 +71,31 @@ BeanDescriptor::BeanDescriptor() {
 }
 
 $Class* BeanDescriptor::load$($String* name, bool initialize) {
-	$loadClass(BeanDescriptor, name, initialize, &_BeanDescriptor_ClassInfo_, allocate$BeanDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"beanClassRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(BeanDescriptor, beanClassRef)},
+		{"customizerClassRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(BeanDescriptor, customizerClassRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(BeanDescriptor, init$, void, $Class*)},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(BeanDescriptor, init$, void, $Class*, $Class*)},
+		{"<init>", "(Ljava/beans/BeanDescriptor;)V", nullptr, 0, $method(BeanDescriptor, init$, void, BeanDescriptor*)},
+		{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(BeanDescriptor, appendTo, void, $StringBuilder*)},
+		{"getBeanClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanDescriptor, getBeanClass, $Class*)},
+		{"getCustomizerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BeanDescriptor, getCustomizerClass, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.BeanDescriptor",
+		"java.beans.FeatureDescriptor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BeanDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanDescriptor);
+	});
 	return class$;
 }
 

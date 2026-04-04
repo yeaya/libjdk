@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/SliderUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _SliderUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SliderUI, init$, void)},
-	{}
-};
-
-$ClassInfo _SliderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.SliderUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_SliderUI_MethodInfo_
-};
-
-$Object* allocate$SliderUI($Class* clazz) {
-	return $of($alloc(SliderUI));
-}
-
 void SliderUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ SliderUI::SliderUI() {
 }
 
 $Class* SliderUI::load$($String* name, bool initialize) {
-	$loadClass(SliderUI, name, initialize, &_SliderUI_ClassInfo_, allocate$SliderUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SliderUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.SliderUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SliderUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SliderUI);
+	});
 	return class$;
 }
 

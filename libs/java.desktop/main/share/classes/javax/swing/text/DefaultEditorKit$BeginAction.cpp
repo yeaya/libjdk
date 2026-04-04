@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$BeginAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -17,42 +16,6 @@ using $TextAction = ::javax::swing::text::TextAction;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultEditorKit$BeginAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$BeginAction, select)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$BeginAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$BeginAction, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$BeginAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$BeginAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$BeginAction", "javax.swing.text.DefaultEditorKit", "BeginAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$BeginAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$BeginAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$BeginAction_FieldInfo_,
-	_DefaultEditorKit$BeginAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$BeginAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$BeginAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$BeginAction));
-}
 
 void DefaultEditorKit$BeginAction::init$($String* nm, bool select) {
 	$TextAction::init$(nm);
@@ -74,7 +37,37 @@ DefaultEditorKit$BeginAction::DefaultEditorKit$BeginAction() {
 }
 
 $Class* DefaultEditorKit$BeginAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$BeginAction, name, initialize, &_DefaultEditorKit$BeginAction_ClassInfo_, allocate$DefaultEditorKit$BeginAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$BeginAction, select)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$BeginAction, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$BeginAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$BeginAction", "javax.swing.text.DefaultEditorKit", "BeginAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$BeginAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$BeginAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$BeginAction));
+	});
 	return class$;
 }
 

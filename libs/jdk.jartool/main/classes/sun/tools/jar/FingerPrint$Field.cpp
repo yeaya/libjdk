@@ -1,5 +1,4 @@
 #include <sun/tools/jar/FingerPrint$Field.h>
-
 #include <sun/tools/jar/FingerPrint.h>
 #include <jcpp.h>
 
@@ -11,45 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace tools {
 		namespace jar {
-
-$FieldInfo _FingerPrint$Field_FieldInfo_[] = {
-	{"access", "I", nullptr, $PRIVATE | $FINAL, $field(FingerPrint$Field, access)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FingerPrint$Field, name)},
-	{"desc", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FingerPrint$Field, desc)},
-	{}
-};
-
-$MethodInfo _FingerPrint$Field_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(FingerPrint$Field, init$, void, int32_t, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FingerPrint$Field, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FingerPrint$Field, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _FingerPrint$Field_InnerClassesInfo_[] = {
-	{"sun.tools.jar.FingerPrint$Field", "sun.tools.jar.FingerPrint", "Field", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FingerPrint$Field_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.tools.jar.FingerPrint$Field",
-	"java.lang.Object",
-	nullptr,
-	_FingerPrint$Field_FieldInfo_,
-	_FingerPrint$Field_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FingerPrint$Field_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.FingerPrint"
-};
-
-$Object* allocate$FingerPrint$Field($Class* clazz) {
-	return $of($alloc(FingerPrint$Field));
-}
 
 void FingerPrint$Field::init$(int32_t access, $String* name, $String* desc) {
 	this->access = access;
@@ -84,7 +44,40 @@ FingerPrint$Field::FingerPrint$Field() {
 }
 
 $Class* FingerPrint$Field::load$($String* name, bool initialize) {
-	$loadClass(FingerPrint$Field, name, initialize, &_FingerPrint$Field_ClassInfo_, allocate$FingerPrint$Field);
+	$FieldInfo fieldInfos$$[] = {
+		{"access", "I", nullptr, $PRIVATE | $FINAL, $field(FingerPrint$Field, access)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FingerPrint$Field, name)},
+		{"desc", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FingerPrint$Field, desc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(FingerPrint$Field, init$, void, int32_t, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FingerPrint$Field, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FingerPrint$Field, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.FingerPrint$Field", "sun.tools.jar.FingerPrint", "Field", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.tools.jar.FingerPrint$Field",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.FingerPrint"
+	};
+	$loadClass(FingerPrint$Field, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FingerPrint$Field);
+	});
 	return class$;
 }
 

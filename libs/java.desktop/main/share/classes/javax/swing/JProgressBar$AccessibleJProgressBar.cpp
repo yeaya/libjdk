@@ -1,5 +1,4 @@
 #include <javax/swing/JProgressBar$AccessibleJProgressBar.h>
-
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleState.h>
@@ -7,7 +6,6 @@
 #include <javax/accessibility/AccessibleValue.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar.h>
 #include <jcpp.h>
 
@@ -26,61 +24,11 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
-using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JProgressBar = ::javax::swing::JProgressBar;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JProgressBar$AccessibleJProgressBar_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JProgressBar;", nullptr, $FINAL | $SYNTHETIC, $field(JProgressBar$AccessibleJProgressBar, this$0)},
-	{}
-};
-
-$MethodInfo _JProgressBar$AccessibleJProgressBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JProgressBar;)V", nullptr, $PROTECTED, $method(JProgressBar$AccessibleJProgressBar, init$, void, $JProgressBar*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JProgressBar$AccessibleJProgressBar_InnerClassesInfo_[] = {
-	{"javax.swing.JProgressBar$AccessibleJProgressBar", "javax.swing.JProgressBar", "AccessibleJProgressBar", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JProgressBar$AccessibleJProgressBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JProgressBar$AccessibleJProgressBar",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.accessibility.AccessibleValue",
-	_JProgressBar$AccessibleJProgressBar_FieldInfo_,
-	_JProgressBar$AccessibleJProgressBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JProgressBar$AccessibleJProgressBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JProgressBar"
-};
-
-$Object* allocate$JProgressBar$AccessibleJProgressBar($Class* clazz) {
-	return $of($alloc(JProgressBar$AccessibleJProgressBar));
-}
 
 int32_t JProgressBar$AccessibleJProgressBar::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -108,9 +56,9 @@ void JProgressBar$AccessibleJProgressBar::init$($JProgressBar* this$0) {
 }
 
 $AccessibleStateSet* JProgressBar$AccessibleJProgressBar::getAccessibleStateSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleStateSet, states, $JComponent$AccessibleJComponent::getAccessibleStateSet());
-	if ($nc($(this->this$0->getModel()))->getValueIsAdjusting()) {
+	if ($$nc(this->this$0->getModel())->getValueIsAdjusting()) {
 		$init($AccessibleState);
 		$nc(states)->add($AccessibleState::BUSY);
 	}
@@ -151,14 +99,56 @@ $Number* JProgressBar$AccessibleJProgressBar::getMinimumAccessibleValue() {
 
 $Number* JProgressBar$AccessibleJProgressBar::getMaximumAccessibleValue() {
 	int32_t var$0 = $nc(this->this$0->model)->getMaximum();
-	return $Integer::valueOf(var$0 - $nc(this->this$0->model)->getExtent());
+	return $Integer::valueOf(var$0 - this->this$0->model->getExtent());
 }
 
 JProgressBar$AccessibleJProgressBar::JProgressBar$AccessibleJProgressBar() {
 }
 
 $Class* JProgressBar$AccessibleJProgressBar::load$($String* name, bool initialize) {
-	$loadClass(JProgressBar$AccessibleJProgressBar, name, initialize, &_JProgressBar$AccessibleJProgressBar_ClassInfo_, allocate$JProgressBar$AccessibleJProgressBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JProgressBar;", nullptr, $FINAL | $SYNTHETIC, $field(JProgressBar$AccessibleJProgressBar, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JProgressBar;)V", nullptr, $PROTECTED, $method(JProgressBar$AccessibleJProgressBar, init$, void, $JProgressBar*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JProgressBar$AccessibleJProgressBar, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JProgressBar$AccessibleJProgressBar", "javax.swing.JProgressBar", "AccessibleJProgressBar", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JProgressBar$AccessibleJProgressBar",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JProgressBar"
+	};
+	$loadClass(JProgressBar$AccessibleJProgressBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JProgressBar$AccessibleJProgressBar));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/accessibility/AccessibleContext$1.h>
-
 #include <javax/accessibility/AccessibleContext.h>
 #include <sun/awt/AppContext.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ using $AppContext = ::sun::awt::AppContext;
 namespace javax {
 	namespace accessibility {
 
-$MethodInfo _AccessibleContext$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AccessibleContext$1, init$, void)},
-	{"getAppContext", "(Ljavax/accessibility/AccessibleContext;)Lsun/awt/AppContext;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, getAppContext, $AppContext*, $AccessibleContext*)},
-	{"getNativeAXResource", "(Ljavax/accessibility/AccessibleContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, getNativeAXResource, $Object*, $AccessibleContext*)},
-	{"setAppContext", "(Ljavax/accessibility/AccessibleContext;Lsun/awt/AppContext;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, setAppContext, void, $AccessibleContext*, $AppContext*)},
-	{"setNativeAXResource", "(Ljavax/accessibility/AccessibleContext;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, setNativeAXResource, void, $AccessibleContext*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _AccessibleContext$1_EnclosingMethodInfo_ = {
-	"javax.accessibility.AccessibleContext",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AccessibleContext$1_InnerClassesInfo_[] = {
-	{"javax.accessibility.AccessibleContext$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$AccessibleContextAccessor", "sun.awt.AWTAccessor", "AccessibleContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AccessibleContext$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.accessibility.AccessibleContext$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$AccessibleContextAccessor",
-	nullptr,
-	_AccessibleContext$1_MethodInfo_,
-	nullptr,
-	&_AccessibleContext$1_EnclosingMethodInfo_,
-	_AccessibleContext$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.accessibility.AccessibleContext"
-};
-
-$Object* allocate$AccessibleContext$1($Class* clazz) {
-	return $of($alloc(AccessibleContext$1));
-}
-
 void AccessibleContext$1::init$() {
 }
 
@@ -67,7 +25,7 @@ $AppContext* AccessibleContext$1::getAppContext($AccessibleContext* accessibleCo
 }
 
 $Object* AccessibleContext$1::getNativeAXResource($AccessibleContext* accessibleContext) {
-	return $of($nc(accessibleContext)->nativeAXResource);
+	return $nc(accessibleContext)->nativeAXResource;
 }
 
 void AccessibleContext$1::setNativeAXResource($AccessibleContext* accessibleContext, Object$* value) {
@@ -78,7 +36,42 @@ AccessibleContext$1::AccessibleContext$1() {
 }
 
 $Class* AccessibleContext$1::load$($String* name, bool initialize) {
-	$loadClass(AccessibleContext$1, name, initialize, &_AccessibleContext$1_ClassInfo_, allocate$AccessibleContext$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AccessibleContext$1, init$, void)},
+		{"getAppContext", "(Ljavax/accessibility/AccessibleContext;)Lsun/awt/AppContext;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, getAppContext, $AppContext*, $AccessibleContext*)},
+		{"getNativeAXResource", "(Ljavax/accessibility/AccessibleContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, getNativeAXResource, $Object*, $AccessibleContext*)},
+		{"setAppContext", "(Ljavax/accessibility/AccessibleContext;Lsun/awt/AppContext;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, setAppContext, void, $AccessibleContext*, $AppContext*)},
+		{"setNativeAXResource", "(Ljavax/accessibility/AccessibleContext;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext$1, setNativeAXResource, void, $AccessibleContext*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.accessibility.AccessibleContext",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.accessibility.AccessibleContext$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$AccessibleContextAccessor", "sun.awt.AWTAccessor", "AccessibleContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.accessibility.AccessibleContext$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$AccessibleContextAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.accessibility.AccessibleContext"
+	};
+	$loadClass(AccessibleContext$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleContext$1);
+	});
 	return class$;
 }
 

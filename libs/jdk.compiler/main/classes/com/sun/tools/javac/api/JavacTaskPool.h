@@ -56,6 +56,7 @@ class $export JavacTaskPool : public ::java::lang::Object {
 	$class(JavacTaskPool, 0, ::java::lang::Object)
 public:
 	JavacTaskPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t maxPoolSize);
 	int64_t cacheSize();
 	virtual $Object* getTask(::java::io::Writer* out, ::javax::tools::JavaFileManager* fileManager, ::javax::tools::DiagnosticListener* diagnosticListener, ::java::lang::Iterable* options, ::java::lang::Iterable* classes, ::java::lang::Iterable* compilationUnits, ::com::sun::tools::javac::api::JavacTaskPool$Worker* worker);

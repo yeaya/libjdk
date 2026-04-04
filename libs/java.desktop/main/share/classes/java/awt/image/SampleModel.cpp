@@ -1,5 +1,4 @@
 #include <java/awt/image/SampleModel.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -27,83 +26,15 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _SampleModel_FieldInfo_[] = {
-	{"width", "I", nullptr, $PROTECTED, $field(SampleModel, width)},
-	{"height", "I", nullptr, $PROTECTED, $field(SampleModel, height)},
-	{"numBands", "I", nullptr, $PROTECTED, $field(SampleModel, numBands)},
-	{"dataType", "I", nullptr, $PROTECTED, $field(SampleModel, dataType)},
-	{}
-};
-
-$MethodInfo _SampleModel_MethodInfo_[] = {
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(SampleModel, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, createCompatibleSampleModel, SampleModel*, int32_t, int32_t)},
-	{"createDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, createDataBuffer, $DataBuffer*)},
-	{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, createSubsetSampleModel, SampleModel*, $ints*)},
-	{"getDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getDataElements, $Object*, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"getDataElements", "(IIIILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SampleModel, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"getDataType", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getDataType, int32_t)},
-	{"getHeight", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getHeight, int32_t)},
-	{"getNumBands", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getNumBands, int32_t)},
-	{"getNumDataElements", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getNumDataElements, int32_t)},
-	{"getPixel", "(II[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixel, $ints*, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getPixel", "(II[FLjava/awt/image/DataBuffer;)[F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixel, $floats*, int32_t, int32_t, $floats*, $DataBuffer*)},
-	{"getPixel", "(II[DLjava/awt/image/DataBuffer;)[D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixel, $doubles*, int32_t, int32_t, $doubles*, $DataBuffer*)},
-	{"getPixels", "(IIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getPixels", "(IIII[FLjava/awt/image/DataBuffer;)[F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixels, $floats*, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
-	{"getPixels", "(IIII[DLjava/awt/image/DataBuffer;)[D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixels, $doubles*, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
-	{"getSample", "(IIILjava/awt/image/DataBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getSample, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"getSampleDouble", "(IIILjava/awt/image/DataBuffer;)D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSampleDouble, double, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"getSampleFloat", "(IIILjava/awt/image/DataBuffer;)F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSampleFloat, float, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"getSampleSize", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getSampleSize, $ints*)},
-	{"getSampleSize", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getSampleSize, int32_t, int32_t)},
-	{"getSamples", "(IIIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"getSamples", "(IIIII[FLjava/awt/image/DataBuffer;)[F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSamples, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
-	{"getSamples", "(IIIII[DLjava/awt/image/DataBuffer;)[D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSamples, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
-	{"getTransferType", "()I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getTransferType, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getWidth, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SampleModel, initIDs, void)},
-	{"setDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, setDataElements, void, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"setDataElements", "(IIIILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*, $DataBuffer*)},
-	{"setPixel", "(II[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixel, void, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"setPixel", "(II[FLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixel, void, int32_t, int32_t, $floats*, $DataBuffer*)},
-	{"setPixel", "(II[DLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixel, void, int32_t, int32_t, $doubles*, $DataBuffer*)},
-	{"setPixels", "(IIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"setPixels", "(IIII[FLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
-	{"setPixels", "(IIII[DLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
-	{"setSample", "(IIIILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, setSample, void, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
-	{"setSample", "(IIIFLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSample, void, int32_t, int32_t, int32_t, float, $DataBuffer*)},
-	{"setSample", "(IIIDLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSample, void, int32_t, int32_t, int32_t, double, $DataBuffer*)},
-	{"setSamples", "(IIIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
-	{"setSamples", "(IIIII[FLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
-	{"setSamples", "(IIIII[DLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 26
-
-$ClassInfo _SampleModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.image.SampleModel",
-	"java.lang.Object",
-	nullptr,
-	_SampleModel_FieldInfo_,
-	_SampleModel_MethodInfo_
-};
-
-$Object* allocate$SampleModel($Class* clazz) {
-	return $of($alloc(SampleModel));
-}
-
 void SampleModel::initIDs() {
 	$init(SampleModel);
-	$prepareNativeStatic(SampleModel, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void SampleModel::init$(int32_t dataType, int32_t w, int32_t h, int32_t numBands) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t size = (int64_t)w * h;
 	if (w <= 0 || h <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Width ("_s, $$str(w), ") and height ("_s, $$str(h), ") must be > 0"_s}));
@@ -157,7 +88,7 @@ $ints* SampleModel::getPixel(int32_t x, int32_t y, $ints* iArray, $DataBuffer* d
 }
 
 $Object* SampleModel::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj$renamed, $DataBuffer* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, obj$renamed);
 	int32_t type = getTransferType();
 	int32_t numDataElems = getNumDataElements();
@@ -169,121 +100,110 @@ $Object* SampleModel::getDataElements(int32_t x, int32_t y, int32_t w, int32_t h
 		$throwNew($ArrayIndexOutOfBoundsException, "Invalid coordinates."_s);
 	}
 	{
-		$var($bytes, btemp, nullptr)
-		$var($bytes, bdata, nullptr)
-		$var($shorts, sdata, nullptr)
-		$var($shorts, stemp, nullptr)
-		$var($ints, idata, nullptr)
-		$var($ints, itemp, nullptr)
-		$var($floats, fdata, nullptr)
-		$var($floats, ftemp, nullptr)
-		$var($doubles, ddata, nullptr)
-		$var($doubles, dtemp, nullptr)
+		$var($bytes, btemp, nullptr);
+		$var($bytes, bdata, nullptr);
+		$var($shorts, sdata, nullptr);
+		$var($shorts, stemp, nullptr);
+		$var($ints, idata, nullptr);
+		$var($ints, itemp, nullptr);
+		$var($floats, fdata, nullptr);
+		$var($floats, ftemp, nullptr);
+		$var($doubles, ddata, nullptr);
+		$var($doubles, dtemp, nullptr);
 		switch (type) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				if (obj == nullptr) {
-					$assign(bdata, $new($bytes, numDataElems * w * h));
-				} else {
-					$assign(bdata, $cast($bytes, obj));
-				}
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						$assign(o, getDataElements(j, i, o, data));
-						$assign(btemp, $cast($bytes, o));
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(bdata)->set(cnt++, $nc(btemp)->get(k));
-						}
+			if (obj == nullptr) {
+				$assign(bdata, $new($bytes, numDataElems * w * h));
+			} else {
+				$assign(bdata, $cast($bytes, obj));
+			}
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					$assign(o, getDataElements(j, i, o, data));
+					$assign(btemp, $cast($bytes, o));
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(bdata)->set(cnt++, $nc(btemp)->get(k));
 					}
 				}
-				$assign(obj, $of(bdata));
-				break;
 			}
+			$assign(obj, $of(bdata));
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{}
 		case $DataBuffer::TYPE_SHORT:
-			{
-				if (obj == nullptr) {
-					$assign(sdata, $new($shorts, numDataElems * w * h));
-				} else {
-					$assign(sdata, $cast($shorts, obj));
-				}
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						$assign(o, getDataElements(j, i, o, data));
-						$assign(stemp, $cast($shorts, o));
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(sdata)->set(cnt++, $nc(stemp)->get(k));
-						}
+			if (obj == nullptr) {
+				$assign(sdata, $new($shorts, numDataElems * w * h));
+			} else {
+				$assign(sdata, $cast($shorts, obj));
+			}
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					$assign(o, getDataElements(j, i, o, data));
+					$assign(stemp, $cast($shorts, o));
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(sdata)->set(cnt++, $nc(stemp)->get(k));
 					}
 				}
-				$assign(obj, $of(sdata));
-				break;
 			}
+			$assign(obj, $of(sdata));
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				if (obj == nullptr) {
-					$assign(idata, $new($ints, numDataElems * w * h));
-				} else {
-					$assign(idata, $cast($ints, obj));
-				}
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						$assign(o, getDataElements(j, i, o, data));
-						$assign(itemp, $cast($ints, o));
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(idata)->set(cnt++, $nc(itemp)->get(k));
-						}
+			if (obj == nullptr) {
+				$assign(idata, $new($ints, numDataElems * w * h));
+			} else {
+				$assign(idata, $cast($ints, obj));
+			}
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					$assign(o, getDataElements(j, i, o, data));
+					$assign(itemp, $cast($ints, o));
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(idata)->set(cnt++, $nc(itemp)->get(k));
 					}
 				}
-				$assign(obj, $of(idata));
-				break;
 			}
+			$assign(obj, $of(idata));
+			break;
 		case $DataBuffer::TYPE_FLOAT:
-			{
-				if (obj == nullptr) {
-					$assign(fdata, $new($floats, numDataElems * w * h));
-				} else {
-					$assign(fdata, $cast($floats, obj));
-				}
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						$assign(o, getDataElements(j, i, o, data));
-						$assign(ftemp, $cast($floats, o));
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(fdata)->set(cnt++, $nc(ftemp)->get(k));
-						}
+			if (obj == nullptr) {
+				$assign(fdata, $new($floats, numDataElems * w * h));
+			} else {
+				$assign(fdata, $cast($floats, obj));
+			}
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					$assign(o, getDataElements(j, i, o, data));
+					$assign(ftemp, $cast($floats, o));
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(fdata)->set(cnt++, $nc(ftemp)->get(k));
 					}
 				}
-				$assign(obj, $of(fdata));
-				break;
 			}
+			$assign(obj, $of(fdata));
+			break;
 		case $DataBuffer::TYPE_DOUBLE:
-			{
-				if (obj == nullptr) {
-					$assign(ddata, $new($doubles, numDataElems * w * h));
-				} else {
-					$assign(ddata, $cast($doubles, obj));
-				}
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						$assign(o, getDataElements(j, i, o, data));
-						$assign(dtemp, $cast($doubles, o));
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(ddata)->set(cnt++, $nc(dtemp)->get(k));
-						}
+			if (obj == nullptr) {
+				$assign(ddata, $new($doubles, numDataElems * w * h));
+			} else {
+				$assign(ddata, $cast($doubles, obj));
+			}
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					$assign(o, getDataElements(j, i, o, data));
+					$assign(dtemp, $cast($doubles, o));
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(ddata)->set(cnt++, $nc(dtemp)->get(k));
 					}
 				}
-				$assign(obj, $of(ddata));
-				break;
 			}
+			$assign(obj, $of(ddata));
+			break;
 		}
 	}
 	return $of(obj);
 }
 
 void SampleModel::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Object$* obj, $DataBuffer* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cnt = 0;
 	$var($Object, o, nullptr);
 	int32_t type = getTransferType();
@@ -294,89 +214,78 @@ void SampleModel::setDataElements(int32_t x, int32_t y, int32_t w, int32_t h, Ob
 		$throwNew($ArrayIndexOutOfBoundsException, "Invalid coordinates."_s);
 	}
 	{
-		$var($bytes, barray, nullptr)
-		$var($bytes, btemp, nullptr)
-		$var($shorts, sarray, nullptr)
-		$var($shorts, stemp, nullptr)
-		$var($ints, iArray, nullptr)
-		$var($ints, itemp, nullptr)
-		$var($floats, fArray, nullptr)
-		$var($floats, ftemp, nullptr)
-		$var($doubles, dArray, nullptr)
-		$var($doubles, dtemp, nullptr)
+		$var($bytes, barray, nullptr);
+		$var($bytes, btemp, nullptr);
+		$var($shorts, sarray, nullptr);
+		$var($shorts, stemp, nullptr);
+		$var($ints, iArray, nullptr);
+		$var($ints, itemp, nullptr);
+		$var($floats, fArray, nullptr);
+		$var($floats, ftemp, nullptr);
+		$var($doubles, dArray, nullptr);
+		$var($doubles, dtemp, nullptr);
 		switch (type) {
 		case $DataBuffer::TYPE_BYTE:
-			{
-				$assign(barray, $cast($bytes, obj));
-				$assign(btemp, $new($bytes, numDataElems));
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(btemp)->set(k, $nc(barray)->get(cnt++));
-						}
-						setDataElements(j, i, btemp, data);
+			$assign(barray, $cast($bytes, obj));
+			$assign(btemp, $new($bytes, numDataElems));
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(btemp)->set(k, $nc(barray)->get(cnt++));
 					}
+					setDataElements(j, i, btemp, data);
 				}
-				break;
 			}
+			break;
 		case $DataBuffer::TYPE_USHORT:
-			{}
 		case $DataBuffer::TYPE_SHORT:
-			{
-				$assign(sarray, $cast($shorts, obj));
-				$assign(stemp, $new($shorts, numDataElems));
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(stemp)->set(k, $nc(sarray)->get(cnt++));
-						}
-						setDataElements(j, i, stemp, data);
+			$assign(sarray, $cast($shorts, obj));
+			$assign(stemp, $new($shorts, numDataElems));
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(stemp)->set(k, $nc(sarray)->get(cnt++));
 					}
+					setDataElements(j, i, stemp, data);
 				}
-				break;
 			}
+			break;
 		case $DataBuffer::TYPE_INT:
-			{
-				$assign(iArray, $cast($ints, obj));
-				$assign(itemp, $new($ints, numDataElems));
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(itemp)->set(k, $nc(iArray)->get(cnt++));
-						}
-						setDataElements(j, i, itemp, data);
+			$assign(iArray, $cast($ints, obj));
+			$assign(itemp, $new($ints, numDataElems));
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(itemp)->set(k, $nc(iArray)->get(cnt++));
 					}
+					setDataElements(j, i, itemp, data);
 				}
-				break;
 			}
+			break;
 		case $DataBuffer::TYPE_FLOAT:
-			{
-				$assign(fArray, $cast($floats, obj));
-				$assign(ftemp, $new($floats, numDataElems));
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(ftemp)->set(k, $nc(fArray)->get(cnt++));
-						}
-						setDataElements(j, i, ftemp, data);
+			$assign(fArray, $cast($floats, obj));
+			$assign(ftemp, $new($floats, numDataElems));
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(ftemp)->set(k, $nc(fArray)->get(cnt++));
 					}
+					setDataElements(j, i, ftemp, data);
 				}
-				break;
 			}
+			break;
 		case $DataBuffer::TYPE_DOUBLE:
-			{
-				$assign(dArray, $cast($doubles, obj));
-				$assign(dtemp, $new($doubles, numDataElems));
-				for (int32_t i = y; i < y1; ++i) {
-					for (int32_t j = x; j < x1; ++j) {
-						for (int32_t k = 0; k < numDataElems; ++k) {
-							$nc(dtemp)->set(k, $nc(dArray)->get(cnt++));
-						}
-						setDataElements(j, i, dtemp, data);
+			$assign(dArray, $cast($doubles, obj));
+			$assign(dtemp, $new($doubles, numDataElems));
+			for (int32_t i = y; i < y1; ++i) {
+				for (int32_t j = x; j < x1; ++j) {
+					for (int32_t k = 0; k < numDataElems; ++k) {
+						$nc(dtemp)->set(k, $nc(dArray)->get(cnt++));
 					}
+					setDataElements(j, i, dtemp, data);
 				}
-				break;
 			}
+			break;
 		}
 	}
 }
@@ -669,7 +578,7 @@ void SampleModel::setSamples(int32_t x, int32_t y, int32_t w, int32_t h, int32_t
 	}
 }
 
-void clinit$SampleModel($Class* class$) {
+void SampleModel::clinit$($Class* clazz) {
 	{
 		$ColorModel::loadLibraries();
 		SampleModel::initIDs();
@@ -680,7 +589,68 @@ SampleModel::SampleModel() {
 }
 
 $Class* SampleModel::load$($String* name, bool initialize) {
-	$loadClass(SampleModel, name, initialize, &_SampleModel_ClassInfo_, clinit$SampleModel, allocate$SampleModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, $PROTECTED, $field(SampleModel, width)},
+		{"height", "I", nullptr, $PROTECTED, $field(SampleModel, height)},
+		{"numBands", "I", nullptr, $PROTECTED, $field(SampleModel, numBands)},
+		{"dataType", "I", nullptr, $PROTECTED, $field(SampleModel, dataType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(SampleModel, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"createCompatibleSampleModel", "(II)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, createCompatibleSampleModel, SampleModel*, int32_t, int32_t)},
+		{"createDataBuffer", "()Ljava/awt/image/DataBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, createDataBuffer, $DataBuffer*)},
+		{"createSubsetSampleModel", "([I)Ljava/awt/image/SampleModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, createSubsetSampleModel, SampleModel*, $ints*)},
+		{"getDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getDataElements, $Object*, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"getDataElements", "(IIIILjava/lang/Object;Ljava/awt/image/DataBuffer;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SampleModel, getDataElements, $Object*, int32_t, int32_t, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"getDataType", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getDataType, int32_t)},
+		{"getHeight", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getHeight, int32_t)},
+		{"getNumBands", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getNumBands, int32_t)},
+		{"getNumDataElements", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getNumDataElements, int32_t)},
+		{"getPixel", "(II[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixel, $ints*, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getPixel", "(II[FLjava/awt/image/DataBuffer;)[F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixel, $floats*, int32_t, int32_t, $floats*, $DataBuffer*)},
+		{"getPixel", "(II[DLjava/awt/image/DataBuffer;)[D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixel, $doubles*, int32_t, int32_t, $doubles*, $DataBuffer*)},
+		{"getPixels", "(IIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixels, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getPixels", "(IIII[FLjava/awt/image/DataBuffer;)[F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixels, $floats*, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
+		{"getPixels", "(IIII[DLjava/awt/image/DataBuffer;)[D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getPixels, $doubles*, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
+		{"getSample", "(IIILjava/awt/image/DataBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getSample, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"getSampleDouble", "(IIILjava/awt/image/DataBuffer;)D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSampleDouble, double, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"getSampleFloat", "(IIILjava/awt/image/DataBuffer;)F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSampleFloat, float, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"getSampleSize", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getSampleSize, $ints*)},
+		{"getSampleSize", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, getSampleSize, int32_t, int32_t)},
+		{"getSamples", "(IIIII[ILjava/awt/image/DataBuffer;)[I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSamples, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"getSamples", "(IIIII[FLjava/awt/image/DataBuffer;)[F", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSamples, $floats*, int32_t, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
+		{"getSamples", "(IIIII[DLjava/awt/image/DataBuffer;)[D", nullptr, $PUBLIC, $virtualMethod(SampleModel, getSamples, $doubles*, int32_t, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
+		{"getTransferType", "()I", nullptr, $PUBLIC, $virtualMethod(SampleModel, getTransferType, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC | $FINAL, $method(SampleModel, getWidth, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SampleModel, initIDs, void)},
+		{"setDataElements", "(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, setDataElements, void, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"setDataElements", "(IIIILjava/lang/Object;Ljava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setDataElements, void, int32_t, int32_t, int32_t, int32_t, Object$*, $DataBuffer*)},
+		{"setPixel", "(II[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixel, void, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"setPixel", "(II[FLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixel, void, int32_t, int32_t, $floats*, $DataBuffer*)},
+		{"setPixel", "(II[DLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixel, void, int32_t, int32_t, $doubles*, $DataBuffer*)},
+		{"setPixels", "(IIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"setPixels", "(IIII[FLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
+		{"setPixels", "(IIII[DLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setPixels, void, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
+		{"setSample", "(IIIILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SampleModel, setSample, void, int32_t, int32_t, int32_t, int32_t, $DataBuffer*)},
+		{"setSample", "(IIIFLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSample, void, int32_t, int32_t, int32_t, float, $DataBuffer*)},
+		{"setSample", "(IIIDLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSample, void, int32_t, int32_t, int32_t, double, $DataBuffer*)},
+		{"setSamples", "(IIIII[ILjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, $DataBuffer*)},
+		{"setSamples", "(IIIII[FLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $floats*, $DataBuffer*)},
+		{"setSamples", "(IIIII[DLjava/awt/image/DataBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SampleModel, setSamples, void, int32_t, int32_t, int32_t, int32_t, int32_t, $doubles*, $DataBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.image.SampleModel",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SampleModel, name, initialize, &classInfo$$, SampleModel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SampleModel);
+	});
 	return class$;
 }
 

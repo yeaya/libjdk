@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -32,8 +31,6 @@ using $ClassWriter$StackMapTableFrame$SameFrame = ::com::sun::tools::javac::jvm:
 using $ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame = ::com::sun::tools::javac::jvm::ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame;
 using $Code$StackMapFrame = ::com::sun::tools::javac::jvm::Code$StackMapFrame;
 using $UninitializedType = ::com::sun::tools::javac::jvm::UninitializedType;
-using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -45,52 +42,11 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$MethodInfo _ClassWriter$StackMapTableFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClassWriter$StackMapTableFrame, init$, void)},
-	{"compare", "([Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)I", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, compare, int32_t, $TypeArray*, $TypeArray*, $Types*)},
-	{"getFrameType", "()I", nullptr, $ABSTRACT, $virtualMethod(ClassWriter$StackMapTableFrame, getFrameType, int32_t)},
-	{"getInstance", "(Lcom/sun/tools/javac/jvm/Code$StackMapFrame;I[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame;", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, getInstance, ClassWriter$StackMapTableFrame*, $Code$StackMapFrame*, int32_t, $TypeArray*, $Types*)},
-	{"isInt", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, isInt, bool, $Type*)},
-	{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, isSameType, bool, $Type*, $Type*, $Types*)},
-	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame, write, void, $ClassWriter*)},
-	{}
-};
-
-$InnerClassInfo _ClassWriter$StackMapTableFrame_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "FullFrame", $STATIC},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$AppendFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "AppendFrame", $STATIC},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$ChopFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "ChopFrame", $STATIC},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "SameLocals1StackItemFrame", $STATIC},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "SameFrame", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassWriter$StackMapTableFrame_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ClassWriter$StackMapTableFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassWriter$StackMapTableFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassWriter"
-};
-
-$Object* allocate$ClassWriter$StackMapTableFrame($Class* clazz) {
-	return $of($alloc(ClassWriter$StackMapTableFrame));
-}
-
 void ClassWriter$StackMapTableFrame::init$() {
 }
 
 void ClassWriter$StackMapTableFrame::write($ClassWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t frameType = getFrameType();
 	$nc($nc(writer)->databuf)->appendByte(frameType);
 	if (writer->debugstackmap) {
@@ -99,7 +55,7 @@ void ClassWriter$StackMapTableFrame::write($ClassWriter* writer) {
 }
 
 ClassWriter$StackMapTableFrame* ClassWriter$StackMapTableFrame::getInstance($Code$StackMapFrame* this_frame, int32_t prev_pc, $TypeArray* prev_locals, $Types* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TypeArray, locals, $nc(this_frame)->locals);
 	$var($TypeArray, stack, this_frame->stack);
 	int32_t offset_delta = this_frame->pc - prev_pc - 1;
@@ -111,14 +67,10 @@ ClassWriter$StackMapTableFrame* ClassWriter$StackMapTableFrame::getInstance($Cod
 		int32_t diff_length = compare(prev_locals, locals, types);
 		if (diff_length == 0) {
 			return $new($ClassWriter$StackMapTableFrame$SameFrame, offset_delta);
-		} else if (- 4 < diff_length && diff_length < 0) {
+		} else if (-4 < diff_length && diff_length < 0) {
 			$var($TypeArray, local_diff, $new($TypeArray, -diff_length));
-			{
-				int32_t i = $nc(prev_locals)->length;
-				int32_t j = 0;
-				for (; i < $nc(locals)->length; ++i, ++j) {
-					local_diff->set(j, locals->get(i));
-				}
+			for (int32_t i = $nc(prev_locals)->length, j = 0; i < $nc(locals)->length; ++i, ++j) {
+				local_diff->set(j, locals->get(i));
 			}
 			return $new($ClassWriter$StackMapTableFrame$AppendFrame, 251 - diff_length, offset_delta, local_diff);
 		} else if (0 < diff_length && diff_length < 4) {
@@ -130,8 +82,8 @@ ClassWriter$StackMapTableFrame* ClassWriter$StackMapTableFrame::getInstance($Cod
 
 bool ClassWriter$StackMapTableFrame::isInt($Type* t) {
 	$init($TypeTag);
-	bool var$0 = $nc($($nc(t)->getTag()))->isStrictSubRangeOf($TypeTag::INT);
-	return (var$0 || $nc(t)->hasTag($TypeTag::BOOLEAN));
+	bool var$0 = $$nc($nc(t)->getTag())->isStrictSubRangeOf($TypeTag::INT);
+	return (var$0 || t->hasTag($TypeTag::BOOLEAN));
 }
 
 bool ClassWriter$StackMapTableFrame::isSameType($Type* t1, $Type* t2, $Types* types) {
@@ -148,18 +100,16 @@ bool ClassWriter$StackMapTableFrame::isSameType($Type* t1, $Type* t2, $Types* ty
 	$init($TypeTag);
 	if ($nc(t1)->hasTag($TypeTag::UNINITIALIZED_THIS)) {
 		return $nc(t2)->hasTag($TypeTag::UNINITIALIZED_THIS);
-	} else {
-		if (t1->hasTag($TypeTag::UNINITIALIZED_OBJECT)) {
-			if ($nc(t2)->hasTag($TypeTag::UNINITIALIZED_OBJECT)) {
-				return $nc(($cast($UninitializedType, t1)))->offset == $nc(($cast($UninitializedType, t2)))->offset;
-			} else {
-				return false;
-			}
+	} else if (t1->hasTag($TypeTag::UNINITIALIZED_OBJECT)) {
+		if ($nc(t2)->hasTag($TypeTag::UNINITIALIZED_OBJECT)) {
+			return $cast($UninitializedType, t1)->offset == $cast($UninitializedType, t2)->offset;
 		} else {
-			bool var$2 = $nc(t2)->hasTag($TypeTag::UNINITIALIZED_THIS);
-			if (var$2 || $nc(t2)->hasTag($TypeTag::UNINITIALIZED_OBJECT)) {
-				return false;
-			}
+			return false;
+		}
+	} else {
+		bool var$1 = $nc(t2)->hasTag($TypeTag::UNINITIALIZED_THIS);
+		if (var$1 || t2->hasTag($TypeTag::UNINITIALIZED_OBJECT)) {
+			return false;
 		}
 	}
 	return $nc(types)->isSameType(t1, t2);
@@ -167,7 +117,7 @@ bool ClassWriter$StackMapTableFrame::isSameType($Type* t1, $Type* t2, $Types* ty
 
 int32_t ClassWriter$StackMapTableFrame::compare($TypeArray* arr1, $TypeArray* arr2, $Types* types) {
 	int32_t diff_length = $nc(arr1)->length - $nc(arr2)->length;
-	if (diff_length > 4 || diff_length < - 4) {
+	if (diff_length > 4 || diff_length < -4) {
 		return $Integer::MAX_VALUE;
 	}
 	int32_t len = (diff_length > 0) ? arr2->length : arr1->length;
@@ -183,7 +133,43 @@ ClassWriter$StackMapTableFrame::ClassWriter$StackMapTableFrame() {
 }
 
 $Class* ClassWriter$StackMapTableFrame::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$StackMapTableFrame, name, initialize, &_ClassWriter$StackMapTableFrame_ClassInfo_, allocate$ClassWriter$StackMapTableFrame);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClassWriter$StackMapTableFrame, init$, void)},
+		{"compare", "([Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)I", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, compare, int32_t, $TypeArray*, $TypeArray*, $Types*)},
+		{"getFrameType", "()I", nullptr, $ABSTRACT, $virtualMethod(ClassWriter$StackMapTableFrame, getFrameType, int32_t)},
+		{"getInstance", "(Lcom/sun/tools/javac/jvm/Code$StackMapFrame;I[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame;", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, getInstance, ClassWriter$StackMapTableFrame*, $Code$StackMapFrame*, int32_t, $TypeArray*, $Types*)},
+		{"isInt", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, isInt, bool, $Type*)},
+		{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, isSameType, bool, $Type*, $Type*, $Types*)},
+		{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame, write, void, $ClassWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "FullFrame", $STATIC},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$AppendFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "AppendFrame", $STATIC},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$ChopFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "ChopFrame", $STATIC},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "SameLocals1StackItemFrame", $STATIC},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameFrame", "com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "SameFrame", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassWriter"
+	};
+	$loadClass(ClassWriter$StackMapTableFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$StackMapTableFrame);
+	});
 	return class$;
 }
 

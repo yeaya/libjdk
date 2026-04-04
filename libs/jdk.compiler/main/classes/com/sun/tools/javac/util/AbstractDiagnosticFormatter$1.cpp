@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/AbstractDiagnosticFormatter$1.h>
-
 #include <com/sun/tools/javac/code/Printer.h>
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
 #include <com/sun/tools/javac/util/AbstractDiagnosticFormatter.h>
@@ -10,7 +9,6 @@
 using $Printer = ::com::sun::tools::javac::code::Printer;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
 using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,51 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _AbstractDiagnosticFormatter$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDiagnosticFormatter$1, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractDiagnosticFormatter$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;)V", nullptr, 0, $method(AbstractDiagnosticFormatter$1, init$, void, $AbstractDiagnosticFormatter*)},
-	{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter$1, capturedVarId, $String*, $Type$CapturedType*, $Locale*)},
-	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(AbstractDiagnosticFormatter$1, localize, $String*, $Locale*, $String*, $ObjectArray*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$1, visitCapturedType, $String*, $Type$CapturedType*, $Locale*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter$1, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractDiagnosticFormatter$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.AbstractDiagnosticFormatter",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AbstractDiagnosticFormatter$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractDiagnosticFormatter$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.AbstractDiagnosticFormatter$1",
-	"com.sun.tools.javac.code.Printer",
-	nullptr,
-	_AbstractDiagnosticFormatter$1_FieldInfo_,
-	_AbstractDiagnosticFormatter$1_MethodInfo_,
-	nullptr,
-	&_AbstractDiagnosticFormatter$1_EnclosingMethodInfo_,
-	_AbstractDiagnosticFormatter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.AbstractDiagnosticFormatter"
-};
-
-$Object* allocate$AbstractDiagnosticFormatter$1($Class* clazz) {
-	return $of($alloc(AbstractDiagnosticFormatter$1));
-}
 
 void AbstractDiagnosticFormatter$1::init$($AbstractDiagnosticFormatter* this$0) {
 	$set(this, this$0, this$0);
@@ -97,7 +50,45 @@ AbstractDiagnosticFormatter$1::AbstractDiagnosticFormatter$1() {
 }
 
 $Class* AbstractDiagnosticFormatter$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractDiagnosticFormatter$1, name, initialize, &_AbstractDiagnosticFormatter$1_ClassInfo_, allocate$AbstractDiagnosticFormatter$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDiagnosticFormatter$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;)V", nullptr, 0, $method(AbstractDiagnosticFormatter$1, init$, void, $AbstractDiagnosticFormatter*)},
+		{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter$1, capturedVarId, $String*, $Type$CapturedType*, $Locale*)},
+		{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(AbstractDiagnosticFormatter$1, localize, $String*, $Locale*, $String*, $ObjectArray*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$1, visitCapturedType, $String*, $Type$CapturedType*, $Locale*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter$1, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.AbstractDiagnosticFormatter",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.AbstractDiagnosticFormatter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.AbstractDiagnosticFormatter$1",
+		"com.sun.tools.javac.code.Printer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.AbstractDiagnosticFormatter"
+	};
+	$loadClass(AbstractDiagnosticFormatter$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDiagnosticFormatter$1));
+	});
 	return class$;
 }
 

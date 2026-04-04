@@ -57,6 +57,7 @@ class $export InternationalFormatter : public ::javax::swing::text::DefaultForma
 	$class(InternationalFormatter, 0, ::javax::swing::text::DefaultFormatter)
 public:
 	InternationalFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::text::Format* format);
 	static ::javax::swing::JFormattedTextField* access$000(::javax::swing::text::InternationalFormatter* x0);

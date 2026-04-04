@@ -58,7 +58,7 @@ public:
 	static $Array<::javax::management::MBeanOperationInfo>* operationArray($Array<::javax::management::openmbean::OpenMBeanOperationInfo>* src);
 	static bool sameArrayContents($ObjectArray* a1, $ObjectArray* a2);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x3C5C288F26447504;
+	static const int64_t serialVersionUID = (int64_t)0x3c5c288f26447504;
 	::java::lang::Integer* myHashCode = nullptr;
 	$String* myToString = nullptr;
 };

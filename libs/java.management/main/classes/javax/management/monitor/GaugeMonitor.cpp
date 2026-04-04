@@ -1,5 +1,4 @@
 #include <javax/management/monitor/GaugeMonitor.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <java/lang/Comparable.h>
 #include <java/lang/Number.h>
@@ -49,10 +48,8 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $Short = ::java::lang::Short;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $ObjectName = ::javax::management::ObjectName;
 using $GaugeMonitor$1 = ::javax::management::monitor::GaugeMonitor$1;
@@ -66,103 +63,6 @@ using $MonitorNotification = ::javax::management::monitor::MonitorNotification;
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$CompoundAttribute _GaugeMonitor_MethodAnnotations_getDerivedGauge4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _GaugeMonitor_MethodAnnotations_getDerivedGaugeTimeStamp7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _GaugeMonitor_FieldInfo_[] = {
-	{"highThreshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(GaugeMonitor, highThreshold)},
-	{"lowThreshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(GaugeMonitor, lowThreshold)},
-	{"notifyHigh", "Z", nullptr, $PRIVATE, $field(GaugeMonitor, notifyHigh)},
-	{"notifyLow", "Z", nullptr, $PRIVATE, $field(GaugeMonitor, notifyLow)},
-	{"differenceMode", "Z", nullptr, $PRIVATE, $field(GaugeMonitor, differenceMode)},
-	{"types", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GaugeMonitor, types)},
-	{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GaugeMonitor, notifsInfo)},
-	{"RISING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaugeMonitor, RISING)},
-	{"FALLING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaugeMonitor, FALLING)},
-	{"RISING_OR_FALLING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaugeMonitor, RISING_OR_FALLING)},
-	{}
-};
-
-$MethodInfo _GaugeMonitor_MethodInfo_[] = {
-	{"*addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
-	{"*getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GaugeMonitor, init$, void)},
-	{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
-	{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(GaugeMonitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
-	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDerivedGauge, $Object*, $ObjectName*)},
-	{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(GaugeMonitor, getDerivedGauge, $Number*), nullptr, nullptr, _GaugeMonitor_MethodAnnotations_getDerivedGauge4},
-	{"getDerivedGaugeFromComparable", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/Comparable<*>;", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDerivedGaugeFromComparable, $Comparable*, $ObjectName*, $String*, $Comparable*)},
-	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
-	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(GaugeMonitor, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, _GaugeMonitor_MethodAnnotations_getDerivedGaugeTimeStamp7},
-	{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDifferenceMode, bool)},
-	{"getHighThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getHighThreshold, $Number*)},
-	{"getLowThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getLowThreshold, $Number*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(GaugeMonitor, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getNotifyHigh", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getNotifyHigh, bool)},
-	{"getNotifyLow", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getNotifyLow, bool)},
-	{"*isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
-	{"isFirstGreaterThanLast", "(Ljava/lang/Number;Ljava/lang/Number;Ljavax/management/monitor/Monitor$NumericalType;)Z", nullptr, $PRIVATE, $method(GaugeMonitor, isFirstGreaterThanLast, bool, $Number*, $Number*, $Monitor$NumericalType*)},
-	{"isFirstStrictlyGreaterThanLast", "(Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(GaugeMonitor, isFirstStrictlyGreaterThanLast, bool, $Number*, $Number*, $String*)},
-	{"isThresholdTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, isThresholdTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
-	{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, $SYNCHRONIZED, $virtualMethod(GaugeMonitor, onErrorNotification, void, $MonitorNotification*)},
-	{"*removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setDerivedGaugeWithDifference", "(Ljava/lang/Number;Ljavax/management/monitor/GaugeMonitor$GaugeMonitorObservedObject;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(GaugeMonitor, setDerivedGaugeWithDifference, void, $Number*, $GaugeMonitor$GaugeMonitorObservedObject*)},
-	{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setDifferenceMode, void, bool)},
-	{"*setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setNotifyHigh", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setNotifyHigh, void, bool)},
-	{"setNotifyLow", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setNotifyLow, void, bool)},
-	{"*setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
-	{"setThresholds", "(Ljava/lang/Number;Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setThresholds, void, $Number*, $Number*), "java.lang.IllegalArgumentException"},
-	{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, start, void)},
-	{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, stop, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateDerivedGauge", "(Ljava/lang/Object;Ljavax/management/monitor/GaugeMonitor$GaugeMonitorObservedObject;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(GaugeMonitor, updateDerivedGauge, bool, Object$*, $GaugeMonitor$GaugeMonitorObservedObject*)},
-	{"updateNotifications", "(Ljavax/management/monitor/GaugeMonitor$GaugeMonitorObservedObject;)Ljavax/management/monitor/MonitorNotification;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(GaugeMonitor, updateNotifications, $MonitorNotification*, $GaugeMonitor$GaugeMonitorObservedObject*)},
-	{}
-};
-
-$InnerClassInfo _GaugeMonitor_InnerClassesInfo_[] = {
-	{"javax.management.monitor.GaugeMonitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject", "javax.management.monitor.GaugeMonitor", "GaugeMonitorObservedObject", $STATIC},
-	{}
-};
-
-$ClassInfo _GaugeMonitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.monitor.GaugeMonitor",
-	"javax.management.monitor.Monitor",
-	"javax.management.monitor.GaugeMonitorMBean",
-	_GaugeMonitor_FieldInfo_,
-	_GaugeMonitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GaugeMonitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.GaugeMonitor$1,javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject"
-};
-
-$Object* allocate$GaugeMonitor($Class* clazz) {
-	return $of($alloc(GaugeMonitor));
-}
 
 $ObjectName* GaugeMonitor::getObservedObject() {
 	 return this->$Monitor::getObservedObject();
@@ -371,7 +271,7 @@ void GaugeMonitor::init$() {
 
 void GaugeMonitor::start() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isActive()) {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
@@ -401,7 +301,7 @@ void GaugeMonitor::stop() {
 
 $Object* GaugeMonitor::getDerivedGauge($ObjectName* object) {
 	$synchronized(this) {
-		return $of($cast($Number, $Monitor::getDerivedGauge(object)));
+		return $cast($Number, $Monitor::getDerivedGauge(object));
 	}
 }
 
@@ -416,7 +316,7 @@ $Number* GaugeMonitor::getDerivedGauge() {
 		if ($nc(this->observedObjects)->isEmpty()) {
 			return nullptr;
 		} else {
-			return $cast($Number, $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(0)))))->getDerivedGauge());
+			return $cast($Number, $$sure($Monitor$ObservedObject, this->observedObjects->get(0))->getDerivedGauge());
 		}
 	}
 }
@@ -426,7 +326,7 @@ int64_t GaugeMonitor::getDerivedGaugeTimeStamp() {
 		if ($nc(this->observedObjects)->isEmpty()) {
 			return 0;
 		} else {
-			return $nc(($cast($Monitor$ObservedObject, $($nc(this->observedObjects)->get(0)))))->getDerivedGaugeTimeStamp();
+			return $$sure($Monitor$ObservedObject, this->observedObjects->get(0))->getDerivedGaugeTimeStamp();
 		}
 	}
 }
@@ -445,18 +345,18 @@ $Number* GaugeMonitor::getLowThreshold() {
 
 void GaugeMonitor::setThresholds($Number* highValue, $Number* lowValue) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ((highValue == nullptr) || (lowValue == nullptr)) {
 			$throwNew($IllegalArgumentException, "Null threshold value"_s);
 		}
 		if ($nc($of(highValue))->getClass() != $nc($of(lowValue))->getClass()) {
 			$throwNew($IllegalArgumentException, "Different type threshold values"_s);
 		}
-		if (isFirstStrictlyGreaterThanLast(lowValue, highValue, $($nc($of(highValue))->getClass()->getName()))) {
+		if (isFirstStrictlyGreaterThanLast(lowValue, highValue, $($of(highValue)->getClass()->getName()))) {
 			$throwNew($IllegalArgumentException, "High threshold less than low threshold"_s);
 		}
-		bool var$0 = $nc($of(this->highThreshold))->equals(highValue);
-		if (var$0 && $nc($of(this->lowThreshold))->equals(lowValue)) {
+		bool var$0 = $nc(this->highThreshold)->equals(highValue);
+		if (var$0 && $nc(this->lowThreshold)->equals(lowValue)) {
 			return;
 		}
 		$set(this, highThreshold, highValue);
@@ -514,7 +414,7 @@ bool GaugeMonitor::getDifferenceMode() {
 
 void GaugeMonitor::setDifferenceMode(bool value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->differenceMode == value) {
 			return;
 		}
@@ -534,7 +434,7 @@ void GaugeMonitor::setDifferenceMode(bool value) {
 }
 
 $MBeanNotificationInfoArray* GaugeMonitor::getNotificationInfo() {
-	return $cast($MBeanNotificationInfoArray, $nc(GaugeMonitor::notifsInfo)->clone());
+	return $cast($MBeanNotificationInfoArray, GaugeMonitor::notifsInfo->clone());
 }
 
 bool GaugeMonitor::updateDerivedGauge(Object$* scanGauge, $GaugeMonitor$GaugeMonitorObservedObject* o) {
@@ -547,7 +447,7 @@ bool GaugeMonitor::updateDerivedGauge(Object$* scanGauge, $GaugeMonitor$GaugeMon
 			} else {
 				is_derived_gauge_valid = false;
 			}
-			$nc(o)->setPreviousScanGauge($cast($Number, scanGauge));
+			o->setPreviousScanGauge($cast($Number, scanGauge));
 		} else {
 			$nc(o)->setDerivedGauge($cast($Number, scanGauge));
 			is_derived_gauge_valid = true;
@@ -558,7 +458,7 @@ bool GaugeMonitor::updateDerivedGauge(Object$* scanGauge, $GaugeMonitor$GaugeMon
 
 $MonitorNotification* GaugeMonitor::updateNotifications($GaugeMonitor$GaugeMonitorObservedObject* o) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($MonitorNotification, n, nullptr);
 		if ($nc(o)->getStatus() == GaugeMonitor::RISING_OR_FALLING) {
 			$var($Number, var$0, $cast($Number, o->getDerivedGauge()));
@@ -569,9 +469,9 @@ $MonitorNotification* GaugeMonitor::updateNotifications($GaugeMonitor$GaugeMonit
 				}
 				o->setStatus(GaugeMonitor::FALLING);
 			} else {
-				$var($Number, var$4, this->lowThreshold);
-				$var($Number, var$5, $cast($Number, o->getDerivedGauge()));
-				if (isFirstGreaterThanLast(var$4, var$5, $(o->getType()))) {
+				$var($Number, var$2, this->lowThreshold);
+				$var($Number, var$3, $cast($Number, o->getDerivedGauge()));
+				if (isFirstGreaterThanLast(var$2, var$3, $(o->getType()))) {
 					if (this->notifyLow) {
 						$assign(n, $new($MonitorNotification, "jmx.monitor.gauge.low"_s, this, 0, 0, ""_s, nullptr, nullptr, nullptr, this->lowThreshold));
 					}
@@ -579,18 +479,18 @@ $MonitorNotification* GaugeMonitor::updateNotifications($GaugeMonitor$GaugeMonit
 				}
 			}
 		} else if (o->getStatus() == GaugeMonitor::RISING) {
-			$var($Number, var$6, $cast($Number, o->getDerivedGauge()));
-			$var($Number, var$7, this->highThreshold);
-			if (isFirstGreaterThanLast(var$6, var$7, $(o->getType()))) {
+			$var($Number, var$4, $cast($Number, o->getDerivedGauge()));
+			$var($Number, var$5, this->highThreshold);
+			if (isFirstGreaterThanLast(var$4, var$5, $(o->getType()))) {
 				if (this->notifyHigh) {
 					$assign(n, $new($MonitorNotification, "jmx.monitor.gauge.high"_s, this, 0, 0, ""_s, nullptr, nullptr, nullptr, this->highThreshold));
 				}
 				o->setStatus(GaugeMonitor::FALLING);
 			}
 		} else if (o->getStatus() == GaugeMonitor::FALLING) {
-			$var($Number, var$8, this->lowThreshold);
-			$var($Number, var$9, $cast($Number, o->getDerivedGauge()));
-			if (isFirstGreaterThanLast(var$8, var$9, $(o->getType()))) {
+			$var($Number, var$6, this->lowThreshold);
+			$var($Number, var$7, $cast($Number, o->getDerivedGauge()));
+			if (isFirstGreaterThanLast(var$6, var$7, $(o->getType()))) {
 				if (this->notifyLow) {
 					$assign(n, $new($MonitorNotification, "jmx.monitor.gauge.low"_s, this, 0, 0, ""_s, nullptr, nullptr, nullptr, this->lowThreshold));
 				}
@@ -603,54 +503,52 @@ $MonitorNotification* GaugeMonitor::updateNotifications($GaugeMonitor$GaugeMonit
 
 void GaugeMonitor::setDerivedGaugeWithDifference($Number* scanGauge, $GaugeMonitor$GaugeMonitorObservedObject* o) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Number, prev, $nc(o)->getPreviousScanGauge());
 		$var($Number, der, nullptr);
 		$init($GaugeMonitor$1);
-		switch ($nc($GaugeMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get($nc(($(o->getType())))->ordinal())) {
+		switch ($nc($GaugeMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get(($$nc(o->getType()))->ordinal())) {
 		case 1:
 			{
-				int32_t var$0 = $nc(($cast($Integer, scanGauge)))->intValue();
-				$assign(der, $Integer::valueOf(var$0 - $nc(($cast($Integer, prev)))->intValue()));
+				int32_t var$0 = $nc($cast($Integer, scanGauge))->intValue();
+				$assign(der, $Integer::valueOf(var$0 - $nc($cast($Integer, prev))->intValue()));
 				break;
 			}
 		case 2:
 			{
-				int8_t var$1 = $nc(($cast($Byte, scanGauge)))->byteValue();
-				$assign(der, $Byte::valueOf((int8_t)(var$1 - $nc(($cast($Byte, prev)))->byteValue())));
+				int8_t var$1 = $nc($cast($Byte, scanGauge))->byteValue();
+				$assign(der, $Byte::valueOf((int8_t)(var$1 - $nc($cast($Byte, prev))->byteValue())));
 				break;
 			}
 		case 3:
 			{
-				int16_t var$2 = $nc(($cast($Short, scanGauge)))->shortValue();
-				$assign(der, $Short::valueOf((int16_t)(var$2 - $nc(($cast($Short, prev)))->shortValue())));
+				int16_t var$2 = $nc($cast($Short, scanGauge))->shortValue();
+				$assign(der, $Short::valueOf((int16_t)(var$2 - $nc($cast($Short, prev))->shortValue())));
 				break;
 			}
 		case 4:
 			{
-				int64_t var$3 = $nc(($cast($Long, scanGauge)))->longValue();
-				$assign(der, $Long::valueOf(var$3 - $nc(($cast($Long, prev)))->longValue()));
+				int64_t var$3 = $nc($cast($Long, scanGauge))->longValue();
+				$assign(der, $Long::valueOf(var$3 - $nc($cast($Long, prev))->longValue()));
 				break;
 			}
 		case 5:
 			{
-				float var$4 = $nc(($cast($Float, scanGauge)))->floatValue();
-				$assign(der, $Float::valueOf(var$4 - $nc(($cast($Float, prev)))->floatValue()));
+				float var$4 = $nc($cast($Float, scanGauge))->floatValue();
+				$assign(der, $Float::valueOf(var$4 - $nc($cast($Float, prev))->floatValue()));
 				break;
 			}
 		case 6:
 			{
-				double var$5 = $nc(($cast($Double, scanGauge)))->doubleValue();
-				$assign(der, $Double::valueOf(var$5 - $nc(($cast($Double, prev)))->doubleValue()));
+				double var$5 = $nc($cast($Double, scanGauge))->doubleValue();
+				$assign(der, $Double::valueOf(var$5 - $nc($cast($Double, prev))->doubleValue()));
 				break;
 			}
 		default:
-			{
-				$init($JmxProperties);
-				$init($System$Logger$Level);
-				$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
-				return;
-			}
+			$init($JmxProperties);
+			$init($System$Logger$Level);
+			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
+			return;
 		}
 		o->setDerivedGauge(der);
 	}
@@ -660,45 +558,39 @@ bool GaugeMonitor::isFirstGreaterThanLast($Number* greater, $Number* less, $Moni
 	$init($GaugeMonitor$1);
 	switch ($nc($GaugeMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->get($nc((type))->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
 		{
 			int64_t var$0 = $nc(greater)->longValue();
 			return (var$0 >= $nc(less)->longValue());
 		}
 	case 5:
-		{}
 	case 6:
 		{
 			double var$1 = $nc(greater)->doubleValue();
 			return (var$1 >= $nc(less)->doubleValue());
 		}
 	default:
-		{
-			$init($JmxProperties);
-			$init($System$Logger$Level);
-			$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
-			return false;
-		}
+		$init($JmxProperties);
+		$init($System$Logger$Level);
+		$nc($JmxProperties::MONITOR_LOGGER)->log($System$Logger$Level::TRACE, "the threshold type is invalid"_s);
+		return false;
 	}
 }
 
 bool GaugeMonitor::isFirstStrictlyGreaterThanLast($Number* greater, $Number* less, $String* className) {
 	bool var$2 = $nc(className)->equals("java.lang.Integer"_s);
-	bool var$1 = var$2 || $nc(className)->equals("java.lang.Byte"_s);
-	bool var$0 = var$1 || $nc(className)->equals("java.lang.Short"_s);
-	if (var$0 || $nc(className)->equals("java.lang.Long"_s)) {
+	bool var$1 = var$2 || className->equals("java.lang.Byte"_s);
+	bool var$0 = var$1 || className->equals("java.lang.Short"_s);
+	if (var$0 || className->equals("java.lang.Long"_s)) {
 		int64_t var$3 = $nc(greater)->longValue();
 		return (var$3 > $nc(less)->longValue());
 	} else {
-		bool var$5 = className->equals("java.lang.Float"_s);
-		if (var$5 || className->equals("java.lang.Double"_s)) {
-			double var$6 = $nc(greater)->doubleValue();
-			return (var$6 > $nc(less)->doubleValue());
+		bool var$4 = className->equals("java.lang.Float"_s);
+		if (var$4 || className->equals("java.lang.Double"_s)) {
+			double var$5 = $nc(greater)->doubleValue();
+			return (var$5 > $nc(less)->doubleValue());
 		} else {
 			$init($JmxProperties);
 			$init($System$Logger$Level);
@@ -759,7 +651,7 @@ $Comparable* GaugeMonitor::getDerivedGaugeFromComparable($ObjectName* object, $S
 
 void GaugeMonitor::onErrorNotification($MonitorNotification* notification) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($GaugeMonitor$GaugeMonitorObservedObject, o, $cast($GaugeMonitor$GaugeMonitorObservedObject, getObservedObject($($nc(notification)->getObservedObject()))));
 		if (o == nullptr) {
 			return;
@@ -771,7 +663,7 @@ void GaugeMonitor::onErrorNotification($MonitorNotification* notification) {
 
 $MonitorNotification* GaugeMonitor::buildAlarmNotification($ObjectName* object, $String* attribute, $Comparable* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($GaugeMonitor$GaugeMonitorObservedObject, o, $cast($GaugeMonitor$GaugeMonitorObservedObject, getObservedObject(object)));
 		if (o == nullptr) {
 			return nullptr;
@@ -788,7 +680,7 @@ $MonitorNotification* GaugeMonitor::buildAlarmNotification($ObjectName* object, 
 
 bool GaugeMonitor::isThresholdTypeValid($ObjectName* object, $String* attribute, $Comparable* value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($GaugeMonitor$GaugeMonitorObservedObject, o, $cast($GaugeMonitor$GaugeMonitorObservedObject, getObservedObject(object)));
 		if (o == nullptr) {
 			return false;
@@ -799,7 +691,7 @@ bool GaugeMonitor::isThresholdTypeValid($ObjectName* object, $String* attribute,
 	}
 }
 
-void clinit$GaugeMonitor($Class* class$) {
+void GaugeMonitor::clinit$($Class* clazz) {
 	$assignStatic(GaugeMonitor::types, $new($StringArray, {
 		"jmx.monitor.error.runtime"_s,
 		"jmx.monitor.error.mbean"_s,
@@ -816,7 +708,96 @@ GaugeMonitor::GaugeMonitor() {
 }
 
 $Class* GaugeMonitor::load$($String* name, bool initialize) {
-	$loadClass(GaugeMonitor, name, initialize, &_GaugeMonitor_ClassInfo_, clinit$GaugeMonitor, allocate$GaugeMonitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"highThreshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(GaugeMonitor, highThreshold)},
+		{"lowThreshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(GaugeMonitor, lowThreshold)},
+		{"notifyHigh", "Z", nullptr, $PRIVATE, $field(GaugeMonitor, notifyHigh)},
+		{"notifyLow", "Z", nullptr, $PRIVATE, $field(GaugeMonitor, notifyLow)},
+		{"differenceMode", "Z", nullptr, $PRIVATE, $field(GaugeMonitor, differenceMode)},
+		{"types", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GaugeMonitor, types)},
+		{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GaugeMonitor, notifsInfo)},
+		{"RISING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaugeMonitor, RISING)},
+		{"FALLING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaugeMonitor, FALLING)},
+		{"RISING_OR_FALLING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GaugeMonitor, RISING_OR_FALLING)},
+		{}
+	};
+	$CompoundAttribute getDerivedGaugemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDerivedGaugeTimeStampmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsObservedObject", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getGranularityPeriod", "()J", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
+		{"*getObservedObjects", "()[Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GaugeMonitor, init$, void)},
+		{"buildAlarmNotification", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljavax/management/monitor/MonitorNotification;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljavax/management/monitor/MonitorNotification;", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, buildAlarmNotification, $MonitorNotification*, $ObjectName*, $String*, $Comparable*)},
+		{"createObservedObject", "(Ljavax/management/ObjectName;)Ljavax/management/monitor/Monitor$ObservedObject;", nullptr, 0, $virtualMethod(GaugeMonitor, createObservedObject, $Monitor$ObservedObject*, $ObjectName*)},
+		{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDerivedGauge, $Object*, $ObjectName*)},
+		{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(GaugeMonitor, getDerivedGauge, $Number*), nullptr, nullptr, getDerivedGaugemethodAnnotations$$$1},
+		{"getDerivedGaugeFromComparable", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Ljava/lang/Comparable;", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Ljava/lang/Comparable<*>;", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDerivedGaugeFromComparable, $Comparable*, $ObjectName*, $String*, $Comparable*)},
+		{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
+		{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(GaugeMonitor, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, getDerivedGaugeTimeStampmethodAnnotations$$$1},
+		{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getDifferenceMode, bool)},
+		{"getHighThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getHighThreshold, $Number*)},
+		{"getLowThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getLowThreshold, $Number*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(GaugeMonitor, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getNotifyHigh", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getNotifyHigh, bool)},
+		{"getNotifyLow", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, getNotifyLow, bool)},
+		{"*isActive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"isComparableTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, isComparableTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
+		{"isFirstGreaterThanLast", "(Ljava/lang/Number;Ljava/lang/Number;Ljavax/management/monitor/Monitor$NumericalType;)Z", nullptr, $PRIVATE, $method(GaugeMonitor, isFirstGreaterThanLast, bool, $Number*, $Number*, $Monitor$NumericalType*)},
+		{"isFirstStrictlyGreaterThanLast", "(Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(GaugeMonitor, isFirstStrictlyGreaterThanLast, bool, $Number*, $Number*, $String*)},
+		{"isThresholdTypeValid", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable;)Z", "(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Comparable<*>;)Z", $SYNCHRONIZED, $virtualMethod(GaugeMonitor, isThresholdTypeValid, bool, $ObjectName*, $String*, $Comparable*)},
+		{"onErrorNotification", "(Ljavax/management/monitor/MonitorNotification;)V", nullptr, $SYNCHRONIZED, $virtualMethod(GaugeMonitor, onErrorNotification, void, $MonitorNotification*)},
+		{"*removeObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setDerivedGaugeWithDifference", "(Ljava/lang/Number;Ljavax/management/monitor/GaugeMonitor$GaugeMonitorObservedObject;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(GaugeMonitor, setDerivedGaugeWithDifference, void, $Number*, $GaugeMonitor$GaugeMonitorObservedObject*)},
+		{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setDifferenceMode, void, bool)},
+		{"*setGranularityPeriod", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setNotifyHigh", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setNotifyHigh, void, bool)},
+		{"setNotifyLow", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setNotifyLow, void, bool)},
+		{"*setObservedAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setObservedObject", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED},
+		{"setThresholds", "(Ljava/lang/Number;Ljava/lang/Number;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, setThresholds, void, $Number*, $Number*), "java.lang.IllegalArgumentException"},
+		{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, start, void)},
+		{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GaugeMonitor, stop, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateDerivedGauge", "(Ljava/lang/Object;Ljavax/management/monitor/GaugeMonitor$GaugeMonitorObservedObject;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(GaugeMonitor, updateDerivedGauge, bool, Object$*, $GaugeMonitor$GaugeMonitorObservedObject*)},
+		{"updateNotifications", "(Ljavax/management/monitor/GaugeMonitor$GaugeMonitorObservedObject;)Ljavax/management/monitor/MonitorNotification;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(GaugeMonitor, updateNotifications, $MonitorNotification*, $GaugeMonitor$GaugeMonitorObservedObject*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.GaugeMonitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject", "javax.management.monitor.GaugeMonitor", "GaugeMonitorObservedObject", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.monitor.GaugeMonitor",
+		"javax.management.monitor.Monitor",
+		"javax.management.monitor.GaugeMonitorMBean",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.GaugeMonitor$1,javax.management.monitor.GaugeMonitor$GaugeMonitorObservedObject"
+	};
+	$loadClass(GaugeMonitor, name, initialize, &classInfo$$, GaugeMonitor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GaugeMonitor));
+	});
 	return class$;
 }
 

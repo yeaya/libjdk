@@ -1,5 +1,4 @@
 #include <javax/swing/undo/AbstractUndoableEdit.h>
-
 #include <javax/swing/UIManager.h>
 #include <javax/swing/undo/CannotRedoException.h>
 #include <javax/swing/undo/CannotUndoException.h>
@@ -17,48 +16,6 @@ using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 namespace javax {
 	namespace swing {
 		namespace undo {
-
-$FieldInfo _AbstractUndoableEdit_FieldInfo_[] = {
-	{"UndoName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractUndoableEdit, UndoName)},
-	{"RedoName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractUndoableEdit, RedoName)},
-	{"hasBeenDone", "Z", nullptr, 0, $field(AbstractUndoableEdit, hasBeenDone)},
-	{"alive", "Z", nullptr, 0, $field(AbstractUndoableEdit, alive)},
-	{}
-};
-
-$MethodInfo _AbstractUndoableEdit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractUndoableEdit, init$, void)},
-	{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, addEdit, bool, $UndoableEdit*)},
-	{"canRedo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, canRedo, bool)},
-	{"canUndo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, canUndo, bool)},
-	{"die", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, die, void)},
-	{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, getPresentationName, $String*)},
-	{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, getRedoPresentationName, $String*)},
-	{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, getUndoPresentationName, $String*)},
-	{"isSignificant", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, isSignificant, bool)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"replaceEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, replaceEdit, bool, $UndoableEdit*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, toString, $String*)},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, undo, void), "javax.swing.undo.CannotUndoException"},
-	{}
-};
-
-$ClassInfo _AbstractUndoableEdit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.undo.AbstractUndoableEdit",
-	"java.lang.Object",
-	"javax.swing.undo.UndoableEdit,java.io.Serializable",
-	_AbstractUndoableEdit_FieldInfo_,
-	_AbstractUndoableEdit_MethodInfo_
-};
-
-$Object* allocate$AbstractUndoableEdit($Class* clazz) {
-	return $of($alloc(AbstractUndoableEdit));
-}
 
 int32_t AbstractUndoableEdit::hashCode() {
 	 return this->$UndoableEdit::hashCode();
@@ -127,7 +84,7 @@ $String* AbstractUndoableEdit::getPresentationName() {
 }
 
 $String* AbstractUndoableEdit::getUndoPresentationName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getPresentationName());
 	if (!""_s->equals(name)) {
 		$assign(name, $str({$($UIManager::getString("AbstractUndoableEdit.undoText"_s)), " "_s, name}));
@@ -138,7 +95,7 @@ $String* AbstractUndoableEdit::getUndoPresentationName() {
 }
 
 $String* AbstractUndoableEdit::getRedoPresentationName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getPresentationName());
 	if (!""_s->equals(name)) {
 		$assign(name, $str({$($UIManager::getString("AbstractUndoableEdit.redoText"_s)), " "_s, name}));
@@ -149,20 +106,57 @@ $String* AbstractUndoableEdit::getRedoPresentationName() {
 }
 
 $String* AbstractUndoableEdit::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($UndoableEdit::toString()), " hasBeenDone: "_s, $$str(this->hasBeenDone), " alive: "_s, $$str(this->alive)});
 }
 
 AbstractUndoableEdit::AbstractUndoableEdit() {
 }
 
-void clinit$AbstractUndoableEdit($Class* class$) {
+void AbstractUndoableEdit::clinit$($Class* clazz) {
 	$assignStatic(AbstractUndoableEdit::UndoName, "Undo"_s);
 	$assignStatic(AbstractUndoableEdit::RedoName, "Redo"_s);
 }
 
 $Class* AbstractUndoableEdit::load$($String* name, bool initialize) {
-	$loadClass(AbstractUndoableEdit, name, initialize, &_AbstractUndoableEdit_ClassInfo_, clinit$AbstractUndoableEdit, allocate$AbstractUndoableEdit);
+	$FieldInfo fieldInfos$$[] = {
+		{"UndoName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractUndoableEdit, UndoName)},
+		{"RedoName", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractUndoableEdit, RedoName)},
+		{"hasBeenDone", "Z", nullptr, 0, $field(AbstractUndoableEdit, hasBeenDone)},
+		{"alive", "Z", nullptr, 0, $field(AbstractUndoableEdit, alive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractUndoableEdit, init$, void)},
+		{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, addEdit, bool, $UndoableEdit*)},
+		{"canRedo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, canRedo, bool)},
+		{"canUndo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, canUndo, bool)},
+		{"die", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, die, void)},
+		{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, getPresentationName, $String*)},
+		{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, getRedoPresentationName, $String*)},
+		{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, getUndoPresentationName, $String*)},
+		{"isSignificant", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, isSignificant, bool)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"replaceEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, replaceEdit, bool, $UndoableEdit*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, toString, $String*)},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractUndoableEdit, undo, void), "javax.swing.undo.CannotUndoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.undo.AbstractUndoableEdit",
+		"java.lang.Object",
+		"javax.swing.undo.UndoableEdit,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractUndoableEdit, name, initialize, &classInfo$$, AbstractUndoableEdit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractUndoableEdit));
+	});
 	return class$;
 }
 

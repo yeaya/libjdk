@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/Prologue$PrologueFieldOffset.h>
-
 #include <sun/management/counter/perf/Prologue.h>
 #include <jcpp.h>
 
@@ -39,65 +38,6 @@ namespace sun {
 		namespace counter {
 			namespace perf {
 
-$FieldInfo _Prologue$PrologueFieldOffset_FieldInfo_[] = {
-	{"this$0", "Lsun/management/counter/perf/Prologue;", nullptr, $FINAL | $SYNTHETIC, $field(Prologue$PrologueFieldOffset, this$0)},
-	{"SIZEOF_BYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, SIZEOF_BYTE)},
-	{"SIZEOF_INT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, SIZEOF_INT)},
-	{"SIZEOF_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, SIZEOF_LONG)},
-	{"MAGIC_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAGIC_SIZE)},
-	{"BYTE_ORDER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, BYTE_ORDER_SIZE)},
-	{"MAJOR_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAJOR_SIZE)},
-	{"MINOR_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MINOR_SIZE)},
-	{"ACCESSIBLE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ACCESSIBLE_SIZE)},
-	{"USED_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, USED_SIZE)},
-	{"OVERFLOW_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, OVERFLOW_SIZE)},
-	{"MOD_TIMESTAMP_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MOD_TIMESTAMP_SIZE)},
-	{"ENTRY_OFFSET_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ENTRY_OFFSET_SIZE)},
-	{"NUM_ENTRIES_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, NUM_ENTRIES_SIZE)},
-	{"MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAGIC)},
-	{"BYTE_ORDER", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, BYTE_ORDER)},
-	{"MAJOR_VERSION", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAJOR_VERSION)},
-	{"MINOR_VERSION", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MINOR_VERSION)},
-	{"ACCESSIBLE", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ACCESSIBLE)},
-	{"USED", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, USED)},
-	{"OVERFLOW", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, OVERFLOW)},
-	{"MOD_TIMESTAMP", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MOD_TIMESTAMP)},
-	{"ENTRY_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ENTRY_OFFSET)},
-	{"NUM_ENTRIES", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, NUM_ENTRIES)},
-	{"PROLOGUE_2_0_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, PROLOGUE_2_0_SIZE)},
-	{}
-};
-
-$MethodInfo _Prologue$PrologueFieldOffset_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/counter/perf/Prologue;)V", nullptr, $PRIVATE, $method(Prologue$PrologueFieldOffset, init$, void, $Prologue*)},
-	{}
-};
-
-$InnerClassInfo _Prologue$PrologueFieldOffset_InnerClassesInfo_[] = {
-	{"sun.management.counter.perf.Prologue$PrologueFieldOffset", "sun.management.counter.perf.Prologue", "PrologueFieldOffset", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Prologue$PrologueFieldOffset_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.Prologue$PrologueFieldOffset",
-	"java.lang.Object",
-	nullptr,
-	_Prologue$PrologueFieldOffset_FieldInfo_,
-	_Prologue$PrologueFieldOffset_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Prologue$PrologueFieldOffset_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.counter.perf.Prologue"
-};
-
-$Object* allocate$Prologue$PrologueFieldOffset($Class* clazz) {
-	return $of($alloc(Prologue$PrologueFieldOffset));
-}
-
 void Prologue$PrologueFieldOffset::init$($Prologue* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -106,7 +46,60 @@ Prologue$PrologueFieldOffset::Prologue$PrologueFieldOffset() {
 }
 
 $Class* Prologue$PrologueFieldOffset::load$($String* name, bool initialize) {
-	$loadClass(Prologue$PrologueFieldOffset, name, initialize, &_Prologue$PrologueFieldOffset_ClassInfo_, allocate$Prologue$PrologueFieldOffset);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/management/counter/perf/Prologue;", nullptr, $FINAL | $SYNTHETIC, $field(Prologue$PrologueFieldOffset, this$0)},
+		{"SIZEOF_BYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, SIZEOF_BYTE)},
+		{"SIZEOF_INT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, SIZEOF_INT)},
+		{"SIZEOF_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, SIZEOF_LONG)},
+		{"MAGIC_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAGIC_SIZE)},
+		{"BYTE_ORDER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, BYTE_ORDER_SIZE)},
+		{"MAJOR_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAJOR_SIZE)},
+		{"MINOR_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MINOR_SIZE)},
+		{"ACCESSIBLE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ACCESSIBLE_SIZE)},
+		{"USED_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, USED_SIZE)},
+		{"OVERFLOW_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, OVERFLOW_SIZE)},
+		{"MOD_TIMESTAMP_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MOD_TIMESTAMP_SIZE)},
+		{"ENTRY_OFFSET_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ENTRY_OFFSET_SIZE)},
+		{"NUM_ENTRIES_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, NUM_ENTRIES_SIZE)},
+		{"MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAGIC)},
+		{"BYTE_ORDER", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, BYTE_ORDER)},
+		{"MAJOR_VERSION", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MAJOR_VERSION)},
+		{"MINOR_VERSION", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MINOR_VERSION)},
+		{"ACCESSIBLE", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ACCESSIBLE)},
+		{"USED", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, USED)},
+		{"OVERFLOW", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, OVERFLOW)},
+		{"MOD_TIMESTAMP", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, MOD_TIMESTAMP)},
+		{"ENTRY_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, ENTRY_OFFSET)},
+		{"NUM_ENTRIES", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, NUM_ENTRIES)},
+		{"PROLOGUE_2_0_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Prologue$PrologueFieldOffset, PROLOGUE_2_0_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/counter/perf/Prologue;)V", nullptr, $PRIVATE, $method(Prologue$PrologueFieldOffset, init$, void, $Prologue*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.counter.perf.Prologue$PrologueFieldOffset", "sun.management.counter.perf.Prologue", "PrologueFieldOffset", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.Prologue$PrologueFieldOffset",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.counter.perf.Prologue"
+	};
+	$loadClass(Prologue$PrologueFieldOffset, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Prologue$PrologueFieldOffset);
+	});
 	return class$;
 }
 

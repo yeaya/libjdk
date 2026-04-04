@@ -46,6 +46,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx);
 	void _curveTo(double x1, double y1, double x2, double y2, double x3, double y3, int32_t outcode0);
 	void _moveTo(double x0, double y0, int32_t outcode);

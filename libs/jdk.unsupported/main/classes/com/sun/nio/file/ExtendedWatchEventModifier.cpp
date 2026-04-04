@@ -1,7 +1,5 @@
 #include <com/sun/nio/file/ExtendedWatchEventModifier.h>
-
 #include <java/lang/Enum.h>
-#include <java/nio/file/WatchEvent$Modifier.h>
 #include <jdk/internal/misc/FileSystemOption.h>
 #include <jcpp.h>
 
@@ -13,54 +11,12 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WatchEvent$Modifier = ::java::nio::file::WatchEvent$Modifier;
 using $FileSystemOption = ::jdk::internal::misc::FileSystemOption;
 
 namespace com {
 	namespace sun {
 		namespace nio {
 			namespace file {
-
-$FieldInfo _ExtendedWatchEventModifier_FieldInfo_[] = {
-	{"FILE_TREE", "Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedWatchEventModifier, FILE_TREE)},
-	{"$VALUES", "[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExtendedWatchEventModifier, $VALUES)},
-	{}
-};
-
-$MethodInfo _ExtendedWatchEventModifier_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedWatchEventModifier, $values, $ExtendedWatchEventModifierArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(ExtendedWatchEventModifier, init$, void, $String*, int32_t, $FileSystemOption*)},
-	{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedWatchEventModifier, valueOf, ExtendedWatchEventModifier*, $String*)},
-	{"values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedWatchEventModifier, values, $ExtendedWatchEventModifierArray*)},
-	{}
-};
-
-$InnerClassInfo _ExtendedWatchEventModifier_InnerClassesInfo_[] = {
-	{"java.nio.file.WatchEvent$Modifier", "java.nio.file.WatchEvent", "Modifier", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ExtendedWatchEventModifier_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.nio.file.ExtendedWatchEventModifier",
-	"java.lang.Enum",
-	"java.nio.file.WatchEvent$Modifier",
-	_ExtendedWatchEventModifier_FieldInfo_,
-	_ExtendedWatchEventModifier_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/nio/file/ExtendedWatchEventModifier;>;Ljava/nio/file/WatchEvent$Modifier;",
-	nullptr,
-	_ExtendedWatchEventModifier_InnerClassesInfo_
-};
-
-$Object* allocate$ExtendedWatchEventModifier($Class* clazz) {
-	return $of($alloc(ExtendedWatchEventModifier));
-}
 
 $String* ExtendedWatchEventModifier::name() {
 	 return this->$Enum::name();
@@ -106,10 +62,10 @@ ExtendedWatchEventModifier* ExtendedWatchEventModifier::valueOf($String* name) {
 
 void ExtendedWatchEventModifier::init$($String* $enum$name, int32_t $enum$ordinal, $FileSystemOption* option) {
 	$Enum::init$($enum$name, $enum$ordinal);
-	$nc(option)->register$(static_cast<$WatchEvent$Modifier*>(this));
+	$nc(option)->register$(this);
 }
 
-void clinit$ExtendedWatchEventModifier($Class* class$) {
+void ExtendedWatchEventModifier::clinit$($Class* clazz) {
 	$init($FileSystemOption);
 	$assignStatic(ExtendedWatchEventModifier::FILE_TREE, $new(ExtendedWatchEventModifier, "FILE_TREE"_s, 0, $FileSystemOption::FILE_TREE));
 	$assignStatic(ExtendedWatchEventModifier::$VALUES, ExtendedWatchEventModifier::$values());
@@ -119,7 +75,42 @@ ExtendedWatchEventModifier::ExtendedWatchEventModifier() {
 }
 
 $Class* ExtendedWatchEventModifier::load$($String* name, bool initialize) {
-	$loadClass(ExtendedWatchEventModifier, name, initialize, &_ExtendedWatchEventModifier_ClassInfo_, clinit$ExtendedWatchEventModifier, allocate$ExtendedWatchEventModifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILE_TREE", "Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExtendedWatchEventModifier, FILE_TREE)},
+		{"$VALUES", "[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExtendedWatchEventModifier, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedWatchEventModifier, $values, $ExtendedWatchEventModifierArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(ExtendedWatchEventModifier, init$, void, $String*, int32_t, $FileSystemOption*)},
+		{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedWatchEventModifier, valueOf, ExtendedWatchEventModifier*, $String*)},
+		{"values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedWatchEventModifier, values, $ExtendedWatchEventModifierArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.WatchEvent$Modifier", "java.nio.file.WatchEvent", "Modifier", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.nio.file.ExtendedWatchEventModifier",
+		"java.lang.Enum",
+		"java.nio.file.WatchEvent$Modifier",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/nio/file/ExtendedWatchEventModifier;>;Ljava/nio/file/WatchEvent$Modifier;",
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(ExtendedWatchEventModifier, name, initialize, &classInfo$$, ExtendedWatchEventModifier::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExtendedWatchEventModifier));
+	});
 	return class$;
 }
 

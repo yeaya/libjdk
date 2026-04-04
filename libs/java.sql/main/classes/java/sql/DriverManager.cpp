@@ -1,5 +1,4 @@
 #include <java/sql/DriverManager.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/lang/ClassLoader.h>
@@ -7,7 +6,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/sql/Connection.h>
 #include <java/sql/Driver.h>
 #include <java/sql/DriverAction.h>
@@ -17,7 +15,6 @@
 #include <java/sql/SQLException.h>
 #include <java/sql/SQLPermission.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -32,7 +29,6 @@
 #undef JDBC_DRIVERS_PROPERTY
 #undef SET_LOG_PERMISSION
 
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -47,8 +43,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Connection = ::java::sql::Connection;
 using $Driver = ::java::sql::Driver;
 using $DriverAction = ::java::sql::DriverAction;
@@ -58,7 +52,6 @@ using $DriverManager$2 = ::java::sql::DriverManager$2;
 using $SQLException = ::java::sql::SQLException;
 using $SQLPermission = ::java::sql::SQLPermission;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
@@ -70,126 +63,6 @@ using $Reflection = ::jdk::internal::reflect::Reflection;
 
 namespace java {
 	namespace sql {
-
-$CompoundAttribute _DriverManager_MethodAnnotations_deregisterDriver1[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_drivers2[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_getConnection4[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_getConnection5[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_getConnection6[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_getDriver8[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_getDrivers9[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$NamedAttribute DriverManager_Attribute_var$0[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_getLogStream11[] = {
-	{"Ljava/lang/Deprecated;", DriverManager_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute DriverManager_Attribute_var$1[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _DriverManager_MethodAnnotations_setLogStream19[] = {
-	{"Ljava/lang/Deprecated;", DriverManager_Attribute_var$1},
-	{}
-};
-
-$FieldInfo _DriverManager_FieldInfo_[] = {
-	{"registeredDrivers", "Ljava/util/concurrent/CopyOnWriteArrayList;", "Ljava/util/concurrent/CopyOnWriteArrayList<Ljava/sql/DriverInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, registeredDrivers)},
-	{"loginTimeout", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, loginTimeout)},
-	{"logWriter", "Ljava/io/PrintWriter;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, logWriter)},
-	{"logStream", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, logStream)},
-	{"logSync", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, logSync)},
-	{"lockForInitDrivers", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, lockForInitDrivers)},
-	{"driversInitialized", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, driversInitialized)},
-	{"JDBC_DRIVERS_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, JDBC_DRIVERS_PROPERTY)},
-	{"SET_LOG_PERMISSION", "Ljava/sql/SQLPermission;", nullptr, $STATIC | $FINAL, $staticField(DriverManager, SET_LOG_PERMISSION)},
-	{"DEREGISTER_DRIVER_PERMISSION", "Ljava/sql/SQLPermission;", nullptr, $STATIC | $FINAL, $staticField(DriverManager, DEREGISTER_DRIVER_PERMISSION)},
-	{}
-};
-
-$MethodInfo _DriverManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DriverManager, init$, void)},
-	{"deregisterDriver", "(Ljava/sql/Driver;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, deregisterDriver, void, $Driver*), "java.sql.SQLException", nullptr, _DriverManager_MethodAnnotations_deregisterDriver1},
-	{"drivers", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/sql/Driver;>;", $PUBLIC | $STATIC, $staticMethod(DriverManager, drivers, $Stream*), nullptr, nullptr, _DriverManager_MethodAnnotations_drivers2},
-	{"ensureDriversInitialized", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DriverManager, ensureDriversInitialized, void)},
-	{"getConnection", "(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*, $Properties*), "java.sql.SQLException", nullptr, _DriverManager_MethodAnnotations_getConnection4},
-	{"getConnection", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*, $String*, $String*), "java.sql.SQLException", nullptr, _DriverManager_MethodAnnotations_getConnection5},
-	{"getConnection", "(Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*), "java.sql.SQLException", nullptr, _DriverManager_MethodAnnotations_getConnection6},
-	{"getConnection", "(Ljava/lang/String;Ljava/util/Properties;Ljava/lang/Class;)Ljava/sql/Connection;", "(Ljava/lang/String;Ljava/util/Properties;Ljava/lang/Class<*>;)Ljava/sql/Connection;", $PRIVATE | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*, $Properties*, $Class*), "java.sql.SQLException"},
-	{"getDriver", "(Ljava/lang/String;)Ljava/sql/Driver;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getDriver, $Driver*, $String*), "java.sql.SQLException", nullptr, _DriverManager_MethodAnnotations_getDriver8},
-	{"getDrivers", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/sql/Driver;>;", $PUBLIC | $STATIC, $staticMethod(DriverManager, getDrivers, $Enumeration*), nullptr, nullptr, _DriverManager_MethodAnnotations_getDrivers9},
-	{"getDrivers", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/sql/Driver;>;", $PRIVATE | $STATIC, $staticMethod(DriverManager, getDrivers, $List*, $Class*)},
-	{"getLogStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(DriverManager, getLogStream, $PrintStream*), nullptr, nullptr, _DriverManager_MethodAnnotations_getLogStream11},
-	{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getLogWriter, $PrintWriter*)},
-	{"getLoginTimeout", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getLoginTimeout, int32_t)},
-	{"isDriverAllowed", "(Ljava/sql/Driver;Ljava/lang/Class;)Z", "(Ljava/sql/Driver;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(DriverManager, isDriverAllowed, bool, $Driver*, $Class*)},
-	{"isDriverAllowed", "(Ljava/sql/Driver;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DriverManager, isDriverAllowed, bool, $Driver*, $ClassLoader*)},
-	{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, println, void, $String*)},
-	{"registerDriver", "(Ljava/sql/Driver;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, registerDriver, void, $Driver*), "java.sql.SQLException"},
-	{"registerDriver", "(Ljava/sql/Driver;Ljava/sql/DriverAction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, registerDriver, void, $Driver*, $DriverAction*), "java.sql.SQLException"},
-	{"setLogStream", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(DriverManager, setLogStream, void, $PrintStream*), nullptr, nullptr, _DriverManager_MethodAnnotations_setLogStream19},
-	{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, setLogWriter, void, $PrintWriter*)},
-	{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, setLoginTimeout, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DriverManager_InnerClassesInfo_[] = {
-	{"java.sql.DriverManager$2", nullptr, nullptr, 0},
-	{"java.sql.DriverManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DriverManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.DriverManager",
-	"java.lang.Object",
-	nullptr,
-	_DriverManager_FieldInfo_,
-	_DriverManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DriverManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.sql.DriverManager$2,java.sql.DriverManager$1"
-};
-
-$Object* allocate$DriverManager($Class* clazz) {
-	return $of($alloc(DriverManager));
-}
 
 $CopyOnWriteArrayList* DriverManager::registeredDrivers = nullptr;
 $volatile(int32_t) DriverManager::loginTimeout = 0;
@@ -245,26 +118,24 @@ $Connection* DriverManager::getConnection($String* url) {
 
 $Driver* DriverManager::getDriver($String* url) {
 	$init(DriverManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	println($$str({"DriverManager.getDriver(\""_s, url, "\")"_s}));
 	ensureDriversInitialized();
 	$Class* callerClass = $Reflection::getCallerClass();
 	{
-		$var($Iterator, i$, $nc(DriverManager::registeredDrivers)->iterator());
+		$var($Iterator, i$, DriverManager::registeredDrivers->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DriverInfo, aDriver, $cast($DriverInfo, i$->next()));
-			{
-				if (isDriverAllowed($nc(aDriver)->driver, callerClass)) {
-					try {
-						if ($nc($nc(aDriver)->driver)->acceptsURL(url)) {
-							println($$str({"getDriver returning "_s, $($nc($of(aDriver->driver))->getClass()->getName())}));
-							return (aDriver->driver);
-						}
-					} catch ($SQLException& sqe) {
+			if (isDriverAllowed($nc(aDriver)->driver, callerClass)) {
+				try {
+					if ($nc(aDriver->driver)->acceptsURL(url)) {
+						println($$str({"getDriver returning "_s, $(aDriver->driver->getClass()->getName())}));
+						return (aDriver->driver);
 					}
-				} else {
-					println($$str({"    skipping: "_s, $($nc($of($nc(aDriver)->driver))->getClass()->getName())}));
+				} catch ($SQLException& sqe) {
 				}
+			} else {
+				println($$str({"    skipping: "_s, $($nc(aDriver->driver)->getClass()->getName())}));
 			}
 		}
 	}
@@ -280,9 +151,9 @@ void DriverManager::registerDriver($Driver* driver) {
 
 void DriverManager::registerDriver($Driver* driver, $DriverAction* da) {
 	$init(DriverManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (driver != nullptr) {
-		$nc(DriverManager::registeredDrivers)->addIfAbsent($$new($DriverInfo, driver, da));
+		DriverManager::registeredDrivers->addIfAbsent($$new($DriverInfo, driver, da));
 	} else {
 		$throwNew($NullPointerException);
 	}
@@ -291,7 +162,7 @@ void DriverManager::registerDriver($Driver* driver, $DriverAction* da) {
 
 void DriverManager::deregisterDriver($Driver* driver) {
 	$init(DriverManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (driver == nullptr) {
 		return;
 	}
@@ -302,13 +173,13 @@ void DriverManager::deregisterDriver($Driver* driver) {
 	println($$str({"DriverManager.deregisterDriver: "_s, driver}));
 	$var($DriverInfo, aDriver, $new($DriverInfo, driver, nullptr));
 	$synchronized(DriverManager::lockForInitDrivers) {
-		if ($nc(DriverManager::registeredDrivers)->contains(aDriver)) {
+		if (DriverManager::registeredDrivers->contains(aDriver)) {
 			if (isDriverAllowed(driver, $Reflection::getCallerClass())) {
-				$var($DriverInfo, di, $cast($DriverInfo, $nc(DriverManager::registeredDrivers)->get($nc(DriverManager::registeredDrivers)->indexOf(aDriver))));
+				$var($DriverInfo, di, $cast($DriverInfo, DriverManager::registeredDrivers->get(DriverManager::registeredDrivers->indexOf(aDriver))));
 				if ($nc(di)->action() != nullptr) {
-					$nc($(di->action()))->deregister();
+					$$nc(di->action())->deregister();
 				}
-				$nc(DriverManager::registeredDrivers)->remove($of(aDriver));
+				DriverManager::registeredDrivers->remove(aDriver);
 			} else {
 				$throwNew($SecurityException);
 			}
@@ -327,23 +198,21 @@ $Enumeration* DriverManager::getDrivers() {
 $Stream* DriverManager::drivers() {
 	$init(DriverManager);
 	ensureDriversInitialized();
-	return $nc($(getDrivers($Reflection::getCallerClass())))->stream();
+	return $$nc(getDrivers($Reflection::getCallerClass()))->stream();
 }
 
 $List* DriverManager::getDrivers($Class* callerClass) {
 	$init(DriverManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc(DriverManager::registeredDrivers)->iterator());
+		$var($Iterator, i$, DriverManager::registeredDrivers->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DriverInfo, aDriver, $cast($DriverInfo, i$->next()));
-			{
-				if (isDriverAllowed($nc(aDriver)->driver, callerClass)) {
-					result->add($nc(aDriver)->driver);
-				} else {
-					println($$str({"    skipping: "_s, $($nc($of($nc(aDriver)->driver))->getClass()->getName())}));
-				}
+			if (isDriverAllowed($nc(aDriver)->driver, callerClass)) {
+				result->add(aDriver->driver);
+			} else {
+				println($$str({"    skipping: "_s, $($nc(aDriver->driver)->getClass()->getName())}));
 			}
 		}
 	}
@@ -368,7 +237,7 @@ void DriverManager::setLogStream($PrintStream* out) {
 	}
 	$assignStatic(DriverManager::logStream, out);
 	if (out != nullptr) {
-		$assignStatic(DriverManager::logWriter, $new($PrintWriter, static_cast<$OutputStream*>(out)));
+		$assignStatic(DriverManager::logWriter, $new($PrintWriter, out));
 	} else {
 		$assignStatic(DriverManager::logWriter, nullptr);
 	}
@@ -392,7 +261,7 @@ void DriverManager::println($String* message) {
 bool DriverManager::isDriverAllowed($Driver* driver, $Class* caller) {
 	$init(DriverManager);
 	$beforeCallerSensitive();
-	$var($ClassLoader, callerCL, caller != nullptr ? $nc(caller)->getClassLoader() : ($ClassLoader*)nullptr);
+	$var($ClassLoader, callerCL, caller != nullptr ? caller->getClassLoader() : ($ClassLoader*)nullptr);
 	return isDriverAllowed(driver, callerCL);
 }
 
@@ -414,7 +283,7 @@ bool DriverManager::isDriverAllowed($Driver* driver, $ClassLoader* classLoader) 
 
 void DriverManager::ensureDriversInitialized() {
 	$init(DriverManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (DriverManager::driversInitialized) {
 		return;
@@ -425,28 +294,24 @@ void DriverManager::ensureDriversInitialized() {
 		}
 		$var($String, drivers, nullptr);
 		try {
-			$assign(drivers, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DriverManager$1)))));
+			$assign(drivers, $cast($String, $AccessController::doPrivileged($$new($DriverManager$1))));
 		} catch ($Exception& ex) {
 			$assign(drivers, nullptr);
 		}
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DriverManager$2)));
+		$AccessController::doPrivileged($$new($DriverManager$2));
 		println($$str({"DriverManager.initialize: jdbc.drivers = "_s, drivers}));
 		if (drivers != nullptr && !drivers->isEmpty()) {
 			$var($StringArray, driversList, drivers->split(":"_s));
 			println($$str({"number of Drivers:"_s, $$str(driversList->length)}));
 			{
 				$var($StringArray, arr$, driversList);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, aDriver, arr$->get(i$));
-					{
-						try {
-							println($$str({"DriverManager.Initialize: loading "_s, aDriver}));
-							$Class::forName(aDriver, true, $($ClassLoader::getSystemClassLoader()));
-						} catch ($Exception& ex) {
-							println($$str({"DriverManager.Initialize: load failed: "_s, ex}));
-						}
+					try {
+						println($$str({"DriverManager.Initialize: loading "_s, aDriver}));
+						$Class::forName(aDriver, true, $($ClassLoader::getSystemClassLoader()));
+					} catch ($Exception& ex) {
+						println($$str({"DriverManager.Initialize: load failed: "_s, ex}));
 					}
 				}
 			}
@@ -458,9 +323,9 @@ void DriverManager::ensureDriversInitialized() {
 
 $Connection* DriverManager::getConnection($String* url, $Properties* info, $Class* caller) {
 	$init(DriverManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($ClassLoader, callerCL, caller != nullptr ? $nc(caller)->getClassLoader() : ($ClassLoader*)nullptr);
+	$var($ClassLoader, callerCL, caller != nullptr ? caller->getClassLoader() : ($ClassLoader*)nullptr);
 	if (callerCL == nullptr || callerCL == $ClassLoader::getPlatformClassLoader()) {
 		$assign(callerCL, $($Thread::currentThread())->getContextClassLoader());
 	}
@@ -471,26 +336,24 @@ $Connection* DriverManager::getConnection($String* url, $Properties* info, $Clas
 	ensureDriversInitialized();
 	$var($SQLException, reason, nullptr);
 	{
-		$var($Iterator, i$, $nc(DriverManager::registeredDrivers)->iterator());
+		$var($Iterator, i$, DriverManager::registeredDrivers->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DriverInfo, aDriver, $cast($DriverInfo, i$->next()));
-			{
-				if (isDriverAllowed($nc(aDriver)->driver, callerCL)) {
-					try {
-						println($$str({"    trying "_s, $($nc($of($nc(aDriver)->driver))->getClass()->getName())}));
-						$var($Connection, con, $nc($nc(aDriver)->driver)->connect(url, info));
-						if (con != nullptr) {
-							println($$str({"getConnection returning "_s, $($nc($of(aDriver->driver))->getClass()->getName())}));
-							return (con);
-						}
-					} catch ($SQLException& ex) {
-						if (reason == nullptr) {
-							$assign(reason, ex);
-						}
+			if (isDriverAllowed($nc(aDriver)->driver, callerCL)) {
+				try {
+					println($$str({"    trying "_s, $($nc(aDriver->driver)->getClass()->getName())}));
+					$var($Connection, con, aDriver->driver->connect(url, info));
+					if (con != nullptr) {
+						println($$str({"getConnection returning "_s, $(aDriver->driver->getClass()->getName())}));
+						return (con);
 					}
-				} else {
-					println($$str({"    skipping: "_s, $($nc($of($nc(aDriver)->driver))->getClass()->getName())}));
+				} catch ($SQLException& ex) {
+					if (reason == nullptr) {
+						$assign(reason, ex);
+					}
 				}
+			} else {
+				println($$str({"    skipping: "_s, $($nc(aDriver->driver)->getClass()->getName())}));
 			}
 		}
 	}
@@ -503,7 +366,7 @@ $Connection* DriverManager::getConnection($String* url, $Properties* info, $Clas
 	$shouldNotReachHere();
 }
 
-void clinit$DriverManager($Class* class$) {
+void DriverManager::clinit$($Class* clazz) {
 	$assignStatic(DriverManager::JDBC_DRIVERS_PROPERTY, "jdbc.drivers"_s);
 	$assignStatic(DriverManager::registeredDrivers, $new($CopyOnWriteArrayList));
 	DriverManager::loginTimeout = 0;
@@ -519,7 +382,110 @@ DriverManager::DriverManager() {
 }
 
 $Class* DriverManager::load$($String* name, bool initialize) {
-	$loadClass(DriverManager, name, initialize, &_DriverManager_ClassInfo_, clinit$DriverManager, allocate$DriverManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"registeredDrivers", "Ljava/util/concurrent/CopyOnWriteArrayList;", "Ljava/util/concurrent/CopyOnWriteArrayList<Ljava/sql/DriverInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, registeredDrivers)},
+		{"loginTimeout", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, loginTimeout)},
+		{"logWriter", "Ljava/io/PrintWriter;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, logWriter)},
+		{"logStream", "Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, logStream)},
+		{"logSync", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, logSync)},
+		{"lockForInitDrivers", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, lockForInitDrivers)},
+		{"driversInitialized", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DriverManager, driversInitialized)},
+		{"JDBC_DRIVERS_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DriverManager, JDBC_DRIVERS_PROPERTY)},
+		{"SET_LOG_PERMISSION", "Ljava/sql/SQLPermission;", nullptr, $STATIC | $FINAL, $staticField(DriverManager, SET_LOG_PERMISSION)},
+		{"DEREGISTER_DRIVER_PERMISSION", "Ljava/sql/SQLPermission;", nullptr, $STATIC | $FINAL, $staticField(DriverManager, DEREGISTER_DRIVER_PERMISSION)},
+		{}
+	};
+	$CompoundAttribute deregisterDrivermethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute driversmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getConnectionmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getConnectionmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getConnectionmethodAnnotations$$$2[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDrivermethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDriversmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$NamedAttribute getLogStreammethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute getLogStreammethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getLogStreammethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLogStreammethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute setLogStreammethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setLogStreammethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DriverManager, init$, void)},
+		{"deregisterDriver", "(Ljava/sql/Driver;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, deregisterDriver, void, $Driver*), "java.sql.SQLException", nullptr, deregisterDrivermethodAnnotations$$},
+		{"drivers", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/sql/Driver;>;", $PUBLIC | $STATIC, $staticMethod(DriverManager, drivers, $Stream*), nullptr, nullptr, driversmethodAnnotations$$},
+		{"ensureDriversInitialized", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DriverManager, ensureDriversInitialized, void)},
+		{"getConnection", "(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*, $Properties*), "java.sql.SQLException", nullptr, getConnectionmethodAnnotations$$},
+		{"getConnection", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*, $String*, $String*), "java.sql.SQLException", nullptr, getConnectionmethodAnnotations$$$1},
+		{"getConnection", "(Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*), "java.sql.SQLException", nullptr, getConnectionmethodAnnotations$$$2},
+		{"getConnection", "(Ljava/lang/String;Ljava/util/Properties;Ljava/lang/Class;)Ljava/sql/Connection;", "(Ljava/lang/String;Ljava/util/Properties;Ljava/lang/Class<*>;)Ljava/sql/Connection;", $PRIVATE | $STATIC, $staticMethod(DriverManager, getConnection, $Connection*, $String*, $Properties*, $Class*), "java.sql.SQLException"},
+		{"getDriver", "(Ljava/lang/String;)Ljava/sql/Driver;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getDriver, $Driver*, $String*), "java.sql.SQLException", nullptr, getDrivermethodAnnotations$$},
+		{"getDrivers", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/sql/Driver;>;", $PUBLIC | $STATIC, $staticMethod(DriverManager, getDrivers, $Enumeration*), nullptr, nullptr, getDriversmethodAnnotations$$},
+		{"getDrivers", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/sql/Driver;>;", $PRIVATE | $STATIC, $staticMethod(DriverManager, getDrivers, $List*, $Class*)},
+		{"getLogStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(DriverManager, getLogStream, $PrintStream*), nullptr, nullptr, getLogStreammethodAnnotations$$},
+		{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getLogWriter, $PrintWriter*)},
+		{"getLoginTimeout", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, getLoginTimeout, int32_t)},
+		{"isDriverAllowed", "(Ljava/sql/Driver;Ljava/lang/Class;)Z", "(Ljava/sql/Driver;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(DriverManager, isDriverAllowed, bool, $Driver*, $Class*)},
+		{"isDriverAllowed", "(Ljava/sql/Driver;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DriverManager, isDriverAllowed, bool, $Driver*, $ClassLoader*)},
+		{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, println, void, $String*)},
+		{"registerDriver", "(Ljava/sql/Driver;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, registerDriver, void, $Driver*), "java.sql.SQLException"},
+		{"registerDriver", "(Ljava/sql/Driver;Ljava/sql/DriverAction;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, registerDriver, void, $Driver*, $DriverAction*), "java.sql.SQLException"},
+		{"setLogStream", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(DriverManager, setLogStream, void, $PrintStream*), nullptr, nullptr, setLogStreammethodAnnotations$$},
+		{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, setLogWriter, void, $PrintWriter*)},
+		{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DriverManager, setLoginTimeout, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.sql.DriverManager$2", nullptr, nullptr, 0},
+		{"java.sql.DriverManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.DriverManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.sql.DriverManager$2,java.sql.DriverManager$1"
+	};
+	$loadClass(DriverManager, name, initialize, &classInfo$$, DriverManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DriverManager);
+	});
 	return class$;
 }
 

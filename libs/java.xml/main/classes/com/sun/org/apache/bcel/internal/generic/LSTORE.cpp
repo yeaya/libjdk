@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LSTORE.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -22,26 +21,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _LSTORE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LSTORE, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LSTORE, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LSTORE, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _LSTORE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.LSTORE",
-	"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
-	nullptr,
-	nullptr,
-	_LSTORE_MethodInfo_
-};
-
-$Object* allocate$LSTORE($Class* clazz) {
-	return $of($alloc(LSTORE));
-}
-
 void LSTORE::init$() {
 	$StoreInstruction::init$($Const::LSTORE, $Const::LSTORE_0);
 }
@@ -59,7 +38,23 @@ LSTORE::LSTORE() {
 }
 
 $Class* LSTORE::load$($String* name, bool initialize) {
-	$loadClass(LSTORE, name, initialize, &_LSTORE_ClassInfo_, allocate$LSTORE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LSTORE, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(LSTORE, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LSTORE, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.LSTORE",
+		"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LSTORE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LSTORE));
+	});
 	return class$;
 }
 

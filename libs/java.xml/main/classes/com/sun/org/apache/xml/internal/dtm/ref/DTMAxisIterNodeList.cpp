@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIterNodeList.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
@@ -26,36 +25,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _DTMAxisIterNodeList_FieldInfo_[] = {
-	{"m_dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_dtm)},
-	{"m_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_iter)},
-	{"m_cachedNodes", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_cachedNodes)},
-	{"m_last", "I", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_last)},
-	{}
-};
-
-$MethodInfo _DTMAxisIterNodeList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DTMAxisIterNodeList, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(DTMAxisIterNodeList, init$, void, $DTM*, $DTMAxisIterator*)},
-	{"getDTMAxisIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMAxisIterNodeList, getDTMAxisIterator, $DTMAxisIterator*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DTMAxisIterNodeList, getLength, int32_t)},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMAxisIterNodeList, item, $Node*, int32_t)},
-	{}
-};
-
-$ClassInfo _DTMAxisIterNodeList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIterNodeList",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeListBase",
-	nullptr,
-	_DTMAxisIterNodeList_FieldInfo_,
-	_DTMAxisIterNodeList_MethodInfo_
-};
-
-$Object* allocate$DTMAxisIterNodeList($Class* clazz) {
-	return $of($alloc(DTMAxisIterNodeList));
-}
 
 void DTMAxisIterNodeList::init$() {
 	$DTMNodeListBase::init$();
@@ -115,7 +84,32 @@ DTMAxisIterNodeList::DTMAxisIterNodeList() {
 }
 
 $Class* DTMAxisIterNodeList::load$($String* name, bool initialize) {
-	$loadClass(DTMAxisIterNodeList, name, initialize, &_DTMAxisIterNodeList_ClassInfo_, allocate$DTMAxisIterNodeList);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_dtm)},
+		{"m_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_iter)},
+		{"m_cachedNodes", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_cachedNodes)},
+		{"m_last", "I", nullptr, $PRIVATE, $field(DTMAxisIterNodeList, m_last)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DTMAxisIterNodeList, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(DTMAxisIterNodeList, init$, void, $DTM*, $DTMAxisIterator*)},
+		{"getDTMAxisIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DTMAxisIterNodeList, getDTMAxisIterator, $DTMAxisIterator*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DTMAxisIterNodeList, getLength, int32_t)},
+		{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DTMAxisIterNodeList, item, $Node*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIterNodeList",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMNodeListBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMAxisIterNodeList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMAxisIterNodeList);
+	});
 	return class$;
 }
 

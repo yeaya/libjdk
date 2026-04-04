@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/JavadocFormatter$3.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <jdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag.h>
 #include <jdk/internal/shellsupport/doc/JavadocFormatter.h>
@@ -32,125 +31,89 @@ namespace jdk {
 		namespace shellsupport {
 			namespace doc {
 
-$FieldInfo _JavadocFormatter$3_FieldInfo_[] = {
-	{"$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavadocFormatter$3, $SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)},
-	{}
-};
-
-$EnclosingMethodInfo _JavadocFormatter$3_EnclosingMethodInfo_ = {
-	"jdk.internal.shellsupport.doc.JavadocFormatter",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavadocFormatter$3_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavadocFormatter$3_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.shellsupport.doc.JavadocFormatter$3",
-	"java.lang.Object",
-	nullptr,
-	_JavadocFormatter$3_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JavadocFormatter$3_EnclosingMethodInfo_,
-	_JavadocFormatter$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocFormatter"
-};
-
-$Object* allocate$JavadocFormatter$3($Class* clazz) {
-	return $of($alloc(JavadocFormatter$3));
-}
-
 $ints* JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag = nullptr;
 
-void clinit$JavadocFormatter$3($Class* class$) {
+void JavadocFormatter$3::clinit$($Class* clazz) {
 	$assignStatic(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag, $new($ints, $($JavadocFormatter$HtmlTag::values())->length));
 	{
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::P->ordinal(), 1);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::P->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::BLOCKQUOTE->ordinal(), 2);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::BLOCKQUOTE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::PRE->ordinal(), 3);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::PRE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::UL->ordinal(), 4);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::UL->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::OL->ordinal(), 5);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::OL->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::DL->ordinal(), 6);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::DL->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::LI->ordinal(), 7);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::LI->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::DT->ordinal(), 8);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::DT->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::DD->ordinal(), 9);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::DD->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::H1->ordinal(), 10);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::H1->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::H2->ordinal(), 11);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::H2->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::H3->ordinal(), 12);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::H3->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::H4->ordinal(), 13);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::H4->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::H5->ordinal(), 14);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::H5->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::H6->ordinal(), 15);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::H6->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::TABLE->ordinal(), 16);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::TABLE->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::TR->ordinal(), 17);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::TR->ordinal(), 17);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::TH->ordinal(), 18);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::TH->ordinal(), 18);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::TD->ordinal(), 19);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::TD->ordinal(), 19);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)->set($JavadocFormatter$HtmlTag::IMG->ordinal(), 20);
+			JavadocFormatter$3::$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag->set($JavadocFormatter$HtmlTag::IMG->ordinal(), 20);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -160,7 +123,37 @@ JavadocFormatter$3::JavadocFormatter$3() {
 }
 
 $Class* JavadocFormatter$3::load$($String* name, bool initialize) {
-	$loadClass(JavadocFormatter$3, name, initialize, &_JavadocFormatter$3_ClassInfo_, clinit$JavadocFormatter$3, allocate$JavadocFormatter$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavadocFormatter$3, $SwitchMap$jdk$internal$shellsupport$doc$JavadocFormatter$HtmlTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.shellsupport.doc.JavadocFormatter",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.shellsupport.doc.JavadocFormatter$3",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocFormatter"
+	};
+	$loadClass(JavadocFormatter$3, name, initialize, &classInfo$$, JavadocFormatter$3::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocFormatter$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/font/NativeGlyphMapper.h>
-
 #include <sun/font/CharToGlyphMapper.h>
 #include <sun/font/NativeFont.h>
 #include <sun/font/XMap.h>
@@ -14,37 +13,6 @@ using $XMap = ::sun::font::XMap;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _NativeGlyphMapper_FieldInfo_[] = {
-	{"font", "Lsun/font/NativeFont;", nullptr, 0, $field(NativeGlyphMapper, font)},
-	{"xmapper", "Lsun/font/XMap;", nullptr, 0, $field(NativeGlyphMapper, xmapper)},
-	{"numGlyphs", "I", nullptr, 0, $field(NativeGlyphMapper, numGlyphs)},
-	{}
-};
-
-$MethodInfo _NativeGlyphMapper_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/NativeFont;)V", nullptr, 0, $method(NativeGlyphMapper, init$, void, $NativeFont*)},
-	{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charToGlyph, int32_t, char16_t)},
-	{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charToGlyph, int32_t, int32_t)},
-	{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
-	{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
-	{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, getNumGlyphs, int32_t)},
-	{}
-};
-
-$ClassInfo _NativeGlyphMapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.NativeGlyphMapper",
-	"sun.font.CharToGlyphMapper",
-	nullptr,
-	_NativeGlyphMapper_FieldInfo_,
-	_NativeGlyphMapper_MethodInfo_
-};
-
-$Object* allocate$NativeGlyphMapper($Class* clazz) {
-	return $of($alloc(NativeGlyphMapper));
-}
 
 void NativeGlyphMapper::init$($NativeFont* f) {
 	$CharToGlyphMapper::init$();
@@ -62,7 +30,7 @@ int32_t NativeGlyphMapper::charToGlyph(char16_t unicode) {
 	if (unicode >= $nc($nc(this->xmapper)->convertedGlyphs)->length) {
 		return 0;
 	} else {
-		return $nc($nc(this->xmapper)->convertedGlyphs)->get(unicode);
+		return this->xmapper->convertedGlyphs->get(unicode);
 	}
 }
 
@@ -70,7 +38,7 @@ int32_t NativeGlyphMapper::charToGlyph(int32_t unicode) {
 	if (unicode >= $nc($nc(this->xmapper)->convertedGlyphs)->length) {
 		return 0;
 	} else {
-		return $nc($nc(this->xmapper)->convertedGlyphs)->get(unicode);
+		return this->xmapper->convertedGlyphs->get(unicode);
 	}
 }
 
@@ -80,7 +48,7 @@ void NativeGlyphMapper::charsToGlyphs(int32_t count, $chars* unicodes, $ints* gl
 		if (code >= $nc($nc(this->xmapper)->convertedGlyphs)->length) {
 			$nc(glyphs)->set(i, 0);
 		} else {
-			$nc(glyphs)->set(i, $nc($nc(this->xmapper)->convertedGlyphs)->get(code));
+			$nc(glyphs)->set(i, this->xmapper->convertedGlyphs->get(code));
 		}
 	}
 }
@@ -96,7 +64,7 @@ void NativeGlyphMapper::charsToGlyphs(int32_t count, $ints* unicodes, $ints* gly
 		if (code >= $nc($nc(this->xmapper)->convertedGlyphs)->length) {
 			$nc(glyphs)->set(i, 0);
 		} else {
-			$nc(glyphs)->set(i, $nc($nc(this->xmapper)->convertedGlyphs)->get(code));
+			$nc(glyphs)->set(i, this->xmapper->convertedGlyphs->get(code));
 		}
 	}
 }
@@ -105,7 +73,33 @@ NativeGlyphMapper::NativeGlyphMapper() {
 }
 
 $Class* NativeGlyphMapper::load$($String* name, bool initialize) {
-	$loadClass(NativeGlyphMapper, name, initialize, &_NativeGlyphMapper_ClassInfo_, allocate$NativeGlyphMapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"font", "Lsun/font/NativeFont;", nullptr, 0, $field(NativeGlyphMapper, font)},
+		{"xmapper", "Lsun/font/XMap;", nullptr, 0, $field(NativeGlyphMapper, xmapper)},
+		{"numGlyphs", "I", nullptr, 0, $field(NativeGlyphMapper, numGlyphs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/NativeFont;)V", nullptr, 0, $method(NativeGlyphMapper, init$, void, $NativeFont*)},
+		{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charToGlyph, int32_t, char16_t)},
+		{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charToGlyph, int32_t, int32_t)},
+		{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
+		{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
+		{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(NativeGlyphMapper, getNumGlyphs, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.NativeGlyphMapper",
+		"sun.font.CharToGlyphMapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeGlyphMapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeGlyphMapper);
+	});
 	return class$;
 }
 

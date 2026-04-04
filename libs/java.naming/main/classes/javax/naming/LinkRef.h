@@ -18,12 +18,13 @@ class $export LinkRef : public ::javax::naming::Reference {
 	$class(LinkRef, 0, ::javax::naming::Reference)
 public:
 	LinkRef();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::naming::Name* linkName);
 	void init$($String* linkName);
 	virtual $String* getLinkName();
 	static $String* linkClassName;
 	static $String* linkAddrType;
-	static const int64_t serialVersionUID = (int64_t)0xB5400D398D60179E;
+	static const int64_t serialVersionUID = (int64_t)0xb5400d398d60179e;
 };
 
 	} // naming

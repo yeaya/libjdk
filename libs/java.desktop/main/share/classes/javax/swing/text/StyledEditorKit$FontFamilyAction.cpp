@@ -1,12 +1,10 @@
 #include <javax/swing/text/StyledEditorKit$FontFamilyAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -14,16 +12,13 @@
 #include <javax/swing/text/StyledEditorKit.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -33,50 +28,13 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _StyledEditorKit$FontFamilyAction_FieldInfo_[] = {
-	{"family", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StyledEditorKit$FontFamilyAction, family)},
-	{}
-};
-
-$MethodInfo _StyledEditorKit$FontFamilyAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StyledEditorKit$FontFamilyAction, init$, void, $String*, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$FontFamilyAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _StyledEditorKit$FontFamilyAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyledEditorKit$FontFamilyAction", "javax.swing.text.StyledEditorKit", "FontFamilyAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyledEditorKit$FontFamilyAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyledEditorKit$FontFamilyAction",
-	"javax.swing.text.StyledEditorKit$StyledTextAction",
-	nullptr,
-	_StyledEditorKit$FontFamilyAction_FieldInfo_,
-	_StyledEditorKit$FontFamilyAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyledEditorKit$FontFamilyAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyledEditorKit"
-};
-
-$Object* allocate$StyledEditorKit$FontFamilyAction($Class* clazz) {
-	return $of($alloc(StyledEditorKit$FontFamilyAction));
-}
-
 void StyledEditorKit$FontFamilyAction::init$($String* nm, $String* family) {
 	$StyledEditorKit$StyledTextAction::init$(nm);
 	$set(this, family, family);
 }
 
 void StyledEditorKit$FontFamilyAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, getEditor(e));
 	if (editor != nullptr) {
 		$var($String, family, this->family);
@@ -91,7 +49,7 @@ void StyledEditorKit$FontFamilyAction::actionPerformed($ActionEvent* e) {
 			$StyleConstants::setFontFamily(attr, family);
 			setCharacterAttributes(editor, attr, false);
 		} else {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(editor);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(editor);
 		}
 	}
 }
@@ -100,7 +58,38 @@ StyledEditorKit$FontFamilyAction::StyledEditorKit$FontFamilyAction() {
 }
 
 $Class* StyledEditorKit$FontFamilyAction::load$($String* name, bool initialize) {
-	$loadClass(StyledEditorKit$FontFamilyAction, name, initialize, &_StyledEditorKit$FontFamilyAction_ClassInfo_, allocate$StyledEditorKit$FontFamilyAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"family", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StyledEditorKit$FontFamilyAction, family)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StyledEditorKit$FontFamilyAction, init$, void, $String*, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$FontFamilyAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyledEditorKit$FontFamilyAction", "javax.swing.text.StyledEditorKit", "FontFamilyAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyledEditorKit$FontFamilyAction",
+		"javax.swing.text.StyledEditorKit$StyledTextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyledEditorKit"
+	};
+	$loadClass(StyledEditorKit$FontFamilyAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyledEditorKit$FontFamilyAction));
+	});
 	return class$;
 }
 

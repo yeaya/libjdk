@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NumberType.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Type.h>
 #include <jcpp.h>
 
@@ -17,26 +16,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$MethodInfo _NumberType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NumberType, init$, void)},
-	{"isNumber", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberType, isNumber, bool)},
-	{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberType, isSimple, bool)},
-	{}
-};
-
-$ClassInfo _NumberType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NumberType",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type",
-	nullptr,
-	nullptr,
-	_NumberType_MethodInfo_
-};
-
-$Object* allocate$NumberType($Class* clazz) {
-	return $of($alloc(NumberType));
-}
-
 void NumberType::init$() {
 	$Type::init$();
 }
@@ -53,7 +32,23 @@ NumberType::NumberType() {
 }
 
 $Class* NumberType::load$($String* name, bool initialize) {
-	$loadClass(NumberType, name, initialize, &_NumberType_ClassInfo_, allocate$NumberType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NumberType, init$, void)},
+		{"isNumber", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberType, isNumber, bool)},
+		{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(NumberType, isSimple, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NumberType",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NumberType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NumberType);
+	});
 	return class$;
 }
 

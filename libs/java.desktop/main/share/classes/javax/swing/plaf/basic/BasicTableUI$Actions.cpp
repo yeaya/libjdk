@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTableUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -71,8 +70,6 @@
 #undef TRUE
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
@@ -83,7 +80,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventObject = ::java::util::EventObject;
 using $CellEditor = ::javax::swing::CellEditor;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $JScrollPane = ::javax::swing::JScrollPane;
@@ -94,108 +90,12 @@ using $TableHeaderUI = ::javax::swing::plaf::TableHeaderUI;
 using $BasicTableHeaderUI = ::javax::swing::plaf::basic::BasicTableHeaderUI;
 using $BasicTableUI = ::javax::swing::plaf::basic::BasicTableUI;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTableUI$Actions_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicTableUI$Actions, $assertionsDisabled)},
-	{"CANCEL_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, CANCEL_EDITING)},
-	{"SELECT_ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SELECT_ALL)},
-	{"CLEAR_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, CLEAR_SELECTION)},
-	{"START_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, START_EDITING)},
-	{"NEXT_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW)},
-	{"NEXT_ROW_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW_CELL)},
-	{"NEXT_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW_EXTEND_SELECTION)},
-	{"NEXT_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW_CHANGE_LEAD)},
-	{"PREVIOUS_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW)},
-	{"PREVIOUS_ROW_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW_CELL)},
-	{"PREVIOUS_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW_EXTEND_SELECTION)},
-	{"PREVIOUS_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW_CHANGE_LEAD)},
-	{"NEXT_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN)},
-	{"NEXT_COLUMN_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN_CELL)},
-	{"NEXT_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN_EXTEND_SELECTION)},
-	{"NEXT_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN_CHANGE_LEAD)},
-	{"PREVIOUS_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN)},
-	{"PREVIOUS_COLUMN_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN_CELL)},
-	{"PREVIOUS_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN_EXTEND_SELECTION)},
-	{"PREVIOUS_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN_CHANGE_LEAD)},
-	{"SCROLL_LEFT_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_LEFT_CHANGE_SELECTION)},
-	{"SCROLL_LEFT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_LEFT_EXTEND_SELECTION)},
-	{"SCROLL_RIGHT_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_RIGHT_CHANGE_SELECTION)},
-	{"SCROLL_RIGHT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_RIGHT_EXTEND_SELECTION)},
-	{"SCROLL_UP_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_UP_CHANGE_SELECTION)},
-	{"SCROLL_UP_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_UP_EXTEND_SELECTION)},
-	{"SCROLL_DOWN_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_DOWN_CHANGE_SELECTION)},
-	{"SCROLL_DOWN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_DOWN_EXTEND_SELECTION)},
-	{"FIRST_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_COLUMN)},
-	{"FIRST_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_COLUMN_EXTEND_SELECTION)},
-	{"LAST_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_COLUMN)},
-	{"LAST_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_COLUMN_EXTEND_SELECTION)},
-	{"FIRST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_ROW)},
-	{"FIRST_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_ROW_EXTEND_SELECTION)},
-	{"LAST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_ROW)},
-	{"LAST_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_ROW_EXTEND_SELECTION)},
-	{"ADD_TO_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, ADD_TO_SELECTION)},
-	{"TOGGLE_AND_ANCHOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, TOGGLE_AND_ANCHOR)},
-	{"EXTEND_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, EXTEND_TO)},
-	{"MOVE_SELECTION_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, MOVE_SELECTION_TO)},
-	{"FOCUS_HEADER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FOCUS_HEADER)},
-	{"dx", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, dx)},
-	{"dy", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, dy)},
-	{"extend", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, extend)},
-	{"inSelection", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, inSelection)},
-	{"forwards", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, forwards)},
-	{"vertically", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, vertically)},
-	{"toLimit", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, toLimit)},
-	{"leadRow", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, leadRow)},
-	{"leadColumn", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, leadColumn)},
-	{}
-};
-
-$MethodInfo _BasicTableUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTableUI$Actions, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;IIZZ)V", nullptr, 0, $method(BasicTableUI$Actions, init$, void, $String*, int32_t, int32_t, bool, bool)},
-	{"<init>", "(Ljava/lang/String;ZZZZ)V", nullptr, 0, $method(BasicTableUI$Actions, init$, void, $String*, bool, bool, bool, bool)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"calcNextPos", "(IIIIII)V", nullptr, $PRIVATE, $method(BasicTableUI$Actions, calcNextPos, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"clipToRange", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTableUI$Actions, clipToRange, int32_t, int32_t, int32_t, int32_t)},
-	{"moveWithinSelectedRange", "(Ljavax/swing/JTable;IILjavax/swing/ListSelectionModel;Ljavax/swing/ListSelectionModel;)Z", nullptr, $PRIVATE, $method(BasicTableUI$Actions, moveWithinSelectedRange, bool, $JTable*, int32_t, int32_t, $ListSelectionModel*, $ListSelectionModel*)},
-	{"moveWithinTableRange", "(Ljavax/swing/JTable;II)V", nullptr, $PRIVATE, $method(BasicTableUI$Actions, moveWithinTableRange, void, $JTable*, int32_t, int32_t)},
-	{"sign", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTableUI$Actions, sign, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicTableUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTableUI$Actions", "javax.swing.plaf.basic.BasicTableUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTableUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTableUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicTableUI$Actions_FieldInfo_,
-	_BasicTableUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTableUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTableUI"
-};
-
-$Object* allocate$BasicTableUI$Actions($Class* clazz) {
-	return $of($alloc(BasicTableUI$Actions));
-}
 
 bool BasicTableUI$Actions::$assertionsDisabled = false;
 $String* BasicTableUI$Actions::CANCEL_EDITING = nullptr;
@@ -273,7 +173,7 @@ int32_t BasicTableUI$Actions::clipToRange(int32_t i, int32_t a, int32_t b) {
 
 void BasicTableUI$Actions::moveWithinTableRange($JTable* table, int32_t dx, int32_t dy) {
 	this->leadRow = clipToRange(this->leadRow + dy, 0, $nc(table)->getRowCount());
-	this->leadColumn = clipToRange(this->leadColumn + dx, 0, $nc(table)->getColumnCount());
+	this->leadColumn = clipToRange(this->leadColumn + dx, 0, table->getColumnCount());
 }
 
 int32_t BasicTableUI$Actions::sign(int32_t num) {
@@ -378,12 +278,12 @@ void BasicTableUI$Actions::calcNextPos(int32_t dx, int32_t minX, int32_t maxX, i
 }
 
 void BasicTableUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, getName());
 	$var($JTable, table, $cast($JTable, $nc(e)->getSource()));
 	$var($ListSelectionModel, rsm, $nc(table)->getSelectionModel());
 	this->leadRow = $BasicTableUI::getAdjustedLead(table, true, rsm);
-	$var($ListSelectionModel, csm, $nc($(table->getColumnModel()))->getSelectionModel());
+	$var($ListSelectionModel, csm, $$nc(table->getColumnModel())->getSelectionModel());
 	this->leadColumn = $BasicTableUI::getAdjustedLead(table, false, csm);
 	if (key == BasicTableUI$Actions::SCROLL_LEFT_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_LEFT_EXTEND_SELECTION || key == BasicTableUI$Actions::SCROLL_RIGHT_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_RIGHT_EXTEND_SELECTION || key == BasicTableUI$Actions::SCROLL_UP_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_UP_EXTEND_SELECTION || key == BasicTableUI$Actions::SCROLL_DOWN_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_DOWN_EXTEND_SELECTION || key == BasicTableUI$Actions::FIRST_COLUMN || key == BasicTableUI$Actions::FIRST_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::FIRST_ROW || key == BasicTableUI$Actions::FIRST_ROW_EXTEND_SELECTION || key == BasicTableUI$Actions::LAST_COLUMN || key == BasicTableUI$Actions::LAST_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::LAST_ROW || key == BasicTableUI$Actions::LAST_ROW_EXTEND_SELECTION) {
 		if (this->toLimit) {
@@ -397,14 +297,14 @@ void BasicTableUI$Actions::actionPerformed($ActionEvent* e) {
 				this->dy = 0;
 			}
 		} else {
-			if (!($instanceOf($JScrollPane, $($nc($($SwingUtilities::getUnwrappedParent(table)))->getParent())))) {
+			if (!($instanceOf($JScrollPane, $($$nc($SwingUtilities::getUnwrappedParent(table))->getParent())))) {
 				return;
 			}
-			$var($Dimension, delta, $nc($(table->getParent()))->getSize());
+			$var($Dimension, delta, $$nc(table->getParent())->getSize());
 			if (this->vertically) {
 				$var($Rectangle, r, table->getCellRect(this->leadRow, 0, true));
 				if (this->forwards) {
-					$nc(r)->y += $Math::max($nc(delta)->height, r->height);
+					$nc(r)->y += $Math::max($nc(delta)->height, $nc(r)->height);
 				} else {
 					$nc(r)->y -= $nc(delta)->height;
 				}
@@ -417,13 +317,13 @@ void BasicTableUI$Actions::actionPerformed($ActionEvent* e) {
 			} else {
 				$var($Rectangle, r, table->getCellRect(0, this->leadColumn, true));
 				if (this->forwards) {
-					$nc(r)->x += $Math::max($nc(delta)->width, r->width);
+					$nc(r)->x += $Math::max($nc(delta)->width, $nc(r)->width);
 				} else {
 					$nc(r)->x -= $nc(delta)->width;
 				}
 				int32_t newColumn = table->columnAtPoint($($nc(r)->getLocation()));
 				if (newColumn == -1) {
-					bool ltr = $nc($(table->getComponentOrientation()))->isLeftToRight();
+					bool ltr = $$nc(table->getComponentOrientation())->isLeftToRight();
 					newColumn = this->forwards ? (ltr ? table->getColumnCount() : 0) : (ltr ? 0 : table->getColumnCount());
 				}
 				this->dx = newColumn - this->leadColumn;
@@ -433,7 +333,7 @@ void BasicTableUI$Actions::actionPerformed($ActionEvent* e) {
 	}
 	if (key == BasicTableUI$Actions::NEXT_ROW || key == BasicTableUI$Actions::NEXT_ROW_CELL || key == BasicTableUI$Actions::NEXT_ROW_EXTEND_SELECTION || key == BasicTableUI$Actions::NEXT_ROW_CHANGE_LEAD || key == BasicTableUI$Actions::NEXT_COLUMN || key == BasicTableUI$Actions::NEXT_COLUMN_CELL || key == BasicTableUI$Actions::NEXT_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::NEXT_COLUMN_CHANGE_LEAD || key == BasicTableUI$Actions::PREVIOUS_ROW || key == BasicTableUI$Actions::PREVIOUS_ROW_CELL || key == BasicTableUI$Actions::PREVIOUS_ROW_EXTEND_SELECTION || key == BasicTableUI$Actions::PREVIOUS_ROW_CHANGE_LEAD || key == BasicTableUI$Actions::PREVIOUS_COLUMN || key == BasicTableUI$Actions::PREVIOUS_COLUMN_CELL || key == BasicTableUI$Actions::PREVIOUS_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::PREVIOUS_COLUMN_CHANGE_LEAD || key == BasicTableUI$Actions::SCROLL_LEFT_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_LEFT_EXTEND_SELECTION || key == BasicTableUI$Actions::SCROLL_RIGHT_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_RIGHT_EXTEND_SELECTION || key == BasicTableUI$Actions::SCROLL_UP_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_UP_EXTEND_SELECTION || key == BasicTableUI$Actions::SCROLL_DOWN_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_DOWN_EXTEND_SELECTION || key == BasicTableUI$Actions::FIRST_COLUMN || key == BasicTableUI$Actions::FIRST_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::FIRST_ROW || key == BasicTableUI$Actions::FIRST_ROW_EXTEND_SELECTION || key == BasicTableUI$Actions::LAST_COLUMN || key == BasicTableUI$Actions::LAST_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::LAST_ROW || key == BasicTableUI$Actions::LAST_ROW_EXTEND_SELECTION) {
 		bool var$0 = table->isEditing();
-		if (var$0 && !$nc($(table->getCellEditor()))->stopCellEditing()) {
+		if (var$0 && !$$nc(table->getCellEditor())->stopCellEditing()) {
 			return;
 		}
 		bool changeLead = false;
@@ -445,16 +345,16 @@ void BasicTableUI$Actions::actionPerformed($ActionEvent* e) {
 		if (changeLead) {
 			moveWithinTableRange(table, this->dx, this->dy);
 			if (this->dy != 0) {
-				$nc(($cast($DefaultListSelectionModel, rsm)))->moveLeadSelectionIndex(this->leadRow);
+				$nc($cast($DefaultListSelectionModel, rsm))->moveLeadSelectionIndex(this->leadRow);
 				bool var$1 = $BasicTableUI::getAdjustedLead(table, false, csm) == -1;
 				if (var$1 && table->getColumnCount() > 0) {
-					$nc(($cast($DefaultListSelectionModel, csm)))->moveLeadSelectionIndex(0);
+					$nc($cast($DefaultListSelectionModel, csm))->moveLeadSelectionIndex(0);
 				}
 			} else {
-				$nc(($cast($DefaultListSelectionModel, csm)))->moveLeadSelectionIndex(this->leadColumn);
+				$nc($cast($DefaultListSelectionModel, csm))->moveLeadSelectionIndex(this->leadColumn);
 				bool var$2 = $BasicTableUI::getAdjustedLead(table, true, rsm) == -1;
 				if (var$2 && table->getRowCount() > 0) {
-					$nc(($cast($DefaultListSelectionModel, rsm)))->moveLeadSelectionIndex(0);
+					$nc($cast($DefaultListSelectionModel, rsm))->moveLeadSelectionIndex(0);
 				}
 			}
 			$var($Rectangle, cellRect, table->getCellRect(this->leadRow, this->leadColumn, false));
@@ -533,7 +433,7 @@ void BasicTableUI$Actions::actionPerformed($ActionEvent* e) {
 			if (col >= 0) {
 				$var($TableHeaderUI, thUI, $cast($TableHeaderUI, th->getUI()));
 				if ($instanceOf($BasicTableHeaderUI, thUI)) {
-					$nc(($cast($BasicTableHeaderUI, thUI)))->selectColumn(col);
+					$cast($BasicTableHeaderUI, thUI)->selectColumn(col);
 				}
 			}
 			th->requestFocusInWindow();
@@ -542,34 +442,33 @@ void BasicTableUI$Actions::actionPerformed($ActionEvent* e) {
 }
 
 bool BasicTableUI$Actions::accept(Object$* sender) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, getName());
-	$init($Boolean);
-	if ($instanceOf($JTable, sender) && $nc($Boolean::TRUE)->equals($($nc(($cast($JTable, sender)))->getClientProperty("Table.isFileList"_s)))) {
+	if ($instanceOf($JTable, sender) && $nc($Boolean::TRUE)->equals($($cast($JTable, sender)->getClientProperty("Table.isFileList"_s)))) {
 		if (key == BasicTableUI$Actions::NEXT_COLUMN || key == BasicTableUI$Actions::NEXT_COLUMN_CELL || key == BasicTableUI$Actions::NEXT_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::NEXT_COLUMN_CHANGE_LEAD || key == BasicTableUI$Actions::PREVIOUS_COLUMN || key == BasicTableUI$Actions::PREVIOUS_COLUMN_CELL || key == BasicTableUI$Actions::PREVIOUS_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::PREVIOUS_COLUMN_CHANGE_LEAD || key == BasicTableUI$Actions::SCROLL_LEFT_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_LEFT_EXTEND_SELECTION || key == BasicTableUI$Actions::SCROLL_RIGHT_CHANGE_SELECTION || key == BasicTableUI$Actions::SCROLL_RIGHT_EXTEND_SELECTION || key == BasicTableUI$Actions::FIRST_COLUMN || key == BasicTableUI$Actions::FIRST_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::LAST_COLUMN || key == BasicTableUI$Actions::LAST_COLUMN_EXTEND_SELECTION || key == BasicTableUI$Actions::NEXT_ROW_CELL || key == BasicTableUI$Actions::PREVIOUS_ROW_CELL) {
 			return false;
 		}
 	}
 	if (key == BasicTableUI$Actions::CANCEL_EDITING && $instanceOf($JTable, sender)) {
-		return $nc(($cast($JTable, sender)))->isEditing();
+		return $cast($JTable, sender)->isEditing();
 	} else if (key == BasicTableUI$Actions::NEXT_ROW_CHANGE_LEAD || key == BasicTableUI$Actions::PREVIOUS_ROW_CHANGE_LEAD) {
-		return sender != nullptr && $instanceOf($DefaultListSelectionModel, $($nc(($cast($JTable, sender)))->getSelectionModel()));
+		return sender != nullptr && $instanceOf($DefaultListSelectionModel, $($cast($JTable, sender)->getSelectionModel()));
 	} else if (key == BasicTableUI$Actions::NEXT_COLUMN_CHANGE_LEAD || key == BasicTableUI$Actions::PREVIOUS_COLUMN_CHANGE_LEAD) {
-		return sender != nullptr && $instanceOf($DefaultListSelectionModel, $($nc($($nc(($cast($JTable, sender)))->getColumnModel()))->getSelectionModel()));
+		return sender != nullptr && $instanceOf($DefaultListSelectionModel, $($$nc($cast($JTable, sender)->getColumnModel())->getSelectionModel()));
 	} else if (key == BasicTableUI$Actions::ADD_TO_SELECTION && $instanceOf($JTable, sender)) {
 		$var($JTable, table, $cast($JTable, sender));
 		int32_t leadRow = $BasicTableUI::getAdjustedLead(table, true);
 		int32_t leadCol = $BasicTableUI::getAdjustedLead(table, false);
-		bool var$0 = $nc(table)->isEditing();
-		return !(var$0 || $nc(table)->isCellSelected(leadRow, leadCol));
+		bool var$0 = table->isEditing();
+		return !(var$0 || table->isCellSelected(leadRow, leadCol));
 	} else if (key == BasicTableUI$Actions::FOCUS_HEADER && $instanceOf($JTable, sender)) {
 		$var($JTable, table, $cast($JTable, sender));
-		return $nc(table)->getTableHeader() != nullptr;
+		return table->getTableHeader() != nullptr;
 	}
 	return true;
 }
 
-void clinit$BasicTableUI$Actions($Class* class$) {
+void BasicTableUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicTableUI$Actions::CANCEL_EDITING, "cancel"_s);
 	$assignStatic(BasicTableUI$Actions::SELECT_ALL, "selectAll"_s);
 	$assignStatic(BasicTableUI$Actions::CLEAR_SELECTION, "clearSelection"_s);
@@ -619,7 +518,95 @@ BasicTableUI$Actions::BasicTableUI$Actions() {
 }
 
 $Class* BasicTableUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicTableUI$Actions, name, initialize, &_BasicTableUI$Actions_ClassInfo_, clinit$BasicTableUI$Actions, allocate$BasicTableUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicTableUI$Actions, $assertionsDisabled)},
+		{"CANCEL_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, CANCEL_EDITING)},
+		{"SELECT_ALL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SELECT_ALL)},
+		{"CLEAR_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, CLEAR_SELECTION)},
+		{"START_EDITING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, START_EDITING)},
+		{"NEXT_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW)},
+		{"NEXT_ROW_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW_CELL)},
+		{"NEXT_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW_EXTEND_SELECTION)},
+		{"NEXT_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_ROW_CHANGE_LEAD)},
+		{"PREVIOUS_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW)},
+		{"PREVIOUS_ROW_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW_CELL)},
+		{"PREVIOUS_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW_EXTEND_SELECTION)},
+		{"PREVIOUS_ROW_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_ROW_CHANGE_LEAD)},
+		{"NEXT_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN)},
+		{"NEXT_COLUMN_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN_CELL)},
+		{"NEXT_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN_EXTEND_SELECTION)},
+		{"NEXT_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, NEXT_COLUMN_CHANGE_LEAD)},
+		{"PREVIOUS_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN)},
+		{"PREVIOUS_COLUMN_CELL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN_CELL)},
+		{"PREVIOUS_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN_EXTEND_SELECTION)},
+		{"PREVIOUS_COLUMN_CHANGE_LEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, PREVIOUS_COLUMN_CHANGE_LEAD)},
+		{"SCROLL_LEFT_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_LEFT_CHANGE_SELECTION)},
+		{"SCROLL_LEFT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_LEFT_EXTEND_SELECTION)},
+		{"SCROLL_RIGHT_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_RIGHT_CHANGE_SELECTION)},
+		{"SCROLL_RIGHT_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_RIGHT_EXTEND_SELECTION)},
+		{"SCROLL_UP_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_UP_CHANGE_SELECTION)},
+		{"SCROLL_UP_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_UP_EXTEND_SELECTION)},
+		{"SCROLL_DOWN_CHANGE_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_DOWN_CHANGE_SELECTION)},
+		{"SCROLL_DOWN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, SCROLL_DOWN_EXTEND_SELECTION)},
+		{"FIRST_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_COLUMN)},
+		{"FIRST_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_COLUMN_EXTEND_SELECTION)},
+		{"LAST_COLUMN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_COLUMN)},
+		{"LAST_COLUMN_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_COLUMN_EXTEND_SELECTION)},
+		{"FIRST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_ROW)},
+		{"FIRST_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FIRST_ROW_EXTEND_SELECTION)},
+		{"LAST_ROW", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_ROW)},
+		{"LAST_ROW_EXTEND_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, LAST_ROW_EXTEND_SELECTION)},
+		{"ADD_TO_SELECTION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, ADD_TO_SELECTION)},
+		{"TOGGLE_AND_ANCHOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, TOGGLE_AND_ANCHOR)},
+		{"EXTEND_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, EXTEND_TO)},
+		{"MOVE_SELECTION_TO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, MOVE_SELECTION_TO)},
+		{"FOCUS_HEADER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTableUI$Actions, FOCUS_HEADER)},
+		{"dx", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, dx)},
+		{"dy", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, dy)},
+		{"extend", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, extend)},
+		{"inSelection", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, inSelection)},
+		{"forwards", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, forwards)},
+		{"vertically", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, vertically)},
+		{"toLimit", "Z", nullptr, $PROTECTED, $field(BasicTableUI$Actions, toLimit)},
+		{"leadRow", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, leadRow)},
+		{"leadColumn", "I", nullptr, $PROTECTED, $field(BasicTableUI$Actions, leadColumn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTableUI$Actions, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;IIZZ)V", nullptr, 0, $method(BasicTableUI$Actions, init$, void, $String*, int32_t, int32_t, bool, bool)},
+		{"<init>", "(Ljava/lang/String;ZZZZ)V", nullptr, 0, $method(BasicTableUI$Actions, init$, void, $String*, bool, bool, bool, bool)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"calcNextPos", "(IIIIII)V", nullptr, $PRIVATE, $method(BasicTableUI$Actions, calcNextPos, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"clipToRange", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTableUI$Actions, clipToRange, int32_t, int32_t, int32_t, int32_t)},
+		{"moveWithinSelectedRange", "(Ljavax/swing/JTable;IILjavax/swing/ListSelectionModel;Ljavax/swing/ListSelectionModel;)Z", nullptr, $PRIVATE, $method(BasicTableUI$Actions, moveWithinSelectedRange, bool, $JTable*, int32_t, int32_t, $ListSelectionModel*, $ListSelectionModel*)},
+		{"moveWithinTableRange", "(Ljavax/swing/JTable;II)V", nullptr, $PRIVATE, $method(BasicTableUI$Actions, moveWithinTableRange, void, $JTable*, int32_t, int32_t)},
+		{"sign", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicTableUI$Actions, sign, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTableUI$Actions", "javax.swing.plaf.basic.BasicTableUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTableUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTableUI"
+	};
+	$loadClass(BasicTableUI$Actions, name, initialize, &classInfo$$, BasicTableUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTableUI$Actions);
+	});
 	return class$;
 }
 

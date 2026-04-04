@@ -1,5 +1,4 @@
 #include <java/util/logging/MemoryHandler.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -40,46 +39,8 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _MemoryHandler_FieldInfo_[] = {
-	{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryHandler, DEFAULT_SIZE)},
-	{"pushLevel", "Ljava/util/logging/Level;", nullptr, $PRIVATE | $VOLATILE, $field(MemoryHandler, pushLevel)},
-	{"size", "I", nullptr, $PRIVATE, $field(MemoryHandler, size)},
-	{"target", "Ljava/util/logging/Handler;", nullptr, $PRIVATE, $field(MemoryHandler, target)},
-	{"buffer", "[Ljava/util/logging/LogRecord;", nullptr, $PRIVATE, $field(MemoryHandler, buffer)},
-	{"start", "I", nullptr, 0, $field(MemoryHandler, start)},
-	{"count", "I", nullptr, 0, $field(MemoryHandler, count)},
-	{}
-};
-
-$MethodInfo _MemoryHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryHandler, init$, void)},
-	{"<init>", "(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", nullptr, $PUBLIC, $method(MemoryHandler, init$, void, $Handler*, int32_t, $Level*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, close, void), "java.lang.SecurityException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, flush, void)},
-	{"getPushLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, getPushLevel, $Level*)},
-	{"init", "()V", nullptr, $PRIVATE, $method(MemoryHandler, init, void)},
-	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, isLoggable, bool, $LogRecord*)},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, publish, void, $LogRecord*)},
-	{"push", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, push, void)},
-	{"setPushLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, setPushLevel, void, $Level*), "java.lang.SecurityException"},
-	{}
-};
-
-$ClassInfo _MemoryHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.logging.MemoryHandler",
-	"java.util.logging.Handler",
-	nullptr,
-	_MemoryHandler_FieldInfo_,
-	_MemoryHandler_MethodInfo_
-};
-
-$Object* allocate$MemoryHandler($Class* clazz) {
-	return $of($alloc(MemoryHandler));
-}
-
 void MemoryHandler::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($Level);
 	$Handler::init$($Level::ALL, $$new($SimpleFormatter), nullptr);
@@ -96,7 +57,7 @@ void MemoryHandler::init$() {
 	}
 	$Class* clz = nullptr;
 	try {
-		clz = $nc($($ClassLoader::getSystemClassLoader()))->loadClass(targetName);
+		clz = $$nc($ClassLoader::getSystemClassLoader())->loadClass(targetName);
 		$var($Object, o, $nc(clz)->newInstance());
 		$set(this, target, $cast($Handler, o));
 	} catch ($ClassNotFoundException& e) {
@@ -136,14 +97,14 @@ void MemoryHandler::publish($LogRecord* record) {
 			return;
 		}
 		int32_t ix = $mod((this->start + this->count), $nc(this->buffer)->length);
-		$nc(this->buffer)->set(ix, record);
-		if (this->count < $nc(this->buffer)->length) {
+		this->buffer->set(ix, record);
+		if (this->count < this->buffer->length) {
 			++this->count;
 		} else {
 			++this->start;
-			$modAssign(this->start, $nc(this->buffer)->length);
+			$modAssign(this->start, this->buffer->length);
 		}
-		int32_t var$0 = $nc($($nc(record)->getLevel()))->intValue();
+		int32_t var$0 = $$nc($nc(record)->getLevel())->intValue();
 		if (var$0 >= $nc(this->pushLevel)->intValue()) {
 			push();
 		}
@@ -152,10 +113,10 @@ void MemoryHandler::publish($LogRecord* record) {
 
 void MemoryHandler::push() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		for (int32_t i = 0; i < this->count; ++i) {
 			int32_t ix = $mod((this->start + i), $nc(this->buffer)->length);
-			$var($LogRecord, record, $nc(this->buffer)->get(ix));
+			$var($LogRecord, record, this->buffer->get(ix));
 			$nc(this->target)->publish(record);
 		}
 		this->start = 0;
@@ -195,7 +156,40 @@ MemoryHandler::MemoryHandler() {
 }
 
 $Class* MemoryHandler::load$($String* name, bool initialize) {
-	$loadClass(MemoryHandler, name, initialize, &_MemoryHandler_ClassInfo_, allocate$MemoryHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemoryHandler, DEFAULT_SIZE)},
+		{"pushLevel", "Ljava/util/logging/Level;", nullptr, $PRIVATE | $VOLATILE, $field(MemoryHandler, pushLevel)},
+		{"size", "I", nullptr, $PRIVATE, $field(MemoryHandler, size)},
+		{"target", "Ljava/util/logging/Handler;", nullptr, $PRIVATE, $field(MemoryHandler, target)},
+		{"buffer", "[Ljava/util/logging/LogRecord;", nullptr, $PRIVATE, $field(MemoryHandler, buffer)},
+		{"start", "I", nullptr, 0, $field(MemoryHandler, start)},
+		{"count", "I", nullptr, 0, $field(MemoryHandler, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryHandler, init$, void)},
+		{"<init>", "(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", nullptr, $PUBLIC, $method(MemoryHandler, init$, void, $Handler*, int32_t, $Level*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, close, void), "java.lang.SecurityException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, flush, void)},
+		{"getPushLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, getPushLevel, $Level*)},
+		{"init", "()V", nullptr, $PRIVATE, $method(MemoryHandler, init, void)},
+		{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, isLoggable, bool, $LogRecord*)},
+		{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, publish, void, $LogRecord*)},
+		{"push", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, push, void)},
+		{"setPushLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, setPushLevel, void, $Level*), "java.lang.SecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.logging.MemoryHandler",
+		"java.util.logging.Handler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryHandler);
+	});
 	return class$;
 }
 

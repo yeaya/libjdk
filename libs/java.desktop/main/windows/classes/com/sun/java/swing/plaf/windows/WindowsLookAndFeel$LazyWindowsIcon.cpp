@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$LazyWindowsIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <java/awt/Image.h>
 #include <javax/swing/ImageIcon.h>
@@ -26,44 +25,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$LazyWindowsIcon_FieldInfo_[] = {
-	{"nativeImage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$LazyWindowsIcon, nativeImage)},
-	{"resource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$LazyWindowsIcon, resource)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$LazyWindowsIcon_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(WindowsLookAndFeel$LazyWindowsIcon, init$, void, $String*, $String*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$LazyWindowsIcon, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$LazyWindowsIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "LazyWindowsIcon", $PRIVATE | $STATIC},
-	{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$LazyWindowsIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	_WindowsLookAndFeel$LazyWindowsIcon_FieldInfo_,
-	_WindowsLookAndFeel$LazyWindowsIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$LazyWindowsIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$LazyWindowsIcon($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$LazyWindowsIcon));
-}
-
 void WindowsLookAndFeel$LazyWindowsIcon::init$($String* nativeImage, $String* resource) {
 	$set(this, nativeImage, nativeImage);
 	$set(this, resource, resource);
@@ -77,14 +38,46 @@ $Object* WindowsLookAndFeel$LazyWindowsIcon::createValue($UIDefaults* table) {
 		}
 	}
 	$load($WindowsLookAndFeel);
-	return $of($SwingUtilities2::makeIcon($of(this)->getClass(), $WindowsLookAndFeel::class$, this->resource));
+	return $SwingUtilities2::makeIcon($of(this)->getClass(), $WindowsLookAndFeel::class$, this->resource);
 }
 
 WindowsLookAndFeel$LazyWindowsIcon::WindowsLookAndFeel$LazyWindowsIcon() {
 }
 
 $Class* WindowsLookAndFeel$LazyWindowsIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$LazyWindowsIcon, name, initialize, &_WindowsLookAndFeel$LazyWindowsIcon_ClassInfo_, allocate$WindowsLookAndFeel$LazyWindowsIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeImage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$LazyWindowsIcon, nativeImage)},
+		{"resource", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsLookAndFeel$LazyWindowsIcon, resource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(WindowsLookAndFeel$LazyWindowsIcon, init$, void, $String*, $String*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$LazyWindowsIcon, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "LazyWindowsIcon", $PRIVATE | $STATIC},
+		{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$LazyWindowsIcon",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$LazyWindowsIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$LazyWindowsIcon);
+	});
 	return class$;
 }
 

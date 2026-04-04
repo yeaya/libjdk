@@ -40,6 +40,7 @@ class BlitBg$General : public ::sun::java2d::loops::BlitBg {
 	$class(BlitBg$General, 0, ::sun::java2d::loops::BlitBg)
 public:
 	BlitBg$General();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void BlitBg$(::sun::java2d::SurfaceData* srcData, ::sun::java2d::SurfaceData* dstData, ::java::awt::Composite* comp, ::sun::java2d::pipe::Region* clip, int32_t bgArgb, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height) override;
 	::sun::java2d::loops::CompositeType* compositeType = nullptr;

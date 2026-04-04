@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTreeCellRenderer$TreeLeafIcon.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTreeCellRenderer.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -23,51 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifTreeCellRenderer$TreeLeafIcon_FieldInfo_[] = {
-	{"bg", "Ljava/awt/Color;", nullptr, 0, $field(MotifTreeCellRenderer$TreeLeafIcon, bg)},
-	{"shadow", "Ljava/awt/Color;", nullptr, 0, $field(MotifTreeCellRenderer$TreeLeafIcon, shadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, 0, $field(MotifTreeCellRenderer$TreeLeafIcon, highlight)},
-	{}
-};
-
-$MethodInfo _MotifTreeCellRenderer$TreeLeafIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTreeCellRenderer$TreeLeafIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeCellRenderer$TreeLeafIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeCellRenderer$TreeLeafIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifTreeCellRenderer$TreeLeafIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifTreeCellRenderer$TreeLeafIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon", "com.sun.java.swing.plaf.motif.MotifTreeCellRenderer", "TreeLeafIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifTreeCellRenderer$TreeLeafIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_MotifTreeCellRenderer$TreeLeafIcon_FieldInfo_,
-	_MotifTreeCellRenderer$TreeLeafIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifTreeCellRenderer$TreeLeafIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer"
-};
-
-$Object* allocate$MotifTreeCellRenderer$TreeLeafIcon($Class* clazz) {
-	return $of($alloc(MotifTreeCellRenderer$TreeLeafIcon));
-}
 
 int32_t MotifTreeCellRenderer$TreeLeafIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -123,7 +77,46 @@ MotifTreeCellRenderer$TreeLeafIcon::MotifTreeCellRenderer$TreeLeafIcon() {
 }
 
 $Class* MotifTreeCellRenderer$TreeLeafIcon::load$($String* name, bool initialize) {
-	$loadClass(MotifTreeCellRenderer$TreeLeafIcon, name, initialize, &_MotifTreeCellRenderer$TreeLeafIcon_ClassInfo_, allocate$MotifTreeCellRenderer$TreeLeafIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"bg", "Ljava/awt/Color;", nullptr, 0, $field(MotifTreeCellRenderer$TreeLeafIcon, bg)},
+		{"shadow", "Ljava/awt/Color;", nullptr, 0, $field(MotifTreeCellRenderer$TreeLeafIcon, shadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, 0, $field(MotifTreeCellRenderer$TreeLeafIcon, highlight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTreeCellRenderer$TreeLeafIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeCellRenderer$TreeLeafIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifTreeCellRenderer$TreeLeafIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifTreeCellRenderer$TreeLeafIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon", "com.sun.java.swing.plaf.motif.MotifTreeCellRenderer", "TreeLeafIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer$TreeLeafIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifTreeCellRenderer"
+	};
+	$loadClass(MotifTreeCellRenderer$TreeLeafIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifTreeCellRenderer$TreeLeafIcon));
+	});
 	return class$;
 }
 

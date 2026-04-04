@@ -24,6 +24,7 @@ class $import BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind : publ
 public:
 	BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind();
 	static $Array<::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind>* values();

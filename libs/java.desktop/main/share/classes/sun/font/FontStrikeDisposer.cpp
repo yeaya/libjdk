@@ -1,5 +1,4 @@
 #include <sun/font/FontStrikeDisposer.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <sun/font/Font2D.h>
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
-using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $Font2D = ::sun::font::Font2D;
 using $FontStrikeDesc = ::sun::font::FontStrikeDesc;
 using $StrikeCache = ::sun::font::StrikeCache;
@@ -21,54 +19,6 @@ using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _FontStrikeDisposer_FieldInfo_[] = {
-	{"strikeCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/FontStrikeDesc;Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;>;", 0, $field(FontStrikeDisposer, strikeCache)},
-	{"desc", "Lsun/font/FontStrikeDesc;", nullptr, 0, $field(FontStrikeDisposer, desc)},
-	{"longGlyphImages", "[J", nullptr, 0, $field(FontStrikeDisposer, longGlyphImages)},
-	{"intGlyphImages", "[I", nullptr, 0, $field(FontStrikeDisposer, intGlyphImages)},
-	{"segIntGlyphImages", "[[I", nullptr, 0, $field(FontStrikeDisposer, segIntGlyphImages)},
-	{"segLongGlyphImages", "[[J", nullptr, 0, $field(FontStrikeDisposer, segLongGlyphImages)},
-	{"pScalerContext", "J", nullptr, 0, $field(FontStrikeDisposer, pScalerContext)},
-	{"disposed", "Z", nullptr, 0, $field(FontStrikeDisposer, disposed)},
-	{"comp", "Z", nullptr, 0, $field(FontStrikeDisposer, comp)},
-	{}
-};
-
-$MethodInfo _FontStrikeDisposer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;J[I)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*, int64_t, $ints*)},
-	{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;J[J)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*, int64_t, $longs*)},
-	{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;J)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*, int64_t)},
-	{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FontStrikeDisposer, dispose, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FontStrikeDisposer_InnerClassesInfo_[] = {
-	{"sun.java2d.Disposer$PollDisposable", "sun.java2d.Disposer", "PollDisposable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FontStrikeDisposer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.FontStrikeDisposer",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord,sun.java2d.Disposer$PollDisposable",
-	_FontStrikeDisposer_FieldInfo_,
-	_FontStrikeDisposer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FontStrikeDisposer_InnerClassesInfo_
-};
-
-$Object* allocate$FontStrikeDisposer($Class* clazz) {
-	return $of($alloc(FontStrikeDisposer));
-}
 
 int32_t FontStrikeDisposer::hashCode() {
 	 return this->$DisposerRecord::hashCode();
@@ -130,7 +80,7 @@ void FontStrikeDisposer::init$($Font2D* font2D, $FontStrikeDesc* desc) {
 
 void FontStrikeDisposer::dispose() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!this->disposed) {
 			$var($Reference, ref, $cast($Reference, $nc(this->strikeCache)->get(this->desc)));
 			if (ref != nullptr) {
@@ -149,7 +99,49 @@ FontStrikeDisposer::FontStrikeDisposer() {
 }
 
 $Class* FontStrikeDisposer::load$($String* name, bool initialize) {
-	$loadClass(FontStrikeDisposer, name, initialize, &_FontStrikeDisposer_ClassInfo_, allocate$FontStrikeDisposer);
+	$FieldInfo fieldInfos$$[] = {
+		{"strikeCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/FontStrikeDesc;Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;>;", 0, $field(FontStrikeDisposer, strikeCache)},
+		{"desc", "Lsun/font/FontStrikeDesc;", nullptr, 0, $field(FontStrikeDisposer, desc)},
+		{"longGlyphImages", "[J", nullptr, 0, $field(FontStrikeDisposer, longGlyphImages)},
+		{"intGlyphImages", "[I", nullptr, 0, $field(FontStrikeDisposer, intGlyphImages)},
+		{"segIntGlyphImages", "[[I", nullptr, 0, $field(FontStrikeDisposer, segIntGlyphImages)},
+		{"segLongGlyphImages", "[[J", nullptr, 0, $field(FontStrikeDisposer, segLongGlyphImages)},
+		{"pScalerContext", "J", nullptr, 0, $field(FontStrikeDisposer, pScalerContext)},
+		{"disposed", "Z", nullptr, 0, $field(FontStrikeDisposer, disposed)},
+		{"comp", "Z", nullptr, 0, $field(FontStrikeDisposer, comp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;J[I)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*, int64_t, $ints*)},
+		{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;J[J)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*, int64_t, $longs*)},
+		{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;J)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*, int64_t)},
+		{"<init>", "(Lsun/font/Font2D;Lsun/font/FontStrikeDesc;)V", nullptr, $PUBLIC, $method(FontStrikeDisposer, init$, void, $Font2D*, $FontStrikeDesc*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FontStrikeDisposer, dispose, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.Disposer$PollDisposable", "sun.java2d.Disposer", "PollDisposable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.FontStrikeDisposer",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord,sun.java2d.Disposer$PollDisposable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(FontStrikeDisposer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FontStrikeDisposer));
+	});
 	return class$;
 }
 

@@ -39,6 +39,7 @@ class TransformingPathConsumer2D : public ::java::lang::Object {
 	$class(TransformingPathConsumer2D, 0, ::java::lang::Object)
 public:
 	TransformingPathConsumer2D();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx);
 	static double adjustClipInverseDelta($doubles* clipRect, double mxx, double mxy, double myx, double myy);
 	static double adjustClipScale($doubles* clipRect, double mxx, double myy);

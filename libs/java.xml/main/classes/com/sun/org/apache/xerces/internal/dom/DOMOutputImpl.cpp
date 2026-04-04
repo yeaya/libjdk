@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMOutputImpl.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/Writer.h>
 #include <jcpp.h>
@@ -17,40 +16,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DOMOutputImpl_FieldInfo_[] = {
-	{"fCharStream", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(DOMOutputImpl, fCharStream)},
-	{"fByteStream", "Ljava/io/OutputStream;", nullptr, $PROTECTED, $field(DOMOutputImpl, fByteStream)},
-	{"fSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMOutputImpl, fSystemId)},
-	{"fEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMOutputImpl, fEncoding)},
-	{}
-};
-
-$MethodInfo _DOMOutputImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMOutputImpl, init$, void)},
-	{"getByteStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getByteStream, $OutputStream*)},
-	{"getCharacterStream", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getCharacterStream, $Writer*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getEncoding, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getSystemId, $String*)},
-	{"setByteStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setByteStream, void, $OutputStream*)},
-	{"setCharacterStream", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setCharacterStream, void, $Writer*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setEncoding, void, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setSystemId, void, $String*)},
-	{}
-};
-
-$ClassInfo _DOMOutputImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DOMOutputImpl",
-	"java.lang.Object",
-	"org.w3c.dom.ls.LSOutput",
-	_DOMOutputImpl_FieldInfo_,
-	_DOMOutputImpl_MethodInfo_
-};
-
-$Object* allocate$DOMOutputImpl($Class* clazz) {
-	return $of($alloc(DOMOutputImpl));
-}
 
 void DOMOutputImpl::init$() {
 	$set(this, fCharStream, nullptr);
@@ -95,7 +60,36 @@ DOMOutputImpl::DOMOutputImpl() {
 }
 
 $Class* DOMOutputImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMOutputImpl, name, initialize, &_DOMOutputImpl_ClassInfo_, allocate$DOMOutputImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fCharStream", "Ljava/io/Writer;", nullptr, $PROTECTED, $field(DOMOutputImpl, fCharStream)},
+		{"fByteStream", "Ljava/io/OutputStream;", nullptr, $PROTECTED, $field(DOMOutputImpl, fByteStream)},
+		{"fSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMOutputImpl, fSystemId)},
+		{"fEncoding", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DOMOutputImpl, fEncoding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMOutputImpl, init$, void)},
+		{"getByteStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getByteStream, $OutputStream*)},
+		{"getCharacterStream", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getCharacterStream, $Writer*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getEncoding, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, getSystemId, $String*)},
+		{"setByteStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setByteStream, void, $OutputStream*)},
+		{"setCharacterStream", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setCharacterStream, void, $Writer*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setEncoding, void, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMOutputImpl, setSystemId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DOMOutputImpl",
+		"java.lang.Object",
+		"org.w3c.dom.ls.LSOutput",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMOutputImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMOutputImpl);
+	});
 	return class$;
 }
 

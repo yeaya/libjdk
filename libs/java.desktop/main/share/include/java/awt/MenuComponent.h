@@ -50,6 +50,7 @@ class $import MenuComponent : public ::java::io::Serializable {
 	$class(MenuComponent, 0, ::java::io::Serializable)
 public:
 	MenuComponent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* constructComponentName();
 	void dispatchEvent(::java::awt::AWTEvent* e);
@@ -86,7 +87,7 @@ public:
 	$volatile(::java::security::AccessControlContext*) acc = nullptr;
 	static $String* actionListenerK;
 	static $String* itemListenerK;
-	static const int64_t serialVersionUID = (int64_t)0xC109AF5834A45C95;
+	static const int64_t serialVersionUID = (int64_t)0xc109af5834a45c95;
 	::javax::accessibility::AccessibleContext* accessibleContext = nullptr;
 };
 

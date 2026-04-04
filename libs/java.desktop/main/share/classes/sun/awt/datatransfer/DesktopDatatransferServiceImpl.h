@@ -42,6 +42,7 @@ class DesktopDatatransferServiceImpl : public ::sun::datatransfer::DesktopDatatr
 	$class(DesktopDatatransferServiceImpl, 0, ::sun::datatransfer::DesktopDatatransferService)
 public:
 	DesktopDatatransferServiceImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* getDefaultUnicodeEncoding() override;
 	virtual ::java::awt::datatransfer::FlavorMap* getFlavorMap(::java::util::function::Supplier* supplier) override;

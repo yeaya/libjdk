@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_util_Collections$EmptySet_PersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData$java_util_Collections.h>
@@ -17,38 +16,6 @@ using $Collections = ::java::util::Collections;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_util_Collections$EmptySet_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_util_Collections$EmptySet_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_util_Collections$EmptySet_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_util_Collections$EmptySet_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_util_Collections", "java.beans.MetaData", "java_util_Collections", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.beans.MetaData$java_util_Collections$EmptySet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptySet_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_util_Collections$EmptySet_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_util_Collections$EmptySet_PersistenceDelegate",
-	"java.beans.MetaData$java_util_Collections",
-	nullptr,
-	nullptr,
-	_MetaData$java_util_Collections$EmptySet_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_util_Collections$EmptySet_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_util_Collections$EmptySet_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_util_Collections$EmptySet_PersistenceDelegate));
-}
-
 void MetaData$java_util_Collections$EmptySet_PersistenceDelegate::init$() {
 	$MetaData$java_util_Collections::init$();
 }
@@ -62,7 +29,34 @@ MetaData$java_util_Collections$EmptySet_PersistenceDelegate::MetaData$java_util_
 }
 
 $Class* MetaData$java_util_Collections$EmptySet_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_util_Collections$EmptySet_PersistenceDelegate, name, initialize, &_MetaData$java_util_Collections$EmptySet_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_util_Collections$EmptySet_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_util_Collections$EmptySet_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_util_Collections$EmptySet_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_util_Collections", "java.beans.MetaData", "java_util_Collections", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.beans.MetaData$java_util_Collections$EmptySet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptySet_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_util_Collections$EmptySet_PersistenceDelegate",
+		"java.beans.MetaData$java_util_Collections",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_util_Collections$EmptySet_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_util_Collections$EmptySet_PersistenceDelegate);
+	});
 	return class$;
 }
 

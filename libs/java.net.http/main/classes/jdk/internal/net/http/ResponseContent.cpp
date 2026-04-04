@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseContent.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Runnable.h>
 #include <java/net/http/HttpHeaders.h>
@@ -25,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
-using $Optional = ::java::util::Optional;
 using $Consumer = ::java::util::function::Consumer;
 using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 using $ResponseContent$BodyParser = ::jdk::internal::net::http::ResponseContent$BodyParser;
@@ -38,55 +36,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _ResponseContent_FieldInfo_[] = {
-	{"pusher", "Ljava/net/http/HttpResponse$BodySubscriber;", "Ljava/net/http/HttpResponse$BodySubscriber<*>;", $FINAL, $field(ResponseContent, pusher)},
-	{"contentLength", "J", nullptr, $FINAL, $field(ResponseContent, contentLength)},
-	{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $FINAL, $field(ResponseContent, headers)},
-	{"onFinished", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(ResponseContent, onFinished)},
-	{"dbgTag", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ResponseContent, dbgTag)},
-	{"LF", "I", nullptr, $STATIC | $FINAL, $constField(ResponseContent, LF)},
-	{"CR", "I", nullptr, $STATIC | $FINAL, $constField(ResponseContent, CR)},
-	{"chunkedContent", "Z", nullptr, $PRIVATE, $field(ResponseContent, chunkedContent)},
-	{"chunkedContentInitialized", "Z", nullptr, $PRIVATE, $field(ResponseContent, chunkedContentInitialized)},
-	{"MAX_CHUNK_HEADER_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ResponseContent, MAX_CHUNK_HEADER_SIZE)},
-	{}
-};
-
-$MethodInfo _ResponseContent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/lang/Runnable;)V", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber<*>;Ljava/lang/Runnable;)V", 0, $method(ResponseContent, init$, void, $HttpConnection*, int64_t, $HttpHeaders*, $HttpResponse$BodySubscriber*, $Runnable*)},
-	{"contentChunked", "()Z", nullptr, 0, $virtualMethod(ResponseContent, contentChunked, bool), "java.io.IOException"},
-	{"getBodyParser", "(Ljava/util/function/Consumer;)Ljdk/internal/net/http/ResponseContent$BodyParser;", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljdk/internal/net/http/ResponseContent$BodyParser;", 0, $virtualMethod(ResponseContent, getBodyParser, $ResponseContent$BodyParser*, $Consumer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ResponseContent_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseContent$FixedLengthBodyParser", "jdk.internal.net.http.ResponseContent", "FixedLengthBodyParser", 0},
-	{"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser", "jdk.internal.net.http.ResponseContent", "UnknownLengthBodyParser", 0},
-	{"jdk.internal.net.http.ResponseContent$ChunkedBodyParser", "jdk.internal.net.http.ResponseContent", "ChunkedBodyParser", 0},
-	{"jdk.internal.net.http.ResponseContent$ChunkState", "jdk.internal.net.http.ResponseContent", "ChunkState", $STATIC | $FINAL | $ENUM},
-	{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseContent_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.ResponseContent",
-	"java.lang.Object",
-	nullptr,
-	_ResponseContent_FieldInfo_,
-	_ResponseContent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResponseContent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseContent$FixedLengthBodyParser,jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser,jdk.internal.net.http.ResponseContent$ChunkedBodyParser,jdk.internal.net.http.ResponseContent$ChunkState,jdk.internal.net.http.ResponseContent$BodyParser"
-};
-
-$Object* allocate$ResponseContent($Class* clazz) {
-	return $of($alloc(ResponseContent));
-}
-
 void ResponseContent::init$($HttpConnection* connection, int64_t contentLength, $HttpHeaders* h, $HttpResponse$BodySubscriber* userSubscriber, $Runnable* onFinished) {
 	$set(this, pusher, userSubscriber);
 	this->contentLength = contentLength;
@@ -96,7 +45,7 @@ void ResponseContent::init$($HttpConnection* connection, int64_t contentLength, 
 }
 
 bool ResponseContent::contentChunked() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->chunkedContentInitialized) {
 		return this->chunkedContent;
 	}
@@ -106,7 +55,7 @@ bool ResponseContent::contentChunked() {
 		return this->chunkedContent;
 	}
 	if (this->contentLength == -1) {
-		$var($String, tc, $cast($String, $nc($($nc(this->headers)->firstValue("Transfer-Encoding"_s)))->orElse(""_s)));
+		$var($String, tc, $cast($String, $$nc($nc(this->headers)->firstValue("Transfer-Encoding"_s))->orElse(""_s)));
 		if (!$nc(tc)->isEmpty()) {
 			if (tc->equalsIgnoreCase("chunked"_s)) {
 				this->chunkedContent = true;
@@ -125,7 +74,7 @@ $ResponseContent$BodyParser* ResponseContent::getBodyParser($Consumer* onComplet
 	if (contentChunked()) {
 		return $new($ResponseContent$ChunkedBodyParser, this, onComplete);
 	} else {
-		return this->contentLength == -2 ? static_cast<$ResponseContent$BodyParser*>($new($ResponseContent$UnknownLengthBodyParser, this, onComplete)) : static_cast<$ResponseContent$BodyParser*>($new($ResponseContent$FixedLengthBodyParser, this, this->contentLength, onComplete));
+		return this->contentLength == -2 ? $cast($ResponseContent$BodyParser, $new($ResponseContent$UnknownLengthBodyParser, this, onComplete)) : $cast($ResponseContent$BodyParser, $new($ResponseContent$FixedLengthBodyParser, this, this->contentLength, onComplete));
 	}
 }
 
@@ -133,7 +82,50 @@ ResponseContent::ResponseContent() {
 }
 
 $Class* ResponseContent::load$($String* name, bool initialize) {
-	$loadClass(ResponseContent, name, initialize, &_ResponseContent_ClassInfo_, allocate$ResponseContent);
+	$FieldInfo fieldInfos$$[] = {
+		{"pusher", "Ljava/net/http/HttpResponse$BodySubscriber;", "Ljava/net/http/HttpResponse$BodySubscriber<*>;", $FINAL, $field(ResponseContent, pusher)},
+		{"contentLength", "J", nullptr, $FINAL, $field(ResponseContent, contentLength)},
+		{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $FINAL, $field(ResponseContent, headers)},
+		{"onFinished", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(ResponseContent, onFinished)},
+		{"dbgTag", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ResponseContent, dbgTag)},
+		{"LF", "I", nullptr, $STATIC | $FINAL, $constField(ResponseContent, LF)},
+		{"CR", "I", nullptr, $STATIC | $FINAL, $constField(ResponseContent, CR)},
+		{"chunkedContent", "Z", nullptr, $PRIVATE, $field(ResponseContent, chunkedContent)},
+		{"chunkedContentInitialized", "Z", nullptr, $PRIVATE, $field(ResponseContent, chunkedContentInitialized)},
+		{"MAX_CHUNK_HEADER_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ResponseContent, MAX_CHUNK_HEADER_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/lang/Runnable;)V", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber<*>;Ljava/lang/Runnable;)V", 0, $method(ResponseContent, init$, void, $HttpConnection*, int64_t, $HttpHeaders*, $HttpResponse$BodySubscriber*, $Runnable*)},
+		{"contentChunked", "()Z", nullptr, 0, $virtualMethod(ResponseContent, contentChunked, bool), "java.io.IOException"},
+		{"getBodyParser", "(Ljava/util/function/Consumer;)Ljdk/internal/net/http/ResponseContent$BodyParser;", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljdk/internal/net/http/ResponseContent$BodyParser;", 0, $virtualMethod(ResponseContent, getBodyParser, $ResponseContent$BodyParser*, $Consumer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseContent$FixedLengthBodyParser", "jdk.internal.net.http.ResponseContent", "FixedLengthBodyParser", 0},
+		{"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser", "jdk.internal.net.http.ResponseContent", "UnknownLengthBodyParser", 0},
+		{"jdk.internal.net.http.ResponseContent$ChunkedBodyParser", "jdk.internal.net.http.ResponseContent", "ChunkedBodyParser", 0},
+		{"jdk.internal.net.http.ResponseContent$ChunkState", "jdk.internal.net.http.ResponseContent", "ChunkState", $STATIC | $FINAL | $ENUM},
+		{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.ResponseContent",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseContent$FixedLengthBodyParser,jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser,jdk.internal.net.http.ResponseContent$ChunkedBodyParser,jdk.internal.net.http.ResponseContent$ChunkState,jdk.internal.net.http.ResponseContent$BodyParser"
+	};
+	$loadClass(ResponseContent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseContent);
+	});
 	return class$;
 }
 

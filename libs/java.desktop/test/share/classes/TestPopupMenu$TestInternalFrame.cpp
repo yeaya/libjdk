@@ -1,5 +1,4 @@
 #include <TestPopupMenu$TestInternalFrame.h>
-
 #include <TestPopupMenu.h>
 #include <java/awt/Color.h>
 #include <java/awt/Container.h>
@@ -12,49 +11,12 @@
 
 using $TestPopupMenu = ::TestPopupMenu;
 using $Color = ::java::awt::Color;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-
-$FieldInfo _TestPopupMenu$TestInternalFrame_FieldInfo_[] = {
-	{"this$0", "LTestPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(TestPopupMenu$TestInternalFrame, this$0)},
-	{}
-};
-
-$MethodInfo _TestPopupMenu$TestInternalFrame_MethodInfo_[] = {
-	{"<init>", "(LTestPopupMenu;)V", nullptr, $PUBLIC, $method(TestPopupMenu$TestInternalFrame, init$, void, $TestPopupMenu*)},
-	{"jbInit", "()V", nullptr, $PRIVATE, $method(TestPopupMenu$TestInternalFrame, jbInit, void)},
-	{}
-};
-
-$InnerClassInfo _TestPopupMenu$TestInternalFrame_InnerClassesInfo_[] = {
-	{"TestPopupMenu$TestInternalFrame", "TestPopupMenu", "TestInternalFrame", 0},
-	{}
-};
-
-$ClassInfo _TestPopupMenu$TestInternalFrame_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestPopupMenu$TestInternalFrame",
-	"javax.swing.JInternalFrame",
-	nullptr,
-	_TestPopupMenu$TestInternalFrame_FieldInfo_,
-	_TestPopupMenu$TestInternalFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestPopupMenu$TestInternalFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestPopupMenu"
-};
-
-$Object* allocate$TestPopupMenu$TestInternalFrame($Class* clazz) {
-	return $of($alloc(TestPopupMenu$TestInternalFrame));
-}
 
 void TestPopupMenu$TestInternalFrame::init$($TestPopupMenu* this$0) {
 	$set(this, this$0, this$0);
@@ -63,10 +25,10 @@ void TestPopupMenu$TestInternalFrame::init$($TestPopupMenu* this$0) {
 }
 
 void TestPopupMenu$TestInternalFrame::jbInit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setTitle("Test Internal Frame"_s);
 	$init($Color);
-	$nc($(getContentPane()))->setBackground($Color::GRAY);
+	$$nc(getContentPane())->setBackground($Color::GRAY);
 	setMaximizable(true);
 	setClosable(true);
 	setMinimumSize($$new($Dimension, 500, 300));
@@ -77,7 +39,37 @@ TestPopupMenu$TestInternalFrame::TestPopupMenu$TestInternalFrame() {
 }
 
 $Class* TestPopupMenu$TestInternalFrame::load$($String* name, bool initialize) {
-	$loadClass(TestPopupMenu$TestInternalFrame, name, initialize, &_TestPopupMenu$TestInternalFrame_ClassInfo_, allocate$TestPopupMenu$TestInternalFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTestPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(TestPopupMenu$TestInternalFrame, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestPopupMenu;)V", nullptr, $PUBLIC, $method(TestPopupMenu$TestInternalFrame, init$, void, $TestPopupMenu*)},
+		{"jbInit", "()V", nullptr, $PRIVATE, $method(TestPopupMenu$TestInternalFrame, jbInit, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestPopupMenu$TestInternalFrame", "TestPopupMenu", "TestInternalFrame", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestPopupMenu$TestInternalFrame",
+		"javax.swing.JInternalFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestPopupMenu"
+	};
+	$loadClass(TestPopupMenu$TestInternalFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestPopupMenu$TestInternalFrame));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/UnixSurfaceManagerFactory.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/awt/image/VolatileSurfaceManager.h>
@@ -26,25 +25,6 @@ using $XRVolatileSurfaceManager = ::sun::java2d::xr::XRVolatileSurfaceManager;
 namespace sun {
 	namespace java2d {
 
-$MethodInfo _UnixSurfaceManagerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixSurfaceManagerFactory, init$, void)},
-	{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC, $virtualMethod(UnixSurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
-	{}
-};
-
-$ClassInfo _UnixSurfaceManagerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.UnixSurfaceManagerFactory",
-	"sun.java2d.SurfaceManagerFactory",
-	nullptr,
-	nullptr,
-	_UnixSurfaceManagerFactory_MethodInfo_
-};
-
-$Object* allocate$UnixSurfaceManagerFactory($Class* clazz) {
-	return $of($alloc(UnixSurfaceManagerFactory));
-}
-
 void UnixSurfaceManagerFactory::init$() {
 	$SurfaceManagerFactory::init$();
 }
@@ -64,7 +44,22 @@ UnixSurfaceManagerFactory::UnixSurfaceManagerFactory() {
 }
 
 $Class* UnixSurfaceManagerFactory::load$($String* name, bool initialize) {
-	$loadClass(UnixSurfaceManagerFactory, name, initialize, &_UnixSurfaceManagerFactory_ClassInfo_, allocate$UnixSurfaceManagerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnixSurfaceManagerFactory, init$, void)},
+		{"createVolatileManager", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)Lsun/awt/image/VolatileSurfaceManager;", nullptr, $PUBLIC, $virtualMethod(UnixSurfaceManagerFactory, createVolatileManager, $VolatileSurfaceManager*, $SunVolatileImage*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.UnixSurfaceManagerFactory",
+		"sun.java2d.SurfaceManagerFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnixSurfaceManagerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixSurfaceManagerFactory);
+	});
 	return class$;
 }
 

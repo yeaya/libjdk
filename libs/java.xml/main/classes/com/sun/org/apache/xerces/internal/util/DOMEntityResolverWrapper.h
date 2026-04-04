@@ -64,6 +64,7 @@ class DOMEntityResolverWrapper : public ::com::sun::org::apache::xerces::interna
 	$class(DOMEntityResolverWrapper, 0, ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver)
 public:
 	DOMEntityResolverWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::w3c::dom::ls::LSResourceResolver* entityResolver);
 	virtual ::org::w3c::dom::ls::LSResourceResolver* getEntityResolver();

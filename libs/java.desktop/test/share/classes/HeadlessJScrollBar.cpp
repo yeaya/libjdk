@@ -1,5 +1,4 @@
 #include <HeadlessJScrollBar.h>
-
 #include <HeadlessJScrollBar$1.h>
 #include <HeadlessJScrollBar$2.h>
 #include <HeadlessJScrollBar$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JScrollBar = ::javax::swing::JScrollBar;
 
-$MethodInfo _HeadlessJScrollBar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJScrollBar, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJScrollBar, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJScrollBar_InnerClassesInfo_[] = {
-	{"HeadlessJScrollBar$3", nullptr, nullptr, 0},
-	{"HeadlessJScrollBar$2", nullptr, nullptr, 0},
-	{"HeadlessJScrollBar$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJScrollBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJScrollBar",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJScrollBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJScrollBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJScrollBar$3,HeadlessJScrollBar$2,HeadlessJScrollBar$1"
-};
-
-$Object* allocate$HeadlessJScrollBar($Class* clazz) {
-	return $of($alloc(HeadlessJScrollBar));
-}
-
 void HeadlessJScrollBar::init$() {
 }
 
 void HeadlessJScrollBar::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JScrollBar, sb, $new($JScrollBar));
 	sb->getAccessibleContext();
 	sb->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJScrollBar::main($StringArray* args) {
 	sb->getMaximumSize();
 	sb->getMinimumSize();
 	sb->contains(1, 2);
-	$var($Component, c1, sb->add(static_cast<$Component*>($$new($HeadlessJScrollBar$1))));
-	$var($Component, c2, sb->add(static_cast<$Component*>($$new($HeadlessJScrollBar$2))));
-	$var($Component, c3, sb->add(static_cast<$Component*>($$new($HeadlessJScrollBar$3))));
+	$var($Component, c1, sb->add($$new($HeadlessJScrollBar$1)));
+	$var($Component, c2, sb->add($$new($HeadlessJScrollBar$2)));
+	$var($Component, c3, sb->add($$new($HeadlessJScrollBar$3)));
 	$var($Insets, ins, sb->getInsets());
 	sb->getAlignmentY();
 	sb->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJScrollBar::main($StringArray* args) {
 	sb->setForeground($Color::red);
 	sb->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					sb->setFont(f1);
-					sb->setFont(f2);
-					sb->setFont(f3);
-					sb->setFont(f4);
-					sb->getFontMetrics(f1);
-					sb->getFontMetrics(f2);
-					sb->getFontMetrics(f3);
-					sb->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				sb->setFont(f1);
+				sb->setFont(f2);
+				sb->setFont(f3);
+				sb->setFont(f4);
+				sb->getFontMetrics(f1);
+				sb->getFontMetrics(f2);
+				sb->getFontMetrics(f3);
+				sb->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJScrollBar::main($StringArray* args) {
 	sb->getFont();
 	sb->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(sb));
+	c->add(sb);
 	sb->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			sb->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJScrollBar::HeadlessJScrollBar() {
 }
 
 $Class* HeadlessJScrollBar::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJScrollBar, name, initialize, &_HeadlessJScrollBar_ClassInfo_, allocate$HeadlessJScrollBar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJScrollBar, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJScrollBar, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJScrollBar$3", nullptr, nullptr, 0},
+		{"HeadlessJScrollBar$2", nullptr, nullptr, 0},
+		{"HeadlessJScrollBar$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJScrollBar",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJScrollBar$3,HeadlessJScrollBar$2,HeadlessJScrollBar$1"
+	};
+	$loadClass(HeadlessJScrollBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJScrollBar);
+	});
 	return class$;
 }
 

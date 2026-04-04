@@ -27,6 +27,7 @@ class SSLStreams$OutputStream : public ::java::io::OutputStream {
 	$class(SSLStreams$OutputStream, 0, ::java::io::OutputStream)
 public:
 	SSLStreams$OutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::SSLStreams* this$0);
 	virtual void close() override;
 	virtual void flush() override;

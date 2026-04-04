@@ -1,8 +1,6 @@
 #include <GetSpanHiDpiBug.h>
-
 #include <SpanTest.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
@@ -13,38 +11,18 @@ using $SpanTest = ::SpanTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-
-$MethodInfo _GetSpanHiDpiBug_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetSpanHiDpiBug, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetSpanHiDpiBug, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _GetSpanHiDpiBug_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetSpanHiDpiBug",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetSpanHiDpiBug_MethodInfo_
-};
-
-$Object* allocate$GetSpanHiDpiBug($Class* clazz) {
-	return $of($alloc(GetSpanHiDpiBug));
-}
 
 void GetSpanHiDpiBug::init$() {
 }
 
 void GetSpanHiDpiBug::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CountDownLatch, latch, $new($CountDownLatch, 1));
 	$var($SpanTest, test, $new($SpanTest, latch));
-	$var($Thread, T1, $new($Thread, static_cast<$Runnable*>(test)));
+	$var($Thread, T1, $new($Thread, test));
 	T1->start();
 	bool ret = false;
 	try {
@@ -66,7 +44,22 @@ GetSpanHiDpiBug::GetSpanHiDpiBug() {
 }
 
 $Class* GetSpanHiDpiBug::load$($String* name, bool initialize) {
-	$loadClass(GetSpanHiDpiBug, name, initialize, &_GetSpanHiDpiBug_ClassInfo_, allocate$GetSpanHiDpiBug);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetSpanHiDpiBug, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetSpanHiDpiBug, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetSpanHiDpiBug",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GetSpanHiDpiBug, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetSpanHiDpiBug);
+	});
 	return class$;
 }
 

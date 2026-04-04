@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/StringConcat$Indy.h>
-
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
@@ -23,8 +22,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Gen = ::com::sun::tools::javac::jvm::Gen;
-using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
 using $StringConcat = ::com::sun::tools::javac::jvm::StringConcat;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -45,63 +42,29 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$MethodInfo _StringConcat$Indy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(StringConcat$Indy, init$, void, $Context*)},
-	{"emit", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;ZLcom/sun/tools/javac/code/Type;)V", $PROTECTED | $ABSTRACT, $virtualMethod(StringConcat$Indy, emit, void, $JCDiagnostic$DiagnosticPosition*, $List*, bool, $Type*)},
-	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(StringConcat$Indy, makeConcat, $Items$Item*, $JCTree$JCAssignOp*)},
-	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(StringConcat$Indy, makeConcat, $Items$Item*, $JCTree$JCBinary*)},
-	{"split", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;>;", $PROTECTED, $virtualMethod(StringConcat$Indy, split, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _StringConcat$Indy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.StringConcat$Indy", "com.sun.tools.javac.jvm.StringConcat", "Indy", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StringConcat$Indy_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.jvm.StringConcat$Indy",
-	"com.sun.tools.javac.jvm.StringConcat",
-	nullptr,
-	nullptr,
-	_StringConcat$Indy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringConcat$Indy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.StringConcat"
-};
-
-$Object* allocate$StringConcat$Indy($Class* clazz) {
-	return $of($alloc(StringConcat$Indy));
-}
-
 void StringConcat$Indy::init$($Context* context) {
 	$StringConcat::init$(context);
 }
 
 $Items$Item* StringConcat$Indy::makeConcat($JCTree$JCAssignOp* tree) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, args, collectAll($nc(tree)->lhs, tree->rhs));
-	$var($Items$Item, l, $nc(this->gen)->genExpr($nc(tree)->lhs, $nc(tree->lhs)->type));
+	$useLocalObjectStack();
+	$var($List, args, collectAll($nc(tree)->lhs, $nc(tree)->rhs));
+	$var($Items$Item, l, $nc(this->gen)->genExpr(tree->lhs, $nc(tree->lhs)->type));
 	$nc(l)->duplicate();
 	l->load();
-	emit($($nc(tree)->pos()), args, false, tree->type);
+	emit($(tree->pos()), args, false, tree->type);
 	return l;
 }
 
 $Items$Item* StringConcat$Indy::makeConcat($JCTree$JCBinary* tree) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, args, collectAll($nc(tree)->lhs, tree->rhs));
-	emit($($nc(tree)->pos()), args, true, tree->type);
-	return $nc($($nc(this->gen)->getItems()))->makeStackItem($nc(this->syms)->stringType);
+	$useLocalObjectStack();
+	$var($List, args, collectAll($nc(tree)->lhs, $nc(tree)->rhs));
+	emit($(tree->pos()), args, true, tree->type);
+	return $$nc($nc(this->gen)->getItems())->makeStackItem($nc(this->syms)->stringType);
 }
 
 $List* StringConcat$Indy::split($List* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, splits, $new($ListBuffer));
 	int32_t slots = 0;
 	$var($ListBuffer, cArgs, $new($ListBuffer));
@@ -112,7 +75,7 @@ $List* StringConcat$Indy::split($List* args) {
 			{
 				$init($TypeTag);
 				bool var$0 = $nc($nc(t)->type)->getTag() == $TypeTag::LONG;
-				int32_t needSlots = (var$0 || $nc($nc(t)->type)->getTag() == $TypeTag::DOUBLE) ? 2 : 1;
+				int32_t needSlots = (var$0 || t->type->getTag() == $TypeTag::DOUBLE) ? 2 : 1;
 				if (slots + needSlots >= 200) {
 					splits->add($(cArgs->toList()));
 					cArgs->clear();
@@ -133,7 +96,36 @@ StringConcat$Indy::StringConcat$Indy() {
 }
 
 $Class* StringConcat$Indy::load$($String* name, bool initialize) {
-	$loadClass(StringConcat$Indy, name, initialize, &_StringConcat$Indy_ClassInfo_, allocate$StringConcat$Indy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(StringConcat$Indy, init$, void, $Context*)},
+		{"emit", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;ZLcom/sun/tools/javac/code/Type;)V", $PROTECTED | $ABSTRACT, $virtualMethod(StringConcat$Indy, emit, void, $JCDiagnostic$DiagnosticPosition*, $List*, bool, $Type*)},
+		{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(StringConcat$Indy, makeConcat, $Items$Item*, $JCTree$JCAssignOp*)},
+		{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(StringConcat$Indy, makeConcat, $Items$Item*, $JCTree$JCBinary*)},
+		{"split", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;>;", $PROTECTED, $virtualMethod(StringConcat$Indy, split, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.StringConcat$Indy", "com.sun.tools.javac.jvm.StringConcat", "Indy", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.jvm.StringConcat$Indy",
+		"com.sun.tools.javac.jvm.StringConcat",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.StringConcat"
+	};
+	$loadClass(StringConcat$Indy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringConcat$Indy);
+	});
 	return class$;
 }
 

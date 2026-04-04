@@ -1,5 +1,4 @@
 #include <javax/swing/text/SimpleAttributeSet$EmptyAttributeSet.h>
-
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -17,55 +16,6 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _SimpleAttributeSet$EmptyAttributeSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SimpleAttributeSet$EmptyAttributeSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SimpleAttributeSet$EmptyAttributeSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, 0, $method(SimpleAttributeSet$EmptyAttributeSet, init$, void)},
-	{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, containsAttribute, bool, Object$*, Object$*)},
-	{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, containsAttributes, bool, $AttributeSet*)},
-	{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, copyAttributes, $AttributeSet*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, equals, bool, Object$*)},
-	{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getAttribute, $Object*, Object$*)},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getAttributeCount, int32_t)},
-	{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getAttributeNames, $Enumeration*)},
-	{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getResolveParent, $AttributeSet*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, hashCode, int32_t)},
-	{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, isDefined, bool, Object$*)},
-	{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, isEqual, bool, $AttributeSet*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SimpleAttributeSet$EmptyAttributeSet_InnerClassesInfo_[] = {
-	{"javax.swing.text.SimpleAttributeSet$EmptyAttributeSet", "javax.swing.text.SimpleAttributeSet", "EmptyAttributeSet", $STATIC},
-	{}
-};
-
-$ClassInfo _SimpleAttributeSet$EmptyAttributeSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.SimpleAttributeSet$EmptyAttributeSet",
-	"java.lang.Object",
-	"javax.swing.text.AttributeSet,java.io.Serializable",
-	_SimpleAttributeSet$EmptyAttributeSet_FieldInfo_,
-	_SimpleAttributeSet$EmptyAttributeSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SimpleAttributeSet$EmptyAttributeSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.SimpleAttributeSet"
-};
-
-$Object* allocate$SimpleAttributeSet$EmptyAttributeSet($Class* clazz) {
-	return $of($alloc(SimpleAttributeSet$EmptyAttributeSet));
-}
 
 $Object* SimpleAttributeSet$EmptyAttributeSet::clone() {
 	 return this->$AttributeSet::clone();
@@ -99,7 +49,7 @@ $AttributeSet* SimpleAttributeSet$EmptyAttributeSet::copyAttributes() {
 }
 
 $Object* SimpleAttributeSet$EmptyAttributeSet::getAttribute(Object$* key) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Enumeration* SimpleAttributeSet$EmptyAttributeSet::getAttributeNames() {
@@ -122,7 +72,7 @@ bool SimpleAttributeSet$EmptyAttributeSet::equals(Object$* obj) {
 	if ($equals(this, obj)) {
 		return true;
 	}
-	return (($instanceOf($AttributeSet, obj)) && ($nc(($cast($AttributeSet, obj)))->getAttributeCount() == 0));
+	return (($instanceOf($AttributeSet, obj)) && ($cast($AttributeSet, obj)->getAttributeCount() == 0));
 }
 
 int32_t SimpleAttributeSet$EmptyAttributeSet::hashCode() {
@@ -133,7 +83,50 @@ SimpleAttributeSet$EmptyAttributeSet::SimpleAttributeSet$EmptyAttributeSet() {
 }
 
 $Class* SimpleAttributeSet$EmptyAttributeSet::load$($String* name, bool initialize) {
-	$loadClass(SimpleAttributeSet$EmptyAttributeSet, name, initialize, &_SimpleAttributeSet$EmptyAttributeSet_ClassInfo_, allocate$SimpleAttributeSet$EmptyAttributeSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SimpleAttributeSet$EmptyAttributeSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, 0, $method(SimpleAttributeSet$EmptyAttributeSet, init$, void)},
+		{"containsAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, containsAttribute, bool, Object$*, Object$*)},
+		{"containsAttributes", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, containsAttributes, bool, $AttributeSet*)},
+		{"copyAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, copyAttributes, $AttributeSet*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, equals, bool, Object$*)},
+		{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getAttribute, $Object*, Object$*)},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getAttributeCount, int32_t)},
+		{"getAttributeNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getAttributeNames, $Enumeration*)},
+		{"getResolveParent", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, getResolveParent, $AttributeSet*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, hashCode, int32_t)},
+		{"isDefined", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, isDefined, bool, Object$*)},
+		{"isEqual", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleAttributeSet$EmptyAttributeSet, isEqual, bool, $AttributeSet*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.SimpleAttributeSet$EmptyAttributeSet", "javax.swing.text.SimpleAttributeSet", "EmptyAttributeSet", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.SimpleAttributeSet$EmptyAttributeSet",
+		"java.lang.Object",
+		"javax.swing.text.AttributeSet,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.SimpleAttributeSet"
+	};
+	$loadClass(SimpleAttributeSet$EmptyAttributeSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SimpleAttributeSet$EmptyAttributeSet));
+	});
 	return class$;
 }
 

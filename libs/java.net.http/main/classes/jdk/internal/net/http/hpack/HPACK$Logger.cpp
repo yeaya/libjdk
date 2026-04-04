@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/HPACK$Logger.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
@@ -44,84 +43,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HPACK$Logger$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HPACK$Logger$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HPACK$Logger$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo HPACK$Logger$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$Logger$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo HPACK$Logger$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.HPACK$Logger$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* HPACK$Logger$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(HPACK$Logger$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HPACK$Logger$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$Logger$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.HPACK$Logger$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HPACK$Logger$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HPACK$Logger$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* HPACK$Logger$$Lambda$toString::class$ = nullptr;
-
-$FieldInfo _HPACK$Logger_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, name)},
-	{"level", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, level)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, path)},
-	{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, logger)},
-	{}
-};
-
-$MethodInfo _HPACK$Logger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PRIVATE, $method(HPACK$Logger, init$, void, $String*, $String*, $HPACK$Logger$Level*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/lang/System$Logger;)V", nullptr, $PRIVATE, $method(HPACK$Logger, init$, void, $String*, $String*, $HPACK$Logger$Level*, $System$Logger*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(HPACK$Logger, getName, $String*)},
-	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, isLoggable, bool, $System$Logger$Level*)},
-	{"isLoggable", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, isLoggable, bool, $HPACK$Logger$Level*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(HPACK$Logger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"log", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(HPACK$Logger, log, void, $HPACK$Logger$Level*, $Supplier*)},
-	{"subLogger", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, subLogger, HPACK$Logger*, $String*)},
-	{}
-};
-
-$InnerClassInfo _HPACK$Logger_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.hpack.HPACK$Logger$Level", "jdk.internal.net.http.hpack.HPACK$Logger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _HPACK$Logger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.HPACK$Logger",
-	"java.lang.Object",
-	"java.lang.System$Logger",
-	_HPACK$Logger_FieldInfo_,
-	_HPACK$Logger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HPACK$Logger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.HPACK"
-};
-
-$Object* allocate$HPACK$Logger($Class* clazz) {
-	return $of($alloc(HPACK$Logger));
-}
 
 void HPACK$Logger::init$($String* path, $String* name, $HPACK$Logger$Level* level) {
 	HPACK$Logger::init$(path, name, level, nullptr);
@@ -131,7 +78,7 @@ void HPACK$Logger::init$($String* p, $String* name, $HPACK$Logger$Level* level, 
 	$set(this, path, p);
 	$set(this, name, name);
 	$set(this, level, level);
-	$set(this, logger, $Utils::getHpackLogger(static_cast<$Supplier*>($$new(HPACK$Logger$$Lambda$toString, static_cast<$String*>($nc(this->path)))), $nc(level)->systemLevel));
+	$set(this, logger, $Utils::getHpackLogger($$new(HPACK$Logger$$Lambda$toString, $nc(this->path)), $nc(level)->systemLevel));
 }
 
 $String* HPACK$Logger::getName() {
@@ -169,11 +116,53 @@ HPACK$Logger::HPACK$Logger() {
 
 $Class* HPACK$Logger::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HPACK$Logger$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.HPACK$Logger$$Lambda$toString")) {
 			return HPACK$Logger$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(HPACK$Logger, name, initialize, &_HPACK$Logger_ClassInfo_, allocate$HPACK$Logger);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, name)},
+		{"level", "Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, level)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, path)},
+		{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $FINAL, $field(HPACK$Logger, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PRIVATE, $method(HPACK$Logger, init$, void, $String*, $String*, $HPACK$Logger$Level*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/lang/System$Logger;)V", nullptr, $PRIVATE, $method(HPACK$Logger, init$, void, $String*, $String*, $HPACK$Logger$Level*, $System$Logger*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(HPACK$Logger, getName, $String*)},
+		{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, isLoggable, bool, $System$Logger$Level*)},
+		{"isLoggable", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, isLoggable, bool, $HPACK$Logger$Level*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(HPACK$Logger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"log", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(HPACK$Logger, log, void, $HPACK$Logger$Level*, $Supplier*)},
+		{"subLogger", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, subLogger, HPACK$Logger*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.hpack.HPACK$Logger$Level", "jdk.internal.net.http.hpack.HPACK$Logger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.HPACK$Logger",
+		"java.lang.Object",
+		"java.lang.System$Logger",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.HPACK"
+	};
+	$loadClass(HPACK$Logger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HPACK$Logger);
+	});
 	return class$;
 }
 

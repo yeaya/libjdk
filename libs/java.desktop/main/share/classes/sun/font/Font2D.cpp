@@ -1,5 +1,4 @@
 #include <sun/font/Font2D.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -57,91 +56,6 @@ using $StrikeMetrics = ::sun::font::StrikeMetrics;
 namespace sun {
 	namespace font {
 
-$FieldInfo _Font2D_FieldInfo_[] = {
-	{"FONT_CONFIG_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FONT_CONFIG_RANK)},
-	{"JRE_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, JRE_RANK)},
-	{"TTF_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, TTF_RANK)},
-	{"TYPE1_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, TYPE1_RANK)},
-	{"NATIVE_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, NATIVE_RANK)},
-	{"UNKNOWN_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, UNKNOWN_RANK)},
-	{"DEFAULT_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, DEFAULT_RANK)},
-	{"boldNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, boldNames)},
-	{"italicNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, italicNames)},
-	{"boldItalicNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, boldItalicNames)},
-	{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, DEFAULT_FRC)},
-	{"handle", "Lsun/font/Font2DHandle;", nullptr, $PUBLIC, $field(Font2D, handle)},
-	{"familyName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Font2D, familyName)},
-	{"fullName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Font2D, fullName)},
-	{"style", "I", nullptr, $PROTECTED, $field(Font2D, style)},
-	{"family", "Lsun/font/FontFamily;", nullptr, $PROTECTED, $field(Font2D, family)},
-	{"fontRank", "I", nullptr, $PROTECTED, $field(Font2D, fontRank)},
-	{"mapper", "Lsun/font/CharToGlyphMapper;", nullptr, $PROTECTED, $field(Font2D, mapper)},
-	{"strikeCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/FontStrikeDesc;Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;>;", $PROTECTED, $field(Font2D, strikeCache)},
-	{"lastFontStrike", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;", $PROTECTED, $field(Font2D, lastFontStrike)},
-	{"strikeCacheMax", "I", nullptr, $PRIVATE, $field(Font2D, strikeCacheMax)},
-	{"useWeak", "Z", nullptr, $PRIVATE, $field(Font2D, useWeak)},
-	{"FWIDTH_NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FWIDTH_NORMAL)},
-	{"FWEIGHT_NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FWEIGHT_NORMAL)},
-	{"FWEIGHT_BOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FWEIGHT_BOLD)},
-	{}
-};
-
-$MethodInfo _Font2D_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Font2D, init$, void)},
-	{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, canDisplay, bool, char16_t)},
-	{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, canDisplay, bool, int32_t)},
-	{"canDoStyle", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, canDoStyle, bool, int32_t)},
-	{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(Font2D, charToGlyph, int32_t, int32_t)},
-	{"charToVariationGlyph", "(II)I", nullptr, $PUBLIC, $virtualMethod(Font2D, charToVariationGlyph, int32_t, int32_t, int32_t)},
-	{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, $ABSTRACT, $virtualMethod(Font2D, createStrike, $FontStrike*, $FontStrikeDesc*)},
-	{"getBaselineFor", "(C)B", nullptr, $PUBLIC, $virtualMethod(Font2D, getBaselineFor, int8_t, char16_t)},
-	{"getFamilyName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font2D, getFamilyName, $String*, $Locale*)},
-	{"getFontMetrics", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;Ljava/lang/Object;Ljava/lang/Object;[F)V", nullptr, $PUBLIC, $virtualMethod(Font2D, getFontMetrics, void, $Font*, $AffineTransform*, Object$*, Object$*, $floats*)},
-	{"getFontMetrics", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;[F)V", nullptr, $PUBLIC, $virtualMethod(Font2D, getFontMetrics, void, $Font*, $FontRenderContext*, $floats*)},
-	{"getFontName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font2D, getFontName, $String*, $Locale*)},
-	{"getItalicAngle", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;Ljava/lang/Object;Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(Font2D, getItalicAngle, float, $Font*, $AffineTransform*, Object$*, Object$*)},
-	{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $ABSTRACT, $virtualMethod(Font2D, getMapper, $CharToGlyphMapper*)},
-	{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getMissingGlyphCode, int32_t)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getNumGlyphs, int32_t)},
-	{"getPlatformNativeFontPtr", "()J", nullptr, $PROTECTED, $virtualMethod(Font2D, getPlatformNativeFontPtr, int64_t)},
-	{"getPostscriptName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font2D, getPostscriptName, $String*)},
-	{"getRank", "()I", nullptr, 0, $virtualMethod(Font2D, getRank, int32_t)},
-	{"getStrike", "(Ljava/awt/Font;)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*)},
-	{"getStrike", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;II)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*, $AffineTransform*, int32_t, int32_t)},
-	{"getStrike", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;Ljava/awt/geom/AffineTransform;II)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*, $AffineTransform*, $AffineTransform*, int32_t, int32_t)},
-	{"getStrike", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*, $FontRenderContext*)},
-	{"getStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, 0, $virtualMethod(Font2D, getStrike, $FontStrike*, $FontStrikeDesc*)},
-	{"getStrike", "(Lsun/font/FontStrikeDesc;Z)Lsun/font/FontStrike;", nullptr, $PRIVATE, $method(Font2D, getStrike, $FontStrike*, $FontStrikeDesc*, bool)},
-	{"getStyle", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getStyle, int32_t)},
-	{"getStyleMetrics", "(F[FI)V", nullptr, $PUBLIC, $virtualMethod(Font2D, getStyleMetrics, void, float, $floats*, int32_t)},
-	{"getTableBytes", "(I)[B", nullptr, $PROTECTED, $virtualMethod(Font2D, getTableBytes, $bytes*, int32_t)},
-	{"getUnitsPerEm", "()J", nullptr, $PROTECTED, $virtualMethod(Font2D, getUnitsPerEm, int64_t)},
-	{"getValidatedGlyphCode", "(I)I", nullptr, $PROTECTED, $virtualMethod(Font2D, getValidatedGlyphCode, int32_t, int32_t)},
-	{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getWeight, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getWidth, int32_t)},
-	{"hasSupplementaryChars", "()Z", nullptr, $PUBLIC, $virtualMethod(Font2D, hasSupplementaryChars, bool)},
-	{"setRank", "(I)V", nullptr, 0, $virtualMethod(Font2D, setRank, void, int32_t)},
-	{"setStyle", "()V", nullptr, $PROTECTED, $virtualMethod(Font2D, setStyle, void)},
-	{"setUseWeakRefs", "(ZI)V", nullptr, 0, $virtualMethod(Font2D, setUseWeakRefs, void, bool, int32_t)},
-	{"supportsEncoding", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Font2D, supportsEncoding, bool, $String*)},
-	{"updateLastStrikeRef", "(Lsun/font/FontStrike;)V", nullptr, 0, $virtualMethod(Font2D, updateLastStrikeRef, void, $FontStrike*)},
-	{"useAAForPtSize", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, useAAForPtSize, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _Font2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.font.Font2D",
-	"java.lang.Object",
-	nullptr,
-	_Font2D_FieldInfo_,
-	_Font2D_MethodInfo_
-};
-
-$Object* allocate$Font2D($Class* clazz) {
-	return $of($alloc(Font2D));
-}
-
 $StringArray* Font2D::boldNames = nullptr;
 $StringArray* Font2D::italicNames = nullptr;
 $StringArray* Font2D::boldItalicNames = nullptr;
@@ -166,20 +80,20 @@ int32_t Font2D::getStyle() {
 
 void Font2D::setStyle() {
 	$var($String, fName, $nc(this->fullName)->toLowerCase());
-	for (int32_t i = 0; i < $nc(Font2D::boldItalicNames)->length; ++i) {
-		if (fName->indexOf($nc(Font2D::boldItalicNames)->get(i)) != -1) {
+	for (int32_t i = 0; i < Font2D::boldItalicNames->length; ++i) {
+		if (fName->indexOf(Font2D::boldItalicNames->get(i)) != -1) {
 			this->style = $Font::BOLD | $Font::ITALIC;
 			return;
 		}
 	}
-	for (int32_t i = 0; i < $nc(Font2D::italicNames)->length; ++i) {
-		if (fName->indexOf($nc(Font2D::italicNames)->get(i)) != -1) {
+	for (int32_t i = 0; i < Font2D::italicNames->length; ++i) {
+		if (fName->indexOf(Font2D::italicNames->get(i)) != -1) {
 			this->style = $Font::ITALIC;
 			return;
 		}
 	}
-	for (int32_t i = 0; i < $nc(Font2D::boldNames)->length; ++i) {
-		if (fName->indexOf($nc(Font2D::boldNames)->get(i)) != -1) {
+	for (int32_t i = 0; i < Font2D::boldNames->length; ++i) {
+		if (fName->indexOf(Font2D::boldNames->get(i)) != -1) {
 			this->style = $Font::BOLD;
 			return;
 		}
@@ -191,7 +105,7 @@ int32_t Font2D::getWidth() {
 }
 
 int32_t Font2D::getWeight() {
-	if (((int32_t)(this->style & (uint32_t)$Font::BOLD)) != 0) {
+	if ((this->style & $Font::BOLD) != 0) {
 		return Font2D::FWEIGHT_BOLD;
 	} else {
 		return Font2D::FWEIGHT_NORMAL;
@@ -207,9 +121,9 @@ void Font2D::setRank(int32_t rank) {
 }
 
 int32_t Font2D::getValidatedGlyphCode(int32_t glyphCode) {
-	$useLocalCurrentObjectStackCache();
-	if (glyphCode < 0 || glyphCode >= $nc($(getMapper()))->getNumGlyphs()) {
-		glyphCode = $nc($(getMapper()))->getMissingGlyphCode();
+	$useLocalObjectStack();
+	if (glyphCode < 0 || glyphCode >= $$nc(getMapper())->getNumGlyphs()) {
+		glyphCode = $$nc(getMapper())->getMissingGlyphCode();
 	}
 	return glyphCode;
 }
@@ -224,7 +138,7 @@ $FontStrike* Font2D::getStrike($Font* font) {
 }
 
 $FontStrike* Font2D::getStrike($Font* font, $AffineTransform* devTx, int32_t aa, int32_t fm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double ptSize = $nc(font)->getSize2D();
 	$var($AffineTransform, glyphTx, $cast($AffineTransform, $nc(devTx)->clone()));
 	$nc(glyphTx)->scale(ptSize, ptSize);
@@ -248,7 +162,7 @@ $FontStrike* Font2D::getStrike($Font* font, $AffineTransform* devTx, $AffineTran
 }
 
 $FontStrike* Font2D::getStrike($Font* font, $FontRenderContext* frc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, at, $nc(frc)->getTransform());
 	double ptSize = $nc(font)->getSize2D();
 	$nc(at)->scale(ptSize, ptSize);
@@ -265,8 +179,7 @@ $FontStrike* Font2D::getStrike($Font* font, $FontRenderContext* frc) {
 	int32_t aa = $FontStrikeDesc::getAAHintIntVal(this, font, frc);
 	int32_t fm = $FontStrikeDesc::getFMHintIntVal($(frc->getFractionalMetricsHint()));
 	$var($AffineTransform, var$4, frc->getTransform());
-	$var($AffineTransform, var$5, at);
-	$var($FontStrikeDesc, desc, $new($FontStrikeDesc, var$4, var$5, font->getStyle(), aa, fm));
+	$var($FontStrikeDesc, desc, $new($FontStrikeDesc, var$4, at, font->getStyle(), aa, fm));
 	return getStrike(desc, false);
 }
 
@@ -284,7 +197,7 @@ $FontStrike* Font2D::getStrike($FontStrikeDesc* desc) {
 }
 
 $FontStrike* Font2D::getStrike($FontStrikeDesc* desc$renamed, bool copy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontStrikeDesc, desc, desc$renamed);
 	$var($FontStrike, strike, $cast($FontStrike, $nc(this->lastFontStrike)->get()));
 	if (strike != nullptr && $nc(desc)->equals(strike->desc)) {
@@ -303,8 +216,8 @@ $FontStrike* Font2D::getStrike($FontStrikeDesc* desc$renamed, bool copy) {
 			$assign(desc, $new($FontStrikeDesc, desc));
 		}
 		$assign(strike, createStrike(desc));
-		int32_t txType = $nc(desc->glyphTx)->getType();
-		if (this->useWeak || txType == $AffineTransform::TYPE_GENERAL_TRANSFORM || ((int32_t)(txType & (uint32_t)$AffineTransform::TYPE_GENERAL_ROTATION)) != 0 && $nc(this->strikeCache)->size() > 10) {
+		int32_t txType = $nc($nc(desc)->glyphTx)->getType();
+		if (this->useWeak || txType == $AffineTransform::TYPE_GENERAL_TRANSFORM || (txType & $AffineTransform::TYPE_GENERAL_ROTATION) != 0 && $nc(this->strikeCache)->size() > 10) {
 			$assign(strikeRef, $StrikeCache::getStrikeRef(strike, true));
 		} else {
 			$assign(strikeRef, $StrikeCache::getStrikeRef(strike, this->useWeak));
@@ -317,7 +230,7 @@ $FontStrike* Font2D::getStrike($FontStrikeDesc* desc$renamed, bool copy) {
 }
 
 void Font2D::getFontMetrics($Font* font, $AffineTransform* at, Object$* aaHint, Object$* fmHint, $floats* metrics) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t aa = $FontStrikeDesc::getAAHintIntVal(aaHint, this, $nc(font)->getSize());
 	int32_t fm = $FontStrikeDesc::getFMHintIntVal(fmHint);
 	$var($FontStrike, strike, getStrike(font, at, aa, fm));
@@ -326,19 +239,19 @@ void Font2D::getFontMetrics($Font* font, $AffineTransform* at, Object$* aaHint, 
 	metrics->set(1, strikeMetrics->getDescent());
 	metrics->set(2, strikeMetrics->getLeading());
 	metrics->set(3, strikeMetrics->getMaxAdvance());
-	getStyleMetrics($nc(font)->getSize2D(), metrics, 4);
+	getStyleMetrics(font->getSize2D(), metrics, 4);
 }
 
 void Font2D::getStyleMetrics(float pointSize, $floats* metrics, int32_t offset) {
-	$nc(metrics)->set(offset, -metrics->get(0) / 2.5f);
+	$nc(metrics)->set(offset, -$nc(metrics)->get(0) / 2.5f);
 	metrics->set(offset + 1, pointSize / 12);
 	metrics->set(offset + 2, metrics->get(offset + 1) / 1.5f);
 	metrics->set(offset + 3, metrics->get(offset + 1));
 }
 
 void Font2D::getFontMetrics($Font* font, $FontRenderContext* frc, $floats* metrics) {
-	$useLocalCurrentObjectStackCache();
-	$var($StrikeMetrics, strikeMetrics, $nc($(getStrike(font, frc)))->getFontMetrics());
+	$useLocalObjectStack();
+	$var($StrikeMetrics, strikeMetrics, $$nc(getStrike(font, frc))->getFontMetrics());
 	$nc(metrics)->set(0, $nc(strikeMetrics)->getAscent());
 	metrics->set(1, strikeMetrics->getDescent());
 	metrics->set(2, strikeMetrics->getLeading());
@@ -386,27 +299,27 @@ $String* Font2D::getFamilyName($Locale* l) {
 }
 
 int32_t Font2D::getNumGlyphs() {
-	return $nc($(getMapper()))->getNumGlyphs();
+	return $$nc(getMapper())->getNumGlyphs();
 }
 
 int32_t Font2D::charToGlyph(int32_t wchar) {
-	return $nc($(getMapper()))->charToGlyph(wchar);
+	return $$nc(getMapper())->charToGlyph(wchar);
 }
 
 int32_t Font2D::charToVariationGlyph(int32_t wchar, int32_t variationSelector) {
-	return $nc($(getMapper()))->charToVariationGlyph(wchar, variationSelector);
+	return $$nc(getMapper())->charToVariationGlyph(wchar, variationSelector);
 }
 
 int32_t Font2D::getMissingGlyphCode() {
-	return $nc($(getMapper()))->getMissingGlyphCode();
+	return $$nc(getMapper())->getMissingGlyphCode();
 }
 
 bool Font2D::canDisplay(char16_t c) {
-	return $nc($(getMapper()))->canDisplay(c);
+	return $$nc(getMapper())->canDisplay(c);
 }
 
 bool Font2D::canDisplay(int32_t cp) {
-	return $nc($(getMapper()))->canDisplay(cp);
+	return $$nc(getMapper())->canDisplay(cp);
 }
 
 int8_t Font2D::getBaselineFor(char16_t c) {
@@ -414,19 +327,19 @@ int8_t Font2D::getBaselineFor(char16_t c) {
 }
 
 float Font2D::getItalicAngle($Font* font, $AffineTransform* at, Object$* aaHint, Object$* fmHint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t aa = $FontStrikeDesc::getAAHintIntVal(aaHint, this, 12);
 	int32_t fm = $FontStrikeDesc::getFMHintIntVal(fmHint);
 	$var($FontStrike, strike, getStrike(font, at, aa, fm));
 	$var($StrikeMetrics, metrics, $nc(strike)->getFontMetrics());
-	if ($nc(metrics)->ascentY == 0 || $nc(metrics)->ascentX == 0) {
+	if ($nc(metrics)->ascentY == 0 || metrics->ascentX == 0) {
 		return 0.0f;
 	} else {
 		return metrics->ascentX / -metrics->ascentY;
 	}
 }
 
-void clinit$Font2D($Class* class$) {
+void Font2D::clinit$($Class* clazz) {
 	$assignStatic(Font2D::boldNames, $new($StringArray, {
 		"bold"_s,
 		"demibold"_s,
@@ -452,14 +365,94 @@ void clinit$Font2D($Class* class$) {
 		"negreta cursiva"_s,
 		"demi oblique"_s
 	}));
-	$assignStatic(Font2D::DEFAULT_FRC, $new($FontRenderContext, ($AffineTransform*)nullptr, false, false));
+	$assignStatic(Font2D::DEFAULT_FRC, $new($FontRenderContext, nullptr, false, false));
 }
 
 Font2D::Font2D() {
 }
 
 $Class* Font2D::load$($String* name, bool initialize) {
-	$loadClass(Font2D, name, initialize, &_Font2D_ClassInfo_, clinit$Font2D, allocate$Font2D);
+	$FieldInfo fieldInfos$$[] = {
+		{"FONT_CONFIG_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FONT_CONFIG_RANK)},
+		{"JRE_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, JRE_RANK)},
+		{"TTF_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, TTF_RANK)},
+		{"TYPE1_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, TYPE1_RANK)},
+		{"NATIVE_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, NATIVE_RANK)},
+		{"UNKNOWN_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, UNKNOWN_RANK)},
+		{"DEFAULT_RANK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, DEFAULT_RANK)},
+		{"boldNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, boldNames)},
+		{"italicNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, italicNames)},
+		{"boldItalicNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, boldItalicNames)},
+		{"DEFAULT_FRC", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Font2D, DEFAULT_FRC)},
+		{"handle", "Lsun/font/Font2DHandle;", nullptr, $PUBLIC, $field(Font2D, handle)},
+		{"familyName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Font2D, familyName)},
+		{"fullName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Font2D, fullName)},
+		{"style", "I", nullptr, $PROTECTED, $field(Font2D, style)},
+		{"family", "Lsun/font/FontFamily;", nullptr, $PROTECTED, $field(Font2D, family)},
+		{"fontRank", "I", nullptr, $PROTECTED, $field(Font2D, fontRank)},
+		{"mapper", "Lsun/font/CharToGlyphMapper;", nullptr, $PROTECTED, $field(Font2D, mapper)},
+		{"strikeCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Lsun/font/FontStrikeDesc;Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;>;", $PROTECTED, $field(Font2D, strikeCache)},
+		{"lastFontStrike", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;", $PROTECTED, $field(Font2D, lastFontStrike)},
+		{"strikeCacheMax", "I", nullptr, $PRIVATE, $field(Font2D, strikeCacheMax)},
+		{"useWeak", "Z", nullptr, $PRIVATE, $field(Font2D, useWeak)},
+		{"FWIDTH_NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FWIDTH_NORMAL)},
+		{"FWEIGHT_NORMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FWEIGHT_NORMAL)},
+		{"FWEIGHT_BOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Font2D, FWEIGHT_BOLD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Font2D, init$, void)},
+		{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, canDisplay, bool, char16_t)},
+		{"canDisplay", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, canDisplay, bool, int32_t)},
+		{"canDoStyle", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, canDoStyle, bool, int32_t)},
+		{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(Font2D, charToGlyph, int32_t, int32_t)},
+		{"charToVariationGlyph", "(II)I", nullptr, $PUBLIC, $virtualMethod(Font2D, charToVariationGlyph, int32_t, int32_t, int32_t)},
+		{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, $ABSTRACT, $virtualMethod(Font2D, createStrike, $FontStrike*, $FontStrikeDesc*)},
+		{"getBaselineFor", "(C)B", nullptr, $PUBLIC, $virtualMethod(Font2D, getBaselineFor, int8_t, char16_t)},
+		{"getFamilyName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font2D, getFamilyName, $String*, $Locale*)},
+		{"getFontMetrics", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;Ljava/lang/Object;Ljava/lang/Object;[F)V", nullptr, $PUBLIC, $virtualMethod(Font2D, getFontMetrics, void, $Font*, $AffineTransform*, Object$*, Object$*, $floats*)},
+		{"getFontMetrics", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;[F)V", nullptr, $PUBLIC, $virtualMethod(Font2D, getFontMetrics, void, $Font*, $FontRenderContext*, $floats*)},
+		{"getFontName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font2D, getFontName, $String*, $Locale*)},
+		{"getItalicAngle", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;Ljava/lang/Object;Ljava/lang/Object;)F", nullptr, $PUBLIC, $virtualMethod(Font2D, getItalicAngle, float, $Font*, $AffineTransform*, Object$*, Object$*)},
+		{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $ABSTRACT, $virtualMethod(Font2D, getMapper, $CharToGlyphMapper*)},
+		{"getMissingGlyphCode", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getMissingGlyphCode, int32_t)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getNumGlyphs, int32_t)},
+		{"getPlatformNativeFontPtr", "()J", nullptr, $PROTECTED, $virtualMethod(Font2D, getPlatformNativeFontPtr, int64_t)},
+		{"getPostscriptName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Font2D, getPostscriptName, $String*)},
+		{"getRank", "()I", nullptr, 0, $virtualMethod(Font2D, getRank, int32_t)},
+		{"getStrike", "(Ljava/awt/Font;)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*)},
+		{"getStrike", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;II)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*, $AffineTransform*, int32_t, int32_t)},
+		{"getStrike", "(Ljava/awt/Font;Ljava/awt/geom/AffineTransform;Ljava/awt/geom/AffineTransform;II)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*, $AffineTransform*, $AffineTransform*, int32_t, int32_t)},
+		{"getStrike", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)Lsun/font/FontStrike;", nullptr, $PUBLIC, $virtualMethod(Font2D, getStrike, $FontStrike*, $Font*, $FontRenderContext*)},
+		{"getStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, 0, $virtualMethod(Font2D, getStrike, $FontStrike*, $FontStrikeDesc*)},
+		{"getStrike", "(Lsun/font/FontStrikeDesc;Z)Lsun/font/FontStrike;", nullptr, $PRIVATE, $method(Font2D, getStrike, $FontStrike*, $FontStrikeDesc*, bool)},
+		{"getStyle", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getStyle, int32_t)},
+		{"getStyleMetrics", "(F[FI)V", nullptr, $PUBLIC, $virtualMethod(Font2D, getStyleMetrics, void, float, $floats*, int32_t)},
+		{"getTableBytes", "(I)[B", nullptr, $PROTECTED, $virtualMethod(Font2D, getTableBytes, $bytes*, int32_t)},
+		{"getUnitsPerEm", "()J", nullptr, $PROTECTED, $virtualMethod(Font2D, getUnitsPerEm, int64_t)},
+		{"getValidatedGlyphCode", "(I)I", nullptr, $PROTECTED, $virtualMethod(Font2D, getValidatedGlyphCode, int32_t, int32_t)},
+		{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getWeight, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(Font2D, getWidth, int32_t)},
+		{"hasSupplementaryChars", "()Z", nullptr, $PUBLIC, $virtualMethod(Font2D, hasSupplementaryChars, bool)},
+		{"setRank", "(I)V", nullptr, 0, $virtualMethod(Font2D, setRank, void, int32_t)},
+		{"setStyle", "()V", nullptr, $PROTECTED, $virtualMethod(Font2D, setStyle, void)},
+		{"setUseWeakRefs", "(ZI)V", nullptr, 0, $virtualMethod(Font2D, setUseWeakRefs, void, bool, int32_t)},
+		{"supportsEncoding", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Font2D, supportsEncoding, bool, $String*)},
+		{"updateLastStrikeRef", "(Lsun/font/FontStrike;)V", nullptr, 0, $virtualMethod(Font2D, updateLastStrikeRef, void, $FontStrike*)},
+		{"useAAForPtSize", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Font2D, useAAForPtSize, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.font.Font2D",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Font2D, name, initialize, &classInfo$$, Font2D::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Font2D);
+	});
 	return class$;
 }
 

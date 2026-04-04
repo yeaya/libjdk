@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/InnerShadowEffect.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/Raster.h>
@@ -16,7 +15,6 @@
 #undef OVER
 #undef TYPE_INT_ARGB
 
-using $Color = ::java::awt::Color;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
@@ -26,7 +24,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Effect$ArrayCache = ::javax::swing::plaf::nimbus::Effect$ArrayCache;
 using $Effect$EffectType = ::javax::swing::plaf::nimbus::Effect$EffectType;
 using $EffectUtils = ::javax::swing::plaf::nimbus::EffectUtils;
 using $ShadowEffect = ::javax::swing::plaf::nimbus::ShadowEffect;
@@ -35,26 +32,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$MethodInfo _InnerShadowEffect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InnerShadowEffect, init$, void)},
-	{"applyEffect", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;II)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(InnerShadowEffect, applyEffect, $BufferedImage*, $BufferedImage*, $BufferedImage*, int32_t, int32_t)},
-	{"getEffectType", "()Ljavax/swing/plaf/nimbus/Effect$EffectType;", nullptr, 0, $virtualMethod(InnerShadowEffect, getEffectType, $Effect$EffectType*)},
-	{}
-};
-
-$ClassInfo _InnerShadowEffect_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.InnerShadowEffect",
-	"javax.swing.plaf.nimbus.ShadowEffect",
-	nullptr,
-	nullptr,
-	_InnerShadowEffect_MethodInfo_
-};
-
-$Object* allocate$InnerShadowEffect($Class* clazz) {
-	return $of($alloc(InnerShadowEffect));
-}
 
 void InnerShadowEffect::init$() {
 	$ShadowEffect::init$();
@@ -66,9 +43,9 @@ $Effect$EffectType* InnerShadowEffect::getEffectType() {
 }
 
 $BufferedImage* InnerShadowEffect::applyEffect($BufferedImage* src, $BufferedImage* dst$renamed, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dst, dst$renamed);
-	if (src == nullptr || $nc(src)->getType() != $BufferedImage::TYPE_INT_ARGB) {
+	if (src == nullptr || src->getType() != $BufferedImage::TYPE_INT_ARGB) {
 		$throwNew($IllegalArgumentException, "Effect only works with source images of type BufferedImage.TYPE_INT_ARGB."_s);
 	}
 	if (dst != nullptr && dst->getType() != $BufferedImage::TYPE_INT_ARGB) {
@@ -81,11 +58,11 @@ $BufferedImage* InnerShadowEffect::applyEffect($BufferedImage* src, $BufferedIma
 	int32_t tmpOffY = offsetX + this->size;
 	int32_t tmpW = w + offsetX + this->size + this->size;
 	int32_t tmpH = h + offsetX + this->size;
-	$var($ints, lineBuf, $nc($(getArrayCache()))->getTmpIntArray(w));
-	$var($bytes, srcAlphaBuf, $nc($(getArrayCache()))->getTmpByteArray1(tmpW * tmpH));
+	$var($ints, lineBuf, $$nc(getArrayCache())->getTmpIntArray(w));
+	$var($bytes, srcAlphaBuf, $$nc(getArrayCache())->getTmpByteArray1(tmpW * tmpH));
 	$Arrays::fill(srcAlphaBuf, (int8_t)255);
-	$var($bytes, tmpBuf1, $nc($(getArrayCache()))->getTmpByteArray2(tmpW * tmpH));
-	$var($bytes, tmpBuf2, $nc($(getArrayCache()))->getTmpByteArray3(tmpW * tmpH));
+	$var($bytes, tmpBuf1, $$nc(getArrayCache())->getTmpByteArray2(tmpW * tmpH));
+	$var($bytes, tmpBuf2, $$nc(getArrayCache())->getTmpByteArray3(tmpW * tmpH));
 	$var($Raster, srcRaster, $nc(src)->getRaster());
 	for (int32_t y = 0; y < h; ++y) {
 		int32_t dy = (y + tmpOffY);
@@ -93,7 +70,7 @@ $BufferedImage* InnerShadowEffect::applyEffect($BufferedImage* src, $BufferedIma
 		$nc(srcRaster)->getDataElements(0, y, w, 1, lineBuf);
 		for (int32_t x = 0; x < w; ++x) {
 			int32_t dx = x + tmpOffX;
-			$nc(srcAlphaBuf)->set(offset + dx, (int8_t)((int32_t)((255 - ((int32_t)((uint32_t)((int32_t)($nc(lineBuf)->get(x) & (uint32_t)(int32_t)0xFF000000)) >> 24))) & (uint32_t)255)));
+			$nc(srcAlphaBuf)->set(offset + dx, (int8_t)((255 - ((int32_t)((uint32_t)($nc(lineBuf)->get(x) & (int32_t)0xff000000) >> 24))) & 0xff));
 		}
 	}
 	$var($floats, kernel, $EffectUtils::createGaussianKernel(this->size * 2));
@@ -101,7 +78,7 @@ $BufferedImage* InnerShadowEffect::applyEffect($BufferedImage* src, $BufferedIma
 	$EffectUtils::blur(tmpBuf2, tmpBuf1, tmpH, tmpW, kernel, this->size * 2);
 	float spread = $Math::min(1 / (1 - (0.01f * this->spread)), (float)255);
 	for (int32_t i = 0; i < $nc(tmpBuf1)->length; ++i) {
-		int32_t val = $cast(int32_t, (((int32_t)((int32_t)tmpBuf1->get(i) & (uint32_t)255)) * spread));
+		int32_t val = $cast(int32_t, (((int32_t)tmpBuf1->get(i) & 0xff) * spread));
 		tmpBuf1->set(i, (val > 255) ? (int8_t)255 : (int8_t)val);
 	}
 	if (dst == nullptr) {
@@ -117,10 +94,10 @@ $BufferedImage* InnerShadowEffect::applyEffect($BufferedImage* src, $BufferedIma
 		int32_t shadowOffset = (srcY - offsetY) * tmpW;
 		for (int32_t x = 0; x < w; ++x) {
 			int32_t srcX = x + tmpOffX;
-			int32_t origianlAlphaVal = 255 - ((int32_t)((int32_t)$nc(srcAlphaBuf)->get(offset + srcX) & (uint32_t)255));
-			int32_t shadowVal = (int32_t)((int32_t)$nc(tmpBuf1)->get(shadowOffset + (srcX - offsetX)) & (uint32_t)255);
+			int32_t origianlAlphaVal = 0xff - ((int32_t)$nc(srcAlphaBuf)->get(offset + srcX) & 0xff);
+			int32_t shadowVal = (int32_t)tmpBuf1->get(shadowOffset + (srcX - offsetX)) & 0xff;
 			int32_t alphaVal = $Math::min(origianlAlphaVal, shadowVal);
-			$nc(lineBuf)->set(x, (((((int32_t)((int8_t)alphaVal & (uint32_t)255)) << 24) | (red << 16)) | (green << 8)) | blue);
+			$nc(lineBuf)->set(x, (((((int8_t)alphaVal & 0xff) << 24) | (red << 16)) | (green << 8)) | blue);
 		}
 		$nc(shadowRaster)->setDataElements(0, y, w, 1, lineBuf);
 	}
@@ -131,7 +108,23 @@ InnerShadowEffect::InnerShadowEffect() {
 }
 
 $Class* InnerShadowEffect::load$($String* name, bool initialize) {
-	$loadClass(InnerShadowEffect, name, initialize, &_InnerShadowEffect_ClassInfo_, allocate$InnerShadowEffect);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InnerShadowEffect, init$, void)},
+		{"applyEffect", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;II)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(InnerShadowEffect, applyEffect, $BufferedImage*, $BufferedImage*, $BufferedImage*, int32_t, int32_t)},
+		{"getEffectType", "()Ljavax/swing/plaf/nimbus/Effect$EffectType;", nullptr, 0, $virtualMethod(InnerShadowEffect, getEffectType, $Effect$EffectType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.InnerShadowEffect",
+		"javax.swing.plaf.nimbus.ShadowEffect",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InnerShadowEffect, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InnerShadowEffect);
+	});
 	return class$;
 }
 

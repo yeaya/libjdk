@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11SurfaceDataProxy.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/image/ColorModel.h>
@@ -40,48 +39,6 @@ namespace sun {
 	namespace java2d {
 		namespace x11 {
 
-$FieldInfo _X11SurfaceDataProxy_FieldInfo_[] = {
-	{"x11gc", "Lsun/awt/X11GraphicsConfig;", nullptr, 0, $field(X11SurfaceDataProxy, x11gc)},
-	{}
-};
-
-$MethodInfo _X11SurfaceDataProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11GraphicsConfig;)V", nullptr, $PUBLIC, $method(X11SurfaceDataProxy, init$, void, $X11GraphicsConfig*)},
-	{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/awt/X11GraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $X11GraphicsConfig*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _X11SurfaceDataProxy_InnerClassesInfo_[] = {
-	{"sun.java2d.x11.X11SurfaceDataProxy$Bitmask", "sun.java2d.x11.X11SurfaceDataProxy", "Bitmask", $PUBLIC | $STATIC},
-	{"sun.java2d.x11.X11SurfaceDataProxy$Opaque", "sun.java2d.x11.X11SurfaceDataProxy", "Opaque", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _X11SurfaceDataProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.x11.X11SurfaceDataProxy",
-	"sun.java2d.SurfaceDataProxy",
-	"java.awt.Transparency",
-	_X11SurfaceDataProxy_FieldInfo_,
-	_X11SurfaceDataProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11SurfaceDataProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.x11.X11SurfaceDataProxy$Bitmask,sun.java2d.x11.X11SurfaceDataProxy$Opaque"
-};
-
-$Object* allocate$X11SurfaceDataProxy($Class* clazz) {
-	return $of($alloc(X11SurfaceDataProxy));
-}
-
 int32_t X11SurfaceDataProxy::hashCode() {
 	 return this->$SurfaceDataProxy::hashCode();
 }
@@ -104,7 +61,7 @@ void X11SurfaceDataProxy::finalize() {
 
 $SurfaceDataProxy* X11SurfaceDataProxy::createProxy($SurfaceData* srcData, $X11GraphicsConfig* dstConfig) {
 	$init(X11SurfaceDataProxy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($X11SurfaceData, srcData)) {
 		$init($SurfaceDataProxy);
 		return $SurfaceDataProxy::UNCACHED;
@@ -123,7 +80,7 @@ $SurfaceDataProxy* X11SurfaceDataProxy::createProxy($SurfaceData* srcData, $X11G
 			int32_t var$0 = var$1 | dcm->getGreenMask();
 			int32_t colormask = (var$0 | dcm->getBlueMask());
 			int32_t alphamask = dcm->getAlphaMask();
-			if (((int32_t)(colormask & (uint32_t)(int32_t)0xFF000000)) == 0 && ((int32_t)(alphamask & (uint32_t)(int32_t)0xFF000000)) != 0) {
+			if ((colormask & (int32_t)0xff000000) == 0 && (alphamask & (int32_t)0xff000000) != 0) {
 				return $new($X11SurfaceDataProxy$Bitmask, dstConfig);
 			}
 		}
@@ -138,15 +95,13 @@ void X11SurfaceDataProxy::init$($X11GraphicsConfig* x11gc) {
 }
 
 $SurfaceData* X11SurfaceDataProxy::validateSurfaceData($SurfaceData* srcData, $SurfaceData* cachedData$renamed, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, cachedData, cachedData$renamed);
 	if (cachedData == nullptr) {
 		try {
 			$var($X11GraphicsConfig, var$0, this->x11gc);
-			int32_t var$1 = w;
-			int32_t var$2 = h;
-			$var($ColorModel, var$3, $nc(this->x11gc)->getColorModel());
-			$assign(cachedData, $X11SurfaceData::createData(var$0, var$1, var$2, var$3, nullptr, 0, getTransparency(), true));
+			$var($ColorModel, var$1, $nc(this->x11gc)->getColorModel());
+			$assign(cachedData, $X11SurfaceData::createData(var$0, w, h, var$1, nullptr, 0, getTransparency(), true));
 		} catch ($OutOfMemoryError& oome) {
 		}
 	}
@@ -157,7 +112,43 @@ X11SurfaceDataProxy::X11SurfaceDataProxy() {
 }
 
 $Class* X11SurfaceDataProxy::load$($String* name, bool initialize) {
-	$loadClass(X11SurfaceDataProxy, name, initialize, &_X11SurfaceDataProxy_ClassInfo_, allocate$X11SurfaceDataProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"x11gc", "Lsun/awt/X11GraphicsConfig;", nullptr, 0, $field(X11SurfaceDataProxy, x11gc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11GraphicsConfig;)V", nullptr, $PUBLIC, $method(X11SurfaceDataProxy, init$, void, $X11GraphicsConfig*)},
+		{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/awt/X11GraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11SurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $X11GraphicsConfig*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.x11.X11SurfaceDataProxy$Bitmask", "sun.java2d.x11.X11SurfaceDataProxy", "Bitmask", $PUBLIC | $STATIC},
+		{"sun.java2d.x11.X11SurfaceDataProxy$Opaque", "sun.java2d.x11.X11SurfaceDataProxy", "Opaque", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.x11.X11SurfaceDataProxy",
+		"sun.java2d.SurfaceDataProxy",
+		"java.awt.Transparency",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.x11.X11SurfaceDataProxy$Bitmask,sun.java2d.x11.X11SurfaceDataProxy$Opaque"
+	};
+	$loadClass(X11SurfaceDataProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11SurfaceDataProxy));
+	});
 	return class$;
 }
 

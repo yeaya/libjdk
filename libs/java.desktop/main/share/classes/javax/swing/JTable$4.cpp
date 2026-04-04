@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$4.h>
-
 #include <javax/swing/JTable$Resizable3.h>
 #include <javax/swing/JTable.h>
 #include <jcpp.h>
@@ -14,54 +13,6 @@ using $JTable$Resizable3 = ::javax::swing::JTable$Resizable3;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTable$4_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$4, this$0)},
-	{"val$r", "Ljavax/swing/JTable$Resizable3;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$4, val$r)},
-	{}
-};
-
-$MethodInfo _JTable$4_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTable;Ljavax/swing/JTable$Resizable3;)V", "()V", 0, $method(JTable$4, init$, void, $JTable*, $JTable$Resizable3*)},
-	{"getElementCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$4, getElementCount, int32_t)},
-	{"getLowerBoundAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$4, getLowerBoundAt, int32_t, int32_t)},
-	{"getUpperBoundAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$4, getUpperBoundAt, int32_t, int32_t)},
-	{"setSizeAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTable$4, setSizeAt, void, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _JTable$4_EnclosingMethodInfo_ = {
-	"javax.swing.JTable",
-	"adjustSizes",
-	"(JLjavax/swing/JTable$Resizable3;Z)V"
-};
-
-$InnerClassInfo _JTable$4_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$4", nullptr, nullptr, 0},
-	{"javax.swing.JTable$Resizable2", "javax.swing.JTable", "Resizable2", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.JTable$Resizable3", "javax.swing.JTable", "Resizable3", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JTable$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$4",
-	"java.lang.Object",
-	"javax.swing.JTable$Resizable2",
-	_JTable$4_FieldInfo_,
-	_JTable$4_MethodInfo_,
-	nullptr,
-	&_JTable$4_EnclosingMethodInfo_,
-	_JTable$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$4($Class* clazz) {
-	return $of($alloc(JTable$4));
-}
 
 void JTable$4::init$($JTable* this$0, $JTable$Resizable3* val$r) {
 	$set(this, this$0, this$0);
@@ -88,7 +39,48 @@ JTable$4::JTable$4() {
 }
 
 $Class* JTable$4::load$($String* name, bool initialize) {
-	$loadClass(JTable$4, name, initialize, &_JTable$4_ClassInfo_, allocate$JTable$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$4, this$0)},
+		{"val$r", "Ljavax/swing/JTable$Resizable3;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$4, val$r)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTable;Ljavax/swing/JTable$Resizable3;)V", "()V", 0, $method(JTable$4, init$, void, $JTable*, $JTable$Resizable3*)},
+		{"getElementCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$4, getElementCount, int32_t)},
+		{"getLowerBoundAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$4, getLowerBoundAt, int32_t, int32_t)},
+		{"getUpperBoundAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTable$4, getUpperBoundAt, int32_t, int32_t)},
+		{"setSizeAt", "(II)V", nullptr, $PUBLIC, $virtualMethod(JTable$4, setSizeAt, void, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JTable",
+		"adjustSizes",
+		"(JLjavax/swing/JTable$Resizable3;Z)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$4", nullptr, nullptr, 0},
+		{"javax.swing.JTable$Resizable2", "javax.swing.JTable", "Resizable2", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.JTable$Resizable3", "javax.swing.JTable", "Resizable3", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$4",
+		"java.lang.Object",
+		"javax.swing.JTable$Resizable2",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTable$4);
+	});
 	return class$;
 }
 

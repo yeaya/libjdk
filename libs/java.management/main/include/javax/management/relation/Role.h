@@ -27,6 +27,7 @@ class $import Role : public ::java::io::Serializable {
 	$class(Role, 0, ::java::io::Serializable)
 public:
 	Role();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* roleName, ::java::util::List* roleValue);
 	virtual $Object* clone() override;
 	virtual $String* getRoleName();
@@ -37,8 +38,8 @@ public:
 	virtual void setRoleValue(::java::util::List* roleValue);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0xE4CE8182BCFDB0BE;
-	static const int64_t newSerialVersionUID = (int64_t)0xFC1D4AA787BC0568;
+	static const int64_t oldSerialVersionUID = (int64_t)0xe4ce8182bcfdb0be;
+	static const int64_t newSerialVersionUID = (int64_t)0xfc1d4aa787bc0568;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

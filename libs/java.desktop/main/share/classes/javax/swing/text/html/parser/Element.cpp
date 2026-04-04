@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/Element.h>
-
 #include <java/util/BitSet.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
@@ -20,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
-using $Vector = ::java::util::Vector;
 using $AttributeList = ::javax::swing::text::html::parser::AttributeList;
 using $ContentModel = ::javax::swing::text::html::parser::ContentModel;
 using $DTDConstants = ::javax::swing::text::html::parser::DTDConstants;
@@ -31,58 +29,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 				namespace parser {
-
-$FieldInfo _Element_FieldInfo_[] = {
-	{"index", "I", nullptr, $PUBLIC, $field(Element, index)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Element, name)},
-	{"oStart", "Z", nullptr, $PUBLIC, $field(Element, oStart)},
-	{"oEnd", "Z", nullptr, $PUBLIC, $field(Element, oEnd)},
-	{"inclusions", "Ljava/util/BitSet;", nullptr, $PUBLIC, $field(Element, inclusions)},
-	{"exclusions", "Ljava/util/BitSet;", nullptr, $PUBLIC, $field(Element, exclusions)},
-	{"type", "I", nullptr, $PUBLIC, $field(Element, type)},
-	{"content", "Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $field(Element, content)},
-	{"atts", "Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $field(Element, atts)},
-	{"data", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Element, data)},
-	{"MAX_INDEX_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Element, MAX_INDEX_KEY)},
-	{"contentTypes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Integer;>;", $STATIC, $staticField(Element, contentTypes)},
-	{}
-};
-
-$MethodInfo _Element_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Element, init$, void)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(Element, init$, void, $String*, int32_t)},
-	{"getAttribute", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(Element, getAttribute, $AttributeList*, $String*)},
-	{"getAttributeByValue", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(Element, getAttributeByValue, $AttributeList*, $String*)},
-	{"getAttributes", "()Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(Element, getAttributes, $AttributeList*)},
-	{"getContent", "()Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $method(Element, getContent, $ContentModel*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $method(Element, getIndex, int32_t)},
-	{"getMaxIndex", "()I", nullptr, $STATIC, $staticMethod(Element, getMaxIndex, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Element, getName, $String*)},
-	{"getType", "()I", nullptr, $PUBLIC, $method(Element, getType, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(Element, isEmpty, bool)},
-	{"name2type", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Element, name2type, int32_t, $String*)},
-	{"omitEnd", "()Z", nullptr, $PUBLIC, $method(Element, omitEnd, bool)},
-	{"omitStart", "()Z", nullptr, $PUBLIC, $method(Element, omitStart, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Element, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Element_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.text.html.parser.Element",
-	"java.lang.Object",
-	"javax.swing.text.html.parser.DTDConstants,java.io.Serializable",
-	_Element_FieldInfo_,
-	_Element_MethodInfo_
-};
-
-$Object* allocate$Element($Class* clazz) {
-	return $of($alloc(Element));
-}
 
 int32_t Element::hashCode() {
 	 return this->$DTDConstants::hashCode();
@@ -108,20 +54,20 @@ void Element::init$() {
 }
 
 void Element::init$($String* name, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->type = $DTDConstants::ANY;
 	$set(this, name, name);
 	this->index = index;
 	if (index > getMaxIndex()) {
-		$nc($($AppContext::getAppContext()))->put(Element::MAX_INDEX_KEY, $($Integer::valueOf(index)));
+		$$nc($AppContext::getAppContext())->put(Element::MAX_INDEX_KEY, $($Integer::valueOf(index)));
 	}
 }
 
 int32_t Element::getMaxIndex() {
 	$init(Element);
-	$useLocalCurrentObjectStackCache();
-	$var($Integer, value, $cast($Integer, $nc($($AppContext::getAppContext()))->get(Element::MAX_INDEX_KEY)));
-	return (value != nullptr) ? $nc(value)->intValue() : 0;
+	$useLocalObjectStack();
+	$var($Integer, value, $cast($Integer, $$nc($AppContext::getAppContext())->get(Element::MAX_INDEX_KEY)));
+	return (value != nullptr) ? value->intValue() : 0;
 }
 
 $String* Element::getName() {
@@ -161,24 +107,20 @@ $String* Element::toString() {
 }
 
 $AttributeList* Element::getAttribute($String* name) {
-	{
-		$var($AttributeList, a, this->atts);
-		for (; a != nullptr; $assign(a, $nc(a)->next)) {
-			if ($nc(a->name)->equals(name)) {
-				return a;
-			}
+	$var($AttributeList, a, this->atts);
+	for (; a != nullptr; $assign(a, a->next)) {
+		if ($nc(a->name)->equals(name)) {
+			return a;
 		}
 	}
 	return nullptr;
 }
 
 $AttributeList* Element::getAttributeByValue($String* value) {
-	{
-		$var($AttributeList, a, this->atts);
-		for (; a != nullptr; $assign(a, $nc(a)->next)) {
-			if ((a->values != nullptr) && $nc(a->values)->contains(value)) {
-				return a;
-			}
+	$var($AttributeList, a, this->atts);
+	for (; a != nullptr; $assign(a, a->next)) {
+		if ((a->values != nullptr) && a->values->contains(value)) {
+			return a;
 		}
 	}
 	return nullptr;
@@ -187,18 +129,18 @@ $AttributeList* Element::getAttributeByValue($String* value) {
 int32_t Element::name2type($String* nm) {
 	$init(Element);
 	$var($Integer, val, $cast($Integer, $nc(Element::contentTypes)->get(nm)));
-	return (val != nullptr) ? $nc(val)->intValue() : 0;
+	return (val != nullptr) ? val->intValue() : 0;
 }
 
-void clinit$Element($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Element::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Element::MAX_INDEX_KEY, $new($Object));
 	$assignStatic(Element::contentTypes, $new($Hashtable));
 	{
-		$nc(Element::contentTypes)->put("CDATA"_s, $($Integer::valueOf($DTDConstants::CDATA)));
-		$nc(Element::contentTypes)->put("RCDATA"_s, $($Integer::valueOf($DTDConstants::RCDATA)));
-		$nc(Element::contentTypes)->put("EMPTY"_s, $($Integer::valueOf($DTDConstants::EMPTY)));
-		$nc(Element::contentTypes)->put("ANY"_s, $($Integer::valueOf($DTDConstants::ANY)));
+		Element::contentTypes->put("CDATA"_s, $($Integer::valueOf($DTDConstants::CDATA)));
+		Element::contentTypes->put("RCDATA"_s, $($Integer::valueOf($DTDConstants::RCDATA)));
+		Element::contentTypes->put("EMPTY"_s, $($Integer::valueOf($DTDConstants::EMPTY)));
+		Element::contentTypes->put("ANY"_s, $($Integer::valueOf($DTDConstants::ANY)));
 	}
 }
 
@@ -206,7 +148,54 @@ Element::Element() {
 }
 
 $Class* Element::load$($String* name, bool initialize) {
-	$loadClass(Element, name, initialize, &_Element_ClassInfo_, clinit$Element, allocate$Element);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PUBLIC, $field(Element, index)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Element, name)},
+		{"oStart", "Z", nullptr, $PUBLIC, $field(Element, oStart)},
+		{"oEnd", "Z", nullptr, $PUBLIC, $field(Element, oEnd)},
+		{"inclusions", "Ljava/util/BitSet;", nullptr, $PUBLIC, $field(Element, inclusions)},
+		{"exclusions", "Ljava/util/BitSet;", nullptr, $PUBLIC, $field(Element, exclusions)},
+		{"type", "I", nullptr, $PUBLIC, $field(Element, type)},
+		{"content", "Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $field(Element, content)},
+		{"atts", "Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $field(Element, atts)},
+		{"data", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Element, data)},
+		{"MAX_INDEX_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Element, MAX_INDEX_KEY)},
+		{"contentTypes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Integer;>;", $STATIC, $staticField(Element, contentTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Element, init$, void)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(Element, init$, void, $String*, int32_t)},
+		{"getAttribute", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(Element, getAttribute, $AttributeList*, $String*)},
+		{"getAttributeByValue", "(Ljava/lang/String;)Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(Element, getAttributeByValue, $AttributeList*, $String*)},
+		{"getAttributes", "()Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(Element, getAttributes, $AttributeList*)},
+		{"getContent", "()Ljavax/swing/text/html/parser/ContentModel;", nullptr, $PUBLIC, $method(Element, getContent, $ContentModel*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $method(Element, getIndex, int32_t)},
+		{"getMaxIndex", "()I", nullptr, $STATIC, $staticMethod(Element, getMaxIndex, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Element, getName, $String*)},
+		{"getType", "()I", nullptr, $PUBLIC, $method(Element, getType, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(Element, isEmpty, bool)},
+		{"name2type", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Element, name2type, int32_t, $String*)},
+		{"omitEnd", "()Z", nullptr, $PUBLIC, $method(Element, omitEnd, bool)},
+		{"omitStart", "()Z", nullptr, $PUBLIC, $method(Element, omitStart, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Element, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.text.html.parser.Element",
+		"java.lang.Object",
+		"javax.swing.text.html.parser.DTDConstants,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Element, name, initialize, &classInfo$$, Element::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Element));
+	});
 	return class$;
 }
 

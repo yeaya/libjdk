@@ -1,13 +1,10 @@
 #include <sun/print/ServiceDialog$IconRadioButton.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/Icon.h>
@@ -20,10 +17,7 @@
 
 #undef LEADING
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,71 +25,25 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $Icon = ::javax::swing::Icon;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $JRadioButton = ::javax::swing::JRadioButton;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $ServiceDialog$IconRadioButton$1 = ::sun::print::ServiceDialog$IconRadioButton$1;
 
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceDialog$IconRadioButton_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton, this$0)},
-	{"rb", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$IconRadioButton, rb)},
-	{"lbl", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$IconRadioButton, lbl)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$IconRadioButton_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/ServiceDialog;Ljava/lang/String;Ljava/lang/String;ZLjavax/swing/ButtonGroup;Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $method(ServiceDialog$IconRadioButton, init$, void, $ServiceDialog*, $String*, $String*, bool, $ButtonGroup*, $ActionListener*)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, addActionListener, void, $ActionListener*)},
-	{"isSameAs", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, isSameAs, bool, Object$*)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, isSelected, bool)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, setEnabled, void, bool)},
-	{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, setSelected, void, bool)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$IconRadioButton_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$IconRadioButton", "sun.print.ServiceDialog", "IconRadioButton", $PRIVATE},
-	{"sun.print.ServiceDialog$IconRadioButton$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServiceDialog$IconRadioButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$IconRadioButton",
-	"javax.swing.JPanel",
-	nullptr,
-	_ServiceDialog$IconRadioButton_FieldInfo_,
-	_ServiceDialog$IconRadioButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$IconRadioButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$IconRadioButton($Class* clazz) {
-	return $of($alloc(ServiceDialog$IconRadioButton));
-}
-
 void ServiceDialog$IconRadioButton::init$($ServiceDialog* this$0, $String* key, $String* img, bool selected, $ButtonGroup* bg, $ActionListener* al) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, this$0, this$0);
-	$JPanel::init$(static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::LEADING)));
+	$JPanel::init$($$new($FlowLayout, $FlowLayout::LEADING));
 	$var($URL, imgURL, $ServiceDialog::getImageResource(img));
-	$var($Icon, icon, $cast($Icon, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ServiceDialog$IconRadioButton$1, this, this$0, imgURL)))));
+	$var($Icon, icon, $cast($Icon, $AccessController::doPrivileged($$new($ServiceDialog$IconRadioButton$1, this, this$0, imgURL))));
 	$set(this, lbl, $new($JLabel, icon));
-	add(static_cast<$Component*>(this->lbl));
+	add(this->lbl);
 	$set(this, rb, $ServiceDialog::createRadioButton(key, al));
 	$nc(this->rb)->setSelected(selected);
 	$ServiceDialog::addToBG(this->rb, this, bg);
@@ -126,7 +74,44 @@ ServiceDialog$IconRadioButton::ServiceDialog$IconRadioButton() {
 }
 
 $Class* ServiceDialog$IconRadioButton::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$IconRadioButton, name, initialize, &_ServiceDialog$IconRadioButton_ClassInfo_, allocate$ServiceDialog$IconRadioButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton, this$0)},
+		{"rb", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$IconRadioButton, rb)},
+		{"lbl", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$IconRadioButton, lbl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/ServiceDialog;Ljava/lang/String;Ljava/lang/String;ZLjavax/swing/ButtonGroup;Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $method(ServiceDialog$IconRadioButton, init$, void, $ServiceDialog*, $String*, $String*, bool, $ButtonGroup*, $ActionListener*)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, addActionListener, void, $ActionListener*)},
+		{"isSameAs", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, isSameAs, bool, Object$*)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, isSelected, bool)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, setEnabled, void, bool)},
+		{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton, setSelected, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$IconRadioButton", "sun.print.ServiceDialog", "IconRadioButton", $PRIVATE},
+		{"sun.print.ServiceDialog$IconRadioButton$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$IconRadioButton",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$IconRadioButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$IconRadioButton));
+	});
 	return class$;
 }
 

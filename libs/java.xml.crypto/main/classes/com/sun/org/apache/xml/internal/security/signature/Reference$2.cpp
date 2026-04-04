@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/Reference$2.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/Reference$2$1.h>
 #include <com/sun/org/apache/xml/internal/security/signature/Reference.h>
 #include <java/util/Iterator.h>
@@ -25,50 +24,6 @@ namespace com {
 						namespace security {
 							namespace signature {
 
-$FieldInfo _Reference$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/security/signature/Reference;", nullptr, $FINAL | $SYNTHETIC, $field(Reference$2, this$0)},
-	{"val$s", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(Reference$2, val$s)},
-	{}
-};
-
-$MethodInfo _Reference$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference;Ljava/util/Set;)V", "()V", 0, $method(Reference$2, init$, void, $Reference*, $Set*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(Reference$2, iterator, $Iterator*)},
-	{}
-};
-
-$EnclosingMethodInfo _Reference$2_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xml.internal.security.signature.Reference",
-	"cacheDereferencedElement",
-	"(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V"
-};
-
-$InnerClassInfo _Reference$2_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.signature.Reference$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xml.internal.security.signature.Reference$2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Reference$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.Reference$2",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceNodeSetData",
-	_Reference$2_FieldInfo_,
-	_Reference$2_MethodInfo_,
-	nullptr,
-	&_Reference$2_EnclosingMethodInfo_,
-	_Reference$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.signature.Reference"
-};
-
-$Object* allocate$Reference$2($Class* clazz) {
-	return $of($alloc(Reference$2));
-}
-
 void Reference$2::init$($Reference* this$0, $Set* val$s) {
 	$set(this, this$0, this$0);
 	$set(this, val$s, val$s);
@@ -82,7 +37,44 @@ Reference$2::Reference$2() {
 }
 
 $Class* Reference$2::load$($String* name, bool initialize) {
-	$loadClass(Reference$2, name, initialize, &_Reference$2_ClassInfo_, allocate$Reference$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/security/signature/Reference;", nullptr, $FINAL | $SYNTHETIC, $field(Reference$2, this$0)},
+		{"val$s", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(Reference$2, val$s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference;Ljava/util/Set;)V", "()V", 0, $method(Reference$2, init$, void, $Reference*, $Set*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(Reference$2, iterator, $Iterator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xml.internal.security.signature.Reference",
+		"cacheDereferencedElement",
+		"(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.signature.Reference$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xml.internal.security.signature.Reference$2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.Reference$2",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceNodeSetData",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.signature.Reference"
+	};
+	$loadClass(Reference$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Reference$2);
+	});
 	return class$;
 }
 

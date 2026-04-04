@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1$1.h>
-
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1.h>
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject.h>
 #include <java/lang/Iterable.h>
@@ -20,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Set = ::java::util::Set;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
@@ -32,56 +30,6 @@ namespace com {
 			namespace javac {
 				namespace platform {
 
-$FieldInfo _JDKPlatformProvider$PlatformDescriptionImpl$1$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, this$1)},
-	{"val$kinds", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, val$kinds)},
-	{"val$listed", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, val$listed)},
-	{"original", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, original)},
-	{"next", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, next$)},
-	{}
-};
-
-$MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$1$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", "()V", 0, $method(JDKPlatformProvider$PlatformDescriptionImpl$1$1, init$, void, $JDKPlatformProvider$PlatformDescriptionImpl$1*, $Iterable*, $Set*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$1, hasNext, bool)},
-	{"next", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$1, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$1$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1",
-	"list",
-	"(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;"
-};
-
-$InnerClassInfo _JDKPlatformProvider$PlatformDescriptionImpl$1$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1", nullptr, nullptr, 0},
-	{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JDKPlatformProvider$PlatformDescriptionImpl$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_JDKPlatformProvider$PlatformDescriptionImpl$1$1_FieldInfo_,
-	_JDKPlatformProvider$PlatformDescriptionImpl$1$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/tools/JavaFileObject;>;",
-	&_JDKPlatformProvider$PlatformDescriptionImpl$1$1_EnclosingMethodInfo_,
-	_JDKPlatformProvider$PlatformDescriptionImpl$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.platform.JDKPlatformProvider"
-};
-
-$Object* allocate$JDKPlatformProvider$PlatformDescriptionImpl$1$1($Class* clazz) {
-	return $of($alloc(JDKPlatformProvider$PlatformDescriptionImpl$1$1));
-}
-
 void JDKPlatformProvider$PlatformDescriptionImpl$1$1::init$($JDKPlatformProvider$PlatformDescriptionImpl$1* this$1, $Iterable* val$listed, $Set* val$kinds) {
 	$set(this, this$1, this$1);
 	$set(this, val$listed, val$listed);
@@ -90,17 +38,17 @@ void JDKPlatformProvider$PlatformDescriptionImpl$1$1::init$($JDKPlatformProvider
 }
 
 bool JDKPlatformProvider$PlatformDescriptionImpl$1$1::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->next$ == nullptr) {
 		while ($nc(this->original)->hasNext()) {
-			$var($JavaFileObject, fo, $cast($JavaFileObject, $nc(this->original)->next()));
+			$var($JavaFileObject, fo, $cast($JavaFileObject, this->original->next()));
 			$init($JavaFileObject$Kind);
 			bool var$0 = $nc(fo)->getKind() == $JavaFileObject$Kind::OTHER;
-			if (var$0 && $nc($(fo->getName()))->endsWith(".sig"_s)) {
+			if (var$0 && $$nc(fo->getName())->endsWith(".sig"_s)) {
 				$set(this, next$, $new($JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, fo));
 				break;
 			}
-			if ($nc(this->val$kinds)->contains($($nc(fo)->getKind()))) {
+			if ($nc(this->val$kinds)->contains($(fo->getKind()))) {
 				$set(this, next$, fo);
 				break;
 			}
@@ -115,14 +63,57 @@ $Object* JDKPlatformProvider$PlatformDescriptionImpl$1$1::next() {
 	}
 	$var($JavaFileObject, result, this->next$);
 	$set(this, next$, nullptr);
-	return $of(result);
+	return result;
 }
 
 JDKPlatformProvider$PlatformDescriptionImpl$1$1::JDKPlatformProvider$PlatformDescriptionImpl$1$1() {
 }
 
 $Class* JDKPlatformProvider$PlatformDescriptionImpl$1$1::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$1$1, name, initialize, &_JDKPlatformProvider$PlatformDescriptionImpl$1$1_ClassInfo_, allocate$JDKPlatformProvider$PlatformDescriptionImpl$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, this$1)},
+		{"val$kinds", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, val$kinds)},
+		{"val$listed", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, val$listed)},
+		{"original", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, original)},
+		{"next", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $field(JDKPlatformProvider$PlatformDescriptionImpl$1$1, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", "()V", 0, $method(JDKPlatformProvider$PlatformDescriptionImpl$1$1, init$, void, $JDKPlatformProvider$PlatformDescriptionImpl$1*, $Iterable*, $Set*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$1, hasNext, bool)},
+		{"next", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$1, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1",
+		"list",
+		"(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1", nullptr, nullptr, 0},
+		{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/tools/JavaFileObject;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.platform.JDKPlatformProvider"
+	};
+	$loadClass(JDKPlatformProvider$PlatformDescriptionImpl$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$PlatformDescriptionImpl$1$1);
+	});
 	return class$;
 }
 

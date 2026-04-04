@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$TabbedPaneScrollLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -31,62 +30,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JButton = ::javax::swing::JButton;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $JViewport = ::javax::swing::JViewport;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$CroppedEdge = ::javax::swing::plaf::basic::BasicTabbedPaneUI$CroppedEdge;
-using $BasicTabbedPaneUI$ScrollableTabPanel = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabPanel;
-using $BasicTabbedPaneUI$ScrollableTabViewport = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabViewport;
 using $BasicTabbedPaneUI$TabbedPaneLayout = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabbedPaneLayout;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$TabbedPaneScrollLayout_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$TabbedPaneScrollLayout, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$TabbedPaneScrollLayout_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabbedPaneScrollLayout, init$, void, $BasicTabbedPaneUI*)},
-	{"calculateTabRects", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, calculateTabRects, void, int32_t, int32_t)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, layoutContainer, void, $Container*)},
-	{"layoutCroppedEdge", "()V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabbedPaneScrollLayout, layoutCroppedEdge, void)},
-	{"preferredTabAreaHeight", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, preferredTabAreaHeight, int32_t, int32_t, int32_t)},
-	{"preferredTabAreaWidth", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, preferredTabAreaWidth, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$TabbedPaneScrollLayout_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneScrollLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneScrollLayout", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$TabbedPaneScrollLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneScrollLayout",
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
-	nullptr,
-	_BasicTabbedPaneUI$TabbedPaneScrollLayout_FieldInfo_,
-	_BasicTabbedPaneUI$TabbedPaneScrollLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$TabbedPaneScrollLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$TabbedPaneScrollLayout($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$TabbedPaneScrollLayout));
-}
 
 void BasicTabbedPaneUI$TabbedPaneScrollLayout::init$($BasicTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
@@ -102,7 +55,7 @@ int32_t BasicTabbedPaneUI$TabbedPaneScrollLayout::preferredTabAreaWidth(int32_t 
 }
 
 void BasicTabbedPaneUI$TabbedPaneScrollLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->setRolloverTab(-1);
 	int32_t tabPlacement = $nc(this->this$0->tabPane)->getTabPlacement();
 	int32_t tabCount = $nc(this->this$0->tabPane)->getTabCount();
@@ -147,58 +100,49 @@ void BasicTabbedPaneUI$TabbedPaneScrollLayout::layoutContainer($Container* paren
 	if (numChildren > 0) {
 		switch (tabPlacement) {
 		case 2:
-			{
-				tw = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
-				th = $nc(bounds)->height - $nc(insets)->top - insets->bottom;
-				tx = $nc(insets)->left;
-				ty = $nc(insets)->top;
-				cx = tx + tw + $nc(contentInsets)->left;
-				cy = ty + $nc(contentInsets)->top;
-				cw = $nc(bounds)->width - $nc(insets)->left - insets->right - tw - $nc(contentInsets)->left - contentInsets->right;
-				ch = $nc(bounds)->height - $nc(insets)->top - insets->bottom - $nc(contentInsets)->top - contentInsets->bottom;
-				break;
-			}
+			tw = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
+			th = $nc(bounds)->height - $nc(insets)->top - $nc(insets)->bottom;
+			tx = insets->left;
+			ty = insets->top;
+			cx = tx + tw + $nc(contentInsets)->left;
+			cy = ty + contentInsets->top;
+			cw = bounds->width - insets->left - insets->right - tw - contentInsets->left - contentInsets->right;
+			ch = bounds->height - insets->top - insets->bottom - contentInsets->top - contentInsets->bottom;
+			break;
 		case 4:
-			{
-				tw = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
-				th = $nc(bounds)->height - $nc(insets)->top - insets->bottom;
-				tx = $nc(bounds)->width - $nc(insets)->right - tw;
-				ty = $nc(insets)->top;
-				cx = $nc(insets)->left + $nc(contentInsets)->left;
-				cy = $nc(insets)->top + $nc(contentInsets)->top;
-				cw = $nc(bounds)->width - $nc(insets)->left - insets->right - tw - $nc(contentInsets)->left - contentInsets->right;
-				ch = $nc(bounds)->height - $nc(insets)->top - insets->bottom - $nc(contentInsets)->top - contentInsets->bottom;
-				break;
-			}
+			tw = this->this$0->calculateTabAreaWidth(tabPlacement, this->this$0->runCount, this->this$0->maxTabWidth);
+			th = $nc(bounds)->height - $nc(insets)->top - $nc(insets)->bottom;
+			tx = bounds->width - insets->right - tw;
+			ty = insets->top;
+			cx = insets->left + $nc(contentInsets)->left;
+			cy = insets->top + contentInsets->top;
+			cw = bounds->width - insets->left - insets->right - tw - contentInsets->left - contentInsets->right;
+			ch = bounds->height - insets->top - insets->bottom - contentInsets->top - contentInsets->bottom;
+			break;
 		case 3:
-			{
-				tw = $nc(bounds)->width - $nc(insets)->left - insets->right;
-				th = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
-				tx = $nc(insets)->left;
-				ty = $nc(bounds)->height - $nc(insets)->bottom - th;
-				cx = $nc(insets)->left + $nc(contentInsets)->left;
-				cy = $nc(insets)->top + $nc(contentInsets)->top;
-				cw = $nc(bounds)->width - $nc(insets)->left - insets->right - $nc(contentInsets)->left - contentInsets->right;
-				ch = $nc(bounds)->height - $nc(insets)->top - insets->bottom - th - $nc(contentInsets)->top - contentInsets->bottom;
-				break;
-			}
+			tw = $nc(bounds)->width - $nc(insets)->left - $nc(insets)->right;
+			th = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
+			tx = insets->left;
+			ty = bounds->height - insets->bottom - th;
+			cx = insets->left + $nc(contentInsets)->left;
+			cy = insets->top + contentInsets->top;
+			cw = bounds->width - insets->left - insets->right - contentInsets->left - contentInsets->right;
+			ch = bounds->height - insets->top - insets->bottom - th - contentInsets->top - contentInsets->bottom;
+			break;
 		case 1:
-			{}
 		default:
-			{
-				tw = $nc(bounds)->width - $nc(insets)->left - insets->right;
-				th = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
-				tx = $nc(insets)->left;
-				ty = $nc(insets)->top;
-				cx = tx + $nc(contentInsets)->left;
-				cy = ty + th + $nc(contentInsets)->top;
-				cw = $nc(bounds)->width - $nc(insets)->left - insets->right - $nc(contentInsets)->left - contentInsets->right;
-				ch = $nc(bounds)->height - $nc(insets)->top - insets->bottom - th - $nc(contentInsets)->top - contentInsets->bottom;
-			}
+			tw = $nc(bounds)->width - $nc(insets)->left - $nc(insets)->right;
+			th = this->this$0->calculateTabAreaHeight(tabPlacement, this->this$0->runCount, this->this$0->maxTabHeight);
+			tx = insets->left;
+			ty = insets->top;
+			cx = tx + $nc(contentInsets)->left;
+			cy = ty + th + contentInsets->top;
+			cw = bounds->width - insets->left - insets->right - contentInsets->left - contentInsets->right;
+			ch = bounds->height - insets->top - insets->bottom - th - contentInsets->top - contentInsets->bottom;
 		}
 		for (int32_t i = 0; i < numChildren; ++i) {
 			$var($Component, child, $nc(this->this$0->tabPane)->getComponent(i));
-			if (this->this$0->tabScroller != nullptr && $equals(child, $nc(this->this$0->tabScroller)->viewport)) {
+			if (this->this$0->tabScroller != nullptr && $equals(child, this->this$0->tabScroller->viewport)) {
 				$var($JViewport, viewport, $cast($JViewport, child));
 				$var($Rectangle, viewRect, $nc(viewport)->getViewRect());
 				int32_t vw = tw;
@@ -209,36 +153,29 @@ void BasicTabbedPaneUI$TabbedPaneScrollLayout::layoutContainer($Container* paren
 					int32_t totalTabWidth = 0;
 					switch (tabPlacement) {
 					case 2:
-						{}
 					case 4:
-						{
-							totalTabHeight = $nc($nc(this->this$0->rects)->get(tabCount - 1))->y + $nc($nc(this->this$0->rects)->get(tabCount - 1))->height;
-							if (totalTabHeight > th) {
-								vh = (th > 2 * $nc(butSize)->height) ? th - 2 * $nc(butSize)->height : 0;
-								if (totalTabHeight - $nc(viewRect)->y <= vh) {
-									vh = totalTabHeight - viewRect->y;
-								}
+						totalTabHeight = $nc($nc(this->this$0->rects)->get(tabCount - 1))->y + $nc($nc(this->this$0->rects)->get(tabCount - 1))->height;
+						if (totalTabHeight > th) {
+							vh = (th > 2 * $nc(butSize)->height) ? th - 2 * butSize->height : 0;
+							if (totalTabHeight - $nc(viewRect)->y <= vh) {
+								vh = totalTabHeight - viewRect->y;
 							}
-							break;
 						}
+						break;
 					case 3:
-						{}
 					case 1:
-						{}
 					default:
-						{
-							totalTabWidth = $nc($nc(this->this$0->rects)->get(tabCount - 1))->x + $nc($nc(this->this$0->rects)->get(tabCount - 1))->width;
-							if (totalTabWidth > tw) {
-								vw = (tw > 2 * $nc(butSize)->width) ? tw - 2 * $nc(butSize)->width : 0;
-								if (totalTabWidth - $nc(viewRect)->x <= vw) {
-									vw = totalTabWidth - viewRect->x;
-								}
+						totalTabWidth = $nc($nc(this->this$0->rects)->get(tabCount - 1))->x + $nc($nc(this->this$0->rects)->get(tabCount - 1))->width;
+						if (totalTabWidth > tw) {
+							vw = (tw > 2 * $nc(butSize)->width) ? tw - 2 * butSize->width : 0;
+							if (totalTabWidth - $nc(viewRect)->x <= vw) {
+								vw = totalTabWidth - viewRect->x;
 							}
 						}
 					}
 				}
 				$nc(child)->setBounds(tx, ty, vw, vh);
-			} else if (this->this$0->tabScroller != nullptr && ($equals(child, $nc(this->this$0->tabScroller)->scrollForwardButton) || $equals(child, $nc(this->this$0->tabScroller)->scrollBackwardButton))) {
+			} else if (this->this$0->tabScroller != nullptr && ($equals(child, this->this$0->tabScroller->scrollForwardButton) || $equals(child, this->this$0->tabScroller->scrollBackwardButton))) {
 				$var($Component, scrollbutton, child);
 				$var($Dimension, bsize, $nc(scrollbutton)->getPreferredSize());
 				int32_t bx = 0;
@@ -251,29 +188,22 @@ void BasicTabbedPaneUI$TabbedPaneScrollLayout::layoutContainer($Container* paren
 					int32_t totalTabWidth = 0;
 					switch (tabPlacement) {
 					case 2:
-						{}
 					case 4:
-						{
-							totalTabHeight = $nc($nc(this->this$0->rects)->get(tabCount - 1))->y + $nc($nc(this->this$0->rects)->get(tabCount - 1))->height;
-							if (totalTabHeight > th) {
-								visible = true;
-								bx = (tabPlacement == 2 ? tx + tw - bsize->width : tx);
-								by = ($equals(child, $nc(this->this$0->tabScroller)->scrollForwardButton)) ? $nc(bounds)->height - $nc(insets)->bottom - bsize->height : bounds->height - insets->bottom - 2 * bsize->height;
-							}
-							break;
+						totalTabHeight = $nc($nc(this->this$0->rects)->get(tabCount - 1))->y + $nc($nc(this->this$0->rects)->get(tabCount - 1))->height;
+						if (totalTabHeight > th) {
+							visible = true;
+							bx = (tabPlacement == 2 ? tx + tw - bsize->width : tx);
+							by = ($equals(child, $nc(this->this$0->tabScroller)->scrollForwardButton)) ? $nc(bounds)->height - $nc(insets)->bottom - bsize->height : $nc(bounds)->height - $nc(insets)->bottom - 2 * bsize->height;
 						}
+						break;
 					case 3:
-						{}
 					case 1:
-						{}
 					default:
-						{
-							totalTabWidth = $nc($nc(this->this$0->rects)->get(tabCount - 1))->x + $nc($nc(this->this$0->rects)->get(tabCount - 1))->width;
-							if (totalTabWidth > tw) {
-								visible = true;
-								bx = ($equals(child, $nc(this->this$0->tabScroller)->scrollForwardButton)) ? $nc(bounds)->width - $nc(insets)->left - bsize->width : bounds->width - insets->left - 2 * bsize->width;
-								by = (tabPlacement == 1 ? ty + th - bsize->height : ty);
-							}
+						totalTabWidth = $nc($nc(this->this$0->rects)->get(tabCount - 1))->x + $nc($nc(this->this$0->rects)->get(tabCount - 1))->width;
+						if (totalTabWidth > tw) {
+							visible = true;
+							bx = ($equals(child, $nc(this->this$0->tabScroller)->scrollForwardButton)) ? $nc(bounds)->width - $nc(insets)->left - bsize->width : $nc(bounds)->width - $nc(insets)->left - 2 * bsize->width;
+							by = (tabPlacement == 1 ? ty + th - bsize->height : ty);
 						}
 					}
 				}
@@ -296,40 +226,33 @@ void BasicTabbedPaneUI$TabbedPaneScrollLayout::layoutContainer($Container* paren
 }
 
 void BasicTabbedPaneUI$TabbedPaneScrollLayout::layoutCroppedEdge() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($nc(this->this$0->tabScroller)->croppedEdge)->resetParams();
 	$var($Rectangle, viewRect, $nc($nc(this->this$0->tabScroller)->viewport)->getViewRect());
 	int32_t cropline = 0;
 	for (int32_t i = 0; i < $nc(this->this$0->rects)->length; ++i) {
-		$var($Rectangle, tabRect, $nc(this->this$0->rects)->get(i));
+		$var($Rectangle, tabRect, this->this$0->rects->get(i));
 		switch ($nc(this->this$0->tabPane)->getTabPlacement()) {
 		case 2:
-			{}
 		case 4:
-			{
-				cropline = $nc(viewRect)->y + viewRect->height;
-				if (($nc(tabRect)->y < cropline) && (tabRect->y + tabRect->height > cropline)) {
-					$nc($nc(this->this$0->tabScroller)->croppedEdge)->setParams(i, cropline - tabRect->y - 1, -$nc(this->this$0->currentTabAreaInsets)->left, 0);
-				}
-				break;
+			cropline = $nc(viewRect)->y + $nc(viewRect)->height;
+			if (($nc(tabRect)->y < cropline) && (tabRect->y + tabRect->height > cropline)) {
+				$nc($nc(this->this$0->tabScroller)->croppedEdge)->setParams(i, cropline - tabRect->y - 1, -$nc(this->this$0->currentTabAreaInsets)->left, 0);
 			}
+			break;
 		case 1:
-			{}
 		case 3:
-			{}
 		default:
-			{
-				cropline = $nc(viewRect)->x + viewRect->width;
-				if (($nc(tabRect)->x < cropline - 1) && (tabRect->x + tabRect->width > cropline)) {
-					$nc($nc(this->this$0->tabScroller)->croppedEdge)->setParams(i, cropline - tabRect->x - 1, 0, -$nc(this->this$0->currentTabAreaInsets)->top);
-				}
+			cropline = $nc(viewRect)->x + $nc(viewRect)->width;
+			if (($nc(tabRect)->x < cropline - 1) && (tabRect->x + tabRect->width > cropline)) {
+				$nc($nc(this->this$0->tabScroller)->croppedEdge)->setParams(i, cropline - tabRect->x - 1, 0, -$nc(this->this$0->currentTabAreaInsets)->top);
 			}
 		}
 	}
 }
 
 void BasicTabbedPaneUI$TabbedPaneScrollLayout::calculateTabRects(int32_t tabPlacement, int32_t tabCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, metrics, this->this$0->getFontMetrics());
 	$var($Dimension, size, $nc(this->this$0->tabPane)->getSize());
 	$var($Insets, insets, $nc(this->this$0->tabPane)->getInsets());
@@ -345,20 +268,13 @@ void BasicTabbedPaneUI$TabbedPaneScrollLayout::calculateTabRects(int32_t tabPlac
 	int32_t totalHeight = 0;
 	switch (tabPlacement) {
 	case 2:
-		{}
 	case 4:
-		{
-			this->this$0->maxTabWidth = this->this$0->calculateMaxTabWidth(tabPlacement);
-			break;
-		}
+		this->this$0->maxTabWidth = this->this$0->calculateMaxTabWidth(tabPlacement);
+		break;
 	case 3:
-		{}
 	case 1:
-		{}
 	default:
-		{
-			this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
-		}
+		this->this$0->maxTabHeight = this->this$0->calculateMaxTabHeight(tabPlacement);
 	}
 	this->this$0->runCount = 0;
 	this->this$0->selectedRun = -1;
@@ -372,7 +288,7 @@ void BasicTabbedPaneUI$TabbedPaneScrollLayout::calculateTabRects(int32_t tabPlac
 		$assign(rect, $nc(this->this$0->rects)->get(i));
 		if (!verticalTabRuns) {
 			if (i > 0) {
-				$nc(rect)->x = $nc($nc(this->this$0->rects)->get(i - 1))->x + $nc($nc(this->this$0->rects)->get(i - 1))->width;
+				$nc(rect)->x = $nc(this->this$0->rects->get(i - 1))->x + $nc(this->this$0->rects->get(i - 1))->width;
 			} else {
 				$nc(this->this$0->tabRuns)->set(0, 0);
 				this->this$0->maxTabWidth = 0;
@@ -417,7 +333,42 @@ BasicTabbedPaneUI$TabbedPaneScrollLayout::BasicTabbedPaneUI$TabbedPaneScrollLayo
 }
 
 $Class* BasicTabbedPaneUI$TabbedPaneScrollLayout::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$TabbedPaneScrollLayout, name, initialize, &_BasicTabbedPaneUI$TabbedPaneScrollLayout_ClassInfo_, allocate$BasicTabbedPaneUI$TabbedPaneScrollLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$TabbedPaneScrollLayout, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabbedPaneScrollLayout, init$, void, $BasicTabbedPaneUI*)},
+		{"calculateTabRects", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, calculateTabRects, void, int32_t, int32_t)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, layoutContainer, void, $Container*)},
+		{"layoutCroppedEdge", "()V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabbedPaneScrollLayout, layoutCroppedEdge, void)},
+		{"preferredTabAreaHeight", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, preferredTabAreaHeight, int32_t, int32_t, int32_t)},
+		{"preferredTabAreaWidth", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTabbedPaneUI$TabbedPaneScrollLayout, preferredTabAreaWidth, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneScrollLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneScrollLayout", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneScrollLayout",
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$TabbedPaneScrollLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTabbedPaneUI$TabbedPaneScrollLayout);
+	});
 	return class$;
 }
 

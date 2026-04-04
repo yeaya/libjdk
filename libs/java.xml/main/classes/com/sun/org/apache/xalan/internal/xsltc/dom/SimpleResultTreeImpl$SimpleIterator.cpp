@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl$SimpleIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
@@ -31,53 +30,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _SimpleResultTreeImpl$SimpleIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SimpleResultTreeImpl$SimpleIterator, this$0)},
-	{"DIRECTION_UP", "I", nullptr, $STATIC | $FINAL, $constField(SimpleResultTreeImpl$SimpleIterator, DIRECTION_UP)},
-	{"DIRECTION_DOWN", "I", nullptr, $STATIC | $FINAL, $constField(SimpleResultTreeImpl$SimpleIterator, DIRECTION_DOWN)},
-	{"NO_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(SimpleResultTreeImpl$SimpleIterator, NO_TYPE)},
-	{"_direction", "I", nullptr, 0, $field(SimpleResultTreeImpl$SimpleIterator, _direction)},
-	{"_type", "I", nullptr, 0, $field(SimpleResultTreeImpl$SimpleIterator, _type)},
-	{"_currentNode", "I", nullptr, 0, $field(SimpleResultTreeImpl$SimpleIterator, _currentNode)},
-	{}
-};
-
-$MethodInfo _SimpleResultTreeImpl$SimpleIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;)V", nullptr, $PUBLIC, $method(SimpleResultTreeImpl$SimpleIterator, init$, void, $SimpleResultTreeImpl*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;I)V", nullptr, $PUBLIC, $method(SimpleResultTreeImpl$SimpleIterator, init$, void, $SimpleResultTreeImpl*, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;II)V", nullptr, $PUBLIC, $method(SimpleResultTreeImpl$SimpleIterator, init$, void, $SimpleResultTreeImpl*, int32_t, int32_t)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, gotoMark, void)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, next, int32_t)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SimpleResultTreeImpl$SimpleIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl$SimpleIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl", "SimpleIterator", $PUBLIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SimpleResultTreeImpl$SimpleIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl$SimpleIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_SimpleResultTreeImpl$SimpleIterator_FieldInfo_,
-	_SimpleResultTreeImpl$SimpleIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SimpleResultTreeImpl$SimpleIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl"
-};
-
-$Object* allocate$SimpleResultTreeImpl$SimpleIterator($Class* clazz) {
-	return $of($alloc(SimpleResultTreeImpl$SimpleIterator));
-}
 
 void SimpleResultTreeImpl$SimpleIterator::init$($SimpleResultTreeImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -159,7 +111,48 @@ SimpleResultTreeImpl$SimpleIterator::SimpleResultTreeImpl$SimpleIterator() {
 }
 
 $Class* SimpleResultTreeImpl$SimpleIterator::load$($String* name, bool initialize) {
-	$loadClass(SimpleResultTreeImpl$SimpleIterator, name, initialize, &_SimpleResultTreeImpl$SimpleIterator_ClassInfo_, allocate$SimpleResultTreeImpl$SimpleIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SimpleResultTreeImpl$SimpleIterator, this$0)},
+		{"DIRECTION_UP", "I", nullptr, $STATIC | $FINAL, $constField(SimpleResultTreeImpl$SimpleIterator, DIRECTION_UP)},
+		{"DIRECTION_DOWN", "I", nullptr, $STATIC | $FINAL, $constField(SimpleResultTreeImpl$SimpleIterator, DIRECTION_DOWN)},
+		{"NO_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(SimpleResultTreeImpl$SimpleIterator, NO_TYPE)},
+		{"_direction", "I", nullptr, 0, $field(SimpleResultTreeImpl$SimpleIterator, _direction)},
+		{"_type", "I", nullptr, 0, $field(SimpleResultTreeImpl$SimpleIterator, _type)},
+		{"_currentNode", "I", nullptr, 0, $field(SimpleResultTreeImpl$SimpleIterator, _currentNode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;)V", nullptr, $PUBLIC, $method(SimpleResultTreeImpl$SimpleIterator, init$, void, $SimpleResultTreeImpl*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;I)V", nullptr, $PUBLIC, $method(SimpleResultTreeImpl$SimpleIterator, init$, void, $SimpleResultTreeImpl*, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl;II)V", nullptr, $PUBLIC, $method(SimpleResultTreeImpl$SimpleIterator, init$, void, $SimpleResultTreeImpl*, int32_t, int32_t)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, gotoMark, void)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, next, int32_t)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SimpleResultTreeImpl$SimpleIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl$SimpleIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl", "SimpleIterator", $PUBLIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl$SimpleIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl"
+	};
+	$loadClass(SimpleResultTreeImpl$SimpleIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleResultTreeImpl$SimpleIterator);
+	});
 	return class$;
 }
 

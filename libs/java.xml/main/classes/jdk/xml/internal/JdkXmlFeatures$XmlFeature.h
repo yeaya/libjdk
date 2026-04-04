@@ -33,6 +33,7 @@ class JdkXmlFeatures$XmlFeature : public ::java::lang::Enum {
 public:
 	JdkXmlFeatures$XmlFeature();
 	static $Array<::jdk::xml::internal::JdkXmlFeatures$XmlFeature>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::jdk::xml::internal::JdkProperty$ImplPropMap* implMap, $String* name, $String* nameSP, bool differ, $String* nameOld, $String* nameOldSP, bool value, bool valueEnforced, bool hasSystem, bool enforced);
 	virtual $String* apiProperty();
 	virtual bool defaultValue();

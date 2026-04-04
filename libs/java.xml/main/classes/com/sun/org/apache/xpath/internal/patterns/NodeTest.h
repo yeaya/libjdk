@@ -87,6 +87,7 @@ class NodeTest : public ::com::sun::org::apache::xpath::internal::Expression {
 public:
 	NodeTest();
 	using ::com::sun::org::apache::xpath::internal::Expression::execute;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t whatToShow, $String* namespace$, $String* name);
 	void init$(int32_t whatToShow);
 	void init$();
@@ -112,7 +113,7 @@ public:
 	virtual void setWhatToShow(int32_t what);
 	static bool subPartMatch($String* p, $String* t);
 	static bool subPartMatchNS($String* p, $String* t);
-	static const int64_t serialVersionUID = (int64_t)0xB06311DB4D46777A;
+	static const int64_t serialVersionUID = (int64_t)0xb06311db4d46777a;
 	static $String* WILD;
 	static $String* SUPPORTS_PRE_STRIPPING;
 	int32_t m_whatToShow = 0;

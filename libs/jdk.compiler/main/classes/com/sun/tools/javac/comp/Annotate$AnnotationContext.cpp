@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Annotate$AnnotationContext.h>
-
 #include <com/sun/tools/javac/comp/Annotate.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/util/Assert.h>
@@ -21,46 +20,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Annotate$AnnotationContext_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, $FINAL | $SYNTHETIC, $field(Annotate$AnnotationContext, this$0)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, env)},
-	{"annotated", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/ListBuffer<TT;>;>;", $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, annotated)},
-	{"pos", "Ljava/util/Map;", "Ljava/util/Map<TT;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;", $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, pos)},
-	{"isTypeCompound", "Z", nullptr, $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, isTypeCompound)},
-	{}
-};
-
-$MethodInfo _Annotate$AnnotationContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Ljava/util/Map;Ljava/util/Map;Z)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/ListBuffer<TT;>;>;Ljava/util/Map<TT;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Z)V", $PUBLIC, $method(Annotate$AnnotationContext, init$, void, $Annotate*, $Env*, $Map*, $Map*, bool)},
-	{}
-};
-
-$InnerClassInfo _Annotate$AnnotationContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Annotate$AnnotationContext", "com.sun.tools.javac.comp.Annotate", "AnnotationContext", $PRIVATE},
-	{"com.sun.tools.javac.code.Attribute$Compound", "com.sun.tools.javac.code.Attribute", "Compound", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Annotate$AnnotationContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Annotate$AnnotationContext",
-	"java.lang.Object",
-	nullptr,
-	_Annotate$AnnotationContext_FieldInfo_,
-	_Annotate$AnnotationContext_MethodInfo_,
-	"<T:Lcom/sun/tools/javac/code/Attribute$Compound;>Ljava/lang/Object;",
-	nullptr,
-	_Annotate$AnnotationContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Annotate"
-};
-
-$Object* allocate$Annotate$AnnotationContext($Class* clazz) {
-	return $of($alloc(Annotate$AnnotationContext));
-}
-
 void Annotate$AnnotationContext::init$($Annotate* this$0, $Env* env, $Map* annotated, $Map* pos, bool isTypeCompound) {
 	$set(this, this$0, this$0);
 	$Assert::checkNonNull(env);
@@ -76,7 +35,41 @@ Annotate$AnnotationContext::Annotate$AnnotationContext() {
 }
 
 $Class* Annotate$AnnotationContext::load$($String* name, bool initialize) {
-	$loadClass(Annotate$AnnotationContext, name, initialize, &_Annotate$AnnotationContext_ClassInfo_, allocate$Annotate$AnnotationContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, $FINAL | $SYNTHETIC, $field(Annotate$AnnotationContext, this$0)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, env)},
+		{"annotated", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/ListBuffer<TT;>;>;", $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, annotated)},
+		{"pos", "Ljava/util/Map;", "Ljava/util/Map<TT;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;", $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, pos)},
+		{"isTypeCompound", "Z", nullptr, $PUBLIC | $FINAL, $field(Annotate$AnnotationContext, isTypeCompound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Ljava/util/Map;Ljava/util/Map;Z)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/ListBuffer<TT;>;>;Ljava/util/Map<TT;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Z)V", $PUBLIC, $method(Annotate$AnnotationContext, init$, void, $Annotate*, $Env*, $Map*, $Map*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Annotate$AnnotationContext", "com.sun.tools.javac.comp.Annotate", "AnnotationContext", $PRIVATE},
+		{"com.sun.tools.javac.code.Attribute$Compound", "com.sun.tools.javac.code.Attribute", "Compound", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Annotate$AnnotationContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Lcom/sun/tools/javac/code/Attribute$Compound;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Annotate"
+	};
+	$loadClass(Annotate$AnnotationContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$AnnotationContext);
+	});
 	return class$;
 }
 

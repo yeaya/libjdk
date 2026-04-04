@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/GreaterThanComparator.h>
-
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xpath/internal/objects/Comparator.h>
 #include <jcpp.h>
@@ -16,26 +15,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$MethodInfo _GreaterThanComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GreaterThanComparator, init$, void)},
-	{"compareNumbers", "(DD)Z", nullptr, 0, $virtualMethod(GreaterThanComparator, compareNumbers, bool, double, double)},
-	{"compareStrings", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, 0, $virtualMethod(GreaterThanComparator, compareStrings, bool, $XMLString*, $XMLString*)},
-	{}
-};
-
-$ClassInfo _GreaterThanComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.GreaterThanComparator",
-	"com.sun.org.apache.xpath.internal.objects.Comparator",
-	nullptr,
-	nullptr,
-	_GreaterThanComparator_MethodInfo_
-};
-
-$Object* allocate$GreaterThanComparator($Class* clazz) {
-	return $of($alloc(GreaterThanComparator));
-}
 
 void GreaterThanComparator::init$() {
 	$Comparator::init$();
@@ -54,7 +33,23 @@ GreaterThanComparator::GreaterThanComparator() {
 }
 
 $Class* GreaterThanComparator::load$($String* name, bool initialize) {
-	$loadClass(GreaterThanComparator, name, initialize, &_GreaterThanComparator_ClassInfo_, allocate$GreaterThanComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GreaterThanComparator, init$, void)},
+		{"compareNumbers", "(DD)Z", nullptr, 0, $virtualMethod(GreaterThanComparator, compareNumbers, bool, double, double)},
+		{"compareStrings", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, 0, $virtualMethod(GreaterThanComparator, compareStrings, bool, $XMLString*, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.GreaterThanComparator",
+		"com.sun.org.apache.xpath.internal.objects.Comparator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GreaterThanComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GreaterThanComparator);
+	});
 	return class$;
 }
 

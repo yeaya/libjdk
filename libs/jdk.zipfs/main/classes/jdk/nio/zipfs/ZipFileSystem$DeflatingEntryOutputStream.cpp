@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileSystem$DeflatingEntryOutputStream.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
@@ -19,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $CRC32 = ::java::util::zip::CRC32;
-using $Deflater = ::java::util::zip::Deflater;
 using $DeflaterOutputStream = ::java::util::zip::DeflaterOutputStream;
 using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;
 using $ZipFileSystem$Entry = ::jdk::nio::zipfs::ZipFileSystem$Entry;
@@ -28,50 +26,10 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$FieldInfo _ZipFileSystem$DeflatingEntryOutputStream_FieldInfo_[] = {
-	{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$DeflatingEntryOutputStream, this$0)},
-	{"crc", "Ljava/util/zip/CRC32;", nullptr, $PRIVATE | $FINAL, $field(ZipFileSystem$DeflatingEntryOutputStream, crc)},
-	{"e", "Ljdk/nio/zipfs/ZipFileSystem$Entry;", nullptr, $PRIVATE | $FINAL, $field(ZipFileSystem$DeflatingEntryOutputStream, e)},
-	{"isClosed", "Z", nullptr, $PRIVATE, $field(ZipFileSystem$DeflatingEntryOutputStream, isClosed)},
-	{}
-};
-
-$MethodInfo _ZipFileSystem$DeflatingEntryOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, 0, $method(ZipFileSystem$DeflatingEntryOutputStream, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipFileSystem$DeflatingEntryOutputStream, close, void), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipFileSystem$DeflatingEntryOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ZipFileSystem$DeflatingEntryOutputStream_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileSystem$DeflatingEntryOutputStream", "jdk.nio.zipfs.ZipFileSystem", "DeflatingEntryOutputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ZipFileSystem$DeflatingEntryOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileSystem$DeflatingEntryOutputStream",
-	"java.util.zip.DeflaterOutputStream",
-	nullptr,
-	_ZipFileSystem$DeflatingEntryOutputStream_FieldInfo_,
-	_ZipFileSystem$DeflatingEntryOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipFileSystem$DeflatingEntryOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileSystem"
-};
-
-$Object* allocate$ZipFileSystem$DeflatingEntryOutputStream($Class* clazz) {
-	return $of($alloc(ZipFileSystem$DeflatingEntryOutputStream));
-}
-
 void ZipFileSystem$DeflatingEntryOutputStream::init$($ZipFileSystem* this$0, $ZipFileSystem$Entry* e, $OutputStream* os) {
 	$set(this, this$0, this$0);
 	$DeflaterOutputStream::init$(os, $(this$0->getDeflater()));
-	$set(this, e, $cast($ZipFileSystem$Entry, $Objects::requireNonNull($of(e), "Zip entry is null"_s)));
+	$set(this, e, $cast($ZipFileSystem$Entry, $Objects::requireNonNull(e, "Zip entry is null"_s)));
 	$set(this, crc, $new($CRC32));
 }
 
@@ -90,10 +48,10 @@ void ZipFileSystem$DeflatingEntryOutputStream::close() {
 		this->isClosed = true;
 		finish();
 		$nc(this->e)->size$ = $nc(this->def)->getBytesRead();
-		$nc(this->e)->csize = $nc(this->def)->getBytesWritten();
-		$nc(this->e)->crc$ = $nc(this->crc)->getValue();
+		this->e->csize = $nc(this->def)->getBytesWritten();
+		this->e->crc$ = $nc(this->crc)->getValue();
 		if ($instanceOf($ByteArrayOutputStream, this->out)) {
-			$set($nc(this->e), bytes, $nc(($cast($ByteArrayOutputStream, this->out)))->toByteArray());
+			$set(this->e, bytes, $cast($ByteArrayOutputStream, this->out)->toByteArray());
 		}
 		$DeflaterOutputStream::close();
 		this->this$0->update(this->e);
@@ -105,7 +63,41 @@ ZipFileSystem$DeflatingEntryOutputStream::ZipFileSystem$DeflatingEntryOutputStre
 }
 
 $Class* ZipFileSystem$DeflatingEntryOutputStream::load$($String* name, bool initialize) {
-	$loadClass(ZipFileSystem$DeflatingEntryOutputStream, name, initialize, &_ZipFileSystem$DeflatingEntryOutputStream_ClassInfo_, allocate$ZipFileSystem$DeflatingEntryOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/nio/zipfs/ZipFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFileSystem$DeflatingEntryOutputStream, this$0)},
+		{"crc", "Ljava/util/zip/CRC32;", nullptr, $PRIVATE | $FINAL, $field(ZipFileSystem$DeflatingEntryOutputStream, crc)},
+		{"e", "Ljdk/nio/zipfs/ZipFileSystem$Entry;", nullptr, $PRIVATE | $FINAL, $field(ZipFileSystem$DeflatingEntryOutputStream, e)},
+		{"isClosed", "Z", nullptr, $PRIVATE, $field(ZipFileSystem$DeflatingEntryOutputStream, isClosed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, 0, $method(ZipFileSystem$DeflatingEntryOutputStream, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipFileSystem$DeflatingEntryOutputStream, close, void), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipFileSystem$DeflatingEntryOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileSystem$DeflatingEntryOutputStream", "jdk.nio.zipfs.ZipFileSystem", "DeflatingEntryOutputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileSystem$DeflatingEntryOutputStream",
+		"java.util.zip.DeflaterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileSystem"
+	};
+	$loadClass(ZipFileSystem$DeflatingEntryOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipFileSystem$DeflatingEntryOutputStream));
+	});
 	return class$;
 }
 

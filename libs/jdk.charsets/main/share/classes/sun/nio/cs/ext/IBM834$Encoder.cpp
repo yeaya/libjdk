@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/IBM834$Encoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/DoubleByte$Encoder_DBCSONLY.h>
@@ -19,39 +18,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$MethodInfo _IBM834$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(IBM834$Encoder, init$, void, $Charset*)},
-	{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(IBM834$Encoder, encodeChar, int32_t, char16_t)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(IBM834$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _IBM834$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.IBM834$Encoder", "sun.nio.cs.ext.IBM834", "Encoder", $PROTECTED | $STATIC},
-	{"sun.nio.cs.DoubleByte$Encoder_DBCSONLY", "sun.nio.cs.DoubleByte", "Encoder_DBCSONLY", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _IBM834$Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.IBM834$Encoder",
-	"sun.nio.cs.DoubleByte$Encoder_DBCSONLY",
-	nullptr,
-	nullptr,
-	_IBM834$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IBM834$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.IBM834"
-};
-
-$Object* allocate$IBM834$Encoder($Class* clazz) {
-	return $of($alloc(IBM834$Encoder));
-}
-
 void IBM834$Encoder::init$($Charset* cs) {
 	$init($IBM933$EncodeHolder);
 	$DoubleByte$Encoder_DBCSONLY::init$(cs, $$new($bytes, {
@@ -62,16 +28,16 @@ void IBM834$Encoder::init$($Charset* cs) {
 
 int32_t IBM834$Encoder::encodeChar(char16_t ch) {
 	int32_t bb = $DoubleByte$Encoder_DBCSONLY::encodeChar(ch);
-	if (bb == 0x0000FFFD) {
-		if (ch == (char16_t)0xB7) {
+	if (bb == 0x0000fffd) {
+		if (ch == (char16_t)0xb7) {
 			return 16707;
-		} else if (ch == (char16_t)0xAD) {
+		} else if (ch == (char16_t)0xad) {
 			return 16712;
 		} else if (ch == (char16_t)0x2015) {
 			return 16713;
-		} else if (ch == (char16_t)0x223C) {
+		} else if (ch == (char16_t)0x223c) {
 			return 17057;
-		} else if (ch == (char16_t)0xFF5E) {
+		} else if (ch == (char16_t)0xff5e) {
 			return 18772;
 		} else if (ch == (char16_t)0x2299) {
 			return 18799;
@@ -91,7 +57,35 @@ IBM834$Encoder::IBM834$Encoder() {
 }
 
 $Class* IBM834$Encoder::load$($String* name, bool initialize) {
-	$loadClass(IBM834$Encoder, name, initialize, &_IBM834$Encoder_ClassInfo_, allocate$IBM834$Encoder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(IBM834$Encoder, init$, void, $Charset*)},
+		{"encodeChar", "(C)I", nullptr, $PUBLIC, $virtualMethod(IBM834$Encoder, encodeChar, int32_t, char16_t)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(IBM834$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.IBM834$Encoder", "sun.nio.cs.ext.IBM834", "Encoder", $PROTECTED | $STATIC},
+		{"sun.nio.cs.DoubleByte$Encoder_DBCSONLY", "sun.nio.cs.DoubleByte", "Encoder_DBCSONLY", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.IBM834$Encoder",
+		"sun.nio.cs.DoubleByte$Encoder_DBCSONLY",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.IBM834"
+	};
+	$loadClass(IBM834$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IBM834$Encoder));
+	});
 	return class$;
 }
 

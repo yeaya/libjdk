@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelOscillator.h>
-
 #include <com/sun/media/sound/ModelOscillatorStream.h>
 #include <jcpp.h>
 
@@ -12,28 +11,24 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _ModelOscillator_MethodInfo_[] = {
-	{"getAttenuation", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelOscillator, getAttenuation, float)},
-	{"getChannels", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelOscillator, getChannels, int32_t)},
-	{"open", "(F)Lcom/sun/media/sound/ModelOscillatorStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelOscillator, open, $ModelOscillatorStream*, float)},
-	{}
-};
-
-$ClassInfo _ModelOscillator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.ModelOscillator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ModelOscillator_MethodInfo_
-};
-
-$Object* allocate$ModelOscillator($Class* clazz) {
-	return $of($alloc(ModelOscillator));
-}
-
 $Class* ModelOscillator::load$($String* name, bool initialize) {
-	$loadClass(ModelOscillator, name, initialize, &_ModelOscillator_ClassInfo_, allocate$ModelOscillator);
+	$MethodInfo methodInfos$$[] = {
+		{"getAttenuation", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelOscillator, getAttenuation, float)},
+		{"getChannels", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelOscillator, getChannels, int32_t)},
+		{"open", "(F)Lcom/sun/media/sound/ModelOscillatorStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelOscillator, open, $ModelOscillatorStream*, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.ModelOscillator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModelOscillator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelOscillator);
+	});
 	return class$;
 }
 

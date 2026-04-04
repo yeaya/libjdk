@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$InapplicableSymbolError.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Kinds$KindName.h>
 #include <com/sun/tools/javac/code/Kinds.h>
@@ -37,8 +36,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
-using $AttrRecover = ::com::sun::tools::javac::comp::AttrRecover;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$MethodResolutionContext = ::com::sun::tools::javac::comp::Resolve$MethodResolutionContext;
 using $Resolve$MethodResolutionContext$Candidate = ::com::sun::tools::javac::comp::Resolve$MethodResolutionContext$Candidate;
@@ -49,9 +46,7 @@ using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -65,49 +60,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$InapplicableSymbolError_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$InapplicableSymbolError, this$0)},
-	{"resolveContext", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;", nullptr, $PROTECTED, $field(Resolve$InapplicableSymbolError, resolveContext)},
-	{}
-};
-
-$MethodInfo _Resolve$InapplicableSymbolError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, 0, $method(Resolve$InapplicableSymbolError, init$, void, $Resolve*, $Resolve$MethodResolutionContext*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Kinds$Kind;Ljava/lang/String;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, $PROTECTED, $method(Resolve$InapplicableSymbolError, init$, void, $Resolve*, $Kinds$Kind*, $String*, $Resolve$MethodResolutionContext*)},
-	{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableSymbolError, access, $Symbol*, $Name*, $Symbol$TypeSymbol*)},
-	{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(Resolve$InapplicableSymbolError, errCandidate, $Pair*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableSymbolError, exists, bool)},
-	{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$InapplicableSymbolError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableSymbolError, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$InapplicableSymbolError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError", "com.sun.tools.javac.comp.Resolve", "InapplicableSymbolError", 0},
-	{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$InapplicableSymbolError_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError",
-	"com.sun.tools.javac.comp.Resolve$ResolveError",
-	nullptr,
-	_Resolve$InapplicableSymbolError_FieldInfo_,
-	_Resolve$InapplicableSymbolError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$InapplicableSymbolError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$InapplicableSymbolError($Class* clazz) {
-	return $of($alloc(Resolve$InapplicableSymbolError));
-}
 
 void Resolve$InapplicableSymbolError::init$($Resolve* this$0, $Resolve$MethodResolutionContext* context) {
 	$init($Kinds$Kind);
@@ -129,7 +81,7 @@ bool Resolve$InapplicableSymbolError::exists() {
 }
 
 $JCDiagnostic* Resolve$InapplicableSymbolError::getDiagnostic($JCDiagnostic$DiagnosticType* dkind, $JCDiagnostic$DiagnosticPosition* pos, $Symbol* location, $Type* site, $Name* name, $List* argtypes, $List* typeargtypes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == $nc(this->this$0->names)->error) {
 		return nullptr;
 	}
@@ -140,26 +92,24 @@ $JCDiagnostic* Resolve$InapplicableSymbolError::getDiagnostic($JCDiagnostic$Diag
 			return simpleDiag;
 		}
 	}
-	$var($Symbol, ws, $nc(($cast($Symbol, $nc(c)->fst)))->asMemberOf(site, this->this$0->types));
-	$var($JCDiagnostic$DiagnosticType, var$0, dkind);
-	$var($DiagnosticSource, var$1, $nc(this->this$0->log)->currentSource());
-	$var($JCDiagnostic$DiagnosticPosition, var$2, pos);
-	$var($String, var$3, "cant.apply.symbol"_s);
-	return $nc(this->this$0->diags)->create(var$0, var$1, var$2, var$3, $$new($ObjectArray, {
-		$($of($Kinds::kindName(ws))),
-		$nc(ws)->name == $nc(this->this$0->names)->init ? $of($nc($nc(ws)->owner)->name) : $of(ws->name),
+	$var($Symbol, ws, $nc($cast($Symbol, $nc(c)->fst))->asMemberOf(site, this->this$0->types));
+	$var($DiagnosticSource, var$0, $nc(this->this$0->log)->currentSource());
+	$var($String, var$1, "cant.apply.symbol"_s);
+	return $nc(this->this$0->diags)->create(dkind, var$0, pos, var$1, $$new($ObjectArray, {
+		$($Kinds::kindName(ws)),
+		$nc(ws)->name == $nc(this->this$0->names)->init ? $nc(ws->owner)->name : ws->name,
 		$(this->this$0->methodArguments($($nc(ws->type)->getParameterTypes()))),
 		$(this->this$0->methodArguments(argtypes)),
-		$($of($Kinds::kindName(ws->owner))),
-		$of($nc(ws->owner)->type),
+		$($Kinds::kindName(ws->owner)),
+		$nc(ws->owner)->type,
 		c->snd
 	}));
 }
 
 $Symbol* Resolve$InapplicableSymbolError::access($Name* name, $Symbol$TypeSymbol* location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pair, cand, errCandidate());
-	$var($Symbol$TypeSymbol, errSymbol, $nc($($nc(this->this$0->types)->createErrorType(name, location, cand != nullptr ? $nc(($cast($Symbol, $nc(cand)->fst)))->type : $nc($nc(this->this$0->syms)->errSymbol)->type)))->tsym);
+	$var($Symbol$TypeSymbol, errSymbol, $nc($($nc(this->this$0->types)->createErrorType(name, location, cand != nullptr ? $nc(($cast($Symbol, cand->fst)))->type : $nc($nc(this->this$0->syms)->errSymbol)->type)))->tsym);
 	if (cand != nullptr) {
 		$nc(this->this$0->attrRecover)->wrongMethodSymbolCandidate(errSymbol, $cast($Symbol, cand->fst), $cast($JCDiagnostic, cand->snd));
 	}
@@ -167,7 +117,7 @@ $Symbol* Resolve$InapplicableSymbolError::access($Name* name, $Symbol$TypeSymbol
 }
 
 $Pair* Resolve$InapplicableSymbolError::errCandidate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Resolve$MethodResolutionContext$Candidate, bestSoFar, nullptr);
 	{
 		$var($Iterator, i$, $nc($nc(this->resolveContext)->candidates)->iterator());
@@ -182,14 +132,51 @@ $Pair* Resolve$InapplicableSymbolError::errCandidate() {
 		}
 	}
 	$Assert::checkNonNull(bestSoFar);
-	return $new($Pair, $nc(bestSoFar)->sym, bestSoFar->details);
+	return $new($Pair, $nc(bestSoFar)->sym, $nc(bestSoFar)->details);
 }
 
 Resolve$InapplicableSymbolError::Resolve$InapplicableSymbolError() {
 }
 
 $Class* Resolve$InapplicableSymbolError::load$($String* name, bool initialize) {
-	$loadClass(Resolve$InapplicableSymbolError, name, initialize, &_Resolve$InapplicableSymbolError_ClassInfo_, allocate$Resolve$InapplicableSymbolError);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$InapplicableSymbolError, this$0)},
+		{"resolveContext", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;", nullptr, $PROTECTED, $field(Resolve$InapplicableSymbolError, resolveContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, 0, $method(Resolve$InapplicableSymbolError, init$, void, $Resolve*, $Resolve$MethodResolutionContext*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Kinds$Kind;Ljava/lang/String;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;)V", nullptr, $PROTECTED, $method(Resolve$InapplicableSymbolError, init$, void, $Resolve*, $Kinds$Kind*, $String*, $Resolve$MethodResolutionContext*)},
+		{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableSymbolError, access, $Symbol*, $Name*, $Symbol$TypeSymbol*)},
+		{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(Resolve$InapplicableSymbolError, errCandidate, $Pair*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableSymbolError, exists, bool)},
+		{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$InapplicableSymbolError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableSymbolError, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError", "com.sun.tools.javac.comp.Resolve", "InapplicableSymbolError", 0},
+		{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$InapplicableSymbolError",
+		"com.sun.tools.javac.comp.Resolve$ResolveError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$InapplicableSymbolError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$InapplicableSymbolError));
+	});
 	return class$;
 }
 

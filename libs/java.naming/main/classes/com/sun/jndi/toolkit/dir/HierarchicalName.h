@@ -35,7 +35,7 @@ public:
 	virtual ::javax::naming::Name* getSuffix(int32_t posn) override;
 	virtual int32_t hashCode() override;
 	int32_t hashValue = 0;
-	static const int64_t serialVersionUID = (int64_t)0xA2C739BD29F08B10;
+	static const int64_t serialVersionUID = (int64_t)0xa2c739bd29f08b10;
 };
 
 				} // dir

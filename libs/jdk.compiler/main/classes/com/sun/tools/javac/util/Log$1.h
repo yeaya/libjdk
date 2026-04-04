@@ -15,6 +15,7 @@ class Log$1 : public ::java::lang::Object {
 	$class(Log$1, 0, ::java::lang::Object)
 public:
 	Log$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType;
 };
 

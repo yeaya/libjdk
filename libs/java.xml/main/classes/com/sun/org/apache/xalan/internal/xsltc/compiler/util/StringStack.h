@@ -24,7 +24,7 @@ public:
 	$String* popString();
 	$String* pushString($String* val);
 	using ::java::util::Stack::toArray;
-	static const int64_t serialVersionUID = (int64_t)0xEB16608AE5493836;
+	static const int64_t serialVersionUID = (int64_t)0xeb16608ae5493836;
 };
 
 								} // util

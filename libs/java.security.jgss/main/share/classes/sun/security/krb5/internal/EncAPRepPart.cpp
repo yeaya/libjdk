@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/EncAPRepPart.h>
-
 #include <java/math/BigInteger.h>
 #include <java/util/Vector.h>
 #include <sun/security/krb5/Asn1Exception.h>
@@ -26,7 +25,6 @@ using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -34,38 +32,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _EncAPRepPart_FieldInfo_[] = {
-	{"ctime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncAPRepPart, ctime)},
-	{"cusec", "I", nullptr, $PUBLIC, $field(EncAPRepPart, cusec)},
-	{"subKey", "Lsun/security/krb5/EncryptionKey;", nullptr, 0, $field(EncAPRepPart, subKey)},
-	{"seqNumber", "Ljava/lang/Integer;", nullptr, 0, $field(EncAPRepPart, seqNumber)},
-	{}
-};
-
-$MethodInfo _EncAPRepPart_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/KerberosTime;ILsun/security/krb5/EncryptionKey;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $KerberosTime*, int32_t, $EncryptionKey*, $Integer*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncAPRepPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(EncAPRepPart, getSeqNumber, $Integer*)},
-	{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $FINAL, $method(EncAPRepPart, getSubKey, $EncryptionKey*)},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncAPRepPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _EncAPRepPart_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.EncAPRepPart",
-	"java.lang.Object",
-	nullptr,
-	_EncAPRepPart_FieldInfo_,
-	_EncAPRepPart_MethodInfo_
-};
-
-$Object* allocate$EncAPRepPart($Class* clazz) {
-	return $of($alloc(EncAPRepPart));
-}
 
 void EncAPRepPart::init$($KerberosTime* new_ctime, int32_t new_cusec, $EncryptionKey* new_subKey, $Integer* new_seqNumber) {
 	$set(this, ctime, new_ctime);
@@ -83,61 +49,61 @@ void EncAPRepPart::init$($DerValue* encoding) {
 }
 
 void EncAPRepPart::init($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	$var($DerValue, subDer, nullptr);
-	bool var$1 = (((int32_t)($nc(encoding)->getTag() & (uint32_t)(int32_t)(int8_t)31)) != (int8_t)27);
-	bool var$0 = var$1 || ($nc(encoding)->isApplication() != true);
-	if (var$0 || ($nc(encoding)->isConstructed() != true)) {
+	bool var$1 = ($nc(encoding)->getTag() & (int8_t)31) != (int8_t)27;
+	bool var$0 = var$1 || (encoding->isApplication() != true);
+	if (var$0 || (encoding->isConstructed() != true)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
 	if ($nc(der)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$set(this, ctime, $KerberosTime::parse($($nc(der)->getData()), (int8_t)0, true));
-	$assign(subDer, $nc($($nc(der)->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)1) {
-		this->cusec = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	$set(this, ctime, $KerberosTime::parse($(der->getData()), (int8_t)0, true));
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & (int8_t)31) == (int8_t)1) {
+		this->cusec = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$set(this, subKey, $EncryptionKey::parse($(der->getData()), (int8_t)2, true));
 	} else {
 		$set(this, subKey, nullptr);
 		$set(this, seqNumber, nullptr);
 	}
-	if ($nc($(der->getData()))->available() > 0) {
-		$assign(subDer, $nc($(der->getData()))->getDerValue());
-		if (((int32_t)($nc(subDer)->getTag() & (uint32_t)31)) != 3) {
+	if ($$nc(der->getData())->available() > 0) {
+		$assign(subDer, $$nc(der->getData())->getDerValue());
+		if (($nc(subDer)->getTag() & 0x1f) != 3) {
 			$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 		}
-		$set(this, seqNumber, $Integer::valueOf($nc($($nc($($nc(subDer)->getData()))->getBigInteger()))->intValue()));
+		$set(this, seqNumber, $Integer::valueOf($$nc($$nc(subDer->getData())->getBigInteger())->intValue()));
 	} else {
 		$set(this, seqNumber, nullptr);
 	}
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* EncAPRepPart::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, v, $new($Vector));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0);
 	v->addElement($$new($DerValue, var$0, $($nc(this->ctime)->asn1Encode())));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->cusec)));
+	temp->putInteger($($BigInteger::valueOf(this->cusec)));
 	int8_t var$1 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1);
 	v->addElement($$new($DerValue, var$1, $(temp->toByteArray())));
 	if (this->subKey != nullptr) {
 		int8_t var$2 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2);
-		v->addElement($$new($DerValue, var$2, $($nc(this->subKey)->asn1Encode())));
+		v->addElement($$new($DerValue, var$2, $(this->subKey->asn1Encode())));
 	}
 	if (this->seqNumber != nullptr) {
 		$assign(temp, $new($DerOutputStream));
-		temp->putInteger($($BigInteger::valueOf($nc(this->seqNumber)->longValue())));
+		temp->putInteger($($BigInteger::valueOf(this->seqNumber->longValue())));
 		int8_t var$3 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)3);
 		v->addElement($$new($DerValue, var$3, $(temp->toByteArray())));
 	}
@@ -162,7 +128,34 @@ EncAPRepPart::EncAPRepPart() {
 }
 
 $Class* EncAPRepPart::load$($String* name, bool initialize) {
-	$loadClass(EncAPRepPart, name, initialize, &_EncAPRepPart_ClassInfo_, allocate$EncAPRepPart);
+	$FieldInfo fieldInfos$$[] = {
+		{"ctime", "Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $field(EncAPRepPart, ctime)},
+		{"cusec", "I", nullptr, $PUBLIC, $field(EncAPRepPart, cusec)},
+		{"subKey", "Lsun/security/krb5/EncryptionKey;", nullptr, 0, $field(EncAPRepPart, subKey)},
+		{"seqNumber", "Ljava/lang/Integer;", nullptr, 0, $field(EncAPRepPart, seqNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/internal/KerberosTime;ILsun/security/krb5/EncryptionKey;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $KerberosTime*, int32_t, $EncryptionKey*, $Integer*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncAPRepPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(EncAPRepPart, getSeqNumber, $Integer*)},
+		{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $FINAL, $method(EncAPRepPart, getSubKey, $EncryptionKey*)},
+		{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncAPRepPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.EncAPRepPart",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EncAPRepPart, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncAPRepPart);
+	});
 	return class$;
 }
 

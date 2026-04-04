@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/OptionHelper$GrumpyHelper.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/main/OptionHelper.h>
 #include <com/sun/tools/javac/util/Log.h>
@@ -23,49 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _OptionHelper$GrumpyHelper_FieldInfo_[] = {
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(OptionHelper$GrumpyHelper, log)},
-	{}
-};
-
-$MethodInfo _OptionHelper$GrumpyHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(OptionHelper$GrumpyHelper, init$, void, $Log*)},
-	{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, addClassName, void, $String*)},
-	{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, addFile, void, $Path*)},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, get, $String*, $Option*)},
-	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, getLog, $Log*)},
-	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, getOwnName, $String*)},
-	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, handleFileManagerOption, bool, $Option*, $String*)},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, put, void, $String*, $String*)},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, remove, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _OptionHelper$GrumpyHelper_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.OptionHelper$GrumpyHelper", "com.sun.tools.javac.main.OptionHelper", "GrumpyHelper", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _OptionHelper$GrumpyHelper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.main.OptionHelper$GrumpyHelper",
-	"com.sun.tools.javac.main.OptionHelper",
-	nullptr,
-	_OptionHelper$GrumpyHelper_FieldInfo_,
-	_OptionHelper$GrumpyHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OptionHelper$GrumpyHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.OptionHelper"
-};
-
-$Object* allocate$OptionHelper$GrumpyHelper($Class* clazz) {
-	return $of($alloc(OptionHelper$GrumpyHelper));
-}
 
 void OptionHelper$GrumpyHelper::init$($Log* log) {
 	$OptionHelper::init$();
@@ -111,7 +67,44 @@ OptionHelper$GrumpyHelper::OptionHelper$GrumpyHelper() {
 }
 
 $Class* OptionHelper$GrumpyHelper::load$($String* name, bool initialize) {
-	$loadClass(OptionHelper$GrumpyHelper, name, initialize, &_OptionHelper$GrumpyHelper_ClassInfo_, allocate$OptionHelper$GrumpyHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(OptionHelper$GrumpyHelper, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(OptionHelper$GrumpyHelper, init$, void, $Log*)},
+		{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, addClassName, void, $String*)},
+		{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, addFile, void, $Path*)},
+		{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, get, $String*, $Option*)},
+		{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, getLog, $Log*)},
+		{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, getOwnName, $String*)},
+		{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, handleFileManagerOption, bool, $Option*, $String*)},
+		{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, put, void, $String*, $String*)},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, remove, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.OptionHelper$GrumpyHelper", "com.sun.tools.javac.main.OptionHelper", "GrumpyHelper", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.main.OptionHelper$GrumpyHelper",
+		"com.sun.tools.javac.main.OptionHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.OptionHelper"
+	};
+	$loadClass(OptionHelper$GrumpyHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionHelper$GrumpyHelper);
+	});
 	return class$;
 }
 

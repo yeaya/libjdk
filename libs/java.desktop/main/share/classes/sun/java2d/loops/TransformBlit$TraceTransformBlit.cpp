@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/TransformBlit$TraceTransformBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <sun/java2d/SurfaceData.h>
@@ -27,45 +26,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _TransformBlit$TraceTransformBlit_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/TransformBlit;", nullptr, 0, $field(TransformBlit$TraceTransformBlit, target)},
-	{}
-};
-
-$MethodInfo _TransformBlit$TraceTransformBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/TransformBlit;)V", nullptr, $PUBLIC, $method(TransformBlit$TraceTransformBlit, init$, void, $TransformBlit*)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TransformBlit$TraceTransformBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformBlit$TraceTransformBlit, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _TransformBlit$TraceTransformBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.TransformBlit$TraceTransformBlit", "sun.java2d.loops.TransformBlit", "TraceTransformBlit", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TransformBlit$TraceTransformBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.TransformBlit$TraceTransformBlit",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	_TransformBlit$TraceTransformBlit_FieldInfo_,
-	_TransformBlit$TraceTransformBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformBlit$TraceTransformBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.TransformBlit"
-};
-
-$Object* allocate$TransformBlit$TraceTransformBlit($Class* clazz) {
-	return $of($alloc(TransformBlit$TraceTransformBlit));
-}
-
 void TransformBlit$TraceTransformBlit::init$($TransformBlit* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$TransformBlit::init$(var$0, var$1, $(target->getDestType()));
@@ -85,7 +47,38 @@ TransformBlit$TraceTransformBlit::TransformBlit$TraceTransformBlit() {
 }
 
 $Class* TransformBlit$TraceTransformBlit::load$($String* name, bool initialize) {
-	$loadClass(TransformBlit$TraceTransformBlit, name, initialize, &_TransformBlit$TraceTransformBlit_ClassInfo_, allocate$TransformBlit$TraceTransformBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/TransformBlit;", nullptr, 0, $field(TransformBlit$TraceTransformBlit, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/TransformBlit;)V", nullptr, $PUBLIC, $method(TransformBlit$TraceTransformBlit, init$, void, $TransformBlit*)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TransformBlit$TraceTransformBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformBlit$TraceTransformBlit, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.TransformBlit$TraceTransformBlit", "sun.java2d.loops.TransformBlit", "TraceTransformBlit", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.TransformBlit$TraceTransformBlit",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.TransformBlit"
+	};
+	$loadClass(TransformBlit$TraceTransformBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformBlit$TraceTransformBlit);
+	});
 	return class$;
 }
 

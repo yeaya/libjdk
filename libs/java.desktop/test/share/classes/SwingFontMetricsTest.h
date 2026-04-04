@@ -24,6 +24,7 @@ class $export SwingFontMetricsTest : public ::java::lang::Object {
 	$class(SwingFontMetricsTest, 0, ::java::lang::Object)
 public:
 	SwingFontMetricsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static void main($StringArray* args);

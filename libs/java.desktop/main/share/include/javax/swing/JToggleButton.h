@@ -38,6 +38,7 @@ class $import JToggleButton : public ::javax::swing::AbstractButton, public ::ja
 	$class(JToggleButton, 0, ::javax::swing::AbstractButton, ::javax::accessibility::Accessible)
 public:
 	JToggleButton();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::AbstractButton::contains;
 	using ::javax::swing::AbstractButton::enable;
 	using ::javax::swing::AbstractButton::getBounds;

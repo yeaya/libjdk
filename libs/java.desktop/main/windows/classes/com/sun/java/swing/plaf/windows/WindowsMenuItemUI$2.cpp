@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI$2.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsMenuItemUI$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsMenuItemUI$2, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsMenuItemUI$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUI;)V", nullptr, 0, $method(WindowsMenuItemUI$2, init$, void, $WindowsMenuItemUI*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuItemUI$2, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsMenuItemUI$2_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsMenuItemUI",
-	"installListeners",
-	"()V"
-};
-
-$InnerClassInfo _WindowsMenuItemUI$2_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsMenuItemUI$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_WindowsMenuItemUI$2_FieldInfo_,
-	_WindowsMenuItemUI$2_MethodInfo_,
-	nullptr,
-	&_WindowsMenuItemUI$2_EnclosingMethodInfo_,
-	_WindowsMenuItemUI$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsMenuItemUI"
-};
-
-$Object* allocate$WindowsMenuItemUI$2($Class* clazz) {
-	return $of($alloc(WindowsMenuItemUI$2));
-}
-
 void WindowsMenuItemUI$2::init$($WindowsMenuItemUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -76,7 +33,42 @@ WindowsMenuItemUI$2::WindowsMenuItemUI$2() {
 }
 
 $Class* WindowsMenuItemUI$2::load$($String* name, bool initialize) {
-	$loadClass(WindowsMenuItemUI$2, name, initialize, &_WindowsMenuItemUI$2_ClassInfo_, allocate$WindowsMenuItemUI$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsMenuItemUI$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUI;)V", nullptr, 0, $method(WindowsMenuItemUI$2, init$, void, $WindowsMenuItemUI*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsMenuItemUI$2, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsMenuItemUI",
+		"installListeners",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsMenuItemUI"
+	};
+	$loadClass(WindowsMenuItemUI$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsMenuItemUI$2);
+	});
 	return class$;
 }
 

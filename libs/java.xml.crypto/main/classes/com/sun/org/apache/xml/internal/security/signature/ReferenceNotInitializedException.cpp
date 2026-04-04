@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/ReferenceNotInitializedException.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <jcpp.h>
 
@@ -18,46 +17,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$CompoundAttribute _ReferenceNotInitializedException_MethodAnnotations_init$5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ReferenceNotInitializedException_MethodAnnotations_init$7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ReferenceNotInitializedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceNotInitializedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReferenceNotInitializedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ReferenceNotInitializedException, init$, void, $String*, $Exception*), nullptr, nullptr, _ReferenceNotInitializedException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ReferenceNotInitializedException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _ReferenceNotInitializedException_MethodAnnotations_init$7},
-	{}
-};
-
-$ClassInfo _ReferenceNotInitializedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException",
-	"com.sun.org.apache.xml.internal.security.signature.XMLSignatureException",
-	nullptr,
-	_ReferenceNotInitializedException_FieldInfo_,
-	_ReferenceNotInitializedException_MethodInfo_
-};
-
-$Object* allocate$ReferenceNotInitializedException($Class* clazz) {
-	return $of($alloc(ReferenceNotInitializedException));
-}
 
 void ReferenceNotInitializedException::init$() {
 	$XMLSignatureException::init$();
@@ -102,7 +61,40 @@ void ReferenceNotInitializedException::throw$() {
 }
 
 $Class* ReferenceNotInitializedException::load$($String* name, bool initialize) {
-	$loadClass(ReferenceNotInitializedException, name, initialize, &_ReferenceNotInitializedException_ClassInfo_, allocate$ReferenceNotInitializedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceNotInitializedException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$5[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$7[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ReferenceNotInitializedException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$5},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ReferenceNotInitializedException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$7},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException",
+		"com.sun.org.apache.xml.internal.security.signature.XMLSignatureException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReferenceNotInitializedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceNotInitializedException);
+	});
 	return class$;
 }
 

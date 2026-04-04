@@ -1,13 +1,10 @@
 #include <com/sun/org/apache/bcel/internal/generic/ICONST.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/ConstantPushInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/PushInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -21,12 +18,8 @@
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $ConstantPushInstruction = ::com::sun::org::apache::bcel::internal::generic::ConstantPushInstruction;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $PushInstruction = ::com::sun::org::apache::bcel::internal::generic::PushInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -41,39 +34,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _ICONST_FieldInfo_[] = {
-	{"value", "I", nullptr, $PRIVATE, $field(ICONST, value)},
-	{}
-};
-
-$MethodInfo _ICONST_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(ICONST, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ICONST, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ICONST, accept, void, $Visitor*)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ICONST, getType, $Type*, $ConstantPoolGen*)},
-	{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(ICONST, getValue, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ICONST_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ICONST",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
-	_ICONST_FieldInfo_,
-	_ICONST_MethodInfo_
-};
-
-$Object* allocate$ICONST($Class* clazz) {
-	return $of($alloc(ICONST));
-}
 
 $String* ICONST::toString() {
 	 return this->$Instruction::toString();
@@ -104,7 +64,7 @@ void ICONST::init$() {
 }
 
 void ICONST::init$(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Instruction::init$($Const::ICONST_0, (int16_t)1);
 	if ((i >= -1) && (i <= 5)) {
 		$Instruction::setOpcode((int16_t)($Const::ICONST_0 + i));
@@ -135,7 +95,35 @@ ICONST::ICONST() {
 }
 
 $Class* ICONST::load$($String* name, bool initialize) {
-	$loadClass(ICONST, name, initialize, &_ICONST_ClassInfo_, allocate$ICONST);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "I", nullptr, $PRIVATE, $field(ICONST, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(ICONST, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ICONST, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ICONST, accept, void, $Visitor*)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ICONST, getType, $Type*, $ConstantPoolGen*)},
+		{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(ICONST, getValue, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ICONST",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ICONST, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ICONST));
+	});
 	return class$;
 }
 

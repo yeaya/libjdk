@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$28.h>
-
 #include <com/sun/tools/javac/code/TargetType.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/jvm/ClassReader.h>
@@ -53,179 +52,142 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$28_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$TargetType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassReader$28, $SwitchMap$com$sun$tools$javac$code$TargetType)},
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassReader$28, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{}
-};
-
-$EnclosingMethodInfo _ClassReader$28_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.jvm.ClassReader",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ClassReader$28_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$28", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ClassReader$28_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.jvm.ClassReader$28",
-	"java.lang.Object",
-	nullptr,
-	_ClassReader$28_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ClassReader$28_EnclosingMethodInfo_,
-	_ClassReader$28_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$28($Class* clazz) {
-	return $of($alloc(ClassReader$28));
-}
-
 $ints* ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType = nullptr;
 $ints* ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 
-void clinit$ClassReader$28($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ClassReader$28::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType, $new($ints, $($TargetType::values())->length));
 	{
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::INSTANCEOF->ordinal(), 1);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::INSTANCEOF->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::NEW->ordinal(), 2);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::NEW->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::CONSTRUCTOR_REFERENCE->ordinal(), 3);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::CONSTRUCTOR_REFERENCE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_REFERENCE->ordinal(), 4);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_REFERENCE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::LOCAL_VARIABLE->ordinal(), 5);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::LOCAL_VARIABLE->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::RESOURCE_VARIABLE->ordinal(), 6);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::RESOURCE_VARIABLE->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::EXCEPTION_PARAMETER->ordinal(), 7);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::EXCEPTION_PARAMETER->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_RECEIVER->ordinal(), 8);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_RECEIVER->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::CLASS_TYPE_PARAMETER->ordinal(), 9);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::CLASS_TYPE_PARAMETER->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_TYPE_PARAMETER->ordinal(), 10);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_TYPE_PARAMETER->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::CLASS_TYPE_PARAMETER_BOUND->ordinal(), 11);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::CLASS_TYPE_PARAMETER_BOUND->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_TYPE_PARAMETER_BOUND->ordinal(), 12);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_TYPE_PARAMETER_BOUND->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::CLASS_EXTENDS->ordinal(), 13);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::CLASS_EXTENDS->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::THROWS->ordinal(), 14);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::THROWS->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_FORMAL_PARAMETER->ordinal(), 15);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_FORMAL_PARAMETER->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::CAST->ordinal(), 16);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::CAST->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT->ordinal(), 17);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT->ordinal(), 17);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_INVOCATION_TYPE_ARGUMENT->ordinal(), 18);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_INVOCATION_TYPE_ARGUMENT->ordinal(), 18);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT->ordinal(), 19);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT->ordinal(), 19);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_REFERENCE_TYPE_ARGUMENT->ordinal(), 20);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_REFERENCE_TYPE_ARGUMENT->ordinal(), 20);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::METHOD_RETURN->ordinal(), 21);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::METHOD_RETURN->ordinal(), 21);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::FIELD->ordinal(), 22);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::FIELD->ordinal(), 22);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType)->set($TargetType::UNKNOWN->ordinal(), 23);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TargetType->set($TargetType::UNKNOWN->ordinal(), 23);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BOOLEAN->ordinal(), 1);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BOOLEAN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 2);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 3);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 4);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::INT->ordinal(), 5);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::INT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::LONG->ordinal(), 6);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::LONG->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::FLOAT->ordinal(), 7);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::FLOAT->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::DOUBLE->ordinal(), 8);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::DOUBLE->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CLASS->ordinal(), 9);
+			ClassReader$28::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CLASS->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -235,7 +197,38 @@ ClassReader$28::ClassReader$28() {
 }
 
 $Class* ClassReader$28::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$28, name, initialize, &_ClassReader$28_ClassInfo_, clinit$ClassReader$28, allocate$ClassReader$28);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$TargetType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassReader$28, $SwitchMap$com$sun$tools$javac$code$TargetType)},
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ClassReader$28, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.jvm.ClassReader",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$28", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.jvm.ClassReader$28",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$28, name, initialize, &classInfo$$, ClassReader$28::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$28);
+	});
 	return class$;
 }
 

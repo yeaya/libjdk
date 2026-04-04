@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/Des3.h>
-
 #include <sun/security/krb5/internal/crypto/dk/Des3DkCrypto.h>
 #include <jcpp.h>
 
@@ -16,37 +15,6 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 
-$FieldInfo _Des3_FieldInfo_[] = {
-	{"CRYPTO", "Lsun/security/krb5/internal/crypto/dk/Des3DkCrypto;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des3, CRYPTO)},
-	{}
-};
-
-$MethodInfo _Des3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Des3, init$, void)},
-	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, getChecksumLength, int32_t)},
-	{"parityFix", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, parityFix, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
-	{"stringToKey", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$ClassInfo _Des3_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.Des3",
-	"java.lang.Object",
-	nullptr,
-	_Des3_FieldInfo_,
-	_Des3_MethodInfo_
-};
-
-$Object* allocate$Des3($Class* clazz) {
-	return $of($alloc(Des3));
-}
-
 $Des3DkCrypto* Des3::CRYPTO = nullptr;
 
 void Des3::init$() {
@@ -54,45 +22,45 @@ void Des3::init$() {
 
 $bytes* Des3::stringToKey($chars* chars) {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->stringToKey(chars);
+	return Des3::CRYPTO->stringToKey(chars);
 }
 
 $bytes* Des3::parityFix($bytes* value) {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->parityFix(value);
+	return Des3::CRYPTO->parityFix(value);
 }
 
 int32_t Des3::getChecksumLength() {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->getChecksumLength();
+	return Des3::CRYPTO->getChecksumLength();
 }
 
 $bytes* Des3::calculateChecksum($bytes* baseKey, int32_t usage, $bytes* input, int32_t start, int32_t len) {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->calculateChecksum(baseKey, usage, input, start, len);
+	return Des3::CRYPTO->calculateChecksum(baseKey, usage, input, start, len);
 }
 
 $bytes* Des3::encrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* plaintext, int32_t start, int32_t len) {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->encrypt(baseKey, usage, ivec, nullptr, plaintext, start, len);
+	return Des3::CRYPTO->encrypt(baseKey, usage, ivec, nullptr, plaintext, start, len);
 }
 
 $bytes* Des3::encryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* plaintext, int32_t start, int32_t len) {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->encryptRaw(baseKey, usage, ivec, plaintext, start, len);
+	return Des3::CRYPTO->encryptRaw(baseKey, usage, ivec, plaintext, start, len);
 }
 
 $bytes* Des3::decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->decrypt(baseKey, usage, ivec, ciphertext, start, len);
+	return Des3::CRYPTO->decrypt(baseKey, usage, ivec, ciphertext, start, len);
 }
 
 $bytes* Des3::decryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
 	$init(Des3);
-	return $nc(Des3::CRYPTO)->decryptRaw(baseKey, usage, ivec, ciphertext, start, len);
+	return Des3::CRYPTO->decryptRaw(baseKey, usage, ivec, ciphertext, start, len);
 }
 
-void clinit$Des3($Class* class$) {
+void Des3::clinit$($Class* clazz) {
 	$assignStatic(Des3::CRYPTO, $new($Des3DkCrypto));
 }
 
@@ -100,7 +68,33 @@ Des3::Des3() {
 }
 
 $Class* Des3::load$($String* name, bool initialize) {
-	$loadClass(Des3, name, initialize, &_Des3_ClassInfo_, clinit$Des3, allocate$Des3);
+	$FieldInfo fieldInfos$$[] = {
+		{"CRYPTO", "Lsun/security/krb5/internal/crypto/dk/Des3DkCrypto;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Des3, CRYPTO)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Des3, init$, void)},
+		{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, getChecksumLength, int32_t)},
+		{"parityFix", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, parityFix, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+		{"stringToKey", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.Des3",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Des3, name, initialize, &classInfo$$, Des3::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Des3);
+	});
 	return class$;
 }
 

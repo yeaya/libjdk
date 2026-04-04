@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLPaints$LinearGradient.h>
-
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
@@ -25,44 +24,12 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLPaints$LinearGradient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OGLPaints$LinearGradient, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(OGLPaints$LinearGradient, isPaintValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _OGLPaints$LinearGradient_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.OGLPaints$LinearGradient", "sun.java2d.opengl.OGLPaints", "LinearGradient", $PRIVATE | $STATIC},
-	{"sun.java2d.opengl.OGLPaints$MultiGradient", "sun.java2d.opengl.OGLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _OGLPaints$LinearGradient_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLPaints$LinearGradient",
-	"sun.java2d.opengl.OGLPaints$MultiGradient",
-	nullptr,
-	nullptr,
-	_OGLPaints$LinearGradient_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OGLPaints$LinearGradient_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.OGLPaints"
-};
-
-$Object* allocate$OGLPaints$LinearGradient($Class* clazz) {
-	return $of($alloc(OGLPaints$LinearGradient));
-}
-
 void OGLPaints$LinearGradient::init$() {
 	$OGLPaints$MultiGradient::init$();
 }
 
 bool OGLPaints$LinearGradient::isPaintValid($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinearGradientPaint, paint, $cast($LinearGradientPaint, $nc(sg2d)->paint));
 	bool var$1 = $nc($($nc(paint)->getFractions()))->length == 2;
 	$init($MultipleGradientPaint$CycleMethod);
@@ -78,7 +45,34 @@ OGLPaints$LinearGradient::OGLPaints$LinearGradient() {
 }
 
 $Class* OGLPaints$LinearGradient::load$($String* name, bool initialize) {
-	$loadClass(OGLPaints$LinearGradient, name, initialize, &_OGLPaints$LinearGradient_ClassInfo_, allocate$OGLPaints$LinearGradient);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OGLPaints$LinearGradient, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(OGLPaints$LinearGradient, isPaintValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.OGLPaints$LinearGradient", "sun.java2d.opengl.OGLPaints", "LinearGradient", $PRIVATE | $STATIC},
+		{"sun.java2d.opengl.OGLPaints$MultiGradient", "sun.java2d.opengl.OGLPaints", "MultiGradient", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLPaints$LinearGradient",
+		"sun.java2d.opengl.OGLPaints$MultiGradient",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.OGLPaints"
+	};
+	$loadClass(OGLPaints$LinearGradient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLPaints$LinearGradient);
+	});
 	return class$;
 }
 

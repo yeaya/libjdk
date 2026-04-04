@@ -14,7 +14,7 @@ class $import AppHiddenEvent : public ::java::awt::desktop::AppEvent {
 public:
 	AppHiddenEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x249A28B2A29E71A8;
+	static const int64_t serialVersionUID = (int64_t)0x249a28b2a29e71a8;
 };
 
 		} // desktop

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Code$LocalVar.h>
-
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/jvm/Code$LocalVar$Range.h>
 #include <com/sun/tools/javac/jvm/Code.h>
@@ -20,61 +19,12 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Code$LocalVar_FieldInfo_[] = {
-	{"sym", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $FINAL, $field(Code$LocalVar, sym)},
-	{"reg", "C", nullptr, $FINAL, $field(Code$LocalVar, reg)},
-	{"aliveRanges", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;>;", 0, $field(Code$LocalVar, aliveRanges)},
-	{}
-};
-
-$MethodInfo _Code$LocalVar_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $method(Code$LocalVar, init$, void, $Symbol$VarSymbol*)},
-	{"closeRange", "(C)V", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, closeRange, void, char16_t)},
-	{"dup", "()Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, dup, Code$LocalVar*)},
-	{"firstRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0, $virtualMethod(Code$LocalVar, firstRange, $Code$LocalVar$Range*)},
-	{"getWidestRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, getWidestRange, $Code$LocalVar$Range*)},
-	{"hasOpenRange", "()Z", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, hasOpenRange, bool)},
-	{"isLastRangeInitialized", "()Z", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, isLastRangeInitialized, bool)},
-	{"lastRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0, $virtualMethod(Code$LocalVar, lastRange, $Code$LocalVar$Range*)},
-	{"openRange", "(C)V", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, openRange, void, char16_t)},
-	{"removeLastRange", "()V", nullptr, 0, $virtualMethod(Code$LocalVar, removeLastRange, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Code$LocalVar_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Code$LocalVar", "com.sun.tools.javac.jvm.Code", "LocalVar", $STATIC},
-	{"com.sun.tools.javac.jvm.Code$LocalVar$Range", "com.sun.tools.javac.jvm.Code$LocalVar", "Range", 0},
-	{}
-};
-
-$ClassInfo _Code$LocalVar_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Code$LocalVar",
-	"java.lang.Object",
-	nullptr,
-	_Code$LocalVar_FieldInfo_,
-	_Code$LocalVar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Code$LocalVar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Code"
-};
-
-$Object* allocate$Code$LocalVar($Class* clazz) {
-	return $of($alloc(Code$LocalVar));
-}
 
 void Code$LocalVar::init$($Symbol$VarSymbol* v) {
 	$set(this, aliveRanges, $new($ArrayList));
@@ -87,26 +37,26 @@ Code$LocalVar* Code$LocalVar::dup() {
 }
 
 $Code$LocalVar$Range* Code$LocalVar::firstRange() {
-	return $nc(this->aliveRanges)->isEmpty() ? ($Code$LocalVar$Range*)nullptr : $cast($Code$LocalVar$Range, $nc(this->aliveRanges)->get(0));
+	return $nc(this->aliveRanges)->isEmpty() ? ($Code$LocalVar$Range*)nullptr : $cast($Code$LocalVar$Range, this->aliveRanges->get(0));
 }
 
 $Code$LocalVar$Range* Code$LocalVar::lastRange() {
-	return $nc(this->aliveRanges)->isEmpty() ? ($Code$LocalVar$Range*)nullptr : $cast($Code$LocalVar$Range, $nc(this->aliveRanges)->get($nc(this->aliveRanges)->size() - 1));
+	return $nc(this->aliveRanges)->isEmpty() ? ($Code$LocalVar$Range*)nullptr : $cast($Code$LocalVar$Range, this->aliveRanges->get(this->aliveRanges->size() - 1));
 }
 
 void Code$LocalVar::removeLastRange() {
 	$var($Code$LocalVar$Range, lastRange, this->lastRange());
 	if (lastRange != nullptr) {
-		$nc(this->aliveRanges)->remove($of(lastRange));
+		$nc(this->aliveRanges)->remove(lastRange);
 	}
 }
 
 $String* Code$LocalVar::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->aliveRanges == nullptr) {
 		return "empty local var"_s;
 	}
-	$var($StringBuilder, sb, $$new($StringBuilder)->append($of(this->sym))->append(" in register "_s)->append((int32_t)this->reg)->append(" \n"_s));
+	$var($StringBuilder, sb, $$new($StringBuilder)->append(this->sym)->append(" in register "_s)->append((int32_t)this->reg)->append(" \n"_s));
 	{
 		$var($Iterator, i$, $nc(this->aliveRanges)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -153,13 +103,13 @@ bool Code$LocalVar::isLastRangeInitialized() {
 }
 
 $Code$LocalVar$Range* Code$LocalVar::getWidestRange() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->aliveRanges)->isEmpty()) {
 		return $new($Code$LocalVar$Range, this);
 	} else {
 		$var($Code$LocalVar$Range, firstRange, this->firstRange());
 		$var($Code$LocalVar$Range, lastRange, this->lastRange());
-		char16_t length = (char16_t)($nc(lastRange)->length + (lastRange->start_pc - $nc(firstRange)->start_pc));
+		char16_t length = (char16_t)($nc(lastRange)->length + ($nc(lastRange)->start_pc - $nc(firstRange)->start_pc));
 		return $new($Code$LocalVar$Range, this, firstRange->start_pc, length);
 	}
 }
@@ -168,7 +118,49 @@ Code$LocalVar::Code$LocalVar() {
 }
 
 $Class* Code$LocalVar::load$($String* name, bool initialize) {
-	$loadClass(Code$LocalVar, name, initialize, &_Code$LocalVar_ClassInfo_, allocate$Code$LocalVar);
+	$FieldInfo fieldInfos$$[] = {
+		{"sym", "Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $FINAL, $field(Code$LocalVar, sym)},
+		{"reg", "C", nullptr, $FINAL, $field(Code$LocalVar, reg)},
+		{"aliveRanges", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;>;", 0, $field(Code$LocalVar, aliveRanges)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $method(Code$LocalVar, init$, void, $Symbol$VarSymbol*)},
+		{"closeRange", "(C)V", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, closeRange, void, char16_t)},
+		{"dup", "()Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, dup, Code$LocalVar*)},
+		{"firstRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0, $virtualMethod(Code$LocalVar, firstRange, $Code$LocalVar$Range*)},
+		{"getWidestRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, getWidestRange, $Code$LocalVar$Range*)},
+		{"hasOpenRange", "()Z", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, hasOpenRange, bool)},
+		{"isLastRangeInitialized", "()Z", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, isLastRangeInitialized, bool)},
+		{"lastRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0, $virtualMethod(Code$LocalVar, lastRange, $Code$LocalVar$Range*)},
+		{"openRange", "(C)V", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, openRange, void, char16_t)},
+		{"removeLastRange", "()V", nullptr, 0, $virtualMethod(Code$LocalVar, removeLastRange, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Code$LocalVar", "com.sun.tools.javac.jvm.Code", "LocalVar", $STATIC},
+		{"com.sun.tools.javac.jvm.Code$LocalVar$Range", "com.sun.tools.javac.jvm.Code$LocalVar", "Range", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Code$LocalVar",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Code"
+	};
+	$loadClass(Code$LocalVar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$LocalVar);
+	});
 	return class$;
 }
 

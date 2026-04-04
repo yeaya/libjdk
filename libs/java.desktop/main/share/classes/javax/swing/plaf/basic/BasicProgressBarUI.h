@@ -59,6 +59,7 @@ class $export BasicProgressBarUI : public ::javax::swing::plaf::ProgressBarUI {
 	$class(BasicProgressBarUI, 0, ::javax::swing::plaf::ProgressBarUI)
 public:
 	BasicProgressBarUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void cleanUpIndeterminateValues();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* x);

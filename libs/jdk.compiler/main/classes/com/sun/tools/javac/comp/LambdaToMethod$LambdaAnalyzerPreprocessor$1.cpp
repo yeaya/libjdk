@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$1.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
@@ -31,7 +30,6 @@ using $LambdaToMethod$LambdaSymbolKind = ::com::sun::tools::javac::comp::LambdaT
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $Lower$BasicFreeVarCollector = ::com::sun::tools::javac::comp::Lower$BasicFreeVarCollector;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -45,57 +43,10 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$1, this$1)},
-	{"val$lambdaContext", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$1, val$lambdaContext)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$1, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $Lower*, $LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*)},
-	{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$1, addFreeVars, void, $Symbol$ClassSymbol*)},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$1, visitSymbol, void, $Symbol*)},
-	{}
-};
-
-$EnclosingMethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor",
-	"captureLocalClassDefs",
-	"(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;)V"
-};
-
-$InnerClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Lower$BasicFreeVarCollector", "com.sun.tools.javac.comp.Lower", "BasicFreeVarCollector", $ABSTRACT},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "LambdaTranslationContext", 0},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$1",
-	"com.sun.tools.javac.comp.Lower$BasicFreeVarCollector",
-	nullptr,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$1_FieldInfo_,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$1_MethodInfo_,
-	nullptr,
-	&_LambdaToMethod$LambdaAnalyzerPreprocessor$1_EnclosingMethodInfo_,
-	_LambdaToMethod$LambdaAnalyzerPreprocessor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$1($Class* clazz) {
-	return $of($alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$1));
-}
-
 void LambdaToMethod$LambdaAnalyzerPreprocessor$1::init$($LambdaToMethod$LambdaAnalyzerPreprocessor* this$1, $Lower* x0, $LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext* val$lambdaContext) {
 	$set(this, this$1, this$1);
 	$set(this, val$lambdaContext, val$lambdaContext);
-	$Lower$BasicFreeVarCollector::init$(static_cast<$Lower*>($nc(x0)));
+	$Lower$BasicFreeVarCollector::init$($nc(x0));
 }
 
 void LambdaToMethod$LambdaAnalyzerPreprocessor$1::addFreeVars($Symbol$ClassSymbol* c) {
@@ -103,9 +54,9 @@ void LambdaToMethod$LambdaAnalyzerPreprocessor$1::addFreeVars($Symbol$ClassSymbo
 }
 
 void LambdaToMethod$LambdaAnalyzerPreprocessor$1::visitSymbol($Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	if ($nc(sym)->kind == $Kinds$Kind::VAR && $nc(sym->owner)->kind == $Kinds$Kind::MTH && $nc(($cast($Symbol$VarSymbol, sym)))->getConstValue() == nullptr) {
+	if ($nc(sym)->kind == $Kinds$Kind::VAR && $nc(sym->owner)->kind == $Kinds$Kind::MTH && $cast($Symbol$VarSymbol, sym)->getConstValue() == nullptr) {
 		$var($LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, localContext, this->this$1->context());
 		while (localContext != nullptr) {
 			$init($JCTree$Tag);
@@ -115,7 +66,7 @@ void LambdaToMethod$LambdaAnalyzerPreprocessor$1::visitSymbol($Symbol* sym) {
 					break;
 				}
 				$init($LambdaToMethod$LambdaSymbolKind);
-				$nc(($cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, localContext)))->addSymbol(sym, $LambdaToMethod$LambdaSymbolKind::CAPTURED_VAR);
+				$cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, localContext)->addSymbol(sym, $LambdaToMethod$LambdaSymbolKind::CAPTURED_VAR);
 			}
 			$assign(localContext, localContext->prev);
 		}
@@ -126,7 +77,47 @@ LambdaToMethod$LambdaAnalyzerPreprocessor$1::LambdaToMethod$LambdaAnalyzerPrepro
 }
 
 $Class* LambdaToMethod$LambdaAnalyzerPreprocessor$1::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$1, name, initialize, &_LambdaToMethod$LambdaAnalyzerPreprocessor$1_ClassInfo_, allocate$LambdaToMethod$LambdaAnalyzerPreprocessor$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$1, this$1)},
+		{"val$lambdaContext", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;", nullptr, $FINAL | $SYNTHETIC, $field(LambdaToMethod$LambdaAnalyzerPreprocessor$1, val$lambdaContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$1, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $Lower*, $LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*)},
+		{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$1, addFreeVars, void, $Symbol$ClassSymbol*)},
+		{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$1, visitSymbol, void, $Symbol*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor",
+		"captureLocalClassDefs",
+		"(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Lower$BasicFreeVarCollector", "com.sun.tools.javac.comp.Lower", "BasicFreeVarCollector", $ABSTRACT},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext", "com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "LambdaTranslationContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$1",
+		"com.sun.tools.javac.comp.Lower$BasicFreeVarCollector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$LambdaAnalyzerPreprocessor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$LambdaAnalyzerPreprocessor$1);
+	});
 	return class$;
 }
 

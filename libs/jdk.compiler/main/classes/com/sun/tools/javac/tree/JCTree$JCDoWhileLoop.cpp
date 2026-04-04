@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCDoWhileLoop.h>
-
-#include <com/sun/source/tree/DoWhileLoopTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/StatementTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
@@ -15,7 +13,6 @@
 #undef DOLOOP
 #undef DO_WHILE_LOOP
 
-using $DoWhileLoopTree = ::com::sun::source::tree::DoWhileLoopTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
@@ -34,54 +31,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCDoWhileLoop_FieldInfo_[] = {
-	{"body", "Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $field(JCTree$JCDoWhileLoop, body)},
-	{"cond", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCDoWhileLoop, cond)},
-	{}
-};
-
-$MethodInfo _JCTree$JCDoWhileLoop_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PROTECTED, $method(JCTree$JCDoWhileLoop, init$, void, $JCTree$JCStatement*, $JCTree$JCExpression*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getCondition", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getCondition, $ExpressionTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getKind, $Tree$Kind*)},
-	{"getStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getStatement, $StatementTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCDoWhileLoop_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCDoWhileLoop", "com.sun.tools.javac.tree.JCTree", "JCDoWhileLoop", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCDoWhileLoop_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCDoWhileLoop",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.DoWhileLoopTree",
-	_JCTree$JCDoWhileLoop_FieldInfo_,
-	_JCTree$JCDoWhileLoop_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCDoWhileLoop_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCDoWhileLoop($Class* clazz) {
-	return $of($alloc(JCTree$JCDoWhileLoop));
-}
 
 $String* JCTree$JCDoWhileLoop::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -127,7 +76,7 @@ $StatementTree* JCTree$JCDoWhileLoop::getStatement() {
 }
 
 $Object* JCTree$JCDoWhileLoop::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitDoWhileLoop(this, d));
+	return $nc(v)->visitDoWhileLoop(this, d);
 }
 
 $JCTree$Tag* JCTree$JCDoWhileLoop::getTag() {
@@ -139,7 +88,49 @@ JCTree$JCDoWhileLoop::JCTree$JCDoWhileLoop() {
 }
 
 $Class* JCTree$JCDoWhileLoop::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCDoWhileLoop, name, initialize, &_JCTree$JCDoWhileLoop_ClassInfo_, allocate$JCTree$JCDoWhileLoop);
+	$FieldInfo fieldInfos$$[] = {
+		{"body", "Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $field(JCTree$JCDoWhileLoop, body)},
+		{"cond", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCDoWhileLoop, cond)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PROTECTED, $method(JCTree$JCDoWhileLoop, init$, void, $JCTree$JCStatement*, $JCTree$JCExpression*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getCondition", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getCondition, $ExpressionTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getKind, $Tree$Kind*)},
+		{"getStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getStatement, $StatementTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCDoWhileLoop, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCDoWhileLoop", "com.sun.tools.javac.tree.JCTree", "JCDoWhileLoop", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCDoWhileLoop",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.DoWhileLoopTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCDoWhileLoop, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCDoWhileLoop));
+	});
 	return class$;
 }
 

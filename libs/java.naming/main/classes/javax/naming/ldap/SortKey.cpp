@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/SortKey.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,35 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace naming {
 		namespace ldap {
-
-$FieldInfo _SortKey_FieldInfo_[] = {
-	{"attrID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortKey, attrID)},
-	{"reverseOrder", "Z", nullptr, $PRIVATE, $field(SortKey, reverseOrder)},
-	{"matchingRuleID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortKey, matchingRuleID)},
-	{}
-};
-
-$MethodInfo _SortKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SortKey, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(SortKey, init$, void, $String*, bool, $String*)},
-	{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SortKey, getAttributeID, $String*)},
-	{"getMatchingRuleID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SortKey, getMatchingRuleID, $String*)},
-	{"isAscending", "()Z", nullptr, $PUBLIC, $virtualMethod(SortKey, isAscending, bool)},
-	{}
-};
-
-$ClassInfo _SortKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.ldap.SortKey",
-	"java.lang.Object",
-	nullptr,
-	_SortKey_FieldInfo_,
-	_SortKey_MethodInfo_
-};
-
-$Object* allocate$SortKey($Class* clazz) {
-	return $of($alloc(SortKey));
-}
 
 void SortKey::init$($String* attrID) {
 	this->reverseOrder = false;
@@ -69,7 +39,31 @@ SortKey::SortKey() {
 }
 
 $Class* SortKey::load$($String* name, bool initialize) {
-	$loadClass(SortKey, name, initialize, &_SortKey_ClassInfo_, allocate$SortKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"attrID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortKey, attrID)},
+		{"reverseOrder", "Z", nullptr, $PRIVATE, $field(SortKey, reverseOrder)},
+		{"matchingRuleID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortKey, matchingRuleID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SortKey, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(SortKey, init$, void, $String*, bool, $String*)},
+		{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SortKey, getAttributeID, $String*)},
+		{"getMatchingRuleID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SortKey, getMatchingRuleID, $String*)},
+		{"isAscending", "()Z", nullptr, $PUBLIC, $virtualMethod(SortKey, isAscending, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.ldap.SortKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SortKey);
+	});
 	return class$;
 }
 

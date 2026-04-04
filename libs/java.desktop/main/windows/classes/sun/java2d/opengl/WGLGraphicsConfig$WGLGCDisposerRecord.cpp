@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/WGLGraphicsConfig$WGLGCDisposerRecord.h>
-
 #include <sun/java2d/opengl/OGLRenderQueue.h>
 #include <sun/java2d/opengl/WGLGraphicsConfig.h>
 #include <jcpp.h>
@@ -13,42 +12,6 @@ using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
 namespace sun {
 	namespace java2d {
 		namespace opengl {
-
-$FieldInfo _WGLGraphicsConfig$WGLGCDisposerRecord_FieldInfo_[] = {
-	{"pCfgInfo", "J", nullptr, $PRIVATE, $field(WGLGraphicsConfig$WGLGCDisposerRecord, pCfgInfo)},
-	{}
-};
-
-$MethodInfo _WGLGraphicsConfig$WGLGCDisposerRecord_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(WGLGraphicsConfig$WGLGCDisposerRecord, init$, void, int64_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WGLGraphicsConfig$WGLGCDisposerRecord, dispose, void)},
-	{}
-};
-
-$InnerClassInfo _WGLGraphicsConfig$WGLGCDisposerRecord_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.WGLGraphicsConfig$WGLGCDisposerRecord", "sun.java2d.opengl.WGLGraphicsConfig", "WGLGCDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WGLGraphicsConfig$WGLGCDisposerRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.WGLGraphicsConfig$WGLGCDisposerRecord",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_WGLGraphicsConfig$WGLGCDisposerRecord_FieldInfo_,
-	_WGLGraphicsConfig$WGLGCDisposerRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WGLGraphicsConfig$WGLGCDisposerRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.WGLGraphicsConfig"
-};
-
-$Object* allocate$WGLGraphicsConfig$WGLGCDisposerRecord($Class* clazz) {
-	return $of($alloc(WGLGraphicsConfig$WGLGCDisposerRecord));
-}
 
 void WGLGraphicsConfig$WGLGCDisposerRecord::init$(int64_t pCfgInfo) {
 	this->pCfgInfo = pCfgInfo;
@@ -65,7 +28,37 @@ WGLGraphicsConfig$WGLGCDisposerRecord::WGLGraphicsConfig$WGLGCDisposerRecord() {
 }
 
 $Class* WGLGraphicsConfig$WGLGCDisposerRecord::load$($String* name, bool initialize) {
-	$loadClass(WGLGraphicsConfig$WGLGCDisposerRecord, name, initialize, &_WGLGraphicsConfig$WGLGCDisposerRecord_ClassInfo_, allocate$WGLGraphicsConfig$WGLGCDisposerRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"pCfgInfo", "J", nullptr, $PRIVATE, $field(WGLGraphicsConfig$WGLGCDisposerRecord, pCfgInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(WGLGraphicsConfig$WGLGCDisposerRecord, init$, void, int64_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WGLGraphicsConfig$WGLGCDisposerRecord, dispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.WGLGraphicsConfig$WGLGCDisposerRecord", "sun.java2d.opengl.WGLGraphicsConfig", "WGLGCDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.WGLGraphicsConfig$WGLGCDisposerRecord",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.WGLGraphicsConfig"
+	};
+	$loadClass(WGLGraphicsConfig$WGLGCDisposerRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WGLGraphicsConfig$WGLGCDisposerRecord);
+	});
 	return class$;
 }
 

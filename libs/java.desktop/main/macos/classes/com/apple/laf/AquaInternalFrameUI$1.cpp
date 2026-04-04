@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameUI$1.h>
-
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <com/apple/laf/AquaInternalFrameUI$AquaInternalFrameButtonIcon.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
@@ -19,44 +18,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaInternalFrameUI$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaInternalFrameUI$1, init$, void)},
-	{"getInstance", "()Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI$1, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaInternalFrameUI$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaInternalFrameUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaInternalFrameUI$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameUI$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameUI$1",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaInternalFrameUI$1_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;",
-	&_AquaInternalFrameUI$1_EnclosingMethodInfo_,
-	_AquaInternalFrameUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameUI"
-};
-
-$Object* allocate$AquaInternalFrameUI$1($Class* clazz) {
-	return $of($alloc(AquaInternalFrameUI$1));
-}
-
 void AquaInternalFrameUI$1::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
@@ -70,7 +31,39 @@ AquaInternalFrameUI$1::AquaInternalFrameUI$1() {
 }
 
 $Class* AquaInternalFrameUI$1::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameUI$1, name, initialize, &_AquaInternalFrameUI$1_ClassInfo_, allocate$AquaInternalFrameUI$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaInternalFrameUI$1, init$, void)},
+		{"getInstance", "()Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameUI$1, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaInternalFrameUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameUI$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameUI$1",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/Icon;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameUI"
+	};
+	$loadClass(AquaInternalFrameUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaInternalFrameUI$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientImpl$DelegatingExecutor.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/RuntimePermission.h>
@@ -29,7 +28,6 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Executor = ::java::util::concurrent::Executor;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
@@ -49,76 +47,32 @@ public:
 	virtual $Object* run() override {
 		 return HttpClientImpl$DelegatingExecutor::lambda$shutdown$0(service);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0>());
-	}
 	$ExecutorService* service = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::fieldInfos[2] = {
-	{"service", "Ljava/util/concurrent/ExecutorService;", nullptr, $PUBLIC, $field(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, service)},
-	{}
-};
-$MethodInfo HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, $PUBLIC, $method(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, init$, void, $ExecutorService*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, run, $Object*)},
-	{}
-};
-$ClassInfo HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Ljava/util/concurrent/ExecutorService;", nullptr, $PUBLIC, $field(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, service)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, $PUBLIC, $method(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, init$, void, $ExecutorService*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::class$ = nullptr;
-
-$FieldInfo _HttpClientImpl$DelegatingExecutor_FieldInfo_[] = {
-	{"isInSelectorThread", "Ljava/util/function/BooleanSupplier;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DelegatingExecutor, isInSelectorThread)},
-	{"delegate", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DelegatingExecutor, delegate$)},
-	{}
-};
-
-$MethodInfo _HttpClientImpl$DelegatingExecutor_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/BooleanSupplier;Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(HttpClientImpl$DelegatingExecutor, init$, void, $BooleanSupplier*, $Executor*)},
-	{"delegate", "()Ljava/util/concurrent/Executor;", nullptr, 0, $method(HttpClientImpl$DelegatingExecutor, delegate, $Executor*)},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DelegatingExecutor, execute, void, $Runnable*)},
-	{"lambda$shutdown$0", "(Ljava/util/concurrent/ExecutorService;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$DelegatingExecutor, lambda$shutdown$0, $Object*, $ExecutorService*)},
-	{"shutdown", "()V", nullptr, $PRIVATE, $method(HttpClientImpl$DelegatingExecutor, shutdown, void)},
-	{}
-};
-
-$InnerClassInfo _HttpClientImpl$DelegatingExecutor_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor", "jdk.internal.net.http.HttpClientImpl", "DelegatingExecutor", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HttpClientImpl$DelegatingExecutor_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor",
-	"java.lang.Object",
-	"java.util.concurrent.Executor",
-	_HttpClientImpl$DelegatingExecutor_FieldInfo_,
-	_HttpClientImpl$DelegatingExecutor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientImpl$DelegatingExecutor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpClientImpl"
-};
-
-$Object* allocate$HttpClientImpl$DelegatingExecutor($Class* clazz) {
-	return $of($alloc(HttpClientImpl$DelegatingExecutor));
-}
 
 void HttpClientImpl$DelegatingExecutor::init$($BooleanSupplier* isInSelectorThread, $Executor* delegate) {
 	$set(this, isInSelectorThread, isInSelectorThread);
@@ -138,7 +92,7 @@ void HttpClientImpl$DelegatingExecutor::execute($Runnable* command) {
 }
 
 void HttpClientImpl$DelegatingExecutor::shutdown() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$var($ExecutorService, service, nullptr);
@@ -149,8 +103,8 @@ void HttpClientImpl$DelegatingExecutor::shutdown() {
 			var$0 = true;
 		}
 		if (var$0) {
-			$var($PrivilegedAction, action, static_cast<$PrivilegedAction*>($new(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, service)));
-			$AccessController::doPrivileged(action, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($RuntimePermission, "modifyThread"_s))}));
+			$var($PrivilegedAction, action, $new(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, service));
+			$AccessController::doPrivileged(action, nullptr, $$new($PermissionArray, {$$new($RuntimePermission, "modifyThread"_s)}));
 		}
 	}
 }
@@ -158,7 +112,7 @@ void HttpClientImpl$DelegatingExecutor::shutdown() {
 $Object* HttpClientImpl$DelegatingExecutor::lambda$shutdown$0($ExecutorService* service) {
 	$init(HttpClientImpl$DelegatingExecutor);
 	$nc(service)->shutdown();
-	return $of(nullptr);
+	return nullptr;
 }
 
 HttpClientImpl$DelegatingExecutor::HttpClientImpl$DelegatingExecutor() {
@@ -166,11 +120,45 @@ HttpClientImpl$DelegatingExecutor::HttpClientImpl$DelegatingExecutor() {
 
 $Class* HttpClientImpl$DelegatingExecutor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0")) {
 			return HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpClientImpl$DelegatingExecutor, name, initialize, &_HttpClientImpl$DelegatingExecutor_ClassInfo_, allocate$HttpClientImpl$DelegatingExecutor);
+	$FieldInfo fieldInfos$$[] = {
+		{"isInSelectorThread", "Ljava/util/function/BooleanSupplier;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DelegatingExecutor, isInSelectorThread)},
+		{"delegate", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl$DelegatingExecutor, delegate$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BooleanSupplier;Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(HttpClientImpl$DelegatingExecutor, init$, void, $BooleanSupplier*, $Executor*)},
+		{"delegate", "()Ljava/util/concurrent/Executor;", nullptr, 0, $method(HttpClientImpl$DelegatingExecutor, delegate, $Executor*)},
+		{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DelegatingExecutor, execute, void, $Runnable*)},
+		{"lambda$shutdown$0", "(Ljava/util/concurrent/ExecutorService;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$DelegatingExecutor, lambda$shutdown$0, $Object*, $ExecutorService*)},
+		{"shutdown", "()V", nullptr, $PRIVATE, $method(HttpClientImpl$DelegatingExecutor, shutdown, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor", "jdk.internal.net.http.HttpClientImpl", "DelegatingExecutor", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor",
+		"java.lang.Object",
+		"java.util.concurrent.Executor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpClientImpl"
+	};
+	$loadClass(HttpClientImpl$DelegatingExecutor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$DelegatingExecutor);
+	});
 	return class$;
 }
 

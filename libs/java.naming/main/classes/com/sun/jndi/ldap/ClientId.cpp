@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/ClientId.h>
-
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/Obj.h>
 #include <com/sun/jndi/ldap/VersionHelper.h>
@@ -17,7 +16,6 @@
 using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
 using $Obj = ::com::sun::jndi::ldap::Obj;
-using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -27,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
-using $Control = ::javax::naming::ldap::Control;
 using $SocketFactory = ::javax::net::SocketFactory;
 
 namespace com {
@@ -35,51 +32,8 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _ClientId_FieldInfo_[] = {
-	{"version", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, version)},
-	{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClientId, hostname)},
-	{"port", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, port)},
-	{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClientId, protocol)},
-	{"bindCtls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $FINAL, $field(ClientId, bindCtls)},
-	{"trace", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(ClientId, trace)},
-	{"socketFactory", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClientId, socketFactory)},
-	{"myHash", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, myHash)},
-	{"ctlHash", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, ctlHash)},
-	{"factory", "Ljavax/net/SocketFactory;", nullptr, $PRIVATE, $field(ClientId, factory)},
-	{"sockComparator", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ClientId, sockComparator)},
-	{"isDefaultSockFactory", "Z", nullptr, $PRIVATE, $field(ClientId, isDefaultSockFactory)},
-	{"debug", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClientId, debug)},
-	{}
-};
-
-$MethodInfo _ClientId_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, 0, $method(ClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClientId, equals, bool, Object$*)},
-	{"equalsControls", "([Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, equalsControls, bool, $ControlArray*, $ControlArray*)},
-	{"equalsSockFactory", "(Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(ClientId, equalsSockFactory, bool, ClientId*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ClientId, hashCode, int32_t)},
-	{"hashCodeControls", "([Ljavax/naming/ldap/Control;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, hashCodeControls, int32_t, $ControlArray*)},
-	{"invokeComparator", "(Lcom/sun/jndi/ldap/ClientId;Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(ClientId, invokeComparator, bool, ClientId*, ClientId*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientId, toString, $String*)},
-	{"toStringControls", "([Ljavax/naming/ldap/Control;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, toStringControls, $String*, $ControlArray*)},
-	{}
-};
-
-$ClassInfo _ClientId_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.ClientId",
-	"java.lang.Object",
-	nullptr,
-	_ClientId_FieldInfo_,
-	_ClientId_MethodInfo_
-};
-
-$Object* allocate$ClientId($Class* clazz) {
-	return $of($alloc(ClientId));
-}
-
 void ClientId::init$(int32_t version, $String* hostname, int32_t port, $String* protocol, $ControlArray* bindCtls, $OutputStream* trace, $String* socketFactory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, factory, nullptr);
 	$set(this, sockComparator, nullptr);
@@ -89,7 +43,7 @@ void ClientId::init$(int32_t version, $String* hostname, int32_t port, $String* 
 	$set(this, hostname, $nc(hostname)->toLowerCase($Locale::ENGLISH));
 	this->port = port;
 	$set(this, protocol, protocol);
-	$set(this, bindCtls, bindCtls != nullptr ? $cast($ControlArray, $nc(bindCtls)->clone()) : ($ControlArray*)nullptr);
+	$set(this, bindCtls, bindCtls != nullptr ? $cast($ControlArray, bindCtls->clone()) : ($ControlArray*)nullptr);
 	$set(this, trace, trace);
 	$set(this, socketFactory, socketFactory);
 	$init($LdapCtx);
@@ -104,13 +58,14 @@ void ClientId::init$(int32_t version, $String* hostname, int32_t port, $String* 
 			$var($Method, getDefault, socketFactoryClass->getMethod("getDefault"_s, $$new($ClassArray, 0)));
 			$set(this, factory, $cast($SocketFactory, $nc(getDefault)->invoke(nullptr, $$new($ObjectArray, 0))));
 		} catch ($Exception& e) {
+			;
 		}
 	} else {
 		this->isDefaultSockFactory = true;
 	}
-	int32_t var$2 = version + port + (trace != nullptr ? $nc($of(trace))->hashCode() : 0);
-	int32_t var$1 = var$2 + (this->hostname != nullptr ? $nc(this->hostname)->hashCode() : 0);
-	int32_t var$0 = var$1 + (protocol != nullptr ? $nc(protocol)->hashCode() : 0);
+	int32_t var$2 = version + port + (trace != nullptr ? $of(trace)->hashCode() : 0);
+	int32_t var$1 = var$2 + (this->hostname != nullptr ? this->hostname->hashCode() : 0);
+	int32_t var$0 = var$1 + (protocol != nullptr ? protocol->hashCode() : 0);
 	this->myHash = var$0 + (this->ctlHash = hashCodeControls(bindCtls));
 }
 
@@ -119,8 +74,8 @@ bool ClientId::equals(Object$* obj) {
 		return false;
 	}
 	$var(ClientId, other, $cast(ClientId, obj));
-	bool var$2 = this->myHash == $nc(other)->myHash && this->version == other->version && this->port == other->port && this->trace == other->trace && (this->hostname == other->hostname || (this->hostname != nullptr && $nc(this->hostname)->equals($nc(other)->hostname)));
-	bool var$1 = var$2 && (this->protocol == $nc(other)->protocol || (this->protocol != nullptr && $nc(this->protocol)->equals($nc(other)->protocol))) && this->ctlHash == $nc(other)->ctlHash;
+	bool var$2 = this->myHash == $nc(other)->myHash && this->version == other->version && this->port == other->port && this->trace == other->trace && (this->hostname == other->hostname || (this->hostname != nullptr && this->hostname->equals(other->hostname)));
+	bool var$1 = var$2 && (this->protocol == other->protocol || (this->protocol != nullptr && this->protocol->equals(other->protocol))) && this->ctlHash == other->ctlHash;
 	bool var$0 = var$1 && (equalsControls(this->bindCtls, other->bindCtls));
 	return var$0 && (equalsSockFactory(other));
 }
@@ -130,19 +85,19 @@ int32_t ClientId::hashCode() {
 }
 
 int32_t ClientId::hashCodeControls($ControlArray* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c == nullptr) {
 		return 0;
 	}
 	int32_t code = 0;
 	for (int32_t i = 0; i < $nc(c)->length; ++i) {
-		code = code * 31 + $nc($($nc(c->get(i))->getID()))->hashCode();
+		code = code * 31 + $$nc($nc(c->get(i))->getID())->hashCode();
 	}
 	return code;
 }
 
 bool ClientId::equalsControls($ControlArray* a, $ControlArray* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == b) {
 		return true;
 	}
@@ -152,16 +107,16 @@ bool ClientId::equalsControls($ControlArray* a, $ControlArray* b) {
 	if ($nc(a)->length != $nc(b)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(a)->length; ++i) {
-		bool var$1 = !$nc($($nc(a->get(i))->getID()))->equals($($nc($nc(b)->get(i))->getID()));
+	for (int32_t i = 0; i < a->length; ++i) {
+		bool var$1 = !$$nc($nc(a->get(i))->getID())->equals($($nc(b->get(i))->getID()));
 		if (!var$1) {
 			bool var$2 = $nc(a->get(i))->isCritical();
-			var$1 = var$2 != $nc($nc(b)->get(i))->isCritical();
+			var$1 = var$2 != $nc(b->get(i))->isCritical();
 		}
 		bool var$0 = var$1;
 		if (!var$0) {
 			$var($bytes, var$3, $nc(a->get(i))->getEncodedValue());
-			var$0 = !$Arrays::equals(var$3, $($nc($nc(b)->get(i))->getEncodedValue()));
+			var$0 = !$Arrays::equals(var$3, $($nc(b->get(i))->getEncodedValue()));
 		}
 		if (var$0) {
 			return false;
@@ -173,7 +128,7 @@ bool ClientId::equalsControls($ControlArray* a, $ControlArray* b) {
 bool ClientId::equalsSockFactory(ClientId* other) {
 	if (this->isDefaultSockFactory && $nc(other)->isDefaultSockFactory) {
 		return true;
-	} else if (!other->isDefaultSockFactory) {
+	} else if (!$nc(other)->isDefaultSockFactory) {
 		return invokeComparator(other, this);
 	} else {
 		return invokeComparator(this, other);
@@ -181,25 +136,26 @@ bool ClientId::equalsSockFactory(ClientId* other) {
 }
 
 bool ClientId::invokeComparator(ClientId* c1, ClientId* c2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, ret, nullptr);
 	try {
-		$assign(ret, $nc(($nc(c1)->sockComparator))->invoke(c1->factory, $$new($ObjectArray, {
-			$of(c1->socketFactory),
-			$of($nc(c2)->socketFactory)
+		$assign(ret, $nc(($nc(c1)->sockComparator))->invoke($nc(c1)->factory, $$new($ObjectArray, {
+			$nc(c1)->socketFactory,
+			$nc(c2)->socketFactory
 		})));
 	} catch ($Exception& e) {
+		;
 		return false;
 	}
-	if ($nc(($cast($Integer, ret)))->intValue() == 0) {
+	if ($nc($cast($Integer, ret))->intValue() == 0) {
 		return true;
 	}
 	return false;
 }
 
 $String* ClientId::toStringControls($ControlArray* ctls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ctls == nullptr) {
 		return ""_s;
 	}
@@ -212,7 +168,7 @@ $String* ClientId::toStringControls($ControlArray* ctls) {
 }
 
 $String* ClientId::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return ($str({this->hostname, ":"_s, $$str(this->port), ":"_s, (this->protocol != nullptr ? this->protocol : ""_s), ":"_s, $(toStringControls(this->bindCtls)), ":"_s, this->socketFactory}));
 }
 
@@ -220,7 +176,45 @@ ClientId::ClientId() {
 }
 
 $Class* ClientId::load$($String* name, bool initialize) {
-	$loadClass(ClientId, name, initialize, &_ClientId_ClassInfo_, allocate$ClientId);
+	$FieldInfo fieldInfos$$[] = {
+		{"version", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, version)},
+		{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClientId, hostname)},
+		{"port", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, port)},
+		{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClientId, protocol)},
+		{"bindCtls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $FINAL, $field(ClientId, bindCtls)},
+		{"trace", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(ClientId, trace)},
+		{"socketFactory", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ClientId, socketFactory)},
+		{"myHash", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, myHash)},
+		{"ctlHash", "I", nullptr, $PRIVATE | $FINAL, $field(ClientId, ctlHash)},
+		{"factory", "Ljavax/net/SocketFactory;", nullptr, $PRIVATE, $field(ClientId, factory)},
+		{"sockComparator", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(ClientId, sockComparator)},
+		{"isDefaultSockFactory", "Z", nullptr, $PRIVATE, $field(ClientId, isDefaultSockFactory)},
+		{"debug", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ClientId, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, 0, $method(ClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClientId, equals, bool, Object$*)},
+		{"equalsControls", "([Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, equalsControls, bool, $ControlArray*, $ControlArray*)},
+		{"equalsSockFactory", "(Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(ClientId, equalsSockFactory, bool, ClientId*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ClientId, hashCode, int32_t)},
+		{"hashCodeControls", "([Ljavax/naming/ldap/Control;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, hashCodeControls, int32_t, $ControlArray*)},
+		{"invokeComparator", "(Lcom/sun/jndi/ldap/ClientId;Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(ClientId, invokeComparator, bool, ClientId*, ClientId*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientId, toString, $String*)},
+		{"toStringControls", "([Ljavax/naming/ldap/Control;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, toStringControls, $String*, $ControlArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.ClientId",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClientId, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientId);
+	});
 	return class$;
 }
 

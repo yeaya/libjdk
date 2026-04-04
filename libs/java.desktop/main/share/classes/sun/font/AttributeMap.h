@@ -31,6 +31,7 @@ class AttributeMap : public ::java::util::AbstractMap {
 	$class(AttributeMap, 0, ::java::util::AbstractMap)
 public:
 	AttributeMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::AttributeValues* values);
 	::java::util::Map* delegate();
 	virtual ::java::util::Set* entrySet() override;

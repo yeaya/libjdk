@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/FormView$1.h>
-
 #include <java/awt/Component.h>
 #include <java/io/IOException.h>
 #include <java/net/URL.h>
@@ -11,7 +10,6 @@
 #include <javax/swing/text/html/FormView.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -20,9 +18,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $HyperlinkEvent = ::javax::swing::event::HyperlinkEvent;
 using $FormSubmitEvent = ::javax::swing::text::html::FormSubmitEvent;
 using $FormView = ::javax::swing::text::html::FormView;
 
@@ -30,51 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _FormView$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/FormView;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, this$0)},
-	{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, val$url)},
-	{"val$c", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, val$c)},
-	{"val$fse", "Ljavax/swing/text/html/FormSubmitEvent;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, val$fse)},
-	{}
-};
-
-$MethodInfo _FormView$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/FormView;Ljavax/swing/text/html/FormSubmitEvent;Ljavax/swing/JEditorPane;Ljava/net/URL;)V", "()V", 0, $method(FormView$1, init$, void, $FormView*, $FormSubmitEvent*, $JEditorPane*, $URL*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FormView$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _FormView$1_EnclosingMethodInfo_ = {
-	"javax.swing.text.html.FormView",
-	"submitData",
-	"(Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _FormView$1_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.FormView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FormView$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.FormView$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_FormView$1_FieldInfo_,
-	_FormView$1_MethodInfo_,
-	nullptr,
-	&_FormView$1_EnclosingMethodInfo_,
-	_FormView$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.FormView"
-};
-
-$Object* allocate$FormView$1($Class* clazz) {
-	return $of($alloc(FormView$1));
-}
 
 void FormView$1::init$($FormView* this$0, $FormSubmitEvent* val$fse, $JEditorPane* val$c, $URL* val$url) {
 	$set(this, this$0, this$0);
@@ -90,7 +41,7 @@ void FormView$1::run() {
 		try {
 			$nc(this->val$c)->setPage(this->val$url);
 		} catch ($IOException& e) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this->val$c);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this->val$c);
 		}
 	}
 }
@@ -99,7 +50,45 @@ FormView$1::FormView$1() {
 }
 
 $Class* FormView$1::load$($String* name, bool initialize) {
-	$loadClass(FormView$1, name, initialize, &_FormView$1_ClassInfo_, allocate$FormView$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/FormView;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, this$0)},
+		{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, val$url)},
+		{"val$c", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, val$c)},
+		{"val$fse", "Ljavax/swing/text/html/FormSubmitEvent;", nullptr, $FINAL | $SYNTHETIC, $field(FormView$1, val$fse)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/FormView;Ljavax/swing/text/html/FormSubmitEvent;Ljavax/swing/JEditorPane;Ljava/net/URL;)V", "()V", 0, $method(FormView$1, init$, void, $FormView*, $FormSubmitEvent*, $JEditorPane*, $URL*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FormView$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.html.FormView",
+		"submitData",
+		"(Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.FormView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.FormView$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.FormView"
+	};
+	$loadClass(FormView$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormView$1);
+	});
 	return class$;
 }
 

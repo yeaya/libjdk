@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/BufferedRenderPipe$BufferedDrawHandler.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/loops/ProcessPath$DrawHandler.h>
 #include <sun/java2d/pipe/BufferedRenderPipe.h>
@@ -16,59 +15,10 @@ using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $ProcessPath$DrawHandler = ::sun::java2d::loops::ProcessPath$DrawHandler;
 using $BufferedRenderPipe = ::sun::java2d::pipe::BufferedRenderPipe;
 using $Region = ::sun::java2d::pipe::Region;
-using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
 
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _BufferedRenderPipe$BufferedDrawHandler_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/pipe/BufferedRenderPipe;", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$BufferedDrawHandler, this$0)},
-	{"scanlineCount", "I", nullptr, $PRIVATE, $field(BufferedRenderPipe$BufferedDrawHandler, scanlineCount)},
-	{"scanlineCountIndex", "I", nullptr, $PRIVATE, $field(BufferedRenderPipe$BufferedDrawHandler, scanlineCountIndex)},
-	{"remainingScanlines", "I", nullptr, $PRIVATE, $field(BufferedRenderPipe$BufferedDrawHandler, remainingScanlines)},
-	{}
-};
-
-$MethodInfo _BufferedRenderPipe$BufferedDrawHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/BufferedRenderPipe;)V", nullptr, 0, $method(BufferedRenderPipe$BufferedDrawHandler, init$, void, $BufferedRenderPipe*)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPixel", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, drawPixel, void, int32_t, int32_t)},
-	{"drawScanline", "(III)V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, drawScanline, void, int32_t, int32_t, int32_t)},
-	{"endFillPath", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, endFillPath, void)},
-	{"resetFillPath", "()V", nullptr, $PRIVATE, $method(BufferedRenderPipe$BufferedDrawHandler, resetFillPath, void)},
-	{"startFillPath", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, startFillPath, void)},
-	{"updateScanlineCount", "()V", nullptr, $PRIVATE, $method(BufferedRenderPipe$BufferedDrawHandler, updateScanlineCount, void)},
-	{"validate", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, validate, void, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _BufferedRenderPipe$BufferedDrawHandler_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.BufferedRenderPipe$BufferedDrawHandler", "sun.java2d.pipe.BufferedRenderPipe", "BufferedDrawHandler", $PRIVATE},
-	{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _BufferedRenderPipe$BufferedDrawHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.pipe.BufferedRenderPipe$BufferedDrawHandler",
-	"sun.java2d.loops.ProcessPath$DrawHandler",
-	nullptr,
-	_BufferedRenderPipe$BufferedDrawHandler_FieldInfo_,
-	_BufferedRenderPipe$BufferedDrawHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BufferedRenderPipe$BufferedDrawHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.BufferedRenderPipe"
-};
-
-$Object* allocate$BufferedRenderPipe$BufferedDrawHandler($Class* clazz) {
-	return $of($alloc(BufferedRenderPipe$BufferedDrawHandler));
-}
 
 void BufferedRenderPipe$BufferedDrawHandler::init$($BufferedRenderPipe* this$0) {
 	$set(this, this$0, this$0);
@@ -137,7 +87,48 @@ BufferedRenderPipe$BufferedDrawHandler::BufferedRenderPipe$BufferedDrawHandler()
 }
 
 $Class* BufferedRenderPipe$BufferedDrawHandler::load$($String* name, bool initialize) {
-	$loadClass(BufferedRenderPipe$BufferedDrawHandler, name, initialize, &_BufferedRenderPipe$BufferedDrawHandler_ClassInfo_, allocate$BufferedRenderPipe$BufferedDrawHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/pipe/BufferedRenderPipe;", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$BufferedDrawHandler, this$0)},
+		{"scanlineCount", "I", nullptr, $PRIVATE, $field(BufferedRenderPipe$BufferedDrawHandler, scanlineCount)},
+		{"scanlineCountIndex", "I", nullptr, $PRIVATE, $field(BufferedRenderPipe$BufferedDrawHandler, scanlineCountIndex)},
+		{"remainingScanlines", "I", nullptr, $PRIVATE, $field(BufferedRenderPipe$BufferedDrawHandler, remainingScanlines)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/BufferedRenderPipe;)V", nullptr, 0, $method(BufferedRenderPipe$BufferedDrawHandler, init$, void, $BufferedRenderPipe*)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPixel", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, drawPixel, void, int32_t, int32_t)},
+		{"drawScanline", "(III)V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, drawScanline, void, int32_t, int32_t, int32_t)},
+		{"endFillPath", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, endFillPath, void)},
+		{"resetFillPath", "()V", nullptr, $PRIVATE, $method(BufferedRenderPipe$BufferedDrawHandler, resetFillPath, void)},
+		{"startFillPath", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, startFillPath, void)},
+		{"updateScanlineCount", "()V", nullptr, $PRIVATE, $method(BufferedRenderPipe$BufferedDrawHandler, updateScanlineCount, void)},
+		{"validate", "(Lsun/java2d/SunGraphics2D;)V", nullptr, 0, $virtualMethod(BufferedRenderPipe$BufferedDrawHandler, validate, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.BufferedRenderPipe$BufferedDrawHandler", "sun.java2d.pipe.BufferedRenderPipe", "BufferedDrawHandler", $PRIVATE},
+		{"sun.java2d.loops.ProcessPath$DrawHandler", "sun.java2d.loops.ProcessPath", "DrawHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.pipe.BufferedRenderPipe$BufferedDrawHandler",
+		"sun.java2d.loops.ProcessPath$DrawHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.BufferedRenderPipe"
+	};
+	$loadClass(BufferedRenderPipe$BufferedDrawHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedRenderPipe$BufferedDrawHandler);
+	});
 	return class$;
 }
 

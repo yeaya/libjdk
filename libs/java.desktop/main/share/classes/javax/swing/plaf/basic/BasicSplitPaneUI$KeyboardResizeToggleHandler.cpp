@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI$KeyboardResizeToggleHandler.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
@@ -11,49 +10,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JSplitPane = ::javax::swing::JSplitPane;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSplitPaneUI$KeyboardResizeToggleHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$KeyboardResizeToggleHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneUI$KeyboardResizeToggleHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(BasicSplitPaneUI$KeyboardResizeToggleHandler, init$, void, $BasicSplitPaneUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$KeyboardResizeToggleHandler, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneUI$KeyboardResizeToggleHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardResizeToggleHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneUI$KeyboardResizeToggleHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_BasicSplitPaneUI$KeyboardResizeToggleHandler_FieldInfo_,
-	_BasicSplitPaneUI$KeyboardResizeToggleHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneUI$KeyboardResizeToggleHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneUI"
-};
-
-$Object* allocate$BasicSplitPaneUI$KeyboardResizeToggleHandler($Class* clazz) {
-	return $of($alloc(BasicSplitPaneUI$KeyboardResizeToggleHandler));
-}
 
 void BasicSplitPaneUI$KeyboardResizeToggleHandler::init$($BasicSplitPaneUI* this$0) {
 	$set(this, this$0, this$0);
@@ -69,7 +31,37 @@ BasicSplitPaneUI$KeyboardResizeToggleHandler::BasicSplitPaneUI$KeyboardResizeTog
 }
 
 $Class* BasicSplitPaneUI$KeyboardResizeToggleHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneUI$KeyboardResizeToggleHandler, name, initialize, &_BasicSplitPaneUI$KeyboardResizeToggleHandler_ClassInfo_, allocate$BasicSplitPaneUI$KeyboardResizeToggleHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$KeyboardResizeToggleHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(BasicSplitPaneUI$KeyboardResizeToggleHandler, init$, void, $BasicSplitPaneUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$KeyboardResizeToggleHandler, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardResizeToggleHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneUI"
+	};
+	$loadClass(BasicSplitPaneUI$KeyboardResizeToggleHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneUI$KeyboardResizeToggleHandler);
+	});
 	return class$;
 }
 

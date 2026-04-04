@@ -45,6 +45,7 @@ class ConstFold : public ::java::lang::Object {
 	$class(ConstFold, 0, ::java::lang::Object)
 public:
 	ConstFold();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	static ::java::lang::Integer* b2i(bool b);
 	virtual ::com::sun::tools::javac::code::Type* coerce(::com::sun::tools::javac::code::Type* etype, ::com::sun::tools::javac::code::Type* ttype);

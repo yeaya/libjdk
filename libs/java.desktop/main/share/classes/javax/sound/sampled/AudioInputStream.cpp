@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/AudioInputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/Math.h>
@@ -26,61 +25,6 @@ using $TargetDataLine = ::javax::sound::sampled::TargetDataLine;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _AudioInputStream_FieldInfo_[] = {
-	{"stream", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(AudioInputStream, stream)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PROTECTED, $field(AudioInputStream, format)},
-	{"frameLength", "J", nullptr, $PROTECTED, $field(AudioInputStream, frameLength)},
-	{"frameSize", "I", nullptr, $PROTECTED, $field(AudioInputStream, frameSize)},
-	{"framePos", "J", nullptr, $PROTECTED, $field(AudioInputStream, framePos)},
-	{"markpos", "J", nullptr, $PRIVATE, $field(AudioInputStream, markpos)},
-	{"pushBackBuffer", "[B", nullptr, $PRIVATE, $field(AudioInputStream, pushBackBuffer)},
-	{"pushBackLen", "I", nullptr, $PRIVATE, $field(AudioInputStream, pushBackLen)},
-	{"markPushBackBuffer", "[B", nullptr, $PRIVATE, $field(AudioInputStream, markPushBackBuffer)},
-	{"markPushBackLen", "I", nullptr, $PRIVATE, $field(AudioInputStream, markPushBackLen)},
-	{}
-};
-
-$MethodInfo _AudioInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljavax/sound/sampled/AudioFormat;J)V", nullptr, $PUBLIC, $method(AudioInputStream, init$, void, $InputStream*, $AudioFormat*, int64_t)},
-	{"<init>", "(Ljavax/sound/sampled/TargetDataLine;)V", nullptr, $PUBLIC, $method(AudioInputStream, init$, void, $TargetDataLine*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, close, void), "java.io.IOException"},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, getFormat, $AudioFormat*)},
-	{"getFrameLength", "()J", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, getFrameLength, int64_t)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _AudioInputStream_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.AudioInputStream$TargetDataLineInputStream", "javax.sound.sampled.AudioInputStream", "TargetDataLineInputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _AudioInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.AudioInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_AudioInputStream_FieldInfo_,
-	_AudioInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.AudioInputStream$TargetDataLineInputStream"
-};
-
-$Object* allocate$AudioInputStream($Class* clazz) {
-	return $of($alloc(AudioInputStream));
-}
 
 void AudioInputStream::init$($InputStream* stream, $AudioFormat* format, int64_t length) {
 	$InputStream::init$();
@@ -134,7 +78,7 @@ int32_t AudioInputStream::read() {
 	if (temp <= 0) {
 		return -1;
 	}
-	return (int32_t)(data->get(0) & (uint32_t)255);
+	return data->get(0) & 0xff;
 }
 
 int32_t AudioInputStream::read($bytes* b) {
@@ -203,7 +147,7 @@ int64_t AudioInputStream::skip(int64_t n) {
 	while (remaining > 0) {
 		int64_t ret = $Math::min($nc(this->stream)->skip(remaining), remaining);
 		if (ret == 0) {
-			if ($nc(this->stream)->read() == -1) {
+			if (this->stream->read() == -1) {
 				break;
 			}
 			ret = 1;
@@ -267,7 +211,56 @@ AudioInputStream::AudioInputStream() {
 }
 
 $Class* AudioInputStream::load$($String* name, bool initialize) {
-	$loadClass(AudioInputStream, name, initialize, &_AudioInputStream_ClassInfo_, allocate$AudioInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(AudioInputStream, stream)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PROTECTED, $field(AudioInputStream, format)},
+		{"frameLength", "J", nullptr, $PROTECTED, $field(AudioInputStream, frameLength)},
+		{"frameSize", "I", nullptr, $PROTECTED, $field(AudioInputStream, frameSize)},
+		{"framePos", "J", nullptr, $PROTECTED, $field(AudioInputStream, framePos)},
+		{"markpos", "J", nullptr, $PRIVATE, $field(AudioInputStream, markpos)},
+		{"pushBackBuffer", "[B", nullptr, $PRIVATE, $field(AudioInputStream, pushBackBuffer)},
+		{"pushBackLen", "I", nullptr, $PRIVATE, $field(AudioInputStream, pushBackLen)},
+		{"markPushBackBuffer", "[B", nullptr, $PRIVATE, $field(AudioInputStream, markPushBackBuffer)},
+		{"markPushBackLen", "I", nullptr, $PRIVATE, $field(AudioInputStream, markPushBackLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljavax/sound/sampled/AudioFormat;J)V", nullptr, $PUBLIC, $method(AudioInputStream, init$, void, $InputStream*, $AudioFormat*, int64_t)},
+		{"<init>", "(Ljavax/sound/sampled/TargetDataLine;)V", nullptr, $PUBLIC, $method(AudioInputStream, init$, void, $TargetDataLine*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, close, void), "java.io.IOException"},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, getFormat, $AudioFormat*)},
+		{"getFrameLength", "()J", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, getFrameLength, int64_t)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(AudioInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.AudioInputStream$TargetDataLineInputStream", "javax.sound.sampled.AudioInputStream", "TargetDataLineInputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.AudioInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.AudioInputStream$TargetDataLineInputStream"
+	};
+	$loadClass(AudioInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioInputStream);
+	});
 	return class$;
 }
 

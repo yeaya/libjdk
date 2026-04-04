@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonUI.h>
-
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaButtonBorder$Toolbar.h>
@@ -27,7 +26,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/event/HierarchyListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
@@ -43,7 +41,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/event/AncestorListener.h>
 #include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -75,7 +72,6 @@ using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
@@ -84,8 +80,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
-using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -106,7 +100,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
-using $AncestorListener = ::javax::swing::event::AncestorListener;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -120,82 +113,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaButtonUI_FieldInfo_[] = {
-	{"BUTTON_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, BUTTON_TYPE)},
-	{"SEGMENTED_BUTTON_POSITION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, SEGMENTED_BUTTON_POSITION)},
-	{"buttonUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, buttonUI)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(AquaButtonUI, defaults_initialized)},
-	{"defaultDisabledTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaButtonUI, defaultDisabledTextColor)},
-	{"fHierListener", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonUI$AquaHierarchyButtonListener;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, fHierListener)},
-	{}
-};
-
-$MethodInfo _AquaButtonUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonUI, init$, void)},
-	{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
-	{"createButtonListener", "(Ljavax/swing/AbstractButton;)Lcom/apple/laf/AquaButtonUI$AquaButtonListener;", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, createButtonListener, $BasicButtonListener*, $AbstractButton*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getAquaButtonListener", "(Ljavax/swing/AbstractButton;)Lcom/apple/laf/AquaButtonUI$AquaButtonListener;", nullptr, $PRIVATE, $method(AquaButtonUI, getAquaButtonListener, $AquaButtonUI$AquaButtonListener*, $AbstractButton*)},
-	{"getAquaHierarchyButtonListener", "()Lcom/apple/laf/AquaButtonUI$AquaHierarchyButtonListener;", nullptr, $STATIC, $staticMethod(AquaButtonUI, getAquaHierarchyButtonListener, $AquaButtonUI$AquaHierarchyButtonListener*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installDefaults, void, $AbstractButton*)},
-	{"installHierListener", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installHierListener, void, $AbstractButton*)},
-	{"installKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installKeyboardActions, void, $AbstractButton*)},
-	{"installListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installListeners, void, $AbstractButton*)},
-	{"isBorderFromProperty", "(Ljavax/swing/AbstractButton;)Z", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, isBorderFromProperty, bool, $AbstractButton*)},
-	{"isOnToolbar", "(Ljavax/swing/AbstractButton;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonUI, isOnToolbar, bool, $AbstractButton*)},
-	{"layoutAndGetText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Lcom/apple/laf/AquaButtonBorder;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, layoutAndGetText, $String*, $Graphics*, $AbstractButton*, $AquaButtonBorder*, $Insets*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
-	{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintIcon, void, $Graphics*, $AbstractButton*, $Rectangle*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
-	{"setButtonMarginIfNeeded", "(Ljavax/swing/AbstractButton;Ljava/awt/Insets;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, setButtonMarginIfNeeded, void, $AbstractButton*, $Insets*)},
-	{"setButtonType", "(Ljavax/swing/AbstractButton;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, setButtonType, bool, $AbstractButton*, Object$*)},
-	{"setThemeBorder", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, setThemeBorder, void, $AbstractButton*)},
-	{"shouldInstallHierListener", "(Ljavax/swing/AbstractButton;)Z", nullptr, $PRIVATE, $method(AquaButtonUI, shouldInstallHierListener, bool, $AbstractButton*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{"uninstallHierListener", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallHierListener, void, $AbstractButton*)},
-	{"uninstallKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallKeyboardActions, void, $AbstractButton*)},
-	{"uninstallListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallListeners, void, $AbstractButton*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, uninstallUI, void, $JComponent*)},
-	{"updateBorder", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonUI, updateBorder, void, $AbstractButton*)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaButtonUI$AquaButtonListener", "com.apple.laf.AquaButtonUI", "AquaButtonListener", 0},
-	{"com.apple.laf.AquaButtonUI$AquaHierarchyButtonListener", "com.apple.laf.AquaButtonUI", "AquaHierarchyButtonListener", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonUI",
-	"javax.swing.plaf.basic.BasicButtonUI",
-	"com.apple.laf.AquaUtilControlSize$Sizeable",
-	_AquaButtonUI_FieldInfo_,
-	_AquaButtonUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonUI$AquaButtonListener,com.apple.laf.AquaButtonUI$AquaHierarchyButtonListener"
-};
-
-$Object* allocate$AquaButtonUI($Class* clazz) {
-	return $of($alloc(AquaButtonUI));
-}
 
 int32_t AquaButtonUI::hashCode() {
 	 return this->$BasicButtonUI::hashCode();
@@ -230,11 +147,11 @@ void AquaButtonUI::init$() {
 
 $ComponentUI* AquaButtonUI::createUI($JComponent* c) {
 	$init(AquaButtonUI);
-	return $cast($ComponentUI, $nc(AquaButtonUI::buttonUI)->get());
+	return $cast($ComponentUI, AquaButtonUI::buttonUI->get());
 }
 
 void AquaButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pp, getPropertyPrefix());
 	if (!this->defaults_initialized) {
 		$set(this, defaultDisabledTextColor, $UIManager::getColor($$str({pp, "disabledText"_s})));
@@ -265,7 +182,7 @@ void AquaButtonUI::applySizeFor($JComponent* c, $JRSUIConstants$Size* size) {
 }
 
 void AquaButtonUI::setThemeBorder($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonUI, genericUI, $cast($ButtonUI, $nc(b)->getUI()));
 	if (!($instanceOf(AquaButtonUI, genericUI))) {
 		return;
@@ -281,8 +198,8 @@ void AquaButtonUI::setThemeBorder($AbstractButton* b) {
 				$assign(border, $AquaButtonBorder::getBevelButtonBorder());
 			}
 		} else {
-			bool var$1 = b->getIcon() != nullptr;
-			if (var$1 || b->getComponentCount() > 0) {
+			bool var$0 = b->getIcon() != nullptr;
+			if (var$0 || b->getComponentCount() > 0) {
 				$assign(border, $AquaButtonBorder::getToggleButtonBorder());
 			} else {
 				$assign(border, $UIManager::getBorder($$str({$(getPropertyPrefix()), "border"_s})));
@@ -311,7 +228,7 @@ bool AquaButtonUI::isOnToolbar($AbstractButton* b) {
 
 void AquaButtonUI::updateBorder($AbstractButton* b) {
 	$init(AquaButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, prop, $nc(b)->getClientProperty(AquaButtonUI::BUTTON_TYPE));
 	if (prop != nullptr) {
 		return;
@@ -321,7 +238,7 @@ void AquaButtonUI::updateBorder($AbstractButton* b) {
 		return;
 	}
 	if (b->getBorder() != nullptr) {
-		$nc(($cast(AquaButtonUI, ui)))->setThemeBorder(b);
+		$nc($cast(AquaButtonUI, ui))->setThemeBorder(b);
 	}
 }
 
@@ -337,7 +254,7 @@ bool AquaButtonUI::isBorderFromProperty($AbstractButton* button) {
 }
 
 bool AquaButtonUI::setButtonType($AbstractButton* b, Object$* prop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($String, prop))) {
 		$nc(b)->putClientProperty(AquaButtonUI::BUTTON_TYPE, nullptr);
 		return false;
@@ -351,7 +268,7 @@ bool AquaButtonUI::setButtonType($AbstractButton* b, Object$* prop) {
 	}
 	$var($Font, currentFont, $nc(b)->getFont());
 	if (currentFont == nullptr || $instanceOf($UIResource, currentFont)) {
-		b->setFont($($UIManager::getFont(iconFont ? $of("IconButton.font"_s) : $of("Button.font"_s))));
+		b->setFont($($UIManager::getFont(iconFont ? "IconButton.font"_s : "Button.font"_s)));
 	}
 	return true;
 }
@@ -408,20 +325,14 @@ $BasicButtonListener* AquaButtonUI::createButtonListener($AbstractButton* b) {
 }
 
 $AquaButtonUI$AquaButtonListener* AquaButtonUI::getAquaButtonListener($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MouseMotionListenerArray, listeners, $nc(b)->getMouseMotionListeners());
 	if (listeners != nullptr) {
-		{
-			$var($MouseMotionListenerArray, arr$, listeners);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($MouseMotionListener, listener, arr$->get(i$));
-				{
-					if ($instanceOf($AquaButtonUI$AquaButtonListener, listener)) {
-						return $cast($AquaButtonUI$AquaButtonListener, listener);
-					}
-				}
+		$var($MouseMotionListenerArray, arr$, listeners);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($MouseMotionListener, listener, arr$->get(i$));
+			if ($instanceOf($AquaButtonUI$AquaButtonListener, listener)) {
+				return $cast($AquaButtonUI$AquaButtonListener, listener);
 			}
 		}
 	}
@@ -429,7 +340,7 @@ $AquaButtonUI$AquaButtonListener* AquaButtonUI::getAquaButtonListener($AbstractB
 }
 
 void AquaButtonUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($Insets, i, $nc(c)->getInsets());
@@ -442,11 +353,11 @@ void AquaButtonUI::paint($Graphics* g, $JComponent* c) {
 		g->fillRect(viewRect->x, viewRect->y, viewRect->width, viewRect->height);
 	}
 	$var($AquaButtonBorder, aquaBorder, nullptr);
-	if ($nc(($cast($AbstractButton, c)))->isBorderPainted()) {
+	if ($cast($AbstractButton, c)->isBorderPainted()) {
 		$var($Border, border, c->getBorder());
 		if ($instanceOf($AquaButtonBorder, border)) {
 			$assign(aquaBorder, $cast($AquaButtonBorder, border));
-			$nc(aquaBorder)->paintButton(c, g, viewRect->x, viewRect->y, viewRect->width, viewRect->height);
+			aquaBorder->paintButton(c, g, viewRect->x, viewRect->y, viewRect->width, viewRect->height);
 		}
 	} else {
 		if (b->isOpaque()) {
@@ -456,8 +367,8 @@ void AquaButtonUI::paint($Graphics* g, $JComponent* c) {
 			viewRect->height = b->getHeight() - (i->bottom + viewRect->y) + 4;
 			bool var$1 = b->isContentAreaFilled();
 			if (var$1 || $nc(model)->isSelected()) {
-				if (model->isSelected()) {
-					$nc(g)->setColor($($nc($(c->getBackground()))->darker()));
+				if ($nc(model)->isSelected()) {
+					$nc(g)->setColor($($$nc(c->getBackground())->darker()));
 				} else {
 					$nc(g)->setColor($(c->getBackground()));
 				}
@@ -488,34 +399,27 @@ void AquaButtonUI::paint($Graphics* g, $JComponent* c) {
 }
 
 $String* AquaButtonUI::layoutAndGetText($Graphics* g, $AbstractButton* b, $AquaButtonBorder* aquaBorder, $Insets* i, $Rectangle* viewRect, $Rectangle* iconRect, $Rectangle* textRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(viewRect)->x = $nc(i)->left;
 	viewRect->y = i->top;
 	viewRect->width = $nc(b)->getWidth() - (i->right + viewRect->x);
 	viewRect->height = b->getHeight() - (i->bottom + viewRect->y);
-	$nc(textRect)->x = (textRect->y = (textRect->width = (textRect->height = 0)));
-	$nc(iconRect)->x = (iconRect->y = (iconRect->width = (iconRect->height = 0)));
+	$nc(textRect)->x = ($nc(textRect)->y = ($nc(textRect)->width = ($nc(textRect)->height = 0)));
+	$nc(iconRect)->x = ($nc(iconRect)->y = ($nc(iconRect)->width = ($nc(iconRect)->height = 0)));
 	$nc(g)->setFont($(b->getFont()));
 	$var($FontMetrics, fm, g->getFontMetrics());
 	$var($String, originalText, b->getText());
-	$var($JComponent, var$0, static_cast<$JComponent*>(b));
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, originalText);
-	$var($Icon, var$3, b->getIcon());
-	int32_t var$4 = b->getVerticalAlignment();
-	int32_t var$5 = b->getHorizontalAlignment();
-	int32_t var$6 = b->getVerticalTextPosition();
-	int32_t var$7 = b->getHorizontalTextPosition();
-	$var($Rectangle, var$8, viewRect);
-	$var($Rectangle, var$9, iconRect);
-	$var($Rectangle, var$10, textRect);
-	$var($String, text, $SwingUtilities::layoutCompoundLabel(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, originalText == nullptr ? 0 : b->getIconTextGap()));
+	$var($Icon, var$0, b->getIcon());
+	int32_t var$1 = b->getVerticalAlignment();
+	int32_t var$2 = b->getHorizontalAlignment();
+	int32_t var$3 = b->getVerticalTextPosition();
+	int32_t var$4 = b->getHorizontalTextPosition();
+	$var($String, text, $SwingUtilities::layoutCompoundLabel(b, fm, originalText, var$0, var$1, var$2, var$3, var$4, viewRect, iconRect, textRect, originalText == nullptr ? 0 : b->getIconTextGap()));
 	if (text == originalText || aquaBorder == nullptr) {
 		return text;
 	}
-	$var($AbstractButton, var$11, b);
-	int32_t var$12 = b->getWidth();
-	$var($Insets, alternateContentInsets, $nc(aquaBorder)->getContentInsets(var$11, var$12, b->getHeight()));
+	int32_t var$5 = b->getWidth();
+	$var($Insets, alternateContentInsets, $nc(aquaBorder)->getContentInsets(b, var$5, b->getHeight()));
 	if (alternateContentInsets != nullptr) {
 		return layoutAndGetText(g, b, nullptr, alternateContentInsets, viewRect, iconRect, textRect);
 	}
@@ -523,7 +427,7 @@ $String* AquaButtonUI::layoutAndGetText($Graphics* g, $AbstractButton* b, $AquaB
 }
 
 void AquaButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle* localIconRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($Icon, icon, b->getIcon());
 	$var($Icon, tmpIcon, nullptr);
@@ -537,17 +441,17 @@ void AquaButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle* local
 			$assign(tmpIcon, b->getDisabledIcon());
 		}
 	} else {
-		bool var$1 = model->isPressed();
-		if (var$1 && model->isArmed()) {
+		bool var$0 = model->isPressed();
+		if (var$0 && model->isArmed()) {
 			$assign(tmpIcon, b->getPressedIcon());
 			if (tmpIcon == nullptr) {
 				if ($instanceOf($ImageIcon, icon)) {
-					$assign(tmpIcon, $new($ImageIcon, $($AquaUtils::generateSelectedDarkImage($($nc(($cast($ImageIcon, icon)))->getImage())))));
+					$assign(tmpIcon, $new($ImageIcon, $($AquaUtils::generateSelectedDarkImage($($cast($ImageIcon, icon)->getImage())))));
 				}
 			}
 		} else {
-			bool var$3 = b->isRolloverEnabled();
-			if (var$3 && model->isRollover()) {
+			bool var$1 = b->isRolloverEnabled();
+			if (var$1 && model->isRollover()) {
 				if (model->isSelected()) {
 					$assign(tmpIcon, b->getRolloverSelectedIcon());
 				} else {
@@ -558,26 +462,26 @@ void AquaButtonUI::paintIcon($Graphics* g, $AbstractButton* b, $Rectangle* local
 			}
 		}
 	}
-	bool var$5 = $nc(model)->isEnabled();
-	bool var$4 = var$5 && b->isFocusOwner();
-	if (var$4 && $instanceOf($AquaButtonBorder$Toolbar, $(b->getBorder()))) {
+	bool var$3 = model->isEnabled();
+	bool var$2 = var$3 && b->isFocusOwner();
+	if (var$2 && $instanceOf($AquaButtonBorder$Toolbar, $(b->getBorder()))) {
 		if (tmpIcon == nullptr) {
 			$assign(tmpIcon, icon);
 		}
 		if ($instanceOf($ImageIcon, tmpIcon)) {
 			$assign(tmpIcon, $AquaFocus::createFocusedIcon(tmpIcon, b, 3));
-			$nc(tmpIcon)->paintIcon(b, g, $nc(localIconRect)->x - 3, localIconRect->y - 3);
+			$nc(tmpIcon)->paintIcon(b, g, $nc(localIconRect)->x - 3, $nc(localIconRect)->y - 3);
 			return;
 		}
 	}
 	if (tmpIcon != nullptr) {
 		$assign(icon, tmpIcon);
 	}
-	$nc(icon)->paintIcon(b, g, $nc(localIconRect)->x, localIconRect->y);
+	$nc(icon)->paintIcon(b, g, $nc(localIconRect)->x, $nc(localIconRect)->y);
 }
 
 void AquaButtonUI::paintText($Graphics* g, $JComponent* c, $Rectangle* localTextRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics2D, g2d, $instanceOf($Graphics2D, g) ? $cast($Graphics2D, g) : ($Graphics2D*)nullptr);
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
@@ -588,11 +492,11 @@ void AquaButtonUI::paintText($Graphics* g, $JComponent* c, $Rectangle* localText
 	} else {
 		g->setColor(this->defaultDisabledTextColor);
 	}
-	$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemonicIndex, $nc(localTextRect)->x, localTextRect->y + $nc(fm)->getAscent());
+	$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemonicIndex, $nc(localTextRect)->x, $nc(localTextRect)->y + $nc(fm)->getAscent());
 }
 
 void AquaButtonUI::paintText($Graphics* g, $AbstractButton* b, $Rectangle* localTextRect, $String* text) {
-	paintText(g, static_cast<$JComponent*>(b), localTextRect, text);
+	paintText(g, $cast($JComponent, b), localTextRect, text);
 }
 
 void AquaButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
@@ -600,7 +504,7 @@ void AquaButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
 }
 
 $Dimension* AquaButtonUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -612,21 +516,21 @@ $Dimension* AquaButtonUI::getMinimumSize($JComponent* c) {
 }
 
 $Dimension* AquaButtonUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($Dimension, d, $BasicGraphicsUtils::getPreferredButtonSize(b, $nc(b)->getIconTextGap()));
 	if (d == nullptr) {
 		return nullptr;
 	}
-	$var($Border, border, $nc(b)->getBorder());
+	$var($Border, border, b->getBorder());
 	if ($instanceOf($AquaButtonBorder, border)) {
-		$nc(($cast($AquaButtonBorder, border)))->alterPreferredSize(d);
+		$cast($AquaButtonBorder, border)->alterPreferredSize(d);
 	}
 	return d;
 }
 
 $Dimension* AquaButtonUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -639,7 +543,7 @@ $Dimension* AquaButtonUI::getMaximumSize($JComponent* c) {
 
 $AquaButtonUI$AquaHierarchyButtonListener* AquaButtonUI::getAquaHierarchyButtonListener() {
 	$init(AquaButtonUI);
-	return $cast($AquaButtonUI$AquaHierarchyButtonListener, $nc(AquaButtonUI::fHierListener)->get());
+	return $cast($AquaButtonUI$AquaHierarchyButtonListener, AquaButtonUI::fHierListener->get());
 }
 
 bool AquaButtonUI::shouldInstallHierListener($AbstractButton* b) {
@@ -658,7 +562,7 @@ void AquaButtonUI::uninstallHierListener($AbstractButton* b) {
 	}
 }
 
-void clinit$AquaButtonUI($Class* class$) {
+void AquaButtonUI::clinit$($Class* clazz) {
 	$assignStatic(AquaButtonUI::BUTTON_TYPE, "JButton.buttonType"_s);
 	$assignStatic(AquaButtonUI::SEGMENTED_BUTTON_POSITION, "JButton.segmentPosition"_s);
 	$assignStatic(AquaButtonUI::buttonUI, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaButtonUI::class$));
@@ -670,7 +574,77 @@ AquaButtonUI::AquaButtonUI() {
 }
 
 $Class* AquaButtonUI::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonUI, name, initialize, &_AquaButtonUI_ClassInfo_, clinit$AquaButtonUI, allocate$AquaButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUTTON_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, BUTTON_TYPE)},
+		{"SEGMENTED_BUTTON_POSITION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, SEGMENTED_BUTTON_POSITION)},
+		{"buttonUI", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, buttonUI)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(AquaButtonUI, defaults_initialized)},
+		{"defaultDisabledTextColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaButtonUI, defaultDisabledTextColor)},
+		{"fHierListener", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonUI$AquaHierarchyButtonListener;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonUI, fHierListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonUI, init$, void)},
+		{"applySizeFor", "(Ljavax/swing/JComponent;Lapple/laf/JRSUIConstants$Size;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, applySizeFor, void, $JComponent*, $JRSUIConstants$Size*)},
+		{"createButtonListener", "(Ljavax/swing/AbstractButton;)Lcom/apple/laf/AquaButtonUI$AquaButtonListener;", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, createButtonListener, $BasicButtonListener*, $AbstractButton*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getAquaButtonListener", "(Ljavax/swing/AbstractButton;)Lcom/apple/laf/AquaButtonUI$AquaButtonListener;", nullptr, $PRIVATE, $method(AquaButtonUI, getAquaButtonListener, $AquaButtonUI$AquaButtonListener*, $AbstractButton*)},
+		{"getAquaHierarchyButtonListener", "()Lcom/apple/laf/AquaButtonUI$AquaHierarchyButtonListener;", nullptr, $STATIC, $staticMethod(AquaButtonUI, getAquaHierarchyButtonListener, $AquaButtonUI$AquaHierarchyButtonListener*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installDefaults, void, $AbstractButton*)},
+		{"installHierListener", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installHierListener, void, $AbstractButton*)},
+		{"installKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installKeyboardActions, void, $AbstractButton*)},
+		{"installListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, installListeners, void, $AbstractButton*)},
+		{"isBorderFromProperty", "(Ljavax/swing/AbstractButton;)Z", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, isBorderFromProperty, bool, $AbstractButton*)},
+		{"isOnToolbar", "(Ljavax/swing/AbstractButton;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonUI, isOnToolbar, bool, $AbstractButton*)},
+		{"layoutAndGetText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Lcom/apple/laf/AquaButtonBorder;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, layoutAndGetText, $String*, $Graphics*, $AbstractButton*, $AquaButtonBorder*, $Insets*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
+		{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintIcon, void, $Graphics*, $AbstractButton*, $Rectangle*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
+		{"setButtonMarginIfNeeded", "(Ljavax/swing/AbstractButton;Ljava/awt/Insets;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, setButtonMarginIfNeeded, void, $AbstractButton*, $Insets*)},
+		{"setButtonType", "(Ljavax/swing/AbstractButton;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, setButtonType, bool, $AbstractButton*, Object$*)},
+		{"setThemeBorder", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, setThemeBorder, void, $AbstractButton*)},
+		{"shouldInstallHierListener", "(Ljavax/swing/AbstractButton;)Z", nullptr, $PRIVATE, $method(AquaButtonUI, shouldInstallHierListener, bool, $AbstractButton*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{"uninstallHierListener", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallHierListener, void, $AbstractButton*)},
+		{"uninstallKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallKeyboardActions, void, $AbstractButton*)},
+		{"uninstallListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI, uninstallListeners, void, $AbstractButton*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI, uninstallUI, void, $JComponent*)},
+		{"updateBorder", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonUI, updateBorder, void, $AbstractButton*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$Sizeable", "com.apple.laf.AquaUtilControlSize", "Sizeable", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaButtonUI$AquaButtonListener", "com.apple.laf.AquaButtonUI", "AquaButtonListener", 0},
+		{"com.apple.laf.AquaButtonUI$AquaHierarchyButtonListener", "com.apple.laf.AquaButtonUI", "AquaHierarchyButtonListener", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonUI",
+		"javax.swing.plaf.basic.BasicButtonUI",
+		"com.apple.laf.AquaUtilControlSize$Sizeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonUI$AquaButtonListener,com.apple.laf.AquaButtonUI$AquaHierarchyButtonListener"
+	};
+	$loadClass(AquaButtonUI, name, initialize, &classInfo$$, AquaButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonUI));
+	});
 	return class$;
 }
 

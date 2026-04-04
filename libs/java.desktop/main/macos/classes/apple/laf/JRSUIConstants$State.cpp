@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$State.h>
-
 #include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants.h>
@@ -26,61 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIConstants$State_FieldInfo_[] = {
-	{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, SHIFT)},
-	{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, SIZE)},
-	{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, MASK)},
-	{"state", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$State, state)},
-	{"_active", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _active)},
-	{"ACTIVE", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, ACTIVE)},
-	{"_inactive", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _inactive)},
-	{"INACTIVE", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, INACTIVE)},
-	{"_disabled", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _disabled)},
-	{"DISABLED", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, DISABLED)},
-	{"_pressed", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _pressed)},
-	{"PRESSED", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, PRESSED)},
-	{"_pulsed", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _pulsed)},
-	{"PULSED", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, PULSED)},
-	{"_rollover", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _rollover)},
-	{"ROLLOVER", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, ROLLOVER)},
-	{"_drag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _drag)},
-	{"DRAG", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, DRAG)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$State_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$State, init$, void, int8_t)},
-	{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$State, apply, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$State, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$State_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$State", "apple.laf.JRSUIConstants", "State", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$State_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIConstants$State",
-	"apple.laf.JRSUIConstants$Property",
-	nullptr,
-	_JRSUIConstants$State_FieldInfo_,
-	_JRSUIConstants$State_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$State($Class* clazz) {
-	return $of($alloc(JRSUIConstants$State));
-}
-
 $JRSUIConstants$PropertyEncoding* JRSUIConstants$State::state = nullptr;
 JRSUIConstants$State* JRSUIConstants$State::ACTIVE = nullptr;
 JRSUIConstants$State* JRSUIConstants$State::INACTIVE = nullptr;
@@ -102,7 +46,7 @@ int64_t JRSUIConstants$State::apply(int64_t encodedState) {
 	return $JRSUIConstants$Property::apply(encodedState);
 }
 
-void clinit$JRSUIConstants$State($Class* class$) {
+void JRSUIConstants$State::clinit$($Class* clazz) {
 	$assignStatic(JRSUIConstants$State::state, $new($JRSUIConstants$PropertyEncoding, JRSUIConstants$State::MASK, JRSUIConstants$State::SHIFT));
 	$assignStatic(JRSUIConstants$State::ACTIVE, $new(JRSUIConstants$State, JRSUIConstants$State::_active));
 	$assignStatic(JRSUIConstants$State::INACTIVE, $new(JRSUIConstants$State, JRSUIConstants$State::_inactive));
@@ -117,7 +61,56 @@ JRSUIConstants$State::JRSUIConstants$State() {
 }
 
 $Class* JRSUIConstants$State::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$State, name, initialize, &_JRSUIConstants$State_ClassInfo_, clinit$JRSUIConstants$State, allocate$JRSUIConstants$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, SHIFT)},
+		{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, SIZE)},
+		{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, MASK)},
+		{"state", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$State, state)},
+		{"_active", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _active)},
+		{"ACTIVE", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, ACTIVE)},
+		{"_inactive", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _inactive)},
+		{"INACTIVE", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, INACTIVE)},
+		{"_disabled", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _disabled)},
+		{"DISABLED", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, DISABLED)},
+		{"_pressed", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _pressed)},
+		{"PRESSED", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, PRESSED)},
+		{"_pulsed", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _pulsed)},
+		{"PULSED", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, PULSED)},
+		{"_rollover", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _rollover)},
+		{"ROLLOVER", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, ROLLOVER)},
+		{"_drag", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$State, _drag)},
+		{"DRAG", "Lapple/laf/JRSUIConstants$State;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$State, DRAG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$State, init$, void, int8_t)},
+		{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$State, apply, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$State, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$State", "apple.laf.JRSUIConstants", "State", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIConstants$State",
+		"apple.laf.JRSUIConstants$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$State, name, initialize, &classInfo$$, JRSUIConstants$State::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$State);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serialize/XMLSerializer.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMErrorImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
@@ -62,32 +61,25 @@ using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::Namesp
 using $BaseMarkupSerializer = ::com::sun::org::apache::xml::internal::serialize::BaseMarkupSerializer;
 using $DOMSerializerImpl = ::com::sun::org::apache::xml::internal::serialize::DOMSerializerImpl;
 using $ElementState = ::com::sun::org::apache::xml::internal::serialize::ElementState;
-using $EncodingInfo = ::com::sun::org::apache::xml::internal::serialize::EncodingInfo;
 using $Method = ::com::sun::org::apache::xml::internal::serialize::Method;
 using $OutputFormat = ::com::sun::org::apache::xml::internal::serialize::OutputFormat;
-using $Printer = ::com::sun::org::apache::xml::internal::serialize::Printer;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Attr = ::org::w3c::dom::Attr;
 using $DOMError = ::org::w3c::dom::DOMError;
-using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;
 using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
-using $LSSerializerFilter = ::org::w3c::dom::ls::LSSerializerFilter;
 using $NodeFilter = ::org::w3c::dom::traversal::NodeFilter;
 using $AttributeList = ::org::xml::sax::AttributeList;
 using $Attributes = ::org::xml::sax::Attributes;
@@ -101,67 +93,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serialize {
-
-$CompoundAttribute _XMLSerializer_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _XMLSerializer_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLSerializer, DEBUG)},
-	{"fNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XMLSerializer, fNSBinder)},
-	{"fLocalNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XMLSerializer, fLocalNSBinder)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XMLSerializer, fSymbolTable)},
-	{"PREFIX", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLSerializer, PREFIX)},
-	{"fNamespaces", "Z", nullptr, $PROTECTED, $field(XMLSerializer, fNamespaces)},
-	{"fNamespacePrefixes", "Z", nullptr, $PROTECTED, $field(XMLSerializer, fNamespacePrefixes)},
-	{"fPreserveSpace", "Z", nullptr, $PRIVATE, $field(XMLSerializer, fPreserveSpace)},
-	{}
-};
-
-$MethodInfo _XMLSerializer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void, $OutputFormat*)},
-	{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void, $Writer*, $OutputFormat*)},
-	{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void, $OutputStream*, $OutputFormat*)},
-	{"checkUnboundNamespacePrefixedNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, checkUnboundNamespacePrefixedNode, void, $Node*), "java.io.IOException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"endElementIO", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, endElementIO, void, $String*, $String*, $String*), "java.io.IOException"},
-	{"extractNamespaces", "(Lorg/xml/sax/Attributes;)Lorg/xml/sax/Attributes;", nullptr, $PRIVATE, $method(XMLSerializer, extractNamespaces, $Attributes*, $Attributes*), "org.xml.sax.SAXException"},
-	{"getEntityRef", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, getEntityRef, $String*, int32_t)},
-	{"printAttribute", "(Ljava/lang/String;Ljava/lang/String;ZLorg/w3c/dom/Attr;)V", nullptr, $PRIVATE, $method(XMLSerializer, printAttribute, void, $String*, $String*, bool, $Attr*), "java.io.IOException"},
-	{"printEscaped", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printEscaped, void, $String*), "java.io.IOException"},
-	{"printNamespaceAttr", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLSerializer, printNamespaceAttr, void, $String*, $String*), "java.io.IOException"},
-	{"printText", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printText, void, $String*, bool, bool), "java.io.IOException"},
-	{"printText", "([CIIZZ)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printText, void, $chars*, int32_t, int32_t, bool, bool), "java.io.IOException"},
-	{"printXMLChar", "(I)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printXMLChar, void, int32_t), "java.io.IOException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, reset, bool)},
-	{"serializeElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, serializeElement, void, $Element*), "java.io.IOException"},
-	{"setNamespaces", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, setNamespaces, void, bool)},
-	{"setOutputFormat", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, setOutputFormat, void, $OutputFormat*)},
-	{"startDocument", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, startDocument, void, $String*), "java.io.IOException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, startElement, void, $String*, $AttributeList*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _XMLSerializer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serialize.XMLSerializer",
-	"com.sun.org.apache.xml.internal.serialize.BaseMarkupSerializer",
-	nullptr,
-	_XMLSerializer_FieldInfo_,
-	_XMLSerializer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLSerializer_Annotations_
-};
-
-$Object* allocate$XMLSerializer($Class* clazz) {
-	return $of($alloc(XMLSerializer));
-}
 
 $String* XMLSerializer::PREFIX = nullptr;
 
@@ -213,7 +144,7 @@ void XMLSerializer::setNamespaces(bool namespaces) {
 }
 
 void XMLSerializer::startElement($String* namespaceURI, $String* localName, $String* rawName$renamed, $Attributes* attrs$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, rawName, rawName$renamed);
 	$var($Attributes, attrs, attrs$renamed);
 	int32_t i = 0;
@@ -221,6 +152,7 @@ void XMLSerializer::startElement($String* namespaceURI, $String* localName, $Str
 	$var($ElementState, state, nullptr);
 	$var($String, name, nullptr);
 	$var($String, value, nullptr);
+	;
 	try {
 		if (this->_printer == nullptr) {
 			$init($DOMMessageFormatter);
@@ -230,23 +162,23 @@ void XMLSerializer::startElement($String* namespaceURI, $String* localName, $Str
 		$assign(state, getElementState());
 		if (isDocumentState()) {
 			if (!this->_started) {
-				startDocument((localName == nullptr || $nc(localName)->length() == 0) ? rawName : localName);
+				startDocument((localName == nullptr || localName->length() == 0) ? rawName : localName);
 			}
 		} else {
 			if ($nc(state)->empty) {
 				$nc(this->_printer)->printText(u'>');
 			}
-			if ($nc(state)->inCData) {
+			if (state->inCData) {
 				$nc(this->_printer)->printText("]]>"_s);
 				state->inCData = false;
 			}
-			if (this->_indenting && !$nc(state)->preserveSpace && (state->empty || $nc(state)->afterElement || $nc(state)->afterComment)) {
+			if (this->_indenting && !state->preserveSpace && (state->empty || state->afterElement || state->afterComment)) {
 				$nc(this->_printer)->breakLine();
 			}
 		}
 		preserveSpace = $nc(state)->preserveSpace;
 		$assign(attrs, extractNamespaces(attrs));
-		if (rawName == nullptr || $nc(rawName)->length() == 0) {
+		if (rawName == nullptr || rawName->length() == 0) {
 			if (localName == nullptr) {
 				$init($DOMMessageFormatter);
 				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "NoName"_s, nullptr));
@@ -276,10 +208,10 @@ void XMLSerializer::startElement($String* namespaceURI, $String* localName, $Str
 					$var($String, attrURI, nullptr);
 					$assign(name, attrs->getLocalName(i));
 					$assign(attrURI, attrs->getURI(i));
-					bool var$0 = (attrURI != nullptr && attrURI->length() != 0);
+					bool var$0 = attrURI != nullptr && attrURI->length() != 0;
 					if (var$0) {
-						bool var$1 = namespaceURI == nullptr || $nc(namespaceURI)->length() == 0;
-						var$0 = (var$1 || !attrURI->equals(namespaceURI));
+						bool var$1 = namespaceURI == nullptr || namespaceURI->length() == 0;
+						var$0 = var$1 || !attrURI->equals(namespaceURI);
 					}
 					if (var$0) {
 						$assign(prefix, getPrefix(attrURI));
@@ -306,35 +238,33 @@ void XMLSerializer::startElement($String* namespaceURI, $String* localName, $Str
 			}
 		}
 		if (this->_prefixes != nullptr) {
-			{
-				$var($Iterator, i$, $nc($($nc(this->_prefixes)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						$nc(this->_printer)->printSpace();
-						$assign(value, $cast($String, $nc(entry)->getKey()));
-						$assign(name, $cast($String, entry->getValue()));
-						if ($nc(name)->length() == 0) {
-							$nc(this->_printer)->printText("xmlns=\""_s);
-							printEscaped(value);
-							$nc(this->_printer)->printText(u'\"');
-						} else {
-							$nc(this->_printer)->printText("xmlns:"_s);
-							$nc(this->_printer)->printText(name);
-							$nc(this->_printer)->printText("=\""_s);
-							printEscaped(value);
-							$nc(this->_printer)->printText(u'\"');
-						}
+			$var($Iterator, i$, $$nc(this->_prefixes->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					$nc(this->_printer)->printSpace();
+					$assign(value, $cast($String, $nc(entry)->getKey()));
+					$assign(name, $cast($String, entry->getValue()));
+					if ($nc(name)->length() == 0) {
+						$nc(this->_printer)->printText("xmlns=\""_s);
+						printEscaped(value);
+						$nc(this->_printer)->printText(u'\"');
+					} else {
+						$nc(this->_printer)->printText("xmlns:"_s);
+						$nc(this->_printer)->printText(name);
+						$nc(this->_printer)->printText("=\""_s);
+						printEscaped(value);
+						$nc(this->_printer)->printText(u'\"');
 					}
 				}
 			}
 		}
 		$assign(state, enterElementState(namespaceURI, localName, rawName, preserveSpace));
-		$assign(name, (localName == nullptr || $nc(localName)->length() == 0) ? rawName : $str({namespaceURI, "^"_s, localName}));
-		state->doCData = $nc(this->_format)->isCDataElement(name);
+		$assign(name, (localName == nullptr || localName->length() == 0) ? rawName : $str({namespaceURI, "^"_s, localName}));
+		$nc(state)->doCData = $nc(this->_format)->isCDataElement(name);
 		state->unescaped = $nc(this->_format)->isNonEscapingElement(name);
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
@@ -342,12 +272,13 @@ void XMLSerializer::endElement($String* namespaceURI, $String* localName, $Strin
 	try {
 		endElementIO(namespaceURI, localName, rawName);
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
 void XMLSerializer::endElementIO($String* namespaceURI, $String* localName, $String* rawName) {
 	$var($ElementState, state, nullptr);
+	;
 	$nc(this->_printer)->unindent();
 	$assign(state, getElementState());
 	if ($nc(state)->empty) {
@@ -373,12 +304,13 @@ void XMLSerializer::endElementIO($String* namespaceURI, $String* localName, $Str
 }
 
 void XMLSerializer::startElement($String* tagName, $AttributeList* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool preserveSpace = false;
 	$var($ElementState, state, nullptr);
 	$var($String, name, nullptr);
 	$var($String, value, nullptr);
+	;
 	try {
 		if (this->_printer == nullptr) {
 			$init($DOMMessageFormatter);
@@ -394,11 +326,11 @@ void XMLSerializer::startElement($String* tagName, $AttributeList* attrs) {
 			if ($nc(state)->empty) {
 				$nc(this->_printer)->printText(u'>');
 			}
-			if ($nc(state)->inCData) {
+			if (state->inCData) {
 				$nc(this->_printer)->printText("]]>"_s);
 				state->inCData = false;
 			}
-			if (this->_indenting && !$nc(state)->preserveSpace && (state->empty || $nc(state)->afterElement || $nc(state)->afterComment)) {
+			if (this->_indenting && !state->preserveSpace && (state->empty || state->afterElement || state->afterComment)) {
 				$nc(this->_printer)->breakLine();
 			}
 		}
@@ -427,10 +359,10 @@ void XMLSerializer::startElement($String* tagName, $AttributeList* attrs) {
 			}
 		}
 		$assign(state, enterElementState(nullptr, nullptr, tagName, preserveSpace));
-		state->doCData = $nc(this->_format)->isCDataElement(tagName);
+		$nc(state)->doCData = $nc(this->_format)->isCDataElement(tagName);
 		state->unescaped = $nc(this->_format)->isNonEscapingElement(tagName);
 	} catch ($IOException& except) {
-		$throwNew($SAXException, static_cast<$Exception*>(except));
+		$throwNew($SAXException, except);
 	}
 }
 
@@ -439,7 +371,7 @@ void XMLSerializer::endElement($String* tagName) {
 }
 
 void XMLSerializer::startDocument($String* rootTagName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	$var($String, dtd, nullptr);
 	$assign(dtd, $nc(this->_printer)->leaveDTD());
@@ -508,7 +440,7 @@ void XMLSerializer::startDocument($String* rootTagName) {
 }
 
 void XMLSerializer::serializeElement($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attr, attr, nullptr);
 	$var($NamedNodeMap, attrMap, nullptr);
 	int32_t i = 0;
@@ -524,6 +456,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 		$nc(this->fLocalNSBinder)->reset();
 		$nc(this->fNSBinder)->pushContext();
 	}
+	;
 	$assign(tagName, $nc(elem)->getTagName());
 	$assign(state, getElementState());
 	if (isDocumentState()) {
@@ -534,11 +467,11 @@ void XMLSerializer::serializeElement($Element* elem) {
 		if ($nc(state)->empty) {
 			$nc(this->_printer)->printText(u'>');
 		}
-		if ($nc(state)->inCData) {
+		if (state->inCData) {
 			$nc(this->_printer)->printText("]]>"_s);
 			state->inCData = false;
 		}
-		if (this->_indenting && !$nc(state)->preserveSpace && (state->empty || $nc(state)->afterElement || $nc(state)->afterComment)) {
+		if (this->_indenting && !state->preserveSpace && (state->empty || state->afterElement || state->afterComment)) {
 			$nc(this->_printer)->breakLine();
 		}
 	}
@@ -586,7 +519,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 				} else {
 					$assign(prefix, attr->getPrefix());
 					$init($XMLSymbols);
-					$assign(prefix, (prefix == nullptr || $nc(prefix)->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
+					$assign(prefix, (prefix == nullptr || prefix->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
 					$var($String, localpart, $nc(this->fSymbolTable)->addSymbol($(attr->getLocalName())));
 					if (prefix == $XMLSymbols::PREFIX_XMLNS) {
 						$assign(value, $nc(this->fSymbolTable)->addSymbol(value));
@@ -618,7 +551,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 		if (uri != nullptr) {
 			$assign(uri, $nc(this->fSymbolTable)->addSymbol(uri));
 			$init($XMLSymbols);
-			$assign(prefix, (prefix == nullptr || $nc(prefix)->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
+			$assign(prefix, (prefix == nullptr || prefix->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
 			if ($nc(this->fNSBinder)->getURI(prefix) == uri) {
 			} else {
 				if (this->fNamespacePrefixes) {
@@ -630,7 +563,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 		} else if (elem->getLocalName() == nullptr) {
 			if (this->fDOMErrorHandler != nullptr) {
 				$init($DOMMessageFormatter);
-				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NullLocalElementName"_s, $$new($ObjectArray, {$($of(elem->getNodeName()))})));
+				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NullLocalElementName"_s, $$new($ObjectArray, {$(elem->getNodeName())})));
 				modifyDOMError(msg, $DOMError::SEVERITY_ERROR, nullptr, elem);
 				bool continueProcess = $nc(this->fDOMErrorHandler)->handleError(this->fDOMError);
 				if (!continueProcess) {
@@ -657,6 +590,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 				$assign(uri, nullptr);
 				$assign(name, attr->getLocalName());
 			}
+			;
 			if (value == nullptr) {
 				$init($XMLSymbols);
 				$assign(value, $XMLSymbols::EMPTY_STRING);
@@ -669,7 +603,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 				$init($NamespaceContext);
 				if (uri != nullptr && uri->equals($NamespaceContext::XMLNS_URI)) {
 					$assign(prefix, attr->getPrefix());
-					$assign(prefix, (prefix == nullptr || $nc(prefix)->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
+					$assign(prefix, (prefix == nullptr || prefix->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
 					$assign(localpart, $nc(this->fSymbolTable)->addSymbol($(attr->getLocalName())));
 					if (prefix == $XMLSymbols::PREFIX_XMLNS) {
 						$assign(localUri, $nc(this->fLocalNSBinder)->getURI(localpart));
@@ -704,6 +638,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 						$assign(prefix, declaredPrefix);
 						$assign(name, $str({prefix, ":"_s, localpart}));
 					} else {
+						;
 						if (prefix != $XMLSymbols::EMPTY_STRING && $nc(this->fLocalNSBinder)->getURI(prefix) == nullptr) {
 						} else {
 							int32_t counter = 1;
@@ -725,7 +660,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 			} else if (attr->getLocalName() == nullptr) {
 				if (this->fDOMErrorHandler != nullptr) {
 					$init($DOMMessageFormatter);
-					$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NullLocalAttrName"_s, $$new($ObjectArray, {$($of(attr->getNodeName()))})));
+					$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NullLocalAttrName"_s, $$new($ObjectArray, {$(attr->getNodeName())})));
 					modifyDOMError(msg, $DOMError::SEVERITY_ERROR, nullptr, attr);
 					bool continueProcess = $nc(this->fDOMErrorHandler)->handleError(this->fDOMError);
 					if (!continueProcess) {
@@ -752,6 +687,7 @@ void XMLSerializer::serializeElement($Element* elem) {
 		}
 		endElementIO(nullptr, nullptr, tagName);
 	} else {
+		;
 		if (this->fNamespaces) {
 			$nc(this->fNSBinder)->popContext();
 		}
@@ -770,8 +706,10 @@ void XMLSerializer::printNamespaceAttr($String* prefix, $String* uri) {
 	$nc(this->_printer)->printSpace();
 	$init($XMLSymbols);
 	if (prefix == $XMLSymbols::EMPTY_STRING) {
+		;
 		$nc(this->_printer)->printText($XMLSymbols::PREFIX_XMLNS);
 	} else {
+		;
 		$nc(this->_printer)->printText($$str({"xmlns:"_s, prefix}));
 	}
 	$nc(this->_printer)->printText("=\""_s);
@@ -780,22 +718,17 @@ void XMLSerializer::printNamespaceAttr($String* prefix, $String* uri) {
 }
 
 void XMLSerializer::printAttribute($String* name, $String* value, bool isSpecified, $Attr* attr) {
-	if (isSpecified || ((int32_t)(this->features & (uint32_t)(int32_t)$DOMSerializerImpl::DISCARDDEFAULT)) == 0) {
-		if (this->fDOMFilter != nullptr && ((int32_t)($nc(this->fDOMFilter)->getWhatToShow() & (uint32_t)$NodeFilter::SHOW_ATTRIBUTE)) != 0) {
-			int16_t code = $nc(this->fDOMFilter)->acceptNode(attr);
+	if (isSpecified || (this->features & $DOMSerializerImpl::DISCARDDEFAULT) == 0) {
+		if (this->fDOMFilter != nullptr && (this->fDOMFilter->getWhatToShow() & $NodeFilter::SHOW_ATTRIBUTE) != 0) {
+			int16_t code = this->fDOMFilter->acceptNode(attr);
 			switch (code) {
 			case $NodeFilter::FILTER_REJECT:
-				{}
 			case $NodeFilter::FILTER_SKIP:
 				{
-					{
-						return;
-					}
+					return;
 				}
 			default:
 				{
-					{
-					}
 				}
 			}
 		}
@@ -817,31 +750,21 @@ void XMLSerializer::printAttribute($String* name, $String* value, bool isSpecifi
 $String* XMLSerializer::getEntityRef(int32_t ch) {
 	switch (ch) {
 	case u'<':
-		{
-			return "lt"_s;
-		}
+		return "lt"_s;
 	case u'>':
-		{
-			return "gt"_s;
-		}
+		return "gt"_s;
 	case u'\"':
-		{
-			return "quot"_s;
-		}
+		return "quot"_s;
 	case u'\'':
-		{
-			return "apos"_s;
-		}
+		return "apos"_s;
 	case u'&':
-		{
-			return "amp"_s;
-		}
+		return "amp"_s;
 	}
 	return nullptr;
 }
 
 $Attributes* XMLSerializer::extractNamespaces($Attributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributesImpl, attrsOnly, nullptr);
 	$var($String, rawName, nullptr);
 	int32_t i = 0;
@@ -868,7 +791,7 @@ $Attributes* XMLSerializer::extractNamespaces($Attributes* attrs) {
 }
 
 void XMLSerializer::printEscaped($String* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(source)->length();
 	for (int32_t i = 0; i < length; ++i) {
 		int32_t ch = source->charAt(i);
@@ -913,7 +836,7 @@ void XMLSerializer::printXMLChar(int32_t ch) {
 }
 
 void XMLSerializer::printText($String* text, bool preserveSpace, bool unescaped) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	char16_t ch = 0;
 	int32_t length = $nc(text)->length();
@@ -955,7 +878,7 @@ void XMLSerializer::printText($String* text, bool preserveSpace, bool unescaped)
 }
 
 void XMLSerializer::printText($chars* chars, int32_t start, int32_t length, bool preserveSpace, bool unescaped) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (preserveSpace) {
 		while (length-- > 0) {
 			char16_t ch = $nc(chars)->get(start++);
@@ -994,35 +917,45 @@ void XMLSerializer::printText($chars* chars, int32_t start, int32_t length, bool
 }
 
 void XMLSerializer::checkUnboundNamespacePrefixedNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fNamespaces) {
+		;
 		$var($Node, child, nullptr);
 		$var($Node, next, nullptr);
 		for ($assign(child, $nc(node)->getFirstChild()); child != nullptr; $assign(child, next)) {
-			$assign(next, $nc(child)->getNextSibling());
+			$assign(next, child->getNextSibling());
+			;
 			$var($String, prefix, child->getPrefix());
 			$init($XMLSymbols);
-			$assign(prefix, (prefix == nullptr || $nc(prefix)->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
+			$assign(prefix, (prefix == nullptr || prefix->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(prefix));
 			if ($nc(this->fNSBinder)->getURI(prefix) == nullptr && prefix != nullptr) {
-				$var($String, var$3, $$str({"The replacement text of the entity node \'"_s, $(node->getNodeName()), "\' contains an element node \'"_s}));
-				$var($String, var$2, $$concat(var$3, $(child->getNodeName())));
-				$var($String, var$1, $$concat(var$2, "\' with an undeclared prefix \'"_s));
-				$var($String, var$0, $$concat(var$1, prefix));
-				fatalError($$concat(var$0, "\'."_s));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("The replacement text of the entity node \'"_s);
+				var$0->append($(node->getNodeName()));
+				var$0->append("\' contains an element node \'"_s);
+				var$0->append($(child->getNodeName()));
+				var$0->append("\' with an undeclared prefix \'"_s);
+				var$0->append(prefix);
+				var$0->append("\'."_s);
+				fatalError($$str(var$0));
 			}
 			if (child->getNodeType() == $Node::ELEMENT_NODE) {
 				$var($NamedNodeMap, attrs, child->getAttributes());
 				for (int32_t i = 0; i < $nc(attrs)->getLength(); ++i) {
-					$var($String, attrPrefix, $nc($(attrs->item(i)))->getPrefix());
-					$assign(attrPrefix, (attrPrefix == nullptr || $nc(attrPrefix)->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(attrPrefix));
+					$var($String, attrPrefix, $$nc(attrs->item(i))->getPrefix());
+					$assign(attrPrefix, (attrPrefix == nullptr || attrPrefix->length() == 0) ? $XMLSymbols::EMPTY_STRING : $nc(this->fSymbolTable)->addSymbol(attrPrefix));
 					if ($nc(this->fNSBinder)->getURI(attrPrefix) == nullptr && attrPrefix != nullptr) {
-						$var($String, var$9, $$str({"The replacement text of the entity node \'"_s, $(node->getNodeName()), "\' contains an element node \'"_s}));
-						$var($String, var$8, $$concat(var$9, $(child->getNodeName())));
-						$var($String, var$7, $$concat(var$8, "\' with an attribute \'"_s));
-						$var($String, var$6, $$concat(var$7, $($nc($(attrs->item(i)))->getNodeName())));
-						$var($String, var$5, $$concat(var$6, "\' an undeclared prefix \'"_s));
-						$var($String, var$4, $$concat(var$5, attrPrefix));
-						fatalError($$concat(var$4, "\'."_s));
+						$var($StringBuilder, var$1, $new($StringBuilder));
+						var$1->append("The replacement text of the entity node \'"_s);
+						var$1->append($(node->getNodeName()));
+						var$1->append("\' contains an element node \'"_s);
+						var$1->append($(child->getNodeName()));
+						var$1->append("\' with an attribute \'"_s);
+						var$1->append($($$nc(attrs->item(i))->getNodeName()));
+						var$1->append("\' an undeclared prefix \'"_s);
+						var$1->append(attrPrefix);
+						var$1->append("\'."_s);
+						fatalError($$str(var$1));
 					}
 				}
 			}
@@ -1036,7 +969,7 @@ void XMLSerializer::checkUnboundNamespacePrefixedNode($Node* node) {
 bool XMLSerializer::reset() {
 	$BaseMarkupSerializer::reset();
 	if (this->fNSBinder != nullptr) {
-		$nc(this->fNSBinder)->reset();
+		this->fNSBinder->reset();
 		$init($XMLSymbols);
 		$nc(this->fNSBinder)->declarePrefix($XMLSymbols::EMPTY_STRING, $XMLSymbols::EMPTY_STRING);
 	}
@@ -1046,12 +979,67 @@ bool XMLSerializer::reset() {
 XMLSerializer::XMLSerializer() {
 }
 
-void clinit$XMLSerializer($Class* class$) {
+void XMLSerializer::clinit$($Class* clazz) {
 	$assignStatic(XMLSerializer::PREFIX, "NS"_s);
 }
 
 $Class* XMLSerializer::load$($String* name, bool initialize) {
-	$loadClass(XMLSerializer, name, initialize, &_XMLSerializer_ClassInfo_, clinit$XMLSerializer, allocate$XMLSerializer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XMLSerializer, DEBUG)},
+		{"fNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XMLSerializer, fNSBinder)},
+		{"fLocalNSBinder", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PROTECTED, $field(XMLSerializer, fLocalNSBinder)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(XMLSerializer, fSymbolTable)},
+		{"PREFIX", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(XMLSerializer, PREFIX)},
+		{"fNamespaces", "Z", nullptr, $PROTECTED, $field(XMLSerializer, fNamespaces)},
+		{"fNamespacePrefixes", "Z", nullptr, $PROTECTED, $field(XMLSerializer, fNamespacePrefixes)},
+		{"fPreserveSpace", "Z", nullptr, $PRIVATE, $field(XMLSerializer, fPreserveSpace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void, $OutputFormat*)},
+		{"<init>", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void, $Writer*, $OutputFormat*)},
+		{"<init>", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $method(XMLSerializer, init$, void, $OutputStream*, $OutputFormat*)},
+		{"checkUnboundNamespacePrefixedNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, checkUnboundNamespacePrefixedNode, void, $Node*), "java.io.IOException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"endElementIO", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, endElementIO, void, $String*, $String*, $String*), "java.io.IOException"},
+		{"extractNamespaces", "(Lorg/xml/sax/Attributes;)Lorg/xml/sax/Attributes;", nullptr, $PRIVATE, $method(XMLSerializer, extractNamespaces, $Attributes*, $Attributes*), "org.xml.sax.SAXException"},
+		{"getEntityRef", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, getEntityRef, $String*, int32_t)},
+		{"printAttribute", "(Ljava/lang/String;Ljava/lang/String;ZLorg/w3c/dom/Attr;)V", nullptr, $PRIVATE, $method(XMLSerializer, printAttribute, void, $String*, $String*, bool, $Attr*), "java.io.IOException"},
+		{"printEscaped", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printEscaped, void, $String*), "java.io.IOException"},
+		{"printNamespaceAttr", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLSerializer, printNamespaceAttr, void, $String*, $String*), "java.io.IOException"},
+		{"printText", "(Ljava/lang/String;ZZ)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printText, void, $String*, bool, bool), "java.io.IOException"},
+		{"printText", "([CIIZZ)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printText, void, $chars*, int32_t, int32_t, bool, bool), "java.io.IOException"},
+		{"printXMLChar", "(I)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, printXMLChar, void, int32_t), "java.io.IOException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, reset, bool)},
+		{"serializeElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, serializeElement, void, $Element*), "java.io.IOException"},
+		{"setNamespaces", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, setNamespaces, void, bool)},
+		{"setOutputFormat", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, setOutputFormat, void, $OutputFormat*)},
+		{"startDocument", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XMLSerializer, startDocument, void, $String*), "java.io.IOException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V", nullptr, $PUBLIC, $virtualMethod(XMLSerializer, startElement, void, $String*, $AttributeList*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serialize.XMLSerializer",
+		"com.sun.org.apache.xml.internal.serialize.BaseMarkupSerializer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(XMLSerializer, name, initialize, &classInfo$$, XMLSerializer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLSerializer));
+	});
 	return class$;
 }
 

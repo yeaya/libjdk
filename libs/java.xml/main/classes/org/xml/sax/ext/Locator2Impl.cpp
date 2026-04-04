@@ -1,5 +1,4 @@
 #include <org/xml/sax/ext/Locator2Impl.h>
-
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/ext/Locator2.h>
 #include <org/xml/sax/helpers/LocatorImpl.h>
@@ -16,44 +15,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace ext {
-
-$FieldInfo _Locator2Impl_FieldInfo_[] = {
-	{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Locator2Impl, encoding)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Locator2Impl, version)},
-	{}
-};
-
-$MethodInfo _Locator2Impl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getColumnNumber", "()I", nullptr, $PUBLIC},
-	{"*getLineNumber", "()I", nullptr, $PUBLIC},
-	{"*getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Locator2Impl, init$, void)},
-	{"<init>", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(Locator2Impl, init$, void, $Locator*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, getEncoding, $String*)},
-	{"getXMLVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, getXMLVersion, $String*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, setEncoding, void, $String*)},
-	{"setXMLVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, setXMLVersion, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Locator2Impl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.ext.Locator2Impl",
-	"org.xml.sax.helpers.LocatorImpl",
-	"org.xml.sax.ext.Locator2",
-	_Locator2Impl_FieldInfo_,
-	_Locator2Impl_MethodInfo_
-};
-
-$Object* allocate$Locator2Impl($Class* clazz) {
-	return $of($alloc(Locator2Impl));
-}
 
 $String* Locator2Impl::getPublicId() {
 	 return this->$LocatorImpl::getPublicId();
@@ -99,7 +60,7 @@ void Locator2Impl::init$($Locator* locator) {
 	$LocatorImpl::init$(locator);
 	if ($instanceOf($Locator2, locator)) {
 		$var($Locator2, l2, $cast($Locator2, locator));
-		$set(this, version, $nc(l2)->getXMLVersion());
+		$set(this, version, l2->getXMLVersion());
 		$set(this, encoding, l2->getEncoding());
 	}
 }
@@ -124,7 +85,40 @@ Locator2Impl::Locator2Impl() {
 }
 
 $Class* Locator2Impl::load$($String* name, bool initialize) {
-	$loadClass(Locator2Impl, name, initialize, &_Locator2Impl_ClassInfo_, allocate$Locator2Impl);
+	$FieldInfo fieldInfos$$[] = {
+		{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Locator2Impl, encoding)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Locator2Impl, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getColumnNumber", "()I", nullptr, $PUBLIC},
+		{"*getLineNumber", "()I", nullptr, $PUBLIC},
+		{"*getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Locator2Impl, init$, void)},
+		{"<init>", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $method(Locator2Impl, init$, void, $Locator*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, getEncoding, $String*)},
+		{"getXMLVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, getXMLVersion, $String*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, setEncoding, void, $String*)},
+		{"setXMLVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Locator2Impl, setXMLVersion, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.ext.Locator2Impl",
+		"org.xml.sax.helpers.LocatorImpl",
+		"org.xml.sax.ext.Locator2",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locator2Impl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Locator2Impl));
+	});
 	return class$;
 }
 

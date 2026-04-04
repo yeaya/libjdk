@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel$ColorAction.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel$ColorTriangle.h>
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel.h>
 #include <java/awt/Component.h>
@@ -10,7 +9,6 @@
 
 using $GTKColorChooserPanel = ::com::sun::java::swing::plaf::gtk::GTKColorChooserPanel;
 using $GTKColorChooserPanel$ColorTriangle = ::com::sun::java::swing::plaf::gtk::GTKColorChooserPanel$ColorTriangle;
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,112 +23,54 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKColorChooserPanel$ColorAction_FieldInfo_[] = {
-	{"type", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorAction, type)},
-	{}
-};
-
-$MethodInfo _GTKColorChooserPanel$ColorAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(GTKColorChooserPanel$ColorAction, init$, void, $String*, int32_t)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _GTKColorChooserPanel$ColorAction_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorAction", "com.sun.java.swing.plaf.gtk.GTKColorChooserPanel", "ColorAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GTKColorChooserPanel$ColorAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_GTKColorChooserPanel$ColorAction_FieldInfo_,
-	_GTKColorChooserPanel$ColorAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKColorChooserPanel$ColorAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel"
-};
-
-$Object* allocate$GTKColorChooserPanel$ColorAction($Class* clazz) {
-	return $of($alloc(GTKColorChooserPanel$ColorAction));
-}
-
 void GTKColorChooserPanel$ColorAction::init$($String* name, int32_t type) {
 	$AbstractAction::init$(name);
 	this->type = type;
 }
 
 void GTKColorChooserPanel$ColorAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GTKColorChooserPanel$ColorTriangle, triangle, $cast($GTKColorChooserPanel$ColorTriangle, $nc(e)->getSource()));
 	if ($nc(triangle)->isWheelFocused()) {
-		float hue = $nc($(triangle->getGTKColorChooserPanel()))->getHue();
+		float hue = $$nc(triangle->getGTKColorChooserPanel())->getHue();
 		switch (this->type) {
 		case 0:
-			{}
 		case 2:
-			{
-				triangle->incrementHue(true);
-				break;
-			}
+			triangle->incrementHue(true);
+			break;
 		case 1:
-			{}
 		case 3:
-			{
-				triangle->incrementHue(false);
-				break;
-			}
+			triangle->incrementHue(false);
+			break;
 		case 4:
-			{
-				triangle->focusTriangle();
-				break;
-			}
+			triangle->focusTriangle();
+			break;
 		case 5:
-			{
-				$GTKColorChooserPanel::compositeRequestFocus(triangle, false);
-				break;
-			}
+			$GTKColorChooserPanel::compositeRequestFocus(triangle, false);
+			break;
 		}
 	} else {
 		int32_t xDelta = 0;
 		int32_t yDelta = 0;
 		switch (this->type) {
 		case 0:
-			{
-				--yDelta;
-				break;
-			}
+			--yDelta;
+			break;
 		case 1:
-			{
-				++yDelta;
-				break;
-			}
+			++yDelta;
+			break;
 		case 2:
-			{
-				--xDelta;
-				break;
-			}
+			--xDelta;
+			break;
 		case 3:
-			{
-				++xDelta;
-				break;
-			}
+			++xDelta;
+			break;
 		case 4:
-			{
-				$GTKColorChooserPanel::compositeRequestFocus(triangle, true);
-				return;
-			}
+			$GTKColorChooserPanel::compositeRequestFocus(triangle, true);
+			return;
 		case 5:
-			{
-				triangle->focusWheel();
-				return;
-			}
+			triangle->focusWheel();
+			return;
 		}
 		int32_t var$0 = triangle->getColorX() + xDelta;
 		triangle->adjustSB(var$0, triangle->getColorY() + yDelta, true);
@@ -141,7 +81,37 @@ GTKColorChooserPanel$ColorAction::GTKColorChooserPanel$ColorAction() {
 }
 
 $Class* GTKColorChooserPanel$ColorAction::load$($String* name, bool initialize) {
-	$loadClass(GTKColorChooserPanel$ColorAction, name, initialize, &_GTKColorChooserPanel$ColorAction_ClassInfo_, allocate$GTKColorChooserPanel$ColorAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "I", nullptr, $PRIVATE, $field(GTKColorChooserPanel$ColorAction, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(GTKColorChooserPanel$ColorAction, init$, void, $String*, int32_t)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKColorChooserPanel$ColorAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorAction", "com.sun.java.swing.plaf.gtk.GTKColorChooserPanel", "ColorAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel$ColorAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKColorChooserPanel"
+	};
+	$loadClass(GTKColorChooserPanel$ColorAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKColorChooserPanel$ColorAction));
+	});
 	return class$;
 }
 

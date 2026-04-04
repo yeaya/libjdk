@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
-
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -21,45 +20,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _JCTree$JCPolyExpression_FieldInfo_[] = {
-	{"polyKind", "Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC, $field(JCTree$JCPolyExpression, polyKind)},
-	{}
-};
-
-$MethodInfo _JCTree$JCPolyExpression_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCPolyExpression, init$, void)},
-	{"isPoly", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPolyExpression, isPoly, bool)},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPolyExpression, isStandalone, bool)},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCPolyExpression_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCPolyExpression", "com.sun.tools.javac.tree.JCTree", "JCPolyExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCPolyExpression$PolyKind", "com.sun.tools.javac.tree.JCTree$JCPolyExpression", "PolyKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCTree$JCPolyExpression_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.tree.JCTree$JCPolyExpression",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	nullptr,
-	_JCTree$JCPolyExpression_FieldInfo_,
-	_JCTree$JCPolyExpression_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCPolyExpression_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCPolyExpression($Class* clazz) {
-	return $of($alloc(JCTree$JCPolyExpression));
-}
-
 void JCTree$JCPolyExpression::init$() {
 	$JCTree$JCExpression::init$();
 }
@@ -78,7 +38,40 @@ JCTree$JCPolyExpression::JCTree$JCPolyExpression() {
 }
 
 $Class* JCTree$JCPolyExpression::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCPolyExpression, name, initialize, &_JCTree$JCPolyExpression_ClassInfo_, allocate$JCTree$JCPolyExpression);
+	$FieldInfo fieldInfos$$[] = {
+		{"polyKind", "Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC, $field(JCTree$JCPolyExpression, polyKind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCPolyExpression, init$, void)},
+		{"isPoly", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPolyExpression, isPoly, bool)},
+		{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPolyExpression, isStandalone, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCPolyExpression", "com.sun.tools.javac.tree.JCTree", "JCPolyExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCPolyExpression$PolyKind", "com.sun.tools.javac.tree.JCTree$JCPolyExpression", "PolyKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.tree.JCTree$JCPolyExpression",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCPolyExpression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCPolyExpression));
+	});
 	return class$;
 }
 

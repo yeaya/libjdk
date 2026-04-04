@@ -1,5 +1,4 @@
 #include <javax/swing/TransferHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Image.h>
@@ -8,7 +7,6 @@
 #include <java/awt/datatransfer/ClipboardOwner.h>
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/Transferable.h>
-#include <java/awt/dnd/DragGestureListener.h>
 #include <java/awt/dnd/DropTargetListener.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
@@ -46,7 +44,6 @@ using $Clipboard = ::java::awt::datatransfer::Clipboard;
 using $ClipboardOwner = ::java::awt::datatransfer::ClipboardOwner;
 using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $Transferable = ::java::awt::datatransfer::Transferable;
-using $DragGestureListener = ::java::awt::dnd::DragGestureListener;
 using $DropTargetListener = ::java::awt::dnd::DropTargetListener;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -54,7 +51,6 @@ using $BeanInfo = ::java::beans::BeanInfo;
 using $IntrospectionException = ::java::beans::IntrospectionException;
 using $Introspector = ::java::beans::Introspector;
 using $PropertyDescriptor = ::java::beans::PropertyDescriptor;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -76,80 +72,6 @@ using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _TransferHandler_FieldInfo_[] = {
-	{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, NONE)},
-	{"COPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, COPY)},
-	{"MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, MOVE)},
-	{"COPY_OR_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, COPY_OR_MOVE)},
-	{"LINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, LINK)},
-	{"dragImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(TransferHandler, dragImage)},
-	{"dragImageOffset", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(TransferHandler, dragImageOffset)},
-	{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransferHandler, propertyName)},
-	{"recognizer", "Ljavax/swing/TransferHandler$SwingDragGestureRecognizer;", nullptr, $PRIVATE | $STATIC, $staticField(TransferHandler, recognizer)},
-	{"cutAction", "Ljavax/swing/Action;", nullptr, $STATIC | $FINAL, $staticField(TransferHandler, cutAction)},
-	{"copyAction", "Ljavax/swing/Action;", nullptr, $STATIC | $FINAL, $staticField(TransferHandler, copyAction)},
-	{"pasteAction", "Ljavax/swing/Action;", nullptr, $STATIC | $FINAL, $staticField(TransferHandler, pasteAction)},
-	{}
-};
-
-$MethodInfo _TransferHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransferHandler, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(TransferHandler, init$, void)},
-	{"canImport", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, canImport, bool, $TransferHandler$TransferSupport*)},
-	{"canImport", "(Ljavax/swing/JComponent;[Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, canImport, bool, $JComponent*, $DataFlavorArray*)},
-	{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(TransferHandler, createTransferable, $Transferable*, $JComponent*)},
-	{"exportAsDrag", "(Ljavax/swing/JComponent;Ljava/awt/event/InputEvent;I)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, exportAsDrag, void, $JComponent*, $InputEvent*, int32_t)},
-	{"exportDone", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;I)V", nullptr, $PROTECTED, $virtualMethod(TransferHandler, exportDone, void, $JComponent*, $Transferable*, int32_t)},
-	{"exportToClipboard", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Clipboard;I)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, exportToClipboard, void, $JComponent*, $Clipboard*, int32_t), "java.lang.IllegalStateException"},
-	{"getCopyAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferHandler, getCopyAction, $Action*)},
-	{"getCutAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferHandler, getCutAction, $Action*)},
-	{"getDragImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getDragImage, $Image*)},
-	{"getDragImageOffset", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getDragImageOffset, $Point*)},
-	{"getDropTargetListener", "()Ljava/awt/dnd/DropTargetListener;", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferHandler, getDropTargetListener, $DropTargetListener*)},
-	{"getPasteAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferHandler, getPasteAction, $Action*)},
-	{"getPropertyDataFlavor", "(Ljava/lang/Class;[Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", "(Ljava/lang/Class<*>;[Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", $PRIVATE, $method(TransferHandler, getPropertyDataFlavor, $DataFlavor*, $Class*, $DataFlavorArray*)},
-	{"getPropertyDescriptor", "(Ljavax/swing/JComponent;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(TransferHandler, getPropertyDescriptor, $PropertyDescriptor*, $JComponent*)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"getVisualRepresentation", "(Ljava/awt/datatransfer/Transferable;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getVisualRepresentation, $Icon*, $Transferable*)},
-	{"importData", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, importData, bool, $TransferHandler$TransferSupport*)},
-	{"importData", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, importData, bool, $JComponent*, $Transferable*)},
-	{"setDragImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, setDragImage, void, $Image*)},
-	{"setDragImageOffset", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, setDragImageOffset, void, $Point*)},
-	{}
-};
-
-$InnerClassInfo _TransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.TransferHandler$TransferAction", "javax.swing.TransferHandler", "TransferAction", $STATIC},
-	{"javax.swing.TransferHandler$SwingDragGestureRecognizer", "javax.swing.TransferHandler", "SwingDragGestureRecognizer", $PRIVATE | $STATIC},
-	{"javax.swing.TransferHandler$DragHandler", "javax.swing.TransferHandler", "DragHandler", $PRIVATE | $STATIC},
-	{"javax.swing.TransferHandler$DropHandler", "javax.swing.TransferHandler", "DropHandler", $PRIVATE | $STATIC},
-	{"javax.swing.TransferHandler$SwingDropTarget", "javax.swing.TransferHandler", "SwingDropTarget", $STATIC},
-	{"javax.swing.TransferHandler$PropertyTransferable", "javax.swing.TransferHandler", "PropertyTransferable", $STATIC},
-	{"javax.swing.TransferHandler$TransferSupport", "javax.swing.TransferHandler", "TransferSupport", $PUBLIC | $STATIC | $FINAL},
-	{"javax.swing.TransferHandler$DropLocation", "javax.swing.TransferHandler", "DropLocation", $PUBLIC | $STATIC},
-	{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TransferHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.TransferHandler",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_TransferHandler_FieldInfo_,
-	_TransferHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.TransferHandler$TransferAction,javax.swing.TransferHandler$TransferAction$2,javax.swing.TransferHandler$TransferAction$1,javax.swing.TransferHandler$SwingDragGestureRecognizer,javax.swing.TransferHandler$DragHandler,javax.swing.TransferHandler$DropHandler,javax.swing.TransferHandler$SwingDropTarget,javax.swing.TransferHandler$PropertyTransferable,javax.swing.TransferHandler$TransferSupport,javax.swing.TransferHandler$DropLocation,javax.swing.TransferHandler$HasGetTransferHandler"
-};
-
-$Object* allocate$TransferHandler($Class* clazz) {
-	return $of($alloc(TransferHandler));
-}
 
 $TransferHandler$SwingDragGestureRecognizer* TransferHandler::recognizer = nullptr;
 $Action* TransferHandler::cutAction = nullptr;
@@ -200,7 +122,7 @@ $Point* TransferHandler::getDragImageOffset() {
 
 void TransferHandler::exportAsDrag($JComponent* comp, $InputEvent* e, int32_t action) {
 	int32_t srcActions = getSourceActions(comp);
-	if (!($instanceOf($MouseEvent, e)) || !(action == TransferHandler::COPY || action == TransferHandler::MOVE || action == TransferHandler::LINK) || ((int32_t)(srcActions & (uint32_t)action)) == 0) {
+	if (!($instanceOf($MouseEvent, e)) || !(action == TransferHandler::COPY || action == TransferHandler::MOVE || action == TransferHandler::LINK) || (srcActions & action) == 0) {
 		action = TransferHandler::NONE;
 	}
 	if (action != TransferHandler::NONE && !$GraphicsEnvironment::isHeadless()) {
@@ -214,7 +136,7 @@ void TransferHandler::exportAsDrag($JComponent* comp, $InputEvent* e, int32_t ac
 }
 
 void TransferHandler::exportToClipboard($JComponent* comp, $Clipboard* clip, int32_t action) {
-	if ((action == TransferHandler::COPY || action == TransferHandler::MOVE) && ((int32_t)(getSourceActions(comp) & (uint32_t)action)) != 0) {
+	if ((action == TransferHandler::COPY || action == TransferHandler::MOVE) && (getSourceActions(comp) & action) != 0) {
 		$var($Transferable, t, createTransferable(comp));
 		if (t != nullptr) {
 			try {
@@ -231,7 +153,7 @@ void TransferHandler::exportToClipboard($JComponent* comp, $Clipboard* clip, int
 }
 
 bool TransferHandler::importData($TransferHandler$TransferSupport* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = false;
 	if ($instanceOf($JComponent, $($nc(support)->getComponent()))) {
 		$var($JComponent, var$1, $cast($JComponent, $nc(support)->getComponent()));
@@ -243,7 +165,7 @@ bool TransferHandler::importData($TransferHandler$TransferSupport* support) {
 }
 
 bool TransferHandler::importData($JComponent* comp, $Transferable* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PropertyDescriptor, prop, getPropertyDescriptor(comp));
 	if (prop != nullptr) {
 		$var($Method, writer, prop->getWriteMethod());
@@ -254,10 +176,10 @@ bool TransferHandler::importData($JComponent* comp, $Transferable* t) {
 		if ($nc(params)->length != 1) {
 			return false;
 		}
-		$var($DataFlavor, flavor, getPropertyDataFlavor($nc(params)->get(0), $($nc(t)->getTransferDataFlavors())));
+		$var($DataFlavor, flavor, getPropertyDataFlavor(params->get(0), $($nc(t)->getTransferDataFlavors())));
 		if (flavor != nullptr) {
 			try {
-				$var($Object, value, $nc(t)->getTransferData(flavor));
+				$var($Object, value, t->getTransferData(flavor));
 				$var($ObjectArray, args, $new($ObjectArray, {value}));
 				$MethodUtil::invoke(writer, comp, args);
 				return true;
@@ -270,7 +192,7 @@ bool TransferHandler::importData($JComponent* comp, $Transferable* t) {
 }
 
 bool TransferHandler::canImport($TransferHandler$TransferSupport* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = false;
 	if ($instanceOf($JComponent, $($nc(support)->getComponent()))) {
 		$var($JComponent, var$1, $cast($JComponent, $nc(support)->getComponent()));
@@ -282,7 +204,7 @@ bool TransferHandler::canImport($TransferHandler$TransferSupport* support) {
 }
 
 bool TransferHandler::canImport($JComponent* comp, $DataFlavorArray* transferFlavors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PropertyDescriptor, prop, getPropertyDescriptor(comp));
 	if (prop != nullptr) {
 		$var($Method, writer, prop->getWriteMethod());
@@ -293,7 +215,7 @@ bool TransferHandler::canImport($JComponent* comp, $DataFlavorArray* transferFla
 		if ($nc(params)->length != 1) {
 			return false;
 		}
-		$var($DataFlavor, flavor, getPropertyDataFlavor($nc(params)->get(0), transferFlavors));
+		$var($DataFlavor, flavor, getPropertyDataFlavor(params->get(0), transferFlavors));
 		if (flavor != nullptr) {
 			return true;
 		}
@@ -325,7 +247,7 @@ void TransferHandler::exportDone($JComponent* source, $Transferable* data, int32
 }
 
 $PropertyDescriptor* TransferHandler::getPropertyDescriptor($JComponent* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->propertyName == nullptr) {
 		return nullptr;
 	}
@@ -342,7 +264,7 @@ $PropertyDescriptor* TransferHandler::getPropertyDescriptor($JComponent* comp) {
 			$var($Method, reader, $nc(props->get(i))->getReadMethod());
 			if (reader != nullptr) {
 				$var($ClassArray, params, reader->getParameterTypes());
-				if (params == nullptr || $nc(params)->length == 0) {
+				if (params == nullptr || params->length == 0) {
 					return props->get(i);
 				}
 			}
@@ -352,12 +274,12 @@ $PropertyDescriptor* TransferHandler::getPropertyDescriptor($JComponent* comp) {
 }
 
 $DataFlavor* TransferHandler::getPropertyDataFlavor($Class* k, $DataFlavorArray* flavors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(flavors)->length; ++i) {
 		$var($DataFlavor, flavor, flavors->get(i));
 		bool var$1 = "application"_s->equals($($nc(flavor)->getPrimaryType()));
-		bool var$0 = var$1 && "x-java-jvm-local-objectref"_s->equals($($nc(flavor)->getSubType()));
-		if (var$0 && $nc(k)->isAssignableFrom($nc(flavor)->getRepresentationClass())) {
+		bool var$0 = var$1 && "x-java-jvm-local-objectref"_s->equals($(flavor->getSubType()));
+		if (var$0 && $nc(k)->isAssignableFrom(flavor->getRepresentationClass())) {
 			return flavor;
 		}
 	}
@@ -366,19 +288,19 @@ $DataFlavor* TransferHandler::getPropertyDataFlavor($Class* k, $DataFlavorArray*
 
 $DropTargetListener* TransferHandler::getDropTargetListener() {
 	$init(TransferHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TransferHandler$DropHandler);
 	$synchronized($TransferHandler$DropHandler::class$) {
-		$var($TransferHandler$DropHandler, handler, $cast($TransferHandler$DropHandler, $nc($($AppContext::getAppContext()))->get($TransferHandler$DropHandler::class$)));
+		$var($TransferHandler$DropHandler, handler, $cast($TransferHandler$DropHandler, $$nc($AppContext::getAppContext())->get($TransferHandler$DropHandler::class$)));
 		if (handler == nullptr) {
 			$assign(handler, $new($TransferHandler$DropHandler));
-			$nc($($AppContext::getAppContext()))->put($TransferHandler$DropHandler::class$, handler);
+			$$nc($AppContext::getAppContext())->put($TransferHandler$DropHandler::class$, handler);
 		}
 		return handler;
 	}
 }
 
-void clinit$TransferHandler($Class* class$) {
+void TransferHandler::clinit$($Class* clazz) {
 	$assignStatic(TransferHandler::recognizer, nullptr);
 	$assignStatic(TransferHandler::cutAction, $new($TransferHandler$TransferAction, "cut"_s));
 	$assignStatic(TransferHandler::copyAction, $new($TransferHandler$TransferAction, "copy"_s));
@@ -389,7 +311,75 @@ TransferHandler::TransferHandler() {
 }
 
 $Class* TransferHandler::load$($String* name, bool initialize) {
-	$loadClass(TransferHandler, name, initialize, &_TransferHandler_ClassInfo_, clinit$TransferHandler, allocate$TransferHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, NONE)},
+		{"COPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, COPY)},
+		{"MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, MOVE)},
+		{"COPY_OR_MOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, COPY_OR_MOVE)},
+		{"LINK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransferHandler, LINK)},
+		{"dragImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(TransferHandler, dragImage)},
+		{"dragImageOffset", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(TransferHandler, dragImageOffset)},
+		{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransferHandler, propertyName)},
+		{"recognizer", "Ljavax/swing/TransferHandler$SwingDragGestureRecognizer;", nullptr, $PRIVATE | $STATIC, $staticField(TransferHandler, recognizer)},
+		{"cutAction", "Ljavax/swing/Action;", nullptr, $STATIC | $FINAL, $staticField(TransferHandler, cutAction)},
+		{"copyAction", "Ljavax/swing/Action;", nullptr, $STATIC | $FINAL, $staticField(TransferHandler, copyAction)},
+		{"pasteAction", "Ljavax/swing/Action;", nullptr, $STATIC | $FINAL, $staticField(TransferHandler, pasteAction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransferHandler, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(TransferHandler, init$, void)},
+		{"canImport", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, canImport, bool, $TransferHandler$TransferSupport*)},
+		{"canImport", "(Ljavax/swing/JComponent;[Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, canImport, bool, $JComponent*, $DataFlavorArray*)},
+		{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(TransferHandler, createTransferable, $Transferable*, $JComponent*)},
+		{"exportAsDrag", "(Ljavax/swing/JComponent;Ljava/awt/event/InputEvent;I)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, exportAsDrag, void, $JComponent*, $InputEvent*, int32_t)},
+		{"exportDone", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;I)V", nullptr, $PROTECTED, $virtualMethod(TransferHandler, exportDone, void, $JComponent*, $Transferable*, int32_t)},
+		{"exportToClipboard", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Clipboard;I)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, exportToClipboard, void, $JComponent*, $Clipboard*, int32_t), "java.lang.IllegalStateException"},
+		{"getCopyAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferHandler, getCopyAction, $Action*)},
+		{"getCutAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferHandler, getCutAction, $Action*)},
+		{"getDragImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getDragImage, $Image*)},
+		{"getDragImageOffset", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getDragImageOffset, $Point*)},
+		{"getDropTargetListener", "()Ljava/awt/dnd/DropTargetListener;", nullptr, $PRIVATE | $STATIC, $staticMethod(TransferHandler, getDropTargetListener, $DropTargetListener*)},
+		{"getPasteAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransferHandler, getPasteAction, $Action*)},
+		{"getPropertyDataFlavor", "(Ljava/lang/Class;[Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", "(Ljava/lang/Class<*>;[Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", $PRIVATE, $method(TransferHandler, getPropertyDataFlavor, $DataFlavor*, $Class*, $DataFlavorArray*)},
+		{"getPropertyDescriptor", "(Ljavax/swing/JComponent;)Ljava/beans/PropertyDescriptor;", nullptr, $PRIVATE, $method(TransferHandler, getPropertyDescriptor, $PropertyDescriptor*, $JComponent*)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"getVisualRepresentation", "(Ljava/awt/datatransfer/Transferable;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(TransferHandler, getVisualRepresentation, $Icon*, $Transferable*)},
+		{"importData", "(Ljavax/swing/TransferHandler$TransferSupport;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, importData, bool, $TransferHandler$TransferSupport*)},
+		{"importData", "(Ljavax/swing/JComponent;Ljava/awt/datatransfer/Transferable;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler, importData, bool, $JComponent*, $Transferable*)},
+		{"setDragImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, setDragImage, void, $Image*)},
+		{"setDragImageOffset", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler, setDragImageOffset, void, $Point*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TransferHandler$TransferAction", "javax.swing.TransferHandler", "TransferAction", $STATIC},
+		{"javax.swing.TransferHandler$SwingDragGestureRecognizer", "javax.swing.TransferHandler", "SwingDragGestureRecognizer", $PRIVATE | $STATIC},
+		{"javax.swing.TransferHandler$DragHandler", "javax.swing.TransferHandler", "DragHandler", $PRIVATE | $STATIC},
+		{"javax.swing.TransferHandler$DropHandler", "javax.swing.TransferHandler", "DropHandler", $PRIVATE | $STATIC},
+		{"javax.swing.TransferHandler$SwingDropTarget", "javax.swing.TransferHandler", "SwingDropTarget", $STATIC},
+		{"javax.swing.TransferHandler$PropertyTransferable", "javax.swing.TransferHandler", "PropertyTransferable", $STATIC},
+		{"javax.swing.TransferHandler$TransferSupport", "javax.swing.TransferHandler", "TransferSupport", $PUBLIC | $STATIC | $FINAL},
+		{"javax.swing.TransferHandler$DropLocation", "javax.swing.TransferHandler", "DropLocation", $PUBLIC | $STATIC},
+		{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.TransferHandler",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.TransferHandler$TransferAction,javax.swing.TransferHandler$TransferAction$2,javax.swing.TransferHandler$TransferAction$1,javax.swing.TransferHandler$SwingDragGestureRecognizer,javax.swing.TransferHandler$DragHandler,javax.swing.TransferHandler$DropHandler,javax.swing.TransferHandler$SwingDropTarget,javax.swing.TransferHandler$PropertyTransferable,javax.swing.TransferHandler$TransferSupport,javax.swing.TransferHandler$DropLocation,javax.swing.TransferHandler$HasGetTransferHandler"
+	};
+	$loadClass(TransferHandler, name, initialize, &classInfo$$, TransferHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransferHandler);
+	});
 	return class$;
 }
 

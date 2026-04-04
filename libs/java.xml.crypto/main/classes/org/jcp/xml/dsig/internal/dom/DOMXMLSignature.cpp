@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMXMLSignature.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
@@ -8,13 +7,11 @@
 #include <java/security/Key.h>
 #include <java/security/Provider.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
-#include <javax/xml/crypto/AlgorithmMethod.h>
 #include <javax/xml/crypto/KeySelector$Purpose.h>
 #include <javax/xml/crypto/KeySelector.h>
 #include <javax/xml/crypto/KeySelectorException.h>
@@ -73,14 +70,10 @@ using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
 using $Provider = ::java::security::Provider;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
-using $KeySelector = ::javax::xml::crypto::KeySelector;
 using $KeySelector$Purpose = ::javax::xml::crypto::KeySelector$Purpose;
 using $KeySelectorException = ::javax::xml::crypto::KeySelectorException;
 using $KeySelectorResult = ::javax::xml::crypto::KeySelectorResult;
@@ -121,70 +114,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMXMLSignature_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMXMLSignature, LOG)},
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMXMLSignature, id)},
-	{"sv", "Ljavax/xml/crypto/dsig/XMLSignature$SignatureValue;", nullptr, $PRIVATE, $field(DOMXMLSignature, sv)},
-	{"ki", "Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PRIVATE, $field(DOMXMLSignature, ki)},
-	{"objects", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/XMLObject;>;", $PRIVATE, $field(DOMXMLSignature, objects)},
-	{"si", "Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PRIVATE, $field(DOMXMLSignature, si)},
-	{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(DOMXMLSignature, ownerDoc)},
-	{"localSigElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMXMLSignature, localSigElem)},
-	{"sigElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMXMLSignature, sigElem)},
-	{"validationStatus", "Z", nullptr, $PRIVATE, $field(DOMXMLSignature, validationStatus)},
-	{"validated", "Z", nullptr, $PRIVATE, $field(DOMXMLSignature, validated)},
-	{"ksr", "Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PRIVATE, $field(DOMXMLSignature, ksr)},
-	{"signatureIdMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE, $field(DOMXMLSignature, signatureIdMap)},
-	{}
-};
-
-$MethodInfo _DOMXMLSignature_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List<+Ljavax/xml/crypto/dsig/XMLObject;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DOMXMLSignature, init$, void, $SignedInfo*, $KeyInfo*, $List*, $String*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMXMLSignature, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"digestReference", "(Lorg/jcp/xml/dsig/internal/dom/DOMReference;Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PRIVATE, $method(DOMXMLSignature, digestReference, void, $DOMReference*, $XMLSignContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, equals, bool, Object$*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getId, $String*)},
-	{"getKeyInfo", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getKeyInfo, $KeyInfo*)},
-	{"getKeySelectorResult", "()Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getKeySelectorResult, $KeySelectorResult*)},
-	{"getObjects", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/XMLObject;>;", $PUBLIC, $virtualMethod(DOMXMLSignature, getObjects, $List*)},
-	{"getSignatureValue", "()Ljavax/xml/crypto/dsig/XMLSignature$SignatureValue;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getSignatureValue, $XMLSignature$SignatureValue*)},
-	{"getSignedInfo", "()Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getSignedInfo, $SignedInfo*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshal", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $method(DOMXMLSignature, marshal, void, $Node*, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"sign", "(Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, sign, void, $XMLSignContext*), "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, validate, bool, $XMLValidateContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _DOMXMLSignature_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMXMLSignature$DOMSignatureValue", "org.jcp.xml.dsig.internal.dom.DOMXMLSignature", "DOMSignatureValue", $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMXMLSignature_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMXMLSignature",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.XMLSignature",
-	_DOMXMLSignature_FieldInfo_,
-	_DOMXMLSignature_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMXMLSignature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMXMLSignature$DOMSignatureValue"
-};
-
-$Object* allocate$DOMXMLSignature($Class* clazz) {
-	return $of($alloc(DOMXMLSignature));
-}
-
 bool DOMXMLSignature::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -204,7 +133,7 @@ void DOMXMLSignature::finalize() {
 $Logger* DOMXMLSignature::LOG = nullptr;
 
 void DOMXMLSignature::init$($SignedInfo* si, $KeyInfo* ki, $List* objs, $String* id, $String* signatureValueId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$set(this, ownerDoc, nullptr);
 	$set(this, localSigElem, nullptr);
@@ -219,14 +148,10 @@ void DOMXMLSignature::init$($SignedInfo* si, $KeyInfo* ki, $List* objs, $String*
 	if (objs == nullptr) {
 		$set(this, objects, $Collections::emptyList());
 	} else {
-		$set(this, objects, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(objs))));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->objects)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($XMLObject, $($nc(this->objects)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"objs["_s, $$str(i), "] is not an XMLObject"_s}));
-				}
+		$set(this, objects, $Collections::unmodifiableList($$new($ArrayList, objs)));
+		for (int32_t i = 0, size = $nc(this->objects)->size(); i < size; ++i) {
+			if (!($instanceOf($XMLObject, $(this->objects->get(i))))) {
+				$throwNew($ClassCastException, $$str({"objs["_s, $$str(i), "] is not an XMLObject"_s}));
 			}
 		}
 	}
@@ -234,7 +159,7 @@ void DOMXMLSignature::init$($SignedInfo* si, $KeyInfo* ki, $List* objs, $String*
 }
 
 void DOMXMLSignature::init$($Element* sigElem, $XMLCryptoContext* context, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$set(this, ownerDoc, nullptr);
 	$set(this, localSigElem, nullptr);
@@ -301,33 +226,29 @@ void DOMXMLSignature::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContex
 }
 
 void DOMXMLSignature::marshal($Node* parent, $Node* nextSibling, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$set(this, sigElem, $DOMUtils::createElement(this->ownerDoc, "Signature"_s, $XMLSignature::XMLNS, dsPrefix));
-	if (dsPrefix == nullptr || $nc(dsPrefix)->length() == 0) {
+	if (dsPrefix == nullptr || dsPrefix->length() == 0) {
 		$nc(this->sigElem)->setAttributeNS("http://www.w3.org/2000/xmlns/"_s, "xmlns"_s, $XMLSignature::XMLNS);
 	} else {
 		$nc(this->sigElem)->setAttributeNS("http://www.w3.org/2000/xmlns/"_s, $$str({"xmlns:"_s, dsPrefix}), $XMLSignature::XMLNS);
 	}
-	$nc(($cast($DOMSignedInfo, this->si)))->marshal(this->sigElem, dsPrefix, context);
-	$nc(($cast($DOMXMLSignature$DOMSignatureValue, this->sv)))->marshal(this->sigElem, dsPrefix, context);
+	$nc($cast($DOMSignedInfo, this->si))->marshal(this->sigElem, dsPrefix, context);
+	$nc($cast($DOMXMLSignature$DOMSignatureValue, this->sv))->marshal(this->sigElem, dsPrefix, context);
 	if (this->ki != nullptr) {
-		$nc(($cast($DOMKeyInfo, this->ki)))->marshal(this->sigElem, nullptr, dsPrefix, context);
+		$cast($DOMKeyInfo, this->ki)->marshal(this->sigElem, nullptr, dsPrefix, context);
 	}
-	{
-		int32_t i = 0;
-		int32_t size = $nc(this->objects)->size();
-		for (; i < size; ++i) {
-			$nc(($cast($DOMXMLObject, $($nc(this->objects)->get(i)))))->marshal(this->sigElem, dsPrefix, context);
-		}
+	for (int32_t i = 0, size = $nc(this->objects)->size(); i < size; ++i) {
+		$$sure($DOMXMLObject, $nc(this->objects)->get(i))->marshal(this->sigElem, dsPrefix, context);
 	}
 	$DOMUtils::setAttributeID(this->sigElem, "Id"_s, this->id);
 	$nc(parent)->insertBefore(this->sigElem, nextSibling);
 }
 
 bool DOMXMLSignature::validate($XMLValidateContext* vc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (vc == nullptr) {
 		$throwNew($NullPointerException, "validateContext is null"_s);
 	}
@@ -345,18 +266,14 @@ bool DOMXMLSignature::validate($XMLValidateContext* vc) {
 	}
 	$var($List, refs, $nc(this->si)->getReferences());
 	bool validateRefs = true;
-	{
-		int32_t i = 0;
-		int32_t size = $nc(refs)->size();
-		for (; validateRefs && i < size; ++i) {
-			$var($Reference, ref, $cast($Reference, refs->get(i)));
-			bool refValid = $nc(ref)->validate(vc);
-			$nc(DOMXMLSignature::LOG)->debug("Reference [{}] is valid: {}"_s, $$new($ObjectArray, {
-				$($of(ref->getURI())),
-				$($of($Boolean::valueOf(refValid)))
-			}));
-			validateRefs &= refValid;
-		}
+	for (int32_t i = 0, size = $nc(refs)->size(); validateRefs && i < size; ++i) {
+		$var($Reference, ref, $cast($Reference, refs->get(i)));
+		bool refValid = $nc(ref)->validate(vc);
+		$nc(DOMXMLSignature::LOG)->debug("Reference [{}] is valid: {}"_s, $$new($ObjectArray, {
+			$(ref->getURI()),
+			$($Boolean::valueOf(refValid))
+		}));
+		validateRefs &= refValid;
 	}
 	if (!validateRefs) {
 		$nc(DOMXMLSignature::LOG)->debug("Couldn\'t validate the References"_s);
@@ -365,31 +282,26 @@ bool DOMXMLSignature::validate($XMLValidateContext* vc) {
 		return this->validationStatus;
 	}
 	bool validateMans = true;
-	$init($Boolean);
 	if ($nc($Boolean::TRUE)->equals($($nc(vc)->getProperty("org.jcp.xml.dsig.validateManifests"_s)))) {
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->objects)->size();
-			for (; validateMans && i < size; ++i) {
-				$var($XMLObject, xo, $cast($XMLObject, $nc(this->objects)->get(i)));
-				$var($List, content, $nc(xo)->getContent());
-				int32_t csize = $nc(content)->size();
-				for (int32_t j = 0; validateMans && j < csize; ++j) {
-					$var($XMLStructure, xs, $cast($XMLStructure, content->get(j)));
-					if ($instanceOf($Manifest, xs)) {
-						$nc(DOMXMLSignature::LOG)->debug("validating manifest"_s);
-						$var($Manifest, man, $cast($Manifest, xs));
-						$var($List, manRefs, $nc(man)->getReferences());
-						int32_t rsize = $nc(manRefs)->size();
-						for (int32_t k = 0; validateMans && k < rsize; ++k) {
-							$var($Reference, ref, $cast($Reference, manRefs->get(k)));
-							bool refValid = $nc(ref)->validate(vc);
-							$nc(DOMXMLSignature::LOG)->debug("Manifest ref [{}] is valid: {}"_s, $$new($ObjectArray, {
-								$($of(ref->getURI())),
-								$($of($Boolean::valueOf(refValid)))
-							}));
-							validateMans &= refValid;
-						}
+		for (int32_t i = 0, size = $nc(this->objects)->size(); validateMans && i < size; ++i) {
+			$var($XMLObject, xo, $cast($XMLObject, $nc(this->objects)->get(i)));
+			$var($List, content, $nc(xo)->getContent());
+			int32_t csize = $nc(content)->size();
+			for (int32_t j = 0; validateMans && j < csize; ++j) {
+				$var($XMLStructure, xs, $cast($XMLStructure, content->get(j)));
+				if ($instanceOf($Manifest, xs)) {
+					$nc(DOMXMLSignature::LOG)->debug("validating manifest"_s);
+					$var($Manifest, man, $cast($Manifest, xs));
+					$var($List, manRefs, man->getReferences());
+					int32_t rsize = $nc(manRefs)->size();
+					for (int32_t k = 0; validateMans && k < rsize; ++k) {
+						$var($Reference, ref, $cast($Reference, manRefs->get(k)));
+						bool refValid = $nc(ref)->validate(vc);
+						DOMXMLSignature::LOG->debug("Manifest ref [{}] is valid: {}"_s, $$new($ObjectArray, {
+							$(ref->getURI()),
+							$($Boolean::valueOf(refValid))
+						}));
+						validateMans &= refValid;
 					}
 				}
 			}
@@ -401,18 +313,18 @@ bool DOMXMLSignature::validate($XMLValidateContext* vc) {
 }
 
 void DOMXMLSignature::sign($XMLSignContext* signContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (signContext == nullptr) {
 		$throwNew($NullPointerException, "signContext cannot be null"_s);
 	}
 	$var($DOMSignContext, context, $cast($DOMSignContext, signContext));
 	$var($Node, var$0, $nc(context)->getParent());
 	$var($Node, var$1, context->getNextSibling());
-	marshal(var$0, var$1, $($DOMUtils::getSignaturePrefix(static_cast<$XMLCryptoContext*>(static_cast<$DOMCryptoContext*>(context)))), context);
+	marshal(var$0, var$1, $($DOMUtils::getSignaturePrefix($cast($DOMCryptoContext, context))), context);
 	$var($List, allReferences, $new($ArrayList));
 	$set(this, signatureIdMap, $new($HashMap));
-	$nc(this->signatureIdMap)->put(this->id, this);
-	$nc(this->signatureIdMap)->put($($nc(this->si)->getId()), this->si);
+	this->signatureIdMap->put(this->id, this);
+	this->signatureIdMap->put($($nc(this->si)->getId()), this->si);
 	$var($List, refs, $nc(this->si)->getReferences());
 	{
 		$var($Iterator, i$, $nc(refs)->iterator());
@@ -429,24 +341,22 @@ void DOMXMLSignature::sign($XMLSignContext* signContext) {
 			$var($XMLObject, obj, $cast($XMLObject, i$->next()));
 			{
 				$nc(this->signatureIdMap)->put($($nc(obj)->getId()), obj);
-				$var($List, content, $nc(obj)->getContent());
+				$var($List, content, obj->getContent());
 				{
 					$var($Iterator, i$, $nc(content)->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($XMLStructure, xs, $cast($XMLStructure, i$->next()));
-						{
-							if ($instanceOf($Manifest, xs)) {
-								$var($Manifest, man, $cast($Manifest, xs));
-								$nc(this->signatureIdMap)->put($($nc(man)->getId()), man);
-								$var($List, manRefs, $nc(man)->getReferences());
-								{
-									$var($Iterator, i$, $nc(manRefs)->iterator());
-									for (; $nc(i$)->hasNext();) {
-										$var($Reference, ref, $cast($Reference, i$->next()));
-										{
-											allReferences->add(ref);
-											$nc(this->signatureIdMap)->put($($nc(ref)->getId()), ref);
-										}
+						if ($instanceOf($Manifest, xs)) {
+							$var($Manifest, man, $cast($Manifest, xs));
+							$nc(this->signatureIdMap)->put($(man->getId()), man);
+							$var($List, manRefs, man->getReferences());
+							{
+								$var($Iterator, i$, $nc(manRefs)->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($Reference, ref, $cast($Reference, i$->next()));
+									{
+										allReferences->add(ref);
+										$nc(this->signatureIdMap)->put($($nc(ref)->getId()), ref);
 									}
 								}
 							}
@@ -471,17 +381,17 @@ void DOMXMLSignature::sign($XMLSignContext* signContext) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Reference, ref, $cast($Reference, i$->next()));
 			{
-				if ($nc(($cast($DOMReference, ref)))->isDigested()) {
+				if ($nc($cast($DOMReference, ref))->isDigested()) {
 					continue;
 				}
-				$nc(($cast($DOMReference, ref)))->digest(signContext);
+				$cast($DOMReference, ref)->digest(signContext);
 			}
 		}
 	}
 	$var($Key, signingKey, nullptr);
 	try {
 		$init($KeySelector$Purpose);
-		$var($KeySelectorResult, keySelectorResult, $nc($($nc(signContext)->getKeySelector()))->select(this->ki, $KeySelector$Purpose::SIGN, $($nc(this->si)->getSignatureMethod()), signContext));
+		$var($KeySelectorResult, keySelectorResult, $$nc($nc(signContext)->getKeySelector())->select(this->ki, $KeySelector$Purpose::SIGN, $($nc(this->si)->getSignatureMethod()), signContext));
 		$assign(signingKey, $nc(keySelectorResult)->getKey());
 		if (signingKey == nullptr) {
 			$throwNew($XMLSignatureException, "the keySelector did not find a signing key"_s);
@@ -491,16 +401,16 @@ void DOMXMLSignature::sign($XMLSignContext* signContext) {
 		$throwNew($XMLSignatureException, "cannot find signing key"_s, kse);
 	}
 	try {
-		$var($bytes, val, $nc(($cast($AbstractDOMSignatureMethod, $($nc(this->si)->getSignatureMethod()))))->sign(signingKey, this->si, signContext));
-		$nc(($cast($DOMXMLSignature$DOMSignatureValue, this->sv)))->setValue(val);
+		$var($bytes, val, $$sure($AbstractDOMSignatureMethod, $nc(this->si)->getSignatureMethod())->sign(signingKey, this->si, signContext));
+		$nc($cast($DOMXMLSignature$DOMSignatureValue, this->sv))->setValue(val);
 	} catch ($InvalidKeyException& ike) {
-		$throwNew($XMLSignatureException, static_cast<$Throwable*>(ike));
+		$throwNew($XMLSignatureException, ike);
 	}
 	$set(this, localSigElem, this->sigElem);
 }
 
 bool DOMXMLSignature::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -508,48 +418,44 @@ bool DOMXMLSignature::equals(Object$* o) {
 		return false;
 	}
 	$var($XMLSignature, osig, $cast($XMLSignature, o));
-	bool idEqual = this->id == nullptr ? $nc(osig)->getId() == nullptr : $nc(this->id)->equals($(osig->getId()));
-	bool keyInfoEqual = this->ki == nullptr ? osig->getKeyInfo() == nullptr : $nc($of(this->ki))->equals($(osig->getKeyInfo()));
-	bool var$1 = idEqual && keyInfoEqual && $nc($of(this->sv))->equals($(osig->getSignatureValue()));
-	bool var$0 = var$1 && $nc($of(this->si))->equals($(osig->getSignedInfo()));
+	bool idEqual = this->id == nullptr ? $nc(osig)->getId() == nullptr : this->id->equals($($nc(osig)->getId()));
+	bool keyInfoEqual = this->ki == nullptr ? $nc(osig)->getKeyInfo() == nullptr : this->ki->equals($($nc(osig)->getKeyInfo()));
+	bool var$1 = idEqual && keyInfoEqual && $nc(this->sv)->equals($($nc(osig)->getSignatureValue()));
+	bool var$0 = var$1 && $nc(this->si)->equals($(osig->getSignedInfo()));
 	return var$0 && $nc(this->objects)->equals($(osig->getObjects()));
 }
 
 int32_t DOMXMLSignature::hashCode() {
 	int32_t result = 17;
 	if (this->id != nullptr) {
-		result = 31 * result + $nc(this->id)->hashCode();
+		result = 31 * result + this->id->hashCode();
 	}
 	if (this->ki != nullptr) {
-		result = 31 * result + $nc($of(this->ki))->hashCode();
+		result = 31 * result + this->ki->hashCode();
 	}
-	result = 31 * result + $nc($of(this->sv))->hashCode();
-	result = 31 * result + $nc($of(this->si))->hashCode();
+	result = 31 * result + $nc(this->sv)->hashCode();
+	result = 31 * result + $nc(this->si)->hashCode();
 	result = 31 * result + $nc(this->objects)->hashCode();
 	return result;
 }
 
 void DOMXMLSignature::digestReference($DOMReference* ref, $XMLSignContext* signContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ref)->isDigested()) {
 		return;
 	}
-	$var($String, uri, $nc(ref)->getURI());
+	$var($String, uri, ref->getURI());
 	if ($Utils::sameDocumentURI(uri)) {
 		$var($String, parsedId, $Utils::parseIdFromSameDocumentURI(uri));
 		if (parsedId != nullptr && $nc(this->signatureIdMap)->containsKey(parsedId)) {
-			$var($XMLStructure, xs, $cast($XMLStructure, $nc(this->signatureIdMap)->get(parsedId)));
+			$var($XMLStructure, xs, $cast($XMLStructure, this->signatureIdMap->get(parsedId)));
 			if ($instanceOf($DOMReference, xs)) {
 				digestReference($cast($DOMReference, xs), signContext);
 			} else if ($instanceOf($Manifest, xs)) {
 				$var($Manifest, man, $cast($Manifest, xs));
 				$var($List, manRefs, $DOMManifest::getManifestReferences(man));
-				{
-					int32_t i = 0;
-					int32_t size = $nc(manRefs)->size();
-					for (; i < size; ++i) {
-						digestReference($cast($DOMReference, $(manRefs->get(i))), signContext);
-					}
+				for (int32_t i = 0, size = $nc(manRefs)->size(); i < size; ++i) {
+					digestReference($$cast($DOMReference, manRefs->get(i)), signContext);
 				}
 			}
 		}
@@ -562,7 +468,7 @@ void DOMXMLSignature::digestReference($DOMReference* ref, $XMLSignContext* signC
 					{
 						$var($String, transformAlg, $nc(transform)->getAlgorithm());
 						bool var$0 = $nc(transformAlg)->equals($Transform::XPATH);
-						if (var$0 || $nc(transformAlg)->equals($Transform::XPATH2)) {
+						if (var$0 || transformAlg->equals($Transform::XPATH2)) {
 							return;
 						}
 					}
@@ -573,7 +479,7 @@ void DOMXMLSignature::digestReference($DOMReference* ref, $XMLSignContext* signC
 	ref->digest(signContext);
 }
 
-void clinit$DOMXMLSignature($Class* class$) {
+void DOMXMLSignature::clinit$($Class* clazz) {
 	$assignStatic(DOMXMLSignature::LOG, $LoggerFactory::getLogger(DOMXMLSignature::class$));
 	{
 		$Init::init();
@@ -584,7 +490,65 @@ DOMXMLSignature::DOMXMLSignature() {
 }
 
 $Class* DOMXMLSignature::load$($String* name, bool initialize) {
-	$loadClass(DOMXMLSignature, name, initialize, &_DOMXMLSignature_ClassInfo_, clinit$DOMXMLSignature, allocate$DOMXMLSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMXMLSignature, LOG)},
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMXMLSignature, id)},
+		{"sv", "Ljavax/xml/crypto/dsig/XMLSignature$SignatureValue;", nullptr, $PRIVATE, $field(DOMXMLSignature, sv)},
+		{"ki", "Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PRIVATE, $field(DOMXMLSignature, ki)},
+		{"objects", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/XMLObject;>;", $PRIVATE, $field(DOMXMLSignature, objects)},
+		{"si", "Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PRIVATE, $field(DOMXMLSignature, si)},
+		{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(DOMXMLSignature, ownerDoc)},
+		{"localSigElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMXMLSignature, localSigElem)},
+		{"sigElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMXMLSignature, sigElem)},
+		{"validationStatus", "Z", nullptr, $PRIVATE, $field(DOMXMLSignature, validationStatus)},
+		{"validated", "Z", nullptr, $PRIVATE, $field(DOMXMLSignature, validated)},
+		{"ksr", "Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PRIVATE, $field(DOMXMLSignature, ksr)},
+		{"signatureIdMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;>;", $PRIVATE, $field(DOMXMLSignature, signatureIdMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List<+Ljavax/xml/crypto/dsig/XMLObject;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DOMXMLSignature, init$, void, $SignedInfo*, $KeyInfo*, $List*, $String*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMXMLSignature, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"digestReference", "(Lorg/jcp/xml/dsig/internal/dom/DOMReference;Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PRIVATE, $method(DOMXMLSignature, digestReference, void, $DOMReference*, $XMLSignContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, equals, bool, Object$*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getId, $String*)},
+		{"getKeyInfo", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getKeyInfo, $KeyInfo*)},
+		{"getKeySelectorResult", "()Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getKeySelectorResult, $KeySelectorResult*)},
+		{"getObjects", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/XMLObject;>;", $PUBLIC, $virtualMethod(DOMXMLSignature, getObjects, $List*)},
+		{"getSignatureValue", "()Ljavax/xml/crypto/dsig/XMLSignature$SignatureValue;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getSignatureValue, $XMLSignature$SignatureValue*)},
+		{"getSignedInfo", "()Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, getSignedInfo, $SignedInfo*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshal", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $method(DOMXMLSignature, marshal, void, $Node*, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"sign", "(Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, sign, void, $XMLSignContext*), "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.XMLSignatureException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignature, validate, bool, $XMLValidateContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMXMLSignature$DOMSignatureValue", "org.jcp.xml.dsig.internal.dom.DOMXMLSignature", "DOMSignatureValue", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMXMLSignature",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.XMLSignature",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMXMLSignature$DOMSignatureValue"
+	};
+	$loadClass(DOMXMLSignature, name, initialize, &classInfo$$, DOMXMLSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMXMLSignature));
+	});
 	return class$;
 }
 

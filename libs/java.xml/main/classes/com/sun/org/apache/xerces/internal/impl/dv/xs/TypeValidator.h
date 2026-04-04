@@ -48,6 +48,7 @@ class TypeValidator : public ::java::lang::Object {
 	$class(TypeValidator, 0, ::java::lang::Object)
 public:
 	TypeValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkExtraRules(Object$* value, ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext* context);
 	virtual int32_t compare(Object$* value1, Object$* value2);

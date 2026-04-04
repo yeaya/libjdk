@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/SearchResultWithControls.h>
-
 #include <javax/naming/directory/Attributes.h>
 #include <javax/naming/directory/SearchResult.h>
 #include <javax/naming/ldap/Control.h>
@@ -16,36 +15,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _SearchResultWithControls_FieldInfo_[] = {
-	{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(SearchResultWithControls, controls)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SearchResultWithControls, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SearchResultWithControls_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(SearchResultWithControls, init$, void, $String*, Object$*, $Attributes*, bool, $ControlArray*)},
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(SearchResultWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SearchResultWithControls_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.SearchResultWithControls",
-	"javax.naming.directory.SearchResult",
-	"javax.naming.ldap.HasControls",
-	_SearchResultWithControls_FieldInfo_,
-	_SearchResultWithControls_MethodInfo_
-};
-
-$Object* allocate$SearchResultWithControls($Class* clazz) {
-	return $of($alloc(SearchResultWithControls));
-}
 
 $String* SearchResultWithControls::toString() {
 	 return this->$SearchResult::toString();
@@ -80,7 +49,32 @@ SearchResultWithControls::SearchResultWithControls() {
 }
 
 $Class* SearchResultWithControls::load$($String* name, bool initialize) {
-	$loadClass(SearchResultWithControls, name, initialize, &_SearchResultWithControls_ClassInfo_, allocate$SearchResultWithControls);
+	$FieldInfo fieldInfos$$[] = {
+		{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(SearchResultWithControls, controls)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SearchResultWithControls, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(SearchResultWithControls, init$, void, $String*, Object$*, $Attributes*, bool, $ControlArray*)},
+		{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(SearchResultWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.SearchResultWithControls",
+		"javax.naming.directory.SearchResult",
+		"javax.naming.ldap.HasControls",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SearchResultWithControls, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SearchResultWithControls));
+	});
 	return class$;
 }
 

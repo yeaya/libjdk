@@ -14,10 +14,13 @@ public:
 	NameAlreadyBoundException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x8A285766568BE5D6;
+	static const int64_t serialVersionUID = (int64_t)0x8a285766568be5d6;
 	NameAlreadyBoundException(const NameAlreadyBoundException& e);
 	virtual void throw$() override;
-	inline NameAlreadyBoundException* operator ->() {
+	inline NameAlreadyBoundException* operator ->() const {
+		return (NameAlreadyBoundException*)throwing$;
+	}
+	inline operator NameAlreadyBoundException*() const {
 		return (NameAlreadyBoundException*)throwing$;
 	}
 };

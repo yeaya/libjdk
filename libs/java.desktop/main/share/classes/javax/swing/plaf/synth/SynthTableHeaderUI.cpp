@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/synth/SynthTableHeaderUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -15,17 +13,14 @@
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
 #include <javax/swing/plaf/synth/SynthTableHeaderUI$HeaderRenderer.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <jcpp.h>
 
 #undef ENABLED
 
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -37,73 +32,14 @@ using $BasicTableHeaderUI = ::javax::swing::plaf::basic::BasicTableHeaderUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthTableHeaderUI$HeaderRenderer = ::javax::swing::plaf::synth::SynthTableHeaderUI$HeaderRenderer;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
-using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthTableHeaderUI_FieldInfo_[] = {
-	{"prevRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableHeaderUI, prevRenderer)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTableHeaderUI, style)},
-	{}
-};
-
-$MethodInfo _SynthTableHeaderUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTableHeaderUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthTableHeaderUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTableHeaderUI, access$000, int32_t, SynthTableHeaderUI*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTableHeaderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTableHeaderUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"rolloverColumnUpdated", "(II)V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, rolloverColumnUpdated, void, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/table/JTableHeader;)V", nullptr, $PRIVATE, $method(SynthTableHeaderUI, updateStyle, void, $JTableHeader*)},
-	{}
-};
-
-$InnerClassInfo _SynthTableHeaderUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTableHeaderUI$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer", "javax.swing.plaf.synth.SynthTableHeaderUI", "HeaderRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthTableHeaderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTableHeaderUI",
-	"javax.swing.plaf.basic.BasicTableHeaderUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthTableHeaderUI_FieldInfo_,
-	_SynthTableHeaderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTableHeaderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTableHeaderUI$1,javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer"
-};
-
-$Object* allocate$SynthTableHeaderUI($Class* clazz) {
-	return $of($alloc(SynthTableHeaderUI));
-}
 
 int32_t SynthTableHeaderUI::hashCode() {
 	 return this->$BasicTableHeaderUI::hashCode();
@@ -149,7 +85,7 @@ void SynthTableHeaderUI::installDefaults() {
 }
 
 void SynthTableHeaderUI::updateStyle($JTableHeader* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -167,7 +103,7 @@ void SynthTableHeaderUI::installListeners() {
 }
 
 void SynthTableHeaderUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($SynthTableHeaderUI$HeaderRenderer, $($nc(this->header)->getDefaultRenderer()))) {
 		$nc(this->header)->setDefaultRenderer(this->prevRenderer);
 	}
@@ -182,13 +118,11 @@ void SynthTableHeaderUI::uninstallListeners() {
 }
 
 void SynthTableHeaderUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintTableHeaderBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintTableHeaderBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -202,7 +136,7 @@ void SynthTableHeaderUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthTableHeaderUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintTableHeaderBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintTableHeaderBorder(context, g, x, y, w, h);
 }
 
 $SynthContext* SynthTableHeaderUI::getContext($JComponent* c) {
@@ -214,14 +148,14 @@ $SynthContext* SynthTableHeaderUI::getContext($JComponent* c, int32_t state) {
 }
 
 void SynthTableHeaderUI::rolloverColumnUpdated(int32_t oldColumn, int32_t newColumn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->header)->repaint($($nc(this->header)->getHeaderRect(oldColumn)));
 	$nc(this->header)->repaint($($nc(this->header)->getHeaderRect(newColumn)));
 }
 
 void SynthTableHeaderUI::propertyChange($PropertyChangeEvent* evt) {
 	if ($SynthLookAndFeel::shouldUpdateStyle(evt)) {
-		updateStyle($cast($JTableHeader, $($nc(evt)->getSource())));
+		updateStyle($$cast($JTableHeader, $nc(evt)->getSource()));
 	}
 }
 
@@ -229,7 +163,57 @@ SynthTableHeaderUI::SynthTableHeaderUI() {
 }
 
 $Class* SynthTableHeaderUI::load$($String* name, bool initialize) {
-	$loadClass(SynthTableHeaderUI, name, initialize, &_SynthTableHeaderUI_ClassInfo_, allocate$SynthTableHeaderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"prevRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(SynthTableHeaderUI, prevRenderer)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthTableHeaderUI, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthTableHeaderUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthTableHeaderUI;)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthTableHeaderUI, access$000, int32_t, SynthTableHeaderUI*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthTableHeaderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthTableHeaderUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"rolloverColumnUpdated", "(II)V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, rolloverColumnUpdated, void, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthTableHeaderUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthTableHeaderUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/table/JTableHeader;)V", nullptr, $PRIVATE, $method(SynthTableHeaderUI, updateStyle, void, $JTableHeader*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTableHeaderUI$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer", "javax.swing.plaf.synth.SynthTableHeaderUI", "HeaderRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTableHeaderUI",
+		"javax.swing.plaf.basic.BasicTableHeaderUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTableHeaderUI$1,javax.swing.plaf.synth.SynthTableHeaderUI$HeaderRenderer"
+	};
+	$loadClass(SynthTableHeaderUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTableHeaderUI));
+	});
 	return class$;
 }
 

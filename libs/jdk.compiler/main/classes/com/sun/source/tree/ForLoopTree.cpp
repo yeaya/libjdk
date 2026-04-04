@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ForLoopTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/StatementTree.h>
 #include <java/util/List.h>
@@ -16,29 +15,25 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ForLoopTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getCondition, $ExpressionTree*)},
-	{"getInitializer", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getInitializer, $List*)},
-	{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getStatement, $StatementTree*)},
-	{"getUpdate", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionStatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getUpdate, $List*)},
-	{}
-};
-
-$ClassInfo _ForLoopTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ForLoopTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_ForLoopTree_MethodInfo_
-};
-
-$Object* allocate$ForLoopTree($Class* clazz) {
-	return $of($alloc(ForLoopTree));
-}
-
 $Class* ForLoopTree::load$($String* name, bool initialize) {
-	$loadClass(ForLoopTree, name, initialize, &_ForLoopTree_ClassInfo_, allocate$ForLoopTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getCondition, $ExpressionTree*)},
+		{"getInitializer", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getInitializer, $List*)},
+		{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getStatement, $StatementTree*)},
+		{"getUpdate", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionStatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ForLoopTree, getUpdate, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ForLoopTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ForLoopTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForLoopTree);
+	});
 	return class$;
 }
 

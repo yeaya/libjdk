@@ -1,12 +1,10 @@
 #include <TextSelectionTest.h>
-
 #include <TextSelectionTest$1.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/Font.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -36,15 +34,10 @@
 
 using $TextSelectionTest$1 = ::TextSelectionTest$1;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -71,27 +64,24 @@ public:
 	virtual void run() override {
 		TextSelectionTest::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TextSelectionTest$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TextSelectionTest$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextSelectionTest$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextSelectionTest$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo TextSelectionTest$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TextSelectionTest$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TextSelectionTest$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(TextSelectionTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextSelectionTest$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TextSelectionTest$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TextSelectionTest$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TextSelectionTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextSelectionTest$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* TextSelectionTest$$Lambda$createAndShowGUI::class$ = nullptr;
@@ -105,33 +95,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TextSelectionTest::lambda$createAndShowGUI$0(frame, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1>());
-	}
 	$JFrame* frame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1::fieldInfos[2] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, frame)},
-	{}
-};
-$MethodInfo TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1::load$($String* name, bool initialize) {
-	$loadClass(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1);
+	});
 	return class$;
 }
 $Class* TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1::class$ = nullptr;
@@ -145,76 +131,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TextSelectionTest::lambda$createAndShowGUI$1(frame, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2>());
-	}
 	$JFrame* frame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2::fieldInfos[2] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, frame)},
-	{}
-};
-$MethodInfo TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2::load$($String* name, bool initialize) {
-	$loadClass(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2);
+	});
 	return class$;
 }
 $Class* TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2::class$ = nullptr;
-
-$FieldInfo _TextSelectionTest_FieldInfo_[] = {
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextSelectionTest, INSTRUCTIONS)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextSelectionTest, latch)},
-	{"passed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TextSelectionTest, passed)},
-	{}
-};
-
-$MethodInfo _TextSelectionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextSelectionTest, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TextSelectionTest, createAndShowGUI, void)},
-	{"lambda$createAndShowGUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextSelectionTest, lambda$createAndShowGUI$0, void, $JFrame*, $ActionEvent*)},
-	{"lambda$createAndShowGUI$1", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextSelectionTest, lambda$createAndShowGUI$1, void, $JFrame*, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TextSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TextSelectionTest_InnerClassesInfo_[] = {
-	{"TextSelectionTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TextSelectionTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TextSelectionTest",
-	"java.lang.Object",
-	nullptr,
-	_TextSelectionTest_FieldInfo_,
-	_TextSelectionTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextSelectionTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TextSelectionTest$1"
-};
-
-$Object* allocate$TextSelectionTest($Class* clazz) {
-	return $of($alloc(TextSelectionTest));
-}
 
 $String* TextSelectionTest::INSTRUCTIONS = nullptr;
 $CountDownLatch* TextSelectionTest::latch = nullptr;
@@ -225,10 +167,10 @@ void TextSelectionTest::init$() {
 
 void TextSelectionTest::main($StringArray* args) {
 	$init(TextSelectionTest);
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TextSelectionTest$$Lambda$createAndShowGUI)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(TextSelectionTest$$Lambda$createAndShowGUI));
 	$init($TimeUnit);
-	$nc(TextSelectionTest::latch)->await(3, $TimeUnit::MINUTES);
+	TextSelectionTest::latch->await(3, $TimeUnit::MINUTES);
 	$nc($System::out)->println($$str({"passed: "_s, $$str(TextSelectionTest::passed)}));
 	if (!TextSelectionTest::passed) {
 		$throwNew($RuntimeException, "Test fails!"_s);
@@ -237,27 +179,26 @@ void TextSelectionTest::main($StringArray* args) {
 
 void TextSelectionTest::createAndShowGUI() {
 	$init(TextSelectionTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, frame, $new($JFrame, "Follow the instructions below:"_s));
 	frame->setSize(700, 500);
 	frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
-	$var($JPanel, panel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($JPanel, panel, $new($JPanel, $$new($BorderLayout)));
 	$var($JTextComponent, textComponent, $new($JTextArea, TextSelectionTest::INSTRUCTIONS));
 	textComponent->setEditable(false);
 	$var($Font, font, textComponent->getFont());
 	$assign(font, $nc(font)->deriveFont(24.0f));
 	textComponent->setFont(font);
-	$init($BorderLayout);
-	panel->add(static_cast<$Component*>(textComponent), $of($BorderLayout::CENTER));
-	$var($JPanel, buttonsPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
+	panel->add(textComponent, $BorderLayout::CENTER);
+	$var($JPanel, buttonsPanel, $new($JPanel, $$new($FlowLayout)));
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, frame)));
+	passButton->addActionListener($$new(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1, frame));
 	$var($JButton, failsButton, $new($JButton, "Fail"_s));
-	failsButton->addActionListener(static_cast<$ActionListener*>($$new(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, frame)));
-	buttonsPanel->add(static_cast<$Component*>(passButton));
-	buttonsPanel->add(static_cast<$Component*>(failsButton));
-	panel->add(static_cast<$Component*>(buttonsPanel), $of($BorderLayout::SOUTH));
-	$nc($(frame->getContentPane()))->add(static_cast<$Component*>(panel));
+	failsButton->addActionListener($$new(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2, frame));
+	buttonsPanel->add(passButton);
+	buttonsPanel->add(failsButton);
+	panel->add(buttonsPanel, $BorderLayout::SOUTH);
+	$$nc(frame->getContentPane())->add(panel);
 	frame->addWindowListener($$new($TextSelectionTest$1));
 	frame->setVisible(true);
 }
@@ -265,18 +206,18 @@ void TextSelectionTest::createAndShowGUI() {
 void TextSelectionTest::lambda$createAndShowGUI$1($JFrame* frame, $ActionEvent* e) {
 	$init(TextSelectionTest);
 	TextSelectionTest::passed = false;
-	$nc(TextSelectionTest::latch)->countDown();
+	TextSelectionTest::latch->countDown();
 	$nc(frame)->dispose();
 }
 
 void TextSelectionTest::lambda$createAndShowGUI$0($JFrame* frame, $ActionEvent* e) {
 	$init(TextSelectionTest);
 	TextSelectionTest::passed = true;
-	$nc(TextSelectionTest::latch)->countDown();
+	TextSelectionTest::latch->countDown();
 	$nc(frame)->dispose();
 }
 
-void clinit$TextSelectionTest($Class* class$) {
+void TextSelectionTest::clinit$($Class* clazz) {
 	$assignStatic(TextSelectionTest::INSTRUCTIONS, "This is a manual test.\n\nSelect the current text from the end to the beginning.\n\nIf the text is slightly shiftted from one side to another\nand back during selection press Fail.\nOtherwise, press Pass."_s);
 	$assignStatic(TextSelectionTest::latch, $new($CountDownLatch, 1));
 	TextSelectionTest::passed = false;
@@ -287,17 +228,51 @@ TextSelectionTest::TextSelectionTest() {
 
 $Class* TextSelectionTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TextSelectionTest$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("TextSelectionTest$$Lambda$createAndShowGUI")) {
 			return TextSelectionTest$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
-		if (name->equals(TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1::classInfo$.name)) {
+		if (name->equals("TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1")) {
 			return TextSelectionTest$$Lambda$lambda$createAndShowGUI$0$1::load$(name, initialize);
 		}
-		if (name->equals(TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2::classInfo$.name)) {
+		if (name->equals("TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2")) {
 			return TextSelectionTest$$Lambda$lambda$createAndShowGUI$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TextSelectionTest, name, initialize, &_TextSelectionTest_ClassInfo_, clinit$TextSelectionTest, allocate$TextSelectionTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextSelectionTest, INSTRUCTIONS)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TextSelectionTest, latch)},
+		{"passed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TextSelectionTest, passed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextSelectionTest, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TextSelectionTest, createAndShowGUI, void)},
+		{"lambda$createAndShowGUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextSelectionTest, lambda$createAndShowGUI$0, void, $JFrame*, $ActionEvent*)},
+		{"lambda$createAndShowGUI$1", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextSelectionTest, lambda$createAndShowGUI$1, void, $JFrame*, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TextSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TextSelectionTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TextSelectionTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TextSelectionTest$1"
+	};
+	$loadClass(TextSelectionTest, name, initialize, &classInfo$$, TextSelectionTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TextSelectionTest);
+	});
 	return class$;
 }
 

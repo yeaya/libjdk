@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTextFieldSearch$10.h>
-
 #include <com/apple/laf/AquaTextFieldSearch.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
@@ -19,48 +18,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTextFieldSearch$10_FieldInfo_[] = {
-	{"val$c", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTextFieldSearch$10, val$c)},
-	{}
-};
-
-$MethodInfo _AquaTextFieldSearch$10_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(AquaTextFieldSearch$10, init$, void, $String*, $JTextComponent*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$10, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaTextFieldSearch$10_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaTextFieldSearch",
-	"getCancelButton",
-	"(Ljavax/swing/text/JTextComponent;)Ljavax/swing/JButton;"
-};
-
-$InnerClassInfo _AquaTextFieldSearch$10_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTextFieldSearch$10", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTextFieldSearch$10_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTextFieldSearch$10",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_AquaTextFieldSearch$10_FieldInfo_,
-	_AquaTextFieldSearch$10_MethodInfo_,
-	nullptr,
-	&_AquaTextFieldSearch$10_EnclosingMethodInfo_,
-	_AquaTextFieldSearch$10_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTextFieldSearch"
-};
-
-$Object* allocate$AquaTextFieldSearch$10($Class* clazz) {
-	return $of($alloc(AquaTextFieldSearch$10));
-}
-
 void AquaTextFieldSearch$10::init$($String* name, $JTextComponent* val$c) {
 	$set(this, val$c, val$c);
 	$AbstractAction::init$(name);
@@ -74,7 +31,42 @@ AquaTextFieldSearch$10::AquaTextFieldSearch$10() {
 }
 
 $Class* AquaTextFieldSearch$10::load$($String* name, bool initialize) {
-	$loadClass(AquaTextFieldSearch$10, name, initialize, &_AquaTextFieldSearch$10_ClassInfo_, allocate$AquaTextFieldSearch$10);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$c", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTextFieldSearch$10, val$c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(AquaTextFieldSearch$10, init$, void, $String*, $JTextComponent*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$10, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaTextFieldSearch",
+		"getCancelButton",
+		"(Ljavax/swing/text/JTextComponent;)Ljavax/swing/JButton;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTextFieldSearch$10", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTextFieldSearch$10",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTextFieldSearch"
+	};
+	$loadClass(AquaTextFieldSearch$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTextFieldSearch$10));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serialize/SerializerFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xml/internal/serialize/HTMLSerializer.h>
 #include <com/sun/org/apache/xml/internal/serialize/Method.h>
@@ -46,54 +45,17 @@ namespace com {
 					namespace internal {
 						namespace serialize {
 
-$CompoundAttribute _SerializerFactoryImpl_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _SerializerFactoryImpl_FieldInfo_[] = {
-	{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerializerFactoryImpl, _method)},
-	{}
-};
-
-$MethodInfo _SerializerFactoryImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SerializerFactoryImpl, init$, void, $String*)},
-	{"getSerializer", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PRIVATE, $method(SerializerFactoryImpl, getSerializer, $Serializer*, $OutputFormat*)},
-	{"getSupportedMethod", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SerializerFactoryImpl, getSupportedMethod, $String*)},
-	{"makeSerializer", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PUBLIC, $virtualMethod(SerializerFactoryImpl, makeSerializer, $Serializer*, $OutputFormat*)},
-	{"makeSerializer", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PUBLIC, $virtualMethod(SerializerFactoryImpl, makeSerializer, $Serializer*, $Writer*, $OutputFormat*)},
-	{"makeSerializer", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PUBLIC, $virtualMethod(SerializerFactoryImpl, makeSerializer, $Serializer*, $OutputStream*, $OutputFormat*), "java.io.UnsupportedEncodingException"},
-	{}
-};
-
-$ClassInfo _SerializerFactoryImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serialize.SerializerFactoryImpl",
-	"com.sun.org.apache.xml.internal.serialize.SerializerFactory",
-	nullptr,
-	_SerializerFactoryImpl_FieldInfo_,
-	_SerializerFactoryImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SerializerFactoryImpl_Annotations_
-};
-
-$Object* allocate$SerializerFactoryImpl($Class* clazz) {
-	return $of($alloc(SerializerFactoryImpl));
-}
-
 void SerializerFactoryImpl::init$($String* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SerializerFactory::init$();
 	$set(this, _method, method);
 	$init($Method);
 	bool var$2 = !$nc(this->_method)->equals($Method::XML);
-	bool var$1 = var$2 && !$nc(this->_method)->equals($Method::HTML);
-	bool var$0 = var$1 && !$nc(this->_method)->equals($Method::XHTML);
-	if (var$0 && !$nc(this->_method)->equals($Method::TEXT)) {
+	bool var$1 = var$2 && !this->_method->equals($Method::HTML);
+	bool var$0 = var$1 && !this->_method->equals($Method::XHTML);
+	if (var$0 && !this->_method->equals($Method::TEXT)) {
 		$init($DOMMessageFormatter);
-		$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "MethodNotSupported"_s, $$new($ObjectArray, {$of(method)})));
+		$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "MethodNotSupported"_s, $$new($ObjectArray, {method})));
 		$throwNew($IllegalArgumentException, msg);
 	}
 }
@@ -120,26 +82,20 @@ $Serializer* SerializerFactoryImpl::makeSerializer($OutputStream* output, $Outpu
 }
 
 $Serializer* SerializerFactoryImpl::getSerializer($OutputFormat* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Method);
 	if ($nc(this->_method)->equals($Method::XML)) {
 		return $new($XMLSerializer, format);
+	} else if (this->_method->equals($Method::HTML)) {
+		return $new($HTMLSerializer, format);
+	} else if (this->_method->equals($Method::XHTML)) {
+		return $new($XHTMLSerializer, format);
+	} else if (this->_method->equals($Method::TEXT)) {
+		return $new($TextSerializer);
 	} else {
-		if ($nc(this->_method)->equals($Method::HTML)) {
-			return $new($HTMLSerializer, format);
-		} else {
-			if ($nc(this->_method)->equals($Method::XHTML)) {
-				return $new($XHTMLSerializer, format);
-			} else {
-				if ($nc(this->_method)->equals($Method::TEXT)) {
-					return $new($TextSerializer);
-				} else {
-					$init($DOMMessageFormatter);
-					$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "MethodNotSupported"_s, $$new($ObjectArray, {$of(this->_method)})));
-					$throwNew($IllegalStateException, msg);
-				}
-			}
-		}
+		$init($DOMMessageFormatter);
+		$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::SERIALIZER_DOMAIN, "MethodNotSupported"_s, $$new($ObjectArray, {this->_method})));
+		$throwNew($IllegalStateException, msg);
 	}
 }
 
@@ -151,7 +107,38 @@ SerializerFactoryImpl::SerializerFactoryImpl() {
 }
 
 $Class* SerializerFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(SerializerFactoryImpl, name, initialize, &_SerializerFactoryImpl_ClassInfo_, allocate$SerializerFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerializerFactoryImpl, _method)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SerializerFactoryImpl, init$, void, $String*)},
+		{"getSerializer", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PRIVATE, $method(SerializerFactoryImpl, getSerializer, $Serializer*, $OutputFormat*)},
+		{"getSupportedMethod", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SerializerFactoryImpl, getSupportedMethod, $String*)},
+		{"makeSerializer", "(Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PUBLIC, $virtualMethod(SerializerFactoryImpl, makeSerializer, $Serializer*, $OutputFormat*)},
+		{"makeSerializer", "(Ljava/io/Writer;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PUBLIC, $virtualMethod(SerializerFactoryImpl, makeSerializer, $Serializer*, $Writer*, $OutputFormat*)},
+		{"makeSerializer", "(Ljava/io/OutputStream;Lcom/sun/org/apache/xml/internal/serialize/OutputFormat;)Lcom/sun/org/apache/xml/internal/serialize/Serializer;", nullptr, $PUBLIC, $virtualMethod(SerializerFactoryImpl, makeSerializer, $Serializer*, $OutputStream*, $OutputFormat*), "java.io.UnsupportedEncodingException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serialize.SerializerFactoryImpl",
+		"com.sun.org.apache.xml.internal.serialize.SerializerFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SerializerFactoryImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SerializerFactoryImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/InvalidFormatException.h>
-
 #include <com/sun/media/sound/InvalidDataException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _InvalidFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidFormatException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.media.sound.InvalidFormatException",
-	"com.sun.media.sound.InvalidDataException",
-	nullptr,
-	_InvalidFormatException_FieldInfo_,
-	_InvalidFormatException_MethodInfo_
-};
-
-$Object* allocate$InvalidFormatException($Class* clazz) {
-	return $of($alloc(InvalidFormatException));
-}
 
 void InvalidFormatException::init$() {
 	$InvalidDataException::init$("Invalid format!"_s);
@@ -56,7 +31,26 @@ void InvalidFormatException::throw$() {
 }
 
 $Class* InvalidFormatException::load$($String* name, bool initialize) {
-	$loadClass(InvalidFormatException, name, initialize, &_InvalidFormatException_ClassInfo_, allocate$InvalidFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidFormatException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.media.sound.InvalidFormatException",
+		"com.sun.media.sound.InvalidDataException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidFormatException);
+	});
 	return class$;
 }
 

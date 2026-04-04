@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/OneStepIteratorForward.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
@@ -36,35 +35,6 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$FieldInfo _OneStepIteratorForward_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OneStepIteratorForward, serialVersionUID)},
-	{"m_axis", "I", nullptr, $PROTECTED, $field(OneStepIteratorForward, m_axis)},
-	{}
-};
-
-$MethodInfo _OneStepIteratorForward_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(OneStepIteratorForward, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(OneStepIteratorForward, init$, void, int32_t)},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(OneStepIteratorForward, deepEquals, bool, $Expression*)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(OneStepIteratorForward, getAxis, int32_t)},
-	{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(OneStepIteratorForward, getNextNode, int32_t)},
-	{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OneStepIteratorForward, setRoot, void, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _OneStepIteratorForward_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.OneStepIteratorForward",
-	"com.sun.org.apache.xpath.internal.axes.ChildTestIterator",
-	nullptr,
-	_OneStepIteratorForward_FieldInfo_,
-	_OneStepIteratorForward_MethodInfo_
-};
-
-$Object* allocate$OneStepIteratorForward($Class* clazz) {
-	return $of($alloc(OneStepIteratorForward));
-}
-
 void OneStepIteratorForward::init$($Compiler* compiler, int32_t opPos, int32_t analysis) {
 	$ChildTestIterator::init$(compiler, opPos, analysis);
 	this->m_axis = -1;
@@ -98,7 +68,7 @@ bool OneStepIteratorForward::deepEquals($Expression* expr) {
 	if (!$ChildTestIterator::deepEquals(expr)) {
 		return false;
 	}
-	if (this->m_axis != $nc(($cast(OneStepIteratorForward, expr)))->m_axis) {
+	if (this->m_axis != $nc($cast(OneStepIteratorForward, expr))->m_axis) {
 		return false;
 	}
 	return true;
@@ -108,7 +78,31 @@ OneStepIteratorForward::OneStepIteratorForward() {
 }
 
 $Class* OneStepIteratorForward::load$($String* name, bool initialize) {
-	$loadClass(OneStepIteratorForward, name, initialize, &_OneStepIteratorForward_ClassInfo_, allocate$OneStepIteratorForward);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OneStepIteratorForward, serialVersionUID)},
+		{"m_axis", "I", nullptr, $PROTECTED, $field(OneStepIteratorForward, m_axis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(OneStepIteratorForward, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(OneStepIteratorForward, init$, void, int32_t)},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(OneStepIteratorForward, deepEquals, bool, $Expression*)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(OneStepIteratorForward, getAxis, int32_t)},
+		{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(OneStepIteratorForward, getNextNode, int32_t)},
+		{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(OneStepIteratorForward, setRoot, void, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.OneStepIteratorForward",
+		"com.sun.org.apache.xpath.internal.axes.ChildTestIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OneStepIteratorForward, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OneStepIteratorForward));
+	});
 	return class$;
 }
 

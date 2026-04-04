@@ -40,6 +40,7 @@ class $export CompileStates$CompileState : public ::java::lang::Enum {
 public:
 	CompileStates$CompileState();
 	static $Array<::com::sun::tools::javac::comp::CompileStates$CompileState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t value);
 	virtual bool isAfter(::com::sun::tools::javac::comp::CompileStates$CompileState* other);
 	static ::com::sun::tools::javac::comp::CompileStates$CompileState* max(::com::sun::tools::javac::comp::CompileStates$CompileState* a, ::com::sun::tools::javac::comp::CompileStates$CompileState* b);

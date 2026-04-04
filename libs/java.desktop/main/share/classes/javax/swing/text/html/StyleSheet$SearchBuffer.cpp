@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet$SearchBuffer.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/EmptyStackException.h>
 #include <java/util/Hashtable.h>
@@ -23,50 +22,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _StyleSheet$SearchBuffer_FieldInfo_[] = {
-	{"searchBuffers", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/html/StyleSheet$SearchBuffer;>;", $STATIC, $staticField(StyleSheet$SearchBuffer, searchBuffers)},
-	{"vector", "Ljava/util/Vector;", nullptr, 0, $field(StyleSheet$SearchBuffer, vector)},
-	{"stringBuffer", "Ljava/lang/StringBuffer;", nullptr, 0, $field(StyleSheet$SearchBuffer, stringBuffer)},
-	{"hashtable", "Ljava/util/Hashtable;", nullptr, 0, $field(StyleSheet$SearchBuffer, hashtable)},
-	{}
-};
-
-$MethodInfo _StyleSheet$SearchBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StyleSheet$SearchBuffer, init$, void)},
-	{"empty", "()V", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, empty, void)},
-	{"getHashtable", "()Ljava/util/Hashtable;", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, getHashtable, $Hashtable*)},
-	{"getStringBuffer", "()Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, getStringBuffer, $StringBuffer*)},
-	{"getVector", "()Ljava/util/Vector;", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, getVector, $Vector*)},
-	{"obtainSearchBuffer", "()Ljavax/swing/text/html/StyleSheet$SearchBuffer;", nullptr, $STATIC, $staticMethod(StyleSheet$SearchBuffer, obtainSearchBuffer, StyleSheet$SearchBuffer*)},
-	{"releaseSearchBuffer", "(Ljavax/swing/text/html/StyleSheet$SearchBuffer;)V", nullptr, $STATIC, $staticMethod(StyleSheet$SearchBuffer, releaseSearchBuffer, void, StyleSheet$SearchBuffer*)},
-	{}
-};
-
-$InnerClassInfo _StyleSheet$SearchBuffer_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$SearchBuffer", "javax.swing.text.html.StyleSheet", "SearchBuffer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StyleSheet$SearchBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.StyleSheet$SearchBuffer",
-	"java.lang.Object",
-	nullptr,
-	_StyleSheet$SearchBuffer_FieldInfo_,
-	_StyleSheet$SearchBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleSheet$SearchBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet"
-};
-
-$Object* allocate$StyleSheet$SearchBuffer($Class* clazz) {
-	return $of($alloc(StyleSheet$SearchBuffer));
-}
-
 $Stack* StyleSheet$SearchBuffer::searchBuffers = nullptr;
 
 void StyleSheet$SearchBuffer::init$() {
@@ -80,7 +35,7 @@ StyleSheet$SearchBuffer* StyleSheet$SearchBuffer::obtainSearchBuffer() {
 	$var(StyleSheet$SearchBuffer, sb, nullptr);
 	try {
 		if (!$nc(StyleSheet$SearchBuffer::searchBuffers)->empty()) {
-			$assign(sb, $cast(StyleSheet$SearchBuffer, $nc(StyleSheet$SearchBuffer::searchBuffers)->pop()));
+			$assign(sb, $cast(StyleSheet$SearchBuffer, StyleSheet$SearchBuffer::searchBuffers->pop()));
 		} else {
 			$assign(sb, $new(StyleSheet$SearchBuffer));
 		}
@@ -119,17 +74,17 @@ $Hashtable* StyleSheet$SearchBuffer::getHashtable() {
 
 void StyleSheet$SearchBuffer::empty() {
 	if (this->stringBuffer != nullptr) {
-		$nc(this->stringBuffer)->setLength(0);
+		this->stringBuffer->setLength(0);
 	}
 	if (this->vector != nullptr) {
-		$nc(this->vector)->removeAllElements();
+		this->vector->removeAllElements();
 	}
 	if (this->hashtable != nullptr) {
-		$nc(this->hashtable)->clear();
+		this->hashtable->clear();
 	}
 }
 
-void clinit$StyleSheet$SearchBuffer($Class* class$) {
+void StyleSheet$SearchBuffer::clinit$($Class* clazz) {
 	$assignStatic(StyleSheet$SearchBuffer::searchBuffers, $new($Stack));
 }
 
@@ -137,7 +92,45 @@ StyleSheet$SearchBuffer::StyleSheet$SearchBuffer() {
 }
 
 $Class* StyleSheet$SearchBuffer::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet$SearchBuffer, name, initialize, &_StyleSheet$SearchBuffer_ClassInfo_, clinit$StyleSheet$SearchBuffer, allocate$StyleSheet$SearchBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"searchBuffers", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/html/StyleSheet$SearchBuffer;>;", $STATIC, $staticField(StyleSheet$SearchBuffer, searchBuffers)},
+		{"vector", "Ljava/util/Vector;", nullptr, 0, $field(StyleSheet$SearchBuffer, vector)},
+		{"stringBuffer", "Ljava/lang/StringBuffer;", nullptr, 0, $field(StyleSheet$SearchBuffer, stringBuffer)},
+		{"hashtable", "Ljava/util/Hashtable;", nullptr, 0, $field(StyleSheet$SearchBuffer, hashtable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StyleSheet$SearchBuffer, init$, void)},
+		{"empty", "()V", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, empty, void)},
+		{"getHashtable", "()Ljava/util/Hashtable;", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, getHashtable, $Hashtable*)},
+		{"getStringBuffer", "()Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, getStringBuffer, $StringBuffer*)},
+		{"getVector", "()Ljava/util/Vector;", nullptr, 0, $virtualMethod(StyleSheet$SearchBuffer, getVector, $Vector*)},
+		{"obtainSearchBuffer", "()Ljavax/swing/text/html/StyleSheet$SearchBuffer;", nullptr, $STATIC, $staticMethod(StyleSheet$SearchBuffer, obtainSearchBuffer, StyleSheet$SearchBuffer*)},
+		{"releaseSearchBuffer", "(Ljavax/swing/text/html/StyleSheet$SearchBuffer;)V", nullptr, $STATIC, $staticMethod(StyleSheet$SearchBuffer, releaseSearchBuffer, void, StyleSheet$SearchBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$SearchBuffer", "javax.swing.text.html.StyleSheet", "SearchBuffer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.StyleSheet$SearchBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet"
+	};
+	$loadClass(StyleSheet$SearchBuffer, name, initialize, &classInfo$$, StyleSheet$SearchBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleSheet$SearchBuffer);
+	});
 	return class$;
 }
 

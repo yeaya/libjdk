@@ -1,5 +1,4 @@
 #include <java/awt/event/FocusListener.h>
-
 #include <java/awt/event/FocusEvent.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$MethodInfo _FocusListener_MethodInfo_[] = {
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FocusListener, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FocusListener, focusLost, void, $FocusEvent*)},
-	{}
-};
-
-$ClassInfo _FocusListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.event.FocusListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_FocusListener_MethodInfo_
-};
-
-$Object* allocate$FocusListener($Class* clazz) {
-	return $of($alloc(FocusListener));
-}
-
 $Class* FocusListener::load$($String* name, bool initialize) {
-	$loadClass(FocusListener, name, initialize, &_FocusListener_ClassInfo_, allocate$FocusListener);
+	$MethodInfo methodInfos$$[] = {
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FocusListener, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FocusListener, focusLost, void, $FocusEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.event.FocusListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FocusListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FocusListener);
+	});
 	return class$;
 }
 

@@ -21,11 +21,14 @@ public:
 	void init$(Object$* val);
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD4E7DAAB632D4640;
+	static const int64_t serialVersionUID = (int64_t)0xd4e7daab632d4640;
 	$String* val = nullptr;
 	BadAttributeValueExpException(const BadAttributeValueExpException& e);
 	virtual void throw$() override;
-	inline BadAttributeValueExpException* operator ->() {
+	inline BadAttributeValueExpException* operator ->() const {
+		return (BadAttributeValueExpException*)throwing$;
+	}
+	inline operator BadAttributeValueExpException*() const {
 		return (BadAttributeValueExpException*)throwing$;
 	}
 };

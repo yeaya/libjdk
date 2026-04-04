@@ -45,6 +45,7 @@ class $import TrayIcon : public ::java::lang::Object {
 	$class(TrayIcon, 0, ::java::lang::Object)
 public:
 	TrayIcon();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::Image* image);
 	void init$(::java::awt::Image* image, $String* tooltip);

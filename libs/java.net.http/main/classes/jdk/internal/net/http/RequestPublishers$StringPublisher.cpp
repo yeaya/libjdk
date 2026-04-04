@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RequestPublishers$StringPublisher.h>
-
 #include <java/nio/charset/Charset.h>
 #include <jdk/internal/net/http/RequestPublishers$ByteArrayPublisher.h>
 #include <jdk/internal/net/http/RequestPublishers.h>
@@ -16,37 +15,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$MethodInfo _RequestPublishers$StringPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(RequestPublishers$StringPublisher, init$, void, $String*, $Charset*)},
-	{}
-};
-
-$InnerClassInfo _RequestPublishers$StringPublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RequestPublishers$StringPublisher", "jdk.internal.net.http.RequestPublishers", "StringPublisher", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher", "jdk.internal.net.http.RequestPublishers", "ByteArrayPublisher", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RequestPublishers$StringPublisher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.RequestPublishers$StringPublisher",
-	"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher",
-	nullptr,
-	nullptr,
-	_RequestPublishers$StringPublisher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequestPublishers$StringPublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RequestPublishers"
-};
-
-$Object* allocate$RequestPublishers$StringPublisher($Class* clazz) {
-	return $of($alloc(RequestPublishers$StringPublisher));
-}
-
 void RequestPublishers$StringPublisher::init$($String* content, $Charset* charset) {
 	$RequestPublishers$ByteArrayPublisher::init$($($nc(content)->getBytes(charset)));
 }
@@ -55,7 +23,33 @@ RequestPublishers$StringPublisher::RequestPublishers$StringPublisher() {
 }
 
 $Class* RequestPublishers$StringPublisher::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers$StringPublisher, name, initialize, &_RequestPublishers$StringPublisher_ClassInfo_, allocate$RequestPublishers$StringPublisher);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(RequestPublishers$StringPublisher, init$, void, $String*, $Charset*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RequestPublishers$StringPublisher", "jdk.internal.net.http.RequestPublishers", "StringPublisher", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher", "jdk.internal.net.http.RequestPublishers", "ByteArrayPublisher", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.RequestPublishers$StringPublisher",
+		"jdk.internal.net.http.RequestPublishers$ByteArrayPublisher",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RequestPublishers"
+	};
+	$loadClass(RequestPublishers$StringPublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$StringPublisher);
+	});
 	return class$;
 }
 

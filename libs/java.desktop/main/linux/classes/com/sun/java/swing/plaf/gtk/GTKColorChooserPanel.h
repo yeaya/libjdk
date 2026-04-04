@@ -71,6 +71,7 @@ class GTKColorChooserPanel : public ::javax::swing::colorchooser::AbstractColorC
 	$class(GTKColorChooserPanel, 0, ::javax::swing::colorchooser::AbstractColorChooserPanel, ::javax::swing::event::ChangeListener)
 public:
 	GTKColorChooserPanel();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::colorchooser::AbstractColorChooserPanel::contains;
 	using ::javax::swing::colorchooser::AbstractColorChooserPanel::enable;
 	using ::javax::swing::colorchooser::AbstractColorChooserPanel::getBounds;

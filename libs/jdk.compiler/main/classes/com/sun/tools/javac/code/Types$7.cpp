@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$7.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -35,8 +34,6 @@
 #undef UNCHECKED
 
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -65,61 +62,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$7_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$7, this$0)},
-	{}
-};
-
-$MethodInfo _Types$7_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$7, init$, void, $Types*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitArrayType, $Boolean*, $Type$ArrayType*, $Type*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitClassType, $Boolean*, $Type$ClassType*, $Type*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitCompoundType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;Z)Z", nullptr, 0, $virtualMethod(Types$7, visitCompoundType, bool, $Type$ClassType*, $Type*, bool)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitType, $Boolean*, $Type*, $Type*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitTypeVar, $Boolean*, $Type$TypeVar*, $Type*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitWildcardType, $Boolean*, $Type$WildcardType*, $Type*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$7_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$7_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$7", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$7",
-	"com.sun.tools.javac.code.Types$TypeRelation",
-	nullptr,
-	_Types$7_FieldInfo_,
-	_Types$7_MethodInfo_,
-	nullptr,
-	&_Types$7_EnclosingMethodInfo_,
-	_Types$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$7($Class* clazz) {
-	return $of($alloc(Types$7));
-}
-
 void Types$7::init$($Types* this$0) {
 	$set(this, this$0, this$0);
 	$Types$TypeRelation::init$();
@@ -132,39 +74,23 @@ $Boolean* Types$7::visitType($Type* t, $Type* s) {
 		return $Boolean::valueOf(true);
 	}
 	$init($Types$25);
-	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 9:
-		{
-			return $Boolean::valueOf($nc(s)->isNumeric());
-		}
+		return $Boolean::valueOf(s->isNumeric());
 	case 10:
-		{
-			return $Boolean::valueOf($nc(s)->hasTag($TypeTag::BOOLEAN));
-		}
+		return $Boolean::valueOf(s->hasTag($TypeTag::BOOLEAN));
 	case 11:
-		{
-			return $Boolean::valueOf(false);
-		}
+		return $Boolean::valueOf(false);
 	case 13:
-		{
-			return $Boolean::valueOf(this->this$0->isSubtype(t, s));
-		}
+		return $Boolean::valueOf(this->this$0->isSubtype(t, s));
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
@@ -173,52 +99,52 @@ $Boolean* Types$7::visitWildcardType($Type$WildcardType* t, $Type* s) {
 }
 
 $Boolean* Types$7::visitClassType($Type$ClassType* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	bool var$0 = $nc(s)->hasTag($TypeTag::ERROR);
-	if (var$0 || $nc(s)->hasTag($TypeTag::BOT)) {
+	if (var$0 || s->hasTag($TypeTag::BOT)) {
 		return $Boolean::valueOf(true);
 	}
-	if ($nc(s)->hasTag($TypeTag::TYPEVAR)) {
+	if (s->hasTag($TypeTag::TYPEVAR)) {
 		if (this->this$0->isCastable(t, $(s->getUpperBound()), this->this$0->noWarnings)) {
 			$init($Lint$LintCategory);
-			$nc(($cast($Warner, $nc(this->this$0->warnStack)->head)))->warn($Lint$LintCategory::UNCHECKED);
+			$nc($cast($Warner, $nc(this->this$0->warnStack)->head))->warn($Lint$LintCategory::UNCHECKED);
 			return $Boolean::valueOf(true);
 		} else {
 			return $Boolean::valueOf(false);
 		}
 	}
 	bool var$1 = $nc(t)->isCompound();
-	if (var$1 || $nc(s)->isCompound()) {
-		return $Boolean::valueOf(!$nc(t)->isCompound() ? visitCompoundType($cast($Type$ClassType, s), t, true) : visitCompoundType(t, s, false));
+	if (var$1 || s->isCompound()) {
+		return $Boolean::valueOf(!t->isCompound() ? visitCompoundType($cast($Type$ClassType, s), t, true) : visitCompoundType(t, s, false));
 	}
-	bool var$2 = $nc(s)->hasTag($TypeTag::CLASS);
-	if (var$2 || $nc(s)->hasTag($TypeTag::ARRAY)) {
+	bool var$2 = s->hasTag($TypeTag::CLASS);
+	if (var$2 || s->hasTag($TypeTag::ARRAY)) {
 		bool upcast = false;
-		$var($Type, var$4, this->this$0->erasure(static_cast<$Type*>(t)));
-		bool var$3 = (upcast = this->this$0->isSubtype(var$4, $(this->this$0->erasure(s))));
+		$var($Type, var$4, this->this$0->erasure(t));
+		bool var$3 = upcast = this->this$0->isSubtype(var$4, $(this->this$0->erasure(s)));
 		if (!var$3) {
 			$var($Type, var$5, this->this$0->erasure(s));
-			var$3 = this->this$0->isSubtype(var$5, $(this->this$0->erasure(static_cast<$Type*>(t))));
+			var$3 = this->this$0->isSubtype(var$5, $(this->this$0->erasure(t)));
 		}
 		if (var$3) {
 			if (!upcast && s->hasTag($TypeTag::ARRAY)) {
 				if (!this->this$0->isReifiable(s)) {
 					$init($Lint$LintCategory);
-					$nc(($cast($Warner, $nc(this->this$0->warnStack)->head)))->warn($Lint$LintCategory::UNCHECKED);
+					$nc($cast($Warner, $nc(this->this$0->warnStack)->head))->warn($Lint$LintCategory::UNCHECKED);
 				}
 				return $Boolean::valueOf(true);
 			} else if (s->isRaw()) {
 				return $Boolean::valueOf(true);
-			} else if ($nc(t)->isRaw()) {
+			} else if (t->isRaw()) {
 				if (!this->this$0->isUnbounded(s)) {
 					$init($Lint$LintCategory);
-					$nc(($cast($Warner, $nc(this->this$0->warnStack)->head)))->warn($Lint$LintCategory::UNCHECKED);
+					$nc($cast($Warner, $nc(this->this$0->warnStack)->head))->warn($Lint$LintCategory::UNCHECKED);
 				}
 				return $Boolean::valueOf(true);
 			}
-			$var($Type, a, upcast ? static_cast<$Type*>(t) : s);
-			$var($Type, b, upcast ? s : static_cast<$Type*>(t));
+			$var($Type, a, upcast ? $cast($Type, t) : s);
+			$var($Type, b, upcast ? s : $cast($Type, t));
 			bool HIGH = true;
 			bool LOW = false;
 			bool DONT_REWRITE_TYPEVARS = false;
@@ -244,23 +170,23 @@ $Boolean* Types$7::visitClassType($Type$ClassType* t, $Type* s) {
 				$var($List, var$9, $nc(aHigh)->allparams());
 				bool var$8 = !this->this$0->disjointTypes(var$9, $(highSub->allparams()));
 				if (var$8) {
-					$var($List, var$10, $nc(aHigh)->allparams());
+					$var($List, var$10, aHigh->allparams());
 					var$8 = !this->this$0->disjointTypes(var$10, $($nc(lowSub)->allparams()));
 				}
 				bool var$7 = var$8;
 				if (var$7) {
-					$var($List, var$11, $nc(aLow)->allparams());
+					$var($List, var$11, aLow->allparams());
 					var$7 = !this->this$0->disjointTypes(var$11, $(highSub->allparams()));
 				}
 				bool var$6 = var$7;
 				if (var$6) {
-					$var($List, var$12, $nc(aLow)->allparams());
+					$var($List, var$12, aLow->allparams());
 					var$6 = !this->this$0->disjointTypes(var$12, $($nc(lowSub)->allparams()));
 				}
 				if (var$6) {
 					if (upcast ? this->this$0->giveWarning(a, b) : this->this$0->giveWarning(b, a)) {
 						$init($Lint$LintCategory);
-						$nc(($cast($Warner, $nc(this->this$0->warnStack)->head)))->warn($Lint$LintCategory::UNCHECKED);
+						$nc($cast($Warner, $nc(this->this$0->warnStack)->head))->warn($Lint$LintCategory::UNCHECKED);
 					}
 					return $Boolean::valueOf(true);
 				}
@@ -272,10 +198,10 @@ $Boolean* Types$7::visitClassType($Type$ClassType* t, $Type* s) {
 			}
 		}
 		if (s->hasTag($TypeTag::CLASS)) {
-			if (((int64_t)($nc(s->tsym)->flags() & (uint64_t)(int64_t)512)) != 0) {
-				return $Boolean::valueOf((((int64_t)($nc($nc(t)->tsym)->flags() & (uint64_t)(int64_t)16)) == 0) ? this->this$0->sideCast(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)) : this->this$0->sideCastFinal(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)));
-			} else if (((int64_t)($nc($nc(t)->tsym)->flags() & (uint64_t)(int64_t)512)) != 0) {
-				return $Boolean::valueOf((((int64_t)($nc(s->tsym)->flags() & (uint64_t)(int64_t)16)) == 0) ? this->this$0->sideCast(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)) : this->this$0->sideCastFinal(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)));
+			if (($nc(s->tsym)->flags() & 0x0200) != 0) {
+				return $Boolean::valueOf((($nc(t->tsym)->flags() & 0x10) == 0) ? this->this$0->sideCast(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)) : this->this$0->sideCastFinal(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)));
+			} else if (($nc(t->tsym)->flags() & 0x0200) != 0) {
+				return $Boolean::valueOf((($nc(s->tsym)->flags() & 0x10) == 0) ? this->this$0->sideCast(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)) : this->this$0->sideCastFinal(t, s, $cast($Warner, $nc(this->this$0->warnStack)->head)));
 			} else {
 				return $Boolean::valueOf(false);
 			}
@@ -285,10 +211,10 @@ $Boolean* Types$7::visitClassType($Type$ClassType* t, $Type* s) {
 }
 
 bool Types$7::visitCompoundType($Type$ClassType* ct, $Type* s, bool reverse) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Warner, warn, this->this$0->noWarnings);
 	{
-		$var($Iterator, i$, $nc($(this->this$0->directSupertypes(ct)))->iterator());
+		$var($Iterator, i$, $$nc(this->this$0->directSupertypes(ct))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, c, $cast($Type, i$->next()));
 			{
@@ -301,78 +227,62 @@ bool Types$7::visitCompoundType($Type$ClassType* ct, $Type* s, bool reverse) {
 	}
 	$init($Lint$LintCategory);
 	if ($nc(warn)->hasLint($Lint$LintCategory::UNCHECKED)) {
-		$nc(($cast($Warner, $nc(this->this$0->warnStack)->head)))->warn($Lint$LintCategory::UNCHECKED);
+		$nc($cast($Warner, $nc(this->this$0->warnStack)->head))->warn($Lint$LintCategory::UNCHECKED);
 	}
 	return true;
 }
 
 $Boolean* Types$7::visitArrayType($Type$ArrayType* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Types$25);
-	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(s)->getTag())))->ordinal())) {
+	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(s)->getTag()))->ordinal())) {
 	case 16:
-		{}
 	case 13:
-		{
-			return $Boolean::valueOf(true);
-		}
+		return $Boolean::valueOf(true);
 	case 12:
-		{
-			if (this->this$0->isCastable(s, t, this->this$0->noWarnings)) {
-				$init($Lint$LintCategory);
-				$nc(($cast($Warner, $nc(this->this$0->warnStack)->head)))->warn($Lint$LintCategory::UNCHECKED);
-				return $Boolean::valueOf(true);
-			} else {
-				return $Boolean::valueOf(false);
-			}
+		if (this->this$0->isCastable(s, t, this->this$0->noWarnings)) {
+			$init($Lint$LintCategory);
+			$nc($cast($Warner, $nc(this->this$0->warnStack)->head))->warn($Lint$LintCategory::UNCHECKED);
+			return $Boolean::valueOf(true);
+		} else {
+			return $Boolean::valueOf(false);
 		}
 	case 2:
-		{
-			return $Boolean::valueOf(this->this$0->isSubtype(t, s));
-		}
+		return $Boolean::valueOf(this->this$0->isSubtype(t, s));
 	case 1:
 		{
-			bool var$0 = $nc($(this->this$0->elemtype(t)))->isPrimitive();
-			if (var$0 || $nc($(this->this$0->elemtype(s)))->isPrimitive()) {
-				return $Boolean::valueOf($nc($(this->this$0->elemtype(t)))->hasTag($($nc($(this->this$0->elemtype(s)))->getTag())));
+			bool var$0 = $$nc(this->this$0->elemtype(t))->isPrimitive();
+			if (var$0 || $$nc(this->this$0->elemtype(s))->isPrimitive()) {
+				return $Boolean::valueOf($$nc(this->this$0->elemtype(t))->hasTag($($$nc(this->this$0->elemtype(s))->getTag())));
 			} else {
 				$var($Type, var$1, this->this$0->elemtype(t));
 				return $cast($Boolean, visit(var$1, $(this->this$0->elemtype(s))));
 			}
 		}
 	default:
-		{
-			return $Boolean::valueOf(false);
-		}
+		return $Boolean::valueOf(false);
 	}
 }
 
 $Boolean* Types$7::visitTypeVar($Type$TypeVar* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Types$25);
-	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(s)->getTag())))->ordinal())) {
+	switch ($nc($Types$25::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(s)->getTag()))->ordinal())) {
 	case 16:
-		{}
 	case 13:
-		{
-			return $Boolean::valueOf(true);
-		}
+		return $Boolean::valueOf(true);
 	case 12:
-		{
-			if (this->this$0->isSubtype(t, s)) {
-				return $Boolean::valueOf(true);
-			} else if (this->this$0->isCastable($($nc(t)->getUpperBound()), s, this->this$0->noWarnings)) {
-				$init($Lint$LintCategory);
-				$nc(($cast($Warner, $nc(this->this$0->warnStack)->head)))->warn($Lint$LintCategory::UNCHECKED);
-				return $Boolean::valueOf(true);
-			} else {
-				return $Boolean::valueOf(false);
-			}
+		if (this->this$0->isSubtype(t, s)) {
+			return $Boolean::valueOf(true);
+		} else if (this->this$0->isCastable($($nc(t)->getUpperBound()), s, this->this$0->noWarnings)) {
+			$init($Lint$LintCategory);
+			$nc($cast($Warner, $nc(this->this$0->warnStack)->head))->warn($Lint$LintCategory::UNCHECKED);
+			return $Boolean::valueOf(true);
+		} else {
+			return $Boolean::valueOf(false);
 		}
 	default:
-		{
-			return $Boolean::valueOf(this->this$0->isCastable($($nc(t)->getUpperBound()), s, $cast($Warner, $nc(this->this$0->warnStack)->head)));
-		}
+		return $Boolean::valueOf(this->this$0->isCastable($($nc(t)->getUpperBound()), s, $cast($Warner, $nc(this->this$0->warnStack)->head)));
 	}
 }
 
@@ -408,7 +318,55 @@ Types$7::Types$7() {
 }
 
 $Class* Types$7::load$($String* name, bool initialize) {
-	$loadClass(Types$7, name, initialize, &_Types$7_ClassInfo_, allocate$Types$7);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$7, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$7, init$, void, $Types*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitArrayType, $Boolean*, $Type$ArrayType*, $Type*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitClassType, $Boolean*, $Type$ClassType*, $Type*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitCompoundType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;Z)Z", nullptr, 0, $virtualMethod(Types$7, visitCompoundType, bool, $Type$ClassType*, $Type*, bool)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitErrorType, $Boolean*, $Type$ErrorType*, $Type*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitType, $Boolean*, $Type*, $Type*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitTypeVar, $Boolean*, $Type$TypeVar*, $Type*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$7, visitWildcardType, $Boolean*, $Type$WildcardType*, $Type*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$7, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$7", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$7",
+		"com.sun.tools.javac.code.Types$TypeRelation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$7);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/OutlineTextRenderer.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Shape.h>
 #include <java/awt/font/FontRenderContext.h>
@@ -32,32 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _OutlineTextRenderer_FieldInfo_[] = {
-	{"THRESHHOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OutlineTextRenderer, THRESHHOLD)},
-	{}
-};
-
-$MethodInfo _OutlineTextRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OutlineTextRenderer, init$, void)},
-	{"drawChars", "(Lsun/java2d/SunGraphics2D;[CIIII)V", nullptr, $PUBLIC, $virtualMethod(OutlineTextRenderer, drawChars, void, $SunGraphics2D*, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(OutlineTextRenderer, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, float, float)},
-	{"drawString", "(Lsun/java2d/SunGraphics2D;Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(OutlineTextRenderer, drawString, void, $SunGraphics2D*, $String*, double, double)},
-	{}
-};
-
-$ClassInfo _OutlineTextRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.OutlineTextRenderer",
-	"java.lang.Object",
-	"sun.java2d.pipe.TextPipe",
-	_OutlineTextRenderer_FieldInfo_,
-	_OutlineTextRenderer_MethodInfo_
-};
-
-$Object* allocate$OutlineTextRenderer($Class* clazz) {
-	return $of($alloc(OutlineTextRenderer));
-}
-
 void OutlineTextRenderer::init$() {
 }
 
@@ -67,15 +40,14 @@ void OutlineTextRenderer::drawChars($SunGraphics2D* g2d, $chars* data, int32_t o
 }
 
 void OutlineTextRenderer::drawString($SunGraphics2D* g2d, $String* str, double x, double y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (""_s->equals(str)) {
 		return;
 	}
-	$var($String, var$0, str);
-	$var($Font, var$1, $nc(g2d)->getFont());
-	$var($TextLayout, tl, $new($TextLayout, var$0, var$1, $(g2d->getFontRenderContext())));
+	$var($Font, var$0, $nc(g2d)->getFont());
+	$var($TextLayout, tl, $new($TextLayout, str, var$0, $(g2d->getFontRenderContext())));
 	$var($Shape, s, tl->getOutline($($AffineTransform::getTranslateInstance(x, y))));
-	int32_t textAAHint = $nc($($nc(g2d)->getFontInfo()))->aaHint;
+	int32_t textAAHint = $nc($(g2d->getFontInfo()))->aaHint;
 	int32_t prevaaHint = -1;
 	if (textAAHint != $SunHints::INTVAL_TEXT_ANTIALIAS_OFF && g2d->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON) {
 		prevaaHint = g2d->antialiasHint;
@@ -94,7 +66,7 @@ void OutlineTextRenderer::drawString($SunGraphics2D* g2d, $String* str, double x
 }
 
 void OutlineTextRenderer::drawGlyphVector($SunGraphics2D* g2d, $GlyphVector* gv, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, s, $nc(gv)->getOutline(x, y));
 	int32_t prevaaHint = -1;
 	$var($FontRenderContext, frc, gv->getFontRenderContext());
@@ -108,7 +80,7 @@ void OutlineTextRenderer::drawGlyphVector($SunGraphics2D* g2d, $GlyphVector* gv,
 		prevaaHint = g2d->antialiasHint;
 		g2d->antialiasHint = $SunHints::INTVAL_ANTIALIAS_ON;
 		g2d->validatePipe();
-	} else if (!aa && g2d->antialiasHint != $SunHints::INTVAL_ANTIALIAS_OFF) {
+	} else if (!aa && $nc(g2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_OFF) {
 		prevaaHint = g2d->antialiasHint;
 		g2d->antialiasHint = $SunHints::INTVAL_ANTIALIAS_OFF;
 		g2d->validatePipe();
@@ -124,7 +96,28 @@ OutlineTextRenderer::OutlineTextRenderer() {
 }
 
 $Class* OutlineTextRenderer::load$($String* name, bool initialize) {
-	$loadClass(OutlineTextRenderer, name, initialize, &_OutlineTextRenderer_ClassInfo_, allocate$OutlineTextRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"THRESHHOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OutlineTextRenderer, THRESHHOLD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OutlineTextRenderer, init$, void)},
+		{"drawChars", "(Lsun/java2d/SunGraphics2D;[CIIII)V", nullptr, $PUBLIC, $virtualMethod(OutlineTextRenderer, drawChars, void, $SunGraphics2D*, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGlyphVector", "(Lsun/java2d/SunGraphics2D;Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(OutlineTextRenderer, drawGlyphVector, void, $SunGraphics2D*, $GlyphVector*, float, float)},
+		{"drawString", "(Lsun/java2d/SunGraphics2D;Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(OutlineTextRenderer, drawString, void, $SunGraphics2D*, $String*, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.OutlineTextRenderer",
+		"java.lang.Object",
+		"sun.java2d.pipe.TextPipe",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutlineTextRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OutlineTextRenderer);
+	});
 	return class$;
 }
 

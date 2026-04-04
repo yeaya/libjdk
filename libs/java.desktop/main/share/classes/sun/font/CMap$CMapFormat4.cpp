@@ -1,5 +1,4 @@
 #include <sun/font/CMap$CMapFormat4.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <sun/font/CMap.h>
@@ -15,49 +14,6 @@ using $CMap = ::sun::font::CMap;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CMap$CMapFormat4_FieldInfo_[] = {
-	{"segCount", "I", nullptr, 0, $field(CMap$CMapFormat4, segCount)},
-	{"entrySelector", "I", nullptr, 0, $field(CMap$CMapFormat4, entrySelector)},
-	{"rangeShift", "I", nullptr, 0, $field(CMap$CMapFormat4, rangeShift)},
-	{"endCount", "[C", nullptr, 0, $field(CMap$CMapFormat4, endCount)},
-	{"startCount", "[C", nullptr, 0, $field(CMap$CMapFormat4, startCount)},
-	{"idDelta", "[S", nullptr, 0, $field(CMap$CMapFormat4, idDelta)},
-	{"idRangeOffset", "[C", nullptr, 0, $field(CMap$CMapFormat4, idRangeOffset)},
-	{"glyphIds", "[C", nullptr, 0, $field(CMap$CMapFormat4, glyphIds)},
-	{}
-};
-
-$MethodInfo _CMap$CMapFormat4_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat4, init$, void, $ByteBuffer*, int32_t, $chars*)},
-	{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat4, getGlyph, char16_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CMap$CMapFormat4_InnerClassesInfo_[] = {
-	{"sun.font.CMap$CMapFormat4", "sun.font.CMap", "CMapFormat4", $STATIC},
-	{}
-};
-
-$ClassInfo _CMap$CMapFormat4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CMap$CMapFormat4",
-	"sun.font.CMap",
-	nullptr,
-	_CMap$CMapFormat4_FieldInfo_,
-	_CMap$CMapFormat4_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CMap$CMapFormat4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.CMap"
-};
-
-$Object* allocate$CMap$CMapFormat4($Class* clazz) {
-	return $of($alloc(CMap$CMapFormat4));
-}
 
 void CMap$CMapFormat4::init$($ByteBuffer* bbuffer, int32_t offset, $chars* xlat) {
 	$CMap::init$();
@@ -90,7 +46,7 @@ void CMap$CMapFormat4::init$($ByteBuffer* bbuffer, int32_t offset, $chars* xlat)
 	}
 	for (int32_t i = 0; i < this->segCount; ++i) {
 		char16_t ctmp = buffer->get();
-		$nc(this->idRangeOffset)->set(i, (char16_t)((int32_t)((ctmp >> 1) & (uint32_t)0x0000FFFF)));
+		$nc(this->idRangeOffset)->set(i, (char16_t)((ctmp >> 1) & 0xffff));
 	}
 	int32_t pos = (this->segCount * 8 + 16) / 2;
 	buffer->position(pos);
@@ -104,17 +60,17 @@ void CMap$CMapFormat4::init$($ByteBuffer* bbuffer, int32_t offset, $chars* xlat)
 char16_t CMap$CMapFormat4::getGlyph(int32_t charCode) {
 	int32_t origCharCode = charCode;
 	int32_t index = 0;
-	char16_t glyphCode = (char16_t)0;
+	char16_t glyphCode = 0;
 	int32_t controlGlyph = getControlCodeGlyph(charCode, true);
 	if (controlGlyph >= 0) {
 		return (char16_t)controlGlyph;
 	}
 	if (this->xlat != nullptr) {
-		charCode = $nc(this->xlat)->get(charCode);
+		charCode = this->xlat->get(charCode);
 	}
 	int32_t left = 0;
 	int32_t right = $nc(this->startCount)->length;
-	index = $nc(this->startCount)->length >> 1;
+	index = this->startCount->length >> 1;
 	while (left < right) {
 		if ($nc(this->endCount)->get(index) < charCode) {
 			left = index + 1;
@@ -123,12 +79,12 @@ char16_t CMap$CMapFormat4::getGlyph(int32_t charCode) {
 		}
 		index = (left + right) >> 1;
 	}
-	if (charCode >= $nc(this->startCount)->get(index) && charCode <= $nc(this->endCount)->get(index)) {
+	if (charCode >= this->startCount->get(index) && charCode <= $nc(this->endCount)->get(index)) {
 		int32_t rangeOffset = $nc(this->idRangeOffset)->get(index);
 		if (rangeOffset == 0) {
 			glyphCode = (char16_t)(charCode + $nc(this->idDelta)->get(index));
 		} else {
-			int32_t glyphIDIndex = rangeOffset - this->segCount + index + (charCode - $nc(this->startCount)->get(index));
+			int32_t glyphIDIndex = rangeOffset - this->segCount + index + (charCode - this->startCount->get(index));
 			glyphCode = $nc(this->glyphIds)->get(glyphIDIndex);
 			if (glyphCode != 0) {
 				glyphCode = (char16_t)(glyphCode + $nc(this->idDelta)->get(index));
@@ -145,7 +101,44 @@ CMap$CMapFormat4::CMap$CMapFormat4() {
 }
 
 $Class* CMap$CMapFormat4::load$($String* name, bool initialize) {
-	$loadClass(CMap$CMapFormat4, name, initialize, &_CMap$CMapFormat4_ClassInfo_, allocate$CMap$CMapFormat4);
+	$FieldInfo fieldInfos$$[] = {
+		{"segCount", "I", nullptr, 0, $field(CMap$CMapFormat4, segCount)},
+		{"entrySelector", "I", nullptr, 0, $field(CMap$CMapFormat4, entrySelector)},
+		{"rangeShift", "I", nullptr, 0, $field(CMap$CMapFormat4, rangeShift)},
+		{"endCount", "[C", nullptr, 0, $field(CMap$CMapFormat4, endCount)},
+		{"startCount", "[C", nullptr, 0, $field(CMap$CMapFormat4, startCount)},
+		{"idDelta", "[S", nullptr, 0, $field(CMap$CMapFormat4, idDelta)},
+		{"idRangeOffset", "[C", nullptr, 0, $field(CMap$CMapFormat4, idRangeOffset)},
+		{"glyphIds", "[C", nullptr, 0, $field(CMap$CMapFormat4, glyphIds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;I[C)V", nullptr, 0, $method(CMap$CMapFormat4, init$, void, $ByteBuffer*, int32_t, $chars*)},
+		{"getGlyph", "(I)C", nullptr, 0, $virtualMethod(CMap$CMapFormat4, getGlyph, char16_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CMap$CMapFormat4", "sun.font.CMap", "CMapFormat4", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CMap$CMapFormat4",
+		"sun.font.CMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.CMap"
+	};
+	$loadClass(CMap$CMapFormat4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMap$CMapFormat4);
+	});
 	return class$;
 }
 

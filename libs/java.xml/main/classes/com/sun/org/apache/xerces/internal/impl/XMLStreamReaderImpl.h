@@ -133,6 +133,7 @@ class XMLStreamReaderImpl : public ::javax::xml::stream::XMLStreamReader {
 	$class(XMLStreamReaderImpl, 0, ::javax::xml::stream::XMLStreamReader)
 public:
 	XMLStreamReaderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* inputStream, ::com::sun::org::apache::xerces::internal::impl::PropertyManager* props);
 	void init$($String* systemid, ::com::sun::org::apache::xerces::internal::impl::PropertyManager* props);
 	void init$(::java::io::InputStream* inputStream, $String* encoding, ::com::sun::org::apache::xerces::internal::impl::PropertyManager* props);

@@ -41,6 +41,7 @@ class $import Http1AsyncReceiver$Http1TubeSubscriber : public ::jdk::internal::n
 	$class(Http1AsyncReceiver$Http1TubeSubscriber, 0, ::jdk::internal::net::http::common::FlowTube$TubeSubscriber)
 public:
 	Http1AsyncReceiver$Http1TubeSubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http1AsyncReceiver* this$0);
 	virtual void dropSubscription() override;
 	virtual void onComplete() override;

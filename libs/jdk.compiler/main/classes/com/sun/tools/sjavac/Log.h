@@ -36,6 +36,7 @@ class Log : public ::java::lang::Object {
 	$class(Log, 0, ::java::lang::Object)
 public:
 	Log();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Writer* out, ::java::io::Writer* err);
 	static void debug($String* msg);
 	static void debug($Throwable* t);

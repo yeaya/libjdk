@@ -12,6 +12,7 @@ class ModalEventFilter$1 : public ::java::lang::Object {
 	$class(ModalEventFilter$1, 0, ::java::lang::Object)
 public:
 	ModalEventFilter$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$awt$Dialog$ModalityType;
 };
 

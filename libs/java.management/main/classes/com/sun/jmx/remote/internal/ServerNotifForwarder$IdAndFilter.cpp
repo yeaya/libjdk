@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ServerNotifForwarder$IdAndFilter.h>
-
 #include <com/sun/jmx/remote/internal/ServerNotifForwarder.h>
 #include <javax/management/NotificationFilter.h>
 #include <jcpp.h>
@@ -16,46 +15,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace internal {
-
-$FieldInfo _ServerNotifForwarder$IdAndFilter_FieldInfo_[] = {
-	{"id", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ServerNotifForwarder$IdAndFilter, id)},
-	{"filter", "Ljavax/management/NotificationFilter;", nullptr, $PRIVATE, $field(ServerNotifForwarder$IdAndFilter, filter)},
-	{}
-};
-
-$MethodInfo _ServerNotifForwarder$IdAndFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Integer;Ljavax/management/NotificationFilter;)V", nullptr, 0, $method(ServerNotifForwarder$IdAndFilter, init$, void, $Integer*, $NotificationFilter*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$IdAndFilter, equals, bool, Object$*)},
-	{"getFilter", "()Ljavax/management/NotificationFilter;", nullptr, 0, $virtualMethod(ServerNotifForwarder$IdAndFilter, getFilter, $NotificationFilter*)},
-	{"getId", "()Ljava/lang/Integer;", nullptr, 0, $virtualMethod(ServerNotifForwarder$IdAndFilter, getId, $Integer*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$IdAndFilter, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ServerNotifForwarder$IdAndFilter_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ServerNotifForwarder$IdAndFilter", "com.sun.jmx.remote.internal.ServerNotifForwarder", "IdAndFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ServerNotifForwarder$IdAndFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.internal.ServerNotifForwarder$IdAndFilter",
-	"java.lang.Object",
-	nullptr,
-	_ServerNotifForwarder$IdAndFilter_FieldInfo_,
-	_ServerNotifForwarder$IdAndFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerNotifForwarder$IdAndFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ServerNotifForwarder"
-};
-
-$Object* allocate$ServerNotifForwarder$IdAndFilter($Class* clazz) {
-	return $of($alloc(ServerNotifForwarder$IdAndFilter));
-}
 
 void ServerNotifForwarder$IdAndFilter::init$($Integer* id, $NotificationFilter* filter) {
 	$set(this, id, id);
@@ -75,15 +34,49 @@ int32_t ServerNotifForwarder$IdAndFilter::hashCode() {
 }
 
 bool ServerNotifForwarder$IdAndFilter::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	return (($instanceOf(ServerNotifForwarder$IdAndFilter, o)) && $nc($($nc(($cast(ServerNotifForwarder$IdAndFilter, o)))->getId()))->equals($(getId())));
+	$useLocalObjectStack();
+	return (($instanceOf(ServerNotifForwarder$IdAndFilter, o)) && $$nc($cast(ServerNotifForwarder$IdAndFilter, o)->getId())->equals($(getId())));
 }
 
 ServerNotifForwarder$IdAndFilter::ServerNotifForwarder$IdAndFilter() {
 }
 
 $Class* ServerNotifForwarder$IdAndFilter::load$($String* name, bool initialize) {
-	$loadClass(ServerNotifForwarder$IdAndFilter, name, initialize, &_ServerNotifForwarder$IdAndFilter_ClassInfo_, allocate$ServerNotifForwarder$IdAndFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ServerNotifForwarder$IdAndFilter, id)},
+		{"filter", "Ljavax/management/NotificationFilter;", nullptr, $PRIVATE, $field(ServerNotifForwarder$IdAndFilter, filter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Integer;Ljavax/management/NotificationFilter;)V", nullptr, 0, $method(ServerNotifForwarder$IdAndFilter, init$, void, $Integer*, $NotificationFilter*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$IdAndFilter, equals, bool, Object$*)},
+		{"getFilter", "()Ljavax/management/NotificationFilter;", nullptr, 0, $virtualMethod(ServerNotifForwarder$IdAndFilter, getFilter, $NotificationFilter*)},
+		{"getId", "()Ljava/lang/Integer;", nullptr, 0, $virtualMethod(ServerNotifForwarder$IdAndFilter, getId, $Integer*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$IdAndFilter, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ServerNotifForwarder$IdAndFilter", "com.sun.jmx.remote.internal.ServerNotifForwarder", "IdAndFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.internal.ServerNotifForwarder$IdAndFilter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ServerNotifForwarder"
+	};
+	$loadClass(ServerNotifForwarder$IdAndFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerNotifForwarder$IdAndFilter);
+	});
 	return class$;
 }
 

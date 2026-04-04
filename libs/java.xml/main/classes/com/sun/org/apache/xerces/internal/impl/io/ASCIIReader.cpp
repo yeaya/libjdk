@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/io/ASCIIReader.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/io/MalformedByteSequenceException.h>
 #include <com/sun/org/apache/xerces/internal/impl/msg/XMLMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/MessageFormatter.h>
@@ -35,42 +34,6 @@ namespace com {
 						namespace impl {
 							namespace io {
 
-$FieldInfo _ASCIIReader_FieldInfo_[] = {
-	{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ASCIIReader, DEFAULT_BUFFER_SIZE)},
-	{"fInputStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(ASCIIReader, fInputStream)},
-	{"fBuffer", "[B", nullptr, $PROTECTED, $field(ASCIIReader, fBuffer)},
-	{"fFormatter", "Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;", nullptr, $PRIVATE, $field(ASCIIReader, fFormatter)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(ASCIIReader, fLocale)},
-	{}
-};
-
-$MethodInfo _ASCIIReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(ASCIIReader, init$, void, $InputStream*, $MessageFormatter*, $Locale*)},
-	{"<init>", "(Ljava/io/InputStream;ILcom/sun/org/apache/xerces/internal/util/MessageFormatter;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(ASCIIReader, init$, void, $InputStream*, int32_t, $MessageFormatter*, $Locale*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, mark, void, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, ready, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ASCIIReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.io.ASCIIReader",
-	"java.io.Reader",
-	nullptr,
-	_ASCIIReader_FieldInfo_,
-	_ASCIIReader_MethodInfo_
-};
-
-$Object* allocate$ASCIIReader($Class* clazz) {
-	return $of($alloc(ASCIIReader));
-}
-
 void ASCIIReader::init$($InputStream* inputStream, $MessageFormatter* messageFormatter, $Locale* locale) {
 	ASCIIReader::init$(inputStream, ASCIIReader::DEFAULT_BUFFER_SIZE, messageFormatter, locale);
 }
@@ -90,26 +53,26 @@ void ASCIIReader::init$($InputStream* inputStream, int32_t size, $MessageFormatt
 }
 
 int32_t ASCIIReader::read() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t b0 = $nc(this->fInputStream)->read();
 	if (b0 >= 128) {
 		$init($XMLMessageFormatter);
-		$throwNew($MalformedByteSequenceException, this->fFormatter, this->fLocale, $XMLMessageFormatter::XML_DOMAIN, "InvalidASCII"_s, $$new($ObjectArray, {$($of($Integer::toString(b0)))}));
+		$throwNew($MalformedByteSequenceException, this->fFormatter, this->fLocale, $XMLMessageFormatter::XML_DOMAIN, "InvalidASCII"_s, $$new($ObjectArray, {$($Integer::toString(b0))}));
 	}
 	return b0;
 }
 
 int32_t ASCIIReader::read($chars* ch, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length > $nc(this->fBuffer)->length) {
-		length = $nc(this->fBuffer)->length;
+		length = this->fBuffer->length;
 	}
 	int32_t count = $nc(this->fInputStream)->read(this->fBuffer, 0, length);
 	for (int32_t i = 0; i < count; ++i) {
-		int32_t b0 = $nc(this->fBuffer)->get(i);
+		int32_t b0 = this->fBuffer->get(i);
 		if (b0 < 0) {
 			$init($XMLMessageFormatter);
-			$throwNew($MalformedByteSequenceException, this->fFormatter, this->fLocale, $XMLMessageFormatter::XML_DOMAIN, "InvalidASCII"_s, $$new($ObjectArray, {$($of($Integer::toString((int32_t)(b0 & (uint32_t)255))))}));
+			$throwNew($MalformedByteSequenceException, this->fFormatter, this->fLocale, $XMLMessageFormatter::XML_DOMAIN, "InvalidASCII"_s, $$new($ObjectArray, {$($Integer::toString(b0 & 0xff))}));
 		}
 		$nc(ch)->set(offset + i, (char16_t)b0);
 	}
@@ -147,7 +110,38 @@ ASCIIReader::ASCIIReader() {
 }
 
 $Class* ASCIIReader::load$($String* name, bool initialize) {
-	$loadClass(ASCIIReader, name, initialize, &_ASCIIReader_ClassInfo_, allocate$ASCIIReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ASCIIReader, DEFAULT_BUFFER_SIZE)},
+		{"fInputStream", "Ljava/io/InputStream;", nullptr, $PROTECTED, $field(ASCIIReader, fInputStream)},
+		{"fBuffer", "[B", nullptr, $PROTECTED, $field(ASCIIReader, fBuffer)},
+		{"fFormatter", "Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;", nullptr, $PRIVATE, $field(ASCIIReader, fFormatter)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(ASCIIReader, fLocale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Lcom/sun/org/apache/xerces/internal/util/MessageFormatter;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(ASCIIReader, init$, void, $InputStream*, $MessageFormatter*, $Locale*)},
+		{"<init>", "(Ljava/io/InputStream;ILcom/sun/org/apache/xerces/internal/util/MessageFormatter;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(ASCIIReader, init$, void, $InputStream*, int32_t, $MessageFormatter*, $Locale*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, mark, void, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, ready, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ASCIIReader, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.io.ASCIIReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ASCIIReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ASCIIReader));
+	});
 	return class$;
 }
 

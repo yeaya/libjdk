@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalCheckBoxIcon.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
@@ -12,7 +10,6 @@
 #include <javax/swing/plaf/metal/MetalUtils.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -27,34 +24,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalCheckBoxIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalCheckBoxIcon, init$, void)},
-	{"drawCheck", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxIcon, drawCheck, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"getControlSize", "()I", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxIcon, getControlSize, int32_t)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MetalCheckBoxIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalCheckBoxIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MetalCheckBoxIcon_MethodInfo_
-};
-
-$Object* allocate$MetalCheckBoxIcon($Class* clazz) {
-	return $of($alloc(MetalCheckBoxIcon));
-}
 
 int32_t MetalCheckBoxIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -84,7 +53,7 @@ int32_t MetalCheckBoxIcon::getControlSize() {
 }
 
 void MetalCheckBoxIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCheckBox, cb, $cast($JCheckBox, c));
 	$var($ButtonModel, model, $nc(cb)->getModel());
 	int32_t controlSize = getControlSize();
@@ -139,7 +108,31 @@ MetalCheckBoxIcon::MetalCheckBoxIcon() {
 }
 
 $Class* MetalCheckBoxIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalCheckBoxIcon, name, initialize, &_MetalCheckBoxIcon_ClassInfo_, allocate$MetalCheckBoxIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalCheckBoxIcon, init$, void)},
+		{"drawCheck", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxIcon, drawCheck, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"getControlSize", "()I", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxIcon, getControlSize, int32_t)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalCheckBoxIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalCheckBoxIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalCheckBoxIcon));
+	});
 	return class$;
 }
 

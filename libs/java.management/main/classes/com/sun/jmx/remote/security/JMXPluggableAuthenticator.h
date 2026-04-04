@@ -62,6 +62,7 @@ class $export JMXPluggableAuthenticator : public ::javax::management::remote::JM
 	$class(JMXPluggableAuthenticator, 0, ::javax::management::remote::JMXAuthenticator)
 public:
 	JMXPluggableAuthenticator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* env);
 	virtual ::javax::security::auth::Subject* authenticate(Object$* credentials) override;
 	static void authenticationFailure($String* method, $String* message);

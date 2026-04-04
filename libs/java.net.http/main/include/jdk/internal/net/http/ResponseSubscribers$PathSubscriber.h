@@ -73,6 +73,7 @@ class $import ResponseSubscribers$PathSubscriber : public ::jdk::internal::net::
 	$class(ResponseSubscribers$PathSubscriber, 0, ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber)
 public:
 	ResponseSubscribers$PathSubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* file, ::java::util::List* options, ::java::security::AccessControlContext* acc, $Array<::java::io::FilePermission>* filePermissions);
 	void close();
 	static ::jdk::internal::net::http::ResponseSubscribers$PathSubscriber* create(::java::nio::file::Path* file, ::java::util::List* options);

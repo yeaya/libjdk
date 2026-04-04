@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -22,26 +21,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _ILOAD_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ILOAD, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ILOAD, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ILOAD, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _ILOAD_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ILOAD",
-	"com.sun.org.apache.bcel.internal.generic.LoadInstruction",
-	nullptr,
-	nullptr,
-	_ILOAD_MethodInfo_
-};
-
-$Object* allocate$ILOAD($Class* clazz) {
-	return $of($alloc(ILOAD));
-}
-
 void ILOAD::init$() {
 	$LoadInstruction::init$($Const::ILOAD, $Const::ILOAD_0);
 }
@@ -59,7 +38,23 @@ ILOAD::ILOAD() {
 }
 
 $Class* ILOAD::load$($String* name, bool initialize) {
-	$loadClass(ILOAD, name, initialize, &_ILOAD_ClassInfo_, allocate$ILOAD);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ILOAD, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ILOAD, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ILOAD, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ILOAD",
+		"com.sun.org.apache.bcel.internal.generic.LoadInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ILOAD, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ILOAD));
+	});
 	return class$;
 }
 

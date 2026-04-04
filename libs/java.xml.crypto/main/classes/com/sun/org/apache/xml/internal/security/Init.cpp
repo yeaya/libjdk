@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/Init.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init$1.h>
 #include <com/sun/org/apache/xml/internal/security/Init$2.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm.h>
@@ -30,7 +29,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/List.h>
@@ -77,7 +75,6 @@ using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $List = ::java::util::List;
@@ -85,7 +82,6 @@ using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $NodeList = ::org::w3c::dom::NodeList;
 
 namespace com {
 	namespace sun {
@@ -101,77 +97,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Init::lambda$init$0());
+		 return Init::lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Init$$Lambda$lambda$init$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Init$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Init$$Lambda$lambda$init$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Init$$Lambda$lambda$init$0, run, $Object*)},
-	{}
-};
-$ClassInfo Init$$Lambda$lambda$init$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.Init$$Lambda$lambda$init$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Init$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
-	$loadClass(Init$$Lambda$lambda$init$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Init$$Lambda$lambda$init$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Init$$Lambda$lambda$init$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.Init$$Lambda$lambda$init$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Init$$Lambda$lambda$init$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Init$$Lambda$lambda$init$0);
+	});
 	return class$;
 }
 $Class* Init$$Lambda$lambda$init$0::class$ = nullptr;
-
-$FieldInfo _Init_FieldInfo_[] = {
-	{"CONF_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Init, CONF_NS)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Init, LOG)},
-	{"alreadyInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Init, alreadyInitialized)},
-	{}
-};
-
-$MethodInfo _Init_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Init, init$, void)},
-	{"dynamicInit", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Init, dynamicInit, void)},
-	{"fileInit", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Init, fileInit, void, $InputStream*)},
-	{"getResource", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/net/URL;", $PUBLIC | $STATIC, $staticMethod(Init, getResource, $URL*, $String*, $Class*)},
-	{"getResourceAsStream", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/InputStream;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/io/InputStream;", $PRIVATE | $STATIC, $staticMethod(Init, getResourceAsStream, $InputStream*, $String*, $Class*)},
-	{"getResources", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE | $STATIC, $staticMethod(Init, getResources, $List*, $String*, $Class*)},
-	{"init", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Init, init, void)},
-	{"isInitialized", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(Init, isInitialized, bool)},
-	{"lambda$init$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Init, lambda$init$0, $InputStream*)},
-	{}
-};
-
-$InnerClassInfo _Init_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.Init$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xml.internal.security.Init$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Init_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.Init",
-	"java.lang.Object",
-	nullptr,
-	_Init_FieldInfo_,
-	_Init_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Init_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.Init$2,com.sun.org.apache.xml.internal.security.Init$1"
-};
-
-$Object* allocate$Init($Class* clazz) {
-	return $of($alloc(Init));
-}
 
 $String* Init::CONF_NS = nullptr;
 $Logger* Init::LOG = nullptr;
@@ -181,29 +129,27 @@ void Init::init$() {
 }
 
 bool Init::isInitialized() {
-	$load(Init);
+	$init(Init);
 	$synchronized(class$) {
-		$init(Init);
 		return Init::alreadyInitialized;
 	}
 }
 
 void Init::init() {
-	$load(Init);
+	$init(Init);
 	$synchronized(class$) {
-		$init(Init);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if (Init::alreadyInitialized) {
 			return;
 		}
-		$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Init$$Lambda$lambda$init$0)))));
+		$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Init$$Lambda$lambda$init$0)))));
 		if (is == nullptr) {
 			dynamicInit();
 		} else {
 			fileInit(is);
 			try {
-				$nc(is)->close();
+				is->close();
 			} catch ($IOException& ex) {
 				$nc(Init::LOG)->warn($(ex->getMessage()));
 			}
@@ -214,26 +160,26 @@ void Init::init() {
 
 void Init::dynamicInit() {
 	$init(Init);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$I18n::init("en"_s, "US"_s);
 	$nc(Init::LOG)->debug("Registering default algorithms"_s);
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Init$1)));
+		$AccessController::doPrivileged($$new($Init$1));
 	} catch ($PrivilegedActionException& ex) {
 		$var($XMLSecurityException, xse, $cast($XMLSecurityException, ex->getException()));
-		$nc(Init::LOG)->error($($nc(xse)->getMessage()), static_cast<$Throwable*>(xse));
-		$nc(xse)->printStackTrace();
+		Init::LOG->error($($nc(xse)->getMessage()), xse);
+		xse->printStackTrace();
 	}
 }
 
 void Init::fileInit($InputStream* is) {
 	$init(Init);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Document, doc, $XMLUtils::read(is, true));
 		$var($Node, config, $nc(doc)->getFirstChild());
-		for (; config != nullptr; $assign(config, $nc(config)->getNextSibling())) {
+		for (; config != nullptr; $assign(config, config->getNextSibling())) {
 			if ("Configuration"_s->equals($(config->getLocalName()))) {
 				break;
 			}
@@ -243,8 +189,8 @@ void Init::fileInit($InputStream* is) {
 			return;
 		}
 		{
-			$var($Node, el, config->getFirstChild());
-			for (; el != nullptr; $assign(el, $nc(el)->getNextSibling())) {
+			$var($Node, el, $nc(config)->getFirstChild());
+			for (; el != nullptr; $assign(el, el->getNextSibling())) {
 				if ($Node::ELEMENT_NODE != el->getNodeType()) {
 					continue;
 				}
@@ -253,17 +199,15 @@ void Init::fileInit($InputStream* is) {
 					$var($Element, resource, $cast($Element, el));
 					$var($Attr, langAttr, resource->getAttributeNodeNS(nullptr, "defaultLanguageCode"_s));
 					$var($Attr, countryAttr, resource->getAttributeNodeNS(nullptr, "defaultCountryCode"_s));
-					$var($String, languageCode, (langAttr == nullptr) ? ($String*)nullptr : $nc(langAttr)->getNodeValue());
-					$var($String, countryCode, (countryAttr == nullptr) ? ($String*)nullptr : $nc(countryAttr)->getNodeValue());
+					$var($String, languageCode, (langAttr == nullptr) ? ($String*)nullptr : langAttr->getNodeValue());
+					$var($String, countryCode, (countryAttr == nullptr) ? ($String*)nullptr : countryAttr->getNodeValue());
 					$I18n::init(languageCode, countryCode);
 				}
 				if ("CanonicalizationMethods"_s->equals(tag)) {
 					$var($ElementArray, list, $XMLUtils::selectNodes($(el->getFirstChild()), Init::CONF_NS, "CanonicalizationMethod"_s));
 					{
 						$var($ElementArray, arr$, list);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Element, element, arr$->get(i$));
 							{
 								$var($String, uri, $nc(element)->getAttributeNS(nullptr, "URI"_s));
@@ -271,13 +215,13 @@ void Init::fileInit($InputStream* is) {
 								try {
 									$Canonicalizer::register$(uri, javaClass);
 									$nc(Init::LOG)->debug("Canonicalizer.register({}, {})"_s, $$new($ObjectArray, {
-										$of(uri),
-										$of(javaClass)
+										uri,
+										javaClass
 									}));
 								} catch ($ClassNotFoundException& e) {
 									$var($ObjectArray, exArgs, $new($ObjectArray, {
-										$of(uri),
-										$of(javaClass)
+										uri,
+										javaClass
 									}));
 									$nc(Init::LOG)->error($($I18n::translate("algorithm.classDoesNotExist"_s, exArgs)));
 								}
@@ -289,9 +233,7 @@ void Init::fileInit($InputStream* is) {
 					$var($ElementArray, tranElem, $XMLUtils::selectNodes($(el->getFirstChild()), Init::CONF_NS, "TransformAlgorithm"_s));
 					{
 						$var($ElementArray, arr$, tranElem);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Element, element, arr$->get(i$));
 							{
 								$var($String, uri, $nc(element)->getAttributeNS(nullptr, "URI"_s));
@@ -299,13 +241,13 @@ void Init::fileInit($InputStream* is) {
 								try {
 									$Transform::register$(uri, javaClass);
 									$nc(Init::LOG)->debug("Transform.register({}, {})"_s, $$new($ObjectArray, {
-										$of(uri),
-										$of(javaClass)
+										uri,
+										javaClass
 									}));
 								} catch ($ClassNotFoundException& e) {
 									$var($ObjectArray, exArgs, $new($ObjectArray, {
-										$of(uri),
-										$of(javaClass)
+										uri,
+										javaClass
 									}));
 									$nc(Init::LOG)->error($($I18n::translate("algorithm.classDoesNotExist"_s, exArgs)));
 								} catch ($NoClassDefFoundError& ex) {
@@ -316,14 +258,12 @@ void Init::fileInit($InputStream* is) {
 					}
 				}
 				if ("JCEAlgorithmMappings"_s->equals(tag)) {
-					$var($Node, algorithmsNode, $nc($($nc(($cast($Element, el)))->getElementsByTagName("Algorithms"_s)))->item(0));
+					$var($Node, algorithmsNode, $$nc($cast($Element, el)->getElementsByTagName("Algorithms"_s))->item(0));
 					if (algorithmsNode != nullptr) {
 						$var($ElementArray, algorithms, $XMLUtils::selectNodes($(algorithmsNode->getFirstChild()), Init::CONF_NS, "Algorithm"_s));
 						{
 							$var($ElementArray, arr$, algorithms);
-							int32_t len$ = $nc(arr$)->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
+							for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 								$var($Element, element, arr$->get(i$));
 								{
 									$var($String, id, $nc(element)->getAttributeNS(nullptr, "URI"_s));
@@ -337,9 +277,7 @@ void Init::fileInit($InputStream* is) {
 					$var($ElementArray, sigElems, $XMLUtils::selectNodes($(el->getFirstChild()), Init::CONF_NS, "SignatureAlgorithm"_s));
 					{
 						$var($ElementArray, arr$, sigElems);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Element, sigElem, arr$->get(i$));
 							{
 								$var($String, uri, $nc(sigElem)->getAttributeNS(nullptr, "URI"_s));
@@ -347,13 +285,13 @@ void Init::fileInit($InputStream* is) {
 								try {
 									$SignatureAlgorithm::register$(uri, javaClass);
 									$nc(Init::LOG)->debug("SignatureAlgorithm.register({}, {})"_s, $$new($ObjectArray, {
-										$of(uri),
-										$of(javaClass)
+										uri,
+										javaClass
 									}));
 								} catch ($ClassNotFoundException& e) {
 									$var($ObjectArray, exArgs, $new($ObjectArray, {
-										$of(uri),
-										$of(javaClass)
+										uri,
+										javaClass
 									}));
 									$nc(Init::LOG)->error($($I18n::translate("algorithm.classDoesNotExist"_s, exArgs)));
 								}
@@ -366,20 +304,18 @@ void Init::fileInit($InputStream* is) {
 					$var($List, classNames, $new($ArrayList, $nc(resolverElem)->length));
 					{
 						$var($ElementArray, arr$, resolverElem);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Element, element, arr$->get(i$));
 							{
 								$var($String, javaClass, $nc(element)->getAttributeNS(nullptr, "JAVACLASS"_s));
 								$var($String, description, element->getAttributeNS(nullptr, "DESCRIPTION"_s));
 								if (description != nullptr && description->length() > 0) {
 									$nc(Init::LOG)->debug("Register Resolver: {}: {}"_s, $$new($ObjectArray, {
-										$of(javaClass),
-										$of(description)
+										javaClass,
+										description
 									}));
 								} else {
-									$nc(Init::LOG)->debug("Register Resolver: {}: For unknown purposes"_s, $$new($ObjectArray, {$of(javaClass)}));
+									$nc(Init::LOG)->debug("Register Resolver: {}: For unknown purposes"_s, $$new($ObjectArray, {javaClass}));
 								}
 								classNames->add(javaClass);
 							}
@@ -392,20 +328,18 @@ void Init::fileInit($InputStream* is) {
 					$var($List, classNames, $new($ArrayList, $nc(resolverElem)->length));
 					{
 						$var($ElementArray, arr$, resolverElem);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Element, element, arr$->get(i$));
 							{
 								$var($String, javaClass, $nc(element)->getAttributeNS(nullptr, "JAVACLASS"_s));
 								$var($String, description, element->getAttributeNS(nullptr, "DESCRIPTION"_s));
 								if (description != nullptr && description->length() > 0) {
 									$nc(Init::LOG)->debug("Register Resolver: {}: {}"_s, $$new($ObjectArray, {
-										$of(javaClass),
-										$of(description)
+										javaClass,
+										description
 									}));
 								} else {
-									$nc(Init::LOG)->debug("Register Resolver: {}: For unknown purposes"_s, $$new($ObjectArray, {$of(javaClass)}));
+									$nc(Init::LOG)->debug("Register Resolver: {}: For unknown purposes"_s, $$new($ObjectArray, {javaClass}));
 								}
 								classNames->add(javaClass);
 							}
@@ -418,16 +352,14 @@ void Init::fileInit($InputStream* is) {
 					$var($ElementArray, nl, $XMLUtils::selectNodes($(el->getFirstChild()), Init::CONF_NS, "PrefixMapping"_s));
 					{
 						$var($ElementArray, arr$, nl);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Element, element, arr$->get(i$));
 							{
 								$var($String, namespace$, $nc(element)->getAttributeNS(nullptr, "namespace"_s));
 								$var($String, prefix, element->getAttributeNS(nullptr, "prefix"_s));
-								$nc(Init::LOG)->debug("Now I try to bind {} to {}"_s, $$new($ObjectArray, {
-									$of(prefix),
-									$of(namespace$)
+								Init::LOG->debug("Now I try to bind {} to {}"_s, $$new($ObjectArray, {
+									prefix,
+									namespace$
 								}));
 								$ElementProxy::setDefaultPrefix(namespace$, prefix);
 							}
@@ -437,17 +369,17 @@ void Init::fileInit($InputStream* is) {
 			}
 		}
 	} catch ($Exception& e) {
-		$nc(Init::LOG)->error("Bad: "_s, static_cast<$Throwable*>(e));
+		$nc(Init::LOG)->error("Bad: "_s, e);
 	}
 }
 
 $URL* Init::getResource($String* resourceName, $Class* callingClass) {
 	$init(Init);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($URL, url, $nc($($($Thread::currentThread())->getContextClassLoader()))->getResource(resourceName));
+	$var($URL, url, $$nc($($Thread::currentThread())->getContextClassLoader())->getResource(resourceName));
 	if (url == nullptr && $nc(resourceName)->charAt(0) == u'/') {
-		$assign(url, $nc($($($Thread::currentThread())->getContextClassLoader()))->getResource($(resourceName->substring(1))));
+		$assign(url, $$nc($($Thread::currentThread())->getContextClassLoader())->getResource($(resourceName->substring(1))));
 	}
 	$var($ClassLoader, cluClassloader, Init::class$->getClassLoader());
 	if (cluClassloader == nullptr) {
@@ -476,60 +408,60 @@ $URL* Init::getResource($String* resourceName, $Class* callingClass) {
 
 $List* Init::getResources($String* resourceName, $Class* callingClass) {
 	$init(Init);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, ret, $new($ArrayList));
 	$var($Enumeration, urls, $new($Init$2));
 	try {
-		$assign(urls, $nc($($($Thread::currentThread())->getContextClassLoader()))->getResources(resourceName));
+		$assign(urls, $$nc($($Thread::currentThread())->getContextClassLoader())->getResources(resourceName));
 	} catch ($IOException& e) {
-		$nc(Init::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+		$nc(Init::LOG)->debug($(e->getMessage()), e);
 	}
-	bool var$0 = !urls->hasMoreElements();
+	bool var$0 = !$nc(urls)->hasMoreElements();
 	if (var$0 && $nc(resourceName)->charAt(0) == u'/') {
 		try {
-			$assign(urls, $nc($($($Thread::currentThread())->getContextClassLoader()))->getResources($(resourceName->substring(1))));
+			$assign(urls, $$nc($($Thread::currentThread())->getContextClassLoader())->getResources($(resourceName->substring(1))));
 		} catch ($IOException& e) {
-			$nc(Init::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+			$nc(Init::LOG)->debug($(e->getMessage()), e);
 		}
 	}
 	$var($ClassLoader, cluClassloader, Init::class$->getClassLoader());
 	if (cluClassloader == nullptr) {
 		$assign(cluClassloader, $ClassLoader::getSystemClassLoader());
 	}
-	if (!urls->hasMoreElements()) {
+	if (!$nc(urls)->hasMoreElements()) {
 		try {
 			$assign(urls, $nc(cluClassloader)->getResources(resourceName));
 		} catch ($IOException& e) {
-			$nc(Init::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+			$nc(Init::LOG)->debug($(e->getMessage()), e);
 		}
 	}
-	bool var$1 = !urls->hasMoreElements();
+	bool var$1 = !$nc(urls)->hasMoreElements();
 	if (var$1 && $nc(resourceName)->charAt(0) == u'/') {
 		try {
 			$assign(urls, $nc(cluClassloader)->getResources($(resourceName->substring(1))));
 		} catch ($IOException& e) {
-			$nc(Init::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+			$nc(Init::LOG)->debug($(e->getMessage()), e);
 		}
 	}
-	if (!urls->hasMoreElements()) {
+	if (!$nc(urls)->hasMoreElements()) {
 		$var($ClassLoader, cl, $nc(callingClass)->getClassLoader());
 		if (cl != nullptr) {
 			try {
 				$assign(urls, cl->getResources(resourceName));
 			} catch ($IOException& e) {
-				$nc(Init::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+				$nc(Init::LOG)->debug($(e->getMessage()), e);
 			}
 		}
 	}
-	if (!urls->hasMoreElements()) {
+	if (!$nc(urls)->hasMoreElements()) {
 		$var($URL, url, $nc(callingClass)->getResource(resourceName));
 		if (url != nullptr) {
 			ret->add(url);
 		}
 	}
 	while (urls->hasMoreElements()) {
-		ret->add($cast($URL, $(urls->nextElement())));
+		ret->add($$cast($URL, urls->nextElement()));
 	}
 	bool var$2 = ret->isEmpty() && resourceName != nullptr;
 	if (var$2 && resourceName->charAt(0) != u'/') {
@@ -540,12 +472,12 @@ $List* Init::getResources($String* resourceName, $Class* callingClass) {
 
 $InputStream* Init::getResourceAsStream($String* resourceName, $Class* callingClass) {
 	$init(Init);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, getResource(resourceName, callingClass));
 	try {
-		return (url != nullptr) ? $nc(url)->openStream() : ($InputStream*)nullptr;
+		return (url != nullptr) ? url->openStream() : ($InputStream*)nullptr;
 	} catch ($IOException& e) {
-		$nc(Init::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+		$nc(Init::LOG)->debug($(e->getMessage()), e);
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -560,7 +492,7 @@ $InputStream* Init::lambda$init$0() {
 	return getResourceAsStream(cfile, Init::class$);
 }
 
-void clinit$Init($Class* class$) {
+void Init::clinit$($Class* clazz) {
 	$assignStatic(Init::CONF_NS, "http://www.xmlsecurity.org/NS/#configuration"_s);
 	$assignStatic(Init::LOG, $LoggerFactory::getLogger(Init::class$));
 	Init::alreadyInitialized = false;
@@ -571,11 +503,50 @@ Init::Init() {
 
 $Class* Init::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Init$$Lambda$lambda$init$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.Init$$Lambda$lambda$init$0")) {
 			return Init$$Lambda$lambda$init$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Init, name, initialize, &_Init_ClassInfo_, clinit$Init, allocate$Init);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONF_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Init, CONF_NS)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Init, LOG)},
+		{"alreadyInitialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Init, alreadyInitialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Init, init$, void)},
+		{"dynamicInit", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Init, dynamicInit, void)},
+		{"fileInit", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Init, fileInit, void, $InputStream*)},
+		{"getResource", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/net/URL;", $PUBLIC | $STATIC, $staticMethod(Init, getResource, $URL*, $String*, $Class*)},
+		{"getResourceAsStream", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/InputStream;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/io/InputStream;", $PRIVATE | $STATIC, $staticMethod(Init, getResourceAsStream, $InputStream*, $String*, $Class*)},
+		{"getResources", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE | $STATIC, $staticMethod(Init, getResources, $List*, $String*, $Class*)},
+		{"init", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Init, init, void)},
+		{"isInitialized", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(Init, isInitialized, bool)},
+		{"lambda$init$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Init, lambda$init$0, $InputStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.Init$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xml.internal.security.Init$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.Init",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.Init$2,com.sun.org.apache.xml.internal.security.Init$1"
+	};
+	$loadClass(Init, name, initialize, &classInfo$$, Init::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Init);
+	});
 	return class$;
 }
 

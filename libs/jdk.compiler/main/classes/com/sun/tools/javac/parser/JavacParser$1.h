@@ -15,6 +15,7 @@ class JavacParser$1 : public ::java::lang::Object {
 	$class(JavacParser$1, 0, ::java::lang::Object)
 public:
 	JavacParser$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 	static $ints* $SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult;
 	static $ints* $SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind;

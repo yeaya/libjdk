@@ -55,6 +55,7 @@ class $export AlphaComposite : public ::java::awt::Composite {
 	$class(AlphaComposite, 0, ::java::awt::Composite)
 public:
 	AlphaComposite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t rule);
 	void init$(int32_t rule, float alpha);
 	virtual ::java::awt::CompositeContext* createContext(::java::awt::image::ColorModel* srcColorModel, ::java::awt::image::ColorModel* dstColorModel, ::java::awt::RenderingHints* hints) override;

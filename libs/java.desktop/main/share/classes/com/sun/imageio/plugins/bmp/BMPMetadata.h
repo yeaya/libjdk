@@ -33,6 +33,7 @@ class BMPMetadata : public ::javax::imageio::metadata::IIOMetadata, public ::com
 	$class(BMPMetadata, 0, ::javax::imageio::metadata::IIOMetadata, ::com::sun::imageio::plugins::bmp::BMPConstants)
 public:
 	BMPMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

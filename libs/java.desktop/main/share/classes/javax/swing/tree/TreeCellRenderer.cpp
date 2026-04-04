@@ -1,5 +1,4 @@
 #include <javax/swing/tree/TreeCellRenderer.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JTree.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace javax {
 	namespace swing {
 		namespace tree {
 
-$MethodInfo _TreeCellRenderer_MethodInfo_[] = {
-	{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
-	{}
-};
-
-$ClassInfo _TreeCellRenderer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.tree.TreeCellRenderer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TreeCellRenderer_MethodInfo_
-};
-
-$Object* allocate$TreeCellRenderer($Class* clazz) {
-	return $of($alloc(TreeCellRenderer));
-}
-
 $Class* TreeCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(TreeCellRenderer, name, initialize, &_TreeCellRenderer_ClassInfo_, allocate$TreeCellRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TreeCellRenderer, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.tree.TreeCellRenderer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeCellRenderer);
+	});
 	return class$;
 }
 

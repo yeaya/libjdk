@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor.h>
-
 #include <com/sun/jmx/mbeanserver/MBeanAnalyzer.h>
 #include <jcpp.h>
 
@@ -12,39 +11,34 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _MBeanAnalyzer$MBeanVisitor_MethodInfo_[] = {
-	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC | $ABSTRACT, $virtualMethod(MBeanAnalyzer$MBeanVisitor, visitAttribute, void, $String*, Object$*, Object$*)},
-	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC | $ABSTRACT, $virtualMethod(MBeanAnalyzer$MBeanVisitor, visitOperation, void, $String*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MBeanAnalyzer$MBeanVisitor_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor", "com.sun.jmx.mbeanserver.MBeanAnalyzer", "MBeanVisitor", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MBeanAnalyzer$MBeanVisitor_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MBeanAnalyzer$MBeanVisitor_MethodInfo_,
-	"<M:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_MBeanAnalyzer$MBeanVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.MBeanAnalyzer"
-};
-
-$Object* allocate$MBeanAnalyzer$MBeanVisitor($Class* clazz) {
-	return $of($alloc(MBeanAnalyzer$MBeanVisitor));
-}
-
 $Class* MBeanAnalyzer$MBeanVisitor::load$($String* name, bool initialize) {
-	$loadClass(MBeanAnalyzer$MBeanVisitor, name, initialize, &_MBeanAnalyzer$MBeanVisitor_ClassInfo_, allocate$MBeanAnalyzer$MBeanVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC | $ABSTRACT, $virtualMethod(MBeanAnalyzer$MBeanVisitor, visitAttribute, void, $String*, Object$*, Object$*)},
+		{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC | $ABSTRACT, $virtualMethod(MBeanAnalyzer$MBeanVisitor, visitOperation, void, $String*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor", "com.sun.jmx.mbeanserver.MBeanAnalyzer", "MBeanVisitor", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.MBeanAnalyzer"
+	};
+	$loadClass(MBeanAnalyzer$MBeanVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanAnalyzer$MBeanVisitor);
+	});
 	return class$;
 }
 

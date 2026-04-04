@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/GrowablePointArray.h>
-
 #include <sun/java2d/xr/GrowableIntArray.h>
 #include <jcpp.h>
 
@@ -13,33 +12,6 @@ using $GrowableIntArray = ::sun::java2d::xr::GrowableIntArray;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$FieldInfo _GrowablePointArray_FieldInfo_[] = {
-	{"POINT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GrowablePointArray, POINT_SIZE)},
-	{}
-};
-
-$MethodInfo _GrowablePointArray_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(GrowablePointArray, init$, void, int32_t)},
-	{"getX", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, getX, int32_t, int32_t)},
-	{"getY", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, getY, int32_t, int32_t)},
-	{"setX", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, setX, void, int32_t, int32_t)},
-	{"setY", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, setY, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _GrowablePointArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.GrowablePointArray",
-	"sun.java2d.xr.GrowableIntArray",
-	nullptr,
-	_GrowablePointArray_FieldInfo_,
-	_GrowablePointArray_MethodInfo_
-};
-
-$Object* allocate$GrowablePointArray($Class* clazz) {
-	return $of($alloc(GrowablePointArray));
-}
 
 void GrowablePointArray::init$(int32_t initialSize) {
 	$GrowableIntArray::init$(GrowablePointArray::POINT_SIZE, initialSize);
@@ -65,7 +37,29 @@ GrowablePointArray::GrowablePointArray() {
 }
 
 $Class* GrowablePointArray::load$($String* name, bool initialize) {
-	$loadClass(GrowablePointArray, name, initialize, &_GrowablePointArray_ClassInfo_, allocate$GrowablePointArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"POINT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GrowablePointArray, POINT_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(GrowablePointArray, init$, void, int32_t)},
+		{"getX", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, getX, int32_t, int32_t)},
+		{"getY", "(I)I", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, getY, int32_t, int32_t)},
+		{"setX", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, setX, void, int32_t, int32_t)},
+		{"setY", "(II)V", nullptr, $PUBLIC | $FINAL, $method(GrowablePointArray, setY, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.GrowablePointArray",
+		"sun.java2d.xr.GrowableIntArray",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GrowablePointArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GrowablePointArray);
+	});
 	return class$;
 }
 

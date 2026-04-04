@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PortMixer.h>
-
 #include <com/sun/media/sound/AbstractMixer.h>
 #include <com/sun/media/sound/PortMixer$PortInfo.h>
 #include <com/sun/media/sound/PortMixer$PortMixerPort.h>
@@ -49,7 +48,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $Line = ::javax::sound::sampled::Line;
 using $Line$Info = ::javax::sound::sampled::Line$Info;
-using $Mixer$Info = ::javax::sound::sampled::Mixer$Info;
 using $Port = ::javax::sound::sampled::Port;
 using $Port$Info = ::javax::sound::sampled::Port$Info;
 
@@ -58,145 +56,62 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _PortMixer_FieldInfo_[] = {
-	{"SRC_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_UNKNOWN)},
-	{"SRC_MICROPHONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_MICROPHONE)},
-	{"SRC_LINE_IN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_LINE_IN)},
-	{"SRC_COMPACT_DISC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_COMPACT_DISC)},
-	{"SRC_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_MASK)},
-	{"DST_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_UNKNOWN)},
-	{"DST_SPEAKER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_SPEAKER)},
-	{"DST_HEADPHONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_HEADPHONE)},
-	{"DST_LINE_OUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_LINE_OUT)},
-	{"DST_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_MASK)},
-	{"portInfos", "[Ljavax/sound/sampled/Port$Info;", nullptr, $PRIVATE | $FINAL, $field(PortMixer, portInfos)},
-	{"ports", "[Lcom/sun/media/sound/PortMixer$PortMixerPort;", nullptr, $PRIVATE, $field(PortMixer, ports)},
-	{"id", "J", nullptr, $PRIVATE, $field(PortMixer, id)},
-	{}
-};
-
-$MethodInfo _PortMixer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/PortMixerProvider$PortMixerInfo;)V", nullptr, 0, $method(PortMixer, init$, void, $PortMixerProvider$PortMixerInfo*)},
-	{"getID", "()J", nullptr, 0, $method(PortMixer, getID, int64_t)},
-	{"getLine", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(PortMixer, getLine, $Line*, $Line$Info*), "javax.sound.sampled.LineUnavailableException"},
-	{"getMaxLines", "(Ljavax/sound/sampled/Line$Info;)I", nullptr, $PUBLIC, $virtualMethod(PortMixer, getMaxLines, int32_t, $Line$Info*)},
-	{"getMixerIndex", "()I", nullptr, 0, $method(PortMixer, getMixerIndex, int32_t)},
-	{"getPort", "(I)Ljavax/sound/sampled/Port;", nullptr, 0, $method(PortMixer, getPort, $Port*, int32_t)},
-	{"getPortInfo", "(II)Ljavax/sound/sampled/Port$Info;", nullptr, $PRIVATE, $method(PortMixer, getPortInfo, $Port$Info*, int32_t, int32_t)},
-	{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implClose, void)},
-	{"implOpen", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implOpen, void), "javax.sound.sampled.LineUnavailableException"},
-	{"implStart", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implStart, void)},
-	{"implStop", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implStop, void)},
-	{"nClose", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nClose, void, int64_t)},
-	{"nControlGetFloatValue", "(J)F", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlGetFloatValue, float, int64_t)},
-	{"nControlGetIntValue", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlGetIntValue, int32_t, int64_t)},
-	{"nControlSetFloatValue", "(JF)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlSetFloatValue, void, int64_t, float)},
-	{"nControlSetIntValue", "(JI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlSetIntValue, void, int64_t, int32_t)},
-	{"nGetControls", "(JILjava/util/Vector;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetControls, void, int64_t, int32_t, $Vector*)},
-	{"nGetPortCount", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetPortCount, int32_t, int64_t)},
-	{"nGetPortName", "(JI)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetPortName, $String*, int64_t, int32_t)},
-	{"nGetPortType", "(JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetPortType, int32_t, int64_t, int32_t)},
-	{"nOpen", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nOpen, int64_t, int32_t), "javax.sound.sampled.LineUnavailableException"},
-	{}
-};
-
-#define _METHOD_INDEX_nClose 11
-#define _METHOD_INDEX_nControlGetFloatValue 12
-#define _METHOD_INDEX_nControlGetIntValue 13
-#define _METHOD_INDEX_nControlSetFloatValue 14
-#define _METHOD_INDEX_nControlSetIntValue 15
-#define _METHOD_INDEX_nGetControls 16
-#define _METHOD_INDEX_nGetPortCount 17
-#define _METHOD_INDEX_nGetPortName 18
-#define _METHOD_INDEX_nGetPortType 19
-#define _METHOD_INDEX_nOpen 20
-
-$InnerClassInfo _PortMixer_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PortMixer$PortInfo", "com.sun.media.sound.PortMixer", "PortInfo", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$FloatCtrl", "com.sun.media.sound.PortMixer", "FloatCtrl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$CompCtrl", "com.sun.media.sound.PortMixer", "CompCtrl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$BoolCtrl", "com.sun.media.sound.PortMixer", "BoolCtrl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$PortMixerPort", "com.sun.media.sound.PortMixer", "PortMixerPort", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PortMixer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.PortMixer",
-	"com.sun.media.sound.AbstractMixer",
-	nullptr,
-	_PortMixer_FieldInfo_,
-	_PortMixer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PortMixer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PortMixer$PortInfo,com.sun.media.sound.PortMixer$FloatCtrl,com.sun.media.sound.PortMixer$FloatCtrl$FCT,com.sun.media.sound.PortMixer$CompCtrl,com.sun.media.sound.PortMixer$CompCtrl$CCT,com.sun.media.sound.PortMixer$BoolCtrl,com.sun.media.sound.PortMixer$BoolCtrl$BCT,com.sun.media.sound.PortMixer$PortMixerPort"
-};
-
-$Object* allocate$PortMixer($Class* clazz) {
-	return $of($alloc(PortMixer));
-}
-
 void PortMixer::init$($PortMixerProvider$PortMixerInfo* portMixerInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractMixer::init$(portMixerInfo, nullptr, nullptr, nullptr);
 	this->id = 0;
 	int32_t count = 0;
 	int32_t srcLineCount = 0;
 	int32_t dstLineCount = 0;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				this->id = nOpen(getMixerIndex());
-				if (this->id != 0) {
-					count = nGetPortCount(this->id);
-					if (count < 0) {
-						count = 0;
-					}
-				}
-			} catch ($Exception& e) {
-			}
-			$set(this, portInfos, $new($Port$InfoArray, count));
-			for (int32_t i = 0; i < count; ++i) {
-				int32_t type = nGetPortType(this->id, i);
-				srcLineCount += (((int32_t)(type & (uint32_t)PortMixer::SRC_MASK)) != 0) ? 1 : 0;
-				dstLineCount += (((int32_t)(type & (uint32_t)PortMixer::DST_MASK)) != 0) ? 1 : 0;
-				$nc(this->portInfos)->set(i, $(getPortInfo(i, type)));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
+			this->id = nOpen(getMixerIndex());
 			if (this->id != 0) {
-				nClose(this->id);
+				count = nGetPortCount(this->id);
+				if (count < 0) {
+					count = 0;
+				}
 			}
-			this->id = 0;
+		} catch ($Exception& e) {
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$set(this, portInfos, $new($Port$InfoArray, count));
+		for (int32_t i = 0; i < count; ++i) {
+			int32_t type = nGetPortType(this->id, i);
+			srcLineCount += ((type & PortMixer::SRC_MASK) != 0) ? 1 : 0;
+			dstLineCount += ((type & PortMixer::DST_MASK) != 0) ? 1 : 0;
+			this->portInfos->set(i, $(getPortInfo(i, type)));
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (this->id != 0) {
+			nClose(this->id);
+		}
+		this->id = 0;
 	}
-	$set(this, sourceLineInfo, $fcast($Line$InfoArray, $new($Port$InfoArray, srcLineCount)));
-	$set(this, targetLineInfo, $fcast($Line$InfoArray, $new($Port$InfoArray, dstLineCount)));
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	$set(this, sourceLineInfo, $cast($Line$InfoArray, $new($Port$InfoArray, srcLineCount)));
+	$set(this, targetLineInfo, $cast($Line$InfoArray, $new($Port$InfoArray, dstLineCount)));
 	srcLineCount = 0;
 	dstLineCount = 0;
 	for (int32_t i = 0; i < count; ++i) {
-		if ($nc($nc(this->portInfos)->get(i))->isSource()) {
-			$nc(this->sourceLineInfo)->set(srcLineCount++, $nc(this->portInfos)->get(i));
+		if ($nc(this->portInfos->get(i))->isSource()) {
+			$nc(this->sourceLineInfo)->set(srcLineCount++, this->portInfos->get(i));
 		} else {
-			$nc(this->targetLineInfo)->set(dstLineCount++, $nc(this->portInfos)->get(i));
+			$nc(this->targetLineInfo)->set(dstLineCount++, this->portInfos->get(i));
 		}
 	}
 }
 
 $Line* PortMixer::getLine($Line$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Line$Info, fullInfo, getLineInfo(info));
 	if ((fullInfo != nullptr) && ($instanceOf($Port$Info, fullInfo))) {
-		for (int32_t i = 0; i < $nc(this->portInfos)->length; ++i) {
-			if ($of(fullInfo)->equals($nc(this->portInfos)->get(i))) {
+		for (int32_t i = 0; i < this->portInfos->length; ++i) {
+			if (fullInfo->equals(this->portInfos->get(i))) {
 				return getPort(i);
 			}
 		}
@@ -225,8 +140,8 @@ void PortMixer::implClose() {
 	nClose(thisID);
 	if (this->ports != nullptr) {
 		for (int32_t i = 0; i < $nc(this->ports)->length; ++i) {
-			if ($nc(this->ports)->get(i) != nullptr) {
-				$nc($nc(this->ports)->get(i))->disposeControls();
+			if (this->ports->get(i) != nullptr) {
+				$nc(this->ports->get(i))->disposeControls();
 			}
 		}
 	}
@@ -239,46 +154,30 @@ void PortMixer::implStop() {
 }
 
 $Port$Info* PortMixer::getPortInfo(int32_t portIndex, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (type) {
 	case PortMixer::SRC_UNKNOWN:
-		{
-			return $new($PortMixer$PortInfo, $(nGetPortName(getID(), portIndex)), true);
-		}
+		return $new($PortMixer$PortInfo, $(nGetPortName(getID(), portIndex)), true);
 	case PortMixer::SRC_MICROPHONE:
-		{
-			$init($Port$Info);
-			return $Port$Info::MICROPHONE;
-		}
+		$init($Port$Info);
+		return $Port$Info::MICROPHONE;
 	case PortMixer::SRC_LINE_IN:
-		{
-			$init($Port$Info);
-			return $Port$Info::LINE_IN;
-		}
+		$init($Port$Info);
+		return $Port$Info::LINE_IN;
 	case PortMixer::SRC_COMPACT_DISC:
-		{
-			$init($Port$Info);
-			return $Port$Info::COMPACT_DISC;
-		}
+		$init($Port$Info);
+		return $Port$Info::COMPACT_DISC;
 	case PortMixer::DST_UNKNOWN:
-		{
-			return $new($PortMixer$PortInfo, $(nGetPortName(getID(), portIndex)), false);
-		}
+		return $new($PortMixer$PortInfo, $(nGetPortName(getID(), portIndex)), false);
 	case PortMixer::DST_SPEAKER:
-		{
-			$init($Port$Info);
-			return $Port$Info::SPEAKER;
-		}
+		$init($Port$Info);
+		return $Port$Info::SPEAKER;
 	case PortMixer::DST_HEADPHONE:
-		{
-			$init($Port$Info);
-			return $Port$Info::HEADPHONE;
-		}
+		$init($Port$Info);
+		return $Port$Info::HEADPHONE;
 	case PortMixer::DST_LINE_OUT:
-		{
-			$init($Port$Info);
-			return $Port$Info::LINE_OUT;
-		}
+		$init($Port$Info);
+		return $Port$Info::LINE_OUT;
 	}
 	$init($Printer);
 	if ($Printer::err$) {
@@ -288,18 +187,18 @@ $Port$Info* PortMixer::getPortInfo(int32_t portIndex, int32_t type) {
 }
 
 int32_t PortMixer::getMixerIndex() {
-	return $nc(($cast($PortMixerProvider$PortMixerInfo, $(getMixerInfo()))))->getIndex();
+	return $$sure($PortMixerProvider$PortMixerInfo, getMixerInfo())->getIndex();
 }
 
 $Port* PortMixer::getPort(int32_t index) {
 	if (this->ports == nullptr) {
-		$set(this, ports, $new($PortMixer$PortMixerPortArray, $nc(this->portInfos)->length));
+		$set(this, ports, $new($PortMixer$PortMixerPortArray, this->portInfos->length));
 	}
 	if ($nc(this->ports)->get(index) == nullptr) {
-		$nc(this->ports)->set(index, $$new($PortMixer$PortMixerPort, $nc(this->portInfos)->get(index), this, index));
-		return $nc(this->ports)->get(index);
+		this->ports->set(index, $$new($PortMixer$PortMixerPort, this->portInfos->get(index), this, index));
+		return this->ports->get(index);
 	}
-	return $nc(this->ports)->get(index);
+	return this->ports->get(index);
 }
 
 int64_t PortMixer::getID() {
@@ -308,82 +207,76 @@ int64_t PortMixer::getID() {
 
 int64_t PortMixer::nOpen(int32_t mixerIndex) {
 	$init(PortMixer);
-	int64_t $ret = 0;
-	$prepareNativeStatic(PortMixer, nOpen, int64_t, int32_t mixerIndex);
-	$ret = $invokeNativeStatic(mixerIndex);
+	$prepareNativeStatic(nOpen, int64_t, int32_t mixerIndex);
+	int64_t $ret = $invokeNativeStatic(mixerIndex);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PortMixer::nClose(int64_t id) {
 	$init(PortMixer);
-	$prepareNativeStatic(PortMixer, nClose, void, int64_t id);
+	$prepareNativeStatic(nClose, void, int64_t id);
 	$invokeNativeStatic(id);
 	$finishNativeStatic();
 }
 
 int32_t PortMixer::nGetPortCount(int64_t id) {
 	$init(PortMixer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PortMixer, nGetPortCount, int32_t, int64_t id);
-	$ret = $invokeNativeStatic(id);
+	$prepareNativeStatic(nGetPortCount, int32_t, int64_t id);
+	int32_t $ret = $invokeNativeStatic(id);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t PortMixer::nGetPortType(int64_t id, int32_t portIndex) {
 	$init(PortMixer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PortMixer, nGetPortType, int32_t, int64_t id, int32_t portIndex);
-	$ret = $invokeNativeStatic(id, portIndex);
+	$prepareNativeStatic(nGetPortType, int32_t, int64_t id, int32_t portIndex);
+	int32_t $ret = $invokeNativeStatic(id, portIndex);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* PortMixer::nGetPortName(int64_t id, int32_t portIndex) {
 	$init(PortMixer);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(PortMixer, nGetPortName, $String*, int64_t id, int32_t portIndex);
-	$assign($ret, $invokeNativeStaticObject(id, portIndex));
+	$prepareNativeStatic(nGetPortName, $String*, int64_t id, int32_t portIndex);
+	$var($String, $ret, $invokeNativeStaticObject(id, portIndex));
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PortMixer::nGetControls(int64_t id, int32_t portIndex, $Vector* vector) {
 	$init(PortMixer);
-	$prepareNativeStatic(PortMixer, nGetControls, void, int64_t id, int32_t portIndex, $Vector* vector);
+	$prepareNativeStatic(nGetControls, void, int64_t id, int32_t portIndex, $Vector* vector);
 	$invokeNativeStatic(id, portIndex, vector);
 	$finishNativeStatic();
 }
 
 void PortMixer::nControlSetIntValue(int64_t controlID, int32_t value) {
 	$init(PortMixer);
-	$prepareNativeStatic(PortMixer, nControlSetIntValue, void, int64_t controlID, int32_t value);
+	$prepareNativeStatic(nControlSetIntValue, void, int64_t controlID, int32_t value);
 	$invokeNativeStatic(controlID, value);
 	$finishNativeStatic();
 }
 
 int32_t PortMixer::nControlGetIntValue(int64_t controlID) {
 	$init(PortMixer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PortMixer, nControlGetIntValue, int32_t, int64_t controlID);
-	$ret = $invokeNativeStatic(controlID);
+	$prepareNativeStatic(nControlGetIntValue, int32_t, int64_t controlID);
+	int32_t $ret = $invokeNativeStatic(controlID);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PortMixer::nControlSetFloatValue(int64_t controlID, float value) {
 	$init(PortMixer);
-	$prepareNativeStatic(PortMixer, nControlSetFloatValue, void, int64_t controlID, float value);
+	$prepareNativeStatic(nControlSetFloatValue, void, int64_t controlID, float value);
 	$invokeNativeStatic(controlID, value);
 	$finishNativeStatic();
 }
 
 float PortMixer::nControlGetFloatValue(int64_t controlID) {
 	$init(PortMixer);
-	float $ret = 0.0;
-	$prepareNativeStatic(PortMixer, nControlGetFloatValue, float, int64_t controlID);
-	$ret = $invokeNativeStatic(controlID);
+	$prepareNativeStatic(nControlGetFloatValue, float, int64_t controlID);
+	float $ret = $invokeNativeStatic(controlID);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -392,7 +285,71 @@ PortMixer::PortMixer() {
 }
 
 $Class* PortMixer::load$($String* name, bool initialize) {
-	$loadClass(PortMixer, name, initialize, &_PortMixer_ClassInfo_, allocate$PortMixer);
+	$FieldInfo fieldInfos$$[] = {
+		{"SRC_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_UNKNOWN)},
+		{"SRC_MICROPHONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_MICROPHONE)},
+		{"SRC_LINE_IN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_LINE_IN)},
+		{"SRC_COMPACT_DISC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_COMPACT_DISC)},
+		{"SRC_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, SRC_MASK)},
+		{"DST_UNKNOWN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_UNKNOWN)},
+		{"DST_SPEAKER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_SPEAKER)},
+		{"DST_HEADPHONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_HEADPHONE)},
+		{"DST_LINE_OUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_LINE_OUT)},
+		{"DST_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PortMixer, DST_MASK)},
+		{"portInfos", "[Ljavax/sound/sampled/Port$Info;", nullptr, $PRIVATE | $FINAL, $field(PortMixer, portInfos)},
+		{"ports", "[Lcom/sun/media/sound/PortMixer$PortMixerPort;", nullptr, $PRIVATE, $field(PortMixer, ports)},
+		{"id", "J", nullptr, $PRIVATE, $field(PortMixer, id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/PortMixerProvider$PortMixerInfo;)V", nullptr, 0, $method(PortMixer, init$, void, $PortMixerProvider$PortMixerInfo*)},
+		{"getID", "()J", nullptr, 0, $method(PortMixer, getID, int64_t)},
+		{"getLine", "(Ljavax/sound/sampled/Line$Info;)Ljavax/sound/sampled/Line;", nullptr, $PUBLIC, $virtualMethod(PortMixer, getLine, $Line*, $Line$Info*), "javax.sound.sampled.LineUnavailableException"},
+		{"getMaxLines", "(Ljavax/sound/sampled/Line$Info;)I", nullptr, $PUBLIC, $virtualMethod(PortMixer, getMaxLines, int32_t, $Line$Info*)},
+		{"getMixerIndex", "()I", nullptr, 0, $method(PortMixer, getMixerIndex, int32_t)},
+		{"getPort", "(I)Ljavax/sound/sampled/Port;", nullptr, 0, $method(PortMixer, getPort, $Port*, int32_t)},
+		{"getPortInfo", "(II)Ljavax/sound/sampled/Port$Info;", nullptr, $PRIVATE, $method(PortMixer, getPortInfo, $Port$Info*, int32_t, int32_t)},
+		{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implClose, void)},
+		{"implOpen", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implOpen, void), "javax.sound.sampled.LineUnavailableException"},
+		{"implStart", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implStart, void)},
+		{"implStop", "()V", nullptr, $PROTECTED, $virtualMethod(PortMixer, implStop, void)},
+		{"nClose", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nClose, void, int64_t)},
+		{"nControlGetFloatValue", "(J)F", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlGetFloatValue, float, int64_t)},
+		{"nControlGetIntValue", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlGetIntValue, int32_t, int64_t)},
+		{"nControlSetFloatValue", "(JF)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlSetFloatValue, void, int64_t, float)},
+		{"nControlSetIntValue", "(JI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nControlSetIntValue, void, int64_t, int32_t)},
+		{"nGetControls", "(JILjava/util/Vector;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetControls, void, int64_t, int32_t, $Vector*)},
+		{"nGetPortCount", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetPortCount, int32_t, int64_t)},
+		{"nGetPortName", "(JI)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetPortName, $String*, int64_t, int32_t)},
+		{"nGetPortType", "(JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nGetPortType, int32_t, int64_t, int32_t)},
+		{"nOpen", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(PortMixer, nOpen, int64_t, int32_t), "javax.sound.sampled.LineUnavailableException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PortMixer$PortInfo", "com.sun.media.sound.PortMixer", "PortInfo", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$FloatCtrl", "com.sun.media.sound.PortMixer", "FloatCtrl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$CompCtrl", "com.sun.media.sound.PortMixer", "CompCtrl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$BoolCtrl", "com.sun.media.sound.PortMixer", "BoolCtrl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$PortMixerPort", "com.sun.media.sound.PortMixer", "PortMixerPort", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.PortMixer",
+		"com.sun.media.sound.AbstractMixer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PortMixer$PortInfo,com.sun.media.sound.PortMixer$FloatCtrl,com.sun.media.sound.PortMixer$FloatCtrl$FCT,com.sun.media.sound.PortMixer$CompCtrl,com.sun.media.sound.PortMixer$CompCtrl$CCT,com.sun.media.sound.PortMixer$BoolCtrl,com.sun.media.sound.PortMixer$BoolCtrl$BCT,com.sun.media.sound.PortMixer$PortMixerPort"
+	};
+	$loadClass(PortMixer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PortMixer));
+	});
 	return class$;
 }
 

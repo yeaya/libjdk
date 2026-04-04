@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/MixedContentModel.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLContentSpec.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <jcpp.h>
@@ -26,47 +25,20 @@ namespace com {
 							namespace dtd {
 								namespace models {
 
-$FieldInfo _MixedContentModel_FieldInfo_[] = {
-	{"fCount", "I", nullptr, $PRIVATE, $field(MixedContentModel, fCount)},
-	{"fChildren", "[Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(MixedContentModel, fChildren)},
-	{"fChildrenType", "[I", nullptr, $PRIVATE, $field(MixedContentModel, fChildrenType)},
-	{"fOrdered", "Z", nullptr, $PRIVATE, $field(MixedContentModel, fOrdered)},
-	{}
-};
-
-$MethodInfo _MixedContentModel_MethodInfo_[] = {
-	{"<init>", "([Lcom/sun/org/apache/xerces/internal/xni/QName;[IIIZ)V", nullptr, $PUBLIC, $method(MixedContentModel, init$, void, $QNameArray*, $ints*, int32_t, int32_t, bool)},
-	{"validate", "([Lcom/sun/org/apache/xerces/internal/xni/QName;II)I", nullptr, $PUBLIC, $virtualMethod(MixedContentModel, validate, int32_t, $QNameArray*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MixedContentModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.MixedContentModel",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.ContentModelValidator",
-	_MixedContentModel_FieldInfo_,
-	_MixedContentModel_MethodInfo_
-};
-
-$Object* allocate$MixedContentModel($Class* clazz) {
-	return $of($alloc(MixedContentModel));
-}
-
 void MixedContentModel::init$($QNameArray* children, $ints* type, int32_t offset, int32_t length, bool ordered) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fCount = length;
 	$set(this, fChildren, $new($QNameArray, this->fCount));
 	$set(this, fChildrenType, $new($ints, this->fCount));
 	for (int32_t i = 0; i < this->fCount; ++i) {
-		$nc(this->fChildren)->set(i, $$new($QName, $nc(children)->get(offset + i)));
-		$nc(this->fChildrenType)->set(i, $nc(type)->get(offset + i));
+		this->fChildren->set(i, $$new($QName, $nc(children)->get(offset + i)));
+		this->fChildrenType->set(i, $nc(type)->get(offset + i));
 	}
 	this->fOrdered = ordered;
 }
 
 int32_t MixedContentModel::validate($QNameArray* children, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fOrdered) {
 		int32_t inIndex = 0;
 		for (int32_t outIndex = 0; outIndex < length; ++outIndex) {
@@ -105,7 +77,7 @@ int32_t MixedContentModel::validate($QNameArray* children, int32_t offset, int32
 			for (; inIndex < this->fCount; ++inIndex) {
 				int32_t type = $nc(this->fChildrenType)->get(inIndex);
 				if (type == $XMLContentSpec::CONTENTSPECNODE_LEAF) {
-					if ($nc(curChild)->rawname == $nc($nc(this->fChildren)->get(inIndex))->rawname) {
+					if (curChild->rawname == $nc($nc(this->fChildren)->get(inIndex))->rawname) {
 						break;
 					}
 				} else if (type == $XMLContentSpec::CONTENTSPECNODE_ANY) {
@@ -135,7 +107,29 @@ MixedContentModel::MixedContentModel() {
 }
 
 $Class* MixedContentModel::load$($String* name, bool initialize) {
-	$loadClass(MixedContentModel, name, initialize, &_MixedContentModel_ClassInfo_, allocate$MixedContentModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"fCount", "I", nullptr, $PRIVATE, $field(MixedContentModel, fCount)},
+		{"fChildren", "[Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $field(MixedContentModel, fChildren)},
+		{"fChildrenType", "[I", nullptr, $PRIVATE, $field(MixedContentModel, fChildrenType)},
+		{"fOrdered", "Z", nullptr, $PRIVATE, $field(MixedContentModel, fOrdered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/sun/org/apache/xerces/internal/xni/QName;[IIIZ)V", nullptr, $PUBLIC, $method(MixedContentModel, init$, void, $QNameArray*, $ints*, int32_t, int32_t, bool)},
+		{"validate", "([Lcom/sun/org/apache/xerces/internal/xni/QName;II)I", nullptr, $PUBLIC, $virtualMethod(MixedContentModel, validate, int32_t, $QNameArray*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.MixedContentModel",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.ContentModelValidator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MixedContentModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MixedContentModel);
+	});
 	return class$;
 }
 

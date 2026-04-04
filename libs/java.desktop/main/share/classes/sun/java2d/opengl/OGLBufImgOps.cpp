@@ -1,8 +1,6 @@
 #include <sun/java2d/opengl/OGLBufImgOps.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
-#include <java/awt/Image.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
 #include <java/awt/image/BufferedImage.h>
@@ -26,7 +24,6 @@
 #undef TYPE_BICUBIC
 
 using $Color = ::java::awt::Color;
-using $Image = ::java::awt::Image;
 using $AffineTransformOp = ::java::awt::image::AffineTransformOp;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $BufferedImageOp = ::java::awt::image::BufferedImageOp;
@@ -47,32 +44,13 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLBufImgOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OGLBufImgOps, init$, void)},
-	{"renderImageWithOp", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)Z", nullptr, $STATIC, $staticMethod(OGLBufImgOps, renderImageWithOp, bool, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLBufImgOps_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLBufImgOps",
-	"sun.java2d.pipe.BufferedBufImgOps",
-	nullptr,
-	nullptr,
-	_OGLBufImgOps_MethodInfo_
-};
-
-$Object* allocate$OGLBufImgOps($Class* clazz) {
-	return $of($alloc(OGLBufImgOps));
-}
-
 void OGLBufImgOps::init$() {
 	$BufferedBufImgOps::init$();
 }
 
 bool OGLBufImgOps::renderImageWithOp($SunGraphics2D* sg, $BufferedImage* img, $BufferedImageOp* biop, int32_t x, int32_t y) {
 	$init(OGLBufImgOps);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($ConvolveOp, biop)) {
 		if (!isConvolveOpValid($cast($ConvolveOp, biop))) {
 			return false;
@@ -116,7 +94,22 @@ OGLBufImgOps::OGLBufImgOps() {
 }
 
 $Class* OGLBufImgOps::load$($String* name, bool initialize) {
-	$loadClass(OGLBufImgOps, name, initialize, &_OGLBufImgOps_ClassInfo_, allocate$OGLBufImgOps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OGLBufImgOps, init$, void)},
+		{"renderImageWithOp", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)Z", nullptr, $STATIC, $staticMethod(OGLBufImgOps, renderImageWithOp, bool, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLBufImgOps",
+		"sun.java2d.pipe.BufferedBufImgOps",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLBufImgOps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLBufImgOps);
+	});
 	return class$;
 }
 

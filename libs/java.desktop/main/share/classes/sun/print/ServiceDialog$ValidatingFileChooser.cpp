@@ -1,5 +1,4 @@
 #include <sun/print/ServiceDialog$ValidatingFileChooser.h>
-
 #include <java/awt/Component.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
@@ -13,7 +12,6 @@
 #undef YES_NO_OPTION
 #undef YES_OPTION
 
-using $Component = ::java::awt::Component;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,49 +26,13 @@ using $ServiceDialog = ::sun::print::ServiceDialog;
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceDialog$ValidatingFileChooser_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$ValidatingFileChooser, this$0)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$ValidatingFileChooser_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PRIVATE, $method(ServiceDialog$ValidatingFileChooser, init$, void, $ServiceDialog*)},
-	{"approveSelection", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$ValidatingFileChooser, approveSelection, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$ValidatingFileChooser_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$ValidatingFileChooser", "sun.print.ServiceDialog", "ValidatingFileChooser", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$ValidatingFileChooser_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$ValidatingFileChooser",
-	"javax.swing.JFileChooser",
-	nullptr,
-	_ServiceDialog$ValidatingFileChooser_FieldInfo_,
-	_ServiceDialog$ValidatingFileChooser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$ValidatingFileChooser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$ValidatingFileChooser($Class* clazz) {
-	return $of($alloc(ServiceDialog$ValidatingFileChooser));
-}
-
 void ServiceDialog$ValidatingFileChooser::init$($ServiceDialog* this$0) {
 	$set(this, this$0, this$0);
 	$JFileChooser::init$();
 }
 
 void ServiceDialog$ValidatingFileChooser::approveSelection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, selected, getSelectedFile());
 	bool exists = false;
 	try {
@@ -80,7 +42,7 @@ void ServiceDialog$ValidatingFileChooser::approveSelection() {
 	}
 	if (exists) {
 		int32_t val = 0;
-		$var($Object, var$0, $of($ServiceDialog::getMsg("dialog.overwrite"_s)));
+		$var($Object, var$0, $ServiceDialog::getMsg("dialog.overwrite"_s));
 		val = $JOptionPane::showConfirmDialog(this, var$0, $($ServiceDialog::getMsg("dialog.owtitle"_s)), $JOptionPane::YES_NO_OPTION);
 		if (val != $JOptionPane::YES_OPTION) {
 			return;
@@ -91,7 +53,7 @@ void ServiceDialog$ValidatingFileChooser::approveSelection() {
 			selected->delete$();
 		}
 	} catch ($IOException& ioe) {
-		$var($Object, var$1, $of($str({$($ServiceDialog::getMsg("dialog.writeerror"_s)), " "_s, selected})));
+		$var($Object, var$1, $str({$($ServiceDialog::getMsg("dialog.writeerror"_s)), " "_s, selected}));
 		$JOptionPane::showMessageDialog(this, var$1, $($ServiceDialog::getMsg("dialog.owtitle"_s)), $JOptionPane::WARNING_MESSAGE);
 		return;
 	} catch ($SecurityException& se) {
@@ -100,23 +62,23 @@ void ServiceDialog$ValidatingFileChooser::approveSelection() {
 	bool var$3 = selected->exists();
 	if (var$3) {
 		bool var$4 = !selected->isFile();
-		var$3 = (var$4 || !selected->canWrite());
+		var$3 = var$4 || !selected->canWrite();
 	}
-	bool var$2 = (var$3);
+	bool var$2 = var$3;
 	if (!var$2) {
-		bool var$5 = (pFile != nullptr);
+		bool var$5 = pFile != nullptr;
 		if (var$5) {
 			bool var$6 = !pFile->exists();
 			if (!var$6) {
-				bool var$7 = $nc(pFile)->exists();
-				var$6 = (var$7 && !pFile->canWrite());
+				bool var$7 = pFile->exists();
+				var$6 = var$7 && !pFile->canWrite();
 			}
-			var$5 = (var$6);
+			var$5 = var$6;
 		}
-		var$2 = (var$5);
+		var$2 = var$5;
 	}
 	if (var$2) {
-		$var($Object, var$8, $of($str({$($ServiceDialog::getMsg("dialog.writeerror"_s)), " "_s, selected})));
+		$var($Object, var$8, $str({$($ServiceDialog::getMsg("dialog.writeerror"_s)), " "_s, selected}));
 		$JOptionPane::showMessageDialog(this, var$8, $($ServiceDialog::getMsg("dialog.owtitle"_s)), $JOptionPane::WARNING_MESSAGE);
 		return;
 	}
@@ -127,7 +89,37 @@ ServiceDialog$ValidatingFileChooser::ServiceDialog$ValidatingFileChooser() {
 }
 
 $Class* ServiceDialog$ValidatingFileChooser::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$ValidatingFileChooser, name, initialize, &_ServiceDialog$ValidatingFileChooser_ClassInfo_, allocate$ServiceDialog$ValidatingFileChooser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$ValidatingFileChooser, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PRIVATE, $method(ServiceDialog$ValidatingFileChooser, init$, void, $ServiceDialog*)},
+		{"approveSelection", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$ValidatingFileChooser, approveSelection, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$ValidatingFileChooser", "sun.print.ServiceDialog", "ValidatingFileChooser", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$ValidatingFileChooser",
+		"javax.swing.JFileChooser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$ValidatingFileChooser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$ValidatingFileChooser));
+	});
 	return class$;
 }
 

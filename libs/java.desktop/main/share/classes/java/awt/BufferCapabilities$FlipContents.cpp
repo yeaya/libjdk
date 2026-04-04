@@ -1,5 +1,4 @@
 #include <java/awt/BufferCapabilities$FlipContents.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/BufferCapabilities.h>
 #include <jcpp.h>
@@ -23,51 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _BufferCapabilities$FlipContents_FieldInfo_[] = {
-	{"I_UNDEFINED", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_UNDEFINED)},
-	{"I_BACKGROUND", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_BACKGROUND)},
-	{"I_PRIOR", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_PRIOR)},
-	{"I_COPIED", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_COPIED)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, NAMES)},
-	{"UNDEFINED", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, UNDEFINED)},
-	{"BACKGROUND", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, BACKGROUND)},
-	{"PRIOR", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, PRIOR)},
-	{"COPIED", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, COPIED)},
-	{}
-};
-
-$MethodInfo _BufferCapabilities$FlipContents_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(BufferCapabilities$FlipContents, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BufferCapabilities$FlipContents, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BufferCapabilities$FlipContents, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _BufferCapabilities$FlipContents_InnerClassesInfo_[] = {
-	{"java.awt.BufferCapabilities$FlipContents", "java.awt.BufferCapabilities", "FlipContents", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _BufferCapabilities$FlipContents_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.BufferCapabilities$FlipContents",
-	"java.awt.AttributeValue",
-	nullptr,
-	_BufferCapabilities$FlipContents_FieldInfo_,
-	_BufferCapabilities$FlipContents_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BufferCapabilities$FlipContents_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.BufferCapabilities"
-};
-
-$Object* allocate$BufferCapabilities$FlipContents($Class* clazz) {
-	return $of($alloc(BufferCapabilities$FlipContents));
-}
-
 int32_t BufferCapabilities$FlipContents::I_UNDEFINED = 0;
 int32_t BufferCapabilities$FlipContents::I_BACKGROUND = 0;
 int32_t BufferCapabilities$FlipContents::I_PRIOR = 0;
@@ -90,7 +44,7 @@ int32_t BufferCapabilities$FlipContents::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$BufferCapabilities$FlipContents($Class* class$) {
+void BufferCapabilities$FlipContents::clinit$($Class* clazz) {
 	BufferCapabilities$FlipContents::I_UNDEFINED = 0;
 	BufferCapabilities$FlipContents::I_BACKGROUND = 1;
 	BufferCapabilities$FlipContents::I_PRIOR = 2;
@@ -111,7 +65,46 @@ BufferCapabilities$FlipContents::BufferCapabilities$FlipContents() {
 }
 
 $Class* BufferCapabilities$FlipContents::load$($String* name, bool initialize) {
-	$loadClass(BufferCapabilities$FlipContents, name, initialize, &_BufferCapabilities$FlipContents_ClassInfo_, clinit$BufferCapabilities$FlipContents, allocate$BufferCapabilities$FlipContents);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_UNDEFINED", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_UNDEFINED)},
+		{"I_BACKGROUND", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_BACKGROUND)},
+		{"I_PRIOR", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_PRIOR)},
+		{"I_COPIED", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferCapabilities$FlipContents, I_COPIED)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, NAMES)},
+		{"UNDEFINED", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, UNDEFINED)},
+		{"BACKGROUND", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, BACKGROUND)},
+		{"PRIOR", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, PRIOR)},
+		{"COPIED", "Ljava/awt/BufferCapabilities$FlipContents;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BufferCapabilities$FlipContents, COPIED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(BufferCapabilities$FlipContents, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BufferCapabilities$FlipContents, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BufferCapabilities$FlipContents, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.BufferCapabilities$FlipContents", "java.awt.BufferCapabilities", "FlipContents", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.BufferCapabilities$FlipContents",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.BufferCapabilities"
+	};
+	$loadClass(BufferCapabilities$FlipContents, name, initialize, &classInfo$$, BufferCapabilities$FlipContents::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferCapabilities$FlipContents);
+	});
 	return class$;
 }
 

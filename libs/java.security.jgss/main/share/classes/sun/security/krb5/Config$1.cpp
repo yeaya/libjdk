@@ -1,5 +1,4 @@
 #include <sun/security/krb5/Config$1.h>
-
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
@@ -26,52 +25,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _Config$1_FieldInfo_[] = {
-	{"this$0", "Lsun/security/krb5/Config;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, this$0)},
-	{"val$dupsCheck", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$dupsCheck)},
-	{"val$raw", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$raw)},
-	{"val$fullp", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$fullp)},
-	{"val$fileName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$fileName)},
-	{}
-};
-
-$MethodInfo _Config$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/Config;Ljava/lang/String;Ljava/nio/file/Path;Ljava/util/List;Ljava/util/Set;)V", "()V", 0, $method(Config$1, init$, void, $Config*, $String*, $Path*, $List*, $Set*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Config$1, run, $Object*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _Config$1_EnclosingMethodInfo_ = {
-	"sun.security.krb5.Config",
-	"loadConfigFile",
-	"(Ljava/lang/String;)Ljava/util/List;"
-};
-
-$InnerClassInfo _Config$1_InnerClassesInfo_[] = {
-	{"sun.security.krb5.Config$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Config$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.Config$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_Config$1_FieldInfo_,
-	_Config$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
-	&_Config$1_EnclosingMethodInfo_,
-	_Config$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.Config"
-};
-
-$Object* allocate$Config$1($Class* clazz) {
-	return $of($alloc(Config$1));
-}
-
 void Config$1::init$($Config* this$0, $String* val$fileName, $Path* val$fullp, $List* val$raw, $Set* val$dupsCheck) {
 	$set(this, this$0, this$0);
 	$set(this, val$fileName, val$fileName);
@@ -81,12 +34,12 @@ void Config$1::init$($Config* this$0, $String* val$fileName, $Path* val$fullp, $
 }
 
 $Object* Config$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, path, $Paths::get(this->val$fileName, $$new($StringArray, 0)));
 	if (!$Files::exists(path, $$new($LinkOptionArray, 0))) {
-		return $of(nullptr);
+		return nullptr;
 	} else {
-		return $of($Config::readConfigFileLines(this->val$fullp, this->val$raw, this->val$dupsCheck));
+		return $Config::readConfigFileLines(this->val$fullp, this->val$raw, this->val$dupsCheck);
 	}
 }
 
@@ -94,7 +47,46 @@ Config$1::Config$1() {
 }
 
 $Class* Config$1::load$($String* name, bool initialize) {
-	$loadClass(Config$1, name, initialize, &_Config$1_ClassInfo_, allocate$Config$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/krb5/Config;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, this$0)},
+		{"val$dupsCheck", "Ljava/util/Set;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$dupsCheck)},
+		{"val$raw", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$raw)},
+		{"val$fullp", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$fullp)},
+		{"val$fileName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Config$1, val$fileName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/Config;Ljava/lang/String;Ljava/nio/file/Path;Ljava/util/List;Ljava/util/Set;)V", "()V", 0, $method(Config$1, init$, void, $Config*, $String*, $Path*, $List*, $Set*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Config$1, run, $Object*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.krb5.Config",
+		"loadConfigFile",
+		"(Ljava/lang/String;)Ljava/util/List;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.Config$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.Config$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.Config"
+	};
+	$loadClass(Config$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Config$1);
+	});
 	return class$;
 }
 

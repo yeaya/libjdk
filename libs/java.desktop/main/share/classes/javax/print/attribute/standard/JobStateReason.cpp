@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobStateReason.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -44,69 +43,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobStateReason_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobStateReason, serialVersionUID)},
-	{"JOB_INCOMING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_INCOMING)},
-	{"JOB_DATA_INSUFFICIENT", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_DATA_INSUFFICIENT)},
-	{"DOCUMENT_ACCESS_ERROR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, DOCUMENT_ACCESS_ERROR)},
-	{"SUBMISSION_INTERRUPTED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, SUBMISSION_INTERRUPTED)},
-	{"JOB_OUTGOING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_OUTGOING)},
-	{"JOB_HOLD_UNTIL_SPECIFIED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_HOLD_UNTIL_SPECIFIED)},
-	{"RESOURCES_ARE_NOT_READY", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, RESOURCES_ARE_NOT_READY)},
-	{"PRINTER_STOPPED_PARTLY", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, PRINTER_STOPPED_PARTLY)},
-	{"PRINTER_STOPPED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, PRINTER_STOPPED)},
-	{"JOB_INTERPRETING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_INTERPRETING)},
-	{"JOB_QUEUED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_QUEUED)},
-	{"JOB_TRANSFORMING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_TRANSFORMING)},
-	{"JOB_QUEUED_FOR_MARKER", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_QUEUED_FOR_MARKER)},
-	{"JOB_PRINTING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_PRINTING)},
-	{"JOB_CANCELED_BY_USER", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_CANCELED_BY_USER)},
-	{"JOB_CANCELED_BY_OPERATOR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_CANCELED_BY_OPERATOR)},
-	{"JOB_CANCELED_AT_DEVICE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_CANCELED_AT_DEVICE)},
-	{"ABORTED_BY_SYSTEM", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, ABORTED_BY_SYSTEM)},
-	{"UNSUPPORTED_COMPRESSION", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, UNSUPPORTED_COMPRESSION)},
-	{"COMPRESSION_ERROR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, COMPRESSION_ERROR)},
-	{"UNSUPPORTED_DOCUMENT_FORMAT", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, UNSUPPORTED_DOCUMENT_FORMAT)},
-	{"DOCUMENT_FORMAT_ERROR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, DOCUMENT_FORMAT_ERROR)},
-	{"PROCESSING_TO_STOP_POINT", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, PROCESSING_TO_STOP_POINT)},
-	{"SERVICE_OFF_LINE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, SERVICE_OFF_LINE)},
-	{"JOB_COMPLETED_SUCCESSFULLY", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_COMPLETED_SUCCESSFULLY)},
-	{"JOB_COMPLETED_WITH_WARNINGS", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_COMPLETED_WITH_WARNINGS)},
-	{"JOB_COMPLETED_WITH_ERRORS", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_COMPLETED_WITH_ERRORS)},
-	{"JOB_RESTARTABLE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_RESTARTABLE)},
-	{"QUEUED_IN_DEVICE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, QUEUED_IN_DEVICE)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobStateReason, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobStateReason, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _JobStateReason_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(JobStateReason, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobStateReason, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(JobStateReason, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobStateReason, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JobStateReason, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobStateReason_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.JobStateReason",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.Attribute",
-	_JobStateReason_FieldInfo_,
-	_JobStateReason_MethodInfo_
-};
-
-$Object* allocate$JobStateReason($Class* clazz) {
-	return $of($alloc(JobStateReason));
-}
 
 $Object* JobStateReason::clone() {
 	 return this->$EnumSyntax::clone();
@@ -165,11 +101,11 @@ void JobStateReason::init$(int32_t value) {
 }
 
 $StringArray* JobStateReason::getStringTable() {
-	return $cast($StringArray, $nc(JobStateReason::myStringTable)->clone());
+	return $cast($StringArray, JobStateReason::myStringTable->clone());
 }
 
 $EnumSyntaxArray* JobStateReason::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(JobStateReason::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, JobStateReason::myEnumValueTable->clone());
 }
 
 $Class* JobStateReason::getCategory() {
@@ -180,7 +116,7 @@ $String* JobStateReason::getName() {
 	return "job-state-reason"_s;
 }
 
-void clinit$JobStateReason($Class* class$) {
+void JobStateReason::clinit$($Class* clazz) {
 	$assignStatic(JobStateReason::JOB_INCOMING, $new(JobStateReason, 0));
 	$assignStatic(JobStateReason::JOB_DATA_INSUFFICIENT, $new(JobStateReason, 1));
 	$assignStatic(JobStateReason::DOCUMENT_ACCESS_ERROR, $new(JobStateReason, 2));
@@ -278,7 +214,65 @@ JobStateReason::JobStateReason() {
 }
 
 $Class* JobStateReason::load$($String* name, bool initialize) {
-	$loadClass(JobStateReason, name, initialize, &_JobStateReason_ClassInfo_, clinit$JobStateReason, allocate$JobStateReason);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobStateReason, serialVersionUID)},
+		{"JOB_INCOMING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_INCOMING)},
+		{"JOB_DATA_INSUFFICIENT", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_DATA_INSUFFICIENT)},
+		{"DOCUMENT_ACCESS_ERROR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, DOCUMENT_ACCESS_ERROR)},
+		{"SUBMISSION_INTERRUPTED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, SUBMISSION_INTERRUPTED)},
+		{"JOB_OUTGOING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_OUTGOING)},
+		{"JOB_HOLD_UNTIL_SPECIFIED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_HOLD_UNTIL_SPECIFIED)},
+		{"RESOURCES_ARE_NOT_READY", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, RESOURCES_ARE_NOT_READY)},
+		{"PRINTER_STOPPED_PARTLY", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, PRINTER_STOPPED_PARTLY)},
+		{"PRINTER_STOPPED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, PRINTER_STOPPED)},
+		{"JOB_INTERPRETING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_INTERPRETING)},
+		{"JOB_QUEUED", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_QUEUED)},
+		{"JOB_TRANSFORMING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_TRANSFORMING)},
+		{"JOB_QUEUED_FOR_MARKER", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_QUEUED_FOR_MARKER)},
+		{"JOB_PRINTING", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_PRINTING)},
+		{"JOB_CANCELED_BY_USER", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_CANCELED_BY_USER)},
+		{"JOB_CANCELED_BY_OPERATOR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_CANCELED_BY_OPERATOR)},
+		{"JOB_CANCELED_AT_DEVICE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_CANCELED_AT_DEVICE)},
+		{"ABORTED_BY_SYSTEM", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, ABORTED_BY_SYSTEM)},
+		{"UNSUPPORTED_COMPRESSION", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, UNSUPPORTED_COMPRESSION)},
+		{"COMPRESSION_ERROR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, COMPRESSION_ERROR)},
+		{"UNSUPPORTED_DOCUMENT_FORMAT", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, UNSUPPORTED_DOCUMENT_FORMAT)},
+		{"DOCUMENT_FORMAT_ERROR", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, DOCUMENT_FORMAT_ERROR)},
+		{"PROCESSING_TO_STOP_POINT", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, PROCESSING_TO_STOP_POINT)},
+		{"SERVICE_OFF_LINE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, SERVICE_OFF_LINE)},
+		{"JOB_COMPLETED_SUCCESSFULLY", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_COMPLETED_SUCCESSFULLY)},
+		{"JOB_COMPLETED_WITH_WARNINGS", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_COMPLETED_WITH_WARNINGS)},
+		{"JOB_COMPLETED_WITH_ERRORS", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_COMPLETED_WITH_ERRORS)},
+		{"JOB_RESTARTABLE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, JOB_RESTARTABLE)},
+		{"QUEUED_IN_DEVICE", "Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobStateReason, QUEUED_IN_DEVICE)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobStateReason, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/JobStateReason;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobStateReason, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(JobStateReason, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobStateReason, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(JobStateReason, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobStateReason, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JobStateReason, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.JobStateReason",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.Attribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobStateReason, name, initialize, &classInfo$$, JobStateReason::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobStateReason));
+	});
 	return class$;
 }
 

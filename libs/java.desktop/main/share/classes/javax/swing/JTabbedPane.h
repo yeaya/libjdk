@@ -75,6 +75,7 @@ class $export JTabbedPane : public ::javax::swing::JComponent, public ::javax::a
 	$class(JTabbedPane, 0, ::javax::swing::JComponent, ::javax::accessibility::Accessible, ::javax::swing::SwingConstants)
 public:
 	JTabbedPane();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::getToolTipText;
 	using ::javax::swing::JComponent::enable;

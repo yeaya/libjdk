@@ -15,6 +15,7 @@ class $export HiddenDefaultButtonTest : public ::java::lang::Object {
 	$class(HiddenDefaultButtonTest, 0, ::java::lang::Object)
 public:
 	HiddenDefaultButtonTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createGUI();
 	static void disposeTestUI();

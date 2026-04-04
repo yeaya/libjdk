@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapPoolManager.h>
-
 #include <com/sun/jndi/ldap/ClientId.h>
 #include <com/sun/jndi/ldap/DigestClientId.h>
 #include <com/sun/jndi/ldap/LdapClient.h>
@@ -11,7 +10,6 @@
 #include <com/sun/jndi/ldap/VersionHelper.h>
 #include <com/sun/jndi/ldap/pool/Pool.h>
 #include <com/sun/jndi/ldap/pool/PooledConnection.h>
-#include <com/sun/jndi/ldap/pool/PooledConnectionFactory.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -59,9 +57,7 @@ using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
 using $LdapPoolManager$1 = ::com::sun::jndi::ldap::LdapPoolManager$1;
 using $Obj = ::com::sun::jndi::ldap::Obj;
 using $SimpleClientId = ::com::sun::jndi::ldap::SimpleClientId;
-using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $Pool = ::com::sun::jndi::ldap::pool::Pool;
-using $PooledConnectionFactory = ::com::sun::jndi::ldap::pool::PooledConnectionFactory;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -96,35 +92,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(LdapPoolManager::lambda$getProperty$0(propName, defVal));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapPoolManager$$Lambda$lambda$getProperty$0>());
-	}
 	$String* propName = nullptr;
 	$String* defVal = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LdapPoolManager$$Lambda$lambda$getProperty$0::fieldInfos[3] = {
-	{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getProperty$0, propName)},
-	{"defVal", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getProperty$0, defVal)},
-	{}
-};
-$MethodInfo LdapPoolManager$$Lambda$lambda$getProperty$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getProperty$0, init$, void, $String*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getProperty$0, run, $Object*)},
-	{}
-};
-$ClassInfo LdapPoolManager$$Lambda$lambda$getProperty$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getProperty$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LdapPoolManager$$Lambda$lambda$getProperty$0::load$($String* name, bool initialize) {
-	$loadClass(LdapPoolManager$$Lambda$lambda$getProperty$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getProperty$0, propName)},
+		{"defVal", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getProperty$0, defVal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getProperty$0, init$, void, $String*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getProperty$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getProperty$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapPoolManager$$Lambda$lambda$getProperty$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapPoolManager$$Lambda$lambda$getProperty$0);
+	});
 	return class$;
 }
 $Class* LdapPoolManager$$Lambda$lambda$getProperty$0::class$ = nullptr;
@@ -139,35 +131,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(LdapPoolManager::lambda$getInteger$1(propName, defVal));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapPoolManager$$Lambda$lambda$getInteger$1$1>());
-	}
 	$String* propName = nullptr;
 	int32_t defVal = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LdapPoolManager$$Lambda$lambda$getInteger$1$1::fieldInfos[3] = {
-	{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getInteger$1$1, propName)},
-	{"defVal", "I", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getInteger$1$1, defVal)},
-	{}
-};
-$MethodInfo LdapPoolManager$$Lambda$lambda$getInteger$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getInteger$1$1, init$, void, $String*, int32_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getInteger$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo LdapPoolManager$$Lambda$lambda$getInteger$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getInteger$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LdapPoolManager$$Lambda$lambda$getInteger$1$1::load$($String* name, bool initialize) {
-	$loadClass(LdapPoolManager$$Lambda$lambda$getInteger$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getInteger$1$1, propName)},
+		{"defVal", "I", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getInteger$1$1, defVal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getInteger$1$1, init$, void, $String*, int32_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getInteger$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getInteger$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapPoolManager$$Lambda$lambda$getInteger$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapPoolManager$$Lambda$lambda$getInteger$1$1);
+	});
 	return class$;
 }
 $Class* LdapPoolManager$$Lambda$lambda$getInteger$1$1::class$ = nullptr;
@@ -182,110 +170,34 @@ public:
 	virtual $Object* run() override {
 		 return $of(LdapPoolManager::lambda$getLong$2(propName, defVal));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapPoolManager$$Lambda$lambda$getLong$2$2>());
-	}
 	$String* propName = nullptr;
 	int64_t defVal = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LdapPoolManager$$Lambda$lambda$getLong$2$2::fieldInfos[3] = {
-	{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getLong$2$2, propName)},
-	{"defVal", "J", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getLong$2$2, defVal)},
-	{}
-};
-$MethodInfo LdapPoolManager$$Lambda$lambda$getLong$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getLong$2$2, init$, void, $String*, int64_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getLong$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo LdapPoolManager$$Lambda$lambda$getLong$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getLong$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LdapPoolManager$$Lambda$lambda$getLong$2$2::load$($String* name, bool initialize) {
-	$loadClass(LdapPoolManager$$Lambda$lambda$getLong$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"propName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getLong$2$2, propName)},
+		{"defVal", "J", nullptr, $PUBLIC, $field(LdapPoolManager$$Lambda$lambda$getLong$2$2, defVal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getLong$2$2, init$, void, $String*, int64_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getLong$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getLong$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapPoolManager$$Lambda$lambda$getLong$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapPoolManager$$Lambda$lambda$getLong$2$2);
+	});
 	return class$;
 }
 $Class* LdapPoolManager$$Lambda$lambda$getLong$2$2::class$ = nullptr;
-
-$FieldInfo _LdapPoolManager_FieldInfo_[] = {
-	{"DEBUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, DEBUG)},
-	{"debug", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapPoolManager, debug)},
-	{"trace", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapPoolManager, trace)},
-	{"POOL_AUTH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, POOL_AUTH)},
-	{"POOL_PROTOCOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, POOL_PROTOCOL)},
-	{"MAX_POOL_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, MAX_POOL_SIZE)},
-	{"PREF_POOL_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, PREF_POOL_SIZE)},
-	{"INIT_POOL_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, INIT_POOL_SIZE)},
-	{"POOL_TIMEOUT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, POOL_TIMEOUT)},
-	{"SASL_CALLBACK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, SASL_CALLBACK)},
-	{"DEFAULT_MAX_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_MAX_POOL_SIZE)},
-	{"DEFAULT_PREF_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_PREF_POOL_SIZE)},
-	{"DEFAULT_INIT_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_INIT_POOL_SIZE)},
-	{"DEFAULT_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_TIMEOUT)},
-	{"DEFAULT_AUTH_MECHS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, DEFAULT_AUTH_MECHS)},
-	{"DEFAULT_PROTOCOLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, DEFAULT_PROTOCOLS)},
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, NONE)},
-	{"SIMPLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, SIMPLE)},
-	{"DIGEST", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DIGEST)},
-	{"idleTimeout", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, idleTimeout)},
-	{"maxSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, maxSize)},
-	{"prefSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, prefSize)},
-	{"initSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, initSize)},
-	{"supportPlainProtocol", "Z", nullptr, $PRIVATE | $STATIC, $staticField(LdapPoolManager, supportPlainProtocol)},
-	{"supportSslProtocol", "Z", nullptr, $PRIVATE | $STATIC, $staticField(LdapPoolManager, supportSslProtocol)},
-	{"pools", "[Lcom/sun/jndi/ldap/pool/Pool;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, pools)},
-	{}
-};
-
-$MethodInfo _LdapPoolManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LdapPoolManager, init$, void)},
-	{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, d, void, $String*)},
-	{"d", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, d, void, $String*, $String*)},
-	{"expire", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapPoolManager, expire, void, int64_t)},
-	{"findPool", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, findPool, int32_t, $String*)},
-	{"getInteger", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getInteger, int32_t, $String*, int32_t)},
-	{"getLdapClient", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapClient;", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapClient;", $STATIC, $staticMethod(LdapPoolManager, getLdapClient, $LdapClient*, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*, int32_t, $String*, $ControlArray*, $String*, $String*, Object$*, $Hashtable*), "javax.naming.NamingException"},
-	{"getLong", "(Ljava/lang/String;J)J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getLong, int64_t, $String*, int64_t)},
-	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getProperty, $String*, $String*, $String*)},
-	{"isPoolingAllowed", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<**>;)Z", $STATIC, $staticMethod(LdapPoolManager, isPoolingAllowed, bool, $String*, $OutputStream*, $String*, $String*, $Hashtable*), "javax.naming.NamingException"},
-	{"lambda$getInteger$1", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getInteger$1, $Integer*, $String*, int32_t)},
-	{"lambda$getLong$2", "(Ljava/lang/String;J)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getLong$2, $Long*, $String*, int64_t)},
-	{"lambda$getProperty$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getProperty$0, $String*, $String*, $String*)},
-	{"showStats", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapPoolManager, showStats, void, $PrintStream*)},
-	{}
-};
-
-$InnerClassInfo _LdapPoolManager_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.LdapPoolManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LdapPoolManager_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapPoolManager",
-	"java.lang.Object",
-	nullptr,
-	_LdapPoolManager_FieldInfo_,
-	_LdapPoolManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LdapPoolManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.LdapPoolManager$1"
-};
-
-$Object* allocate$LdapPoolManager($Class* clazz) {
-	return $of($alloc(LdapPoolManager));
-}
 
 $String* LdapPoolManager::DEBUG = nullptr;
 bool LdapPoolManager::debug = false;
@@ -324,7 +236,7 @@ int32_t LdapPoolManager::findPool($String* mech) {
 
 bool LdapPoolManager::isPoolingAllowed($String* socketFactory, $OutputStream* trace, $String* authMech, $String* protocol, $Hashtable* env) {
 	$init(LdapPoolManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (trace != nullptr && !LdapPoolManager::debug || (protocol == nullptr && !LdapPoolManager::supportPlainProtocol) || ("ssl"_s->equalsIgnoreCase(protocol) && !LdapPoolManager::supportSslProtocol)) {
 		d("Pooling disallowed due to tracing or unsupported pooling of protocol"_s);
 		return false;
@@ -338,7 +250,7 @@ bool LdapPoolManager::isPoolingAllowed($String* socketFactory, $OutputStream* tr
 			$Class* socketFactoryClass = $nc($Obj::helper)->loadClass(socketFactory);
 			$var($ClassArray, interfaces, $nc(socketFactoryClass)->getInterfaces());
 			for (int32_t i = 0; i < interfaces->length; ++i) {
-				if ($nc($($nc(interfaces->get(i))->getCanonicalName()))->equals(COMPARATOR)) {
+				if ($$nc($nc(interfaces->get(i))->getCanonicalName())->equals(COMPARATOR)) {
 					foundSockCmp = true;
 				}
 			}
@@ -352,69 +264,58 @@ bool LdapPoolManager::isPoolingAllowed($String* socketFactory, $OutputStream* tr
 		}
 	}
 	int32_t p = findPool(authMech);
-	if (p < 0 || $nc(LdapPoolManager::pools)->get(p) == nullptr) {
+	if (p < 0 || LdapPoolManager::pools->get(p) == nullptr) {
 		d("authmech not found: "_s, authMech);
 		return false;
 	}
 	d("using authmech: "_s, authMech);
 	switch (p) {
 	case LdapPoolManager::NONE:
-		{}
 	case LdapPoolManager::SIMPLE:
-		{
-			return true;
-		}
+		return true;
 	case LdapPoolManager::DIGEST:
-		{
-			return (env == nullptr || $nc(env)->get(LdapPoolManager::SASL_CALLBACK) == nullptr);
-		}
+		return (env == nullptr || env->get(LdapPoolManager::SASL_CALLBACK) == nullptr);
 	}
 	return false;
 }
 
 $LdapClient* LdapPoolManager::getLdapClient($String* host, int32_t port, $String* socketFactory, int32_t connTimeout, int32_t readTimeout, $OutputStream* trace, int32_t version, $String* authMech, $ControlArray* ctls, $String* protocol, $String* user, Object$* passwd, $Hashtable* env) {
 	$init(LdapPoolManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientId, id, nullptr);
 	$var($Pool, pool, nullptr);
 	int32_t p = findPool(authMech);
-	if (p < 0 || ($assign(pool, $nc(LdapPoolManager::pools)->get(p))) == nullptr) {
+	if (p < 0 || ($assign(pool, LdapPoolManager::pools->get(p))) == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Attempting to use pooling for an unsupported mechanism: "_s, authMech}));
 	}
 	switch (p) {
 	case LdapPoolManager::NONE:
-		{
-			$assign(id, $new($ClientId, version, host, port, protocol, ctls, trace, socketFactory));
-			break;
-		}
+		$assign(id, $new($ClientId, version, host, port, protocol, ctls, trace, socketFactory));
+		break;
 	case LdapPoolManager::SIMPLE:
-		{
-			$assign(id, $new($SimpleClientId, version, host, port, protocol, ctls, trace, socketFactory, user, passwd));
-			break;
-		}
+		$assign(id, $new($SimpleClientId, version, host, port, protocol, ctls, trace, socketFactory, user, passwd));
+		break;
 	case LdapPoolManager::DIGEST:
-		{
-			$assign(id, $new($DigestClientId, version, host, port, protocol, ctls, trace, socketFactory, user, passwd, env));
-			break;
-		}
+		$assign(id, $new($DigestClientId, version, host, port, protocol, ctls, trace, socketFactory, user, passwd, env));
+		break;
 	}
 	return $cast($LdapClient, $nc(pool)->getPooledConnection(id, connTimeout, $$new($LdapClientFactory, host, port, socketFactory, connTimeout, readTimeout, trace)));
 }
 
 void LdapPoolManager::showStats($PrintStream* out) {
 	$init(LdapPoolManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->println("***** start *****"_s);
 	out->println($$str({"idle timeout: "_s, $$str(LdapPoolManager::idleTimeout)}));
 	out->println($$str({"maximum pool size: "_s, $$str(LdapPoolManager::maxSize)}));
 	out->println($$str({"preferred pool size: "_s, $$str(LdapPoolManager::prefSize)}));
 	out->println($$str({"initial pool size: "_s, $$str(LdapPoolManager::initSize)}));
 	out->println($$str({"protocol types: "_s, (LdapPoolManager::supportPlainProtocol ? "plain "_s : ""_s), (LdapPoolManager::supportSslProtocol ? "ssl"_s : ""_s)}));
-	out->println($$str({"authentication types: "_s, ($nc(LdapPoolManager::pools)->get(LdapPoolManager::NONE) != nullptr ? "none "_s : ""_s), ($nc(LdapPoolManager::pools)->get(LdapPoolManager::SIMPLE) != nullptr ? "simple "_s : ""_s), ($nc(LdapPoolManager::pools)->get(LdapPoolManager::DIGEST) != nullptr ? "DIGEST-MD5 "_s : ""_s)}));
-	for (int32_t i = 0; i < $nc(LdapPoolManager::pools)->length; ++i) {
-		if ($nc(LdapPoolManager::pools)->get(i) != nullptr) {
+	out->println($$str({"authentication types: "_s, (LdapPoolManager::pools->get(LdapPoolManager::NONE) != nullptr ? "none "_s : ""_s), (LdapPoolManager::pools->get(LdapPoolManager::SIMPLE) != nullptr ? "simple "_s : ""_s), (LdapPoolManager::pools->get(LdapPoolManager::DIGEST) != nullptr ? "DIGEST-MD5 "_s : ""_s)}));
+	for (int32_t i = 0; i < LdapPoolManager::pools->length; ++i) {
+		if (LdapPoolManager::pools->get(i) != nullptr) {
 			out->println($$str({(i == LdapPoolManager::NONE ? "anonymous pools"_s : i == LdapPoolManager::SIMPLE ? "simple auth pools"_s : i == LdapPoolManager::DIGEST ? "digest pools"_s : ""_s), ":"_s}));
-			$nc($nc(LdapPoolManager::pools)->get(i))->showStats(out);
+			$nc(LdapPoolManager::pools->get(i))->showStats(out);
 		}
 	}
 	out->println("***** end *****"_s);
@@ -422,9 +323,9 @@ void LdapPoolManager::showStats($PrintStream* out) {
 
 void LdapPoolManager::expire(int64_t threshold) {
 	$init(LdapPoolManager);
-	for (int32_t i = 0; i < $nc(LdapPoolManager::pools)->length; ++i) {
-		if ($nc(LdapPoolManager::pools)->get(i) != nullptr) {
-			$nc($nc(LdapPoolManager::pools)->get(i))->expire(threshold);
+	for (int32_t i = 0; i < LdapPoolManager::pools->length; ++i) {
+		if (LdapPoolManager::pools->get(i) != nullptr) {
+			$nc(LdapPoolManager::pools->get(i))->expire(threshold);
 		}
 	}
 }
@@ -446,24 +347,24 @@ void LdapPoolManager::d($String* msg, $String* o) {
 $String* LdapPoolManager::getProperty($String* propName, $String* defVal) {
 	$init(LdapPoolManager);
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(LdapPoolManager$$Lambda$lambda$getProperty$0, propName, defVal)));
+	$var($PrivilegedAction, pa, $new(LdapPoolManager$$Lambda$lambda$getProperty$0, propName, defVal));
 	return $cast($String, $AccessController::doPrivileged(pa));
 }
 
 int32_t LdapPoolManager::getInteger($String* propName, int32_t defVal) {
 	$init(LdapPoolManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(LdapPoolManager$$Lambda$lambda$getInteger$1$1, propName, defVal)));
-	return $nc(($cast($Integer, $($AccessController::doPrivileged(pa)))))->intValue();
+	$var($PrivilegedAction, pa, $new(LdapPoolManager$$Lambda$lambda$getInteger$1$1, propName, defVal));
+	return $$sure($Integer, $AccessController::doPrivileged(pa))->intValue();
 }
 
 int64_t LdapPoolManager::getLong($String* propName, int64_t defVal) {
 	$init(LdapPoolManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(LdapPoolManager$$Lambda$lambda$getLong$2$2, propName, defVal)));
-	return $nc(($cast($Long, $($AccessController::doPrivileged(pa)))))->longValue();
+	$var($PrivilegedAction, pa, $new(LdapPoolManager$$Lambda$lambda$getLong$2$2, propName, defVal));
+	return $$sure($Long, $AccessController::doPrivileged(pa))->longValue();
 }
 
 $Long* LdapPoolManager::lambda$getLong$2($String* propName, int64_t defVal) {
@@ -481,8 +382,8 @@ $String* LdapPoolManager::lambda$getProperty$0($String* propName, $String* defVa
 	return $System::getProperty(propName, defVal);
 }
 
-void clinit$LdapPoolManager($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LdapPoolManager::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LdapPoolManager::DEBUG, "com.sun.jndi.ldap.connect.pool.debug"_s);
 	$assignStatic(LdapPoolManager::POOL_AUTH, "com.sun.jndi.ldap.connect.pool.authentication"_s);
 	$assignStatic(LdapPoolManager::POOL_PROTOCOL, "com.sun.jndi.ldap.connect.pool.protocol"_s);
@@ -511,13 +412,13 @@ void clinit$LdapPoolManager($Class* class$) {
 		int32_t p = 0;
 		for (int32_t i = 0; i < count; ++i) {
 			$init($Locale);
-			$assign(mech, $nc($(parser->nextToken()))->toLowerCase($Locale::ENGLISH));
+			$assign(mech, $$nc(parser->nextToken())->toLowerCase($Locale::ENGLISH));
 			if (mech->equals("anonymous"_s)) {
 				$assign(mech, "none"_s);
 			}
 			p = LdapPoolManager::findPool(mech);
-			if (p >= 0 && $nc(LdapPoolManager::pools)->get(p) == nullptr) {
-				$nc(LdapPoolManager::pools)->set(p, $$new($Pool, LdapPoolManager::initSize, LdapPoolManager::prefSize, LdapPoolManager::maxSize));
+			if (p >= 0 && LdapPoolManager::pools->get(p) == nullptr) {
+				LdapPoolManager::pools->set(p, $$new($Pool, LdapPoolManager::initSize, LdapPoolManager::prefSize, LdapPoolManager::maxSize));
 			}
 		}
 		$assign(str, LdapPoolManager::getProperty(LdapPoolManager::POOL_PROTOCOL, LdapPoolManager::DEFAULT_PROTOCOLS));
@@ -548,17 +449,83 @@ LdapPoolManager::LdapPoolManager() {
 
 $Class* LdapPoolManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LdapPoolManager$$Lambda$lambda$getProperty$0::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getProperty$0")) {
 			return LdapPoolManager$$Lambda$lambda$getProperty$0::load$(name, initialize);
 		}
-		if (name->equals(LdapPoolManager$$Lambda$lambda$getInteger$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getInteger$1$1")) {
 			return LdapPoolManager$$Lambda$lambda$getInteger$1$1::load$(name, initialize);
 		}
-		if (name->equals(LdapPoolManager$$Lambda$lambda$getLong$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapPoolManager$$Lambda$lambda$getLong$2$2")) {
 			return LdapPoolManager$$Lambda$lambda$getLong$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(LdapPoolManager, name, initialize, &_LdapPoolManager_ClassInfo_, clinit$LdapPoolManager, allocate$LdapPoolManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, DEBUG)},
+		{"debug", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapPoolManager, debug)},
+		{"trace", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapPoolManager, trace)},
+		{"POOL_AUTH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, POOL_AUTH)},
+		{"POOL_PROTOCOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, POOL_PROTOCOL)},
+		{"MAX_POOL_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, MAX_POOL_SIZE)},
+		{"PREF_POOL_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, PREF_POOL_SIZE)},
+		{"INIT_POOL_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, INIT_POOL_SIZE)},
+		{"POOL_TIMEOUT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, POOL_TIMEOUT)},
+		{"SASL_CALLBACK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, SASL_CALLBACK)},
+		{"DEFAULT_MAX_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_MAX_POOL_SIZE)},
+		{"DEFAULT_PREF_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_PREF_POOL_SIZE)},
+		{"DEFAULT_INIT_POOL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_INIT_POOL_SIZE)},
+		{"DEFAULT_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DEFAULT_TIMEOUT)},
+		{"DEFAULT_AUTH_MECHS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, DEFAULT_AUTH_MECHS)},
+		{"DEFAULT_PROTOCOLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, DEFAULT_PROTOCOLS)},
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, NONE)},
+		{"SIMPLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, SIMPLE)},
+		{"DIGEST", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapPoolManager, DIGEST)},
+		{"idleTimeout", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, idleTimeout)},
+		{"maxSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, maxSize)},
+		{"prefSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, prefSize)},
+		{"initSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, initSize)},
+		{"supportPlainProtocol", "Z", nullptr, $PRIVATE | $STATIC, $staticField(LdapPoolManager, supportPlainProtocol)},
+		{"supportSslProtocol", "Z", nullptr, $PRIVATE | $STATIC, $staticField(LdapPoolManager, supportSslProtocol)},
+		{"pools", "[Lcom/sun/jndi/ldap/pool/Pool;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapPoolManager, pools)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LdapPoolManager, init$, void)},
+		{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, d, void, $String*)},
+		{"d", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, d, void, $String*, $String*)},
+		{"expire", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapPoolManager, expire, void, int64_t)},
+		{"findPool", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, findPool, int32_t, $String*)},
+		{"getInteger", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getInteger, int32_t, $String*, int32_t)},
+		{"getLdapClient", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapClient;", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapClient;", $STATIC, $staticMethod(LdapPoolManager, getLdapClient, $LdapClient*, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*, int32_t, $String*, $ControlArray*, $String*, $String*, Object$*, $Hashtable*), "javax.naming.NamingException"},
+		{"getLong", "(Ljava/lang/String;J)J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getLong, int64_t, $String*, int64_t)},
+		{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getProperty, $String*, $String*, $String*)},
+		{"isPoolingAllowed", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<**>;)Z", $STATIC, $staticMethod(LdapPoolManager, isPoolingAllowed, bool, $String*, $OutputStream*, $String*, $String*, $Hashtable*), "javax.naming.NamingException"},
+		{"lambda$getInteger$1", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getInteger$1, $Integer*, $String*, int32_t)},
+		{"lambda$getLong$2", "(Ljava/lang/String;J)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getLong$2, $Long*, $String*, int64_t)},
+		{"lambda$getProperty$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getProperty$0, $String*, $String*, $String*)},
+		{"showStats", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapPoolManager, showStats, void, $PrintStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.LdapPoolManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapPoolManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.LdapPoolManager$1"
+	};
+	$loadClass(LdapPoolManager, name, initialize, &classInfo$$, LdapPoolManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapPoolManager);
+	});
 	return class$;
 }
 

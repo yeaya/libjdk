@@ -25,6 +25,7 @@ class LCMSImageLayout$BandOrder : public ::java::lang::Enum {
 public:
 	LCMSImageLayout$BandOrder();
 	static $Array<::sun::java2d::cmm::lcms::LCMSImageLayout$BandOrder>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::java2d::cmm::lcms::LCMSImageLayout$BandOrder* getBandOrder($ints* bandOffsets);
 	static ::sun::java2d::cmm::lcms::LCMSImageLayout$BandOrder* valueOf($String* name);

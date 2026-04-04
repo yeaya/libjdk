@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipPath$1.h>
-
 #include <java/nio/file/Path.h>
 #include <java/nio/file/ReadOnlyFileSystemException.h>
 #include <java/util/NoSuchElementException.h>
@@ -19,51 +18,6 @@ using $ZipPath = ::jdk::nio::zipfs::ZipPath;
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipPath$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/nio/zipfs/ZipPath;", nullptr, $FINAL | $SYNTHETIC, $field(ZipPath$1, this$0)},
-	{"i", "I", nullptr, $PRIVATE, $field(ZipPath$1, i)},
-	{}
-};
-
-$MethodInfo _ZipPath$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(ZipPath$1, init$, void, $ZipPath*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, hasNext, bool)},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ZipPath$1_EnclosingMethodInfo_ = {
-	"jdk.nio.zipfs.ZipPath",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _ZipPath$1_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ZipPath$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipPath$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ZipPath$1_FieldInfo_,
-	_ZipPath$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
-	&_ZipPath$1_EnclosingMethodInfo_,
-	_ZipPath$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipPath"
-};
-
-$Object* allocate$ZipPath$1($Class* clazz) {
-	return $of($alloc(ZipPath$1));
-}
 
 void ZipPath$1::init$($ZipPath* this$0) {
 	$set(this, this$0, this$0);
@@ -92,7 +46,45 @@ ZipPath$1::ZipPath$1() {
 }
 
 $Class* ZipPath$1::load$($String* name, bool initialize) {
-	$loadClass(ZipPath$1, name, initialize, &_ZipPath$1_ClassInfo_, allocate$ZipPath$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/nio/zipfs/ZipPath;", nullptr, $FINAL | $SYNTHETIC, $field(ZipPath$1, this$0)},
+		{"i", "I", nullptr, $PRIVATE, $field(ZipPath$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(ZipPath$1, init$, void, $ZipPath*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, hasNext, bool)},
+		{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.nio.zipfs.ZipPath",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipPath$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipPath"
+	};
+	$loadClass(ZipPath$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipPath$1);
+	});
 	return class$;
 }
 

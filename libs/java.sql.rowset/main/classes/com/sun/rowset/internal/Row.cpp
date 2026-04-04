@@ -1,5 +1,4 @@
 #include <com/sun/rowset/internal/Row.h>
-
 #include <com/sun/rowset/internal/BaseRow.h>
 #include <java/util/BitSet.h>
 #include <jcpp.h>
@@ -14,52 +13,6 @@ namespace com {
 	namespace sun {
 		namespace rowset {
 			namespace internal {
-
-$FieldInfo _Row_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Row, serialVersionUID)},
-	{"currentVals", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(Row, currentVals)},
-	{"colsChanged", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(Row, colsChanged)},
-	{"deleted", "Z", nullptr, $PRIVATE, $field(Row, deleted)},
-	{"updated", "Z", nullptr, $PRIVATE, $field(Row, updated)},
-	{"inserted", "Z", nullptr, $PRIVATE, $field(Row, inserted)},
-	{"numCols", "I", nullptr, $PRIVATE, $field(Row, numCols)},
-	{}
-};
-
-$MethodInfo _Row_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Row, init$, void, int32_t)},
-	{"<init>", "(I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Row, init$, void, int32_t, $ObjectArray*)},
-	{"clearDeleted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, clearDeleted, void)},
-	{"clearInserted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, clearInserted, void)},
-	{"clearUpdated", "()V", nullptr, $PUBLIC, $virtualMethod(Row, clearUpdated, void)},
-	{"getColUpdated", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Row, getColUpdated, bool, int32_t)},
-	{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Row, getColumnObject, $Object*, int32_t), "java.sql.SQLException"},
-	{"getCurrentRow", "()Lcom/sun/rowset/internal/BaseRow;", nullptr, $PUBLIC, $virtualMethod(Row, getCurrentRow, $BaseRow*)},
-	{"getDeleted", "()Z", nullptr, $PUBLIC, $virtualMethod(Row, getDeleted, bool)},
-	{"getInserted", "()Z", nullptr, $PUBLIC, $virtualMethod(Row, getInserted, bool)},
-	{"getUpdated", "()Z", nullptr, $PUBLIC, $virtualMethod(Row, getUpdated, bool)},
-	{"initColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Row, initColumnObject, void, int32_t, Object$*)},
-	{"moveCurrentToOrig", "()V", nullptr, $PUBLIC, $virtualMethod(Row, moveCurrentToOrig, void)},
-	{"setColUpdated", "(I)V", nullptr, $PRIVATE, $method(Row, setColUpdated, void, int32_t)},
-	{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Row, setColumnObject, void, int32_t, Object$*)},
-	{"setDeleted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, setDeleted, void)},
-	{"setInserted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, setInserted, void)},
-	{"setUpdated", "()V", nullptr, $PUBLIC, $virtualMethod(Row, setUpdated, void)},
-	{}
-};
-
-$ClassInfo _Row_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.internal.Row",
-	"com.sun.rowset.internal.BaseRow",
-	nullptr,
-	_Row_FieldInfo_,
-	_Row_MethodInfo_
-};
-
-$Object* allocate$Row($Class* clazz) {
-	return $of($alloc(Row));
-}
 
 void Row::init$(int32_t numCols) {
 	$BaseRow::init$();
@@ -89,9 +42,9 @@ void Row::setColumnObject(int32_t idx, Object$* val) {
 
 $Object* Row::getColumnObject(int32_t columnIndex) {
 	if (getColUpdated(columnIndex - 1)) {
-		return $of(($nc(this->currentVals)->get(columnIndex - 1)));
+		return ($nc(this->currentVals)->get(columnIndex - 1));
 	} else {
-		return $of(($nc(this->origVals)->get(columnIndex - 1)));
+		return ($nc(this->origVals)->get(columnIndex - 1));
 	}
 }
 
@@ -152,7 +105,7 @@ void Row::moveCurrentToOrig() {
 	for (int32_t i = 0; i < this->numCols; ++i) {
 		if (getColUpdated(i) == true) {
 			$nc(this->origVals)->set(i, $nc(this->currentVals)->get(i));
-			$nc(this->currentVals)->set(i, nullptr);
+			this->currentVals->set(i, nullptr);
 			$nc(this->colsChanged)->clear(i);
 		}
 	}
@@ -167,7 +120,48 @@ Row::Row() {
 }
 
 $Class* Row::load$($String* name, bool initialize) {
-	$loadClass(Row, name, initialize, &_Row_ClassInfo_, allocate$Row);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Row, serialVersionUID)},
+		{"currentVals", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(Row, currentVals)},
+		{"colsChanged", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(Row, colsChanged)},
+		{"deleted", "Z", nullptr, $PRIVATE, $field(Row, deleted)},
+		{"updated", "Z", nullptr, $PRIVATE, $field(Row, updated)},
+		{"inserted", "Z", nullptr, $PRIVATE, $field(Row, inserted)},
+		{"numCols", "I", nullptr, $PRIVATE, $field(Row, numCols)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Row, init$, void, int32_t)},
+		{"<init>", "(I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Row, init$, void, int32_t, $ObjectArray*)},
+		{"clearDeleted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, clearDeleted, void)},
+		{"clearInserted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, clearInserted, void)},
+		{"clearUpdated", "()V", nullptr, $PUBLIC, $virtualMethod(Row, clearUpdated, void)},
+		{"getColUpdated", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Row, getColUpdated, bool, int32_t)},
+		{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Row, getColumnObject, $Object*, int32_t), "java.sql.SQLException"},
+		{"getCurrentRow", "()Lcom/sun/rowset/internal/BaseRow;", nullptr, $PUBLIC, $virtualMethod(Row, getCurrentRow, $BaseRow*)},
+		{"getDeleted", "()Z", nullptr, $PUBLIC, $virtualMethod(Row, getDeleted, bool)},
+		{"getInserted", "()Z", nullptr, $PUBLIC, $virtualMethod(Row, getInserted, bool)},
+		{"getUpdated", "()Z", nullptr, $PUBLIC, $virtualMethod(Row, getUpdated, bool)},
+		{"initColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Row, initColumnObject, void, int32_t, Object$*)},
+		{"moveCurrentToOrig", "()V", nullptr, $PUBLIC, $virtualMethod(Row, moveCurrentToOrig, void)},
+		{"setColUpdated", "(I)V", nullptr, $PRIVATE, $method(Row, setColUpdated, void, int32_t)},
+		{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Row, setColumnObject, void, int32_t, Object$*)},
+		{"setDeleted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, setDeleted, void)},
+		{"setInserted", "()V", nullptr, $PUBLIC, $virtualMethod(Row, setInserted, void)},
+		{"setUpdated", "()V", nullptr, $PUBLIC, $virtualMethod(Row, setUpdated, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.internal.Row",
+		"com.sun.rowset.internal.BaseRow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Row, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Row));
+	});
 	return class$;
 }
 

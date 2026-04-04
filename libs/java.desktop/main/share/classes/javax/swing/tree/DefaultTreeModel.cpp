@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultTreeModel.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -30,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $EventListener = ::java::util::EventListener;
 using $Vector = ::java::util::Vector;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $TreeModelEvent = ::javax::swing::event::TreeModelEvent;
@@ -42,83 +40,6 @@ using $TreePath = ::javax::swing::tree::TreePath;
 namespace javax {
 	namespace swing {
 		namespace tree {
-
-$Attribute DefaultTreeModel_Attribute_var$1[] = {
-	{'s', "root"},
-	{'-'}
-};
-
-$NamedAttribute DefaultTreeModel_Attribute_var$0[] = {
-	{"value", '[', DefaultTreeModel_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _DefaultTreeModel_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", DefaultTreeModel_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _DefaultTreeModel_FieldInfo_[] = {
-	{"root", "Ljavax/swing/tree/TreeNode;", nullptr, $PROTECTED, $field(DefaultTreeModel, root)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultTreeModel, listenerList)},
-	{"asksAllowsChildren", "Z", nullptr, $PROTECTED, $field(DefaultTreeModel, asksAllowsChildren$)},
-	{}
-};
-
-$MethodInfo _DefaultTreeModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $method(DefaultTreeModel, init$, void, $TreeNode*), nullptr, nullptr, _DefaultTreeModel_MethodAnnotations_init$0},
-	{"<init>", "(Ljavax/swing/tree/TreeNode;Z)V", nullptr, $PUBLIC, $method(DefaultTreeModel, init$, void, $TreeNode*, bool)},
-	{"addTreeModelListener", "(Ljavax/swing/event/TreeModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, addTreeModelListener, void, $TreeModelListener*)},
-	{"asksAllowsChildren", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, asksAllowsChildren, bool)},
-	{"fireTreeNodesChanged", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeNodesChanged, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
-	{"fireTreeNodesInserted", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeNodesInserted, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
-	{"fireTreeNodesRemoved", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeNodesRemoved, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
-	{"fireTreeStructureChanged", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeStructureChanged, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
-	{"fireTreeStructureChanged", "(Ljava/lang/Object;Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(DefaultTreeModel, fireTreeStructureChanged, void, Object$*, $TreePath*)},
-	{"getChild", "(Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getChild, $Object*, Object$*, int32_t)},
-	{"getChildCount", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getChildCount, int32_t, Object$*)},
-	{"getIndexOfChild", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getIndexOfChild, int32_t, Object$*, Object$*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultTreeModel, getListeners, $EventListenerArray*, $Class*)},
-	{"getPathToRoot", "(Ljavax/swing/tree/TreeNode;)[Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getPathToRoot, $TreeNodeArray*, $TreeNode*)},
-	{"getPathToRoot", "(Ljavax/swing/tree/TreeNode;I)[Ljavax/swing/tree/TreeNode;", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, getPathToRoot, $TreeNodeArray*, $TreeNode*, int32_t)},
-	{"getRoot", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getRoot, $Object*)},
-	{"getTreeModelListeners", "()[Ljavax/swing/event/TreeModelListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getTreeModelListeners, $TreeModelListenerArray*)},
-	{"insertNodeInto", "(Ljavax/swing/tree/MutableTreeNode;Ljavax/swing/tree/MutableTreeNode;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, insertNodeInto, void, $MutableTreeNode*, $MutableTreeNode*, int32_t)},
-	{"isLeaf", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, isLeaf, bool, Object$*)},
-	{"nodeChanged", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodeChanged, void, $TreeNode*)},
-	{"nodeStructureChanged", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodeStructureChanged, void, $TreeNode*)},
-	{"nodesChanged", "(Ljavax/swing/tree/TreeNode;[I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodesChanged, void, $TreeNode*, $ints*)},
-	{"nodesWereInserted", "(Ljavax/swing/tree/TreeNode;[I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodesWereInserted, void, $TreeNode*, $ints*)},
-	{"nodesWereRemoved", "(Ljavax/swing/tree/TreeNode;[I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodesWereRemoved, void, $TreeNode*, $ints*, $ObjectArray*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeModel, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"reload", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, reload, void)},
-	{"reload", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, reload, void, $TreeNode*)},
-	{"removeNodeFromParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, removeNodeFromParent, void, $MutableTreeNode*)},
-	{"removeTreeModelListener", "(Ljavax/swing/event/TreeModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, removeTreeModelListener, void, $TreeModelListener*)},
-	{"setAsksAllowsChildren", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, setAsksAllowsChildren, void, bool)},
-	{"setRoot", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, setRoot, void, $TreeNode*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueForPathChanged", "(Ljavax/swing/tree/TreePath;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, valueForPathChanged, void, $TreePath*, Object$*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeModel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DefaultTreeModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.tree.DefaultTreeModel",
-	"java.lang.Object",
-	"java.io.Serializable,javax.swing.tree.TreeModel",
-	_DefaultTreeModel_FieldInfo_,
-	_DefaultTreeModel_MethodInfo_
-};
-
-$Object* allocate$DefaultTreeModel($Class* clazz) {
-	return $of($alloc(DefaultTreeModel));
-}
 
 int32_t DefaultTreeModel::hashCode() {
 	 return this->$Serializable::hashCode();
@@ -169,29 +90,29 @@ void DefaultTreeModel::setRoot($TreeNode* root) {
 }
 
 $Object* DefaultTreeModel::getRoot() {
-	return $of(this->root);
+	return this->root;
 }
 
 int32_t DefaultTreeModel::getIndexOfChild(Object$* parent, Object$* child) {
 	if (parent == nullptr || child == nullptr) {
 		return -1;
 	}
-	return $nc(($cast($TreeNode, parent)))->getIndex($cast($TreeNode, child));
+	return $nc($cast($TreeNode, parent))->getIndex($cast($TreeNode, child));
 }
 
 $Object* DefaultTreeModel::getChild(Object$* parent, int32_t index) {
-	return $of($nc(($cast($TreeNode, parent)))->getChildAt(index));
+	return $nc($cast($TreeNode, parent))->getChildAt(index);
 }
 
 int32_t DefaultTreeModel::getChildCount(Object$* parent) {
-	return $nc(($cast($TreeNode, parent)))->getChildCount();
+	return $nc($cast($TreeNode, parent))->getChildCount();
 }
 
 bool DefaultTreeModel::isLeaf(Object$* node) {
 	if (this->asksAllowsChildren$) {
-		return !$nc(($cast($TreeNode, node)))->getAllowsChildren();
+		return !$nc($cast($TreeNode, node))->getAllowsChildren();
 	}
-	return $nc(($cast($TreeNode, node)))->isLeaf();
+	return $nc($cast($TreeNode, node))->isLeaf();
 }
 
 void DefaultTreeModel::reload() {
@@ -212,7 +133,7 @@ void DefaultTreeModel::insertNodeInto($MutableTreeNode* newChild, $MutableTreeNo
 }
 
 void DefaultTreeModel::removeNodeFromParent($MutableTreeNode* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MutableTreeNode, parent, $cast($MutableTreeNode, $nc(node)->getParent()));
 	if (parent == nullptr) {
 		$throwNew($IllegalArgumentException, "node does not have a parent."_s);
@@ -226,7 +147,7 @@ void DefaultTreeModel::removeNodeFromParent($MutableTreeNode* node) {
 }
 
 void DefaultTreeModel::nodeChanged($TreeNode* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->listenerList != nullptr && node != nullptr) {
 		$var($TreeNode, parent, node->getParent());
 		if (parent != nullptr) {
@@ -249,7 +170,7 @@ void DefaultTreeModel::reload($TreeNode* node) {
 }
 
 void DefaultTreeModel::nodesWereInserted($TreeNode* node, $ints* childIndices) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->listenerList != nullptr && node != nullptr && childIndices != nullptr && childIndices->length > 0) {
 		int32_t cCount = childIndices->length;
 		$var($ObjectArray, newChildren, $new($ObjectArray, cCount));
@@ -267,7 +188,7 @@ void DefaultTreeModel::nodesWereRemoved($TreeNode* node, $ints* childIndices, $O
 }
 
 void DefaultTreeModel::nodesChanged($TreeNode* node, $ints* childIndices) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node != nullptr) {
 		if (childIndices != nullptr) {
 			int32_t cCount = childIndices->length;
@@ -295,7 +216,7 @@ $TreeNodeArray* DefaultTreeModel::getPathToRoot($TreeNode* aNode) {
 }
 
 $TreeNodeArray* DefaultTreeModel::getPathToRoot($TreeNode* aNode, int32_t depth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeNodeArray, retNodes, nullptr);
 	if (aNode == nullptr) {
 		if (depth == 0) {
@@ -308,9 +229,9 @@ $TreeNodeArray* DefaultTreeModel::getPathToRoot($TreeNode* aNode, int32_t depth)
 		if (aNode == this->root) {
 			$assign(retNodes, $new($TreeNodeArray, depth));
 		} else {
-			$assign(retNodes, getPathToRoot($($nc(aNode)->getParent()), depth));
+			$assign(retNodes, getPathToRoot($(aNode->getParent()), depth));
 		}
-		$nc(retNodes)->set(retNodes->length - depth, aNode);
+		$nc(retNodes)->set($nc(retNodes)->length - depth, aNode);
 	}
 	return retNodes;
 }
@@ -327,11 +248,11 @@ void DefaultTreeModel::removeTreeModelListener($TreeModelListener* l) {
 
 $TreeModelListenerArray* DefaultTreeModel::getTreeModelListeners() {
 	$load($TreeModelListener);
-	return $fcast($TreeModelListenerArray, $nc(this->listenerList)->getListeners($TreeModelListener::class$));
+	return $cast($TreeModelListenerArray, $nc(this->listenerList)->getListeners($TreeModelListener::class$));
 }
 
 void DefaultTreeModel::fireTreeNodesChanged(Object$* source, $ObjectArray* path, $ints* childIndices, $ObjectArray* children) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeModelEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -340,13 +261,13 @@ void DefaultTreeModel::fireTreeNodesChanged(Object$* source, $ObjectArray* path,
 			if (e == nullptr) {
 				$assign(e, $new($TreeModelEvent, source, path, childIndices, children));
 			}
-			$nc(($cast($TreeModelListener, listeners->get(i + 1))))->treeNodesChanged(e);
+			$nc($cast($TreeModelListener, listeners->get(i + 1)))->treeNodesChanged(e);
 		}
 	}
 }
 
 void DefaultTreeModel::fireTreeNodesInserted(Object$* source, $ObjectArray* path, $ints* childIndices, $ObjectArray* children) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeModelEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -355,13 +276,13 @@ void DefaultTreeModel::fireTreeNodesInserted(Object$* source, $ObjectArray* path
 			if (e == nullptr) {
 				$assign(e, $new($TreeModelEvent, source, path, childIndices, children));
 			}
-			$nc(($cast($TreeModelListener, listeners->get(i + 1))))->treeNodesInserted(e);
+			$nc($cast($TreeModelListener, listeners->get(i + 1)))->treeNodesInserted(e);
 		}
 	}
 }
 
 void DefaultTreeModel::fireTreeNodesRemoved(Object$* source, $ObjectArray* path, $ints* childIndices, $ObjectArray* children) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeModelEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -370,13 +291,13 @@ void DefaultTreeModel::fireTreeNodesRemoved(Object$* source, $ObjectArray* path,
 			if (e == nullptr) {
 				$assign(e, $new($TreeModelEvent, source, path, childIndices, children));
 			}
-			$nc(($cast($TreeModelListener, listeners->get(i + 1))))->treeNodesRemoved(e);
+			$nc($cast($TreeModelListener, listeners->get(i + 1)))->treeNodesRemoved(e);
 		}
 	}
 }
 
 void DefaultTreeModel::fireTreeStructureChanged(Object$* source, $ObjectArray* path, $ints* childIndices, $ObjectArray* children) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeModelEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -385,13 +306,13 @@ void DefaultTreeModel::fireTreeStructureChanged(Object$* source, $ObjectArray* p
 			if (e == nullptr) {
 				$assign(e, $new($TreeModelEvent, source, path, childIndices, children));
 			}
-			$nc(($cast($TreeModelListener, listeners->get(i + 1))))->treeStructureChanged(e);
+			$nc($cast($TreeModelListener, listeners->get(i + 1)))->treeStructureChanged(e);
 		}
 	}
 }
 
 void DefaultTreeModel::fireTreeStructureChanged(Object$* source, $TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($TreeModelEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -400,7 +321,7 @@ void DefaultTreeModel::fireTreeStructureChanged(Object$* source, $TreePath* path
 			if (e == nullptr) {
 				$assign(e, $new($TreeModelEvent, source, path));
 			}
-			$nc(($cast($TreeModelListener, listeners->get(i + 1))))->treeStructureChanged(e);
+			$nc($cast($TreeModelListener, listeners->get(i + 1)))->treeStructureChanged(e);
 		}
 	}
 }
@@ -420,9 +341,9 @@ void DefaultTreeModel::writeObject($ObjectOutputStream* s) {
 }
 
 void DefaultTreeModel::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$var($EventListenerList, newListenerList, $cast($EventListenerList, $nc(f)->get("listenerList"_s, ($Object*)nullptr)));
+	$var($EventListenerList, newListenerList, $cast($EventListenerList, $nc(f)->get("listenerList"_s, nullptr)));
 	if (newListenerList == nullptr) {
 		$throwNew($InvalidObjectException, "Null listenerList"_s);
 	}
@@ -431,7 +352,7 @@ void DefaultTreeModel::readObject($ObjectInputStream* s) {
 	$var($Vector, values, $cast($Vector, s->readObject()));
 	int32_t indexCounter = 0;
 	int32_t maxCounter = $nc(values)->size();
-	if (indexCounter < maxCounter && $nc($of($(values->elementAt(indexCounter))))->equals("root"_s)) {
+	if (indexCounter < maxCounter && $$nc(values->elementAt(indexCounter))->equals("root"_s)) {
 		$var($TreeNode, newRoot, $cast($TreeNode, values->elementAt(++indexCounter)));
 		if (newRoot == nullptr) {
 			$throwNew($InvalidObjectException, "Null root"_s);
@@ -445,7 +366,76 @@ DefaultTreeModel::DefaultTreeModel() {
 }
 
 $Class* DefaultTreeModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultTreeModel, name, initialize, &_DefaultTreeModel_ClassInfo_, allocate$DefaultTreeModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Ljavax/swing/tree/TreeNode;", nullptr, $PROTECTED, $field(DefaultTreeModel, root)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultTreeModel, listenerList)},
+		{"asksAllowsChildren", "Z", nullptr, $PROTECTED, $field(DefaultTreeModel, asksAllowsChildren$)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "root"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $method(DefaultTreeModel, init$, void, $TreeNode*), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljavax/swing/tree/TreeNode;Z)V", nullptr, $PUBLIC, $method(DefaultTreeModel, init$, void, $TreeNode*, bool)},
+		{"addTreeModelListener", "(Ljavax/swing/event/TreeModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, addTreeModelListener, void, $TreeModelListener*)},
+		{"asksAllowsChildren", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, asksAllowsChildren, bool)},
+		{"fireTreeNodesChanged", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeNodesChanged, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
+		{"fireTreeNodesInserted", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeNodesInserted, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
+		{"fireTreeNodesRemoved", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeNodesRemoved, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
+		{"fireTreeStructureChanged", "(Ljava/lang/Object;[Ljava/lang/Object;[I[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, fireTreeStructureChanged, void, Object$*, $ObjectArray*, $ints*, $ObjectArray*)},
+		{"fireTreeStructureChanged", "(Ljava/lang/Object;Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(DefaultTreeModel, fireTreeStructureChanged, void, Object$*, $TreePath*)},
+		{"getChild", "(Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getChild, $Object*, Object$*, int32_t)},
+		{"getChildCount", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getChildCount, int32_t, Object$*)},
+		{"getIndexOfChild", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getIndexOfChild, int32_t, Object$*, Object$*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultTreeModel, getListeners, $EventListenerArray*, $Class*)},
+		{"getPathToRoot", "(Ljavax/swing/tree/TreeNode;)[Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getPathToRoot, $TreeNodeArray*, $TreeNode*)},
+		{"getPathToRoot", "(Ljavax/swing/tree/TreeNode;I)[Ljavax/swing/tree/TreeNode;", nullptr, $PROTECTED, $virtualMethod(DefaultTreeModel, getPathToRoot, $TreeNodeArray*, $TreeNode*, int32_t)},
+		{"getRoot", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getRoot, $Object*)},
+		{"getTreeModelListeners", "()[Ljavax/swing/event/TreeModelListener;", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, getTreeModelListeners, $TreeModelListenerArray*)},
+		{"insertNodeInto", "(Ljavax/swing/tree/MutableTreeNode;Ljavax/swing/tree/MutableTreeNode;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, insertNodeInto, void, $MutableTreeNode*, $MutableTreeNode*, int32_t)},
+		{"isLeaf", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, isLeaf, bool, Object$*)},
+		{"nodeChanged", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodeChanged, void, $TreeNode*)},
+		{"nodeStructureChanged", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodeStructureChanged, void, $TreeNode*)},
+		{"nodesChanged", "(Ljavax/swing/tree/TreeNode;[I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodesChanged, void, $TreeNode*, $ints*)},
+		{"nodesWereInserted", "(Ljavax/swing/tree/TreeNode;[I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodesWereInserted, void, $TreeNode*, $ints*)},
+		{"nodesWereRemoved", "(Ljavax/swing/tree/TreeNode;[I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, nodesWereRemoved, void, $TreeNode*, $ints*, $ObjectArray*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeModel, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"reload", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, reload, void)},
+		{"reload", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, reload, void, $TreeNode*)},
+		{"removeNodeFromParent", "(Ljavax/swing/tree/MutableTreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, removeNodeFromParent, void, $MutableTreeNode*)},
+		{"removeTreeModelListener", "(Ljavax/swing/event/TreeModelListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, removeTreeModelListener, void, $TreeModelListener*)},
+		{"setAsksAllowsChildren", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, setAsksAllowsChildren, void, bool)},
+		{"setRoot", "(Ljavax/swing/tree/TreeNode;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, setRoot, void, $TreeNode*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueForPathChanged", "(Ljavax/swing/tree/TreePath;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTreeModel, valueForPathChanged, void, $TreePath*, Object$*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultTreeModel, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.tree.DefaultTreeModel",
+		"java.lang.Object",
+		"java.io.Serializable,javax.swing.tree.TreeModel",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultTreeModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTreeModel));
+	});
 	return class$;
 }
 

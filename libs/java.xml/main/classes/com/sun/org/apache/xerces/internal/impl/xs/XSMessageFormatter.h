@@ -29,6 +29,7 @@ class XSMessageFormatter : public ::com::sun::org::apache::xerces::internal::uti
 	$class(XSMessageFormatter, 0, ::com::sun::org::apache::xerces::internal::util::MessageFormatter)
 public:
 	XSMessageFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* formatMessage(::java::util::Locale* locale, $String* key, $ObjectArray* arguments) override;
 	static $String* SCHEMA_DOMAIN;

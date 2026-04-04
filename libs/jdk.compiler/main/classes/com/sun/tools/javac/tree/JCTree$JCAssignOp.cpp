@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCAssignOp.h>
-
-#include <com/sun/source/tree/CompoundAssignmentTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
@@ -16,7 +14,6 @@
 
 #undef LEFT
 
-using $CompoundAssignmentTree = ::com::sun::source::tree::CompoundAssignmentTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -38,54 +35,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCAssignOp_FieldInfo_[] = {
-	{"lhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCAssignOp, lhs)},
-	{"rhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCAssignOp, rhs)},
-	{}
-};
-
-$MethodInfo _JCTree$JCAssignOp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)V", nullptr, $PROTECTED, $method(JCTree$JCAssignOp, init$, void, $JCTree$Tag*, $JCTree*, $JCTree*, $Symbol$OperatorSymbol*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCAssignOp, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getExpression, $ExpressionTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getKind, $Tree$Kind*)},
-	{"getOperand", "(Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getOperand, $JCTree$JCExpression*, $JCTree$JCOperatorExpression$OperandPos*)},
-	{"getVariable", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getVariable, $ExpressionTree*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCAssignOp_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCAssignOp", "com.sun.tools.javac.tree.JCTree", "JCAssignOp", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCOperatorExpression", "com.sun.tools.javac.tree.JCTree", "JCOperatorExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCAssignOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCAssignOp",
-	"com.sun.tools.javac.tree.JCTree$JCOperatorExpression",
-	"com.sun.source.tree.CompoundAssignmentTree",
-	_JCTree$JCAssignOp_FieldInfo_,
-	_JCTree$JCAssignOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCAssignOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCAssignOp($Class* clazz) {
-	return $of($alloc(JCTree$JCAssignOp));
-}
 
 $String* JCTree$JCAssignOp::toString() {
 	 return this->$JCTree$JCOperatorExpression::toString();
@@ -132,7 +81,7 @@ $ExpressionTree* JCTree$JCAssignOp::getExpression() {
 }
 
 $Object* JCTree$JCAssignOp::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitCompoundAssignment(this, d));
+	return $nc(v)->visitCompoundAssignment(this, d);
 }
 
 $JCTree$JCExpression* JCTree$JCAssignOp::getOperand($JCTree$JCOperatorExpression$OperandPos* pos) {
@@ -144,7 +93,49 @@ JCTree$JCAssignOp::JCTree$JCAssignOp() {
 }
 
 $Class* JCTree$JCAssignOp::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCAssignOp, name, initialize, &_JCTree$JCAssignOp_ClassInfo_, allocate$JCTree$JCAssignOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"lhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCAssignOp, lhs)},
+		{"rhs", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCAssignOp, rhs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)V", nullptr, $PROTECTED, $method(JCTree$JCAssignOp, init$, void, $JCTree$Tag*, $JCTree*, $JCTree*, $Symbol$OperatorSymbol*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCAssignOp, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getExpression, $ExpressionTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getKind, $Tree$Kind*)},
+		{"getOperand", "(Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getOperand, $JCTree$JCExpression*, $JCTree$JCOperatorExpression$OperandPos*)},
+		{"getVariable", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCAssignOp, getVariable, $ExpressionTree*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCAssignOp", "com.sun.tools.javac.tree.JCTree", "JCAssignOp", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCOperatorExpression", "com.sun.tools.javac.tree.JCTree", "JCOperatorExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCAssignOp",
+		"com.sun.tools.javac.tree.JCTree$JCOperatorExpression",
+		"com.sun.source.tree.CompoundAssignmentTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCAssignOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCAssignOp));
+	});
 	return class$;
 }
 

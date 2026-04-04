@@ -55,6 +55,7 @@ public:
 	using ::sun::awt::X11::XWindowPeer::addDropTarget;
 	using ::sun::awt::X11::XWindowPeer::handleKeyPress;
 	using ::sun::awt::X11::XWindowPeer::getGraphics;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Window* target);
 	void init$(::sun::awt::X11::XCreateWindowParams* params);
 	void applyGuessedInsets();

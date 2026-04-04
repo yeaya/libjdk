@@ -26,10 +26,13 @@ public:
 	NamingManager$FactoryInitializationError();
 	void init$(::javax::naming::NoInitialContextException* cause);
 	virtual $Throwable* getCause() override;
-	static const int64_t serialVersionUID = (int64_t)0xAF6E88FB458EB4A8;
+	static const int64_t serialVersionUID = (int64_t)0xaf6e88fb458eb4a8;
 	NamingManager$FactoryInitializationError(const NamingManager$FactoryInitializationError& e);
 	virtual void throw$() override;
-	inline NamingManager$FactoryInitializationError* operator ->() {
+	inline NamingManager$FactoryInitializationError* operator ->() const {
+		return (NamingManager$FactoryInitializationError*)throwing$;
+	}
+	inline operator NamingManager$FactoryInitializationError*() const {
 		return (NamingManager$FactoryInitializationError*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/LazySearchEnumerationImpl.h>
-
 #include <com/sun/jndi/toolkit/dir/AttrFilter.h>
 #include <com/sun/jndi/toolkit/dir/SearchFilter.h>
 #include <java/util/Hashtable.h>
@@ -43,44 +42,6 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$FieldInfo _LazySearchEnumerationImpl_FieldInfo_[] = {
-	{"candidates", "Ljavax/naming/NamingEnumeration;", "Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PRIVATE, $field(LazySearchEnumerationImpl, candidates)},
-	{"nextMatch", "Ljavax/naming/directory/SearchResult;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, nextMatch)},
-	{"cons", "Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, cons)},
-	{"filter", "Lcom/sun/jndi/toolkit/dir/AttrFilter;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, filter)},
-	{"context", "Ljavax/naming/Context;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, context)},
-	{"env", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(LazySearchEnumerationImpl, env)},
-	{"useFactory", "Z", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, useFactory)},
-	{}
-};
-
-$MethodInfo _LazySearchEnumerationImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/NamingEnumeration;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;)V", "(Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;)V", $PUBLIC, $method(LazySearchEnumerationImpl, init$, void, $NamingEnumeration*, $AttrFilter*, $SearchControls*), "javax.naming.NamingException"},
-	{"<init>", "(Ljavax/naming/NamingEnumeration;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable;Z)V", "(Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;Z)V", $PUBLIC, $method(LazySearchEnumerationImpl, init$, void, $NamingEnumeration*, $AttrFilter*, $SearchControls*, $Context*, $Hashtable*, bool), "javax.naming.NamingException"},
-	{"<init>", "(Ljavax/naming/NamingEnumeration;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable;)V", "(Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(LazySearchEnumerationImpl, init$, void, $NamingEnumeration*, $AttrFilter*, $SearchControls*, $Context*, $Hashtable*), "javax.naming.NamingException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, close, void), "javax.naming.NamingException"},
-	{"findNextMatch", "(Z)Ljavax/naming/directory/SearchResult;", nullptr, $PRIVATE, $method(LazySearchEnumerationImpl, findNextMatch, $SearchResult*, bool), "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, hasMore, bool), "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, hasMoreElements, bool)},
-	{"next", "()Ljavax/naming/directory/SearchResult;", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, next, $Object*), "javax.naming.NamingException"},
-	{"nextElement", "()Ljavax/naming/directory/SearchResult;", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, nextElement, $Object*)},
-	{}
-};
-
-$ClassInfo _LazySearchEnumerationImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.LazySearchEnumerationImpl",
-	"java.lang.Object",
-	"javax.naming.NamingEnumeration",
-	_LazySearchEnumerationImpl_FieldInfo_,
-	_LazySearchEnumerationImpl_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;"
-};
-
-$Object* allocate$LazySearchEnumerationImpl($Class* clazz) {
-	return $of($alloc(LazySearchEnumerationImpl));
-}
-
 void LazySearchEnumerationImpl::init$($NamingEnumeration* candidates, $AttrFilter* filter, $SearchControls* cons) {
 	$set(this, nextMatch, nullptr);
 	this->useFactory = true;
@@ -98,7 +59,7 @@ void LazySearchEnumerationImpl::init$($NamingEnumeration* candidates, $AttrFilte
 	this->useFactory = true;
 	$set(this, candidates, candidates);
 	$set(this, filter, filter);
-	$set(this, env, ($cast($Hashtable, ((env == nullptr) ? ($Object*)nullptr : $nc(env)->clone()))));
+	$set(this, env, $cast($Hashtable, ((env == nullptr) ? ($Object*)nullptr : env->clone())));
 	$set(this, context, ctx);
 	this->useFactory = useFactory;
 	if (cons == nullptr) {
@@ -127,7 +88,7 @@ bool LazySearchEnumerationImpl::hasMoreElements() {
 
 $Object* LazySearchEnumerationImpl::nextElement() {
 	try {
-		return $of(findNextMatch(true));
+		return findNextMatch(true);
 	} catch ($NamingException& e) {
 		$throwNew($NoSuchElementException, $(e->toString()));
 	}
@@ -135,17 +96,17 @@ $Object* LazySearchEnumerationImpl::nextElement() {
 }
 
 $Object* LazySearchEnumerationImpl::next() {
-	return $of((findNextMatch(true)));
+	return (findNextMatch(true));
 }
 
 void LazySearchEnumerationImpl::close() {
 	if (this->candidates != nullptr) {
-		$nc(this->candidates)->close();
+		this->candidates->close();
 	}
 }
 
 $SearchResult* LazySearchEnumerationImpl::findNextMatch(bool remove) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchResult, answer, nullptr);
 	if (this->nextMatch != nullptr) {
 		$assign(answer, this->nextMatch);
@@ -158,16 +119,16 @@ $SearchResult* LazySearchEnumerationImpl::findNextMatch(bool remove) {
 		$var($Object, obj, nullptr);
 		$var($Attributes, targetAttrs, nullptr);
 		while ($nc(this->candidates)->hasMore()) {
-			$assign(next, $cast($Binding, $nc(this->candidates)->next()));
+			$assign(next, $cast($Binding, this->candidates->next()));
 			$assign(obj, $nc(next)->getObject());
 			if ($instanceOf($DirContext, obj)) {
-				$assign(targetAttrs, $nc((($cast($DirContext, obj))))->getAttributes(""_s));
+				$assign(targetAttrs, $cast($DirContext, obj)->getAttributes(""_s));
 				if ($nc(this->filter)->check(targetAttrs)) {
 					if (!$nc(this->cons)->getReturningObjFlag()) {
 						$assign(obj, nullptr);
 					} else if (this->useFactory) {
 						try {
-							$var($Name, nm, this->context != nullptr ? static_cast<$Name*>($new($CompositeName, $(next->getName()))) : ($Name*)nullptr);
+							$var($Name, nm, this->context != nullptr ? $cast($Name, $new($CompositeName, $(next->getName()))) : ($Name*)nullptr);
 							$assign(obj, $DirectoryManager::getObjectInstance(obj, nm, this->context, this->env, targetAttrs));
 						} catch ($NamingException& e) {
 							$throw(e);
@@ -179,8 +140,7 @@ $SearchResult* LazySearchEnumerationImpl::findNextMatch(bool remove) {
 					}
 					$var($String, var$0, next->getName());
 					$var($String, var$1, next->getClassName());
-					$var($Object, var$2, obj);
-					$assign(answer, $new($SearchResult, var$0, var$1, var$2, $($SearchFilter::selectAttributes(targetAttrs, $($nc(this->cons)->getReturningAttributes()))), true));
+					$assign(answer, $new($SearchResult, var$0, var$1, obj, $($SearchFilter::selectAttributes(targetAttrs, $($nc(this->cons)->getReturningAttributes()))), true));
 					if (!remove) {
 						$set(this, nextMatch, answer);
 					}
@@ -196,7 +156,40 @@ LazySearchEnumerationImpl::LazySearchEnumerationImpl() {
 }
 
 $Class* LazySearchEnumerationImpl::load$($String* name, bool initialize) {
-	$loadClass(LazySearchEnumerationImpl, name, initialize, &_LazySearchEnumerationImpl_ClassInfo_, allocate$LazySearchEnumerationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"candidates", "Ljavax/naming/NamingEnumeration;", "Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PRIVATE, $field(LazySearchEnumerationImpl, candidates)},
+		{"nextMatch", "Ljavax/naming/directory/SearchResult;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, nextMatch)},
+		{"cons", "Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, cons)},
+		{"filter", "Lcom/sun/jndi/toolkit/dir/AttrFilter;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, filter)},
+		{"context", "Ljavax/naming/Context;", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, context)},
+		{"env", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(LazySearchEnumerationImpl, env)},
+		{"useFactory", "Z", nullptr, $PRIVATE, $field(LazySearchEnumerationImpl, useFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/NamingEnumeration;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;)V", "(Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;)V", $PUBLIC, $method(LazySearchEnumerationImpl, init$, void, $NamingEnumeration*, $AttrFilter*, $SearchControls*), "javax.naming.NamingException"},
+		{"<init>", "(Ljavax/naming/NamingEnumeration;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable;Z)V", "(Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;Z)V", $PUBLIC, $method(LazySearchEnumerationImpl, init$, void, $NamingEnumeration*, $AttrFilter*, $SearchControls*, $Context*, $Hashtable*, bool), "javax.naming.NamingException"},
+		{"<init>", "(Ljavax/naming/NamingEnumeration;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable;)V", "(Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;Lcom/sun/jndi/toolkit/dir/AttrFilter;Ljavax/naming/directory/SearchControls;Ljavax/naming/Context;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(LazySearchEnumerationImpl, init$, void, $NamingEnumeration*, $AttrFilter*, $SearchControls*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, close, void), "javax.naming.NamingException"},
+		{"findNextMatch", "(Z)Ljavax/naming/directory/SearchResult;", nullptr, $PRIVATE, $method(LazySearchEnumerationImpl, findNextMatch, $SearchResult*, bool), "javax.naming.NamingException"},
+		{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, hasMore, bool), "javax.naming.NamingException"},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, hasMoreElements, bool)},
+		{"next", "()Ljavax/naming/directory/SearchResult;", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, next, $Object*), "javax.naming.NamingException"},
+		{"nextElement", "()Ljavax/naming/directory/SearchResult;", nullptr, $PUBLIC, $virtualMethod(LazySearchEnumerationImpl, nextElement, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.LazySearchEnumerationImpl",
+		"java.lang.Object",
+		"javax.naming.NamingEnumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;"
+	};
+	$loadClass(LazySearchEnumerationImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LazySearchEnumerationImpl);
+	});
 	return class$;
 }
 

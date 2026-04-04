@@ -1,5 +1,4 @@
 #include <sun/awt/Win32GraphicsConfig.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -18,7 +17,6 @@
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/image/WritableRaster.h>
-#include <sun/awt/DisplayChangedListener.h>
 #include <sun/awt/Win32GraphicsDevice.h>
 #include <sun/awt/Win32GraphicsEnvironment.h>
 #include <sun/awt/image/OffScreenImage.h>
@@ -63,7 +61,6 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
 using $Win32GraphicsEnvironment = ::sun::awt::Win32GraphicsEnvironment;
 using $OffScreenImage = ::sun::awt::image::OffScreenImage;
@@ -77,74 +74,6 @@ using $GDIWindowSurfaceData = ::sun::java2d::windows::GDIWindowSurfaceData;
 
 namespace sun {
 	namespace awt {
-
-$CompoundAttribute _Win32GraphicsConfig_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Win32GraphicsConfig_FieldInfo_[] = {
-	{"device", "Lsun/awt/Win32GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(Win32GraphicsConfig, device)},
-	{"visual", "I", nullptr, $PROTECTED, $field(Win32GraphicsConfig, visual)},
-	{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PROTECTED, $field(Win32GraphicsConfig, solidloops)},
-	{"sTypeOrig", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(Win32GraphicsConfig, sTypeOrig)},
-	{}
-};
-
-$MethodInfo _Win32GraphicsConfig_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/GraphicsDevice;I)V", nullptr, $PUBLIC | $DEPRECATED, $method(Win32GraphicsConfig, init$, void, $GraphicsDevice*, int32_t), nullptr, nullptr, _Win32GraphicsConfig_MethodAnnotations_init$0},
-	{"assertOperationSupported", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, assertOperationSupported, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
-	{"createBackBuffer", "(Lsun/awt/windows/WComponentPeer;)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, createBackBuffer, $VolatileImage*, $WComponentPeer*)},
-	{"createSurfaceData", "(Lsun/awt/windows/WComponentPeer;I)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, createSurfaceData, $SurfaceData*, $WComponentPeer*, int32_t)},
-	{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32GraphicsConfig, displayChanged, void)},
-	{"flip", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Component;Ljava/awt/image/VolatileImage;IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, flip, void, $WComponentPeer*, $Component*, $VolatileImage*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $NATIVE, $method(Win32GraphicsConfig, getBounds, $Rectangle*, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32GraphicsConfig, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getConfig", "(Lsun/awt/Win32GraphicsDevice;I)Lsun/awt/Win32GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32GraphicsConfig, getConfig, Win32GraphicsConfig*, $Win32GraphicsDevice*, int32_t)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getDefaultTransform, $AffineTransform*)},
-	{"getDevice", "()Lsun/awt/Win32GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getDevice, $GraphicsDevice*)},
-	{"getDeviceColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getDeviceColorModel, $ColorModel*)},
-	{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getNormalizingTransform, $AffineTransform*)},
-	{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getProxyKey, $Object*)},
-	{"getSolidLoops", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32GraphicsConfig, getSolidLoops, $RenderLoops*, $SurfaceType*)},
-	{"getVisual", "()I", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getVisual, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32GraphicsConfig, initIDs, void)},
-	{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, isTranslucencyCapable, bool)},
-	{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, paletteChanged, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getBounds 11
-#define _METHOD_INDEX_initIDs 23
-
-$InnerClassInfo _Win32GraphicsConfig_InnerClassesInfo_[] = {
-	{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Win32GraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.Win32GraphicsConfig",
-	"java.awt.GraphicsConfiguration",
-	"sun.awt.DisplayChangedListener,sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
-	_Win32GraphicsConfig_FieldInfo_,
-	_Win32GraphicsConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32GraphicsConfig_InnerClassesInfo_
-};
-
-$Object* allocate$Win32GraphicsConfig($Class* clazz) {
-	return $of($alloc(Win32GraphicsConfig));
-}
 
 int32_t Win32GraphicsConfig::hashCode() {
 	 return this->$GraphicsConfiguration::hashCode();
@@ -164,7 +93,7 @@ void Win32GraphicsConfig::finalize() {
 
 void Win32GraphicsConfig::initIDs() {
 	$init(Win32GraphicsConfig);
-	$prepareNativeStatic(Win32GraphicsConfig, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -179,7 +108,7 @@ void Win32GraphicsConfig::init$($GraphicsDevice* device, int32_t visualnum) {
 	$set(this, sTypeOrig, nullptr);
 	$set(this, device, $cast($Win32GraphicsDevice, device));
 	this->visual = visualnum;
-	$nc(($cast($Win32GraphicsDevice, device)))->addDisplayChangedListener(this);
+	$nc($cast($Win32GraphicsDevice, device))->addDisplayChangedListener(this);
 }
 
 $GraphicsDevice* Win32GraphicsConfig::getDevice() {
@@ -219,27 +148,19 @@ $ColorModel* Win32GraphicsConfig::getDeviceColorModel() {
 $ColorModel* Win32GraphicsConfig::getColorModel(int32_t transparency) {
 	switch (transparency) {
 	case $Transparency::OPAQUE:
-		{
-			return getColorModel();
-		}
+		return getColorModel();
 	case $Transparency::BITMASK:
-		{
-			return $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000);
-		}
+		return $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000);
 	case $Transparency::TRANSLUCENT:
-		{
-			return $ColorModel::getRGBdefault();
-		}
+		return $ColorModel::getRGBdefault();
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $AffineTransform* Win32GraphicsConfig::getDefaultTransform() {
 	double scaleX = $nc(this->device)->getDefaultScaleX();
-	double scaleY = $nc(this->device)->getDefaultScaleY();
+	double scaleY = this->device->getDefaultScaleY();
 	return $AffineTransform::getScaleInstance(scaleX, scaleY);
 }
 
@@ -251,14 +172,13 @@ $AffineTransform* Win32GraphicsConfig::getNormalizingTransform() {
 }
 
 $String* Win32GraphicsConfig::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return ($str({$($GraphicsConfiguration::toString()), "[dev="_s, this->device, ",pixfmt="_s, $$str(this->visual), "]"_s}));
 }
 
 $Rectangle* Win32GraphicsConfig::getBounds(int32_t screen) {
-	$var($Rectangle, $ret, nullptr);
-	$prepareNative(Win32GraphicsConfig, getBounds, $Rectangle*, int32_t screen);
-	$assign($ret, $invokeNativeObject(screen));
+	$prepareNative(getBounds, $Rectangle*, int32_t screen);
+	$var($Rectangle, $ret, $invokeNativeObject(screen));
 	$finishNative();
 	return $ret;
 }
@@ -281,7 +201,7 @@ $SurfaceData* Win32GraphicsConfig::createSurfaceData($WComponentPeer* peer, int3
 }
 
 $Image* Win32GraphicsConfig::createAcceleratedImage($Component* target, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, model, getColorModel($Transparency::OPAQUE));
 	$var($WritableRaster, wr, $nc(model)->createCompatibleWritableRaster(width, height));
 	return $new($OffScreenImage, target, model, wr, model->isAlphaPremultiplied());
@@ -292,50 +212,41 @@ void Win32GraphicsConfig::assertOperationSupported($Component* target, int32_t n
 }
 
 $VolatileImage* Win32GraphicsConfig::createBackBuffer($WComponentPeer* peer) {
-	$useLocalCurrentObjectStackCache();
 	$var($Component, target, $cast($Component, $nc(peer)->getTarget()));
-	$var($Component, var$0, target);
-	int32_t var$1 = $nc(target)->getWidth();
-	$init($Boolean);
-	return $new($SunVolatileImage, var$0, var$1, target->getHeight(), $Boolean::TRUE);
+	int32_t var$0 = $nc(target)->getWidth();
+	return $new($SunVolatileImage, target, var$0, target->getHeight(), $Boolean::TRUE);
 }
 
 void Win32GraphicsConfig::flip($WComponentPeer* peer, $Component* target, $VolatileImage* backBuffer, int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BufferCapabilities$FlipContents);
 	if (flipAction == $BufferCapabilities$FlipContents::COPIED || flipAction == $BufferCapabilities$FlipContents::UNDEFINED) {
 		$var($Graphics, g, $nc(peer)->getGraphics());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(g)->dispose();
 		}
-	} else {
-		if (flipAction == $BufferCapabilities$FlipContents::BACKGROUND) {
-			$var($Graphics, g, $nc(backBuffer)->getGraphics());
-			{
-				$var($Throwable, var$2, nullptr);
-				try {
-					$nc(g)->setColor($($nc(target)->getBackground()));
-					int32_t var$3 = backBuffer->getWidth();
-					g->fillRect(0, 0, var$3, backBuffer->getHeight());
-				} catch ($Throwable& var$4) {
-					$assign(var$2, var$4);
-				} /*finally*/ {
-					$nc(g)->dispose();
-				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
-			}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+	} else if (flipAction == $BufferCapabilities$FlipContents::BACKGROUND) {
+		$var($Graphics, g, $nc(backBuffer)->getGraphics());
+		$var($Throwable, var$2, nullptr);
+		try {
+			$nc(g)->setColor($($nc(target)->getBackground()));
+			int32_t var$3 = backBuffer->getWidth();
+			g->fillRect(0, 0, var$3, backBuffer->getHeight());
+		} catch ($Throwable& var$4) {
+			$assign(var$2, var$4);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
@@ -344,7 +255,7 @@ bool Win32GraphicsConfig::isTranslucencyCapable() {
 	return true;
 }
 
-void clinit$Win32GraphicsConfig($Class* class$) {
+void Win32GraphicsConfig::clinit$($Class* clazz) {
 	{
 		Win32GraphicsConfig::initIDs();
 	}
@@ -354,7 +265,65 @@ Win32GraphicsConfig::Win32GraphicsConfig() {
 }
 
 $Class* Win32GraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(Win32GraphicsConfig, name, initialize, &_Win32GraphicsConfig_ClassInfo_, clinit$Win32GraphicsConfig, allocate$Win32GraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Lsun/awt/Win32GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(Win32GraphicsConfig, device)},
+		{"visual", "I", nullptr, $PROTECTED, $field(Win32GraphicsConfig, visual)},
+		{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PROTECTED, $field(Win32GraphicsConfig, solidloops)},
+		{"sTypeOrig", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(Win32GraphicsConfig, sTypeOrig)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/GraphicsDevice;I)V", nullptr, $PUBLIC | $DEPRECATED, $method(Win32GraphicsConfig, init$, void, $GraphicsDevice*, int32_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"assertOperationSupported", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, assertOperationSupported, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
+		{"createBackBuffer", "(Lsun/awt/windows/WComponentPeer;)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, createBackBuffer, $VolatileImage*, $WComponentPeer*)},
+		{"createSurfaceData", "(Lsun/awt/windows/WComponentPeer;I)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, createSurfaceData, $SurfaceData*, $WComponentPeer*, int32_t)},
+		{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32GraphicsConfig, displayChanged, void)},
+		{"flip", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Component;Ljava/awt/image/VolatileImage;IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, flip, void, $WComponentPeer*, $Component*, $VolatileImage*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $NATIVE, $method(Win32GraphicsConfig, getBounds, $Rectangle*, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32GraphicsConfig, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getConfig", "(Lsun/awt/Win32GraphicsDevice;I)Lsun/awt/Win32GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32GraphicsConfig, getConfig, Win32GraphicsConfig*, $Win32GraphicsDevice*, int32_t)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getDefaultTransform, $AffineTransform*)},
+		{"getDevice", "()Lsun/awt/Win32GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getDevice, $GraphicsDevice*)},
+		{"getDeviceColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getDeviceColorModel, $ColorModel*)},
+		{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getNormalizingTransform, $AffineTransform*)},
+		{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getProxyKey, $Object*)},
+		{"getSolidLoops", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32GraphicsConfig, getSolidLoops, $RenderLoops*, $SurfaceType*)},
+		{"getVisual", "()I", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, getVisual, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Win32GraphicsConfig, initIDs, void)},
+		{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, isTranslucencyCapable, bool)},
+		{"paletteChanged", "()V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, paletteChanged, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsConfig, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.Win32GraphicsConfig",
+		"java.awt.GraphicsConfiguration",
+		"sun.awt.DisplayChangedListener,sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(Win32GraphicsConfig, name, initialize, &classInfo$$, Win32GraphicsConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32GraphicsConfig));
+	});
 	return class$;
 }
 

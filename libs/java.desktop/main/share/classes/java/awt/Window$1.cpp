@@ -1,5 +1,4 @@
 #include <java/awt/Window$1.h>
-
 #include <java/awt/Window.h>
 #include <java/awt/geom/Point2D.h>
 #include <jcpp.h>
@@ -14,51 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _Window$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Window$1, init$, void)},
-	{"calculateSecurityWarningPosition", "(Ljava/awt/Window;DDDD)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Window$1, calculateSecurityWarningPosition, $Point2D*, $Window*, double, double, double, double)},
-	{"getOwnedWindows", "(Ljava/awt/Window;)[Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(Window$1, getOwnedWindows, $WindowArray*, $Window*)},
-	{"isAutoRequestFocus", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC, $virtualMethod(Window$1, isAutoRequestFocus, bool, $Window*)},
-	{"isTrayIconWindow", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC, $virtualMethod(Window$1, isTrayIconWindow, bool, $Window*)},
-	{"setLWRequestStatus", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC, $virtualMethod(Window$1, setLWRequestStatus, void, $Window*, bool)},
-	{"setSecurityWarningSize", "(Ljava/awt/Window;II)V", nullptr, $PUBLIC, $virtualMethod(Window$1, setSecurityWarningSize, void, $Window*, int32_t, int32_t)},
-	{"setTrayIconWindow", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC, $virtualMethod(Window$1, setTrayIconWindow, void, $Window*, bool)},
-	{"updateWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(Window$1, updateWindow, void, $Window*)},
-	{}
-};
-
-$EnclosingMethodInfo _Window$1_EnclosingMethodInfo_ = {
-	"java.awt.Window",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Window$1_InnerClassesInfo_[] = {
-	{"java.awt.Window$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$WindowAccessor", "sun.awt.AWTAccessor", "WindowAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Window$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Window$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$WindowAccessor",
-	nullptr,
-	_Window$1_MethodInfo_,
-	nullptr,
-	&_Window$1_EnclosingMethodInfo_,
-	_Window$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Window"
-};
-
-$Object* allocate$Window$1($Class* clazz) {
-	return $of($alloc(Window$1));
-}
 
 void Window$1::init$() {
 }
@@ -100,7 +54,46 @@ Window$1::Window$1() {
 }
 
 $Class* Window$1::load$($String* name, bool initialize) {
-	$loadClass(Window$1, name, initialize, &_Window$1_ClassInfo_, allocate$Window$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Window$1, init$, void)},
+		{"calculateSecurityWarningPosition", "(Ljava/awt/Window;DDDD)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(Window$1, calculateSecurityWarningPosition, $Point2D*, $Window*, double, double, double, double)},
+		{"getOwnedWindows", "(Ljava/awt/Window;)[Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(Window$1, getOwnedWindows, $WindowArray*, $Window*)},
+		{"isAutoRequestFocus", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC, $virtualMethod(Window$1, isAutoRequestFocus, bool, $Window*)},
+		{"isTrayIconWindow", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC, $virtualMethod(Window$1, isTrayIconWindow, bool, $Window*)},
+		{"setLWRequestStatus", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC, $virtualMethod(Window$1, setLWRequestStatus, void, $Window*, bool)},
+		{"setSecurityWarningSize", "(Ljava/awt/Window;II)V", nullptr, $PUBLIC, $virtualMethod(Window$1, setSecurityWarningSize, void, $Window*, int32_t, int32_t)},
+		{"setTrayIconWindow", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC, $virtualMethod(Window$1, setTrayIconWindow, void, $Window*, bool)},
+		{"updateWindow", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(Window$1, updateWindow, void, $Window*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.Window",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Window$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$WindowAccessor", "sun.awt.AWTAccessor", "WindowAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Window$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$WindowAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Window"
+	};
+	$loadClass(Window$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Window$1);
+	});
 	return class$;
 }
 

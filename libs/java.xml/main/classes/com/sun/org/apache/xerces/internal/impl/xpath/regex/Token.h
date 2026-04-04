@@ -126,6 +126,7 @@ class Token : public ::java::io::Serializable {
 	$class(Token, 0, ::java::io::Serializable)
 public:
 	Token();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual void addChild(::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* tok);
 	virtual void addRange(int32_t start, int32_t end);
@@ -177,7 +178,7 @@ public:
 	virtual void subtractRanges(::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* tok);
 	virtual $String* toString() override;
 	virtual $String* toString(int32_t options);
-	static const int64_t serialVersionUID = (int64_t)0x75C0B0B811D26879;
+	static const int64_t serialVersionUID = (int64_t)0x75c0b0b811d26879;
 	static const bool COUNTTOKENS = true;
 	static int32_t tokens;
 	static const int32_t CHAR = 0;
@@ -200,7 +201,7 @@ public:
 	static const int32_t INDEPENDENT = 24;
 	static const int32_t MODIFIERGROUP = 25;
 	static const int32_t CONDITION = 26;
-	static const int32_t UTF16_MAX = 0x0010FFFF;
+	static const int32_t UTF16_MAX = 0x0010ffff;
 	int32_t type = 0;
 	static ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* token_dot;
 	static ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* token_0to9;

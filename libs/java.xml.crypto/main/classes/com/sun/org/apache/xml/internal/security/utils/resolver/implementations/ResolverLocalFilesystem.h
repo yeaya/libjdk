@@ -78,6 +78,7 @@ class ResolverLocalFilesystem : public ::com::sun::org::apache::xml::internal::s
 	$class(ResolverLocalFilesystem, 0, ::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverSpi)
 public:
 	ResolverLocalFilesystem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool engineCanResolveURI(::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverContext* context) override;
 	virtual ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput* engineResolveURI(::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverContext* context) override;

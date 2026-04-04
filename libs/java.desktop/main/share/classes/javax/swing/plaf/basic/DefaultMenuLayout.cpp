@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/basic/DefaultMenuLayout.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <javax/swing/BoxLayout.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu.h>
 #include <sun/swing/MenuItemLayoutHelper.h>
 #include <jcpp.h>
@@ -13,7 +11,6 @@ using $Dimension = ::java::awt::Dimension;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoxLayout = ::javax::swing::BoxLayout;
-using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $MenuItemLayoutHelper = ::sun::swing::MenuItemLayoutHelper;
 
@@ -21,30 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _DefaultMenuLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Container;I)V", nullptr, $PUBLIC, $method(DefaultMenuLayout, init$, void, $Container*, int32_t)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultMenuLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DefaultMenuLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.DefaultMenuLayout",
-	"javax.swing.BoxLayout",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_DefaultMenuLayout_MethodInfo_
-};
-
-$Object* allocate$DefaultMenuLayout($Class* clazz) {
-	return $of($alloc(DefaultMenuLayout));
-}
 
 int32_t DefaultMenuLayout::hashCode() {
 	 return this->$BoxLayout::hashCode();
@@ -74,7 +47,7 @@ $Dimension* DefaultMenuLayout::preferredLayoutSize($Container* target) {
 	if ($instanceOf($JPopupMenu, target)) {
 		$var($JPopupMenu, popupMenu, $cast($JPopupMenu, target));
 		$MenuItemLayoutHelper::clearUsedClientProperties(popupMenu);
-		if ($nc(popupMenu)->getComponentCount() == 0) {
+		if (popupMenu->getComponentCount() == 0) {
 			return $new($Dimension, 0, 0);
 		}
 	}
@@ -86,7 +59,27 @@ DefaultMenuLayout::DefaultMenuLayout() {
 }
 
 $Class* DefaultMenuLayout::load$($String* name, bool initialize) {
-	$loadClass(DefaultMenuLayout, name, initialize, &_DefaultMenuLayout_ClassInfo_, allocate$DefaultMenuLayout);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Container;I)V", nullptr, $PUBLIC, $method(DefaultMenuLayout, init$, void, $Container*, int32_t)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(DefaultMenuLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.DefaultMenuLayout",
+		"javax.swing.BoxLayout",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultMenuLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultMenuLayout));
+	});
 	return class$;
 }
 

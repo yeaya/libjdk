@@ -28,6 +28,7 @@ class $export Monitor$NumericalType : public ::java::lang::Enum {
 public:
 	Monitor$NumericalType();
 	static $Array<::javax::management::monitor::Monitor$NumericalType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::management::monitor::Monitor$NumericalType* valueOf($String* name);
 	static $Array<::javax::management::monitor::Monitor$NumericalType>* values();

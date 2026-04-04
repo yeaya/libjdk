@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check$3.h>
-
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$WildcardType.h>
@@ -28,56 +27,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Check$3_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$3, this$0)},
-	{}
-};
-
-$MethodInfo _Check$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$3, init$, void, $Check*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitCapturedType, $Boolean*, $Type$CapturedType*, $Void*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitType, $Boolean*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitTypeVar, $Boolean*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitWildcardType, $Boolean*, $Type$WildcardType*, $Void*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Check$3_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Check",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Check$3_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Check$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Check$3",
-	"com.sun.tools.javac.code.Types$UnaryVisitor",
-	nullptr,
-	_Check$3_FieldInfo_,
-	_Check$3_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Boolean;>;",
-	&_Check$3_EnclosingMethodInfo_,
-	_Check$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check"
-};
-
-$Object* allocate$Check$3($Class* clazz) {
-	return $of($alloc(Check$3));
-}
-
 void Check$3::init$($Check* this$0) {
 	$set(this, this$0, this$0);
 	$Types$UnaryVisitor::init$();
@@ -92,9 +41,9 @@ $Boolean* Check$3::visitTypeVar($Type$TypeVar* t, $Void* s) {
 }
 
 $Boolean* Check$3::visitCapturedType($Type$CapturedType* t, $Void* s) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc(($cast($Boolean, $(visit($($nc(t)->getUpperBound()))))))->booleanValue();
-	return $Boolean::valueOf(var$0 || $nc(($cast($Boolean, $(visit($($nc(t)->getLowerBound()))))))->booleanValue());
+	$useLocalObjectStack();
+	bool var$0 = $$sure($Boolean, visit($($nc(t)->getUpperBound())))->booleanValue();
+	return $Boolean::valueOf(var$0 || $$sure($Boolean, visit($(t->getLowerBound())))->booleanValue());
 }
 
 $Boolean* Check$3::visitWildcardType($Type$WildcardType* t, $Void* s) {
@@ -121,7 +70,50 @@ Check$3::Check$3() {
 }
 
 $Class* Check$3::load$($String* name, bool initialize) {
-	$loadClass(Check$3, name, initialize, &_Check$3_ClassInfo_, allocate$Check$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$3, init$, void, $Check*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitCapturedType, $Boolean*, $Type$CapturedType*, $Void*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitType, $Boolean*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitTypeVar, $Boolean*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Check$3, visitWildcardType, $Boolean*, $Type$WildcardType*, $Void*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$3, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Check",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Check$3",
+		"com.sun.tools.javac.code.Types$UnaryVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check"
+	};
+	$loadClass(Check$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$3);
+	});
 	return class$;
 }
 

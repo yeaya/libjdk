@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/multi/MultiSplitPaneUI.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/util/Vector.h>
@@ -30,47 +29,6 @@ namespace javax {
 		namespace plaf {
 			namespace multi {
 
-$FieldInfo _MultiSplitPaneUI_FieldInfo_[] = {
-	{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiSplitPaneUI, uis)},
-	{}
-};
-
-$MethodInfo _MultiSplitPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSplitPaneUI, init$, void)},
-	{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, contains, bool, $JComponent*, int32_t, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"finishedPaintingChildren", "(Ljavax/swing/JSplitPane;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, finishedPaintingChildren, void, $JSplitPane*, $Graphics*)},
-	{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
-	{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
-	{"getDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getDividerLocation, int32_t, $JSplitPane*)},
-	{"getMaximumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMaximumDividerLocation, int32_t, $JSplitPane*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMinimumDividerLocation, int32_t, $JSplitPane*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getUIs, $ComponentUIArray*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"resetToPreferredSizes", "(Ljavax/swing/JSplitPane;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, resetToPreferredSizes, void, $JSplitPane*)},
-	{"setDividerLocation", "(Ljavax/swing/JSplitPane;I)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, setDividerLocation, void, $JSplitPane*, int32_t)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MultiSplitPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.multi.MultiSplitPaneUI",
-	"javax.swing.plaf.SplitPaneUI",
-	nullptr,
-	_MultiSplitPaneUI_FieldInfo_,
-	_MultiSplitPaneUI_MethodInfo_
-};
-
-$Object* allocate$MultiSplitPaneUI($Class* clazz) {
-	return $of($alloc(MultiSplitPaneUI));
-}
-
 void MultiSplitPaneUI::init$() {
 	$SplitPaneUI::init$();
 	$set(this, uis, $new($Vector));
@@ -81,66 +39,66 @@ $ComponentUIArray* MultiSplitPaneUI::getUIs() {
 }
 
 void MultiSplitPaneUI::resetToPreferredSizes($JSplitPane* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(i))))))->resetToPreferredSizes(a);
+		$$cast($SplitPaneUI, this->uis->elementAt(i))->resetToPreferredSizes(a);
 	}
 }
 
 void MultiSplitPaneUI::setDividerLocation($JSplitPane* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(i))))))->setDividerLocation(a, b);
+		$$cast($SplitPaneUI, this->uis->elementAt(i))->setDividerLocation(a, b);
 	}
 }
 
 int32_t MultiSplitPaneUI::getDividerLocation($JSplitPane* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(0))))))->getDividerLocation(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($SplitPaneUI, $nc(this->uis)->elementAt(0))->getDividerLocation(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(i))))))->getDividerLocation(a);
+		$$cast($SplitPaneUI, this->uis->elementAt(i))->getDividerLocation(a);
 	}
 	return returnValue;
 }
 
 int32_t MultiSplitPaneUI::getMinimumDividerLocation($JSplitPane* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(0))))))->getMinimumDividerLocation(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($SplitPaneUI, $nc(this->uis)->elementAt(0))->getMinimumDividerLocation(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(i))))))->getMinimumDividerLocation(a);
+		$$cast($SplitPaneUI, this->uis->elementAt(i))->getMinimumDividerLocation(a);
 	}
 	return returnValue;
 }
 
 int32_t MultiSplitPaneUI::getMaximumDividerLocation($JSplitPane* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(0))))))->getMaximumDividerLocation(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$cast($SplitPaneUI, $nc(this->uis)->elementAt(0))->getMaximumDividerLocation(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(i))))))->getMaximumDividerLocation(a);
+		$$cast($SplitPaneUI, this->uis->elementAt(i))->getMaximumDividerLocation(a);
 	}
 	return returnValue;
 }
 
 void MultiSplitPaneUI::finishedPaintingChildren($JSplitPane* a, $Graphics* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc((($cast($SplitPaneUI, $($nc(this->uis)->elementAt(i))))))->finishedPaintingChildren(a, b);
+		$$cast($SplitPaneUI, this->uis->elementAt(i))->finishedPaintingChildren(a, b);
 	}
 }
 
 bool MultiSplitPaneUI::contains($JComponent* a, int32_t b, int32_t c) {
-	$useLocalCurrentObjectStackCache();
-	bool returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->contains(a, b, c);
+	$useLocalObjectStack();
+	bool returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->contains(a, b, c);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->contains(a, b, c);
+		$$sure($ComponentUI, this->uis->elementAt(i))->contains(a, b, c);
 	}
 	return returnValue;
 }
 
 void MultiSplitPaneUI::update($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->update(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->update(a, b);
 	}
 }
 
@@ -151,67 +109,67 @@ $ComponentUI* MultiSplitPaneUI::createUI($JComponent* a) {
 }
 
 void MultiSplitPaneUI::installUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->installUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->installUI(a);
 	}
 }
 
 void MultiSplitPaneUI::uninstallUI($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->uninstallUI(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->uninstallUI(a);
 	}
 }
 
 void MultiSplitPaneUI::paint($Graphics* a, $JComponent* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->paint(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->paint(a, b);
 	}
 }
 
 $Dimension* MultiSplitPaneUI::getPreferredSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getPreferredSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getPreferredSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getPreferredSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getPreferredSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiSplitPaneUI::getMinimumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMinimumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMinimumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMinimumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMinimumSize(a);
 	}
 	return returnValue;
 }
 
 $Dimension* MultiSplitPaneUI::getMaximumSize($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMaximumSize(a));
+	$useLocalObjectStack();
+	$var($Dimension, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getMaximumSize(a));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMaximumSize(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getMaximumSize(a);
 	}
 	return returnValue;
 }
 
 int32_t MultiSplitPaneUI::getAccessibleChildrenCount($JComponent* a) {
-	$useLocalCurrentObjectStackCache();
-	int32_t returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChildrenCount(a);
+	$useLocalObjectStack();
+	int32_t returnValue = $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChildrenCount(a);
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChildrenCount(a);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChildrenCount(a);
 	}
 	return returnValue;
 }
 
 $Accessible* MultiSplitPaneUI::getAccessibleChild($JComponent* a, int32_t b) {
-	$useLocalCurrentObjectStackCache();
-	$var($Accessible, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChild(a, b));
+	$useLocalObjectStack();
+	$var($Accessible, returnValue, $$sure($ComponentUI, $nc(this->uis)->elementAt(0))->getAccessibleChild(a, b));
 	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
-		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChild(a, b);
+		$$sure($ComponentUI, this->uis->elementAt(i))->getAccessibleChild(a, b);
 	}
 	return returnValue;
 }
@@ -220,7 +178,43 @@ MultiSplitPaneUI::MultiSplitPaneUI() {
 }
 
 $Class* MultiSplitPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MultiSplitPaneUI, name, initialize, &_MultiSplitPaneUI_ClassInfo_, allocate$MultiSplitPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiSplitPaneUI, uis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSplitPaneUI, init$, void)},
+		{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, contains, bool, $JComponent*, int32_t, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"finishedPaintingChildren", "(Ljavax/swing/JSplitPane;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, finishedPaintingChildren, void, $JSplitPane*, $Graphics*)},
+		{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
+		{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
+		{"getDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getDividerLocation, int32_t, $JSplitPane*)},
+		{"getMaximumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMaximumDividerLocation, int32_t, $JSplitPane*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMinimumDividerLocation, int32_t, $JSplitPane*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, getUIs, $ComponentUIArray*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"resetToPreferredSizes", "(Ljavax/swing/JSplitPane;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, resetToPreferredSizes, void, $JSplitPane*)},
+		{"setDividerLocation", "(Ljavax/swing/JSplitPane;I)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, setDividerLocation, void, $JSplitPane*, int32_t)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSplitPaneUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.multi.MultiSplitPaneUI",
+		"javax.swing.plaf.SplitPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultiSplitPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiSplitPaneUI);
+	});
 	return class$;
 }
 

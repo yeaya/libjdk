@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/MgmtData.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
@@ -25,32 +24,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$MethodInfo _MgmtData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MgmtData, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MgmtData, init$, void, $Document*, $String*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MgmtData, getBaseLocalName, $String*)},
-	{"getMgmtData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MgmtData, getMgmtData, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MgmtData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.MgmtData",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	nullptr,
-	_MgmtData_MethodInfo_
-};
-
-$Object* allocate$MgmtData($Class* clazz) {
-	return $of($alloc(MgmtData));
-}
 
 int32_t MgmtData::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -94,7 +67,29 @@ MgmtData::MgmtData() {
 }
 
 $Class* MgmtData::load$($String* name, bool initialize) {
-	$loadClass(MgmtData, name, initialize, &_MgmtData_ClassInfo_, allocate$MgmtData);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MgmtData, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MgmtData, init$, void, $Document*, $String*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MgmtData, getBaseLocalName, $String*)},
+		{"getMgmtData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MgmtData, getMgmtData, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.MgmtData",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MgmtData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MgmtData));
+	});
 	return class$;
 }
 

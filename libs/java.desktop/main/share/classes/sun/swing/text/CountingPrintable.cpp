@@ -1,5 +1,4 @@
 #include <sun/swing/text/CountingPrintable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace sun {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _CountingPrintable_MethodInfo_[] = {
-	{"getNumberOfPages", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CountingPrintable, getNumberOfPages, int32_t)},
-	{}
-};
-
-$ClassInfo _CountingPrintable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.swing.text.CountingPrintable",
-	nullptr,
-	"java.awt.print.Printable",
-	nullptr,
-	_CountingPrintable_MethodInfo_
-};
-
-$Object* allocate$CountingPrintable($Class* clazz) {
-	return $of($alloc(CountingPrintable));
-}
-
 $Class* CountingPrintable::load$($String* name, bool initialize) {
-	$loadClass(CountingPrintable, name, initialize, &_CountingPrintable_ClassInfo_, allocate$CountingPrintable);
+	$MethodInfo methodInfos$$[] = {
+		{"getNumberOfPages", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CountingPrintable, getNumberOfPages, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.swing.text.CountingPrintable",
+		nullptr,
+		"java.awt.print.Printable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CountingPrintable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CountingPrintable);
+	});
 	return class$;
 }
 

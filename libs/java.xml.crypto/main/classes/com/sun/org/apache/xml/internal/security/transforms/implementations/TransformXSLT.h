@@ -65,6 +65,7 @@ class TransformXSLT : public ::com::sun::org::apache::xml::internal::security::t
 	$class(TransformXSLT, 0, ::com::sun::org::apache::xml::internal::security::transforms::TransformSpi)
 public:
 	TransformXSLT();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* engineGetURI() override;
 	virtual ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput* enginePerformTransform(::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput* input, ::java::io::OutputStream* baos, ::org::w3c::dom::Element* transformElement, $String* baseURI, bool secureValidation) override;

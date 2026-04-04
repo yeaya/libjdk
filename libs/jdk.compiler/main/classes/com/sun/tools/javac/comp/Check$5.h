@@ -15,6 +15,7 @@ class Check$5 : public ::java::lang::Object {
 	$class(Check$5, 0, ::java::lang::Object)
 public:
 	Check$5();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Lint$LintCategory;
 	static $ints* $SwitchMap$javax$lang$model$element$NestingKind;
 	static $ints* $SwitchMap$com$sun$tools$javac$code$TypeTag;

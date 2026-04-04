@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CWarningWindow$HidingTask.h>
-
 #include <sun/lwawt/macosx/CWarningWindow$CancelableRunnable.h>
 #include <sun/lwawt/macosx/CWarningWindow$Lock.h>
 #include <sun/lwawt/macosx/CWarningWindow.h>
@@ -15,43 +14,6 @@ using $CWarningWindow$CancelableRunnable = ::sun::lwawt::macosx::CWarningWindow$
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CWarningWindow$HidingTask_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/macosx/CWarningWindow;", nullptr, $FINAL | $SYNTHETIC, $field(CWarningWindow$HidingTask, this$0)},
-	{}
-};
-
-$MethodInfo _CWarningWindow$HidingTask_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/CWarningWindow;)V", nullptr, $PRIVATE, $method(CWarningWindow$HidingTask, init$, void, $CWarningWindow*)},
-	{"perform", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$HidingTask, perform, void)},
-	{}
-};
-
-$InnerClassInfo _CWarningWindow$HidingTask_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CWarningWindow$HidingTask", "sun.lwawt.macosx.CWarningWindow", "HidingTask", $PRIVATE},
-	{"sun.lwawt.macosx.CWarningWindow$CancelableRunnable", "sun.lwawt.macosx.CWarningWindow", "CancelableRunnable", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CWarningWindow$HidingTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CWarningWindow$HidingTask",
-	"sun.lwawt.macosx.CWarningWindow$CancelableRunnable",
-	nullptr,
-	_CWarningWindow$HidingTask_FieldInfo_,
-	_CWarningWindow$HidingTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CWarningWindow$HidingTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CWarningWindow"
-};
-
-$Object* allocate$CWarningWindow$HidingTask($Class* clazz) {
-	return $of($alloc(CWarningWindow$HidingTask));
-}
 
 void CWarningWindow$HidingTask::init$($CWarningWindow* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +33,38 @@ CWarningWindow$HidingTask::CWarningWindow$HidingTask() {
 }
 
 $Class* CWarningWindow$HidingTask::load$($String* name, bool initialize) {
-	$loadClass(CWarningWindow$HidingTask, name, initialize, &_CWarningWindow$HidingTask_ClassInfo_, allocate$CWarningWindow$HidingTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/macosx/CWarningWindow;", nullptr, $FINAL | $SYNTHETIC, $field(CWarningWindow$HidingTask, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CWarningWindow;)V", nullptr, $PRIVATE, $method(CWarningWindow$HidingTask, init$, void, $CWarningWindow*)},
+		{"perform", "()V", nullptr, $PUBLIC, $virtualMethod(CWarningWindow$HidingTask, perform, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CWarningWindow$HidingTask", "sun.lwawt.macosx.CWarningWindow", "HidingTask", $PRIVATE},
+		{"sun.lwawt.macosx.CWarningWindow$CancelableRunnable", "sun.lwawt.macosx.CWarningWindow", "CancelableRunnable", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CWarningWindow$HidingTask",
+		"sun.lwawt.macosx.CWarningWindow$CancelableRunnable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CWarningWindow"
+	};
+	$loadClass(CWarningWindow$HidingTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CWarningWindow$HidingTask);
+	});
 	return class$;
 }
 

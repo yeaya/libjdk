@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifToggleButtonUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -21,7 +20,6 @@
 #undef MOTIF_TOGGLE_BUTTON_UI_KEY
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -46,37 +44,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifToggleButtonUI_FieldInfo_[] = {
-	{"MOTIF_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifToggleButtonUI, MOTIF_TOGGLE_BUTTON_UI_KEY)},
-	{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifToggleButtonUI, selectColor)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MotifToggleButtonUI, defaults_initialized)},
-	{}
-};
-
-$MethodInfo _MotifToggleButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifToggleButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getInsets", "(Ljavax/swing/JComponent;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifToggleButtonUI, getInsets, $Insets*, $JComponent*)},
-	{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MotifToggleButtonUI, getSelectColor, $Color*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MotifToggleButtonUI, installDefaults, void, $AbstractButton*)},
-	{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifToggleButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifToggleButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _MotifToggleButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifToggleButtonUI",
-	"javax.swing.plaf.basic.BasicToggleButtonUI",
-	nullptr,
-	_MotifToggleButtonUI_FieldInfo_,
-	_MotifToggleButtonUI_MethodInfo_
-};
-
-$Object* allocate$MotifToggleButtonUI($Class* clazz) {
-	return $of($alloc(MotifToggleButtonUI));
-}
-
 $Object* MotifToggleButtonUI::MOTIF_TOGGLE_BUTTON_UI_KEY = nullptr;
 
 void MotifToggleButtonUI::init$() {
@@ -86,7 +53,7 @@ void MotifToggleButtonUI::init$() {
 
 $ComponentUI* MotifToggleButtonUI::createUI($JComponent* b) {
 	$init(MotifToggleButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(MotifToggleButtonUI, motifToggleButtonUI, $cast(MotifToggleButtonUI, $nc(appContext)->get(MotifToggleButtonUI::MOTIF_TOGGLE_BUTTON_UI_KEY)));
 	if (motifToggleButtonUI == nullptr) {
@@ -97,13 +64,12 @@ $ComponentUI* MotifToggleButtonUI::createUI($JComponent* b) {
 }
 
 void MotifToggleButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicToggleButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$set(this, selectColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "select"_s})));
 		this->defaults_initialized = true;
 	}
-	$init($Boolean);
 	$LookAndFeel::installProperty(b, "opaque"_s, $Boolean::FALSE);
 }
 
@@ -117,7 +83,7 @@ $Color* MotifToggleButtonUI::getSelectColor() {
 }
 
 void MotifToggleButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(b)->isContentAreaFilled()) {
 		$var($Color, oldColor, $nc(g)->getColor());
 		$var($Dimension, size, b->getSize());
@@ -126,19 +92,19 @@ void MotifToggleButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
 		if ($instanceOf($UIResource, $(b->getBackground()))) {
 			g->setColor($(getSelectColor()));
 		}
-		g->fillRect($nc(insets)->left - $nc(margin)->left, insets->top - margin->top, $nc(size)->width - (insets->left - margin->left) - (insets->right - margin->right), size->height - (insets->top - margin->top) - (insets->bottom - margin->bottom));
+		g->fillRect($nc(insets)->left - $nc(margin)->left, $nc(insets)->top - $nc(margin)->top, $nc(size)->width - ($nc(insets)->left - $nc(margin)->left) - ($nc(insets)->right - $nc(margin)->right), $nc(size)->height - ($nc(insets)->top - $nc(margin)->top) - ($nc(insets)->bottom - $nc(margin)->bottom));
 		g->setColor(oldColor);
 	}
 }
 
 $Insets* MotifToggleButtonUI::getInsets($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Border, border, $nc(c)->getBorder());
-	$var($Insets, i, border != nullptr ? $nc(border)->getBorderInsets(c) : $new($Insets, 0, 0, 0, 0));
+	$var($Insets, i, border != nullptr ? border->getBorderInsets(c) : $new($Insets, 0, 0, 0, 0));
 	return i;
 }
 
-void clinit$MotifToggleButtonUI($Class* class$) {
+void MotifToggleButtonUI::clinit$($Class* clazz) {
 	$assignStatic(MotifToggleButtonUI::MOTIF_TOGGLE_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -146,7 +112,33 @@ MotifToggleButtonUI::MotifToggleButtonUI() {
 }
 
 $Class* MotifToggleButtonUI::load$($String* name, bool initialize) {
-	$loadClass(MotifToggleButtonUI, name, initialize, &_MotifToggleButtonUI_ClassInfo_, clinit$MotifToggleButtonUI, allocate$MotifToggleButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOTIF_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifToggleButtonUI, MOTIF_TOGGLE_BUTTON_UI_KEY)},
+		{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifToggleButtonUI, selectColor)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MotifToggleButtonUI, defaults_initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifToggleButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getInsets", "(Ljavax/swing/JComponent;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifToggleButtonUI, getInsets, $Insets*, $JComponent*)},
+		{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MotifToggleButtonUI, getSelectColor, $Color*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MotifToggleButtonUI, installDefaults, void, $AbstractButton*)},
+		{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifToggleButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MotifToggleButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifToggleButtonUI",
+		"javax.swing.plaf.basic.BasicToggleButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MotifToggleButtonUI, name, initialize, &classInfo$$, MotifToggleButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifToggleButtonUI);
+	});
 	return class$;
 }
 

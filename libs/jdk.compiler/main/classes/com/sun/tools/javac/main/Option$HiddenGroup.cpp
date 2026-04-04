@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$HiddenGroup.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/main/OptionHelper.h>
 #include <java/lang/Enum.h>
@@ -24,49 +23,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _Option$HiddenGroup_FieldInfo_[] = {
-	{"DIAGS", "Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$HiddenGroup, DIAGS)},
-	{"DEBUG", "Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$HiddenGroup, DEBUG)},
-	{"SHOULDSTOP", "Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$HiddenGroup, SHOULDSTOP)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$HiddenGroup, $VALUES)},
-	{"text", "Ljava/lang/String;", nullptr, $FINAL, $field(Option$HiddenGroup, text)},
-	{}
-};
-
-$MethodInfo _Option$HiddenGroup_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$HiddenGroup, $values, $Option$HiddenGroupArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Option$HiddenGroup, init$, void, $String*, int32_t, $String*)},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$HiddenGroup, process, void, $OptionHelper*, $String*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$HiddenGroup, valueOf, Option$HiddenGroup*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$HiddenGroup, values, $Option$HiddenGroupArray*)},
-	{}
-};
-
-$InnerClassInfo _Option$HiddenGroup_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$HiddenGroup", "com.sun.tools.javac.main.Option", "HiddenGroup", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$HiddenGroup_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$HiddenGroup",
-	"java.lang.Enum",
-	nullptr,
-	_Option$HiddenGroup_FieldInfo_,
-	_Option$HiddenGroup_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option$HiddenGroup;>;",
-	nullptr,
-	_Option$HiddenGroup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$HiddenGroup($Class* clazz) {
-	return $of($alloc(Option$HiddenGroup));
-}
 
 Option$HiddenGroup* Option$HiddenGroup::DIAGS = nullptr;
 Option$HiddenGroup* Option$HiddenGroup::DEBUG = nullptr;
@@ -98,13 +54,11 @@ void Option$HiddenGroup::init$($String* $enum$name, int32_t $enum$ordinal, $Stri
 }
 
 void Option$HiddenGroup::process($OptionHelper* helper, $String* option, $String* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, subOptions, $nc(arg)->split(";"_s));
 	{
 		$var($StringArray, arr$, subOptions);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, subOption, arr$->get(i$));
 			{
 				$assign(subOption, $str({this->text, "."_s, $($nc(subOption)->trim())}));
@@ -115,7 +69,7 @@ void Option$HiddenGroup::process($OptionHelper* helper, $String* option, $String
 	}
 }
 
-void clinit$Option$HiddenGroup($Class* class$) {
+void Option$HiddenGroup::clinit$($Class* clazz) {
 	$assignStatic(Option$HiddenGroup::DIAGS, $new(Option$HiddenGroup, "DIAGS"_s, 0, "diags"_s));
 	$assignStatic(Option$HiddenGroup::DEBUG, $new(Option$HiddenGroup, "DEBUG"_s, 1, "debug"_s));
 	$assignStatic(Option$HiddenGroup::SHOULDSTOP, $new(Option$HiddenGroup, "SHOULDSTOP"_s, 2, "should-stop"_s));
@@ -126,7 +80,44 @@ Option$HiddenGroup::Option$HiddenGroup() {
 }
 
 $Class* Option$HiddenGroup::load$($String* name, bool initialize) {
-	$loadClass(Option$HiddenGroup, name, initialize, &_Option$HiddenGroup_ClassInfo_, clinit$Option$HiddenGroup, allocate$Option$HiddenGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"DIAGS", "Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$HiddenGroup, DIAGS)},
+		{"DEBUG", "Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$HiddenGroup, DEBUG)},
+		{"SHOULDSTOP", "Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option$HiddenGroup, SHOULDSTOP)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option$HiddenGroup, $VALUES)},
+		{"text", "Ljava/lang/String;", nullptr, $FINAL, $field(Option$HiddenGroup, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$HiddenGroup, $values, $Option$HiddenGroupArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Option$HiddenGroup, init$, void, $String*, int32_t, $String*)},
+		{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$HiddenGroup, process, void, $OptionHelper*, $String*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$HiddenGroup, valueOf, Option$HiddenGroup*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$HiddenGroup, values, $Option$HiddenGroupArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$HiddenGroup", "com.sun.tools.javac.main.Option", "HiddenGroup", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$HiddenGroup",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option$HiddenGroup;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$HiddenGroup, name, initialize, &classInfo$$, Option$HiddenGroup::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$HiddenGroup));
+	});
 	return class$;
 }
 

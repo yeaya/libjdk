@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIState.h>
-
 #include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
@@ -16,56 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace apple {
 	namespace laf {
-
-$FieldInfo _JRSUIState_FieldInfo_[] = {
-	{"encodedState", "J", nullptr, $FINAL, $field(JRSUIState, encodedState)},
-	{"derivedEncodedState", "J", nullptr, 0, $field(JRSUIState, derivedEncodedState)},
-	{"prototype", "Lapple/laf/JRSUIState;", nullptr, $STATIC, $staticField(JRSUIState, prototype)},
-	{}
-};
-
-$MethodInfo _JRSUIState_MethodInfo_[] = {
-	{"<init>", "(Lapple/laf/JRSUIConstants$Widget;)V", nullptr, 0, $method(JRSUIState, init$, void, $JRSUIConstants$Widget*)},
-	{"<init>", "(J)V", nullptr, 0, $method(JRSUIState, init$, void, int64_t)},
-	{"apply", "(Lapple/laf/JRSUIControl;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState, apply, void, $JRSUIControl*)},
-	{"createDerivation", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState, createDerivation, JRSUIState*)},
-	{"derive", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState, derive, JRSUIState*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIState, equals, bool, Object$*)},
-	{"getInstance", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIState, getInstance, JRSUIState*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JRSUIState, hashCode, int32_t)},
-	{"is", "(Lapple/laf/JRSUIConstants$Property;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIState, is, bool, $JRSUIConstants$Property*)},
-	{"isDerivationSame", "()Z", nullptr, 0, $virtualMethod(JRSUIState, isDerivationSame, bool)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JRSUIState, reset, void)},
-	{"set", "(Lapple/laf/JRSUIConstants$Property;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState, set, void, $JRSUIConstants$Property*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIState_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIState$ScrollBarState", "apple.laf.JRSUIState", "ScrollBarState", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIState$TitleBarHeightState", "apple.laf.JRSUIState", "TitleBarHeightState", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIState$ValueState", "apple.laf.JRSUIState", "ValueState", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIState$AnimationFrameState", "apple.laf.JRSUIState", "AnimationFrameState", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIState",
-	"java.lang.Object",
-	nullptr,
-	_JRSUIState_FieldInfo_,
-	_JRSUIState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIState$ScrollBarState,apple.laf.JRSUIState$TitleBarHeightState,apple.laf.JRSUIState$ValueState,apple.laf.JRSUIState$AnimationFrameState"
-};
-
-$Object* allocate$JRSUIState($Class* clazz) {
-	return $of($alloc(JRSUIState));
-}
 
 JRSUIState* JRSUIState::prototype = nullptr;
 
@@ -114,18 +63,18 @@ bool JRSUIState::equals(Object$* obj) {
 	if (!($instanceOf(JRSUIState, obj))) {
 		return false;
 	}
-	return this->encodedState == $nc(($cast(JRSUIState, obj)))->encodedState && $of($of(this)->getClass())->equals($nc($of(obj))->getClass());
+	return this->encodedState == $nc($cast(JRSUIState, obj))->encodedState && $of(this)->getClass()->equals($of(obj)->getClass());
 }
 
 bool JRSUIState::is($JRSUIConstants$Property* property) {
-	return (int8_t)($sr((int64_t)(this->derivedEncodedState & (uint64_t)$nc($nc(property)->encoding)->mask), $nc(property->encoding)->shift)) == property->ordinal;
+	return (int8_t)($sr(this->derivedEncodedState & $nc($nc(property)->encoding)->mask, $nc($nc(property)->encoding)->shift)) == $nc(property)->ordinal;
 }
 
 int32_t JRSUIState::hashCode() {
-	return (int32_t)(this->encodedState ^ ((int64_t)((uint64_t)this->encodedState >> 32))) ^ $of($of(this)->getClass())->hashCode();
+	return (int32_t)(this->encodedState ^ ((int64_t)((uint64_t)this->encodedState >> 32))) ^ $of(this)->getClass()->hashCode();
 }
 
-void clinit$JRSUIState($Class* class$) {
+void JRSUIState::clinit$($Class* clazz) {
 	$assignStatic(JRSUIState::prototype, $new(JRSUIState, (int64_t)0));
 }
 
@@ -133,7 +82,51 @@ JRSUIState::JRSUIState() {
 }
 
 $Class* JRSUIState::load$($String* name, bool initialize) {
-	$loadClass(JRSUIState, name, initialize, &_JRSUIState_ClassInfo_, clinit$JRSUIState, allocate$JRSUIState);
+	$FieldInfo fieldInfos$$[] = {
+		{"encodedState", "J", nullptr, $FINAL, $field(JRSUIState, encodedState)},
+		{"derivedEncodedState", "J", nullptr, 0, $field(JRSUIState, derivedEncodedState)},
+		{"prototype", "Lapple/laf/JRSUIState;", nullptr, $STATIC, $staticField(JRSUIState, prototype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lapple/laf/JRSUIConstants$Widget;)V", nullptr, 0, $method(JRSUIState, init$, void, $JRSUIConstants$Widget*)},
+		{"<init>", "(J)V", nullptr, 0, $method(JRSUIState, init$, void, int64_t)},
+		{"apply", "(Lapple/laf/JRSUIControl;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState, apply, void, $JRSUIControl*)},
+		{"createDerivation", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState, createDerivation, JRSUIState*)},
+		{"derive", "()Lapple/laf/JRSUIState;", "<T:Lapple/laf/JRSUIState;>()TT;", $PUBLIC, $virtualMethod(JRSUIState, derive, JRSUIState*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIState, equals, bool, Object$*)},
+		{"getInstance", "()Lapple/laf/JRSUIState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIState, getInstance, JRSUIState*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JRSUIState, hashCode, int32_t)},
+		{"is", "(Lapple/laf/JRSUIConstants$Property;)Z", nullptr, $PUBLIC, $virtualMethod(JRSUIState, is, bool, $JRSUIConstants$Property*)},
+		{"isDerivationSame", "()Z", nullptr, 0, $virtualMethod(JRSUIState, isDerivationSame, bool)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(JRSUIState, reset, void)},
+		{"set", "(Lapple/laf/JRSUIConstants$Property;)V", nullptr, $PUBLIC, $virtualMethod(JRSUIState, set, void, $JRSUIConstants$Property*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIState$ScrollBarState", "apple.laf.JRSUIState", "ScrollBarState", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIState$TitleBarHeightState", "apple.laf.JRSUIState", "TitleBarHeightState", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIState$ValueState", "apple.laf.JRSUIState", "ValueState", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIState$AnimationFrameState", "apple.laf.JRSUIState", "AnimationFrameState", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIState$ScrollBarState,apple.laf.JRSUIState$TitleBarHeightState,apple.laf.JRSUIState$ValueState,apple.laf.JRSUIState$AnimationFrameState"
+	};
+	$loadClass(JRSUIState, name, initialize, &classInfo$$, JRSUIState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIState);
+	});
 	return class$;
 }
 

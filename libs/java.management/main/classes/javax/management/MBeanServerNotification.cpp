@@ -1,5 +1,4 @@
 #include <javax/management/MBeanServerNotification.h>
-
 #include <javax/management/Notification.h>
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
@@ -15,34 +14,6 @@ using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MBeanServerNotification_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerNotification, serialVersionUID)},
-	{"REGISTRATION_NOTIFICATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MBeanServerNotification, REGISTRATION_NOTIFICATION)},
-	{"UNREGISTRATION_NOTIFICATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MBeanServerNotification, UNREGISTRATION_NOTIFICATION)},
-	{"objectName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerNotification, objectName)},
-	{}
-};
-
-$MethodInfo _MBeanServerNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JLjavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(MBeanServerNotification, init$, void, $String*, Object$*, int64_t, $ObjectName*)},
-	{"getMBeanName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MBeanServerNotification, getMBeanName, $ObjectName*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerNotification, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MBeanServerNotification_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanServerNotification",
-	"javax.management.Notification",
-	nullptr,
-	_MBeanServerNotification_FieldInfo_,
-	_MBeanServerNotification_MethodInfo_
-};
-
-$Object* allocate$MBeanServerNotification($Class* clazz) {
-	return $of($alloc(MBeanServerNotification));
-}
 
 $String* MBeanServerNotification::REGISTRATION_NOTIFICATION = nullptr;
 $String* MBeanServerNotification::UNREGISTRATION_NOTIFICATION = nullptr;
@@ -63,13 +34,36 @@ $String* MBeanServerNotification::toString() {
 MBeanServerNotification::MBeanServerNotification() {
 }
 
-void clinit$MBeanServerNotification($Class* class$) {
+void MBeanServerNotification::clinit$($Class* clazz) {
 	$assignStatic(MBeanServerNotification::REGISTRATION_NOTIFICATION, "JMX.mbean.registered"_s);
 	$assignStatic(MBeanServerNotification::UNREGISTRATION_NOTIFICATION, "JMX.mbean.unregistered"_s);
 }
 
 $Class* MBeanServerNotification::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerNotification, name, initialize, &_MBeanServerNotification_ClassInfo_, clinit$MBeanServerNotification, allocate$MBeanServerNotification);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerNotification, serialVersionUID)},
+		{"REGISTRATION_NOTIFICATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MBeanServerNotification, REGISTRATION_NOTIFICATION)},
+		{"UNREGISTRATION_NOTIFICATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MBeanServerNotification, UNREGISTRATION_NOTIFICATION)},
+		{"objectName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerNotification, objectName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JLjavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(MBeanServerNotification, init$, void, $String*, Object$*, int64_t, $ObjectName*)},
+		{"getMBeanName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MBeanServerNotification, getMBeanName, $ObjectName*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerNotification, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanServerNotification",
+		"javax.management.Notification",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanServerNotification, name, initialize, &classInfo$$, MBeanServerNotification::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanServerNotification);
+	});
 	return class$;
 }
 

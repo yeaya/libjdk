@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/HPACK$RootLogger.h>
-
 #include <jdk/internal/net/http/hpack/HPACK$Logger$Level.h>
 #include <jdk/internal/net/http/hpack/HPACK$Logger.h>
 #include <jdk/internal/net/http/hpack/HPACK.h>
@@ -17,37 +16,6 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$MethodInfo _HPACK$RootLogger_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PROTECTED, $method(HPACK$RootLogger, init$, void, $HPACK$Logger$Level*)},
-	{}
-};
-
-$InnerClassInfo _HPACK$RootLogger_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.HPACK$RootLogger", "jdk.internal.net.http.hpack.HPACK", "RootLogger", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HPACK$RootLogger_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.HPACK$RootLogger",
-	"jdk.internal.net.http.hpack.HPACK$Logger",
-	nullptr,
-	nullptr,
-	_HPACK$RootLogger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HPACK$RootLogger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.HPACK"
-};
-
-$Object* allocate$HPACK$RootLogger($Class* clazz) {
-	return $of($alloc(HPACK$RootLogger));
-}
-
 void HPACK$RootLogger::init$($HPACK$Logger$Level* level) {
 	$HPACK$Logger::init$("hpack"_s, "hpack"_s, level);
 }
@@ -56,7 +24,33 @@ HPACK$RootLogger::HPACK$RootLogger() {
 }
 
 $Class* HPACK$RootLogger::load$($String* name, bool initialize) {
-	$loadClass(HPACK$RootLogger, name, initialize, &_HPACK$RootLogger_ClassInfo_, allocate$HPACK$RootLogger);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PROTECTED, $method(HPACK$RootLogger, init$, void, $HPACK$Logger$Level*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.HPACK$RootLogger", "jdk.internal.net.http.hpack.HPACK", "RootLogger", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.HPACK$Logger", "jdk.internal.net.http.hpack.HPACK", "Logger", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.HPACK$RootLogger",
+		"jdk.internal.net.http.hpack.HPACK$Logger",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.HPACK"
+	};
+	$loadClass(HPACK$RootLogger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HPACK$RootLogger);
+	});
 	return class$;
 }
 

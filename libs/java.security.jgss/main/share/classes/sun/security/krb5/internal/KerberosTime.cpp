@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KerberosTime.h>
-
 #include <java/lang/Math.h>
 #include <java/time/Instant.h>
 #include <java/util/Calendar.h>
@@ -26,7 +25,6 @@
 #undef SECOND
 #undef YEAR
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -49,57 +47,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _KerberosTime_FieldInfo_[] = {
-	{"kerberosTime", "J", nullptr, $PRIVATE | $FINAL, $field(KerberosTime, kerberosTime)},
-	{"microSeconds", "I", nullptr, $PRIVATE | $FINAL, $field(KerberosTime, microSeconds)},
-	{"initMilli", "J", nullptr, $PRIVATE | $STATIC, $staticField(KerberosTime, initMilli)},
-	{"initMicro", "J", nullptr, $PRIVATE | $STATIC, $staticField(KerberosTime, initMicro)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KerberosTime, DEBUG)},
-	{}
-};
-
-$MethodInfo _KerberosTime_MethodInfo_[] = {
-	{"<init>", "(JI)V", nullptr, $PRIVATE, $method(KerberosTime, init$, void, int64_t, int32_t)},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, int64_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, $String*), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, $Date*)},
-	{"<init>", "(Ljava/time/Instant;)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, $Instant*)},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KerberosTime, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, equals, bool, Object$*)},
-	{"getDefaultSkew", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosTime, getDefaultSkew, int32_t)},
-	{"getMicroSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTime, getMicroSeconds, int32_t)},
-	{"getSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTime, getSeconds, int32_t)},
-	{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(KerberosTime, getTime, int64_t)},
-	{"greaterThan", "(Lsun/security/krb5/internal/KerberosTime;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, greaterThan, bool, KerberosTime*)},
-	{"greaterThanWRTClockSkew", "(Lsun/security/krb5/internal/KerberosTime;I)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, greaterThanWRTClockSkew, bool, KerberosTime*, int32_t)},
-	{"greaterThanWRTClockSkew", "(Lsun/security/krb5/internal/KerberosTime;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, greaterThanWRTClockSkew, bool, KerberosTime*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTime, hashCode, int32_t)},
-	{"inClockSkew", "(I)Z", nullptr, $PRIVATE, $method(KerberosTime, inClockSkew, bool, int32_t)},
-	{"inClockSkew", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, inClockSkew, bool)},
-	{"isZero", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, isZero, bool)},
-	{"now", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosTime, now, KerberosTime*)},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosTime, parse, KerberosTime*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"toDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, toDate, $Date*)},
-	{"toGeneralizedTimeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, toGeneralizedTimeString, $String*)},
-	{"toKerberosTime", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(KerberosTime, toKerberosTime, int64_t, $String*), "sun.security.krb5.Asn1Exception"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, toString, $String*)},
-	{"withMicroSeconds", "(I)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, withMicroSeconds, KerberosTime*, int32_t)},
-	{}
-};
-
-$ClassInfo _KerberosTime_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KerberosTime",
-	"java.lang.Object",
-	nullptr,
-	_KerberosTime_FieldInfo_,
-	_KerberosTime_MethodInfo_
-};
-
-$Object* allocate$KerberosTime($Class* clazz) {
-	return $of($alloc(KerberosTime));
-}
-
 int64_t KerberosTime::initMilli = 0;
 int64_t KerberosTime::initMicro = 0;
 bool KerberosTime::DEBUG = false;
@@ -119,22 +66,21 @@ void KerberosTime::init$($String* time) {
 
 int64_t KerberosTime::toKerberosTime($String* time) {
 	$init(KerberosTime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(time)->length() != 15) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_TIMEFORMAT);
 	}
-	if ($nc(time)->charAt(14) != u'Z') {
+	if (time->charAt(14) != u'Z') {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_TIMEFORMAT);
 	}
-	int32_t year = $Integer::parseInt($($nc(time)->substring(0, 4)));
+	int32_t year = $Integer::parseInt($(time->substring(0, 4)));
 	$var($Calendar, calendar, $Calendar::getInstance($($TimeZone::getTimeZone("UTC"_s))));
 	$nc(calendar)->clear();
-	int32_t var$0 = year;
-	int32_t var$1 = $Integer::parseInt($($nc(time)->substring(4, 6))) - 1;
-	int32_t var$2 = $Integer::parseInt($($nc(time)->substring(6, 8)));
-	int32_t var$3 = $Integer::parseInt($($nc(time)->substring(8, 10)));
-	int32_t var$4 = $Integer::parseInt($($nc(time)->substring(10, 12)));
-	calendar->set(var$0, var$1, var$2, var$3, var$4, $Integer::parseInt($($nc(time)->substring(12, 14))));
+	int32_t var$0 = $Integer::parseInt($(time->substring(4, 6))) - 1;
+	int32_t var$1 = $Integer::parseInt($(time->substring(6, 8)));
+	int32_t var$2 = $Integer::parseInt($(time->substring(8, 10)));
+	int32_t var$3 = $Integer::parseInt($(time->substring(10, 12)));
+	calendar->set(year, var$0, var$1, var$2, var$3, $Integer::parseInt($(time->substring(12, 14))));
 	return calendar->getTimeInMillis();
 }
 
@@ -167,22 +113,22 @@ KerberosTime* KerberosTime::now() {
 }
 
 $String* KerberosTime::toGeneralizedTimeString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, calendar, $Calendar::getInstance($($TimeZone::getTimeZone("UTC"_s))));
 	$nc(calendar)->clear();
 	calendar->setTimeInMillis(this->kerberosTime);
 	return $String::format("%04d%02d%02d%02d%02d%02dZ"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(calendar->get($Calendar::YEAR)))),
-		$($of($Integer::valueOf(calendar->get($Calendar::MONTH) + 1))),
-		$($of($Integer::valueOf(calendar->get($Calendar::DAY_OF_MONTH)))),
-		$($of($Integer::valueOf(calendar->get($Calendar::HOUR_OF_DAY)))),
-		$($of($Integer::valueOf(calendar->get($Calendar::MINUTE)))),
-		$($of($Integer::valueOf(calendar->get($Calendar::SECOND))))
+		$($Integer::valueOf(calendar->get($Calendar::YEAR))),
+		$($Integer::valueOf(calendar->get($Calendar::MONTH) + 1)),
+		$($Integer::valueOf(calendar->get($Calendar::DAY_OF_MONTH))),
+		$($Integer::valueOf(calendar->get($Calendar::HOUR_OF_DAY))),
+		$($Integer::valueOf(calendar->get($Calendar::MINUTE))),
+		$($Integer::valueOf(calendar->get($Calendar::SECOND)))
 	}));
 }
 
 $bytes* KerberosTime::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	out->putGeneralizedTime($(this->toDate()));
 	return out->toByteArray();
@@ -225,7 +171,7 @@ bool KerberosTime::greaterThanWRTClockSkew(KerberosTime* time) {
 }
 
 bool KerberosTime::greaterThan(KerberosTime* time) {
-	return this->kerberosTime > $nc(time)->kerberosTime || this->kerberosTime == $nc(time)->kerberosTime && this->microSeconds > time->microSeconds;
+	return this->kerberosTime > $nc(time)->kerberosTime || this->kerberosTime == time->kerberosTime && this->microSeconds > time->microSeconds;
 }
 
 bool KerberosTime::equals(Object$* obj) {
@@ -235,7 +181,7 @@ bool KerberosTime::equals(Object$* obj) {
 	if (!($instanceOf(KerberosTime, obj))) {
 		return false;
 	}
-	return this->kerberosTime == $nc(($cast(KerberosTime, obj)))->kerberosTime && this->microSeconds == ($cast(KerberosTime, obj))->microSeconds;
+	return this->kerberosTime == $nc($cast(KerberosTime, obj))->kerberosTime && this->microSeconds == $cast(KerberosTime, obj)->microSeconds;
 }
 
 int32_t KerberosTime::hashCode() {
@@ -253,15 +199,15 @@ int32_t KerberosTime::getSeconds() {
 
 KerberosTime* KerberosTime::parse($DerInputStream* data, int8_t explicitTag, bool optional) {
 	$init(KerberosTime);
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		$var($Date, temp, $nc(subDer)->getGeneralizedTime());
 		return $new(KerberosTime, $nc(temp)->getTime(), 0);
 	}
@@ -269,10 +215,10 @@ KerberosTime* KerberosTime::parse($DerInputStream* data, int8_t explicitTag, boo
 
 int32_t KerberosTime::getDefaultSkew() {
 	$init(KerberosTime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tdiff = $Krb5::DEFAULT_ALLOWABLE_CLOCKSKEW;
 	try {
-		if ((tdiff = $nc($($Config::getInstance()))->getIntValue($$new($StringArray, {
+		if ((tdiff = $$nc($Config::getInstance())->getIntValue($$new($StringArray, {
 			"libdefaults"_s,
 			"clockskew"_s
 		}))) == $Integer::MIN_VALUE) {
@@ -290,7 +236,7 @@ $String* KerberosTime::toString() {
 	return toGeneralizedTimeString();
 }
 
-void clinit$KerberosTime($Class* class$) {
+void KerberosTime::clinit$($Class* clazz) {
 	KerberosTime::initMilli = $System::currentTimeMillis();
 	KerberosTime::initMicro = $System::nanoTime() / 1000;
 	$init($Krb5);
@@ -301,7 +247,53 @@ KerberosTime::KerberosTime() {
 }
 
 $Class* KerberosTime::load$($String* name, bool initialize) {
-	$loadClass(KerberosTime, name, initialize, &_KerberosTime_ClassInfo_, clinit$KerberosTime, allocate$KerberosTime);
+	$FieldInfo fieldInfos$$[] = {
+		{"kerberosTime", "J", nullptr, $PRIVATE | $FINAL, $field(KerberosTime, kerberosTime)},
+		{"microSeconds", "I", nullptr, $PRIVATE | $FINAL, $field(KerberosTime, microSeconds)},
+		{"initMilli", "J", nullptr, $PRIVATE | $STATIC, $staticField(KerberosTime, initMilli)},
+		{"initMicro", "J", nullptr, $PRIVATE | $STATIC, $staticField(KerberosTime, initMicro)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KerberosTime, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JI)V", nullptr, $PRIVATE, $method(KerberosTime, init$, void, int64_t, int32_t)},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, int64_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, $String*), "sun.security.krb5.Asn1Exception"},
+		{"<init>", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, $Date*)},
+		{"<init>", "(Ljava/time/Instant;)V", nullptr, $PUBLIC, $method(KerberosTime, init$, void, $Instant*)},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KerberosTime, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, equals, bool, Object$*)},
+		{"getDefaultSkew", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosTime, getDefaultSkew, int32_t)},
+		{"getMicroSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTime, getMicroSeconds, int32_t)},
+		{"getSeconds", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTime, getSeconds, int32_t)},
+		{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(KerberosTime, getTime, int64_t)},
+		{"greaterThan", "(Lsun/security/krb5/internal/KerberosTime;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, greaterThan, bool, KerberosTime*)},
+		{"greaterThanWRTClockSkew", "(Lsun/security/krb5/internal/KerberosTime;I)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, greaterThanWRTClockSkew, bool, KerberosTime*, int32_t)},
+		{"greaterThanWRTClockSkew", "(Lsun/security/krb5/internal/KerberosTime;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, greaterThanWRTClockSkew, bool, KerberosTime*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosTime, hashCode, int32_t)},
+		{"inClockSkew", "(I)Z", nullptr, $PRIVATE, $method(KerberosTime, inClockSkew, bool, int32_t)},
+		{"inClockSkew", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, inClockSkew, bool)},
+		{"isZero", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosTime, isZero, bool)},
+		{"now", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosTime, now, KerberosTime*)},
+		{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosTime, parse, KerberosTime*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"toDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, toDate, $Date*)},
+		{"toGeneralizedTimeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, toGeneralizedTimeString, $String*)},
+		{"toKerberosTime", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(KerberosTime, toKerberosTime, int64_t, $String*), "sun.security.krb5.Asn1Exception"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, toString, $String*)},
+		{"withMicroSeconds", "(I)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(KerberosTime, withMicroSeconds, KerberosTime*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KerberosTime",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KerberosTime, name, initialize, &classInfo$$, KerberosTime::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KerberosTime);
+	});
 	return class$;
 }
 

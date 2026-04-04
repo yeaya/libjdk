@@ -9,6 +9,7 @@ class $export CharsetContainmentTest : public ::java::lang::Object {
 	$class(CharsetContainmentTest, 0, ::java::lang::Object)
 public:
 	CharsetContainmentTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $StringArray* encodings;

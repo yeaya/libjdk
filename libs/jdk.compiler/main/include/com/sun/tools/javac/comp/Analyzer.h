@@ -82,6 +82,7 @@ class $import Analyzer : public ::java::lang::Object {
 	$class(Analyzer, 0, ::java::lang::Object)
 public:
 	Analyzer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void analyze(::com::sun::tools::javac::tree::JCTree$JCStatement* statement, ::com::sun::tools::javac::comp::Env* env);
 	virtual void analyzeIfNeeded(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::comp::Env* env);

@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CurrencyNames_is_IS.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,33 +12,14 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CurrencyNames_is_IS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_is_IS, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_is_IS, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_is_IS_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CurrencyNames_is_IS",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_is_IS_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_is_IS($Class* clazz) {
-	return $of($alloc(CurrencyNames_is_IS));
-}
-
 void CurrencyNames_is_IS::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_is_IS::getContents() {
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("ISK"_s),
-		$of("kr."_s)
+		"ISK"_s,
+		"kr."_s
 	})});
 }
 
@@ -47,7 +27,22 @@ CurrencyNames_is_IS::CurrencyNames_is_IS() {
 }
 
 $Class* CurrencyNames_is_IS::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_is_IS, name, initialize, &_CurrencyNames_is_IS_ClassInfo_, allocate$CurrencyNames_is_IS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_is_IS, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_is_IS, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CurrencyNames_is_IS",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_is_IS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_is_IS);
+	});
 	return class$;
 }
 

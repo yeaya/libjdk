@@ -1,5 +1,4 @@
 #include <javax/sound/midi/MidiSystem.h>
-
 #include <com/sun/media/sound/AutoConnectSequencer.h>
 #include <com/sun/media/sound/JDK13Services.h>
 #include <com/sun/media/sound/MidiDeviceReceiverEnvelope.h>
@@ -10,7 +9,6 @@
 #include <java/io/OutputStream.h>
 #include <java/net/URL.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -52,7 +50,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -81,71 +78,14 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$MethodInfo _MidiSystem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MidiSystem, init$, void)},
-	{"getDefaultDevice", "(Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getDefaultDevice, $MidiDevice*, $Class*)},
-	{"getDefaultDeviceWrapper", "(Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getDefaultDeviceWrapper, $MidiDevice*, $Class*), "javax.sound.midi.MidiUnavailableException"},
-	{"getFirstDevice", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $MidiDeviceProvider*, $Class*)},
-	{"getFirstDevice", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $MidiDeviceProvider*, $Class*, bool, bool)},
-	{"getFirstDevice", "(Ljava/util/List;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $List*, $Class*)},
-	{"getFirstDevice", "(Ljava/util/List;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $List*, $Class*, bool, bool)},
-	{"getMidiDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiDevice, $MidiDevice*, $MidiDevice$Info*), "javax.sound.midi.MidiUnavailableException"},
-	{"getMidiDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiDeviceInfo, $MidiDevice$InfoArray*)},
-	{"getMidiDeviceProviders", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getMidiDeviceProviders, $List*)},
-	{"getMidiFileFormat", "(Ljava/io/InputStream;)Ljavax/sound/midi/MidiFileFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileFormat, $MidiFileFormat*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getMidiFileFormat", "(Ljava/net/URL;)Ljavax/sound/midi/MidiFileFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileFormat, $MidiFileFormat*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getMidiFileFormat", "(Ljava/io/File;)Ljavax/sound/midi/MidiFileFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileFormat, $MidiFileFormat*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getMidiFileReaders", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/MidiFileReader;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getMidiFileReaders, $List*)},
-	{"getMidiFileTypes", "()[I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileTypes, $ints*)},
-	{"getMidiFileTypes", "(Ljavax/sound/midi/Sequence;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileTypes, $ints*, $Sequence*)},
-	{"getMidiFileWriters", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/MidiFileWriter;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getMidiFileWriters, $List*)},
-	{"getNamedDevice", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $MidiDeviceProvider*, $Class*)},
-	{"getNamedDevice", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $MidiDeviceProvider*, $Class*, bool, bool)},
-	{"getNamedDevice", "(Ljava/lang/String;Ljava/util/List;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $List*, $Class*)},
-	{"getNamedDevice", "(Ljava/lang/String;Ljava/util/List;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $List*, $Class*, bool, bool)},
-	{"getNamedProvider", "(Ljava/lang/String;Ljava/util/List;)Ljavax/sound/midi/spi/MidiDeviceProvider;", "(Ljava/lang/String;Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;)Ljavax/sound/midi/spi/MidiDeviceProvider;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedProvider, $MidiDeviceProvider*, $String*, $List*)},
-	{"getProviders", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<*>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getProviders, $List*, $Class*)},
-	{"getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getReceiver, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
-	{"getSequence", "(Ljava/io/InputStream;)Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequence, $Sequence*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSequence", "(Ljava/net/URL;)Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequence, $Sequence*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSequence", "(Ljava/io/File;)Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequence, $Sequence*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSequencer", "()Ljavax/sound/midi/Sequencer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequencer, $Sequencer*), "javax.sound.midi.MidiUnavailableException"},
-	{"getSequencer", "(Z)Ljavax/sound/midi/Sequencer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequencer, $Sequencer*, bool), "javax.sound.midi.MidiUnavailableException"},
-	{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbankReaders", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/SoundbankReader;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getSoundbankReaders, $List*)},
-	{"getSynthesizer", "()Ljavax/sound/midi/Synthesizer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSynthesizer, $Synthesizer*), "javax.sound.midi.MidiUnavailableException"},
-	{"getTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getTransmitter, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
-	{"isAppropriateDevice", "(Ljavax/sound/midi/MidiDevice;Ljava/lang/Class;ZZ)Z", "(Ljavax/sound/midi/MidiDevice;Ljava/lang/Class<*>;ZZ)Z", $PRIVATE | $STATIC, $staticMethod(MidiSystem, isAppropriateDevice, bool, $MidiDevice*, $Class*, bool, bool)},
-	{"isFileTypeSupported", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, isFileTypeSupported, bool, int32_t)},
-	{"isFileTypeSupported", "(ILjavax/sound/midi/Sequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, isFileTypeSupported, bool, int32_t, $Sequence*)},
-	{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/OutputStream;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, write, int32_t, $Sequence*, int32_t, $OutputStream*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/File;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, write, int32_t, $Sequence*, int32_t, $File*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MidiSystem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.midi.MidiSystem",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MidiSystem_MethodInfo_
-};
-
-$Object* allocate$MidiSystem($Class* clazz) {
-	return $of($alloc(MidiSystem));
-}
-
 void MidiSystem::init$() {
 }
 
 $MidiDevice$InfoArray* MidiSystem::getMidiDeviceInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, allInfos, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($(getMidiDeviceProviders()))->iterator());
+		$var($Iterator, i$, $$nc(getMidiDeviceProviders())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MidiDeviceProvider, provider, $cast($MidiDeviceProvider, i$->next()));
 			{
@@ -153,33 +93,31 @@ $MidiDevice$InfoArray* MidiSystem::getMidiDeviceInfo() {
 			}
 		}
 	}
-	return $fcast($MidiDevice$InfoArray, allInfos->toArray($$new($MidiDevice$InfoArray, allInfos->size())));
+	return $cast($MidiDevice$InfoArray, allInfos->toArray($$new($MidiDevice$InfoArray, allInfos->size())));
 }
 
 $MidiDevice* MidiSystem::getMidiDevice($MidiDevice$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(info);
 	{
-		$var($Iterator, i$, $nc($(getMidiDeviceProviders()))->iterator());
+		$var($Iterator, i$, $$nc(getMidiDeviceProviders())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($MidiDeviceProvider, provider, $cast($MidiDeviceProvider, i$->next()));
-			{
-				if ($nc(provider)->isDeviceSupported(info)) {
-					return provider->getDevice(info);
-				}
+			if ($nc(provider)->isDeviceSupported(info)) {
+				return provider->getDevice(info);
 			}
 		}
 	}
-	$throwNew($IllegalArgumentException, $($String::format("Requested device not installed: %s"_s, $$new($ObjectArray, {$of(info)}))));
+	$throwNew($IllegalArgumentException, $($String::format("Requested device not installed: %s"_s, $$new($ObjectArray, {info}))));
 }
 
 $Receiver* MidiSystem::getReceiver() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Receiver);
 	$var($MidiDevice, device, getDefaultDeviceWrapper($Receiver::class$));
 	$var($Receiver, receiver, nullptr);
 	if ($instanceOf($ReferenceCountingDevice, device)) {
-		$assign(receiver, $nc(($cast($ReferenceCountingDevice, device)))->getReceiverReferenceCounting());
+		$assign(receiver, $cast($ReferenceCountingDevice, device)->getReceiverReferenceCounting());
 	} else {
 		$assign(receiver, $nc(device)->getReceiver());
 	}
@@ -190,12 +128,12 @@ $Receiver* MidiSystem::getReceiver() {
 }
 
 $Transmitter* MidiSystem::getTransmitter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Transmitter);
 	$var($MidiDevice, device, getDefaultDeviceWrapper($Transmitter::class$));
 	$var($Transmitter, transmitter, nullptr);
 	if ($instanceOf($ReferenceCountingDevice, device)) {
-		$assign(transmitter, $nc(($cast($ReferenceCountingDevice, device)))->getTransmitterReferenceCounting());
+		$assign(transmitter, $cast($ReferenceCountingDevice, device)->getTransmitterReferenceCounting());
 	} else {
 		$assign(transmitter, $nc(device)->getTransmitter());
 	}
@@ -215,7 +153,7 @@ $Sequencer* MidiSystem::getSequencer() {
 }
 
 $Sequencer* MidiSystem::getSequencer(bool connected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Sequencer);
 	$var($Sequencer, seq, $cast($Sequencer, getDefaultDeviceWrapper($Sequencer::class$)));
 	if (connected) {
@@ -224,23 +162,21 @@ $Sequencer* MidiSystem::getSequencer(bool connected) {
 		try {
 			$var($Synthesizer, synth, getSynthesizer());
 			if ($instanceOf($ReferenceCountingDevice, synth)) {
-				$assign(rec, $nc(($cast($ReferenceCountingDevice, synth)))->getReceiverReferenceCounting());
+				$assign(rec, $cast($ReferenceCountingDevice, synth)->getReceiverReferenceCounting());
 			} else {
 				$nc(synth)->open();
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						$assign(rec, synth->getReceiver());
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						if (rec == nullptr) {
-							synth->close();
-						}
+				$var($Throwable, var$0, nullptr);
+				try {
+					$assign(rec, synth->getReceiver());
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					if (rec == nullptr) {
+						synth->close();
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
-					}
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		} catch ($MidiUnavailableException& e) {
@@ -258,9 +194,9 @@ $Sequencer* MidiSystem::getSequencer(bool connected) {
 			}
 		}
 		if (rec != nullptr) {
-			$nc($($nc(seq)->getTransmitter()))->setReceiver(rec);
+			$$nc($nc(seq)->getTransmitter())->setReceiver(rec);
 			if ($instanceOf($AutoConnectSequencer, seq)) {
-				$nc(($cast($AutoConnectSequencer, seq)))->setAutoConnect(rec);
+				$cast($AutoConnectSequencer, seq)->setAutoConnect(rec);
 			}
 		} else {
 			if (mue != nullptr) {
@@ -273,7 +209,7 @@ $Sequencer* MidiSystem::getSequencer(bool connected) {
 }
 
 $Soundbank* MidiSystem::getSoundbank($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(stream);
 	$var($SoundbankReader, sp, nullptr);
 	$var($Soundbank, s, nullptr);
@@ -289,7 +225,7 @@ $Soundbank* MidiSystem::getSoundbank($InputStream* stream) {
 }
 
 $Soundbank* MidiSystem::getSoundbank($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(url);
 	$var($SoundbankReader, sp, nullptr);
 	$var($Soundbank, s, nullptr);
@@ -305,7 +241,7 @@ $Soundbank* MidiSystem::getSoundbank($URL* url) {
 }
 
 $Soundbank* MidiSystem::getSoundbank($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(file);
 	$var($SoundbankReader, sp, nullptr);
 	$var($Soundbank, s, nullptr);
@@ -321,7 +257,7 @@ $Soundbank* MidiSystem::getSoundbank($File* file) {
 }
 
 $MidiFileFormat* MidiSystem::getMidiFileFormat($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(stream);
 	$var($List, providers, getMidiFileReaders());
 	$var($MidiFileFormat, format, nullptr);
@@ -342,7 +278,7 @@ $MidiFileFormat* MidiSystem::getMidiFileFormat($InputStream* stream) {
 }
 
 $MidiFileFormat* MidiSystem::getMidiFileFormat($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(url);
 	$var($List, providers, getMidiFileReaders());
 	$var($MidiFileFormat, format, nullptr);
@@ -363,7 +299,7 @@ $MidiFileFormat* MidiSystem::getMidiFileFormat($URL* url) {
 }
 
 $MidiFileFormat* MidiSystem::getMidiFileFormat($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(file);
 	$var($List, providers, getMidiFileReaders());
 	$var($MidiFileFormat, format, nullptr);
@@ -384,7 +320,7 @@ $MidiFileFormat* MidiSystem::getMidiFileFormat($File* file) {
 }
 
 $Sequence* MidiSystem::getSequence($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(stream);
 	$var($List, providers, getMidiFileReaders());
 	$var($Sequence, sequence, nullptr);
@@ -405,7 +341,7 @@ $Sequence* MidiSystem::getSequence($InputStream* stream) {
 }
 
 $Sequence* MidiSystem::getSequence($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(url);
 	$var($List, providers, getMidiFileReaders());
 	$var($Sequence, sequence, nullptr);
@@ -426,7 +362,7 @@ $Sequence* MidiSystem::getSequence($URL* url) {
 }
 
 $Sequence* MidiSystem::getSequence($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(file);
 	$var($List, providers, getMidiFileReaders());
 	$var($Sequence, sequence, nullptr);
@@ -447,7 +383,7 @@ $Sequence* MidiSystem::getSequence($File* file) {
 }
 
 $ints* MidiSystem::getMidiFileTypes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, providers, getMidiFileWriters());
 	$var($Set, allTypes, $new($HashSet));
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
@@ -472,7 +408,7 @@ $ints* MidiSystem::getMidiFileTypes() {
 }
 
 bool MidiSystem::isFileTypeSupported(int32_t fileType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, providers, getMidiFileWriters());
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
 		$var($MidiFileWriter, writer, $cast($MidiFileWriter, providers->get(i)));
@@ -484,7 +420,7 @@ bool MidiSystem::isFileTypeSupported(int32_t fileType) {
 }
 
 $ints* MidiSystem::getMidiFileTypes($Sequence* sequence) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(sequence);
 	$var($List, providers, getMidiFileWriters());
 	$var($Set, allTypes, $new($HashSet));
@@ -510,7 +446,7 @@ $ints* MidiSystem::getMidiFileTypes($Sequence* sequence) {
 }
 
 bool MidiSystem::isFileTypeSupported(int32_t fileType, $Sequence* sequence) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(sequence);
 	$var($List, providers, getMidiFileWriters());
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
@@ -523,7 +459,7 @@ bool MidiSystem::isFileTypeSupported(int32_t fileType, $Sequence* sequence) {
 }
 
 int32_t MidiSystem::write($Sequence* in, int32_t fileType, $OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(in);
 	$Objects::requireNonNull(out);
 	$var($List, providers, getMidiFileWriters());
@@ -542,7 +478,7 @@ int32_t MidiSystem::write($Sequence* in, int32_t fileType, $OutputStream* out) {
 }
 
 int32_t MidiSystem::write($Sequence* in, int32_t type, $File* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(in);
 	$Objects::requireNonNull(out);
 	$var($List, providers, getMidiFileWriters());
@@ -592,7 +528,7 @@ $MidiDevice* MidiSystem::getDefaultDeviceWrapper($Class* deviceClass) {
 }
 
 $MidiDevice* MidiSystem::getDefaultDevice($Class* deviceClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, providers, getMidiDeviceProviders());
 	$var($String, providerClassName, $JDK13Services::getDefaultProviderClassName(deviceClass));
 	$var($String, instanceName, $JDK13Services::getDefaultInstanceName(deviceClass));
@@ -626,10 +562,10 @@ $MidiDevice* MidiSystem::getDefaultDevice($Class* deviceClass) {
 }
 
 $MidiDeviceProvider* MidiSystem::getNamedProvider($String* providerClassName, $List* providers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
 		$var($MidiDeviceProvider, provider, $cast($MidiDeviceProvider, providers->get(i)));
-		if ($nc($($nc($of(provider))->getClass()->getName()))->equals(providerClassName)) {
+		if ($$nc($nc(provider)->getClass()->getName())->equals(providerClassName)) {
 			return provider;
 		}
 	}
@@ -653,10 +589,10 @@ $MidiDevice* MidiSystem::getNamedDevice($String* deviceName, $MidiDeviceProvider
 }
 
 $MidiDevice* MidiSystem::getNamedDevice($String* deviceName, $MidiDeviceProvider* provider, $Class* deviceClass, bool allowSynthesizer, bool allowSequencer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MidiDevice$InfoArray, infos, $nc(provider)->getDeviceInfo());
 	for (int32_t i = 0; i < $nc(infos)->length; ++i) {
-		if ($nc($($nc(infos->get(i))->getName()))->equals(deviceName)) {
+		if ($$nc($nc(infos->get(i))->getName())->equals(deviceName)) {
 			$var($MidiDevice, device, provider->getDevice(infos->get(i)));
 			if (isAppropriateDevice(device, deviceClass, allowSynthesizer, allowSequencer)) {
 				return device;
@@ -683,7 +619,7 @@ $MidiDevice* MidiSystem::getNamedDevice($String* deviceName, $List* providers, $
 }
 
 $MidiDevice* MidiSystem::getNamedDevice($String* deviceName, $List* providers, $Class* deviceClass, bool allowSynthesizer, bool allowSequencer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
 		$var($MidiDeviceProvider, provider, $cast($MidiDeviceProvider, providers->get(i)));
 		$var($MidiDevice, device, getNamedDevice(deviceName, provider, deviceClass, allowSynthesizer, allowSequencer));
@@ -711,7 +647,7 @@ $MidiDevice* MidiSystem::getFirstDevice($MidiDeviceProvider* provider, $Class* d
 }
 
 $MidiDevice* MidiSystem::getFirstDevice($MidiDeviceProvider* provider, $Class* deviceClass, bool allowSynthesizer, bool allowSequencer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MidiDevice$InfoArray, infos, $nc(provider)->getDeviceInfo());
 	for (int32_t j = 0; j < $nc(infos)->length; ++j) {
 		$var($MidiDevice, device, provider->getDevice(infos->get(j)));
@@ -739,7 +675,7 @@ $MidiDevice* MidiSystem::getFirstDevice($List* providers, $Class* deviceClass) {
 }
 
 $MidiDevice* MidiSystem::getFirstDevice($List* providers, $Class* deviceClass, bool allowSynthesizer, bool allowSequencer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
 		$var($MidiDeviceProvider, provider, $cast($MidiDeviceProvider, providers->get(i)));
 		$var($MidiDevice, device, getFirstDevice(provider, deviceClass, allowSynthesizer, allowSequencer));
@@ -755,7 +691,7 @@ bool MidiSystem::isAppropriateDevice($MidiDevice* device, $Class* deviceClass, b
 		return true;
 	} else if ((!($instanceOf($Sequencer, device)) && !($instanceOf($Synthesizer, device))) || (($instanceOf($Sequencer, device)) && allowSequencer) || (($instanceOf($Synthesizer, device)) && allowSynthesizer)) {
 		$load($Receiver);
-		bool var$0 = (deviceClass == $Receiver::class$ && $nc(device)->getMaxReceivers() != 0);
+		bool var$0 = deviceClass == $Receiver::class$ && $nc(device)->getMaxReceivers() != 0;
 		$load($Transmitter);
 		if (var$0 || (deviceClass == $Transmitter::class$ && $nc(device)->getMaxTransmitters() != 0)) {
 			return true;
@@ -772,7 +708,60 @@ MidiSystem::MidiSystem() {
 }
 
 $Class* MidiSystem::load$($String* name, bool initialize) {
-	$loadClass(MidiSystem, name, initialize, &_MidiSystem_ClassInfo_, allocate$MidiSystem);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MidiSystem, init$, void)},
+		{"getDefaultDevice", "(Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getDefaultDevice, $MidiDevice*, $Class*)},
+		{"getDefaultDeviceWrapper", "(Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getDefaultDeviceWrapper, $MidiDevice*, $Class*), "javax.sound.midi.MidiUnavailableException"},
+		{"getFirstDevice", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $MidiDeviceProvider*, $Class*)},
+		{"getFirstDevice", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $MidiDeviceProvider*, $Class*, bool, bool)},
+		{"getFirstDevice", "(Ljava/util/List;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $List*, $Class*)},
+		{"getFirstDevice", "(Ljava/util/List;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getFirstDevice, $MidiDevice*, $List*, $Class*, bool, bool)},
+		{"getMidiDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiDevice, $MidiDevice*, $MidiDevice$Info*), "javax.sound.midi.MidiUnavailableException"},
+		{"getMidiDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiDeviceInfo, $MidiDevice$InfoArray*)},
+		{"getMidiDeviceProviders", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getMidiDeviceProviders, $List*)},
+		{"getMidiFileFormat", "(Ljava/io/InputStream;)Ljavax/sound/midi/MidiFileFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileFormat, $MidiFileFormat*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getMidiFileFormat", "(Ljava/net/URL;)Ljavax/sound/midi/MidiFileFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileFormat, $MidiFileFormat*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getMidiFileFormat", "(Ljava/io/File;)Ljavax/sound/midi/MidiFileFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileFormat, $MidiFileFormat*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getMidiFileReaders", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/MidiFileReader;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getMidiFileReaders, $List*)},
+		{"getMidiFileTypes", "()[I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileTypes, $ints*)},
+		{"getMidiFileTypes", "(Ljavax/sound/midi/Sequence;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getMidiFileTypes, $ints*, $Sequence*)},
+		{"getMidiFileWriters", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/MidiFileWriter;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getMidiFileWriters, $List*)},
+		{"getNamedDevice", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $MidiDeviceProvider*, $Class*)},
+		{"getNamedDevice", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljavax/sound/midi/spi/MidiDeviceProvider;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $MidiDeviceProvider*, $Class*, bool, bool)},
+		{"getNamedDevice", "(Ljava/lang/String;Ljava/util/List;Ljava/lang/Class;)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $List*, $Class*)},
+		{"getNamedDevice", "(Ljava/lang/String;Ljava/util/List;Ljava/lang/Class;ZZ)Ljavax/sound/midi/MidiDevice;", "(Ljava/lang/String;Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;Ljava/lang/Class<*>;ZZ)Ljavax/sound/midi/MidiDevice;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedDevice, $MidiDevice*, $String*, $List*, $Class*, bool, bool)},
+		{"getNamedProvider", "(Ljava/lang/String;Ljava/util/List;)Ljavax/sound/midi/spi/MidiDeviceProvider;", "(Ljava/lang/String;Ljava/util/List<Ljavax/sound/midi/spi/MidiDeviceProvider;>;)Ljavax/sound/midi/spi/MidiDeviceProvider;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getNamedProvider, $MidiDeviceProvider*, $String*, $List*)},
+		{"getProviders", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<*>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getProviders, $List*, $Class*)},
+		{"getReceiver", "()Ljavax/sound/midi/Receiver;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getReceiver, $Receiver*), "javax.sound.midi.MidiUnavailableException"},
+		{"getSequence", "(Ljava/io/InputStream;)Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequence, $Sequence*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSequence", "(Ljava/net/URL;)Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequence, $Sequence*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSequence", "(Ljava/io/File;)Ljavax/sound/midi/Sequence;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequence, $Sequence*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSequencer", "()Ljavax/sound/midi/Sequencer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequencer, $Sequencer*), "javax.sound.midi.MidiUnavailableException"},
+		{"getSequencer", "(Z)Ljavax/sound/midi/Sequencer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSequencer, $Sequencer*, bool), "javax.sound.midi.MidiUnavailableException"},
+		{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbankReaders", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/sound/midi/spi/SoundbankReader;>;", $PRIVATE | $STATIC, $staticMethod(MidiSystem, getSoundbankReaders, $List*)},
+		{"getSynthesizer", "()Ljavax/sound/midi/Synthesizer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getSynthesizer, $Synthesizer*), "javax.sound.midi.MidiUnavailableException"},
+		{"getTransmitter", "()Ljavax/sound/midi/Transmitter;", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, getTransmitter, $Transmitter*), "javax.sound.midi.MidiUnavailableException"},
+		{"isAppropriateDevice", "(Ljavax/sound/midi/MidiDevice;Ljava/lang/Class;ZZ)Z", "(Ljavax/sound/midi/MidiDevice;Ljava/lang/Class<*>;ZZ)Z", $PRIVATE | $STATIC, $staticMethod(MidiSystem, isAppropriateDevice, bool, $MidiDevice*, $Class*, bool, bool)},
+		{"isFileTypeSupported", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, isFileTypeSupported, bool, int32_t)},
+		{"isFileTypeSupported", "(ILjavax/sound/midi/Sequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, isFileTypeSupported, bool, int32_t, $Sequence*)},
+		{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/OutputStream;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, write, int32_t, $Sequence*, int32_t, $OutputStream*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/midi/Sequence;ILjava/io/File;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MidiSystem, write, int32_t, $Sequence*, int32_t, $File*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.midi.MidiSystem",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MidiSystem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiSystem);
+	});
 	return class$;
 }
 

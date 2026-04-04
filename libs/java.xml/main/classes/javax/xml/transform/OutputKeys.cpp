@@ -1,5 +1,4 @@
 #include <javax/xml/transform/OutputKeys.h>
-
 #include <jcpp.h>
 
 #undef CDATA_SECTION_ELEMENTS
@@ -21,38 +20,6 @@ namespace javax {
 	namespace xml {
 		namespace transform {
 
-$FieldInfo _OutputKeys_FieldInfo_[] = {
-	{"METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, METHOD)},
-	{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, VERSION)},
-	{"ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, ENCODING)},
-	{"OMIT_XML_DECLARATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, OMIT_XML_DECLARATION)},
-	{"STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, STANDALONE)},
-	{"DOCTYPE_PUBLIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, DOCTYPE_PUBLIC)},
-	{"DOCTYPE_SYSTEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, DOCTYPE_SYSTEM)},
-	{"CDATA_SECTION_ELEMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, CDATA_SECTION_ELEMENTS)},
-	{"INDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, INDENT)},
-	{"MEDIA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, MEDIA_TYPE)},
-	{}
-};
-
-$MethodInfo _OutputKeys_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OutputKeys, init$, void)},
-	{}
-};
-
-$ClassInfo _OutputKeys_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.transform.OutputKeys",
-	"java.lang.Object",
-	nullptr,
-	_OutputKeys_FieldInfo_,
-	_OutputKeys_MethodInfo_
-};
-
-$Object* allocate$OutputKeys($Class* clazz) {
-	return $of($alloc(OutputKeys));
-}
-
 $String* OutputKeys::METHOD = nullptr;
 $String* OutputKeys::VERSION = nullptr;
 $String* OutputKeys::ENCODING = nullptr;
@@ -70,7 +37,7 @@ void OutputKeys::init$() {
 OutputKeys::OutputKeys() {
 }
 
-void clinit$OutputKeys($Class* class$) {
+void OutputKeys::clinit$($Class* clazz) {
 	$assignStatic(OutputKeys::METHOD, "method"_s);
 	$assignStatic(OutputKeys::VERSION, "version"_s);
 	$assignStatic(OutputKeys::ENCODING, "encoding"_s);
@@ -84,7 +51,34 @@ void clinit$OutputKeys($Class* class$) {
 }
 
 $Class* OutputKeys::load$($String* name, bool initialize) {
-	$loadClass(OutputKeys, name, initialize, &_OutputKeys_ClassInfo_, clinit$OutputKeys, allocate$OutputKeys);
+	$FieldInfo fieldInfos$$[] = {
+		{"METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, METHOD)},
+		{"VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, VERSION)},
+		{"ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, ENCODING)},
+		{"OMIT_XML_DECLARATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, OMIT_XML_DECLARATION)},
+		{"STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, STANDALONE)},
+		{"DOCTYPE_PUBLIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, DOCTYPE_PUBLIC)},
+		{"DOCTYPE_SYSTEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, DOCTYPE_SYSTEM)},
+		{"CDATA_SECTION_ELEMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, CDATA_SECTION_ELEMENTS)},
+		{"INDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, INDENT)},
+		{"MEDIA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutputKeys, MEDIA_TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OutputKeys, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.transform.OutputKeys",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutputKeys, name, initialize, &classInfo$$, OutputKeys::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OutputKeys);
+	});
 	return class$;
 }
 

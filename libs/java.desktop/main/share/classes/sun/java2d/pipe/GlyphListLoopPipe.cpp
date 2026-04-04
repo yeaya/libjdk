@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/GlyphListLoopPipe.h>
-
 #include <sun/awt/SunHints.h>
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -22,40 +21,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SunHints = ::sun::awt::SunHints;
 using $GlyphList = ::sun::font::GlyphList;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
-using $DrawGlyphList = ::sun::java2d::loops::DrawGlyphList;
-using $DrawGlyphListAA = ::sun::java2d::loops::DrawGlyphListAA;
-using $DrawGlyphListColor = ::sun::java2d::loops::DrawGlyphListColor;
-using $DrawGlyphListLCD = ::sun::java2d::loops::DrawGlyphListLCD;
 using $GlyphListPipe = ::sun::java2d::pipe::GlyphListPipe;
 
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$MethodInfo _GlyphListLoopPipe_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GlyphListLoopPipe, init$, void)},
-	{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;I)V", nullptr, $PROTECTED, $virtualMethod(GlyphListLoopPipe, drawGlyphList, void, $SunGraphics2D*, $GlyphList*, int32_t)},
-	{"drawGlyphListSegment", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;IIIZ)V", nullptr, $PRIVATE, $method(GlyphListLoopPipe, drawGlyphListSegment, void, $SunGraphics2D*, $GlyphList*, int32_t, int32_t, int32_t, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _GlyphListLoopPipe_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.pipe.GlyphListLoopPipe",
-	"sun.java2d.pipe.GlyphListPipe",
-	"sun.java2d.pipe.LoopBasedPipe",
-	nullptr,
-	_GlyphListLoopPipe_MethodInfo_
-};
-
-$Object* allocate$GlyphListLoopPipe($Class* clazz) {
-	return $of($alloc(GlyphListLoopPipe));
-}
 
 int32_t GlyphListLoopPipe::hashCode() {
 	 return this->$GlyphListPipe::hashCode();
@@ -104,26 +74,19 @@ void GlyphListLoopPipe::drawGlyphListSegment($SunGraphics2D* sg2d, $GlyphList* g
 		return;
 	}
 	if (isColor) {
-		$nc($nc($nc(sg2d)->loops)->drawGlyphListColorLoop)->DrawGlyphListColor$(sg2d, sg2d->surfaceData, gl, fromglyph, toGlyph);
+		$nc($nc($nc(sg2d)->loops)->drawGlyphListColorLoop)->DrawGlyphListColor$(sg2d, $nc(sg2d)->surfaceData, gl, fromglyph, toGlyph);
 	} else {
 		switch (aaHint) {
 		case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
-			{
-				$nc($nc($nc(sg2d)->loops)->drawGlyphListLoop)->DrawGlyphList$(sg2d, sg2d->surfaceData, gl, fromglyph, toGlyph);
-				return;
-			}
+			$nc($nc($nc(sg2d)->loops)->drawGlyphListLoop)->DrawGlyphList$(sg2d, $nc(sg2d)->surfaceData, gl, fromglyph, toGlyph);
+			return;
 		case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
-			{
-				$nc($nc($nc(sg2d)->loops)->drawGlyphListAALoop)->DrawGlyphListAA$(sg2d, sg2d->surfaceData, gl, fromglyph, toGlyph);
-				return;
-			}
+			$nc($nc($nc(sg2d)->loops)->drawGlyphListAALoop)->DrawGlyphListAA$(sg2d, $nc(sg2d)->surfaceData, gl, fromglyph, toGlyph);
+			return;
 		case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_HRGB:
-			{}
 		case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_VRGB:
-			{
-				$nc($nc($nc(sg2d)->loops)->drawGlyphListLCDLoop)->DrawGlyphListLCD$(sg2d, sg2d->surfaceData, gl, fromglyph, toGlyph);
-				return;
-			}
+			$nc($nc($nc(sg2d)->loops)->drawGlyphListLCDLoop)->DrawGlyphListLCD$(sg2d, $nc(sg2d)->surfaceData, gl, fromglyph, toGlyph);
+			return;
 		}
 	}
 }
@@ -132,7 +95,28 @@ GlyphListLoopPipe::GlyphListLoopPipe() {
 }
 
 $Class* GlyphListLoopPipe::load$($String* name, bool initialize) {
-	$loadClass(GlyphListLoopPipe, name, initialize, &_GlyphListLoopPipe_ClassInfo_, allocate$GlyphListLoopPipe);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GlyphListLoopPipe, init$, void)},
+		{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;I)V", nullptr, $PROTECTED, $virtualMethod(GlyphListLoopPipe, drawGlyphList, void, $SunGraphics2D*, $GlyphList*, int32_t)},
+		{"drawGlyphListSegment", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;IIIZ)V", nullptr, $PRIVATE, $method(GlyphListLoopPipe, drawGlyphListSegment, void, $SunGraphics2D*, $GlyphList*, int32_t, int32_t, int32_t, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.pipe.GlyphListLoopPipe",
+		"sun.java2d.pipe.GlyphListPipe",
+		"sun.java2d.pipe.LoopBasedPipe",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GlyphListLoopPipe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GlyphListLoopPipe));
+	});
 	return class$;
 }
 

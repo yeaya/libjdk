@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboBoxRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -30,49 +29,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicComboBoxRenderer_FieldInfo_[] = {
-	{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticField(BasicComboBoxRenderer, noFocusBorder)},
-	{"SAFE_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicComboBoxRenderer, SAFE_NO_FOCUS_BORDER)},
-	{}
-};
-
-$MethodInfo _BasicComboBoxRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxRenderer, init$, void)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(BasicComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{"getNoFocusBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicComboBoxRenderer, getNoFocusBorder, $Border*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxRenderer, getPreferredSize, $Dimension*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicComboBoxRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource", "javax.swing.plaf.basic.BasicComboBoxRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicComboBoxRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboBoxRenderer",
-	"javax.swing.JLabel",
-	"javax.swing.ListCellRenderer",
-	_BasicComboBoxRenderer_FieldInfo_,
-	_BasicComboBoxRenderer_MethodInfo_,
-	"Ljavax/swing/JLabel;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljava/io/Serializable;",
-	nullptr,
-	_BasicComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource"
-};
-
-$Object* allocate$BasicComboBoxRenderer($Class* clazz) {
-	return $of($alloc(BasicComboBoxRenderer));
-}
 
 $String* BasicComboBoxRenderer::toString() {
 	 return this->$JLabel::toString();
@@ -113,10 +69,10 @@ $Border* BasicComboBoxRenderer::getNoFocusBorder() {
 }
 
 $Dimension* BasicComboBoxRenderer::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, nullptr);
 	bool var$0 = this->getText() == nullptr;
-	if (var$0 || $nc($(this->getText()))->isEmpty()) {
+	if (var$0 || $$nc(this->getText())->isEmpty()) {
 		setText(" "_s);
 		$assign(size, $JLabel::getPreferredSize());
 		setText(""_s);
@@ -127,24 +83,24 @@ $Dimension* BasicComboBoxRenderer::getPreferredSize() {
 }
 
 $Component* BasicComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isSelected) {
 		setBackground($($nc(list)->getSelectionBackground()));
-		setForeground($($nc(list)->getSelectionForeground()));
+		setForeground($(list->getSelectionForeground()));
 	} else {
 		setBackground($($nc(list)->getBackground()));
-		setForeground($($nc(list)->getForeground()));
+		setForeground($(list->getForeground()));
 	}
 	setFont($($nc(list)->getFont()));
 	if ($instanceOf($Icon, value)) {
 		setIcon($cast($Icon, value));
 	} else {
-		setText((value == nullptr) ? ""_s : $($nc($of(value))->toString()));
+		setText((value == nullptr) ? ""_s : $($of(value)->toString()));
 	}
 	return this;
 }
 
-void clinit$BasicComboBoxRenderer($Class* class$) {
+void BasicComboBoxRenderer::clinit$($Class* clazz) {
 	$assignStatic(BasicComboBoxRenderer::noFocusBorder, $new($EmptyBorder, 1, 1, 1, 1));
 	$assignStatic(BasicComboBoxRenderer::SAFE_NO_FOCUS_BORDER, $new($EmptyBorder, 1, 1, 1, 1));
 }
@@ -153,7 +109,44 @@ BasicComboBoxRenderer::BasicComboBoxRenderer() {
 }
 
 $Class* BasicComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(BasicComboBoxRenderer, name, initialize, &_BasicComboBoxRenderer_ClassInfo_, clinit$BasicComboBoxRenderer, allocate$BasicComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticField(BasicComboBoxRenderer, noFocusBorder)},
+		{"SAFE_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicComboBoxRenderer, SAFE_NO_FOCUS_BORDER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxRenderer, init$, void)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(BasicComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{"getNoFocusBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicComboBoxRenderer, getNoFocusBorder, $Border*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxRenderer, getPreferredSize, $Dimension*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource", "javax.swing.plaf.basic.BasicComboBoxRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboBoxRenderer",
+		"javax.swing.JLabel",
+		"javax.swing.ListCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JLabel;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource"
+	};
+	$loadClass(BasicComboBoxRenderer, name, initialize, &classInfo$$, BasicComboBoxRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicComboBoxRenderer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug8049533.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Panel.h>
@@ -14,7 +13,6 @@
 using $Component = ::java::awt::Component;
 using $Frame = ::java::awt::Frame;
 using $Panel = ::java::awt::Panel;
-using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -23,30 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
-$FieldInfo _bug8049533_FieldInfo_[] = {
-	{"PRECISE_WHEEL_ROTATION", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8049533, PRECISE_WHEEL_ROTATION)},
-	{}
-};
-
-$MethodInfo _bug8049533_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8049533, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8049533, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _bug8049533_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8049533",
-	"java.lang.Object",
-	nullptr,
-	_bug8049533_FieldInfo_,
-	_bug8049533_MethodInfo_
-};
-
-$Object* allocate$bug8049533($Class* clazz) {
-	return $of($alloc(bug8049533));
-}
-
 double bug8049533::PRECISE_WHEEL_ROTATION = 0.0;
 
 void bug8049533::init$() {
@@ -54,10 +28,10 @@ void bug8049533::init$() {
 
 void bug8049533::main($StringArray* args) {
 	$init(bug8049533);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Frame, frame, $new($Frame));
 	$var($Panel, panel, $new($Panel));
-	frame->add(static_cast<$Component*>(panel));
+	frame->add(panel);
 	$var($MouseWheelEvent, event, $new($MouseWheelEvent, panel, 0, 0, 0, 0, 0, 0, 0, 0, false, 0, 0, 2, bug8049533::PRECISE_WHEEL_ROTATION));
 	$var($MouseWheelEvent, convertedEvent, $cast($MouseWheelEvent, $SwingUtilities::convertMouseEvent($(event->getComponent()), event, nullptr)));
 	if ($nc(convertedEvent)->getPreciseWheelRotation() != bug8049533::PRECISE_WHEEL_ROTATION) {
@@ -68,12 +42,31 @@ void bug8049533::main($StringArray* args) {
 bug8049533::bug8049533() {
 }
 
-void clinit$bug8049533($Class* class$) {
+void bug8049533::clinit$($Class* clazz) {
 	bug8049533::PRECISE_WHEEL_ROTATION = 3.14;
 }
 
 $Class* bug8049533::load$($String* name, bool initialize) {
-	$loadClass(bug8049533, name, initialize, &_bug8049533_ClassInfo_, clinit$bug8049533, allocate$bug8049533);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRECISE_WHEEL_ROTATION", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug8049533, PRECISE_WHEEL_ROTATION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8049533, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8049533, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8049533",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug8049533, name, initialize, &classInfo$$, bug8049533::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8049533);
+	});
 	return class$;
 }
 

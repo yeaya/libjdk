@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/AuthenticationFilter$AuthInfo.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/net/PasswordAuthentication.h>
 #include <java/util/Objects.h>
@@ -21,49 +20,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _AuthenticationFilter$AuthInfo_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AuthenticationFilter$AuthInfo, $assertionsDisabled)},
-	{"fromcache", "Z", nullptr, $FINAL, $field(AuthenticationFilter$AuthInfo, fromcache)},
-	{"scheme", "Ljava/lang/String;", nullptr, $FINAL, $field(AuthenticationFilter$AuthInfo, scheme)},
-	{"retries", "I", nullptr, 0, $field(AuthenticationFilter$AuthInfo, retries)},
-	{"credentials", "Ljava/net/PasswordAuthentication;", nullptr, 0, $field(AuthenticationFilter$AuthInfo, credentials)},
-	{"cacheEntry", "Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;", nullptr, 0, $field(AuthenticationFilter$AuthInfo, cacheEntry)},
-	{"isUTF8", "Z", nullptr, $FINAL, $field(AuthenticationFilter$AuthInfo, isUTF8)},
-	{}
-};
-
-$MethodInfo _AuthenticationFilter$AuthInfo_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Z)V", nullptr, 0, $method(AuthenticationFilter$AuthInfo, init$, void, bool, $String*, $PasswordAuthentication*, bool)},
-	{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;Z)V", nullptr, 0, $method(AuthenticationFilter$AuthInfo, init$, void, bool, $String*, $PasswordAuthentication*, $AuthenticationFilter$CacheEntry*, bool)},
-	{"retryWithCredentials", "(Ljava/net/PasswordAuthentication;Z)Ljdk/internal/net/http/AuthenticationFilter$AuthInfo;", nullptr, 0, $virtualMethod(AuthenticationFilter$AuthInfo, retryWithCredentials, AuthenticationFilter$AuthInfo*, $PasswordAuthentication*, bool)},
-	{}
-};
-
-$InnerClassInfo _AuthenticationFilter$AuthInfo_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.AuthenticationFilter$AuthInfo", "jdk.internal.net.http.AuthenticationFilter", "AuthInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _AuthenticationFilter$AuthInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.AuthenticationFilter$AuthInfo",
-	"java.lang.Object",
-	nullptr,
-	_AuthenticationFilter$AuthInfo_FieldInfo_,
-	_AuthenticationFilter$AuthInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AuthenticationFilter$AuthInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.AuthenticationFilter"
-};
-
-$Object* allocate$AuthenticationFilter$AuthInfo($Class* clazz) {
-	return $of($alloc(AuthenticationFilter$AuthInfo));
-}
 
 bool AuthenticationFilter$AuthInfo::$assertionsDisabled = false;
 
@@ -90,7 +46,7 @@ AuthenticationFilter$AuthInfo* AuthenticationFilter$AuthInfo::retryWithCredentia
 	return res;
 }
 
-void clinit$AuthenticationFilter$AuthInfo($Class* class$) {
+void AuthenticationFilter$AuthInfo::clinit$($Class* clazz) {
 	$load($AuthenticationFilter);
 	AuthenticationFilter$AuthInfo::$assertionsDisabled = !$AuthenticationFilter::class$->desiredAssertionStatus();
 }
@@ -99,7 +55,44 @@ AuthenticationFilter$AuthInfo::AuthenticationFilter$AuthInfo() {
 }
 
 $Class* AuthenticationFilter$AuthInfo::load$($String* name, bool initialize) {
-	$loadClass(AuthenticationFilter$AuthInfo, name, initialize, &_AuthenticationFilter$AuthInfo_ClassInfo_, clinit$AuthenticationFilter$AuthInfo, allocate$AuthenticationFilter$AuthInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AuthenticationFilter$AuthInfo, $assertionsDisabled)},
+		{"fromcache", "Z", nullptr, $FINAL, $field(AuthenticationFilter$AuthInfo, fromcache)},
+		{"scheme", "Ljava/lang/String;", nullptr, $FINAL, $field(AuthenticationFilter$AuthInfo, scheme)},
+		{"retries", "I", nullptr, 0, $field(AuthenticationFilter$AuthInfo, retries)},
+		{"credentials", "Ljava/net/PasswordAuthentication;", nullptr, 0, $field(AuthenticationFilter$AuthInfo, credentials)},
+		{"cacheEntry", "Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;", nullptr, 0, $field(AuthenticationFilter$AuthInfo, cacheEntry)},
+		{"isUTF8", "Z", nullptr, $FINAL, $field(AuthenticationFilter$AuthInfo, isUTF8)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Z)V", nullptr, 0, $method(AuthenticationFilter$AuthInfo, init$, void, bool, $String*, $PasswordAuthentication*, bool)},
+		{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;Z)V", nullptr, 0, $method(AuthenticationFilter$AuthInfo, init$, void, bool, $String*, $PasswordAuthentication*, $AuthenticationFilter$CacheEntry*, bool)},
+		{"retryWithCredentials", "(Ljava/net/PasswordAuthentication;Z)Ljdk/internal/net/http/AuthenticationFilter$AuthInfo;", nullptr, 0, $virtualMethod(AuthenticationFilter$AuthInfo, retryWithCredentials, AuthenticationFilter$AuthInfo*, $PasswordAuthentication*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.AuthenticationFilter$AuthInfo", "jdk.internal.net.http.AuthenticationFilter", "AuthInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.AuthenticationFilter$AuthInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.AuthenticationFilter"
+	};
+	$loadClass(AuthenticationFilter$AuthInfo, name, initialize, &classInfo$$, AuthenticationFilter$AuthInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticationFilter$AuthInfo);
+	});
 	return class$;
 }
 

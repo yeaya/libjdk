@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/OffHeapArray.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -26,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $CleanerFactory = ::jdk::internal::ref::CleanerFactory;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
@@ -45,73 +43,38 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<OffHeapArray$$Lambda$lambda$new$0>());
-	}
 	OffHeapArray* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo OffHeapArray$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(OffHeapArray$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo OffHeapArray$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lsun/java2d/marlin/OffHeapArray;)V", nullptr, $PUBLIC, $method(OffHeapArray$$Lambda$lambda$new$0, init$, void, OffHeapArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(OffHeapArray$$Lambda$lambda$new$0, run, void)},
-	{}
-};
-$ClassInfo OffHeapArray$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.marlin.OffHeapArray$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* OffHeapArray$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(OffHeapArray$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(OffHeapArray$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/OffHeapArray;)V", nullptr, $PUBLIC, $method(OffHeapArray$$Lambda$lambda$new$0, init$, void, OffHeapArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(OffHeapArray$$Lambda$lambda$new$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.marlin.OffHeapArray$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OffHeapArray$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OffHeapArray$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* OffHeapArray$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _OffHeapArray_FieldInfo_[] = {
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(OffHeapArray, UNSAFE)},
-	{"SIZE_INT", "I", nullptr, $STATIC | $FINAL, $staticField(OffHeapArray, SIZE_INT)},
-	{"address", "J", nullptr, 0, $field(OffHeapArray, address)},
-	{"length", "J", nullptr, 0, $field(OffHeapArray, length)},
-	{"used", "I", nullptr, 0, $field(OffHeapArray, used)},
-	{}
-};
-
-$MethodInfo _OffHeapArray_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(OffHeapArray, init$, void, Object$*, int64_t)},
-	{"fill", "(B)V", nullptr, 0, $method(OffHeapArray, fill, void, int8_t)},
-	{"free", "()V", nullptr, 0, $method(OffHeapArray, free, void)},
-	{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(OffHeapArray, lambda$new$0, void)},
-	{"resize", "(J)V", nullptr, 0, $method(OffHeapArray, resize, void, int64_t)},
-	{}
-};
-
-$ClassInfo _OffHeapArray_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.OffHeapArray",
-	"java.lang.Object",
-	nullptr,
-	_OffHeapArray_FieldInfo_,
-	_OffHeapArray_MethodInfo_
-};
-
-$Object* allocate$OffHeapArray($Class* clazz) {
-	return $of($alloc(OffHeapArray));
-}
 
 $Unsafe* OffHeapArray::UNSAFE = nullptr;
 int32_t OffHeapArray::SIZE_INT = 0;
 
 void OffHeapArray::init$(Object$* parent, int64_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->address = $nc(OffHeapArray::UNSAFE)->allocateMemory(len);
 	this->length = len;
 	this->used = 0;
@@ -119,11 +82,11 @@ void OffHeapArray::init$(Object$* parent, int64_t len) {
 	if ($MarlinConst::LOG_UNSAFE_MALLOC) {
 		$MarlinUtils::logInfo($$str({$$str($System::currentTimeMillis()), ": OffHeapArray.allocateMemory =   "_s, $$str(len), " to addr = "_s, $$str(this->address)}));
 	}
-	$nc($($CleanerFactory::cleaner()))->register$(parent, static_cast<$Runnable*>($$new(OffHeapArray$$Lambda$lambda$new$0, this)));
+	$$nc($CleanerFactory::cleaner())->register$(parent, $$new(OffHeapArray$$Lambda$lambda$new$0, this));
 }
 
 void OffHeapArray::resize(int64_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->address = $nc(OffHeapArray::UNSAFE)->reallocateMemory(this->address, len);
 	this->length = len;
 	$init($MarlinConst);
@@ -133,7 +96,7 @@ void OffHeapArray::resize(int64_t len) {
 }
 
 void OffHeapArray::free() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(OffHeapArray::UNSAFE)->freeMemory(this->address);
 	$init($MarlinConst);
 	if ($MarlinConst::LOG_UNSAFE_MALLOC) {
@@ -150,7 +113,7 @@ void OffHeapArray::lambda$new$0() {
 	this->free();
 }
 
-void clinit$OffHeapArray($Class* class$) {
+void OffHeapArray::clinit$($Class* clazz) {
 	{
 		$assignStatic(OffHeapArray::UNSAFE, $Unsafe::getUnsafe());
 		OffHeapArray::SIZE_INT = $Unsafe::ARRAY_INT_INDEX_SCALE;
@@ -162,11 +125,37 @@ OffHeapArray::OffHeapArray() {
 
 $Class* OffHeapArray::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(OffHeapArray$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.marlin.OffHeapArray$$Lambda$lambda$new$0")) {
 			return OffHeapArray$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(OffHeapArray, name, initialize, &_OffHeapArray_ClassInfo_, clinit$OffHeapArray, allocate$OffHeapArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(OffHeapArray, UNSAFE)},
+		{"SIZE_INT", "I", nullptr, $STATIC | $FINAL, $staticField(OffHeapArray, SIZE_INT)},
+		{"address", "J", nullptr, 0, $field(OffHeapArray, address)},
+		{"length", "J", nullptr, 0, $field(OffHeapArray, length)},
+		{"used", "I", nullptr, 0, $field(OffHeapArray, used)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(OffHeapArray, init$, void, Object$*, int64_t)},
+		{"fill", "(B)V", nullptr, 0, $method(OffHeapArray, fill, void, int8_t)},
+		{"free", "()V", nullptr, 0, $method(OffHeapArray, free, void)},
+		{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(OffHeapArray, lambda$new$0, void)},
+		{"resize", "(J)V", nullptr, 0, $method(OffHeapArray, resize, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.OffHeapArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OffHeapArray, name, initialize, &classInfo$$, OffHeapArray::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OffHeapArray);
+	});
 	return class$;
 }
 

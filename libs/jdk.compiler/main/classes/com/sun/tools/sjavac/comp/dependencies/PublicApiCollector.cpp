@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/dependencies/PublicApiCollector.h>
-
 #include <com/sun/source/tree/CompilationUnitTree.h>
 #include <com/sun/source/tree/Tree.h>
 #include <com/sun/source/util/TaskEvent$Kind.h>
@@ -31,7 +30,6 @@
 
 using $Tree = ::com::sun::source::tree::Tree;
 using $TaskEvent = ::com::sun::source::util::TaskEvent;
-using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
@@ -50,7 +48,6 @@ using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 using $Element = ::javax::lang::model::element::Element;
 
@@ -70,78 +67,32 @@ public:
 	virtual void accept(Object$* e) override {
 		$nc(inst$)->visitPubapi($cast($Element, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PublicApiCollector$$Lambda$visitPubapi>());
-	}
 	$PubAPIs* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PublicApiCollector$$Lambda$visitPubapi::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PublicApiCollector$$Lambda$visitPubapi, inst$)},
-	{}
-};
-$MethodInfo PublicApiCollector$$Lambda$visitPubapi::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/comp/PubAPIs;)V", nullptr, $PUBLIC, $method(PublicApiCollector$$Lambda$visitPubapi, init$, void, $PubAPIs*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PublicApiCollector$$Lambda$visitPubapi, accept, void, Object$*)},
-	{}
-};
-$ClassInfo PublicApiCollector$$Lambda$visitPubapi::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$$Lambda$visitPubapi",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* PublicApiCollector$$Lambda$visitPubapi::load$($String* name, bool initialize) {
-	$loadClass(PublicApiCollector$$Lambda$visitPubapi, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PublicApiCollector$$Lambda$visitPubapi, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/comp/PubAPIs;)V", nullptr, $PUBLIC, $method(PublicApiCollector$$Lambda$visitPubapi, init$, void, $PubAPIs*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PublicApiCollector$$Lambda$visitPubapi, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$$Lambda$visitPubapi",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PublicApiCollector$$Lambda$visitPubapi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PublicApiCollector$$Lambda$visitPubapi);
+	});
 	return class$;
 }
 $Class* PublicApiCollector$$Lambda$visitPubapi::class$ = nullptr;
-
-$FieldInfo _PublicApiCollector_FieldInfo_[] = {
-	{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, $PRIVATE, $field(PublicApiCollector, context)},
-	{"classSymbols", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE | $FINAL, $field(PublicApiCollector, classSymbols)},
-	{"explicitJFOs", "Ljava/util/Collection;", "Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(PublicApiCollector, explicitJFOs)},
-	{"explicitPubApis", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PRIVATE, $field(PublicApiCollector, explicitPubApis)},
-	{"nonExplicitPubApis", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PRIVATE, $field(PublicApiCollector, nonExplicitPubApis)},
-	{}
-};
-
-$MethodInfo _PublicApiCollector_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $method(PublicApiCollector, init$, void, $Context*, $Collection*)},
-	{"collectClassSymbols", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PRIVATE, $method(PublicApiCollector, collectClassSymbols, void, $JCTree$JCCompilationUnit*)},
-	{"extractPubApis", "()V", nullptr, $PRIVATE, $method(PublicApiCollector, extractPubApis, void)},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(PublicApiCollector, finished, void, $TaskEvent*)},
-	{"getPubApis", "(Z)Ljava/util/Map;", "(Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC, $virtualMethod(PublicApiCollector, getPubApis, $Map*, bool)},
-	{}
-};
-
-$InnerClassInfo _PublicApiCollector_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _PublicApiCollector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector",
-	"java.lang.Object",
-	"com.sun.source.util.TaskListener",
-	_PublicApiCollector_FieldInfo_,
-	_PublicApiCollector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PublicApiCollector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1"
-};
-
-$Object* allocate$PublicApiCollector($Class* clazz) {
-	return $of($alloc(PublicApiCollector));
-}
 
 void PublicApiCollector::init$($Context* context, $Collection* explicitJFOs) {
 	$set(this, classSymbols, $new($HashSet));
@@ -150,65 +101,57 @@ void PublicApiCollector::init$($Context* context, $Collection* explicitJFOs) {
 }
 
 void PublicApiCollector::finished($TaskEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PublicApiCollector$1);
-	{
-		$var($PubAPIs, pa, nullptr)
-		switch ($nc($PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind)->get($nc(($($nc(e)->getKind())))->ordinal())) {
-		case 1:
+	$var($PubAPIs, pa, nullptr);
+	switch ($nc($PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind)->get(($$nc($nc(e)->getKind()))->ordinal())) {
+	case 1:
+		collectClassSymbols($$cast($JCTree$JCCompilationUnit, e->getCompilationUnit()));
+		break;
+	case 2:
+		{
+			$Log::debug("Compilation finished"_s);
+			$Log::debug("Extracting pub APIs for the following symbols:"_s);
 			{
-				collectClassSymbols($cast($JCTree$JCCompilationUnit, $(e->getCompilationUnit())));
-				break;
-			}
-		case 2:
-			{
-				$Log::debug("Compilation finished"_s);
-				$Log::debug("Extracting pub APIs for the following symbols:"_s);
-				{
-					$var($Iterator, i$, $nc(this->classSymbols)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Symbol$ClassSymbol, cs, $cast($Symbol$ClassSymbol, i$->next()));
-						$Log::debug($$str({"    "_s, $nc(cs)->fullname}));
-					}
+				$var($Iterator, i$, this->classSymbols->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Symbol$ClassSymbol, cs, $cast($Symbol$ClassSymbol, i$->next()));
+					$Log::debug($$str({"    "_s, $nc(cs)->fullname}));
 				}
-				extractPubApis();
-				$assign(pa, $PubAPIs::instance(this->context));
-				$set(this, explicitPubApis, $nc(pa)->getPubapis(this->explicitJFOs, true));
-				$set(this, nonExplicitPubApis, $nc(pa)->getPubapis(this->explicitJFOs, false));
-				$Log::debug("done"_s);
-				break;
 			}
+			extractPubApis();
+			$assign(pa, $PubAPIs::instance(this->context));
+			$set(this, explicitPubApis, $nc(pa)->getPubapis(this->explicitJFOs, true));
+			$set(this, nonExplicitPubApis, pa->getPubapis(this->explicitJFOs, false));
+			$Log::debug("done"_s);
+			break;
 		}
 	}
 }
 
 void PublicApiCollector::collectClassSymbols($JCTree$JCCompilationUnit* cu) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($cast($List, $nc(cu)->getTypeDecls())))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Tree, t, $cast($Tree, i$->next()));
-			{
-				{
-					$var($JCTree$JCClassDecl, classDecl, nullptr);
-					bool var$0 = $instanceOf($JCTree$JCClassDecl, t);
-					if (var$0) {
-						$assign(classDecl, $cast($JCTree$JCClassDecl, t));
-						var$0 = true;
-					}
-					if (var$0) {
-						$nc(this->classSymbols)->add($nc(classDecl)->sym);
-					}
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$sure($List, $nc(cu)->getTypeDecls())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Tree, t, $cast($Tree, i$->next()));
+		{
+			$var($JCTree$JCClassDecl, classDecl, nullptr);
+			bool var$0 = $instanceOf($JCTree$JCClassDecl, t);
+			if (var$0) {
+				$assign(classDecl, $cast($JCTree$JCClassDecl, t));
+				var$0 = true;
+			}
+			if (var$0) {
+				this->classSymbols->add($nc(classDecl)->sym);
 			}
 		}
 	}
 }
 
 void PublicApiCollector::extractPubApis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PubAPIs, pubApis, $PubAPIs::instance(this->context));
-	$nc(this->classSymbols)->forEach(static_cast<$Consumer*>($$new(PublicApiCollector$$Lambda$visitPubapi, static_cast<$PubAPIs*>($nc(pubApis)))));
+	this->classSymbols->forEach($$new(PublicApiCollector$$Lambda$visitPubapi, $nc(pubApis)));
 }
 
 $Map* PublicApiCollector::getPubApis(bool explicit$) {
@@ -220,11 +163,47 @@ PublicApiCollector::PublicApiCollector() {
 
 $Class* PublicApiCollector::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PublicApiCollector$$Lambda$visitPubapi::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$$Lambda$visitPubapi")) {
 			return PublicApiCollector$$Lambda$visitPubapi::load$(name, initialize);
 		}
 	}
-	$loadClass(PublicApiCollector, name, initialize, &_PublicApiCollector_ClassInfo_, allocate$PublicApiCollector);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, $PRIVATE, $field(PublicApiCollector, context)},
+		{"classSymbols", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE | $FINAL, $field(PublicApiCollector, classSymbols)},
+		{"explicitJFOs", "Ljava/util/Collection;", "Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(PublicApiCollector, explicitJFOs)},
+		{"explicitPubApis", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PRIVATE, $field(PublicApiCollector, explicitPubApis)},
+		{"nonExplicitPubApis", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PRIVATE, $field(PublicApiCollector, nonExplicitPubApis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $method(PublicApiCollector, init$, void, $Context*, $Collection*)},
+		{"collectClassSymbols", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PRIVATE, $method(PublicApiCollector, collectClassSymbols, void, $JCTree$JCCompilationUnit*)},
+		{"extractPubApis", "()V", nullptr, $PRIVATE, $method(PublicApiCollector, extractPubApis, void)},
+		{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(PublicApiCollector, finished, void, $TaskEvent*)},
+		{"getPubApis", "(Z)Ljava/util/Map;", "(Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC, $virtualMethod(PublicApiCollector, getPubApis, $Map*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector",
+		"java.lang.Object",
+		"com.sun.source.util.TaskListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1"
+	};
+	$loadClass(PublicApiCollector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PublicApiCollector);
+	});
 	return class$;
 }
 

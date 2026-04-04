@@ -36,6 +36,7 @@ class WebSocketImpl$State : public ::java::lang::Enum {
 public:
 	WebSocketImpl$State();
 	static $Array<::jdk::internal::net::http::websocket::WebSocketImpl$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::net::http::websocket::WebSocketImpl$State* valueOf($String* name);
 	static $Array<::jdk::internal::net::http::websocket::WebSocketImpl$State>* values();

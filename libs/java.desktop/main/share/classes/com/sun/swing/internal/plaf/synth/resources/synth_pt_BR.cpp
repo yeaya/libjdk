@@ -1,5 +1,4 @@
 #include <com/sun/swing/internal/plaf/synth/resources/synth_pt_BR.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,131 +15,112 @@ namespace com {
 					namespace synth {
 						namespace resources {
 
-$MethodInfo _synth_pt_BR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(synth_pt_BR, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(synth_pt_BR, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _synth_pt_BR_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.swing.internal.plaf.synth.resources.synth_pt_BR",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_synth_pt_BR_MethodInfo_
-};
-
-$Object* allocate$synth_pt_BR($Class* clazz) {
-	return $of($alloc(synth_pt_BR));
-}
-
 void synth_pt_BR::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* synth_pt_BR::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewActionLabel.textAndMnemonic"_s),
-			$of("Detalhes"_s)
+			"FileChooser.detailsViewActionLabel.textAndMnemonic"_s,
+			"Detalhes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonAccessibleName"_s),
-			$of("Detalhes"_s)
+			"FileChooser.detailsViewButtonAccessibleName"_s,
+			"Detalhes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s),
-			$of("Detalhes"_s)
+			"FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s,
+			"Detalhes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileAttrHeader.textAndMnemonic"_s),
-			$of("Atributos"_s)
+			"FileChooser.fileAttrHeader.textAndMnemonic"_s,
+			"Atributos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDateHeader.textAndMnemonic"_s),
-			$of("Modificado"_s)
+			"FileChooser.fileDateHeader.textAndMnemonic"_s,
+			"Modificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameHeader.textAndMnemonic"_s),
-			$of("Nome"_s)
+			"FileChooser.fileNameHeader.textAndMnemonic"_s,
+			"Nome"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameLabel.textAndMnemonic"_s),
-			$of("&Nome do Arquivo:"_s)
+			"FileChooser.fileNameLabel.textAndMnemonic"_s,
+			"&Nome do Arquivo:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeHeader.textAndMnemonic"_s),
-			$of("Tamanho"_s)
+			"FileChooser.fileSizeHeader.textAndMnemonic"_s,
+			"Tamanho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileTypeHeader.textAndMnemonic"_s),
-			$of("Tipo"_s)
+			"FileChooser.fileTypeHeader.textAndMnemonic"_s,
+			"Tipo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesOfTypeLabel.textAndMnemonic"_s),
-			$of("Arquivos do &Tipo:"_s)
+			"FileChooser.filesOfTypeLabel.textAndMnemonic"_s,
+			"Arquivos do &Tipo:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.folderNameLabel.textAndMnemonic"_s),
-			$of("&Nome da Pasta:"_s)
+			"FileChooser.folderNameLabel.textAndMnemonic"_s,
+			"&Nome da Pasta:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderAccessibleName"_s),
-			$of(u"Início"_s)
+			"FileChooser.homeFolderAccessibleName"_s,
+			u"Início"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderToolTip.textAndMnemonic"_s),
-			$of(u"Início"_s)
+			"FileChooser.homeFolderToolTip.textAndMnemonic"_s,
+			u"Início"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewActionLabel.textAndMnemonic"_s),
-			$of("Lista"_s)
+			"FileChooser.listViewActionLabel.textAndMnemonic"_s,
+			"Lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonAccessibleName"_s),
-			$of("Lista"_s)
+			"FileChooser.listViewButtonAccessibleName"_s,
+			"Lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonToolTip.textAndMnemonic"_s),
-			$of("Lista"_s)
+			"FileChooser.listViewButtonToolTip.textAndMnemonic"_s,
+			"Lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.lookInLabel.textAndMnemonic"_s),
-			$of("Pesquisar &em:"_s)
+			"FileChooser.lookInLabel.textAndMnemonic"_s,
+			"Pesquisar &em:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderAccessibleName"_s),
-			$of("Nova Pasta"_s)
+			"FileChooser.newFolderAccessibleName"_s,
+			"Nova Pasta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderActionLabel.textAndMnemonic"_s),
-			$of("Nova Pasta"_s)
+			"FileChooser.newFolderActionLabel.textAndMnemonic"_s,
+			"Nova Pasta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderToolTip.textAndMnemonic"_s),
-			$of("Criar Nova Pasta"_s)
+			"FileChooser.newFolderToolTip.textAndMnemonic"_s,
+			"Criar Nova Pasta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.refreshActionLabel.textAndMnemonic"_s),
-			$of("Atualizar"_s)
+			"FileChooser.refreshActionLabel.textAndMnemonic"_s,
+			"Atualizar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveInLabel.textAndMnemonic"_s),
-			$of("Salvar Em:"_s)
+			"FileChooser.saveInLabel.textAndMnemonic"_s,
+			"Salvar Em:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderAccessibleName"_s),
-			$of("Acima"_s)
+			"FileChooser.upFolderAccessibleName"_s,
+			"Acima"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderToolTip.textAndMnemonic"_s),
-			$of(u"Um Nível Acima"_s)
+			"FileChooser.upFolderToolTip.textAndMnemonic"_s,
+			u"Um Nível Acima"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuLabel.textAndMnemonic"_s),
-			$of("Exibir"_s)
+			"FileChooser.viewMenuLabel.textAndMnemonic"_s,
+			"Exibir"_s
 		})
 	});
 }
@@ -149,7 +129,22 @@ synth_pt_BR::synth_pt_BR() {
 }
 
 $Class* synth_pt_BR::load$($String* name, bool initialize) {
-	$loadClass(synth_pt_BR, name, initialize, &_synth_pt_BR_ClassInfo_, allocate$synth_pt_BR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(synth_pt_BR, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(synth_pt_BR, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.swing.internal.plaf.synth.resources.synth_pt_BR",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(synth_pt_BR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(synth_pt_BR);
+	});
 	return class$;
 }
 

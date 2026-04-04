@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/Introspector$SimpleIntrospector.h>
-
 #include <com/sun/jmx/mbeanserver/Introspector.h>
 #include <com/sun/jmx/mbeanserver/MBeanAnalyzer.h>
 #include <com/sun/jmx/mbeanserver/StandardMBeanIntrospector.h>
@@ -45,47 +44,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _Introspector$SimpleIntrospector_FieldInfo_[] = {
-	{"GET_METHOD_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Introspector$SimpleIntrospector, GET_METHOD_PREFIX)},
-	{"IS_METHOD_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Introspector$SimpleIntrospector, IS_METHOD_PREFIX)},
-	{"cache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/ref/SoftReference<Ljava/util/List<Ljava/lang/reflect/Method;>;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Introspector$SimpleIntrospector, cache)},
-	{}
-};
-
-$MethodInfo _Introspector$SimpleIntrospector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Introspector$SimpleIntrospector, init$, void)},
-	{"getCachedMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC, $staticMethod(Introspector$SimpleIntrospector, getCachedMethods, $List*, $Class*)},
-	{"getReadMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(Introspector$SimpleIntrospector, getReadMethod, $Method*, $Class*, $String*)},
-	{"getReadMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $staticMethod(Introspector$SimpleIntrospector, getReadMethods, $List*, $Class*)},
-	{"isReadMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $STATIC, $staticMethod(Introspector$SimpleIntrospector, isReadMethod, bool, $Method*)},
-	{}
-};
-
-$InnerClassInfo _Introspector$SimpleIntrospector_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.Introspector$SimpleIntrospector", "com.sun.jmx.mbeanserver.Introspector", "SimpleIntrospector", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Introspector$SimpleIntrospector_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.Introspector$SimpleIntrospector",
-	"java.lang.Object",
-	nullptr,
-	_Introspector$SimpleIntrospector_FieldInfo_,
-	_Introspector$SimpleIntrospector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Introspector$SimpleIntrospector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.Introspector"
-};
-
-$Object* allocate$Introspector$SimpleIntrospector($Class* clazz) {
-	return $of($alloc(Introspector$SimpleIntrospector));
-}
-
 $String* Introspector$SimpleIntrospector::GET_METHOD_PREFIX = nullptr;
 $String* Introspector$SimpleIntrospector::IS_METHOD_PREFIX = nullptr;
 $Map* Introspector$SimpleIntrospector::cache = nullptr;
@@ -95,7 +53,7 @@ void Introspector$SimpleIntrospector::init$() {
 
 $List* Introspector$SimpleIntrospector::getCachedMethods($Class* clazz) {
 	$init(Introspector$SimpleIntrospector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SoftReference, ref, $cast($SoftReference, $nc(Introspector$SimpleIntrospector::cache)->get(clazz)));
 	if (ref != nullptr) {
 		$var($List, cached, $cast($List, ref->get()));
@@ -108,7 +66,7 @@ $List* Introspector$SimpleIntrospector::getCachedMethods($Class* clazz) {
 
 bool Introspector$SimpleIntrospector::isReadMethod($Method* method) {
 	$init(Introspector$SimpleIntrospector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t modifiers = $nc(method)->getModifiers();
 	if ($Modifier::isStatic(modifiers)) {
 		return false;
@@ -118,12 +76,10 @@ bool Introspector$SimpleIntrospector::isReadMethod($Method* method) {
 	int32_t paramCount = $nc(paramTypes)->length;
 	if (paramCount == 0 && $nc(name)->length() > 2) {
 		if (name->startsWith(Introspector$SimpleIntrospector::IS_METHOD_PREFIX)) {
-			$init($Boolean);
 			return (method->getReturnType() == $Boolean::TYPE);
 		}
 		bool var$0 = name->length() > 3;
 		if (var$0 && name->startsWith(Introspector$SimpleIntrospector::GET_METHOD_PREFIX)) {
-			$init($Void);
 			return (method->getReturnType() != $Void::TYPE);
 		}
 	}
@@ -132,25 +88,23 @@ bool Introspector$SimpleIntrospector::isReadMethod($Method* method) {
 
 $List* Introspector$SimpleIntrospector::getReadMethods($Class* clazz) {
 	$init(Introspector$SimpleIntrospector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cachedResult, getCachedMethods(clazz));
 	if (cachedResult != nullptr) {
 		return cachedResult;
 	}
-	$var($List, methods, $nc($($StandardMBeanIntrospector::getInstance()))->getMethods(clazz));
+	$var($List, methods, $$nc($StandardMBeanIntrospector::getInstance())->getMethods(clazz));
 	$assign(methods, $MBeanAnalyzer::eliminateCovariantMethods(methods));
 	$var($List, result, $new($LinkedList));
 	{
 		$var($Iterator, i$, $nc(methods)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Method, m, $cast($Method, i$->next()));
-			{
-				if (isReadMethod(m)) {
-					if ($nc($($nc(m)->getName()))->startsWith(Introspector$SimpleIntrospector::IS_METHOD_PREFIX)) {
-						result->add(0, m);
-					} else {
-						result->add(m);
-					}
+			if (isReadMethod(m)) {
+				if ($$nc($nc(m)->getName())->startsWith(Introspector$SimpleIntrospector::IS_METHOD_PREFIX)) {
+					result->add(0, m);
+				} else {
+					result->add(m);
 				}
 			}
 		}
@@ -161,24 +115,26 @@ $List* Introspector$SimpleIntrospector::getReadMethods($Class* clazz) {
 
 $Method* Introspector$SimpleIntrospector::getReadMethod($Class* clazz, $String* property$renamed) {
 	$init(Introspector$SimpleIntrospector);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, property, property$renamed);
 	if ($Character::isUpperCase($nc(property)->charAt(0))) {
 		return nullptr;
 	}
+	$var($StringBuilder, var$0, $new($StringBuilder));
 	$init($Locale);
-	$var($String, var$0, $($($nc(property)->substring(0, 1))->toUpperCase($Locale::ENGLISH)));
-	$assign(property, $concat(var$0, $(property->substring(1))));
+	var$0->append($($(property->substring(0, 1))->toUpperCase($Locale::ENGLISH)));
+	var$0->append($(property->substring(1)));
+	$assign(property, $str(var$0));
 	$var($String, getMethod, $str({Introspector$SimpleIntrospector::GET_METHOD_PREFIX, property}));
 	$var($String, isMethod, $str({Introspector$SimpleIntrospector::IS_METHOD_PREFIX, property}));
 	{
-		$var($Iterator, i$, $nc($(getReadMethods(clazz)))->iterator());
+		$var($Iterator, i$, $$nc(getReadMethods(clazz))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Method, m, $cast($Method, i$->next()));
 			{
 				$var($String, name, $nc(m)->getName());
 				bool var$1 = $nc(name)->equals(isMethod);
-				if (var$1 || $nc(name)->equals(getMethod)) {
+				if (var$1 || name->equals(getMethod)) {
 					return m;
 				}
 			}
@@ -187,7 +143,7 @@ $Method* Introspector$SimpleIntrospector::getReadMethod($Class* clazz, $String* 
 	return nullptr;
 }
 
-void clinit$Introspector$SimpleIntrospector($Class* class$) {
+void Introspector$SimpleIntrospector::clinit$($Class* clazz) {
 	$assignStatic(Introspector$SimpleIntrospector::GET_METHOD_PREFIX, "get"_s);
 	$assignStatic(Introspector$SimpleIntrospector::IS_METHOD_PREFIX, "is"_s);
 	$assignStatic(Introspector$SimpleIntrospector::cache, $Collections::synchronizedMap($$new($WeakHashMap)));
@@ -197,7 +153,42 @@ Introspector$SimpleIntrospector::Introspector$SimpleIntrospector() {
 }
 
 $Class* Introspector$SimpleIntrospector::load$($String* name, bool initialize) {
-	$loadClass(Introspector$SimpleIntrospector, name, initialize, &_Introspector$SimpleIntrospector_ClassInfo_, clinit$Introspector$SimpleIntrospector, allocate$Introspector$SimpleIntrospector);
+	$FieldInfo fieldInfos$$[] = {
+		{"GET_METHOD_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Introspector$SimpleIntrospector, GET_METHOD_PREFIX)},
+		{"IS_METHOD_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Introspector$SimpleIntrospector, IS_METHOD_PREFIX)},
+		{"cache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/ref/SoftReference<Ljava/util/List<Ljava/lang/reflect/Method;>;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Introspector$SimpleIntrospector, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Introspector$SimpleIntrospector, init$, void)},
+		{"getCachedMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC, $staticMethod(Introspector$SimpleIntrospector, getCachedMethods, $List*, $Class*)},
+		{"getReadMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(Introspector$SimpleIntrospector, getReadMethod, $Method*, $Class*, $String*)},
+		{"getReadMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $staticMethod(Introspector$SimpleIntrospector, getReadMethods, $List*, $Class*)},
+		{"isReadMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $STATIC, $staticMethod(Introspector$SimpleIntrospector, isReadMethod, bool, $Method*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.Introspector$SimpleIntrospector", "com.sun.jmx.mbeanserver.Introspector", "SimpleIntrospector", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.Introspector$SimpleIntrospector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.Introspector"
+	};
+	$loadClass(Introspector$SimpleIntrospector, name, initialize, &classInfo$$, Introspector$SimpleIntrospector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Introspector$SimpleIntrospector);
+	});
 	return class$;
 }
 

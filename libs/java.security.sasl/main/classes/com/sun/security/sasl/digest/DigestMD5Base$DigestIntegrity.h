@@ -33,6 +33,7 @@ class DigestMD5Base$DigestIntegrity : public ::com::sun::security::sasl::digest:
 	$class(DigestMD5Base$DigestIntegrity, 0, ::com::sun::security::sasl::digest::SecurityCtx)
 public:
 	DigestMD5Base$DigestIntegrity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::security::sasl::digest::DigestMD5Base* this$0, bool clientMode);
 	void generateIntegrityKeyPair(bool clientMode);
 	virtual $bytes* getHMAC($bytes* Ki, $bytes* seqnum, $bytes* msg, int32_t start, int32_t len);

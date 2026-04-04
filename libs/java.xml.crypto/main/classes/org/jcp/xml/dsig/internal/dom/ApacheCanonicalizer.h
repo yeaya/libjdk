@@ -107,6 +107,7 @@ class ApacheCanonicalizer : public ::javax::xml::crypto::dsig::TransformService 
 public:
 	ApacheCanonicalizer();
 	using ::javax::xml::crypto::dsig::TransformService::init;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::xml::crypto::Data* canonicalize(::javax::xml::crypto::Data* data, ::javax::xml::crypto::XMLCryptoContext* xc);
 	virtual ::javax::xml::crypto::Data* canonicalize(::javax::xml::crypto::Data* data, ::javax::xml::crypto::XMLCryptoContext* xc, ::java::io::OutputStream* os);

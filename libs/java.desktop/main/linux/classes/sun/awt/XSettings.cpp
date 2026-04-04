@@ -1,5 +1,4 @@
 #include <sun/awt/XSettings.h>
-
 #include <java/util/Map.h>
 #include <sun/awt/XSettings$Update.h>
 #include <jcpp.h>
@@ -14,41 +13,6 @@ using $XSettings$Update = ::sun::awt::XSettings$Update;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _XSettings_FieldInfo_[] = {
-	{"serial", "J", nullptr, $PRIVATE, $field(XSettings, serial)},
-	{}
-};
-
-$MethodInfo _XSettings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSettings, init$, void)},
-	{"update", "([B)Ljava/util/Map;", "([B)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSettings, update, $Map*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _XSettings_InnerClassesInfo_[] = {
-	{"sun.awt.XSettings$Update", "sun.awt.XSettings", "Update", 0},
-	{}
-};
-
-$ClassInfo _XSettings_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.XSettings",
-	"java.lang.Object",
-	nullptr,
-	_XSettings_FieldInfo_,
-	_XSettings_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSettings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.XSettings$Update"
-};
-
-$Object* allocate$XSettings($Class* clazz) {
-	return $of($alloc(XSettings));
-}
-
 void XSettings::init$() {
 	this->serial = -1;
 }
@@ -61,7 +25,36 @@ XSettings::XSettings() {
 }
 
 $Class* XSettings::load$($String* name, bool initialize) {
-	$loadClass(XSettings, name, initialize, &_XSettings_ClassInfo_, allocate$XSettings);
+	$FieldInfo fieldInfos$$[] = {
+		{"serial", "J", nullptr, $PRIVATE, $field(XSettings, serial)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSettings, init$, void)},
+		{"update", "([B)Ljava/util/Map;", "([B)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(XSettings, update, $Map*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.XSettings$Update", "sun.awt.XSettings", "Update", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.XSettings",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.XSettings$Update"
+	};
+	$loadClass(XSettings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSettings);
+	});
 	return class$;
 }
 

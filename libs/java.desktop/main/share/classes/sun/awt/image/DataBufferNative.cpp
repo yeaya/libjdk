@@ -1,5 +1,4 @@
 #include <sun/awt/image/DataBufferNative.h>
-
 #include <java/awt/image/DataBuffer.h>
 #include <sun/java2d/SurfaceData.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _DataBufferNative_FieldInfo_[] = {
-	{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $field(DataBufferNative, surfaceData)},
-	{"width", "I", nullptr, $PROTECTED, $field(DataBufferNative, width)},
-	{}
-};
-
-$MethodInfo _DataBufferNative_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/SurfaceData;III)V", nullptr, $PUBLIC, $method(DataBufferNative, init$, void, $SurfaceData*, int32_t, int32_t, int32_t)},
-	{"getElem", "(IILsun/java2d/SurfaceData;)I", nullptr, $PROTECTED | $NATIVE, $virtualMethod(DataBufferNative, getElem, int32_t, int32_t, int32_t, $SurfaceData*)},
-	{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferNative, getElem, int32_t, int32_t, int32_t)},
-	{"setElem", "(IIILsun/java2d/SurfaceData;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(DataBufferNative, setElem, void, int32_t, int32_t, int32_t, $SurfaceData*)},
-	{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferNative, setElem, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_getElem 1
-#define _METHOD_INDEX_setElem 3
-
-$ClassInfo _DataBufferNative_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.DataBufferNative",
-	"java.awt.image.DataBuffer",
-	nullptr,
-	_DataBufferNative_FieldInfo_,
-	_DataBufferNative_MethodInfo_
-};
-
-$Object* allocate$DataBufferNative($Class* clazz) {
-	return $of($alloc(DataBufferNative));
-}
-
 void DataBufferNative::init$($SurfaceData* sData, int32_t type, int32_t width, int32_t height) {
 	$DataBuffer::init$(type, width * height);
 	this->width = width;
@@ -52,9 +20,8 @@ void DataBufferNative::init$($SurfaceData* sData, int32_t type, int32_t width, i
 }
 
 int32_t DataBufferNative::getElem(int32_t x, int32_t y, $SurfaceData* sData) {
-	int32_t $ret = 0;
-	$prepareNative(DataBufferNative, getElem, int32_t, int32_t x, int32_t y, $SurfaceData* sData);
-	$ret = $invokeNative(x, y, sData);
+	$prepareNative(getElem, int32_t, int32_t x, int32_t y, $SurfaceData* sData);
+	int32_t $ret = $invokeNative(x, y, sData);
 	$finishNative();
 	return $ret;
 }
@@ -64,7 +31,7 @@ int32_t DataBufferNative::getElem(int32_t bank, int32_t i) {
 }
 
 void DataBufferNative::setElem(int32_t x, int32_t y, int32_t val, $SurfaceData* sData) {
-	$prepareNative(DataBufferNative, setElem, void, int32_t x, int32_t y, int32_t val, $SurfaceData* sData);
+	$prepareNative(setElem, void, int32_t x, int32_t y, int32_t val, $SurfaceData* sData);
 	$invokeNative(x, y, val, sData);
 	$finishNative();
 }
@@ -77,7 +44,30 @@ DataBufferNative::DataBufferNative() {
 }
 
 $Class* DataBufferNative::load$($String* name, bool initialize) {
-	$loadClass(DataBufferNative, name, initialize, &_DataBufferNative_ClassInfo_, allocate$DataBufferNative);
+	$FieldInfo fieldInfos$$[] = {
+		{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $field(DataBufferNative, surfaceData)},
+		{"width", "I", nullptr, $PROTECTED, $field(DataBufferNative, width)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/SurfaceData;III)V", nullptr, $PUBLIC, $method(DataBufferNative, init$, void, $SurfaceData*, int32_t, int32_t, int32_t)},
+		{"getElem", "(IILsun/java2d/SurfaceData;)I", nullptr, $PROTECTED | $NATIVE, $virtualMethod(DataBufferNative, getElem, int32_t, int32_t, int32_t, $SurfaceData*)},
+		{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferNative, getElem, int32_t, int32_t, int32_t)},
+		{"setElem", "(IIILsun/java2d/SurfaceData;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(DataBufferNative, setElem, void, int32_t, int32_t, int32_t, $SurfaceData*)},
+		{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferNative, setElem, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.DataBufferNative",
+		"java.awt.image.DataBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataBufferNative, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataBufferNative);
+	});
 	return class$;
 }
 

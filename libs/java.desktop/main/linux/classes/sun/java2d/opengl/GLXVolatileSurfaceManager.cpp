@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/GLXVolatileSurfaceManager.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Component.h>
@@ -35,7 +34,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Component = ::java::awt::Component;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $Transparency = ::java::awt::Transparency;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $Boolean = ::java::lang::Boolean;
@@ -61,33 +59,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _GLXVolatileSurfaceManager_FieldInfo_[] = {
-	{"accelerationEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(GLXVolatileSurfaceManager, accelerationEnabled)},
-	{}
-};
-
-$MethodInfo _GLXVolatileSurfaceManager_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(GLXVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
-	{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(GLXVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
-	{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(GLXVolatileSurfaceManager, initContents, void)},
-	{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(GLXVolatileSurfaceManager, isAccelerationEnabled, bool)},
-	{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(GLXVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _GLXVolatileSurfaceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.GLXVolatileSurfaceManager",
-	"sun.awt.image.VolatileSurfaceManager",
-	nullptr,
-	_GLXVolatileSurfaceManager_FieldInfo_,
-	_GLXVolatileSurfaceManager_MethodInfo_
-};
-
-$Object* allocate$GLXVolatileSurfaceManager($Class* clazz) {
-	return $of($alloc(GLXVolatileSurfaceManager));
-}
-
 void GLXVolatileSurfaceManager::init$($SunVolatileImage* vImg, Object$* context) {
 	$VolatileSurfaceManager::init$(vImg, context);
 	int32_t transparency = $nc(vImg)->getTransparency();
@@ -100,7 +71,7 @@ bool GLXVolatileSurfaceManager::isAccelerationEnabled() {
 }
 
 $SurfaceData* GLXVolatileSurfaceManager::initAcceleratedSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, sData, nullptr);
 	$var($Component, comp, $nc(this->vImg)->getComponent());
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
@@ -109,14 +80,14 @@ $SurfaceData* GLXVolatileSurfaceManager::initAcceleratedSurface() {
 		bool createVSynced = false;
 		bool forceback = false;
 		if ($instanceOf($Boolean, this->context)) {
-			forceback = $nc(($cast($Boolean, this->context)))->booleanValue();
+			forceback = $cast($Boolean, this->context)->booleanValue();
 			if (forceback && $instanceOf($BackBufferCapsProvider, peer)) {
 				$var($BackBufferCapsProvider, provider, $cast($BackBufferCapsProvider, peer));
-				$var($BufferCapabilities, caps, $nc(provider)->getBackBufferCaps());
+				$var($BufferCapabilities, caps, provider->getBackBufferCaps());
 				if ($instanceOf($ExtendedBufferCapabilities, caps)) {
 					$var($ExtendedBufferCapabilities, ebc, $cast($ExtendedBufferCapabilities, caps));
 					$init($ExtendedBufferCapabilities$VSyncType);
-					bool var$0 = $nc(ebc)->getVSync() == $ExtendedBufferCapabilities$VSyncType::VSYNC_ON;
+					bool var$0 = ebc->getVSync() == $ExtendedBufferCapabilities$VSyncType::VSYNC_ON;
 					$init($BufferCapabilities$FlipContents);
 					if (var$0 && ebc->getFlipContents() == $BufferCapabilities$FlipContents::COPIED) {
 						createVSynced = true;
@@ -137,9 +108,8 @@ $SurfaceData* GLXVolatileSurfaceManager::initAcceleratedSurface() {
 			if (createVSynced) {
 				$assign(sData, $GLXSurfaceData::createData(peer, this->vImg, type));
 			} else {
-				$var($GLXGraphicsConfig, var$1, gc);
-				int32_t var$2 = $nc(this->vImg)->getWidth();
-				$assign(sData, $GLXSurfaceData::createData(var$1, var$2, $nc(this->vImg)->getHeight(), cm, this->vImg, type));
+				int32_t var$1 = $nc(this->vImg)->getWidth();
+				$assign(sData, $GLXSurfaceData::createData(gc, var$1, this->vImg->getHeight(), cm, this->vImg, type));
 			}
 		}
 	} catch ($NullPointerException& ex) {
@@ -164,7 +134,29 @@ GLXVolatileSurfaceManager::GLXVolatileSurfaceManager() {
 }
 
 $Class* GLXVolatileSurfaceManager::load$($String* name, bool initialize) {
-	$loadClass(GLXVolatileSurfaceManager, name, initialize, &_GLXVolatileSurfaceManager_ClassInfo_, allocate$GLXVolatileSurfaceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"accelerationEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(GLXVolatileSurfaceManager, accelerationEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(GLXVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
+		{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(GLXVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
+		{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(GLXVolatileSurfaceManager, initContents, void)},
+		{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(GLXVolatileSurfaceManager, isAccelerationEnabled, bool)},
+		{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(GLXVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.GLXVolatileSurfaceManager",
+		"sun.awt.image.VolatileSurfaceManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GLXVolatileSurfaceManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GLXVolatileSurfaceManager));
+	});
 	return class$;
 }
 

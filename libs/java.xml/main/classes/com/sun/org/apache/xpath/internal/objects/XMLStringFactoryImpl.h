@@ -35,6 +35,7 @@ class $export XMLStringFactoryImpl : public ::com::sun::org::apache::xml::intern
 	$class(XMLStringFactoryImpl, 0, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory)
 public:
 	XMLStringFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* emptystr() override;
 	static ::com::sun::org::apache::xml::internal::utils::XMLStringFactory* getFactory();

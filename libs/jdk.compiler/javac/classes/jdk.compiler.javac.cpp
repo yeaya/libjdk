@@ -1,5 +1,4 @@
 #include <jdk.compiler.javac.h>
-
 #include <jdk.compiler.h>
 #include <java.base.h>
 #include <java.compiler.h>

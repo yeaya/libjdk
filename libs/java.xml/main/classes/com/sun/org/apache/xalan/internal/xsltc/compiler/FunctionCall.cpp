@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FunctionCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFEQ.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -106,34 +104,27 @@
 using $LocalVariableGenArray = $Array<::com::sun::org::apache::bcel::internal::generic::LocalVariableGen>;
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionConst = ::com::sun::org::apache::bcel::internal::generic::InstructionConst;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $LDC = ::com::sun::org::apache::bcel::internal::generic::LDC;
-using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $ObjectFactory = ::com::sun::org::apache::xalan::internal::utils::ObjectFactory;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $FunctionCall$JavaType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall$JavaType;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
-using $XSLTC = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XSLTC;
 using $BooleanType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::BooleanType;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
@@ -181,98 +172,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _FunctionCall_FieldInfo_[] = {
-	{"_fname", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(FunctionCall, _fname)},
-	{"_arguments", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;", $PRIVATE | $FINAL, $field(FunctionCall, _arguments)},
-	{"EMPTY_ARG_LIST", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, EMPTY_ARG_LIST)},
-	{"EXT_XSLTC", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXT_XSLTC)},
-	{"JAVA_EXT_XSLTC", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, JAVA_EXT_XSLTC)},
-	{"EXT_XALAN", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXT_XALAN)},
-	{"JAVA_EXT_XALAN", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, JAVA_EXT_XALAN)},
-	{"JAVA_EXT_XALAN_OLD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, JAVA_EXT_XALAN_OLD)},
-	{"EXSLT_COMMON", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_COMMON)},
-	{"EXSLT_MATH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_MATH)},
-	{"EXSLT_SETS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_SETS)},
-	{"EXSLT_DATETIME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_DATETIME)},
-	{"EXSLT_STRINGS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_STRINGS)},
-	{"XALAN_CLASSPACKAGE_NAMESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, XALAN_CLASSPACKAGE_NAMESPACE)},
-	{"NAMESPACE_FORMAT_JAVA", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_JAVA)},
-	{"NAMESPACE_FORMAT_CLASS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_CLASS)},
-	{"NAMESPACE_FORMAT_PACKAGE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_PACKAGE)},
-	{"NAMESPACE_FORMAT_CLASS_OR_PACKAGE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_CLASS_OR_PACKAGE)},
-	{"_namespace_format", "I", nullptr, $PRIVATE, $field(FunctionCall, _namespace_format)},
-	{"_thisArgument", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, 0, $field(FunctionCall, _thisArgument)},
-	{"_className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FunctionCall, _className)},
-	{"_clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(FunctionCall, _clazz)},
-	{"_chosenMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(FunctionCall, _chosenMethod)},
-	{"_chosenConstructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $field(FunctionCall, _chosenConstructor)},
-	{"_chosenMethodType", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;", nullptr, $PRIVATE, $field(FunctionCall, _chosenMethodType)},
-	{"unresolvedExternal", "Z", nullptr, $PRIVATE, $field(FunctionCall, unresolvedExternal)},
-	{"_isExtConstructor", "Z", nullptr, $PRIVATE, $field(FunctionCall, _isExtConstructor)},
-	{"_isStatic", "Z", nullptr, $PRIVATE, $field(FunctionCall, _isStatic)},
-	{"_internal2Java", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MultiHashtable;", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MultiHashtable<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FunctionCall$JavaType;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, _internal2Java)},
-	{"JAVA2INTERNAL", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, JAVA2INTERNAL)},
-	{"EXTENSIONNAMESPACE", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, EXTENSIONNAMESPACE)},
-	{"EXTENSIONFUNCTION", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, EXTENSIONFUNCTION)},
-	{}
-};
-
-$MethodInfo _FunctionCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FunctionCall, init$, void, $QName*, $List*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(FunctionCall, init$, void, $QName*)},
-	{"argument", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, argument, $Expression*, int32_t)},
-	{"argument", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, argument, $Expression*)},
-	{"argumentCount", "()I", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, argumentCount, int32_t)},
-	{"findConstructors", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Constructor<*>;>;", $PRIVATE, $method(FunctionCall, findConstructors, $List*)},
-	{"findMethods", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE, $method(FunctionCall, findMethods, $List*)},
-	{"generateAddReads", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FunctionCall, generateAddReads, void, $ClassGenerator*, $MethodGenerator*, $String*)},
-	{"getClassNameFromUri", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, getClassNameFromUri, $String*, $String*)},
-	{"getMethodSignature", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;>;)Ljava/lang/String;", $PRIVATE, $method(FunctionCall, getMethodSignature, $String*, $List*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, getName, $String*)},
-	{"getSignature", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $STATIC | $FINAL, $staticMethod(FunctionCall, getSignature, $String*, $Class*)},
-	{"getSignature", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(FunctionCall, getSignature, $String*, $Method*)},
-	{"getSignature", "(Ljava/lang/reflect/Constructor;)Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/String;", $STATIC | $FINAL, $staticMethod(FunctionCall, getSignature, $String*, $Constructor*)},
-	{"isExtension", "()Z", nullptr, $PUBLIC, $virtualMethod(FunctionCall, isExtension, bool)},
-	{"isStandard", "()Z", nullptr, $PUBLIC, $virtualMethod(FunctionCall, isStandard, bool)},
-	{"replaceDash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FunctionCall, replaceDash, $String*, $String*)},
-	{"setArgument", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;)V", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, setArgument, void, int32_t, $Expression*)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(FunctionCall, setParser, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FunctionCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FunctionCall, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateUnallowedExtension", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PRIVATE, $method(FunctionCall, translateUnallowedExtension, void, $ConstantPoolGen*, $InstructionList*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{"typeCheckArgs", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Ljava/util/List;", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;>;", $PUBLIC, $virtualMethod(FunctionCall, typeCheckArgs, $List*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{"typeCheckConstructor", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheckConstructor, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{"typeCheckExternal", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheckExternal, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{"typeCheckStandard", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheckStandard, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$InnerClassInfo _FunctionCall_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall$JavaType", "com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall", "JavaType", $STATIC},
-	{}
-};
-
-$ClassInfo _FunctionCall_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	_FunctionCall_FieldInfo_,
-	_FunctionCall_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FunctionCall_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall$JavaType"
-};
-
-$Object* allocate$FunctionCall($Class* clazz) {
-	return $of($alloc(FunctionCall));
-}
-
 $List* FunctionCall::EMPTY_ARG_LIST = nullptr;
 $String* FunctionCall::EXT_XSLTC = nullptr;
 $String* FunctionCall::JAVA_EXT_XSLTC = nullptr;
@@ -310,12 +209,12 @@ $String* FunctionCall::getName() {
 }
 
 void FunctionCall::setParser($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Expression::setParser(parser);
 	if (this->_arguments != nullptr) {
-		int32_t n = $nc(this->_arguments)->size();
+		int32_t n = this->_arguments->size();
 		for (int32_t i = 0; i < n; ++i) {
-			$var($Expression, exp, $cast($Expression, $nc(this->_arguments)->get(i)));
+			$var($Expression, exp, $cast($Expression, this->_arguments->get(i)));
 			$nc(exp)->setParser(parser);
 			exp->setParent(this);
 		}
@@ -327,25 +226,25 @@ $String* FunctionCall::getClassNameFromUri($String* uri) {
 	if (className != nullptr) {
 		return className;
 	} else if ($nc(uri)->startsWith(FunctionCall::JAVA_EXT_XSLTC)) {
-		int32_t length = $nc(FunctionCall::JAVA_EXT_XSLTC)->length() + 1;
+		int32_t length = FunctionCall::JAVA_EXT_XSLTC->length() + 1;
 		$init($Constants);
 		return (uri->length() > length) ? uri->substring(length) : $Constants::EMPTYSTRING;
 	} else if (uri->startsWith(FunctionCall::JAVA_EXT_XALAN)) {
-		int32_t length = $nc(FunctionCall::JAVA_EXT_XALAN)->length() + 1;
+		int32_t length = FunctionCall::JAVA_EXT_XALAN->length() + 1;
 		$init($Constants);
 		return (uri->length() > length) ? uri->substring(length) : $Constants::EMPTYSTRING;
 	} else if (uri->startsWith(FunctionCall::JAVA_EXT_XALAN_OLD)) {
-		int32_t length = $nc(FunctionCall::JAVA_EXT_XALAN_OLD)->length() + 1;
+		int32_t length = FunctionCall::JAVA_EXT_XALAN_OLD->length() + 1;
 		$init($Constants);
 		return (uri->length() > length) ? uri->substring(length) : $Constants::EMPTYSTRING;
 	} else {
-		int32_t index = uri->lastIndexOf((int32_t)u'/');
+		int32_t index = uri->lastIndexOf(u'/');
 		return (index > 0) ? uri->substring(index + 1) : uri;
 	}
 }
 
 $Type* FunctionCall::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_type != nullptr) {
 		return this->_type;
 	}
@@ -359,10 +258,10 @@ $Type* FunctionCall::typeCheck($SymbolTable* stable) {
 	} else {
 		try {
 			$set(this, _className, getClassNameFromUri(namespace$));
-			int32_t pos = $nc(local)->lastIndexOf((int32_t)u'.');
+			int32_t pos = $nc(local)->lastIndexOf(u'.');
 			if (pos > 0) {
 				this->_isStatic = true;
-				if (this->_className != nullptr && $nc(this->_className)->length() > 0) {
+				if (this->_className != nullptr && this->_className->length() > 0) {
 					this->_namespace_format = FunctionCall::NAMESPACE_FORMAT_PACKAGE;
 					$set(this, _className, $str({this->_className, "."_s, $(local->substring(0, pos))}));
 				} else {
@@ -371,7 +270,7 @@ $Type* FunctionCall::typeCheck($SymbolTable* stable) {
 				}
 				$set(this, _fname, $new($QName, namespace$, nullptr, $(local->substring(pos + 1))));
 			} else {
-				if (this->_className != nullptr && $nc(this->_className)->length() > 0) {
+				if (this->_className != nullptr && this->_className->length() > 0) {
 					try {
 						$set(this, _clazz, $ObjectFactory::findProviderClass(this->_className, true));
 						this->_namespace_format = FunctionCall::NAMESPACE_FORMAT_CLASS;
@@ -381,7 +280,7 @@ $Type* FunctionCall::typeCheck($SymbolTable* stable) {
 				} else {
 					this->_namespace_format = FunctionCall::NAMESPACE_FORMAT_JAVA;
 				}
-				if (local->indexOf((int32_t)u'-') > 0) {
+				if (local->indexOf(u'-') > 0) {
 					$assign(local, replaceDash(local));
 				}
 				$var($String, extFunction, $cast($String, $nc(FunctionCall::EXTENSIONFUNCTION)->get($$str({namespace$, ":"_s, local}))));
@@ -398,9 +297,9 @@ $Type* FunctionCall::typeCheck($SymbolTable* stable) {
 			if (errorMsg == nullptr) {
 				$var($String, name, $nc(this->_fname)->getLocalPart());
 				$init($ErrorMsg);
-				$assign(errorMsg, $new($ErrorMsg, $ErrorMsg::METHOD_NOT_FOUND_ERR, $of(name)));
+				$assign(errorMsg, $new($ErrorMsg, $ErrorMsg::METHOD_NOT_FOUND_ERR, name));
 			}
-			$nc($(getParser()))->reportError($Constants::ERROR, errorMsg);
+			$$nc(getParser())->reportError($Constants::ERROR, errorMsg);
 			$init($Type);
 			return $set(this, _type, $Type::Void);
 		}
@@ -409,7 +308,7 @@ $Type* FunctionCall::typeCheck($SymbolTable* stable) {
 }
 
 $Type* FunctionCall::typeCheckStandard($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->_fname)->clearNamespace();
 	int32_t n = $nc(this->_arguments)->size();
 	$var($List, argsType, typeCheckArgs(stable));
@@ -418,24 +317,24 @@ $Type* FunctionCall::typeCheckStandard($SymbolTable* stable) {
 	$var($MethodType, ptype, lookupPrimop(stable, $($nc(this->_fname)->getLocalPart()), args));
 	if (ptype != nullptr) {
 		for (int32_t i = 0; i < n; ++i) {
-			$var($Type, argType, $cast($Type, $nc($(ptype->argsType()))->get(i)));
-			$var($Expression, exp, $cast($Expression, $nc(this->_arguments)->get(i)));
+			$var($Type, argType, $cast($Type, $$nc(ptype->argsType())->get(i)));
+			$var($Expression, exp, $cast($Expression, this->_arguments->get(i)));
 			if (!$nc(argType)->identicalTo($($nc(exp)->getType()))) {
 				try {
-					$nc(this->_arguments)->set(i, $$new($CastExpr, exp, argType));
+					this->_arguments->set(i, $$new($CastExpr, exp, argType));
 				} catch ($TypeCheckError& e) {
-					$throwNew($TypeCheckError, static_cast<$SyntaxTreeNode*>(this));
+					$throwNew($TypeCheckError, this);
 				}
 			}
 		}
 		$set(this, _chosenMethodType, ptype);
 		return $set(this, _type, ptype->resultType());
 	}
-	$throwNew($TypeCheckError, static_cast<$SyntaxTreeNode*>(this));
+	$throwNew($TypeCheckError, this);
 }
 
 $Type* FunctionCall::typeCheckConstructor($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, constructors, findConstructors());
 	if (constructors == nullptr) {
 		$init($ErrorMsg);
@@ -446,41 +345,37 @@ $Type* FunctionCall::typeCheckConstructor($SymbolTable* stable) {
 	$var($List, argsType, typeCheckArgs(stable));
 	int32_t bestConstrDistance = $Integer::MAX_VALUE;
 	$set(this, _type, nullptr);
-	{
-		int32_t j = 0;
-		int32_t i = 0;
-		for (; i < nConstructors; ++i) {
-			$var($Constructor, constructor, $cast($Constructor, constructors->get(i)));
-			$var($ClassArray, paramTypes, $nc(constructor)->getParameterTypes());
-			$Class* extType = nullptr;
-			int32_t currConstrDistance = 0;
-			for (j = 0; j < nArgs; ++j) {
-				extType = $nc(paramTypes)->get(j);
-				$var($Type, intType, $cast($Type, $nc(argsType)->get(j)));
-				$var($FunctionCall$JavaType, match, $cast($FunctionCall$JavaType, $nc(FunctionCall::_internal2Java)->maps(intType, $$new($FunctionCall$JavaType, extType, 0))));
-				if (match != nullptr) {
-					currConstrDistance += match->distance;
-				} else if ($instanceOf($ObjectType, intType)) {
-					$var($ObjectType, objectType, $cast($ObjectType, intType));
-					if ($nc(objectType)->getJavaClass() == extType) {
-						continue;
-					} else if ($nc(extType)->isAssignableFrom(objectType->getJavaClass())) {
-						currConstrDistance += 1;
-					} else {
-						currConstrDistance = $Integer::MAX_VALUE;
-						break;
-					}
+	for (int32_t j = 0, i = 0; i < nConstructors; ++i) {
+		$var($Constructor, constructor, $cast($Constructor, constructors->get(i)));
+		$var($ClassArray, paramTypes, $nc(constructor)->getParameterTypes());
+		$Class* extType = nullptr;
+		int32_t currConstrDistance = 0;
+		for (j = 0; j < nArgs; ++j) {
+			extType = $nc(paramTypes)->get(j);
+			$var($Type, intType, $cast($Type, $nc(argsType)->get(j)));
+			$var($FunctionCall$JavaType, match, $cast($FunctionCall$JavaType, FunctionCall::_internal2Java->maps(intType, $$new($FunctionCall$JavaType, extType, 0))));
+			if (match != nullptr) {
+				currConstrDistance += match->distance;
+			} else if ($instanceOf($ObjectType, intType)) {
+				$var($ObjectType, objectType, $cast($ObjectType, intType));
+				if (objectType->getJavaClass() == extType) {
+					continue;
+				} else if ($nc(extType)->isAssignableFrom(objectType->getJavaClass())) {
+					currConstrDistance += 1;
 				} else {
 					currConstrDistance = $Integer::MAX_VALUE;
 					break;
 				}
+			} else {
+				currConstrDistance = $Integer::MAX_VALUE;
+				break;
 			}
-			if (j == nArgs && currConstrDistance < bestConstrDistance) {
-				$set(this, _chosenConstructor, constructor);
-				this->_isExtConstructor = true;
-				bestConstrDistance = currConstrDistance;
-				$set(this, _type, (this->_clazz != nullptr) ? $Type::newObjectType(this->_clazz) : $Type::newObjectType(this->_className));
-			}
+		}
+		if (j == nArgs && currConstrDistance < bestConstrDistance) {
+			$set(this, _chosenConstructor, constructor);
+			this->_isExtConstructor = true;
+			bestConstrDistance = currConstrDistance;
+			$set(this, _type, (this->_clazz != nullptr) ? $Type::newObjectType(this->_clazz) : $Type::newObjectType(this->_className));
 		}
 	}
 	if (this->_type != nullptr) {
@@ -491,10 +386,10 @@ $Type* FunctionCall::typeCheckConstructor($SymbolTable* stable) {
 }
 
 $Type* FunctionCall::typeCheckExternal($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nArgs = $nc(this->_arguments)->size();
 	$var($String, name, $nc(this->_fname)->getLocalPart());
-	if ($nc($($nc(this->_fname)->getLocalPart()))->equals("new"_s)) {
+	if ($$nc($nc(this->_fname)->getLocalPart())->equals("new"_s)) {
 		return typeCheckConstructor(stable);
 	} else {
 		bool hasThisArgument = false;
@@ -505,17 +400,17 @@ $Type* FunctionCall::typeCheckExternal($SymbolTable* stable) {
 			if (this->_namespace_format == FunctionCall::NAMESPACE_FORMAT_JAVA || this->_namespace_format == FunctionCall::NAMESPACE_FORMAT_PACKAGE) {
 				hasThisArgument = true;
 			}
-			$var($Expression, firstArg, $cast($Expression, $nc(this->_arguments)->get(0)));
+			$var($Expression, firstArg, $cast($Expression, this->_arguments->get(0)));
 			$var($Type, firstArgType, $nc(firstArg)->typeCheck(stable));
-			if (this->_namespace_format == FunctionCall::NAMESPACE_FORMAT_CLASS && $instanceOf($ObjectType, firstArgType) && this->_clazz != nullptr && $nc(this->_clazz)->isAssignableFrom($nc(($cast($ObjectType, firstArgType)))->getJavaClass())) {
+			if (this->_namespace_format == FunctionCall::NAMESPACE_FORMAT_CLASS && $instanceOf($ObjectType, firstArgType) && this->_clazz != nullptr && this->_clazz->isAssignableFrom($cast($ObjectType, firstArgType)->getJavaClass())) {
 				hasThisArgument = true;
 			}
 			if (hasThisArgument) {
-				$set(this, _thisArgument, $cast($Expression, $nc(this->_arguments)->get(0)));
-				$nc(this->_arguments)->remove(0);
+				$set(this, _thisArgument, $cast($Expression, this->_arguments->get(0)));
+				this->_arguments->remove(0);
 				--nArgs;
 				if ($instanceOf($ObjectType, firstArgType)) {
-					$set(this, _className, $nc(($cast($ObjectType, firstArgType)))->getJavaClassName());
+					$set(this, _className, $cast($ObjectType, firstArgType)->getJavaClassName());
 				} else {
 					$init($ErrorMsg);
 					$throwNew($TypeCheckError, $ErrorMsg::NO_JAVA_FUNCT_THIS_REF, name);
@@ -542,57 +437,53 @@ $Type* FunctionCall::typeCheckExternal($SymbolTable* stable) {
 	$var($List, argsType, typeCheckArgs(stable));
 	int32_t bestMethodDistance = $Integer::MAX_VALUE;
 	$set(this, _type, nullptr);
-	{
-		int32_t j = 0;
-		int32_t i = 0;
-		for (; i < nMethods; ++i) {
-			$var($Method, method, $cast($Method, methods->get(i)));
-			$var($ClassArray, paramTypes, $nc(method)->getParameterTypes());
-			int32_t currMethodDistance = 0;
-			for (j = 0; j < nArgs; ++j) {
-				extType = $nc(paramTypes)->get(j);
-				$var($Type, intType, $cast($Type, $nc(argsType)->get(j)));
-				$var($FunctionCall$JavaType, match, $cast($FunctionCall$JavaType, $nc(FunctionCall::_internal2Java)->maps(intType, $$new($FunctionCall$JavaType, extType, 0))));
-				if (match != nullptr) {
-					currMethodDistance += match->distance;
-				} else if ($instanceOf($ReferenceType, intType)) {
+	for (int32_t j = 0, i = 0; i < nMethods; ++i) {
+		$var($Method, method, $cast($Method, methods->get(i)));
+		$var($ClassArray, paramTypes, $nc(method)->getParameterTypes());
+		int32_t currMethodDistance = 0;
+		for (j = 0; j < nArgs; ++j) {
+			extType = $nc(paramTypes)->get(j);
+			$var($Type, intType, $cast($Type, $nc(argsType)->get(j)));
+			$var($FunctionCall$JavaType, match, $cast($FunctionCall$JavaType, FunctionCall::_internal2Java->maps(intType, $$new($FunctionCall$JavaType, extType, 0))));
+			if (match != nullptr) {
+				currMethodDistance += match->distance;
+			} else if ($instanceOf($ReferenceType, intType)) {
+				currMethodDistance += 1;
+			} else if ($instanceOf($ObjectType, intType)) {
+				$var($ObjectType, object, $cast($ObjectType, intType));
+				if ($$nc($nc(extType)->getName())->equals($(object->getJavaClassName()))) {
+					currMethodDistance += 0;
+				} else if (extType->isAssignableFrom(object->getJavaClass())) {
 					currMethodDistance += 1;
-				} else if ($instanceOf($ObjectType, intType)) {
-					$var($ObjectType, object, $cast($ObjectType, intType));
-					if ($nc($($nc(extType)->getName()))->equals($($nc(object)->getJavaClassName()))) {
-						currMethodDistance += 0;
-					} else if (extType->isAssignableFrom($nc(object)->getJavaClass())) {
-						currMethodDistance += 1;
-					} else {
-						currMethodDistance = $Integer::MAX_VALUE;
-						break;
-					}
 				} else {
 					currMethodDistance = $Integer::MAX_VALUE;
 					break;
 				}
+			} else {
+				currMethodDistance = $Integer::MAX_VALUE;
+				break;
 			}
-			if (j == nArgs) {
-				extType = method->getReturnType();
-				$set(this, _type, $cast($Type, $nc(FunctionCall::JAVA2INTERNAL)->get(extType)));
-				if (this->_type == nullptr) {
-					$set(this, _type, $Type::newObjectType(extType));
-				}
-				if (this->_type != nullptr && currMethodDistance < bestMethodDistance) {
-					$set(this, _chosenMethod, method);
-					bestMethodDistance = currMethodDistance;
-				}
+		}
+		if (j == nArgs) {
+			extType = method->getReturnType();
+			$set(this, _type, $cast($Type, $nc(FunctionCall::JAVA2INTERNAL)->get(extType)));
+			if (this->_type == nullptr) {
+				$set(this, _type, $Type::newObjectType(extType));
+			}
+			if (this->_type != nullptr && currMethodDistance < bestMethodDistance) {
+				$set(this, _chosenMethod, method);
+				bestMethodDistance = currMethodDistance;
 			}
 		}
 	}
-	if (this->_chosenMethod != nullptr && this->_thisArgument == nullptr && !$Modifier::isStatic($nc(this->_chosenMethod)->getModifiers())) {
+	if (this->_chosenMethod != nullptr && this->_thisArgument == nullptr && !$Modifier::isStatic(this->_chosenMethod->getModifiers())) {
 		$init($ErrorMsg);
 		$throwNew($TypeCheckError, $ErrorMsg::NO_JAVA_FUNCT_THIS_REF, $(getMethodSignature(argsType)));
 	}
 	if (this->_type != nullptr) {
 		$init($Type);
 		if (this->_type == $Type::NodeSet) {
-			$nc($(getXSLTC()))->setMultiDocument(true);
+			$$nc(getXSLTC())->setMultiDocument(true);
 		}
 		return this->_type;
 	}
@@ -601,7 +492,7 @@ $Type* FunctionCall::typeCheckExternal($SymbolTable* stable) {
 }
 
 $List* FunctionCall::typeCheckArgs($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->_arguments)->iterator());
@@ -632,27 +523,27 @@ void FunctionCall::setArgument(int32_t i, $Expression* exp) {
 }
 
 void FunctionCall::translateDesynthesized($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type);
 	$var($Type, type, $Type::Boolean);
 	if (this->_chosenMethodType != nullptr) {
-		$assign(type, $nc(this->_chosenMethodType)->resultType());
+		$assign(type, this->_chosenMethodType->resultType());
 	}
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	translate(classGen, methodGen);
 	if (($instanceOf($BooleanType, type)) || ($instanceOf($IntType, type))) {
-		$nc(this->_falseList)->add($($nc(il)->append(static_cast<$BranchInstruction*>($$new($IFEQ, nullptr)))));
+		$nc(this->_falseList)->add($($nc(il)->append($$new($IFEQ, nullptr))));
 	}
 }
 
 void FunctionCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = argumentCount();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	bool isSecureProcessing = $nc($($nc($(classGen->getParser()))->getXSLTC()))->isSecureProcessing();
+	bool isSecureProcessing = $$nc($$nc(classGen->getParser())->getXSLTC())->isSecureProcessing();
 	$init($JdkXmlFeatures$XmlFeature);
-	bool isExtensionFunctionEnabled = $nc($($nc($(classGen->getParser()))->getXSLTC()))->getFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION);
+	bool isExtensionFunctionEnabled = $$nc($$nc(classGen->getParser())->getXSLTC())->getFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION);
 	int32_t index = 0;
 	bool var$0 = isStandard();
 	if (var$0 || isExtension()) {
@@ -661,26 +552,26 @@ void FunctionCall::translate($ClassGenerator* classGen, $MethodGenerator* method
 			$nc(exp)->translate(classGen, methodGen);
 			exp->startIterator(classGen, methodGen);
 		}
-		$var($String, name, $str({$($nc($($nc(this->_fname)->toString()))->replace(u'-', u'_')), "F"_s}));
+		$var($String, name, $str({$($$nc($nc(this->_fname)->toString())->replace(u'-', u'_')), "F"_s}));
 		$init($Constants);
 		$var($String, args, $Constants::EMPTYSTRING);
-		if ($nc(name)->equals("sumF"_s)) {
+		if (name->equals("sumF"_s)) {
 			$assign(args, $Constants::DOM_INTF_SIG);
 			$nc(il)->append($(methodGen->loadDOM()));
 		} else if (name->equals("normalize_spaceF"_s)) {
-			if ($nc($($nc(this->_chosenMethodType)->toSignature(args)))->equals("()Ljava/lang/String;"_s)) {
+			if ($$nc($nc(this->_chosenMethodType)->toSignature(args))->equals("()Ljava/lang/String;"_s)) {
 				$assign(args, $str({"I"_s, $Constants::DOM_INTF_SIG}));
 				$nc(il)->append($(methodGen->loadContextNode()));
 				il->append($(methodGen->loadDOM()));
 			}
 		}
 		index = $nc(cpg)->addMethodref($Constants::BASIS_LIBRARY_CLASS, name, $($nc(this->_chosenMethodType)->toSignature(args)));
-		$nc(il)->append(static_cast<$Instruction*>($$new($INVOKESTATIC, index)));
+		$nc(il)->append($$new($INVOKESTATIC, index));
 	} else if (this->unresolvedExternal) {
 		$init($Constants);
 		index = $nc(cpg)->addMethodref($Constants::BASIS_LIBRARY_CLASS, "unresolved_externalF"_s, "(Ljava/lang/String;)V"_s);
-		$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $($nc(this->_fname)->toString()))));
-		il->append(static_cast<$Instruction*>($$new($INVOKESTATIC, index)));
+		$nc(il)->append($$new($PUSH, cpg, $($nc(this->_fname)->toString())));
+		il->append($$new($INVOKESTATIC, index));
 	} else if (this->_isExtConstructor) {
 		if (isSecureProcessing && !isExtensionFunctionEnabled) {
 			translateUnallowedExtension(cpg, il);
@@ -698,12 +589,12 @@ void FunctionCall::translate($ClassGenerator* classGen, $MethodGenerator* method
 			paramTemp->set(i, $(methodGen->addLocalVariable($$str({"function_call_tmp"_s, $$str(i)}), $(expType->toJCType()), nullptr, nullptr)));
 			$nc(paramTemp->get(i))->setStart($($nc(il)->append($(expType->STORE($nc(paramTemp->get(i))->getIndex())))));
 		}
-		$nc(il)->append(static_cast<$Instruction*>($$new($NEW, $nc(cpg)->addClass(this->_className))));
+		$nc(il)->append($$new($NEW, $nc(cpg)->addClass(this->_className)));
 		$init($InstructionConst);
-		il->append(static_cast<$Instruction*>($InstructionConst::DUP));
+		il->append($InstructionConst::DUP);
 		for (int32_t i = 0; i < n; ++i) {
 			$var($Expression, arg, argument(i));
-			$nc(paramTemp->get(i))->setEnd($(il->append($($nc($($nc(arg)->getType()))->LOAD($nc(paramTemp->get(i))->getIndex())))));
+			$nc(paramTemp->get(i))->setEnd($(il->append($($$nc($nc(arg)->getType())->LOAD($nc(paramTemp->get(i))->getIndex())))));
 		}
 		$var($StringBuffer, buffer, $new($StringBuffer));
 		buffer->append(u'(');
@@ -712,8 +603,8 @@ void FunctionCall::translate($ClassGenerator* classGen, $MethodGenerator* method
 		}
 		buffer->append(u')');
 		buffer->append("V"_s);
-		index = $nc(cpg)->addMethodref(clazz, "<init>"_s, $(buffer->toString()));
-		il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, index)));
+		index = cpg->addMethodref(clazz, "<init>"_s, $(buffer->toString()));
+		il->append($$new($INVOKESPECIAL, index));
 		$init($Type);
 		$nc(($Type::Object))->translateFrom(classGen, methodGen, $nc(this->_chosenConstructor)->getDeclaringClass());
 	} else {
@@ -721,16 +612,16 @@ void FunctionCall::translate($ClassGenerator* classGen, $MethodGenerator* method
 			translateUnallowedExtension(cpg, il);
 		}
 		$var($String, clazz, $nc($nc(this->_chosenMethod)->getDeclaringClass())->getName());
-		$var($ClassArray, paramTypes, $nc(this->_chosenMethod)->getParameterTypes());
+		$var($ClassArray, paramTypes, this->_chosenMethod->getParameterTypes());
 		generateAddReads(classGen, methodGen, clazz);
 		if (this->_thisArgument != nullptr) {
-			$nc(this->_thisArgument)->translate(classGen, methodGen);
+			this->_thisArgument->translate(classGen, methodGen);
 		}
 		for (int32_t i = 0; i < n; ++i) {
 			$var($Expression, exp, argument(i));
 			$nc(exp)->translate(classGen, methodGen);
 			exp->startIterator(classGen, methodGen);
-			$nc($(exp->getType()))->translateTo(classGen, methodGen, $nc(paramTypes)->get(i));
+			$$nc(exp->getType())->translateTo(classGen, methodGen, $nc(paramTypes)->get(i));
 		}
 		$var($StringBuffer, buffer, $new($StringBuffer));
 		buffer->append(u'(');
@@ -740,38 +631,36 @@ void FunctionCall::translate($ClassGenerator* classGen, $MethodGenerator* method
 		buffer->append(u')');
 		buffer->append($(getSignature($nc(this->_chosenMethod)->getReturnType())));
 		if (this->_thisArgument != nullptr && $nc(this->_clazz)->isInterface()) {
-			$var($String, var$1, clazz);
-			$var($String, var$2, $nc(this->_fname)->getLocalPart());
-			index = $nc(cpg)->addInterfaceMethodref(var$1, var$2, $(buffer->toString()));
-			$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, index, n + 1)));
+			$var($String, var$1, $nc(this->_fname)->getLocalPart());
+			index = $nc(cpg)->addInterfaceMethodref(clazz, var$1, $(buffer->toString()));
+			$nc(il)->append($$new($INVOKEINTERFACE, index, n + 1));
 		} else {
-			$var($String, var$3, clazz);
-			$var($String, var$4, $nc(this->_fname)->getLocalPart());
-			index = $nc(cpg)->addMethodref(var$3, var$4, $(buffer->toString()));
-			$nc(il)->append(this->_thisArgument != nullptr ? static_cast<$InvokeInstruction*>($$new($INVOKEVIRTUAL, index)) : static_cast<$InvokeInstruction*>($$new($INVOKESTATIC, index)));
+			$var($String, var$2, $nc(this->_fname)->getLocalPart());
+			index = $nc(cpg)->addMethodref(clazz, var$2, $(buffer->toString()));
+			$nc(il)->append(this->_thisArgument != nullptr ? $$cast($InvokeInstruction, $new($INVOKEVIRTUAL, index)) : $$cast($InvokeInstruction, $new($INVOKESTATIC, index)));
 		}
 		$nc(this->_type)->translateFrom(classGen, methodGen, $nc(this->_chosenMethod)->getReturnType());
 	}
 }
 
 void FunctionCall::generateAddReads($ClassGenerator* classGen, $MethodGenerator* methodGen, $String* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	methodGen->markChunkStart();
 	$init($Constants);
 	int32_t index = $nc(cpg)->addMethodref($Constants::CLASS_CLASS, $Constants::GET_MODULE, $Constants::GET_MODULE_SIG);
 	int32_t index2 = cpg->addMethodref($Constants::CLASS_CLASS, $Constants::FOR_NAME, $Constants::FOR_NAME_SIG);
-	$nc(il)->append(static_cast<$Instruction*>($$new($LDC, cpg->addString($(classGen->getClassName())))));
-	il->append(static_cast<$Instruction*>($$new($INVOKESTATIC, index2)));
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, index)));
-	il->append(static_cast<$Instruction*>($$new($LDC, cpg->addString(clazz))));
-	il->append(static_cast<$Instruction*>($$new($INVOKESTATIC, index2)));
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, index)));
+	$nc(il)->append($$new($LDC, cpg->addString($(classGen->getClassName()))));
+	il->append($$new($INVOKESTATIC, index2));
+	il->append($$new($INVOKEVIRTUAL, index));
+	il->append($$new($LDC, cpg->addString(clazz)));
+	il->append($$new($INVOKESTATIC, index2));
+	il->append($$new($INVOKEVIRTUAL, index));
 	index = cpg->addMethodref($Constants::MODULE_CLASS, $Constants::ADD_READS, $Constants::ADD_READS_SIG);
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, index)));
+	il->append($$new($INVOKEVIRTUAL, index));
 	$init($InstructionConst);
-	il->append(static_cast<$Instruction*>($InstructionConst::POP));
+	il->append($InstructionConst::POP);
 	methodGen->markChunkEnd();
 }
 
@@ -782,7 +671,7 @@ $String* FunctionCall::toString() {
 bool FunctionCall::isStandard() {
 	$var($String, namespace$, $nc(this->_fname)->getNamespace());
 	$init($Constants);
-	return (namespace$ == nullptr) || ($nc(namespace$)->equals($Constants::EMPTYSTRING));
+	return (namespace$ == nullptr) || (namespace$->equals($Constants::EMPTYSTRING));
 }
 
 bool FunctionCall::isExtension() {
@@ -791,33 +680,33 @@ bool FunctionCall::isExtension() {
 }
 
 $List* FunctionCall::findMethods() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, result, nullptr);
 	$var($String, namespace$, $nc(this->_fname)->getNamespace());
-	if (this->_className != nullptr && $nc(this->_className)->length() > 0) {
+	if (this->_className != nullptr && this->_className->length() > 0) {
 		int32_t nArgs = $nc(this->_arguments)->size();
 		try {
 			if (this->_clazz == nullptr) {
-				bool isSecureProcessing = $nc($(getXSLTC()))->isSecureProcessing();
+				bool isSecureProcessing = $$nc(getXSLTC())->isSecureProcessing();
 				$init($JdkXmlFeatures$XmlFeature);
-				bool isExtensionFunctionEnabled = $nc($(getXSLTC()))->getFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION);
+				bool isExtensionFunctionEnabled = $$nc(getXSLTC())->getFeature($JdkXmlFeatures$XmlFeature::ENABLE_EXTENSION_FUNCTION);
 				bool var$0 = namespace$ != nullptr && isSecureProcessing && isExtensionFunctionEnabled;
 				if (var$0) {
 					bool var$3 = namespace$->startsWith(FunctionCall::JAVA_EXT_XALAN);
-					bool var$2 = var$3 || $nc(namespace$)->startsWith(FunctionCall::JAVA_EXT_XSLTC);
-					bool var$1 = var$2 || $nc(namespace$)->startsWith(FunctionCall::JAVA_EXT_XALAN_OLD);
-					var$0 = (var$1 || namespace$->startsWith(FunctionCall::XALAN_CLASSPACKAGE_NAMESPACE));
+					bool var$2 = var$3 || namespace$->startsWith(FunctionCall::JAVA_EXT_XSLTC);
+					bool var$1 = var$2 || namespace$->startsWith(FunctionCall::JAVA_EXT_XALAN_OLD);
+					var$0 = var$1 || namespace$->startsWith(FunctionCall::XALAN_CLASSPACKAGE_NAMESPACE);
 				}
 				if (var$0) {
-					$set(this, _clazz, $nc($(getXSLTC()))->loadExternalFunction(this->_className));
+					$set(this, _clazz, $$nc(getXSLTC())->loadExternalFunction(this->_className));
 				} else {
 					$set(this, _clazz, $ObjectFactory::findProviderClass(this->_className, true));
 				}
 				if (this->_clazz == nullptr) {
 					$init($ErrorMsg);
-					$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, $of(this->_className)));
-					$nc($(getParser()))->reportError($Constants::ERROR, msg);
+					$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, this->_className));
+					$$nc(getParser())->reportError($Constants::ERROR, msg);
 				}
 			}
 			$var($String, methodName, $nc(this->_fname)->getLocalPart());
@@ -825,7 +714,7 @@ $List* FunctionCall::findMethods() {
 			for (int32_t i = 0; i < $nc(methods)->length; ++i) {
 				int32_t mods = $nc(methods->get(i))->getModifiers();
 				bool var$5 = $Modifier::isPublic(mods);
-				bool var$4 = var$5 && $nc($($nc(methods->get(i))->getName()))->equals(methodName);
+				bool var$4 = var$5 && $$nc($nc(methods->get(i))->getName())->equals(methodName);
 				if (var$4 && $nc($($nc(methods->get(i))->getParameterTypes()))->length == nArgs) {
 					if (result == nullptr) {
 						$assign(result, $new($ArrayList));
@@ -835,15 +724,15 @@ $List* FunctionCall::findMethods() {
 			}
 		} catch ($ClassNotFoundException& e) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, $of(this->_className)));
-			$nc($(getParser()))->reportError($Constants::ERROR, msg);
+			$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, this->_className));
+			$$nc(getParser())->reportError($Constants::ERROR, msg);
 		}
 	}
 	return result;
 }
 
 $List* FunctionCall::findConstructors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, result, nullptr);
 	int32_t nArgs = $nc(this->_arguments)->size();
@@ -852,16 +741,14 @@ $List* FunctionCall::findConstructors() {
 			$set(this, _clazz, $ObjectFactory::findProviderClass(this->_className, true));
 			if (this->_clazz == nullptr) {
 				$init($ErrorMsg);
-				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, $of(this->_className)));
-				$nc($(getParser()))->reportError($Constants::ERROR, msg);
+				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, this->_className));
+				$$nc(getParser())->reportError($Constants::ERROR, msg);
 			}
 		}
 		$var($ConstructorArray, constructors, $nc(this->_clazz)->getConstructors());
 		{
 			$var($ConstructorArray, arr$, constructors);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Constructor, constructor, arr$->get(i$));
 				{
 					int32_t mods = $nc(constructor)->getModifiers();
@@ -877,15 +764,15 @@ $List* FunctionCall::findConstructors() {
 		}
 	} catch ($ClassNotFoundException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, $of(this->_className)));
-		$nc($(getParser()))->reportError($Constants::ERROR, msg);
+		$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, this->_className));
+		$$nc(getParser())->reportError($Constants::ERROR, msg);
 	}
 	return result;
 }
 
 $String* FunctionCall::getSignature($Class* clazz) {
 	$init(FunctionCall);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(clazz)->isArray()) {
 		$var($StringBuffer, sb, $new($StringBuffer));
 		$Class* cl = clazz;
@@ -896,63 +783,38 @@ $String* FunctionCall::getSignature($Class* clazz) {
 		sb->append($(getSignature(cl)));
 		return sb->toString();
 	} else if (clazz->isPrimitive()) {
-		$init($Integer);
 		if (clazz == $Integer::TYPE) {
 			return "I"_s;
+		} else if (clazz == $Byte::TYPE) {
+			return "B"_s;
+		} else if (clazz == $Long::TYPE) {
+			return "J"_s;
+		} else if (clazz == $Float::TYPE) {
+			return "F"_s;
+		} else if (clazz == $Double::TYPE) {
+			return "D"_s;
+		} else if (clazz == $Short::TYPE) {
+			return "S"_s;
+		} else if (clazz == $Character::TYPE) {
+			return "C"_s;
+		} else if (clazz == $Boolean::TYPE) {
+			return "Z"_s;
+		} else if (clazz == $Void::TYPE) {
+			return "V"_s;
 		} else {
-			$init($Byte);
-			if (clazz == $Byte::TYPE) {
-				return "B"_s;
-			} else {
-				$init($Long);
-				if (clazz == $Long::TYPE) {
-					return "J"_s;
-				} else {
-					$init($Float);
-					if (clazz == $Float::TYPE) {
-						return "F"_s;
-					} else {
-						$init($Double);
-						if (clazz == $Double::TYPE) {
-							return "D"_s;
-						} else {
-							$init($Short);
-							if (clazz == $Short::TYPE) {
-								return "S"_s;
-							} else {
-								$init($Character);
-								if (clazz == $Character::TYPE) {
-									return "C"_s;
-								} else {
-									$init($Boolean);
-									if (clazz == $Boolean::TYPE) {
-										return "Z"_s;
-									} else {
-										$init($Void);
-										if (clazz == $Void::TYPE) {
-											return "V"_s;
-										} else {
-											$var($String, name, clazz->toString());
-											$init($ErrorMsg);
-											$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::UNKNOWN_SIG_TYPE_ERR, $of(name)));
-											$throwNew($Error, $(err->toString()));
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+			$var($String, name, clazz->toString());
+			$init($ErrorMsg);
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::UNKNOWN_SIG_TYPE_ERR, name));
+			$throwNew($Error, $(err->toString()));
 		}
 	} else {
-		return $str({"L"_s, $($nc($(clazz->getName()))->replace(u'.', u'/')), $$str(u';')});
+		return $str({"L"_s, $($$nc(clazz->getName())->replace(u'.', u'/')), $$str(u';')});
 	}
 }
 
 $String* FunctionCall::getSignature($Method* meth) {
 	$init(FunctionCall);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->append(u'(');
 	$var($ClassArray, params, $nc(meth)->getParameterTypes());
@@ -964,7 +826,7 @@ $String* FunctionCall::getSignature($Method* meth) {
 
 $String* FunctionCall::getSignature($Constructor* cons) {
 	$init(FunctionCall);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->append(u'(');
 	$var($ClassArray, params, $nc(cons)->getParameterTypes());
@@ -975,7 +837,7 @@ $String* FunctionCall::getSignature($Constructor* cons) {
 }
 
 $String* FunctionCall::getMethodSignature($List* argsType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, buf, $new($StringBuffer, this->_className));
 	buf->append(u'.')->append($($nc(this->_fname)->getLocalPart()))->append(u'(');
 	int32_t nArgs = $nc(argsType)->size();
@@ -1005,15 +867,15 @@ $String* FunctionCall::replaceDash($String* name) {
 }
 
 void FunctionCall::translateUnallowedExtension($ConstantPoolGen* cpg, $InstructionList* il) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	int32_t index = $nc(cpg)->addMethodref($Constants::BASIS_LIBRARY_CLASS, "unallowed_extension_functionF"_s, "(Ljava/lang/String;)V"_s);
-	$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $($nc(this->_fname)->toString()))));
-	il->append(static_cast<$Instruction*>($$new($INVOKESTATIC, index)));
+	$nc(il)->append($$new($PUSH, cpg, $($nc(this->_fname)->toString())));
+	il->append($$new($INVOKESTATIC, index));
 }
 
-void clinit$FunctionCall($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FunctionCall::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Constants);
 	$assignStatic(FunctionCall::EXT_XSLTC, $Constants::TRANSLET_URI);
 	$assignStatic(FunctionCall::JAVA_EXT_XSLTC, $str({FunctionCall::EXT_XSLTC, "/java"_s}));
@@ -1037,60 +899,51 @@ void clinit$FunctionCall($Class* class$) {
 			nodeListClass = $Class::forName("org.w3c.dom.NodeList"_s);
 		} catch ($ClassNotFoundException& e) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, $of("org.w3c.dom.Node or NodeList"_s)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::CLASS_NOT_FOUND_ERR, "org.w3c.dom.Node or NodeList"_s));
 			$throwNew($Error, $(err->toString()));
 		}
 		$init($Type);
-		$init($Boolean);
-		$nc(FunctionCall::_internal2Java)->put($Type::Boolean, $$new($FunctionCall$JavaType, $Boolean::TYPE, 0));
-		$nc(FunctionCall::_internal2Java)->put($Type::Boolean, $$new($FunctionCall$JavaType, $Boolean::class$, 1));
-		$nc(FunctionCall::_internal2Java)->put($Type::Boolean, $$new($FunctionCall$JavaType, $Object::class$, 2));
-		$init($Double);
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Double::TYPE, 0));
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Double::class$, 1));
-		$init($Float);
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Float::TYPE, 2));
-		$init($Long);
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Long::TYPE, 3));
-		$init($Integer);
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Integer::TYPE, 4));
-		$init($Short);
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Short::TYPE, 5));
-		$init($Byte);
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Byte::TYPE, 6));
-		$init($Character);
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Character::TYPE, 7));
-		$nc(FunctionCall::_internal2Java)->put($Type::Real, $$new($FunctionCall$JavaType, $Object::class$, 8));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Double::TYPE, 0));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Double::class$, 1));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Float::TYPE, 2));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Long::TYPE, 3));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Integer::TYPE, 4));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Short::TYPE, 5));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Byte::TYPE, 6));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Character::TYPE, 7));
-		$nc(FunctionCall::_internal2Java)->put($Type::Int, $$new($FunctionCall$JavaType, $Object::class$, 8));
-		$nc(FunctionCall::_internal2Java)->put($Type::String, $$new($FunctionCall$JavaType, $String::class$, 0));
-		$nc(FunctionCall::_internal2Java)->put($Type::String, $$new($FunctionCall$JavaType, $Object::class$, 1));
-		$nc(FunctionCall::_internal2Java)->put($Type::NodeSet, $$new($FunctionCall$JavaType, nodeListClass, 0));
-		$nc(FunctionCall::_internal2Java)->put($Type::NodeSet, $$new($FunctionCall$JavaType, nodeClass, 1));
-		$nc(FunctionCall::_internal2Java)->put($Type::NodeSet, $$new($FunctionCall$JavaType, $Object::class$, 2));
-		$nc(FunctionCall::_internal2Java)->put($Type::NodeSet, $$new($FunctionCall$JavaType, $String::class$, 3));
-		$nc(FunctionCall::_internal2Java)->put($Type::Node, $$new($FunctionCall$JavaType, nodeListClass, 0));
-		$nc(FunctionCall::_internal2Java)->put($Type::Node, $$new($FunctionCall$JavaType, nodeClass, 1));
-		$nc(FunctionCall::_internal2Java)->put($Type::Node, $$new($FunctionCall$JavaType, $Object::class$, 2));
-		$nc(FunctionCall::_internal2Java)->put($Type::Node, $$new($FunctionCall$JavaType, $String::class$, 3));
-		$nc(FunctionCall::_internal2Java)->put($Type::ResultTree, $$new($FunctionCall$JavaType, nodeListClass, 0));
-		$nc(FunctionCall::_internal2Java)->put($Type::ResultTree, $$new($FunctionCall$JavaType, nodeClass, 1));
-		$nc(FunctionCall::_internal2Java)->put($Type::ResultTree, $$new($FunctionCall$JavaType, $Object::class$, 2));
-		$nc(FunctionCall::_internal2Java)->put($Type::ResultTree, $$new($FunctionCall$JavaType, $String::class$, 3));
-		$nc(FunctionCall::_internal2Java)->put($Type::Reference, $$new($FunctionCall$JavaType, $Object::class$, 0));
-		$nc(FunctionCall::_internal2Java)->makeUnmodifiable();
+		FunctionCall::_internal2Java->put($Type::Boolean, $$new($FunctionCall$JavaType, $Boolean::TYPE, 0));
+		FunctionCall::_internal2Java->put($Type::Boolean, $$new($FunctionCall$JavaType, $Boolean::class$, 1));
+		FunctionCall::_internal2Java->put($Type::Boolean, $$new($FunctionCall$JavaType, $Object::class$, 2));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Double::TYPE, 0));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Double::class$, 1));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Float::TYPE, 2));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Long::TYPE, 3));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Integer::TYPE, 4));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Short::TYPE, 5));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Byte::TYPE, 6));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Character::TYPE, 7));
+		FunctionCall::_internal2Java->put($Type::Real, $$new($FunctionCall$JavaType, $Object::class$, 8));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Double::TYPE, 0));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Double::class$, 1));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Float::TYPE, 2));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Long::TYPE, 3));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Integer::TYPE, 4));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Short::TYPE, 5));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Byte::TYPE, 6));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Character::TYPE, 7));
+		FunctionCall::_internal2Java->put($Type::Int, $$new($FunctionCall$JavaType, $Object::class$, 8));
+		FunctionCall::_internal2Java->put($Type::String, $$new($FunctionCall$JavaType, $String::class$, 0));
+		FunctionCall::_internal2Java->put($Type::String, $$new($FunctionCall$JavaType, $Object::class$, 1));
+		FunctionCall::_internal2Java->put($Type::NodeSet, $$new($FunctionCall$JavaType, nodeListClass, 0));
+		FunctionCall::_internal2Java->put($Type::NodeSet, $$new($FunctionCall$JavaType, nodeClass, 1));
+		FunctionCall::_internal2Java->put($Type::NodeSet, $$new($FunctionCall$JavaType, $Object::class$, 2));
+		FunctionCall::_internal2Java->put($Type::NodeSet, $$new($FunctionCall$JavaType, $String::class$, 3));
+		FunctionCall::_internal2Java->put($Type::Node, $$new($FunctionCall$JavaType, nodeListClass, 0));
+		FunctionCall::_internal2Java->put($Type::Node, $$new($FunctionCall$JavaType, nodeClass, 1));
+		FunctionCall::_internal2Java->put($Type::Node, $$new($FunctionCall$JavaType, $Object::class$, 2));
+		FunctionCall::_internal2Java->put($Type::Node, $$new($FunctionCall$JavaType, $String::class$, 3));
+		FunctionCall::_internal2Java->put($Type::ResultTree, $$new($FunctionCall$JavaType, nodeListClass, 0));
+		FunctionCall::_internal2Java->put($Type::ResultTree, $$new($FunctionCall$JavaType, nodeClass, 1));
+		FunctionCall::_internal2Java->put($Type::ResultTree, $$new($FunctionCall$JavaType, $Object::class$, 2));
+		FunctionCall::_internal2Java->put($Type::ResultTree, $$new($FunctionCall$JavaType, $String::class$, 3));
+		FunctionCall::_internal2Java->put($Type::Reference, $$new($FunctionCall$JavaType, $Object::class$, 0));
+		FunctionCall::_internal2Java->makeUnmodifiable();
 		$var($Map, java2Internal, $new($HashMap));
 		$var($Map, extensionNamespaceTable, $new($HashMap));
 		$var($Map, extensionFunctionTable, $new($HashMap));
 		java2Internal->put($Boolean::TYPE, $Type::Boolean);
-		$init($Void);
 		java2Internal->put($Void::TYPE, $Type::Void);
 		java2Internal->put($Character::TYPE, $Type::Real);
 		java2Internal->put($Byte::TYPE, $Type::Real);
@@ -1122,7 +975,93 @@ FunctionCall::FunctionCall() {
 }
 
 $Class* FunctionCall::load$($String* name, bool initialize) {
-	$loadClass(FunctionCall, name, initialize, &_FunctionCall_ClassInfo_, clinit$FunctionCall, allocate$FunctionCall);
+	$FieldInfo fieldInfos$$[] = {
+		{"_fname", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(FunctionCall, _fname)},
+		{"_arguments", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;", $PRIVATE | $FINAL, $field(FunctionCall, _arguments)},
+		{"EMPTY_ARG_LIST", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, EMPTY_ARG_LIST)},
+		{"EXT_XSLTC", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXT_XSLTC)},
+		{"JAVA_EXT_XSLTC", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, JAVA_EXT_XSLTC)},
+		{"EXT_XALAN", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXT_XALAN)},
+		{"JAVA_EXT_XALAN", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, JAVA_EXT_XALAN)},
+		{"JAVA_EXT_XALAN_OLD", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, JAVA_EXT_XALAN_OLD)},
+		{"EXSLT_COMMON", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_COMMON)},
+		{"EXSLT_MATH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_MATH)},
+		{"EXSLT_SETS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_SETS)},
+		{"EXSLT_DATETIME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_DATETIME)},
+		{"EXSLT_STRINGS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, EXSLT_STRINGS)},
+		{"XALAN_CLASSPACKAGE_NAMESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(FunctionCall, XALAN_CLASSPACKAGE_NAMESPACE)},
+		{"NAMESPACE_FORMAT_JAVA", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_JAVA)},
+		{"NAMESPACE_FORMAT_CLASS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_CLASS)},
+		{"NAMESPACE_FORMAT_PACKAGE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_PACKAGE)},
+		{"NAMESPACE_FORMAT_CLASS_OR_PACKAGE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(FunctionCall, NAMESPACE_FORMAT_CLASS_OR_PACKAGE)},
+		{"_namespace_format", "I", nullptr, $PRIVATE, $field(FunctionCall, _namespace_format)},
+		{"_thisArgument", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, 0, $field(FunctionCall, _thisArgument)},
+		{"_className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FunctionCall, _className)},
+		{"_clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(FunctionCall, _clazz)},
+		{"_chosenMethod", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $field(FunctionCall, _chosenMethod)},
+		{"_chosenConstructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $field(FunctionCall, _chosenConstructor)},
+		{"_chosenMethodType", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;", nullptr, $PRIVATE, $field(FunctionCall, _chosenMethodType)},
+		{"unresolvedExternal", "Z", nullptr, $PRIVATE, $field(FunctionCall, unresolvedExternal)},
+		{"_isExtConstructor", "Z", nullptr, $PRIVATE, $field(FunctionCall, _isExtConstructor)},
+		{"_isStatic", "Z", nullptr, $PRIVATE, $field(FunctionCall, _isStatic)},
+		{"_internal2Java", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MultiHashtable;", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MultiHashtable<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FunctionCall$JavaType;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, _internal2Java)},
+		{"JAVA2INTERNAL", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, JAVA2INTERNAL)},
+		{"EXTENSIONNAMESPACE", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, EXTENSIONNAMESPACE)},
+		{"EXTENSIONFUNCTION", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FunctionCall, EXTENSIONFUNCTION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(FunctionCall, init$, void, $QName*, $List*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(FunctionCall, init$, void, $QName*)},
+		{"argument", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, argument, $Expression*, int32_t)},
+		{"argument", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, argument, $Expression*)},
+		{"argumentCount", "()I", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, argumentCount, int32_t)},
+		{"findConstructors", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Constructor<*>;>;", $PRIVATE, $method(FunctionCall, findConstructors, $List*)},
+		{"findMethods", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE, $method(FunctionCall, findMethods, $List*)},
+		{"generateAddReads", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FunctionCall, generateAddReads, void, $ClassGenerator*, $MethodGenerator*, $String*)},
+		{"getClassNameFromUri", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, getClassNameFromUri, $String*, $String*)},
+		{"getMethodSignature", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;>;)Ljava/lang/String;", $PRIVATE, $method(FunctionCall, getMethodSignature, $String*, $List*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, getName, $String*)},
+		{"getSignature", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $STATIC | $FINAL, $staticMethod(FunctionCall, getSignature, $String*, $Class*)},
+		{"getSignature", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(FunctionCall, getSignature, $String*, $Method*)},
+		{"getSignature", "(Ljava/lang/reflect/Constructor;)Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/String;", $STATIC | $FINAL, $staticMethod(FunctionCall, getSignature, $String*, $Constructor*)},
+		{"isExtension", "()Z", nullptr, $PUBLIC, $virtualMethod(FunctionCall, isExtension, bool)},
+		{"isStandard", "()Z", nullptr, $PUBLIC, $virtualMethod(FunctionCall, isStandard, bool)},
+		{"replaceDash", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(FunctionCall, replaceDash, $String*, $String*)},
+		{"setArgument", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;)V", nullptr, $PROTECTED | $FINAL, $method(FunctionCall, setArgument, void, int32_t, $Expression*)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(FunctionCall, setParser, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FunctionCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(FunctionCall, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateUnallowedExtension", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PRIVATE, $method(FunctionCall, translateUnallowedExtension, void, $ConstantPoolGen*, $InstructionList*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{"typeCheckArgs", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Ljava/util/List;", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;>;", $PUBLIC, $virtualMethod(FunctionCall, typeCheckArgs, $List*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{"typeCheckConstructor", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheckConstructor, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{"typeCheckExternal", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheckExternal, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{"typeCheckStandard", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(FunctionCall, typeCheckStandard, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall$JavaType", "com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall", "JavaType", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall$JavaType"
+	};
+	$loadClass(FunctionCall, name, initialize, &classInfo$$, FunctionCall::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FunctionCall);
+	});
 	return class$;
 }
 

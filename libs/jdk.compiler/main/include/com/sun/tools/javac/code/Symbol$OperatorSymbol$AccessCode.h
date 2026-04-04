@@ -46,6 +46,7 @@ class $import Symbol$OperatorSymbol$AccessCode : public ::java::lang::Enum {
 public:
 	Symbol$OperatorSymbol$AccessCode();
 	static $Array<::com::sun::tools::javac::code::Symbol$OperatorSymbol$AccessCode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t code, ::com::sun::tools::javac::tree::JCTree$Tag* tag);
 	static int32_t from(::com::sun::tools::javac::tree::JCTree$Tag* tag, int32_t opcode);
 	static ::com::sun::tools::javac::code::Symbol$OperatorSymbol$AccessCode* getFromCode(int32_t code);

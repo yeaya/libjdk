@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyledEditorKit$StyledViewFactory.h>
-
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/BoxView.h>
 #include <javax/swing/text/ComponentView.h>
@@ -31,37 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _StyledEditorKit$StyledViewFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StyledEditorKit$StyledViewFactory, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$StyledViewFactory, create, $View*, $Element*)},
-	{}
-};
-
-$InnerClassInfo _StyledEditorKit$StyledViewFactory_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyledEditorKit$StyledViewFactory", "javax.swing.text.StyledEditorKit", "StyledViewFactory", $STATIC},
-	{}
-};
-
-$ClassInfo _StyledEditorKit$StyledViewFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.StyledEditorKit$StyledViewFactory",
-	"java.lang.Object",
-	"javax.swing.text.ViewFactory",
-	nullptr,
-	_StyledEditorKit$StyledViewFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyledEditorKit$StyledViewFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyledEditorKit"
-};
-
-$Object* allocate$StyledEditorKit$StyledViewFactory($Class* clazz) {
-	return $of($alloc(StyledEditorKit$StyledViewFactory));
-}
-
 void StyledEditorKit$StyledViewFactory::init$() {
 }
 
@@ -71,22 +39,16 @@ $View* StyledEditorKit$StyledViewFactory::create($Element* elem) {
 		$init($AbstractDocument);
 		if (kind->equals($AbstractDocument::ContentElementName)) {
 			return $new($LabelView, elem);
+		} else if (kind->equals($AbstractDocument::ParagraphElementName)) {
+			return $new($ParagraphView, elem);
+		} else if (kind->equals($AbstractDocument::SectionElementName)) {
+			return $new($BoxView, elem, $View::Y_AXIS);
 		} else {
-			if (kind->equals($AbstractDocument::ParagraphElementName)) {
-				return $new($ParagraphView, elem);
-			} else {
-				if (kind->equals($AbstractDocument::SectionElementName)) {
-					return $new($BoxView, elem, $View::Y_AXIS);
-				} else {
-					$init($StyleConstants);
-					if (kind->equals($StyleConstants::ComponentElementName)) {
-						return $new($ComponentView, elem);
-					} else {
-						if (kind->equals($StyleConstants::IconElementName)) {
-							return $new($IconView, elem);
-						}
-					}
-				}
+			$init($StyleConstants);
+			if (kind->equals($StyleConstants::ComponentElementName)) {
+				return $new($ComponentView, elem);
+			} else if (kind->equals($StyleConstants::IconElementName)) {
+				return $new($IconView, elem);
 			}
 		}
 	}
@@ -97,7 +59,33 @@ StyledEditorKit$StyledViewFactory::StyledEditorKit$StyledViewFactory() {
 }
 
 $Class* StyledEditorKit$StyledViewFactory::load$($String* name, bool initialize) {
-	$loadClass(StyledEditorKit$StyledViewFactory, name, initialize, &_StyledEditorKit$StyledViewFactory_ClassInfo_, allocate$StyledEditorKit$StyledViewFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StyledEditorKit$StyledViewFactory, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(StyledEditorKit$StyledViewFactory, create, $View*, $Element*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyledEditorKit$StyledViewFactory", "javax.swing.text.StyledEditorKit", "StyledViewFactory", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.StyledEditorKit$StyledViewFactory",
+		"java.lang.Object",
+		"javax.swing.text.ViewFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyledEditorKit"
+	};
+	$loadClass(StyledEditorKit$StyledViewFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StyledEditorKit$StyledViewFactory);
+	});
 	return class$;
 }
 

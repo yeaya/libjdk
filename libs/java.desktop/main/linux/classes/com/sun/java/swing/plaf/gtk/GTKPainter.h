@@ -67,6 +67,7 @@ class GTKPainter : public ::javax::swing::plaf::synth::SynthPainter {
 	$class(GTKPainter, 0, ::javax::swing::plaf::synth::SynthPainter)
 public:
 	GTKPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void fillArea(::javax::swing::plaf::synth::SynthContext* context, ::java::awt::Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, ::javax::swing::plaf::synth::ColorType* colorType);
 	$String* getName(::javax::swing::plaf::synth::SynthContext* context);

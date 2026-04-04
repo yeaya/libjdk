@@ -1,13 +1,10 @@
 #include <java.compiler.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <javax/annotation/processing/AbstractProcessor.h>
 #include <javax/annotation/processing/Completion.h>
 #include <javax/annotation/processing/Completions.h>
@@ -375,6 +372,7 @@ $bytes* java$compiler$GetResource($String* name) {
 
 void java$compiler::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.compiler", "17.35", "",
 		&_java$compiler_ModuleInfo_,

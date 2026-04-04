@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSpinnerUI.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -7,9 +6,6 @@
 #include <java/awt/Font.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusListener.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/InputMap.h>
@@ -27,7 +23,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/FontUIResource.h>
 #include <javax/swing/plaf/SpinnerUI.h>
@@ -51,16 +46,12 @@ using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $InputMap = ::javax::swing::InputMap;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
@@ -75,7 +66,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $SpinnerUI = ::javax::swing::plaf::SpinnerUI;
@@ -90,76 +80,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSpinnerUI_FieldInfo_[] = {
-	{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PROTECTED, $field(BasicSpinnerUI, spinner)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicSpinnerUI$Handler;", nullptr, $PRIVATE, $field(BasicSpinnerUI, handler)},
-	{"nextButtonHandler", "Ljavax/swing/plaf/basic/BasicSpinnerUI$ArrowButtonHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSpinnerUI, nextButtonHandler)},
-	{"previousButtonHandler", "Ljavax/swing/plaf/basic/BasicSpinnerUI$ArrowButtonHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSpinnerUI, previousButtonHandler)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicSpinnerUI, propertyChangeListener)},
-	{"zeroSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSpinnerUI, zeroSize)},
-	{}
-};
-
-$MethodInfo _BasicSpinnerUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicSpinnerUI, init$, void)},
-	{"createArrowButton", "(I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicSpinnerUI, createArrowButton, $Component*, int32_t)},
-	{"createEditor", "()Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createEditor, $JComponent*)},
-	{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createLayout, $LayoutManager*)},
-	{"createNextButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createNextButton, $Component*)},
-	{"createPreviousButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createPreviousButton, $Component*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicSpinnerUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicSpinnerUI$Handler;", nullptr, $PRIVATE, $method(BasicSpinnerUI, getHandler, $BasicSpinnerUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, $PRIVATE, $method(BasicSpinnerUI, getInputMap, $InputMap*, int32_t)},
-	{"installButtonListeners", "(Ljava/awt/Component;Ljavax/swing/plaf/basic/BasicSpinnerUI$ArrowButtonHandler;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, installButtonListeners, void, $Component*, $BasicSpinnerUI$ArrowButtonHandler*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installDefaults, void)},
-	{"installEditorBorderListener", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, installEditorBorderListener, void, $JComponent*)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installListeners, void)},
-	{"installNextButtonListeners", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installNextButtonListeners, void, $Component*)},
-	{"installPreviousButtonListeners", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installPreviousButtonListeners, void, $Component*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, installUI, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicSpinnerUI, loadActionMap, void, $LazyActionMap*)},
-	{"maybeAdd", "(Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, maybeAdd, void, $Component*, $String*)},
-	{"maybeRemoveEditorBorder", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, maybeRemoveEditorBorder, void, $JComponent*)},
-	{"removeEditorBorderListener", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, removeEditorBorderListener, void, $JComponent*)},
-	{"replaceEditor", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, replaceEditor, void, $JComponent*, $JComponent*)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, uninstallUI, void, $JComponent*)},
-	{"updateEditorAlignment", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, updateEditorAlignment, void, $JComponent*)},
-	{"updateEnabledState", "()V", nullptr, $PRIVATE, $method(BasicSpinnerUI, updateEnabledState, void)},
-	{"updateEnabledState", "(Ljava/awt/Container;Z)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, updateEnabledState, void, $Container*, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicSpinnerUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSpinnerUI$Handler", "javax.swing.plaf.basic.BasicSpinnerUI", "Handler", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler", "javax.swing.plaf.basic.BasicSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicSpinnerUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSpinnerUI",
-	"javax.swing.plaf.SpinnerUI",
-	nullptr,
-	_BasicSpinnerUI_FieldInfo_,
-	_BasicSpinnerUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSpinnerUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSpinnerUI$Handler,javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler"
-};
-
-$Object* allocate$BasicSpinnerUI($Class* clazz) {
-	return $of($alloc(BasicSpinnerUI));
-}
 
 $BasicSpinnerUI$ArrowButtonHandler* BasicSpinnerUI::nextButtonHandler = nullptr;
 $BasicSpinnerUI$ArrowButtonHandler* BasicSpinnerUI::previousButtonHandler = nullptr;
@@ -176,12 +96,12 @@ $ComponentUI* BasicSpinnerUI::createUI($JComponent* c) {
 
 void BasicSpinnerUI::maybeAdd($Component* c, $String* s) {
 	if (c != nullptr) {
-		$nc(this->spinner)->add(c, $of(s));
+		$nc(this->spinner)->add(c, s);
 	}
 }
 
 void BasicSpinnerUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, spinner, $cast($JSpinner, c));
 	installDefaults();
 	installListeners();
@@ -200,7 +120,7 @@ void BasicSpinnerUI::uninstallUI($JComponent* c) {
 }
 
 void BasicSpinnerUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, propertyChangeListener, createPropertyChangeListener());
 	$nc(this->spinner)->addPropertyChangeListener(this->propertyChangeListener);
 	if ($DefaultLookup::getBoolean(this->spinner, this, "Spinner.disableOnBoundaryValues"_s, false)) {
@@ -208,7 +128,7 @@ void BasicSpinnerUI::installListeners() {
 	}
 	$var($JComponent, editor, $nc(this->spinner)->getEditor());
 	if (editor != nullptr && $instanceOf($JSpinner$DefaultEditor, editor)) {
-		$var($JTextField, tf, $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField());
+		$var($JTextField, tf, $cast($JSpinner$DefaultEditor, editor)->getTextField());
 		if (tf != nullptr) {
 			tf->addFocusListener(BasicSpinnerUI::nextButtonHandler);
 			tf->addFocusListener(BasicSpinnerUI::previousButtonHandler);
@@ -217,13 +137,13 @@ void BasicSpinnerUI::installListeners() {
 }
 
 void BasicSpinnerUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->spinner)->removePropertyChangeListener(this->propertyChangeListener);
 	$nc(this->spinner)->removeChangeListener(this->handler);
 	$var($JComponent, editor, $nc(this->spinner)->getEditor());
 	removeEditorBorderListener(editor);
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
-		$var($JTextField, tf, $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField());
+		$var($JTextField, tf, $cast($JSpinner$DefaultEditor, editor)->getTextField());
 		if (tf != nullptr) {
 			tf->removeFocusListener(BasicSpinnerUI::nextButtonHandler);
 			tf->removeFocusListener(BasicSpinnerUI::previousButtonHandler);
@@ -234,19 +154,18 @@ void BasicSpinnerUI::uninstallListeners() {
 }
 
 void BasicSpinnerUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->spinner)->setLayout($(createLayout()));
 	$LookAndFeel::installBorder(this->spinner, "Spinner.border"_s);
 	$LookAndFeel::installColorsAndFont(this->spinner, "Spinner.background"_s, "Spinner.foreground"_s, "Spinner.font"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->spinner, "opaque"_s, $Boolean::TRUE);
 	$var($JComponent, editor, $nc(this->spinner)->getEditor());
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
-		$var($JTextField, tf, $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField());
+		$var($JTextField, tf, $cast($JSpinner$DefaultEditor, editor)->getTextField());
 		if (tf != nullptr) {
 			if ($instanceOf($UIResource, $(tf->getFont()))) {
 				$var($Font, font, $nc(this->spinner)->getFont());
-				tf->setFont(font == nullptr ? ($Font*)nullptr : static_cast<$Font*>($$new($FontUIResource, font)));
+				tf->setFont(font == nullptr ? ($Font*)nullptr : $$cast($Font, $new($FontUIResource, font)));
 			}
 		}
 	}
@@ -274,7 +193,7 @@ void BasicSpinnerUI::installPreviousButtonListeners($Component* c) {
 
 void BasicSpinnerUI::installButtonListeners($Component* c, $BasicSpinnerUI$ArrowButtonHandler* handler) {
 	if ($instanceOf($JButton, c)) {
-		$nc(($cast($JButton, c)))->addActionListener(handler);
+		$cast($JButton, c)->addActionListener(handler);
 	}
 	$nc(c)->addMouseListener(handler);
 }
@@ -302,7 +221,7 @@ $Component* BasicSpinnerUI::createNextButton() {
 }
 
 $Component* BasicSpinnerUI::createArrowButton(int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($BasicArrowButton, direction));
 	$var($Border, buttonBorder, $UIManager::getBorder("Spinner.arrowButtonBorder"_s));
 	if ($instanceOf($UIResource, buttonBorder)) {
@@ -324,26 +243,26 @@ $JComponent* BasicSpinnerUI::createEditor() {
 }
 
 void BasicSpinnerUI::replaceEditor($JComponent* oldEditor, $JComponent* newEditor) {
-	$nc(this->spinner)->remove(static_cast<$Component*>(oldEditor));
+	$nc(this->spinner)->remove(oldEditor);
 	maybeRemoveEditorBorder(newEditor);
 	installEditorBorderListener(newEditor);
 	$nc(newEditor)->setInheritsPopupMenu(true);
-	$nc(this->spinner)->add(static_cast<$Component*>(newEditor), $of("Editor"_s));
+	$nc(this->spinner)->add(newEditor, "Editor"_s);
 }
 
 void BasicSpinnerUI::updateEditorAlignment($JComponent* editor) {
 	if ($instanceOf($JSpinner$DefaultEditor, editor)) {
 		int32_t alignment = $UIManager::getInt("Spinner.editorAlignment"_s);
-		$var($JTextField, text, $nc(($cast($JSpinner$DefaultEditor, editor)))->getTextField());
+		$var($JTextField, text, $cast($JSpinner$DefaultEditor, editor)->getTextField());
 		$nc(text)->setHorizontalAlignment(alignment);
 	}
 }
 
 void BasicSpinnerUI::maybeRemoveEditorBorder($JComponent* editor$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, editor, editor$renamed);
 	if (!$UIManager::getBoolean("Spinner.editorBorderPainted"_s)) {
-		bool var$0 = $instanceOf($JPanel, editor) && $nc(editor)->getBorder() == nullptr;
+		bool var$0 = $instanceOf($JPanel, editor) && editor->getBorder() == nullptr;
 		if (var$0 && editor->getComponentCount() > 0) {
 			$assign(editor, $cast($JComponent, editor->getComponent(0)));
 		}
@@ -354,17 +273,17 @@ void BasicSpinnerUI::maybeRemoveEditorBorder($JComponent* editor$renamed) {
 }
 
 void BasicSpinnerUI::installEditorBorderListener($JComponent* editor$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, editor, editor$renamed);
 	if (!$UIManager::getBoolean("Spinner.editorBorderPainted"_s)) {
-		bool var$0 = $instanceOf($JPanel, editor) && $nc(editor)->getBorder() == nullptr;
+		bool var$0 = $instanceOf($JPanel, editor) && editor->getBorder() == nullptr;
 		if (var$0 && editor->getComponentCount() > 0) {
 			$assign(editor, $cast($JComponent, editor->getComponent(0)));
 		}
 		bool var$1 = editor != nullptr;
 		if (var$1) {
 			bool var$2 = editor->getBorder() == nullptr;
-			var$1 = (var$2 || $instanceOf($UIResource, $(editor->getBorder())));
+			var$1 = var$2 || $instanceOf($UIResource, $(editor->getBorder()));
 		}
 		if (var$1) {
 			$nc(editor)->addPropertyChangeListener($(getHandler()));
@@ -373,10 +292,10 @@ void BasicSpinnerUI::installEditorBorderListener($JComponent* editor$renamed) {
 }
 
 void BasicSpinnerUI::removeEditorBorderListener($JComponent* editor$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, editor, editor$renamed);
 	if (!$UIManager::getBoolean("Spinner.editorBorderPainted"_s)) {
-		if ($instanceOf($JPanel, editor) && $nc(editor)->getComponentCount() > 0) {
+		if ($instanceOf($JPanel, editor) && editor->getComponentCount() > 0) {
 			$assign(editor, $cast($JComponent, editor->getComponent(0)));
 		}
 		if (editor != nullptr) {
@@ -390,7 +309,7 @@ void BasicSpinnerUI::updateEnabledState() {
 }
 
 void BasicSpinnerUI::updateEnabledState($Container* c, bool enabled) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t counter = $nc(c)->getComponentCount() - 1; counter >= 0; --counter) {
 		$var($Component, child, c->getComponent(counter));
 		if ($DefaultLookup::getBoolean(this->spinner, this, "Spinner.disableOnBoundaryValues"_s, false)) {
@@ -399,8 +318,8 @@ void BasicSpinnerUI::updateEnabledState($Container* c, bool enabled) {
 			if (var$0 && $nc(model)->getNextValue() == nullptr) {
 				child->setEnabled(false);
 			} else {
-				bool var$2 = child->getName() == "Spinner.previousButton"_s;
-				if (var$2 && model->getPreviousValue() == nullptr) {
+				bool var$1 = child->getName() == "Spinner.previousButton"_s;
+				if (var$1 && $nc(model)->getPreviousValue() == nullptr) {
 					child->setEnabled(false);
 				} else {
 					child->setEnabled(enabled);
@@ -435,11 +354,11 @@ void BasicSpinnerUI::loadActionMap($LazyActionMap* map) {
 }
 
 int32_t BasicSpinnerUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SpinnerUI::getBaseline(c, width, height);
 	$var($JComponent, editor, $nc(this->spinner)->getEditor());
 	$var($Insets, insets, $nc(this->spinner)->getInsets());
-	width = width - $nc(insets)->left - insets->right;
+	width = width - $nc(insets)->left - $nc(insets)->right;
 	height = height - insets->top - insets->bottom;
 	if (width >= 0 && height >= 0) {
 		int32_t baseline = $nc(editor)->getBaseline(width, height);
@@ -452,10 +371,10 @@ int32_t BasicSpinnerUI::getBaseline($JComponent* c, int32_t width, int32_t heigh
 
 $Component$BaselineResizeBehavior* BasicSpinnerUI::getBaselineResizeBehavior($JComponent* c) {
 	$SpinnerUI::getBaselineResizeBehavior(c);
-	return $nc($($nc(this->spinner)->getEditor()))->getBaselineResizeBehavior();
+	return $$nc($nc(this->spinner)->getEditor())->getBaselineResizeBehavior();
 }
 
-void clinit$BasicSpinnerUI($Class* class$) {
+void BasicSpinnerUI::clinit$($Class* clazz) {
 	$assignStatic(BasicSpinnerUI::nextButtonHandler, $new($BasicSpinnerUI$ArrowButtonHandler, "increment"_s, true));
 	$assignStatic(BasicSpinnerUI::previousButtonHandler, $new($BasicSpinnerUI$ArrowButtonHandler, "decrement"_s, false));
 	$assignStatic(BasicSpinnerUI::zeroSize, $new($Dimension, 0, 0));
@@ -465,7 +384,71 @@ BasicSpinnerUI::BasicSpinnerUI() {
 }
 
 $Class* BasicSpinnerUI::load$($String* name, bool initialize) {
-	$loadClass(BasicSpinnerUI, name, initialize, &_BasicSpinnerUI_ClassInfo_, clinit$BasicSpinnerUI, allocate$BasicSpinnerUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PROTECTED, $field(BasicSpinnerUI, spinner)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicSpinnerUI$Handler;", nullptr, $PRIVATE, $field(BasicSpinnerUI, handler)},
+		{"nextButtonHandler", "Ljavax/swing/plaf/basic/BasicSpinnerUI$ArrowButtonHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSpinnerUI, nextButtonHandler)},
+		{"previousButtonHandler", "Ljavax/swing/plaf/basic/BasicSpinnerUI$ArrowButtonHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSpinnerUI, previousButtonHandler)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicSpinnerUI, propertyChangeListener)},
+		{"zeroSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSpinnerUI, zeroSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicSpinnerUI, init$, void)},
+		{"createArrowButton", "(I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicSpinnerUI, createArrowButton, $Component*, int32_t)},
+		{"createEditor", "()Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createEditor, $JComponent*)},
+		{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createLayout, $LayoutManager*)},
+		{"createNextButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createNextButton, $Component*)},
+		{"createPreviousButton", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createPreviousButton, $Component*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicSpinnerUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicSpinnerUI$Handler;", nullptr, $PRIVATE, $method(BasicSpinnerUI, getHandler, $BasicSpinnerUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, $PRIVATE, $method(BasicSpinnerUI, getInputMap, $InputMap*, int32_t)},
+		{"installButtonListeners", "(Ljava/awt/Component;Ljavax/swing/plaf/basic/BasicSpinnerUI$ArrowButtonHandler;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, installButtonListeners, void, $Component*, $BasicSpinnerUI$ArrowButtonHandler*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installDefaults, void)},
+		{"installEditorBorderListener", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, installEditorBorderListener, void, $JComponent*)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installListeners, void)},
+		{"installNextButtonListeners", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installNextButtonListeners, void, $Component*)},
+		{"installPreviousButtonListeners", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, installPreviousButtonListeners, void, $Component*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, installUI, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicSpinnerUI, loadActionMap, void, $LazyActionMap*)},
+		{"maybeAdd", "(Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, maybeAdd, void, $Component*, $String*)},
+		{"maybeRemoveEditorBorder", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, maybeRemoveEditorBorder, void, $JComponent*)},
+		{"removeEditorBorderListener", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, removeEditorBorderListener, void, $JComponent*)},
+		{"replaceEditor", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, replaceEditor, void, $JComponent*, $JComponent*)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSpinnerUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSpinnerUI, uninstallUI, void, $JComponent*)},
+		{"updateEditorAlignment", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, updateEditorAlignment, void, $JComponent*)},
+		{"updateEnabledState", "()V", nullptr, $PRIVATE, $method(BasicSpinnerUI, updateEnabledState, void)},
+		{"updateEnabledState", "(Ljava/awt/Container;Z)V", nullptr, $PRIVATE, $method(BasicSpinnerUI, updateEnabledState, void, $Container*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSpinnerUI$Handler", "javax.swing.plaf.basic.BasicSpinnerUI", "Handler", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler", "javax.swing.plaf.basic.BasicSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSpinnerUI",
+		"javax.swing.plaf.SpinnerUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSpinnerUI$Handler,javax.swing.plaf.basic.BasicSpinnerUI$ArrowButtonHandler"
+	};
+	$loadClass(BasicSpinnerUI, name, initialize, &classInfo$$, BasicSpinnerUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSpinnerUI);
+	});
 	return class$;
 }
 

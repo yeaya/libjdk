@@ -1,5 +1,4 @@
 #include <sun/awt/X11/OwnershipListener.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _OwnershipListener_MethodInfo_[] = {
-	{"ownershipChanged", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OwnershipListener, ownershipChanged, void, bool)},
-	{}
-};
-
-$ClassInfo _OwnershipListener_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.awt.X11.OwnershipListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_OwnershipListener_MethodInfo_
-};
-
-$Object* allocate$OwnershipListener($Class* clazz) {
-	return $of($alloc(OwnershipListener));
-}
-
 $Class* OwnershipListener::load$($String* name, bool initialize) {
-	$loadClass(OwnershipListener, name, initialize, &_OwnershipListener_ClassInfo_, allocate$OwnershipListener);
+	$MethodInfo methodInfos$$[] = {
+		{"ownershipChanged", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OwnershipListener, ownershipChanged, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.awt.X11.OwnershipListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OwnershipListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OwnershipListener);
+	});
 	return class$;
 }
 

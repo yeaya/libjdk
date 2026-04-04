@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Selector.h>
@@ -42,57 +41,6 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$FieldInfo _IdentityConstraint_FieldInfo_[] = {
-	{"type", "S", nullptr, $PROTECTED, $field(IdentityConstraint, type)},
-	{"fNamespace", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IdentityConstraint, fNamespace)},
-	{"fIdentityConstraintName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IdentityConstraint, fIdentityConstraintName)},
-	{"fElementName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IdentityConstraint, fElementName)},
-	{"fSelector", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector;", nullptr, $PROTECTED, $field(IdentityConstraint, fSelector)},
-	{"fFieldCount", "I", nullptr, $PROTECTED, $field(IdentityConstraint, fFieldCount)},
-	{"fFields", "[Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $PROTECTED, $field(IdentityConstraint, fFields)},
-	{"fAnnotations", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;", nullptr, $PROTECTED, $field(IdentityConstraint, fAnnotations)},
-	{"fNumAnnotations", "I", nullptr, $PROTECTED, $field(IdentityConstraint, fNumAnnotations)},
-	{}
-};
-
-$MethodInfo _IdentityConstraint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(IdentityConstraint, init$, void, $String*, $String*, $String*)},
-	{"addAnnotation", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;)V", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, addAnnotation, void, $XSAnnotationImpl*)},
-	{"addField", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;)V", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, addField, void, $Field*)},
-	{"equals", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, equals, bool, IdentityConstraint*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getAnnotations, $XSObjectList*)},
-	{"getCategory", "()S", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getCategory, int16_t)},
-	{"getElementName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getElementName, $String*)},
-	{"getFieldAt", "(I)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getFieldAt, $Field*, int32_t)},
-	{"getFieldCount", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getFieldCount, int32_t)},
-	{"getFieldStrs", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getFieldStrs, $StringList*)},
-	{"getIdentityConstraintName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getIdentityConstraintName, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getNamespaceItem, $XSNamespaceItem*)},
-	{"getRefKey", "()Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getRefKey, $XSIDCDefinition*)},
-	{"getSelector", "()Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getSelector, $Selector*)},
-	{"getSelectorStr", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getSelectorStr, $String*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getType, int16_t)},
-	{"resize", "([Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;I)[Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $STATIC | $FINAL, $staticMethod(IdentityConstraint, resize, $FieldArray*, $FieldArray*, int32_t)},
-	{"setSelector", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector;)V", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, setSelector, void, $Selector*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IdentityConstraint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.IdentityConstraint",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSIDCDefinition",
-	_IdentityConstraint_FieldInfo_,
-	_IdentityConstraint_MethodInfo_
-};
-
-$Object* allocate$IdentityConstraint($Class* clazz) {
-	return $of($alloc(IdentityConstraint));
-}
-
 void IdentityConstraint::init$($String* namespace$, $String* identityConstraintName, $String* elemName) {
 	$set(this, fAnnotations, nullptr);
 	$set(this, fNamespace, namespace$);
@@ -115,7 +63,7 @@ $Selector* IdentityConstraint::getSelector() {
 void IdentityConstraint::addField($Field* field) {
 	if (this->fFields == nullptr) {
 		$set(this, fFields, $new($FieldArray, 4));
-	} else if (this->fFieldCount == $nc(this->fFields)->length) {
+	} else if (this->fFieldCount == this->fFields->length) {
 		$set(this, fFields, resize(this->fFields, this->fFieldCount * 2));
 	}
 	$nc(this->fFields)->set(this->fFieldCount++, field);
@@ -135,11 +83,11 @@ $String* IdentityConstraint::getElementName() {
 
 $String* IdentityConstraint::toString() {
 	$var($String, s, $XSIDCDefinition::toString());
-	int32_t index1 = $nc(s)->lastIndexOf((int32_t)u'$');
+	int32_t index1 = $nc(s)->lastIndexOf(u'$');
 	if (index1 != -1) {
 		return s->substring(index1 + 1);
 	}
-	int32_t index2 = s->lastIndexOf((int32_t)u'.');
+	int32_t index2 = s->lastIndexOf(u'.');
 	if (index2 != -1) {
 		return s->substring(index2 + 1);
 	}
@@ -147,21 +95,21 @@ $String* IdentityConstraint::toString() {
 }
 
 bool IdentityConstraint::equals(IdentityConstraint* id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool areEqual = $nc(this->fIdentityConstraintName)->equals($nc(id)->fIdentityConstraintName);
 	if (!areEqual) {
 		return false;
 	}
-	areEqual = $nc($($nc(this->fSelector)->toString()))->equals($($nc($nc(id)->fSelector)->toString()));
+	areEqual = $$nc($nc(this->fSelector)->toString())->equals($($nc(id->fSelector)->toString()));
 	if (!areEqual) {
 		return false;
 	}
-	areEqual = (this->fFieldCount == $nc(id)->fFieldCount);
+	areEqual = (this->fFieldCount == id->fFieldCount);
 	if (!areEqual) {
 		return false;
 	}
 	for (int32_t i = 0; i < this->fFieldCount; ++i) {
-		if (!$nc($($nc($nc(this->fFields)->get(i))->toString()))->equals($($nc($nc(id->fFields)->get(i))->toString()))) {
+		if (!$$nc($nc($nc(this->fFields)->get(i))->toString())->equals($($nc($nc(id->fFields)->get(i))->toString()))) {
 			return false;
 		}
 	}
@@ -192,11 +140,11 @@ int16_t IdentityConstraint::getCategory() {
 }
 
 $String* IdentityConstraint::getSelectorStr() {
-	return (this->fSelector != nullptr) ? $nc(this->fSelector)->toString() : ($String*)nullptr;
+	return (this->fSelector != nullptr) ? this->fSelector->toString() : ($String*)nullptr;
 }
 
 $StringList* IdentityConstraint::getFieldStrs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, strs, $new($StringArray, this->fFieldCount));
 	for (int32_t i = 0; i < this->fFieldCount; ++i) {
 		strs->set(i, $($nc($nc(this->fFields)->get(i))->toString()));
@@ -209,7 +157,7 @@ $XSIDCDefinition* IdentityConstraint::getRefKey() {
 }
 
 $XSObjectList* IdentityConstraint::getAnnotations() {
-	return $new($XSObjectListImpl, $fcast($XSObjectArray, this->fAnnotations), this->fNumAnnotations);
+	return $new($XSObjectListImpl, $cast($XSObjectArray, this->fAnnotations), this->fNumAnnotations);
 }
 
 $XSNamespaceItem* IdentityConstraint::getNamespaceItem() {
@@ -222,7 +170,7 @@ void IdentityConstraint::addAnnotation($XSAnnotationImpl* annotation) {
 	}
 	if (this->fAnnotations == nullptr) {
 		$set(this, fAnnotations, $new($XSAnnotationImplArray, 2));
-	} else if (this->fNumAnnotations == $nc(this->fAnnotations)->length) {
+	} else if (this->fNumAnnotations == this->fAnnotations->length) {
 		$var($XSAnnotationImplArray, newArray, $new($XSAnnotationImplArray, this->fNumAnnotations << 1));
 		$System::arraycopy(this->fAnnotations, 0, newArray, 0, this->fNumAnnotations);
 		$set(this, fAnnotations, newArray);
@@ -234,7 +182,53 @@ IdentityConstraint::IdentityConstraint() {
 }
 
 $Class* IdentityConstraint::load$($String* name, bool initialize) {
-	$loadClass(IdentityConstraint, name, initialize, &_IdentityConstraint_ClassInfo_, allocate$IdentityConstraint);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "S", nullptr, $PROTECTED, $field(IdentityConstraint, type)},
+		{"fNamespace", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IdentityConstraint, fNamespace)},
+		{"fIdentityConstraintName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IdentityConstraint, fIdentityConstraintName)},
+		{"fElementName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IdentityConstraint, fElementName)},
+		{"fSelector", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector;", nullptr, $PROTECTED, $field(IdentityConstraint, fSelector)},
+		{"fFieldCount", "I", nullptr, $PROTECTED, $field(IdentityConstraint, fFieldCount)},
+		{"fFields", "[Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $PROTECTED, $field(IdentityConstraint, fFields)},
+		{"fAnnotations", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;", nullptr, $PROTECTED, $field(IdentityConstraint, fAnnotations)},
+		{"fNumAnnotations", "I", nullptr, $PROTECTED, $field(IdentityConstraint, fNumAnnotations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(IdentityConstraint, init$, void, $String*, $String*, $String*)},
+		{"addAnnotation", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;)V", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, addAnnotation, void, $XSAnnotationImpl*)},
+		{"addField", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;)V", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, addField, void, $Field*)},
+		{"equals", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)Z", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, equals, bool, IdentityConstraint*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getAnnotations, $XSObjectList*)},
+		{"getCategory", "()S", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getCategory, int16_t)},
+		{"getElementName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getElementName, $String*)},
+		{"getFieldAt", "(I)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getFieldAt, $Field*, int32_t)},
+		{"getFieldCount", "()I", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getFieldCount, int32_t)},
+		{"getFieldStrs", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getFieldStrs, $StringList*)},
+		{"getIdentityConstraintName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getIdentityConstraintName, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getNamespaceItem, $XSNamespaceItem*)},
+		{"getRefKey", "()Lcom/sun/org/apache/xerces/internal/xs/XSIDCDefinition;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getRefKey, $XSIDCDefinition*)},
+		{"getSelector", "()Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getSelector, $Selector*)},
+		{"getSelectorStr", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getSelectorStr, $String*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, getType, int16_t)},
+		{"resize", "([Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;I)[Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $STATIC | $FINAL, $staticMethod(IdentityConstraint, resize, $FieldArray*, $FieldArray*, int32_t)},
+		{"setSelector", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Selector;)V", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, setSelector, void, $Selector*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IdentityConstraint, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.IdentityConstraint",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSIDCDefinition",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IdentityConstraint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdentityConstraint);
+	});
 	return class$;
 }
 

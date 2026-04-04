@@ -1,5 +1,4 @@
 #include <java/awt/event/WindowFocusListener.h>
-
 #include <java/awt/event/WindowEvent.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$MethodInfo _WindowFocusListener_MethodInfo_[] = {
-	{"windowGainedFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WindowFocusListener, windowGainedFocus, void, $WindowEvent*)},
-	{"windowLostFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WindowFocusListener, windowLostFocus, void, $WindowEvent*)},
-	{}
-};
-
-$ClassInfo _WindowFocusListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.event.WindowFocusListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_WindowFocusListener_MethodInfo_
-};
-
-$Object* allocate$WindowFocusListener($Class* clazz) {
-	return $of($alloc(WindowFocusListener));
-}
-
 $Class* WindowFocusListener::load$($String* name, bool initialize) {
-	$loadClass(WindowFocusListener, name, initialize, &_WindowFocusListener_ClassInfo_, allocate$WindowFocusListener);
+	$MethodInfo methodInfos$$[] = {
+		{"windowGainedFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WindowFocusListener, windowGainedFocus, void, $WindowEvent*)},
+		{"windowLostFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WindowFocusListener, windowLostFocus, void, $WindowEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.event.WindowFocusListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowFocusListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowFocusListener);
+	});
 	return class$;
 }
 

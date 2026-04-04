@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CMenuComponent.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/MenuComponent.h>
 #include <sun/lwawt/macosx/CFRetainedResource.h>
@@ -17,38 +16,6 @@ using $LWCToolkit = ::sun::lwawt::macosx::LWCToolkit;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CMenuComponent_FieldInfo_[] = {
-	{"target", "Ljava/awt/MenuComponent;", nullptr, $PRIVATE | $FINAL, $field(CMenuComponent, target)},
-	{}
-};
-
-$MethodInfo _CMenuComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/MenuComponent;)V", nullptr, 0, $method(CMenuComponent, init$, void, $MenuComponent*)},
-	{"createModel", "()J", nullptr, $ABSTRACT, $virtualMethod(CMenuComponent, createModel, int64_t)},
-	{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CMenuComponent, dispose, void)},
-	{"getTarget", "()Ljava/awt/MenuComponent;", nullptr, $FINAL, $method(CMenuComponent, getTarget, $MenuComponent*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CMenuComponent, setFont, void, $Font*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CMenuComponent_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.lwawt.macosx.CMenuComponent",
-	"sun.lwawt.macosx.CFRetainedResource",
-	"java.awt.peer.MenuComponentPeer",
-	_CMenuComponent_FieldInfo_,
-	_CMenuComponent_MethodInfo_
-};
-
-$Object* allocate$CMenuComponent($Class* clazz) {
-	return $of($alloc(CMenuComponent));
-}
 
 void CMenuComponent::finalize() {
 	this->$CFRetainedResource::finalize();
@@ -92,7 +59,34 @@ CMenuComponent::CMenuComponent() {
 }
 
 $Class* CMenuComponent::load$($String* name, bool initialize) {
-	$loadClass(CMenuComponent, name, initialize, &_CMenuComponent_ClassInfo_, allocate$CMenuComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/awt/MenuComponent;", nullptr, $PRIVATE | $FINAL, $field(CMenuComponent, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/MenuComponent;)V", nullptr, 0, $method(CMenuComponent, init$, void, $MenuComponent*)},
+		{"createModel", "()J", nullptr, $ABSTRACT, $virtualMethod(CMenuComponent, createModel, int64_t)},
+		{"dispose", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CMenuComponent, dispose, void)},
+		{"getTarget", "()Ljava/awt/MenuComponent;", nullptr, $FINAL, $method(CMenuComponent, getTarget, $MenuComponent*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CMenuComponent, setFont, void, $Font*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.lwawt.macosx.CMenuComponent",
+		"sun.lwawt.macosx.CFRetainedResource",
+		"java.awt.peer.MenuComponentPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMenuComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CMenuComponent));
+	});
 	return class$;
 }
 

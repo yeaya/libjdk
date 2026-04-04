@@ -18,6 +18,7 @@ class $import ExtendedSocketOptions$PlatformSocketOptions : public ::java::lang:
 	$class(ExtendedSocketOptions$PlatformSocketOptions, 0, ::java::lang::Object)
 public:
 	ExtendedSocketOptions$PlatformSocketOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::net::ExtendedSocketOptions$PlatformSocketOptions* create();
 	static ::jdk::net::ExtendedSocketOptions$PlatformSocketOptions* get();

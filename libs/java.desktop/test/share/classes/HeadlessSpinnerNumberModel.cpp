@@ -1,5 +1,4 @@
 #include <HeadlessSpinnerNumberModel.h>
-
 #include <javax/swing/SpinnerNumberModel.h>
 #include <jcpp.h>
 
@@ -8,30 +7,11 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
 
-$MethodInfo _HeadlessSpinnerNumberModel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessSpinnerNumberModel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessSpinnerNumberModel, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessSpinnerNumberModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessSpinnerNumberModel",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessSpinnerNumberModel_MethodInfo_
-};
-
-$Object* allocate$HeadlessSpinnerNumberModel($Class* clazz) {
-	return $of($alloc(HeadlessSpinnerNumberModel));
-}
-
 void HeadlessSpinnerNumberModel::init$() {
 }
 
 void HeadlessSpinnerNumberModel::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpinnerNumberModel, model, $new($SpinnerNumberModel));
 	model->setValue($($Integer::valueOf(5)));
 	model->getValue();
@@ -43,7 +23,22 @@ HeadlessSpinnerNumberModel::HeadlessSpinnerNumberModel() {
 }
 
 $Class* HeadlessSpinnerNumberModel::load$($String* name, bool initialize) {
-	$loadClass(HeadlessSpinnerNumberModel, name, initialize, &_HeadlessSpinnerNumberModel_ClassInfo_, allocate$HeadlessSpinnerNumberModel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessSpinnerNumberModel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessSpinnerNumberModel, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessSpinnerNumberModel",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessSpinnerNumberModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessSpinnerNumberModel);
+	});
 	return class$;
 }
 

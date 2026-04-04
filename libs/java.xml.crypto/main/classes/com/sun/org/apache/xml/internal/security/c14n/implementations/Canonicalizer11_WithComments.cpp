@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer11_WithComments.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315.h>
 #include <jcpp.h>
@@ -19,25 +18,6 @@ namespace com {
 							namespace c14n {
 								namespace implementations {
 
-$MethodInfo _Canonicalizer11_WithComments_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Canonicalizer11_WithComments, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Canonicalizer11_WithComments, engineGetURI, $String*)},
-	{}
-};
-
-$ClassInfo _Canonicalizer11_WithComments_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer11_WithComments",
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315",
-	nullptr,
-	nullptr,
-	_Canonicalizer11_WithComments_MethodInfo_
-};
-
-$Object* allocate$Canonicalizer11_WithComments($Class* clazz) {
-	return $of($alloc(Canonicalizer11_WithComments));
-}
-
 void Canonicalizer11_WithComments::init$() {
 	$Canonicalizer20010315::init$(true, true);
 }
@@ -51,7 +31,22 @@ Canonicalizer11_WithComments::Canonicalizer11_WithComments() {
 }
 
 $Class* Canonicalizer11_WithComments::load$($String* name, bool initialize) {
-	$loadClass(Canonicalizer11_WithComments, name, initialize, &_Canonicalizer11_WithComments_ClassInfo_, allocate$Canonicalizer11_WithComments);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Canonicalizer11_WithComments, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Canonicalizer11_WithComments, engineGetURI, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer11_WithComments",
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.Canonicalizer20010315",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Canonicalizer11_WithComments, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Canonicalizer11_WithComments);
+	});
 	return class$;
 }
 

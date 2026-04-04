@@ -119,6 +119,7 @@ class $export ClassReader : public ::java::lang::Object {
 	$class(ClassReader, 0, ::java::lang::Object)
 public:
 	ClassReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual int64_t adjustClassFlags(int64_t flags);
 	virtual int64_t adjustFieldFlags(int64_t flags);
@@ -189,7 +190,7 @@ public:
 	virtual void skipMember();
 	virtual void validateMethodType(::com::sun::tools::javac::util::Name* name, ::com::sun::tools::javac::code::Type* t);
 	static ::com::sun::tools::javac::util::Context$Key* classReaderKey;
-	static const int32_t INITIAL_BUFFER_SIZE = 0x0000FFF0;
+	static const int32_t INITIAL_BUFFER_SIZE = 0x0000fff0;
 	::com::sun::tools::javac::comp::Annotate* annotate = nullptr;
 	bool verbose = false;
 	bool allowModules = false;

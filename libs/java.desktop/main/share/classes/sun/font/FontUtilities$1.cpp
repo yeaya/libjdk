@@ -1,5 +1,4 @@
 #include <sun/font/FontUtilities$1.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/NumberFormatException.h>
 #include <sun/font/FontUtilities.h>
@@ -24,48 +23,11 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace font {
 
-$MethodInfo _FontUtilities$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FontUtilities$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FontUtilities$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _FontUtilities$1_EnclosingMethodInfo_ = {
-	"sun.font.FontUtilities",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _FontUtilities$1_InnerClassesInfo_[] = {
-	{"sun.font.FontUtilities$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FontUtilities$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.FontUtilities$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_FontUtilities$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_FontUtilities$1_EnclosingMethodInfo_,
-	_FontUtilities$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.FontUtilities"
-};
-
-$Object* allocate$FontUtilities$1($Class* clazz) {
-	return $of($alloc(FontUtilities$1));
-}
-
 void FontUtilities$1::init$() {
 }
 
 $Object* FontUtilities$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osName, $System::getProperty("os.name"_s, "unknownOS"_s));
 	$init($FontUtilities);
 	$FontUtilities::isLinux = $nc(osName)->startsWith("Linux"_s);
@@ -75,7 +37,7 @@ $Object* FontUtilities$1::run() {
 		$var($String, version, $System::getProperty("os.version"_s, ""_s));
 		if ($nc(version)->startsWith("10."_s)) {
 			$assign(version, version->substring(3));
-			int32_t periodIndex = version->indexOf((int32_t)u'.');
+			int32_t periodIndex = version->indexOf(u'.');
 			if (periodIndex != -1) {
 				$assign(version, version->substring(0, periodIndex));
 			}
@@ -106,14 +68,45 @@ $Object* FontUtilities$1::run() {
 		}
 		$FontUtilities::logging = $nc($FontUtilities::logger)->isEnabled();
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 FontUtilities$1::FontUtilities$1() {
 }
 
 $Class* FontUtilities$1::load$($String* name, bool initialize) {
-	$loadClass(FontUtilities$1, name, initialize, &_FontUtilities$1_ClassInfo_, allocate$FontUtilities$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FontUtilities$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FontUtilities$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.font.FontUtilities",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.FontUtilities$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.FontUtilities$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.FontUtilities"
+	};
+	$loadClass(FontUtilities$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FontUtilities$1);
+	});
 	return class$;
 }
 

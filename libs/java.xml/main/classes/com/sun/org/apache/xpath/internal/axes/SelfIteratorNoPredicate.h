@@ -52,7 +52,7 @@ public:
 	virtual int32_t asNode(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual int32_t getLastPos(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual int32_t nextNode() override;
-	static const int64_t serialVersionUID = (int64_t)0xC55713D85C66D5C7;
+	static const int64_t serialVersionUID = (int64_t)0xc55713d85c66d5c7;
 };
 
 						} // axes

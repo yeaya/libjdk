@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$AccessibleJTable$AccessibleJTableCell.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -64,103 +63,9 @@ using $JTable = ::javax::swing::JTable;
 using $JTable$AccessibleJTable = ::javax::swing::JTable$AccessibleJTable;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTable$AccessibleJTable$AccessibleJTableCell_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JTable$AccessibleJTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable$AccessibleJTableCell, this$1)},
-	{"parent", "Ljavax/swing/JTable;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, parent)},
-	{"row", "I", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, row)},
-	{"column", "I", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, column)},
-	{"index", "I", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, index)},
-	{}
-};
-
-$MethodInfo _JTable$AccessibleJTable$AccessibleJTableCell_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JTable$AccessibleJTable;Ljavax/swing/JTable;III)V", nullptr, $PUBLIC, $method(JTable$AccessibleJTable$AccessibleJTableCell, init$, void, $JTable$AccessibleJTable*, $JTable*, int32_t, int32_t, int32_t)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, addFocusListener, void, $FocusListener*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, contains, bool, $Point*)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleContext, $AccessibleContext*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleDescription, $String*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleSelection, $AccessibleSelection*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleText, $AccessibleText*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleValue, $AccessibleValue*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getBackground, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getBounds, $Rectangle*)},
-	{"getCurrentAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getCurrentAccessibleContext, $AccessibleContext*)},
-	{"getCurrentComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getCurrentComponent, $Component*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getCursor, $Cursor*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getLocale, $Locale*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getLocationOnScreen, $Point*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getSize, $Dimension*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isVisible, bool)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, removeFocusListener, void, $FocusListener*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, requestFocus, void)},
-	{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setAccessibleDescription, void, $String*)},
-	{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setAccessibleName, void, $String*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setLocation, void, $Point*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JTable$AccessibleJTable$AccessibleJTableCell_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
-	{"javax.swing.JTable$AccessibleJTable$AccessibleJTableCell", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableCell", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTable$AccessibleJTable$AccessibleJTableCell_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTable$AccessibleJTable$AccessibleJTableCell",
-	"javax.accessibility.AccessibleContext",
-	"javax.accessibility.Accessible,javax.accessibility.AccessibleComponent",
-	_JTable$AccessibleJTable$AccessibleJTableCell_FieldInfo_,
-	_JTable$AccessibleJTable$AccessibleJTableCell_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$AccessibleJTable$AccessibleJTableCell_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$AccessibleJTable$AccessibleJTableCell($Class* clazz) {
-	return $of($alloc(JTable$AccessibleJTable$AccessibleJTableCell));
-}
 
 int32_t JTable$AccessibleJTable$AccessibleJTableCell::hashCode() {
 	 return this->$AccessibleContext::hashCode();
@@ -197,34 +102,34 @@ $AccessibleContext* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleC
 }
 
 $AccessibleContext* JTable$AccessibleJTable$AccessibleJTableCell::getCurrentAccessibleContext() {
-	$useLocalCurrentObjectStackCache();
-	$var($TableColumn, aColumn, $nc($($nc(this->this$1->this$0)->getColumnModel()))->getColumn(this->column));
+	$useLocalObjectStack();
+	$var($TableColumn, aColumn, $$nc($nc(this->this$1->this$0)->getColumnModel())->getColumn(this->column));
 	$var($TableCellRenderer, renderer, $nc(aColumn)->getCellRenderer());
 	if (renderer == nullptr) {
-		$Class* columnClass = $nc(this->this$1->this$0)->getColumnClass(this->column);
-		$assign(renderer, $nc(this->this$1->this$0)->getDefaultRenderer(columnClass));
+		$Class* columnClass = this->this$1->this$0->getColumnClass(this->column);
+		$assign(renderer, this->this$1->this$0->getDefaultRenderer(columnClass));
 	}
-	$var($Component, component, $nc(renderer)->getTableCellRendererComponent(this->this$1->this$0, $($nc(this->this$1->this$0)->getValueAt(this->row, this->column)), false, false, this->row, this->column));
+	$var($Component, component, $nc(renderer)->getTableCellRendererComponent(this->this$1->this$0, $(this->this$1->this$0->getValueAt(this->row, this->column)), false, false, this->row, this->column));
 	if ($instanceOf($Accessible, component)) {
-		return $nc(component)->getAccessibleContext();
+		return component->getAccessibleContext();
 	} else {
 		return nullptr;
 	}
 }
 
 $Component* JTable$AccessibleJTable$AccessibleJTableCell::getCurrentComponent() {
-	$useLocalCurrentObjectStackCache();
-	$var($TableColumn, aColumn, $nc($($nc(this->this$1->this$0)->getColumnModel()))->getColumn(this->column));
+	$useLocalObjectStack();
+	$var($TableColumn, aColumn, $$nc($nc(this->this$1->this$0)->getColumnModel())->getColumn(this->column));
 	$var($TableCellRenderer, renderer, $nc(aColumn)->getCellRenderer());
 	if (renderer == nullptr) {
-		$Class* columnClass = $nc(this->this$1->this$0)->getColumnClass(this->column);
-		$assign(renderer, $nc(this->this$1->this$0)->getDefaultRenderer(columnClass));
+		$Class* columnClass = this->this$1->this$0->getColumnClass(this->column);
+		$assign(renderer, this->this$1->this$0->getDefaultRenderer(columnClass));
 	}
 	return $nc(renderer)->getTableCellRendererComponent(this->this$1->this$0, nullptr, false, false, this->row, this->column);
 }
 
 $String* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (ac != nullptr) {
 		$var($String, name, ac->getAccessibleName());
@@ -278,7 +183,7 @@ $AccessibleRole* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleRole
 }
 
 $AccessibleStateSet* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleStateSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	$var($AccessibleStateSet, as, nullptr);
 	if (ac != nullptr) {
@@ -288,7 +193,7 @@ $AccessibleStateSet* JTable$AccessibleJTable$AccessibleJTableCell::getAccessible
 		$assign(as, $new($AccessibleStateSet));
 	}
 	$var($Rectangle, rjt, $nc(this->this$1->this$0)->getVisibleRect());
-	$var($Rectangle, rcell, $nc(this->this$1->this$0)->getCellRect(this->row, this->column, false));
+	$var($Rectangle, rcell, this->this$1->this$0->getCellRect(this->row, this->column, false));
 	if ($nc(rjt)->intersects(rcell)) {
 		$init($AccessibleState);
 		$nc(as)->add($AccessibleState::SHOWING);
@@ -307,8 +212,8 @@ $AccessibleStateSet* JTable$AccessibleJTable$AccessibleJTableCell::getAccessible
 			as->remove($AccessibleState::SELECTED);
 		}
 	}
-	bool var$0 = (this->row == $nc(this->this$1->this$0)->getSelectedRow());
-	if (var$0 && (this->column == $nc(this->this$1->this$0)->getSelectedColumn())) {
+	bool var$0 = this->row == this->this$1->this$0->getSelectedRow();
+	if (var$0 && (this->column == this->this$1->this$0->getSelectedColumn())) {
 		$init($AccessibleState);
 		$nc(as)->add($AccessibleState::ACTIVE);
 	}
@@ -335,7 +240,7 @@ int32_t JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleChildrenCount
 }
 
 $Accessible* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleChild(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if (ac != nullptr) {
 		$var($Accessible, accessibleChild, ac->getAccessibleChild(i));
@@ -374,7 +279,7 @@ void JTable$AccessibleJTable$AccessibleJTableCell::removePropertyChangeListener(
 }
 
 $AccessibleAction* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleAction() {
-	return $nc($(getCurrentAccessibleContext()))->getAccessibleAction();
+	return $$nc(getCurrentAccessibleContext())->getAccessibleAction();
 }
 
 $AccessibleComponent* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleComponent() {
@@ -382,22 +287,22 @@ $AccessibleComponent* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibl
 }
 
 $AccessibleSelection* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleSelection() {
-	return $nc($(getCurrentAccessibleContext()))->getAccessibleSelection();
+	return $$nc(getCurrentAccessibleContext())->getAccessibleSelection();
 }
 
 $AccessibleText* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleText() {
-	return $nc($(getCurrentAccessibleContext()))->getAccessibleText();
+	return $$nc(getCurrentAccessibleContext())->getAccessibleText();
 }
 
 $AccessibleValue* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleValue() {
-	return $nc($(getCurrentAccessibleContext()))->getAccessibleValue();
+	return $$nc(getCurrentAccessibleContext())->getAccessibleValue();
 }
 
 $Color* JTable$AccessibleJTable$AccessibleJTableCell::getBackground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getBackground();
+		return $cast($AccessibleComponent, ac)->getBackground();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -409,10 +314,10 @@ $Color* JTable$AccessibleJTable$AccessibleJTableCell::getBackground() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setBackground($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setBackground(c);
+		$cast($AccessibleComponent, ac)->setBackground(c);
 	} else {
 		$var($Component, cp, getCurrentComponent());
 		if (cp != nullptr) {
@@ -422,10 +327,10 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setBackground($Color* c) {
 }
 
 $Color* JTable$AccessibleJTable$AccessibleJTableCell::getForeground() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getForeground();
+		return $cast($AccessibleComponent, ac)->getForeground();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -437,10 +342,10 @@ $Color* JTable$AccessibleJTable$AccessibleJTableCell::getForeground() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setForeground($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setForeground(c);
+		$cast($AccessibleComponent, ac)->setForeground(c);
 	} else {
 		$var($Component, cp, getCurrentComponent());
 		if (cp != nullptr) {
@@ -450,10 +355,10 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setForeground($Color* c) {
 }
 
 $Cursor* JTable$AccessibleJTable$AccessibleJTableCell::getCursor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getCursor();
+		return $cast($AccessibleComponent, ac)->getCursor();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -461,7 +366,7 @@ $Cursor* JTable$AccessibleJTable$AccessibleJTableCell::getCursor() {
 		} else {
 			$var($Accessible, ap, getAccessibleParent());
 			if ($instanceOf($AccessibleComponent, ap)) {
-				return $nc(($cast($AccessibleComponent, ap)))->getCursor();
+				return $cast($AccessibleComponent, ap)->getCursor();
 			} else {
 				return nullptr;
 			}
@@ -470,10 +375,10 @@ $Cursor* JTable$AccessibleJTable$AccessibleJTableCell::getCursor() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setCursor($Cursor* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setCursor(c);
+		$cast($AccessibleComponent, ac)->setCursor(c);
 	} else {
 		$var($Component, cp, getCurrentComponent());
 		if (cp != nullptr) {
@@ -483,10 +388,10 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setCursor($Cursor* c) {
 }
 
 $Font* JTable$AccessibleJTable$AccessibleJTableCell::getFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getFont();
+		return $cast($AccessibleComponent, ac)->getFont();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -498,10 +403,10 @@ $Font* JTable$AccessibleJTable$AccessibleJTableCell::getFont() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setFont($Font* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setFont(f);
+		$cast($AccessibleComponent, ac)->setFont(f);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -511,10 +416,10 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setFont($Font* f) {
 }
 
 $FontMetrics* JTable$AccessibleJTable$AccessibleJTableCell::getFontMetrics($Font* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getFontMetrics(f);
+		return $cast($AccessibleComponent, ac)->getFontMetrics(f);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -526,10 +431,10 @@ $FontMetrics* JTable$AccessibleJTable$AccessibleJTableCell::getFontMetrics($Font
 }
 
 bool JTable$AccessibleJTable$AccessibleJTableCell::isEnabled() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->isEnabled();
+		return $cast($AccessibleComponent, ac)->isEnabled();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -541,10 +446,10 @@ bool JTable$AccessibleJTable$AccessibleJTableCell::isEnabled() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setEnabled(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setEnabled(b);
+		$cast($AccessibleComponent, ac)->setEnabled(b);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -554,10 +459,10 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setEnabled(bool b) {
 }
 
 bool JTable$AccessibleJTable$AccessibleJTableCell::isVisible() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->isVisible();
+		return $cast($AccessibleComponent, ac)->isVisible();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -569,10 +474,10 @@ bool JTable$AccessibleJTable$AccessibleJTableCell::isVisible() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setVisible(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setVisible(b);
+		$cast($AccessibleComponent, ac)->setVisible(b);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -582,11 +487,11 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setVisible(bool b) {
 }
 
 bool JTable$AccessibleJTable$AccessibleJTableCell::isShowing() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		if ($nc(ac)->getAccessibleParent() != nullptr) {
-			return $nc(($cast($AccessibleComponent, ac)))->isShowing();
+		if (ac->getAccessibleParent() != nullptr) {
+			return $cast($AccessibleComponent, ac)->isShowing();
 		} else {
 			return isVisible();
 		}
@@ -601,10 +506,10 @@ bool JTable$AccessibleJTable$AccessibleJTableCell::isShowing() {
 }
 
 bool JTable$AccessibleJTable$AccessibleJTableCell::contains($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$var($Rectangle, r, $nc(($cast($AccessibleComponent, ac)))->getBounds());
+		$var($Rectangle, r, $cast($AccessibleComponent, ac)->getBounds());
 		return $nc(r)->contains(p);
 	} else {
 		$var($Component, c, getCurrentComponent());
@@ -612,17 +517,17 @@ bool JTable$AccessibleJTable$AccessibleJTableCell::contains($Point* p) {
 			$var($Rectangle, r, c->getBounds());
 			return $nc(r)->contains(p);
 		} else {
-			return $nc($(getBounds()))->contains(p);
+			return $$nc(getBounds())->contains(p);
 		}
 	}
 }
 
 $Point* JTable$AccessibleJTable$AccessibleJTableCell::getLocationOnScreen() {
-	$useLocalCurrentObjectStackCache();
-	if (this->parent != nullptr && $nc(this->parent)->isShowing()) {
-		$var($Point, parentLocation, $nc(this->parent)->getLocationOnScreen());
+	$useLocalObjectStack();
+	if (this->parent != nullptr && this->parent->isShowing()) {
+		$var($Point, parentLocation, this->parent->getLocationOnScreen());
 		$var($Point, componentLocation, getLocation());
-		$nc(componentLocation)->translate($nc(parentLocation)->x, parentLocation->y);
+		$nc(componentLocation)->translate($nc(parentLocation)->x, $nc(parentLocation)->y);
 		return componentLocation;
 	} else {
 		return nullptr;
@@ -631,7 +536,7 @@ $Point* JTable$AccessibleJTable$AccessibleJTableCell::getLocationOnScreen() {
 
 $Point* JTable$AccessibleJTable$AccessibleJTableCell::getLocation() {
 	if (this->parent != nullptr) {
-		$var($Rectangle, r, $nc(this->parent)->getCellRect(this->row, this->column, false));
+		$var($Rectangle, r, this->parent->getCellRect(this->row, this->column, false));
 		if (r != nullptr) {
 			return r->getLocation();
 		}
@@ -644,17 +549,17 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setLocation($Point* p) {
 
 $Rectangle* JTable$AccessibleJTable$AccessibleJTableCell::getBounds() {
 	if (this->parent != nullptr) {
-		return $nc(this->parent)->getCellRect(this->row, this->column, false);
+		return this->parent->getCellRect(this->row, this->column, false);
 	} else {
 		return nullptr;
 	}
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setBounds($Rectangle* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setBounds(r);
+		$cast($AccessibleComponent, ac)->setBounds(r);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -665,7 +570,7 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setBounds($Rectangle* r) {
 
 $Dimension* JTable$AccessibleJTable$AccessibleJTableCell::getSize() {
 	if (this->parent != nullptr) {
-		$var($Rectangle, r, $nc(this->parent)->getCellRect(this->row, this->column, false));
+		$var($Rectangle, r, this->parent->getCellRect(this->row, this->column, false));
 		if (r != nullptr) {
 			return r->getSize();
 		}
@@ -674,10 +579,10 @@ $Dimension* JTable$AccessibleJTable$AccessibleJTableCell::getSize() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::setSize($Dimension* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->setSize(d);
+		$cast($AccessibleComponent, ac)->setSize(d);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -689,17 +594,17 @@ void JTable$AccessibleJTable$AccessibleJTableCell::setSize($Dimension* d) {
 $Accessible* JTable$AccessibleJTable$AccessibleJTableCell::getAccessibleAt($Point* p) {
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->getAccessibleAt(p);
+		return $cast($AccessibleComponent, ac)->getAccessibleAt(p);
 	} else {
 		return nullptr;
 	}
 }
 
 bool JTable$AccessibleJTable$AccessibleJTableCell::isFocusTraversable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		return $nc(($cast($AccessibleComponent, ac)))->isFocusTraversable();
+		return $cast($AccessibleComponent, ac)->isFocusTraversable();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -711,10 +616,10 @@ bool JTable$AccessibleJTable$AccessibleJTableCell::isFocusTraversable() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::requestFocus() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->requestFocus();
+		$cast($AccessibleComponent, ac)->requestFocus();
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -724,10 +629,10 @@ void JTable$AccessibleJTable$AccessibleJTableCell::requestFocus() {
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::addFocusListener($FocusListener* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->addFocusListener(l);
+		$cast($AccessibleComponent, ac)->addFocusListener(l);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -737,10 +642,10 @@ void JTable$AccessibleJTable$AccessibleJTableCell::addFocusListener($FocusListen
 }
 
 void JTable$AccessibleJTable$AccessibleJTableCell::removeFocusListener($FocusListener* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, getCurrentAccessibleContext());
 	if ($instanceOf($AccessibleComponent, ac)) {
-		$nc(($cast($AccessibleComponent, ac)))->removeFocusListener(l);
+		$cast($AccessibleComponent, ac)->removeFocusListener(l);
 	} else {
 		$var($Component, c, getCurrentComponent());
 		if (c != nullptr) {
@@ -753,7 +658,94 @@ JTable$AccessibleJTable$AccessibleJTableCell::JTable$AccessibleJTable$Accessible
 }
 
 $Class* JTable$AccessibleJTable$AccessibleJTableCell::load$($String* name, bool initialize) {
-	$loadClass(JTable$AccessibleJTable$AccessibleJTableCell, name, initialize, &_JTable$AccessibleJTable$AccessibleJTableCell_ClassInfo_, allocate$JTable$AccessibleJTable$AccessibleJTableCell);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JTable$AccessibleJTable;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$AccessibleJTable$AccessibleJTableCell, this$1)},
+		{"parent", "Ljavax/swing/JTable;", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, parent)},
+		{"row", "I", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, row)},
+		{"column", "I", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, column)},
+		{"index", "I", nullptr, $PRIVATE, $field(JTable$AccessibleJTable$AccessibleJTableCell, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JTable$AccessibleJTable;Ljavax/swing/JTable;III)V", nullptr, $PUBLIC, $method(JTable$AccessibleJTable$AccessibleJTableCell, init$, void, $JTable$AccessibleJTable*, $JTable*, int32_t, int32_t, int32_t)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, addFocusListener, void, $FocusListener*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, contains, bool, $Point*)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleContext, $AccessibleContext*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleDescription, $String*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleSelection, $AccessibleSelection*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleText, $AccessibleText*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getAccessibleValue, $AccessibleValue*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getBackground, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getBounds, $Rectangle*)},
+		{"getCurrentAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getCurrentAccessibleContext, $AccessibleContext*)},
+		{"getCurrentComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getCurrentComponent, $Component*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getCursor, $Cursor*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getLocale, $Locale*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getLocationOnScreen, $Point*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, getSize, $Dimension*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, isVisible, bool)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, removeFocusListener, void, $FocusListener*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, requestFocus, void)},
+		{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setAccessibleDescription, void, $String*)},
+		{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setAccessibleName, void, $String*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setLocation, void, $Point*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTable$AccessibleJTable$AccessibleJTableCell, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$AccessibleJTable", "javax.swing.JTable", "AccessibleJTable", $PROTECTED},
+		{"javax.swing.JTable$AccessibleJTable$AccessibleJTableCell", "javax.swing.JTable$AccessibleJTable", "AccessibleJTableCell", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTable$AccessibleJTable$AccessibleJTableCell",
+		"javax.accessibility.AccessibleContext",
+		"javax.accessibility.Accessible,javax.accessibility.AccessibleComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$AccessibleJTable$AccessibleJTableCell, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTable$AccessibleJTable$AccessibleJTableCell));
+	});
 	return class$;
 }
 

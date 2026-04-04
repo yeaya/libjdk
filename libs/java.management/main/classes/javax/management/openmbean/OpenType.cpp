@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/OpenType.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
@@ -9,7 +8,6 @@
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -41,7 +39,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
@@ -56,69 +53,6 @@ using $TabularData = ::javax::management::openmbean::TabularData;
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$CompoundAttribute _OpenType_FieldAnnotations_ALLOWED_CLASSNAMES[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _OpenType_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenType, serialVersionUID)},
-	{"ALLOWED_CLASSNAMES_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(OpenType, ALLOWED_CLASSNAMES_LIST)},
-	{"ALLOWED_CLASSNAMES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(OpenType, ALLOWED_CLASSNAMES), _OpenType_FieldAnnotations_ALLOWED_CLASSNAMES},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OpenType, className)},
-	{"description", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OpenType, description)},
-	{"typeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OpenType, typeName)},
-	{"isArray", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(OpenType, isArray$)},
-	{"descriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenType, descriptor)},
-	{}
-};
-
-$MethodInfo _OpenType_MethodInfo_[] = {
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(OpenType, init$, void, $String*, $String*, $String*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(OpenType, init$, void, $String*, $String*, $String*, bool)},
-	{"checkClassNameOverride", "()V", nullptr, $PRIVATE, $method(OpenType, checkClassNameOverride, void), "java.lang.SecurityException"},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenType, getClassName, $String*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenType, getDescription, $String*)},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $SYNCHRONIZED, $virtualMethod(OpenType, getDescriptor, $Descriptor*)},
-	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenType, getTypeName, $String*)},
-	{"isArray", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenType, isArray, bool)},
-	{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0, $virtualMethod(OpenType, isAssignableFrom, bool, OpenType*)},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenType, isValue, bool, Object$*)},
-	{"overridesGetClassName", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(OpenType, overridesGetClassName, bool, $Class*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(OpenType, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"safeGetClassName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(OpenType, safeGetClassName, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"valid", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenType, valid, $String*, $String*, $String*)},
-	{"validClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenType, validClassName, $String*, $String*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _OpenType_InnerClassesInfo_[] = {
-	{"javax.management.openmbean.OpenType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _OpenType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.management.openmbean.OpenType",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_OpenType_FieldInfo_,
-	_OpenType_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/io/Serializable;",
-	nullptr,
-	_OpenType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.openmbean.OpenType$1"
-};
-
-$Object* allocate$OpenType($Class* clazz) {
-	return $of($alloc(OpenType));
-}
 
 bool OpenType::equals(Object$* obj) {
 	 return this->$Serializable::equals(obj);
@@ -141,7 +75,7 @@ void OpenType::init$($String* className, $String* typeName, $String* description
 	$set(this, typeName, valid("typeName"_s, typeName));
 	$set(this, description, valid("description"_s, description));
 	$set(this, className, validClassName(className));
-	this->isArray$ = (this->className != nullptr && $nc(this->className)->startsWith("["_s));
+	this->isArray$ = (this->className != nullptr && this->className->startsWith("["_s));
 }
 
 void OpenType::init$($String* className, $String* typeName, $String* description, bool isArray) {
@@ -154,12 +88,12 @@ void OpenType::init$($String* className, $String* typeName, $String* description
 
 void OpenType::checkClassNameOverride() {
 	$beforeCallerSensitive();
-	if ($of(this)->getClass()->getClassLoader() == nullptr) {
+	if (this->getClass()->getClassLoader() == nullptr) {
 		return;
 	}
-	if (overridesGetClassName($of(this)->getClass())) {
+	if (overridesGetClassName(this->getClass())) {
 		$var($GetPropertyAction, getExtendOpenTypes, $new($GetPropertyAction, "jmx.extend.open.types"_s));
-		if ($AccessController::doPrivileged(static_cast<$PrivilegedAction*>(getExtendOpenTypes)) == nullptr) {
+		if ($AccessController::doPrivileged(getExtendOpenTypes) == nullptr) {
 			$throwNew($SecurityException, "Cannot override getClassName() unless -Djmx.extend.open.types"_s);
 		}
 	}
@@ -167,14 +101,14 @@ void OpenType::checkClassNameOverride() {
 
 bool OpenType::overridesGetClassName($Class* c) {
 	$init(OpenType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($OpenType$1, c)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($OpenType$1, c)))->booleanValue();
 }
 
 $String* OpenType::validClassName($String* className$renamed) {
 	$init(OpenType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, className, className$renamed);
 	$assign(className, valid("className"_s, className));
 	int32_t n = 0;
@@ -184,7 +118,7 @@ $String* OpenType::validClassName($String* className$renamed) {
 	$var($String, eltClassName, nullptr);
 	bool isPrimitiveArray = false;
 	if (n > 0) {
-		bool var$0 = $nc(className)->startsWith("L"_s, n);
+		bool var$0 = className->startsWith("L"_s, n);
 		if (var$0 && className->endsWith(";"_s)) {
 			$assign(eltClassName, className->substring(n + 1, className->length() - 1));
 		} else if (n == className->length() - 1) {
@@ -210,9 +144,9 @@ $String* OpenType::validClassName($String* className$renamed) {
 
 $String* OpenType::valid($String* argName, $String* argValue$renamed) {
 	$init(OpenType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, argValue, argValue$renamed);
-	if (argValue == nullptr || $nc(($assign(argValue, $nc(argValue)->trim())))->isEmpty()) {
+	if (argValue == nullptr || $nc(($assign(argValue, argValue->trim())))->isEmpty()) {
 		$throwNew($IllegalArgumentException, $$str({"Argument "_s, argName, " cannot be null or empty"_s}));
 	}
 	return argValue;
@@ -220,9 +154,9 @@ $String* OpenType::valid($String* argName, $String* argValue$renamed) {
 
 $Descriptor* OpenType::getDescriptor() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->descriptor == nullptr) {
-			$set(this, descriptor, $new($ImmutableDescriptor, $$new($StringArray, {"openType"_s}), $$new($ObjectArray, {$of(this)})));
+			$set(this, descriptor, $new($ImmutableDescriptor, $$new($StringArray, {"openType"_s}), $$new($ObjectArray, {this})));
 		}
 		return this->descriptor;
 	}
@@ -253,16 +187,16 @@ bool OpenType::isAssignableFrom(OpenType* ot) {
 }
 
 void OpenType::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkClassNameOverride();
 	$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
 	$var($String, classNameField, nullptr);
 	$var($String, descriptionField, nullptr);
 	$var($String, typeNameField, nullptr);
 	try {
-		$assign(classNameField, validClassName($cast($String, $($nc(fields)->get("className"_s, ($Object*)nullptr)))));
-		$assign(descriptionField, valid("description"_s, $cast($String, $($nc(fields)->get("description"_s, ($Object*)nullptr)))));
-		$assign(typeNameField, valid("typeName"_s, $cast($String, $($nc(fields)->get("typeName"_s, ($Object*)nullptr)))));
+		$assign(classNameField, validClassName($$cast($String, $nc(fields)->get("className"_s, nullptr))));
+		$assign(descriptionField, valid("description"_s, $$cast($String, fields->get("description"_s, nullptr))));
+		$assign(typeNameField, valid("typeName"_s, $$cast($String, fields->get("typeName"_s, nullptr))));
 	} catch ($Exception& e) {
 		$var($IOException, e2, $new($InvalidObjectException, $(e->getMessage())));
 		e2->initCause(e);
@@ -274,8 +208,8 @@ void OpenType::readObject($ObjectInputStream* in) {
 	this->isArray$ = ($nc(this->className)->startsWith("["_s));
 }
 
-void clinit$OpenType($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void OpenType::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($CompositeData);
 	$load($TabularData);
 	$assignStatic(OpenType::ALLOWED_CLASSNAMES_LIST, $Collections::unmodifiableList($($Arrays::asList($$new($StringArray, {
@@ -296,14 +230,70 @@ void clinit$OpenType($Class* class$) {
 		$($CompositeData::class$->getName()),
 		$($TabularData::class$->getName())
 	})))));
-	$assignStatic(OpenType::ALLOWED_CLASSNAMES, $fcast($StringArray, $nc(OpenType::ALLOWED_CLASSNAMES_LIST)->toArray($$new($StringArray, 0))));
+	$assignStatic(OpenType::ALLOWED_CLASSNAMES, $cast($StringArray, $nc(OpenType::ALLOWED_CLASSNAMES_LIST)->toArray($$new($StringArray, 0))));
 }
 
 OpenType::OpenType() {
 }
 
 $Class* OpenType::load$($String* name, bool initialize) {
-	$loadClass(OpenType, name, initialize, &_OpenType_ClassInfo_, clinit$OpenType, allocate$OpenType);
+	$CompoundAttribute ALLOWED_CLASSNAMESfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(OpenType, serialVersionUID)},
+		{"ALLOWED_CLASSNAMES_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(OpenType, ALLOWED_CLASSNAMES_LIST)},
+		{"ALLOWED_CLASSNAMES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(OpenType, ALLOWED_CLASSNAMES), ALLOWED_CLASSNAMESfieldAnnotations$$},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OpenType, className)},
+		{"description", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OpenType, description)},
+		{"typeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OpenType, typeName)},
+		{"isArray", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(OpenType, isArray$)},
+		{"descriptor", "Ljavax/management/Descriptor;", nullptr, $PRIVATE | $TRANSIENT, $field(OpenType, descriptor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(OpenType, init$, void, $String*, $String*, $String*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(OpenType, init$, void, $String*, $String*, $String*, bool)},
+		{"checkClassNameOverride", "()V", nullptr, $PRIVATE, $method(OpenType, checkClassNameOverride, void), "java.lang.SecurityException"},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenType, getClassName, $String*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenType, getDescription, $String*)},
+		{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $SYNCHRONIZED, $virtualMethod(OpenType, getDescriptor, $Descriptor*)},
+		{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenType, getTypeName, $String*)},
+		{"isArray", "()Z", nullptr, $PUBLIC, $virtualMethod(OpenType, isArray, bool)},
+		{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0, $virtualMethod(OpenType, isAssignableFrom, bool, OpenType*)},
+		{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenType, isValue, bool, Object$*)},
+		{"overridesGetClassName", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(OpenType, overridesGetClassName, bool, $Class*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(OpenType, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"safeGetClassName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(OpenType, safeGetClassName, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"valid", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenType, valid, $String*, $String*, $String*)},
+		{"validClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenType, validClassName, $String*, $String*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.openmbean.OpenType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.management.openmbean.OpenType",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.openmbean.OpenType$1"
+	};
+	$loadClass(OpenType, name, initialize, &classInfo$$, OpenType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenType);
+	});
 	return class$;
 }
 

@@ -32,6 +32,7 @@ class $import HostAddress : public ::java::lang::Cloneable {
 	$class(HostAddress, 0, ::java::lang::Cloneable)
 public:
 	HostAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t dummy);
 	void init$();
 	void init$(int32_t new_addrType, $bytes* new_address);

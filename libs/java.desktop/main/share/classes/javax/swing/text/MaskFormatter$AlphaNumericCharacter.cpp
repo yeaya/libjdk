@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter$AlphaNumericCharacter.h>
-
 #include <javax/swing/text/MaskFormatter$MaskCharacter.h>
 #include <javax/swing/text/MaskFormatter.h>
 #include <jcpp.h>
@@ -16,43 +15,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _MaskFormatter$AlphaNumericCharacter_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$AlphaNumericCharacter, this$0)},
-	{}
-};
-
-$MethodInfo _MaskFormatter$AlphaNumericCharacter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$AlphaNumericCharacter, init$, void, $MaskFormatter*)},
-	{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$AlphaNumericCharacter, isValidCharacter, bool, char16_t)},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter$AlphaNumericCharacter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$AlphaNumericCharacter", "javax.swing.text.MaskFormatter", "AlphaNumericCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter$AlphaNumericCharacter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.MaskFormatter$AlphaNumericCharacter",
-	"javax.swing.text.MaskFormatter$MaskCharacter",
-	nullptr,
-	_MaskFormatter$AlphaNumericCharacter_FieldInfo_,
-	_MaskFormatter$AlphaNumericCharacter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter$AlphaNumericCharacter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter"
-};
-
-$Object* allocate$MaskFormatter$AlphaNumericCharacter($Class* clazz) {
-	return $of($alloc(MaskFormatter$AlphaNumericCharacter));
-}
-
 void MaskFormatter$AlphaNumericCharacter::init$($MaskFormatter* this$0) {
 	$set(this, this$0, this$0);
 	$MaskFormatter$MaskCharacter::init$(this$0);
@@ -67,7 +29,38 @@ MaskFormatter$AlphaNumericCharacter::MaskFormatter$AlphaNumericCharacter() {
 }
 
 $Class* MaskFormatter$AlphaNumericCharacter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter$AlphaNumericCharacter, name, initialize, &_MaskFormatter$AlphaNumericCharacter_ClassInfo_, allocate$MaskFormatter$AlphaNumericCharacter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/MaskFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(MaskFormatter$AlphaNumericCharacter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/MaskFormatter;)V", nullptr, $PRIVATE, $method(MaskFormatter$AlphaNumericCharacter, init$, void, $MaskFormatter*)},
+		{"isValidCharacter", "(C)Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter$AlphaNumericCharacter, isValidCharacter, bool, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$AlphaNumericCharacter", "javax.swing.text.MaskFormatter", "AlphaNumericCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.MaskFormatter$AlphaNumericCharacter",
+		"javax.swing.text.MaskFormatter$MaskCharacter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter"
+	};
+	$loadClass(MaskFormatter$AlphaNumericCharacter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaskFormatter$AlphaNumericCharacter);
+	});
 	return class$;
 }
 

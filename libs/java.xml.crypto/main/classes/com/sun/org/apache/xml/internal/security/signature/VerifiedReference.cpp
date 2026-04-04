@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/VerifiedReference.h>
-
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -18,34 +17,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$FieldInfo _VerifiedReference_FieldInfo_[] = {
-	{"valid", "Z", nullptr, $PRIVATE | $FINAL, $field(VerifiedReference, valid)},
-	{"uri", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VerifiedReference, uri)},
-	{"manifestReferences", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PRIVATE | $FINAL, $field(VerifiedReference, manifestReferences)},
-	{}
-};
-
-$MethodInfo _VerifiedReference_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;Ljava/util/List;)V", "(ZLjava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;)V", $PUBLIC, $method(VerifiedReference, init$, void, bool, $String*, $List*)},
-	{"getManifestReferences", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC, $virtualMethod(VerifiedReference, getManifestReferences, $List*)},
-	{"getUri", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifiedReference, getUri, $String*)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(VerifiedReference, isValid, bool)},
-	{}
-};
-
-$ClassInfo _VerifiedReference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.VerifiedReference",
-	"java.lang.Object",
-	nullptr,
-	_VerifiedReference_FieldInfo_,
-	_VerifiedReference_MethodInfo_
-};
-
-$Object* allocate$VerifiedReference($Class* clazz) {
-	return $of($alloc(VerifiedReference));
-}
 
 void VerifiedReference::init$(bool valid, $String* uri, $List* manifestReferences) {
 	this->valid = valid;
@@ -73,7 +44,30 @@ VerifiedReference::VerifiedReference() {
 }
 
 $Class* VerifiedReference::load$($String* name, bool initialize) {
-	$loadClass(VerifiedReference, name, initialize, &_VerifiedReference_ClassInfo_, allocate$VerifiedReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"valid", "Z", nullptr, $PRIVATE | $FINAL, $field(VerifiedReference, valid)},
+		{"uri", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VerifiedReference, uri)},
+		{"manifestReferences", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PRIVATE | $FINAL, $field(VerifiedReference, manifestReferences)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/lang/String;Ljava/util/List;)V", "(ZLjava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;)V", $PUBLIC, $method(VerifiedReference, init$, void, bool, $String*, $List*)},
+		{"getManifestReferences", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC, $virtualMethod(VerifiedReference, getManifestReferences, $List*)},
+		{"getUri", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifiedReference, getUri, $String*)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(VerifiedReference, isValid, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.VerifiedReference",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VerifiedReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VerifiedReference);
+	});
 	return class$;
 }
 

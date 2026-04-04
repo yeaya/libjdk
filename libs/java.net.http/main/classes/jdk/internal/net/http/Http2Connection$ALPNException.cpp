@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http2Connection$ALPNException.h>
-
 #include <java/io/IOException.h>
 #include <jdk/internal/net/http/AbstractAsyncSSLConnection.h>
 #include <jdk/internal/net/http/Http2Connection.h>
@@ -16,43 +15,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Http2Connection$ALPNException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http2Connection$ALPNException, serialVersionUID)},
-	{"connection", "Ljdk/internal/net/http/AbstractAsyncSSLConnection;", nullptr, $FINAL | $TRANSIENT, $field(Http2Connection$ALPNException, connection)},
-	{}
-};
-
-$MethodInfo _Http2Connection$ALPNException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, 0, $method(Http2Connection$ALPNException, init$, void, $String*, $AbstractAsyncSSLConnection*)},
-	{"getConnection", "()Ljdk/internal/net/http/AbstractAsyncSSLConnection;", nullptr, 0, $method(Http2Connection$ALPNException, getConnection, $AbstractAsyncSSLConnection*)},
-	{}
-};
-
-$InnerClassInfo _Http2Connection$ALPNException_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http2Connection$ALPNException", "jdk.internal.net.http.Http2Connection", "ALPNException", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Http2Connection$ALPNException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.Http2Connection$ALPNException",
-	"java.io.IOException",
-	nullptr,
-	_Http2Connection$ALPNException_FieldInfo_,
-	_Http2Connection$ALPNException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http2Connection$ALPNException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http2Connection"
-};
-
-$Object* allocate$Http2Connection$ALPNException($Class* clazz) {
-	return $of($alloc(Http2Connection$ALPNException));
-}
 
 void Http2Connection$ALPNException::init$($String* msg, $AbstractAsyncSSLConnection* connection) {
 	$IOException::init$(msg);
@@ -74,7 +36,38 @@ void Http2Connection$ALPNException::throw$() {
 }
 
 $Class* Http2Connection$ALPNException::load$($String* name, bool initialize) {
-	$loadClass(Http2Connection$ALPNException, name, initialize, &_Http2Connection$ALPNException_ClassInfo_, allocate$Http2Connection$ALPNException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Http2Connection$ALPNException, serialVersionUID)},
+		{"connection", "Ljdk/internal/net/http/AbstractAsyncSSLConnection;", nullptr, $FINAL | $TRANSIENT, $field(Http2Connection$ALPNException, connection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, 0, $method(Http2Connection$ALPNException, init$, void, $String*, $AbstractAsyncSSLConnection*)},
+		{"getConnection", "()Ljdk/internal/net/http/AbstractAsyncSSLConnection;", nullptr, 0, $method(Http2Connection$ALPNException, getConnection, $AbstractAsyncSSLConnection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http2Connection$ALPNException", "jdk.internal.net.http.Http2Connection", "ALPNException", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.Http2Connection$ALPNException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http2Connection"
+	};
+	$loadClass(Http2Connection$ALPNException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http2Connection$ALPNException);
+	});
 	return class$;
 }
 

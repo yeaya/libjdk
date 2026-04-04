@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/ExchangeImpl.h>
-
 #include <com/sun/net/httpserver/Headers.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <com/sun/net/httpserver/HttpPrincipal.h>
@@ -41,7 +40,6 @@
 #include <sun/net/httpserver/ChunkedInputStream.h>
 #include <sun/net/httpserver/ChunkedOutputStream.h>
 #include <sun/net/httpserver/Code.h>
-#include <sun/net/httpserver/Event.h>
 #include <sun/net/httpserver/FixedLengthInputStream.h>
 #include <sun/net/httpserver/FixedLengthOutputStream.h>
 #include <sun/net/httpserver/HttpConnection.h>
@@ -85,16 +83,13 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Socket = ::java::net::Socket;
 using $URI = ::java::net::URI;
-using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Instant = ::java::time::Instant;
 using $ZoneId = ::java::time::ZoneId;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
@@ -106,7 +101,6 @@ using $SSLSession = ::javax::net::ssl::SSLSession;
 using $ChunkedInputStream = ::sun::net::httpserver::ChunkedInputStream;
 using $ChunkedOutputStream = ::sun::net::httpserver::ChunkedOutputStream;
 using $Code = ::sun::net::httpserver::Code;
-using $Event = ::sun::net::httpserver::Event;
 using $FixedLengthInputStream = ::sun::net::httpserver::FixedLengthInputStream;
 using $FixedLengthOutputStream = ::sun::net::httpserver::FixedLengthOutputStream;
 using $HttpConnection = ::sun::net::httpserver::HttpConnection;
@@ -131,29 +125,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Collection, inst$)->stream());
+		 return $sure($Collection, inst$)->stream();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ExchangeImpl$$Lambda$stream>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ExchangeImpl$$Lambda$stream::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$stream, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$stream, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ExchangeImpl$$Lambda$stream::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.httpserver.ExchangeImpl$$Lambda$stream",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ExchangeImpl$$Lambda$stream::load$($String* name, bool initialize) {
-	$loadClass(ExchangeImpl$$Lambda$stream, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$stream, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$stream, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.httpserver.ExchangeImpl$$Lambda$stream",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExchangeImpl$$Lambda$stream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExchangeImpl$$Lambda$stream);
+	});
 	return class$;
 }
 $Class* ExchangeImpl$$Lambda$stream::class$ = nullptr;
@@ -167,113 +158,32 @@ public:
 	virtual bool test(Object$* arg0) override {
 		 return $nc(inst$)->equalsIgnoreCase($cast($String, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ExchangeImpl$$Lambda$equalsIgnoreCase$1>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ExchangeImpl$$Lambda$equalsIgnoreCase$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ExchangeImpl$$Lambda$equalsIgnoreCase$1, inst$)},
-	{}
-};
-$MethodInfo ExchangeImpl$$Lambda$equalsIgnoreCase$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$equalsIgnoreCase$1, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$equalsIgnoreCase$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ExchangeImpl$$Lambda$equalsIgnoreCase$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.httpserver.ExchangeImpl$$Lambda$equalsIgnoreCase$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ExchangeImpl$$Lambda$equalsIgnoreCase$1::load$($String* name, bool initialize) {
-	$loadClass(ExchangeImpl$$Lambda$equalsIgnoreCase$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ExchangeImpl$$Lambda$equalsIgnoreCase$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$equalsIgnoreCase$1, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$equalsIgnoreCase$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.httpserver.ExchangeImpl$$Lambda$equalsIgnoreCase$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExchangeImpl$$Lambda$equalsIgnoreCase$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExchangeImpl$$Lambda$equalsIgnoreCase$1);
+	});
 	return class$;
 }
 $Class* ExchangeImpl$$Lambda$equalsIgnoreCase$1::class$ = nullptr;
-
-$FieldInfo _ExchangeImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ExchangeImpl, $assertionsDisabled)},
-	{"reqHdrs", "Lcom/sun/net/httpserver/Headers;", nullptr, 0, $field(ExchangeImpl, reqHdrs)},
-	{"rspHdrs", "Lcom/sun/net/httpserver/Headers;", nullptr, 0, $field(ExchangeImpl, rspHdrs)},
-	{"req", "Lsun/net/httpserver/Request;", nullptr, 0, $field(ExchangeImpl, req)},
-	{"method", "Ljava/lang/String;", nullptr, 0, $field(ExchangeImpl, method)},
-	{"writefinished", "Z", nullptr, 0, $field(ExchangeImpl, writefinished)},
-	{"uri", "Ljava/net/URI;", nullptr, 0, $field(ExchangeImpl, uri)},
-	{"connection", "Lsun/net/httpserver/HttpConnection;", nullptr, 0, $field(ExchangeImpl, connection)},
-	{"reqContentLen", "J", nullptr, 0, $field(ExchangeImpl, reqContentLen)},
-	{"rspContentLen", "J", nullptr, 0, $field(ExchangeImpl, rspContentLen)},
-	{"ris", "Ljava/io/InputStream;", nullptr, 0, $field(ExchangeImpl, ris)},
-	{"ros", "Ljava/io/OutputStream;", nullptr, 0, $field(ExchangeImpl, ros)},
-	{"thread", "Ljava/lang/Thread;", nullptr, 0, $field(ExchangeImpl, thread)},
-	{"close", "Z", nullptr, 0, $field(ExchangeImpl, close$)},
-	{"closed", "Z", nullptr, 0, $field(ExchangeImpl, closed)},
-	{"http10", "Z", nullptr, 0, $field(ExchangeImpl, http10)},
-	{"FORMATTER", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExchangeImpl, FORMATTER)},
-	{"HEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExchangeImpl, HEAD)},
-	{"uis", "Ljava/io/InputStream;", nullptr, 0, $field(ExchangeImpl, uis)},
-	{"uos", "Ljava/io/OutputStream;", nullptr, 0, $field(ExchangeImpl, uos)},
-	{"uis_orig", "Lsun/net/httpserver/LeftOverInputStream;", nullptr, 0, $field(ExchangeImpl, uis_orig)},
-	{"uos_orig", "Lsun/net/httpserver/PlaceholderOutputStream;", nullptr, 0, $field(ExchangeImpl, uos_orig)},
-	{"sentHeaders", "Z", nullptr, 0, $field(ExchangeImpl, sentHeaders)},
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(ExchangeImpl, attributes)},
-	{"rcode", "I", nullptr, 0, $field(ExchangeImpl, rcode)},
-	{"principal", "Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, 0, $field(ExchangeImpl, principal)},
-	{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(ExchangeImpl, server)},
-	{"rspbuf", "[B", nullptr, $PRIVATE, $field(ExchangeImpl, rspbuf)},
-	{}
-};
-
-$MethodInfo _ExchangeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URI;Lsun/net/httpserver/Request;JLsun/net/httpserver/HttpConnection;)V", nullptr, 0, $method(ExchangeImpl, init$, void, $String*, $URI*, $Request*, int64_t, $HttpConnection*), "java.io.IOException"},
-	{"bytes", "(Ljava/lang/String;I)[B", nullptr, $PRIVATE, $method(ExchangeImpl, bytes, $bytes*, $String*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, close, void)},
-	{"get", "(Lcom/sun/net/httpserver/HttpExchange;)Lsun/net/httpserver/ExchangeImpl;", nullptr, $STATIC, $staticMethod(ExchangeImpl, get, ExchangeImpl*, $HttpExchange*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getAttribute, $Object*, $String*)},
-	{"getConnection", "()Lsun/net/httpserver/HttpConnection;", nullptr, 0, $virtualMethod(ExchangeImpl, getConnection, $HttpConnection*)},
-	{"getHttpContext", "()Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getHttpContext, $HttpContextImpl*)},
-	{"getLocalAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getLocalAddress, $InetSocketAddress*)},
-	{"getOriginalInputStream", "()Lsun/net/httpserver/LeftOverInputStream;", nullptr, 0, $virtualMethod(ExchangeImpl, getOriginalInputStream, $LeftOverInputStream*)},
-	{"getPlaceholderResponseBody", "()Lsun/net/httpserver/PlaceholderOutputStream;", nullptr, 0, $virtualMethod(ExchangeImpl, getPlaceholderResponseBody, $PlaceholderOutputStream*)},
-	{"getPrincipal", "()Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getPrincipal, $HttpPrincipal*)},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getProtocol, $String*)},
-	{"getRemoteAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRemoteAddress, $InetSocketAddress*)},
-	{"getRequestBody", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestBody, $InputStream*)},
-	{"getRequestHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestHeaders, $Headers*)},
-	{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestMethod, $String*)},
-	{"getRequestURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestURI, $URI*)},
-	{"getResponseBody", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getResponseBody, $OutputStream*)},
-	{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getResponseCode, int32_t)},
-	{"getResponseHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getResponseHeaders, $Headers*)},
-	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getSSLSession, $SSLSession*)},
-	{"getServerImpl", "()Lsun/net/httpserver/ServerImpl;", nullptr, 0, $virtualMethod(ExchangeImpl, getServerImpl, $ServerImpl*)},
-	{"isHeadRequest", "()Z", nullptr, $PRIVATE, $method(ExchangeImpl, isHeadRequest, bool)},
-	{"sendResponseHeaders", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, sendResponseHeaders, void, int32_t, int64_t), "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, setAttribute, void, $String*, Object$*)},
-	{"setPrincipal", "(Lcom/sun/net/httpserver/HttpPrincipal;)V", nullptr, 0, $virtualMethod(ExchangeImpl, setPrincipal, void, $HttpPrincipal*)},
-	{"setStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, setStreams, void, $InputStream*, $OutputStream*)},
-	{"write", "(Lcom/sun/net/httpserver/Headers;Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(ExchangeImpl, write, void, $Headers*, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ExchangeImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.ExchangeImpl",
-	"java.lang.Object",
-	nullptr,
-	_ExchangeImpl_FieldInfo_,
-	_ExchangeImpl_MethodInfo_
-};
-
-$Object* allocate$ExchangeImpl($Class* clazz) {
-	return $of($alloc(ExchangeImpl));
-}
 
 bool ExchangeImpl::$assertionsDisabled = false;
 $DateTimeFormatter* ExchangeImpl::FORMATTER = nullptr;
@@ -290,7 +200,7 @@ void ExchangeImpl::init$($String* m, $URI* u, $Request* req, int64_t len, $HttpC
 	$set(this, uri, u);
 	$set(this, connection, connection);
 	this->reqContentLen = len;
-	$set(this, ros, $nc(req)->outputStream());
+	$set(this, ros, req->outputStream());
 	$set(this, ris, req->inputStream());
 	$set(this, server, getServerImpl());
 	$nc(this->server)->startExchange();
@@ -317,7 +227,7 @@ $HttpContextImpl* ExchangeImpl::getHttpContext() {
 }
 
 bool ExchangeImpl::isHeadRequest() {
-	return $nc(ExchangeImpl::HEAD)->equals($(getRequestMethod()));
+	return ExchangeImpl::HEAD->equals($(getRequestMethod()));
 }
 
 void ExchangeImpl::close() {
@@ -347,7 +257,7 @@ $InputStream* ExchangeImpl::getRequestBody() {
 	if (this->uis != nullptr) {
 		return this->uis;
 	}
-	if (this->reqContentLen == (int64_t)-1) {
+	if (this->reqContentLen == -1) {
 		$set(this, uis_orig, $new($ChunkedInputStream, this, this->ris));
 		$set(this, uis, this->uis_orig);
 	} else {
@@ -379,7 +289,7 @@ $PlaceholderOutputStream* ExchangeImpl::getPlaceholderResponseBody() {
 }
 
 void ExchangeImpl::sendResponseHeaders(int32_t rCode, int64_t contentLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($System$Logger, logger, $nc(this->server)->getLogger());
 	if (this->sentHeaders) {
 		$throwNew($IOException, "headers already sent"_s);
@@ -389,7 +299,7 @@ void ExchangeImpl::sendResponseHeaders(int32_t rCode, int64_t contentLen) {
 	$var($OutputStream, tmpout, $new($BufferedOutputStream, this->ros));
 	$var($PlaceholderOutputStream, o, getPlaceholderResponseBody());
 	$var($bytes, var$0, bytes(statusLine, 0));
-	tmpout->write(var$0, 0, $nc(statusLine)->length());
+	tmpout->write(var$0, 0, statusLine->length());
 	bool noContentToSend = false;
 	bool noContentLengthHeader = false;
 	$nc(this->rspHdrs)->set("Date"_s, $($nc(ExchangeImpl::FORMATTER)->format($($Instant::now()))));
@@ -429,8 +339,8 @@ void ExchangeImpl::sendResponseHeaders(int32_t rCode, int64_t contentLen) {
 		$nc(o)->setWrappedStream($$new($FixedLengthOutputStream, this, this->ros, contentLen));
 	}
 	if (!this->close$) {
-		$var($Stream, conheader, $cast($Stream, $nc($($nc($($Optional::ofNullable($($nc(this->rspHdrs)->get("Connection"_s)))))->map(static_cast<$Function*>($$new(ExchangeImpl$$Lambda$stream)))))->orElse($($Stream::empty()))));
-		if ($nc(conheader)->anyMatch(static_cast<$Predicate*>($$new(ExchangeImpl$$Lambda$equalsIgnoreCase$1, static_cast<$String*>("close"_s))))) {
+		$var($Stream, conheader, $cast($Stream, $$nc($$nc($Optional::ofNullable($($nc(this->rspHdrs)->get("Connection"_s))))->map($$new(ExchangeImpl$$Lambda$stream)))->orElse($($Stream::empty()))));
+		if ($nc(conheader)->anyMatch($$new(ExchangeImpl$$Lambda$equalsIgnoreCase$1, "close"_s))) {
 			$init($System$Logger$Level);
 			$nc(logger)->log($System$Logger$Level::DEBUG, "Connection: close requested by handler"_s);
 			this->close$ = true;
@@ -452,7 +362,7 @@ void ExchangeImpl::sendResponseHeaders(int32_t rCode, int64_t contentLen) {
 }
 
 void ExchangeImpl::write($Headers* map, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, entries, $nc(map)->entrySet());
 	{
 		$var($Iterator, i$, $nc(entries)->iterator());
@@ -474,7 +384,7 @@ void ExchangeImpl::write($Headers* map, $OutputStream* os) {
 							$nc(os)->write(buf, 0, i);
 							$assign(buf, bytes(val, 2));
 							i = $nc(val)->length();
-							buf->set(i++, (int8_t)u'\r');
+							$nc(buf)->set(i++, (int8_t)u'\r');
 							buf->set(i++, (int8_t)u'\n');
 							os->write(buf, 0, i);
 						}
@@ -483,34 +393,34 @@ void ExchangeImpl::write($Headers* map, $OutputStream* os) {
 			}
 		}
 	}
-	$nc(os)->write((int32_t)u'\r');
-	os->write((int32_t)u'\n');
+	$nc(os)->write(u'\r');
+	os->write(u'\n');
 }
 
 $bytes* ExchangeImpl::bytes($String* s, int32_t extra) {
 	int32_t slen = $nc(s)->length();
 	if (slen + extra > $nc(this->rspbuf)->length) {
-		int32_t diff = slen + extra - $nc(this->rspbuf)->length;
-		$set(this, rspbuf, $new($bytes, 2 * ($nc(this->rspbuf)->length + diff)));
+		int32_t diff = slen + extra - this->rspbuf->length;
+		$set(this, rspbuf, $new($bytes, 2 * (this->rspbuf->length + diff)));
 	}
 	$var($chars, c, s->toCharArray());
 	for (int32_t i = 0; i < c->length; ++i) {
-		$nc(this->rspbuf)->set(i, (int8_t)c->get(i));
+		this->rspbuf->set(i, (int8_t)c->get(i));
 	}
 	return this->rspbuf;
 }
 
 $InetSocketAddress* ExchangeImpl::getRemoteAddress() {
-	$useLocalCurrentObjectStackCache();
-	$var($Socket, s, $nc($($nc(this->connection)->getChannel()))->socket());
+	$useLocalObjectStack();
+	$var($Socket, s, $$nc($nc(this->connection)->getChannel())->socket());
 	$var($InetAddress, ia, $nc(s)->getInetAddress());
 	int32_t port = s->getPort();
 	return $new($InetSocketAddress, ia, port);
 }
 
 $InetSocketAddress* ExchangeImpl::getLocalAddress() {
-	$useLocalCurrentObjectStackCache();
-	$var($Socket, s, $nc($($nc(this->connection)->getChannel()))->socket());
+	$useLocalObjectStack();
+	$var($Socket, s, $$nc($nc(this->connection)->getChannel())->socket());
 	$var($InetAddress, ia, $nc(s)->getLocalAddress());
 	int32_t port = s->getLocalPort();
 	return $new($InetSocketAddress, ia, port);
@@ -518,7 +428,7 @@ $InetSocketAddress* ExchangeImpl::getLocalAddress() {
 
 $String* ExchangeImpl::getProtocol() {
 	$var($String, reqline, $nc(this->req)->requestLine());
-	int32_t index = $nc(reqline)->lastIndexOf((int32_t)u' ');
+	int32_t index = $nc(reqline)->lastIndexOf(u' ');
 	return reqline->substring(index + 1);
 }
 
@@ -535,9 +445,9 @@ $Object* ExchangeImpl::getAttribute($String* name) {
 		$throwNew($NullPointerException, "null name parameter"_s);
 	}
 	if (this->attributes == nullptr) {
-		$set(this, attributes, $nc($(getHttpContext()))->getAttributes());
+		$set(this, attributes, $$nc(getHttpContext())->getAttributes());
 	}
-	return $of($nc(this->attributes)->get(name));
+	return $nc(this->attributes)->get(name);
 }
 
 void ExchangeImpl::setAttribute($String* name, Object$* value) {
@@ -545,7 +455,7 @@ void ExchangeImpl::setAttribute($String* name, Object$* value) {
 		$throwNew($NullPointerException, "null name parameter"_s);
 	}
 	if (this->attributes == nullptr) {
-		$set(this, attributes, $nc($(getHttpContext()))->getAttributes());
+		$set(this, attributes, $$nc(getHttpContext())->getAttributes());
 	}
 	$nc(this->attributes)->put(name, value);
 }
@@ -567,7 +477,7 @@ $HttpConnection* ExchangeImpl::getConnection() {
 }
 
 $ServerImpl* ExchangeImpl::getServerImpl() {
-	return $nc($(getHttpContext()))->getServerImpl();
+	return $$nc(getHttpContext())->getServerImpl();
 }
 
 $HttpPrincipal* ExchangeImpl::getPrincipal() {
@@ -581,23 +491,23 @@ void ExchangeImpl::setPrincipal($HttpPrincipal* principal) {
 ExchangeImpl* ExchangeImpl::get($HttpExchange* t) {
 	$init(ExchangeImpl);
 	if ($instanceOf($HttpExchangeImpl, t)) {
-		return $nc(($cast($HttpExchangeImpl, t)))->getExchangeImpl();
+		return $cast($HttpExchangeImpl, t)->getExchangeImpl();
 	} else {
 		if (!ExchangeImpl::$assertionsDisabled && !$instanceOf($HttpsExchangeImpl, t)) {
 			$throwNew($AssertionError);
 		}
-		return $nc(($cast($HttpsExchangeImpl, t)))->getExchangeImpl();
+		return $nc($cast($HttpsExchangeImpl, t))->getExchangeImpl();
 	}
 }
 
-void clinit$ExchangeImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ExchangeImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ExchangeImpl::HEAD, "HEAD"_s);
 	ExchangeImpl::$assertionsDisabled = !ExchangeImpl::class$->desiredAssertionStatus();
 	{
 		$var($String, pattern, "EEE, dd MMM yyyy HH:mm:ss zzz"_s);
 		$init($Locale);
-		$assignStatic(ExchangeImpl::FORMATTER, $nc($($DateTimeFormatter::ofPattern(pattern, $Locale::US)))->withZone($($ZoneId::of("GMT"_s))));
+		$assignStatic(ExchangeImpl::FORMATTER, $$nc($DateTimeFormatter::ofPattern(pattern, $Locale::US))->withZone($($ZoneId::of("GMT"_s))));
 	}
 }
 
@@ -606,14 +516,86 @@ ExchangeImpl::ExchangeImpl() {
 
 $Class* ExchangeImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ExchangeImpl$$Lambda$stream::classInfo$.name)) {
+		if (name->equals("sun.net.httpserver.ExchangeImpl$$Lambda$stream")) {
 			return ExchangeImpl$$Lambda$stream::load$(name, initialize);
 		}
-		if (name->equals(ExchangeImpl$$Lambda$equalsIgnoreCase$1::classInfo$.name)) {
+		if (name->equals("sun.net.httpserver.ExchangeImpl$$Lambda$equalsIgnoreCase$1")) {
 			return ExchangeImpl$$Lambda$equalsIgnoreCase$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ExchangeImpl, name, initialize, &_ExchangeImpl_ClassInfo_, clinit$ExchangeImpl, allocate$ExchangeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ExchangeImpl, $assertionsDisabled)},
+		{"reqHdrs", "Lcom/sun/net/httpserver/Headers;", nullptr, 0, $field(ExchangeImpl, reqHdrs)},
+		{"rspHdrs", "Lcom/sun/net/httpserver/Headers;", nullptr, 0, $field(ExchangeImpl, rspHdrs)},
+		{"req", "Lsun/net/httpserver/Request;", nullptr, 0, $field(ExchangeImpl, req)},
+		{"method", "Ljava/lang/String;", nullptr, 0, $field(ExchangeImpl, method)},
+		{"writefinished", "Z", nullptr, 0, $field(ExchangeImpl, writefinished)},
+		{"uri", "Ljava/net/URI;", nullptr, 0, $field(ExchangeImpl, uri)},
+		{"connection", "Lsun/net/httpserver/HttpConnection;", nullptr, 0, $field(ExchangeImpl, connection)},
+		{"reqContentLen", "J", nullptr, 0, $field(ExchangeImpl, reqContentLen)},
+		{"rspContentLen", "J", nullptr, 0, $field(ExchangeImpl, rspContentLen)},
+		{"ris", "Ljava/io/InputStream;", nullptr, 0, $field(ExchangeImpl, ris)},
+		{"ros", "Ljava/io/OutputStream;", nullptr, 0, $field(ExchangeImpl, ros)},
+		{"thread", "Ljava/lang/Thread;", nullptr, 0, $field(ExchangeImpl, thread)},
+		{"close", "Z", nullptr, 0, $field(ExchangeImpl, close$)},
+		{"closed", "Z", nullptr, 0, $field(ExchangeImpl, closed)},
+		{"http10", "Z", nullptr, 0, $field(ExchangeImpl, http10)},
+		{"FORMATTER", "Ljava/time/format/DateTimeFormatter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExchangeImpl, FORMATTER)},
+		{"HEAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExchangeImpl, HEAD)},
+		{"uis", "Ljava/io/InputStream;", nullptr, 0, $field(ExchangeImpl, uis)},
+		{"uos", "Ljava/io/OutputStream;", nullptr, 0, $field(ExchangeImpl, uos)},
+		{"uis_orig", "Lsun/net/httpserver/LeftOverInputStream;", nullptr, 0, $field(ExchangeImpl, uis_orig)},
+		{"uos_orig", "Lsun/net/httpserver/PlaceholderOutputStream;", nullptr, 0, $field(ExchangeImpl, uos_orig)},
+		{"sentHeaders", "Z", nullptr, 0, $field(ExchangeImpl, sentHeaders)},
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(ExchangeImpl, attributes)},
+		{"rcode", "I", nullptr, 0, $field(ExchangeImpl, rcode)},
+		{"principal", "Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, 0, $field(ExchangeImpl, principal)},
+		{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(ExchangeImpl, server)},
+		{"rspbuf", "[B", nullptr, $PRIVATE, $field(ExchangeImpl, rspbuf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/net/URI;Lsun/net/httpserver/Request;JLsun/net/httpserver/HttpConnection;)V", nullptr, 0, $method(ExchangeImpl, init$, void, $String*, $URI*, $Request*, int64_t, $HttpConnection*), "java.io.IOException"},
+		{"bytes", "(Ljava/lang/String;I)[B", nullptr, $PRIVATE, $method(ExchangeImpl, bytes, $bytes*, $String*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, close, void)},
+		{"get", "(Lcom/sun/net/httpserver/HttpExchange;)Lsun/net/httpserver/ExchangeImpl;", nullptr, $STATIC, $staticMethod(ExchangeImpl, get, ExchangeImpl*, $HttpExchange*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getAttribute, $Object*, $String*)},
+		{"getConnection", "()Lsun/net/httpserver/HttpConnection;", nullptr, 0, $virtualMethod(ExchangeImpl, getConnection, $HttpConnection*)},
+		{"getHttpContext", "()Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getHttpContext, $HttpContextImpl*)},
+		{"getLocalAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getLocalAddress, $InetSocketAddress*)},
+		{"getOriginalInputStream", "()Lsun/net/httpserver/LeftOverInputStream;", nullptr, 0, $virtualMethod(ExchangeImpl, getOriginalInputStream, $LeftOverInputStream*)},
+		{"getPlaceholderResponseBody", "()Lsun/net/httpserver/PlaceholderOutputStream;", nullptr, 0, $virtualMethod(ExchangeImpl, getPlaceholderResponseBody, $PlaceholderOutputStream*)},
+		{"getPrincipal", "()Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getPrincipal, $HttpPrincipal*)},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getProtocol, $String*)},
+		{"getRemoteAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRemoteAddress, $InetSocketAddress*)},
+		{"getRequestBody", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestBody, $InputStream*)},
+		{"getRequestHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestHeaders, $Headers*)},
+		{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestMethod, $String*)},
+		{"getRequestURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getRequestURI, $URI*)},
+		{"getResponseBody", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getResponseBody, $OutputStream*)},
+		{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getResponseCode, int32_t)},
+		{"getResponseHeaders", "()Lcom/sun/net/httpserver/Headers;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getResponseHeaders, $Headers*)},
+		{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, getSSLSession, $SSLSession*)},
+		{"getServerImpl", "()Lsun/net/httpserver/ServerImpl;", nullptr, 0, $virtualMethod(ExchangeImpl, getServerImpl, $ServerImpl*)},
+		{"isHeadRequest", "()Z", nullptr, $PRIVATE, $method(ExchangeImpl, isHeadRequest, bool)},
+		{"sendResponseHeaders", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, sendResponseHeaders, void, int32_t, int64_t), "java.io.IOException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, setAttribute, void, $String*, Object$*)},
+		{"setPrincipal", "(Lcom/sun/net/httpserver/HttpPrincipal;)V", nullptr, 0, $virtualMethod(ExchangeImpl, setPrincipal, void, $HttpPrincipal*)},
+		{"setStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl, setStreams, void, $InputStream*, $OutputStream*)},
+		{"write", "(Lcom/sun/net/httpserver/Headers;Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(ExchangeImpl, write, void, $Headers*, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.ExchangeImpl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExchangeImpl, name, initialize, &classInfo$$, ExchangeImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExchangeImpl);
+	});
 	return class$;
 }
 

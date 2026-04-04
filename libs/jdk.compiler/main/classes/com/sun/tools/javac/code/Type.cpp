@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type.h>
-
 #include <com/sun/tools/javac/code/AnnoConstruct.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$1.h>
@@ -61,7 +60,6 @@ using $Types$UniqueType = ::com::sun::tools::javac::code::Types$UniqueType;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -80,150 +78,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type_FieldInfo_[] = {
-	{"metadata", "Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PROTECTED | $FINAL, $field(Type, metadata)},
-	{"noType", "Lcom/sun/tools/javac/code/Type$JCNoType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Type, noType)},
-	{"recoveryType", "Lcom/sun/tools/javac/code/Type$JCNoType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Type, recoveryType)},
-	{"stuckType", "Lcom/sun/tools/javac/code/Type$JCNoType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Type, stuckType)},
-	{"moreInfo", "Z", nullptr, $PUBLIC | $STATIC, $staticField(Type, moreInfo)},
-	{"tsym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $field(Type, tsym)},
-	{"stripMetadata", "Lcom/sun/tools/javac/code/Types$TypeMapping;", "Lcom/sun/tools/javac/code/Types$TypeMapping<Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Type, stripMetadata$)},
-	{}
-};
-
-$MethodInfo _Type_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type, init$, void, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type, accept, $Object*, $Type$Visitor*, Object$*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, allparams, $List*)},
-	{"annotatedType", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type, annotatedType, Type*, $List*)},
-	{"appendAnnotationsString", "(Ljava/lang/StringBuilder;Z)V", nullptr, $PROTECTED, $virtualMethod(Type, appendAnnotationsString, void, $StringBuilder*, bool)},
-	{"appendAnnotationsString", "(Ljava/lang/StringBuilder;)V", nullptr, $PROTECTED, $virtualMethod(Type, appendAnnotationsString, void, $StringBuilder*)},
-	{"argtypes", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, argtypes, $String*, bool)},
-	{"asElement", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(Type, asElement, $Symbol$TypeSymbol*)},
-	{"asMethodType", "()Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type, asMethodType, $Type$MethodType*)},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, baseType, Type*)},
-	{"baseTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(Type, baseTypes, $List*, $List*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type, cloneWithMetadata, Type*, $TypeMetadata*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type, complete, void)},
-	{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, constType, Type*, Object$*)},
-	{"constValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Type, constValue, $Object*)},
-	{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type, contains, bool, Type*)},
-	{"contains", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)Z", $PUBLIC | $STATIC, $staticMethod(Type, contains, bool, $List*, Type*)},
-	{"containsAny", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC, $virtualMethod(Type, containsAny, bool, $List*)},
-	{"containsAny", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $STATIC, $staticMethod(Type, containsAny, bool, $List*, $List*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Type, equals, bool, Object$*)},
-	{"equalsIgnoreMetadata", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type, equalsIgnoreMetadata, bool, Type*)},
-	{"filter", "(Lcom/sun/tools/javac/util/List;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(Type, filter, $List*, $List*, $Predicate*)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Type, getAnnotation, $Annotation*, $Class*)},
-	{"getAnnotationMirrors", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Type, getAnnotationMirrors, $1List*)},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Type, getAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getEnclosingType, Type*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type, getKind, $TypeKind*)},
-	{"getLowerBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getLowerBound, Type*)},
-	{"getMetadata", "()Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(Type, getMetadata, $TypeMetadata*)},
-	{"getMetadataOfKind", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC, $virtualMethod(Type, getMetadataOfKind, $TypeMetadata$Entry*, $TypeMetadata$Entry$Kind*)},
-	{"getModelType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getModelType, Type*)},
-	{"getModelTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(Type, getModelTypes, $List*, $List*)},
-	{"getOriginalType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getOriginalType, Type*)},
-	{"getParameterTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, getParameterTypes, $List*)},
-	{"getReceiverType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getReceiverType, Type*)},
-	{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getReturnType, Type*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type, getTag, $TypeTag*)},
-	{"getThrownTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, getThrownTypes, $List*)},
-	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, getTypeArguments, $List*)},
-	{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getUpperBound, Type*)},
-	{"hasTag", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $virtualMethod(Type, hasTag, bool, $TypeTag*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Type, hashCode, int32_t)},
-	{"isAnnotated", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isAnnotated, bool)},
-	{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isCompound, bool)},
-	{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isErroneous, bool)},
-	{"isErroneous", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $STATIC, $staticMethod(Type, isErroneous, bool, $List*)},
-	{"isExtendsBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isExtendsBound, bool)},
-	{"isFalse", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isFalse, bool)},
-	{"isFinal", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isFinal, bool)},
-	{"isIntegral", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isIntegral, bool)},
-	{"isInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isInterface, bool)},
-	{"isIntersection", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isIntersection, bool)},
-	{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isNullOrReference, bool)},
-	{"isNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isNumeric, bool)},
-	{"isParameterized", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isParameterized, bool)},
-	{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isPartial, bool)},
-	{"isPrimitive", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isPrimitive, bool)},
-	{"isPrimitiveOrVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isPrimitiveOrVoid, bool)},
-	{"isRaw", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isRaw, bool)},
-	{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isReference, bool)},
-	{"isSuperBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isSuperBound, bool)},
-	{"isTrue", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isTrue, bool)},
-	{"isUnbound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isUnbound, bool)},
-	{"isUnion", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isUnion, bool)},
-	{"map", "(Lcom/sun/tools/javac/code/Types$TypeMapping;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "<Z:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Types$TypeMapping<TZ;>;TZ;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type, map, Type*, $Types$TypeMapping*, Object$*)},
-	{"map", "(Lcom/sun/tools/javac/code/Types$TypeMapping;)Lcom/sun/tools/javac/code/Type;", "<Z:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Types$TypeMapping<TZ;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type, map, Type*, $Types$TypeMapping*)},
-	{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Type, needsStripping, bool)},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Type, poolKey, $Object*, $Types*)},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Type, poolTag, int32_t)},
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, stringValue, $String*)},
-	{"stripMetadata", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, stripMetadata, Type*)},
-	{"stripMetadataIfNeeded", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, stripMetadataIfNeeded, Type*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, toString, $String*)},
-	{"toString", "(Lcom/sun/tools/javac/util/List;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Type, toString, $String*, $List*)},
-	{"typeNoMetadata", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Type, typeNoMetadata, Type*)},
-	{"withTypeVar", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, withTypeVar, Type*, Type*)},
-	{}
-};
-
-$InnerClassInfo _Type_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Type$UnknownType", "com.sun.tools.javac.code.Type", "UnknownType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$BottomType", "com.sun.tools.javac.code.Type", "BottomType", $STATIC},
-	{"com.sun.tools.javac.code.Type$JCVoidType", "com.sun.tools.javac.code.Type", "JCVoidType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$JCNoType", "com.sun.tools.javac.code.Type", "JCNoType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ForAll", "com.sun.tools.javac.code.Type", "ForAll", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Type$CapturedType", "com.sun.tools.javac.code.Type", "CapturedType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$TypeVar", "com.sun.tools.javac.code.Type", "TypeVar", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ModuleType", "com.sun.tools.javac.code.Type", "ModuleType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$PackageType", "com.sun.tools.javac.code.Type", "PackageType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$MethodType", "com.sun.tools.javac.code.Type", "MethodType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$IntersectionClassType", "com.sun.tools.javac.code.Type", "IntersectionClassType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$UnionClassType", "com.sun.tools.javac.code.Type", "UnionClassType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ErasedClassType", "com.sun.tools.javac.code.Type", "ErasedClassType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$WildcardType", "com.sun.tools.javac.code.Type", "WildcardType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$JCPrimitiveType", "com.sun.tools.javac.code.Type", "JCPrimitiveType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Type$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Type",
-	"com.sun.tools.javac.code.AnnoConstruct",
-	"javax.lang.model.type.TypeMirror,com.sun.tools.javac.jvm.PoolConstant",
-	_Type_FieldInfo_,
-	_Type_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type$5,com.sun.tools.javac.code.Type$Visitor,com.sun.tools.javac.code.Type$UnknownType,com.sun.tools.javac.code.Type$ErrorType,com.sun.tools.javac.code.Type$ErrorType$1,com.sun.tools.javac.code.Type$BottomType,com.sun.tools.javac.code.Type$JCVoidType,com.sun.tools.javac.code.Type$JCNoType,com.sun.tools.javac.code.Type$UndetVar,com.sun.tools.javac.code.Type$UndetVar$InferenceBound,com.sun.tools.javac.code.Type$UndetVar$InferenceBound$3,com.sun.tools.javac.code.Type$UndetVar$InferenceBound$2,com.sun.tools.javac.code.Type$UndetVar$InferenceBound$1,com.sun.tools.javac.code.Type$UndetVar$UndetVarListener,com.sun.tools.javac.code.Type$UndetVar$Kind,com.sun.tools.javac.code.Type$UndetVar$1,com.sun.tools.javac.code.Type$ForAll,com.sun.tools.javac.code.Type$DelegatedType,com.sun.tools.javac.code.Type$CapturedType,com.sun.tools.javac.code.Type$CapturedType$1,com.sun.tools.javac.code.Type$TypeVar,com.sun.tools.javac.code.Type$TypeVar$1,com.sun.tools.javac.code.Type$ModuleType,com.sun.tools.javac.code.Type$PackageType,com.sun.tools.javac.code.Type$MethodType,com.sun.tools.javac.code.Type$ArrayType,com.sun.tools.javac.code.Type$ArrayType$2,com.sun.tools.javac.code.Type$ArrayType$1,com.sun.tools.javac.code.Type$IntersectionClassType,com.sun.tools.javac.code.Type$UnionClassType,com.sun.tools.javac.code.Type$ErasedClassType,com.sun.tools.javac.code.Type$ClassType,com.sun.tools.javac.code.Type$ClassType$2,com.sun.tools.javac.code.Type$ClassType$1,com.sun.tools.javac.code.Type$WildcardType,com.sun.tools.javac.code.Type$WildcardType$1,com.sun.tools.javac.code.Type$JCPrimitiveType,com.sun.tools.javac.code.Type$JCPrimitiveType$2,com.sun.tools.javac.code.Type$JCPrimitiveType$1,com.sun.tools.javac.code.Type$StructuralTypeMapping,com.sun.tools.javac.code.Type$StructuralTypeMapping$4,com.sun.tools.javac.code.Type$StructuralTypeMapping$3,com.sun.tools.javac.code.Type$StructuralTypeMapping$2,com.sun.tools.javac.code.Type$StructuralTypeMapping$1,com.sun.tools.javac.code.Type$4,com.sun.tools.javac.code.Type$3,com.sun.tools.javac.code.Type$2,com.sun.tools.javac.code.Type$1"
-};
-
-$Object* allocate$Type($Class* clazz) {
-	return $of($alloc(Type));
-}
 
 $Object* Type::clone() {
 	 return this->$AnnoConstruct::clone();
@@ -244,7 +98,7 @@ $TypeMetadata* Type::getMetadata() {
 }
 
 $TypeMetadata$Entry* Type::getMetadataOfKind($TypeMetadata$Entry$Kind* kind) {
-	return this->metadata != nullptr ? $nc(this->metadata)->get(kind) : ($TypeMetadata$Entry*)nullptr;
+	return this->metadata != nullptr ? this->metadata->get(kind) : ($TypeMetadata$Entry*)nullptr;
 }
 
 int32_t Type::poolTag() {
@@ -253,7 +107,7 @@ int32_t Type::poolTag() {
 }
 
 $Object* Type::poolKey($Types* types) {
-	return $of($new($Types$UniqueType, this, types));
+	return $new($Types$UniqueType, this, types);
 }
 
 bool Type::hasTag($TypeTag* tag) {
@@ -289,7 +143,7 @@ bool Type::isPartial() {
 }
 
 $Object* Type::constValue() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool Type::isFalse() {
@@ -306,7 +160,7 @@ Type* Type::getModelType() {
 
 $List* Type::getModelTypes($List* ts) {
 	$init(Type);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, lb, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(ts)->iterator());
@@ -323,7 +177,7 @@ Type* Type::getOriginalType() {
 }
 
 $Object* Type::accept($Type$Visitor* v, Object$* s) {
-	return $of($nc(v)->visitType(this, s));
+	return $nc(v)->visitType(this, s);
 }
 
 void Type::init$($Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
@@ -360,30 +214,30 @@ bool Type::needsStripping() {
 }
 
 Type* Type::stripMetadataIfNeeded() {
-	return needsStripping() ? $cast(Type, accept(static_cast<$Type$Visitor*>(Type::stripMetadata$), ($Object*)nullptr)) : this;
+	return needsStripping() ? $cast(Type, accept(Type::stripMetadata$, nullptr)) : this;
 }
 
 Type* Type::stripMetadata() {
-	return $cast(Type, accept(static_cast<$Type$Visitor*>(Type::stripMetadata$), ($Object*)nullptr));
+	return $cast(Type, accept(Type::stripMetadata$, nullptr));
 }
 
 Type* Type::annotatedType($List* annos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TypeMetadata$Entry, annoMetadata, $new($TypeMetadata$Annotations, annos));
 	return cloneWithMetadata($($nc(this->metadata)->combine(annoMetadata)));
 }
 
 bool Type::isAnnotated() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeMetadata$Entry$Kind);
 	$var($TypeMetadata$Annotations, metadata, $cast($TypeMetadata$Annotations, getMetadataOfKind($TypeMetadata$Entry$Kind::ANNOTATIONS)));
-	return nullptr != metadata && !$nc($(metadata->getAnnotations()))->isEmpty();
+	return nullptr != metadata && !$$nc(metadata->getAnnotations())->isEmpty();
 }
 
 $1List* Type::getAnnotationMirrors() {
 	$init($TypeMetadata$Entry$Kind);
 	$var($TypeMetadata$Annotations, metadata, $cast($TypeMetadata$Annotations, getMetadataOfKind($TypeMetadata$Entry$Kind::ANNOTATIONS)));
-	return (metadata == nullptr ? $List::nil() : $nc(metadata)->getAnnotations());
+	return metadata == nullptr ? $List::nil() : metadata->getAnnotations();
 }
 
 $Annotation* Type::getAnnotation($Class* annotationType) {
@@ -397,9 +251,9 @@ $AnnotationArray* Type::getAnnotationsByType($Class* annotationType) {
 
 $List* Type::baseTypes($List* ts) {
 	$init(Type);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ts)->nonEmpty()) {
-		$var(Type, t, $nc(($cast(Type, ts->head)))->baseType());
+		$var(Type, t, $nc($cast(Type, ts->head))->baseType());
 		$var($List, baseTypes, Type::baseTypes(ts->tail));
 		if (!$equals(t, ts->head) || baseTypes != ts->tail) {
 			return $nc(baseTypes)->prepend(t);
@@ -413,7 +267,7 @@ void Type::appendAnnotationsString($StringBuilder* sb, bool prefix) {
 		if (prefix) {
 			$nc(sb)->append(" "_s);
 		}
-		$nc(sb)->append($($of(getAnnotationMirrors())));
+		$nc(sb)->append($(getAnnotationMirrors()));
 		sb->append(" "_s);
 	}
 }
@@ -423,13 +277,13 @@ void Type::appendAnnotationsString($StringBuilder* sb) {
 }
 
 $String* Type::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	appendAnnotationsString(sb);
-	if (this->tsym == nullptr || $nc(this->tsym)->name == nullptr) {
+	if (this->tsym == nullptr || this->tsym->name == nullptr) {
 		sb->append("<none>"_s);
 	} else {
-		sb->append($($nc($nc(this->tsym)->name)->toString()));
+		sb->append($(this->tsym->name->toString()));
 	}
 	$init($TypeTag);
 	if (Type::moreInfo && hasTag($TypeTag::TYPEVAR)) {
@@ -440,16 +294,16 @@ $String* Type::toString() {
 
 $String* Type::toString($List* ts) {
 	$init(Type);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ts)->isEmpty()) {
 		return ""_s;
 	} else {
 		$var($StringBuilder, buf, $new($StringBuilder));
-		buf->append($($nc(($cast(Type, ts->head)))->toString()));
+		buf->append($($nc($cast(Type, ts->head))->toString()));
 		{
 			$var($List, l, ts->tail);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-				buf->append(","_s)->append($($nc(($cast(Type, l->head)))->toString()));
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				buf->append(","_s)->append($($nc($cast(Type, l->head))->toString()));
 			}
 		}
 		return buf->toString();
@@ -457,9 +311,9 @@ $String* Type::toString($List* ts) {
 }
 
 $String* Type::stringValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, cv, $Assert::checkNonNull($(constValue())));
-	return $nc($of(cv))->toString();
+	return $nc(cv)->toString();
 }
 
 bool Type::equals(Object$* t) {
@@ -467,8 +321,8 @@ bool Type::equals(Object$* t) {
 }
 
 bool Type::equalsIgnoreMetadata(Type* t) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(typeNoMetadata()))->equals($($nc(t)->typeNoMetadata()));
+	$useLocalObjectStack();
+	return $$nc(typeNoMetadata())->equals($($nc(t)->typeNoMetadata()));
 }
 
 int32_t Type::hashCode() {
@@ -476,7 +330,7 @@ int32_t Type::hashCode() {
 }
 
 $String* Type::argtypes(bool varargs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, args, getParameterTypes());
 	if (!varargs) {
 		return $nc(args)->toString();
@@ -488,10 +342,10 @@ $String* Type::argtypes(bool varargs) {
 		buf->append(u',');
 	}
 	$init($TypeTag);
-	if ($nc(($cast(Type, $nc(args)->head)))->hasTag($TypeTag::ARRAY)) {
-		buf->append($of($nc(($cast($Type$ArrayType, args->head)))->elemtype));
-		if ($nc($($cast($List, $nc(($cast(Type, args->head)))->getAnnotationMirrors())))->nonEmpty()) {
-			buf->append($($of($nc(($cast(Type, args->head)))->getAnnotationMirrors())));
+	if ($nc($cast(Type, $nc(args)->head))->hasTag($TypeTag::ARRAY)) {
+		buf->append($nc($cast($Type$ArrayType, args->head))->elemtype);
+		if ($$sure($List, $cast(Type, args->head)->getAnnotationMirrors())->nonEmpty()) {
+			buf->append($($nc($cast(Type, args->head))->getAnnotationMirrors()));
 		}
 		buf->append("..."_s);
 	} else {
@@ -542,12 +396,10 @@ bool Type::isErroneous() {
 
 bool Type::isErroneous($List* ts) {
 	$init(Type);
-	{
-		$var($List, l, ts);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			if ($nc(($cast(Type, l->head)))->isErroneous()) {
-				return true;
-			}
+	$var($List, l, ts);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		if ($nc($cast(Type, l->head))->isErroneous()) {
+			return true;
 		}
 	}
 	return false;
@@ -574,11 +426,11 @@ bool Type::isUnion() {
 }
 
 bool Type::isInterface() {
-	return ((int64_t)($nc(this->tsym)->flags() & (uint64_t)(int64_t)512)) != 0;
+	return ($nc(this->tsym)->flags() & 0x0200) != 0;
 }
 
 bool Type::isFinal() {
-	return ((int64_t)($nc(this->tsym)->flags() & (uint64_t)(int64_t)16)) != 0;
+	return ($nc(this->tsym)->flags() & 0x10) != 0;
 }
 
 bool Type::contains(Type* t) {
@@ -587,26 +439,22 @@ bool Type::contains(Type* t) {
 
 bool Type::contains($List* ts, Type* t) {
 	$init(Type);
-	{
-		$var($List, l, ts);
-		for (; $nc(l)->tail != nullptr; $assign(l, $nc(l)->tail)) {
-			if ($nc(($cast(Type, l->head)))->contains(t)) {
-				return true;
-			}
+	$var($List, l, ts);
+	for (; $nc(l)->tail != nullptr; $assign(l, l->tail)) {
+		if ($nc($cast(Type, l->head))->contains(t)) {
+			return true;
 		}
 	}
 	return false;
 }
 
 bool Type::containsAny($List* ts) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(ts)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var(Type, t, $cast(Type, i$->next()));
-			if (this->contains(t)) {
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(ts)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var(Type, t, $cast(Type, i$->next()));
+		if (this->contains(t)) {
+			return true;
 		}
 	}
 	return false;
@@ -614,14 +462,12 @@ bool Type::containsAny($List* ts) {
 
 bool Type::containsAny($List* ts1, $List* ts2) {
 	$init(Type);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(ts1)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var(Type, t, $cast(Type, i$->next()));
-			if ($nc(t)->containsAny(ts2)) {
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(ts1)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var(Type, t, $cast(Type, i$->next()));
+		if ($nc(t)->containsAny(ts2)) {
+			return true;
 		}
 	}
 	return false;
@@ -629,16 +475,14 @@ bool Type::containsAny($List* ts1, $List* ts2) {
 
 $List* Type::filter($List* ts, $Predicate* tf) {
 	$init(Type);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(ts)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(Type, t, $cast(Type, i$->next()));
-			{
-				if ($nc(tf)->test(t)) {
-					buf->append(t);
-				}
+			if ($nc(tf)->test(t)) {
+				buf->append(t);
 			}
 		}
 	}
@@ -683,7 +527,7 @@ $Object* Type::accept($TypeVisitor* v, Object$* p) {
 	$shouldNotReachHere();
 }
 
-void clinit$Type($Class* class$) {
+void Type::clinit$($Class* clazz) {
 	$assignStatic(Type::noType, $new($Type$1));
 	$assignStatic(Type::recoveryType, $new($Type$2));
 	$assignStatic(Type::stuckType, $new($Type$3));
@@ -695,7 +539,145 @@ Type::Type() {
 }
 
 $Class* Type::load$($String* name, bool initialize) {
-	$loadClass(Type, name, initialize, &_Type_ClassInfo_, clinit$Type, allocate$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"metadata", "Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PROTECTED | $FINAL, $field(Type, metadata)},
+		{"noType", "Lcom/sun/tools/javac/code/Type$JCNoType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Type, noType)},
+		{"recoveryType", "Lcom/sun/tools/javac/code/Type$JCNoType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Type, recoveryType)},
+		{"stuckType", "Lcom/sun/tools/javac/code/Type$JCNoType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Type, stuckType)},
+		{"moreInfo", "Z", nullptr, $PUBLIC | $STATIC, $staticField(Type, moreInfo)},
+		{"tsym", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $field(Type, tsym)},
+		{"stripMetadata", "Lcom/sun/tools/javac/code/Types$TypeMapping;", "Lcom/sun/tools/javac/code/Types$TypeMapping<Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Type, stripMetadata$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type, init$, void, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type, accept, $Object*, $Type$Visitor*, Object$*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, allparams, $List*)},
+		{"annotatedType", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type, annotatedType, Type*, $List*)},
+		{"appendAnnotationsString", "(Ljava/lang/StringBuilder;Z)V", nullptr, $PROTECTED, $virtualMethod(Type, appendAnnotationsString, void, $StringBuilder*, bool)},
+		{"appendAnnotationsString", "(Ljava/lang/StringBuilder;)V", nullptr, $PROTECTED, $virtualMethod(Type, appendAnnotationsString, void, $StringBuilder*)},
+		{"argtypes", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, argtypes, $String*, bool)},
+		{"asElement", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(Type, asElement, $Symbol$TypeSymbol*)},
+		{"asMethodType", "()Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PUBLIC, $virtualMethod(Type, asMethodType, $Type$MethodType*)},
+		{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, baseType, Type*)},
+		{"baseTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(Type, baseTypes, $List*, $List*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type, cloneWithMetadata, Type*, $TypeMetadata*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type, complete, void)},
+		{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, constType, Type*, Object$*)},
+		{"constValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Type, constValue, $Object*)},
+		{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type, contains, bool, Type*)},
+		{"contains", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)Z", $PUBLIC | $STATIC, $staticMethod(Type, contains, bool, $List*, Type*)},
+		{"containsAny", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC, $virtualMethod(Type, containsAny, bool, $List*)},
+		{"containsAny", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $STATIC, $staticMethod(Type, containsAny, bool, $List*, $List*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Type, equals, bool, Object$*)},
+		{"equalsIgnoreMetadata", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type, equalsIgnoreMetadata, bool, Type*)},
+		{"filter", "(Lcom/sun/tools/javac/util/List;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(Type, filter, $List*, $List*, $Predicate*)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(Type, getAnnotation, $Annotation*, $Class*)},
+		{"getAnnotationMirrors", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Type, getAnnotationMirrors, $1List*)},
+		{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(Type, getAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getEnclosingType, Type*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type, getKind, $TypeKind*)},
+		{"getLowerBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getLowerBound, Type*)},
+		{"getMetadata", "()Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(Type, getMetadata, $TypeMetadata*)},
+		{"getMetadataOfKind", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC, $virtualMethod(Type, getMetadataOfKind, $TypeMetadata$Entry*, $TypeMetadata$Entry$Kind*)},
+		{"getModelType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getModelType, Type*)},
+		{"getModelTypes", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(Type, getModelTypes, $List*, $List*)},
+		{"getOriginalType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getOriginalType, Type*)},
+		{"getParameterTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, getParameterTypes, $List*)},
+		{"getReceiverType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getReceiverType, Type*)},
+		{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getReturnType, Type*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type, getTag, $TypeTag*)},
+		{"getThrownTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, getThrownTypes, $List*)},
+		{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type, getTypeArguments, $List*)},
+		{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, getUpperBound, Type*)},
+		{"hasTag", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $virtualMethod(Type, hasTag, bool, $TypeTag*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Type, hashCode, int32_t)},
+		{"isAnnotated", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isAnnotated, bool)},
+		{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isCompound, bool)},
+		{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isErroneous, bool)},
+		{"isErroneous", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $STATIC, $staticMethod(Type, isErroneous, bool, $List*)},
+		{"isExtendsBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isExtendsBound, bool)},
+		{"isFalse", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isFalse, bool)},
+		{"isFinal", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isFinal, bool)},
+		{"isIntegral", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isIntegral, bool)},
+		{"isInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isInterface, bool)},
+		{"isIntersection", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isIntersection, bool)},
+		{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isNullOrReference, bool)},
+		{"isNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isNumeric, bool)},
+		{"isParameterized", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isParameterized, bool)},
+		{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isPartial, bool)},
+		{"isPrimitive", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isPrimitive, bool)},
+		{"isPrimitiveOrVoid", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isPrimitiveOrVoid, bool)},
+		{"isRaw", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isRaw, bool)},
+		{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isReference, bool)},
+		{"isSuperBound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isSuperBound, bool)},
+		{"isTrue", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isTrue, bool)},
+		{"isUnbound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isUnbound, bool)},
+		{"isUnion", "()Z", nullptr, $PUBLIC, $virtualMethod(Type, isUnion, bool)},
+		{"map", "(Lcom/sun/tools/javac/code/Types$TypeMapping;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "<Z:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Types$TypeMapping<TZ;>;TZ;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type, map, Type*, $Types$TypeMapping*, Object$*)},
+		{"map", "(Lcom/sun/tools/javac/code/Types$TypeMapping;)Lcom/sun/tools/javac/code/Type;", "<Z:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Types$TypeMapping<TZ;>;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type, map, Type*, $Types$TypeMapping*)},
+		{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Type, needsStripping, bool)},
+		{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Type, poolKey, $Object*, $Types*)},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Type, poolTag, int32_t)},
+		{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, stringValue, $String*)},
+		{"stripMetadata", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, stripMetadata, Type*)},
+		{"stripMetadataIfNeeded", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, stripMetadataIfNeeded, Type*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type, toString, $String*)},
+		{"toString", "(Lcom/sun/tools/javac/util/List;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Type, toString, $String*, $List*)},
+		{"typeNoMetadata", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Type, typeNoMetadata, Type*)},
+		{"withTypeVar", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type, withTypeVar, Type*, Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$5", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Type$UnknownType", "com.sun.tools.javac.code.Type", "UnknownType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$BottomType", "com.sun.tools.javac.code.Type", "BottomType", $STATIC},
+		{"com.sun.tools.javac.code.Type$JCVoidType", "com.sun.tools.javac.code.Type", "JCVoidType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$JCNoType", "com.sun.tools.javac.code.Type", "JCNoType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ForAll", "com.sun.tools.javac.code.Type", "ForAll", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Type$CapturedType", "com.sun.tools.javac.code.Type", "CapturedType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$TypeVar", "com.sun.tools.javac.code.Type", "TypeVar", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ModuleType", "com.sun.tools.javac.code.Type", "ModuleType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$PackageType", "com.sun.tools.javac.code.Type", "PackageType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$MethodType", "com.sun.tools.javac.code.Type", "MethodType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$IntersectionClassType", "com.sun.tools.javac.code.Type", "IntersectionClassType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$UnionClassType", "com.sun.tools.javac.code.Type", "UnionClassType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ErasedClassType", "com.sun.tools.javac.code.Type", "ErasedClassType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$WildcardType", "com.sun.tools.javac.code.Type", "WildcardType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$JCPrimitiveType", "com.sun.tools.javac.code.Type", "JCPrimitiveType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Type$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Type",
+		"com.sun.tools.javac.code.AnnoConstruct",
+		"javax.lang.model.type.TypeMirror,com.sun.tools.javac.jvm.PoolConstant",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type$5,com.sun.tools.javac.code.Type$Visitor,com.sun.tools.javac.code.Type$UnknownType,com.sun.tools.javac.code.Type$ErrorType,com.sun.tools.javac.code.Type$ErrorType$1,com.sun.tools.javac.code.Type$BottomType,com.sun.tools.javac.code.Type$JCVoidType,com.sun.tools.javac.code.Type$JCNoType,com.sun.tools.javac.code.Type$UndetVar,com.sun.tools.javac.code.Type$UndetVar$InferenceBound,com.sun.tools.javac.code.Type$UndetVar$InferenceBound$3,com.sun.tools.javac.code.Type$UndetVar$InferenceBound$2,com.sun.tools.javac.code.Type$UndetVar$InferenceBound$1,com.sun.tools.javac.code.Type$UndetVar$UndetVarListener,com.sun.tools.javac.code.Type$UndetVar$Kind,com.sun.tools.javac.code.Type$UndetVar$1,com.sun.tools.javac.code.Type$ForAll,com.sun.tools.javac.code.Type$DelegatedType,com.sun.tools.javac.code.Type$CapturedType,com.sun.tools.javac.code.Type$CapturedType$1,com.sun.tools.javac.code.Type$TypeVar,com.sun.tools.javac.code.Type$TypeVar$1,com.sun.tools.javac.code.Type$ModuleType,com.sun.tools.javac.code.Type$PackageType,com.sun.tools.javac.code.Type$MethodType,com.sun.tools.javac.code.Type$ArrayType,com.sun.tools.javac.code.Type$ArrayType$2,com.sun.tools.javac.code.Type$ArrayType$1,com.sun.tools.javac.code.Type$IntersectionClassType,com.sun.tools.javac.code.Type$UnionClassType,com.sun.tools.javac.code.Type$ErasedClassType,com.sun.tools.javac.code.Type$ClassType,com.sun.tools.javac.code.Type$ClassType$2,com.sun.tools.javac.code.Type$ClassType$1,com.sun.tools.javac.code.Type$WildcardType,com.sun.tools.javac.code.Type$WildcardType$1,com.sun.tools.javac.code.Type$JCPrimitiveType,com.sun.tools.javac.code.Type$JCPrimitiveType$2,com.sun.tools.javac.code.Type$JCPrimitiveType$1,com.sun.tools.javac.code.Type$StructuralTypeMapping,com.sun.tools.javac.code.Type$StructuralTypeMapping$4,com.sun.tools.javac.code.Type$StructuralTypeMapping$3,com.sun.tools.javac.code.Type$StructuralTypeMapping$2,com.sun.tools.javac.code.Type$StructuralTypeMapping$1,com.sun.tools.javac.code.Type$4,com.sun.tools.javac.code.Type$3,com.sun.tools.javac.code.Type$2,com.sun.tools.javac.code.Type$1"
+	};
+	$loadClass(Type, name, initialize, &classInfo$$, Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type));
+	});
 	return class$;
 }
 

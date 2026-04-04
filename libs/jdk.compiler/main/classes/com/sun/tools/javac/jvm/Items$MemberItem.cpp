@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$MemberItem.h>
-
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
@@ -8,7 +7,6 @@
 #include <com/sun/tools/javac/jvm/Code.h>
 #include <com/sun/tools/javac/jvm/Items$Item.h>
 #include <com/sun/tools/javac/jvm/Items.h>
-#include <com/sun/tools/javac/jvm/PoolConstant.h>
 #include <com/sun/tools/javac/jvm/PoolWriter.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -23,12 +21,10 @@
 
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $PoolWriter = ::com::sun::tools::javac::jvm::PoolWriter;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,76 +48,27 @@ public:
 	virtual int32_t applyAsInt(Object$* inst$, Object$* s) override {
 		 return $sure($PoolWriter, inst$)->putMember($cast($Symbol, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Items$MemberItem$$Lambda$putMember>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Items$MemberItem$$Lambda$putMember::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Items$MemberItem$$Lambda$putMember, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Items$MemberItem$$Lambda$putMember, applyAsInt, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Items$MemberItem$$Lambda$putMember::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Items$MemberItem$$Lambda$putMember",
-	"java.lang.Object",
-	"java.util.function.ToIntBiFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Items$MemberItem$$Lambda$putMember::load$($String* name, bool initialize) {
-	$loadClass(Items$MemberItem$$Lambda$putMember, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Items$MemberItem$$Lambda$putMember, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Items$MemberItem$$Lambda$putMember, applyAsInt, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Items$MemberItem$$Lambda$putMember",
+		"java.lang.Object",
+		"java.util.function.ToIntBiFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Items$MemberItem$$Lambda$putMember, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$MemberItem$$Lambda$putMember);
+	});
 	return class$;
 }
 $Class* Items$MemberItem$$Lambda$putMember::class$ = nullptr;
-
-$FieldInfo _Items$MemberItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$MemberItem, this$0)},
-	{"member", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Items$MemberItem, member)},
-	{"nonvirtual", "Z", nullptr, 0, $field(Items$MemberItem, nonvirtual)},
-	{}
-};
-
-$MethodInfo _Items$MemberItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;Z)V", nullptr, 0, $method(Items$MemberItem, init$, void, $Items*, $Symbol*, bool)},
-	{"drop", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, drop, void)},
-	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, duplicate, void)},
-	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$MemberItem, invoke, $Items$Item*)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$MemberItem, load, $Items$Item*)},
-	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$MemberItem, stash, void, int32_t)},
-	{"store", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, store, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$MemberItem, toString, $String*)},
-	{"width", "()I", nullptr, 0, $virtualMethod(Items$MemberItem, width, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Items$MemberItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$MemberItem", "com.sun.tools.javac.jvm.Items", "MemberItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$MemberItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$MemberItem",
-	"com.sun.tools.javac.jvm.Items$Item",
-	nullptr,
-	_Items$MemberItem_FieldInfo_,
-	_Items$MemberItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$MemberItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$MemberItem($Class* clazz) {
-	return $of($alloc(Items$MemberItem));
-}
 
 void Items$MemberItem::init$($Items* this$0, $Symbol* member, bool nonvirtual) {
 	$set(this, this$0, this$0);
@@ -131,18 +78,18 @@ void Items$MemberItem::init$($Items* this$0, $Symbol* member, bool nonvirtual) {
 }
 
 $Items$Item* Items$MemberItem::load() {
-	$nc(this->this$0->code)->emitop2(180, static_cast<$PoolConstant*>(this->member), static_cast<$ToIntBiFunction*>($$new(Items$MemberItem$$Lambda$putMember)));
+	$nc(this->this$0->code)->emitop2(180, this->member, $$new(Items$MemberItem$$Lambda$putMember));
 	return $nc(this->this$0->stackItem)->get(this->typecode);
 }
 
 void Items$MemberItem::store() {
-	$nc(this->this$0->code)->emitop2(181, static_cast<$PoolConstant*>(this->member), static_cast<$ToIntBiFunction*>($$new(Items$MemberItem$$Lambda$putMember)));
+	$nc(this->this$0->code)->emitop2(181, this->member, $$new(Items$MemberItem$$Lambda$putMember));
 }
 
 $Items$Item* Items$MemberItem::invoke() {
 	$var($Type$MethodType, mtype, $cast($Type$MethodType, $nc(this->member)->externalType(this->this$0->types)));
 	int32_t rescode = $Code::typecode($nc(mtype)->restype);
-	if (((int64_t)($nc($nc(this->member)->owner)->flags() & (uint64_t)(int64_t)$Flags::INTERFACE)) != 0 && !this->nonvirtual) {
+	if (($nc($nc(this->member)->owner)->flags() & $Flags::INTERFACE) != 0 && !this->nonvirtual) {
 		$nc(this->this$0->code)->emitInvokeinterface(this->member, mtype);
 	} else if (this->nonvirtual) {
 		$nc(this->this$0->code)->emitInvokespecial(this->member, mtype);
@@ -177,11 +124,51 @@ Items$MemberItem::Items$MemberItem() {
 
 $Class* Items$MemberItem::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Items$MemberItem$$Lambda$putMember::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Items$MemberItem$$Lambda$putMember")) {
 			return Items$MemberItem$$Lambda$putMember::load$(name, initialize);
 		}
 	}
-	$loadClass(Items$MemberItem, name, initialize, &_Items$MemberItem_ClassInfo_, allocate$Items$MemberItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$MemberItem, this$0)},
+		{"member", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Items$MemberItem, member)},
+		{"nonvirtual", "Z", nullptr, 0, $field(Items$MemberItem, nonvirtual)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;Z)V", nullptr, 0, $method(Items$MemberItem, init$, void, $Items*, $Symbol*, bool)},
+		{"drop", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, drop, void)},
+		{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, duplicate, void)},
+		{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$MemberItem, invoke, $Items$Item*)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$MemberItem, load, $Items$Item*)},
+		{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$MemberItem, stash, void, int32_t)},
+		{"store", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, store, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$MemberItem, toString, $String*)},
+		{"width", "()I", nullptr, 0, $virtualMethod(Items$MemberItem, width, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$MemberItem", "com.sun.tools.javac.jvm.Items", "MemberItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$MemberItem",
+		"com.sun.tools.javac.jvm.Items$Item",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$MemberItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$MemberItem);
+	});
 	return class$;
 }
 

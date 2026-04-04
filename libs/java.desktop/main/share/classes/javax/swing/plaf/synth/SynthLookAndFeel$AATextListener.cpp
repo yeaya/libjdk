@@ -1,11 +1,9 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel$AATextListener.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -25,19 +23,16 @@
 
 using $FrameArray = $Array<::java::awt::Frame>;
 using $WindowArray = $Array<::java::awt::Window>;
-using $Component = ::java::awt::Component;
 using $Frame = ::java::awt::Frame;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $Map = ::java::util::Map;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIDefaults = ::javax::swing::UIDefaults;
@@ -51,55 +46,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthLookAndFeel$AATextListener_FieldInfo_[] = {
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthLookAndFeel$AATextListener, key)},
-	{"updatePending", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SynthLookAndFeel$AATextListener, updatePending)},
-	{}
-};
-
-$MethodInfo _SynthLookAndFeel$AATextListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/LookAndFeel;)V", nullptr, 0, $method(SynthLookAndFeel$AATextListener, init$, void, $LookAndFeel*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(SynthLookAndFeel$AATextListener, dispose, void)},
-	{"isUpdatePending", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SynthLookAndFeel$AATextListener, isUpdatePending, bool)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel$AATextListener, propertyChange, void, $PropertyChangeEvent*)},
-	{"setUpdatePending", "(Z)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SynthLookAndFeel$AATextListener, setUpdatePending, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateAllUIs", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel$AATextListener, updateAllUIs, void)},
-	{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(SynthLookAndFeel$AATextListener, updateUI, void)},
-	{"updateWindowUI", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel$AATextListener, updateWindowUI, void, $Window*)},
-	{}
-};
-
-$InnerClassInfo _SynthLookAndFeel$AATextListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener", "javax.swing.plaf.synth.SynthLookAndFeel", "AATextListener", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthLookAndFeel$AATextListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener",
-	"java.lang.ref.WeakReference",
-	"java.beans.PropertyChangeListener",
-	_SynthLookAndFeel$AATextListener_FieldInfo_,
-	_SynthLookAndFeel$AATextListener_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljavax/swing/LookAndFeel;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_SynthLookAndFeel$AATextListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthLookAndFeel"
-};
-
-$Object* allocate$SynthLookAndFeel$AATextListener($Class* clazz) {
-	return $of($alloc(SynthLookAndFeel$AATextListener));
-}
 
 $Object* SynthLookAndFeel$AATextListener::clone() {
 	 return this->$WeakReference::clone();
@@ -133,7 +79,7 @@ void SynthLookAndFeel$AATextListener::init$($LookAndFeel* laf) {
 }
 
 void SynthLookAndFeel$AATextListener::propertyChange($PropertyChangeEvent* pce) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, defaults, $UIManager::getLookAndFeelDefaults());
 	if ($nc(defaults)->getBoolean("Synth.doNotSetTextAA"_s)) {
 		dispose();
@@ -155,14 +101,12 @@ void SynthLookAndFeel$AATextListener::dispose() {
 
 void SynthLookAndFeel$AATextListener::updateWindowUI($Window* window) {
 	$init(SynthLookAndFeel$AATextListener);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthLookAndFeel::updateStyles(window);
 	$var($WindowArray, ownedWins, $nc(window)->getOwnedWindows());
 	{
 		$var($WindowArray, arr$, ownedWins);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Window, w, arr$->get(i$));
 			{
 				updateWindowUI(w);
@@ -173,13 +117,11 @@ void SynthLookAndFeel$AATextListener::updateWindowUI($Window* window) {
 
 void SynthLookAndFeel$AATextListener::updateAllUIs() {
 	$init(SynthLookAndFeel$AATextListener);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FrameArray, appFrames, $Frame::getFrames());
 	{
 		$var($FrameArray, arr$, appFrames);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Frame, frame, arr$->get(i$));
 			{
 				updateWindowUI(frame);
@@ -189,17 +131,15 @@ void SynthLookAndFeel$AATextListener::updateAllUIs() {
 }
 
 void SynthLookAndFeel$AATextListener::setUpdatePending(bool update) {
-	$load(SynthLookAndFeel$AATextListener);
+	$init(SynthLookAndFeel$AATextListener);
 	$synchronized(class$) {
-		$init(SynthLookAndFeel$AATextListener);
 		SynthLookAndFeel$AATextListener::updatePending = update;
 	}
 }
 
 bool SynthLookAndFeel$AATextListener::isUpdatePending() {
-	$load(SynthLookAndFeel$AATextListener);
+	$init(SynthLookAndFeel$AATextListener);
 	$synchronized(class$) {
-		$init(SynthLookAndFeel$AATextListener);
 		return SynthLookAndFeel$AATextListener::updatePending;
 	}
 }
@@ -216,7 +156,50 @@ SynthLookAndFeel$AATextListener::SynthLookAndFeel$AATextListener() {
 }
 
 $Class* SynthLookAndFeel$AATextListener::load$($String* name, bool initialize) {
-	$loadClass(SynthLookAndFeel$AATextListener, name, initialize, &_SynthLookAndFeel$AATextListener_ClassInfo_, allocate$SynthLookAndFeel$AATextListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthLookAndFeel$AATextListener, key)},
+		{"updatePending", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SynthLookAndFeel$AATextListener, updatePending)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/LookAndFeel;)V", nullptr, 0, $method(SynthLookAndFeel$AATextListener, init$, void, $LookAndFeel*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(SynthLookAndFeel$AATextListener, dispose, void)},
+		{"isUpdatePending", "()Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SynthLookAndFeel$AATextListener, isUpdatePending, bool)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel$AATextListener, propertyChange, void, $PropertyChangeEvent*)},
+		{"setUpdatePending", "(Z)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SynthLookAndFeel$AATextListener, setUpdatePending, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateAllUIs", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel$AATextListener, updateAllUIs, void)},
+		{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(SynthLookAndFeel$AATextListener, updateUI, void)},
+		{"updateWindowUI", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthLookAndFeel$AATextListener, updateWindowUI, void, $Window*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener", "javax.swing.plaf.synth.SynthLookAndFeel", "AATextListener", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthLookAndFeel$AATextListener",
+		"java.lang.ref.WeakReference",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljavax/swing/LookAndFeel;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthLookAndFeel"
+	};
+	$loadClass(SynthLookAndFeel$AATextListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthLookAndFeel$AATextListener));
+	});
 	return class$;
 }
 

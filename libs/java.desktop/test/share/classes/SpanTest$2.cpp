@@ -1,11 +1,9 @@
 #include <SpanTest$2.h>
-
 #include <SpanTest.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -27,9 +25,7 @@
 
 using $SpanTest = ::SpanTest;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -39,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JButton = ::javax::swing::JButton;
 using $JDialog = ::javax::swing::JDialog;
 using $JPanel = ::javax::swing::JPanel;
@@ -54,33 +49,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$run$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SpanTest$2$$Lambda$lambda$run$0>());
-	}
 	SpanTest$2* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SpanTest$2$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SpanTest$2$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo SpanTest$2$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LSpanTest$2;)V", nullptr, $PUBLIC, $method(SpanTest$2$$Lambda$lambda$run$0, init$, void, SpanTest$2*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SpanTest$2$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo SpanTest$2$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SpanTest$2$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* SpanTest$2$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(SpanTest$2$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SpanTest$2$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LSpanTest$2;)V", nullptr, $PUBLIC, $method(SpanTest$2$$Lambda$lambda$run$0, init$, void, SpanTest$2*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SpanTest$2$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SpanTest$2$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpanTest$2$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpanTest$2$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* SpanTest$2$$Lambda$lambda$run$0::class$ = nullptr;
@@ -94,105 +85,56 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$run$1(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SpanTest$2$$Lambda$lambda$run$1$1>());
-	}
 	SpanTest$2* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SpanTest$2$$Lambda$lambda$run$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SpanTest$2$$Lambda$lambda$run$1$1, inst$)},
-	{}
-};
-$MethodInfo SpanTest$2$$Lambda$lambda$run$1$1::methodInfos[3] = {
-	{"<init>", "(LSpanTest$2;)V", nullptr, $PUBLIC, $method(SpanTest$2$$Lambda$lambda$run$1$1, init$, void, SpanTest$2*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SpanTest$2$$Lambda$lambda$run$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo SpanTest$2$$Lambda$lambda$run$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SpanTest$2$$Lambda$lambda$run$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* SpanTest$2$$Lambda$lambda$run$1$1::load$($String* name, bool initialize) {
-	$loadClass(SpanTest$2$$Lambda$lambda$run$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SpanTest$2$$Lambda$lambda$run$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LSpanTest$2;)V", nullptr, $PUBLIC, $method(SpanTest$2$$Lambda$lambda$run$1$1, init$, void, SpanTest$2*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(SpanTest$2$$Lambda$lambda$run$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SpanTest$2$$Lambda$lambda$run$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpanTest$2$$Lambda$lambda$run$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpanTest$2$$Lambda$lambda$run$1$1);
+	});
 	return class$;
 }
 $Class* SpanTest$2$$Lambda$lambda$run$1$1::class$ = nullptr;
-
-$FieldInfo _SpanTest$2_FieldInfo_[] = {
-	{"this$0", "LSpanTest;", nullptr, $FINAL | $SYNTHETIC, $field(SpanTest$2, this$0)},
-	{}
-};
-
-$MethodInfo _SpanTest$2_MethodInfo_[] = {
-	{"<init>", "(LSpanTest;)V", nullptr, 0, $method(SpanTest$2, init$, void, $SpanTest*)},
-	{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SpanTest$2, lambda$run$0, void, $ActionEvent*)},
-	{"lambda$run$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SpanTest$2, lambda$run$1, void, $ActionEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpanTest$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SpanTest$2_EnclosingMethodInfo_ = {
-	"SpanTest",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _SpanTest$2_InnerClassesInfo_[] = {
-	{"SpanTest$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SpanTest$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"SpanTest$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_SpanTest$2_FieldInfo_,
-	_SpanTest$2_MethodInfo_,
-	nullptr,
-	&_SpanTest$2_EnclosingMethodInfo_,
-	_SpanTest$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SpanTest"
-};
-
-$Object* allocate$SpanTest$2($Class* clazz) {
-	return $of($alloc(SpanTest$2));
-}
 
 void SpanTest$2::init$($SpanTest* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void SpanTest$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, " INSTRUCTIONS:\n A string will be shown.\n  Press Pass if there is no overlap of characters\n else press Fail."_s);
 	$init($SpanTest);
 	$assignStatic($SpanTest::dialog, $new($JDialog));
-	$nc($SpanTest::dialog)->setTitle("textselectionTest"_s);
+	$SpanTest::dialog->setTitle("textselectionTest"_s);
 	$var($JTextArea, textArea, $new($JTextArea, description));
 	textArea->setEditable(false);
 	$var($JButton, passButton, $new($JButton, "PASS"_s));
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(SpanTest$2$$Lambda$lambda$run$0, this)));
+	passButton->addActionListener($$new(SpanTest$2$$Lambda$lambda$run$0, this));
 	$var($JButton, failButton, $new($JButton, "FAIL"_s));
-	failButton->addActionListener(static_cast<$ActionListener*>($$new(SpanTest$2$$Lambda$lambda$run$1$1, this)));
-	$var($JPanel, mainPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$init($BorderLayout);
-	mainPanel->add(static_cast<$Component*>(textArea), $of($BorderLayout::CENTER));
-	$var($JPanel, buttonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
-	buttonPanel->add(static_cast<$Component*>(passButton));
-	buttonPanel->add(static_cast<$Component*>(failButton));
-	mainPanel->add(static_cast<$Component*>(buttonPanel), $of($BorderLayout::SOUTH));
-	$nc($SpanTest::dialog)->add(static_cast<$Component*>(mainPanel));
+	failButton->addActionListener($$new(SpanTest$2$$Lambda$lambda$run$1$1, this));
+	$var($JPanel, mainPanel, $new($JPanel, $$new($BorderLayout)));
+	mainPanel->add(textArea, $BorderLayout::CENTER);
+	$var($JPanel, buttonPanel, $new($JPanel, $$new($FlowLayout)));
+	buttonPanel->add(passButton);
+	buttonPanel->add(failButton);
+	mainPanel->add(buttonPanel, $BorderLayout::SOUTH);
+	$nc($SpanTest::dialog)->add(mainPanel);
 	$nc($SpanTest::dialog)->pack();
 	$nc($SpanTest::dialog)->setVisible(true);
 }
@@ -214,14 +156,51 @@ SpanTest$2::SpanTest$2() {
 
 $Class* SpanTest$2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SpanTest$2$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("SpanTest$2$$Lambda$lambda$run$0")) {
 			return SpanTest$2$$Lambda$lambda$run$0::load$(name, initialize);
 		}
-		if (name->equals(SpanTest$2$$Lambda$lambda$run$1$1::classInfo$.name)) {
+		if (name->equals("SpanTest$2$$Lambda$lambda$run$1$1")) {
 			return SpanTest$2$$Lambda$lambda$run$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(SpanTest$2, name, initialize, &_SpanTest$2_ClassInfo_, allocate$SpanTest$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LSpanTest;", nullptr, $FINAL | $SYNTHETIC, $field(SpanTest$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LSpanTest;)V", nullptr, 0, $method(SpanTest$2, init$, void, $SpanTest*)},
+		{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SpanTest$2, lambda$run$0, void, $ActionEvent*)},
+		{"lambda$run$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SpanTest$2, lambda$run$1, void, $ActionEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SpanTest$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"SpanTest",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SpanTest$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SpanTest$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SpanTest"
+	};
+	$loadClass(SpanTest$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpanTest$2);
+	});
 	return class$;
 }
 

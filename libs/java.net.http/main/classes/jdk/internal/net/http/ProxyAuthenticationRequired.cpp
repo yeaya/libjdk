@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ProxyAuthenticationRequired.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <jdk/internal/net/http/Response.h>
@@ -17,31 +16,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _ProxyAuthenticationRequired_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProxyAuthenticationRequired, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProxyAuthenticationRequired, serialVersionUID)},
-	{"proxyResponse", "Ljdk/internal/net/http/Response;", nullptr, $FINAL | $TRANSIENT, $field(ProxyAuthenticationRequired, proxyResponse)},
-	{}
-};
-
-$MethodInfo _ProxyAuthenticationRequired_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(ProxyAuthenticationRequired, init$, void, $Response*)},
-	{}
-};
-
-$ClassInfo _ProxyAuthenticationRequired_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.ProxyAuthenticationRequired",
-	"java.io.IOException",
-	nullptr,
-	_ProxyAuthenticationRequired_FieldInfo_,
-	_ProxyAuthenticationRequired_MethodInfo_
-};
-
-$Object* allocate$ProxyAuthenticationRequired($Class* clazz) {
-	return $of($alloc(ProxyAuthenticationRequired));
-}
-
 bool ProxyAuthenticationRequired::$assertionsDisabled = false;
 
 void ProxyAuthenticationRequired::init$($Response* proxyResponse) {
@@ -52,7 +26,7 @@ void ProxyAuthenticationRequired::init$($Response* proxyResponse) {
 	$set(this, proxyResponse, proxyResponse);
 }
 
-void clinit$ProxyAuthenticationRequired($Class* class$) {
+void ProxyAuthenticationRequired::clinit$($Class* clazz) {
 	ProxyAuthenticationRequired::$assertionsDisabled = !ProxyAuthenticationRequired::class$->desiredAssertionStatus();
 }
 
@@ -67,7 +41,27 @@ void ProxyAuthenticationRequired::throw$() {
 }
 
 $Class* ProxyAuthenticationRequired::load$($String* name, bool initialize) {
-	$loadClass(ProxyAuthenticationRequired, name, initialize, &_ProxyAuthenticationRequired_ClassInfo_, clinit$ProxyAuthenticationRequired, allocate$ProxyAuthenticationRequired);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProxyAuthenticationRequired, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProxyAuthenticationRequired, serialVersionUID)},
+		{"proxyResponse", "Ljdk/internal/net/http/Response;", nullptr, $FINAL | $TRANSIENT, $field(ProxyAuthenticationRequired, proxyResponse)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(ProxyAuthenticationRequired, init$, void, $Response*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.ProxyAuthenticationRequired",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProxyAuthenticationRequired, name, initialize, &classInfo$$, ProxyAuthenticationRequired::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProxyAuthenticationRequired);
+	});
 	return class$;
 }
 

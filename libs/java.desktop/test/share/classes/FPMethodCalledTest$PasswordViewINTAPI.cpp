@@ -1,5 +1,4 @@
 #include <FPMethodCalledTest$PasswordViewINTAPI.h>
-
 #include <FPMethodCalledTest.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/text/Element.h>
@@ -13,49 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::swing::text::Element;
 using $PasswordView = ::javax::swing::text::PasswordView;
-
-$FieldInfo _FPMethodCalledTest$PasswordViewINTAPI_FieldInfo_[] = {
-	{"isIntMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewINTAPI, isIntMethodCalled)},
-	{}
-};
-
-$MethodInfo _FPMethodCalledTest$PasswordViewINTAPI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$PasswordViewINTAPI, init$, void, $Element*)},
-	{"drawEchoCharacter", "(Ljava/awt/Graphics;IIC)I", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewINTAPI, drawEchoCharacter, int32_t, $Graphics*, int32_t, int32_t, char16_t)},
-	{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$PasswordViewINTAPI, getResult, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FPMethodCalledTest$PasswordViewINTAPI_InnerClassesInfo_[] = {
-	{"FPMethodCalledTest$PasswordViewINTAPI", "FPMethodCalledTest", "PasswordViewINTAPI", $STATIC},
-	{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FPMethodCalledTest$PasswordViewINTAPI_ClassInfo_ = {
-	$ACC_SUPER,
-	"FPMethodCalledTest$PasswordViewINTAPI",
-	"javax.swing.text.PasswordView",
-	"FPMethodCalledTest$Resultable",
-	_FPMethodCalledTest$PasswordViewINTAPI_FieldInfo_,
-	_FPMethodCalledTest$PasswordViewINTAPI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FPMethodCalledTest$PasswordViewINTAPI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FPMethodCalledTest"
-};
-
-$Object* allocate$FPMethodCalledTest$PasswordViewINTAPI($Class* clazz) {
-	return $of($alloc(FPMethodCalledTest$PasswordViewINTAPI));
-}
 
 int32_t FPMethodCalledTest$PasswordViewINTAPI::hashCode() {
 	 return this->$PasswordView::hashCode();
@@ -95,7 +51,44 @@ FPMethodCalledTest$PasswordViewINTAPI::FPMethodCalledTest$PasswordViewINTAPI() {
 }
 
 $Class* FPMethodCalledTest$PasswordViewINTAPI::load$($String* name, bool initialize) {
-	$loadClass(FPMethodCalledTest$PasswordViewINTAPI, name, initialize, &_FPMethodCalledTest$PasswordViewINTAPI_ClassInfo_, allocate$FPMethodCalledTest$PasswordViewINTAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"isIntMethodCalled", "Z", nullptr, 0, $field(FPMethodCalledTest$PasswordViewINTAPI, isIntMethodCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$PasswordViewINTAPI, init$, void, $Element*)},
+		{"drawEchoCharacter", "(Ljava/awt/Graphics;IIC)I", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$PasswordViewINTAPI, drawEchoCharacter, int32_t, $Graphics*, int32_t, int32_t, char16_t)},
+		{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$PasswordViewINTAPI, getResult, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FPMethodCalledTest$PasswordViewINTAPI", "FPMethodCalledTest", "PasswordViewINTAPI", $STATIC},
+		{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FPMethodCalledTest$PasswordViewINTAPI",
+		"javax.swing.text.PasswordView",
+		"FPMethodCalledTest$Resultable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FPMethodCalledTest"
+	};
+	$loadClass(FPMethodCalledTest$PasswordViewINTAPI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FPMethodCalledTest$PasswordViewINTAPI));
+	});
 	return class$;
 }
 

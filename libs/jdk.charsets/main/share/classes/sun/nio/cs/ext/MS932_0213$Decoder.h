@@ -29,6 +29,7 @@ class MS932_0213$Decoder : public ::sun::nio::cs::ext::SJIS_0213$Decoder {
 	$class(MS932_0213$Decoder, 0, ::sun::nio::cs::ext::SJIS_0213$Decoder)
 public:
 	MS932_0213$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual char16_t decodeDouble(int32_t b1, int32_t b2) override;
 	static ::sun::nio::cs::DoubleByte$Decoder* decMS932;

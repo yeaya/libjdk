@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/PlatformUtils.h>
-
 #include <com/sun/tools/javac/main/Arguments.h>
 #include <com/sun/tools/javac/platform/PlatformDescription.h>
 #include <com/sun/tools/javac/platform/PlatformProvider$PlatformNotSupported.h>
@@ -35,7 +34,6 @@ using $Optional = ::java::util::Optional;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $StreamSupport = ::java::util::stream::StreamSupport;
 
 namespace com {
@@ -53,33 +51,29 @@ public:
 	virtual bool test(Object$* provider) override {
 		 return PlatformUtils::lambda$lookupPlatformDescription$0(platformProviderName, $cast($PlatformProvider, provider));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0>());
-	}
 	$String* platformProviderName = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::fieldInfos[2] = {
-	{"platformProviderName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, platformProviderName)},
-	{}
-};
-$MethodInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::load$($String* name, bool initialize) {
-	$loadClass(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"platformProviderName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, platformProviderName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0);
+	});
 	return class$;
 }
 $Class* PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::class$ = nullptr;
@@ -92,37 +86,33 @@ public:
 		$set(this, platformOptions, platformOptions);
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return $of(PlatformUtils::lambda$lookupPlatformDescription$1(platformProviderName, platformOptions, $cast($PlatformProvider, provider)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1>());
+		 return PlatformUtils::lambda$lookupPlatformDescription$1(platformProviderName, platformOptions, $cast($PlatformProvider, provider));
 	}
 	$String* platformProviderName = nullptr;
 	$String* platformOptions = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::fieldInfos[3] = {
-	{"platformProviderName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, platformProviderName)},
-	{"platformOptions", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, platformOptions)},
-	{}
-};
-$MethodInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, init$, void, $String*, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::load$($String* name, bool initialize) {
-	$loadClass(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"platformProviderName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, platformProviderName)},
+		{"platformOptions", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, platformOptions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, init$, void, $String*, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1);
+	});
 	return class$;
 }
 $Class* PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::class$ = nullptr;
@@ -136,64 +126,39 @@ public:
 	virtual bool test(Object$* arg0) override {
 		 return $nc(inst$)->equals(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PlatformUtils$$Lambda$equals$2>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PlatformUtils$$Lambda$equals$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$equals$2, inst$)},
-	{}
-};
-$MethodInfo PlatformUtils$$Lambda$equals$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$equals$2, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$equals$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo PlatformUtils$$Lambda$equals$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.PlatformUtils$$Lambda$equals$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* PlatformUtils$$Lambda$equals$2::load$($String* name, bool initialize) {
-	$loadClass(PlatformUtils$$Lambda$equals$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PlatformUtils$$Lambda$equals$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$equals$2, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$equals$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.PlatformUtils$$Lambda$equals$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PlatformUtils$$Lambda$equals$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformUtils$$Lambda$equals$2);
+	});
 	return class$;
 }
 $Class* PlatformUtils$$Lambda$equals$2::class$ = nullptr;
-
-$MethodInfo _PlatformUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformUtils, init$, void)},
-	{"lambda$lookupPlatformDescription$0", "(Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformUtils, lambda$lookupPlatformDescription$0, bool, $String*, $PlatformProvider*)},
-	{"lambda$lookupPlatformDescription$1", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformUtils, lambda$lookupPlatformDescription$1, $Optional*, $String*, $String*, $PlatformProvider*)},
-	{"lookupPlatformDescription", "(Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformUtils, lookupPlatformDescription, $PlatformDescription*, $String*)},
-	{}
-};
-
-$ClassInfo _PlatformUtils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.platform.PlatformUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PlatformUtils_MethodInfo_
-};
-
-$Object* allocate$PlatformUtils($Class* clazz) {
-	return $of($alloc(PlatformUtils));
-}
 
 void PlatformUtils::init$() {
 }
 
 $PlatformDescription* PlatformUtils::lookupPlatformDescription($String* platformString) {
+	$useLocalObjectStack();
 	$load(PlatformUtils);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t separator = $nc(platformString)->indexOf(":"_s);
 	$var($String, platformProviderName, separator != (-1) ? platformString->substring(0, separator) : platformString);
@@ -201,7 +166,7 @@ $PlatformDescription* PlatformUtils::lookupPlatformDescription($String* platform
 	$load($PlatformProvider);
 	$load($Arguments);
 	$var($Iterable, providers, $ServiceLoader::load($PlatformProvider::class$, $($Arguments::class$->getClassLoader())));
-	return $cast($PlatformDescription, $nc($($nc($($nc($($nc($($StreamSupport::stream($($nc(providers)->spliterator()), false)))->filter(static_cast<$Predicate*>($$new(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, platformProviderName)))))->findFirst()))->flatMap(static_cast<$Function*>($$new(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, platformProviderName, platformOptions)))))->orElse(nullptr));
+	return $cast($PlatformDescription, $$nc($$nc($$nc($$nc($StreamSupport::stream($($nc(providers)->spliterator()), false))->filter($$new(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, platformProviderName)))->findFirst())->flatMap($$new(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, platformProviderName, platformOptions)))->orElse(nullptr));
 }
 
 $Optional* PlatformUtils::lambda$lookupPlatformDescription$1($String* platformProviderName, $String* platformOptions, $PlatformProvider* provider) {
@@ -214,8 +179,8 @@ $Optional* PlatformUtils::lambda$lookupPlatformDescription$1($String* platformPr
 }
 
 bool PlatformUtils::lambda$lookupPlatformDescription$0($String* platformProviderName, $PlatformProvider* provider) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($StreamSupport::stream($($nc($($nc(provider)->getSupportedPlatformNames()))->spliterator()), false)))->anyMatch(static_cast<$Predicate*>($$new(PlatformUtils$$Lambda$equals$2, static_cast<$String*>($nc(platformProviderName)))));
+	$useLocalObjectStack();
+	return $$nc($StreamSupport::stream($($$nc($nc(provider)->getSupportedPlatformNames())->spliterator()), false))->anyMatch($$new(PlatformUtils$$Lambda$equals$2, $nc(platformProviderName)));
 }
 
 PlatformUtils::PlatformUtils() {
@@ -223,17 +188,34 @@ PlatformUtils::PlatformUtils() {
 
 $Class* PlatformUtils::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0")) {
 			return PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::load$(name, initialize);
 		}
-		if (name->equals(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1")) {
 			return PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::load$(name, initialize);
 		}
-		if (name->equals(PlatformUtils$$Lambda$equals$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.PlatformUtils$$Lambda$equals$2")) {
 			return PlatformUtils$$Lambda$equals$2::load$(name, initialize);
 		}
 	}
-	$loadClass(PlatformUtils, name, initialize, &_PlatformUtils_ClassInfo_, allocate$PlatformUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformUtils, init$, void)},
+		{"lambda$lookupPlatformDescription$0", "(Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformUtils, lambda$lookupPlatformDescription$0, bool, $String*, $PlatformProvider*)},
+		{"lambda$lookupPlatformDescription$1", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformUtils, lambda$lookupPlatformDescription$1, $Optional*, $String*, $String*, $PlatformProvider*)},
+		{"lookupPlatformDescription", "(Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformUtils, lookupPlatformDescription, $PlatformDescription*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.platform.PlatformUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlatformUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformUtils);
+	});
 	return class$;
 }
 

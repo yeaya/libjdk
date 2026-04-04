@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/IndexNameValueWriter.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/net/http/hpack/HeaderTable.h>
@@ -26,43 +25,6 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _IndexNameValueWriter_FieldInfo_[] = {
-	{"pattern", "I", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, pattern)},
-	{"prefix", "I", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, prefix)},
-	{"intWriter", "Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, intWriter)},
-	{"nameWriter", "Ljdk/internal/net/http/hpack/StringWriter;", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, nameWriter)},
-	{"valueWriter", "Ljdk/internal/net/http/hpack/StringWriter;", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, valueWriter)},
-	{"indexedRepresentation", "Z", nullptr, $PROTECTED, $field(IndexNameValueWriter, indexedRepresentation)},
-	{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexNameValueWriter, NEW)},
-	{"NAME_PART_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexNameValueWriter, NAME_PART_WRITTEN)},
-	{"VALUE_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexNameValueWriter, VALUE_WRITTEN)},
-	{"state", "I", nullptr, $PRIVATE, $field(IndexNameValueWriter, state)},
-	{}
-};
-
-$MethodInfo _IndexNameValueWriter_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PROTECTED, $method(IndexNameValueWriter, init$, void, int32_t, int32_t)},
-	{"index", "(I)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, index, IndexNameValueWriter*, int32_t)},
-	{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, name, IndexNameValueWriter*, $CharSequence*, bool)},
-	{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC, $virtualMethod(IndexNameValueWriter, reset, IndexNameValueWriter*)},
-	{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, value, IndexNameValueWriter*, $CharSequence*, bool)},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(IndexNameValueWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _IndexNameValueWriter_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.hpack.IndexNameValueWriter",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.BinaryRepresentationWriter",
-	_IndexNameValueWriter_FieldInfo_,
-	_IndexNameValueWriter_MethodInfo_
-};
-
-$Object* allocate$IndexNameValueWriter($Class* clazz) {
-	return $of($alloc(IndexNameValueWriter));
-}
-
 void IndexNameValueWriter::init$(int32_t pattern, int32_t prefix) {
 	$set(this, intWriter, $new($IntegerWriter));
 	$set(this, nameWriter, $new($StringWriter));
@@ -74,38 +36,38 @@ void IndexNameValueWriter::init$(int32_t pattern, int32_t prefix) {
 
 IndexNameValueWriter* IndexNameValueWriter::index(int32_t index) {
 	this->indexedRepresentation = true;
-	$nc(this->intWriter)->configure(index, this->prefix, this->pattern);
+	this->intWriter->configure(index, this->prefix, this->pattern);
 	return this;
 }
 
 IndexNameValueWriter* IndexNameValueWriter::name($CharSequence* name, bool useHuffman) {
 	this->indexedRepresentation = false;
-	$nc(this->intWriter)->configure(0, this->prefix, this->pattern);
-	$nc(this->nameWriter)->configure(name, useHuffman);
+	this->intWriter->configure(0, this->prefix, this->pattern);
+	this->nameWriter->configure(name, useHuffman);
 	return this;
 }
 
 IndexNameValueWriter* IndexNameValueWriter::value($CharSequence* value, bool useHuffman) {
-	$nc(this->valueWriter)->configure(value, useHuffman);
+	this->valueWriter->configure(value, useHuffman);
 	return this;
 }
 
 bool IndexNameValueWriter::write($HeaderTable* table, $ByteBuffer* destination) {
 	if (this->state < IndexNameValueWriter::NAME_PART_WRITTEN) {
 		if (this->indexedRepresentation) {
-			if (!$nc(this->intWriter)->write(destination)) {
+			if (!this->intWriter->write(destination)) {
 				return false;
 			}
 		} else {
-			bool var$1 = !$nc(this->intWriter)->write(destination);
-			if (var$1 || !$nc(this->nameWriter)->write(destination)) {
+			bool var$0 = !this->intWriter->write(destination);
+			if (var$0 || !this->nameWriter->write(destination)) {
 				return false;
 			}
 		}
 		this->state = IndexNameValueWriter::NAME_PART_WRITTEN;
 	}
 	if (this->state < IndexNameValueWriter::VALUE_WRITTEN) {
-		if (!$nc(this->valueWriter)->write(destination)) {
+		if (!this->valueWriter->write(destination)) {
 			return false;
 		}
 		this->state = IndexNameValueWriter::VALUE_WRITTEN;
@@ -114,11 +76,11 @@ bool IndexNameValueWriter::write($HeaderTable* table, $ByteBuffer* destination) 
 }
 
 IndexNameValueWriter* IndexNameValueWriter::reset() {
-	$nc(this->intWriter)->reset();
+	this->intWriter->reset();
 	if (!this->indexedRepresentation) {
-		$nc(this->nameWriter)->reset();
+		this->nameWriter->reset();
 	}
-	$nc(this->valueWriter)->reset();
+	this->valueWriter->reset();
 	this->state = IndexNameValueWriter::NEW;
 	return this;
 }
@@ -127,7 +89,39 @@ IndexNameValueWriter::IndexNameValueWriter() {
 }
 
 $Class* IndexNameValueWriter::load$($String* name, bool initialize) {
-	$loadClass(IndexNameValueWriter, name, initialize, &_IndexNameValueWriter_ClassInfo_, allocate$IndexNameValueWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"pattern", "I", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, pattern)},
+		{"prefix", "I", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, prefix)},
+		{"intWriter", "Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, intWriter)},
+		{"nameWriter", "Ljdk/internal/net/http/hpack/StringWriter;", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, nameWriter)},
+		{"valueWriter", "Ljdk/internal/net/http/hpack/StringWriter;", nullptr, $PRIVATE | $FINAL, $field(IndexNameValueWriter, valueWriter)},
+		{"indexedRepresentation", "Z", nullptr, $PROTECTED, $field(IndexNameValueWriter, indexedRepresentation)},
+		{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexNameValueWriter, NEW)},
+		{"NAME_PART_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexNameValueWriter, NAME_PART_WRITTEN)},
+		{"VALUE_WRITTEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IndexNameValueWriter, VALUE_WRITTEN)},
+		{"state", "I", nullptr, $PRIVATE, $field(IndexNameValueWriter, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PROTECTED, $method(IndexNameValueWriter, init$, void, int32_t, int32_t)},
+		{"index", "(I)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, index, IndexNameValueWriter*, int32_t)},
+		{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, name, IndexNameValueWriter*, $CharSequence*, bool)},
+		{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC, $virtualMethod(IndexNameValueWriter, reset, IndexNameValueWriter*)},
+		{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, value, IndexNameValueWriter*, $CharSequence*, bool)},
+		{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(IndexNameValueWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.hpack.IndexNameValueWriter",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.BinaryRepresentationWriter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IndexNameValueWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IndexNameValueWriter);
+	});
 	return class$;
 }
 

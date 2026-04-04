@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_zh_Hans_HK.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,43 +13,24 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_zh_Hans_HK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_zh_Hans_HK, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_zh_Hans_HK, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_zh_Hans_HK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_zh_Hans_HK",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_zh_Hans_HK_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_zh_Hans_HK($Class* clazz) {
-	return $of($alloc(CurrencyNames_zh_Hans_HK));
-}
-
 void CurrencyNames_zh_Hans_HK::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_zh_Hans_HK::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("CNY"_s),
-			$of(u"CN¥"_s)
+			"CNY"_s,
+			u"CN¥"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kyd"_s),
-			$of(u"开曼群岛元"_s)
+			"kyd"_s,
+			u"开曼群岛元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xag"_s),
-			$of(u"白银"_s)
+			"xag"_s,
+			u"白银"_s
 		})
 	}));
 	return data;
@@ -60,7 +40,22 @@ CurrencyNames_zh_Hans_HK::CurrencyNames_zh_Hans_HK() {
 }
 
 $Class* CurrencyNames_zh_Hans_HK::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_zh_Hans_HK, name, initialize, &_CurrencyNames_zh_Hans_HK_ClassInfo_, allocate$CurrencyNames_zh_Hans_HK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_zh_Hans_HK, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_zh_Hans_HK, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_zh_Hans_HK",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_zh_Hans_HK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_zh_Hans_HK);
+	});
 	return class$;
 }
 

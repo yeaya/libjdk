@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI$CloseAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractAction.h>
@@ -28,43 +27,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicDesktopPaneUI$CloseAction_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$CloseAction, this$0)},
-	{}
-};
-
-$MethodInfo _BasicDesktopPaneUI$CloseAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PROTECTED, $method(BasicDesktopPaneUI$CloseAction, init$, void, $BasicDesktopPaneUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$CloseAction, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$CloseAction, isEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopPaneUI$CloseAction_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "CloseAction", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicDesktopPaneUI$CloseAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction",
-	"javax.swing.AbstractAction",
-	nullptr,
-	_BasicDesktopPaneUI$CloseAction_FieldInfo_,
-	_BasicDesktopPaneUI$CloseAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopPaneUI$CloseAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopPaneUI"
-};
-
-$Object* allocate$BasicDesktopPaneUI$CloseAction($Class* clazz) {
-	return $of($alloc(BasicDesktopPaneUI$CloseAction));
-}
-
 void BasicDesktopPaneUI$CloseAction::init$($BasicDesktopPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractAction::init$();
@@ -89,7 +51,38 @@ BasicDesktopPaneUI$CloseAction::BasicDesktopPaneUI$CloseAction() {
 }
 
 $Class* BasicDesktopPaneUI$CloseAction::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopPaneUI$CloseAction, name, initialize, &_BasicDesktopPaneUI$CloseAction_ClassInfo_, allocate$BasicDesktopPaneUI$CloseAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopPaneUI$CloseAction, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopPaneUI;)V", nullptr, $PROTECTED, $method(BasicDesktopPaneUI$CloseAction, init$, void, $BasicDesktopPaneUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$CloseAction, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicDesktopPaneUI$CloseAction, isEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction", "javax.swing.plaf.basic.BasicDesktopPaneUI", "CloseAction", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI$CloseAction",
+		"javax.swing.AbstractAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopPaneUI"
+	};
+	$loadClass(BasicDesktopPaneUI$CloseAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicDesktopPaneUI$CloseAction));
+	});
 	return class$;
 }
 

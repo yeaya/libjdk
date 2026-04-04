@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/Region.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -47,112 +46,12 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$FieldInfo _Region_FieldInfo_[] = {
-	{"INIT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INIT_SIZE)},
-	{"GROW_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, GROW_SIZE)},
-	{"EMPTY_REGION", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, EMPTY_REGION)},
-	{"WHOLE_REGION", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, WHOLE_REGION)},
-	{"lox", "I", nullptr, $PRIVATE, $field(Region, lox)},
-	{"loy", "I", nullptr, $PRIVATE, $field(Region, loy)},
-	{"hix", "I", nullptr, $PRIVATE, $field(Region, hix)},
-	{"hiy", "I", nullptr, $PRIVATE, $field(Region, hiy)},
-	{"endIndex", "I", nullptr, 0, $field(Region, endIndex)},
-	{"bands", "[I", nullptr, 0, $field(Region, bands)},
-	{"INCLUDE_A", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INCLUDE_A)},
-	{"INCLUDE_B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INCLUDE_B)},
-	{"INCLUDE_COMMON", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INCLUDE_COMMON)},
-	{}
-};
-
-$MethodInfo _Region_MethodInfo_[] = {
-	{"<init>", "(IIII)V", nullptr, $PRIVATE, $method(Region, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(IIII[II)V", nullptr, $PRIVATE, $method(Region, init$, void, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t)},
-	{"appendSpan", "([I)V", nullptr, $PRIVATE, $method(Region, appendSpan, void, $ints*)},
-	{"appendSpans", "(Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PRIVATE, $method(Region, appendSpans, void, $SpanIterator*)},
-	{"calcBBox", "()V", nullptr, $PRIVATE, $method(Region, calcBBox, void)},
-	{"clipAdd", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, clipAdd, int32_t, int32_t, int32_t)},
-	{"clipBoxToBounds", "([I)V", nullptr, $PUBLIC, $method(Region, clipBoxToBounds, void, $ints*)},
-	{"clipRound", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, clipRound, int32_t, double)},
-	{"clipScale", "(ID)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, clipScale, int32_t, int32_t, double)},
-	{"contains", "(II)Z", nullptr, $PUBLIC, $method(Region, contains, bool, int32_t, int32_t)},
-	{"dimAdd", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, dimAdd, int32_t, int32_t, int32_t)},
-	{"encompasses", "(Lsun/java2d/pipe/Region;)Z", nullptr, $PUBLIC, $method(Region, encompasses, bool, Region*)},
-	{"encompassesXYWH", "(IIII)Z", nullptr, $PUBLIC, $method(Region, encompassesXYWH, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"encompassesXYXY", "(IIII)Z", nullptr, $PUBLIC, $method(Region, encompassesXYXY, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"endRow", "([I)V", nullptr, $PRIVATE, $method(Region, endRow, void, $ints*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Region, equals, bool, Object$*)},
-	{"filter", "(Lsun/java2d/pipe/SpanIterator;)Lsun/java2d/pipe/SpanIterator;", nullptr, $PUBLIC, $method(Region, filter, $SpanIterator*, $SpanIterator*)},
-	{"filterSpans", "(Lsun/java2d/pipe/Region;Lsun/java2d/pipe/Region;I)V", nullptr, $PRIVATE, $method(Region, filterSpans, void, Region*, Region*, int32_t)},
-	{"getBounds", "([I)V", nullptr, $PUBLIC, $method(Region, getBounds, void, $ints*)},
-	{"getBoundsIntersection", "(Ljava/awt/Rectangle;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersection, Region*, $Rectangle*)},
-	{"getBoundsIntersection", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersection, Region*, Region*)},
-	{"getBoundsIntersectionXYWH", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersectionXYWH, Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"getBoundsIntersectionXYXY", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersectionXYXY, Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"getDifference", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getDifference, Region*, Region*)},
-	{"getExclusiveOr", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getExclusiveOr, Region*, Region*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $method(Region, getHeight, int32_t)},
-	{"getHiX", "()I", nullptr, $PUBLIC, $method(Region, getHiX, int32_t)},
-	{"getHiY", "()I", nullptr, $PUBLIC, $method(Region, getHiY, int32_t)},
-	{"getInstance", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $Shape*, $AffineTransform*)},
-	{"getInstance", "(Lsun/java2d/pipe/Region;Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, Region*, $Shape*, $AffineTransform*)},
-	{"getInstance", "(Lsun/java2d/pipe/Region;ZLjava/awt/Shape;Ljava/awt/geom/AffineTransform;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, Region*, bool, $Shape*, $AffineTransform*)},
-	{"getInstance", "(IIII[I)Lsun/java2d/pipe/Region;", nullptr, $STATIC, $staticMethod(Region, getInstance, Region*, int32_t, int32_t, int32_t, int32_t, $ints*)},
-	{"getInstance", "(Ljava/awt/Rectangle;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $Rectangle*)},
-	{"getInstance", "([I)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $ints*)},
-	{"getInstance", "([ILsun/java2d/pipe/SpanIterator;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $ints*, $SpanIterator*)},
-	{"getInstanceXYWH", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstanceXYWH, Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"getInstanceXYXY", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstanceXYXY, Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"getIntersection", "(Ljava/awt/Rectangle;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersection, Region*, $Rectangle*)},
-	{"getIntersection", "(Ljava/awt/geom/Rectangle2D;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersection, Region*, $Rectangle2D*)},
-	{"getIntersection", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersection, Region*, Region*)},
-	{"getIntersectionXYWH", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersectionXYWH, Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"getIntersectionXYXY", "(DDDD)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersectionXYXY, Region*, double, double, double, double)},
-	{"getIntersectionXYXY", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersectionXYXY, Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"getIterator", "()Lsun/java2d/pipe/RegionIterator;", nullptr, $PUBLIC, $method(Region, getIterator, $RegionIterator*)},
-	{"getLoX", "()I", nullptr, $PUBLIC, $method(Region, getLoX, int32_t)},
-	{"getLoY", "()I", nullptr, $PUBLIC, $method(Region, getLoY, int32_t)},
-	{"getSafeTranslatedRegion", "(II)Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $method(Region, getSafeTranslatedRegion, Region*, int32_t, int32_t)},
-	{"getScaledRegion", "(DD)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getScaledRegion, Region*, double, double)},
-	{"getSpanIterator", "()Lsun/java2d/pipe/SpanIterator;", nullptr, $PUBLIC, $method(Region, getSpanIterator, $SpanIterator*)},
-	{"getSpanIterator", "([I)Lsun/java2d/pipe/SpanIterator;", nullptr, $PUBLIC, $method(Region, getSpanIterator, $SpanIterator*, $ints*)},
-	{"getTranslatedRegion", "(II)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getTranslatedRegion, Region*, int32_t, int32_t)},
-	{"getUnion", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getUnion, Region*, Region*)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $method(Region, getWidth, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Region, hashCode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Region, initIDs, void)},
-	{"intersectsQuickCheck", "(Lsun/java2d/pipe/Region;)Z", nullptr, $PUBLIC, $method(Region, intersectsQuickCheck, bool, Region*)},
-	{"intersectsQuickCheckXYXY", "(IIII)Z", nullptr, $PUBLIC, $method(Region, intersectsQuickCheckXYXY, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(Region, isEmpty, bool)},
-	{"isInsideQuickCheck", "(Lsun/java2d/pipe/Region;)Z", nullptr, $PUBLIC, $method(Region, isInsideQuickCheck, bool, Region*)},
-	{"isInsideXYWH", "(IIII)Z", nullptr, $PUBLIC, $method(Region, isInsideXYWH, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"isInsideXYXY", "(IIII)Z", nullptr, $PUBLIC, $method(Region, isInsideXYXY, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"isRectangular", "()Z", nullptr, $PUBLIC, $method(Region, isRectangular, bool)},
-	{"needSpace", "(I)V", nullptr, $PRIVATE, $method(Region, needSpace, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Region, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 54
-
-$ClassInfo _Region_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.pipe.Region",
-	"java.lang.Object",
-	nullptr,
-	_Region_FieldInfo_,
-	_Region_MethodInfo_
-};
-
-$Object* allocate$Region($Class* clazz) {
-	return $of($alloc(Region));
-}
-
 Region* Region::EMPTY_REGION = nullptr;
 Region* Region::WHOLE_REGION = nullptr;
 
 void Region::initIDs() {
 	$init(Region);
-	$prepareNativeStatic(Region, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -232,34 +131,32 @@ Region* Region::getInstance(Region* devBounds, $Shape* s, $AffineTransform* at) 
 
 Region* Region::getInstance(Region* devBounds, bool normalize, $Shape* s, $AffineTransform* at) {
 	$init(Region);
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($RectangularShape, s) && $nc(($cast($RectangularShape, s)))->isEmpty()) {
+	$useLocalObjectStack();
+	if ($instanceOf($RectangularShape, s) && $cast($RectangularShape, s)->isEmpty()) {
 		return Region::EMPTY_REGION;
 	}
 	$var($ints, box, $new($ints, 4));
 	$var($ShapeSpanIterator, sr, $new($ShapeSpanIterator, normalize));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var(Region, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			sr->setOutputArea(devBounds);
-			sr->appendPath($($nc(s)->getPathIterator(at)));
-			sr->getPathBox(box);
-			$assign(var$2, Region::getInstance(box, static_cast<$SpanIterator*>(sr)));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			sr->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var(Region, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		sr->setOutputArea(devBounds);
+		sr->appendPath($($nc(s)->getPathIterator(at)));
+		sr->getPathBox(box);
+		$assign(var$2, Region::getInstance(box, sr));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		sr->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -294,20 +191,18 @@ Region* Region::getInstance(int32_t lox, int32_t loy, int32_t hix, int32_t hiy, 
 
 Region* Region::getInstance($Rectangle* r) {
 	$init(Region);
-	return Region::getInstanceXYWH($nc(r)->x, r->y, r->width, r->height);
+	return Region::getInstanceXYWH($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 Region* Region::getInstanceXYWH(int32_t x, int32_t y, int32_t w, int32_t h) {
 	$init(Region);
-	int32_t var$0 = x;
-	int32_t var$1 = y;
-	int32_t var$2 = dimAdd(x, w);
-	return Region::getInstanceXYXY(var$0, var$1, var$2, dimAdd(y, h));
+	int32_t var$0 = dimAdd(x, w);
+	return Region::getInstanceXYXY(x, y, var$0, dimAdd(y, h));
 }
 
 Region* Region::getInstance($ints* box) {
 	$init(Region);
-	return $new(Region, $nc(box)->get(0), box->get(1), box->get(2), box->get(3));
+	return $new(Region, $nc(box)->get(0), $nc(box)->get(1), $nc(box)->get(2), $nc(box)->get(3));
 }
 
 Region* Region::getInstanceXYXY(int32_t lox, int32_t loy, int32_t hix, int32_t hiy) {
@@ -317,7 +212,7 @@ Region* Region::getInstanceXYXY(int32_t lox, int32_t loy, int32_t hix, int32_t h
 
 Region* Region::getInstance($ints* box, $SpanIterator* si) {
 	$init(Region);
-	$var(Region, ret, $new(Region, $nc(box)->get(0), box->get(1), box->get(2), box->get(3)));
+	$var(Region, ret, $new(Region, $nc(box)->get(0), $nc(box)->get(1), $nc(box)->get(2), $nc(box)->get(3)));
 	ret->appendSpans(si);
 	return ret;
 }
@@ -332,7 +227,7 @@ void Region::appendSpans($SpanIterator* si) {
 }
 
 Region* Region::getScaledRegion(double sx, double sy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (sx == 0 || sy == 0 || this == Region::EMPTY_REGION) {
 		return Region::EMPTY_REGION;
 	}
@@ -394,7 +289,7 @@ Region* Region::getScaledRegion(double sx, double sy) {
 }
 
 Region* Region::getTranslatedRegion(int32_t dx, int32_t dy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((dx | dy) == 0) {
 		return this;
 	}
@@ -433,7 +328,7 @@ Region* Region::getTranslatedRegion(int32_t dx, int32_t dy) {
 }
 
 Region* Region::getSafeTranslatedRegion(int32_t dx, int32_t dy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tlox = clipAdd(this->lox, dx);
 	int32_t tloy = clipAdd(this->loy, dy);
 	int32_t thix = clipAdd(this->hix, dx);
@@ -489,14 +384,12 @@ Region* Region::getSafeTranslatedRegion(int32_t dx, int32_t dy) {
 }
 
 Region* Region::getIntersection($Rectangle* r) {
-	return getIntersectionXYWH($nc(r)->x, r->y, r->width, r->height);
+	return getIntersectionXYWH($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 Region* Region::getIntersectionXYWH(int32_t x, int32_t y, int32_t w, int32_t h) {
-	int32_t var$0 = x;
-	int32_t var$1 = y;
-	int32_t var$2 = dimAdd(x, w);
-	return getIntersectionXYXY(var$0, var$1, var$2, dimAdd(y, h));
+	int32_t var$0 = dimAdd(x, w);
+	return getIntersectionXYXY(x, y, var$0, dimAdd(y, h));
 }
 
 Region* Region::getIntersection($Rectangle2D* r) {
@@ -523,7 +416,7 @@ Region* Region::getIntersectionXYXY(double lox, double loy, double hix, double h
 }
 
 Region* Region::getIntersectionXYXY(int32_t lox, int32_t loy, int32_t hix, int32_t hiy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isInsideXYXY(lox, loy, hix, hiy)) {
 		return this;
 	}
@@ -541,7 +434,7 @@ Region* Region::getIntersection(Region* r) {
 	if ($nc(r)->isInsideQuickCheck(this)) {
 		return r;
 	}
-	$var(Region, ret, $new(Region, ($nc(r)->lox < this->lox) ? this->lox : $nc(r)->lox, (r->loy < this->loy) ? this->loy : r->loy, (r->hix > this->hix) ? this->hix : r->hix, (r->hiy > this->hiy) ? this->hiy : r->hiy));
+	$var(Region, ret, $new(Region, (r->lox < this->lox) ? this->lox : r->lox, (r->loy < this->loy) ? this->loy : r->loy, (r->hix > this->hix) ? this->hix : r->hix, (r->hiy > this->hiy) ? this->hiy : r->hiy));
 	if (!ret->isEmpty()) {
 		ret->filterSpans(this, r, Region::INCLUDE_COMMON);
 	}
@@ -550,14 +443,14 @@ Region* Region::getIntersection(Region* r) {
 
 Region* Region::getUnion(Region* r) {
 	bool var$0 = $nc(r)->isEmpty();
-	if (var$0 || $nc(r)->isInsideQuickCheck(this)) {
+	if (var$0 || r->isInsideQuickCheck(this)) {
 		return this;
 	}
 	bool var$1 = this->isEmpty();
 	if (var$1 || this->isInsideQuickCheck(r)) {
 		return r;
 	}
-	$var(Region, ret, $new(Region, ($nc(r)->lox > this->lox) ? this->lox : $nc(r)->lox, (r->loy > this->loy) ? this->loy : r->loy, (r->hix < this->hix) ? this->hix : r->hix, (r->hiy < this->hiy) ? this->hiy : r->hiy));
+	$var(Region, ret, $new(Region, (r->lox > this->lox) ? this->lox : r->lox, (r->loy > this->loy) ? this->loy : r->loy, (r->hix < this->hix) ? this->hix : r->hix, (r->hiy < this->hiy) ? this->hiy : r->hiy));
 	ret->filterSpans(this, r, (Region::INCLUDE_A | Region::INCLUDE_B) | Region::INCLUDE_COMMON);
 	return ret;
 }
@@ -581,13 +474,13 @@ Region* Region::getExclusiveOr(Region* r) {
 	if (this->isEmpty()) {
 		return r;
 	}
-	$var(Region, ret, $new(Region, ($nc(r)->lox > this->lox) ? this->lox : $nc(r)->lox, (r->loy > this->loy) ? this->loy : r->loy, (r->hix < this->hix) ? this->hix : r->hix, (r->hiy < this->hiy) ? this->hiy : r->hiy));
+	$var(Region, ret, $new(Region, (r->lox > this->lox) ? this->lox : r->lox, (r->loy > this->loy) ? this->loy : r->loy, (r->hix < this->hix) ? this->hix : r->hix, (r->hiy < this->hiy) ? this->hiy : r->hiy));
 	ret->filterSpans(this, r, Region::INCLUDE_A | Region::INCLUDE_B);
 	return ret;
 }
 
 void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, abands, $nc(ra)->bands);
 	$var($ints, bbands, $nc(rb)->bands);
 	if (abands == nullptr) {
@@ -629,7 +522,7 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 				acolend = abands->get(acolstart++);
 				acolend = acolstart + 2 * acolend;
 			} else {
-				if (((int32_t)(flags & (uint32_t)Region::INCLUDE_B)) == 0) {
+				if ((flags & Region::INCLUDE_B) == 0) {
 					break;
 				}
 				ay1 = (ay2 = this->hiy);
@@ -644,7 +537,7 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 				bcolend = bbands->get(bcolstart++);
 				bcolend = bcolstart + 2 * bcolend;
 			} else {
-				if (((int32_t)(flags & (uint32_t)Region::INCLUDE_A)) == 0) {
+				if ((flags & Region::INCLUDE_A) == 0) {
 					break;
 				}
 				by1 = (by2 = this->hiy);
@@ -658,7 +551,7 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 				continue;
 			}
 			yend = $Math::min(ay2, by1);
-			if (((int32_t)(flags & (uint32_t)Region::INCLUDE_A)) != 0) {
+			if ((flags & Region::INCLUDE_A) != 0) {
 				box->set(1, y);
 				box->set(3, yend);
 				int32_t acol = acolstart;
@@ -670,7 +563,7 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 			}
 		} else if (y < ay1) {
 			yend = $Math::min(by2, ay1);
-			if (((int32_t)(flags & (uint32_t)Region::INCLUDE_B)) != 0) {
+			if ((flags & Region::INCLUDE_B) != 0) {
 				box->set(1, y);
 				box->set(3, yend);
 				int32_t bcol = bcolstart;
@@ -700,7 +593,7 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 						ax1 = abands->get(acol++);
 						ax2 = abands->get(acol++);
 					} else {
-						if (((int32_t)(flags & (uint32_t)Region::INCLUDE_B)) == 0) {
+						if ((flags & Region::INCLUDE_B) == 0) {
 							break;
 						}
 						ax1 = (ax2 = this->hix);
@@ -712,7 +605,7 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 						bx1 = bbands->get(bcol++);
 						bx2 = bbands->get(bcol++);
 					} else {
-						if (((int32_t)(flags & (uint32_t)Region::INCLUDE_A)) == 0) {
+						if ((flags & Region::INCLUDE_A) == 0) {
 							break;
 						}
 						bx1 = (bx2 = this->hix);
@@ -727,14 +620,14 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 						appendit = false;
 					} else {
 						xend = $Math::min(ax2, bx1);
-						appendit = (((int32_t)(flags & (uint32_t)Region::INCLUDE_A)) != 0);
+						appendit = ((flags & Region::INCLUDE_A) != 0);
 					}
 				} else if (x < ax1) {
 					xend = $Math::min(ax1, bx2);
-					appendit = (((int32_t)(flags & (uint32_t)Region::INCLUDE_B)) != 0);
+					appendit = ((flags & Region::INCLUDE_B) != 0);
 				} else {
 					xend = $Math::min(ax2, bx2);
-					appendit = (((int32_t)(flags & (uint32_t)Region::INCLUDE_COMMON)) != 0);
+					appendit = ((flags & Region::INCLUDE_COMMON) != 0);
 				}
 				if (appendit) {
 					box->set(0, x);
@@ -751,14 +644,12 @@ void Region::filterSpans(Region* ra, Region* rb, int32_t flags) {
 }
 
 Region* Region::getBoundsIntersection($Rectangle* r) {
-	return getBoundsIntersectionXYWH($nc(r)->x, r->y, r->width, r->height);
+	return getBoundsIntersectionXYWH($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 Region* Region::getBoundsIntersectionXYWH(int32_t x, int32_t y, int32_t w, int32_t h) {
-	int32_t var$0 = x;
-	int32_t var$1 = y;
-	int32_t var$2 = dimAdd(x, w);
-	return getBoundsIntersectionXYXY(var$0, var$1, var$2, dimAdd(y, h));
+	int32_t var$0 = dimAdd(x, w);
+	return getBoundsIntersectionXYXY(x, y, var$0, dimAdd(y, h));
 }
 
 Region* Region::getBoundsIntersectionXYXY(int32_t lox, int32_t loy, int32_t hix, int32_t hiy) {
@@ -775,7 +666,7 @@ Region* Region::getBoundsIntersection(Region* r) {
 	if ($nc(r)->encompasses(this)) {
 		return this;
 	}
-	return $new(Region, ($nc(r)->lox < this->lox) ? this->lox : $nc(r)->lox, (r->loy < this->loy) ? this->loy : r->loy, (r->hix > this->hix) ? this->hix : r->hix, (r->hiy > this->hiy) ? this->hiy : r->hiy);
+	return $new(Region, (r->lox < this->lox) ? this->lox : r->lox, (r->loy < this->loy) ? this->loy : r->loy, (r->hix > this->hix) ? this->hix : r->hix, (r->hiy > this->hiy) ? this->hiy : r->hiy);
 }
 
 void Region::appendSpan($ints* box) {
@@ -786,19 +677,19 @@ void Region::appendSpan($ints* box) {
 	if ((spanlox = $nc(box)->get(0)) < this->lox) {
 		spanlox = this->lox;
 	}
-	if ((spanloy = $nc(box)->get(1)) < this->loy) {
+	if ((spanloy = box->get(1)) < this->loy) {
 		spanloy = this->loy;
 	}
-	if ((spanhix = $nc(box)->get(2)) > this->hix) {
+	if ((spanhix = box->get(2)) > this->hix) {
 		spanhix = this->hix;
 	}
-	if ((spanhiy = $nc(box)->get(3)) > this->hiy) {
+	if ((spanhiy = box->get(3)) > this->hiy) {
 		spanhiy = this->hiy;
 	}
 	if (spanhix <= spanlox || spanhiy <= spanloy) {
 		return;
 	}
-	int32_t curYrow = $nc(box)->get(4);
+	int32_t curYrow = box->get(4);
 	if (this->endIndex == 0 || spanloy >= $nc(this->bands)->get(curYrow + 1)) {
 		if (this->bands == nullptr) {
 			$set(this, bands, $new($ints, Region::INIT_SIZE));
@@ -808,11 +699,11 @@ void Region::appendSpan($ints* box) {
 			curYrow = box->get(4);
 		}
 		$nc(this->bands)->set(this->endIndex++, spanloy);
-		$nc(this->bands)->set(this->endIndex++, spanhiy);
-		$nc(this->bands)->set(this->endIndex++, 0);
-	} else if (spanloy == $nc(this->bands)->get(curYrow) && spanhiy == $nc(this->bands)->get(curYrow + 1) && spanlox >= $nc(this->bands)->get(this->endIndex - 1)) {
-		if (spanlox == $nc(this->bands)->get(this->endIndex - 1)) {
-			$nc(this->bands)->set(this->endIndex - 1, spanhix);
+		this->bands->set(this->endIndex++, spanhiy);
+		this->bands->set(this->endIndex++, 0);
+	} else if (spanloy == $nc(this->bands)->get(curYrow) && spanhiy == this->bands->get(curYrow + 1) && spanlox >= this->bands->get(this->endIndex - 1)) {
+		if (spanlox == this->bands->get(this->endIndex - 1)) {
+			this->bands->set(this->endIndex - 1, spanhix);
 			return;
 		}
 		needSpace(2);
@@ -820,13 +711,13 @@ void Region::appendSpan($ints* box) {
 		$throwNew($InternalError, "bad span"_s);
 	}
 	$nc(this->bands)->set(this->endIndex++, spanlox);
-	$nc(this->bands)->set(this->endIndex++, spanhix);
-	++(*$nc(this->bands))[curYrow + 2];
+	this->bands->set(this->endIndex++, spanhix);
+	++(*this->bands)[curYrow + 2];
 }
 
 void Region::needSpace(int32_t num) {
 	if (this->endIndex + num >= $nc(this->bands)->length) {
-		$var($ints, newbands, $new($ints, $nc(this->bands)->length + Region::GROW_SIZE));
+		$var($ints, newbands, $new($ints, this->bands->length + Region::GROW_SIZE));
 		$System::arraycopy(this->bands, 0, newbands, 0, this->endIndex);
 		$set(this, bands, newbands);
 	}
@@ -837,7 +728,7 @@ void Region::endRow($ints* box) {
 	int32_t prev = box->get(5);
 	if (cur > prev) {
 		$var($ints, bands, this->bands);
-		if ($nc(bands)->get(prev + 1) == bands->get(cur) && bands->get(prev + 2) == bands->get(cur + 2)) {
+		if ($nc(bands)->get(prev + 1) == $nc(bands)->get(cur) && bands->get(prev + 2) == bands->get(cur + 2)) {
 			int32_t num = bands->get(cur + 2) * 2;
 			cur += 3;
 			prev += 3;
@@ -953,17 +844,17 @@ bool Region::contains(int32_t x, int32_t y) {
 		if (y < $nc(this->bands)->get(i++)) {
 			return false;
 		}
-		if (y >= $nc(this->bands)->get(i++)) {
-			int32_t numspans = $nc(this->bands)->get(i++);
+		if (y >= this->bands->get(i++)) {
+			int32_t numspans = this->bands->get(i++);
 			i += numspans * 2;
 		} else {
-			int32_t end = $nc(this->bands)->get(i++);
+			int32_t end = this->bands->get(i++);
 			end = i + end * 2;
 			while (i < end) {
-				if (x < $nc(this->bands)->get(i++)) {
+				if (x < this->bands->get(i++)) {
 					return false;
 				}
-				if (x < $nc(this->bands)->get(i++)) {
+				if (x < this->bands->get(i++)) {
 					return true;
 				}
 			}
@@ -974,10 +865,8 @@ bool Region::contains(int32_t x, int32_t y) {
 }
 
 bool Region::isInsideXYWH(int32_t x, int32_t y, int32_t w, int32_t h) {
-	int32_t var$0 = x;
-	int32_t var$1 = y;
-	int32_t var$2 = dimAdd(x, w);
-	return isInsideXYXY(var$0, var$1, var$2, dimAdd(y, h));
+	int32_t var$0 = dimAdd(x, w);
+	return isInsideXYXY(x, y, var$0, dimAdd(y, h));
 }
 
 bool Region::isInsideXYXY(int32_t lox, int32_t loy, int32_t hix, int32_t hiy) {
@@ -1001,10 +890,8 @@ bool Region::encompasses(Region* r) {
 }
 
 bool Region::encompassesXYWH(int32_t x, int32_t y, int32_t w, int32_t h) {
-	int32_t var$0 = x;
-	int32_t var$1 = y;
-	int32_t var$2 = dimAdd(x, w);
-	return encompassesXYXY(var$0, var$1, var$2, dimAdd(y, h));
+	int32_t var$0 = dimAdd(x, w);
+	return encompassesXYXY(x, y, var$0, dimAdd(y, h));
 }
 
 bool Region::encompassesXYXY(int32_t lox, int32_t loy, int32_t hix, int32_t hiy) {
@@ -1022,13 +909,13 @@ void Region::clipBoxToBounds($ints* bbox) {
 	if ($nc(bbox)->get(0) < this->lox) {
 		bbox->set(0, this->lox);
 	}
-	if ($nc(bbox)->get(1) < this->loy) {
+	if (bbox->get(1) < this->loy) {
 		bbox->set(1, this->loy);
 	}
-	if ($nc(bbox)->get(2) > this->hix) {
+	if (bbox->get(2) > this->hix) {
 		bbox->set(2, this->hix);
 	}
-	if ($nc(bbox)->get(3) > this->hiy) {
+	if (bbox->get(3) > this->hiy) {
 		bbox->set(3, this->hiy);
 	}
 }
@@ -1043,7 +930,7 @@ $SpanIterator* Region::getSpanIterator() {
 
 $SpanIterator* Region::getSpanIterator($ints* bbox) {
 	$var($SpanIterator, result, getSpanIterator());
-	$nc(result)->intersectClipBox($nc(bbox)->get(0), bbox->get(1), bbox->get(2), bbox->get(3));
+	$nc(result)->intersectClipBox($nc(bbox)->get(0), $nc(bbox)->get(1), $nc(bbox)->get(2), $nc(bbox)->get(3));
 	return result;
 }
 
@@ -1072,17 +959,17 @@ $String* Region::toString() {
 		int32_t col = 0;
 		while (col < this->endIndex) {
 			sb->append("y{"_s);
-			sb->append($nc(this->bands)->get(col++));
+			sb->append(this->bands->get(col++));
 			sb->append(u',');
-			sb->append($nc(this->bands)->get(col++));
+			sb->append(this->bands->get(col++));
 			sb->append("}["_s);
-			int32_t end = $nc(this->bands)->get(col++);
+			int32_t end = this->bands->get(col++);
 			end = col + end * 2;
 			while (col < end) {
 				sb->append("x("_s);
-				sb->append($nc(this->bands)->get(col++));
+				sb->append(this->bands->get(col++));
 				sb->append(", "_s);
-				sb->append($nc(this->bands)->get(col++));
+				sb->append(this->bands->get(col++));
 				sb->append(u')');
 			}
 			sb->append(u']');
@@ -1097,7 +984,7 @@ int32_t Region::hashCode() {
 }
 
 bool Region::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -1110,19 +997,19 @@ bool Region::equals(Object$* o) {
 	} else if ($nc(r)->isEmpty()) {
 		return false;
 	}
-	if ($nc(r)->lox != this->lox || $nc(r)->loy != this->loy || $nc(r)->hix != this->hix || $nc(r)->hiy != this->hiy) {
+	if ($nc(r)->lox != this->lox || r->loy != this->loy || r->hix != this->hix || r->hiy != this->hiy) {
 		return false;
 	}
 	if (this->bands == nullptr) {
-		return ($nc(r)->bands == nullptr);
-	} else if ($nc(r)->bands == nullptr) {
+		return (r->bands == nullptr);
+	} else if (r->bands == nullptr) {
 		return false;
 	}
-	if (this->endIndex != $nc(r)->endIndex) {
+	if (this->endIndex != r->endIndex) {
 		return false;
 	}
 	$var($ints, abands, this->bands);
-	$var($ints, bbands, $nc(r)->bands);
+	$var($ints, bbands, r->bands);
 	for (int32_t i = 0; i < this->endIndex; ++i) {
 		if ($nc(abands)->get(i) != $nc(bbands)->get(i)) {
 			return false;
@@ -1131,7 +1018,7 @@ bool Region::equals(Object$* o) {
 	return true;
 }
 
-void clinit$Region($Class* class$) {
+void Region::clinit$($Class* clazz) {
 	$assignStatic(Region::EMPTY_REGION, $new(Region, 0, 0, 0, 0));
 	$assignStatic(Region::WHOLE_REGION, $new(Region, $Integer::MIN_VALUE, $Integer::MIN_VALUE, $Integer::MAX_VALUE, $Integer::MAX_VALUE));
 	{
@@ -1143,7 +1030,100 @@ Region::Region() {
 }
 
 $Class* Region::load$($String* name, bool initialize) {
-	$loadClass(Region, name, initialize, &_Region_ClassInfo_, clinit$Region, allocate$Region);
+	$FieldInfo fieldInfos$$[] = {
+		{"INIT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INIT_SIZE)},
+		{"GROW_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, GROW_SIZE)},
+		{"EMPTY_REGION", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, EMPTY_REGION)},
+		{"WHOLE_REGION", "Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, WHOLE_REGION)},
+		{"lox", "I", nullptr, $PRIVATE, $field(Region, lox)},
+		{"loy", "I", nullptr, $PRIVATE, $field(Region, loy)},
+		{"hix", "I", nullptr, $PRIVATE, $field(Region, hix)},
+		{"hiy", "I", nullptr, $PRIVATE, $field(Region, hiy)},
+		{"endIndex", "I", nullptr, 0, $field(Region, endIndex)},
+		{"bands", "[I", nullptr, 0, $field(Region, bands)},
+		{"INCLUDE_A", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INCLUDE_A)},
+		{"INCLUDE_B", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INCLUDE_B)},
+		{"INCLUDE_COMMON", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Region, INCLUDE_COMMON)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIII)V", nullptr, $PRIVATE, $method(Region, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(IIII[II)V", nullptr, $PRIVATE, $method(Region, init$, void, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t)},
+		{"appendSpan", "([I)V", nullptr, $PRIVATE, $method(Region, appendSpan, void, $ints*)},
+		{"appendSpans", "(Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PRIVATE, $method(Region, appendSpans, void, $SpanIterator*)},
+		{"calcBBox", "()V", nullptr, $PRIVATE, $method(Region, calcBBox, void)},
+		{"clipAdd", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, clipAdd, int32_t, int32_t, int32_t)},
+		{"clipBoxToBounds", "([I)V", nullptr, $PUBLIC, $method(Region, clipBoxToBounds, void, $ints*)},
+		{"clipRound", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, clipRound, int32_t, double)},
+		{"clipScale", "(ID)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, clipScale, int32_t, int32_t, double)},
+		{"contains", "(II)Z", nullptr, $PUBLIC, $method(Region, contains, bool, int32_t, int32_t)},
+		{"dimAdd", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, dimAdd, int32_t, int32_t, int32_t)},
+		{"encompasses", "(Lsun/java2d/pipe/Region;)Z", nullptr, $PUBLIC, $method(Region, encompasses, bool, Region*)},
+		{"encompassesXYWH", "(IIII)Z", nullptr, $PUBLIC, $method(Region, encompassesXYWH, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"encompassesXYXY", "(IIII)Z", nullptr, $PUBLIC, $method(Region, encompassesXYXY, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"endRow", "([I)V", nullptr, $PRIVATE, $method(Region, endRow, void, $ints*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Region, equals, bool, Object$*)},
+		{"filter", "(Lsun/java2d/pipe/SpanIterator;)Lsun/java2d/pipe/SpanIterator;", nullptr, $PUBLIC, $method(Region, filter, $SpanIterator*, $SpanIterator*)},
+		{"filterSpans", "(Lsun/java2d/pipe/Region;Lsun/java2d/pipe/Region;I)V", nullptr, $PRIVATE, $method(Region, filterSpans, void, Region*, Region*, int32_t)},
+		{"getBounds", "([I)V", nullptr, $PUBLIC, $method(Region, getBounds, void, $ints*)},
+		{"getBoundsIntersection", "(Ljava/awt/Rectangle;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersection, Region*, $Rectangle*)},
+		{"getBoundsIntersection", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersection, Region*, Region*)},
+		{"getBoundsIntersectionXYWH", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersectionXYWH, Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"getBoundsIntersectionXYXY", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getBoundsIntersectionXYXY, Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"getDifference", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getDifference, Region*, Region*)},
+		{"getExclusiveOr", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getExclusiveOr, Region*, Region*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $method(Region, getHeight, int32_t)},
+		{"getHiX", "()I", nullptr, $PUBLIC, $method(Region, getHiX, int32_t)},
+		{"getHiY", "()I", nullptr, $PUBLIC, $method(Region, getHiY, int32_t)},
+		{"getInstance", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $Shape*, $AffineTransform*)},
+		{"getInstance", "(Lsun/java2d/pipe/Region;Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, Region*, $Shape*, $AffineTransform*)},
+		{"getInstance", "(Lsun/java2d/pipe/Region;ZLjava/awt/Shape;Ljava/awt/geom/AffineTransform;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, Region*, bool, $Shape*, $AffineTransform*)},
+		{"getInstance", "(IIII[I)Lsun/java2d/pipe/Region;", nullptr, $STATIC, $staticMethod(Region, getInstance, Region*, int32_t, int32_t, int32_t, int32_t, $ints*)},
+		{"getInstance", "(Ljava/awt/Rectangle;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $Rectangle*)},
+		{"getInstance", "([I)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $ints*)},
+		{"getInstance", "([ILsun/java2d/pipe/SpanIterator;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstance, Region*, $ints*, $SpanIterator*)},
+		{"getInstanceXYWH", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstanceXYWH, Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"getInstanceXYXY", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC | $STATIC, $staticMethod(Region, getInstanceXYXY, Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"getIntersection", "(Ljava/awt/Rectangle;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersection, Region*, $Rectangle*)},
+		{"getIntersection", "(Ljava/awt/geom/Rectangle2D;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersection, Region*, $Rectangle2D*)},
+		{"getIntersection", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersection, Region*, Region*)},
+		{"getIntersectionXYWH", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersectionXYWH, Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"getIntersectionXYXY", "(DDDD)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersectionXYXY, Region*, double, double, double, double)},
+		{"getIntersectionXYXY", "(IIII)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getIntersectionXYXY, Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"getIterator", "()Lsun/java2d/pipe/RegionIterator;", nullptr, $PUBLIC, $method(Region, getIterator, $RegionIterator*)},
+		{"getLoX", "()I", nullptr, $PUBLIC, $method(Region, getLoX, int32_t)},
+		{"getLoY", "()I", nullptr, $PUBLIC, $method(Region, getLoY, int32_t)},
+		{"getSafeTranslatedRegion", "(II)Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $method(Region, getSafeTranslatedRegion, Region*, int32_t, int32_t)},
+		{"getScaledRegion", "(DD)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getScaledRegion, Region*, double, double)},
+		{"getSpanIterator", "()Lsun/java2d/pipe/SpanIterator;", nullptr, $PUBLIC, $method(Region, getSpanIterator, $SpanIterator*)},
+		{"getSpanIterator", "([I)Lsun/java2d/pipe/SpanIterator;", nullptr, $PUBLIC, $method(Region, getSpanIterator, $SpanIterator*, $ints*)},
+		{"getTranslatedRegion", "(II)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getTranslatedRegion, Region*, int32_t, int32_t)},
+		{"getUnion", "(Lsun/java2d/pipe/Region;)Lsun/java2d/pipe/Region;", nullptr, $PUBLIC, $method(Region, getUnion, Region*, Region*)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $method(Region, getWidth, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Region, hashCode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Region, initIDs, void)},
+		{"intersectsQuickCheck", "(Lsun/java2d/pipe/Region;)Z", nullptr, $PUBLIC, $method(Region, intersectsQuickCheck, bool, Region*)},
+		{"intersectsQuickCheckXYXY", "(IIII)Z", nullptr, $PUBLIC, $method(Region, intersectsQuickCheckXYXY, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(Region, isEmpty, bool)},
+		{"isInsideQuickCheck", "(Lsun/java2d/pipe/Region;)Z", nullptr, $PUBLIC, $method(Region, isInsideQuickCheck, bool, Region*)},
+		{"isInsideXYWH", "(IIII)Z", nullptr, $PUBLIC, $method(Region, isInsideXYWH, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"isInsideXYXY", "(IIII)Z", nullptr, $PUBLIC, $method(Region, isInsideXYXY, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"isRectangular", "()Z", nullptr, $PUBLIC, $method(Region, isRectangular, bool)},
+		{"needSpace", "(I)V", nullptr, $PRIVATE, $method(Region, needSpace, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Region, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.pipe.Region",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Region, name, initialize, &classInfo$$, Region::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Region);
+	});
 	return class$;
 }
 

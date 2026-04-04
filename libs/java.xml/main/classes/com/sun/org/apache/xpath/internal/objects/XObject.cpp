@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
@@ -43,9 +42,7 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $FastStringBuffer = ::com::sun::org::apache::xml::internal::utils::FastStringBuffer;
 using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;
-using $XMLStringFactory = ::com::sun::org::apache::xml::internal::utils::XMLStringFactory;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $NodeSetDTM = ::com::sun::org::apache::xpath::internal::NodeSetDTM;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
@@ -73,84 +70,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$FieldInfo _XObject_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XObject, serialVersionUID)},
-	{"m_obj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(XObject, m_obj)},
-	{"CLASS_NULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_NULL)},
-	{"CLASS_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_UNKNOWN)},
-	{"CLASS_BOOLEAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_BOOLEAN)},
-	{"CLASS_NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_NUMBER)},
-	{"CLASS_STRING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_STRING)},
-	{"CLASS_NODESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_NODESET)},
-	{"CLASS_RTREEFRAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_RTREEFRAG)},
-	{"CLASS_UNRESOLVEDVARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_UNRESOLVEDVARIABLE)},
-	{}
-};
-
-$MethodInfo _XObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XObject, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XObject, init$, void, Object$*)},
-	{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XObject, allowDetachToRelease, void, bool)},
-	{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XObject, appendToFsb, void, $FastStringBuffer*)},
-	{"bool", "()Z", nullptr, $PUBLIC, $virtualMethod(XObject, bool$, bool), "javax.xml.transform.TransformerException"},
-	{"boolWithSideEffects", "()Z", nullptr, $PUBLIC, $virtualMethod(XObject, boolWithSideEffects, bool), "javax.xml.transform.TransformerException"},
-	{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(XObject, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
-	{"castToType", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XObject, castToType, $Object*, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"create", "(Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObject, create, XObject*, Object$*)},
-	{"create", "(Ljava/lang/Object;Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObject, create, XObject*, Object$*, $XPathContext*)},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, deepEquals, bool, $Expression*)},
-	{"destruct", "()V", nullptr, $PUBLIC, $virtualMethod(XObject, destruct, void)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(XObject, detach, void)},
-	{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XObject, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
-	{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, equals, bool, XObject*)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XObject, error, void, $String*), "javax.xml.transform.TransformerException"},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XObject, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(XObject, execute, XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(XObject, fixupVariables, void, $List*, int32_t)},
-	{"getFresh", "()Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(XObject, getFresh, XObject*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XObject, getType, int32_t)},
-	{"getTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XObject, getTypeString, $String*)},
-	{"greaterThan", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, greaterThan, bool, XObject*), "javax.xml.transform.TransformerException"},
-	{"greaterThanOrEqual", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, greaterThanOrEqual, bool, XObject*), "javax.xml.transform.TransformerException"},
-	{"iter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XObject, iter, $DTMIterator*), "javax.xml.transform.TransformerException"},
-	{"lessThan", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, lessThan, bool, XObject*), "javax.xml.transform.TransformerException"},
-	{"lessThanOrEqual", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, lessThanOrEqual, bool, XObject*), "javax.xml.transform.TransformerException"},
-	{"mutableNodeset", "()Lcom/sun/org/apache/xpath/internal/NodeSetDTM;", nullptr, $PUBLIC, $virtualMethod(XObject, mutableNodeset, $NodeSetDTM*), "javax.xml.transform.TransformerException"},
-	{"nodelist", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(XObject, nodelist, $NodeList*), "javax.xml.transform.TransformerException"},
-	{"nodeset", "()Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(XObject, nodeset, $NodeIterator*), "javax.xml.transform.TransformerException"},
-	{"notEquals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, notEquals, bool, XObject*), "javax.xml.transform.TransformerException"},
-	{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XObject, num, double), "javax.xml.transform.TransformerException"},
-	{"numWithSideEffects", "()D", nullptr, $PUBLIC, $virtualMethod(XObject, numWithSideEffects, double), "javax.xml.transform.TransformerException"},
-	{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XObject, object, $Object*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XObject, reset, void)},
-	{"rtf", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(XObject, rtf, int32_t, $XPathContext*)},
-	{"rtf", "()I", nullptr, $PUBLIC, $virtualMethod(XObject, rtf, int32_t)},
-	{"rtree", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(XObject, rtree, $DocumentFragment*, $XPathContext*)},
-	{"rtree", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(XObject, rtree, $DocumentFragment*)},
-	{"setObject", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XObject, setObject, void, Object$*)},
-	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XObject, str, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XObject, toString, $String*)},
-	{"xstr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XObject, xstr, $XMLString*)},
-	{}
-};
-
-$ClassInfo _XObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XObject",
-	"com.sun.org.apache.xpath.internal.Expression",
-	"java.lang.Cloneable",
-	_XObject_FieldInfo_,
-	_XObject_MethodInfo_
-};
-
-$Object* allocate$XObject($Class* clazz) {
-	return $of($alloc(XObject));
-}
 
 int32_t XObject::hashCode() {
 	 return this->$Expression::hashCode();
@@ -203,7 +122,7 @@ void XObject::reset() {
 }
 
 void XObject::dispatchCharactersEvents($ContentHandler* ch) {
-	$nc($(xstr()))->dispatchCharactersEvents(ch);
+	$$nc(xstr())->dispatchCharactersEvents(ch);
 }
 
 XObject* XObject::create(Object$* val) {
@@ -221,14 +140,14 @@ int32_t XObject::getType() {
 }
 
 $String* XObject::getTypeString() {
-	$useLocalCurrentObjectStackCache();
-	return $str({"#UNKNOWN ("_s, $($nc($of($(object())))->getClass()->getName()), ")"_s});
+	$useLocalObjectStack();
+	return $str({"#UNKNOWN ("_s, $($$nc(object())->getClass()->getName()), ")"_s});
 }
 
 double XObject::num() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XPATHErrorResources);
-	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NUMBER, $$new($ObjectArray, {$($of(getTypeString()))}));
+	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NUMBER, $$new($ObjectArray, {$(getTypeString())}));
 	return 0.0;
 }
 
@@ -237,9 +156,9 @@ double XObject::numWithSideEffects() {
 }
 
 bool XObject::bool$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XPATHErrorResources);
-	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NUMBER, $$new($ObjectArray, {$($of(getTypeString()))}));
+	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NUMBER, $$new($ObjectArray, {$(getTypeString())}));
 	return false;
 }
 
@@ -248,12 +167,12 @@ bool XObject::boolWithSideEffects() {
 }
 
 $XMLString* XObject::xstr() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($XMLStringFactoryImpl::getFactory()))->newstr($(str()));
+	$useLocalObjectStack();
+	return $$nc($XMLStringFactoryImpl::getFactory())->newstr($(str()));
 }
 
 $String* XObject::str() {
-	return (this->m_obj != nullptr) ? $nc($of(this->m_obj))->toString() : ""_s;
+	return (this->m_obj != nullptr) ? this->m_obj->toString() : ""_s;
 }
 
 $String* XObject::toString() {
@@ -261,7 +180,7 @@ $String* XObject::toString() {
 }
 
 int32_t XObject::rtf($XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = rtf();
 	if ($DTM::NULL == result) {
 		$var($DTM, frag, $nc(support)->createDocumentFragment());
@@ -272,7 +191,7 @@ int32_t XObject::rtf($XPathContext* support) {
 }
 
 $DocumentFragment* XObject::rtree($XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DocumentFragment, docFrag, nullptr);
 	int32_t result = rtf();
 	if ($DTM::NULL == result) {
@@ -281,7 +200,7 @@ $DocumentFragment* XObject::rtree($XPathContext* support) {
 		$assign(docFrag, $cast($DocumentFragment, frag->getNode(frag->getDocument())));
 	} else {
 		$var($DTM, frag, $nc(support)->getDTM(result));
-		$assign(docFrag, $cast($DocumentFragment, $nc(frag)->getNode(frag->getDocument())));
+		$assign(docFrag, $cast($DocumentFragment, $nc(frag)->getNode($nc(frag)->getDocument())));
 	}
 	return docFrag;
 }
@@ -295,13 +214,13 @@ int32_t XObject::rtf() {
 }
 
 $Object* XObject::object() {
-	return $of(this->m_obj);
+	return this->m_obj;
 }
 
 $DTMIterator* XObject::iter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XPATHErrorResources);
-	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST, $$new($ObjectArray, {$($of(getTypeString()))}));
+	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST, $$new($ObjectArray, {$(getTypeString())}));
 	return nullptr;
 }
 
@@ -310,66 +229,54 @@ XObject* XObject::getFresh() {
 }
 
 $NodeIterator* XObject::nodeset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XPATHErrorResources);
-	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST, $$new($ObjectArray, {$($of(getTypeString()))}));
+	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST, $$new($ObjectArray, {$(getTypeString())}));
 	return nullptr;
 }
 
 $NodeList* XObject::nodelist() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XPATHErrorResources);
-	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST, $$new($ObjectArray, {$($of(getTypeString()))}));
+	error($XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST, $$new($ObjectArray, {$(getTypeString())}));
 	return nullptr;
 }
 
 $NodeSetDTM* XObject::mutableNodeset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XPATHErrorResources);
-	error($XPATHErrorResources::ER_CANT_CONVERT_TO_MUTABLENODELIST, $$new($ObjectArray, {$($of(getTypeString()))}));
+	error($XPATHErrorResources::ER_CANT_CONVERT_TO_MUTABLENODELIST, $$new($ObjectArray, {$(getTypeString())}));
 	return $cast($NodeSetDTM, this->m_obj);
 }
 
 $Object* XObject::castToType(int32_t t, $XPathContext* support) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, result, nullptr);
 	switch (t) {
 	case XObject::CLASS_STRING:
-		{
-			$assign(result, str());
-			break;
-		}
+		$assign(result, str());
+		break;
 	case XObject::CLASS_NUMBER:
-		{
-			$assign(result, $Double::valueOf(num()));
-			break;
-		}
+		$assign(result, $Double::valueOf(num()));
+		break;
 	case XObject::CLASS_NODESET:
-		{
-			$assign(result, iter());
-			break;
-		}
+		$assign(result, iter());
+		break;
 	case XObject::CLASS_BOOLEAN:
-		{
-			$assign(result, $Boolean::valueOf(bool$()));
-			break;
-		}
+		$assign(result, $Boolean::valueOf(bool$()));
+		break;
 	case XObject::CLASS_UNKNOWN:
-		{
-			$assign(result, this->m_obj);
-			break;
-		}
+		$assign(result, this->m_obj);
+		break;
 	default:
-		{
-			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_CANT_CONVERT_TO_TYPE, $$new($ObjectArray, {
-				$($of(getTypeString())),
-				$($of($Integer::toString(t)))
-			}));
-			$assign(result, nullptr);
-		}
+		$init($XPATHErrorResources);
+		error($XPATHErrorResources::ER_CANT_CONVERT_TO_TYPE, $$new($ObjectArray, {
+			$(getTypeString()),
+			$($Integer::toString(t))
+		}));
+		$assign(result, nullptr);
 	}
-	return $of(result);
+	return result;
 }
 
 bool XObject::lessThan(XObject* obj2) {
@@ -377,7 +284,7 @@ bool XObject::lessThan(XObject* obj2) {
 		return obj2->greaterThan(this);
 	}
 	double var$0 = this->num();
-	return var$0 < $nc(obj2)->num();
+	return var$0 < obj2->num();
 }
 
 bool XObject::lessThanOrEqual(XObject* obj2) {
@@ -385,7 +292,7 @@ bool XObject::lessThanOrEqual(XObject* obj2) {
 		return obj2->greaterThanOrEqual(this);
 	}
 	double var$0 = this->num();
-	return var$0 <= $nc(obj2)->num();
+	return var$0 <= obj2->num();
 }
 
 bool XObject::greaterThan(XObject* obj2) {
@@ -393,7 +300,7 @@ bool XObject::greaterThan(XObject* obj2) {
 		return obj2->lessThan(this);
 	}
 	double var$0 = this->num();
-	return var$0 > $nc(obj2)->num();
+	return var$0 > obj2->num();
 }
 
 bool XObject::greaterThanOrEqual(XObject* obj2) {
@@ -401,7 +308,7 @@ bool XObject::greaterThanOrEqual(XObject* obj2) {
 		return obj2->lessThanOrEqual(this);
 	}
 	double var$0 = this->num();
-	return var$0 >= $nc(obj2)->num();
+	return var$0 >= obj2->num();
 }
 
 bool XObject::equals(XObject* obj2) {
@@ -409,9 +316,9 @@ bool XObject::equals(XObject* obj2) {
 		return obj2->equals(this);
 	}
 	if (nullptr != this->m_obj) {
-		return $nc($of(this->m_obj))->equals($nc(obj2)->m_obj);
+		return this->m_obj->equals(obj2->m_obj);
 	} else {
-		return $nc(obj2)->m_obj == nullptr;
+		return obj2->m_obj == nullptr;
 	}
 }
 
@@ -429,7 +336,7 @@ void XObject::error($String* msg) {
 void XObject::error($String* msg, $ObjectArray* args) {
 	$var($String, fmsg, $XSLMessages::createXPATHMessage(msg, args));
 	{
-		$throwNew($XPathException, fmsg, static_cast<$ExpressionNode*>(this));
+		$throwNew($XPathException, fmsg, this);
 	}
 }
 
@@ -458,7 +365,80 @@ XObject::XObject() {
 }
 
 $Class* XObject::load$($String* name, bool initialize) {
-	$loadClass(XObject, name, initialize, &_XObject_ClassInfo_, allocate$XObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XObject, serialVersionUID)},
+		{"m_obj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(XObject, m_obj)},
+		{"CLASS_NULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_NULL)},
+		{"CLASS_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_UNKNOWN)},
+		{"CLASS_BOOLEAN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_BOOLEAN)},
+		{"CLASS_NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_NUMBER)},
+		{"CLASS_STRING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_STRING)},
+		{"CLASS_NODESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_NODESET)},
+		{"CLASS_RTREEFRAG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_RTREEFRAG)},
+		{"CLASS_UNRESOLVEDVARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XObject, CLASS_UNRESOLVEDVARIABLE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XObject, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XObject, init$, void, Object$*)},
+		{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XObject, allowDetachToRelease, void, bool)},
+		{"appendToFsb", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC, $virtualMethod(XObject, appendToFsb, void, $FastStringBuffer*)},
+		{"bool", "()Z", nullptr, $PUBLIC, $virtualMethod(XObject, bool$, bool), "javax.xml.transform.TransformerException"},
+		{"boolWithSideEffects", "()Z", nullptr, $PUBLIC, $virtualMethod(XObject, boolWithSideEffects, bool), "javax.xml.transform.TransformerException"},
+		{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(XObject, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
+		{"castToType", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XObject, castToType, $Object*, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"create", "(Ljava/lang/Object;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObject, create, XObject*, Object$*)},
+		{"create", "(Ljava/lang/Object;Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(XObject, create, XObject*, Object$*, $XPathContext*)},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, deepEquals, bool, $Expression*)},
+		{"destruct", "()V", nullptr, $PUBLIC, $virtualMethod(XObject, destruct, void)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(XObject, detach, void)},
+		{"dispatchCharactersEvents", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(XObject, dispatchCharactersEvents, void, $ContentHandler*), "org.xml.sax.SAXException"},
+		{"equals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, equals, bool, XObject*)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(XObject, error, void, $String*), "javax.xml.transform.TransformerException"},
+		{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XObject, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(XObject, execute, XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(XObject, fixupVariables, void, $List*, int32_t)},
+		{"getFresh", "()Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(XObject, getFresh, XObject*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XObject, getType, int32_t)},
+		{"getTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XObject, getTypeString, $String*)},
+		{"greaterThan", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, greaterThan, bool, XObject*), "javax.xml.transform.TransformerException"},
+		{"greaterThanOrEqual", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, greaterThanOrEqual, bool, XObject*), "javax.xml.transform.TransformerException"},
+		{"iter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XObject, iter, $DTMIterator*), "javax.xml.transform.TransformerException"},
+		{"lessThan", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, lessThan, bool, XObject*), "javax.xml.transform.TransformerException"},
+		{"lessThanOrEqual", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, lessThanOrEqual, bool, XObject*), "javax.xml.transform.TransformerException"},
+		{"mutableNodeset", "()Lcom/sun/org/apache/xpath/internal/NodeSetDTM;", nullptr, $PUBLIC, $virtualMethod(XObject, mutableNodeset, $NodeSetDTM*), "javax.xml.transform.TransformerException"},
+		{"nodelist", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(XObject, nodelist, $NodeList*), "javax.xml.transform.TransformerException"},
+		{"nodeset", "()Lorg/w3c/dom/traversal/NodeIterator;", nullptr, $PUBLIC, $virtualMethod(XObject, nodeset, $NodeIterator*), "javax.xml.transform.TransformerException"},
+		{"notEquals", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Z", nullptr, $PUBLIC, $virtualMethod(XObject, notEquals, bool, XObject*), "javax.xml.transform.TransformerException"},
+		{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XObject, num, double), "javax.xml.transform.TransformerException"},
+		{"numWithSideEffects", "()D", nullptr, $PUBLIC, $virtualMethod(XObject, numWithSideEffects, double), "javax.xml.transform.TransformerException"},
+		{"object", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XObject, object, $Object*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XObject, reset, void)},
+		{"rtf", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(XObject, rtf, int32_t, $XPathContext*)},
+		{"rtf", "()I", nullptr, $PUBLIC, $virtualMethod(XObject, rtf, int32_t)},
+		{"rtree", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(XObject, rtree, $DocumentFragment*, $XPathContext*)},
+		{"rtree", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(XObject, rtree, $DocumentFragment*)},
+		{"setObject", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XObject, setObject, void, Object$*)},
+		{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XObject, str, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XObject, toString, $String*)},
+		{"xstr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XObject, xstr, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XObject",
+		"com.sun.org.apache.xpath.internal.Expression",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XObject));
+	});
 	return class$;
 }
 

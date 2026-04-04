@@ -69,6 +69,7 @@ class NameSpaceSymbTable : public ::java::lang::Object {
 	$class(NameSpaceSymbTable, 0, ::java::lang::Object)
 public:
 	NameSpaceSymbTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool addMapping($String* prefix, $String* uri, ::org::w3c::dom::Attr* n);
 	virtual ::org::w3c::dom::Node* addMappingAndRender($String* prefix, $String* uri, ::org::w3c::dom::Attr* n);

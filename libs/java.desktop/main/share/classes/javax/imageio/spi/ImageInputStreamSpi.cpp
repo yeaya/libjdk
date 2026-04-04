@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/ImageInputStreamSpi.h>
-
 #include <java/io/File.h>
 #include <javax/imageio/spi/IIOServiceProvider.h>
 #include <javax/imageio/stream/ImageInputStream.h>
@@ -15,35 +14,6 @@ using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 namespace javax {
 	namespace imageio {
 		namespace spi {
-
-$FieldInfo _ImageInputStreamSpi_FieldInfo_[] = {
-	{"inputClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PROTECTED, $field(ImageInputStreamSpi, inputClass)},
-	{}
-};
-
-$MethodInfo _ImageInputStreamSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ImageInputStreamSpi, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PUBLIC, $method(ImageInputStreamSpi, init$, void, $String*, $String*, $Class*)},
-	{"canUseCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamSpi, canUseCacheFile, bool)},
-	{"createInputStreamInstance", "(Ljava/lang/Object;ZLjava/io/File;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*, bool, $File*), "java.io.IOException"},
-	{"createInputStreamInstance", "(Ljava/lang/Object;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*), "java.io.IOException"},
-	{"getInputClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ImageInputStreamSpi, getInputClass, $Class*)},
-	{"needsCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamSpi, needsCacheFile, bool)},
-	{}
-};
-
-$ClassInfo _ImageInputStreamSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.spi.ImageInputStreamSpi",
-	"javax.imageio.spi.IIOServiceProvider",
-	nullptr,
-	_ImageInputStreamSpi_FieldInfo_,
-	_ImageInputStreamSpi_MethodInfo_
-};
-
-$Object* allocate$ImageInputStreamSpi($Class* clazz) {
-	return $of($alloc(ImageInputStreamSpi));
-}
 
 void ImageInputStreamSpi::init$() {
 	$IIOServiceProvider::init$();
@@ -74,7 +44,31 @@ ImageInputStreamSpi::ImageInputStreamSpi() {
 }
 
 $Class* ImageInputStreamSpi::load$($String* name, bool initialize) {
-	$loadClass(ImageInputStreamSpi, name, initialize, &_ImageInputStreamSpi_ClassInfo_, allocate$ImageInputStreamSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"inputClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PROTECTED, $field(ImageInputStreamSpi, inputClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ImageInputStreamSpi, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PUBLIC, $method(ImageInputStreamSpi, init$, void, $String*, $String*, $Class*)},
+		{"canUseCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamSpi, canUseCacheFile, bool)},
+		{"createInputStreamInstance", "(Ljava/lang/Object;ZLjava/io/File;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*, bool, $File*), "java.io.IOException"},
+		{"createInputStreamInstance", "(Ljava/lang/Object;)Ljavax/imageio/stream/ImageInputStream;", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamSpi, createInputStreamInstance, $ImageInputStream*, Object$*), "java.io.IOException"},
+		{"getInputClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ImageInputStreamSpi, getInputClass, $Class*)},
+		{"needsCacheFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageInputStreamSpi, needsCacheFile, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.spi.ImageInputStreamSpi",
+		"javax.imageio.spi.IIOServiceProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageInputStreamSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageInputStreamSpi);
+	});
 	return class$;
 }
 

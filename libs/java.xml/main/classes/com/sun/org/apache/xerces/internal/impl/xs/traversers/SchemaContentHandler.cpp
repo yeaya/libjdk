@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/SchemaContentHandler.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser.h>
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/SAXLocatorWrapper.h>
@@ -10,8 +9,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLString.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
@@ -37,8 +34,6 @@ using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
-using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
@@ -63,58 +58,6 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$FieldInfo _SchemaContentHandler_FieldInfo_[] = {
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(SchemaContentHandler, fSymbolTable)},
-	{"fSchemaDOMParser", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser;", nullptr, $PRIVATE, $field(SchemaContentHandler, fSchemaDOMParser)},
-	{"fSAXLocatorWrapper", "Lcom/sun/org/apache/xerces/internal/util/SAXLocatorWrapper;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fSAXLocatorWrapper)},
-	{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE, $field(SchemaContentHandler, fNamespaceContext)},
-	{"fNeedPushNSContext", "Z", nullptr, $PRIVATE, $field(SchemaContentHandler, fNeedPushNSContext)},
-	{"fNamespacePrefixes", "Z", nullptr, $PRIVATE, $field(SchemaContentHandler, fNamespacePrefixes)},
-	{"fStringsInternalized", "Z", nullptr, $PRIVATE, $field(SchemaContentHandler, fStringsInternalized)},
-	{"fElementQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fElementQName)},
-	{"fAttributeQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fAttributeQName)},
-	{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fAttributes)},
-	{"fTempString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fTempString)},
-	{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fStringBuffer)},
-	{}
-};
-
-$MethodInfo _SchemaContentHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaContentHandler, init$, void)},
-	{"addNamespaceDeclarations", "(I)V", nullptr, $PRIVATE, $method(SchemaContentHandler, addNamespaceDeclarations, void, int32_t)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"convertToSAXException", "(Lcom/sun/org/apache/xerces/internal/xni/XNIException;)V", nullptr, $STATIC, $staticMethod(SchemaContentHandler, convertToSAXException, void, $XNIException*), "org.xml.sax.SAXException"},
-	{"convertToSAXParseException", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $STATIC, $staticMethod(SchemaContentHandler, convertToSAXParseException, void, $XMLParseException*), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"fillQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SchemaContentHandler, fillQName, void, $QName*, $String*, $String*, $String*)},
-	{"fillXMLAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SchemaContentHandler, fillXMLAttributes, void, $Attributes*)},
-	{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $method(SchemaContentHandler, getDocument, $Document*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;ZZ)V", nullptr, $PUBLIC, $method(SchemaContentHandler, reset, void, $SchemaDOMParser*, $SymbolTable*, bool, bool)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, setDocumentLocator, void, $Locator*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _SchemaContentHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.SchemaContentHandler",
-	"java.lang.Object",
-	"org.xml.sax.ContentHandler",
-	_SchemaContentHandler_FieldInfo_,
-	_SchemaContentHandler_MethodInfo_
-};
-
-$Object* allocate$SchemaContentHandler($Class* clazz) {
-	return $of($alloc(SchemaContentHandler));
-}
-
 void SchemaContentHandler::init$() {
 	$set(this, fSAXLocatorWrapper, $new($SAXLocatorWrapper));
 	$set(this, fNamespaceContext, $new($NamespaceSupport));
@@ -132,7 +75,7 @@ $Document* SchemaContentHandler::getDocument() {
 }
 
 void SchemaContentHandler::setDocumentLocator($Locator* locator) {
-	$nc(this->fSAXLocatorWrapper)->setLocator(locator);
+	this->fSAXLocatorWrapper->setLocator(locator);
 }
 
 void SchemaContentHandler::startDocument() {
@@ -148,7 +91,7 @@ void SchemaContentHandler::startDocument() {
 }
 
 void SchemaContentHandler::endDocument() {
-	$nc(this->fSAXLocatorWrapper)->setLocator(nullptr);
+	this->fSAXLocatorWrapper->setLocator(nullptr);
 	try {
 		$nc(this->fSchemaDOMParser)->endDocument(nullptr);
 	} catch ($XMLParseException& e) {
@@ -159,7 +102,7 @@ void SchemaContentHandler::endDocument() {
 }
 
 void SchemaContentHandler::startPrefixMapping($String* prefix$renamed, $String* uri$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, uri, uri$renamed);
 	if (this->fNeedPushNSContext) {
@@ -209,30 +152,28 @@ void SchemaContentHandler::startElement($String* uri, $String* localName, $Strin
 
 void SchemaContentHandler::endElement($String* uri, $String* localName, $String* qName) {
 	fillQName(this->fElementQName, uri, localName, qName);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(this->fSchemaDOMParser)->endElement(this->fElementQName, nullptr);
-			} catch ($XMLParseException& e) {
-				convertToSAXParseException(e);
-			} catch ($XNIException& e) {
-				convertToSAXException(e);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->fNamespaceContext)->popContext();
+			$nc(this->fSchemaDOMParser)->endElement(this->fElementQName, nullptr);
+		} catch ($XMLParseException& e) {
+			convertToSAXParseException(e);
+		} catch ($XNIException& e) {
+			convertToSAXException(e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(this->fNamespaceContext)->popContext();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void SchemaContentHandler::characters($chars* ch, int32_t start, int32_t length) {
 	try {
-		$nc(this->fTempString)->setValues(ch, start, length);
+		this->fTempString->setValues(ch, start, length);
 		$nc(this->fSchemaDOMParser)->characters(this->fTempString, nullptr);
 	} catch ($XMLParseException& e) {
 		convertToSAXParseException(e);
@@ -243,7 +184,7 @@ void SchemaContentHandler::characters($chars* ch, int32_t start, int32_t length)
 
 void SchemaContentHandler::ignorableWhitespace($chars* ch, int32_t start, int32_t length) {
 	try {
-		$nc(this->fTempString)->setValues(ch, start, length);
+		this->fTempString->setValues(ch, start, length);
 		$nc(this->fSchemaDOMParser)->ignorableWhitespace(this->fTempString, nullptr);
 	} catch ($XMLParseException& e) {
 		convertToSAXParseException(e);
@@ -255,7 +196,7 @@ void SchemaContentHandler::ignorableWhitespace($chars* ch, int32_t start, int32_
 void SchemaContentHandler::processingInstruction($String* target, $String* data) {
 	try {
 		$var($chars, var$0, $nc(data)->toCharArray());
-		$nc(this->fTempString)->setValues(var$0, 0, data->length());
+		this->fTempString->setValues(var$0, 0, data->length());
 		$nc(this->fSchemaDOMParser)->processingInstruction(target, this->fTempString, nullptr);
 	} catch ($XMLParseException& e) {
 		convertToSAXParseException(e);
@@ -268,7 +209,7 @@ void SchemaContentHandler::skippedEntity($String* arg) {
 }
 
 void SchemaContentHandler::fillQName($QName* toFill, $String* uri$renamed, $String* localpart$renamed, $String* rawname$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, localpart, localpart$renamed);
 	$var($String, uri, uri$renamed);
 	$var($String, rawname, rawname$renamed);
@@ -292,23 +233,21 @@ void SchemaContentHandler::fillQName($QName* toFill, $String* uri$renamed, $Stri
 	}
 	$init($XMLSymbols);
 	$var($String, prefix, $XMLSymbols::EMPTY_STRING);
-	int32_t prefixIdx = $nc(rawname)->indexOf((int32_t)u':');
+	int32_t prefixIdx = $nc(rawname)->indexOf(u':');
 	if (prefixIdx != -1) {
 		$assign(prefix, $nc(this->fSymbolTable)->addSymbol($(rawname->substring(0, prefixIdx))));
 		if (localpart == $XMLSymbols::EMPTY_STRING) {
 			$assign(localpart, $nc(this->fSymbolTable)->addSymbol($(rawname->substring(prefixIdx + 1))));
 		}
-	} else {
-		if (localpart == $XMLSymbols::EMPTY_STRING) {
-			$assign(localpart, rawname);
-		}
+	} else if (localpart == $XMLSymbols::EMPTY_STRING) {
+		$assign(localpart, rawname);
 	}
 	$nc(toFill)->setValues(prefix, localpart, rawname, uri);
 }
 
 void SchemaContentHandler::fillXMLAttributes($Attributes* atts) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->fAttributes)->removeAllAttributes();
+	$useLocalObjectStack();
+	this->fAttributes->removeAllAttributes();
 	int32_t attrCount = $nc(atts)->getLength();
 	for (int32_t i = 0; i < attrCount; ++i) {
 		$var($QName, var$0, this->fAttributeQName);
@@ -317,13 +256,13 @@ void SchemaContentHandler::fillXMLAttributes($Attributes* atts) {
 		fillQName(var$0, var$1, var$2, $(atts->getQName(i)));
 		$var($String, type, atts->getType(i));
 		$init($XMLSymbols);
-		$nc(this->fAttributes)->addAttributeNS(this->fAttributeQName, (type != nullptr) ? type : $XMLSymbols::fCDATASymbol, $(atts->getValue(i)));
-		$nc(this->fAttributes)->setSpecified(i, true);
+		this->fAttributes->addAttributeNS(this->fAttributeQName, (type != nullptr) ? type : $XMLSymbols::fCDATASymbol, $(atts->getValue(i)));
+		this->fAttributes->setSpecified(i, true);
 	}
 }
 
 void SchemaContentHandler::addNamespaceDeclarations(int32_t prefixCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, nullptr);
 	$var($String, localpart, nullptr);
 	$var($String, rawname, nullptr);
@@ -336,11 +275,11 @@ void SchemaContentHandler::addNamespaceDeclarations(int32_t prefixCount) {
 			$init($XMLSymbols);
 			$assign(prefix, $XMLSymbols::PREFIX_XMLNS);
 			$assign(localpart, nsPrefix);
-			$nc(this->fStringBuffer)->clear();
-			$nc(this->fStringBuffer)->append(prefix);
-			$nc(this->fStringBuffer)->append(u':');
-			$nc(this->fStringBuffer)->append(localpart);
-			$assign(rawname, $nc(this->fSymbolTable)->addSymbol($nc(this->fStringBuffer)->ch, $nc(this->fStringBuffer)->offset, $nc(this->fStringBuffer)->length));
+			this->fStringBuffer->clear();
+			this->fStringBuffer->append(prefix);
+			this->fStringBuffer->append(u':');
+			this->fStringBuffer->append(localpart);
+			$assign(rawname, $nc(this->fSymbolTable)->addSymbol(this->fStringBuffer->ch, this->fStringBuffer->offset, this->fStringBuffer->length));
 		} else {
 			$init($XMLSymbols);
 			$assign(prefix, $XMLSymbols::EMPTY_STRING);
@@ -348,9 +287,9 @@ void SchemaContentHandler::addNamespaceDeclarations(int32_t prefixCount) {
 			$assign(rawname, $XMLSymbols::PREFIX_XMLNS);
 		}
 		$init($NamespaceContext);
-		$nc(this->fAttributeQName)->setValues(prefix, localpart, rawname, $NamespaceContext::XMLNS_URI);
+		this->fAttributeQName->setValues(prefix, localpart, rawname, $NamespaceContext::XMLNS_URI);
 		$init($XMLSymbols);
-		$nc(this->fAttributes)->addAttribute(this->fAttributeQName, $XMLSymbols::fCDATASymbol, (nsURI != nullptr) ? nsURI : $XMLSymbols::EMPTY_STRING);
+		this->fAttributes->addAttribute(this->fAttributeQName, $XMLSymbols::fCDATASymbol, (nsURI != nullptr) ? nsURI : $XMLSymbols::EMPTY_STRING);
 	}
 }
 
@@ -363,7 +302,7 @@ void SchemaContentHandler::reset($SchemaDOMParser* schemaDOMParser, $SymbolTable
 
 void SchemaContentHandler::convertToSAXParseException($XMLParseException* e) {
 	$init(SchemaContentHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Exception, ex, $nc(e)->getException());
 	if (ex == nullptr) {
 		$var($LocatorImpl, locatorImpl, $new($LocatorImpl));
@@ -381,7 +320,7 @@ void SchemaContentHandler::convertToSAXParseException($XMLParseException* e) {
 
 void SchemaContentHandler::convertToSAXException($XNIException* e) {
 	$init(SchemaContentHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Exception, ex, $nc(e)->getException());
 	if (ex == nullptr) {
 		$throwNew($SAXException, $(e->getMessage()));
@@ -396,7 +335,54 @@ SchemaContentHandler::SchemaContentHandler() {
 }
 
 $Class* SchemaContentHandler::load$($String* name, bool initialize) {
-	$loadClass(SchemaContentHandler, name, initialize, &_SchemaContentHandler_ClassInfo_, allocate$SchemaContentHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(SchemaContentHandler, fSymbolTable)},
+		{"fSchemaDOMParser", "Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser;", nullptr, $PRIVATE, $field(SchemaContentHandler, fSchemaDOMParser)},
+		{"fSAXLocatorWrapper", "Lcom/sun/org/apache/xerces/internal/util/SAXLocatorWrapper;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fSAXLocatorWrapper)},
+		{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE, $field(SchemaContentHandler, fNamespaceContext)},
+		{"fNeedPushNSContext", "Z", nullptr, $PRIVATE, $field(SchemaContentHandler, fNeedPushNSContext)},
+		{"fNamespacePrefixes", "Z", nullptr, $PRIVATE, $field(SchemaContentHandler, fNamespacePrefixes)},
+		{"fStringsInternalized", "Z", nullptr, $PRIVATE, $field(SchemaContentHandler, fStringsInternalized)},
+		{"fElementQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fElementQName)},
+		{"fAttributeQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fAttributeQName)},
+		{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fAttributes)},
+		{"fTempString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fTempString)},
+		{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE | $FINAL, $field(SchemaContentHandler, fStringBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaContentHandler, init$, void)},
+		{"addNamespaceDeclarations", "(I)V", nullptr, $PRIVATE, $method(SchemaContentHandler, addNamespaceDeclarations, void, int32_t)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"convertToSAXException", "(Lcom/sun/org/apache/xerces/internal/xni/XNIException;)V", nullptr, $STATIC, $staticMethod(SchemaContentHandler, convertToSAXException, void, $XNIException*), "org.xml.sax.SAXException"},
+		{"convertToSAXParseException", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $STATIC, $staticMethod(SchemaContentHandler, convertToSAXParseException, void, $XMLParseException*), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"fillQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SchemaContentHandler, fillQName, void, $QName*, $String*, $String*, $String*)},
+		{"fillXMLAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PRIVATE, $method(SchemaContentHandler, fillXMLAttributes, void, $Attributes*)},
+		{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $method(SchemaContentHandler, getDocument, $Document*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"reset", "(Lcom/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMParser;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;ZZ)V", nullptr, $PUBLIC, $method(SchemaContentHandler, reset, void, $SchemaDOMParser*, $SymbolTable*, bool, bool)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, setDocumentLocator, void, $Locator*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaContentHandler, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.SchemaContentHandler",
+		"java.lang.Object",
+		"org.xml.sax.ContentHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SchemaContentHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SchemaContentHandler);
+	});
 	return class$;
 }
 

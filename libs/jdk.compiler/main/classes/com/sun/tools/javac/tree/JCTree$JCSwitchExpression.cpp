@@ -1,7 +1,5 @@
 #include <com/sun/tools/javac/tree/JCTree$JCSwitchExpression.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
-#include <com/sun/source/tree/SwitchExpressionTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -18,7 +16,6 @@
 #undef SWITCH_EXPRESSION
 
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $SwitchExpressionTree = ::com::sun::source::tree::SwitchExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -38,57 +35,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCSwitchExpression_FieldInfo_[] = {
-	{"selector", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, selector)},
-	{"cases", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PUBLIC, $field(JCTree$JCSwitchExpression, cases)},
-	{"endpos", "I", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, endpos)},
-	{"hasTotalPattern", "Z", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, hasTotalPattern)},
-	{"patternSwitch", "Z", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, patternSwitch)},
-	{}
-};
-
-$MethodInfo _JCTree$JCSwitchExpression_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)V", $PROTECTED, $method(JCTree$JCSwitchExpression, init$, void, $JCTree$JCExpression*, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getCases", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getCases, $1List*)},
-	{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getExpression, $ExpressionTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCSwitchExpression_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCSwitchExpression", "com.sun.tools.javac.tree.JCTree", "JCSwitchExpression", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCPolyExpression", "com.sun.tools.javac.tree.JCTree", "JCPolyExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCSwitchExpression_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCSwitchExpression",
-	"com.sun.tools.javac.tree.JCTree$JCPolyExpression",
-	"com.sun.source.tree.SwitchExpressionTree",
-	_JCTree$JCSwitchExpression_FieldInfo_,
-	_JCTree$JCSwitchExpression_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCSwitchExpression_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCSwitchExpression($Class* clazz) {
-	return $of($alloc(JCTree$JCSwitchExpression));
-}
 
 $String* JCTree$JCSwitchExpression::toString() {
 	 return this->$JCTree$JCPolyExpression::toString();
@@ -135,7 +81,7 @@ $1List* JCTree$JCSwitchExpression::getCases() {
 }
 
 $Object* JCTree$JCSwitchExpression::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitSwitchExpression(this, d));
+	return $nc(v)->visitSwitchExpression(this, d);
 }
 
 $JCTree$Tag* JCTree$JCSwitchExpression::getTag() {
@@ -147,7 +93,52 @@ JCTree$JCSwitchExpression::JCTree$JCSwitchExpression() {
 }
 
 $Class* JCTree$JCSwitchExpression::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCSwitchExpression, name, initialize, &_JCTree$JCSwitchExpression_ClassInfo_, allocate$JCTree$JCSwitchExpression);
+	$FieldInfo fieldInfos$$[] = {
+		{"selector", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, selector)},
+		{"cases", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PUBLIC, $field(JCTree$JCSwitchExpression, cases)},
+		{"endpos", "I", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, endpos)},
+		{"hasTotalPattern", "Z", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, hasTotalPattern)},
+		{"patternSwitch", "Z", nullptr, $PUBLIC, $field(JCTree$JCSwitchExpression, patternSwitch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)V", $PROTECTED, $method(JCTree$JCSwitchExpression, init$, void, $JCTree$JCExpression*, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getCases", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;", $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getCases, $1List*)},
+		{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getExpression, $ExpressionTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCSwitchExpression, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCSwitchExpression", "com.sun.tools.javac.tree.JCTree", "JCSwitchExpression", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCPolyExpression", "com.sun.tools.javac.tree.JCTree", "JCPolyExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCSwitchExpression",
+		"com.sun.tools.javac.tree.JCTree$JCPolyExpression",
+		"com.sun.source.tree.SwitchExpressionTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCSwitchExpression, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCSwitchExpression));
+	});
 	return class$;
 }
 

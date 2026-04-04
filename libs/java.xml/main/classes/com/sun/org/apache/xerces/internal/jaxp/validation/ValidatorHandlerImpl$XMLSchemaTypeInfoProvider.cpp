@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/JAXPValidationMessageFormatter.h>
@@ -27,7 +26,6 @@ using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XSSimpleType = ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType;
 using $JAXPValidationMessageFormatter = ::com::sun::org::apache::xerces::internal::jaxp::validation::JAXPValidationMessageFormatter;
 using $ValidatorHandlerImpl = ::com::sun::org::apache::xerces::internal::jaxp::validation::ValidatorHandlerImpl;
-using $XMLSchemaValidatorComponentManager = ::com::sun::org::apache::xerces::internal::jaxp::validation::XMLSchemaValidatorComponentManager;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
 using $AttributePSVI = ::com::sun::org::apache::xerces::internal::xs::AttributePSVI;
@@ -52,61 +50,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, this$0)},
-	{"fElementAugs", "Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fElementAugs)},
-	{"fAttributes", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fAttributes)},
-	{"fInStartElement", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fInStartElement)},
-	{"fInEndElement", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fInEndElement)},
-	{}
-};
-
-$MethodInfo _ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, init$, void, $ValidatorHandlerImpl*)},
-	{"beginEndElement", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, beginEndElement, void, $Augmentations*)},
-	{"beginStartElement", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, beginStartElement, void, $Augmentations*, $XMLAttributes*)},
-	{"checkState", "(Z)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, checkState, void, bool)},
-	{"finishEndElement", "()V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, finishEndElement, void)},
-	{"finishStartElement", "()V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, finishStartElement, void)},
-	{"getAttributePSVI", "(I)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributePSVI, $AttributePSVI*, int32_t)},
-	{"getAttributePSVIByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributePSVIByName, $AttributePSVI*, $String*, $String*)},
-	{"getAttributeType", "(I)Lorg/w3c/dom/TypeInfo;", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeType, $TypeInfo*, int32_t)},
-	{"getAttributeTypeInfo", "(I)Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeTypeInfo, $TypeInfo*, int32_t)},
-	{"getAttributeTypeInfo", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeTypeInfo, $TypeInfo*, $String*, $String*)},
-	{"getAttributeTypeInfo", "(Ljava/lang/String;)Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeTypeInfo, $TypeInfo*, $String*)},
-	{"getElementPSVI", "()Lcom/sun/org/apache/xerces/internal/xs/ElementPSVI;", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getElementPSVI, $ElementPSVI*)},
-	{"getElementTypeInfo", "()Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getElementTypeInfo, $TypeInfo*)},
-	{"getTypeInfoFromPSVI", "(Lcom/sun/org/apache/xerces/internal/xs/ItemPSVI;)Lorg/w3c/dom/TypeInfo;", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getTypeInfoFromPSVI, $TypeInfo*, $ItemPSVI*)},
-	{"isIdAttribute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, isIdAttribute, bool, int32_t)},
-	{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, isSpecified, bool, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "XMLSchemaTypeInfoProvider", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider",
-	"javax.xml.validation.TypeInfoProvider",
-	nullptr,
-	_ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_FieldInfo_,
-	_ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl"
-};
-
-$Object* allocate$ValidatorHandlerImpl$XMLSchemaTypeInfoProvider($Class* clazz) {
-	return $of($alloc(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider));
-}
 
 void ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::init$($ValidatorHandlerImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -138,7 +81,7 @@ void ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::finishEndElement() {
 }
 
 void ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::checkState(bool forElementInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!(this->fInStartElement || (this->fInEndElement && forElementInfo))) {
 		$throwNew($IllegalStateException, $($JAXPValidationMessageFormatter::formatMessage($($nc(this->this$0->fComponentManager)->getLocale()), "TypeInfoProviderIllegalState"_s, nullptr)));
 	}
@@ -150,7 +93,7 @@ $TypeInfo* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getAttributeTypeInfo(
 }
 
 $TypeInfo* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getAttributeType(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkState(false);
 	if (index < 0 || $nc(this->fAttributes)->getLength() <= index) {
 		$throwNew($IndexOutOfBoundsException, $($Integer::toString(index)));
@@ -185,7 +128,7 @@ $TypeInfo* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getElementTypeInfo() 
 }
 
 $TypeInfo* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getTypeInfoFromPSVI($ItemPSVI* psvi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (psvi == nullptr) {
 		return nullptr;
 	}
@@ -195,7 +138,7 @@ $TypeInfo* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getTypeInfoFromPSVI($
 			return ($instanceOf($TypeInfo, t)) ? $cast($TypeInfo, t) : ($TypeInfo*)nullptr;
 		}
 	}
-	$var($XSTypeDefinition, t, $nc(psvi)->getTypeDefinition());
+	$var($XSTypeDefinition, t, psvi->getTypeDefinition());
 	if (t != nullptr) {
 		return ($instanceOf($TypeInfo, t)) ? $cast($TypeInfo, t) : ($TypeInfo*)nullptr;
 	}
@@ -218,12 +161,12 @@ bool ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::isSpecified(int32_t index) 
 
 $ElementPSVI* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getElementPSVI() {
 	$init($Constants);
-	return (this->fElementAugs != nullptr) ? $cast($ElementPSVI, $nc(this->fElementAugs)->getItem($Constants::ELEMENT_PSVI)) : ($ElementPSVI*)nullptr;
+	return (this->fElementAugs != nullptr) ? $cast($ElementPSVI, this->fElementAugs->getItem($Constants::ELEMENT_PSVI)) : ($ElementPSVI*)nullptr;
 }
 
 $AttributePSVI* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getAttributePSVI(int32_t index) {
 	if (this->fAttributes != nullptr) {
-		$var($Augmentations, augs, $nc(this->fAttributes)->getAugmentations(index));
+		$var($Augmentations, augs, this->fAttributes->getAugmentations(index));
 		if (augs != nullptr) {
 			$init($Constants);
 			return $cast($AttributePSVI, augs->getItem($Constants::ATTRIBUTE_PSVI));
@@ -234,7 +177,7 @@ $AttributePSVI* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getAttributePSVI
 
 $AttributePSVI* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::getAttributePSVIByName($String* uri, $String* localname) {
 	if (this->fAttributes != nullptr) {
-		$var($Augmentations, augs, $nc(this->fAttributes)->getAugmentations(uri, localname));
+		$var($Augmentations, augs, this->fAttributes->getAugmentations(uri, localname));
 		if (augs != nullptr) {
 			$init($Constants);
 			return $cast($AttributePSVI, augs->getItem($Constants::ATTRIBUTE_PSVI));
@@ -247,7 +190,56 @@ ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::ValidatorHandlerImpl$XMLSchemaTy
 }
 
 $Class* ValidatorHandlerImpl$XMLSchemaTypeInfoProvider::load$($String* name, bool initialize) {
-	$loadClass(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, name, initialize, &_ValidatorHandlerImpl$XMLSchemaTypeInfoProvider_ClassInfo_, allocate$ValidatorHandlerImpl$XMLSchemaTypeInfoProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;", nullptr, $FINAL | $SYNTHETIC, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, this$0)},
+		{"fElementAugs", "Lcom/sun/org/apache/xerces/internal/xni/Augmentations;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fElementAugs)},
+		{"fAttributes", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fAttributes)},
+		{"fInStartElement", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fInStartElement)},
+		{"fInEndElement", "Z", nullptr, $PRIVATE, $field(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, fInEndElement)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, init$, void, $ValidatorHandlerImpl*)},
+		{"beginEndElement", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, beginEndElement, void, $Augmentations*)},
+		{"beginStartElement", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;)V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, beginStartElement, void, $Augmentations*, $XMLAttributes*)},
+		{"checkState", "(Z)V", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, checkState, void, bool)},
+		{"finishEndElement", "()V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, finishEndElement, void)},
+		{"finishStartElement", "()V", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, finishStartElement, void)},
+		{"getAttributePSVI", "(I)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributePSVI, $AttributePSVI*, int32_t)},
+		{"getAttributePSVIByName", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xs/AttributePSVI;", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributePSVIByName, $AttributePSVI*, $String*, $String*)},
+		{"getAttributeType", "(I)Lorg/w3c/dom/TypeInfo;", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeType, $TypeInfo*, int32_t)},
+		{"getAttributeTypeInfo", "(I)Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeTypeInfo, $TypeInfo*, int32_t)},
+		{"getAttributeTypeInfo", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeTypeInfo, $TypeInfo*, $String*, $String*)},
+		{"getAttributeTypeInfo", "(Ljava/lang/String;)Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getAttributeTypeInfo, $TypeInfo*, $String*)},
+		{"getElementPSVI", "()Lcom/sun/org/apache/xerces/internal/xs/ElementPSVI;", nullptr, 0, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getElementPSVI, $ElementPSVI*)},
+		{"getElementTypeInfo", "()Lorg/w3c/dom/TypeInfo;", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getElementTypeInfo, $TypeInfo*)},
+		{"getTypeInfoFromPSVI", "(Lcom/sun/org/apache/xerces/internal/xs/ItemPSVI;)Lorg/w3c/dom/TypeInfo;", nullptr, $PRIVATE, $method(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, getTypeInfoFromPSVI, $TypeInfo*, $ItemPSVI*)},
+		{"isIdAttribute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, isIdAttribute, bool, int32_t)},
+		{"isSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, isSpecified, bool, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider", "com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl", "XMLSchemaTypeInfoProvider", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl$XMLSchemaTypeInfoProvider",
+		"javax.xml.validation.TypeInfoProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHandlerImpl"
+	};
+	$loadClass(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValidatorHandlerImpl$XMLSchemaTypeInfoProvider);
+	});
 	return class$;
 }
 

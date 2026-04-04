@@ -1,5 +1,4 @@
 #include <HeadlessJToolBar.h>
-
 #include <HeadlessJToolBar$1.h>
 #include <HeadlessJToolBar$2.h>
 #include <HeadlessJToolBar$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JToolBar = ::javax::swing::JToolBar;
 
-$MethodInfo _HeadlessJToolBar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJToolBar, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJToolBar, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJToolBar_InnerClassesInfo_[] = {
-	{"HeadlessJToolBar$3", nullptr, nullptr, 0},
-	{"HeadlessJToolBar$2", nullptr, nullptr, 0},
-	{"HeadlessJToolBar$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJToolBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJToolBar",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJToolBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJToolBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJToolBar$3,HeadlessJToolBar$2,HeadlessJToolBar$1"
-};
-
-$Object* allocate$HeadlessJToolBar($Class* clazz) {
-	return $of($alloc(HeadlessJToolBar));
-}
-
 void HeadlessJToolBar::init$() {
 }
 
 void HeadlessJToolBar::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolBar, tb, $new($JToolBar));
 	tb->getAccessibleContext();
 	tb->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJToolBar::main($StringArray* args) {
 	tb->getMaximumSize();
 	tb->getMinimumSize();
 	tb->contains(1, 2);
-	$var($Component, c1, tb->add(static_cast<$Component*>($$new($HeadlessJToolBar$1))));
-	$var($Component, c2, tb->add(static_cast<$Component*>($$new($HeadlessJToolBar$2))));
-	$var($Component, c3, tb->add(static_cast<$Component*>($$new($HeadlessJToolBar$3))));
+	$var($Component, c1, tb->add($$new($HeadlessJToolBar$1)));
+	$var($Component, c2, tb->add($$new($HeadlessJToolBar$2)));
+	$var($Component, c3, tb->add($$new($HeadlessJToolBar$3)));
 	$var($Insets, ins, tb->getInsets());
 	tb->getAlignmentY();
 	tb->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJToolBar::main($StringArray* args) {
 	tb->setForeground($Color::red);
 	tb->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					tb->setFont(f1);
-					tb->setFont(f2);
-					tb->setFont(f3);
-					tb->setFont(f4);
-					tb->getFontMetrics(f1);
-					tb->getFontMetrics(f2);
-					tb->getFontMetrics(f3);
-					tb->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				tb->setFont(f1);
+				tb->setFont(f2);
+				tb->setFont(f3);
+				tb->setFont(f4);
+				tb->getFontMetrics(f1);
+				tb->getFontMetrics(f2);
+				tb->getFontMetrics(f3);
+				tb->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJToolBar::main($StringArray* args) {
 	tb->getFont();
 	tb->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(tb));
+	c->add(tb);
 	tb->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			tb->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJToolBar::HeadlessJToolBar() {
 }
 
 $Class* HeadlessJToolBar::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJToolBar, name, initialize, &_HeadlessJToolBar_ClassInfo_, allocate$HeadlessJToolBar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJToolBar, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJToolBar, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJToolBar$3", nullptr, nullptr, 0},
+		{"HeadlessJToolBar$2", nullptr, nullptr, 0},
+		{"HeadlessJToolBar$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJToolBar",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJToolBar$3,HeadlessJToolBar$2,HeadlessJToolBar$1"
+	};
+	$loadClass(HeadlessJToolBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJToolBar);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug6587742.h>
-
 #include <bug6587742$TestPanel.h>
 #include <java/awt/Container.h>
 #include <javax/swing/JApplet.h>
@@ -11,7 +10,6 @@
 #undef VERTICAL
 
 using $bug6587742$TestPanel = ::bug6587742$TestPanel;
-using $Container = ::java::awt::Container;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -19,37 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JApplet = ::javax::swing::JApplet;
 using $JSlider = ::javax::swing::JSlider;
 using $SwingConstants = ::javax::swing::SwingConstants;
-
-$MethodInfo _bug6587742_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6587742, init$, void)},
-	{"createSlider", "(ZLjava/lang/Boolean;ZZ)Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6587742, createSlider, $JSlider*, bool, $Boolean*, bool, bool)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug6587742, init, void)},
-	{}
-};
-
-$InnerClassInfo _bug6587742_InnerClassesInfo_[] = {
-	{"bug6587742$TestPanel", "bug6587742", "TestPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _bug6587742_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6587742",
-	"javax.swing.JApplet",
-	nullptr,
-	nullptr,
-	_bug6587742_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6587742_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6587742$TestPanel,bug6587742$TestPanel$1"
-};
-
-$Object* allocate$bug6587742($Class* clazz) {
-	return $of($alloc(bug6587742));
-}
 
 void bug6587742::init$() {
 	$JApplet::init$();
@@ -62,7 +29,7 @@ void bug6587742::init() {
 
 $JSlider* bug6587742::createSlider(bool vertical, $Boolean* filled, bool enabled, bool inverted) {
 	$init(bug6587742);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSlider, result, $new($JSlider, vertical ? $SwingConstants::VERTICAL : $SwingConstants::HORIZONTAL, 0, 100, 50));
 	result->setMajorTickSpacing(20);
 	result->setMinorTickSpacing(5);
@@ -81,7 +48,33 @@ bug6587742::bug6587742() {
 }
 
 $Class* bug6587742::load$($String* name, bool initialize) {
-	$loadClass(bug6587742, name, initialize, &_bug6587742_ClassInfo_, allocate$bug6587742);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6587742, init$, void)},
+		{"createSlider", "(ZLjava/lang/Boolean;ZZ)Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6587742, createSlider, $JSlider*, bool, $Boolean*, bool, bool)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug6587742, init, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6587742$TestPanel", "bug6587742", "TestPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6587742",
+		"javax.swing.JApplet",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6587742$TestPanel,bug6587742$TestPanel$1"
+	};
+	$loadClass(bug6587742, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6587742));
+	});
 	return class$;
 }
 

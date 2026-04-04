@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$SystemButton.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$FrameButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <java/awt/Color.h>
@@ -20,45 +19,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifInternalFrameTitlePane$SystemButton_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$SystemButton, this$0)},
-	{}
-};
-
-$MethodInfo _MotifInternalFrameTitlePane$SystemButton_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(MotifInternalFrameTitlePane$SystemButton, init$, void, $MotifInternalFrameTitlePane*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$SystemButton, isFocusTraversable, bool)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$SystemButton, paintComponent, void, $Graphics*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$SystemButton, requestFocus, void)},
-	{}
-};
-
-$InnerClassInfo _MotifInternalFrameTitlePane$SystemButton_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "SystemButton", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MotifInternalFrameTitlePane$SystemButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton",
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton",
-	nullptr,
-	_MotifInternalFrameTitlePane$SystemButton_FieldInfo_,
-	_MotifInternalFrameTitlePane$SystemButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifInternalFrameTitlePane$SystemButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
-};
-
-$Object* allocate$MotifInternalFrameTitlePane$SystemButton($Class* clazz) {
-	return $of($alloc(MotifInternalFrameTitlePane$SystemButton));
-}
 
 void MotifInternalFrameTitlePane$SystemButton::init$($MotifInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
@@ -86,7 +46,40 @@ MotifInternalFrameTitlePane$SystemButton::MotifInternalFrameTitlePane$SystemButt
 }
 
 $Class* MotifInternalFrameTitlePane$SystemButton::load$($String* name, bool initialize) {
-	$loadClass(MotifInternalFrameTitlePane$SystemButton, name, initialize, &_MotifInternalFrameTitlePane$SystemButton_ClassInfo_, allocate$MotifInternalFrameTitlePane$SystemButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(MotifInternalFrameTitlePane$SystemButton, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;)V", nullptr, $PRIVATE, $method(MotifInternalFrameTitlePane$SystemButton, init$, void, $MotifInternalFrameTitlePane*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$SystemButton, isFocusTraversable, bool)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$SystemButton, paintComponent, void, $Graphics*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameTitlePane$SystemButton, requestFocus, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "SystemButton", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton", "com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane", "FrameButton", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$SystemButton",
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane$FrameButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameTitlePane"
+	};
+	$loadClass(MotifInternalFrameTitlePane$SystemButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifInternalFrameTitlePane$SystemButton));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/WrappingJavaFileManager.h>
-
 #include <java/lang/Iterable.h>
 #include <java/net/URI.h>
 #include <java/util/ArrayList.h>
@@ -37,38 +36,6 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$MethodInfo _WrappingJavaFileManager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileManager;)V", "(TM;)V", $PROTECTED, $method(WrappingJavaFileManager, init$, void, $JavaFileManager*)},
-	{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, contains, bool, $JavaFileManager$Location*, $FileObject*), "java.io.IOException"},
-	{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
-	{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
-	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
-	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
-	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(WrappingJavaFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
-	{"unwrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, unwrap, $FileObject*, $FileObject*)},
-	{"unwrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, unwrap, $JavaFileObject*, $JavaFileObject*)},
-	{"unwrap", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, unwrap, $URI*, $URI*)},
-	{"wrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, wrap, $FileObject*, $FileObject*)},
-	{"wrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, wrap, $JavaFileObject*, $JavaFileObject*)},
-	{"wrap", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PROTECTED, $virtualMethod(WrappingJavaFileManager, wrap, $Iterable*, $Iterable*)},
-	{}
-};
-
-$ClassInfo _WrappingJavaFileManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.WrappingJavaFileManager",
-	"javax.tools.ForwardingJavaFileManager",
-	nullptr,
-	nullptr,
-	_WrappingJavaFileManager_MethodInfo_,
-	"<M::Ljavax/tools/JavaFileManager;>Ljavax/tools/ForwardingJavaFileManager<TM;>;"
-};
-
-$Object* allocate$WrappingJavaFileManager($Class* clazz) {
-	return $of($alloc(WrappingJavaFileManager));
-}
-
 void WrappingJavaFileManager::init$($JavaFileManager* fileManager) {
 	$ForwardingJavaFileManager::init$(fileManager);
 }
@@ -78,7 +45,7 @@ $FileObject* WrappingJavaFileManager::wrap($FileObject* fileObject) {
 }
 
 $JavaFileObject* WrappingJavaFileManager::wrap($JavaFileObject* fileObject) {
-	return $cast($JavaFileObject, wrap(static_cast<$FileObject*>(fileObject)));
+	return $cast($JavaFileObject, wrap($cast($FileObject, fileObject)));
 }
 
 $FileObject* WrappingJavaFileManager::unwrap($FileObject* fileObject) {
@@ -86,11 +53,11 @@ $FileObject* WrappingJavaFileManager::unwrap($FileObject* fileObject) {
 }
 
 $JavaFileObject* WrappingJavaFileManager::unwrap($JavaFileObject* fileObject) {
-	return $cast($JavaFileObject, unwrap(static_cast<$FileObject*>(fileObject)));
+	return $cast($JavaFileObject, unwrap($cast($FileObject, fileObject)));
 }
 
 $Iterable* WrappingJavaFileManager::wrap($Iterable* fileObjects) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, mapped, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(fileObjects)->iterator());
@@ -119,7 +86,7 @@ $JavaFileObject* WrappingJavaFileManager::getJavaFileForInput($JavaFileManager$L
 }
 
 $JavaFileObject* WrappingJavaFileManager::getJavaFileForOutput($JavaFileManager$Location* location, $String* className, $JavaFileObject$Kind* kind, $FileObject* sibling) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return wrap($($ForwardingJavaFileManager::getJavaFileForOutput(location, className, kind, $(unwrap(sibling)))));
 }
 
@@ -128,7 +95,7 @@ $FileObject* WrappingJavaFileManager::getFileForInput($JavaFileManager$Location*
 }
 
 $FileObject* WrappingJavaFileManager::getFileForOutput($JavaFileManager$Location* location, $String* packageName, $String* relativeName, $FileObject* sibling) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return wrap($($ForwardingJavaFileManager::getFileForOutput(location, packageName, relativeName, $(unwrap(sibling)))));
 }
 
@@ -140,7 +107,35 @@ WrappingJavaFileManager::WrappingJavaFileManager() {
 }
 
 $Class* WrappingJavaFileManager::load$($String* name, bool initialize) {
-	$loadClass(WrappingJavaFileManager, name, initialize, &_WrappingJavaFileManager_ClassInfo_, allocate$WrappingJavaFileManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileManager;)V", "(TM;)V", $PROTECTED, $method(WrappingJavaFileManager, init$, void, $JavaFileManager*)},
+		{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, contains, bool, $JavaFileManager$Location*, $FileObject*), "java.io.IOException"},
+		{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
+		{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
+		{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
+		{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
+		{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WrappingJavaFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
+		{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(WrappingJavaFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
+		{"unwrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, unwrap, $FileObject*, $FileObject*)},
+		{"unwrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, unwrap, $JavaFileObject*, $JavaFileObject*)},
+		{"unwrap", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, unwrap, $URI*, $URI*)},
+		{"wrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, wrap, $FileObject*, $FileObject*)},
+		{"wrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED, $virtualMethod(WrappingJavaFileManager, wrap, $JavaFileObject*, $JavaFileObject*)},
+		{"wrap", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PROTECTED, $virtualMethod(WrappingJavaFileManager, wrap, $Iterable*, $Iterable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.WrappingJavaFileManager",
+		"javax.tools.ForwardingJavaFileManager",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<M::Ljavax/tools/JavaFileManager;>Ljavax/tools/ForwardingJavaFileManager<TM;>;"
+	};
+	$loadClass(WrappingJavaFileManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WrappingJavaFileManager));
+	});
 	return class$;
 }
 

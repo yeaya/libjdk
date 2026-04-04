@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/compiler/XPathParser.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/ObjectVector.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolver.h>
@@ -104,11 +103,9 @@
 #undef RELATIVE_PATH_REQUIRED
 
 using $XSLMessages = ::com::sun::org::apache::xalan::internal::res::XSLMessages;
-using $ObjectVector = ::com::sun::org::apache::xml::internal::utils::ObjectVector;
 using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixResolver;
 using $XPathProcessorException = ::com::sun::org::apache::xpath::internal::XPathProcessorException;
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;
-using $FunctionTable = ::com::sun::org::apache::xpath::internal::compiler::FunctionTable;
 using $Keywords = ::com::sun::org::apache::xpath::internal::compiler::Keywords;
 using $Lexer = ::com::sun::org::apache::xpath::internal::compiler::Lexer;
 using $OpCodes = ::com::sun::org::apache::xpath::internal::compiler::OpCodes;
@@ -116,7 +113,6 @@ using $OpMap = ::com::sun::org::apache::xpath::internal::compiler::OpMap;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
 using $XString = ::com::sun::org::apache::xpath::internal::objects::XString;
 using $XPATHErrorResources = ::com::sun::org::apache::xpath::internal::res::XPATHErrorResources;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -140,109 +136,17 @@ namespace com {
 					namespace internal {
 						namespace compiler {
 
-$FieldInfo _XPathParser_FieldInfo_[] = {
-	{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPathParser, CONTINUE_AFTER_FATAL_ERROR)},
-	{"m_ops", "Lcom/sun/org/apache/xpath/internal/compiler/OpMap;", nullptr, $PRIVATE, $field(XPathParser, m_ops)},
-	{"m_token", "Ljava/lang/String;", nullptr, $TRANSIENT, $field(XPathParser, m_token)},
-	{"m_tokenChar", "C", nullptr, $TRANSIENT, $field(XPathParser, m_tokenChar)},
-	{"m_queueMark", "I", nullptr, 0, $field(XPathParser, m_queueMark)},
-	{"FILTER_MATCH_FAILED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XPathParser, FILTER_MATCH_FAILED)},
-	{"FILTER_MATCH_PRIMARY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XPathParser, FILTER_MATCH_PRIMARY)},
-	{"FILTER_MATCH_PREDICATES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XPathParser, FILTER_MATCH_PREDICATES)},
-	{"countPredicate", "I", nullptr, $PRIVATE, $field(XPathParser, countPredicate)},
-	{"m_namespaceContext", "Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, 0, $field(XPathParser, m_namespaceContext)},
-	{"m_errorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(XPathParser, m_errorListener)},
-	{"m_sourceLocator", "Ljavax/xml/transform/SourceLocator;", nullptr, 0, $field(XPathParser, m_sourceLocator)},
-	{"m_functionTable", "Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, $PRIVATE, $field(XPathParser, m_functionTable)},
-	{}
-};
-
-$MethodInfo _XPathParser_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/transform/ErrorListener;Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $method(XPathParser, init$, void, $ErrorListener*, $SourceLocator*)},
-	{"AbbreviatedNodeTestStep", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, AbbreviatedNodeTestStep, bool, bool), "javax.xml.transform.TransformerException"},
-	{"AdditiveExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, AdditiveExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"AndExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, AndExpr, void), "javax.xml.transform.TransformerException"},
-	{"Argument", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Argument, void), "javax.xml.transform.TransformerException"},
-	{"AxisName", "()I", nullptr, $PROTECTED, $virtualMethod(XPathParser, AxisName, int32_t), "javax.xml.transform.TransformerException"},
-	{"Basis", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Basis, void), "javax.xml.transform.TransformerException"},
-	{"BooleanExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, BooleanExpr, void), "javax.xml.transform.TransformerException"},
-	{"EqualityExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, EqualityExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"Expr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Expr, void), "javax.xml.transform.TransformerException"},
-	{"FilterExpr", "()I", nullptr, $PROTECTED, $virtualMethod(XPathParser, FilterExpr, int32_t), "javax.xml.transform.TransformerException"},
-	{"FunctionCall", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, FunctionCall, bool), "javax.xml.transform.TransformerException"},
-	{"IdKeyPattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, IdKeyPattern, void), "javax.xml.transform.TransformerException"},
-	{"Literal", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Literal, void), "javax.xml.transform.TransformerException"},
-	{"LocationPath", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, LocationPath, void), "javax.xml.transform.TransformerException"},
-	{"LocationPathPattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, LocationPathPattern, void), "javax.xml.transform.TransformerException"},
-	{"MultiplicativeExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, MultiplicativeExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"NCName", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, NCName, void)},
-	{"NodeTest", "(I)V", nullptr, $PROTECTED, $virtualMethod(XPathParser, NodeTest, void, int32_t), "javax.xml.transform.TransformerException"},
-	{"Number", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Number, void), "javax.xml.transform.TransformerException"},
-	{"NumberExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, NumberExpr, void), "javax.xml.transform.TransformerException"},
-	{"OrExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, OrExpr, void), "javax.xml.transform.TransformerException"},
-	{"PathExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, PathExpr, void), "javax.xml.transform.TransformerException"},
-	{"Pattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Pattern, void), "javax.xml.transform.TransformerException"},
-	{"Predicate", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Predicate, void), "javax.xml.transform.TransformerException"},
-	{"PredicateExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, PredicateExpr, void), "javax.xml.transform.TransformerException"},
-	{"PrimaryExpr", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, PrimaryExpr, bool), "javax.xml.transform.TransformerException"},
-	{"QName", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, QName, void), "javax.xml.transform.TransformerException"},
-	{"RelationalExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, RelationalExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"RelativeLocationPath", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, RelativeLocationPath, bool), "javax.xml.transform.TransformerException"},
-	{"RelativePathPattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, RelativePathPattern, void), "javax.xml.transform.TransformerException"},
-	{"Step", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, Step, bool), "javax.xml.transform.TransformerException"},
-	{"StepPattern", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, StepPattern, bool, bool), "javax.xml.transform.TransformerException"},
-	{"StringExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, StringExpr, void), "javax.xml.transform.TransformerException"},
-	{"UnaryExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, UnaryExpr, void), "javax.xml.transform.TransformerException"},
-	{"UnionExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, UnionExpr, void), "javax.xml.transform.TransformerException"},
-	{"appendOp", "(II)V", nullptr, 0, $virtualMethod(XPathParser, appendOp, void, int32_t, int32_t)},
-	{"assertion", "(ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(XPathParser, assertion, void, bool, $String*)},
-	{"consumeExpected", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, consumeExpected, void, $String*), "javax.xml.transform.TransformerException"},
-	{"consumeExpected", "(C)V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, consumeExpected, void, char16_t), "javax.xml.transform.TransformerException"},
-	{"dumpRemainingTokenQueue", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XPathParser, dumpRemainingTokenQueue, $String*)},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(XPathParser, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
-	{"getErrorListener", "()Ljavax/xml/transform/ErrorListener;", nullptr, $PUBLIC, $virtualMethod(XPathParser, getErrorListener, $ErrorListener*)},
-	{"getFunctionToken", "(Ljava/lang/String;)I", nullptr, $FINAL, $method(XPathParser, getFunctionToken, int32_t, $String*)},
-	{"getTokenRelative", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(XPathParser, getTokenRelative, $String*, int32_t)},
-	{"initMatchPattern", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathParser, initMatchPattern, void, $Compiler*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
-	{"initXPath", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathParser, initXPath, void, $Compiler*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
-	{"insertOp", "(III)V", nullptr, 0, $virtualMethod(XPathParser, insertOp, void, int32_t, int32_t, int32_t)},
-	{"lookahead", "(CI)Z", nullptr, $FINAL, $method(XPathParser, lookahead, bool, char16_t, int32_t)},
-	{"lookahead", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(XPathParser, lookahead, bool, $String*, int32_t)},
-	{"lookbehind", "(CI)Z", nullptr, $PRIVATE | $FINAL, $method(XPathParser, lookbehind, bool, char16_t, int32_t)},
-	{"lookbehindHasToken", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(XPathParser, lookbehindHasToken, bool, int32_t)},
-	{"nextToken", "()V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, nextToken, void)},
-	{"prevToken", "()V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, prevToken, void)},
-	{"setErrorHandler", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(XPathParser, setErrorHandler, void, $ErrorListener*)},
-	{"tokenIs", "(Ljava/lang/String;)Z", nullptr, $FINAL, $method(XPathParser, tokenIs, bool, $String*)},
-	{"tokenIs", "(C)Z", nullptr, $FINAL, $method(XPathParser, tokenIs, bool, char16_t)},
-	{"warn", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(XPathParser, warn, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _XPathParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.compiler.XPathParser",
-	"java.lang.Object",
-	nullptr,
-	_XPathParser_FieldInfo_,
-	_XPathParser_MethodInfo_
-};
-
-$Object* allocate$XPathParser($Class* clazz) {
-	return $of($alloc(XPathParser));
-}
-
 $String* XPathParser::CONTINUE_AFTER_FATAL_ERROR = nullptr;
 
 void XPathParser::init$($ErrorListener* errorListener, $SourceLocator* sourceLocator) {
-	this->m_tokenChar = (char16_t)0;
+	this->m_tokenChar = 0;
 	this->m_queueMark = 0;
 	$set(this, m_errorListener, errorListener);
 	$set(this, m_sourceLocator, sourceLocator);
 }
 
 void XPathParser::initXPath($Compiler* compiler, $String* expression, $PrefixResolver* namespaceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, m_ops, compiler);
 	$set(this, m_namespaceContext, namespaceContext);
 	$set(this, m_functionTable, $nc(compiler)->getFunctionTable());
@@ -263,10 +167,10 @@ void XPathParser::initXPath($Compiler* compiler, $String* expression, $PrefixRes
 				}
 			}
 			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_EXTRA_ILLEGAL_TOKENS, $$new($ObjectArray, {$of(extraTokens)}));
+			error($XPATHErrorResources::ER_EXTRA_ILLEGAL_TOKENS, $$new($ObjectArray, {extraTokens}));
 		}
 	} catch ($XPathProcessorException& e) {
-		if ($nc(XPathParser::CONTINUE_AFTER_FATAL_ERROR)->equals($(e->getMessage()))) {
+		if (XPathParser::CONTINUE_AFTER_FATAL_ERROR->equals($(e->getMessage()))) {
 			initXPath(compiler, "/.."_s, namespaceContext);
 		} else {
 			$throw(e);
@@ -274,16 +178,16 @@ void XPathParser::initXPath($Compiler* compiler, $String* expression, $PrefixRes
 	} catch ($StackOverflowError& sof) {
 		$init($XPATHErrorResources);
 		error($XPATHErrorResources::ER_PREDICATE_TOO_MANY_OPEN, $$new($ObjectArray, {
-			$of(this->m_token),
-			$($of($Integer::valueOf(this->m_queueMark))),
-			$($of($Integer::valueOf(this->countPredicate)))
+			this->m_token,
+			$($Integer::valueOf(this->m_queueMark)),
+			$($Integer::valueOf(this->countPredicate))
 		}));
 	}
 	compiler->shrink();
 }
 
 void XPathParser::initMatchPattern($Compiler* compiler, $String* expression, $PrefixResolver* namespaceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, m_ops, compiler);
 	$set(this, m_namespaceContext, namespaceContext);
 	$set(this, m_functionTable, $nc(compiler)->getFunctionTable());
@@ -297,9 +201,9 @@ void XPathParser::initMatchPattern($Compiler* compiler, $String* expression, $Pr
 	} catch ($StackOverflowError& sof) {
 		$init($XPATHErrorResources);
 		error($XPATHErrorResources::ER_PREDICATE_TOO_MANY_OPEN, $$new($ObjectArray, {
-			$of(this->m_token),
-			$($of($Integer::valueOf(this->m_queueMark))),
-			$($of($Integer::valueOf(this->countPredicate)))
+			this->m_token,
+			$($Integer::valueOf(this->m_queueMark)),
+			$($Integer::valueOf(this->countPredicate))
 		}));
 	}
 	if (nullptr != this->m_token) {
@@ -312,7 +216,7 @@ void XPathParser::initMatchPattern($Compiler* compiler, $String* expression, $Pr
 			}
 		}
 		$init($XPATHErrorResources);
-		error($XPATHErrorResources::ER_EXTRA_ILLEGAL_TOKENS, $$new($ObjectArray, {$of(extraTokens)}));
+		error($XPATHErrorResources::ER_EXTRA_ILLEGAL_TOKENS, $$new($ObjectArray, {extraTokens}));
 	}
 	$nc(this->m_ops)->setOp($nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH), $OpCodes::ENDOP);
 	$nc(this->m_ops)->setOp($OpMap::MAPINDEX_LENGTH, $nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH) + 1);
@@ -328,7 +232,7 @@ $ErrorListener* XPathParser::getErrorListener() {
 }
 
 bool XPathParser::tokenIs($String* s) {
-	return (this->m_token != nullptr) ? ($nc(this->m_token)->equals(s)) : (s == nullptr);
+	return (this->m_token != nullptr) ? (this->m_token->equals(s)) : (s == nullptr);
 }
 
 bool XPathParser::tokenIs(char16_t c) {
@@ -339,9 +243,9 @@ bool XPathParser::lookahead(char16_t c, int32_t n) {
 	int32_t pos = (this->m_queueMark + n);
 	bool b = false;
 	bool var$0 = (pos <= $nc(this->m_ops)->getTokenQueueSize()) && (pos > 0);
-	if (var$0 && ($nc(this->m_ops)->getTokenQueueSize() != 0)) {
+	if (var$0 && (this->m_ops->getTokenQueueSize() != 0)) {
 		$var($String, tok, $cast($String, $nc($nc(this->m_ops)->m_tokenQueue)->elementAt(pos - 1)));
-		b = ($nc(tok)->length() == 1) ? ($nc(tok)->charAt(0) == c) : false;
+		b = ($nc(tok)->length() == 1) ? (tok->charAt(0) == c) : false;
 	} else {
 		b = false;
 	}
@@ -369,7 +273,7 @@ bool XPathParser::lookbehindHasToken(int32_t n) {
 	bool hasToken = false;
 	if ((this->m_queueMark - n) > 0) {
 		$var($String, lookbehind, $cast($String, $nc($nc(this->m_ops)->m_tokenQueue)->elementAt(this->m_queueMark - (n - 1))));
-		char16_t c0 = (lookbehind == nullptr) ? u'|' : $nc(lookbehind)->charAt(0);
+		char16_t c0 = (lookbehind == nullptr) ? u'|' : lookbehind->charAt(0);
 		hasToken = (c0 == u'|') ? false : true;
 	} else {
 		hasToken = false;
@@ -381,7 +285,7 @@ bool XPathParser::lookahead($String* s, int32_t n) {
 	bool isToken = false;
 	if ((this->m_queueMark + n) <= $nc(this->m_ops)->getTokenQueueSize()) {
 		$var($String, lookahead, $cast($String, $nc($nc(this->m_ops)->m_tokenQueue)->elementAt(this->m_queueMark + (n - 1))));
-		isToken = (lookahead != nullptr) ? $nc(lookahead)->equals(s) : (s == nullptr);
+		isToken = (lookahead != nullptr) ? lookahead->equals(s) : (s == nullptr);
 	} else {
 		isToken = (nullptr == s);
 	}
@@ -394,7 +298,7 @@ void XPathParser::nextToken() {
 		this->m_tokenChar = $nc(this->m_token)->charAt(0);
 	} else {
 		$set(this, m_token, nullptr);
-		this->m_tokenChar = (char16_t)0;
+		this->m_tokenChar = 0;
 	}
 }
 
@@ -416,7 +320,7 @@ void XPathParser::prevToken() {
 		this->m_tokenChar = $nc(this->m_token)->charAt(0);
 	} else {
 		$set(this, m_token, nullptr);
-		this->m_tokenChar = (char16_t)0;
+		this->m_tokenChar = 0;
 	}
 }
 
@@ -426,29 +330,29 @@ void XPathParser::consumeExpected($String* expected) {
 	} else {
 		$init($XPATHErrorResources);
 		error($XPATHErrorResources::ER_EXPECTED_BUT_FOUND, $$new($ObjectArray, {
-			$of(expected),
-			$of(this->m_token)
+			expected,
+			this->m_token
 		}));
 		$throwNew($XPathProcessorException, XPathParser::CONTINUE_AFTER_FATAL_ERROR);
 	}
 }
 
 void XPathParser::consumeExpected(char16_t expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tokenIs(expected)) {
 		nextToken();
 	} else {
 		$init($XPATHErrorResources);
 		error($XPATHErrorResources::ER_EXPECTED_BUT_FOUND, $$new($ObjectArray, {
-			$($of($String::valueOf(expected))),
-			$of(this->m_token)
+			$($String::valueOf(expected)),
+			this->m_token
 		}));
 		$throwNew($XPathProcessorException, XPathParser::CONTINUE_AFTER_FATAL_ERROR);
 	}
 }
 
 void XPathParser::warn($String* msg, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fmsg, $XSLMessages::createXPATHWarning(msg, args));
 	$var($ErrorListener, ehandler, this->getErrorListener());
 	if (nullptr != ehandler) {
@@ -459,16 +363,16 @@ void XPathParser::warn($String* msg, $ObjectArray* args) {
 }
 
 void XPathParser::assertion(bool b, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!b) {
 		$init($XPATHErrorResources);
-		$var($String, fMsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_INCORRECT_PROGRAMMER_ASSERTION, $$new($ObjectArray, {$of(msg)})));
+		$var($String, fMsg, $XSLMessages::createXPATHMessage($XPATHErrorResources::ER_INCORRECT_PROGRAMMER_ASSERTION, $$new($ObjectArray, {msg})));
 		$throwNew($RuntimeException, fMsg);
 	}
 }
 
 void XPathParser::error($String* msg, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fmsg, $XSLMessages::createXPATHMessage(msg, args));
 	$var($ErrorListener, ehandler, this->getErrorListener());
 	$var($TransformerException, te, $new($TransformerException, fmsg, this->m_sourceLocator));
@@ -480,13 +384,13 @@ void XPathParser::error($String* msg, $ObjectArray* args) {
 }
 
 $String* XPathParser::dumpRemainingTokenQueue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t q = this->m_queueMark;
 	$var($String, returnMsg, nullptr);
 	if (q < $nc(this->m_ops)->getTokenQueueSize()) {
 		$var($String, msg, "\n Remaining tokens: ("_s);
 		while (q < $nc(this->m_ops)->getTokenQueueSize()) {
-			$var($String, t, $cast($String, $nc($nc(this->m_ops)->m_tokenQueue)->elementAt(q++)));
+			$var($String, t, $cast($String, $nc(this->m_ops->m_tokenQueue)->elementAt(q++)));
 			$plusAssign(msg, ($$str({" \'"_s, t, "\'"_s})));
 		}
 		$assign(returnMsg, $str({msg, ")"_s}));
@@ -811,24 +715,24 @@ bool XPathParser::PrimaryExpr() {
 		$nc(this->m_ops)->setOp(opPos + $OpMap::MAPINDEX_LENGTH, $nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH) - opPos);
 		matchFound = true;
 	} else {
-		bool var$3 = (nullptr != this->m_token);
-		if (var$3) {
-			bool var$5 = (u'.' == this->m_tokenChar) && ($nc(this->m_token)->length() > 1);
-			bool var$4 = (var$5 && $Character::isDigit($nc(this->m_token)->charAt(1)));
-			var$3 = (var$4 || $Character::isDigit(this->m_tokenChar));
+		bool var$0 = nullptr != this->m_token;
+		if (var$0) {
+			bool var$2 = (u'.' == this->m_tokenChar) && (this->m_token->length() > 1);
+			bool var$1 = var$2 && $Character::isDigit(this->m_token->charAt(1));
+			var$0 = var$1 || $Character::isDigit(this->m_tokenChar);
 		}
-		if (var$3) {
+		if (var$0) {
 			appendOp(2, $OpCodes::OP_NUMBERLIT);
 			Number();
 			$nc(this->m_ops)->setOp(opPos + $OpMap::MAPINDEX_LENGTH, $nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH) - opPos);
 			matchFound = true;
 		} else {
-			bool var$8 = lookahead(u'(', 1);
-			if (!var$8) {
-				bool var$9 = lookahead(u':', 1);
-				var$8 = (var$9 && lookahead(u'(', 3));
+			bool var$3 = lookahead(u'(', 1);
+			if (!var$3) {
+				bool var$4 = lookahead(u':', 1);
+				var$3 = var$4 && lookahead(u'(', 3);
 			}
-			if (var$8) {
+			if (var$3) {
 				matchFound = FunctionCall();
 			} else {
 				matchFound = false;
@@ -858,24 +762,17 @@ bool XPathParser::FunctionCall() {
 		int32_t funcTok = getFunctionToken(this->m_token);
 		if (-1 == funcTok) {
 			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_COULDNOT_FIND_FUNCTION, $$new($ObjectArray, {$of(this->m_token)}));
+			error($XPATHErrorResources::ER_COULDNOT_FIND_FUNCTION, $$new($ObjectArray, {this->m_token}));
 		}
 		switch (funcTok) {
 		case $OpCodes::NODETYPE_PI:
-			{}
 		case $OpCodes::NODETYPE_COMMENT:
-			{}
 		case $OpCodes::NODETYPE_TEXT:
-			{}
 		case $OpCodes::NODETYPE_NODE:
-			{
-				return false;
-			}
+			return false;
 		default:
-			{
-				appendOp(3, $OpCodes::OP_FUNCTION);
-				$nc(this->m_ops)->setOp(opPos + $OpMap::MAPINDEX_LENGTH + 1, funcTok);
-			}
+			appendOp(3, $OpCodes::OP_FUNCTION);
+			$nc(this->m_ops)->setOp(opPos + $OpMap::MAPINDEX_LENGTH + 1, funcTok);
 		}
 		nextToken();
 	}
@@ -917,7 +814,7 @@ void XPathParser::LocationPath() {
 	if (this->m_token != nullptr) {
 		if (!RelativeLocationPath() && !seenSlash) {
 			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_EXPECTED_LOC_PATH, $$new($ObjectArray, {$of(this->m_token)}));
+			error($XPATHErrorResources::ER_EXPECTED_LOC_PATH, $$new($ObjectArray, {this->m_token}));
 		}
 	}
 	$nc(this->m_ops)->setOp($nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH), $OpCodes::ENDOP);
@@ -967,10 +864,10 @@ bool XPathParser::Step() {
 		$nc(this->m_ops)->setOp($nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH) - 2, 4);
 		$nc(this->m_ops)->setOp($nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH) - 1, $OpCodes::NODETYPE_NODE);
 	} else {
-		bool var$5 = tokenIs(u'*');
-		bool var$4 = var$5 || tokenIs(u'@');
-		bool var$3 = var$4 || tokenIs(u'_');
-		if (var$3 || (this->m_token != nullptr && $Character::isLetter($nc(this->m_token)->charAt(0)))) {
+		bool var$2 = tokenIs(u'*');
+		bool var$1 = var$2 || tokenIs(u'@');
+		bool var$0 = var$1 || tokenIs(u'_');
+		if (var$0 || (this->m_token != nullptr && $Character::isLetter(this->m_token->charAt(0)))) {
 			Basis();
 			while (tokenIs(u'[')) {
 				Predicate();
@@ -1008,27 +905,27 @@ void XPathParser::Basis() {
 }
 
 int32_t XPathParser::AxisName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, val, $Keywords::getAxisName(this->m_token));
 	if (nullptr == val) {
 		$init($XPATHErrorResources);
-		error($XPATHErrorResources::ER_ILLEGAL_AXIS_NAME, $$new($ObjectArray, {$of(this->m_token)}));
+		error($XPATHErrorResources::ER_ILLEGAL_AXIS_NAME, $$new($ObjectArray, {this->m_token}));
 	}
-	int32_t axesType = $nc(($cast($Integer, val)))->intValue();
+	int32_t axesType = $nc($cast($Integer, val))->intValue();
 	appendOp(2, axesType);
 	return axesType;
 }
 
 void XPathParser::NodeTest(int32_t axesType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (lookahead(u'(', 1)) {
 		$var($Object, nodeTestOp, $Keywords::getNodeType(this->m_token));
 		if (nullptr == nodeTestOp) {
 			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_UNKNOWN_NODETYPE, $$new($ObjectArray, {$of(this->m_token)}));
+			error($XPATHErrorResources::ER_UNKNOWN_NODETYPE, $$new($ObjectArray, {this->m_token}));
 		} else {
 			nextToken();
-			int32_t nt = $nc(($cast($Integer, nodeTestOp)))->intValue();
+			int32_t nt = $cast($Integer, nodeTestOp)->intValue();
 			$nc(this->m_ops)->setOp($nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH), nt);
 			$nc(this->m_ops)->setOp($OpMap::MAPINDEX_LENGTH, $nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH) + 1);
 			consumeExpected(u'(');
@@ -1115,10 +1012,10 @@ void XPathParser::NCName() {
 }
 
 void XPathParser::Literal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t last = $nc(this->m_token)->length() - 1;
 	char16_t c0 = this->m_tokenChar;
-	char16_t cX = $nc(this->m_token)->charAt(last);
+	char16_t cX = this->m_token->charAt(last);
 	if (((c0 == u'\"') && (cX == u'\"')) || ((c0 == u'\'') && (cX == u'\''))) {
 		int32_t tokenQueuePos = this->m_queueMark - 1;
 		$nc($nc(this->m_ops)->m_tokenQueue)->setElementAt(nullptr, tokenQueuePos);
@@ -1129,24 +1026,24 @@ void XPathParser::Literal() {
 		nextToken();
 	} else {
 		$init($XPATHErrorResources);
-		error($XPATHErrorResources::ER_PATTERN_LITERAL_NEEDS_BE_QUOTED, $$new($ObjectArray, {$of(this->m_token)}));
+		error($XPATHErrorResources::ER_PATTERN_LITERAL_NEEDS_BE_QUOTED, $$new($ObjectArray, {this->m_token}));
 	}
 }
 
 void XPathParser::Number() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nullptr != this->m_token) {
 		double num = 0.0;
 		try {
-			bool var$0 = ($nc(this->m_token)->indexOf((int32_t)u'e') > -1);
-			if (var$0 || ($nc(this->m_token)->indexOf((int32_t)u'E') > -1)) {
+			bool var$0 = this->m_token->indexOf(u'e') > -1;
+			if (var$0 || (this->m_token->indexOf(u'E') > -1)) {
 				$throwNew($NumberFormatException);
 			}
-			num = $nc($($Double::valueOf(this->m_token)))->doubleValue();
+			num = $($Double::valueOf(this->m_token))->doubleValue();
 		} catch ($NumberFormatException& nfe) {
 			num = 0.0;
 			$init($XPATHErrorResources);
-			error($XPATHErrorResources::ER_COULDNOT_BE_FORMATTED_TO_NUMBER, $$new($ObjectArray, {$of(this->m_token)}));
+			error($XPATHErrorResources::ER_COULDNOT_BE_FORMATTED_TO_NUMBER, $$new($ObjectArray, {this->m_token}));
 		}
 		$nc($nc(this->m_ops)->m_tokenQueue)->setElementAt($$new($XNumber, num), this->m_queueMark - 1);
 		$nc(this->m_ops)->setOp($nc(this->m_ops)->getOp($OpMap::MAPINDEX_LENGTH), this->m_queueMark - 1);
@@ -1177,7 +1074,7 @@ void XPathParser::LocationPathPattern() {
 	if (var$0) {
 		$init($Keywords);
 		bool var$1 = tokenIs($Keywords::FUNC_ID_STRING);
-		var$0 = (var$1 || tokenIs($Keywords::FUNC_KEY_STRING));
+		var$0 = var$1 || tokenIs($Keywords::FUNC_KEY_STRING);
 	}
 	if (var$0) {
 		IdKeyPattern();
@@ -1256,7 +1153,7 @@ bool XPathParser::AbbreviatedNodeTestStep(bool isLeadingSlashPermitted) {
 		} else {
 			axesType = -1;
 			$init($XPATHErrorResources);
-			this->error($XPATHErrorResources::ER_AXES_NOT_ALLOWED, $$new($ObjectArray, {$of(this->m_token)}));
+			this->error($XPATHErrorResources::ER_AXES_NOT_ALLOWED, $$new($ObjectArray, {this->m_token}));
 		}
 		nextToken();
 		nextToken();
@@ -1295,12 +1192,99 @@ bool XPathParser::AbbreviatedNodeTestStep(bool isLeadingSlashPermitted) {
 XPathParser::XPathParser() {
 }
 
-void clinit$XPathParser($Class* class$) {
+void XPathParser::clinit$($Class* clazz) {
 	$assignStatic(XPathParser::CONTINUE_AFTER_FATAL_ERROR, "CONTINUE_AFTER_FATAL_ERROR"_s);
 }
 
 $Class* XPathParser::load$($String* name, bool initialize) {
-	$loadClass(XPathParser, name, initialize, &_XPathParser_ClassInfo_, clinit$XPathParser, allocate$XPathParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONTINUE_AFTER_FATAL_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPathParser, CONTINUE_AFTER_FATAL_ERROR)},
+		{"m_ops", "Lcom/sun/org/apache/xpath/internal/compiler/OpMap;", nullptr, $PRIVATE, $field(XPathParser, m_ops)},
+		{"m_token", "Ljava/lang/String;", nullptr, $TRANSIENT, $field(XPathParser, m_token)},
+		{"m_tokenChar", "C", nullptr, $TRANSIENT, $field(XPathParser, m_tokenChar)},
+		{"m_queueMark", "I", nullptr, 0, $field(XPathParser, m_queueMark)},
+		{"FILTER_MATCH_FAILED", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XPathParser, FILTER_MATCH_FAILED)},
+		{"FILTER_MATCH_PRIMARY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XPathParser, FILTER_MATCH_PRIMARY)},
+		{"FILTER_MATCH_PREDICATES", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XPathParser, FILTER_MATCH_PREDICATES)},
+		{"countPredicate", "I", nullptr, $PRIVATE, $field(XPathParser, countPredicate)},
+		{"m_namespaceContext", "Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;", nullptr, 0, $field(XPathParser, m_namespaceContext)},
+		{"m_errorListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(XPathParser, m_errorListener)},
+		{"m_sourceLocator", "Ljavax/xml/transform/SourceLocator;", nullptr, 0, $field(XPathParser, m_sourceLocator)},
+		{"m_functionTable", "Lcom/sun/org/apache/xpath/internal/compiler/FunctionTable;", nullptr, $PRIVATE, $field(XPathParser, m_functionTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/transform/ErrorListener;Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $method(XPathParser, init$, void, $ErrorListener*, $SourceLocator*)},
+		{"AbbreviatedNodeTestStep", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, AbbreviatedNodeTestStep, bool, bool), "javax.xml.transform.TransformerException"},
+		{"AdditiveExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, AdditiveExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"AndExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, AndExpr, void), "javax.xml.transform.TransformerException"},
+		{"Argument", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Argument, void), "javax.xml.transform.TransformerException"},
+		{"AxisName", "()I", nullptr, $PROTECTED, $virtualMethod(XPathParser, AxisName, int32_t), "javax.xml.transform.TransformerException"},
+		{"Basis", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Basis, void), "javax.xml.transform.TransformerException"},
+		{"BooleanExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, BooleanExpr, void), "javax.xml.transform.TransformerException"},
+		{"EqualityExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, EqualityExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"Expr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Expr, void), "javax.xml.transform.TransformerException"},
+		{"FilterExpr", "()I", nullptr, $PROTECTED, $virtualMethod(XPathParser, FilterExpr, int32_t), "javax.xml.transform.TransformerException"},
+		{"FunctionCall", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, FunctionCall, bool), "javax.xml.transform.TransformerException"},
+		{"IdKeyPattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, IdKeyPattern, void), "javax.xml.transform.TransformerException"},
+		{"Literal", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Literal, void), "javax.xml.transform.TransformerException"},
+		{"LocationPath", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, LocationPath, void), "javax.xml.transform.TransformerException"},
+		{"LocationPathPattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, LocationPathPattern, void), "javax.xml.transform.TransformerException"},
+		{"MultiplicativeExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, MultiplicativeExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"NCName", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, NCName, void)},
+		{"NodeTest", "(I)V", nullptr, $PROTECTED, $virtualMethod(XPathParser, NodeTest, void, int32_t), "javax.xml.transform.TransformerException"},
+		{"Number", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Number, void), "javax.xml.transform.TransformerException"},
+		{"NumberExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, NumberExpr, void), "javax.xml.transform.TransformerException"},
+		{"OrExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, OrExpr, void), "javax.xml.transform.TransformerException"},
+		{"PathExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, PathExpr, void), "javax.xml.transform.TransformerException"},
+		{"Pattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Pattern, void), "javax.xml.transform.TransformerException"},
+		{"Predicate", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, Predicate, void), "javax.xml.transform.TransformerException"},
+		{"PredicateExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, PredicateExpr, void), "javax.xml.transform.TransformerException"},
+		{"PrimaryExpr", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, PrimaryExpr, bool), "javax.xml.transform.TransformerException"},
+		{"QName", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, QName, void), "javax.xml.transform.TransformerException"},
+		{"RelationalExpr", "(I)I", nullptr, $PROTECTED, $virtualMethod(XPathParser, RelationalExpr, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"RelativeLocationPath", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, RelativeLocationPath, bool), "javax.xml.transform.TransformerException"},
+		{"RelativePathPattern", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, RelativePathPattern, void), "javax.xml.transform.TransformerException"},
+		{"Step", "()Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, Step, bool), "javax.xml.transform.TransformerException"},
+		{"StepPattern", "(Z)Z", nullptr, $PROTECTED, $virtualMethod(XPathParser, StepPattern, bool, bool), "javax.xml.transform.TransformerException"},
+		{"StringExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, StringExpr, void), "javax.xml.transform.TransformerException"},
+		{"UnaryExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, UnaryExpr, void), "javax.xml.transform.TransformerException"},
+		{"UnionExpr", "()V", nullptr, $PROTECTED, $virtualMethod(XPathParser, UnionExpr, void), "javax.xml.transform.TransformerException"},
+		{"appendOp", "(II)V", nullptr, 0, $virtualMethod(XPathParser, appendOp, void, int32_t, int32_t)},
+		{"assertion", "(ZLjava/lang/String;)V", nullptr, $PRIVATE, $method(XPathParser, assertion, void, bool, $String*)},
+		{"consumeExpected", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, consumeExpected, void, $String*), "javax.xml.transform.TransformerException"},
+		{"consumeExpected", "(C)V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, consumeExpected, void, char16_t), "javax.xml.transform.TransformerException"},
+		{"dumpRemainingTokenQueue", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XPathParser, dumpRemainingTokenQueue, $String*)},
+		{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(XPathParser, error, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
+		{"getErrorListener", "()Ljavax/xml/transform/ErrorListener;", nullptr, $PUBLIC, $virtualMethod(XPathParser, getErrorListener, $ErrorListener*)},
+		{"getFunctionToken", "(Ljava/lang/String;)I", nullptr, $FINAL, $method(XPathParser, getFunctionToken, int32_t, $String*)},
+		{"getTokenRelative", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $method(XPathParser, getTokenRelative, $String*, int32_t)},
+		{"initMatchPattern", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathParser, initMatchPattern, void, $Compiler*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
+		{"initXPath", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $virtualMethod(XPathParser, initXPath, void, $Compiler*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
+		{"insertOp", "(III)V", nullptr, 0, $virtualMethod(XPathParser, insertOp, void, int32_t, int32_t, int32_t)},
+		{"lookahead", "(CI)Z", nullptr, $FINAL, $method(XPathParser, lookahead, bool, char16_t, int32_t)},
+		{"lookahead", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(XPathParser, lookahead, bool, $String*, int32_t)},
+		{"lookbehind", "(CI)Z", nullptr, $PRIVATE | $FINAL, $method(XPathParser, lookbehind, bool, char16_t, int32_t)},
+		{"lookbehindHasToken", "(I)Z", nullptr, $PRIVATE | $FINAL, $method(XPathParser, lookbehindHasToken, bool, int32_t)},
+		{"nextToken", "()V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, nextToken, void)},
+		{"prevToken", "()V", nullptr, $PRIVATE | $FINAL, $method(XPathParser, prevToken, void)},
+		{"setErrorHandler", "(Ljavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $virtualMethod(XPathParser, setErrorHandler, void, $ErrorListener*)},
+		{"tokenIs", "(Ljava/lang/String;)Z", nullptr, $FINAL, $method(XPathParser, tokenIs, bool, $String*)},
+		{"tokenIs", "(C)Z", nullptr, $FINAL, $method(XPathParser, tokenIs, bool, char16_t)},
+		{"warn", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(XPathParser, warn, void, $String*, $ObjectArray*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.compiler.XPathParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathParser, name, initialize, &classInfo$$, XPathParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathParser);
+	});
 	return class$;
 }
 

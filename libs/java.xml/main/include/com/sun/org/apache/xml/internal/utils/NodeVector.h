@@ -54,7 +54,7 @@ public:
 	virtual void sort($ints* a, int32_t lo0, int32_t hi0);
 	virtual void sort();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xF6193C00B6936B22;
+	static const int64_t serialVersionUID = (int64_t)0xf6193c00b6936b22;
 	int32_t m_blocksize = 0;
 	$ints* m_map = nullptr;
 	int32_t m_firstFree = 0;

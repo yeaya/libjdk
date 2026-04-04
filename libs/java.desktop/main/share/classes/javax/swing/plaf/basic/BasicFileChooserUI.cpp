@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -60,7 +59,6 @@
 #undef WHEN_ANCESTOR_OF_FOCUSED_COMPONENT
 
 using $BorderLayout = ::java::awt::BorderLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
@@ -85,7 +83,6 @@ using $TransferHandler = ::javax::swing::TransferHandler;
 using $UIManager = ::javax::swing::UIManager;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $FileView = ::javax::swing::filechooser::FileView;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -112,162 +109,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicFileChooserUI_FieldInfo_[] = {
-	{"directoryIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryIcon)},
-	{"fileIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, fileIcon)},
-	{"computerIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, computerIcon)},
-	{"hardDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, hardDriveIcon)},
-	{"floppyDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, floppyDriveIcon)},
-	{"newFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, newFolderIcon)},
-	{"upFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, upFolderIcon)},
-	{"homeFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, homeFolderIcon)},
-	{"listViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, listViewIcon)},
-	{"detailsViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, detailsViewIcon)},
-	{"viewMenuIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, viewMenuIcon)},
-	{"saveButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, saveButtonMnemonic)},
-	{"openButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, openButtonMnemonic)},
-	{"cancelButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, cancelButtonMnemonic)},
-	{"updateButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, updateButtonMnemonic)},
-	{"helpButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, helpButtonMnemonic)},
-	{"directoryOpenButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryOpenButtonMnemonic)},
-	{"saveButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, saveButtonText)},
-	{"openButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, openButtonText)},
-	{"cancelButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, cancelButtonText)},
-	{"updateButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, updateButtonText)},
-	{"helpButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, helpButtonText)},
-	{"directoryOpenButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryOpenButtonText)},
-	{"openDialogTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, openDialogTitleText)},
-	{"saveDialogTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, saveDialogTitleText)},
-	{"saveButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, saveButtonToolTipText)},
-	{"openButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, openButtonToolTipText)},
-	{"cancelButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, cancelButtonToolTipText)},
-	{"updateButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, updateButtonToolTipText)},
-	{"helpButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, helpButtonToolTipText)},
-	{"directoryOpenButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryOpenButtonToolTipText)},
-	{"approveSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, approveSelectionAction)},
-	{"cancelSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, cancelSelectionAction)},
-	{"updateAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, updateAction)},
-	{"newFolderAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderAction)},
-	{"goHomeAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, goHomeAction)},
-	{"changeToParentDirectoryAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, changeToParentDirectoryAction)},
-	{"newFolderErrorSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderErrorSeparator)},
-	{"newFolderErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderErrorText)},
-	{"newFolderParentDoesntExistTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderParentDoesntExistTitleText)},
-	{"newFolderParentDoesntExistText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderParentDoesntExistText)},
-	{"fileDescriptionText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, fileDescriptionText)},
-	{"directoryDescriptionText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, directoryDescriptionText)},
-	{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE, $field(BasicFileChooserUI, filechooser)},
-	{"directorySelected", "Z", nullptr, $PRIVATE, $field(BasicFileChooserUI, directorySelected)},
-	{"directory", "Ljava/io/File;", nullptr, $PRIVATE, $field(BasicFileChooserUI, directory)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicFileChooserUI, propertyChangeListener)},
-	{"acceptAllFileFilter", "Ljavax/swing/plaf/basic/BasicFileChooserUI$AcceptAllFileFilter;", nullptr, $PRIVATE, $field(BasicFileChooserUI, acceptAllFileFilter)},
-	{"actualFileFilter", "Ljavax/swing/filechooser/FileFilter;", nullptr, $PRIVATE, $field(BasicFileChooserUI, actualFileFilter)},
-	{"globFilter", "Ljavax/swing/plaf/basic/BasicFileChooserUI$GlobFilter;", nullptr, $PRIVATE, $field(BasicFileChooserUI, globFilter)},
-	{"model", "Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PRIVATE, $field(BasicFileChooserUI, model)},
-	{"fileView", "Ljavax/swing/plaf/basic/BasicFileChooserUI$BasicFileView;", nullptr, $PRIVATE, $field(BasicFileChooserUI, fileView)},
-	{"usesSingleFilePane", "Z", nullptr, $PRIVATE, $field(BasicFileChooserUI, usesSingleFilePane)},
-	{"readOnly", "Z", nullptr, $PRIVATE, $field(BasicFileChooserUI, readOnly)},
-	{"accessoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(BasicFileChooserUI, accessoryPanel)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicFileChooserUI$Handler;", nullptr, $PRIVATE, $field(BasicFileChooserUI, handler)},
-	{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicFileChooserUI, defaultTransferHandler)},
-	{}
-};
-
-$MethodInfo _BasicFileChooserUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(BasicFileChooserUI, init$, void, $JFileChooser*)},
-	{"changeDirectory", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(BasicFileChooserUI, changeDirectory, void, $File*)},
-	{"clearIconCache", "()V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, clearIconCache, void)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicFileChooserUI, createActionMap, $ActionMap*)},
-	{"createDoubleClickListener", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PROTECTED, $virtualMethod(BasicFileChooserUI, createDoubleClickListener, $MouseListener*, $JFileChooser*, $JList*)},
-	{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
-	{"createModel", "()V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, createModel, void)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"getAcceptAllFileFilter", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getAcceptAllFileFilter, $FileFilter*, $JFileChooser*)},
-	{"getAccessoryPanel", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getAccessoryPanel, $JPanel*)},
-	{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicFileChooserUI, getActionMap, $ActionMap*)},
-	{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
-	{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
-	{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveButtonText, $String*, $JFileChooser*)},
-	{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveButtonToolTipText, $String*, $JFileChooser*)},
-	{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveSelectionAction, $Action*)},
-	{"getCancelSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getCancelSelectionAction, $Action*)},
-	{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getChangeToParentDirectoryAction, $Action*)},
-	{"getDefaultButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getDefaultButton, $JButton*, $JFileChooser*)},
-	{"getDialogTitle", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getDialogTitle, $String*, $JFileChooser*)},
-	{"getDirectory", "()Ljava/io/File;", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, getDirectory, $File*)},
-	{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getDirectoryName, $String*)},
-	{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getFileChooser, $JFileChooser*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getFileName, $String*)},
-	{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
-	{"getGoHomeAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getGoHomeAction, $Action*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicFileChooserUI$Handler;", nullptr, $PRIVATE, $method(BasicFileChooserUI, getHandler, $BasicFileChooserUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicFileChooserUI, getInputMap, $InputMap*, int32_t)},
-	{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(BasicFileChooserUI, getMnemonic, int32_t, $String*, $Locale*)},
-	{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getModel, $BasicDirectoryModel*)},
-	{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getNewFolderAction, $Action*)},
-	{"getUpdateAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getUpdateAction, $Action*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, installComponents, void, $JFileChooser*)},
-	{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installDefaults, void, $JFileChooser*)},
-	{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installIcons, void, $JFileChooser*)},
-	{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installListeners, void, $JFileChooser*)},
-	{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installStrings, void, $JFileChooser*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, installUI, void, $JComponent*)},
-	{"isDirectorySelected", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, isDirectorySelected, bool)},
-	{"isGlobPattern", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicFileChooserUI, isGlobPattern, bool, $String*)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"resetGlobFilter", "()V", nullptr, $PRIVATE, $method(BasicFileChooserUI, resetGlobFilter, void)},
-	{"setDirectory", "(Ljava/io/File;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, setDirectory, void, $File*)},
-	{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, setDirectoryName, void, $String*)},
-	{"setDirectorySelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, setDirectorySelected, void, bool)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, setFileName, void, $String*)},
-	{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, uninstallComponents, void, $JFileChooser*)},
-	{"uninstallDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallDefaults, void, $JFileChooser*)},
-	{"uninstallIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallIcons, void, $JFileChooser*)},
-	{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallListeners, void, $JFileChooser*)},
-	{"uninstallStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallStrings, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicFileChooserUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler", "javax.swing.plaf.basic.BasicFileChooserUI", "FileTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView", "javax.swing.plaf.basic.BasicFileChooserUI", "BasicFileView", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter", "javax.swing.plaf.basic.BasicFileChooserUI", "AcceptAllFileFilter", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$UpdateAction", "javax.swing.plaf.basic.BasicFileChooserUI", "UpdateAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$CancelSelectionAction", "javax.swing.plaf.basic.BasicFileChooserUI", "CancelSelectionAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$GlobFilter", "javax.swing.plaf.basic.BasicFileChooserUI", "GlobFilter", 0},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ApproveSelectionAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ChangeToParentDirectoryAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$GoHomeAction", "javax.swing.plaf.basic.BasicFileChooserUI", "GoHomeAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction", "javax.swing.plaf.basic.BasicFileChooserUI", "NewFolderAction", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$SelectionListener", "javax.swing.plaf.basic.BasicFileChooserUI", "SelectionListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener", "javax.swing.plaf.basic.BasicFileChooserUI", "DoubleClickListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$Handler", "javax.swing.plaf.basic.BasicFileChooserUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicFileChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFileChooserUI",
-	"javax.swing.plaf.FileChooserUI",
-	nullptr,
-	_BasicFileChooserUI_FieldInfo_,
-	_BasicFileChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicFileChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler,javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler$FileTransferable,javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView,javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter,javax.swing.plaf.basic.BasicFileChooserUI$UpdateAction,javax.swing.plaf.basic.BasicFileChooserUI$CancelSelectionAction,javax.swing.plaf.basic.BasicFileChooserUI$GlobFilter,javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction,javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction,javax.swing.plaf.basic.BasicFileChooserUI$GoHomeAction,javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction,javax.swing.plaf.basic.BasicFileChooserUI$SelectionListener,javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener,javax.swing.plaf.basic.BasicFileChooserUI$Handler,javax.swing.plaf.basic.BasicFileChooserUI$1"
-};
-
-$Object* allocate$BasicFileChooserUI($Class* clazz) {
-	return $of($alloc(BasicFileChooserUI));
-}
 
 $TransferHandler* BasicFileChooserUI::defaultTransferHandler = nullptr;
 
@@ -333,8 +174,8 @@ void BasicFileChooserUI::init$($JFileChooser* b) {
 }
 
 void BasicFileChooserUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$set(this, accessoryPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$useLocalObjectStack();
+	$set(this, accessoryPanel, $new($JPanel, $$new($BorderLayout)));
 	$set(this, filechooser, $cast($JFileChooser, c));
 	createModel();
 	clearIconCache();
@@ -349,10 +190,10 @@ void BasicFileChooserUI::uninstallUI($JComponent* c) {
 	uninstallComponents(this->filechooser);
 	uninstallDefaults(this->filechooser);
 	if (this->accessoryPanel != nullptr) {
-		$nc(this->accessoryPanel)->removeAll();
+		this->accessoryPanel->removeAll();
 	}
 	$set(this, accessoryPanel, nullptr);
-	$nc($(getFileChooser()))->removeAll();
+	$$nc(getFileChooser())->removeAll();
 	$set(this, handler, nullptr);
 }
 
@@ -363,7 +204,7 @@ void BasicFileChooserUI::uninstallComponents($JFileChooser* fc) {
 }
 
 void BasicFileChooserUI::installListeners($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, propertyChangeListener, createPropertyChangeListener(fc));
 	if (this->propertyChangeListener != nullptr) {
 		$nc(fc)->addPropertyChangeListener(this->propertyChangeListener);
@@ -387,7 +228,7 @@ $ActionMap* BasicFileChooserUI::getActionMap() {
 }
 
 $ActionMap* BasicFileChooserUI::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	$init($FilePane);
 	$var($Action, refreshAction, $new($BasicFileChooserUI$1, this, $FilePane::ACTION_REFRESH));
@@ -416,7 +257,6 @@ void BasicFileChooserUI::installDefaults($JFileChooser* fc) {
 	if (th == nullptr || $instanceOf($UIResource, th)) {
 		fc->setTransferHandler(BasicFileChooserUI::defaultTransferHandler);
 	}
-	$init($Boolean);
 	$LookAndFeel::installProperty(fc, "opaque"_s, $Boolean::FALSE);
 }
 
@@ -436,32 +276,32 @@ void BasicFileChooserUI::installIcons($JFileChooser* fc) {
 
 void BasicFileChooserUI::installStrings($JFileChooser* fc) {
 	$var($Locale, l, $nc(fc)->getLocale());
-	$set(this, newFolderErrorText, $UIManager::getString($of("FileChooser.newFolderErrorText"_s), l));
-	$set(this, newFolderErrorSeparator, $UIManager::getString($of("FileChooser.newFolderErrorSeparator"_s), l));
-	$set(this, newFolderParentDoesntExistTitleText, $UIManager::getString($of("FileChooser.newFolderParentDoesntExistTitleText"_s), l));
-	$set(this, newFolderParentDoesntExistText, $UIManager::getString($of("FileChooser.newFolderParentDoesntExistText"_s), l));
-	$set(this, fileDescriptionText, $UIManager::getString($of("FileChooser.fileDescriptionText"_s), l));
-	$set(this, directoryDescriptionText, $UIManager::getString($of("FileChooser.directoryDescriptionText"_s), l));
-	$set(this, saveButtonText, $UIManager::getString($of("FileChooser.saveButtonText"_s), l));
-	$set(this, openButtonText, $UIManager::getString($of("FileChooser.openButtonText"_s), l));
-	$set(this, saveDialogTitleText, $UIManager::getString($of("FileChooser.saveDialogTitleText"_s), l));
-	$set(this, openDialogTitleText, $UIManager::getString($of("FileChooser.openDialogTitleText"_s), l));
-	$set(this, cancelButtonText, $UIManager::getString($of("FileChooser.cancelButtonText"_s), l));
-	$set(this, updateButtonText, $UIManager::getString($of("FileChooser.updateButtonText"_s), l));
-	$set(this, helpButtonText, $UIManager::getString($of("FileChooser.helpButtonText"_s), l));
-	$set(this, directoryOpenButtonText, $UIManager::getString($of("FileChooser.directoryOpenButtonText"_s), l));
+	$set(this, newFolderErrorText, $UIManager::getString("FileChooser.newFolderErrorText"_s, l));
+	$set(this, newFolderErrorSeparator, $UIManager::getString("FileChooser.newFolderErrorSeparator"_s, l));
+	$set(this, newFolderParentDoesntExistTitleText, $UIManager::getString("FileChooser.newFolderParentDoesntExistTitleText"_s, l));
+	$set(this, newFolderParentDoesntExistText, $UIManager::getString("FileChooser.newFolderParentDoesntExistText"_s, l));
+	$set(this, fileDescriptionText, $UIManager::getString("FileChooser.fileDescriptionText"_s, l));
+	$set(this, directoryDescriptionText, $UIManager::getString("FileChooser.directoryDescriptionText"_s, l));
+	$set(this, saveButtonText, $UIManager::getString("FileChooser.saveButtonText"_s, l));
+	$set(this, openButtonText, $UIManager::getString("FileChooser.openButtonText"_s, l));
+	$set(this, saveDialogTitleText, $UIManager::getString("FileChooser.saveDialogTitleText"_s, l));
+	$set(this, openDialogTitleText, $UIManager::getString("FileChooser.openDialogTitleText"_s, l));
+	$set(this, cancelButtonText, $UIManager::getString("FileChooser.cancelButtonText"_s, l));
+	$set(this, updateButtonText, $UIManager::getString("FileChooser.updateButtonText"_s, l));
+	$set(this, helpButtonText, $UIManager::getString("FileChooser.helpButtonText"_s, l));
+	$set(this, directoryOpenButtonText, $UIManager::getString("FileChooser.directoryOpenButtonText"_s, l));
 	this->saveButtonMnemonic = getMnemonic("FileChooser.saveButtonMnemonic"_s, l);
 	this->openButtonMnemonic = getMnemonic("FileChooser.openButtonMnemonic"_s, l);
 	this->cancelButtonMnemonic = getMnemonic("FileChooser.cancelButtonMnemonic"_s, l);
 	this->updateButtonMnemonic = getMnemonic("FileChooser.updateButtonMnemonic"_s, l);
 	this->helpButtonMnemonic = getMnemonic("FileChooser.helpButtonMnemonic"_s, l);
 	this->directoryOpenButtonMnemonic = getMnemonic("FileChooser.directoryOpenButtonMnemonic"_s, l);
-	$set(this, saveButtonToolTipText, $UIManager::getString($of("FileChooser.saveButtonToolTipText"_s), l));
-	$set(this, openButtonToolTipText, $UIManager::getString($of("FileChooser.openButtonToolTipText"_s), l));
-	$set(this, cancelButtonToolTipText, $UIManager::getString($of("FileChooser.cancelButtonToolTipText"_s), l));
-	$set(this, updateButtonToolTipText, $UIManager::getString($of("FileChooser.updateButtonToolTipText"_s), l));
-	$set(this, helpButtonToolTipText, $UIManager::getString($of("FileChooser.helpButtonToolTipText"_s), l));
-	$set(this, directoryOpenButtonToolTipText, $UIManager::getString($of("FileChooser.directoryOpenButtonToolTipText"_s), l));
+	$set(this, saveButtonToolTipText, $UIManager::getString("FileChooser.saveButtonToolTipText"_s, l));
+	$set(this, openButtonToolTipText, $UIManager::getString("FileChooser.openButtonToolTipText"_s, l));
+	$set(this, cancelButtonToolTipText, $UIManager::getString("FileChooser.cancelButtonToolTipText"_s, l));
+	$set(this, updateButtonToolTipText, $UIManager::getString("FileChooser.updateButtonToolTipText"_s, l));
+	$set(this, helpButtonToolTipText, $UIManager::getString("FileChooser.helpButtonToolTipText"_s, l));
+	$set(this, directoryOpenButtonToolTipText, $UIManager::getString("FileChooser.directoryOpenButtonToolTipText"_s, l));
 }
 
 void BasicFileChooserUI::uninstallDefaults($JFileChooser* fc) {
@@ -503,7 +343,7 @@ void BasicFileChooserUI::uninstallStrings($JFileChooser* fc) {
 
 void BasicFileChooserUI::createModel() {
 	if (this->model != nullptr) {
-		$nc(this->model)->invalidateFileCache();
+		this->model->invalidateFileCache();
 	}
 	$set(this, model, $new($BasicDirectoryModel, $(getFileChooser())));
 }
@@ -601,7 +441,7 @@ void BasicFileChooserUI::setDirectory($File* f) {
 }
 
 int32_t BasicFileChooserUI::getMnemonic($String* key, $Locale* l) {
-	return $SwingUtilities2::getUIDefaultsInt($of(key), l);
+	return $SwingUtilities2::getUIDefaultsInt(key, l);
 }
 
 $FileFilter* BasicFileChooserUI::getAcceptAllFileFilter($JFileChooser* fc) {
@@ -655,7 +495,7 @@ $Action* BasicFileChooserUI::getNewFolderAction() {
 	if (this->newFolderAction == nullptr) {
 		$set(this, newFolderAction, $new($BasicFileChooserUI$NewFolderAction, this));
 		if (this->readOnly) {
-			$nc(this->newFolderAction)->setEnabled(false);
+			this->newFolderAction->setEnabled(false);
 		}
 	}
 	return this->newFolderAction;
@@ -682,11 +522,11 @@ $Action* BasicFileChooserUI::getUpdateAction() {
 }
 
 void BasicFileChooserUI::resetGlobFilter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->actualFileFilter != nullptr) {
 		$var($JFileChooser, chooser, getFileChooser());
 		$var($FileFilter, currentFilter, $nc(chooser)->getFileFilter());
-		if (currentFilter != nullptr && $of(currentFilter)->equals(this->globFilter)) {
+		if (currentFilter != nullptr && currentFilter->equals(this->globFilter)) {
 			chooser->setFileFilter(this->actualFileFilter);
 			chooser->removeChoosableFileFilter(this->globFilter);
 		}
@@ -699,24 +539,24 @@ bool BasicFileChooserUI::isGlobPattern($String* filename) {
 	$init($File);
 	bool var$1 = $File::separatorChar == u'\\';
 	if (var$1) {
-		bool var$2 = $nc(filename)->indexOf((int32_t)u'*') >= 0;
-		var$1 = (var$2 || $nc(filename)->indexOf((int32_t)u'?') >= 0);
+		bool var$2 = $nc(filename)->indexOf(u'*') >= 0;
+		var$1 = var$2 || filename->indexOf(u'?') >= 0;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (!var$0) {
 		bool var$3 = $File::separatorChar == u'/';
 		if (var$3) {
-			bool var$5 = $nc(filename)->indexOf((int32_t)u'*') >= 0;
-			bool var$4 = var$5 || $nc(filename)->indexOf((int32_t)u'?') >= 0;
-			var$3 = (var$4 || $nc(filename)->indexOf((int32_t)u'[') >= 0);
+			bool var$5 = $nc(filename)->indexOf(u'*') >= 0;
+			bool var$4 = var$5 || filename->indexOf(u'?') >= 0;
+			var$3 = var$4 || filename->indexOf(u'[') >= 0;
 		}
-		var$0 = (var$3);
+		var$0 = var$3;
 	}
 	return (var$0);
 }
 
 void BasicFileChooserUI::changeDirectory($File* dir$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, dir, dir$renamed);
 	$var($JFileChooser, fc, getFileChooser());
 	if (dir != nullptr && $FilePane::usesShellFolder(fc)) {
@@ -740,12 +580,12 @@ void BasicFileChooserUI::changeDirectory($File* dir$renamed) {
 	}
 	$nc(fc)->setCurrentDirectory(dir);
 	bool var$0 = fc->getFileSelectionMode() == $JFileChooser::FILES_AND_DIRECTORIES;
-	if (var$0 && $nc($(fc->getFileSystemView()))->isFileSystem(dir)) {
+	if (var$0 && $$nc(fc->getFileSystemView())->isFileSystem(dir)) {
 		setFileName($($nc(dir)->getAbsolutePath()));
 	}
 }
 
-void clinit$BasicFileChooserUI($Class* class$) {
+void BasicFileChooserUI::clinit$($Class* clazz) {
 	$assignStatic(BasicFileChooserUI::defaultTransferHandler, $new($BasicFileChooserUI$FileTransferHandler));
 }
 
@@ -753,7 +593,157 @@ BasicFileChooserUI::BasicFileChooserUI() {
 }
 
 $Class* BasicFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(BasicFileChooserUI, name, initialize, &_BasicFileChooserUI_ClassInfo_, clinit$BasicFileChooserUI, allocate$BasicFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"directoryIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryIcon)},
+		{"fileIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, fileIcon)},
+		{"computerIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, computerIcon)},
+		{"hardDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, hardDriveIcon)},
+		{"floppyDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, floppyDriveIcon)},
+		{"newFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, newFolderIcon)},
+		{"upFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, upFolderIcon)},
+		{"homeFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, homeFolderIcon)},
+		{"listViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, listViewIcon)},
+		{"detailsViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, detailsViewIcon)},
+		{"viewMenuIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicFileChooserUI, viewMenuIcon)},
+		{"saveButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, saveButtonMnemonic)},
+		{"openButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, openButtonMnemonic)},
+		{"cancelButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, cancelButtonMnemonic)},
+		{"updateButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, updateButtonMnemonic)},
+		{"helpButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, helpButtonMnemonic)},
+		{"directoryOpenButtonMnemonic", "I", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryOpenButtonMnemonic)},
+		{"saveButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, saveButtonText)},
+		{"openButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, openButtonText)},
+		{"cancelButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, cancelButtonText)},
+		{"updateButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, updateButtonText)},
+		{"helpButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, helpButtonText)},
+		{"directoryOpenButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryOpenButtonText)},
+		{"openDialogTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, openDialogTitleText)},
+		{"saveDialogTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, saveDialogTitleText)},
+		{"saveButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, saveButtonToolTipText)},
+		{"openButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, openButtonToolTipText)},
+		{"cancelButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, cancelButtonToolTipText)},
+		{"updateButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, updateButtonToolTipText)},
+		{"helpButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, helpButtonToolTipText)},
+		{"directoryOpenButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicFileChooserUI, directoryOpenButtonToolTipText)},
+		{"approveSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, approveSelectionAction)},
+		{"cancelSelectionAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, cancelSelectionAction)},
+		{"updateAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, updateAction)},
+		{"newFolderAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderAction)},
+		{"goHomeAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, goHomeAction)},
+		{"changeToParentDirectoryAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(BasicFileChooserUI, changeToParentDirectoryAction)},
+		{"newFolderErrorSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderErrorSeparator)},
+		{"newFolderErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderErrorText)},
+		{"newFolderParentDoesntExistTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderParentDoesntExistTitleText)},
+		{"newFolderParentDoesntExistText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, newFolderParentDoesntExistText)},
+		{"fileDescriptionText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, fileDescriptionText)},
+		{"directoryDescriptionText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicFileChooserUI, directoryDescriptionText)},
+		{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE, $field(BasicFileChooserUI, filechooser)},
+		{"directorySelected", "Z", nullptr, $PRIVATE, $field(BasicFileChooserUI, directorySelected)},
+		{"directory", "Ljava/io/File;", nullptr, $PRIVATE, $field(BasicFileChooserUI, directory)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicFileChooserUI, propertyChangeListener)},
+		{"acceptAllFileFilter", "Ljavax/swing/plaf/basic/BasicFileChooserUI$AcceptAllFileFilter;", nullptr, $PRIVATE, $field(BasicFileChooserUI, acceptAllFileFilter)},
+		{"actualFileFilter", "Ljavax/swing/filechooser/FileFilter;", nullptr, $PRIVATE, $field(BasicFileChooserUI, actualFileFilter)},
+		{"globFilter", "Ljavax/swing/plaf/basic/BasicFileChooserUI$GlobFilter;", nullptr, $PRIVATE, $field(BasicFileChooserUI, globFilter)},
+		{"model", "Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PRIVATE, $field(BasicFileChooserUI, model)},
+		{"fileView", "Ljavax/swing/plaf/basic/BasicFileChooserUI$BasicFileView;", nullptr, $PRIVATE, $field(BasicFileChooserUI, fileView)},
+		{"usesSingleFilePane", "Z", nullptr, $PRIVATE, $field(BasicFileChooserUI, usesSingleFilePane)},
+		{"readOnly", "Z", nullptr, $PRIVATE, $field(BasicFileChooserUI, readOnly)},
+		{"accessoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(BasicFileChooserUI, accessoryPanel)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicFileChooserUI$Handler;", nullptr, $PRIVATE, $field(BasicFileChooserUI, handler)},
+		{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicFileChooserUI, defaultTransferHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(BasicFileChooserUI, init$, void, $JFileChooser*)},
+		{"changeDirectory", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(BasicFileChooserUI, changeDirectory, void, $File*)},
+		{"clearIconCache", "()V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, clearIconCache, void)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicFileChooserUI, createActionMap, $ActionMap*)},
+		{"createDoubleClickListener", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JFileChooser;Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PROTECTED, $virtualMethod(BasicFileChooserUI, createDoubleClickListener, $MouseListener*, $JFileChooser*, $JList*)},
+		{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
+		{"createModel", "()V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, createModel, void)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"getAcceptAllFileFilter", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getAcceptAllFileFilter, $FileFilter*, $JFileChooser*)},
+		{"getAccessoryPanel", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getAccessoryPanel, $JPanel*)},
+		{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicFileChooserUI, getActionMap, $ActionMap*)},
+		{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
+		{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
+		{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveButtonText, $String*, $JFileChooser*)},
+		{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveButtonToolTipText, $String*, $JFileChooser*)},
+		{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getApproveSelectionAction, $Action*)},
+		{"getCancelSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getCancelSelectionAction, $Action*)},
+		{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getChangeToParentDirectoryAction, $Action*)},
+		{"getDefaultButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getDefaultButton, $JButton*, $JFileChooser*)},
+		{"getDialogTitle", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getDialogTitle, $String*, $JFileChooser*)},
+		{"getDirectory", "()Ljava/io/File;", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, getDirectory, $File*)},
+		{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getDirectoryName, $String*)},
+		{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getFileChooser, $JFileChooser*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getFileName, $String*)},
+		{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
+		{"getGoHomeAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getGoHomeAction, $Action*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicFileChooserUI$Handler;", nullptr, $PRIVATE, $method(BasicFileChooserUI, getHandler, $BasicFileChooserUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicFileChooserUI, getInputMap, $InputMap*, int32_t)},
+		{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(BasicFileChooserUI, getMnemonic, int32_t, $String*, $Locale*)},
+		{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getModel, $BasicDirectoryModel*)},
+		{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getNewFolderAction, $Action*)},
+		{"getUpdateAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, getUpdateAction, $Action*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, installComponents, void, $JFileChooser*)},
+		{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installDefaults, void, $JFileChooser*)},
+		{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installIcons, void, $JFileChooser*)},
+		{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installListeners, void, $JFileChooser*)},
+		{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, installStrings, void, $JFileChooser*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, installUI, void, $JComponent*)},
+		{"isDirectorySelected", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, isDirectorySelected, bool)},
+		{"isGlobPattern", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicFileChooserUI, isGlobPattern, bool, $String*)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"resetGlobFilter", "()V", nullptr, $PRIVATE, $method(BasicFileChooserUI, resetGlobFilter, void)},
+		{"setDirectory", "(Ljava/io/File;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, setDirectory, void, $File*)},
+		{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, setDirectoryName, void, $String*)},
+		{"setDirectorySelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, setDirectorySelected, void, bool)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, setFileName, void, $String*)},
+		{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, uninstallComponents, void, $JFileChooser*)},
+		{"uninstallDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallDefaults, void, $JFileChooser*)},
+		{"uninstallIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallIcons, void, $JFileChooser*)},
+		{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallListeners, void, $JFileChooser*)},
+		{"uninstallStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(BasicFileChooserUI, uninstallStrings, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicFileChooserUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler", "javax.swing.plaf.basic.BasicFileChooserUI", "FileTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView", "javax.swing.plaf.basic.BasicFileChooserUI", "BasicFileView", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter", "javax.swing.plaf.basic.BasicFileChooserUI", "AcceptAllFileFilter", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$UpdateAction", "javax.swing.plaf.basic.BasicFileChooserUI", "UpdateAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$CancelSelectionAction", "javax.swing.plaf.basic.BasicFileChooserUI", "CancelSelectionAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$GlobFilter", "javax.swing.plaf.basic.BasicFileChooserUI", "GlobFilter", 0},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ApproveSelectionAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction", "javax.swing.plaf.basic.BasicFileChooserUI", "ChangeToParentDirectoryAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$GoHomeAction", "javax.swing.plaf.basic.BasicFileChooserUI", "GoHomeAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction", "javax.swing.plaf.basic.BasicFileChooserUI", "NewFolderAction", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$SelectionListener", "javax.swing.plaf.basic.BasicFileChooserUI", "SelectionListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener", "javax.swing.plaf.basic.BasicFileChooserUI", "DoubleClickListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$Handler", "javax.swing.plaf.basic.BasicFileChooserUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFileChooserUI",
+		"javax.swing.plaf.FileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler,javax.swing.plaf.basic.BasicFileChooserUI$FileTransferHandler$FileTransferable,javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView,javax.swing.plaf.basic.BasicFileChooserUI$AcceptAllFileFilter,javax.swing.plaf.basic.BasicFileChooserUI$UpdateAction,javax.swing.plaf.basic.BasicFileChooserUI$CancelSelectionAction,javax.swing.plaf.basic.BasicFileChooserUI$GlobFilter,javax.swing.plaf.basic.BasicFileChooserUI$ApproveSelectionAction,javax.swing.plaf.basic.BasicFileChooserUI$ChangeToParentDirectoryAction,javax.swing.plaf.basic.BasicFileChooserUI$GoHomeAction,javax.swing.plaf.basic.BasicFileChooserUI$NewFolderAction,javax.swing.plaf.basic.BasicFileChooserUI$SelectionListener,javax.swing.plaf.basic.BasicFileChooserUI$DoubleClickListener,javax.swing.plaf.basic.BasicFileChooserUI$Handler,javax.swing.plaf.basic.BasicFileChooserUI$1"
+	};
+	$loadClass(BasicFileChooserUI, name, initialize, &classInfo$$, BasicFileChooserUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicFileChooserUI);
+	});
 	return class$;
 }
 

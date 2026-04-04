@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassWriter$StringOverflow.h>
-
 #include <com/sun/tools/javac/jvm/ClassWriter.h>
 #include <jcpp.h>
 
@@ -14,42 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _ClassWriter$StringOverflow_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassWriter$StringOverflow, serialVersionUID)},
-	{"value", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(ClassWriter$StringOverflow, value)},
-	{}
-};
-
-$MethodInfo _ClassWriter$StringOverflow_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassWriter$StringOverflow, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _ClassWriter$StringOverflow_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassWriter$StringOverflow", "com.sun.tools.javac.jvm.ClassWriter", "StringOverflow", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassWriter$StringOverflow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassWriter$StringOverflow",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ClassWriter$StringOverflow_FieldInfo_,
-	_ClassWriter$StringOverflow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassWriter$StringOverflow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassWriter"
-};
-
-$Object* allocate$ClassWriter$StringOverflow($Class* clazz) {
-	return $of($alloc(ClassWriter$StringOverflow));
-}
 
 void ClassWriter$StringOverflow::init$($String* s) {
 	$RuntimeException::init$();
@@ -67,7 +30,37 @@ void ClassWriter$StringOverflow::throw$() {
 }
 
 $Class* ClassWriter$StringOverflow::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$StringOverflow, name, initialize, &_ClassWriter$StringOverflow_ClassInfo_, allocate$ClassWriter$StringOverflow);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassWriter$StringOverflow, serialVersionUID)},
+		{"value", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(ClassWriter$StringOverflow, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassWriter$StringOverflow, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassWriter$StringOverflow", "com.sun.tools.javac.jvm.ClassWriter", "StringOverflow", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassWriter$StringOverflow",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassWriter"
+	};
+	$loadClass(ClassWriter$StringOverflow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$StringOverflow);
+	});
 	return class$;
 }
 

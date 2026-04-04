@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceSubTreeData.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceSubTreeData$DelayedNodeIterator.h>
 #include <java/util/Iterator.h>
 #include <org/w3c/dom/Node.h>
@@ -23,44 +22,6 @@ namespace com {
 							namespace signature {
 								namespace reference {
 
-$FieldInfo _ReferenceSubTreeData_FieldInfo_[] = {
-	{"excludeComments", "Z", nullptr, $PRIVATE, $field(ReferenceSubTreeData, excludeComments$)},
-	{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(ReferenceSubTreeData, root)},
-	{}
-};
-
-$MethodInfo _ReferenceSubTreeData_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(ReferenceSubTreeData, init$, void, $Node*, bool)},
-	{"excludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData, excludeComments, bool)},
-	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData, getRoot, $Node*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(ReferenceSubTreeData, iterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _ReferenceSubTreeData_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator", "com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData", "DelayedNodeIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceSubTreeData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceNodeSetData",
-	_ReferenceSubTreeData_FieldInfo_,
-	_ReferenceSubTreeData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReferenceSubTreeData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator"
-};
-
-$Object* allocate$ReferenceSubTreeData($Class* clazz) {
-	return $of($alloc(ReferenceSubTreeData));
-}
-
 void ReferenceSubTreeData::init$($Node* root, bool excludeComments) {
 	$set(this, root, root);
 	this->excludeComments$ = excludeComments;
@@ -82,7 +43,39 @@ ReferenceSubTreeData::ReferenceSubTreeData() {
 }
 
 $Class* ReferenceSubTreeData::load$($String* name, bool initialize) {
-	$loadClass(ReferenceSubTreeData, name, initialize, &_ReferenceSubTreeData_ClassInfo_, allocate$ReferenceSubTreeData);
+	$FieldInfo fieldInfos$$[] = {
+		{"excludeComments", "Z", nullptr, $PRIVATE, $field(ReferenceSubTreeData, excludeComments$)},
+		{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(ReferenceSubTreeData, root)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(ReferenceSubTreeData, init$, void, $Node*, bool)},
+		{"excludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData, excludeComments, bool)},
+		{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData, getRoot, $Node*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(ReferenceSubTreeData, iterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator", "com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData", "DelayedNodeIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceNodeSetData",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator"
+	};
+	$loadClass(ReferenceSubTreeData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceSubTreeData);
+	});
 	return class$;
 }
 

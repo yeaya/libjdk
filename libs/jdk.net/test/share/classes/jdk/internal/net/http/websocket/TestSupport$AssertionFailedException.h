@@ -26,7 +26,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	TestSupport$AssertionFailedException(const TestSupport$AssertionFailedException& e);
 	virtual void throw$() override;
-	inline TestSupport$AssertionFailedException* operator ->() {
+	inline TestSupport$AssertionFailedException* operator ->() const {
+		return (TestSupport$AssertionFailedException*)throwing$;
+	}
+	inline operator TestSupport$AssertionFailedException*() const {
 		return (TestSupport$AssertionFailedException*)throwing$;
 	}
 };

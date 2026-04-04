@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DRTTSurfaceToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DRTTSurfaceToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DRTTSurfaceToSurfaceScale, init$, void)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DRTTSurfaceToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _D3DRTTSurfaceToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DRTTSurfaceToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	nullptr,
-	_D3DRTTSurfaceToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$D3DRTTSurfaceToSurfaceScale($Class* clazz) {
-	return $of($alloc(D3DRTTSurfaceToSurfaceScale));
-}
-
 void D3DRTTSurfaceToSurfaceScale::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ D3DRTTSurfaceToSurfaceScale::D3DRTTSurfaceToSurfaceScale() {
 }
 
 $Class* D3DRTTSurfaceToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(D3DRTTSurfaceToSurfaceScale, name, initialize, &_D3DRTTSurfaceToSurfaceScale_ClassInfo_, allocate$D3DRTTSurfaceToSurfaceScale);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DRTTSurfaceToSurfaceScale, init$, void)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DRTTSurfaceToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DRTTSurfaceToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DRTTSurfaceToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DRTTSurfaceToSurfaceScale);
+	});
 	return class$;
 }
 

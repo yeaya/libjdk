@@ -88,6 +88,7 @@ class XRSurfaceData : public ::sun::java2d::x11::XSurfaceData {
 public:
 	XRSurfaceData();
 	using ::sun::java2d::x11::XSurfaceData::getSurfaceType;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11ComponentPeer* peer, ::sun::java2d::xr::XRGraphicsConfig* gc, ::sun::java2d::loops::SurfaceType* sType, ::java::awt::image::ColorModel* cm, int32_t depth, int32_t transparency);
 	void init$(::sun::java2d::xr::XRBackend* renderQueue);
 	virtual void XRInitSurface(int32_t depth, int32_t width, int32_t height, int64_t drawable, int32_t pictFormat);

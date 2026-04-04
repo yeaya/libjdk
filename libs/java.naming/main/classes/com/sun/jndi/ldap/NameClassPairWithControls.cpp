@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/NameClassPairWithControls.h>
-
 #include <javax/naming/NameClassPair.h>
 #include <javax/naming/ldap/Control.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _NameClassPairWithControls_FieldInfo_[] = {
-	{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(NameClassPairWithControls, controls)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameClassPairWithControls, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NameClassPairWithControls_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(NameClassPairWithControls, init$, void, $String*, $String*, $ControlArray*)},
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(NameClassPairWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _NameClassPairWithControls_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.NameClassPairWithControls",
-	"javax.naming.NameClassPair",
-	"javax.naming.ldap.HasControls",
-	_NameClassPairWithControls_FieldInfo_,
-	_NameClassPairWithControls_MethodInfo_
-};
-
-$Object* allocate$NameClassPairWithControls($Class* clazz) {
-	return $of($alloc(NameClassPairWithControls));
-}
 
 $String* NameClassPairWithControls::toString() {
 	 return this->$NameClassPair::toString();
@@ -78,7 +47,32 @@ NameClassPairWithControls::NameClassPairWithControls() {
 }
 
 $Class* NameClassPairWithControls::load$($String* name, bool initialize) {
-	$loadClass(NameClassPairWithControls, name, initialize, &_NameClassPairWithControls_ClassInfo_, allocate$NameClassPairWithControls);
+	$FieldInfo fieldInfos$$[] = {
+		{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(NameClassPairWithControls, controls)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NameClassPairWithControls, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(NameClassPairWithControls, init$, void, $String*, $String*, $ControlArray*)},
+		{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(NameClassPairWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.NameClassPairWithControls",
+		"javax.naming.NameClassPair",
+		"javax.naming.ldap.HasControls",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameClassPairWithControls, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NameClassPairWithControls));
+	});
 	return class$;
 }
 

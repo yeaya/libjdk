@@ -28,6 +28,7 @@ class PropertyEditorFinder : public ::com::sun::beans::finder::InstanceFinder {
 	$class(PropertyEditorFinder, 0, ::com::sun::beans::finder::InstanceFinder)
 public:
 	PropertyEditorFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* find($Class* type) override;
 	virtual $StringArray* getPackages() override;

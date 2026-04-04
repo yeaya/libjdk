@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzer.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -20,7 +19,6 @@
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$RedundantLocalVarTypeAnalyzerBase = ::com::sun::tools::javac::comp::Analyzer$RedundantLocalVarTypeAnalyzerBase;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
@@ -35,49 +33,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Analyzer$RedundantLocalVarTypeAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RedundantLocalVarTypeAnalyzer, this$0)},
-	{}
-};
-
-$MethodInfo _Analyzer$RedundantLocalVarTypeAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantLocalVarTypeAnalyzer, init$, void, $Analyzer*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, match, bool, $JCTree$JCVariableDecl*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, match, bool, $JCTree*)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, process, void, $JCTree$JCVariableDecl*, $JCTree$JCVariableDecl*, bool)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, rewrite, $List*, $JCTree$JCVariableDecl*)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, rewrite, $List*, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$RedundantLocalVarTypeAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzer", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzerBase", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCVariableDecl", "com.sun.tools.javac.tree.JCTree", "JCVariableDecl", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Analyzer$RedundantLocalVarTypeAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzer",
-	"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase",
-	nullptr,
-	_Analyzer$RedundantLocalVarTypeAnalyzer_FieldInfo_,
-	_Analyzer$RedundantLocalVarTypeAnalyzer_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerBase<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;",
-	nullptr,
-	_Analyzer$RedundantLocalVarTypeAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$RedundantLocalVarTypeAnalyzer($Class* clazz) {
-	return $of($alloc(Analyzer$RedundantLocalVarTypeAnalyzer));
-}
 
 void Analyzer$RedundantLocalVarTypeAnalyzer::init$($Analyzer* this$0) {
 	$set(this, this$0, this$0);
@@ -115,7 +70,44 @@ Analyzer$RedundantLocalVarTypeAnalyzer::Analyzer$RedundantLocalVarTypeAnalyzer()
 }
 
 $Class* Analyzer$RedundantLocalVarTypeAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$RedundantLocalVarTypeAnalyzer, name, initialize, &_Analyzer$RedundantLocalVarTypeAnalyzer_ClassInfo_, allocate$Analyzer$RedundantLocalVarTypeAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$RedundantLocalVarTypeAnalyzer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantLocalVarTypeAnalyzer, init$, void, $Analyzer*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, match, bool, $JCTree$JCVariableDecl*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, match, bool, $JCTree*)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, process, void, $JCTree$JCVariableDecl*, $JCTree$JCVariableDecl*, bool)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, rewrite, $List*, $JCTree$JCVariableDecl*)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzer, rewrite, $List*, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzer", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase", "com.sun.tools.javac.comp.Analyzer", "RedundantLocalVarTypeAnalyzerBase", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCVariableDecl", "com.sun.tools.javac.tree.JCTree", "JCVariableDecl", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzer",
+		"com.sun.tools.javac.comp.Analyzer$RedundantLocalVarTypeAnalyzerBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerBase<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$RedundantLocalVarTypeAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$RedundantLocalVarTypeAnalyzer);
+	});
 	return class$;
 }
 

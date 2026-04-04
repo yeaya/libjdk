@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$IconElementInfo$IconAccessibleContext.h>
-
 #include <javax/accessibility/AccessibleIcon.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JEditorPane.h>
@@ -21,9 +20,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AccessibleIcon = ::javax::accessibility::AccessibleIcon;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JEditorPane = ::javax::swing::JEditorPane;
 using $AccessibleHTML$ElementInfo = ::javax::swing::text::html::AccessibleHTML$ElementInfo;
 using $AccessibleHTML$HTMLAccessibleContext = ::javax::swing::text::html::AccessibleHTML$HTMLAccessibleContext;
 using $AccessibleHTML$IconElementInfo = ::javax::swing::text::html::AccessibleHTML$IconElementInfo;
@@ -34,56 +31,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _AccessibleHTML$IconElementInfo$IconAccessibleContext_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/AccessibleHTML$IconElementInfo;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$IconElementInfo$IconAccessibleContext, this$1)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$IconElementInfo$IconAccessibleContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$IconElementInfo;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PUBLIC, $method(AccessibleHTML$IconElementInfo$IconAccessibleContext, init$, void, $AccessibleHTML$IconElementInfo*, $AccessibleHTML$ElementInfo*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleDescription, $String*)},
-	{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIcon, $AccessibleIconArray*)},
-	{"getAccessibleIconDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIconDescription, $String*)},
-	{"getAccessibleIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIconHeight, int32_t)},
-	{"getAccessibleIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIconWidth, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleName, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleRole, $AccessibleRole*)},
-	{"setAccessibleIconDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, setAccessibleIconDescription, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$IconElementInfo$IconAccessibleContext_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$IconElementInfo", "javax.swing.text.html.AccessibleHTML", "IconElementInfo", $PRIVATE},
-	{"javax.swing.text.html.AccessibleHTML$IconElementInfo$IconAccessibleContext", "javax.swing.text.html.AccessibleHTML$IconElementInfo", "IconAccessibleContext", $PROTECTED},
-	{"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext", "javax.swing.text.html.AccessibleHTML", "HTMLAccessibleContext", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$IconElementInfo$IconAccessibleContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.AccessibleHTML$IconElementInfo$IconAccessibleContext",
-	"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext",
-	"javax.accessibility.AccessibleIcon",
-	_AccessibleHTML$IconElementInfo$IconAccessibleContext_FieldInfo_,
-	_AccessibleHTML$IconElementInfo$IconAccessibleContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$IconElementInfo$IconAccessibleContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$IconElementInfo$IconAccessibleContext($Class* clazz) {
-	return $of($alloc(AccessibleHTML$IconElementInfo$IconAccessibleContext));
-}
 
 int32_t AccessibleHTML$IconElementInfo$IconAccessibleContext::hashCode() {
 	 return this->$AccessibleHTML$HTMLAccessibleContext::hashCode();
@@ -130,7 +77,7 @@ $AccessibleIconArray* AccessibleHTML$IconElementInfo$IconAccessibleContext::getA
 }
 
 $String* AccessibleHTML$IconElementInfo$IconAccessibleContext::getAccessibleIconDescription() {
-	return $nc(($cast($ImageView, $(this->this$1->getView()))))->getAltText();
+	return $$sure($ImageView, this->this$1->getView())->getAltText();
 }
 
 void AccessibleHTML$IconElementInfo$IconAccessibleContext::setAccessibleIconDescription($String* description) {
@@ -156,7 +103,51 @@ AccessibleHTML$IconElementInfo$IconAccessibleContext::AccessibleHTML$IconElement
 }
 
 $Class* AccessibleHTML$IconElementInfo$IconAccessibleContext::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$IconElementInfo$IconAccessibleContext, name, initialize, &_AccessibleHTML$IconElementInfo$IconAccessibleContext_ClassInfo_, allocate$AccessibleHTML$IconElementInfo$IconAccessibleContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/AccessibleHTML$IconElementInfo;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$IconElementInfo$IconAccessibleContext, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$IconElementInfo;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PUBLIC, $method(AccessibleHTML$IconElementInfo$IconAccessibleContext, init$, void, $AccessibleHTML$IconElementInfo*, $AccessibleHTML$ElementInfo*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleDescription, $String*)},
+		{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIcon, $AccessibleIconArray*)},
+		{"getAccessibleIconDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIconDescription, $String*)},
+		{"getAccessibleIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIconHeight, int32_t)},
+		{"getAccessibleIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleIconWidth, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleName, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, getAccessibleRole, $AccessibleRole*)},
+		{"setAccessibleIconDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$IconElementInfo$IconAccessibleContext, setAccessibleIconDescription, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$IconElementInfo", "javax.swing.text.html.AccessibleHTML", "IconElementInfo", $PRIVATE},
+		{"javax.swing.text.html.AccessibleHTML$IconElementInfo$IconAccessibleContext", "javax.swing.text.html.AccessibleHTML$IconElementInfo", "IconAccessibleContext", $PROTECTED},
+		{"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext", "javax.swing.text.html.AccessibleHTML", "HTMLAccessibleContext", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.AccessibleHTML$IconElementInfo$IconAccessibleContext",
+		"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext",
+		"javax.accessibility.AccessibleIcon",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$IconElementInfo$IconAccessibleContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AccessibleHTML$IconElementInfo$IconAccessibleContext));
+	});
 	return class$;
 }
 

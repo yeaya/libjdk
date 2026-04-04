@@ -1,5 +1,4 @@
 #include <java/awt/desktop/OpenURIHandler.h>
-
 #include <java/awt/desktop/OpenURIEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _OpenURIHandler_MethodInfo_[] = {
-	{"openURI", "(Ljava/awt/desktop/OpenURIEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenURIHandler, openURI, void, $OpenURIEvent*)},
-	{}
-};
-
-$ClassInfo _OpenURIHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.OpenURIHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_OpenURIHandler_MethodInfo_
-};
-
-$Object* allocate$OpenURIHandler($Class* clazz) {
-	return $of($alloc(OpenURIHandler));
-}
-
 $Class* OpenURIHandler::load$($String* name, bool initialize) {
-	$loadClass(OpenURIHandler, name, initialize, &_OpenURIHandler_ClassInfo_, allocate$OpenURIHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"openURI", "(Ljava/awt/desktop/OpenURIEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenURIHandler, openURI, void, $OpenURIEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.OpenURIHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OpenURIHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenURIHandler);
+	});
 	return class$;
 }
 

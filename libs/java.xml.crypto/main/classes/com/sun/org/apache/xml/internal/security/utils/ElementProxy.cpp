@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/EncryptionConstants.h>
@@ -54,71 +53,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _ElementProxy_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(ElementProxy, LOG)},
-	{"wrappedElement", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(ElementProxy, wrappedElement)},
-	{"baseURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ElementProxy, baseURI)},
-	{"wrappedDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(ElementProxy, wrappedDoc)},
-	{"prefixMappings", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(ElementProxy, prefixMappings)},
-	{}
-};
-
-$MethodInfo _ElementProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ElementProxy, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(ElementProxy, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ElementProxy, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addBase64Element", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addBase64Element, void, $bytes*, $String*)},
-	{"addBase64Text", "([B)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addBase64Text, void, $bytes*)},
-	{"addBigIntegerElement", "(Ljava/math/BigInteger;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addBigIntegerElement, void, $BigInteger*, $String*)},
-	{"addReturnToSelf", "()V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, addReturnToSelf, void)},
-	{"addText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addText, void, $String*)},
-	{"addTextElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addTextElement, void, $String*, $String*)},
-	{"appendOther", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, appendOther, void, $Element*, $Node*)},
-	{"appendSelf", "(Lcom/sun/org/apache/xml/internal/security/utils/ElementProxy;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, appendSelf, void, ElementProxy*)},
-	{"appendSelf", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, appendSelf, void, $Node*)},
-	{"createElementForFamily", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, createElementForFamily, $Element*, $Document*, $String*, $String*)},
-	{"createElementForFamilyLocal", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, createElementForFamilyLocal, $Element*, $String*, $String*)},
-	{"createText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, createText, $Text*, $String*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ElementProxy, getBaseLocalName, $String*)},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ElementProxy, getBaseNamespace, $String*)},
-	{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getBaseURI, $String*)},
-	{"getBigIntegerFromChildElement", "(Ljava/lang/String;Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getBigIntegerFromChildElement, $BigInteger*, $String*, $String*)},
-	{"getBytesFromTextChild", "()[B", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getBytesFromTextChild, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getDefaultPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, getDefaultPrefix, $String*, $String*)},
-	{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getDocument, $Document*)},
-	{"getElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $method(ElementProxy, getElement, $Element*)},
-	{"getElementPlusReturns", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $method(ElementProxy, getElementPlusReturns, $NodeList*)},
-	{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, getFirstChild, $Node*)},
-	{"getLocalAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, getLocalAttribute, $String*, $String*)},
-	{"getTextFromChildElement", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getTextFromChildElement, $String*, $String*, $String*)},
-	{"getTextFromTextChild", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getTextFromTextChild, $String*)},
-	{"guaranteeThatElementInCorrectSpace", "()V", nullptr, 0, $virtualMethod(ElementProxy, guaranteeThatElementInCorrectSpace, void), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"length", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ElementProxy, length, int32_t, $String*, $String*)},
-	{"registerDefaultPrefixes", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, registerDefaultPrefixes, void), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"setDefaultPrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, setDefaultPrefix, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"setDocument", "(Lorg/w3c/dom/Document;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setDocument, void, $Document*)},
-	{"setElement", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, setElement, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"setElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setElement, void, $Element*)},
-	{"setLocalAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setLocalAttribute, void, $String*, $String*)},
-	{"setLocalIdAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setLocalIdAttribute, void, $String*, $String*)},
-	{"setNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ElementProxy, setNamespacePrefix, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"setXPathNamespaceContext", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, setXPathNamespaceContext, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{}
-};
-
-$ClassInfo _ElementProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
-	"java.lang.Object",
-	nullptr,
-	_ElementProxy_FieldInfo_,
-	_ElementProxy_MethodInfo_
-};
-
-$Object* allocate$ElementProxy($Class* clazz) {
-	return $of($alloc(ElementProxy));
-}
-
 $Logger* ElementProxy::LOG = nullptr;
 $Map* ElementProxy::prefixMappings = nullptr;
 
@@ -126,7 +60,7 @@ void ElementProxy::init$() {
 }
 
 void ElementProxy::init$($Document* doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (doc == nullptr) {
 		$throwNew($RuntimeException, "Document is null"_s);
 	}
@@ -136,13 +70,13 @@ void ElementProxy::init$($Document* doc) {
 }
 
 void ElementProxy::init$($Element* element, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		$throwNew($XMLSecurityException, "ElementProxy.nullElement"_s);
 	}
 	$nc(ElementProxy::LOG)->debug("setElement(\"{}\", \"{}\")"_s, $$new($ObjectArray, {
-		$($of($nc(element)->getTagName())),
-		$of(baseURI)
+		$($nc(element)->getTagName()),
+		baseURI
 	}));
 	setElement(element);
 	$set(this, baseURI, baseURI);
@@ -150,7 +84,7 @@ void ElementProxy::init$($Element* element, $String* baseURI) {
 }
 
 $Element* ElementProxy::createElementForFamilyLocal($String* namespace$, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	$var($Element, result, nullptr);
 	if (namespace$ == nullptr) {
@@ -158,7 +92,7 @@ $Element* ElementProxy::createElementForFamilyLocal($String* namespace$, $String
 	} else {
 		$var($String, baseName, this->getBaseNamespace());
 		$var($String, prefix, ElementProxy::getDefaultPrefix(baseName));
-		if (prefix == nullptr || $nc(prefix)->length() == 0) {
+		if (prefix == nullptr || prefix->length() == 0) {
 			$assign(result, $nc(doc)->createElementNS(namespace$, localName));
 			$init($Constants);
 			$nc(result)->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, namespace$);
@@ -173,12 +107,12 @@ $Element* ElementProxy::createElementForFamilyLocal($String* namespace$, $String
 
 $Element* ElementProxy::createElementForFamily($Document* doc, $String* namespace$, $String* localName) {
 	$init(ElementProxy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, result, nullptr);
 	$var($String, prefix, ElementProxy::getDefaultPrefix(namespace$));
 	if (namespace$ == nullptr) {
 		$assign(result, $nc(doc)->createElementNS(nullptr, localName));
-	} else if (prefix == nullptr || $nc(prefix)->length() == 0) {
+	} else if (prefix == nullptr || prefix->length() == 0) {
 		$assign(result, $nc(doc)->createElementNS(namespace$, localName));
 		$init($Constants);
 		$nc(result)->setAttributeNS($Constants::NamespaceSpecNS, "xmlns"_s, namespace$);
@@ -191,13 +125,13 @@ $Element* ElementProxy::createElementForFamily($Document* doc, $String* namespac
 }
 
 void ElementProxy::setElement($Element* element, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		$throwNew($XMLSecurityException, "ElementProxy.nullElement"_s);
 	}
 	$nc(ElementProxy::LOG)->debug("setElement({}, \"{}\")"_s, $$new($ObjectArray, {
-		$($of($nc(element)->getTagName())),
-		$of(baseURI)
+		$($nc(element)->getTagName()),
+		baseURI
 	}));
 	setElement(element);
 	$set(this, baseURI, baseURI);
@@ -208,7 +142,7 @@ $Element* ElementProxy::getElement() {
 }
 
 $NodeList* ElementProxy::getElementPlusReturns() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HelperNodeList, nl, $new($HelperNodeList));
 	nl->appendChild($(createText("\n"_s)));
 	nl->appendChild($(getElement()));
@@ -217,12 +151,12 @@ $NodeList* ElementProxy::getElementPlusReturns() {
 }
 
 $Text* ElementProxy::createText($String* text) {
-	return $nc($(getDocument()))->createTextNode(text);
+	return $$nc(getDocument())->createTextNode(text);
 }
 
 $Document* ElementProxy::getDocument() {
 	if (this->wrappedDoc == nullptr) {
-		$set(this, wrappedDoc, $XMLUtils::getOwnerDocument(static_cast<$Node*>(this->wrappedElement)));
+		$set(this, wrappedDoc, $XMLUtils::getOwnerDocument(this->wrappedElement));
 	}
 	return this->wrappedDoc;
 }
@@ -232,23 +166,23 @@ $String* ElementProxy::getBaseURI() {
 }
 
 void ElementProxy::guaranteeThatElementInCorrectSpace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, expectedLocalName, this->getBaseLocalName());
 	$var($String, expectedNamespaceUri, this->getBaseNamespace());
-	$var($String, actualLocalName, $nc($(getElement()))->getLocalName());
-	$var($String, actualNamespaceUri, $nc($(getElement()))->getNamespaceURI());
+	$var($String, actualLocalName, $$nc(getElement())->getLocalName());
+	$var($String, actualNamespaceUri, $$nc(getElement())->getNamespaceURI());
 	bool var$0 = !$nc(expectedNamespaceUri)->equals(actualNamespaceUri);
 	if (var$0 && !$nc(expectedLocalName)->equals(actualLocalName)) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($$str({actualNamespaceUri, ":"_s, actualLocalName})),
-			$of($$str({expectedNamespaceUri, ":"_s, expectedLocalName}))
+			$$str({actualNamespaceUri, ":"_s, actualLocalName}),
+			$$str({expectedNamespaceUri, ":"_s, expectedLocalName})
 		}));
 		$throwNew($XMLSecurityException, "xml.WrongElement"_s, exArgs);
 	}
 }
 
 void ElementProxy::addBigIntegerElement($BigInteger* bi, $String* localname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bi != nullptr) {
 		$var($Element, e, $XMLUtils::createElementInSignatureSpace($(getDocument()), localname));
 		$var($bytes, bytes, $XMLUtils::getBytes(bi, bi->bitLength()));
@@ -256,7 +190,7 @@ void ElementProxy::addBigIntegerElement($BigInteger* bi, $String* localname) {
 		$var($Document, doc, $nc(e)->getOwnerDocument());
 		$var($Text, text, $nc(doc)->createTextNode(encodedInt));
 		e->appendChild(text);
-		appendSelf(static_cast<$Node*>(e));
+		appendSelf(e);
 		addReturnToSelf();
 	}
 }
@@ -272,29 +206,29 @@ void ElementProxy::addBase64Element($bytes* bytes, $String* localname) {
 }
 
 void ElementProxy::addTextElement($String* text, $String* localname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, e, $XMLUtils::createElementInSignatureSpace($(getDocument()), localname));
 	$var($Text, t, createText(text));
 	appendOther(e, t);
-	appendSelf(static_cast<$Node*>(e));
+	appendSelf(e);
 	addReturnToSelf();
 }
 
 void ElementProxy::addBase64Text($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bytes != nullptr) {
 		$var($Text, t, $XMLUtils::ignoreLineBreaks() ? createText($($XMLUtils::encodeToString(bytes))) : createText($$str({"\n"_s, $($XMLUtils::encodeToString(bytes)), "\n"_s})));
-		appendSelf(static_cast<$Node*>(t));
+		appendSelf(t);
 	}
 }
 
 void ElementProxy::appendSelf(ElementProxy* toAppend) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getElement()))->appendChild($($nc(toAppend)->getElement()));
+	$useLocalObjectStack();
+	$$nc(getElement())->appendChild($($nc(toAppend)->getElement()));
 }
 
 void ElementProxy::appendSelf($Node* toAppend) {
-	$nc($(getElement()))->appendChild(toAppend);
+	$$nc(getElement())->appendChild(toAppend);
 }
 
 void ElementProxy::appendOther($Element* parent, $Node* toAppend) {
@@ -304,12 +238,12 @@ void ElementProxy::appendOther($Element* parent, $Node* toAppend) {
 void ElementProxy::addText($String* text) {
 	if (text != nullptr) {
 		$var($Text, t, createText(text));
-		appendSelf(static_cast<$Node*>(t));
+		appendSelf(t);
 	}
 }
 
 $BigInteger* ElementProxy::getBigIntegerFromChildElement($String* localname, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, n, $XMLUtils::selectNode($(getFirstChild()), namespace$, localname, 0));
 	if (n != nullptr) {
 		return $new($BigInteger, 1, $($XMLUtils::decode($($XMLUtils::getFullTextChildrenFromNode(n)))));
@@ -318,8 +252,8 @@ $BigInteger* ElementProxy::getBigIntegerFromChildElement($String* localname, $St
 }
 
 $String* ElementProxy::getTextFromChildElement($String* localname, $String* namespace$) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($XMLUtils::selectNode($(getFirstChild()), namespace$, localname, 0)))->getTextContent();
+	$useLocalObjectStack();
+	return $$nc($XMLUtils::selectNode($(getFirstChild()), namespace$, localname, 0))->getTextContent();
 }
 
 $bytes* ElementProxy::getBytesFromTextChild() {
@@ -331,7 +265,7 @@ $String* ElementProxy::getTextFromTextChild() {
 }
 
 int32_t ElementProxy::length($String* namespace$, $String* localname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t number = 0;
 	$var($Node, sibling, getFirstChild());
 	while (sibling != nullptr) {
@@ -345,9 +279,9 @@ int32_t ElementProxy::length($String* namespace$, $String* localname) {
 }
 
 void ElementProxy::setXPathNamespaceContext($String* prefix, $String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ns, nullptr);
-	if (prefix == nullptr || $nc(prefix)->length() == 0) {
+	if (prefix == nullptr || prefix->length() == 0) {
 		$throwNew($XMLSecurityException, "defaultNamespaceCannotBeSetHere"_s);
 	} else if ("xmlns"_s->equals(prefix)) {
 		$throwNew($XMLSecurityException, "defaultNamespaceCannotBeSetHere"_s);
@@ -357,18 +291,18 @@ void ElementProxy::setXPathNamespaceContext($String* prefix, $String* uri) {
 		$assign(ns, $str({"xmlns:"_s, prefix}));
 	}
 	$init($Constants);
-	$var($Attr, a, $nc($(getElement()))->getAttributeNodeNS($Constants::NamespaceSpecNS, ns));
+	$var($Attr, a, $$nc(getElement())->getAttributeNodeNS($Constants::NamespaceSpecNS, ns));
 	if (a != nullptr) {
-		if (!$nc($(a->getNodeValue()))->equals(uri)) {
+		if (!$$nc(a->getNodeValue())->equals(uri)) {
 			$var($ObjectArray, exArgs, $new($ObjectArray, {
-				$of(ns),
-				$($of($nc($(getElement()))->getAttributeNS(nullptr, ns)))
+				ns,
+				$($$nc(getElement())->getAttributeNS(nullptr, ns))
 			}));
 			$throwNew($XMLSecurityException, "namespacePrefixAlreadyUsedByOtherURI"_s, exArgs);
 		}
 		return;
 	}
-	$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, ns, uri);
+	$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, ns, uri);
 }
 
 void ElementProxy::setDefaultPrefix($String* namespace$, $String* prefix) {
@@ -379,14 +313,14 @@ void ElementProxy::setDefaultPrefix($String* namespace$, $String* prefix) {
 
 void ElementProxy::setNamespacePrefix($String* namespace$, $String* prefix) {
 	$init(ElementProxy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(ElementProxy::prefixMappings)->containsValue(prefix)) {
-		$var($String, storedPrefix, $cast($String, $nc(ElementProxy::prefixMappings)->get(namespace$)));
+		$var($String, storedPrefix, $cast($String, ElementProxy::prefixMappings->get(namespace$)));
 		if (!$nc(storedPrefix)->equals(prefix)) {
 			$var($ObjectArray, exArgs, $new($ObjectArray, {
-				$of(prefix),
-				$of(namespace$),
-				$of(storedPrefix)
+				prefix,
+				namespace$,
+				storedPrefix
 			}));
 			$throwNew($XMLSecurityException, "prefix.AlreadyAssigned"_s, exArgs);
 		}
@@ -394,14 +328,12 @@ void ElementProxy::setNamespacePrefix($String* namespace$, $String* prefix) {
 	$init($Constants);
 	if ($nc($Constants::SignatureSpecNS)->equals(namespace$)) {
 		$XMLUtils::setDsPrefix(prefix);
+	} else if ($nc($Constants::SignatureSpec11NS)->equals(namespace$)) {
+		$XMLUtils::setDs11Prefix(prefix);
 	} else {
-		if ($nc($Constants::SignatureSpec11NS)->equals(namespace$)) {
-			$XMLUtils::setDs11Prefix(prefix);
-		} else {
-			$init($EncryptionConstants);
-			if ($nc($EncryptionConstants::EncryptionSpecNS)->equals(namespace$)) {
-				$XMLUtils::setXencPrefix(prefix);
-			}
+		$init($EncryptionConstants);
+		if ($nc($EncryptionConstants::EncryptionSpecNS)->equals(namespace$)) {
+			$XMLUtils::setXencPrefix(prefix);
 		}
 	}
 	$nc(ElementProxy::prefixMappings)->put(namespace$, prefix);
@@ -434,39 +366,99 @@ void ElementProxy::setDocument($Document* doc) {
 }
 
 $String* ElementProxy::getLocalAttribute($String* attrName) {
-	return $nc($(getElement()))->getAttributeNS(nullptr, attrName);
+	return $$nc(getElement())->getAttributeNS(nullptr, attrName);
 }
 
 void ElementProxy::setLocalAttribute($String* attrName, $String* value) {
-	$nc($(getElement()))->setAttributeNS(nullptr, attrName, value);
+	$$nc(getElement())->setAttributeNS(nullptr, attrName, value);
 }
 
 void ElementProxy::setLocalIdAttribute($String* attrName, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value != nullptr) {
-		$var($Attr, attr, $nc($(getDocument()))->createAttributeNS(nullptr, attrName));
+		$var($Attr, attr, $$nc(getDocument())->createAttributeNS(nullptr, attrName));
 		$nc(attr)->setValue(value);
-		$nc($(getElement()))->setAttributeNodeNS(attr);
-		$nc($(getElement()))->setIdAttributeNode(attr, true);
+		$$nc(getElement())->setAttributeNodeNS(attr);
+		$$nc(getElement())->setIdAttributeNode(attr, true);
 	} else {
-		$nc($(getElement()))->removeAttributeNS(nullptr, attrName);
+		$$nc(getElement())->removeAttributeNS(nullptr, attrName);
 	}
 }
 
 $Node* ElementProxy::getFirstChild() {
-	return $nc($(getElement()))->getFirstChild();
+	return $$nc(getElement())->getFirstChild();
 }
 
-void clinit$ElementProxy($Class* class$) {
+void ElementProxy::clinit$($Class* clazz) {
 	$assignStatic(ElementProxy::LOG, $LoggerFactory::getLogger(ElementProxy::class$));
-	$assignStatic(ElementProxy::prefixMappings, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(ElementProxy::prefixMappings, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 ElementProxy::ElementProxy() {
 }
 
 $Class* ElementProxy::load$($String* name, bool initialize) {
-	$loadClass(ElementProxy, name, initialize, &_ElementProxy_ClassInfo_, clinit$ElementProxy, allocate$ElementProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(ElementProxy, LOG)},
+		{"wrappedElement", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(ElementProxy, wrappedElement)},
+		{"baseURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ElementProxy, baseURI)},
+		{"wrappedDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(ElementProxy, wrappedDoc)},
+		{"prefixMappings", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(ElementProxy, prefixMappings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ElementProxy, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(ElementProxy, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ElementProxy, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addBase64Element", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addBase64Element, void, $bytes*, $String*)},
+		{"addBase64Text", "([B)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addBase64Text, void, $bytes*)},
+		{"addBigIntegerElement", "(Ljava/math/BigInteger;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addBigIntegerElement, void, $BigInteger*, $String*)},
+		{"addReturnToSelf", "()V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, addReturnToSelf, void)},
+		{"addText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addText, void, $String*)},
+		{"addTextElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, addTextElement, void, $String*, $String*)},
+		{"appendOther", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, appendOther, void, $Element*, $Node*)},
+		{"appendSelf", "(Lcom/sun/org/apache/xml/internal/security/utils/ElementProxy;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, appendSelf, void, ElementProxy*)},
+		{"appendSelf", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, appendSelf, void, $Node*)},
+		{"createElementForFamily", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, createElementForFamily, $Element*, $Document*, $String*, $String*)},
+		{"createElementForFamilyLocal", "(Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, createElementForFamilyLocal, $Element*, $String*, $String*)},
+		{"createText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, createText, $Text*, $String*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ElementProxy, getBaseLocalName, $String*)},
+		{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ElementProxy, getBaseNamespace, $String*)},
+		{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getBaseURI, $String*)},
+		{"getBigIntegerFromChildElement", "(Ljava/lang/String;Ljava/lang/String;)Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getBigIntegerFromChildElement, $BigInteger*, $String*, $String*)},
+		{"getBytesFromTextChild", "()[B", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getBytesFromTextChild, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getDefaultPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, getDefaultPrefix, $String*, $String*)},
+		{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getDocument, $Document*)},
+		{"getElement", "()Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $FINAL, $method(ElementProxy, getElement, $Element*)},
+		{"getElementPlusReturns", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC | $FINAL, $method(ElementProxy, getElementPlusReturns, $NodeList*)},
+		{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, getFirstChild, $Node*)},
+		{"getLocalAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ElementProxy, getLocalAttribute, $String*, $String*)},
+		{"getTextFromChildElement", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getTextFromChildElement, $String*, $String*, $String*)},
+		{"getTextFromTextChild", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ElementProxy, getTextFromTextChild, $String*)},
+		{"guaranteeThatElementInCorrectSpace", "()V", nullptr, 0, $virtualMethod(ElementProxy, guaranteeThatElementInCorrectSpace, void), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"length", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(ElementProxy, length, int32_t, $String*, $String*)},
+		{"registerDefaultPrefixes", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, registerDefaultPrefixes, void), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"setDefaultPrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementProxy, setDefaultPrefix, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"setDocument", "(Lorg/w3c/dom/Document;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setDocument, void, $Document*)},
+		{"setElement", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, setElement, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"setElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setElement, void, $Element*)},
+		{"setLocalAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setLocalAttribute, void, $String*, $String*)},
+		{"setLocalIdAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ElementProxy, setLocalIdAttribute, void, $String*, $String*)},
+		{"setNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ElementProxy, setNamespacePrefix, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"setXPathNamespaceContext", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ElementProxy, setXPathNamespaceContext, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.utils.ElementProxy",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ElementProxy, name, initialize, &classInfo$$, ElementProxy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ElementProxy);
+	});
 	return class$;
 }
 

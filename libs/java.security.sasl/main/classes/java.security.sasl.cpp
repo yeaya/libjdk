@@ -1,5 +1,4 @@
 #include <java.security.sasl.h>
-
 #include <java.base.h>
 #include <java.logging.h>
 #include <java/lang/ClassEntry.h>
@@ -7,8 +6,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/security/sasl/ClientFactoryImpl.h>
 #include <com/sun/security/sasl/CramMD5Base.h>
 #include <com/sun/security/sasl/CramMD5Client.h>
@@ -154,6 +151,7 @@ $bytes* java$security$sasl$GetResource($String* name) {
 void java$security$sasl::init() {
 	::java$base::init();
 	::java$logging::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.security.sasl", "17.35", "",
 		&_java$security$sasl_ModuleInfo_,

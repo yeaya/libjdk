@@ -41,6 +41,7 @@ class ISO2022_CN$Decoder : public ::java::nio::charset::CharsetDecoder {
 	$class(ISO2022_CN$Decoder, 0, ::java::nio::charset::CharsetDecoder)
 public:
 	ISO2022_CN$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	char16_t SODecode(int8_t byte1, int8_t byte2, int8_t SOD);
 	char16_t cnsDecode(int8_t byte1, int8_t byte2, int8_t SS);

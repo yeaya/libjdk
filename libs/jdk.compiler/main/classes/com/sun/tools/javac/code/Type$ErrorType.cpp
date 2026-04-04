@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$ErrorScope.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
@@ -25,7 +24,6 @@
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Scope$ErrorScope = ::com::sun::tools::javac::code::Scope$ErrorScope;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
@@ -51,67 +49,8 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$ErrorType_FieldInfo_[] = {
-	{"originalType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $field(Type$ErrorType, originalType)},
-	{}
-};
-
-$MethodInfo _Type$ErrorType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Type$ErrorType, init$, void, $Symbol$ClassSymbol*, $Type*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$ErrorType, init$, void, $Type*, $Symbol$TypeSymbol*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(Type$ErrorType, init$, void, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Type$ErrorType, init$, void, $Name*, $Symbol$TypeSymbol*, $Type*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$ErrorType, accept, $Object*, $Type$Visitor*, Object$*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$ErrorType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ErrorType, allparams, $List*)},
-	{"asSub", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, asSub, $Type*, $Symbol*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ErrorType;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, cloneWithMetadata, Type$ErrorType*, $TypeMetadata*)},
-	{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, constType, $Type*, Object$*)},
-	{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getEnclosingType, $Type*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getKind, $TypeKind*)},
-	{"getOriginalType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getOriginalType, $Type*)},
-	{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getReturnType, $Type*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getTag, $TypeTag*)},
-	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ErrorType, getTypeArguments, $List*)},
-	{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isCompound, bool)},
-	{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isErroneous, bool)},
-	{"isGenType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isGenType, bool, $Type*)},
-	{"isInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isInterface, bool)},
-	{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isNullOrReference, bool)},
-	{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isPartial, bool)},
-	{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isReference, bool)},
-	{}
-};
-
-$InnerClassInfo _Type$ErrorType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ErrorType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$ErrorType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$ErrorType",
-	"com.sun.tools.javac.code.Type$ClassType",
-	nullptr,
-	_Type$ErrorType_FieldInfo_,
-	_Type$ErrorType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$ErrorType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$ErrorType($Class* clazz) {
-	return $of($alloc(Type$ErrorType));
-}
-
 void Type$ErrorType::init$($Symbol$ClassSymbol* c, $Type* originalType) {
-	Type$ErrorType::init$(originalType, static_cast<$Symbol$TypeSymbol*>(c));
+	Type$ErrorType::init$(originalType, c);
 	$set($nc(c), type, this);
 	$init($Kinds$Kind);
 	$set(c, kind, $Kinds$Kind::ERR);
@@ -123,7 +62,7 @@ void Type$ErrorType::init$($Type* originalType, $Symbol$TypeSymbol* tsym) {
 	$Type$ClassType::init$($Type::noType, $($List::nil()), nullptr);
 	$set(this, originalType, nullptr);
 	$set(this, tsym, tsym);
-	$set(this, originalType, originalType == nullptr ? static_cast<$Type*>($Type::noType) : originalType);
+	$set(this, originalType, originalType == nullptr ? $cast($Type, $Type::noType) : originalType);
 }
 
 void Type$ErrorType::init$($Type* originalType, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
@@ -131,7 +70,7 @@ void Type$ErrorType::init$($Type* originalType, $Symbol$TypeSymbol* tsym, $TypeM
 	$Type$ClassType::init$($Type::noType, $($List::nil()), nullptr, metadata);
 	$set(this, originalType, nullptr);
 	$set(this, tsym, tsym);
-	$set(this, originalType, originalType == nullptr ? static_cast<$Type*>($Type::noType) : originalType);
+	$set(this, originalType, originalType == nullptr ? $cast($Type, $Type::noType) : originalType);
 }
 
 Type$ErrorType* Type$ErrorType::cloneWithMetadata($TypeMetadata* md) {
@@ -160,7 +99,7 @@ void Type$ErrorType::init$($Name* name, $Symbol$TypeSymbol* container, $Type* or
 }
 
 $Object* Type$ErrorType::accept($Type$Visitor* v, Object$* s) {
-	return $of($nc(v)->visitErrorType(this, s));
+	return $nc(v)->visitErrorType(this, s);
 }
 
 $Type* Type$ErrorType::constType(Object$* constValue) {
@@ -214,14 +153,67 @@ $Type* Type$ErrorType::getOriginalType() {
 }
 
 $Object* Type$ErrorType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitError($as($ErrorType, this), p));
+	return $nc(v)->visitError($as($ErrorType, this), p);
 }
 
 Type$ErrorType::Type$ErrorType() {
 }
 
 $Class* Type$ErrorType::load$($String* name, bool initialize) {
-	$loadClass(Type$ErrorType, name, initialize, &_Type$ErrorType_ClassInfo_, allocate$Type$ErrorType);
+	$FieldInfo fieldInfos$$[] = {
+		{"originalType", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $field(Type$ErrorType, originalType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Type$ErrorType, init$, void, $Symbol$ClassSymbol*, $Type*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$ErrorType, init$, void, $Type*, $Symbol$TypeSymbol*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(Type$ErrorType, init$, void, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Type$ErrorType, init$, void, $Name*, $Symbol$TypeSymbol*, $Type*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$ErrorType, accept, $Object*, $Type$Visitor*, Object$*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$ErrorType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ErrorType, allparams, $List*)},
+		{"asSub", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, asSub, $Type*, $Symbol*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ErrorType;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, cloneWithMetadata, Type$ErrorType*, $TypeMetadata*)},
+		{"constType", "(Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, constType, $Type*, Object$*)},
+		{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getEnclosingType, $Type*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getKind, $TypeKind*)},
+		{"getOriginalType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getOriginalType, $Type*)},
+		{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getReturnType, $Type*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, getTag, $TypeTag*)},
+		{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ErrorType, getTypeArguments, $List*)},
+		{"isCompound", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isCompound, bool)},
+		{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isErroneous, bool)},
+		{"isGenType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isGenType, bool, $Type*)},
+		{"isInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isInterface, bool)},
+		{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isNullOrReference, bool)},
+		{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isPartial, bool)},
+		{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType, isReference, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$ErrorType", "com.sun.tools.javac.code.Type", "ErrorType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ErrorType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$ErrorType",
+		"com.sun.tools.javac.code.Type$ClassType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$ErrorType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$ErrorType));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Scanner.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPathException.h>
@@ -105,93 +104,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 
-$FieldInfo _XPath$Scanner_FieldInfo_[] = {
-	{"CHARTYPE_INVALID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_INVALID)},
-	{"CHARTYPE_OTHER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_OTHER)},
-	{"CHARTYPE_WHITESPACE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_WHITESPACE)},
-	{"CHARTYPE_EXCLAMATION", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_EXCLAMATION)},
-	{"CHARTYPE_QUOTE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_QUOTE)},
-	{"CHARTYPE_DOLLAR", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_DOLLAR)},
-	{"CHARTYPE_OPEN_PAREN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_OPEN_PAREN)},
-	{"CHARTYPE_CLOSE_PAREN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_CLOSE_PAREN)},
-	{"CHARTYPE_STAR", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_STAR)},
-	{"CHARTYPE_PLUS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_PLUS)},
-	{"CHARTYPE_COMMA", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_COMMA)},
-	{"CHARTYPE_MINUS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_MINUS)},
-	{"CHARTYPE_PERIOD", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_PERIOD)},
-	{"CHARTYPE_SLASH", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_SLASH)},
-	{"CHARTYPE_DIGIT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_DIGIT)},
-	{"CHARTYPE_COLON", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_COLON)},
-	{"CHARTYPE_LESS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_LESS)},
-	{"CHARTYPE_EQUAL", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_EQUAL)},
-	{"CHARTYPE_GREATER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_GREATER)},
-	{"CHARTYPE_ATSIGN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_ATSIGN)},
-	{"CHARTYPE_LETTER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_LETTER)},
-	{"CHARTYPE_OPEN_BRACKET", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_OPEN_BRACKET)},
-	{"CHARTYPE_CLOSE_BRACKET", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_CLOSE_BRACKET)},
-	{"CHARTYPE_UNDERSCORE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_UNDERSCORE)},
-	{"CHARTYPE_UNION", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_UNION)},
-	{"CHARTYPE_NONASCII", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_NONASCII)},
-	{"fASCIICharMap", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fASCIICharMap)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XPath$Scanner, fSymbolTable)},
-	{"fAndSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAndSymbol)},
-	{"fOrSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fOrSymbol)},
-	{"fModSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fModSymbol)},
-	{"fDivSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fDivSymbol)},
-	{"fCommentSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fCommentSymbol)},
-	{"fTextSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fTextSymbol)},
-	{"fPISymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fPISymbol)},
-	{"fNodeSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fNodeSymbol)},
-	{"fAncestorSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAncestorSymbol)},
-	{"fAncestorOrSelfSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAncestorOrSelfSymbol)},
-	{"fAttributeSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAttributeSymbol)},
-	{"fChildSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fChildSymbol)},
-	{"fDescendantSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fDescendantSymbol)},
-	{"fDescendantOrSelfSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fDescendantOrSelfSymbol)},
-	{"fFollowingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fFollowingSymbol)},
-	{"fFollowingSiblingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fFollowingSiblingSymbol)},
-	{"fNamespaceSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fNamespaceSymbol)},
-	{"fParentSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fParentSymbol)},
-	{"fPrecedingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fPrecedingSymbol)},
-	{"fPrecedingSiblingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fPrecedingSiblingSymbol)},
-	{"fSelfSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fSelfSymbol)},
-	{}
-};
-
-$MethodInfo _XPath$Scanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XPath$Scanner, init$, void, $SymbolTable*)},
-	{"addToken", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;I)V", nullptr, $PROTECTED, $virtualMethod(XPath$Scanner, addToken, void, $XPath$Tokens*, int32_t), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
-	{"scanExpr", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;Ljava/lang/String;II)Z", nullptr, $PUBLIC, $virtualMethod(XPath$Scanner, scanExpr, bool, $SymbolTable*, $XPath$Tokens*, $String*, int32_t, int32_t), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
-	{"scanNCName", "(Ljava/lang/String;II)I", nullptr, 0, $virtualMethod(XPath$Scanner, scanNCName, int32_t, $String*, int32_t, int32_t)},
-	{"scanNumber", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;Ljava/lang/String;II)I", nullptr, $PRIVATE, $method(XPath$Scanner, scanNumber, int32_t, $XPath$Tokens*, $String*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XPath$Scanner_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "Scanner", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XPath$Scanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner",
-	"java.lang.Object",
-	nullptr,
-	_XPath$Scanner_FieldInfo_,
-	_XPath$Scanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPath$Scanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath"
-};
-
-$Object* allocate$XPath$Scanner($Class* clazz) {
-	return $of($alloc(XPath$Scanner));
-}
-
 $bytes* XPath$Scanner::fASCIICharMap = nullptr;
 $String* XPath$Scanner::fAndSymbol = nullptr;
 $String* XPath$Scanner::fOrSymbol = nullptr;
@@ -220,7 +132,7 @@ void XPath$Scanner::init$($SymbolTable* symbolTable) {
 }
 
 bool XPath$Scanner::scanExpr($SymbolTable* symbolTable, $XPath$Tokens* tokens, $String* data, int32_t currentOffset, int32_t endOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nameOffset = 0;
 	$var($String, nameHandle, nullptr);
 	$var($String, prefixHandle, nullptr);
@@ -240,7 +152,7 @@ bool XPath$Scanner::scanExpr($SymbolTable* symbolTable, $XPath$Tokens* tokens, $
 		if (currentOffset == endOffset) {
 			break;
 		}
-		int8_t chartype = (ch >= 128) ? XPath$Scanner::CHARTYPE_NONASCII : $nc(XPath$Scanner::fASCIICharMap)->get(ch);
+		int8_t chartype = (ch >= 128) ? XPath$Scanner::CHARTYPE_NONASCII : XPath$Scanner::fASCIICharMap->get(ch);
 		{
 			int32_t qchar = 0;
 			int32_t litOffset = 0;
@@ -249,266 +161,248 @@ bool XPath$Scanner::scanExpr($SymbolTable* symbolTable, $XPath$Tokens* tokens, $
 			bool isAxisName = false;
 			switch (chartype) {
 			case XPath$Scanner::CHARTYPE_OPEN_PAREN:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPEN_PAREN);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPEN_PAREN);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
 					break;
 				}
+				break;
 			case XPath$Scanner::CHARTYPE_CLOSE_PAREN:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_CLOSE_PAREN);
-					starIsMultiplyOperator = true;
-					if (++currentOffset == endOffset) {
-						break;
-					}
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_CLOSE_PAREN);
+				starIsMultiplyOperator = true;
+				if (++currentOffset == endOffset) {
 					break;
 				}
+				break;
 			case XPath$Scanner::CHARTYPE_OPEN_BRACKET:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPEN_BRACKET);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPEN_BRACKET);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
 					break;
 				}
+				break;
 			case XPath$Scanner::CHARTYPE_CLOSE_BRACKET:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_CLOSE_BRACKET);
-					starIsMultiplyOperator = true;
-					if (++currentOffset == endOffset) {
-						break;
-					}
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_CLOSE_BRACKET);
+				starIsMultiplyOperator = true;
+				if (++currentOffset == endOffset) {
 					break;
 				}
+				break;
 			case XPath$Scanner::CHARTYPE_PERIOD:
-				{
-					if (currentOffset + 1 == endOffset) {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
-						starIsMultiplyOperator = true;
-						++currentOffset;
-						break;
-					}
-					ch = data->charAt(currentOffset + 1);
-					if (ch == u'.') {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_DOUBLE_PERIOD);
-						starIsMultiplyOperator = true;
-						currentOffset += 2;
-					} else if (ch >= u'0' && ch <= u'9') {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NUMBER);
-						starIsMultiplyOperator = true;
-						currentOffset = scanNumber(tokens, data, endOffset, currentOffset);
-					} else if (ch == u'/') {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
-						starIsMultiplyOperator = true;
-						++currentOffset;
-					} else if (ch == u'|') {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
-						starIsMultiplyOperator = true;
-						++currentOffset;
-						break;
-					} else if (ch == u' ' || ch == 10 || ch == 9 || ch == 13) {
-						do {
-							if (++currentOffset == endOffset) {
-								break;
-							}
-							ch = data->charAt(currentOffset);
-						} while (ch == u' ' || ch == 10 || ch == 9 || ch == 13);
-						if (currentOffset == endOffset || ch == u'|' || ch == u'/') {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
-							starIsMultiplyOperator = true;
-							break;
-						}
-						$throwNew($XPathException, "c-general-xpath"_s);
-					} else {
-						$throwNew($XPathException, "c-general-xpath"_s);
-					}
-					if (currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_ATSIGN:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_ATSIGN);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_COMMA:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_COMMA);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_COLON:
-				{
-					if (++currentOffset == endOffset) {
-						return false;
-					}
-					ch = data->charAt(currentOffset);
-					if (ch != u':') {
-						return false;
-					}
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_DOUBLE_COLON);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_SLASH:
-				{
-					if (++currentOffset == endOffset) {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_SLASH);
-						starIsMultiplyOperator = false;
-						break;
-					}
-					ch = data->charAt(currentOffset);
-					if (ch == u'/') {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_DOUBLE_SLASH);
-						starIsMultiplyOperator = false;
-						if (++currentOffset == endOffset) {
-							break;
-						}
-					} else {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_SLASH);
-						starIsMultiplyOperator = false;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_UNION:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_UNION);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_PLUS:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_PLUS);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_MINUS:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_MINUS);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_EQUAL:
-				{
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_EQUAL);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_EXCLAMATION:
-				{
-					if (++currentOffset == endOffset) {
-						return false;
-					}
-					ch = data->charAt(currentOffset);
-					if (ch != u'=') {
-						return false;
-					}
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_NOT_EQUAL);
-					starIsMultiplyOperator = false;
-					if (++currentOffset == endOffset) {
-						break;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_LESS:
-				{
-					if (++currentOffset == endOffset) {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_LESS);
-						starIsMultiplyOperator = false;
-						break;
-					}
-					ch = data->charAt(currentOffset);
-					if (ch == u'=') {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_LESS_EQUAL);
-						starIsMultiplyOperator = false;
-						if (++currentOffset == endOffset) {
-							break;
-						}
-					} else {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_LESS);
-						starIsMultiplyOperator = false;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_GREATER:
-				{
-					if (++currentOffset == endOffset) {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_GREATER);
-						starIsMultiplyOperator = false;
-						break;
-					}
-					ch = data->charAt(currentOffset);
-					if (ch == u'=') {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_GREATER_EQUAL);
-						starIsMultiplyOperator = false;
-						if (++currentOffset == endOffset) {
-							break;
-						}
-					} else {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_GREATER);
-						starIsMultiplyOperator = false;
-					}
-					break;
-				}
-			case XPath$Scanner::CHARTYPE_QUOTE:
-				{
-					qchar = ch;
-					if (++currentOffset == endOffset) {
-						return false;
-					}
-					ch = data->charAt(currentOffset);
-					litOffset = currentOffset;
-					while (ch != qchar) {
-						if (++currentOffset == endOffset) {
-							return false;
-						}
-						ch = data->charAt(currentOffset);
-					}
-					litLength = currentOffset - litOffset;
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_LITERAL);
+				if (currentOffset + 1 == endOffset) {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
 					starIsMultiplyOperator = true;
-					$nc(tokens)->addToken($($nc(symbolTable)->addSymbol($(data->substring(litOffset, litOffset + litLength)))));
-					if (++currentOffset == endOffset) {
-						break;
-					}
+					++currentOffset;
 					break;
 				}
-			case XPath$Scanner::CHARTYPE_DIGIT:
-				{
+				ch = data->charAt(currentOffset + 1);
+				if (ch == u'.') {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_DOUBLE_PERIOD);
+					starIsMultiplyOperator = true;
+					currentOffset += 2;
+				} else if (ch >= u'0' && ch <= u'9') {
 					addToken(tokens, $XPath$Tokens::EXPRTOKEN_NUMBER);
 					starIsMultiplyOperator = true;
 					currentOffset = scanNumber(tokens, data, endOffset, currentOffset);
+				} else if (ch == u'/') {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
+					starIsMultiplyOperator = true;
+					++currentOffset;
+				} else if (ch == u'|') {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
+					starIsMultiplyOperator = true;
+					++currentOffset;
+					break;
+				} else if (ch == u' ' || ch == 10 || ch == 9 || ch == 13) {
+					do {
+						if (++currentOffset == endOffset) {
+							break;
+						}
+						ch = data->charAt(currentOffset);
+					} while (ch == u' ' || ch == 10 || ch == 9 || ch == 13);
+					if (currentOffset == endOffset || ch == u'|' || ch == u'/') {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_PERIOD);
+						starIsMultiplyOperator = true;
+						break;
+					}
+					$throwNew($XPathException, "c-general-xpath"_s);
+				} else {
+					$throwNew($XPathException, "c-general-xpath"_s);
+				}
+				if (currentOffset == endOffset) {
 					break;
 				}
+				break;
+			case XPath$Scanner::CHARTYPE_ATSIGN:
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_ATSIGN);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_COMMA:
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_COMMA);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_COLON:
+				if (++currentOffset == endOffset) {
+					return false;
+				}
+				ch = data->charAt(currentOffset);
+				if (ch != u':') {
+					return false;
+				}
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_DOUBLE_COLON);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_SLASH:
+				if (++currentOffset == endOffset) {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_SLASH);
+					starIsMultiplyOperator = false;
+					break;
+				}
+				ch = data->charAt(currentOffset);
+				if (ch == u'/') {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_DOUBLE_SLASH);
+					starIsMultiplyOperator = false;
+					if (++currentOffset == endOffset) {
+						break;
+					}
+				} else {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_SLASH);
+					starIsMultiplyOperator = false;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_UNION:
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_UNION);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_PLUS:
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_PLUS);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_MINUS:
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_MINUS);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_EQUAL:
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_EQUAL);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_EXCLAMATION:
+				if (++currentOffset == endOffset) {
+					return false;
+				}
+				ch = data->charAt(currentOffset);
+				if (ch != u'=') {
+					return false;
+				}
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_NOT_EQUAL);
+				starIsMultiplyOperator = false;
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_LESS:
+				if (++currentOffset == endOffset) {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_LESS);
+					starIsMultiplyOperator = false;
+					break;
+				}
+				ch = data->charAt(currentOffset);
+				if (ch == u'=') {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_LESS_EQUAL);
+					starIsMultiplyOperator = false;
+					if (++currentOffset == endOffset) {
+						break;
+					}
+				} else {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_LESS);
+					starIsMultiplyOperator = false;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_GREATER:
+				if (++currentOffset == endOffset) {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_GREATER);
+					starIsMultiplyOperator = false;
+					break;
+				}
+				ch = data->charAt(currentOffset);
+				if (ch == u'=') {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_GREATER_EQUAL);
+					starIsMultiplyOperator = false;
+					if (++currentOffset == endOffset) {
+						break;
+					}
+				} else {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_GREATER);
+					starIsMultiplyOperator = false;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_QUOTE:
+				qchar = ch;
+				if (++currentOffset == endOffset) {
+					return false;
+				}
+				ch = data->charAt(currentOffset);
+				litOffset = currentOffset;
+				while (ch != qchar) {
+					if (++currentOffset == endOffset) {
+						return false;
+					}
+					ch = data->charAt(currentOffset);
+				}
+				litLength = currentOffset - litOffset;
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_LITERAL);
+				starIsMultiplyOperator = true;
+				$nc(tokens)->addToken($($nc(symbolTable)->addSymbol($(data->substring(litOffset, litOffset + litLength)))));
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_DIGIT:
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_NUMBER);
+				starIsMultiplyOperator = true;
+				currentOffset = scanNumber(tokens, data, endOffset, currentOffset);
+				break;
 			case XPath$Scanner::CHARTYPE_DOLLAR:
-				{
+				if (++currentOffset == endOffset) {
+					return false;
+				}
+				nameOffset = currentOffset;
+				currentOffset = scanNCName(data, endOffset, currentOffset);
+				if (currentOffset == nameOffset) {
+					return false;
+				}
+				if (currentOffset < endOffset) {
+					ch = data->charAt(currentOffset);
+				} else {
+					ch = -1;
+				}
+				$assign(nameHandle, $nc(symbolTable)->addSymbol($(data->substring(nameOffset, currentOffset))));
+				if (ch != u':') {
+					$init($XMLSymbols);
+					$assign(prefixHandle, $XMLSymbols::EMPTY_STRING);
+				} else {
+					$assign(prefixHandle, nameHandle);
 					if (++currentOffset == endOffset) {
 						return false;
 					}
@@ -522,15 +416,60 @@ bool XPath$Scanner::scanExpr($SymbolTable* symbolTable, $XPath$Tokens* tokens, $
 					} else {
 						ch = -1;
 					}
-					$assign(nameHandle, $nc(symbolTable)->addSymbol($(data->substring(nameOffset, currentOffset))));
-					if (ch != u':') {
-						$init($XMLSymbols);
-						$assign(prefixHandle, $XMLSymbols::EMPTY_STRING);
+					$assign(nameHandle, symbolTable->addSymbol($(data->substring(nameOffset, currentOffset))));
+				}
+				addToken(tokens, $XPath$Tokens::EXPRTOKEN_VARIABLE_REFERENCE);
+				starIsMultiplyOperator = true;
+				$nc(tokens)->addToken(prefixHandle);
+				tokens->addToken(nameHandle);
+				break;
+			case XPath$Scanner::CHARTYPE_STAR:
+				if (starIsMultiplyOperator) {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_MULT);
+					starIsMultiplyOperator = false;
+				} else {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_NAMETEST_ANY);
+					starIsMultiplyOperator = true;
+				}
+				if (++currentOffset == endOffset) {
+					break;
+				}
+				break;
+			case XPath$Scanner::CHARTYPE_NONASCII:
+			case XPath$Scanner::CHARTYPE_LETTER:
+			case XPath$Scanner::CHARTYPE_UNDERSCORE:
+				nameOffset = currentOffset;
+				currentOffset = scanNCName(data, endOffset, currentOffset);
+				if (currentOffset == nameOffset) {
+					return false;
+				}
+				if (currentOffset < endOffset) {
+					ch = data->charAt(currentOffset);
+				} else {
+					ch = -1;
+				}
+				$assign(nameHandle, $nc(symbolTable)->addSymbol($(data->substring(nameOffset, currentOffset))));
+				isNameTestNCName = false;
+				isAxisName = false;
+				$init($XMLSymbols);
+				$assign(prefixHandle, $XMLSymbols::EMPTY_STRING);
+				if (ch == u':') {
+					if (++currentOffset == endOffset) {
+						return false;
+					}
+					ch = data->charAt(currentOffset);
+					if (ch == u'*') {
+						if (++currentOffset < endOffset) {
+							ch = data->charAt(currentOffset);
+						}
+						isNameTestNCName = true;
+					} else if (ch == u':') {
+						if (++currentOffset < endOffset) {
+							ch = data->charAt(currentOffset);
+						}
+						isAxisName = true;
 					} else {
 						$assign(prefixHandle, nameHandle);
-						if (++currentOffset == endOffset) {
-							return false;
-						}
 						nameOffset = currentOffset;
 						currentOffset = scanNCName(data, endOffset, currentOffset);
 						if (currentOffset == nameOffset) {
@@ -541,191 +480,119 @@ bool XPath$Scanner::scanExpr($SymbolTable* symbolTable, $XPath$Tokens* tokens, $
 						} else {
 							ch = -1;
 						}
-						$assign(nameHandle, $nc(symbolTable)->addSymbol($(data->substring(nameOffset, currentOffset))));
+						$assign(nameHandle, symbolTable->addSymbol($(data->substring(nameOffset, currentOffset))));
 					}
-					addToken(tokens, $XPath$Tokens::EXPRTOKEN_VARIABLE_REFERENCE);
-					starIsMultiplyOperator = true;
-					$nc(tokens)->addToken(prefixHandle);
-					$nc(tokens)->addToken(nameHandle);
-					break;
 				}
-			case XPath$Scanner::CHARTYPE_STAR:
-				{
-					if (starIsMultiplyOperator) {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_MULT);
+				while (ch == u' ' || ch == 10 || ch == 9 || ch == 13) {
+					if (++currentOffset == endOffset) {
+						break;
+					}
+					ch = data->charAt(currentOffset);
+				}
+				if (starIsMultiplyOperator) {
+					if (nameHandle == XPath$Scanner::fAndSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_AND);
+						starIsMultiplyOperator = false;
+					} else if (nameHandle == XPath$Scanner::fOrSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_OR);
+						starIsMultiplyOperator = false;
+					} else if (nameHandle == XPath$Scanner::fModSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_MOD);
+						starIsMultiplyOperator = false;
+					} else if (nameHandle == XPath$Scanner::fDivSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_DIV);
 						starIsMultiplyOperator = false;
 					} else {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NAMETEST_ANY);
-						starIsMultiplyOperator = true;
+						return false;
 					}
+					if (isNameTestNCName) {
+						return false;
+					} else if (isAxisName) {
+						return false;
+					}
+					break;
+				}
+				if (ch == u'(' && !isNameTestNCName && !isAxisName) {
+					if (nameHandle == XPath$Scanner::fCommentSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_COMMENT);
+					} else if (nameHandle == XPath$Scanner::fTextSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_TEXT);
+					} else if (nameHandle == XPath$Scanner::fPISymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_PI);
+					} else if (nameHandle == XPath$Scanner::fNodeSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_NODE);
+					} else {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_FUNCTION_NAME);
+						$nc(tokens)->addToken(prefixHandle);
+						tokens->addToken(nameHandle);
+					}
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPEN_PAREN);
+					starIsMultiplyOperator = false;
 					if (++currentOffset == endOffset) {
 						break;
 					}
 					break;
 				}
-			case XPath$Scanner::CHARTYPE_NONASCII:
-				{}
-			case XPath$Scanner::CHARTYPE_LETTER:
-				{}
-			case XPath$Scanner::CHARTYPE_UNDERSCORE:
-				{
-					nameOffset = currentOffset;
-					currentOffset = scanNCName(data, endOffset, currentOffset);
-					if (currentOffset == nameOffset) {
+				if (isAxisName || (ch == u':' && currentOffset + 1 < endOffset && data->charAt(currentOffset + 1) == u':')) {
+					if (nameHandle == XPath$Scanner::fAncestorSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_ANCESTOR);
+					} else if (nameHandle == XPath$Scanner::fAncestorOrSelfSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_ANCESTOR_OR_SELF);
+					} else if (nameHandle == XPath$Scanner::fAttributeSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_ATTRIBUTE);
+					} else if (nameHandle == XPath$Scanner::fChildSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_CHILD);
+					} else if (nameHandle == XPath$Scanner::fDescendantSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_DESCENDANT);
+					} else if (nameHandle == XPath$Scanner::fDescendantOrSelfSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_DESCENDANT_OR_SELF);
+					} else if (nameHandle == XPath$Scanner::fFollowingSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_FOLLOWING);
+					} else if (nameHandle == XPath$Scanner::fFollowingSiblingSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_FOLLOWING_SIBLING);
+					} else if (nameHandle == XPath$Scanner::fNamespaceSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_NAMESPACE);
+					} else if (nameHandle == XPath$Scanner::fParentSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_PARENT);
+					} else if (nameHandle == XPath$Scanner::fPrecedingSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_PRECEDING);
+					} else if (nameHandle == XPath$Scanner::fPrecedingSiblingSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_PRECEDING_SIBLING);
+					} else if (nameHandle == XPath$Scanner::fSelfSymbol) {
+						addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_SELF);
+					} else {
 						return false;
 					}
-					if (currentOffset < endOffset) {
-						ch = data->charAt(currentOffset);
-					} else {
-						ch = -1;
-					}
-					$assign(nameHandle, $nc(symbolTable)->addSymbol($(data->substring(nameOffset, currentOffset))));
-					isNameTestNCName = false;
-					isAxisName = false;
-					$init($XMLSymbols);
-					$assign(prefixHandle, $XMLSymbols::EMPTY_STRING);
-					if (ch == u':') {
-						if (++currentOffset == endOffset) {
-							return false;
-						}
-						ch = data->charAt(currentOffset);
-						if (ch == u'*') {
-							if (++currentOffset < endOffset) {
-								ch = data->charAt(currentOffset);
-							}
-							isNameTestNCName = true;
-						} else if (ch == u':') {
-							if (++currentOffset < endOffset) {
-								ch = data->charAt(currentOffset);
-							}
-							isAxisName = true;
-						} else {
-							$assign(prefixHandle, nameHandle);
-							nameOffset = currentOffset;
-							currentOffset = scanNCName(data, endOffset, currentOffset);
-							if (currentOffset == nameOffset) {
-								return false;
-							}
-							if (currentOffset < endOffset) {
-								ch = data->charAt(currentOffset);
-							} else {
-								ch = -1;
-							}
-							$assign(nameHandle, $nc(symbolTable)->addSymbol($(data->substring(nameOffset, currentOffset))));
-						}
-					}
-					while (ch == u' ' || ch == 10 || ch == 9 || ch == 13) {
-						if (++currentOffset == endOffset) {
-							break;
-						}
-						ch = data->charAt(currentOffset);
-					}
-					if (starIsMultiplyOperator) {
-						if (nameHandle == XPath$Scanner::fAndSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_AND);
-							starIsMultiplyOperator = false;
-						} else if (nameHandle == XPath$Scanner::fOrSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_OR);
-							starIsMultiplyOperator = false;
-						} else if (nameHandle == XPath$Scanner::fModSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_MOD);
-							starIsMultiplyOperator = false;
-						} else if (nameHandle == XPath$Scanner::fDivSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPERATOR_DIV);
-							starIsMultiplyOperator = false;
-						} else {
-							return false;
-						}
-						if (isNameTestNCName) {
-							return false;
-						} else if (isAxisName) {
-							return false;
-						}
-						break;
-					}
-					if (ch == u'(' && !isNameTestNCName && !isAxisName) {
-						if (nameHandle == XPath$Scanner::fCommentSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_COMMENT);
-						} else if (nameHandle == XPath$Scanner::fTextSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_TEXT);
-						} else if (nameHandle == XPath$Scanner::fPISymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_PI);
-						} else if (nameHandle == XPath$Scanner::fNodeSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_NODETYPE_NODE);
-						} else {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_FUNCTION_NAME);
-							$nc(tokens)->addToken(prefixHandle);
-							tokens->addToken(nameHandle);
-						}
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_OPEN_PAREN);
-						starIsMultiplyOperator = false;
-						if (++currentOffset == endOffset) {
-							break;
-						}
-						break;
-					}
-					if (isAxisName || (ch == u':' && currentOffset + 1 < endOffset && data->charAt(currentOffset + 1) == u':')) {
-						if (nameHandle == XPath$Scanner::fAncestorSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_ANCESTOR);
-						} else if (nameHandle == XPath$Scanner::fAncestorOrSelfSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_ANCESTOR_OR_SELF);
-						} else if (nameHandle == XPath$Scanner::fAttributeSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_ATTRIBUTE);
-						} else if (nameHandle == XPath$Scanner::fChildSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_CHILD);
-						} else if (nameHandle == XPath$Scanner::fDescendantSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_DESCENDANT);
-						} else if (nameHandle == XPath$Scanner::fDescendantOrSelfSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_DESCENDANT_OR_SELF);
-						} else if (nameHandle == XPath$Scanner::fFollowingSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_FOLLOWING);
-						} else if (nameHandle == XPath$Scanner::fFollowingSiblingSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_FOLLOWING_SIBLING);
-						} else if (nameHandle == XPath$Scanner::fNamespaceSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_NAMESPACE);
-						} else if (nameHandle == XPath$Scanner::fParentSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_PARENT);
-						} else if (nameHandle == XPath$Scanner::fPrecedingSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_PRECEDING);
-						} else if (nameHandle == XPath$Scanner::fPrecedingSiblingSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_PRECEDING_SIBLING);
-						} else if (nameHandle == XPath$Scanner::fSelfSymbol) {
-							addToken(tokens, $XPath$Tokens::EXPRTOKEN_AXISNAME_SELF);
-						} else {
-							return false;
-						}
-						if (isNameTestNCName) {
-							return false;
-						}
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_DOUBLE_COLON);
-						starIsMultiplyOperator = false;
-						if (!isAxisName) {
-							++currentOffset;
-							if (++currentOffset == endOffset) {
-								break;
-							}
-						}
-						break;
-					}
 					if (isNameTestNCName) {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NAMETEST_NAMESPACE);
-						starIsMultiplyOperator = true;
-						$nc(tokens)->addToken(nameHandle);
-					} else {
-						addToken(tokens, $XPath$Tokens::EXPRTOKEN_NAMETEST_QNAME);
-						starIsMultiplyOperator = true;
-						$nc(tokens)->addToken(prefixHandle);
-						tokens->addToken(nameHandle);
+						return false;
+					}
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_DOUBLE_COLON);
+					starIsMultiplyOperator = false;
+					if (!isAxisName) {
+						++currentOffset;
+						if (++currentOffset == endOffset) {
+							break;
+						}
 					}
 					break;
 				}
-			default:
-				{
-					return false;
+				if (isNameTestNCName) {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_NAMETEST_NAMESPACE);
+					starIsMultiplyOperator = true;
+					$nc(tokens)->addToken(nameHandle);
+				} else {
+					addToken(tokens, $XPath$Tokens::EXPRTOKEN_NAMETEST_QNAME);
+					starIsMultiplyOperator = true;
+					$nc(tokens)->addToken(prefixHandle);
+					tokens->addToken(nameHandle);
 				}
+				break;
+			default:
+				return false;
 			}
 		}
 	}
+	;
 	return true;
 }
 
@@ -736,7 +603,7 @@ int32_t XPath$Scanner::scanNCName($String* data, int32_t endOffset, int32_t curr
 			return currentOffset;
 		}
 	} else {
-		int8_t chartype = $nc(XPath$Scanner::fASCIICharMap)->get(ch);
+		int8_t chartype = XPath$Scanner::fASCIICharMap->get(ch);
 		if (chartype != XPath$Scanner::CHARTYPE_LETTER && chartype != XPath$Scanner::CHARTYPE_UNDERSCORE) {
 			return currentOffset;
 		}
@@ -748,7 +615,7 @@ int32_t XPath$Scanner::scanNCName($String* data, int32_t endOffset, int32_t curr
 				break;
 			}
 		} else {
-			int8_t chartype = $nc(XPath$Scanner::fASCIICharMap)->get(ch);
+			int8_t chartype = XPath$Scanner::fASCIICharMap->get(ch);
 			if (chartype != XPath$Scanner::CHARTYPE_LETTER && chartype != XPath$Scanner::CHARTYPE_DIGIT && chartype != XPath$Scanner::CHARTYPE_PERIOD && chartype != XPath$Scanner::CHARTYPE_MINUS && chartype != XPath$Scanner::CHARTYPE_UNDERSCORE) {
 				break;
 			}
@@ -792,136 +659,136 @@ void XPath$Scanner::addToken($XPath$Tokens* tokens, int32_t token) {
 	$nc(tokens)->addToken(token);
 }
 
-void clinit$XPath$Scanner($Class* class$) {
+void XPath$Scanner::clinit$($Class* clazz) {
 	$assignStatic(XPath$Scanner::fASCIICharMap, $new($bytes, {
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)2,
-		(int8_t)2,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)2,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)2,
-		(int8_t)3,
-		(int8_t)4,
-		(int8_t)1,
-		(int8_t)5,
-		(int8_t)1,
-		(int8_t)1,
-		(int8_t)4,
-		(int8_t)6,
-		(int8_t)7,
-		(int8_t)8,
-		(int8_t)9,
-		(int8_t)10,
-		(int8_t)11,
-		(int8_t)12,
-		(int8_t)13,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)14,
-		(int8_t)15,
-		(int8_t)1,
-		(int8_t)16,
-		(int8_t)17,
-		(int8_t)18,
-		(int8_t)1,
-		(int8_t)19,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)21,
-		(int8_t)1,
-		(int8_t)22,
-		(int8_t)1,
-		(int8_t)23,
-		(int8_t)1,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)20,
-		(int8_t)1,
-		(int8_t)24,
-		(int8_t)1,
-		(int8_t)1,
-		(int8_t)1
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		2,
+		2,
+		0,
+		0,
+		2,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		2,
+		3,
+		4,
+		1,
+		5,
+		1,
+		1,
+		4,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		14,
+		14,
+		14,
+		14,
+		14,
+		14,
+		14,
+		14,
+		14,
+		15,
+		1,
+		16,
+		17,
+		18,
+		1,
+		19,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		21,
+		1,
+		22,
+		1,
+		23,
+		1,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		20,
+		1,
+		24,
+		1,
+		1,
+		1
 	}));
 	$assignStatic(XPath$Scanner::fAndSymbol, "and"_s->intern());
 	$assignStatic(XPath$Scanner::fOrSymbol, "or"_s->intern());
@@ -950,7 +817,88 @@ XPath$Scanner::XPath$Scanner() {
 }
 
 $Class* XPath$Scanner::load$($String* name, bool initialize) {
-	$loadClass(XPath$Scanner, name, initialize, &_XPath$Scanner_ClassInfo_, clinit$XPath$Scanner, allocate$XPath$Scanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHARTYPE_INVALID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_INVALID)},
+		{"CHARTYPE_OTHER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_OTHER)},
+		{"CHARTYPE_WHITESPACE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_WHITESPACE)},
+		{"CHARTYPE_EXCLAMATION", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_EXCLAMATION)},
+		{"CHARTYPE_QUOTE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_QUOTE)},
+		{"CHARTYPE_DOLLAR", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_DOLLAR)},
+		{"CHARTYPE_OPEN_PAREN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_OPEN_PAREN)},
+		{"CHARTYPE_CLOSE_PAREN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_CLOSE_PAREN)},
+		{"CHARTYPE_STAR", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_STAR)},
+		{"CHARTYPE_PLUS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_PLUS)},
+		{"CHARTYPE_COMMA", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_COMMA)},
+		{"CHARTYPE_MINUS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_MINUS)},
+		{"CHARTYPE_PERIOD", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_PERIOD)},
+		{"CHARTYPE_SLASH", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_SLASH)},
+		{"CHARTYPE_DIGIT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_DIGIT)},
+		{"CHARTYPE_COLON", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_COLON)},
+		{"CHARTYPE_LESS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_LESS)},
+		{"CHARTYPE_EQUAL", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_EQUAL)},
+		{"CHARTYPE_GREATER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_GREATER)},
+		{"CHARTYPE_ATSIGN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_ATSIGN)},
+		{"CHARTYPE_LETTER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_LETTER)},
+		{"CHARTYPE_OPEN_BRACKET", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_OPEN_BRACKET)},
+		{"CHARTYPE_CLOSE_BRACKET", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_CLOSE_BRACKET)},
+		{"CHARTYPE_UNDERSCORE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_UNDERSCORE)},
+		{"CHARTYPE_UNION", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_UNION)},
+		{"CHARTYPE_NONASCII", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPath$Scanner, CHARTYPE_NONASCII)},
+		{"fASCIICharMap", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fASCIICharMap)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(XPath$Scanner, fSymbolTable)},
+		{"fAndSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAndSymbol)},
+		{"fOrSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fOrSymbol)},
+		{"fModSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fModSymbol)},
+		{"fDivSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fDivSymbol)},
+		{"fCommentSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fCommentSymbol)},
+		{"fTextSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fTextSymbol)},
+		{"fPISymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fPISymbol)},
+		{"fNodeSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fNodeSymbol)},
+		{"fAncestorSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAncestorSymbol)},
+		{"fAncestorOrSelfSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAncestorOrSelfSymbol)},
+		{"fAttributeSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fAttributeSymbol)},
+		{"fChildSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fChildSymbol)},
+		{"fDescendantSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fDescendantSymbol)},
+		{"fDescendantOrSelfSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fDescendantOrSelfSymbol)},
+		{"fFollowingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fFollowingSymbol)},
+		{"fFollowingSiblingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fFollowingSiblingSymbol)},
+		{"fNamespaceSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fNamespaceSymbol)},
+		{"fParentSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fParentSymbol)},
+		{"fPrecedingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fPrecedingSymbol)},
+		{"fPrecedingSiblingSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fPrecedingSiblingSymbol)},
+		{"fSelfSymbol", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPath$Scanner, fSelfSymbol)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(XPath$Scanner, init$, void, $SymbolTable*)},
+		{"addToken", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;I)V", nullptr, $PROTECTED, $virtualMethod(XPath$Scanner, addToken, void, $XPath$Tokens*, int32_t), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
+		{"scanExpr", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;Ljava/lang/String;II)Z", nullptr, $PUBLIC, $virtualMethod(XPath$Scanner, scanExpr, bool, $SymbolTable*, $XPath$Tokens*, $String*, int32_t, int32_t), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
+		{"scanNCName", "(Ljava/lang/String;II)I", nullptr, 0, $virtualMethod(XPath$Scanner, scanNCName, int32_t, $String*, int32_t, int32_t)},
+		{"scanNumber", "(Lcom/sun/org/apache/xerces/internal/impl/xpath/XPath$Tokens;Ljava/lang/String;II)I", nullptr, $PRIVATE, $method(XPath$Scanner, scanNumber, int32_t, $XPath$Tokens*, $String*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner", "com.sun.org.apache.xerces.internal.impl.xpath.XPath", "Scanner", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath$Scanner",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath"
+	};
+	$loadClass(XPath$Scanner, name, initialize, &classInfo$$, XPath$Scanner::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPath$Scanner);
+	});
 	return class$;
 }
 

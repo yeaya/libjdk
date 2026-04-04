@@ -1,5 +1,4 @@
 #include <RenderBadPictureCrash.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -21,10 +20,8 @@
 #undef PERPIXEL_TRANSLUCENT
 
 using $Color = ::java::awt::Color;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsDevice$WindowTranslucency = ::java::awt::GraphicsDevice$WindowTranslucency;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -43,86 +40,61 @@ public:
 	virtual void run() override {
 		RenderBadPictureCrash::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RenderBadPictureCrash$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RenderBadPictureCrash$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RenderBadPictureCrash$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RenderBadPictureCrash$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo RenderBadPictureCrash$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RenderBadPictureCrash$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* RenderBadPictureCrash$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(RenderBadPictureCrash$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RenderBadPictureCrash$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RenderBadPictureCrash$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RenderBadPictureCrash$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RenderBadPictureCrash$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderBadPictureCrash$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* RenderBadPictureCrash$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _RenderBadPictureCrash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RenderBadPictureCrash, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RenderBadPictureCrash, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RenderBadPictureCrash, main, void, $StringArray*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
-	{}
-};
-
-$ClassInfo _RenderBadPictureCrash_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RenderBadPictureCrash",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RenderBadPictureCrash_MethodInfo_
-};
-
-$Object* allocate$RenderBadPictureCrash($Class* clazz) {
-	return $of($alloc(RenderBadPictureCrash));
-}
 
 void RenderBadPictureCrash::init$() {
 }
 
 void RenderBadPictureCrash::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RenderBadPictureCrash$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(RenderBadPictureCrash$$Lambda$lambda$main$0));
 }
 
 void RenderBadPictureCrash::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, f, $new($JFrame));
 	f->setUndecorated(true);
-	$var($GraphicsDevice, gd, $nc($(f->getGraphicsConfiguration()))->getDevice());
+	$var($GraphicsDevice, gd, $$nc(f->getGraphicsConfiguration())->getDevice());
 	$init($GraphicsDevice$WindowTranslucency);
 	if ($nc(gd)->isWindowTranslucencySupported($GraphicsDevice$WindowTranslucency::PERPIXEL_TRANSLUCENT)) {
 		f->setBackground($$new($Color, 0, 0, 0, 0));
 	}
 	f->setSize(200, 300);
 	f->setVisible(true);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$UIManager::setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel"_s);
-			} catch ($Exception& e) {
-				$nc($System::err)->println($of(e));
-				$nc($System::err)->println("Could not set GTKLookAndFeel, skipping this test"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			f->dispose();
+			$UIManager::setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel"_s);
+		} catch ($Exception& e) {
+			$nc($System::err)->println($of(e));
+			$System::err->println("Could not set GTKLookAndFeel, skipping this test"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		f->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -131,11 +103,27 @@ RenderBadPictureCrash::RenderBadPictureCrash() {
 
 $Class* RenderBadPictureCrash::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RenderBadPictureCrash$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("RenderBadPictureCrash$$Lambda$lambda$main$0")) {
 			return RenderBadPictureCrash$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(RenderBadPictureCrash, name, initialize, &_RenderBadPictureCrash_ClassInfo_, allocate$RenderBadPictureCrash);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RenderBadPictureCrash, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RenderBadPictureCrash, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RenderBadPictureCrash, main, void, $StringArray*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RenderBadPictureCrash",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RenderBadPictureCrash, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderBadPictureCrash);
+	});
 	return class$;
 }
 

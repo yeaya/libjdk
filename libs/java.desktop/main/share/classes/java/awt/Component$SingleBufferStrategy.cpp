@@ -1,5 +1,4 @@
 #include <java/awt/Component$SingleBufferStrategy.h>
-
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Component$SingleBufferStrategy_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$SingleBufferStrategy, this$0)},
-	{"caps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(Component$SingleBufferStrategy, caps)},
-	{}
-};
-
-$MethodInfo _Component$SingleBufferStrategy_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $method(Component$SingleBufferStrategy, init$, void, $Component*, $BufferCapabilities*)},
-	{"contentsLost", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, contentsLost, bool)},
-	{"contentsRestored", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, contentsRestored, bool)},
-	{"getCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, getCapabilities, $BufferCapabilities*)},
-	{"getDrawGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, getDrawGraphics, $Graphics*)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, show, void)},
-	{}
-};
-
-$InnerClassInfo _Component$SingleBufferStrategy_InnerClassesInfo_[] = {
-	{"java.awt.Component$SingleBufferStrategy", "java.awt.Component", "SingleBufferStrategy", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Component$SingleBufferStrategy_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Component$SingleBufferStrategy",
-	"java.awt.image.BufferStrategy",
-	nullptr,
-	_Component$SingleBufferStrategy_FieldInfo_,
-	_Component$SingleBufferStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$SingleBufferStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$SingleBufferStrategy($Class* clazz) {
-	return $of($alloc(Component$SingleBufferStrategy));
-}
 
 void Component$SingleBufferStrategy::init$($Component* this$0, $BufferCapabilities* caps) {
 	$set(this, this$0, this$0);
@@ -88,7 +46,42 @@ Component$SingleBufferStrategy::Component$SingleBufferStrategy() {
 }
 
 $Class* Component$SingleBufferStrategy::load$($String* name, bool initialize) {
-	$loadClass(Component$SingleBufferStrategy, name, initialize, &_Component$SingleBufferStrategy_ClassInfo_, allocate$Component$SingleBufferStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$SingleBufferStrategy, this$0)},
+		{"caps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(Component$SingleBufferStrategy, caps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $method(Component$SingleBufferStrategy, init$, void, $Component*, $BufferCapabilities*)},
+		{"contentsLost", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, contentsLost, bool)},
+		{"contentsRestored", "()Z", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, contentsRestored, bool)},
+		{"getCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, getCapabilities, $BufferCapabilities*)},
+		{"getDrawGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, getDrawGraphics, $Graphics*)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Component$SingleBufferStrategy, show, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$SingleBufferStrategy", "java.awt.Component", "SingleBufferStrategy", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Component$SingleBufferStrategy",
+		"java.awt.image.BufferStrategy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$SingleBufferStrategy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Component$SingleBufferStrategy);
+	});
 	return class$;
 }
 

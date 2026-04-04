@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Directive$RequiresFlag.h>
-
 #include <com/sun/tools/javac/code/Directive.h>
 #include <java/lang/Enum.h>
 #include <java/util/Iterator.h>
@@ -27,52 +26,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Directive$RequiresFlag_FieldInfo_[] = {
-	{"TRANSITIVE", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, TRANSITIVE)},
-	{"STATIC_PHASE", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, STATIC_PHASE)},
-	{"SYNTHETIC", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, SYNTHETIC)},
-	{"MANDATED", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, MANDATED)},
-	{"EXTRA", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, EXTRA)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Directive$RequiresFlag, $VALUES)},
-	{"value", "I", nullptr, $PUBLIC | $FINAL, $field(Directive$RequiresFlag, value$)},
-	{}
-};
-
-$MethodInfo _Directive$RequiresFlag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Directive$RequiresFlag, $values, $Directive$RequiresFlagArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Directive$RequiresFlag, init$, void, $String*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresFlag, toString, $String*)},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;)I", $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, value, int32_t, $Set*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, valueOf, Directive$RequiresFlag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, values, $Directive$RequiresFlagArray*)},
-	{}
-};
-
-$InnerClassInfo _Directive$RequiresFlag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Directive$RequiresFlag", "com.sun.tools.javac.code.Directive", "RequiresFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Directive$RequiresFlag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Directive$RequiresFlag",
-	"java.lang.Enum",
-	nullptr,
-	_Directive$RequiresFlag_FieldInfo_,
-	_Directive$RequiresFlag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;",
-	nullptr,
-	_Directive$RequiresFlag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Directive"
-};
-
-$Object* allocate$Directive$RequiresFlag($Class* clazz) {
-	return $of($alloc(Directive$RequiresFlag));
-}
 
 Directive$RequiresFlag* Directive$RequiresFlag::TRANSITIVE = nullptr;
 Directive$RequiresFlag* Directive$RequiresFlag::STATIC_PHASE = nullptr;
@@ -121,18 +74,18 @@ void Directive$RequiresFlag::init$($String* $enum$name, int32_t $enum$ordinal, i
 }
 
 $String* Directive$RequiresFlag::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("ACC_%s (0x%04x"_s, $$new($ObjectArray, {
-		$($of(name())),
-		$($of($Integer::valueOf(this->value$)))
+		$(name()),
+		$($Integer::valueOf(this->value$))
 	}));
 }
 
-void clinit$Directive$RequiresFlag($Class* class$) {
+void Directive$RequiresFlag::clinit$($Class* clazz) {
 	$assignStatic(Directive$RequiresFlag::TRANSITIVE, $new(Directive$RequiresFlag, "TRANSITIVE"_s, 0, 32));
 	$assignStatic(Directive$RequiresFlag::STATIC_PHASE, $new(Directive$RequiresFlag, "STATIC_PHASE"_s, 1, 64));
 	$assignStatic(Directive$RequiresFlag::SYNTHETIC, $new(Directive$RequiresFlag, "SYNTHETIC"_s, 2, 4096));
-	$assignStatic(Directive$RequiresFlag::MANDATED, $new(Directive$RequiresFlag, "MANDATED"_s, 3, 32768));
+	$assignStatic(Directive$RequiresFlag::MANDATED, $new(Directive$RequiresFlag, "MANDATED"_s, 3, 0x00008000));
 	$assignStatic(Directive$RequiresFlag::EXTRA, $new(Directive$RequiresFlag, "EXTRA"_s, 4, 0x00010000));
 	$assignStatic(Directive$RequiresFlag::$VALUES, Directive$RequiresFlag::$values());
 }
@@ -141,7 +94,47 @@ Directive$RequiresFlag::Directive$RequiresFlag() {
 }
 
 $Class* Directive$RequiresFlag::load$($String* name, bool initialize) {
-	$loadClass(Directive$RequiresFlag, name, initialize, &_Directive$RequiresFlag_ClassInfo_, clinit$Directive$RequiresFlag, allocate$Directive$RequiresFlag);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSITIVE", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, TRANSITIVE)},
+		{"STATIC_PHASE", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, STATIC_PHASE)},
+		{"SYNTHETIC", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, SYNTHETIC)},
+		{"MANDATED", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, MANDATED)},
+		{"EXTRA", "Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$RequiresFlag, EXTRA)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Directive$RequiresFlag, $VALUES)},
+		{"value", "I", nullptr, $PUBLIC | $FINAL, $field(Directive$RequiresFlag, value$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Directive$RequiresFlag, $values, $Directive$RequiresFlagArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Directive$RequiresFlag, init$, void, $String*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresFlag, toString, $String*)},
+		{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;)I", $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, value, int32_t, $Set*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, valueOf, Directive$RequiresFlag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, values, $Directive$RequiresFlagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Directive$RequiresFlag", "com.sun.tools.javac.code.Directive", "RequiresFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Directive$RequiresFlag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Directive"
+	};
+	$loadClass(Directive$RequiresFlag, name, initialize, &classInfo$$, Directive$RequiresFlag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Directive$RequiresFlag));
+	});
 	return class$;
 }
 

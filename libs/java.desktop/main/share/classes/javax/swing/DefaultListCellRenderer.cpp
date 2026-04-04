@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultListCellRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/lang/SecurityManager.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JList$DropLocation.h>
 #include <javax/swing/JList.h>
@@ -31,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 using $JList$DropLocation = ::javax::swing::JList$DropLocation;
@@ -43,65 +40,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DefaultListCellRenderer_FieldInfo_[] = {
-	{"SAFE_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultListCellRenderer, SAFE_NO_FOCUS_BORDER)},
-	{"DEFAULT_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultListCellRenderer, DEFAULT_NO_FOCUS_BORDER)},
-	{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticField(DefaultListCellRenderer, noFocusBorder)},
-	{}
-};
-
-$MethodInfo _DefaultListCellRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultListCellRenderer, init$, void)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"firePropertyChange", "(Ljava/lang/String;BB)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int8_t, int8_t)},
-	{"firePropertyChange", "(Ljava/lang/String;CC)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, char16_t, char16_t)},
-	{"firePropertyChange", "(Ljava/lang/String;SS)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int16_t, int16_t)},
-	{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int32_t, int32_t)},
-	{"firePropertyChange", "(Ljava/lang/String;JJ)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int64_t, int64_t)},
-	{"firePropertyChange", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, float, float)},
-	{"firePropertyChange", "(Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, double, double)},
-	{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, bool, bool)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(DefaultListCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{"getNoFocusBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(DefaultListCellRenderer, getNoFocusBorder, $Border*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, invalidate, void)},
-	{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, isOpaque, bool)},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, repaint, void)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, repaint, void, $Rectangle*)},
-	{"revalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, revalidate, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, validate, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultListCellRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.DefaultListCellRenderer$UIResource", "javax.swing.DefaultListCellRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultListCellRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DefaultListCellRenderer",
-	"javax.swing.JLabel",
-	"javax.swing.ListCellRenderer",
-	_DefaultListCellRenderer_FieldInfo_,
-	_DefaultListCellRenderer_MethodInfo_,
-	"Ljavax/swing/JLabel;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljava/io/Serializable;",
-	nullptr,
-	_DefaultListCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.DefaultListCellRenderer$UIResource"
-};
-
-$Object* allocate$DefaultListCellRenderer($Class* clazz) {
-	return $of($alloc(DefaultListCellRenderer));
-}
 
 $String* DefaultListCellRenderer::toString() {
 	 return this->$JLabel::toString();
@@ -150,11 +88,11 @@ $Border* DefaultListCellRenderer::getNoFocusBorder() {
 }
 
 $Component* DefaultListCellRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setComponentOrientation($($nc(list)->getComponentOrientation()));
 	$var($Color, bg, nullptr);
 	$var($Color, fg, nullptr);
-	$var($JList$DropLocation, dropLocation, $nc(list)->getDropLocation());
+	$var($JList$DropLocation, dropLocation, list->getDropLocation());
 	bool var$0 = dropLocation != nullptr && !dropLocation->isInsert();
 	if (var$0 && dropLocation->getIndex() == index) {
 		$assign(bg, $DefaultLookup::getColor(this, this->ui, "List.dropCellBackground"_s));
@@ -173,7 +111,7 @@ $Component* DefaultListCellRenderer::getListCellRendererComponent($JList* list, 
 		setText(""_s);
 	} else {
 		setIcon(nullptr);
-		setText((value == nullptr) ? ""_s : $($nc($of(value))->toString()));
+		setText((value == nullptr) ? ""_s : $($of(value)->toString()));
 	}
 	setEnabled(list->isEnabled());
 	setFont($(list->getFont()));
@@ -193,7 +131,7 @@ $Component* DefaultListCellRenderer::getListCellRendererComponent($JList* list, 
 }
 
 bool DefaultListCellRenderer::isOpaque() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, back, getBackground());
 	$var($Component, p, getParent());
 	if (p != nullptr) {
@@ -227,7 +165,7 @@ void DefaultListCellRenderer::firePropertyChange($String* propertyName, Object$*
 	if (!var$0) {
 		bool var$1 = ($SwingUtilities2::isScaleChanged(propertyName, oldValue, newValue) || propertyName == "font"_s || propertyName == "foreground"_s) && !$equals(oldValue, newValue);
 		$init($BasicHTML);
-		var$0 = (var$1 && getClientProperty($BasicHTML::propertyKey) != nullptr);
+		var$0 = var$1 && getClientProperty($BasicHTML::propertyKey) != nullptr;
 	}
 	if (var$0) {
 		$JLabel::firePropertyChange(propertyName, oldValue, newValue);
@@ -258,7 +196,7 @@ void DefaultListCellRenderer::firePropertyChange($String* propertyName, double o
 void DefaultListCellRenderer::firePropertyChange($String* propertyName, bool oldValue, bool newValue) {
 }
 
-void clinit$DefaultListCellRenderer($Class* class$) {
+void DefaultListCellRenderer::clinit$($Class* clazz) {
 	$assignStatic(DefaultListCellRenderer::SAFE_NO_FOCUS_BORDER, $new($EmptyBorder, 1, 1, 1, 1));
 	$assignStatic(DefaultListCellRenderer::DEFAULT_NO_FOCUS_BORDER, $new($EmptyBorder, 1, 1, 1, 1));
 	$assignStatic(DefaultListCellRenderer::noFocusBorder, DefaultListCellRenderer::DEFAULT_NO_FOCUS_BORDER);
@@ -268,7 +206,60 @@ DefaultListCellRenderer::DefaultListCellRenderer() {
 }
 
 $Class* DefaultListCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(DefaultListCellRenderer, name, initialize, &_DefaultListCellRenderer_ClassInfo_, clinit$DefaultListCellRenderer, allocate$DefaultListCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"SAFE_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultListCellRenderer, SAFE_NO_FOCUS_BORDER)},
+		{"DEFAULT_NO_FOCUS_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultListCellRenderer, DEFAULT_NO_FOCUS_BORDER)},
+		{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticField(DefaultListCellRenderer, noFocusBorder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultListCellRenderer, init$, void)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"firePropertyChange", "(Ljava/lang/String;BB)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int8_t, int8_t)},
+		{"firePropertyChange", "(Ljava/lang/String;CC)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, char16_t, char16_t)},
+		{"firePropertyChange", "(Ljava/lang/String;SS)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int16_t, int16_t)},
+		{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int32_t, int32_t)},
+		{"firePropertyChange", "(Ljava/lang/String;JJ)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, int64_t, int64_t)},
+		{"firePropertyChange", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, float, float)},
+		{"firePropertyChange", "(Ljava/lang/String;DD)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, double, double)},
+		{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, firePropertyChange, void, $String*, bool, bool)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(DefaultListCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{"getNoFocusBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(DefaultListCellRenderer, getNoFocusBorder, $Border*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, invalidate, void)},
+		{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, isOpaque, bool)},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, repaint, void)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"repaint", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, repaint, void, $Rectangle*)},
+		{"revalidate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, revalidate, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validate", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultListCellRenderer, validate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.DefaultListCellRenderer$UIResource", "javax.swing.DefaultListCellRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DefaultListCellRenderer",
+		"javax.swing.JLabel",
+		"javax.swing.ListCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/JLabel;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.DefaultListCellRenderer$UIResource"
+	};
+	$loadClass(DefaultListCellRenderer, name, initialize, &classInfo$$, DefaultListCellRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultListCellRenderer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$Parser.h>
-
 #include <java/io/Reader.h>
 #include <javax/swing/text/html/HTMLEditorKit$ParserCallback.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
@@ -16,37 +15,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _HTMLEditorKit$Parser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(HTMLEditorKit$Parser, init$, void)},
-	{"parse", "(Ljava/io/Reader;Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HTMLEditorKit$Parser, parse, void, $Reader*, $HTMLEditorKit$ParserCallback*, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$Parser_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$Parser", "javax.swing.text.html.HTMLEditorKit", "Parser", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$Parser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.html.HTMLEditorKit$Parser",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$Parser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$Parser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$Parser($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$Parser));
-}
-
 void HTMLEditorKit$Parser::init$() {
 }
 
@@ -54,7 +22,33 @@ HTMLEditorKit$Parser::HTMLEditorKit$Parser() {
 }
 
 $Class* HTMLEditorKit$Parser::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$Parser, name, initialize, &_HTMLEditorKit$Parser_ClassInfo_, allocate$HTMLEditorKit$Parser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(HTMLEditorKit$Parser, init$, void)},
+		{"parse", "(Ljava/io/Reader;Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HTMLEditorKit$Parser, parse, void, $Reader*, $HTMLEditorKit$ParserCallback*, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$Parser", "javax.swing.text.html.HTMLEditorKit", "Parser", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.html.HTMLEditorKit$Parser",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$Parser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLEditorKit$Parser);
+	});
 	return class$;
 }
 

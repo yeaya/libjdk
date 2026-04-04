@@ -21,6 +21,7 @@ class XScrollRepeater : public ::java::lang::Runnable {
 	$class(XScrollRepeater, 0, ::java::lang::Runnable)
 public:
 	XScrollRepeater();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XScrollbar* sb);
 	virtual void run() override;
 	virtual void setScrollbar(::sun::awt::X11::XScrollbar* sb);

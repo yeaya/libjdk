@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/InferenceContext$2.h>
-
 #include <com/sun/tools/javac/comp/Infer$BestLeafSolver.h>
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <com/sun/tools/javac/comp/InferenceContext.h>
@@ -22,54 +21,10 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _InferenceContext$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $FINAL | $SYNTHETIC, $field(InferenceContext$2, this$0)},
-	{"val$vars", "Lcom/sun/tools/javac/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(InferenceContext$2, val$vars)},
-	{}
-};
-
-$MethodInfo _InferenceContext$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(InferenceContext$2, init$, void, $InferenceContext*, $Infer*, $List*, $List*)},
-	{"done", "()Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$2, done, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _InferenceContext$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.InferenceContext",
-	"solve",
-	"(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V"
-};
-
-$InnerClassInfo _InferenceContext$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.InferenceContext$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Infer$BestLeafSolver", "com.sun.tools.javac.comp.Infer", "BestLeafSolver", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InferenceContext$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.InferenceContext$2",
-	"com.sun.tools.javac.comp.Infer$BestLeafSolver",
-	nullptr,
-	_InferenceContext$2_FieldInfo_,
-	_InferenceContext$2_MethodInfo_,
-	nullptr,
-	&_InferenceContext$2_EnclosingMethodInfo_,
-	_InferenceContext$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.InferenceContext"
-};
-
-$Object* allocate$InferenceContext$2($Class* clazz) {
-	return $of($alloc(InferenceContext$2));
-}
-
 void InferenceContext$2::init$($InferenceContext* this$0, $Infer* x0, $List* varsToSolve, $List* val$vars) {
 	$set(this, this$0, this$0);
 	$set(this, val$vars, val$vars);
-	$Infer$BestLeafSolver::init$(static_cast<$Infer*>($nc(x0)), varsToSolve);
+	$Infer$BestLeafSolver::init$($nc(x0), varsToSolve);
 }
 
 bool InferenceContext$2::done() {
@@ -80,7 +35,44 @@ InferenceContext$2::InferenceContext$2() {
 }
 
 $Class* InferenceContext$2::load$($String* name, bool initialize) {
-	$loadClass(InferenceContext$2, name, initialize, &_InferenceContext$2_ClassInfo_, allocate$InferenceContext$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $FINAL | $SYNTHETIC, $field(InferenceContext$2, this$0)},
+		{"val$vars", "Lcom/sun/tools/javac/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(InferenceContext$2, val$vars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(InferenceContext$2, init$, void, $InferenceContext*, $Infer*, $List*, $List*)},
+		{"done", "()Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$2, done, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.InferenceContext",
+		"solve",
+		"(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.InferenceContext$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Infer$BestLeafSolver", "com.sun.tools.javac.comp.Infer", "BestLeafSolver", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.InferenceContext$2",
+		"com.sun.tools.javac.comp.Infer$BestLeafSolver",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.InferenceContext"
+	};
+	$loadClass(InferenceContext$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InferenceContext$2);
+	});
 	return class$;
 }
 

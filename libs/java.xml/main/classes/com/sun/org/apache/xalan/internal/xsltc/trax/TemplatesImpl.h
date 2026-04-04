@@ -106,6 +106,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<int8_t, 2>* bytecodes, $String* transletName, ::java::util::Properties* outputProperties, int32_t indentNumber, ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerFactoryImpl* tfactory);
 	void init$($ClassArray* transletClasses, $String* transletName, ::java::util::Properties* outputProperties, int32_t indentNumber, ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerFactoryImpl* tfactory);
 	void init$();
@@ -132,7 +133,7 @@ public:
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* os);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x09574FC16EACAB33;
+	static const int64_t serialVersionUID = (int64_t)0x09574fc16eacab33;
 	static $String* DESERIALIZE_TRANSLET;
 	static $String* ABSTRACT_TRANSLET;
 	$String* _name = nullptr;

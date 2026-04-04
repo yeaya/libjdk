@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport$IteratorPrefixes.h>
-
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/NoSuchElementException.h>
@@ -20,48 +19,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _NamespaceSupport$IteratorPrefixes_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NamespaceSupport$IteratorPrefixes, this$0)},
-	{"prefixes", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceSupport$IteratorPrefixes, prefixes)},
-	{"counter", "I", nullptr, $PRIVATE, $field(NamespaceSupport$IteratorPrefixes, counter)},
-	{"size", "I", nullptr, $PRIVATE, $field(NamespaceSupport$IteratorPrefixes, size)},
-	{}
-};
-
-$MethodInfo _NamespaceSupport$IteratorPrefixes_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;[Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(NamespaceSupport$IteratorPrefixes, init$, void, $NamespaceSupport*, $StringArray*, int32_t)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, hasNext, bool)},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, remove, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NamespaceSupport$IteratorPrefixes_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "IteratorPrefixes", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _NamespaceSupport$IteratorPrefixes_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_NamespaceSupport$IteratorPrefixes_FieldInfo_,
-	_NamespaceSupport$IteratorPrefixes_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
-	nullptr,
-	_NamespaceSupport$IteratorPrefixes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.NamespaceSupport"
-};
-
-$Object* allocate$NamespaceSupport$IteratorPrefixes($Class* clazz) {
-	return $of($alloc(NamespaceSupport$IteratorPrefixes));
-}
 
 void NamespaceSupport$IteratorPrefixes::init$($NamespaceSupport* this$0, $StringArray* prefixes, int32_t size) {
 	$set(this, this$0, this$0);
@@ -99,7 +56,43 @@ NamespaceSupport$IteratorPrefixes::NamespaceSupport$IteratorPrefixes() {
 }
 
 $Class* NamespaceSupport$IteratorPrefixes::load$($String* name, bool initialize) {
-	$loadClass(NamespaceSupport$IteratorPrefixes, name, initialize, &_NamespaceSupport$IteratorPrefixes_ClassInfo_, allocate$NamespaceSupport$IteratorPrefixes);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NamespaceSupport$IteratorPrefixes, this$0)},
+		{"prefixes", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(NamespaceSupport$IteratorPrefixes, prefixes)},
+		{"counter", "I", nullptr, $PRIVATE, $field(NamespaceSupport$IteratorPrefixes, counter)},
+		{"size", "I", nullptr, $PRIVATE, $field(NamespaceSupport$IteratorPrefixes, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;[Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(NamespaceSupport$IteratorPrefixes, init$, void, $NamespaceSupport*, $StringArray*, int32_t)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, hasNext, bool)},
+		{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, remove, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport$IteratorPrefixes, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes", "com.sun.org.apache.xerces.internal.util.NamespaceSupport", "IteratorPrefixes", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.NamespaceSupport$IteratorPrefixes",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.NamespaceSupport"
+	};
+	$loadClass(NamespaceSupport$IteratorPrefixes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceSupport$IteratorPrefixes);
+	});
 	return class$;
 }
 

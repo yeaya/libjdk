@@ -1,5 +1,4 @@
 #include <java/awt/AlphaComposite.h>
-
 #include <java/awt/CompositeContext.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/image/ColorModel.h>
@@ -34,66 +33,6 @@ using $SunCompositeContext = ::sun::java2d::SunCompositeContext;
 namespace java {
 	namespace awt {
 
-$FieldInfo _AlphaComposite_FieldInfo_[] = {
-	{"CLEAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, CLEAR)},
-	{"SRC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC)},
-	{"DST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST)},
-	{"SRC_OVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_OVER)},
-	{"DST_OVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_OVER)},
-	{"SRC_IN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_IN)},
-	{"DST_IN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_IN)},
-	{"SRC_OUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_OUT)},
-	{"DST_OUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_OUT)},
-	{"SRC_ATOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_ATOP)},
-	{"DST_ATOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_ATOP)},
-	{"XOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, XOR)},
-	{"Clear", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Clear)},
-	{"Src", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Src)},
-	{"Dst", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Dst)},
-	{"SrcOver", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcOver)},
-	{"DstOver", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstOver)},
-	{"SrcIn", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcIn)},
-	{"DstIn", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstIn)},
-	{"SrcOut", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcOut)},
-	{"DstOut", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstOut)},
-	{"SrcAtop", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcAtop)},
-	{"DstAtop", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstAtop)},
-	{"Xor", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Xor)},
-	{"MIN_RULE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlphaComposite, MIN_RULE)},
-	{"MAX_RULE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlphaComposite, MAX_RULE)},
-	{"extraAlpha", "F", nullptr, 0, $field(AlphaComposite, extraAlpha)},
-	{"rule", "I", nullptr, 0, $field(AlphaComposite, rule)},
-	{}
-};
-
-$MethodInfo _AlphaComposite_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(AlphaComposite, init$, void, int32_t)},
-	{"<init>", "(IF)V", nullptr, $PRIVATE, $method(AlphaComposite, init$, void, int32_t, float)},
-	{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;Ljava/awt/RenderingHints;)Ljava/awt/CompositeContext;", nullptr, $PUBLIC, $virtualMethod(AlphaComposite, createContext, $CompositeContext*, $ColorModel*, $ColorModel*, $RenderingHints*)},
-	{"derive", "(I)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC, $method(AlphaComposite, derive, AlphaComposite*, int32_t)},
-	{"derive", "(F)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC, $method(AlphaComposite, derive, AlphaComposite*, float)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AlphaComposite, equals, bool, Object$*)},
-	{"getAlpha", "()F", nullptr, $PUBLIC, $method(AlphaComposite, getAlpha, float)},
-	{"getInstance", "(I)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlphaComposite, getInstance, AlphaComposite*, int32_t)},
-	{"getInstance", "(IF)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlphaComposite, getInstance, AlphaComposite*, int32_t, float)},
-	{"getRule", "()I", nullptr, $PUBLIC, $method(AlphaComposite, getRule, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AlphaComposite, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _AlphaComposite_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.AlphaComposite",
-	"java.lang.Object",
-	"java.awt.Composite",
-	_AlphaComposite_FieldInfo_,
-	_AlphaComposite_MethodInfo_
-};
-
-$Object* allocate$AlphaComposite($Class* clazz) {
-	return $of($alloc(AlphaComposite));
-}
-
 AlphaComposite* AlphaComposite::Clear = nullptr;
 AlphaComposite* AlphaComposite::Src = nullptr;
 AlphaComposite* AlphaComposite::Dst = nullptr;
@@ -127,57 +66,31 @@ AlphaComposite* AlphaComposite::getInstance(int32_t rule) {
 	$init(AlphaComposite);
 	switch (rule) {
 	case AlphaComposite::CLEAR:
-		{
-			return AlphaComposite::Clear;
-		}
+		return AlphaComposite::Clear;
 	case AlphaComposite::SRC:
-		{
-			return AlphaComposite::Src;
-		}
+		return AlphaComposite::Src;
 	case AlphaComposite::DST:
-		{
-			return AlphaComposite::Dst;
-		}
+		return AlphaComposite::Dst;
 	case AlphaComposite::SRC_OVER:
-		{
-			return AlphaComposite::SrcOver;
-		}
+		return AlphaComposite::SrcOver;
 	case AlphaComposite::DST_OVER:
-		{
-			return AlphaComposite::DstOver;
-		}
+		return AlphaComposite::DstOver;
 	case AlphaComposite::SRC_IN:
-		{
-			return AlphaComposite::SrcIn;
-		}
+		return AlphaComposite::SrcIn;
 	case AlphaComposite::DST_IN:
-		{
-			return AlphaComposite::DstIn;
-		}
+		return AlphaComposite::DstIn;
 	case AlphaComposite::SRC_OUT:
-		{
-			return AlphaComposite::SrcOut;
-		}
+		return AlphaComposite::SrcOut;
 	case AlphaComposite::DST_OUT:
-		{
-			return AlphaComposite::DstOut;
-		}
+		return AlphaComposite::DstOut;
 	case AlphaComposite::SRC_ATOP:
-		{
-			return AlphaComposite::SrcAtop;
-		}
+		return AlphaComposite::SrcAtop;
 	case AlphaComposite::DST_ATOP:
-		{
-			return AlphaComposite::DstAtop;
-		}
+		return AlphaComposite::DstAtop;
 	case AlphaComposite::XOR:
-		{
-			return AlphaComposite::Xor;
-		}
+		return AlphaComposite::Xor;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "unknown composite rule"_s);
-		}
+		$throwNew($IllegalArgumentException, "unknown composite rule"_s);
 	}
 }
 
@@ -221,13 +134,13 @@ bool AlphaComposite::equals(Object$* obj) {
 	if (this->rule != $nc(ac)->rule) {
 		return false;
 	}
-	if (this->extraAlpha != $nc(ac)->extraAlpha) {
+	if (this->extraAlpha != ac->extraAlpha) {
 		return false;
 	}
 	return true;
 }
 
-void clinit$AlphaComposite($Class* class$) {
+void AlphaComposite::clinit$($Class* clazz) {
 	$assignStatic(AlphaComposite::Clear, $new(AlphaComposite, AlphaComposite::CLEAR));
 	$assignStatic(AlphaComposite::Src, $new(AlphaComposite, AlphaComposite::SRC));
 	$assignStatic(AlphaComposite::Dst, $new(AlphaComposite, AlphaComposite::DST));
@@ -246,7 +159,62 @@ AlphaComposite::AlphaComposite() {
 }
 
 $Class* AlphaComposite::load$($String* name, bool initialize) {
-	$loadClass(AlphaComposite, name, initialize, &_AlphaComposite_ClassInfo_, clinit$AlphaComposite, allocate$AlphaComposite);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLEAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, CLEAR)},
+		{"SRC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC)},
+		{"DST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST)},
+		{"SRC_OVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_OVER)},
+		{"DST_OVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_OVER)},
+		{"SRC_IN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_IN)},
+		{"DST_IN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_IN)},
+		{"SRC_OUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_OUT)},
+		{"DST_OUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_OUT)},
+		{"SRC_ATOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, SRC_ATOP)},
+		{"DST_ATOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, DST_ATOP)},
+		{"XOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AlphaComposite, XOR)},
+		{"Clear", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Clear)},
+		{"Src", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Src)},
+		{"Dst", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Dst)},
+		{"SrcOver", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcOver)},
+		{"DstOver", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstOver)},
+		{"SrcIn", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcIn)},
+		{"DstIn", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstIn)},
+		{"SrcOut", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcOut)},
+		{"DstOut", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstOut)},
+		{"SrcAtop", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, SrcAtop)},
+		{"DstAtop", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, DstAtop)},
+		{"Xor", "Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AlphaComposite, Xor)},
+		{"MIN_RULE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlphaComposite, MIN_RULE)},
+		{"MAX_RULE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlphaComposite, MAX_RULE)},
+		{"extraAlpha", "F", nullptr, 0, $field(AlphaComposite, extraAlpha)},
+		{"rule", "I", nullptr, 0, $field(AlphaComposite, rule)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(AlphaComposite, init$, void, int32_t)},
+		{"<init>", "(IF)V", nullptr, $PRIVATE, $method(AlphaComposite, init$, void, int32_t, float)},
+		{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/image/ColorModel;Ljava/awt/RenderingHints;)Ljava/awt/CompositeContext;", nullptr, $PUBLIC, $virtualMethod(AlphaComposite, createContext, $CompositeContext*, $ColorModel*, $ColorModel*, $RenderingHints*)},
+		{"derive", "(I)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC, $method(AlphaComposite, derive, AlphaComposite*, int32_t)},
+		{"derive", "(F)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC, $method(AlphaComposite, derive, AlphaComposite*, float)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AlphaComposite, equals, bool, Object$*)},
+		{"getAlpha", "()F", nullptr, $PUBLIC, $method(AlphaComposite, getAlpha, float)},
+		{"getInstance", "(I)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlphaComposite, getInstance, AlphaComposite*, int32_t)},
+		{"getInstance", "(IF)Ljava/awt/AlphaComposite;", nullptr, $PUBLIC | $STATIC, $staticMethod(AlphaComposite, getInstance, AlphaComposite*, int32_t, float)},
+		{"getRule", "()I", nullptr, $PUBLIC, $method(AlphaComposite, getRule, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AlphaComposite, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.AlphaComposite",
+		"java.lang.Object",
+		"java.awt.Composite",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlphaComposite, name, initialize, &classInfo$$, AlphaComposite::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AlphaComposite);
+	});
 	return class$;
 }
 

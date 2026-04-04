@@ -1,11 +1,9 @@
 #include <javax/swing/JEditorPane$AccessibleJEditorPane.h>
-
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/accessibility/AccessibleStateSet.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef ACCESSIBLE_DESCRIPTION_PROPERTY
@@ -19,49 +17,10 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $JTextComponent$AccessibleJTextComponent = ::javax::swing::text::JTextComponent$AccessibleJTextComponent;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JEditorPane$AccessibleJEditorPane_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(JEditorPane$AccessibleJEditorPane, this$0)},
-	{}
-};
-
-$MethodInfo _JEditorPane$AccessibleJEditorPane_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JEditorPane;)V", nullptr, $PROTECTED, $method(JEditorPane$AccessibleJEditorPane, init$, void, $JEditorPane*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$AccessibleJEditorPane, getAccessibleDescription, $String*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$AccessibleJEditorPane, getAccessibleStateSet, $AccessibleStateSet*)},
-	{}
-};
-
-$InnerClassInfo _JEditorPane$AccessibleJEditorPane_InnerClassesInfo_[] = {
-	{"javax.swing.JEditorPane$AccessibleJEditorPane", "javax.swing.JEditorPane", "AccessibleJEditorPane", $PROTECTED},
-	{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
-	{}
-};
-
-$ClassInfo _JEditorPane$AccessibleJEditorPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JEditorPane$AccessibleJEditorPane",
-	"javax.swing.text.JTextComponent$AccessibleJTextComponent",
-	nullptr,
-	_JEditorPane$AccessibleJEditorPane_FieldInfo_,
-	_JEditorPane$AccessibleJEditorPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JEditorPane$AccessibleJEditorPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JEditorPane"
-};
-
-$Object* allocate$JEditorPane$AccessibleJEditorPane($Class* clazz) {
-	return $of($alloc(JEditorPane$AccessibleJEditorPane));
-}
 
 void JEditorPane$AccessibleJEditorPane::init$($JEditorPane* this$0) {
 	$set(this, this$0, this$0);
@@ -91,7 +50,39 @@ JEditorPane$AccessibleJEditorPane::JEditorPane$AccessibleJEditorPane() {
 }
 
 $Class* JEditorPane$AccessibleJEditorPane::load$($String* name, bool initialize) {
-	$loadClass(JEditorPane$AccessibleJEditorPane, name, initialize, &_JEditorPane$AccessibleJEditorPane_ClassInfo_, allocate$JEditorPane$AccessibleJEditorPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(JEditorPane$AccessibleJEditorPane, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JEditorPane;)V", nullptr, $PROTECTED, $method(JEditorPane$AccessibleJEditorPane, init$, void, $JEditorPane*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$AccessibleJEditorPane, getAccessibleDescription, $String*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$AccessibleJEditorPane, getAccessibleStateSet, $AccessibleStateSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JEditorPane$AccessibleJEditorPane", "javax.swing.JEditorPane", "AccessibleJEditorPane", $PROTECTED},
+		{"javax.swing.text.JTextComponent$AccessibleJTextComponent", "javax.swing.text.JTextComponent", "AccessibleJTextComponent", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JEditorPane$AccessibleJEditorPane",
+		"javax.swing.text.JTextComponent$AccessibleJTextComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JEditorPane"
+	};
+	$loadClass(JEditorPane$AccessibleJEditorPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JEditorPane$AccessibleJEditorPane));
+	});
 	return class$;
 }
 

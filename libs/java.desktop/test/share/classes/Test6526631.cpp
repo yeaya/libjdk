@@ -1,5 +1,4 @@
 #include <Test6526631.h>
-
 #include <SwingTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -21,7 +20,6 @@
 #undef ROWS
 
 using $SwingTest = ::SwingTest;
-using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,38 +32,6 @@ using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JViewport = ::javax::swing::JViewport;
 
-$FieldInfo _Test6526631_FieldInfo_[] = {
-	{"COLS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6526631, COLS)},
-	{"ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6526631, ROWS)},
-	{"OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6526631, OFFSET)},
-	{"pane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $FINAL, $field(Test6526631, pane)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $FINAL, $field(Test6526631, frame)},
-	{}
-};
-
-$MethodInfo _Test6526631_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(Test6526631, init$, void, $JFrame*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6526631, main, void, $StringArray*), "java.lang.Throwable"},
-	{"update", "(I)V", nullptr, $PRIVATE, $method(Test6526631, update, void, int32_t)},
-	{"validateFirst", "()V", nullptr, $PUBLIC, $virtualMethod(Test6526631, validateFirst, void)},
-	{"validateSecond", "()V", nullptr, $PUBLIC, $virtualMethod(Test6526631, validateSecond, void)},
-	{"validateThird", "()V", nullptr, $PUBLIC, $virtualMethod(Test6526631, validateThird, void)},
-	{}
-};
-
-$ClassInfo _Test6526631_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6526631",
-	"java.lang.Object",
-	nullptr,
-	_Test6526631_FieldInfo_,
-	_Test6526631_MethodInfo_
-};
-
-$Object* allocate$Test6526631($Class* clazz) {
-	return $of($alloc(Test6526631));
-}
-
 void Test6526631::main($StringArray* args) {
 	$load(Test6526631);
 	$SwingTest::start(Test6526631::class$);
@@ -74,15 +40,15 @@ void Test6526631::main($StringArray* args) {
 void Test6526631::init$($JFrame* frame) {
 	$set(this, pane, $new($JScrollPane, $$new($JTextArea, Test6526631::ROWS, Test6526631::COLS)));
 	$init($ComponentOrientation);
-	$nc(this->pane)->setComponentOrientation($ComponentOrientation::RIGHT_TO_LEFT);
+	this->pane->setComponentOrientation($ComponentOrientation::RIGHT_TO_LEFT);
 	$set(this, frame, frame);
-	$nc(this->frame)->add(static_cast<$Component*>(this->pane));
+	$nc(this->frame)->add(this->pane);
 }
 
 void Test6526631::update(int32_t offset) {
 	$var($Dimension, size, $nc(this->frame)->getSize());
 	$nc(size)->width += offset;
-	$nc(this->frame)->setSize(size);
+	this->frame->setSize(size);
 }
 
 void Test6526631::validateFirst() {
@@ -96,14 +62,14 @@ void Test6526631::validateSecond() {
 }
 
 void Test6526631::validateThird() {
-	$useLocalCurrentObjectStackCache();
-	$var($JViewport, viewport, $nc(this->pane)->getViewport());
-	$var($JScrollBar, scroller, $nc(this->pane)->getHorizontalScrollBar());
+	$useLocalObjectStack();
+	$var($JViewport, viewport, this->pane->getViewport());
+	$var($JScrollBar, scroller, this->pane->getHorizontalScrollBar());
 	$init($ComponentOrientation);
-	if (!$nc($of($($nc(scroller)->getComponentOrientation())))->equals($ComponentOrientation::RIGHT_TO_LEFT)) {
+	if (!$$nc($nc(scroller)->getComponentOrientation())->equals($ComponentOrientation::RIGHT_TO_LEFT)) {
 		$throwNew($Error, "unexpected component orientation"_s);
 	}
-	int32_t value = $nc(scroller)->getValue();
+	int32_t value = scroller->getValue();
 	if (value != 0) {
 		$throwNew($Error, "unexpected scroll value"_s);
 	}
@@ -125,7 +91,34 @@ Test6526631::Test6526631() {
 }
 
 $Class* Test6526631::load$($String* name, bool initialize) {
-	$loadClass(Test6526631, name, initialize, &_Test6526631_ClassInfo_, allocate$Test6526631);
+	$FieldInfo fieldInfos$$[] = {
+		{"COLS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6526631, COLS)},
+		{"ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6526631, ROWS)},
+		{"OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6526631, OFFSET)},
+		{"pane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $FINAL, $field(Test6526631, pane)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $FINAL, $field(Test6526631, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(Test6526631, init$, void, $JFrame*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6526631, main, void, $StringArray*), "java.lang.Throwable"},
+		{"update", "(I)V", nullptr, $PRIVATE, $method(Test6526631, update, void, int32_t)},
+		{"validateFirst", "()V", nullptr, $PUBLIC, $virtualMethod(Test6526631, validateFirst, void)},
+		{"validateSecond", "()V", nullptr, $PUBLIC, $virtualMethod(Test6526631, validateSecond, void)},
+		{"validateThird", "()V", nullptr, $PUBLIC, $virtualMethod(Test6526631, validateThird, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6526631",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test6526631, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6526631);
+	});
 	return class$;
 }
 

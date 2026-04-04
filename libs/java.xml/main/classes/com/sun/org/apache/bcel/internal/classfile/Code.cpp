@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Code.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/CodeException.h>
@@ -38,56 +37,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _Code_FieldInfo_[] = {
-	{"maxStack", "I", nullptr, $PRIVATE, $field(Code, maxStack)},
-	{"maxLocals", "I", nullptr, $PRIVATE, $field(Code, maxLocals)},
-	{"code", "[B", nullptr, $PRIVATE, $field(Code, code)},
-	{"exceptionTable", "[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PRIVATE, $field(Code, exceptionTable)},
-	{"attributes", "[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PRIVATE, $field(Code, attributes)},
-	{}
-};
-
-$MethodInfo _Code_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Code;)V", nullptr, $PUBLIC, $method(Code, init$, void, Code*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Code, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"<init>", "(IIII[B[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Code, init$, void, int32_t, int32_t, int32_t, int32_t, $bytes*, $CodeExceptionArray*, $AttributeArray*, $ConstantPool*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Code, accept, void, $Visitor*)},
-	{"calculateLength", "()I", nullptr, $PRIVATE, $method(Code, calculateLength, int32_t)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Code, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Code, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $method(Code, getAttributes, $AttributeArray*)},
-	{"getCode", "()[B", nullptr, $PUBLIC, $method(Code, getCode, $bytes*)},
-	{"getExceptionTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PUBLIC, $method(Code, getExceptionTable, $CodeExceptionArray*)},
-	{"getInternalLength", "()I", nullptr, $PRIVATE, $method(Code, getInternalLength, int32_t)},
-	{"getLineNumberTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;", nullptr, $PUBLIC, $method(Code, getLineNumberTable, $LineNumberTable*)},
-	{"getLocalVariableTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;", nullptr, $PUBLIC, $method(Code, getLocalVariableTable, $LocalVariableTable*)},
-	{"getMaxLocals", "()I", nullptr, $PUBLIC, $method(Code, getMaxLocals, int32_t)},
-	{"getMaxStack", "()I", nullptr, $PUBLIC, $method(Code, getMaxStack, int32_t)},
-	{"setAttributes", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $method(Code, setAttributes, void, $AttributeArray*)},
-	{"setCode", "([B)V", nullptr, $PUBLIC, $method(Code, setCode, void, $bytes*)},
-	{"setExceptionTable", "([Lcom/sun/org/apache/bcel/internal/classfile/CodeException;)V", nullptr, $PUBLIC, $method(Code, setExceptionTable, void, $CodeExceptionArray*)},
-	{"setMaxLocals", "(I)V", nullptr, $PUBLIC, $method(Code, setMaxLocals, void, int32_t)},
-	{"setMaxStack", "(I)V", nullptr, $PUBLIC, $method(Code, setMaxStack, void, int32_t)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(Code, toString, $String*, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Code_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Code",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_Code_FieldInfo_,
-	_Code_MethodInfo_
-};
-
-$Object* allocate$Code($Class* clazz) {
-	return $of($alloc(Code));
-}
-
 void Code::init$(Code* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	int32_t var$2 = c->getMaxStack();
@@ -99,18 +50,16 @@ void Code::init$(Code* c) {
 }
 
 void Code::init$(int32_t name_index, int32_t length, $DataInput* file, $ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = name_index;
-	int32_t var$1 = length;
-	int32_t var$2 = $nc(file)->readUnsignedShort();
-	Code::init$(var$0, var$1, var$2, file->readUnsignedShort(), ($bytes*)nullptr, ($CodeExceptionArray*)nullptr, ($AttributeArray*)nullptr, constant_pool);
-	int32_t code_length = $nc(file)->readInt();
+	$useLocalObjectStack();
+	int32_t var$0 = $nc(file)->readUnsignedShort();
+	Code::init$(name_index, length, var$0, file->readUnsignedShort(), ($bytes*)nullptr, ($CodeExceptionArray*)nullptr, ($AttributeArray*)nullptr, constant_pool);
+	int32_t code_length = file->readInt();
 	$set(this, code, $new($bytes, code_length));
 	file->readFully(this->code);
 	int32_t exception_table_length = file->readUnsignedShort();
 	$set(this, exceptionTable, $new($CodeExceptionArray, exception_table_length));
 	for (int32_t i = 0; i < exception_table_length; ++i) {
-		$nc(this->exceptionTable)->set(i, $$new($CodeException, file));
+		this->exceptionTable->set(i, $$new($CodeException, file));
 	}
 	int32_t attributes_count = file->readUnsignedShort();
 	$set(this, attributes, $new($AttributeArray, attributes_count));
@@ -135,18 +84,16 @@ void Code::accept($Visitor* v) {
 }
 
 void Code::dump($DataOutputStream* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute::dump(file);
 	$nc(file)->writeShort(this->maxStack);
 	file->writeShort(this->maxLocals);
 	file->writeInt($nc(this->code)->length);
-	file->write(this->code, 0, $nc(this->code)->length);
+	file->write(this->code, 0, this->code->length);
 	file->writeShort($nc(this->exceptionTable)->length);
 	{
 		$var($CodeExceptionArray, arr$, this->exceptionTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CodeException, exception, arr$->get(i$));
 			{
 				$nc(exception)->dump(file);
@@ -156,9 +103,7 @@ void Code::dump($DataOutputStream* file) {
 	file->writeShort($nc(this->attributes)->length);
 	{
 		$var($AttributeArray, arr$, this->attributes);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attribute, arr$->get(i$));
 			{
 				$nc(attribute)->dump(file);
@@ -172,36 +117,24 @@ $AttributeArray* Code::getAttributes() {
 }
 
 $LineNumberTable* Code::getLineNumberTable() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($AttributeArray, arr$, this->attributes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if ($instanceOf($LineNumberTable, attribute)) {
-					return $cast($LineNumberTable, attribute);
-				}
-			}
+	$useLocalObjectStack();
+	$var($AttributeArray, arr$, this->attributes);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Attribute, attribute, arr$->get(i$));
+		if ($instanceOf($LineNumberTable, attribute)) {
+			return $cast($LineNumberTable, attribute);
 		}
 	}
 	return nullptr;
 }
 
 $LocalVariableTable* Code::getLocalVariableTable() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($AttributeArray, arr$, this->attributes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if ($instanceOf($LocalVariableTable, attribute)) {
-					return $cast($LocalVariableTable, attribute);
-				}
-			}
+	$useLocalObjectStack();
+	$var($AttributeArray, arr$, this->attributes);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Attribute, attribute, arr$->get(i$));
+		if ($instanceOf($LocalVariableTable, attribute)) {
+			return $cast($LocalVariableTable, attribute);
 		}
 	}
 	return nullptr;
@@ -224,22 +157,18 @@ int32_t Code::getMaxStack() {
 }
 
 int32_t Code::getInternalLength() {
-	return 2 + 2 + 4 + $nc(this->code)->length + 2 + 8 * (this->exceptionTable == nullptr ? 0 : $nc(this->exceptionTable)->length) + 2;
+	return 2 + 2 + 4 + $nc(this->code)->length + 2 + 8 * (this->exceptionTable == nullptr ? 0 : this->exceptionTable->length) + 2;
 }
 
 int32_t Code::calculateLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = 0;
 	if (this->attributes != nullptr) {
-		{
-			$var($AttributeArray, arr$, this->attributes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Attribute, attribute, arr$->get(i$));
-				{
-					len += $nc(attribute)->getLength() + 6;
-				}
+		$var($AttributeArray, arr$, this->attributes);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Attribute, attribute, arr$->get(i$));
+			{
+				len += $nc(attribute)->getLength() + 6;
 			}
 		}
 	}
@@ -270,16 +199,14 @@ void Code::setMaxStack(int32_t maxStack) {
 }
 
 $String* Code::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, 100));
 	buf->append("Code(maxStack = "_s)->append(this->maxStack)->append(", maxLocals = "_s)->append(this->maxLocals)->append(", code_length = "_s)->append($nc(this->code)->length)->append(")\n"_s)->append($($Utility::codeToString(this->code, $($Attribute::getConstantPool()), 0, -1, verbose)));
 	if ($nc(this->exceptionTable)->length > 0) {
 		buf->append("\nException handler(s) = \n"_s)->append("From\tTo\tHandler\tType\n"_s);
 		{
 			$var($CodeExceptionArray, arr$, this->exceptionTable);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($CodeException, exception, arr$->get(i$));
 				{
 					buf->append($($nc(exception)->toString($($Attribute::getConstantPool()), verbose)))->append("\n"_s);
@@ -291,13 +218,11 @@ $String* Code::toString(bool verbose) {
 		buf->append("\nAttribute(s) = "_s);
 		{
 			$var($AttributeArray, arr$, this->attributes);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Attribute, attribute, arr$->get(i$));
 				{
 					buf->append("\n"_s)->append($($nc(attribute)->getName()))->append(":"_s);
-					buf->append("\n"_s)->append($of(attribute));
+					buf->append("\n"_s)->append(attribute);
 				}
 			}
 		}
@@ -310,20 +235,20 @@ $String* Code::toString() {
 }
 
 $Attribute* Code::copy($ConstantPool* _constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Code, c, $cast(Code, clone()));
 	if (this->code != nullptr) {
-		$set($nc(c), code, $new($bytes, $nc(this->code)->length));
-		$System::arraycopy(this->code, 0, c->code, 0, $nc(this->code)->length);
+		$set($nc(c), code, $new($bytes, this->code->length));
+		$System::arraycopy(this->code, 0, c->code, 0, this->code->length);
 	}
 	$nc(c)->setConstantPool(_constant_pool);
 	$set(c, exceptionTable, $new($CodeExceptionArray, $nc(this->exceptionTable)->length));
 	for (int32_t i = 0; i < $nc(this->exceptionTable)->length; ++i) {
-		$nc(c->exceptionTable)->set(i, $($nc($nc(this->exceptionTable)->get(i))->copy()));
+		$nc(c->exceptionTable)->set(i, $($nc(this->exceptionTable->get(i))->copy()));
 	}
 	$set(c, attributes, $new($AttributeArray, $nc(this->attributes)->length));
 	for (int32_t i = 0; i < $nc(this->attributes)->length; ++i) {
-		$nc(c->attributes)->set(i, $($nc($nc(this->attributes)->get(i))->copy(_constant_pool)));
+		$nc(c->attributes)->set(i, $($nc(this->attributes->get(i))->copy(_constant_pool)));
 	}
 	return c;
 }
@@ -332,7 +257,50 @@ Code::Code() {
 }
 
 $Class* Code::load$($String* name, bool initialize) {
-	$loadClass(Code, name, initialize, &_Code_ClassInfo_, allocate$Code);
+	$FieldInfo fieldInfos$$[] = {
+		{"maxStack", "I", nullptr, $PRIVATE, $field(Code, maxStack)},
+		{"maxLocals", "I", nullptr, $PRIVATE, $field(Code, maxLocals)},
+		{"code", "[B", nullptr, $PRIVATE, $field(Code, code)},
+		{"exceptionTable", "[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PRIVATE, $field(Code, exceptionTable)},
+		{"attributes", "[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PRIVATE, $field(Code, attributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Code;)V", nullptr, $PUBLIC, $method(Code, init$, void, Code*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Code, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"<init>", "(IIII[B[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Code, init$, void, int32_t, int32_t, int32_t, int32_t, $bytes*, $CodeExceptionArray*, $AttributeArray*, $ConstantPool*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Code, accept, void, $Visitor*)},
+		{"calculateLength", "()I", nullptr, $PRIVATE, $method(Code, calculateLength, int32_t)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(Code, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(Code, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $method(Code, getAttributes, $AttributeArray*)},
+		{"getCode", "()[B", nullptr, $PUBLIC, $method(Code, getCode, $bytes*)},
+		{"getExceptionTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PUBLIC, $method(Code, getExceptionTable, $CodeExceptionArray*)},
+		{"getInternalLength", "()I", nullptr, $PRIVATE, $method(Code, getInternalLength, int32_t)},
+		{"getLineNumberTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;", nullptr, $PUBLIC, $method(Code, getLineNumberTable, $LineNumberTable*)},
+		{"getLocalVariableTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;", nullptr, $PUBLIC, $method(Code, getLocalVariableTable, $LocalVariableTable*)},
+		{"getMaxLocals", "()I", nullptr, $PUBLIC, $method(Code, getMaxLocals, int32_t)},
+		{"getMaxStack", "()I", nullptr, $PUBLIC, $method(Code, getMaxStack, int32_t)},
+		{"setAttributes", "([Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $method(Code, setAttributes, void, $AttributeArray*)},
+		{"setCode", "([B)V", nullptr, $PUBLIC, $method(Code, setCode, void, $bytes*)},
+		{"setExceptionTable", "([Lcom/sun/org/apache/bcel/internal/classfile/CodeException;)V", nullptr, $PUBLIC, $method(Code, setExceptionTable, void, $CodeExceptionArray*)},
+		{"setMaxLocals", "(I)V", nullptr, $PUBLIC, $method(Code, setMaxLocals, void, int32_t)},
+		{"setMaxStack", "(I)V", nullptr, $PUBLIC, $method(Code, setMaxStack, void, int32_t)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(Code, toString, $String*, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Code",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Code, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Code));
+	});
 	return class$;
 }
 

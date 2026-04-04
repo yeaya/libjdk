@@ -66,6 +66,7 @@ class $export Infer$InferenceStep : public ::java::lang::Enum {
 public:
 	Infer$InferenceStep();
 	static $Array<::com::sun::tools::javac::comp::Infer$InferenceStep>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound* ib);
 	virtual bool accepts(::com::sun::tools::javac::code::Type$UndetVar* t, ::com::sun::tools::javac::comp::InferenceContext* inferenceContext);
 	virtual ::com::sun::tools::javac::util::List* filterBounds(::com::sun::tools::javac::code::Type$UndetVar* uv, ::com::sun::tools::javac::comp::InferenceContext* inferenceContext);

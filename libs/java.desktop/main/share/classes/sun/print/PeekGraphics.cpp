@@ -1,5 +1,4 @@
 #include <sun/print/PeekGraphics.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/Font.h>
@@ -87,134 +86,6 @@ using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 namespace sun {
 	namespace print {
 
-$FieldInfo _PeekGraphics_FieldInfo_[] = {
-	{"mGraphics", "Ljava/awt/Graphics2D;", nullptr, 0, $field(PeekGraphics, mGraphics)},
-	{"mPrinterJob", "Ljava/awt/print/PrinterJob;", nullptr, 0, $field(PeekGraphics, mPrinterJob)},
-	{"mDrawingArea", "Lsun/java2d/Spans;", nullptr, $PRIVATE, $field(PeekGraphics, mDrawingArea)},
-	{"mPrintMetrics", "Lsun/print/PeekMetrics;", nullptr, $PRIVATE, $field(PeekGraphics, mPrintMetrics)},
-	{"mAWTDrawingOnly", "Z", nullptr, $PRIVATE, $field(PeekGraphics, mAWTDrawingOnly)},
-	{}
-};
-
-$MethodInfo _PeekGraphics_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)V", nullptr, $PUBLIC, $method(PeekGraphics, init$, void, $Graphics2D*, $PrinterJob*)},
-	{"addDrawingRect", "(Ljava/awt/geom/Rectangle2D;FF)V", nullptr, $PRIVATE, $method(PeekGraphics, addDrawingRect, void, $Rectangle2D*, float, float)},
-	{"addDrawingRect", "(FFFF)V", nullptr, $PRIVATE, $method(PeekGraphics, addDrawingRect, void, float, float, float, float)},
-	{"addDrawingRect", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PRIVATE, $method(PeekGraphics, addDrawingRect, void, $Rectangle2D*)},
-	{"addRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(PeekGraphics, addRenderingHints, void, $Map*)},
-	{"addStrokeShape", "(Ljava/awt/Shape;)V", nullptr, $PRIVATE, $method(PeekGraphics, addStrokeShape, void, $Shape*)},
-	{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, clip, void, $Shape*)},
-	{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, create, $Graphics*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, dispose, void)},
-	{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, draw, void, $Shape*)},
-	{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawGlyphVector, void, $GlyphVector*, float, float)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
-	{"drawRenderableImage", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawRenderableImage, void, $RenderableImage*, $AffineTransform*)},
-	{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
-	{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $AttributedCharacterIterator*, float, float)},
-	{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $String*, float, float)},
-	{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fill, void, $Shape*)},
-	{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
-	{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, finalize, void)},
-	{"getAWTDrawingOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getAWTDrawingOnly, bool)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getBackground, $Color*)},
-	{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getClip, $Shape*)},
-	{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getClipBounds, $Rectangle*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getColor, $Color*)},
-	{"getComposite", "()Ljava/awt/Composite;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getComposite, $Composite*)},
-	{"getDelegate", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getDelegate, $Graphics2D*)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getDrawingArea", "()Lsun/java2d/Spans;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getDrawingArea, $Spans*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getFontRenderContext, $FontRenderContext*)},
-	{"getImageHeight", "(Ljava/awt/Image;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PeekGraphics, getImageHeight, int32_t, $Image*)},
-	{"getImageWidth", "(Ljava/awt/Image;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PeekGraphics, getImageWidth, int32_t, $Image*)},
-	{"getMetrics", "()Lsun/print/PeekMetrics;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getMetrics, $PeekMetrics*)},
-	{"getPaint", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getPaint, $Paint*)},
-	{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getPrinterJob, $PrinterJob*)},
-	{"getRenderingHint", "(Ljava/awt/RenderingHints$Key;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getRenderingHint, $Object*, $RenderingHints$Key*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getRenderingHints, $RenderingHints*)},
-	{"getStroke", "()Ljava/awt/Stroke;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getStroke, $Stroke*)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getTransform, $AffineTransform*)},
-	{"hit", "(Ljava/awt/Rectangle;Ljava/awt/Shape;Z)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, hit, bool, $Rectangle*, $Shape*, bool)},
-	{"hitsDrawingArea", "(Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, hitsDrawingArea, bool, $Rectangle*)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PeekGraphics, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, rotate, void, double)},
-	{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, rotate, void, double, double, double)},
-	{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, scale, void, double, double)},
-	{"setAWTDrawingOnly", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setAWTDrawingOnly, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setBackground, void, $Color*)},
-	{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setClip, void, $Shape*)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setColor, void, $Color*)},
-	{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setComposite, void, $Composite*)},
-	{"setDelegate", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setDelegate, void, $Graphics2D*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setFont, void, $Font*)},
-	{"setPaint", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setPaint, void, $Paint*)},
-	{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setPaintMode, void)},
-	{"setRenderingHint", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setRenderingHint, void, $RenderingHints$Key*, Object$*)},
-	{"setRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(PeekGraphics, setRenderingHints, void, $Map*)},
-	{"setStroke", "(Ljava/awt/Stroke;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setStroke, void, $Stroke*)},
-	{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setTransform, void, $AffineTransform*)},
-	{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setXORMode, void, $Color*)},
-	{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, shear, void, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, transform, void, $AffineTransform*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, translate, void, int32_t, int32_t)},
-	{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, translate, void, double, double)},
-	{}
-};
-
-$InnerClassInfo _PeekGraphics_InnerClassesInfo_[] = {
-	{"sun.print.PeekGraphics$ImageWaiter", "sun.print.PeekGraphics", "ImageWaiter", $PROTECTED},
-	{}
-};
-
-$ClassInfo _PeekGraphics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PeekGraphics",
-	"java.awt.Graphics2D",
-	"java.awt.print.PrinterGraphics,java.awt.image.ImageObserver,java.lang.Cloneable",
-	_PeekGraphics_FieldInfo_,
-	_PeekGraphics_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PeekGraphics_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.PeekGraphics$ImageWaiter"
-};
-
-$Object* allocate$PeekGraphics($Class* clazz) {
-	return $of($alloc(PeekGraphics));
-}
-
 $String* PeekGraphics::toString() {
 	 return this->$Graphics2D::toString();
 }
@@ -265,7 +136,7 @@ $Spans* PeekGraphics::getDrawingArea() {
 }
 
 $GraphicsConfiguration* PeekGraphics::getDeviceConfiguration() {
-	return $nc(($cast($RasterPrinterJob, this->mPrinterJob)))->getPrinterGraphicsConfig();
+	return $nc($cast($RasterPrinterJob, this->mPrinterJob))->getPrinterGraphicsConfig();
 }
 
 $Graphics* PeekGraphics::create() {
@@ -421,7 +292,7 @@ void PeekGraphics::drawPolyline($ints* xPoints, $ints* yPoints, int32_t nPoints)
 void PeekGraphics::drawPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints) {
 	if (nPoints > 0) {
 		drawPolyline(xPoints, yPoints, nPoints);
-		drawLine($nc(xPoints)->get(nPoints - 1), $nc(yPoints)->get(nPoints - 1), xPoints->get(0), yPoints->get(0));
+		drawLine($nc(xPoints)->get(nPoints - 1), $nc(yPoints)->get(nPoints - 1), $nc(xPoints)->get(0), $nc(yPoints)->get(0));
 	}
 }
 
@@ -457,7 +328,7 @@ void PeekGraphics::drawString($AttributedCharacterIterator* iterator, int32_t x,
 }
 
 void PeekGraphics::drawString($AttributedCharacterIterator* iterator, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (iterator == nullptr) {
 		$throwNew($NullPointerException, "AttributedCharacterIterator is null"_s);
 	}
@@ -470,11 +341,9 @@ bool PeekGraphics::drawImage($Image* img, int32_t x, int32_t y, $ImageObserver* 
 		return true;
 	}
 	$var($PeekGraphics$ImageWaiter, dim, $new($PeekGraphics$ImageWaiter, this, img));
-	float var$0 = (float)x;
-	float var$1 = (float)y;
-	float var$2 = (float)dim->getWidth();
-	addDrawingRect(var$0, var$1, var$2, (float)dim->getHeight());
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	float var$0 = (float)dim->getWidth();
+	addDrawingRect((float)x, (float)y, var$0, (float)dim->getHeight());
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	return $nc(this->mGraphics)->drawImage(img, x, y, observer);
 }
 
@@ -483,7 +352,7 @@ bool PeekGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, i
 		return true;
 	}
 	addDrawingRect((float)x, (float)y, (float)width, (float)height);
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	return $nc(this->mGraphics)->drawImage(img, x, y, width, height, observer);
 }
 
@@ -492,11 +361,9 @@ bool PeekGraphics::drawImage($Image* img, int32_t x, int32_t y, $Color* bgcolor,
 		return true;
 	}
 	$var($PeekGraphics$ImageWaiter, dim, $new($PeekGraphics$ImageWaiter, this, img));
-	float var$0 = (float)x;
-	float var$1 = (float)y;
-	float var$2 = (float)dim->getWidth();
-	addDrawingRect(var$0, var$1, var$2, (float)dim->getHeight());
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	float var$0 = (float)dim->getWidth();
+	addDrawingRect((float)x, (float)y, var$0, (float)dim->getHeight());
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	return $nc(this->mGraphics)->drawImage(img, x, y, bgcolor, observer);
 }
 
@@ -505,7 +372,7 @@ bool PeekGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, i
 		return true;
 	}
 	addDrawingRect((float)x, (float)y, (float)width, (float)height);
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	return $nc(this->mGraphics)->drawImage(img, x, y, width, height, bgcolor, observer);
 }
 
@@ -516,7 +383,7 @@ bool PeekGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2,
 	int32_t width = dx2 - dx1;
 	int32_t height = dy2 - dy1;
 	addDrawingRect((float)dx1, (float)dy1, (float)width, (float)height);
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	return $nc(this->mGraphics)->drawImage(img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, observer);
 }
 
@@ -527,7 +394,7 @@ bool PeekGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2,
 	int32_t width = dx2 - dx1;
 	int32_t height = dy2 - dy1;
 	addDrawingRect((float)dx1, (float)dy1, (float)width, (float)height);
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	return $nc(this->mGraphics)->drawImage(img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer);
 }
 
@@ -535,7 +402,7 @@ void PeekGraphics::drawRenderedImage($RenderedImage* img, $AffineTransform* xfor
 	if (img == nullptr) {
 		return;
 	}
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	$nc(this->mDrawingArea)->addInfinite();
 }
 
@@ -543,7 +410,7 @@ void PeekGraphics::drawRenderableImage($RenderableImage* img, $AffineTransform* 
 	if (img == nullptr) {
 		return;
 	}
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	$nc(this->mDrawingArea)->addInfinite();
 }
 
@@ -564,7 +431,7 @@ bool PeekGraphics::drawImage($Image* img, $AffineTransform* xform, $ImageObserve
 		return true;
 	}
 	$nc(this->mDrawingArea)->addInfinite();
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), img);
+	$nc(this->mPrintMetrics)->drawImage(this, img);
 	return $nc(this->mGraphics)->drawImage(img, xform, obs);
 }
 
@@ -572,17 +439,17 @@ void PeekGraphics::drawImage($BufferedImage* img, $BufferedImageOp* op, int32_t 
 	if (img == nullptr) {
 		return;
 	}
-	$nc(this->mPrintMetrics)->drawImage(static_cast<$Graphics2D*>(this), static_cast<$RenderedImage*>(img));
+	$nc(this->mPrintMetrics)->drawImage(this, $cast($RenderedImage, img));
 	$nc(this->mDrawingArea)->addInfinite();
 }
 
 void PeekGraphics::drawString($String* str, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(str)->length() == 0) {
 		return;
 	}
 	$var($FontRenderContext, frc, getFontRenderContext());
-	$var($Rectangle2D, bbox, $nc($(getFont()))->getStringBounds(str, frc));
+	$var($Rectangle2D, bbox, $$nc(getFont())->getStringBounds(str, frc));
 	addDrawingRect(bbox, x, y);
 	$nc(this->mPrintMetrics)->drawText(this);
 }
@@ -619,7 +486,7 @@ void PeekGraphics::setRenderingHint($RenderingHints$Key* hintCategory, Object$* 
 }
 
 $Object* PeekGraphics::getRenderingHint($RenderingHints$Key* hintCategory) {
-	return $of($nc(this->mGraphics)->getRenderingHint(hintCategory));
+	return $nc(this->mGraphics)->getRenderingHint(hintCategory);
 }
 
 void PeekGraphics::setRenderingHints($Map* hints) {
@@ -692,7 +559,7 @@ void PeekGraphics::addDrawingRect(float x, float y, float width, float height) {
 }
 
 void PeekGraphics::addDrawingRect($Rectangle2D* rect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, matrix, getTransform());
 	$var($Shape, transShape, $nc(matrix)->createTransformedShape(rect));
 	$var($Rectangle2D, transRect, $nc(transShape)->getBounds2D());
@@ -701,15 +568,15 @@ void PeekGraphics::addDrawingRect($Rectangle2D* rect) {
 }
 
 void PeekGraphics::addStrokeShape($Shape* s) {
-	$useLocalCurrentObjectStackCache();
-	$var($Shape, transShape, $nc($(getStroke()))->createStrokedShape(s));
+	$useLocalObjectStack();
+	$var($Shape, transShape, $$nc(getStroke())->createStrokedShape(s));
 	addDrawingRect($($nc(transShape)->getBounds2D()));
 }
 
 bool PeekGraphics::imageUpdate($Image* img, int32_t infoFlags, int32_t x, int32_t y, int32_t width, int32_t height) {
 	$synchronized(this) {
 		bool gotInfo = false;
-		if (((int32_t)(infoFlags & (uint32_t)($ImageObserver::WIDTH | $ImageObserver::HEIGHT))) != 0) {
+		if ((infoFlags & ($ImageObserver::WIDTH | $ImageObserver::HEIGHT)) != 0) {
 			gotInfo = true;
 			$of(this)->notify();
 		}
@@ -725,7 +592,7 @@ int32_t PeekGraphics::getImageWidth($Image* img) {
 			} catch ($InterruptedException& e) {
 			}
 		}
-		return $nc(img)->getWidth(this);
+		return img->getWidth(this);
 	}
 }
 
@@ -737,7 +604,7 @@ int32_t PeekGraphics::getImageHeight($Image* img) {
 			} catch ($InterruptedException& e) {
 			}
 		}
-		return $nc(img)->getHeight(this);
+		return img->getHeight(this);
 	}
 }
 
@@ -745,7 +612,129 @@ PeekGraphics::PeekGraphics() {
 }
 
 $Class* PeekGraphics::load$($String* name, bool initialize) {
-	$loadClass(PeekGraphics, name, initialize, &_PeekGraphics_ClassInfo_, allocate$PeekGraphics);
+	$FieldInfo fieldInfos$$[] = {
+		{"mGraphics", "Ljava/awt/Graphics2D;", nullptr, 0, $field(PeekGraphics, mGraphics)},
+		{"mPrinterJob", "Ljava/awt/print/PrinterJob;", nullptr, 0, $field(PeekGraphics, mPrinterJob)},
+		{"mDrawingArea", "Lsun/java2d/Spans;", nullptr, $PRIVATE, $field(PeekGraphics, mDrawingArea)},
+		{"mPrintMetrics", "Lsun/print/PeekMetrics;", nullptr, $PRIVATE, $field(PeekGraphics, mPrintMetrics)},
+		{"mAWTDrawingOnly", "Z", nullptr, $PRIVATE, $field(PeekGraphics, mAWTDrawingOnly)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)V", nullptr, $PUBLIC, $method(PeekGraphics, init$, void, $Graphics2D*, $PrinterJob*)},
+		{"addDrawingRect", "(Ljava/awt/geom/Rectangle2D;FF)V", nullptr, $PRIVATE, $method(PeekGraphics, addDrawingRect, void, $Rectangle2D*, float, float)},
+		{"addDrawingRect", "(FFFF)V", nullptr, $PRIVATE, $method(PeekGraphics, addDrawingRect, void, float, float, float, float)},
+		{"addDrawingRect", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PRIVATE, $method(PeekGraphics, addDrawingRect, void, $Rectangle2D*)},
+		{"addRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(PeekGraphics, addRenderingHints, void, $Map*)},
+		{"addStrokeShape", "(Ljava/awt/Shape;)V", nullptr, $PRIVATE, $method(PeekGraphics, addStrokeShape, void, $Shape*)},
+		{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, clip, void, $Shape*)},
+		{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, create, $Graphics*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, dispose, void)},
+		{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, draw, void, $Shape*)},
+		{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawGlyphVector, void, $GlyphVector*, float, float)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
+		{"drawRenderableImage", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawRenderableImage, void, $RenderableImage*, $AffineTransform*)},
+		{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
+		{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $AttributedCharacterIterator*, float, float)},
+		{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, drawString, void, $String*, float, float)},
+		{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fill, void, $Shape*)},
+		{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
+		{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, finalize, void)},
+		{"getAWTDrawingOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getAWTDrawingOnly, bool)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getBackground, $Color*)},
+		{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getClip, $Shape*)},
+		{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getClipBounds, $Rectangle*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getColor, $Color*)},
+		{"getComposite", "()Ljava/awt/Composite;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getComposite, $Composite*)},
+		{"getDelegate", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getDelegate, $Graphics2D*)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getDrawingArea", "()Lsun/java2d/Spans;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getDrawingArea, $Spans*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getFontRenderContext, $FontRenderContext*)},
+		{"getImageHeight", "(Ljava/awt/Image;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PeekGraphics, getImageHeight, int32_t, $Image*)},
+		{"getImageWidth", "(Ljava/awt/Image;)I", nullptr, $PRIVATE | $SYNCHRONIZED, $method(PeekGraphics, getImageWidth, int32_t, $Image*)},
+		{"getMetrics", "()Lsun/print/PeekMetrics;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getMetrics, $PeekMetrics*)},
+		{"getPaint", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getPaint, $Paint*)},
+		{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getPrinterJob, $PrinterJob*)},
+		{"getRenderingHint", "(Ljava/awt/RenderingHints$Key;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getRenderingHint, $Object*, $RenderingHints$Key*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getRenderingHints, $RenderingHints*)},
+		{"getStroke", "()Ljava/awt/Stroke;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getStroke, $Stroke*)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, getTransform, $AffineTransform*)},
+		{"hit", "(Ljava/awt/Rectangle;Ljava/awt/Shape;Z)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, hit, bool, $Rectangle*, $Shape*, bool)},
+		{"hitsDrawingArea", "(Ljava/awt/Rectangle;)Z", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, hitsDrawingArea, bool, $Rectangle*)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PeekGraphics, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, rotate, void, double)},
+		{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, rotate, void, double, double, double)},
+		{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, scale, void, double, double)},
+		{"setAWTDrawingOnly", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setAWTDrawingOnly, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setBackground, void, $Color*)},
+		{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setClip, void, $Shape*)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setColor, void, $Color*)},
+		{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setComposite, void, $Composite*)},
+		{"setDelegate", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setDelegate, void, $Graphics2D*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setFont, void, $Font*)},
+		{"setPaint", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setPaint, void, $Paint*)},
+		{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setPaintMode, void)},
+		{"setRenderingHint", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setRenderingHint, void, $RenderingHints$Key*, Object$*)},
+		{"setRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(PeekGraphics, setRenderingHints, void, $Map*)},
+		{"setStroke", "(Ljava/awt/Stroke;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setStroke, void, $Stroke*)},
+		{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setTransform, void, $AffineTransform*)},
+		{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, setXORMode, void, $Color*)},
+		{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, shear, void, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, transform, void, $AffineTransform*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, translate, void, int32_t, int32_t)},
+		{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PeekGraphics, translate, void, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.PeekGraphics$ImageWaiter", "sun.print.PeekGraphics", "ImageWaiter", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PeekGraphics",
+		"java.awt.Graphics2D",
+		"java.awt.print.PrinterGraphics,java.awt.image.ImageObserver,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.PeekGraphics$ImageWaiter"
+	};
+	$loadClass(PeekGraphics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PeekGraphics));
+	});
 	return class$;
 }
 

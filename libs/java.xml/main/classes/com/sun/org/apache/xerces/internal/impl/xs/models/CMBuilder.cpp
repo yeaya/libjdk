@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/CMBuilder.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMNode.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl.h>
@@ -61,44 +60,6 @@ namespace com {
 							namespace xs {
 								namespace models {
 
-$FieldInfo _CMBuilder_FieldInfo_[] = {
-	{"fDeclPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;", nullptr, $PRIVATE, $field(CMBuilder, fDeclPool)},
-	{"fEmptyCM", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSEmptyCM;", nullptr, $PRIVATE | $STATIC, $staticField(CMBuilder, fEmptyCM)},
-	{"fLeafCount", "I", nullptr, $PRIVATE, $field(CMBuilder, fLeafCount)},
-	{"fParticleCount", "I", nullptr, $PRIVATE, $field(CMBuilder, fParticleCount)},
-	{"fNodeFactory", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMNodeFactory;", nullptr, $PRIVATE, $field(CMBuilder, fNodeFactory)},
-	{}
-};
-
-$MethodInfo _CMBuilder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMNodeFactory;)V", nullptr, $PUBLIC, $method(CMBuilder, init$, void, $CMNodeFactory*)},
-	{"buildCompactSyntaxTree", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, buildCompactSyntaxTree, $CMNode*, $XSParticleDecl*)},
-	{"buildCompactSyntaxTree2", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;II)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, buildCompactSyntaxTree2, $CMNode*, $XSParticleDecl*, int32_t, int32_t)},
-	{"buildSyntaxTree", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;ZZ)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, buildSyntaxTree, $CMNode*, $XSParticleDecl*, bool, bool)},
-	{"copyNode", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, copyNode, $CMNode*, $CMNode*)},
-	{"createAllCM", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, 0, $virtualMethod(CMBuilder, createAllCM, $XSCMValidator*, $XSParticleDecl*)},
-	{"createDFACM", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, 0, $virtualMethod(CMBuilder, createDFACM, $XSCMValidator*, $XSParticleDecl*, bool)},
-	{"expandContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;IIZ)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, expandContentModel, $CMNode*, $CMNode*, int32_t, int32_t, bool)},
-	{"getContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $PUBLIC, $virtualMethod(CMBuilder, getContentModel, $XSCMValidator*, $XSComplexTypeDecl*, bool)},
-	{"multiNodes", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;IZ)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, multiNodes, $CMNode*, $CMNode*, int32_t, bool)},
-	{"setDeclPool", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;)V", nullptr, $PUBLIC, $virtualMethod(CMBuilder, setDeclPool, void, $XSDeclarationPool*)},
-	{"useRepeatingLeafNodes", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Z", nullptr, $PRIVATE, $method(CMBuilder, useRepeatingLeafNodes, bool, $XSParticleDecl*)},
-	{}
-};
-
-$ClassInfo _CMBuilder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.CMBuilder",
-	"java.lang.Object",
-	nullptr,
-	_CMBuilder_FieldInfo_,
-	_CMBuilder_MethodInfo_
-};
-
-$Object* allocate$CMBuilder($Class* clazz) {
-	return $of($alloc(CMBuilder));
-}
-
 $XSEmptyCM* CMBuilder::fEmptyCM = nullptr;
 
 void CMBuilder::init$($CMNodeFactory* nodeFactory) {
@@ -112,7 +73,7 @@ void CMBuilder::setDeclPool($XSDeclarationPool* declPool) {
 }
 
 $XSCMValidator* CMBuilder::getContentModel($XSComplexTypeDecl* typeDecl, bool forUPA) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t contentType = $nc(typeDecl)->getContentType();
 	if (contentType == $XSComplexTypeDecl::CONTENTTYPE_SIMPLE || contentType == $XSComplexTypeDecl::CONTENTTYPE_EMPTY) {
 		return nullptr;
@@ -122,7 +83,7 @@ $XSCMValidator* CMBuilder::getContentModel($XSComplexTypeDecl* typeDecl, bool fo
 		return CMBuilder::fEmptyCM;
 	}
 	$var($XSCMValidator, cmValidator, nullptr);
-	if ($nc(particle)->fType == $XSParticleDecl::PARTICLE_MODELGROUP && $nc(($cast($XSModelGroupImpl, particle->fValue)))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL) {
+	if ($nc(particle)->fType == $XSParticleDecl::PARTICLE_MODELGROUP && $nc($cast($XSModelGroupImpl, particle->fValue))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL) {
 		$assign(cmValidator, createAllCM(particle));
 	} else {
 		$assign(cmValidator, createDFACM(particle, forUPA));
@@ -135,13 +96,13 @@ $XSCMValidator* CMBuilder::getContentModel($XSComplexTypeDecl* typeDecl, bool fo
 }
 
 $XSCMValidator* CMBuilder::createAllCM($XSParticleDecl* particle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(particle)->fMaxOccurs == 0) {
 		return nullptr;
 	}
-	$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, $nc(particle)->fValue));
+	$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
 	$var($XSAllCM, allContent, $new($XSAllCM, particle->fMinOccurs == 0, $nc(group)->fParticleCount));
-	for (int32_t i = 0; i < $nc(group)->fParticleCount; ++i) {
+	for (int32_t i = 0; i < group->fParticleCount; ++i) {
 		allContent->addElement($cast($XSElementDecl, $nc($nc(group->fParticles)->get(i))->fValue), $nc($nc(group->fParticles)->get(i))->fMinOccurs == 0);
 	}
 	return allContent;
@@ -158,7 +119,7 @@ $XSCMValidator* CMBuilder::createDFACM($XSParticleDecl* particle, bool forUPA) {
 }
 
 $CMNode* CMBuilder::buildSyntaxTree($XSParticleDecl* particle, bool forUPA, bool optimize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t maxOccurs = $nc(particle)->fMaxOccurs;
 	int32_t minOccurs = particle->fMinOccurs;
 	bool compactedForUPA = false;
@@ -202,7 +163,7 @@ $CMNode* CMBuilder::buildSyntaxTree($XSParticleDecl* particle, bool forUPA, bool
 			}
 		}
 		if (nodeRet != nullptr) {
-			if ($nc(group)->fCompositor == $XSModelGroupImpl::MODELGROUP_CHOICE && !twoChildren && group->fParticleCount > 1) {
+			if (group->fCompositor == $XSModelGroupImpl::MODELGROUP_CHOICE && !twoChildren && group->fParticleCount > 1) {
 				$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode($XSParticleDecl::PARTICLE_ZERO_OR_ONE, nodeRet));
 			}
 			$assign(nodeRet, expandContentModel(nodeRet, minOccurs, maxOccurs, false));
@@ -213,7 +174,7 @@ $CMNode* CMBuilder::buildSyntaxTree($XSParticleDecl* particle, bool forUPA, bool
 }
 
 $CMNode* CMBuilder::expandContentModel($CMNode* node$renamed, int32_t minOccurs, int32_t maxOccurs, bool optimize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CMNode, node, node$renamed);
 	$var($CMNode, nodeRet, nullptr);
 	if (minOccurs == 1 && maxOccurs == 1) {
@@ -225,8 +186,8 @@ $CMNode* CMBuilder::expandContentModel($CMNode* node$renamed, int32_t minOccurs,
 	} else if (minOccurs == 1 && maxOccurs == $SchemaSymbols::OCCURRENCE_UNBOUNDED) {
 		$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode($XSParticleDecl::PARTICLE_ONE_OR_MORE, node));
 	} else {
-		bool var$1 = optimize && $nc(node)->type() == $XSParticleDecl::PARTICLE_ELEMENT;
-		if (var$1 || $nc(node)->type() == $XSParticleDecl::PARTICLE_WILDCARD) {
+		bool var$0 = optimize && $nc(node)->type() == $XSParticleDecl::PARTICLE_ELEMENT;
+		if (var$0 || $nc(node)->type() == $XSParticleDecl::PARTICLE_WILDCARD) {
 			$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode(minOccurs == 0 ? $XSParticleDecl::PARTICLE_ZERO_OR_MORE : $XSParticleDecl::PARTICLE_ONE_OR_MORE, node));
 			$nc(nodeRet)->setUserData($$new($ints, {
 				minOccurs,
@@ -253,7 +214,7 @@ $CMNode* CMBuilder::expandContentModel($CMNode* node$renamed, int32_t minOccurs,
 }
 
 $CMNode* CMBuilder::multiNodes($CMNode* node, int32_t num, bool copyFirst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (num == 0) {
 		return nullptr;
 	}
@@ -266,28 +227,27 @@ $CMNode* CMBuilder::multiNodes($CMNode* node, int32_t num, bool copyFirst) {
 }
 
 $CMNode* CMBuilder::copyNode($CMNode* node$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CMNode, node, node$renamed);
 	int32_t type = $nc(node)->type();
 	if (type == $XSModelGroupImpl::MODELGROUP_CHOICE || type == $XSModelGroupImpl::MODELGROUP_SEQUENCE) {
 		$var($XSCMBinOp, bin, $cast($XSCMBinOp, node));
-		int32_t var$0 = type;
-		$var($CMNode, var$1, copyNode($(bin->getLeft())));
-		$assign(node, $nc(this->fNodeFactory)->getCMBinOpNode(var$0, var$1, $(copyNode($(bin->getRight())))));
+		$var($CMNode, var$0, copyNode($(bin->getLeft())));
+		$assign(node, $nc(this->fNodeFactory)->getCMBinOpNode(type, var$0, $(copyNode($(bin->getRight())))));
 	} else if (type == $XSParticleDecl::PARTICLE_ZERO_OR_MORE || type == $XSParticleDecl::PARTICLE_ONE_OR_MORE || type == $XSParticleDecl::PARTICLE_ZERO_OR_ONE) {
 		$var($XSCMUniOp, uni, $cast($XSCMUniOp, node));
 		$assign(node, $nc(this->fNodeFactory)->getCMUniOpNode(type, $(copyNode($(uni->getChild())))));
 	} else if (type == $XSParticleDecl::PARTICLE_ELEMENT || type == $XSParticleDecl::PARTICLE_WILDCARD) {
 		$var($XSCMLeaf, leaf, $cast($XSCMLeaf, node));
-		int32_t var$2 = leaf->type();
-		$var($Object, var$3, leaf->getLeaf());
-		$assign(node, $nc(this->fNodeFactory)->getCMLeafNode(var$2, var$3, leaf->getParticleId(), this->fLeafCount++));
+		int32_t var$1 = leaf->type();
+		$var($Object, var$2, leaf->getLeaf());
+		$assign(node, $nc(this->fNodeFactory)->getCMLeafNode(var$1, var$2, leaf->getParticleId(), this->fLeafCount++));
 	}
 	return node;
 }
 
 $CMNode* CMBuilder::buildCompactSyntaxTree($XSParticleDecl* particle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t maxOccurs = $nc(particle)->fMaxOccurs;
 	int32_t minOccurs = particle->fMinOccurs;
 	int16_t type = particle->fType;
@@ -297,11 +257,11 @@ $CMNode* CMBuilder::buildCompactSyntaxTree($XSParticleDecl* particle) {
 	} else if (type == $XSParticleDecl::PARTICLE_MODELGROUP) {
 		$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
 		if ($nc(group)->fParticleCount == 1 && (minOccurs != 1 || maxOccurs != 1)) {
-			return buildCompactSyntaxTree2($nc($nc(group)->fParticles)->get(0), minOccurs, maxOccurs);
+			return buildCompactSyntaxTree2($nc(group->fParticles)->get(0), minOccurs, maxOccurs);
 		} else {
 			$var($CMNode, temp, nullptr);
 			int32_t count = 0;
-			for (int32_t i = 0; i < $nc(group)->fParticleCount; ++i) {
+			for (int32_t i = 0; i < group->fParticleCount; ++i) {
 				$assign(temp, buildCompactSyntaxTree($nc(group->fParticles)->get(i)));
 				if (temp != nullptr) {
 					++count;
@@ -313,7 +273,7 @@ $CMNode* CMBuilder::buildCompactSyntaxTree($XSParticleDecl* particle) {
 				}
 			}
 			if (nodeRet != nullptr) {
-				if ($nc(group)->fCompositor == $XSModelGroupImpl::MODELGROUP_CHOICE && count < group->fParticleCount) {
+				if (group->fCompositor == $XSModelGroupImpl::MODELGROUP_CHOICE && count < group->fParticleCount) {
 					$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode($XSParticleDecl::PARTICLE_ZERO_OR_ONE, nodeRet));
 				}
 			}
@@ -325,18 +285,18 @@ $CMNode* CMBuilder::buildCompactSyntaxTree($XSParticleDecl* particle) {
 $CMNode* CMBuilder::buildCompactSyntaxTree2($XSParticleDecl* particle, int32_t minOccurs, int32_t maxOccurs) {
 	$var($CMNode, nodeRet, nullptr);
 	if (minOccurs == 1 && maxOccurs == 1) {
-		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, particle->fValue, this->fParticleCount++, this->fLeafCount++));
+		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, $nc(particle)->fValue, this->fParticleCount++, this->fLeafCount++));
 	} else if (minOccurs == 0 && maxOccurs == 1) {
-		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, particle->fValue, this->fParticleCount++, this->fLeafCount++));
+		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, $nc(particle)->fValue, this->fParticleCount++, this->fLeafCount++));
 		$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode($XSParticleDecl::PARTICLE_ZERO_OR_ONE, nodeRet));
 	} else if (minOccurs == 0 && maxOccurs == $SchemaSymbols::OCCURRENCE_UNBOUNDED) {
-		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, particle->fValue, this->fParticleCount++, this->fLeafCount++));
+		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, $nc(particle)->fValue, this->fParticleCount++, this->fLeafCount++));
 		$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode($XSParticleDecl::PARTICLE_ZERO_OR_MORE, nodeRet));
 	} else if (minOccurs == 1 && maxOccurs == $SchemaSymbols::OCCURRENCE_UNBOUNDED) {
-		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, particle->fValue, this->fParticleCount++, this->fLeafCount++));
+		$assign(nodeRet, $nc(this->fNodeFactory)->getCMLeafNode($nc(particle)->fType, $nc(particle)->fValue, this->fParticleCount++, this->fLeafCount++));
 		$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode($XSParticleDecl::PARTICLE_ONE_OR_MORE, nodeRet));
 	} else {
-		$assign(nodeRet, $nc(this->fNodeFactory)->getCMRepeatingLeafNode($nc(particle)->fType, particle->fValue, minOccurs, maxOccurs, this->fParticleCount++, this->fLeafCount++));
+		$assign(nodeRet, $nc(this->fNodeFactory)->getCMRepeatingLeafNode($nc(particle)->fType, $nc(particle)->fValue, minOccurs, maxOccurs, this->fParticleCount++, this->fLeafCount++));
 		if (minOccurs == 0) {
 			$assign(nodeRet, $nc(this->fNodeFactory)->getCMUniOpNode($XSParticleDecl::PARTICLE_ZERO_OR_MORE, nodeRet));
 		} else {
@@ -347,7 +307,7 @@ $CMNode* CMBuilder::buildCompactSyntaxTree2($XSParticleDecl* particle, int32_t m
 }
 
 bool CMBuilder::useRepeatingLeafNodes($XSParticleDecl* particle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t maxOccurs = $nc(particle)->fMaxOccurs;
 	int32_t minOccurs = particle->fMinOccurs;
 	int16_t type = particle->fType;
@@ -359,7 +319,7 @@ bool CMBuilder::useRepeatingLeafNodes($XSParticleDecl* particle) {
 				int16_t type2 = $nc(particle2)->fType;
 				return ((type2 == $XSParticleDecl::PARTICLE_ELEMENT || type2 == $XSParticleDecl::PARTICLE_WILDCARD) && particle2->fMinOccurs == 1 && particle2->fMaxOccurs == 1);
 			}
-			return ($nc(group)->fParticleCount == 0);
+			return (group->fParticleCount == 0);
 		}
 		for (int32_t i = 0; i < $nc(group)->fParticleCount; ++i) {
 			if (!useRepeatingLeafNodes($nc(group->fParticles)->get(i))) {
@@ -370,7 +330,7 @@ bool CMBuilder::useRepeatingLeafNodes($XSParticleDecl* particle) {
 	return true;
 }
 
-void clinit$CMBuilder($Class* class$) {
+void CMBuilder::clinit$($Class* clazz) {
 	$assignStatic(CMBuilder::fEmptyCM, $new($XSEmptyCM));
 }
 
@@ -378,7 +338,40 @@ CMBuilder::CMBuilder() {
 }
 
 $Class* CMBuilder::load$($String* name, bool initialize) {
-	$loadClass(CMBuilder, name, initialize, &_CMBuilder_ClassInfo_, clinit$CMBuilder, allocate$CMBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDeclPool", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;", nullptr, $PRIVATE, $field(CMBuilder, fDeclPool)},
+		{"fEmptyCM", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSEmptyCM;", nullptr, $PRIVATE | $STATIC, $staticField(CMBuilder, fEmptyCM)},
+		{"fLeafCount", "I", nullptr, $PRIVATE, $field(CMBuilder, fLeafCount)},
+		{"fParticleCount", "I", nullptr, $PRIVATE, $field(CMBuilder, fParticleCount)},
+		{"fNodeFactory", "Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMNodeFactory;", nullptr, $PRIVATE, $field(CMBuilder, fNodeFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/models/CMNodeFactory;)V", nullptr, $PUBLIC, $method(CMBuilder, init$, void, $CMNodeFactory*)},
+		{"buildCompactSyntaxTree", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, buildCompactSyntaxTree, $CMNode*, $XSParticleDecl*)},
+		{"buildCompactSyntaxTree2", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;II)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, buildCompactSyntaxTree2, $CMNode*, $XSParticleDecl*, int32_t, int32_t)},
+		{"buildSyntaxTree", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;ZZ)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, buildSyntaxTree, $CMNode*, $XSParticleDecl*, bool, bool)},
+		{"copyNode", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, copyNode, $CMNode*, $CMNode*)},
+		{"createAllCM", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, 0, $virtualMethod(CMBuilder, createAllCM, $XSCMValidator*, $XSParticleDecl*)},
+		{"createDFACM", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, 0, $virtualMethod(CMBuilder, createDFACM, $XSCMValidator*, $XSParticleDecl*, bool)},
+		{"expandContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;IIZ)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, expandContentModel, $CMNode*, $CMNode*, int32_t, int32_t, bool)},
+		{"getContentModel", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;Z)Lcom/sun/org/apache/xerces/internal/impl/xs/models/XSCMValidator;", nullptr, $PUBLIC, $virtualMethod(CMBuilder, getContentModel, $XSCMValidator*, $XSComplexTypeDecl*, bool)},
+		{"multiNodes", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;IZ)Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $method(CMBuilder, multiNodes, $CMNode*, $CMNode*, int32_t, bool)},
+		{"setDeclPool", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool;)V", nullptr, $PUBLIC, $virtualMethod(CMBuilder, setDeclPool, void, $XSDeclarationPool*)},
+		{"useRepeatingLeafNodes", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)Z", nullptr, $PRIVATE, $method(CMBuilder, useRepeatingLeafNodes, bool, $XSParticleDecl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.CMBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMBuilder, name, initialize, &classInfo$$, CMBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CMBuilder);
+	});
 	return class$;
 }
 

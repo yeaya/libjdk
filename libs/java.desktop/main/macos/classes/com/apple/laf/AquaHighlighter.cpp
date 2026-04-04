@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaHighlighter.h>
-
 #include <com/apple/laf/AquaHighlighter$1.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <javax/swing/text/DefaultHighlighter.h>
@@ -18,47 +17,6 @@ using $LayeredHighlighter$LayerPainter = ::javax::swing::text::LayeredHighlighte
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaHighlighter_FieldInfo_[] = {
-	{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/text/LayeredHighlighter$LayerPainter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaHighlighter, instance)},
-	{}
-};
-
-$MethodInfo _AquaHighlighter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaHighlighter, init$, void)},
-	{"getInstance", "()Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaHighlighter, getInstance, $LayeredHighlighter$LayerPainter*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaHighlighter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaHighlighter$AquaHighlightPainter", "com.apple.laf.AquaHighlighter", "AquaHighlightPainter", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaHighlighter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaHighlighter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaHighlighter",
-	"javax.swing.text.DefaultHighlighter",
-	"javax.swing.plaf.UIResource",
-	_AquaHighlighter_FieldInfo_,
-	_AquaHighlighter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaHighlighter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaHighlighter$AquaHighlightPainter,com.apple.laf.AquaHighlighter$1"
-};
-
-$Object* allocate$AquaHighlighter($Class* clazz) {
-	return $of($alloc(AquaHighlighter));
-}
 
 int32_t AquaHighlighter::hashCode() {
 	 return this->$DefaultHighlighter::hashCode();
@@ -88,10 +46,10 @@ void AquaHighlighter::init$() {
 
 $LayeredHighlighter$LayerPainter* AquaHighlighter::getInstance() {
 	$init(AquaHighlighter);
-	return $cast($LayeredHighlighter$LayerPainter, $nc(AquaHighlighter::instance)->get());
+	return $cast($LayeredHighlighter$LayerPainter, AquaHighlighter::instance->get());
 }
 
-void clinit$AquaHighlighter($Class* class$) {
+void AquaHighlighter::clinit$($Class* clazz) {
 	$assignStatic(AquaHighlighter::instance, $new($AquaHighlighter$1));
 }
 
@@ -99,7 +57,42 @@ AquaHighlighter::AquaHighlighter() {
 }
 
 $Class* AquaHighlighter::load$($String* name, bool initialize) {
-	$loadClass(AquaHighlighter, name, initialize, &_AquaHighlighter_ClassInfo_, clinit$AquaHighlighter, allocate$AquaHighlighter);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljavax/swing/text/LayeredHighlighter$LayerPainter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaHighlighter, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaHighlighter, init$, void)},
+		{"getInstance", "()Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaHighlighter, getInstance, $LayeredHighlighter$LayerPainter*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaHighlighter$AquaHighlightPainter", "com.apple.laf.AquaHighlighter", "AquaHighlightPainter", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaHighlighter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaHighlighter",
+		"javax.swing.text.DefaultHighlighter",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaHighlighter$AquaHighlightPainter,com.apple.laf.AquaHighlighter$1"
+	};
+	$loadClass(AquaHighlighter, name, initialize, &classInfo$$, AquaHighlighter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaHighlighter));
+	});
 	return class$;
 }
 

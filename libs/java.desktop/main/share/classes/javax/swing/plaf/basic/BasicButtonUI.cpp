@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicButtonUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
@@ -11,11 +10,8 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/KeyListener.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
@@ -29,7 +25,6 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -59,21 +54,15 @@
 #undef X_AXIS
 
 using $MouseMotionListenerArray = $Array<::java::awt::event::MouseMotionListener>;
-using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyListener = ::java::awt::event::KeyListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -81,18 +70,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $Action = ::javax::swing::Action;
-using $ActionMap = ::javax::swing::ActionMap;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
-using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
 using $JToggleButton = ::javax::swing::JToggleButton;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -112,82 +97,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicButtonUI_FieldInfo_[] = {
-	{"defaultTextIconGap", "I", nullptr, $PROTECTED, $field(BasicButtonUI, defaultTextIconGap)},
-	{"shiftOffset", "I", nullptr, $PRIVATE, $field(BasicButtonUI, shiftOffset)},
-	{"defaultTextShiftOffset", "I", nullptr, $PROTECTED, $field(BasicButtonUI, defaultTextShiftOffset)},
-	{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonUI, propertyPrefix)},
-	{"BASIC_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonUI, BASIC_BUTTON_UI_KEY)},
-	{"keyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(BasicButtonUI, keyListener)},
-	{"viewRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicButtonUI, viewRect)},
-	{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicButtonUI, textRect)},
-	{"iconRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicButtonUI, iconRect)},
-	{}
-};
-
-$MethodInfo _BasicButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicButtonUI, init$, void)},
-	{"clearTextShiftOffset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, clearTextShiftOffset, void)},
-	{"createButtonListener", "(Ljavax/swing/AbstractButton;)Ljavax/swing/plaf/basic/BasicButtonListener;", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, createButtonListener, $BasicButtonListener*, $AbstractButton*)},
-	{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $method(BasicButtonUI, createKeyListener, $KeyListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getButtonListener", "(Ljavax/swing/AbstractButton;)Ljavax/swing/plaf/basic/BasicButtonListener;", nullptr, $PRIVATE, $method(BasicButtonUI, getButtonListener, $BasicButtonListener*, $AbstractButton*)},
-	{"getDefaultTextIconGap", "(Ljavax/swing/AbstractButton;)I", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getDefaultTextIconGap, int32_t, $AbstractButton*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, getPropertyPrefix, $String*)},
-	{"getTextShiftOffset", "()I", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, getTextShiftOffset, int32_t)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, installDefaults, void, $AbstractButton*)},
-	{"installKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, installKeyboardActions, void, $AbstractButton*)},
-	{"installListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, installListeners, void, $AbstractButton*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, installUI, void, $JComponent*)},
-	{"isValidToggleButtonObj", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(BasicButtonUI, isValidToggleButtonObj, bool, Object$*)},
-	{"layout", "(Ljavax/swing/AbstractButton;Ljava/awt/FontMetrics;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicButtonUI, layout, $String*, $AbstractButton*, $FontMetrics*, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
-	{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintIcon, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
-	{"selectToggleButton", "(Ljava/awt/event/ActionEvent;Z)V", nullptr, $PRIVATE, $method(BasicButtonUI, selectToggleButton, void, $ActionEvent*, bool)},
-	{"setTextShiftOffset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, setTextShiftOffset, void)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{"uninstallKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, uninstallKeyboardActions, void, $AbstractButton*)},
-	{"uninstallListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, uninstallListeners, void, $AbstractButton*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicButtonUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicButtonUI$KeyHandler", "javax.swing.plaf.basic.BasicButtonUI", "KeyHandler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo", "javax.swing.plaf.basic.BasicButtonUI", "ButtonGroupInfo", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicButtonUI$SelectNextBtn", "javax.swing.plaf.basic.BasicButtonUI", "SelectNextBtn", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicButtonUI$SelectPreviousBtn", "javax.swing.plaf.basic.BasicButtonUI", "SelectPreviousBtn", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicButtonUI",
-	"javax.swing.plaf.ButtonUI",
-	nullptr,
-	_BasicButtonUI_FieldInfo_,
-	_BasicButtonUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicButtonUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicButtonUI$KeyHandler,javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo,javax.swing.plaf.basic.BasicButtonUI$SelectNextBtn,javax.swing.plaf.basic.BasicButtonUI$SelectPreviousBtn"
-};
-
-$Object* allocate$BasicButtonUI($Class* clazz) {
-	return $of($alloc(BasicButtonUI));
-}
-
 $String* BasicButtonUI::propertyPrefix = nullptr;
 $Object* BasicButtonUI::BASIC_BUTTON_UI_KEY = nullptr;
 $Rectangle* BasicButtonUI::viewRect = nullptr;
@@ -202,7 +111,7 @@ void BasicButtonUI::init$() {
 
 $ComponentUI* BasicButtonUI::createUI($JComponent* c) {
 	$init(BasicButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(BasicButtonUI, buttonUI, $cast(BasicButtonUI, $nc(appContext)->get(BasicButtonUI::BASIC_BUTTON_UI_KEY)));
 	if (buttonUI == nullptr) {
@@ -220,22 +129,20 @@ void BasicButtonUI::installUI($JComponent* c) {
 	installDefaults($cast($AbstractButton, c));
 	installListeners($cast($AbstractButton, c));
 	installKeyboardActions($cast($AbstractButton, c));
-	$BasicHTML::updateRenderer(c, $($nc(($cast($AbstractButton, c)))->getText()));
+	$BasicHTML::updateRenderer(c, $($nc($cast($AbstractButton, c))->getText()));
 }
 
 void BasicButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, pp, getPropertyPrefix());
 	this->defaultTextShiftOffset = $UIManager::getInt($$str({pp, "textShiftOffset"_s}));
 	if ($nc(b)->isContentAreaFilled()) {
-		$init($Boolean);
 		$LookAndFeel::installProperty(b, "opaque"_s, $Boolean::TRUE);
 	} else {
-		$init($Boolean);
 		$LookAndFeel::installProperty(b, "opaque"_s, $Boolean::FALSE);
 	}
-	bool var$0 = $nc(b)->getMargin() == nullptr;
-	if (var$0 || ($instanceOf($UIResource, $($nc(b)->getMargin())))) {
+	bool var$0 = b->getMargin() == nullptr;
+	if (var$0 || ($instanceOf($UIResource, $(b->getMargin())))) {
 		b->setMargin($($UIManager::getInsets($$str({pp, "margin"_s}))));
 	}
 	$LookAndFeel::installColorsAndFont(b, $$str({pp, "background"_s}), $$str({pp, "foreground"_s}), $$str({pp, "font"_s}));
@@ -248,7 +155,7 @@ void BasicButtonUI::installDefaults($AbstractButton* b) {
 }
 
 void BasicButtonUI::installListeners($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicButtonListener, listener, createButtonListener(b));
 	if (listener != nullptr) {
 		$nc(b)->addMouseListener(listener);
@@ -259,14 +166,14 @@ void BasicButtonUI::installListeners($AbstractButton* b) {
 	}
 	if ($instanceOf($JToggleButton, b)) {
 		$set(this, keyListener, createKeyListener());
-		$nc(b)->addKeyListener(this->keyListener);
+		b->addKeyListener(this->keyListener);
 		b->setFocusTraversalKeysEnabled(false);
-		$nc($(b->getActionMap()))->put("Previous"_s, $$new($BasicButtonUI$SelectPreviousBtn, this));
-		$nc($(b->getActionMap()))->put("Next"_s, $$new($BasicButtonUI$SelectNextBtn, this));
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->put($($KeyStroke::getKeyStroke("UP"_s)), "Previous"_s);
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->put($($KeyStroke::getKeyStroke("DOWN"_s)), "Next"_s);
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->put($($KeyStroke::getKeyStroke("LEFT"_s)), "Previous"_s);
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->put($($KeyStroke::getKeyStroke("RIGHT"_s)), "Next"_s);
+		$$nc(b->getActionMap())->put("Previous"_s, $$new($BasicButtonUI$SelectPreviousBtn, this));
+		$$nc(b->getActionMap())->put("Next"_s, $$new($BasicButtonUI$SelectNextBtn, this));
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->put($($KeyStroke::getKeyStroke("UP"_s)), "Previous"_s);
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->put($($KeyStroke::getKeyStroke("DOWN"_s)), "Next"_s);
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->put($($KeyStroke::getKeyStroke("LEFT"_s)), "Previous"_s);
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->put($($KeyStroke::getKeyStroke("RIGHT"_s)), "Next"_s);
 	}
 }
 
@@ -292,7 +199,7 @@ void BasicButtonUI::uninstallKeyboardActions($AbstractButton* b) {
 }
 
 void BasicButtonUI::uninstallListeners($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicButtonListener, listener, getButtonListener(b));
 	if (listener != nullptr) {
 		$nc(b)->removeMouseListener(listener);
@@ -302,12 +209,12 @@ void BasicButtonUI::uninstallListeners($AbstractButton* b) {
 		b->removePropertyChangeListener(listener);
 	}
 	if ($instanceOf($JToggleButton, b)) {
-		$nc($($nc(b)->getActionMap()))->remove("Previous"_s);
-		$nc($(b->getActionMap()))->remove("Next"_s);
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->remove($($KeyStroke::getKeyStroke("UP"_s)));
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->remove($($KeyStroke::getKeyStroke("DOWN"_s)));
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->remove($($KeyStroke::getKeyStroke("LEFT"_s)));
-		$nc($(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)))->remove($($KeyStroke::getKeyStroke("RIGHT"_s)));
+		$$nc(b->getActionMap())->remove("Previous"_s);
+		$$nc(b->getActionMap())->remove("Next"_s);
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->remove($($KeyStroke::getKeyStroke("UP"_s)));
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->remove($($KeyStroke::getKeyStroke("DOWN"_s)));
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->remove($($KeyStroke::getKeyStroke("LEFT"_s)));
+		$$nc(b->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT))->remove($($KeyStroke::getKeyStroke("RIGHT"_s)));
 		if (this->keyListener != nullptr) {
 			b->removeKeyListener(this->keyListener);
 			$set(this, keyListener, nullptr);
@@ -328,16 +235,15 @@ int32_t BasicButtonUI::getDefaultTextIconGap($AbstractButton* b) {
 }
 
 void BasicButtonUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
-	$var($AbstractButton, var$0, b);
-	$var($FontMetrics, var$1, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(b), g));
-	int32_t var$2 = b->getWidth();
-	$var($String, text, layout(var$0, var$1, var$2, b->getHeight()));
+	$var($FontMetrics, var$0, $SwingUtilities2::getFontMetrics(b, g));
+	int32_t var$1 = b->getWidth();
+	$var($String, text, layout(b, var$0, var$1, b->getHeight()));
 	clearTextShiftOffset();
-	bool var$3 = $nc(model)->isArmed();
-	if (var$3 && model->isPressed()) {
+	bool var$2 = $nc(model)->isArmed();
+	if (var$2 && model->isPressed()) {
 		paintButtonPressed(g, b);
 	}
 	if (b->getIcon() != nullptr) {
@@ -352,14 +258,14 @@ void BasicButtonUI::paint($Graphics* g, $JComponent* c) {
 			paintText(g, b, BasicButtonUI::textRect, text);
 		}
 	}
-	bool var$4 = b->isFocusPainted();
-	if (var$4 && b->hasFocus()) {
+	bool var$3 = b->isFocusPainted();
+	if (var$3 && b->hasFocus()) {
 		paintFocus(g, b, BasicButtonUI::viewRect, BasicButtonUI::textRect, BasicButtonUI::iconRect);
 	}
 }
 
 void BasicButtonUI::paintIcon($Graphics* g, $JComponent* c, $Rectangle* iconRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($Icon, icon, b->getIcon());
@@ -374,7 +280,7 @@ void BasicButtonUI::paintIcon($Graphics* g, $JComponent* c, $Rectangle* iconRect
 			$assign(icon, selectedIcon);
 		}
 	}
-	if (!$nc(model)->isEnabled()) {
+	if (!model->isEnabled()) {
 		if (model->isSelected()) {
 			$assign(tmpIcon, b->getDisabledSelectedIcon());
 			if (tmpIcon == nullptr) {
@@ -385,15 +291,15 @@ void BasicButtonUI::paintIcon($Graphics* g, $JComponent* c, $Rectangle* iconRect
 			$assign(tmpIcon, b->getDisabledIcon());
 		}
 	} else {
-		bool var$1 = model->isPressed();
-		if (var$1 && model->isArmed()) {
+		bool var$0 = model->isPressed();
+		if (var$0 && model->isArmed()) {
 			$assign(tmpIcon, b->getPressedIcon());
 			if (tmpIcon != nullptr) {
 				clearTextShiftOffset();
 			}
 		} else {
-			bool var$3 = b->isRolloverEnabled();
-			if (var$3 && model->isRollover()) {
+			bool var$1 = b->isRolloverEnabled();
+			if (var$1 && model->isRollover()) {
 				if (model->isSelected()) {
 					$assign(tmpIcon, b->getRolloverSelectedIcon());
 					if (tmpIcon == nullptr) {
@@ -409,42 +315,36 @@ void BasicButtonUI::paintIcon($Graphics* g, $JComponent* c, $Rectangle* iconRect
 	if (tmpIcon != nullptr) {
 		$assign(icon, tmpIcon);
 	}
-	bool var$4 = $nc(model)->isPressed();
-	if (var$4 && model->isArmed()) {
-		$var($Component, var$5, static_cast<$Component*>(c));
-		$var($Graphics, var$6, g);
-		int32_t var$7 = $nc(iconRect)->x + getTextShiftOffset();
-		$nc(icon)->paintIcon(var$5, var$6, var$7, iconRect->y + getTextShiftOffset());
+	bool var$2 = model->isPressed();
+	if (var$2 && model->isArmed()) {
+		int32_t var$3 = $nc(iconRect)->x + getTextShiftOffset();
+		$nc(icon)->paintIcon(c, g, var$3, iconRect->y + getTextShiftOffset());
 	} else {
-		$nc(icon)->paintIcon(c, g, $nc(iconRect)->x, iconRect->y);
+		$nc(icon)->paintIcon(c, g, $nc(iconRect)->x, $nc(iconRect)->y);
 	}
 }
 
 void BasicButtonUI::paintText($Graphics* g, $JComponent* c, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(c, g));
 	int32_t mnemonicIndex = b->getDisplayedMnemonicIndex();
 	if ($nc(model)->isEnabled()) {
 		$nc(g)->setColor($(b->getForeground()));
-		$var($JComponent, var$0, c);
-		$var($Graphics, var$1, g);
-		$var($String, var$2, text);
-		int32_t var$3 = mnemonicIndex;
-		int32_t var$4 = $nc(textRect)->x + getTextShiftOffset();
-		int32_t var$5 = textRect->y + $nc(fm)->getAscent();
-		$SwingUtilities2::drawStringUnderlineCharAt(var$0, var$1, var$2, var$3, var$4, var$5 + getTextShiftOffset());
+		int32_t var$0 = $nc(textRect)->x + getTextShiftOffset();
+		int32_t var$1 = textRect->y + $nc(fm)->getAscent();
+		$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemonicIndex, var$0, var$1 + getTextShiftOffset());
 	} else {
-		$nc(g)->setColor($($nc($(b->getBackground()))->brighter()));
-		$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemonicIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
-		g->setColor($($nc($(b->getBackground()))->darker()));
-		$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemonicIndex, $nc(textRect)->x - 1, textRect->y + $nc(fm)->getAscent() - 1);
+		$nc(g)->setColor($($$nc(b->getBackground())->brighter()));
+		$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemonicIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
+		g->setColor($($$nc(b->getBackground())->darker()));
+		$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemonicIndex, textRect->x - 1, textRect->y + fm->getAscent() - 1);
 	}
 }
 
 void BasicButtonUI::paintText($Graphics* g, $AbstractButton* b, $Rectangle* textRect, $String* text) {
-	paintText(g, static_cast<$JComponent*>(b), textRect, text);
+	paintText(g, $cast($JComponent, b), textRect, text);
 }
 
 void BasicButtonUI::paintFocus($Graphics* g, $AbstractButton* b, $Rectangle* viewRect, $Rectangle* textRect, $Rectangle* iconRect) {
@@ -466,7 +366,7 @@ int32_t BasicButtonUI::getTextShiftOffset() {
 }
 
 $Dimension* BasicButtonUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -483,7 +383,7 @@ $Dimension* BasicButtonUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* BasicButtonUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -495,11 +395,11 @@ $Dimension* BasicButtonUI::getMaximumSize($JComponent* c) {
 }
 
 int32_t BasicButtonUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ButtonUI::getBaseline(c, width, height);
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($String, text, $nc(b)->getText());
-	if (text == nullptr || $nc(text)->isEmpty()) {
+	if (text == nullptr || text->isEmpty()) {
 		return -1;
 	}
 	$var($FontMetrics, fm, b->getFontMetrics($(b->getFont())));
@@ -514,65 +414,51 @@ $Component$BaselineResizeBehavior* BasicButtonUI::getBaselineResizeBehavior($JCo
 		$init($Component$BaselineResizeBehavior);
 		return $Component$BaselineResizeBehavior::OTHER;
 	}
-	switch ($nc(($cast($AbstractButton, c)))->getVerticalAlignment()) {
+	switch ($cast($AbstractButton, c)->getVerticalAlignment()) {
 	case $AbstractButton::TOP:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CONSTANT_ASCENT;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CONSTANT_ASCENT;
 	case $AbstractButton::BOTTOM:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CONSTANT_DESCENT;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CONSTANT_DESCENT;
 	case $AbstractButton::CENTER:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CENTER_OFFSET;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CENTER_OFFSET;
 	}
 	$init($Component$BaselineResizeBehavior);
 	return $Component$BaselineResizeBehavior::OTHER;
 }
 
 $String* BasicButtonUI::layout($AbstractButton* b, $FontMetrics* fm, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, i, $nc(b)->getInsets());
 	$nc(BasicButtonUI::viewRect)->x = $nc(i)->left;
-	$nc(BasicButtonUI::viewRect)->y = i->top;
-	$nc(BasicButtonUI::viewRect)->width = width - (i->right + $nc(BasicButtonUI::viewRect)->x);
-	$nc(BasicButtonUI::viewRect)->height = height - (i->bottom + $nc(BasicButtonUI::viewRect)->y);
+	BasicButtonUI::viewRect->y = i->top;
+	BasicButtonUI::viewRect->width = width - (i->right + BasicButtonUI::viewRect->x);
+	BasicButtonUI::viewRect->height = height - (i->bottom + BasicButtonUI::viewRect->y);
 	$nc(BasicButtonUI::textRect)->x = ($nc(BasicButtonUI::textRect)->y = ($nc(BasicButtonUI::textRect)->width = ($nc(BasicButtonUI::textRect)->height = 0)));
 	$nc(BasicButtonUI::iconRect)->x = ($nc(BasicButtonUI::iconRect)->y = ($nc(BasicButtonUI::iconRect)->width = ($nc(BasicButtonUI::iconRect)->height = 0)));
-	$var($JComponent, var$0, static_cast<$JComponent*>(b));
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, b->getText());
-	$var($Icon, var$3, b->getIcon());
-	int32_t var$4 = b->getVerticalAlignment();
-	int32_t var$5 = b->getHorizontalAlignment();
-	int32_t var$6 = b->getVerticalTextPosition();
-	int32_t var$7 = b->getHorizontalTextPosition();
-	$var($Rectangle, var$8, BasicButtonUI::viewRect);
-	$var($Rectangle, var$9, BasicButtonUI::iconRect);
-	$var($Rectangle, var$10, BasicButtonUI::textRect);
-	return $SwingUtilities::layoutCompoundLabel(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, b->getText() == nullptr ? 0 : b->getIconTextGap());
+	$var($String, var$0, b->getText());
+	$var($Icon, var$1, b->getIcon());
+	int32_t var$2 = b->getVerticalAlignment();
+	int32_t var$3 = b->getHorizontalAlignment();
+	int32_t var$4 = b->getVerticalTextPosition();
+	int32_t var$5 = b->getHorizontalTextPosition();
+	$var($Rectangle, var$6, BasicButtonUI::viewRect);
+	$var($Rectangle, var$7, BasicButtonUI::iconRect);
+	$var($Rectangle, var$8, BasicButtonUI::textRect);
+	return $SwingUtilities::layoutCompoundLabel(b, fm, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, b->getText() == nullptr ? 0 : b->getIconTextGap());
 }
 
 $BasicButtonListener* BasicButtonUI::getButtonListener($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MouseMotionListenerArray, listeners, $nc(b)->getMouseMotionListeners());
 	if (listeners != nullptr) {
-		{
-			$var($MouseMotionListenerArray, arr$, listeners);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($MouseMotionListener, listener, arr$->get(i$));
-				{
-					if ($instanceOf($BasicButtonListener, listener)) {
-						return $cast($BasicButtonListener, listener);
-					}
-				}
+		$var($MouseMotionListenerArray, arr$, listeners);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($MouseMotionListener, listener, arr$->get(i$));
+			if ($instanceOf($BasicButtonListener, listener)) {
+				return $cast($BasicButtonListener, listener);
 			}
 		}
 	}
@@ -587,12 +473,12 @@ $KeyListener* BasicButtonUI::createKeyListener() {
 }
 
 bool BasicButtonUI::isValidToggleButtonObj(Object$* obj) {
-	bool var$0 = ($instanceOf($JToggleButton, obj)) && $nc(($cast($JToggleButton, obj)))->isVisible();
-	return (var$0 && ($cast($JToggleButton, obj))->isEnabled());
+	bool var$0 = ($instanceOf($JToggleButton, obj)) && $cast($JToggleButton, obj)->isVisible();
+	return (var$0 && $cast($JToggleButton, obj)->isEnabled());
 }
 
 void BasicButtonUI::selectToggleButton($ActionEvent* event, bool next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, eventSrc, $nc(event)->getSource());
 	if (!isValidToggleButtonObj(eventSrc)) {
 		return;
@@ -601,7 +487,7 @@ void BasicButtonUI::selectToggleButton($ActionEvent* event, bool next) {
 	btnGroupInfo->selectNewButton(next);
 }
 
-void clinit$BasicButtonUI($Class* class$) {
+void BasicButtonUI::clinit$($Class* clazz) {
 	$assignStatic(BasicButtonUI::propertyPrefix, "Button."_s);
 	$assignStatic(BasicButtonUI::BASIC_BUTTON_UI_KEY, $new($Object));
 	$assignStatic(BasicButtonUI::viewRect, $new($Rectangle));
@@ -613,7 +499,77 @@ BasicButtonUI::BasicButtonUI() {
 }
 
 $Class* BasicButtonUI::load$($String* name, bool initialize) {
-	$loadClass(BasicButtonUI, name, initialize, &_BasicButtonUI_ClassInfo_, clinit$BasicButtonUI, allocate$BasicButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultTextIconGap", "I", nullptr, $PROTECTED, $field(BasicButtonUI, defaultTextIconGap)},
+		{"shiftOffset", "I", nullptr, $PRIVATE, $field(BasicButtonUI, shiftOffset)},
+		{"defaultTextShiftOffset", "I", nullptr, $PROTECTED, $field(BasicButtonUI, defaultTextShiftOffset)},
+		{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonUI, propertyPrefix)},
+		{"BASIC_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicButtonUI, BASIC_BUTTON_UI_KEY)},
+		{"keyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(BasicButtonUI, keyListener)},
+		{"viewRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicButtonUI, viewRect)},
+		{"textRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicButtonUI, textRect)},
+		{"iconRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(BasicButtonUI, iconRect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicButtonUI, init$, void)},
+		{"clearTextShiftOffset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, clearTextShiftOffset, void)},
+		{"createButtonListener", "(Ljavax/swing/AbstractButton;)Ljavax/swing/plaf/basic/BasicButtonListener;", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, createButtonListener, $BasicButtonListener*, $AbstractButton*)},
+		{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $method(BasicButtonUI, createKeyListener, $KeyListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getButtonListener", "(Ljavax/swing/AbstractButton;)Ljavax/swing/plaf/basic/BasicButtonListener;", nullptr, $PRIVATE, $method(BasicButtonUI, getButtonListener, $BasicButtonListener*, $AbstractButton*)},
+		{"getDefaultTextIconGap", "(Ljavax/swing/AbstractButton;)I", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getDefaultTextIconGap, int32_t, $AbstractButton*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, getPropertyPrefix, $String*)},
+		{"getTextShiftOffset", "()I", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, getTextShiftOffset, int32_t)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, installDefaults, void, $AbstractButton*)},
+		{"installKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, installKeyboardActions, void, $AbstractButton*)},
+		{"installListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, installListeners, void, $AbstractButton*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, installUI, void, $JComponent*)},
+		{"isValidToggleButtonObj", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(BasicButtonUI, isValidToggleButtonObj, bool, Object$*)},
+		{"layout", "(Ljavax/swing/AbstractButton;Ljava/awt/FontMetrics;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicButtonUI, layout, $String*, $AbstractButton*, $FontMetrics*, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
+		{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintIcon, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
+		{"selectToggleButton", "(Ljava/awt/event/ActionEvent;Z)V", nullptr, $PRIVATE, $method(BasicButtonUI, selectToggleButton, void, $ActionEvent*, bool)},
+		{"setTextShiftOffset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, setTextShiftOffset, void)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{"uninstallKeyboardActions", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, uninstallKeyboardActions, void, $AbstractButton*)},
+		{"uninstallListeners", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonUI, uninstallListeners, void, $AbstractButton*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicButtonUI$KeyHandler", "javax.swing.plaf.basic.BasicButtonUI", "KeyHandler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo", "javax.swing.plaf.basic.BasicButtonUI", "ButtonGroupInfo", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicButtonUI$SelectNextBtn", "javax.swing.plaf.basic.BasicButtonUI", "SelectNextBtn", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicButtonUI$SelectPreviousBtn", "javax.swing.plaf.basic.BasicButtonUI", "SelectPreviousBtn", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicButtonUI",
+		"javax.swing.plaf.ButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicButtonUI$KeyHandler,javax.swing.plaf.basic.BasicButtonUI$ButtonGroupInfo,javax.swing.plaf.basic.BasicButtonUI$SelectNextBtn,javax.swing.plaf.basic.BasicButtonUI$SelectPreviousBtn"
+	};
+	$loadClass(BasicButtonUI, name, initialize, &classInfo$$, BasicButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicButtonUI);
+	});
 	return class$;
 }
 

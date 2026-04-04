@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ConnectionPool$CacheKey.h>
-
 #include <java/net/InetSocketAddress.h>
 #include <java/util/Objects.h>
 #include <jdk/internal/net/http/ConnectionPool.h>
@@ -17,44 +16,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _ConnectionPool$CacheKey_FieldInfo_[] = {
-	{"proxy", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(ConnectionPool$CacheKey, proxy)},
-	{"destination", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(ConnectionPool$CacheKey, destination)},
-	{}
-};
-
-$MethodInfo _ConnectionPool$CacheKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(ConnectionPool$CacheKey, init$, void, $InetSocketAddress*, $InetSocketAddress*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CacheKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CacheKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ConnectionPool$CacheKey_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ConnectionPool$CacheKey", "jdk.internal.net.http.ConnectionPool", "CacheKey", $STATIC},
-	{}
-};
-
-$ClassInfo _ConnectionPool$CacheKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.ConnectionPool$CacheKey",
-	"java.lang.Object",
-	nullptr,
-	_ConnectionPool$CacheKey_FieldInfo_,
-	_ConnectionPool$CacheKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConnectionPool$CacheKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ConnectionPool"
-};
-
-$Object* allocate$ConnectionPool$CacheKey($Class* clazz) {
-	return $of($alloc(ConnectionPool$CacheKey));
-}
-
 void ConnectionPool$CacheKey::init$($InetSocketAddress* destination, $InetSocketAddress* proxy) {
 	$set(this, proxy, proxy);
 	$set(this, destination, destination);
@@ -68,10 +29,10 @@ bool ConnectionPool$CacheKey::equals(Object$* obj) {
 		return false;
 	}
 	$var(ConnectionPool$CacheKey, other, $cast(ConnectionPool$CacheKey, obj));
-	if (!$Objects::equals(this->proxy, $nc(other)->proxy)) {
+	if (!$Objects::equals(this->proxy, other->proxy)) {
 		return false;
 	}
-	if (!$Objects::equals(this->destination, $nc(other)->destination)) {
+	if (!$Objects::equals(this->destination, other->destination)) {
 		return false;
 	}
 	return true;
@@ -79,8 +40,8 @@ bool ConnectionPool$CacheKey::equals(Object$* obj) {
 
 int32_t ConnectionPool$CacheKey::hashCode() {
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->proxy),
-		$of(this->destination)
+		this->proxy,
+		this->destination
 	}));
 }
 
@@ -88,7 +49,39 @@ ConnectionPool$CacheKey::ConnectionPool$CacheKey() {
 }
 
 $Class* ConnectionPool$CacheKey::load$($String* name, bool initialize) {
-	$loadClass(ConnectionPool$CacheKey, name, initialize, &_ConnectionPool$CacheKey_ClassInfo_, allocate$ConnectionPool$CacheKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"proxy", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(ConnectionPool$CacheKey, proxy)},
+		{"destination", "Ljava/net/InetSocketAddress;", nullptr, $FINAL, $field(ConnectionPool$CacheKey, destination)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(ConnectionPool$CacheKey, init$, void, $InetSocketAddress*, $InetSocketAddress*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CacheKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CacheKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ConnectionPool$CacheKey", "jdk.internal.net.http.ConnectionPool", "CacheKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.ConnectionPool$CacheKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ConnectionPool"
+	};
+	$loadClass(ConnectionPool$CacheKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConnectionPool$CacheKey);
+	});
 	return class$;
 }
 

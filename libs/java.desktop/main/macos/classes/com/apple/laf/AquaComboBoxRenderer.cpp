@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaComboBoxRenderer.h>
-
 #include <com/apple/laf/AquaComboBoxRendererInternal.h>
 #include <javax/swing/JComboBox.h>
 #include <jcpp.h>
@@ -12,30 +11,6 @@ using $JComboBox = ::javax::swing::JComboBox;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaComboBoxRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<*>;)V", $PUBLIC, $method(AquaComboBoxRenderer, init$, void, $JComboBox*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AquaComboBoxRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaComboBoxRenderer",
-	"com.apple.laf.AquaComboBoxRendererInternal",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_AquaComboBoxRenderer_MethodInfo_,
-	"Lcom/apple/laf/AquaComboBoxRendererInternal<Ljava/lang/Object;>;Ljavax/swing/plaf/UIResource;"
-};
-
-$Object* allocate$AquaComboBoxRenderer($Class* clazz) {
-	return $of($alloc(AquaComboBoxRenderer));
-}
 
 $String* AquaComboBoxRenderer::toString() {
 	 return this->$AquaComboBoxRendererInternal::toString();
@@ -65,7 +40,27 @@ AquaComboBoxRenderer::AquaComboBoxRenderer() {
 }
 
 $Class* AquaComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(AquaComboBoxRenderer, name, initialize, &_AquaComboBoxRenderer_ClassInfo_, allocate$AquaComboBoxRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<*>;)V", $PUBLIC, $method(AquaComboBoxRenderer, init$, void, $JComboBox*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaComboBoxRenderer",
+		"com.apple.laf.AquaComboBoxRendererInternal",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaComboBoxRendererInternal<Ljava/lang/Object;>;Ljavax/swing/plaf/UIResource;"
+	};
+	$loadClass(AquaComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaComboBoxRenderer));
+	});
 	return class$;
 }
 

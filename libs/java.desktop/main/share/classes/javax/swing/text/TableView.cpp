@@ -1,5 +1,4 @@
 #include <javax/swing/text/TableView.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
@@ -59,74 +58,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$CompoundAttribute _TableView_MethodAnnotations_createTableCell6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TableView_FieldInfo_[] = {
-	{"columnSpans", "[I", nullptr, 0, $field(TableView, columnSpans)},
-	{"columnOffsets", "[I", nullptr, 0, $field(TableView, columnOffsets)},
-	{"totalColumnRequirements", "Ljavax/swing/SizeRequirements;", nullptr, 0, $field(TableView, totalColumnRequirements)},
-	{"columnRequirements", "[Ljavax/swing/SizeRequirements;", nullptr, 0, $field(TableView, columnRequirements)},
-	{"rows", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/TableView$TableRow;>;", 0, $field(TableView, rows)},
-	{"gridValid", "Z", nullptr, 0, $field(TableView, gridValid)},
-	{"EMPTY", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TableView, EMPTY)},
-	{}
-};
-
-$MethodInfo _TableView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView, init$, void, $Element*)},
-	{"addFill", "(II)V", nullptr, 0, $virtualMethod(TableView, addFill, void, int32_t, int32_t)},
-	{"calculateColumnRequirements", "(I)V", nullptr, 0, $virtualMethod(TableView, calculateColumnRequirements, void, int32_t)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"checkMultiColumnCell", "(IIILjavax/swing/text/View;)V", nullptr, 0, $virtualMethod(TableView, checkMultiColumnCell, void, int32_t, int32_t, int32_t, $View*)},
-	{"checkSingleColumnCell", "(IILjavax/swing/text/View;)V", nullptr, 0, $virtualMethod(TableView, checkSingleColumnCell, void, int32_t, int32_t, $View*)},
-	{"createTableCell", "(Ljavax/swing/text/Element;)Ljavax/swing/text/TableView$TableCell;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(TableView, createTableCell, $TableView$TableCell*, $Element*), nullptr, nullptr, _TableView_MethodAnnotations_createTableCell6},
-	{"createTableRow", "(Ljavax/swing/text/Element;)Ljavax/swing/text/TableView$TableRow;", nullptr, $PROTECTED, $virtualMethod(TableView, createTableRow, $TableView$TableRow*, $Element*)},
-	{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(TableView, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getColumnCount", "()I", nullptr, 0, $virtualMethod(TableView, getColumnCount, int32_t)},
-	{"getColumnSpan", "(I)I", nullptr, 0, $virtualMethod(TableView, getColumnSpan, int32_t, int32_t)},
-	{"getColumnsOccupied", "(Ljavax/swing/text/View;)I", nullptr, 0, $virtualMethod(TableView, getColumnsOccupied, int32_t, $View*)},
-	{"getRow", "(I)Ljavax/swing/text/TableView$TableRow;", nullptr, 0, $virtualMethod(TableView, getRow, $TableView$TableRow*, int32_t)},
-	{"getRowCount", "()I", nullptr, 0, $virtualMethod(TableView, getRowCount, int32_t)},
-	{"getRowSpan", "(I)I", nullptr, 0, $virtualMethod(TableView, getRowSpan, int32_t, int32_t)},
-	{"getRowsOccupied", "(Ljavax/swing/text/View;)I", nullptr, 0, $virtualMethod(TableView, getRowsOccupied, int32_t, $View*)},
-	{"getViewAtPosition", "(ILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(TableView, getViewAtPosition, $View*, int32_t, $Rectangle*)},
-	{"invalidateGrid", "()V", nullptr, 0, $virtualMethod(TableView, invalidateGrid, void)},
-	{"layoutColumns", "(I[I[I[Ljavax/swing/SizeRequirements;)V", nullptr, $PROTECTED, $virtualMethod(TableView, layoutColumns, void, int32_t, $ints*, $ints*, $SizeRequirementsArray*)},
-	{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(TableView, replace, void, int32_t, int32_t, $ViewArray*)},
-	{"updateGrid", "()V", nullptr, 0, $virtualMethod(TableView, updateGrid, void)},
-	{}
-};
-
-$InnerClassInfo _TableView_InnerClassesInfo_[] = {
-	{"javax.swing.text.TableView$GridCell", "javax.swing.text.TableView", "GridCell", $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.TableView$TableCell", "javax.swing.text.TableView", "TableCell", $PUBLIC},
-	{"javax.swing.text.TableView$TableRow", "javax.swing.text.TableView", "TableRow", $PUBLIC},
-	{}
-};
-
-$ClassInfo _TableView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.TableView",
-	"javax.swing.text.BoxView",
-	nullptr,
-	_TableView_FieldInfo_,
-	_TableView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TableView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.TableView$GridCell,javax.swing.text.TableView$TableCell,javax.swing.text.TableView$TableRow"
-};
-
-$Object* allocate$TableView($Class* clazz) {
-	return $of($alloc(TableView));
-}
-
 $BitSet* TableView::EMPTY = nullptr;
 
 void TableView::init$($Element* elem) {
@@ -166,14 +97,14 @@ int32_t TableView::getRowSpan(int32_t row) {
 
 $TableView$TableRow* TableView::getRow(int32_t row) {
 	if (row < $nc(this->rows)->size()) {
-		return $cast($TableView$TableRow, $nc(this->rows)->elementAt(row));
+		return $cast($TableView$TableRow, this->rows->elementAt(row));
 	}
 	return nullptr;
 }
 
 int32_t TableView::getColumnsOccupied($View* v) {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, a, $nc($($nc(v)->getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, a, $$nc($nc(v)->getElement())->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, s, $cast($String, $nc(a)->getAttribute($HTML$Attribute::COLSPAN)));
 	if (s != nullptr) {
@@ -186,8 +117,8 @@ int32_t TableView::getColumnsOccupied($View* v) {
 }
 
 int32_t TableView::getRowsOccupied($View* v) {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, a, $nc($($nc(v)->getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, a, $$nc($nc(v)->getElement())->getAttributes());
 	$init($HTML$Attribute);
 	$var($String, s, $cast($String, $nc(a)->getAttribute($HTML$Attribute::ROWSPAN)));
 	if (s != nullptr) {
@@ -204,13 +135,13 @@ void TableView::invalidateGrid() {
 }
 
 void TableView::forwardUpdate($DocumentEvent$ElementChange* ec, $DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BoxView::forwardUpdate(ec, e, a, f);
 	if (a != nullptr) {
 		$var($Component, c, getContainer());
 		if (c != nullptr) {
 			$var($Rectangle, alloc, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : a->getBounds());
-			c->repaint($nc(alloc)->x, alloc->y, alloc->width, alloc->height);
+			c->repaint($nc(alloc)->x, $nc(alloc)->y, $nc(alloc)->width, $nc(alloc)->height);
 		}
 	}
 }
@@ -221,7 +152,7 @@ void TableView::replace(int32_t offset, int32_t length, $ViewArray* views) {
 }
 
 void TableView::updateGrid() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->gridValid) {
 		$nc(this->rows)->removeAllElements();
 		int32_t n = getViewCount();
@@ -230,7 +161,7 @@ void TableView::updateGrid() {
 			if ($instanceOf($TableView$TableRow, v)) {
 				$nc(this->rows)->addElement($cast($TableView$TableRow, v));
 				$var($TableView$TableRow, rv, $cast($TableView$TableRow, v));
-				$nc(rv)->clearFilledColumns();
+				rv->clearFilledColumns();
 				rv->setRow(i);
 			}
 		}
@@ -242,6 +173,7 @@ void TableView::updateGrid() {
 			for (int32_t cell = 0; cell < $nc(rv)->getViewCount(); ++cell, ++col) {
 				$var($View, cv, rv->getView(cell));
 				for (; rv->isFilled(col); ++col) {
+					;
 				}
 				int32_t rowSpan = getRowsOccupied(cv);
 				int32_t colSpan = getColumnsOccupied(cv);
@@ -266,7 +198,7 @@ void TableView::updateGrid() {
 		$set(this, columnOffsets, $new($ints, maxColumns));
 		$set(this, columnRequirements, $new($SizeRequirementsArray, maxColumns));
 		for (int32_t i = 0; i < maxColumns; ++i) {
-			$nc(this->columnRequirements)->set(i, $$new($SizeRequirements));
+			this->columnRequirements->set(i, $$new($SizeRequirements));
 		}
 		this->gridValid = true;
 	}
@@ -284,7 +216,7 @@ void TableView::layoutColumns(int32_t targetSpan, $ints* offsets, $ints* spans, 
 }
 
 void TableView::layoutMinorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateGrid();
 	int32_t n = getRowCount();
 	for (int32_t i = 0; i < n; ++i) {
@@ -296,7 +228,7 @@ void TableView::layoutMinorAxis(int32_t targetSpan, int32_t axis, $ints* offsets
 }
 
 $SizeRequirements* TableView::calculateMinorAxisRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
 	updateGrid();
 	calculateColumnRequirements(axis);
@@ -308,9 +240,7 @@ $SizeRequirements* TableView::calculateMinorAxisRequirements(int32_t axis, $Size
 	int64_t max = 0;
 	{
 		$var($SizeRequirementsArray, arr$, this->columnRequirements);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SizeRequirements, req, arr$->get(i$));
 			{
 				min += $nc(req)->minimum;
@@ -322,20 +252,18 @@ $SizeRequirements* TableView::calculateMinorAxisRequirements(int32_t axis, $Size
 	$nc(r)->minimum = (int32_t)min;
 	r->preferred = (int32_t)pref;
 	r->maximum = (int32_t)max;
-	r->alignment = (float)0;
+	r->alignment = 0;
 	$nc(this->totalColumnRequirements)->minimum = r->minimum;
-	$nc(this->totalColumnRequirements)->preferred = r->preferred;
-	$nc(this->totalColumnRequirements)->maximum = r->maximum;
+	this->totalColumnRequirements->preferred = r->preferred;
+	this->totalColumnRequirements->maximum = r->maximum;
 	return r;
 }
 
 void TableView::calculateColumnRequirements(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($SizeRequirementsArray, arr$, this->columnRequirements);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SizeRequirements, req, arr$->get(i$));
 			{
 				$nc(req)->minimum = 0;
@@ -353,6 +281,7 @@ void TableView::calculateColumnRequirements(int32_t axis) {
 		for (int32_t cell = 0; cell < ncells; ++cell, ++col) {
 			$var($View, cv, row->getView(cell));
 			for (; row->isFilled(col); ++col) {
+				;
 			}
 			int32_t rowSpan = getRowsOccupied(cv);
 			int32_t colSpan = getColumnsOccupied(cv);
@@ -372,6 +301,7 @@ void TableView::calculateColumnRequirements(int32_t axis) {
 			for (int32_t cell = 0; cell < ncells; ++cell, ++col) {
 				$var($View, cv, row->getView(cell));
 				for (; row->isFilled(col); ++col) {
+					;
 				}
 				int32_t colSpan = getColumnsOccupied(cv);
 				if (colSpan > 1) {
@@ -385,13 +315,13 @@ void TableView::calculateColumnRequirements(int32_t axis) {
 
 void TableView::checkSingleColumnCell(int32_t axis, int32_t col, $View* v) {
 	$var($SizeRequirements, req, $nc(this->columnRequirements)->get(col));
-	$nc(req)->minimum = $Math::max($cast(int32_t, $nc(v)->getMinimumSpan(axis)), req->minimum);
-	req->preferred = $Math::max($cast(int32_t, $nc(v)->getPreferredSpan(axis)), req->preferred);
-	req->maximum = $Math::max($cast(int32_t, $nc(v)->getMaximumSpan(axis)), req->maximum);
+	$nc(req)->minimum = $Math::max($cast(int32_t, $nc(v)->getMinimumSpan(axis)), $nc(req)->minimum);
+	req->preferred = $Math::max($cast(int32_t, v->getPreferredSpan(axis)), req->preferred);
+	req->maximum = $Math::max($cast(int32_t, v->getMaximumSpan(axis)), req->maximum);
 }
 
 void TableView::checkMultiColumnCell(int32_t axis, int32_t col, int32_t ncols, $View* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t min = 0;
 	int64_t pref = 0;
 	int64_t max = 0;
@@ -406,14 +336,14 @@ void TableView::checkMultiColumnCell(int32_t axis, int32_t col, int32_t ncols, $
 		$var($SizeRequirementsArray, reqs, $new($SizeRequirementsArray, ncols));
 		for (int32_t i = 0; i < ncols; ++i) {
 			$var($SizeRequirements, r, reqs->set(i, $nc(this->columnRequirements)->get(col + i)));
-			$nc(r)->maximum = $Math::max(r->maximum, $cast(int32_t, v->getMaximumSpan(axis)));
+			$nc(r)->maximum = $Math::max($nc(r)->maximum, $cast(int32_t, v->getMaximumSpan(axis)));
 		}
 		$var($ints, spans, $new($ints, ncols));
 		$var($ints, offsets, $new($ints, ncols));
 		$SizeRequirements::calculateTiledPositions(cmin, nullptr, reqs, offsets, spans);
 		for (int32_t i = 0; i < ncols; ++i) {
 			$var($SizeRequirements, req, reqs->get(i));
-			$nc(req)->minimum = $Math::max(spans->get(i), req->minimum);
+			$nc(req)->minimum = $Math::max(spans->get(i), $nc(req)->minimum);
 			req->preferred = $Math::max(req->minimum, req->preferred);
 			req->maximum = $Math::max(req->preferred, req->maximum);
 		}
@@ -429,14 +359,14 @@ void TableView::checkMultiColumnCell(int32_t axis, int32_t col, int32_t ncols, $
 		$SizeRequirements::calculateTiledPositions(cpref, nullptr, reqs, offsets, spans);
 		for (int32_t i = 0; i < ncols; ++i) {
 			$var($SizeRequirements, req, reqs->get(i));
-			$nc(req)->preferred = $Math::max(spans->get(i), req->preferred);
+			$nc(req)->preferred = $Math::max(spans->get(i), $nc(req)->preferred);
 			req->maximum = $Math::max(req->preferred, req->maximum);
 		}
 	}
 }
 
 $View* TableView::getViewAtPosition(int32_t pos, $Rectangle* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
@@ -459,7 +389,7 @@ $View* TableView::getViewAtPosition(int32_t pos, $Rectangle* a) {
 	return nullptr;
 }
 
-void clinit$TableView($Class* class$) {
+void TableView::clinit$($Class* clazz) {
 	$assignStatic(TableView::EMPTY, $new($BitSet));
 }
 
@@ -467,7 +397,68 @@ TableView::TableView() {
 }
 
 $Class* TableView::load$($String* name, bool initialize) {
-	$loadClass(TableView, name, initialize, &_TableView_ClassInfo_, clinit$TableView, allocate$TableView);
+	$FieldInfo fieldInfos$$[] = {
+		{"columnSpans", "[I", nullptr, 0, $field(TableView, columnSpans)},
+		{"columnOffsets", "[I", nullptr, 0, $field(TableView, columnOffsets)},
+		{"totalColumnRequirements", "Ljavax/swing/SizeRequirements;", nullptr, 0, $field(TableView, totalColumnRequirements)},
+		{"columnRequirements", "[Ljavax/swing/SizeRequirements;", nullptr, 0, $field(TableView, columnRequirements)},
+		{"rows", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/TableView$TableRow;>;", 0, $field(TableView, rows)},
+		{"gridValid", "Z", nullptr, 0, $field(TableView, gridValid)},
+		{"EMPTY", "Ljava/util/BitSet;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TableView, EMPTY)},
+		{}
+	};
+	$CompoundAttribute createTableCellmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView, init$, void, $Element*)},
+		{"addFill", "(II)V", nullptr, 0, $virtualMethod(TableView, addFill, void, int32_t, int32_t)},
+		{"calculateColumnRequirements", "(I)V", nullptr, 0, $virtualMethod(TableView, calculateColumnRequirements, void, int32_t)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"checkMultiColumnCell", "(IIILjavax/swing/text/View;)V", nullptr, 0, $virtualMethod(TableView, checkMultiColumnCell, void, int32_t, int32_t, int32_t, $View*)},
+		{"checkSingleColumnCell", "(IILjavax/swing/text/View;)V", nullptr, 0, $virtualMethod(TableView, checkSingleColumnCell, void, int32_t, int32_t, $View*)},
+		{"createTableCell", "(Ljavax/swing/text/Element;)Ljavax/swing/text/TableView$TableCell;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(TableView, createTableCell, $TableView$TableCell*, $Element*), nullptr, nullptr, createTableCellmethodAnnotations$$},
+		{"createTableRow", "(Ljavax/swing/text/Element;)Ljavax/swing/text/TableView$TableRow;", nullptr, $PROTECTED, $virtualMethod(TableView, createTableRow, $TableView$TableRow*, $Element*)},
+		{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(TableView, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getColumnCount", "()I", nullptr, 0, $virtualMethod(TableView, getColumnCount, int32_t)},
+		{"getColumnSpan", "(I)I", nullptr, 0, $virtualMethod(TableView, getColumnSpan, int32_t, int32_t)},
+		{"getColumnsOccupied", "(Ljavax/swing/text/View;)I", nullptr, 0, $virtualMethod(TableView, getColumnsOccupied, int32_t, $View*)},
+		{"getRow", "(I)Ljavax/swing/text/TableView$TableRow;", nullptr, 0, $virtualMethod(TableView, getRow, $TableView$TableRow*, int32_t)},
+		{"getRowCount", "()I", nullptr, 0, $virtualMethod(TableView, getRowCount, int32_t)},
+		{"getRowSpan", "(I)I", nullptr, 0, $virtualMethod(TableView, getRowSpan, int32_t, int32_t)},
+		{"getRowsOccupied", "(Ljavax/swing/text/View;)I", nullptr, 0, $virtualMethod(TableView, getRowsOccupied, int32_t, $View*)},
+		{"getViewAtPosition", "(ILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(TableView, getViewAtPosition, $View*, int32_t, $Rectangle*)},
+		{"invalidateGrid", "()V", nullptr, 0, $virtualMethod(TableView, invalidateGrid, void)},
+		{"layoutColumns", "(I[I[I[Ljavax/swing/SizeRequirements;)V", nullptr, $PROTECTED, $virtualMethod(TableView, layoutColumns, void, int32_t, $ints*, $ints*, $SizeRequirementsArray*)},
+		{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(TableView, replace, void, int32_t, int32_t, $ViewArray*)},
+		{"updateGrid", "()V", nullptr, 0, $virtualMethod(TableView, updateGrid, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.TableView$GridCell", "javax.swing.text.TableView", "GridCell", $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.TableView$TableCell", "javax.swing.text.TableView", "TableCell", $PUBLIC},
+		{"javax.swing.text.TableView$TableRow", "javax.swing.text.TableView", "TableRow", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.TableView",
+		"javax.swing.text.BoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.TableView$GridCell,javax.swing.text.TableView$TableCell,javax.swing.text.TableView$TableRow"
+	};
+	$loadClass(TableView, name, initialize, &classInfo$$, TableView::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TableView);
+	});
 	return class$;
 }
 

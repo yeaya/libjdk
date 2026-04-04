@@ -29,10 +29,13 @@ public:
 	using ::javax::naming::NamingException::toString;
 	virtual $String* toString() override;
 	$Array<::javax::naming::directory::ModificationItem>* unexecs = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x6FDD462D96B0FDAA;
+	static const int64_t serialVersionUID = (int64_t)0x6fdd462d96b0fdaa;
 	AttributeModificationException(const AttributeModificationException& e);
 	virtual void throw$() override;
-	inline AttributeModificationException* operator ->() {
+	inline AttributeModificationException* operator ->() const {
+		return (AttributeModificationException*)throwing$;
+	}
+	inline operator AttributeModificationException*() const {
 		return (AttributeModificationException*)throwing$;
 	}
 };

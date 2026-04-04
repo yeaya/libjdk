@@ -1,5 +1,4 @@
 #include <javax/management/MBeanServerDelegate.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/defaults/ServiceName.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
@@ -37,7 +36,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
@@ -52,53 +50,6 @@ using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MBeanServerDelegate_FieldInfo_[] = {
-	{"mbeanServerId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MBeanServerDelegate, mbeanServerId)},
-	{"broadcaster", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerDelegate, broadcaster)},
-	{"oldStamp", "J", nullptr, $PRIVATE | $STATIC, $staticField(MBeanServerDelegate, oldStamp)},
-	{"stamp", "J", nullptr, $PRIVATE | $FINAL, $field(MBeanServerDelegate, stamp)},
-	{"sequenceNumber", "J", nullptr, $PRIVATE, $field(MBeanServerDelegate, sequenceNumber)},
-	{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerDelegate, notifsInfo)},
-	{"DELEGATE_NAME", "Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MBeanServerDelegate, DELEGATE_NAME)},
-	{}
-};
-
-$MethodInfo _MBeanServerDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerDelegate, init$, void)},
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "java.lang.IllegalArgumentException"},
-	{"getImplementationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getImplementationName, $String*)},
-	{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getImplementationVendor, $String*)},
-	{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getImplementationVersion, $String*)},
-	{"getMBeanServerId", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, getMBeanServerId, $String*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getSpecificationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getSpecificationName, $String*)},
-	{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getSpecificationVendor, $String*)},
-	{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getSpecificationVersion, $String*)},
-	{"getStamp", "()J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MBeanServerDelegate, getStamp, int64_t)},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
-	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, sendNotification, void, $Notification*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MBeanServerDelegate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanServerDelegate",
-	"java.lang.Object",
-	"javax.management.MBeanServerDelegateMBean,javax.management.NotificationEmitter",
-	_MBeanServerDelegate_FieldInfo_,
-	_MBeanServerDelegate_MethodInfo_
-};
-
-$Object* allocate$MBeanServerDelegate($Class* clazz) {
-	return $of($alloc(MBeanServerDelegate));
-}
 
 int32_t MBeanServerDelegate::hashCode() {
 	 return this->$MBeanServerDelegateMBean::hashCode();
@@ -132,11 +83,11 @@ void MBeanServerDelegate::init$() {
 
 $String* MBeanServerDelegate::getMBeanServerId() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->mbeanServerId == nullptr) {
 			$var($String, localHost, nullptr);
 			try {
-				$assign(localHost, $nc($($InetAddress::getLocalHost()))->getHostName());
+				$assign(localHost, $$nc($InetAddress::getLocalHost())->getHostName());
 			} catch ($UnknownHostException& e) {
 				$init($JmxProperties);
 				$init($System$Logger$Level);
@@ -192,19 +143,19 @@ $MBeanNotificationInfoArray* MBeanServerDelegate::getNotificationInfo() {
 
 void MBeanServerDelegate::addNotificationListener($NotificationListener* listener, $NotificationFilter* filter, Object$* handback) {
 	$synchronized(this) {
-		$nc(this->broadcaster)->addNotificationListener(listener, filter, handback);
+		this->broadcaster->addNotificationListener(listener, filter, handback);
 	}
 }
 
 void MBeanServerDelegate::removeNotificationListener($NotificationListener* listener, $NotificationFilter* filter, Object$* handback) {
 	$synchronized(this) {
-		$nc(this->broadcaster)->removeNotificationListener(listener, filter, handback);
+		this->broadcaster->removeNotificationListener(listener, filter, handback);
 	}
 }
 
 void MBeanServerDelegate::removeNotificationListener($NotificationListener* listener) {
 	$synchronized(this) {
-		$nc(this->broadcaster)->removeNotificationListener(listener);
+		this->broadcaster->removeNotificationListener(listener);
 	}
 }
 
@@ -214,13 +165,12 @@ void MBeanServerDelegate::sendNotification($Notification* notification) {
 			notification->setSequenceNumber(this->sequenceNumber++);
 		}
 	}
-	$nc(this->broadcaster)->sendNotification(notification);
+	this->broadcaster->sendNotification(notification);
 }
 
 int64_t MBeanServerDelegate::getStamp() {
-	$load(MBeanServerDelegate);
+	$init(MBeanServerDelegate);
 	$synchronized(class$) {
-		$init(MBeanServerDelegate);
 		int64_t s = $System::currentTimeMillis();
 		if (MBeanServerDelegate::oldStamp >= s) {
 			s = MBeanServerDelegate::oldStamp + 1;
@@ -230,8 +180,8 @@ int64_t MBeanServerDelegate::getStamp() {
 	}
 }
 
-void clinit$MBeanServerDelegate($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MBeanServerDelegate::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	MBeanServerDelegate::oldStamp = 0;
 	{
 		$init($MBeanServerNotification);
@@ -240,7 +190,7 @@ void clinit$MBeanServerDelegate($Class* class$) {
 			$MBeanServerNotification::REGISTRATION_NOTIFICATION
 		}));
 		$assignStatic(MBeanServerDelegate::notifsInfo, $new($MBeanNotificationInfoArray, 1));
-		$nc(MBeanServerDelegate::notifsInfo)->set(0, $$new($MBeanNotificationInfo, types, "javax.management.MBeanServerNotification"_s, "Notifications sent by the MBeanServerDelegate MBean"_s));
+		MBeanServerDelegate::notifsInfo->set(0, $$new($MBeanNotificationInfo, types, "javax.management.MBeanServerNotification"_s, "Notifications sent by the MBeanServerDelegate MBean"_s));
 	}
 	$assignStatic(MBeanServerDelegate::DELEGATE_NAME, $Util::newObjectName("JMImplementation:type=MBeanServerDelegate"_s));
 }
@@ -249,7 +199,49 @@ MBeanServerDelegate::MBeanServerDelegate() {
 }
 
 $Class* MBeanServerDelegate::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerDelegate, name, initialize, &_MBeanServerDelegate_ClassInfo_, clinit$MBeanServerDelegate, allocate$MBeanServerDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"mbeanServerId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MBeanServerDelegate, mbeanServerId)},
+		{"broadcaster", "Ljavax/management/NotificationBroadcasterSupport;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerDelegate, broadcaster)},
+		{"oldStamp", "J", nullptr, $PRIVATE | $STATIC, $staticField(MBeanServerDelegate, oldStamp)},
+		{"stamp", "J", nullptr, $PRIVATE | $FINAL, $field(MBeanServerDelegate, stamp)},
+		{"sequenceNumber", "J", nullptr, $PRIVATE, $field(MBeanServerDelegate, sequenceNumber)},
+		{"notifsInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerDelegate, notifsInfo)},
+		{"DELEGATE_NAME", "Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MBeanServerDelegate, DELEGATE_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerDelegate, init$, void)},
+		{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "java.lang.IllegalArgumentException"},
+		{"getImplementationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getImplementationName, $String*)},
+		{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getImplementationVendor, $String*)},
+		{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getImplementationVersion, $String*)},
+		{"getMBeanServerId", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, getMBeanServerId, $String*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getSpecificationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getSpecificationName, $String*)},
+		{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getSpecificationVendor, $String*)},
+		{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, getSpecificationVersion, $String*)},
+		{"getStamp", "()J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MBeanServerDelegate, getStamp, int64_t)},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerDelegate, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+		{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegate, sendNotification, void, $Notification*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanServerDelegate",
+		"java.lang.Object",
+		"javax.management.MBeanServerDelegateMBean,javax.management.NotificationEmitter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanServerDelegate, name, initialize, &classInfo$$, MBeanServerDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanServerDelegate));
+	});
 	return class$;
 }
 

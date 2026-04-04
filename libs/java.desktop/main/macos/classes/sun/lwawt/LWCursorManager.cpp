@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWCursorManager.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
@@ -28,8 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$ContainerAccessor = ::sun::awt::AWTAccessor$ContainerAccessor;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
 using $LWCursorManager$1 = ::sun::lwawt::LWCursorManager$1;
@@ -39,91 +36,51 @@ using $LWWindowPeer = ::sun::lwawt::LWWindowPeer;
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWCursorManager_FieldInfo_[] = {
-	{"updatePending", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(LWCursorManager, updatePending)},
-	{}
-};
-
-$MethodInfo _LWCursorManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(LWCursorManager, init$, void)},
-	{"findComponent", "(Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LWCursorManager, findComponent, $Component*, $Point*)},
-	{"getCursorPosition", "()Ljava/awt/Point;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWCursorManager, getCursorPosition, $Point*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWCursorManager, setCursor, void, $Cursor*)},
-	{"updateCursor", "()V", nullptr, $PUBLIC | $FINAL, $method(LWCursorManager, updateCursor, void)},
-	{"updateCursorImpl", "()V", nullptr, $PRIVATE, $method(LWCursorManager, updateCursorImpl, void)},
-	{"updateCursorLater", "(Lsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC | $FINAL, $method(LWCursorManager, updateCursorLater, void, $LWWindowPeer*)},
-	{}
-};
-
-$InnerClassInfo _LWCursorManager_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWCursorManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCursorManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.lwawt.LWCursorManager",
-	"java.lang.Object",
-	nullptr,
-	_LWCursorManager_FieldInfo_,
-	_LWCursorManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWCursorManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWCursorManager$1"
-};
-
-$Object* allocate$LWCursorManager($Class* clazz) {
-	return $of($alloc(LWCursorManager));
-}
-
 void LWCursorManager::init$() {
 	$set(this, updatePending, $new($AtomicBoolean, false));
 }
 
 void LWCursorManager::updateCursor() {
-	$nc(this->updatePending)->set(false);
+	this->updatePending->set(false);
 	updateCursorImpl();
 }
 
 void LWCursorManager::updateCursorLater($LWWindowPeer* window) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(this->updatePending)->compareAndSet(false, true)) {
+	$useLocalObjectStack();
+	if (this->updatePending->compareAndSet(false, true)) {
 		$var($Runnable, r, $new($LWCursorManager$1, this));
 		$SunToolkit::executeOnEventHandlerThread($($nc(window)->getTarget()), r);
 	}
 }
 
 void LWCursorManager::updateCursorImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, cursorPos, getCursorPosition());
 	$var($Component, c, findComponent(cursorPos));
 	$var($Cursor, cursor, nullptr);
 	$var($Object, peer, $LWToolkit::targetToPeer(c));
 	if ($instanceOf($LWComponentPeer, peer)) {
 		$var($LWComponentPeer, lwpeer, $cast($LWComponentPeer, peer));
-		$var($Point, p, $nc(lwpeer)->getLocationOnScreen());
-		$assign(cursor, lwpeer->getCursor($$new($Point, $nc(cursorPos)->x - $nc(p)->x, cursorPos->y - p->y)));
+		$var($Point, p, lwpeer->getLocationOnScreen());
+		$assign(cursor, lwpeer->getCursor($$new($Point, $nc(cursorPos)->x - $nc(p)->x, $nc(cursorPos)->y - $nc(p)->y)));
 	} else {
-		$assign(cursor, (c != nullptr) ? $nc(c)->getCursor() : ($Cursor*)nullptr);
+		$assign(cursor, (c != nullptr) ? c->getCursor() : ($Cursor*)nullptr);
 	}
 	setCursor(cursor);
 }
 
 $Component* LWCursorManager::findComponent($Point* cursorPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LWComponentPeer, peer, $LWWindowPeer::getPeerUnderCursor());
 	$var($Component, c, nullptr);
-	if (peer != nullptr && $nc($(peer->getWindowPeerOrSelf()))->getBlocker() == nullptr) {
+	if (peer != nullptr && $$nc(peer->getWindowPeerOrSelf())->getBlocker() == nullptr) {
 		$assign(c, peer->getTarget());
 		if ($instanceOf($Container, c)) {
 			$var($Point, p, peer->getLocationOnScreen());
-			$assign(c, $nc($($AWTAccessor::getContainerAccessor()))->findComponentAt($cast($Container, c), $nc(cursorPos)->x - $nc(p)->x, cursorPos->y - p->y, false));
+			$assign(c, $$nc($AWTAccessor::getContainerAccessor())->findComponentAt($cast($Container, c), $nc(cursorPos)->x - $nc(p)->x, $nc(cursorPos)->y - $nc(p)->y, false));
 		}
 		while (c != nullptr) {
-			$var($Object, p, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(c));
+			$var($Object, p, $$nc($AWTAccessor::getComponentAccessor())->getPeer(c));
 			bool var$0 = c->isVisible();
 			if (var$0 && c->isEnabled() && p != nullptr) {
 				break;
@@ -138,7 +95,41 @@ LWCursorManager::LWCursorManager() {
 }
 
 $Class* LWCursorManager::load$($String* name, bool initialize) {
-	$loadClass(LWCursorManager, name, initialize, &_LWCursorManager_ClassInfo_, allocate$LWCursorManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"updatePending", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(LWCursorManager, updatePending)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(LWCursorManager, init$, void)},
+		{"findComponent", "(Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LWCursorManager, findComponent, $Component*, $Point*)},
+		{"getCursorPosition", "()Ljava/awt/Point;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWCursorManager, getCursorPosition, $Point*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LWCursorManager, setCursor, void, $Cursor*)},
+		{"updateCursor", "()V", nullptr, $PUBLIC | $FINAL, $method(LWCursorManager, updateCursor, void)},
+		{"updateCursorImpl", "()V", nullptr, $PRIVATE, $method(LWCursorManager, updateCursorImpl, void)},
+		{"updateCursorLater", "(Lsun/lwawt/LWWindowPeer;)V", nullptr, $PUBLIC | $FINAL, $method(LWCursorManager, updateCursorLater, void, $LWWindowPeer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWCursorManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.lwawt.LWCursorManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWCursorManager$1"
+	};
+	$loadClass(LWCursorManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCursorManager);
+	});
 	return class$;
 }
 

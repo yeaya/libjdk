@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MultipleDocumentHandling.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -19,44 +18,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _MultipleDocumentHandling_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MultipleDocumentHandling, serialVersionUID)},
-	{"SINGLE_DOCUMENT", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SINGLE_DOCUMENT)},
-	{"SEPARATE_DOCUMENTS_UNCOLLATED_COPIES", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SEPARATE_DOCUMENTS_UNCOLLATED_COPIES)},
-	{"SEPARATE_DOCUMENTS_COLLATED_COPIES", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SEPARATE_DOCUMENTS_COLLATED_COPIES)},
-	{"SINGLE_DOCUMENT_NEW_SHEET", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SINGLE_DOCUMENT_NEW_SHEET)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _MultipleDocumentHandling_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(MultipleDocumentHandling, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(MultipleDocumentHandling, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MultipleDocumentHandling, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleDocumentHandling, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MultipleDocumentHandling, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MultipleDocumentHandling_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.MultipleDocumentHandling",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
-	_MultipleDocumentHandling_FieldInfo_,
-	_MultipleDocumentHandling_MethodInfo_
-};
-
-$Object* allocate$MultipleDocumentHandling($Class* clazz) {
-	return $of($alloc(MultipleDocumentHandling));
-}
 
 $Object* MultipleDocumentHandling::clone() {
 	 return this->$EnumSyntax::clone();
@@ -90,11 +51,11 @@ void MultipleDocumentHandling::init$(int32_t value) {
 }
 
 $StringArray* MultipleDocumentHandling::getStringTable() {
-	return $cast($StringArray, $nc(MultipleDocumentHandling::myStringTable)->clone());
+	return $cast($StringArray, MultipleDocumentHandling::myStringTable->clone());
 }
 
 $EnumSyntaxArray* MultipleDocumentHandling::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(MultipleDocumentHandling::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, MultipleDocumentHandling::myEnumValueTable->clone());
 }
 
 $Class* MultipleDocumentHandling::getCategory() {
@@ -105,7 +66,7 @@ $String* MultipleDocumentHandling::getName() {
 	return "multiple-document-handling"_s;
 }
 
-void clinit$MultipleDocumentHandling($Class* class$) {
+void MultipleDocumentHandling::clinit$($Class* clazz) {
 	$assignStatic(MultipleDocumentHandling::SINGLE_DOCUMENT, $new(MultipleDocumentHandling, 0));
 	$assignStatic(MultipleDocumentHandling::SEPARATE_DOCUMENTS_UNCOLLATED_COPIES, $new(MultipleDocumentHandling, 1));
 	$assignStatic(MultipleDocumentHandling::SEPARATE_DOCUMENTS_COLLATED_COPIES, $new(MultipleDocumentHandling, 2));
@@ -128,7 +89,40 @@ MultipleDocumentHandling::MultipleDocumentHandling() {
 }
 
 $Class* MultipleDocumentHandling::load$($String* name, bool initialize) {
-	$loadClass(MultipleDocumentHandling, name, initialize, &_MultipleDocumentHandling_ClassInfo_, clinit$MultipleDocumentHandling, allocate$MultipleDocumentHandling);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MultipleDocumentHandling, serialVersionUID)},
+		{"SINGLE_DOCUMENT", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SINGLE_DOCUMENT)},
+		{"SEPARATE_DOCUMENTS_UNCOLLATED_COPIES", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SEPARATE_DOCUMENTS_UNCOLLATED_COPIES)},
+		{"SEPARATE_DOCUMENTS_COLLATED_COPIES", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SEPARATE_DOCUMENTS_COLLATED_COPIES)},
+		{"SINGLE_DOCUMENT_NEW_SHEET", "Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, SINGLE_DOCUMENT_NEW_SHEET)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/MultipleDocumentHandling;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MultipleDocumentHandling, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(MultipleDocumentHandling, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(MultipleDocumentHandling, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MultipleDocumentHandling, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleDocumentHandling, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MultipleDocumentHandling, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.MultipleDocumentHandling",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintRequestAttribute,javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MultipleDocumentHandling, name, initialize, &classInfo$$, MultipleDocumentHandling::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MultipleDocumentHandling));
+	});
 	return class$;
 }
 

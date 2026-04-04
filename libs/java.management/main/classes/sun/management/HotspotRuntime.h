@@ -38,6 +38,7 @@ class HotspotRuntime : public ::sun::management::HotspotRuntimeMBean {
 	$class(HotspotRuntime, 0, ::sun::management::HotspotRuntimeMBean)
 public:
 	HotspotRuntime();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::VMManagement* vm);
 	virtual ::java::util::List* getInternalRuntimeCounters() override;
 	virtual int64_t getSafepointCount() override;

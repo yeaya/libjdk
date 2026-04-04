@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboBoxUI$ItemHandler.h>
-
 #include <java/awt/event/ItemEvent.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
 #include <jcpp.h>
@@ -16,42 +15,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicComboBoxUI$ItemHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboBoxUI$ItemHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicComboBoxUI$ItemHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicComboBoxUI;)V", nullptr, $PUBLIC, $method(BasicComboBoxUI$ItemHandler, init$, void, $BasicComboBoxUI*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI$ItemHandler, itemStateChanged, void, $ItemEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicComboBoxUI$ItemHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "ItemHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicComboBoxUI$ItemHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler",
-	"java.lang.Object",
-	"java.awt.event.ItemListener",
-	_BasicComboBoxUI$ItemHandler_FieldInfo_,
-	_BasicComboBoxUI$ItemHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboBoxUI$ItemHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboBoxUI"
-};
-
-$Object* allocate$BasicComboBoxUI$ItemHandler($Class* clazz) {
-	return $of($alloc(BasicComboBoxUI$ItemHandler));
-}
-
 void BasicComboBoxUI$ItemHandler::init$($BasicComboBoxUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -63,7 +26,37 @@ BasicComboBoxUI$ItemHandler::BasicComboBoxUI$ItemHandler() {
 }
 
 $Class* BasicComboBoxUI$ItemHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicComboBoxUI$ItemHandler, name, initialize, &_BasicComboBoxUI$ItemHandler_ClassInfo_, allocate$BasicComboBoxUI$ItemHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboBoxUI$ItemHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicComboBoxUI;)V", nullptr, $PUBLIC, $method(BasicComboBoxUI$ItemHandler, init$, void, $BasicComboBoxUI*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI$ItemHandler, itemStateChanged, void, $ItemEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "ItemHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboBoxUI$ItemHandler",
+		"java.lang.Object",
+		"java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboBoxUI"
+	};
+	$loadClass(BasicComboBoxUI$ItemHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicComboBoxUI$ItemHandler);
+	});
 	return class$;
 }
 

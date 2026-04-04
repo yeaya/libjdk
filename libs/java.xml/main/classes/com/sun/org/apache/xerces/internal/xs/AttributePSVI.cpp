@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/AttributePSVI.h>
-
 #include <com/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$MethodInfo _AttributePSVI_MethodInfo_[] = {
-	{"getAttributeDeclaration", "()Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributePSVI, getAttributeDeclaration, $XSAttributeDeclaration*)},
-	{}
-};
-
-$ClassInfo _AttributePSVI_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.AttributePSVI",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xs.ItemPSVI",
-	nullptr,
-	_AttributePSVI_MethodInfo_
-};
-
-$Object* allocate$AttributePSVI($Class* clazz) {
-	return $of($alloc(AttributePSVI));
-}
-
 $Class* AttributePSVI::load$($String* name, bool initialize) {
-	$loadClass(AttributePSVI, name, initialize, &_AttributePSVI_ClassInfo_, allocate$AttributePSVI);
+	$MethodInfo methodInfos$$[] = {
+		{"getAttributeDeclaration", "()Lcom/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributePSVI, getAttributeDeclaration, $XSAttributeDeclaration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.AttributePSVI",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xs.ItemPSVI",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AttributePSVI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributePSVI);
+	});
 	return class$;
 }
 

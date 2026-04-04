@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$SegmentTrailingSeparator.h>
-
 #include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants.h>
@@ -21,51 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIConstants$SegmentTrailingSeparator_FieldInfo_[] = {
-	{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, SHIFT)},
-	{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, SIZE)},
-	{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, MASK)},
-	{"focused", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$SegmentTrailingSeparator, focused)},
-	{"_no", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, _no)},
-	{"NO", "Lapple/laf/JRSUIConstants$SegmentTrailingSeparator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$SegmentTrailingSeparator, NO)},
-	{"_yes", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, _yes)},
-	{"YES", "Lapple/laf/JRSUIConstants$SegmentTrailingSeparator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$SegmentTrailingSeparator, YES)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$SegmentTrailingSeparator_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$SegmentTrailingSeparator, init$, void, int8_t)},
-	{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$SegmentTrailingSeparator, apply, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$SegmentTrailingSeparator, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$SegmentTrailingSeparator_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$SegmentTrailingSeparator", "apple.laf.JRSUIConstants", "SegmentTrailingSeparator", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$SegmentTrailingSeparator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIConstants$SegmentTrailingSeparator",
-	"apple.laf.JRSUIConstants$Property",
-	nullptr,
-	_JRSUIConstants$SegmentTrailingSeparator_FieldInfo_,
-	_JRSUIConstants$SegmentTrailingSeparator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$SegmentTrailingSeparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$SegmentTrailingSeparator($Class* clazz) {
-	return $of($alloc(JRSUIConstants$SegmentTrailingSeparator));
-}
-
 $JRSUIConstants$PropertyEncoding* JRSUIConstants$SegmentTrailingSeparator::focused = nullptr;
 JRSUIConstants$SegmentTrailingSeparator* JRSUIConstants$SegmentTrailingSeparator::NO = nullptr;
 JRSUIConstants$SegmentTrailingSeparator* JRSUIConstants$SegmentTrailingSeparator::YES = nullptr;
@@ -82,7 +36,7 @@ int64_t JRSUIConstants$SegmentTrailingSeparator::apply(int64_t encodedState) {
 	return $JRSUIConstants$Property::apply(encodedState);
 }
 
-void clinit$JRSUIConstants$SegmentTrailingSeparator($Class* class$) {
+void JRSUIConstants$SegmentTrailingSeparator::clinit$($Class* clazz) {
 	$assignStatic(JRSUIConstants$SegmentTrailingSeparator::focused, $new($JRSUIConstants$PropertyEncoding, JRSUIConstants$SegmentTrailingSeparator::MASK, JRSUIConstants$SegmentTrailingSeparator::SHIFT));
 	$assignStatic(JRSUIConstants$SegmentTrailingSeparator::NO, $new(JRSUIConstants$SegmentTrailingSeparator, JRSUIConstants$SegmentTrailingSeparator::_no));
 	$assignStatic(JRSUIConstants$SegmentTrailingSeparator::YES, $new(JRSUIConstants$SegmentTrailingSeparator, JRSUIConstants$SegmentTrailingSeparator::_yes));
@@ -92,7 +46,46 @@ JRSUIConstants$SegmentTrailingSeparator::JRSUIConstants$SegmentTrailingSeparator
 }
 
 $Class* JRSUIConstants$SegmentTrailingSeparator::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$SegmentTrailingSeparator, name, initialize, &_JRSUIConstants$SegmentTrailingSeparator_ClassInfo_, clinit$JRSUIConstants$SegmentTrailingSeparator, allocate$JRSUIConstants$SegmentTrailingSeparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, SHIFT)},
+		{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, SIZE)},
+		{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, MASK)},
+		{"focused", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$SegmentTrailingSeparator, focused)},
+		{"_no", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, _no)},
+		{"NO", "Lapple/laf/JRSUIConstants$SegmentTrailingSeparator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$SegmentTrailingSeparator, NO)},
+		{"_yes", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$SegmentTrailingSeparator, _yes)},
+		{"YES", "Lapple/laf/JRSUIConstants$SegmentTrailingSeparator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$SegmentTrailingSeparator, YES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$SegmentTrailingSeparator, init$, void, int8_t)},
+		{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$SegmentTrailingSeparator, apply, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$SegmentTrailingSeparator, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$SegmentTrailingSeparator", "apple.laf.JRSUIConstants", "SegmentTrailingSeparator", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIConstants$SegmentTrailingSeparator",
+		"apple.laf.JRSUIConstants$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$SegmentTrailingSeparator, name, initialize, &classInfo$$, JRSUIConstants$SegmentTrailingSeparator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$SegmentTrailingSeparator);
+	});
 	return class$;
 }
 

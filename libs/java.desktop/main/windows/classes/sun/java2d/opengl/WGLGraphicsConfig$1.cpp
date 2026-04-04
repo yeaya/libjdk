@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/WGLGraphicsConfig$1.h>
-
 #include <sun/java2d/opengl/OGLContext.h>
 #include <sun/java2d/opengl/WGLGraphicsConfig.h>
 #include <jcpp.h>
@@ -15,48 +14,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _WGLGraphicsConfig$1_FieldInfo_[] = {
-	{"val$ids", "[Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(WGLGraphicsConfig$1, val$ids)},
-	{}
-};
-
-$MethodInfo _WGLGraphicsConfig$1_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", "()V", 0, $method(WGLGraphicsConfig$1, init$, void, $StringArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WGLGraphicsConfig$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WGLGraphicsConfig$1_EnclosingMethodInfo_ = {
-	"sun.java2d.opengl.WGLGraphicsConfig",
-	"getConfig",
-	"(Lsun/awt/Win32GraphicsDevice;I)Lsun/java2d/opengl/WGLGraphicsConfig;"
-};
-
-$InnerClassInfo _WGLGraphicsConfig$1_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.WGLGraphicsConfig$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WGLGraphicsConfig$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.WGLGraphicsConfig$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WGLGraphicsConfig$1_FieldInfo_,
-	_WGLGraphicsConfig$1_MethodInfo_,
-	nullptr,
-	&_WGLGraphicsConfig$1_EnclosingMethodInfo_,
-	_WGLGraphicsConfig$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.WGLGraphicsConfig"
-};
-
-$Object* allocate$WGLGraphicsConfig$1($Class* clazz) {
-	return $of($alloc(WGLGraphicsConfig$1));
-}
-
 void WGLGraphicsConfig$1::init$($StringArray* val$ids) {
 	$set(this, val$ids, val$ids);
 }
@@ -69,7 +26,42 @@ WGLGraphicsConfig$1::WGLGraphicsConfig$1() {
 }
 
 $Class* WGLGraphicsConfig$1::load$($String* name, bool initialize) {
-	$loadClass(WGLGraphicsConfig$1, name, initialize, &_WGLGraphicsConfig$1_ClassInfo_, allocate$WGLGraphicsConfig$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$ids", "[Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(WGLGraphicsConfig$1, val$ids)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;)V", "()V", 0, $method(WGLGraphicsConfig$1, init$, void, $StringArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WGLGraphicsConfig$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.opengl.WGLGraphicsConfig",
+		"getConfig",
+		"(Lsun/awt/Win32GraphicsDevice;I)Lsun/java2d/opengl/WGLGraphicsConfig;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.WGLGraphicsConfig$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.WGLGraphicsConfig$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.WGLGraphicsConfig"
+	};
+	$loadClass(WGLGraphicsConfig$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WGLGraphicsConfig$1);
+	});
 	return class$;
 }
 

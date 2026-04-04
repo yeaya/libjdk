@@ -145,6 +145,7 @@ class $export Region : public ::java::lang::Object {
 	$class(Region, 0, ::java::lang::Object)
 public:
 	Region();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, bool subregion);
 	void init$($String* name, $String* ui, bool subregion);
 	virtual $String* getLowerCaseName();

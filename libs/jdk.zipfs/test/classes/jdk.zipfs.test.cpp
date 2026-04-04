@@ -1,5 +1,4 @@
 #include <jdk.zipfs.test.h>
-
 #include <jdk.zipfs.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

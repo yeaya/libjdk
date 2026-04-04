@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Bits.h>
-
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/Bits$1.h>
 #include <com/sun/tools/javac/util/Bits$BitsState.h>
@@ -24,70 +23,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Bits_FieldInfo_[] = {
-	{"wordlen", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, wordlen)},
-	{"wordshift", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, wordshift)},
-	{"wordmask", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, wordmask)},
-	{"bits", "[I", nullptr, $PUBLIC, $field(Bits, bits)},
-	{"unassignedBits", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, unassignedBits)},
-	{"currentState", "Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PROTECTED, $field(Bits, currentState)},
-	{}
-};
-
-$MethodInfo _Bits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bits, init$, void)},
-	{"<init>", "(Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PUBLIC, $method(Bits, init$, void, Bits*)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Bits, init$, void, bool)},
-	{"<init>", "([ILcom/sun/tools/javac/util/Bits$BitsState;)V", nullptr, $PROTECTED, $method(Bits, init$, void, $ints*, $Bits$BitsState*)},
-	{"andSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, andSet, Bits*, Bits*)},
-	{"assign", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, assign, Bits*, Bits*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Bits, clear, void)},
-	{"diffSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, diffSet, Bits*, Bits*)},
-	{"dup", "()Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, dup, Bits*)},
-	{"dupBits", "()[I", nullptr, $PROTECTED, $virtualMethod(Bits, dupBits, $ints*)},
-	{"excl", "(I)V", nullptr, $PUBLIC, $virtualMethod(Bits, excl, void, int32_t)},
-	{"excludeFrom", "(I)V", nullptr, $PUBLIC, $virtualMethod(Bits, excludeFrom, void, int32_t)},
-	{"incl", "(I)V", nullptr, $PUBLIC, $virtualMethod(Bits, incl, void, int32_t)},
-	{"inclRange", "(II)V", nullptr, $PUBLIC, $virtualMethod(Bits, inclRange, void, int32_t, int32_t)},
-	{"internalAndSet", "(Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PROTECTED, $virtualMethod(Bits, internalAndSet, void, Bits*)},
-	{"internalReset", "()V", nullptr, $PROTECTED, $virtualMethod(Bits, internalReset, void)},
-	{"isMember", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Bits, isMember, bool, int32_t)},
-	{"isReset", "()Z", nullptr, $PUBLIC, $virtualMethod(Bits, isReset, bool)},
-	{"nextBit", "(I)I", nullptr, $PUBLIC, $virtualMethod(Bits, nextBit, int32_t, int32_t)},
-	{"orSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, orSet, Bits*, Bits*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Bits, reset, void)},
-	{"sizeTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(Bits, sizeTo, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Bits, toString, $String*)},
-	{"trailingZeroBits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Bits, trailingZeroBits, int32_t, int32_t)},
-	{"xorSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, xorSet, Bits*, Bits*)},
-	{}
-};
-
-$InnerClassInfo _Bits_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Bits$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.util.Bits$BitsState", "com.sun.tools.javac.util.Bits", "BitsState", $PROTECTED | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Bits_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Bits",
-	"java.lang.Object",
-	nullptr,
-	_Bits_FieldInfo_,
-	_Bits_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Bits_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Bits$1,com.sun.tools.javac.util.Bits$BitsState"
-};
-
-$Object* allocate$Bits($Class* clazz) {
-	return $of($alloc(Bits));
-}
-
 $ints* Bits::unassignedBits = nullptr;
 
 void Bits::init$() {
@@ -95,7 +30,7 @@ void Bits::init$() {
 }
 
 void Bits::init$(Bits* someBits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, var$0, $nc($($nc(someBits)->dup()))->bits);
 	Bits::init$(var$0, $($Bits$BitsState::getState(someBits->bits, false)));
 }
@@ -111,15 +46,11 @@ void Bits::init$($ints* bits, $Bits$BitsState* initState) {
 	$init($Bits$1);
 	switch ($nc($Bits$1::$SwitchMap$com$sun$tools$javac$util$Bits$BitsState)->get($nc((initState))->ordinal())) {
 	case 1:
-		{
-			$set(this, bits, nullptr);
-			break;
-		}
+		$set(this, bits, nullptr);
+		break;
 	case 2:
-		{
-			$Assert::check(bits != Bits::unassignedBits);
-			break;
-		}
+		$Assert::check(bits != Bits::unassignedBits);
+		break;
 	}
 }
 
@@ -133,7 +64,7 @@ void Bits::clear() {
 	$init($Bits$BitsState);
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	for (int32_t i = 0; i < $nc(this->bits)->length; ++i) {
-		$nc(this->bits)->set(i, 0);
+		this->bits->set(i, 0);
 	}
 	$set(this, currentState, $Bits$BitsState::NORMAL);
 }
@@ -176,7 +107,7 @@ $ints* Bits::dupBits() {
 		$assign(result, this->bits);
 	} else {
 		$assign(result, $new($ints, $nc(this->bits)->length));
-		$System::arraycopy(this->bits, 0, result, 0, $nc(this->bits)->length);
+		$System::arraycopy(this->bits, 0, result, 0, this->bits->length);
 	}
 	return result;
 }
@@ -186,7 +117,7 @@ void Bits::incl(int32_t x) {
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	$Assert::check(x >= 0);
 	sizeTo(($usr(x, Bits::wordshift)) + 1);
-	$nc(this->bits)->set($usr(x, Bits::wordshift), $nc(this->bits)->get($usr(x, Bits::wordshift)) | ($sl(1, (int32_t)(x & (uint32_t)Bits::wordmask))));
+	$nc(this->bits)->set($usr(x, Bits::wordshift), $nc(this->bits)->get($usr(x, Bits::wordshift)) | ($sl(1, x & Bits::wordmask)));
 	$set(this, currentState, $Bits$BitsState::NORMAL);
 }
 
@@ -195,7 +126,7 @@ void Bits::inclRange(int32_t start, int32_t limit) {
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	sizeTo(($usr(limit, Bits::wordshift)) + 1);
 	for (int32_t x = start; x < limit; ++x) {
-		$nc(this->bits)->set($usr(x, Bits::wordshift), $nc(this->bits)->get($usr(x, Bits::wordshift)) | ($sl(1, (int32_t)(x & (uint32_t)Bits::wordmask))));
+		$nc(this->bits)->set($usr(x, Bits::wordshift), $nc(this->bits)->get($usr(x, Bits::wordshift)) | ($sl(1, x & Bits::wordmask)));
 	}
 	$set(this, currentState, $Bits$BitsState::NORMAL);
 }
@@ -215,14 +146,14 @@ void Bits::excl(int32_t x) {
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	$Assert::check(x >= 0);
 	sizeTo(($usr(x, Bits::wordshift)) + 1);
-	$nc(this->bits)->set($usr(x, Bits::wordshift), (int32_t)($nc(this->bits)->get($usr(x, Bits::wordshift)) & (uint32_t)~($sl(1, (int32_t)(x & (uint32_t)Bits::wordmask)))));
+	$nc(this->bits)->set($usr(x, Bits::wordshift), $nc(this->bits)->get($usr(x, Bits::wordshift)) & ~($sl(1, x & Bits::wordmask)));
 	$set(this, currentState, $Bits$BitsState::NORMAL);
 }
 
 bool Bits::isMember(int32_t x) {
 	$init($Bits$BitsState);
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
-	return 0 <= x && x < ($sl($nc(this->bits)->length, Bits::wordshift)) && ((int32_t)($nc(this->bits)->get($usr(x, Bits::wordshift)) & (uint32_t)($sl(1, (int32_t)(x & (uint32_t)Bits::wordmask))))) != 0;
+	return 0 <= x && x < ($sl($nc(this->bits)->length, Bits::wordshift)) && (this->bits->get($usr(x, Bits::wordshift)) & ($sl(1, x & Bits::wordmask))) != 0;
 }
 
 Bits* Bits::andSet(Bits* xs) {
@@ -237,8 +168,8 @@ void Bits::internalAndSet(Bits* xs) {
 	$init($Bits$BitsState);
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	sizeTo($nc($nc(xs)->bits)->length);
-	for (int32_t i = 0; i < $nc($nc(xs)->bits)->length; ++i) {
-		$nc(this->bits)->set(i, (int32_t)($nc(this->bits)->get(i) & (uint32_t)$nc(xs->bits)->get(i)));
+	for (int32_t i = 0; i < $nc(xs->bits)->length; ++i) {
+		$nc(this->bits)->set(i, $nc(this->bits)->get(i) & xs->bits->get(i));
 	}
 }
 
@@ -246,8 +177,8 @@ Bits* Bits::orSet(Bits* xs) {
 	$init($Bits$BitsState);
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	sizeTo($nc($nc(xs)->bits)->length);
-	for (int32_t i = 0; i < $nc($nc(xs)->bits)->length; ++i) {
-		$nc(this->bits)->set(i, $nc(this->bits)->get(i) | $nc(xs->bits)->get(i));
+	for (int32_t i = 0; i < $nc(xs->bits)->length; ++i) {
+		$nc(this->bits)->set(i, $nc(this->bits)->get(i) | xs->bits->get(i));
 	}
 	$set(this, currentState, $Bits$BitsState::NORMAL);
 	return this;
@@ -258,7 +189,7 @@ Bits* Bits::diffSet(Bits* xs) {
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	for (int32_t i = 0; i < $nc(this->bits)->length; ++i) {
 		if (i < $nc($nc(xs)->bits)->length) {
-			$nc(this->bits)->set(i, (int32_t)($nc(this->bits)->get(i) & (uint32_t)~$nc(xs->bits)->get(i)));
+			this->bits->set(i, this->bits->get(i) & ~xs->bits->get(i));
 		}
 	}
 	$set(this, currentState, $Bits$BitsState::NORMAL);
@@ -269,8 +200,8 @@ Bits* Bits::xorSet(Bits* xs) {
 	$init($Bits$BitsState);
 	$Assert::check(this->currentState != $Bits$BitsState::UNKNOWN);
 	sizeTo($nc($nc(xs)->bits)->length);
-	for (int32_t i = 0; i < $nc($nc(xs)->bits)->length; ++i) {
-		$nc(this->bits)->set(i, $nc(this->bits)->get(i) ^ $nc(xs->bits)->get(i));
+	for (int32_t i = 0; i < $nc(xs->bits)->length; ++i) {
+		$nc(this->bits)->set(i, $nc(this->bits)->get(i) ^ xs->bits->get(i));
 	}
 	$set(this, currentState, $Bits$BitsState::NORMAL);
 	return this;
@@ -283,23 +214,23 @@ int32_t Bits::trailingZeroBits(int32_t x) {
 		return 32;
 	}
 	int32_t n = 1;
-	if (((int32_t)(x & (uint32_t)0x0000FFFF)) == 0) {
+	if ((x & 0xffff) == 0) {
 		n += 16;
 		$usrAssign(x, 16);
 	}
-	if (((int32_t)(x & (uint32_t)255)) == 0) {
+	if ((x & 0xff) == 0) {
 		n += 8;
 		$usrAssign(x, 8);
 	}
-	if (((int32_t)(x & (uint32_t)15)) == 0) {
+	if ((x & 0x0f) == 0) {
 		n += 4;
 		$usrAssign(x, 4);
 	}
-	if (((int32_t)(x & (uint32_t)3)) == 0) {
+	if ((x & 3) == 0) {
 		n += 2;
 		$usrAssign(x, 2);
 	}
-	return n - ((int32_t)(x & (uint32_t)1));
+	return n - (x & 1);
 }
 
 int32_t Bits::nextBit(int32_t x) {
@@ -309,7 +240,7 @@ int32_t Bits::nextBit(int32_t x) {
 	if (windex >= $nc(this->bits)->length) {
 		return -1;
 	}
-	int32_t word = (int32_t)($nc(this->bits)->get(windex) & (uint32_t)~(($sl(1, (int32_t)(x & (uint32_t)Bits::wordmask))) - 1));
+	int32_t word = this->bits->get(windex) & ~(($sl(1, x & Bits::wordmask)) - 1);
 	while (true) {
 		if (word != 0) {
 			return ($sl(windex, Bits::wordshift)) + trailingZeroBits(word);
@@ -318,13 +249,13 @@ int32_t Bits::nextBit(int32_t x) {
 		if (windex >= $nc(this->bits)->length) {
 			return -1;
 		}
-		word = $nc(this->bits)->get(windex);
+		word = this->bits->get(windex);
 	}
 }
 
 $String* Bits::toString() {
-	if (this->bits != nullptr && $nc(this->bits)->length > 0) {
-		$var($chars, digits, $new($chars, $nc(this->bits)->length * Bits::wordlen));
+	if (this->bits != nullptr && this->bits->length > 0) {
+		$var($chars, digits, $new($chars, this->bits->length * Bits::wordlen));
 		for (int32_t i = 0; i < $nc(this->bits)->length * Bits::wordlen; ++i) {
 			digits->set(i, isMember(i) ? u'1' : u'0');
 		}
@@ -334,7 +265,7 @@ $String* Bits::toString() {
 	}
 }
 
-void clinit$Bits($Class* class$) {
+void Bits::clinit$($Class* clazz) {
 	$assignStatic(Bits::unassignedBits, $new($ints, 0));
 }
 
@@ -342,7 +273,65 @@ Bits::Bits() {
 }
 
 $Class* Bits::load$($String* name, bool initialize) {
-	$loadClass(Bits, name, initialize, &_Bits_ClassInfo_, clinit$Bits, allocate$Bits);
+	$FieldInfo fieldInfos$$[] = {
+		{"wordlen", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, wordlen)},
+		{"wordshift", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, wordshift)},
+		{"wordmask", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Bits, wordmask)},
+		{"bits", "[I", nullptr, $PUBLIC, $field(Bits, bits)},
+		{"unassignedBits", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bits, unassignedBits)},
+		{"currentState", "Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PROTECTED, $field(Bits, currentState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bits, init$, void)},
+		{"<init>", "(Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PUBLIC, $method(Bits, init$, void, Bits*)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Bits, init$, void, bool)},
+		{"<init>", "([ILcom/sun/tools/javac/util/Bits$BitsState;)V", nullptr, $PROTECTED, $method(Bits, init$, void, $ints*, $Bits$BitsState*)},
+		{"andSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, andSet, Bits*, Bits*)},
+		{"assign", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, assign, Bits*, Bits*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Bits, clear, void)},
+		{"diffSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, diffSet, Bits*, Bits*)},
+		{"dup", "()Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, dup, Bits*)},
+		{"dupBits", "()[I", nullptr, $PROTECTED, $virtualMethod(Bits, dupBits, $ints*)},
+		{"excl", "(I)V", nullptr, $PUBLIC, $virtualMethod(Bits, excl, void, int32_t)},
+		{"excludeFrom", "(I)V", nullptr, $PUBLIC, $virtualMethod(Bits, excludeFrom, void, int32_t)},
+		{"incl", "(I)V", nullptr, $PUBLIC, $virtualMethod(Bits, incl, void, int32_t)},
+		{"inclRange", "(II)V", nullptr, $PUBLIC, $virtualMethod(Bits, inclRange, void, int32_t, int32_t)},
+		{"internalAndSet", "(Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PROTECTED, $virtualMethod(Bits, internalAndSet, void, Bits*)},
+		{"internalReset", "()V", nullptr, $PROTECTED, $virtualMethod(Bits, internalReset, void)},
+		{"isMember", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Bits, isMember, bool, int32_t)},
+		{"isReset", "()Z", nullptr, $PUBLIC, $virtualMethod(Bits, isReset, bool)},
+		{"nextBit", "(I)I", nullptr, $PUBLIC, $virtualMethod(Bits, nextBit, int32_t, int32_t)},
+		{"orSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, orSet, Bits*, Bits*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Bits, reset, void)},
+		{"sizeTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(Bits, sizeTo, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Bits, toString, $String*)},
+		{"trailingZeroBits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Bits, trailingZeroBits, int32_t, int32_t)},
+		{"xorSet", "(Lcom/sun/tools/javac/util/Bits;)Lcom/sun/tools/javac/util/Bits;", nullptr, $PUBLIC, $virtualMethod(Bits, xorSet, Bits*, Bits*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Bits$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.util.Bits$BitsState", "com.sun.tools.javac.util.Bits", "BitsState", $PROTECTED | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Bits",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Bits$1,com.sun.tools.javac.util.Bits$BitsState"
+	};
+	$loadClass(Bits, name, initialize, &classInfo$$, Bits::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bits);
+	});
 	return class$;
 }
 

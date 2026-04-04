@@ -29,7 +29,7 @@ public:
 	void init$(::javax::print::DocPrintJob* source, ::javax::print::attribute::PrintJobAttributeSet* attributes);
 	virtual ::javax::print::attribute::PrintJobAttributeSet* getAttributes();
 	virtual ::javax::print::DocPrintJob* getPrintJob();
-	static const int64_t serialVersionUID = (int64_t)0xA550E643002870AB;
+	static const int64_t serialVersionUID = (int64_t)0xa550e643002870ab;
 	::javax::print::attribute::PrintJobAttributeSet* attributes = nullptr;
 };
 

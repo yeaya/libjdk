@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LRETURN.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
@@ -11,10 +10,7 @@
 #undef LRETURN
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
 using $ReturnInstruction = ::com::sun::org::apache::bcel::internal::generic::ReturnInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _LRETURN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LRETURN, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LRETURN, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _LRETURN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.LRETURN",
-	"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
-	nullptr,
-	nullptr,
-	_LRETURN_MethodInfo_
-};
-
-$Object* allocate$LRETURN($Class* clazz) {
-	return $of($alloc(LRETURN));
-}
 
 void LRETURN::init$() {
 	$ReturnInstruction::init$($Const::LRETURN);
@@ -62,7 +39,22 @@ LRETURN::LRETURN() {
 }
 
 $Class* LRETURN::load$($String* name, bool initialize) {
-	$loadClass(LRETURN, name, initialize, &_LRETURN_ClassInfo_, allocate$LRETURN);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LRETURN, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LRETURN, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.LRETURN",
+		"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LRETURN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LRETURN));
+	});
 	return class$;
 }
 

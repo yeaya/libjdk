@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_ff_Adlm_GW.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_ff_Adlm_GW_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ff_Adlm_GW, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ff_Adlm_GW, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_ff_Adlm_GW_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_ff_Adlm_GW",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_ff_Adlm_GW_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_ff_Adlm_GW($Class* clazz) {
-	return $of($alloc(CurrencyNames_ff_Adlm_GW));
-}
-
 void CurrencyNames_ff_Adlm_GW::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_ff_Adlm_GW::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("GNF"_s),
-		$of("GNF"_s)
+		"GNF"_s,
+		"GNF"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_ff_Adlm_GW::CurrencyNames_ff_Adlm_GW() {
 }
 
 $Class* CurrencyNames_ff_Adlm_GW::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_ff_Adlm_GW, name, initialize, &_CurrencyNames_ff_Adlm_GW_ClassInfo_, allocate$CurrencyNames_ff_Adlm_GW);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ff_Adlm_GW, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ff_Adlm_GW, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_ff_Adlm_GW",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_ff_Adlm_GW, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_ff_Adlm_GW);
+	});
 	return class$;
 }
 

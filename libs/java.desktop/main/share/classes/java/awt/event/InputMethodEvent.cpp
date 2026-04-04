@@ -1,5 +1,4 @@
 #include <java/awt/event/InputMethodEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
@@ -31,57 +30,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$EventQueueAccessor = ::sun::awt::AWTAccessor$EventQueueAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
 		namespace event {
-
-$FieldInfo _InputMethodEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputMethodEvent, serialVersionUID)},
-	{"INPUT_METHOD_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, INPUT_METHOD_FIRST)},
-	{"INPUT_METHOD_TEXT_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, INPUT_METHOD_TEXT_CHANGED)},
-	{"CARET_POSITION_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, CARET_POSITION_CHANGED)},
-	{"INPUT_METHOD_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, INPUT_METHOD_LAST)},
-	{"when", "J", nullptr, 0, $field(InputMethodEvent, when)},
-	{"text", "Ljava/text/AttributedCharacterIterator;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, text)},
-	{"committedCharacterCount", "I", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, committedCharacterCount)},
-	{"caret", "Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, caret)},
-	{"visiblePosition", "Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, visiblePosition)},
-	{}
-};
-
-$MethodInfo _InputMethodEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IJLjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $method(InputMethodEvent, init$, void, $Component*, int32_t, int64_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
-	{"<init>", "(Ljava/awt/Component;ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $method(InputMethodEvent, init$, void, $Component*, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $method(InputMethodEvent, init$, void, $Component*, int32_t, $TextHitInfo*, $TextHitInfo*)},
-	{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, consume, void)},
-	{"getCaret", "()Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getCaret, $TextHitInfo*)},
-	{"getCommittedCharacterCount", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getCommittedCharacterCount, int32_t)},
-	{"getMostRecentEventTimeForSource", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(InputMethodEvent, getMostRecentEventTimeForSource, int64_t, Object$*)},
-	{"getText", "()Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getText, $AttributedCharacterIterator*)},
-	{"getVisiblePosition", "()Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getVisiblePosition, $TextHitInfo*)},
-	{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getWhen, int64_t)},
-	{"isConsumed", "()Z", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, isConsumed, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InputMethodEvent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _InputMethodEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.event.InputMethodEvent",
-	"java.awt.AWTEvent",
-	nullptr,
-	_InputMethodEvent_FieldInfo_,
-	_InputMethodEvent_MethodInfo_
-};
-
-$Object* allocate$InputMethodEvent($Class* clazz) {
-	return $of($alloc(InputMethodEvent));
-}
 
 void InputMethodEvent::init$($Component* source, int32_t id, int64_t when, $AttributedCharacterIterator* text, int32_t committedCharacterCount, $TextHitInfo* caret, $TextHitInfo* visiblePosition) {
 	$AWTEvent::init$(source, id);
@@ -143,23 +97,17 @@ int64_t InputMethodEvent::getWhen() {
 }
 
 $String* InputMethodEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, typeStr, nullptr);
 	switch (this->id) {
 	case InputMethodEvent::INPUT_METHOD_TEXT_CHANGED:
-		{
-			$assign(typeStr, "INPUT_METHOD_TEXT_CHANGED"_s);
-			break;
-		}
+		$assign(typeStr, "INPUT_METHOD_TEXT_CHANGED"_s);
+		break;
 	case InputMethodEvent::CARET_POSITION_CHANGED:
-		{
-			$assign(typeStr, "CARET_POSITION_CHANGED"_s);
-			break;
-		}
+		$assign(typeStr, "CARET_POSITION_CHANGED"_s);
+		break;
 	default:
-		{
-			$assign(typeStr, "unknown type"_s);
-		}
+		$assign(typeStr, "unknown type"_s);
 	}
 	$var($String, textString, nullptr);
 	if (this->text == nullptr) {
@@ -167,15 +115,15 @@ $String* InputMethodEvent::paramString() {
 	} else {
 		$var($StringBuilder, textBuffer, $new($StringBuilder, "\""_s));
 		int32_t committedCharacterCount = this->committedCharacterCount;
-		char16_t c = $nc(this->text)->first();
+		char16_t c = this->text->first();
 		while (committedCharacterCount-- > 0) {
 			textBuffer->append(c);
-			c = $nc(this->text)->next();
+			c = this->text->next();
 		}
 		textBuffer->append("\" + \""_s);
 		while (c != $CharacterIterator::DONE) {
 			textBuffer->append(c);
-			c = $nc(this->text)->next();
+			c = this->text->next();
 		}
 		textBuffer->append("\""_s);
 		$assign(textString, textBuffer->toString());
@@ -185,13 +133,13 @@ $String* InputMethodEvent::paramString() {
 	if (this->caret == nullptr) {
 		$assign(caretString, "no caret"_s);
 	} else {
-		$assign(caretString, $str({"caret: "_s, $($nc(this->caret)->toString())}));
+		$assign(caretString, $str({"caret: "_s, $(this->caret->toString())}));
 	}
 	$var($String, visiblePositionString, nullptr);
 	if (this->visiblePosition == nullptr) {
 		$assign(visiblePositionString, "no visible position"_s);
 	} else {
-		$assign(visiblePositionString, $str({"visible position: "_s, $($nc(this->visiblePosition)->toString())}));
+		$assign(visiblePositionString, $str({"visible position: "_s, $(this->visiblePosition->toString())}));
 	}
 	return $str({typeStr, ", "_s, textString, ", "_s, countString, ", "_s, caretString, ", "_s, visiblePositionString});
 }
@@ -205,20 +153,59 @@ void InputMethodEvent::readObject($ObjectInputStream* s) {
 
 int64_t InputMethodEvent::getMostRecentEventTimeForSource(Object$* source) {
 	$init(InputMethodEvent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (source == nullptr) {
 		$throwNew($IllegalArgumentException, "null source"_s);
 	}
 	$var($AppContext, appContext, $SunToolkit::targetToAppContext(source));
 	$var($EventQueue, eventQueue, $SunToolkit::getSystemEventQueueImplPP(appContext));
-	return $nc($($AWTAccessor::getEventQueueAccessor()))->getMostRecentEventTime(eventQueue);
+	return $$nc($AWTAccessor::getEventQueueAccessor())->getMostRecentEventTime(eventQueue);
 }
 
 InputMethodEvent::InputMethodEvent() {
 }
 
 $Class* InputMethodEvent::load$($String* name, bool initialize) {
-	$loadClass(InputMethodEvent, name, initialize, &_InputMethodEvent_ClassInfo_, allocate$InputMethodEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputMethodEvent, serialVersionUID)},
+		{"INPUT_METHOD_FIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, INPUT_METHOD_FIRST)},
+		{"INPUT_METHOD_TEXT_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, INPUT_METHOD_TEXT_CHANGED)},
+		{"CARET_POSITION_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, CARET_POSITION_CHANGED)},
+		{"INPUT_METHOD_LAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputMethodEvent, INPUT_METHOD_LAST)},
+		{"when", "J", nullptr, 0, $field(InputMethodEvent, when)},
+		{"text", "Ljava/text/AttributedCharacterIterator;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, text)},
+		{"committedCharacterCount", "I", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, committedCharacterCount)},
+		{"caret", "Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, caret)},
+		{"visiblePosition", "Ljava/awt/font/TextHitInfo;", nullptr, $PRIVATE | $TRANSIENT, $field(InputMethodEvent, visiblePosition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IJLjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $method(InputMethodEvent, init$, void, $Component*, int32_t, int64_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
+		{"<init>", "(Ljava/awt/Component;ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $method(InputMethodEvent, init$, void, $Component*, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $method(InputMethodEvent, init$, void, $Component*, int32_t, $TextHitInfo*, $TextHitInfo*)},
+		{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, consume, void)},
+		{"getCaret", "()Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getCaret, $TextHitInfo*)},
+		{"getCommittedCharacterCount", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getCommittedCharacterCount, int32_t)},
+		{"getMostRecentEventTimeForSource", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(InputMethodEvent, getMostRecentEventTimeForSource, int64_t, Object$*)},
+		{"getText", "()Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getText, $AttributedCharacterIterator*)},
+		{"getVisiblePosition", "()Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getVisiblePosition, $TextHitInfo*)},
+		{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, getWhen, int64_t)},
+		{"isConsumed", "()Z", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, isConsumed, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InputMethodEvent, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InputMethodEvent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.event.InputMethodEvent",
+		"java.awt.AWTEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMethodEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMethodEvent);
+	});
 	return class$;
 }
 

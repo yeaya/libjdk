@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationListImpl.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -21,32 +20,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DOMImplementationListImpl_FieldInfo_[] = {
-	{"fImplementations", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/DOMImplementation;>;", $PRIVATE, $field(DOMImplementationListImpl, fImplementations)},
-	{}
-};
-
-$MethodInfo _DOMImplementationListImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMImplementationListImpl, init$, void)},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/DOMImplementation;>;)V", $PUBLIC, $method(DOMImplementationListImpl, init$, void, $List*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DOMImplementationListImpl, getLength, int32_t)},
-	{"item", "(I)Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DOMImplementationListImpl, item, $DOMImplementation*, int32_t)},
-	{}
-};
-
-$ClassInfo _DOMImplementationListImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DOMImplementationListImpl",
-	"java.lang.Object",
-	"org.w3c.dom.DOMImplementationList",
-	_DOMImplementationListImpl_FieldInfo_,
-	_DOMImplementationListImpl_MethodInfo_
-};
-
-$Object* allocate$DOMImplementationListImpl($Class* clazz) {
-	return $of($alloc(DOMImplementationListImpl));
-}
 
 void DOMImplementationListImpl::init$() {
 	$set(this, fImplementations, $new($ArrayList));
@@ -73,7 +46,28 @@ DOMImplementationListImpl::DOMImplementationListImpl() {
 }
 
 $Class* DOMImplementationListImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMImplementationListImpl, name, initialize, &_DOMImplementationListImpl_ClassInfo_, allocate$DOMImplementationListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fImplementations", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/DOMImplementation;>;", $PRIVATE, $field(DOMImplementationListImpl, fImplementations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMImplementationListImpl, init$, void)},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/DOMImplementation;>;)V", $PUBLIC, $method(DOMImplementationListImpl, init$, void, $List*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DOMImplementationListImpl, getLength, int32_t)},
+		{"item", "(I)Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC, $virtualMethod(DOMImplementationListImpl, item, $DOMImplementation*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DOMImplementationListImpl",
+		"java.lang.Object",
+		"org.w3c.dom.DOMImplementationList",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMImplementationListImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMImplementationListImpl);
+	});
 	return class$;
 }
 

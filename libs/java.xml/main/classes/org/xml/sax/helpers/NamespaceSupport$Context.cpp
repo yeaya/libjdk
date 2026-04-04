@@ -1,7 +1,5 @@
 #include <org/xml/sax/helpers/NamespaceSupport$Context.h>
-
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashMap.h>
@@ -18,11 +16,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $NamespaceSupport = ::org::xml::sax::helpers::NamespaceSupport;
 
@@ -30,58 +26,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace helpers {
-
-$FieldInfo _NamespaceSupport$Context_FieldInfo_[] = {
-	{"this$0", "Lorg/xml/sax/helpers/NamespaceSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NamespaceSupport$Context, this$0)},
-	{"prefixTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, prefixTable)},
-	{"uriTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, uriTable)},
-	{"elementNameTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, elementNameTable)},
-	{"attributeNameTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, attributeNameTable)},
-	{"defaultNS", "Ljava/lang/String;", nullptr, 0, $field(NamespaceSupport$Context, defaultNS)},
-	{"declarations", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NamespaceSupport$Context, declarations)},
-	{"declSeen", "Z", nullptr, $PRIVATE, $field(NamespaceSupport$Context, declSeen)},
-	{"parent", "Lorg/xml/sax/helpers/NamespaceSupport$Context;", nullptr, $PRIVATE, $field(NamespaceSupport$Context, parent)},
-	{}
-};
-
-$MethodInfo _NamespaceSupport$Context_MethodInfo_[] = {
-	{"<init>", "(Lorg/xml/sax/helpers/NamespaceSupport;)V", nullptr, 0, $method(NamespaceSupport$Context, init$, void, $NamespaceSupport*)},
-	{"clear", "()V", nullptr, 0, $method(NamespaceSupport$Context, clear, void)},
-	{"copyTables", "()V", nullptr, $PRIVATE, $method(NamespaceSupport$Context, copyTables, void)},
-	{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(NamespaceSupport$Context, declarePrefix, void, $String*, $String*)},
-	{"getDeclaredPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $method(NamespaceSupport$Context, getDeclaredPrefixes, $Enumeration*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(NamespaceSupport$Context, getPrefix, $String*, $String*)},
-	{"getPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $method(NamespaceSupport$Context, getPrefixes, $Enumeration*)},
-	{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(NamespaceSupport$Context, getURI, $String*, $String*)},
-	{"processName", "(Ljava/lang/String;Z)[Ljava/lang/String;", nullptr, 0, $method(NamespaceSupport$Context, processName, $StringArray*, $String*, bool)},
-	{"setParent", "(Lorg/xml/sax/helpers/NamespaceSupport$Context;)V", nullptr, 0, $method(NamespaceSupport$Context, setParent, void, NamespaceSupport$Context*)},
-	{}
-};
-
-$InnerClassInfo _NamespaceSupport$Context_InnerClassesInfo_[] = {
-	{"org.xml.sax.helpers.NamespaceSupport$Context", "org.xml.sax.helpers.NamespaceSupport", "Context", $FINAL},
-	{}
-};
-
-$ClassInfo _NamespaceSupport$Context_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.xml.sax.helpers.NamespaceSupport$Context",
-	"java.lang.Object",
-	nullptr,
-	_NamespaceSupport$Context_FieldInfo_,
-	_NamespaceSupport$Context_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NamespaceSupport$Context_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.xml.sax.helpers.NamespaceSupport"
-};
-
-$Object* allocate$NamespaceSupport$Context($Class* clazz) {
-	return $of($alloc(NamespaceSupport$Context));
-}
 
 void NamespaceSupport$Context::init$($NamespaceSupport* this$0) {
 	$set(this, this$0, this$0);
@@ -113,7 +57,7 @@ void NamespaceSupport$Context::clear() {
 }
 
 void NamespaceSupport$Context::declarePrefix($String* prefix$renamed, $String* uri$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($String, uri, uri$renamed);
 	if (!this->declSeen) {
@@ -138,7 +82,7 @@ void NamespaceSupport$Context::declarePrefix($String* prefix$renamed, $String* u
 }
 
 $StringArray* NamespaceSupport$Context::processName($String* qName, bool isAttribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, name, nullptr);
 	$var($Map, table, nullptr);
 	if (isAttribute) {
@@ -152,7 +96,7 @@ $StringArray* NamespaceSupport$Context::processName($String* qName, bool isAttri
 	}
 	$assign(name, $new($StringArray, 3));
 	name->set(2, $($nc(qName)->intern()));
-	int32_t index = qName->indexOf((int32_t)u':');
+	int32_t index = qName->indexOf(u':');
 	if (index == -1) {
 		if (isAttribute) {
 			if (qName == "xmlns"_s && this->this$0->namespaceDeclUris) {
@@ -191,7 +135,7 @@ $String* NamespaceSupport$Context::getURI($String* prefix) {
 	} else if (this->prefixTable == nullptr) {
 		return nullptr;
 	} else {
-		return $cast($String, $nc(this->prefixTable)->get(prefix));
+		return $cast($String, this->prefixTable->get(prefix));
 	}
 }
 
@@ -199,7 +143,7 @@ $String* NamespaceSupport$Context::getPrefix($String* uri) {
 	if (this->uriTable == nullptr) {
 		return nullptr;
 	} else {
-		return $cast($String, $nc(this->uriTable)->get(uri));
+		return $cast($String, this->uriTable->get(uri));
 	}
 }
 
@@ -217,7 +161,7 @@ $Enumeration* NamespaceSupport$Context::getPrefixes() {
 		$init($NamespaceSupport);
 		return $NamespaceSupport::EMPTY_ENUMERATION;
 	} else {
-		return $Collections::enumeration($($nc(this->prefixTable)->keySet()));
+		return $Collections::enumeration($(this->prefixTable->keySet()));
 	}
 }
 
@@ -241,7 +185,53 @@ NamespaceSupport$Context::NamespaceSupport$Context() {
 }
 
 $Class* NamespaceSupport$Context::load$($String* name, bool initialize) {
-	$loadClass(NamespaceSupport$Context, name, initialize, &_NamespaceSupport$Context_ClassInfo_, allocate$NamespaceSupport$Context);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lorg/xml/sax/helpers/NamespaceSupport;", nullptr, $FINAL | $SYNTHETIC, $field(NamespaceSupport$Context, this$0)},
+		{"prefixTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, prefixTable)},
+		{"uriTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, uriTable)},
+		{"elementNameTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, elementNameTable)},
+		{"attributeNameTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[Ljava/lang/String;>;", 0, $field(NamespaceSupport$Context, attributeNameTable)},
+		{"defaultNS", "Ljava/lang/String;", nullptr, 0, $field(NamespaceSupport$Context, defaultNS)},
+		{"declarations", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NamespaceSupport$Context, declarations)},
+		{"declSeen", "Z", nullptr, $PRIVATE, $field(NamespaceSupport$Context, declSeen)},
+		{"parent", "Lorg/xml/sax/helpers/NamespaceSupport$Context;", nullptr, $PRIVATE, $field(NamespaceSupport$Context, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/xml/sax/helpers/NamespaceSupport;)V", nullptr, 0, $method(NamespaceSupport$Context, init$, void, $NamespaceSupport*)},
+		{"clear", "()V", nullptr, 0, $method(NamespaceSupport$Context, clear, void)},
+		{"copyTables", "()V", nullptr, $PRIVATE, $method(NamespaceSupport$Context, copyTables, void)},
+		{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(NamespaceSupport$Context, declarePrefix, void, $String*, $String*)},
+		{"getDeclaredPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $method(NamespaceSupport$Context, getDeclaredPrefixes, $Enumeration*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(NamespaceSupport$Context, getPrefix, $String*, $String*)},
+		{"getPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $method(NamespaceSupport$Context, getPrefixes, $Enumeration*)},
+		{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(NamespaceSupport$Context, getURI, $String*, $String*)},
+		{"processName", "(Ljava/lang/String;Z)[Ljava/lang/String;", nullptr, 0, $method(NamespaceSupport$Context, processName, $StringArray*, $String*, bool)},
+		{"setParent", "(Lorg/xml/sax/helpers/NamespaceSupport$Context;)V", nullptr, 0, $method(NamespaceSupport$Context, setParent, void, NamespaceSupport$Context*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.xml.sax.helpers.NamespaceSupport$Context", "org.xml.sax.helpers.NamespaceSupport", "Context", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.xml.sax.helpers.NamespaceSupport$Context",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.xml.sax.helpers.NamespaceSupport"
+	};
+	$loadClass(NamespaceSupport$Context, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceSupport$Context);
+	});
 	return class$;
 }
 

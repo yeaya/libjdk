@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFPackBitsCompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
@@ -11,33 +10,12 @@ using $TIFFCompressor = ::com::sun::imageio::plugins::tiff::TIFFCompressor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
-using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$MethodInfo _TIFFPackBitsCompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFPackBitsCompressor, init$, void)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFPackBitsCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{"packBits", "([BII[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFPackBitsCompressor, packBits, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{}
-};
-
-$ClassInfo _TIFFPackBitsCompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFPackBitsCompressor",
-	"com.sun.imageio.plugins.tiff.TIFFCompressor",
-	nullptr,
-	nullptr,
-	_TIFFPackBitsCompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFPackBitsCompressor($Class* clazz) {
-	return $of($alloc(TIFFPackBitsCompressor));
-}
 
 void TIFFPackBitsCompressor::init$() {
 	$TIFFCompressor::init$("PackBits"_s, $BaselineTIFFTagSet::COMPRESSION_PACKBITS, true);
@@ -104,7 +82,23 @@ TIFFPackBitsCompressor::TIFFPackBitsCompressor() {
 }
 
 $Class* TIFFPackBitsCompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFPackBitsCompressor, name, initialize, &_TIFFPackBitsCompressor_ClassInfo_, allocate$TIFFPackBitsCompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFPackBitsCompressor, init$, void)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFPackBitsCompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{"packBits", "([BII[BI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFPackBitsCompressor, packBits, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFPackBitsCompressor",
+		"com.sun.imageio.plugins.tiff.TIFFCompressor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TIFFPackBitsCompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFPackBitsCompressor);
+	});
 	return class$;
 }
 

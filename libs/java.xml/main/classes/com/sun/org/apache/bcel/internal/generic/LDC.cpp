@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LDC.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$EXCS.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
@@ -13,10 +12,8 @@
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ObjectType.h>
-#include <com/sun/org/apache/bcel/internal/generic/PushInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
@@ -41,17 +38,12 @@ using $Constant = ::com::sun::org::apache::bcel::internal::classfile::Constant;
 using $ConstantClass = ::com::sun::org::apache::bcel::internal::classfile::ConstantClass;
 using $ConstantFloat = ::com::sun::org::apache::bcel::internal::classfile::ConstantFloat;
 using $ConstantInteger = ::com::sun::org::apache::bcel::internal::classfile::ConstantInteger;
-using $ConstantPool = ::com::sun::org::apache::bcel::internal::classfile::ConstantPool;
 using $ConstantString = ::com::sun::org::apache::bcel::internal::classfile::ConstantString;
 using $ConstantUtf8 = ::com::sun::org::apache::bcel::internal::classfile::ConstantUtf8;
 using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
 using $ObjectType = ::com::sun::org::apache::bcel::internal::generic::ObjectType;
-using $PushInstruction = ::com::sun::org::apache::bcel::internal::generic::PushInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -68,39 +60,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _LDC_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(LDC, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LDC, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LDC, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LDC, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(LDC, getExceptions, $ClassArray*)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(LDC, getType, $Type*, $ConstantPoolGen*)},
-	{"getValue", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LDC, getValue, $Object*, $ConstantPoolGen*)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(LDC, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"setIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LDC, setIndex, void, int32_t)},
-	{"setSize", "()V", nullptr, $PROTECTED | $FINAL, $method(LDC, setSize, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LDC_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.LDC",
-	"com.sun.org.apache.bcel.internal.generic.CPInstruction",
-	"com.sun.org.apache.bcel.internal.generic.PushInstruction,com.sun.org.apache.bcel.internal.generic.ExceptionThrower",
-	nullptr,
-	_LDC_MethodInfo_
-};
-
-$Object* allocate$LDC($Class* clazz) {
-	return $of($alloc(LDC));
-}
 
 $String* LDC::toString() {
 	 return this->$CPInstruction::toString();
@@ -165,67 +124,47 @@ void LDC::initFromFile($ByteSequence* bytes, bool wide) {
 }
 
 $Object* LDC::getValue($ConstantPoolGen* cpg) {
-	$useLocalCurrentObjectStackCache();
-	$var($Constant, c, $nc($($nc(cpg)->getConstantPool()))->getConstant($CPInstruction::getIndex()));
+	$useLocalObjectStack();
+	$var($Constant, c, $$nc($nc(cpg)->getConstantPool())->getConstant($CPInstruction::getIndex()));
 	{
 		int32_t i = 0;
 		int32_t nameIndex = 0;
 		switch ($nc(c)->getTag()) {
 		case $Const::CONSTANT_String:
-			{
-				i = $nc(($cast($ConstantString, c)))->getStringIndex();
-				$assign(c, $nc($(cpg->getConstantPool()))->getConstant(i));
-				return $of($nc(($cast($ConstantUtf8, c)))->getBytes());
-			}
+			i = $cast($ConstantString, c)->getStringIndex();
+			$assign(c, $$nc(cpg->getConstantPool())->getConstant(i));
+			return $of($nc($cast($ConstantUtf8, c))->getBytes());
 		case $Const::CONSTANT_Float:
-			{
-				return $of($Float::valueOf($nc(($cast($ConstantFloat, c)))->getBytes()));
-			}
+			return $of($Float::valueOf($cast($ConstantFloat, c)->getBytes()));
 		case $Const::CONSTANT_Integer:
-			{
-				return $of($Integer::valueOf($nc(($cast($ConstantInteger, c)))->getBytes()));
-			}
+			return $of($Integer::valueOf($cast($ConstantInteger, c)->getBytes()));
 		case $Const::CONSTANT_Class:
-			{
-				nameIndex = $nc(($cast($ConstantClass, c)))->getNameIndex();
-				$assign(c, $nc($(cpg->getConstantPool()))->getConstant(nameIndex));
-				return $of($new($ObjectType, $($nc(($cast($ConstantUtf8, c)))->getBytes())));
-			}
+			nameIndex = $cast($ConstantClass, c)->getNameIndex();
+			$assign(c, $$nc(cpg->getConstantPool())->getConstant(nameIndex));
+			return $new($ObjectType, $($nc($cast($ConstantUtf8, c))->getBytes()));
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Unknown or invalid constant type at "_s, $$str($CPInstruction::getIndex())}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Unknown or invalid constant type at "_s, $$str($CPInstruction::getIndex())}));
 		}
 	}
 }
 
 $Type* LDC::getType($ConstantPoolGen* cpg) {
-	$useLocalCurrentObjectStackCache();
-	switch ($nc($($nc($($nc(cpg)->getConstantPool()))->getConstant($CPInstruction::getIndex())))->getTag()) {
+	$useLocalObjectStack();
+	switch ($$nc($$nc($nc(cpg)->getConstantPool())->getConstant($CPInstruction::getIndex()))->getTag()) {
 	case $Const::CONSTANT_String:
-		{
-			$init($Type);
-			return $Type::STRING;
-		}
+		$init($Type);
+		return $Type::STRING;
 	case $Const::CONSTANT_Float:
-		{
-			$init($Type);
-			return $Type::FLOAT;
-		}
+		$init($Type);
+		return $Type::FLOAT;
 	case $Const::CONSTANT_Integer:
-		{
-			$init($Type);
-			return $Type::INT;
-		}
+		$init($Type);
+		return $Type::INT;
 	case $Const::CONSTANT_Class:
-		{
-			$init($Type);
-			return $Type::CLASS;
-		}
+		$init($Type);
+		return $Type::CLASS;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unknown or invalid constant type at "_s, $$str($CPInstruction::getIndex())}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown or invalid constant type at "_s, $$str($CPInstruction::getIndex())}));
 	}
 }
 
@@ -247,7 +186,36 @@ LDC::LDC() {
 }
 
 $Class* LDC::load$($String* name, bool initialize) {
-	$loadClass(LDC, name, initialize, &_LDC_ClassInfo_, allocate$LDC);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(LDC, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(LDC, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LDC, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LDC, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(LDC, getExceptions, $ClassArray*)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(LDC, getType, $Type*, $ConstantPoolGen*)},
+		{"getValue", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LDC, getValue, $Object*, $ConstantPoolGen*)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(LDC, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"setIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LDC, setIndex, void, int32_t)},
+		{"setSize", "()V", nullptr, $PROTECTED | $FINAL, $method(LDC, setSize, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.LDC",
+		"com.sun.org.apache.bcel.internal.generic.CPInstruction",
+		"com.sun.org.apache.bcel.internal.generic.PushInstruction,com.sun.org.apache.bcel.internal.generic.ExceptionThrower",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LDC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LDC));
+	});
 	return class$;
 }
 

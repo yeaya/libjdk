@@ -1,5 +1,4 @@
 #include <org/w3c/dom/DOMConfiguration.h>
-
 #include <org/w3c/dom/DOMStringList.h>
 #include <jcpp.h>
 
@@ -11,29 +10,25 @@ namespace org {
 	namespace w3c {
 		namespace dom {
 
-$MethodInfo _DOMConfiguration_MethodInfo_[] = {
-	{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, canSetParameter, bool, $String*, Object$*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
-	{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, getParameterNames, $DOMStringList*)},
-	{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
-	{}
-};
-
-$ClassInfo _DOMConfiguration_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.DOMConfiguration",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DOMConfiguration_MethodInfo_
-};
-
-$Object* allocate$DOMConfiguration($Class* clazz) {
-	return $of($alloc(DOMConfiguration));
-}
-
 $Class* DOMConfiguration::load$($String* name, bool initialize) {
-	$loadClass(DOMConfiguration, name, initialize, &_DOMConfiguration_ClassInfo_, allocate$DOMConfiguration);
+	$MethodInfo methodInfos$$[] = {
+		{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, canSetParameter, bool, $String*, Object$*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
+		{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, getParameterNames, $DOMStringList*)},
+		{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMConfiguration, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.DOMConfiguration",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMConfiguration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMConfiguration);
+	});
 	return class$;
 }
 

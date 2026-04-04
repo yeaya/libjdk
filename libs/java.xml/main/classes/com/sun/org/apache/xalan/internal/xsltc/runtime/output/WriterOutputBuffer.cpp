@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/output/WriterOutputBuffer.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/IOException.h>
@@ -27,35 +26,6 @@ namespace com {
 						namespace xsltc {
 							namespace runtime {
 								namespace output {
-
-$FieldInfo _WriterOutputBuffer_FieldInfo_[] = {
-	{"KB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriterOutputBuffer, KB)},
-	{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(WriterOutputBuffer, BUFFER_SIZE)},
-	{"_writer", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(WriterOutputBuffer, _writer)},
-	{}
-};
-
-$MethodInfo _WriterOutputBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(WriterOutputBuffer, init$, void, $Writer*)},
-	{"append", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, append, $OutputBuffer*, $String*)},
-	{"append", "([CII)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, append, $OutputBuffer*, $chars*, int32_t, int32_t)},
-	{"append", "(C)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, append, $OutputBuffer*, char16_t)},
-	{"close", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, close, $String*)},
-	{}
-};
-
-$ClassInfo _WriterOutputBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.output.WriterOutputBuffer",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.output.OutputBuffer",
-	_WriterOutputBuffer_FieldInfo_,
-	_WriterOutputBuffer_MethodInfo_
-};
-
-$Object* allocate$WriterOutputBuffer($Class* clazz) {
-	return $of($alloc(WriterOutputBuffer));
-}
 
 int32_t WriterOutputBuffer::BUFFER_SIZE = 0;
 
@@ -92,14 +62,14 @@ $OutputBuffer* WriterOutputBuffer::append($chars* s, int32_t from, int32_t to) {
 
 $OutputBuffer* WriterOutputBuffer::append(char16_t ch) {
 	try {
-		$nc(this->_writer)->write((int32_t)ch);
+		$nc(this->_writer)->write(ch);
 	} catch ($IOException& e) {
 		$throwNew($RuntimeException, $(e->toString()));
 	}
 	return this;
 }
 
-void clinit$WriterOutputBuffer($Class* class$) {
+void WriterOutputBuffer::clinit$($Class* clazz) {
 	WriterOutputBuffer::BUFFER_SIZE = 4 * WriterOutputBuffer::KB;
 }
 
@@ -107,7 +77,31 @@ WriterOutputBuffer::WriterOutputBuffer() {
 }
 
 $Class* WriterOutputBuffer::load$($String* name, bool initialize) {
-	$loadClass(WriterOutputBuffer, name, initialize, &_WriterOutputBuffer_ClassInfo_, clinit$WriterOutputBuffer, allocate$WriterOutputBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"KB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WriterOutputBuffer, KB)},
+		{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(WriterOutputBuffer, BUFFER_SIZE)},
+		{"_writer", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(WriterOutputBuffer, _writer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(WriterOutputBuffer, init$, void, $Writer*)},
+		{"append", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, append, $OutputBuffer*, $String*)},
+		{"append", "([CII)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, append, $OutputBuffer*, $chars*, int32_t, int32_t)},
+		{"append", "(C)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/OutputBuffer;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, append, $OutputBuffer*, char16_t)},
+		{"close", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WriterOutputBuffer, close, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.output.WriterOutputBuffer",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.output.OutputBuffer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WriterOutputBuffer, name, initialize, &classInfo$$, WriterOutputBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WriterOutputBuffer);
+	});
 	return class$;
 }
 

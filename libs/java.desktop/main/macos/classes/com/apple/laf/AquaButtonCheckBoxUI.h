@@ -35,6 +35,7 @@ class AquaButtonCheckBoxUI : public ::com::apple::laf::AquaButtonLabeledUI {
 	$class(AquaButtonCheckBoxUI, 0, ::com::apple::laf::AquaButtonLabeledUI)
 public:
 	AquaButtonCheckBoxUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual ::com::apple::laf::AquaButtonBorder* getPainter() override;

@@ -1,8 +1,5 @@
 #include <javax/annotation/processing/AbstractProcessor.h>
-
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
-#include <java/lang/Enum.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Iterable.h>
 #include <java/lang/annotation/Annotation.h>
@@ -28,9 +25,7 @@
 #undef WARNING
 
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $Iterable = ::java::lang::Iterable;
@@ -40,7 +35,6 @@ using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
-using $Messager = ::javax::annotation::processing::Messager;
 using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
 using $SupportedAnnotationTypes = ::javax::annotation::processing::SupportedAnnotationTypes;
 using $SupportedOptions = ::javax::annotation::processing::SupportedOptions;
@@ -55,39 +49,6 @@ namespace javax {
 	namespace annotation {
 		namespace processing {
 
-$FieldInfo _AbstractProcessor_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractProcessor, $assertionsDisabled)},
-	{"processingEnv", "Ljavax/annotation/processing/ProcessingEnvironment;", nullptr, $PROTECTED, $field(AbstractProcessor, processingEnv)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(AbstractProcessor, initialized)},
-	{}
-};
-
-$MethodInfo _AbstractProcessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractProcessor, init$, void)},
-	{"arrayToSet", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set;", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(AbstractProcessor, arrayToSet, $Set*, $StringArray*, bool, $String*, $String*)},
-	{"getCompletions", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/annotation/processing/Completion;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getCompletions, $Iterable*, $Element*, $AnnotationMirror*, $ExecutableElement*, $String*)},
-	{"getSupportedAnnotationTypes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedAnnotationTypes, $Set*)},
-	{"getSupportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedOptions, $Set*)},
-	{"getSupportedSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedSourceVersion, $SourceVersion*)},
-	{"init", "(Ljavax/annotation/processing/ProcessingEnvironment;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractProcessor, init, void, $ProcessingEnvironment*)},
-	{"isInitialized", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractProcessor, isInitialized, bool)},
-	{"process", "(Ljava/util/Set;Ljavax/annotation/processing/RoundEnvironment;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractProcessor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.annotation.processing.AbstractProcessor",
-	"java.lang.Object",
-	"javax.annotation.processing.Processor",
-	_AbstractProcessor_FieldInfo_,
-	_AbstractProcessor_MethodInfo_
-};
-
-$Object* allocate$AbstractProcessor($Class* clazz) {
-	return $of($alloc(AbstractProcessor));
-}
-
 bool AbstractProcessor::$assertionsDisabled = false;
 
 void AbstractProcessor::init$() {
@@ -95,44 +56,44 @@ void AbstractProcessor::init$() {
 }
 
 $Set* AbstractProcessor::getSupportedOptions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SupportedOptions);
-	$var($SupportedOptions, so, $cast($SupportedOptions, $of(this)->getClass()->getAnnotation($SupportedOptions::class$)));
-	return (so == nullptr) ? $Set::of() : arrayToSet($($nc(so)->value()), false, "option value"_s, "@SupportedOptions"_s);
+	$var($SupportedOptions, so, $cast($SupportedOptions, this->getClass()->getAnnotation($SupportedOptions::class$)));
+	return (so == nullptr) ? $Set::of() : arrayToSet($(so->value()), false, "option value"_s, "@SupportedOptions"_s);
 }
 
 $Set* AbstractProcessor::getSupportedAnnotationTypes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SupportedAnnotationTypes);
-	$var($SupportedAnnotationTypes, sat, $cast($SupportedAnnotationTypes, $of(this)->getClass()->getAnnotation($SupportedAnnotationTypes::class$)));
+	$var($SupportedAnnotationTypes, sat, $cast($SupportedAnnotationTypes, this->getClass()->getAnnotation($SupportedAnnotationTypes::class$)));
 	bool initialized = isInitialized();
 	if (sat == nullptr) {
 		if (initialized) {
 			$init($Diagnostic$Kind);
-			$nc($($nc(this->processingEnv)->getMessager()))->printMessage($Diagnostic$Kind::WARNING, $$str({"No SupportedAnnotationTypes annotation found on "_s, $($of(this)->getClass()->getName()), ", returning an empty set."_s}));
+			$$nc($nc(this->processingEnv)->getMessager())->printMessage($Diagnostic$Kind::WARNING, $$str({"No SupportedAnnotationTypes annotation found on "_s, $(this->getClass()->getName()), ", returning an empty set."_s}));
 		}
 		return $Set::of();
 	} else {
 		$init($SourceVersion);
-		bool stripModulePrefixes = initialized && $nc($($nc(this->processingEnv)->getSourceVersion()))->compareTo(static_cast<$Enum*>($SourceVersion::RELEASE_8)) <= 0;
-		return arrayToSet($($nc(sat)->value()), stripModulePrefixes, "annotation type"_s, "@SupportedAnnotationTypes"_s);
+		bool stripModulePrefixes = initialized && $$nc($nc(this->processingEnv)->getSourceVersion())->compareTo($SourceVersion::RELEASE_8) <= 0;
+		return arrayToSet($(sat->value()), stripModulePrefixes, "annotation type"_s, "@SupportedAnnotationTypes"_s);
 	}
 }
 
 $SourceVersion* AbstractProcessor::getSupportedSourceVersion() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($SupportedSourceVersion);
-	$var($SupportedSourceVersion, ssv, $cast($SupportedSourceVersion, $of(this)->getClass()->getAnnotation($SupportedSourceVersion::class$)));
+	$var($SupportedSourceVersion, ssv, $cast($SupportedSourceVersion, this->getClass()->getAnnotation($SupportedSourceVersion::class$)));
 	$SourceVersion* sv = nullptr;
 	if (ssv == nullptr) {
 		$init($SourceVersion);
 		sv = $SourceVersion::RELEASE_6;
 		if (isInitialized()) {
 			$init($Diagnostic$Kind);
-			$nc($($nc(this->processingEnv)->getMessager()))->printMessage($Diagnostic$Kind::WARNING, $$str({"No SupportedSourceVersion annotation found on "_s, $($of(this)->getClass()->getName()), ", returning "_s, sv, "."_s}));
+			$$nc($nc(this->processingEnv)->getMessager())->printMessage($Diagnostic$Kind::WARNING, $$str({"No SupportedSourceVersion annotation found on "_s, $(this->getClass()->getName()), ", returning "_s, sv, "."_s}));
 		}
 	} else {
-		sv = $nc(ssv)->value();
+		sv = ssv->value();
 	}
 	return sv;
 }
@@ -142,7 +103,7 @@ void AbstractProcessor::init($ProcessingEnvironment* processingEnv) {
 		if (this->initialized) {
 			$throwNew($IllegalStateException, "Cannot call init more than once."_s);
 		}
-		$Objects::requireNonNull($of(processingEnv), "Tool provided null ProcessingEnvironment"_s);
+		$Objects::requireNonNull(processingEnv, "Tool provided null ProcessingEnvironment"_s);
 		$set(this, processingEnv, processingEnv);
 		this->initialized = true;
 	}
@@ -159,21 +120,19 @@ bool AbstractProcessor::isInitialized() {
 }
 
 $Set* AbstractProcessor::arrayToSet($StringArray* array, bool stripModulePrefixes, $String* contentType, $String* annotationName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!AbstractProcessor::$assertionsDisabled && !(array != nullptr)) {
 		$throwNew($AssertionError);
 	}
 	$var($Set, set, $new($HashSet));
 	{
 		$var($StringArray, arr$, array);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, s, arr$->get(i$));
 			{
 				bool stripped = false;
 				if (stripModulePrefixes) {
-					int32_t index = $nc(s)->indexOf((int32_t)u'/');
+					int32_t index = $nc(s)->indexOf(u'/');
 					if (index != -1) {
 						$assign(s, s->substring(index + 1));
 						stripped = true;
@@ -182,7 +141,7 @@ $Set* AbstractProcessor::arrayToSet($StringArray* array, bool stripModulePrefixe
 				bool added = set->add(s);
 				if (!added && !stripped && isInitialized()) {
 					$init($Diagnostic$Kind);
-					$nc($($nc(this->processingEnv)->getMessager()))->printMessage($Diagnostic$Kind::WARNING, $$str({"Duplicate "_s, contentType, " ``"_s, s, "\'\' for processor "_s, $($of(this)->getClass()->getName()), " in its "_s, annotationName, "annotation."_s}));
+					$$nc($nc(this->processingEnv)->getMessager())->printMessage($Diagnostic$Kind::WARNING, $$str({"Duplicate "_s, contentType, " ``"_s, s, "\'\' for processor "_s, $(this->getClass()->getName()), " in its "_s, annotationName, "annotation."_s}));
 				}
 			}
 		}
@@ -190,7 +149,7 @@ $Set* AbstractProcessor::arrayToSet($StringArray* array, bool stripModulePrefixe
 	return $Collections::unmodifiableSet(set);
 }
 
-void clinit$AbstractProcessor($Class* class$) {
+void AbstractProcessor::clinit$($Class* clazz) {
 	AbstractProcessor::$assertionsDisabled = !AbstractProcessor::class$->desiredAssertionStatus();
 }
 
@@ -198,7 +157,35 @@ AbstractProcessor::AbstractProcessor() {
 }
 
 $Class* AbstractProcessor::load$($String* name, bool initialize) {
-	$loadClass(AbstractProcessor, name, initialize, &_AbstractProcessor_ClassInfo_, clinit$AbstractProcessor, allocate$AbstractProcessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AbstractProcessor, $assertionsDisabled)},
+		{"processingEnv", "Ljavax/annotation/processing/ProcessingEnvironment;", nullptr, $PROTECTED, $field(AbstractProcessor, processingEnv)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(AbstractProcessor, initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractProcessor, init$, void)},
+		{"arrayToSet", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set;", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(AbstractProcessor, arrayToSet, $Set*, $StringArray*, bool, $String*, $String*)},
+		{"getCompletions", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/annotation/processing/Completion;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getCompletions, $Iterable*, $Element*, $AnnotationMirror*, $ExecutableElement*, $String*)},
+		{"getSupportedAnnotationTypes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedAnnotationTypes, $Set*)},
+		{"getSupportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedOptions, $Set*)},
+		{"getSupportedSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedSourceVersion, $SourceVersion*)},
+		{"init", "(Ljavax/annotation/processing/ProcessingEnvironment;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractProcessor, init, void, $ProcessingEnvironment*)},
+		{"isInitialized", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractProcessor, isInitialized, bool)},
+		{"process", "(Ljava/util/Set;Ljavax/annotation/processing/RoundEnvironment;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.annotation.processing.AbstractProcessor",
+		"java.lang.Object",
+		"javax.annotation.processing.Processor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractProcessor, name, initialize, &classInfo$$, AbstractProcessor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractProcessor);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java.sql.rowset.test.h>
-
 #include <java.sql.rowset.h>
 #include <java.logging.h>
 #include <java.naming.h>

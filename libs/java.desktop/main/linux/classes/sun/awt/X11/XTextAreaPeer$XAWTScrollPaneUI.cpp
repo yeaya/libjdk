@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -20,7 +19,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -44,55 +42,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XTextAreaPeer$XAWTScrollPaneUI_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollPaneUI, this$0)},
-	{"vsbMarginBorderR", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$XAWTScrollPaneUI, vsbMarginBorderR)},
-	{"vsbMarginBorderL", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$XAWTScrollPaneUI, vsbMarginBorderL)},
-	{"hsbMarginBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$XAWTScrollPaneUI, hsbMarginBorder)},
-	{"vsbBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollPaneUI, vsbBorder)},
-	{"hsbBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollPaneUI, hsbBorder)},
-	{"propertyChangeHandler", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollPaneUI, propertyChangeHandler)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$XAWTScrollPaneUI_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollPaneUI, init$, void, $XTextAreaPeer*)},
-	{"createPropertyChangeHandler", "()Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $method(XTextAreaPeer$XAWTScrollPaneUI, createPropertyChangeHandler, $PropertyChangeListener*)},
-	{"installDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, installDefaults, void, $JScrollPane*)},
-	{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, installListeners, void, $JScrollPane*)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, 0, $method(XTextAreaPeer$XAWTScrollPaneUI, isLeftToRight, bool, $Component*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"uninstallDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, uninstallDefaults, void, $JScrollPane*)},
-	{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, uninstallListeners, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$XAWTScrollPaneUI_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollPaneUI", $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$XAWTScrollPaneUI_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI",
-	"javax.swing.plaf.basic.BasicScrollPaneUI",
-	nullptr,
-	_XTextAreaPeer$XAWTScrollPaneUI_FieldInfo_,
-	_XTextAreaPeer$XAWTScrollPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$XAWTScrollPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$XAWTScrollPaneUI($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$XAWTScrollPaneUI));
-}
-
 void XTextAreaPeer$XAWTScrollPaneUI::init$($XTextAreaPeer* this$0) {
 	$set(this, this$0, this$0);
 	$BasicScrollPaneUI::init$();
@@ -108,11 +57,11 @@ void XTextAreaPeer$XAWTScrollPaneUI::installListeners($JScrollPane* scrollPane) 
 }
 
 void XTextAreaPeer$XAWTScrollPaneUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Border, vpBorder, $nc(this->scrollpane)->getViewportBorder());
 	if (vpBorder != nullptr) {
 		$var($Rectangle, r, $nc(this->scrollpane)->getViewportBorderBounds());
-		vpBorder->paintBorder(this->scrollpane, g, $nc(r)->x, r->y, r->width, r->height);
+		vpBorder->paintBorder(this->scrollpane, g, $nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	}
 }
 
@@ -126,16 +75,16 @@ $PropertyChangeListener* XTextAreaPeer$XAWTScrollPaneUI::createPropertyChangeHan
 }
 
 bool XTextAreaPeer$XAWTScrollPaneUI::isLeftToRight($Component* c) {
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 void XTextAreaPeer$XAWTScrollPaneUI::installDefaults($JScrollPane* scrollpane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Border, b, $nc(scrollpane)->getBorder());
 	$var($UIDefaults, uidefaults, $XToolkit::getUIDefaults());
 	scrollpane->setBorder($($nc(uidefaults)->getBorder("ScrollPane.border"_s)));
-	scrollpane->setBackground($($nc(uidefaults)->getColor("ScrollPane.background"_s)));
-	scrollpane->setViewportBorder($($nc(uidefaults)->getBorder("TextField.border"_s)));
+	scrollpane->setBackground($(uidefaults->getColor("ScrollPane.background"_s)));
+	scrollpane->setViewportBorder($(uidefaults->getBorder("TextField.border"_s)));
 	$var($JScrollBar, vsb, scrollpane->getVerticalScrollBar());
 	if (vsb != nullptr) {
 		if (isLeftToRight(scrollpane)) {
@@ -153,7 +102,7 @@ void XTextAreaPeer$XAWTScrollPaneUI::installDefaults($JScrollPane* scrollpane) {
 }
 
 void XTextAreaPeer$XAWTScrollPaneUI::uninstallDefaults($JScrollPane* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicScrollPaneUI::uninstallDefaults(c);
 	$var($JScrollBar, vsb, $nc(this->scrollpane)->getVerticalScrollBar());
 	if (vsb != nullptr) {
@@ -175,7 +124,50 @@ XTextAreaPeer$XAWTScrollPaneUI::XTextAreaPeer$XAWTScrollPaneUI() {
 }
 
 $Class* XTextAreaPeer$XAWTScrollPaneUI::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$XAWTScrollPaneUI, name, initialize, &_XTextAreaPeer$XAWTScrollPaneUI_ClassInfo_, allocate$XTextAreaPeer$XAWTScrollPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollPaneUI, this$0)},
+		{"vsbMarginBorderR", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$XAWTScrollPaneUI, vsbMarginBorderR)},
+		{"vsbMarginBorderL", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$XAWTScrollPaneUI, vsbMarginBorderL)},
+		{"hsbMarginBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer$XAWTScrollPaneUI, hsbMarginBorder)},
+		{"vsbBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollPaneUI, vsbBorder)},
+		{"hsbBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollPaneUI, hsbBorder)},
+		{"propertyChangeHandler", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(XTextAreaPeer$XAWTScrollPaneUI, propertyChangeHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollPaneUI, init$, void, $XTextAreaPeer*)},
+		{"createPropertyChangeHandler", "()Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $method(XTextAreaPeer$XAWTScrollPaneUI, createPropertyChangeHandler, $PropertyChangeListener*)},
+		{"installDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, installDefaults, void, $JScrollPane*)},
+		{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, installListeners, void, $JScrollPane*)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, 0, $method(XTextAreaPeer$XAWTScrollPaneUI, isLeftToRight, bool, $Component*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"uninstallDefaults", "(Ljavax/swing/JScrollPane;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, uninstallDefaults, void, $JScrollPane*)},
+		{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollPaneUI, uninstallListeners, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollPaneUI", $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI",
+		"javax.swing.plaf.basic.BasicScrollPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$XAWTScrollPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$XAWTScrollPaneUI));
+	});
 	return class$;
 }
 

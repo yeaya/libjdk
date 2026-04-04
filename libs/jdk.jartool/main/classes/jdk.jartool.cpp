@@ -1,13 +1,10 @@
 #include <jdk.jartool.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/jarsigner/ContentSigner.h>
 #include <com/sun/jarsigner/ContentSignerParameters.h>
 #include <jdk/security/jarsigner/JarSigner.h>
@@ -218,6 +215,7 @@ $bytes* jdk$jartool$GetResource($String* name) {
 
 void jdk$jartool::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.jartool", "17.35", "",
 		&_jdk$jartool_ModuleInfo_,

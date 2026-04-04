@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacTrees$5.h>
-
 #include <com/sun/tools/javac/api/JavacTrees.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
@@ -30,51 +29,6 @@ namespace com {
 			namespace javac {
 				namespace api {
 
-$FieldInfo _JavacTrees$5_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/api/JavacTrees;", nullptr, $FINAL | $SYNTHETIC, $field(JavacTrees$5, this$0)},
-	{"val$classType", "Lcom/sun/tools/javac/code/Type$ClassType;", nullptr, $FINAL | $SYNTHETIC, $field(JavacTrees$5, val$classType)},
-	{}
-};
-
-$MethodInfo _JavacTrees$5_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;Lcom/sun/tools/javac/code/Type$ClassType;)V", nullptr, 0, $method(JavacTrees$5, init$, void, $JavacTrees*, $Type*, $List*, $Symbol$TypeSymbol*, $TypeMetadata*, $Type$ClassType*)},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$5, baseType, $Type*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$5, getKind, $TypeKind*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacTrees$5_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.api.JavacTrees",
-	"getOriginalType",
-	"(Ljavax/lang/model/type/ErrorType;)Ljavax/lang/model/type/TypeMirror;"
-};
-
-$InnerClassInfo _JavacTrees$5_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.JavacTrees$5", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JavacTrees$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.api.JavacTrees$5",
-	"com.sun.tools.javac.code.Type$ClassType",
-	nullptr,
-	_JavacTrees$5_FieldInfo_,
-	_JavacTrees$5_MethodInfo_,
-	nullptr,
-	&_JavacTrees$5_EnclosingMethodInfo_,
-	_JavacTrees$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.JavacTrees"
-};
-
-$Object* allocate$JavacTrees$5($Class* clazz) {
-	return $of($alloc(JavacTrees$5));
-}
-
 void JavacTrees$5::init$($JavacTrees* this$0, $Type* outer, $List* typarams, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata, $Type$ClassType* val$classType) {
 	$set(this, this$0, this$0);
 	$set(this, val$classType, val$classType);
@@ -94,7 +48,45 @@ JavacTrees$5::JavacTrees$5() {
 }
 
 $Class* JavacTrees$5::load$($String* name, bool initialize) {
-	$loadClass(JavacTrees$5, name, initialize, &_JavacTrees$5_ClassInfo_, allocate$JavacTrees$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/api/JavacTrees;", nullptr, $FINAL | $SYNTHETIC, $field(JavacTrees$5, this$0)},
+		{"val$classType", "Lcom/sun/tools/javac/code/Type$ClassType;", nullptr, $FINAL | $SYNTHETIC, $field(JavacTrees$5, val$classType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;Lcom/sun/tools/javac/code/Type$ClassType;)V", nullptr, 0, $method(JavacTrees$5, init$, void, $JavacTrees*, $Type*, $List*, $Symbol$TypeSymbol*, $TypeMetadata*, $Type$ClassType*)},
+		{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$5, baseType, $Type*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$5, getKind, $TypeKind*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.api.JavacTrees",
+		"getOriginalType",
+		"(Ljavax/lang/model/type/ErrorType;)Ljavax/lang/model/type/TypeMirror;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.JavacTrees$5", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.api.JavacTrees$5",
+		"com.sun.tools.javac.code.Type$ClassType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.JavacTrees"
+	};
+	$loadClass(JavacTrees$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacTrees$5));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFAttrInfo.h>
 #include <com/sun/imageio/plugins/tiff/TIFFElementInfo.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
@@ -23,7 +22,6 @@ using $TIFFMetadataFormat = ::com::sun::imageio::plugins::tiff::TIFFMetadataForm
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 using $IIOMetadataFormat = ::javax::imageio::metadata::IIOMetadataFormat;
 
@@ -33,31 +31,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFImageMetadataFormat_FieldInfo_[] = {
-	{"theInstance", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(TIFFImageMetadataFormat, theInstance)},
-	{}
-};
-
-$MethodInfo _TIFFImageMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TIFFImageMetadataFormat, init$, void)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TIFFImageMetadataFormat, getInstance, $IIOMetadataFormat*)},
-	{}
-};
-
-$ClassInfo _TIFFImageMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFImageMetadataFormat",
-	"com.sun.imageio.plugins.tiff.TIFFMetadataFormat",
-	nullptr,
-	_TIFFImageMetadataFormat_FieldInfo_,
-	_TIFFImageMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$TIFFImageMetadataFormat($Class* clazz) {
-	return $of($alloc(TIFFImageMetadataFormat));
-}
-
 TIFFImageMetadataFormat* TIFFImageMetadataFormat::theInstance = nullptr;
 
 bool TIFFImageMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpecifier* imageType) {
@@ -65,7 +38,7 @@ bool TIFFImageMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpec
 }
 
 void TIFFImageMetadataFormat::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TIFFMetadataFormat::init$();
 	$set(this, resourceBaseName, "javax.imageio.plugins.tiff.TIFFImageMetadataFormatResources"_s);
 	$init($TIFFImageMetadata);
@@ -88,7 +61,7 @@ void TIFFImageMetadataFormat::init$() {
 		"parentTagName"_s
 	}));
 	$assign(einfo, $new($TIFFElementInfo, childNames, attrNames, $IIOMetadataFormat::CHILD_POLICY_SEQUENCE));
-	$nc(this->elementInfoMap)->put("TIFFIFD"_s, einfo);
+	this->elementInfoMap->put("TIFFIFD"_s, einfo);
 	$assign(ainfo, $new($TIFFAttrInfo));
 	ainfo->dataType = $IIOMetadataFormat::DATATYPE_STRING;
 	ainfo->isRequired = true;
@@ -96,11 +69,11 @@ void TIFFImageMetadataFormat::init$() {
 	$assign(ainfo, $new($TIFFAttrInfo));
 	ainfo->dataType = $IIOMetadataFormat::DATATYPE_INTEGER;
 	ainfo->isRequired = false;
-	$nc(this->attrInfoMap)->put("TIFFIFD/parentTagNumber"_s, ainfo);
+	this->attrInfoMap->put("TIFFIFD/parentTagNumber"_s, ainfo);
 	$assign(ainfo, $new($TIFFAttrInfo));
 	ainfo->dataType = $IIOMetadataFormat::DATATYPE_STRING;
 	ainfo->isRequired = false;
-	$nc(this->attrInfoMap)->put("TIFFIFD/parentTagName"_s, ainfo);
+	this->attrInfoMap->put("TIFFIFD/parentTagName"_s, ainfo);
 	$var($StringArray, types, $new($StringArray, {
 		"TIFFByte"_s,
 		"TIFFAscii"_s,
@@ -126,7 +99,7 @@ void TIFFImageMetadataFormat::init$() {
 			$assign(childNames, $new($StringArray, 1));
 			childNames->set(0, types->get(i));
 			$assign(einfo, $new($TIFFElementInfo, childNames, empty, $IIOMetadataFormat::CHILD_POLICY_SEQUENCE));
-			$nc(this->elementInfoMap)->put($$str({types->get(i), "s"_s}), einfo);
+			this->elementInfoMap->put($$str({types->get(i), "s"_s}), einfo);
 		}
 		bool var$4 = !$nc(types->get(i))->equals("TIFFUndefined"_s);
 		bool var$3 = var$4 && !$nc(types->get(i))->equals("TIFFAscii"_s);
@@ -136,10 +109,10 @@ void TIFFImageMetadataFormat::init$() {
 		bool hasDescription = var$0 && !$nc(types->get(i))->equals("TIFFDouble"_s);
 		$var($StringArray, anames, hasDescription ? attrNames : attrNamesValueOnly);
 		$assign(einfo, $new($TIFFElementInfo, empty, anames, $IIOMetadataFormat::CHILD_POLICY_EMPTY));
-		$nc(this->elementInfoMap)->put(types->get(i), einfo);
-		$nc(this->attrInfoMap)->put($$str({types->get(i), "/value"_s}), ainfoValue);
+		this->elementInfoMap->put(types->get(i), einfo);
+		this->attrInfoMap->put($$str({types->get(i), "/value"_s}), ainfoValue);
 		if (hasDescription) {
-			$nc(this->attrInfoMap)->put($$str({types->get(i), "/description"_s}), ainfoDescription);
+			this->attrInfoMap->put($$str({types->get(i), "/description"_s}), ainfoDescription);
 		}
 	}
 	$assign(childNames, $new($StringArray, 2 * types->length - 1));
@@ -154,18 +127,17 @@ void TIFFImageMetadataFormat::init$() {
 		"name"_s
 	}));
 	$assign(einfo, $new($TIFFElementInfo, childNames, attrNames, $IIOMetadataFormat::CHILD_POLICY_CHOICE));
-	$nc(this->elementInfoMap)->put("TIFFField"_s, einfo);
+	this->elementInfoMap->put("TIFFField"_s, einfo);
 	$assign(ainfo, $new($TIFFAttrInfo));
 	ainfo->isRequired = true;
-	$nc(this->attrInfoMap)->put("TIFFField/number"_s, ainfo);
+	this->attrInfoMap->put("TIFFField/number"_s, ainfo);
 	$assign(ainfo, $new($TIFFAttrInfo));
-	$nc(this->attrInfoMap)->put("TIFFField/name"_s, ainfo);
+	this->attrInfoMap->put("TIFFField/name"_s, ainfo);
 }
 
 $IIOMetadataFormat* TIFFImageMetadataFormat::getInstance() {
-	$load(TIFFImageMetadataFormat);
+	$init(TIFFImageMetadataFormat);
 	$synchronized(class$) {
-		$init(TIFFImageMetadataFormat);
 		if (TIFFImageMetadataFormat::theInstance == nullptr) {
 			$assignStatic(TIFFImageMetadataFormat::theInstance, $new(TIFFImageMetadataFormat));
 		}
@@ -173,7 +145,7 @@ $IIOMetadataFormat* TIFFImageMetadataFormat::getInstance() {
 	}
 }
 
-void clinit$TIFFImageMetadataFormat($Class* class$) {
+void TIFFImageMetadataFormat::clinit$($Class* clazz) {
 	$assignStatic(TIFFImageMetadataFormat::theInstance, nullptr);
 	{
 	}
@@ -183,7 +155,27 @@ TIFFImageMetadataFormat::TIFFImageMetadataFormat() {
 }
 
 $Class* TIFFImageMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageMetadataFormat, name, initialize, &_TIFFImageMetadataFormat_ClassInfo_, clinit$TIFFImageMetadataFormat, allocate$TIFFImageMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(TIFFImageMetadataFormat, theInstance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TIFFImageMetadataFormat, init$, void)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TIFFImageMetadataFormat, getInstance, $IIOMetadataFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFImageMetadataFormat",
+		"com.sun.imageio.plugins.tiff.TIFFMetadataFormat",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageMetadataFormat, name, initialize, &classInfo$$, TIFFImageMetadataFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageMetadataFormat);
+	});
 	return class$;
 }
 

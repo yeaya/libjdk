@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelInstrument.h>
-
 #include <com/sun/media/sound/ModelChannelMixer.h>
 #include <com/sun/media/sound/ModelDirectedPlayer.h>
 #include <com/sun/media/sound/ModelDirector.h>
@@ -33,30 +32,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _ModelInstrument_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/midi/Soundbank;Ljavax/sound/midi/Patch;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljavax/sound/midi/Soundbank;Ljavax/sound/midi/Patch;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PROTECTED, $method(ModelInstrument, init$, void, $Soundbank*, $Patch*, $String*, $Class*)},
-	{"getChannelMixer", "(Ljavax/sound/midi/MidiChannel;Ljavax/sound/sampled/AudioFormat;)Lcom/sun/media/sound/ModelChannelMixer;", nullptr, $PUBLIC, $virtualMethod(ModelInstrument, getChannelMixer, $ModelChannelMixer*, $MidiChannel*, $AudioFormat*)},
-	{"getChannels", "()[Z", nullptr, $PUBLIC | $FINAL, $method(ModelInstrument, getChannels, $booleans*)},
-	{"getDirector", "([Lcom/sun/media/sound/ModelPerformer;Ljavax/sound/midi/MidiChannel;Lcom/sun/media/sound/ModelDirectedPlayer;)Lcom/sun/media/sound/ModelDirector;", nullptr, $PUBLIC, $virtualMethod(ModelInstrument, getDirector, $ModelDirector*, $ModelPerformerArray*, $MidiChannel*, $ModelDirectedPlayer*)},
-	{"getKeys", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ModelInstrument, getKeys, $StringArray*)},
-	{"getPatchAlias", "()Ljavax/sound/midi/Patch;", nullptr, $PUBLIC | $FINAL, $method(ModelInstrument, getPatchAlias, $Patch*)},
-	{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(ModelInstrument, getPerformers, $ModelPerformerArray*)},
-	{}
-};
-
-$ClassInfo _ModelInstrument_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.ModelInstrument",
-	"javax.sound.midi.Instrument",
-	nullptr,
-	nullptr,
-	_ModelInstrument_MethodInfo_
-};
-
-$Object* allocate$ModelInstrument($Class* clazz) {
-	return $of($alloc(ModelInstrument));
-}
-
 void ModelInstrument::init$($Soundbank* soundbank, $Patch* patch, $String* name, $Class* dataClass) {
 	$Instrument::init$(soundbank, patch, name, dataClass);
 }
@@ -74,7 +49,7 @@ $ModelChannelMixer* ModelInstrument::getChannelMixer($MidiChannel* channel, $Aud
 }
 
 $Patch* ModelInstrument::getPatchAlias() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Patch, patch, getPatch());
 	int32_t program = $nc(patch)->getProgram();
 	int32_t bank = patch->getBank();
@@ -83,7 +58,7 @@ $Patch* ModelInstrument::getPatchAlias() {
 	}
 	bool percussion = false;
 	if ($instanceOf($ModelPatch, $(getPatch()))) {
-		percussion = $nc(($cast($ModelPatch, $(getPatch()))))->isPercussion();
+		percussion = $$sure($ModelPatch, getPatch())->isPercussion();
 	}
 	if (percussion) {
 		return $new($Patch, 120 << 7, program);
@@ -93,23 +68,19 @@ $Patch* ModelInstrument::getPatchAlias() {
 }
 
 $StringArray* ModelInstrument::getKeys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, keys, $new($StringArray, 128));
 	{
 		$var($ModelPerformerArray, arr$, getPerformers());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModelPerformer, performer, arr$->get(i$));
-			{
-				for (int32_t k = $nc(performer)->getKeyFrom(); k <= performer->getKeyTo(); ++k) {
-					if (k >= 0 && k < 128 && keys->get(k) == nullptr) {
-						$var($String, name, performer->getName());
-						if (name == nullptr) {
-							$assign(name, "untitled"_s);
-						}
-						keys->set(k, name);
+			for (int32_t k = $nc(performer)->getKeyFrom(); k <= performer->getKeyTo(); ++k) {
+				if (k >= 0 && k < 128 && keys->get(k) == nullptr) {
+					$var($String, name, performer->getName());
+					if (name == nullptr) {
+						$assign(name, "untitled"_s);
 					}
+					keys->set(k, name);
 				}
 			}
 		}
@@ -118,10 +89,10 @@ $StringArray* ModelInstrument::getKeys() {
 }
 
 $booleans* ModelInstrument::getChannels() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool percussion = false;
 	if ($instanceOf($ModelPatch, $(getPatch()))) {
-		percussion = $nc(($cast($ModelPatch, $(getPatch()))))->isPercussion();
+		percussion = $$sure($ModelPatch, getPatch())->isPercussion();
 	}
 	if (percussion) {
 		$var($booleans, ch, $new($booleans, 16));
@@ -131,7 +102,7 @@ $booleans* ModelInstrument::getChannels() {
 		ch->set(9, true);
 		return ch;
 	}
-	int32_t bank = $nc($(getPatch()))->getBank();
+	int32_t bank = $$nc(getPatch())->getBank();
 	if (bank >> 7 == 120 || bank >> 7 == 121) {
 		$var($booleans, ch, $new($booleans, 16));
 		for (int32_t i = 0; i < ch->length; ++i) {
@@ -151,7 +122,27 @@ ModelInstrument::ModelInstrument() {
 }
 
 $Class* ModelInstrument::load$($String* name, bool initialize) {
-	$loadClass(ModelInstrument, name, initialize, &_ModelInstrument_ClassInfo_, allocate$ModelInstrument);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/midi/Soundbank;Ljavax/sound/midi/Patch;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljavax/sound/midi/Soundbank;Ljavax/sound/midi/Patch;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PROTECTED, $method(ModelInstrument, init$, void, $Soundbank*, $Patch*, $String*, $Class*)},
+		{"getChannelMixer", "(Ljavax/sound/midi/MidiChannel;Ljavax/sound/sampled/AudioFormat;)Lcom/sun/media/sound/ModelChannelMixer;", nullptr, $PUBLIC, $virtualMethod(ModelInstrument, getChannelMixer, $ModelChannelMixer*, $MidiChannel*, $AudioFormat*)},
+		{"getChannels", "()[Z", nullptr, $PUBLIC | $FINAL, $method(ModelInstrument, getChannels, $booleans*)},
+		{"getDirector", "([Lcom/sun/media/sound/ModelPerformer;Ljavax/sound/midi/MidiChannel;Lcom/sun/media/sound/ModelDirectedPlayer;)Lcom/sun/media/sound/ModelDirector;", nullptr, $PUBLIC, $virtualMethod(ModelInstrument, getDirector, $ModelDirector*, $ModelPerformerArray*, $MidiChannel*, $ModelDirectedPlayer*)},
+		{"getKeys", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ModelInstrument, getKeys, $StringArray*)},
+		{"getPatchAlias", "()Ljavax/sound/midi/Patch;", nullptr, $PUBLIC | $FINAL, $method(ModelInstrument, getPatchAlias, $Patch*)},
+		{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(ModelInstrument, getPerformers, $ModelPerformerArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.ModelInstrument",
+		"javax.sound.midi.Instrument",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModelInstrument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelInstrument);
+	});
 	return class$;
 }
 

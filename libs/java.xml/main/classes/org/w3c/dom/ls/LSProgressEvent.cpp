@@ -1,5 +1,4 @@
 #include <org/w3c/dom/ls/LSProgressEvent.h>
-
 #include <org/w3c/dom/ls/LSInput.h>
 #include <jcpp.h>
 
@@ -12,28 +11,24 @@ namespace org {
 		namespace dom {
 			namespace ls {
 
-$MethodInfo _LSProgressEvent_MethodInfo_[] = {
-	{"getInput", "()Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSProgressEvent, getInput, $LSInput*)},
-	{"getPosition", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSProgressEvent, getPosition, int32_t)},
-	{"getTotalSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSProgressEvent, getTotalSize, int32_t)},
-	{}
-};
-
-$ClassInfo _LSProgressEvent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.ls.LSProgressEvent",
-	nullptr,
-	"org.w3c.dom.events.Event",
-	nullptr,
-	_LSProgressEvent_MethodInfo_
-};
-
-$Object* allocate$LSProgressEvent($Class* clazz) {
-	return $of($alloc(LSProgressEvent));
-}
-
 $Class* LSProgressEvent::load$($String* name, bool initialize) {
-	$loadClass(LSProgressEvent, name, initialize, &_LSProgressEvent_ClassInfo_, allocate$LSProgressEvent);
+	$MethodInfo methodInfos$$[] = {
+		{"getInput", "()Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSProgressEvent, getInput, $LSInput*)},
+		{"getPosition", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSProgressEvent, getPosition, int32_t)},
+		{"getTotalSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSProgressEvent, getTotalSize, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.ls.LSProgressEvent",
+		nullptr,
+		"org.w3c.dom.events.Event",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LSProgressEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LSProgressEvent);
+	});
 	return class$;
 }
 

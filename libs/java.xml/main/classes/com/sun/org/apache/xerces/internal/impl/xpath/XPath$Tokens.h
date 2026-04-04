@@ -142,6 +142,7 @@ class XPath$Tokens : public ::java::lang::Object {
 	$class(XPath$Tokens, 0, ::java::lang::Object)
 public:
 	XPath$Tokens();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	void addToken($String* tokenStr);
 	void addToken(int32_t token);

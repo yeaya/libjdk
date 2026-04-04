@@ -25,6 +25,7 @@ class $export ExifParentTIFFTagSet : public ::javax::imageio::plugins::tiff::TIF
 	$class(ExifParentTIFFTagSet, 0, ::javax::imageio::plugins::tiff::TIFFTagSet)
 public:
 	ExifParentTIFFTagSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::imageio::plugins::tiff::ExifParentTIFFTagSet* getInstance();
 	static void initTags();

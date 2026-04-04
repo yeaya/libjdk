@@ -34,6 +34,7 @@ class $import WindowsRootPaneUI$AltProcessor : public ::java::awt::KeyEventPostP
 	$class(WindowsRootPaneUI$AltProcessor, 0, ::java::awt::KeyEventPostProcessor)
 public:
 	WindowsRootPaneUI$AltProcessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void altPressed(::java::awt::event::KeyEvent* ev);
 	virtual void altReleased(::java::awt::event::KeyEvent* ev);

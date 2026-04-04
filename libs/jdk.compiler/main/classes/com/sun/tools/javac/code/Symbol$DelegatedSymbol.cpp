@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$DelegatedSymbol.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -43,72 +42,8 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Symbol$DelegatedSymbol_FieldInfo_[] = {
-	{"other", "Lcom/sun/tools/javac/code/Symbol;", "TT;", $PROTECTED, $field(Symbol$DelegatedSymbol, other)},
-	{}
-};
-
-$MethodInfo _Symbol$DelegatedSymbol_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", "(TT;)V", $PUBLIC, $method(Symbol$DelegatedSymbol, init$, void, $Symbol*)},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
-	{"asMemberOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, asMemberOf, $Symbol*, $Type*, $Types*)},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, asType, $TypeMirror*)},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, baseSymbol, $Symbol*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, complete, void), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"enclClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, enclClass, $Symbol$ClassSymbol*)},
-	{"erasure", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, erasure, $Type*, $Types*)},
-	{"externalType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, externalType, $Type*, $Types*)},
-	{"flatName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, flatName, $Name*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, getAnnotationMirrors, $List*)},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, getEnclosingElement, $Element*)},
-	{"getQualifiedName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, getQualifiedName, $Name*)},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, getSimpleName, $1Name*)},
-	{"getUnderlyingSymbol", "()Lcom/sun/tools/javac/code/Symbol;", "()TT;", $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, getUnderlyingSymbol, $Symbol*)},
-	{"hasOuterInstance", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, hasOuterInstance, bool)},
-	{"isConstructor", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isConstructor, bool)},
-	{"isDirectlyOrIndirectlyLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isDirectlyOrIndirectlyLocal, bool)},
-	{"isEnclosedBy", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isEnclosedBy, bool, $Symbol$ClassSymbol*)},
-	{"isInheritedIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isInheritedIn, bool, $Symbol*, $Types*)},
-	{"isInner", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isInner, bool)},
-	{"isMemberOf", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isMemberOf, bool, $Symbol$TypeSymbol*, $Types*)},
-	{"isSubClass", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isSubClass, bool, $Symbol*, $Types*)},
-	{"location", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, location, $Symbol*)},
-	{"location", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, location, $Symbol*, $Type*, $Types*)},
-	{"members", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, members, $Scope$WriteableScope*)},
-	{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, outermostClass, $Symbol$ClassSymbol*)},
-	{"packge", "()Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, packge, $Symbol$PackageSymbol*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$DelegatedSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$DelegatedSymbol", "com.sun.tools.javac.code.Symbol", "DelegatedSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol$DelegatedSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$DelegatedSymbol",
-	"com.sun.tools.javac.code.Symbol",
-	nullptr,
-	_Symbol$DelegatedSymbol_FieldInfo_,
-	_Symbol$DelegatedSymbol_MethodInfo_,
-	"<T:Lcom/sun/tools/javac/code/Symbol;>Lcom/sun/tools/javac/code/Symbol;",
-	nullptr,
-	_Symbol$DelegatedSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$DelegatedSymbol($Class* clazz) {
-	return $of($alloc(Symbol$DelegatedSymbol));
-}
-
 void Symbol$DelegatedSymbol::init$($Symbol* other) {
-	$Symbol::init$($nc(other)->kind, other->flags_field, other->name, other->type, other->owner);
+	$Symbol::init$($nc(other)->kind, $nc(other)->flags_field, $nc(other)->name, $nc(other)->type, $nc(other)->owner);
 	$set(this, other, other);
 }
 
@@ -201,11 +136,11 @@ void Symbol$DelegatedSymbol::complete() {
 }
 
 $Object* Symbol$DelegatedSymbol::accept($ElementVisitor* v, Object$* p) {
-	return $of($nc(this->other)->accept(v, p));
+	return $nc(this->other)->accept(v, p);
 }
 
 $Object* Symbol$DelegatedSymbol::accept($Symbol$Visitor* v, Object$* p) {
-	return $of($nc(v)->visitSymbol(this->other, p));
+	return $nc(v)->visitSymbol(this->other, p);
 }
 
 $Symbol* Symbol$DelegatedSymbol::getUnderlyingSymbol() {
@@ -232,7 +167,65 @@ Symbol$DelegatedSymbol::Symbol$DelegatedSymbol() {
 }
 
 $Class* Symbol$DelegatedSymbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol$DelegatedSymbol, name, initialize, &_Symbol$DelegatedSymbol_ClassInfo_, allocate$Symbol$DelegatedSymbol);
+	$FieldInfo fieldInfos$$[] = {
+		{"other", "Lcom/sun/tools/javac/code/Symbol;", "TT;", $PROTECTED, $field(Symbol$DelegatedSymbol, other)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", "(TT;)V", $PUBLIC, $method(Symbol$DelegatedSymbol, init$, void, $Symbol*)},
+		{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
+		{"asMemberOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, asMemberOf, $Symbol*, $Type*, $Types*)},
+		{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, asType, $TypeMirror*)},
+		{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, baseSymbol, $Symbol*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, complete, void), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"enclClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, enclClass, $Symbol$ClassSymbol*)},
+		{"erasure", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, erasure, $Type*, $Types*)},
+		{"externalType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, externalType, $Type*, $Types*)},
+		{"flatName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, flatName, $Name*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, getAnnotationMirrors, $List*)},
+		{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, getEnclosingElement, $Element*)},
+		{"getQualifiedName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, getQualifiedName, $Name*)},
+		{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$DelegatedSymbol, getSimpleName, $1Name*)},
+		{"getUnderlyingSymbol", "()Lcom/sun/tools/javac/code/Symbol;", "()TT;", $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, getUnderlyingSymbol, $Symbol*)},
+		{"hasOuterInstance", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, hasOuterInstance, bool)},
+		{"isConstructor", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isConstructor, bool)},
+		{"isDirectlyOrIndirectlyLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isDirectlyOrIndirectlyLocal, bool)},
+		{"isEnclosedBy", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isEnclosedBy, bool, $Symbol$ClassSymbol*)},
+		{"isInheritedIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isInheritedIn, bool, $Symbol*, $Types*)},
+		{"isInner", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isInner, bool)},
+		{"isMemberOf", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isMemberOf, bool, $Symbol$TypeSymbol*, $Types*)},
+		{"isSubClass", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, isSubClass, bool, $Symbol*, $Types*)},
+		{"location", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, location, $Symbol*)},
+		{"location", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, location, $Symbol*, $Type*, $Types*)},
+		{"members", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, members, $Scope$WriteableScope*)},
+		{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, outermostClass, $Symbol$ClassSymbol*)},
+		{"packge", "()Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, packge, $Symbol$PackageSymbol*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$DelegatedSymbol, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$DelegatedSymbol", "com.sun.tools.javac.code.Symbol", "DelegatedSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$DelegatedSymbol",
+		"com.sun.tools.javac.code.Symbol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Lcom/sun/tools/javac/code/Symbol;>Lcom/sun/tools/javac/code/Symbol;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$DelegatedSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$DelegatedSymbol));
+	});
 	return class$;
 }
 

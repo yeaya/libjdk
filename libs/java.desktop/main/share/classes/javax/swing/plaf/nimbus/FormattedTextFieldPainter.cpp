@@ -1,18 +1,15 @@
 #include <javax/swing/plaf/nimbus/FormattedTextFieldPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -30,13 +27,11 @@ using $Color = ::java::awt::Color;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -51,85 +46,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _FormattedTextFieldPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BACKGROUND_SELECTED)},
-	{"BORDER_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BORDER_DISABLED)},
-	{"BORDER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BORDER_FOCUSED)},
-	{"BORDER_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BORDER_ENABLED)},
-	{"state", "I", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color12)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _FormattedTextFieldPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(FormattedTextFieldPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodePath1, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect10", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect10, $Rectangle2D*)},
-	{"decodeRect11", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect11, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect3, $Rectangle2D*)},
-	{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect4, $Rectangle2D*)},
-	{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect5, $Rectangle2D*)},
-	{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect6, $Rectangle2D*)},
-	{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect7, $Rectangle2D*)},
-	{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect8, $Rectangle2D*)},
-	{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect9, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(FormattedTextFieldPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(FormattedTextFieldPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormattedTextFieldPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBackgroundSelected, void, $Graphics2D*)},
-	{"paintBorderDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBorderDisabled, void, $Graphics2D*)},
-	{"paintBorderEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBorderEnabled, void, $Graphics2D*)},
-	{"paintBorderFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBorderFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _FormattedTextFieldPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.FormattedTextFieldPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_FormattedTextFieldPainter_FieldInfo_,
-	_FormattedTextFieldPainter_MethodInfo_
-};
-
-$Object* allocate$FormattedTextFieldPainter($Class* clazz) {
-	return $of($alloc(FormattedTextFieldPainter));
-}
-
 void FormattedTextFieldPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, -0.015872955f, -0.07995863f, 0.15294117f, 0));
 	$set(this, color2, decodeColor("nimbusLightBackground"_s, 0.0f, 0.0f, 0.0f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, -0.006944418f, -0.07187897f, 0.06666666f, 0));
@@ -150,63 +72,45 @@ void FormattedTextFieldPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t 
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case FormattedTextFieldPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case FormattedTextFieldPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case FormattedTextFieldPainter::BACKGROUND_SELECTED:
-		{
-			paintBackgroundSelected(g);
-			break;
-		}
+		paintBackgroundSelected(g);
+		break;
 	case FormattedTextFieldPainter::BORDER_DISABLED:
-		{
-			paintBorderDisabled(g);
-			break;
-		}
+		paintBorderDisabled(g);
+		break;
 	case FormattedTextFieldPainter::BORDER_FOCUSED:
-		{
-			paintBorderFocused(g);
-			break;
-		}
+		paintBorderFocused(g);
+		break;
 	case FormattedTextFieldPainter::BORDER_ENABLED:
-		{
-			paintBorderEnabled(g);
-			break;
-		}
+		paintBorderEnabled(g);
+		break;
 	}
 }
 
 $ObjectArray* FormattedTextFieldPainter::getExtendedCacheKeys($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, extendedCacheKeys, nullptr);
 	switch (this->state) {
 	case FormattedTextFieldPainter::BACKGROUND_ENABLED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {$($of(getComponentColor(c, "background"_s, this->color2, 0.0f, 0.0f, 0)))}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {$(getComponentColor(c, "background"_s, this->color2, 0.0f, 0.0f, 0))}));
+		break;
 	case FormattedTextFieldPainter::BORDER_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color9, 0.004901961f, -0.19999999f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color2, 0.0f, 0.0f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color9, 0.004901961f, -0.19999999f, 0)),
+			$(getComponentColor(c, "background"_s, this->color2, 0.0f, 0.0f, 0))
+		}));
+		break;
 	case FormattedTextFieldPainter::BORDER_ENABLED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color9, 0.004901961f, -0.19999999f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color2, 0.0f, 0.0f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color9, 0.004901961f, -0.19999999f, 0)),
+			$(getComponentColor(c, "background"_s, this->color2, 0.0f, 0.0f, 0))
+		}));
+		break;
 	}
 	return extendedCacheKeys;
 }
@@ -234,7 +138,7 @@ void FormattedTextFieldPainter::paintBackgroundSelected($Graphics2D* g) {
 }
 
 void FormattedTextFieldPainter::paintBorderDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect2());
 	$nc(g)->setPaint($(decodeGradient1(this->rect)));
 	g->fill(this->rect);
@@ -253,7 +157,7 @@ void FormattedTextFieldPainter::paintBorderDisabled($Graphics2D* g) {
 }
 
 void FormattedTextFieldPainter::paintBorderFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect7());
 	$nc(g)->setPaint($(decodeGradient3(this->rect)));
 	g->fill(this->rect);
@@ -275,7 +179,7 @@ void FormattedTextFieldPainter::paintBorderFocused($Graphics2D* g) {
 }
 
 void FormattedTextFieldPainter::paintBorderEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect7());
 	$nc(g)->setPaint($(decodeGradient5(this->rect)));
 	g->fill(this->rect);
@@ -294,110 +198,110 @@ void FormattedTextFieldPainter::paintBorderEnabled($Graphics2D* g) {
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect1() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.4f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect2() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.3333333f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.4f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect3() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect4() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(1.0f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect5() {
-	double var$0 = (double)decodeX(0.6666667f);
-	double var$1 = (double)decodeY(2.3333333f);
+	double var$0 = decodeX(0.6666667f);
+	double var$1 = decodeY(2.3333333f);
 	float var$3 = decodeX(2.3333333f);
-	double var$2 = (double)(var$3 - decodeX(0.6666667f));
+	double var$2 = var$3 - decodeX(0.6666667f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.3333333f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect6() {
-	double var$0 = (double)decodeX(2.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(2.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.3333333f);
-	double var$2 = (double)(var$3 - decodeX(2.0f));
+	double var$2 = var$3 - decodeX(2.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect7() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.4f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect8() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect9() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(0.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect10() {
-	double var$0 = (double)decodeX(2.4f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(2.4f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(2.4f));
+	double var$2 = var$3 - decodeX(2.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* FormattedTextFieldPainter::decodeRect11() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(2.4f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(2.4f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.4f));
 	return this->rect;
@@ -405,42 +309,42 @@ $Rectangle2D* FormattedTextFieldPainter::decodeRect11() {
 
 $Path2D* FormattedTextFieldPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.4f);
+	double var$0 = decodeX(0.4f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.4f));
-	double var$1 = (double)decodeX(0.4f);
+	double var$1 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.6f));
-	double var$2 = (double)decodeX(2.6f);
+	double var$2 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.6f));
-	double var$3 = (double)decodeX(2.6f);
+	double var$3 = decodeX(2.6f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.4f));
-	double var$4 = (double)decodeAnchorX(2.6f, 0.0f);
-	double var$5 = (double)decodeAnchorY(0.4f, 0.0f);
-	double var$6 = (double)decodeAnchorX(2.8800004f, 0.1f);
-	double var$7 = (double)decodeAnchorY(0.4f, 0.0f);
-	double var$8 = (double)decodeX(2.8800004f);
+	double var$4 = decodeAnchorX(2.6f, 0.0f);
+	double var$5 = decodeAnchorY(0.4f, 0.0f);
+	double var$6 = decodeAnchorX(2.8800004f, 0.1f);
+	double var$7 = decodeAnchorY(0.4f, 0.0f);
+	double var$8 = decodeX(2.8800004f);
 	$nc(this->path)->curveTo(var$4, var$5, var$6, var$7, var$8, decodeY(0.4f));
-	double var$9 = (double)decodeAnchorX(2.8800004f, 0.1f);
-	double var$10 = (double)decodeAnchorY(0.4f, 0.0f);
-	double var$11 = (double)decodeAnchorX(2.8800004f, 0.0f);
-	double var$12 = (double)decodeAnchorY(2.8799999f, 0.0f);
-	double var$13 = (double)decodeX(2.8800004f);
+	double var$9 = decodeAnchorX(2.8800004f, 0.1f);
+	double var$10 = decodeAnchorY(0.4f, 0.0f);
+	double var$11 = decodeAnchorX(2.8800004f, 0.0f);
+	double var$12 = decodeAnchorY(2.8799999f, 0.0f);
+	double var$13 = decodeX(2.8800004f);
 	$nc(this->path)->curveTo(var$9, var$10, var$11, var$12, var$13, decodeY(2.8799999f));
-	double var$14 = (double)decodeX(0.120000005f);
+	double var$14 = decodeX(0.120000005f);
 	$nc(this->path)->lineTo(var$14, decodeY(2.8799999f));
-	double var$15 = (double)decodeX(0.120000005f);
+	double var$15 = decodeX(0.120000005f);
 	$nc(this->path)->lineTo(var$15, decodeY(0.120000005f));
-	double var$16 = (double)decodeX(2.8800004f);
+	double var$16 = decodeX(2.8800004f);
 	$nc(this->path)->lineTo(var$16, decodeY(0.120000005f));
-	double var$17 = (double)decodeX(2.8800004f);
+	double var$17 = decodeX(2.8800004f);
 	$nc(this->path)->lineTo(var$17, decodeY(0.4f));
-	double var$18 = (double)decodeX(0.4f);
+	double var$18 = decodeX(0.4f);
 	$nc(this->path)->lineTo(var$18, decodeY(0.4f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* FormattedTextFieldPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -458,7 +362,7 @@ $Paint* FormattedTextFieldPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* FormattedTextFieldPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -476,7 +380,7 @@ $Paint* FormattedTextFieldPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* FormattedTextFieldPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -494,7 +398,7 @@ $Paint* FormattedTextFieldPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* FormattedTextFieldPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -512,7 +416,7 @@ $Paint* FormattedTextFieldPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* FormattedTextFieldPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -533,7 +437,75 @@ FormattedTextFieldPainter::FormattedTextFieldPainter() {
 }
 
 $Class* FormattedTextFieldPainter::load$($String* name, bool initialize) {
-	$loadClass(FormattedTextFieldPainter, name, initialize, &_FormattedTextFieldPainter_ClassInfo_, allocate$FormattedTextFieldPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BACKGROUND_SELECTED)},
+		{"BORDER_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BORDER_DISABLED)},
+		{"BORDER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BORDER_FOCUSED)},
+		{"BORDER_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(FormattedTextFieldPainter, BORDER_ENABLED)},
+		{"state", "I", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, color12)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(FormattedTextFieldPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(FormattedTextFieldPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodePath1, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect10", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect10, $Rectangle2D*)},
+		{"decodeRect11", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect11, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect3, $Rectangle2D*)},
+		{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect4, $Rectangle2D*)},
+		{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect5, $Rectangle2D*)},
+		{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect6, $Rectangle2D*)},
+		{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect7, $Rectangle2D*)},
+		{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect8, $Rectangle2D*)},
+		{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, decodeRect9, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(FormattedTextFieldPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(FormattedTextFieldPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormattedTextFieldPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBackgroundSelected, void, $Graphics2D*)},
+		{"paintBorderDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBorderDisabled, void, $Graphics2D*)},
+		{"paintBorderEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBorderEnabled, void, $Graphics2D*)},
+		{"paintBorderFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(FormattedTextFieldPainter, paintBorderFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.FormattedTextFieldPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FormattedTextFieldPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormattedTextFieldPainter);
+	});
 	return class$;
 }
 

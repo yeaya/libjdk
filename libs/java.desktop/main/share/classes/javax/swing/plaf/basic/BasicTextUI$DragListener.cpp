@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextUI$DragListener.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/MouseEvent.h>
@@ -7,7 +6,6 @@
 #include <java/util/EventObject.h>
 #include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
-#include <javax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag.h>
 #include <javax/swing/plaf/basic/DragRecognitionSupport.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -22,7 +20,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $DragRecognitionSupport = ::javax::swing::plaf::basic::DragRecognitionSupport;
-using $DragRecognitionSupport$BeforeDrag = ::javax::swing::plaf::basic::DragRecognitionSupport$BeforeDrag;
 using $Caret = ::javax::swing::text::Caret;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 
@@ -30,52 +27,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTextUI$DragListener_FieldInfo_[] = {
-	{"dragStarted", "Z", nullptr, $PRIVATE, $field(BasicTextUI$DragListener, dragStarted)},
-	{}
-};
-
-$MethodInfo _BasicTextUI$DragListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicTextUI$DragListener, init$, void)},
-	{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, dragStarting, void, $MouseEvent*)},
-	{"isDragPossible", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$DragListener, isDragPossible, bool, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, mouseDragged, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, mouseReleased, void, $MouseEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTextUI$DragListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextUI$DragListener", "javax.swing.plaf.basic.BasicTextUI", "DragListener", $STATIC},
-	{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _BasicTextUI$DragListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextUI$DragListener",
-	"javax.swing.event.MouseInputAdapter",
-	"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
-	_BasicTextUI$DragListener_FieldInfo_,
-	_BasicTextUI$DragListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextUI$DragListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextUI"
-};
-
-$Object* allocate$BasicTextUI$DragListener($Class* clazz) {
-	return $of($alloc(BasicTextUI$DragListener));
-}
 
 int32_t BasicTextUI$DragListener::hashCode() {
 	 return this->$MouseInputAdapter::hashCode();
@@ -136,7 +87,7 @@ void BasicTextUI$DragListener::mouseDragged($MouseEvent* e) {
 }
 
 bool BasicTextUI$DragListener::isDragPossible($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, c, $cast($JTextComponent, $nc(e)->getSource()));
 	if ($nc(c)->isEnabled()) {
 		$var($Caret, caret, c->getCaret());
@@ -160,7 +111,47 @@ BasicTextUI$DragListener::BasicTextUI$DragListener() {
 }
 
 $Class* BasicTextUI$DragListener::load$($String* name, bool initialize) {
-	$loadClass(BasicTextUI$DragListener, name, initialize, &_BasicTextUI$DragListener_ClassInfo_, allocate$BasicTextUI$DragListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"dragStarted", "Z", nullptr, $PRIVATE, $field(BasicTextUI$DragListener, dragStarted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicTextUI$DragListener, init$, void)},
+		{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, dragStarting, void, $MouseEvent*)},
+		{"isDragPossible", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$DragListener, isDragPossible, bool, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, mouseDragged, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextUI$DragListener, mouseReleased, void, $MouseEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextUI$DragListener", "javax.swing.plaf.basic.BasicTextUI", "DragListener", $STATIC},
+		{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextUI$DragListener",
+		"javax.swing.event.MouseInputAdapter",
+		"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextUI"
+	};
+	$loadClass(BasicTextUI$DragListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextUI$DragListener));
+	});
 	return class$;
 }
 

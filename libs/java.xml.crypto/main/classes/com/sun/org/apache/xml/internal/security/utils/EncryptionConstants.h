@@ -139,6 +139,7 @@ class EncryptionConstants : public ::java::lang::Object {
 	$class(EncryptionConstants, 0, ::java::lang::Object)
 public:
 	EncryptionConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* _ATT_ALGORITHM;
 	static $String* _ATT_ID;

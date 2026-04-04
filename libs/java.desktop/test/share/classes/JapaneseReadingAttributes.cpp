@@ -1,5 +1,4 @@
 #include <JapaneseReadingAttributes.h>
-
 #include <JapaneseReadingAttributes$1.h>
 #include <JapaneseReadingAttributes$2.h>
 #include <java/awt/BorderLayout.h>
@@ -7,12 +6,10 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/InputMethodListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
@@ -56,14 +53,10 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $InputMethodListener = ::java::awt::event::InputMethodListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -92,27 +85,24 @@ public:
 	virtual void run() override {
 		JapaneseReadingAttributes::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JapaneseReadingAttributes$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JapaneseReadingAttributes$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo JapaneseReadingAttributes$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JapaneseReadingAttributes$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JapaneseReadingAttributes$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JapaneseReadingAttributes$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseReadingAttributes$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* JapaneseReadingAttributes$$Lambda$lambda$main$0::class$ = nullptr;
@@ -127,35 +117,31 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		JapaneseReadingAttributes::lambda$setupUI$1(btnStartTest, btnCancelTest, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1>());
-	}
 	$JButton* btnStartTest = nullptr;
 	$JButton* btnCancelTest = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1::fieldInfos[3] = {
-	{"btnStartTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, btnStartTest)},
-	{"btnCancelTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, btnCancelTest)},
-	{}
-};
-$MethodInfo JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JButton;Ljavax/swing/JButton;)V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, init$, void, $JButton*, $JButton*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1::load$($String* name, bool initialize) {
-	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"btnStartTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, btnStartTest)},
+		{"btnCancelTest", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, btnCancelTest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JButton;Ljavax/swing/JButton;)V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, init$, void, $JButton*, $JButton*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1);
+	});
 	return class$;
 }
 $Class* JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1::class$ = nullptr;
@@ -168,27 +154,24 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		JapaneseReadingAttributes::lambda$setupUI$2(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	methodInfos
 };
 $Class* JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2::load$($String* name, bool initialize) {
-	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2);
+	});
 	return class$;
 }
 $Class* JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2::class$ = nullptr;
@@ -201,27 +184,24 @@ public:
 	virtual void run() override {
 		JapaneseReadingAttributes::lambda$performTasks$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3, run, void)},
-	{}
-};
-$ClassInfo JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3::load$($String* name, bool initialize) {
-	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3);
+	});
 	return class$;
 }
 $Class* JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3::class$ = nullptr;
@@ -234,85 +214,27 @@ public:
 	virtual void run() override {
 		JapaneseReadingAttributes::lambda$performTasks$4();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4, run, void)},
-	{}
-};
-$ClassInfo JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4::load$($String* name, bool initialize) {
-	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4);
+	});
 	return class$;
 }
 $Class* JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4::class$ = nullptr;
-
-$FieldInfo _JapaneseReadingAttributes_FieldInfo_[] = {
-	{"testPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, testPassed)},
-	{"startTest", "Z", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, startTest)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, frame)},
-	{"lblTestStatus", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, lblTestStatus)},
-	{"textFieldMain", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, textFieldMain)},
-	{"textFieldReading", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, textFieldReading)},
-	{"testResult", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, testResult)},
-	{"readingPass1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, readingPass1)},
-	{"readingPass2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, readingPass2)},
-	{"testStartLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JapaneseReadingAttributes, testStartLatch)},
-	{}
-};
-
-$MethodInfo _JapaneseReadingAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes, init$, void)},
-	{"enterInput", "(Ljava/awt/Robot;Ljava/util/ArrayList;)V", "(Ljava/awt/Robot;Ljava/util/ArrayList<Ljava/lang/Integer;>;)V", $PRIVATE | $STATIC, $staticMethod(JapaneseReadingAttributes, enterInput, void, $Robot*, $ArrayList*)},
-	{"glyphTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JapaneseReadingAttributes, glyphTest, void), "java.lang.Exception"},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$main$0, void)},
-	{"lambda$performTasks$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$performTasks$3, void)},
-	{"lambda$performTasks$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$performTasks$4, void)},
-	{"lambda$setupUI$1", "(Ljavax/swing/JButton;Ljavax/swing/JButton;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$setupUI$1, void, $JButton*, $JButton*, $ActionEvent*)},
-	{"lambda$setupUI$2", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$setupUI$2, void, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseReadingAttributes, main, void, $StringArray*), "java.lang.Exception"},
-	{"performTasks", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseReadingAttributes, performTasks, void, $Robot*), "java.lang.Exception"},
-	{"setTaskStatus", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseReadingAttributes, setTaskStatus, bool, $String*, int32_t)},
-	{"setupUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JapaneseReadingAttributes, setupUI, void)},
-	{}
-};
-
-$InnerClassInfo _JapaneseReadingAttributes_InnerClassesInfo_[] = {
-	{"JapaneseReadingAttributes$2", nullptr, nullptr, 0},
-	{"JapaneseReadingAttributes$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JapaneseReadingAttributes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JapaneseReadingAttributes",
-	"java.lang.Object",
-	nullptr,
-	_JapaneseReadingAttributes_FieldInfo_,
-	_JapaneseReadingAttributes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JapaneseReadingAttributes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JapaneseReadingAttributes$2,JapaneseReadingAttributes$1"
-};
-
-$Object* allocate$JapaneseReadingAttributes($Class* clazz) {
-	return $of($alloc(JapaneseReadingAttributes));
-}
 
 bool JapaneseReadingAttributes::testPassed = false;
 bool JapaneseReadingAttributes::startTest = false;
@@ -330,8 +252,8 @@ void JapaneseReadingAttributes::init$() {
 
 void JapaneseReadingAttributes::main($StringArray* args) {
 	$init(JapaneseReadingAttributes);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JapaneseReadingAttributes$$Lambda$lambda$main$0)));
-	$nc(JapaneseReadingAttributes::testStartLatch)->await();
+	$SwingUtilities::invokeAndWait($$new(JapaneseReadingAttributes$$Lambda$lambda$main$0));
+	JapaneseReadingAttributes::testStartLatch->await();
 	if (JapaneseReadingAttributes::startTest) {
 		glyphTest();
 		$nc(JapaneseReadingAttributes::frame)->dispose();
@@ -347,36 +269,35 @@ void JapaneseReadingAttributes::main($StringArray* args) {
 
 void JapaneseReadingAttributes::setupUI() {
 	$init(JapaneseReadingAttributes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, " 1. Go to \"Language Preferences -> Add a Language\" and add \"Japanese\"\n 2. Set current IM to \"Japanese\" and IME option to \"Full width Katakana\" \n 3. Try typing in the text field to ensure that Japanese IME has been successfully selected \n 4. Now click on \"Start Test\" button \n"_s);
 	$var($String, title, "Reading Attributes test Japanese IME (Windows)"_s);
 	$assignStatic(JapaneseReadingAttributes::frame, $new($JFrame, title));
-	$var($JPanel, mainPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$var($JPanel, textEditPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
+	$var($JPanel, mainPanel, $new($JPanel, $$new($BorderLayout)));
+	$var($JPanel, textEditPanel, $new($JPanel, $$new($FlowLayout)));
 	$assignStatic(JapaneseReadingAttributes::textFieldMain, $new($JTextField, 20));
 	$assignStatic(JapaneseReadingAttributes::textFieldReading, $new($JTextField, 20));
-	$nc(JapaneseReadingAttributes::textFieldReading)->setEditable(false);
-	textEditPanel->add(static_cast<$Component*>(JapaneseReadingAttributes::textFieldMain));
-	textEditPanel->add(static_cast<$Component*>(JapaneseReadingAttributes::textFieldReading));
-	$init($BorderLayout);
-	mainPanel->add(static_cast<$Component*>(textEditPanel), $of($BorderLayout::CENTER));
+	JapaneseReadingAttributes::textFieldReading->setEditable(false);
+	textEditPanel->add(JapaneseReadingAttributes::textFieldMain);
+	textEditPanel->add(JapaneseReadingAttributes::textFieldReading);
+	mainPanel->add(textEditPanel, $BorderLayout::CENTER);
 	$var($JTextArea, textArea, $new($JTextArea, description));
 	textArea->setEditable(false);
 	$var($JButton, btnStartTest, $new($JButton, "Start Test"_s));
 	$var($JButton, btnCancelTest, $new($JButton, "Cancel Test"_s));
-	btnStartTest->addActionListener(static_cast<$ActionListener*>($$new(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, btnStartTest, btnCancelTest)));
-	btnCancelTest->addActionListener(static_cast<$ActionListener*>($$new(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2)));
-	mainPanel->add(static_cast<$Component*>(textArea), $of($BorderLayout::NORTH));
-	$var($JPanel, buttonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
-	buttonPanel->add(static_cast<$Component*>(btnStartTest));
-	buttonPanel->add(static_cast<$Component*>(btnCancelTest));
-	mainPanel->add(static_cast<$Component*>(buttonPanel), $of($BorderLayout::SOUTH));
+	btnStartTest->addActionListener($$new(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1, btnStartTest, btnCancelTest));
+	btnCancelTest->addActionListener($$new(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2));
+	mainPanel->add(textArea, $BorderLayout::NORTH);
+	$var($JPanel, buttonPanel, $new($JPanel, $$new($FlowLayout)));
+	buttonPanel->add(btnStartTest);
+	buttonPanel->add(btnCancelTest);
+	mainPanel->add(buttonPanel, $BorderLayout::SOUTH);
 	$assignStatic(JapaneseReadingAttributes::lblTestStatus, $new($JLabel, ""_s));
-	$nc(JapaneseReadingAttributes::lblTestStatus)->setMinimumSize($$new($Dimension, 250, 20));
+	JapaneseReadingAttributes::lblTestStatus->setMinimumSize($$new($Dimension, 250, 20));
 	$nc(JapaneseReadingAttributes::lblTestStatus)->setPreferredSize($$new($Dimension, 250, 20));
 	$nc(JapaneseReadingAttributes::lblTestStatus)->setVisible(true);
-	textEditPanel->add(static_cast<$Component*>(JapaneseReadingAttributes::lblTestStatus));
-	$nc(JapaneseReadingAttributes::frame)->add(static_cast<$Component*>(mainPanel));
+	textEditPanel->add(JapaneseReadingAttributes::lblTestStatus);
+	$nc(JapaneseReadingAttributes::frame)->add(mainPanel);
 	$nc(JapaneseReadingAttributes::frame)->setDefaultCloseOperation($WindowConstants::EXIT_ON_CLOSE);
 	$nc(JapaneseReadingAttributes::frame)->pack();
 	$nc(JapaneseReadingAttributes::frame)->setLocationRelativeTo(nullptr);
@@ -393,7 +314,7 @@ void JapaneseReadingAttributes::glyphTest() {
 
 void JapaneseReadingAttributes::performTasks($Robot* robotForKeyInput) {
 	$init(JapaneseReadingAttributes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(JapaneseReadingAttributes::lblTestStatus)->setText("Running Tests.."_s);
 	$nc(robotForKeyInput)->setAutoDelay(500);
 	$var($ArrayList, keyCodesToUse, $new($ArrayList));
@@ -414,11 +335,11 @@ void JapaneseReadingAttributes::performTasks($Robot* robotForKeyInput) {
 	$nc(JapaneseReadingAttributes::textFieldMain)->requestFocusInWindow();
 	robotForKeyInput->waitForIdle();
 	enterInput(robotForKeyInput, keyCodesToUse);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3)));
+	$SwingUtilities::invokeAndWait($$new(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3));
 	if (setTaskStatus(JapaneseReadingAttributes::readingPass1, 1)) {
 		keyCodesToUse->remove($($Integer::valueOf($KeyEvent::VK_ENTER)));
 		enterInput(robotForKeyInput, keyCodesToUse);
-		$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4)));
+		$SwingUtilities::invokeAndWait($$new(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4));
 		if (setTaskStatus(JapaneseReadingAttributes::readingPass2, 2)) {
 			if ($nc(JapaneseReadingAttributes::readingPass1)->equals(JapaneseReadingAttributes::readingPass2)) {
 				JapaneseReadingAttributes::testPassed = true;
@@ -433,13 +354,13 @@ void JapaneseReadingAttributes::performTasks($Robot* robotForKeyInput) {
 
 void JapaneseReadingAttributes::enterInput($Robot* robotKeyInput, $ArrayList* keyInputs) {
 	$init(JapaneseReadingAttributes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(JapaneseReadingAttributes::textFieldReading)->setText(""_s);
 	$nc(JapaneseReadingAttributes::textFieldMain)->setText(""_s);
 	$var($String, strKeyInput, "KeyPress=>"_s);
 	int32_t nOfKeyInputs = $nc(keyInputs)->size();
 	for (int32_t i = 0; i < nOfKeyInputs; ++i) {
-		int32_t keyToUse = $nc(($cast($Integer, $(keyInputs->get(i)))))->intValue();
+		int32_t keyToUse = $$sure($Integer, keyInputs->get(i))->intValue();
 		$nc(robotKeyInput)->keyPress(keyToUse);
 		robotKeyInput->keyRelease(keyToUse);
 		$plusAssign(strKeyInput, $$str({($($Integer::toHexString(keyToUse))), ":"_s}));
@@ -449,7 +370,7 @@ void JapaneseReadingAttributes::enterInput($Robot* robotKeyInput, $ArrayList* ke
 
 bool JapaneseReadingAttributes::setTaskStatus($String* readingValue, int32_t passCount) {
 	$init(JapaneseReadingAttributes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool status = false;
 	if (!$nc(readingValue)->isEmpty()) {
 		$assignStatic(JapaneseReadingAttributes::testResult, $str({"Attribute : "_s, readingValue, "read from pass "_s, $($Integer::toString(passCount))}));
@@ -474,7 +395,7 @@ void JapaneseReadingAttributes::lambda$performTasks$3() {
 void JapaneseReadingAttributes::lambda$setupUI$2($ActionEvent* e) {
 	$init(JapaneseReadingAttributes);
 	$nc(JapaneseReadingAttributes::frame)->dispose();
-	$nc(JapaneseReadingAttributes::testStartLatch)->countDown();
+	JapaneseReadingAttributes::testStartLatch->countDown();
 }
 
 void JapaneseReadingAttributes::lambda$setupUI$1($JButton* btnStartTest, $JButton* btnCancelTest, $ActionEvent* e) {
@@ -482,7 +403,7 @@ void JapaneseReadingAttributes::lambda$setupUI$1($JButton* btnStartTest, $JButto
 	$nc(btnStartTest)->setEnabled(false);
 	$nc(btnCancelTest)->setEnabled(false);
 	JapaneseReadingAttributes::startTest = true;
-	$nc(JapaneseReadingAttributes::testStartLatch)->countDown();
+	JapaneseReadingAttributes::testStartLatch->countDown();
 }
 
 void JapaneseReadingAttributes::lambda$main$0() {
@@ -490,7 +411,7 @@ void JapaneseReadingAttributes::lambda$main$0() {
 	setupUI();
 }
 
-void clinit$JapaneseReadingAttributes($Class* class$) {
+void JapaneseReadingAttributes::clinit$($Class* clazz) {
 	JapaneseReadingAttributes::testPassed = false;
 	JapaneseReadingAttributes::startTest = false;
 	$assignStatic(JapaneseReadingAttributes::frame, nullptr);
@@ -505,23 +426,72 @@ JapaneseReadingAttributes::JapaneseReadingAttributes() {
 
 $Class* JapaneseReadingAttributes::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JapaneseReadingAttributes$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("JapaneseReadingAttributes$$Lambda$lambda$main$0")) {
 			return JapaneseReadingAttributes$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1::classInfo$.name)) {
+		if (name->equals("JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1")) {
 			return JapaneseReadingAttributes$$Lambda$lambda$setupUI$1$1::load$(name, initialize);
 		}
-		if (name->equals(JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2::classInfo$.name)) {
+		if (name->equals("JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2")) {
 			return JapaneseReadingAttributes$$Lambda$lambda$setupUI$2$2::load$(name, initialize);
 		}
-		if (name->equals(JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3::classInfo$.name)) {
+		if (name->equals("JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3")) {
 			return JapaneseReadingAttributes$$Lambda$lambda$performTasks$3$3::load$(name, initialize);
 		}
-		if (name->equals(JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4::classInfo$.name)) {
+		if (name->equals("JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4")) {
 			return JapaneseReadingAttributes$$Lambda$lambda$performTasks$4$4::load$(name, initialize);
 		}
 	}
-	$loadClass(JapaneseReadingAttributes, name, initialize, &_JapaneseReadingAttributes_ClassInfo_, clinit$JapaneseReadingAttributes, allocate$JapaneseReadingAttributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"testPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, testPassed)},
+		{"startTest", "Z", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, startTest)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, frame)},
+		{"lblTestStatus", "Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, lblTestStatus)},
+		{"textFieldMain", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, textFieldMain)},
+		{"textFieldReading", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, textFieldReading)},
+		{"testResult", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, testResult)},
+		{"readingPass1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, readingPass1)},
+		{"readingPass2", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JapaneseReadingAttributes, readingPass2)},
+		{"testStartLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JapaneseReadingAttributes, testStartLatch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseReadingAttributes, init$, void)},
+		{"enterInput", "(Ljava/awt/Robot;Ljava/util/ArrayList;)V", "(Ljava/awt/Robot;Ljava/util/ArrayList<Ljava/lang/Integer;>;)V", $PRIVATE | $STATIC, $staticMethod(JapaneseReadingAttributes, enterInput, void, $Robot*, $ArrayList*)},
+		{"glyphTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JapaneseReadingAttributes, glyphTest, void), "java.lang.Exception"},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$main$0, void)},
+		{"lambda$performTasks$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$performTasks$3, void)},
+		{"lambda$performTasks$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$performTasks$4, void)},
+		{"lambda$setupUI$1", "(Ljavax/swing/JButton;Ljavax/swing/JButton;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$setupUI$1, void, $JButton*, $JButton*, $ActionEvent*)},
+		{"lambda$setupUI$2", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JapaneseReadingAttributes, lambda$setupUI$2, void, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseReadingAttributes, main, void, $StringArray*), "java.lang.Exception"},
+		{"performTasks", "(Ljava/awt/Robot;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseReadingAttributes, performTasks, void, $Robot*), "java.lang.Exception"},
+		{"setTaskStatus", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseReadingAttributes, setTaskStatus, bool, $String*, int32_t)},
+		{"setupUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JapaneseReadingAttributes, setupUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JapaneseReadingAttributes$2", nullptr, nullptr, 0},
+		{"JapaneseReadingAttributes$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JapaneseReadingAttributes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JapaneseReadingAttributes$2,JapaneseReadingAttributes$1"
+	};
+	$loadClass(JapaneseReadingAttributes, name, initialize, &classInfo$$, JapaneseReadingAttributes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseReadingAttributes);
+	});
 	return class$;
 }
 

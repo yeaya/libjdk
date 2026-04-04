@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$FileChooserUIAccessor.h>
-
 #include <java/awt/event/MouseListener.h>
 #include <java/io/File.h>
 #include <javax/swing/Action.h>
@@ -26,48 +25,43 @@ using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 namespace sun {
 	namespace swing {
 
-$MethodInfo _FilePane$FileChooserUIAccessor_MethodInfo_[] = {
-	{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createDetailsView, $JPanel*)},
-	{"createDoubleClickListener", "(Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createDoubleClickListener, $MouseListener*, $JList*)},
-	{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createList, $JPanel*)},
-	{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createListSelectionListener, $ListSelectionListener*)},
-	{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getApproveSelectionAction, $Action*)},
-	{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getChangeToParentDirectoryAction, $Action*)},
-	{"getDirectory", "()Ljava/io/File;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getDirectory, $File*)},
-	{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getFileChooser, $JFileChooser*)},
-	{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getModel, $BasicDirectoryModel*)},
-	{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getNewFolderAction, $Action*)},
-	{"isDirectorySelected", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, isDirectorySelected, bool)},
-	{}
-};
-
-$InnerClassInfo _FilePane$FileChooserUIAccessor_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FilePane$FileChooserUIAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.swing.FilePane$FileChooserUIAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FilePane$FileChooserUIAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane$FileChooserUIAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$FileChooserUIAccessor($Class* clazz) {
-	return $of($alloc(FilePane$FileChooserUIAccessor));
-}
-
 $Class* FilePane$FileChooserUIAccessor::load$($String* name, bool initialize) {
-	$loadClass(FilePane$FileChooserUIAccessor, name, initialize, &_FilePane$FileChooserUIAccessor_ClassInfo_, allocate$FilePane$FileChooserUIAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createDetailsView, $JPanel*)},
+		{"createDoubleClickListener", "(Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createDoubleClickListener, $MouseListener*, $JList*)},
+		{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createList, $JPanel*)},
+		{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, createListSelectionListener, $ListSelectionListener*)},
+		{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getApproveSelectionAction, $Action*)},
+		{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getChangeToParentDirectoryAction, $Action*)},
+		{"getDirectory", "()Ljava/io/File;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getDirectory, $File*)},
+		{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getFileChooser, $JFileChooser*)},
+		{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getModel, $BasicDirectoryModel*)},
+		{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, getNewFolderAction, $Action*)},
+		{"isDirectorySelected", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilePane$FileChooserUIAccessor, isDirectorySelected, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.swing.FilePane$FileChooserUIAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$FileChooserUIAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePane$FileChooserUIAccessor);
+	});
 	return class$;
 }
 

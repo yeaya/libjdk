@@ -1,5 +1,4 @@
 #include <javax/swing/MenuSelectionManager.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -44,11 +43,9 @@ using $Rectangle = ::java::awt::Rectangle;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $Vector = ::java::util::Vector;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuBar = ::javax::swing::JMenuBar;
@@ -67,50 +64,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _MenuSelectionManager_FieldInfo_[] = {
-	{"selection", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/MenuElement;>;", $PRIVATE, $field(MenuSelectionManager, selection)},
-	{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuSelectionManager, TRACE)},
-	{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuSelectionManager, VERBOSE)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuSelectionManager, DEBUG)},
-	{"MENU_SELECTION_MANAGER_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MenuSelectionManager, MENU_SELECTION_MANAGER_KEY)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(MenuSelectionManager, changeEvent)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(MenuSelectionManager, listenerList)},
-	{}
-};
-
-$MethodInfo _MenuSelectionManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MenuSelectionManager, init$, void)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, addChangeListener, void, $ChangeListener*)},
-	{"clearSelectedPath", "()V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, clearSelectedPath, void)},
-	{"componentForPoint", "(Ljava/awt/Component;Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, componentForPoint, $Component*, $Component*, $Point*)},
-	{"defaultManager", "()Ljavax/swing/MenuSelectionManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(MenuSelectionManager, defaultManager, MenuSelectionManager*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(MenuSelectionManager, fireStateChanged, void)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, getChangeListeners, $ChangeListenerArray*)},
-	{"getSelectedPath", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, getSelectedPath, $MenuElementArray*)},
-	{"isComponentPartOfCurrentMenu", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, isComponentPartOfCurrentMenu, bool, $Component*)},
-	{"isComponentPartOfCurrentMenu", "(Ljavax/swing/MenuElement;Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(MenuSelectionManager, isComponentPartOfCurrentMenu, bool, $MenuElement*, $Component*)},
-	{"printMenuElementArray", "([Ljavax/swing/MenuElement;)V", nullptr, $PRIVATE, $method(MenuSelectionManager, printMenuElementArray, void, $MenuElementArray*)},
-	{"printMenuElementArray", "([Ljavax/swing/MenuElement;Z)V", nullptr, $PRIVATE, $method(MenuSelectionManager, printMenuElementArray, void, $MenuElementArray*, bool)},
-	{"processKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, processKeyEvent, void, $KeyEvent*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, processMouseEvent, void, $MouseEvent*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, removeChangeListener, void, $ChangeListener*)},
-	{"setSelectedPath", "([Ljavax/swing/MenuElement;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, setSelectedPath, void, $MenuElementArray*)},
-	{}
-};
-
-$ClassInfo _MenuSelectionManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.MenuSelectionManager",
-	"java.lang.Object",
-	nullptr,
-	_MenuSelectionManager_FieldInfo_,
-	_MenuSelectionManager_MethodInfo_
-};
-
-$Object* allocate$MenuSelectionManager($Class* clazz) {
-	return $of($alloc(MenuSelectionManager));
-}
-
 $StringBuilder* MenuSelectionManager::MENU_SELECTION_MANAGER_KEY = nullptr;
 
 void MenuSelectionManager::init$() {
@@ -121,7 +74,7 @@ void MenuSelectionManager::init$() {
 
 MenuSelectionManager* MenuSelectionManager::defaultManager() {
 	$init(MenuSelectionManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(MenuSelectionManager::MENU_SELECTION_MANAGER_KEY) {
 		$var($AppContext, context, $AppContext::getAppContext());
 		$var(MenuSelectionManager, msm, $cast(MenuSelectionManager, $nc(context)->get(MenuSelectionManager::MENU_SELECTION_MANAGER_KEY)));
@@ -139,7 +92,7 @@ MenuSelectionManager* MenuSelectionManager::defaultManager() {
 }
 
 void MenuSelectionManager::setSelectedPath($MenuElementArray* path$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuElementArray, path, path$renamed);
 	int32_t i = 0;
 	int32_t c = 0;
@@ -148,8 +101,9 @@ void MenuSelectionManager::setSelectedPath($MenuElementArray* path$renamed) {
 	if (path == nullptr) {
 		$assign(path, $new($MenuElementArray, 0));
 	}
+	;
 	for (i = 0, c = $nc(path)->length; i < c; ++i) {
-		if (i < currentSelectionCount && $equals($nc(this->selection)->elementAt(i), path->get(i))) {
+		if (i < currentSelectionCount && $equals(this->selection->elementAt(i), path->get(i))) {
 			++firstDifference;
 		} else {
 			break;
@@ -157,7 +111,7 @@ void MenuSelectionManager::setSelectedPath($MenuElementArray* path$renamed) {
 	}
 	for (i = currentSelectionCount - 1; i >= firstDifference; --i) {
 		$var($MenuElement, me, $cast($MenuElement, $nc(this->selection)->elementAt(i)));
-		$nc(this->selection)->removeElementAt(i);
+		this->selection->removeElementAt(i);
 		$nc(me)->menuSelectionChanged(false);
 	}
 	for (i = firstDifference, c = path->length; i < c; ++i) {
@@ -170,12 +124,12 @@ void MenuSelectionManager::setSelectedPath($MenuElementArray* path$renamed) {
 }
 
 $MenuElementArray* MenuSelectionManager::getSelectedPath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuElementArray, res, $new($MenuElementArray, $nc(this->selection)->size()));
 	int32_t i = 0;
 	int32_t c = 0;
-	for (i = 0, c = $nc(this->selection)->size(); i < c; ++i) {
-		res->set(i, $cast($MenuElement, $($nc(this->selection)->elementAt(i))));
+	for (i = 0, c = this->selection->size(); i < c; ++i) {
+		res->set(i, $$cast($MenuElement, this->selection->elementAt(i)));
 	}
 	return res;
 }
@@ -198,7 +152,7 @@ void MenuSelectionManager::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* MenuSelectionManager::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void MenuSelectionManager::fireStateChanged() {
@@ -209,13 +163,13 @@ void MenuSelectionManager::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
 
 void MenuSelectionManager::processMouseEvent($MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t screenX = 0;
 	int32_t screenY = 0;
 	$var($Point, p, nullptr);
@@ -238,7 +192,7 @@ void MenuSelectionManager::processMouseEvent($MouseEvent* event) {
 	}
 	int32_t type = event->getID();
 	int32_t modifiers = event->getModifiers();
-	if ((type == $MouseEvent::MOUSE_ENTERED || type == $MouseEvent::MOUSE_EXITED) && (((int32_t)(modifiers & (uint32_t)(($InputEvent::BUTTON1_MASK | $InputEvent::BUTTON2_MASK) | $InputEvent::BUTTON3_MASK))) != 0)) {
+	if ((type == $MouseEvent::MOUSE_ENTERED || type == $MouseEvent::MOUSE_EXITED) && ((modifiers & (($InputEvent::BUTTON1_MASK | $InputEvent::BUTTON2_MASK) | $InputEvent::BUTTON3_MASK)) != 0)) {
 		return;
 	}
 	if (source != nullptr) {
@@ -262,10 +216,10 @@ void MenuSelectionManager::processMouseEvent($MouseEvent* event) {
 				continue;
 			}
 			if ($instanceOf($JComponent, mc)) {
-				cWidth = $nc(mc)->getWidth();
+				cWidth = mc->getWidth();
 				cHeight = mc->getHeight();
 			} else {
-				$assign(r2, $nc(mc)->getBounds());
+				$assign(r2, mc->getBounds());
 				cWidth = $nc(r2)->width;
 				cHeight = r2->height;
 			}
@@ -277,49 +231,46 @@ void MenuSelectionManager::processMouseEvent($MouseEvent* event) {
 				if (path == nullptr) {
 					$assign(path, $new($MenuElementArray, i + 2));
 					for (k = 0; k <= i; ++k) {
-						path->set(k, $cast($MenuElement, $(tmp->elementAt(k))));
+						path->set(k, $$cast($MenuElement, tmp->elementAt(k)));
 					}
 				}
 				$nc(path)->set(i + 1, subElements->get(j));
 				$var($MenuElementArray, currentSelection, getSelectedPath());
-				if ($nc(currentSelection)->get(currentSelection->length - 1) != path->get(i + 1) && (currentSelection->length < 2 || $nc(currentSelection)->get(currentSelection->length - 2) != path->get(i + 1))) {
+				if ($nc(currentSelection)->get($nc(currentSelection)->length - 1) != path->get(i + 1) && (currentSelection->length < 2 || currentSelection->get(currentSelection->length - 2) != path->get(i + 1))) {
 					$var($Component, oldMC, $nc(currentSelection->get(currentSelection->length - 1))->getComponent());
-					$var($Component, var$0, oldMC);
-					int64_t var$1 = event->getWhen();
-					int32_t var$2 = event->getModifiers();
-					int32_t var$3 = p->x;
-					int32_t var$4 = p->y;
-					int32_t var$5 = event->getXOnScreen();
-					int32_t var$6 = event->getYOnScreen();
-					int32_t var$7 = event->getClickCount();
-					$var($MouseEvent, exitEvent, $new($MouseEvent, var$0, $MouseEvent::MOUSE_EXITED, var$1, var$2, var$3, var$4, var$5, var$6, var$7, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
+					int64_t var$0 = event->getWhen();
+					int32_t var$1 = event->getModifiers();
+					int32_t var$2 = p->x;
+					int32_t var$3 = p->y;
+					int32_t var$4 = event->getXOnScreen();
+					int32_t var$5 = event->getYOnScreen();
+					int32_t var$6 = event->getClickCount();
+					$var($MouseEvent, exitEvent, $new($MouseEvent, oldMC, $MouseEvent::MOUSE_EXITED, var$0, var$1, var$2, var$3, var$4, var$5, var$6, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
 					$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-					$nc(meAccessor)->setCausedByTouchEvent(exitEvent, meAccessor->isCausedByTouchEvent(event));
+					$nc(meAccessor)->setCausedByTouchEvent(exitEvent, $nc(meAccessor)->isCausedByTouchEvent(event));
 					$nc(currentSelection->get(currentSelection->length - 1))->processMouseEvent(exitEvent, path, this);
-					$var($Component, var$8, mc);
-					int64_t var$9 = event->getWhen();
-					int32_t var$10 = event->getModifiers();
-					int32_t var$11 = p->x;
-					int32_t var$12 = p->y;
-					int32_t var$13 = event->getXOnScreen();
-					int32_t var$14 = event->getYOnScreen();
-					int32_t var$15 = event->getClickCount();
-					$var($MouseEvent, enterEvent, $new($MouseEvent, var$8, $MouseEvent::MOUSE_ENTERED, var$9, var$10, var$11, var$12, var$13, var$14, var$15, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
+					int64_t var$7 = event->getWhen();
+					int32_t var$8 = event->getModifiers();
+					int32_t var$9 = p->x;
+					int32_t var$10 = p->y;
+					int32_t var$11 = event->getXOnScreen();
+					int32_t var$12 = event->getYOnScreen();
+					int32_t var$13 = event->getClickCount();
+					$var($MouseEvent, enterEvent, $new($MouseEvent, mc, $MouseEvent::MOUSE_ENTERED, var$7, var$8, var$9, var$10, var$11, var$12, var$13, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
 					meAccessor->setCausedByTouchEvent(enterEvent, meAccessor->isCausedByTouchEvent(event));
 					$nc(subElements->get(j))->processMouseEvent(enterEvent, path, this);
 				}
-				$var($Component, var$16, mc);
-				int32_t var$17 = event->getID();
-				int64_t var$18 = event->getWhen();
-				int32_t var$19 = event->getModifiers();
-				int32_t var$20 = p->x;
-				int32_t var$21 = p->y;
-				int32_t var$22 = event->getXOnScreen();
-				int32_t var$23 = event->getYOnScreen();
-				int32_t var$24 = event->getClickCount();
-				$var($MouseEvent, mouseEvent, $new($MouseEvent, var$16, var$17, var$18, var$19, var$20, var$21, var$22, var$23, var$24, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
+				int32_t var$14 = event->getID();
+				int64_t var$15 = event->getWhen();
+				int32_t var$16 = event->getModifiers();
+				int32_t var$17 = p->x;
+				int32_t var$18 = p->y;
+				int32_t var$19 = event->getXOnScreen();
+				int32_t var$20 = event->getYOnScreen();
+				int32_t var$21 = event->getClickCount();
+				$var($MouseEvent, mouseEvent, $new($MouseEvent, mc, var$14, var$15, var$16, var$17, var$18, var$19, var$20, var$21, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
 				$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-				$nc(meAccessor)->setCausedByTouchEvent(mouseEvent, meAccessor->isCausedByTouchEvent(event));
+				$nc(meAccessor)->setCausedByTouchEvent(mouseEvent, $nc(meAccessor)->isCausedByTouchEvent(event));
 				$nc(subElements->get(j))->processMouseEvent(mouseEvent, path, this);
 				success = true;
 				event->consume();
@@ -333,35 +284,35 @@ void MenuSelectionManager::printMenuElementArray($MenuElementArray* path) {
 }
 
 void MenuSelectionManager::printMenuElementArray($MenuElementArray* path, bool dumpStack) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Path is("_s);
 	int32_t i = 0;
 	int32_t j = 0;
 	for (i = 0, j = $nc(path)->length; i < j; ++i) {
 		for (int32_t k = 0; k <= i; ++k) {
-			$nc($System::out)->print("  "_s);
+			$System::out->print("  "_s);
 		}
 		$var($MenuElement, me, path->get(i));
 		if ($instanceOf($JMenuItem, me)) {
-			$nc($System::out)->println($$str({$($nc(($cast($JMenuItem, me)))->getText()), ", "_s}));
+			$System::out->println($$str({$($cast($JMenuItem, me)->getText()), ", "_s}));
 		} else if ($instanceOf($JMenuBar, me)) {
-			$nc($System::out)->println("JMenuBar, "_s);
+			$System::out->println("JMenuBar, "_s);
 		} else if ($instanceOf($JPopupMenu, me)) {
-			$nc($System::out)->println("JPopupMenu, "_s);
+			$System::out->println("JPopupMenu, "_s);
 		} else if (me == nullptr) {
-			$nc($System::out)->println("NULL , "_s);
+			$System::out->println("NULL , "_s);
 		} else {
-			$nc($System::out)->println($$str({""_s, me, ", "_s}));
+			$System::out->println($$str({""_s, me, ", "_s}));
 		}
 	}
-	$nc($System::out)->println(")"_s);
+	$System::out->println(")"_s);
 	if (dumpStack == true) {
 		$Thread::dumpStack();
 	}
 }
 
 $Component* MenuSelectionManager::componentForPoint($Component* source, $Point* sourcePoint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t screenX = 0;
 	int32_t screenY = 0;
 	$var($Point, p, sourcePoint);
@@ -393,10 +344,10 @@ $Component* MenuSelectionManager::componentForPoint($Component* source, $Point* 
 				continue;
 			}
 			if ($instanceOf($JComponent, mc)) {
-				cWidth = $nc(mc)->getWidth();
+				cWidth = mc->getWidth();
 				cHeight = mc->getHeight();
 			} else {
-				$assign(r2, $nc(mc)->getBounds());
+				$assign(r2, mc->getBounds());
 				cWidth = $nc(r2)->width;
 				cHeight = r2->height;
 			}
@@ -412,9 +363,9 @@ $Component* MenuSelectionManager::componentForPoint($Component* source, $Point* 
 }
 
 void MenuSelectionManager::processKeyEvent($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuElementArray, sel2, $new($MenuElementArray, 0));
-	$assign(sel2, $fcast($MenuElementArray, $nc(this->selection)->toArray(sel2)));
+	$assign(sel2, $cast($MenuElementArray, $nc(this->selection)->toArray(sel2)));
 	int32_t selSize = $nc(sel2)->length;
 	$var($MenuElementArray, path, nullptr);
 	if (selSize < 1) {
@@ -425,8 +376,8 @@ void MenuSelectionManager::processKeyEvent($KeyEvent* e) {
 		$var($MenuElementArray, subs, $nc(elem)->getSubElements());
 		$assign(path, nullptr);
 		for (int32_t j = 0; j < $nc(subs)->length; ++j) {
-			bool var$0 = subs->get(j) == nullptr || !$nc($($nc(subs->get(j))->getComponent()))->isShowing();
-			if (var$0 || !$nc($($nc(subs->get(j))->getComponent()))->isEnabled()) {
+			bool var$0 = subs->get(j) == nullptr || !$$nc($nc(subs->get(j))->getComponent())->isShowing();
+			if (var$0 || !$$nc($nc(subs->get(j))->getComponent())->isEnabled()) {
 				continue;
 			}
 			if (path == nullptr) {
@@ -450,7 +401,7 @@ void MenuSelectionManager::processKeyEvent($KeyEvent* e) {
 
 bool MenuSelectionManager::isComponentPartOfCurrentMenu($Component* c) {
 	if ($nc(this->selection)->size() > 0) {
-		$var($MenuElement, me, $cast($MenuElement, $nc(this->selection)->elementAt(0)));
+		$var($MenuElement, me, $cast($MenuElement, this->selection->elementAt(0)));
 		return isComponentPartOfCurrentMenu(me, c);
 	} else {
 		return false;
@@ -477,7 +428,7 @@ bool MenuSelectionManager::isComponentPartOfCurrentMenu($MenuElement* root, $Com
 	return false;
 }
 
-void clinit$MenuSelectionManager($Class* class$) {
+void MenuSelectionManager::clinit$($Class* clazz) {
 	$assignStatic(MenuSelectionManager::MENU_SELECTION_MANAGER_KEY, $new($StringBuilder, "javax.swing.MenuSelectionManager"_s));
 }
 
@@ -485,7 +436,46 @@ MenuSelectionManager::MenuSelectionManager() {
 }
 
 $Class* MenuSelectionManager::load$($String* name, bool initialize) {
-	$loadClass(MenuSelectionManager, name, initialize, &_MenuSelectionManager_ClassInfo_, clinit$MenuSelectionManager, allocate$MenuSelectionManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"selection", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/MenuElement;>;", $PRIVATE, $field(MenuSelectionManager, selection)},
+		{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuSelectionManager, TRACE)},
+		{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuSelectionManager, VERBOSE)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MenuSelectionManager, DEBUG)},
+		{"MENU_SELECTION_MANAGER_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MenuSelectionManager, MENU_SELECTION_MANAGER_KEY)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(MenuSelectionManager, changeEvent)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(MenuSelectionManager, listenerList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MenuSelectionManager, init$, void)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, addChangeListener, void, $ChangeListener*)},
+		{"clearSelectedPath", "()V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, clearSelectedPath, void)},
+		{"componentForPoint", "(Ljava/awt/Component;Ljava/awt/Point;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, componentForPoint, $Component*, $Component*, $Point*)},
+		{"defaultManager", "()Ljavax/swing/MenuSelectionManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(MenuSelectionManager, defaultManager, MenuSelectionManager*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(MenuSelectionManager, fireStateChanged, void)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, getChangeListeners, $ChangeListenerArray*)},
+		{"getSelectedPath", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, getSelectedPath, $MenuElementArray*)},
+		{"isComponentPartOfCurrentMenu", "(Ljava/awt/Component;)Z", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, isComponentPartOfCurrentMenu, bool, $Component*)},
+		{"isComponentPartOfCurrentMenu", "(Ljavax/swing/MenuElement;Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(MenuSelectionManager, isComponentPartOfCurrentMenu, bool, $MenuElement*, $Component*)},
+		{"printMenuElementArray", "([Ljavax/swing/MenuElement;)V", nullptr, $PRIVATE, $method(MenuSelectionManager, printMenuElementArray, void, $MenuElementArray*)},
+		{"printMenuElementArray", "([Ljavax/swing/MenuElement;Z)V", nullptr, $PRIVATE, $method(MenuSelectionManager, printMenuElementArray, void, $MenuElementArray*, bool)},
+		{"processKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, processKeyEvent, void, $KeyEvent*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, processMouseEvent, void, $MouseEvent*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, removeChangeListener, void, $ChangeListener*)},
+		{"setSelectedPath", "([Ljavax/swing/MenuElement;)V", nullptr, $PUBLIC, $virtualMethod(MenuSelectionManager, setSelectedPath, void, $MenuElementArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.MenuSelectionManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MenuSelectionManager, name, initialize, &classInfo$$, MenuSelectionManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuSelectionManager);
+	});
 	return class$;
 }
 

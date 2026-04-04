@@ -27,6 +27,7 @@ class JRSUIConstants$ScrollBarHit : public ::apple::laf::JRSUIConstants$Hit {
 	$class(JRSUIConstants$ScrollBarHit, 0, ::apple::laf::JRSUIConstants$Hit)
 public:
 	JRSUIConstants$ScrollBarHit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t hit);
 	static const int32_t _thumb = 2;
 	static ::apple::laf::JRSUIConstants$ScrollBarHit* THUMB;

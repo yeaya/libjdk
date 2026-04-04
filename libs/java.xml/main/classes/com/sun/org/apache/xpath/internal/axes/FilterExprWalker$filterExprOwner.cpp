@@ -1,12 +1,9 @@
 #include <com/sun/org/apache/xpath/internal/axes/FilterExprWalker$filterExprOwner.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/axes/FilterExprWalker.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $FilterExprWalker = ::com::sun::org::apache::xpath::internal::axes::FilterExprWalker;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,43 +17,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _FilterExprWalker$filterExprOwner_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xpath/internal/axes/FilterExprWalker;", nullptr, $FINAL | $SYNTHETIC, $field(FilterExprWalker$filterExprOwner, this$0)},
-	{}
-};
-
-$MethodInfo _FilterExprWalker$filterExprOwner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/axes/FilterExprWalker;)V", nullptr, 0, $method(FilterExprWalker$filterExprOwner, init$, void, $FilterExprWalker*)},
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FilterExprWalker$filterExprOwner, getExpression, $Expression*)},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FilterExprWalker$filterExprOwner, setExpression, void, $Expression*)},
-	{}
-};
-
-$InnerClassInfo _FilterExprWalker$filterExprOwner_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.axes.FilterExprWalker$filterExprOwner", "com.sun.org.apache.xpath.internal.axes.FilterExprWalker", "filterExprOwner", 0},
-	{}
-};
-
-$ClassInfo _FilterExprWalker$filterExprOwner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.FilterExprWalker$filterExprOwner",
-	"java.lang.Object",
-	"com.sun.org.apache.xpath.internal.ExpressionOwner",
-	_FilterExprWalker$filterExprOwner_FieldInfo_,
-	_FilterExprWalker$filterExprOwner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilterExprWalker$filterExprOwner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.axes.FilterExprWalker"
-};
-
-$Object* allocate$FilterExprWalker$filterExprOwner($Class* clazz) {
-	return $of($alloc(FilterExprWalker$filterExprOwner));
-}
 
 void FilterExprWalker$filterExprOwner::init$($FilterExprWalker* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +35,38 @@ FilterExprWalker$filterExprOwner::FilterExprWalker$filterExprOwner() {
 }
 
 $Class* FilterExprWalker$filterExprOwner::load$($String* name, bool initialize) {
-	$loadClass(FilterExprWalker$filterExprOwner, name, initialize, &_FilterExprWalker$filterExprOwner_ClassInfo_, allocate$FilterExprWalker$filterExprOwner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xpath/internal/axes/FilterExprWalker;", nullptr, $FINAL | $SYNTHETIC, $field(FilterExprWalker$filterExprOwner, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/axes/FilterExprWalker;)V", nullptr, 0, $method(FilterExprWalker$filterExprOwner, init$, void, $FilterExprWalker*)},
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FilterExprWalker$filterExprOwner, getExpression, $Expression*)},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FilterExprWalker$filterExprOwner, setExpression, void, $Expression*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.axes.FilterExprWalker$filterExprOwner", "com.sun.org.apache.xpath.internal.axes.FilterExprWalker", "filterExprOwner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.FilterExprWalker$filterExprOwner",
+		"java.lang.Object",
+		"com.sun.org.apache.xpath.internal.ExpressionOwner",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.axes.FilterExprWalker"
+	};
+	$loadClass(FilterExprWalker$filterExprOwner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilterExprWalker$filterExprOwner);
+	});
 	return class$;
 }
 

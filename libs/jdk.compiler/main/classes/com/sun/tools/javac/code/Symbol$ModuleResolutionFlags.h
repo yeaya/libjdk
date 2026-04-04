@@ -32,6 +32,7 @@ class $export Symbol$ModuleResolutionFlags : public ::java::lang::Enum {
 public:
 	Symbol$ModuleResolutionFlags();
 	static $Array<::com::sun::tools::javac::code::Symbol$ModuleResolutionFlags>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t value);
 	static int32_t value(::java::util::Set* s);
 	static ::com::sun::tools::javac::code::Symbol$ModuleResolutionFlags* valueOf($String* name);

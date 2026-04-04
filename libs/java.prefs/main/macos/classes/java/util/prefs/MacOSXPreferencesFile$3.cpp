@@ -1,5 +1,4 @@
 #include <java/util/prefs/MacOSXPreferencesFile$3.h>
-
 #include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/util/prefs/MacOSXPreferencesFile.h>
@@ -17,43 +16,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$MethodInfo _MacOSXPreferencesFile$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, 0, $method(MacOSXPreferencesFile$3, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _MacOSXPreferencesFile$3_EnclosingMethodInfo_ = {
-	"java.util.prefs.MacOSXPreferencesFile",
-	"timer",
-	"()Ljava/util/Timer;"
-};
-
-$InnerClassInfo _MacOSXPreferencesFile$3_InnerClassesInfo_[] = {
-	{"java.util.prefs.MacOSXPreferencesFile$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MacOSXPreferencesFile$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.MacOSXPreferencesFile$3",
-	"java.lang.Thread",
-	nullptr,
-	nullptr,
-	_MacOSXPreferencesFile$3_MethodInfo_,
-	nullptr,
-	&_MacOSXPreferencesFile$3_EnclosingMethodInfo_,
-	_MacOSXPreferencesFile$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.MacOSXPreferencesFile"
-};
-
-$Object* allocate$MacOSXPreferencesFile$3($Class* clazz) {
-	return $of($alloc(MacOSXPreferencesFile$3));
-}
-
 void MacOSXPreferencesFile$3::init$($ThreadGroup* arg0, $Runnable* arg1, $String* arg2, int64_t arg3, bool arg4) {
 	$Thread::init$(arg0, arg1, arg2, arg3, arg4);
 }
@@ -66,7 +28,38 @@ MacOSXPreferencesFile$3::MacOSXPreferencesFile$3() {
 }
 
 $Class* MacOSXPreferencesFile$3::load$($String* name, bool initialize) {
-	$loadClass(MacOSXPreferencesFile$3, name, initialize, &_MacOSXPreferencesFile$3_ClassInfo_, allocate$MacOSXPreferencesFile$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, 0, $method(MacOSXPreferencesFile$3, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.prefs.MacOSXPreferencesFile",
+		"timer",
+		"()Ljava/util/Timer;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.MacOSXPreferencesFile$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.MacOSXPreferencesFile$3",
+		"java.lang.Thread",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.MacOSXPreferencesFile"
+	};
+	$loadClass(MacOSXPreferencesFile$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXPreferencesFile$3);
+	});
 	return class$;
 }
 

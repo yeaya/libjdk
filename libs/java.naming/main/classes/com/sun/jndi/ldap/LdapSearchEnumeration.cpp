@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapSearchEnumeration.h>
-
 #include <com/sun/jndi/ldap/AbstractLdapNamingEnumeration.h>
 #include <com/sun/jndi/ldap/LdapCtx$SearchArgs.h>
 #include <com/sun/jndi/ldap/LdapCtx.h>
@@ -10,11 +9,7 @@
 #include <com/sun/jndi/ldap/Obj.h>
 #include <com/sun/jndi/ldap/SearchResultWithControls.h>
 #include <com/sun/jndi/toolkit/ctx/AtomicContext.h>
-#include <com/sun/jndi/toolkit/ctx/ComponentContext.h>
-#include <com/sun/jndi/toolkit/ctx/ComponentDirContext.h>
 #include <com/sun/jndi/toolkit/ctx/Continuation.h>
-#include <com/sun/jndi/toolkit/ctx/PartialCompositeContext.h>
-#include <com/sun/jndi/toolkit/ctx/PartialCompositeDirContext.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -56,11 +51,7 @@ using $LdapURL = ::com::sun::jndi::ldap::LdapURL;
 using $Obj = ::com::sun::jndi::ldap::Obj;
 using $SearchResultWithControls = ::com::sun::jndi::ldap::SearchResultWithControls;
 using $AtomicContext = ::com::sun::jndi::toolkit::ctx::AtomicContext;
-using $ComponentContext = ::com::sun::jndi::toolkit::ctx::ComponentContext;
-using $ComponentDirContext = ::com::sun::jndi::toolkit::ctx::ComponentDirContext;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
-using $PartialCompositeContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeContext;
-using $PartialCompositeDirContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeDirContext;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -78,7 +69,6 @@ using $NameClassPair = ::javax::naming::NameClassPair;
 using $NamingException = ::javax::naming::NamingException;
 using $Attributes = ::javax::naming::directory::Attributes;
 using $BasicAttributes = ::javax::naming::directory::BasicAttributes;
-using $SearchControls = ::javax::naming::directory::SearchControls;
 using $SearchResult = ::javax::naming::directory::SearchResult;
 using $LdapName = ::javax::naming::ldap::LdapName;
 using $DirectoryManager = ::javax::naming::spi::DirectoryManager;
@@ -97,68 +87,32 @@ public:
 	virtual $Object* run() override {
 		 return LdapSearchEnumeration::lambda$createItem$0(attrs);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapSearchEnumeration$$Lambda$lambda$createItem$0>());
-	}
 	$Attributes* attrs = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LdapSearchEnumeration$$Lambda$lambda$createItem$0::fieldInfos[2] = {
-	{"attrs", "Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $field(LdapSearchEnumeration$$Lambda$lambda$createItem$0, attrs)},
-	{}
-};
-$MethodInfo LdapSearchEnumeration$$Lambda$lambda$createItem$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(LdapSearchEnumeration$$Lambda$lambda$createItem$0, init$, void, $Attributes*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapSearchEnumeration$$Lambda$lambda$createItem$0, run, $Object*)},
-	{}
-};
-$ClassInfo LdapSearchEnumeration$$Lambda$lambda$createItem$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapSearchEnumeration$$Lambda$lambda$createItem$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LdapSearchEnumeration$$Lambda$lambda$createItem$0::load$($String* name, bool initialize) {
-	$loadClass(LdapSearchEnumeration$$Lambda$lambda$createItem$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"attrs", "Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $field(LdapSearchEnumeration$$Lambda$lambda$createItem$0, attrs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(LdapSearchEnumeration$$Lambda$lambda$createItem$0, init$, void, $Attributes*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapSearchEnumeration$$Lambda$lambda$createItem$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapSearchEnumeration$$Lambda$lambda$createItem$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapSearchEnumeration$$Lambda$lambda$createItem$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapSearchEnumeration$$Lambda$lambda$createItem$0);
+	});
 	return class$;
 }
 $Class* LdapSearchEnumeration$$Lambda$lambda$createItem$0::class$ = nullptr;
-
-$FieldInfo _LdapSearchEnumeration_FieldInfo_[] = {
-	{"startName", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(LdapSearchEnumeration, startName)},
-	{"searchArgs", "Lcom/sun/jndi/ldap/LdapCtx$SearchArgs;", nullptr, $PRIVATE, $field(LdapSearchEnumeration, searchArgs)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(LdapSearchEnumeration, acc)},
-	{}
-};
-
-$MethodInfo _LdapSearchEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx$SearchArgs;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(LdapSearchEnumeration, init$, void, $LdapCtx*, $LdapResult*, $String*, $LdapCtx$SearchArgs*, $Continuation*), "javax.naming.NamingException"},
-	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC, $virtualMethod(LdapSearchEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
-	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/directory/SearchResult;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/directory/SearchResult;", $PROTECTED, $virtualMethod(LdapSearchEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
-	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapSearchEnumeration, getReferredResults, $AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
-	{"lambda$createItem$0", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapSearchEnumeration, lambda$createItem$0, $Object*, $Attributes*), "java.lang.Exception"},
-	{"setStartName", "(Ljavax/naming/Name;)V", nullptr, 0, $method(LdapSearchEnumeration, setStartName, void, $Name*)},
-	{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED, $virtualMethod(LdapSearchEnumeration, update, void, $AbstractLdapNamingEnumeration*)},
-	{}
-};
-
-$ClassInfo _LdapSearchEnumeration_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapSearchEnumeration",
-	"com.sun.jndi.ldap.AbstractLdapNamingEnumeration",
-	nullptr,
-	_LdapSearchEnumeration_FieldInfo_,
-	_LdapSearchEnumeration_MethodInfo_,
-	"Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<Ljavax/naming/directory/SearchResult;>;"
-};
-
-$Object* allocate$LdapSearchEnumeration($Class* clazz) {
-	return $of($alloc(LdapSearchEnumeration));
-}
 
 void LdapSearchEnumeration::init$($LdapCtx* homeCtx, $LdapResult* search_results, $String* starter, $LdapCtx$SearchArgs* args, $Continuation* cont) {
 	$AbstractLdapNamingEnumeration::init$(homeCtx, search_results, $nc(args)->name, cont);
@@ -169,7 +123,7 @@ void LdapSearchEnumeration::init$($LdapCtx* homeCtx, $LdapResult* search_results
 }
 
 $NameClassPair* LdapSearchEnumeration::createItem($String* dn, $Attributes* attrs, $Vector* respCtls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, obj, nullptr);
 	$var($String, relStart, nullptr);
@@ -178,15 +132,15 @@ $NameClassPair* LdapSearchEnumeration::createItem($String* dn, $Attributes* attr
 	try {
 		$var($Name, parsed, $new($LdapName, dn));
 		if (this->startName != nullptr && parsed->startsWith(this->startName)) {
-			$assign(relStart, $nc($of($(parsed->getSuffix($nc(this->startName)->size()))))->toString());
-			$assign(relHome, $nc($of($(parsed->getSuffix($nc($nc(this->homeCtx)->currentParsedDN)->size()))))->toString());
+			$assign(relStart, $$nc(parsed->getSuffix(this->startName->size()))->toString());
+			$assign(relHome, $$nc(parsed->getSuffix($nc($nc(this->homeCtx)->currentParsedDN)->size()))->toString());
 		} else {
 			relative = false;
-			$assign(relHome, ($assign(relStart, $LdapURL::toUrlString($nc(this->homeCtx)->hostname, $nc(this->homeCtx)->port_number, dn, $nc(this->homeCtx)->hasLdapsScheme))));
+			$assign(relHome, $assign(relStart, $LdapURL::toUrlString($nc(this->homeCtx)->hostname, $nc(this->homeCtx)->port_number, dn, $nc(this->homeCtx)->hasLdapsScheme)));
 		}
 	} catch ($NamingException& e) {
 		relative = false;
-		$assign(relHome, ($assign(relStart, $LdapURL::toUrlString($nc(this->homeCtx)->hostname, $nc(this->homeCtx)->port_number, dn, $nc(this->homeCtx)->hasLdapsScheme))));
+		$assign(relHome, $assign(relStart, $LdapURL::toUrlString($nc(this->homeCtx)->hostname, $nc(this->homeCtx)->port_number, dn, $nc(this->homeCtx)->hasLdapsScheme)));
 	}
 	$var($CompositeName, cn, $new($CompositeName));
 	if (!$nc(relStart)->isEmpty()) {
@@ -201,17 +155,17 @@ $NameClassPair* LdapSearchEnumeration::createItem($String* dn, $Attributes* attr
 		$init($Obj);
 		if ($nc(attrs)->get($nc($Obj::JAVA_ATTRIBUTES)->get($Obj::CLASSNAME)) != nullptr) {
 			try {
-				$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(LdapSearchEnumeration$$Lambda$lambda$createItem$0, attrs)));
+				$var($PrivilegedExceptionAction, pea, $new(LdapSearchEnumeration$$Lambda$lambda$createItem$0, attrs));
 				$assign(obj, $AccessController::doPrivileged(pea, this->acc));
 			} catch ($PrivilegedActionException& e) {
-				$throw($cast($NamingException, $(e->getException())));
+				$throw($$cast($NamingException, e->getException()));
 			}
 		}
 		if (obj == nullptr) {
 			$assign(obj, $new($LdapCtx, this->homeCtx, dn));
 		}
 		try {
-			$assign(obj, $DirectoryManager::getObjectInstance(obj, rcn, (relative ? static_cast<$Context*>(static_cast<$PartialCompositeContext*>(static_cast<$ComponentContext*>(static_cast<$AtomicContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>(this->homeCtx)))))) : ($Context*)nullptr), $nc(this->homeCtx)->envprops, attrs));
+			$assign(obj, $DirectoryManager::getObjectInstance(obj, rcn, (relative ? $cast($Context, $cast($AtomicContext, this->homeCtx)) : ($Context*)nullptr), $nc(this->homeCtx)->envprops, attrs));
 		} catch ($NamingException& e) {
 			$throw(e);
 		} catch ($Exception& e) {
@@ -225,20 +179,17 @@ $NameClassPair* LdapSearchEnumeration::createItem($String* dn, $Attributes* attr
 			for (int32_t i = 0; i < $nc(reqAttrs)->length; ++i) {
 				rattrs->put(reqAttrs->get(i), nullptr);
 			}
-			for (int32_t i = 0; i < $nc($Obj::JAVA_ATTRIBUTES)->length; ++i) {
-				if (rattrs->get($nc($Obj::JAVA_ATTRIBUTES)->get(i)) == nullptr) {
-					$nc(attrs)->remove($nc($Obj::JAVA_ATTRIBUTES)->get(i));
+			for (int32_t i = 0; i < $Obj::JAVA_ATTRIBUTES->length; ++i) {
+				if (rattrs->get($Obj::JAVA_ATTRIBUTES->get(i)) == nullptr) {
+					attrs->remove($Obj::JAVA_ATTRIBUTES->get(i));
 				}
 			}
 		}
 	}
 	$var($SearchResult, sr, nullptr);
 	if (respCtls != nullptr) {
-		$var($String, var$0, (relative ? cn->toString() : relStart));
-		$var($Object, var$1, obj);
-		$var($Attributes, var$2, attrs);
-		bool var$3 = relative;
-		$assign(sr, $new($SearchResultWithControls, var$0, var$1, var$2, var$3, $($nc(this->homeCtx)->convertControls(respCtls))));
+		$var($String, var$0, relative ? cn->toString() : relStart);
+		$assign(sr, $new($SearchResultWithControls, var$0, obj, attrs, relative, $($nc(this->homeCtx)->convertControls(respCtls))));
 	} else {
 		$assign(sr, $new($SearchResult, (relative ? $(cn->toString()) : relStart), obj, attrs, relative));
 	}
@@ -267,7 +218,7 @@ void LdapSearchEnumeration::setStartName($Name* nm) {
 
 $Object* LdapSearchEnumeration::lambda$createItem$0($Attributes* attrs) {
 	$init(LdapSearchEnumeration);
-	return $of($Obj::decodeObject(attrs));
+	return $Obj::decodeObject(attrs);
 }
 
 LdapSearchEnumeration::LdapSearchEnumeration() {
@@ -275,11 +226,38 @@ LdapSearchEnumeration::LdapSearchEnumeration() {
 
 $Class* LdapSearchEnumeration::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LdapSearchEnumeration$$Lambda$lambda$createItem$0::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapSearchEnumeration$$Lambda$lambda$createItem$0")) {
 			return LdapSearchEnumeration$$Lambda$lambda$createItem$0::load$(name, initialize);
 		}
 	}
-	$loadClass(LdapSearchEnumeration, name, initialize, &_LdapSearchEnumeration_ClassInfo_, allocate$LdapSearchEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"startName", "Ljavax/naming/Name;", nullptr, $PRIVATE, $field(LdapSearchEnumeration, startName)},
+		{"searchArgs", "Lcom/sun/jndi/ldap/LdapCtx$SearchArgs;", nullptr, $PRIVATE, $field(LdapSearchEnumeration, searchArgs)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(LdapSearchEnumeration, acc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx$SearchArgs;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(LdapSearchEnumeration, init$, void, $LdapCtx*, $LdapResult*, $String*, $LdapCtx$SearchArgs*, $Continuation*), "javax.naming.NamingException"},
+		{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC, $virtualMethod(LdapSearchEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
+		{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/directory/SearchResult;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/directory/SearchResult;", $PROTECTED, $virtualMethod(LdapSearchEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
+		{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapSearchEnumeration, getReferredResults, $AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
+		{"lambda$createItem$0", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapSearchEnumeration, lambda$createItem$0, $Object*, $Attributes*), "java.lang.Exception"},
+		{"setStartName", "(Ljavax/naming/Name;)V", nullptr, 0, $method(LdapSearchEnumeration, setStartName, void, $Name*)},
+		{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED, $virtualMethod(LdapSearchEnumeration, update, void, $AbstractLdapNamingEnumeration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapSearchEnumeration",
+		"com.sun.jndi.ldap.AbstractLdapNamingEnumeration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<Ljavax/naming/directory/SearchResult;>;"
+	};
+	$loadClass(LdapSearchEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapSearchEnumeration);
+	});
 	return class$;
 }
 

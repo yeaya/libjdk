@@ -1,5 +1,4 @@
 #include <javax/naming/directory/BasicAttribute.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -41,70 +40,6 @@ namespace javax {
 	namespace naming {
 		namespace directory {
 
-$FieldInfo _BasicAttribute_FieldInfo_[] = {
-	{"attrID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicAttribute, attrID)},
-	{"values", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PROTECTED | $TRANSIENT, $field(BasicAttribute, values)},
-	{"ordered", "Z", nullptr, $PROTECTED, $field(BasicAttribute, ordered)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicAttribute, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BasicAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*, Object$*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*, Object$*, bool)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, add, void, int32_t, Object$*)},
-	{"arrayEquals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicAttribute, arrayEquals, bool, Object$*, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, clone, $Object*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, contains, bool, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, equals, bool, Object$*)},
-	{"find", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(BasicAttribute, find, int32_t, Object$*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, get, $Object*), "javax.naming.NamingException"},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, get, $Object*, int32_t), "javax.naming.NamingException"},
-	{"getAll", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<*>;", $PUBLIC, $virtualMethod(BasicAttribute, getAll, $NamingEnumeration*), "javax.naming.NamingException"},
-	{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, getAttributeDefinition, $DirContext*), "javax.naming.NamingException"},
-	{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, getAttributeSyntaxDefinition, $DirContext*), "javax.naming.NamingException"},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, getID, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, hashCode, int32_t)},
-	{"isOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, isOrdered, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicAttribute, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, remove, bool, Object$*)},
-	{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, remove, $Object*, int32_t)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, toString, $String*)},
-	{"valueEquals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicAttribute, valueEquals, bool, Object$*, Object$*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BasicAttribute, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _BasicAttribute_InnerClassesInfo_[] = {
-	{"javax.naming.directory.BasicAttribute$ValuesEnumImpl", "javax.naming.directory.BasicAttribute", "ValuesEnumImpl", 0},
-	{}
-};
-
-$ClassInfo _BasicAttribute_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.BasicAttribute",
-	"java.lang.Object",
-	"javax.naming.directory.Attribute",
-	_BasicAttribute_FieldInfo_,
-	_BasicAttribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicAttribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.naming.directory.BasicAttribute$ValuesEnumImpl"
-};
-
-$Object* allocate$BasicAttribute($Class* clazz) {
-	return $of($alloc(BasicAttribute));
-}
-
 $Object* BasicAttribute::clone() {
 	$var(BasicAttribute, attr, nullptr);
 	try {
@@ -117,7 +52,7 @@ $Object* BasicAttribute::clone() {
 }
 
 bool BasicAttribute::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((obj != nullptr) && ($instanceOf($Attribute, obj))) {
 		$var($Attribute, target, $cast($Attribute, obj));
 		bool var$0 = isOrdered();
@@ -127,7 +62,7 @@ bool BasicAttribute::equals(Object$* obj) {
 		int32_t len = 0;
 		bool var$1 = $nc(this->attrID)->equals($(target->getID()));
 		if (var$1) {
-			int32_t var$2 = (len = size());
+			int32_t var$2 = len = size();
 			var$1 = var$2 == target->size();
 		}
 		if (var$1) {
@@ -157,24 +92,24 @@ bool BasicAttribute::equals(Object$* obj) {
 }
 
 int32_t BasicAttribute::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = $nc(this->attrID)->hashCode();
 	int32_t num = $nc(this->values)->size();
 	$var($Object, val, nullptr);
 	for (int32_t i = 0; i < num; ++i) {
-		$assign(val, $nc(this->values)->elementAt(i));
+		$assign(val, this->values->elementAt(i));
 		if (val != nullptr) {
-			if ($of(val)->getClass()->isArray()) {
+			if (val->getClass()->isArray()) {
 				$var($Object, it, nullptr);
 				int32_t len = $1Array::getLength(val);
 				for (int32_t j = 0; j < len; ++j) {
 					$assign(it, $1Array::get(val, j));
 					if (it != nullptr) {
-						hash += $of(it)->hashCode();
+						hash += it->hashCode();
 					}
 				}
 			} else {
-				hash += $of(val)->hashCode();
+				hash += val->hashCode();
 			}
 		}
 	}
@@ -182,14 +117,14 @@ int32_t BasicAttribute::hashCode() {
 }
 
 $String* BasicAttribute::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, answer, $new($StringBuilder, $$str({this->attrID, ": "_s})));
 	if ($nc(this->values)->size() == 0) {
 		answer->append("No values"_s);
 	} else {
 		bool start = true;
 		{
-			$var($Enumeration, e, $nc(this->values)->elements());
+			$var($Enumeration, e, this->values->elements());
 			for (; $nc(e)->hasMoreElements();) {
 				if (!start) {
 					answer->append(", "_s);
@@ -227,11 +162,11 @@ $NamingEnumeration* BasicAttribute::getAll() {
 }
 
 $Object* BasicAttribute::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->values)->size() == 0) {
 		$throwNew($NoSuchElementException, $$str({"Attribute "_s, $(getID()), " has no value"_s}));
 	} else {
-		return $of($nc(this->values)->elementAt(0));
+		return this->values->elementAt(0);
 	}
 }
 
@@ -252,16 +187,16 @@ int32_t BasicAttribute::find(Object$* target) {
 	if (target == nullptr) {
 		int32_t ct = $nc(this->values)->size();
 		for (int32_t i = 0; i < ct; ++i) {
-			if ($nc(this->values)->elementAt(i) == nullptr) {
+			if (this->values->elementAt(i) == nullptr) {
 				return i;
 			}
 		}
-	} else if ($nc((cl = $nc($of(target))->getClass()))->isArray()) {
+	} else if ($nc((cl = $of(target)->getClass()))->isArray()) {
 		int32_t ct = $nc(this->values)->size();
 		$var($Object, it, nullptr);
 		for (int32_t i = 0; i < ct; ++i) {
 			$assign(it, $nc(this->values)->elementAt(i));
-			bool var$0 = it != nullptr && cl == $of(it)->getClass();
+			bool var$0 = it != nullptr && cl == it->getClass();
 			if (var$0 && arrayEquals(target, it)) {
 				return i;
 			}
@@ -284,14 +219,14 @@ bool BasicAttribute::valueEquals(Object$* obj1, Object$* obj2) {
 	if (var$0 && $nc($of(obj2))->getClass()->isArray()) {
 		return arrayEquals(obj1, obj2);
 	}
-	return ($nc($of(obj1))->equals(obj2));
+	return ($of(obj1)->equals(obj2));
 }
 
 bool BasicAttribute::arrayEquals(Object$* a1, Object$* a2) {
 	$init(BasicAttribute);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = 0;
-	int32_t var$0 = (len = $1Array::getLength(a1));
+	int32_t var$0 = len = $1Array::getLength(a1);
 	if (var$0 != $1Array::getLength(a2)) {
 		return false;
 	}
@@ -302,7 +237,7 @@ bool BasicAttribute::arrayEquals(Object$* a1, Object$* a2) {
 			if (!$equals(i1, i2)) {
 				return false;
 			}
-		} else if (!$nc($of(i1))->equals(i2)) {
+		} else if (!i1->equals(i2)) {
 			return false;
 		}
 	}
@@ -337,13 +272,13 @@ bool BasicAttribute::isOrdered() {
 }
 
 $Object* BasicAttribute::get(int32_t ix) {
-	return $of($nc(this->values)->elementAt(ix));
+	return $nc(this->values)->elementAt(ix);
 }
 
 $Object* BasicAttribute::remove(int32_t ix) {
 	$var($Object, answer, $nc(this->values)->elementAt(ix));
-	$nc(this->values)->removeElementAt(ix);
-	return $of(answer);
+	this->values->removeElementAt(ix);
+	return answer;
 }
 
 void BasicAttribute::add(int32_t ix, Object$* attrVal) {
@@ -360,8 +295,8 @@ $Object* BasicAttribute::set(int32_t ix, Object$* attrVal) {
 		$throwNew($IllegalStateException, "Cannot add duplicate to unordered attribute"_s);
 	}
 	$var($Object, answer, $nc(this->values)->elementAt(ix));
-	$nc(this->values)->setElementAt(attrVal, ix);
-	return $of(answer);
+	this->values->setElementAt(attrVal, ix);
+	return answer;
 }
 
 $DirContext* BasicAttribute::getAttributeSyntaxDefinition() {
@@ -375,21 +310,21 @@ $DirContext* BasicAttribute::getAttributeDefinition() {
 }
 
 void BasicAttribute::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	s->writeInt($nc(this->values)->size());
-	for (int32_t i = 0; i < $nc(this->values)->size(); ++i) {
-		s->writeObject($($nc(this->values)->elementAt(i)));
+	for (int32_t i = 0; i < this->values->size(); ++i) {
+		s->writeObject($(this->values->elementAt(i)));
 	}
 }
 
 void BasicAttribute::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	int32_t n = s->readInt();
 	$set(this, values, $new($Vector, $Math::min(1024, n)));
 	while (--n >= 0) {
-		$nc(this->values)->addElement($(s->readObject()));
+		this->values->addElement($(s->readObject()));
 	}
 }
 
@@ -397,7 +332,65 @@ BasicAttribute::BasicAttribute() {
 }
 
 $Class* BasicAttribute::load$($String* name, bool initialize) {
-	$loadClass(BasicAttribute, name, initialize, &_BasicAttribute_ClassInfo_, allocate$BasicAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"attrID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicAttribute, attrID)},
+		{"values", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PROTECTED | $TRANSIENT, $field(BasicAttribute, values)},
+		{"ordered", "Z", nullptr, $PROTECTED, $field(BasicAttribute, ordered)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicAttribute, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*, Object$*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(BasicAttribute, init$, void, $String*, Object$*, bool)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, add, void, int32_t, Object$*)},
+		{"arrayEquals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicAttribute, arrayEquals, bool, Object$*, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, clone, $Object*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, contains, bool, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, equals, bool, Object$*)},
+		{"find", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(BasicAttribute, find, int32_t, Object$*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, get, $Object*), "javax.naming.NamingException"},
+		{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, get, $Object*, int32_t), "javax.naming.NamingException"},
+		{"getAll", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<*>;", $PUBLIC, $virtualMethod(BasicAttribute, getAll, $NamingEnumeration*), "javax.naming.NamingException"},
+		{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, getAttributeDefinition, $DirContext*), "javax.naming.NamingException"},
+		{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, getAttributeSyntaxDefinition, $DirContext*), "javax.naming.NamingException"},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, getID, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, hashCode, int32_t)},
+		{"isOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, isOrdered, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BasicAttribute, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, remove, bool, Object$*)},
+		{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, remove, $Object*, int32_t)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttribute, toString, $String*)},
+		{"valueEquals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BasicAttribute, valueEquals, bool, Object$*, Object$*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(BasicAttribute, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.naming.directory.BasicAttribute$ValuesEnumImpl", "javax.naming.directory.BasicAttribute", "ValuesEnumImpl", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.BasicAttribute",
+		"java.lang.Object",
+		"javax.naming.directory.Attribute",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.naming.directory.BasicAttribute$ValuesEnumImpl"
+	};
+	$loadClass(BasicAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicAttribute));
+	});
 	return class$;
 }
 

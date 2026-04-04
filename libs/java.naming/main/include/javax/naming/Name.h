@@ -38,7 +38,7 @@ public:
 	virtual int32_t size() {return 0;}
 	virtual bool startsWith(::javax::naming::Name* n) {return false;}
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xCDCC1E9F16A312CD;
+	static const int64_t serialVersionUID = (int64_t)0xcdcc1e9f16a312cd;
 };
 
 	} // naming

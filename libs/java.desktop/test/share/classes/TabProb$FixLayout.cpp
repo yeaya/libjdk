@@ -1,5 +1,4 @@
 #include <TabProb$FixLayout.h>
-
 #include <TabProb.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -19,54 +18,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _TabProb$FixLayout_FieldInfo_[] = {
-	{"this$0", "LTabProb;", nullptr, $FINAL | $SYNTHETIC, $field(TabProb$FixLayout, this$0)},
-	{}
-};
-
-$MethodInfo _TabProb$FixLayout_MethodInfo_[] = {
-	{"<init>", "(LTabProb;)V", nullptr, 0, $method(TabProb$FixLayout, init$, void, $TabProb*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _TabProb$FixLayout_InnerClassesInfo_[] = {
-	{"TabProb$FixLayout", "TabProb", "FixLayout", 0},
-	{}
-};
-
-$ClassInfo _TabProb$FixLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"TabProb$FixLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_TabProb$FixLayout_FieldInfo_,
-	_TabProb$FixLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TabProb$FixLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TabProb"
-};
-
-$Object* allocate$TabProb$FixLayout($Class* clazz) {
-	return $of($alloc(TabProb$FixLayout));
-}
-
 void TabProb$FixLayout::init$($TabProb* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void TabProb$FixLayout::layoutContainer($Container* C) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, in, $nc(C)->getInsets());
-	int32_t w = 200 - $nc(in)->left - in->right;
+	int32_t w = 200 - $nc(in)->left - $nc(in)->right;
 	int32_t h = 100 - in->top - in->bottom;
 	$nc($nc($(C->getComponents()))->get(0))->setBounds(in->top, in->left, w, h);
 }
@@ -89,7 +48,41 @@ TabProb$FixLayout::TabProb$FixLayout() {
 }
 
 $Class* TabProb$FixLayout::load$($String* name, bool initialize) {
-	$loadClass(TabProb$FixLayout, name, initialize, &_TabProb$FixLayout_ClassInfo_, allocate$TabProb$FixLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTabProb;", nullptr, $FINAL | $SYNTHETIC, $field(TabProb$FixLayout, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTabProb;)V", nullptr, 0, $method(TabProb$FixLayout, init$, void, $TabProb*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(TabProb$FixLayout, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TabProb$FixLayout", "TabProb", "FixLayout", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TabProb$FixLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TabProb"
+	};
+	$loadClass(TabProb$FixLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TabProb$FixLayout);
+	});
 	return class$;
 }
 

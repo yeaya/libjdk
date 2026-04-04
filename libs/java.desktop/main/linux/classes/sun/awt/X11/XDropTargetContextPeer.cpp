@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDropTargetContextPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/InputEvent.h>
@@ -34,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $XDragAndDropProtocols = ::sun::awt::X11::XDragAndDropProtocols;
 using $XDropTargetContextPeer$XDropTargetProtocolListenerImpl = ::sun::awt::X11::XDropTargetContextPeer$XDropTargetProtocolListenerImpl;
@@ -50,55 +48,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XDropTargetContextPeer_FieldInfo_[] = {
-	{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer, logger)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer, unsafe)},
-	{"DTCP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer, DTCP_KEY)},
-	{}
-};
-
-$MethodInfo _XDropTargetContextPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XDropTargetContextPeer, init$, void)},
-	{"access$000", "(Lsun/awt/X11/XDropTargetContextPeer;Ljava/awt/Component;IIII[JJIZ)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XDropTargetContextPeer, access$000, int32_t, XDropTargetContextPeer*, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t, bool)},
-	{"cleanup", "()V", nullptr, $PRIVATE, $method(XDropTargetContextPeer, cleanup, void)},
-	{"doDropDone", "(ZIZ)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, doDropDone, void, bool, int32_t, bool)},
-	{"eventProcessed", "(Lsun/awt/dnd/SunDropTargetEvent;IZ)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, eventProcessed, void, $SunDropTargetEvent*, int32_t, bool)},
-	{"forwardEventToEmbedded", "(JJI)V", nullptr, $PUBLIC, $method(XDropTargetContextPeer, forwardEventToEmbedded, void, int64_t, int64_t, int32_t)},
-	{"getNativeData", "(J)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, getNativeData, $Object*, int64_t), "java.io.IOException"},
-	{"getPeer", "(Lsun/awt/AppContext;)Lsun/awt/X11/XDropTargetContextPeer;", nullptr, $STATIC, $staticMethod(XDropTargetContextPeer, getPeer, XDropTargetContextPeer*, $AppContext*)},
-	{"getXDropTargetProtocolListener", "()Lsun/awt/X11/XDropTargetProtocolListener;", nullptr, $STATIC, $staticMethod(XDropTargetContextPeer, getXDropTargetProtocolListener, $XDropTargetProtocolListener*)},
-	{"processDropMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processDropMessage, void, $SunDropTargetEvent*)},
-	{"processEnterMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processEnterMessage, void, $SunDropTargetEvent*)},
-	{"processExitMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processExitMessage, void, $SunDropTargetEvent*)},
-	{"processMotionMessage", "(Lsun/awt/dnd/SunDropTargetEvent;Z)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processMotionMessage, void, $SunDropTargetEvent*, bool)},
-	{"processSunDropTargetEvent", "(Lsun/awt/dnd/SunDropTargetEvent;)Z", nullptr, $PRIVATE, $method(XDropTargetContextPeer, processSunDropTargetEvent, bool, $SunDropTargetEvent*)},
-	{}
-};
-
-$InnerClassInfo _XDropTargetContextPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl", "sun.awt.X11.XDropTargetContextPeer", "XDropTargetProtocolListenerImpl", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XDropTargetContextPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XDropTargetContextPeer",
-	"sun.awt.dnd.SunDropTargetContextPeer",
-	nullptr,
-	_XDropTargetContextPeer_FieldInfo_,
-	_XDropTargetContextPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XDropTargetContextPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl"
-};
-
-$Object* allocate$XDropTargetContextPeer($Class* clazz) {
-	return $of($alloc(XDropTargetContextPeer));
-}
 
 $PlatformLogger* XDropTargetContextPeer::logger = nullptr;
 $Unsafe* XDropTargetContextPeer::unsafe = nullptr;
@@ -132,26 +81,48 @@ $XDropTargetProtocolListener* XDropTargetContextPeer::getXDropTargetProtocolList
 }
 
 void XDropTargetContextPeer::eventProcessed($SunDropTargetEvent* e, int32_t returnValue, bool dispatcherDone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t ctxt = getNativeDragContext();
-	{
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (ctxt != 0 && !$nc(e)->isConsumed()) {
+			$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
+			while ($nc(dropTargetProtocols)->hasNext()) {
+				$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
+				if ($nc(dropTargetProtocol)->sendResponse(ctxt, e->getID(), returnValue)) {
+					break;
+				}
+			}
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (dispatcherDone && ctxt != 0) {
+			$nc(XDropTargetContextPeer::unsafe)->freeMemory(ctxt);
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void XDropTargetContextPeer::doDropDone(bool success, int32_t dropAction, bool isLocal) {
+	$useLocalObjectStack();
+	int64_t ctxt = getNativeDragContext();
+	if (ctxt != 0) {
 		$var($Throwable, var$0, nullptr);
 		try {
-			if (ctxt != 0 && !$nc(e)->isConsumed()) {
-				$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
-				while ($nc(dropTargetProtocols)->hasNext()) {
-					$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
-					if ($nc(dropTargetProtocol)->sendResponse(ctxt, e->getID(), returnValue)) {
-						break;
-					}
+			$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
+			while ($nc(dropTargetProtocols)->hasNext()) {
+				$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
+				if ($nc(dropTargetProtocol)->sendDropDone(ctxt, success, dropAction)) {
+					break;
 				}
 			}
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
 		} /*finally*/ {
-			if (dispatcherDone && ctxt != 0) {
-				$nc(XDropTargetContextPeer::unsafe)->freeMemory(ctxt);
-			}
+			$nc(XDropTargetContextPeer::unsafe)->freeMemory(ctxt);
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
@@ -159,46 +130,20 @@ void XDropTargetContextPeer::eventProcessed($SunDropTargetEvent* e, int32_t retu
 	}
 }
 
-void XDropTargetContextPeer::doDropDone(bool success, int32_t dropAction, bool isLocal) {
-	$useLocalCurrentObjectStackCache();
-	int64_t ctxt = getNativeDragContext();
-	if (ctxt != 0) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
-				while ($nc(dropTargetProtocols)->hasNext()) {
-					$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
-					if ($nc(dropTargetProtocol)->sendDropDone(ctxt, success, dropAction)) {
-						break;
-					}
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(XDropTargetContextPeer::unsafe)->freeMemory(ctxt);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-	}
-}
-
 $Object* XDropTargetContextPeer::getNativeData(int64_t format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t ctxt = getNativeDragContext();
 	if (ctxt != 0) {
 		$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
 		while ($nc(dropTargetProtocols)->hasNext()) {
 			$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
 			try {
-				return $of($nc(dropTargetProtocol)->getData(ctxt, format));
+				return $nc(dropTargetProtocol)->getData(ctxt, format);
 			} catch ($IllegalArgumentException& iae) {
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void XDropTargetContextPeer::cleanup() {
@@ -229,20 +174,26 @@ void XDropTargetContextPeer::processDropMessage($SunDropTargetEvent* event) {
 }
 
 bool XDropTargetContextPeer::processSunDropTargetEvent($SunDropTargetEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, source, $nc(event)->getSource());
 	if ($instanceOf($Component, source)) {
-		$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer($cast($Component, source)));
+		$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer($cast($Component, source)));
 		if ($instanceOf($XEmbedCanvasPeer, peer)) {
 			$var($XEmbedCanvasPeer, xEmbedCanvasPeer, $cast($XEmbedCanvasPeer, peer));
 			int64_t ctxt = getNativeDragContext();
 			$init($PlatformLogger$Level);
 			if ($nc(XDropTargetContextPeer::logger)->isLoggable($PlatformLogger$Level::FINER)) {
-				$var($String, var$0, $$str({"        processing "_s, event, " ctxt="_s, $$str(ctxt), " consumed="_s}));
-				$nc(XDropTargetContextPeer::logger)->finer($$concat(var$0, $$str(event->isConsumed())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("        processing "_s);
+				var$0->append(event);
+				var$0->append(" ctxt="_s);
+				var$0->append(ctxt);
+				var$0->append(" consumed="_s);
+				var$0->append(event->isConsumed());
+				XDropTargetContextPeer::logger->finer($$str(var$0));
 			}
 			if (!event->isConsumed()) {
-				if ($nc(xEmbedCanvasPeer)->processXEmbedDnDEvent(ctxt, event->getID())) {
+				if (xEmbedCanvasPeer->processXEmbedDnDEvent(ctxt, event->getID())) {
 					event->consume();
 					return true;
 				}
@@ -253,7 +204,7 @@ bool XDropTargetContextPeer::processSunDropTargetEvent($SunDropTargetEvent* even
 }
 
 void XDropTargetContextPeer::forwardEventToEmbedded(int64_t embedded, int64_t ctxt, int32_t eventID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
 	while ($nc(dropTargetProtocols)->hasNext()) {
 		$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
@@ -263,7 +214,7 @@ void XDropTargetContextPeer::forwardEventToEmbedded(int64_t embedded, int64_t ct
 	}
 }
 
-void clinit$XDropTargetContextPeer($Class* class$) {
+void XDropTargetContextPeer::clinit$($Class* clazz) {
 	$assignStatic(XDropTargetContextPeer::logger, $PlatformLogger::getLogger("sun.awt.X11.xembed.xdnd.XDropTargetContextPeer"_s));
 	$init($XlibWrapper);
 	$assignStatic(XDropTargetContextPeer::unsafe, $XlibWrapper::unsafe);
@@ -274,7 +225,50 @@ XDropTargetContextPeer::XDropTargetContextPeer() {
 }
 
 $Class* XDropTargetContextPeer::load$($String* name, bool initialize) {
-	$loadClass(XDropTargetContextPeer, name, initialize, &_XDropTargetContextPeer_ClassInfo_, clinit$XDropTargetContextPeer, allocate$XDropTargetContextPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer, logger)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer, unsafe)},
+		{"DTCP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer, DTCP_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XDropTargetContextPeer, init$, void)},
+		{"access$000", "(Lsun/awt/X11/XDropTargetContextPeer;Ljava/awt/Component;IIII[JJIZ)I", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XDropTargetContextPeer, access$000, int32_t, XDropTargetContextPeer*, $Component*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t, bool)},
+		{"cleanup", "()V", nullptr, $PRIVATE, $method(XDropTargetContextPeer, cleanup, void)},
+		{"doDropDone", "(ZIZ)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, doDropDone, void, bool, int32_t, bool)},
+		{"eventProcessed", "(Lsun/awt/dnd/SunDropTargetEvent;IZ)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, eventProcessed, void, $SunDropTargetEvent*, int32_t, bool)},
+		{"forwardEventToEmbedded", "(JJI)V", nullptr, $PUBLIC, $method(XDropTargetContextPeer, forwardEventToEmbedded, void, int64_t, int64_t, int32_t)},
+		{"getNativeData", "(J)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, getNativeData, $Object*, int64_t), "java.io.IOException"},
+		{"getPeer", "(Lsun/awt/AppContext;)Lsun/awt/X11/XDropTargetContextPeer;", nullptr, $STATIC, $staticMethod(XDropTargetContextPeer, getPeer, XDropTargetContextPeer*, $AppContext*)},
+		{"getXDropTargetProtocolListener", "()Lsun/awt/X11/XDropTargetProtocolListener;", nullptr, $STATIC, $staticMethod(XDropTargetContextPeer, getXDropTargetProtocolListener, $XDropTargetProtocolListener*)},
+		{"processDropMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processDropMessage, void, $SunDropTargetEvent*)},
+		{"processEnterMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processEnterMessage, void, $SunDropTargetEvent*)},
+		{"processExitMessage", "(Lsun/awt/dnd/SunDropTargetEvent;)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processExitMessage, void, $SunDropTargetEvent*)},
+		{"processMotionMessage", "(Lsun/awt/dnd/SunDropTargetEvent;Z)V", nullptr, $PROTECTED, $virtualMethod(XDropTargetContextPeer, processMotionMessage, void, $SunDropTargetEvent*, bool)},
+		{"processSunDropTargetEvent", "(Lsun/awt/dnd/SunDropTargetEvent;)Z", nullptr, $PRIVATE, $method(XDropTargetContextPeer, processSunDropTargetEvent, bool, $SunDropTargetEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl", "sun.awt.X11.XDropTargetContextPeer", "XDropTargetProtocolListenerImpl", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XDropTargetContextPeer",
+		"sun.awt.dnd.SunDropTargetContextPeer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl"
+	};
+	$loadClass(XDropTargetContextPeer, name, initialize, &classInfo$$, XDropTargetContextPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XDropTargetContextPeer));
+	});
 	return class$;
 }
 

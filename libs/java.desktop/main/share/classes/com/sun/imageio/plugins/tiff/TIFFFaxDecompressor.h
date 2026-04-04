@@ -17,6 +17,7 @@ class TIFFFaxDecompressor : public ::com::sun::imageio::plugins::tiff::TIFFDecom
 public:
 	TIFFFaxDecompressor();
 	using ::com::sun::imageio::plugins::tiff::TIFFDecompressor::decodeRaw;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void beginDecoding() override;
 	int32_t decodeBlackCodeWord();

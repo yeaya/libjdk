@@ -65,6 +65,7 @@ class $import ProviderList : public ::java::lang::Object {
 	$class(ProviderList, 0, ::java::lang::Object)
 public:
 	ProviderList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::GSSCaller* caller, bool useNative);
 	bool addAllMechsFromProvider(::java::security::Provider* p);
 	void addProviderAtEnd(::java::security::Provider* p, ::org::ietf::jgss::Oid* mechOid);

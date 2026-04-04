@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$EndParagraphAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/Math.h>
 #include <javax/swing/text/DefaultEditorKit.h>
@@ -16,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $TextAction = ::javax::swing::text::TextAction;
@@ -26,54 +24,18 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultEditorKit$EndParagraphAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$EndParagraphAction, select)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$EndParagraphAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$EndParagraphAction, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$EndParagraphAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$EndParagraphAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$EndParagraphAction", "javax.swing.text.DefaultEditorKit", "EndParagraphAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$EndParagraphAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$EndParagraphAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$EndParagraphAction_FieldInfo_,
-	_DefaultEditorKit$EndParagraphAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$EndParagraphAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$EndParagraphAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$EndParagraphAction));
-}
-
 void DefaultEditorKit$EndParagraphAction::init$($String* nm, bool select) {
 	$TextAction::init$(nm);
 	this->select = select;
 }
 
 void DefaultEditorKit$EndParagraphAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		int32_t offs = target->getCaretPosition();
 		$var($Element, elem, $Utilities::getParagraphElement(target, offs));
-		int32_t var$0 = $nc($(target->getDocument()))->getLength();
+		int32_t var$0 = $$nc(target->getDocument())->getLength();
 		offs = $Math::min(var$0, $nc(elem)->getEndOffset());
 		if (this->select) {
 			target->moveCaretPosition(offs);
@@ -87,7 +49,37 @@ DefaultEditorKit$EndParagraphAction::DefaultEditorKit$EndParagraphAction() {
 }
 
 $Class* DefaultEditorKit$EndParagraphAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$EndParagraphAction, name, initialize, &_DefaultEditorKit$EndParagraphAction_ClassInfo_, allocate$DefaultEditorKit$EndParagraphAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$EndParagraphAction, select)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$EndParagraphAction, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$EndParagraphAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$EndParagraphAction", "javax.swing.text.DefaultEditorKit", "EndParagraphAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$EndParagraphAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$EndParagraphAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$EndParagraphAction));
+	});
 	return class$;
 }
 

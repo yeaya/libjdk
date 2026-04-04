@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/MarshalException.h>
-
 #include <java/io/PrintWriter.h>
 #include <jcpp.h>
 
@@ -13,37 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace xml {
 		namespace crypto {
-
-$FieldInfo _MarshalException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MarshalException, serialVersionUID)},
-	{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(MarshalException, cause)},
-	{}
-};
-
-$MethodInfo _MarshalException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MarshalException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $Throwable*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(MarshalException, getCause, $Throwable*)},
-	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void)},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void, $PrintStream*)},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void, $PrintWriter*)},
-	{}
-};
-
-$ClassInfo _MarshalException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.MarshalException",
-	"java.lang.Exception",
-	nullptr,
-	_MarshalException_FieldInfo_,
-	_MarshalException_MethodInfo_
-};
-
-$Object* allocate$MarshalException($Class* clazz) {
-	return $of($alloc(MarshalException));
-}
 
 void MarshalException::init$() {
 	$Exception::init$();
@@ -59,7 +27,7 @@ void MarshalException::init$($String* message, $Throwable* cause) {
 }
 
 void MarshalException::init$($Throwable* cause) {
-	$Exception::init$(cause == nullptr ? ($String*)nullptr : $($nc(cause)->toString()));
+	$Exception::init$(cause == nullptr ? ($String*)nullptr : $(cause->toString()));
 	$set(this, cause, cause);
 }
 
@@ -90,7 +58,33 @@ void MarshalException::throw$() {
 }
 
 $Class* MarshalException::load$($String* name, bool initialize) {
-	$loadClass(MarshalException, name, initialize, &_MarshalException_ClassInfo_, allocate$MarshalException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MarshalException, serialVersionUID)},
+		{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(MarshalException, cause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MarshalException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $Throwable*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(MarshalException, getCause, $Throwable*)},
+		{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void)},
+		{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void, $PrintStream*)},
+		{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void, $PrintWriter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.MarshalException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarshalException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MarshalException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/HttpPrincipal.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,36 +10,6 @@ namespace com {
 	namespace sun {
 		namespace net {
 			namespace httpserver {
-
-$FieldInfo _HttpPrincipal_FieldInfo_[] = {
-	{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpPrincipal, username)},
-	{"realm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpPrincipal, realm)},
-	{}
-};
-
-$MethodInfo _HttpPrincipal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpPrincipal, init$, void, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getName, $String*)},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getRealm, $String*)},
-	{"getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getUsername, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, toString, $String*)},
-	{}
-};
-
-$ClassInfo _HttpPrincipal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.net.httpserver.HttpPrincipal",
-	"java.lang.Object",
-	"java.security.Principal",
-	_HttpPrincipal_FieldInfo_,
-	_HttpPrincipal_MethodInfo_
-};
-
-$Object* allocate$HttpPrincipal($Class* clazz) {
-	return $of($alloc(HttpPrincipal));
-}
 
 void HttpPrincipal::init$($String* username, $String* realm) {
 	if (username == nullptr || realm == nullptr) {
@@ -56,13 +25,13 @@ bool HttpPrincipal::equals(Object$* another) {
 	}
 	$var(HttpPrincipal, theother, $cast(HttpPrincipal, another));
 	bool var$0 = $nc(this->username)->equals($nc(theother)->username);
-	return (var$0 && $nc(this->realm)->equals($nc(theother)->realm));
+	return (var$0 && $nc(this->realm)->equals(theother->realm));
 }
 
 $String* HttpPrincipal::getName() {
 	return $String::format("%s:%s"_s, $$new($ObjectArray, {
-		$of(this->realm),
-		$of(this->username)
+		this->realm,
+		this->username
 	}));
 }
 
@@ -86,7 +55,32 @@ HttpPrincipal::HttpPrincipal() {
 }
 
 $Class* HttpPrincipal::load$($String* name, bool initialize) {
-	$loadClass(HttpPrincipal, name, initialize, &_HttpPrincipal_ClassInfo_, allocate$HttpPrincipal);
+	$FieldInfo fieldInfos$$[] = {
+		{"username", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpPrincipal, username)},
+		{"realm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HttpPrincipal, realm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpPrincipal, init$, void, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getName, $String*)},
+		{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getRealm, $String*)},
+		{"getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getUsername, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.net.httpserver.HttpPrincipal",
+		"java.lang.Object",
+		"java.security.Principal",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpPrincipal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpPrincipal);
+	});
 	return class$;
 }
 

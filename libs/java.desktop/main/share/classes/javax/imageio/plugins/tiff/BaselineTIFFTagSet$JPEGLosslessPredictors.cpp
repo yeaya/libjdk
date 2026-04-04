@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$JPEGLosslessPredictors.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$JPEGLosslessPredictors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$JPEGLosslessPredictors, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$JPEGLosslessPredictors_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGLosslessPredictors", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "JPEGLosslessPredictors", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$JPEGLosslessPredictors_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGLosslessPredictors",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$JPEGLosslessPredictors_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$JPEGLosslessPredictors_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$JPEGLosslessPredictors($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$JPEGLosslessPredictors));
-}
-
 void BaselineTIFFTagSet$JPEGLosslessPredictors::init$() {
 	$TIFFTag::init$("JPEGLosslessPredictors"_s, 517, $sl(1, $TIFFTag::TIFF_SHORT));
 	addValueName(1, "A"_s);
@@ -61,7 +30,32 @@ BaselineTIFFTagSet$JPEGLosslessPredictors::BaselineTIFFTagSet$JPEGLosslessPredic
 }
 
 $Class* BaselineTIFFTagSet$JPEGLosslessPredictors::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$JPEGLosslessPredictors, name, initialize, &_BaselineTIFFTagSet$JPEGLosslessPredictors_ClassInfo_, allocate$BaselineTIFFTagSet$JPEGLosslessPredictors);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$JPEGLosslessPredictors, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGLosslessPredictors", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "JPEGLosslessPredictors", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGLosslessPredictors",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$JPEGLosslessPredictors, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$JPEGLosslessPredictors);
+	});
 	return class$;
 }
 

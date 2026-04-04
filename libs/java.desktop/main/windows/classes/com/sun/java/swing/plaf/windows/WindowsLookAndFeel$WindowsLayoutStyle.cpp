@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$WindowsLayoutStyle.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$3.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <java/awt/Container.h>
@@ -31,43 +30,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$WindowsLayoutStyle_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$WindowsLayoutStyle, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$WindowsLayoutStyle_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, $PRIVATE, $method(WindowsLookAndFeel$WindowsLayoutStyle, init$, void, $WindowsLookAndFeel*)},
-	{"getContainerGap", "(Ljavax/swing/JComponent;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$WindowsLayoutStyle, getContainerGap, int32_t, $JComponent*, int32_t, $Container*)},
-	{"getPreferredGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljavax/swing/LayoutStyle$ComponentPlacement;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$WindowsLayoutStyle, getPreferredGap, int32_t, $JComponent*, $JComponent*, $LayoutStyle$ComponentPlacement*, int32_t, $Container*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$WindowsLayoutStyle_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsLayoutStyle", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$WindowsLayoutStyle_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle",
-	"sun.swing.DefaultLayoutStyle",
-	nullptr,
-	_WindowsLookAndFeel$WindowsLayoutStyle_FieldInfo_,
-	_WindowsLookAndFeel$WindowsLayoutStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$WindowsLayoutStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$WindowsLayoutStyle($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$WindowsLayoutStyle));
-}
-
 void WindowsLookAndFeel$WindowsLayoutStyle::init$($WindowsLookAndFeel* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultLayoutStyle::init$();
@@ -78,26 +40,20 @@ int32_t WindowsLookAndFeel$WindowsLayoutStyle::getPreferredGap($JComponent* comp
 	$init($WindowsLookAndFeel$3);
 	switch ($nc($WindowsLookAndFeel$3::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			if (position == $SwingConstants::EAST || position == $SwingConstants::WEST) {
-				int32_t indent = getIndent(component1, position);
-				if (indent > 0) {
-					return indent;
-				}
-				return 10;
+		if (position == $SwingConstants::EAST || position == $SwingConstants::WEST) {
+			int32_t indent = getIndent(component1, position);
+			if (indent > 0) {
+				return indent;
 			}
+			return 10;
 		}
 	case 2:
-		{
-			if (isLabelAndNonlabel(component1, component2, position)) {
-				return getButtonGap(component1, component2, position, this->this$0->dluToPixels(3, position));
-			}
-			return getButtonGap(component1, component2, position, this->this$0->dluToPixels(4, position));
+		if (isLabelAndNonlabel(component1, component2, position)) {
+			return getButtonGap(component1, component2, position, this->this$0->dluToPixels(3, position));
 		}
+		return getButtonGap(component1, component2, position, this->this$0->dluToPixels(4, position));
 	case 3:
-		{
-			return getButtonGap(component1, component2, position, this->this$0->dluToPixels(7, position));
-		}
+		return getButtonGap(component1, component2, position, this->this$0->dluToPixels(7, position));
 	}
 	return 0;
 }
@@ -111,7 +67,38 @@ WindowsLookAndFeel$WindowsLayoutStyle::WindowsLookAndFeel$WindowsLayoutStyle() {
 }
 
 $Class* WindowsLookAndFeel$WindowsLayoutStyle::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$WindowsLayoutStyle, name, initialize, &_WindowsLookAndFeel$WindowsLayoutStyle_ClassInfo_, allocate$WindowsLookAndFeel$WindowsLayoutStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$WindowsLayoutStyle, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, $PRIVATE, $method(WindowsLookAndFeel$WindowsLayoutStyle, init$, void, $WindowsLookAndFeel*)},
+		{"getContainerGap", "(Ljavax/swing/JComponent;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$WindowsLayoutStyle, getContainerGap, int32_t, $JComponent*, int32_t, $Container*)},
+		{"getPreferredGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljavax/swing/LayoutStyle$ComponentPlacement;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$WindowsLayoutStyle, getPreferredGap, int32_t, $JComponent*, $JComponent*, $LayoutStyle$ComponentPlacement*, int32_t, $Container*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "WindowsLayoutStyle", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$WindowsLayoutStyle",
+		"sun.swing.DefaultLayoutStyle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$WindowsLayoutStyle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$WindowsLayoutStyle);
+	});
 	return class$;
 }
 

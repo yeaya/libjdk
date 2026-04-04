@@ -1,5 +1,4 @@
 #include <java.sql.test.h>
-
 #include <java.sql.h>
 #include <java.base.h>
 #include <java.logging.h>

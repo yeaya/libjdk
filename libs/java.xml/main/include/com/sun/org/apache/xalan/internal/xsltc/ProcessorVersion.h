@@ -24,6 +24,7 @@ class $import ProcessorVersion : public ::java::lang::Object {
 	$class(ProcessorVersion, 0, ::java::lang::Object)
 public:
 	ProcessorVersion();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static int32_t MAJOR;

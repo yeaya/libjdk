@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/RowSetFactory.h>
-
 #include <javax/sql/rowset/CachedRowSet.h>
 #include <javax/sql/rowset/FilteredRowSet.h>
 #include <javax/sql/rowset/JdbcRowSet.h>
@@ -19,30 +18,26 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 
-$MethodInfo _RowSetFactory_MethodInfo_[] = {
-	{"createCachedRowSet", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createCachedRowSet, $CachedRowSet*), "java.sql.SQLException"},
-	{"createFilteredRowSet", "()Ljavax/sql/rowset/FilteredRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createFilteredRowSet, $FilteredRowSet*), "java.sql.SQLException"},
-	{"createJdbcRowSet", "()Ljavax/sql/rowset/JdbcRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createJdbcRowSet, $JdbcRowSet*), "java.sql.SQLException"},
-	{"createJoinRowSet", "()Ljavax/sql/rowset/JoinRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createJoinRowSet, $JoinRowSet*), "java.sql.SQLException"},
-	{"createWebRowSet", "()Ljavax/sql/rowset/WebRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createWebRowSet, $WebRowSet*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _RowSetFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.rowset.RowSetFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RowSetFactory_MethodInfo_
-};
-
-$Object* allocate$RowSetFactory($Class* clazz) {
-	return $of($alloc(RowSetFactory));
-}
-
 $Class* RowSetFactory::load$($String* name, bool initialize) {
-	$loadClass(RowSetFactory, name, initialize, &_RowSetFactory_ClassInfo_, allocate$RowSetFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createCachedRowSet", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createCachedRowSet, $CachedRowSet*), "java.sql.SQLException"},
+		{"createFilteredRowSet", "()Ljavax/sql/rowset/FilteredRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createFilteredRowSet, $FilteredRowSet*), "java.sql.SQLException"},
+		{"createJdbcRowSet", "()Ljavax/sql/rowset/JdbcRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createJdbcRowSet, $JdbcRowSet*), "java.sql.SQLException"},
+		{"createJoinRowSet", "()Ljavax/sql/rowset/JoinRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createJoinRowSet, $JoinRowSet*), "java.sql.SQLException"},
+		{"createWebRowSet", "()Ljavax/sql/rowset/WebRowSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetFactory, createWebRowSet, $WebRowSet*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.rowset.RowSetFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RowSetFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowSetFactory);
+	});
 	return class$;
 }
 

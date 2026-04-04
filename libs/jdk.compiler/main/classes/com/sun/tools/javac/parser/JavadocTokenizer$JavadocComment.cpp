@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavadocTokenizer$JavadocComment.h>
-
 #include <com/sun/tools/javac/parser/JavaTokenizer$BasicComment.h>
 #include <com/sun/tools/javac/parser/JavadocTokenizer$OffsetMap.h>
 #include <com/sun/tools/javac/parser/JavadocTokenizer.h>
@@ -8,7 +7,6 @@
 #include <com/sun/tools/javac/parser/UnicodeReader$PositionTrackingReader.h>
 #include <com/sun/tools/javac/parser/UnicodeReader.h>
 #include <com/sun/tools/javac/util/Position.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
@@ -23,13 +21,11 @@ using $JavadocTokenizer$OffsetMap = ::com::sun::tools::javac::parser::JavadocTok
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
 using $Position = ::com::sun::tools::javac::util::Position;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
 namespace com {
@@ -37,51 +33,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _JavadocTokenizer$JavadocComment_FieldInfo_[] = {
-	{"DEPRECATED_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocTokenizer$JavadocComment, DEPRECATED_PATTERN)},
-	{"docComment", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JavadocTokenizer$JavadocComment, docComment)},
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $FINAL, $field(JavadocTokenizer$JavadocComment, sb)},
-	{"offsetMap", "Lcom/sun/tools/javac/parser/JavadocTokenizer$OffsetMap;", nullptr, 0, $field(JavadocTokenizer$JavadocComment, offsetMap)},
-	{}
-};
-
-$MethodInfo _JavadocTokenizer$JavadocComment_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, 0, $method(JavadocTokenizer$JavadocComment, init$, void, $Tokens$Comment$CommentStyle*, $ScannerFactory*, $chars*, int32_t)},
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer$JavadocComment, getSourcePos, int32_t, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer$JavadocComment, getText, $String*)},
-	{"put", "(C)V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, put, void, char16_t)},
-	{"put", "()V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, put, void)},
-	{"putCodePoint", "(I)V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, putCodePoint, void, int32_t)},
-	{"scanDocComment", "()V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, scanDocComment, void)},
-	{}
-};
-
-$InnerClassInfo _JavadocTokenizer$JavadocComment_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment", "com.sun.tools.javac.parser.JavadocTokenizer", "JavadocComment", $PROTECTED | $STATIC},
-	{"com.sun.tools.javac.parser.JavaTokenizer$BasicComment", "com.sun.tools.javac.parser.JavaTokenizer", "BasicComment", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _JavadocTokenizer$JavadocComment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment",
-	"com.sun.tools.javac.parser.JavaTokenizer$BasicComment",
-	nullptr,
-	_JavadocTokenizer$JavadocComment_FieldInfo_,
-	_JavadocTokenizer$JavadocComment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavadocTokenizer$JavadocComment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavadocTokenizer"
-};
-
-$Object* allocate$JavadocTokenizer$JavadocComment($Class* clazz) {
-	return $of($alloc(JavadocTokenizer$JavadocComment));
-}
 
 $Pattern* JavadocTokenizer$JavadocComment::DEPRECATED_PATTERN = nullptr;
 
@@ -95,13 +46,13 @@ void JavadocTokenizer$JavadocComment::init$($Tokens$Comment$CommentStyle* cs, $S
 void JavadocTokenizer$JavadocComment::put(char16_t ch) {
 	int32_t var$0 = $nc(this->sb)->length();
 	$nc(this->offsetMap)->add(var$0, offsetPosition());
-	$nc(this->sb)->append(ch);
+	this->sb->append(ch);
 }
 
 void JavadocTokenizer$JavadocComment::putCodePoint(int32_t codePoint) {
 	int32_t var$0 = $nc(this->sb)->length();
 	$nc(this->offsetMap)->add(var$0, offsetPosition());
-	$nc(this->sb)->appendCodePoint(codePoint);
+	this->sb->appendCodePoint(codePoint);
 }
 
 void JavadocTokenizer$JavadocComment::put() {
@@ -131,90 +82,88 @@ int32_t JavadocTokenizer$JavadocComment::getSourcePos(int32_t pos) {
 }
 
 void JavadocTokenizer$JavadocComment::scanDocComment() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			bool firstLine = true;
-			accept("/*"_s);
-			skip(u'*');
-			if (is(u'/')) {
-				$set(this, docComment, ""_s);
-				return$1 = true;
-				goto $finally;
-			}
-			if (isOneOf(u'\n', u'\r')) {
-				accept(u'\r');
-				accept(u'\n');
-				firstLine = false;
-			}
-			bool outerLoop$break = false;
-			while (isAvailable()) {
-				int32_t begin_pos = position();
-				skipWhitespace();
-				if (is(u'*')) {
-					skip(u'*');
-					if (accept(u'/')) {
-						outerLoop$break = true;
-						break;
-					}
-				} else if (!firstLine) {
-					reset(begin_pos);
-				}
-				bool textLoop$break = false;
-				while (isAvailable()) {
-					if (accept("*/"_s)) {
-						outerLoop$break = true;
-						break;
-					} else if (isOneOf(u'\n', u'\r')) {
-						put(u'\n');
-						accept(u'\r');
-						accept(u'\n');
-						textLoop$break = true;
-						break;
-					} else if (is(u'\f')) {
-						next();
-						textLoop$break = true;
-						break;
-					} else {
-						put();
-						next();
-					}
-				}
-				if (outerLoop$break) {
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		bool firstLine = true;
+		accept("/*"_s);
+		skip(u'*');
+		if (is(u'/')) {
+			$set(this, docComment, ""_s);
+			return$1 = true;
+			goto $finally;
+		}
+		if (isOneOf(u'\n', u'\r')) {
+			accept(u'\r');
+			accept(u'\n');
+			firstLine = false;
+		}
+		bool outerLoop$break = false;
+		while (isAvailable()) {
+			int32_t begin_pos = position();
+			skipWhitespace();
+			if (is(u'*')) {
+				skip(u'*');
+				if (accept(u'/')) {
+					outerLoop$break = true;
 					break;
 				}
-				firstLine = false;
+			} else if (!firstLine) {
+				reset(begin_pos);
 			}
-			if ($nc(this->sb)->length() > 0) {
-				int32_t i = $nc(this->sb)->length() - 1;
-				while (i > -1 && $nc(this->sb)->charAt(i) == u'*') {
-					--i;
+			bool textLoop$break = false;
+			while (isAvailable()) {
+				if (accept("*/"_s)) {
+					outerLoop$break = true;
+					break;
+				} else if (isOneOf(u'\n', u'\r')) {
+					put(u'\n');
+					accept(u'\r');
+					accept(u'\n');
+					textLoop$break = true;
+					break;
+				} else if (is(u'\f')) {
+					next();
+					textLoop$break = true;
+					break;
+				} else {
+					put();
+					next();
 				}
-				$nc(this->sb)->setLength(i + 1);
-				$set(this, docComment, $nc(this->sb)->toString());
-			} else {
-				$set(this, docComment, ""_s);
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			this->scanned = true;
-			if (this->docComment != nullptr && $nc($($nc(JavadocTokenizer$JavadocComment::DEPRECATED_PATTERN)->matcher(this->docComment)))->matches()) {
-				this->deprecatedFlag = true;
+			if (outerLoop$break) {
+				break;
 			}
+			firstLine = false;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if ($nc(this->sb)->length() > 0) {
+			int32_t i = this->sb->length() - 1;
+			while (i > -1 && this->sb->charAt(i) == u'*') {
+				--i;
+			}
+			this->sb->setLength(i + 1);
+			$set(this, docComment, this->sb->toString());
+		} else {
+			$set(this, docComment, ""_s);
 		}
-		if (return$1) {
-			return;
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->scanned = true;
+		if (this->docComment != nullptr && $$nc($nc(JavadocTokenizer$JavadocComment::DEPRECATED_PATTERN)->matcher(this->docComment))->matches()) {
+			this->deprecatedFlag = true;
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
-void clinit$JavadocTokenizer$JavadocComment($Class* class$) {
+void JavadocTokenizer$JavadocComment::clinit$($Class* clazz) {
 	$assignStatic(JavadocTokenizer$JavadocComment::DEPRECATED_PATTERN, $Pattern::compile("(?sm).*^\\s*@deprecated( |$).*"_s));
 }
 
@@ -222,7 +171,46 @@ JavadocTokenizer$JavadocComment::JavadocTokenizer$JavadocComment() {
 }
 
 $Class* JavadocTokenizer$JavadocComment::load$($String* name, bool initialize) {
-	$loadClass(JavadocTokenizer$JavadocComment, name, initialize, &_JavadocTokenizer$JavadocComment_ClassInfo_, clinit$JavadocTokenizer$JavadocComment, allocate$JavadocTokenizer$JavadocComment);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEPRECATED_PATTERN", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavadocTokenizer$JavadocComment, DEPRECATED_PATTERN)},
+		{"docComment", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JavadocTokenizer$JavadocComment, docComment)},
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $FINAL, $field(JavadocTokenizer$JavadocComment, sb)},
+		{"offsetMap", "Lcom/sun/tools/javac/parser/JavadocTokenizer$OffsetMap;", nullptr, 0, $field(JavadocTokenizer$JavadocComment, offsetMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, 0, $method(JavadocTokenizer$JavadocComment, init$, void, $Tokens$Comment$CommentStyle*, $ScannerFactory*, $chars*, int32_t)},
+		{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer$JavadocComment, getSourcePos, int32_t, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer$JavadocComment, getText, $String*)},
+		{"put", "(C)V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, put, void, char16_t)},
+		{"put", "()V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, put, void)},
+		{"putCodePoint", "(I)V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, putCodePoint, void, int32_t)},
+		{"scanDocComment", "()V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, scanDocComment, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment", "com.sun.tools.javac.parser.JavadocTokenizer", "JavadocComment", $PROTECTED | $STATIC},
+		{"com.sun.tools.javac.parser.JavaTokenizer$BasicComment", "com.sun.tools.javac.parser.JavaTokenizer", "BasicComment", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.JavadocTokenizer$JavadocComment",
+		"com.sun.tools.javac.parser.JavaTokenizer$BasicComment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavadocTokenizer"
+	};
+	$loadClass(JavadocTokenizer$JavadocComment, name, initialize, &classInfo$$, JavadocTokenizer$JavadocComment::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavadocTokenizer$JavadocComment));
+	});
 	return class$;
 }
 

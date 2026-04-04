@@ -1,8 +1,6 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -70,7 +68,6 @@
 #undef WHEN_ANCESTOR_OF_FOCUSED_COMPONENT
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -94,7 +91,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
@@ -127,228 +123,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_upKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_downKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_leftKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_rightKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_homeKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_endKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_dividerResizeToggleKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_keyboardUpLeftListener[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_keyboardDownRightListener[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_keyboardHomeListener[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_keyboardEndListener[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_FieldAnnotations_keyboardResizeToggleListener[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_MethodAnnotations_createKeyboardDownRightListener5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_MethodAnnotations_createKeyboardEndListener6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_MethodAnnotations_createKeyboardHomeListener7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_MethodAnnotations_createKeyboardResizeToggleListener8[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_MethodAnnotations_createKeyboardUpLeftListener9[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _BasicSplitPaneUI_MethodAnnotations_getDividerBorderSize16[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _BasicSplitPaneUI_FieldInfo_[] = {
-	{"NON_CONTINUOUS_DIVIDER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicSplitPaneUI, NON_CONTINUOUS_DIVIDER)},
-	{"KEYBOARD_DIVIDER_MOVE_OFFSET", "I", nullptr, $PROTECTED | $STATIC, $staticField(BasicSplitPaneUI, KEYBOARD_DIVIDER_MOVE_OFFSET)},
-	{"splitPane", "Ljavax/swing/JSplitPane;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, splitPane)},
-	{"layoutManager", "Ljavax/swing/plaf/basic/BasicSplitPaneUI$BasicHorizontalLayoutManager;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, layoutManager)},
-	{"divider", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, divider)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, propertyChangeListener)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, focusListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicSplitPaneUI$Handler;", nullptr, $PRIVATE, $field(BasicSplitPaneUI, handler)},
-	{"managingFocusForwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE, $field(BasicSplitPaneUI, managingFocusForwardTraversalKeys)},
-	{"managingFocusBackwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE, $field(BasicSplitPaneUI, managingFocusBackwardTraversalKeys)},
-	{"dividerSize", "I", nullptr, $PROTECTED, $field(BasicSplitPaneUI, dividerSize)},
-	{"nonContinuousLayoutDivider", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, nonContinuousLayoutDivider)},
-	{"draggingHW", "Z", nullptr, $PROTECTED, $field(BasicSplitPaneUI, draggingHW)},
-	{"beginDragDividerLocation", "I", nullptr, $PROTECTED, $field(BasicSplitPaneUI, beginDragDividerLocation)},
-	{"upKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, upKey), _BasicSplitPaneUI_FieldAnnotations_upKey},
-	{"downKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, downKey), _BasicSplitPaneUI_FieldAnnotations_downKey},
-	{"leftKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, leftKey), _BasicSplitPaneUI_FieldAnnotations_leftKey},
-	{"rightKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, rightKey), _BasicSplitPaneUI_FieldAnnotations_rightKey},
-	{"homeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, homeKey), _BasicSplitPaneUI_FieldAnnotations_homeKey},
-	{"endKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, endKey), _BasicSplitPaneUI_FieldAnnotations_endKey},
-	{"dividerResizeToggleKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, dividerResizeToggleKey), _BasicSplitPaneUI_FieldAnnotations_dividerResizeToggleKey},
-	{"keyboardUpLeftListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardUpLeftListener), _BasicSplitPaneUI_FieldAnnotations_keyboardUpLeftListener},
-	{"keyboardDownRightListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardDownRightListener), _BasicSplitPaneUI_FieldAnnotations_keyboardDownRightListener},
-	{"keyboardHomeListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardHomeListener), _BasicSplitPaneUI_FieldAnnotations_keyboardHomeListener},
-	{"keyboardEndListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardEndListener), _BasicSplitPaneUI_FieldAnnotations_keyboardEndListener},
-	{"keyboardResizeToggleListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardResizeToggleListener), _BasicSplitPaneUI_FieldAnnotations_keyboardResizeToggleListener},
-	{"orientation", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI, orientation)},
-	{"lastDragLocation", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI, lastDragLocation)},
-	{"continuousLayout", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, continuousLayout)},
-	{"dividerKeyboardResize", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, dividerKeyboardResize)},
-	{"dividerLocationIsSet", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, dividerLocationIsSet)},
-	{"dividerDraggingColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSplitPaneUI, dividerDraggingColor)},
-	{"rememberPaneSizes", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, rememberPaneSizes)},
-	{"keepHidden", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, keepHidden)},
-	{"painted", "Z", nullptr, 0, $field(BasicSplitPaneUI, painted)},
-	{"ignoreDividerLocationChange", "Z", nullptr, 0, $field(BasicSplitPaneUI, ignoreDividerLocationChange)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicSplitPaneUI, init$, void)},
-	{"addHeavyweightDivider", "()V", nullptr, $PRIVATE, $method(BasicSplitPaneUI, addHeavyweightDivider, void)},
-	{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
-	{"createDefaultNonContinuousLayoutDivider", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, createDefaultNonContinuousLayoutDivider, $Component*)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, createFocusListener, $FocusListener*)},
-	{"createKeyboardDownRightListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardDownRightListener, $ActionListener*), nullptr, nullptr, _BasicSplitPaneUI_MethodAnnotations_createKeyboardDownRightListener5},
-	{"createKeyboardEndListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardEndListener, $ActionListener*), nullptr, nullptr, _BasicSplitPaneUI_MethodAnnotations_createKeyboardEndListener6},
-	{"createKeyboardHomeListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardHomeListener, $ActionListener*), nullptr, nullptr, _BasicSplitPaneUI_MethodAnnotations_createKeyboardHomeListener7},
-	{"createKeyboardResizeToggleListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardResizeToggleListener, $ActionListener*), nullptr, nullptr, _BasicSplitPaneUI_MethodAnnotations_createKeyboardResizeToggleListener8},
-	{"createKeyboardUpLeftListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardUpLeftListener, $ActionListener*), nullptr, nullptr, _BasicSplitPaneUI_MethodAnnotations_createKeyboardUpLeftListener9},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"dragDividerTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, dragDividerTo, void, int32_t)},
-	{"finishDraggingTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, finishDraggingTo, void, int32_t)},
-	{"finishedPaintingChildren", "(Ljavax/swing/JSplitPane;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, finishedPaintingChildren, void, $JSplitPane*, $Graphics*)},
-	{"getDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getDivider, $BasicSplitPaneDivider*)},
-	{"getDividerBorderSize", "()I", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, getDividerBorderSize, int32_t), nullptr, nullptr, _BasicSplitPaneUI_MethodAnnotations_getDividerBorderSize16},
-	{"getDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getDividerLocation, int32_t, $JSplitPane*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicSplitPaneUI$Handler;", nullptr, $PRIVATE, $method(BasicSplitPaneUI, getHandler, $BasicSplitPaneUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicSplitPaneUI, getInputMap, $InputMap*, int32_t)},
-	{"getInsets", "(Ljavax/swing/JComponent;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getInsets, $Insets*, $JComponent*)},
-	{"getKeepHidden", "()Z", nullptr, $PRIVATE, $method(BasicSplitPaneUI, getKeepHidden, bool)},
-	{"getKeyboardMoveIncrement", "()I", nullptr, 0, $virtualMethod(BasicSplitPaneUI, getKeyboardMoveIncrement, int32_t)},
-	{"getLastDragLocation", "()I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getLastDragLocation, int32_t)},
-	{"getMaximumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMaximumDividerLocation, int32_t, $JSplitPane*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMinimumDividerLocation, int32_t, $JSplitPane*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getNonContinuousLayoutDivider", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getNonContinuousLayoutDivider, $Component*)},
-	{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getOrientation, int32_t)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getSplitPane", "()Ljavax/swing/JSplitPane;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getSplitPane, $JSplitPane*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, installUI, void, $JComponent*)},
-	{"isContinuousLayout", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, isContinuousLayout, bool)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicSplitPaneUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"resetLayoutManager", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, resetLayoutManager, void)},
-	{"resetToPreferredSizes", "(Ljavax/swing/JSplitPane;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, resetToPreferredSizes, void, $JSplitPane*)},
-	{"setContinuousLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setContinuousLayout, void, bool)},
-	{"setDividerLocation", "(Ljavax/swing/JSplitPane;I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setDividerLocation, void, $JSplitPane*, int32_t)},
-	{"setKeepHidden", "(Z)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI, setKeepHidden, void, bool)},
-	{"setLastDragLocation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setLastDragLocation, void, int32_t)},
-	{"setNonContinuousLayoutDivider", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, setNonContinuousLayoutDivider, void, $Component*)},
-	{"setNonContinuousLayoutDivider", "(Ljava/awt/Component;Z)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, setNonContinuousLayoutDivider, void, $Component*, bool)},
-	{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setOrientation, void, int32_t)},
-	{"startDragging", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, startDragging, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$Actions", "javax.swing.plaf.basic.BasicSplitPaneUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$Handler", "javax.swing.plaf.basic.BasicSplitPaneUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$BasicVerticalLayoutManager", "javax.swing.plaf.basic.BasicSplitPaneUI", "BasicVerticalLayoutManager", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager", "javax.swing.plaf.basic.BasicSplitPaneUI", "BasicHorizontalLayoutManager", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardResizeToggleHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardEndHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardEndHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardHomeHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardHomeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardDownRightHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardDownRightHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardUpLeftHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$FocusHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "FocusHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$PropertyHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "PropertyHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneUI",
-	"javax.swing.plaf.SplitPaneUI",
-	nullptr,
-	_BasicSplitPaneUI_FieldInfo_,
-	_BasicSplitPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneUI$Actions,javax.swing.plaf.basic.BasicSplitPaneUI$Handler,javax.swing.plaf.basic.BasicSplitPaneUI$BasicVerticalLayoutManager,javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardEndHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardHomeHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardDownRightHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler,javax.swing.plaf.basic.BasicSplitPaneUI$FocusHandler,javax.swing.plaf.basic.BasicSplitPaneUI$PropertyHandler,javax.swing.plaf.basic.BasicSplitPaneUI$1"
-};
-
-$Object* allocate$BasicSplitPaneUI($Class* clazz) {
-	return $of($alloc(BasicSplitPaneUI));
-}
-
 $String* BasicSplitPaneUI::NON_CONTINUOUS_DIVIDER = nullptr;
 int32_t BasicSplitPaneUI::KEYBOARD_DIVIDER_MOVE_OFFSET = 0;
 
@@ -364,7 +138,7 @@ $ComponentUI* BasicSplitPaneUI::createUI($JComponent* x) {
 
 void BasicSplitPaneUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicSplitPaneUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicSplitPaneUI$Actions);
 	$nc(map)->put($$new($BasicSplitPaneUI$Actions, $BasicSplitPaneUI$Actions::NEGATIVE_INCREMENT));
 	map->put($$new($BasicSplitPaneUI$Actions, $BasicSplitPaneUI$Actions::POSITIVE_INCREMENT));
@@ -388,10 +162,9 @@ void BasicSplitPaneUI::installUI($JComponent* c) {
 }
 
 void BasicSplitPaneUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LookAndFeel::installBorder(this->splitPane, "SplitPane.border"_s);
 	$LookAndFeel::installColors(this->splitPane, "SplitPane.background"_s, "SplitPane.foreground"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->splitPane, "opaque"_s, $Boolean::TRUE);
 	if (this->divider == nullptr) {
 		$set(this, divider, createDefaultDivider());
@@ -404,10 +177,10 @@ void BasicSplitPaneUI::installDefaults() {
 	$set(this, dividerDraggingColor, $UIManager::getColor("SplitPaneDivider.draggingColor"_s));
 	setOrientation($nc(this->splitPane)->getOrientation());
 	$var($Integer, temp, $cast($Integer, $UIManager::get("SplitPane.dividerSize"_s)));
-	$LookAndFeel::installProperty(this->splitPane, "dividerSize"_s, $($Integer::valueOf(temp == nullptr ? 10 : $nc(temp)->intValue())));
+	$LookAndFeel::installProperty(this->splitPane, "dividerSize"_s, $($Integer::valueOf(temp == nullptr ? 10 : temp->intValue())));
 	$nc(this->divider)->setDividerSize($nc(this->splitPane)->getDividerSize());
 	this->dividerSize = $nc(this->divider)->getDividerSize();
-	$nc(this->splitPane)->add(static_cast<$Component*>(this->divider), $of($JSplitPane::DIVIDER));
+	$nc(this->splitPane)->add(this->divider, $JSplitPane::DIVIDER);
 	setContinuousLayout($nc(this->splitPane)->isContinuousLayout());
 	resetLayoutManager();
 	if (this->nonContinuousLayoutDivider == nullptr) {
@@ -417,12 +190,12 @@ void BasicSplitPaneUI::installDefaults() {
 	}
 	if (this->managingFocusForwardTraversalKeys == nullptr) {
 		$set(this, managingFocusForwardTraversalKeys, $new($HashSet));
-		$nc(this->managingFocusForwardTraversalKeys)->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)));
+		this->managingFocusForwardTraversalKeys->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, 0)));
 	}
 	$nc(this->splitPane)->setFocusTraversalKeys($KeyboardFocusManager::FORWARD_TRAVERSAL_KEYS, this->managingFocusForwardTraversalKeys);
 	if (this->managingFocusBackwardTraversalKeys == nullptr) {
 		$set(this, managingFocusBackwardTraversalKeys, $new($HashSet));
-		$nc(this->managingFocusBackwardTraversalKeys)->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, $InputEvent::SHIFT_MASK)));
+		this->managingFocusBackwardTraversalKeys->add($($KeyStroke::getKeyStroke($KeyEvent::VK_TAB, $InputEvent::SHIFT_MASK)));
 	}
 	$nc(this->splitPane)->setFocusTraversalKeys($KeyboardFocusManager::BACKWARD_TRAVERSAL_KEYS, this->managingFocusBackwardTraversalKeys);
 }
@@ -470,7 +243,7 @@ void BasicSplitPaneUI::uninstallDefaults() {
 	if ($instanceOf($UIResource, b)) {
 		$nc(this->divider)->setBorder(nullptr);
 	}
-	$nc(this->splitPane)->remove(static_cast<$Component*>(this->divider));
+	$nc(this->splitPane)->remove(this->divider);
 	$nc(this->divider)->setBasicSplitPaneUI(nullptr);
 	$set(this, layoutManager, nullptr);
 	$set(this, divider, nullptr);
@@ -580,15 +353,15 @@ void BasicSplitPaneUI::setNonContinuousLayoutDivider($Component* newDivider) {
 void BasicSplitPaneUI::setNonContinuousLayoutDivider($Component* newDivider, bool rememberSizes) {
 	this->rememberPaneSizes = rememberSizes;
 	if (this->nonContinuousLayoutDivider != nullptr && this->splitPane != nullptr) {
-		$nc(this->splitPane)->remove(this->nonContinuousLayoutDivider);
+		this->splitPane->remove(this->nonContinuousLayoutDivider);
 	}
 	$set(this, nonContinuousLayoutDivider, newDivider);
 }
 
 void BasicSplitPaneUI::addHeavyweightDivider() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nonContinuousLayoutDivider != nullptr && this->splitPane != nullptr) {
-		$var($Component, leftC, $nc(this->splitPane)->getLeftComponent());
+		$var($Component, leftC, this->splitPane->getLeftComponent());
 		$var($Component, rightC, $nc(this->splitPane)->getRightComponent());
 		int32_t lastLocation = $nc(this->splitPane)->getDividerLocation();
 		if (leftC != nullptr) {
@@ -597,11 +370,11 @@ void BasicSplitPaneUI::addHeavyweightDivider() {
 		if (rightC != nullptr) {
 			$nc(this->splitPane)->setRightComponent(nullptr);
 		}
-		$nc(this->splitPane)->remove(static_cast<$Component*>(this->divider));
+		$nc(this->splitPane)->remove(this->divider);
 		$nc(this->splitPane)->add(this->nonContinuousLayoutDivider, BasicSplitPaneUI::NON_CONTINUOUS_DIVIDER, $nc(this->splitPane)->getComponentCount());
 		$nc(this->splitPane)->setLeftComponent(leftC);
 		$nc(this->splitPane)->setRightComponent(rightC);
-		$nc(this->splitPane)->add(static_cast<$Component*>(this->divider), $of($JSplitPane::DIVIDER));
+		$nc(this->splitPane)->add(this->divider, $JSplitPane::DIVIDER);
 		if (this->rememberPaneSizes) {
 			$nc(this->splitPane)->setDividerLocation(lastLocation);
 		}
@@ -643,7 +416,7 @@ void BasicSplitPaneUI::setDividerLocation($JSplitPane* jc, int32_t location) {
 				int32_t var$3 = var$4 - $nc(this->divider)->getHeight() - insets->top;
 				var$1 = var$2 != var$3;
 			}
-			bool var$0 = (var$1);
+			bool var$0 = var$1;
 			if (!var$0) {
 				bool var$5 = orientation == $JSplitPane::HORIZONTAL_SPLIT && location != $nc(insets)->left;
 				if (var$5) {
@@ -652,7 +425,7 @@ void BasicSplitPaneUI::setDividerLocation($JSplitPane* jc, int32_t location) {
 					int32_t var$7 = var$8 - $nc(this->divider)->getWidth() - insets->left;
 					var$5 = var$6 != var$7;
 				}
-				var$0 = (var$5);
+				var$0 = var$5;
 			}
 			if (var$0) {
 				setKeepHidden(false);
@@ -664,7 +437,7 @@ void BasicSplitPaneUI::setDividerLocation($JSplitPane* jc, int32_t location) {
 }
 
 int32_t BasicSplitPaneUI::getDividerLocation($JSplitPane* jc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->orientation == $JSplitPane::HORIZONTAL_SPLIT) {
 		return $nc($($nc(this->divider)->getLocation()))->x;
 	}
@@ -672,7 +445,7 @@ int32_t BasicSplitPaneUI::getDividerLocation($JSplitPane* jc) {
 }
 
 int32_t BasicSplitPaneUI::getMinimumDividerLocation($JSplitPane* jc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t minLoc = 0;
 	$var($Component, leftC, $nc(this->splitPane)->getLeftComponent());
 	if ((leftC != nullptr) && (leftC->isVisible())) {
@@ -695,7 +468,7 @@ int32_t BasicSplitPaneUI::getMinimumDividerLocation($JSplitPane* jc) {
 }
 
 int32_t BasicSplitPaneUI::getMaximumDividerLocation($JSplitPane* jc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, splitPaneSize, $nc(this->splitPane)->getSize());
 	int32_t maxLoc = 0;
 	$var($Component, rightC, $nc(this->splitPane)->getRightComponent());
@@ -706,9 +479,9 @@ int32_t BasicSplitPaneUI::getMaximumDividerLocation($JSplitPane* jc) {
 			$assign(minSize, rightC->getMinimumSize());
 		}
 		if (this->orientation == $JSplitPane::HORIZONTAL_SPLIT) {
-			maxLoc = $nc(splitPaneSize)->width - minSize->width;
+			maxLoc = $nc(splitPaneSize)->width - $nc(minSize)->width;
 		} else {
-			maxLoc = $nc(splitPaneSize)->height - minSize->height;
+			maxLoc = $nc(splitPaneSize)->height - $nc(minSize)->height;
 		}
 		maxLoc -= this->dividerSize;
 		if (insets != nullptr) {
@@ -789,7 +562,7 @@ bool BasicSplitPaneUI::getKeepHidden() {
 }
 
 void BasicSplitPaneUI::startDragging() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, leftC, $nc(this->splitPane)->getLeftComponent());
 	$var($Component, rightC, $nc(this->splitPane)->getRightComponent());
 	$var($ComponentPeer, cPeer, nullptr);
@@ -798,7 +571,7 @@ void BasicSplitPaneUI::startDragging() {
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 	if (leftC != nullptr && ($assign(cPeer, $nc(acc)->getPeer(leftC))) != nullptr && !($instanceOf($LightweightPeer, cPeer))) {
 		this->draggingHW = true;
-	} else if (rightC != nullptr && ($assign(cPeer, acc->getPeer(rightC))) != nullptr && !($instanceOf($LightweightPeer, cPeer))) {
+	} else if (rightC != nullptr && ($assign(cPeer, $nc(acc)->getPeer(rightC))) != nullptr && !($instanceOf($LightweightPeer, cPeer))) {
 		this->draggingHW = true;
 	}
 	if (this->orientation == $JSplitPane::HORIZONTAL_SPLIT) {
@@ -849,7 +622,7 @@ void BasicSplitPaneUI::dragDividerTo(int32_t location) {
 }
 
 void BasicSplitPaneUI::finishDraggingTo(int32_t location) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	dragDividerTo(location);
 	setLastDragLocation(-1);
 	if (!isContinuousLayout()) {
@@ -871,7 +644,7 @@ int32_t BasicSplitPaneUI::getDividerBorderSize() {
 	return 1;
 }
 
-void clinit$BasicSplitPaneUI($Class* class$) {
+void BasicSplitPaneUI::clinit$($Class* clazz) {
 	$assignStatic(BasicSplitPaneUI::NON_CONTINUOUS_DIVIDER, "nonContinuousDivider"_s);
 	BasicSplitPaneUI::KEYBOARD_DIVIDER_MOVE_OFFSET = 3;
 }
@@ -880,7 +653,205 @@ BasicSplitPaneUI::BasicSplitPaneUI() {
 }
 
 $Class* BasicSplitPaneUI::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneUI, name, initialize, &_BasicSplitPaneUI_ClassInfo_, clinit$BasicSplitPaneUI, allocate$BasicSplitPaneUI);
+	$CompoundAttribute upKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute downKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute leftKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute rightKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute homeKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute endKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute dividerResizeToggleKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute keyboardUpLeftListenerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute keyboardDownRightListenerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute keyboardHomeListenerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute keyboardEndListenerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute keyboardResizeToggleListenerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"NON_CONTINUOUS_DIVIDER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(BasicSplitPaneUI, NON_CONTINUOUS_DIVIDER)},
+		{"KEYBOARD_DIVIDER_MOVE_OFFSET", "I", nullptr, $PROTECTED | $STATIC, $staticField(BasicSplitPaneUI, KEYBOARD_DIVIDER_MOVE_OFFSET)},
+		{"splitPane", "Ljavax/swing/JSplitPane;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, splitPane)},
+		{"layoutManager", "Ljavax/swing/plaf/basic/BasicSplitPaneUI$BasicHorizontalLayoutManager;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, layoutManager)},
+		{"divider", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, divider)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, propertyChangeListener)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, focusListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicSplitPaneUI$Handler;", nullptr, $PRIVATE, $field(BasicSplitPaneUI, handler)},
+		{"managingFocusForwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE, $field(BasicSplitPaneUI, managingFocusForwardTraversalKeys)},
+		{"managingFocusBackwardTraversalKeys", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/KeyStroke;>;", $PRIVATE, $field(BasicSplitPaneUI, managingFocusBackwardTraversalKeys)},
+		{"dividerSize", "I", nullptr, $PROTECTED, $field(BasicSplitPaneUI, dividerSize)},
+		{"nonContinuousLayoutDivider", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicSplitPaneUI, nonContinuousLayoutDivider)},
+		{"draggingHW", "Z", nullptr, $PROTECTED, $field(BasicSplitPaneUI, draggingHW)},
+		{"beginDragDividerLocation", "I", nullptr, $PROTECTED, $field(BasicSplitPaneUI, beginDragDividerLocation)},
+		{"upKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, upKey), upKeyfieldAnnotations$$},
+		{"downKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, downKey), downKeyfieldAnnotations$$},
+		{"leftKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, leftKey), leftKeyfieldAnnotations$$},
+		{"rightKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, rightKey), rightKeyfieldAnnotations$$},
+		{"homeKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, homeKey), homeKeyfieldAnnotations$$},
+		{"endKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, endKey), endKeyfieldAnnotations$$},
+		{"dividerResizeToggleKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, dividerResizeToggleKey), dividerResizeToggleKeyfieldAnnotations$$},
+		{"keyboardUpLeftListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardUpLeftListener), keyboardUpLeftListenerfieldAnnotations$$},
+		{"keyboardDownRightListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardDownRightListener), keyboardDownRightListenerfieldAnnotations$$},
+		{"keyboardHomeListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardHomeListener), keyboardHomeListenerfieldAnnotations$$},
+		{"keyboardEndListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardEndListener), keyboardEndListenerfieldAnnotations$$},
+		{"keyboardResizeToggleListener", "Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $field(BasicSplitPaneUI, keyboardResizeToggleListener), keyboardResizeToggleListenerfieldAnnotations$$},
+		{"orientation", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI, orientation)},
+		{"lastDragLocation", "I", nullptr, $PRIVATE, $field(BasicSplitPaneUI, lastDragLocation)},
+		{"continuousLayout", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, continuousLayout)},
+		{"dividerKeyboardResize", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, dividerKeyboardResize)},
+		{"dividerLocationIsSet", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, dividerLocationIsSet)},
+		{"dividerDraggingColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicSplitPaneUI, dividerDraggingColor)},
+		{"rememberPaneSizes", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, rememberPaneSizes)},
+		{"keepHidden", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneUI, keepHidden)},
+		{"painted", "Z", nullptr, 0, $field(BasicSplitPaneUI, painted)},
+		{"ignoreDividerLocationChange", "Z", nullptr, 0, $field(BasicSplitPaneUI, ignoreDividerLocationChange)},
+		{}
+	};
+	$CompoundAttribute createKeyboardDownRightListenermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute createKeyboardEndListenermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute createKeyboardHomeListenermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute createKeyboardResizeToggleListenermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute createKeyboardUpLeftListenermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDividerBorderSizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicSplitPaneUI, init$, void)},
+		{"addHeavyweightDivider", "()V", nullptr, $PRIVATE, $method(BasicSplitPaneUI, addHeavyweightDivider, void)},
+		{"createDefaultDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, createDefaultDivider, $BasicSplitPaneDivider*)},
+		{"createDefaultNonContinuousLayoutDivider", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, createDefaultNonContinuousLayoutDivider, $Component*)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, createFocusListener, $FocusListener*)},
+		{"createKeyboardDownRightListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardDownRightListener, $ActionListener*), nullptr, nullptr, createKeyboardDownRightListenermethodAnnotations$$},
+		{"createKeyboardEndListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardEndListener, $ActionListener*), nullptr, nullptr, createKeyboardEndListenermethodAnnotations$$},
+		{"createKeyboardHomeListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardHomeListener, $ActionListener*), nullptr, nullptr, createKeyboardHomeListenermethodAnnotations$$},
+		{"createKeyboardResizeToggleListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardResizeToggleListener, $ActionListener*), nullptr, nullptr, createKeyboardResizeToggleListenermethodAnnotations$$},
+		{"createKeyboardUpLeftListener", "()Ljava/awt/event/ActionListener;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, createKeyboardUpLeftListener, $ActionListener*), nullptr, nullptr, createKeyboardUpLeftListenermethodAnnotations$$},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicSplitPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"dragDividerTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, dragDividerTo, void, int32_t)},
+		{"finishDraggingTo", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, finishDraggingTo, void, int32_t)},
+		{"finishedPaintingChildren", "(Ljavax/swing/JSplitPane;Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, finishedPaintingChildren, void, $JSplitPane*, $Graphics*)},
+		{"getDivider", "()Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getDivider, $BasicSplitPaneDivider*)},
+		{"getDividerBorderSize", "()I", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(BasicSplitPaneUI, getDividerBorderSize, int32_t), nullptr, nullptr, getDividerBorderSizemethodAnnotations$$},
+		{"getDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getDividerLocation, int32_t, $JSplitPane*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicSplitPaneUI$Handler;", nullptr, $PRIVATE, $method(BasicSplitPaneUI, getHandler, $BasicSplitPaneUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicSplitPaneUI, getInputMap, $InputMap*, int32_t)},
+		{"getInsets", "(Ljavax/swing/JComponent;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getInsets, $Insets*, $JComponent*)},
+		{"getKeepHidden", "()Z", nullptr, $PRIVATE, $method(BasicSplitPaneUI, getKeepHidden, bool)},
+		{"getKeyboardMoveIncrement", "()I", nullptr, 0, $virtualMethod(BasicSplitPaneUI, getKeyboardMoveIncrement, int32_t)},
+		{"getLastDragLocation", "()I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getLastDragLocation, int32_t)},
+		{"getMaximumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMaximumDividerLocation, int32_t, $JSplitPane*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumDividerLocation", "(Ljavax/swing/JSplitPane;)I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMinimumDividerLocation, int32_t, $JSplitPane*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getNonContinuousLayoutDivider", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getNonContinuousLayoutDivider, $Component*)},
+		{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getOrientation, int32_t)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getSplitPane", "()Ljavax/swing/JSplitPane;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, getSplitPane, $JSplitPane*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, installUI, void, $JComponent*)},
+		{"isContinuousLayout", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, isContinuousLayout, bool)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicSplitPaneUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"resetLayoutManager", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, resetLayoutManager, void)},
+		{"resetToPreferredSizes", "(Ljavax/swing/JSplitPane;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, resetToPreferredSizes, void, $JSplitPane*)},
+		{"setContinuousLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setContinuousLayout, void, bool)},
+		{"setDividerLocation", "(Ljavax/swing/JSplitPane;I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setDividerLocation, void, $JSplitPane*, int32_t)},
+		{"setKeepHidden", "(Z)V", nullptr, 0, $virtualMethod(BasicSplitPaneUI, setKeepHidden, void, bool)},
+		{"setLastDragLocation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setLastDragLocation, void, int32_t)},
+		{"setNonContinuousLayoutDivider", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, setNonContinuousLayoutDivider, void, $Component*)},
+		{"setNonContinuousLayoutDivider", "(Ljava/awt/Component;Z)V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, setNonContinuousLayoutDivider, void, $Component*, bool)},
+		{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, setOrientation, void, int32_t)},
+		{"startDragging", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, startDragging, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$Actions", "javax.swing.plaf.basic.BasicSplitPaneUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$Handler", "javax.swing.plaf.basic.BasicSplitPaneUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$BasicVerticalLayoutManager", "javax.swing.plaf.basic.BasicSplitPaneUI", "BasicVerticalLayoutManager", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager", "javax.swing.plaf.basic.BasicSplitPaneUI", "BasicHorizontalLayoutManager", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardResizeToggleHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardEndHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardEndHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardHomeHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardHomeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardDownRightHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardDownRightHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "KeyboardUpLeftHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$FocusHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "FocusHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$PropertyHandler", "javax.swing.plaf.basic.BasicSplitPaneUI", "PropertyHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneUI",
+		"javax.swing.plaf.SplitPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneUI$Actions,javax.swing.plaf.basic.BasicSplitPaneUI$Handler,javax.swing.plaf.basic.BasicSplitPaneUI$BasicVerticalLayoutManager,javax.swing.plaf.basic.BasicSplitPaneUI$BasicHorizontalLayoutManager,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardResizeToggleHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardEndHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardHomeHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardDownRightHandler,javax.swing.plaf.basic.BasicSplitPaneUI$KeyboardUpLeftHandler,javax.swing.plaf.basic.BasicSplitPaneUI$FocusHandler,javax.swing.plaf.basic.BasicSplitPaneUI$PropertyHandler,javax.swing.plaf.basic.BasicSplitPaneUI$1"
+	};
+	$loadClass(BasicSplitPaneUI, name, initialize, &classInfo$$, BasicSplitPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneUI);
+	});
 	return class$;
 }
 

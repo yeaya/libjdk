@@ -1,5 +1,4 @@
 #include <sun/swing/plaf/synth/Paint9Painter.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -52,57 +51,6 @@ namespace sun {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _Paint9Painter_FieldInfo_[] = {
-	{"EMPTY_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Paint9Painter, EMPTY_INSETS)},
-	{"PAINT_TOP_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_TOP_LEFT)},
-	{"PAINT_TOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_TOP)},
-	{"PAINT_TOP_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_TOP_RIGHT)},
-	{"PAINT_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_LEFT)},
-	{"PAINT_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_CENTER)},
-	{"PAINT_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_RIGHT)},
-	{"PAINT_BOTTOM_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_BOTTOM_RIGHT)},
-	{"PAINT_BOTTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_BOTTOM)},
-	{"PAINT_BOTTOM_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_BOTTOM_LEFT)},
-	{"PAINT_ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_ALL)},
-	{}
-};
-
-$MethodInfo _Paint9Painter_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Paint9Painter, init$, void, int32_t)},
-	{"createImage", "(Ljava/awt/Component;IILjava/awt/GraphicsConfiguration;[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Paint9Painter, createImage, $Image*, $Component*, int32_t, int32_t, $GraphicsConfiguration*, $ObjectArray*)},
-	{"drawChunk", "(Ljava/awt/Image;Ljava/awt/Graphics;ZIIIIIIIIZ)V", nullptr, $PRIVATE, $method(Paint9Painter, drawChunk, void, $Image*, $Graphics*, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawImage", "(Ljava/awt/Image;Ljava/awt/Graphics;IIIIIIII)V", nullptr, $PRIVATE, $method(Paint9Painter, drawImage, void, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Component;Ljava/awt/Graphics;IIIILjava/awt/Image;Ljava/awt/Insets;Ljava/awt/Insets;Lsun/swing/plaf/synth/Paint9Painter$PaintType;I)V", nullptr, $PUBLIC, $virtualMethod(Paint9Painter, paint, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Image*, $Insets*, $Insets*, $Paint9Painter$PaintType*, int32_t)},
-	{"paint9", "(Ljava/awt/Graphics;IIIILjava/awt/Image;Ljava/awt/Insets;Ljava/awt/Insets;Lsun/swing/plaf/synth/Paint9Painter$PaintType;I)V", nullptr, $PROTECTED, $virtualMethod(Paint9Painter, paint9, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Image*, $Insets*, $Insets*, $Paint9Painter$PaintType*, int32_t)},
-	{"paintToImage", "(Ljava/awt/Component;Ljava/awt/Image;Ljava/awt/Graphics;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(Paint9Painter, paintToImage, void, $Component*, $Image*, $Graphics*, int32_t, int32_t, $ObjectArray*)},
-	{"validImage", "(Ljava/awt/Image;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Paint9Painter, validImage, bool, $Image*)},
-	{}
-};
-
-$InnerClassInfo _Paint9Painter_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.Paint9Painter$PaintType", "sun.swing.plaf.synth.Paint9Painter", "PaintType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Paint9Painter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.plaf.synth.Paint9Painter",
-	"sun.swing.CachedPainter",
-	nullptr,
-	_Paint9Painter_FieldInfo_,
-	_Paint9Painter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Paint9Painter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.Paint9Painter$PaintType"
-};
-
-$Object* allocate$Paint9Painter($Class* clazz) {
-	return $of($alloc(Paint9Painter));
-}
-
 $Insets* Paint9Painter::EMPTY_INSETS = nullptr;
 
 bool Paint9Painter::validImage($Image* image) {
@@ -116,34 +64,34 @@ void Paint9Painter::init$(int32_t cacheCount) {
 }
 
 void Paint9Painter::paint($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, $Image* source, $Insets* sInsets, $Insets* dInsets, $Paint9Painter$PaintType* type, int32_t mask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (source == nullptr) {
 		return;
 	}
 	$CachedPainter::paint(c, g, x, y, w, h, $$new($ObjectArray, {
-		$of(source),
-		$of(sInsets),
-		$of(dInsets),
-		$of(type),
-		$($of($Integer::valueOf(mask)))
+		source,
+		sInsets,
+		dInsets,
+		type,
+		$($Integer::valueOf(mask))
 	}));
 }
 
 void Paint9Painter::paintToImage($Component* c, $Image* destImage, $Graphics* g, int32_t w, int32_t h, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t argIndex = 0;
 	while (argIndex < $nc(args)->length) {
 		$var($Image, image, $cast($Image, args->get(argIndex++)));
 		$var($Insets, sInsets, $cast($Insets, args->get(argIndex++)));
 		$var($Insets, dInsets, $cast($Insets, args->get(argIndex++)));
 		$Paint9Painter$PaintType* type = $cast($Paint9Painter$PaintType, args->get(argIndex++));
-		int32_t mask = $nc(($cast($Integer, args->get(argIndex++))))->intValue();
+		int32_t mask = $nc($cast($Integer, args->get(argIndex++)))->intValue();
 		paint9(g, 0, 0, w, h, image, sInsets, dInsets, type, mask);
 	}
 }
 
 void Paint9Painter::paint9($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, $Image* image, $Insets* sInsets$renamed, $Insets* dInsets$renamed, $Paint9Painter$PaintType* type, int32_t componentMask) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, sInsets, sInsets$renamed);
 	$var($Insets, dInsets, dInsets$renamed);
 	if (!validImage(image)) {
@@ -160,77 +108,67 @@ void Paint9Painter::paint9($Graphics* g, int32_t x, int32_t y, int32_t w, int32_
 	$init($Paint9Painter$PaintType);
 	if (type == $Paint9Painter$PaintType::CENTER) {
 		$nc(g)->drawImage(image, x + (w - iw) / 2, y + (h - ih) / 2, nullptr);
+	} else if (type == $Paint9Painter$PaintType::TILE) {
+		int32_t lastIY = 0;
+		for (int32_t yCounter = y, maxY = y + h; yCounter < maxY; yCounter += (ih - lastIY), lastIY = 0) {
+			int32_t lastIX = 0;
+			for (int32_t xCounter = x, maxX = x + w; xCounter < maxX; xCounter += (iw - lastIX), lastIX = 0) {
+				int32_t dx2 = $Math::min(maxX, xCounter + iw - lastIX);
+				int32_t dy2 = $Math::min(maxY, yCounter + ih - lastIY);
+				$nc(g)->drawImage(image, xCounter, yCounter, dx2, dy2, lastIX, lastIY, lastIX + dx2 - xCounter, lastIY + dy2 - yCounter, nullptr);
+			}
+		}
 	} else {
-		if (type == $Paint9Painter$PaintType::TILE) {
-			int32_t lastIY = 0;
-			{
-				int32_t yCounter = y;
-				int32_t maxY = y + h;
-				for (; yCounter < maxY; yCounter += (ih - lastIY), lastIY = 0) {
-					int32_t lastIX = 0;
-					{
-						int32_t xCounter = x;
-						int32_t maxX = x + w;
-						for (; xCounter < maxX; xCounter += (iw - lastIX), lastIX = 0) {
-							int32_t dx2 = $Math::min(maxX, xCounter + iw - lastIX);
-							int32_t dy2 = $Math::min(maxY, yCounter + ih - lastIY);
-							$nc(g)->drawImage(image, xCounter, yCounter, dx2, dy2, lastIX, lastIY, lastIX + dx2 - xCounter, lastIY + dy2 - yCounter, nullptr);
-						}
-					}
-				}
-			}
-		} else {
-			int32_t st = $nc(sInsets)->top;
-			int32_t sl = sInsets->left;
-			int32_t sb = sInsets->bottom;
-			int32_t sr = sInsets->right;
-			int32_t dt = $nc(dInsets)->top;
-			int32_t dl = dInsets->left;
-			int32_t db = dInsets->bottom;
-			int32_t dr = dInsets->right;
-			if (st + sb > ih) {
-				db = (dt = (sb = (st = $Math::max(0, ih / 2))));
-			}
-			if (sl + sr > iw) {
-				dl = (dr = (sl = (sr = $Math::max(0, iw / 2))));
-			}
-			if (dt + db > h) {
-				dt = (db = $Math::max(0, h / 2 - 1));
-			}
-			if (dl + dr > w) {
-				dl = (dr = $Math::max(0, w / 2 - 1));
-			}
-			bool stretch = (type == $Paint9Painter$PaintType::PAINT9_STRETCH);
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_ALL)) != 0) {
-				componentMask = (int32_t)((Paint9Painter::PAINT_ALL - 1) & (uint32_t)~componentMask);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_LEFT)) != 0) {
-				drawChunk(image, g, stretch, x, y + dt, x + dl, y + h - db, 0, st, sl, ih - sb, false);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_TOP_LEFT)) != 0) {
-				drawImage(image, g, x, y, x + dl, y + dt, 0, 0, sl, st);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_TOP)) != 0) {
-				drawChunk(image, g, stretch, x + dl, y, x + w - dr, y + dt, sl, 0, iw - sr, st, true);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_TOP_RIGHT)) != 0) {
-				drawImage(image, g, x + w - dr, y, x + w, y + dt, iw - sr, 0, iw, st);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_RIGHT)) != 0) {
-				drawChunk(image, g, stretch, x + w - dr, y + dt, x + w, y + h - db, iw - sr, st, iw, ih - sb, false);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_BOTTOM_RIGHT)) != 0) {
-				drawImage(image, g, x + w - dr, y + h - db, x + w, y + h, iw - sr, ih - sb, iw, ih);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_BOTTOM)) != 0) {
-				drawChunk(image, g, stretch, x + dl, y + h - db, x + w - dr, y + h, sl, ih - sb, iw - sr, ih, true);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_BOTTOM_LEFT)) != 0) {
-				drawImage(image, g, x, y + h - db, x + dl, y + h, 0, ih - sb, sl, ih);
-			}
-			if (((int32_t)(componentMask & (uint32_t)Paint9Painter::PAINT_CENTER)) != 0) {
-				drawImage(image, g, x + dl, y + dt, x + w - dr, y + h - db, sl, st, iw - sr, ih - sb);
-			}
+		int32_t st = $nc(sInsets)->top;
+		int32_t sl = sInsets->left;
+		int32_t sb = sInsets->bottom;
+		int32_t sr = sInsets->right;
+		int32_t dt = $nc(dInsets)->top;
+		int32_t dl = dInsets->left;
+		int32_t db = dInsets->bottom;
+		int32_t dr = dInsets->right;
+		if (st + sb > ih) {
+			db = (dt = (sb = (st = $Math::max(0, ih / 2))));
+		}
+		if (sl + sr > iw) {
+			dl = (dr = (sl = (sr = $Math::max(0, iw / 2))));
+		}
+		if (dt + db > h) {
+			dt = (db = $Math::max(0, h / 2 - 1));
+		}
+		if (dl + dr > w) {
+			dl = (dr = $Math::max(0, w / 2 - 1));
+		}
+		bool stretch = (type == $Paint9Painter$PaintType::PAINT9_STRETCH);
+		if ((componentMask & Paint9Painter::PAINT_ALL) != 0) {
+			componentMask = (Paint9Painter::PAINT_ALL - 1) & ~componentMask;
+		}
+		if ((componentMask & Paint9Painter::PAINT_LEFT) != 0) {
+			drawChunk(image, g, stretch, x, y + dt, x + dl, y + h - db, 0, st, sl, ih - sb, false);
+		}
+		if ((componentMask & Paint9Painter::PAINT_TOP_LEFT) != 0) {
+			drawImage(image, g, x, y, x + dl, y + dt, 0, 0, sl, st);
+		}
+		if ((componentMask & Paint9Painter::PAINT_TOP) != 0) {
+			drawChunk(image, g, stretch, x + dl, y, x + w - dr, y + dt, sl, 0, iw - sr, st, true);
+		}
+		if ((componentMask & Paint9Painter::PAINT_TOP_RIGHT) != 0) {
+			drawImage(image, g, x + w - dr, y, x + w, y + dt, iw - sr, 0, iw, st);
+		}
+		if ((componentMask & Paint9Painter::PAINT_RIGHT) != 0) {
+			drawChunk(image, g, stretch, x + w - dr, y + dt, x + w, y + h - db, iw - sr, st, iw, ih - sb, false);
+		}
+		if ((componentMask & Paint9Painter::PAINT_BOTTOM_RIGHT) != 0) {
+			drawImage(image, g, x + w - dr, y + h - db, x + w, y + h, iw - sr, ih - sb, iw, ih);
+		}
+		if ((componentMask & Paint9Painter::PAINT_BOTTOM) != 0) {
+			drawChunk(image, g, stretch, x + dl, y + h - db, x + w - dr, y + h, sl, ih - sb, iw - sr, ih, true);
+		}
+		if ((componentMask & Paint9Painter::PAINT_BOTTOM_LEFT) != 0) {
+			drawImage(image, g, x, y + h - db, x + dl, y + h, 0, ih - sb, sl, ih);
+		}
+		if ((componentMask & Paint9Painter::PAINT_CENTER) != 0) {
+			drawImage(image, g, x + dl, y + dt, x + w - dr, y + h - db, sl, st, iw - sr, ih - sb);
 		}
 	}
 }
@@ -277,7 +215,7 @@ $Image* Paint9Painter::createImage($Component* c, int32_t w, int32_t h, $Graphic
 	return $nc(config)->createCompatibleImage(w, h, $Transparency::TRANSLUCENT);
 }
 
-void clinit$Paint9Painter($Class* class$) {
+void Paint9Painter::clinit$($Class* clazz) {
 	$assignStatic(Paint9Painter::EMPTY_INSETS, $new($Insets, 0, 0, 0, 0));
 }
 
@@ -285,7 +223,52 @@ Paint9Painter::Paint9Painter() {
 }
 
 $Class* Paint9Painter::load$($String* name, bool initialize) {
-	$loadClass(Paint9Painter, name, initialize, &_Paint9Painter_ClassInfo_, clinit$Paint9Painter, allocate$Paint9Painter);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_INSETS", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Paint9Painter, EMPTY_INSETS)},
+		{"PAINT_TOP_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_TOP_LEFT)},
+		{"PAINT_TOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_TOP)},
+		{"PAINT_TOP_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_TOP_RIGHT)},
+		{"PAINT_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_LEFT)},
+		{"PAINT_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_CENTER)},
+		{"PAINT_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_RIGHT)},
+		{"PAINT_BOTTOM_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_BOTTOM_RIGHT)},
+		{"PAINT_BOTTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_BOTTOM)},
+		{"PAINT_BOTTOM_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_BOTTOM_LEFT)},
+		{"PAINT_ALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Paint9Painter, PAINT_ALL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Paint9Painter, init$, void, int32_t)},
+		{"createImage", "(Ljava/awt/Component;IILjava/awt/GraphicsConfiguration;[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(Paint9Painter, createImage, $Image*, $Component*, int32_t, int32_t, $GraphicsConfiguration*, $ObjectArray*)},
+		{"drawChunk", "(Ljava/awt/Image;Ljava/awt/Graphics;ZIIIIIIIIZ)V", nullptr, $PRIVATE, $method(Paint9Painter, drawChunk, void, $Image*, $Graphics*, bool, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawImage", "(Ljava/awt/Image;Ljava/awt/Graphics;IIIIIIII)V", nullptr, $PRIVATE, $method(Paint9Painter, drawImage, void, $Image*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Component;Ljava/awt/Graphics;IIIILjava/awt/Image;Ljava/awt/Insets;Ljava/awt/Insets;Lsun/swing/plaf/synth/Paint9Painter$PaintType;I)V", nullptr, $PUBLIC, $virtualMethod(Paint9Painter, paint, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Image*, $Insets*, $Insets*, $Paint9Painter$PaintType*, int32_t)},
+		{"paint9", "(Ljava/awt/Graphics;IIIILjava/awt/Image;Ljava/awt/Insets;Ljava/awt/Insets;Lsun/swing/plaf/synth/Paint9Painter$PaintType;I)V", nullptr, $PROTECTED, $virtualMethod(Paint9Painter, paint9, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Image*, $Insets*, $Insets*, $Paint9Painter$PaintType*, int32_t)},
+		{"paintToImage", "(Ljava/awt/Component;Ljava/awt/Image;Ljava/awt/Graphics;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(Paint9Painter, paintToImage, void, $Component*, $Image*, $Graphics*, int32_t, int32_t, $ObjectArray*)},
+		{"validImage", "(Ljava/awt/Image;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Paint9Painter, validImage, bool, $Image*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.Paint9Painter$PaintType", "sun.swing.plaf.synth.Paint9Painter", "PaintType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.plaf.synth.Paint9Painter",
+		"sun.swing.CachedPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.Paint9Painter$PaintType"
+	};
+	$loadClass(Paint9Painter, name, initialize, &classInfo$$, Paint9Painter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Paint9Painter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/spec/XPathType.h>
-
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -22,46 +21,6 @@ namespace javax {
 			namespace dsig {
 				namespace spec {
 
-$FieldInfo _XPathType_FieldInfo_[] = {
-	{"expression", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XPathType, expression)},
-	{"filter", "Ljavax/xml/crypto/dsig/spec/XPathType$Filter;", nullptr, $PRIVATE | $FINAL, $field(XPathType, filter)},
-	{"nsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XPathType, nsMap)},
-	{}
-};
-
-$MethodInfo _XPathType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;)V", nullptr, $PUBLIC, $method(XPathType, init$, void, $String*, $XPathType$Filter*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(XPathType, init$, void, $String*, $XPathType$Filter*, $Map*)},
-	{"getExpression", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathType, getExpression, $String*)},
-	{"getFilter", "()Ljavax/xml/crypto/dsig/spec/XPathType$Filter;", nullptr, $PUBLIC, $virtualMethod(XPathType, getFilter, $XPathType$Filter*)},
-	{"getNamespaceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XPathType, getNamespaceMap, $Map*)},
-	{}
-};
-
-$InnerClassInfo _XPathType_InnerClassesInfo_[] = {
-	{"javax.xml.crypto.dsig.spec.XPathType$Filter", "javax.xml.crypto.dsig.spec.XPathType", "Filter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XPathType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.dsig.spec.XPathType",
-	"java.lang.Object",
-	nullptr,
-	_XPathType_FieldInfo_,
-	_XPathType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPathType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.crypto.dsig.spec.XPathType$Filter"
-};
-
-$Object* allocate$XPathType($Class* clazz) {
-	return $of($alloc(XPathType));
-}
-
 void XPathType::init$($String* expression, $XPathType$Filter* filter) {
 	if (expression == nullptr) {
 		$throwNew($NullPointerException, "expression cannot be null"_s);
@@ -75,7 +34,7 @@ void XPathType::init$($String* expression, $XPathType$Filter* filter) {
 }
 
 void XPathType::init$($String* expression, $XPathType$Filter* filter, $Map* namespaceMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (expression == nullptr) {
 		$throwNew($NullPointerException, "expression cannot be null"_s);
 	}
@@ -108,7 +67,41 @@ XPathType::XPathType() {
 }
 
 $Class* XPathType::load$($String* name, bool initialize) {
-	$loadClass(XPathType, name, initialize, &_XPathType_ClassInfo_, allocate$XPathType);
+	$FieldInfo fieldInfos$$[] = {
+		{"expression", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(XPathType, expression)},
+		{"filter", "Ljavax/xml/crypto/dsig/spec/XPathType$Filter;", nullptr, $PRIVATE | $FINAL, $field(XPathType, filter)},
+		{"nsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(XPathType, nsMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;)V", nullptr, $PUBLIC, $method(XPathType, init$, void, $String*, $XPathType$Filter*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(XPathType, init$, void, $String*, $XPathType$Filter*, $Map*)},
+		{"getExpression", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathType, getExpression, $String*)},
+		{"getFilter", "()Ljavax/xml/crypto/dsig/spec/XPathType$Filter;", nullptr, $PUBLIC, $virtualMethod(XPathType, getFilter, $XPathType$Filter*)},
+		{"getNamespaceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XPathType, getNamespaceMap, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.crypto.dsig.spec.XPathType$Filter", "javax.xml.crypto.dsig.spec.XPathType", "Filter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.dsig.spec.XPathType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.crypto.dsig.spec.XPathType$Filter"
+	};
+	$loadClass(XPathType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathType);
+	});
 	return class$;
 }
 

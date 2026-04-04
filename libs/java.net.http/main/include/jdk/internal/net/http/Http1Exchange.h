@@ -87,6 +87,7 @@ class $import Http1Exchange : public ::jdk::internal::net::http::ExchangeImpl {
 	$class(Http1Exchange, 0, ::jdk::internal::net::http::ExchangeImpl)
 public:
 	Http1Exchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Exchange* exchange, ::jdk::internal::net::http::HttpConnection* connection);
 	virtual void appendToOutgoing($Throwable* throwable);
 	virtual void appendToOutgoing(::java::util::List* item);

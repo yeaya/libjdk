@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DPaints$Gradient.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -9,7 +8,6 @@
 #include <sun/java2d/d3d/D3DSurfaceData.h>
 #include <jcpp.h>
 
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -22,45 +20,14 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DPaints$Gradient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$Gradient, init$, void)},
-	{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(D3DPaints$Gradient, isPaintValid, bool, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _D3DPaints$Gradient_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DPaints$Gradient", "sun.java2d.d3d.D3DPaints", "Gradient", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _D3DPaints$Gradient_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DPaints$Gradient",
-	"sun.java2d.d3d.D3DPaints",
-	nullptr,
-	nullptr,
-	_D3DPaints$Gradient_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DPaints$Gradient_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DPaints"
-};
-
-$Object* allocate$D3DPaints$Gradient($Class* clazz) {
-	return $of($alloc(D3DPaints$Gradient));
-}
-
 void D3DPaints$Gradient::init$() {
 	$D3DPaints::init$();
 }
 
 bool D3DPaints$Gradient::isPaintValid($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DSurfaceData, dstData, $cast($D3DSurfaceData, $nc(sg2d)->surfaceData));
-	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $nc($($nc(dstData)->getDeviceConfiguration()))->getDevice()));
+	$var($D3DGraphicsDevice, gd, $cast($D3DGraphicsDevice, $$nc($nc(dstData)->getDeviceConfiguration())->getDevice()));
 	return $nc(gd)->isCapPresent(0x00010000);
 }
 
@@ -68,7 +35,33 @@ D3DPaints$Gradient::D3DPaints$Gradient() {
 }
 
 $Class* D3DPaints$Gradient::load$($String* name, bool initialize) {
-	$loadClass(D3DPaints$Gradient, name, initialize, &_D3DPaints$Gradient_ClassInfo_, allocate$D3DPaints$Gradient);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(D3DPaints$Gradient, init$, void)},
+		{"isPaintValid", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, 0, $virtualMethod(D3DPaints$Gradient, isPaintValid, bool, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DPaints$Gradient", "sun.java2d.d3d.D3DPaints", "Gradient", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DPaints$Gradient",
+		"sun.java2d.d3d.D3DPaints",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DPaints"
+	};
+	$loadClass(D3DPaints$Gradient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DPaints$Gradient);
+	});
 	return class$;
 }
 

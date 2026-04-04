@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/SmartGridLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -11,7 +10,6 @@
 using $ComponentArray = $Array<::java::awt::Component>;
 using $ComponentArray2 = $Array<::java::awt::Component, 2>;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -23,47 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$FieldInfo _SmartGridLayout_FieldInfo_[] = {
-	{"rows", "I", nullptr, 0, $field(SmartGridLayout, rows)},
-	{"columns", "I", nullptr, 0, $field(SmartGridLayout, columns)},
-	{"xGap", "I", nullptr, 0, $field(SmartGridLayout, xGap)},
-	{"yGap", "I", nullptr, 0, $field(SmartGridLayout, yGap)},
-	{"componentCount", "I", nullptr, 0, $field(SmartGridLayout, componentCount)},
-	{"layoutGrid", "[[Ljava/awt/Component;", nullptr, 0, $field(SmartGridLayout, layoutGrid)},
-	{}
-};
-
-$MethodInfo _SmartGridLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(SmartGridLayout, init$, void, int32_t, int32_t)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"buildLayoutGrid", "(Ljava/awt/Container;)V", nullptr, $PRIVATE, $method(SmartGridLayout, buildLayoutGrid, void, $Container*)},
-	{"computeColumnWidth", "(I)I", nullptr, $PRIVATE, $method(SmartGridLayout, computeColumnWidth, int32_t, int32_t)},
-	{"computeRowHeight", "(I)I", nullptr, $PRIVATE, $method(SmartGridLayout, computeRowHeight, int32_t, int32_t)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, removeLayoutComponent, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SmartGridLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.SmartGridLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager,java.io.Serializable",
-	_SmartGridLayout_FieldInfo_,
-	_SmartGridLayout_MethodInfo_
-};
-
-$Object* allocate$SmartGridLayout($Class* clazz) {
-	return $of($alloc(SmartGridLayout));
-}
 
 int32_t SmartGridLayout::hashCode() {
 	 return this->$LayoutManager::hashCode();
@@ -97,7 +54,7 @@ void SmartGridLayout::init$(int32_t numColumns, int32_t numRows) {
 }
 
 void SmartGridLayout::layoutContainer($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	buildLayoutGrid(c);
 	$var($ints, rowHeights, $new($ints, this->rows));
 	$var($ints, columnWidths, $new($ints, this->columns));
@@ -108,7 +65,7 @@ void SmartGridLayout::layoutContainer($Container* c) {
 		columnWidths->set(column, computeColumnWidth(column));
 	}
 	$var($Insets, insets, $nc(c)->getInsets());
-	if ($nc($(c->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc(c->getComponentOrientation())->isLeftToRight()) {
 		int32_t horizLoc = $nc(insets)->left;
 		for (int32_t column = 0; column < this->columns; ++column) {
 			int32_t vertLoc = insets->top;
@@ -145,7 +102,7 @@ $Dimension* SmartGridLayout::minimumLayoutSize($Container* c) {
 	for (int32_t column = 0; column < this->columns; ++column) {
 		width += computeColumnWidth(column);
 	}
-	height += (this->yGap * (this->rows - 1)) + $nc(insets)->top + insets->bottom;
+	height += (this->yGap * (this->rows - 1)) + $nc(insets)->top + $nc(insets)->bottom;
 	width += (this->xGap * (this->columns - 1)) + insets->right + insets->left;
 	return $new($Dimension, width, height);
 }
@@ -174,7 +131,7 @@ void SmartGridLayout::buildLayoutGrid($Container* c) {
 }
 
 int32_t SmartGridLayout::computeColumnWidth(int32_t columnNum) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t maxWidth = 1;
 	for (int32_t row = 0; row < this->rows; ++row) {
 		int32_t width = $nc($($nc($nc($nc(this->layoutGrid)->get(columnNum))->get(row))->getPreferredSize()))->width;
@@ -186,7 +143,7 @@ int32_t SmartGridLayout::computeColumnWidth(int32_t columnNum) {
 }
 
 int32_t SmartGridLayout::computeRowHeight(int32_t rowNum) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t maxHeight = 1;
 	for (int32_t column = 0; column < this->columns; ++column) {
 		int32_t height = $nc($($nc($nc($nc(this->layoutGrid)->get(column))->get(rowNum))->getPreferredSize()))->height;
@@ -201,7 +158,43 @@ SmartGridLayout::SmartGridLayout() {
 }
 
 $Class* SmartGridLayout::load$($String* name, bool initialize) {
-	$loadClass(SmartGridLayout, name, initialize, &_SmartGridLayout_ClassInfo_, allocate$SmartGridLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"rows", "I", nullptr, 0, $field(SmartGridLayout, rows)},
+		{"columns", "I", nullptr, 0, $field(SmartGridLayout, columns)},
+		{"xGap", "I", nullptr, 0, $field(SmartGridLayout, xGap)},
+		{"yGap", "I", nullptr, 0, $field(SmartGridLayout, yGap)},
+		{"componentCount", "I", nullptr, 0, $field(SmartGridLayout, componentCount)},
+		{"layoutGrid", "[[Ljava/awt/Component;", nullptr, 0, $field(SmartGridLayout, layoutGrid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(SmartGridLayout, init$, void, int32_t, int32_t)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"buildLayoutGrid", "(Ljava/awt/Container;)V", nullptr, $PRIVATE, $method(SmartGridLayout, buildLayoutGrid, void, $Container*)},
+		{"computeColumnWidth", "(I)I", nullptr, $PRIVATE, $method(SmartGridLayout, computeColumnWidth, int32_t, int32_t)},
+		{"computeRowHeight", "(I)I", nullptr, $PRIVATE, $method(SmartGridLayout, computeRowHeight, int32_t, int32_t)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SmartGridLayout, removeLayoutComponent, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.SmartGridLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SmartGridLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SmartGridLayout));
+	});
 	return class$;
 }
 

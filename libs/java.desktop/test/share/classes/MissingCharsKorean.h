@@ -37,6 +37,7 @@ class $export MissingCharsKorean : public ::java::lang::Object {
 	$class(MissingCharsKorean, 0, ::java::lang::Object)
 public:
 	MissingCharsKorean();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void enterInput(::java::awt::Robot* robotKeyInput, $Array<int32_t, 2>* keyInputs);
 	static void glyphTest();

@@ -1,5 +1,4 @@
 #include <java/awt/peer/DesktopPeer.h>
-
 #include <java/awt/Desktop$Action.h>
 #include <java/awt/desktop/AboutHandler.h>
 #include <java/awt/desktop/OpenFilesHandler.h>
@@ -32,45 +31,6 @@ using $JMenuBar = ::javax::swing::JMenuBar;
 namespace java {
 	namespace awt {
 		namespace peer {
-
-$MethodInfo _DesktopPeer_MethodInfo_[] = {
-	{"addAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, addAppEventListener, void, $SystemEventListener*)},
-	{"browse", "(Ljava/net/URI;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, browse, void, $URI*), "java.io.IOException"},
-	{"browseFileDirectory", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, browseFileDirectory, bool, $File*)},
-	{"disableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, disableSuddenTermination, void)},
-	{"edit", "(Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, edit, void, $File*), "java.io.IOException"},
-	{"enableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, enableSuddenTermination, void)},
-	{"isSupported", "(Ljava/awt/Desktop$Action;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, isSupported, bool, $Desktop$Action*)},
-	{"mail", "(Ljava/net/URI;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, mail, void, $URI*), "java.io.IOException"},
-	{"moveToTrash", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, moveToTrash, bool, $File*)},
-	{"open", "(Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, open, void, $File*), "java.io.IOException"},
-	{"openHelpViewer", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, openHelpViewer, void)},
-	{"print", "(Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, print, void, $File*), "java.io.IOException"},
-	{"removeAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, removeAppEventListener, void, $SystemEventListener*)},
-	{"requestForeground", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, requestForeground, void, bool)},
-	{"setAboutHandler", "(Ljava/awt/desktop/AboutHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setAboutHandler, void, $AboutHandler*)},
-	{"setDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setDefaultMenuBar, void, $JMenuBar*)},
-	{"setOpenFileHandler", "(Ljava/awt/desktop/OpenFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setOpenFileHandler, void, $OpenFilesHandler*)},
-	{"setOpenURIHandler", "(Ljava/awt/desktop/OpenURIHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setOpenURIHandler, void, $OpenURIHandler*)},
-	{"setPreferencesHandler", "(Ljava/awt/desktop/PreferencesHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setPreferencesHandler, void, $PreferencesHandler*)},
-	{"setPrintFileHandler", "(Ljava/awt/desktop/PrintFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setPrintFileHandler, void, $PrintFilesHandler*)},
-	{"setQuitHandler", "(Ljava/awt/desktop/QuitHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setQuitHandler, void, $QuitHandler*)},
-	{"setQuitStrategy", "(Ljava/awt/desktop/QuitStrategy;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setQuitStrategy, void, $QuitStrategy*)},
-	{}
-};
-
-$ClassInfo _DesktopPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.DesktopPeer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DesktopPeer_MethodInfo_
-};
-
-$Object* allocate$DesktopPeer($Class* clazz) {
-	return $of($alloc(DesktopPeer));
-}
 
 void DesktopPeer::addAppEventListener($SystemEventListener* listener) {
 }
@@ -123,7 +83,42 @@ bool DesktopPeer::moveToTrash($File* file) {
 }
 
 $Class* DesktopPeer::load$($String* name, bool initialize) {
-	$loadClass(DesktopPeer, name, initialize, &_DesktopPeer_ClassInfo_, allocate$DesktopPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"addAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, addAppEventListener, void, $SystemEventListener*)},
+		{"browse", "(Ljava/net/URI;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, browse, void, $URI*), "java.io.IOException"},
+		{"browseFileDirectory", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, browseFileDirectory, bool, $File*)},
+		{"disableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, disableSuddenTermination, void)},
+		{"edit", "(Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, edit, void, $File*), "java.io.IOException"},
+		{"enableSuddenTermination", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, enableSuddenTermination, void)},
+		{"isSupported", "(Ljava/awt/Desktop$Action;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, isSupported, bool, $Desktop$Action*)},
+		{"mail", "(Ljava/net/URI;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, mail, void, $URI*), "java.io.IOException"},
+		{"moveToTrash", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, moveToTrash, bool, $File*)},
+		{"open", "(Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, open, void, $File*), "java.io.IOException"},
+		{"openHelpViewer", "()V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, openHelpViewer, void)},
+		{"print", "(Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopPeer, print, void, $File*), "java.io.IOException"},
+		{"removeAppEventListener", "(Ljava/awt/desktop/SystemEventListener;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, removeAppEventListener, void, $SystemEventListener*)},
+		{"requestForeground", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, requestForeground, void, bool)},
+		{"setAboutHandler", "(Ljava/awt/desktop/AboutHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setAboutHandler, void, $AboutHandler*)},
+		{"setDefaultMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setDefaultMenuBar, void, $JMenuBar*)},
+		{"setOpenFileHandler", "(Ljava/awt/desktop/OpenFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setOpenFileHandler, void, $OpenFilesHandler*)},
+		{"setOpenURIHandler", "(Ljava/awt/desktop/OpenURIHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setOpenURIHandler, void, $OpenURIHandler*)},
+		{"setPreferencesHandler", "(Ljava/awt/desktop/PreferencesHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setPreferencesHandler, void, $PreferencesHandler*)},
+		{"setPrintFileHandler", "(Ljava/awt/desktop/PrintFilesHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setPrintFileHandler, void, $PrintFilesHandler*)},
+		{"setQuitHandler", "(Ljava/awt/desktop/QuitHandler;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setQuitHandler, void, $QuitHandler*)},
+		{"setQuitStrategy", "(Ljava/awt/desktop/QuitStrategy;)V", nullptr, $PUBLIC, $virtualMethod(DesktopPeer, setQuitStrategy, void, $QuitStrategy*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.DesktopPeer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DesktopPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DesktopPeer);
+	});
 	return class$;
 }
 

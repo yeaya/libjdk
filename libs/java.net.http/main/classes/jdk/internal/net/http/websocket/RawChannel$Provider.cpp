@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/RawChannel$Provider.h>
-
 #include <jdk/internal/net/http/websocket/RawChannel.h>
 #include <jcpp.h>
 
@@ -14,39 +13,34 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$MethodInfo _RawChannel$Provider_MethodInfo_[] = {
-	{"closeRawChannel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$Provider, closeRawChannel, void), "java.io.IOException"},
-	{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$Provider, rawChannel, $RawChannel*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RawChannel$Provider_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.RawChannel$Provider", "jdk.internal.net.http.websocket.RawChannel", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RawChannel$Provider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.websocket.RawChannel$Provider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RawChannel$Provider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RawChannel$Provider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.RawChannel"
-};
-
-$Object* allocate$RawChannel$Provider($Class* clazz) {
-	return $of($alloc(RawChannel$Provider));
-}
-
 $Class* RawChannel$Provider::load$($String* name, bool initialize) {
-	$loadClass(RawChannel$Provider, name, initialize, &_RawChannel$Provider_ClassInfo_, allocate$RawChannel$Provider);
+	$MethodInfo methodInfos$$[] = {
+		{"closeRawChannel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$Provider, closeRawChannel, void), "java.io.IOException"},
+		{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$Provider, rawChannel, $RawChannel*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.RawChannel$Provider", "jdk.internal.net.http.websocket.RawChannel", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.websocket.RawChannel$Provider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.RawChannel"
+	};
+	$loadClass(RawChannel$Provider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RawChannel$Provider);
+	});
 	return class$;
 }
 

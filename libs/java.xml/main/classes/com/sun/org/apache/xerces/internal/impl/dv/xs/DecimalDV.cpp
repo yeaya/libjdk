@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DecimalDV$XDecimal.h>
@@ -38,40 +37,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$MethodInfo _DecimalDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DecimalDV, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, compare, int32_t, Object$*, Object$*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DecimalDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, getAllowedFacets, int16_t)},
-	{"getFractionDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, getFractionDigits, int32_t, Object$*)},
-	{"getTotalDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, getTotalDigits, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _DecimalDV_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV", "XDecimal", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DecimalDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	nullptr,
-	_DecimalDV_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DecimalDV_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal"
-};
-
-$Object* allocate$DecimalDV($Class* clazz) {
-	return $of($alloc(DecimalDV));
-}
-
 void DecimalDV::init$() {
 	$TypeValidator::init$();
 }
@@ -82,33 +47,62 @@ int16_t DecimalDV::getAllowedFacets() {
 
 $Object* DecimalDV::getActualValue($String* content, $ValidationContext* context) {
 	try {
-		return $of($new($DecimalDV$XDecimal, content));
+		return $new($DecimalDV$XDecimal, content);
 	} catch ($NumberFormatException& nfe) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("decimal"_s)
+			content,
+			"decimal"_s
 		}));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t DecimalDV::compare(Object$* value1, Object$* value2) {
-	return $nc(($cast($DecimalDV$XDecimal, value1)))->compareTo($cast($DecimalDV$XDecimal, value2));
+	return $nc($cast($DecimalDV$XDecimal, value1))->compareTo($cast($DecimalDV$XDecimal, value2));
 }
 
 int32_t DecimalDV::getTotalDigits(Object$* value) {
-	return $nc(($cast($DecimalDV$XDecimal, value)))->totalDigits;
+	return $nc($cast($DecimalDV$XDecimal, value))->totalDigits;
 }
 
 int32_t DecimalDV::getFractionDigits(Object$* value) {
-	return $nc(($cast($DecimalDV$XDecimal, value)))->fracDigits;
+	return $nc($cast($DecimalDV$XDecimal, value))->fracDigits;
 }
 
 DecimalDV::DecimalDV() {
 }
 
 $Class* DecimalDV::load$($String* name, bool initialize) {
-	$loadClass(DecimalDV, name, initialize, &_DecimalDV_ClassInfo_, allocate$DecimalDV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DecimalDV, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, compare, int32_t, Object$*, Object$*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DecimalDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, getAllowedFacets, int16_t)},
+		{"getFractionDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, getFractionDigits, int32_t, Object$*)},
+		{"getTotalDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DecimalDV, getTotalDigits, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV", "XDecimal", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DecimalDV$XDecimal"
+	};
+	$loadClass(DecimalDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DecimalDV);
+	});
 	return class$;
 }
 

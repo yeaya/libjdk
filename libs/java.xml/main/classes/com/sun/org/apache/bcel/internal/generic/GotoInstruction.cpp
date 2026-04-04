@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <jcpp.h>
@@ -16,30 +15,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _GotoInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(SLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, 0, $method(GotoInstruction, init$, void, int16_t, $InstructionHandle*)},
-	{"<init>", "()V", nullptr, 0, $method(GotoInstruction, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _GotoInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.GotoInstruction",
-	"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
-	"com.sun.org.apache.bcel.internal.generic.UnconditionalBranch",
-	nullptr,
-	_GotoInstruction_MethodInfo_
-};
-
-$Object* allocate$GotoInstruction($Class* clazz) {
-	return $of($alloc(GotoInstruction));
-}
 
 $String* GotoInstruction::toString() {
 	 return this->$BranchInstruction::toString();
@@ -73,7 +48,27 @@ GotoInstruction::GotoInstruction() {
 }
 
 $Class* GotoInstruction::load$($String* name, bool initialize) {
-	$loadClass(GotoInstruction, name, initialize, &_GotoInstruction_ClassInfo_, allocate$GotoInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(SLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, 0, $method(GotoInstruction, init$, void, int16_t, $InstructionHandle*)},
+		{"<init>", "()V", nullptr, 0, $method(GotoInstruction, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.GotoInstruction",
+		"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
+		"com.sun.org.apache.bcel.internal.generic.UnconditionalBranch",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GotoInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GotoInstruction));
+	});
 	return class$;
 }
 

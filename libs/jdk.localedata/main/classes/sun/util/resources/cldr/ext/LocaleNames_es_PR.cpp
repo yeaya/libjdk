@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_es_PR.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,63 +13,44 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_es_PR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_es_PR, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_es_PR, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_es_PR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_es_PR",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_es_PR_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_es_PR($Class* clazz) {
-	return $of($alloc(LocaleNames_es_PR));
-}
-
 void LocaleNames_es_PR::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_es_PR::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of("Islas menores alejadas de EE. UU."_s)
+			"UM"_s,
+			"Islas menores alejadas de EE. UU."_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of("siswati"_s)
+			"ss"_s,
+			"siswati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of("wolof"_s)
+			"wo"_s,
+			"wolof"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"acehnés"_s)
+			"ace"_s,
+			u"acehnés"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of("arapaho"_s)
+			"arp"_s,
+			"arapaho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of("bhojpuri"_s)
+			"bho"_s,
+			"bhojpuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of("griego antiguo"_s)
+			"grc"_s,
+			"griego antiguo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of("sotho septentrional"_s)
+			"nso"_s,
+			"sotho septentrional"_s
 		})
 	}));
 	return data;
@@ -80,7 +60,22 @@ LocaleNames_es_PR::LocaleNames_es_PR() {
 }
 
 $Class* LocaleNames_es_PR::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_es_PR, name, initialize, &_LocaleNames_es_PR_ClassInfo_, allocate$LocaleNames_es_PR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_es_PR, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_es_PR, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_es_PR",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_es_PR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_es_PR);
+	});
 	return class$;
 }
 

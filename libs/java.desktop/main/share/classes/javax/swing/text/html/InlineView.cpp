@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/InlineView.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Shape.h>
 #include <javax/swing/event/DocumentEvent.h>
@@ -39,38 +38,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _InlineView_FieldInfo_[] = {
-	{"nowrap", "Z", nullptr, $PRIVATE, $field(InlineView, nowrap)},
-	{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(InlineView, attr)},
-	{}
-};
-
-$MethodInfo _InlineView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(InlineView, init$, void, $Element*)},
-	{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(InlineView, breakView, $View*, int32_t, int32_t, float, float)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(InlineView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(InlineView, getAttributes, $AttributeSet*)},
-	{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(InlineView, getBreakWeight, int32_t, int32_t, float, float)},
-	{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(InlineView, getStyleSheet, $StyleSheet*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(InlineView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(InlineView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(InlineView, setPropertiesFromAttributes, void)},
-	{}
-};
-
-$ClassInfo _InlineView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.InlineView",
-	"javax.swing.text.LabelView",
-	nullptr,
-	_InlineView_FieldInfo_,
-	_InlineView_MethodInfo_
-};
-
-$Object* allocate$InlineView($Class* clazz) {
-	return $of($alloc(InlineView));
-}
-
 void InlineView::init$($Element* elem) {
 	$LabelView::init$(elem);
 	$var($StyleSheet, sheet, getStyleSheet());
@@ -108,22 +75,22 @@ $View* InlineView::breakView(int32_t axis, int32_t offset, float pos, float len)
 }
 
 void InlineView::setPropertiesFromAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LabelView::setPropertiesFromAttributes();
 	$var($AttributeSet, a, getAttributes());
 	$init($CSS$Attribute);
 	$var($Object, decor, $nc(a)->getAttribute($CSS$Attribute::TEXT_DECORATION));
-	bool u = (decor != nullptr) ? ($nc($($nc($of(decor))->toString()))->indexOf("underline"_s) >= 0) : false;
+	bool u = (decor != nullptr) ? ($$nc(decor->toString())->indexOf("underline"_s) >= 0) : false;
 	setUnderline(u);
-	bool s = (decor != nullptr) ? ($nc($($of(decor)->toString()))->indexOf("line-through"_s) >= 0) : false;
+	bool s = (decor != nullptr) ? ($$nc(decor->toString())->indexOf("line-through"_s) >= 0) : false;
 	setStrikeThrough(s);
 	$var($Object, vAlign, a->getAttribute($CSS$Attribute::VERTICAL_ALIGN));
-	s = (vAlign != nullptr) ? ($nc($($nc($of(vAlign))->toString()))->indexOf("sup"_s) >= 0) : false;
+	s = (vAlign != nullptr) ? ($$nc(vAlign->toString())->indexOf("sup"_s) >= 0) : false;
 	setSuperscript(s);
-	s = (vAlign != nullptr) ? ($nc($($of(vAlign)->toString()))->indexOf("sub"_s) >= 0) : false;
+	s = (vAlign != nullptr) ? ($$nc(vAlign->toString())->indexOf("sub"_s) >= 0) : false;
 	setSubscript(s);
 	$var($Object, whitespace, a->getAttribute($CSS$Attribute::WHITE_SPACE));
-	if ((whitespace != nullptr) && $of(whitespace)->equals("nowrap"_s)) {
+	if ((whitespace != nullptr) && whitespace->equals("nowrap"_s)) {
 		this->nowrap = true;
 	} else {
 		this->nowrap = false;
@@ -144,7 +111,34 @@ InlineView::InlineView() {
 }
 
 $Class* InlineView::load$($String* name, bool initialize) {
-	$loadClass(InlineView, name, initialize, &_InlineView_ClassInfo_, allocate$InlineView);
+	$FieldInfo fieldInfos$$[] = {
+		{"nowrap", "Z", nullptr, $PRIVATE, $field(InlineView, nowrap)},
+		{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(InlineView, attr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(InlineView, init$, void, $Element*)},
+		{"breakView", "(IIFF)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(InlineView, breakView, $View*, int32_t, int32_t, float, float)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(InlineView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(InlineView, getAttributes, $AttributeSet*)},
+		{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(InlineView, getBreakWeight, int32_t, int32_t, float, float)},
+		{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(InlineView, getStyleSheet, $StyleSheet*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(InlineView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(InlineView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(InlineView, setPropertiesFromAttributes, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.InlineView",
+		"javax.swing.text.LabelView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InlineView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InlineView));
+	});
 	return class$;
 }
 

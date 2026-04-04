@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$XNI2SAX.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultXMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent.h>
 #include <com/sun/org/apache/xerces/internal/util/AttributesProxy.h>
@@ -29,13 +28,10 @@ using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Attributes = ::org::xml::sax::Attributes;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
-using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
 
 namespace com {
@@ -45,56 +41,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace jaxp {
-
-$FieldInfo _JAXPValidatorComponent$XNI2SAX_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JAXPValidatorComponent$XNI2SAX, this$0)},
-	{"fContentHandler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(JAXPValidatorComponent$XNI2SAX, fContentHandler)},
-	{"fVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JAXPValidatorComponent$XNI2SAX, fVersion)},
-	{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(JAXPValidatorComponent$XNI2SAX, fNamespaceContext)},
-	{"fAttributesProxy", "Lcom/sun/org/apache/xerces/internal/util/AttributesProxy;", nullptr, $PRIVATE | $FINAL, $field(JAXPValidatorComponent$XNI2SAX, fAttributesProxy)},
-	{}
-};
-
-$MethodInfo _JAXPValidatorComponent$XNI2SAX_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent;)V", nullptr, $PRIVATE, $method(JAXPValidatorComponent$XNI2SAX, init$, void, $JAXPValidatorComponent*)},
-	{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $method(JAXPValidatorComponent$XNI2SAX, getContentHandler, $ContentHandler*)},
-	{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $method(JAXPValidatorComponent$XNI2SAX, setContentHandler, void, $ContentHandler*)},
-	{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"xmlDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, xmlDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$InnerClassInfo _JAXPValidatorComponent$XNI2SAX_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$XNI2SAX", "com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent", "XNI2SAX", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _JAXPValidatorComponent$XNI2SAX_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$XNI2SAX",
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultXMLDocumentHandler",
-	nullptr,
-	_JAXPValidatorComponent$XNI2SAX_FieldInfo_,
-	_JAXPValidatorComponent$XNI2SAX_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JAXPValidatorComponent$XNI2SAX_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent"
-};
-
-$Object* allocate$JAXPValidatorComponent$XNI2SAX($Class* clazz) {
-	return $of($alloc(JAXPValidatorComponent$XNI2SAX));
-}
 
 void JAXPValidatorComponent$XNI2SAX::init$($JAXPValidatorComponent* this$0) {
 	$set(this, this$0, this$0);
@@ -120,7 +66,7 @@ void JAXPValidatorComponent$XNI2SAX::startDocument($XMLLocator* locator, $String
 	try {
 		$nc(this->fContentHandler)->startDocument();
 	} catch ($SAXException& e) {
-		$throwNew($XNIException, static_cast<$Exception*>(e));
+		$throwNew($XNIException, e);
 	}
 }
 
@@ -128,7 +74,7 @@ void JAXPValidatorComponent$XNI2SAX::endDocument($Augmentations* augs) {
 	try {
 		$nc(this->fContentHandler)->endDocument();
 	} catch ($SAXException& e) {
-		$throwNew($XNIException, static_cast<$Exception*>(e));
+		$throwNew($XNIException, e);
 	}
 }
 
@@ -136,12 +82,12 @@ void JAXPValidatorComponent$XNI2SAX::processingInstruction($String* target, $XML
 	try {
 		$nc(this->fContentHandler)->processingInstruction(target, $($nc(data)->toString()));
 	} catch ($SAXException& e) {
-		$throwNew($XNIException, static_cast<$Exception*>(e));
+		$throwNew($XNIException, e);
 	}
 }
 
 void JAXPValidatorComponent$XNI2SAX::startElement($QName* element, $XMLAttributes* attributes, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t count = $nc(this->fNamespaceContext)->getDeclaredPrefixCount();
 		if (count > 0) {
@@ -153,19 +99,19 @@ void JAXPValidatorComponent$XNI2SAX::startElement($QName* element, $XMLAttribute
 				$nc(this->fContentHandler)->startPrefixMapping(prefix, (uri == nullptr) ? ""_s : uri);
 			}
 		}
-		$var($String, uri, $nc(element)->uri != nullptr ? $nc(element)->uri : ""_s);
+		$var($String, uri, $nc(element)->uri != nullptr ? element->uri : ""_s);
 		$var($String, localpart, element->localpart);
-		$nc(this->fAttributesProxy)->setAttributes(attributes);
+		this->fAttributesProxy->setAttributes(attributes);
 		$nc(this->fContentHandler)->startElement(uri, localpart, element->rawname, this->fAttributesProxy);
 	} catch ($SAXException& e) {
-		$throwNew($XNIException, static_cast<$Exception*>(e));
+		$throwNew($XNIException, e);
 	}
 }
 
 void JAXPValidatorComponent$XNI2SAX::endElement($QName* element, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($String, uri, $nc(element)->uri != nullptr ? $nc(element)->uri : ""_s);
+		$var($String, uri, $nc(element)->uri != nullptr ? element->uri : ""_s);
 		$var($String, localpart, element->localpart);
 		$nc(this->fContentHandler)->endElement(uri, localpart, element->rawname);
 		int32_t count = $nc(this->fNamespaceContext)->getDeclaredPrefixCount();
@@ -175,7 +121,7 @@ void JAXPValidatorComponent$XNI2SAX::endElement($QName* element, $Augmentations*
 			}
 		}
 	} catch ($SAXException& e) {
-		$throwNew($XNIException, static_cast<$Exception*>(e));
+		$throwNew($XNIException, e);
 	}
 }
 
@@ -186,17 +132,17 @@ void JAXPValidatorComponent$XNI2SAX::emptyElement($QName* element, $XMLAttribute
 
 void JAXPValidatorComponent$XNI2SAX::characters($XMLString* text, $Augmentations* augs) {
 	try {
-		$nc(this->fContentHandler)->characters($nc(text)->ch, text->offset, text->length);
+		$nc(this->fContentHandler)->characters($nc(text)->ch, $nc(text)->offset, $nc(text)->length);
 	} catch ($SAXException& e) {
-		$throwNew($XNIException, static_cast<$Exception*>(e));
+		$throwNew($XNIException, e);
 	}
 }
 
 void JAXPValidatorComponent$XNI2SAX::ignorableWhitespace($XMLString* text, $Augmentations* augs) {
 	try {
-		$nc(this->fContentHandler)->ignorableWhitespace($nc(text)->ch, text->offset, text->length);
+		$nc(this->fContentHandler)->ignorableWhitespace($nc(text)->ch, $nc(text)->offset, $nc(text)->length);
 	} catch ($SAXException& e) {
-		$throwNew($XNIException, static_cast<$Exception*>(e));
+		$throwNew($XNIException, e);
 	}
 }
 
@@ -204,7 +150,51 @@ JAXPValidatorComponent$XNI2SAX::JAXPValidatorComponent$XNI2SAX() {
 }
 
 $Class* JAXPValidatorComponent$XNI2SAX::load$($String* name, bool initialize) {
-	$loadClass(JAXPValidatorComponent$XNI2SAX, name, initialize, &_JAXPValidatorComponent$XNI2SAX_ClassInfo_, allocate$JAXPValidatorComponent$XNI2SAX);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JAXPValidatorComponent$XNI2SAX, this$0)},
+		{"fContentHandler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(JAXPValidatorComponent$XNI2SAX, fContentHandler)},
+		{"fVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JAXPValidatorComponent$XNI2SAX, fVersion)},
+		{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, $PROTECTED, $field(JAXPValidatorComponent$XNI2SAX, fNamespaceContext)},
+		{"fAttributesProxy", "Lcom/sun/org/apache/xerces/internal/util/AttributesProxy;", nullptr, $PRIVATE | $FINAL, $field(JAXPValidatorComponent$XNI2SAX, fAttributesProxy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent;)V", nullptr, $PRIVATE, $method(JAXPValidatorComponent$XNI2SAX, init$, void, $JAXPValidatorComponent*)},
+		{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"getContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $method(JAXPValidatorComponent$XNI2SAX, getContentHandler, $ContentHandler*)},
+		{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $method(JAXPValidatorComponent$XNI2SAX, setContentHandler, void, $ContentHandler*)},
+		{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"xmlDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(JAXPValidatorComponent$XNI2SAX, xmlDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$XNI2SAX", "com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent", "XNI2SAX", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent$XNI2SAX",
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultXMLDocumentHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.JAXPValidatorComponent"
+	};
+	$loadClass(JAXPValidatorComponent$XNI2SAX, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JAXPValidatorComponent$XNI2SAX));
+	});
 	return class$;
 }
 

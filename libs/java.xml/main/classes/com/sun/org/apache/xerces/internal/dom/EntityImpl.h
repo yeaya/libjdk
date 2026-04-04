@@ -101,7 +101,7 @@ public:
 	virtual void setXmlEncoding($String* value);
 	virtual void setXmlVersion($String* value);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xCE60585DFC4961C1;
+	static const int64_t serialVersionUID = (int64_t)0xce60585dfc4961c1;
 	$String* name = nullptr;
 	$String* publicId = nullptr;
 	$String* systemId = nullptr;

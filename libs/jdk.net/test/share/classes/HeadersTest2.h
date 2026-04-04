@@ -21,6 +21,7 @@ class $export HeadersTest2 : public ::java::lang::Object {
 	$class(HeadersTest2, 0, ::java::lang::Object)
 public:
 	HeadersTest2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::HeadersTest2$CompareTest* test(bool s, ::java::util::List* l1, ::java::util::List* l2);

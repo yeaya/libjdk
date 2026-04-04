@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -22,48 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicOptionPaneUI$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicOptionPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicOptionPaneUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _BasicOptionPaneUI$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicOptionPaneUI;)V", nullptr, 0, $method(BasicOptionPaneUI$1, init$, void, $BasicOptionPaneUI*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$1, getPreferredSize, $Dimension*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicOptionPaneUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.basic.BasicOptionPaneUI",
-	"addMessageComponents",
-	"(Ljava/awt/Container;Ljava/awt/GridBagConstraints;Ljava/lang/Object;IZ)V"
-};
-
-$InnerClassInfo _BasicOptionPaneUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicOptionPaneUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicOptionPaneUI$1",
-	"javax.swing.JPanel",
-	nullptr,
-	_BasicOptionPaneUI$1_FieldInfo_,
-	_BasicOptionPaneUI$1_MethodInfo_,
-	nullptr,
-	&_BasicOptionPaneUI$1_EnclosingMethodInfo_,
-	_BasicOptionPaneUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicOptionPaneUI"
-};
-
-$Object* allocate$BasicOptionPaneUI$1($Class* clazz) {
-	return $of($alloc(BasicOptionPaneUI$1));
-}
-
 void BasicOptionPaneUI$1::init$($BasicOptionPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$JPanel::init$();
@@ -81,7 +38,42 @@ BasicOptionPaneUI$1::BasicOptionPaneUI$1() {
 }
 
 $Class* BasicOptionPaneUI$1::load$($String* name, bool initialize) {
-	$loadClass(BasicOptionPaneUI$1, name, initialize, &_BasicOptionPaneUI$1_ClassInfo_, allocate$BasicOptionPaneUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicOptionPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicOptionPaneUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicOptionPaneUI;)V", nullptr, 0, $method(BasicOptionPaneUI$1, init$, void, $BasicOptionPaneUI*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$1, getPreferredSize, $Dimension*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.basic.BasicOptionPaneUI",
+		"addMessageComponents",
+		"(Ljava/awt/Container;Ljava/awt/GridBagConstraints;Ljava/lang/Object;IZ)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicOptionPaneUI$1",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicOptionPaneUI"
+	};
+	$loadClass(BasicOptionPaneUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicOptionPaneUI$1));
+	});
 	return class$;
 }
 

@@ -19,6 +19,7 @@ class Printer : public ::java::lang::Object {
 	$class(Printer, 0, ::java::lang::Object)
 public:
 	Printer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void err($String* str);
 	static bool isBuildInternal();

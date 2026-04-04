@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/Prologue.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <sun/management/counter/perf/InstrumentationException.h>
@@ -38,56 +37,8 @@ namespace sun {
 		namespace counter {
 			namespace perf {
 
-$FieldInfo _Prologue_FieldInfo_[] = {
-	{"PERFDATA_BIG_ENDIAN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue, PERFDATA_BIG_ENDIAN)},
-	{"PERFDATA_LITTLE_ENDIAN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue, PERFDATA_LITTLE_ENDIAN)},
-	{"PERFDATA_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue, PERFDATA_MAGIC)},
-	{"header", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Prologue, header)},
-	{"magic", "I", nullptr, $PRIVATE, $field(Prologue, magic)},
-	{}
-};
-
-$MethodInfo _Prologue_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Prologue, init$, void, $ByteBuffer*)},
-	{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(Prologue, getByteOrder, $ByteOrder*)},
-	{"getEntryOffset", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getEntryOffset, int32_t)},
-	{"getMagic", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMagic, int32_t)},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMajorVersion, int32_t)},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMinorVersion, int32_t)},
-	{"getModificationTimeStamp", "()J", nullptr, $PUBLIC, $virtualMethod(Prologue, getModificationTimeStamp, int64_t)},
-	{"getNumEntries", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getNumEntries, int32_t)},
-	{"getOverflow", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getOverflow, int32_t)},
-	{"getUsed", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getUsed, int32_t)},
-	{"isAccessible", "()Z", nullptr, $PUBLIC, $virtualMethod(Prologue, isAccessible, bool)},
-	{}
-};
-
-$InnerClassInfo _Prologue_InnerClassesInfo_[] = {
-	{"sun.management.counter.perf.Prologue$PrologueFieldOffset", "sun.management.counter.perf.Prologue", "PrologueFieldOffset", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Prologue_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.Prologue",
-	"java.lang.Object",
-	nullptr,
-	_Prologue_FieldInfo_,
-	_Prologue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Prologue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.management.counter.perf.Prologue$PrologueFieldOffset"
-};
-
-$Object* allocate$Prologue($Class* clazz) {
-	return $of($alloc(Prologue));
-}
-
 void Prologue::init$($ByteBuffer* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, header, $nc(b)->duplicate());
 	$init($ByteOrder);
 	$nc(this->header)->order($ByteOrder::BIG_ENDIAN);
@@ -166,7 +117,49 @@ Prologue::Prologue() {
 }
 
 $Class* Prologue::load$($String* name, bool initialize) {
-	$loadClass(Prologue, name, initialize, &_Prologue_ClassInfo_, allocate$Prologue);
+	$FieldInfo fieldInfos$$[] = {
+		{"PERFDATA_BIG_ENDIAN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue, PERFDATA_BIG_ENDIAN)},
+		{"PERFDATA_LITTLE_ENDIAN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue, PERFDATA_LITTLE_ENDIAN)},
+		{"PERFDATA_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Prologue, PERFDATA_MAGIC)},
+		{"header", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Prologue, header)},
+		{"magic", "I", nullptr, $PRIVATE, $field(Prologue, magic)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Prologue, init$, void, $ByteBuffer*)},
+		{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(Prologue, getByteOrder, $ByteOrder*)},
+		{"getEntryOffset", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getEntryOffset, int32_t)},
+		{"getMagic", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMagic, int32_t)},
+		{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMajorVersion, int32_t)},
+		{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMinorVersion, int32_t)},
+		{"getModificationTimeStamp", "()J", nullptr, $PUBLIC, $virtualMethod(Prologue, getModificationTimeStamp, int64_t)},
+		{"getNumEntries", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getNumEntries, int32_t)},
+		{"getOverflow", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getOverflow, int32_t)},
+		{"getUsed", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getUsed, int32_t)},
+		{"isAccessible", "()Z", nullptr, $PUBLIC, $virtualMethod(Prologue, isAccessible, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.counter.perf.Prologue$PrologueFieldOffset", "sun.management.counter.perf.Prologue", "PrologueFieldOffset", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.Prologue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.management.counter.perf.Prologue$PrologueFieldOffset"
+	};
+	$loadClass(Prologue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Prologue);
+	});
 	return class$;
 }
 

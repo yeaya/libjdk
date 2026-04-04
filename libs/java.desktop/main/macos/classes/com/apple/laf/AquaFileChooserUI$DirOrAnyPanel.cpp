@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$DirOrAnyPanel.h>
-
 #include <com/apple/laf/AquaFileChooserUI$FCSubpanel.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/io/File.h>
@@ -20,45 +19,6 @@ using $JFileChooser = ::javax::swing::JFileChooser;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$DirOrAnyPanel_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DirOrAnyPanel, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$DirOrAnyPanel_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$DirOrAnyPanel, init$, void, $AquaFileChooserUI*)},
-	{"getDefaultButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(AquaFileChooserUI$DirOrAnyPanel, getDefaultButton, $JButton*, $JFileChooser*)},
-	{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$DirOrAnyPanel, installPanel, void, $JFileChooser*, bool)},
-	{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$DirOrAnyPanel, updateButtonState, void, $JFileChooser*, $File*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$DirOrAnyPanel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
-	{"com.apple.laf.AquaFileChooserUI$FCSubpanel", "com.apple.laf.AquaFileChooserUI", "FCSubpanel", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$DirOrAnyPanel_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel",
-	"com.apple.laf.AquaFileChooserUI$FCSubpanel",
-	nullptr,
-	_AquaFileChooserUI$DirOrAnyPanel_FieldInfo_,
-	_AquaFileChooserUI$DirOrAnyPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$DirOrAnyPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$DirOrAnyPanel($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$DirOrAnyPanel));
-}
 
 void AquaFileChooserUI$DirOrAnyPanel::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -82,7 +42,40 @@ AquaFileChooserUI$DirOrAnyPanel::AquaFileChooserUI$DirOrAnyPanel() {
 }
 
 $Class* AquaFileChooserUI$DirOrAnyPanel::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$DirOrAnyPanel, name, initialize, &_AquaFileChooserUI$DirOrAnyPanel_ClassInfo_, allocate$AquaFileChooserUI$DirOrAnyPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$DirOrAnyPanel, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$DirOrAnyPanel, init$, void, $AquaFileChooserUI*)},
+		{"getDefaultButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(AquaFileChooserUI$DirOrAnyPanel, getDefaultButton, $JButton*, $JFileChooser*)},
+		{"installPanel", "(Ljavax/swing/JFileChooser;Z)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$DirOrAnyPanel, installPanel, void, $JFileChooser*, bool)},
+		{"updateButtonState", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI$DirOrAnyPanel, updateButtonState, void, $JFileChooser*, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
+		{"com.apple.laf.AquaFileChooserUI$FCSubpanel", "com.apple.laf.AquaFileChooserUI", "FCSubpanel", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel",
+		"com.apple.laf.AquaFileChooserUI$FCSubpanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$DirOrAnyPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$DirOrAnyPanel);
+	});
 	return class$;
 }
 

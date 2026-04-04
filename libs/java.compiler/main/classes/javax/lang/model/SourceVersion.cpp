@@ -1,5 +1,4 @@
 #include <javax/lang/model/SourceVersion.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Math.h>
@@ -35,65 +34,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runtime = ::java::lang::Runtime;
-using $Runtime$Version = ::java::lang::Runtime$Version;
 
 namespace javax {
 	namespace lang {
 		namespace model {
-
-$FieldInfo _SourceVersion_FieldInfo_[] = {
-	{"RELEASE_0", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_0)},
-	{"RELEASE_1", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_1)},
-	{"RELEASE_2", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_2)},
-	{"RELEASE_3", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_3)},
-	{"RELEASE_4", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_4)},
-	{"RELEASE_5", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_5)},
-	{"RELEASE_6", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_6)},
-	{"RELEASE_7", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_7)},
-	{"RELEASE_8", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_8)},
-	{"RELEASE_9", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_9)},
-	{"RELEASE_10", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_10)},
-	{"RELEASE_11", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_11)},
-	{"RELEASE_12", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_12)},
-	{"RELEASE_13", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_13)},
-	{"RELEASE_14", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_14)},
-	{"RELEASE_15", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_15)},
-	{"RELEASE_16", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_16)},
-	{"RELEASE_17", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_17)},
-	{"$VALUES", "[Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SourceVersion, $VALUES)},
-	{"latestSupported", "Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SourceVersion, latestSupported$)},
-	{}
-};
-
-$MethodInfo _SourceVersion_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SourceVersion, $values, $SourceVersionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SourceVersion, init$, void, $String*, int32_t)},
-	{"getLatestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC, $staticMethod(SourceVersion, getLatestSupported, SourceVersion*)},
-	{"isIdentifier", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isIdentifier, bool, $CharSequence*)},
-	{"isKeyword", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isKeyword, bool, $CharSequence*)},
-	{"isKeyword", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isKeyword, bool, $CharSequence*, SourceVersion*)},
-	{"isName", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isName, bool, $CharSequence*)},
-	{"isName", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isName, bool, $CharSequence*, SourceVersion*)},
-	{"latest", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, latest, SourceVersion*)},
-	{"latestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, latestSupported, SourceVersion*)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, valueOf, SourceVersion*, $String*)},
-	{"values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, values, $SourceVersionArray*)},
-	{}
-};
-
-$ClassInfo _SourceVersion_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.lang.model.SourceVersion",
-	"java.lang.Enum",
-	nullptr,
-	_SourceVersion_FieldInfo_,
-	_SourceVersion_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/lang/model/SourceVersion;>;"
-};
-
-$Object* allocate$SourceVersion($Class* clazz) {
-	return $of($alloc(SourceVersion));
-}
 
 SourceVersion* SourceVersion::RELEASE_0 = nullptr;
 SourceVersion* SourceVersion::RELEASE_1 = nullptr;
@@ -161,8 +105,8 @@ SourceVersion* SourceVersion::latest() {
 
 SourceVersion* SourceVersion::getLatestSupported() {
 	$init(SourceVersion);
-	$useLocalCurrentObjectStackCache();
-	int32_t intVersion = $nc($($Runtime::version()))->feature();
+	$useLocalObjectStack();
+	int32_t intVersion = $$nc($Runtime::version())->feature();
 	return (intVersion >= 11) ? valueOf($$str({"RELEASE_"_s, $$str($Math::min(17, intVersion))})) : SourceVersion::RELEASE_10;
 }
 
@@ -177,7 +121,7 @@ bool SourceVersion::isIdentifier($CharSequence* name) {
 	if ($nc(id)->length() == 0) {
 		return false;
 	}
-	int32_t cp = $nc(id)->codePointAt(0);
+	int32_t cp = id->codePointAt(0);
 	if (!$Character::isJavaIdentifierStart(cp)) {
 		return false;
 	}
@@ -197,13 +141,11 @@ bool SourceVersion::isName($CharSequence* name) {
 
 bool SourceVersion::isName($CharSequence* name, SourceVersion* version) {
 	$init(SourceVersion);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, $nc(name)->toString());
 	{
 		$var($StringArray, arr$, $nc(id)->split("\\."_s, -1));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, s, arr$->get(i$));
 			{
 				bool var$0 = !isIdentifier(s);
@@ -223,519 +165,350 @@ bool SourceVersion::isKeyword($CharSequence* s) {
 
 bool SourceVersion::isKeyword($CharSequence* s, SourceVersion* version) {
 	$init(SourceVersion);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, $nc(s)->toString());
 	{
 		$var($String, s13823$, id);
 		int32_t tmp13823$ = -1;
 		switch ($nc(s13823$)->hashCode()) {
-		case 0x6AF8DD53:
-			{
-				if (s13823$->equals("strictfp"_s)) {
-					tmp13823$ = 0;
-				}
-				break;
+		case 0x6af8dd53:
+			if (s13823$->equals("strictfp"_s)) {
+				tmp13823$ = 0;
 			}
-		case (int32_t)0xAC107346:
-			{
-				if (s13823$->equals("assert"_s)) {
-					tmp13823$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xac107346:
+			if (s13823$->equals("assert"_s)) {
+				tmp13823$ = 1;
 			}
-		case 0x002F9501:
-			{
-				if (s13823$->equals("enum"_s)) {
-					tmp13823$ = 2;
-				}
-				break;
+			break;
+		case 0x002f9501:
+			if (s13823$->equals("enum"_s)) {
+				tmp13823$ = 2;
 			}
+			break;
 		case 95:
-			{
-				if (s13823$->equals("_"_s)) {
-					tmp13823$ = 3;
-				}
-				break;
+			if (s13823$->equals("_"_s)) {
+				tmp13823$ = 3;
 			}
-		case (int32_t)0xC5BDB269:
-			{
-				if (s13823$->equals("public"_s)) {
-					tmp13823$ = 4;
-				}
-				break;
+			break;
+		case (int32_t)0xc5bdb269:
+			if (s13823$->equals("public"_s)) {
+				tmp13823$ = 4;
 			}
-		case (int32_t)0xDBBA6BAE:
-			{
-				if (s13823$->equals("protected"_s)) {
-					tmp13823$ = 5;
-				}
-				break;
+			break;
+		case (int32_t)0xdbba6bae:
+			if (s13823$->equals("protected"_s)) {
+				tmp13823$ = 5;
 			}
-		case (int32_t)0xED412583:
-			{
-				if (s13823$->equals("private"_s)) {
-					tmp13823$ = 6;
-				}
-				break;
+			break;
+		case (int32_t)0xed412583:
+			if (s13823$->equals("private"_s)) {
+				tmp13823$ = 6;
 			}
-		case 0x6749F022:
-			{
-				if (s13823$->equals("abstract"_s)) {
-					tmp13823$ = 7;
-				}
-				break;
+			break;
+		case 0x6749f022:
+			if (s13823$->equals("abstract"_s)) {
+				tmp13823$ = 7;
 			}
-		case (int32_t)0xCACDCE6E:
-			{
-				if (s13823$->equals("static"_s)) {
-					tmp13823$ = 8;
-				}
-				break;
+			break;
+		case (int32_t)0xcacdce6e:
+			if (s13823$->equals("static"_s)) {
+				tmp13823$ = 8;
 			}
-		case 0x05CEC176:
-			{
-				if (s13823$->equals("final"_s)) {
-					tmp13823$ = 9;
-				}
-				break;
+			break;
+		case 0x05cec176:
+			if (s13823$->equals("final"_s)) {
+				tmp13823$ = 9;
 			}
-		case 0x3EBFA28A:
-			{
-				if (s13823$->equals("transient"_s)) {
-					tmp13823$ = 10;
-				}
-				break;
+			break;
+		case 0x3ebfa28a:
+			if (s13823$->equals("transient"_s)) {
+				tmp13823$ = 10;
 			}
-		case (int32_t)0x8F76FD9C:
-			{
-				if (s13823$->equals("volatile"_s)) {
-					tmp13823$ = 11;
-				}
-				break;
+			break;
+		case (int32_t)0x8f76fd9c:
+			if (s13823$->equals("volatile"_s)) {
+				tmp13823$ = 11;
 			}
-		case (int32_t)0xA8958514:
-			{
-				if (s13823$->equals("synchronized"_s)) {
-					tmp13823$ = 12;
-				}
-				break;
+			break;
+		case (int32_t)0xa8958514:
+			if (s13823$->equals("synchronized"_s)) {
+				tmp13823$ = 12;
 			}
-		case (int32_t)0xC1425017:
-			{
-				if (s13823$->equals("native"_s)) {
-					tmp13823$ = 13;
-				}
-				break;
+			break;
+		case (int32_t)0xc1425017:
+			if (s13823$->equals("native"_s)) {
+				tmp13823$ = 13;
 			}
-		case 0x05A5A978:
-			{
-				if (s13823$->equals("class"_s)) {
-					tmp13823$ = 14;
-				}
-				break;
+			break;
+		case 0x05a5a978:
+			if (s13823$->equals("class"_s)) {
+				tmp13823$ = 14;
 			}
-		case 0x1DF56D39:
-			{
-				if (s13823$->equals("interface"_s)) {
-					tmp13823$ = 15;
-				}
-				break;
+			break;
+		case 0x1df56d39:
+			if (s13823$->equals("interface"_s)) {
+				tmp13823$ = 15;
 			}
-		case (int32_t)0xB22D2499:
-			{
-				if (s13823$->equals("extends"_s)) {
-					tmp13823$ = 16;
-				}
-				break;
+			break;
+		case (int32_t)0xb22d2499:
+			if (s13823$->equals("extends"_s)) {
+				tmp13823$ = 16;
 			}
-		case (int32_t)0xCFE53446:
-			{
-				if (s13823$->equals("package"_s)) {
-					tmp13823$ = 17;
-				}
-				break;
+			break;
+		case (int32_t)0xcfe53446:
+			if (s13823$->equals("package"_s)) {
+				tmp13823$ = 17;
 			}
-		case (int32_t)0xCBE1364D:
-			{
-				if (s13823$->equals("throws"_s)) {
-					tmp13823$ = 18;
-				}
-				break;
+			break;
+		case (int32_t)0xcbe1364d:
+			if (s13823$->equals("throws"_s)) {
+				tmp13823$ = 18;
 			}
-		case (int32_t)0xC97057B0:
-			{
-				if (s13823$->equals("implements"_s)) {
-					tmp13823$ = 19;
-				}
-				break;
+			break;
+		case (int32_t)0xc97057b0:
+			if (s13823$->equals("implements"_s)) {
+				tmp13823$ = 19;
 			}
-		case 0x03DB6C28:
-			{
-				if (s13823$->equals("boolean"_s)) {
-					tmp13823$ = 20;
-				}
-				break;
+			break;
+		case 0x03db6c28:
+			if (s13823$->equals("boolean"_s)) {
+				tmp13823$ = 20;
 			}
-		case 0x002E6108:
-			{
-				if (s13823$->equals("byte"_s)) {
-					tmp13823$ = 21;
-				}
-				break;
+			break;
+		case 0x002e6108:
+			if (s13823$->equals("byte"_s)) {
+				tmp13823$ = 21;
 			}
-		case 0x002E9356:
-			{
-				if (s13823$->equals("char"_s)) {
-					tmp13823$ = 22;
-				}
-				break;
+			break;
+		case 0x002e9356:
+			if (s13823$->equals("char"_s)) {
+				tmp13823$ = 22;
 			}
-		case 0x0685847C:
-			{
-				if (s13823$->equals("short"_s)) {
-					tmp13823$ = 23;
-				}
-				break;
+			break;
+		case 0x0685847c:
+			if (s13823$->equals("short"_s)) {
+				tmp13823$ = 23;
 			}
-		case 0x000197EF:
-			{
-				if (s13823$->equals("int"_s)) {
-					tmp13823$ = 24;
-				}
-				break;
+			break;
+		case 0x000197ef:
+			if (s13823$->equals("int"_s)) {
+				tmp13823$ = 24;
 			}
-		case 0x0032C67C:
-			{
-				if (s13823$->equals("long"_s)) {
-					tmp13823$ = 25;
-				}
-				break;
+			break;
+		case 0x0032c67c:
+			if (s13823$->equals("long"_s)) {
+				tmp13823$ = 25;
 			}
-		case 0x05D0225C:
-			{
-				if (s13823$->equals("float"_s)) {
-					tmp13823$ = 26;
-				}
-				break;
+			break;
+		case 0x05d0225c:
+			if (s13823$->equals("float"_s)) {
+				tmp13823$ = 26;
 			}
-		case (int32_t)0xB0F77BD1:
-			{
-				if (s13823$->equals("double"_s)) {
-					tmp13823$ = 27;
-				}
-				break;
+			break;
+		case (int32_t)0xb0f77bd1:
+			if (s13823$->equals("double"_s)) {
+				tmp13823$ = 27;
 			}
+			break;
 		case 0x00375194:
-			{
-				if (s13823$->equals("void"_s)) {
-					tmp13823$ = 28;
-				}
-				break;
+			if (s13823$->equals("void"_s)) {
+				tmp13823$ = 28;
 			}
+			break;
 		case 3357:
-			{
-				if (s13823$->equals("if"_s)) {
-					tmp13823$ = 29;
-				}
-				break;
+			if (s13823$->equals("if"_s)) {
+				tmp13823$ = 29;
 			}
-		case 0x002F8D39:
-			{
-				if (s13823$->equals("else"_s)) {
-					tmp13823$ = 30;
-				}
-				break;
+			break;
+		case 0x002f8d39:
+			if (s13823$->equals("else"_s)) {
+				tmp13823$ = 30;
 			}
-		case 0x0001C1BB:
-			{
-				if (s13823$->equals("try"_s)) {
-					tmp13823$ = 31;
-				}
-				break;
+			break;
+		case 0x0001c1bb:
+			if (s13823$->equals("try"_s)) {
+				tmp13823$ = 31;
 			}
-		case 0x05A0EEBB:
-			{
-				if (s13823$->equals("catch"_s)) {
-					tmp13823$ = 32;
-				}
-				break;
+			break;
+		case 0x05a0eebb:
+			if (s13823$->equals("catch"_s)) {
+				tmp13823$ = 32;
 			}
-		case (int32_t)0xCD244983:
-			{
-				if (s13823$->equals("finally"_s)) {
-					tmp13823$ = 33;
-				}
-				break;
+			break;
+		case (int32_t)0xcd244983:
+			if (s13823$->equals("finally"_s)) {
+				tmp13823$ = 33;
 			}
+			break;
 		case 3211:
-			{
-				if (s13823$->equals("do"_s)) {
-					tmp13823$ = 34;
-				}
-				break;
+			if (s13823$->equals("do"_s)) {
+				tmp13823$ = 34;
 			}
-		case 0x06BDCB31:
-			{
-				if (s13823$->equals("while"_s)) {
-					tmp13823$ = 35;
-				}
-				break;
+			break;
+		case 0x06bdcb31:
+			if (s13823$->equals("while"_s)) {
+				tmp13823$ = 35;
 			}
-		case 0x00018CC9:
-			{
-				if (s13823$->equals("for"_s)) {
-					tmp13823$ = 36;
-				}
-				break;
+			break;
+		case 0x00018cc9:
+			if (s13823$->equals("for"_s)) {
+				tmp13823$ = 36;
 			}
-		case (int32_t)0xDE312CA7:
-			{
-				if (s13823$->equals("continue"_s)) {
-					tmp13823$ = 37;
-				}
-				break;
+			break;
+		case (int32_t)0xde312ca7:
+			if (s13823$->equals("continue"_s)) {
+				tmp13823$ = 37;
 			}
-		case (int32_t)0xCAFBB734:
-			{
-				if (s13823$->equals("switch"_s)) {
-					tmp13823$ = 38;
-				}
-				break;
+			break;
+		case (int32_t)0xcafbb734:
+			if (s13823$->equals("switch"_s)) {
+				tmp13823$ = 38;
 			}
-		case 0x002E7B30:
-			{
-				if (s13823$->equals("case"_s)) {
-					tmp13823$ = 39;
-				}
-				break;
+			break;
+		case 0x002e7b30:
+			if (s13823$->equals("case"_s)) {
+				tmp13823$ = 39;
 			}
-		case 0x5C13D641:
-			{
-				if (s13823$->equals("default"_s)) {
-					tmp13823$ = 40;
-				}
-				break;
+			break;
+		case 0x5c13d641:
+			if (s13823$->equals("default"_s)) {
+				tmp13823$ = 40;
 			}
-		case 0x059A58FF:
-			{
-				if (s13823$->equals("break"_s)) {
-					tmp13823$ = 41;
-				}
-				break;
+			break;
+		case 0x059a58ff:
+			if (s13823$->equals("break"_s)) {
+				tmp13823$ = 41;
 			}
-		case 0x0693A6E6:
-			{
-				if (s13823$->equals("throw"_s)) {
-					tmp13823$ = 42;
-				}
-				break;
+			break;
+		case 0x0693a6e6:
+			if (s13823$->equals("throw"_s)) {
+				tmp13823$ = 42;
 			}
-		case (int32_t)0xC84E3D30:
-			{
-				if (s13823$->equals("return"_s)) {
-					tmp13823$ = 43;
-				}
-				break;
+			break;
+		case (int32_t)0xc84e3d30:
+			if (s13823$->equals("return"_s)) {
+				tmp13823$ = 43;
 			}
-		case 0x00364E9E:
-			{
-				if (s13823$->equals("this"_s)) {
-					tmp13823$ = 44;
-				}
-				break;
+			break;
+		case 0x00364e9e:
+			if (s13823$->equals("this"_s)) {
+				tmp13823$ = 44;
 			}
-		case 0x0001A9A0:
-			{
-				if (s13823$->equals("new"_s)) {
-					tmp13823$ = 45;
-				}
-				break;
+			break;
+		case 0x0001a9a0:
+			if (s13823$->equals("new"_s)) {
+				tmp13823$ = 45;
 			}
-		case 0x068B6F7B:
-			{
-				if (s13823$->equals("super"_s)) {
-					tmp13823$ = 46;
-				}
-				break;
+			break;
+		case 0x068b6f7b:
+			if (s13823$->equals("super"_s)) {
+				tmp13823$ = 46;
 			}
-		case (int32_t)0xB96173A5:
-			{
-				if (s13823$->equals("import"_s)) {
-					tmp13823$ = 47;
-				}
-				break;
+			break;
+		case (int32_t)0xb96173a5:
+			if (s13823$->equals("import"_s)) {
+				tmp13823$ = 47;
 			}
-		case 0x35C3D12C:
-			{
-				if (s13823$->equals("instanceof"_s)) {
-					tmp13823$ = 48;
-				}
-				break;
+			break;
+		case 0x35c3d12c:
+			if (s13823$->equals("instanceof"_s)) {
+				tmp13823$ = 48;
 			}
+			break;
 		case 0x00308163:
-			{
-				if (s13823$->equals("goto"_s)) {
-					tmp13823$ = 49;
-				}
-				break;
+			if (s13823$->equals("goto"_s)) {
+				tmp13823$ = 49;
 			}
-		case 0x05A73763:
-			{
-				if (s13823$->equals("const"_s)) {
-					tmp13823$ = 50;
-				}
-				break;
+			break;
+		case 0x05a73763:
+			if (s13823$->equals("const"_s)) {
+				tmp13823$ = 50;
 			}
-		case 0x0033C587:
-			{
-				if (s13823$->equals("null"_s)) {
-					tmp13823$ = 51;
-				}
-				break;
+			break;
+		case 0x0033c587:
+			if (s13823$->equals("null"_s)) {
+				tmp13823$ = 51;
 			}
-		case 0x0036758E:
-			{
-				if (s13823$->equals("true"_s)) {
-					tmp13823$ = 52;
-				}
-				break;
+			break;
+		case 0x0036758e:
+			if (s13823$->equals("true"_s)) {
+				tmp13823$ = 52;
 			}
-		case 0x05CB1923:
-			{
-				if (s13823$->equals("false"_s)) {
-					tmp13823$ = 53;
-				}
-				break;
+			break;
+		case 0x05cb1923:
+			if (s13823$->equals("false"_s)) {
+				tmp13823$ = 53;
 			}
+			break;
 		}
 		switch (tmp13823$) {
 		case 0:
-			{
-				return $nc(version)->compareTo(static_cast<$Enum*>(SourceVersion::RELEASE_2)) >= 0;
-			}
+			return $nc(version)->compareTo(SourceVersion::RELEASE_2) >= 0;
 		case 1:
-			{
-				return $nc(version)->compareTo(static_cast<$Enum*>(SourceVersion::RELEASE_4)) >= 0;
-			}
+			return $nc(version)->compareTo(SourceVersion::RELEASE_4) >= 0;
 		case 2:
-			{
-				return $nc(version)->compareTo(static_cast<$Enum*>(SourceVersion::RELEASE_5)) >= 0;
-			}
+			return $nc(version)->compareTo(SourceVersion::RELEASE_5) >= 0;
 		case 3:
-			{
-				return $nc(version)->compareTo(static_cast<$Enum*>(SourceVersion::RELEASE_9)) >= 0;
-			}
+			return $nc(version)->compareTo(SourceVersion::RELEASE_9) >= 0;
 		case 4:
-			{}
 		case 5:
-			{}
 		case 6:
-			{}
 		case 7:
-			{}
 		case 8:
-			{}
 		case 9:
-			{}
 		case 10:
-			{}
 		case 11:
-			{}
 		case 12:
-			{}
 		case 13:
-			{}
 		case 14:
-			{}
 		case 15:
-			{}
 		case 16:
-			{}
 		case 17:
-			{}
 		case 18:
-			{}
 		case 19:
-			{}
 		case 20:
-			{}
 		case 21:
-			{}
 		case 22:
-			{}
 		case 23:
-			{}
 		case 24:
-			{}
 		case 25:
-			{}
 		case 26:
-			{}
 		case 27:
-			{}
 		case 28:
-			{}
 		case 29:
-			{}
 		case 30:
-			{}
 		case 31:
-			{}
 		case 32:
-			{}
 		case 33:
-			{}
 		case 34:
-			{}
 		case 35:
-			{}
 		case 36:
-			{}
 		case 37:
-			{}
 		case 38:
-			{}
 		case 39:
-			{}
 		case 40:
-			{}
 		case 41:
-			{}
 		case 42:
-			{}
 		case 43:
-			{}
 		case 44:
-			{}
 		case 45:
-			{}
 		case 46:
-			{}
 		case 47:
-			{}
 		case 48:
-			{}
 		case 49:
-			{}
 		case 50:
-			{}
 		case 51:
-			{}
 		case 52:
-			{}
 		case 53:
-			{
-				return true;
-			}
+			return true;
 		default:
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }
 
-void clinit$SourceVersion($Class* class$) {
+void SourceVersion::clinit$($Class* clazz) {
 	$assignStatic(SourceVersion::RELEASE_0, $new(SourceVersion, "RELEASE_0"_s, 0));
 	$assignStatic(SourceVersion::RELEASE_1, $new(SourceVersion, "RELEASE_1"_s, 1));
 	$assignStatic(SourceVersion::RELEASE_2, $new(SourceVersion, "RELEASE_2"_s, 2));
@@ -762,7 +535,56 @@ SourceVersion::SourceVersion() {
 }
 
 $Class* SourceVersion::load$($String* name, bool initialize) {
-	$loadClass(SourceVersion, name, initialize, &_SourceVersion_ClassInfo_, clinit$SourceVersion, allocate$SourceVersion);
+	$FieldInfo fieldInfos$$[] = {
+		{"RELEASE_0", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_0)},
+		{"RELEASE_1", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_1)},
+		{"RELEASE_2", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_2)},
+		{"RELEASE_3", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_3)},
+		{"RELEASE_4", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_4)},
+		{"RELEASE_5", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_5)},
+		{"RELEASE_6", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_6)},
+		{"RELEASE_7", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_7)},
+		{"RELEASE_8", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_8)},
+		{"RELEASE_9", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_9)},
+		{"RELEASE_10", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_10)},
+		{"RELEASE_11", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_11)},
+		{"RELEASE_12", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_12)},
+		{"RELEASE_13", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_13)},
+		{"RELEASE_14", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_14)},
+		{"RELEASE_15", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_15)},
+		{"RELEASE_16", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_16)},
+		{"RELEASE_17", "Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SourceVersion, RELEASE_17)},
+		{"$VALUES", "[Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SourceVersion, $VALUES)},
+		{"latestSupported", "Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SourceVersion, latestSupported$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SourceVersion, $values, $SourceVersionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SourceVersion, init$, void, $String*, int32_t)},
+		{"getLatestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC, $staticMethod(SourceVersion, getLatestSupported, SourceVersion*)},
+		{"isIdentifier", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isIdentifier, bool, $CharSequence*)},
+		{"isKeyword", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isKeyword, bool, $CharSequence*)},
+		{"isKeyword", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isKeyword, bool, $CharSequence*, SourceVersion*)},
+		{"isName", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isName, bool, $CharSequence*)},
+		{"isName", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isName, bool, $CharSequence*, SourceVersion*)},
+		{"latest", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, latest, SourceVersion*)},
+		{"latestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, latestSupported, SourceVersion*)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, valueOf, SourceVersion*, $String*)},
+		{"values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, values, $SourceVersionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.lang.model.SourceVersion",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/lang/model/SourceVersion;>;"
+	};
+	$loadClass(SourceVersion, name, initialize, &classInfo$$, SourceVersion::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SourceVersion));
+	});
 	return class$;
 }
 

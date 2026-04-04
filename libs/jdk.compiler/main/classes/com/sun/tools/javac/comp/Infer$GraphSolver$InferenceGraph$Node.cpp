@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -33,7 +32,6 @@ using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Infer$DependencyKind = ::com::sun::tools::javac::comp::Infer$DependencyKind;
 using $Infer$GraphSolver$InferenceGraph = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph;
-using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$DottableNode = ::com::sun::tools::javac::util::GraphUtils$DottableNode;
@@ -59,66 +57,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Infer$GraphSolver$InferenceGraph$Node_FieldInfo_[] = {
-	{"this$2", "Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$GraphSolver$InferenceGraph$Node, this$2)},
-	{"deps", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", 0, $field(Infer$GraphSolver$InferenceGraph$Node, deps)},
-	{}
-};
-
-$MethodInfo _Infer$GraphSolver$InferenceGraph$Node_MethodInfo_[] = {
-	{"*accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Infer$GraphSolver$InferenceGraph$Node, init$, void, $Infer$GraphSolver$InferenceGraph*, $Type*)},
-	{"addDependencies", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;)V", $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, addDependencies, void, $Set*)},
-	{"addDependency", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, addDependency, void, Infer$GraphSolver$InferenceGraph$Node*)},
-	{"closure", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, closure, $Set*)},
-	{"closureInternal", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;)V", $PRIVATE, $method(Infer$GraphSolver$InferenceGraph$Node, closureInternal, void, $Set*)},
-	{"dependencyAttributes", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, dependencyAttributes, $Properties*, Infer$GraphSolver$InferenceGraph$Node*, $GraphUtils$DependencyKind*)},
-	{"dependencyAttributes", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, dependencyAttributes, $Properties*, $GraphUtils$DottableNode*, $GraphUtils$DependencyKind*)},
-	{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, getAllDependencies, $Iterable*)},
-	{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
-	{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
-	{"graphChanged", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, $PRIVATE, $method(Infer$GraphSolver$InferenceGraph$Node, graphChanged, void, Infer$GraphSolver$InferenceGraph$Node*, Infer$GraphSolver$InferenceGraph$Node*)},
-	{"isLeaf", "()Z", nullptr, $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, isLeaf, bool)},
-	{"mergeWith", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;)V", $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, mergeWith, void, $List*)},
-	{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, nodeAttributes, $Properties*)},
-	{"removeDependency", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)Z", nullptr, $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, removeDependency, bool, Infer$GraphSolver$InferenceGraph$Node*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Infer$GraphSolver$InferenceGraph$Node_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$GraphSolver", "com.sun.tools.javac.comp.Infer", "GraphSolver", 0},
-	{"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph", "com.sun.tools.javac.comp.Infer$GraphSolver", "InferenceGraph", 0},
-	{"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph$Node", "com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph", "Node", 0},
-	{"com.sun.tools.javac.util.GraphUtils$TarjanNode", "com.sun.tools.javac.util.GraphUtils", "TarjanNode", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.GraphUtils$DottableNode", "com.sun.tools.javac.util.GraphUtils", "DottableNode", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Infer$GraphSolver$InferenceGraph$Node_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph$Node",
-	"com.sun.tools.javac.util.GraphUtils$TarjanNode",
-	"com.sun.tools.javac.util.GraphUtils$DottableNode",
-	_Infer$GraphSolver$InferenceGraph$Node_FieldInfo_,
-	_Infer$GraphSolver$InferenceGraph$Node_MethodInfo_,
-	"Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;Lcom/sun/tools/javac/util/GraphUtils$DottableNode<Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;",
-	nullptr,
-	_Infer$GraphSolver$InferenceGraph$Node_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$GraphSolver$InferenceGraph$Node($Class* clazz) {
-	return $of($alloc(Infer$GraphSolver$InferenceGraph$Node));
-}
 
 $String* Infer$GraphSolver$InferenceGraph$Node::toString() {
 	 return this->$GraphUtils$TarjanNode::toString();
@@ -152,7 +90,7 @@ void Infer$GraphSolver$InferenceGraph$Node::init$($Infer$GraphSolver$InferenceGr
 
 $GraphUtils$DependencyKindArray* Infer$GraphSolver$InferenceGraph$Node::getSupportedDependencyKinds() {
 	$init($Infer$DependencyKind);
-	return $new($GraphUtils$DependencyKindArray, {static_cast<$GraphUtils$DependencyKind*>($Infer$DependencyKind::BOUND)});
+	return $new($GraphUtils$DependencyKindArray, {$Infer$DependencyKind::BOUND});
 }
 
 $Iterable* Infer$GraphSolver$InferenceGraph$Node::getAllDependencies() {
@@ -173,14 +111,12 @@ void Infer$GraphSolver$InferenceGraph$Node::addDependency(Infer$GraphSolver$Infe
 }
 
 void Infer$GraphSolver$InferenceGraph$Node::addDependencies($Set* depsToAdd) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(depsToAdd)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var(Infer$GraphSolver$InferenceGraph$Node, n, $cast(Infer$GraphSolver$InferenceGraph$Node, i$->next()));
-			{
-				addDependency(n);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(depsToAdd)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var(Infer$GraphSolver$InferenceGraph$Node, n, $cast(Infer$GraphSolver$InferenceGraph$Node, i$->next()));
+		{
+			addDependency(n);
 		}
 	}
 }
@@ -196,33 +132,29 @@ $Set* Infer$GraphSolver$InferenceGraph$Node::closure() {
 }
 
 void Infer$GraphSolver$InferenceGraph$Node::closureInternal($Set* closure) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(closure)->add(this)) {
-		{
-			$var($Iterator, i$, $nc(this->deps)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var(Infer$GraphSolver$InferenceGraph$Node, n, $cast(Infer$GraphSolver$InferenceGraph$Node, i$->next()));
-				{
-					$nc(n)->closureInternal(closure);
-				}
+		$var($Iterator, i$, $nc(this->deps)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var(Infer$GraphSolver$InferenceGraph$Node, n, $cast(Infer$GraphSolver$InferenceGraph$Node, i$->next()));
+			{
+				$nc(n)->closureInternal(closure);
 			}
 		}
 	}
 }
 
 bool Infer$GraphSolver$InferenceGraph$Node::isLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->deps)->isEmpty()) {
 		return true;
 	}
 	{
-		$var($Iterator, i$, $nc(this->deps)->iterator());
+		$var($Iterator, i$, this->deps->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(Infer$GraphSolver$InferenceGraph$Node, n, $cast(Infer$GraphSolver$InferenceGraph$Node, i$->next()));
-			{
-				if (n != this) {
-					return false;
-				}
+			if (n != this) {
+				return false;
 			}
 		}
 	}
@@ -230,15 +162,15 @@ bool Infer$GraphSolver$InferenceGraph$Node::isLeaf() {
 }
 
 void Infer$GraphSolver$InferenceGraph$Node::mergeWith($List* nodes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(nodes)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(Infer$GraphSolver$InferenceGraph$Node, n, $cast(Infer$GraphSolver$InferenceGraph$Node, i$->next()));
 			{
-				$Assert::check($nc(($cast($ListBuffer, $nc(n)->data)))->length() == 1, "Attempt to merge a compound node!"_s);
-				$nc(($cast($ListBuffer, this->data)))->appendList($cast($ListBuffer, $nc(n)->data));
-				addDependencies($nc(n)->deps);
+				$Assert::check($nc($cast($ListBuffer, $nc(n)->data))->length() == 1, "Attempt to merge a compound node!"_s);
+				$nc($cast($ListBuffer, this->data))->appendList($cast($ListBuffer, n->data));
+				addDependencies(n->deps);
 			}
 		}
 	}
@@ -247,12 +179,10 @@ void Infer$GraphSolver$InferenceGraph$Node::mergeWith($List* nodes) {
 		$var($Iterator, i$, $nc(this->deps)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(Infer$GraphSolver$InferenceGraph$Node, d, $cast(Infer$GraphSolver$InferenceGraph$Node, i$->next()));
-			{
-				if ($nc(($cast($ListBuffer, this->data)))->contains($($nc(($cast($ListBuffer, $nc(d)->data)))->first()))) {
-					deps2->add(this);
-				} else {
-					deps2->add(d);
-				}
+			if ($nc($cast($ListBuffer, this->data))->contains($($nc($cast($ListBuffer, $nc(d)->data))->first()))) {
+				deps2->add(this);
+			} else {
+				deps2->add(d);
 			}
 		}
 	}
@@ -268,34 +198,32 @@ void Infer$GraphSolver$InferenceGraph$Node::graphChanged(Infer$GraphSolver$Infer
 }
 
 $Properties* Infer$GraphSolver$InferenceGraph$Node::nodeAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, p, $new($Properties));
 	p->put("label"_s, $$str({"\""_s, $(toString()), "\""_s}));
 	return p;
 }
 
 $Properties* Infer$GraphSolver$InferenceGraph$Node::dependencyAttributes(Infer$GraphSolver$InferenceGraph$Node* sink, $GraphUtils$DependencyKind* dk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, p, $new($Properties));
-	p->put("style"_s, $nc(($cast($Infer$DependencyKind, dk)))->dotStyle);
+	p->put("style"_s, $nc($cast($Infer$DependencyKind, dk))->dotStyle);
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($String, sep, ""_s);
 	{
-		$var($Iterator, i$, $nc(($cast($ListBuffer, this->data)))->iterator());
+		$var($Iterator, i$, $nc($cast($ListBuffer, this->data))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, from, $cast($Type, i$->next()));
 			{
 				$var($Type$UndetVar, uv, $cast($Type$UndetVar, $nc($nc(this->this$2->this$1)->inferenceContext)->asUndetVar(from)));
 				{
-					$var($Iterator, i$, $nc($($nc(uv)->getBounds($($Type$UndetVar$InferenceBound::values()))))->iterator());
+					$var($Iterator, i$, $$nc($nc(uv)->getBounds($($Type$UndetVar$InferenceBound::values())))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Type, bound, $cast($Type, i$->next()));
-						{
-							if ($nc(bound)->containsAny($($List::from($cast($Iterable, $nc(sink)->data))))) {
-								buf->append(sep);
-								buf->append($of(bound));
-								$assign(sep, ","_s);
-							}
+						if ($nc(bound)->containsAny($($List::from($cast($Iterable, $nc(sink)->data))))) {
+							buf->append(sep);
+							buf->append(bound);
+							$assign(sep, ","_s);
 						}
 					}
 				}
@@ -314,7 +242,61 @@ Infer$GraphSolver$InferenceGraph$Node::Infer$GraphSolver$InferenceGraph$Node() {
 }
 
 $Class* Infer$GraphSolver$InferenceGraph$Node::load$($String* name, bool initialize) {
-	$loadClass(Infer$GraphSolver$InferenceGraph$Node, name, initialize, &_Infer$GraphSolver$InferenceGraph$Node_ClassInfo_, allocate$Infer$GraphSolver$InferenceGraph$Node);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$2", "Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$GraphSolver$InferenceGraph$Node, this$2)},
+		{"deps", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", 0, $field(Infer$GraphSolver$InferenceGraph$Node, deps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Infer$GraphSolver$InferenceGraph$Node, init$, void, $Infer$GraphSolver$InferenceGraph*, $Type*)},
+		{"addDependencies", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;)V", $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, addDependencies, void, $Set*)},
+		{"addDependency", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, addDependency, void, Infer$GraphSolver$InferenceGraph$Node*)},
+		{"closure", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, closure, $Set*)},
+		{"closureInternal", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;)V", $PRIVATE, $method(Infer$GraphSolver$InferenceGraph$Node, closureInternal, void, $Set*)},
+		{"dependencyAttributes", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, dependencyAttributes, $Properties*, Infer$GraphSolver$InferenceGraph$Node*, $GraphUtils$DependencyKind*)},
+		{"dependencyAttributes", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, dependencyAttributes, $Properties*, $GraphUtils$DottableNode*, $GraphUtils$DependencyKind*)},
+		{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, getAllDependencies, $Iterable*)},
+		{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;", $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
+		{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
+		{"graphChanged", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, $PRIVATE, $method(Infer$GraphSolver$InferenceGraph$Node, graphChanged, void, Infer$GraphSolver$InferenceGraph$Node*, Infer$GraphSolver$InferenceGraph$Node*)},
+		{"isLeaf", "()Z", nullptr, $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, isLeaf, bool)},
+		{"mergeWith", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;)V", $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, mergeWith, void, $List*)},
+		{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, nodeAttributes, $Properties*)},
+		{"removeDependency", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)Z", nullptr, $PROTECTED, $virtualMethod(Infer$GraphSolver$InferenceGraph$Node, removeDependency, bool, Infer$GraphSolver$InferenceGraph$Node*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$GraphSolver", "com.sun.tools.javac.comp.Infer", "GraphSolver", 0},
+		{"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph", "com.sun.tools.javac.comp.Infer$GraphSolver", "InferenceGraph", 0},
+		{"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph$Node", "com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph", "Node", 0},
+		{"com.sun.tools.javac.util.GraphUtils$TarjanNode", "com.sun.tools.javac.util.GraphUtils", "TarjanNode", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.GraphUtils$DottableNode", "com.sun.tools.javac.util.GraphUtils", "DottableNode", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph$Node",
+		"com.sun.tools.javac.util.GraphUtils$TarjanNode",
+		"com.sun.tools.javac.util.GraphUtils$DottableNode",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;Lcom/sun/tools/javac/util/GraphUtils$DottableNode<Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$GraphSolver$InferenceGraph$Node, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$GraphSolver$InferenceGraph$Node));
+	});
 	return class$;
 }
 

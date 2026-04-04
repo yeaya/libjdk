@@ -119,6 +119,7 @@ class RasterPrinterJob : public ::java::awt::print::PrinterJob {
 public:
 	RasterPrinterJob();
 	using ::java::awt::print::PrinterJob::defaultPage;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void abortDoc() {}
 	::java::awt::print::PageFormat* attributeToPageFormat(::javax::print::PrintService* service, ::javax::print::attribute::PrintRequestAttributeSet* attSet);

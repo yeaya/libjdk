@@ -38,6 +38,7 @@ class $import FocusEvent$Cause : public ::java::lang::Enum {
 public:
 	FocusEvent$Cause();
 	static $Array<::java::awt::event::FocusEvent$Cause>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::event::FocusEvent$Cause* valueOf($String* name);
 	static $Array<::java::awt::event::FocusEvent$Cause>* values();

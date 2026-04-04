@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/DQTMarkerSegment.h>
-
 #include <com/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable.h>
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
@@ -23,7 +22,6 @@ using $DQTMarkerSegment$Qtable = ::com::sun::imageio::plugins::jpeg::DQTMarkerSe
 using $JPEG = ::com::sun::imageio::plugins::jpeg::JPEG;
 using $JPEGBuffer = ::com::sun::imageio::plugins::jpeg::JPEGBuffer;
 using $MarkerSegment = ::com::sun::imageio::plugins::jpeg::MarkerSegment;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -31,7 +29,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeException;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $JPEGQTable = ::javax::imageio::plugins::jpeg::JPEGQTable;
@@ -45,83 +42,40 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _DQTMarkerSegment_FieldInfo_[] = {
-	{"tables", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;>;", 0, $field(DQTMarkerSegment, tables)},
-	{}
-};
-
-$MethodInfo _DQTMarkerSegment_MethodInfo_[] = {
-	{"<init>", "(FZ)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, float, bool)},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
-	{"<init>", "([Ljavax/imageio/plugins/jpeg/JPEGQTable;)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, $JPEGQTableArray*)},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DQTMarkerSegment, clone, $Object*)},
-	{"getChromaForLuma", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;)Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;", nullptr, 0, $virtualMethod(DQTMarkerSegment, getChromaForLuma, $DQTMarkerSegment$Qtable*, $DQTMarkerSegment$Qtable*)},
-	{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(DQTMarkerSegment, getNativeNode, $IIOMetadataNode*)},
-	{"getQtableFromNode", "(Lorg/w3c/dom/Node;)Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;", nullptr, 0, $virtualMethod(DQTMarkerSegment, getQtableFromNode, $DQTMarkerSegment$Qtable*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"print", "()V", nullptr, 0, $virtualMethod(DQTMarkerSegment, print, void)},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(DQTMarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DQTMarkerSegment_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable", "com.sun.imageio.plugins.jpeg.DQTMarkerSegment", "Qtable", 0},
-	{}
-};
-
-$ClassInfo _DQTMarkerSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.DQTMarkerSegment",
-	"com.sun.imageio.plugins.jpeg.MarkerSegment",
-	nullptr,
-	_DQTMarkerSegment_FieldInfo_,
-	_DQTMarkerSegment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DQTMarkerSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable"
-};
-
-$Object* allocate$DQTMarkerSegment($Class* clazz) {
-	return $of($alloc(DQTMarkerSegment));
-}
-
 void DQTMarkerSegment::init$(float quality, bool needTwo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$($JPEG::DQT);
 	$set(this, tables, $new($ArrayList));
-	$nc(this->tables)->add($$new($DQTMarkerSegment$Qtable, this, true, quality));
+	this->tables->add($$new($DQTMarkerSegment$Qtable, this, true, quality));
 	if (needTwo) {
-		$nc(this->tables)->add($$new($DQTMarkerSegment$Qtable, this, false, quality));
+		this->tables->add($$new($DQTMarkerSegment$Qtable, this, false, quality));
 	}
 }
 
 void DQTMarkerSegment::init$($JPEGBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$(buffer);
 	$set(this, tables, $new($ArrayList));
 	int32_t count = this->length;
 	while (count > 0) {
 		$var($DQTMarkerSegment$Qtable, newGuy, $new($DQTMarkerSegment$Qtable, this, buffer));
-		$nc(this->tables)->add(newGuy);
+		this->tables->add(newGuy);
 		count -= $nc(newGuy->data)->length + 1;
 	}
 	$nc(buffer)->bufAvail -= this->length;
 }
 
 void DQTMarkerSegment::init$($JPEGQTableArray* qtables) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$($JPEG::DQT);
 	$set(this, tables, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(qtables)->length; ++i) {
-		$nc(this->tables)->add($$new($DQTMarkerSegment$Qtable, this, qtables->get(i), i));
+		this->tables->add($$new($DQTMarkerSegment$Qtable, this, qtables->get(i), i));
 	}
 }
 
 void DQTMarkerSegment::init$($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MarkerSegment::init$($JPEG::DQT);
 	$set(this, tables, $new($ArrayList));
 	$var($NodeList, children, $nc(node)->getChildNodes());
@@ -135,26 +89,26 @@ void DQTMarkerSegment::init$($Node* node) {
 }
 
 $Object* DQTMarkerSegment::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DQTMarkerSegment, newGuy, $cast(DQTMarkerSegment, $MarkerSegment::clone()));
 	$set($nc(newGuy), tables, $new($ArrayList, $nc(this->tables)->size()));
 	{
-		$var($Iterator, i$, $nc(this->tables)->iterator());
+		$var($Iterator, i$, this->tables->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DQTMarkerSegment$Qtable, table, $cast($DQTMarkerSegment$Qtable, i$->next()));
 			{
-				$nc(newGuy->tables)->add($cast($DQTMarkerSegment$Qtable, $($nc(table)->clone())));
+				$nc(newGuy->tables)->add($$cast($DQTMarkerSegment$Qtable, $nc(table)->clone()));
 			}
 		}
 	}
-	return $of(newGuy);
+	return newGuy;
 }
 
 $IIOMetadataNode* DQTMarkerSegment::getNativeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "dqt"_s));
 	for (int32_t i = 0; i < $nc(this->tables)->size(); ++i) {
-		$var($DQTMarkerSegment$Qtable, table, $cast($DQTMarkerSegment$Qtable, $nc(this->tables)->get(i)));
+		$var($DQTMarkerSegment$Qtable, table, $cast($DQTMarkerSegment$Qtable, this->tables->get(i)));
 		node->appendChild($($nc(table)->getNativeNode()));
 	}
 	return node;
@@ -164,18 +118,18 @@ void DQTMarkerSegment::write($ImageOutputStream* ios) {
 }
 
 void DQTMarkerSegment::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	printTag("DQT"_s);
 	$nc($System::out)->println($$str({"Num tables: "_s, $($Integer::toString($nc(this->tables)->size()))}));
 	for (int32_t i = 0; i < $nc(this->tables)->size(); ++i) {
-		$var($DQTMarkerSegment$Qtable, table, $cast($DQTMarkerSegment$Qtable, $nc(this->tables)->get(i)));
+		$var($DQTMarkerSegment$Qtable, table, $cast($DQTMarkerSegment$Qtable, this->tables->get(i)));
 		$nc(table)->print();
 	}
-	$nc($System::out)->println();
+	$System::out->println();
 }
 
 $DQTMarkerSegment$Qtable* DQTMarkerSegment::getChromaForLuma($DQTMarkerSegment$Qtable* luma) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DQTMarkerSegment$Qtable, newGuy, nullptr);
 	bool allSame = true;
 	for (int32_t i = 1; i < $nc(luma)->QTABLE_SIZE; ++i) {
@@ -185,17 +139,17 @@ $DQTMarkerSegment$Qtable* DQTMarkerSegment::getChromaForLuma($DQTMarkerSegment$Q
 		}
 	}
 	if (allSame) {
-		$assign(newGuy, $cast($DQTMarkerSegment$Qtable, $nc(luma)->clone()));
+		$assign(newGuy, $cast($DQTMarkerSegment$Qtable, luma->clone()));
 		$nc(newGuy)->tableID = 1;
 	} else {
 		int32_t largestPos = 0;
-		for (int32_t i = 1; i < $nc(luma)->QTABLE_SIZE; ++i) {
+		for (int32_t i = 1; i < luma->QTABLE_SIZE; ++i) {
 			if ($nc(luma->data)->get(i) > $nc(luma->data)->get(largestPos)) {
 				largestPos = i;
 			}
 		}
 		$init($JPEGQTable);
-		float scaleFactor = ((float)($nc($nc(luma)->data)->get(largestPos))) / ((float)($nc($($nc($JPEGQTable::K1Div2Luminance)->getTable()))->get(largestPos)));
+		float scaleFactor = ((float)($nc(luma->data)->get(largestPos))) / ((float)($nc($($nc($JPEGQTable::K1Div2Luminance)->getTable()))->get(largestPos)));
 		$var($JPEGQTable, jpegTable, $nc($JPEGQTable::K2Div2Chrominance)->getScaledInstance(scaleFactor, true));
 		$assign(newGuy, $new($DQTMarkerSegment$Qtable, this, jpegTable, 1));
 	}
@@ -210,7 +164,44 @@ DQTMarkerSegment::DQTMarkerSegment() {
 }
 
 $Class* DQTMarkerSegment::load$($String* name, bool initialize) {
-	$loadClass(DQTMarkerSegment, name, initialize, &_DQTMarkerSegment_ClassInfo_, allocate$DQTMarkerSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"tables", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;>;", 0, $field(DQTMarkerSegment, tables)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FZ)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, float, bool)},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
+		{"<init>", "([Ljavax/imageio/plugins/jpeg/JPEGQTable;)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, $JPEGQTableArray*)},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(DQTMarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(DQTMarkerSegment, clone, $Object*)},
+		{"getChromaForLuma", "(Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;)Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;", nullptr, 0, $virtualMethod(DQTMarkerSegment, getChromaForLuma, $DQTMarkerSegment$Qtable*, $DQTMarkerSegment$Qtable*)},
+		{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(DQTMarkerSegment, getNativeNode, $IIOMetadataNode*)},
+		{"getQtableFromNode", "(Lorg/w3c/dom/Node;)Lcom/sun/imageio/plugins/jpeg/DQTMarkerSegment$Qtable;", nullptr, 0, $virtualMethod(DQTMarkerSegment, getQtableFromNode, $DQTMarkerSegment$Qtable*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"print", "()V", nullptr, 0, $virtualMethod(DQTMarkerSegment, print, void)},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(DQTMarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable", "com.sun.imageio.plugins.jpeg.DQTMarkerSegment", "Qtable", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.DQTMarkerSegment",
+		"com.sun.imageio.plugins.jpeg.MarkerSegment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.DQTMarkerSegment$Qtable"
+	};
+	$loadClass(DQTMarkerSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DQTMarkerSegment);
+	});
 	return class$;
 }
 

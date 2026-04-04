@@ -16,6 +16,7 @@ class JPEGImageMetadataFormatResources : public ::com::sun::imageio::plugins::jp
 	$class(JPEGImageMetadataFormatResources, 0, ::com::sun::imageio::plugins::jpeg::JPEGMetadataFormatResources)
 public:
 	JPEGImageMetadataFormatResources();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* imageContents;

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopPaneUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
@@ -11,9 +10,7 @@
 using $WindowsDesktopManager = ::com::sun::java::swing::plaf::windows::WindowsDesktopManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
-using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicDesktopPaneUI = ::javax::swing::plaf::basic::BasicDesktopPaneUI;
 
@@ -23,28 +20,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsDesktopPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsDesktopPaneUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsDesktopPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopPaneUI, installDefaults, void)},
-	{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopPaneUI, installDesktopManager, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopPaneUI, installKeyboardActions, void)},
-	{}
-};
-
-$ClassInfo _WindowsDesktopPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsDesktopPaneUI",
-	"javax.swing.plaf.basic.BasicDesktopPaneUI",
-	nullptr,
-	nullptr,
-	_WindowsDesktopPaneUI_MethodInfo_
-};
-
-$Object* allocate$WindowsDesktopPaneUI($Class* clazz) {
-	return $of($alloc(WindowsDesktopPaneUI));
-}
 
 void WindowsDesktopPaneUI::init$() {
 	$BasicDesktopPaneUI::init$();
@@ -78,7 +53,25 @@ WindowsDesktopPaneUI::WindowsDesktopPaneUI() {
 }
 
 $Class* WindowsDesktopPaneUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsDesktopPaneUI, name, initialize, &_WindowsDesktopPaneUI_ClassInfo_, allocate$WindowsDesktopPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsDesktopPaneUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsDesktopPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopPaneUI, installDefaults, void)},
+		{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopPaneUI, installDesktopManager, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsDesktopPaneUI, installKeyboardActions, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsDesktopPaneUI",
+		"javax.swing.plaf.basic.BasicDesktopPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsDesktopPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsDesktopPaneUI);
+	});
 	return class$;
 }
 

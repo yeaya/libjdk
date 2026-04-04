@@ -1,5 +1,4 @@
 #include <sun/security/jgss/HttpCaller.h>
-
 #include <sun/net/www/protocol/http/HttpCallerInfo.h>
 #include <sun/security/jgss/GSSCaller.h>
 #include <jcpp.h>
@@ -14,30 +13,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 
-$FieldInfo _HttpCaller_FieldInfo_[] = {
-	{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(HttpCaller, hci)},
-	{}
-};
-
-$MethodInfo _HttpCaller_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(HttpCaller, init$, void, $HttpCallerInfo*)},
-	{"info", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC, $virtualMethod(HttpCaller, info, $HttpCallerInfo*)},
-	{}
-};
-
-$ClassInfo _HttpCaller_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.HttpCaller",
-	"sun.security.jgss.GSSCaller",
-	nullptr,
-	_HttpCaller_FieldInfo_,
-	_HttpCaller_MethodInfo_
-};
-
-$Object* allocate$HttpCaller($Class* clazz) {
-	return $of($alloc(HttpCaller));
-}
-
 void HttpCaller::init$($HttpCallerInfo* hci) {
 	$GSSCaller::init$("HTTP_CLIENT"_s);
 	$set(this, hci, hci);
@@ -51,7 +26,26 @@ HttpCaller::HttpCaller() {
 }
 
 $Class* HttpCaller::load$($String* name, bool initialize) {
-	$loadClass(HttpCaller, name, initialize, &_HttpCaller_ClassInfo_, allocate$HttpCaller);
+	$FieldInfo fieldInfos$$[] = {
+		{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(HttpCaller, hci)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(HttpCaller, init$, void, $HttpCallerInfo*)},
+		{"info", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC, $virtualMethod(HttpCaller, info, $HttpCallerInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.HttpCaller",
+		"sun.security.jgss.GSSCaller",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpCaller, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpCaller);
+	});
 	return class$;
 }
 

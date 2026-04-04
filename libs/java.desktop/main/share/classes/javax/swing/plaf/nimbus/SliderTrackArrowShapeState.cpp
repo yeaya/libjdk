@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/SliderTrackArrowShapeState.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/State.h>
 #include <jcpp.h>
@@ -17,32 +16,11 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$MethodInfo _SliderTrackArrowShapeState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SliderTrackArrowShapeState, init$, void)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(SliderTrackArrowShapeState, isInState, bool, $JComponent*)},
-	{}
-};
-
-$ClassInfo _SliderTrackArrowShapeState_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.SliderTrackArrowShapeState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	nullptr,
-	_SliderTrackArrowShapeState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
-};
-
-$Object* allocate$SliderTrackArrowShapeState($Class* clazz) {
-	return $of($alloc(SliderTrackArrowShapeState));
-}
-
 void SliderTrackArrowShapeState::init$() {
 	$State::init$("ArrowShape"_s);
 }
 
 bool SliderTrackArrowShapeState::isInState($JComponent* c) {
-	$init($Boolean);
 	return $equals($nc(c)->getClientProperty("Slider.paintThumbArrowShape"_s), $Boolean::TRUE);
 }
 
@@ -50,7 +28,23 @@ SliderTrackArrowShapeState::SliderTrackArrowShapeState() {
 }
 
 $Class* SliderTrackArrowShapeState::load$($String* name, bool initialize) {
-	$loadClass(SliderTrackArrowShapeState, name, initialize, &_SliderTrackArrowShapeState_ClassInfo_, allocate$SliderTrackArrowShapeState);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SliderTrackArrowShapeState, init$, void)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(SliderTrackArrowShapeState, isInState, bool, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.SliderTrackArrowShapeState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;"
+	};
+	$loadClass(SliderTrackArrowShapeState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SliderTrackArrowShapeState);
+	});
 	return class$;
 }
 

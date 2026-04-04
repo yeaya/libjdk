@@ -1,5 +1,4 @@
 #include <sun/swing/UIAction.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Action.h>
 #include <jcpp.h>
@@ -15,37 +14,6 @@ using $Action = ::javax::swing::Action;
 namespace sun {
 	namespace swing {
 
-$FieldInfo _UIAction_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIAction, name)},
-	{}
-};
-
-$MethodInfo _UIAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIAction, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UIAction, accept, bool, Object$*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(UIAction, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(UIAction, getName, $String*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIAction, getValue, $Object*, $String*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UIAction, isEnabled, bool)},
-	{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UIAction, putValue, void, $String*, Object$*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(UIAction, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(UIAction, setEnabled, void, bool)},
-	{}
-};
-
-$ClassInfo _UIAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.swing.UIAction",
-	"java.lang.Object",
-	"javax.swing.Action",
-	_UIAction_FieldInfo_,
-	_UIAction_MethodInfo_
-};
-
-$Object* allocate$UIAction($Class* clazz) {
-	return $of($alloc(UIAction));
-}
-
 void UIAction::init$($String* name) {
 	$set(this, name, name);
 }
@@ -59,7 +27,7 @@ $Object* UIAction::getValue($String* key) {
 	if (key == $Action::NAME) {
 		return $of(this->name);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void UIAction::putValue($String* key, Object$* value) {
@@ -86,7 +54,33 @@ UIAction::UIAction() {
 }
 
 $Class* UIAction::load$($String* name, bool initialize) {
-	$loadClass(UIAction, name, initialize, &_UIAction_ClassInfo_, allocate$UIAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIAction, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIAction, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UIAction, accept, bool, Object$*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(UIAction, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(UIAction, getName, $String*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIAction, getValue, $Object*, $String*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UIAction, isEnabled, bool)},
+		{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UIAction, putValue, void, $String*, Object$*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(UIAction, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(UIAction, setEnabled, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.swing.UIAction",
+		"java.lang.Object",
+		"javax.swing.Action",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UIAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UIAction);
+	});
 	return class$;
 }
 

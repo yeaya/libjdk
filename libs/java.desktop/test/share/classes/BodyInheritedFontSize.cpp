@@ -1,5 +1,4 @@
 #include <BodyInheritedFontSize.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -29,7 +28,6 @@
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/GlyphView.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <javax/swing/text/html/StyleSheet.h>
@@ -43,7 +41,6 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Font = ::java::awt::Font;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
@@ -65,9 +62,7 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument$AbstractElement = ::javax::swing::text::AbstractDocument$AbstractElement;
 using $Document = ::javax::swing::text::Document;
-using $EditorKit = ::javax::swing::text::EditorKit;
 using $GlyphView = ::javax::swing::text::GlyphView;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $View = ::javax::swing::text::View;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
@@ -83,37 +78,33 @@ public:
 	virtual void run() override {
 		BodyInheritedFontSize::lambda$main$0(showFrame, debugPrint, exceptions);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BodyInheritedFontSize$$Lambda$lambda$main$0>());
-	}
 	bool showFrame = false;
 	bool debugPrint = false;
 	$List* exceptions = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo BodyInheritedFontSize$$Lambda$lambda$main$0::fieldInfos[4] = {
-	{"showFrame", "Z", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$lambda$main$0, showFrame)},
-	{"debugPrint", "Z", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$lambda$main$0, debugPrint)},
-	{"exceptions", "Ljava/util/List;", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$lambda$main$0, exceptions)},
-	{}
-};
-$MethodInfo BodyInheritedFontSize$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(ZZLjava/util/List;)V", nullptr, $PUBLIC, $method(BodyInheritedFontSize$$Lambda$lambda$main$0, init$, void, bool, bool, $List*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BodyInheritedFontSize$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo BodyInheritedFontSize$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BodyInheritedFontSize$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* BodyInheritedFontSize$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(BodyInheritedFontSize$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"showFrame", "Z", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$lambda$main$0, showFrame)},
+		{"debugPrint", "Z", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$lambda$main$0, debugPrint)},
+		{"exceptions", "Ljava/util/List;", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$lambda$main$0, exceptions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZLjava/util/List;)V", nullptr, $PUBLIC, $method(BodyInheritedFontSize$$Lambda$lambda$main$0, init$, void, bool, bool, $List*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BodyInheritedFontSize$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BodyInheritedFontSize$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BodyInheritedFontSize$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyInheritedFontSize$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* BodyInheritedFontSize$$Lambda$lambda$main$0::class$ = nullptr;
@@ -127,67 +118,32 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->println(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BodyInheritedFontSize$$Lambda$println$1>());
-	}
 	$PrintStream* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo BodyInheritedFontSize$$Lambda$println$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$println$1, inst$)},
-	{}
-};
-$MethodInfo BodyInheritedFontSize$$Lambda$println$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(BodyInheritedFontSize$$Lambda$println$1, init$, void, $PrintStream*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BodyInheritedFontSize$$Lambda$println$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo BodyInheritedFontSize$$Lambda$println$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"BodyInheritedFontSize$$Lambda$println$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* BodyInheritedFontSize$$Lambda$println$1::load$($String* name, bool initialize) {
-	$loadClass(BodyInheritedFontSize$$Lambda$println$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BodyInheritedFontSize$$Lambda$println$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(BodyInheritedFontSize$$Lambda$println$1, init$, void, $PrintStream*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BodyInheritedFontSize$$Lambda$println$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"BodyInheritedFontSize$$Lambda$println$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BodyInheritedFontSize$$Lambda$println$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyInheritedFontSize$$Lambda$println$1);
+	});
 	return class$;
 }
 $Class* BodyInheritedFontSize$$Lambda$println$1::class$ = nullptr;
-
-$FieldInfo _BodyInheritedFontSize_FieldInfo_[] = {
-	{"HTML_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BodyInheritedFontSize, HTML_TEXT)},
-	{}
-};
-
-$MethodInfo _BodyInheritedFontSize_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyInheritedFontSize, init$, void)},
-	{"checkFontSize", "(Ljavax/swing/JEditorPane;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, checkFontSize, void, $JEditorPane*, bool, bool)},
-	{"createEditorPane", "(ZZ)Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, createEditorPane, $JEditorPane*, bool, bool)},
-	{"findFirstTextRun", "(Ljavax/swing/text/View;)Ljavax/swing/text/GlyphView;", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, findFirstTextRun, $GlyphView*, $View*)},
-	{"getViewFontSize", "(Ljavax/swing/text/View;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, getViewFontSize, int32_t, $View*, bool)},
-	{"lambda$main$0", "(ZZLjava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyInheritedFontSize, lambda$main$0, void, bool, bool, $List*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BodyInheritedFontSize, main, void, $StringArray*), "java.lang.Exception"},
-	{"toDebugPrint", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, toDebugPrint, bool, $List*)},
-	{"toShowFrame", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, toShowFrame, bool, $List*)},
-	{}
-};
-
-$ClassInfo _BodyInheritedFontSize_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BodyInheritedFontSize",
-	"java.lang.Object",
-	nullptr,
-	_BodyInheritedFontSize_FieldInfo_,
-	_BodyInheritedFontSize_MethodInfo_
-};
-
-$Object* allocate$BodyInheritedFontSize($Class* clazz) {
-	return $of($alloc(BodyInheritedFontSize));
-}
 
 $String* BodyInheritedFontSize::HTML_TEXT = nullptr;
 
@@ -196,11 +152,10 @@ void BodyInheritedFontSize::init$() {
 
 $JEditorPane* BodyInheritedFontSize::createEditorPane(bool w3cUnits, bool showFrame) {
 	$init(BodyInheritedFontSize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, htmlPane, $new($JEditorPane));
 	htmlPane->setEditable(false);
 	if (w3cUnits) {
-		$init($Boolean);
 		htmlPane->putClientProperty($JEditorPane::W3C_LENGTH_UNITS, $Boolean::TRUE);
 	}
 	$var($HTMLEditorKit, kit, $new($HTMLEditorKit));
@@ -214,7 +169,7 @@ $JEditorPane* BodyInheritedFontSize::createEditorPane(bool w3cUnits, bool showFr
 		$var($JFrame, frame, $new($JFrame, $$str({"HtmlFontSizeGUITest: "_s, (w3cUnits ? "w3c"_s : "std"_s)})));
 		frame->setDefaultCloseOperation($JFrame::DISPOSE_ON_CLOSE);
 		$init($BorderLayout);
-		frame->add(static_cast<$Component*>($$new($JScrollPane, htmlPane)), $of($BorderLayout::CENTER));
+		frame->add($$new($JScrollPane, htmlPane), $BorderLayout::CENTER);
 		frame->setLocationRelativeTo(nullptr);
 		frame->pack();
 		frame->setVisible(true);
@@ -225,16 +180,16 @@ $JEditorPane* BodyInheritedFontSize::createEditorPane(bool w3cUnits, bool showFr
 
 void BodyInheritedFontSize::main($StringArray* args) {
 	$init(BodyInheritedFontSize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, argsList, $Arrays::asList(args));
 	bool showFrame = toShowFrame(argsList);
 	bool debugPrint = toDebugPrint(argsList);
 	$var($List, exceptions, $new($ArrayList, 2));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(BodyInheritedFontSize$$Lambda$lambda$main$0, showFrame, debugPrint, exceptions)));
+	$SwingUtilities::invokeAndWait($$new(BodyInheritedFontSize$$Lambda$lambda$main$0, showFrame, debugPrint, exceptions));
 	if (exceptions->size() > 0) {
-		exceptions->forEach(static_cast<$Consumer*>($$new(BodyInheritedFontSize$$Lambda$println$1, static_cast<$PrintStream*>($nc($System::err)))));
-		$var($String, var$0, $str({"Test failed: "_s, $($nc(($cast($Exception, $(exceptions->get(0)))))->getMessage())}));
-		$throwNew($RuntimeException, var$0, $cast($Throwable, $(exceptions->get(0))));
+		exceptions->forEach($$new(BodyInheritedFontSize$$Lambda$println$1, $nc($System::err)));
+		$var($String, var$0, $str({"Test failed: "_s, $($$sure($Exception, exceptions->get(0))->getMessage())}));
+		$throwNew($RuntimeException, var$0, $$cast($Throwable, exceptions->get(0)));
 	}
 }
 
@@ -250,13 +205,13 @@ bool BodyInheritedFontSize::toDebugPrint($List* argsList) {
 
 void BodyInheritedFontSize::checkFontSize($JEditorPane* htmlPane, bool w3cUnits, bool debugPrint) {
 	$init(BodyInheritedFontSize);
-	$useLocalCurrentObjectStackCache();
-	$var($View, rootView, $nc($($cast($TextUI, $nc(htmlPane)->getUI())))->getRootView(htmlPane));
+	$useLocalObjectStack();
+	$var($View, rootView, $$sure($TextUI, $nc(htmlPane)->getUI())->getRootView(htmlPane));
 	$var($View, boxView, $nc(rootView)->getView(0));
 	$var($View, bodyView, $nc(boxView)->getView(1));
 	int32_t fontSizePercentage = getViewFontSize($($nc(bodyView)->getView(0)), debugPrint);
-	int32_t fontSizeInherited = getViewFontSize($($nc(bodyView)->getView(1)), debugPrint);
-	int32_t fontSizeExplicit = getViewFontSize($($nc(bodyView)->getView(2)), debugPrint);
+	int32_t fontSizeInherited = getViewFontSize($(bodyView->getView(1)), debugPrint);
+	int32_t fontSizeExplicit = getViewFontSize($(bodyView->getView(2)), debugPrint);
 	if (debugPrint) {
 		$nc($System::out)->println($$str({"w3cUnits: "_s, $$str(w3cUnits), "\nPercentage: "_s, $$str(fontSizePercentage), "\nInherited: "_s, $$str(fontSizeInherited), "\nExplicit: "_s, $$str(fontSizeExplicit), "\n"_s}));
 	}
@@ -267,18 +222,18 @@ void BodyInheritedFontSize::checkFontSize($JEditorPane* htmlPane, bool w3cUnits,
 
 int32_t BodyInheritedFontSize::getViewFontSize($View* paragraphView, bool debugPrint) {
 	$init(BodyInheritedFontSize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GlyphView, inlineView, findFirstTextRun(paragraphView));
-	int32_t fontSize = $nc($($nc(inlineView)->getFont()))->getSize();
+	int32_t fontSize = $$nc($nc(inlineView)->getFont())->getSize();
 	if (debugPrint) {
-		$nc(($cast($AbstractDocument$AbstractElement, $(inlineView->getElement()))))->dump($System::out, 1);
+		$$sure($AbstractDocument$AbstractElement, inlineView->getElement())->dump($System::out, 1);
 	}
 	return fontSize;
 }
 
 $GlyphView* BodyInheritedFontSize::findFirstTextRun($View* view) {
 	$init(BodyInheritedFontSize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($GlyphView, view)) {
 		return $cast($GlyphView, view);
 	}
@@ -293,23 +248,19 @@ $GlyphView* BodyInheritedFontSize::findFirstTextRun($View* view) {
 
 void BodyInheritedFontSize::lambda$main$0(bool showFrame, bool debugPrint, $List* exceptions) {
 	$init(BodyInheritedFontSize);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($booleans, arr$, $new($booleans, {
-			true,
-			false
-		}));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			bool w3cUnits = arr$->get(i$);
-			{
-				$var($JEditorPane, htmlPane, createEditorPane(w3cUnits, showFrame));
-				try {
-					checkFontSize(htmlPane, w3cUnits, debugPrint);
-				} catch ($Exception& e) {
-					$nc(exceptions)->add(e);
-				}
+	$useLocalObjectStack();
+	$var($booleans, arr$, $new($booleans, {
+		true,
+		false
+	}));
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		bool w3cUnits = arr$->get(i$);
+		{
+			$var($JEditorPane, htmlPane, createEditorPane(w3cUnits, showFrame));
+			try {
+				checkFontSize(htmlPane, w3cUnits, debugPrint);
+			} catch ($Exception& e) {
+				$nc(exceptions)->add(e);
 			}
 		}
 	}
@@ -318,20 +269,46 @@ void BodyInheritedFontSize::lambda$main$0(bool showFrame, bool debugPrint, $List
 BodyInheritedFontSize::BodyInheritedFontSize() {
 }
 
-void clinit$BodyInheritedFontSize($Class* class$) {
+void BodyInheritedFontSize::clinit$($Class* clazz) {
 	$assignStatic(BodyInheritedFontSize::HTML_TEXT, "<html>\n<body>\n  <p style=\"font-size: 100%\">100% from body</p>\n  <p>16pt inherited from body</p>\n  <p style=\"font-size: 16pt\">16pt paragraph</p>\n</body>\n</html>\n"_s);
 }
 
 $Class* BodyInheritedFontSize::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BodyInheritedFontSize$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("BodyInheritedFontSize$$Lambda$lambda$main$0")) {
 			return BodyInheritedFontSize$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(BodyInheritedFontSize$$Lambda$println$1::classInfo$.name)) {
+		if (name->equals("BodyInheritedFontSize$$Lambda$println$1")) {
 			return BodyInheritedFontSize$$Lambda$println$1::load$(name, initialize);
 		}
 	}
-	$loadClass(BodyInheritedFontSize, name, initialize, &_BodyInheritedFontSize_ClassInfo_, clinit$BodyInheritedFontSize, allocate$BodyInheritedFontSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"HTML_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BodyInheritedFontSize, HTML_TEXT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BodyInheritedFontSize, init$, void)},
+		{"checkFontSize", "(Ljavax/swing/JEditorPane;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, checkFontSize, void, $JEditorPane*, bool, bool)},
+		{"createEditorPane", "(ZZ)Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, createEditorPane, $JEditorPane*, bool, bool)},
+		{"findFirstTextRun", "(Ljavax/swing/text/View;)Ljavax/swing/text/GlyphView;", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, findFirstTextRun, $GlyphView*, $View*)},
+		{"getViewFontSize", "(Ljavax/swing/text/View;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, getViewFontSize, int32_t, $View*, bool)},
+		{"lambda$main$0", "(ZZLjava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyInheritedFontSize, lambda$main$0, void, bool, bool, $List*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BodyInheritedFontSize, main, void, $StringArray*), "java.lang.Exception"},
+		{"toDebugPrint", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, toDebugPrint, bool, $List*)},
+		{"toShowFrame", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC, $staticMethod(BodyInheritedFontSize, toShowFrame, bool, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BodyInheritedFontSize",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BodyInheritedFontSize, name, initialize, &classInfo$$, BodyInheritedFontSize::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BodyInheritedFontSize);
+	});
 	return class$;
 }
 

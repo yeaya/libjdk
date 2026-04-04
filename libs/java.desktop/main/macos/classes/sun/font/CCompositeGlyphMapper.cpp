@@ -1,5 +1,4 @@
 #include <sun/font/CCompositeGlyphMapper.h>
-
 #include <sun/font/CharToGlyphMapper.h>
 #include <sun/font/CompositeFont.h>
 #include <sun/font/CompositeGlyphMapper.h>
@@ -22,43 +21,9 @@ using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
 using $CompositeFont = ::sun::font::CompositeFont;
 using $CompositeGlyphMapper = ::sun::font::CompositeGlyphMapper;
 using $FontUtilities = ::sun::font::FontUtilities;
-using $PhysicalFont = ::sun::font::PhysicalFont;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CCompositeGlyphMapper_FieldInfo_[] = {
-	{"font", "Lsun/font/CompositeFont;", nullptr, $PRIVATE, $field(CCompositeGlyphMapper, font)},
-	{"slotMappers", "[Lsun/font/CharToGlyphMapper;", nullptr, $PRIVATE, $field(CCompositeGlyphMapper, slotMappers)},
-	{}
-};
-
-$MethodInfo _CCompositeGlyphMapper_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/CompositeFont;)V", nullptr, $PUBLIC, $method(CCompositeGlyphMapper, init$, void, $CompositeFont*)},
-	{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, canDisplay, bool, char16_t)},
-	{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charToGlyph, int32_t, int32_t)},
-	{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charToGlyph, int32_t, char16_t)},
-	{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
-	{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
-	{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
-	{"convertToGlyph", "(I)I", nullptr, $PRIVATE, $method(CCompositeGlyphMapper, convertToGlyph, int32_t, int32_t)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, getNumGlyphs, int32_t)},
-	{"getSlotMapper", "(I)Lsun/font/CharToGlyphMapper;", nullptr, $PRIVATE, $method(CCompositeGlyphMapper, getSlotMapper, $CharToGlyphMapper*, int32_t)},
-	{}
-};
-
-$ClassInfo _CCompositeGlyphMapper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.CCompositeGlyphMapper",
-	"sun.font.CompositeGlyphMapper",
-	nullptr,
-	_CCompositeGlyphMapper_FieldInfo_,
-	_CCompositeGlyphMapper_MethodInfo_
-};
-
-$Object* allocate$CCompositeGlyphMapper($Class* clazz) {
-	return $of($alloc(CCompositeGlyphMapper));
-}
 
 void CCompositeGlyphMapper::init$($CompositeFont* compFont) {
 	$CompositeGlyphMapper::init$(compFont);
@@ -68,10 +33,10 @@ void CCompositeGlyphMapper::init$($CompositeFont* compFont) {
 }
 
 $CharToGlyphMapper* CCompositeGlyphMapper::getSlotMapper(int32_t slot) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharToGlyphMapper, mapper, $nc(this->slotMappers)->get(slot));
 	if (mapper == nullptr) {
-		$assign(mapper, $nc($($nc(this->font)->getSlotFont(slot)))->getMapper());
+		$assign(mapper, $$nc($nc(this->font)->getSlotFont(slot))->getMapper());
 		$nc(this->slotMappers)->set(slot, mapper);
 	}
 	return mapper;
@@ -83,7 +48,7 @@ bool CCompositeGlyphMapper::canDisplay(char16_t ch) {
 }
 
 int32_t CCompositeGlyphMapper::convertToGlyph(int32_t unicode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t slot = 0; slot < $nc(this->font)->numSlots; ++slot) {
 		$var($CharToGlyphMapper, mapper, getSlotMapper(slot));
 		int32_t glyphCode = $nc(mapper)->charToGlyph(unicode);
@@ -96,12 +61,12 @@ int32_t CCompositeGlyphMapper::convertToGlyph(int32_t unicode) {
 }
 
 int32_t CCompositeGlyphMapper::getNumGlyphs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numGlyphs = 0;
 	for (int32_t slot = 0; slot < 1; ++slot) {
 		$var($CharToGlyphMapper, mapper, $nc(this->slotMappers)->get(slot));
 		if (mapper == nullptr) {
-			$assign(mapper, $nc($($nc(this->font)->getSlotFont(slot)))->getMapper());
+			$assign(mapper, $$nc($nc(this->font)->getSlotFont(slot))->getMapper());
 			$nc(this->slotMappers)->set(slot, mapper);
 		}
 		numGlyphs += $nc(mapper)->getNumGlyphs();
@@ -167,7 +132,35 @@ CCompositeGlyphMapper::CCompositeGlyphMapper() {
 }
 
 $Class* CCompositeGlyphMapper::load$($String* name, bool initialize) {
-	$loadClass(CCompositeGlyphMapper, name, initialize, &_CCompositeGlyphMapper_ClassInfo_, allocate$CCompositeGlyphMapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"font", "Lsun/font/CompositeFont;", nullptr, $PRIVATE, $field(CCompositeGlyphMapper, font)},
+		{"slotMappers", "[Lsun/font/CharToGlyphMapper;", nullptr, $PRIVATE, $field(CCompositeGlyphMapper, slotMappers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/CompositeFont;)V", nullptr, $PUBLIC, $method(CCompositeGlyphMapper, init$, void, $CompositeFont*)},
+		{"canDisplay", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, canDisplay, bool, char16_t)},
+		{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charToGlyph, int32_t, int32_t)},
+		{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charToGlyph, int32_t, char16_t)},
+		{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
+		{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
+		{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
+		{"convertToGlyph", "(I)I", nullptr, $PRIVATE, $method(CCompositeGlyphMapper, convertToGlyph, int32_t, int32_t)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(CCompositeGlyphMapper, getNumGlyphs, int32_t)},
+		{"getSlotMapper", "(I)Lsun/font/CharToGlyphMapper;", nullptr, $PRIVATE, $method(CCompositeGlyphMapper, getSlotMapper, $CharToGlyphMapper*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.CCompositeGlyphMapper",
+		"sun.font.CompositeGlyphMapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CCompositeGlyphMapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CCompositeGlyphMapper);
+	});
 	return class$;
 }
 

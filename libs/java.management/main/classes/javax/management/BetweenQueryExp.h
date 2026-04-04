@@ -33,7 +33,7 @@ public:
 	virtual ::javax::management::ValueExp* getUpperBound();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD749C496338A9A8C;
+	static const int64_t serialVersionUID = (int64_t)0xd749c496338a9a8c;
 	::javax::management::ValueExp* exp1 = nullptr;
 	::javax::management::ValueExp* exp2 = nullptr;
 	::javax::management::ValueExp* exp3 = nullptr;

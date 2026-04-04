@@ -1,12 +1,10 @@
 #include <com/sun/org/apache/xerces/internal/util/DefaultErrorHandler.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <jcpp.h>
 
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,36 +18,8 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _DefaultErrorHandler_FieldInfo_[] = {
-	{"fOut", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(DefaultErrorHandler, fOut)},
-	{}
-};
-
-$MethodInfo _DefaultErrorHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultErrorHandler, init$, void)},
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(DefaultErrorHandler, init$, void, $PrintWriter*)},
-	{"error", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultErrorHandler, error, void, $String*, $String*, $XMLParseException*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"fatalError", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultErrorHandler, fatalError, void, $String*, $String*, $XMLParseException*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"printError", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PRIVATE, $method(DefaultErrorHandler, printError, void, $String*, $XMLParseException*)},
-	{"warning", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultErrorHandler, warning, void, $String*, $String*, $XMLParseException*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$ClassInfo _DefaultErrorHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.DefaultErrorHandler",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLErrorHandler",
-	_DefaultErrorHandler_FieldInfo_,
-	_DefaultErrorHandler_MethodInfo_
-};
-
-$Object* allocate$DefaultErrorHandler($Class* clazz) {
-	return $of($alloc(DefaultErrorHandler));
-}
-
 void DefaultErrorHandler::init$() {
-	DefaultErrorHandler::init$($$new($PrintWriter, static_cast<$OutputStream*>($System::err)));
+	DefaultErrorHandler::init$($$new($PrintWriter, $System::err));
 }
 
 void DefaultErrorHandler::init$($PrintWriter* out) {
@@ -70,33 +40,56 @@ void DefaultErrorHandler::fatalError($String* domain, $String* key, $XMLParseExc
 }
 
 void DefaultErrorHandler::printError($String* type, $XMLParseException* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fOut)->print("["_s);
-	$nc(this->fOut)->print(type);
-	$nc(this->fOut)->print("] "_s);
+	this->fOut->print(type);
+	this->fOut->print("] "_s);
 	$var($String, systemId, $nc(ex)->getExpandedSystemId());
 	if (systemId != nullptr) {
-		int32_t index = systemId->lastIndexOf((int32_t)u'/');
+		int32_t index = systemId->lastIndexOf(u'/');
 		if (index != -1) {
 			$assign(systemId, systemId->substring(index + 1));
 		}
 		$nc(this->fOut)->print(systemId);
 	}
 	$nc(this->fOut)->print(u':');
-	$nc(this->fOut)->print(ex->getLineNumber());
+	this->fOut->print(ex->getLineNumber());
 	$nc(this->fOut)->print(u':');
-	$nc(this->fOut)->print(ex->getColumnNumber());
+	this->fOut->print(ex->getColumnNumber());
 	$nc(this->fOut)->print(": "_s);
-	$nc(this->fOut)->print($(ex->getMessage()));
-	$nc(this->fOut)->println();
-	$nc(this->fOut)->flush();
+	this->fOut->print($(ex->getMessage()));
+	this->fOut->println();
+	this->fOut->flush();
 }
 
 DefaultErrorHandler::DefaultErrorHandler() {
 }
 
 $Class* DefaultErrorHandler::load$($String* name, bool initialize) {
-	$loadClass(DefaultErrorHandler, name, initialize, &_DefaultErrorHandler_ClassInfo_, allocate$DefaultErrorHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"fOut", "Ljava/io/PrintWriter;", nullptr, $PROTECTED, $field(DefaultErrorHandler, fOut)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultErrorHandler, init$, void)},
+		{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(DefaultErrorHandler, init$, void, $PrintWriter*)},
+		{"error", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultErrorHandler, error, void, $String*, $String*, $XMLParseException*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"fatalError", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultErrorHandler, fatalError, void, $String*, $String*, $XMLParseException*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"printError", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PRIVATE, $method(DefaultErrorHandler, printError, void, $String*, $XMLParseException*)},
+		{"warning", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParseException;)V", nullptr, $PUBLIC, $virtualMethod(DefaultErrorHandler, warning, void, $String*, $String*, $XMLParseException*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.DefaultErrorHandler",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLErrorHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultErrorHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultErrorHandler);
+	});
 	return class$;
 }
 

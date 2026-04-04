@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$UndetVar$1.h>
-
 #include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -22,58 +21,13 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$UndetVar$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, $FINAL | $SYNTHETIC, $field(Type$UndetVar$1, this$0)},
-	{}
-};
-
-$MethodInfo _Type$UndetVar$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(Type$UndetVar$1, init$, void, $Type$UndetVar*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$1, visitUndetVar, $Type*, $Type$UndetVar*, $Void*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$UndetVar$1, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$UndetVar$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type$UndetVar",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Type$UndetVar$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$UndetVar$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Type$UndetVar$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$UndetVar$1",
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping",
-	nullptr,
-	_Type$UndetVar$1_FieldInfo_,
-	_Type$UndetVar$1_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Void;>;",
-	&_Type$UndetVar$1_EnclosingMethodInfo_,
-	_Type$UndetVar$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$UndetVar$1($Class* clazz) {
-	return $of($alloc(Type$UndetVar$1));
-}
-
 void Type$UndetVar$1::init$($Type$UndetVar* this$0) {
 	$set(this, this$0, this$0);
 	$Type$StructuralTypeMapping::init$();
 }
 
 $Type* Type$UndetVar$1::visitUndetVar($Type$UndetVar* uv, $Void* _unused) {
-	return $nc(uv)->inst != nullptr ? $nc(uv)->inst : uv->qtype;
+	return $nc(uv)->inst != nullptr ? uv->inst : uv->qtype;
 }
 
 $Object* Type$UndetVar$1::visitUndetVar($Type$UndetVar* uv, Object$* _unused) {
@@ -84,7 +38,45 @@ Type$UndetVar$1::Type$UndetVar$1() {
 }
 
 $Class* Type$UndetVar$1::load$($String* name, bool initialize) {
-	$loadClass(Type$UndetVar$1, name, initialize, &_Type$UndetVar$1_ClassInfo_, allocate$Type$UndetVar$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, $FINAL | $SYNTHETIC, $field(Type$UndetVar$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(Type$UndetVar$1, init$, void, $Type$UndetVar*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$1, visitUndetVar, $Type*, $Type$UndetVar*, $Void*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$UndetVar$1, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type$UndetVar",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$UndetVar$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$UndetVar$1",
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$UndetVar$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$UndetVar$1));
+	});
 	return class$;
 }
 

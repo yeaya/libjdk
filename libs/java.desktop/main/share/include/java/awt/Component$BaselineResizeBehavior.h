@@ -23,6 +23,7 @@ class $import Component$BaselineResizeBehavior : public ::java::lang::Enum {
 public:
 	Component$BaselineResizeBehavior();
 	static $Array<::java::awt::Component$BaselineResizeBehavior>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::Component$BaselineResizeBehavior* valueOf($String* name);
 	static $Array<::java::awt::Component$BaselineResizeBehavior>* values();

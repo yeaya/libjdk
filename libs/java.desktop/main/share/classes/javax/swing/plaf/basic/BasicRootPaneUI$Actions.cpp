@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicRootPaneUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Point.h>
@@ -34,7 +33,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
@@ -48,45 +46,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicRootPaneUI$Actions_FieldInfo_[] = {
-	{"PRESS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicRootPaneUI$Actions, PRESS)},
-	{"RELEASE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicRootPaneUI$Actions, RELEASE)},
-	{"POST_POPUP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicRootPaneUI$Actions, POST_POPUP)},
-	{}
-};
-
-$MethodInfo _BasicRootPaneUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicRootPaneUI$Actions, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicRootPaneUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicRootPaneUI$Actions", "javax.swing.plaf.basic.BasicRootPaneUI", "Actions", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicRootPaneUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicRootPaneUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicRootPaneUI$Actions_FieldInfo_,
-	_BasicRootPaneUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicRootPaneUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicRootPaneUI"
-};
-
-$Object* allocate$BasicRootPaneUI$Actions($Class* clazz) {
-	return $of($alloc(BasicRootPaneUI$Actions));
-}
-
 $String* BasicRootPaneUI$Actions::PRESS = nullptr;
 $String* BasicRootPaneUI$Actions::RELEASE = nullptr;
 $String* BasicRootPaneUI$Actions::POST_POPUP = nullptr;
@@ -96,22 +55,22 @@ void BasicRootPaneUI$Actions::init$($String* name) {
 }
 
 void BasicRootPaneUI$Actions::actionPerformed($ActionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JRootPane, root, $cast($JRootPane, $nc(evt)->getSource()));
 	$var($JButton, owner, $nc(root)->getDefaultButton());
 	$var($String, key, getName());
 	if (key == BasicRootPaneUI$Actions::POST_POPUP) {
-		$var($Component, c, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+		$var($Component, c, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 		if ($instanceOf($JComponent, c)) {
 			$var($JComponent, src, $cast($JComponent, c));
-			$var($JPopupMenu, jpm, $nc(src)->getComponentPopupMenu());
+			$var($JPopupMenu, jpm, src->getComponentPopupMenu());
 			if (jpm != nullptr) {
 				$var($Point, pt, src->getPopupLocation(nullptr));
 				if (pt == nullptr) {
 					$var($Rectangle, vis, src->getVisibleRect());
-					$assign(pt, $new($Point, $nc(vis)->x + vis->width / 2, vis->y + vis->height / 2));
+					$assign(pt, $new($Point, $nc(vis)->x + $nc(vis)->width / 2, $nc(vis)->y + $nc(vis)->height / 2));
 				}
-				jpm->show(c, $nc(pt)->x, pt->y);
+				jpm->show(c, $nc(pt)->x, $nc(pt)->y);
 			}
 		}
 	} else if (owner != nullptr && $SwingUtilities::getRootPane(owner) == root) {
@@ -122,23 +81,23 @@ void BasicRootPaneUI$Actions::actionPerformed($ActionEvent* evt) {
 }
 
 bool BasicRootPaneUI$Actions::accept(Object$* sender) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, getName());
 	if (key == BasicRootPaneUI$Actions::POST_POPUP) {
-		$var($MenuElementArray, elems, $nc($($MenuSelectionManager::defaultManager()))->getSelectedPath());
+		$var($MenuElementArray, elems, $$nc($MenuSelectionManager::defaultManager())->getSelectedPath());
 		if (elems != nullptr && elems->length != 0) {
 			return false;
 		}
-		$var($Component, c, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+		$var($Component, c, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 		if ($instanceOf($JComponent, c)) {
 			$var($JComponent, src, $cast($JComponent, c));
-			return $nc(src)->getComponentPopupMenu() != nullptr;
+			return src->getComponentPopupMenu() != nullptr;
 		}
 		return false;
 	}
 	if ($instanceOf($JRootPane, sender)) {
-		$var($JButton, owner, $nc(($cast($JRootPane, sender)))->getDefaultButton());
-		bool var$0 = owner != nullptr && $nc($(owner->getModel()))->isEnabled();
+		$var($JButton, owner, $cast($JRootPane, sender)->getDefaultButton());
+		bool var$0 = owner != nullptr && $$nc(owner->getModel())->isEnabled();
 		return (var$0 && owner->isShowing());
 	}
 	return true;
@@ -147,14 +106,47 @@ bool BasicRootPaneUI$Actions::accept(Object$* sender) {
 BasicRootPaneUI$Actions::BasicRootPaneUI$Actions() {
 }
 
-void clinit$BasicRootPaneUI$Actions($Class* class$) {
+void BasicRootPaneUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicRootPaneUI$Actions::PRESS, "press"_s);
 	$assignStatic(BasicRootPaneUI$Actions::RELEASE, "release"_s);
 	$assignStatic(BasicRootPaneUI$Actions::POST_POPUP, "postPopup"_s);
 }
 
 $Class* BasicRootPaneUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicRootPaneUI$Actions, name, initialize, &_BasicRootPaneUI$Actions_ClassInfo_, clinit$BasicRootPaneUI$Actions, allocate$BasicRootPaneUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRESS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicRootPaneUI$Actions, PRESS)},
+		{"RELEASE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicRootPaneUI$Actions, RELEASE)},
+		{"POST_POPUP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicRootPaneUI$Actions, POST_POPUP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicRootPaneUI$Actions, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicRootPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicRootPaneUI$Actions", "javax.swing.plaf.basic.BasicRootPaneUI", "Actions", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicRootPaneUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicRootPaneUI"
+	};
+	$loadClass(BasicRootPaneUI$Actions, name, initialize, &classInfo$$, BasicRootPaneUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicRootPaneUI$Actions);
+	});
 	return class$;
 }
 

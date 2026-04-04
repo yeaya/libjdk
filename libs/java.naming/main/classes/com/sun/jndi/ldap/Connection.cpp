@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/Connection.h>
-
 #include <com/sun/jndi/ldap/Ber$DecodeException.h>
 #include <com/sun/jndi/ldap/Ber.h>
 #include <com/sun/jndi/ldap/BerDecoder.h>
@@ -18,7 +17,6 @@
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -28,7 +26,6 @@
 #include <java/lang/reflect/Method.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/cert/X509Certificate.h>
@@ -41,7 +38,6 @@
 #include <javax/naming/ServiceUnavailableException.h>
 #include <javax/naming/ldap/Control.h>
 #include <javax/net/SocketFactory.h>
-#include <javax/net/ssl/HandshakeCompletedListener.h>
 #include <javax/net/ssl/SSLParameters.h>
 #include <javax/net/ssl/SSLSocket.h>
 #include <javax/security/sasl/SaslException.h>
@@ -62,7 +58,6 @@ using $Connection$HandshakeListener = ::com::sun::jndi::ldap::Connection$Handsha
 using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
 using $LdapRequest = ::com::sun::jndi::ldap::LdapRequest;
 using $Obj = ::com::sun::jndi::ldap::Obj;
-using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $IOException = ::java::io::IOException;
@@ -78,25 +73,21 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $CommunicationException = ::javax::naming::CommunicationException;
 using $InterruptedNamingException = ::javax::naming::InterruptedNamingException;
 using $NamingException = ::javax::naming::NamingException;
 using $ServiceUnavailableException = ::javax::naming::ServiceUnavailableException;
 using $SocketFactory = ::javax::net::SocketFactory;
-using $HandshakeCompletedListener = ::javax::net::ssl::HandshakeCompletedListener;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $SaslException = ::javax::security::sasl::SaslException;
@@ -114,126 +105,35 @@ public:
 	virtual $Object* run() override {
 		 return $of(Connection::lambda$hostnameVerificationDisabledValue$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0, run, $Object*)},
-	{}
-};
-$ClassInfo Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0::load$($String* name, bool initialize) {
-	$loadClass(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0);
+	});
 	return class$;
 }
 $Class* Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0::class$ = nullptr;
-
-$FieldInfo _Connection_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Connection, debug)},
-	{"dump", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Connection, dump)},
-	{"worker", "Ljava/lang/Thread;", nullptr, $PRIVATE | $FINAL, $field(Connection, worker)},
-	{"v3", "Z", nullptr, $PRIVATE, $field(Connection, v3)},
-	{"host", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Connection, host)},
-	{"port", "I", nullptr, $PUBLIC | $FINAL, $field(Connection, port)},
-	{"bound", "Z", nullptr, $PRIVATE, $field(Connection, bound)},
-	{"traceFile", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(Connection, traceFile)},
-	{"traceTagIn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Connection, traceTagIn)},
-	{"traceTagOut", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Connection, traceTagOut)},
-	{"inStream", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(Connection, inStream)},
-	{"outStream", "Ljava/io/OutputStream;", nullptr, $PUBLIC, $field(Connection, outStream)},
-	{"sock", "Ljava/net/Socket;", nullptr, $PUBLIC, $field(Connection, sock)},
-	{"parent", "Lcom/sun/jndi/ldap/LdapClient;", nullptr, $PRIVATE | $FINAL, $field(Connection, parent)},
-	{"outMsgId", "I", nullptr, $PRIVATE, $field(Connection, outMsgId)},
-	{"pendingRequests", "Lcom/sun/jndi/ldap/LdapRequest;", nullptr, $PRIVATE, $field(Connection, pendingRequests)},
-	{"closureReason", "Ljava/io/IOException;", nullptr, $VOLATILE, $field(Connection, closureReason)},
-	{"useable", "Z", nullptr, $VOLATILE, $field(Connection, useable)},
-	{"readTimeout", "I", nullptr, 0, $field(Connection, readTimeout)},
-	{"connectTimeout", "I", nullptr, 0, $field(Connection, connectTimeout)},
-	{"isUpgradedToStartTls", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Connection, isUpgradedToStartTls$)},
-	{"startTlsLock", "Ljava/lang/Object;", nullptr, $FINAL, $field(Connection, startTlsLock)},
-	{"IS_HOSTNAME_VERIFICATION_DISABLED", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Connection, IS_HOSTNAME_VERIFICATION_DISABLED)},
-	{"pauseLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Connection, pauseLock)},
-	{"paused", "Z", nullptr, $PRIVATE, $field(Connection, paused)},
-	{"tlsHandshakeListener", "Lcom/sun/jndi/ldap/Connection$HandshakeListener;", nullptr, $PRIVATE | $VOLATILE, $field(Connection, tlsHandshakeListener)},
-	{}
-};
-
-$MethodInfo _Connection_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapClient;Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;)V", nullptr, 0, $method(Connection, init$, void, $LdapClient*, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*), "javax.naming.NamingException"},
-	{"abandonOutstandingReqs", "([Ljavax/naming/ldap/Control;)V", nullptr, $SYNCHRONIZED, $method(Connection, abandonOutstandingReqs, void, $ControlArray*)},
-	{"abandonRequest", "(Lcom/sun/jndi/ldap/LdapRequest;[Ljavax/naming/ldap/Control;)V", nullptr, 0, $method(Connection, abandonRequest, void, $LdapRequest*, $ControlArray*)},
-	{"addRequest", "(Lcom/sun/jndi/ldap/LdapRequest;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Connection, addRequest, void, $LdapRequest*)},
-	{"cleanup", "([Ljavax/naming/ldap/Control;Z)V", nullptr, 0, $method(Connection, cleanup, void, $ControlArray*, bool)},
-	{"createInetSocketAddress", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $method(Connection, createInetSocketAddress, $InetSocketAddress*, $String*, int32_t)},
-	{"createSocket", "(Ljava/lang/String;ILjava/lang/String;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(Connection, createSocket, $Socket*, $String*, int32_t, $String*, int32_t), "java.lang.Exception"},
-	{"findRequest", "(I)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, $SYNCHRONIZED, $method(Connection, findRequest, $LdapRequest*, int32_t)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Connection, getInputStream, $InputStream*)},
-	{"getMsgId", "()I", nullptr, $SYNCHRONIZED, $method(Connection, getMsgId, int32_t)},
-	{"getTlsServerCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(Connection, getTlsServerCertificate, $X509Certificate*), "javax.security.sasl.SaslException"},
-	{"hostnameVerificationDisabledValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Connection, hostnameVerificationDisabledValue, bool)},
-	{"isTlsConnection", "()Z", nullptr, $PUBLIC, $method(Connection, isTlsConnection, bool)},
-	{"isUpgradedToStartTls", "()Z", nullptr, $PUBLIC, $method(Connection, isUpgradedToStartTls, bool)},
-	{"lambda$hostnameVerificationDisabledValue$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Connection, lambda$hostnameVerificationDisabledValue$0, $String*)},
-	{"ldapUnbind", "([Ljavax/naming/ldap/Control;)V", nullptr, $PRIVATE, $method(Connection, ldapUnbind, void, $ControlArray*)},
-	{"pauseReader", "()V", nullptr, $PRIVATE, $method(Connection, pauseReader, void), "java.io.IOException"},
-	{"readFully", "(Ljava/io/InputStream;I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Connection, readFully, $bytes*, $InputStream*, int32_t), "java.io.IOException"},
-	{"readReply", "(Lcom/sun/jndi/ldap/LdapRequest;)Lcom/sun/jndi/ldap/BerDecoder;", nullptr, 0, $method(Connection, readReply, $BerDecoder*, $LdapRequest*), "java.io.IOException,javax.naming.NamingException"},
-	{"removeRequest", "(Lcom/sun/jndi/ldap/LdapRequest;)V", nullptr, $SYNCHRONIZED, $method(Connection, removeRequest, void, $LdapRequest*)},
-	{"replaceStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Connection, replaceStreams, void, $InputStream*, $OutputStream*)},
-	{"replaceStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Connection, replaceStreams, void, $InputStream*, $OutputStream*, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Connection, run, void)},
-	{"setBound", "()V", nullptr, 0, $method(Connection, setBound, void)},
-	{"setHandshakeCompletedListener", "(Ljavax/net/ssl/SSLSocket;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Connection, setHandshakeCompletedListener, void, $SSLSocket*)},
-	{"setV3", "(Z)V", nullptr, 0, $method(Connection, setV3, void, bool)},
-	{"unpauseReader", "()V", nullptr, $PRIVATE, $method(Connection, unpauseReader, void), "java.io.IOException"},
-	{"writeRequest", "(Lcom/sun/jndi/ldap/BerEncoder;I)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $method(Connection, writeRequest, $LdapRequest*, $BerEncoder*, int32_t), "java.io.IOException"},
-	{"writeRequest", "(Lcom/sun/jndi/ldap/BerEncoder;IZ)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $method(Connection, writeRequest, $LdapRequest*, $BerEncoder*, int32_t, bool), "java.io.IOException"},
-	{"writeRequest", "(Lcom/sun/jndi/ldap/BerEncoder;IZI)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $method(Connection, writeRequest, $LdapRequest*, $BerEncoder*, int32_t, bool, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Connection_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.Connection$HandshakeListener", "com.sun.jndi.ldap.Connection", "HandshakeListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Connection_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.Connection",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Connection_FieldInfo_,
-	_Connection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Connection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.Connection$HandshakeListener"
-};
-
-$Object* allocate$Connection($Class* clazz) {
-	return $of($alloc(Connection));
-}
 
 bool Connection::IS_HOSTNAME_VERIFICATION_DISABLED = false;
 
 bool Connection::hostnameVerificationDisabledValue() {
 	$init(Connection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0)));
+	$var($PrivilegedAction, act, $new(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0));
 	$var($String, prop, $cast($String, $AccessController::doPrivileged(act)));
 	if (prop == nullptr) {
 		return false;
@@ -250,7 +150,7 @@ void Connection::setBound() {
 }
 
 void Connection::init$($LdapClient* parent, $String* host, int32_t port, $String* socketFactory, int32_t connectTimeout, int32_t readTimeout, $OutputStream* trace) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->v3 = true;
 	this->bound = false;
 	$set(this, traceFile, nullptr);
@@ -275,8 +175,9 @@ void Connection::init$($LdapClient* parent, $String* host, int32_t port, $String
 	}
 	try {
 		$set(this, sock, createSocket(host, port, socketFactory, connectTimeout));
+		;
 		$set(this, inStream, $new($BufferedInputStream, $($nc(this->sock)->getInputStream())));
-		$set(this, outStream, $new($BufferedOutputStream, $($nc(this->sock)->getOutputStream())));
+		$set(this, outStream, $new($BufferedOutputStream, $(this->sock->getOutputStream())));
 	} catch ($InvocationTargetException& e) {
 		$var($Throwable, realException, e->getCause());
 		$var($CommunicationException, ce, $new($CommunicationException, $$str({host, ":"_s, $$str(port)})));
@@ -290,7 +191,7 @@ void Connection::init$($LdapClient* parent, $String* host, int32_t port, $String
 	$init($Obj);
 	$set(this, worker, $nc($Obj::helper)->createThread(this));
 	$nc(this->worker)->setDaemon(true);
-	$nc(this->worker)->start();
+	this->worker->start();
 }
 
 $InetSocketAddress* Connection::createInetSocketAddress($String* host, int32_t port) {
@@ -298,7 +199,7 @@ $InetSocketAddress* Connection::createInetSocketAddress($String* host, int32_t p
 }
 
 $Socket* Connection::createSocket($String* host, int32_t port, $String* socketFactory, int32_t connectTimeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Socket, socket, nullptr);
 	if (socketFactory != nullptr) {
@@ -309,31 +210,35 @@ $Socket* Connection::createSocket($String* host, int32_t port, $String* socketFa
 		if (connectTimeout > 0) {
 			$var($InetSocketAddress, endpoint, createInetSocketAddress(host, port));
 			$assign(socket, $nc(factory)->createSocket());
+			;
 			$nc(socket)->connect(endpoint, connectTimeout);
 		}
 		if (socket == nullptr) {
+			;
 			$assign(socket, $nc(factory)->createSocket(host, port));
 		}
 	} else {
 		if (connectTimeout > 0) {
 			$var($InetSocketAddress, endpoint, createInetSocketAddress(host, port));
 			$assign(socket, $new($Socket));
+			;
 			socket->connect(endpoint, connectTimeout);
 		}
 		if (socket == nullptr) {
+			;
 			$assign(socket, $new($Socket, host, port));
 		}
 	}
 	if ($instanceOf($SSLSocket, socket)) {
 		$var($SSLSocket, sslSocket, $cast($SSLSocket, socket));
 		if (!Connection::IS_HOSTNAME_VERIFICATION_DISABLED) {
-			$var($SSLParameters, param, $nc(sslSocket)->getSSLParameters());
+			$var($SSLParameters, param, sslSocket->getSSLParameters());
 			$nc(param)->setEndpointIdentificationAlgorithm("LDAPS"_s);
 			sslSocket->setSSLParameters(param);
 		}
 		setHandshakeCompletedListener(sslSocket);
 		if (connectTimeout > 0) {
-			int32_t socketTimeout = $nc(sslSocket)->getSoTimeout();
+			int32_t socketTimeout = sslSocket->getSoTimeout();
 			sslSocket->setSoTimeout(connectTimeout);
 			sslSocket->startHandshake();
 			sslSocket->setSoTimeout(socketTimeout);
@@ -357,7 +262,7 @@ $LdapRequest* Connection::writeRequest($BerEncoder* ber, int32_t msgId, bool pau
 }
 
 $LdapRequest* Connection::writeRequest($BerEncoder* ber, int32_t msgId, bool pauseAfterReceipt, int32_t replyQueueCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LdapRequest, req, $new($LdapRequest, msgId, pauseAfterReceipt, replyQueueCapacity));
 	addRequest(req);
 	if (this->traceFile != nullptr) {
@@ -367,6 +272,7 @@ $LdapRequest* Connection::writeRequest($BerEncoder* ber, int32_t msgId, bool pau
 		$Ber::dumpBER(var$0, var$1, var$2, 0, ber->getDataLen());
 	}
 	unpauseReader();
+	;
 	try {
 		$synchronized(this) {
 			$var($bytes, var$3, $nc(ber)->getBuf());
@@ -381,7 +287,7 @@ $LdapRequest* Connection::writeRequest($BerEncoder* ber, int32_t msgId, bool pau
 }
 
 $BerDecoder* Connection::readReply($LdapRequest* ldr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BerDecoder, rber, nullptr);
 	$synchronized(this) {
 		if (this->sock == nullptr) {
@@ -436,7 +342,7 @@ $LdapRequest* Connection::findRequest(int32_t msgId) {
 
 void Connection::removeRequest($LdapRequest* req) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($LdapRequest, ldr, this->pendingRequests);
 		$var($LdapRequest, ldrprev, nullptr);
 		while (ldr != nullptr) {
@@ -456,7 +362,7 @@ void Connection::removeRequest($LdapRequest* req) {
 }
 
 void Connection::abandonRequest($LdapRequest* ldr, $ControlArray* reqCtls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	removeRequest(ldr);
 	$var($BerEncoder, ber, $new($BerEncoder, 256));
 	int32_t abandonMsgId = getMsgId();
@@ -488,13 +394,13 @@ void Connection::abandonOutstandingReqs($ControlArray* reqCtls) {
 		$var($LdapRequest, ldr, this->pendingRequests);
 		while (ldr != nullptr) {
 			abandonRequest(ldr, reqCtls);
-			$set(this, pendingRequests, ($assign(ldr, ldr->next)));
+			$set(this, pendingRequests, $assign(ldr, ldr->next));
 		}
 	}
 }
 
 void Connection::ldapUnbind($ControlArray* reqCtls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BerEncoder, ber, $new($BerEncoder, 256));
 	int32_t unbindMsgId = getMsgId();
 	try {
@@ -522,50 +428,50 @@ void Connection::ldapUnbind($ControlArray* reqCtls) {
 }
 
 void Connection::cleanup($ControlArray* reqCtls, bool notifyParent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool nparent = false;
 	$synchronized(this) {
 		this->useable = false;
 		if (this->sock != nullptr) {
-			{
-				$var($Throwable, var$0, nullptr);
+			;
+			$var($Throwable, var$0, nullptr);
+			try {
+				if (!notifyParent) {
+					abandonOutstandingReqs(reqCtls);
+				}
+				if (this->bound) {
+					ldapUnbind(reqCtls);
+				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
 				try {
-					if (!notifyParent) {
-						abandonOutstandingReqs(reqCtls);
-					}
-					if (this->bound) {
-						ldapUnbind(reqCtls);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					try {
-						$nc(this->outStream)->flush();
-						$nc(this->sock)->close();
-						unpauseReader();
-					} catch ($IOException& ie) {
-					}
-					if (!notifyParent) {
-						$var($LdapRequest, ldr, this->pendingRequests);
-						while (ldr != nullptr) {
-							ldr->cancel();
-							$assign(ldr, ldr->next);
-						}
-					}
-					if (isTlsConnection() && this->tlsHandshakeListener != nullptr) {
-						if (this->closureReason != nullptr) {
-							$var($CommunicationException, ce, $new($CommunicationException));
-							ce->setRootCause(this->closureReason);
-							$nc($nc(this->tlsHandshakeListener)->tlsHandshakeCompleted)->completeExceptionally(ce);
-						} else {
-							$nc($nc(this->tlsHandshakeListener)->tlsHandshakeCompleted)->cancel(false);
-						}
-					}
-					$set(this, sock, nullptr);
+					$nc(this->outStream)->flush();
+					$nc(this->sock)->close();
+					unpauseReader();
+				} catch ($IOException& ie) {
+					;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+				if (!notifyParent) {
+					$var($LdapRequest, ldr, this->pendingRequests);
+					while (ldr != nullptr) {
+						ldr->cancel();
+						$assign(ldr, ldr->next);
+					}
 				}
+				if (isTlsConnection() && this->tlsHandshakeListener != nullptr) {
+					if (this->closureReason != nullptr) {
+						$var($CommunicationException, ce, $new($CommunicationException));
+						ce->setRootCause(this->closureReason);
+						$nc($nc(this->tlsHandshakeListener)->tlsHandshakeCompleted)->completeExceptionally(ce);
+					} else {
+						$nc($nc(this->tlsHandshakeListener)->tlsHandshakeCompleted)->cancel(false);
+					}
+				}
+				$set(this, sock, nullptr);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 			nparent = notifyParent;
 		}
@@ -584,10 +490,12 @@ void Connection::cleanup($ControlArray* reqCtls, bool notifyParent) {
 
 void Connection::replaceStreams($InputStream* newIn, $OutputStream* newOut) {
 	$synchronized(this) {
+		;
 		$set(this, inStream, newIn);
 		try {
 			$nc(this->outStream)->flush();
 		} catch ($IOException& ie) {
+			;
 		}
 		$set(this, outStream, newOut);
 	}
@@ -615,17 +523,19 @@ $InputStream* Connection::getInputStream() {
 void Connection::unpauseReader() {
 	$synchronized(this->pauseLock) {
 		if (this->paused) {
+			;
 			this->paused = false;
-			$nc($of(this->pauseLock))->notify();
+			this->pauseLock->notify();
 		}
 	}
 }
 
 void Connection::pauseReader() {
+	;
 	this->paused = true;
 	try {
 		while (this->paused) {
-			$nc($of(this->pauseLock))->wait();
+			this->pauseLock->wait();
 		}
 	} catch ($InterruptedException& e) {
 		$throwNew($InterruptedIOException, "Pause/unpause reader has problems."_s);
@@ -633,7 +543,7 @@ void Connection::pauseReader() {
 }
 
 void Connection::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, inbuf, nullptr);
 	int32_t inMsgId = 0;
 	int32_t bytesread = 0;
@@ -644,111 +554,114 @@ void Connection::run() {
 	bool eos = false;
 	$var($BerDecoder, retBer, nullptr);
 	$var($InputStream, in, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				while (true) {
-					try {
-						$assign(inbuf, $new($bytes, 129));
-						offset = 0;
-						seqlen = 0;
-						seqlenlen = 0;
-						$assign(in, getInputStream());
-						bytesread = $nc(in)->read(inbuf, offset, 1);
-						if (bytesread < 0) {
-							if (in != getInputStream()) {
-								continue;
-							} else {
-								break;
-							}
-						}
-						if (inbuf->get(offset++) != ($Ber::ASN_SEQUENCE | $Ber::ASN_CONSTRUCTOR)) {
+			while (true) {
+				try {
+					$assign(inbuf, $new($bytes, 129));
+					offset = 0;
+					seqlen = 0;
+					seqlenlen = 0;
+					$assign(in, getInputStream());
+					bytesread = $nc(in)->read(inbuf, offset, 1);
+					if (bytesread < 0) {
+						if (in != getInputStream()) {
 							continue;
-						}
-						bytesread = in->read(inbuf, offset, 1);
-						if (bytesread < 0) {
+						} else {
 							break;
 						}
-						seqlen = inbuf->get(offset++);
-						if (((int32_t)(seqlen & (uint32_t)128)) == 128) {
-							seqlenlen = (int32_t)(seqlen & (uint32_t)127);
-							if (seqlenlen > 4) {
-								$throwNew($IOException, $$str({"Length coded with too many bytes: "_s, $$str(seqlenlen)}));
-							}
-							bytesread = 0;
-							eos = false;
-							while (bytesread < seqlenlen) {
-								br = in->read(inbuf, offset + bytesread, seqlenlen - bytesread);
-								if (br < 0) {
-									eos = true;
-									break;
-								}
-								bytesread += br;
-							}
-							if (eos) {
+					}
+					if (inbuf->get(offset++) != ($Ber::ASN_SEQUENCE | $Ber::ASN_CONSTRUCTOR)) {
+						continue;
+					}
+					bytesread = in->read(inbuf, offset, 1);
+					if (bytesread < 0) {
+						break;
+					}
+					seqlen = inbuf->get(offset++);
+					if ((seqlen & 0x80) == 0x80) {
+						seqlenlen = seqlen & 0x7f;
+						if (seqlenlen > 4) {
+							$throwNew($IOException, $$str({"Length coded with too many bytes: "_s, $$str(seqlenlen)}));
+						}
+						bytesread = 0;
+						eos = false;
+						while (bytesread < seqlenlen) {
+							br = in->read(inbuf, offset + bytesread, seqlenlen - bytesread);
+							if (br < 0) {
+								eos = true;
 								break;
 							}
-							seqlen = 0;
-							for (int32_t i = 0; i < seqlenlen; ++i) {
-								seqlen = (seqlen << 8) + ((int32_t)(inbuf->get(offset + i) & (uint32_t)255));
-							}
-							offset += bytesread;
+							bytesread += br;
 						}
-						if (seqlenlen > bytesread) {
-							$throwNew($IOException, "Unexpected EOF while reading length"_s);
+						if (eos) {
+							break;
 						}
-						if (seqlen < 0) {
-							$throwNew($IOException, $$str({"Length too big: "_s, $$str(((int64_t)(((int64_t)seqlen) & (uint64_t)(int64_t)0x00000000FFFFFFFF)))}));
+						seqlen = 0;
+						for (int32_t i = 0; i < seqlenlen; ++i) {
+							seqlen = (seqlen << 8) + (inbuf->get(offset + i) & 0xff);
 						}
-						$var($bytes, left, readFully(in, seqlen));
-						$assign(inbuf, $Arrays::copyOf(inbuf, offset + $nc(left)->length));
-						$System::arraycopy(left, 0, inbuf, offset, $nc(left)->length);
-						offset += $nc(left)->length;
-						try {
-							$assign(retBer, $new($BerDecoder, inbuf, 0, offset));
-							if (this->traceFile != nullptr) {
-								$Ber::dumpBER(this->traceFile, this->traceTagIn, inbuf, 0, offset);
-							}
-							retBer->parseSeq(nullptr);
-							inMsgId = retBer->parseInt();
-							retBer->reset();
-							bool needPause = false;
-							if (inMsgId == 0) {
-								$nc(this->parent)->processUnsolicited(retBer);
-							} else {
-								$var($LdapRequest, ldr, findRequest(inMsgId));
-								if (ldr != nullptr) {
-									$synchronized(this->pauseLock) {
-										needPause = ldr->addReplyBer(retBer);
-										if (needPause) {
-											pauseReader();
-										}
-									}
-								} else {
-								}
-							}
-						} catch ($Ber$DecodeException& e) {
+						offset += bytesread;
+					}
+					if (seqlenlen > bytesread) {
+						$throwNew($IOException, "Unexpected EOF while reading length"_s);
+					}
+					if (seqlen < 0) {
+						$throwNew($IOException, $$str({"Length too big: "_s, $$str((((int64_t)seqlen) & (int64_t)0xffffffff))}));
+					}
+					$var($bytes, left, readFully(in, seqlen));
+					$assign(inbuf, $Arrays::copyOf(inbuf, offset + $nc(left)->length));
+					$System::arraycopy(left, 0, inbuf, offset, left->length);
+					offset += left->length;
+					try {
+						$assign(retBer, $new($BerDecoder, inbuf, 0, offset));
+						if (this->traceFile != nullptr) {
+							$Ber::dumpBER(this->traceFile, this->traceTagIn, inbuf, 0, offset);
 						}
-					} catch ($IOException& ie) {
-						if (in != getInputStream()) {
+						retBer->parseSeq(nullptr);
+						inMsgId = retBer->parseInt();
+						retBer->reset();
+						bool needPause = false;
+						if (inMsgId == 0) {
+							$nc(this->parent)->processUnsolicited(retBer);
 						} else {
-							$throw(ie);
+							$var($LdapRequest, ldr, findRequest(inMsgId));
+							if (ldr != nullptr) {
+								$synchronized(this->pauseLock) {
+									needPause = ldr->addReplyBer(retBer);
+									if (needPause) {
+										pauseReader();
+									}
+								}
+							} else {
+							}
 						}
+					} catch ($Ber$DecodeException& e) {
+					}
+				} catch ($IOException& ie) {
+					;
+					if (in != getInputStream()) {
+					} else {
+						;
+						$throw(ie);
 					}
 				}
-			} catch ($IOException& ex) {
-				$set(this, closureReason, ex);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			cleanup(nullptr, true);
+			;
+		} catch ($IOException& ex) {
+			;
+			$set(this, closureReason, ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		cleanup(nullptr, true);
 	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	;
 }
 
 $bytes* Connection::readFully($InputStream* is, int32_t length) {
@@ -809,7 +722,7 @@ $String* Connection::lambda$hostnameVerificationDisabledValue$0() {
 	return $System::getProperty("com.sun.jndi.ldap.object.disableEndpointIdentification"_s);
 }
 
-void clinit$Connection($Class* class$) {
+void Connection::clinit$($Class* clazz) {
 	Connection::IS_HOSTNAME_VERIFICATION_DISABLED = Connection::hostnameVerificationDisabledValue();
 }
 
@@ -818,11 +731,93 @@ Connection::Connection() {
 
 $Class* Connection::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0")) {
 			return Connection$$Lambda$lambda$hostnameVerificationDisabledValue$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Connection, name, initialize, &_Connection_ClassInfo_, clinit$Connection, allocate$Connection);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Connection, debug)},
+		{"dump", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Connection, dump)},
+		{"worker", "Ljava/lang/Thread;", nullptr, $PRIVATE | $FINAL, $field(Connection, worker)},
+		{"v3", "Z", nullptr, $PRIVATE, $field(Connection, v3)},
+		{"host", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Connection, host)},
+		{"port", "I", nullptr, $PUBLIC | $FINAL, $field(Connection, port)},
+		{"bound", "Z", nullptr, $PRIVATE, $field(Connection, bound)},
+		{"traceFile", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(Connection, traceFile)},
+		{"traceTagIn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Connection, traceTagIn)},
+		{"traceTagOut", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Connection, traceTagOut)},
+		{"inStream", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(Connection, inStream)},
+		{"outStream", "Ljava/io/OutputStream;", nullptr, $PUBLIC, $field(Connection, outStream)},
+		{"sock", "Ljava/net/Socket;", nullptr, $PUBLIC, $field(Connection, sock)},
+		{"parent", "Lcom/sun/jndi/ldap/LdapClient;", nullptr, $PRIVATE | $FINAL, $field(Connection, parent)},
+		{"outMsgId", "I", nullptr, $PRIVATE, $field(Connection, outMsgId)},
+		{"pendingRequests", "Lcom/sun/jndi/ldap/LdapRequest;", nullptr, $PRIVATE, $field(Connection, pendingRequests)},
+		{"closureReason", "Ljava/io/IOException;", nullptr, $VOLATILE, $field(Connection, closureReason)},
+		{"useable", "Z", nullptr, $VOLATILE, $field(Connection, useable)},
+		{"readTimeout", "I", nullptr, 0, $field(Connection, readTimeout)},
+		{"connectTimeout", "I", nullptr, 0, $field(Connection, connectTimeout)},
+		{"isUpgradedToStartTls", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Connection, isUpgradedToStartTls$)},
+		{"startTlsLock", "Ljava/lang/Object;", nullptr, $FINAL, $field(Connection, startTlsLock)},
+		{"IS_HOSTNAME_VERIFICATION_DISABLED", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Connection, IS_HOSTNAME_VERIFICATION_DISABLED)},
+		{"pauseLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Connection, pauseLock)},
+		{"paused", "Z", nullptr, $PRIVATE, $field(Connection, paused)},
+		{"tlsHandshakeListener", "Lcom/sun/jndi/ldap/Connection$HandshakeListener;", nullptr, $PRIVATE | $VOLATILE, $field(Connection, tlsHandshakeListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/LdapClient;Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;)V", nullptr, 0, $method(Connection, init$, void, $LdapClient*, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*), "javax.naming.NamingException"},
+		{"abandonOutstandingReqs", "([Ljavax/naming/ldap/Control;)V", nullptr, $SYNCHRONIZED, $method(Connection, abandonOutstandingReqs, void, $ControlArray*)},
+		{"abandonRequest", "(Lcom/sun/jndi/ldap/LdapRequest;[Ljavax/naming/ldap/Control;)V", nullptr, 0, $method(Connection, abandonRequest, void, $LdapRequest*, $ControlArray*)},
+		{"addRequest", "(Lcom/sun/jndi/ldap/LdapRequest;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Connection, addRequest, void, $LdapRequest*)},
+		{"cleanup", "([Ljavax/naming/ldap/Control;Z)V", nullptr, 0, $method(Connection, cleanup, void, $ControlArray*, bool)},
+		{"createInetSocketAddress", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", nullptr, $PRIVATE, $method(Connection, createInetSocketAddress, $InetSocketAddress*, $String*, int32_t)},
+		{"createSocket", "(Ljava/lang/String;ILjava/lang/String;I)Ljava/net/Socket;", nullptr, $PRIVATE, $method(Connection, createSocket, $Socket*, $String*, int32_t, $String*, int32_t), "java.lang.Exception"},
+		{"findRequest", "(I)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, $SYNCHRONIZED, $method(Connection, findRequest, $LdapRequest*, int32_t)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Connection, getInputStream, $InputStream*)},
+		{"getMsgId", "()I", nullptr, $SYNCHRONIZED, $method(Connection, getMsgId, int32_t)},
+		{"getTlsServerCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $method(Connection, getTlsServerCertificate, $X509Certificate*), "javax.security.sasl.SaslException"},
+		{"hostnameVerificationDisabledValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Connection, hostnameVerificationDisabledValue, bool)},
+		{"isTlsConnection", "()Z", nullptr, $PUBLIC, $method(Connection, isTlsConnection, bool)},
+		{"isUpgradedToStartTls", "()Z", nullptr, $PUBLIC, $method(Connection, isUpgradedToStartTls, bool)},
+		{"lambda$hostnameVerificationDisabledValue$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Connection, lambda$hostnameVerificationDisabledValue$0, $String*)},
+		{"ldapUnbind", "([Ljavax/naming/ldap/Control;)V", nullptr, $PRIVATE, $method(Connection, ldapUnbind, void, $ControlArray*)},
+		{"pauseReader", "()V", nullptr, $PRIVATE, $method(Connection, pauseReader, void), "java.io.IOException"},
+		{"readFully", "(Ljava/io/InputStream;I)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Connection, readFully, $bytes*, $InputStream*, int32_t), "java.io.IOException"},
+		{"readReply", "(Lcom/sun/jndi/ldap/LdapRequest;)Lcom/sun/jndi/ldap/BerDecoder;", nullptr, 0, $method(Connection, readReply, $BerDecoder*, $LdapRequest*), "java.io.IOException,javax.naming.NamingException"},
+		{"removeRequest", "(Lcom/sun/jndi/ldap/LdapRequest;)V", nullptr, $SYNCHRONIZED, $method(Connection, removeRequest, void, $LdapRequest*)},
+		{"replaceStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Connection, replaceStreams, void, $InputStream*, $OutputStream*)},
+		{"replaceStreams", "(Ljava/io/InputStream;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Connection, replaceStreams, void, $InputStream*, $OutputStream*, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Connection, run, void)},
+		{"setBound", "()V", nullptr, 0, $method(Connection, setBound, void)},
+		{"setHandshakeCompletedListener", "(Ljavax/net/ssl/SSLSocket;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Connection, setHandshakeCompletedListener, void, $SSLSocket*)},
+		{"setV3", "(Z)V", nullptr, 0, $method(Connection, setV3, void, bool)},
+		{"unpauseReader", "()V", nullptr, $PRIVATE, $method(Connection, unpauseReader, void), "java.io.IOException"},
+		{"writeRequest", "(Lcom/sun/jndi/ldap/BerEncoder;I)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $method(Connection, writeRequest, $LdapRequest*, $BerEncoder*, int32_t), "java.io.IOException"},
+		{"writeRequest", "(Lcom/sun/jndi/ldap/BerEncoder;IZ)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $method(Connection, writeRequest, $LdapRequest*, $BerEncoder*, int32_t, bool), "java.io.IOException"},
+		{"writeRequest", "(Lcom/sun/jndi/ldap/BerEncoder;IZI)Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $method(Connection, writeRequest, $LdapRequest*, $BerEncoder*, int32_t, bool, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.Connection$HandshakeListener", "com.sun.jndi.ldap.Connection", "HandshakeListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.Connection",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.Connection$HandshakeListener"
+	};
+	$loadClass(Connection, name, initialize, &classInfo$$, Connection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Connection);
+	});
 	return class$;
 }
 

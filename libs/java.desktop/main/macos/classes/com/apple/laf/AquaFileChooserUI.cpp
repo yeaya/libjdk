@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI.h>
-
 #include <com/apple/laf/AquaFileChooserUI$1.h>
 #include <com/apple/laf/AquaFileChooserUI$2.h>
 #include <com/apple/laf/AquaFileChooserUI$3.h>
@@ -41,24 +40,19 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/dnd/DnDConstants.h>
 #include <java/awt/dnd/DropTarget.h>
-#include <java/awt/dnd/DropTargetListener.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Date.h>
 #include <java/util/Locale.h>
 #include <java/util/Objects.h>
@@ -67,7 +61,6 @@
 #include <javax/swing/Action.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
-#include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
@@ -78,7 +71,6 @@
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JSeparator.h>
-#include <javax/swing/JTable.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/ListCellRenderer.h>
@@ -88,7 +80,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/AncestorListener.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/filechooser/FileFilter.h>
 #include <javax/swing/filechooser/FileSystemView.h>
@@ -183,17 +174,13 @@ using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $DnDConstants = ::java::awt::dnd::DnDConstants;
 using $DropTarget = ::java::awt::dnd::DropTarget;
-using $DropTargetListener = ::java::awt::dnd::DropTargetListener;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -205,17 +192,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $Action = ::javax::swing::Action;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
-using $ComboBoxModel = ::javax::swing::ComboBoxModel;
-using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
@@ -225,7 +207,6 @@ using $JPanel = ::javax::swing::JPanel;
 using $JRootPane = ::javax::swing::JRootPane;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JSeparator = ::javax::swing::JSeparator;
-using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
@@ -233,8 +214,6 @@ using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $ScrollPaneConstants = ::javax::swing::ScrollPaneConstants;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
-using $AncestorListener = ::javax::swing::event::AncestorListener;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
@@ -244,267 +223,10 @@ using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
-using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-using $TableModel = ::javax::swing::table::TableModel;
-using $Document = ::javax::swing::text::Document;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI_FieldInfo_[] = {
-	{"directoryIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, directoryIcon)},
-	{"fileIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, fileIcon)},
-	{"computerIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, computerIcon)},
-	{"hardDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, hardDriveIcon)},
-	{"floppyDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, floppyDriveIcon)},
-	{"upFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, upFolderIcon)},
-	{"homeFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, homeFolderIcon)},
-	{"listViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, listViewIcon)},
-	{"detailsViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, detailsViewIcon)},
-	{"saveButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, saveButtonMnemonic)},
-	{"openButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, openButtonMnemonic)},
-	{"cancelButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelButtonMnemonic)},
-	{"updateButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, updateButtonMnemonic)},
-	{"helpButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, helpButtonMnemonic)},
-	{"chooseButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseButtonMnemonic)},
-	{"saveTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AquaFileChooserUI, saveTitleText)},
-	{"openTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AquaFileChooserUI, openTitleText)},
-	{"newFolderTitleText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderTitleText)},
-	{"saveButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, saveButtonText)},
-	{"openButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, openButtonText)},
-	{"cancelButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelButtonText)},
-	{"updateButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, updateButtonText)},
-	{"helpButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, helpButtonText)},
-	{"newFolderButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, newFolderButtonText)},
-	{"chooseButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseButtonText)},
-	{"newFolderErrorText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderErrorText)},
-	{"newFolderExistsErrorText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderExistsErrorText)},
-	{"fileDescriptionText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, fileDescriptionText)},
-	{"directoryDescriptionText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, directoryDescriptionText)},
-	{"saveButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, saveButtonToolTipText)},
-	{"openButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, openButtonToolTipText)},
-	{"cancelButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelButtonToolTipText)},
-	{"updateButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, updateButtonToolTipText)},
-	{"helpButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, helpButtonToolTipText)},
-	{"chooseItemButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseItemButtonToolTipText)},
-	{"chooseFolderButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseFolderButtonToolTipText)},
-	{"directoryComboBoxToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, directoryComboBoxToolTipText)},
-	{"filenameTextFieldToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, filenameTextFieldToolTipText)},
-	{"filterComboBoxToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, filterComboBoxToolTipText)},
-	{"openDirectoryButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, openDirectoryButtonToolTipText)},
-	{"cancelOpenButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelOpenButtonToolTipText)},
-	{"cancelSaveButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelSaveButtonToolTipText)},
-	{"cancelChooseButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelChooseButtonToolTipText)},
-	{"cancelNewFolderButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelNewFolderButtonToolTipText)},
-	{"desktopName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, desktopName)},
-	{"newFolderDialogPrompt", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderDialogPrompt)},
-	{"newFolderDefaultName", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderDefaultName)},
-	{"newFileDefaultName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AquaFileChooserUI, newFileDefaultName)},
-	{"createButtonText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, createButtonText)},
-	{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(AquaFileChooserUI, filechooser)},
-	{"doubleClickListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(AquaFileChooserUI, doubleClickListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(AquaFileChooserUI, propertyChangeListener)},
-	{"ancestorListener", "Ljavax/swing/event/AncestorListener;", nullptr, $PRIVATE, $field(AquaFileChooserUI, ancestorListener)},
-	{"dragAndDropTarget", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE, $field(AquaFileChooserUI, dragAndDropTarget)},
-	{"acceptAllFileFilter", "Lcom/apple/laf/AquaFileChooserUI$AcceptAllFileFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, acceptAllFileFilter)},
-	{"model", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, model)},
-	{"fileView", "Lcom/apple/laf/AquaFileView;", nullptr, $FINAL, $field(AquaFileChooserUI, fileView)},
-	{"selectionInProgress", "Z", nullptr, 0, $field(AquaFileChooserUI, selectionInProgress)},
-	{"accessoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, accessoryPanel)},
-	{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", 0, $field(AquaFileChooserUI, directoryComboBox)},
-	{"fDirectoryComboBoxModel", "Lcom/apple/laf/AquaFileChooserUI$DirectoryComboBoxModel;", nullptr, 0, $field(AquaFileChooserUI, fDirectoryComboBoxModel)},
-	{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaFileChooserUI, directoryComboBoxAction)},
-	{"filenameTextField", "Ljavax/swing/JTextField;", nullptr, 0, $field(AquaFileChooserUI, filenameTextField)},
-	{"fFileList", "Lcom/apple/laf/AquaFileChooserUI$JTableExtension;", nullptr, 0, $field(AquaFileChooserUI, fFileList)},
-	{"filterComboBoxModel", "Lcom/apple/laf/AquaFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, filterComboBoxModel)},
-	{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", 0, $field(AquaFileChooserUI, filterComboBox)},
-	{"filterComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaFileChooserUI, filterComboBoxAction)},
-	{"hstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, hstrut10)},
-	{"vstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, vstrut10)},
-	{"PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, PREF_WIDTH)},
-	{"PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, PREF_HEIGHT)},
-	{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, MIN_WIDTH)},
-	{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, MIN_HEIGHT)},
-	{"LIST_MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, LIST_MIN_WIDTH)},
-	{"LIST_MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, LIST_MIN_HEIGHT)},
-	{"LIST_MIN_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, LIST_MIN_SIZE)},
-	{"fileNameLabelText", "Ljava/lang/String;", nullptr, $STATIC, $staticField(AquaFileChooserUI, fileNameLabelText)},
-	{"fTextFieldLabel", "Ljavax/swing/JLabel;", nullptr, 0, $field(AquaFileChooserUI, fTextFieldLabel)},
-	{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(AquaFileChooserUI, filesOfTypeLabelText)},
-	{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(AquaFileChooserUI, newFolderToolTipText)},
-	{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $STATIC, $staticField(AquaFileChooserUI, newFolderAccessibleName)},
-	{"fColumnNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, fColumnNames)},
-	{"fTextfieldPanel", "Ljavax/swing/JPanel;", nullptr, 0, $field(AquaFileChooserUI, fTextfieldPanel)},
-	{"fDirectoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fDirectoryPanel)},
-	{"fDirectoryPanelSpacer", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fDirectoryPanelSpacer)},
-	{"fBottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fBottomPanel)},
-	{"fSaveFilePanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fSaveFilePanel)},
-	{"fOpenFilePanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fOpenFilePanel)},
-	{"fOpenDirOrAnyPanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fOpenDirOrAnyPanel)},
-	{"fCustomFilePanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fCustomFilePanel)},
-	{"fCustomDirOrAnyPanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fCustomDirOrAnyPanel)},
-	{"fSubPanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, 0, $field(AquaFileChooserUI, fSubPanel)},
-	{"fApproveButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaFileChooserUI, fApproveButton)},
-	{"fOpenButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaFileChooserUI, fOpenButton)},
-	{"fNewFolderButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaFileChooserUI, fNewFolderButton)},
-	{"fCancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fCancelButton)},
-	{"fApproveSelectionAction", "Lcom/apple/laf/AquaFileChooserUI$ApproveSelectionAction;", nullptr, $PRIVATE | $FINAL, $field(AquaFileChooserUI, fApproveSelectionAction)},
-	{"fSortColumn", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, fSortColumn)},
-	{"fPackageIsTraversable", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, fPackageIsTraversable)},
-	{"fApplicationIsTraversable", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, fApplicationIsTraversable)},
-	{"sGlobalPackageIsTraversable", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, sGlobalPackageIsTraversable)},
-	{"sGlobalApplicationIsTraversable", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, sGlobalApplicationIsTraversable)},
-	{"PACKAGE_TRAVERSABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, PACKAGE_TRAVERSABLE_PROPERTY)},
-	{"APPLICATION_TRAVERSABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, APPLICATION_TRAVERSABLE_PROPERTY)},
-	{"sTraversableProperties", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, sTraversableProperties)},
-	{"kOpenAlways", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenAlways)},
-	{"kOpenNever", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenNever)},
-	{"kOpenConditional", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenConditional)},
-	{"fButtonActions", "[Ljavax/swing/AbstractAction;", nullptr, 0, $field(AquaFileChooserUI, fButtonActions)},
-	{"sDataPrefix", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaFileChooserUI, sDataPrefix)},
-	{"sButtonKinds", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaFileChooserUI, sButtonKinds)},
-	{"sButtonData", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaFileChooserUI, sButtonData)},
-	{"kOpen", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpen)},
-	{"kSave", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kSave)},
-	{"kCancel", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kCancel)},
-	{"kOpenDirectory", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenDirectory)},
-	{"kHelp", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kHelp)},
-	{"kNewFolder", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kNewFolder)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI, init$, void, $JFileChooser*)},
-	{"containsFileFilter", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(AquaFileChooserUI, containsFileFilter, bool, Object$*)},
-	{"createButton", "(ILjava/lang/String;)Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(AquaFileChooserUI, createButton, $JButton*, int32_t, $String*)},
-	{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lcom/apple/laf/AquaFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createDirectoryComboBoxModel, $AquaFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
-	{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Ljavax/swing/ListCellRenderer;", "(Ljavax/swing/JFileChooser;)Ljavax/swing/ListCellRenderer<Ljava/io/File;>;", $PROTECTED, $virtualMethod(AquaFileChooserUI, createDirectoryComboBoxRenderer, $ListCellRenderer*, $JFileChooser*)},
-	{"createDoubleClickListener", "(Ljavax/swing/JFileChooser;Lcom/apple/laf/AquaFileChooserUI$JTableExtension;)Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createDoubleClickListener, $MouseListener*, $JFileChooser*, $AquaFileChooserUI$JTableExtension*)},
-	{"createFilterComboBoxModel", "()Lcom/apple/laf/AquaFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createFilterComboBoxModel, $AquaFileChooserUI$FilterComboBoxModel*)},
-	{"createFilterComboBoxRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljavax/swing/filechooser/FileFilter;>;", $PROTECTED, $virtualMethod(AquaFileChooserUI, createFilterComboBoxRenderer, $ListCellRenderer*)},
-	{"createList", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createList, $JPanel*, $JFileChooser*)},
-	{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
-	{"createModel", "()V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createModel, void)},
-	{"createNewFolderButton", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(AquaFileChooserUI, createNewFolderButton, $JButton*)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"getAcceptAllFileFilter", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getAcceptAllFileFilter, $FileFilter*, $JFileChooser*)},
-	{"getAccessoryPanel", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getAccessoryPanel, $JPanel*)},
-	{"getAction", "(I)Ljavax/swing/AbstractAction;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getAction, $AbstractAction*, int32_t)},
-	{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
-	{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
-	{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getApproveButtonText, $String*, $JFileChooser*)},
-	{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getApproveButtonToolTipText, $String*, $JFileChooser*)},
-	{"getCancelButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, getCancelButtonToolTipText, $String*, $JFileChooser*)},
-	{"getCustomDirOrAnyPanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getCustomDirOrAnyPanel, $AquaFileChooserUI$FCSubpanel*)},
-	{"getCustomFilePanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getCustomFilePanel, $AquaFileChooserUI$FCSubpanel*)},
-	{"getDialogTitle", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getDialogTitle, $String*, $JFileChooser*)},
-	{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getDirectoryName, $String*)},
-	{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getFileChooser, $JFileChooser*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getFileName, $String*)},
-	{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
-	{"getFirstSelectedItem", "()Ljava/io/File;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getFirstSelectedItem, $File*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getModel", "()Lcom/apple/laf/AquaFileSystemModel;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getModel, $AquaFileSystemModel*)},
-	{"getOpenDirOrAnyPanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getOpenDirOrAnyPanel, $AquaFileChooserUI$FCSubpanel*)},
-	{"getOpenFilePanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getOpenFilePanel, $AquaFileChooserUI$FCSubpanel*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getSaveFilePanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getSaveFilePanel, $AquaFileChooserUI$FCSubpanel*)},
-	{"getString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getString, $String*, $String*, $String*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, installComponents, void, $JFileChooser*)},
-	{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installDefaults, void, $JFileChooser*)},
-	{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installIcons, void, $JFileChooser*)},
-	{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installListeners, void, $JFileChooser*)},
-	{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installStrings, void, $JFileChooser*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, installUI, void, $JComponent*)},
-	{"isSelectableForMode", "(Ljavax/swing/JFileChooser;Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI, isSelectableForMode, bool, $JFileChooser*, $File*)},
-	{"isSelectableInList", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI, isSelectableInList, bool, $File*)},
-	{"makeFile", "(Ljavax/swing/JFileChooser;Ljava/lang/String;)Ljava/io/File;", nullptr, 0, $virtualMethod(AquaFileChooserUI, makeFile, $File*, $JFileChooser*, $String*)},
-	{"openDirectory", "(Ljava/io/File;)Z", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, openDirectory, bool, $File*)},
-	{"parseTraversableProperty", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(AquaFileChooserUI, parseTraversableProperty, int32_t, $String*)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"setApplicationIsTraversable", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setApplicationIsTraversable, void, Object$*)},
-	{"setBottomPanelForMode", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setBottomPanelForMode, void, $JFileChooser*)},
-	{"setDefaultButtonForMode", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setDefaultButtonForMode, void, $JFileChooser*)},
-	{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, setDirectoryName, void, $String*)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, setFileName, void, $String*)},
-	{"setFocusForMode", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setFocusForMode, void, $JFileChooser*)},
-	{"setPackageIsTraversable", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setPackageIsTraversable, void, Object$*)},
-	{"textfieldIsValid", "()Z", nullptr, 0, $virtualMethod(AquaFileChooserUI, textfieldIsValid, bool)},
-	{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, uninstallComponents, void, $JFileChooser*)},
-	{"uninstallDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallDefaults, void, $JFileChooser*)},
-	{"uninstallIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallIcons, void, $JFileChooser*)},
-	{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallListeners, void, $JFileChooser*)},
-	{"uninstallStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallStrings, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, uninstallUI, void, $JComponent*)},
-	{"updateApproveButton", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, updateApproveButton, void, $JFileChooser*)},
-	{"updateButtonState", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, updateButtonState, void, $JFileChooser*)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$JTableExtension", "com.apple.laf.AquaFileChooserUI", "JTableExtension", 0},
-	{"com.apple.laf.AquaFileChooserUI$MacListSelectionModel", "com.apple.laf.AquaFileChooserUI", "MacListSelectionModel", 0},
-	{"com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "CustomDirOrAnyPanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "OpenDirOrAnyPanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
-	{"com.apple.laf.AquaFileChooserUI$OpenFilePanel", "com.apple.laf.AquaFileChooserUI", "OpenFilePanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$SaveFilePanel", "com.apple.laf.AquaFileChooserUI", "SaveFilePanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$CustomFilePanel", "com.apple.laf.AquaFileChooserUI", "CustomFilePanel", 0},
-	{"com.apple.laf.AquaFileChooserUI$FCSubpanel", "com.apple.laf.AquaFileChooserUI", "FCSubpanel", $ABSTRACT},
-	{"com.apple.laf.AquaFileChooserUI$ScrollPaneCornerPanel", "com.apple.laf.AquaFileChooserUI", "ScrollPaneCornerPanel", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$FileListMouseListener", "com.apple.laf.AquaFileChooserUI", "FileListMouseListener", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$JSortingTableHeader", "com.apple.laf.AquaFileChooserUI", "JSortingTableHeader", 0},
-	{"com.apple.laf.AquaFileChooserUI$DirectoryComboBoxAction", "com.apple.laf.AquaFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$FilterComboBoxAction", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$FilterComboBoxModel", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$DirectoryComboBoxModel", "com.apple.laf.AquaFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$DateRenderer", "com.apple.laf.AquaFileChooserUI", "DateRenderer", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$FileRenderer", "com.apple.laf.AquaFileChooserUI", "FileRenderer", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer", "com.apple.laf.AquaFileChooserUI", "MacFCTableCellRenderer", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter", "com.apple.laf.AquaFileChooserUI", "AcceptAllFileFilter", $PRIVATE | $STATIC},
-	{"com.apple.laf.AquaFileChooserUI$UpdateAction", "com.apple.laf.AquaFileChooserUI", "UpdateAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$CancelSelectionAction", "com.apple.laf.AquaFileChooserUI", "CancelSelectionAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$OpenSelectionAction", "com.apple.laf.AquaFileChooserUI", "OpenSelectionAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$ApproveSelectionAction", "com.apple.laf.AquaFileChooserUI", "ApproveSelectionAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$NewFolderAction", "com.apple.laf.AquaFileChooserUI", "NewFolderAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$DefaultButtonAction", "com.apple.laf.AquaFileChooserUI", "DefaultButtonAction", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$DnDHandler", "com.apple.laf.AquaFileChooserUI", "DnDHandler", 0},
-	{"com.apple.laf.AquaFileChooserUI$DoubleClickListener", "com.apple.laf.AquaFileChooserUI", "DoubleClickListener", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener", "com.apple.laf.AquaFileChooserUI", "SaveTextDocumentListener", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$SaveTextFocusListener", "com.apple.laf.AquaFileChooserUI", "SaveTextFocusListener", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$SelectionListener", "com.apple.laf.AquaFileChooserUI", "SelectionListener", $PROTECTED},
-	{"com.apple.laf.AquaFileChooserUI$6", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFileChooserUI$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFileChooserUI$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFileChooserUI$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFileChooserUI$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI",
-	"javax.swing.plaf.FileChooserUI",
-	nullptr,
-	_AquaFileChooserUI_FieldInfo_,
-	_AquaFileChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI$JTableExtension,com.apple.laf.AquaFileChooserUI$MacListSelectionModel,com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel,com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel,com.apple.laf.AquaFileChooserUI$DirOrAnyPanel,com.apple.laf.AquaFileChooserUI$OpenFilePanel,com.apple.laf.AquaFileChooserUI$SaveFilePanel,com.apple.laf.AquaFileChooserUI$CustomFilePanel,com.apple.laf.AquaFileChooserUI$FCSubpanel,com.apple.laf.AquaFileChooserUI$ScrollPaneCornerPanel,com.apple.laf.AquaFileChooserUI$FileListMouseListener,com.apple.laf.AquaFileChooserUI$JSortingTableHeader,com.apple.laf.AquaFileChooserUI$JSortingTableHeader$AquaTableCellRenderer,com.apple.laf.AquaFileChooserUI$DirectoryComboBoxAction,com.apple.laf.AquaFileChooserUI$FilterComboBoxAction,com.apple.laf.AquaFileChooserUI$FilterComboBoxModel,com.apple.laf.AquaFileChooserUI$DirectoryComboBoxModel,com.apple.laf.AquaFileChooserUI$DateRenderer,com.apple.laf.AquaFileChooserUI$FileRenderer,com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer,com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter,com.apple.laf.AquaFileChooserUI$UpdateAction,com.apple.laf.AquaFileChooserUI$CancelSelectionAction,com.apple.laf.AquaFileChooserUI$OpenSelectionAction,com.apple.laf.AquaFileChooserUI$ApproveSelectionAction,com.apple.laf.AquaFileChooserUI$NewFolderAction,com.apple.laf.AquaFileChooserUI$DefaultButtonAction,com.apple.laf.AquaFileChooserUI$DnDHandler,com.apple.laf.AquaFileChooserUI$DnDHandler$1,com.apple.laf.AquaFileChooserUI$DoubleClickListener,com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener,com.apple.laf.AquaFileChooserUI$SaveTextFocusListener,com.apple.laf.AquaFileChooserUI$SelectionListener,com.apple.laf.AquaFileChooserUI$6,com.apple.laf.AquaFileChooserUI$5,com.apple.laf.AquaFileChooserUI$4,com.apple.laf.AquaFileChooserUI$3,com.apple.laf.AquaFileChooserUI$2,com.apple.laf.AquaFileChooserUI$1"
-};
-
-$Object* allocate$AquaFileChooserUI($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI));
-}
 
 $AquaFileChooserUI$AcceptAllFileFilter* AquaFileChooserUI::acceptAllFileFilter = nullptr;
 $Dimension* AquaFileChooserUI::hstrut10 = nullptr;
@@ -530,7 +252,7 @@ $ComponentUI* AquaFileChooserUI::createUI($JComponent* c) {
 }
 
 void AquaFileChooserUI::init$($JFileChooser* filechooser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FileChooserUI::init$();
 	$set(this, directoryIcon, nullptr);
 	$set(this, fileIcon, nullptr);
@@ -603,18 +325,18 @@ void AquaFileChooserUI::init$($JFileChooser* filechooser) {
 	this->fPackageIsTraversable = -1;
 	this->fApplicationIsTraversable = -1;
 	$set(this, fButtonActions, $new($AbstractActionArray, {
-		static_cast<$AbstractAction*>(this->fApproveSelectionAction),
-		static_cast<$AbstractAction*>(this->fApproveSelectionAction),
-		static_cast<$AbstractAction*>($$new($AquaFileChooserUI$CancelSelectionAction, this)),
-		static_cast<$AbstractAction*>($$new($AquaFileChooserUI$OpenSelectionAction, this)),
-		($AbstractAction*)nullptr,
-		static_cast<$AbstractAction*>($$new($AquaFileChooserUI$NewFolderAction, this))
+		this->fApproveSelectionAction,
+		this->fApproveSelectionAction,
+		$$new($AquaFileChooserUI$CancelSelectionAction, this),
+		$$new($AquaFileChooserUI$OpenSelectionAction, this),
+		nullptr,
+		$$new($AquaFileChooserUI$NewFolderAction, this)
 	}));
 }
 
 void AquaFileChooserUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$set(this, accessoryPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$useLocalObjectStack();
+	$set(this, accessoryPanel, $new($JPanel, $$new($BorderLayout)));
 	$set(this, filechooser, $cast($JFileChooser, c));
 	createModel();
 	installDefaults(this->filechooser);
@@ -628,14 +350,14 @@ void AquaFileChooserUI::uninstallUI($JComponent* c) {
 	uninstallComponents(this->filechooser);
 	uninstallDefaults(this->filechooser);
 	if (this->accessoryPanel != nullptr) {
-		$nc(this->accessoryPanel)->removeAll();
+		this->accessoryPanel->removeAll();
 	}
 	$set(this, accessoryPanel, nullptr);
-	$nc($(getFileChooser()))->removeAll();
+	$$nc(getFileChooser())->removeAll();
 }
 
 void AquaFileChooserUI::installListeners($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, doubleClickListener, createDoubleClickListener(fc, this->fFileList));
 	$nc(this->fFileList)->addMouseListener(this->doubleClickListener);
 	$set(this, propertyChangeListener, createPropertyChangeListener(fc));
@@ -644,7 +366,7 @@ void AquaFileChooserUI::installListeners($JFileChooser* fc) {
 	}
 	$set(this, ancestorListener, $new($AquaFileChooserUI$1, this));
 	$nc(fc)->addAncestorListener(this->ancestorListener);
-	$var($ActionListener, var$0, static_cast<$ActionListener*>($new($AquaFileChooserUI$CancelSelectionAction, this)));
+	$var($ActionListener, var$0, $new($AquaFileChooserUI$CancelSelectionAction, this));
 	fc->registerKeyboardAction(var$0, $($KeyStroke::getKeyStroke($KeyEvent::VK_ESCAPE, 0)), $JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 	$set(this, dragAndDropTarget, $new($DropTarget, fc, $DnDConstants::ACTION_COPY, $$new($AquaFileChooserUI$DnDHandler, this), true));
 	fc->setDropTarget(this->dragAndDropTarget);
@@ -664,11 +386,11 @@ void AquaFileChooserUI::uninstallListeners($JFileChooser* fc) {
 }
 
 void AquaFileChooserUI::installDefaults($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	installIcons(fc);
 	installStrings(fc);
 	setPackageIsTraversable($($nc(fc)->getClientProperty(AquaFileChooserUI::PACKAGE_TRAVERSABLE_PROPERTY)));
-	setApplicationIsTraversable($($nc(fc)->getClientProperty(AquaFileChooserUI::APPLICATION_TRAVERSABLE_PROPERTY)));
+	setApplicationIsTraversable($(fc->getClientProperty(AquaFileChooserUI::APPLICATION_TRAVERSABLE_PROPERTY)));
 }
 
 void AquaFileChooserUI::installIcons($JFileChooser* fc) {
@@ -684,7 +406,7 @@ $String* AquaFileChooserUI::getString($String* uiKey, $String* fallback) {
 }
 
 void AquaFileChooserUI::installStrings($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fileDescriptionText, $UIManager::getString("FileChooser.fileDescriptionText"_s));
 	$set(this, directoryDescriptionText, $UIManager::getString("FileChooser.directoryDescriptionText"_s));
 	$set(this, newFolderErrorText, getString("FileChooser.newFolderErrorText"_s, "Error occurred during folder creation"_s));
@@ -721,8 +443,8 @@ void AquaFileChooserUI::installStrings($JFileChooser* fc) {
 	$set(this, newFolderDefaultName, getString("FileChooser.untitledFolderName"_s, "untitled folder"_s));
 	$set(this, newFileDefaultName, getString("FileChooser.untitledFileName"_s, "untitled"_s));
 	$set(this, createButtonText, getString("FileChooser.createButtonText"_s, "Create"_s));
-	$nc(AquaFileChooserUI::fColumnNames)->set(1, $(getString("FileChooser.byDateText"_s, "Date Modified"_s)));
-	$nc(AquaFileChooserUI::fColumnNames)->set(0, $(getString("FileChooser.byNameText"_s, "Name"_s)));
+	AquaFileChooserUI::fColumnNames->set(1, $(getString("FileChooser.byDateText"_s, "Date Modified"_s)));
+	AquaFileChooserUI::fColumnNames->set(0, $(getString("FileChooser.byNameText"_s, "Name"_s)));
 	$set(this, chooseItemButtonToolTipText, $UIManager::getString("FileChooser.chooseItemButtonToolTipText"_s));
 	$set(this, chooseFolderButtonToolTipText, $UIManager::getString("FileChooser.chooseFolderButtonToolTipText"_s));
 	$set(this, openDirectoryButtonToolTipText, $UIManager::getString("FileChooser.openDirectoryButtonToolTipText"_s));
@@ -822,18 +544,18 @@ void AquaFileChooserUI::setApplicationIsTraversable(Object$* o) {
 }
 
 void AquaFileChooserUI::doControlButtonsChanged($PropertyChangeEvent* e) {
-	if ($nc($(getFileChooser()))->getControlButtonsAreShown()) {
+	if ($$nc(getFileChooser())->getControlButtonsAreShown()) {
 		$nc(this->fBottomPanel)->add(this->fDirectoryPanelSpacer);
-		$nc(this->fBottomPanel)->add(static_cast<$Component*>(this->fDirectoryPanel));
+		$nc(this->fBottomPanel)->add(this->fDirectoryPanel);
 	} else {
 		$nc(this->fBottomPanel)->remove(this->fDirectoryPanelSpacer);
-		$nc(this->fBottomPanel)->remove(static_cast<$Component*>(this->fDirectoryPanel));
+		$nc(this->fBottomPanel)->remove(this->fDirectoryPanel);
 	}
 }
 
 $String* AquaFileChooserUI::getFileName() {
 	if (this->filenameTextField != nullptr) {
-		return $nc(this->filenameTextField)->getText();
+		return this->filenameTextField->getText();
 	}
 	return nullptr;
 }
@@ -844,7 +566,7 @@ $String* AquaFileChooserUI::getDirectoryName() {
 
 void AquaFileChooserUI::setFileName($String* filename) {
 	if (this->filenameTextField != nullptr) {
-		$nc(this->filenameTextField)->setText(filename);
+		this->filenameTextField->setText(filename);
 	}
 }
 
@@ -852,19 +574,19 @@ void AquaFileChooserUI::setDirectoryName($String* dirname) {
 }
 
 void AquaFileChooserUI::rescanCurrentDirectory($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getModel()))->invalidateFileCache();
-	$nc($(getModel()))->validateFileCache();
+	$useLocalObjectStack();
+	$$nc(getModel())->invalidateFileCache();
+	$$nc(getModel())->validateFileCache();
 }
 
 void AquaFileChooserUI::ensureFileIsVisible($JFileChooser* fc, $File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		$nc(this->fFileList)->requestFocusInWindow();
 		$nc(this->fFileList)->ensureIndexIsVisible(-1);
 		return;
 	}
-	$nc($(getModel()))->runWhenDone($$new($AquaFileChooserUI$3, this, f));
+	$$nc(getModel())->runWhenDone($$new($AquaFileChooserUI$3, this, f));
 }
 
 $JFileChooser* AquaFileChooserUI::getFileChooser() {
@@ -919,11 +641,11 @@ $ListSelectionListener* AquaFileChooserUI::createListSelectionListener($JFileCho
 }
 
 bool AquaFileChooserUI::openDirectory($File* f) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFileChooser()))->isTraversable(f)) {
+	$useLocalObjectStack();
+	if ($$nc(getFileChooser())->isTraversable(f)) {
 		$nc(this->fFileList)->clearSelection();
-		$var($File, original, $nc(this->fileView)->resolveAlias(f));
-		$nc($(getFileChooser()))->setCurrentDirectory(original);
+		$var($File, original, this->fileView->resolveAlias(f));
+		$$nc(getFileChooser())->setCurrentDirectory(original);
 		updateButtonState($(getFileChooser()));
 		return true;
 	}
@@ -943,29 +665,29 @@ $FileView* AquaFileChooserUI::getFileView($JFileChooser* fc) {
 }
 
 $String* AquaFileChooserUI::getDialogTitle($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(fc)->getDialogTitle() == nullptr) {
-		if ($nc($(getFileChooser()))->getDialogType() == $JFileChooser::OPEN_DIALOG) {
+		if ($$nc(getFileChooser())->getDialogType() == $JFileChooser::OPEN_DIALOG) {
 			return this->openTitleText;
-		} else if ($nc($(getFileChooser()))->getDialogType() == $JFileChooser::SAVE_DIALOG) {
+		} else if ($$nc(getFileChooser())->getDialogType() == $JFileChooser::SAVE_DIALOG) {
 			return this->saveTitleText;
 		}
 	}
-	return $nc(fc)->getDialogTitle();
+	return fc->getDialogTitle();
 }
 
 $File* AquaFileChooserUI::getFirstSelectedItem() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, selectedFile, nullptr);
 	int32_t index = $nc(this->fFileList)->getSelectedRow();
 	if (index >= 0) {
-		$assign(selectedFile, $cast($File, $nc(($cast($AquaFileSystemModel, $($nc(this->fFileList)->getModel()))))->getElementAt(index)));
+		$assign(selectedFile, $cast($File, $$sure($AquaFileSystemModel, $nc(this->fFileList)->getModel())->getElementAt(index)));
 	}
 	return selectedFile;
 }
 
 $File* AquaFileChooserUI::makeFile($JFileChooser* fc, $String* filename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, selectedFile, nullptr);
 	if (filename != nullptr && !filename->isEmpty()) {
 		$var($FileSystemView, fs, $nc(fc)->getFileSystemView());
@@ -1011,29 +733,29 @@ $AquaFileChooserUI$FilterComboBoxModel* AquaFileChooserUI::createFilterComboBoxM
 }
 
 bool AquaFileChooserUI::containsFileFilter(Object$* fileFilter) {
-	$useLocalCurrentObjectStackCache();
-	return $Objects::equals(fileFilter, $($nc($(getFileChooser()))->getFileFilter()));
+	$useLocalObjectStack();
+	return $Objects::equals(fileFilter, $($$nc(getFileChooser())->getFileFilter()));
 }
 
 void AquaFileChooserUI::installComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, tPanel, nullptr);
 	$nc(fc)->setLayout($$new($BoxLayout, fc, $BoxLayout::Y_AXIS));
 	fc->add($($Box::createRigidArea(AquaFileChooserUI::vstrut10)));
 	$var($JPanel, topPanel, $new($JPanel));
 	topPanel->setLayout($$new($BoxLayout, topPanel, $BoxLayout::Y_AXIS));
-	fc->add(static_cast<$Component*>(topPanel));
+	fc->add(topPanel);
 	fc->add($($Box::createRigidArea(AquaFileChooserUI::vstrut10)));
 	$set(this, fTextfieldPanel, $new($JPanel));
-	$nc(this->fTextfieldPanel)->setLayout($$new($BorderLayout));
+	this->fTextfieldPanel->setLayout($$new($BorderLayout));
 	$nc(this->fTextfieldPanel)->setVisible(false);
-	topPanel->add(static_cast<$Component*>(this->fTextfieldPanel));
+	topPanel->add(this->fTextfieldPanel);
 	$assign(tPanel, $new($JPanel));
 	tPanel->setLayout($$new($BoxLayout, tPanel, $BoxLayout::Y_AXIS));
 	$var($JPanel, labelArea, $new($JPanel));
 	labelArea->setLayout($$new($FlowLayout, $FlowLayout::CENTER));
 	$set(this, fTextFieldLabel, $new($JLabel, AquaFileChooserUI::fileNameLabelText));
-	labelArea->add(static_cast<$Component*>(this->fTextFieldLabel));
+	labelArea->add(this->fTextFieldLabel);
 	$set(this, filenameTextField, $new($JTextField));
 	$nc(this->fTextFieldLabel)->setLabelFor(this->filenameTextField);
 	$nc(this->filenameTextField)->addActionListener($(getAction(AquaFileChooserUI::kOpen)));
@@ -1042,95 +764,94 @@ void AquaFileChooserUI::installComponents($JFileChooser* fc) {
 	$var($Dimension, d, $new($Dimension, 250, $cast(int32_t, $nc(minSize)->getHeight())));
 	$nc(this->filenameTextField)->setPreferredSize(d);
 	$nc(this->filenameTextField)->setMaximumSize(d);
-	labelArea->add(static_cast<$Component*>(this->filenameTextField));
+	labelArea->add(this->filenameTextField);
 	$var($File, f, fc->getSelectedFile());
 	if (f != nullptr) {
 		setFileName($(fc->getName(f)));
 	} else if (fc->getDialogType() == $JFileChooser::SAVE_DIALOG) {
 		setFileName(this->newFileDefaultName);
 	}
-	tPanel->add(static_cast<$Component*>(labelArea));
+	tPanel->add(labelArea);
 	$var($JSeparator, sep, $new($AquaFileChooserUI$6, this));
 	tPanel->add($($Box::createRigidArea($$new($Dimension, 1, 8))));
-	tPanel->add(static_cast<$Component*>(sep));
+	tPanel->add(sep);
 	tPanel->add($($Box::createRigidArea($$new($Dimension, 1, 7))));
-	$init($BorderLayout);
-	$nc(this->fTextfieldPanel)->add(static_cast<$Component*>(tPanel), $of($BorderLayout::CENTER));
+	$nc(this->fTextfieldPanel)->add(tPanel, $BorderLayout::CENTER);
 	$set(this, directoryComboBox, $new($JComboBox));
-	$nc(this->directoryComboBox)->putClientProperty("JComboBox.lightweightKeyboardNavigation"_s, "Lightweight"_s);
+	this->directoryComboBox->putClientProperty("JComboBox.lightweightKeyboardNavigation"_s, "Lightweight"_s);
 	$set(this, fDirectoryComboBoxModel, createDirectoryComboBoxModel(fc));
 	$nc(this->directoryComboBox)->setModel(this->fDirectoryComboBoxModel);
 	$nc(this->directoryComboBox)->addActionListener(this->directoryComboBoxAction);
 	$nc(this->directoryComboBox)->setRenderer($(createDirectoryComboBoxRenderer(fc)));
 	$nc(this->directoryComboBox)->setToolTipText(this->directoryComboBoxToolTipText);
-	$assign(d, $new($Dimension, 250, $cast(int32_t, $nc($($nc(this->directoryComboBox)->getMinimumSize()))->getHeight())));
+	$assign(d, $new($Dimension, 250, $cast(int32_t, $$nc($nc(this->directoryComboBox)->getMinimumSize())->getHeight())));
 	$nc(this->directoryComboBox)->setPreferredSize(d);
 	$nc(this->directoryComboBox)->setMaximumSize(d);
-	topPanel->add(static_cast<$Component*>(this->directoryComboBox));
-	$var($JPanel, centerPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	fc->add(static_cast<$Component*>(centerPanel));
+	topPanel->add(this->directoryComboBox);
+	$var($JPanel, centerPanel, $new($JPanel, $$new($BorderLayout)));
+	fc->add(centerPanel);
 	$var($JComponent, accessory, fc->getAccessory());
 	if (accessory != nullptr) {
-		$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory));
+		$$nc(getAccessoryPanel())->add(accessory);
 	}
-	centerPanel->add($(static_cast<$Component*>(getAccessoryPanel())), $of($BorderLayout::LINE_START));
+	centerPanel->add($(getAccessoryPanel()), $BorderLayout::LINE_START);
 	$var($JPanel, p, createList(fc));
 	$nc(p)->setMinimumSize(AquaFileChooserUI::LIST_MIN_SIZE);
-	centerPanel->add(static_cast<$Component*>(p), $of($BorderLayout::CENTER));
+	centerPanel->add(p, $BorderLayout::CENTER);
 	$set(this, fBottomPanel, $new($JPanel));
-	$nc(this->fBottomPanel)->setLayout($$new($BoxLayout, this->fBottomPanel, $BoxLayout::Y_AXIS));
-	fc->add(static_cast<$Component*>(this->fBottomPanel));
+	this->fBottomPanel->setLayout($$new($BoxLayout, this->fBottomPanel, $BoxLayout::Y_AXIS));
+	fc->add(this->fBottomPanel);
 	$assign(tPanel, $new($JPanel));
 	tPanel->setLayout($$new($FlowLayout, $FlowLayout::CENTER));
 	tPanel->setBorder($($AquaGroupBorder::getTitlelessBorder()));
 	$var($JLabel, formatLabel, $new($JLabel, AquaFileChooserUI::filesOfTypeLabelText));
-	tPanel->add(static_cast<$Component*>(formatLabel));
+	tPanel->add(formatLabel);
 	$set(this, filterComboBoxModel, createFilterComboBoxModel());
 	fc->addPropertyChangeListener(this->filterComboBoxModel);
-	$set(this, filterComboBox, $new($JComboBox, static_cast<$ComboBoxModel*>(this->filterComboBoxModel)));
+	$set(this, filterComboBox, $new($JComboBox, this->filterComboBoxModel));
 	formatLabel->setLabelFor(this->filterComboBox);
 	$nc(this->filterComboBox)->setRenderer($(createFilterComboBoxRenderer()));
-	$assign(d, $new($Dimension, 220, $cast(int32_t, $nc($($nc(this->filterComboBox)->getMinimumSize()))->getHeight())));
+	$assign(d, $new($Dimension, 220, $cast(int32_t, $$nc($nc(this->filterComboBox)->getMinimumSize())->getHeight())));
 	$nc(this->filterComboBox)->setPreferredSize(d);
 	$nc(this->filterComboBox)->setMaximumSize(d);
 	$nc(this->filterComboBox)->addActionListener(this->filterComboBoxAction);
 	$nc(this->filterComboBox)->setOpaque(false);
-	tPanel->add(static_cast<$Component*>(this->filterComboBox));
-	$nc(this->fBottomPanel)->add(static_cast<$Component*>(tPanel));
+	tPanel->add(this->filterComboBox);
+	$nc(this->fBottomPanel)->add(tPanel);
 	$set(this, fDirectoryPanel, $new($JPanel));
-	$nc(this->fDirectoryPanel)->setLayout($$new($BoxLayout, this->fDirectoryPanel, $BoxLayout::PAGE_AXIS));
-	$var($JPanel, directoryPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$var($JPanel, newFolderButtonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::LEADING, 0, 0))));
+	this->fDirectoryPanel->setLayout($$new($BoxLayout, this->fDirectoryPanel, $BoxLayout::PAGE_AXIS));
+	$var($JPanel, directoryPanel, $new($JPanel, $$new($BorderLayout)));
+	$var($JPanel, newFolderButtonPanel, $new($JPanel, $$new($FlowLayout, $FlowLayout::LEADING, 0, 0)));
 	newFolderButtonPanel->add($($Box::createHorizontalStrut(20)));
 	$set(this, fNewFolderButton, createNewFolderButton());
-	newFolderButtonPanel->add(static_cast<$Component*>(this->fNewFolderButton));
-	directoryPanel->add(static_cast<$Component*>(newFolderButtonPanel), $of($BorderLayout::LINE_START));
-	$var($JPanel, approveCancelButtonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::TRAILING, 0, 0))));
+	newFolderButtonPanel->add(this->fNewFolderButton);
+	directoryPanel->add(newFolderButtonPanel, $BorderLayout::LINE_START);
+	$var($JPanel, approveCancelButtonPanel, $new($JPanel, $$new($FlowLayout, $FlowLayout::TRAILING, 0, 0)));
 	$set(this, fOpenButton, createButton(AquaFileChooserUI::kOpenDirectory, this->openButtonText));
-	approveCancelButtonPanel->add(static_cast<$Component*>(this->fOpenButton));
+	approveCancelButtonPanel->add(this->fOpenButton);
 	approveCancelButtonPanel->add($($Box::createHorizontalStrut(8)));
 	$set(this, fCancelButton, createButton(AquaFileChooserUI::kCancel, nullptr));
-	approveCancelButtonPanel->add(static_cast<$Component*>(this->fCancelButton));
+	approveCancelButtonPanel->add(this->fCancelButton);
 	approveCancelButtonPanel->add($($Box::createHorizontalStrut(8)));
 	$set(this, fApproveButton, $new($JButton));
-	$nc(this->fApproveButton)->addActionListener(this->fApproveSelectionAction);
-	approveCancelButtonPanel->add(static_cast<$Component*>(this->fApproveButton));
+	this->fApproveButton->addActionListener(this->fApproveSelectionAction);
+	approveCancelButtonPanel->add(this->fApproveButton);
 	approveCancelButtonPanel->add($($Box::createHorizontalStrut(20)));
-	directoryPanel->add(static_cast<$Component*>(approveCancelButtonPanel), $of($BorderLayout::LINE_END));
+	directoryPanel->add(approveCancelButtonPanel, $BorderLayout::LINE_END);
 	$nc(this->fDirectoryPanel)->add($($Box::createVerticalStrut(5)));
-	$nc(this->fDirectoryPanel)->add(static_cast<$Component*>(directoryPanel));
+	$nc(this->fDirectoryPanel)->add(directoryPanel);
 	$nc(this->fDirectoryPanel)->add($($Box::createVerticalStrut(12)));
 	$set(this, fDirectoryPanelSpacer, $Box::createRigidArea(AquaFileChooserUI::hstrut10));
 	if (fc->getControlButtonsAreShown()) {
 		$nc(this->fBottomPanel)->add(this->fDirectoryPanelSpacer);
-		$nc(this->fBottomPanel)->add(static_cast<$Component*>(this->fDirectoryPanel));
+		$nc(this->fBottomPanel)->add(this->fDirectoryPanel);
 	}
 	setBottomPanelForMode(fc);
-	$nc($($nc(this->filenameTextField)->getDocument()))->addDocumentListener($$new($AquaFileChooserUI$SaveTextDocumentListener, this));
+	$$nc($nc(this->filenameTextField)->getDocument())->addDocumentListener($$new($AquaFileChooserUI$SaveTextDocumentListener, this));
 }
 
 void AquaFileChooserUI::setDefaultButtonForMode($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, defaultButton, $nc(this->fSubPanel)->getDefaultButton(fc));
 	$var($JRootPane, root, $nc(defaultButton)->getRootPane());
 	if (root != nullptr) {
@@ -1151,7 +872,7 @@ void AquaFileChooserUI::updateButtonState($JFileChooser* fc) {
 }
 
 void AquaFileChooserUI::updateApproveButton($JFileChooser* chooser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fApproveButton)->setText($(getApproveButtonText(chooser)));
 	$nc(this->fApproveButton)->setToolTipText($(getApproveButtonToolTipText(chooser)));
 	$nc(this->fApproveButton)->setMnemonic(getApproveButtonMnemonic(chooser));
@@ -1224,14 +945,14 @@ void AquaFileChooserUI::setBottomPanelForMode($JFileChooser* fc) {
 	updateButtonState(fc);
 	setDefaultButtonForMode(fc);
 	setFocusForMode(fc);
-	$nc(fc)->invalidate();
+	fc->invalidate();
 }
 
 $JButton* AquaFileChooserUI::createNewFolderButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($JButton, this->newFolderButtonText));
 	b->setToolTipText(AquaFileChooserUI::newFolderToolTipText);
-	$nc($(b->getAccessibleContext()))->setAccessibleName(AquaFileChooserUI::newFolderAccessibleName);
+	$$nc(b->getAccessibleContext())->setAccessibleName(AquaFileChooserUI::newFolderAccessibleName);
 	b->setHorizontalTextPosition($SwingConstants::LEFT);
 	$init($Component);
 	b->setAlignmentX($Component::LEFT_ALIGNMENT);
@@ -1241,13 +962,13 @@ $JButton* AquaFileChooserUI::createNewFolderButton() {
 }
 
 $JButton* AquaFileChooserUI::createButton(int32_t which, $String* label$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, label, label$renamed);
 	if (label == nullptr) {
-		$assign(label, $UIManager::getString($$str({AquaFileChooserUI::sDataPrefix, $nc(AquaFileChooserUI::sButtonKinds)->get(which), $nc(AquaFileChooserUI::sButtonData)->get(0)})));
+		$assign(label, $UIManager::getString($$str({AquaFileChooserUI::sDataPrefix, AquaFileChooserUI::sButtonKinds->get(which), AquaFileChooserUI::sButtonData->get(0)})));
 	}
-	int32_t mnemonic = $UIManager::getInt($$str({AquaFileChooserUI::sDataPrefix, $nc(AquaFileChooserUI::sButtonKinds)->get(which), $nc(AquaFileChooserUI::sButtonData)->get(1)}));
-	$var($String, tipText, $UIManager::getString($$str({AquaFileChooserUI::sDataPrefix, $nc(AquaFileChooserUI::sButtonKinds)->get(which), $nc(AquaFileChooserUI::sButtonData)->get(2)})));
+	int32_t mnemonic = $UIManager::getInt($$str({AquaFileChooserUI::sDataPrefix, AquaFileChooserUI::sButtonKinds->get(which), AquaFileChooserUI::sButtonData->get(1)}));
+	$var($String, tipText, $UIManager::getString($$str({AquaFileChooserUI::sDataPrefix, AquaFileChooserUI::sButtonKinds->get(which), AquaFileChooserUI::sButtonData->get(2)})));
 	$var($JButton, b, $new($JButton, label));
 	b->setMnemonic(mnemonic);
 	b->setToolTipText(tipText);
@@ -1260,31 +981,31 @@ $AbstractAction* AquaFileChooserUI::getAction(int32_t which) {
 }
 
 void AquaFileChooserUI::uninstallComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($cast($ButtonUI, $nc(this->fApproveButton)->getUI())))->uninstallUI(this->fApproveButton);
-	$nc($($cast($ButtonUI, $nc(this->fOpenButton)->getUI())))->uninstallUI(this->fOpenButton);
-	$nc($($cast($ButtonUI, $nc(this->fNewFolderButton)->getUI())))->uninstallUI(this->fNewFolderButton);
-	$nc($($cast($ButtonUI, $nc(this->fCancelButton)->getUI())))->uninstallUI(this->fCancelButton);
-	$nc($($cast($ComboBoxUI, $nc(this->directoryComboBox)->getUI())))->uninstallUI(this->directoryComboBox);
-	$nc($($cast($ComboBoxUI, $nc(this->filterComboBox)->getUI())))->uninstallUI(this->filterComboBox);
+	$useLocalObjectStack();
+	$$sure($ButtonUI, $nc(this->fApproveButton)->getUI())->uninstallUI(this->fApproveButton);
+	$$sure($ButtonUI, $nc(this->fOpenButton)->getUI())->uninstallUI(this->fOpenButton);
+	$$sure($ButtonUI, $nc(this->fNewFolderButton)->getUI())->uninstallUI(this->fNewFolderButton);
+	$$sure($ButtonUI, $nc(this->fCancelButton)->getUI())->uninstallUI(this->fCancelButton);
+	$$sure($ComboBoxUI, $nc(this->directoryComboBox)->getUI())->uninstallUI(this->directoryComboBox);
+	$$sure($ComboBoxUI, $nc(this->filterComboBox)->getUI())->uninstallUI(this->filterComboBox);
 }
 
 $JPanel* AquaFileChooserUI::createList($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
-	$var($JPanel, p, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$useLocalObjectStack();
+	$var($JPanel, p, $new($JPanel, $$new($BorderLayout)));
 	$set(this, fFileList, $new($AquaFileChooserUI$JTableExtension, this));
-	$nc(this->fFileList)->setToolTipText(nullptr);
+	this->fFileList->setToolTipText(nullptr);
 	$nc(this->fFileList)->addMouseListener($$new($AquaFileChooserUI$FileListMouseListener, this));
 	$set(this, model, $new($AquaFileSystemModel, fc, this->fFileList, AquaFileChooserUI::fColumnNames));
 	$var($AquaFileChooserUI$MacListSelectionModel, listSelectionModel, $new($AquaFileChooserUI$MacListSelectionModel, this, this->model));
-	if ($nc($(getFileChooser()))->isMultiSelectionEnabled()) {
+	if ($$nc(getFileChooser())->isMultiSelectionEnabled()) {
 		listSelectionModel->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 	} else {
 		listSelectionModel->setSelectionMode($ListSelectionModel::SINGLE_SELECTION);
 	}
 	$nc(this->fFileList)->setModel(this->model);
 	$nc(this->fFileList)->setSelectionModel(listSelectionModel);
-	$nc($($nc(this->fFileList)->getSelectionModel()))->addListSelectionListener($(createListSelectionListener(fc)));
+	$$nc($nc(this->fFileList)->getSelectionModel())->addListSelectionListener($(createListSelectionListener(fc)));
 	$nc(fc)->addPropertyChangeListener(this->model);
 	$nc(this->fFileList)->addFocusListener($$new($AquaFileChooserUI$SaveTextFocusListener, this));
 	$var($JTableHeader, th, $new($AquaFileChooserUI$JSortingTableHeader, this, $($nc(this->fFileList)->getColumnModel())));
@@ -1301,17 +1022,16 @@ $JPanel* AquaFileChooserUI::createList($JFileChooser* fc) {
 	$var($FontMetrics, fm, $nc(this->fFileList)->getFontMetrics(f));
 	int32_t var$0 = $nc(fm)->getHeight();
 	$nc(this->fFileList)->setRowHeight($Math::max(var$0, $nc(this->fileIcon)->getIconHeight() + 2));
-	$var($ActionListener, var$1, static_cast<$ActionListener*>($new($AquaFileChooserUI$CancelSelectionAction, this)));
+	$var($ActionListener, var$1, $new($AquaFileChooserUI$CancelSelectionAction, this));
 	$nc(this->fFileList)->registerKeyboardAction(var$1, $($KeyStroke::getKeyStroke($KeyEvent::VK_ESCAPE, 0)), $JComponent::WHEN_FOCUSED);
-	$var($ActionListener, var$2, static_cast<$ActionListener*>($new($AquaFileChooserUI$DefaultButtonAction, this)));
+	$var($ActionListener, var$2, $new($AquaFileChooserUI$DefaultButtonAction, this));
 	$nc(this->fFileList)->registerKeyboardAction(var$2, $($KeyStroke::getKeyStroke($KeyEvent::VK_ENTER, 0)), $JComponent::WHEN_FOCUSED);
 	$nc(this->fFileList)->setDropTarget(this->dragAndDropTarget);
 	$var($JScrollPane, scrollpane, $new($JScrollPane, this->fFileList, $ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS, $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_AS_NEEDED));
 	scrollpane->setComponentOrientation($($ComponentOrientation::getOrientation($($Locale::getDefault()))));
 	$init($ScrollPaneConstants);
 	scrollpane->setCorner($ScrollPaneConstants::UPPER_TRAILING_CORNER, $$new($AquaFileChooserUI$ScrollPaneCornerPanel, this));
-	$init($BorderLayout);
-	p->add(static_cast<$Component*>(scrollpane), $of($BorderLayout::CENTER));
+	p->add(scrollpane, $BorderLayout::CENTER);
 	return p;
 }
 
@@ -1320,15 +1040,15 @@ int32_t AquaFileChooserUI::parseTraversableProperty($String* s) {
 	if (s == nullptr) {
 		return -1;
 	}
-	for (int32_t i = 0; i < $nc(AquaFileChooserUI::sTraversableProperties)->length; ++i) {
-		if ($nc(s)->equals($nc(AquaFileChooserUI::sTraversableProperties)->get(i))) {
+	for (int32_t i = 0; i < AquaFileChooserUI::sTraversableProperties->length; ++i) {
+		if ($nc(s)->equals(AquaFileChooserUI::sTraversableProperties->get(i))) {
 			return i;
 		}
 	}
 	return -1;
 }
 
-void clinit$AquaFileChooserUI($Class* class$) {
+void AquaFileChooserUI::clinit$($Class* clazz) {
 	$assignStatic(AquaFileChooserUI::PACKAGE_TRAVERSABLE_PROPERTY, "JFileChooser.packageIsTraversable"_s);
 	$assignStatic(AquaFileChooserUI::APPLICATION_TRAVERSABLE_PROPERTY, "JFileChooser.appBundleIsTraversable"_s);
 	$assignStatic(AquaFileChooserUI::sDataPrefix, "FileChooser."_s);
@@ -1379,7 +1099,255 @@ AquaFileChooserUI::AquaFileChooserUI() {
 }
 
 $Class* AquaFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI, name, initialize, &_AquaFileChooserUI_ClassInfo_, clinit$AquaFileChooserUI, allocate$AquaFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"directoryIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, directoryIcon)},
+		{"fileIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, fileIcon)},
+		{"computerIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, computerIcon)},
+		{"hardDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, hardDriveIcon)},
+		{"floppyDriveIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, floppyDriveIcon)},
+		{"upFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, upFolderIcon)},
+		{"homeFolderIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, homeFolderIcon)},
+		{"listViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, listViewIcon)},
+		{"detailsViewIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(AquaFileChooserUI, detailsViewIcon)},
+		{"saveButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, saveButtonMnemonic)},
+		{"openButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, openButtonMnemonic)},
+		{"cancelButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelButtonMnemonic)},
+		{"updateButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, updateButtonMnemonic)},
+		{"helpButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, helpButtonMnemonic)},
+		{"chooseButtonMnemonic", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseButtonMnemonic)},
+		{"saveTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AquaFileChooserUI, saveTitleText)},
+		{"openTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AquaFileChooserUI, openTitleText)},
+		{"newFolderTitleText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderTitleText)},
+		{"saveButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, saveButtonText)},
+		{"openButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, openButtonText)},
+		{"cancelButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelButtonText)},
+		{"updateButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, updateButtonText)},
+		{"helpButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, helpButtonText)},
+		{"newFolderButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, newFolderButtonText)},
+		{"chooseButtonText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseButtonText)},
+		{"newFolderErrorText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderErrorText)},
+		{"newFolderExistsErrorText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderExistsErrorText)},
+		{"fileDescriptionText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, fileDescriptionText)},
+		{"directoryDescriptionText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, directoryDescriptionText)},
+		{"saveButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, saveButtonToolTipText)},
+		{"openButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, openButtonToolTipText)},
+		{"cancelButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelButtonToolTipText)},
+		{"updateButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, updateButtonToolTipText)},
+		{"helpButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, helpButtonToolTipText)},
+		{"chooseItemButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseItemButtonToolTipText)},
+		{"chooseFolderButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, chooseFolderButtonToolTipText)},
+		{"directoryComboBoxToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, directoryComboBoxToolTipText)},
+		{"filenameTextFieldToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, filenameTextFieldToolTipText)},
+		{"filterComboBoxToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, filterComboBoxToolTipText)},
+		{"openDirectoryButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, openDirectoryButtonToolTipText)},
+		{"cancelOpenButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelOpenButtonToolTipText)},
+		{"cancelSaveButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelSaveButtonToolTipText)},
+		{"cancelChooseButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelChooseButtonToolTipText)},
+		{"cancelNewFolderButtonToolTipText", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, cancelNewFolderButtonToolTipText)},
+		{"desktopName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AquaFileChooserUI, desktopName)},
+		{"newFolderDialogPrompt", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderDialogPrompt)},
+		{"newFolderDefaultName", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, newFolderDefaultName)},
+		{"newFileDefaultName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AquaFileChooserUI, newFileDefaultName)},
+		{"createButtonText", "Ljava/lang/String;", nullptr, 0, $field(AquaFileChooserUI, createButtonText)},
+		{"filechooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(AquaFileChooserUI, filechooser)},
+		{"doubleClickListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(AquaFileChooserUI, doubleClickListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(AquaFileChooserUI, propertyChangeListener)},
+		{"ancestorListener", "Ljavax/swing/event/AncestorListener;", nullptr, $PRIVATE, $field(AquaFileChooserUI, ancestorListener)},
+		{"dragAndDropTarget", "Ljava/awt/dnd/DropTarget;", nullptr, $PRIVATE, $field(AquaFileChooserUI, dragAndDropTarget)},
+		{"acceptAllFileFilter", "Lcom/apple/laf/AquaFileChooserUI$AcceptAllFileFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, acceptAllFileFilter)},
+		{"model", "Lcom/apple/laf/AquaFileSystemModel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, model)},
+		{"fileView", "Lcom/apple/laf/AquaFileView;", nullptr, $FINAL, $field(AquaFileChooserUI, fileView)},
+		{"selectionInProgress", "Z", nullptr, 0, $field(AquaFileChooserUI, selectionInProgress)},
+		{"accessoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, accessoryPanel)},
+		{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", 0, $field(AquaFileChooserUI, directoryComboBox)},
+		{"fDirectoryComboBoxModel", "Lcom/apple/laf/AquaFileChooserUI$DirectoryComboBoxModel;", nullptr, 0, $field(AquaFileChooserUI, fDirectoryComboBoxModel)},
+		{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaFileChooserUI, directoryComboBoxAction)},
+		{"filenameTextField", "Ljavax/swing/JTextField;", nullptr, 0, $field(AquaFileChooserUI, filenameTextField)},
+		{"fFileList", "Lcom/apple/laf/AquaFileChooserUI$JTableExtension;", nullptr, 0, $field(AquaFileChooserUI, fFileList)},
+		{"filterComboBoxModel", "Lcom/apple/laf/AquaFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, filterComboBoxModel)},
+		{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", 0, $field(AquaFileChooserUI, filterComboBox)},
+		{"filterComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE | $FINAL, $field(AquaFileChooserUI, filterComboBoxAction)},
+		{"hstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, hstrut10)},
+		{"vstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, vstrut10)},
+		{"PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, PREF_WIDTH)},
+		{"PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, PREF_HEIGHT)},
+		{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, MIN_WIDTH)},
+		{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, MIN_HEIGHT)},
+		{"LIST_MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, LIST_MIN_WIDTH)},
+		{"LIST_MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileChooserUI, LIST_MIN_HEIGHT)},
+		{"LIST_MIN_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, LIST_MIN_SIZE)},
+		{"fileNameLabelText", "Ljava/lang/String;", nullptr, $STATIC, $staticField(AquaFileChooserUI, fileNameLabelText)},
+		{"fTextFieldLabel", "Ljavax/swing/JLabel;", nullptr, 0, $field(AquaFileChooserUI, fTextFieldLabel)},
+		{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(AquaFileChooserUI, filesOfTypeLabelText)},
+		{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(AquaFileChooserUI, newFolderToolTipText)},
+		{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $STATIC, $staticField(AquaFileChooserUI, newFolderAccessibleName)},
+		{"fColumnNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileChooserUI, fColumnNames)},
+		{"fTextfieldPanel", "Ljavax/swing/JPanel;", nullptr, 0, $field(AquaFileChooserUI, fTextfieldPanel)},
+		{"fDirectoryPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fDirectoryPanel)},
+		{"fDirectoryPanelSpacer", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fDirectoryPanelSpacer)},
+		{"fBottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fBottomPanel)},
+		{"fSaveFilePanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fSaveFilePanel)},
+		{"fOpenFilePanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fOpenFilePanel)},
+		{"fOpenDirOrAnyPanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fOpenDirOrAnyPanel)},
+		{"fCustomFilePanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fCustomFilePanel)},
+		{"fCustomDirOrAnyPanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fCustomDirOrAnyPanel)},
+		{"fSubPanel", "Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, 0, $field(AquaFileChooserUI, fSubPanel)},
+		{"fApproveButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaFileChooserUI, fApproveButton)},
+		{"fOpenButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaFileChooserUI, fOpenButton)},
+		{"fNewFolderButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaFileChooserUI, fNewFolderButton)},
+		{"fCancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(AquaFileChooserUI, fCancelButton)},
+		{"fApproveSelectionAction", "Lcom/apple/laf/AquaFileChooserUI$ApproveSelectionAction;", nullptr, $PRIVATE | $FINAL, $field(AquaFileChooserUI, fApproveSelectionAction)},
+		{"fSortColumn", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, fSortColumn)},
+		{"fPackageIsTraversable", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, fPackageIsTraversable)},
+		{"fApplicationIsTraversable", "I", nullptr, $PROTECTED, $field(AquaFileChooserUI, fApplicationIsTraversable)},
+		{"sGlobalPackageIsTraversable", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, sGlobalPackageIsTraversable)},
+		{"sGlobalApplicationIsTraversable", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, sGlobalApplicationIsTraversable)},
+		{"PACKAGE_TRAVERSABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, PACKAGE_TRAVERSABLE_PROPERTY)},
+		{"APPLICATION_TRAVERSABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, APPLICATION_TRAVERSABLE_PROPERTY)},
+		{"sTraversableProperties", "[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AquaFileChooserUI, sTraversableProperties)},
+		{"kOpenAlways", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenAlways)},
+		{"kOpenNever", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenNever)},
+		{"kOpenConditional", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenConditional)},
+		{"fButtonActions", "[Ljavax/swing/AbstractAction;", nullptr, 0, $field(AquaFileChooserUI, fButtonActions)},
+		{"sDataPrefix", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaFileChooserUI, sDataPrefix)},
+		{"sButtonKinds", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaFileChooserUI, sButtonKinds)},
+		{"sButtonData", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaFileChooserUI, sButtonData)},
+		{"kOpen", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpen)},
+		{"kSave", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kSave)},
+		{"kCancel", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kCancel)},
+		{"kOpenDirectory", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kOpenDirectory)},
+		{"kHelp", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kHelp)},
+		{"kNewFolder", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileChooserUI, kNewFolder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(AquaFileChooserUI, init$, void, $JFileChooser*)},
+		{"containsFileFilter", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(AquaFileChooserUI, containsFileFilter, bool, Object$*)},
+		{"createButton", "(ILjava/lang/String;)Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(AquaFileChooserUI, createButton, $JButton*, int32_t, $String*)},
+		{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lcom/apple/laf/AquaFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createDirectoryComboBoxModel, $AquaFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
+		{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Ljavax/swing/ListCellRenderer;", "(Ljavax/swing/JFileChooser;)Ljavax/swing/ListCellRenderer<Ljava/io/File;>;", $PROTECTED, $virtualMethod(AquaFileChooserUI, createDirectoryComboBoxRenderer, $ListCellRenderer*, $JFileChooser*)},
+		{"createDoubleClickListener", "(Ljavax/swing/JFileChooser;Lcom/apple/laf/AquaFileChooserUI$JTableExtension;)Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createDoubleClickListener, $MouseListener*, $JFileChooser*, $AquaFileChooserUI$JTableExtension*)},
+		{"createFilterComboBoxModel", "()Lcom/apple/laf/AquaFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createFilterComboBoxModel, $AquaFileChooserUI$FilterComboBoxModel*)},
+		{"createFilterComboBoxRenderer", "()Ljavax/swing/ListCellRenderer;", "()Ljavax/swing/ListCellRenderer<Ljavax/swing/filechooser/FileFilter;>;", $PROTECTED, $virtualMethod(AquaFileChooserUI, createFilterComboBoxRenderer, $ListCellRenderer*)},
+		{"createList", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createList, $JPanel*, $JFileChooser*)},
+		{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
+		{"createModel", "()V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createModel, void)},
+		{"createNewFolderButton", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(AquaFileChooserUI, createNewFolderButton, $JButton*)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"getAcceptAllFileFilter", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getAcceptAllFileFilter, $FileFilter*, $JFileChooser*)},
+		{"getAccessoryPanel", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getAccessoryPanel, $JPanel*)},
+		{"getAction", "(I)Ljavax/swing/AbstractAction;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getAction, $AbstractAction*, int32_t)},
+		{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
+		{"getApproveButtonMnemonic", "(Ljavax/swing/JFileChooser;)I", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getApproveButtonMnemonic, int32_t, $JFileChooser*)},
+		{"getApproveButtonText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getApproveButtonText, $String*, $JFileChooser*)},
+		{"getApproveButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getApproveButtonToolTipText, $String*, $JFileChooser*)},
+		{"getCancelButtonToolTipText", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, getCancelButtonToolTipText, $String*, $JFileChooser*)},
+		{"getCustomDirOrAnyPanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getCustomDirOrAnyPanel, $AquaFileChooserUI$FCSubpanel*)},
+		{"getCustomFilePanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getCustomFilePanel, $AquaFileChooserUI$FCSubpanel*)},
+		{"getDialogTitle", "(Ljavax/swing/JFileChooser;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getDialogTitle, $String*, $JFileChooser*)},
+		{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getDirectoryName, $String*)},
+		{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getFileChooser, $JFileChooser*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getFileName, $String*)},
+		{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
+		{"getFirstSelectedItem", "()Ljava/io/File;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getFirstSelectedItem, $File*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getModel", "()Lcom/apple/laf/AquaFileSystemModel;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getModel, $AquaFileSystemModel*)},
+		{"getOpenDirOrAnyPanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getOpenDirOrAnyPanel, $AquaFileChooserUI$FCSubpanel*)},
+		{"getOpenFilePanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getOpenFilePanel, $AquaFileChooserUI$FCSubpanel*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getSaveFilePanel", "()Lcom/apple/laf/AquaFileChooserUI$FCSubpanel;", nullptr, $SYNCHRONIZED, $virtualMethod(AquaFileChooserUI, getSaveFilePanel, $AquaFileChooserUI$FCSubpanel*)},
+		{"getString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileChooserUI, getString, $String*, $String*, $String*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, installComponents, void, $JFileChooser*)},
+		{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installDefaults, void, $JFileChooser*)},
+		{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installIcons, void, $JFileChooser*)},
+		{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installListeners, void, $JFileChooser*)},
+		{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, installStrings, void, $JFileChooser*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, installUI, void, $JComponent*)},
+		{"isSelectableForMode", "(Ljavax/swing/JFileChooser;Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI, isSelectableForMode, bool, $JFileChooser*, $File*)},
+		{"isSelectableInList", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileChooserUI, isSelectableInList, bool, $File*)},
+		{"makeFile", "(Ljavax/swing/JFileChooser;Ljava/lang/String;)Ljava/io/File;", nullptr, 0, $virtualMethod(AquaFileChooserUI, makeFile, $File*, $JFileChooser*, $String*)},
+		{"openDirectory", "(Ljava/io/File;)Z", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, openDirectory, bool, $File*)},
+		{"parseTraversableProperty", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(AquaFileChooserUI, parseTraversableProperty, int32_t, $String*)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"setApplicationIsTraversable", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setApplicationIsTraversable, void, Object$*)},
+		{"setBottomPanelForMode", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setBottomPanelForMode, void, $JFileChooser*)},
+		{"setDefaultButtonForMode", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setDefaultButtonForMode, void, $JFileChooser*)},
+		{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, setDirectoryName, void, $String*)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, setFileName, void, $String*)},
+		{"setFocusForMode", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setFocusForMode, void, $JFileChooser*)},
+		{"setPackageIsTraversable", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, setPackageIsTraversable, void, Object$*)},
+		{"textfieldIsValid", "()Z", nullptr, 0, $virtualMethod(AquaFileChooserUI, textfieldIsValid, bool)},
+		{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, uninstallComponents, void, $JFileChooser*)},
+		{"uninstallDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallDefaults, void, $JFileChooser*)},
+		{"uninstallIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallIcons, void, $JFileChooser*)},
+		{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallListeners, void, $JFileChooser*)},
+		{"uninstallStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(AquaFileChooserUI, uninstallStrings, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI, uninstallUI, void, $JComponent*)},
+		{"updateApproveButton", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, updateApproveButton, void, $JFileChooser*)},
+		{"updateButtonState", "(Ljavax/swing/JFileChooser;)V", nullptr, 0, $virtualMethod(AquaFileChooserUI, updateButtonState, void, $JFileChooser*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$JTableExtension", "com.apple.laf.AquaFileChooserUI", "JTableExtension", 0},
+		{"com.apple.laf.AquaFileChooserUI$MacListSelectionModel", "com.apple.laf.AquaFileChooserUI", "MacListSelectionModel", 0},
+		{"com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "CustomDirOrAnyPanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "OpenDirOrAnyPanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$DirOrAnyPanel", "com.apple.laf.AquaFileChooserUI", "DirOrAnyPanel", $ABSTRACT},
+		{"com.apple.laf.AquaFileChooserUI$OpenFilePanel", "com.apple.laf.AquaFileChooserUI", "OpenFilePanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$SaveFilePanel", "com.apple.laf.AquaFileChooserUI", "SaveFilePanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$CustomFilePanel", "com.apple.laf.AquaFileChooserUI", "CustomFilePanel", 0},
+		{"com.apple.laf.AquaFileChooserUI$FCSubpanel", "com.apple.laf.AquaFileChooserUI", "FCSubpanel", $ABSTRACT},
+		{"com.apple.laf.AquaFileChooserUI$ScrollPaneCornerPanel", "com.apple.laf.AquaFileChooserUI", "ScrollPaneCornerPanel", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$FileListMouseListener", "com.apple.laf.AquaFileChooserUI", "FileListMouseListener", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$JSortingTableHeader", "com.apple.laf.AquaFileChooserUI", "JSortingTableHeader", 0},
+		{"com.apple.laf.AquaFileChooserUI$DirectoryComboBoxAction", "com.apple.laf.AquaFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$FilterComboBoxAction", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$FilterComboBoxModel", "com.apple.laf.AquaFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$DirectoryComboBoxModel", "com.apple.laf.AquaFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$DateRenderer", "com.apple.laf.AquaFileChooserUI", "DateRenderer", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$FileRenderer", "com.apple.laf.AquaFileChooserUI", "FileRenderer", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer", "com.apple.laf.AquaFileChooserUI", "MacFCTableCellRenderer", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter", "com.apple.laf.AquaFileChooserUI", "AcceptAllFileFilter", $PRIVATE | $STATIC},
+		{"com.apple.laf.AquaFileChooserUI$UpdateAction", "com.apple.laf.AquaFileChooserUI", "UpdateAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$CancelSelectionAction", "com.apple.laf.AquaFileChooserUI", "CancelSelectionAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$OpenSelectionAction", "com.apple.laf.AquaFileChooserUI", "OpenSelectionAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$ApproveSelectionAction", "com.apple.laf.AquaFileChooserUI", "ApproveSelectionAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$NewFolderAction", "com.apple.laf.AquaFileChooserUI", "NewFolderAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$DefaultButtonAction", "com.apple.laf.AquaFileChooserUI", "DefaultButtonAction", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$DnDHandler", "com.apple.laf.AquaFileChooserUI", "DnDHandler", 0},
+		{"com.apple.laf.AquaFileChooserUI$DoubleClickListener", "com.apple.laf.AquaFileChooserUI", "DoubleClickListener", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener", "com.apple.laf.AquaFileChooserUI", "SaveTextDocumentListener", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$SaveTextFocusListener", "com.apple.laf.AquaFileChooserUI", "SaveTextFocusListener", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$SelectionListener", "com.apple.laf.AquaFileChooserUI", "SelectionListener", $PROTECTED},
+		{"com.apple.laf.AquaFileChooserUI$6", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFileChooserUI$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFileChooserUI$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFileChooserUI$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFileChooserUI$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI",
+		"javax.swing.plaf.FileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI$JTableExtension,com.apple.laf.AquaFileChooserUI$MacListSelectionModel,com.apple.laf.AquaFileChooserUI$CustomDirOrAnyPanel,com.apple.laf.AquaFileChooserUI$OpenDirOrAnyPanel,com.apple.laf.AquaFileChooserUI$DirOrAnyPanel,com.apple.laf.AquaFileChooserUI$OpenFilePanel,com.apple.laf.AquaFileChooserUI$SaveFilePanel,com.apple.laf.AquaFileChooserUI$CustomFilePanel,com.apple.laf.AquaFileChooserUI$FCSubpanel,com.apple.laf.AquaFileChooserUI$ScrollPaneCornerPanel,com.apple.laf.AquaFileChooserUI$FileListMouseListener,com.apple.laf.AquaFileChooserUI$JSortingTableHeader,com.apple.laf.AquaFileChooserUI$JSortingTableHeader$AquaTableCellRenderer,com.apple.laf.AquaFileChooserUI$DirectoryComboBoxAction,com.apple.laf.AquaFileChooserUI$FilterComboBoxAction,com.apple.laf.AquaFileChooserUI$FilterComboBoxModel,com.apple.laf.AquaFileChooserUI$DirectoryComboBoxModel,com.apple.laf.AquaFileChooserUI$DateRenderer,com.apple.laf.AquaFileChooserUI$FileRenderer,com.apple.laf.AquaFileChooserUI$MacFCTableCellRenderer,com.apple.laf.AquaFileChooserUI$AcceptAllFileFilter,com.apple.laf.AquaFileChooserUI$UpdateAction,com.apple.laf.AquaFileChooserUI$CancelSelectionAction,com.apple.laf.AquaFileChooserUI$OpenSelectionAction,com.apple.laf.AquaFileChooserUI$ApproveSelectionAction,com.apple.laf.AquaFileChooserUI$NewFolderAction,com.apple.laf.AquaFileChooserUI$DefaultButtonAction,com.apple.laf.AquaFileChooserUI$DnDHandler,com.apple.laf.AquaFileChooserUI$DnDHandler$1,com.apple.laf.AquaFileChooserUI$DoubleClickListener,com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener,com.apple.laf.AquaFileChooserUI$SaveTextFocusListener,com.apple.laf.AquaFileChooserUI$SelectionListener,com.apple.laf.AquaFileChooserUI$6,com.apple.laf.AquaFileChooserUI$5,com.apple.laf.AquaFileChooserUI$4,com.apple.laf.AquaFileChooserUI$3,com.apple.laf.AquaFileChooserUI$2,com.apple.laf.AquaFileChooserUI$1"
+	};
+	$loadClass(AquaFileChooserUI, name, initialize, &classInfo$$, AquaFileChooserUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet$BoxPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -51,7 +50,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -63,7 +61,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $Element = ::javax::swing::text::Element;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $View = ::javax::swing::text::View;
 using $CSS = ::javax::swing::text::html::CSS;
@@ -80,60 +77,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _StyleSheet$BoxPainter_FieldInfo_[] = {
-	{"topMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, topMargin)},
-	{"bottomMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, bottomMargin)},
-	{"leftMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, leftMargin)},
-	{"rightMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, rightMargin)},
-	{"marginFlags", "S", nullptr, 0, $field(StyleSheet$BoxPainter, marginFlags)},
-	{"border", "Ljavax/swing/border/Border;", nullptr, 0, $field(StyleSheet$BoxPainter, border)},
-	{"binsets", "Ljava/awt/Insets;", nullptr, 0, $field(StyleSheet$BoxPainter, binsets)},
-	{"css", "Ljavax/swing/text/html/CSS;", nullptr, 0, $field(StyleSheet$BoxPainter, css)},
-	{"ss", "Ljavax/swing/text/html/StyleSheet;", nullptr, 0, $field(StyleSheet$BoxPainter, ss)},
-	{"bg", "Ljava/awt/Color;", nullptr, 0, $field(StyleSheet$BoxPainter, bg)},
-	{"bgPainter", "Ljavax/swing/text/html/StyleSheet$BackgroundImagePainter;", nullptr, 0, $field(StyleSheet$BoxPainter, bgPainter)},
-	{}
-};
-
-$MethodInfo _StyleSheet$BoxPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS;Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$BoxPainter, init$, void, $AttributeSet*, $CSS*, $StyleSheet*)},
-	{"getBorder", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getBorder, $Border*, $AttributeSet*)},
-	{"getBorderColor", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getBorderColor, $Color*, $AttributeSet*)},
-	{"getInset", "(ILjavax/swing/text/View;)F", nullptr, $PUBLIC, $virtualMethod(StyleSheet$BoxPainter, getInset, float, int32_t, $View*)},
-	{"getLength", "(Ljavax/swing/text/html/CSS$Attribute;Ljavax/swing/text/AttributeSet;)F", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getLength, float, $CSS$Attribute*, $AttributeSet*)},
-	{"getOrientationMargin", "(Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;FLjavax/swing/text/AttributeSet;Z)F", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getOrientationMargin, float, $StyleSheet$BoxPainter$HorizontalMargin*, float, $AttributeSet*, bool)},
-	{"isLeftToRight", "(Ljavax/swing/text/View;)Z", nullptr, $STATIC, $staticMethod(StyleSheet$BoxPainter, isLeftToRight, bool, $View*)},
-	{"isOrientationAware", "(Ljavax/swing/text/View;)Z", nullptr, $STATIC, $staticMethod(StyleSheet$BoxPainter, isOrientationAware, bool, $View*)},
-	{"paint", "(Ljava/awt/Graphics;FFFFLjavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$BoxPainter, paint, void, $Graphics*, float, float, float, float, $View*)},
-	{}
-};
-
-$InnerClassInfo _StyleSheet$BoxPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$BoxPainter", "javax.swing.text.html.StyleSheet", "BoxPainter", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin", "javax.swing.text.html.StyleSheet$BoxPainter", "HorizontalMargin", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StyleSheet$BoxPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.StyleSheet$BoxPainter",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_StyleSheet$BoxPainter_FieldInfo_,
-	_StyleSheet$BoxPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleSheet$BoxPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet"
-};
-
-$Object* allocate$StyleSheet$BoxPainter($Class* clazz) {
-	return $of($alloc(StyleSheet$BoxPainter));
-}
 
 void StyleSheet$BoxPainter::init$($AttributeSet* a, $CSS* css, $StyleSheet* ss) {
 	$set(this, ss, ss);
@@ -169,57 +112,47 @@ $Color* StyleSheet$BoxPainter::getBorderColor($AttributeSet* a) {
 }
 
 float StyleSheet$BoxPainter::getInset(int32_t side, $View* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, a, $nc(v)->getAttributes());
-	float inset = (float)0;
+	float inset = 0;
 	switch (side) {
 	case $View::LEFT:
-		{
-			$init($StyleSheet$BoxPainter$HorizontalMargin);
-			inset += getOrientationMargin($StyleSheet$BoxPainter$HorizontalMargin::LEFT, this->leftMargin, a, isLeftToRight(v));
-			inset += $nc(this->binsets)->left;
-			$init($CSS$Attribute);
-			inset += getLength($CSS$Attribute::PADDING_LEFT, a);
-			break;
-		}
+		$init($StyleSheet$BoxPainter$HorizontalMargin);
+		inset += getOrientationMargin($StyleSheet$BoxPainter$HorizontalMargin::LEFT, this->leftMargin, a, isLeftToRight(v));
+		inset += $nc(this->binsets)->left;
+		$init($CSS$Attribute);
+		inset += getLength($CSS$Attribute::PADDING_LEFT, a);
+		break;
 	case $View::RIGHT:
-		{
-			$init($StyleSheet$BoxPainter$HorizontalMargin);
-			inset += getOrientationMargin($StyleSheet$BoxPainter$HorizontalMargin::RIGHT, this->rightMargin, a, isLeftToRight(v));
-			inset += $nc(this->binsets)->right;
-			$init($CSS$Attribute);
-			inset += getLength($CSS$Attribute::PADDING_RIGHT, a);
-			break;
-		}
+		$init($StyleSheet$BoxPainter$HorizontalMargin);
+		inset += getOrientationMargin($StyleSheet$BoxPainter$HorizontalMargin::RIGHT, this->rightMargin, a, isLeftToRight(v));
+		inset += $nc(this->binsets)->right;
+		$init($CSS$Attribute);
+		inset += getLength($CSS$Attribute::PADDING_RIGHT, a);
+		break;
 	case $View::TOP:
-		{
-			inset += this->topMargin;
-			inset += $nc(this->binsets)->top;
-			$init($CSS$Attribute);
-			inset += getLength($CSS$Attribute::PADDING_TOP, a);
-			break;
-		}
+		inset += this->topMargin;
+		inset += $nc(this->binsets)->top;
+		$init($CSS$Attribute);
+		inset += getLength($CSS$Attribute::PADDING_TOP, a);
+		break;
 	case $View::BOTTOM:
-		{
-			inset += this->bottomMargin;
-			inset += $nc(this->binsets)->bottom;
-			$init($CSS$Attribute);
-			inset += getLength($CSS$Attribute::PADDING_BOTTOM, a);
-			break;
-		}
+		inset += this->bottomMargin;
+		inset += $nc(this->binsets)->bottom;
+		$init($CSS$Attribute);
+		inset += getLength($CSS$Attribute::PADDING_BOTTOM, a);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid side: "_s, $$str(side)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid side: "_s, $$str(side)}));
 	}
 	return inset;
 }
 
 void StyleSheet$BoxPainter::paint($Graphics* g, float x, float y, float w, float h, $View* v) {
-	float dx = (float)0;
-	float dy = (float)0;
-	float dw = (float)0;
-	float dh = (float)0;
+	float dx = 0;
+	float dy = 0;
+	float dw = 0;
+	float dh = 0;
 	$var($AttributeSet, a, $nc(v)->getAttributes());
 	bool isLeftToRight = StyleSheet$BoxPainter::isLeftToRight(v);
 	$init($StyleSheet$BoxPainter$HorizontalMargin);
@@ -236,7 +169,7 @@ void StyleSheet$BoxPainter::paint($Graphics* g, float x, float y, float w, float
 		g->fillRect($cast(int32_t, (x + dx)), $cast(int32_t, (y + dy)), $cast(int32_t, (w + dw)), $cast(int32_t, (h + dh)));
 	}
 	if (this->bgPainter != nullptr) {
-		$nc(this->bgPainter)->paint(g, x + dx, y + dy, w + dw, h + dh, v);
+		this->bgPainter->paint(g, x + dx, y + dy, w + dw, h + dh, v);
 	}
 	x += localLeftMargin;
 	y += this->topMargin;
@@ -259,12 +192,12 @@ float StyleSheet$BoxPainter::getLength($CSS$Attribute* key, $AttributeSet* a) {
 
 bool StyleSheet$BoxPainter::isLeftToRight($View* v) {
 	$init(StyleSheet$BoxPainter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ret = true;
 	if (isOrientationAware(v)) {
 		$var($Container, container, nullptr);
 		if (v != nullptr && ($assign(container, v->getContainer())) != nullptr) {
-			ret = $nc($($nc(container)->getComponentOrientation()))->isLeftToRight();
+			ret = $$nc($nc(container)->getComponentOrientation())->isLeftToRight();
 		}
 	}
 	return ret;
@@ -272,11 +205,11 @@ bool StyleSheet$BoxPainter::isLeftToRight($View* v) {
 
 bool StyleSheet$BoxPainter::isOrientationAware($View* v) {
 	$init(StyleSheet$BoxPainter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ret = false;
 	$var($AttributeSet, attr, nullptr);
 	$var($Object, obj, nullptr);
-	bool var$1 = v != nullptr && ($assign(attr, $nc($(v->getElement()))->getAttributes())) != nullptr;
+	bool var$1 = v != nullptr && ($assign(attr, $$nc(v->getElement())->getAttributes())) != nullptr;
 	$init($StyleConstants);
 	bool var$0 = var$1 && $instanceOf($HTML$Tag, $assign(obj, $nc(attr)->getAttribute($StyleConstants::NameAttribute)));
 	$init($HTML$Tag);
@@ -294,22 +227,18 @@ float StyleSheet$BoxPainter::getOrientationMargin($StyleSheet$BoxPainter$Horizon
 	switch ($nc($StyleSheet$1::$SwitchMap$javax$swing$text$html$StyleSheet$BoxPainter$HorizontalMargin)->get($nc((side))->ordinal())) {
 	case 1:
 		{
-			{
-				$init($CSS$Attribute);
-				orientationMargin = (isLeftToRight) ? getLength($CSS$Attribute::MARGIN_RIGHT_LTR, a) : getLength($CSS$Attribute::MARGIN_RIGHT_RTL, a);
-				$assign(cssMarginValue, $nc(a)->getAttribute($CSS$Attribute::MARGIN_RIGHT));
-			}
-			break;
+			$init($CSS$Attribute);
+			orientationMargin = (isLeftToRight) ? getLength($CSS$Attribute::MARGIN_RIGHT_LTR, a) : getLength($CSS$Attribute::MARGIN_RIGHT_RTL, a);
+			$assign(cssMarginValue, $nc(a)->getAttribute($CSS$Attribute::MARGIN_RIGHT));
 		}
+		break;
 	case 2:
 		{
-			{
-				$init($CSS$Attribute);
-				orientationMargin = (isLeftToRight) ? getLength($CSS$Attribute::MARGIN_LEFT_LTR, a) : getLength($CSS$Attribute::MARGIN_LEFT_RTL, a);
-				$assign(cssMarginValue, $nc(a)->getAttribute($CSS$Attribute::MARGIN_LEFT));
-			}
-			break;
+			$init($CSS$Attribute);
+			orientationMargin = (isLeftToRight) ? getLength($CSS$Attribute::MARGIN_LEFT_LTR, a) : getLength($CSS$Attribute::MARGIN_LEFT_RTL, a);
+			$assign(cssMarginValue, $nc(a)->getAttribute($CSS$Attribute::MARGIN_LEFT));
 		}
+		break;
 	}
 	if (cssMarginValue == nullptr && orientationMargin != $Integer::MIN_VALUE) {
 		margin = orientationMargin;
@@ -321,7 +250,55 @@ StyleSheet$BoxPainter::StyleSheet$BoxPainter() {
 }
 
 $Class* StyleSheet$BoxPainter::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet$BoxPainter, name, initialize, &_StyleSheet$BoxPainter_ClassInfo_, allocate$StyleSheet$BoxPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"topMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, topMargin)},
+		{"bottomMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, bottomMargin)},
+		{"leftMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, leftMargin)},
+		{"rightMargin", "F", nullptr, 0, $field(StyleSheet$BoxPainter, rightMargin)},
+		{"marginFlags", "S", nullptr, 0, $field(StyleSheet$BoxPainter, marginFlags)},
+		{"border", "Ljavax/swing/border/Border;", nullptr, 0, $field(StyleSheet$BoxPainter, border)},
+		{"binsets", "Ljava/awt/Insets;", nullptr, 0, $field(StyleSheet$BoxPainter, binsets)},
+		{"css", "Ljavax/swing/text/html/CSS;", nullptr, 0, $field(StyleSheet$BoxPainter, css)},
+		{"ss", "Ljavax/swing/text/html/StyleSheet;", nullptr, 0, $field(StyleSheet$BoxPainter, ss)},
+		{"bg", "Ljava/awt/Color;", nullptr, 0, $field(StyleSheet$BoxPainter, bg)},
+		{"bgPainter", "Ljavax/swing/text/html/StyleSheet$BackgroundImagePainter;", nullptr, 0, $field(StyleSheet$BoxPainter, bgPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS;Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$BoxPainter, init$, void, $AttributeSet*, $CSS*, $StyleSheet*)},
+		{"getBorder", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/border/Border;", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getBorder, $Border*, $AttributeSet*)},
+		{"getBorderColor", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getBorderColor, $Color*, $AttributeSet*)},
+		{"getInset", "(ILjavax/swing/text/View;)F", nullptr, $PUBLIC, $virtualMethod(StyleSheet$BoxPainter, getInset, float, int32_t, $View*)},
+		{"getLength", "(Ljavax/swing/text/html/CSS$Attribute;Ljavax/swing/text/AttributeSet;)F", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getLength, float, $CSS$Attribute*, $AttributeSet*)},
+		{"getOrientationMargin", "(Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;FLjavax/swing/text/AttributeSet;Z)F", nullptr, 0, $virtualMethod(StyleSheet$BoxPainter, getOrientationMargin, float, $StyleSheet$BoxPainter$HorizontalMargin*, float, $AttributeSet*, bool)},
+		{"isLeftToRight", "(Ljavax/swing/text/View;)Z", nullptr, $STATIC, $staticMethod(StyleSheet$BoxPainter, isLeftToRight, bool, $View*)},
+		{"isOrientationAware", "(Ljavax/swing/text/View;)Z", nullptr, $STATIC, $staticMethod(StyleSheet$BoxPainter, isOrientationAware, bool, $View*)},
+		{"paint", "(Ljava/awt/Graphics;FFFFLjavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet$BoxPainter, paint, void, $Graphics*, float, float, float, float, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$BoxPainter", "javax.swing.text.html.StyleSheet", "BoxPainter", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin", "javax.swing.text.html.StyleSheet$BoxPainter", "HorizontalMargin", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.StyleSheet$BoxPainter",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet"
+	};
+	$loadClass(StyleSheet$BoxPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleSheet$BoxPainter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/DropShadowEffect.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/Raster.h>
@@ -16,7 +15,6 @@
 #undef TYPE_INT_ARGB
 #undef UNDER
 
-using $Color = ::java::awt::Color;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
@@ -26,7 +24,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Effect$ArrayCache = ::javax::swing::plaf::nimbus::Effect$ArrayCache;
 using $Effect$EffectType = ::javax::swing::plaf::nimbus::Effect$EffectType;
 using $EffectUtils = ::javax::swing::plaf::nimbus::EffectUtils;
 using $ShadowEffect = ::javax::swing::plaf::nimbus::ShadowEffect;
@@ -35,26 +32,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$MethodInfo _DropShadowEffect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DropShadowEffect, init$, void)},
-	{"applyEffect", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;II)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(DropShadowEffect, applyEffect, $BufferedImage*, $BufferedImage*, $BufferedImage*, int32_t, int32_t)},
-	{"getEffectType", "()Ljavax/swing/plaf/nimbus/Effect$EffectType;", nullptr, 0, $virtualMethod(DropShadowEffect, getEffectType, $Effect$EffectType*)},
-	{}
-};
-
-$ClassInfo _DropShadowEffect_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.DropShadowEffect",
-	"javax.swing.plaf.nimbus.ShadowEffect",
-	nullptr,
-	nullptr,
-	_DropShadowEffect_MethodInfo_
-};
-
-$Object* allocate$DropShadowEffect($Class* clazz) {
-	return $of($alloc(DropShadowEffect));
-}
 
 void DropShadowEffect::init$() {
 	$ShadowEffect::init$();
@@ -66,9 +43,9 @@ $Effect$EffectType* DropShadowEffect::getEffectType() {
 }
 
 $BufferedImage* DropShadowEffect::applyEffect($BufferedImage* src, $BufferedImage* dst$renamed, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dst, dst$renamed);
-	if (src == nullptr || $nc(src)->getType() != $BufferedImage::TYPE_INT_ARGB) {
+	if (src == nullptr || src->getType() != $BufferedImage::TYPE_INT_ARGB) {
 		$throwNew($IllegalArgumentException, "Effect only works with source images of type BufferedImage.TYPE_INT_ARGB."_s);
 	}
 	if (dst != nullptr && dst->getType() != $BufferedImage::TYPE_INT_ARGB) {
@@ -81,10 +58,10 @@ $BufferedImage* DropShadowEffect::applyEffect($BufferedImage* src, $BufferedImag
 	int32_t tmpOffY = offsetX + this->size;
 	int32_t tmpW = w + offsetX + this->size + this->size;
 	int32_t tmpH = h + offsetX + this->size;
-	$var($ints, lineBuf, $nc($(getArrayCache()))->getTmpIntArray(w));
-	$var($bytes, tmpBuf1, $nc($(getArrayCache()))->getTmpByteArray1(tmpW * tmpH));
+	$var($ints, lineBuf, $$nc(getArrayCache())->getTmpIntArray(w));
+	$var($bytes, tmpBuf1, $$nc(getArrayCache())->getTmpByteArray1(tmpW * tmpH));
 	$Arrays::fill(tmpBuf1, (int8_t)0);
-	$var($bytes, tmpBuf2, $nc($(getArrayCache()))->getTmpByteArray2(tmpW * tmpH));
+	$var($bytes, tmpBuf2, $$nc(getArrayCache())->getTmpByteArray2(tmpW * tmpH));
 	$var($Raster, srcRaster, $nc(src)->getRaster());
 	for (int32_t y = 0; y < h; ++y) {
 		int32_t dy = (y + tmpOffY);
@@ -92,7 +69,7 @@ $BufferedImage* DropShadowEffect::applyEffect($BufferedImage* src, $BufferedImag
 		$nc(srcRaster)->getDataElements(0, y, w, 1, lineBuf);
 		for (int32_t x = 0; x < w; ++x) {
 			int32_t dx = x + tmpOffX;
-			$nc(tmpBuf1)->set(offset + dx, (int8_t)((int32_t)((uint32_t)((int32_t)($nc(lineBuf)->get(x) & (uint32_t)(int32_t)0xFF000000)) >> 24)));
+			$nc(tmpBuf1)->set(offset + dx, (int8_t)((int32_t)((uint32_t)($nc(lineBuf)->get(x) & (int32_t)0xff000000) >> 24)));
 		}
 	}
 	$var($floats, kernel, $EffectUtils::createGaussianKernel(this->size));
@@ -100,7 +77,7 @@ $BufferedImage* DropShadowEffect::applyEffect($BufferedImage* src, $BufferedImag
 	$EffectUtils::blur(tmpBuf2, tmpBuf1, tmpH, tmpW, kernel, this->size);
 	float spread = $Math::min(1 / (1 - (0.01f * this->spread)), (float)255);
 	for (int32_t i = 0; i < $nc(tmpBuf1)->length; ++i) {
-		int32_t val = $cast(int32_t, (((int32_t)((int32_t)tmpBuf1->get(i) & (uint32_t)255)) * spread));
+		int32_t val = $cast(int32_t, (((int32_t)tmpBuf1->get(i) & 0xff) * spread));
 		tmpBuf1->set(i, (val > 255) ? (int8_t)255 : (int8_t)val);
 	}
 	if (dst == nullptr) {
@@ -115,7 +92,7 @@ $BufferedImage* DropShadowEffect::applyEffect($BufferedImage* src, $BufferedImag
 		int32_t shadowOffset = (srcY - offsetY) * tmpW;
 		for (int32_t x = 0; x < w; ++x) {
 			int32_t srcX = x + tmpOffX;
-			$nc(lineBuf)->set(x, ((($nc(tmpBuf1)->get(shadowOffset + (srcX - offsetX)) << 24) | (red << 16)) | (green << 8)) | blue);
+			$nc(lineBuf)->set(x, (((tmpBuf1->get(shadowOffset + (srcX - offsetX)) << 24) | (red << 16)) | (green << 8)) | blue);
 		}
 		$nc(shadowRaster)->setDataElements(0, y, w, 1, lineBuf);
 	}
@@ -126,7 +103,23 @@ DropShadowEffect::DropShadowEffect() {
 }
 
 $Class* DropShadowEffect::load$($String* name, bool initialize) {
-	$loadClass(DropShadowEffect, name, initialize, &_DropShadowEffect_ClassInfo_, allocate$DropShadowEffect);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DropShadowEffect, init$, void)},
+		{"applyEffect", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;II)Ljava/awt/image/BufferedImage;", nullptr, 0, $virtualMethod(DropShadowEffect, applyEffect, $BufferedImage*, $BufferedImage*, $BufferedImage*, int32_t, int32_t)},
+		{"getEffectType", "()Ljavax/swing/plaf/nimbus/Effect$EffectType;", nullptr, 0, $virtualMethod(DropShadowEffect, getEffectType, $Effect$EffectType*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.DropShadowEffect",
+		"javax.swing.plaf.nimbus.ShadowEffect",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DropShadowEffect, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DropShadowEffect);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLDrawImage.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/Image.h>
@@ -42,32 +41,12 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLDrawImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OGLDrawImage, init$, void)},
-	{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(OGLDrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(OGLDrawImage, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLDrawImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.OGLDrawImage",
-	"sun.java2d.pipe.DrawImage",
-	nullptr,
-	nullptr,
-	_OGLDrawImage_MethodInfo_
-};
-
-$Object* allocate$OGLDrawImage($Class* clazz) {
-	return $of($alloc(OGLDrawImage));
-}
-
 void OGLDrawImage::init$() {
 	$DrawImage::init$();
 }
 
 void OGLDrawImage::renderImageXform($SunGraphics2D* sg, $Image* img, $AffineTransform* tx, int32_t interpType, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (interpType != $AffineTransformOp::TYPE_BICUBIC) {
 		$var($SurfaceData, dstData, $nc(sg)->surfaceData);
 		$var($SurfaceData, srcData, $nc(dstData)->getSourceSurfaceData(img, $SunGraphics2D::TRANSFORM_GENERIC, sg->imageComp, bgColor));
@@ -75,7 +54,7 @@ void OGLDrawImage::renderImageXform($SunGraphics2D* sg, $Image* img, $AffineTran
 		if (var$0) {
 			$init($OGLSurfaceData);
 			bool var$1 = srcData->getSurfaceType() == $OGLSurfaceData::OpenGLTexture;
-			var$0 = (var$1 || srcData->getSurfaceType() == $OGLSurfaceData::OpenGLSurfaceRTT || interpType == $AffineTransformOp::TYPE_NEAREST_NEIGHBOR);
+			var$0 = var$1 || srcData->getSurfaceType() == $OGLSurfaceData::OpenGLSurfaceRTT || interpType == $AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
 		}
 		if (var$0) {
 			$var($SurfaceType, srcType, $nc(srcData)->getSurfaceType());
@@ -91,17 +70,13 @@ void OGLDrawImage::renderImageXform($SunGraphics2D* sg, $Image* img, $AffineTran
 }
 
 void OGLDrawImage::transformImage($SunGraphics2D* sg, $BufferedImage* img$renamed, $BufferedImageOp* op, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, img, img$renamed);
 	if (op != nullptr) {
 		if ($instanceOf($AffineTransformOp, op)) {
 			$var($AffineTransformOp, atop, $cast($AffineTransformOp, op));
-			$var($SunGraphics2D, var$0, sg);
-			$var($Image, var$1, static_cast<$Image*>(img));
-			int32_t var$2 = x;
-			int32_t var$3 = y;
-			$var($AffineTransform, var$4, atop->getTransform());
-			transformImage(var$0, var$1, var$2, var$3, var$4, atop->getInterpolationType());
+			$var($AffineTransform, var$0, atop->getTransform());
+			transformImage(sg, img, x, y, var$0, atop->getInterpolationType());
 			return;
 		} else if ($OGLBufImgOps::renderImageWithOp(sg, img, op, x, y)) {
 			return;
@@ -115,7 +90,23 @@ OGLDrawImage::OGLDrawImage() {
 }
 
 $Class* OGLDrawImage::load$($String* name, bool initialize) {
-	$loadClass(OGLDrawImage, name, initialize, &_OGLDrawImage_ClassInfo_, allocate$OGLDrawImage);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OGLDrawImage, init$, void)},
+		{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(OGLDrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(OGLDrawImage, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.OGLDrawImage",
+		"sun.java2d.pipe.DrawImage",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLDrawImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLDrawImage);
+	});
 	return class$;
 }
 

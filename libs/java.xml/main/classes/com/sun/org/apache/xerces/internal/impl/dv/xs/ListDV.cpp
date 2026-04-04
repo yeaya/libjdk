@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/ListDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/ListDV$ListData.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
@@ -31,38 +30,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$MethodInfo _ListDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ListDV, init$, void)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ListDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(ListDV, getAllowedFacets, int16_t)},
-	{"getDataLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ListDV, getDataLength, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ListDV_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV$ListData", "com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV", "ListData", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ListDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	nullptr,
-	_ListDV_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ListDV_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV$ListData"
-};
-
-$Object* allocate$ListDV($Class* clazz) {
-	return $of($alloc(ListDV));
-}
-
 void ListDV::init$() {
 	$TypeValidator::init$();
 }
@@ -76,14 +43,41 @@ $Object* ListDV::getActualValue($String* content, $ValidationContext* context) {
 }
 
 int32_t ListDV::getDataLength(Object$* value) {
-	return $nc(($cast($ListDV$ListData, value)))->getLength();
+	return $nc($cast($ListDV$ListData, value))->getLength();
 }
 
 ListDV::ListDV() {
 }
 
 $Class* ListDV::load$($String* name, bool initialize) {
-	$loadClass(ListDV, name, initialize, &_ListDV_ClassInfo_, allocate$ListDV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ListDV, init$, void)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ListDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(ListDV, getAllowedFacets, int16_t)},
+		{"getDataLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ListDV, getDataLength, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV$ListData", "com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV", "ListData", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.ListDV$ListData"
+	};
+	$loadClass(ListDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListDV);
+	});
 	return class$;
 }
 

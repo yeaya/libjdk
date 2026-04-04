@@ -23,6 +23,7 @@ class $import TrayIcon$MessageType : public ::java::lang::Enum {
 public:
 	TrayIcon$MessageType();
 	static $Array<::java::awt::TrayIcon$MessageType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::TrayIcon$MessageType* valueOf($String* name);
 	static $Array<::java::awt::TrayIcon$MessageType>* values();

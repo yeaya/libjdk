@@ -22,6 +22,7 @@ class $export HandshakeFailureTest$SSLServer : public ::HandshakeFailureTest$Abs
 	$class(HandshakeFailureTest$SSLServer, 0, ::HandshakeFailureTest$AbstractServer)
 public:
 	HandshakeFailureTest$SSLServer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::net::ssl::SSLContext* createUntrustingContext();
 	virtual void run() override;

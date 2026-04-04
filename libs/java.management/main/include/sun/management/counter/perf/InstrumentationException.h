@@ -16,10 +16,13 @@ public:
 	InstrumentationException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x6FDB4A79A2E310ED;
+	static const int64_t serialVersionUID = (int64_t)0x6fdb4a79a2e310ed;
 	InstrumentationException(const InstrumentationException& e);
 	virtual void throw$() override;
-	inline InstrumentationException* operator ->() {
+	inline InstrumentationException* operator ->() const {
+		return (InstrumentationException*)throwing$;
+	}
+	inline operator InstrumentationException*() const {
 		return (InstrumentationException*)throwing$;
 	}
 };

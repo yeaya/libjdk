@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner$1.h>
-
 #include <java/io/EOFException.h>
 #include <jcpp.h>
 
@@ -17,48 +16,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLEntityScanner$1_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLEntityScanner$1, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XMLEntityScanner$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XMLEntityScanner$1, init$, void)},
-	{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XMLEntityScanner$1, fillInStackTrace, $Throwable*)},
-	{}
-};
-
-$EnclosingMethodInfo _XMLEntityScanner$1_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _XMLEntityScanner$1_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLEntityScanner$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner$1",
-	"java.io.EOFException",
-	nullptr,
-	_XMLEntityScanner$1_FieldInfo_,
-	_XMLEntityScanner$1_MethodInfo_,
-	nullptr,
-	&_XMLEntityScanner$1_EnclosingMethodInfo_,
-	_XMLEntityScanner$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner"
-};
-
-$Object* allocate$XMLEntityScanner$1($Class* clazz) {
-	return $of($alloc(XMLEntityScanner$1));
-}
 
 void XMLEntityScanner$1::init$() {
 	$EOFException::init$();
@@ -79,7 +36,42 @@ void XMLEntityScanner$1::throw$() {
 }
 
 $Class* XMLEntityScanner$1::load$($String* name, bool initialize) {
-	$loadClass(XMLEntityScanner$1, name, initialize, &_XMLEntityScanner$1_ClassInfo_, allocate$XMLEntityScanner$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLEntityScanner$1, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XMLEntityScanner$1, init$, void)},
+		{"fillInStackTrace", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XMLEntityScanner$1, fillInStackTrace, $Throwable*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner$1",
+		"java.io.EOFException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLEntityScanner"
+	};
+	$loadClass(XMLEntityScanner$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEntityScanner$1);
+	});
 	return class$;
 }
 

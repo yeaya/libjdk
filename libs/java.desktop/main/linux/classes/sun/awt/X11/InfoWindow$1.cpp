@@ -1,5 +1,4 @@
 #include <sun/awt/X11/InfoWindow$1.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Insets.h>
 #include <sun/awt/X11/InfoWindow.h>
@@ -18,48 +17,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _InfoWindow$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/InfoWindow;", nullptr, $FINAL | $SYNTHETIC, $field(InfoWindow$1, this$0)},
-	{}
-};
-
-$MethodInfo _InfoWindow$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/InfoWindow;)V", nullptr, 0, $method(InfoWindow$1, init$, void, $InfoWindow*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(InfoWindow$1, getInsets, $Insets*)},
-	{}
-};
-
-$EnclosingMethodInfo _InfoWindow$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.InfoWindow",
-	"<init>",
-	"(Ljava/awt/Frame;Ljava/awt/Color;)V"
-};
-
-$InnerClassInfo _InfoWindow$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.InfoWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InfoWindow$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.InfoWindow$1",
-	"java.awt.Container",
-	nullptr,
-	_InfoWindow$1_FieldInfo_,
-	_InfoWindow$1_MethodInfo_,
-	nullptr,
-	&_InfoWindow$1_EnclosingMethodInfo_,
-	_InfoWindow$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.InfoWindow"
-};
-
-$Object* allocate$InfoWindow$1($Class* clazz) {
-	return $of($alloc(InfoWindow$1));
-}
-
 void InfoWindow$1::init$($InfoWindow* this$0) {
 	$set(this, this$0, this$0);
 	$Container::init$();
@@ -73,7 +30,42 @@ InfoWindow$1::InfoWindow$1() {
 }
 
 $Class* InfoWindow$1::load$($String* name, bool initialize) {
-	$loadClass(InfoWindow$1, name, initialize, &_InfoWindow$1_ClassInfo_, allocate$InfoWindow$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/InfoWindow;", nullptr, $FINAL | $SYNTHETIC, $field(InfoWindow$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/InfoWindow;)V", nullptr, 0, $method(InfoWindow$1, init$, void, $InfoWindow*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(InfoWindow$1, getInsets, $Insets*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.InfoWindow",
+		"<init>",
+		"(Ljava/awt/Frame;Ljava/awt/Color;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.InfoWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.InfoWindow$1",
+		"java.awt.Container",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.InfoWindow"
+	};
+	$loadClass(InfoWindow$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InfoWindow$1));
+	});
 	return class$;
 }
 

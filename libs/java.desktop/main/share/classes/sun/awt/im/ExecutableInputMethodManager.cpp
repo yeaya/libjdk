@@ -1,6 +1,4 @@
 #include <sun/awt/im/ExecutableInputMethodManager.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -12,12 +10,9 @@
 #include <java/awt/im/spi/InputMethodDescriptor.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Locale.h>
 #include <java/util/Vector.h>
@@ -43,7 +38,6 @@
 #undef KOREAN
 
 using $LocaleArray = $Array<::java::util::Locale>;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTException = ::java::awt::AWTException;
 using $Component = ::java::awt::Component;
 using $Dialog = ::java::awt::Dialog;
@@ -58,12 +52,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Hashtable = ::java::util::Hashtable;
 using $Locale = ::java::util::Locale;
 using $Vector = ::java::util::Vector;
@@ -85,84 +76,6 @@ using $InputMethodPopupMenu = ::sun::awt::im::InputMethodPopupMenu;
 namespace sun {
 	namespace awt {
 		namespace im {
-
-$FieldInfo _ExecutableInputMethodManager_FieldInfo_[] = {
-	{"currentInputContext", "Lsun/awt/im/InputContext;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, currentInputContext)},
-	{"triggerMenuString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, triggerMenuString)},
-	{"selectionMenu", "Lsun/awt/im/InputMethodPopupMenu;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, selectionMenu)},
-	{"selectInputMethodMenuTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExecutableInputMethodManager, selectInputMethodMenuTitle)},
-	{"hostAdapterLocator", "Lsun/awt/im/InputMethodLocator;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, hostAdapterLocator)},
-	{"javaInputMethodCount", "I", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, javaInputMethodCount)},
-	{"javaInputMethodLocatorList", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/im/InputMethodLocator;>;", $PRIVATE, $field(ExecutableInputMethodManager, javaInputMethodLocatorList)},
-	{"requestComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, requestComponent)},
-	{"requestInputContext", "Lsun/awt/im/InputContext;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, requestInputContext)},
-	{"preferredIMNode", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExecutableInputMethodManager, preferredIMNode)},
-	{"descriptorKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExecutableInputMethodManager, descriptorKey)},
-	{"preferredLocatorCache", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/awt/im/InputMethodLocator;>;", $PRIVATE, $field(ExecutableInputMethodManager, preferredLocatorCache)},
-	{"userRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, userRoot)},
-	{}
-};
-
-$MethodInfo _ExecutableInputMethodManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(ExecutableInputMethodManager, init$, void)},
-	{"changeInputMethod", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, changeInputMethod, void, $String*)},
-	{"createLocalePath", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, createLocalePath, $String*, $Locale*)},
-	{"findInputMethod", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, findInputMethod, $InputMethodLocator*, $Locale*)},
-	{"findPreferredInputMethodNode", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, findPreferredInputMethodNode, $String*, $Locale*)},
-	{"getAdvertisedLocale", "(Lsun/awt/im/InputMethodLocator;Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, getAdvertisedLocale, $Locale*, $InputMethodLocator*, $Locale*)},
-	{"getCurrentSelection", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, getCurrentSelection, $String*)},
-	{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, getDefaultKeyboardLocale, $Locale*)},
-	{"getPreferredInputMethod", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ExecutableInputMethodManager, getPreferredInputMethod, $InputMethodLocator*, $Locale*)},
-	{"getTriggerMenuString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExecutableInputMethodManager, getTriggerMenuString, $String*)},
-	{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, getUserRoot, $Preferences*)},
-	{"hasMultipleInputMethods", "()Z", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, hasMultipleInputMethods, bool)},
-	{"initialize", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, initialize, void)},
-	{"initializeInputMethodLocatorList", "()V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, initializeInputMethodLocatorList, void)},
-	{"notifyChangeRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, notifyChangeRequest, void, $Component*)},
-	{"notifyChangeRequestByHotKey", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, notifyChangeRequestByHotKey, void, $Component*)},
-	{"putPreferredInputMethod", "(Lsun/awt/im/InputMethodLocator;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ExecutableInputMethodManager, putPreferredInputMethod, void, $InputMethodLocator*)},
-	{"readPreferredInputMethod", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, readPreferredInputMethod, $String*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ExecutableInputMethodManager, run, void)},
-	{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, setInputContext, void, $InputContext*)},
-	{"showInputMethodMenu", "()V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, showInputMethodMenu, void)},
-	{"showInputMethodMenuOnRequesterEDT", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, showInputMethodMenuOnRequesterEDT, void, $Component*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"waitForChangeRequest", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ExecutableInputMethodManager, waitForChangeRequest, void)},
-	{"writePreferredInputMethod", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, writePreferredInputMethod, void, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ExecutableInputMethodManager_InnerClassesInfo_[] = {
-	{"sun.awt.im.ExecutableInputMethodManager$4", nullptr, nullptr, 0},
-	{"sun.awt.im.ExecutableInputMethodManager$3", nullptr, nullptr, 0},
-	{"sun.awt.im.ExecutableInputMethodManager$2", nullptr, nullptr, 0},
-	{"sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock", nullptr, "AWTInvocationLock", 0},
-	{"sun.awt.im.ExecutableInputMethodManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ExecutableInputMethodManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.im.ExecutableInputMethodManager",
-	"sun.awt.im.InputMethodManager",
-	"java.lang.Runnable",
-	_ExecutableInputMethodManager_FieldInfo_,
-	_ExecutableInputMethodManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExecutableInputMethodManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.im.ExecutableInputMethodManager$4,sun.awt.im.ExecutableInputMethodManager$3,sun.awt.im.ExecutableInputMethodManager$2,sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock,sun.awt.im.ExecutableInputMethodManager$1"
-};
-
-$Object* allocate$ExecutableInputMethodManager($Class* clazz) {
-	return $of($alloc(ExecutableInputMethodManager));
-}
 
 int32_t ExecutableInputMethodManager::hashCode() {
 	 return this->$InputMethodManager::hashCode();
@@ -189,13 +102,13 @@ $String* ExecutableInputMethodManager::preferredIMNode = nullptr;
 $String* ExecutableInputMethodManager::descriptorKey = nullptr;
 
 void ExecutableInputMethodManager::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InputMethodManager::init$();
 	$set(this, preferredLocatorCache, $new($Hashtable));
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	try {
 		if ($instanceOf($InputMethodSupport, toolkit)) {
-			$var($InputMethodDescriptor, hostAdapterDescriptor, $nc(($cast($InputMethodSupport, toolkit)))->getInputMethodAdapterDescriptor());
+			$var($InputMethodDescriptor, hostAdapterDescriptor, $cast($InputMethodSupport, toolkit)->getInputMethodAdapterDescriptor());
 			if (hostAdapterDescriptor != nullptr) {
 				$set(this, hostAdapterLocator, $new($InputMethodLocator, hostAdapterDescriptor, nullptr, nullptr));
 			}
@@ -214,7 +127,7 @@ void ExecutableInputMethodManager::initialize() {
 }
 
 void ExecutableInputMethodManager::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!hasMultipleInputMethods()) {
 		try {
 			$synchronized(this) {
@@ -239,19 +152,19 @@ void ExecutableInputMethodManager::run() {
 }
 
 void ExecutableInputMethodManager::showInputMethodMenuOnRequesterEDT($Component* requester) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (requester == nullptr) {
 		return;
 	}
 	{
 	}
 	$var($Object, lock, $new($ExecutableInputMethodManager$1AWTInvocationLock, this));
-	$var($InvocationEvent, event, $new($InvocationEvent, $of(requester), static_cast<$Runnable*>($$new($ExecutableInputMethodManager$2, this)), lock, true));
+	$var($InvocationEvent, event, $new($InvocationEvent, requester, $$new($ExecutableInputMethodManager$2, this), lock, true));
 	$var($AppContext, requesterAppContext, $SunToolkit::targetToAppContext(requester));
 	$synchronized(lock) {
 		$SunToolkit::postEvent(requesterAppContext, event);
 		while (!event->isDispatched()) {
-			$of(lock)->wait();
+			lock->wait();
 		}
 	}
 	$var($Throwable, eventThrowable, event->getThrowable());
@@ -314,13 +227,13 @@ void ExecutableInputMethodManager::waitForChangeRequest() {
 void ExecutableInputMethodManager::initializeInputMethodLocatorList() {
 	$beforeCallerSensitive();
 	$synchronized(this->javaInputMethodLocatorList) {
-		$nc(this->javaInputMethodLocatorList)->clear();
+		this->javaInputMethodLocatorList->clear();
 		try {
-			$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($ExecutableInputMethodManager$3, this)));
+			$AccessController::doPrivileged($$new($ExecutableInputMethodManager$3, this));
 		} catch ($PrivilegedActionException& e) {
 			e->printStackTrace();
 		}
-		this->javaInputMethodCount = $nc(this->javaInputMethodLocatorList)->size();
+		this->javaInputMethodCount = this->javaInputMethodLocatorList->size();
 	}
 	if (hasMultipleInputMethods()) {
 		if (this->userRoot == nullptr) {
@@ -332,7 +245,7 @@ void ExecutableInputMethodManager::initializeInputMethodLocatorList() {
 }
 
 void ExecutableInputMethodManager::showInputMethodMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasMultipleInputMethods()) {
 		$set(this, requestComponent, nullptr);
 		return;
@@ -345,7 +258,7 @@ void ExecutableInputMethodManager::showInputMethodMenu() {
 		$nc(this->selectionMenu)->addSeparator();
 	}
 	for (int32_t i = 0; i < $nc(this->javaInputMethodLocatorList)->size(); ++i) {
-		$var($InputMethodLocator, locator, $cast($InputMethodLocator, $nc(this->javaInputMethodLocatorList)->get(i)));
+		$var($InputMethodLocator, locator, $cast($InputMethodLocator, this->javaInputMethodLocatorList->get(i)));
 		$nc(this->selectionMenu)->addOneInputMethodToMenu(locator, currentSelection);
 	}
 	$synchronized(this) {
@@ -357,7 +270,7 @@ void ExecutableInputMethodManager::showInputMethodMenu() {
 }
 
 $String* ExecutableInputMethodManager::getCurrentSelection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputContext, inputContext, this->currentInputContext);
 	if (inputContext != nullptr) {
 		$var($InputMethodLocator, locator, inputContext->getInputMethodLocator());
@@ -370,20 +283,20 @@ $String* ExecutableInputMethodManager::getCurrentSelection() {
 
 void ExecutableInputMethodManager::changeInputMethod($String* choice) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($InputMethodLocator, locator, nullptr);
 		$var($String, inputMethodName, choice);
 		$var($String, localeString, nullptr);
-		int32_t index = $nc(choice)->indexOf((int32_t)u'\n');
+		int32_t index = $nc(choice)->indexOf(u'\n');
 		if (index != -1) {
 			$assign(localeString, choice->substring(index + 1));
 			$assign(inputMethodName, choice->substring(0, index));
 		}
-		if ($nc($($nc(this->hostAdapterLocator)->getActionCommandString()))->equals(inputMethodName)) {
+		if ($$nc($nc(this->hostAdapterLocator)->getActionCommandString())->equals(inputMethodName)) {
 			$assign(locator, this->hostAdapterLocator);
 		} else {
 			for (int32_t i = 0; i < $nc(this->javaInputMethodLocatorList)->size(); ++i) {
-				$var($InputMethodLocator, candidate, $cast($InputMethodLocator, $nc(this->javaInputMethodLocatorList)->get(i)));
+				$var($InputMethodLocator, candidate, $cast($InputMethodLocator, this->javaInputMethodLocatorList->get(i)));
 				$var($String, name, $nc(candidate)->getActionCommandString());
 				if ($nc(name)->equals(inputMethodName)) {
 					$assign(locator, candidate);
@@ -395,13 +308,13 @@ void ExecutableInputMethodManager::changeInputMethod($String* choice) {
 			$var($String, language, ""_s);
 			$var($String, country, ""_s);
 			$var($String, variant, ""_s);
-			int32_t postIndex = localeString->indexOf((int32_t)u'_');
+			int32_t postIndex = localeString->indexOf(u'_');
 			if (postIndex == -1) {
 				$assign(language, localeString);
 			} else {
 				$assign(language, localeString->substring(0, postIndex));
 				int32_t preIndex = postIndex + 1;
-				postIndex = localeString->indexOf((int32_t)u'_', preIndex);
+				postIndex = localeString->indexOf(u'_', preIndex);
 				if (postIndex == -1) {
 					$assign(country, localeString->substring(preIndex));
 				} else {
@@ -416,7 +329,7 @@ void ExecutableInputMethodManager::changeInputMethod($String* choice) {
 			return;
 		}
 		if (this->requestInputContext != nullptr) {
-			$nc(this->requestInputContext)->changeInputMethod(locator);
+			this->requestInputContext->changeInputMethod(locator);
 			$set(this, requestInputContext, nullptr);
 			putPreferredInputMethod(locator);
 		}
@@ -424,17 +337,17 @@ void ExecutableInputMethodManager::changeInputMethod($String* choice) {
 }
 
 $InputMethodLocator* ExecutableInputMethodManager::findInputMethod($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputMethodLocator, locator, getPreferredInputMethod(locale));
 	if (locator != nullptr) {
 		return locator;
 	}
-	if (this->hostAdapterLocator != nullptr && $nc(this->hostAdapterLocator)->isLocaleAvailable(locale)) {
-		return $nc(this->hostAdapterLocator)->deriveLocator(locale);
+	if (this->hostAdapterLocator != nullptr && this->hostAdapterLocator->isLocaleAvailable(locale)) {
+		return this->hostAdapterLocator->deriveLocator(locale);
 	}
 	initializeInputMethodLocatorList();
 	for (int32_t i = 0; i < $nc(this->javaInputMethodLocatorList)->size(); ++i) {
-		$var($InputMethodLocator, candidate, $cast($InputMethodLocator, $nc(this->javaInputMethodLocatorList)->get(i)));
+		$var($InputMethodLocator, candidate, $cast($InputMethodLocator, this->javaInputMethodLocatorList->get(i)));
 		if ($nc(candidate)->isLocaleAvailable(locale)) {
 			return candidate->deriveLocator(locale);
 		}
@@ -445,7 +358,7 @@ $InputMethodLocator* ExecutableInputMethodManager::findInputMethod($Locale* loca
 $Locale* ExecutableInputMethodManager::getDefaultKeyboardLocale() {
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	if ($instanceOf($InputMethodSupport, toolkit)) {
-		return $nc(($cast($InputMethodSupport, toolkit)))->getDefaultKeyboardLocale();
+		return $cast($InputMethodSupport, toolkit)->getDefaultKeyboardLocale();
 	} else {
 		return $Locale::getDefault();
 	}
@@ -453,12 +366,12 @@ $Locale* ExecutableInputMethodManager::getDefaultKeyboardLocale() {
 
 $InputMethodLocator* ExecutableInputMethodManager::getPreferredInputMethod($Locale* locale) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($InputMethodLocator, preferredLocator, nullptr);
 		if (!hasMultipleInputMethods()) {
 			return nullptr;
 		}
-		$assign(preferredLocator, $cast($InputMethodLocator, $nc(this->preferredLocatorCache)->get($($nc($($nc(locale)->toString()))->intern()))));
+		$assign(preferredLocator, $cast($InputMethodLocator, $nc(this->preferredLocatorCache)->get($($$nc($nc(locale)->toString())->intern()))));
 		if (preferredLocator != nullptr) {
 			return preferredLocator;
 		}
@@ -466,22 +379,22 @@ $InputMethodLocator* ExecutableInputMethodManager::getPreferredInputMethod($Loca
 		$var($String, descriptorName, readPreferredInputMethod(nodePath));
 		$var($Locale, advertised, nullptr);
 		if (descriptorName != nullptr) {
-			if (this->hostAdapterLocator != nullptr && $nc($($nc($of($($nc(this->hostAdapterLocator)->getDescriptor())))->getClass()->getName()))->equals(descriptorName)) {
+			if (this->hostAdapterLocator != nullptr && $$nc($$nc(this->hostAdapterLocator->getDescriptor())->getClass()->getName())->equals(descriptorName)) {
 				$assign(advertised, getAdvertisedLocale(this->hostAdapterLocator, locale));
 				if (advertised != nullptr) {
 					$assign(preferredLocator, $nc(this->hostAdapterLocator)->deriveLocator(advertised));
-					$nc(this->preferredLocatorCache)->put($($nc($($nc(locale)->toString()))->intern()), preferredLocator);
+					$nc(this->preferredLocatorCache)->put($($$nc(locale->toString())->intern()), preferredLocator);
 				}
 				return preferredLocator;
 			}
 			for (int32_t i = 0; i < $nc(this->javaInputMethodLocatorList)->size(); ++i) {
-				$var($InputMethodLocator, locator, $cast($InputMethodLocator, $nc(this->javaInputMethodLocatorList)->get(i)));
+				$var($InputMethodLocator, locator, $cast($InputMethodLocator, this->javaInputMethodLocatorList->get(i)));
 				$var($InputMethodDescriptor, descriptor, $nc(locator)->getDescriptor());
-				if ($nc($($nc($of(descriptor))->getClass()->getName()))->equals(descriptorName)) {
+				if ($$nc($nc(descriptor)->getClass()->getName())->equals(descriptorName)) {
 					$assign(advertised, getAdvertisedLocale(locator, locale));
 					if (advertised != nullptr) {
 						$assign(preferredLocator, locator->deriveLocator(advertised));
-						$nc(this->preferredLocatorCache)->put($($nc($($nc(locale)->toString()))->intern()), preferredLocator);
+						$nc(this->preferredLocatorCache)->put($($$nc(locale->toString())->intern()), preferredLocator);
 					}
 					return preferredLocator;
 				}
@@ -493,12 +406,12 @@ $InputMethodLocator* ExecutableInputMethodManager::getPreferredInputMethod($Loca
 }
 
 $String* ExecutableInputMethodManager::findPreferredInputMethodNode($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->userRoot == nullptr) {
 		return nullptr;
 	}
 	$var($String, nodePath, $str({ExecutableInputMethodManager::preferredIMNode, "/"_s, $(createLocalePath(locale))}));
-	while (!$nc(nodePath)->equals(ExecutableInputMethodManager::preferredIMNode)) {
+	while (!nodePath->equals(ExecutableInputMethodManager::preferredIMNode)) {
 		try {
 			if ($nc(this->userRoot)->nodeExists(nodePath)) {
 				if (readPreferredInputMethod(nodePath) != nullptr) {
@@ -507,7 +420,7 @@ $String* ExecutableInputMethodManager::findPreferredInputMethodNode($Locale* loc
 			}
 		} catch ($BackingStoreException& bse) {
 		}
-		$assign(nodePath, nodePath->substring(0, nodePath->lastIndexOf((int32_t)u'/')));
+		$assign(nodePath, nodePath->substring(0, nodePath->lastIndexOf(u'/')));
 	}
 	return nullptr;
 }
@@ -516,12 +429,12 @@ $String* ExecutableInputMethodManager::readPreferredInputMethod($String* nodePat
 	if ((this->userRoot == nullptr) || (nodePath == nullptr)) {
 		return nullptr;
 	}
-	return $nc($($nc(this->userRoot)->node(nodePath)))->get(ExecutableInputMethodManager::descriptorKey, nullptr);
+	return $$nc($nc(this->userRoot)->node(nodePath))->get(ExecutableInputMethodManager::descriptorKey, nullptr);
 }
 
 void ExecutableInputMethodManager::putPreferredInputMethod($InputMethodLocator* locator) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($InputMethodDescriptor, descriptor, $nc(locator)->getDescriptor());
 		$var($Locale, preferredLocale, locator->getLocale());
 		if (preferredLocale == nullptr) {
@@ -547,15 +460,15 @@ void ExecutableInputMethodManager::putPreferredInputMethod($InputMethodLocator* 
 			$assign(preferredLocale, $new($Locale, "th"_s));
 		}
 		$var($String, path, $str({ExecutableInputMethodManager::preferredIMNode, "/"_s, $(createLocalePath(preferredLocale))}));
-		writePreferredInputMethod(path, $($nc($of(descriptor))->getClass()->getName()));
-		$var($Object, var$0, $of($nc($($nc(preferredLocale)->toString()))->intern()));
+		writePreferredInputMethod(path, $($nc(descriptor)->getClass()->getName()));
+		$var($Object, var$0, $$nc(preferredLocale->toString())->intern());
 		$nc(this->preferredLocatorCache)->put(var$0, $(locator->deriveLocator(preferredLocale)));
 		return;
 	}
 }
 
 $String* ExecutableInputMethodManager::createLocalePath($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, language, $nc(locale)->getLanguage());
 	$var($String, country, locale->getCountry());
 	$var($String, variant, locale->getVariant());
@@ -572,7 +485,7 @@ $String* ExecutableInputMethodManager::createLocalePath($Locale* locale) {
 
 void ExecutableInputMethodManager::writePreferredInputMethod($String* path, $String* descriptorName) {
 	if (this->userRoot != nullptr) {
-		$var($Preferences, node, $nc(this->userRoot)->node(path));
+		$var($Preferences, node, this->userRoot->node(path));
 		if (descriptorName != nullptr) {
 			$nc(node)->put(ExecutableInputMethodManager::descriptorKey, descriptorName);
 		} else {
@@ -583,33 +496,27 @@ void ExecutableInputMethodManager::writePreferredInputMethod($String* path, $Str
 
 $Preferences* ExecutableInputMethodManager::getUserRoot() {
 	$beforeCallerSensitive();
-	return $cast($Preferences, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ExecutableInputMethodManager$4, this))));
+	return $cast($Preferences, $AccessController::doPrivileged($$new($ExecutableInputMethodManager$4, this)));
 }
 
 $Locale* ExecutableInputMethodManager::getAdvertisedLocale($InputMethodLocator* locator, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, advertised, nullptr);
 	if ($nc(locator)->isLocaleAvailable(locale)) {
 		$assign(advertised, locale);
-	} else if ($nc($($nc(locale)->getLanguage()))->equals("ja"_s)) {
-		$init($Locale);
+	} else if ($$nc($nc(locale)->getLanguage())->equals("ja"_s)) {
 		if (locator->isLocaleAvailable($Locale::JAPAN)) {
 			$assign(advertised, $Locale::JAPAN);
-		} else {
-			if (locator->isLocaleAvailable($Locale::JAPANESE)) {
-				$assign(advertised, $Locale::JAPANESE);
-			}
+		} else if (locator->isLocaleAvailable($Locale::JAPANESE)) {
+			$assign(advertised, $Locale::JAPANESE);
 		}
-	} else if ($nc($(locale->getLanguage()))->equals("ko"_s)) {
-		$init($Locale);
+	} else if ($$nc(locale->getLanguage())->equals("ko"_s)) {
 		if (locator->isLocaleAvailable($Locale::KOREA)) {
 			$assign(advertised, $Locale::KOREA);
-		} else {
-			if (locator->isLocaleAvailable($Locale::KOREAN)) {
-				$assign(advertised, $Locale::KOREAN);
-			}
+		} else if (locator->isLocaleAvailable($Locale::KOREAN)) {
+			$assign(advertised, $Locale::KOREAN);
 		}
-	} else if ($nc($(locale->getLanguage()))->equals("th"_s)) {
+	} else if ($$nc(locale->getLanguage())->equals("th"_s)) {
 		if (locator->isLocaleAvailable($$new($Locale, "th"_s, "TH"_s))) {
 			$assign(advertised, $new($Locale, "th"_s, "TH"_s));
 		} else if (locator->isLocaleAvailable($$new($Locale, "th"_s))) {
@@ -622,13 +529,85 @@ $Locale* ExecutableInputMethodManager::getAdvertisedLocale($InputMethodLocator* 
 ExecutableInputMethodManager::ExecutableInputMethodManager() {
 }
 
-void clinit$ExecutableInputMethodManager($Class* class$) {
+void ExecutableInputMethodManager::clinit$($Class* clazz) {
 	$assignStatic(ExecutableInputMethodManager::preferredIMNode, "/sun/awt/im/preferredInputMethod"_s);
 	$assignStatic(ExecutableInputMethodManager::descriptorKey, "descriptor"_s);
 }
 
 $Class* ExecutableInputMethodManager::load$($String* name, bool initialize) {
-	$loadClass(ExecutableInputMethodManager, name, initialize, &_ExecutableInputMethodManager_ClassInfo_, clinit$ExecutableInputMethodManager, allocate$ExecutableInputMethodManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"currentInputContext", "Lsun/awt/im/InputContext;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, currentInputContext)},
+		{"triggerMenuString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, triggerMenuString)},
+		{"selectionMenu", "Lsun/awt/im/InputMethodPopupMenu;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, selectionMenu)},
+		{"selectInputMethodMenuTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ExecutableInputMethodManager, selectInputMethodMenuTitle)},
+		{"hostAdapterLocator", "Lsun/awt/im/InputMethodLocator;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, hostAdapterLocator)},
+		{"javaInputMethodCount", "I", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, javaInputMethodCount)},
+		{"javaInputMethodLocatorList", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/awt/im/InputMethodLocator;>;", $PRIVATE, $field(ExecutableInputMethodManager, javaInputMethodLocatorList)},
+		{"requestComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, requestComponent)},
+		{"requestInputContext", "Lsun/awt/im/InputContext;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, requestInputContext)},
+		{"preferredIMNode", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExecutableInputMethodManager, preferredIMNode)},
+		{"descriptorKey", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExecutableInputMethodManager, descriptorKey)},
+		{"preferredLocatorCache", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/awt/im/InputMethodLocator;>;", $PRIVATE, $field(ExecutableInputMethodManager, preferredLocatorCache)},
+		{"userRoot", "Ljava/util/prefs/Preferences;", nullptr, $PRIVATE, $field(ExecutableInputMethodManager, userRoot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(ExecutableInputMethodManager, init$, void)},
+		{"changeInputMethod", "(Ljava/lang/String;)V", nullptr, $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, changeInputMethod, void, $String*)},
+		{"createLocalePath", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, createLocalePath, $String*, $Locale*)},
+		{"findInputMethod", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, findInputMethod, $InputMethodLocator*, $Locale*)},
+		{"findPreferredInputMethodNode", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, findPreferredInputMethodNode, $String*, $Locale*)},
+		{"getAdvertisedLocale", "(Lsun/awt/im/InputMethodLocator;Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, getAdvertisedLocale, $Locale*, $InputMethodLocator*, $Locale*)},
+		{"getCurrentSelection", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, getCurrentSelection, $String*)},
+		{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, getDefaultKeyboardLocale, $Locale*)},
+		{"getPreferredInputMethod", "(Ljava/util/Locale;)Lsun/awt/im/InputMethodLocator;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ExecutableInputMethodManager, getPreferredInputMethod, $InputMethodLocator*, $Locale*)},
+		{"getTriggerMenuString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExecutableInputMethodManager, getTriggerMenuString, $String*)},
+		{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, getUserRoot, $Preferences*)},
+		{"hasMultipleInputMethods", "()Z", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, hasMultipleInputMethods, bool)},
+		{"initialize", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, initialize, void)},
+		{"initializeInputMethodLocatorList", "()V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, initializeInputMethodLocatorList, void)},
+		{"notifyChangeRequest", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, notifyChangeRequest, void, $Component*)},
+		{"notifyChangeRequestByHotKey", "(Ljava/awt/Component;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ExecutableInputMethodManager, notifyChangeRequestByHotKey, void, $Component*)},
+		{"putPreferredInputMethod", "(Lsun/awt/im/InputMethodLocator;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ExecutableInputMethodManager, putPreferredInputMethod, void, $InputMethodLocator*)},
+		{"readPreferredInputMethod", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, readPreferredInputMethod, $String*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ExecutableInputMethodManager, run, void)},
+		{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, 0, $virtualMethod(ExecutableInputMethodManager, setInputContext, void, $InputContext*)},
+		{"showInputMethodMenu", "()V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, showInputMethodMenu, void)},
+		{"showInputMethodMenuOnRequesterEDT", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, showInputMethodMenuOnRequesterEDT, void, $Component*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"waitForChangeRequest", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ExecutableInputMethodManager, waitForChangeRequest, void)},
+		{"writePreferredInputMethod", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ExecutableInputMethodManager, writePreferredInputMethod, void, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.im.ExecutableInputMethodManager$4", nullptr, nullptr, 0},
+		{"sun.awt.im.ExecutableInputMethodManager$3", nullptr, nullptr, 0},
+		{"sun.awt.im.ExecutableInputMethodManager$2", nullptr, nullptr, 0},
+		{"sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock", nullptr, "AWTInvocationLock", 0},
+		{"sun.awt.im.ExecutableInputMethodManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.im.ExecutableInputMethodManager",
+		"sun.awt.im.InputMethodManager",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.im.ExecutableInputMethodManager$4,sun.awt.im.ExecutableInputMethodManager$3,sun.awt.im.ExecutableInputMethodManager$2,sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock,sun.awt.im.ExecutableInputMethodManager$1"
+	};
+	$loadClass(ExecutableInputMethodManager, name, initialize, &classInfo$$, ExecutableInputMethodManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExecutableInputMethodManager));
+	});
 	return class$;
 }
 

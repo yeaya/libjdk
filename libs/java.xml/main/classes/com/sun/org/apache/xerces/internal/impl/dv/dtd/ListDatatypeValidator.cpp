@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/ListDatatypeValidator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
@@ -24,36 +23,12 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$FieldInfo _ListDatatypeValidator_FieldInfo_[] = {
-	{"fItemValidator", "Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;", nullptr, 0, $field(ListDatatypeValidator, fItemValidator)},
-	{}
-};
-
-$MethodInfo _ListDatatypeValidator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;)V", nullptr, $PUBLIC, $method(ListDatatypeValidator, init$, void, $DatatypeValidator*)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(ListDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{}
-};
-
-$ClassInfo _ListDatatypeValidator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.ListDatatypeValidator",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
-	_ListDatatypeValidator_FieldInfo_,
-	_ListDatatypeValidator_MethodInfo_
-};
-
-$Object* allocate$ListDatatypeValidator($Class* clazz) {
-	return $of($alloc(ListDatatypeValidator));
-}
-
 void ListDatatypeValidator::init$($DatatypeValidator* itemDV) {
 	$set(this, fItemValidator, itemDV);
 }
 
 void ListDatatypeValidator::validate($String* content, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, parsedList, $new($StringTokenizer, content, " "_s));
 	int32_t numberOfTokens = parsedList->countTokens();
 	if (numberOfTokens == 0) {
@@ -68,7 +43,26 @@ ListDatatypeValidator::ListDatatypeValidator() {
 }
 
 $Class* ListDatatypeValidator::load$($String* name, bool initialize) {
-	$loadClass(ListDatatypeValidator, name, initialize, &_ListDatatypeValidator_ClassInfo_, allocate$ListDatatypeValidator);
+	$FieldInfo fieldInfos$$[] = {
+		{"fItemValidator", "Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;", nullptr, 0, $field(ListDatatypeValidator, fItemValidator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;)V", nullptr, $PUBLIC, $method(ListDatatypeValidator, init$, void, $DatatypeValidator*)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(ListDatatypeValidator, validate, void, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.ListDatatypeValidator",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.DatatypeValidator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ListDatatypeValidator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ListDatatypeValidator);
+	});
 	return class$;
 }
 

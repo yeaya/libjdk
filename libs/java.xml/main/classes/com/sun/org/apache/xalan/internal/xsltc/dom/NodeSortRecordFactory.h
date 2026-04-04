@@ -63,6 +63,7 @@ class NodeSortRecordFactory : public ::java::lang::Object {
 	$class(NodeSortRecordFactory, 0, ::java::lang::Object)
 public:
 	NodeSortRecordFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::DOM* dom, $String* className, ::com::sun::org::apache::xalan::internal::xsltc::Translet* translet, $StringArray* order, $StringArray* type);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::DOM* dom, $String* className, ::com::sun::org::apache::xalan::internal::xsltc::Translet* translet, $StringArray* order, $StringArray* type, $StringArray* lang, $StringArray* caseOrder);
 	virtual $String* getClassName();

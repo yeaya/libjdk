@@ -1,6 +1,4 @@
 #include <sun/awt/X11/XTextFieldPeer$XAWTTextField.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -8,7 +6,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputMethodEvent.h>
@@ -32,12 +29,10 @@
 #undef ACTION_PERFORMED
 #undef TEXT_VALUE_CHANGED
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -51,8 +46,6 @@ using $TransferHandler = ::javax::swing::TransferHandler;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XTextFieldPeer = ::sun::awt::X11::XTextFieldPeer;
 using $XTextFieldPeer$AWTTextFieldUI = ::sun::awt::X11::XTextFieldPeer$AWTTextFieldUI;
@@ -60,63 +53,6 @@ using $XTextFieldPeer$AWTTextFieldUI = ::sun::awt::X11::XTextFieldPeer$AWTTextFi
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextFieldPeer$XAWTTextField_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextFieldPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextFieldPeer$XAWTTextField, this$0)},
-	{"isFocused", "Z", nullptr, $PRIVATE, $field(XTextFieldPeer$XAWTTextField, isFocused)},
-	{"xwin", "Lsun/awt/X11/XComponentPeer;", nullptr, $PRIVATE | $FINAL, $field(XTextFieldPeer$XAWTTextField, xwin)},
-	{}
-};
-
-$MethodInfo _XTextFieldPeer$XAWTTextField_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11/XTextFieldPeer;Ljava/lang/String;Lsun/awt/X11/XComponentPeer;Ljava/awt/Container;)V", nullptr, 0, $method(XTextFieldPeer$XAWTTextField, init$, void, $XTextFieldPeer*, $String*, $XComponentPeer*, $Container*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, actionPerformed, void, $ActionEvent*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, changedUpdate, void, $DocumentEvent*)},
-	{"forwardFocusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextFieldPeer$XAWTTextField, forwardFocusGained, void, $FocusEvent*)},
-	{"forwardFocusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextFieldPeer$XAWTTextField, forwardFocusLost, void, $FocusEvent*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, getGraphics, $Graphics*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, hasFocus, bool)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, insertUpdate, void, $DocumentEvent*)},
-	{"processInputMethodEventImpl", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, processInputMethodEventImpl, void, $InputMethodEvent*)},
-	{"processMouseEventImpl", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, processMouseEventImpl, void, $MouseEvent*)},
-	{"processMouseMotionEventImpl", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, processMouseMotionEventImpl, void, $MouseEvent*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, removeUpdate, void, $DocumentEvent*)},
-	{"repaintNow", "()V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, repaintNow, void)},
-	{"setEchoChar", "(C)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, setEchoChar, void, char16_t)},
-	{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, setTransferHandler, void, $TransferHandler*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, updateUI, void)},
-	{}
-};
-
-$InnerClassInfo _XTextFieldPeer$XAWTTextField_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextFieldPeer$XAWTTextField", "sun.awt.X11.XTextFieldPeer", "XAWTTextField", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextFieldPeer$XAWTTextField_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextFieldPeer$XAWTTextField",
-	"javax.swing.JPasswordField",
-	"java.awt.event.ActionListener,javax.swing.event.DocumentListener",
-	_XTextFieldPeer$XAWTTextField_FieldInfo_,
-	_XTextFieldPeer$XAWTTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextFieldPeer$XAWTTextField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextFieldPeer"
-};
-
-$Object* allocate$XTextFieldPeer$XAWTTextField($Class* clazz) {
-	return $of($alloc(XTextFieldPeer$XAWTTextField));
-}
 
 $String* XTextFieldPeer$XAWTTextField::toString() {
 	 return this->$JPasswordField::toString();
@@ -139,25 +75,25 @@ void XTextFieldPeer$XAWTTextField::finalize() {
 }
 
 void XTextFieldPeer$XAWTTextField::init$($XTextFieldPeer* this$0, $String* text, $XComponentPeer* xwin, $Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPasswordField::init$(text);
 	this->isFocused = false;
 	$set(this, xwin, xwin);
 	setDoubleBuffered(true);
 	setFocusable(false);
-	$nc($($AWTAccessor::getComponentAccessor()))->setParent(this, parent);
+	$$nc($AWTAccessor::getComponentAccessor())->setParent(this, parent);
 	setBackground($($nc(xwin)->getPeerBackground()));
-	setForeground($($nc(xwin)->getPeerForeground()));
-	setFont($($nc(xwin)->getPeerFont()));
+	setForeground($(xwin->getPeerForeground()));
+	setFont($(xwin->getPeerFont()));
 	setCaretPosition(0);
 	addActionListener(this);
 	addNotify();
 }
 
 void XTextFieldPeer$XAWTTextField::actionPerformed($ActionEvent* actionEvent) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of($nc(this->xwin)->target));
+	$useLocalObjectStack();
+	$var($Object, var$0, $nc(this->xwin)->target);
 	$var($String, var$1, getText());
 	int64_t var$2 = $nc(actionEvent)->getWhen();
 	$nc(this->xwin)->postEvent($$new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, var$1, var$2, actionEvent->getModifiers()));
@@ -165,19 +101,19 @@ void XTextFieldPeer$XAWTTextField::actionPerformed($ActionEvent* actionEvent) {
 
 void XTextFieldPeer$XAWTTextField::insertUpdate($DocumentEvent* e) {
 	if (this->xwin != nullptr) {
-		$nc(this->xwin)->postEvent($$new($TextEvent, $nc(this->xwin)->target, $TextEvent::TEXT_VALUE_CHANGED));
+		this->xwin->postEvent($$new($TextEvent, this->xwin->target, $TextEvent::TEXT_VALUE_CHANGED));
 	}
 }
 
 void XTextFieldPeer$XAWTTextField::removeUpdate($DocumentEvent* e) {
 	if (this->xwin != nullptr) {
-		$nc(this->xwin)->postEvent($$new($TextEvent, $nc(this->xwin)->target, $TextEvent::TEXT_VALUE_CHANGED));
+		this->xwin->postEvent($$new($TextEvent, this->xwin->target, $TextEvent::TEXT_VALUE_CHANGED));
 	}
 }
 
 void XTextFieldPeer$XAWTTextField::changedUpdate($DocumentEvent* e) {
 	if (this->xwin != nullptr) {
-		$nc(this->xwin)->postEvent($$new($TextEvent, $nc(this->xwin)->target, $TextEvent::TEXT_VALUE_CHANGED));
+		this->xwin->postEvent($$new($TextEvent, this->xwin->target, $TextEvent::TEXT_VALUE_CHANGED));
 	}
 }
 
@@ -195,7 +131,7 @@ void XTextFieldPeer$XAWTTextField::updateUI() {
 }
 
 void XTextFieldPeer$XAWTTextField::forwardFocusGained($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isFocused = true;
 	int32_t var$0 = $nc(e)->getID();
 	bool var$1 = e->isTemporary();
@@ -205,7 +141,7 @@ void XTextFieldPeer$XAWTTextField::forwardFocusGained($FocusEvent* e) {
 }
 
 void XTextFieldPeer$XAWTTextField::forwardFocusLost($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isFocused = false;
 	int32_t var$0 = $nc(e)->getID();
 	bool var$1 = e->isTemporary();
@@ -231,23 +167,74 @@ void XTextFieldPeer$XAWTTextField::processMouseMotionEventImpl($MouseEvent* e) {
 }
 
 void XTextFieldPeer$XAWTTextField::setTransferHandler($TransferHandler* newHandler) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, key, $nc($($AWTAccessor::getClientPropertyKeyAccessor()))->getJComponent_TRANSFER_HANDLER());
+	$useLocalObjectStack();
+	$var($Object, key, $$nc($AWTAccessor::getClientPropertyKeyAccessor())->getJComponent_TRANSFER_HANDLER());
 	$var($Object, oldHandler, getClientProperty(key));
 	putClientProperty(key, newHandler);
-	firePropertyChange("transferHandler"_s, oldHandler, $of(newHandler));
+	firePropertyChange("transferHandler"_s, oldHandler, newHandler);
 }
 
 void XTextFieldPeer$XAWTTextField::setEchoChar(char16_t c) {
 	$JPasswordField::setEchoChar(c);
-	$nc(($cast($XTextFieldPeer$AWTTextFieldUI, this->ui)))->installKeyboardActions();
+	$nc($cast($XTextFieldPeer$AWTTextFieldUI, this->ui))->installKeyboardActions();
 }
 
 XTextFieldPeer$XAWTTextField::XTextFieldPeer$XAWTTextField() {
 }
 
 $Class* XTextFieldPeer$XAWTTextField::load$($String* name, bool initialize) {
-	$loadClass(XTextFieldPeer$XAWTTextField, name, initialize, &_XTextFieldPeer$XAWTTextField_ClassInfo_, allocate$XTextFieldPeer$XAWTTextField);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextFieldPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextFieldPeer$XAWTTextField, this$0)},
+		{"isFocused", "Z", nullptr, $PRIVATE, $field(XTextFieldPeer$XAWTTextField, isFocused)},
+		{"xwin", "Lsun/awt/X11/XComponentPeer;", nullptr, $PRIVATE | $FINAL, $field(XTextFieldPeer$XAWTTextField, xwin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11/XTextFieldPeer;Ljava/lang/String;Lsun/awt/X11/XComponentPeer;Ljava/awt/Container;)V", nullptr, 0, $method(XTextFieldPeer$XAWTTextField, init$, void, $XTextFieldPeer*, $String*, $XComponentPeer*, $Container*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, actionPerformed, void, $ActionEvent*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, changedUpdate, void, $DocumentEvent*)},
+		{"forwardFocusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextFieldPeer$XAWTTextField, forwardFocusGained, void, $FocusEvent*)},
+		{"forwardFocusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $method(XTextFieldPeer$XAWTTextField, forwardFocusLost, void, $FocusEvent*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, getGraphics, $Graphics*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, hasFocus, bool)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, insertUpdate, void, $DocumentEvent*)},
+		{"processInputMethodEventImpl", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, processInputMethodEventImpl, void, $InputMethodEvent*)},
+		{"processMouseEventImpl", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, processMouseEventImpl, void, $MouseEvent*)},
+		{"processMouseMotionEventImpl", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, processMouseMotionEventImpl, void, $MouseEvent*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, removeUpdate, void, $DocumentEvent*)},
+		{"repaintNow", "()V", nullptr, $PUBLIC, $method(XTextFieldPeer$XAWTTextField, repaintNow, void)},
+		{"setEchoChar", "(C)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, setEchoChar, void, char16_t)},
+		{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, setTransferHandler, void, $TransferHandler*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(XTextFieldPeer$XAWTTextField, updateUI, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextFieldPeer$XAWTTextField", "sun.awt.X11.XTextFieldPeer", "XAWTTextField", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextFieldPeer$XAWTTextField",
+		"javax.swing.JPasswordField",
+		"java.awt.event.ActionListener,javax.swing.event.DocumentListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextFieldPeer"
+	};
+	$loadClass(XTextFieldPeer$XAWTTextField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextFieldPeer$XAWTTextField));
+	});
 	return class$;
 }
 

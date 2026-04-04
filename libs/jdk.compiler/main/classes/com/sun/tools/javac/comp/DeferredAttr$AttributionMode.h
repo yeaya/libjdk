@@ -26,6 +26,7 @@ class $export DeferredAttr$AttributionMode : public ::java::lang::Enum {
 public:
 	DeferredAttr$AttributionMode();
 	static $Array<::com::sun::tools::javac::comp::DeferredAttr$AttributionMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, bool isSpeculative, bool recover);
 	virtual bool isSpeculative();
 	virtual bool recover();

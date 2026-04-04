@@ -34,6 +34,7 @@ class $import RepaintManager$PaintManager : public ::java::lang::Object {
 	$class(RepaintManager$PaintManager, 0, ::java::lang::Object)
 public:
 	RepaintManager$PaintManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void beginPaint();
 	virtual void copyArea(::javax::swing::JComponent* c, ::java::awt::Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, int32_t deltaX, int32_t deltaY, bool clip);

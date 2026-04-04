@@ -21,10 +21,13 @@ public:
 	CatalogException();
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x0910BE9C9FF3E631;
+	static const int64_t serialVersionUID = (int64_t)0x0910be9c9ff3e631;
 	CatalogException(const CatalogException& e);
 	virtual void throw$() override;
-	inline CatalogException* operator ->() {
+	inline CatalogException* operator ->() const {
+		return (CatalogException*)throwing$;
+	}
+	inline operator CatalogException*() const {
 		return (CatalogException*)throwing$;
 	}
 };

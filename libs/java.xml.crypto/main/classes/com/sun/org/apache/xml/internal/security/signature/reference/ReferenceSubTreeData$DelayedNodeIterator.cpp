@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceSubTreeData$DelayedNodeIterator.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceSubTreeData.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/ArrayList.h>
@@ -24,7 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
@@ -38,49 +36,6 @@ namespace com {
 						namespace security {
 							namespace signature {
 								namespace reference {
-
-$FieldInfo _ReferenceSubTreeData$DelayedNodeIterator_FieldInfo_[] = {
-	{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, root)},
-	{"nodeSet", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, nodeSet)},
-	{"li", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, li)},
-	{"withComments", "Z", nullptr, $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, withComments)},
-	{}
-};
-
-$MethodInfo _ReferenceSubTreeData$DelayedNodeIterator_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(ReferenceSubTreeData$DelayedNodeIterator, init$, void, $Node*, bool)},
-	{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(ReferenceSubTreeData$DelayedNodeIterator, dereferenceSameDocumentURI, $List*, $Node*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, hasNext, bool)},
-	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, next, $Object*)},
-	{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(ReferenceSubTreeData$DelayedNodeIterator, nodeSetMinusCommentNodes, void, $Node*, $List*, $Node*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _ReferenceSubTreeData$DelayedNodeIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator", "com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData", "DelayedNodeIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceSubTreeData$DelayedNodeIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ReferenceSubTreeData$DelayedNodeIterator_FieldInfo_,
-	_ReferenceSubTreeData$DelayedNodeIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Lorg/w3c/dom/Node;>;",
-	nullptr,
-	_ReferenceSubTreeData$DelayedNodeIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData"
-};
-
-$Object* allocate$ReferenceSubTreeData$DelayedNodeIterator($Class* clazz) {
-	return $of($alloc(ReferenceSubTreeData$DelayedNodeIterator));
-}
 
 void ReferenceSubTreeData$DelayedNodeIterator::init$($Node* root, bool excludeComments) {
 	$set(this, root, root);
@@ -101,7 +56,7 @@ $Object* ReferenceSubTreeData$DelayedNodeIterator::next() {
 		$set(this, li, $nc(this->nodeSet)->listIterator());
 	}
 	if ($nc(this->li)->hasNext()) {
-		return $of($cast($Node, $nc(this->li)->next()));
+		return $cast($Node, this->li->next());
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -120,72 +75,61 @@ $List* ReferenceSubTreeData$DelayedNodeIterator::dereferenceSameDocumentURI($Nod
 }
 
 void ReferenceSubTreeData$DelayedNodeIterator::nodeSetMinusCommentNodes($Node* node, $List* nodeSet, $Node* prevSibling) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($NamedNodeMap, attrs, nullptr)
-		$var($Node, pSibling, nullptr)
-		switch ($nc(node)->getNodeType()) {
-		case $Node::ELEMENT_NODE:
-			{
-				$nc(nodeSet)->add(node);
-				$assign(attrs, node->getAttributes());
-				if (attrs != nullptr) {
-					{
-						int32_t i = 0;
-						int32_t len = attrs->getLength();
-						for (; i < len; ++i) {
-							$nc(nodeSet)->add($(attrs->item(i)));
-						}
-					}
-				}
-				$assign(pSibling, nullptr);
-				{
-					$var($Node, child, node->getFirstChild());
-					for (; child != nullptr; $assign(child, $nc(child)->getNextSibling())) {
-						nodeSetMinusCommentNodes(child, nodeSet, pSibling);
-						$assign(pSibling, child);
-					}
-				}
-				break;
-			}
-		case $Node::DOCUMENT_NODE:
-			{
-				$assign(pSibling, nullptr);
-				{
-					$var($Node, child, node->getFirstChild());
-					for (; child != nullptr; $assign(child, $nc(child)->getNextSibling())) {
-						nodeSetMinusCommentNodes(child, nodeSet, pSibling);
-						$assign(pSibling, child);
-					}
-				}
-				break;
-			}
-		case $Node::TEXT_NODE:
-			{}
-		case $Node::CDATA_SECTION_NODE:
-			{
-				bool var$0 = prevSibling != nullptr;
-				if (var$0) {
-					bool var$1 = prevSibling->getNodeType() == $Node::TEXT_NODE;
-					var$0 = (var$1 || prevSibling->getNodeType() == $Node::CDATA_SECTION_NODE);
-				}
-				if (var$0) {
-					return;
-				}
-				$nc(nodeSet)->add(node);
-				break;
-			}
-		case $Node::PROCESSING_INSTRUCTION_NODE:
-			{
-				$nc(nodeSet)->add(node);
-				break;
-			}
-		case $Node::COMMENT_NODE:
-			{
-				if (this->withComments) {
-					$nc(nodeSet)->add(node);
+	$useLocalObjectStack();
+	$var($NamedNodeMap, attrs, nullptr);
+	$var($Node, pSibling, nullptr);
+	switch ($nc(node)->getNodeType()) {
+	case $Node::ELEMENT_NODE:
+		{
+			$nc(nodeSet)->add(node);
+			$assign(attrs, node->getAttributes());
+			if (attrs != nullptr) {
+				for (int32_t i = 0, len = attrs->getLength(); i < len; ++i) {
+					nodeSet->add($(attrs->item(i)));
 				}
 			}
+			$assign(pSibling, nullptr);
+			{
+				$var($Node, child, node->getFirstChild());
+				for (; child != nullptr; $assign(child, child->getNextSibling())) {
+					nodeSetMinusCommentNodes(child, nodeSet, pSibling);
+					$assign(pSibling, child);
+				}
+			}
+			break;
+		}
+	case $Node::DOCUMENT_NODE:
+		{
+			$assign(pSibling, nullptr);
+			{
+				$var($Node, child, node->getFirstChild());
+				for (; child != nullptr; $assign(child, child->getNextSibling())) {
+					nodeSetMinusCommentNodes(child, nodeSet, pSibling);
+					$assign(pSibling, child);
+				}
+			}
+			break;
+		}
+	case $Node::TEXT_NODE:
+	case $Node::CDATA_SECTION_NODE:
+		{
+			bool var$0 = prevSibling != nullptr;
+			if (var$0) {
+				bool var$1 = prevSibling->getNodeType() == $Node::TEXT_NODE;
+				var$0 = var$1 || prevSibling->getNodeType() == $Node::CDATA_SECTION_NODE;
+			}
+			if (var$0) {
+				return;
+			}
+			$nc(nodeSet)->add(node);
+			break;
+		}
+	case $Node::PROCESSING_INSTRUCTION_NODE:
+		$nc(nodeSet)->add(node);
+		break;
+	case $Node::COMMENT_NODE:
+		if (this->withComments) {
+			$nc(nodeSet)->add(node);
 		}
 	}
 }
@@ -194,7 +138,44 @@ ReferenceSubTreeData$DelayedNodeIterator::ReferenceSubTreeData$DelayedNodeIterat
 }
 
 $Class* ReferenceSubTreeData$DelayedNodeIterator::load$($String* name, bool initialize) {
-	$loadClass(ReferenceSubTreeData$DelayedNodeIterator, name, initialize, &_ReferenceSubTreeData$DelayedNodeIterator_ClassInfo_, allocate$ReferenceSubTreeData$DelayedNodeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, root)},
+		{"nodeSet", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, nodeSet)},
+		{"li", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<Lorg/w3c/dom/Node;>;", $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, li)},
+		{"withComments", "Z", nullptr, $PRIVATE, $field(ReferenceSubTreeData$DelayedNodeIterator, withComments)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(ReferenceSubTreeData$DelayedNodeIterator, init$, void, $Node*, bool)},
+		{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(ReferenceSubTreeData$DelayedNodeIterator, dereferenceSameDocumentURI, $List*, $Node*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, hasNext, bool)},
+		{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, next, $Object*)},
+		{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(ReferenceSubTreeData$DelayedNodeIterator, nodeSetMinusCommentNodes, void, $Node*, $List*, $Node*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator", "com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData", "DelayedNodeIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData$DelayedNodeIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Lorg/w3c/dom/Node;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.signature.reference.ReferenceSubTreeData"
+	};
+	$loadClass(ReferenceSubTreeData$DelayedNodeIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceSubTreeData$DelayedNodeIterator);
+	});
 	return class$;
 }
 

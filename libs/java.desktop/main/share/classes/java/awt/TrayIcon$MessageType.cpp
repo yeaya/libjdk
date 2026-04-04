@@ -1,5 +1,4 @@
 #include <java/awt/TrayIcon$MessageType.h>
-
 #include <java/awt/TrayIcon.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _TrayIcon$MessageType_FieldInfo_[] = {
-	{"ERROR", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, ERROR)},
-	{"WARNING", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, WARNING)},
-	{"INFO", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, INFO)},
-	{"NONE", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, NONE)},
-	{"$VALUES", "[Ljava/awt/TrayIcon$MessageType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TrayIcon$MessageType, $VALUES)},
-	{}
-};
-
-$MethodInfo _TrayIcon$MessageType_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/TrayIcon$MessageType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TrayIcon$MessageType, $values, $TrayIcon$MessageTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TrayIcon$MessageType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TrayIcon$MessageType, valueOf, TrayIcon$MessageType*, $String*)},
-	{"values", "()[Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TrayIcon$MessageType, values, $TrayIcon$MessageTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _TrayIcon$MessageType_InnerClassesInfo_[] = {
-	{"java.awt.TrayIcon$MessageType", "java.awt.TrayIcon", "MessageType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TrayIcon$MessageType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.TrayIcon$MessageType",
-	"java.lang.Enum",
-	nullptr,
-	_TrayIcon$MessageType_FieldInfo_,
-	_TrayIcon$MessageType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/TrayIcon$MessageType;>;",
-	nullptr,
-	_TrayIcon$MessageType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.TrayIcon"
-};
-
-$Object* allocate$TrayIcon$MessageType($Class* clazz) {
-	return $of($alloc(TrayIcon$MessageType));
-}
 
 TrayIcon$MessageType* TrayIcon$MessageType::ERROR = nullptr;
 TrayIcon$MessageType* TrayIcon$MessageType::WARNING = nullptr;
@@ -91,7 +48,7 @@ void TrayIcon$MessageType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TrayIcon$MessageType($Class* class$) {
+void TrayIcon$MessageType::clinit$($Class* clazz) {
 	$assignStatic(TrayIcon$MessageType::ERROR, $new(TrayIcon$MessageType, "ERROR"_s, 0));
 	$assignStatic(TrayIcon$MessageType::WARNING, $new(TrayIcon$MessageType, "WARNING"_s, 1));
 	$assignStatic(TrayIcon$MessageType::INFO, $new(TrayIcon$MessageType, "INFO"_s, 2));
@@ -103,7 +60,43 @@ TrayIcon$MessageType::TrayIcon$MessageType() {
 }
 
 $Class* TrayIcon$MessageType::load$($String* name, bool initialize) {
-	$loadClass(TrayIcon$MessageType, name, initialize, &_TrayIcon$MessageType_ClassInfo_, clinit$TrayIcon$MessageType, allocate$TrayIcon$MessageType);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, ERROR)},
+		{"WARNING", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, WARNING)},
+		{"INFO", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, INFO)},
+		{"NONE", "Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TrayIcon$MessageType, NONE)},
+		{"$VALUES", "[Ljava/awt/TrayIcon$MessageType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TrayIcon$MessageType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/TrayIcon$MessageType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TrayIcon$MessageType, $values, $TrayIcon$MessageTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TrayIcon$MessageType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TrayIcon$MessageType, valueOf, TrayIcon$MessageType*, $String*)},
+		{"values", "()[Ljava/awt/TrayIcon$MessageType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TrayIcon$MessageType, values, $TrayIcon$MessageTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TrayIcon$MessageType", "java.awt.TrayIcon", "MessageType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.TrayIcon$MessageType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/TrayIcon$MessageType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.TrayIcon"
+	};
+	$loadClass(TrayIcon$MessageType, name, initialize, &classInfo$$, TrayIcon$MessageType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TrayIcon$MessageType));
+	});
 	return class$;
 }
 

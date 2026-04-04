@@ -1,5 +1,4 @@
 #include <javax/naming/Referenceable.h>
-
 #include <javax/naming/Reference.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $Reference = ::javax::naming::Reference;
 namespace javax {
 	namespace naming {
 
-$MethodInfo _Referenceable_MethodInfo_[] = {
-	{"getReference", "()Ljavax/naming/Reference;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Referenceable, getReference, $Reference*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _Referenceable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.Referenceable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Referenceable_MethodInfo_
-};
-
-$Object* allocate$Referenceable($Class* clazz) {
-	return $of($alloc(Referenceable));
-}
-
 $Class* Referenceable::load$($String* name, bool initialize) {
-	$loadClass(Referenceable, name, initialize, &_Referenceable_ClassInfo_, allocate$Referenceable);
+	$MethodInfo methodInfos$$[] = {
+		{"getReference", "()Ljavax/naming/Reference;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Referenceable, getReference, $Reference*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.Referenceable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Referenceable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Referenceable);
+	});
 	return class$;
 }
 

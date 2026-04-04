@@ -1,5 +1,4 @@
 #include <javax/swing/text/GlyphView$JustificationInfo.h>
-
 #include <java/util/BitSet.h>
 #include <javax/swing/text/GlyphView.h>
 #include <jcpp.h>
@@ -13,47 +12,6 @@ using $BitSet = ::java::util::BitSet;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _GlyphView$JustificationInfo_FieldInfo_[] = {
-	{"start", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, start)},
-	{"end", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, end)},
-	{"leadingSpaces", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, leadingSpaces)},
-	{"contentSpaces", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, contentSpaces)},
-	{"trailingSpaces", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, trailingSpaces)},
-	{"hasTab", "Z", nullptr, $FINAL, $field(GlyphView$JustificationInfo, hasTab)},
-	{"spaceMap", "Ljava/util/BitSet;", nullptr, $FINAL, $field(GlyphView$JustificationInfo, spaceMap)},
-	{}
-};
-
-$MethodInfo _GlyphView$JustificationInfo_MethodInfo_[] = {
-	{"<init>", "(IIIIIZLjava/util/BitSet;)V", nullptr, 0, $method(GlyphView$JustificationInfo, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $BitSet*)},
-	{}
-};
-
-$InnerClassInfo _GlyphView$JustificationInfo_InnerClassesInfo_[] = {
-	{"javax.swing.text.GlyphView$JustificationInfo", "javax.swing.text.GlyphView", "JustificationInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _GlyphView$JustificationInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.GlyphView$JustificationInfo",
-	"java.lang.Object",
-	nullptr,
-	_GlyphView$JustificationInfo_FieldInfo_,
-	_GlyphView$JustificationInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphView$JustificationInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GlyphView"
-};
-
-$Object* allocate$GlyphView$JustificationInfo($Class* clazz) {
-	return $of($alloc(GlyphView$JustificationInfo));
-}
 
 void GlyphView$JustificationInfo::init$(int32_t start, int32_t end, int32_t leadingSpaces, int32_t contentSpaces, int32_t trailingSpaces, bool hasTab, $BitSet* spaceMap) {
 	this->start = start;
@@ -69,7 +27,42 @@ GlyphView$JustificationInfo::GlyphView$JustificationInfo() {
 }
 
 $Class* GlyphView$JustificationInfo::load$($String* name, bool initialize) {
-	$loadClass(GlyphView$JustificationInfo, name, initialize, &_GlyphView$JustificationInfo_ClassInfo_, allocate$GlyphView$JustificationInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, start)},
+		{"end", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, end)},
+		{"leadingSpaces", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, leadingSpaces)},
+		{"contentSpaces", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, contentSpaces)},
+		{"trailingSpaces", "I", nullptr, $FINAL, $field(GlyphView$JustificationInfo, trailingSpaces)},
+		{"hasTab", "Z", nullptr, $FINAL, $field(GlyphView$JustificationInfo, hasTab)},
+		{"spaceMap", "Ljava/util/BitSet;", nullptr, $FINAL, $field(GlyphView$JustificationInfo, spaceMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIIIZLjava/util/BitSet;)V", nullptr, 0, $method(GlyphView$JustificationInfo, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, bool, $BitSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GlyphView$JustificationInfo", "javax.swing.text.GlyphView", "JustificationInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.GlyphView$JustificationInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GlyphView"
+	};
+	$loadClass(GlyphView$JustificationInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphView$JustificationInfo);
+	});
 	return class$;
 }
 

@@ -42,6 +42,7 @@ class WrapToken : public ::sun::security::jgss::krb5::MessageToken {
 	$class(WrapToken, 0, ::sun::security::jgss::krb5::MessageToken)
 public:
 	WrapToken();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::krb5::Krb5Context* context, $bytes* tokenBytes, int32_t tokenOffset, int32_t tokenLen, ::org::ietf::jgss::MessageProp* prop);
 	void init$(::sun::security::jgss::krb5::Krb5Context* context, ::java::io::InputStream* is, ::org::ietf::jgss::MessageProp* prop);
 	void init$(::sun::security::jgss::krb5::Krb5Context* context, ::org::ietf::jgss::MessageProp* prop, $bytes* dataBytes, int32_t dataOffset, int32_t dataLen);

@@ -1,5 +1,4 @@
 #include <java/awt/desktop/AppReopenedEvent.h>
-
 #include <java/awt/desktop/AppEvent.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _AppReopenedEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AppReopenedEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AppReopenedEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AppReopenedEvent, init$, void)},
-	{}
-};
-
-$ClassInfo _AppReopenedEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.AppReopenedEvent",
-	"java.awt.desktop.AppEvent",
-	nullptr,
-	_AppReopenedEvent_FieldInfo_,
-	_AppReopenedEvent_MethodInfo_
-};
-
-$Object* allocate$AppReopenedEvent($Class* clazz) {
-	return $of($alloc(AppReopenedEvent));
-}
-
 void AppReopenedEvent::init$() {
 	$AppEvent::init$();
 }
@@ -43,7 +19,25 @@ AppReopenedEvent::AppReopenedEvent() {
 }
 
 $Class* AppReopenedEvent::load$($String* name, bool initialize) {
-	$loadClass(AppReopenedEvent, name, initialize, &_AppReopenedEvent_ClassInfo_, allocate$AppReopenedEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AppReopenedEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AppReopenedEvent, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.AppReopenedEvent",
+		"java.awt.desktop.AppEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AppReopenedEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppReopenedEvent);
+	});
 	return class$;
 }
 

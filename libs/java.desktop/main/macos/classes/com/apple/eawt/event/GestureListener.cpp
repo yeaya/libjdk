@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/GestureListener.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace com {
 		namespace eawt {
 			namespace event {
 
-$ClassInfo _GestureListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.apple.eawt.event.GestureListener",
-	nullptr,
-	"java.util.EventListener"
-};
-
-$Object* allocate$GestureListener($Class* clazz) {
-	return $of($alloc(GestureListener));
-}
-
 $Class* GestureListener::load$($String* name, bool initialize) {
-	$loadClass(GestureListener, name, initialize, &_GestureListener_ClassInfo_, allocate$GestureListener);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.apple.eawt.event.GestureListener",
+		nullptr,
+		"java.util.EventListener"
+	};
+	$loadClass(GestureListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GestureListener);
+	});
 	return class$;
 }
 

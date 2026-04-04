@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCLiteral.h>
-
-#include <com/sun/source/tree/LiteralTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -15,7 +13,6 @@
 
 #undef LITERAL
 
-using $LiteralTree = ::com::sun::source::tree::LiteralTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -38,54 +35,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCLiteral_FieldInfo_[] = {
-	{"typetag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $field(JCTree$JCLiteral, typetag)},
-	{"value", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JCTree$JCLiteral, value)},
-	{}
-};
-
-$MethodInfo _JCTree$JCLiteral_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(JCTree$JCLiteral, init$, void, $TypeTag*, Object$*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCLiteral, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, getTag, $JCTree$Tag*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, getValue, $Object*)},
-	{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, setType, JCTree$JCLiteral*, $Type*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCLiteral_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCLiteral", "com.sun.tools.javac.tree.JCTree", "JCLiteral", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCLiteral_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCLiteral",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.LiteralTree",
-	_JCTree$JCLiteral_FieldInfo_,
-	_JCTree$JCLiteral_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCLiteral_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCLiteral($Class* clazz) {
-	return $of($alloc(JCTree$JCLiteral));
-}
 
 $String* JCTree$JCLiteral::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -123,35 +72,27 @@ $Tree$Kind* JCTree$JCLiteral::getKind() {
 
 $Object* JCTree$JCLiteral::getValue() {
 	$init($JCTree$1);
-	{
-		int32_t bi = 0;
-		int32_t ci = 0;
-		char16_t c = 0;
-		switch ($nc($JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc((this->typetag))->ordinal())) {
-		case 1:
-			{
-				bi = $nc(($cast($Integer, this->value)))->intValue();
-				return $of($Boolean::valueOf((bi != 0)));
-			}
-		case 2:
-			{
-				ci = $nc(($cast($Integer, this->value)))->intValue();
-				c = (char16_t)ci;
-				if (c != ci) {
-					$throwNew($AssertionError, $of("bad value for char literal"_s));
-				}
-				return $of($Character::valueOf(c));
-			}
-		default:
-			{
-				return $of(this->value);
-			}
+	int32_t bi = 0;
+	int32_t ci = 0;
+	char16_t c = 0;
+	switch ($nc($JCTree$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc((this->typetag))->ordinal())) {
+	case 1:
+		bi = $nc($cast($Integer, this->value))->intValue();
+		return $of($Boolean::valueOf((bi != 0)));
+	case 2:
+		ci = $nc($cast($Integer, this->value))->intValue();
+		c = (char16_t)ci;
+		if (c != ci) {
+			$throwNew($AssertionError, $of("bad value for char literal"_s));
 		}
+		return $of($Character::valueOf(c));
+	default:
+		return this->value;
 	}
 }
 
 $Object* JCTree$JCLiteral::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitLiteral(this, d));
+	return $nc(v)->visitLiteral(this, d);
 }
 
 JCTree$JCLiteral* JCTree$JCLiteral::setType($Type* type) {
@@ -168,7 +109,49 @@ JCTree$JCLiteral::JCTree$JCLiteral() {
 }
 
 $Class* JCTree$JCLiteral::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCLiteral, name, initialize, &_JCTree$JCLiteral_ClassInfo_, allocate$JCTree$JCLiteral);
+	$FieldInfo fieldInfos$$[] = {
+		{"typetag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $field(JCTree$JCLiteral, typetag)},
+		{"value", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JCTree$JCLiteral, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(JCTree$JCLiteral, init$, void, $TypeTag*, Object$*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCLiteral, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, getTag, $JCTree$Tag*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, getValue, $Object*)},
+		{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLiteral, setType, JCTree$JCLiteral*, $Type*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCLiteral", "com.sun.tools.javac.tree.JCTree", "JCLiteral", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCLiteral",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.LiteralTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCLiteral, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCLiteral));
+	});
 	return class$;
 }
 

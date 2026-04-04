@@ -1,5 +1,4 @@
 #include <sun/font/TextLabelFactory.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/text/Bidi.h>
@@ -32,40 +31,6 @@ using $TextSourceLabel = ::sun::font::TextSourceLabel;
 namespace sun {
 	namespace font {
 
-$FieldInfo _TextLabelFactory_FieldInfo_[] = {
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, frc)},
-	{"text", "[C", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, text)},
-	{"bidi", "Ljava/text/Bidi;", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, bidi)},
-	{"lineBidi", "Ljava/text/Bidi;", nullptr, $PRIVATE, $field(TextLabelFactory, lineBidi)},
-	{"flags", "I", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, flags)},
-	{"lineStart", "I", nullptr, $PRIVATE, $field(TextLabelFactory, lineStart)},
-	{"lineLimit", "I", nullptr, $PRIVATE, $field(TextLabelFactory, lineLimit)},
-	{}
-};
-
-$MethodInfo _TextLabelFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/font/FontRenderContext;[CLjava/text/Bidi;I)V", nullptr, $PUBLIC, $method(TextLabelFactory, init$, void, $FontRenderContext*, $chars*, $Bidi*, int32_t)},
-	{"createExtended", "(Ljava/awt/Font;Lsun/font/CoreMetrics;Lsun/font/Decoration;II)Lsun/font/ExtendedTextLabel;", nullptr, $PUBLIC, $method(TextLabelFactory, createExtended, $ExtendedTextLabel*, $Font*, $CoreMetrics*, $Decoration*, int32_t, int32_t)},
-	{"createSimple", "(Ljava/awt/Font;Lsun/font/CoreMetrics;II)Lsun/font/TextLabel;", nullptr, $PUBLIC, $method(TextLabelFactory, createSimple, $TextLabel*, $Font*, $CoreMetrics*, int32_t, int32_t)},
-	{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $method(TextLabelFactory, getFontRenderContext, $FontRenderContext*)},
-	{"getLineBidi", "()Ljava/text/Bidi;", nullptr, $PUBLIC, $method(TextLabelFactory, getLineBidi, $Bidi*)},
-	{"setLineContext", "(II)V", nullptr, $PUBLIC, $method(TextLabelFactory, setLineContext, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _TextLabelFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.TextLabelFactory",
-	"java.lang.Object",
-	nullptr,
-	_TextLabelFactory_FieldInfo_,
-	_TextLabelFactory_MethodInfo_
-};
-
-$Object* allocate$TextLabelFactory($Class* clazz) {
-	return $of($alloc(TextLabelFactory));
-}
-
 void TextLabelFactory::init$($FontRenderContext* frc, $chars* text, $Bidi* bidi, int32_t flags) {
 	$set(this, frc, frc);
 	$set(this, text, $cast($chars, $nc(text)->clone()));
@@ -88,22 +53,22 @@ void TextLabelFactory::setLineContext(int32_t lineStart, int32_t lineLimit) {
 	this->lineStart = lineStart;
 	this->lineLimit = lineLimit;
 	if (this->bidi != nullptr) {
-		$set(this, lineBidi, $nc(this->bidi)->createLineBidi(lineStart, lineLimit));
+		$set(this, lineBidi, this->bidi->createLineBidi(lineStart, lineLimit));
 	}
 }
 
 $ExtendedTextLabel* TextLabelFactory::createExtended($Font* font, $CoreMetrics* lm, $Decoration* decorator, int32_t start, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start >= limit || start < this->lineStart || limit > this->lineLimit) {
 		$throwNew($IllegalArgumentException, $$str({"bad start: "_s, $$str(start), " or limit: "_s, $$str(limit)}));
 	}
-	int32_t level = this->lineBidi == nullptr ? 0 : $nc(this->lineBidi)->getLevelAt(start - this->lineStart);
-	int32_t linedir = (this->lineBidi == nullptr || $nc(this->lineBidi)->baseIsLeftToRight()) ? 0 : 1;
-	int32_t layoutFlags = (int32_t)(this->flags & (uint32_t)~9);
-	if (((int32_t)(level & (uint32_t)1)) != 0) {
+	int32_t level = this->lineBidi == nullptr ? 0 : this->lineBidi->getLevelAt(start - this->lineStart);
+	int32_t linedir = (this->lineBidi == nullptr || this->lineBidi->baseIsLeftToRight()) ? 0 : 1;
+	int32_t layoutFlags = this->flags & ~9;
+	if ((level & 1) != 0) {
 		layoutFlags |= 1;
 	}
-	if (((int32_t)(linedir & (uint32_t)1)) != 0) {
+	if ((linedir & 1) != 0) {
 		layoutFlags |= 8;
 	}
 	$var($TextSource, source, $new($StandardTextSource, this->text, start, limit - start, this->lineStart, this->lineLimit - this->lineStart, level, layoutFlags, font, this->frc, lm));
@@ -111,17 +76,17 @@ $ExtendedTextLabel* TextLabelFactory::createExtended($Font* font, $CoreMetrics* 
 }
 
 $TextLabel* TextLabelFactory::createSimple($Font* font, $CoreMetrics* lm, int32_t start, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start >= limit || start < this->lineStart || limit > this->lineLimit) {
 		$throwNew($IllegalArgumentException, $$str({"bad start: "_s, $$str(start), " or limit: "_s, $$str(limit)}));
 	}
-	int32_t level = this->lineBidi == nullptr ? 0 : $nc(this->lineBidi)->getLevelAt(start - this->lineStart);
-	int32_t linedir = (this->lineBidi == nullptr || $nc(this->lineBidi)->baseIsLeftToRight()) ? 0 : 1;
-	int32_t layoutFlags = (int32_t)(this->flags & (uint32_t)~9);
-	if (((int32_t)(level & (uint32_t)1)) != 0) {
+	int32_t level = this->lineBidi == nullptr ? 0 : this->lineBidi->getLevelAt(start - this->lineStart);
+	int32_t linedir = (this->lineBidi == nullptr || this->lineBidi->baseIsLeftToRight()) ? 0 : 1;
+	int32_t layoutFlags = this->flags & ~9;
+	if ((level & 1) != 0) {
 		layoutFlags |= 1;
 	}
-	if (((int32_t)(linedir & (uint32_t)1)) != 0) {
+	if ((linedir & 1) != 0) {
 		layoutFlags |= 8;
 	}
 	$var($TextSource, source, $new($StandardTextSource, this->text, start, limit - start, this->lineStart, this->lineLimit - this->lineStart, level, layoutFlags, font, this->frc, lm));
@@ -132,7 +97,36 @@ TextLabelFactory::TextLabelFactory() {
 }
 
 $Class* TextLabelFactory::load$($String* name, bool initialize) {
-	$loadClass(TextLabelFactory, name, initialize, &_TextLabelFactory_ClassInfo_, allocate$TextLabelFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, frc)},
+		{"text", "[C", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, text)},
+		{"bidi", "Ljava/text/Bidi;", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, bidi)},
+		{"lineBidi", "Ljava/text/Bidi;", nullptr, $PRIVATE, $field(TextLabelFactory, lineBidi)},
+		{"flags", "I", nullptr, $PRIVATE | $FINAL, $field(TextLabelFactory, flags)},
+		{"lineStart", "I", nullptr, $PRIVATE, $field(TextLabelFactory, lineStart)},
+		{"lineLimit", "I", nullptr, $PRIVATE, $field(TextLabelFactory, lineLimit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/font/FontRenderContext;[CLjava/text/Bidi;I)V", nullptr, $PUBLIC, $method(TextLabelFactory, init$, void, $FontRenderContext*, $chars*, $Bidi*, int32_t)},
+		{"createExtended", "(Ljava/awt/Font;Lsun/font/CoreMetrics;Lsun/font/Decoration;II)Lsun/font/ExtendedTextLabel;", nullptr, $PUBLIC, $method(TextLabelFactory, createExtended, $ExtendedTextLabel*, $Font*, $CoreMetrics*, $Decoration*, int32_t, int32_t)},
+		{"createSimple", "(Ljava/awt/Font;Lsun/font/CoreMetrics;II)Lsun/font/TextLabel;", nullptr, $PUBLIC, $method(TextLabelFactory, createSimple, $TextLabel*, $Font*, $CoreMetrics*, int32_t, int32_t)},
+		{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $method(TextLabelFactory, getFontRenderContext, $FontRenderContext*)},
+		{"getLineBidi", "()Ljava/text/Bidi;", nullptr, $PUBLIC, $method(TextLabelFactory, getLineBidi, $Bidi*)},
+		{"setLineContext", "(II)V", nullptr, $PUBLIC, $method(TextLabelFactory, setLineContext, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.TextLabelFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextLabelFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextLabelFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NullUriCookieTest.h>
-
 #include <java/net/CookieManager.h>
 #include <java/net/CookieStore.h>
 #include <java/net/HttpCookie.h>
@@ -19,32 +18,6 @@ using $URI = ::java::net::URI;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
-$FieldInfo _NullUriCookieTest_FieldInfo_[] = {
-	{"fail", "Z", nullptr, $STATIC, $staticField(NullUriCookieTest, fail)},
-	{}
-};
-
-$MethodInfo _NullUriCookieTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullUriCookieTest, init$, void)},
-	{"checkCookieNullUri", "()V", nullptr, $STATIC, $staticMethod(NullUriCookieTest, checkCookieNullUri, void), "java.lang.Exception"},
-	{"checkFail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NullUriCookieTest, checkFail, void, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullUriCookieTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NullUriCookieTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullUriCookieTest",
-	"java.lang.Object",
-	nullptr,
-	_NullUriCookieTest_FieldInfo_,
-	_NullUriCookieTest_MethodInfo_
-};
-
-$Object* allocate$NullUriCookieTest($Class* clazz) {
-	return $of($alloc(NullUriCookieTest));
-}
-
 bool NullUriCookieTest::fail = false;
 
 void NullUriCookieTest::init$() {
@@ -57,7 +30,7 @@ void NullUriCookieTest::main($StringArray* args) {
 
 void NullUriCookieTest::checkCookieNullUri() {
 	$init(NullUriCookieTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CookieStore, cookieStore, ($$new($CookieManager))->getCookieStore());
 	if ($nc(cookieStore)->removeAll()) {
 		NullUriCookieTest::fail = true;
@@ -65,7 +38,7 @@ void NullUriCookieTest::checkCookieNullUri() {
 	checkFail("removeAll on empty store should return false"_s);
 	$var($HttpCookie, cookie, $new($HttpCookie, "MY_COOKIE"_s, "MY_COOKIE_VALUE"_s));
 	cookie->setDomain("foo.com"_s);
-	$nc(cookieStore)->add(nullptr, cookie);
+	cookieStore->add(nullptr, cookie);
 	$var($URI, uri, $new($URI, "http://foo.com"_s));
 	$var($List, addedCookieList, cookieStore->get(uri));
 	if ($nc(addedCookieList)->size() != 1) {
@@ -73,13 +46,11 @@ void NullUriCookieTest::checkCookieNullUri() {
 	}
 	checkFail("Abnormal size of cookie jar"_s);
 	{
-		$var($Iterator, i$, $nc(addedCookieList)->iterator());
+		$var($Iterator, i$, addedCookieList->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($HttpCookie, chip, $cast($HttpCookie, i$->next()));
-			{
-				if (!$nc(chip)->equals(cookie)) {
-					NullUriCookieTest::fail = true;
-				}
+			if (!$nc(chip)->equals(cookie)) {
+				NullUriCookieTest::fail = true;
 			}
 		}
 	}
@@ -98,7 +69,7 @@ void NullUriCookieTest::checkFail($String* exp) {
 	}
 }
 
-void clinit$NullUriCookieTest($Class* class$) {
+void NullUriCookieTest::clinit$($Class* clazz) {
 	NullUriCookieTest::fail = false;
 }
 
@@ -106,7 +77,28 @@ NullUriCookieTest::NullUriCookieTest() {
 }
 
 $Class* NullUriCookieTest::load$($String* name, bool initialize) {
-	$loadClass(NullUriCookieTest, name, initialize, &_NullUriCookieTest_ClassInfo_, clinit$NullUriCookieTest, allocate$NullUriCookieTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"fail", "Z", nullptr, $STATIC, $staticField(NullUriCookieTest, fail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullUriCookieTest, init$, void)},
+		{"checkCookieNullUri", "()V", nullptr, $STATIC, $staticMethod(NullUriCookieTest, checkCookieNullUri, void), "java.lang.Exception"},
+		{"checkFail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NullUriCookieTest, checkFail, void, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullUriCookieTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullUriCookieTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NullUriCookieTest, name, initialize, &classInfo$$, NullUriCookieTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NullUriCookieTest);
+	});
 	return class$;
 }
 

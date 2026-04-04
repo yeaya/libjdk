@@ -1,9 +1,7 @@
 #include <com/sun/media/sound/DirectAudioDevice$DirectClip.h>
-
 #include <com/sun/media/sound/AbstractDataLine.h>
 #include <com/sun/media/sound/AbstractLine.h>
 #include <com/sun/media/sound/AbstractMixer.h>
-#include <com/sun/media/sound/AutoClosingClip.h>
 #include <com/sun/media/sound/DirectAudioDevice$DirectBAOS.h>
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL.h>
 #include <com/sun/media/sound/DirectAudioDevice.h>
@@ -15,7 +13,6 @@
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/Runnable.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <javax/sound/sampled/AudioInputStream.h>
 #include <javax/sound/sampled/AudioSystem.h>
@@ -34,11 +31,9 @@
 #undef NOT_SPECIFIED
 
 using $ControlArray = $Array<::javax::sound::sampled::Control>;
-using $AutoClosingClip = ::com::sun::media::sound::AutoClosingClip;
 using $DirectAudioDevice = ::com::sun::media::sound::DirectAudioDevice;
 using $DirectAudioDevice$DirectBAOS = ::com::sun::media::sound::DirectAudioDevice$DirectBAOS;
 using $DirectAudioDevice$DirectDL = ::com::sun::media::sound::DirectAudioDevice$DirectDL;
-using $EventDispatcher = ::com::sun::media::sound::EventDispatcher;
 using $JSSecurityManager = ::com::sun::media::sound::JSSecurityManager;
 using $Toolkit = ::com::sun::media::sound::Toolkit;
 using $IOException = ::java::io::IOException;
@@ -51,7 +46,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $Runnable = ::java::lang::Runnable;
 using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
 using $AudioSystem = ::javax::sound::sampled::AudioSystem;
@@ -67,95 +61,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DirectAudioDevice$DirectClip_FieldInfo_[] = {
-	{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, thread)},
-	{"audioData", "[B", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, audioData)},
-	{"frameSize", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, frameSize)},
-	{"m_lengthInFrames", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, m_lengthInFrames)},
-	{"loopCount", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, loopCount)},
-	{"clipBytePosition", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, clipBytePosition)},
-	{"newFramePosition", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, newFramePosition)},
-	{"loopStartFrame", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, loopStartFrame)},
-	{"loopEndFrame", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, loopEndFrame)},
-	{"autoclosing", "Z", nullptr, $PRIVATE, $field(DirectAudioDevice$DirectClip, autoclosing)},
-	{}
-};
-
-$MethodInfo _DirectAudioDevice$DirectClip_MethodInfo_[] = {
-	{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"*available", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*drain", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flush", "()V", nullptr, $PUBLIC},
-	{"*getBufferSize", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"*getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $FINAL},
-	{"*getFramePosition", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getLevel", "()F", nullptr, $PUBLIC | $FINAL},
-	{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
-	{"*getMicrosecondPosition", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Ljavax/sound/sampled/AudioFormat;ILcom/sun/media/sound/DirectAudioDevice;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectClip, init$, void, $DataLine$Info*, $AudioFormat*, int32_t, $DirectAudioDevice*)},
-	{"getFrameLength", "()I", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, getFrameLength, int32_t)},
-	{"getLongFramePosition", "()J", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, getLongFramePosition, int64_t)},
-	{"getMicrosecondLength", "()J", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, getMicrosecondLength, int64_t)},
-	{"implClose", "()V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implClose, void)},
-	{"implOpen", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implOpen, void, $AudioFormat*, int32_t), "javax.sound.sampled.LineUnavailableException"},
-	{"implStart", "()V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implStart, void)},
-	{"implStop", "()V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implStop, void)},
-	{"*isActive", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"isAutoClosing", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, isAutoClosing, bool)},
-	{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*isRunning", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"loop", "(I)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, loop, void, int32_t)},
-	{"*open", "()V", nullptr, $PUBLIC | $FINAL},
-	{"open", "(Ljavax/sound/sampled/AudioFormat;[BII)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, open, void, $AudioFormat*, $bytes*, int32_t, int32_t), "javax.sound.sampled.LineUnavailableException"},
-	{"open", "(Ljavax/sound/sampled/AudioFormat;[BI)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectClip, open, void, $AudioFormat*, $bytes*, int32_t), "javax.sound.sampled.LineUnavailableException"},
-	{"open", "(Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, open, void, $AudioInputStream*), "javax.sound.sampled.LineUnavailableException,java.io.IOException"},
-	{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"requiresServicing", "()Z", nullptr, $PROTECTED, $virtualMethod(DirectAudioDevice$DirectClip, requiresServicing, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, run, void)},
-	{"setAutoClosing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setAutoClosing, void, bool)},
-	{"setFramePosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setFramePosition, void, int32_t)},
-	{"setLoopPoints", "(II)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setLoopPoints, void, int32_t, int32_t)},
-	{"setMicrosecondPosition", "(J)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setMicrosecondPosition, void, int64_t)},
-	{"*start", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*stop", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DirectAudioDevice$DirectClip_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DirectAudioDevice$DirectClip", "com.sun.media.sound.DirectAudioDevice", "DirectClip", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DirectAudioDevice$DirectClip_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DirectAudioDevice$DirectClip",
-	"com.sun.media.sound.DirectAudioDevice$DirectDL",
-	"java.lang.Runnable,com.sun.media.sound.AutoClosingClip",
-	_DirectAudioDevice$DirectClip_FieldInfo_,
-	_DirectAudioDevice$DirectClip_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectAudioDevice$DirectClip_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DirectAudioDevice"
-};
-
-$Object* allocate$DirectAudioDevice$DirectClip($Class* clazz) {
-	return $of($alloc(DirectAudioDevice$DirectClip));
-}
 
 int32_t DirectAudioDevice$DirectClip::available() {
 	 return this->$DirectAudioDevice$DirectDL::available();
@@ -262,13 +167,8 @@ void DirectAudioDevice$DirectClip::finalize() {
 }
 
 void DirectAudioDevice$DirectClip::init$($DataLine$Info* info, $AudioFormat* format, int32_t bufferSize, $DirectAudioDevice* mixer) {
-	$useLocalCurrentObjectStackCache();
-	$var($DataLine$Info, var$0, info);
-	$var($DirectAudioDevice, var$1, mixer);
-	$var($AudioFormat, var$2, format);
-	int32_t var$3 = bufferSize;
-	int32_t var$4 = $nc(mixer)->getMixerIndex();
-	$DirectAudioDevice$DirectDL::init$(var$0, var$1, var$2, var$3, var$4, mixer->getDeviceID(), true);
+	int32_t var$0 = $nc(mixer)->getMixerIndex();
+	$DirectAudioDevice$DirectDL::init$(info, mixer, format, bufferSize, var$0, mixer->getDeviceID(), true);
 	$set(this, audioData, nullptr);
 	this->autoclosing = false;
 }
@@ -278,16 +178,20 @@ void DirectAudioDevice$DirectClip::open($AudioFormat* format, $bytes* data, int3
 	$Toolkit::validateBuffer($nc(format)->getFrameSize(), bufferSize);
 	$var($bytes, newData, $new($bytes, bufferSize));
 	$System::arraycopy(data, offset, newData, 0, bufferSize);
-	open(format, newData, $div(bufferSize, $nc(format)->getFrameSize()));
+	open(format, newData, $div(bufferSize, format->getFrameSize()));
 }
 
 void DirectAudioDevice$DirectClip::open($AudioFormat* format, $bytes* data, int32_t frameLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Toolkit::isFullySpecifiedAudioFormat(format);
 	$synchronized(this->mixer) {
 		if (isOpen()) {
-			$var($String, var$0, $$str({"Clip is already open with format "_s, $(getFormat()), " and frame lengh of "_s}));
-			$throwNew($IllegalStateException, $$concat(var$0, $$str(getFrameLength())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Clip is already open with format "_s);
+			var$0->append($(getFormat()));
+			var$0->append(" and frame lengh of "_s);
+			var$0->append(getFrameLength());
+			$throwNew($IllegalStateException, $$str(var$0));
 		} else {
 			$set(this, audioData, data);
 			this->frameSize = $nc(format)->getFrameSize();
@@ -313,22 +217,26 @@ void DirectAudioDevice$DirectClip::open($AudioFormat* format, $bytes* data, int3
 		}
 	}
 	if (isAutoClosing()) {
-		$nc($(getEventDispatcher()))->autoClosingClipOpened(this);
+		$$nc(getEventDispatcher())->autoClosingClipOpened(this);
 	}
 }
 
 void DirectAudioDevice$DirectClip::open($AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Toolkit::isFullySpecifiedAudioFormat($($nc(stream)->getFormat()));
 	$synchronized(this->mixer) {
 		$var($bytes, streamData, nullptr);
 		if (isOpen()) {
-			$var($String, var$0, $$str({"Clip is already open with format "_s, $(getFormat()), " and frame lengh of "_s}));
-			$throwNew($IllegalStateException, $$concat(var$0, $$str(getFrameLength())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Clip is already open with format "_s);
+			var$0->append($(getFormat()));
+			var$0->append(" and frame lengh of "_s);
+			var$0->append(getFrameLength());
+			$throwNew($IllegalStateException, $$str(var$0));
 		}
-		int32_t lengthInFrames = (int32_t)$nc(stream)->getFrameLength();
+		int32_t lengthInFrames = (int32_t)stream->getFrameLength();
 		int32_t bytesRead = 0;
-		int32_t frameSize = $nc($(stream->getFormat()))->getFrameSize();
+		int32_t frameSize = $$nc(stream->getFormat())->getFrameSize();
 		if (lengthInFrames != $AudioSystem::NOT_SPECIFIED) {
 			int32_t arraysize = lengthInFrames * frameSize;
 			if (arraysize < 0) {
@@ -414,7 +322,7 @@ void DirectAudioDevice$DirectClip::setMicrosecondPosition(int64_t microseconds) 
 }
 
 void DirectAudioDevice$DirectClip::setLoopPoints(int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || start >= getFrameLength()) {
 		$throwNew($IllegalArgumentException, $$str({"illegal value for start: "_s, $$str(start)}));
 	}
@@ -447,13 +355,13 @@ void DirectAudioDevice$DirectClip::implOpen($AudioFormat* format, int32_t buffer
 }
 
 void DirectAudioDevice$DirectClip::implClose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, oldThread, this->thread);
 	$set(this, thread, nullptr);
 	this->doIO = false;
 	if (oldThread != nullptr) {
 		$synchronized(this->lock) {
-			$nc($of(this->lock))->notifyAll();
+			this->lock->notifyAll();
 		}
 		try {
 			oldThread->join(2000);
@@ -463,7 +371,7 @@ void DirectAudioDevice$DirectClip::implClose() {
 	$DirectAudioDevice$DirectDL::implClose();
 	$set(this, audioData, nullptr);
 	this->newFramePosition = -1;
-	$nc($(getEventDispatcher()))->autoClosingClipClosed(this);
+	$$nc(getEventDispatcher())->autoClosingClipClosed(this);
 }
 
 void DirectAudioDevice$DirectClip::implStart() {
@@ -481,7 +389,7 @@ void DirectAudioDevice$DirectClip::run() {
 		$synchronized(this->lock) {
 			while (!this->doIO && this->thread == curThread) {
 				try {
-					$nc($of(this->lock))->wait();
+					this->lock->wait();
 				} catch ($InterruptedException& ignored) {
 				}
 			}
@@ -526,13 +434,13 @@ bool DirectAudioDevice$DirectClip::isAutoClosing() {
 }
 
 void DirectAudioDevice$DirectClip::setAutoClosing(bool value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value != this->autoclosing) {
 		if (isOpen()) {
 			if (value) {
-				$nc($(getEventDispatcher()))->autoClosingClipOpened(this);
+				$$nc(getEventDispatcher())->autoClosingClipOpened(this);
 			} else {
-				$nc($(getEventDispatcher()))->autoClosingClipClosed(this);
+				$$nc(getEventDispatcher())->autoClosingClipClosed(this);
 			}
 		}
 		this->autoclosing = value;
@@ -547,7 +455,90 @@ DirectAudioDevice$DirectClip::DirectAudioDevice$DirectClip() {
 }
 
 $Class* DirectAudioDevice$DirectClip::load$($String* name, bool initialize) {
-	$loadClass(DirectAudioDevice$DirectClip, name, initialize, &_DirectAudioDevice$DirectClip_ClassInfo_, allocate$DirectAudioDevice$DirectClip);
+	$FieldInfo fieldInfos$$[] = {
+		{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, thread)},
+		{"audioData", "[B", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, audioData)},
+		{"frameSize", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, frameSize)},
+		{"m_lengthInFrames", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, m_lengthInFrames)},
+		{"loopCount", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, loopCount)},
+		{"clipBytePosition", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, clipBytePosition)},
+		{"newFramePosition", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, newFramePosition)},
+		{"loopStartFrame", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, loopStartFrame)},
+		{"loopEndFrame", "I", nullptr, $PRIVATE | $VOLATILE, $field(DirectAudioDevice$DirectClip, loopEndFrame)},
+		{"autoclosing", "Z", nullptr, $PRIVATE, $field(DirectAudioDevice$DirectClip, autoclosing)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"*available", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*drain", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flush", "()V", nullptr, $PUBLIC},
+		{"*getBufferSize", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"*getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $FINAL},
+		{"*getFramePosition", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getLevel", "()F", nullptr, $PUBLIC | $FINAL},
+		{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
+		{"*getMicrosecondPosition", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Ljavax/sound/sampled/AudioFormat;ILcom/sun/media/sound/DirectAudioDevice;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectClip, init$, void, $DataLine$Info*, $AudioFormat*, int32_t, $DirectAudioDevice*)},
+		{"getFrameLength", "()I", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, getFrameLength, int32_t)},
+		{"getLongFramePosition", "()J", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, getLongFramePosition, int64_t)},
+		{"getMicrosecondLength", "()J", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, getMicrosecondLength, int64_t)},
+		{"implClose", "()V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implClose, void)},
+		{"implOpen", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implOpen, void, $AudioFormat*, int32_t), "javax.sound.sampled.LineUnavailableException"},
+		{"implStart", "()V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implStart, void)},
+		{"implStop", "()V", nullptr, 0, $virtualMethod(DirectAudioDevice$DirectClip, implStop, void)},
+		{"*isActive", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"isAutoClosing", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, isAutoClosing, bool)},
+		{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*isRunning", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"loop", "(I)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, loop, void, int32_t)},
+		{"*open", "()V", nullptr, $PUBLIC | $FINAL},
+		{"open", "(Ljavax/sound/sampled/AudioFormat;[BII)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, open, void, $AudioFormat*, $bytes*, int32_t, int32_t), "javax.sound.sampled.LineUnavailableException"},
+		{"open", "(Ljavax/sound/sampled/AudioFormat;[BI)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectClip, open, void, $AudioFormat*, $bytes*, int32_t), "javax.sound.sampled.LineUnavailableException"},
+		{"open", "(Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, open, void, $AudioInputStream*), "javax.sound.sampled.LineUnavailableException,java.io.IOException"},
+		{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"requiresServicing", "()Z", nullptr, $PROTECTED, $virtualMethod(DirectAudioDevice$DirectClip, requiresServicing, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, run, void)},
+		{"setAutoClosing", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setAutoClosing, void, bool)},
+		{"setFramePosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setFramePosition, void, int32_t)},
+		{"setLoopPoints", "(II)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setLoopPoints, void, int32_t, int32_t)},
+		{"setMicrosecondPosition", "(J)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectClip, setMicrosecondPosition, void, int64_t)},
+		{"*start", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*stop", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DirectAudioDevice$DirectClip", "com.sun.media.sound.DirectAudioDevice", "DirectClip", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DirectAudioDevice$DirectClip",
+		"com.sun.media.sound.DirectAudioDevice$DirectDL",
+		"java.lang.Runnable,com.sun.media.sound.AutoClosingClip",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DirectAudioDevice"
+	};
+	$loadClass(DirectAudioDevice$DirectClip, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectAudioDevice$DirectClip));
+	});
 	return class$;
 }
 

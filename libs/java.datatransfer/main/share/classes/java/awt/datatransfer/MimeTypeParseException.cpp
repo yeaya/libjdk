@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/MimeTypeParseException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace datatransfer {
-
-$FieldInfo _MimeTypeParseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeTypeParseException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MimeTypeParseException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MimeTypeParseException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeTypeParseException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _MimeTypeParseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.datatransfer.MimeTypeParseException",
-	"java.lang.Exception",
-	nullptr,
-	_MimeTypeParseException_FieldInfo_,
-	_MimeTypeParseException_MethodInfo_
-};
-
-$Object* allocate$MimeTypeParseException($Class* clazz) {
-	return $of($alloc(MimeTypeParseException));
-}
 
 void MimeTypeParseException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void MimeTypeParseException::throw$() {
 }
 
 $Class* MimeTypeParseException::load$($String* name, bool initialize) {
-	$loadClass(MimeTypeParseException, name, initialize, &_MimeTypeParseException_ClassInfo_, allocate$MimeTypeParseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MimeTypeParseException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MimeTypeParseException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeTypeParseException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.datatransfer.MimeTypeParseException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MimeTypeParseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeTypeParseException);
+	});
 	return class$;
 }
 

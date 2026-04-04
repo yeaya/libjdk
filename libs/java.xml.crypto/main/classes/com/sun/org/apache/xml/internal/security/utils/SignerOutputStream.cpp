@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/SignerOutputStream.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
@@ -28,33 +27,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _SignerOutputStream_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignerOutputStream, LOG)},
-	{"sa", "Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;", nullptr, $FINAL, $field(SignerOutputStream, sa)},
-	{}
-};
-
-$MethodInfo _SignerOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;)V", nullptr, $PUBLIC, $method(SignerOutputStream, init$, void, $SignatureAlgorithm*)},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SignerOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.SignerOutputStream",
-	"java.io.ByteArrayOutputStream",
-	nullptr,
-	_SignerOutputStream_FieldInfo_,
-	_SignerOutputStream_MethodInfo_
-};
-
-$Object* allocate$SignerOutputStream($Class* clazz) {
-	return $of($alloc(SignerOutputStream));
-}
-
 $Logger* SignerOutputStream::LOG = nullptr;
 
 void SignerOutputStream::init$($SignatureAlgorithm* sa) {
@@ -79,14 +51,14 @@ void SignerOutputStream::write(int32_t arg0) {
 }
 
 void SignerOutputStream::write($bytes* arg0, int32_t arg1, int32_t arg2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(SignerOutputStream::LOG)->isDebugEnabled()) {
-		$nc(SignerOutputStream::LOG)->debug("Canonicalized SignedInfo:"_s);
+		SignerOutputStream::LOG->debug("Canonicalized SignedInfo:"_s);
 		$var($StringBuilder, sb, $new($StringBuilder, arg2));
 		for (int32_t i = arg1; i < (arg1 + arg2); ++i) {
 			sb->append((char16_t)$nc(arg0)->get(i));
 		}
-		$nc(SignerOutputStream::LOG)->debug($(sb->toString()));
+		SignerOutputStream::LOG->debug($(sb->toString()));
 	}
 	try {
 		$nc(this->sa)->update(arg0, arg1, arg2);
@@ -95,7 +67,7 @@ void SignerOutputStream::write($bytes* arg0, int32_t arg1, int32_t arg2) {
 	}
 }
 
-void clinit$SignerOutputStream($Class* class$) {
+void SignerOutputStream::clinit$($Class* clazz) {
 	$assignStatic(SignerOutputStream::LOG, $LoggerFactory::getLogger(SignerOutputStream::class$));
 }
 
@@ -103,7 +75,29 @@ SignerOutputStream::SignerOutputStream() {
 }
 
 $Class* SignerOutputStream::load$($String* name, bool initialize) {
-	$loadClass(SignerOutputStream, name, initialize, &_SignerOutputStream_ClassInfo_, clinit$SignerOutputStream, allocate$SignerOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignerOutputStream, LOG)},
+		{"sa", "Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;", nullptr, $FINAL, $field(SignerOutputStream, sa)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;)V", nullptr, $PUBLIC, $method(SignerOutputStream, init$, void, $SignatureAlgorithm*)},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.SignerOutputStream",
+		"java.io.ByteArrayOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignerOutputStream, name, initialize, &classInfo$$, SignerOutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SignerOutputStream));
+	});
 	return class$;
 }
 

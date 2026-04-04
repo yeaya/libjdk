@@ -1,5 +1,4 @@
 #include <javax/security/sasl/RealmChoiceCallback.h>
-
 #include <javax/security/auth/callback/ChoiceCallback.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace javax {
 	namespace security {
 		namespace sasl {
 
-$FieldInfo _RealmChoiceCallback_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RealmChoiceCallback, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RealmChoiceCallback_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(RealmChoiceCallback, init$, void, $String*, $StringArray*, int32_t, bool)},
-	{}
-};
-
-$ClassInfo _RealmChoiceCallback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.sasl.RealmChoiceCallback",
-	"javax.security.auth.callback.ChoiceCallback",
-	nullptr,
-	_RealmChoiceCallback_FieldInfo_,
-	_RealmChoiceCallback_MethodInfo_
-};
-
-$Object* allocate$RealmChoiceCallback($Class* clazz) {
-	return $of($alloc(RealmChoiceCallback));
-}
-
 void RealmChoiceCallback::init$($String* prompt, $StringArray* choices, int32_t defaultChoice, bool multiple) {
 	$ChoiceCallback::init$(prompt, choices, defaultChoice, multiple);
 }
@@ -43,7 +19,25 @@ RealmChoiceCallback::RealmChoiceCallback() {
 }
 
 $Class* RealmChoiceCallback::load$($String* name, bool initialize) {
-	$loadClass(RealmChoiceCallback, name, initialize, &_RealmChoiceCallback_ClassInfo_, allocate$RealmChoiceCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RealmChoiceCallback, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(RealmChoiceCallback, init$, void, $String*, $StringArray*, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.sasl.RealmChoiceCallback",
+		"javax.security.auth.callback.ChoiceCallback",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RealmChoiceCallback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RealmChoiceCallback));
+	});
 	return class$;
 }
 

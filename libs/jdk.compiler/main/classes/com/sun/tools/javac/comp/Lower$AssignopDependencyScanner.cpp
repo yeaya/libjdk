@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Lower$AssignopDependencyScanner.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Lower.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssignOp.h>
@@ -15,7 +14,6 @@ using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
 using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,46 +26,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Lower$AssignopDependencyScanner_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$AssignopDependencyScanner, this$0)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Lower$AssignopDependencyScanner, sym)},
-	{"dependencyFound", "Z", nullptr, 0, $field(Lower$AssignopDependencyScanner, dependencyFound)},
-	{}
-};
-
-$MethodInfo _Lower$AssignopDependencyScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, 0, $method(Lower$AssignopDependencyScanner, init$, void, $Lower*, $JCTree$JCAssignOp*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, scan, void, $JCTree*)},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, visitAssignop, void, $JCTree$JCAssignOp*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, visitUnary, void, $JCTree$JCUnary*)},
-	{}
-};
-
-$InnerClassInfo _Lower$AssignopDependencyScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Lower$AssignopDependencyScanner", "com.sun.tools.javac.comp.Lower", "AssignopDependencyScanner", 0},
-	{}
-};
-
-$ClassInfo _Lower$AssignopDependencyScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Lower$AssignopDependencyScanner",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Lower$AssignopDependencyScanner_FieldInfo_,
-	_Lower$AssignopDependencyScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Lower$AssignopDependencyScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Lower"
-};
-
-$Object* allocate$Lower$AssignopDependencyScanner($Class* clazz) {
-	return $of($alloc(Lower$AssignopDependencyScanner));
-}
 
 void Lower$AssignopDependencyScanner::init$($Lower* this$0, $JCTree$JCAssignOp* tree) {
 	$set(this, this$0, this$0);
@@ -102,7 +60,41 @@ Lower$AssignopDependencyScanner::Lower$AssignopDependencyScanner() {
 }
 
 $Class* Lower$AssignopDependencyScanner::load$($String* name, bool initialize) {
-	$loadClass(Lower$AssignopDependencyScanner, name, initialize, &_Lower$AssignopDependencyScanner_ClassInfo_, allocate$Lower$AssignopDependencyScanner);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $FINAL | $SYNTHETIC, $field(Lower$AssignopDependencyScanner, this$0)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $field(Lower$AssignopDependencyScanner, sym)},
+		{"dependencyFound", "Z", nullptr, 0, $field(Lower$AssignopDependencyScanner, dependencyFound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, 0, $method(Lower$AssignopDependencyScanner, init$, void, $Lower*, $JCTree$JCAssignOp*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, scan, void, $JCTree*)},
+		{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, visitAssignop, void, $JCTree$JCAssignOp*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, visitUnary, void, $JCTree$JCUnary*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Lower$AssignopDependencyScanner", "com.sun.tools.javac.comp.Lower", "AssignopDependencyScanner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Lower$AssignopDependencyScanner",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Lower"
+	};
+	$loadClass(Lower$AssignopDependencyScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lower$AssignopDependencyScanner);
+	});
 	return class$;
 }
 

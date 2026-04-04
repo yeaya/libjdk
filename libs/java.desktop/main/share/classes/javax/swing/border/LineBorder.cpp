@@ -1,5 +1,4 @@
 #include <javax/swing/border/LineBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -40,60 +39,6 @@ namespace javax {
 	namespace swing {
 		namespace border {
 
-$Attribute LineBorder_Attribute_var$1[] = {
-	{'s', "lineColor"},
-	{'s', "thickness"},
-	{'s', "roundedCorners"},
-	{'-'}
-};
-
-$NamedAttribute LineBorder_Attribute_var$0[] = {
-	{"value", '[', LineBorder_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _LineBorder_MethodAnnotations_init$2[] = {
-	{"Ljava/beans/ConstructorProperties;", LineBorder_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _LineBorder_FieldInfo_[] = {
-	{"blackLine", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(LineBorder, blackLine)},
-	{"grayLine", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(LineBorder, grayLine)},
-	{"thickness", "I", nullptr, $PROTECTED, $field(LineBorder, thickness)},
-	{"lineColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(LineBorder, lineColor)},
-	{"roundedCorners", "Z", nullptr, $PROTECTED, $field(LineBorder, roundedCorners)},
-	{}
-};
-
-$MethodInfo _LineBorder_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(LineBorder, init$, void, $Color*)},
-	{"<init>", "(Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(LineBorder, init$, void, $Color*, int32_t)},
-	{"<init>", "(Ljava/awt/Color;IZ)V", nullptr, $PUBLIC, $method(LineBorder, init$, void, $Color*, int32_t, bool), nullptr, nullptr, _LineBorder_MethodAnnotations_init$2},
-	{"createBlackLineBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(LineBorder, createBlackLineBorder, $Border*)},
-	{"createGrayLineBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(LineBorder, createGrayLineBorder, $Border*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LineBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getLineColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(LineBorder, getLineColor, $Color*)},
-	{"getRoundedCorners", "()Z", nullptr, $PUBLIC, $virtualMethod(LineBorder, getRoundedCorners, bool)},
-	{"getThickness", "()I", nullptr, $PUBLIC, $virtualMethod(LineBorder, getThickness, int32_t)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(LineBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(LineBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _LineBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.border.LineBorder",
-	"javax.swing.border.AbstractBorder",
-	nullptr,
-	_LineBorder_FieldInfo_,
-	_LineBorder_MethodInfo_
-};
-
-$Object* allocate$LineBorder($Class* clazz) {
-	return $of($alloc(LineBorder));
-}
-
 $Border* LineBorder::blackLine = nullptr;
 $Border* LineBorder::grayLine = nullptr;
 
@@ -131,10 +76,10 @@ void LineBorder::init$($Color* color, int32_t thickness, bool roundedCorners) {
 }
 
 void LineBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->thickness > 0) && ($instanceOf($Graphics2D, g))) {
 		$var($Graphics2D, g2d, $cast($Graphics2D, g));
-		$var($Color, oldColor, $nc(g2d)->getColor());
+		$var($Color, oldColor, g2d->getColor());
 		g2d->setColor(this->lineColor);
 		$var($Shape, outer, nullptr);
 		$var($Shape, inner, nullptr);
@@ -181,7 +126,53 @@ LineBorder::LineBorder() {
 }
 
 $Class* LineBorder::load$($String* name, bool initialize) {
-	$loadClass(LineBorder, name, initialize, &_LineBorder_ClassInfo_, allocate$LineBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"blackLine", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(LineBorder, blackLine)},
+		{"grayLine", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(LineBorder, grayLine)},
+		{"thickness", "I", nullptr, $PROTECTED, $field(LineBorder, thickness)},
+		{"lineColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(LineBorder, lineColor)},
+		{"roundedCorners", "Z", nullptr, $PROTECTED, $field(LineBorder, roundedCorners)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "lineColor"},
+		{'s', "thickness"},
+		{'s', "roundedCorners"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$2$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$2[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$2$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(LineBorder, init$, void, $Color*)},
+		{"<init>", "(Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(LineBorder, init$, void, $Color*, int32_t)},
+		{"<init>", "(Ljava/awt/Color;IZ)V", nullptr, $PUBLIC, $method(LineBorder, init$, void, $Color*, int32_t, bool), nullptr, nullptr, init$methodAnnotations$$$2},
+		{"createBlackLineBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(LineBorder, createBlackLineBorder, $Border*)},
+		{"createGrayLineBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(LineBorder, createGrayLineBorder, $Border*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(LineBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getLineColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(LineBorder, getLineColor, $Color*)},
+		{"getRoundedCorners", "()Z", nullptr, $PUBLIC, $virtualMethod(LineBorder, getRoundedCorners, bool)},
+		{"getThickness", "()I", nullptr, $PUBLIC, $virtualMethod(LineBorder, getThickness, int32_t)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(LineBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(LineBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.border.LineBorder",
+		"javax.swing.border.AbstractBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LineBorder));
+	});
 	return class$;
 }
 

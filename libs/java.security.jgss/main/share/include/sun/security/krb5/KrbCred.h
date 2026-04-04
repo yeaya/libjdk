@@ -37,6 +37,7 @@ class $import KrbCred : public ::java::lang::Object {
 	$class(KrbCred, 0, ::java::lang::Object)
 public:
 	KrbCred();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::krb5::Credentials* tgt, ::sun::security::krb5::Credentials* serviceTicket, ::sun::security::krb5::EncryptionKey* key);
 	void init$($bytes* asn1Message, ::sun::security::krb5::EncryptionKey* key);
 	virtual ::sun::security::krb5::internal::KRBCred* createMessage(::sun::security::krb5::Credentials* delegatedCreds, ::sun::security::krb5::EncryptionKey* key);

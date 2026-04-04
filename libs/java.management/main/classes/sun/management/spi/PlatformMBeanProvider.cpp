@@ -1,5 +1,4 @@
 #include <sun/management/spi/PlatformMBeanProvider.h>
-
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/Permission.h>
@@ -12,44 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
-using $Permission = ::java::security::Permission;
 using $List = ::java::util::List;
 
 namespace sun {
 	namespace management {
 		namespace spi {
-
-$MethodInfo _PlatformMBeanProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PlatformMBeanProvider, init$, void)},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(PlatformMBeanProvider, init$, void, $Void*)},
-	{"checkSubclassPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(PlatformMBeanProvider, checkSubclassPermission, $Void*)},
-	{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformMBeanProvider, getPlatformComponentList, $List*)},
-	{}
-};
-
-$InnerClassInfo _PlatformMBeanProvider_InnerClassesInfo_[] = {
-	{"sun.management.spi.PlatformMBeanProvider$PlatformComponent", "sun.management.spi.PlatformMBeanProvider", "PlatformComponent", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PlatformMBeanProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.management.spi.PlatformMBeanProvider",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PlatformMBeanProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PlatformMBeanProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.management.spi.PlatformMBeanProvider$PlatformComponent"
-};
-
-$Object* allocate$PlatformMBeanProvider($Class* clazz) {
-	return $of($alloc(PlatformMBeanProvider));
-}
 
 void PlatformMBeanProvider::init$() {
 	PlatformMBeanProvider::init$($(checkSubclassPermission()));
@@ -59,7 +25,7 @@ void PlatformMBeanProvider::init$($Void* unused) {
 }
 
 $Void* PlatformMBeanProvider::checkSubclassPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$load(PlatformMBeanProvider);
@@ -72,7 +38,34 @@ PlatformMBeanProvider::PlatformMBeanProvider() {
 }
 
 $Class* PlatformMBeanProvider::load$($String* name, bool initialize) {
-	$loadClass(PlatformMBeanProvider, name, initialize, &_PlatformMBeanProvider_ClassInfo_, allocate$PlatformMBeanProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PlatformMBeanProvider, init$, void)},
+		{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(PlatformMBeanProvider, init$, void, $Void*)},
+		{"checkSubclassPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(PlatformMBeanProvider, checkSubclassPermission, $Void*)},
+		{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformMBeanProvider, getPlatformComponentList, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.spi.PlatformMBeanProvider$PlatformComponent", "sun.management.spi.PlatformMBeanProvider", "PlatformComponent", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.management.spi.PlatformMBeanProvider",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.management.spi.PlatformMBeanProvider$PlatformComponent"
+	};
+	$loadClass(PlatformMBeanProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformMBeanProvider);
+	});
 	return class$;
 }
 

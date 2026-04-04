@@ -24,6 +24,7 @@ class $import LogManager$ModType : public ::java::lang::Enum {
 public:
 	LogManager$ModType();
 	static $Array<::java::util::logging::LogManager$ModType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::util::logging::LogManager$ModType* of($String* previous, $String* next);
 	static ::java::util::logging::LogManager$ModType* valueOf($String* name);

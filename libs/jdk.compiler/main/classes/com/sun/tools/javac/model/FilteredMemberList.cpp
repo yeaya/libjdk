@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/model/FilteredMemberList.h>
-
 #include <com/sun/tools/javac/code/Scope$LookupKind.h>
 #include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -25,7 +24,6 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractList = ::java::util::AbstractList;
@@ -46,59 +44,27 @@ public:
 	virtual bool test(Object$* t) override {
 		 return FilteredMemberList::lambda$iterator$0($cast($Symbol, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FilteredMemberList$$Lambda$lambda$iterator$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FilteredMemberList$$Lambda$lambda$iterator$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FilteredMemberList$$Lambda$lambda$iterator$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList$$Lambda$lambda$iterator$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo FilteredMemberList$$Lambda$lambda$iterator$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.model.FilteredMemberList$$Lambda$lambda$iterator$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* FilteredMemberList$$Lambda$lambda$iterator$0::load$($String* name, bool initialize) {
-	$loadClass(FilteredMemberList$$Lambda$lambda$iterator$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FilteredMemberList$$Lambda$lambda$iterator$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList$$Lambda$lambda$iterator$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.model.FilteredMemberList$$Lambda$lambda$iterator$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FilteredMemberList$$Lambda$lambda$iterator$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilteredMemberList$$Lambda$lambda$iterator$0);
+	});
 	return class$;
 }
 $Class* FilteredMemberList$$Lambda$lambda$iterator$0::class$ = nullptr;
-
-$FieldInfo _FilteredMemberList_FieldInfo_[] = {
-	{"scope", "Lcom/sun/tools/javac/code/Scope;", nullptr, $PRIVATE | $FINAL, $field(FilteredMemberList, scope)},
-	{}
-};
-
-$MethodInfo _FilteredMemberList_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC, $method(FilteredMemberList, init$, void, $Scope*)},
-	{"get", "(I)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList, get, $Object*, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(FilteredMemberList, iterator, $Iterator*)},
-	{"lambda$iterator$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FilteredMemberList, lambda$iterator$0, bool, $Symbol*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList, size, int32_t)},
-	{"unwanted", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FilteredMemberList, unwanted, bool, $Symbol*)},
-	{}
-};
-
-$ClassInfo _FilteredMemberList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.model.FilteredMemberList",
-	"java.util.AbstractList",
-	nullptr,
-	_FilteredMemberList_FieldInfo_,
-	_FilteredMemberList_MethodInfo_,
-	"Ljava/util/AbstractList<Lcom/sun/tools/javac/code/Symbol;>;"
-};
-
-$Object* allocate$FilteredMemberList($Class* clazz) {
-	return $of($alloc(FilteredMemberList));
-}
 
 void FilteredMemberList::init$($Scope* scope) {
 	$AbstractList::init$();
@@ -106,17 +72,15 @@ void FilteredMemberList::init$($Scope* scope) {
 }
 
 int32_t FilteredMemberList::size() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cnt = 0;
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc(this->scope)->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->scope)->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				if (!unwanted(sym)) {
-					++cnt;
-				}
+			if (!unwanted(sym)) {
+				++cnt;
 			}
 		}
 	}
@@ -124,16 +88,14 @@ int32_t FilteredMemberList::size() {
 }
 
 $Object* FilteredMemberList::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc(this->scope)->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->scope)->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				if (!unwanted(sym) && (index-- == 0)) {
-					return $of(sym);
-				}
+			if (!unwanted(sym) && (index-- == 0)) {
+				return $of(sym);
 			}
 		}
 	}
@@ -141,14 +103,14 @@ $Object* FilteredMemberList::get(int32_t index) {
 }
 
 $Iterator* FilteredMemberList::iterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Scope$LookupKind);
-	return $nc($($nc(this->scope)->getSymbols(static_cast<$Predicate*>($$new(FilteredMemberList$$Lambda$lambda$iterator$0)), $Scope$LookupKind::NON_RECURSIVE)))->iterator();
+	return $$nc($nc(this->scope)->getSymbols($$new(FilteredMemberList$$Lambda$lambda$iterator$0), $Scope$LookupKind::NON_RECURSIVE))->iterator();
 }
 
 bool FilteredMemberList::unwanted($Symbol* s) {
 	$init(FilteredMemberList);
-	return s == nullptr || ((int64_t)($nc(s)->flags() & (uint64_t)(int64_t)4096)) != 0;
+	return s == nullptr || (s->flags() & 0x1000) != 0;
 }
 
 bool FilteredMemberList::lambda$iterator$0($Symbol* t) {
@@ -161,11 +123,35 @@ FilteredMemberList::FilteredMemberList() {
 
 $Class* FilteredMemberList::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FilteredMemberList$$Lambda$lambda$iterator$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.model.FilteredMemberList$$Lambda$lambda$iterator$0")) {
 			return FilteredMemberList$$Lambda$lambda$iterator$0::load$(name, initialize);
 		}
 	}
-	$loadClass(FilteredMemberList, name, initialize, &_FilteredMemberList_ClassInfo_, allocate$FilteredMemberList);
+	$FieldInfo fieldInfos$$[] = {
+		{"scope", "Lcom/sun/tools/javac/code/Scope;", nullptr, $PRIVATE | $FINAL, $field(FilteredMemberList, scope)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC, $method(FilteredMemberList, init$, void, $Scope*)},
+		{"get", "(I)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList, get, $Object*, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(FilteredMemberList, iterator, $Iterator*)},
+		{"lambda$iterator$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FilteredMemberList, lambda$iterator$0, bool, $Symbol*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList, size, int32_t)},
+		{"unwanted", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FilteredMemberList, unwanted, bool, $Symbol*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.model.FilteredMemberList",
+		"java.util.AbstractList",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Lcom/sun/tools/javac/code/Symbol;>;"
+	};
+	$loadClass(FilteredMemberList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilteredMemberList));
+	});
 	return class$;
 }
 

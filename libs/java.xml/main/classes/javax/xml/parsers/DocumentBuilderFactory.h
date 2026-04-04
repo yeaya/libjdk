@@ -36,6 +36,7 @@ class $export DocumentBuilderFactory : public ::java::lang::Object {
 	$class(DocumentBuilderFactory, 0, ::java::lang::Object)
 public:
 	DocumentBuilderFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* getAttribute($String* name) {return nullptr;}
 	virtual bool getFeature($String* name) {return false;}

@@ -24,6 +24,7 @@ class StateTrackableDelegate : public ::sun::java2d::StateTrackable {
 	$class(StateTrackableDelegate, 0, ::sun::java2d::StateTrackable)
 public:
 	StateTrackableDelegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::StateTrackable$State* state);
 	void addDynamicAgent();
 	static ::sun::java2d::StateTrackableDelegate* createInstance(::sun::java2d::StateTrackable$State* state);

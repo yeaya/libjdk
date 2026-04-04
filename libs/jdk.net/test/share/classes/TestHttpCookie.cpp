@@ -1,10 +1,8 @@
 #include <TestHttpCookie.h>
-
 #include <java/net/HttpCookie.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -16,65 +14,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $HttpCookie = ::java::net::HttpCookie;
 using $List = ::java::util::List;
-
-$FieldInfo _TestHttpCookie_FieldInfo_[] = {
-	{"testCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestHttpCookie, testCount)},
-	{"cHeader", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TestHttpCookie, cHeader)},
-	{"cookies", "Ljava/util/List;", "Ljava/util/List<Ljava/net/HttpCookie;>;", $PRIVATE, $field(TestHttpCookie, cookies)},
-	{}
-};
-
-$MethodInfo _TestHttpCookie_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TestHttpCookie, init$, void, $String*)},
-	{"a", "(IJ)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, a, TestHttpCookie*, int32_t, int64_t)},
-	{"a", "(J)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, a, TestHttpCookie*, int64_t)},
-	{"c", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, c, TestHttpCookie*, int32_t, $String*)},
-	{"c", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, c, TestHttpCookie*, $String*)},
-	{"cu", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, cu, TestHttpCookie*, int32_t, $String*)},
-	{"cu", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, cu, TestHttpCookie*, $String*)},
-	{"d", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, d, TestHttpCookie*, int32_t, $String*)},
-	{"d", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, d, TestHttpCookie*, $String*)},
-	{"dm", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, dm, void, $String*, $String*, bool)},
-	{"dsc", "(IZ)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, dsc, TestHttpCookie*, int32_t, bool)},
-	{"dsc", "(Z)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, dsc, TestHttpCookie*, bool)},
-	{"eq", "(Ljava/net/HttpCookie;Ljava/net/HttpCookie;Z)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, eq, void, $HttpCookie*, $HttpCookie*, bool)},
-	{"header", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, header, void, $String*)},
-	{"httpOnly", "(IZ)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, httpOnly, TestHttpCookie*, int32_t, bool)},
-	{"httpOnly", "(Z)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, httpOnly, TestHttpCookie*, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestHttpCookie, main, void, $StringArray*)},
-	{"misc", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, misc, void)},
-	{"n", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, n, TestHttpCookie*, int32_t, $String*)},
-	{"n", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, n, TestHttpCookie*, $String*)},
-	{"netscape", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, netscape, void)},
-	{"nil", "()LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, nil, TestHttpCookie*)},
-	{"p", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, p, TestHttpCookie*, int32_t, $String*)},
-	{"p", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, p, TestHttpCookie*, $String*)},
-	{"port", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, port, TestHttpCookie*, int32_t, $String*)},
-	{"port", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, port, TestHttpCookie*, $String*)},
-	{"raiseError", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TestHttpCookie, raiseError, void, $String*, $String*, $String*)},
-	{"raiseError", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, raiseError, void, $String*)},
-	{"rfc2965", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, rfc2965, void)},
-	{"runTests", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, runTests, void)},
-	{"test", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, $STATIC, $staticMethod(TestHttpCookie, test, TestHttpCookie*, $String*)},
-	{"v", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, v, TestHttpCookie*, int32_t, $String*)},
-	{"v", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, v, TestHttpCookie*, $String*)},
-	{"ver", "(II)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, ver, TestHttpCookie*, int32_t, int32_t)},
-	{"ver", "(I)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, ver, TestHttpCookie*, int32_t)},
-	{}
-};
-
-$ClassInfo _TestHttpCookie_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestHttpCookie",
-	"java.lang.Object",
-	nullptr,
-	_TestHttpCookie_FieldInfo_,
-	_TestHttpCookie_MethodInfo_
-};
-
-$Object* allocate$TestHttpCookie($Class* clazz) {
-	return $of($alloc(TestHttpCookie));
-}
 
 int32_t TestHttpCookie::testCount = 0;
 
@@ -97,9 +36,9 @@ void TestHttpCookie::init$($String* cHeader) {
 }
 
 TestHttpCookie* TestHttpCookie::n(int32_t index, $String* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || !$nc(n)->equalsIgnoreCase($($nc(cookie)->getName()))) {
+	if (cookie == nullptr || !$nc(n)->equalsIgnoreCase($(cookie->getName()))) {
 		raiseError("name"_s, $($nc(cookie)->getName()), n);
 	}
 	return this;
@@ -110,9 +49,9 @@ TestHttpCookie* TestHttpCookie::n($String* n) {
 }
 
 TestHttpCookie* TestHttpCookie::v(int32_t index, $String* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || !$nc(v)->equals($($nc(cookie)->getValue()))) {
+	if (cookie == nullptr || !$nc(v)->equals($(cookie->getValue()))) {
 		raiseError("value"_s, $($nc(cookie)->getValue()), v);
 	}
 	return this;
@@ -123,11 +62,11 @@ TestHttpCookie* TestHttpCookie::v($String* v) {
 }
 
 TestHttpCookie* TestHttpCookie::ver(int32_t index, int32_t ver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || (ver != $nc(cookie)->getVersion())) {
+	if (cookie == nullptr || (ver != cookie->getVersion())) {
 		$var($String, var$0, "version"_s);
-		$var($String, var$1, $Integer::toString(cookie->getVersion()));
+		$var($String, var$1, $Integer::toString($nc(cookie)->getVersion()));
 		raiseError(var$0, var$1, $($Integer::toString(ver)));
 	}
 	return this;
@@ -138,9 +77,9 @@ TestHttpCookie* TestHttpCookie::ver(int32_t ver) {
 }
 
 TestHttpCookie* TestHttpCookie::p(int32_t index, $String* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || !$nc(p)->equals($($nc(cookie)->getPath()))) {
+	if (cookie == nullptr || !$nc(p)->equals($(cookie->getPath()))) {
 		raiseError("path"_s, $($nc(cookie)->getPath()), p);
 	}
 	return this;
@@ -158,9 +97,9 @@ TestHttpCookie* TestHttpCookie::nil() {
 }
 
 TestHttpCookie* TestHttpCookie::c(int32_t index, $String* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || !$nc(c)->equals($($nc(cookie)->getComment()))) {
+	if (cookie == nullptr || !$nc(c)->equals($(cookie->getComment()))) {
 		raiseError("comment"_s, $($nc(cookie)->getComment()), c);
 	}
 	return this;
@@ -171,9 +110,9 @@ TestHttpCookie* TestHttpCookie::c($String* c) {
 }
 
 TestHttpCookie* TestHttpCookie::cu(int32_t index, $String* cu) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || !$nc(cu)->equals($($nc(cookie)->getCommentURL()))) {
+	if (cookie == nullptr || !$nc(cu)->equals($(cookie->getCommentURL()))) {
 		raiseError("comment url"_s, $($nc(cookie)->getCommentURL()), cu);
 	}
 	return this;
@@ -184,11 +123,11 @@ TestHttpCookie* TestHttpCookie::cu($String* cu) {
 }
 
 TestHttpCookie* TestHttpCookie::dsc(int32_t index, bool dsc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || (dsc != $nc(cookie)->getDiscard())) {
+	if (cookie == nullptr || (dsc != cookie->getDiscard())) {
 		$var($String, var$0, "discard"_s);
-		$var($String, var$1, $Boolean::toString(cookie->getDiscard()));
+		$var($String, var$1, $Boolean::toString($nc(cookie)->getDiscard()));
 		raiseError(var$0, var$1, $($Boolean::toString(dsc)));
 	}
 	return this;
@@ -199,9 +138,9 @@ TestHttpCookie* TestHttpCookie::dsc(bool dsc) {
 }
 
 TestHttpCookie* TestHttpCookie::d(int32_t index, $String* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || !$nc(d)->equalsIgnoreCase($($nc(cookie)->getDomain()))) {
+	if (cookie == nullptr || !$nc(d)->equalsIgnoreCase($(cookie->getDomain()))) {
 		raiseError("domain"_s, $($nc(cookie)->getDomain()), d);
 	}
 	return this;
@@ -212,11 +151,11 @@ TestHttpCookie* TestHttpCookie::d($String* d) {
 }
 
 TestHttpCookie* TestHttpCookie::a(int32_t index, int64_t a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || (a != $nc(cookie)->getMaxAge())) {
+	if (cookie == nullptr || (a != cookie->getMaxAge())) {
 		$var($String, var$0, "max-age"_s);
-		$var($String, var$1, $Long::toString(cookie->getMaxAge()));
+		$var($String, var$1, $Long::toString($nc(cookie)->getMaxAge()));
 		raiseError(var$0, var$1, $($Long::toString(a)));
 	}
 	return this;
@@ -227,9 +166,9 @@ TestHttpCookie* TestHttpCookie::a(int64_t a) {
 }
 
 TestHttpCookie* TestHttpCookie::port(int32_t index, $String* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || !$nc(p)->equals($($nc(cookie)->getPortlist()))) {
+	if (cookie == nullptr || !$nc(p)->equals($(cookie->getPortlist()))) {
 		raiseError("portlist"_s, $($nc(cookie)->getPortlist()), p);
 	}
 	return this;
@@ -240,11 +179,11 @@ TestHttpCookie* TestHttpCookie::port($String* p) {
 }
 
 TestHttpCookie* TestHttpCookie::httpOnly(int32_t index, bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpCookie, cookie, $cast($HttpCookie, $nc(this->cookies)->get(index)));
-	if (cookie == nullptr || b != $nc(cookie)->isHttpOnly()) {
+	if (cookie == nullptr || b != cookie->isHttpOnly()) {
 		$var($String, var$0, "HttpOnly"_s);
-		$var($String, var$1, $String::valueOf(cookie->isHttpOnly()));
+		$var($String, var$1, $String::valueOf($nc(cookie)->isHttpOnly()));
 		raiseError(var$0, var$1, $($String::valueOf(b)));
 	}
 	return this;
@@ -256,12 +195,12 @@ TestHttpCookie* TestHttpCookie::httpOnly(bool b) {
 
 void TestHttpCookie::eq($HttpCookie* ck1, $HttpCookie* ck2, bool same) {
 	$init(TestHttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	++TestHttpCookie::testCount;
 	if ($nc(ck1)->equals(ck2) != same) {
 		raiseError($$str({"Comparison inconsistent: "_s, ck1, " "_s, ck2, " should "_s, (same ? "equal"_s : "not equal"_s)}));
 	}
-	int32_t h1 = $nc(ck1)->hashCode();
+	int32_t h1 = ck1->hashCode();
 	int32_t h2 = $nc(ck2)->hashCode();
 	if ((h1 == h2) != same) {
 		raiseError($$str({"Comparison inconsistent: hashCode for "_s, ck1, " "_s, ck2, " should "_s, (same ? "equal"_s : "not equal"_s)}));
@@ -277,7 +216,7 @@ void TestHttpCookie::dm($String* domain, $String* host, bool matches) {
 }
 
 void TestHttpCookie::raiseError($String* attr, $String* realValue, $String* expectedValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("Cookie "_s)->append(attr)->append(" is "_s)->append(realValue)->append(", should be "_s)->append(expectedValue)->append(" ("_s)->append(this->cHeader)->append(")"_s);
 	$throwNew($RuntimeException, $(sb->toString()));
@@ -297,41 +236,41 @@ void TestHttpCookie::runTests() {
 
 void TestHttpCookie::rfc2965() {
 	$init(TestHttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	header("Test using rfc 2965 syntax"_s);
-	$nc($($nc($($nc($($nc($(test("set-cookie2: Customer=\"WILE_E_COYOTE\"; Version=\"1\"; Path=\"/acme\""_s)))->n("Customer"_s)))->v("WILE_E_COYOTE"_s)))->ver(1)))->p("/acme"_s);
-	$nc($($nc($($nc($($nc($(test("set-cookie2: Customer = \"WILE_E_COYOTE\"; Version = \"1\"; Path = \"/acme\""_s)))->n("Customer"_s)))->v("WILE_E_COYOTE"_s)))->ver(1)))->p("/acme"_s);
-	$nc($(test("set-cookie2: $Customer = \"WILE_E_COYOTE\"; Version = \"1\"; Path = \"/acme\""_s)))->nil();
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("set-cookie2: Customer=\"WILE_E_COYOTE\";Version=\"1\";Path=\"/acme\";Comment=\"this is a coyote\";CommentURL=\"http://www.coyote.org\";Discard;Domain=\".coyote.org\";Max-Age=\"3600\";Port=\"80\";Secure"_s)))->n("Customer"_s)))->v("WILE_E_COYOTE"_s)))->ver(1)))->p("/acme"_s)))->c("this is a coyote"_s)))->cu("http://www.coyote.org"_s)))->dsc(true)))->d(".coyote.org"_s)))->a(3600)))->port("80"_s);
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("Customer=\"WILE_E_COYOTE\";Version=\"1\";Path=\"/acme\";Comment=\"this is a coyote\";CommentURL=\"http://www.coyote.org\";Discard;Domain=\".coyote.org\";Max-Age=\"3600\";Port=\"80\";Secure"_s)))->n("Customer"_s)))->v("WILE_E_COYOTE"_s)))->ver(1)))->p("/acme"_s)))->c("this is a coyote"_s)))->cu("http://www.coyote.org"_s)))->dsc(true)))->d(".coyote.org"_s)))->a(3600)))->port("80"_s);
-	$nc($(test(""_s)))->nil();
+	$$nc($$nc($$nc($$nc(test("set-cookie2: Customer=\"WILE_E_COYOTE\"; Version=\"1\"; Path=\"/acme\""_s))->n("Customer"_s))->v("WILE_E_COYOTE"_s))->ver(1))->p("/acme"_s);
+	$$nc($$nc($$nc($$nc(test("set-cookie2: Customer = \"WILE_E_COYOTE\"; Version = \"1\"; Path = \"/acme\""_s))->n("Customer"_s))->v("WILE_E_COYOTE"_s))->ver(1))->p("/acme"_s);
+	$$nc(test("set-cookie2: $Customer = \"WILE_E_COYOTE\"; Version = \"1\"; Path = \"/acme\""_s))->nil();
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc(test("set-cookie2: Customer=\"WILE_E_COYOTE\";Version=\"1\";Path=\"/acme\";Comment=\"this is a coyote\";CommentURL=\"http://www.coyote.org\";Discard;Domain=\".coyote.org\";Max-Age=\"3600\";Port=\"80\";Secure"_s))->n("Customer"_s))->v("WILE_E_COYOTE"_s))->ver(1))->p("/acme"_s))->c("this is a coyote"_s))->cu("http://www.coyote.org"_s))->dsc(true))->d(".coyote.org"_s))->a(3600))->port("80"_s);
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc(test("Customer=\"WILE_E_COYOTE\";Version=\"1\";Path=\"/acme\";Comment=\"this is a coyote\";CommentURL=\"http://www.coyote.org\";Discard;Domain=\".coyote.org\";Max-Age=\"3600\";Port=\"80\";Secure"_s))->n("Customer"_s))->v("WILE_E_COYOTE"_s))->ver(1))->p("/acme"_s))->c("this is a coyote"_s))->cu("http://www.coyote.org"_s))->dsc(true))->d(".coyote.org"_s))->a(3600))->port("80"_s);
+	$$nc(test(""_s))->nil();
 	try {
 		test(nullptr);
 	} catch ($NullPointerException& ignored) {
 	}
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("Set-Cookie2:Customer=\"dtftest\"; Discard; Secure; Domain=\".sun.com\"; Max-Age=\"100\"; Version=\"1\";  path=\"/www\"; Port=\"80\""_s)))->n("Customer"_s)))->v("dtftest"_s)))->ver(1)))->d(".sun.com"_s)))->p("/www"_s)))->port("80"_s)))->dsc(true)))->a(100);
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("Set-Cookie2:Customer=\"dtftest\"; Discard; Secure; Domain=\".sun.com\"; Max-Age=\"100\"; Version=\"1\";  path=\"/www\"; Port=\"80\";Domain=\".java.sun.com\"; Max-Age=\"200\"; path=\"/javadoc\"; Port=\"8080\""_s)))->n("Customer"_s)))->v("dtftest"_s)))->ver(1)))->d(".sun.com"_s)))->p("/www"_s)))->port("80"_s)))->dsc(true)))->a(100);
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("Set-Cookie2:Customer=\"dtftest\";Discard; Secure; Domain=\"sun.com\"; Max-Age=\"100\";Version=\"1\";  Path=\"/www\"; Port=\"80,8080\""_s)))->n("Customer"_s)))->v("dtftest"_s)))->ver(1)))->d("sun.com"_s)))->p("/www"_s)))->port("80,8080"_s)))->dsc(true)))->a(100);
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("Set-Cookie2:Customer=\"developer\";Domain=\"sun.com\";Max-Age=\"100\";Path=\"/www\";Port=\"80,8080\";CommentURL=\"http://www.sun.com/java1,000,000.html\""_s)))->n("Customer"_s)))->v("developer"_s)))->d("sun.com"_s)))->p("/www"_s)))->port("80,8080"_s)))->a(100)))->cu("http://www.sun.com/java1,000,000.html"_s);
-	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($(test("Set-Cookie2:C1=\"V1\";Domain=\".sun1.com\";path=\"/www1\";Max-Age=\"100\",C2=\"V2\";Domain=\".sun2.com\";path=\"/www2\";Max-Age=\"200\""_s)))->n(0, "C1"_s)))->v(0, "V1"_s)))->p(0, "/www1"_s)))->a(0, 100)))->d(0, ".sun1.com"_s)))->n(1, "C2"_s)))->v(1, "V2"_s)))->p(1, "/www2"_s)))->a(1, 200)))->d(1, ".sun2.com"_s);
-	$nc($($nc($(test("Set-Cookie2:C1=\"V1\";foobar"_s)))->n(0, "C1"_s)))->v(0, "V1"_s);
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc(test("Set-Cookie2:Customer=\"dtftest\"; Discard; Secure; Domain=\".sun.com\"; Max-Age=\"100\"; Version=\"1\";  path=\"/www\"; Port=\"80\""_s))->n("Customer"_s))->v("dtftest"_s))->ver(1))->d(".sun.com"_s))->p("/www"_s))->port("80"_s))->dsc(true))->a(100);
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc(test("Set-Cookie2:Customer=\"dtftest\"; Discard; Secure; Domain=\".sun.com\"; Max-Age=\"100\"; Version=\"1\";  path=\"/www\"; Port=\"80\";Domain=\".java.sun.com\"; Max-Age=\"200\"; path=\"/javadoc\"; Port=\"8080\""_s))->n("Customer"_s))->v("dtftest"_s))->ver(1))->d(".sun.com"_s))->p("/www"_s))->port("80"_s))->dsc(true))->a(100);
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc(test("Set-Cookie2:Customer=\"dtftest\";Discard; Secure; Domain=\"sun.com\"; Max-Age=\"100\";Version=\"1\";  Path=\"/www\"; Port=\"80,8080\""_s))->n("Customer"_s))->v("dtftest"_s))->ver(1))->d("sun.com"_s))->p("/www"_s))->port("80,8080"_s))->dsc(true))->a(100);
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc(test("Set-Cookie2:Customer=\"developer\";Domain=\"sun.com\";Max-Age=\"100\";Path=\"/www\";Port=\"80,8080\";CommentURL=\"http://www.sun.com/java1,000,000.html\""_s))->n("Customer"_s))->v("developer"_s))->d("sun.com"_s))->p("/www"_s))->port("80,8080"_s))->a(100))->cu("http://www.sun.com/java1,000,000.html"_s);
+	$$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc($$nc(test("Set-Cookie2:C1=\"V1\";Domain=\".sun1.com\";path=\"/www1\";Max-Age=\"100\",C2=\"V2\";Domain=\".sun2.com\";path=\"/www2\";Max-Age=\"200\""_s))->n(0, "C1"_s))->v(0, "V1"_s))->p(0, "/www1"_s))->a(0, 100))->d(0, ".sun1.com"_s))->n(1, "C2"_s))->v(1, "V2"_s))->p(1, "/www2"_s))->a(1, 200))->d(1, ".sun2.com"_s);
+	$$nc($$nc(test("Set-Cookie2:C1=\"V1\";foobar"_s))->n(0, "C1"_s))->v(0, "V1"_s);
 }
 
 void TestHttpCookie::netscape() {
 	$init(TestHttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	header("Test using netscape cookie syntax"_s);
-	$nc($($nc($($nc($($nc($(test("set-cookie: CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT"_s)))->n("CUSTOMER"_s)))->v("WILE_E_COYOTE"_s)))->p("/"_s)))->ver(0);
-	$nc($($nc($($nc($($nc($(test("CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT"_s)))->n("CUSTOMER"_s)))->v("WILE_E_COYOTE"_s)))->p("/"_s)))->ver(0);
-	$nc($($nc($($nc($($nc($($nc($(test("Set-Cookie: PREF=ID=1eda537de48ac25d:CR=1:TM=1112868587:LM=1112868587:S=t3FPA-mT9lTR3bxU;expires=Sun, 17-Jan-2038 19:14:07 GMT; path=/; domain=.google.com"_s)))->n("PREF"_s)))->v("ID=1eda537de48ac25d:CR=1:TM=1112868587:LM=1112868587:S=t3FPA-mT9lTR3bxU"_s)))->p("/"_s)))->d(".google.com"_s)))->ver(0);
-	$nc($($nc($($nc($($nc($(test("set-cookie: CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT; Secure"_s)))->n("CUSTOMER"_s)))->v("WILE_E_COYOTE"_s)))->p("/"_s)))->ver(0);
-	$nc($($nc($($nc($($nc($(test("set-cookie: CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT; path=\"/acme\""_s)))->n("CUSTOMER"_s)))->v("WILE_E_COYOTE"_s)))->p("/"_s)))->ver(0);
-	$nc($(test("set-cookie: CUSTOMER=WILE_E_COYOTE; version=\'1\'"_s)))->ver(1);
+	$$nc($$nc($$nc($$nc(test("set-cookie: CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT"_s))->n("CUSTOMER"_s))->v("WILE_E_COYOTE"_s))->p("/"_s))->ver(0);
+	$$nc($$nc($$nc($$nc(test("CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT"_s))->n("CUSTOMER"_s))->v("WILE_E_COYOTE"_s))->p("/"_s))->ver(0);
+	$$nc($$nc($$nc($$nc($$nc(test("Set-Cookie: PREF=ID=1eda537de48ac25d:CR=1:TM=1112868587:LM=1112868587:S=t3FPA-mT9lTR3bxU;expires=Sun, 17-Jan-2038 19:14:07 GMT; path=/; domain=.google.com"_s))->n("PREF"_s))->v("ID=1eda537de48ac25d:CR=1:TM=1112868587:LM=1112868587:S=t3FPA-mT9lTR3bxU"_s))->p("/"_s))->d(".google.com"_s))->ver(0);
+	$$nc($$nc($$nc($$nc(test("set-cookie: CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT; Secure"_s))->n("CUSTOMER"_s))->v("WILE_E_COYOTE"_s))->p("/"_s))->ver(0);
+	$$nc($$nc($$nc($$nc(test("set-cookie: CUSTOMER=WILE_E_COYOTE; path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT; path=\"/acme\""_s))->n("CUSTOMER"_s))->v("WILE_E_COYOTE"_s))->p("/"_s))->ver(0);
+	$$nc(test("set-cookie: CUSTOMER=WILE_E_COYOTE; version=\'1\'"_s))->ver(1);
 }
 
 void TestHttpCookie::misc() {
 	$init(TestHttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	header("Test equals()"_s);
 	$var($HttpCookie, c1, $new($HttpCookie, "Customer"_s, "WILE_E_COYOTE"_s));
 	c1->setDomain(".coyote.org"_s);
@@ -359,9 +298,9 @@ void TestHttpCookie::misc() {
 		$assign(c1, $new($HttpCookie, ""_s, "whatever"_s));
 	} catch ($IllegalArgumentException& ignored) {
 	}
-	$nc($(test("set-cookie: CUSTOMER=WILE_E_COYOTE;HttpOnly"_s)))->httpOnly(true);
-	$nc($(test("set-cookie: CUSTOMER=WILE_E_COYOTE"_s)))->httpOnly(false);
-	$nc($(test("set-cookie: CUST OMER=WILE_E_COYOTE"_s)))->nil();
+	$$nc(test("set-cookie: CUSTOMER=WILE_E_COYOTE;HttpOnly"_s))->httpOnly(true);
+	$$nc(test("set-cookie: CUSTOMER=WILE_E_COYOTE"_s))->httpOnly(false);
+	$$nc(test("set-cookie: CUST OMER=WILE_E_COYOTE"_s))->nil();
 }
 
 void TestHttpCookie::header($String* prompt) {
@@ -371,12 +310,12 @@ void TestHttpCookie::header($String* prompt) {
 
 void TestHttpCookie::main($StringArray* args) {
 	$init(TestHttpCookie);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	runTests();
 	$nc($System::out)->println($$str({"Succeeded in running "_s, $$str(TestHttpCookie::testCount), " tests."_s}));
 }
 
-void clinit$TestHttpCookie($Class* class$) {
+void TestHttpCookie::clinit$($Class* clazz) {
 	TestHttpCookie::testCount = 0;
 }
 
@@ -384,7 +323,61 @@ TestHttpCookie::TestHttpCookie() {
 }
 
 $Class* TestHttpCookie::load$($String* name, bool initialize) {
-	$loadClass(TestHttpCookie, name, initialize, &_TestHttpCookie_ClassInfo_, clinit$TestHttpCookie, allocate$TestHttpCookie);
+	$FieldInfo fieldInfos$$[] = {
+		{"testCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestHttpCookie, testCount)},
+		{"cHeader", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TestHttpCookie, cHeader)},
+		{"cookies", "Ljava/util/List;", "Ljava/util/List<Ljava/net/HttpCookie;>;", $PRIVATE, $field(TestHttpCookie, cookies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TestHttpCookie, init$, void, $String*)},
+		{"a", "(IJ)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, a, TestHttpCookie*, int32_t, int64_t)},
+		{"a", "(J)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, a, TestHttpCookie*, int64_t)},
+		{"c", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, c, TestHttpCookie*, int32_t, $String*)},
+		{"c", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, c, TestHttpCookie*, $String*)},
+		{"cu", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, cu, TestHttpCookie*, int32_t, $String*)},
+		{"cu", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, cu, TestHttpCookie*, $String*)},
+		{"d", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, d, TestHttpCookie*, int32_t, $String*)},
+		{"d", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, d, TestHttpCookie*, $String*)},
+		{"dm", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, dm, void, $String*, $String*, bool)},
+		{"dsc", "(IZ)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, dsc, TestHttpCookie*, int32_t, bool)},
+		{"dsc", "(Z)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, dsc, TestHttpCookie*, bool)},
+		{"eq", "(Ljava/net/HttpCookie;Ljava/net/HttpCookie;Z)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, eq, void, $HttpCookie*, $HttpCookie*, bool)},
+		{"header", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, header, void, $String*)},
+		{"httpOnly", "(IZ)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, httpOnly, TestHttpCookie*, int32_t, bool)},
+		{"httpOnly", "(Z)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, httpOnly, TestHttpCookie*, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestHttpCookie, main, void, $StringArray*)},
+		{"misc", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, misc, void)},
+		{"n", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, n, TestHttpCookie*, int32_t, $String*)},
+		{"n", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, n, TestHttpCookie*, $String*)},
+		{"netscape", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, netscape, void)},
+		{"nil", "()LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, nil, TestHttpCookie*)},
+		{"p", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, p, TestHttpCookie*, int32_t, $String*)},
+		{"p", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, p, TestHttpCookie*, $String*)},
+		{"port", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, port, TestHttpCookie*, int32_t, $String*)},
+		{"port", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, port, TestHttpCookie*, $String*)},
+		{"raiseError", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TestHttpCookie, raiseError, void, $String*, $String*, $String*)},
+		{"raiseError", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TestHttpCookie, raiseError, void, $String*)},
+		{"rfc2965", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, rfc2965, void)},
+		{"runTests", "()V", nullptr, $STATIC, $staticMethod(TestHttpCookie, runTests, void)},
+		{"test", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, $STATIC, $staticMethod(TestHttpCookie, test, TestHttpCookie*, $String*)},
+		{"v", "(ILjava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, v, TestHttpCookie*, int32_t, $String*)},
+		{"v", "(Ljava/lang/String;)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, v, TestHttpCookie*, $String*)},
+		{"ver", "(II)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, ver, TestHttpCookie*, int32_t, int32_t)},
+		{"ver", "(I)LTestHttpCookie;", nullptr, 0, $virtualMethod(TestHttpCookie, ver, TestHttpCookie*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestHttpCookie",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestHttpCookie, name, initialize, &classInfo$$, TestHttpCookie::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestHttpCookie);
+	});
 	return class$;
 }
 

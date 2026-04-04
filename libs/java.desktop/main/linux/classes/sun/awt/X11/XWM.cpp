@@ -1,13 +1,9 @@
 #include <sun/awt/X11/XWM.h>
-
 #include <java/awt/Frame.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -24,7 +20,6 @@
 #include <sun/awt/X11/WindowPropertyGetter.h>
 #include <sun/awt/X11/XAtom.h>
 #include <sun/awt/X11/XAtomList.h>
-#include <sun/awt/X11/XBaseWindow.h>
 #include <sun/awt/X11/XClientMessageEvent.h>
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XDecoratedPeer.h>
@@ -125,7 +120,6 @@ using $Frame = ::java::awt::Frame;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -134,8 +128,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -151,11 +143,9 @@ using $WindowDimensions = ::sun::awt::X11::WindowDimensions;
 using $WindowPropertyGetter = ::sun::awt::X11::WindowPropertyGetter;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XAtomList = ::sun::awt::X11::XAtomList;
-using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XDecoratedPeer = ::sun::awt::X11::XDecoratedPeer;
-using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
 using $XErrorHandler$VerifyChangePropertyHandler = ::sun::awt::X11::XErrorHandler$VerifyChangePropertyHandler;
@@ -181,152 +171,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XWM_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XWM, $assertionsDisabled)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWM, log)},
-	{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWM, insLog)},
-	{"stateLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWM, stateLog)},
-	{"XA_MWM_HINTS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_MWM_HINTS)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(XWM, unsafe)},
-	{"XA_WM_STATE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC, $staticField(XWM, XA_WM_STATE)},
-	{"XA_UTF8_STRING", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWM, XA_UTF8_STRING)},
-	{"AWT_NET_N_KNOWN_STATES", "I", nullptr, $STATIC | $FINAL, $constField(XWM, AWT_NET_N_KNOWN_STATES)},
-	{"XA_E_FRAME_SIZE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_E_FRAME_SIZE)},
-	{"XA_KDE_NET_WM_FRAME_STRUT", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_KDE_NET_WM_FRAME_STRUT)},
-	{"XA_KWM_WIN_ICONIFIED", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_KWM_WIN_ICONIFIED)},
-	{"XA_KWM_WIN_MAXIMIZED", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_KWM_WIN_MAXIMIZED)},
-	{"XA_OL_DECOR_DEL", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_DEL)},
-	{"XA_OL_DECOR_HEADER", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_HEADER)},
-	{"XA_OL_DECOR_RESIZE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_RESIZE)},
-	{"XA_OL_DECOR_PIN", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_PIN)},
-	{"XA_OL_DECOR_CLOSE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_CLOSE)},
-	{"XA_NET_FRAME_EXTENTS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_NET_FRAME_EXTENTS)},
-	{"XA_NET_REQUEST_FRAME_EXTENTS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_NET_REQUEST_FRAME_EXTENTS)},
-	{"UNDETERMINED_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, UNDETERMINED_WM)},
-	{"NO_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, NO_WM)},
-	{"OTHER_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, OTHER_WM)},
-	{"OPENLOOK_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, OPENLOOK_WM)},
-	{"MOTIF_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, MOTIF_WM)},
-	{"CDE_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, CDE_WM)},
-	{"ENLIGHTEN_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, ENLIGHTEN_WM)},
-	{"KDE2_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, KDE2_WM)},
-	{"SAWFISH_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, SAWFISH_WM)},
-	{"ICE_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, ICE_WM)},
-	{"METACITY_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, METACITY_WM)},
-	{"COMPIZ_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, COMPIZ_WM)},
-	{"LG3D_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, LG3D_WM)},
-	{"CWM_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, CWM_WM)},
-	{"MUTTER_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, MUTTER_WM)},
-	{"UNITY_COMPIZ_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, UNITY_COMPIZ_WM)},
-	{"WMID", "I", nullptr, 0, $field(XWM, WMID)},
-	{"zeroInsets", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(XWM, zeroInsets)},
-	{"defaultInsets", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(XWM, defaultInsets)},
-	{"g_net_protocol", "Lsun/awt/X11/XNETProtocol;", nullptr, $STATIC, $staticField(XWM, g_net_protocol)},
-	{"g_win_protocol", "Lsun/awt/X11/XWINProtocol;", nullptr, $STATIC, $staticField(XWM, g_win_protocol)},
-	{"XA_ENLIGHTENMENT_COMMS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC, $staticField(XWM, XA_ENLIGHTENMENT_COMMS)},
-	{"XA_DT_SM_WINDOW_INFO", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_DT_SM_WINDOW_INFO)},
-	{"XA_DT_SM_STATE_INFO", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_DT_SM_STATE_INFO)},
-	{"XA_MOTIF_WM_INFO", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_MOTIF_WM_INFO)},
-	{"XA_DT_WORKSPACE_CURRENT", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_DT_WORKSPACE_CURRENT)},
-	{"awtWMNonReparenting", "I", nullptr, $STATIC, $staticField(XWM, awtWMNonReparenting)},
-	{"XA_ICEWM_WINOPTHINT", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_ICEWM_WINOPTHINT)},
-	{"opt", "[C", nullptr, $STATIC | $FINAL, $staticField(XWM, opt)},
-	{"XA_SUN_WM_PROTOCOLS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_SUN_WM_PROTOCOLS)},
-	{"winmgr_running", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XWM, winmgr_running)},
-	{"detectWMHandler", "Lsun/awt/X11/XErrorHandler;", nullptr, $PRIVATE | $STATIC, $staticField(XWM, detectWMHandler)},
-	{"awt_wmgr", "I", nullptr, $STATIC, $staticField(XWM, awt_wmgr)},
-	{"wm", "Lsun/awt/X11/XWM;", nullptr, $STATIC, $staticField(XWM, wm)},
-	{"protocolsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Class<*>;Ljava/util/Collection<*>;>;", $PRIVATE, $field(XWM, protocolsMap)},
-	{"inited", "Z", nullptr, $STATIC, $staticField(XWM, inited)},
-	{"storedInsets", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Class<*>;Ljava/awt/Insets;>;", 0, $field(XWM, storedInsets)},
-	{"awtWMStaticGravity", "I", nullptr, $STATIC, $staticField(XWM, awtWMStaticGravity)},
-	{}
-};
-
-$MethodInfo _XWM_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(XWM, init$, void, int32_t)},
-	{"addProtocol", "(Ljava/lang/Class;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;)V", $PRIVATE, $method(XWM, addProtocol, void, $Class*, Object$*)},
-	{"configureGravityBuggy", "()Z", nullptr, $STATIC, $staticMethod(XWM, configureGravityBuggy, bool)},
-	{"getECommsWindowIDProperty", "(J)J", nullptr, $STATIC, $staticMethod(XWM, getECommsWindowIDProperty, int64_t, int64_t)},
-	{"getExtendedState", "(Lsun/awt/X11/XWindowPeer;)I", nullptr, 0, $method(XWM, getExtendedState, int32_t, $XWindowPeer*)},
-	{"getID", "()I", nullptr, 0, $method(XWM, getID, int32_t)},
-	{"getInsets", "(Lsun/awt/X11/XDecoratedPeer;JJ)Ljava/awt/Insets;", nullptr, 0, $method(XWM, getInsets, $Insets*, $XDecoratedPeer*, int64_t, int64_t)},
-	{"getInsetsFromExtents", "(J)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(XWM, getInsetsFromExtents, $Insets*, int64_t)},
-	{"getInsetsFromProp", "(JLsun/awt/X11/XAtom;)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(XWM, getInsetsFromProp, $Insets*, int64_t, $XAtom*)},
-	{"getNETProtocol", "()Lsun/awt/X11/XNETProtocol;", nullptr, $PUBLIC, $method(XWM, getNETProtocol, $XNETProtocol*)},
-	{"getProtocols", "(Ljava/lang/Class;)Ljava/util/Collection;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/util/Collection<TT;>;", 0, $method(XWM, getProtocols, $Collection*, $Class*)},
-	{"getState", "(Lsun/awt/X11/XDecoratedPeer;)I", nullptr, 0, $method(XWM, getState, int32_t, $XDecoratedPeer*)},
-	{"getWM", "()Lsun/awt/X11/XWM;", nullptr, $STATIC, $staticMethod(XWM, getWM, XWM*)},
-	{"getWMID", "()I", nullptr, $STATIC, $staticMethod(XWM, getWMID, int32_t)},
-	{"guessInsets", "(Lsun/awt/X11/XDecoratedPeer;)Ljava/awt/Insets;", nullptr, 0, $method(XWM, guessInsets, $Insets*, $XDecoratedPeer*)},
-	{"init", "()V", nullptr, $STATIC, $staticMethod(XWM, init, void)},
-	{"initAtoms", "()V", nullptr, $STATIC, $staticMethod(XWM, initAtoms, void)},
-	{"initializeProtocols", "()V", nullptr, 0, $method(XWM, initializeProtocols, void)},
-	{"isCDE", "()Z", nullptr, $STATIC, $staticMethod(XWM, isCDE, bool)},
-	{"isCWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, isCWM, bool)},
-	{"isCompiz", "()Z", nullptr, $STATIC, $staticMethod(XWM, isCompiz, bool)},
-	{"isDesktopWindow", "(J)Z", nullptr, 0, $method(XWM, isDesktopWindow, bool, int64_t)},
-	{"isEnlightenment", "()Z", nullptr, $STATIC, $staticMethod(XWM, isEnlightenment, bool)},
-	{"isIceWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, isIceWM, bool)},
-	{"isKDE2", "()Z", nullptr, $STATIC, $staticMethod(XWM, isKDE2, bool)},
-	{"isLookingGlass", "()Z", nullptr, $STATIC, $staticMethod(XWM, isLookingGlass, bool)},
-	{"isMetacity", "()Z", nullptr, $STATIC, $staticMethod(XWM, isMetacity, bool)},
-	{"isMotif", "()Z", nullptr, $STATIC, $staticMethod(XWM, isMotif, bool)},
-	{"isMutter", "()Z", nullptr, $STATIC, $staticMethod(XWM, isMutter, bool)},
-	{"isNetWMName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(XWM, isNetWMName, bool, $String*)},
-	{"isNoWM", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XWM, isNoWM, bool)},
-	{"isNonReparentingWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, isNonReparentingWM, bool)},
-	{"isOpenLook", "()Z", nullptr, $STATIC, $staticMethod(XWM, isOpenLook, bool)},
-	{"isSawfish", "()Z", nullptr, $STATIC, $staticMethod(XWM, isSawfish, bool)},
-	{"isStateChange", "(Lsun/awt/X11/XDecoratedPeer;Lsun/awt/X11/XPropertyEvent;)Z", nullptr, 0, $method(XWM, isStateChange, bool, $XDecoratedPeer*, $XPropertyEvent*)},
-	{"isUnityCompiz", "()Z", nullptr, $STATIC, $staticMethod(XWM, isUnityCompiz, bool)},
-	{"needRemap", "(Lsun/awt/X11/XDecoratedPeer;)Z", nullptr, $STATIC, $staticMethod(XWM, needRemap, bool, $XDecoratedPeer*)},
-	{"normalize", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $STATIC, $staticMethod(XWM, normalize, $Insets*, $Insets*)},
-	{"normalizeMotifDecor", "(I)I", nullptr, $STATIC, $staticMethod(XWM, normalizeMotifDecor, int32_t, int32_t)},
-	{"normalizeMotifFunc", "(I)I", nullptr, $STATIC, $staticMethod(XWM, normalizeMotifFunc, int32_t, int32_t)},
-	{"prepareIsIceWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, prepareIsIceWM, bool)},
-	{"removeSizeHints", "(Lsun/awt/X11/XDecoratedPeer;J)V", nullptr, $STATIC, $staticMethod(XWM, removeSizeHints, void, $XDecoratedPeer*, int64_t)},
-	{"requestWMExtents", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XWM, requestWMExtents, void, int64_t)},
-	{"setExtendedState", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, 0, $method(XWM, setExtendedState, void, $XWindowPeer*, int32_t)},
-	{"setLayer", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, 0, $method(XWM, setLayer, void, $XWindowPeer*, int32_t)},
-	{"setMotifDecor", "(Lsun/awt/X11/XWindow;ZII)V", nullptr, $STATIC, $staticMethod(XWM, setMotifDecor, void, $XWindow*, bool, int32_t, int32_t)},
-	{"setNetWMIcon", "(Lsun/awt/X11/XWindowPeer;Ljava/util/List;)Z", "(Lsun/awt/X11/XWindowPeer;Ljava/util/List<Lsun/awt/IconInfo;>;)Z", $PUBLIC, $method(XWM, setNetWMIcon, bool, $XWindowPeer*, $List*)},
-	{"setOLDecor", "(Lsun/awt/X11/XWindow;ZI)V", nullptr, $STATIC, $staticMethod(XWM, setOLDecor, void, $XWindow*, bool, int32_t)},
-	{"setShellDecor", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, $STATIC, $staticMethod(XWM, setShellDecor, void, $XDecoratedPeer*)},
-	{"setShellNotResizable", "(Lsun/awt/X11/XDecoratedPeer;Lsun/awt/X11/WindowDimensions;Ljava/awt/Rectangle;Z)V", nullptr, $STATIC, $staticMethod(XWM, setShellNotResizable, void, $XDecoratedPeer*, $WindowDimensions*, $Rectangle*, bool)},
-	{"setShellResizable", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, $STATIC, $staticMethod(XWM, setShellResizable, void, $XDecoratedPeer*)},
-	{"supportsDynamicLayout", "()Z", nullptr, 0, $method(XWM, supportsDynamicLayout, bool)},
-	{"supportsExtendedState", "(I)Z", nullptr, 0, $method(XWM, supportsExtendedState, bool, int32_t)},
-	{"syncTopLevelPos", "(JLsun/awt/X11/XWindowAttributes;)Z", nullptr, 0, $method(XWM, syncTopLevelPos, bool, int64_t, $XWindowAttributes*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XWM, toString, $String*)},
-	{"unshadeKludge", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, 0, $method(XWM, unshadeKludge, void, $XDecoratedPeer*)},
-	{}
-};
-
-$InnerClassInfo _XWM_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XWM$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XWM_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XWM",
-	"java.lang.Object",
-	nullptr,
-	_XWM_FieldInfo_,
-	_XWM_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XWM_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XWM$1"
-};
-
-$Object* allocate$XWM($Class* clazz) {
-	return $of($alloc(XWM));
-}
 
 bool XWM::$assertionsDisabled = false;
 $PlatformLogger* XWM::log = nullptr;
@@ -369,76 +213,43 @@ int32_t XWM::awtWMStaticGravity = 0;
 $String* XWM::toString() {
 	switch (this->WMID) {
 	case XWM::NO_WM:
-		{
-			return "NO WM"_s;
-		}
+		return "NO WM"_s;
 	case XWM::OTHER_WM:
-		{
-			return "Other WM"_s;
-		}
+		return "Other WM"_s;
 	case XWM::OPENLOOK_WM:
-		{
-			return "OPENLOOK"_s;
-		}
+		return "OPENLOOK"_s;
 	case XWM::MOTIF_WM:
-		{
-			return "MWM"_s;
-		}
+		return "MWM"_s;
 	case XWM::CDE_WM:
-		{
-			return "DTWM"_s;
-		}
+		return "DTWM"_s;
 	case XWM::ENLIGHTEN_WM:
-		{
-			return "Enlightenment"_s;
-		}
+		return "Enlightenment"_s;
 	case XWM::KDE2_WM:
-		{
-			return "KWM2"_s;
-		}
+		return "KWM2"_s;
 	case XWM::SAWFISH_WM:
-		{
-			return "Sawfish"_s;
-		}
+		return "Sawfish"_s;
 	case XWM::ICE_WM:
-		{
-			return "IceWM"_s;
-		}
+		return "IceWM"_s;
 	case XWM::METACITY_WM:
-		{
-			return "Metacity"_s;
-		}
+		return "Metacity"_s;
 	case XWM::COMPIZ_WM:
-		{
-			return "Compiz"_s;
-		}
+		return "Compiz"_s;
 	case XWM::UNITY_COMPIZ_WM:
-		{
-			return "Unity Compiz"_s;
-		}
+		return "Unity Compiz"_s;
 	case XWM::LG3D_WM:
-		{
-			return "LookingGlass"_s;
-		}
+		return "LookingGlass"_s;
 	case XWM::CWM_WM:
-		{
-			return "CWM"_s;
-		}
+		return "CWM"_s;
 	case XWM::MUTTER_WM:
-		{
-			return "Mutter"_s;
-		}
+		return "Mutter"_s;
 	case XWM::UNDETERMINED_WM:
-		{}
 	default:
-		{
-			return "Undetermined WM"_s;
-		}
+		return "Undetermined WM"_s;
 	}
 }
 
 void XWM::init$(int32_t WMID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, XA_UTF8_STRING, $XAtom::get("UTF8_STRING"_s));
 	$set(this, protocolsMap, $new($HashMap));
 	$set(this, storedInsets, $new($HashMap));
@@ -446,7 +257,7 @@ void XWM::init$(int32_t WMID) {
 	initializeProtocols();
 	$init($PlatformLogger$Level);
 	if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XWM::log)->fine($$str({"Window manager: "_s, $(toString())}));
+		XWM::log->fine($$str({"Window manager: "_s, $(toString())}));
 	}
 }
 
@@ -456,16 +267,16 @@ int32_t XWM::getID() {
 
 $Insets* XWM::normalize($Insets* insets) {
 	$init(XWM);
-	if ($nc(insets)->top > 64 || $nc(insets)->top < 0) {
+	if ($nc(insets)->top > 64 || insets->top < 0) {
 		insets->top = 28;
 	}
-	if ($nc(insets)->left > 32 || $nc(insets)->left < 0) {
+	if (insets->left > 32 || insets->left < 0) {
 		insets->left = 6;
 	}
-	if ($nc(insets)->right > 32 || $nc(insets)->right < 0) {
+	if (insets->right > 32 || insets->right < 0) {
 		insets->right = 6;
 	}
-	if ($nc(insets)->bottom > 32 || $nc(insets)->bottom < 0) {
+	if (insets->bottom > 32 || insets->bottom < 0) {
 		insets->bottom = 6;
 	}
 	return insets;
@@ -474,7 +285,7 @@ $Insets* XWM::normalize($Insets* insets) {
 bool XWM::isNetWMName($String* name) {
 	$init(XWM);
 	if (XWM::g_net_protocol != nullptr) {
-		return $nc(XWM::g_net_protocol)->isWMName(name);
+		return XWM::g_net_protocol->isWMName(name);
 	} else {
 		return false;
 	}
@@ -482,59 +293,59 @@ bool XWM::isNetWMName($String* name) {
 
 void XWM::initAtoms() {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, atomInitList, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of(XWM::XA_WM_STATE),
-			$of("WM_STATE"_s)
+			XWM::XA_WM_STATE,
+			"WM_STATE"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_KDE_NET_WM_FRAME_STRUT),
-			$of("_KDE_NET_WM_FRAME_STRUT"_s)
+			XWM::XA_KDE_NET_WM_FRAME_STRUT,
+			"_KDE_NET_WM_FRAME_STRUT"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_E_FRAME_SIZE),
-			$of("_E_FRAME_SIZE"_s)
+			XWM::XA_E_FRAME_SIZE,
+			"_E_FRAME_SIZE"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_KWM_WIN_ICONIFIED),
-			$of("KWM_WIN_ICONIFIED"_s)
+			XWM::XA_KWM_WIN_ICONIFIED,
+			"KWM_WIN_ICONIFIED"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_KWM_WIN_MAXIMIZED),
-			$of("KWM_WIN_MAXIMIZED"_s)
+			XWM::XA_KWM_WIN_MAXIMIZED,
+			"KWM_WIN_MAXIMIZED"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_OL_DECOR_DEL),
-			$of("_OL_DECOR_DEL"_s)
+			XWM::XA_OL_DECOR_DEL,
+			"_OL_DECOR_DEL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_OL_DECOR_HEADER),
-			$of("_OL_DECOR_HEADER"_s)
+			XWM::XA_OL_DECOR_HEADER,
+			"_OL_DECOR_HEADER"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_OL_DECOR_RESIZE),
-			$of("_OL_DECOR_RESIZE"_s)
+			XWM::XA_OL_DECOR_RESIZE,
+			"_OL_DECOR_RESIZE"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_OL_DECOR_PIN),
-			$of("_OL_DECOR_PIN"_s)
+			XWM::XA_OL_DECOR_PIN,
+			"_OL_DECOR_PIN"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_OL_DECOR_CLOSE),
-			$of("_OL_DECOR_CLOSE"_s)
+			XWM::XA_OL_DECOR_CLOSE,
+			"_OL_DECOR_CLOSE"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_MWM_HINTS),
-			$of("_MOTIF_WM_HINTS"_s)
+			XWM::XA_MWM_HINTS,
+			"_MOTIF_WM_HINTS"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_NET_FRAME_EXTENTS),
-			$of("_NET_FRAME_EXTENTS"_s)
+			XWM::XA_NET_FRAME_EXTENTS,
+			"_NET_FRAME_EXTENTS"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XWM::XA_NET_REQUEST_FRAME_EXTENTS),
-			$of("_NET_REQUEST_FRAME_EXTENTS"_s)
+			XWM::XA_NET_REQUEST_FRAME_EXTENTS,
+			"_NET_REQUEST_FRAME_EXTENTS"_s
 		})
 	}));
 	$var($StringArray, names, $new($StringArray, atomInitList->length));
@@ -544,176 +355,166 @@ void XWM::initAtoms() {
 	int32_t atomSize = $XAtom::getAtomSize();
 	int64_t atoms = $nc(XWM::unsafe)->allocateMemory(names->length * atomSize);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t status = $XlibWrapper::XInternAtoms($XToolkit::getDisplay(), names, false, atoms);
-			if (status == 0) {
-				return$1 = true;
-				goto $finally;
-			}
-			{
-				int32_t atom = 0;
-				int32_t atomPtr = 0;
-				for (; atom < names->length; ++atom, atomPtr += atomSize) {
-					int64_t var$2 = $XToolkit::getDisplay();
-					$var($String, var$3, names->get(atom));
-					$nc((($cast($XAtom, $nc(atomInitList->get(atom))->get(0)))))->setValues(var$2, var$3, $XAtom::getAtom(atoms + atomPtr));
-				}
-			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$XToolkit::awtUnlock();
-			$nc(XWM::unsafe)->freeMemory(atoms);
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t status = $XlibWrapper::XInternAtoms($XToolkit::getDisplay(), names, false, atoms);
+		if (status == 0) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		for (int32_t atom = 0, atomPtr = 0; atom < names->length; ++atom, atomPtr += atomSize) {
+			int64_t var$2 = $XToolkit::getDisplay();
+			$var($String, var$3, names->get(atom));
+			$nc($cast($XAtom, $nc(atomInitList->get(atom))->get(0)))->setValues(var$2, var$3, $XAtom::getAtom(atoms + atomPtr));
 		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XToolkit::awtUnlock();
+		$nc(XWM::unsafe)->freeMemory(atoms);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 bool XWM::isNoWM() {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, vendor_string, $XlibWrapper::ServerVendor($XToolkit::getDisplay()));
 	if ($nc(vendor_string)->indexOf("eXcursion"_s) != -1) {
 		$init($PlatformLogger$Level);
 		if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWM::insLog)->finer("eXcursion means NO_WM"_s);
+			XWM::insLog->finer("eXcursion means NO_WM"_s);
 		}
 		return true;
 	}
 	$var($XSetWindowAttributes, substruct, $new($XSetWindowAttributes));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			int64_t default_screen_number = $XlibWrapper::DefaultScreen($XToolkit::getDisplay());
-			$var($String, selection_name, $str({"WM_S"_s, $$str(default_screen_number)}));
-			int64_t var$3 = $XToolkit::getDisplay();
-			int64_t selection_owner = $XlibWrapper::XGetSelectionOwner(var$3, $nc($($XAtom::get(selection_name)))->getAtom());
-			$init($PlatformLogger$Level);
-			if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XWM::insLog)->finer($$str({"selection owner of "_s, selection_name, " is "_s, $$str(selection_owner)}));
-			}
-			if (selection_owner != $XConstants::None) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			XWM::winmgr_running = false;
-			substruct->set_event_mask($XConstants::SubstructureRedirectMask);
-			$XErrorHandlerUtil::WITH_XERROR_HANDLER(XWM::detectWMHandler);
-			int64_t var$4 = $XToolkit::getDisplay();
-			$XlibWrapper::XChangeWindowAttributes(var$4, $XToolkit::getDefaultRootWindow(), $XConstants::CWEventMask, substruct->pData);
-			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			if (!XWM::winmgr_running) {
-				substruct->set_event_mask(0);
-				int64_t var$5 = $XToolkit::getDisplay();
-				$XlibWrapper::XChangeWindowAttributes(var$5, $XToolkit::getDefaultRootWindow(), $XConstants::CWEventMask, substruct->pData);
-				if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XWM::insLog)->finer("It looks like there is no WM thus NO_WM"_s);
-				}
-			}
-			var$2 = !XWM::winmgr_running;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		int64_t default_screen_number = $XlibWrapper::DefaultScreen($XToolkit::getDisplay());
+		$var($String, selection_name, $str({"WM_S"_s, $$str(default_screen_number)}));
+		int64_t var$3 = $XToolkit::getDisplay();
+		int64_t selection_owner = $XlibWrapper::XGetSelectionOwner(var$3, $$nc($XAtom::get(selection_name))->getAtom());
+		$init($PlatformLogger$Level);
+		if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
+			XWM::insLog->finer($$str({"selection owner of "_s, selection_name, " is "_s, $$str(selection_owner)}));
+		}
+		if (selection_owner != $XConstants::None) {
+			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			substruct->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		XWM::winmgr_running = false;
+		substruct->set_event_mask($XConstants::SubstructureRedirectMask);
+		$XErrorHandlerUtil::WITH_XERROR_HANDLER(XWM::detectWMHandler);
+		int64_t var$4 = $XToolkit::getDisplay();
+		$XlibWrapper::XChangeWindowAttributes(var$4, $XToolkit::getDefaultRootWindow(), $XConstants::CWEventMask, substruct->pData);
+		$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		if (!XWM::winmgr_running) {
+			substruct->set_event_mask(0);
+			int64_t var$5 = $XToolkit::getDisplay();
+			$XlibWrapper::XChangeWindowAttributes(var$5, $XToolkit::getDefaultRootWindow(), $XConstants::CWEventMask, substruct->pData);
+			if (XWM::insLog->isLoggable($PlatformLogger$Level::FINER)) {
+				XWM::insLog->finer("It looks like there is no WM thus NO_WM"_s);
+			}
 		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = !XWM::winmgr_running;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} $finally: {
+		substruct->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int64_t XWM::getECommsWindowIDProperty(int64_t window) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(XWM::XA_ENLIGHTENMENT_COMMS)->isInterned()) {
 		return 0;
 	}
-	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, window, XWM::XA_ENLIGHTENMENT_COMMS, (int64_t)0, (int64_t)14, false, $XAtom::XA_STRING));
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
+	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, window, XWM::XA_ENLIGHTENMENT_COMMS, 0, 14, false, $XAtom::XA_STRING));
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t status = getter->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+		if (status != $XConstants::Success || getter->getData() == 0) {
+			var$2 = 0;
+			return$1 = true;
+			goto $finally;
+		}
+		bool var$5 = getter->getActualType() != $XAtom::XA_STRING;
+		bool var$4 = var$5 || getter->getActualFormat() != 8;
+		bool var$3 = var$4 || getter->getNumberOfItems() != 14;
+		if (var$3 || getter->getBytesAfter() != 0) {
+			var$2 = 0;
+			return$1 = true;
+			goto $finally;
+		}
+		$var($bytes, bytes, $XlibWrapper::getStringBytes(getter->getData()));
+		$var($String, id, $new($String, bytes));
+		$init($PlatformLogger$Level);
+		if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
+			XWM::log->finer($$str({"ENLIGHTENMENT_COMMS is "_s, id}));
+		}
+		$var($Pattern, winIdPat, $Pattern::compile("WINID\\s+(\\p{XDigit}{0,8})"_s));
 		try {
-			int32_t status = getter->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-			if (status != $XConstants::Success || getter->getData() == 0) {
-				var$2 = 0;
-				return$1 = true;
-				goto $finally;
-			}
-			bool var$5 = getter->getActualType() != $XAtom::XA_STRING;
-			bool var$4 = var$5 || getter->getActualFormat() != 8;
-			bool var$3 = var$4 || getter->getNumberOfItems() != 14;
-			if (var$3 || getter->getBytesAfter() != 0) {
-				var$2 = 0;
-				return$1 = true;
-				goto $finally;
-			}
-			$var($bytes, bytes, $XlibWrapper::getStringBytes(getter->getData()));
-			$var($String, id, $new($String, bytes));
-			$init($PlatformLogger$Level);
-			if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XWM::log)->finer($$str({"ENLIGHTENMENT_COMMS is "_s, id}));
-			}
-			$var($Pattern, winIdPat, $Pattern::compile("WINID\\s+(\\p{XDigit}{0,8})"_s));
-			try {
-				$var($Matcher, match, $nc(winIdPat)->matcher(id));
-				if ($nc(match)->matches()) {
-					if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-						$nc(XWM::log)->finest($$str({"Match group count: "_s, $$str(match->groupCount())}));
-					}
-					$var($String, longId, match->group(1));
-					if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINEST)) {
-						$nc(XWM::log)->finest($$str({"Match group 1 "_s, longId}));
-					}
-					int64_t winid = $Long::parseLong(longId, 16);
-					if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-						$nc(XWM::log)->finer($$str({"Enlightenment communication window "_s, $$str(winid)}));
-					}
-					var$2 = winid;
-					return$1 = true;
-					goto $finally;
-				} else {
-					$nc(XWM::log)->finer("ENLIGHTENMENT_COMMS has wrong format"_s);
-					var$2 = 0;
-					return$1 = true;
-					goto $finally;
+			$var($Matcher, match, $nc(winIdPat)->matcher(id));
+			if ($nc(match)->matches()) {
+				if (XWM::log->isLoggable($PlatformLogger$Level::FINEST)) {
+					XWM::log->finest($$str({"Match group count: "_s, $$str(match->groupCount())}));
 				}
-			} catch ($Exception& e) {
-				if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-					e->printStackTrace();
+				$var($String, longId, match->group(1));
+				if (XWM::log->isLoggable($PlatformLogger$Level::FINEST)) {
+					XWM::log->finest($$str({"Match group 1 "_s, longId}));
 				}
+				int64_t winid = $Long::parseLong(longId, 16);
+				if (XWM::log->isLoggable($PlatformLogger$Level::FINER)) {
+					XWM::log->finer($$str({"Enlightenment communication window "_s, $$str(winid)}));
+				}
+				var$2 = winid;
+				return$1 = true;
+				goto $finally;
+			} else {
+				XWM::log->finer("ENLIGHTENMENT_COMMS has wrong format"_s);
 				var$2 = 0;
 				return$1 = true;
 				goto $finally;
 			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			getter->dispose();
+		} catch ($Exception& e) {
+			if (XWM::log->isLoggable($PlatformLogger$Level::FINER)) {
+				e->printStackTrace();
+			}
+			var$2 = 0;
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} $finally: {
+		getter->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -733,81 +534,161 @@ bool XWM::isEnlightenment() {
 
 bool XWM::isCDE() {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(XWM::XA_DT_SM_WINDOW_INFO)->isInterned()) {
+	$useLocalObjectStack();
+	if (!XWM::XA_DT_SM_WINDOW_INFO->isInterned()) {
 		$init($PlatformLogger$Level);
 		if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWM::log)->finer("{0} is not interned"_s, $$new($ObjectArray, {$of(XWM::XA_DT_SM_WINDOW_INFO)}));
+			XWM::log->finer("{0} is not interned"_s, $$new($ObjectArray, {XWM::XA_DT_SM_WINDOW_INFO}));
 		}
 		return false;
 	}
-	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, $XToolkit::getDefaultRootWindow(), XWM::XA_DT_SM_WINDOW_INFO, (int64_t)0, (int64_t)2, false, XWM::XA_DT_SM_WINDOW_INFO));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, $XToolkit::getDefaultRootWindow(), XWM::XA_DT_SM_WINDOW_INFO, 0, 2, false, XWM::XA_DT_SM_WINDOW_INFO));
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		int32_t status = getter->execute();
+		if (status != $XConstants::Success || getter->getData() == 0) {
+			$nc(XWM::log)->finer("Getting of _DT_SM_WINDOW_INFO is not successfull"_s);
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		}
+		int64_t var$6 = getter->getActualType();
+		bool var$5 = var$6 != XWM::XA_DT_SM_WINDOW_INFO->getAtom();
+		bool var$4 = var$5 || getter->getActualFormat() != 32;
+		bool var$3 = var$4 || getter->getNumberOfItems() != 2;
+		if (var$3 || getter->getBytesAfter() != 0) {
+			$nc(XWM::log)->finer("Wrong format of _DT_SM_WINDOW_INFO"_s);
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		}
+		int64_t wmwin = $Native::getWindow(getter->getData(), 1);
+		if (wmwin == 0) {
+			$nc(XWM::log)->fine("WARNING: DT_SM_WINDOW_INFO exists but returns zero windows"_s);
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		}
+		if (!XWM::XA_DT_SM_STATE_INFO->isInterned()) {
+			$init($PlatformLogger$Level);
+			if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
+				XWM::log->finer("{0} is not interned"_s, $$new($ObjectArray, {XWM::XA_DT_SM_STATE_INFO}));
+			}
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		}
+		$var($WindowPropertyGetter, getter2, $new($WindowPropertyGetter, wmwin, XWM::XA_DT_SM_STATE_INFO, 0, 1, false, XWM::XA_DT_SM_STATE_INFO));
+		$var($Throwable, var$7, nullptr);
+		bool var$9 = false;
+		bool return$8 = false;
 		try {
-			int32_t status = getter->execute();
-			if (status != $XConstants::Success || getter->getData() == 0) {
-				$nc(XWM::log)->finer("Getting of _DT_SM_WINDOW_INFO is not successfull"_s);
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
+			status = getter2->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			if (status != $XConstants::Success || getter2->getData() == 0) {
+				$nc(XWM::log)->finer("Getting of _DT_SM_STATE_INFO is not successfull"_s);
+				var$9 = false;
+				return$8 = true;
+				goto $finally1;
 			}
-			int64_t var$6 = getter->getActualType();
-			bool var$5 = var$6 != $nc(XWM::XA_DT_SM_WINDOW_INFO)->getAtom();
-			bool var$4 = var$5 || getter->getActualFormat() != 32;
-			bool var$3 = var$4 || getter->getNumberOfItems() != 2;
-			if (var$3 || getter->getBytesAfter() != 0) {
-				$nc(XWM::log)->finer("Wrong format of _DT_SM_WINDOW_INFO"_s);
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
+			int64_t var$11 = getter2->getActualType();
+			bool var$10 = var$11 != XWM::XA_DT_SM_STATE_INFO->getAtom();
+			if (var$10 || getter2->getActualFormat() != 32) {
+				$nc(XWM::log)->finer("Wrong format of _DT_SM_STATE_INFO"_s);
+				var$9 = false;
+				return$8 = true;
+				goto $finally1;
 			}
-			int64_t wmwin = $Native::getWindow(getter->getData(), 1);
-			if (wmwin == 0) {
-				$nc(XWM::log)->fine("WARNING: DT_SM_WINDOW_INFO exists but returns zero windows"_s);
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			if (!$nc(XWM::XA_DT_SM_STATE_INFO)->isInterned()) {
-				$init($PlatformLogger$Level);
-				if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XWM::log)->finer("{0} is not interned"_s, $$new($ObjectArray, {$of(XWM::XA_DT_SM_STATE_INFO)}));
+			var$9 = true;
+			return$8 = true;
+			goto $finally1;
+		} catch ($Throwable& var$12) {
+			$assign(var$7, var$12);
+		} $finally1: {
+			getter2->dispose();
+		}
+		if (var$7 != nullptr) {
+			$throw(var$7);
+		}
+		if (return$8) {
+			var$2 = var$9;
+			return$1 = true;
+			goto $finally;
+		}
+	} catch ($Throwable& var$13) {
+		$assign(var$0, var$13);
+	} $finally: {
+		getter->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+bool XWM::isMotif() {
+	$init(XWM);
+	$useLocalObjectStack();
+	if (!(XWM::XA_MOTIF_WM_INFO->isInterned())) {
+		return false;
+	}
+	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, $XToolkit::getDefaultRootWindow(), XWM::XA_MOTIF_WM_INFO, 0, $MWMConstants::PROP_MOTIF_WM_INFO_ELEMENTS, false, XWM::XA_MOTIF_WM_INFO));
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		int32_t status = getter->execute();
+		if (status != $XConstants::Success || getter->getData() == 0) {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		}
+		int64_t var$6 = getter->getActualType();
+		bool var$5 = var$6 != XWM::XA_MOTIF_WM_INFO->getAtom();
+		bool var$4 = var$5 || getter->getActualFormat() != 32;
+		bool var$3 = var$4 || getter->getNumberOfItems() != $MWMConstants::PROP_MOTIF_WM_INFO_ELEMENTS;
+		if (var$3 || getter->getBytesAfter() != 0) {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		}
+		int64_t wmwin = $Native::getLong(getter->getData(), 1);
+		if (wmwin != 0) {
+			if (XWM::XA_DT_WORKSPACE_CURRENT->isInterned()) {
+				$var($XAtomArray, curws, XWM::XA_DT_WORKSPACE_CURRENT->getAtomListProperty(wmwin));
+				if ($nc(curws)->length == 0) {
+					var$2 = false;
+					return$1 = true;
+					goto $finally;
 				}
-				var$2 = false;
+				var$2 = true;
 				return$1 = true;
 				goto $finally;
-			}
-			$var($WindowPropertyGetter, getter2, $new($WindowPropertyGetter, wmwin, XWM::XA_DT_SM_STATE_INFO, (int64_t)0, (int64_t)1, false, XWM::XA_DT_SM_STATE_INFO));
-			{
+			} else {
+				$var($WindowPropertyGetter, state_getter, $new($WindowPropertyGetter, wmwin, XWM::XA_WM_STATE, 0, 1, false, XWM::XA_WM_STATE));
 				$var($Throwable, var$7, nullptr);
 				bool var$9 = false;
 				bool return$8 = false;
 				try {
-					status = getter2->execute($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-					if (status != $XConstants::Success || getter2->getData() == 0) {
-						$nc(XWM::log)->finer("Getting of _DT_SM_STATE_INFO is not successfull"_s);
-						var$9 = false;
+					bool var$11 = state_getter->execute() == $XConstants::Success;
+					bool var$10 = var$11 && state_getter->getData() != 0;
+					if (var$10) {
+						int64_t var$12 = state_getter->getActualType();
+						var$10 = var$12 == $nc(XWM::XA_WM_STATE)->getAtom();
+					}
+					if (var$10) {
+						var$9 = true;
 						return$8 = true;
 						goto $finally1;
 					}
-					int64_t var$11 = getter2->getActualType();
-					bool var$10 = var$11 != $nc(XWM::XA_DT_SM_STATE_INFO)->getAtom();
-					if (var$10 || getter2->getActualFormat() != 32) {
-						$nc(XWM::log)->finer("Wrong format of _DT_SM_STATE_INFO"_s);
-						var$9 = false;
-						return$8 = true;
-						goto $finally1;
-					}
-					var$9 = true;
-					return$8 = true;
-					goto $finally1;
-				} catch ($Throwable& var$12) {
-					$assign(var$7, var$12);
+				} catch ($Throwable& var$13) {
+					$assign(var$7, var$13);
 				} $finally1: {
-					getter2->dispose();
+					state_getter->dispose();
 				}
 				if (var$7 != nullptr) {
 					$throw(var$7);
@@ -818,105 +699,17 @@ bool XWM::isCDE() {
 					goto $finally;
 				}
 			}
-		} catch ($Throwable& var$13) {
-			$assign(var$0, var$13);
-		} $finally: {
-			getter->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$14) {
+		$assign(var$0, var$14);
+	} $finally: {
+		getter->dispose();
 	}
-	$shouldNotReachHere();
-}
-
-bool XWM::isMotif() {
-	$init(XWM);
-	$useLocalCurrentObjectStackCache();
-	if (!($nc(XWM::XA_MOTIF_WM_INFO)->isInterned())) {
-		return false;
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
-	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, $XToolkit::getDefaultRootWindow(), XWM::XA_MOTIF_WM_INFO, (int64_t)0, (int64_t)$MWMConstants::PROP_MOTIF_WM_INFO_ELEMENTS, false, XWM::XA_MOTIF_WM_INFO));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			int32_t status = getter->execute();
-			if (status != $XConstants::Success || getter->getData() == 0) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			int64_t var$6 = getter->getActualType();
-			bool var$5 = var$6 != $nc(XWM::XA_MOTIF_WM_INFO)->getAtom();
-			bool var$4 = var$5 || getter->getActualFormat() != 32;
-			bool var$3 = var$4 || getter->getNumberOfItems() != $MWMConstants::PROP_MOTIF_WM_INFO_ELEMENTS;
-			if (var$3 || getter->getBytesAfter() != 0) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			int64_t wmwin = $Native::getLong(getter->getData(), 1);
-			if (wmwin != 0) {
-				if ($nc(XWM::XA_DT_WORKSPACE_CURRENT)->isInterned()) {
-					$var($XAtomArray, curws, $nc(XWM::XA_DT_WORKSPACE_CURRENT)->getAtomListProperty(wmwin));
-					if ($nc(curws)->length == 0) {
-						var$2 = false;
-						return$1 = true;
-						goto $finally;
-					}
-					var$2 = true;
-					return$1 = true;
-					goto $finally;
-				} else {
-					$var($WindowPropertyGetter, state_getter, $new($WindowPropertyGetter, wmwin, XWM::XA_WM_STATE, (int64_t)0, (int64_t)1, false, XWM::XA_WM_STATE));
-					{
-						$var($Throwable, var$7, nullptr);
-						bool var$9 = false;
-						bool return$8 = false;
-						try {
-							bool var$11 = state_getter->execute() == $XConstants::Success;
-							bool var$10 = var$11 && state_getter->getData() != 0;
-							if (var$10) {
-								int64_t var$12 = state_getter->getActualType();
-								var$10 = var$12 == $nc(XWM::XA_WM_STATE)->getAtom();
-							}
-							if (var$10) {
-								var$9 = true;
-								return$8 = true;
-								goto $finally1;
-							}
-						} catch ($Throwable& var$13) {
-							$assign(var$7, var$13);
-						} $finally1: {
-							state_getter->dispose();
-						}
-						if (var$7 != nullptr) {
-							$throw(var$7);
-						}
-						if (return$8) {
-							var$2 = var$9;
-							return$1 = true;
-							goto $finally;
-						}
-					}
-				}
-			}
-		} catch ($Throwable& var$14) {
-			$assign(var$0, var$14);
-		} $finally: {
-			getter->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	if (return$1) {
+		return var$2;
 	}
 	return false;
 }
@@ -974,98 +767,94 @@ bool XWM::isNonReparentingWM() {
 
 bool XWM::prepareIsIceWM() {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(XWM::XA_ICEWM_WINOPTHINT)->isInterned()) {
+	$useLocalObjectStack();
+	if (!XWM::XA_ICEWM_WINOPTHINT->isInterned()) {
 		$init($PlatformLogger$Level);
 		if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWM::log)->finer("{0} is not interned"_s, $$new($ObjectArray, {$of(XWM::XA_ICEWM_WINOPTHINT)}));
+			XWM::log->finer("{0} is not interned"_s, $$new($ObjectArray, {XWM::XA_ICEWM_WINOPTHINT}));
 		}
 		return false;
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$VerifyChangePropertyHandler::getInstance()));
-			int64_t var$3 = $XToolkit::getDisplay();
-			int64_t var$4 = $XToolkit::getDefaultRootWindow();
-			int64_t var$5 = $nc(XWM::XA_ICEWM_WINOPTHINT)->getAtom();
-			int64_t var$6 = $nc(XWM::XA_ICEWM_WINOPTHINT)->getAtom();
-			$XlibWrapper::XChangePropertyS(var$3, var$4, var$5, var$6, 8, $XConstants::PropModeReplace, $$new($String, XWM::opt));
-			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
-				$nc(XWM::log)->finer("Erorr getting XA_ICEWM_WINOPTHINT property"_s);
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			$nc(XWM::log)->finer("Prepared for IceWM detection"_s);
-			var$2 = true;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$VerifyChangePropertyHandler::getInstance()));
+		int64_t var$3 = $XToolkit::getDisplay();
+		int64_t var$4 = $XToolkit::getDefaultRootWindow();
+		int64_t var$5 = XWM::XA_ICEWM_WINOPTHINT->getAtom();
+		int64_t var$6 = XWM::XA_ICEWM_WINOPTHINT->getAtom();
+		$XlibWrapper::XChangePropertyS(var$3, var$4, var$5, var$6, 8, $XConstants::PropModeReplace, $$new($String, XWM::opt));
+		$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
+			$nc(XWM::log)->finer("Erorr getting XA_ICEWM_WINOPTHINT property"_s);
+			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} $finally: {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$nc(XWM::log)->finer("Prepared for IceWM detection"_s);
+		var$2 = true;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$0, var$7);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool XWM::isIceWM() {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(XWM::XA_ICEWM_WINOPTHINT)->isInterned()) {
+	$useLocalObjectStack();
+	if (!XWM::XA_ICEWM_WINOPTHINT->isInterned()) {
 		$init($PlatformLogger$Level);
 		if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWM::log)->finer("{0} is not interned"_s, $$new($ObjectArray, {$of(XWM::XA_ICEWM_WINOPTHINT)}));
+			XWM::log->finer("{0} is not interned"_s, $$new($ObjectArray, {XWM::XA_ICEWM_WINOPTHINT}));
 		}
 		return false;
 	}
-	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, $XToolkit::getDefaultRootWindow(), XWM::XA_ICEWM_WINOPTHINT, (int64_t)0, (int64_t)0x0000FFFF, true, XWM::XA_ICEWM_WINOPTHINT));
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			int32_t status = getter->execute();
-			bool res = (status == $XConstants::Success && getter->getActualType() != 0);
-			$init($PlatformLogger$Level);
-			if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XWM::log)->finer($$str({"Status getting XA_ICEWM_WINOPTHINT: "_s, $$str(!res)}));
-			}
-			var$2 = !res || isNetWMName("IceWM"_s);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			getter->dispose();
+	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, $XToolkit::getDefaultRootWindow(), XWM::XA_ICEWM_WINOPTHINT, 0, 0x0000ffff, true, XWM::XA_ICEWM_WINOPTHINT));
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		int32_t status = getter->execute();
+		bool res = (status == $XConstants::Success && getter->getActualType() != 0);
+		$init($PlatformLogger$Level);
+		if ($nc(XWM::log)->isLoggable($PlatformLogger$Level::FINER)) {
+			XWM::log->finer($$str({"Status getting XA_ICEWM_WINOPTHINT: "_s, $$str(!res)}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = !res || isNetWMName("IceWM"_s);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		getter->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool XWM::isOpenLook() {
 	$init(XWM);
-	if (!$nc(XWM::XA_SUN_WM_PROTOCOLS)->isInterned()) {
+	if (!XWM::XA_SUN_WM_PROTOCOLS->isInterned()) {
 		return false;
 	}
-	$var($XAtomArray, list, $nc(XWM::XA_SUN_WM_PROTOCOLS)->getAtomListProperty($XToolkit::getDefaultRootWindow()));
+	$var($XAtomArray, list, XWM::XA_SUN_WM_PROTOCOLS->getAtomListProperty($XToolkit::getDefaultRootWindow()));
 	return ($nc(list)->length != 0);
 }
 
@@ -1079,126 +868,122 @@ XWM* XWM::getWM() {
 
 int32_t XWM::getWMID() {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XWM::insLog)->finest($$str({"awt_wmgr = "_s, $$str(XWM::awt_wmgr)}));
+		XWM::insLog->finest($$str({"awt_wmgr = "_s, $$str(XWM::awt_wmgr)}));
 	}
 	if (XWM::awt_wmgr != XWM::UNDETERMINED_WM) {
 		return XWM::awt_wmgr;
 	}
 	$var($XSetWindowAttributes, substruct, $new($XSetWindowAttributes));
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (isNoWM()) {
-				XWM::awt_wmgr = XWM::NO_WM;
-				var$2 = XWM::awt_wmgr;
-				return$1 = true;
-				goto $finally;
-			}
-			$var($XNETProtocol, l_net_protocol, $assignStatic(XWM::g_net_protocol, $new($XNETProtocol)));
-			$nc(l_net_protocol)->detect();
-			bool var$3 = $nc(XWM::log)->isLoggable($PlatformLogger$Level::FINE);
-			if (var$3 && l_net_protocol->active()) {
-				$nc(XWM::log)->fine($$str({"_NET_WM_NAME is "_s, $(l_net_protocol->getWMName())}));
-			}
-			$var($XWINProtocol, win, $assignStatic(XWM::g_win_protocol, $new($XWINProtocol)));
-			$nc(win)->detect();
-			bool doIsIceWM = prepareIsIceWM();
-			if (isEnlightenment()) {
-				XWM::awt_wmgr = XWM::ENLIGHTEN_WM;
-			} else if (isMetacity()) {
-				XWM::awt_wmgr = XWM::METACITY_WM;
-			} else if (isMutter()) {
-				XWM::awt_wmgr = XWM::MUTTER_WM;
-			} else if (isSawfish()) {
-				XWM::awt_wmgr = XWM::SAWFISH_WM;
-			} else if (isKDE2()) {
-				XWM::awt_wmgr = XWM::KDE2_WM;
-			} else if (isCompiz()) {
-				XWM::awt_wmgr = XWM::COMPIZ_WM;
-			} else if (isLookingGlass()) {
-				XWM::awt_wmgr = XWM::LG3D_WM;
-			} else if (isCWM()) {
-				XWM::awt_wmgr = XWM::CWM_WM;
-			} else if (doIsIceWM && isIceWM()) {
-				XWM::awt_wmgr = XWM::ICE_WM;
-			} else if (isUnityCompiz()) {
-				XWM::awt_wmgr = XWM::UNITY_COMPIZ_WM;
-			} else if (l_net_protocol->active()) {
-				XWM::awt_wmgr = XWM::OTHER_WM;
-			} else if (win->active()) {
-				XWM::awt_wmgr = XWM::OTHER_WM;
-			} else if (isCDE()) {
-				XWM::awt_wmgr = XWM::CDE_WM;
-			} else if (isMotif()) {
-				XWM::awt_wmgr = XWM::MOTIF_WM;
-			} else if (isOpenLook()) {
-				XWM::awt_wmgr = XWM::OPENLOOK_WM;
-			} else {
-				XWM::awt_wmgr = XWM::OTHER_WM;
-			}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (isNoWM()) {
+			XWM::awt_wmgr = XWM::NO_WM;
 			var$2 = XWM::awt_wmgr;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$XToolkit::awtUnlock();
-			substruct->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$var($XNETProtocol, l_net_protocol, $assignStatic(XWM::g_net_protocol, $new($XNETProtocol)));
+		$nc(l_net_protocol)->detect();
+		bool var$3 = $nc(XWM::log)->isLoggable($PlatformLogger$Level::FINE);
+		if (var$3 && l_net_protocol->active()) {
+			XWM::log->fine($$str({"_NET_WM_NAME is "_s, $(l_net_protocol->getWMName())}));
 		}
-		if (return$1) {
-			return var$2;
+		$var($XWINProtocol, win, $assignStatic(XWM::g_win_protocol, $new($XWINProtocol)));
+		$nc(win)->detect();
+		bool doIsIceWM = prepareIsIceWM();
+		if (isEnlightenment()) {
+			XWM::awt_wmgr = XWM::ENLIGHTEN_WM;
+		} else if (isMetacity()) {
+			XWM::awt_wmgr = XWM::METACITY_WM;
+		} else if (isMutter()) {
+			XWM::awt_wmgr = XWM::MUTTER_WM;
+		} else if (isSawfish()) {
+			XWM::awt_wmgr = XWM::SAWFISH_WM;
+		} else if (isKDE2()) {
+			XWM::awt_wmgr = XWM::KDE2_WM;
+		} else if (isCompiz()) {
+			XWM::awt_wmgr = XWM::COMPIZ_WM;
+		} else if (isLookingGlass()) {
+			XWM::awt_wmgr = XWM::LG3D_WM;
+		} else if (isCWM()) {
+			XWM::awt_wmgr = XWM::CWM_WM;
+		} else if (doIsIceWM && isIceWM()) {
+			XWM::awt_wmgr = XWM::ICE_WM;
+		} else if (isUnityCompiz()) {
+			XWM::awt_wmgr = XWM::UNITY_COMPIZ_WM;
+		} else if (l_net_protocol->active()) {
+			XWM::awt_wmgr = XWM::OTHER_WM;
+		} else if (win->active()) {
+			XWM::awt_wmgr = XWM::OTHER_WM;
+		} else if (isCDE()) {
+			XWM::awt_wmgr = XWM::CDE_WM;
+		} else if (isMotif()) {
+			XWM::awt_wmgr = XWM::MOTIF_WM;
+		} else if (isOpenLook()) {
+			XWM::awt_wmgr = XWM::OPENLOOK_WM;
+		} else {
+			XWM::awt_wmgr = XWM::OTHER_WM;
 		}
+		var$2 = XWM::awt_wmgr;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XToolkit::awtUnlock();
+		substruct->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XWM::removeSizeHints($XDecoratedPeer* window, int64_t mask) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	mask &= (uint64_t)($XUtilConstants::PMaxSize | $XUtilConstants::PMinSize);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			$var($XSizeHints, hints, $nc(window)->getHints());
-			if (((int64_t)($nc(hints)->get_flags() & (uint64_t)mask)) == 0) {
-				return$1 = true;
-				goto $finally;
-			}
-			$nc(hints)->set_flags((int64_t)(hints->get_flags() & (uint64_t)~mask));
-			$init($PlatformLogger$Level);
-			if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XWM::insLog)->finer($$str({"Setting hints, flags "_s, $($XlibWrapper::hintsToString(hints->get_flags()))}));
-			}
-			int64_t var$2 = $XToolkit::getDisplay();
-			$XlibWrapper::XSetWMNormalHints(var$2, window->getWindow(), hints->pData);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		$var($XSizeHints, hints, $nc(window)->getHints());
+		if (($nc(hints)->get_flags() & mask) == 0) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		hints->set_flags(hints->get_flags() & ~mask);
+		$init($PlatformLogger$Level);
+		if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
+			XWM::insLog->finer($$str({"Setting hints, flags "_s, $($XlibWrapper::hintsToString(hints->get_flags()))}));
 		}
-		if (return$1) {
-			return;
-		}
+		int64_t var$2 = $XToolkit::getDisplay();
+		$XlibWrapper::XSetWMNormalHints(var$2, window->getWindow(), hints->pData);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 int32_t XWM::normalizeMotifDecor(int32_t decorations) {
 	$init(XWM);
-	if (((int32_t)(decorations & (uint32_t)$MWMConstants::MWM_DECOR_ALL)) == 0) {
+	if ((decorations & $MWMConstants::MWM_DECOR_ALL) == 0) {
 		return decorations;
 	}
 	int32_t d = (((($MWMConstants::MWM_DECOR_BORDER | $MWMConstants::MWM_DECOR_RESIZEH) | $MWMConstants::MWM_DECOR_TITLE) | $MWMConstants::MWM_DECOR_MENU) | $MWMConstants::MWM_DECOR_MINIMIZE) | $MWMConstants::MWM_DECOR_MAXIMIZE;
@@ -1208,7 +993,7 @@ int32_t XWM::normalizeMotifDecor(int32_t decorations) {
 
 int32_t XWM::normalizeMotifFunc(int32_t functions) {
 	$init(XWM);
-	if (((int32_t)(functions & (uint32_t)$MWMConstants::MWM_FUNC_ALL)) == 0) {
+	if ((functions & $MWMConstants::MWM_FUNC_ALL) == 0) {
 		return functions;
 	}
 	int32_t f = ((($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MOVE) | $MWMConstants::MWM_FUNC_MAXIMIZE) | $MWMConstants::MWM_FUNC_MINIMIZE) | $MWMConstants::MWM_FUNC_CLOSE;
@@ -1218,7 +1003,7 @@ int32_t XWM::normalizeMotifFunc(int32_t functions) {
 
 void XWM::setOLDecor($XWindow* window, bool resizable, int32_t decorations) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (window == nullptr) {
 		return;
 	}
@@ -1226,44 +1011,44 @@ void XWM::setOLDecor($XWindow* window, bool resizable, int32_t decorations) {
 	decorations = normalizeMotifDecor(decorations);
 	$init($PlatformLogger$Level);
 	if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XWM::insLog)->finer($$str({"Setting OL_DECOR to "_s, $($Integer::toBinaryString(decorations))}));
+		XWM::insLog->finer($$str({"Setting OL_DECOR to "_s, $($Integer::toBinaryString(decorations))}));
 	}
-	if (((int32_t)(decorations & (uint32_t)$MWMConstants::MWM_DECOR_TITLE)) == 0) {
+	if ((decorations & $MWMConstants::MWM_DECOR_TITLE) == 0) {
 		decorDel->add(XWM::XA_OL_DECOR_HEADER);
 	}
-	if (((int32_t)(decorations & (uint32_t)($MWMConstants::MWM_DECOR_RESIZEH | $MWMConstants::MWM_DECOR_MAXIMIZE))) == 0) {
+	if ((decorations & ($MWMConstants::MWM_DECOR_RESIZEH | $MWMConstants::MWM_DECOR_MAXIMIZE)) == 0) {
 		decorDel->add(XWM::XA_OL_DECOR_RESIZE);
 	}
-	if (((int32_t)(decorations & (uint32_t)(($MWMConstants::MWM_DECOR_MENU | $MWMConstants::MWM_DECOR_MAXIMIZE) | $MWMConstants::MWM_DECOR_MINIMIZE))) == 0) {
+	if ((decorations & (($MWMConstants::MWM_DECOR_MENU | $MWMConstants::MWM_DECOR_MAXIMIZE) | $MWMConstants::MWM_DECOR_MINIMIZE)) == 0) {
 		decorDel->add(XWM::XA_OL_DECOR_CLOSE);
 	}
 	if (decorDel->size() == 0) {
-		$nc(XWM::insLog)->finer("Deleting OL_DECOR"_s);
-		$nc(XWM::XA_OL_DECOR_DEL)->DeleteProperty(static_cast<$XBaseWindow*>(window));
+		XWM::insLog->finer("Deleting OL_DECOR"_s);
+		XWM::XA_OL_DECOR_DEL->DeleteProperty(window);
 	} else {
-		if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWM::insLog)->finer($$str({"Setting OL_DECOR to "_s, decorDel}));
+		if (XWM::insLog->isLoggable($PlatformLogger$Level::FINER)) {
+			XWM::insLog->finer($$str({"Setting OL_DECOR to "_s, decorDel}));
 		}
-		$nc(XWM::XA_OL_DECOR_DEL)->setAtomListProperty(static_cast<$XBaseWindow*>(window), decorDel);
+		XWM::XA_OL_DECOR_DEL->setAtomListProperty(window, decorDel);
 	}
 }
 
 void XWM::setMotifDecor($XWindow* window, bool resizable, int32_t decorations, int32_t functions) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(decorations & (uint32_t)$MWMConstants::MWM_DECOR_ALL)) != 0 && (decorations != $MWMConstants::MWM_DECOR_ALL)) {
+	$useLocalObjectStack();
+	if ((decorations & $MWMConstants::MWM_DECOR_ALL) != 0 && (decorations != $MWMConstants::MWM_DECOR_ALL)) {
 		decorations = normalizeMotifDecor(decorations);
 	}
-	if (((int32_t)(functions & (uint32_t)$MWMConstants::MWM_FUNC_ALL)) != 0 && (functions != $MWMConstants::MWM_FUNC_ALL)) {
+	if ((functions & $MWMConstants::MWM_FUNC_ALL) != 0 && (functions != $MWMConstants::MWM_FUNC_ALL)) {
 		functions = normalizeMotifFunc(functions);
 	}
 	$var($PropMwmHints, hints, $nc(window)->getMWMHints());
-	$nc(hints)->set_flags((hints->get_flags() | $MWMConstants::MWM_HINTS_FUNCTIONS) | $MWMConstants::MWM_HINTS_DECORATIONS);
+	$nc(hints)->set_flags(($nc(hints)->get_flags() | $MWMConstants::MWM_HINTS_FUNCTIONS) | $MWMConstants::MWM_HINTS_DECORATIONS);
 	hints->set_functions(functions);
 	hints->set_decorations(decorations);
 	$init($PlatformLogger$Level);
 	if ($nc(XWM::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XWM::stateLog)->finer($$str({"Setting MWM_HINTS to "_s, hints}));
+		XWM::stateLog->finer($$str({"Setting MWM_HINTS to "_s, hints}));
 	}
 	window->setMWMHints(hints);
 }
@@ -1279,7 +1064,7 @@ void XWM::setShellDecor($XDecoratedPeer* window) {
 	int32_t functions = window->getFunctions();
 	bool resizable = window->isResizable();
 	if (!resizable) {
-		if (((int32_t)(decorations & (uint32_t)$MWMConstants::MWM_DECOR_ALL)) != 0) {
+		if ((decorations & $MWMConstants::MWM_DECOR_ALL) != 0) {
 			decorations |= $MWMConstants::MWM_DECOR_RESIZEH | $MWMConstants::MWM_DECOR_MAXIMIZE;
 		} else {
 			decorations &= (uint32_t)~($MWMConstants::MWM_DECOR_RESIZEH | $MWMConstants::MWM_DECOR_MAXIMIZE);
@@ -1297,77 +1082,73 @@ void XWM::setShellDecor($XDecoratedPeer* window) {
 
 void XWM::setShellResizable($XDecoratedPeer* window) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XWM::insLog)->fine($$str({"Setting shell resizable "_s, window}));
+		XWM::insLog->fine($$str({"Setting shell resizable "_s, window}));
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Rectangle, shellBounds, nullptr);
-			if (getWMID() != XWM::UNITY_COMPIZ_WM) {
-				$assign(shellBounds, $nc(window)->getShellBounds());
-				$nc(shellBounds)->translate(-$nc(window->currentInsets)->left, -$nc(window->currentInsets)->top);
-			} else {
-				$assign(shellBounds, $nc($($nc(window)->getDimensions()))->getScreenBounds());
-			}
-			$nc(window)->updateSizeHints($(window->getDimensions()));
-			requestWMExtents(window->getWindow());
-			int64_t var$1 = $XToolkit::getDisplay();
-			int64_t var$2 = window->getShell();
-			int32_t var$3 = window->scaleUp($nc(shellBounds)->x);
-			int32_t var$4 = window->scaleUp($nc(shellBounds)->y);
-			int32_t var$5 = window->scaleUp($nc(shellBounds)->width);
-			$XlibWrapper::XMoveResizeWindow(var$1, var$2, var$3, var$4, var$5, window->scaleUp($nc(shellBounds)->height));
-			removeSizeHints(window, $XUtilConstants::PMaxSize);
-			window->updateMinimumSize();
-			setShellDecor(window);
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Rectangle, shellBounds, nullptr);
+		if (getWMID() != XWM::UNITY_COMPIZ_WM) {
+			$assign(shellBounds, $nc(window)->getShellBounds());
+			$nc(shellBounds)->translate(-$nc(window->currentInsets)->left, -$nc(window->currentInsets)->top);
+		} else {
+			$assign(shellBounds, $$nc($nc(window)->getDimensions())->getScreenBounds());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$nc(window)->updateSizeHints($($nc(window)->getDimensions()));
+		requestWMExtents(window->getWindow());
+		int64_t var$1 = $XToolkit::getDisplay();
+		int64_t var$2 = window->getShell();
+		int32_t var$3 = window->scaleUp($nc(shellBounds)->x);
+		int32_t var$4 = window->scaleUp(shellBounds->y);
+		int32_t var$5 = window->scaleUp(shellBounds->width);
+		$XlibWrapper::XMoveResizeWindow(var$1, var$2, var$3, var$4, var$5, window->scaleUp(shellBounds->height));
+		removeSizeHints(window, $XUtilConstants::PMaxSize);
+		window->updateMinimumSize();
+		setShellDecor(window);
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XWM::setShellNotResizable($XDecoratedPeer* window, $WindowDimensions* newDimensions, $Rectangle* shellBounds, bool justChangeSize) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XWM::insLog)->fine($$str({"Setting non-resizable shell "_s, window, ", dimensions "_s, newDimensions, ", shellBounds "_s, shellBounds, ", just change size: "_s, $$str(justChangeSize)}));
+		XWM::insLog->fine($$str({"Setting non-resizable shell "_s, window, ", dimensions "_s, newDimensions, ", shellBounds "_s, shellBounds, ", just change size: "_s, $$str(justChangeSize)}));
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!$nc(shellBounds)->isEmpty()) {
-				$nc(window)->updateSizeHints(newDimensions);
-				requestWMExtents(window->getWindow());
-				$XToolkit::XSync();
-				int64_t var$1 = $XToolkit::getDisplay();
-				int64_t var$2 = window->getShell();
-				int32_t var$3 = window->scaleUp(shellBounds->x);
-				int32_t var$4 = window->scaleUp(shellBounds->y);
-				int32_t var$5 = window->scaleUp(shellBounds->width);
-				$XlibWrapper::XMoveResizeWindow(var$1, var$2, var$3, var$4, var$5, window->scaleUp(shellBounds->height));
-			}
-			if (!justChangeSize) {
-				setShellDecor(window);
-			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!$nc(shellBounds)->isEmpty()) {
+			$nc(window)->updateSizeHints(newDimensions);
+			requestWMExtents(window->getWindow());
+			$XToolkit::XSync();
+			int64_t var$1 = $XToolkit::getDisplay();
+			int64_t var$2 = window->getShell();
+			int32_t var$3 = window->scaleUp(shellBounds->x);
+			int32_t var$4 = window->scaleUp(shellBounds->y);
+			int32_t var$5 = window->scaleUp(shellBounds->width);
+			$XlibWrapper::XMoveResizeWindow(var$1, var$2, var$3, var$4, var$5, window->scaleUp(shellBounds->height));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (!justChangeSize) {
+			setShellDecor(window);
 		}
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1376,7 +1157,7 @@ $Collection* XWM::getProtocols($Class* protocolInterface) {
 	if (res != nullptr) {
 		return res;
 	} else {
-		return static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($new($LinkedList)))));
+		return $cast($AbstractCollection, $new($LinkedList));
 	}
 }
 
@@ -1390,71 +1171,50 @@ bool XWM::supportsDynamicLayout() {
 	int32_t wm = getWMID();
 	switch (wm) {
 	case XWM::ENLIGHTEN_WM:
-		{}
 	case XWM::KDE2_WM:
-		{}
 	case XWM::SAWFISH_WM:
-		{}
 	case XWM::ICE_WM:
-		{}
 	case XWM::METACITY_WM:
-		{
-			return true;
-		}
+		return true;
 	case XWM::OPENLOOK_WM:
-		{}
 	case XWM::MOTIF_WM:
-		{}
 	case XWM::CDE_WM:
-		{
-			return false;
-		}
+		return false;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 bool XWM::supportsExtendedState(int32_t state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (state) {
 	case $Frame::MAXIMIZED_VERT:
-		{}
 	case $Frame::MAXIMIZED_HORIZ:
-		{
-			if (getWMID() == XWM::METACITY_WM) {
-				return false;
-			}
+		if (getWMID() == XWM::METACITY_WM) {
+			return false;
 		}
 	case $Frame::MAXIMIZED_BOTH:
 		{
-			{
-				$load($XStateProtocol);
-				$var($Iterator, i$, $nc($(getProtocols($XStateProtocol::class$)))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($XStateProtocol, proto, $cast($XStateProtocol, i$->next()));
-					{
-						if ($nc(proto)->supportsState(state)) {
-							return true;
-						}
-					}
+			$load($XStateProtocol);
+			$var($Iterator, i$, $$nc(getProtocols($XStateProtocol::class$))->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($XStateProtocol, proto, $cast($XStateProtocol, i$->next()));
+				if ($nc(proto)->supportsState(state)) {
+					return true;
 				}
 			}
 		}
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 int32_t XWM::getExtendedState($XWindowPeer* window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t state = 0;
 	{
 		$load($XStateProtocol);
-		$var($Iterator, i$, $nc($(getProtocols($XStateProtocol::class$)))->iterator());
+		$var($Iterator, i$, $$nc(getProtocols($XStateProtocol::class$))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XStateProtocol, proto, $cast($XStateProtocol, i$->next()));
 			{
@@ -1470,19 +1230,19 @@ int32_t XWM::getExtendedState($XWindowPeer* window) {
 }
 
 bool XWM::isStateChange($XDecoratedPeer* window, $XPropertyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(window)->isShowing()) {
 		$nc(XWM::stateLog)->finer("Window is not showing"_s);
 		return false;
 	}
-	int32_t wm_state = $nc(window)->getWMState();
+	int32_t wm_state = window->getWMState();
 	if (wm_state == $XUtilConstants::WithdrawnState) {
 		$nc(XWM::stateLog)->finer("WithdrawnState"_s);
 		return false;
 	} else {
 		$init($PlatformLogger$Level);
 		if ($nc(XWM::stateLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(XWM::stateLog)->finer($$str({"Window WM_STATE is "_s, $$str(wm_state)}));
+			XWM::stateLog->finer($$str({"Window WM_STATE is "_s, $$str(wm_state)}));
 		}
 	}
 	bool is_state_change = false;
@@ -1492,14 +1252,14 @@ bool XWM::isStateChange($XDecoratedPeer* window, $XPropertyEvent* e) {
 	}
 	{
 		$load($XStateProtocol);
-		$var($Iterator, i$, $nc($(getProtocols($XStateProtocol::class$)))->iterator());
+		$var($Iterator, i$, $$nc(getProtocols($XStateProtocol::class$))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XStateProtocol, proto, $cast($XStateProtocol, i$->next()));
 			{
 				is_state_change |= $nc(proto)->isStateChange(e);
 				$init($PlatformLogger$Level);
 				if ($nc(XWM::stateLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-					$nc(XWM::stateLog)->finest($$str({proto, ": is state changed = "_s, $$str(is_state_change)}));
+					XWM::stateLog->finest($$str({proto, ": is state changed = "_s, $$str(is_state_change)}));
 				}
 			}
 		}
@@ -1520,16 +1280,14 @@ int32_t XWM::getState($XDecoratedPeer* window) {
 }
 
 void XWM::setLayer($XWindowPeer* window, int32_t layer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$load($XLayerProtocol);
-		$var($Iterator, i$, $nc($(getProtocols($XLayerProtocol::class$)))->iterator());
+		$var($Iterator, i$, $$nc(getProtocols($XLayerProtocol::class$))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XLayerProtocol, proto, $cast($XLayerProtocol, i$->next()));
-			{
-				if ($nc(proto)->supportsLayer(layer)) {
-					proto->setLayer(window, layer);
-				}
+			if ($nc(proto)->supportsLayer(layer)) {
+				proto->setLayer(window, layer);
 			}
 		}
 	}
@@ -1537,52 +1295,48 @@ void XWM::setLayer($XWindowPeer* window, int32_t layer) {
 }
 
 void XWM::setExtendedState($XWindowPeer* window, int32_t state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$load($XStateProtocol);
-		$var($Iterator, i$, $nc($(getProtocols($XStateProtocol::class$)))->iterator());
+		$var($Iterator, i$, $$nc(getProtocols($XStateProtocol::class$))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XStateProtocol, proto, $cast($XStateProtocol, i$->next()));
-			{
-				if ($nc(proto)->supportsState(state)) {
-					proto->setState(window, state);
-					break;
-				}
+			if ($nc(proto)->supportsState(state)) {
+				proto->setState(window, state);
+				break;
 			}
 		}
 	}
 	if (!$nc(window)->isShowing()) {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				int64_t var$1 = $XToolkit::getDisplay();
-				int64_t var$2 = window->getWindow();
-				$XlibWrapper::XDeleteProperty(var$1, var$2, $nc(XWM::XA_KWM_WIN_ICONIFIED)->getAtom());
-				int64_t var$3 = $XToolkit::getDisplay();
-				int64_t var$4 = window->getWindow();
-				$XlibWrapper::XDeleteProperty(var$3, var$4, $nc(XWM::XA_KWM_WIN_MAXIMIZED)->getAtom());
-			} catch ($Throwable& var$5) {
-				$assign(var$0, var$5);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			int64_t var$1 = $XToolkit::getDisplay();
+			int64_t var$2 = window->getWindow();
+			$XlibWrapper::XDeleteProperty(var$1, var$2, XWM::XA_KWM_WIN_ICONIFIED->getAtom());
+			int64_t var$3 = $XToolkit::getDisplay();
+			int64_t var$4 = window->getWindow();
+			$XlibWrapper::XDeleteProperty(var$3, var$4, XWM::XA_KWM_WIN_MAXIMIZED->getAtom());
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$XToolkit::XSync();
 }
 
 void XWM::unshadeKludge($XDecoratedPeer* window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!XWM::$assertionsDisabled && !($nc(window)->isShowing())) {
 		$throwNew($AssertionError);
 	}
 	{
 		$load($XStateProtocol);
-		$var($Iterator, i$, $nc($(getProtocols($XStateProtocol::class$)))->iterator());
+		$var($Iterator, i$, $$nc(getProtocols($XStateProtocol::class$))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XStateProtocol, proto, $cast($XStateProtocol, i$->next()));
 			{
@@ -1604,7 +1358,7 @@ void XWM::init() {
 }
 
 void XWM::initializeProtocols() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XNETProtocol, net_protocol, XWM::g_net_protocol);
 	if (net_protocol != nullptr) {
 		if (!net_protocol->active()) {
@@ -1636,52 +1390,39 @@ void XWM::initializeProtocols() {
 }
 
 $Insets* XWM::guessInsets($XDecoratedPeer* window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, res, $cast($Insets, $nc(this->storedInsets)->get($nc($of(window))->getClass())));
 	if (res == nullptr) {
 		switch (this->WMID) {
 		case XWM::ENLIGHTEN_WM:
-			{
-				$assign(res, $new($Insets, 19, 4, 4, 4));
-				break;
-			}
+			$assign(res, $new($Insets, 19, 4, 4, 4));
+			break;
 		case XWM::CDE_WM:
-			{
-				$assign(res, $new($Insets, 28, 6, 6, 6));
-				break;
-			}
+			$assign(res, $new($Insets, 28, 6, 6, 6));
+			break;
 		case XWM::NO_WM:
-			{}
 		case XWM::LG3D_WM:
-			{
-				$assign(res, XWM::zeroInsets);
-				break;
-			}
+			$assign(res, XWM::zeroInsets);
+			break;
 		case XWM::UNITY_COMPIZ_WM:
-			{
-				$assign(res, $new($Insets, 28, 1, 1, 1));
-				break;
-			}
+			$assign(res, $new($Insets, 28, 1, 1, 1));
+			break;
 		case XWM::MOTIF_WM:
-			{}
 		case XWM::OPENLOOK_WM:
-			{}
 		default:
-			{
-				$assign(res, XWM::defaultInsets);
-			}
+			$assign(res, XWM::defaultInsets);
 		}
 	}
 	$init($PlatformLogger$Level);
 	if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XWM::insLog)->finest($$str({"WM guessed insets: "_s, res}));
+		XWM::insLog->finest($$str({"WM guessed insets: "_s, res}));
 	}
 	return res;
 }
 
 bool XWM::configureGravityBuggy() {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (XWM::awtWMStaticGravity == -1) {
 		XWM::awtWMStaticGravity = ($XToolkit::getEnv("_JAVA_AWT_WM_STATIC_GRAVITY"_s) != nullptr) ? 1 : 0;
 	}
@@ -1690,47 +1431,41 @@ bool XWM::configureGravityBuggy() {
 	}
 	switch (getWMID()) {
 	case XWM::ICE_WM:
-		{
-			if (XWM::g_net_protocol != nullptr) {
-				$var($String, wm_name, $nc(XWM::g_net_protocol)->getWMName());
-				$var($Pattern, pat, $Pattern::compile("^IceWM (\\d+)\\.(\\d+)\\.(\\d+).*$"_s));
-				try {
-					$var($Matcher, match, $nc(pat)->matcher(wm_name));
-					if ($nc(match)->matches()) {
-						int32_t v1 = $Integer::parseInt($(match->group(1)));
-						int32_t v2 = $Integer::parseInt($(match->group(2)));
-						int32_t v3 = $Integer::parseInt($(match->group(3)));
-						return !(v1 > 1 || (v1 == 1 && (v2 > 2 || (v2 == 2 && v3 >= 2))));
-					}
-				} catch ($Exception& e) {
-					return true;
+		if (XWM::g_net_protocol != nullptr) {
+			$var($String, wm_name, XWM::g_net_protocol->getWMName());
+			$var($Pattern, pat, $Pattern::compile("^IceWM (\\d+)\\.(\\d+)\\.(\\d+).*$"_s));
+			try {
+				$var($Matcher, match, $nc(pat)->matcher(wm_name));
+				if ($nc(match)->matches()) {
+					int32_t v1 = $Integer::parseInt($(match->group(1)));
+					int32_t v2 = $Integer::parseInt($(match->group(2)));
+					int32_t v3 = $Integer::parseInt($(match->group(3)));
+					return !(v1 > 1 || (v1 == 1 && (v2 > 2 || (v2 == 2 && v3 >= 2))));
 				}
+			} catch ($Exception& e) {
+				return true;
 			}
-			return true;
 		}
+		return true;
 	case XWM::ENLIGHTEN_WM:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 $Insets* XWM::getInsetsFromExtents(int64_t window) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (window == $XConstants::None) {
 		return nullptr;
 	}
-	$var($XNETProtocol, net_protocol, $nc($(getWM()))->getNETProtocol());
+	$var($XNETProtocol, net_protocol, $$nc(getWM())->getNETProtocol());
 	if (net_protocol != nullptr && net_protocol->active()) {
 		$var($Insets, insets, getInsetsFromProp(window, XWM::XA_NET_FRAME_EXTENTS));
 		$init($PlatformLogger$Level);
 		if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XWM::insLog)->fine("_NET_FRAME_EXTENTS: {0}"_s, $$new($ObjectArray, {$of(insets)}));
+			XWM::insLog->fine("_NET_FRAME_EXTENTS: {0}"_s, $$new($ObjectArray, {insets}));
 		}
 		if (insets != nullptr) {
 			return insets;
@@ -1738,65 +1473,57 @@ $Insets* XWM::getInsetsFromExtents(int64_t window) {
 	}
 	switch (getWMID()) {
 	case XWM::KDE2_WM:
-		{
-			return getInsetsFromProp(window, XWM::XA_KDE_NET_WM_FRAME_STRUT);
-		}
+		return getInsetsFromProp(window, XWM::XA_KDE_NET_WM_FRAME_STRUT);
 	case XWM::ENLIGHTEN_WM:
-		{
-			return getInsetsFromProp(window, XWM::XA_E_FRAME_SIZE);
-		}
+		return getInsetsFromProp(window, XWM::XA_E_FRAME_SIZE);
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
 $Insets* XWM::getInsetsFromProp(int64_t window, $XAtom* atom) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (window == $XConstants::None) {
 		return nullptr;
 	}
-	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, window, atom, (int64_t)0, (int64_t)4, false, $XAtom::XA_CARDINAL));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Insets, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			bool var$5 = getter->execute() != $XConstants::Success;
-			bool var$4 = var$5 || getter->getData() == 0;
-			bool var$3 = var$4 || getter->getActualType() != $XAtom::XA_CARDINAL;
-			if (var$3 || getter->getActualFormat() != 32) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			} else {
-				int32_t var$6 = (int32_t)$Native::getCard32(getter->getData(), 2);
-				int32_t var$7 = (int32_t)$Native::getCard32(getter->getData(), 0);
-				int32_t var$8 = (int32_t)$Native::getCard32(getter->getData(), 3);
-				$assign(var$2, $new($Insets, var$6, var$7, var$8, (int32_t)$Native::getCard32(getter->getData(), 1)));
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$9) {
-			$assign(var$0, var$9);
-		} $finally: {
-			getter->dispose();
+	$var($WindowPropertyGetter, getter, $new($WindowPropertyGetter, window, atom, 0, 4, false, $XAtom::XA_CARDINAL));
+	$var($Throwable, var$0, nullptr);
+	$var($Insets, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		bool var$5 = getter->execute() != $XConstants::Success;
+		bool var$4 = var$5 || getter->getData() == 0;
+		bool var$3 = var$4 || getter->getActualType() != $XAtom::XA_CARDINAL;
+		if (var$3 || getter->getActualFormat() != 32) {
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
+		} else {
+			int32_t var$6 = (int32_t)$Native::getCard32(getter->getData(), 2);
+			int32_t var$7 = (int32_t)$Native::getCard32(getter->getData(), 0);
+			int32_t var$8 = (int32_t)$Native::getCard32(getter->getData(), 3);
+			$assign(var$2, $new($Insets, var$6, var$7, var$8, (int32_t)$Native::getCard32(getter->getData(), 1)));
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$9) {
+		$assign(var$0, var$9);
+	} $finally: {
+		getter->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XWM::requestWMExtents(int64_t window) {
 	$init(XWM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (window == $XConstants::None) {
 		return;
 	}
@@ -1808,57 +1535,202 @@ void XWM::requestWMExtents(int64_t window) {
 	msg->set_window(window);
 	msg->set_format(32);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($XNETProtocol, net_protocol, $nc($(getWM()))->getNETProtocol());
-			if (net_protocol != nullptr && net_protocol->active()) {
-				msg->set_message_type($nc(XWM::XA_NET_REQUEST_FRAME_EXTENTS)->getAtom());
-				int64_t var$1 = $XToolkit::getDisplay();
-				int64_t var$2 = $XToolkit::getDefaultRootWindow();
-				$XlibWrapper::XSendEvent(var$1, var$2, false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, msg->getPData());
-			}
-			if (getWMID() == XWM::KDE2_WM) {
-				msg->set_message_type($nc(XWM::XA_KDE_NET_WM_FRAME_STRUT)->getAtom());
-				int64_t var$3 = $XToolkit::getDisplay();
-				int64_t var$4 = $XToolkit::getDefaultRootWindow();
-				$XlibWrapper::XSendEvent(var$3, var$4, false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, msg->getPData());
-			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-			msg->dispose();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($XNETProtocol, net_protocol, $$nc(getWM())->getNETProtocol());
+		if (net_protocol != nullptr && net_protocol->active()) {
+			msg->set_message_type(XWM::XA_NET_REQUEST_FRAME_EXTENTS->getAtom());
+			int64_t var$1 = $XToolkit::getDisplay();
+			int64_t var$2 = $XToolkit::getDefaultRootWindow();
+			$XlibWrapper::XSendEvent(var$1, var$2, false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, msg->getPData());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (getWMID() == XWM::KDE2_WM) {
+			msg->set_message_type(XWM::XA_KDE_NET_WM_FRAME_STRUT->getAtom());
+			int64_t var$3 = $XToolkit::getDisplay();
+			int64_t var$4 = $XToolkit::getDefaultRootWindow();
+			$XlibWrapper::XSendEvent(var$3, var$4, false, $XConstants::SubstructureRedirectMask | $XConstants::SubstructureNotifyMask, msg->getPData());
 		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+		msg->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 bool XWM::syncTopLevelPos(int64_t window, $XWindowAttributes* attrs) {
 	int32_t tries = 0;
 	$XToolkit::awtLock();
-	{
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		do {
+			$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), window, $nc(attrs)->pData);
+			bool var$3 = attrs->get_x() != 0;
+			if (var$3 || attrs->get_y() != 0) {
+				var$2 = true;
+				return$1 = true;
+				goto $finally;
+			}
+			++tries;
+			$XToolkit::XSync();
+		} while (tries < 50);
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	return false;
+}
+
+$Insets* XWM::getInsets($XDecoratedPeer* win, int64_t window, int64_t parent) {
+	$useLocalObjectStack();
+	$var($Insets, correctWM, XWM::getInsetsFromExtents(window));
+	$init($PlatformLogger$Level);
+	if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
+		XWM::insLog->finer("Got insets from property: {0}"_s, $$new($ObjectArray, {correctWM}));
+	}
+	if (correctWM == nullptr) {
+		$assign(correctWM, $new($Insets, 0, 0, 0, 0));
+		correctWM->top = -1;
+		correctWM->left = -1;
+		$var($XWindowAttributes, lwinAttr, $new($XWindowAttributes));
+		$var($XWindowAttributes, pattr, $new($XWindowAttributes));
 		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
+		$var($Insets, var$2, nullptr);
 		bool return$1 = false;
 		try {
-			do {
-				$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), window, $nc(attrs)->pData);
-				bool var$3 = $nc(attrs)->get_x() != 0;
-				if (var$3 || $nc(attrs)->get_y() != 0) {
-					var$2 = true;
-					return$1 = true;
-					goto $finally;
+			switch (XWM::getWMID()) {
+			case XWM::ENLIGHTEN_WM:
+				{
+					syncTopLevelPos(parent, lwinAttr);
+					correctWM->left = lwinAttr->get_x();
+					correctWM->top = lwinAttr->get_y();
+					int64_t var$3 = $XToolkit::getDisplay();
+					$XlibWrapper::XGetWindowAttributes(var$3, $XlibUtil::getParentWindow(parent), pattr->pData);
+					int32_t var$4 = pattr->get_width();
+					correctWM->right = var$4 - (lwinAttr->get_width() + correctWM->left);
+					int32_t var$5 = pattr->get_height();
+					correctWM->bottom = var$5 - (lwinAttr->get_height() + correctWM->top);
+					break;
 				}
-				++tries;
-				$XToolkit::XSync();
-			} while (tries < 50);
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
+			case XWM::ICE_WM:
+			case XWM::KDE2_WM:
+			case XWM::CDE_WM:
+			case XWM::MOTIF_WM:
+				{
+					if (syncTopLevelPos(parent, lwinAttr)) {
+						correctWM->top = lwinAttr->get_y();
+						correctWM->left = lwinAttr->get_x();
+						correctWM->right = correctWM->left;
+						correctWM->bottom = correctWM->left;
+					} else {
+						$assign(var$2, nullptr);
+						return$1 = true;
+						goto $finally;
+					}
+					break;
+				}
+			case XWM::SAWFISH_WM:
+			case XWM::OPENLOOK_WM:
+				{
+					syncTopLevelPos(window, lwinAttr);
+					correctWM->top = lwinAttr->get_y();
+					correctWM->left = lwinAttr->get_x();
+					correctWM->right = correctWM->left;
+					correctWM->bottom = correctWM->left;
+					break;
+				}
+			case XWM::OTHER_WM:
+			default:
+				{
+					if (XWM::insLog->isLoggable($PlatformLogger$Level::FINEST)) {
+						XWM::insLog->finest("Getting correct insets for OTHER_WM/default, parent: {0}"_s, $$new($ObjectArray, {$($Long::valueOf(parent))}));
+					}
+					syncTopLevelPos(parent, lwinAttr);
+					int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), window, lwinAttr->pData);
+					status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), parent, pattr->pData);
+					if (lwinAttr->get_root() == parent) {
+						XWM::insLog->finest("our parent is root so insets should be zero"_s);
+						$assign(correctWM, $new($Insets, 0, 0, 0, 0));
+						break;
+					}
+					bool var$8 = lwinAttr->get_x() == 0;
+					bool var$7 = var$8 && lwinAttr->get_y() == 0;
+					if (var$7) {
+						int32_t var$10 = lwinAttr->get_width();
+						int32_t var$9 = var$10 + 2 * lwinAttr->get_border_width();
+						var$7 = var$9 == pattr->get_width();
+					}
+					bool var$6 = var$7;
+					if (var$6) {
+						int32_t var$12 = lwinAttr->get_height();
+						int32_t var$11 = var$12 + 2 * lwinAttr->get_border_width();
+						var$6 = var$11 == pattr->get_height();
+					}
+					if (var$6) {
+						if (XWM::insLog->isLoggable($PlatformLogger$Level::FINEST)) {
+							XWM::insLog->finest("Double reparenting detected, pattr({2})={0}, lwinAttr({3})={1}"_s, $$new($ObjectArray, {
+								lwinAttr,
+								pattr,
+								$($Long::valueOf(parent)),
+								$($Long::valueOf(window))
+							}));
+						}
+						lwinAttr->set_x(pattr->get_x());
+						lwinAttr->set_y(pattr->get_y());
+						int32_t var$13 = lwinAttr->get_border_width();
+						lwinAttr->set_border_width(var$13 + pattr->get_border_width());
+						int64_t grand_parent = $XlibUtil::getParentWindow(parent);
+						if (grand_parent == lwinAttr->get_root()) {
+							$assign(var$2, nullptr);
+							return$1 = true;
+							goto $finally;
+						} else {
+							parent = grand_parent;
+							$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), parent, pattr->pData);
+						}
+					}
+					if (XWM::insLog->isLoggable($PlatformLogger$Level::FINEST)) {
+						XWM::insLog->finest("Attrs before calculation: pattr({2})={0}, lwinAttr({3})={1}"_s, $$new($ObjectArray, {
+							lwinAttr,
+							pattr,
+							$($Long::valueOf(parent)),
+							$($Long::valueOf(window))
+						}));
+					}
+					int32_t var$15 = lwinAttr->get_y();
+					int32_t var$14 = var$15 + lwinAttr->get_border_width();
+					int32_t var$17 = lwinAttr->get_x();
+					int32_t var$16 = var$17 + lwinAttr->get_border_width();
+					int32_t var$19 = pattr->get_height();
+					int32_t var$22 = lwinAttr->get_y();
+					int32_t var$21 = var$22 + lwinAttr->get_height();
+					int32_t var$20 = (var$21 + 2 * lwinAttr->get_border_width());
+					int32_t var$18 = var$19 - var$20;
+					int32_t var$23 = pattr->get_width();
+					int32_t var$26 = lwinAttr->get_x();
+					int32_t var$25 = var$26 + lwinAttr->get_width();
+					int32_t var$24 = (var$25 + 2 * lwinAttr->get_border_width());
+					$assign(correctWM, $new($Insets, var$14, var$16, var$18, var$23 - var$24));
+					break;
+				}
+			}
+		} catch ($Throwable& var$27) {
+			$assign(var$0, var$27);
 		} $finally: {
-			$XToolkit::awtUnlock();
+			lwinAttr->dispose();
+			pattr->dispose();
 		}
 		if (var$0 != nullptr) {
 			$throw(var$0);
@@ -1867,184 +1739,20 @@ bool XWM::syncTopLevelPos(int64_t window, $XWindowAttributes* attrs) {
 			return var$2;
 		}
 	}
-	return false;
-}
-
-$Insets* XWM::getInsets($XDecoratedPeer* win, int64_t window, int64_t parent) {
-	$useLocalCurrentObjectStackCache();
-	$var($Insets, correctWM, XWM::getInsetsFromExtents(window));
-	$init($PlatformLogger$Level);
-	if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XWM::insLog)->finer("Got insets from property: {0}"_s, $$new($ObjectArray, {$of(correctWM)}));
-	}
-	if (correctWM == nullptr) {
-		$assign(correctWM, $new($Insets, 0, 0, 0, 0));
-		correctWM->top = -1;
-		correctWM->left = -1;
-		$var($XWindowAttributes, lwinAttr, $new($XWindowAttributes));
-		$var($XWindowAttributes, pattr, $new($XWindowAttributes));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Insets, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				switch (XWM::getWMID()) {
-				case XWM::ENLIGHTEN_WM:
-					{
-						{
-							syncTopLevelPos(parent, lwinAttr);
-							correctWM->left = lwinAttr->get_x();
-							correctWM->top = lwinAttr->get_y();
-							int64_t var$3 = $XToolkit::getDisplay();
-							$XlibWrapper::XGetWindowAttributes(var$3, $XlibUtil::getParentWindow(parent), pattr->pData);
-							int32_t var$4 = pattr->get_width();
-							correctWM->right = var$4 - (lwinAttr->get_width() + correctWM->left);
-							int32_t var$5 = pattr->get_height();
-							correctWM->bottom = var$5 - (lwinAttr->get_height() + correctWM->top);
-							break;
-						}
-					}
-				case XWM::ICE_WM:
-					{}
-				case XWM::KDE2_WM:
-					{}
-				case XWM::CDE_WM:
-					{}
-				case XWM::MOTIF_WM:
-					{
-						{
-							if (syncTopLevelPos(parent, lwinAttr)) {
-								correctWM->top = lwinAttr->get_y();
-								correctWM->left = lwinAttr->get_x();
-								correctWM->right = correctWM->left;
-								correctWM->bottom = correctWM->left;
-							} else {
-								$assign(var$2, nullptr);
-								return$1 = true;
-								goto $finally;
-							}
-							break;
-						}
-					}
-				case XWM::SAWFISH_WM:
-					{}
-				case XWM::OPENLOOK_WM:
-					{
-						{
-							syncTopLevelPos(window, lwinAttr);
-							correctWM->top = lwinAttr->get_y();
-							correctWM->left = lwinAttr->get_x();
-							correctWM->right = correctWM->left;
-							correctWM->bottom = correctWM->left;
-							break;
-						}
-					}
-				case XWM::OTHER_WM:
-					{}
-				default:
-					{
-						{
-							if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-								$nc(XWM::insLog)->finest("Getting correct insets for OTHER_WM/default, parent: {0}"_s, $$new($ObjectArray, {$($of($Long::valueOf(parent)))}));
-							}
-							syncTopLevelPos(parent, lwinAttr);
-							int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), window, lwinAttr->pData);
-							status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), parent, pattr->pData);
-							if (lwinAttr->get_root() == parent) {
-								$nc(XWM::insLog)->finest("our parent is root so insets should be zero"_s);
-								$assign(correctWM, $new($Insets, 0, 0, 0, 0));
-								break;
-							}
-							bool var$8 = lwinAttr->get_x() == 0;
-							bool var$7 = var$8 && lwinAttr->get_y() == 0;
-							if (var$7) {
-								int32_t var$10 = lwinAttr->get_width();
-								int32_t var$9 = var$10 + 2 * lwinAttr->get_border_width();
-								var$7 = var$9 == pattr->get_width();
-							}
-							bool var$6 = var$7;
-							if (var$6) {
-								int32_t var$12 = lwinAttr->get_height();
-								int32_t var$11 = var$12 + 2 * lwinAttr->get_border_width();
-								var$6 = var$11 == pattr->get_height();
-							}
-							if (var$6) {
-								if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-									$nc(XWM::insLog)->finest("Double reparenting detected, pattr({2})={0}, lwinAttr({3})={1}"_s, $$new($ObjectArray, {
-										$of(lwinAttr),
-										$of(pattr),
-										$($of($Long::valueOf(parent))),
-										$($of($Long::valueOf(window)))
-									}));
-								}
-								lwinAttr->set_x(pattr->get_x());
-								lwinAttr->set_y(pattr->get_y());
-								int32_t var$13 = lwinAttr->get_border_width();
-								lwinAttr->set_border_width(var$13 + pattr->get_border_width());
-								int64_t grand_parent = $XlibUtil::getParentWindow(parent);
-								if (grand_parent == lwinAttr->get_root()) {
-									$assign(var$2, nullptr);
-									return$1 = true;
-									goto $finally;
-								} else {
-									parent = grand_parent;
-									$XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), parent, pattr->pData);
-								}
-							}
-							if ($nc(XWM::insLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-								$nc(XWM::insLog)->finest("Attrs before calculation: pattr({2})={0}, lwinAttr({3})={1}"_s, $$new($ObjectArray, {
-									$of(lwinAttr),
-									$of(pattr),
-									$($of($Long::valueOf(parent))),
-									$($of($Long::valueOf(window)))
-								}));
-							}
-							int32_t var$15 = lwinAttr->get_y();
-							int32_t var$14 = var$15 + lwinAttr->get_border_width();
-							int32_t var$17 = lwinAttr->get_x();
-							int32_t var$16 = var$17 + lwinAttr->get_border_width();
-							int32_t var$19 = pattr->get_height();
-							int32_t var$22 = lwinAttr->get_y();
-							int32_t var$21 = var$22 + lwinAttr->get_height();
-							int32_t var$20 = (var$21 + 2 * lwinAttr->get_border_width());
-							int32_t var$18 = var$19 - var$20;
-							int32_t var$23 = pattr->get_width();
-							int32_t var$26 = lwinAttr->get_x();
-							int32_t var$25 = var$26 + lwinAttr->get_width();
-							int32_t var$24 = (var$25 + 2 * lwinAttr->get_border_width());
-							$assign(correctWM, $new($Insets, var$14, var$16, var$18, var$23 - var$24));
-							break;
-						}
-					}
-				}
-			} catch ($Throwable& var$27) {
-				$assign(var$0, var$27);
-			} $finally: {
-				lwinAttr->dispose();
-				pattr->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
-		}
-	}
-	$nc(correctWM)->top = $nc(win)->scaleUp(correctWM->top);
+	$nc(correctWM)->top = $nc(win)->scaleUp($nc(correctWM)->top);
 	correctWM->bottom = win->scaleUp(correctWM->bottom);
 	correctWM->left = win->scaleUp(correctWM->left);
 	correctWM->right = win->scaleUp(correctWM->right);
 	if ($nc(this->storedInsets)->get($of(win)->getClass()) == nullptr) {
-		$nc(this->storedInsets)->put($of(win)->getClass(), correctWM);
+		this->storedInsets->put($of(win)->getClass(), correctWM);
 	}
 	return correctWM;
 }
 
 bool XWM::isDesktopWindow(int64_t w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (XWM::g_net_protocol != nullptr) {
-		$var($XAtomList, wtype, $nc($($XAtom::get("_NET_WM_WINDOW_TYPE"_s)))->getAtomListPropertyList(w));
+		$var($XAtomList, wtype, $$nc($XAtom::get("_NET_WM_WINDOW_TYPE"_s))->getAtomListPropertyList(w));
 		return $nc(wtype)->contains($($XAtom::get("_NET_WM_WINDOW_TYPE_DESKTOP"_s)));
 	} else {
 		return false;
@@ -2056,14 +1764,14 @@ $XNETProtocol* XWM::getNETProtocol() {
 }
 
 bool XWM::setNetWMIcon($XWindowPeer* window, $List* icons) {
-	if (XWM::g_net_protocol != nullptr && $nc(XWM::g_net_protocol)->active()) {
-		$nc(XWM::g_net_protocol)->setWMIcons(window, icons);
+	if (XWM::g_net_protocol != nullptr && XWM::g_net_protocol->active()) {
+		XWM::g_net_protocol->setWMIcons(window, icons);
 		return getWMID() != XWM::ICE_WM;
 	}
 	return false;
 }
 
-void clinit$XWM($Class* class$) {
+void XWM::clinit$($Class* clazz) {
 	XWM::$assertionsDisabled = !XWM::class$->desiredAssertionStatus();
 	$assignStatic(XWM::log, $PlatformLogger::getLogger("sun.awt.X11.XWM"_s));
 	$assignStatic(XWM::insLog, $PlatformLogger::getLogger("sun.awt.X11.insets.XWM"_s));
@@ -2139,7 +1847,147 @@ XWM::XWM() {
 }
 
 $Class* XWM::load$($String* name, bool initialize) {
-	$loadClass(XWM, name, initialize, &_XWM_ClassInfo_, clinit$XWM, allocate$XWM);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XWM, $assertionsDisabled)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWM, log)},
+		{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWM, insLog)},
+		{"stateLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XWM, stateLog)},
+		{"XA_MWM_HINTS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_MWM_HINTS)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(XWM, unsafe)},
+		{"XA_WM_STATE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC, $staticField(XWM, XA_WM_STATE)},
+		{"XA_UTF8_STRING", "Lsun/awt/X11/XAtom;", nullptr, 0, $field(XWM, XA_UTF8_STRING)},
+		{"AWT_NET_N_KNOWN_STATES", "I", nullptr, $STATIC | $FINAL, $constField(XWM, AWT_NET_N_KNOWN_STATES)},
+		{"XA_E_FRAME_SIZE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_E_FRAME_SIZE)},
+		{"XA_KDE_NET_WM_FRAME_STRUT", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_KDE_NET_WM_FRAME_STRUT)},
+		{"XA_KWM_WIN_ICONIFIED", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_KWM_WIN_ICONIFIED)},
+		{"XA_KWM_WIN_MAXIMIZED", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_KWM_WIN_MAXIMIZED)},
+		{"XA_OL_DECOR_DEL", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_DEL)},
+		{"XA_OL_DECOR_HEADER", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_HEADER)},
+		{"XA_OL_DECOR_RESIZE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_RESIZE)},
+		{"XA_OL_DECOR_PIN", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_PIN)},
+		{"XA_OL_DECOR_CLOSE", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_OL_DECOR_CLOSE)},
+		{"XA_NET_FRAME_EXTENTS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_NET_FRAME_EXTENTS)},
+		{"XA_NET_REQUEST_FRAME_EXTENTS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_NET_REQUEST_FRAME_EXTENTS)},
+		{"UNDETERMINED_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, UNDETERMINED_WM)},
+		{"NO_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, NO_WM)},
+		{"OTHER_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, OTHER_WM)},
+		{"OPENLOOK_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, OPENLOOK_WM)},
+		{"MOTIF_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, MOTIF_WM)},
+		{"CDE_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, CDE_WM)},
+		{"ENLIGHTEN_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, ENLIGHTEN_WM)},
+		{"KDE2_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, KDE2_WM)},
+		{"SAWFISH_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, SAWFISH_WM)},
+		{"ICE_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, ICE_WM)},
+		{"METACITY_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, METACITY_WM)},
+		{"COMPIZ_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, COMPIZ_WM)},
+		{"LG3D_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, LG3D_WM)},
+		{"CWM_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, CWM_WM)},
+		{"MUTTER_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, MUTTER_WM)},
+		{"UNITY_COMPIZ_WM", "I", nullptr, $STATIC | $FINAL, $constField(XWM, UNITY_COMPIZ_WM)},
+		{"WMID", "I", nullptr, 0, $field(XWM, WMID)},
+		{"zeroInsets", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(XWM, zeroInsets)},
+		{"defaultInsets", "Ljava/awt/Insets;", nullptr, $STATIC | $FINAL, $staticField(XWM, defaultInsets)},
+		{"g_net_protocol", "Lsun/awt/X11/XNETProtocol;", nullptr, $STATIC, $staticField(XWM, g_net_protocol)},
+		{"g_win_protocol", "Lsun/awt/X11/XWINProtocol;", nullptr, $STATIC, $staticField(XWM, g_win_protocol)},
+		{"XA_ENLIGHTENMENT_COMMS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC, $staticField(XWM, XA_ENLIGHTENMENT_COMMS)},
+		{"XA_DT_SM_WINDOW_INFO", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_DT_SM_WINDOW_INFO)},
+		{"XA_DT_SM_STATE_INFO", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_DT_SM_STATE_INFO)},
+		{"XA_MOTIF_WM_INFO", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_MOTIF_WM_INFO)},
+		{"XA_DT_WORKSPACE_CURRENT", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_DT_WORKSPACE_CURRENT)},
+		{"awtWMNonReparenting", "I", nullptr, $STATIC, $staticField(XWM, awtWMNonReparenting)},
+		{"XA_ICEWM_WINOPTHINT", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_ICEWM_WINOPTHINT)},
+		{"opt", "[C", nullptr, $STATIC | $FINAL, $staticField(XWM, opt)},
+		{"XA_SUN_WM_PROTOCOLS", "Lsun/awt/X11/XAtom;", nullptr, $STATIC | $FINAL, $staticField(XWM, XA_SUN_WM_PROTOCOLS)},
+		{"winmgr_running", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XWM, winmgr_running)},
+		{"detectWMHandler", "Lsun/awt/X11/XErrorHandler;", nullptr, $PRIVATE | $STATIC, $staticField(XWM, detectWMHandler)},
+		{"awt_wmgr", "I", nullptr, $STATIC, $staticField(XWM, awt_wmgr)},
+		{"wm", "Lsun/awt/X11/XWM;", nullptr, $STATIC, $staticField(XWM, wm)},
+		{"protocolsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Class<*>;Ljava/util/Collection<*>;>;", $PRIVATE, $field(XWM, protocolsMap)},
+		{"inited", "Z", nullptr, $STATIC, $staticField(XWM, inited)},
+		{"storedInsets", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Class<*>;Ljava/awt/Insets;>;", 0, $field(XWM, storedInsets)},
+		{"awtWMStaticGravity", "I", nullptr, $STATIC, $staticField(XWM, awtWMStaticGravity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(XWM, init$, void, int32_t)},
+		{"addProtocol", "(Ljava/lang/Class;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;)V", $PRIVATE, $method(XWM, addProtocol, void, $Class*, Object$*)},
+		{"configureGravityBuggy", "()Z", nullptr, $STATIC, $staticMethod(XWM, configureGravityBuggy, bool)},
+		{"getECommsWindowIDProperty", "(J)J", nullptr, $STATIC, $staticMethod(XWM, getECommsWindowIDProperty, int64_t, int64_t)},
+		{"getExtendedState", "(Lsun/awt/X11/XWindowPeer;)I", nullptr, 0, $method(XWM, getExtendedState, int32_t, $XWindowPeer*)},
+		{"getID", "()I", nullptr, 0, $method(XWM, getID, int32_t)},
+		{"getInsets", "(Lsun/awt/X11/XDecoratedPeer;JJ)Ljava/awt/Insets;", nullptr, 0, $method(XWM, getInsets, $Insets*, $XDecoratedPeer*, int64_t, int64_t)},
+		{"getInsetsFromExtents", "(J)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(XWM, getInsetsFromExtents, $Insets*, int64_t)},
+		{"getInsetsFromProp", "(JLsun/awt/X11/XAtom;)Ljava/awt/Insets;", nullptr, $PUBLIC | $STATIC, $staticMethod(XWM, getInsetsFromProp, $Insets*, int64_t, $XAtom*)},
+		{"getNETProtocol", "()Lsun/awt/X11/XNETProtocol;", nullptr, $PUBLIC, $method(XWM, getNETProtocol, $XNETProtocol*)},
+		{"getProtocols", "(Ljava/lang/Class;)Ljava/util/Collection;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/util/Collection<TT;>;", 0, $method(XWM, getProtocols, $Collection*, $Class*)},
+		{"getState", "(Lsun/awt/X11/XDecoratedPeer;)I", nullptr, 0, $method(XWM, getState, int32_t, $XDecoratedPeer*)},
+		{"getWM", "()Lsun/awt/X11/XWM;", nullptr, $STATIC, $staticMethod(XWM, getWM, XWM*)},
+		{"getWMID", "()I", nullptr, $STATIC, $staticMethod(XWM, getWMID, int32_t)},
+		{"guessInsets", "(Lsun/awt/X11/XDecoratedPeer;)Ljava/awt/Insets;", nullptr, 0, $method(XWM, guessInsets, $Insets*, $XDecoratedPeer*)},
+		{"init", "()V", nullptr, $STATIC, $staticMethod(XWM, init, void)},
+		{"initAtoms", "()V", nullptr, $STATIC, $staticMethod(XWM, initAtoms, void)},
+		{"initializeProtocols", "()V", nullptr, 0, $method(XWM, initializeProtocols, void)},
+		{"isCDE", "()Z", nullptr, $STATIC, $staticMethod(XWM, isCDE, bool)},
+		{"isCWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, isCWM, bool)},
+		{"isCompiz", "()Z", nullptr, $STATIC, $staticMethod(XWM, isCompiz, bool)},
+		{"isDesktopWindow", "(J)Z", nullptr, 0, $method(XWM, isDesktopWindow, bool, int64_t)},
+		{"isEnlightenment", "()Z", nullptr, $STATIC, $staticMethod(XWM, isEnlightenment, bool)},
+		{"isIceWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, isIceWM, bool)},
+		{"isKDE2", "()Z", nullptr, $STATIC, $staticMethod(XWM, isKDE2, bool)},
+		{"isLookingGlass", "()Z", nullptr, $STATIC, $staticMethod(XWM, isLookingGlass, bool)},
+		{"isMetacity", "()Z", nullptr, $STATIC, $staticMethod(XWM, isMetacity, bool)},
+		{"isMotif", "()Z", nullptr, $STATIC, $staticMethod(XWM, isMotif, bool)},
+		{"isMutter", "()Z", nullptr, $STATIC, $staticMethod(XWM, isMutter, bool)},
+		{"isNetWMName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(XWM, isNetWMName, bool, $String*)},
+		{"isNoWM", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XWM, isNoWM, bool)},
+		{"isNonReparentingWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, isNonReparentingWM, bool)},
+		{"isOpenLook", "()Z", nullptr, $STATIC, $staticMethod(XWM, isOpenLook, bool)},
+		{"isSawfish", "()Z", nullptr, $STATIC, $staticMethod(XWM, isSawfish, bool)},
+		{"isStateChange", "(Lsun/awt/X11/XDecoratedPeer;Lsun/awt/X11/XPropertyEvent;)Z", nullptr, 0, $method(XWM, isStateChange, bool, $XDecoratedPeer*, $XPropertyEvent*)},
+		{"isUnityCompiz", "()Z", nullptr, $STATIC, $staticMethod(XWM, isUnityCompiz, bool)},
+		{"needRemap", "(Lsun/awt/X11/XDecoratedPeer;)Z", nullptr, $STATIC, $staticMethod(XWM, needRemap, bool, $XDecoratedPeer*)},
+		{"normalize", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $STATIC, $staticMethod(XWM, normalize, $Insets*, $Insets*)},
+		{"normalizeMotifDecor", "(I)I", nullptr, $STATIC, $staticMethod(XWM, normalizeMotifDecor, int32_t, int32_t)},
+		{"normalizeMotifFunc", "(I)I", nullptr, $STATIC, $staticMethod(XWM, normalizeMotifFunc, int32_t, int32_t)},
+		{"prepareIsIceWM", "()Z", nullptr, $STATIC, $staticMethod(XWM, prepareIsIceWM, bool)},
+		{"removeSizeHints", "(Lsun/awt/X11/XDecoratedPeer;J)V", nullptr, $STATIC, $staticMethod(XWM, removeSizeHints, void, $XDecoratedPeer*, int64_t)},
+		{"requestWMExtents", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XWM, requestWMExtents, void, int64_t)},
+		{"setExtendedState", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, 0, $method(XWM, setExtendedState, void, $XWindowPeer*, int32_t)},
+		{"setLayer", "(Lsun/awt/X11/XWindowPeer;I)V", nullptr, 0, $method(XWM, setLayer, void, $XWindowPeer*, int32_t)},
+		{"setMotifDecor", "(Lsun/awt/X11/XWindow;ZII)V", nullptr, $STATIC, $staticMethod(XWM, setMotifDecor, void, $XWindow*, bool, int32_t, int32_t)},
+		{"setNetWMIcon", "(Lsun/awt/X11/XWindowPeer;Ljava/util/List;)Z", "(Lsun/awt/X11/XWindowPeer;Ljava/util/List<Lsun/awt/IconInfo;>;)Z", $PUBLIC, $method(XWM, setNetWMIcon, bool, $XWindowPeer*, $List*)},
+		{"setOLDecor", "(Lsun/awt/X11/XWindow;ZI)V", nullptr, $STATIC, $staticMethod(XWM, setOLDecor, void, $XWindow*, bool, int32_t)},
+		{"setShellDecor", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, $STATIC, $staticMethod(XWM, setShellDecor, void, $XDecoratedPeer*)},
+		{"setShellNotResizable", "(Lsun/awt/X11/XDecoratedPeer;Lsun/awt/X11/WindowDimensions;Ljava/awt/Rectangle;Z)V", nullptr, $STATIC, $staticMethod(XWM, setShellNotResizable, void, $XDecoratedPeer*, $WindowDimensions*, $Rectangle*, bool)},
+		{"setShellResizable", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, $STATIC, $staticMethod(XWM, setShellResizable, void, $XDecoratedPeer*)},
+		{"supportsDynamicLayout", "()Z", nullptr, 0, $method(XWM, supportsDynamicLayout, bool)},
+		{"supportsExtendedState", "(I)Z", nullptr, 0, $method(XWM, supportsExtendedState, bool, int32_t)},
+		{"syncTopLevelPos", "(JLsun/awt/X11/XWindowAttributes;)Z", nullptr, 0, $method(XWM, syncTopLevelPos, bool, int64_t, $XWindowAttributes*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XWM, toString, $String*)},
+		{"unshadeKludge", "(Lsun/awt/X11/XDecoratedPeer;)V", nullptr, 0, $method(XWM, unshadeKludge, void, $XDecoratedPeer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XWM$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XWM",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XWM$1"
+	};
+	$loadClass(XWM, name, initialize, &classInfo$$, XWM::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XWM);
+	});
 	return class$;
 }
 

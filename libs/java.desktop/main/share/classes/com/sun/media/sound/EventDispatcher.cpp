@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/EventDispatcher.h>
-
 #include <com/sun/media/sound/AutoClosingClip.h>
 #include <com/sun/media/sound/EventDispatcher$ClipInfo.h>
 #include <com/sun/media/sound/EventDispatcher$EventInfo.h>
@@ -7,7 +6,6 @@
 #include <com/sun/media/sound/JSSecurityManager.h>
 #include <com/sun/media/sound/Printer.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/sound/midi/ControllerEventListener.h>
@@ -34,7 +32,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $ControllerEventListener = ::javax::sound::midi::ControllerEventListener;
@@ -48,60 +45,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _EventDispatcher_FieldInfo_[] = {
-	{"AUTO_CLOSE_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventDispatcher, AUTO_CLOSE_TIME)},
-	{"eventQueue", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/EventDispatcher$EventInfo;>;", $PRIVATE | $FINAL, $field(EventDispatcher, eventQueue)},
-	{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(EventDispatcher, thread)},
-	{"autoClosingClips", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/EventDispatcher$ClipInfo;>;", $PRIVATE | $FINAL, $field(EventDispatcher, autoClosingClips)},
-	{"lineMonitors", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/EventDispatcher$LineMonitor;>;", $PRIVATE | $FINAL, $field(EventDispatcher, lineMonitors)},
-	{"LINE_MONITOR_TIME", "I", nullptr, $STATIC | $FINAL, $constField(EventDispatcher, LINE_MONITOR_TIME)},
-	{}
-};
-
-$MethodInfo _EventDispatcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EventDispatcher, init$, void)},
-	{"addLineMonitor", "(Lcom/sun/media/sound/EventDispatcher$LineMonitor;)V", nullptr, 0, $method(EventDispatcher, addLineMonitor, void, $EventDispatcher$LineMonitor*)},
-	{"autoClosingClipClosed", "(Lcom/sun/media/sound/AutoClosingClip;)V", nullptr, 0, $method(EventDispatcher, autoClosingClipClosed, void, $AutoClosingClip*)},
-	{"autoClosingClipOpened", "(Lcom/sun/media/sound/AutoClosingClip;)V", nullptr, 0, $method(EventDispatcher, autoClosingClipOpened, void, $AutoClosingClip*)},
-	{"closeAutoClosingClips", "()V", nullptr, $PRIVATE, $method(EventDispatcher, closeAutoClosingClips, void)},
-	{"dispatchEvents", "()V", nullptr, 0, $method(EventDispatcher, dispatchEvents, void)},
-	{"getAutoClosingClipIndex", "(Lcom/sun/media/sound/AutoClosingClip;)I", nullptr, $PRIVATE, $method(EventDispatcher, getAutoClosingClipIndex, int32_t, $AutoClosingClip*)},
-	{"monitorLines", "()V", nullptr, $PRIVATE, $method(EventDispatcher, monitorLines, void)},
-	{"postEvent", "(Lcom/sun/media/sound/EventDispatcher$EventInfo;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventDispatcher, postEvent, void, $EventDispatcher$EventInfo*)},
-	{"processEvent", "(Lcom/sun/media/sound/EventDispatcher$EventInfo;)V", nullptr, 0, $method(EventDispatcher, processEvent, void, $EventDispatcher$EventInfo*)},
-	{"removeLineMonitor", "(Lcom/sun/media/sound/EventDispatcher$LineMonitor;)V", nullptr, 0, $method(EventDispatcher, removeLineMonitor, void, $EventDispatcher$LineMonitor*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EventDispatcher, run, void)},
-	{"sendAudioEvents", "(Ljava/lang/Object;Ljava/util/List;)V", "(Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V", 0, $method(EventDispatcher, sendAudioEvents, void, Object$*, $List*)},
-	{"start", "()V", nullptr, $SYNCHRONIZED, $method(EventDispatcher, start, void)},
-	{}
-};
-
-$InnerClassInfo _EventDispatcher_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.EventDispatcher$LineMonitor", "com.sun.media.sound.EventDispatcher", "LineMonitor", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.media.sound.EventDispatcher$ClipInfo", "com.sun.media.sound.EventDispatcher", "ClipInfo", $PRIVATE},
-	{"com.sun.media.sound.EventDispatcher$EventInfo", "com.sun.media.sound.EventDispatcher", "EventInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _EventDispatcher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.EventDispatcher",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_EventDispatcher_FieldInfo_,
-	_EventDispatcher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EventDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.EventDispatcher$LineMonitor,com.sun.media.sound.EventDispatcher$ClipInfo,com.sun.media.sound.EventDispatcher$EventInfo"
-};
-
-$Object* allocate$EventDispatcher($Class* clazz) {
-	return $of($alloc(EventDispatcher));
-}
 
 void EventDispatcher::init$() {
 	$set(this, eventQueue, $new($ArrayList));
@@ -119,13 +62,13 @@ void EventDispatcher::start() {
 }
 
 void EventDispatcher::processEvent($EventDispatcher$EventInfo* eventInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(eventInfo)->getListenerCount();
 	if ($instanceOf($LineEvent, $(eventInfo->getEvent()))) {
 		$var($LineEvent, event, $cast($LineEvent, eventInfo->getEvent()));
 		for (int32_t i = 0; i < count; ++i) {
 			try {
-				$nc(($cast($LineListener, $(eventInfo->getListener(i)))))->update(event);
+				$$sure($LineListener, eventInfo->getListener(i))->update(event);
 			} catch ($Throwable& t) {
 				$init($Printer);
 				if ($Printer::err$) {
@@ -139,7 +82,7 @@ void EventDispatcher::processEvent($EventDispatcher$EventInfo* eventInfo) {
 		$var($MetaMessage, event, $cast($MetaMessage, eventInfo->getEvent()));
 		for (int32_t i = 0; i < count; ++i) {
 			try {
-				$nc(($cast($MetaEventListener, $(eventInfo->getListener(i)))))->meta(event);
+				$$sure($MetaEventListener, eventInfo->getListener(i))->meta(event);
 			} catch ($Throwable& t) {
 				$init($Printer);
 				if ($Printer::err$) {
@@ -152,10 +95,10 @@ void EventDispatcher::processEvent($EventDispatcher$EventInfo* eventInfo) {
 	if ($instanceOf($ShortMessage, $(eventInfo->getEvent()))) {
 		$var($ShortMessage, event, $cast($ShortMessage, eventInfo->getEvent()));
 		int32_t status = $nc(event)->getStatus();
-		if (((int32_t)(status & (uint32_t)240)) == 176) {
+		if ((status & 0xf0) == 0xb0) {
 			for (int32_t i = 0; i < count; ++i) {
 				try {
-					$nc(($cast($ControllerEventListener, $(eventInfo->getListener(i)))))->controlChange(event);
+					$$sure($ControllerEventListener, eventInfo->getListener(i))->controlChange(event);
 				} catch ($Throwable& t) {
 					$init($Printer);
 					if ($Printer::err$) {
@@ -173,11 +116,11 @@ void EventDispatcher::dispatchEvents() {
 	$var($EventDispatcher$EventInfo, eventInfo, nullptr);
 	$synchronized(this) {
 		try {
-			if ($nc(this->eventQueue)->size() == 0) {
-				bool var$0 = $nc(this->autoClosingClips)->size() > 0;
-				if (var$0 || $nc(this->lineMonitors)->size() > 0) {
+			if (this->eventQueue->size() == 0) {
+				bool var$0 = this->autoClosingClips->size() > 0;
+				if (var$0 || this->lineMonitors->size() > 0) {
 					int32_t waitTime = EventDispatcher::AUTO_CLOSE_TIME;
-					if ($nc(this->lineMonitors)->size() > 0) {
+					if (this->lineMonitors->size() > 0) {
 						waitTime = EventDispatcher::LINE_MONITOR_TIME;
 					}
 					$of(this)->wait(waitTime);
@@ -187,17 +130,17 @@ void EventDispatcher::dispatchEvents() {
 			}
 		} catch ($InterruptedException& e) {
 		}
-		if ($nc(this->eventQueue)->size() > 0) {
-			$assign(eventInfo, $cast($EventDispatcher$EventInfo, $nc(this->eventQueue)->remove(0)));
+		if (this->eventQueue->size() > 0) {
+			$assign(eventInfo, $cast($EventDispatcher$EventInfo, this->eventQueue->remove(0)));
 		}
 	}
 	if (eventInfo != nullptr) {
 		processEvent(eventInfo);
 	} else {
-		if ($nc(this->autoClosingClips)->size() > 0) {
+		if (this->autoClosingClips->size() > 0) {
 			closeAutoClosingClips();
 		}
-		if ($nc(this->lineMonitors)->size() > 0) {
+		if (this->lineMonitors->size() > 0) {
 			monitorLines();
 		}
 	}
@@ -205,7 +148,7 @@ void EventDispatcher::dispatchEvents() {
 
 void EventDispatcher::postEvent($EventDispatcher$EventInfo* eventInfo) {
 	$synchronized(this) {
-		$nc(this->eventQueue)->add(eventInfo);
+		this->eventQueue->add(eventInfo);
 		$of(this)->notifyAll();
 	}
 }
@@ -224,7 +167,7 @@ void EventDispatcher::run() {
 }
 
 void EventDispatcher::sendAudioEvents(Object$* event, $List* listeners) {
-	if ((listeners == nullptr) || ($nc(listeners)->size() == 0)) {
+	if ((listeners == nullptr) || (listeners->size() == 0)) {
 		return;
 	}
 	start();
@@ -233,20 +176,20 @@ void EventDispatcher::sendAudioEvents(Object$* event, $List* listeners) {
 }
 
 void EventDispatcher::closeAutoClosingClips() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->autoClosingClips) {
 		int64_t currTime = $System::currentTimeMillis();
-		for (int32_t i = $nc(this->autoClosingClips)->size() - 1; i >= 0; --i) {
-			$var($EventDispatcher$ClipInfo, info, $cast($EventDispatcher$ClipInfo, $nc(this->autoClosingClips)->get(i)));
+		for (int32_t i = this->autoClosingClips->size() - 1; i >= 0; --i) {
+			$var($EventDispatcher$ClipInfo, info, $cast($EventDispatcher$ClipInfo, this->autoClosingClips->get(i)));
 			if ($nc(info)->isExpired(currTime)) {
 				$var($AutoClosingClip, clip, info->getClip());
 				bool var$0 = !$nc(clip)->isOpen();
-				if (var$0 || !$nc(clip)->isAutoClosing()) {
-					$nc(this->autoClosingClips)->remove(i);
+				if (var$0 || !clip->isAutoClosing()) {
+					this->autoClosingClips->remove(i);
 				} else {
-					bool var$4 = !clip->isRunning();
-					bool var$3 = var$4 && !clip->isActive();
-					if (var$3 && clip->isAutoClosing()) {
+					bool var$2 = !clip->isRunning();
+					bool var$1 = var$2 && !clip->isActive();
+					if (var$1 && clip->isAutoClosing()) {
 						clip->close();
 					} else {
 					}
@@ -257,10 +200,10 @@ void EventDispatcher::closeAutoClosingClips() {
 }
 
 int32_t EventDispatcher::getAutoClosingClipIndex($AutoClosingClip* clip) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->autoClosingClips) {
-		for (int32_t i = $nc(this->autoClosingClips)->size() - 1; i >= 0; --i) {
-			if ($nc($of(clip))->equals($($nc(($cast($EventDispatcher$ClipInfo, $($nc(this->autoClosingClips)->get(i)))))->getClip()))) {
+		for (int32_t i = this->autoClosingClips->size() - 1; i >= 0; --i) {
+			if ($nc($of(clip))->equals($($$sure($EventDispatcher$ClipInfo, this->autoClosingClips->get(i))->getClip()))) {
 				return i;
 			}
 		}
@@ -273,7 +216,7 @@ void EventDispatcher::autoClosingClipOpened($AutoClosingClip* clip) {
 	$synchronized(this->autoClosingClips) {
 		index = getAutoClosingClipIndex(clip);
 		if (index == -1) {
-			$nc(this->autoClosingClips)->add($$new($EventDispatcher$ClipInfo, this, clip));
+			this->autoClosingClips->add($$new($EventDispatcher$ClipInfo, this, clip));
 		}
 	}
 	if (index == -1) {
@@ -287,26 +230,26 @@ void EventDispatcher::autoClosingClipClosed($AutoClosingClip* clip) {
 	$synchronized(this->autoClosingClips) {
 		int32_t index = getAutoClosingClipIndex(clip);
 		if (index != -1) {
-			$nc(this->autoClosingClips)->remove(index);
+			this->autoClosingClips->remove(index);
 		}
 	}
 }
 
 void EventDispatcher::monitorLines() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lineMonitors) {
-		for (int32_t i = 0; i < $nc(this->lineMonitors)->size(); ++i) {
-			$nc(($cast($EventDispatcher$LineMonitor, $($nc(this->lineMonitors)->get(i)))))->checkLine();
+		for (int32_t i = 0; i < this->lineMonitors->size(); ++i) {
+			$$sure($EventDispatcher$LineMonitor, this->lineMonitors->get(i))->checkLine();
 		}
 	}
 }
 
 void EventDispatcher::addLineMonitor($EventDispatcher$LineMonitor* lm) {
 	$synchronized(this->lineMonitors) {
-		if ($nc(this->lineMonitors)->indexOf(lm) >= 0) {
+		if (this->lineMonitors->indexOf(lm) >= 0) {
 			return;
 		}
-		$nc(this->lineMonitors)->add(lm);
+		this->lineMonitors->add(lm);
 	}
 	$synchronized(this) {
 		$of(this)->notifyAll();
@@ -315,10 +258,10 @@ void EventDispatcher::addLineMonitor($EventDispatcher$LineMonitor* lm) {
 
 void EventDispatcher::removeLineMonitor($EventDispatcher$LineMonitor* lm) {
 	$synchronized(this->lineMonitors) {
-		if ($nc(this->lineMonitors)->indexOf(lm) < 0) {
+		if (this->lineMonitors->indexOf(lm) < 0) {
 			return;
 		}
-		$nc(this->lineMonitors)->remove($of(lm));
+		this->lineMonitors->remove(lm);
 	}
 }
 
@@ -326,7 +269,55 @@ EventDispatcher::EventDispatcher() {
 }
 
 $Class* EventDispatcher::load$($String* name, bool initialize) {
-	$loadClass(EventDispatcher, name, initialize, &_EventDispatcher_ClassInfo_, allocate$EventDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"AUTO_CLOSE_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventDispatcher, AUTO_CLOSE_TIME)},
+		{"eventQueue", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/EventDispatcher$EventInfo;>;", $PRIVATE | $FINAL, $field(EventDispatcher, eventQueue)},
+		{"thread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(EventDispatcher, thread)},
+		{"autoClosingClips", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/EventDispatcher$ClipInfo;>;", $PRIVATE | $FINAL, $field(EventDispatcher, autoClosingClips)},
+		{"lineMonitors", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lcom/sun/media/sound/EventDispatcher$LineMonitor;>;", $PRIVATE | $FINAL, $field(EventDispatcher, lineMonitors)},
+		{"LINE_MONITOR_TIME", "I", nullptr, $STATIC | $FINAL, $constField(EventDispatcher, LINE_MONITOR_TIME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EventDispatcher, init$, void)},
+		{"addLineMonitor", "(Lcom/sun/media/sound/EventDispatcher$LineMonitor;)V", nullptr, 0, $method(EventDispatcher, addLineMonitor, void, $EventDispatcher$LineMonitor*)},
+		{"autoClosingClipClosed", "(Lcom/sun/media/sound/AutoClosingClip;)V", nullptr, 0, $method(EventDispatcher, autoClosingClipClosed, void, $AutoClosingClip*)},
+		{"autoClosingClipOpened", "(Lcom/sun/media/sound/AutoClosingClip;)V", nullptr, 0, $method(EventDispatcher, autoClosingClipOpened, void, $AutoClosingClip*)},
+		{"closeAutoClosingClips", "()V", nullptr, $PRIVATE, $method(EventDispatcher, closeAutoClosingClips, void)},
+		{"dispatchEvents", "()V", nullptr, 0, $method(EventDispatcher, dispatchEvents, void)},
+		{"getAutoClosingClipIndex", "(Lcom/sun/media/sound/AutoClosingClip;)I", nullptr, $PRIVATE, $method(EventDispatcher, getAutoClosingClipIndex, int32_t, $AutoClosingClip*)},
+		{"monitorLines", "()V", nullptr, $PRIVATE, $method(EventDispatcher, monitorLines, void)},
+		{"postEvent", "(Lcom/sun/media/sound/EventDispatcher$EventInfo;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventDispatcher, postEvent, void, $EventDispatcher$EventInfo*)},
+		{"processEvent", "(Lcom/sun/media/sound/EventDispatcher$EventInfo;)V", nullptr, 0, $method(EventDispatcher, processEvent, void, $EventDispatcher$EventInfo*)},
+		{"removeLineMonitor", "(Lcom/sun/media/sound/EventDispatcher$LineMonitor;)V", nullptr, 0, $method(EventDispatcher, removeLineMonitor, void, $EventDispatcher$LineMonitor*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EventDispatcher, run, void)},
+		{"sendAudioEvents", "(Ljava/lang/Object;Ljava/util/List;)V", "(Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V", 0, $method(EventDispatcher, sendAudioEvents, void, Object$*, $List*)},
+		{"start", "()V", nullptr, $SYNCHRONIZED, $method(EventDispatcher, start, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.EventDispatcher$LineMonitor", "com.sun.media.sound.EventDispatcher", "LineMonitor", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.media.sound.EventDispatcher$ClipInfo", "com.sun.media.sound.EventDispatcher", "ClipInfo", $PRIVATE},
+		{"com.sun.media.sound.EventDispatcher$EventInfo", "com.sun.media.sound.EventDispatcher", "EventInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.EventDispatcher",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.EventDispatcher$LineMonitor,com.sun.media.sound.EventDispatcher$ClipInfo,com.sun.media.sound.EventDispatcher$EventInfo"
+	};
+	$loadClass(EventDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventDispatcher);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class $import Scope$LookupKind : public ::java::lang::Enum {
 public:
 	Scope$LookupKind();
 	static $Array<::com::sun::tools::javac::code::Scope$LookupKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::code::Scope$LookupKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::Scope$LookupKind>* values();

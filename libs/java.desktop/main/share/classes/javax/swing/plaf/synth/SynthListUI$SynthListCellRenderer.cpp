@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthListUI$SynthListCellRenderer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/DefaultListCellRenderer$UIResource.h>
@@ -35,46 +34,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthListUI$SynthListCellRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthListUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthListUI$SynthListCellRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _SynthListUI$SynthListCellRenderer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthListUI;)V", nullptr, $PRIVATE, $method(SynthListUI$SynthListCellRenderer, init$, void, $SynthListUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, getName, $String*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, paint, void, $Graphics*)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, setBorder, void, $Border*)},
-	{}
-};
-
-$InnerClassInfo _SynthListUI$SynthListCellRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthListUI$SynthListCellRenderer", "javax.swing.plaf.synth.SynthListUI", "SynthListCellRenderer", $PRIVATE},
-	{"javax.swing.DefaultListCellRenderer$UIResource", "javax.swing.DefaultListCellRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthListUI$SynthListCellRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthListUI$SynthListCellRenderer",
-	"javax.swing.DefaultListCellRenderer$UIResource",
-	nullptr,
-	_SynthListUI$SynthListCellRenderer_FieldInfo_,
-	_SynthListUI$SynthListCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthListUI$SynthListCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthListUI"
-};
-
-$Object* allocate$SynthListUI$SynthListCellRenderer($Class* clazz) {
-	return $of($alloc(SynthListUI$SynthListCellRenderer));
-}
-
 void SynthListUI$SynthListCellRenderer::init$($SynthListUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer$UIResource::init$();
@@ -91,13 +50,11 @@ void SynthListUI$SynthListCellRenderer::setBorder($Border* b) {
 }
 
 $Component* SynthListUI$SynthListCellRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->this$0->useListColors && (isSelected || cellHasFocus)) {
 		$load($SynthLabelUI);
 		$var($ComponentUI, var$0, $cast($SynthLabelUI, $SynthLookAndFeel::getUIOfType($(getUI()), $SynthLabelUI::class$)));
-		bool var$1 = isSelected;
-		bool var$2 = cellHasFocus;
-		$SynthLookAndFeel::setSelectedUI(var$0, var$1, var$2, $nc(list)->isEnabled(), false);
+		$SynthLookAndFeel::setSelectedUI(var$0, isSelected, cellHasFocus, $nc(list)->isEnabled(), false);
 	} else {
 		$SynthLookAndFeel::resetSelectedUI();
 	}
@@ -114,7 +71,41 @@ SynthListUI$SynthListCellRenderer::SynthListUI$SynthListCellRenderer() {
 }
 
 $Class* SynthListUI$SynthListCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(SynthListUI$SynthListCellRenderer, name, initialize, &_SynthListUI$SynthListCellRenderer_ClassInfo_, allocate$SynthListUI$SynthListCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthListUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthListUI$SynthListCellRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthListUI;)V", nullptr, $PRIVATE, $method(SynthListUI$SynthListCellRenderer, init$, void, $SynthListUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, getName, $String*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, paint, void, $Graphics*)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(SynthListUI$SynthListCellRenderer, setBorder, void, $Border*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthListUI$SynthListCellRenderer", "javax.swing.plaf.synth.SynthListUI", "SynthListCellRenderer", $PRIVATE},
+		{"javax.swing.DefaultListCellRenderer$UIResource", "javax.swing.DefaultListCellRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthListUI$SynthListCellRenderer",
+		"javax.swing.DefaultListCellRenderer$UIResource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthListUI"
+	};
+	$loadClass(SynthListUI$SynthListCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthListUI$SynthListCellRenderer));
+	});
 	return class$;
 }
 

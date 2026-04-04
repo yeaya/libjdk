@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicToolBarUI$Actions.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JToolBar.h>
@@ -29,45 +28,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicToolBarUI$Actions_FieldInfo_[] = {
-	{"NAVIGATE_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_RIGHT)},
-	{"NAVIGATE_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_LEFT)},
-	{"NAVIGATE_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_UP)},
-	{"NAVIGATE_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_DOWN)},
-	{}
-};
-
-$MethodInfo _BasicToolBarUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicToolBarUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicToolBarUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicToolBarUI$Actions", "javax.swing.plaf.basic.BasicToolBarUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicToolBarUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicToolBarUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicToolBarUI$Actions_FieldInfo_,
-	_BasicToolBarUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicToolBarUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicToolBarUI"
-};
-
-$Object* allocate$BasicToolBarUI$Actions($Class* clazz) {
-	return $of($alloc(BasicToolBarUI$Actions));
-}
-
 $String* BasicToolBarUI$Actions::NAVIGATE_RIGHT = nullptr;
 $String* BasicToolBarUI$Actions::NAVIGATE_LEFT = nullptr;
 $String* BasicToolBarUI$Actions::NAVIGATE_UP = nullptr;
@@ -78,7 +38,7 @@ void BasicToolBarUI$Actions::init$($String* name) {
 }
 
 void BasicToolBarUI$Actions::actionPerformed($ActionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, getName());
 	$var($JToolBar, toolBar, $cast($JToolBar, $nc(evt)->getSource()));
 	$load($BasicToolBarUI);
@@ -97,7 +57,7 @@ void BasicToolBarUI$Actions::actionPerformed($ActionEvent* evt) {
 BasicToolBarUI$Actions::BasicToolBarUI$Actions() {
 }
 
-void clinit$BasicToolBarUI$Actions($Class* class$) {
+void BasicToolBarUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicToolBarUI$Actions::NAVIGATE_RIGHT, "navigateRight"_s);
 	$assignStatic(BasicToolBarUI$Actions::NAVIGATE_LEFT, "navigateLeft"_s);
 	$assignStatic(BasicToolBarUI$Actions::NAVIGATE_UP, "navigateUp"_s);
@@ -105,7 +65,40 @@ void clinit$BasicToolBarUI$Actions($Class* class$) {
 }
 
 $Class* BasicToolBarUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicToolBarUI$Actions, name, initialize, &_BasicToolBarUI$Actions_ClassInfo_, clinit$BasicToolBarUI$Actions, allocate$BasicToolBarUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAVIGATE_RIGHT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_RIGHT)},
+		{"NAVIGATE_LEFT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_LEFT)},
+		{"NAVIGATE_UP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_UP)},
+		{"NAVIGATE_DOWN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicToolBarUI$Actions, NAVIGATE_DOWN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicToolBarUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicToolBarUI$Actions", "javax.swing.plaf.basic.BasicToolBarUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicToolBarUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicToolBarUI"
+	};
+	$loadClass(BasicToolBarUI$Actions, name, initialize, &classInfo$$, BasicToolBarUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicToolBarUI$Actions);
+	});
 	return class$;
 }
 

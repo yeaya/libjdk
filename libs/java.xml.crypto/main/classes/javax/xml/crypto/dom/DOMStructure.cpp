@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dom/DOMStructure.h>
-
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
@@ -13,31 +12,6 @@ namespace javax {
 	namespace xml {
 		namespace crypto {
 			namespace dom {
-
-$FieldInfo _DOMStructure_FieldInfo_[] = {
-	{"node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $FINAL, $field(DOMStructure, node)},
-	{}
-};
-
-$MethodInfo _DOMStructure_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMStructure, init$, void, $Node*)},
-	{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMStructure, getNode, $Node*)},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMStructure, isFeatureSupported, bool, $String*)},
-	{}
-};
-
-$ClassInfo _DOMStructure_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.dom.DOMStructure",
-	"java.lang.Object",
-	"javax.xml.crypto.XMLStructure",
-	_DOMStructure_FieldInfo_,
-	_DOMStructure_MethodInfo_
-};
-
-$Object* allocate$DOMStructure($Class* clazz) {
-	return $of($alloc(DOMStructure));
-}
 
 void DOMStructure::init$($Node* node) {
 	if (node == nullptr) {
@@ -62,7 +36,27 @@ DOMStructure::DOMStructure() {
 }
 
 $Class* DOMStructure::load$($String* name, bool initialize) {
-	$loadClass(DOMStructure, name, initialize, &_DOMStructure_ClassInfo_, allocate$DOMStructure);
+	$FieldInfo fieldInfos$$[] = {
+		{"node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $FINAL, $field(DOMStructure, node)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMStructure, init$, void, $Node*)},
+		{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMStructure, getNode, $Node*)},
+		{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMStructure, isFeatureSupported, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.dom.DOMStructure",
+		"java.lang.Object",
+		"javax.xml.crypto.XMLStructure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMStructure, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMStructure);
+	});
 	return class$;
 }
 

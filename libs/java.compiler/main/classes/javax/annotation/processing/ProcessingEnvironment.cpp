@@ -1,5 +1,4 @@
 #include <javax/annotation/processing/ProcessingEnvironment.h>
-
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
 #include <javax/annotation/processing/Filer.h>
@@ -23,37 +22,33 @@ namespace javax {
 	namespace annotation {
 		namespace processing {
 
-$MethodInfo _ProcessingEnvironment_MethodInfo_[] = {
-	{"getElementUtils", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getElementUtils, $Elements*)},
-	{"getFiler", "()Ljavax/annotation/processing/Filer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getFiler, $Filer*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getLocale, $Locale*)},
-	{"getMessager", "()Ljavax/annotation/processing/Messager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getMessager, $Messager*)},
-	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getOptions, $Map*)},
-	{"getSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getSourceVersion, $SourceVersion*)},
-	{"getTypeUtils", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getTypeUtils, $Types*)},
-	{"isPreviewEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessingEnvironment, isPreviewEnabled, bool)},
-	{}
-};
-
-$ClassInfo _ProcessingEnvironment_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.annotation.processing.ProcessingEnvironment",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ProcessingEnvironment_MethodInfo_
-};
-
-$Object* allocate$ProcessingEnvironment($Class* clazz) {
-	return $of($alloc(ProcessingEnvironment));
-}
-
 bool ProcessingEnvironment::isPreviewEnabled() {
 	return false;
 }
 
 $Class* ProcessingEnvironment::load$($String* name, bool initialize) {
-	$loadClass(ProcessingEnvironment, name, initialize, &_ProcessingEnvironment_ClassInfo_, allocate$ProcessingEnvironment);
+	$MethodInfo methodInfos$$[] = {
+		{"getElementUtils", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getElementUtils, $Elements*)},
+		{"getFiler", "()Ljavax/annotation/processing/Filer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getFiler, $Filer*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getLocale, $Locale*)},
+		{"getMessager", "()Ljavax/annotation/processing/Messager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getMessager, $Messager*)},
+		{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getOptions, $Map*)},
+		{"getSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getSourceVersion, $SourceVersion*)},
+		{"getTypeUtils", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getTypeUtils, $Types*)},
+		{"isPreviewEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessingEnvironment, isPreviewEnabled, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.annotation.processing.ProcessingEnvironment",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProcessingEnvironment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessingEnvironment);
+	});
 	return class$;
 }
 

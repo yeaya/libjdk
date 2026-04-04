@@ -1,16 +1,13 @@
 #include <bug4987336.h>
-
 #include <bug4987336$LafRadioButton.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
 #include <java/net/URL.h>
-#include <java/util/Dictionary.h>
 #include <java/util/Hashtable.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/ButtonGroup.h>
-#include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JLabel.h>
@@ -31,20 +28,14 @@
 
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $bug4987336$LafRadioButton = ::bug4987336$LafRadioButton;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Dictionary = ::java::util::Dictionary;
 using $Hashtable = ::java::util::Hashtable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JApplet = ::javax::swing::JApplet;
 using $JLabel = ::javax::swing::JLabel;
@@ -54,46 +45,7 @@ using $JSlider = ::javax::swing::JSlider;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
-using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
-
-$FieldInfo _bug4987336_FieldInfo_[] = {
-	{"IMAGE_RES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4987336, IMAGE_RES)},
-	{"ANIM_IMAGE_RES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4987336, ANIM_IMAGE_RES)},
-	{}
-};
-
-$MethodInfo _bug4987336_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4987336, init$, void)},
-	{"createLabel", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4987336, createLabel, $JLabel*, $String*, $String*)},
-	{"createSlider", "(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4987336, createSlider, $JSlider*, bool, $String*, $String*, $String*, $String*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4987336, init, void)},
-	{}
-};
-
-$InnerClassInfo _bug4987336_InnerClassesInfo_[] = {
-	{"bug4987336$LafRadioButton", "bug4987336", "LafRadioButton", $PRIVATE},
-	{}
-};
-
-$ClassInfo _bug4987336_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4987336",
-	"javax.swing.JApplet",
-	nullptr,
-	_bug4987336_FieldInfo_,
-	_bug4987336_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4987336_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4987336$LafRadioButton,bug4987336$LafRadioButton$1"
-};
-
-$Object* allocate$bug4987336($Class* clazz) {
-	return $of($alloc(bug4987336));
-}
 
 $String* bug4987336::IMAGE_RES = nullptr;
 $String* bug4987336::ANIM_IMAGE_RES = nullptr;
@@ -103,41 +55,39 @@ void bug4987336::init$() {
 }
 
 void bug4987336::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, pnLafs, $new($JPanel));
 	pnLafs->setLayout($$new($BoxLayout, pnLafs, $BoxLayout::Y_AXIS));
 	$var($ButtonGroup, group, $new($ButtonGroup));
 	pnLafs->setBorder($$new($TitledBorder, "Available Lafs"_s));
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lafInfo, arr$->get(i$));
 			{
 				$var($bug4987336$LafRadioButton, comp, $new($bug4987336$LafRadioButton, this, lafInfo));
-				pnLafs->add(static_cast<$Component*>(comp));
+				pnLafs->add(comp);
 				group->add(comp);
 			}
 		}
 	}
 	$var($JPanel, pnContent, $new($JPanel));
 	pnContent->setLayout($$new($BoxLayout, pnContent, $BoxLayout::Y_AXIS));
-	pnContent->add(static_cast<$Component*>(pnLafs));
-	pnContent->add($(static_cast<$Component*>(createSlider(true, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES, bug4987336::ANIM_IMAGE_RES, bug4987336::ANIM_IMAGE_RES))));
-	pnContent->add($(static_cast<$Component*>(createSlider(false, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES, bug4987336::ANIM_IMAGE_RES, bug4987336::ANIM_IMAGE_RES))));
-	pnContent->add($(static_cast<$Component*>(createSlider(true, bug4987336::ANIM_IMAGE_RES, nullptr, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES))));
-	pnContent->add($(static_cast<$Component*>(createSlider(false, bug4987336::ANIM_IMAGE_RES, nullptr, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES))));
-	$nc($(getContentPane()))->add(static_cast<$Component*>($$new($JScrollPane, pnContent)));
+	pnContent->add(pnLafs);
+	pnContent->add($(createSlider(true, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES, bug4987336::ANIM_IMAGE_RES, bug4987336::ANIM_IMAGE_RES)));
+	pnContent->add($(createSlider(false, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES, bug4987336::ANIM_IMAGE_RES, bug4987336::ANIM_IMAGE_RES)));
+	pnContent->add($(createSlider(true, bug4987336::ANIM_IMAGE_RES, nullptr, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES)));
+	pnContent->add($(createSlider(false, bug4987336::ANIM_IMAGE_RES, nullptr, bug4987336::IMAGE_RES, bug4987336::IMAGE_RES)));
+	$$nc(getContentPane())->add($$new($JScrollPane, pnContent));
 }
 
 $JSlider* bug4987336::createSlider(bool enabled, $String* firstEnabledImage, $String* firstDisabledImage, $String* secondEnabledImage, $String* secondDisabledImage) {
 	$init(bug4987336);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, dictionary, $new($Hashtable));
-	$var($Object, var$0, $of($Integer::valueOf(0)));
+	$var($Object, var$0, $Integer::valueOf(0));
 	dictionary->put(var$0, $(createLabel(firstEnabledImage, firstDisabledImage)));
-	$var($Object, var$1, $of($Integer::valueOf(1)));
+	$var($Object, var$1, $Integer::valueOf(1));
 	dictionary->put(var$1, $(createLabel(secondEnabledImage, secondDisabledImage)));
 	$var($JSlider, result, $new($JSlider, 0, 1));
 	result->setLabelTable(dictionary);
@@ -148,7 +98,7 @@ $JSlider* bug4987336::createSlider(bool enabled, $String* firstEnabledImage, $St
 
 $JLabel* bug4987336::createLabel($String* enabledImage, $String* disabledImage) {
 	$init(bug4987336);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ImageIcon, enabledIcon, enabledImage == nullptr ? ($ImageIcon*)nullptr : $new($ImageIcon, $(bug4987336::class$->getResource(enabledImage))));
 	$var($ImageIcon, disabledIcon, disabledImage == nullptr ? ($ImageIcon*)nullptr : $new($ImageIcon, $(bug4987336::class$->getResource(disabledImage))));
@@ -160,13 +110,45 @@ $JLabel* bug4987336::createLabel($String* enabledImage, $String* disabledImage) 
 bug4987336::bug4987336() {
 }
 
-void clinit$bug4987336($Class* class$) {
+void bug4987336::clinit$($Class* clazz) {
 	$assignStatic(bug4987336::IMAGE_RES, "box.gif"_s);
 	$assignStatic(bug4987336::ANIM_IMAGE_RES, "duke.gif"_s);
 }
 
 $Class* bug4987336::load$($String* name, bool initialize) {
-	$loadClass(bug4987336, name, initialize, &_bug4987336_ClassInfo_, clinit$bug4987336, allocate$bug4987336);
+	$FieldInfo fieldInfos$$[] = {
+		{"IMAGE_RES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4987336, IMAGE_RES)},
+		{"ANIM_IMAGE_RES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4987336, ANIM_IMAGE_RES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4987336, init$, void)},
+		{"createLabel", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4987336, createLabel, $JLabel*, $String*, $String*)},
+		{"createSlider", "(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4987336, createSlider, $JSlider*, bool, $String*, $String*, $String*, $String*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4987336, init, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4987336$LafRadioButton", "bug4987336", "LafRadioButton", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4987336",
+		"javax.swing.JApplet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4987336$LafRadioButton,bug4987336$LafRadioButton$1"
+	};
+	$loadClass(bug4987336, name, initialize, &classInfo$$, bug4987336::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4987336));
+	});
 	return class$;
 }
 

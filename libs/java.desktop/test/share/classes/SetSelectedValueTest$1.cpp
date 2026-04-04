@@ -1,5 +1,4 @@
 #include <SetSelectedValueTest$1.h>
-
 #include <SetSelectedValueTest.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -20,53 +19,15 @@ using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
-
-$MethodInfo _SetSelectedValueTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SetSelectedValueTest$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SetSelectedValueTest$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SetSelectedValueTest$1_EnclosingMethodInfo_ = {
-	"SetSelectedValueTest",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _SetSelectedValueTest$1_InnerClassesInfo_[] = {
-	{"SetSelectedValueTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SetSelectedValueTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"SetSelectedValueTest$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_SetSelectedValueTest$1_MethodInfo_,
-	nullptr,
-	&_SetSelectedValueTest$1_EnclosingMethodInfo_,
-	_SetSelectedValueTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SetSelectedValueTest"
-};
-
-$Object* allocate$SetSelectedValueTest$1($Class* clazz) {
-	return $of($alloc(SetSelectedValueTest$1));
-}
 
 void SetSelectedValueTest$1::init$() {
 }
 
 void SetSelectedValueTest$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultListModel, dlm, $new($DefaultListModel));
-	$var($JList, list, $new($JList, static_cast<$ListModel*>(dlm)));
+	$var($JList, list, $new($JList, dlm));
 	list->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 	dlm->addElement("1"_s);
 	dlm->addElement("2"_s);
@@ -82,7 +43,38 @@ SetSelectedValueTest$1::SetSelectedValueTest$1() {
 }
 
 $Class* SetSelectedValueTest$1::load$($String* name, bool initialize) {
-	$loadClass(SetSelectedValueTest$1, name, initialize, &_SetSelectedValueTest$1_ClassInfo_, allocate$SetSelectedValueTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SetSelectedValueTest$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SetSelectedValueTest$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"SetSelectedValueTest",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SetSelectedValueTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SetSelectedValueTest$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SetSelectedValueTest"
+	};
+	$loadClass(SetSelectedValueTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetSelectedValueTest$1);
+	});
 	return class$;
 }
 

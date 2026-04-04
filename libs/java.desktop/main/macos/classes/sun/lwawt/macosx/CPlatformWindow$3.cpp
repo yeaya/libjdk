@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformWindow$3.h>
-
 #include <com/apple/laf/ClientPropertyApplicator$Property.h>
 #include <com/apple/laf/ClientPropertyApplicator.h>
 #include <java/awt/Window.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $ClientPropertyApplicator$Property = ::com::apple::laf::ClientPropertyApplicator$Property;
-using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Float = ::java::lang::Float;
@@ -19,51 +17,12 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _CPlatformWindow$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CPlatformWindow$3, init$, void, $String*)},
-	{"applyProperty", "(Lsun/lwawt/macosx/CPlatformWindow;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$3, applyProperty, void, $CPlatformWindow*, Object$*)},
-	{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CPlatformWindow$3, applyProperty, void, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _CPlatformWindow$3_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CPlatformWindow",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CPlatformWindow$3_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPlatformWindow$3", nullptr, nullptr, 0},
-	{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CPlatformWindow$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformWindow$3",
-	"com.apple.laf.ClientPropertyApplicator$Property",
-	nullptr,
-	nullptr,
-	_CPlatformWindow$3_MethodInfo_,
-	"Lcom/apple/laf/ClientPropertyApplicator$Property<Lsun/lwawt/macosx/CPlatformWindow;>;",
-	&_CPlatformWindow$3_EnclosingMethodInfo_,
-	_CPlatformWindow$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPlatformWindow"
-};
-
-$Object* allocate$CPlatformWindow$3($Class* clazz) {
-	return $of($alloc(CPlatformWindow$3));
-}
-
 void CPlatformWindow$3::init$($String* name) {
 	$ClientPropertyApplicator$Property::init$(name);
 }
 
 void CPlatformWindow$3::applyProperty($CPlatformWindow* c, Object$* value) {
-	$nc($nc(c)->target)->setOpacity(value == nullptr ? 1.0f : $Float::parseFloat($($nc($of(value))->toString())));
+	$nc($nc(c)->target)->setOpacity(value == nullptr ? 1.0f : $Float::parseFloat($($of(value)->toString())));
 }
 
 void CPlatformWindow$3::applyProperty(Object$* c, Object$* value) {
@@ -74,7 +33,40 @@ CPlatformWindow$3::CPlatformWindow$3() {
 }
 
 $Class* CPlatformWindow$3::load$($String* name, bool initialize) {
-	$loadClass(CPlatformWindow$3, name, initialize, &_CPlatformWindow$3_ClassInfo_, allocate$CPlatformWindow$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CPlatformWindow$3, init$, void, $String*)},
+		{"applyProperty", "(Lsun/lwawt/macosx/CPlatformWindow;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$3, applyProperty, void, $CPlatformWindow*, Object$*)},
+		{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CPlatformWindow$3, applyProperty, void, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CPlatformWindow",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPlatformWindow$3", nullptr, nullptr, 0},
+		{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformWindow$3",
+		"com.apple.laf.ClientPropertyApplicator$Property",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/ClientPropertyApplicator$Property<Lsun/lwawt/macosx/CPlatformWindow;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPlatformWindow"
+	};
+	$loadClass(CPlatformWindow$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformWindow$3);
+	});
 	return class$;
 }
 

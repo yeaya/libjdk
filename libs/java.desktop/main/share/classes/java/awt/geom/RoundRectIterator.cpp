@@ -1,5 +1,4 @@
 #include <java/awt/geom/RoundRectIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/RoundRectangle2D.h>
@@ -28,49 +27,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _RoundRectIterator_FieldInfo_[] = {
-	{"x", "D", nullptr, 0, $field(RoundRectIterator, x)},
-	{"y", "D", nullptr, 0, $field(RoundRectIterator, y)},
-	{"w", "D", nullptr, 0, $field(RoundRectIterator, w)},
-	{"h", "D", nullptr, 0, $field(RoundRectIterator, h)},
-	{"aw", "D", nullptr, 0, $field(RoundRectIterator, aw)},
-	{"ah", "D", nullptr, 0, $field(RoundRectIterator, ah)},
-	{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(RoundRectIterator, affine)},
-	{"index", "I", nullptr, 0, $field(RoundRectIterator, index)},
-	{"angle", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, angle)},
-	{"a", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, a)},
-	{"b", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, b)},
-	{"c", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, c)},
-	{"cv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, cv)},
-	{"acv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, acv)},
-	{"ctrlpts", "[[D", nullptr, $PRIVATE | $STATIC, $staticField(RoundRectIterator, ctrlpts)},
-	{"types", "[I", nullptr, $PRIVATE | $STATIC, $staticField(RoundRectIterator, types)},
-	{}
-};
-
-$MethodInfo _RoundRectIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/RoundRectangle2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(RoundRectIterator, init$, void, $RoundRectangle2D*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, next, void)},
-	{}
-};
-
-$ClassInfo _RoundRectIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.RoundRectIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_RoundRectIterator_FieldInfo_,
-	_RoundRectIterator_MethodInfo_
-};
-
-$Object* allocate$RoundRectIterator($Class* clazz) {
-	return $of($alloc(RoundRectIterator));
-}
 
 double RoundRectIterator::angle = 0.0;
 double RoundRectIterator::a = 0.0;
@@ -117,7 +73,7 @@ int32_t RoundRectIterator::currentSegment($floats* coords) {
 		coords->set(nc++, (float)(this->y + ctrls->get(i + 2) * this->h + ctrls->get(i + 3) * this->ah));
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, nc / 2);
+		this->affine->transform(coords, 0, coords, 0, nc / 2);
 	}
 	return $nc(RoundRectIterator::types)->get(this->index);
 }
@@ -133,13 +89,13 @@ int32_t RoundRectIterator::currentSegment($doubles* coords) {
 		coords->set(nc++, (this->y + ctrls->get(i + 2) * this->h + ctrls->get(i + 3) * this->ah));
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, nc / 2);
+		this->affine->transform(coords, 0, coords, 0, nc / 2);
 	}
 	return $nc(RoundRectIterator::types)->get(this->index);
 }
 
-void clinit$RoundRectIterator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RoundRectIterator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Math);
 	RoundRectIterator::angle = $Math::PI / 4.0;
 	RoundRectIterator::a = 1.0 - $Math::cos(RoundRectIterator::angle);
@@ -254,7 +210,45 @@ RoundRectIterator::RoundRectIterator() {
 }
 
 $Class* RoundRectIterator::load$($String* name, bool initialize) {
-	$loadClass(RoundRectIterator, name, initialize, &_RoundRectIterator_ClassInfo_, clinit$RoundRectIterator, allocate$RoundRectIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "D", nullptr, 0, $field(RoundRectIterator, x)},
+		{"y", "D", nullptr, 0, $field(RoundRectIterator, y)},
+		{"w", "D", nullptr, 0, $field(RoundRectIterator, w)},
+		{"h", "D", nullptr, 0, $field(RoundRectIterator, h)},
+		{"aw", "D", nullptr, 0, $field(RoundRectIterator, aw)},
+		{"ah", "D", nullptr, 0, $field(RoundRectIterator, ah)},
+		{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(RoundRectIterator, affine)},
+		{"index", "I", nullptr, 0, $field(RoundRectIterator, index)},
+		{"angle", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, angle)},
+		{"a", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, a)},
+		{"b", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, b)},
+		{"c", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, c)},
+		{"cv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, cv)},
+		{"acv", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RoundRectIterator, acv)},
+		{"ctrlpts", "[[D", nullptr, $PRIVATE | $STATIC, $staticField(RoundRectIterator, ctrlpts)},
+		{"types", "[I", nullptr, $PRIVATE | $STATIC, $staticField(RoundRectIterator, types)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/RoundRectangle2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(RoundRectIterator, init$, void, $RoundRectangle2D*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(RoundRectIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.RoundRectIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RoundRectIterator, name, initialize, &classInfo$$, RoundRectIterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RoundRectIterator);
+	});
 	return class$;
 }
 

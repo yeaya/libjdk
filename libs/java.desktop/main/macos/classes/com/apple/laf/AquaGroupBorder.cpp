@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaGroupBorder.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder.h>
@@ -19,14 +17,11 @@
 
 #undef FRAME_GROUP_BOX
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaGroupBorder$TabbedPane = ::com::apple::laf::AquaGroupBorder$TabbedPane;
 using $AquaGroupBorder$Titled = ::com::apple::laf::AquaGroupBorder$Titled;
 using $AquaGroupBorder$Titleless = ::com::apple::laf::AquaGroupBorder$Titleless;
-using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
@@ -43,65 +38,23 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaGroupBorder_FieldInfo_[] = {
-	{"tabbedPaneGroupBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<+Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaGroupBorder, tabbedPaneGroupBorder)},
-	{"titleBorderGroupBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<+Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaGroupBorder, titleBorderGroupBorder)},
-	{"titlelessGroupBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<+Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaGroupBorder, titlelessGroupBorder)},
-	{}
-};
-
-$MethodInfo _AquaGroupBorder_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, $PROTECTED, $method(AquaGroupBorder, init$, void, $AquaUtilControlSize$SizeVariant*)},
-	{"getBorderForTitledBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaGroupBorder, getBorderForTitledBorder, $Border*)},
-	{"getTabbedPaneGroupBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaGroupBorder, getTabbedPaneGroupBorder, $Border*)},
-	{"getTitlelessBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaGroupBorder, getTitlelessBorder, $Border*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaGroupBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaGroupBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaGroupBorder$Titleless", "com.apple.laf.AquaGroupBorder", "Titleless", $PROTECTED | $STATIC},
-	{"com.apple.laf.AquaGroupBorder$Titled", "com.apple.laf.AquaGroupBorder", "Titled", $PROTECTED | $STATIC},
-	{"com.apple.laf.AquaGroupBorder$TabbedPane", "com.apple.laf.AquaGroupBorder", "TabbedPane", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaGroupBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaGroupBorder",
-	"com.apple.laf.AquaBorder",
-	nullptr,
-	_AquaGroupBorder_FieldInfo_,
-	_AquaGroupBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaGroupBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaGroupBorder$Titleless,com.apple.laf.AquaGroupBorder$Titled,com.apple.laf.AquaGroupBorder$TabbedPane"
-};
-
-$Object* allocate$AquaGroupBorder($Class* clazz) {
-	return $of($alloc(AquaGroupBorder));
-}
-
 $AquaUtils$RecyclableSingletonFromDefaultConstructor* AquaGroupBorder::tabbedPaneGroupBorder = nullptr;
 $AquaUtils$RecyclableSingletonFromDefaultConstructor* AquaGroupBorder::titleBorderGroupBorder = nullptr;
 $AquaUtils$RecyclableSingletonFromDefaultConstructor* AquaGroupBorder::titlelessGroupBorder = nullptr;
 
 $Border* AquaGroupBorder::getTabbedPaneGroupBorder() {
 	$init(AquaGroupBorder);
-	return $cast($Border, $nc(AquaGroupBorder::tabbedPaneGroupBorder)->get());
+	return $cast($Border, AquaGroupBorder::tabbedPaneGroupBorder->get());
 }
 
 $Border* AquaGroupBorder::getBorderForTitledBorder() {
 	$init(AquaGroupBorder);
-	return $cast($Border, $nc(AquaGroupBorder::titleBorderGroupBorder)->get());
+	return $cast($Border, AquaGroupBorder::titleBorderGroupBorder->get());
 }
 
 $Border* AquaGroupBorder::getTitlelessBorder() {
 	$init(AquaGroupBorder);
-	return $cast($Border, $nc(AquaGroupBorder::titlelessGroupBorder)->get());
+	return $cast($Border, AquaGroupBorder::titlelessGroupBorder->get());
 }
 
 void AquaGroupBorder::init$($AquaUtilControlSize$SizeVariant* sizeVariant) {
@@ -119,7 +72,7 @@ void AquaGroupBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_
 	$nc(this->painter)->paint(g, c, x, y, width, height);
 }
 
-void clinit$AquaGroupBorder($Class* class$) {
+void AquaGroupBorder::clinit$($Class* clazz) {
 	$load($AquaGroupBorder$TabbedPane);
 	$assignStatic(AquaGroupBorder::tabbedPaneGroupBorder, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, $AquaGroupBorder$TabbedPane::class$));
 	$load($AquaGroupBorder$Titled);
@@ -132,7 +85,43 @@ AquaGroupBorder::AquaGroupBorder() {
 }
 
 $Class* AquaGroupBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaGroupBorder, name, initialize, &_AquaGroupBorder_ClassInfo_, clinit$AquaGroupBorder, allocate$AquaGroupBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"tabbedPaneGroupBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<+Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaGroupBorder, tabbedPaneGroupBorder)},
+		{"titleBorderGroupBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<+Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaGroupBorder, titleBorderGroupBorder)},
+		{"titlelessGroupBorder", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<+Ljavax/swing/border/Border;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaGroupBorder, titlelessGroupBorder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, $PROTECTED, $method(AquaGroupBorder, init$, void, $AquaUtilControlSize$SizeVariant*)},
+		{"getBorderForTitledBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaGroupBorder, getBorderForTitledBorder, $Border*)},
+		{"getTabbedPaneGroupBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaGroupBorder, getTabbedPaneGroupBorder, $Border*)},
+		{"getTitlelessBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaGroupBorder, getTitlelessBorder, $Border*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaGroupBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaGroupBorder$Titleless", "com.apple.laf.AquaGroupBorder", "Titleless", $PROTECTED | $STATIC},
+		{"com.apple.laf.AquaGroupBorder$Titled", "com.apple.laf.AquaGroupBorder", "Titled", $PROTECTED | $STATIC},
+		{"com.apple.laf.AquaGroupBorder$TabbedPane", "com.apple.laf.AquaGroupBorder", "TabbedPane", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaGroupBorder",
+		"com.apple.laf.AquaBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaGroupBorder$Titleless,com.apple.laf.AquaGroupBorder$Titled,com.apple.laf.AquaGroupBorder$TabbedPane"
+	};
+	$loadClass(AquaGroupBorder, name, initialize, &classInfo$$, AquaGroupBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaGroupBorder));
+	});
 	return class$;
 }
 

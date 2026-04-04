@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultTextUI.h>
-
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <jcpp.h>
 
@@ -12,33 +11,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$CompoundAttribute _DefaultTextUI_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _DefaultTextUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DefaultTextUI, init$, void)},
-	{}
-};
-
-$ClassInfo _DefaultTextUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.DefaultTextUI",
-	"javax.swing.plaf.basic.BasicTextUI",
-	nullptr,
-	nullptr,
-	_DefaultTextUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_DefaultTextUI_Annotations_
-};
-
-$Object* allocate$DefaultTextUI($Class* clazz) {
-	return $of($alloc(DefaultTextUI));
-}
-
 void DefaultTextUI::init$() {
 	$BasicTextUI::init$();
 }
@@ -47,7 +19,29 @@ DefaultTextUI::DefaultTextUI() {
 }
 
 $Class* DefaultTextUI::load$($String* name, bool initialize) {
-	$loadClass(DefaultTextUI, name, initialize, &_DefaultTextUI_ClassInfo_, allocate$DefaultTextUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DefaultTextUI, init$, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.DefaultTextUI",
+		"javax.swing.plaf.basic.BasicTextUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DefaultTextUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTextUI));
+	});
 	return class$;
 }
 

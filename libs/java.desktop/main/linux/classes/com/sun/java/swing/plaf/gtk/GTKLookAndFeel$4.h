@@ -16,6 +16,7 @@ class GTKLookAndFeel$4 : public ::java::lang::Object {
 	$class(GTKLookAndFeel$4, 0, ::java::lang::Object)
 public:
 	GTKLookAndFeel$4();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$LayoutStyle$ComponentPlacement;
 };
 

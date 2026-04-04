@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/MessageQueue.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -49,61 +48,10 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _MessageQueue_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MessageQueue, $assertionsDisabled)},
-	{"elements", "[Ljdk/internal/net/http/websocket/MessageQueue$Message;", nullptr, $PRIVATE | $FINAL, $field(MessageQueue, elements)},
-	{"tail", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(MessageQueue, tail)},
-	{"head", "I", nullptr, $PRIVATE | $VOLATILE, $field(MessageQueue, head)},
-	{}
-};
-
-$MethodInfo _MessageQueue_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MessageQueue, init$, void, int32_t)},
-	{"add", "(Ljdk/internal/net/http/websocket/MessageQueue$Type;Ljava/util/function/Supplier;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;ZILjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/websocket/MessageQueue$Type;Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;ZITT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PRIVATE, $method(MessageQueue, add, void, $MessageQueue$Type*, $Supplier*, $ByteBuffer*, $CharBuffer*, bool, int32_t, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
-	{"addBinary", "(Ljava/nio/ByteBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addBinary, void, $ByteBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
-	{"addClose", "(ILjava/nio/CharBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(ILjava/nio/CharBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addClose, void, int32_t, $CharBuffer*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
-	{"addPing", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addPing, void, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
-	{"addPong", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addPong, void, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
-	{"addPong", "(Ljava/util/function/Supplier;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addPong, void, $Supplier*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
-	{"addText", "(Ljava/nio/CharBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/CharBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addText, void, $CharBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
-	{"effectiveCapacityOf", "(I)I", nullptr, $PROTECTED | $STATIC, $staticMethod(MessageQueue, effectiveCapacityOf, int32_t, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageQueue, isEmpty, bool)},
-	{"peek", "(Ljdk/internal/net/http/websocket/MessageQueue$QueueCallback;)Ljava/lang/Object;", "<R:Ljava/lang/Object;E:Ljava/lang/Throwable;>(Ljdk/internal/net/http/websocket/MessageQueue$QueueCallback<TR;TE;>;)TR;^TE;", $PUBLIC, $virtualMethod(MessageQueue, peek, $Object*, $MessageQueue$QueueCallback*), "java.lang.Throwable"},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(MessageQueue, remove, void)},
-	{}
-};
-
-$InnerClassInfo _MessageQueue_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.MessageQueue$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"jdk.internal.net.http.websocket.MessageQueue$Message", "jdk.internal.net.http.websocket.MessageQueue", "Message", $PRIVATE | $STATIC},
-	{"jdk.internal.net.http.websocket.MessageQueue$QueueCallback", "jdk.internal.net.http.websocket.MessageQueue", "QueueCallback", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.websocket.MessageQueue$Type", "jdk.internal.net.http.websocket.MessageQueue", "Type", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MessageQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.websocket.MessageQueue",
-	"java.lang.Object",
-	nullptr,
-	_MessageQueue_FieldInfo_,
-	_MessageQueue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.MessageQueue$1,jdk.internal.net.http.websocket.MessageQueue$Message,jdk.internal.net.http.websocket.MessageQueue$QueueCallback,jdk.internal.net.http.websocket.MessageQueue$Type"
-};
-
-$Object* allocate$MessageQueue($Class* clazz) {
-	return $of($alloc(MessageQueue));
-}
-
 bool MessageQueue::$assertionsDisabled = false;
 
 void MessageQueue::init$(int32_t capacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tail, $new($AtomicInteger));
 	if (capacity < 1) {
 		$throwNew($IllegalArgumentException);
@@ -139,17 +87,17 @@ void MessageQueue::add($MessageQueue$Type* type, $Supplier* binarySupplier, $Byt
 	int32_t newTail = 0;
 	do {
 		h = this->head;
-		currentTail = $nc(this->tail)->get();
-		newTail = (int32_t)((currentTail + 1) & (uint32_t)($nc(this->elements)->length - 1));
+		currentTail = this->tail->get();
+		newTail = (currentTail + 1) & (this->elements->length - 1);
 		if (newTail == h) {
 			$throwNew($IOException, "Queue full"_s);
 		}
-	} while (!$nc(this->tail)->compareAndSet(currentTail, newTail));
-	$var($MessageQueue$Message, t, $nc(this->elements)->get(currentTail));
+	} while (!this->tail->compareAndSet(currentTail, newTail));
+	$var($MessageQueue$Message, t, this->elements->get(currentTail));
 	if ($nc(t)->ready) {
 		$throwNew($InternalError);
 	}
-	$set($nc(t), type, type);
+	$set(t, type, type);
 	$set(t, binarySupplier, binarySupplier);
 	$set(t, binary, binary);
 	$set(t, text, text);
@@ -187,77 +135,65 @@ void MessageQueue::addClose(int32_t statusCode, $CharBuffer* reason, Object$* at
 }
 
 $Object* MessageQueue::peek($MessageQueue$QueueCallback* callback) {
-	$useLocalCurrentObjectStackCache();
-	$var($MessageQueue$Message, h, $nc(this->elements)->get(this->head));
+	$useLocalObjectStack();
+	$var($MessageQueue$Message, h, this->elements->get(this->head));
 	if (!$nc(h)->ready) {
-		return $of($nc(callback)->onEmpty());
+		return $nc(callback)->onEmpty();
 	}
-	$MessageQueue$Type* type = $nc(h)->type;
+	$MessageQueue$Type* type = h->type;
 	$init($MessageQueue$1);
 	switch ($nc($MessageQueue$1::$SwitchMap$jdk$internal$net$http$websocket$MessageQueue$Type)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			try {
-				return $of($nc(callback)->onText(h->text, h->isLast, h->attachment, h->action, h->future));
-			} catch ($Throwable& t) {
-				$throw(t);
-			}
+		try {
+			return $nc(callback)->onText(h->text, h->isLast, h->attachment, h->action, h->future);
+		} catch ($Throwable& t) {
+			$throw(t);
 		}
 	case 2:
-		{
-			try {
-				return $of($nc(callback)->onBinary(h->binary, h->isLast, h->attachment, h->action, h->future));
-			} catch ($Throwable& t) {
-				$throw(t);
-			}
+		try {
+			return $nc(callback)->onBinary(h->binary, h->isLast, h->attachment, h->action, h->future);
+		} catch ($Throwable& t) {
+			$throw(t);
 		}
 	case 3:
-		{
-			try {
-				return $of($nc(callback)->onPing(h->binary, h->attachment, h->action, h->future));
-			} catch ($Throwable& t) {
-				$throw(t);
-			}
+		try {
+			return $nc(callback)->onPing(h->binary, h->attachment, h->action, h->future);
+		} catch ($Throwable& t) {
+			$throw(t);
 		}
 	case 4:
-		{
-			try {
-				if (h->binarySupplier != nullptr) {
-					return $of($nc(callback)->onPong(h->binarySupplier, h->attachment, h->action, h->future));
-				} else {
-					return $of($nc(callback)->onPong(h->binary, h->attachment, h->action, h->future));
-				}
-			} catch ($Throwable& t) {
-				$throw(t);
+		try {
+			if (h->binarySupplier != nullptr) {
+				return $nc(callback)->onPong(h->binarySupplier, h->attachment, h->action, h->future);
+			} else {
+				return $nc(callback)->onPong(h->binary, h->attachment, h->action, h->future);
 			}
+		} catch ($Throwable& t) {
+			$throw(t);
 		}
 	case 5:
-		{
-			try {
-				return $of($nc(callback)->onClose(h->statusCode, h->text, h->attachment, h->action, h->future));
-			} catch ($Throwable& t) {
-				$throw(t);
-			}
+		try {
+			return $nc(callback)->onClose(h->statusCode, h->text, h->attachment, h->action, h->future);
+		} catch ($Throwable& t) {
+			$throw(t);
 		}
 	default:
-		{
-			$throwNew($InternalError, $($String::valueOf($of(type))));
-		}
+		$throwNew($InternalError, $($String::valueOf(type)));
 	}
 	$shouldNotReachHere();
 }
 
 bool MessageQueue::isEmpty() {
-	return !$nc($nc(this->elements)->get(this->head))->ready;
+	return !$nc(this->elements->get(this->head))->ready;
 }
 
 void MessageQueue::remove() {
 	int32_t currentHead = this->head;
-	$var($MessageQueue$Message, h, $nc(this->elements)->get(currentHead));
+	$var($MessageQueue$Message, h, this->elements->get(currentHead));
 	if (!$nc(h)->ready) {
 		$throwNew($InternalError, "Queue empty"_s);
 	}
-	$set($nc(h), type, nullptr);
+	$set(h, type, nullptr);
 	$set(h, binarySupplier, nullptr);
 	$set(h, binary, nullptr);
 	$set(h, text, nullptr);
@@ -265,10 +201,10 @@ void MessageQueue::remove() {
 	$set(h, action, nullptr);
 	$set(h, future, nullptr);
 	h->ready = false;
-	this->head = (int32_t)((currentHead + 1) & (uint32_t)($nc(this->elements)->length - 1));
+	this->head = (currentHead + 1) & (this->elements->length - 1);
 }
 
-void clinit$MessageQueue($Class* class$) {
+void MessageQueue::clinit$($Class* clazz) {
 	MessageQueue::$assertionsDisabled = !MessageQueue::class$->desiredAssertionStatus();
 }
 
@@ -276,7 +212,52 @@ MessageQueue::MessageQueue() {
 }
 
 $Class* MessageQueue::load$($String* name, bool initialize) {
-	$loadClass(MessageQueue, name, initialize, &_MessageQueue_ClassInfo_, clinit$MessageQueue, allocate$MessageQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MessageQueue, $assertionsDisabled)},
+		{"elements", "[Ljdk/internal/net/http/websocket/MessageQueue$Message;", nullptr, $PRIVATE | $FINAL, $field(MessageQueue, elements)},
+		{"tail", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(MessageQueue, tail)},
+		{"head", "I", nullptr, $PRIVATE | $VOLATILE, $field(MessageQueue, head)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MessageQueue, init$, void, int32_t)},
+		{"add", "(Ljdk/internal/net/http/websocket/MessageQueue$Type;Ljava/util/function/Supplier;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;ZILjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/websocket/MessageQueue$Type;Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;ZITT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PRIVATE, $method(MessageQueue, add, void, $MessageQueue$Type*, $Supplier*, $ByteBuffer*, $CharBuffer*, bool, int32_t, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
+		{"addBinary", "(Ljava/nio/ByteBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addBinary, void, $ByteBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
+		{"addClose", "(ILjava/nio/CharBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(ILjava/nio/CharBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addClose, void, int32_t, $CharBuffer*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
+		{"addPing", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addPing, void, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
+		{"addPong", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addPong, void, $ByteBuffer*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
+		{"addPong", "(Ljava/util/function/Supplier;Ljava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<-TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addPong, void, $Supplier*, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
+		{"addText", "(Ljava/nio/CharBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;Ljava/util/concurrent/CompletableFuture;)V", "<T:Ljava/lang/Object;>(Ljava/nio/CharBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;Ljava/util/concurrent/CompletableFuture<TT;>;)V", $PUBLIC, $virtualMethod(MessageQueue, addText, void, $CharBuffer*, bool, Object$*, $BiConsumer*, $CompletableFuture*), "java.io.IOException"},
+		{"effectiveCapacityOf", "(I)I", nullptr, $PROTECTED | $STATIC, $staticMethod(MessageQueue, effectiveCapacityOf, int32_t, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageQueue, isEmpty, bool)},
+		{"peek", "(Ljdk/internal/net/http/websocket/MessageQueue$QueueCallback;)Ljava/lang/Object;", "<R:Ljava/lang/Object;E:Ljava/lang/Throwable;>(Ljdk/internal/net/http/websocket/MessageQueue$QueueCallback<TR;TE;>;)TR;^TE;", $PUBLIC, $virtualMethod(MessageQueue, peek, $Object*, $MessageQueue$QueueCallback*), "java.lang.Throwable"},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(MessageQueue, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.MessageQueue$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"jdk.internal.net.http.websocket.MessageQueue$Message", "jdk.internal.net.http.websocket.MessageQueue", "Message", $PRIVATE | $STATIC},
+		{"jdk.internal.net.http.websocket.MessageQueue$QueueCallback", "jdk.internal.net.http.websocket.MessageQueue", "QueueCallback", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.websocket.MessageQueue$Type", "jdk.internal.net.http.websocket.MessageQueue", "Type", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.websocket.MessageQueue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.MessageQueue$1,jdk.internal.net.http.websocket.MessageQueue$Message,jdk.internal.net.http.websocket.MessageQueue$QueueCallback,jdk.internal.net.http.websocket.MessageQueue$Type"
+	};
+	$loadClass(MessageQueue, name, initialize, &classInfo$$, MessageQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageQueue);
+	});
 	return class$;
 }
 

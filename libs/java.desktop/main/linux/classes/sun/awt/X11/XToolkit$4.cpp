@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XToolkit$4.h>
-
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XEvent.h>
@@ -20,48 +19,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XToolkit$4_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XToolkit;", nullptr, $FINAL | $SYNTHETIC, $field(XToolkit$4, this$0)},
-	{}
-};
-
-$MethodInfo _XToolkit$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, 0, $method(XToolkit$4, init$, void, $XToolkit*)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$4, dispatchEvent, void, $XEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _XToolkit$4_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XToolkit",
-	"syncNativeQueue",
-	"(J)Z"
-};
-
-$InnerClassInfo _XToolkit$4_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XToolkit$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XToolkit$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XToolkit$4",
-	"java.lang.Object",
-	"sun.awt.X11.XEventDispatcher",
-	_XToolkit$4_FieldInfo_,
-	_XToolkit$4_MethodInfo_,
-	nullptr,
-	&_XToolkit$4_EnclosingMethodInfo_,
-	_XToolkit$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XToolkit"
-};
-
-$Object* allocate$XToolkit$4($Class* clazz) {
-	return $of($alloc(XToolkit$4));
-}
-
 void XToolkit$4::init$($XToolkit* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -78,7 +35,42 @@ XToolkit$4::XToolkit$4() {
 }
 
 $Class* XToolkit$4::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$4, name, initialize, &_XToolkit$4_ClassInfo_, allocate$XToolkit$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XToolkit;", nullptr, $FINAL | $SYNTHETIC, $field(XToolkit$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, 0, $method(XToolkit$4, init$, void, $XToolkit*)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$4, dispatchEvent, void, $XEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XToolkit",
+		"syncNativeQueue",
+		"(J)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XToolkit$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XToolkit$4",
+		"java.lang.Object",
+		"sun.awt.X11.XEventDispatcher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XToolkit"
+	};
+	$loadClass(XToolkit$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$4);
+	});
 	return class$;
 }
 

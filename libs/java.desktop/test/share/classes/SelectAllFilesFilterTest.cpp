@@ -1,5 +1,4 @@
 #include <SelectAllFilesFilterTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Robot.h>
@@ -46,27 +45,24 @@ public:
 	virtual void run() override {
 		SelectAllFilesFilterTest::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SelectAllFilesFilterTest$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SelectAllFilesFilterTest$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SelectAllFilesFilterTest$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo SelectAllFilesFilterTest$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SelectAllFilesFilterTest$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SelectAllFilesFilterTest$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(SelectAllFilesFilterTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SelectAllFilesFilterTest$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SelectAllFilesFilterTest$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SelectAllFilesFilterTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectAllFilesFilterTest$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* SelectAllFilesFilterTest$$Lambda$createAndShowGUI::class$ = nullptr;
@@ -79,27 +75,24 @@ public:
 	virtual void run() override {
 		SelectAllFilesFilterTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SelectAllFilesFilterTest$$Lambda$lambda$main$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SelectAllFilesFilterTest$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1, run, void)},
-	{}
-};
-$ClassInfo SelectAllFilesFilterTest$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SelectAllFilesFilterTest$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SelectAllFilesFilterTest$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SelectAllFilesFilterTest$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* SelectAllFilesFilterTest$$Lambda$lambda$main$0$1::class$ = nullptr;
@@ -112,60 +105,27 @@ public:
 	virtual void run() override {
 		SelectAllFilesFilterTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SelectAllFilesFilterTest$$Lambda$lambda$main$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SelectAllFilesFilterTest$$Lambda$lambda$main$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2, run, void)},
-	{}
-};
-$ClassInfo SelectAllFilesFilterTest$$Lambda$lambda$main$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SelectAllFilesFilterTest$$Lambda$lambda$main$1$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SelectAllFilesFilterTest$$Lambda$lambda$main$1$2::load$($String* name, bool initialize) {
-	$loadClass(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SelectAllFilesFilterTest$$Lambda$lambda$main$1$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2);
+	});
 	return class$;
 }
 $Class* SelectAllFilesFilterTest$$Lambda$lambda$main$1$2::class$ = nullptr;
-
-$FieldInfo _SelectAllFilesFilterTest_FieldInfo_[] = {
-	{"LABEL_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SelectAllFilesFilterTest, LABEL_TEXT)},
-	{"fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SelectAllFilesFilterTest, fileChooser)},
-	{"comboBox", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE | $STATIC, $staticField(SelectAllFilesFilterTest, comboBox)},
-	{}
-};
-
-$MethodInfo _SelectAllFilesFilterTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectAllFilesFilterTest, createAndShowGUI, void)},
-	{"findComboBox", "(Ljava/awt/Component;)Ljavax/swing/JComboBox;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectAllFilesFilterTest, findComboBox, $JComboBox*, $Component*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectAllFilesFilterTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectAllFilesFilterTest, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectAllFilesFilterTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SelectAllFilesFilterTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SelectAllFilesFilterTest",
-	"java.lang.Object",
-	nullptr,
-	_SelectAllFilesFilterTest_FieldInfo_,
-	_SelectAllFilesFilterTest_MethodInfo_
-};
-
-$Object* allocate$SelectAllFilesFilterTest($Class* clazz) {
-	return $of($alloc(SelectAllFilesFilterTest));
-}
 
 $String* SelectAllFilesFilterTest::LABEL_TEXT = nullptr;
 $volatile($JFileChooser*) SelectAllFilesFilterTest::fileChooser = nullptr;
@@ -176,21 +136,21 @@ void SelectAllFilesFilterTest::init$() {
 
 void SelectAllFilesFilterTest::main($StringArray* args) {
 	$init(SelectAllFilesFilterTest);
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(SelectAllFilesFilterTest$$Lambda$createAndShowGUI)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeLater($$new(SelectAllFilesFilterTest$$Lambda$createAndShowGUI));
 	while (SelectAllFilesFilterTest::fileChooser == nullptr) {
 		$Thread::sleep(100);
 	}
 	$var($Robot, robot, $new($Robot));
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1)));
+	$SwingUtilities::invokeAndWait($$new(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1));
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2)));
+	$SwingUtilities::invokeAndWait($$new(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2));
 }
 
 void SelectAllFilesFilterTest::createAndShowGUI() {
 	$init(SelectAllFilesFilterTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(SelectAllFilesFilterTest::fileChooser, $new($JFileChooser));
 	$nc(SelectAllFilesFilterTest::fileChooser)->setAcceptAllFileFilterUsed(true);
 	$nc(SelectAllFilesFilterTest::fileChooser)->setDialogType($JFileChooser::OPEN_DIALOG);
@@ -202,16 +162,16 @@ void SelectAllFilesFilterTest::createAndShowGUI() {
 
 $JComboBox* SelectAllFilesFilterTest::findComboBox($Component* comp) {
 	$init(SelectAllFilesFilterTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JLabel, comp)) {
 		$var($JLabel, label, $cast($JLabel, comp));
-		if ($nc(SelectAllFilesFilterTest::LABEL_TEXT)->equals($($nc(label)->getText()))) {
-			return $cast($JComboBox, $nc(label)->getLabelFor());
+		if (SelectAllFilesFilterTest::LABEL_TEXT->equals($(label->getText()))) {
+			return $cast($JComboBox, label->getLabelFor());
 		}
 	}
 	if ($instanceOf($Container, comp)) {
 		$var($Container, cont, $cast($Container, comp));
-		for (int32_t i = 0; i < $nc(cont)->getComponentCount(); ++i) {
+		for (int32_t i = 0; i < cont->getComponentCount(); ++i) {
 			$var($JComboBox, result, findComboBox($(cont->getComponent(i))));
 			if (result != nullptr) {
 				return result;
@@ -239,23 +199,48 @@ void SelectAllFilesFilterTest::lambda$main$0() {
 SelectAllFilesFilterTest::SelectAllFilesFilterTest() {
 }
 
-void clinit$SelectAllFilesFilterTest($Class* class$) {
+void SelectAllFilesFilterTest::clinit$($Class* clazz) {
 	$assignStatic(SelectAllFilesFilterTest::LABEL_TEXT, "File Format:"_s);
 }
 
 $Class* SelectAllFilesFilterTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SelectAllFilesFilterTest$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("SelectAllFilesFilterTest$$Lambda$createAndShowGUI")) {
 			return SelectAllFilesFilterTest$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
-		if (name->equals(SelectAllFilesFilterTest$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("SelectAllFilesFilterTest$$Lambda$lambda$main$0$1")) {
 			return SelectAllFilesFilterTest$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
-		if (name->equals(SelectAllFilesFilterTest$$Lambda$lambda$main$1$2::classInfo$.name)) {
+		if (name->equals("SelectAllFilesFilterTest$$Lambda$lambda$main$1$2")) {
 			return SelectAllFilesFilterTest$$Lambda$lambda$main$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(SelectAllFilesFilterTest, name, initialize, &_SelectAllFilesFilterTest_ClassInfo_, clinit$SelectAllFilesFilterTest, allocate$SelectAllFilesFilterTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"LABEL_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SelectAllFilesFilterTest, LABEL_TEXT)},
+		{"fileChooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SelectAllFilesFilterTest, fileChooser)},
+		{"comboBox", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE | $STATIC, $staticField(SelectAllFilesFilterTest, comboBox)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectAllFilesFilterTest, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectAllFilesFilterTest, createAndShowGUI, void)},
+		{"findComboBox", "(Ljava/awt/Component;)Ljavax/swing/JComboBox;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectAllFilesFilterTest, findComboBox, $JComboBox*, $Component*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectAllFilesFilterTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectAllFilesFilterTest, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SelectAllFilesFilterTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SelectAllFilesFilterTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SelectAllFilesFilterTest, name, initialize, &classInfo$$, SelectAllFilesFilterTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectAllFilesFilterTest);
+	});
 	return class$;
 }
 

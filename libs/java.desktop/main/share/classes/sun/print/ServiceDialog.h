@@ -92,6 +92,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::GraphicsConfiguration* gc, int32_t x, int32_t y, $Array<::javax::print::PrintService>* services, int32_t defaultServiceIndex, ::javax::print::DocFlavor* flavor, ::javax::print::attribute::PrintRequestAttributeSet* attributes, ::java::awt::Window* window);
 	void init$(::java::awt::GraphicsConfiguration* gc, int32_t x, int32_t y, ::javax::print::PrintService* ps, ::javax::print::DocFlavor* flavor, ::javax::print::attribute::PrintRequestAttributeSet* attributes, ::java::awt::Window* window);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;

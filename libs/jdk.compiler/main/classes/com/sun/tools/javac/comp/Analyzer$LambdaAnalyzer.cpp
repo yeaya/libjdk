@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$LambdaAnalyzer.h>
-
 #include <com/sun/source/tree/ModifiersTree.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -22,7 +21,6 @@
 #include <com/sun/tools/javac/tree/TreeCopier.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
 #include <com/sun/tools/javac/util/AbstractLog.h>
-#include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$Warning.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
@@ -37,9 +35,7 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
-using $Analyzer$AnalyzerCopier = ::com::sun::tools::javac::comp::Analyzer$AnalyzerCopier;
 using $Analyzer$AnalyzerMode = ::com::sun::tools::javac::comp::Analyzer$AnalyzerMode;
 using $Analyzer$StatementAnalyzer = ::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
@@ -51,11 +47,8 @@ using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl
 using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -68,51 +61,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Analyzer$LambdaAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$LambdaAnalyzer, this$0)},
-	{}
-};
-
-$MethodInfo _Analyzer$LambdaAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$LambdaAnalyzer, init$, void, $Analyzer*)},
-	{"decls", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(Analyzer$LambdaAnalyzer, decls, $List*, $JCTree$JCClassDecl*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0, $virtualMethod(Analyzer$LambdaAnalyzer, match, bool, $JCTree$JCNewClass*)},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, match, bool, $JCTree*)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Z)V", nullptr, 0, $virtualMethod(Analyzer$LambdaAnalyzer, process, void, $JCTree$JCNewClass*, $JCTree$JCLambda*, bool)},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;", 0, $virtualMethod(Analyzer$LambdaAnalyzer, rewrite, $List*, $JCTree$JCNewClass*)},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, rewrite, $List*, $JCTree*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$LambdaAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$LambdaAnalyzer", "com.sun.tools.javac.comp.Analyzer", "LambdaAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer", "com.sun.tools.javac.comp.Analyzer", "StatementAnalyzer", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCNewClass", "com.sun.tools.javac.tree.JCTree", "JCNewClass", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Analyzer$LambdaAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$LambdaAnalyzer",
-	"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer",
-	nullptr,
-	_Analyzer$LambdaAnalyzer_FieldInfo_,
-	_Analyzer$LambdaAnalyzer_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;",
-	nullptr,
-	_Analyzer$LambdaAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$LambdaAnalyzer($Class* clazz) {
-	return $of($alloc(Analyzer$LambdaAnalyzer));
-}
-
 void Analyzer$LambdaAnalyzer::init$($Analyzer* this$0) {
 	$set(this, this$0, this$0);
 	$init($Analyzer$AnalyzerMode);
@@ -121,31 +69,29 @@ void Analyzer$LambdaAnalyzer::init$($Analyzer* this$0) {
 }
 
 bool Analyzer$LambdaAnalyzer::match($JCTree$JCNewClass* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, clazztype, $nc($nc(tree)->clazz)->type);
 	$init($TypeTag);
 	bool var$1 = tree->def != nullptr && $nc(clazztype)->hasTag($TypeTag::CLASS);
 	bool var$0 = var$1 && $nc(this->this$0->types)->isFunctionalInterface(clazztype->tsym);
-	return var$0 && $nc($(decls(tree->def)))->length() == 1;
+	return var$0 && $$nc(decls(tree->def))->length() == 1;
 }
 
 $List* Analyzer$LambdaAnalyzer::decls($JCTree$JCClassDecl* decl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, decls, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc($nc(decl)->defs)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree, t, $cast($JCTree, i$->next()));
-			{
-				$init($JCTree$Tag);
-				if ($nc(t)->hasTag($JCTree$Tag::METHODDEF)) {
-					$var($JCTree$JCMethodDecl, md, $cast($JCTree$JCMethodDecl, t));
-					if (((int64_t)($nc($($cast($JCTree$JCModifiers, md->getModifiers())))->flags & (uint64_t)(int64_t)0x0000001000000000)) == 0) {
-						decls->add(md);
-					}
-				} else {
-					decls->add(t);
+			$init($JCTree$Tag);
+			if ($nc(t)->hasTag($JCTree$Tag::METHODDEF)) {
+				$var($JCTree$JCMethodDecl, md, $cast($JCTree$JCMethodDecl, t));
+				if (($nc($$cast($JCTree$JCModifiers, md->getModifiers()))->flags & (int64_t)0x0000001000000000) == 0) {
+					decls->add(md);
 				}
+			} else {
+				decls->add(t);
 			}
 		}
 	}
@@ -153,18 +99,18 @@ $List* Analyzer$LambdaAnalyzer::decls($JCTree$JCClassDecl* decl) {
 }
 
 $List* Analyzer$LambdaAnalyzer::rewrite($JCTree$JCNewClass* oldTree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCMethodDecl, md, $cast($JCTree$JCMethodDecl, $nc(this->this$0->copier)->copy($cast($JCTree, $nc($(decls($nc(oldTree)->def)))->head))));
 	$var($List, params, $nc(md)->params);
 	$var($JCTree$JCBlock, body, md->body);
-	$var($JCTree$JCLambda, newTree, $nc($($nc(this->this$0->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(oldTree))))->Lambda(params, body));
+	$var($JCTree$JCLambda, newTree, $$nc($nc(this->this$0->make)->at(oldTree))->Lambda(params, body));
 	return $List::of(newTree);
 }
 
 void Analyzer$LambdaAnalyzer::process($JCTree$JCNewClass* oldTree, $JCTree$JCLambda* newTree, bool hasErrors) {
 	if (!hasErrors) {
 		$init($CompilerProperties$Warnings);
-		$nc(this->this$0->log)->warning(static_cast<$JCDiagnostic$DiagnosticPosition*>($nc(oldTree)->def), $CompilerProperties$Warnings::PotentialLambdaFound);
+		$nc(this->this$0->log)->warning($nc(oldTree)->def, $CompilerProperties$Warnings::PotentialLambdaFound);
 	}
 }
 
@@ -184,7 +130,46 @@ Analyzer$LambdaAnalyzer::Analyzer$LambdaAnalyzer() {
 }
 
 $Class* Analyzer$LambdaAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$LambdaAnalyzer, name, initialize, &_Analyzer$LambdaAnalyzer_ClassInfo_, allocate$Analyzer$LambdaAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$LambdaAnalyzer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$LambdaAnalyzer, init$, void, $Analyzer*)},
+		{"decls", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(Analyzer$LambdaAnalyzer, decls, $List*, $JCTree$JCClassDecl*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0, $virtualMethod(Analyzer$LambdaAnalyzer, match, bool, $JCTree$JCNewClass*)},
+		{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, match, bool, $JCTree*)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Z)V", nullptr, 0, $virtualMethod(Analyzer$LambdaAnalyzer, process, void, $JCTree$JCNewClass*, $JCTree$JCLambda*, bool)},
+		{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;", 0, $virtualMethod(Analyzer$LambdaAnalyzer, rewrite, $List*, $JCTree$JCNewClass*)},
+		{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, rewrite, $List*, $JCTree*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$LambdaAnalyzer", "com.sun.tools.javac.comp.Analyzer", "LambdaAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer", "com.sun.tools.javac.comp.Analyzer", "StatementAnalyzer", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCNewClass", "com.sun.tools.javac.tree.JCTree", "JCNewClass", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCLambda", "com.sun.tools.javac.tree.JCTree", "JCLambda", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$LambdaAnalyzer",
+		"com.sun.tools.javac.comp.Analyzer$StatementAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$LambdaAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$LambdaAnalyzer);
+	});
 	return class$;
 }
 

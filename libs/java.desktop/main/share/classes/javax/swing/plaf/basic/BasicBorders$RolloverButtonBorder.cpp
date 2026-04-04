@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$RolloverButtonBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -25,49 +24,17 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicBorders$RolloverButtonBorder_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$RolloverButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RolloverButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$RolloverButtonBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$RolloverButtonBorder", "javax.swing.plaf.basic.BasicBorders", "RolloverButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$RolloverButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$RolloverButtonBorder",
-	"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
-	nullptr,
-	nullptr,
-	_BasicBorders$RolloverButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$RolloverButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$RolloverButtonBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$RolloverButtonBorder));
-}
-
 void BasicBorders$RolloverButtonBorder::init$($Color* shadow, $Color* darkShadow, $Color* highlight, $Color* lightHighlight) {
 	$BasicBorders$ButtonBorder::init$(shadow, darkShadow, highlight, lightHighlight);
 }
 
 void BasicBorders$RolloverButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($Color, shade, this->shadow);
 	$var($Component, p, b->getParent());
-	if (p != nullptr && $nc($(p->getBackground()))->equals(this->shadow)) {
+	if (p != nullptr && $$nc(p->getBackground())->equals(this->shadow)) {
 		$assign(shade, this->darkShadow);
 	}
 	bool var$1 = $nc(model)->isRollover();
@@ -75,8 +42,8 @@ void BasicBorders$RolloverButtonBorder::paintBorder($Component* c, $Graphics* g,
 		bool var$2 = model->isPressed();
 		var$1 = !(var$2 && !model->isArmed());
 	}
-	bool var$0 = (var$1);
-	if (var$0 || $nc(model)->isSelected()) {
+	bool var$0 = var$1;
+	if (var$0 || model->isSelected()) {
 		$var($Color, oldColor, $nc(g)->getColor());
 		g->translate(x, y);
 		bool var$4 = model->isPressed();
@@ -103,7 +70,34 @@ BasicBorders$RolloverButtonBorder::BasicBorders$RolloverButtonBorder() {
 }
 
 $Class* BasicBorders$RolloverButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$RolloverButtonBorder, name, initialize, &_BasicBorders$RolloverButtonBorder_ClassInfo_, allocate$BasicBorders$RolloverButtonBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$RolloverButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$RolloverButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$RolloverButtonBorder", "javax.swing.plaf.basic.BasicBorders", "RolloverButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$RolloverButtonBorder",
+		"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$RolloverButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$RolloverButtonBorder));
+	});
 	return class$;
 }
 

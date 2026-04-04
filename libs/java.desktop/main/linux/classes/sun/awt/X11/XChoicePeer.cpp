@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XChoicePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -13,7 +12,6 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
-#include <java/awt/ItemSelectable.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
@@ -30,9 +28,7 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/X11/ListHelper.h>
-#include <sun/awt/X11/ToplevelStateListener.h>
 #include <sun/awt/X11/XChoicePeer$1.h>
 #include <sun/awt/X11/XChoicePeer$2.h>
 #include <sun/awt/X11/XChoicePeer$UnfurledChoice.h>
@@ -88,7 +84,6 @@ using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
-using $ItemSelectable = ::java::awt::ItemSelectable;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -109,9 +104,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $ListHelper = ::sun::awt::X11::ListHelper;
-using $ToplevelStateListener = ::sun::awt::X11::ToplevelStateListener;
 using $XChoicePeer$1 = ::sun::awt::X11::XChoicePeer$1;
 using $XChoicePeer$2 = ::sun::awt::X11::XChoicePeer$2;
 using $XChoicePeer$UnfurledChoice = ::sun::awt::X11::XChoicePeer$UnfurledChoice;
@@ -120,141 +113,12 @@ using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XHorizontalScrollbar = ::sun::awt::X11::XHorizontalScrollbar;
 using $XWindow = ::sun::awt::X11::XWindow;
-using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $Region = ::sun::java2d::pipe::Region;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XChoicePeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XChoicePeer, log)},
-	{"MAX_UNFURLED_ITEMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XChoicePeer, MAX_UNFURLED_ITEMS)},
-	{"TEXT_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, TEXT_SPACE)},
-	{"BORDER_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, BORDER_WIDTH)},
-	{"ITEM_MARGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, ITEM_MARGIN)},
-	{"SCROLLBAR_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, SCROLLBAR_WIDTH)},
-	{"focusInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XChoicePeer, focusInsets)},
-	{"WIDGET_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(XChoicePeer, WIDGET_OFFSET)},
-	{"TEXT_XPAD", "I", nullptr, $STATIC | $FINAL, $constField(XChoicePeer, TEXT_XPAD)},
-	{"TEXT_YPAD", "I", nullptr, $STATIC | $FINAL, $constField(XChoicePeer, TEXT_YPAD)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(XChoicePeer, focusColor)},
-	{"unfurled", "Z", nullptr, $PRIVATE, $field(XChoicePeer, unfurled)},
-	{"dragging", "Z", nullptr, $PRIVATE, $field(XChoicePeer, dragging)},
-	{"mouseInSB", "Z", nullptr, $PRIVATE, $field(XChoicePeer, mouseInSB)},
-	{"firstPress", "Z", nullptr, $PRIVATE, $field(XChoicePeer, firstPress)},
-	{"wasDragged", "Z", nullptr, $PRIVATE, $field(XChoicePeer, wasDragged)},
-	{"helper", "Lsun/awt/X11/ListHelper;", nullptr, $PRIVATE, $field(XChoicePeer, helper)},
-	{"unfurledChoice", "Lsun/awt/X11/XChoicePeer$UnfurledChoice;", nullptr, $PRIVATE, $field(XChoicePeer, unfurledChoice)},
-	{"drawSelectedItem", "Z", nullptr, $PRIVATE, $field(XChoicePeer, drawSelectedItem)},
-	{"alignUnder", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(XChoicePeer, alignUnder)},
-	{"dragStartIdx", "I", nullptr, $PRIVATE, $field(XChoicePeer, dragStartIdx)},
-	{"choiceListener", "Lsun/awt/X11/XChoicePeerListener;", nullptr, $PRIVATE, $field(XChoicePeer, choiceListener)},
-	{}
-};
-
-$MethodInfo _XChoicePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Choice;)V", nullptr, 0, $method(XChoicePeer, init$, void, $Choice*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, add, void, $String*, int32_t)},
-	{"addXChoicePeerListener", "(Lsun/awt/X11/XChoicePeerListener;)V", nullptr, $PUBLIC, $method(XChoicePeer, addXChoicePeerListener, void, $XChoicePeerListener*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, dispose, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, focusLost, void, $FocusEvent*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, getMinimumSize, $Dimension*)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XChoicePeer, handleJavaKeyEvent, void, $KeyEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XChoicePeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"handleJavaMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(XChoicePeer, handleJavaMouseWheelEvent, void, $MouseWheelEvent*)},
-	{"handleMouseEventByChoice", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $method(XChoicePeer, handleMouseEventByChoice, bool, $MouseEvent*)},
-	{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, handlesWheelScrolling, bool)},
-	{"hidePopdownMenu", "()V", nullptr, 0, $method(XChoicePeer, hidePopdownMenu, void)},
-	{"initGraphicsConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(XChoicePeer, initGraphicsConfiguration, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, isFocusable, bool)},
-	{"isMouseEventInChoice", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(XChoicePeer, isMouseEventInChoice, bool, $MouseEvent*)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isUnfurled", "()Z", nullptr, $PUBLIC, $method(XChoicePeer, isUnfurled, bool)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, keyPressed, void, $KeyEvent*)},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, layout, void)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, mouseDragged, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, mouseReleased, void, $MouseEvent*)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintFocus", "(Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $method(XChoicePeer, paintFocus, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XChoicePeer, paintPeer, void, $Graphics*)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XChoicePeer, postInit, void, $XCreateWindowParams*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XChoicePeer, preInit, void, $XCreateWindowParams*)},
-	{"prePostEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(XChoicePeer, prePostEvent, bool, $AWTEvent*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, removeAll, void)},
-	{"removeXChoicePeerListener", "()V", nullptr, $PUBLIC, $method(XChoicePeer, removeXChoicePeerListener, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, select, void, int32_t)},
-	{"setAlignUnder", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(XChoicePeer, setAlignUnder, void, $Component*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setDrawSelectedItem", "(Z)V", nullptr, $PUBLIC, $method(XChoicePeer, setDrawSelectedItem, void, bool)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setForeground, void, $Color*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"stateChangedICCCM", "(II)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, stateChangedICCCM, void, int32_t, int32_t)},
-	{"stateChangedJava", "(II)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, stateChangedJava, void, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrabInputImpl", "()V", nullptr, 0, $virtualMethod(XChoicePeer, ungrabInputImpl, void)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XChoicePeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XChoicePeer$UnfurledChoice", "sun.awt.X11.XChoicePeer", "UnfurledChoice", $FINAL},
-	{"sun.awt.X11.XChoicePeer$2", nullptr, nullptr, 0},
-	{"sun.awt.X11.XChoicePeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XChoicePeer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11.XChoicePeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.ChoicePeer,sun.awt.X11.ToplevelStateListener",
-	_XChoicePeer_FieldInfo_,
-	_XChoicePeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XChoicePeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XChoicePeer$UnfurledChoice,sun.awt.X11.XChoicePeer$2,sun.awt.X11.XChoicePeer$1"
-};
-
-$Object* allocate$XChoicePeer($Class* clazz) {
-	return $of($alloc(XChoicePeer));
-}
 
 void XChoicePeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -385,7 +249,7 @@ $Insets* XChoicePeer::focusInsets = nullptr;
 $Color* XChoicePeer::focusColor = nullptr;
 
 void XChoicePeer::init$($Choice* target) {
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$XComponentPeer::init$(target);
 	this->unfurled = false;
 	this->dragging = false;
 	this->mouseInSB = false;
@@ -396,20 +260,19 @@ void XChoicePeer::init$($Choice* target) {
 }
 
 void XChoicePeer::preInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XComponentPeer::preInit(params);
 	$var($Choice, target, $cast($Choice, this->target));
 	int32_t numItems = $nc(target)->getItemCount();
 	$set(this, unfurledChoice, $new($XChoicePeer$UnfurledChoice, this, target));
-	$nc($(getToplevelXWindow()))->addToplevelStateListener(this);
-	$var($XWindow, var$0, static_cast<$XWindow*>(this->unfurledChoice));
+	$$nc(getToplevelXWindow())->addToplevelStateListener(this);
+	$var($XWindow, var$0, this->unfurledChoice);
 	$var($ColorArray, var$1, getGUIcolors());
-	int32_t var$2 = numItems;
-	$set(this, helper, $new($ListHelper, var$0, var$1, var$2, false, true, false, $(target->getFont()), XChoicePeer::MAX_UNFURLED_ITEMS, XChoicePeer::TEXT_SPACE, XChoicePeer::ITEM_MARGIN, XChoicePeer::BORDER_WIDTH, XChoicePeer::SCROLLBAR_WIDTH));
+	$set(this, helper, $new($ListHelper, var$0, var$1, numItems, false, true, false, $(target->getFont()), XChoicePeer::MAX_UNFURLED_ITEMS, XChoicePeer::TEXT_SPACE, XChoicePeer::ITEM_MARGIN, XChoicePeer::BORDER_WIDTH, XChoicePeer::SCROLLBAR_WIDTH));
 }
 
 void XChoicePeer::postInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XComponentPeer::postInit(params);
 	$var($Choice, target, $cast($Choice, this->target));
 	int32_t numItems = $nc(target)->getItemCount();
@@ -474,103 +337,88 @@ void XChoicePeer::handleJavaKeyEvent($KeyEvent* e) {
 }
 
 void XChoicePeer::keyPressed($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(e)->getKeyCode()) {
 	case $KeyEvent::VK_DOWN:
-		{}
 	case $KeyEvent::VK_KP_DOWN:
 		{
-			{
-				if ($nc(this->helper)->getItemCount() > 1) {
-					$nc(this->helper)->down();
-					int32_t newIdx = $nc(this->helper)->getSelectedIndex();
-					if ($nc(($cast($Choice, this->target)))->getSelectedIndex() != newIdx) {
-						$nc(($cast($Choice, this->target)))->select(newIdx);
-						postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc(($cast($Choice, this->target)))->getItem(newIdx)), $ItemEvent::SELECTED));
-						repaint();
-					}
+			if ($nc(this->helper)->getItemCount() > 1) {
+				$nc(this->helper)->down();
+				int32_t newIdx = $nc(this->helper)->getSelectedIndex();
+				if ($nc($cast($Choice, this->target))->getSelectedIndex() != newIdx) {
+					$nc($cast($Choice, this->target))->select(newIdx);
+					postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc($cast($Choice, this->target))->getItem(newIdx)), $ItemEvent::SELECTED));
+					repaint();
 				}
-				break;
 			}
+			break;
 		}
 	case $KeyEvent::VK_UP:
-		{}
 	case $KeyEvent::VK_KP_UP:
 		{
-			{
-				if ($nc(this->helper)->getItemCount() > 1) {
-					$nc(this->helper)->up();
-					int32_t newIdx = $nc(this->helper)->getSelectedIndex();
-					if ($nc(($cast($Choice, this->target)))->getSelectedIndex() != newIdx) {
-						$nc(($cast($Choice, this->target)))->select(newIdx);
-						postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc(($cast($Choice, this->target)))->getItem(newIdx)), $ItemEvent::SELECTED));
-						repaint();
-					}
+			if ($nc(this->helper)->getItemCount() > 1) {
+				$nc(this->helper)->up();
+				int32_t newIdx = $nc(this->helper)->getSelectedIndex();
+				if ($nc($cast($Choice, this->target))->getSelectedIndex() != newIdx) {
+					$nc($cast($Choice, this->target))->select(newIdx);
+					postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc($cast($Choice, this->target))->getItem(newIdx)), $ItemEvent::SELECTED));
+					repaint();
 				}
-				break;
 			}
+			break;
 		}
 	case $KeyEvent::VK_PAGE_DOWN:
-		{
-			if (this->unfurled && !this->dragging) {
-				int32_t oldIdx = $nc(this->helper)->getSelectedIndex();
-				$nc(this->helper)->pageDown();
-				int32_t newIdx = $nc(this->helper)->getSelectedIndex();
-				if (oldIdx != newIdx) {
-					$nc(($cast($Choice, this->target)))->select(newIdx);
-					postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc(($cast($Choice, this->target)))->getItem(newIdx)), $ItemEvent::SELECTED));
-					repaint();
-				}
+		if (this->unfurled && !this->dragging) {
+			int32_t oldIdx = $nc(this->helper)->getSelectedIndex();
+			$nc(this->helper)->pageDown();
+			int32_t newIdx = $nc(this->helper)->getSelectedIndex();
+			if (oldIdx != newIdx) {
+				$nc($cast($Choice, this->target))->select(newIdx);
+				postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc($cast($Choice, this->target))->getItem(newIdx)), $ItemEvent::SELECTED));
+				repaint();
 			}
-			break;
 		}
+		break;
 	case $KeyEvent::VK_PAGE_UP:
-		{
-			if (this->unfurled && !this->dragging) {
-				int32_t oldIdx = $nc(this->helper)->getSelectedIndex();
-				$nc(this->helper)->pageUp();
-				int32_t newIdx = $nc(this->helper)->getSelectedIndex();
-				if (oldIdx != newIdx) {
-					$nc(($cast($Choice, this->target)))->select(newIdx);
-					postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc(($cast($Choice, this->target)))->getItem(newIdx)), $ItemEvent::SELECTED));
-					repaint();
-				}
+		if (this->unfurled && !this->dragging) {
+			int32_t oldIdx = $nc(this->helper)->getSelectedIndex();
+			$nc(this->helper)->pageUp();
+			int32_t newIdx = $nc(this->helper)->getSelectedIndex();
+			if (oldIdx != newIdx) {
+				$nc($cast($Choice, this->target))->select(newIdx);
+				postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc($cast($Choice, this->target))->getItem(newIdx)), $ItemEvent::SELECTED));
+				repaint();
 			}
-			break;
 		}
+		break;
 	case $KeyEvent::VK_ESCAPE:
-		{}
 	case $KeyEvent::VK_ENTER:
-		{
-			if (this->unfurled) {
-				if (this->dragging) {
-					if (e->getKeyCode() == $KeyEvent::VK_ESCAPE) {
-						$nc(this->helper)->select(this->dragStartIdx);
-					} else {
-						int32_t newIdx = $nc(this->helper)->getSelectedIndex();
-						if (newIdx != ($nc(($cast($Choice, this->target)))->getSelectedIndex())) {
-							$nc(($cast($Choice, this->target)))->select(newIdx);
-							postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc(($cast($Choice, this->target)))->getItem(newIdx)), $ItemEvent::SELECTED));
-						}
+		if (this->unfurled) {
+			if (this->dragging) {
+				if (e->getKeyCode() == $KeyEvent::VK_ESCAPE) {
+					$nc(this->helper)->select(this->dragStartIdx);
+				} else {
+					int32_t newIdx = $nc(this->helper)->getSelectedIndex();
+					if (newIdx != ($nc($cast($Choice, this->target))->getSelectedIndex())) {
+						$nc($cast($Choice, this->target))->select(newIdx);
+						postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc($cast($Choice, this->target))->getItem(newIdx)), $ItemEvent::SELECTED));
 					}
 				}
-				hidePopdownMenu();
-				this->dragging = false;
-				this->wasDragged = false;
-				this->mouseInSB = false;
-				if (this->choiceListener != nullptr) {
-					$nc(this->choiceListener)->unfurledChoiceClosing();
-				}
 			}
-			break;
+			hidePopdownMenu();
+			this->dragging = false;
+			this->wasDragged = false;
+			this->mouseInSB = false;
+			if (this->choiceListener != nullptr) {
+				this->choiceListener->unfurledChoiceClosing();
+			}
 		}
+		break;
 	default:
-		{
-			if (this->unfurled) {
-				$nc($($Toolkit::getDefaultToolkit()))->beep();
-			}
-			break;
+		if (this->unfurled) {
+			$$nc($Toolkit::getDefaultToolkit())->beep();
 		}
+		break;
 	}
 }
 
@@ -591,20 +439,14 @@ void XChoicePeer::handleJavaMouseEvent($MouseEvent* e) {
 	int32_t i = $nc(e)->getID();
 	switch (i) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{
-			mousePressed(e);
-			break;
-		}
+		mousePressed(e);
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			mouseReleased(e);
-			break;
-		}
+		mouseReleased(e);
+		break;
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			mouseDragged(e);
-			break;
-		}
+		mouseDragged(e);
+		break;
 	}
 }
 
@@ -634,7 +476,7 @@ void XChoicePeer::hidePopdownMenu() {
 }
 
 void XChoicePeer::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->unfurled) {
 		if (this->mouseInSB) {
 			$nc(this->unfurledChoice)->trackMouse(e);
@@ -642,7 +484,7 @@ void XChoicePeer::mouseReleased($MouseEvent* e) {
 			bool isMouseEventInside = $nc(this->unfurledChoice)->isMouseEventInside(e);
 			bool isMouseInListArea = $nc(this->unfurledChoice)->isMouseInListArea(e);
 			if (!$nc(this->helper)->isEmpty() && !isMouseInListArea && this->dragging) {
-				$nc(($cast($Choice, this->target)))->select(this->dragStartIdx);
+				$nc($cast($Choice, this->target))->select(this->dragStartIdx);
 			}
 			if (!this->firstPress && isMouseInListArea) {
 				hidePopdownMenu();
@@ -660,19 +502,19 @@ void XChoicePeer::mouseReleased($MouseEvent* e) {
 				if ($nc(this->unfurledChoice)->isMouseInListArea(e)) {
 					int32_t newIdx = $nc(this->helper)->getSelectedIndex();
 					if (newIdx >= 0) {
-						int32_t currentItem = $nc(($cast($Choice, this->target)))->getSelectedIndex();
+						int32_t currentItem = $nc($cast($Choice, this->target))->getSelectedIndex();
 						if (newIdx != this->dragStartIdx) {
-							$nc(($cast($Choice, this->target)))->select(newIdx);
+							$nc($cast($Choice, this->target))->select(newIdx);
 						}
 						if (this->wasDragged && $nc(e)->getButton() != $MouseEvent::BUTTON1) {
-							$nc(($cast($Choice, this->target)))->select(this->dragStartIdx);
+							$nc($cast($Choice, this->target))->select(this->dragStartIdx);
 						}
 						if ($nc(e)->getButton() == $MouseEvent::BUTTON1 && (!this->firstPress || this->wasDragged) && (newIdx != currentItem)) {
-							$nc(($cast($Choice, this->target)))->select(newIdx);
-							postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc(($cast($Choice, this->target)))->getItem(newIdx)), $ItemEvent::SELECTED));
+							$nc($cast($Choice, this->target))->select(newIdx);
+							postEvent($$new($ItemEvent, $cast($Choice, this->target), $ItemEvent::ITEM_STATE_CHANGED, $($nc($cast($Choice, this->target))->getItem(newIdx)), $ItemEvent::SELECTED));
 						}
 						if (this->choiceListener != nullptr) {
-							$nc(this->choiceListener)->unfurledChoiceClosing();
+							this->choiceListener->unfurledChoiceClosing();
 						}
 					}
 				}
@@ -695,7 +537,7 @@ void XChoicePeer::mouseDragged($MouseEvent* e) {
 }
 
 $Dimension* XChoicePeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontMetrics, fm, getFontMetrics($($nc(this->target)->getFont())));
 	$var($Choice, c, $cast($Choice, this->target));
 	int32_t w = 0;
@@ -710,7 +552,7 @@ void XChoicePeer::layout() {
 }
 
 void XChoicePeer::paintPeer($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	flush();
 	$var($Dimension, size, getPeerSize());
 	$nc(g)->setColor($(getPeerBackground()));
@@ -718,7 +560,7 @@ void XChoicePeer::paintPeer($Graphics* g) {
 	drawMotif3DRect(g, 1, 1, this->width - 2, this->height - 2, false);
 	drawMotif3DRect(g, this->width - XChoicePeer::WIDGET_OFFSET, (this->height / 2) - 3, 12, 6, false);
 	bool var$0 = !$nc(this->helper)->isEmpty();
-	if (var$0 && $nc(this->helper)->getSelectedIndex() != -1) {
+	if (var$0 && this->helper->getSelectedIndex() != -1) {
 		g->setFont($(getPeerFont()));
 		$var($FontMetrics, fm, g->getFontMetrics());
 		$var($String, lbl, $nc(this->helper)->getItem($nc(this->helper)->getSelectedIndex()));
@@ -729,18 +571,18 @@ void XChoicePeer::paintPeer($Graphics* g) {
 				int32_t var$1 = this->height + $nc(fm)->getMaxAscent();
 				g->drawString(lbl, 5, (var$1 - fm->getMaxDescent()) / 2);
 			} else {
-				g->setColor($($nc($(getPeerBackground()))->brighter()));
+				g->setColor($($$nc(getPeerBackground())->brighter()));
 				int32_t var$2 = this->height + $nc(fm)->getMaxAscent();
 				g->drawString(lbl, 5, (var$2 - fm->getMaxDescent()) / 2);
-				g->setColor($($nc($(getPeerBackground()))->darker()));
-				int32_t var$3 = this->height + $nc(fm)->getMaxAscent();
+				g->setColor($($$nc(getPeerBackground())->darker()));
+				int32_t var$3 = this->height + fm->getMaxAscent();
 				g->drawString(lbl, 4, ((var$3 - fm->getMaxDescent()) / 2) - 1);
 			}
 			g->setClip(0, 0, this->width, this->height);
 		}
 	}
 	if (hasFocus()) {
-		paintFocus(g, $nc(XChoicePeer::focusInsets)->left, $nc(XChoicePeer::focusInsets)->top, $nc(size)->width - ($nc(XChoicePeer::focusInsets)->left + $nc(XChoicePeer::focusInsets)->right) - 1, size->height - ($nc(XChoicePeer::focusInsets)->top + $nc(XChoicePeer::focusInsets)->bottom) - 1);
+		paintFocus(g, XChoicePeer::focusInsets->left, XChoicePeer::focusInsets->top, $nc(size)->width - (XChoicePeer::focusInsets->left + XChoicePeer::focusInsets->right) - 1, $nc(size)->height - (XChoicePeer::focusInsets->top + XChoicePeer::focusInsets->bottom) - 1);
 	}
 	if (this->unfurled) {
 		$nc(this->unfurledChoice)->repaint();
@@ -767,7 +609,7 @@ void XChoicePeer::add($String* item, int32_t index) {
 void XChoicePeer::remove(int32_t index) {
 	bool selected = (index == $nc(this->helper)->getSelectedIndex());
 	bool var$0 = index >= $nc(this->helper)->firstDisplayedIndex();
-	bool visibled = (var$0 && index <= $nc(this->helper)->lastDisplayedIndex());
+	bool visibled = (var$0 && index <= this->helper->lastDisplayedIndex());
 	$nc(this->helper)->remove(index);
 	if (selected) {
 		if ($nc(this->helper)->isEmpty()) {
@@ -784,7 +626,7 @@ void XChoicePeer::remove(int32_t index) {
 	}
 	if (visibled) {
 		$var($Rectangle, r, $nc(this->unfurledChoice)->placeOnScreen());
-		$nc(this->unfurledChoice)->reshape($nc(r)->x, r->y, r->width, r->height);
+		$nc(this->unfurledChoice)->reshape($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 		return;
 	}
 	if (visibled || selected) {
@@ -796,7 +638,7 @@ void XChoicePeer::removeAll() {
 	$nc(this->helper)->removeAll();
 	$nc(this->helper)->select(-1);
 	$var($Rectangle, r, $nc(this->unfurledChoice)->placeOnScreen());
-	$nc(this->unfurledChoice)->reshape($nc(r)->x, r->y, r->width, r->height);
+	$nc(this->unfurledChoice)->reshape($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	repaint();
 }
 
@@ -852,20 +694,20 @@ void XChoicePeer::stateChangedJava(int32_t oldState, int32_t newState) {
 void XChoicePeer::initGraphicsConfiguration() {
 	$XComponentPeer::initGraphicsConfiguration();
 	if (this->unfurledChoice != nullptr) {
-		$nc(this->unfurledChoice)->initGraphicsConfiguration();
+		this->unfurledChoice->initGraphicsConfiguration();
 		$nc(this->unfurledChoice)->doValidateSurface();
 	}
 }
 
 void XChoicePeer::dispose() {
 	if (this->unfurledChoice != nullptr) {
-		$nc(this->unfurledChoice)->destroy();
+		this->unfurledChoice->destroy();
 	}
 	$XComponentPeer::dispose();
 }
 
 bool XChoicePeer::prePostEvent($AWTEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->unfurled) {
 		if ($instanceOf($MouseWheelEvent, e)) {
 			return $XComponentPeer::prePostEvent(e);
@@ -876,7 +718,7 @@ bool XChoicePeer::prePostEvent($AWTEvent* e) {
 			return true;
 		} else if ($instanceOf($MouseEvent, e)) {
 			$var($MouseEvent, me, $cast($MouseEvent, e));
-			int32_t eventId = $nc(e)->getID();
+			int32_t eventId = e->getID();
 			if ($nc(this->unfurledChoice)->isMouseEventInside(me) || (!this->firstPress && eventId == $MouseEvent::MOUSE_DRAGGED)) {
 				return handleMouseEventByChoice(me);
 			}
@@ -897,7 +739,7 @@ bool XChoicePeer::prePostEvent($AWTEvent* e) {
 }
 
 bool XChoicePeer::handleMouseEventByChoice($MouseEvent* me) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InvocationEvent, ev, $new($InvocationEvent, this->target, $$new($XChoicePeer$2, this, me)));
 	postEvent(ev);
 	return true;
@@ -913,7 +755,7 @@ bool XChoicePeer::isMouseEventInChoice($MouseEvent* e) {
 	return true;
 }
 
-void clinit$XChoicePeer($Class* class$) {
+void XChoicePeer::clinit$($Class* clazz) {
 	$assignStatic(XChoicePeer::log, $PlatformLogger::getLogger("sun.awt.X11.XChoicePeer"_s));
 	$assignStatic(XChoicePeer::focusInsets, $new($Insets, 0, 0, 0, 0));
 	$init($Color);
@@ -924,7 +766,129 @@ XChoicePeer::XChoicePeer() {
 }
 
 $Class* XChoicePeer::load$($String* name, bool initialize) {
-	$loadClass(XChoicePeer, name, initialize, &_XChoicePeer_ClassInfo_, clinit$XChoicePeer, allocate$XChoicePeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XChoicePeer, log)},
+		{"MAX_UNFURLED_ITEMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XChoicePeer, MAX_UNFURLED_ITEMS)},
+		{"TEXT_SPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, TEXT_SPACE)},
+		{"BORDER_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, BORDER_WIDTH)},
+		{"ITEM_MARGIN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, ITEM_MARGIN)},
+		{"SCROLLBAR_WIDTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XChoicePeer, SCROLLBAR_WIDTH)},
+		{"focusInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XChoicePeer, focusInsets)},
+		{"WIDGET_OFFSET", "I", nullptr, $STATIC | $FINAL, $constField(XChoicePeer, WIDGET_OFFSET)},
+		{"TEXT_XPAD", "I", nullptr, $STATIC | $FINAL, $constField(XChoicePeer, TEXT_XPAD)},
+		{"TEXT_YPAD", "I", nullptr, $STATIC | $FINAL, $constField(XChoicePeer, TEXT_YPAD)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(XChoicePeer, focusColor)},
+		{"unfurled", "Z", nullptr, $PRIVATE, $field(XChoicePeer, unfurled)},
+		{"dragging", "Z", nullptr, $PRIVATE, $field(XChoicePeer, dragging)},
+		{"mouseInSB", "Z", nullptr, $PRIVATE, $field(XChoicePeer, mouseInSB)},
+		{"firstPress", "Z", nullptr, $PRIVATE, $field(XChoicePeer, firstPress)},
+		{"wasDragged", "Z", nullptr, $PRIVATE, $field(XChoicePeer, wasDragged)},
+		{"helper", "Lsun/awt/X11/ListHelper;", nullptr, $PRIVATE, $field(XChoicePeer, helper)},
+		{"unfurledChoice", "Lsun/awt/X11/XChoicePeer$UnfurledChoice;", nullptr, $PRIVATE, $field(XChoicePeer, unfurledChoice)},
+		{"drawSelectedItem", "Z", nullptr, $PRIVATE, $field(XChoicePeer, drawSelectedItem)},
+		{"alignUnder", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(XChoicePeer, alignUnder)},
+		{"dragStartIdx", "I", nullptr, $PRIVATE, $field(XChoicePeer, dragStartIdx)},
+		{"choiceListener", "Lsun/awt/X11/XChoicePeerListener;", nullptr, $PRIVATE, $field(XChoicePeer, choiceListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Choice;)V", nullptr, 0, $method(XChoicePeer, init$, void, $Choice*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, add, void, $String*, int32_t)},
+		{"addXChoicePeerListener", "(Lsun/awt/X11/XChoicePeerListener;)V", nullptr, $PUBLIC, $method(XChoicePeer, addXChoicePeerListener, void, $XChoicePeerListener*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, dispose, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, focusLost, void, $FocusEvent*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, getMinimumSize, $Dimension*)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XChoicePeer, handleJavaKeyEvent, void, $KeyEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(XChoicePeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"handleJavaMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(XChoicePeer, handleJavaMouseWheelEvent, void, $MouseWheelEvent*)},
+		{"handleMouseEventByChoice", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $method(XChoicePeer, handleMouseEventByChoice, bool, $MouseEvent*)},
+		{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, handlesWheelScrolling, bool)},
+		{"hidePopdownMenu", "()V", nullptr, 0, $method(XChoicePeer, hidePopdownMenu, void)},
+		{"initGraphicsConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(XChoicePeer, initGraphicsConfiguration, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, isFocusable, bool)},
+		{"isMouseEventInChoice", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(XChoicePeer, isMouseEventInChoice, bool, $MouseEvent*)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isUnfurled", "()Z", nullptr, $PUBLIC, $method(XChoicePeer, isUnfurled, bool)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, keyPressed, void, $KeyEvent*)},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, layout, void)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, mouseDragged, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $method(XChoicePeer, mouseReleased, void, $MouseEvent*)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintFocus", "(Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $method(XChoicePeer, paintFocus, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XChoicePeer, paintPeer, void, $Graphics*)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XChoicePeer, postInit, void, $XCreateWindowParams*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XChoicePeer, preInit, void, $XCreateWindowParams*)},
+		{"prePostEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(XChoicePeer, prePostEvent, bool, $AWTEvent*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, removeAll, void)},
+		{"removeXChoicePeerListener", "()V", nullptr, $PUBLIC, $method(XChoicePeer, removeXChoicePeerListener, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, select, void, int32_t)},
+		{"setAlignUnder", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(XChoicePeer, setAlignUnder, void, $Component*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setDrawSelectedItem", "(Z)V", nullptr, $PUBLIC, $method(XChoicePeer, setDrawSelectedItem, void, bool)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, setForeground, void, $Color*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"stateChangedICCCM", "(II)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, stateChangedICCCM, void, int32_t, int32_t)},
+		{"stateChangedJava", "(II)V", nullptr, $PUBLIC, $virtualMethod(XChoicePeer, stateChangedJava, void, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrabInputImpl", "()V", nullptr, 0, $virtualMethod(XChoicePeer, ungrabInputImpl, void)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XChoicePeer$UnfurledChoice", "sun.awt.X11.XChoicePeer", "UnfurledChoice", $FINAL},
+		{"sun.awt.X11.XChoicePeer$2", nullptr, nullptr, 0},
+		{"sun.awt.X11.XChoicePeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11.XChoicePeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.ChoicePeer,sun.awt.X11.ToplevelStateListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XChoicePeer$UnfurledChoice,sun.awt.X11.XChoicePeer$2,sun.awt.X11.XChoicePeer$1"
+	};
+	$loadClass(XChoicePeer, name, initialize, &classInfo$$, XChoicePeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XChoicePeer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/beans/introspect/MethodInfo.h>
-
 #include <com/sun/beans/TypeResolver.h>
 #include <com/sun/beans/finder/MethodFinder.h>
 #include <com/sun/beans/introspect/MethodInfo$MethodOrder.h>
@@ -9,7 +8,6 @@
 #include <java/lang/reflect/Type.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
-#include <java/util/Comparator.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -27,52 +25,12 @@ using $Modifier = ::java::lang::reflect::Modifier;
 using $Type = ::java::lang::reflect::Type;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
 		namespace beans {
 			namespace introspect {
-
-$FieldInfo _MethodInfo_FieldInfo_[] = {
-	{"method", "Ljava/lang/reflect/Method;", nullptr, $FINAL, $field(MethodInfo, method)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(MethodInfo, type)},
-	{}
-};
-
-$MethodInfo _MethodInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/Class;)V", "(Ljava/lang/reflect/Method;Ljava/lang/Class<*>;)V", 0, $method(MethodInfo, init$, void, $Method*, $Class*)},
-	{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)V", nullptr, 0, $method(MethodInfo, init$, void, $Method*, $Type*)},
-	{"get", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $staticMethod(MethodInfo, get, $List*, $Class*)},
-	{"isThrow", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", 0, $method(MethodInfo, isThrow, bool, $Class*)},
-	{"resolve", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/lang/Class;", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(MethodInfo, resolve, $Class*, $Method*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _MethodInfo_InnerClassesInfo_[] = {
-	{"com.sun.beans.introspect.MethodInfo$MethodOrder", "com.sun.beans.introspect.MethodInfo", "MethodOrder", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MethodInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.introspect.MethodInfo",
-	"java.lang.Object",
-	nullptr,
-	_MethodInfo_FieldInfo_,
-	_MethodInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.beans.introspect.MethodInfo$MethodOrder"
-};
-
-$Object* allocate$MethodInfo($Class* clazz) {
-	return $of($alloc(MethodInfo));
-}
 
 void MethodInfo::init$($Method* method, $Class* type) {
 	$set(this, method, method);
@@ -85,17 +43,11 @@ void MethodInfo::init$($Method* method, $Type* type) {
 }
 
 bool MethodInfo::isThrow($Class* exception) {
-	{
-		$var($ClassArray, arr$, $nc(this->method)->getExceptionTypes());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$Class* type = arr$->get(i$);
-			{
-				if (type == exception) {
-					return true;
-				}
-			}
+	$var($ClassArray, arr$, $nc(this->method)->getExceptionTypes());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$Class* type = arr$->get(i$);
+		if (type == exception) {
+			return true;
 		}
 	}
 	return false;
@@ -106,35 +58,31 @@ $Class* MethodInfo::resolve($Method* method, $Type* type) {
 }
 
 $List* MethodInfo::get($Class* type) {
+	$useLocalObjectStack();
 	$load(MethodInfo);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, list, nullptr);
 	if (type != nullptr) {
 		bool inaccessible = !$Modifier::isPublic(type->getModifiers());
 		{
 			$var($MethodArray, arr$, type->getMethods());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Method, method, arr$->get(i$));
-				{
-					if ($nc($of($nc(method)->getDeclaringClass()))->equals(type)) {
-						if (inaccessible) {
-							try {
-								$assign(method, $MethodFinder::findAccessibleMethod(method));
-								if (!$nc($nc(method)->getDeclaringClass())->isInterface()) {
-									$assign(method, nullptr);
-								}
-							} catch ($NoSuchMethodException& exception) {
+				if ($nc($nc(method)->getDeclaringClass())->equals(type)) {
+					if (inaccessible) {
+						try {
+							$assign(method, $MethodFinder::findAccessibleMethod(method));
+							if (!$nc($nc(method)->getDeclaringClass())->isInterface()) {
+								$assign(method, nullptr);
 							}
+						} catch ($NoSuchMethodException& exception) {
 						}
-						if (method != nullptr) {
-							if (list == nullptr) {
-								$assign(list, $new($ArrayList));
-							}
-							$nc(list)->add(method);
+					}
+					if (method != nullptr) {
+						if (list == nullptr) {
+							$assign(list, $new($ArrayList));
 						}
+						$nc(list)->add(method);
 					}
 				}
 			}
@@ -152,7 +100,40 @@ MethodInfo::MethodInfo() {
 }
 
 $Class* MethodInfo::load$($String* name, bool initialize) {
-	$loadClass(MethodInfo, name, initialize, &_MethodInfo_ClassInfo_, allocate$MethodInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"method", "Ljava/lang/reflect/Method;", nullptr, $FINAL, $field(MethodInfo, method)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(MethodInfo, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/Class;)V", "(Ljava/lang/reflect/Method;Ljava/lang/Class<*>;)V", 0, $method(MethodInfo, init$, void, $Method*, $Class*)},
+		{"<init>", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)V", nullptr, 0, $method(MethodInfo, init$, void, $Method*, $Type*)},
+		{"get", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $staticMethod(MethodInfo, get, $List*, $Class*)},
+		{"isThrow", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", 0, $method(MethodInfo, isThrow, bool, $Class*)},
+		{"resolve", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/lang/Class;", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(MethodInfo, resolve, $Class*, $Method*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.introspect.MethodInfo$MethodOrder", "com.sun.beans.introspect.MethodInfo", "MethodOrder", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.introspect.MethodInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.beans.introspect.MethodInfo$MethodOrder"
+	};
+	$loadClass(MethodInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodInfo);
+	});
 	return class$;
 }
 

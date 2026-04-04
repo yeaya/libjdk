@@ -1,5 +1,4 @@
 #include <PrintManualTest_FitWidthMultiple$1.h>
-
 #include <PrintManualTest_FitWidthMultiple$1$1.h>
 #include <PrintManualTest_FitWidthMultiple$1$2.h>
 #include <PrintManualTest_FitWidthMultiple$1$3.h>
@@ -51,12 +50,8 @@ using $PrintManualTest_FitWidthMultiple$1$2 = ::PrintManualTest_FitWidthMultiple
 using $PrintManualTest_FitWidthMultiple$1$3 = ::PrintManualTest_FitWidthMultiple$1$3;
 using $PrintManualTest_FitWidthMultiple$1$4 = ::PrintManualTest_FitWidthMultiple$1$4;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -65,20 +60,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MessageFormat = ::java::text::MessageFormat;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-using $Attribute = ::javax::print::attribute::Attribute;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
 using $OrientationRequested = ::javax::print::attribute::standard::OrientationRequested;
-using $Action = ::javax::swing::Action;
-using $ActionMap = ::javax::swing::ActionMap;
-using $InputMap = ::javax::swing::InputMap;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
-using $JRootPane = ::javax::swing::JRootPane;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $KeyStroke = ::javax::swing::KeyStroke;
@@ -93,33 +82,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$run$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0>());
-	}
 	PrintManualTest_FitWidthMultiple$1* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LPrintManualTest_FitWidthMultiple$1;)V", nullptr, $PUBLIC, $method(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, init$, void, PrintManualTest_FitWidthMultiple$1*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LPrintManualTest_FitWidthMultiple$1;)V", nullptr, $PUBLIC, $method(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, init$, void, PrintManualTest_FitWidthMultiple$1*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0::class$ = nullptr;
@@ -133,86 +118,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		$nc(inst$)->lambda$run$1(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1>());
-	}
 	PrintManualTest_FitWidthMultiple$1* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, inst$)},
-	{}
-};
-$MethodInfo PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1::methodInfos[3] = {
-	{"<init>", "(LPrintManualTest_FitWidthMultiple$1;)V", nullptr, $PUBLIC, $method(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, init$, void, PrintManualTest_FitWidthMultiple$1*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1::load$($String* name, bool initialize) {
-	$loadClass(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LPrintManualTest_FitWidthMultiple$1;)V", nullptr, $PUBLIC, $method(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, init$, void, PrintManualTest_FitWidthMultiple$1*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1);
+	});
 	return class$;
 }
 $Class* PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1::class$ = nullptr;
-
-$FieldInfo _PrintManualTest_FitWidthMultiple$1_FieldInfo_[] = {
-	{"this$0", "LPrintManualTest_FitWidthMultiple;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1, this$0)},
-	{"val$footer", "Ljava/text/MessageFormat;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1, val$footer)},
-	{"val$header", "Ljava/text/MessageFormat;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1, val$header)},
-	{}
-};
-
-$MethodInfo _PrintManualTest_FitWidthMultiple$1_MethodInfo_[] = {
-	{"<init>", "(LPrintManualTest_FitWidthMultiple;Ljava/text/MessageFormat;Ljava/text/MessageFormat;)V", "()V", 0, $method(PrintManualTest_FitWidthMultiple$1, init$, void, $PrintManualTest_FitWidthMultiple*, $MessageFormat*, $MessageFormat*)},
-	{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(PrintManualTest_FitWidthMultiple$1, lambda$run$0, void, $ActionEvent*)},
-	{"lambda$run$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(PrintManualTest_FitWidthMultiple$1, lambda$run$1, void, $ActionEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _PrintManualTest_FitWidthMultiple$1_EnclosingMethodInfo_ = {
-	"PrintManualTest_FitWidthMultiple",
-	"createUIandTest",
-	"()V"
-};
-
-$InnerClassInfo _PrintManualTest_FitWidthMultiple$1_InnerClassesInfo_[] = {
-	{"PrintManualTest_FitWidthMultiple$1", nullptr, nullptr, 0},
-	{"PrintManualTest_FitWidthMultiple$1$4", nullptr, nullptr, 0},
-	{"PrintManualTest_FitWidthMultiple$1$3", nullptr, nullptr, 0},
-	{"PrintManualTest_FitWidthMultiple$1$2", nullptr, nullptr, 0},
-	{"PrintManualTest_FitWidthMultiple$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintManualTest_FitWidthMultiple$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"PrintManualTest_FitWidthMultiple$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_PrintManualTest_FitWidthMultiple$1_FieldInfo_,
-	_PrintManualTest_FitWidthMultiple$1_MethodInfo_,
-	nullptr,
-	&_PrintManualTest_FitWidthMultiple$1_EnclosingMethodInfo_,
-	_PrintManualTest_FitWidthMultiple$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"PrintManualTest_FitWidthMultiple"
-};
-
-$Object* allocate$PrintManualTest_FitWidthMultiple$1($Class* clazz) {
-	return $of($alloc(PrintManualTest_FitWidthMultiple$1));
-}
 
 void PrintManualTest_FitWidthMultiple$1::init$($PrintManualTest_FitWidthMultiple* this$0, $MessageFormat* val$header, $MessageFormat* val$footer) {
 	$set(this, this$0, this$0);
@@ -221,40 +152,39 @@ void PrintManualTest_FitWidthMultiple$1::init$($PrintManualTest_FitWidthMultiple
 }
 
 void PrintManualTest_FitWidthMultiple$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, info, " \nThis test case brings up JTable with more Columns and Rows \nPress the Print Button. It Prints in PRINT_MODE_FIT_WIDTH \nIt Pops up the Print Dialog. Check if Job/Print Attributes in the\nPrint Dialog are configurable. Default Print out will be in Landscape \nThe Print out should have JTable Centered on the Print out with thin borders \nPrints out with Header and Footer. \nThe JTable should have all columns printed within border"_s);
 	$init($PrintManualTest_FitWidthMultiple);
 	$assignStatic($PrintManualTest_FitWidthMultiple::instructFrame, $new($JFrame, "PrintManualTest_NormalSingle"_s));
-	$var($JPanel, panel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($JPanel, panel, $new($JPanel, $$new($BorderLayout)));
 	$var($JButton, button1, $new($JButton, "Pass"_s));
 	$var($JButton, button2, $new($JButton, "Fail"_s));
-	button1->addActionListener(static_cast<$ActionListener*>($$new(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, this)));
-	button2->addActionListener(static_cast<$ActionListener*>($$new(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, this)));
+	button1->addActionListener($$new(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0, this));
+	button2->addActionListener($$new(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1, this));
 	$var($JPanel, btnpanel1, $new($JPanel));
-	btnpanel1->add(static_cast<$Component*>(button1));
-	btnpanel1->add(static_cast<$Component*>(button2));
-	$init($BorderLayout);
-	panel->add($(static_cast<$Component*>(this->this$0->addInfo(info))), $of($BorderLayout::CENTER));
-	panel->add(static_cast<$Component*>(btnpanel1), $of($BorderLayout::SOUTH));
-	$nc($($nc($PrintManualTest_FitWidthMultiple::instructFrame)->getContentPane()))->add(static_cast<$Component*>(panel));
+	btnpanel1->add(button1);
+	btnpanel1->add(button2);
+	panel->add($(this->this$0->addInfo(info)), $BorderLayout::CENTER);
+	panel->add(btnpanel1, $BorderLayout::SOUTH);
+	$$nc($nc($PrintManualTest_FitWidthMultiple::instructFrame)->getContentPane())->add(panel);
 	$nc($PrintManualTest_FitWidthMultiple::instructFrame)->setBounds(600, 100, 350, 350);
 	$var($JButton, printButton, $new($JButton, "Print"_s));
 	$var($TableModel, datamodel, $new($PrintManualTest_FitWidthMultiple$1$1, this));
 	$var($JTable, table, $new($JTable, datamodel));
 	$var($JScrollPane, scrollpane, $new($JScrollPane, table));
 	$assignStatic($PrintManualTest_FitWidthMultiple::fr, $new($JFrame, "PrintManualTest_FitWidthMultiple"_s));
-	$nc($($nc($PrintManualTest_FitWidthMultiple::fr)->getContentPane()))->add(static_cast<$Component*>(scrollpane));
+	$$nc($PrintManualTest_FitWidthMultiple::fr->getContentPane())->add(scrollpane);
 	$var($JPanel, btnpanel, $new($JPanel));
-	btnpanel->add(static_cast<$Component*>(printButton));
-	$nc($($nc($PrintManualTest_FitWidthMultiple::fr)->getContentPane()))->add(static_cast<$Component*>(btnpanel), $of($BorderLayout::SOUTH));
+	btnpanel->add(printButton);
+	$$nc($nc($PrintManualTest_FitWidthMultiple::fr)->getContentPane())->add(btnpanel, $BorderLayout::SOUTH);
 	$nc($PrintManualTest_FitWidthMultiple::fr)->setBounds(0, 0, 400, 400);
 	$nc($PrintManualTest_FitWidthMultiple::fr)->setSize(500, 500);
-	$nc($($nc($($nc($PrintManualTest_FitWidthMultiple::fr)->getRootPane()))->getInputMap($JComponent::WHEN_IN_FOCUSED_WINDOW)))->put($($KeyStroke::getKeyStroke("ctrl P"_s)), "printButton"_s);
-	$nc($($nc($($nc($PrintManualTest_FitWidthMultiple::fr)->getRootPane()))->getActionMap()))->put("printButton"_s, $$new($PrintManualTest_FitWidthMultiple$1$2, this, printButton));
+	$$nc($$nc($nc($PrintManualTest_FitWidthMultiple::fr)->getRootPane())->getInputMap($JComponent::WHEN_IN_FOCUSED_WINDOW))->put($($KeyStroke::getKeyStroke("ctrl P"_s)), "printButton"_s);
+	$$nc($$nc($nc($PrintManualTest_FitWidthMultiple::fr)->getRootPane())->getActionMap())->put("printButton"_s, $$new($PrintManualTest_FitWidthMultiple$1$2, this, printButton));
 	$nc($PrintManualTest_FitWidthMultiple::fr)->addWindowListener($$new($PrintManualTest_FitWidthMultiple$1$3, this));
 	$var($PrintRequestAttributeSet, prattr, $new($HashPrintRequestAttributeSet));
 	$init($OrientationRequested);
-	prattr->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($OrientationRequested::LANDSCAPE)));
+	prattr->add($cast($DocAttribute, $OrientationRequested::LANDSCAPE));
 	printButton->addActionListener($$new($PrintManualTest_FitWidthMultiple$1$4, this, table, prattr));
 	$nc($PrintManualTest_FitWidthMultiple::instructFrame)->setVisible(true);
 	$nc($PrintManualTest_FitWidthMultiple::fr)->setVisible(true);
@@ -279,14 +209,57 @@ PrintManualTest_FitWidthMultiple$1::PrintManualTest_FitWidthMultiple$1() {
 
 $Class* PrintManualTest_FitWidthMultiple$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0")) {
 			return PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0::load$(name, initialize);
 		}
-		if (name->equals(PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1::classInfo$.name)) {
+		if (name->equals("PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1")) {
 			return PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(PrintManualTest_FitWidthMultiple$1, name, initialize, &_PrintManualTest_FitWidthMultiple$1_ClassInfo_, allocate$PrintManualTest_FitWidthMultiple$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LPrintManualTest_FitWidthMultiple;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1, this$0)},
+		{"val$footer", "Ljava/text/MessageFormat;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1, val$footer)},
+		{"val$header", "Ljava/text/MessageFormat;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1, val$header)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LPrintManualTest_FitWidthMultiple;Ljava/text/MessageFormat;Ljava/text/MessageFormat;)V", "()V", 0, $method(PrintManualTest_FitWidthMultiple$1, init$, void, $PrintManualTest_FitWidthMultiple*, $MessageFormat*, $MessageFormat*)},
+		{"lambda$run$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(PrintManualTest_FitWidthMultiple$1, lambda$run$0, void, $ActionEvent*)},
+		{"lambda$run$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(PrintManualTest_FitWidthMultiple$1, lambda$run$1, void, $ActionEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"PrintManualTest_FitWidthMultiple",
+		"createUIandTest",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PrintManualTest_FitWidthMultiple$1", nullptr, nullptr, 0},
+		{"PrintManualTest_FitWidthMultiple$1$4", nullptr, nullptr, 0},
+		{"PrintManualTest_FitWidthMultiple$1$3", nullptr, nullptr, 0},
+		{"PrintManualTest_FitWidthMultiple$1$2", nullptr, nullptr, 0},
+		{"PrintManualTest_FitWidthMultiple$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"PrintManualTest_FitWidthMultiple$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"PrintManualTest_FitWidthMultiple"
+	};
+	$loadClass(PrintManualTest_FitWidthMultiple$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintManualTest_FitWidthMultiple$1);
+	});
 	return class$;
 }
 

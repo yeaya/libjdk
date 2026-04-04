@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/OptionListModel.h>
-
 #include <java/lang/Math.h>
 #include <java/util/BitSet.h>
 #include <java/util/EventListener.h>
@@ -25,7 +24,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BitSet = ::java::util::BitSet;
-using $EventListener = ::java::util::EventListener;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
@@ -37,85 +35,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _OptionListModel_FieldInfo_[] = {
-	{"MIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OptionListModel, MIN)},
-	{"MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OptionListModel, MAX)},
-	{"selectionMode", "I", nullptr, $PRIVATE, $field(OptionListModel, selectionMode)},
-	{"minIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, minIndex)},
-	{"maxIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, maxIndex)},
-	{"anchorIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, anchorIndex)},
-	{"leadIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, leadIndex)},
-	{"firstChangedIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, firstChangedIndex)},
-	{"lastChangedIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, lastChangedIndex)},
-	{"isAdjusting", "Z", nullptr, $PRIVATE, $field(OptionListModel, isAdjusting)},
-	{"value", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(OptionListModel, value)},
-	{"initialValue", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(OptionListModel, initialValue)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(OptionListModel, listenerList)},
-	{"leadAnchorNotificationEnabled", "Z", nullptr, $PROTECTED, $field(OptionListModel, leadAnchorNotificationEnabled)},
-	{}
-};
-
-$MethodInfo _OptionListModel_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(OptionListModel, init$, void)},
-	{"addListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, addListSelectionListener, void, $ListSelectionListener*)},
-	{"addSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, addSelectionInterval, void, int32_t, int32_t)},
-	{"changeSelection", "(IIIIZ)V", nullptr, $PRIVATE, $method(OptionListModel, changeSelection, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"changeSelection", "(IIII)V", nullptr, $PRIVATE, $method(OptionListModel, changeSelection, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clear", "(I)V", nullptr, $PRIVATE, $method(OptionListModel, clear, void, int32_t)},
-	{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, clearSelection, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"contains", "(III)Z", nullptr, $PRIVATE, $method(OptionListModel, contains, bool, int32_t, int32_t, int32_t)},
-	{"fireValueChanged", "(Z)V", nullptr, $PROTECTED, $virtualMethod(OptionListModel, fireValueChanged, void, bool)},
-	{"fireValueChanged", "(II)V", nullptr, $PROTECTED, $virtualMethod(OptionListModel, fireValueChanged, void, int32_t, int32_t)},
-	{"fireValueChanged", "(IIZ)V", nullptr, $PROTECTED, $virtualMethod(OptionListModel, fireValueChanged, void, int32_t, int32_t, bool)},
-	{"fireValueChanged", "()V", nullptr, $PRIVATE, $method(OptionListModel, fireValueChanged, void)},
-	{"getAnchorSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getAnchorSelectionIndex, int32_t)},
-	{"getInitialSelection", "()Ljava/util/BitSet;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getInitialSelection, $BitSet*)},
-	{"getLeadSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getLeadSelectionIndex, int32_t)},
-	{"getListSelectionListeners", "()[Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getListSelectionListeners, $ListSelectionListenerArray*)},
-	{"getMaxSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getMaxSelectionIndex, int32_t)},
-	{"getMinSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getMinSelectionIndex, int32_t)},
-	{"getSelectionMode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getSelectionMode, int32_t)},
-	{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getValueIsAdjusting, bool)},
-	{"insertIndexInterval", "(IIZ)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, insertIndexInterval, void, int32_t, int32_t, bool)},
-	{"isLeadAnchorNotificationEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, isLeadAnchorNotificationEnabled, bool)},
-	{"isSelectedIndex", "(I)Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, isSelectedIndex, bool, int32_t)},
-	{"isSelectionEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, isSelectionEmpty, bool)},
-	{"markAsDirty", "(I)V", nullptr, $PRIVATE, $method(OptionListModel, markAsDirty, void, int32_t)},
-	{"removeIndexInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, removeIndexInterval, void, int32_t, int32_t)},
-	{"removeListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, removeListSelectionListener, void, $ListSelectionListener*)},
-	{"removeSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, removeSelectionInterval, void, int32_t, int32_t)},
-	{"set", "(I)V", nullptr, $PRIVATE, $method(OptionListModel, set, void, int32_t)},
-	{"setAnchorSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setAnchorSelectionIndex, void, int32_t)},
-	{"setInitialSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setInitialSelection, void, int32_t)},
-	{"setLeadAnchorNotificationEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setLeadAnchorNotificationEnabled, void, bool)},
-	{"setLeadSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setLeadSelectionIndex, void, int32_t)},
-	{"setSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setSelectionInterval, void, int32_t, int32_t)},
-	{"setSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setSelectionMode, void, int32_t)},
-	{"setState", "(IZ)V", nullptr, $PRIVATE, $method(OptionListModel, setState, void, int32_t, bool)},
-	{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setValueIsAdjusting, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, toString, $String*)},
-	{"updateLeadAnchorIndices", "(II)V", nullptr, $PRIVATE, $method(OptionListModel, updateLeadAnchorIndices, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OptionListModel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.OptionListModel",
-	"javax.swing.DefaultListModel",
-	"javax.swing.ListSelectionModel",
-	_OptionListModel_FieldInfo_,
-	_OptionListModel_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljavax/swing/DefaultListModel<TE;>;Ljavax/swing/ListSelectionModel;Ljava/io/Serializable;"
-};
-
-$Object* allocate$OptionListModel($Class* clazz) {
-	return $of($alloc(OptionListModel));
-}
 
 int32_t OptionListModel::hashCode() {
 	 return this->$DefaultListModel::hashCode();
@@ -164,18 +83,12 @@ int32_t OptionListModel::getSelectionMode() {
 void OptionListModel::setSelectionMode(int32_t selectionMode) {
 	switch (selectionMode) {
 	case $ListSelectionModel::SINGLE_SELECTION:
-		{}
 	case $ListSelectionModel::SINGLE_INTERVAL_SELECTION:
-		{}
 	case $ListSelectionModel::MULTIPLE_INTERVAL_SELECTION:
-		{
-			this->selectionMode = selectionMode;
-			break;
-		}
+		this->selectionMode = selectionMode;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "invalid selectionMode"_s);
-		}
+		$throwNew($IllegalArgumentException, "invalid selectionMode"_s);
 	}
 }
 
@@ -199,7 +112,7 @@ void OptionListModel::removeListSelectionListener($ListSelectionListener* l) {
 
 $ListSelectionListenerArray* OptionListModel::getListSelectionListeners() {
 	$load($ListSelectionListener);
-	return $fcast($ListSelectionListenerArray, $nc(this->listenerList)->getListeners($ListSelectionListener::class$));
+	return $cast($ListSelectionListenerArray, $nc(this->listenerList)->getListeners($ListSelectionListener::class$));
 }
 
 void OptionListModel::fireValueChanged(bool isAdjusting) {
@@ -212,7 +125,7 @@ void OptionListModel::fireValueChanged(int32_t firstIndex, int32_t lastIndex) {
 }
 
 void OptionListModel::fireValueChanged(int32_t firstIndex, int32_t lastIndex, bool isAdjusting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	$var($ListSelectionEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -221,7 +134,7 @@ void OptionListModel::fireValueChanged(int32_t firstIndex, int32_t lastIndex, bo
 			if (e == nullptr) {
 				$assign(e, $new($ListSelectionEvent, this, firstIndex, lastIndex, isAdjusting));
 			}
-			$nc(($cast($ListSelectionListener, listeners->get(i + 1))))->valueChanged(e);
+			$nc($cast($ListSelectionListener, listeners->get(i + 1)))->valueChanged(e);
 		}
 	}
 }
@@ -246,7 +159,7 @@ void OptionListModel::set(int32_t r) {
 	if ($nc(this->value)->get(r)) {
 		return;
 	}
-	$nc(this->value)->set(r);
+	this->value->set(r);
 	$var($Option, option, $cast($Option, get(r)));
 	$nc(option)->setSelection(true);
 	markAsDirty(r);
@@ -258,7 +171,7 @@ void OptionListModel::clear(int32_t r) {
 	if (!$nc(this->value)->get(r)) {
 		return;
 	}
-	$nc(this->value)->clear(r);
+	this->value->clear(r);
 	$var($Option, option, $cast($Option, get(r)));
 	$nc(option)->setSelection(false);
 	markAsDirty(r);
@@ -422,13 +335,18 @@ void OptionListModel::setValueIsAdjusting(bool isAdjusting) {
 }
 
 $String* OptionListModel::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, ((getValueIsAdjusting()) ? "~"_s : "="_s));
-	$var($String, s, $concat(var$0, $($nc(this->value)->toString())));
-	$var($String, var$3, $$str({$($of(this)->getClass()->getName()), " "_s}));
-	$var($String, var$2, $$concat(var$3, $($Integer::toString(hashCode()))));
-	$var($String, var$1, $$concat(var$2, " "_s));
-	return $concat(var$1, s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append((getValueIsAdjusting()) ? "~"_s : "="_s);
+	var$0->append($($nc(this->value)->toString()));
+	$var($String, s, $str(var$0));
+	$var($StringBuilder, var$1, $new($StringBuilder));
+	var$1->append($($of(this)->getClass()->getName()));
+	var$1->append(" "_s);
+	var$1->append($($Integer::toString(hashCode())));
+	var$1->append(" "_s);
+	var$1->append(s);
+	return $str(var$1);
 }
 
 $Object* OptionListModel::clone() {
@@ -473,9 +391,9 @@ void OptionListModel::setInitialSelection(int32_t i) {
 		return;
 	}
 	if (this->selectionMode == $ListSelectionModel::SINGLE_SELECTION) {
-		$nc(this->initialValue)->and$($$new($BitSet));
+		this->initialValue->and$($$new($BitSet));
 	}
-	$nc(this->initialValue)->set(i);
+	this->initialValue->set(i);
 }
 
 $BitSet* OptionListModel::getInitialSelection() {
@@ -486,7 +404,81 @@ OptionListModel::OptionListModel() {
 }
 
 $Class* OptionListModel::load$($String* name, bool initialize) {
-	$loadClass(OptionListModel, name, initialize, &_OptionListModel_ClassInfo_, allocate$OptionListModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OptionListModel, MIN)},
+		{"MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OptionListModel, MAX)},
+		{"selectionMode", "I", nullptr, $PRIVATE, $field(OptionListModel, selectionMode)},
+		{"minIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, minIndex)},
+		{"maxIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, maxIndex)},
+		{"anchorIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, anchorIndex)},
+		{"leadIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, leadIndex)},
+		{"firstChangedIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, firstChangedIndex)},
+		{"lastChangedIndex", "I", nullptr, $PRIVATE, $field(OptionListModel, lastChangedIndex)},
+		{"isAdjusting", "Z", nullptr, $PRIVATE, $field(OptionListModel, isAdjusting)},
+		{"value", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(OptionListModel, value)},
+		{"initialValue", "Ljava/util/BitSet;", nullptr, $PRIVATE, $field(OptionListModel, initialValue)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(OptionListModel, listenerList)},
+		{"leadAnchorNotificationEnabled", "Z", nullptr, $PROTECTED, $field(OptionListModel, leadAnchorNotificationEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(OptionListModel, init$, void)},
+		{"addListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, addListSelectionListener, void, $ListSelectionListener*)},
+		{"addSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, addSelectionInterval, void, int32_t, int32_t)},
+		{"changeSelection", "(IIIIZ)V", nullptr, $PRIVATE, $method(OptionListModel, changeSelection, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"changeSelection", "(IIII)V", nullptr, $PRIVATE, $method(OptionListModel, changeSelection, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clear", "(I)V", nullptr, $PRIVATE, $method(OptionListModel, clear, void, int32_t)},
+		{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, clearSelection, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"contains", "(III)Z", nullptr, $PRIVATE, $method(OptionListModel, contains, bool, int32_t, int32_t, int32_t)},
+		{"fireValueChanged", "(Z)V", nullptr, $PROTECTED, $virtualMethod(OptionListModel, fireValueChanged, void, bool)},
+		{"fireValueChanged", "(II)V", nullptr, $PROTECTED, $virtualMethod(OptionListModel, fireValueChanged, void, int32_t, int32_t)},
+		{"fireValueChanged", "(IIZ)V", nullptr, $PROTECTED, $virtualMethod(OptionListModel, fireValueChanged, void, int32_t, int32_t, bool)},
+		{"fireValueChanged", "()V", nullptr, $PRIVATE, $method(OptionListModel, fireValueChanged, void)},
+		{"getAnchorSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getAnchorSelectionIndex, int32_t)},
+		{"getInitialSelection", "()Ljava/util/BitSet;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getInitialSelection, $BitSet*)},
+		{"getLeadSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getLeadSelectionIndex, int32_t)},
+		{"getListSelectionListeners", "()[Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getListSelectionListeners, $ListSelectionListenerArray*)},
+		{"getMaxSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getMaxSelectionIndex, int32_t)},
+		{"getMinSelectionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getMinSelectionIndex, int32_t)},
+		{"getSelectionMode", "()I", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getSelectionMode, int32_t)},
+		{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, getValueIsAdjusting, bool)},
+		{"insertIndexInterval", "(IIZ)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, insertIndexInterval, void, int32_t, int32_t, bool)},
+		{"isLeadAnchorNotificationEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, isLeadAnchorNotificationEnabled, bool)},
+		{"isSelectedIndex", "(I)Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, isSelectedIndex, bool, int32_t)},
+		{"isSelectionEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(OptionListModel, isSelectionEmpty, bool)},
+		{"markAsDirty", "(I)V", nullptr, $PRIVATE, $method(OptionListModel, markAsDirty, void, int32_t)},
+		{"removeIndexInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, removeIndexInterval, void, int32_t, int32_t)},
+		{"removeListSelectionListener", "(Ljavax/swing/event/ListSelectionListener;)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, removeListSelectionListener, void, $ListSelectionListener*)},
+		{"removeSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, removeSelectionInterval, void, int32_t, int32_t)},
+		{"set", "(I)V", nullptr, $PRIVATE, $method(OptionListModel, set, void, int32_t)},
+		{"setAnchorSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setAnchorSelectionIndex, void, int32_t)},
+		{"setInitialSelection", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setInitialSelection, void, int32_t)},
+		{"setLeadAnchorNotificationEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setLeadAnchorNotificationEnabled, void, bool)},
+		{"setLeadSelectionIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setLeadSelectionIndex, void, int32_t)},
+		{"setSelectionInterval", "(II)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setSelectionInterval, void, int32_t, int32_t)},
+		{"setSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setSelectionMode, void, int32_t)},
+		{"setState", "(IZ)V", nullptr, $PRIVATE, $method(OptionListModel, setState, void, int32_t, bool)},
+		{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(OptionListModel, setValueIsAdjusting, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionListModel, toString, $String*)},
+		{"updateLeadAnchorIndices", "(II)V", nullptr, $PRIVATE, $method(OptionListModel, updateLeadAnchorIndices, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.OptionListModel",
+		"javax.swing.DefaultListModel",
+		"javax.swing.ListSelectionModel",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljavax/swing/DefaultListModel<TE;>;Ljavax/swing/ListSelectionModel;Ljava/io/Serializable;"
+	};
+	$loadClass(OptionListModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OptionListModel));
+	});
 	return class$;
 }
 

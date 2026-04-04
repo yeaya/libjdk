@@ -1,5 +1,4 @@
 #include <sun/awt/X11GraphicsConfig.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -28,7 +27,6 @@
 #include <sun/awt/image/OffScreenImage.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/RenderLoops.h>
@@ -82,7 +80,6 @@ using $X11GraphicsDevice = ::sun::awt::X11GraphicsDevice;
 using $OffScreenImage = ::sun::awt::image::OffScreenImage;
 using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $RenderLoops = ::sun::java2d::loops::RenderLoops;
@@ -92,113 +89,6 @@ using $X11SurfaceData = ::sun::java2d::x11::X11SurfaceData;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _X11GraphicsConfig_FieldInfo_[] = {
-	{"device", "Lsun/awt/X11GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(X11GraphicsConfig, device)},
-	{"visual", "I", nullptr, $PROTECTED, $field(X11GraphicsConfig, visual)},
-	{"depth", "I", nullptr, 0, $field(X11GraphicsConfig, depth)},
-	{"colormap", "I", nullptr, 0, $field(X11GraphicsConfig, colormap)},
-	{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(X11GraphicsConfig, colorModel)},
-	{"aData", "J", nullptr, 0, $field(X11GraphicsConfig, aData)},
-	{"doubleBuffer", "Z", nullptr, 0, $field(X11GraphicsConfig, doubleBuffer)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(X11GraphicsConfig, disposerReferent)},
-	{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(X11GraphicsConfig, bufferCaps)},
-	{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(X11GraphicsConfig, imageCaps)},
-	{"bitsPerPixel", "I", nullptr, $PROTECTED, $field(X11GraphicsConfig, bitsPerPixel)},
-	{"surfaceType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PROTECTED, $field(X11GraphicsConfig, surfaceType)},
-	{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $field(X11GraphicsConfig, solidloops)},
-	{}
-};
-
-$MethodInfo _X11GraphicsConfig_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/X11GraphicsDevice;IIIZ)V", nullptr, $PROTECTED, $method(X11GraphicsConfig, init$, void, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
-	{"createABGRCCM", "()Ljava/awt/image/ComponentColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, createABGRCCM, $ComponentColorModel*)},
-	{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
-	{"createBackBuffer", "(JI)J", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, createBackBuffer, int64_t, int64_t, int32_t)},
-	{"createBackBuffer", "(Lsun/awt/X11ComponentPeer;ILjava/awt/BufferCapabilities;)J", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createBackBuffer, int64_t, $X11ComponentPeer*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createBackBufferImage", "(Ljava/awt/Component;J)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createBackBufferImage, $VolatileImage*, $Component*, int64_t)},
-	{"createDCM32", "(IIIIZ)Ljava/awt/image/DirectColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, createDCM32, $DirectColorModel*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"createSurfaceData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createSurfaceData, $SurfaceData*, $X11ComponentPeer*)},
-	{"destroyBackBuffer", "(J)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(X11GraphicsConfig, destroyBackBuffer, void, int64_t)},
-	{"dispose", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsConfig, dispose, void, int64_t)},
-	{"flip", "(Lsun/awt/X11ComponentPeer;Ljava/awt/Component;Ljava/awt/image/VolatileImage;IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, flip, void, $X11ComponentPeer*, $Component*, $VolatileImage*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getAData", "()J", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getAData, int64_t)},
-	{"getBitsPerPixel", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getBitsPerPixel, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(X11GraphicsConfig, getBounds, $Rectangle*)},
-	{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsConfig, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getColormap", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getColormap, int32_t)},
-	{"getConfig", "(Lsun/awt/X11GraphicsDevice;IIIZ)Lsun/awt/X11GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, getConfig, X11GraphicsConfig*, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
-	{"getConfig", "(Lsun/awt/X11GraphicsDevice;IIII)Lsun/awt/X11GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, getConfig, X11GraphicsConfig*, $X11GraphicsDevice*, int32_t, int32_t, int32_t, int32_t)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getDefaultTransform, $AffineTransform*)},
-	{"getDepth", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getDepth, int32_t)},
-	{"getDevice", "()Lsun/awt/X11GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getDevice, $GraphicsDevice*)},
-	{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
-	{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getNormalizingTransform, $AffineTransform*)},
-	{"getNumColors", "()I", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, getNumColors, int32_t)},
-	{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getProxyKey, $Object*)},
-	{"getScale", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getScale, int32_t)},
-	{"getSolidLoops", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsConfig, getSolidLoops, $RenderLoops*, $SurfaceType*)},
-	{"getSurfaceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsConfig, getSurfaceType, $SurfaceType*)},
-	{"getSwapAction", "(Ljava/awt/BufferCapabilities$FlipContents;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(X11GraphicsConfig, getSwapAction, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getVisual", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getVisual, int32_t)},
-	{"getXResolution", "(I)D", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, getXResolution, double, int32_t)},
-	{"getYResolution", "(I)D", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, getYResolution, double, int32_t)},
-	{"init", "(II)V", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, init, void, int32_t, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsConfig, initIDs, void)},
-	{"isDoubleBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, isDoubleBuffered, bool)},
-	{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, isTranslucencyCapable, bool)},
-	{"isTranslucencyCapable", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, isTranslucencyCapable, bool, int64_t)},
-	{"makeColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, makeColorModel, $ColorModel*)},
-	{"scaleDown", "(I)I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, scaleDown, int32_t, int32_t)},
-	{"scaleUp", "(I)I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, scaleUp, int32_t, int32_t)},
-	{"swapBuffers", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, swapBuffers, void, int64_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_createBackBuffer 7
-#define _METHOD_INDEX_destroyBackBuffer 12
-#define _METHOD_INDEX_dispose 13
-#define _METHOD_INDEX_getNumColors 29
-#define _METHOD_INDEX_getXResolution 36
-#define _METHOD_INDEX_getYResolution 37
-#define _METHOD_INDEX_init 38
-#define _METHOD_INDEX_initIDs 39
-#define _METHOD_INDEX_isTranslucencyCapable 42
-#define _METHOD_INDEX_makeColorModel 43
-#define _METHOD_INDEX_swapBuffers 46
-
-$InnerClassInfo _X11GraphicsConfig_InnerClassesInfo_[] = {
-	{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.X11GraphicsConfig$X11GCDisposerRecord", "sun.awt.X11GraphicsConfig", "X11GCDisposerRecord", $PRIVATE | $STATIC},
-	{"sun.awt.X11GraphicsConfig$XDBECapabilities", "sun.awt.X11GraphicsConfig", "XDBECapabilities", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X11GraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11GraphicsConfig",
-	"java.awt.GraphicsConfiguration",
-	"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
-	_X11GraphicsConfig_FieldInfo_,
-	_X11GraphicsConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11GraphicsConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11GraphicsConfig$X11GCDisposerRecord,sun.awt.X11GraphicsConfig$XDBECapabilities"
-};
-
-$Object* allocate$X11GraphicsConfig($Class* clazz) {
-	return $of($alloc(X11GraphicsConfig));
-}
 
 int32_t X11GraphicsConfig::hashCode() {
 	 return this->$GraphicsConfiguration::hashCode();
@@ -229,23 +119,21 @@ X11GraphicsConfig* X11GraphicsConfig::getConfig($X11GraphicsDevice* device, int3
 }
 
 int32_t X11GraphicsConfig::getNumColors() {
-	int32_t $ret = 0;
-	$prepareNative(X11GraphicsConfig, getNumColors, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getNumColors, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void X11GraphicsConfig::init(int32_t visualNum, int32_t screen) {
-	$prepareNative(X11GraphicsConfig, init, void, int32_t visualNum, int32_t screen);
+	$prepareNative(init, void, int32_t visualNum, int32_t screen);
 	$invokeNative(visualNum, screen);
 	$finishNative();
 }
 
 $ColorModel* X11GraphicsConfig::makeColorModel() {
-	$var($ColorModel, $ret, nullptr);
-	$prepareNative(X11GraphicsConfig, makeColorModel, $ColorModel*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(makeColorModel, $ColorModel*);
+	$var($ColorModel, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -294,7 +182,7 @@ $SurfaceType* X11GraphicsConfig::getSurfaceType() {
 }
 
 $Object* X11GraphicsConfig::getProxyKey() {
-	return $of($nc(this->device)->getProxyKeyFor($(getSurfaceType())));
+	return $nc(this->device)->getProxyKeyFor($(getSurfaceType()));
 }
 
 $RenderLoops* X11GraphicsConfig::getSolidLoops($SurfaceType* stype) {
@@ -315,7 +203,7 @@ $ColorModel* X11GraphicsConfig::getColorModel() {
 			$nc($SystemColor::window)->getRGB();
 			$set(this, colorModel, makeColorModel());
 			if (this->colorModel == nullptr) {
-				$set(this, colorModel, $nc($($Toolkit::getDefaultToolkit()))->getColorModel());
+				$set(this, colorModel, $$nc($Toolkit::getDefaultToolkit())->getColorModel());
 			}
 		}
 		return this->colorModel;
@@ -325,21 +213,13 @@ $ColorModel* X11GraphicsConfig::getColorModel() {
 $ColorModel* X11GraphicsConfig::getColorModel(int32_t transparency) {
 	switch (transparency) {
 	case $Transparency::OPAQUE:
-		{
-			return getColorModel();
-		}
+		return getColorModel();
 	case $Transparency::BITMASK:
-		{
-			return $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000);
-		}
+		return $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000);
 	case $Transparency::TRANSLUCENT:
-		{
-			return $ColorModel::getRGBdefault();
-		}
+		return $ColorModel::getRGBdefault();
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -350,7 +230,7 @@ $DirectColorModel* X11GraphicsConfig::createDCM32(int32_t rMask, int32_t gMask, 
 
 $ComponentColorModel* X11GraphicsConfig::createABGRCCM() {
 	$init(X11GraphicsConfig);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
 	$var($ints, nBits, $new($ints, {
 		8,
@@ -373,7 +253,7 @@ $AffineTransform* X11GraphicsConfig::getDefaultTransform() {
 }
 
 int32_t X11GraphicsConfig::getScale() {
-	return $nc($($cast($X11GraphicsDevice, getDevice())))->getScaleFactor();
+	return $$sure($X11GraphicsDevice, getDevice())->getScaleFactor();
 }
 
 int32_t X11GraphicsConfig::scaleUp(int32_t x) {
@@ -386,22 +266,20 @@ int32_t X11GraphicsConfig::scaleDown(int32_t x) {
 
 $AffineTransform* X11GraphicsConfig::getNormalizingTransform() {
 	double xscale = getXResolution($nc(this->device)->getScreen()) / 72.0;
-	double yscale = getYResolution($nc(this->device)->getScreen()) / 72.0;
+	double yscale = getYResolution(this->device->getScreen()) / 72.0;
 	return $new($AffineTransform, xscale, 0.0, 0.0, yscale, 0.0, 0.0);
 }
 
 double X11GraphicsConfig::getXResolution(int32_t screen) {
-	double $ret = 0.0;
-	$prepareNative(X11GraphicsConfig, getXResolution, double, int32_t screen);
-	$ret = $invokeNative(screen);
+	$prepareNative(getXResolution, double, int32_t screen);
+	double $ret = $invokeNative(screen);
 	$finishNative();
 	return $ret;
 }
 
 double X11GraphicsConfig::getYResolution(int32_t screen) {
-	double $ret = 0.0;
-	$prepareNative(X11GraphicsConfig, getYResolution, double, int32_t screen);
-	$ret = $invokeNative(screen);
+	$prepareNative(getYResolution, double, int32_t screen);
+	double $ret = $invokeNative(screen);
 	$finishNative();
 	return $ret;
 }
@@ -411,15 +289,19 @@ int64_t X11GraphicsConfig::getAData() {
 }
 
 $String* X11GraphicsConfig::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"X11GraphicsConfig[dev="_s, this->device, ",vis=0x"_s}));
-	$var($String, var$0, $$concat(var$1, $($Integer::toHexString(this->visual))));
-	return ($concat(var$0, "]"_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("X11GraphicsConfig[dev="_s);
+	var$0->append(this->device);
+	var$0->append(",vis=0x"_s);
+	var$0->append($($Integer::toHexString(this->visual)));
+	var$0->append("]"_s);
+	return ($str(var$0));
 }
 
 void X11GraphicsConfig::initIDs() {
 	$init(X11GraphicsConfig);
-	$prepareNativeStatic(X11GraphicsConfig, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -449,7 +331,7 @@ bool X11GraphicsConfig::isDoubleBuffered() {
 
 void X11GraphicsConfig::dispose(int64_t x11ConfigData) {
 	$init(X11GraphicsConfig);
-	$prepareNativeStatic(X11GraphicsConfig, dispose, void, int64_t x11ConfigData);
+	$prepareNativeStatic(dispose, void, int64_t x11ConfigData);
 	$invokeNativeStatic(x11ConfigData);
 	$finishNativeStatic();
 }
@@ -459,28 +341,27 @@ $SurfaceData* X11GraphicsConfig::createSurfaceData($X11ComponentPeer* peer) {
 }
 
 $Image* X11GraphicsConfig::createAcceleratedImage($Component* target, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, model, getColorModel($Transparency::OPAQUE));
 	$var($WritableRaster, wr, $nc(model)->createCompatibleWritableRaster(width, height));
 	return $new($OffScreenImage, target, model, wr, model->isAlphaPremultiplied());
 }
 
 int64_t X11GraphicsConfig::createBackBuffer(int64_t window, int32_t swapAction) {
-	int64_t $ret = 0;
-	$prepareNative(X11GraphicsConfig, createBackBuffer, int64_t, int64_t window, int32_t swapAction);
-	$ret = $invokeNative(window, swapAction);
+	$prepareNative(createBackBuffer, int64_t, int64_t window, int32_t swapAction);
+	int64_t $ret = $invokeNative(window, swapAction);
 	$finishNative();
 	return $ret;
 }
 
 void X11GraphicsConfig::swapBuffers(int64_t window, int32_t swapAction) {
-	$prepareNative(X11GraphicsConfig, swapBuffers, void, int64_t window, int32_t swapAction);
+	$prepareNative(swapBuffers, void, int64_t window, int32_t swapAction);
 	$invokeNative(window, swapAction);
 	$finishNative();
 }
 
 int64_t X11GraphicsConfig::createBackBuffer($X11ComponentPeer* peer, int32_t numBuffers, $BufferCapabilities* caps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$X11GraphicsDevice::isDBESupported()) {
 		$throwNew($AWTException, "Page flipping is not supported"_s);
 	}
@@ -497,14 +378,14 @@ int64_t X11GraphicsConfig::createBackBuffer($X11ComponentPeer* peer, int32_t num
 }
 
 void X11GraphicsConfig::destroyBackBuffer(int64_t backBuffer) {
-	$prepareNative(X11GraphicsConfig, destroyBackBuffer, void, int64_t backBuffer);
+	$prepareNative(destroyBackBuffer, void, int64_t backBuffer);
 	$invokeNative(backBuffer);
 	$finishNative();
 }
 
 $VolatileImage* X11GraphicsConfig::createBackBufferImage($Component* target, int64_t backBuffer) {
 	int32_t w = $Math::max(1, $nc(target)->getWidth());
-	int32_t h = $Math::max(1, $nc(target)->getHeight());
+	int32_t h = $Math::max(1, target->getHeight());
 	return $new($SunVolatileImage, target, w, h, $($Long::valueOf(backBuffer)));
 }
 
@@ -519,16 +400,12 @@ int32_t X11GraphicsConfig::getSwapAction($BufferCapabilities$FlipContents* flipA
 	$init($BufferCapabilities$FlipContents);
 	if (flipAction == $BufferCapabilities$FlipContents::BACKGROUND) {
 		return 1;
+	} else if (flipAction == $BufferCapabilities$FlipContents::PRIOR) {
+		return 2;
+	} else if (flipAction == $BufferCapabilities$FlipContents::COPIED) {
+		return 3;
 	} else {
-		if (flipAction == $BufferCapabilities$FlipContents::PRIOR) {
-			return 2;
-		} else {
-			if (flipAction == $BufferCapabilities$FlipContents::COPIED) {
-				return 3;
-			} else {
-				return 0;
-			}
-		}
+		return 0;
 	}
 }
 
@@ -537,14 +414,13 @@ bool X11GraphicsConfig::isTranslucencyCapable() {
 }
 
 bool X11GraphicsConfig::isTranslucencyCapable(int64_t x11ConfigData) {
-	bool $ret = false;
-	$prepareNative(X11GraphicsConfig, isTranslucencyCapable, bool, int64_t x11ConfigData);
-	$ret = $invokeNative(x11ConfigData);
+	$prepareNative(isTranslucencyCapable, bool, int64_t x11ConfigData);
+	bool $ret = $invokeNative(x11ConfigData);
 	$finishNative();
 	return $ret;
 }
 
-void clinit$X11GraphicsConfig($Class* class$) {
+void X11GraphicsConfig::clinit$($Class* clazz) {
 	$assignStatic(X11GraphicsConfig::imageCaps, $new($ImageCapabilities, $X11SurfaceData::isAccelerationEnabled()));
 	{
 		X11GraphicsConfig::initIDs();
@@ -555,7 +431,96 @@ X11GraphicsConfig::X11GraphicsConfig() {
 }
 
 $Class* X11GraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(X11GraphicsConfig, name, initialize, &_X11GraphicsConfig_ClassInfo_, clinit$X11GraphicsConfig, allocate$X11GraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Lsun/awt/X11GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(X11GraphicsConfig, device)},
+		{"visual", "I", nullptr, $PROTECTED, $field(X11GraphicsConfig, visual)},
+		{"depth", "I", nullptr, 0, $field(X11GraphicsConfig, depth)},
+		{"colormap", "I", nullptr, 0, $field(X11GraphicsConfig, colormap)},
+		{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(X11GraphicsConfig, colorModel)},
+		{"aData", "J", nullptr, 0, $field(X11GraphicsConfig, aData)},
+		{"doubleBuffer", "Z", nullptr, 0, $field(X11GraphicsConfig, doubleBuffer)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(X11GraphicsConfig, disposerReferent)},
+		{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(X11GraphicsConfig, bufferCaps)},
+		{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(X11GraphicsConfig, imageCaps)},
+		{"bitsPerPixel", "I", nullptr, $PROTECTED, $field(X11GraphicsConfig, bitsPerPixel)},
+		{"surfaceType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PROTECTED, $field(X11GraphicsConfig, surfaceType)},
+		{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $field(X11GraphicsConfig, solidloops)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/X11GraphicsDevice;IIIZ)V", nullptr, $PROTECTED, $method(X11GraphicsConfig, init$, void, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
+		{"createABGRCCM", "()Ljava/awt/image/ComponentColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, createABGRCCM, $ComponentColorModel*)},
+		{"createAcceleratedImage", "(Ljava/awt/Component;II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createAcceleratedImage, $Image*, $Component*, int32_t, int32_t)},
+		{"createBackBuffer", "(JI)J", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, createBackBuffer, int64_t, int64_t, int32_t)},
+		{"createBackBuffer", "(Lsun/awt/X11ComponentPeer;ILjava/awt/BufferCapabilities;)J", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createBackBuffer, int64_t, $X11ComponentPeer*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createBackBufferImage", "(Ljava/awt/Component;J)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createBackBufferImage, $VolatileImage*, $Component*, int64_t)},
+		{"createDCM32", "(IIIIZ)Ljava/awt/image/DirectColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, createDCM32, $DirectColorModel*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"createSurfaceData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, createSurfaceData, $SurfaceData*, $X11ComponentPeer*)},
+		{"destroyBackBuffer", "(J)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(X11GraphicsConfig, destroyBackBuffer, void, int64_t)},
+		{"dispose", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsConfig, dispose, void, int64_t)},
+		{"flip", "(Lsun/awt/X11ComponentPeer;Ljava/awt/Component;Ljava/awt/image/VolatileImage;IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, flip, void, $X11ComponentPeer*, $Component*, $VolatileImage*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getAData", "()J", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getAData, int64_t)},
+		{"getBitsPerPixel", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getBitsPerPixel, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(X11GraphicsConfig, getBounds, $Rectangle*)},
+		{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsConfig, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getColormap", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getColormap, int32_t)},
+		{"getConfig", "(Lsun/awt/X11GraphicsDevice;IIIZ)Lsun/awt/X11GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, getConfig, X11GraphicsConfig*, $X11GraphicsDevice*, int32_t, int32_t, int32_t, bool)},
+		{"getConfig", "(Lsun/awt/X11GraphicsDevice;IIII)Lsun/awt/X11GraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11GraphicsConfig, getConfig, X11GraphicsConfig*, $X11GraphicsDevice*, int32_t, int32_t, int32_t, int32_t)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getDefaultTransform, $AffineTransform*)},
+		{"getDepth", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getDepth, int32_t)},
+		{"getDevice", "()Lsun/awt/X11GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getDevice, $GraphicsDevice*)},
+		{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
+		{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getNormalizingTransform, $AffineTransform*)},
+		{"getNumColors", "()I", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, getNumColors, int32_t)},
+		{"getProxyKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getProxyKey, $Object*)},
+		{"getScale", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getScale, int32_t)},
+		{"getSolidLoops", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsConfig, getSolidLoops, $RenderLoops*, $SurfaceType*)},
+		{"getSurfaceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11GraphicsConfig, getSurfaceType, $SurfaceType*)},
+		{"getSwapAction", "(Ljava/awt/BufferCapabilities$FlipContents;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(X11GraphicsConfig, getSwapAction, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getVisual", "()I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, getVisual, int32_t)},
+		{"getXResolution", "(I)D", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, getXResolution, double, int32_t)},
+		{"getYResolution", "(I)D", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, getYResolution, double, int32_t)},
+		{"init", "(II)V", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, init, void, int32_t, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(X11GraphicsConfig, initIDs, void)},
+		{"isDoubleBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, isDoubleBuffered, bool)},
+		{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, isTranslucencyCapable, bool)},
+		{"isTranslucencyCapable", "(J)Z", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, isTranslucencyCapable, bool, int64_t)},
+		{"makeColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, makeColorModel, $ColorModel*)},
+		{"scaleDown", "(I)I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, scaleDown, int32_t, int32_t)},
+		{"scaleUp", "(I)I", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, scaleUp, int32_t, int32_t)},
+		{"swapBuffers", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(X11GraphicsConfig, swapBuffers, void, int64_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11GraphicsConfig, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig", "sun.awt.image.SurfaceManager", "ProxiedGraphicsConfig", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.X11GraphicsConfig$X11GCDisposerRecord", "sun.awt.X11GraphicsConfig", "X11GCDisposerRecord", $PRIVATE | $STATIC},
+		{"sun.awt.X11GraphicsConfig$XDBECapabilities", "sun.awt.X11GraphicsConfig", "XDBECapabilities", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11GraphicsConfig",
+		"java.awt.GraphicsConfiguration",
+		"sun.awt.image.SurfaceManager$ProxiedGraphicsConfig",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11GraphicsConfig$X11GCDisposerRecord,sun.awt.X11GraphicsConfig$XDBECapabilities"
+	};
+	$loadClass(X11GraphicsConfig, name, initialize, &classInfo$$, X11GraphicsConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11GraphicsConfig));
+	});
 	return class$;
 }
 

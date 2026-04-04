@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftProcess.h>
-
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <jcpp.h>
 
@@ -12,29 +11,25 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _SoftProcess_MethodInfo_[] = {
-	{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC | $ABSTRACT},
-	{"init", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftProcess, init, void, $SoftSynthesizer*)},
-	{"processControlLogic", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftProcess, processControlLogic, void)},
-	{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftProcess, reset, void)},
-	{}
-};
-
-$ClassInfo _SoftProcess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.SoftProcess",
-	nullptr,
-	"com.sun.media.sound.SoftControl",
-	nullptr,
-	_SoftProcess_MethodInfo_
-};
-
-$Object* allocate$SoftProcess($Class* clazz) {
-	return $of($alloc(SoftProcess));
-}
-
 $Class* SoftProcess::load$($String* name, bool initialize) {
-	$loadClass(SoftProcess, name, initialize, &_SoftProcess_ClassInfo_, allocate$SoftProcess);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "(ILjava/lang/String;)[D", nullptr, $PUBLIC | $ABSTRACT},
+		{"init", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftProcess, init, void, $SoftSynthesizer*)},
+		{"processControlLogic", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftProcess, processControlLogic, void)},
+		{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftProcess, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.SoftProcess",
+		nullptr,
+		"com.sun.media.sound.SoftControl",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftProcess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftProcess);
+	});
 	return class$;
 }
 

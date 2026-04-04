@@ -1,5 +1,4 @@
 #include <java.rmi.test.h>
-
 #include <java.rmi.h>
 #include <java.base.h>
 #include <java.logging.h>

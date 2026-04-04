@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XToolkit.h>
-
 #include <java/awt/AWTError.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTException.h>
@@ -113,8 +112,6 @@
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -140,7 +137,6 @@
 #include <sun/awt/AWTPermissions.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/DisplayChangedListener.h>
-#include <sun/awt/EmbeddedFrame.h>
 #include <sun/awt/LightweightFrame.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/UNIXToolkit.h>
@@ -398,16 +394,12 @@ using $Runnable = ::java::lang::Runnable;
 using $Runtime = ::java::lang::Runtime;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $StackTraceElement = ::java::lang::StackTraceElement;
 using $ThreadDeath = ::java::lang::ThreadDeath;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
@@ -418,7 +410,6 @@ using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Properties = ::java::util::Properties;
-using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;
 using $Vector = ::java::util::Vector;
@@ -426,14 +417,10 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIDefaults = ::javax::swing::UIDefaults;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$EventQueueAccessor = ::sun::awt::AWTAccessor$EventQueueAccessor;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
-using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $UNIXToolkit = ::sun::awt::UNIXToolkit;
@@ -491,7 +478,6 @@ using $XNETProtocol = ::sun::awt::X11::XNETProtocol;
 using $XPanelPeer = ::sun::awt::X11::XPanelPeer;
 using $XPopupMenuPeer = ::sun::awt::X11::XPopupMenuPeer;
 using $XRobotPeer = ::sun::awt::X11::XRobotPeer;
-using $XRootWindow = ::sun::awt::X11::XRootWindow;
 using $XScrollPanePeer = ::sun::awt::X11::XScrollPanePeer;
 using $XScrollbarPeer = ::sun::awt::X11::XScrollbarPeer;
 using $XSystemTrayPeer = ::sun::awt::X11::XSystemTrayPeer;
@@ -508,14 +494,12 @@ using $XWM = ::sun::awt::X11::XWM;
 using $XWindow = ::sun::awt::X11::XWindow;
 using $XWindowAttributes = ::sun::awt::X11::XWindowAttributes;
 using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
-using $XkbAnyEvent = ::sun::awt::X11::XkbAnyEvent;
 using $XkbEvent = ::sun::awt::X11::XkbEvent;
 using $XlibUtil = ::sun::awt::X11::XlibUtil;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
 using $X11GraphicsDevice = ::sun::awt::X11GraphicsDevice;
 using $X11GraphicsEnvironment = ::sun::awt::X11GraphicsEnvironment;
-using $XSettings = ::sun::awt::XSettings;
 using $DataTransferer = ::sun::awt::datatransfer::DataTransferer;
 using $PerformanceLogger = ::sun::awt::util::PerformanceLogger;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;
@@ -537,29 +521,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(XToolkit::lambda$init$0());
+		 return XToolkit::lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$init$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XToolkit$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$init$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$init$0, run, $Object*)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$init$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$init$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$init$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$init$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$init$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$init$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$init$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$init$0);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$init$0::class$ = nullptr;
@@ -571,35 +552,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$init$2());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$init$2$1>());
+		 return $nc(inst$)->lambda$init$2();
 	}
 	XToolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo XToolkit$$Lambda$lambda$init$2$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(XToolkit$$Lambda$lambda$init$2$1, inst$)},
-	{}
-};
-$MethodInfo XToolkit$$Lambda$lambda$init$2$1::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$init$2$1, init$, void, XToolkit*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$init$2$1, run, $Object*)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$init$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$init$2$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$init$2$1::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$init$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(XToolkit$$Lambda$lambda$init$2$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$init$2$1, init$, void, XToolkit*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$init$2$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$init$2$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$init$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$init$2$1);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$init$2$1::class$ = nullptr;
@@ -611,35 +588,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$new$3());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$new$3$2>());
+		 return $nc(inst$)->lambda$new$3();
 	}
 	XToolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo XToolkit$$Lambda$lambda$new$3$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(XToolkit$$Lambda$lambda$new$3$2, inst$)},
-	{}
-};
-$MethodInfo XToolkit$$Lambda$lambda$new$3$2::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$new$3$2, init$, void, XToolkit*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$new$3$2, run, $Object*)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$new$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$new$3$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$new$3$2::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$new$3$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(XToolkit$$Lambda$lambda$new$3$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$new$3$2, init$, void, XToolkit*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$new$3$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$new$3$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$new$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$new$3$2);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$new$3$2::class$ = nullptr;
@@ -652,27 +625,24 @@ public:
 	virtual void accept(Object$* k, Object$* v) override {
 		XToolkit::lambda$dumpPeers$4($cast($Long, k), $cast($XBaseWindow, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$dumpPeers$4$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XToolkit$$Lambda$lambda$dumpPeers$4$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$dumpPeers$4$3, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$dumpPeers$4$3, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$dumpPeers$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$4$3",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$dumpPeers$4$3::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$dumpPeers$4$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$dumpPeers$4$3, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$dumpPeers$4$3, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$4$3",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$dumpPeers$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$dumpPeers$4$3);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$dumpPeers$4$3::class$ = nullptr;
@@ -685,27 +655,24 @@ public:
 	virtual void accept(Object$* k, Object$* v) override {
 		XToolkit::lambda$dumpPeers$5(k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$dumpPeers$5$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XToolkit$$Lambda$lambda$dumpPeers$5$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$dumpPeers$5$4, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$dumpPeers$5$4, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$dumpPeers$5$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$5$4",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$dumpPeers$5$4::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$dumpPeers$5$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$dumpPeers$5$4, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$dumpPeers$5$4, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$5$4",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$dumpPeers$5$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$dumpPeers$5$4);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$dumpPeers$5$4::class$ = nullptr;
@@ -718,27 +685,24 @@ public:
 	virtual void accept(Object$* k, Object$* v) override {
 		XToolkit::lambda$dumpPeers$6($cast($Long, k), $cast($Collection, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$dumpPeers$6$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XToolkit$$Lambda$lambda$dumpPeers$6$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$dumpPeers$6$5, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$dumpPeers$6$5, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$dumpPeers$6$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$6$5",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$dumpPeers$6$5::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$dumpPeers$6$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$dumpPeers$6$5, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$dumpPeers$6$5, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$6$5",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$dumpPeers$6$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$dumpPeers$6$5);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$dumpPeers$6$5::class$ = nullptr;
@@ -751,27 +715,24 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* evt) override {
 		XToolkit::lambda$initializeDesktopProperties$7(evt);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6::class$ = nullptr;
@@ -785,315 +746,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$init$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XToolkit$$Lambda$lambda$init$1$7>());
-	}
 	XToolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo XToolkit$$Lambda$lambda$init$1$7::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(XToolkit$$Lambda$lambda$init$1$7, inst$)},
-	{}
-};
-$MethodInfo XToolkit$$Lambda$lambda$init$1$7::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$init$1$7, init$, void, XToolkit*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$init$1$7, run, void)},
-	{}
-};
-$ClassInfo XToolkit$$Lambda$lambda$init$1$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.X11.XToolkit$$Lambda$lambda$init$1$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* XToolkit$$Lambda$lambda$init$1$7::load$($String* name, bool initialize) {
-	$loadClass(XToolkit$$Lambda$lambda$init$1$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(XToolkit$$Lambda$lambda$init$1$7, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XToolkit;)V", nullptr, $PUBLIC, $method(XToolkit$$Lambda$lambda$init$1$7, init$, void, XToolkit*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkit$$Lambda$lambda$init$1$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.X11.XToolkit$$Lambda$lambda$init$1$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XToolkit$$Lambda$lambda$init$1$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkit$$Lambda$lambda$init$1$7);
+	});
 	return class$;
 }
 $Class* XToolkit$$Lambda$lambda$init$1$7::class$ = nullptr;
-
-$FieldInfo _XToolkit_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, log)},
-	{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, eventLog)},
-	{"timeoutTaskLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, timeoutTaskLog)},
-	{"keyEventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, keyEventLog)},
-	{"backingStoreLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, backingStoreLog)},
-	{"AWT_MULTICLICK_DEFAULT_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XToolkit, AWT_MULTICLICK_DEFAULT_TIME)},
-	{"PRIMARY_LOOP", "Z", nullptr, $STATIC | $FINAL, $constField(XToolkit, PRIMARY_LOOP)},
-	{"SECONDARY_LOOP", "Z", nullptr, $STATIC | $FINAL, $constField(XToolkit, SECONDARY_LOOP)},
-	{"awtAppClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, awtAppClassName)},
-	{"clipboard", "Lsun/awt/X11/XClipboard;", nullptr, 0, $field(XToolkit, clipboard)},
-	{"selection", "Lsun/awt/X11/XClipboard;", nullptr, 0, $field(XToolkit, selection)},
-	{"dynamicLayoutSetting", "Z", nullptr, $PROTECTED | $STATIC, $staticField(XToolkit, dynamicLayoutSetting)},
-	{"areExtraMouseButtonsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, areExtraMouseButtonsEnabled$)},
-	{"loadedXSettings", "Z", nullptr, $PRIVATE, $field(XToolkit, loadedXSettings)},
-	{"xs", "Lsun/awt/XSettings;", nullptr, $PRIVATE, $field(XToolkit, xs)},
-	{"fcManager", "Lsun/font/FontConfigManager;", nullptr, $PRIVATE, $field(XToolkit, fcManager)},
-	{"arrowCursor", "I", nullptr, $STATIC, $staticField(XToolkit, arrowCursor)},
-	{"winMap", "Ljava/util/TreeMap;", "Ljava/util/TreeMap<Ljava/lang/Long;Lsun/awt/X11/XBaseWindow;>;", $STATIC, $staticField(XToolkit, winMap)},
-	{"specialPeerMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $STATIC, $staticField(XToolkit, specialPeerMap)},
-	{"winToDispatcher", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Ljava/util/Collection<Lsun/awt/X11/XEventDispatcher;>;>;", $STATIC, $staticField(XToolkit, winToDispatcher)},
-	{"uidefaults", "Ljavax/swing/UIDefaults;", nullptr, $STATIC, $staticField(XToolkit, uidefaults)},
-	{"localEnv", "Lsun/awt/X11GraphicsEnvironment;", nullptr, $STATIC | $FINAL, $staticField(XToolkit, localEnv)},
-	{"device", "Lsun/awt/X11GraphicsDevice;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, device)},
-	{"display", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, display)},
-	{"awt_multiclick_time", "I", nullptr, $STATIC, $staticField(XToolkit, awt_multiclick_time)},
-	{"securityWarningEnabled", "Z", nullptr, $STATIC, $staticField(XToolkit, securityWarningEnabled)},
-	{"maxWindowWidthInPixels", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XToolkit, maxWindowWidthInPixels)},
-	{"maxWindowHeightInPixels", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XToolkit, maxWindowHeightInPixels)},
-	{"xPeer", "Lsun/awt/X11/XMouseInfoPeer;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, xPeer)},
-	{"toolkitThread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(XToolkit, toolkitThread)},
-	{"lastCursorPos", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(XToolkit, lastCursorPos)},
-	{"listeners", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/awt/X11/XToolkit$XEventListener;>;", $PRIVATE, $field(XToolkit, listeners)},
-	{"displayChangedHandler", "Lsun/awt/DisplayChangedListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, displayChangedHandler)},
-	{"sunAwtDisableGtkFileDialogs", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, sunAwtDisableGtkFileDialogs)},
-	{"initialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, initialized)},
-	{"timeStampUpdated", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, timeStampUpdated)},
-	{"timeStamp", "J", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, timeStamp)},
-	{"timeFetcher", "Lsun/awt/X11/XEventDispatcher;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, timeFetcher)},
-	{"_XA_JAVA_TIME_PROPERTY_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, _XA_JAVA_TIME_PROPERTY_ATOM)},
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, prefix)},
-	{"postfix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, postfix)},
-	{"dndPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, dndPrefix)},
-	{"altMask", "I", nullptr, $STATIC, $staticField(XToolkit, altMask)},
-	{"metaMask", "I", nullptr, $STATIC, $staticField(XToolkit, metaMask)},
-	{"numLockMask", "I", nullptr, $STATIC, $staticField(XToolkit, numLockMask)},
-	{"modeSwitchMask", "I", nullptr, $STATIC, $staticField(XToolkit, modeSwitchMask)},
-	{"modLockIsShiftLock", "I", nullptr, $STATIC, $staticField(XToolkit, modLockIsShiftLock)},
-	{"timeoutTasks", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/Long;Ljava/util/List<Ljava/lang/Runnable;>;>;", $PRIVATE | $STATIC, $staticField(XToolkit, timeoutTasks)},
-	{"backingStoreType", "I", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, backingStoreType)},
-	{"XSUN_KP_BEHAVIOR", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, XSUN_KP_BEHAVIOR)},
-	{"XORG_KP_BEHAVIOR", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, XORG_KP_BEHAVIOR)},
-	{"IS_SUN_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_SUN_KEYBOARD)},
-	{"IS_NONSUN_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_NONSUN_KEYBOARD)},
-	{"IS_KANA_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_KANA_KEYBOARD)},
-	{"IS_NONKANA_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_NONKANA_KEYBOARD)},
-	{"awt_IsXsunKPBehavior", "I", nullptr, $STATIC, $staticField(XToolkit, awt_IsXsunKPBehavior)},
-	{"awt_UseXKB", "Z", nullptr, $STATIC, $staticField(XToolkit, awt_UseXKB)},
-	{"awt_UseXKB_Calls", "Z", nullptr, $STATIC, $staticField(XToolkit, awt_UseXKB_Calls)},
-	{"awt_XKBBaseEventCode", "I", nullptr, $STATIC, $staticField(XToolkit, awt_XKBBaseEventCode)},
-	{"awt_XKBEffectiveGroup", "I", nullptr, $STATIC, $staticField(XToolkit, awt_XKBEffectiveGroup)},
-	{"awt_XKBDescPtr", "J", nullptr, $STATIC, $staticField(XToolkit, awt_XKBDescPtr)},
-	{"sunOrNotKeyboard", "I", nullptr, $STATIC, $staticField(XToolkit, sunOrNotKeyboard)},
-	{"kanaOrNotKeyboard", "I", nullptr, $STATIC, $staticField(XToolkit, kanaOrNotKeyboard)},
-	{"eventNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, eventNumber)},
-	{"oops_waiter", "Lsun/awt/X11/XEventDispatcher;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, oops_waiter)},
-	{"oops_updated", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, oops_updated)},
-	{"oops_position", "I", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, oops_position)},
-	{}
-};
-
-$MethodInfo _XToolkit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit, init$, void)},
-	{"XSync", "()V", nullptr, $STATIC, $staticMethod(XToolkit, XSync, void)},
-	{"addEventDispatcher", "(JLsun/awt/X11/XEventDispatcher;)V", nullptr, $STATIC, $staticMethod(XToolkit, addEventDispatcher, void, int64_t, $XEventDispatcher*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XToolkit, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"addToWinMap", "(JLsun/awt/X11/XBaseWindow;)V", nullptr, $STATIC, $staticMethod(XToolkit, addToWinMap, void, int64_t, $XBaseWindow*)},
-	{"addXEventListener", "(Lsun/awt/X11/XToolkit$XEventListener;)V", nullptr, $PUBLIC, $method(XToolkit, addXEventListener, void, $XToolkit$XEventListener*)},
-	{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
-	{"awtFUnlock", "()V", nullptr, $STATIC, $staticMethod(XToolkit, awtFUnlock, void)},
-	{"awt_output_flush", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, awt_output_flush, void)},
-	{"awt_toolkit_init", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, awt_toolkit_init, void)},
-	{"beep", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkit, beep, void)},
-	{"callTimeoutTasks", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, callTimeoutTasks, void)},
-	{"canUseXKBCalls", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, canUseXKBCalls, bool)},
-	{"createButton", "(Ljava/awt/Button;)Ljava/awt/peer/ButtonPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createButton, $ButtonPeer*, $Button*)},
-	{"createCanvas", "(Ljava/awt/Canvas;)Ljava/awt/peer/CanvasPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCanvas, $CanvasPeer*, $Canvas*)},
-	{"createCheckbox", "(Ljava/awt/Checkbox;)Ljava/awt/peer/CheckboxPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCheckbox, $CheckboxPeer*, $Checkbox*)},
-	{"createCheckboxMenuItem", "(Ljava/awt/CheckboxMenuItem;)Ljava/awt/peer/CheckboxMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCheckboxMenuItem, $CheckboxMenuItemPeer*, $CheckboxMenuItem*)},
-	{"createChoice", "(Ljava/awt/Choice;)Ljava/awt/peer/ChoicePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createChoice, $ChoicePeer*, $Choice*)},
-	{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
-	{"createDesktopPeer", "(Ljava/awt/Desktop;)Ljava/awt/peer/DesktopPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createDesktopPeer, $DesktopPeer*, $Desktop*)},
-	{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createDialog, $DialogPeer*, $Dialog*)},
-	{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(XToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
-	{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"createEmbedProxy", "(Lsun/awt/X11/XEmbedChildProxy;)Lsun/awt/X11/XEmbedChildProxyPeer;", nullptr, 0, $method(XToolkit, createEmbedProxy, $XEmbedChildProxyPeer*, $XEmbedChildProxy*)},
-	{"createEmbeddedFrame", "(Lsun/awt/X11/XEmbeddedFrame;)Lsun/awt/X11/XEmbeddedFramePeer;", nullptr, $PUBLIC, $method(XToolkit, createEmbeddedFrame, $XEmbeddedFramePeer*, $XEmbeddedFrame*)},
-	{"createFileDialog", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createFileDialog, $FileDialogPeer*, $FileDialog*)},
-	{"createFrame", "(Ljava/awt/Frame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createFrame, $FramePeer*, $Frame*)},
-	{"createLabel", "(Ljava/awt/Label;)Ljava/awt/peer/LabelPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createLabel, $LabelPeer*, $Label*)},
-	{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*)},
-	{"createList", "(Ljava/awt/List;)Ljava/awt/peer/ListPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createList, $ListPeer*, $List*)},
-	{"createMenu", "(Ljava/awt/Menu;)Ljava/awt/peer/MenuPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createMenu, $MenuPeer*, $Menu*)},
-	{"createMenuBar", "(Ljava/awt/MenuBar;)Ljava/awt/peer/MenuBarPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createMenuBar, $MenuBarPeer*, $MenuBar*)},
-	{"createMenuItem", "(Ljava/awt/MenuItem;)Ljava/awt/peer/MenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createMenuItem, $MenuItemPeer*, $MenuItem*)},
-	{"createPanel", "(Ljava/awt/Panel;)Ljava/awt/peer/PanelPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createPanel, $PanelPeer*, $Panel*)},
-	{"createPopupMenu", "(Ljava/awt/PopupMenu;)Ljava/awt/peer/PopupMenuPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createPopupMenu, $PopupMenuPeer*, $PopupMenu*)},
-	{"createRobot", "(Ljava/awt/GraphicsDevice;)Ljava/awt/peer/RobotPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createRobot, $RobotPeer*, $GraphicsDevice*), "java.awt.AWTException"},
-	{"createScrollPane", "(Ljava/awt/ScrollPane;)Ljava/awt/peer/ScrollPanePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createScrollPane, $ScrollPanePeer*, $ScrollPane*)},
-	{"createScrollbar", "(Ljava/awt/Scrollbar;)Ljava/awt/peer/ScrollbarPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createScrollbar, $ScrollbarPeer*, $Scrollbar*)},
-	{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*), "java.awt.HeadlessException"},
-	{"createTaskbarPeer", "(Ljava/awt/Taskbar;)Ljava/awt/peer/TaskbarPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTaskbarPeer, $TaskbarPeer*, $Taskbar*)},
-	{"createTextArea", "(Ljava/awt/TextArea;)Ljava/awt/peer/TextAreaPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTextArea, $TextAreaPeer*, $TextArea*)},
-	{"createTextField", "(Ljava/awt/TextField;)Ljava/awt/peer/TextFieldPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTextField, $TextFieldPeer*, $TextField*)},
-	{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*), "java.awt.HeadlessException,java.awt.AWTException"},
-	{"createWindow", "(Ljava/awt/Window;)Ljava/awt/peer/WindowPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createWindow, $WindowPeer*, $Window*)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PRIVATE, $method(XToolkit, dispatchEvent, void, $XEvent*)},
-	{"dumpPeers", "()V", nullptr, $STATIC, $staticMethod(XToolkit, dumpPeers, void)},
-	{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, enableInputMethodsForTextComponent, bool)},
-	{"freeXKB", "()V", nullptr, 0, $method(XToolkit, freeXKB, void)},
-	{"getAWTAppClassName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(XToolkit, getAWTAppClassName, $String*)},
-	{"getBackingStoreType", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getBackingStoreType, int32_t)},
-	{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t)},
-	{"getCorrectXIDString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(XToolkit, getCorrectXIDString, $String*, $String*)},
-	{"getCurrentServerTime", "()J", nullptr, $STATIC, $staticMethod(XToolkit, getCurrentServerTime, int64_t)},
-	{"getDataTransferer", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getDataTransferer, $DataTransferer*)},
-	{"getDefaultRootWindow", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getDefaultRootWindow, int64_t)},
-	{"getDefaultXColormap", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, getDefaultXColormap, int64_t)},
-	{"getDisplay", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getDisplay, int64_t)},
-	{"getEnv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, getEnv, $String*, $String*)},
-	{"getEventNumber", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getEventNumber, int64_t)},
-	{"getEventQueue", "(Ljava/lang/Object;)Ljava/awt/EventQueue;", nullptr, $STATIC, $staticMethod(XToolkit, getEventQueue, $EventQueue*, Object$*)},
-	{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
-	{"getInputMethodAdapterDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getInputMethodAdapterDescriptor, $InputMethodDescriptor*), "java.awt.AWTException"},
-	{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*), "java.awt.HeadlessException"},
-	{"getLastCursorPos", "(Ljava/awt/Point;)Z", nullptr, 0, $method(XToolkit, getLastCursorPos, bool, $Point*)},
-	{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, getLockingKeyState, bool, int32_t)},
-	{"getMaxWindowHeightInPixels", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getMaxWindowHeightInPixels, int32_t)},
-	{"getMaxWindowWidthInPixels", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getMaxWindowWidthInPixels, int32_t)},
-	{"getMaximumCursorColors", "()I", nullptr, $PUBLIC, $virtualMethod(XToolkit, getMaximumCursorColors, int32_t)},
-	{"getModifierState", "(I)Z", nullptr, $STATIC, $staticMethod(XToolkit, getModifierState, bool, int32_t)},
-	{"getMouseInfoPeer", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XToolkit, getMouseInfoPeer, $MouseInfoPeer*)},
-	{"getMultiClickTime", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getMultiClickTime, int32_t)},
-	{"getNextTaskTime", "()J", nullptr, $PRIVATE, $method(XToolkit, getNextTaskTime, int64_t)},
-	{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(XToolkit, getNumberOfButtons, int32_t)},
-	{"getNumberOfButtonsForMask", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getNumberOfButtonsForMask, int32_t)},
-	{"getNumberOfButtonsImpl", "()I", nullptr, $PRIVATE | $NATIVE, $method(XToolkit, getNumberOfButtonsImpl, int32_t)},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
-	{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*)},
-	{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(XToolkit, getScreenResolution, int32_t)},
-	{"getSunAwtDisableGrab", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getSunAwtDisableGrab, bool)},
-	{"getSunAwtDisableGtkFileDialogs", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(XToolkit, getSunAwtDisableGtkFileDialogs, bool)},
-	{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getSystemClipboard, $Clipboard*)},
-	{"getSystemSelection", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getSystemSelection, $Clipboard*)},
-	{"getTrayIconDisplayTimeout", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, getTrayIconDisplayTimeout, int64_t)},
-	{"getUIDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $STATIC, $staticMethod(XToolkit, getUIDefaults, $UIDefaults*)},
-	{"getWorkArea", "(JI)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, getWorkArea, $Rectangle*, int64_t, int32_t)},
-	{"getXKBBaseEventCode", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getXKBBaseEventCode, int32_t)},
-	{"getXKBEffectiveGroup", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getXKBEffectiveGroup, int32_t)},
-	{"getXKBKbdDesc", "()J", nullptr, $STATIC, $staticMethod(XToolkit, getXKBKbdDesc, int64_t)},
-	{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, grab, void, $Window*)},
-	{"init", "()V", nullptr, 0, $method(XToolkit, init, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XToolkit, initIDs, void)},
-	{"initScreenSize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, initScreenSize, void)},
-	{"initSecurityWarning", "()V", nullptr, $STATIC, $staticMethod(XToolkit, initSecurityWarning, void)},
-	{"initUIDefaults", "()V", nullptr, $STATIC, $staticMethod(XToolkit, initUIDefaults, void)},
-	{"initXSettingsIfNeeded", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(XToolkit, initXSettingsIfNeeded, bool, $String*)},
-	{"initializeDesktopProperties", "()V", nullptr, $PROTECTED, $virtualMethod(XToolkit, initializeDesktopProperties, void)},
-	{"initializeMultiClickTime", "()V", nullptr, $STATIC, $staticMethod(XToolkit, initializeMultiClickTime, void)},
-	{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isAlwaysOnTopSupported, bool)},
-	{"isDesktopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isDesktopSupported, bool)},
-	{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isDynamicLayoutActive, bool)},
-	{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED, $virtualMethod(XToolkit, isDynamicLayoutSet, bool)},
-	{"isDynamicLayoutSupported", "()Z", nullptr, $PROTECTED, $method(XToolkit, isDynamicLayoutSupported, bool)},
-	{"isFrameStateSupported", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isFrameStateSupported, bool, int32_t), "java.awt.HeadlessException"},
-	{"isKanaKeyboard", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isKanaKeyboard, bool)},
-	{"isLeftMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $STATIC, $staticMethod(XToolkit, isLeftMouseButton, bool, $MouseEvent*)},
-	{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
-	{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
-	{"isRightMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $STATIC, $staticMethod(XToolkit, isRightMouseButton, bool, $MouseEvent*)},
-	{"isSecurityWarningEnabled", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isSecurityWarningEnabled, bool)},
-	{"isSunKeyboard", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isSunKeyboard, bool)},
-	{"isTaskbarSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isTaskbarSupported, bool)},
-	{"isToolkitThread", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isToolkitThread, bool)},
-	{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
-	{"isTraySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isTraySupported, bool)},
-	{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isWindowOpacitySupported, bool)},
-	{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isWindowShapingSupported, bool)},
-	{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isWindowTranslucencySupported, bool)},
-	{"isXKBenabled", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isXKBenabled, bool)},
-	{"isXsunKPBehavior", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isXsunKPBehavior, bool)},
-	{"keysymToPrimaryKeycode", "(J)I", nullptr, $STATIC, $staticMethod(XToolkit, keysymToPrimaryKeycode, int32_t, int64_t)},
-	{"lambda$dumpPeers$4", "(Ljava/lang/Long;Lsun/awt/X11/XBaseWindow;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$dumpPeers$4, void, $Long*, $XBaseWindow*)},
-	{"lambda$dumpPeers$5", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$dumpPeers$5, void, Object$*, Object$*)},
-	{"lambda$dumpPeers$6", "(Ljava/lang/Long;Ljava/util/Collection;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$dumpPeers$6, void, $Long*, $Collection*)},
-	{"lambda$init$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$init$0, $Void*)},
-	{"lambda$init$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(XToolkit, lambda$init$1, void)},
-	{"lambda$init$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(XToolkit, lambda$init$2, $Void*)},
-	{"lambda$initializeDesktopProperties$7", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$initializeDesktopProperties$7, void, $PropertyChangeEvent*)},
-	{"lambda$new$3", "()Ljava/lang/Thread;", nullptr, $PRIVATE | $SYNTHETIC, $method(XToolkit, lambda$new$3, $Thread*)},
-	{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
-	{"loadSystemColors", "([I)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, loadSystemColors, void, $ints*)},
-	{"loadXSettings", "()V", nullptr, $PRIVATE, $method(XToolkit, loadXSettings, void)},
-	{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(XToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
-	{"nativeLoadSystemColors", "([I)V", nullptr, $PRIVATE | $NATIVE, $method(XToolkit, nativeLoadSystemColors, void, $ints*)},
-	{"needsXEmbedImpl", "()Z", nullptr, $PROTECTED, $virtualMethod(XToolkit, needsXEmbedImpl, bool)},
-	{"notifyListeners", "(Lsun/awt/X11/XEvent;)V", nullptr, $PRIVATE, $method(XToolkit, notifyListeners, void, $XEvent*)},
-	{"parseXSettings", "(ILjava/util/Map;)V", "(ILjava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", 0, $method(XToolkit, parseXSettings, void, int32_t, $Map*)},
-	{"processException", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(XToolkit, processException, void, $Throwable*)},
-	{"processGlobalMotionEvent", "(Lsun/awt/X11/XEvent;Lsun/awt/X11/XBaseWindow;)V", nullptr, $PRIVATE, $method(XToolkit, processGlobalMotionEvent, void, $XEvent*, $XBaseWindow*)},
-	{"processXkbChanges", "(Lsun/awt/X11/XEvent;)V", nullptr, $PRIVATE, $method(XToolkit, processXkbChanges, void, $XEvent*)},
-	{"remove", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(XToolkit, remove, void, $Runnable*)},
-	{"removeEventDispatcher", "(JLsun/awt/X11/XEventDispatcher;)V", nullptr, $STATIC, $staticMethod(XToolkit, removeEventDispatcher, void, int64_t, $XEventDispatcher*)},
-	{"removeFromWinMap", "(JLsun/awt/X11/XBaseWindow;)V", nullptr, $STATIC, $staticMethod(XToolkit, removeFromWinMap, void, int64_t, $XBaseWindow*)},
-	{"removeSourceEvents", "(Ljava/awt/EventQueue;Ljava/lang/Object;Z)V", nullptr, $STATIC, $staticMethod(XToolkit, removeSourceEvents, void, $EventQueue*, Object$*, bool)},
-	{"resetKeyboardSniffer", "()V", nullptr, $STATIC, $staticMethod(XToolkit, resetKeyboardSniffer, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkit, run, void)},
-	{"run", "(Z)V", nullptr, $PUBLIC, $method(XToolkit, run, void, bool)},
-	{"schedule", "(Ljava/lang/Runnable;J)V", nullptr, $STATIC, $staticMethod(XToolkit, schedule, void, $Runnable*, int64_t)},
-	{"setBackingStoreType", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, setBackingStoreType, void)},
-	{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, setDynamicLayout, void, bool)},
-	{"setupModifierMap", "()V", nullptr, $STATIC, $staticMethod(XToolkit, setupModifierMap, void)},
-	{"syncNativeQueue", "(J)Z", nullptr, $PROTECTED, $virtualMethod(XToolkit, syncNativeQueue, bool, int64_t)},
-	{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(XToolkit, targetDisposedPeer, void, Object$*, Object$*)},
-	{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC, $staticMethod(XToolkit, targetToPeer, $Object*, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryXKB", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, tryXKB, bool)},
-	{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, ungrab, void, $Window*)},
-	{"useBufferPerWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, useBufferPerWindow, bool)},
-	{"waitForEvents", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, waitForEvents, void, int64_t)},
-	{"wakeup_poll", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, wakeup_poll, void)},
-	{"windowToXWindow", "(J)Lsun/awt/X11/XBaseWindow;", nullptr, $STATIC, $staticMethod(XToolkit, windowToXWindow, $XBaseWindow*, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_awt_output_flush 12
-#define _METHOD_INDEX_awt_toolkit_init 13
-#define _METHOD_INDEX_getDefaultXColormap 59
-#define _METHOD_INDEX_getEnv 61
-#define _METHOD_INDEX_getNumberOfButtonsImpl 78
-#define _METHOD_INDEX_getTrayIconDisplayTimeout 87
-#define _METHOD_INDEX_initIDs 95
-#define _METHOD_INDEX_nativeLoadSystemColors 137
-#define _METHOD_INDEX_waitForEvents 162
-#define _METHOD_INDEX_wakeup_poll 163
-
-$InnerClassInfo _XToolkit_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XToolkit$XEventListener", "sun.awt.X11.XToolkit", "XEventListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.X11.XToolkit$4", nullptr, nullptr, 0},
-	{"sun.awt.X11.XToolkit$3", nullptr, nullptr, 0},
-	{"sun.awt.X11.XToolkit$2", nullptr, nullptr, 0},
-	{"sun.awt.X11.XToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XToolkit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11.XToolkit",
-	"sun.awt.UNIXToolkit",
-	"java.lang.Runnable",
-	_XToolkit_FieldInfo_,
-	_XToolkit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XToolkit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XToolkit$XEventListener,sun.awt.X11.XToolkit$4,sun.awt.X11.XToolkit$3,sun.awt.X11.XToolkit$2,sun.awt.X11.XToolkit$1"
-};
-
-$Object* allocate$XToolkit($Class* clazz) {
-	return $of($alloc(XToolkit));
-}
 
 int32_t XToolkit::hashCode() {
 	 return this->$UNIXToolkit::hashCode();
@@ -1169,23 +847,22 @@ int32_t XToolkit::oops_position = 0;
 
 int64_t XToolkit::getTrayIconDisplayTimeout() {
 	$init(XToolkit);
-	int64_t $ret = 0;
-	$prepareNativeStatic(XToolkit, getTrayIconDisplayTimeout, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getTrayIconDisplayTimeout, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void XToolkit::initIDs() {
 	$init(XToolkit);
-	$prepareNativeStatic(XToolkit, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void XToolkit::waitForEvents(int64_t nextTaskTime) {
 	$init(XToolkit);
-	$prepareNativeStatic(XToolkit, waitForEvents, void, int64_t nextTaskTime);
+	$prepareNativeStatic(waitForEvents, void, int64_t nextTaskTime);
 	$invokeNativeStatic(nextTaskTime);
 	$finishNativeStatic();
 }
@@ -1197,9 +874,9 @@ bool XToolkit::isToolkitThread() {
 
 void XToolkit::initSecurityWarning() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, runtime, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.runtime.version"_s)))));
+	$var($String, runtime, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "java.runtime.version"_s))));
 	XToolkit::securityWarningEnabled = (runtime != nullptr && runtime->contains("internal"_s));
 }
 
@@ -1210,7 +887,7 @@ bool XToolkit::isSecurityWarningEnabled() {
 
 void XToolkit::awt_output_flush() {
 	$init(XToolkit);
-	$prepareNativeStatic(XToolkit, awt_output_flush, void);
+	$prepareNativeStatic(awt_output_flush, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -1222,7 +899,7 @@ void XToolkit::awtFUnlock() {
 }
 
 void XToolkit::nativeLoadSystemColors($ints* systemColors) {
-	$prepareNative(XToolkit, nativeLoadSystemColors, void, $ints* systemColors);
+	$prepareNative(nativeLoadSystemColors, void, $ints* systemColors);
 	$invokeNative(systemColors);
 	$finishNative();
 }
@@ -1242,7 +919,7 @@ void XToolkit::loadSystemColors($ints* systemColors) {
 
 void XToolkit::initUIDefaults() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($SystemColor);
 		$var($Color, c, $SystemColor::text);
@@ -1264,63 +941,59 @@ int64_t XToolkit::getDisplay() {
 int64_t XToolkit::getDefaultRootWindow() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int64_t var$3 = XToolkit::getDisplay();
-			int64_t res = $XlibWrapper::RootWindow(var$3, $XlibWrapper::DefaultScreen(XToolkit::getDisplay()));
-			if (res == 0) {
-				$throwNew($IllegalStateException, "Root window must not be null"_s);
-			}
-			var$2 = res;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int64_t var$3 = XToolkit::getDisplay();
+		int64_t res = $XlibWrapper::RootWindow(var$3, $XlibWrapper::DefaultScreen(XToolkit::getDisplay()));
+		if (res == 0) {
+			$throwNew($IllegalStateException, "Root window must not be null"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = res;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XToolkit::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XSupportsLocale();
-			if ($XlibWrapper::XSetLocaleModifiers(""_s) == nullptr) {
-				$nc(XToolkit::log)->finer("X locale modifiers are not supported, using default"_s);
-			}
-			tryXKB();
-			XToolkit::arrowCursor = $XlibWrapper::XCreateFontCursor(XToolkit::getDisplay(), $XCursorFontConstants::XC_arrow);
-			$var($String, extraButtons, "sun.awt.enableExtraMouseButtons"_s);
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(XToolkit$$Lambda$lambda$init$0)));
-			int64_t var$1 = XToolkit::getDisplay();
-			$XlibWrapper::XSelectInput(var$1, XToolkit::getDefaultRootWindow(), $XConstants::StructureNotifyMask);
-			int64_t var$2 = XToolkit::getDefaultRootWindow();
-			XToolkit::addEventDispatcher(var$2, $$new($XToolkit$1, this));
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XSupportsLocale();
+		if ($XlibWrapper::XSetLocaleModifiers(""_s) == nullptr) {
+			$nc(XToolkit::log)->finer("X locale modifiers are not supported, using default"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		tryXKB();
+		XToolkit::arrowCursor = $XlibWrapper::XCreateFontCursor(XToolkit::getDisplay(), $XCursorFontConstants::XC_arrow);
+		$var($String, extraButtons, "sun.awt.enableExtraMouseButtons"_s);
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(XToolkit$$Lambda$lambda$init$0)));
+		int64_t var$1 = XToolkit::getDisplay();
+		$XlibWrapper::XSelectInput(var$1, XToolkit::getDefaultRootWindow(), $XConstants::StructureNotifyMask);
+		int64_t var$2 = XToolkit::getDefaultRootWindow();
+		XToolkit::addEventDispatcher(var$2, $$new($XToolkit$1, this));
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		awtUnlock();
 	}
-	$var($PrivilegedAction, a, static_cast<$PrivilegedAction*>($new(XToolkit$$Lambda$lambda$init$2$1, this)));
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	$var($PrivilegedAction, a, $new(XToolkit$$Lambda$lambda$init$2$1, this));
 	$AccessController::doPrivileged(a);
 }
 
@@ -1335,9 +1008,8 @@ $String* XToolkit::getCorrectXIDString($String* val) {
 
 $String* XToolkit::getEnv($String* key) {
 	$init(XToolkit);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(XToolkit, getEnv, $String*, $String* key);
-	$assign($ret, $invokeNativeStaticObject(key));
+	$prepareNativeStatic(getEnv, $String*, $String* key);
+	$var($String, $ret, $invokeNativeStaticObject(key));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1348,11 +1020,11 @@ $String* XToolkit::getAWTAppClassName() {
 }
 
 void XToolkit::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$UNIXToolkit::init$();
 	$set(this, fcManager, $new($FontConfigManager));
-	$set(this, listeners, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($new($LinkedList))))));
+	$set(this, listeners, $cast($AbstractCollection, $new($LinkedList)));
 	if ($PerformanceLogger::loggingEnabled()) {
 		$PerformanceLogger::setTime("XToolkit construction"_s);
 	}
@@ -1363,13 +1035,13 @@ void XToolkit::init$() {
 		if (bottom >= 0) {
 			$assign(mainClassName, $nc(trace->get(bottom))->getClassName());
 		}
-		if (mainClassName == nullptr || $nc(mainClassName)->isEmpty()) {
+		if (mainClassName == nullptr || mainClassName->isEmpty()) {
 			$assign(mainClassName, "AWT"_s);
 		}
 		$assignStatic(XToolkit::awtAppClassName, getCorrectXIDString(mainClassName));
 		init();
 		$XWM::init();
-		$assignStatic(XToolkit::toolkitThread, $cast($Thread, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(XToolkit$$Lambda$lambda$new$3$2, this)))));
+		$assignStatic(XToolkit::toolkitThread, $cast($Thread, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(XToolkit$$Lambda$lambda$new$3$2, this)))));
 		$nc(XToolkit::toolkitThread)->start();
 	}
 }
@@ -1395,33 +1067,33 @@ $FramePeer* XToolkit::createFrame($Frame* target) {
 void XToolkit::addToWinMap(int64_t window, $XBaseWindow* xwin) {
 	$init(XToolkit);
 	$synchronized(XToolkit::winMap) {
-		$nc(XToolkit::winMap)->put($($Long::valueOf(window)), xwin);
+		XToolkit::winMap->put($($Long::valueOf(window)), xwin);
 	}
 }
 
 void XToolkit::removeFromWinMap(int64_t window, $XBaseWindow* xwin) {
 	$init(XToolkit);
 	$synchronized(XToolkit::winMap) {
-		$nc(XToolkit::winMap)->remove($($Long::valueOf(window)));
+		XToolkit::winMap->remove($($Long::valueOf(window)));
 	}
 }
 
 $XBaseWindow* XToolkit::windowToXWindow(int64_t window) {
 	$init(XToolkit);
 	$synchronized(XToolkit::winMap) {
-		return $cast($XBaseWindow, $nc(XToolkit::winMap)->get($($Long::valueOf(window))));
+		return $cast($XBaseWindow, XToolkit::winMap->get($($Long::valueOf(window))));
 	}
 }
 
 void XToolkit::addEventDispatcher(int64_t window, $XEventDispatcher* dispatcher) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(XToolkit::winToDispatcher) {
 		$var($Long, key, $Long::valueOf(window));
-		$var($Collection, dispatchers, $cast($Collection, $nc(XToolkit::winToDispatcher)->get(key)));
+		$var($Collection, dispatchers, $cast($Collection, XToolkit::winToDispatcher->get(key)));
 		if (dispatchers == nullptr) {
-			$assign(dispatchers, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($Vector)))));
-			$nc(XToolkit::winToDispatcher)->put(key, dispatchers);
+			$assign(dispatchers, $cast($AbstractCollection, $new($Vector)));
+			XToolkit::winToDispatcher->put(key, dispatchers);
 		}
 		$nc(dispatchers)->add(dispatcher);
 	}
@@ -1429,10 +1101,10 @@ void XToolkit::addEventDispatcher(int64_t window, $XEventDispatcher* dispatcher)
 
 void XToolkit::removeEventDispatcher(int64_t window, $XEventDispatcher* dispatcher) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(XToolkit::winToDispatcher) {
 		$var($Long, key, $Long::valueOf(window));
-		$var($Collection, dispatchers, $cast($Collection, $nc(XToolkit::winToDispatcher)->get(key)));
+		$var($Collection, dispatchers, $cast($Collection, XToolkit::winToDispatcher->get(key)));
 		if (dispatchers != nullptr) {
 			dispatchers->remove(dispatcher);
 		}
@@ -1441,145 +1113,133 @@ void XToolkit::removeEventDispatcher(int64_t window, $XEventDispatcher* dispatch
 
 bool XToolkit::getLastCursorPos($Point* p) {
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if (this->lastCursorPos == nullptr) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			}
-			$nc(p)->setLocation(this->lastCursorPos);
-			var$2 = true;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (this->lastCursorPos == nullptr) {
+			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$nc(p)->setLocation(this->lastCursorPos);
+		var$2 = true;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XToolkit::processGlobalMotionEvent($XEvent* e, $XBaseWindow* win) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->get_type() == $XConstants::MotionNotify) {
 		$var($XMotionEvent, ev, e->get_xmotion());
 		awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (this->lastCursorPos == nullptr) {
-					int32_t var$1 = $nc(win)->scaleDown($nc(ev)->get_x_root());
-					$set(this, lastCursorPos, $new($Point, var$1, win->scaleDown($nc(ev)->get_y_root())));
-				} else {
-					int32_t var$2 = $nc(win)->scaleDown($nc(ev)->get_x_root());
-					$nc(this->lastCursorPos)->setLocation(var$2, win->scaleDown($nc(ev)->get_y_root()));
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				awtUnlock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (this->lastCursorPos == nullptr) {
+				int32_t var$1 = $nc(win)->scaleDown($nc(ev)->get_x_root());
+				$set(this, lastCursorPos, $new($Point, var$1, win->scaleDown(ev->get_y_root())));
+			} else {
+				int32_t var$2 = $nc(win)->scaleDown($nc(ev)->get_x_root());
+				this->lastCursorPos->setLocation(var$2, win->scaleDown(ev->get_y_root()));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else if (e->get_type() == $XConstants::LeaveNotify) {
 		awtLock();
-		{
-			$var($Throwable, var$4, nullptr);
-			try {
-				$set(this, lastCursorPos, nullptr);
-			} catch ($Throwable& var$5) {
-				$assign(var$4, var$5);
-			} /*finally*/ {
-				awtUnlock();
-			}
-			if (var$4 != nullptr) {
-				$throw(var$4);
-			}
+		$var($Throwable, var$4, nullptr);
+		try {
+			$set(this, lastCursorPos, nullptr);
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
+		} /*finally*/ {
+			awtUnlock();
+		}
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	} else if (e->get_type() == $XConstants::EnterNotify) {
 		$var($XCrossingEvent, ev, e->get_xcrossing());
 		awtLock();
-		{
-			$var($Throwable, var$6, nullptr);
-			try {
-				if (this->lastCursorPos == nullptr) {
-					int32_t var$7 = $nc(win)->scaleDown($nc(ev)->get_x_root());
-					$set(this, lastCursorPos, $new($Point, var$7, win->scaleDown($nc(ev)->get_y_root())));
-				} else {
-					int32_t var$8 = $nc(win)->scaleDown($nc(ev)->get_x_root());
-					$nc(this->lastCursorPos)->setLocation(var$8, win->scaleDown($nc(ev)->get_y_root()));
-				}
-			} catch ($Throwable& var$9) {
-				$assign(var$6, var$9);
-			} /*finally*/ {
-				awtUnlock();
+		$var($Throwable, var$6, nullptr);
+		try {
+			if (this->lastCursorPos == nullptr) {
+				int32_t var$7 = $nc(win)->scaleDown($nc(ev)->get_x_root());
+				$set(this, lastCursorPos, $new($Point, var$7, win->scaleDown(ev->get_y_root())));
+			} else {
+				int32_t var$8 = $nc(win)->scaleDown($nc(ev)->get_x_root());
+				this->lastCursorPos->setLocation(var$8, win->scaleDown(ev->get_y_root()));
 			}
-			if (var$6 != nullptr) {
-				$throw(var$6);
-			}
+		} catch ($Throwable& var$9) {
+			$assign(var$6, var$9);
+		} /*finally*/ {
+			awtUnlock();
+		}
+		if (var$6 != nullptr) {
+			$throw(var$6);
 		}
 	}
 }
 
 void XToolkit::addXEventListener($XToolkit$XEventListener* listener) {
 	$synchronized(this->listeners) {
-		$nc(this->listeners)->add(listener);
+		this->listeners->add(listener);
 	}
 }
 
 void XToolkit::notifyListeners($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->listeners) {
-		if ($nc(this->listeners)->size() == 0) {
+		if (this->listeners->size() == 0) {
 			return;
 		}
 		$var($XEvent, copy, $cast($XEvent, $nc(xev)->clone()));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($Iterator, i$, $nc(this->listeners)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($XToolkit$XEventListener, listener, $cast($XToolkit$XEventListener, i$->next()));
 				{
-					$var($Iterator, i$, $nc(this->listeners)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($XToolkit$XEventListener, listener, $cast($XToolkit$XEventListener, i$->next()));
-						{
-							$nc(listener)->eventProcessed(copy);
-						}
-					}
+					$nc(listener)->eventProcessed(copy);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(copy)->dispose();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(copy)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void XToolkit::dispatchEvent($XEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XAnyEvent, xany, $nc(ev)->get_xany());
 	$var($XBaseWindow, baseWindow, windowToXWindow($nc(xany)->get_window()));
 	bool var$0 = baseWindow != nullptr;
 	if (var$0) {
 		bool var$2 = ev->get_type() == $XConstants::MotionNotify;
 		bool var$1 = var$2 || ev->get_type() == $XConstants::EnterNotify;
-		var$0 = (var$1 || ev->get_type() == $XConstants::LeaveNotify);
+		var$0 = var$1 || ev->get_type() == $XConstants::LeaveNotify;
 	}
 	if (var$0) {
 		processGlobalMotionEvent(ev, baseWindow);
@@ -1592,10 +1252,10 @@ void XToolkit::dispatchEvent($XEvent* ev) {
 	$XBaseWindow::dispatchToWindow(ev);
 	$var($Collection, dispatchers, nullptr);
 	$synchronized(XToolkit::winToDispatcher) {
-		$var($Long, key, $Long::valueOf($nc(xany)->get_window()));
+		$var($Long, key, $Long::valueOf(xany->get_window()));
 		$assign(dispatchers, $cast($Collection, $nc(XToolkit::winToDispatcher)->get(key)));
 		if (dispatchers != nullptr) {
-			$assign(dispatchers, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($Vector, dispatchers)))));
+			$assign(dispatchers, $cast($AbstractCollection, $new($Vector, dispatchers)));
 		}
 	}
 	if (dispatchers != nullptr) {
@@ -1612,13 +1272,13 @@ void XToolkit::processException($Throwable* thr) {
 	$init(XToolkit);
 	$init($PlatformLogger$Level);
 	if ($nc(XToolkit::log)->isLoggable($PlatformLogger$Level::WARNING)) {
-		$nc(XToolkit::log)->warning("Exception on Toolkit thread"_s, thr);
+		XToolkit::log->warning("Exception on Toolkit thread"_s, thr);
 	}
 }
 
 void XToolkit::awt_toolkit_init() {
 	$init(XToolkit);
-	$prepareNativeStatic(XToolkit, awt_toolkit_init, void);
+	$prepareNativeStatic(awt_toolkit_init, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -1629,156 +1289,150 @@ void XToolkit::run() {
 }
 
 void XToolkit::run(bool loop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XEvent, ev, $new($XEvent));
 	while (true) {
 		if ($($Thread::currentThread())->isInterrupted()) {
-			if ($nc($($AppContext::getAppContext()))->isDisposed()) {
+			if ($$nc($AppContext::getAppContext())->isDisposed()) {
 				break;
 			}
 		}
 		awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			bool return$1 = false;
-			bool break$2 = false;
-			bool continue$3 = false;
-			bool continue$4 = false;
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		bool break$2 = false;
+		bool continue$3 = false;
+		bool continue$4 = false;
+		try {
 			try {
-				try {
-					if (loop == XToolkit::SECONDARY_LOOP) {
-						if (!$XlibWrapper::XNextSecondaryLoopEvent(getDisplay(), ev->pData)) {
-							// break;
-							break$2 = true;
-							goto $finally;
-						}
-					} else {
-						callTimeoutTasks();
-						while (true) {
-							bool var$5 = ($XlibWrapper::XEventsQueued(getDisplay(), $XConstants::QueuedAfterReading) == 0);
-							if (!(var$5 && ($XlibWrapper::XEventsQueued(getDisplay(), $XConstants::QueuedAfterFlush) == 0))) {
-								break;
-							}
-							{
-								callTimeoutTasks();
-								waitForEvents(getNextTaskTime());
-							}
-						}
-						$XlibWrapper::XNextEvent(getDisplay(), ev->pData);
-					}
-					if (ev->get_type() != $XConstants::NoExpose) {
-						++XToolkit::eventNumber;
-					}
-					if (XToolkit::awt_UseXKB_Calls && ev->get_type() == XToolkit::awt_XKBBaseEventCode) {
-						processXkbChanges(ev);
-					}
-					bool var$6 = $XDropTargetEventProcessor::processEvent(ev);
-					if (var$6 || $XDragSourceContextPeer::processEvent(ev)) {
-						// continue;
-						continue$3 = true;
+				if (loop == XToolkit::SECONDARY_LOOP) {
+					if (!$XlibWrapper::XNextSecondaryLoopEvent(getDisplay(), ev->pData)) {
+						// break;
+						break$2 = true;
 						goto $finally;
 					}
-					$init($PlatformLogger$Level);
-					if ($nc(XToolkit::eventLog)->isLoggable($PlatformLogger$Level::FINER)) {
-						$nc(XToolkit::eventLog)->finer("{0}"_s, $$new($ObjectArray, {$of(ev)}));
-					}
-					int64_t w = 0;
-					if (windowToXWindow($nc($(ev->get_xany()))->get_window()) != nullptr) {
-						$var($Component, owner, $nc($($XKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusOwner());
-						if (owner != nullptr) {
-							$var($XWindow, ownerWindow, $cast($XWindow, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(owner)));
-							if (ownerWindow != nullptr) {
-								w = ownerWindow->getContentWindow();
-							}
+				} else {
+					callTimeoutTasks();
+					while (true) {
+						bool var$5 = $XlibWrapper::XEventsQueued(getDisplay(), $XConstants::QueuedAfterReading) == 0;
+						if (!(var$5 && ($XlibWrapper::XEventsQueued(getDisplay(), $XConstants::QueuedAfterFlush) == 0))) {
+							break;
+						}
+						{
+							callTimeoutTasks();
+							waitForEvents(getNextTaskTime());
 						}
 					}
-					bool var$7 = $nc(XToolkit::keyEventLog)->isLoggable($PlatformLogger$Level::FINE);
-					if (var$7) {
-						bool var$8 = ev->get_type() == $XConstants::KeyPress;
-						var$7 = (var$8 || ev->get_type() == $XConstants::KeyRelease);
-					}
-					if (var$7) {
-						$nc(XToolkit::keyEventLog)->fine($$str({"before XFilterEvent:"_s, ev}));
-					}
-					if ($XlibWrapper::XFilterEvent(ev->getPData(), w)) {
-						// continue;
-						continue$4 = true;
-						goto $finally;
-					}
-					bool var$9 = $nc(XToolkit::keyEventLog)->isLoggable($PlatformLogger$Level::FINE);
-					if (var$9) {
-						bool var$10 = ev->get_type() == $XConstants::KeyPress;
-						var$9 = (var$10 || ev->get_type() == $XConstants::KeyRelease);
-					}
-					if (var$9) {
-						$nc(XToolkit::keyEventLog)->fine($$str({"after XFilterEvent:"_s, ev}));
-					}
-					dispatchEvent(ev);
-				} catch ($ThreadDeath& td) {
-					$XBaseWindow::ungrabInput();
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& thr) {
-					$XBaseWindow::ungrabInput();
-					processException(thr);
+					$XlibWrapper::XNextEvent(getDisplay(), ev->pData);
 				}
-			} catch ($Throwable& var$11) {
-				$assign(var$0, var$11);
-			} $finally: {
-				awtUnlock();
+				if (ev->get_type() != $XConstants::NoExpose) {
+					++XToolkit::eventNumber;
+				}
+				if (XToolkit::awt_UseXKB_Calls && ev->get_type() == XToolkit::awt_XKBBaseEventCode) {
+					processXkbChanges(ev);
+				}
+				bool var$6 = $XDropTargetEventProcessor::processEvent(ev);
+				if (var$6 || $XDragSourceContextPeer::processEvent(ev)) {
+					// continue;
+					continue$3 = true;
+					goto $finally;
+				}
+				$init($PlatformLogger$Level);
+				if ($nc(XToolkit::eventLog)->isLoggable($PlatformLogger$Level::FINER)) {
+					XToolkit::eventLog->finer("{0}"_s, $$new($ObjectArray, {ev}));
+				}
+				int64_t w = 0;
+				if (windowToXWindow($$nc(ev->get_xany())->get_window()) != nullptr) {
+					$var($Component, owner, $$nc($XKeyboardFocusManagerPeer::getInstance())->getCurrentFocusOwner());
+					if (owner != nullptr) {
+						$var($XWindow, ownerWindow, $cast($XWindow, $$nc($AWTAccessor::getComponentAccessor())->getPeer(owner)));
+						if (ownerWindow != nullptr) {
+							w = ownerWindow->getContentWindow();
+						}
+					}
+				}
+				bool var$7 = $nc(XToolkit::keyEventLog)->isLoggable($PlatformLogger$Level::FINE);
+				if (var$7) {
+					bool var$8 = ev->get_type() == $XConstants::KeyPress;
+					var$7 = var$8 || ev->get_type() == $XConstants::KeyRelease;
+				}
+				if (var$7) {
+					XToolkit::keyEventLog->fine($$str({"before XFilterEvent:"_s, ev}));
+				}
+				if ($XlibWrapper::XFilterEvent(ev->getPData(), w)) {
+					// continue;
+					continue$4 = true;
+					goto $finally;
+				}
+				bool var$9 = XToolkit::keyEventLog->isLoggable($PlatformLogger$Level::FINE);
+				if (var$9) {
+					bool var$10 = ev->get_type() == $XConstants::KeyPress;
+					var$9 = var$10 || ev->get_type() == $XConstants::KeyRelease;
+				}
+				if (var$9) {
+					XToolkit::keyEventLog->fine($$str({"after XFilterEvent:"_s, ev}));
+				}
+				dispatchEvent(ev);
+			} catch ($ThreadDeath& td) {
+				$XBaseWindow::ungrabInput();
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& thr) {
+				$XBaseWindow::ungrabInput();
+				processException(thr);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (break$2) {
-				break;
-			}
-			if (continue$3) {
-				continue;
-			}
-			if (continue$4) {
-				continue;
-			}
-			if (return$1) {
-				return;
-			}
+		} catch ($Throwable& var$11) {
+			$assign(var$0, var$11);
+		} $finally: {
+			awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (break$2) {
+			break;
+		}
+		if (continue$3) {
+			continue;
+		}
+		if (continue$4) {
+			continue;
+		}
+		if (return$1) {
+			return;
 		}
 	}
 }
 
 void XToolkit::initScreenSize() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (XToolkit::maxWindowWidthInPixels == -1 || XToolkit::maxWindowHeightInPixels == -1) {
 		awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($XWindowAttributes, pattr, $new($XWindowAttributes));
+			$var($Throwable, var$1, nullptr);
 			try {
-				$var($XWindowAttributes, pattr, $new($XWindowAttributes));
-				{
-					$var($Throwable, var$1, nullptr);
-					try {
-						int64_t var$2 = XToolkit::getDisplay();
-						$XlibWrapper::XGetWindowAttributes(var$2, XToolkit::getDefaultRootWindow(), pattr->pData);
-						XToolkit::maxWindowWidthInPixels = pattr->get_width();
-						XToolkit::maxWindowHeightInPixels = pattr->get_height();
-					} catch ($Throwable& var$3) {
-						$assign(var$1, var$3);
-					} /*finally*/ {
-						pattr->dispose();
-					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
-				}
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
+				int64_t var$2 = XToolkit::getDisplay();
+				$XlibWrapper::XGetWindowAttributes(var$2, XToolkit::getDefaultRootWindow(), pattr->pData);
+				XToolkit::maxWindowWidthInPixels = pattr->get_width();
+				XToolkit::maxWindowHeightInPixels = pattr->get_height();
+			} catch ($Throwable& var$3) {
+				$assign(var$1, var$3);
 			} /*finally*/ {
-				awtUnlock();
+				pattr->dispose();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			if (var$1 != nullptr) {
+				$throw(var$1);
 			}
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} /*finally*/ {
+			awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -1797,84 +1451,80 @@ int32_t XToolkit::getMaxWindowHeightInPixels() {
 
 $Rectangle* XToolkit::getWorkArea(int64_t root, int32_t scale) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XAtom, XA_NET_WORKAREA, $XAtom::get("_NET_WORKAREA"_s));
 	int64_t native_ptr = $Native::allocateLongArray(4);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			bool workareaPresent = $nc(XA_NET_WORKAREA)->getAtomData(root, $XAtom::XA_CARDINAL, native_ptr, 4);
-			if (workareaPresent) {
-				int32_t rootX = (int32_t)$Native::getLong(native_ptr, 0);
-				int32_t rootY = (int32_t)$Native::getLong(native_ptr, 1);
-				int32_t rootWidth = (int32_t)$Native::getLong(native_ptr, 2);
-				int32_t rootHeight = (int32_t)$Native::getLong(native_ptr, 3);
-				int32_t var$3 = $XlibUtil::scaleDown(rootX, scale);
-				int32_t var$4 = $XlibUtil::scaleDown(rootY, scale);
-				int32_t var$5 = $XlibUtil::scaleDown(rootWidth, scale);
-				$assign(var$2, $new($Rectangle, var$3, var$4, var$5, $XlibUtil::scaleDown(rootHeight, scale)));
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} $finally: {
-			$init($XlibWrapper);
-			$nc($XlibWrapper::unsafe)->freeMemory(native_ptr);
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		bool workareaPresent = $nc(XA_NET_WORKAREA)->getAtomData(root, $XAtom::XA_CARDINAL, native_ptr, 4);
+		if (workareaPresent) {
+			int32_t rootX = (int32_t)$Native::getLong(native_ptr, 0);
+			int32_t rootY = (int32_t)$Native::getLong(native_ptr, 1);
+			int32_t rootWidth = (int32_t)$Native::getLong(native_ptr, 2);
+			int32_t rootHeight = (int32_t)$Native::getLong(native_ptr, 3);
+			int32_t var$3 = $XlibUtil::scaleDown(rootX, scale);
+			int32_t var$4 = $XlibUtil::scaleDown(rootY, scale);
+			int32_t var$5 = $XlibUtil::scaleDown(rootWidth, scale);
+			$assign(var$2, $new($Rectangle, var$3, var$4, var$5, $XlibUtil::scaleDown(rootHeight, scale)));
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} $finally: {
+		$init($XlibWrapper);
+		$nc($XlibWrapper::unsafe)->freeMemory(native_ptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return nullptr;
 }
 
 $Insets* XToolkit::getScreenInsets($GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsDevice, gd, $nc(gc)->getDevice());
-	$var($XNETProtocol, np, $nc($($XWM::getWM()))->getNETProtocol());
-	if (np == nullptr || !($instanceOf($X11GraphicsDevice, gd)) || !$nc(np)->active()) {
+	$var($XNETProtocol, np, $$nc($XWM::getWM())->getNETProtocol());
+	if (np == nullptr || !($instanceOf($X11GraphicsDevice, gd)) || !np->active()) {
 		return $UNIXToolkit::getScreenInsets(gc);
 	}
 	XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Insets, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($X11GraphicsDevice, x11gd, $cast($X11GraphicsDevice, gd));
-			int64_t root = $XlibUtil::getRootWindow($nc(x11gd)->getScreen());
-			$var($Rectangle, workArea, getWorkArea(root, $nc(x11gd)->getScaleFactor()));
-			$var($Rectangle, screen, gc->getBounds());
-			if (workArea != nullptr && $nc(screen)->contains($(workArea->getLocation()))) {
-				$assign(workArea, workArea->intersection(screen));
-				int32_t top = $nc(workArea)->y - screen->y;
-				int32_t left = workArea->x - screen->x;
-				int32_t bottom = screen->height - workArea->height - top;
-				int32_t right = screen->width - workArea->width - left;
-				$assign(var$2, $new($Insets, top, left, bottom, right));
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(var$2, $new($Insets, 0, 0, 0, 0));
+	$var($Throwable, var$0, nullptr);
+	$var($Insets, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($X11GraphicsDevice, x11gd, $cast($X11GraphicsDevice, gd));
+		int64_t root = $XlibUtil::getRootWindow($nc(x11gd)->getScreen());
+		$var($Rectangle, workArea, getWorkArea(root, x11gd->getScaleFactor()));
+		$var($Rectangle, screen, gc->getBounds());
+		if (workArea != nullptr && $nc(screen)->contains($(workArea->getLocation()))) {
+			$assign(workArea, workArea->intersection(screen));
+			int32_t top = $nc(workArea)->y - screen->y;
+			int32_t left = workArea->x - screen->x;
+			int32_t bottom = screen->height - workArea->height - top;
+			int32_t right = screen->width - workArea->width - left;
+			$assign(var$2, $new($Insets, top, left, bottom, right));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, $new($Insets, 0, 0, 0, 0));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -1886,9 +1536,9 @@ $Object* XToolkit::targetToPeer(Object$* target) {
 		$assign(p, $nc(XToolkit::specialPeerMap)->get(target));
 	}
 	if (p != nullptr) {
-		return $of(p);
+		return p;
 	} else {
-		return $of($SunToolkit::targetToPeer(target));
+		return $SunToolkit::targetToPeer(target);
 	}
 }
 
@@ -1913,7 +1563,7 @@ bool XToolkit::isDynamicLayoutSet() {
 }
 
 bool XToolkit::isDynamicLayoutSupported() {
-	return $nc($($XWM::getWM()))->supportsDynamicLayout();
+	return $$nc($XWM::getWM())->supportsDynamicLayout();
 }
 
 bool XToolkit::isDynamicLayoutActive() {
@@ -1925,7 +1575,7 @@ $FontPeer* XToolkit::getFontPeer($String* name, int32_t style) {
 }
 
 $DragSourceContextPeer* XToolkit::createDragSourceContextPeer($DragGestureEvent* dge) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LightweightFrame, f, $SunToolkit::getLightweightFrame($($nc(dge)->getComponent())));
 	if (f != nullptr) {
 		return f->createDragSourceContextPeer(dge);
@@ -1939,8 +1589,8 @@ $DragGestureRecognizer* XToolkit::createDragGestureRecognizer($Class* recognizer
 		return f->createDragGestureRecognizer(recognizerClass, ds, c, srcActions, dgl);
 	}
 	$load($MouseDragGestureRecognizer);
-	if ($of($MouseDragGestureRecognizer::class$)->equals(recognizerClass)) {
-		return static_cast<$DragGestureRecognizer*>($new($XMouseDragGestureRecognizer, ds, c, srcActions, dgl));
+	if ($MouseDragGestureRecognizer::class$->equals(recognizerClass)) {
+		return $cast($DragGestureRecognizer, $new($XMouseDragGestureRecognizer, ds, c, srcActions, dgl));
 	} else {
 		return nullptr;
 	}
@@ -2005,13 +1655,13 @@ $ChoicePeer* XToolkit::createChoice($Choice* target) {
 }
 
 $CanvasPeer* XToolkit::createCanvas($Canvas* target) {
-	$var($XCanvasPeer, peer, isXEmbedServerRequested() ? static_cast<$XCanvasPeer*>($new($XEmbedCanvasPeer, static_cast<$Component*>(target))) : $new($XCanvasPeer, static_cast<$Component*>(target)));
+	$var($XCanvasPeer, peer, isXEmbedServerRequested() ? $cast($XCanvasPeer, $new($XEmbedCanvasPeer, target)) : $new($XCanvasPeer, target));
 	targetCreatedPeer(target, peer);
 	return peer;
 }
 
 $PanelPeer* XToolkit::createPanel($Panel* target) {
-	$var($PanelPeer, peer, $new($XPanelPeer, static_cast<$Component*>(target)));
+	$var($PanelPeer, peer, $new($XPanelPeer, target));
 	targetCreatedPeer(target, peer);
 	return peer;
 }
@@ -2029,12 +1679,11 @@ $DialogPeer* XToolkit::createDialog($Dialog* target) {
 }
 
 bool XToolkit::getSunAwtDisableGtkFileDialogs() {
-	$load(XToolkit);
+	$init(XToolkit);
 	$synchronized(class$) {
-		$init(XToolkit);
 		$beforeCallerSensitive();
 		if (XToolkit::sunAwtDisableGtkFileDialogs == nullptr) {
-			$assignStatic(XToolkit::sunAwtDisableGtkFileDialogs, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.disableGtkFileDialogs"_s)))));
+			$assignStatic(XToolkit::sunAwtDisableGtkFileDialogs, $cast($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.disableGtkFileDialogs"_s))));
 		}
 		return $nc(XToolkit::sunAwtDisableGtkFileDialogs)->booleanValue();
 	}
@@ -2045,7 +1694,7 @@ $FileDialogPeer* XToolkit::createFileDialog($FileDialog* target) {
 	bool var$0 = !getSunAwtDisableGtkFileDialogs();
 	if (var$0) {
 		bool var$1 = checkGtkVersion(2, 4, 0);
-		var$0 = (var$1 || checkGtkVersion(3, 0, 0));
+		var$0 = var$1 || checkGtkVersion(3, 0, 0);
 	}
 	if (var$0) {
 		$assign(peer, $new($GtkFileDialogPeer, target));
@@ -2143,25 +1792,23 @@ bool XToolkit::getLockingKeyState(int32_t key) {
 		$throwNew($IllegalArgumentException, "invalid key for Toolkit.getLockingKeyState"_s);
 	}
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = getModifierState(key);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = getModifierState(key);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -2196,19 +1843,17 @@ $Clipboard* XToolkit::getSystemSelection() {
 
 void XToolkit::beep() {
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XBell(getDisplay(), 0);
-			$XlibWrapper::XFlush(getDisplay());
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XBell(getDisplay(), 0);
+		$XlibWrapper::XFlush(getDisplay());
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -2237,53 +1882,48 @@ $PrintJob* XToolkit::getPrintJob($Frame* frame, $String* doctitle, $JobAttribute
 void XToolkit::XSync() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XSync(getDisplay(), 0);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XSync(getDisplay(), 0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int32_t XToolkit::getScreenResolution() {
 	int64_t display = getDisplay();
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			double var$3 = ($XlibWrapper::DisplayWidth(display, $XlibWrapper::DefaultScreen(display)) * 25.4);
-			var$2 = $cast(int32_t, (var$3 / $XlibWrapper::DisplayWidthMM(display, $XlibWrapper::DefaultScreen(display))));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		double var$3 = $XlibWrapper::DisplayWidth(display, $XlibWrapper::DefaultScreen(display)) * 25.4;
+		var$2 = $cast(int32_t, (var$3 / $XlibWrapper::DisplayWidthMM(display, $XlibWrapper::DefaultScreen(display))));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int64_t XToolkit::getDefaultXColormap() {
 	$init(XToolkit);
-	int64_t $ret = 0;
-	$prepareNativeStatic(XToolkit, getDefaultXColormap, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getDefaultXColormap, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -2306,36 +1946,34 @@ int32_t XToolkit::getMultiClickTime() {
 
 void XToolkit::initializeMultiClickTime() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($String, multiclick_time_query, $XlibWrapper::XGetDefault(XToolkit::getDisplay(), "*"_s, "multiClickTime"_s));
+			$var($String, multiclick_time_query, $XlibWrapper::XGetDefault(XToolkit::getDisplay(), "*"_s, "multiClickTime"_s));
+			if (multiclick_time_query != nullptr) {
+				XToolkit::awt_multiclick_time = (int32_t)$Long::parseLong(multiclick_time_query);
+			} else {
+				$assign(multiclick_time_query, $XlibWrapper::XGetDefault(XToolkit::getDisplay(), "OpenWindows"_s, "MultiClickTimeout"_s));
 				if (multiclick_time_query != nullptr) {
-					XToolkit::awt_multiclick_time = (int32_t)$Long::parseLong(multiclick_time_query);
+					XToolkit::awt_multiclick_time = (int32_t)$Long::parseLong(multiclick_time_query) * 100;
 				} else {
-					$assign(multiclick_time_query, $XlibWrapper::XGetDefault(XToolkit::getDisplay(), "OpenWindows"_s, "MultiClickTimeout"_s));
-					if (multiclick_time_query != nullptr) {
-						XToolkit::awt_multiclick_time = (int32_t)$Long::parseLong(multiclick_time_query) * 100;
-					} else {
-						XToolkit::awt_multiclick_time = XToolkit::AWT_MULTICLICK_DEFAULT_TIME;
-					}
+					XToolkit::awt_multiclick_time = XToolkit::AWT_MULTICLICK_DEFAULT_TIME;
 				}
-			} catch ($NumberFormatException& nf) {
-				XToolkit::awt_multiclick_time = XToolkit::AWT_MULTICLICK_DEFAULT_TIME;
-			} catch ($NullPointerException& npe) {
-				XToolkit::awt_multiclick_time = XToolkit::AWT_MULTICLICK_DEFAULT_TIME;
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			awtUnlock();
+		} catch ($NumberFormatException& nf) {
+			XToolkit::awt_multiclick_time = XToolkit::AWT_MULTICLICK_DEFAULT_TIME;
+		} catch ($NullPointerException& npe) {
+			XToolkit::awt_multiclick_time = XToolkit::AWT_MULTICLICK_DEFAULT_TIME;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (XToolkit::awt_multiclick_time == 0) {
 		XToolkit::awt_multiclick_time = XToolkit::AWT_MULTICLICK_DEFAULT_TIME;
@@ -2346,167 +1984,160 @@ bool XToolkit::isFrameStateSupported(int32_t state) {
 	if (state == $Frame::NORMAL || state == $Frame::ICONIFIED) {
 		return true;
 	} else {
-		return $nc($($XWM::getWM()))->supportsExtendedState(state);
+		return $$nc($XWM::getWM())->supportsExtendedState(state);
 	}
 }
 
 void XToolkit::dumpPeers() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XToolkit::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XToolkit::log)->fine("Mapped windows:"_s);
-		$nc(XToolkit::winMap)->forEach(static_cast<$BiConsumer*>($$new(XToolkit$$Lambda$lambda$dumpPeers$4$3)));
+		XToolkit::log->fine("Mapped windows:"_s);
+		$nc(XToolkit::winMap)->forEach($$new(XToolkit$$Lambda$lambda$dumpPeers$4$3));
 		$SunToolkit::dumpPeers(XToolkit::log);
-		$nc(XToolkit::log)->fine("Mapped special peers:"_s);
-		$nc(XToolkit::specialPeerMap)->forEach(static_cast<$BiConsumer*>($$new(XToolkit$$Lambda$lambda$dumpPeers$5$4)));
-		$nc(XToolkit::log)->fine("Mapped dispatchers:"_s);
-		$nc(XToolkit::winToDispatcher)->forEach(static_cast<$BiConsumer*>($$new(XToolkit$$Lambda$lambda$dumpPeers$6$5)));
+		XToolkit::log->fine("Mapped special peers:"_s);
+		$nc(XToolkit::specialPeerMap)->forEach($$new(XToolkit$$Lambda$lambda$dumpPeers$5$4));
+		XToolkit::log->fine("Mapped dispatchers:"_s);
+		$nc(XToolkit::winToDispatcher)->forEach($$new(XToolkit$$Lambda$lambda$dumpPeers$6$5));
 	}
 }
 
 int64_t XToolkit::getCurrentServerTime() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				if (!XToolkit::initialized) {
-					XToolkit::addEventDispatcher($nc($($XBaseWindow::getXAWTRootWindow()))->getWindow(), XToolkit::timeFetcher);
-					$assignStatic(XToolkit::_XA_JAVA_TIME_PROPERTY_ATOM, $XAtom::get("_SUNW_JAVA_AWT_TIME"_s));
-					XToolkit::initialized = true;
+			if (!XToolkit::initialized) {
+				XToolkit::addEventDispatcher($$nc($XBaseWindow::getXAWTRootWindow())->getWindow(), XToolkit::timeFetcher);
+				$assignStatic(XToolkit::_XA_JAVA_TIME_PROPERTY_ATOM, $XAtom::get("_SUNW_JAVA_AWT_TIME"_s));
+				XToolkit::initialized = true;
+			}
+			XToolkit::timeStampUpdated = false;
+			int64_t var$1 = XToolkit::getDisplay();
+			int64_t var$2 = $$nc($XBaseWindow::getXAWTRootWindow())->getWindow();
+			$XlibWrapper::XChangeProperty(var$1, var$2, $nc(XToolkit::_XA_JAVA_TIME_PROPERTY_ATOM)->getAtom(), $XAtom::XA_ATOM, 32, $XConstants::PropModeAppend, 0, 0);
+			$XlibWrapper::XFlush(XToolkit::getDisplay());
+			if (isToolkitThread()) {
+				$var($XEvent, event, $new($XEvent));
+				$var($Throwable, var$3, nullptr);
+				try {
+					int64_t var$4 = XToolkit::getDisplay();
+					$XlibWrapper::XWindowEvent(var$4, $$nc($XBaseWindow::getXAWTRootWindow())->getWindow(), $XConstants::PropertyChangeMask, event->pData);
+					XToolkit::timeFetcher->dispatchEvent(event);
+				} catch ($Throwable& var$5) {
+					$assign(var$3, var$5);
+				} /*finally*/ {
+					event->dispose();
 				}
-				XToolkit::timeStampUpdated = false;
-				int64_t var$1 = XToolkit::getDisplay();
-				int64_t var$2 = $nc($($XBaseWindow::getXAWTRootWindow()))->getWindow();
-				$XlibWrapper::XChangeProperty(var$1, var$2, $nc(XToolkit::_XA_JAVA_TIME_PROPERTY_ATOM)->getAtom(), $XAtom::XA_ATOM, 32, $XConstants::PropModeAppend, 0, 0);
-				$XlibWrapper::XFlush(XToolkit::getDisplay());
-				if (isToolkitThread()) {
-					$var($XEvent, event, $new($XEvent));
-					{
-						$var($Throwable, var$3, nullptr);
-						try {
-							int64_t var$4 = XToolkit::getDisplay();
-							$XlibWrapper::XWindowEvent(var$4, $nc($($XBaseWindow::getXAWTRootWindow()))->getWindow(), $XConstants::PropertyChangeMask, event->pData);
-							$nc(XToolkit::timeFetcher)->dispatchEvent(event);
-						} catch ($Throwable& var$5) {
-							$assign(var$3, var$5);
-						} /*finally*/ {
-							event->dispose();
-						}
-						if (var$3 != nullptr) {
-							$throw(var$3);
-						}
-					}
-				} else {
-					while (!XToolkit::timeStampUpdated) {
-						awtLockWait();
-					}
+				if (var$3 != nullptr) {
+					$throw(var$3);
 				}
-			} catch ($InterruptedException& ie) {
-				$init($PlatformLogger$Level);
-				if ($nc(XToolkit::log)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(XToolkit::log)->fine($$str({"Catched exception, timeStamp may not be correct (ie = "_s, ie, ")"_s}));
+			} else {
+				while (!XToolkit::timeStampUpdated) {
+					awtLockWait();
 				}
 			}
-		} catch ($Throwable& var$6) {
-			$assign(var$0, var$6);
-		} /*finally*/ {
-			awtUnlock();
+		} catch ($InterruptedException& ie) {
+			$init($PlatformLogger$Level);
+			if ($nc(XToolkit::log)->isLoggable($PlatformLogger$Level::FINE)) {
+				XToolkit::log->fine($$str({"Catched exception, timeStamp may not be correct (ie = "_s, ie, ")"_s}));
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$6) {
+		$assign(var$0, var$6);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return XToolkit::timeStamp;
 }
 
 void XToolkit::initializeDesktopProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->desktopProperties)->put("DnD.Autoscroll.initialDelay"_s, $($Integer::valueOf(50)));
-	$nc(this->desktopProperties)->put("DnD.Autoscroll.interval"_s, $($Integer::valueOf(50)));
-	$nc(this->desktopProperties)->put("DnD.Autoscroll.cursorHysteresis"_s, $($Integer::valueOf(5)));
-	$nc(this->desktopProperties)->put("Shell.shellFolderManager"_s, "sun.awt.shell.ShellFolderManager"_s);
+	this->desktopProperties->put("DnD.Autoscroll.interval"_s, $($Integer::valueOf(50)));
+	this->desktopProperties->put("DnD.Autoscroll.cursorHysteresis"_s, $($Integer::valueOf(5)));
+	this->desktopProperties->put("Shell.shellFolderManager"_s, "sun.awt.shell.ShellFolderManager"_s);
 	if (!$GraphicsEnvironment::isHeadless()) {
-		$nc(this->desktopProperties)->put("awt.multiClickInterval"_s, $($Integer::valueOf(getMultiClickTime())));
-		$nc(this->desktopProperties)->put("awt.mouse.numButtons"_s, $($Integer::valueOf(getNumberOfButtons())));
+		this->desktopProperties->put("awt.multiClickInterval"_s, $($Integer::valueOf(getMultiClickTime())));
+		this->desktopProperties->put("awt.mouse.numButtons"_s, $($Integer::valueOf(getNumberOfButtons())));
 		if ($SunGraphicsEnvironment::isUIScaleEnabled()) {
-			addPropertyChangeListener("gnome.Xft/DPI"_s, static_cast<$PropertyChangeListener*>($$new(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6)));
+			addPropertyChangeListener("gnome.Xft/DPI"_s, $$new(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6));
 		}
 	}
 }
 
 int32_t XToolkit::getNumberOfButtonsImpl() {
-	int32_t $ret = 0;
-	$prepareNative(XToolkit, getNumberOfButtonsImpl, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getNumberOfButtonsImpl, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 int32_t XToolkit::getNumberOfButtons() {
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			$init($SunToolkit);
-			if ($SunToolkit::numberOfButtons == 0) {
-				$SunToolkit::numberOfButtons = getNumberOfButtonsImpl();
-				$SunToolkit::numberOfButtons = ($SunToolkit::numberOfButtons > $SunToolkit::MAX_BUTTONS_SUPPORTED) ? $SunToolkit::MAX_BUTTONS_SUPPORTED : $SunToolkit::numberOfButtons;
-				if ($SunToolkit::numberOfButtons >= 5) {
-					$SunToolkit::numberOfButtons -= 2;
-				} else {
-					if ($SunToolkit::numberOfButtons == 4 || $SunToolkit::numberOfButtons == 5) {
-						$SunToolkit::numberOfButtons = 3;
-					}
-				}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$init($SunToolkit);
+		if ($SunToolkit::numberOfButtons == 0) {
+			$SunToolkit::numberOfButtons = getNumberOfButtonsImpl();
+			$SunToolkit::numberOfButtons = ($SunToolkit::numberOfButtons > $SunToolkit::MAX_BUTTONS_SUPPORTED) ? $SunToolkit::MAX_BUTTONS_SUPPORTED : $SunToolkit::numberOfButtons;
+			if ($SunToolkit::numberOfButtons >= 5) {
+				$SunToolkit::numberOfButtons -= 2;
+			} else if ($SunToolkit::numberOfButtons == 4 || $SunToolkit::numberOfButtons == 5) {
+				$SunToolkit::numberOfButtons = 3;
 			}
-			var$2 = $SunToolkit::numberOfButtons;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = $SunToolkit::numberOfButtons;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t XToolkit::getNumberOfButtonsForMask() {
 	$init(XToolkit);
-	return $Math::min($XConstants::MAX_BUTTONS, $nc((($cast($SunToolkit, $($Toolkit::getDefaultToolkit())))))->getNumberOfButtons());
+	return $Math::min($XConstants::MAX_BUTTONS, $$cast($SunToolkit, $Toolkit::getDefaultToolkit())->getNumberOfButtons());
 }
 
 $Object* XToolkit::lazilyLoadDesktopProperty($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->startsWith(XToolkit::prefix)) {
-		int32_t var$1 = $nc(XToolkit::prefix)->length();
-		$var($String, var$0, $(name->substring(var$1, name->length())));
-		$var($String, cursorName, $concat(var$0, XToolkit::postfix));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		int32_t var$1 = XToolkit::prefix->length();
+		var$0->append($(name->substring(var$1, name->length())));
+		var$0->append(XToolkit::postfix);
+		$var($String, cursorName, $str(var$0));
 		try {
-			return $of($Cursor::getSystemCustomCursor(cursorName));
+			return $Cursor::getSystemCustomCursor(cursorName);
 		} catch ($AWTException& awte) {
 			$throwNew($RuntimeException, $$str({"cannot load system cursor: "_s, cursorName}), awte);
 		}
 	}
-	if ($nc(name)->equals("awt.dynamicLayoutSupported"_s)) {
+	if (name->equals("awt.dynamicLayoutSupported"_s)) {
 		return $of($Boolean::valueOf(isDynamicLayoutSupported()));
 	}
 	if (initXSettingsIfNeeded(name)) {
-		return $of($nc(this->desktopProperties)->get(name));
+		return $nc(this->desktopProperties)->get(name);
 	}
-	return $of($UNIXToolkit::lazilyLoadDesktopProperty(name));
+	return $UNIXToolkit::lazilyLoadDesktopProperty(name);
 }
 
 void XToolkit::addPropertyChangeListener($String* name, $PropertyChangeListener* pcl) {
@@ -2520,13 +2151,13 @@ void XToolkit::addPropertyChangeListener($String* name, $PropertyChangeListener*
 }
 
 bool XToolkit::initXSettingsIfNeeded($String* propName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !this->loadedXSettings;
 	if (var$0) {
 		bool var$2 = $nc(propName)->startsWith("gnome."_s);
 		$init($SunToolkit);
-		bool var$1 = var$2 || $nc(propName)->equals($SunToolkit::DESKTOPFONTHINTS);
-		var$0 = (var$1 || $nc(propName)->startsWith(XToolkit::dndPrefix));
+		bool var$1 = var$2 || propName->equals($SunToolkit::DESKTOPFONTHINTS);
+		var$0 = var$1 || propName->startsWith(XToolkit::dndPrefix);
 	}
 	if (var$0) {
 		this->loadedXSettings = true;
@@ -2538,10 +2169,10 @@ bool XToolkit::initXSettingsIfNeeded($String* propName) {
 					$var($Object, hint, $FontConfigManager::getFontConfigAAHint());
 					if (hint != nullptr) {
 						$init($UNIXToolkit);
-						$nc(this->desktopProperties)->put($UNIXToolkit::FONTCONFIGAAHINT, hint);
+						this->desktopProperties->put($UNIXToolkit::FONTCONFIGAAHINT, hint);
 					}
 				}
-				$nc(this->desktopProperties)->put($SunToolkit::DESKTOPFONTHINTS, $($SunToolkit::getDesktopFontHints()));
+				this->desktopProperties->put($SunToolkit::DESKTOPFONTHINTS, $($SunToolkit::getDesktopFontHints()));
 			}
 			return true;
 		}
@@ -2554,11 +2185,11 @@ void XToolkit::loadXSettings() {
 }
 
 void XToolkit::parseXSettings(int32_t screen_XXX_ignored, $Map* updatedSettings) {
-	$useLocalCurrentObjectStackCache();
-	if (updatedSettings == nullptr || $nc(updatedSettings)->isEmpty()) {
+	$useLocalObjectStack();
+	if (updatedSettings == nullptr || updatedSettings->isEmpty()) {
 		return;
 	}
-	$var($Iterator, i, $nc($($nc(updatedSettings)->entrySet()))->iterator());
+	$var($Iterator, i, $$nc($nc(updatedSettings)->entrySet())->iterator());
 	while ($nc(i)->hasNext()) {
 		$var($Map$Entry, e, $cast($Map$Entry, i->next()));
 		$var($String, name, $cast($String, $nc(e)->getKey()));
@@ -2566,7 +2197,7 @@ void XToolkit::parseXSettings(int32_t screen_XXX_ignored, $Map* updatedSettings)
 		setDesktopProperty(name, $(e->getValue()));
 		$init($PlatformLogger$Level);
 		if ($nc(XToolkit::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XToolkit::log)->fine($$str({"name = "_s, name, " value = "_s, $(e->getValue())}));
+			XToolkit::log->fine($$str({"name = "_s, name, " value = "_s, $(e->getValue())}));
 		}
 	}
 	$init($SunToolkit);
@@ -2583,44 +2214,42 @@ void XToolkit::parseXSettings(int32_t screen_XXX_ignored, $Map* updatedSettings)
 int32_t XToolkit::keysymToPrimaryKeycode(int64_t sym) {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t code = $XlibWrapper::XKeysymToKeycode(getDisplay(), sym);
-			if (code == 0) {
-				var$2 = 0;
-				return$1 = true;
-				goto $finally;
-			}
-			int64_t primary = $XlibWrapper::XKeycodeToKeysym(getDisplay(), code, 0);
-			if (sym != primary) {
-				var$2 = 0;
-				return$1 = true;
-				goto $finally;
-			}
-			var$2 = code;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t code = $XlibWrapper::XKeysymToKeycode(getDisplay(), sym);
+		if (code == 0) {
+			var$2 = 0;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int64_t primary = $XlibWrapper::XKeycodeToKeysym(getDisplay(), code, 0);
+		if (sym != primary) {
+			var$2 = 0;
+			return$1 = true;
+			goto $finally;
 		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = code;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool XToolkit::getModifierState(int32_t jkc) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t iKeyMask = 0;
 	int64_t ks = $XKeysym::javaKeycode2Keysym(jkc);
 	int32_t kc = $XlibWrapper::XKeysymToKeycode(getDisplay(), ks);
@@ -2628,64 +2257,62 @@ bool XToolkit::getModifierState(int32_t jkc) {
 		return false;
 	}
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$var($XModifierKeymap, modmap, $new($XModifierKeymap, $XlibWrapper::XGetModifierMapping(getDisplay())));
-			int32_t nkeys = modmap->get_max_keypermod();
-			int64_t map_ptr = modmap->get_modifiermap();
-			for (int32_t k = 0; k < 8; ++k) {
-				for (int32_t i = 0; i < nkeys; ++i) {
-					int32_t keycode = $Native::getUByte(map_ptr, k * nkeys + i);
-					if (keycode == 0) {
-						continue;
-					}
-					if (kc == keycode) {
-						iKeyMask = $sl(1, k);
-						break;
-					}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($XModifierKeymap, modmap, $new($XModifierKeymap, $XlibWrapper::XGetModifierMapping(getDisplay())));
+		int32_t nkeys = modmap->get_max_keypermod();
+		int64_t map_ptr = modmap->get_modifiermap();
+		for (int32_t k = 0; k < 8; ++k) {
+			for (int32_t i = 0; i < nkeys; ++i) {
+				int32_t keycode = $Native::getUByte(map_ptr, k * nkeys + i);
+				if (keycode == 0) {
+					continue;
 				}
-				if (iKeyMask != 0) {
+				if (kc == keycode) {
+					iKeyMask = $sl(1, k);
 					break;
 				}
 			}
-			$XlibWrapper::XFreeModifiermap(modmap->pData);
-			if (iKeyMask == 0) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
+			if (iKeyMask != 0) {
+				break;
 			}
-			int64_t window = 0;
-			try {
-				window = $nc(($cast($Long, $($nc(XToolkit::winMap)->firstKey()))))->longValue();
-			} catch ($NoSuchElementException& nex) {
-				window = getDefaultRootWindow();
-			}
-			bool res = $XlibWrapper::XQueryPointer(getDisplay(), window, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5, $XlibWrapper::larg6, $XlibWrapper::larg7);
-			int32_t mask = $Native::getInt($XlibWrapper::larg7);
-			var$2 = (((int32_t)(mask & (uint32_t)iKeyMask)) != 0);
+		}
+		$XlibWrapper::XFreeModifiermap(modmap->pData);
+		if (iKeyMask == 0) {
+			var$2 = false;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int64_t window = 0;
+		try {
+			window = $$sure($Long, $nc(XToolkit::winMap)->firstKey())->longValue();
+		} catch ($NoSuchElementException& nex) {
+			window = getDefaultRootWindow();
 		}
-		if (return$1) {
-			return var$2;
-		}
+		bool res = $XlibWrapper::XQueryPointer(getDisplay(), window, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5, $XlibWrapper::larg6, $XlibWrapper::larg7);
+		int32_t mask = $Native::getInt($XlibWrapper::larg7);
+		var$2 = ((mask & iKeyMask) != 0);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XToolkit::setupModifierMap() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t metaL = keysymToPrimaryKeycode($XKeySymConstants::XK_Meta_L);
 	int32_t metaR = keysymToPrimaryKeycode($XKeySymConstants::XK_Meta_R);
 	int32_t altL = keysymToPrimaryKeycode($XKeySymConstants::XK_Alt_L);
@@ -2706,130 +2333,126 @@ void XToolkit::setupModifierMap() {
 	}));
 	$nc(XToolkit::log)->fine("In setupModifierMap"_s);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($XModifierKeymap, modmap, $new($XModifierKeymap, $XlibWrapper::XGetModifierMapping(getDisplay())));
-			int32_t nkeys = modmap->get_max_keypermod();
-			int64_t map_ptr = modmap->get_modifiermap();
-			for (int32_t modn = $XConstants::Mod1MapIndex; modn <= $XConstants::Mod5MapIndex; ++modn) {
-				for (int32_t i = 0; i < nkeys; ++i) {
-					int32_t keycode = $Native::getUByte(map_ptr, modn * nkeys + i);
-					if (keycode == 0) {
-						break;
-					}
-					if (XToolkit::metaMask == 0 && (keycode == metaL || keycode == metaR)) {
-						XToolkit::metaMask = modmask->get(modn);
-						break;
-					}
-					if (XToolkit::altMask == 0 && (keycode == altL || keycode == altR)) {
-						XToolkit::altMask = modmask->get(modn);
-						break;
-					}
-					if (XToolkit::numLockMask == 0 && keycode == numLock) {
-						XToolkit::numLockMask = modmask->get(modn);
-						break;
-					}
-					if (XToolkit::modeSwitchMask == 0 && keycode == modeSwitch) {
-						XToolkit::modeSwitchMask = modmask->get(modn);
-						break;
-					}
-					continue;
-				}
-			}
-			XToolkit::modLockIsShiftLock = 0;
-			for (int32_t j = 0; j < nkeys; ++j) {
-				int32_t keycode = $Native::getUByte(map_ptr, $XConstants::LockMapIndex * nkeys + j);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($XModifierKeymap, modmap, $new($XModifierKeymap, $XlibWrapper::XGetModifierMapping(getDisplay())));
+		int32_t nkeys = modmap->get_max_keypermod();
+		int64_t map_ptr = modmap->get_modifiermap();
+		for (int32_t modn = $XConstants::Mod1MapIndex; modn <= $XConstants::Mod5MapIndex; ++modn) {
+			for (int32_t i = 0; i < nkeys; ++i) {
+				int32_t keycode = $Native::getUByte(map_ptr, modn * nkeys + i);
 				if (keycode == 0) {
 					break;
 				}
-				if (keycode == shiftLock) {
-					XToolkit::modLockIsShiftLock = 1;
+				if (XToolkit::metaMask == 0 && (keycode == metaL || keycode == metaR)) {
+					XToolkit::metaMask = modmask->get(modn);
 					break;
 				}
-				if (keycode == capsLock) {
+				if (XToolkit::altMask == 0 && (keycode == altL || keycode == altR)) {
+					XToolkit::altMask = modmask->get(modn);
 					break;
 				}
+				if (XToolkit::numLockMask == 0 && keycode == numLock) {
+					XToolkit::numLockMask = modmask->get(modn);
+					break;
+				}
+				if (XToolkit::modeSwitchMask == 0 && keycode == modeSwitch) {
+					XToolkit::modeSwitchMask = modmask->get(modn);
+					break;
+				}
+				continue;
 			}
-			$XlibWrapper::XFreeModifiermap(modmap->pData);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		XToolkit::modLockIsShiftLock = 0;
+		for (int32_t j = 0; j < nkeys; ++j) {
+			int32_t keycode = $Native::getUByte(map_ptr, $XConstants::LockMapIndex * nkeys + j);
+			if (keycode == 0) {
+				break;
+			}
+			if (keycode == shiftLock) {
+				XToolkit::modLockIsShiftLock = 1;
+				break;
+			}
+			if (keycode == capsLock) {
+				break;
+			}
 		}
+		$XlibWrapper::XFreeModifiermap(modmap->pData);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$init($PlatformLogger$Level);
-	if ($nc(XToolkit::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XToolkit::log)->fine($$str({"metaMask = "_s, $$str(XToolkit::metaMask)}));
-		$nc(XToolkit::log)->fine($$str({"altMask = "_s, $$str(XToolkit::altMask)}));
-		$nc(XToolkit::log)->fine($$str({"numLockMask = "_s, $$str(XToolkit::numLockMask)}));
-		$nc(XToolkit::log)->fine($$str({"modeSwitchMask = "_s, $$str(XToolkit::modeSwitchMask)}));
-		$nc(XToolkit::log)->fine($$str({"modLockIsShiftLock = "_s, $$str(XToolkit::modLockIsShiftLock)}));
+	if (XToolkit::log->isLoggable($PlatformLogger$Level::FINE)) {
+		XToolkit::log->fine($$str({"metaMask = "_s, $$str(XToolkit::metaMask)}));
+		XToolkit::log->fine($$str({"altMask = "_s, $$str(XToolkit::altMask)}));
+		XToolkit::log->fine($$str({"numLockMask = "_s, $$str(XToolkit::numLockMask)}));
+		XToolkit::log->fine($$str({"modeSwitchMask = "_s, $$str(XToolkit::modeSwitchMask)}));
+		XToolkit::log->fine($$str({"modLockIsShiftLock = "_s, $$str(XToolkit::modLockIsShiftLock)}));
 	}
 }
 
 void XToolkit::remove($Runnable* task) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (task == nullptr) {
 		$throwNew($NullPointerException, "task is null"_s);
 	}
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			$init($PlatformLogger$Level);
-			if ($nc(XToolkit::timeoutTaskLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XToolkit::timeoutTaskLog)->finer($$str({"Removing task "_s, task}));
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		$init($PlatformLogger$Level);
+		if ($nc(XToolkit::timeoutTaskLog)->isLoggable($PlatformLogger$Level::FINER)) {
+			XToolkit::timeoutTaskLog->finer($$str({"Removing task "_s, task}));
+		}
+		if (XToolkit::timeoutTasks == nullptr) {
+			if (XToolkit::timeoutTaskLog->isLoggable($PlatformLogger$Level::FINER)) {
+				XToolkit::timeoutTaskLog->finer("Task is not scheduled"_s);
 			}
-			if (XToolkit::timeoutTasks == nullptr) {
-				if ($nc(XToolkit::timeoutTaskLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XToolkit::timeoutTaskLog)->finer("Task is not scheduled"_s);
+			return$1 = true;
+			goto $finally;
+		}
+		$var($Collection, values, $nc(XToolkit::timeoutTasks)->values());
+		$var($Iterator, iter, $nc(values)->iterator());
+		while ($nc(iter)->hasNext()) {
+			$var($1List, list, $cast($1List, iter->next()));
+			bool removed = false;
+			if ($nc(list)->contains(task)) {
+				list->remove(task);
+				if (list->isEmpty()) {
+					iter->remove();
 				}
-				return$1 = true;
-				goto $finally;
+				break;
 			}
-			$var($Collection, values, $nc(XToolkit::timeoutTasks)->values());
-			$var($Iterator, iter, $nc(values)->iterator());
-			while ($nc(iter)->hasNext()) {
-				$var($1List, list, $cast($1List, iter->next()));
-				bool removed = false;
-				if ($nc(list)->contains(task)) {
-					list->remove($of(task));
-					if (list->isEmpty()) {
-						iter->remove();
-					}
-					break;
-				}
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void XToolkit::wakeup_poll() {
 	$init(XToolkit);
-	$prepareNativeStatic(XToolkit, wakeup_poll, void);
+	$prepareNativeStatic(wakeup_poll, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void XToolkit::schedule($Runnable* task, int64_t interval) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (task == nullptr) {
 		$throwNew($NullPointerException, "task is null"_s);
 	}
@@ -2837,85 +2460,81 @@ void XToolkit::schedule($Runnable* task, int64_t interval) {
 		$throwNew($IllegalArgumentException, $$str({"interval "_s, $$str(interval), " is not positive"_s}));
 	}
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init($PlatformLogger$Level);
-			if ($nc(XToolkit::timeoutTaskLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XToolkit::timeoutTaskLog)->finer("XToolkit.schedule(): current time={0};  interval={1};  task being added={2};  tasks before addition={3}"_s, $$new($ObjectArray, {
-					$($of($Long::valueOf($System::currentTimeMillis()))),
-					$($of($Long::valueOf(interval))),
-					$of(task),
-					$of(XToolkit::timeoutTasks)
-				}));
-			}
-			if (XToolkit::timeoutTasks == nullptr) {
-				$assignStatic(XToolkit::timeoutTasks, $new($TreeMap));
-			}
-			$var($Long, time, $Long::valueOf($System::currentTimeMillis() + interval));
-			$var($1List, tasks, $cast($1List, $nc(XToolkit::timeoutTasks)->get(time)));
-			if (tasks == nullptr) {
-				$assign(tasks, $new($ArrayList, 1));
-				$nc(XToolkit::timeoutTasks)->put(time, tasks);
-			}
-			$nc(tasks)->add(task);
-			bool var$1 = $equals($nc(XToolkit::timeoutTasks)->get($($nc(XToolkit::timeoutTasks)->firstKey())), tasks);
-			if (var$1 && tasks->size() == 1) {
-				wakeup_poll();
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($PlatformLogger$Level);
+		if ($nc(XToolkit::timeoutTaskLog)->isLoggable($PlatformLogger$Level::FINER)) {
+			XToolkit::timeoutTaskLog->finer("XToolkit.schedule(): current time={0};  interval={1};  task being added={2};  tasks before addition={3}"_s, $$new($ObjectArray, {
+				$($Long::valueOf($System::currentTimeMillis())),
+				$($Long::valueOf(interval)),
+				task,
+				XToolkit::timeoutTasks
+			}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (XToolkit::timeoutTasks == nullptr) {
+			$assignStatic(XToolkit::timeoutTasks, $new($TreeMap));
 		}
+		$var($Long, time, $Long::valueOf($System::currentTimeMillis() + interval));
+		$var($1List, tasks, $cast($1List, $nc(XToolkit::timeoutTasks)->get(time)));
+		if (tasks == nullptr) {
+			$assign(tasks, $new($ArrayList, 1));
+			XToolkit::timeoutTasks->put(time, tasks);
+		}
+		$nc(tasks)->add(task);
+		bool var$1 = $equals(XToolkit::timeoutTasks->get($(XToolkit::timeoutTasks->firstKey())), tasks);
+		if (var$1 && tasks->size() == 1) {
+			wakeup_poll();
+		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int64_t XToolkit::getNextTaskTime() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (XToolkit::timeoutTasks == nullptr || $nc(XToolkit::timeoutTasks)->isEmpty()) {
-				var$2 = -1;
-				return$1 = true;
-				goto $finally;
-			}
-			var$2 = $nc(($cast($Long, $($nc(XToolkit::timeoutTasks)->firstKey()))))->longValue();
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (XToolkit::timeoutTasks == nullptr || XToolkit::timeoutTasks->isEmpty()) {
+			var$2 = -1;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = $$sure($Long, $nc(XToolkit::timeoutTasks)->firstKey())->longValue();
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XToolkit::callTimeoutTasks() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XToolkit::timeoutTaskLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XToolkit::timeoutTaskLog)->finer("XToolkit.callTimeoutTasks(): current time={0};  tasks={1}"_s, $$new($ObjectArray, {
-			$($of($Long::valueOf($System::currentTimeMillis()))),
-			$of(XToolkit::timeoutTasks)
+		XToolkit::timeoutTaskLog->finer("XToolkit.callTimeoutTasks(): current time={0};  tasks={1}"_s, $$new($ObjectArray, {
+			$($Long::valueOf($System::currentTimeMillis())),
+			XToolkit::timeoutTasks
 		}));
 	}
-	if (XToolkit::timeoutTasks == nullptr || $nc(XToolkit::timeoutTasks)->isEmpty()) {
+	if (XToolkit::timeoutTasks == nullptr || XToolkit::timeoutTasks->isEmpty()) {
 		return;
 	}
 	$var($Long, currentTime, $Long::valueOf($System::currentTimeMillis()));
@@ -2926,10 +2545,10 @@ void XToolkit::callTimeoutTasks() {
 			$var($Iterator, iter, $nc(tasks)->iterator());
 			for (; $nc(iter)->hasNext();) {
 				$var($Runnable, task, $cast($Runnable, iter->next()));
-				if ($nc(XToolkit::timeoutTaskLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XToolkit::timeoutTaskLog)->finer("XToolkit.callTimeoutTasks(): current time={0};  about to run task={1}"_s, $$new($ObjectArray, {
-						$($of($Long::valueOf($nc(currentTime)->longValue()))),
-						$of(task)
+				if (XToolkit::timeoutTaskLog->isLoggable($PlatformLogger$Level::FINER)) {
+					XToolkit::timeoutTaskLog->finer("XToolkit.callTimeoutTasks(): current time={0};  about to run task={1}"_s, $$new($ObjectArray, {
+						$($Long::valueOf(currentTime->longValue())),
+						task
 					}));
 				}
 				try {
@@ -2944,7 +2563,7 @@ void XToolkit::callTimeoutTasks() {
 		if ($nc(XToolkit::timeoutTasks)->isEmpty()) {
 			break;
 		}
-		$assign(time, $cast($Long, $nc(XToolkit::timeoutTasks)->firstKey()));
+		$assign(time, $cast($Long, XToolkit::timeoutTasks->firstKey()));
 	}
 }
 
@@ -2952,47 +2571,35 @@ bool XToolkit::isLeftMouseButton($MouseEvent* me) {
 	$init(XToolkit);
 	switch ($nc(me)->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{}
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			return (me->getButton() == $MouseEvent::BUTTON1);
-		}
+		return (me->getButton() == $MouseEvent::BUTTON1);
 	case $MouseEvent::MOUSE_ENTERED:
-		{}
 	case $MouseEvent::MOUSE_EXITED:
-		{}
 	case $MouseEvent::MOUSE_CLICKED:
-		{}
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			return (((int32_t)(me->getModifiersEx() & (uint32_t)$InputEvent::BUTTON1_DOWN_MASK)) != 0);
-		}
+		return ((me->getModifiersEx() & $InputEvent::BUTTON1_DOWN_MASK) != 0);
 	}
 	return false;
 }
 
 bool XToolkit::isRightMouseButton($MouseEvent* me) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
-	int32_t numButtons = $nc(($cast($Integer, $($nc($(getDefaultToolkit()))->getDesktopProperty("awt.mouse.numButtons"_s)))))->intValue();
+	$useLocalObjectStack();
+	int32_t numButtons = $$sure($Integer, $$nc(getDefaultToolkit())->getDesktopProperty("awt.mouse.numButtons"_s))->intValue();
 	switch ($nc(me)->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{}
 	case $MouseEvent::MOUSE_RELEASED:
 		{
-			bool var$0 = (numButtons == 2 && me->getButton() == $MouseEvent::BUTTON2);
+			bool var$0 = numButtons == 2 && me->getButton() == $MouseEvent::BUTTON2;
 			return (var$0 || (numButtons > 2 && me->getButton() == $MouseEvent::BUTTON3));
 		}
 	case $MouseEvent::MOUSE_ENTERED:
-		{}
 	case $MouseEvent::MOUSE_EXITED:
-		{}
 	case $MouseEvent::MOUSE_CLICKED:
-		{}
 	case $MouseEvent::MOUSE_DRAGGED:
 		{
-			bool var$1 = (numButtons == 2 && ((int32_t)(me->getModifiersEx() & (uint32_t)$InputEvent::BUTTON2_DOWN_MASK)) != 0);
-			return (var$1 || (numButtons > 2 && ((int32_t)(me->getModifiersEx() & (uint32_t)$InputEvent::BUTTON3_DOWN_MASK)) != 0));
+			bool var$1 = numButtons == 2 && (me->getModifiersEx() & $InputEvent::BUTTON2_DOWN_MASK) != 0;
+			return (var$1 || (numButtons > 2 && (me->getModifiersEx() & $InputEvent::BUTTON3_DOWN_MASK) != 0));
 		}
 	}
 	return false;
@@ -3024,21 +2631,17 @@ $EventQueue* XToolkit::getEventQueue(Object$* target) {
 
 void XToolkit::removeSourceEvents($EventQueue* queue, Object$* source, bool removeAllEvents) {
 	$init(XToolkit);
-	$nc($($AWTAccessor::getEventQueueAccessor()))->removeSourceEvents(queue, source, removeAllEvents);
+	$$nc($AWTAccessor::getEventQueueAccessor())->removeSourceEvents(queue, source, removeAllEvents);
 }
 
 bool XToolkit::isAlwaysOnTopSupported() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$load($XLayerProtocol);
-		$var($Iterator, i$, $nc($($nc($($XWM::getWM()))->getProtocols($XLayerProtocol::class$)))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($XLayerProtocol, proto, $cast($XLayerProtocol, i$->next()));
-			{
-				if ($nc(proto)->supportsLayer($XLayerProtocol::LAYER_ALWAYS_ON_TOP)) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$load($XLayerProtocol);
+	$var($Iterator, i$, $$nc($$nc($XWM::getWM())->getProtocols($XLayerProtocol::class$))->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($XLayerProtocol, proto, $cast($XLayerProtocol, i$->next()));
+		if ($nc(proto)->supportsLayer($XLayerProtocol::LAYER_ALWAYS_ON_TOP)) {
+			return true;
 		}
 	}
 	return false;
@@ -3055,20 +2658,20 @@ int32_t XToolkit::getBackingStoreType() {
 
 void XToolkit::setBackingStoreType() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.awt.backingStore"_s)))));
+	$var($String, prop, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.awt.backingStore"_s))));
 	if (prop == nullptr) {
 		XToolkit::backingStoreType = $XConstants::NotUseful;
 		$init($PlatformLogger$Level);
 		if ($nc(XToolkit::backingStoreLog)->isLoggable($PlatformLogger$Level::CONFIG)) {
-			$nc(XToolkit::backingStoreLog)->config("The system property sun.awt.backingStore is not set, by default backingStore=NotUseful"_s);
+			XToolkit::backingStoreLog->config("The system property sun.awt.backingStore is not set, by default backingStore=NotUseful"_s);
 		}
 		return;
 	}
 	$init($PlatformLogger$Level);
 	if ($nc(XToolkit::backingStoreLog)->isLoggable($PlatformLogger$Level::CONFIG)) {
-		$nc(XToolkit::backingStoreLog)->config($$str({"The system property sun.awt.backingStore is "_s, prop}));
+		XToolkit::backingStoreLog->config($$str({"The system property sun.awt.backingStore is "_s, prop}));
 	}
 	$assign(prop, $nc(prop)->toLowerCase());
 	if (prop->equals("always"_s)) {
@@ -3078,68 +2681,64 @@ void XToolkit::setBackingStoreType() {
 	} else {
 		XToolkit::backingStoreType = $XConstants::NotUseful;
 	}
-	if ($nc(XToolkit::backingStoreLog)->isLoggable($PlatformLogger$Level::CONFIG)) {
-		$nc(XToolkit::backingStoreLog)->config($$str({"backingStore(as provided by the system property)="_s, (XToolkit::backingStoreType == $XConstants::NotUseful ? "NotUseful"_s : XToolkit::backingStoreType == $XConstants::WhenMapped ? "WhenMapped"_s : "Always"_s)}));
+	if (XToolkit::backingStoreLog->isLoggable($PlatformLogger$Level::CONFIG)) {
+		XToolkit::backingStoreLog->config($$str({"backingStore(as provided by the system property)="_s, (XToolkit::backingStoreType == $XConstants::NotUseful ? "NotUseful"_s : XToolkit::backingStoreType == $XConstants::WhenMapped ? "WhenMapped"_s : "Always"_s)}));
 	}
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			int32_t screenCount = $XlibWrapper::ScreenCount(getDisplay());
-			for (int32_t i = 0; i < screenCount; ++i) {
-				if ($XlibWrapper::DoesBackingStore($XlibWrapper::ScreenOfDisplay(getDisplay(), i)) == $XConstants::NotUseful) {
-					XToolkit::backingStoreType = $XConstants::NotUseful;
-					if ($nc(XToolkit::backingStoreLog)->isLoggable($PlatformLogger$Level::CONFIG)) {
-						$nc(XToolkit::backingStoreLog)->config($$str({"Backing store is not available on the screen "_s, $$str(i), ", backingStore=NotUseful"_s}));
-					}
-					return$1 = true;
-					goto $finally;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		int32_t screenCount = $XlibWrapper::ScreenCount(getDisplay());
+		for (int32_t i = 0; i < screenCount; ++i) {
+			if ($XlibWrapper::DoesBackingStore($XlibWrapper::ScreenOfDisplay(getDisplay(), i)) == $XConstants::NotUseful) {
+				XToolkit::backingStoreType = $XConstants::NotUseful;
+				if (XToolkit::backingStoreLog->isLoggable($PlatformLogger$Level::CONFIG)) {
+					XToolkit::backingStoreLog->config($$str({"Backing store is not available on the screen "_s, $$str(i), ", backingStore=NotUseful"_s}));
 				}
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 bool XToolkit::isXsunKPBehavior() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if (XToolkit::awt_IsXsunKPBehavior == 0) {
-				if ($XlibWrapper::IsXsunKPBehavior(getDisplay())) {
-					XToolkit::awt_IsXsunKPBehavior = XToolkit::XSUN_KP_BEHAVIOR;
-				} else {
-					XToolkit::awt_IsXsunKPBehavior = XToolkit::XORG_KP_BEHAVIOR;
-				}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (XToolkit::awt_IsXsunKPBehavior == 0) {
+			if ($XlibWrapper::IsXsunKPBehavior(getDisplay())) {
+				XToolkit::awt_IsXsunKPBehavior = XToolkit::XSUN_KP_BEHAVIOR;
+			} else {
+				XToolkit::awt_IsXsunKPBehavior = XToolkit::XORG_KP_BEHAVIOR;
 			}
-			var$2 = XToolkit::awt_IsXsunKPBehavior == XToolkit::XSUN_KP_BEHAVIOR ? true : false;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = XToolkit::awt_IsXsunKPBehavior == XToolkit::XSUN_KP_BEHAVIOR ? true : false;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3177,68 +2776,64 @@ bool XToolkit::isKanaKeyboard() {
 bool XToolkit::isXKBenabled() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = XToolkit::awt_UseXKB;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = XToolkit::awt_UseXKB;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool XToolkit::tryXKB() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$var($String, name, "XKEYBOARD"_s);
-			$init($XlibWrapper);
-			XToolkit::awt_UseXKB = $XlibWrapper::XQueryExtension(getDisplay(), name, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3);
-			if (XToolkit::awt_UseXKB) {
-				XToolkit::awt_UseXKB_Calls = $XlibWrapper::XkbLibraryVersion($XlibWrapper::larg1, $XlibWrapper::larg2);
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($String, name, "XKEYBOARD"_s);
+		$init($XlibWrapper);
+		XToolkit::awt_UseXKB = $XlibWrapper::XQueryExtension(getDisplay(), name, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3);
+		if (XToolkit::awt_UseXKB) {
+			XToolkit::awt_UseXKB_Calls = $XlibWrapper::XkbLibraryVersion($XlibWrapper::larg1, $XlibWrapper::larg2);
+			if (XToolkit::awt_UseXKB_Calls) {
+				XToolkit::awt_UseXKB_Calls = $XlibWrapper::XkbQueryExtension(getDisplay(), $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5);
 				if (XToolkit::awt_UseXKB_Calls) {
-					XToolkit::awt_UseXKB_Calls = $XlibWrapper::XkbQueryExtension(getDisplay(), $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5);
-					if (XToolkit::awt_UseXKB_Calls) {
-						XToolkit::awt_XKBBaseEventCode = $Native::getInt($XlibWrapper::larg2);
-						$XlibWrapper::XkbSelectEvents(getDisplay(), $XConstants::XkbUseCoreKbd, $XConstants::XkbNewKeyboardNotifyMask | $XConstants::XkbMapNotifyMask, $XConstants::XkbNewKeyboardNotifyMask | $XConstants::XkbMapNotifyMask);
-						$XlibWrapper::XkbSelectEventDetails(getDisplay(), $XConstants::XkbUseCoreKbd, $XConstants::XkbStateNotify, $XConstants::XkbGroupStateMask, $XConstants::XkbGroupStateMask);
-						XToolkit::awt_XKBDescPtr = $XlibWrapper::XkbGetMap(getDisplay(), (($XConstants::XkbKeyTypesMask | $XConstants::XkbKeySymsMask) | $XConstants::XkbModifierMapMask) | $XConstants::XkbVirtualModsMask, $XConstants::XkbUseCoreKbd);
-						$XlibWrapper::XkbSetDetectableAutoRepeat(getDisplay(), true);
-					}
+					XToolkit::awt_XKBBaseEventCode = $Native::getInt($XlibWrapper::larg2);
+					$XlibWrapper::XkbSelectEvents(getDisplay(), $XConstants::XkbUseCoreKbd, $XConstants::XkbNewKeyboardNotifyMask | $XConstants::XkbMapNotifyMask, $XConstants::XkbNewKeyboardNotifyMask | $XConstants::XkbMapNotifyMask);
+					$XlibWrapper::XkbSelectEventDetails(getDisplay(), $XConstants::XkbUseCoreKbd, $XConstants::XkbStateNotify, $XConstants::XkbGroupStateMask, $XConstants::XkbGroupStateMask);
+					XToolkit::awt_XKBDescPtr = $XlibWrapper::XkbGetMap(getDisplay(), (($XConstants::XkbKeyTypesMask | $XConstants::XkbKeySymsMask) | $XConstants::XkbModifierMapMask) | $XConstants::XkbVirtualModsMask, $XConstants::XkbUseCoreKbd);
+					$XlibWrapper::XkbSetDetectableAutoRepeat(getDisplay(), true);
 				}
 			}
-			var$2 = XToolkit::awt_UseXKB;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = XToolkit::awt_UseXKB;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3246,25 +2841,23 @@ bool XToolkit::tryXKB() {
 bool XToolkit::canUseXKBCalls() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = XToolkit::awt_UseXKB_Calls;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = XToolkit::awt_UseXKB_Calls;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3272,25 +2865,23 @@ bool XToolkit::canUseXKBCalls() {
 int32_t XToolkit::getXKBEffectiveGroup() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = XToolkit::awt_XKBEffectiveGroup;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = XToolkit::awt_XKBEffectiveGroup;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3298,25 +2889,23 @@ int32_t XToolkit::getXKBEffectiveGroup() {
 int32_t XToolkit::getXKBBaseEventCode() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = XToolkit::awt_XKBBaseEventCode;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = XToolkit::awt_XKBBaseEventCode;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -3324,108 +2913,94 @@ int32_t XToolkit::getXKBBaseEventCode() {
 int64_t XToolkit::getXKBKbdDesc() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = XToolkit::awt_XKBDescPtr;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = XToolkit::awt_XKBDescPtr;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XToolkit::freeXKB() {
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (XToolkit::awt_UseXKB_Calls && XToolkit::awt_XKBDescPtr != 0) {
-				$XlibWrapper::XkbFreeKeyboard(XToolkit::awt_XKBDescPtr, 255, true);
-				XToolkit::awt_XKBDescPtr = 0;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (XToolkit::awt_UseXKB_Calls && XToolkit::awt_XKBDescPtr != 0) {
+			$XlibWrapper::XkbFreeKeyboard(XToolkit::awt_XKBDescPtr, 255, true);
+			XToolkit::awt_XKBDescPtr = 0;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XToolkit::processXkbChanges($XEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XkbEvent, xke, $new($XkbEvent, $nc(ev)->getPData()));
-	int32_t xkb_type = $nc($(xke->get_any()))->get_xkb_type();
+	int32_t xkb_type = $$nc(xke->get_any())->get_xkb_type();
 	switch (xkb_type) {
 	case $XConstants::XkbNewKeyboardNotify:
-		{
-			if (XToolkit::awt_XKBDescPtr != 0) {
-				freeXKB();
-			}
-			XToolkit::awt_XKBDescPtr = $XlibWrapper::XkbGetMap(getDisplay(), (($XConstants::XkbKeyTypesMask | $XConstants::XkbKeySymsMask) | $XConstants::XkbModifierMapMask) | $XConstants::XkbVirtualModsMask, $XConstants::XkbUseCoreKbd);
-			break;
+		if (XToolkit::awt_XKBDescPtr != 0) {
+			freeXKB();
 		}
+		XToolkit::awt_XKBDescPtr = $XlibWrapper::XkbGetMap(getDisplay(), (($XConstants::XkbKeyTypesMask | $XConstants::XkbKeySymsMask) | $XConstants::XkbModifierMapMask) | $XConstants::XkbVirtualModsMask, $XConstants::XkbUseCoreKbd);
+		break;
 	case $XConstants::XkbMapNotify:
-		{
-			if (XToolkit::awt_XKBDescPtr != 0) {
-				$XlibWrapper::XkbGetUpdatedMap(getDisplay(), (($XConstants::XkbKeyTypesMask | $XConstants::XkbKeySymsMask) | $XConstants::XkbModifierMapMask) | $XConstants::XkbVirtualModsMask, XToolkit::awt_XKBDescPtr);
-			}
-			break;
+		if (XToolkit::awt_XKBDescPtr != 0) {
+			$XlibWrapper::XkbGetUpdatedMap(getDisplay(), (($XConstants::XkbKeyTypesMask | $XConstants::XkbKeySymsMask) | $XConstants::XkbModifierMapMask) | $XConstants::XkbVirtualModsMask, XToolkit::awt_XKBDescPtr);
 		}
+		break;
 	case $XConstants::XkbStateNotify:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 int64_t XToolkit::getEventNumber() {
 	$init(XToolkit);
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			var$2 = XToolkit::eventNumber;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		var$2 = XToolkit::eventNumber;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool XToolkit::syncNativeQueue(int64_t timeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (timeout <= 0) {
 		return false;
 	}
@@ -3434,68 +3009,66 @@ bool XToolkit::syncNativeQueue(int64_t timeout) {
 		$assignStatic(XToolkit::oops_waiter, $new($XToolkit$4, this));
 	}
 	awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			addEventDispatcher($nc(win)->getWindow(), XToolkit::oops_waiter);
-			XToolkit::oops_updated = false;
-			int64_t event_number = getEventNumber();
-			XToolkit::oops_position += 5;
-			if (XToolkit::oops_position > 50) {
-				XToolkit::oops_position = 0;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		addEventDispatcher($nc(win)->getWindow(), XToolkit::oops_waiter);
+		XToolkit::oops_updated = false;
+		int64_t event_number = getEventNumber();
+		XToolkit::oops_position += 5;
+		if (XToolkit::oops_position > 50) {
+			XToolkit::oops_position = 0;
+		}
+		int64_t var$3 = getDisplay();
+		$XlibWrapper::XMoveWindow(var$3, win->getWindow(), XToolkit::oops_position, 0);
+		XSync();
+		$nc(XToolkit::eventLog)->finer("Generated OOPS ConfigureNotify event"_s);
+		$init($TimeUnit);
+		int64_t end = $TimeUnit::NANOSECONDS->toMillis($System::nanoTime()) + timeout;
+		while (!XToolkit::oops_updated) {
+			timeout = this->timeout(end);
+			if (timeout <= 0) {
+				break;
 			}
-			int64_t var$3 = getDisplay();
-			$XlibWrapper::XMoveWindow(var$3, $nc(win)->getWindow(), XToolkit::oops_position, 0);
-			XSync();
-			$nc(XToolkit::eventLog)->finer("Generated OOPS ConfigureNotify event"_s);
-			$init($TimeUnit);
-			int64_t end = $TimeUnit::NANOSECONDS->toMillis($System::nanoTime()) + timeout;
-			while (!XToolkit::oops_updated) {
-				timeout = this->timeout(end);
-				if (timeout <= 0) {
-					break;
-				}
-				try {
-					awtLockWait(timeout);
-				} catch ($InterruptedException& e) {
-					$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-				}
+			try {
+				awtLockWait(timeout);
+			} catch ($InterruptedException& e) {
+				$throwNew($RuntimeException, e);
 			}
-			var$2 = getEventNumber() - event_number > 1;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			removeEventDispatcher($nc(win)->getWindow(), XToolkit::oops_waiter);
-			$nc(XToolkit::eventLog)->finer("Exiting syncNativeQueue"_s);
-			awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = getEventNumber() - event_number > 1;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		removeEventDispatcher($nc(win)->getWindow(), XToolkit::oops_waiter);
+		$nc(XToolkit::eventLog)->finer("Exiting syncNativeQueue"_s);
+		awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XToolkit::grab($Window* w) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w));
 	if (peer != nullptr) {
-		$nc(($cast($XWindowPeer, peer)))->setGrab(true);
+		$cast($XWindowPeer, peer)->setGrab(true);
 	}
 }
 
 void XToolkit::ungrab($Window* w) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w));
 	if (peer != nullptr) {
-		$nc(($cast($XWindowPeer, peer)))->setGrab(false);
+		$cast($XWindowPeer, peer)->setGrab(false);
 	}
 }
 
@@ -3520,8 +3093,8 @@ bool XToolkit::areExtraMouseButtonsEnabled() {
 }
 
 bool XToolkit::isWindowOpacitySupported() {
-	$useLocalCurrentObjectStackCache();
-	$var($XNETProtocol, net_protocol, $nc($($XWM::getWM()))->getNETProtocol());
+	$useLocalObjectStack();
+	$var($XNETProtocol, net_protocol, $$nc($XWM::getWM())->getNETProtocol());
 	if (net_protocol == nullptr) {
 		return false;
 	}
@@ -3540,14 +3113,14 @@ bool XToolkit::isTranslucencyCapable($GraphicsConfiguration* gc) {
 	if (!($instanceOf($X11GraphicsConfig, gc))) {
 		return false;
 	}
-	return $nc(($cast($X11GraphicsConfig, gc)))->isTranslucencyCapable();
+	return $nc($cast($X11GraphicsConfig, gc))->isTranslucencyCapable();
 }
 
 bool XToolkit::getSunAwtDisableGrab() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.disablegrab"_s)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.disablegrab"_s)))->booleanValue();
 }
 
 void XToolkit::lambda$initializeDesktopProperties$7($PropertyChangeEvent* evt) {
@@ -3567,16 +3140,16 @@ void XToolkit::lambda$dumpPeers$5(Object$* k, Object$* v) {
 
 void XToolkit::lambda$dumpPeers$4($Long* k, $XBaseWindow* v) {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(XToolkit::log)->fine($$str({k, "->"_s, v}));
 	if ($instanceOf($XComponentPeer, v)) {
-		$var($Component, target, $cast($Component, $nc(($cast($XComponentPeer, v)))->getTarget()));
-		$nc(XToolkit::log)->fine($$str({"\ttarget: "_s, target}));
+		$var($Component, target, $cast($Component, $cast($XComponentPeer, v)->getTarget()));
+		XToolkit::log->fine($$str({"\ttarget: "_s, target}));
 	}
 }
 
 $Thread* XToolkit::lambda$new$3() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, "AWT-XAWT"_s);
 	$var($Thread, thread, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), this, name, 0, false));
 	thread->setContextClassLoader(nullptr);
@@ -3586,12 +3159,12 @@ $Thread* XToolkit::lambda$new$3() {
 }
 
 $Void* XToolkit::lambda$init$2() {
-	$useLocalCurrentObjectStackCache();
-	$var($Runnable, r, static_cast<$Runnable*>($new(XToolkit$$Lambda$lambda$init$1$7, this)));
+	$useLocalObjectStack();
+	$var($Runnable, r, $new(XToolkit$$Lambda$lambda$init$1$7, this));
 	$var($String, name, "XToolkt-Shutdown-Thread"_s);
 	$var($Thread, shutdownThread, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), r, name, 0, false));
 	shutdownThread->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(shutdownThread);
+	$$nc($Runtime::getRuntime())->addShutdownHook(shutdownThread);
 	return nullptr;
 }
 
@@ -3601,7 +3174,7 @@ void XToolkit::lambda$init$1() {
 		peer->dispose();
 	}
 	if (this->xs != nullptr) {
-		$nc(($cast($XAWTXSettings, this->xs)))->dispose();
+		$cast($XAWTXSettings, this->xs)->dispose();
 	}
 	freeXKB();
 	$init($PlatformLogger$Level);
@@ -3612,14 +3185,14 @@ void XToolkit::lambda$init$1() {
 
 $Void* XToolkit::lambda$init$0() {
 	$init(XToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, extraButtons, "sun.awt.enableExtraMouseButtons"_s);
 	XToolkit::areExtraMouseButtonsEnabled$ = $Boolean::parseBoolean($($System::getProperty(extraButtons, "true"_s)));
 	$System::setProperty(extraButtons, $$str({""_s, $$str(XToolkit::areExtraMouseButtonsEnabled$)}));
 	return nullptr;
 }
 
-void clinit$XToolkit($Class* class$) {
+void XToolkit::clinit$($Class* clazz) {
 	$assignStatic(XToolkit::prefix, "DnD.Cursor."_s);
 	$assignStatic(XToolkit::postfix, ".32x32"_s);
 	$assignStatic(XToolkit::dndPrefix, "DnD."_s);
@@ -3655,7 +3228,7 @@ void clinit$XToolkit($Class* class$) {
 	{
 		$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 		if ($instanceOf($SunGraphicsEnvironment, ge)) {
-			$nc(($cast($SunGraphicsEnvironment, ge)))->addDisplayChangedListener(XToolkit::displayChangedHandler);
+			$cast($SunGraphicsEnvironment, ge)->addDisplayChangedListener(XToolkit::displayChangedHandler);
 		}
 	}
 	$assignStatic(XToolkit::sunAwtDisableGtkFileDialogs, nullptr);
@@ -3676,32 +3249,294 @@ XToolkit::XToolkit() {
 
 $Class* XToolkit::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(XToolkit$$Lambda$lambda$init$0::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$init$0")) {
 			return XToolkit$$Lambda$lambda$init$0::load$(name, initialize);
 		}
-		if (name->equals(XToolkit$$Lambda$lambda$init$2$1::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$init$2$1")) {
 			return XToolkit$$Lambda$lambda$init$2$1::load$(name, initialize);
 		}
-		if (name->equals(XToolkit$$Lambda$lambda$new$3$2::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$new$3$2")) {
 			return XToolkit$$Lambda$lambda$new$3$2::load$(name, initialize);
 		}
-		if (name->equals(XToolkit$$Lambda$lambda$dumpPeers$4$3::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$4$3")) {
 			return XToolkit$$Lambda$lambda$dumpPeers$4$3::load$(name, initialize);
 		}
-		if (name->equals(XToolkit$$Lambda$lambda$dumpPeers$5$4::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$5$4")) {
 			return XToolkit$$Lambda$lambda$dumpPeers$5$4::load$(name, initialize);
 		}
-		if (name->equals(XToolkit$$Lambda$lambda$dumpPeers$6$5::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$dumpPeers$6$5")) {
 			return XToolkit$$Lambda$lambda$dumpPeers$6$5::load$(name, initialize);
 		}
-		if (name->equals(XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6")) {
 			return XToolkit$$Lambda$lambda$initializeDesktopProperties$7$6::load$(name, initialize);
 		}
-		if (name->equals(XToolkit$$Lambda$lambda$init$1$7::classInfo$.name)) {
+		if (name->equals("sun.awt.X11.XToolkit$$Lambda$lambda$init$1$7")) {
 			return XToolkit$$Lambda$lambda$init$1$7::load$(name, initialize);
 		}
 	}
-	$loadClass(XToolkit, name, initialize, &_XToolkit_ClassInfo_, clinit$XToolkit, allocate$XToolkit);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, log)},
+		{"eventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, eventLog)},
+		{"timeoutTaskLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, timeoutTaskLog)},
+		{"keyEventLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, keyEventLog)},
+		{"backingStoreLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, backingStoreLog)},
+		{"AWT_MULTICLICK_DEFAULT_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XToolkit, AWT_MULTICLICK_DEFAULT_TIME)},
+		{"PRIMARY_LOOP", "Z", nullptr, $STATIC | $FINAL, $constField(XToolkit, PRIMARY_LOOP)},
+		{"SECONDARY_LOOP", "Z", nullptr, $STATIC | $FINAL, $constField(XToolkit, SECONDARY_LOOP)},
+		{"awtAppClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, awtAppClassName)},
+		{"clipboard", "Lsun/awt/X11/XClipboard;", nullptr, 0, $field(XToolkit, clipboard)},
+		{"selection", "Lsun/awt/X11/XClipboard;", nullptr, 0, $field(XToolkit, selection)},
+		{"dynamicLayoutSetting", "Z", nullptr, $PROTECTED | $STATIC, $staticField(XToolkit, dynamicLayoutSetting)},
+		{"areExtraMouseButtonsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, areExtraMouseButtonsEnabled$)},
+		{"loadedXSettings", "Z", nullptr, $PRIVATE, $field(XToolkit, loadedXSettings)},
+		{"xs", "Lsun/awt/XSettings;", nullptr, $PRIVATE, $field(XToolkit, xs)},
+		{"fcManager", "Lsun/font/FontConfigManager;", nullptr, $PRIVATE, $field(XToolkit, fcManager)},
+		{"arrowCursor", "I", nullptr, $STATIC, $staticField(XToolkit, arrowCursor)},
+		{"winMap", "Ljava/util/TreeMap;", "Ljava/util/TreeMap<Ljava/lang/Long;Lsun/awt/X11/XBaseWindow;>;", $STATIC, $staticField(XToolkit, winMap)},
+		{"specialPeerMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $STATIC, $staticField(XToolkit, specialPeerMap)},
+		{"winToDispatcher", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Ljava/util/Collection<Lsun/awt/X11/XEventDispatcher;>;>;", $STATIC, $staticField(XToolkit, winToDispatcher)},
+		{"uidefaults", "Ljavax/swing/UIDefaults;", nullptr, $STATIC, $staticField(XToolkit, uidefaults)},
+		{"localEnv", "Lsun/awt/X11GraphicsEnvironment;", nullptr, $STATIC | $FINAL, $staticField(XToolkit, localEnv)},
+		{"device", "Lsun/awt/X11GraphicsDevice;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, device)},
+		{"display", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, display)},
+		{"awt_multiclick_time", "I", nullptr, $STATIC, $staticField(XToolkit, awt_multiclick_time)},
+		{"securityWarningEnabled", "Z", nullptr, $STATIC, $staticField(XToolkit, securityWarningEnabled)},
+		{"maxWindowWidthInPixels", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XToolkit, maxWindowWidthInPixels)},
+		{"maxWindowHeightInPixels", "I", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(XToolkit, maxWindowHeightInPixels)},
+		{"xPeer", "Lsun/awt/X11/XMouseInfoPeer;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, xPeer)},
+		{"toolkitThread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(XToolkit, toolkitThread)},
+		{"lastCursorPos", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(XToolkit, lastCursorPos)},
+		{"listeners", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/awt/X11/XToolkit$XEventListener;>;", $PRIVATE, $field(XToolkit, listeners)},
+		{"displayChangedHandler", "Lsun/awt/DisplayChangedListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, displayChangedHandler)},
+		{"sunAwtDisableGtkFileDialogs", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, sunAwtDisableGtkFileDialogs)},
+		{"initialized", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, initialized)},
+		{"timeStampUpdated", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, timeStampUpdated)},
+		{"timeStamp", "J", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, timeStamp)},
+		{"timeFetcher", "Lsun/awt/X11/XEventDispatcher;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, timeFetcher)},
+		{"_XA_JAVA_TIME_PROPERTY_ATOM", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, _XA_JAVA_TIME_PROPERTY_ATOM)},
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, prefix)},
+		{"postfix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, postfix)},
+		{"dndPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkit, dndPrefix)},
+		{"altMask", "I", nullptr, $STATIC, $staticField(XToolkit, altMask)},
+		{"metaMask", "I", nullptr, $STATIC, $staticField(XToolkit, metaMask)},
+		{"numLockMask", "I", nullptr, $STATIC, $staticField(XToolkit, numLockMask)},
+		{"modeSwitchMask", "I", nullptr, $STATIC, $staticField(XToolkit, modeSwitchMask)},
+		{"modLockIsShiftLock", "I", nullptr, $STATIC, $staticField(XToolkit, modLockIsShiftLock)},
+		{"timeoutTasks", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/Long;Ljava/util/List<Ljava/lang/Runnable;>;>;", $PRIVATE | $STATIC, $staticField(XToolkit, timeoutTasks)},
+		{"backingStoreType", "I", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, backingStoreType)},
+		{"XSUN_KP_BEHAVIOR", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, XSUN_KP_BEHAVIOR)},
+		{"XORG_KP_BEHAVIOR", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, XORG_KP_BEHAVIOR)},
+		{"IS_SUN_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_SUN_KEYBOARD)},
+		{"IS_NONSUN_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_NONSUN_KEYBOARD)},
+		{"IS_KANA_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_KANA_KEYBOARD)},
+		{"IS_NONKANA_KEYBOARD", "I", nullptr, $STATIC | $FINAL, $constField(XToolkit, IS_NONKANA_KEYBOARD)},
+		{"awt_IsXsunKPBehavior", "I", nullptr, $STATIC, $staticField(XToolkit, awt_IsXsunKPBehavior)},
+		{"awt_UseXKB", "Z", nullptr, $STATIC, $staticField(XToolkit, awt_UseXKB)},
+		{"awt_UseXKB_Calls", "Z", nullptr, $STATIC, $staticField(XToolkit, awt_UseXKB_Calls)},
+		{"awt_XKBBaseEventCode", "I", nullptr, $STATIC, $staticField(XToolkit, awt_XKBBaseEventCode)},
+		{"awt_XKBEffectiveGroup", "I", nullptr, $STATIC, $staticField(XToolkit, awt_XKBEffectiveGroup)},
+		{"awt_XKBDescPtr", "J", nullptr, $STATIC, $staticField(XToolkit, awt_XKBDescPtr)},
+		{"sunOrNotKeyboard", "I", nullptr, $STATIC, $staticField(XToolkit, sunOrNotKeyboard)},
+		{"kanaOrNotKeyboard", "I", nullptr, $STATIC, $staticField(XToolkit, kanaOrNotKeyboard)},
+		{"eventNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, eventNumber)},
+		{"oops_waiter", "Lsun/awt/X11/XEventDispatcher;", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, oops_waiter)},
+		{"oops_updated", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, oops_updated)},
+		{"oops_position", "I", nullptr, $PRIVATE | $STATIC, $staticField(XToolkit, oops_position)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XToolkit, init$, void)},
+		{"XSync", "()V", nullptr, $STATIC, $staticMethod(XToolkit, XSync, void)},
+		{"addEventDispatcher", "(JLsun/awt/X11/XEventDispatcher;)V", nullptr, $STATIC, $staticMethod(XToolkit, addEventDispatcher, void, int64_t, $XEventDispatcher*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XToolkit, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"addToWinMap", "(JLsun/awt/X11/XBaseWindow;)V", nullptr, $STATIC, $staticMethod(XToolkit, addToWinMap, void, int64_t, $XBaseWindow*)},
+		{"addXEventListener", "(Lsun/awt/X11/XToolkit$XEventListener;)V", nullptr, $PUBLIC, $method(XToolkit, addXEventListener, void, $XToolkit$XEventListener*)},
+		{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
+		{"awtFUnlock", "()V", nullptr, $STATIC, $staticMethod(XToolkit, awtFUnlock, void)},
+		{"awt_output_flush", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, awt_output_flush, void)},
+		{"awt_toolkit_init", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, awt_toolkit_init, void)},
+		{"beep", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkit, beep, void)},
+		{"callTimeoutTasks", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, callTimeoutTasks, void)},
+		{"canUseXKBCalls", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, canUseXKBCalls, bool)},
+		{"createButton", "(Ljava/awt/Button;)Ljava/awt/peer/ButtonPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createButton, $ButtonPeer*, $Button*)},
+		{"createCanvas", "(Ljava/awt/Canvas;)Ljava/awt/peer/CanvasPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCanvas, $CanvasPeer*, $Canvas*)},
+		{"createCheckbox", "(Ljava/awt/Checkbox;)Ljava/awt/peer/CheckboxPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCheckbox, $CheckboxPeer*, $Checkbox*)},
+		{"createCheckboxMenuItem", "(Ljava/awt/CheckboxMenuItem;)Ljava/awt/peer/CheckboxMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCheckboxMenuItem, $CheckboxMenuItemPeer*, $CheckboxMenuItem*)},
+		{"createChoice", "(Ljava/awt/Choice;)Ljava/awt/peer/ChoicePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createChoice, $ChoicePeer*, $Choice*)},
+		{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
+		{"createDesktopPeer", "(Ljava/awt/Desktop;)Ljava/awt/peer/DesktopPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createDesktopPeer, $DesktopPeer*, $Desktop*)},
+		{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createDialog, $DialogPeer*, $Dialog*)},
+		{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(XToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
+		{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"createEmbedProxy", "(Lsun/awt/X11/XEmbedChildProxy;)Lsun/awt/X11/XEmbedChildProxyPeer;", nullptr, 0, $method(XToolkit, createEmbedProxy, $XEmbedChildProxyPeer*, $XEmbedChildProxy*)},
+		{"createEmbeddedFrame", "(Lsun/awt/X11/XEmbeddedFrame;)Lsun/awt/X11/XEmbeddedFramePeer;", nullptr, $PUBLIC, $method(XToolkit, createEmbeddedFrame, $XEmbeddedFramePeer*, $XEmbeddedFrame*)},
+		{"createFileDialog", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createFileDialog, $FileDialogPeer*, $FileDialog*)},
+		{"createFrame", "(Ljava/awt/Frame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createFrame, $FramePeer*, $Frame*)},
+		{"createLabel", "(Ljava/awt/Label;)Ljava/awt/peer/LabelPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createLabel, $LabelPeer*, $Label*)},
+		{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*)},
+		{"createList", "(Ljava/awt/List;)Ljava/awt/peer/ListPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createList, $ListPeer*, $List*)},
+		{"createMenu", "(Ljava/awt/Menu;)Ljava/awt/peer/MenuPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createMenu, $MenuPeer*, $Menu*)},
+		{"createMenuBar", "(Ljava/awt/MenuBar;)Ljava/awt/peer/MenuBarPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createMenuBar, $MenuBarPeer*, $MenuBar*)},
+		{"createMenuItem", "(Ljava/awt/MenuItem;)Ljava/awt/peer/MenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createMenuItem, $MenuItemPeer*, $MenuItem*)},
+		{"createPanel", "(Ljava/awt/Panel;)Ljava/awt/peer/PanelPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createPanel, $PanelPeer*, $Panel*)},
+		{"createPopupMenu", "(Ljava/awt/PopupMenu;)Ljava/awt/peer/PopupMenuPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createPopupMenu, $PopupMenuPeer*, $PopupMenu*)},
+		{"createRobot", "(Ljava/awt/GraphicsDevice;)Ljava/awt/peer/RobotPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createRobot, $RobotPeer*, $GraphicsDevice*), "java.awt.AWTException"},
+		{"createScrollPane", "(Ljava/awt/ScrollPane;)Ljava/awt/peer/ScrollPanePeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createScrollPane, $ScrollPanePeer*, $ScrollPane*)},
+		{"createScrollbar", "(Ljava/awt/Scrollbar;)Ljava/awt/peer/ScrollbarPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createScrollbar, $ScrollbarPeer*, $Scrollbar*)},
+		{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*), "java.awt.HeadlessException"},
+		{"createTaskbarPeer", "(Ljava/awt/Taskbar;)Ljava/awt/peer/TaskbarPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTaskbarPeer, $TaskbarPeer*, $Taskbar*)},
+		{"createTextArea", "(Ljava/awt/TextArea;)Ljava/awt/peer/TextAreaPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTextArea, $TextAreaPeer*, $TextArea*)},
+		{"createTextField", "(Ljava/awt/TextField;)Ljava/awt/peer/TextFieldPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTextField, $TextFieldPeer*, $TextField*)},
+		{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*), "java.awt.HeadlessException,java.awt.AWTException"},
+		{"createWindow", "(Ljava/awt/Window;)Ljava/awt/peer/WindowPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, createWindow, $WindowPeer*, $Window*)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PRIVATE, $method(XToolkit, dispatchEvent, void, $XEvent*)},
+		{"dumpPeers", "()V", nullptr, $STATIC, $staticMethod(XToolkit, dumpPeers, void)},
+		{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, enableInputMethodsForTextComponent, bool)},
+		{"freeXKB", "()V", nullptr, 0, $method(XToolkit, freeXKB, void)},
+		{"getAWTAppClassName", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(XToolkit, getAWTAppClassName, $String*)},
+		{"getBackingStoreType", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getBackingStoreType, int32_t)},
+		{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t)},
+		{"getCorrectXIDString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(XToolkit, getCorrectXIDString, $String*, $String*)},
+		{"getCurrentServerTime", "()J", nullptr, $STATIC, $staticMethod(XToolkit, getCurrentServerTime, int64_t)},
+		{"getDataTransferer", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getDataTransferer, $DataTransferer*)},
+		{"getDefaultRootWindow", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getDefaultRootWindow, int64_t)},
+		{"getDefaultXColormap", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, getDefaultXColormap, int64_t)},
+		{"getDisplay", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getDisplay, int64_t)},
+		{"getEnv", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, getEnv, $String*, $String*)},
+		{"getEventNumber", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getEventNumber, int64_t)},
+		{"getEventQueue", "(Ljava/lang/Object;)Ljava/awt/EventQueue;", nullptr, $STATIC, $staticMethod(XToolkit, getEventQueue, $EventQueue*, Object$*)},
+		{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
+		{"getInputMethodAdapterDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getInputMethodAdapterDescriptor, $InputMethodDescriptor*), "java.awt.AWTException"},
+		{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*), "java.awt.HeadlessException"},
+		{"getLastCursorPos", "(Ljava/awt/Point;)Z", nullptr, 0, $method(XToolkit, getLastCursorPos, bool, $Point*)},
+		{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, getLockingKeyState, bool, int32_t)},
+		{"getMaxWindowHeightInPixels", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getMaxWindowHeightInPixels, int32_t)},
+		{"getMaxWindowWidthInPixels", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getMaxWindowWidthInPixels, int32_t)},
+		{"getMaximumCursorColors", "()I", nullptr, $PUBLIC, $virtualMethod(XToolkit, getMaximumCursorColors, int32_t)},
+		{"getModifierState", "(I)Z", nullptr, $STATIC, $staticMethod(XToolkit, getModifierState, bool, int32_t)},
+		{"getMouseInfoPeer", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XToolkit, getMouseInfoPeer, $MouseInfoPeer*)},
+		{"getMultiClickTime", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getMultiClickTime, int32_t)},
+		{"getNextTaskTime", "()J", nullptr, $PRIVATE, $method(XToolkit, getNextTaskTime, int64_t)},
+		{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(XToolkit, getNumberOfButtons, int32_t)},
+		{"getNumberOfButtonsForMask", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getNumberOfButtonsForMask, int32_t)},
+		{"getNumberOfButtonsImpl", "()I", nullptr, $PRIVATE | $NATIVE, $method(XToolkit, getNumberOfButtonsImpl, int32_t)},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
+		{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*)},
+		{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(XToolkit, getScreenResolution, int32_t)},
+		{"getSunAwtDisableGrab", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XToolkit, getSunAwtDisableGrab, bool)},
+		{"getSunAwtDisableGtkFileDialogs", "()Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(XToolkit, getSunAwtDisableGtkFileDialogs, bool)},
+		{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getSystemClipboard, $Clipboard*)},
+		{"getSystemSelection", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(XToolkit, getSystemSelection, $Clipboard*)},
+		{"getTrayIconDisplayTimeout", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, getTrayIconDisplayTimeout, int64_t)},
+		{"getUIDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $STATIC, $staticMethod(XToolkit, getUIDefaults, $UIDefaults*)},
+		{"getWorkArea", "(JI)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, getWorkArea, $Rectangle*, int64_t, int32_t)},
+		{"getXKBBaseEventCode", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getXKBBaseEventCode, int32_t)},
+		{"getXKBEffectiveGroup", "()I", nullptr, $STATIC, $staticMethod(XToolkit, getXKBEffectiveGroup, int32_t)},
+		{"getXKBKbdDesc", "()J", nullptr, $STATIC, $staticMethod(XToolkit, getXKBKbdDesc, int64_t)},
+		{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, grab, void, $Window*)},
+		{"init", "()V", nullptr, 0, $method(XToolkit, init, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XToolkit, initIDs, void)},
+		{"initScreenSize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, initScreenSize, void)},
+		{"initSecurityWarning", "()V", nullptr, $STATIC, $staticMethod(XToolkit, initSecurityWarning, void)},
+		{"initUIDefaults", "()V", nullptr, $STATIC, $staticMethod(XToolkit, initUIDefaults, void)},
+		{"initXSettingsIfNeeded", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(XToolkit, initXSettingsIfNeeded, bool, $String*)},
+		{"initializeDesktopProperties", "()V", nullptr, $PROTECTED, $virtualMethod(XToolkit, initializeDesktopProperties, void)},
+		{"initializeMultiClickTime", "()V", nullptr, $STATIC, $staticMethod(XToolkit, initializeMultiClickTime, void)},
+		{"isAlwaysOnTopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isAlwaysOnTopSupported, bool)},
+		{"isDesktopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isDesktopSupported, bool)},
+		{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isDynamicLayoutActive, bool)},
+		{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED, $virtualMethod(XToolkit, isDynamicLayoutSet, bool)},
+		{"isDynamicLayoutSupported", "()Z", nullptr, $PROTECTED, $method(XToolkit, isDynamicLayoutSupported, bool)},
+		{"isFrameStateSupported", "(I)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isFrameStateSupported, bool, int32_t), "java.awt.HeadlessException"},
+		{"isKanaKeyboard", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isKanaKeyboard, bool)},
+		{"isLeftMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $STATIC, $staticMethod(XToolkit, isLeftMouseButton, bool, $MouseEvent*)},
+		{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
+		{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
+		{"isRightMouseButton", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $STATIC, $staticMethod(XToolkit, isRightMouseButton, bool, $MouseEvent*)},
+		{"isSecurityWarningEnabled", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isSecurityWarningEnabled, bool)},
+		{"isSunKeyboard", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isSunKeyboard, bool)},
+		{"isTaskbarSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isTaskbarSupported, bool)},
+		{"isToolkitThread", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isToolkitThread, bool)},
+		{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
+		{"isTraySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isTraySupported, bool)},
+		{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isWindowOpacitySupported, bool)},
+		{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isWindowShapingSupported, bool)},
+		{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, isWindowTranslucencySupported, bool)},
+		{"isXKBenabled", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isXKBenabled, bool)},
+		{"isXsunKPBehavior", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, isXsunKPBehavior, bool)},
+		{"keysymToPrimaryKeycode", "(J)I", nullptr, $STATIC, $staticMethod(XToolkit, keysymToPrimaryKeycode, int32_t, int64_t)},
+		{"lambda$dumpPeers$4", "(Ljava/lang/Long;Lsun/awt/X11/XBaseWindow;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$dumpPeers$4, void, $Long*, $XBaseWindow*)},
+		{"lambda$dumpPeers$5", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$dumpPeers$5, void, Object$*, Object$*)},
+		{"lambda$dumpPeers$6", "(Ljava/lang/Long;Ljava/util/Collection;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$dumpPeers$6, void, $Long*, $Collection*)},
+		{"lambda$init$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$init$0, $Void*)},
+		{"lambda$init$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(XToolkit, lambda$init$1, void)},
+		{"lambda$init$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(XToolkit, lambda$init$2, $Void*)},
+		{"lambda$initializeDesktopProperties$7", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XToolkit, lambda$initializeDesktopProperties$7, void, $PropertyChangeEvent*)},
+		{"lambda$new$3", "()Ljava/lang/Thread;", nullptr, $PRIVATE | $SYNTHETIC, $method(XToolkit, lambda$new$3, $Thread*)},
+		{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(XToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
+		{"loadSystemColors", "([I)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, loadSystemColors, void, $ints*)},
+		{"loadXSettings", "()V", nullptr, $PRIVATE, $method(XToolkit, loadXSettings, void)},
+		{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(XToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
+		{"nativeLoadSystemColors", "([I)V", nullptr, $PRIVATE | $NATIVE, $method(XToolkit, nativeLoadSystemColors, void, $ints*)},
+		{"needsXEmbedImpl", "()Z", nullptr, $PROTECTED, $virtualMethod(XToolkit, needsXEmbedImpl, bool)},
+		{"notifyListeners", "(Lsun/awt/X11/XEvent;)V", nullptr, $PRIVATE, $method(XToolkit, notifyListeners, void, $XEvent*)},
+		{"parseXSettings", "(ILjava/util/Map;)V", "(ILjava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", 0, $method(XToolkit, parseXSettings, void, int32_t, $Map*)},
+		{"processException", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(XToolkit, processException, void, $Throwable*)},
+		{"processGlobalMotionEvent", "(Lsun/awt/X11/XEvent;Lsun/awt/X11/XBaseWindow;)V", nullptr, $PRIVATE, $method(XToolkit, processGlobalMotionEvent, void, $XEvent*, $XBaseWindow*)},
+		{"processXkbChanges", "(Lsun/awt/X11/XEvent;)V", nullptr, $PRIVATE, $method(XToolkit, processXkbChanges, void, $XEvent*)},
+		{"remove", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(XToolkit, remove, void, $Runnable*)},
+		{"removeEventDispatcher", "(JLsun/awt/X11/XEventDispatcher;)V", nullptr, $STATIC, $staticMethod(XToolkit, removeEventDispatcher, void, int64_t, $XEventDispatcher*)},
+		{"removeFromWinMap", "(JLsun/awt/X11/XBaseWindow;)V", nullptr, $STATIC, $staticMethod(XToolkit, removeFromWinMap, void, int64_t, $XBaseWindow*)},
+		{"removeSourceEvents", "(Ljava/awt/EventQueue;Ljava/lang/Object;Z)V", nullptr, $STATIC, $staticMethod(XToolkit, removeSourceEvents, void, $EventQueue*, Object$*, bool)},
+		{"resetKeyboardSniffer", "()V", nullptr, $STATIC, $staticMethod(XToolkit, resetKeyboardSniffer, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkit, run, void)},
+		{"run", "(Z)V", nullptr, $PUBLIC, $method(XToolkit, run, void, bool)},
+		{"schedule", "(Ljava/lang/Runnable;J)V", nullptr, $STATIC, $staticMethod(XToolkit, schedule, void, $Runnable*, int64_t)},
+		{"setBackingStoreType", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XToolkit, setBackingStoreType, void)},
+		{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, setDynamicLayout, void, bool)},
+		{"setupModifierMap", "()V", nullptr, $STATIC, $staticMethod(XToolkit, setupModifierMap, void)},
+		{"syncNativeQueue", "(J)Z", nullptr, $PROTECTED, $virtualMethod(XToolkit, syncNativeQueue, bool, int64_t)},
+		{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(XToolkit, targetDisposedPeer, void, Object$*, Object$*)},
+		{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $STATIC, $staticMethod(XToolkit, targetToPeer, $Object*, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryXKB", "()Z", nullptr, $STATIC, $staticMethod(XToolkit, tryXKB, bool)},
+		{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(XToolkit, ungrab, void, $Window*)},
+		{"useBufferPerWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(XToolkit, useBufferPerWindow, bool)},
+		{"waitForEvents", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, waitForEvents, void, int64_t)},
+		{"wakeup_poll", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(XToolkit, wakeup_poll, void)},
+		{"windowToXWindow", "(J)Lsun/awt/X11/XBaseWindow;", nullptr, $STATIC, $staticMethod(XToolkit, windowToXWindow, $XBaseWindow*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XToolkit$XEventListener", "sun.awt.X11.XToolkit", "XEventListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.X11.XToolkit$4", nullptr, nullptr, 0},
+		{"sun.awt.X11.XToolkit$3", nullptr, nullptr, 0},
+		{"sun.awt.X11.XToolkit$2", nullptr, nullptr, 0},
+		{"sun.awt.X11.XToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11.XToolkit",
+		"sun.awt.UNIXToolkit",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XToolkit$XEventListener,sun.awt.X11.XToolkit$4,sun.awt.X11.XToolkit$3,sun.awt.X11.XToolkit$2,sun.awt.X11.XToolkit$1"
+	};
+	$loadClass(XToolkit, name, initialize, &classInfo$$, XToolkit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XToolkit));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <MetalHiDPIIconsTest.h>
-
 #include <MetalHiDPIIconsTest$1.h>
 #include <MetalHiDPIIconsTest$2.h>
 #include <java/awt/Color.h>
@@ -35,13 +34,10 @@
 using $MetalHiDPIIconsTest$1 = ::MetalHiDPIIconsTest$1;
 using $MetalHiDPIIconsTest$2 = ::MetalHiDPIIconsTest$2;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -66,27 +62,24 @@ public:
 	virtual void run() override {
 		MetalHiDPIIconsTest::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalHiDPIIconsTest$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalHiDPIIconsTest$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPIIconsTest$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MetalHiDPIIconsTest$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo MetalHiDPIIconsTest$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MetalHiDPIIconsTest$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MetalHiDPIIconsTest$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(MetalHiDPIIconsTest$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPIIconsTest$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MetalHiDPIIconsTest$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MetalHiDPIIconsTest$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalHiDPIIconsTest$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalHiDPIIconsTest$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* MetalHiDPIIconsTest$$Lambda$createUI::class$ = nullptr;
@@ -100,76 +93,32 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		MetalHiDPIIconsTest::lambda$createUI$0(mainFrame, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1>());
-	}
 	$JFrame* mainFrame = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1::fieldInfos[2] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame)},
-	{}
-};
-$MethodInfo MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1::load$($String* name, bool initialize) {
-	$loadClass(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PUBLIC, $field(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, $PUBLIC, $method(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1);
+	});
 	return class$;
 }
 $Class* MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1::class$ = nullptr;
-
-$FieldInfo _MetalHiDPIIconsTest_FieldInfo_[] = {
-	{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MetalHiDPIIconsTest, testResult)},
-	{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MetalHiDPIIconsTest, countDownLatch)},
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalHiDPIIconsTest, INSTRUCTIONS)},
-	{}
-};
-
-$MethodInfo _MetalHiDPIIconsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPIIconsTest, init$, void)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalHiDPIIconsTest, createUI, void)},
-	{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalHiDPIIconsTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalHiDPIIconsTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _MetalHiDPIIconsTest_InnerClassesInfo_[] = {
-	{"MetalHiDPIIconsTest$2", nullptr, nullptr, 0},
-	{"MetalHiDPIIconsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalHiDPIIconsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MetalHiDPIIconsTest",
-	"java.lang.Object",
-	nullptr,
-	_MetalHiDPIIconsTest_FieldInfo_,
-	_MetalHiDPIIconsTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalHiDPIIconsTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"MetalHiDPIIconsTest$2,MetalHiDPIIconsTest$1"
-};
-
-$Object* allocate$MetalHiDPIIconsTest($Class* clazz) {
-	return $of($alloc(MetalHiDPIIconsTest));
-}
 
 $volatile(bool) MetalHiDPIIconsTest::testResult = false;
 $volatile($CountDownLatch*) MetalHiDPIIconsTest::countDownLatch = nullptr;
@@ -181,7 +130,7 @@ void MetalHiDPIIconsTest::init$() {
 void MetalHiDPIIconsTest::main($StringArray* args) {
 	$init(MetalHiDPIIconsTest);
 	$assignStatic(MetalHiDPIIconsTest::countDownLatch, $new($CountDownLatch, 1));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(MetalHiDPIIconsTest$$Lambda$createUI)));
+	$SwingUtilities::invokeLater($$new(MetalHiDPIIconsTest$$Lambda$createUI));
 	$init($TimeUnit);
 	$nc(MetalHiDPIIconsTest::countDownLatch)->await(15, $TimeUnit::MINUTES);
 	if (!MetalHiDPIIconsTest::testResult) {
@@ -191,11 +140,11 @@ void MetalHiDPIIconsTest::main($StringArray* args) {
 
 void MetalHiDPIIconsTest::createUI() {
 	$init(MetalHiDPIIconsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, mainFrame, $new($JFrame, "Metal L&F icons test"_s));
 	$var($GridBagLayout, layout, $new($GridBagLayout));
-	$var($JPanel, mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
-	$var($JPanel, resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(layout)));
+	$var($JPanel, mainControlPanel, $new($JPanel, layout));
+	$var($JPanel, resultButtonPanel, $new($JPanel, layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	$var($JTextArea, instructionTextArea, $new($JTextArea));
 	instructionTextArea->setText(MetalHiDPIIconsTest::INSTRUCTIONS);
@@ -205,23 +154,23 @@ void MetalHiDPIIconsTest::createUI() {
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	mainControlPanel->add(static_cast<$Component*>(instructionTextArea), $of(gbc));
+	mainControlPanel->add(instructionTextArea, gbc);
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
 	passButton->setActionCommand("Pass"_s);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame)));
+	passButton->addActionListener($$new(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1, mainFrame));
 	$var($JButton, failButton, $new($JButton, "Fail"_s));
 	failButton->setActionCommand("Fail"_s);
 	failButton->addActionListener($$new($MetalHiDPIIconsTest$1, mainFrame));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(passButton), $of(gbc));
+	resultButtonPanel->add(passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(failButton), $of(gbc));
+	resultButtonPanel->add(failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 1;
-	mainControlPanel->add(static_cast<$Component*>(resultButtonPanel), $of(gbc));
-	mainFrame->add(static_cast<$Component*>(mainControlPanel));
+	mainControlPanel->add(resultButtonPanel, gbc);
+	mainFrame->add(mainControlPanel);
 	mainFrame->pack();
 	mainFrame->addWindowListener($$new($MetalHiDPIIconsTest$2, mainFrame));
 	mainFrame->setVisible(true);
@@ -234,7 +183,7 @@ void MetalHiDPIIconsTest::lambda$createUI$0($JFrame* mainFrame, $ActionEvent* e)
 	$nc(MetalHiDPIIconsTest::countDownLatch)->countDown();
 }
 
-void clinit$MetalHiDPIIconsTest($Class* class$) {
+void MetalHiDPIIconsTest::clinit$($Class* clazz) {
 	$assignStatic(MetalHiDPIIconsTest::INSTRUCTIONS, "INSTRUCTIONS:\nVerify that icons are painted smoothly for standard Swing UI controls.\n\nIf the display does not support HiDPI mode press PASS.\n\n1. Run the SwingSet2 demo on HiDPI Display.\n2. Select Java Look and Feel. It is equivalent to Metal Look And Feel\n3. Check that the icons are painted smoothly on Swing UI controls like:\n  - JRadioButton\n  - JCheckBox\n  - JComboBox\n  - JScrollPane (vertical and horizontal scroll bars)\n  - JRadioButtonMenuItem\n  - JCheckBoxMenuItem\nand others...\n\nIf so, press PASS, else press FAIL.\n"_s);
 	MetalHiDPIIconsTest::testResult = false;
 }
@@ -244,14 +193,48 @@ MetalHiDPIIconsTest::MetalHiDPIIconsTest() {
 
 $Class* MetalHiDPIIconsTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MetalHiDPIIconsTest$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("MetalHiDPIIconsTest$$Lambda$createUI")) {
 			return MetalHiDPIIconsTest$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1::classInfo$.name)) {
+		if (name->equals("MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1")) {
 			return MetalHiDPIIconsTest$$Lambda$lambda$createUI$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(MetalHiDPIIconsTest, name, initialize, &_MetalHiDPIIconsTest_ClassInfo_, clinit$MetalHiDPIIconsTest, allocate$MetalHiDPIIconsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MetalHiDPIIconsTest, testResult)},
+		{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MetalHiDPIIconsTest, countDownLatch)},
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalHiDPIIconsTest, INSTRUCTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPIIconsTest, init$, void)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalHiDPIIconsTest, createUI, void)},
+		{"lambda$createUI$0", "(Ljavax/swing/JFrame;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalHiDPIIconsTest, lambda$createUI$0, void, $JFrame*, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalHiDPIIconsTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetalHiDPIIconsTest$2", nullptr, nullptr, 0},
+		{"MetalHiDPIIconsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MetalHiDPIIconsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"MetalHiDPIIconsTest$2,MetalHiDPIIconsTest$1"
+	};
+	$loadClass(MetalHiDPIIconsTest, name, initialize, &classInfo$$, MetalHiDPIIconsTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalHiDPIIconsTest);
+	});
 	return class$;
 }
 

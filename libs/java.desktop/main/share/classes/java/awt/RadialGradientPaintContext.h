@@ -44,6 +44,7 @@ class RadialGradientPaintContext : public ::java::awt::MultipleGradientPaintCont
 	$class(RadialGradientPaintContext, 0, ::java::awt::MultipleGradientPaintContext)
 public:
 	RadialGradientPaintContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::RadialGradientPaint* paint, ::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* t, ::java::awt::RenderingHints* hints, float cx, float cy, float r, float fx, float fy, $floats* fractions, $Array<::java::awt::Color>* colors, ::java::awt::MultipleGradientPaint$CycleMethod* cycleMethod, ::java::awt::MultipleGradientPaint$ColorSpaceType* colorSpace);
 	void cyclicCircularGradientFillRaster($ints* pixels, int32_t off, int32_t adjust, int32_t x, int32_t y, int32_t w, int32_t h);
 	virtual void fillRaster($ints* pixels, int32_t off, int32_t adjust, int32_t x, int32_t y, int32_t w, int32_t h) override;

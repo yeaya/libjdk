@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIFocus.h>
-
 #include <jcpp.h>
 
 #undef NULL_CG_REF
@@ -17,57 +16,18 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIFocus_FieldInfo_[] = {
-	{"SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIFocus, SUCCESS)},
-	{"NULL_PTR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIFocus, NULL_PTR)},
-	{"NULL_CG_REF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIFocus, NULL_CG_REF)},
-	{"RING_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JRSUIFocus, RING_ONLY)},
-	{"RING_ABOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JRSUIFocus, RING_ABOVE)},
-	{"RING_BELOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JRSUIFocus, RING_BELOW)},
-	{"cgContext", "J", nullptr, $FINAL, $field(JRSUIFocus, cgContext)},
-	{}
-};
-
-$MethodInfo _JRSUIFocus_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(JRSUIFocus, init$, void, int64_t)},
-	{"beginFocus", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRSUIFocus, beginFocus, void, int32_t)},
-	{"beginNativeFocus", "(JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIFocus, beginNativeFocus, int32_t, int64_t, int32_t)},
-	{"endFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JRSUIFocus, endFocus, void)},
-	{"endNativeFocus", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIFocus, endNativeFocus, int32_t, int64_t)},
-	{"testForFailure", "(I)V", nullptr, $STATIC, $staticMethod(JRSUIFocus, testForFailure, void, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_beginNativeFocus 2
-#define _METHOD_INDEX_endNativeFocus 4
-
-$ClassInfo _JRSUIFocus_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIFocus",
-	"java.lang.Object",
-	nullptr,
-	_JRSUIFocus_FieldInfo_,
-	_JRSUIFocus_MethodInfo_
-};
-
-$Object* allocate$JRSUIFocus($Class* clazz) {
-	return $of($alloc(JRSUIFocus));
-}
-
 int32_t JRSUIFocus::beginNativeFocus(int64_t cgContext, int32_t ringStyle) {
 	$init(JRSUIFocus);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIFocus, beginNativeFocus, int32_t, int64_t cgContext, int32_t ringStyle);
-	$ret = $invokeNativeStatic(cgContext, ringStyle);
+	$prepareNativeStatic(beginNativeFocus, int32_t, int64_t cgContext, int32_t ringStyle);
+	int32_t $ret = $invokeNativeStatic(cgContext, ringStyle);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t JRSUIFocus::endNativeFocus(int64_t cgContext) {
 	$init(JRSUIFocus);
-	int32_t $ret = 0;
-	$prepareNativeStatic(JRSUIFocus, endNativeFocus, int32_t, int64_t cgContext);
-	$ret = $invokeNativeStatic(cgContext);
+	$prepareNativeStatic(endNativeFocus, int32_t, int64_t cgContext);
+	int32_t $ret = $invokeNativeStatic(cgContext);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -85,23 +45,17 @@ void JRSUIFocus::endFocus() {
 }
 
 void JRSUIFocus::testForFailure(int32_t status) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (status == JRSUIFocus::SUCCESS) {
 		return;
 	}
 	switch (status) {
 	case JRSUIFocus::NULL_PTR:
-		{
-			$throwNew($RuntimeException, "Null pointer exception in native JRSUI"_s);
-		}
+		$throwNew($RuntimeException, "Null pointer exception in native JRSUI"_s);
 	case JRSUIFocus::NULL_CG_REF:
-		{
-			$throwNew($RuntimeException, "Null CG reference in native JRSUI"_s);
-		}
+		$throwNew($RuntimeException, "Null CG reference in native JRSUI"_s);
 	default:
-		{
-			$throwNew($RuntimeException, $$str({"JRSUI draw focus problem: "_s, $$str(status)}));
-		}
+		$throwNew($RuntimeException, $$str({"JRSUI draw focus problem: "_s, $$str(status)}));
 	}
 }
 
@@ -109,7 +63,36 @@ JRSUIFocus::JRSUIFocus() {
 }
 
 $Class* JRSUIFocus::load$($String* name, bool initialize) {
-	$loadClass(JRSUIFocus, name, initialize, &_JRSUIFocus_ClassInfo_, allocate$JRSUIFocus);
+	$FieldInfo fieldInfos$$[] = {
+		{"SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIFocus, SUCCESS)},
+		{"NULL_PTR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIFocus, NULL_PTR)},
+		{"NULL_CG_REF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIFocus, NULL_CG_REF)},
+		{"RING_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JRSUIFocus, RING_ONLY)},
+		{"RING_ABOVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JRSUIFocus, RING_ABOVE)},
+		{"RING_BELOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JRSUIFocus, RING_BELOW)},
+		{"cgContext", "J", nullptr, $FINAL, $field(JRSUIFocus, cgContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(JRSUIFocus, init$, void, int64_t)},
+		{"beginFocus", "(I)V", nullptr, $PUBLIC, $virtualMethod(JRSUIFocus, beginFocus, void, int32_t)},
+		{"beginNativeFocus", "(JI)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIFocus, beginNativeFocus, int32_t, int64_t, int32_t)},
+		{"endFocus", "()V", nullptr, $PUBLIC, $virtualMethod(JRSUIFocus, endFocus, void)},
+		{"endNativeFocus", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(JRSUIFocus, endNativeFocus, int32_t, int64_t)},
+		{"testForFailure", "(I)V", nullptr, $STATIC, $staticMethod(JRSUIFocus, testForFailure, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIFocus",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JRSUIFocus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIFocus);
+	});
 	return class$;
 }
 

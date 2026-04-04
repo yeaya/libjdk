@@ -23,6 +23,7 @@ class $import PseudoColumnUsage : public ::java::lang::Enum {
 public:
 	PseudoColumnUsage();
 	static $Array<::java::sql::PseudoColumnUsage>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::sql::PseudoColumnUsage* valueOf($String* name);
 	static $Array<::java::sql::PseudoColumnUsage>* values();

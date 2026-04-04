@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TemplatesImpl.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
@@ -57,7 +56,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -126,7 +124,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ModuleLayer = ::java::lang::ModuleLayer;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ThreadLocal = ::java::lang::ThreadLocal;
@@ -134,26 +131,19 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Configuration = ::java::lang::module::Configuration;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
-using $ModuleDescriptor$Builder = ::java::lang::module::ModuleDescriptor$Builder;
 using $ModuleDescriptor$Modifier = ::java::lang::module::ModuleDescriptor$Modifier;
 using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $ModuleReference = ::java::lang::module::ModuleReference;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
-using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Optional = ::java::util::Optional;
 using $Properties = ::java::util::Properties;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
@@ -184,39 +174,35 @@ public:
 		$set(this, loader, loader);
 	}
 	virtual $Object* run() override {
-		 return $of(TemplatesImpl::lambda$createModule$1(bootLayer, cf, loader));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TemplatesImpl$$Lambda$lambda$createModule$1>());
+		 return TemplatesImpl::lambda$createModule$1(bootLayer, cf, loader);
 	}
 	$ModuleLayer* bootLayer = nullptr;
 	$Configuration* cf = nullptr;
 	$ClassLoader* loader = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TemplatesImpl$$Lambda$lambda$createModule$1::fieldInfos[4] = {
-	{"bootLayer", "Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$1, bootLayer)},
-	{"cf", "Ljava/lang/module/Configuration;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$1, cf)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$1, loader)},
-	{}
-};
-$MethodInfo TemplatesImpl$$Lambda$lambda$createModule$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TemplatesImpl$$Lambda$lambda$createModule$1, init$, void, $ModuleLayer*, $Configuration*, $ClassLoader*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TemplatesImpl$$Lambda$lambda$createModule$1, run, $Object*)},
-	{}
-};
-$ClassInfo TemplatesImpl$$Lambda$lambda$createModule$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$createModule$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* TemplatesImpl$$Lambda$lambda$createModule$1::load$($String* name, bool initialize) {
-	$loadClass(TemplatesImpl$$Lambda$lambda$createModule$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"bootLayer", "Ljava/lang/ModuleLayer;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$1, bootLayer)},
+		{"cf", "Ljava/lang/module/Configuration;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$1, cf)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$1, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TemplatesImpl$$Lambda$lambda$createModule$1, init$, void, $ModuleLayer*, $Configuration*, $ClassLoader*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TemplatesImpl$$Lambda$lambda$createModule$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$createModule$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TemplatesImpl$$Lambda$lambda$createModule$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TemplatesImpl$$Lambda$lambda$createModule$1);
+	});
 	return class$;
 }
 $Class* TemplatesImpl$$Lambda$lambda$createModule$1::class$ = nullptr;
@@ -232,37 +218,33 @@ public:
 	virtual void accept(Object$* p) override {
 		TemplatesImpl::lambda$defineTransletClasses$2(thisModule, m, perms, $cast($String, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1>());
-	}
 	$Module* thisModule = nullptr;
 	$Module* m = nullptr;
 	$PermissionCollection* perms = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1::fieldInfos[4] = {
-	{"thisModule", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, thisModule)},
-	{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, m)},
-	{"perms", "Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, perms)},
-	{}
-};
-$MethodInfo TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC, $method(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, init$, void, $Module*, $Module*, $PermissionCollection*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1::load$($String* name, bool initialize) {
-	$loadClass(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"thisModule", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, thisModule)},
+		{"m", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, m)},
+		{"perms", "Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, perms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/security/PermissionCollection;)V", nullptr, $PUBLIC, $method(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, init$, void, $Module*, $Module*, $PermissionCollection*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1);
+	});
 	return class$;
 }
 $Class* TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1::class$ = nullptr;
@@ -274,119 +256,34 @@ public:
 		$set(this, loader, loader);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of(TemplatesImpl::lambda$createModule$0(loader, $cast($String, name)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TemplatesImpl$$Lambda$lambda$createModule$0$2>());
+		 return TemplatesImpl::lambda$createModule$0(loader, $cast($String, name));
 	}
 	$ClassLoader* loader = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TemplatesImpl$$Lambda$lambda$createModule$0$2::fieldInfos[2] = {
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$0$2, loader)},
-	{}
-};
-$MethodInfo TemplatesImpl$$Lambda$lambda$createModule$0$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TemplatesImpl$$Lambda$lambda$createModule$0$2, init$, void, $ClassLoader*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TemplatesImpl$$Lambda$lambda$createModule$0$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo TemplatesImpl$$Lambda$lambda$createModule$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$createModule$0$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* TemplatesImpl$$Lambda$lambda$createModule$0$2::load$($String* name, bool initialize) {
-	$loadClass(TemplatesImpl$$Lambda$lambda$createModule$0$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(TemplatesImpl$$Lambda$lambda$createModule$0$2, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TemplatesImpl$$Lambda$lambda$createModule$0$2, init$, void, $ClassLoader*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TemplatesImpl$$Lambda$lambda$createModule$0$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$createModule$0$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TemplatesImpl$$Lambda$lambda$createModule$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TemplatesImpl$$Lambda$lambda$createModule$0$2);
+	});
 	return class$;
 }
 $Class* TemplatesImpl$$Lambda$lambda$createModule$0$2::class$ = nullptr;
-
-$FieldInfo _TemplatesImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TemplatesImpl, $assertionsDisabled)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TemplatesImpl, serialVersionUID)},
-	{"DESERIALIZE_TRANSLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TemplatesImpl, DESERIALIZE_TRANSLET)},
-	{"ABSTRACT_TRANSLET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TemplatesImpl, ABSTRACT_TRANSLET)},
-	{"_name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TemplatesImpl, _name)},
-	{"_bytecodes", "[[B", nullptr, $PRIVATE, $field(TemplatesImpl, _bytecodes)},
-	{"_class", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(TemplatesImpl, _class)},
-	{"_transletIndex", "I", nullptr, $PRIVATE, $field(TemplatesImpl, _transletIndex)},
-	{"_auxClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _auxClasses)},
-	{"_outputProperties", "Ljava/util/Properties;", nullptr, $PRIVATE, $field(TemplatesImpl, _outputProperties)},
-	{"_indentNumber", "I", nullptr, $PRIVATE, $field(TemplatesImpl, _indentNumber)},
-	{"_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _uriResolver)},
-	{"_sdom", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/org/apache/xalan/internal/xsltc/DOM;>;", $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _sdom)},
-	{"_tfactory", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _tfactory)},
-	{"_overrideDefaultParser", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _overrideDefaultParser)},
-	{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _accessExternalStylesheet)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TemplatesImpl, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _TemplatesImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([[BLjava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", nullptr, $PROTECTED, $method(TemplatesImpl, init$, void, $byteArray2*, $String*, $Properties*, int32_t, $TransformerFactoryImpl*)},
-	{"<init>", "([Ljava/lang/Class;Ljava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", "([Ljava/lang/Class<*>;Ljava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", $PROTECTED, $method(TemplatesImpl, init$, void, $ClassArray*, $String*, $Properties*, int32_t, $TransformerFactoryImpl*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TemplatesImpl, init$, void)},
-	{"createModule", "(Ljava/lang/module/ModuleDescriptor;Ljava/lang/ClassLoader;)Ljava/lang/Module;", nullptr, $PRIVATE, $method(TemplatesImpl, createModule, $Module*, $ModuleDescriptor*, $ClassLoader*)},
-	{"defineTransletClasses", "()V", nullptr, $PRIVATE, $method(TemplatesImpl, defineTransletClasses, void), "javax.xml.transform.TransformerConfigurationException"},
-	{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TemplatesImpl, getOutputProperties, $Properties*)},
-	{"getStylesheetDOM", "()Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $method(TemplatesImpl, getStylesheetDOM, $DOM*)},
-	{"getTransletBytecodes", "()[[B", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TemplatesImpl, getTransletBytecodes, $byteArray2*)},
-	{"getTransletClasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $SYNCHRONIZED, $method(TemplatesImpl, getTransletClasses, $ClassArray*)},
-	{"getTransletIndex", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(TemplatesImpl, getTransletIndex, int32_t)},
-	{"getTransletInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/Translet;", nullptr, $PRIVATE, $method(TemplatesImpl, getTransletInstance, $Translet*), "javax.xml.transform.TransformerConfigurationException"},
-	{"getTransletName", "()Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED, $method(TemplatesImpl, getTransletName, $String*)},
-	{"init", "(Ljava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", nullptr, $PRIVATE, $method(TemplatesImpl, init, void, $String*, $Properties*, int32_t, $TransformerFactoryImpl*)},
-	{"lambda$createModule$0", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemplatesImpl, lambda$createModule$0, $ClassLoader*, $ClassLoader*, $String*)},
-	{"lambda$createModule$1", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemplatesImpl, lambda$createModule$1, $ModuleLayer*, $ModuleLayer*, $Configuration*, $ClassLoader*)},
-	{"lambda$defineTransletClasses$2", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/security/PermissionCollection;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemplatesImpl, lambda$defineTransletClasses$2, void, $Module*, $Module*, $PermissionCollection*, $String*)},
-	{"newTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TemplatesImpl, newTransformer, $Transformer*), "javax.xml.transform.TransformerConfigurationException"},
-	{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $method(TemplatesImpl, overrideDefaultParser, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TemplatesImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setStylesheetDOM", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC, $method(TemplatesImpl, setStylesheetDOM, void, $DOM*)},
-	{"setTransletBytecodes", "([[B)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TemplatesImpl, setTransletBytecodes, void, $byteArray2*)},
-	{"setTransletName", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $method(TemplatesImpl, setTransletName, void, $String*)},
-	{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(TemplatesImpl, setURIResolver, void, $URIResolver*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(TemplatesImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _TemplatesImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$TransletClassLoader", "com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl", "TransletClassLoader", $STATIC | $FINAL},
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$3", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TemplatesImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl",
-	"java.lang.Object",
-	"javax.xml.transform.Templates,java.io.Serializable",
-	_TemplatesImpl_FieldInfo_,
-	_TemplatesImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TemplatesImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$TransletClassLoader,com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$3,com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$2,com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$1"
-};
-
-$Object* allocate$TemplatesImpl($Class* clazz) {
-	return $of($alloc(TemplatesImpl));
-}
 
 int32_t TemplatesImpl::hashCode() {
 	 return this->$Templates::hashCode();
@@ -468,14 +365,14 @@ void TemplatesImpl::init$() {
 }
 
 void TemplatesImpl::readObject($ObjectInputStream* is) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		$var($String, temp, $SecuritySupport::getSystemProperty(TemplatesImpl::DESERIALIZE_TRANSLET));
 		bool var$0 = temp == nullptr;
 		if (!var$0) {
-			bool var$1 = $nc(temp)->length() == 0;
-			var$0 = !(var$1 || $nc(temp)->equalsIgnoreCase("true"_s));
+			bool var$1 = temp->length() == 0;
+			var$0 = !(var$1 || temp->equalsIgnoreCase("true"_s));
 		}
 		if (var$0) {
 			$init($ErrorMsg);
@@ -484,11 +381,11 @@ void TemplatesImpl::readObject($ObjectInputStream* is) {
 		}
 	}
 	$var($ObjectInputStream$GetField, gf, $nc(is)->readFields());
-	$set(this, _name, $cast($String, $nc(gf)->get("_name"_s, ($Object*)nullptr)));
-	$set(this, _bytecodes, $cast($byteArray2, gf->get("_bytecodes"_s, ($Object*)nullptr)));
-	$set(this, _class, $cast($ClassArray, gf->get("_class"_s, ($Object*)nullptr)));
+	$set(this, _name, $cast($String, $nc(gf)->get("_name"_s, nullptr)));
+	$set(this, _bytecodes, $cast($byteArray2, gf->get("_bytecodes"_s, nullptr)));
+	$set(this, _class, $cast($ClassArray, gf->get("_class"_s, nullptr)));
 	this->_transletIndex = gf->get("_transletIndex"_s, -1);
-	$set(this, _outputProperties, $cast($Properties, gf->get("_outputProperties"_s, ($Object*)nullptr)));
+	$set(this, _outputProperties, $cast($Properties, gf->get("_outputProperties"_s, nullptr)));
 	this->_indentNumber = gf->get("_indentNumber"_s, 0);
 	if (is->readBoolean()) {
 		$set(this, _uriResolver, $cast($URIResolver, is->readObject()));
@@ -501,11 +398,11 @@ void TemplatesImpl::writeObject($ObjectOutputStream* os) {
 		$throwNew($NotSerializableException, "com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable"_s);
 	}
 	$var($ObjectOutputStream$PutField, pf, $nc(os)->putFields());
-	$nc(pf)->put("_name"_s, $of(this->_name));
-	pf->put("_bytecodes"_s, $of(this->_bytecodes));
-	pf->put("_class"_s, $of(this->_class));
+	$nc(pf)->put("_name"_s, this->_name);
+	pf->put("_bytecodes"_s, this->_bytecodes);
+	pf->put("_class"_s, this->_class);
 	pf->put("_transletIndex"_s, this->_transletIndex);
-	pf->put("_outputProperties"_s, $of(this->_outputProperties));
+	pf->put("_outputProperties"_s, this->_outputProperties);
 	pf->put("_indentNumber"_s, this->_indentNumber);
 	os->writeFields();
 	if ($instanceOf($Serializable, this->_uriResolver)) {
@@ -575,18 +472,17 @@ $String* TemplatesImpl::getTransletName() {
 }
 
 $Module* TemplatesImpl::createModule($ModuleDescriptor* descriptor, $ClassLoader* loader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, mn, $nc(descriptor)->name());
 	$var($ModuleReference, mref, $new($TemplatesImpl$1, this, descriptor, nullptr));
 	$var($ModuleFinder, finder, $new($TemplatesImpl$2, this, mn, mref));
 	$var($ModuleLayer, bootLayer, $ModuleLayer::boot());
-	$var($ModuleFinder, var$0, finder);
-	$var($ModuleFinder, var$1, $ModuleFinder::of($$new($PathArray, 0)));
-	$var($Configuration, cf, $nc($($nc(bootLayer)->configuration()))->resolve(var$0, var$1, $($Set::of($of(mn)))));
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(TemplatesImpl$$Lambda$lambda$createModule$1, bootLayer, cf, loader)));
+	$var($ModuleFinder, var$0, $ModuleFinder::of($$new($PathArray, 0)));
+	$var($Configuration, cf, $$nc($nc(bootLayer)->configuration())->resolve(finder, var$0, $($Set::of(mn))));
+	$var($PrivilegedAction, pa, $new(TemplatesImpl$$Lambda$lambda$createModule$1, bootLayer, cf, loader));
 	$var($ModuleLayer, layer, $cast($ModuleLayer, $AccessController::doPrivileged(pa)));
-	$var($Module, m, $cast($Module, $nc($($nc(layer)->findModule(mn)))->get()));
+	$var($Module, m, $cast($Module, $$nc($nc(layer)->findModule(mn))->get()));
 	if (!TemplatesImpl::$assertionsDisabled && !($nc(m)->getLayer() == layer)) {
 		$throwNew($AssertionError);
 	}
@@ -594,14 +490,14 @@ $Module* TemplatesImpl::createModule($ModuleDescriptor* descriptor, $ClassLoader
 }
 
 void TemplatesImpl::defineTransletClasses() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->_bytecodes == nullptr) {
 		$init($ErrorMsg);
 		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::NO_TRANSLET_CLASS_ERR));
 		$throwNew($TransformerConfigurationException, $(err->toString()));
 	}
-	$var($TemplatesImpl$TransletClassLoader, loader, $cast($TemplatesImpl$TransletClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($TemplatesImpl$3, this)))));
+	$var($TemplatesImpl$TransletClassLoader, loader, $cast($TemplatesImpl$TransletClassLoader, $AccessController::doPrivileged($$new($TemplatesImpl$3, this))));
 	try {
 		int32_t classCount = $nc(this->_bytecodes)->length;
 		$set(this, _class, $new($ClassArray, classCount));
@@ -614,42 +510,42 @@ void TemplatesImpl::defineTransletClasses() {
 			$throwNew($AssertionError);
 		}
 		$init($ModuleDescriptor$Modifier);
-		$var($ModuleDescriptor, descriptor, $nc($($nc($($nc($($ModuleDescriptor::newModule(mn, $($Set::of($of($ModuleDescriptor$Modifier::SYNTHETIC))))))->requires("java.xml"_s)))->exports(pn, $($Set::of($of("java.xml"_s))))))->build());
+		$var($ModuleDescriptor, descriptor, $$nc($$nc($$nc($ModuleDescriptor::newModule(mn, $($Set::of($ModuleDescriptor$Modifier::SYNTHETIC))))->requires("java.xml"_s))->exports(pn, $($Set::of("java.xml"_s))))->build());
 		$var($Module, m, createModule(descriptor, loader));
 		$var($Module, thisModule, TemplatesImpl::class$->getModule());
 		$var($PermissionCollection, perms, $$new($RuntimePermission, "*"_s)->newPermissionCollection());
 		$init($Constants);
-		$nc($($Arrays::asList($Constants::PKGS_USED_BY_TRANSLET_CLASSES)))->forEach(static_cast<$Consumer*>($$new(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, thisModule, m, perms)));
-		$var($CodeSource, codeSource, $new($CodeSource, ($URL*)nullptr, ($CodeSignerArray*)nullptr));
+		$$nc($Arrays::asList($Constants::PKGS_USED_BY_TRANSLET_CLASSES))->forEach($$new(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1, thisModule, m, perms));
+		$var($CodeSource, codeSource, $new($CodeSource, nullptr, ($CodeSignerArray*)nullptr));
 		$var($ProtectionDomain, pd, $new($ProtectionDomain, codeSource, perms, loader, nullptr));
 		$nc(thisModule)->addReads(m);
 		for (int32_t i = 0; i < classCount; ++i) {
 			$nc(this->_class)->set(i, $nc(loader)->defineClass($nc(this->_bytecodes)->get(i), pd));
 			$Class* superClass = $nc($nc(this->_class)->get(i))->getSuperclass();
-			if ($nc($($nc(superClass)->getName()))->equals(TemplatesImpl::ABSTRACT_TRANSLET)) {
+			if ($$nc($nc(superClass)->getName())->equals(TemplatesImpl::ABSTRACT_TRANSLET)) {
 				this->_transletIndex = i;
 			} else {
-				$nc(this->_auxClasses)->put($($nc($nc(this->_class)->get(i))->getName()), $nc(this->_class)->get(i));
+				$nc(this->_auxClasses)->put($($nc(this->_class->get(i))->getName()), this->_class->get(i));
 			}
 		}
 		if (this->_transletIndex < 0) {
 			$init($ErrorMsg);
-			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::NO_MAIN_TRANSLET_ERR, $of(this->_name)));
+			$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::NO_MAIN_TRANSLET_ERR, this->_name));
 			$throwNew($TransformerConfigurationException, $(err->toString()));
 		}
 	} catch ($ClassFormatError& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_CLASS_ERR, $of(this->_name)));
-		$throwNew($TransformerConfigurationException, $(err->toString()), static_cast<$Throwable*>(e));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_CLASS_ERR, this->_name));
+		$throwNew($TransformerConfigurationException, $(err->toString()), e);
 	} catch ($LinkageError& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, $of(this->_name)));
-		$throwNew($TransformerConfigurationException, $(err->toString()), static_cast<$Throwable*>(e));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, this->_name));
+		$throwNew($TransformerConfigurationException, $(err->toString()), e);
 	}
 }
 
 $Translet* TemplatesImpl::getTransletInstance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		if (this->_name == nullptr) {
@@ -658,7 +554,7 @@ $Translet* TemplatesImpl::getTransletInstance() {
 		if (this->_class == nullptr) {
 			defineTransletClasses();
 		}
-		$var($AbstractTranslet, translet, $cast($AbstractTranslet, $nc($($nc($nc(this->_class)->get(this->_transletIndex))->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+		$var($AbstractTranslet, translet, $cast($AbstractTranslet, $$nc($nc($nc(this->_class)->get(this->_transletIndex))->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 		$nc(translet)->postInitialization();
 		translet->setTemplates(this);
 		translet->setOverrideDefaultParser(this->_overrideDefaultParser);
@@ -669,27 +565,27 @@ $Translet* TemplatesImpl::getTransletInstance() {
 		return translet;
 	} catch ($InstantiationException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, $of(this->_name)));
-		$throwNew($TransformerConfigurationException, $(err->toString()), static_cast<$Throwable*>(e));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, this->_name));
+		$throwNew($TransformerConfigurationException, $(err->toString()), e);
 	} catch ($IllegalAccessException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, $of(this->_name)));
-		$throwNew($TransformerConfigurationException, $(err->toString()), static_cast<$Throwable*>(e));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, this->_name));
+		$throwNew($TransformerConfigurationException, $(err->toString()), e);
 	} catch ($NoSuchMethodException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, $of(this->_name)));
-		$throwNew($TransformerConfigurationException, $(err->toString()), static_cast<$Throwable*>(e));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, this->_name));
+		$throwNew($TransformerConfigurationException, $(err->toString()), e);
 	} catch ($InvocationTargetException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, $of(this->_name)));
-		$throwNew($TransformerConfigurationException, $(err->toString()), static_cast<$Throwable*>(e));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::TRANSLET_OBJECT_ERR, this->_name));
+		$throwNew($TransformerConfigurationException, $(err->toString()), e);
 	}
 	$shouldNotReachHere();
 }
 
 $Transformer* TemplatesImpl::newTransformer() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($TransformerImpl, transformer, nullptr);
 		$assign(transformer, $new($TransformerImpl, $(getTransletInstance()), this->_outputProperties, this->_indentNumber, this->_tfactory));
 		if (this->_uriResolver != nullptr) {
@@ -706,7 +602,7 @@ $Transformer* TemplatesImpl::newTransformer() {
 $Properties* TemplatesImpl::getOutputProperties() {
 	$synchronized(this) {
 		try {
-			return $nc($(newTransformer()))->getOutputProperties();
+			return $$nc(newTransformer())->getOutputProperties();
 		} catch ($TransformerConfigurationException& e) {
 			return nullptr;
 		}
@@ -724,7 +620,7 @@ void TemplatesImpl::setStylesheetDOM($DOM* sdom) {
 
 void TemplatesImpl::lambda$defineTransletClasses$2($Module* thisModule, $Module* m, $PermissionCollection* perms, $String* p) {
 	$init(TemplatesImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc(thisModule)->addExports(p, m);
 	$nc(perms)->add($$new($RuntimePermission, $$str({"accessClassInPackage."_s, p})));
@@ -732,7 +628,7 @@ void TemplatesImpl::lambda$defineTransletClasses$2($Module* thisModule, $Module*
 
 $ModuleLayer* TemplatesImpl::lambda$createModule$1($ModuleLayer* bootLayer, $Configuration* cf, $ClassLoader* loader) {
 	$init(TemplatesImpl);
-	return $nc(bootLayer)->defineModules(cf, static_cast<$Function*>($$new(TemplatesImpl$$Lambda$lambda$createModule$0$2, loader)));
+	return $nc(bootLayer)->defineModules(cf, $$new(TemplatesImpl$$Lambda$lambda$createModule$0$2, loader));
 }
 
 $ClassLoader* TemplatesImpl::lambda$createModule$0($ClassLoader* loader, $String* name) {
@@ -740,14 +636,12 @@ $ClassLoader* TemplatesImpl::lambda$createModule$0($ClassLoader* loader, $String
 	return loader;
 }
 
-void clinit$TemplatesImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TemplatesImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TemplatesImpl::DESERIALIZE_TRANSLET, "jdk.xml.enableTemplatesImplDeserialization"_s);
 	TemplatesImpl::$assertionsDisabled = !TemplatesImpl::class$->desiredAssertionStatus();
 	$assignStatic(TemplatesImpl::ABSTRACT_TRANSLET, "com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet"_s);
-	$load($byteArray2);
-	$load($ClassArray);
-	$init($Integer);
+	$load($bytes);
 	$load($Properties);
 	$assignStatic(TemplatesImpl::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "_name"_s, $String::class$),
@@ -764,17 +658,92 @@ TemplatesImpl::TemplatesImpl() {
 
 $Class* TemplatesImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TemplatesImpl$$Lambda$lambda$createModule$1::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$createModule$1")) {
 			return TemplatesImpl$$Lambda$lambda$createModule$1::load$(name, initialize);
 		}
-		if (name->equals(TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1")) {
 			return TemplatesImpl$$Lambda$lambda$defineTransletClasses$2$1::load$(name, initialize);
 		}
-		if (name->equals(TemplatesImpl$$Lambda$lambda$createModule$0$2::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$$Lambda$lambda$createModule$0$2")) {
 			return TemplatesImpl$$Lambda$lambda$createModule$0$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TemplatesImpl, name, initialize, &_TemplatesImpl_ClassInfo_, clinit$TemplatesImpl, allocate$TemplatesImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TemplatesImpl, $assertionsDisabled)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TemplatesImpl, serialVersionUID)},
+		{"DESERIALIZE_TRANSLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TemplatesImpl, DESERIALIZE_TRANSLET)},
+		{"ABSTRACT_TRANSLET", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(TemplatesImpl, ABSTRACT_TRANSLET)},
+		{"_name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TemplatesImpl, _name)},
+		{"_bytecodes", "[[B", nullptr, $PRIVATE, $field(TemplatesImpl, _bytecodes)},
+		{"_class", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(TemplatesImpl, _class)},
+		{"_transletIndex", "I", nullptr, $PRIVATE, $field(TemplatesImpl, _transletIndex)},
+		{"_auxClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _auxClasses)},
+		{"_outputProperties", "Ljava/util/Properties;", nullptr, $PRIVATE, $field(TemplatesImpl, _outputProperties)},
+		{"_indentNumber", "I", nullptr, $PRIVATE, $field(TemplatesImpl, _indentNumber)},
+		{"_uriResolver", "Ljavax/xml/transform/URIResolver;", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _uriResolver)},
+		{"_sdom", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/org/apache/xalan/internal/xsltc/DOM;>;", $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _sdom)},
+		{"_tfactory", "Lcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _tfactory)},
+		{"_overrideDefaultParser", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _overrideDefaultParser)},
+		{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(TemplatesImpl, _accessExternalStylesheet)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TemplatesImpl, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([[BLjava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", nullptr, $PROTECTED, $method(TemplatesImpl, init$, void, $byteArray2*, $String*, $Properties*, int32_t, $TransformerFactoryImpl*)},
+		{"<init>", "([Ljava/lang/Class;Ljava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", "([Ljava/lang/Class<*>;Ljava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", $PROTECTED, $method(TemplatesImpl, init$, void, $ClassArray*, $String*, $Properties*, int32_t, $TransformerFactoryImpl*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TemplatesImpl, init$, void)},
+		{"createModule", "(Ljava/lang/module/ModuleDescriptor;Ljava/lang/ClassLoader;)Ljava/lang/Module;", nullptr, $PRIVATE, $method(TemplatesImpl, createModule, $Module*, $ModuleDescriptor*, $ClassLoader*)},
+		{"defineTransletClasses", "()V", nullptr, $PRIVATE, $method(TemplatesImpl, defineTransletClasses, void), "javax.xml.transform.TransformerConfigurationException"},
+		{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TemplatesImpl, getOutputProperties, $Properties*)},
+		{"getStylesheetDOM", "()Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $method(TemplatesImpl, getStylesheetDOM, $DOM*)},
+		{"getTransletBytecodes", "()[[B", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TemplatesImpl, getTransletBytecodes, $byteArray2*)},
+		{"getTransletClasses", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PRIVATE | $SYNCHRONIZED, $method(TemplatesImpl, getTransletClasses, $ClassArray*)},
+		{"getTransletIndex", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(TemplatesImpl, getTransletIndex, int32_t)},
+		{"getTransletInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/Translet;", nullptr, $PRIVATE, $method(TemplatesImpl, getTransletInstance, $Translet*), "javax.xml.transform.TransformerConfigurationException"},
+		{"getTransletName", "()Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED, $method(TemplatesImpl, getTransletName, $String*)},
+		{"init", "(Ljava/lang/String;Ljava/util/Properties;ILcom/sun/org/apache/xalan/internal/xsltc/trax/TransformerFactoryImpl;)V", nullptr, $PRIVATE, $method(TemplatesImpl, init, void, $String*, $Properties*, int32_t, $TransformerFactoryImpl*)},
+		{"lambda$createModule$0", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemplatesImpl, lambda$createModule$0, $ClassLoader*, $ClassLoader*, $String*)},
+		{"lambda$createModule$1", "(Ljava/lang/ModuleLayer;Ljava/lang/module/Configuration;Ljava/lang/ClassLoader;)Ljava/lang/ModuleLayer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemplatesImpl, lambda$createModule$1, $ModuleLayer*, $ModuleLayer*, $Configuration*, $ClassLoader*)},
+		{"lambda$defineTransletClasses$2", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/security/PermissionCollection;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TemplatesImpl, lambda$defineTransletClasses$2, void, $Module*, $Module*, $PermissionCollection*, $String*)},
+		{"newTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TemplatesImpl, newTransformer, $Transformer*), "javax.xml.transform.TransformerConfigurationException"},
+		{"overrideDefaultParser", "()Z", nullptr, $PUBLIC, $method(TemplatesImpl, overrideDefaultParser, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TemplatesImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setStylesheetDOM", "(Lcom/sun/org/apache/xalan/internal/xsltc/DOM;)V", nullptr, $PUBLIC, $method(TemplatesImpl, setStylesheetDOM, void, $DOM*)},
+		{"setTransletBytecodes", "([[B)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TemplatesImpl, setTransletBytecodes, void, $byteArray2*)},
+		{"setTransletName", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $method(TemplatesImpl, setTransletName, void, $String*)},
+		{"setURIResolver", "(Ljavax/xml/transform/URIResolver;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(TemplatesImpl, setURIResolver, void, $URIResolver*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(TemplatesImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$TransletClassLoader", "com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl", "TransletClassLoader", $STATIC | $FINAL},
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$3", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl",
+		"java.lang.Object",
+		"javax.xml.transform.Templates,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$TransletClassLoader,com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$3,com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$2,com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl$1"
+	};
+	$loadClass(TemplatesImpl, name, initialize, &classInfo$$, TemplatesImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TemplatesImpl));
+	});
 	return class$;
 }
 

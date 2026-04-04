@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/ParallelogramPipe.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$MethodInfo _ParallelogramPipe_MethodInfo_[] = {
-	{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParallelogramPipe, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
-	{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParallelogramPipe, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _ParallelogramPipe_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.pipe.ParallelogramPipe",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ParallelogramPipe_MethodInfo_
-};
-
-$Object* allocate$ParallelogramPipe($Class* clazz) {
-	return $of($alloc(ParallelogramPipe));
-}
-
 $Class* ParallelogramPipe::load$($String* name, bool initialize) {
-	$loadClass(ParallelogramPipe, name, initialize, &_ParallelogramPipe_ClassInfo_, allocate$ParallelogramPipe);
+	$MethodInfo methodInfos$$[] = {
+		{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParallelogramPipe, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
+		{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParallelogramPipe, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.pipe.ParallelogramPipe",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ParallelogramPipe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParallelogramPipe);
+	});
 	return class$;
 }
 

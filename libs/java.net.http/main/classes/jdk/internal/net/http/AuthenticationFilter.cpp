@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/AuthenticationFilter.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
@@ -73,9 +72,7 @@ using $Base64 = ::java::util::Base64;
 using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Optional = ::java::util::Optional;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $BiPredicate = ::java::util::function::BiPredicate;
 using $Supplier = ::java::util::function::Supplier;
 using $AuthenticationFilter$AuthInfo = ::jdk::internal::net::http::AuthenticationFilter$AuthInfo;
 using $AuthenticationFilter$Cache = ::jdk::internal::net::http::AuthenticationFilter$Cache;
@@ -99,84 +96,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(AuthenticationFilter::lambda$getCredentials$0());
+		 return AuthenticationFilter::lambda$getCredentials$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AuthenticationFilter$$Lambda$lambda$getCredentials$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AuthenticationFilter$$Lambda$lambda$getCredentials$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationFilter$$Lambda$lambda$getCredentials$0, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthenticationFilter$$Lambda$lambda$getCredentials$0, get, $Object*)},
-	{}
-};
-$ClassInfo AuthenticationFilter$$Lambda$lambda$getCredentials$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.AuthenticationFilter$$Lambda$lambda$getCredentials$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* AuthenticationFilter$$Lambda$lambda$getCredentials$0::load$($String* name, bool initialize) {
-	$loadClass(AuthenticationFilter$$Lambda$lambda$getCredentials$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationFilter$$Lambda$lambda$getCredentials$0, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthenticationFilter$$Lambda$lambda$getCredentials$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.AuthenticationFilter$$Lambda$lambda$getCredentials$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AuthenticationFilter$$Lambda$lambda$getCredentials$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticationFilter$$Lambda$lambda$getCredentials$0);
+	});
 	return class$;
 }
 $Class* AuthenticationFilter$$Lambda$lambda$getCredentials$0::class$ = nullptr;
-
-$FieldInfo _AuthenticationFilter_FieldInfo_[] = {
-	{"exchange", "Ljdk/internal/net/http/MultiExchange;", "Ljdk/internal/net/http/MultiExchange<*>;", $VOLATILE, $field(AuthenticationFilter, exchange)},
-	{"encoder", "Ljava/util/Base64$Encoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthenticationFilter, encoder)},
-	{"DEFAULT_RETRY_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(AuthenticationFilter, DEFAULT_RETRY_LIMIT)},
-	{"retry_limit", "I", nullptr, $STATIC | $FINAL, $staticField(AuthenticationFilter, retry_limit)},
-	{"UNAUTHORIZED", "I", nullptr, $STATIC | $FINAL, $constField(AuthenticationFilter, UNAUTHORIZED)},
-	{"PROXY_UNAUTHORIZED", "I", nullptr, $STATIC | $FINAL, $constField(AuthenticationFilter, PROXY_UNAUTHORIZED)},
-	{"BASIC_DUMMY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthenticationFilter, BASIC_DUMMY)},
-	{"caches", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/AuthenticationFilter$Cache;>;", $STATIC | $FINAL, $staticField(AuthenticationFilter, caches)},
-	{}
-};
-
-$MethodInfo _AuthenticationFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationFilter, init$, void)},
-	{"addBasicCredentials", "(Ljdk/internal/net/http/HttpRequestImpl;ZLjava/net/PasswordAuthentication;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthenticationFilter, addBasicCredentials, void, $HttpRequestImpl*, bool, $PasswordAuthentication*, bool)},
-	{"getCache", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", $STATIC | $SYNCHRONIZED, $staticMethod(AuthenticationFilter, getCache, $AuthenticationFilter$Cache*, $MultiExchange*)},
-	{"getCredentials", "(Ljava/lang/String;ZLjdk/internal/net/http/HttpRequestImpl;)Ljava/net/PasswordAuthentication;", nullptr, $PRIVATE, $method(AuthenticationFilter, getCredentials, $PasswordAuthentication*, $String*, bool, $HttpRequestImpl*), "java.io.IOException"},
-	{"getProxyURI", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/net/URI;", nullptr, $PRIVATE, $method(AuthenticationFilter, getProxyURI, $URI*, $HttpRequestImpl*)},
-	{"lambda$getCredentials$0", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuthenticationFilter, lambda$getCredentials$0, $IOException*)},
-	{"normalize", "(Ljava/net/URI;Z)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(AuthenticationFilter, normalize, $URI*, $URI*, bool)},
-	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC, $virtualMethod(AuthenticationFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
-	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, $virtualMethod(AuthenticationFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
-	{"toURL", "(Ljava/net/URI;Ljava/lang/String;Z)Ljava/net/URL;", nullptr, $PRIVATE, $method(AuthenticationFilter, toURL, $URL*, $URI*, $String*, bool), "java.net.MalformedURLException"},
-	{}
-};
-
-$InnerClassInfo _AuthenticationFilter_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.AuthenticationFilter$CacheEntry", "jdk.internal.net.http.AuthenticationFilter", "CacheEntry", $STATIC | $FINAL},
-	{"jdk.internal.net.http.AuthenticationFilter$Cache", "jdk.internal.net.http.AuthenticationFilter", "Cache", $STATIC | $FINAL},
-	{"jdk.internal.net.http.AuthenticationFilter$AuthInfo", "jdk.internal.net.http.AuthenticationFilter", "AuthInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _AuthenticationFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.AuthenticationFilter",
-	"java.lang.Object",
-	"jdk.internal.net.http.HeaderFilter",
-	_AuthenticationFilter_FieldInfo_,
-	_AuthenticationFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AuthenticationFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.AuthenticationFilter$CacheEntry,jdk.internal.net.http.AuthenticationFilter$Cache,jdk.internal.net.http.AuthenticationFilter$AuthInfo"
-};
-
-$Object* allocate$AuthenticationFilter($Class* clazz) {
-	return $of($alloc(AuthenticationFilter));
-}
 
 $Base64$Encoder* AuthenticationFilter::encoder = nullptr;
 int32_t AuthenticationFilter::retry_limit = 0;
@@ -187,9 +129,9 @@ void AuthenticationFilter::init$() {
 }
 
 $PasswordAuthentication* AuthenticationFilter::getCredentials($String* header, bool proxy, $HttpRequestImpl* req) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpClientImpl, client, $nc(this->exchange)->client());
-	$var($Authenticator, auth, $cast($Authenticator, $nc($($nc(client)->authenticator()))->orElseThrow(static_cast<$Supplier*>($$new(AuthenticationFilter$$Lambda$lambda$getCredentials$0)))));
+	$var($Authenticator, auth, $cast($Authenticator, $$nc($nc(client)->authenticator())->orElseThrow($$new(AuthenticationFilter$$Lambda$lambda$getCredentials$0))));
 	$var($URI, uri, $nc(req)->uri());
 	$var($HeaderParser, parser, $new($HeaderParser, header));
 	$var($String, authscheme, parser->findKey(0));
@@ -223,24 +165,23 @@ $URL* AuthenticationFilter::toURL($URI* uri, $String* method, bool proxy) {
 }
 
 $URI* AuthenticationFilter::getProxyURI($HttpRequestImpl* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, proxy, $nc(r)->proxy());
 	if (proxy == nullptr) {
 		return nullptr;
 	}
-	$var($String, scheme, $str({"proxy."_s, $($nc($(r->uri()))->getScheme())}));
+	$var($String, scheme, $str({"proxy."_s, $($$nc(r->uri())->getScheme())}));
 	try {
-		$var($String, var$0, scheme);
-		$var($String, var$1, $nc(proxy)->getHostString());
-		return $new($URI, var$0, nullptr, var$1, proxy->getPort(), "/"_s, nullptr, nullptr);
+		$var($String, var$0, $nc(proxy)->getHostString());
+		return $new($URI, scheme, nullptr, var$0, proxy->getPort(), "/"_s, nullptr, nullptr);
 	} catch ($URISyntaxException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
 
 void AuthenticationFilter::request($HttpRequestImpl* r, $MultiExchange* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AuthenticationFilter$Cache, cache, getCache(e));
 	$set(this, exchange, e);
 	if ($nc(this->exchange)->proxyauth == nullptr) {
@@ -264,25 +205,25 @@ void AuthenticationFilter::request($HttpRequestImpl* r, $MultiExchange* e) {
 
 void AuthenticationFilter::addBasicCredentials($HttpRequestImpl* r, bool proxy, $PasswordAuthentication* pw, bool isUTF8) {
 	$init(AuthenticationFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hdrname, proxy ? "Proxy-Authorization"_s : "Authorization"_s);
 	$var($StringBuilder, sb, $new($StringBuilder, 128));
 	sb->append($($nc(pw)->getUserName()))->append(u':')->append($($nc(pw)->getPassword()));
 	$init($StandardCharsets);
 	$var($Charset, charset, isUTF8 ? $StandardCharsets::UTF_8 : $StandardCharsets::ISO_8859_1);
-	$var($String, s, $nc(AuthenticationFilter::encoder)->encodeToString($($nc($(sb->toString()))->getBytes(charset))));
+	$var($String, s, $nc(AuthenticationFilter::encoder)->encodeToString($($(sb->toString())->getBytes(charset))));
 	$var($String, value, $str({"Basic "_s, s}));
 	if (proxy) {
 		if ($nc(r)->isConnect()) {
 			$init($Utils);
 			if (!$nc($Utils::PROXY_TUNNEL_FILTER)->test(hdrname, value)) {
-				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {$of(hdrname)}));
+				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {hdrname}));
 				return;
 			}
 		} else if (r->proxy() != nullptr) {
 			$init($Utils);
 			if (!$nc($Utils::PROXY_FILTER)->test(hdrname, value)) {
-				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {$of(hdrname)}));
+				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {hdrname}));
 				return;
 			}
 		}
@@ -291,7 +232,7 @@ void AuthenticationFilter::addBasicCredentials($HttpRequestImpl* r, bool proxy, 
 }
 
 $HttpRequestImpl* AuthenticationFilter::response($Response* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AuthenticationFilter$Cache, cache, getCache(this->exchange));
 	int32_t status = $nc(r)->statusCode();
 	$var($HttpHeaders, hdrs, r->headers());
@@ -302,13 +243,13 @@ $HttpRequestImpl* AuthenticationFilter::response($Response* r) {
 			$var($URI, proxyURI, getProxyURI(req));
 			if (proxyURI != nullptr) {
 				$set($nc(this->exchange), proxyauth, nullptr);
-				$nc(cache)->store($nc(au)->scheme, proxyURI, true, au->credentials, au->isUTF8);
+				$nc(cache)->store($nc(au)->scheme, proxyURI, true, $nc(au)->credentials, $nc(au)->isUTF8);
 			}
 		}
 		if (status != AuthenticationFilter::UNAUTHORIZED) {
 			if ($nc(this->exchange)->serverauth != nullptr && !$nc($nc(this->exchange)->serverauth)->fromcache) {
 				$var($AuthenticationFilter$AuthInfo, au, $nc(this->exchange)->serverauth);
-				$nc(cache)->store($nc(au)->scheme, $($nc(req)->uri()), false, au->credentials, au->isUTF8);
+				$nc(cache)->store($nc(au)->scheme, $($nc(req)->uri()), false, $nc(au)->credentials, $nc(au)->isUTF8);
 			}
 			return nullptr;
 		}
@@ -317,13 +258,13 @@ $HttpRequestImpl* AuthenticationFilter::response($Response* r) {
 	$var($String, authname, proxy ? "Proxy-Authenticate"_s : "WWW-Authenticate"_s);
 	$var($List, authvals, $nc(hdrs)->allValues(authname));
 	bool var$0 = $nc(authvals)->isEmpty();
-	if (var$0 && $nc($($nc($($nc(this->exchange)->client()))->authenticator()))->isPresent()) {
+	if (var$0 && $$nc($$nc($nc(this->exchange)->client())->authenticator())->isPresent()) {
 		$throwNew($IOException, $$str({authname, " header missing for response code "_s, $$str(status)}));
 	}
 	$var($String, authval, nullptr);
 	bool isUTF8 = false;
 	{
-		$var($Iterator, i$, $nc(authvals)->iterator());
+		$var($Iterator, i$, authvals->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, aval, $cast($String, i$->next()));
 			{
@@ -345,20 +286,20 @@ $HttpRequestImpl* AuthenticationFilter::response($Response* r) {
 		if (r->isConnectResponse) {
 			$init($Utils);
 			if (!$nc($Utils::PROXY_TUNNEL_FILTER)->test("Proxy-Authorization"_s, AuthenticationFilter::BASIC_DUMMY)) {
-				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {$of("Proxy-Authorization"_s)}));
+				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {"Proxy-Authorization"_s}));
 				return nullptr;
 			}
 		} else if ($nc(req)->proxy() != nullptr) {
 			$init($Utils);
 			if (!$nc($Utils::PROXY_FILTER)->test("Proxy-Authorization"_s, AuthenticationFilter::BASIC_DUMMY)) {
-				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {$of("Proxy-Authorization"_s)}));
+				$Log::logError("{0} disabled"_s, $$new($ObjectArray, {"Proxy-Authorization"_s}));
 				return nullptr;
 			}
 		}
 	}
 	$var($AuthenticationFilter$AuthInfo, au, proxy ? $cast($AuthenticationFilter$AuthInfo, $nc(this->exchange)->proxyauth) : $cast($AuthenticationFilter$AuthInfo, $nc(this->exchange)->serverauth));
 	if (au == nullptr) {
-		if (!$nc($($nc($($nc(this->exchange)->client()))->authenticator()))->isPresent()) {
+		if (!$$nc($$nc($nc(this->exchange)->client())->authenticator())->isPresent()) {
 			return nullptr;
 		}
 		$var($PasswordAuthentication, pw, getCredentials(authval, proxy, req));
@@ -374,13 +315,13 @@ $HttpRequestImpl* AuthenticationFilter::response($Response* r) {
 		$assign(req, $HttpRequestImpl::newInstanceForAuthentication(req));
 		addBasicCredentials(req, proxy, pw, isUTF8);
 		return req;
-	} else if ($nc(au)->retries > AuthenticationFilter::retry_limit) {
+	} else if (au->retries > AuthenticationFilter::retry_limit) {
 		$throwNew($IOException, $$str({"too many authentication attempts. Limit: "_s, $($Integer::toString(AuthenticationFilter::retry_limit))}));
 	} else {
 		if (au->fromcache) {
 			$nc(cache)->remove(au->cacheEntry);
 		}
-		if (!$nc($($nc($($nc(this->exchange)->client()))->authenticator()))->isPresent()) {
+		if (!$$nc($$nc($nc(this->exchange)->client())->authenticator())->isPresent()) {
 			return nullptr;
 		}
 		$var($PasswordAuthentication, pw, getCredentials(authval, proxy, req));
@@ -395,21 +336,20 @@ $HttpRequestImpl* AuthenticationFilter::response($Response* r) {
 		}
 		$assign(req, $HttpRequestImpl::newInstanceForAuthentication(req));
 		addBasicCredentials(req, proxy, $nc(au)->credentials, isUTF8);
-		++$nc(au)->retries;
+		++au->retries;
 		return req;
 	}
 }
 
 $AuthenticationFilter$Cache* AuthenticationFilter::getCache($MultiExchange* exchange) {
-	$load(AuthenticationFilter);
+	$init(AuthenticationFilter);
 	$synchronized(class$) {
-		$init(AuthenticationFilter);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($HttpClientImpl, client, $nc(exchange)->client());
-		$var($AuthenticationFilter$Cache, c, $cast($AuthenticationFilter$Cache, $nc(AuthenticationFilter::caches)->get(client)));
+		$var($AuthenticationFilter$Cache, c, $cast($AuthenticationFilter$Cache, AuthenticationFilter::caches->get(client)));
 		if (c == nullptr) {
 			$assign(c, $new($AuthenticationFilter$Cache));
-			$nc(AuthenticationFilter::caches)->put(client, c);
+			AuthenticationFilter::caches->put(client, c);
 		}
 		return c;
 	}
@@ -417,14 +357,14 @@ $AuthenticationFilter$Cache* AuthenticationFilter::getCache($MultiExchange* exch
 
 $URI* AuthenticationFilter::normalize($URI* uri, bool isPrimaryKey) {
 	$init(AuthenticationFilter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, $nc(uri)->getPath());
-	if (path == nullptr || $nc(path)->isEmpty()) {
+	if (path == nullptr || path->isEmpty()) {
 		try {
 			$var($String, var$0, uri->getScheme());
 			return $new($URI, var$0, $(uri->getAuthority()), "/"_s, nullptr, nullptr);
 		} catch ($URISyntaxException& e) {
-			$throwNew($InternalError, static_cast<$Throwable*>(e));
+			$throwNew($InternalError, e);
 		}
 	} else if (isPrimaryKey || !"/"_s->equals(path)) {
 		return uri->resolve("."_s);
@@ -438,12 +378,12 @@ $IOException* AuthenticationFilter::lambda$getCredentials$0() {
 	return $new($IOException, "No authenticator set"_s);
 }
 
-void clinit$AuthenticationFilter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AuthenticationFilter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AuthenticationFilter::encoder, $Base64::getEncoder());
 	AuthenticationFilter::retry_limit = $Utils::getIntegerNetProperty("jdk.httpclient.auth.retrylimit"_s, AuthenticationFilter::DEFAULT_RETRY_LIMIT);
 	$init($StandardCharsets);
-	$assignStatic(AuthenticationFilter::BASIC_DUMMY, $str({"Basic "_s, $($nc($($Base64::getEncoder()))->encodeToString($("o:o"_s->getBytes($StandardCharsets::ISO_8859_1))))}));
+	$assignStatic(AuthenticationFilter::BASIC_DUMMY, $str({"Basic "_s, $($$nc($Base64::getEncoder())->encodeToString($("o:o"_s->getBytes($StandardCharsets::ISO_8859_1))))}));
 	$assignStatic(AuthenticationFilter::caches, $new($WeakHashMap));
 }
 
@@ -452,11 +392,57 @@ AuthenticationFilter::AuthenticationFilter() {
 
 $Class* AuthenticationFilter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AuthenticationFilter$$Lambda$lambda$getCredentials$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.AuthenticationFilter$$Lambda$lambda$getCredentials$0")) {
 			return AuthenticationFilter$$Lambda$lambda$getCredentials$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AuthenticationFilter, name, initialize, &_AuthenticationFilter_ClassInfo_, clinit$AuthenticationFilter, allocate$AuthenticationFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"exchange", "Ljdk/internal/net/http/MultiExchange;", "Ljdk/internal/net/http/MultiExchange<*>;", $VOLATILE, $field(AuthenticationFilter, exchange)},
+		{"encoder", "Ljava/util/Base64$Encoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthenticationFilter, encoder)},
+		{"DEFAULT_RETRY_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(AuthenticationFilter, DEFAULT_RETRY_LIMIT)},
+		{"retry_limit", "I", nullptr, $STATIC | $FINAL, $staticField(AuthenticationFilter, retry_limit)},
+		{"UNAUTHORIZED", "I", nullptr, $STATIC | $FINAL, $constField(AuthenticationFilter, UNAUTHORIZED)},
+		{"PROXY_UNAUTHORIZED", "I", nullptr, $STATIC | $FINAL, $constField(AuthenticationFilter, PROXY_UNAUTHORIZED)},
+		{"BASIC_DUMMY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthenticationFilter, BASIC_DUMMY)},
+		{"caches", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/AuthenticationFilter$Cache;>;", $STATIC | $FINAL, $staticField(AuthenticationFilter, caches)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationFilter, init$, void)},
+		{"addBasicCredentials", "(Ljdk/internal/net/http/HttpRequestImpl;ZLjava/net/PasswordAuthentication;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthenticationFilter, addBasicCredentials, void, $HttpRequestImpl*, bool, $PasswordAuthentication*, bool)},
+		{"getCache", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", $STATIC | $SYNCHRONIZED, $staticMethod(AuthenticationFilter, getCache, $AuthenticationFilter$Cache*, $MultiExchange*)},
+		{"getCredentials", "(Ljava/lang/String;ZLjdk/internal/net/http/HttpRequestImpl;)Ljava/net/PasswordAuthentication;", nullptr, $PRIVATE, $method(AuthenticationFilter, getCredentials, $PasswordAuthentication*, $String*, bool, $HttpRequestImpl*), "java.io.IOException"},
+		{"getProxyURI", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/net/URI;", nullptr, $PRIVATE, $method(AuthenticationFilter, getProxyURI, $URI*, $HttpRequestImpl*)},
+		{"lambda$getCredentials$0", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuthenticationFilter, lambda$getCredentials$0, $IOException*)},
+		{"normalize", "(Ljava/net/URI;Z)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(AuthenticationFilter, normalize, $URI*, $URI*, bool)},
+		{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC, $virtualMethod(AuthenticationFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
+		{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, $virtualMethod(AuthenticationFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
+		{"toURL", "(Ljava/net/URI;Ljava/lang/String;Z)Ljava/net/URL;", nullptr, $PRIVATE, $method(AuthenticationFilter, toURL, $URL*, $URI*, $String*, bool), "java.net.MalformedURLException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.AuthenticationFilter$CacheEntry", "jdk.internal.net.http.AuthenticationFilter", "CacheEntry", $STATIC | $FINAL},
+		{"jdk.internal.net.http.AuthenticationFilter$Cache", "jdk.internal.net.http.AuthenticationFilter", "Cache", $STATIC | $FINAL},
+		{"jdk.internal.net.http.AuthenticationFilter$AuthInfo", "jdk.internal.net.http.AuthenticationFilter", "AuthInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.AuthenticationFilter",
+		"java.lang.Object",
+		"jdk.internal.net.http.HeaderFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.AuthenticationFilter$CacheEntry,jdk.internal.net.http.AuthenticationFilter$Cache,jdk.internal.net.http.AuthenticationFilter$AuthInfo"
+	};
+	$loadClass(AuthenticationFilter, name, initialize, &classInfo$$, AuthenticationFilter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticationFilter);
+	});
 	return class$;
 }
 

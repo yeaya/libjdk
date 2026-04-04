@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/FieldActivator.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/XPathMatcher.h>
@@ -21,28 +20,24 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$MethodInfo _FieldActivator_MethodInfo_[] = {
-	{"activateField", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;I)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/XPathMatcher;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldActivator, activateField, $XPathMatcher*, $Field*, int32_t)},
-	{"endValueScopeFor", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldActivator, endValueScopeFor, void, $IdentityConstraint*, int32_t)},
-	{"startValueScopeFor", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldActivator, startValueScopeFor, void, $IdentityConstraint*, int32_t)},
-	{}
-};
-
-$ClassInfo _FieldActivator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.FieldActivator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_FieldActivator_MethodInfo_
-};
-
-$Object* allocate$FieldActivator($Class* clazz) {
-	return $of($alloc(FieldActivator));
-}
-
 $Class* FieldActivator::load$($String* name, bool initialize) {
-	$loadClass(FieldActivator, name, initialize, &_FieldActivator_ClassInfo_, allocate$FieldActivator);
+	$MethodInfo methodInfos$$[] = {
+		{"activateField", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;I)Lcom/sun/org/apache/xerces/internal/impl/xs/identity/XPathMatcher;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldActivator, activateField, $XPathMatcher*, $Field*, int32_t)},
+		{"endValueScopeFor", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldActivator, endValueScopeFor, void, $IdentityConstraint*, int32_t)},
+		{"startValueScopeFor", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldActivator, startValueScopeFor, void, $IdentityConstraint*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.FieldActivator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FieldActivator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FieldActivator);
+	});
 	return class$;
 }
 

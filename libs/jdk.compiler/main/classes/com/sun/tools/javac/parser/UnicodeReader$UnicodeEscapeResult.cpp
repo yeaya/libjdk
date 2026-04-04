@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult.h>
-
 #include <com/sun/tools/javac/parser/UnicodeReader.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,47 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _UnicodeReader$UnicodeEscapeResult_FieldInfo_[] = {
-	{"BACKSLASH", "Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeReader$UnicodeEscapeResult, BACKSLASH)},
-	{"VALID_ESCAPE", "Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeReader$UnicodeEscapeResult, VALID_ESCAPE)},
-	{"BROKEN_ESCAPE", "Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeReader$UnicodeEscapeResult, BROKEN_ESCAPE)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnicodeReader$UnicodeEscapeResult, $VALUES)},
-	{}
-};
-
-$MethodInfo _UnicodeReader$UnicodeEscapeResult_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, $values, $UnicodeReader$UnicodeEscapeResultArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnicodeReader$UnicodeEscapeResult, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, valueOf, UnicodeReader$UnicodeEscapeResult*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, values, $UnicodeReader$UnicodeEscapeResultArray*)},
-	{}
-};
-
-$InnerClassInfo _UnicodeReader$UnicodeEscapeResult_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult", "com.sun.tools.javac.parser.UnicodeReader", "UnicodeEscapeResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UnicodeReader$UnicodeEscapeResult_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult",
-	"java.lang.Enum",
-	nullptr,
-	_UnicodeReader$UnicodeEscapeResult_FieldInfo_,
-	_UnicodeReader$UnicodeEscapeResult_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;>;",
-	nullptr,
-	_UnicodeReader$UnicodeEscapeResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.UnicodeReader"
-};
-
-$Object* allocate$UnicodeReader$UnicodeEscapeResult($Class* clazz) {
-	return $of($alloc(UnicodeReader$UnicodeEscapeResult));
-}
 
 UnicodeReader$UnicodeEscapeResult* UnicodeReader$UnicodeEscapeResult::BACKSLASH = nullptr;
 UnicodeReader$UnicodeEscapeResult* UnicodeReader$UnicodeEscapeResult::VALID_ESCAPE = nullptr;
@@ -90,7 +48,7 @@ void UnicodeReader$UnicodeEscapeResult::init$($String* $enum$name, int32_t $enum
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$UnicodeReader$UnicodeEscapeResult($Class* class$) {
+void UnicodeReader$UnicodeEscapeResult::clinit$($Class* clazz) {
 	$assignStatic(UnicodeReader$UnicodeEscapeResult::BACKSLASH, $new(UnicodeReader$UnicodeEscapeResult, "BACKSLASH"_s, 0));
 	$assignStatic(UnicodeReader$UnicodeEscapeResult::VALID_ESCAPE, $new(UnicodeReader$UnicodeEscapeResult, "VALID_ESCAPE"_s, 1));
 	$assignStatic(UnicodeReader$UnicodeEscapeResult::BROKEN_ESCAPE, $new(UnicodeReader$UnicodeEscapeResult, "BROKEN_ESCAPE"_s, 2));
@@ -101,7 +59,42 @@ UnicodeReader$UnicodeEscapeResult::UnicodeReader$UnicodeEscapeResult() {
 }
 
 $Class* UnicodeReader$UnicodeEscapeResult::load$($String* name, bool initialize) {
-	$loadClass(UnicodeReader$UnicodeEscapeResult, name, initialize, &_UnicodeReader$UnicodeEscapeResult_ClassInfo_, clinit$UnicodeReader$UnicodeEscapeResult, allocate$UnicodeReader$UnicodeEscapeResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKSLASH", "Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeReader$UnicodeEscapeResult, BACKSLASH)},
+		{"VALID_ESCAPE", "Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeReader$UnicodeEscapeResult, VALID_ESCAPE)},
+		{"BROKEN_ESCAPE", "Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnicodeReader$UnicodeEscapeResult, BROKEN_ESCAPE)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnicodeReader$UnicodeEscapeResult, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, $values, $UnicodeReader$UnicodeEscapeResultArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnicodeReader$UnicodeEscapeResult, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, valueOf, UnicodeReader$UnicodeEscapeResult*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, values, $UnicodeReader$UnicodeEscapeResultArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult", "com.sun.tools.javac.parser.UnicodeReader", "UnicodeEscapeResult", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.UnicodeReader$UnicodeEscapeResult",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.UnicodeReader"
+	};
+	$loadClass(UnicodeReader$UnicodeEscapeResult, name, initialize, &classInfo$$, UnicodeReader$UnicodeEscapeResult::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnicodeReader$UnicodeEscapeResult));
+	});
 	return class$;
 }
 

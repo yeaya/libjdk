@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpRequestImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -69,7 +68,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Duration = ::java::time::Duration;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 using $Supplier = ::java::util::function::Supplier;
@@ -92,27 +90,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(HttpRequestImpl::lambda$userAgent$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpRequestImpl$$Lambda$lambda$userAgent$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpRequestImpl$$Lambda$lambda$userAgent$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$userAgent$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$userAgent$0, run, $Object*)},
-	{}
-};
-$ClassInfo HttpRequestImpl$$Lambda$lambda$userAgent$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$userAgent$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* HttpRequestImpl$$Lambda$lambda$userAgent$0::load$($String* name, bool initialize) {
-	$loadClass(HttpRequestImpl$$Lambda$lambda$userAgent$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$userAgent$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$userAgent$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$userAgent$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpRequestImpl$$Lambda$lambda$userAgent$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequestImpl$$Lambda$lambda$userAgent$0);
+	});
 	return class$;
 }
 $Class* HttpRequestImpl$$Lambda$lambda$userAgent$0::class$ = nullptr;
@@ -123,29 +118,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(HttpRequestImpl::lambda$new$1());
+		 return HttpRequestImpl::lambda$new$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpRequestImpl$$Lambda$lambda$new$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpRequestImpl$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$1$1, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo HttpRequestImpl$$Lambda$lambda$new$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$1$1::load$($String* name, bool initialize) {
-	$loadClass(HttpRequestImpl$$Lambda$lambda$new$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$1$1, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpRequestImpl$$Lambda$lambda$new$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequestImpl$$Lambda$lambda$new$1$1);
+	});
 	return class$;
 }
 $Class* HttpRequestImpl$$Lambda$lambda$new$1$1::class$ = nullptr;
@@ -156,29 +148,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(HttpRequestImpl::lambda$new$2());
+		 return HttpRequestImpl::lambda$new$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpRequestImpl$$Lambda$lambda$new$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpRequestImpl$$Lambda$lambda$new$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$2$2, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$2$2, get, $Object*)},
-	{}
-};
-$ClassInfo HttpRequestImpl$$Lambda$lambda$new$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$2$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$2$2::load$($String* name, bool initialize) {
-	$loadClass(HttpRequestImpl$$Lambda$lambda$new$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$2$2, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$2$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$2$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpRequestImpl$$Lambda$lambda$new$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequestImpl$$Lambda$lambda$new$2$2);
+	});
 	return class$;
 }
 $Class* HttpRequestImpl$$Lambda$lambda$new$2$2::class$ = nullptr;
@@ -189,29 +178,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(HttpRequestImpl::lambda$new$3());
+		 return HttpRequestImpl::lambda$new$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpRequestImpl$$Lambda$lambda$new$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpRequestImpl$$Lambda$lambda$new$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$3$3, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$3$3, get, $Object*)},
-	{}
-};
-$ClassInfo HttpRequestImpl$$Lambda$lambda$new$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$3$3",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$3$3::load$($String* name, bool initialize) {
-	$loadClass(HttpRequestImpl$$Lambda$lambda$new$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$3$3, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$3$3, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$3$3",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpRequestImpl$$Lambda$lambda$new$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequestImpl$$Lambda$lambda$new$3$3);
+	});
 	return class$;
 }
 $Class* HttpRequestImpl$$Lambda$lambda$new$3$3::class$ = nullptr;
@@ -222,29 +208,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(HttpRequestImpl::lambda$new$4());
+		 return HttpRequestImpl::lambda$new$4();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpRequestImpl$$Lambda$lambda$new$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpRequestImpl$$Lambda$lambda$new$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$4$4, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$4$4, get, $Object*)},
-	{}
-};
-$ClassInfo HttpRequestImpl$$Lambda$lambda$new$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$4$4",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* HttpRequestImpl$$Lambda$lambda$new$4$4::load$($String* name, bool initialize) {
-	$loadClass(HttpRequestImpl$$Lambda$lambda$new$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$new$4$4, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$new$4$4, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$4$4",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpRequestImpl$$Lambda$lambda$new$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequestImpl$$Lambda$lambda$new$4$4);
+	});
 	return class$;
 }
 $Class* HttpRequestImpl$$Lambda$lambda$new$4$4::class$ = nullptr;
@@ -257,119 +240,36 @@ public:
 		this->port = port;
 	}
 	virtual $Object* run() override {
-		 return $of(HttpRequestImpl::lambda$getAddress$5(host, port));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpRequestImpl$$Lambda$lambda$getAddress$5$5>());
+		 return HttpRequestImpl::lambda$getAddress$5(host, port);
 	}
 	$String* host = nullptr;
 	int32_t port = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpRequestImpl$$Lambda$lambda$getAddress$5$5::fieldInfos[3] = {
-	{"host", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, host)},
-	{"port", "I", nullptr, $PUBLIC, $field(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, port)},
-	{}
-};
-$MethodInfo HttpRequestImpl$$Lambda$lambda$getAddress$5$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, init$, void, $String*, int32_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, run, $Object*)},
-	{}
-};
-$ClassInfo HttpRequestImpl$$Lambda$lambda$getAddress$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$getAddress$5$5",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpRequestImpl$$Lambda$lambda$getAddress$5$5::load$($String* name, bool initialize) {
-	$loadClass(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"host", "Ljava/lang/String;", nullptr, $PUBLIC, $field(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, host)},
+		{"port", "I", nullptr, $PUBLIC, $field(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, port)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, init$, void, $String*, int32_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$getAddress$5$5",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpRequestImpl$$Lambda$lambda$getAddress$5$5);
+	});
 	return class$;
 }
 $Class* HttpRequestImpl$$Lambda$lambda$getAddress$5$5::class$ = nullptr;
-
-$FieldInfo _HttpRequestImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpRequestImpl, $assertionsDisabled)},
-	{"userHeaders", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, userHeaders)},
-	{"systemHeadersBuilder", "Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, systemHeadersBuilder)},
-	{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, uri$)},
-	{"proxy", "Ljava/net/Proxy;", nullptr, $PRIVATE | $VOLATILE, $field(HttpRequestImpl, proxy$)},
-	{"authority", "Ljava/net/InetSocketAddress;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, authority$)},
-	{"method", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, method$)},
-	{"requestPublisher", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $FINAL, $field(HttpRequestImpl, requestPublisher)},
-	{"secure", "Z", nullptr, $FINAL, $field(HttpRequestImpl, secure$)},
-	{"expectContinue", "Z", nullptr, $FINAL, $field(HttpRequestImpl, expectContinue$)},
-	{"isWebSocket", "Z", nullptr, $PRIVATE | $VOLATILE, $field(HttpRequestImpl, isWebSocket$)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $VOLATILE, $field(HttpRequestImpl, acc)},
-	{"timeout", "Ljava/time/Duration;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, timeout$)},
-	{"version", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PRIVATE | $FINAL, $field(HttpRequestImpl, version$)},
-	{"USER_AGENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HttpRequestImpl, USER_AGENT)},
-	{}
-};
-
-$MethodInfo _HttpRequestImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestBuilderImpl;)V", nullptr, $PUBLIC, $method(HttpRequestImpl, init$, void, $HttpRequestBuilderImpl*)},
-	{"<init>", "(Ljava/net/http/HttpRequest;Ljava/net/ProxySelector;)V", nullptr, $PUBLIC, $method(HttpRequestImpl, init$, void, $HttpRequest*, $ProxySelector*)},
-	{"<init>", "(Ljava/net/URI;Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Z)V", nullptr, $PRIVATE, $method(HttpRequestImpl, init$, void, $URI*, $String*, HttpRequestImpl*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/common/Utils$ProxyHeaders;)V", nullptr, 0, $method(HttpRequestImpl, init$, void, $String*, $InetSocketAddress*, $Utils$ProxyHeaders*)},
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpHeaders;)V", nullptr, $PRIVATE, $method(HttpRequestImpl, init$, void, HttpRequestImpl*, $HttpHeaders*), "java.io.IOException"},
-	{"addSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HttpRequestImpl, addSystemHeader, void, $String*, $String*)},
-	{"authority", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(HttpRequestImpl, authority, $InetSocketAddress*)},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HttpRequestImpl, bodyPublisher, $Optional*)},
-	{"checkTimeout", "(Ljava/time/Duration;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpRequestImpl, checkTimeout, void, $Duration*)},
-	{"createPushRequest", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpHeaders;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $STATIC, $staticMethod(HttpRequestImpl, createPushRequest, HttpRequestImpl*, HttpRequestImpl*, $HttpHeaders*), "java.io.IOException"},
-	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, expectContinue, bool)},
-	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(HttpRequestImpl, getAddress, $InetSocketAddress*)},
-	{"getSystemHeadersBuilder", "()Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, 0, $virtualMethod(HttpRequestImpl, getSystemHeadersBuilder, $HttpHeadersBuilder*)},
-	{"getUserHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(HttpRequestImpl, getUserHeaders, $HttpHeaders*)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, headers, $HttpHeaders*)},
-	{"isConnect", "()Z", nullptr, $FINAL, $method(HttpRequestImpl, isConnect, bool)},
-	{"isWebSocket", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, isWebSocket, void, bool)},
-	{"isWebSocket", "()Z", nullptr, 0, $virtualMethod(HttpRequestImpl, isWebSocket, bool)},
-	{"lambda$getAddress$5", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$getAddress$5, $InetSocketAddress*, $String*, int32_t)},
-	{"lambda$new$1", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$1, $IOException*)},
-	{"lambda$new$2", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$2, $IOException*)},
-	{"lambda$new$3", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$3, $IOException*)},
-	{"lambda$new$4", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$4, $IOException*)},
-	{"lambda$userAgent$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$userAgent$0, $String*)},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, method, $String*)},
-	{"newInstanceForAuthentication", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequestImpl, newInstanceForAuthentication, HttpRequestImpl*, HttpRequestImpl*)},
-	{"newInstanceForRedirection", "(Ljava/net/URI;Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Z)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequestImpl, newInstanceForRedirection, HttpRequestImpl*, $URI*, $String*, HttpRequestImpl*, bool)},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(HttpRequestImpl, proxy, $InetSocketAddress*)},
-	{"publisher", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PRIVATE, $method(HttpRequestImpl, publisher, $HttpRequest$BodyPublisher*, HttpRequestImpl*)},
-	{"retrieveProxy", "(Ljava/net/ProxySelector;Ljava/net/URI;)Ljava/net/Proxy;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpRequestImpl, retrieveProxy, $Proxy*, $ProxySelector*, $URI*)},
-	{"secure", "()Z", nullptr, 0, $virtualMethod(HttpRequestImpl, secure, bool)},
-	{"setH2Upgrade", "(Ljdk/internal/net/http/Http2ClientImpl;)V", nullptr, 0, $virtualMethod(HttpRequestImpl, setH2Upgrade, void, $Http2ClientImpl*)},
-	{"setProxy", "(Ljava/net/Proxy;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, setProxy, void, $Proxy*)},
-	{"setSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, setSystemHeader, void, $String*, $String*)},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HttpRequestImpl, timeout, $Optional*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, toString, $String*)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, uri, $URI*)},
-	{"userAgent", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpRequestImpl, userAgent, $String*)},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HttpRequestImpl, version, $Optional*)},
-	{}
-};
-
-$ClassInfo _HttpRequestImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.HttpRequestImpl",
-	"java.net.http.HttpRequest",
-	"jdk.internal.net.http.websocket.WebSocketRequest",
-	_HttpRequestImpl_FieldInfo_,
-	_HttpRequestImpl_MethodInfo_
-};
-
-$Object* allocate$HttpRequestImpl($Class* clazz) {
-	return $of($alloc(HttpRequestImpl));
-}
 
 bool HttpRequestImpl::equals(Object$* obj) {
 	 return this->$HttpRequest::equals(obj);
@@ -392,20 +292,20 @@ $String* HttpRequestImpl::USER_AGENT = nullptr;
 
 $String* HttpRequestImpl::userAgent() {
 	$init(HttpRequestImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(HttpRequestImpl$$Lambda$lambda$userAgent$0)));
+	$var($PrivilegedAction, pa, $new(HttpRequestImpl$$Lambda$lambda$userAgent$0));
 	$var($String, version, $cast($String, $AccessController::doPrivileged(pa)));
 	return $str({"Java-http-client/"_s, version});
 }
 
 void HttpRequestImpl::init$($HttpRequestBuilderImpl* builder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpRequest::init$();
 	$var($String, method, $nc(builder)->method());
 	$set(this, method$, method == nullptr ? "GET"_s : method);
 	$init($Utils);
-	$set(this, userHeaders, $HttpHeaders::of($($nc($(builder->headersBuilder()))->map()), $Utils::ALLOWED_HEADERS));
+	$set(this, userHeaders, $HttpHeaders::of($($$nc(builder->headersBuilder())->map()), $Utils::ALLOWED_HEADERS));
 	$set(this, systemHeadersBuilder, $new($HttpHeadersBuilder));
 	$set(this, uri$, builder->uri());
 	if (!HttpRequestImpl::$assertionsDisabled && !(this->uri$ != nullptr)) {
@@ -414,7 +314,7 @@ void HttpRequestImpl::init$($HttpRequestBuilderImpl* builder) {
 	$set(this, proxy$, nullptr);
 	this->expectContinue$ = builder->expectContinue();
 	$init($Locale);
-	this->secure$ = $($nc($($nc(this->uri$)->getScheme()))->toLowerCase($Locale::US))->equals("https"_s);
+	this->secure$ = $($$nc($nc(this->uri$)->getScheme())->toLowerCase($Locale::US))->equals("https"_s);
 	$set(this, requestPublisher, builder->bodyPublisher());
 	$set(this, timeout$, builder->timeout());
 	$set(this, version$, builder->version());
@@ -422,20 +322,21 @@ void HttpRequestImpl::init$($HttpRequestBuilderImpl* builder) {
 }
 
 void HttpRequestImpl::init$($HttpRequest* request, $ProxySelector* ps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpRequest::init$();
 	$var($String, method, $nc(request)->method());
 	if (method != nullptr && !$Utils::isValidName(method)) {
-		$throwNew($IllegalArgumentException, $$str({"illegal method \""_s, $($($(method->replace(static_cast<$CharSequence*>("\n"_s), static_cast<$CharSequence*>("\\n"_s)))->replace(static_cast<$CharSequence*>("\r"_s), static_cast<$CharSequence*>("\\r"_s)))->replace(static_cast<$CharSequence*>("\t"_s), static_cast<$CharSequence*>("\\t"_s))), "\""_s}));
+		$throwNew($IllegalArgumentException, $$str({"illegal method \""_s, $($($(method->replace("\n"_s, "\\n"_s))->replace("\r"_s, "\\r"_s))->replace("\t"_s, "\\t"_s)), "\""_s}));
 	}
-	$var($URI, requestURI, $cast($URI, $Objects::requireNonNull($($of(request->uri())), "uri must be non null"_s)));
-	$var($Duration, timeout, $cast($Duration, $nc($(request->timeout()))->orElse(nullptr)));
+	$var($URI, requestURI, $cast($URI, $Objects::requireNonNull($(request->uri()), "uri must be non null"_s)));
+	$var($Duration, timeout, $cast($Duration, $$nc(request->timeout())->orElse(nullptr)));
 	$set(this, method$, method == nullptr ? "GET"_s : method);
-	$set(this, userHeaders, $HttpHeaders::of($($nc($(request->headers()))->map()), $Utils::VALIDATE_USER_HEADER));
+	$init($Utils);
+	$set(this, userHeaders, $HttpHeaders::of($($$nc(request->headers())->map()), $Utils::VALIDATE_USER_HEADER));
 	if ($instanceOf(HttpRequestImpl, request)) {
-		this->isWebSocket$ = $nc(($cast(HttpRequestImpl, request)))->isWebSocket$;
+		this->isWebSocket$ = $cast(HttpRequestImpl, request)->isWebSocket$;
 		if (this->isWebSocket$) {
-			$set(this, systemHeadersBuilder, ($cast(HttpRequestImpl, request))->systemHeadersBuilder);
+			$set(this, systemHeadersBuilder, $cast(HttpRequestImpl, request)->systemHeadersBuilder);
 		} else {
 			$set(this, systemHeadersBuilder, $new($HttpHeadersBuilder));
 		}
@@ -444,12 +345,12 @@ void HttpRequestImpl::init$($HttpRequest* request, $ProxySelector* ps) {
 		checkTimeout(timeout);
 		$set(this, systemHeadersBuilder, $new($HttpHeadersBuilder));
 	}
-	if (!$nc($($nc(this->userHeaders)->firstValue("User-Agent"_s)))->isPresent()) {
+	if (!$$nc($nc(this->userHeaders)->firstValue("User-Agent"_s))->isPresent()) {
 		$nc(this->systemHeadersBuilder)->setHeader("User-Agent"_s, HttpRequestImpl::USER_AGENT);
 	}
 	$set(this, uri$, requestURI);
 	if (this->isWebSocket$) {
-		$set(this, proxy$, $nc(($cast(HttpRequestImpl, request)))->proxy$);
+		$set(this, proxy$, $cast(HttpRequestImpl, request)->proxy$);
 	} else if (ps != nullptr) {
 		$set(this, proxy$, retrieveProxy(ps, this->uri$));
 	} else {
@@ -457,8 +358,8 @@ void HttpRequestImpl::init$($HttpRequest* request, $ProxySelector* ps) {
 	}
 	this->expectContinue$ = request->expectContinue();
 	$init($Locale);
-	this->secure$ = $($nc($($nc(this->uri$)->getScheme()))->toLowerCase($Locale::US))->equals("https"_s);
-	$set(this, requestPublisher, $cast($HttpRequest$BodyPublisher, $nc($(request->bodyPublisher()))->orElse(nullptr)));
+	this->secure$ = $($$nc($nc(this->uri$)->getScheme())->toLowerCase($Locale::US))->equals("https"_s);
+	$set(this, requestPublisher, $cast($HttpRequest$BodyPublisher, $$nc(request->bodyPublisher())->orElse(nullptr)));
 	$set(this, timeout$, timeout);
 	$set(this, version$, request->version());
 	$set(this, authority$, nullptr);
@@ -481,7 +382,7 @@ HttpRequestImpl* HttpRequestImpl::newInstanceForRedirection($URI* uri, $String* 
 
 HttpRequestImpl* HttpRequestImpl::newInstanceForAuthentication(HttpRequestImpl* other) {
 	$init(HttpRequestImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URI, var$0, $nc(other)->uri());
 	$var(HttpRequestImpl, request, $new(HttpRequestImpl, var$0, $(other->method()), other, true));
 	if (request->isWebSocket()) {
@@ -491,7 +392,7 @@ HttpRequestImpl* HttpRequestImpl::newInstanceForAuthentication(HttpRequestImpl* 
 }
 
 void HttpRequestImpl::init$($URI* uri, $String* method, HttpRequestImpl* other, bool mayHaveBody) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpRequest::init$();
 	if (!HttpRequestImpl::$assertionsDisabled && !(method == nullptr || $Utils::isValidName(method))) {
 		$throwNew($AssertionError);
@@ -500,14 +401,14 @@ void HttpRequestImpl::init$($URI* uri, $String* method, HttpRequestImpl* other, 
 	$set(this, userHeaders, $nc(other)->userHeaders);
 	this->isWebSocket$ = other->isWebSocket$;
 	$set(this, systemHeadersBuilder, $new($HttpHeadersBuilder));
-	if (!$nc($($nc(this->userHeaders)->firstValue("User-Agent"_s)))->isPresent()) {
-		$nc(this->systemHeadersBuilder)->setHeader("User-Agent"_s, HttpRequestImpl::USER_AGENT);
+	if (!$$nc($nc(this->userHeaders)->firstValue("User-Agent"_s))->isPresent()) {
+		this->systemHeadersBuilder->setHeader("User-Agent"_s, HttpRequestImpl::USER_AGENT);
 	}
 	$set(this, uri$, uri);
 	$set(this, proxy$, other->proxy$);
 	this->expectContinue$ = other->expectContinue$;
 	$init($Locale);
-	this->secure$ = $($nc($($nc(uri)->getScheme()))->toLowerCase($Locale::US))->equals("https"_s);
+	this->secure$ = $($$nc($nc(uri)->getScheme())->toLowerCase($Locale::US))->equals("https"_s);
 	$set(this, requestPublisher, mayHaveBody ? publisher(other) : ($HttpRequest$BodyPublisher*)nullptr);
 	$set(this, acc, other->acc);
 	$set(this, timeout$, other->timeout$);
@@ -524,18 +425,22 @@ $HttpRequest$BodyPublisher* HttpRequestImpl::publisher(HttpRequestImpl* other) {
 }
 
 void HttpRequestImpl::init$($String* method, $InetSocketAddress* authority, $Utils$ProxyHeaders* headers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpRequest::init$();
 	if (!HttpRequestImpl::$assertionsDisabled && !"CONNECT"_s->equalsIgnoreCase(method)) {
 		$throwNew($AssertionError);
 	}
 	$set(this, method$, method);
 	$set(this, systemHeadersBuilder, $new($HttpHeadersBuilder));
-	$nc($($nc(this->systemHeadersBuilder)->map()))->putAll($($nc($($nc(headers)->systemHeaders()))->map()));
-	$set(this, userHeaders, $nc(headers)->userHeaders());
-	$var($String, var$1, $$str({"socket://"_s, $($nc(authority)->getHostString()), ":"_s}));
-	$var($String, var$0, $$concat(var$1, $($Integer::toString(authority->getPort()))));
-	$set(this, uri$, $URI::create($$concat(var$0, "/"_s)));
+	$$nc(this->systemHeadersBuilder->map())->putAll($($$nc($nc(headers)->systemHeaders())->map()));
+	$set(this, userHeaders, headers->userHeaders());
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("socket://"_s);
+	var$0->append($($nc(authority)->getHostString()));
+	var$0->append(":"_s);
+	var$0->append($($Integer::toString(authority->getPort())));
+	var$0->append("/"_s);
+	$set(this, uri$, $URI::create($$str(var$0)));
 	$set(this, proxy$, nullptr);
 	$set(this, requestPublisher, nullptr);
 	$set(this, authority$, authority);
@@ -556,12 +461,12 @@ HttpRequestImpl* HttpRequestImpl::createPushRequest(HttpRequestImpl* parent, $Ht
 }
 
 void HttpRequestImpl::init$(HttpRequestImpl* parent, $HttpHeaders* headers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpRequest::init$();
-	$set(this, method$, $cast($String, $nc($($nc(headers)->firstValue(":method"_s)))->orElseThrow(static_cast<$Supplier*>($$new(HttpRequestImpl$$Lambda$lambda$new$1$1)))));
-	$var($String, path, $cast($String, $nc($(headers->firstValue(":path"_s)))->orElseThrow(static_cast<$Supplier*>($$new(HttpRequestImpl$$Lambda$lambda$new$2$2)))));
-	$var($String, scheme, $cast($String, $nc($(headers->firstValue(":scheme"_s)))->orElseThrow(static_cast<$Supplier*>($$new(HttpRequestImpl$$Lambda$lambda$new$3$3)))));
-	$var($String, authority, $cast($String, $nc($(headers->firstValue(":authority"_s)))->orElseThrow(static_cast<$Supplier*>($$new(HttpRequestImpl$$Lambda$lambda$new$4$4)))));
+	$set(this, method$, $cast($String, $$nc($nc(headers)->firstValue(":method"_s))->orElseThrow($$new(HttpRequestImpl$$Lambda$lambda$new$1$1))));
+	$var($String, path, $cast($String, $$nc(headers->firstValue(":path"_s))->orElseThrow($$new(HttpRequestImpl$$Lambda$lambda$new$2$2))));
+	$var($String, scheme, $cast($String, $$nc(headers->firstValue(":scheme"_s))->orElseThrow($$new(HttpRequestImpl$$Lambda$lambda$new$3$3))));
+	$var($String, authority, $cast($String, $$nc(headers->firstValue(":authority"_s))->orElseThrow($$new(HttpRequestImpl$$Lambda$lambda$new$4$4))));
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(scheme)->append("://"_s)->append(authority)->append(path);
 	$set(this, uri$, $URI::create($(sb->toString())));
@@ -579,7 +484,7 @@ void HttpRequestImpl::init$(HttpRequestImpl* parent, $HttpHeaders* headers) {
 }
 
 $String* HttpRequestImpl::toString() {
-	return $str({(this->uri$ == nullptr ? ""_s : $($nc(this->uri$)->toString())), " "_s, this->method$});
+	return $str({(this->uri$ == nullptr ? ""_s : $(this->uri$->toString())), " "_s, this->method$});
 }
 
 $HttpHeaders* HttpRequestImpl::headers() {
@@ -592,8 +497,8 @@ $InetSocketAddress* HttpRequestImpl::authority() {
 
 void HttpRequestImpl::setH2Upgrade($Http2ClientImpl* h2client) {
 	$nc(this->systemHeadersBuilder)->setHeader("Connection"_s, "Upgrade, HTTP2-Settings"_s);
-	$nc(this->systemHeadersBuilder)->setHeader("Upgrade"_s, "h2c"_s);
-	$nc(this->systemHeadersBuilder)->setHeader("HTTP2-Settings"_s, $($nc(h2client)->getSettingsString()));
+	this->systemHeadersBuilder->setHeader("Upgrade"_s, "h2c"_s);
+	this->systemHeadersBuilder->setHeader("HTTP2-Settings"_s, $($nc(h2client)->getSettingsString()));
 }
 
 bool HttpRequestImpl::expectContinue() {
@@ -602,7 +507,7 @@ bool HttpRequestImpl::expectContinue() {
 
 $Proxy* HttpRequestImpl::retrieveProxy($ProxySelector* ps, $URI* uri) {
 	$init(HttpRequestImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Proxy, proxy, nullptr);
 	$var($List, pl, $nc(ps)->select(uri));
 	if (!$nc(pl)->isEmpty()) {
@@ -680,7 +585,7 @@ void HttpRequestImpl::setSystemHeader($String* name, $String* value) {
 }
 
 $InetSocketAddress* HttpRequestImpl::getAddress() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($URI, uri, this->uri());
 	if (uri == nullptr) {
@@ -688,7 +593,7 @@ $InetSocketAddress* HttpRequestImpl::getAddress() {
 	}
 	int32_t p = $nc(uri)->getPort();
 	if (p == -1) {
-		if ($nc($(uri->getScheme()))->equalsIgnoreCase("https"_s)) {
+		if ($$nc(uri->getScheme())->equalsIgnoreCase("https"_s)) {
 			p = 443;
 		} else {
 			p = 80;
@@ -697,7 +602,7 @@ $InetSocketAddress* HttpRequestImpl::getAddress() {
 	$var($String, host, uri->getHost());
 	int32_t port = p;
 	if (proxy() == nullptr) {
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, host, port)));
+		$var($PrivilegedAction, pa, $new(HttpRequestImpl$$Lambda$lambda$getAddress$5$5, host, port));
 		return $cast($InetSocketAddress, $AccessController::doPrivileged(pa));
 	} else {
 		return $InetSocketAddress::createUnresolved(host, port);
@@ -734,7 +639,7 @@ $String* HttpRequestImpl::lambda$userAgent$0() {
 	return $System::getProperty("java.version"_s);
 }
 
-void clinit$HttpRequestImpl($Class* class$) {
+void HttpRequestImpl::clinit$($Class* clazz) {
 	HttpRequestImpl::$assertionsDisabled = !HttpRequestImpl::class$->desiredAssertionStatus();
 	$assignStatic(HttpRequestImpl::USER_AGENT, HttpRequestImpl::userAgent());
 }
@@ -744,26 +649,100 @@ HttpRequestImpl::HttpRequestImpl() {
 
 $Class* HttpRequestImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpRequestImpl$$Lambda$lambda$userAgent$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$userAgent$0")) {
 			return HttpRequestImpl$$Lambda$lambda$userAgent$0::load$(name, initialize);
 		}
-		if (name->equals(HttpRequestImpl$$Lambda$lambda$new$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$1$1")) {
 			return HttpRequestImpl$$Lambda$lambda$new$1$1::load$(name, initialize);
 		}
-		if (name->equals(HttpRequestImpl$$Lambda$lambda$new$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$2$2")) {
 			return HttpRequestImpl$$Lambda$lambda$new$2$2::load$(name, initialize);
 		}
-		if (name->equals(HttpRequestImpl$$Lambda$lambda$new$3$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$3$3")) {
 			return HttpRequestImpl$$Lambda$lambda$new$3$3::load$(name, initialize);
 		}
-		if (name->equals(HttpRequestImpl$$Lambda$lambda$new$4$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$new$4$4")) {
 			return HttpRequestImpl$$Lambda$lambda$new$4$4::load$(name, initialize);
 		}
-		if (name->equals(HttpRequestImpl$$Lambda$lambda$getAddress$5$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpRequestImpl$$Lambda$lambda$getAddress$5$5")) {
 			return HttpRequestImpl$$Lambda$lambda$getAddress$5$5::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpRequestImpl, name, initialize, &_HttpRequestImpl_ClassInfo_, clinit$HttpRequestImpl, allocate$HttpRequestImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpRequestImpl, $assertionsDisabled)},
+		{"userHeaders", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, userHeaders)},
+		{"systemHeadersBuilder", "Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, systemHeadersBuilder)},
+		{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, uri$)},
+		{"proxy", "Ljava/net/Proxy;", nullptr, $PRIVATE | $VOLATILE, $field(HttpRequestImpl, proxy$)},
+		{"authority", "Ljava/net/InetSocketAddress;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, authority$)},
+		{"method", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, method$)},
+		{"requestPublisher", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $FINAL, $field(HttpRequestImpl, requestPublisher)},
+		{"secure", "Z", nullptr, $FINAL, $field(HttpRequestImpl, secure$)},
+		{"expectContinue", "Z", nullptr, $FINAL, $field(HttpRequestImpl, expectContinue$)},
+		{"isWebSocket", "Z", nullptr, $PRIVATE | $VOLATILE, $field(HttpRequestImpl, isWebSocket$)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $VOLATILE, $field(HttpRequestImpl, acc)},
+		{"timeout", "Ljava/time/Duration;", nullptr, $PRIVATE | $FINAL, $field(HttpRequestImpl, timeout$)},
+		{"version", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PRIVATE | $FINAL, $field(HttpRequestImpl, version$)},
+		{"USER_AGENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(HttpRequestImpl, USER_AGENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljdk/internal/net/http/HttpRequestBuilderImpl;)V", nullptr, $PUBLIC, $method(HttpRequestImpl, init$, void, $HttpRequestBuilderImpl*)},
+		{"<init>", "(Ljava/net/http/HttpRequest;Ljava/net/ProxySelector;)V", nullptr, $PUBLIC, $method(HttpRequestImpl, init$, void, $HttpRequest*, $ProxySelector*)},
+		{"<init>", "(Ljava/net/URI;Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Z)V", nullptr, $PRIVATE, $method(HttpRequestImpl, init$, void, $URI*, $String*, HttpRequestImpl*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/common/Utils$ProxyHeaders;)V", nullptr, 0, $method(HttpRequestImpl, init$, void, $String*, $InetSocketAddress*, $Utils$ProxyHeaders*)},
+		{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpHeaders;)V", nullptr, $PRIVATE, $method(HttpRequestImpl, init$, void, HttpRequestImpl*, $HttpHeaders*), "java.io.IOException"},
+		{"addSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(HttpRequestImpl, addSystemHeader, void, $String*, $String*)},
+		{"authority", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(HttpRequestImpl, authority, $InetSocketAddress*)},
+		{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HttpRequestImpl, bodyPublisher, $Optional*)},
+		{"checkTimeout", "(Ljava/time/Duration;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpRequestImpl, checkTimeout, void, $Duration*)},
+		{"createPushRequest", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpHeaders;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $STATIC, $staticMethod(HttpRequestImpl, createPushRequest, HttpRequestImpl*, HttpRequestImpl*, $HttpHeaders*), "java.io.IOException"},
+		{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, expectContinue, bool)},
+		{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(HttpRequestImpl, getAddress, $InetSocketAddress*)},
+		{"getSystemHeadersBuilder", "()Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, 0, $virtualMethod(HttpRequestImpl, getSystemHeadersBuilder, $HttpHeadersBuilder*)},
+		{"getUserHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(HttpRequestImpl, getUserHeaders, $HttpHeaders*)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, headers, $HttpHeaders*)},
+		{"isConnect", "()Z", nullptr, $FINAL, $method(HttpRequestImpl, isConnect, bool)},
+		{"isWebSocket", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, isWebSocket, void, bool)},
+		{"isWebSocket", "()Z", nullptr, 0, $virtualMethod(HttpRequestImpl, isWebSocket, bool)},
+		{"lambda$getAddress$5", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$getAddress$5, $InetSocketAddress*, $String*, int32_t)},
+		{"lambda$new$1", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$1, $IOException*)},
+		{"lambda$new$2", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$2, $IOException*)},
+		{"lambda$new$3", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$3, $IOException*)},
+		{"lambda$new$4", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$new$4, $IOException*)},
+		{"lambda$userAgent$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequestImpl, lambda$userAgent$0, $String*)},
+		{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, method, $String*)},
+		{"newInstanceForAuthentication", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequestImpl, newInstanceForAuthentication, HttpRequestImpl*, HttpRequestImpl*)},
+		{"newInstanceForRedirection", "(Ljava/net/URI;Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Z)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequestImpl, newInstanceForRedirection, HttpRequestImpl*, $URI*, $String*, HttpRequestImpl*, bool)},
+		{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(HttpRequestImpl, proxy, $InetSocketAddress*)},
+		{"publisher", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PRIVATE, $method(HttpRequestImpl, publisher, $HttpRequest$BodyPublisher*, HttpRequestImpl*)},
+		{"retrieveProxy", "(Ljava/net/ProxySelector;Ljava/net/URI;)Ljava/net/Proxy;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpRequestImpl, retrieveProxy, $Proxy*, $ProxySelector*, $URI*)},
+		{"secure", "()Z", nullptr, 0, $virtualMethod(HttpRequestImpl, secure, bool)},
+		{"setH2Upgrade", "(Ljdk/internal/net/http/Http2ClientImpl;)V", nullptr, 0, $virtualMethod(HttpRequestImpl, setH2Upgrade, void, $Http2ClientImpl*)},
+		{"setProxy", "(Ljava/net/Proxy;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, setProxy, void, $Proxy*)},
+		{"setSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, setSystemHeader, void, $String*, $String*)},
+		{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HttpRequestImpl, timeout, $Optional*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, toString, $String*)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HttpRequestImpl, uri, $URI*)},
+		{"userAgent", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpRequestImpl, userAgent, $String*)},
+		{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HttpRequestImpl, version, $Optional*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.HttpRequestImpl",
+		"java.net.http.HttpRequest",
+		"jdk.internal.net.http.websocket.WebSocketRequest",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpRequestImpl, name, initialize, &classInfo$$, HttpRequestImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpRequestImpl));
+	});
 	return class$;
 }
 

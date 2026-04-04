@@ -22,6 +22,7 @@ class $import Option$ChoiceKind : public ::java::lang::Enum {
 public:
 	Option$ChoiceKind();
 	static $Array<::com::sun::tools::javac::main::Option$ChoiceKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::main::Option$ChoiceKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::main::Option$ChoiceKind>* values();

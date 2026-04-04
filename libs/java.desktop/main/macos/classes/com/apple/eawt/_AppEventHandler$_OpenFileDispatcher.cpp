@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_OpenFileDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_NativeEvent.h>
 #include <com/apple/eawt/_AppEventHandler$_QueuingAppEventDispatcher.h>
 #include <com/apple/eawt/_AppEventHandler.h>
@@ -29,55 +28,17 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo __AppEventHandler$_OpenFileDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_OpenFileDispatcher, this$0)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_OpenFileDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_OpenFileDispatcher, init$, void, $_AppEventHandler*)},
-	{"performUsing", "(Ljava/awt/desktop/OpenFilesHandler;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_OpenFileDispatcher, performUsing, void, $OpenFilesHandler*, $_AppEventHandler$_NativeEvent*)},
-	{"performUsing", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_OpenFileDispatcher, performUsing, void, Object$*, $_AppEventHandler$_NativeEvent*)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_OpenFileDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_OpenFileDispatcher", "com.apple.eawt._AppEventHandler", "_OpenFileDispatcher", 0},
-	{"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher", "com.apple.eawt._AppEventHandler", "_QueuingAppEventDispatcher", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_OpenFileDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppEventHandler$_OpenFileDispatcher",
-	"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher",
-	nullptr,
-	__AppEventHandler$_OpenFileDispatcher_FieldInfo_,
-	__AppEventHandler$_OpenFileDispatcher_MethodInfo_,
-	"Lcom/apple/eawt/_AppEventHandler$_QueuingAppEventDispatcher<Ljava/awt/desktop/OpenFilesHandler;>;",
-	nullptr,
-	__AppEventHandler$_OpenFileDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_OpenFileDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_OpenFileDispatcher));
-}
-
 void _AppEventHandler$_OpenFileDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
 	$_AppEventHandler$_QueuingAppEventDispatcher::init$(this$0);
 }
 
 void _AppEventHandler$_OpenFileDispatcher::performUsing($OpenFilesHandler* handler, $_AppEventHandler$_NativeEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, fileNameList, $cast($List, $nc(event)->get(0)));
 	$var($ArrayList, files, $new($ArrayList, $nc(fileNameList)->size()));
 	{
-		$var($Iterator, i$, $nc(fileNameList)->iterator());
+		$var($Iterator, i$, fileNameList->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, fileName, $cast($String, i$->next()));
 			files->add($$new($File, fileName));
@@ -95,7 +56,39 @@ _AppEventHandler$_OpenFileDispatcher::_AppEventHandler$_OpenFileDispatcher() {
 }
 
 $Class* _AppEventHandler$_OpenFileDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_OpenFileDispatcher, name, initialize, &__AppEventHandler$_OpenFileDispatcher_ClassInfo_, allocate$_AppEventHandler$_OpenFileDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_OpenFileDispatcher, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_OpenFileDispatcher, init$, void, $_AppEventHandler*)},
+		{"performUsing", "(Ljava/awt/desktop/OpenFilesHandler;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_OpenFileDispatcher, performUsing, void, $OpenFilesHandler*, $_AppEventHandler$_NativeEvent*)},
+		{"performUsing", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_OpenFileDispatcher, performUsing, void, Object$*, $_AppEventHandler$_NativeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_OpenFileDispatcher", "com.apple.eawt._AppEventHandler", "_OpenFileDispatcher", 0},
+		{"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher", "com.apple.eawt._AppEventHandler", "_QueuingAppEventDispatcher", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppEventHandler$_OpenFileDispatcher",
+		"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/eawt/_AppEventHandler$_QueuingAppEventDispatcher<Ljava/awt/desktop/OpenFilesHandler;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_OpenFileDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_OpenFileDispatcher);
+	});
 	return class$;
 }
 

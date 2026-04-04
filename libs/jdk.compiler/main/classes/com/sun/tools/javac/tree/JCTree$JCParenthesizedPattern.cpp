@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCParenthesizedPattern.h>
-
-#include <com/sun/source/tree/ParenthesizedPatternTree.h>
 #include <com/sun/source/tree/PatternTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
@@ -13,7 +11,6 @@
 #undef PARENTHESIZEDPATTERN
 #undef PARENTHESIZED_PATTERN
 
-using $ParenthesizedPatternTree = ::com::sun::source::tree::ParenthesizedPatternTree;
 using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -30,52 +27,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCParenthesizedPattern_FieldInfo_[] = {
-	{"pattern", "Lcom/sun/tools/javac/tree/JCTree$JCPattern;", nullptr, $PUBLIC, $field(JCTree$JCParenthesizedPattern, pattern)},
-	{}
-};
-
-$MethodInfo _JCTree$JCParenthesizedPattern_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)V", nullptr, $PUBLIC, $method(JCTree$JCParenthesizedPattern, init$, void, $JCTree$JCPattern*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, getKind, $Tree$Kind*)},
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, getPattern, $PatternTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCParenthesizedPattern_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCParenthesizedPattern", "com.sun.tools.javac.tree.JCTree", "JCParenthesizedPattern", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCPattern", "com.sun.tools.javac.tree.JCTree", "JCPattern", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCParenthesizedPattern_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCParenthesizedPattern",
-	"com.sun.tools.javac.tree.JCTree$JCPattern",
-	"com.sun.source.tree.ParenthesizedPatternTree",
-	_JCTree$JCParenthesizedPattern_FieldInfo_,
-	_JCTree$JCParenthesizedPattern_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCParenthesizedPattern_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCParenthesizedPattern($Class* clazz) {
-	return $of($alloc(JCTree$JCParenthesizedPattern));
-}
 
 $String* JCTree$JCParenthesizedPattern::toString() {
 	 return this->$JCTree$JCPattern::toString();
@@ -116,7 +67,7 @@ $Tree$Kind* JCTree$JCParenthesizedPattern::getKind() {
 }
 
 $Object* JCTree$JCParenthesizedPattern::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitParenthesizedPattern(this, d));
+	return $nc(v)->visitParenthesizedPattern(this, d);
 }
 
 $JCTree$Tag* JCTree$JCParenthesizedPattern::getTag() {
@@ -128,7 +79,47 @@ JCTree$JCParenthesizedPattern::JCTree$JCParenthesizedPattern() {
 }
 
 $Class* JCTree$JCParenthesizedPattern::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCParenthesizedPattern, name, initialize, &_JCTree$JCParenthesizedPattern_ClassInfo_, allocate$JCTree$JCParenthesizedPattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"pattern", "Lcom/sun/tools/javac/tree/JCTree$JCPattern;", nullptr, $PUBLIC, $field(JCTree$JCParenthesizedPattern, pattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)V", nullptr, $PUBLIC, $method(JCTree$JCParenthesizedPattern, init$, void, $JCTree$JCPattern*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, getKind, $Tree$Kind*)},
+		{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, getPattern, $PatternTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCParenthesizedPattern, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCParenthesizedPattern", "com.sun.tools.javac.tree.JCTree", "JCParenthesizedPattern", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCPattern", "com.sun.tools.javac.tree.JCTree", "JCPattern", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCParenthesizedPattern",
+		"com.sun.tools.javac.tree.JCTree$JCPattern",
+		"com.sun.source.tree.ParenthesizedPatternTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCParenthesizedPattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCParenthesizedPattern));
+	});
 	return class$;
 }
 

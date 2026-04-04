@@ -67,6 +67,7 @@ public:
 	DTMNodeProxy();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::dtm::DTM* dtm, int32_t node);
 	virtual ::org::w3c::dom::Node* adoptNode(::org::w3c::dom::Node* source) override;
 	virtual ::org::w3c::dom::Node* appendChild(::org::w3c::dom::Node* newChild) override;

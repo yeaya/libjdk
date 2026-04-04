@@ -1,5 +1,4 @@
 #include <sun/awt/shell/ShellFolder.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/io/File.h>
@@ -63,8 +62,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
-using $Constructor = ::java::lang::reflect::Constructor;
-using $URI = ::java::net::URI;
 using $Files = ::java::nio::file::Files;
 using $LinkOption = ::java::nio::file::LinkOption;
 using $Paths = ::java::nio::file::Paths;
@@ -87,97 +84,6 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _ShellFolder_FieldInfo_[] = {
-	{"COLUMN_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShellFolder, COLUMN_NAME)},
-	{"COLUMN_SIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShellFolder, COLUMN_SIZE)},
-	{"COLUMN_DATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShellFolder, COLUMN_DATE)},
-	{"parent", "Lsun/awt/shell/ShellFolder;", nullptr, $PROTECTED, $field(ShellFolder, parent)},
-	{"shellFolderManager", "Lsun/awt/shell/ShellFolderManager;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, shellFolderManager)},
-	{"invoker", "Lsun/awt/shell/ShellFolder$Invoker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, invoker)},
-	{"DEFAULT_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, DEFAULT_COMPARATOR)},
-	{"FILE_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/io/File;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, FILE_COMPARATOR)},
-	{}
-};
-
-$MethodInfo _ShellFolder_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/shell/ShellFolder;Ljava/lang/String;)V", nullptr, 0, $method(ShellFolder, init$, void, ShellFolder*, $String*)},
-	{"canRead", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, canRead, bool)},
-	{"canWrite", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, canWrite, bool)},
-	{"compareTo", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(ShellFolder, compareTo, int32_t, $File*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ShellFolder, compareTo, int32_t, Object$*)},
-	{"createNewFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, createNewFile, bool), "java.io.IOException"},
-	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, delete$, bool)},
-	{"deleteOnExit", "()V", nullptr, $PUBLIC, $virtualMethod(ShellFolder, deleteOnExit, void)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, exists, bool)},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, get, $Object*, $String*)},
-	{"getAbsoluteFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getAbsoluteFile, $File*)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getDisplayName, $String*)},
-	{"getExecutableType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getExecutableType, $String*)},
-	{"getFolderColumnValue", "(Ljava/io/File;I)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getFolderColumnValue, $Object*, $File*, int32_t)},
-	{"getFolderColumnValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getFolderColumnValue, $Object*, int32_t)},
-	{"getFolderColumns", "(Ljava/io/File;)[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getFolderColumns, $ShellFolderColumnInfoArray*, $File*)},
-	{"getFolderColumns", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getFolderColumns, $ShellFolderColumnInfoArray*)},
-	{"getFolderType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getFolderType, $String*)},
-	{"getIcon", "(Z)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getIcon, $Image*, bool)},
-	{"getIcon", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getIcon, $Image*, int32_t, int32_t)},
-	{"getLinkLocation", "()Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getLinkLocation, ShellFolder*), "java.io.FileNotFoundException"},
-	{"getNormalizedFile", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getNormalizedFile, $File*, $File*), "java.io.IOException"},
-	{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getParent, $String*)},
-	{"getParentFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getParentFile, $File*)},
-	{"getShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getShellFolder, ShellFolder*, $File*), "java.io.FileNotFoundException"},
-	{"invoke", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(ShellFolder, invoke, $Object*, $Callable*)},
-	{"invoke", "(Ljava/util/concurrent/Callable;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;E:Ljava/lang/Throwable;>(Ljava/util/concurrent/Callable<TT;>;Ljava/lang/Class<TE;>;)TT;^Ljava/lang/InterruptedException;^TE;", $PUBLIC | $STATIC, $staticMethod(ShellFolder, invoke, $Object*, $Callable*, $Class*), "java.lang.InterruptedException,java.lang.Throwable"},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isAbsolute, bool)},
-	{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, isComputerNode, bool, $File*)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isDirectory, bool)},
-	{"isFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isFile, bool)},
-	{"isFileSystem", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isFileSystem, bool)},
-	{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, isFileSystemRoot, bool, $File*)},
-	{"isLink", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, isLink, bool)},
-	{"lastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ShellFolder, lastModified, int64_t)},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(ShellFolder, length, int64_t)},
-	{"listFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, listFiles, $FileArray*)},
-	{"listFiles", "(Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, listFiles, $FileArray*, bool)},
-	{"mkdir", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, mkdir, bool)},
-	{"mkdirs", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, mkdirs, bool)},
-	{"renameTo", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, renameTo, bool, $File*)},
-	{"setLastModified", "(J)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, setLastModified, bool, int64_t)},
-	{"setReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, setReadOnly, bool)},
-	{"sort", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/io/File;>;)V", $PUBLIC | $STATIC, $staticMethod(ShellFolder, sort, void, $List*)},
-	{"sortChildren", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(ShellFolder, sortChildren, void, $List*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, toString, $String*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ShellFolder, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$InnerClassInfo _ShellFolder_InnerClassesInfo_[] = {
-	{"sun.awt.shell.ShellFolder$Invoker", "sun.awt.shell.ShellFolder", "Invoker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.shell.ShellFolder$4", nullptr, nullptr, 0},
-	{"sun.awt.shell.ShellFolder$3", nullptr, nullptr, 0},
-	{"sun.awt.shell.ShellFolder$2", nullptr, nullptr, 0},
-	{"sun.awt.shell.ShellFolder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ShellFolder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.shell.ShellFolder",
-	"java.io.File",
-	nullptr,
-	_ShellFolder_FieldInfo_,
-	_ShellFolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ShellFolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.ShellFolder$Invoker,sun.awt.shell.ShellFolder$4,sun.awt.shell.ShellFolder$3,sun.awt.shell.ShellFolder$2,sun.awt.shell.ShellFolder$1"
-};
-
-$Object* allocate$ShellFolder($Class* clazz) {
-	return $of($alloc(ShellFolder));
-}
-
 $String* ShellFolder::COLUMN_NAME = nullptr;
 $String* ShellFolder::COLUMN_SIZE = nullptr;
 $String* ShellFolder::COLUMN_DATE = nullptr;
@@ -192,7 +98,7 @@ void ShellFolder::init$(ShellFolder* parent, $String* pathname) {
 }
 
 bool ShellFolder::isFileSystem() {
-	return (!$nc($(getPath()))->startsWith("ShellFolder"_s));
+	return (!$$nc(getPath())->startsWith("ShellFolder"_s));
 }
 
 $String* ShellFolder::getParent() {
@@ -200,7 +106,7 @@ $String* ShellFolder::getParent() {
 		return $File::getParent();
 	}
 	if (this->parent != nullptr) {
-		return ($nc(this->parent)->getPath());
+		return (this->parent->getPath());
 	} else {
 		return nullptr;
 	}
@@ -221,24 +127,24 @@ $FileArray* ShellFolder::listFiles() {
 }
 
 $FileArray* ShellFolder::listFiles(bool includeHiddenFiles) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileArray, files, $File::listFiles());
 	if (!includeHiddenFiles) {
 		$var($Vector, v, $new($Vector));
-		int32_t nameCount = (files == nullptr) ? 0 : $nc(files)->length;
+		int32_t nameCount = (files == nullptr) ? 0 : files->length;
 		for (int32_t i = 0; i < nameCount; ++i) {
-			if (!$nc(files->get(i))->isHidden()) {
+			if (!$nc($nc(files)->get(i))->isHidden()) {
 				v->addElement(files->get(i));
 			}
 		}
-		$assign(files, $fcast($FileArray, v->toArray($$new($FileArray, v->size()))));
+		$assign(files, $cast($FileArray, v->toArray($$new($FileArray, v->size()))));
 	}
 	return files;
 }
 
 int32_t ShellFolder::compareTo($File* file2) {
-	$useLocalCurrentObjectStackCache();
-	if (file2 == nullptr || !($instanceOf(ShellFolder, file2)) || (($instanceOf(ShellFolder, file2)) && $nc(($cast(ShellFolder, file2)))->isFileSystem())) {
+	$useLocalObjectStack();
+	if (file2 == nullptr || !($instanceOf(ShellFolder, file2)) || (($instanceOf(ShellFolder, file2)) && $cast(ShellFolder, file2)->isFileSystem())) {
 		if (isFileSystem()) {
 			return $File::compareTo(file2);
 		} else {
@@ -247,7 +153,7 @@ int32_t ShellFolder::compareTo($File* file2) {
 	} else if (isFileSystem()) {
 		return 1;
 	} else {
-		return $nc($(getName()))->compareTo($($nc(file2)->getName()));
+		return $$nc(getName())->compareTo($(file2->getName()));
 	}
 }
 
@@ -261,7 +167,7 @@ $Image* ShellFolder::getIcon(int32_t width, int32_t height) {
 
 ShellFolder* ShellFolder::getShellFolder($File* file) {
 	$init(ShellFolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf(ShellFolder, file)) {
 		return $cast(ShellFolder, file);
 	}
@@ -274,7 +180,7 @@ ShellFolder* ShellFolder::getShellFolder($File* file) {
 
 $Object* ShellFolder::get($String* key) {
 	$init(ShellFolder);
-	return $of($nc(ShellFolder::shellFolderManager)->get(key));
+	return $nc(ShellFolder::shellFolderManager)->get(key);
 }
 
 bool ShellFolder::isComputerNode($File* dir) {
@@ -289,17 +195,17 @@ bool ShellFolder::isFileSystemRoot($File* dir) {
 
 $File* ShellFolder::getNormalizedFile($File* f) {
 	$init(ShellFolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, canonical, $nc(f)->getCanonicalFile());
 	if (f->equals(canonical)) {
 		return canonical;
 	}
-	return $new($File, $($nc($(f->toURI()))->normalize()));
+	return $new($File, $($$nc(f->toURI())->normalize()));
 }
 
 void ShellFolder::sort($List* files) {
 	$init(ShellFolder);
-	if (files == nullptr || $nc(files)->size() <= 1) {
+	if (files == nullptr || files->size() <= 1) {
 		return;
 	}
 	invoke($$new($ShellFolder$1, files));
@@ -315,7 +221,7 @@ bool ShellFolder::isAbsolute() {
 }
 
 $File* ShellFolder::getAbsoluteFile() {
-	return (isFileSystem() ? $File::getAbsoluteFile() : static_cast<$File*>(this));
+	return (isFileSystem() ? $File::getAbsoluteFile() : $cast($File, this));
 }
 
 bool ShellFolder::canRead() {
@@ -341,11 +247,11 @@ bool ShellFolder::isFile() {
 }
 
 int64_t ShellFolder::lastModified() {
-	return (isFileSystem() ? $File::lastModified() : (int64_t)0);
+	return (isFileSystem() ? $File::lastModified() : 0);
 }
 
 int64_t ShellFolder::length() {
-	return (isFileSystem() ? $File::length() : (int64_t)0);
+	return (isFileSystem() ? $File::length() : 0);
 }
 
 bool ShellFolder::createNewFile() {
@@ -389,10 +295,10 @@ $String* ShellFolder::toString() {
 
 $ShellFolderColumnInfoArray* ShellFolder::getFolderColumns($File* dir) {
 	$init(ShellFolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ShellFolderColumnInfoArray, columns, nullptr);
 	if ($instanceOf(ShellFolder, dir)) {
-		$assign(columns, $nc(($cast(ShellFolder, dir)))->getFolderColumns());
+		$assign(columns, $cast(ShellFolder, dir)->getFolderColumns());
 	}
 	if (columns == nullptr) {
 		$var($String, var$0, ShellFolder::COLUMN_NAME);
@@ -417,61 +323,52 @@ $ShellFolderColumnInfoArray* ShellFolder::getFolderColumns() {
 $Object* ShellFolder::getFolderColumnValue($File* file, int32_t column) {
 	$init(ShellFolder);
 	if ($instanceOf(ShellFolder, file)) {
-		$var($Object, value, $nc(($cast(ShellFolder, file)))->getFolderColumnValue(column));
+		$var($Object, value, $cast(ShellFolder, file)->getFolderColumnValue(column));
 		if (value != nullptr) {
-			return $of(value);
+			return value;
 		}
 	}
-	if (file == nullptr || !$nc(file)->exists()) {
-		return $of(nullptr);
+	if (file == nullptr || !file->exists()) {
+		return nullptr;
 	}
 	{
 		int64_t time = 0;
 		switch (column) {
 		case 0:
-			{
-				return $of(file);
-			}
+			return $of(file);
 		case 1:
-			{
-				return $of($nc(file)->isDirectory() ? ($Long*)nullptr : $Long::valueOf($nc(file)->length()));
-			}
+			return $of($nc(file)->isDirectory() ? ($Long*)nullptr : $Long::valueOf(file->length()));
 		case 2:
-			{
-				if (isFileSystemRoot(file)) {
-					return $of(nullptr);
-				}
-				time = $nc(file)->lastModified();
-				return $of((time == (int64_t)0) ? ($Object*)nullptr : $of($new($Date, time)));
+			if (isFileSystemRoot(file)) {
+				return nullptr;
 			}
+			time = $nc(file)->lastModified();
+			return (time == 0) ? ($Object*)nullptr : $of($new($Date, time));
 		default:
-			{
-				return $of(nullptr);
-			}
+			return nullptr;
 		}
 	}
 }
 
 $Object* ShellFolder::getFolderColumnValue(int32_t column) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* ShellFolder::invoke($Callable* task) {
 	$init(ShellFolder);
 	try {
-		$load($RuntimeException);
-		return $of(invoke(task, $RuntimeException::class$));
+		return invoke(task, $RuntimeException::class$);
 	} catch ($InterruptedException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* ShellFolder::invoke($Callable* task, $Class* exceptionClass) {
 	$init(ShellFolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $of($nc(ShellFolder::invoker)->invoke(task));
+		return $nc(ShellFolder::invoker)->invoke(task);
 	} catch ($Exception& e) {
 		if ($instanceOf($RuntimeException, e)) {
 			$throw($cast($RuntimeException, e));
@@ -481,7 +378,7 @@ $Object* ShellFolder::invoke($Callable* task, $Class* exceptionClass) {
 			$throw($cast($InterruptedException, e));
 		}
 		if ($nc(exceptionClass)->isInstance(e)) {
-			$throw($cast($Throwable, $(exceptionClass->cast(e))));
+			$throw($$cast($Throwable, exceptionClass->cast(e)));
 		}
 		$throwNew($RuntimeException, "Unexpected error"_s, e);
 	}
@@ -492,14 +389,14 @@ int32_t ShellFolder::compareTo(Object$* file2) {
 	return this->compareTo($cast($File, file2));
 }
 
-void clinit$ShellFolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ShellFolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ShellFolder::COLUMN_NAME, "FileChooser.fileNameHeaderText"_s);
 	$assignStatic(ShellFolder::COLUMN_SIZE, "FileChooser.fileSizeHeaderText"_s);
 	$assignStatic(ShellFolder::COLUMN_DATE, "FileChooser.fileDateHeaderText"_s);
 	$beforeCallerSensitive();
 	{
-		$var($String, managerClassName, $cast($String, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("Shell.shellFolderManager"_s)));
+		$var($String, managerClassName, $cast($String, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("Shell.shellFolderManager"_s)));
 		$Class* managerClass = nullptr;
 		try {
 			managerClass = $Class::forName(managerClassName, false, nullptr);
@@ -516,7 +413,7 @@ void clinit$ShellFolder($Class* class$) {
 			managerClass = $ShellFolderManager::class$;
 		}
 		try {
-			$assignStatic(ShellFolder::shellFolderManager, $cast($ShellFolderManager, $nc($($nc(managerClass)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+			$assignStatic(ShellFolder::shellFolderManager, $cast($ShellFolderManager, $$nc($nc(managerClass)->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 		} catch ($ReflectiveOperationException& e) {
 			$throwNew($Error, $$str({"Could not instantiate Shell Folder Manager: "_s, $($nc(managerClass)->getName())}));
 		}
@@ -530,7 +427,92 @@ ShellFolder::ShellFolder() {
 }
 
 $Class* ShellFolder::load$($String* name, bool initialize) {
-	$loadClass(ShellFolder, name, initialize, &_ShellFolder_ClassInfo_, clinit$ShellFolder, allocate$ShellFolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"COLUMN_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShellFolder, COLUMN_NAME)},
+		{"COLUMN_SIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShellFolder, COLUMN_SIZE)},
+		{"COLUMN_DATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ShellFolder, COLUMN_DATE)},
+		{"parent", "Lsun/awt/shell/ShellFolder;", nullptr, $PROTECTED, $field(ShellFolder, parent)},
+		{"shellFolderManager", "Lsun/awt/shell/ShellFolderManager;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, shellFolderManager)},
+		{"invoker", "Lsun/awt/shell/ShellFolder$Invoker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, invoker)},
+		{"DEFAULT_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, DEFAULT_COMPARATOR)},
+		{"FILE_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/io/File;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ShellFolder, FILE_COMPARATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/ShellFolder;Ljava/lang/String;)V", nullptr, 0, $method(ShellFolder, init$, void, ShellFolder*, $String*)},
+		{"canRead", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, canRead, bool)},
+		{"canWrite", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, canWrite, bool)},
+		{"compareTo", "(Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(ShellFolder, compareTo, int32_t, $File*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ShellFolder, compareTo, int32_t, Object$*)},
+		{"createNewFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, createNewFile, bool), "java.io.IOException"},
+		{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, delete$, bool)},
+		{"deleteOnExit", "()V", nullptr, $PUBLIC, $virtualMethod(ShellFolder, deleteOnExit, void)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, exists, bool)},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, get, $Object*, $String*)},
+		{"getAbsoluteFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getAbsoluteFile, $File*)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getDisplayName, $String*)},
+		{"getExecutableType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getExecutableType, $String*)},
+		{"getFolderColumnValue", "(Ljava/io/File;I)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getFolderColumnValue, $Object*, $File*, int32_t)},
+		{"getFolderColumnValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getFolderColumnValue, $Object*, int32_t)},
+		{"getFolderColumns", "(Ljava/io/File;)[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getFolderColumns, $ShellFolderColumnInfoArray*, $File*)},
+		{"getFolderColumns", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getFolderColumns, $ShellFolderColumnInfoArray*)},
+		{"getFolderType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getFolderType, $String*)},
+		{"getIcon", "(Z)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getIcon, $Image*, bool)},
+		{"getIcon", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getIcon, $Image*, int32_t, int32_t)},
+		{"getLinkLocation", "()Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, getLinkLocation, ShellFolder*), "java.io.FileNotFoundException"},
+		{"getNormalizedFile", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getNormalizedFile, $File*, $File*), "java.io.IOException"},
+		{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getParent, $String*)},
+		{"getParentFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, getParentFile, $File*)},
+		{"getShellFolder", "(Ljava/io/File;)Lsun/awt/shell/ShellFolder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, getShellFolder, ShellFolder*, $File*), "java.io.FileNotFoundException"},
+		{"invoke", "(Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(ShellFolder, invoke, $Object*, $Callable*)},
+		{"invoke", "(Ljava/util/concurrent/Callable;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;E:Ljava/lang/Throwable;>(Ljava/util/concurrent/Callable<TT;>;Ljava/lang/Class<TE;>;)TT;^Ljava/lang/InterruptedException;^TE;", $PUBLIC | $STATIC, $staticMethod(ShellFolder, invoke, $Object*, $Callable*, $Class*), "java.lang.InterruptedException,java.lang.Throwable"},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isAbsolute, bool)},
+		{"isComputerNode", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, isComputerNode, bool, $File*)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isDirectory, bool)},
+		{"isFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isFile, bool)},
+		{"isFileSystem", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, isFileSystem, bool)},
+		{"isFileSystemRoot", "(Ljava/io/File;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolder, isFileSystemRoot, bool, $File*)},
+		{"isLink", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShellFolder, isLink, bool)},
+		{"lastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ShellFolder, lastModified, int64_t)},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(ShellFolder, length, int64_t)},
+		{"listFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, listFiles, $FileArray*)},
+		{"listFiles", "(Z)[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, listFiles, $FileArray*, bool)},
+		{"mkdir", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, mkdir, bool)},
+		{"mkdirs", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, mkdirs, bool)},
+		{"renameTo", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, renameTo, bool, $File*)},
+		{"setLastModified", "(J)Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, setLastModified, bool, int64_t)},
+		{"setReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ShellFolder, setReadOnly, bool)},
+		{"sort", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/io/File;>;)V", $PUBLIC | $STATIC, $staticMethod(ShellFolder, sort, void, $List*)},
+		{"sortChildren", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljava/io/File;>;)V", $PUBLIC, $virtualMethod(ShellFolder, sortChildren, void, $List*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ShellFolder, toString, $String*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ShellFolder, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.ShellFolder$Invoker", "sun.awt.shell.ShellFolder", "Invoker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.shell.ShellFolder$4", nullptr, nullptr, 0},
+		{"sun.awt.shell.ShellFolder$3", nullptr, nullptr, 0},
+		{"sun.awt.shell.ShellFolder$2", nullptr, nullptr, 0},
+		{"sun.awt.shell.ShellFolder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.shell.ShellFolder",
+		"java.io.File",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.ShellFolder$Invoker,sun.awt.shell.ShellFolder$4,sun.awt.shell.ShellFolder$3,sun.awt.shell.ShellFolder$2,sun.awt.shell.ShellFolder$1"
+	};
+	$loadClass(ShellFolder, name, initialize, &classInfo$$, ShellFolder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ShellFolder));
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class $export TMSchema$TypeEnum : public ::java::lang::Enum {
 public:
 	TMSchema$TypeEnum();
 	static $Array<::com::sun::java::swing::plaf::windows::TMSchema$TypeEnum>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::java::swing::plaf::windows::TMSchema$Prop* prop, $String* enumName, int32_t value);
 	virtual $String* getName();
 	static ::com::sun::java::swing::plaf::windows::TMSchema$TypeEnum* getTypeEnum(::com::sun::java::swing::plaf::windows::TMSchema$Prop* prop, int32_t enumval);

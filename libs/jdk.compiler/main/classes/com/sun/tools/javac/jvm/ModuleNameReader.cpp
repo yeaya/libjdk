@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ModuleNameReader.h>
-
 #include <com/sun/tools/javac/jvm/ClassFile.h>
 #include <com/sun/tools/javac/jvm/ModuleNameReader$BadClassFile.h>
 #include <com/sun/tools/javac/jvm/PoolReader.h>
@@ -54,27 +53,24 @@ public:
 	virtual $Object* map($bytes* buf, int32_t offset, int32_t len) override {
 		 return $of(ModuleNameReader::lambda$utf8Mapper$0(buf, offset, len));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleNameReader$$Lambda$lambda$utf8Mapper$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleNameReader$$Lambda$lambda$utf8Mapper$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, init$, void)},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, map, $Object*, $bytes*, int32_t, int32_t)},
-	{}
-};
-$ClassInfo ModuleNameReader$$Lambda$lambda$utf8Mapper$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.ModuleNameReader$$Lambda$lambda$utf8Mapper$0",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.Name$NameMapper",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleNameReader$$Lambda$lambda$utf8Mapper$0::load$($String* name, bool initialize) {
-	$loadClass(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, init$, void)},
+		{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, map, $Object*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.ModuleNameReader$$Lambda$lambda$utf8Mapper$0",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.Name$NameMapper",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleNameReader$$Lambda$lambda$utf8Mapper$0);
+	});
 	return class$;
 }
 $Class* ModuleNameReader$$Lambda$lambda$utf8Mapper$0::class$ = nullptr;
@@ -87,169 +83,117 @@ public:
 	virtual $Object* map($bytes* src, int32_t sindex, int32_t len) override {
 		 return $of($Convert::utf2string(src, sindex, len));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleNameReader$$Lambda$utf2string$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleNameReader$$Lambda$utf2string$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader$$Lambda$utf2string$1, init$, void)},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader$$Lambda$utf2string$1, map, $Object*, $bytes*, int32_t, int32_t)},
-	{}
-};
-$ClassInfo ModuleNameReader$$Lambda$utf2string$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.ModuleNameReader$$Lambda$utf2string$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.Name$NameMapper",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleNameReader$$Lambda$utf2string$1::load$($String* name, bool initialize) {
-	$loadClass(ModuleNameReader$$Lambda$utf2string$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader$$Lambda$utf2string$1, init$, void)},
+		{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader$$Lambda$utf2string$1, map, $Object*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.ModuleNameReader$$Lambda$utf2string$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.Name$NameMapper",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleNameReader$$Lambda$utf2string$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleNameReader$$Lambda$utf2string$1);
+	});
 	return class$;
 }
 $Class* ModuleNameReader$$Lambda$utf2string$1::class$ = nullptr;
-
-$FieldInfo _ModuleNameReader_FieldInfo_[] = {
-	{"INITIAL_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModuleNameReader, INITIAL_BUFFER_SIZE)},
-	{"buf", "Lcom/sun/tools/javac/util/ByteBuffer;", nullptr, $PRIVATE, $field(ModuleNameReader, buf)},
-	{"bp", "I", nullptr, $PRIVATE, $field(ModuleNameReader, bp)},
-	{"reader", "Lcom/sun/tools/javac/jvm/PoolReader;", nullptr, $PRIVATE, $field(ModuleNameReader, reader)},
-	{}
-};
-
-$MethodInfo _ModuleNameReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader, init$, void)},
-	{"checkZero", "(ILjava/lang/String;)V", nullptr, 0, $virtualMethod(ModuleNameReader, checkZero, void, int32_t, $String*), "com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"lambda$utf8Mapper$0", "([BII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleNameReader, lambda$utf8Mapper$0, $String*, $bytes*, int32_t, int32_t)},
-	{"nextChar", "()C", nullptr, 0, $virtualMethod(ModuleNameReader, nextChar, char16_t)},
-	{"nextInt", "()I", nullptr, 0, $virtualMethod(ModuleNameReader, nextInt, int32_t)},
-	{"readModuleName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $Path*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $JavaFileObject*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"readModuleName", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $InputStream*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"utf8Mapper", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper;", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper<Ljava/lang/String;>;", 0, $virtualMethod(ModuleNameReader, utf8Mapper, $Name$NameMapper*, bool)},
-	{}
-};
-
-$InnerClassInfo _ModuleNameReader_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile", "com.sun.tools.javac.jvm.ModuleNameReader", "BadClassFile", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ModuleNameReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ModuleNameReader",
-	"java.lang.Object",
-	nullptr,
-	_ModuleNameReader_FieldInfo_,
-	_ModuleNameReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleNameReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"
-};
-
-$Object* allocate$ModuleNameReader($Class* clazz) {
-	return $of($alloc(ModuleNameReader));
-}
 
 void ModuleNameReader::init$() {
 	$set(this, buf, $new($ByteBuffer, ModuleNameReader::INITIAL_BUFFER_SIZE));
 }
 
 $String* ModuleNameReader::readModuleName($Path* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($InputStream, in, $Files::newInputStream(p, $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($String, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($String, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$assign(var$2, readModuleName(in));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (in != nullptr) {
-						try {
-							in->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$assign(var$2, readModuleName(in));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (in != nullptr) {
-					in->close();
+					try {
+						in->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (in != nullptr) {
+				in->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $String* ModuleNameReader::readModuleName($JavaFileObject* jfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($InputStream, in, $nc(jfo)->openInputStream());
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($String, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($String, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$assign(var$2, readModuleName(in));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (in != nullptr) {
-						try {
-							in->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$assign(var$2, readModuleName(in));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (in != nullptr) {
-					in->close();
+					try {
+						in->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (in != nullptr) {
+				in->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $String* ModuleNameReader::readModuleName($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->bp = 0;
 	$nc(this->buf)->reset();
 	$nc(this->buf)->appendStream(in);
 	int32_t magic = nextInt();
-	if (magic != (int32_t)0xCAFEBABE) {
+	if (magic != (int32_t)0xcafebabe) {
 		$throwNew($ModuleNameReader$BadClassFile, "illegal.start.of.class.file"_s);
 	}
 	int32_t minorVersion = nextChar();
@@ -258,9 +202,9 @@ $String* ModuleNameReader::readModuleName($InputStream* in) {
 		$throwNew($ModuleNameReader$BadClassFile, $$str({"bad major version number for module: "_s, $$str(majorVersion)}));
 	}
 	$set(this, reader, $new($PoolReader, this->buf));
-	this->bp = $nc(this->reader)->readPool(this->buf, this->bp);
+	this->bp = this->reader->readPool(this->buf, this->bp);
 	int32_t access_flags = nextChar();
-	if (access_flags != 32768) {
+	if (access_flags != 0x00008000) {
 		$throwNew($ModuleNameReader$BadClassFile, $$str({"invalid access flags for module: 0x"_s, $($Integer::toHexString(access_flags))}));
 	}
 	int32_t this_class = nextChar();
@@ -272,8 +216,8 @@ $String* ModuleNameReader::readModuleName($InputStream* in) {
 	for (int32_t i = 0; i < attributes_count; ++i) {
 		int32_t attr_name = nextChar();
 		int32_t attr_length = nextInt();
-		if ($nc(($cast($String, $($nc(this->reader)->peekName(attr_name, $(utf8Mapper(false)))))))->equals("Module"_s) && attr_length > 2) {
-			int32_t var$0 = (int32_t)nextChar();
+		if ($$sure($String, $nc(this->reader)->peekName(attr_name, $(utf8Mapper(false))))->equals("Module"_s) && attr_length > 2) {
+			int32_t var$0 = nextChar();
 			return $cast($String, $nc(this->reader)->peekModuleName(var$0, $(utf8Mapper(true))));
 		} else {
 			this->bp += attr_length;
@@ -283,7 +227,7 @@ $String* ModuleNameReader::readModuleName($InputStream* in) {
 }
 
 void ModuleNameReader::checkZero(int32_t count, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (count != 0) {
 		$throwNew($ModuleNameReader$BadClassFile, $$str({"invalid "_s, name, " for module: "_s, $$str(count)}));
 	}
@@ -302,7 +246,7 @@ int32_t ModuleNameReader::nextInt() {
 }
 
 $Name$NameMapper* ModuleNameReader::utf8Mapper(bool internalize) {
-	return internalize ? static_cast<$Name$NameMapper*>($new(ModuleNameReader$$Lambda$lambda$utf8Mapper$0)) : static_cast<$Name$NameMapper*>($new(ModuleNameReader$$Lambda$utf2string$1));
+	return internalize ? $cast($Name$NameMapper, $new(ModuleNameReader$$Lambda$lambda$utf8Mapper$0)) : $cast($Name$NameMapper, $new(ModuleNameReader$$Lambda$utf2string$1));
 }
 
 $String* ModuleNameReader::lambda$utf8Mapper$0($bytes* buf, int32_t offset, int32_t len) {
@@ -314,14 +258,53 @@ ModuleNameReader::ModuleNameReader() {
 
 $Class* ModuleNameReader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModuleNameReader$$Lambda$lambda$utf8Mapper$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.ModuleNameReader$$Lambda$lambda$utf8Mapper$0")) {
 			return ModuleNameReader$$Lambda$lambda$utf8Mapper$0::load$(name, initialize);
 		}
-		if (name->equals(ModuleNameReader$$Lambda$utf2string$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.ModuleNameReader$$Lambda$utf2string$1")) {
 			return ModuleNameReader$$Lambda$utf2string$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ModuleNameReader, name, initialize, &_ModuleNameReader_ClassInfo_, allocate$ModuleNameReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIAL_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ModuleNameReader, INITIAL_BUFFER_SIZE)},
+		{"buf", "Lcom/sun/tools/javac/util/ByteBuffer;", nullptr, $PRIVATE, $field(ModuleNameReader, buf)},
+		{"bp", "I", nullptr, $PRIVATE, $field(ModuleNameReader, bp)},
+		{"reader", "Lcom/sun/tools/javac/jvm/PoolReader;", nullptr, $PRIVATE, $field(ModuleNameReader, reader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader, init$, void)},
+		{"checkZero", "(ILjava/lang/String;)V", nullptr, 0, $virtualMethod(ModuleNameReader, checkZero, void, int32_t, $String*), "com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+		{"lambda$utf8Mapper$0", "([BII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleNameReader, lambda$utf8Mapper$0, $String*, $bytes*, int32_t, int32_t)},
+		{"nextChar", "()C", nullptr, 0, $virtualMethod(ModuleNameReader, nextChar, char16_t)},
+		{"nextInt", "()I", nullptr, 0, $virtualMethod(ModuleNameReader, nextInt, int32_t)},
+		{"readModuleName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $Path*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+		{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $JavaFileObject*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+		{"readModuleName", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $InputStream*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+		{"utf8Mapper", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper;", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper<Ljava/lang/String;>;", 0, $virtualMethod(ModuleNameReader, utf8Mapper, $Name$NameMapper*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile", "com.sun.tools.javac.jvm.ModuleNameReader", "BadClassFile", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ModuleNameReader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"
+	};
+	$loadClass(ModuleNameReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleNameReader);
+	});
 	return class$;
 }
 

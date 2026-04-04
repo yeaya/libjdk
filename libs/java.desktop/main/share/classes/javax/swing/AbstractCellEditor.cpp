@@ -1,5 +1,4 @@
 #include <javax/swing/AbstractCellEditor.h>
-
 #include <java/util/EventListener.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/CellEditor.h>
@@ -12,7 +11,6 @@ using $CellEditorListenerArray = $Array<::javax::swing::event::CellEditorListene
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $EventObject = ::java::util::EventObject;
 using $CellEditor = ::javax::swing::CellEditor;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;
@@ -21,44 +19,6 @@ using $EventListenerList = ::javax::swing::event::EventListenerList;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _AbstractCellEditor_FieldInfo_[] = {
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractCellEditor, listenerList)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(AbstractCellEditor, changeEvent)},
-	{}
-};
-
-$MethodInfo _AbstractCellEditor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractCellEditor, init$, void)},
-	{"addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, addCellEditorListener, void, $CellEditorListener*)},
-	{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, cancelCellEditing, void)},
-	{"fireEditingCanceled", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractCellEditor, fireEditingCanceled, void)},
-	{"fireEditingStopped", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractCellEditor, fireEditingStopped, void)},
-	{"getCellEditorListeners", "()[Ljavax/swing/event/CellEditorListener;", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, getCellEditorListeners, $CellEditorListenerArray*)},
-	{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, isCellEditable, bool, $EventObject*)},
-	{"removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, removeCellEditorListener, void, $CellEditorListener*)},
-	{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, shouldSelectCell, bool, $EventObject*)},
-	{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, stopCellEditing, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractCellEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.AbstractCellEditor",
-	"java.lang.Object",
-	"javax.swing.CellEditor,java.io.Serializable",
-	_AbstractCellEditor_FieldInfo_,
-	_AbstractCellEditor_MethodInfo_
-};
-
-$Object* allocate$AbstractCellEditor($Class* clazz) {
-	return $of($alloc(AbstractCellEditor));
-}
 
 int32_t AbstractCellEditor::hashCode() {
 	 return this->$CellEditor::hashCode();
@@ -114,7 +74,7 @@ void AbstractCellEditor::removeCellEditorListener($CellEditorListener* l) {
 
 $CellEditorListenerArray* AbstractCellEditor::getCellEditorListeners() {
 	$load($CellEditorListener);
-	return $fcast($CellEditorListenerArray, $nc(this->listenerList)->getListeners($CellEditorListener::class$));
+	return $cast($CellEditorListenerArray, $nc(this->listenerList)->getListeners($CellEditorListener::class$));
 }
 
 void AbstractCellEditor::fireEditingStopped() {
@@ -125,7 +85,7 @@ void AbstractCellEditor::fireEditingStopped() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($CellEditorListener, listeners->get(i + 1))))->editingStopped(this->changeEvent);
+			$nc($cast($CellEditorListener, listeners->get(i + 1)))->editingStopped(this->changeEvent);
 		}
 	}
 }
@@ -138,7 +98,7 @@ void AbstractCellEditor::fireEditingCanceled() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($CellEditorListener, listeners->get(i + 1))))->editingCanceled(this->changeEvent);
+			$nc($cast($CellEditorListener, listeners->get(i + 1)))->editingCanceled(this->changeEvent);
 		}
 	}
 }
@@ -147,7 +107,40 @@ AbstractCellEditor::AbstractCellEditor() {
 }
 
 $Class* AbstractCellEditor::load$($String* name, bool initialize) {
-	$loadClass(AbstractCellEditor, name, initialize, &_AbstractCellEditor_ClassInfo_, allocate$AbstractCellEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(AbstractCellEditor, listenerList)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(AbstractCellEditor, changeEvent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractCellEditor, init$, void)},
+		{"addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, addCellEditorListener, void, $CellEditorListener*)},
+		{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, cancelCellEditing, void)},
+		{"fireEditingCanceled", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractCellEditor, fireEditingCanceled, void)},
+		{"fireEditingStopped", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractCellEditor, fireEditingStopped, void)},
+		{"getCellEditorListeners", "()[Ljavax/swing/event/CellEditorListener;", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, getCellEditorListeners, $CellEditorListenerArray*)},
+		{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, isCellEditable, bool, $EventObject*)},
+		{"removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, removeCellEditorListener, void, $CellEditorListener*)},
+		{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, shouldSelectCell, bool, $EventObject*)},
+		{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCellEditor, stopCellEditing, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.AbstractCellEditor",
+		"java.lang.Object",
+		"javax.swing.CellEditor,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractCellEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractCellEditor));
+	});
 	return class$;
 }
 

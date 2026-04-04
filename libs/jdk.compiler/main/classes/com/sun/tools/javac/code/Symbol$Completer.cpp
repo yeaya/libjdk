@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$Completer.h>
-
 #include <com/sun/tools/javac/code/Symbol$Completer$1.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <jcpp.h>
@@ -19,55 +18,49 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Symbol$Completer_FieldInfo_[] = {
-	{"NULL_COMPLETER", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Symbol$Completer, NULL_COMPLETER)},
-	{}
-};
-
-$MethodInfo _Symbol$Completer_MethodInfo_[] = {
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Completer, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer, isTerminal, bool)},
-	{}
-};
-
-$InnerClassInfo _Symbol$Completer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$Completer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Symbol$Completer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.code.Symbol$Completer",
-	nullptr,
-	nullptr,
-	_Symbol$Completer_FieldInfo_,
-	_Symbol$Completer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$Completer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$Completer($Class* clazz) {
-	return $of($alloc(Symbol$Completer));
-}
-
 Symbol$Completer* Symbol$Completer::NULL_COMPLETER = nullptr;
 
 bool Symbol$Completer::isTerminal() {
 	return false;
 }
 
-void clinit$Symbol$Completer($Class* class$) {
+void Symbol$Completer::clinit$($Class* clazz) {
 	$assignStatic(Symbol$Completer::NULL_COMPLETER, $new($Symbol$Completer$1));
 }
 
 $Class* Symbol$Completer::load$($String* name, bool initialize) {
-	$loadClass(Symbol$Completer, name, initialize, &_Symbol$Completer_ClassInfo_, clinit$Symbol$Completer, allocate$Symbol$Completer);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULL_COMPLETER", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Symbol$Completer, NULL_COMPLETER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Completer, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer, isTerminal, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$Completer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.code.Symbol$Completer",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$Completer, name, initialize, &classInfo$$, Symbol$Completer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Symbol$Completer);
+	});
 	return class$;
 }
 

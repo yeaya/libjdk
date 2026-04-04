@@ -1,5 +1,4 @@
 #include <java/awt/geom/CubicCurve2D.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -50,89 +49,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$MethodInfo _CubicCurve2D_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(CubicCurve2D, init$, void)},
-	{"bisectRoot", "([DDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, bisectRoot, double, $doubles*, double, double)},
-	{"bisectRootWithHint", "([DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, bisectRootWithHint, double, $doubles*, double, double, double)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, clone, $Object*)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, double, double)},
-	{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, $Point2D*)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, double, double, double, double)},
-	{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, $Rectangle2D*)},
-	{"fixRoots", "([D[DI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, fixRoots, int32_t, $doubles*, $doubles*, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getBounds, $Rectangle*)},
-	{"getCtrlP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlP1, $Point2D*)},
-	{"getCtrlP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlP2, $Point2D*)},
-	{"getCtrlX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlX1, double)},
-	{"getCtrlX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlX2, double)},
-	{"getCtrlY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlY1, double)},
-	{"getCtrlY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlY2, double)},
-	{"getFlatness", "(DDDDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatness, double, double, double, double, double, double, double, double, double)},
-	{"getFlatness", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatness, double, $doubles*, int32_t)},
-	{"getFlatness", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getFlatness, double)},
-	{"getFlatnessSq", "(DDDDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatnessSq, double, double, double, double, double, double, double, double, double)},
-	{"getFlatnessSq", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatnessSq, double, $doubles*, int32_t)},
-	{"getFlatnessSq", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getFlatnessSq, double)},
-	{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getP1, $Point2D*)},
-	{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getP2, $Point2D*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getPathIterator, $PathIterator*, $AffineTransform*, double)},
-	{"getRootUpperBound", "([D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, getRootUpperBound, double, $doubles*)},
-	{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getX1, double)},
-	{"getX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getX2, double)},
-	{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getY1, double)},
-	{"getY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getY2, double)},
-	{"inInterval", "(DDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, inInterval, bool, double, double, double)},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, intersects, bool, double, double, double, double)},
-	{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, intersects, bool, $Rectangle2D*)},
-	{"iszero", "(DD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, iszero, bool, double, double)},
-	{"oppositeSigns", "(DD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, oppositeSigns, bool, double, double)},
-	{"rectCrossings", "(DDDD)I", nullptr, $PRIVATE, $method(CubicCurve2D, rectCrossings, int32_t, double, double, double, double)},
-	{"refineRootWithHint", "([DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, refineRootWithHint, double, $doubles*, double, double, double)},
-	{"setCurve", "(DDDDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, setCurve, void, double, double, double, double, double, double, double, double)},
-	{"setCurve", "([DI)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, $doubles*, int32_t)},
-	{"setCurve", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, $Point2D*, $Point2D*, $Point2D*, $Point2D*)},
-	{"setCurve", "([Ljava/awt/geom/Point2D;I)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, $Point2DArray*, int32_t)},
-	{"setCurve", "(Ljava/awt/geom/CubicCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, CubicCurve2D*)},
-	{"solveCubic", "([D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, solveCubic, int32_t, $doubles*)},
-	{"solveCubic", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, solveCubic, int32_t, $doubles*, $doubles*)},
-	{"solveEqn", "([DID)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, solveEqn, double, $doubles*, int32_t, double)},
-	{"subdivide", "(Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/CubicCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, subdivide, void, CubicCurve2D*, CubicCurve2D*)},
-	{"subdivide", "(Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/CubicCurve2D;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, subdivide, void, CubicCurve2D*, CubicCurve2D*, CubicCurve2D*)},
-	{"subdivide", "([DI[DI[DI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, subdivide, void, $doubles*, int32_t, $doubles*, int32_t, $doubles*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"within", "(DDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, within, bool, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _CubicCurve2D_InnerClassesInfo_[] = {
-	{"java.awt.geom.CubicCurve2D$Double", "java.awt.geom.CubicCurve2D", "Double", $PUBLIC | $STATIC},
-	{"java.awt.geom.CubicCurve2D$Float", "java.awt.geom.CubicCurve2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CubicCurve2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.CubicCurve2D",
-	"java.lang.Object",
-	"java.awt.Shape,java.lang.Cloneable",
-	nullptr,
-	_CubicCurve2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CubicCurve2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.geom.CubicCurve2D$Double,java.awt.geom.CubicCurve2D$Float"
-};
-
-$Object* allocate$CubicCurve2D($Class* clazz) {
-	return $of($alloc(CubicCurve2D));
-}
-
 int32_t CubicCurve2D::hashCode() {
 	 return this->$Shape::hashCode();
 }
@@ -153,7 +69,7 @@ void CubicCurve2D::init$() {
 }
 
 void CubicCurve2D::setCurve($doubles* coords, int32_t offset) {
-	setCurve($nc(coords)->get(offset + 0), coords->get(offset + 1), coords->get(offset + 2), coords->get(offset + 3), coords->get(offset + 4), coords->get(offset + 5), coords->get(offset + 6), coords->get(offset + 7));
+	setCurve($nc(coords)->get(offset + 0), $nc(coords)->get(offset + 1), $nc(coords)->get(offset + 2), $nc(coords)->get(offset + 3), $nc(coords)->get(offset + 4), $nc(coords)->get(offset + 5), $nc(coords)->get(offset + 6), $nc(coords)->get(offset + 7));
 }
 
 void CubicCurve2D::setCurve($Point2D* p1, $Point2D* cp1, $Point2D* cp2, $Point2D* p2) {
@@ -202,12 +118,12 @@ double CubicCurve2D::getFlatness(double x1, double y1, double ctrlx1, double ctr
 
 double CubicCurve2D::getFlatnessSq($doubles* coords, int32_t offset) {
 	$init(CubicCurve2D);
-	return getFlatnessSq($nc(coords)->get(offset + 0), coords->get(offset + 1), coords->get(offset + 2), coords->get(offset + 3), coords->get(offset + 4), coords->get(offset + 5), coords->get(offset + 6), coords->get(offset + 7));
+	return getFlatnessSq($nc(coords)->get(offset + 0), $nc(coords)->get(offset + 1), $nc(coords)->get(offset + 2), $nc(coords)->get(offset + 3), $nc(coords)->get(offset + 4), $nc(coords)->get(offset + 5), $nc(coords)->get(offset + 6), $nc(coords)->get(offset + 7));
 }
 
 double CubicCurve2D::getFlatness($doubles* coords, int32_t offset) {
 	$init(CubicCurve2D);
-	return getFlatness($nc(coords)->get(offset + 0), coords->get(offset + 1), coords->get(offset + 2), coords->get(offset + 3), coords->get(offset + 4), coords->get(offset + 5), coords->get(offset + 6), coords->get(offset + 7));
+	return getFlatness($nc(coords)->get(offset + 0), $nc(coords)->get(offset + 1), $nc(coords)->get(offset + 2), $nc(coords)->get(offset + 3), $nc(coords)->get(offset + 4), $nc(coords)->get(offset + 5), $nc(coords)->get(offset + 6), $nc(coords)->get(offset + 7));
 }
 
 double CubicCurve2D::getFlatnessSq() {
@@ -355,7 +271,7 @@ int32_t CubicCurve2D::solveCubic($doubles* eqn$renamed, $doubles* res) {
 		double v = -$Math::cbrt(sqrt_D + q);
 		double uv = u + v;
 		num = 1;
-		int32_t var$0 = 0x47868C00;
+		int32_t var$0 = 1200000000;
 		double var$2 = $Math::abs(uv);
 		double var$1 = $Math::ulp(var$2 + $Math::abs(sub));
 		double err = var$0 * var$1;
@@ -372,10 +288,10 @@ int32_t CubicCurve2D::solveCubic($doubles* eqn$renamed, $doubles* res) {
 	if (num > 1) {
 		num = fixRoots(eqn, res, num);
 	}
-	if (num > 2 && ($nc(res)->get(2) == res->get(1) || $nc(res)->get(2) == res->get(0))) {
+	if (num > 2 && ($nc(res)->get(2) == $nc(res)->get(1) || res->get(2) == res->get(0))) {
 		--num;
 	}
-	if (num > 1 && $nc(res)->get(1) == res->get(0)) {
+	if (num > 1 && $nc(res)->get(1) == $nc(res)->get(0)) {
 		res->set(1, res->get(--num));
 	}
 	return num;
@@ -385,8 +301,8 @@ int32_t CubicCurve2D::fixRoots($doubles* eqn, $doubles* res, int32_t num) {
 	$init(CubicCurve2D);
 	$var($doubles, intervals, $new($doubles, {
 		$nc(eqn)->get(1),
-		2 * eqn->get(2),
-		3 * eqn->get(3)
+		2 * $nc(eqn)->get(2),
+		3 * $nc(eqn)->get(3)
 	}));
 	int32_t critCount = $QuadCurve2D::solveQuadratic(intervals, intervals);
 	if (critCount == 2 && intervals->get(0) == intervals->get(1)) {
@@ -402,7 +318,7 @@ int32_t CubicCurve2D::fixRoots($doubles* eqn, $doubles* res, int32_t num) {
 		double x0 = -xe;
 		$Arrays::sort(res, 0, num);
 		if (critCount == 2) {
-			$nc(res)->set(0, refineRootWithHint(eqn, x0, intervals->get(0), res->get(0)));
+			$nc(res)->set(0, refineRootWithHint(eqn, x0, intervals->get(0), $nc(res)->get(0)));
 			res->set(1, refineRootWithHint(eqn, intervals->get(0), intervals->get(1), res->get(1)));
 			res->set(2, refineRootWithHint(eqn, intervals->get(1), xe, res->get(2)));
 			return 3;
@@ -412,14 +328,14 @@ int32_t CubicCurve2D::fixRoots($doubles* eqn, $doubles* res, int32_t num) {
 			double x1 = intervals->get(0);
 			double fx1 = solveEqn(eqn, 3, x1);
 			if (oppositeSigns(fx0, fx1)) {
-				$nc(res)->set(0, bisectRootWithHint(eqn, x0, x1, res->get(0)));
+				$nc(res)->set(0, bisectRootWithHint(eqn, x0, x1, $nc(res)->get(0)));
 			} else if (oppositeSigns(fx1, fxe)) {
-				$nc(res)->set(0, bisectRootWithHint(eqn, x1, xe, res->get(2)));
+				$nc(res)->set(0, bisectRootWithHint(eqn, x1, xe, $nc(res)->get(2)));
 			} else {
 				$nc(res)->set(0, x1);
 			}
 		} else if (critCount == 0) {
-			$nc(res)->set(0, bisectRootWithHint(eqn, x0, xe, res->get(1)));
+			$nc(res)->set(0, bisectRootWithHint(eqn, x0, xe, $nc(res)->get(1)));
 		}
 	} else if (num == 2 && critCount == 2) {
 		double goodRoot = $nc(res)->get(0);
@@ -429,7 +345,7 @@ int32_t CubicCurve2D::fixRoots($doubles* eqn, $doubles* res, int32_t num) {
 		double var$0 = $Math::abs(x1 - goodRoot);
 		double x = var$0 > $Math::abs(x2 - goodRoot) ? x1 : x2;
 		double fx = solveEqn(eqn, 3, x);
-		if (iszero(fx, 0x00989680 * $Math::ulp(x))) {
+		if (iszero(fx, 10000000 * $Math::ulp(x))) {
 			double badRootVal = solveEqn(eqn, 3, badRoot);
 			double var$1 = $Math::abs(badRootVal);
 			res->set(1, var$1 < $Math::abs(fx) ? badRoot : x);
@@ -446,8 +362,8 @@ double CubicCurve2D::refineRootWithHint($doubles* eqn, double min, double max, d
 	}
 	$var($doubles, deriv, $new($doubles, {
 		$nc(eqn)->get(1),
-		2 * eqn->get(2),
-		3 * eqn->get(3)
+		2 * $nc(eqn)->get(2),
+		3 * $nc(eqn)->get(3)
 	}));
 	double origt = t;
 	for (int32_t i = 0; i < 3; ++i) {
@@ -530,7 +446,7 @@ bool CubicCurve2D::within(double x, double y, double err) {
 
 bool CubicCurve2D::iszero(double x, double err) {
 	$init(CubicCurve2D);
-	return within(x, (double)0, err);
+	return within(x, 0, err);
 }
 
 bool CubicCurve2D::oppositeSigns(double x1, double x2) {
@@ -572,16 +488,12 @@ bool CubicCurve2D::contains(double x, double y) {
 	double x2 = getX2();
 	double y2 = getY2();
 	int32_t var$0 = $Curve::pointCrossingsForLine(x, y, x1, y1, x2, y2);
-	double var$2 = x;
-	double var$3 = y;
-	double var$4 = x1;
-	double var$5 = y1;
-	double var$6 = getCtrlX1();
-	double var$7 = getCtrlY1();
-	double var$8 = getCtrlX2();
-	int32_t var$1 = $Curve::pointCrossingsForCubic(var$2, var$3, var$4, var$5, var$6, var$7, var$8, getCtrlY2(), x2, y2, 0);
+	double var$2 = getCtrlX1();
+	double var$3 = getCtrlY1();
+	double var$4 = getCtrlX2();
+	int32_t var$1 = $Curve::pointCrossingsForCubic(x, y, x1, y1, var$2, var$3, var$4, getCtrlY2(), x2, y2, 0);
 	int32_t crossings = (var$0 + var$1);
-	return (((int32_t)(crossings & (uint32_t)1)) == 1);
+	return ((crossings & 1) == 1);
 }
 
 bool CubicCurve2D::contains($Point2D* p) {
@@ -621,32 +533,26 @@ int32_t CubicCurve2D::rectCrossings(double x, double y, double w, double h) {
 		var$0 = var$2 == getY2();
 	}
 	if (!(var$0)) {
-		int32_t var$3 = crossings;
-		double var$4 = x;
-		double var$5 = y;
-		double var$6 = x + w;
-		double var$7 = y + h;
-		double var$8 = getX1();
-		double var$9 = getY1();
-		double var$10 = getX2();
-		crossings = $Curve::rectCrossingsForLine(var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, getY2());
+		double var$3 = x + w;
+		double var$4 = y + h;
+		double var$5 = getX1();
+		double var$6 = getY1();
+		double var$7 = getX2();
+		crossings = $Curve::rectCrossingsForLine(crossings, x, y, var$3, var$4, var$5, var$6, var$7, getY2());
 		if (crossings == $Curve::RECT_INTERSECTS) {
 			return crossings;
 		}
 	}
-	int32_t var$11 = crossings;
-	double var$12 = x;
-	double var$13 = y;
-	double var$14 = x + w;
-	double var$15 = y + h;
-	double var$16 = getX2();
-	double var$17 = getY2();
-	double var$18 = getCtrlX2();
-	double var$19 = getCtrlY2();
-	double var$20 = getCtrlX1();
-	double var$21 = getCtrlY1();
-	double var$22 = getX1();
-	return $Curve::rectCrossingsForCubic(var$11, var$12, var$13, var$14, var$15, var$16, var$17, var$18, var$19, var$20, var$21, var$22, getY1(), 0);
+	double var$8 = x + w;
+	double var$9 = y + h;
+	double var$10 = getX2();
+	double var$11 = getY2();
+	double var$12 = getCtrlX2();
+	double var$13 = getCtrlY2();
+	double var$14 = getCtrlX1();
+	double var$15 = getCtrlY1();
+	double var$16 = getX1();
+	return $Curve::rectCrossingsForCubic(crossings, x, y, var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, getY1(), 0);
 }
 
 bool CubicCurve2D::contains($Rectangle2D* r) {
@@ -657,7 +563,7 @@ bool CubicCurve2D::contains($Rectangle2D* r) {
 }
 
 $Rectangle* CubicCurve2D::getBounds() {
-	return $nc($(getBounds2D()))->getBounds();
+	return $$nc(getBounds2D())->getBounds();
 }
 
 $PathIterator* CubicCurve2D::getPathIterator($AffineTransform* at) {
@@ -670,9 +576,9 @@ $PathIterator* CubicCurve2D::getPathIterator($AffineTransform* at, double flatne
 
 $Object* CubicCurve2D::clone() {
 	try {
-		return $of($Shape::clone());
+		return $Shape::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -681,7 +587,85 @@ CubicCurve2D::CubicCurve2D() {
 }
 
 $Class* CubicCurve2D::load$($String* name, bool initialize) {
-	$loadClass(CubicCurve2D, name, initialize, &_CubicCurve2D_ClassInfo_, allocate$CubicCurve2D);
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(CubicCurve2D, init$, void)},
+		{"bisectRoot", "([DDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, bisectRoot, double, $doubles*, double, double)},
+		{"bisectRootWithHint", "([DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, bisectRootWithHint, double, $doubles*, double, double, double)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, clone, $Object*)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, double, double)},
+		{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, $Point2D*)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, double, double, double, double)},
+		{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, contains, bool, $Rectangle2D*)},
+		{"fixRoots", "([D[DI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, fixRoots, int32_t, $doubles*, $doubles*, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getBounds, $Rectangle*)},
+		{"getCtrlP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlP1, $Point2D*)},
+		{"getCtrlP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlP2, $Point2D*)},
+		{"getCtrlX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlX1, double)},
+		{"getCtrlX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlX2, double)},
+		{"getCtrlY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlY1, double)},
+		{"getCtrlY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getCtrlY2, double)},
+		{"getFlatness", "(DDDDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatness, double, double, double, double, double, double, double, double, double)},
+		{"getFlatness", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatness, double, $doubles*, int32_t)},
+		{"getFlatness", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getFlatness, double)},
+		{"getFlatnessSq", "(DDDDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatnessSq, double, double, double, double, double, double, double, double, double)},
+		{"getFlatnessSq", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, getFlatnessSq, double, $doubles*, int32_t)},
+		{"getFlatnessSq", "()D", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getFlatnessSq, double)},
+		{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getP1, $Point2D*)},
+		{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getP2, $Point2D*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, getPathIterator, $PathIterator*, $AffineTransform*, double)},
+		{"getRootUpperBound", "([D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, getRootUpperBound, double, $doubles*)},
+		{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getX1, double)},
+		{"getX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getX2, double)},
+		{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getY1, double)},
+		{"getY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, getY2, double)},
+		{"inInterval", "(DDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, inInterval, bool, double, double, double)},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, intersects, bool, double, double, double, double)},
+		{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, intersects, bool, $Rectangle2D*)},
+		{"iszero", "(DD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, iszero, bool, double, double)},
+		{"oppositeSigns", "(DD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, oppositeSigns, bool, double, double)},
+		{"rectCrossings", "(DDDD)I", nullptr, $PRIVATE, $method(CubicCurve2D, rectCrossings, int32_t, double, double, double, double)},
+		{"refineRootWithHint", "([DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, refineRootWithHint, double, $doubles*, double, double, double)},
+		{"setCurve", "(DDDDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CubicCurve2D, setCurve, void, double, double, double, double, double, double, double, double)},
+		{"setCurve", "([DI)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, $doubles*, int32_t)},
+		{"setCurve", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, $Point2D*, $Point2D*, $Point2D*, $Point2D*)},
+		{"setCurve", "([Ljava/awt/geom/Point2D;I)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, $Point2DArray*, int32_t)},
+		{"setCurve", "(Ljava/awt/geom/CubicCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, setCurve, void, CubicCurve2D*)},
+		{"solveCubic", "([D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, solveCubic, int32_t, $doubles*)},
+		{"solveCubic", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, solveCubic, int32_t, $doubles*, $doubles*)},
+		{"solveEqn", "([DID)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, solveEqn, double, $doubles*, int32_t, double)},
+		{"subdivide", "(Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/CubicCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(CubicCurve2D, subdivide, void, CubicCurve2D*, CubicCurve2D*)},
+		{"subdivide", "(Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/CubicCurve2D;Ljava/awt/geom/CubicCurve2D;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, subdivide, void, CubicCurve2D*, CubicCurve2D*, CubicCurve2D*)},
+		{"subdivide", "([DI[DI[DI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CubicCurve2D, subdivide, void, $doubles*, int32_t, $doubles*, int32_t, $doubles*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"within", "(DDD)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(CubicCurve2D, within, bool, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.CubicCurve2D$Double", "java.awt.geom.CubicCurve2D", "Double", $PUBLIC | $STATIC},
+		{"java.awt.geom.CubicCurve2D$Float", "java.awt.geom.CubicCurve2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.CubicCurve2D",
+		"java.lang.Object",
+		"java.awt.Shape,java.lang.Cloneable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.geom.CubicCurve2D$Double,java.awt.geom.CubicCurve2D$Float"
+	};
+	$loadClass(CubicCurve2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CubicCurve2D));
+	});
 	return class$;
 }
 

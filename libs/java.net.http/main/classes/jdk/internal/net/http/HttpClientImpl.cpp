@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
@@ -13,7 +12,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/lang/ref/Reference.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/net/Authenticator.h>
 #include <java/net/ConnectException.h>
@@ -40,8 +38,6 @@
 #include <java/time/Duration.h>
 #include <java/time/Instant.h>
 #include <java/time/temporal/ChronoUnit.h>
-#include <java/time/temporal/Temporal.h>
-#include <java/time/temporal/TemporalUnit.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -55,7 +51,6 @@
 #include <java/util/concurrent/Executor.h>
 #include <java/util/concurrent/ExecutorService.h>
 #include <java/util/concurrent/Executors.h>
-#include <java/util/concurrent/ThreadFactory.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <java/util/function/BiConsumer.h>
 #include <java/util/function/BooleanSupplier.h>
@@ -118,7 +113,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $ConnectException = ::java::net::ConnectException;
 using $ProxySelector = ::java::net::ProxySelector;
@@ -140,8 +134,6 @@ using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Instant = ::java::time::Instant;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
-using $Temporal = ::java::time::temporal::Temporal;
-using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
@@ -153,7 +145,6 @@ using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $Executor = ::java::util::concurrent::Executor;
 using $Executors = ::java::util::concurrent::Executors;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $BooleanSupplier = ::java::util::function::BooleanSupplier;
@@ -184,7 +175,6 @@ using $RedirectFilter = ::jdk::internal::net::http::RedirectFilter;
 using $TimeoutEvent = ::jdk::internal::net::http::TimeoutEvent;
 using $BufferSupplier = ::jdk::internal::net::http::common::BufferSupplier;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $OperationTrackers$Tracker = ::jdk::internal::net::http::common::OperationTrackers$Tracker;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 using $BuilderImpl = ::jdk::internal::net::http::websocket::BuilderImpl;
@@ -203,33 +193,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$$Lambda$dbgString>());
-	}
 	HttpClientImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo HttpClientImpl$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$dbgString, init$, void, HttpClientImpl*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo HttpClientImpl$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$dbgString, init$, void, HttpClientImpl*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$$Lambda$dbgString::class$ = nullptr;
@@ -243,33 +229,29 @@ public:
 	virtual bool getAsBoolean() override {
 		 return $nc(inst$)->isSelectorThread();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$$Lambda$isSelectorThread$1>());
-	}
 	HttpClientImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$$Lambda$isSelectorThread$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$isSelectorThread$1, inst$)},
-	{}
-};
-$MethodInfo HttpClientImpl$$Lambda$isSelectorThread$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$isSelectorThread$1, init$, void, HttpClientImpl*)},
-	{"getAsBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$isSelectorThread$1, getAsBoolean, bool)},
-	{}
-};
-$ClassInfo HttpClientImpl$$Lambda$isSelectorThread$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$$Lambda$isSelectorThread$1",
-	"java.lang.Object",
-	"java.util.function.BooleanSupplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$$Lambda$isSelectorThread$1::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$$Lambda$isSelectorThread$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$isSelectorThread$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$isSelectorThread$1, init$, void, HttpClientImpl*)},
+		{"getAsBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$isSelectorThread$1, getAsBoolean, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$$Lambda$isSelectorThread$1",
+		"java.lang.Object",
+		"java.util.function.BooleanSupplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$$Lambda$isSelectorThread$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$$Lambda$isSelectorThread$1);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$$Lambda$isSelectorThread$1::class$ = nullptr;
@@ -280,29 +262,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(HttpClientImpl::getDefaultProxySelector());
+		 return HttpClientImpl::getDefaultProxySelector();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$$Lambda$getDefaultProxySelector$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpClientImpl$$Lambda$getDefaultProxySelector$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$getDefaultProxySelector$2, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$getDefaultProxySelector$2, get, $Object*)},
-	{}
-};
-$ClassInfo HttpClientImpl$$Lambda$getDefaultProxySelector$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$$Lambda$getDefaultProxySelector$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* HttpClientImpl$$Lambda$getDefaultProxySelector$2::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$$Lambda$getDefaultProxySelector$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$getDefaultProxySelector$2, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$getDefaultProxySelector$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$$Lambda$getDefaultProxySelector$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$$Lambda$getDefaultProxySelector$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$$Lambda$getDefaultProxySelector$2);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$$Lambda$getDefaultProxySelector$2::class$ = nullptr;
@@ -313,29 +292,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of($ProxySelector::getDefault());
+		 return $ProxySelector::getDefault();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$$Lambda$getDefault$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpClientImpl$$Lambda$getDefault$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$getDefault$3, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$getDefault$3, run, $Object*)},
-	{}
-};
-$ClassInfo HttpClientImpl$$Lambda$getDefault$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$$Lambda$getDefault$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* HttpClientImpl$$Lambda$getDefault$3::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$$Lambda$getDefault$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$getDefault$3, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$getDefault$3, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$$Lambda$getDefault$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$$Lambda$getDefault$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$$Lambda$getDefault$3);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$$Lambda$getDefault$3::class$ = nullptr;
@@ -349,33 +325,29 @@ public:
 	virtual void accept(Object$* b, Object$* t) override {
 		$nc(inst$)->lambda$sendAsync$0($cast($HttpResponse, b), $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$$Lambda$lambda$sendAsync$0$4>());
-	}
 	HttpClientImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$$Lambda$lambda$sendAsync$0$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, inst$)},
-	{}
-};
-$MethodInfo HttpClientImpl$$Lambda$lambda$sendAsync$0$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, init$, void, HttpClientImpl*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$$Lambda$lambda$sendAsync$0$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$0$4",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$$Lambda$lambda$sendAsync$0$4::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, init$, void, HttpClientImpl*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$0$4",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$$Lambda$lambda$sendAsync$0$4);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$$Lambda$lambda$sendAsync$0$4::class$ = nullptr;
@@ -391,37 +363,33 @@ public:
 	virtual void accept(Object$* b, Object$* t) override {
 		$nc(inst$)->lambda$sendAsync$1(start, userRequest, $cast($HttpResponse, b), $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$$Lambda$lambda$sendAsync$1$5>());
-	}
 	HttpClientImpl* inst$ = nullptr;
 	int64_t start = 0;
 	$HttpRequest* userRequest = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HttpClientImpl$$Lambda$lambda$sendAsync$1$5::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, inst$)},
-	{"start", "J", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, start)},
-	{"userRequest", "Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, userRequest)},
-	{}
-};
-$MethodInfo HttpClientImpl$$Lambda$lambda$sendAsync$1$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;JLjava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, init$, void, HttpClientImpl*, int64_t, $HttpRequest*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$$Lambda$lambda$sendAsync$1$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$1$5",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* HttpClientImpl$$Lambda$lambda$sendAsync$1$5::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, inst$)},
+		{"start", "J", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, start)},
+		{"userRequest", "Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $field(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, userRequest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;JLjava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, init$, void, HttpClientImpl*, int64_t, $HttpRequest*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$1$5",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$$Lambda$lambda$sendAsync$1$5);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$$Lambda$lambda$sendAsync$1$5::class$ = nullptr;
@@ -434,159 +402,27 @@ public:
 	virtual void accept(Object$* r, Object$* t) override {
 		HttpClientImpl::lambda$sendAsync$2($cast($HttpResponse, r), $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HttpClientImpl$$Lambda$lambda$sendAsync$2$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HttpClientImpl$$Lambda$lambda$sendAsync$2$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo HttpClientImpl$$Lambda$lambda$sendAsync$2$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$2$6",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* HttpClientImpl$$Lambda$lambda$sendAsync$2$6::load$($String* name, bool initialize) {
-	$loadClass(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$2$6",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpClientImpl$$Lambda$lambda$sendAsync$2$6);
+	});
 	return class$;
 }
 $Class* HttpClientImpl$$Lambda$lambda$sendAsync$2$6::class$ = nullptr;
-
-$FieldInfo _HttpClientImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClientImpl, $assertionsDisabled)},
-	{"DEBUGELAPSED", "Z", nullptr, $STATIC | $FINAL, $staticField(HttpClientImpl, DEBUGELAPSED)},
-	{"DEBUGTIMEOUT", "Z", nullptr, $STATIC | $FINAL, $constField(HttpClientImpl, DEBUGTIMEOUT)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpClientImpl, debug)},
-	{"debugelapsed", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpClientImpl, debugelapsed)},
-	{"debugtimeout", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpClientImpl, debugtimeout)},
-	{"CLIENT_IDS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $STATIC | $FINAL, $staticField(HttpClientImpl, CLIENT_IDS)},
-	{"cookieHandler", "Ljava/net/CookieHandler;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, cookieHandler$)},
-	{"connectTimeout", "Ljava/time/Duration;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, connectTimeout$)},
-	{"followRedirects", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, followRedirects$)},
-	{"userProxySelector", "Ljava/net/ProxySelector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, userProxySelector)},
-	{"proxySelector", "Ljava/net/ProxySelector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, proxySelector$)},
-	{"authenticator", "Ljava/net/Authenticator;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, authenticator$)},
-	{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, version$)},
-	{"connections", "Ljdk/internal/net/http/ConnectionPool;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, connections)},
-	{"delegatingExecutor", "Ljdk/internal/net/http/HttpClientImpl$DelegatingExecutor;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, delegatingExecutor)},
-	{"isDefaultExecutor", "Z", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, isDefaultExecutor)},
-	{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, sslContext$)},
-	{"sslParams", "Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, sslParams)},
-	{"selmgr", "Ljdk/internal/net/http/HttpClientImpl$SelectorManager;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, selmgr)},
-	{"filters", "Ljdk/internal/net/http/FilterFactory;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, filters)},
-	{"client2", "Ljdk/internal/net/http/Http2ClientImpl;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, client2$)},
-	{"id", "J", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, id)},
-	{"dbgTag", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, dbgTag)},
-	{"sslBufferSupplier", "Ljdk/internal/net/http/HttpClientImpl$SSLDirectBufferSupplier;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, sslBufferSupplier)},
-	{"facadeRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljdk/internal/net/http/HttpClientFacade;>;", $PRIVATE | $FINAL, $field(HttpClientImpl, facadeRef)},
-	{"pendingOperationCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingOperationCount)},
-	{"pendingWebSocketCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingWebSocketCount)},
-	{"pendingHttpRequestCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingHttpRequestCount)},
-	{"pendingHttp2StreamCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingHttp2StreamCount)},
-	{"timeouts", "Ljava/util/TreeSet;", "Ljava/util/TreeSet<Ljdk/internal/net/http/TimeoutEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl, timeouts)},
-	{"ASYNC_POOL", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpClientImpl, ASYNC_POOL)},
-	{}
-};
-
-$MethodInfo _HttpClientImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/internal/net/http/HttpClientBuilderImpl;Ljdk/internal/net/http/HttpClientImpl$SingleFacadeFactory;)V", nullptr, $PRIVATE, $method(HttpClientImpl, init$, void, $HttpClientBuilderImpl*, $HttpClientImpl$SingleFacadeFactory*)},
-	{"addFilter", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljdk/internal/net/http/HeaderFilter;>;)V", $PRIVATE, $method(HttpClientImpl, addFilter, void, $Class*)},
-	{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC, $virtualMethod(HttpClientImpl, authenticator, $Optional*)},
-	{"cancelTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl, cancelTimer, void, $TimeoutEvent*)},
-	{"client2", "()Ljdk/internal/net/http/Http2ClientImpl;", nullptr, 0, $method(HttpClientImpl, client2, $Http2ClientImpl*)},
-	{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HttpClientImpl, connectTimeout, $Optional*)},
-	{"connectionPool", "()Ljdk/internal/net/http/ConnectionPool;", nullptr, 0, $method(HttpClientImpl, connectionPool, $ConnectionPool*)},
-	{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC, $virtualMethod(HttpClientImpl, cookieHandler, $Optional*)},
-	{"create", "(Ljdk/internal/net/http/HttpClientBuilderImpl;)Ljdk/internal/net/http/HttpClientFacade;", nullptr, $STATIC, $staticMethod(HttpClientImpl, create, $HttpClientFacade*, $HttpClientBuilderImpl*)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $method(HttpClientImpl, dbgString, $String*)},
-	{"debugCompleted", "(Ljava/lang/String;JLjava/net/http/HttpRequest;)V", nullptr, $PRIVATE, $method(HttpClientImpl, debugCompleted, void, $String*, int64_t, $HttpRequest*)},
-	{"debugInterestOps", "(Ljava/nio/channels/SelectableChannel;)Ljava/lang/String;", nullptr, $FINAL, $method(HttpClientImpl, debugInterestOps, $String*, $SelectableChannel*)},
-	{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl, eventUpdated, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
-	{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC | $FINAL, $virtualMethod(HttpClientImpl, executor, $Optional*)},
-	{"facade", "()Ljdk/internal/net/http/HttpClientFacade;", nullptr, $FINAL, $method(HttpClientImpl, facade, $HttpClientFacade*)},
-	{"filterChain", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljdk/internal/net/http/HeaderFilter;>;", $FINAL, $method(HttpClientImpl, filterChain, $LinkedList*)},
-	{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, followRedirects, $HttpClient$Redirect*)},
-	{"getDefaultParams", "(Ljavax/net/ssl/SSLContext;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpClientImpl, getDefaultParams, $SSLParameters*, $SSLContext*)},
-	{"getDefaultProxySelector", "()Ljava/net/ProxySelector;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpClientImpl, getDefaultProxySelector, $ProxySelector*)},
-	{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, getOperationsTracker, $OperationTrackers$Tracker*)},
-	{"getReceiveBufferSize", "()I", nullptr, 0, $method(HttpClientImpl, getReceiveBufferSize, int32_t)},
-	{"getSSLBufferSupplier", "()Ljdk/internal/net/http/common/BufferSupplier;", nullptr, 0, $method(HttpClientImpl, getSSLBufferSupplier, $BufferSupplier*)},
-	{"getSendBufferSize", "()I", nullptr, 0, $method(HttpClientImpl, getSendBufferSize, int32_t)},
-	{"initFilters", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, initFilters, void)},
-	{"isReferenced", "()Z", nullptr, $FINAL, $method(HttpClientImpl, isReferenced, bool)},
-	{"isSelectorThread", "()Z", nullptr, 0, $method(HttpClientImpl, isSelectorThread, bool)},
-	{"lambda$sendAsync$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl, lambda$sendAsync$0, void, $HttpResponse*, $Throwable*)},
-	{"lambda$sendAsync$1", "(JLjava/net/http/HttpRequest;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl, lambda$sendAsync$1, void, int64_t, $HttpRequest*, $HttpResponse*, $Throwable*)},
-	{"lambda$sendAsync$2", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl, lambda$sendAsync$2, void, $HttpResponse*, $Throwable*)},
-	{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, newWebSocketBuilder, $WebSocket$Builder*)},
-	{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC, $virtualMethod(HttpClientImpl, proxy, $Optional*)},
-	{"proxySelector", "()Ljava/net/ProxySelector;", nullptr, 0, $method(HttpClientImpl, proxySelector, $ProxySelector*)},
-	{"purgeTimeoutsAndReturnNextDeadline", "()J", nullptr, $PRIVATE, $method(HttpClientImpl, purgeTimeoutsAndReturnNextDeadline, int64_t)},
-	{"reference", "()J", nullptr, $FINAL, $method(HttpClientImpl, reference, int64_t)},
-	{"referenceCount", "()J", nullptr, $FINAL, $method(HttpClientImpl, referenceCount, int64_t)},
-	{"registerEvent", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl, registerEvent, void, $AsyncEvent*), "java.io.IOException"},
-	{"registerTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl, registerTimer, void, $TimeoutEvent*)},
-	{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC, $virtualMethod(HttpClientImpl, send, $HttpResponse*, $HttpRequest*, $HttpResponse$BodyHandler*), "java.io.IOException,java.lang.InterruptedException"},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*)},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*)},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*, $Executor*)},
-	{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, sslContext, $SSLContext*)},
-	{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, sslParameters, $SSLParameters*)},
-	{"start", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, start, void)},
-	{"stop", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, stop, void)},
-	{"streamReference", "()J", nullptr, $FINAL, $method(HttpClientImpl, streamReference, int64_t)},
-	{"streamUnreference", "()J", nullptr, $FINAL, $method(HttpClientImpl, streamUnreference, int64_t)},
-	{"theExecutor", "()Ljdk/internal/net/http/HttpClientImpl$DelegatingExecutor;", nullptr, $FINAL, $method(HttpClientImpl, theExecutor, $HttpClientImpl$DelegatingExecutor*)},
-	{"theSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, 0, $method(HttpClientImpl, theSSLContext, $SSLContext*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, toString, $String*)},
-	{"unreference", "()J", nullptr, $FINAL, $method(HttpClientImpl, unreference, int64_t)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, version, $HttpClient$Version*)},
-	{"webSocketClose", "()J", nullptr, $FINAL, $method(HttpClientImpl, webSocketClose, int64_t)},
-	{"webSocketOpen", "()J", nullptr, $FINAL, $method(HttpClientImpl, webSocketOpen, int64_t)},
-	{}
-};
-
-$InnerClassInfo _HttpClientImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.OperationTrackers$Trackable", "jdk.internal.net.http.common.OperationTrackers", "Trackable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.HttpClientImpl$SSLDirectBufferSupplier", "jdk.internal.net.http.HttpClientImpl", "SSLDirectBufferSupplier", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.HttpClientImpl$SelectorAttachment", "jdk.internal.net.http.HttpClientImpl", "SelectorAttachment", $PRIVATE | $STATIC},
-	{"jdk.internal.net.http.HttpClientImpl$SelectorManager", "jdk.internal.net.http.HttpClientImpl", "SelectorManager", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.HttpClientImpl$HttpClientTracker", "jdk.internal.net.http.HttpClientImpl", "HttpClientTracker", $STATIC | $FINAL},
-	{"jdk.internal.net.http.HttpClientImpl$SingleFacadeFactory", "jdk.internal.net.http.HttpClientImpl", "SingleFacadeFactory", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor", "jdk.internal.net.http.HttpClientImpl", "DelegatingExecutor", $STATIC | $FINAL},
-	{"jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory", "jdk.internal.net.http.HttpClientImpl", "DefaultThreadFactory", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HttpClientImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.HttpClientImpl",
-	"java.net.http.HttpClient",
-	"jdk.internal.net.http.common.OperationTrackers$Trackable",
-	_HttpClientImpl_FieldInfo_,
-	_HttpClientImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpClientImpl$SSLDirectBufferSupplier,jdk.internal.net.http.HttpClientImpl$SelectorAttachment,jdk.internal.net.http.HttpClientImpl$SelectorManager,jdk.internal.net.http.HttpClientImpl$HttpClientTracker,jdk.internal.net.http.HttpClientImpl$SingleFacadeFactory,jdk.internal.net.http.HttpClientImpl$DelegatingExecutor,jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory"
-};
-
-$Object* allocate$HttpClientImpl($Class* clazz) {
-	return $of($alloc(HttpClientImpl));
-}
 
 int32_t HttpClientImpl::hashCode() {
 	 return this->$HttpClient::hashCode();
@@ -611,7 +447,7 @@ $Executor* HttpClientImpl::ASYNC_POOL = nullptr;
 
 $HttpClientFacade* HttpClientImpl::create($HttpClientBuilderImpl* builder) {
 	$init(HttpClientImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpClientImpl$SingleFacadeFactory, facadeFactory, $new($HttpClientImpl$SingleFacadeFactory));
 	$var(HttpClientImpl, impl, $new(HttpClientImpl, builder, facadeFactory));
 	impl->start();
@@ -625,36 +461,36 @@ $HttpClientFacade* HttpClientImpl::create($HttpClientBuilderImpl* builder) {
 }
 
 void HttpClientImpl::init$($HttpClientBuilderImpl* builder, $HttpClientImpl$SingleFacadeFactory* facadeFactory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpClient::init$();
 	$init($Utils);
-	$set(this, debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(HttpClientImpl$$Lambda$dbgString, this)), $Utils::DEBUG));
-	$set(this, debugelapsed, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(HttpClientImpl$$Lambda$dbgString, this)), HttpClientImpl::DEBUGELAPSED));
-	$set(this, debugtimeout, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(HttpClientImpl$$Lambda$dbgString, this)), HttpClientImpl::DEBUGTIMEOUT));
+	$set(this, debug, $Utils::getDebugLogger($$new(HttpClientImpl$$Lambda$dbgString, this), $Utils::DEBUG));
+	$set(this, debugelapsed, $Utils::getDebugLogger($$new(HttpClientImpl$$Lambda$dbgString, this), HttpClientImpl::DEBUGELAPSED));
+	$set(this, debugtimeout, $Utils::getDebugLogger($$new(HttpClientImpl$$Lambda$dbgString, this), HttpClientImpl::DEBUGTIMEOUT));
 	$set(this, sslBufferSupplier, $new($HttpClientImpl$SSLDirectBufferSupplier, this));
 	$set(this, pendingOperationCount, $new($AtomicLong));
 	$set(this, pendingWebSocketCount, $new($AtomicLong));
 	$set(this, pendingHttpRequestCount, $new($AtomicLong));
 	$set(this, pendingHttp2StreamCount, $new($AtomicLong));
-	this->id = $nc(HttpClientImpl::CLIENT_IDS)->incrementAndGet();
+	this->id = HttpClientImpl::CLIENT_IDS->incrementAndGet();
 	$set(this, dbgTag, $str({"HttpClientImpl("_s, $$str(this->id), ")"_s}));
 	if ($nc(builder)->sslContext$ == nullptr) {
 		try {
 			$set(this, sslContext$, $SSLContext::getDefault());
 		} catch ($NoSuchAlgorithmException& ex) {
-			$throwNew($UncheckedIOException, $$new($IOException, static_cast<$Throwable*>(ex)));
+			$throwNew($UncheckedIOException, $$new($IOException, ex));
 		}
 	} else {
 		$set(this, sslContext$, builder->sslContext$);
 	}
-	$var($Executor, ex, $nc(builder)->executor$);
+	$var($Executor, ex, builder->executor$);
 	if (ex == nullptr) {
 		$assign(ex, $Executors::newCachedThreadPool($$new($HttpClientImpl$DefaultThreadFactory, this->id)));
 		this->isDefaultExecutor = true;
 	} else {
 		this->isDefaultExecutor = false;
 	}
-	$set(this, delegatingExecutor, $new($HttpClientImpl$DelegatingExecutor, static_cast<$BooleanSupplier*>($$new(HttpClientImpl$$Lambda$isSelectorThread$1, this)), ex));
+	$set(this, delegatingExecutor, $new($HttpClientImpl$DelegatingExecutor, $$new(HttpClientImpl$$Lambda$isSelectorThread$1, this), ex));
 	$set(this, facadeRef, $new($WeakReference, $($nc(facadeFactory)->createFacade(this))));
 	$set(this, client2$, $new($Http2ClientImpl, this));
 	$set(this, cookieHandler$, builder->cookieHandler$);
@@ -662,11 +498,11 @@ void HttpClientImpl::init$($HttpClientBuilderImpl* builder, $HttpClientImpl$Sing
 	$init($HttpClient$Redirect);
 	$set(this, followRedirects$, builder->followRedirects$ == nullptr ? $HttpClient$Redirect::NEVER : builder->followRedirects$);
 	$set(this, userProxySelector, builder->proxy$);
-	$set(this, proxySelector$, $cast($ProxySelector, $nc($($Optional::ofNullable(this->userProxySelector)))->orElseGet(static_cast<$Supplier*>($$new(HttpClientImpl$$Lambda$getDefaultProxySelector$2)))));
+	$set(this, proxySelector$, $cast($ProxySelector, $$nc($Optional::ofNullable(this->userProxySelector))->orElseGet($$new(HttpClientImpl$$Lambda$getDefaultProxySelector$2))));
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("proxySelector is %s (user-supplied=%s)"_s, $$new($ObjectArray, {
-			$of(this->proxySelector$),
-			$($of($Boolean::valueOf(this->userProxySelector != nullptr)))
+		this->debug->log("proxySelector is %s (user-supplied=%s)"_s, $$new($ObjectArray, {
+			this->proxySelector$,
+			$($Boolean::valueOf(this->userProxySelector != nullptr))
 		}));
 	}
 	$set(this, authenticator$, builder->authenticator$);
@@ -682,30 +518,30 @@ void HttpClientImpl::init$($HttpClientBuilderImpl* builder, $HttpClientImpl$Sing
 		$set(this, sslParams, builder->sslParams);
 	}
 	$set(this, connections, $new($ConnectionPool, this->id));
-	$nc(this->connections)->start();
+	this->connections->start();
 	$set(this, timeouts, $new($TreeSet));
 	try {
 		$set(this, selmgr, $new($HttpClientImpl$SelectorManager, this));
 	} catch ($IOException& e) {
 		$throwNew($UncheckedIOException, e);
 	}
-	$nc(this->selmgr)->setDaemon(true);
+	this->selmgr->setDaemon(true);
 	$set(this, filters, $new($FilterFactory));
 	initFilters();
-	if (!HttpClientImpl::$assertionsDisabled && !($nc(this->facadeRef)->get() != nullptr)) {
+	if (!HttpClientImpl::$assertionsDisabled && !(this->facadeRef->get() != nullptr)) {
 		$throwNew($AssertionError);
 	}
 }
 
 void HttpClientImpl::start() {
-	$nc(this->selmgr)->start();
+	this->selmgr->start();
 }
 
 void HttpClientImpl::stop() {
-	$nc(this->connections)->stop();
-	$nc(this->client2$)->stop();
+	this->connections->stop();
+	this->client2$->stop();
 	if (this->isDefaultExecutor) {
-		$nc(this->delegatingExecutor)->shutdown();
+		this->delegatingExecutor->shutdown();
 	}
 }
 
@@ -718,26 +554,26 @@ $SSLParameters* HttpClientImpl::getDefaultParams($SSLContext* ctx) {
 $ProxySelector* HttpClientImpl::getDefaultProxySelector() {
 	$init(HttpClientImpl);
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, action, static_cast<$PrivilegedAction*>($new(HttpClientImpl$$Lambda$getDefault$3)));
+	$var($PrivilegedAction, action, $new(HttpClientImpl$$Lambda$getDefault$3));
 	return $cast($ProxySelector, $AccessController::doPrivileged(action));
 }
 
 $HttpClientFacade* HttpClientImpl::facade() {
-	return $cast($HttpClientFacade, $nc(this->facadeRef)->get());
+	return $cast($HttpClientFacade, this->facadeRef->get());
 }
 
 int64_t HttpClientImpl::reference() {
-	$nc(this->pendingHttpRequestCount)->incrementAndGet();
-	return $nc(this->pendingOperationCount)->incrementAndGet();
+	this->pendingHttpRequestCount->incrementAndGet();
+	return this->pendingOperationCount->incrementAndGet();
 }
 
 int64_t HttpClientImpl::unreference() {
-	int64_t count = $nc(this->pendingOperationCount)->decrementAndGet();
-	int64_t httpCount = $nc(this->pendingHttpRequestCount)->decrementAndGet();
-	int64_t http2Count = $nc(this->pendingHttp2StreamCount)->get();
-	int64_t webSocketCount = $nc(this->pendingWebSocketCount)->get();
+	int64_t count = this->pendingOperationCount->decrementAndGet();
+	int64_t httpCount = this->pendingHttpRequestCount->decrementAndGet();
+	int64_t http2Count = this->pendingHttp2StreamCount->get();
+	int64_t webSocketCount = this->pendingWebSocketCount->get();
 	if (count == 0 && facade() == nullptr) {
-		$nc(this->selmgr)->wakeupSelector();
+		this->selmgr->wakeupSelector();
 	}
 	if (!HttpClientImpl::$assertionsDisabled && !(httpCount >= 0)) {
 		$throwNew($AssertionError, $of("count of HTTP/1.1 operations < 0"_s));
@@ -755,17 +591,17 @@ int64_t HttpClientImpl::unreference() {
 }
 
 int64_t HttpClientImpl::streamReference() {
-	$nc(this->pendingHttp2StreamCount)->incrementAndGet();
-	return $nc(this->pendingOperationCount)->incrementAndGet();
+	this->pendingHttp2StreamCount->incrementAndGet();
+	return this->pendingOperationCount->incrementAndGet();
 }
 
 int64_t HttpClientImpl::streamUnreference() {
-	int64_t count = $nc(this->pendingOperationCount)->decrementAndGet();
-	int64_t http2Count = $nc(this->pendingHttp2StreamCount)->decrementAndGet();
-	int64_t httpCount = $nc(this->pendingHttpRequestCount)->get();
-	int64_t webSocketCount = $nc(this->pendingWebSocketCount)->get();
+	int64_t count = this->pendingOperationCount->decrementAndGet();
+	int64_t http2Count = this->pendingHttp2StreamCount->decrementAndGet();
+	int64_t httpCount = this->pendingHttpRequestCount->get();
+	int64_t webSocketCount = this->pendingWebSocketCount->get();
 	if (count == 0 && facade() == nullptr) {
-		$nc(this->selmgr)->wakeupSelector();
+		this->selmgr->wakeupSelector();
 	}
 	if (!HttpClientImpl::$assertionsDisabled && !(httpCount >= 0)) {
 		$throwNew($AssertionError, $of("count of HTTP/1.1 operations < 0"_s));
@@ -783,17 +619,17 @@ int64_t HttpClientImpl::streamUnreference() {
 }
 
 int64_t HttpClientImpl::webSocketOpen() {
-	$nc(this->pendingWebSocketCount)->incrementAndGet();
-	return $nc(this->pendingOperationCount)->incrementAndGet();
+	this->pendingWebSocketCount->incrementAndGet();
+	return this->pendingOperationCount->incrementAndGet();
 }
 
 int64_t HttpClientImpl::webSocketClose() {
-	int64_t count = $nc(this->pendingOperationCount)->decrementAndGet();
-	int64_t webSocketCount = $nc(this->pendingWebSocketCount)->decrementAndGet();
-	int64_t httpCount = $nc(this->pendingHttpRequestCount)->get();
-	int64_t http2Count = $nc(this->pendingHttp2StreamCount)->get();
+	int64_t count = this->pendingOperationCount->decrementAndGet();
+	int64_t webSocketCount = this->pendingWebSocketCount->decrementAndGet();
+	int64_t httpCount = this->pendingHttpRequestCount->get();
+	int64_t http2Count = this->pendingHttp2StreamCount->get();
 	if (count == 0 && facade() == nullptr) {
-		$nc(this->selmgr)->wakeupSelector();
+		this->selmgr->wakeupSelector();
 	}
 	if (!HttpClientImpl::$assertionsDisabled && !(httpCount >= 0)) {
 		$throwNew($AssertionError, $of("count of HTTP/1.1 operations < 0"_s));
@@ -811,7 +647,7 @@ int64_t HttpClientImpl::webSocketClose() {
 }
 
 int64_t HttpClientImpl::referenceCount() {
-	return $nc(this->pendingOperationCount)->get();
+	return this->pendingOperationCount->get();
 }
 
 $OperationTrackers$Tracker* HttpClientImpl::getOperationsTracker() {
@@ -824,14 +660,14 @@ bool HttpClientImpl::isReferenced() {
 }
 
 void HttpClientImpl::registerEvent($AsyncEvent* exchange) {
-	$nc(this->selmgr)->register$(exchange);
+	this->selmgr->register$(exchange);
 }
 
 void HttpClientImpl::eventUpdated($AsyncEvent* event) {
 	if (!HttpClientImpl::$assertionsDisabled && ! !($instanceOf($AsyncTriggerEvent, event))) {
 		$throwNew($AssertionError);
 	}
-	$nc(this->selmgr)->eventUpdated(event);
+	this->selmgr->eventUpdated(event);
 }
 
 bool HttpClientImpl::isSelectorThread() {
@@ -843,17 +679,24 @@ $Http2ClientImpl* HttpClientImpl::client2() {
 }
 
 void HttpClientImpl::debugCompleted($String* tag, int64_t startNanos, $HttpRequest* req) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debugelapsed)->on()) {
-		$var($String, var$2, $$str({tag, " elapsed "_s, $$str($div(($System::nanoTime() - startNanos), (int64_t)1000000)), " millis for "_s}));
-		$var($String, var$1, $$concat(var$2, $($nc(req)->method())));
-		$var($String, var$0, $$concat(var$1, " to "_s));
-		$nc(this->debugelapsed)->log($$concat(var$0, $(req->uri())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(tag);
+		var$0->append(" elapsed "_s);
+		var$0->append($System::nanoTime());
+		var$0->append(startNanos);
+		var$0->append(1000000);
+		var$0->append(" millis for "_s);
+		var$0->append($($nc(req)->method()));
+		var$0->append(" to "_s);
+		var$0->append($(req->uri()));
+		this->debugelapsed->log($$str(var$0));
 	}
 }
 
 $HttpResponse* HttpClientImpl::send($HttpRequest* req, $HttpResponse$BodyHandler* responseHandler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, cf, nullptr);
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
@@ -903,11 +746,11 @@ $CompletableFuture* HttpClientImpl::sendAsync($HttpRequest* userRequest, $HttpRe
 }
 
 $CompletableFuture* HttpClientImpl::sendAsync($HttpRequest* userRequest, $HttpResponse$BodyHandler* responseHandler, $HttpResponse$PushPromiseHandler* pushPromiseHandler) {
-	return sendAsync(userRequest, responseHandler, pushPromiseHandler, $nc(this->delegatingExecutor)->delegate$);
+	return sendAsync(userRequest, responseHandler, pushPromiseHandler, this->delegatingExecutor->delegate$);
 }
 
 $CompletableFuture* HttpClientImpl::sendAsync($HttpRequest* userRequest, $HttpResponse$BodyHandler* responseHandler, $HttpResponse$PushPromiseHandler* pushPromiseHandler, $Executor* exchangeExecutor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(userRequest);
 	$Objects::requireNonNull(responseHandler);
 	$var($AccessControlContext, acc, nullptr);
@@ -915,23 +758,23 @@ $CompletableFuture* HttpClientImpl::sendAsync($HttpRequest* userRequest, $HttpRe
 		$assign(acc, $AccessController::getContext());
 	}
 	$var($HttpRequestImpl, requestImpl, $new($HttpRequestImpl, userRequest, this->proxySelector$));
-	if ($nc($(requestImpl->method()))->equals("CONNECT"_s)) {
+	if ($$nc(requestImpl->method())->equals("CONNECT"_s)) {
 		$throwNew($IllegalArgumentException, "Unsupported method CONNECT"_s);
 	}
-	int64_t start = HttpClientImpl::DEBUGELAPSED ? $System::nanoTime() : (int64_t)0;
+	int64_t start = HttpClientImpl::DEBUGELAPSED ? $System::nanoTime() : 0;
 	reference();
 	try {
 		if ($nc(this->debugelapsed)->on()) {
-			$nc(this->debugelapsed)->log("ClientImpl (async) send %s"_s, $$new($ObjectArray, {$of(userRequest)}));
+			this->debugelapsed->log("ClientImpl (async) send %s"_s, $$new($ObjectArray, {userRequest}));
 		}
-		$var($Executor, executor, exchangeExecutor == nullptr ? static_cast<$Executor*>(this->delegatingExecutor) : exchangeExecutor);
+		$var($Executor, executor, exchangeExecutor == nullptr ? $cast($Executor, this->delegatingExecutor) : exchangeExecutor);
 		$var($MultiExchange, mex, $new($MultiExchange, userRequest, requestImpl, this, responseHandler, pushPromiseHandler, acc));
-		$var($CompletableFuture, res, $cast($CompletableFuture, $nc($(mex->responseAsync(executor)))->whenComplete(static_cast<$BiConsumer*>($$new(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, this)))));
+		$var($CompletableFuture, res, $cast($CompletableFuture, $$nc(mex->responseAsync(executor))->whenComplete($$new(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, this))));
 		if (HttpClientImpl::DEBUGELAPSED) {
-			$assign(res, $cast($CompletableFuture, $nc(res)->whenComplete(static_cast<$BiConsumer*>($$new(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, this, start, userRequest)))));
+			$assign(res, $cast($CompletableFuture, $nc(res)->whenComplete($$new(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, this, start, userRequest))));
 		}
 		if (exchangeExecutor != nullptr) {
-			$assign(res, $cast($CompletableFuture, $nc(res)->whenCompleteAsync(static_cast<$BiConsumer*>($$new(HttpClientImpl$$Lambda$lambda$sendAsync$2$6)), HttpClientImpl::ASYNC_POOL)));
+			$assign(res, $cast($CompletableFuture, $nc(res)->whenCompleteAsync($$new(HttpClientImpl$$Lambda$lambda$sendAsync$2$6), HttpClientImpl::ASYNC_POOL)));
 		}
 		return res;
 	} catch ($Throwable& t) {
@@ -943,16 +786,16 @@ $CompletableFuture* HttpClientImpl::sendAsync($HttpRequest* userRequest, $HttpRe
 }
 
 $String* HttpClientImpl::debugInterestOps($SelectableChannel* channel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($SelectionKey, key, $nc(channel)->keyFor($nc(this->selmgr)->selector));
+		$var($SelectionKey, key, $nc(channel)->keyFor(this->selmgr->selector));
 		if (key == nullptr) {
 			return "channel not registered with selector"_s;
 		}
-		$var($String, keyInterestOps, $nc(key)->isValid() ? $str({"key.interestOps="_s, $$str($nc(key)->interestOps())}) : "invalid key"_s);
+		$var($String, keyInterestOps, $nc(key)->isValid() ? $str({"key.interestOps="_s, $$str(key->interestOps())}) : "invalid key"_s);
 		return $String::format("channel registered with selector, %s, sa.interestOps=%s"_s, $$new($ObjectArray, {
-			$of(keyInterestOps),
-			$($of($Integer::valueOf($nc(($cast($HttpClientImpl$SelectorAttachment, $(key->attachment()))))->interestOps)))
+			keyInterestOps,
+			$($Integer::valueOf($nc($$cast($HttpClientImpl$SelectorAttachment, key->attachment()))->interestOps))
 		}));
 	} catch ($Throwable& t) {
 		return $String::valueOf($of(t));
@@ -981,7 +824,7 @@ $HttpClientImpl$DelegatingExecutor* HttpClientImpl::theExecutor() {
 }
 
 $Optional* HttpClientImpl::executor() {
-	return this->isDefaultExecutor ? $Optional::empty() : $Optional::of($($nc(this->delegatingExecutor)->delegate()));
+	return this->isDefaultExecutor ? $Optional::empty() : $Optional::of($(this->delegatingExecutor->delegate()));
 }
 
 $ConnectionPool* HttpClientImpl::connectionPool() {
@@ -1021,7 +864,7 @@ $String* HttpClientImpl::dbgString() {
 }
 
 $String* HttpClientImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($HttpClient::toString()), ($$str({"("_s, $$str(this->id), ")"_s}))});
 }
 
@@ -1037,55 +880,55 @@ void HttpClientImpl::initFilters() {
 }
 
 void HttpClientImpl::addFilter($Class* f) {
-	$nc(this->filters)->addFilter(f);
+	this->filters->addFilter(f);
 }
 
 $LinkedList* HttpClientImpl::filterChain() {
-	return $nc(this->filters)->getFilterChain();
+	return this->filters->getFilterChain();
 }
 
 void HttpClientImpl::registerTimer($TimeoutEvent* event) {
 	$synchronized(this) {
-		$Log::logTrace("Registering timer {0}"_s, $$new($ObjectArray, {$of(event)}));
-		$nc(this->timeouts)->add(event);
-		$nc(this->selmgr)->wakeupSelector();
+		$Log::logTrace("Registering timer {0}"_s, $$new($ObjectArray, {event}));
+		this->timeouts->add(event);
+		this->selmgr->wakeupSelector();
 	}
 }
 
 void HttpClientImpl::cancelTimer($TimeoutEvent* event) {
 	$synchronized(this) {
-		$Log::logTrace("Canceling timer {0}"_s, $$new($ObjectArray, {$of(event)}));
-		$nc(this->timeouts)->remove(event);
+		$Log::logTrace("Canceling timer {0}"_s, $$new($ObjectArray, {event}));
+		this->timeouts->remove(event);
 	}
 }
 
 int64_t HttpClientImpl::purgeTimeoutsAndReturnNextDeadline() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t diff = 0;
 	$var($List, toHandle, nullptr);
 	int32_t remaining = 0;
 	$synchronized(this) {
-		if ($nc(this->timeouts)->isEmpty()) {
+		if (this->timeouts->isEmpty()) {
 			return 0;
 		}
 		$var($Instant, now, $Instant::now());
-		$var($Iterator, itr, $nc(this->timeouts)->iterator());
+		$var($Iterator, itr, this->timeouts->iterator());
 		while ($nc(itr)->hasNext()) {
 			$var($TimeoutEvent, event, $cast($TimeoutEvent, itr->next()));
 			$init($ChronoUnit);
 			diff = $nc(now)->until($($nc(event)->deadline()), $ChronoUnit::MILLIS);
 			if (diff <= 0) {
 				itr->remove();
-				$assign(toHandle, (toHandle == nullptr) ? static_cast<$List*>($new($ArrayList)) : toHandle);
+				$assign(toHandle, (toHandle == nullptr) ? $cast($List, $new($ArrayList)) : toHandle);
 				$nc(toHandle)->add(event);
 			} else {
 				break;
 			}
 		}
-		remaining = $nc(this->timeouts)->size();
+		remaining = this->timeouts->size();
 	}
 	if (toHandle != nullptr && $Log::trace()) {
-		$Log::logTrace($$str({"purgeTimeoutsAndReturnNextDeadline: handling "_s, $$str(toHandle->size()), " events, remaining "_s, $$str(remaining), ", next deadline: "_s, $$str((diff < 0 ? (int64_t)0 : diff))}), $$new($ObjectArray, 0));
+		$Log::logTrace($$str({"purgeTimeoutsAndReturnNextDeadline: handling "_s, $$str(toHandle->size()), " events, remaining "_s, $$str(remaining), ", next deadline: "_s, $$str((diff < 0 ? 0 : diff))}), $$new($ObjectArray, 0));
 	}
 	if (toHandle != nullptr) {
 		$var($Throwable, failed, nullptr);
@@ -1093,31 +936,29 @@ int64_t HttpClientImpl::purgeTimeoutsAndReturnNextDeadline() {
 			$var($Iterator, i$, toHandle->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($TimeoutEvent, event, $cast($TimeoutEvent, i$->next()));
-				{
-					try {
-						$Log::logTrace("Firing timer {0}"_s, $$new($ObjectArray, {$of(event)}));
-						$nc(event)->handle();
-					} catch ($Error& e) {
-						if (failed == nullptr) {
-							$assign(failed, e);
-						} else {
-							$nc(failed)->addSuppressed(e);
-						}
-						$Log::logTrace("Failed to handle event {0}: {1}"_s, $$new($ObjectArray, {
-							$of(event),
-							$of(e)
-						}));
-					} catch ($RuntimeException& e) {
-						if (failed == nullptr) {
-							$assign(failed, e);
-						} else {
-							$nc(failed)->addSuppressed(e);
-						}
-						$Log::logTrace("Failed to handle event {0}: {1}"_s, $$new($ObjectArray, {
-							$of(event),
-							$of(e)
-						}));
+				try {
+					$Log::logTrace("Firing timer {0}"_s, $$new($ObjectArray, {event}));
+					$nc(event)->handle();
+				} catch ($Error& e) {
+					if (failed == nullptr) {
+						$assign(failed, e);
+					} else {
+						failed->addSuppressed(e);
 					}
+					$Log::logTrace("Failed to handle event {0}: {1}"_s, $$new($ObjectArray, {
+						event,
+						e
+					}));
+				} catch ($RuntimeException& e) {
+					if (failed == nullptr) {
+						$assign(failed, e);
+					} else {
+						failed->addSuppressed(e);
+					}
+					$Log::logTrace("Failed to handle event {0}: {1}"_s, $$new($ObjectArray, {
+						event,
+						e
+					}));
 				}
 			}
 		}
@@ -1128,7 +969,7 @@ int64_t HttpClientImpl::purgeTimeoutsAndReturnNextDeadline() {
 			$throw($cast($RuntimeException, failed));
 		}
 	}
-	return diff < 0 ? (int64_t)0 : diff;
+	return diff < 0 ? 0 : diff;
 }
 
 int32_t HttpClientImpl::getReceiveBufferSize() {
@@ -1155,7 +996,7 @@ void HttpClientImpl::lambda$sendAsync$0($HttpResponse* b, $Throwable* t) {
 	unreference();
 }
 
-void clinit$HttpClientImpl($Class* class$) {
+void HttpClientImpl::clinit$($Class* clazz) {
 	HttpClientImpl::$assertionsDisabled = !HttpClientImpl::class$->desiredAssertionStatus();
 	$init($Utils);
 	HttpClientImpl::DEBUGELAPSED = $Utils::TESTING || $Utils::DEBUG;
@@ -1168,29 +1009,152 @@ HttpClientImpl::HttpClientImpl() {
 
 $Class* HttpClientImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HttpClientImpl$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$$Lambda$dbgString")) {
 			return HttpClientImpl$$Lambda$dbgString::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$$Lambda$isSelectorThread$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$$Lambda$isSelectorThread$1")) {
 			return HttpClientImpl$$Lambda$isSelectorThread$1::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$$Lambda$getDefaultProxySelector$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$$Lambda$getDefaultProxySelector$2")) {
 			return HttpClientImpl$$Lambda$getDefaultProxySelector$2::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$$Lambda$getDefault$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$$Lambda$getDefault$3")) {
 			return HttpClientImpl$$Lambda$getDefault$3::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$$Lambda$lambda$sendAsync$0$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$0$4")) {
 			return HttpClientImpl$$Lambda$lambda$sendAsync$0$4::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$$Lambda$lambda$sendAsync$1$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$1$5")) {
 			return HttpClientImpl$$Lambda$lambda$sendAsync$1$5::load$(name, initialize);
 		}
-		if (name->equals(HttpClientImpl$$Lambda$lambda$sendAsync$2$6::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.HttpClientImpl$$Lambda$lambda$sendAsync$2$6")) {
 			return HttpClientImpl$$Lambda$lambda$sendAsync$2$6::load$(name, initialize);
 		}
 	}
-	$loadClass(HttpClientImpl, name, initialize, &_HttpClientImpl_ClassInfo_, clinit$HttpClientImpl, allocate$HttpClientImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClientImpl, $assertionsDisabled)},
+		{"DEBUGELAPSED", "Z", nullptr, $STATIC | $FINAL, $staticField(HttpClientImpl, DEBUGELAPSED)},
+		{"DEBUGTIMEOUT", "Z", nullptr, $STATIC | $FINAL, $constField(HttpClientImpl, DEBUGTIMEOUT)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpClientImpl, debug)},
+		{"debugelapsed", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpClientImpl, debugelapsed)},
+		{"debugtimeout", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(HttpClientImpl, debugtimeout)},
+		{"CLIENT_IDS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $STATIC | $FINAL, $staticField(HttpClientImpl, CLIENT_IDS)},
+		{"cookieHandler", "Ljava/net/CookieHandler;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, cookieHandler$)},
+		{"connectTimeout", "Ljava/time/Duration;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, connectTimeout$)},
+		{"followRedirects", "Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, followRedirects$)},
+		{"userProxySelector", "Ljava/net/ProxySelector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, userProxySelector)},
+		{"proxySelector", "Ljava/net/ProxySelector;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, proxySelector$)},
+		{"authenticator", "Ljava/net/Authenticator;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, authenticator$)},
+		{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, version$)},
+		{"connections", "Ljdk/internal/net/http/ConnectionPool;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, connections)},
+		{"delegatingExecutor", "Ljdk/internal/net/http/HttpClientImpl$DelegatingExecutor;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, delegatingExecutor)},
+		{"isDefaultExecutor", "Z", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, isDefaultExecutor)},
+		{"sslContext", "Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, sslContext$)},
+		{"sslParams", "Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, sslParams)},
+		{"selmgr", "Ljdk/internal/net/http/HttpClientImpl$SelectorManager;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, selmgr)},
+		{"filters", "Ljdk/internal/net/http/FilterFactory;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, filters)},
+		{"client2", "Ljdk/internal/net/http/Http2ClientImpl;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, client2$)},
+		{"id", "J", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, id)},
+		{"dbgTag", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, dbgTag)},
+		{"sslBufferSupplier", "Ljdk/internal/net/http/HttpClientImpl$SSLDirectBufferSupplier;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, sslBufferSupplier)},
+		{"facadeRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljdk/internal/net/http/HttpClientFacade;>;", $PRIVATE | $FINAL, $field(HttpClientImpl, facadeRef)},
+		{"pendingOperationCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingOperationCount)},
+		{"pendingWebSocketCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingWebSocketCount)},
+		{"pendingHttpRequestCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingHttpRequestCount)},
+		{"pendingHttp2StreamCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(HttpClientImpl, pendingHttp2StreamCount)},
+		{"timeouts", "Ljava/util/TreeSet;", "Ljava/util/TreeSet<Ljdk/internal/net/http/TimeoutEvent;>;", $PRIVATE | $FINAL, $field(HttpClientImpl, timeouts)},
+		{"ASYNC_POOL", "Ljava/util/concurrent/Executor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpClientImpl, ASYNC_POOL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljdk/internal/net/http/HttpClientBuilderImpl;Ljdk/internal/net/http/HttpClientImpl$SingleFacadeFactory;)V", nullptr, $PRIVATE, $method(HttpClientImpl, init$, void, $HttpClientBuilderImpl*, $HttpClientImpl$SingleFacadeFactory*)},
+		{"addFilter", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljdk/internal/net/http/HeaderFilter;>;)V", $PRIVATE, $method(HttpClientImpl, addFilter, void, $Class*)},
+		{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC, $virtualMethod(HttpClientImpl, authenticator, $Optional*)},
+		{"cancelTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl, cancelTimer, void, $TimeoutEvent*)},
+		{"client2", "()Ljdk/internal/net/http/Http2ClientImpl;", nullptr, 0, $method(HttpClientImpl, client2, $Http2ClientImpl*)},
+		{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HttpClientImpl, connectTimeout, $Optional*)},
+		{"connectionPool", "()Ljdk/internal/net/http/ConnectionPool;", nullptr, 0, $method(HttpClientImpl, connectionPool, $ConnectionPool*)},
+		{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC, $virtualMethod(HttpClientImpl, cookieHandler, $Optional*)},
+		{"create", "(Ljdk/internal/net/http/HttpClientBuilderImpl;)Ljdk/internal/net/http/HttpClientFacade;", nullptr, $STATIC, $staticMethod(HttpClientImpl, create, $HttpClientFacade*, $HttpClientBuilderImpl*)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, 0, $method(HttpClientImpl, dbgString, $String*)},
+		{"debugCompleted", "(Ljava/lang/String;JLjava/net/http/HttpRequest;)V", nullptr, $PRIVATE, $method(HttpClientImpl, debugCompleted, void, $String*, int64_t, $HttpRequest*)},
+		{"debugInterestOps", "(Ljava/nio/channels/SelectableChannel;)Ljava/lang/String;", nullptr, $FINAL, $method(HttpClientImpl, debugInterestOps, $String*, $SelectableChannel*)},
+		{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl, eventUpdated, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
+		{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC | $FINAL, $virtualMethod(HttpClientImpl, executor, $Optional*)},
+		{"facade", "()Ljdk/internal/net/http/HttpClientFacade;", nullptr, $FINAL, $method(HttpClientImpl, facade, $HttpClientFacade*)},
+		{"filterChain", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljdk/internal/net/http/HeaderFilter;>;", $FINAL, $method(HttpClientImpl, filterChain, $LinkedList*)},
+		{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, followRedirects, $HttpClient$Redirect*)},
+		{"getDefaultParams", "(Ljavax/net/ssl/SSLContext;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpClientImpl, getDefaultParams, $SSLParameters*, $SSLContext*)},
+		{"getDefaultProxySelector", "()Ljava/net/ProxySelector;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpClientImpl, getDefaultProxySelector, $ProxySelector*)},
+		{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, getOperationsTracker, $OperationTrackers$Tracker*)},
+		{"getReceiveBufferSize", "()I", nullptr, 0, $method(HttpClientImpl, getReceiveBufferSize, int32_t)},
+		{"getSSLBufferSupplier", "()Ljdk/internal/net/http/common/BufferSupplier;", nullptr, 0, $method(HttpClientImpl, getSSLBufferSupplier, $BufferSupplier*)},
+		{"getSendBufferSize", "()I", nullptr, 0, $method(HttpClientImpl, getSendBufferSize, int32_t)},
+		{"initFilters", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, initFilters, void)},
+		{"isReferenced", "()Z", nullptr, $FINAL, $method(HttpClientImpl, isReferenced, bool)},
+		{"isSelectorThread", "()Z", nullptr, 0, $method(HttpClientImpl, isSelectorThread, bool)},
+		{"lambda$sendAsync$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl, lambda$sendAsync$0, void, $HttpResponse*, $Throwable*)},
+		{"lambda$sendAsync$1", "(JLjava/net/http/HttpRequest;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl, lambda$sendAsync$1, void, int64_t, $HttpRequest*, $HttpResponse*, $Throwable*)},
+		{"lambda$sendAsync$2", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl, lambda$sendAsync$2, void, $HttpResponse*, $Throwable*)},
+		{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, newWebSocketBuilder, $WebSocket$Builder*)},
+		{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC, $virtualMethod(HttpClientImpl, proxy, $Optional*)},
+		{"proxySelector", "()Ljava/net/ProxySelector;", nullptr, 0, $method(HttpClientImpl, proxySelector, $ProxySelector*)},
+		{"purgeTimeoutsAndReturnNextDeadline", "()J", nullptr, $PRIVATE, $method(HttpClientImpl, purgeTimeoutsAndReturnNextDeadline, int64_t)},
+		{"reference", "()J", nullptr, $FINAL, $method(HttpClientImpl, reference, int64_t)},
+		{"referenceCount", "()J", nullptr, $FINAL, $method(HttpClientImpl, referenceCount, int64_t)},
+		{"registerEvent", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl, registerEvent, void, $AsyncEvent*), "java.io.IOException"},
+		{"registerTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl, registerTimer, void, $TimeoutEvent*)},
+		{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC, $virtualMethod(HttpClientImpl, send, $HttpResponse*, $HttpRequest*, $HttpResponse$BodyHandler*), "java.io.IOException,java.lang.InterruptedException"},
+		{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*)},
+		{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*)},
+		{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*, $Executor*)},
+		{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, sslContext, $SSLContext*)},
+		{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, sslParameters, $SSLParameters*)},
+		{"start", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, start, void)},
+		{"stop", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, stop, void)},
+		{"streamReference", "()J", nullptr, $FINAL, $method(HttpClientImpl, streamReference, int64_t)},
+		{"streamUnreference", "()J", nullptr, $FINAL, $method(HttpClientImpl, streamUnreference, int64_t)},
+		{"theExecutor", "()Ljdk/internal/net/http/HttpClientImpl$DelegatingExecutor;", nullptr, $FINAL, $method(HttpClientImpl, theExecutor, $HttpClientImpl$DelegatingExecutor*)},
+		{"theSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, 0, $method(HttpClientImpl, theSSLContext, $SSLContext*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, toString, $String*)},
+		{"unreference", "()J", nullptr, $FINAL, $method(HttpClientImpl, unreference, int64_t)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, version, $HttpClient$Version*)},
+		{"webSocketClose", "()J", nullptr, $FINAL, $method(HttpClientImpl, webSocketClose, int64_t)},
+		{"webSocketOpen", "()J", nullptr, $FINAL, $method(HttpClientImpl, webSocketOpen, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.OperationTrackers$Trackable", "jdk.internal.net.http.common.OperationTrackers", "Trackable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.HttpClientImpl$SSLDirectBufferSupplier", "jdk.internal.net.http.HttpClientImpl", "SSLDirectBufferSupplier", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.HttpClientImpl$SelectorAttachment", "jdk.internal.net.http.HttpClientImpl", "SelectorAttachment", $PRIVATE | $STATIC},
+		{"jdk.internal.net.http.HttpClientImpl$SelectorManager", "jdk.internal.net.http.HttpClientImpl", "SelectorManager", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.HttpClientImpl$HttpClientTracker", "jdk.internal.net.http.HttpClientImpl", "HttpClientTracker", $STATIC | $FINAL},
+		{"jdk.internal.net.http.HttpClientImpl$SingleFacadeFactory", "jdk.internal.net.http.HttpClientImpl", "SingleFacadeFactory", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.net.http.HttpClientImpl$DelegatingExecutor", "jdk.internal.net.http.HttpClientImpl", "DelegatingExecutor", $STATIC | $FINAL},
+		{"jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory", "jdk.internal.net.http.HttpClientImpl", "DefaultThreadFactory", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.HttpClientImpl",
+		"java.net.http.HttpClient",
+		"jdk.internal.net.http.common.OperationTrackers$Trackable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpClientImpl$SSLDirectBufferSupplier,jdk.internal.net.http.HttpClientImpl$SelectorAttachment,jdk.internal.net.http.HttpClientImpl$SelectorManager,jdk.internal.net.http.HttpClientImpl$HttpClientTracker,jdk.internal.net.http.HttpClientImpl$SingleFacadeFactory,jdk.internal.net.http.HttpClientImpl$DelegatingExecutor,jdk.internal.net.http.HttpClientImpl$DefaultThreadFactory"
+	};
+	$loadClass(HttpClientImpl, name, initialize, &classInfo$$, HttpClientImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpClientImpl));
+	});
 	return class$;
 }
 

@@ -515,6 +515,7 @@ class XSLTErrorResources_de : public ::java::util::ListResourceBundle {
 	$class(XSLTErrorResources_de, 0, ::java::util::ListResourceBundle)
 public:
 	XSLTErrorResources_de();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $String* ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX;

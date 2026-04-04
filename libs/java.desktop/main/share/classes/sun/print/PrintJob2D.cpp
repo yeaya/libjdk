@@ -1,5 +1,4 @@
 #include <sun/print/PrintJob2D.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
@@ -17,7 +16,6 @@
 #include <java/awt/PageAttributes$PrintQualityType.h>
 #include <java/awt/PageAttributes.h>
 #include <java/awt/PrintJob.h>
-#include <java/awt/Window.h>
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Paper.h>
 #include <java/awt/print/Printable.h>
@@ -28,13 +26,11 @@
 #include <java/io/IOException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
-#include <java/security/Permission.h>
 #include <java/util/Locale.h>
 #include <java/util/Properties.h>
 #include <javax/print/PrintService.h>
@@ -201,7 +197,6 @@ using $PageAttributes$OrientationRequestedType = ::java::awt::PageAttributes$Ori
 using $PageAttributes$OriginType = ::java::awt::PageAttributes$OriginType;
 using $PageAttributes$PrintQualityType = ::java::awt::PageAttributes$PrintQualityType;
 using $PrintJob = ::java::awt::PrintJob;
-using $Window = ::java::awt::Window;
 using $PageFormat = ::java::awt::print::PageFormat;
 using $Paper = ::java::awt::print::Paper;
 using $Printable = ::java::awt::print::Printable;
@@ -210,7 +205,6 @@ using $PrinterJob = ::java::awt::print::PrinterJob;
 using $File = ::java::io::File;
 using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -221,22 +215,18 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
-using $Permission = ::java::security::Permission;
 using $Locale = ::java::util::Locale;
 using $Properties = ::java::util::Properties;
 using $PrintService = ::javax::print::PrintService;
-using $Attribute = ::javax::print::attribute::Attribute;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintJobAttribute = ::javax::print::attribute::PrintJobAttribute;
 using $PrintRequestAttribute = ::javax::print::attribute::PrintRequestAttribute;
-using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
 using $Size2DSyntax = ::javax::print::attribute::Size2DSyntax;
 using $Chromaticity = ::javax::print::attribute::standard::Chromaticity;
 using $Copies = ::javax::print::attribute::standard::Copies;
@@ -261,98 +251,6 @@ using $SunPageSelection = ::sun::print::SunPageSelection;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _PrintJob2D_FieldInfo_[] = {
-	{"SIZES", "[Ljava/awt/PageAttributes$MediaType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, SIZES)},
-	{"JAVAXSIZES", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, JAVAXSIZES)},
-	{"WIDTHS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, WIDTHS)},
-	{"LENGTHS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LENGTHS)},
-	{"frame", "Ljava/awt/Frame;", nullptr, $PRIVATE, $field(PrintJob2D, frame)},
-	{"docTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintJob2D, docTitle)},
-	{"jobAttributes", "Ljava/awt/JobAttributes;", nullptr, $PRIVATE, $field(PrintJob2D, jobAttributes)},
-	{"pageAttributes", "Ljava/awt/PageAttributes;", nullptr, $PRIVATE, $field(PrintJob2D, pageAttributes)},
-	{"attributes", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(PrintJob2D, attributes)},
-	{"printerJob", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE, $field(PrintJob2D, printerJob)},
-	{"pageFormat", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(PrintJob2D, pageFormat)},
-	{"graphicsToBeDrawn", "Lsun/print/PrintJob2D$MessageQ;", nullptr, $PRIVATE, $field(PrintJob2D, graphicsToBeDrawn)},
-	{"graphicsDrawn", "Lsun/print/PrintJob2D$MessageQ;", nullptr, $PRIVATE, $field(PrintJob2D, graphicsDrawn)},
-	{"currentGraphics", "Ljava/awt/Graphics2D;", nullptr, $PRIVATE, $field(PrintJob2D, currentGraphics)},
-	{"pageIndex", "I", nullptr, $PRIVATE, $field(PrintJob2D, pageIndex)},
-	{"DEST_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, DEST_PROP)},
-	{"PRINTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PRINTER)},
-	{"FILE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, FILE)},
-	{"PRINTER_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PRINTER_PROP)},
-	{"FILENAME_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, FILENAME_PROP)},
-	{"NUMCOPIES_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, NUMCOPIES_PROP)},
-	{"OPTIONS_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, OPTIONS_PROP)},
-	{"ORIENT_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, ORIENT_PROP)},
-	{"PORTRAIT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PORTRAIT)},
-	{"LANDSCAPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LANDSCAPE)},
-	{"PAPERSIZE_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PAPERSIZE_PROP)},
-	{"LETTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LETTER)},
-	{"LEGAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LEGAL)},
-	{"EXECUTIVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, EXECUTIVE)},
-	{"A4", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, A4)},
-	{"props", "Ljava/util/Properties;", nullptr, $PRIVATE, $field(PrintJob2D, props)},
-	{"options", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintJob2D, options)},
-	{"printerJobThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(PrintJob2D, printerJobThread)},
-	{}
-};
-
-$MethodInfo _PrintJob2D_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(PrintJob2D, init$, void, $Frame*, $String*, $Properties*)},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)V", nullptr, $PUBLIC, $method(PrintJob2D, init$, void, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
-	{"copyAttributes", "(Ljavax/print/PrintService;)V", nullptr, $PRIVATE, $method(PrintJob2D, copyAttributes, void, $PrintService*)},
-	{"debugPrintAttributes", "(ZZ)V", nullptr, $PRIVATE, $method(PrintJob2D, debugPrintAttributes, void, bool, bool)},
-	{"end", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintJob2D, end, void)},
-	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, finalize, void)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, getGraphics, $Graphics*)},
-	{"getPageDimension", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, getPageDimension, $Dimension*)},
-	{"getPageResolution", "()I", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, getPageResolution, int32_t)},
-	{"getPageResolutionInternal", "()D", nullptr, $PRIVATE, $method(PrintJob2D, getPageResolutionInternal, double)},
-	{"getSize", "(Ljava/awt/PageAttributes$MediaType;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintJob2D, getSize, $ints*, $PageAttributes$MediaType*)},
-	{"initPrintJob2D", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)V", nullptr, $PRIVATE, $method(PrintJob2D, initPrintJob2D, void, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
-	{"lastPageFirst", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, lastPageFirst, bool)},
-	{"mapMedia", "(Ljava/awt/PageAttributes$MediaType;)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintJob2D, mapMedia, $MediaSizeName*, $PageAttributes$MediaType*)},
-	{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
-	{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, printDialog, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, run, void)},
-	{"startPrinterJobThread", "()V", nullptr, $PRIVATE, $method(PrintJob2D, startPrinterJobThread, void)},
-	{"throwPrintToFile", "()V", nullptr, $PRIVATE, $method(PrintJob2D, throwPrintToFile, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"translateInputProps", "()V", nullptr, $PRIVATE, $method(PrintJob2D, translateInputProps, void)},
-	{"translateOutputProps", "()V", nullptr, $PRIVATE, $method(PrintJob2D, translateOutputProps, void)},
-	{"unMapMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Ljava/awt/PageAttributes$MediaType;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintJob2D, unMapMedia, $PageAttributes$MediaType*, $MediaSizeName*)},
-	{"updateAttributes", "()V", nullptr, $PRIVATE, $method(PrintJob2D, updateAttributes, void)},
-	{}
-};
-
-$InnerClassInfo _PrintJob2D_InnerClassesInfo_[] = {
-	{"sun.print.PrintJob2D$MessageQ", "sun.print.PrintJob2D", "MessageQ", $PRIVATE},
-	{}
-};
-
-$ClassInfo _PrintJob2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PrintJob2D",
-	"java.awt.PrintJob",
-	"java.awt.print.Printable,java.lang.Runnable",
-	_PrintJob2D_FieldInfo_,
-	_PrintJob2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintJob2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.PrintJob2D$MessageQ"
-};
-
-$Object* allocate$PrintJob2D($Class* clazz) {
-	return $of($alloc(PrintJob2D));
-}
 
 int32_t PrintJob2D::hashCode() {
 	 return this->$PrintJob::hashCode();
@@ -415,13 +313,13 @@ void PrintJob2D::init$($Frame* frame, $String* doctitle, $JobAttributes* jobAttr
 }
 
 void PrintJob2D::initPrintJob2D($Frame* frame, $String* doctitle, $JobAttributes* jobAttributes, $PageAttributes* pageAttributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkPrintJobAccess();
 	}
 	$init($JobAttributes$DialogType);
-	if (frame == nullptr && (jobAttributes == nullptr || $nc(jobAttributes)->getDialog() == $JobAttributes$DialogType::NATIVE)) {
+	if (frame == nullptr && (jobAttributes == nullptr || jobAttributes->getDialog() == $JobAttributes$DialogType::NATIVE)) {
 		$throwNew($NullPointerException, "Frame must not be null"_s);
 	}
 	$set(this, frame, frame);
@@ -438,7 +336,7 @@ void PrintJob2D::initPrintJob2D($Frame* frame, $String* doctitle, $JobAttributes
 	$nc(this->jobAttributes)->setToPage(last);
 	$nc(this->jobAttributes)->setFromPage(first);
 	$var($ints, res, $nc(this->pageAttributes)->getPrinterResolution());
-	if ($nc(res)->get(0) != res->get(1)) {
+	if ($nc(res)->get(0) != $nc(res)->get(1)) {
 		$throwNew($IllegalArgumentException, "Differing cross feed and feed resolutions not supported."_s);
 	}
 	$var($JobAttributes$DestinationType, dest, $nc(this->jobAttributes)->getDestination());
@@ -460,20 +358,20 @@ void PrintJob2D::initPrintJob2D($Frame* frame, $String* doctitle, $JobAttributes
 			bool var$1 = f->exists();
 			if (var$1) {
 				bool var$2 = !f->isFile();
-				var$1 = (var$2 || !f->canWrite());
+				var$1 = var$2 || !f->canWrite();
 			}
-			bool var$0 = (var$1);
+			bool var$0 = var$1;
 			if (!var$0) {
-				bool var$3 = (pFile != nullptr);
+				bool var$3 = pFile != nullptr;
 				if (var$3) {
 					bool var$4 = !pFile->exists();
 					if (!var$4) {
-						bool var$5 = $nc(pFile)->exists();
-						var$4 = (var$5 && !pFile->canWrite());
+						bool var$5 = pFile->exists();
+						var$4 = var$5 && !pFile->canWrite();
 					}
-					var$3 = (var$4);
+					var$3 = var$4;
 				}
-				var$0 = (var$3);
+				var$0 = var$3;
 			}
 			if (var$0) {
 				$throwNew($IllegalArgumentException, $$str({"Cannot write to file:"_s, destStr}));
@@ -483,7 +381,7 @@ void PrintJob2D::initPrintJob2D($Frame* frame, $String* doctitle, $JobAttributes
 }
 
 bool PrintJob2D::printDialog() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool proceedWithPrint = false;
 	$set(this, printerJob, $PrinterJob::getPrinterJob());
 	if (this->printerJob == nullptr) {
@@ -501,17 +399,15 @@ bool PrintJob2D::printDialog() {
 	if (select == $JobAttributes$DefaultSelectionType::RANGE) {
 		$init($SunPageSelection);
 		$nc(this->attributes)->add($SunPageSelection::RANGE);
+	} else if (select == $JobAttributes$DefaultSelectionType::SELECTION) {
+		$init($SunPageSelection);
+		$nc(this->attributes)->add($SunPageSelection::SELECTION);
 	} else {
-		if (select == $JobAttributes$DefaultSelectionType::SELECTION) {
-			$init($SunPageSelection);
-			$nc(this->attributes)->add($SunPageSelection::SELECTION);
-		} else {
-			$init($SunPageSelection);
-			$nc(this->attributes)->add($SunPageSelection::ALL);
-		}
+		$init($SunPageSelection);
+		$nc(this->attributes)->add($SunPageSelection::ALL);
 	}
 	if (this->frame != nullptr) {
-		$nc(this->attributes)->add($$new($DialogOwner, static_cast<$Window*>(this->frame)));
+		$nc(this->attributes)->add($$new($DialogOwner, this->frame));
 	}
 	if (d == $JobAttributes$DialogType::NONE) {
 		proceedWithPrint = true;
@@ -554,10 +450,10 @@ bool PrintJob2D::printDialog() {
 		}
 		$init($PageAttributes$OriginType);
 		if ($nc(this->pageAttributes)->getOrigin() == $PageAttributes$OriginType::PRINTABLE) {
-			double var$1 = p->getWidth() - 36.0;
+			double var$1 = $nc(p)->getWidth() - 36.0;
 			$nc(p)->setImageableArea(18.0, 18.0, var$1, p->getHeight() - 36.0);
 		} else {
-			double var$2 = p->getWidth();
+			double var$2 = $nc(p)->getWidth();
 			$nc(p)->setImageableArea(0.0, 0.0, var$2, p->getHeight());
 		}
 		$nc(this->pageFormat)->setPaper(p);
@@ -566,12 +462,10 @@ bool PrintJob2D::printDialog() {
 		$init($OrientationRequested);
 		if (orient != nullptr && orient == $OrientationRequested::REVERSE_LANDSCAPE) {
 			$nc(this->pageFormat)->setOrientation($PageFormat::REVERSE_LANDSCAPE);
+		} else if (orient == $OrientationRequested::LANDSCAPE) {
+			$nc(this->pageFormat)->setOrientation($PageFormat::LANDSCAPE);
 		} else {
-			if (orient == $OrientationRequested::LANDSCAPE) {
-				$nc(this->pageFormat)->setOrientation($PageFormat::LANDSCAPE);
-			} else {
-				$nc(this->pageFormat)->setOrientation($PageFormat::PORTRAIT);
-			}
+			$nc(this->pageFormat)->setOrientation($PageFormat::PORTRAIT);
 		}
 		$load($PageRanges);
 		$var($PageRanges, pageRangesAttr, $cast($PageRanges, $nc(this->attributes)->get($PageRanges::class$)));
@@ -595,7 +489,7 @@ bool PrintJob2D::printDialog() {
 }
 
 void PrintJob2D::updateAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Copies);
 	$var($Copies, c, $cast($Copies, $nc(this->attributes)->get($Copies::class$)));
 	$nc(this->jobAttributes)->setCopies($nc(c)->getValue());
@@ -605,21 +499,19 @@ void PrintJob2D::updateAttributes() {
 	if (sel == $SunPageSelection::RANGE) {
 		$init($JobAttributes$DefaultSelectionType);
 		$nc(this->jobAttributes)->setDefaultSelection($JobAttributes$DefaultSelectionType::RANGE);
+	} else if (sel == $SunPageSelection::SELECTION) {
+		$init($JobAttributes$DefaultSelectionType);
+		$nc(this->jobAttributes)->setDefaultSelection($JobAttributes$DefaultSelectionType::SELECTION);
 	} else {
-		if (sel == $SunPageSelection::SELECTION) {
-			$init($JobAttributes$DefaultSelectionType);
-			$nc(this->jobAttributes)->setDefaultSelection($JobAttributes$DefaultSelectionType::SELECTION);
-		} else {
-			$init($JobAttributes$DefaultSelectionType);
-			$nc(this->jobAttributes)->setDefaultSelection($JobAttributes$DefaultSelectionType::ALL);
-		}
+		$init($JobAttributes$DefaultSelectionType);
+		$nc(this->jobAttributes)->setDefaultSelection($JobAttributes$DefaultSelectionType::ALL);
 	}
 	$load($Destination);
 	$var($Destination, dest, $cast($Destination, $nc(this->attributes)->get($Destination::class$)));
 	if (dest != nullptr) {
 		$init($JobAttributes$DestinationType);
 		$nc(this->jobAttributes)->setDestination($JobAttributes$DestinationType::FILE);
-		$nc(this->jobAttributes)->setFileName($($nc($(dest->getURI()))->getPath()));
+		$nc(this->jobAttributes)->setFileName($($$nc(dest->getURI())->getPath()));
 	} else {
 		$init($JobAttributes$DestinationType);
 		$nc(this->jobAttributes)->setDestination($JobAttributes$DestinationType::PRINTER);
@@ -648,14 +540,12 @@ void PrintJob2D::updateAttributes() {
 	if (sides == $Sides::TWO_SIDED_LONG_EDGE) {
 		$init($JobAttributes$SidesType);
 		$nc(this->jobAttributes)->setSides($JobAttributes$SidesType::TWO_SIDED_LONG_EDGE);
+	} else if (sides == $Sides::TWO_SIDED_SHORT_EDGE) {
+		$init($JobAttributes$SidesType);
+		$nc(this->jobAttributes)->setSides($JobAttributes$SidesType::TWO_SIDED_SHORT_EDGE);
 	} else {
-		if (sides == $Sides::TWO_SIDED_SHORT_EDGE) {
-			$init($JobAttributes$SidesType);
-			$nc(this->jobAttributes)->setSides($JobAttributes$SidesType::TWO_SIDED_SHORT_EDGE);
-		} else {
-			$init($JobAttributes$SidesType);
-			$nc(this->jobAttributes)->setSides($JobAttributes$SidesType::ONE_SIDED);
-		}
+		$init($JobAttributes$SidesType);
+		$nc(this->jobAttributes)->setSides($JobAttributes$SidesType::ONE_SIDED);
 	}
 	$load($Chromaticity);
 	$var($Chromaticity, color, $cast($Chromaticity, $nc(this->attributes)->get($Chromaticity::class$)));
@@ -683,14 +573,12 @@ void PrintJob2D::updateAttributes() {
 	if (qual == $PrintQuality::DRAFT) {
 		$init($PageAttributes$PrintQualityType);
 		$nc(this->pageAttributes)->setPrintQuality($PageAttributes$PrintQualityType::DRAFT);
+	} else if (qual == $PrintQuality::HIGH) {
+		$init($PageAttributes$PrintQualityType);
+		$nc(this->pageAttributes)->setPrintQuality($PageAttributes$PrintQualityType::HIGH);
 	} else {
-		if (qual == $PrintQuality::HIGH) {
-			$init($PageAttributes$PrintQualityType);
-			$nc(this->pageAttributes)->setPrintQuality($PageAttributes$PrintQualityType::HIGH);
-		} else {
-			$init($PageAttributes$PrintQualityType);
-			$nc(this->pageAttributes)->setPrintQuality($PageAttributes$PrintQualityType::NORMAL);
-		}
+		$init($PageAttributes$PrintQualityType);
+		$nc(this->pageAttributes)->setPrintQuality($PageAttributes$PrintQualityType::NORMAL);
 	}
 	$load($Media);
 	$var($Media, msn, $cast($Media, $nc(this->attributes)->get($Media::class$)));
@@ -704,39 +592,47 @@ void PrintJob2D::updateAttributes() {
 }
 
 void PrintJob2D::debugPrintAttributes(bool ja, bool pa) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ja) {
-		$var($String, var$14, $$str({"new Attributes\ncopies = "_s, $$str($nc(this->jobAttributes)->getCopies()), "\nselection = "_s}));
-		$var($String, var$13, $$concat(var$14, $($nc(this->jobAttributes)->getDefaultSelection())));
-		$var($String, var$12, $$concat(var$13, "\ndest "_s));
-		$var($String, var$11, $$concat(var$12, $($nc(this->jobAttributes)->getDestination())));
-		$var($String, var$10, $$concat(var$11, "\nfile "_s));
-		$var($String, var$9, $$concat(var$10, $($nc(this->jobAttributes)->getFileName())));
-		$var($String, var$8, $$concat(var$9, "\nfromPage "_s));
-		$var($String, var$7, $$concat(var$8, $$str($nc(this->jobAttributes)->getFromPage())));
-		$var($String, var$6, $$concat(var$7, "\ntoPage "_s));
-		$var($String, var$5, $$concat(var$6, $$str($nc(this->jobAttributes)->getToPage())));
-		$var($String, var$4, $$concat(var$5, "\ncollation "_s));
-		$var($String, var$3, $$concat(var$4, $($nc(this->jobAttributes)->getMultipleDocumentHandling())));
-		$var($String, var$2, $$concat(var$3, "\nPrinter "_s));
-		$var($String, var$1, $$concat(var$2, $($nc(this->jobAttributes)->getPrinter())));
-		$var($String, var$0, $$concat(var$1, "\nSides2 "_s));
-		$nc($System::out)->println($$concat(var$0, $($nc(this->jobAttributes)->getSides())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("new Attributes\ncopies = "_s);
+		var$0->append($nc(this->jobAttributes)->getCopies());
+		var$0->append("\nselection = "_s);
+		var$0->append($(this->jobAttributes->getDefaultSelection()));
+		var$0->append("\ndest "_s);
+		var$0->append($(this->jobAttributes->getDestination()));
+		var$0->append("\nfile "_s);
+		var$0->append($(this->jobAttributes->getFileName()));
+		var$0->append("\nfromPage "_s);
+		var$0->append(this->jobAttributes->getFromPage());
+		var$0->append("\ntoPage "_s);
+		var$0->append(this->jobAttributes->getToPage());
+		var$0->append("\ncollation "_s);
+		var$0->append($(this->jobAttributes->getMultipleDocumentHandling()));
+		var$0->append("\nPrinter "_s);
+		var$0->append($(this->jobAttributes->getPrinter()));
+		var$0->append("\nSides2 "_s);
+		var$0->append($(this->jobAttributes->getSides()));
+		$nc($System::out)->println($$str(var$0));
 	}
 	if (pa) {
-		$var($String, var$19, $$str({"new Attributes\ncolor = "_s, $($nc(this->pageAttributes)->getColor()), "\norientation = "_s}));
-		$var($String, var$18, $$concat(var$19, $($nc(this->pageAttributes)->getOrientationRequested())));
-		$var($String, var$17, $$concat(var$18, "\nquality "_s));
-		$var($String, var$16, $$concat(var$17, $($nc(this->pageAttributes)->getPrintQuality())));
-		$var($String, var$15, $$concat(var$16, "\nMedia2 "_s));
-		$nc($System::out)->println($$concat(var$15, $($nc(this->pageAttributes)->getMedia())));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("new Attributes\ncolor = "_s);
+		var$1->append($($nc(this->pageAttributes)->getColor()));
+		var$1->append("\norientation = "_s);
+		var$1->append($(this->pageAttributes->getOrientationRequested()));
+		var$1->append("\nquality "_s);
+		var$1->append($(this->pageAttributes->getPrintQuality()));
+		var$1->append("\nMedia2 "_s);
+		var$1->append($(this->pageAttributes->getMedia()));
+		$nc($System::out)->println($$str(var$1));
 	}
 }
 
 void PrintJob2D::copyAttributes($PrintService* printServ) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, attributes, $new($HashPrintRequestAttributeSet));
-	$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($JobName, this->docTitle, nullptr))));
+	this->attributes->add($$cast($PrintRequestAttribute, $new($JobName, this->docTitle, nullptr)));
 	$var($PrintService, pServ, printServ);
 	$var($String, printerName, $nc(this->jobAttributes)->getPrinter());
 	if (printerName != nullptr && printerName != ""_s && pServ != nullptr && !printerName->equals($(pServ->getName()))) {
@@ -759,7 +655,7 @@ void PrintJob2D::copyAttributes($PrintService* printServ) {
 		$var($String, fileName, $nc(this->jobAttributes)->getFileName());
 		$var($Destination, defaultDest, nullptr);
 		if (fileName == nullptr && ($assign(defaultDest, $cast($Destination, pServ->getDefaultAttributeValue($Destination::class$)))) != nullptr) {
-			$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>(defaultDest)));
+			$nc(this->attributes)->add($cast($PrintJobAttribute, defaultDest));
 		} else {
 			$var($URI, uri, nullptr);
 			try {
@@ -779,84 +675,76 @@ void PrintJob2D::copyAttributes($PrintService* printServ) {
 				}
 			}
 			if (uri != nullptr) {
-				$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>($$new($Destination, uri))));
+				$nc(this->attributes)->add($$cast($PrintJobAttribute, $new($Destination, uri)));
 			}
 		}
 	}
 	int32_t var$0 = $nc(this->jobAttributes)->getMinPage();
-	$nc(this->attributes)->add($$new($SunMinMaxPage, var$0, $nc(this->jobAttributes)->getMaxPage()));
+	$nc(this->attributes)->add($$new($SunMinMaxPage, var$0, this->jobAttributes->getMaxPage()));
 	$var($JobAttributes$SidesType, sType, $nc(this->jobAttributes)->getSides());
 	$init($JobAttributes$SidesType);
 	if (sType == $JobAttributes$SidesType::TWO_SIDED_LONG_EDGE) {
 		$init($Sides);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($Sides::TWO_SIDED_LONG_EDGE)));
-	} else {
-		if (sType == $JobAttributes$SidesType::TWO_SIDED_SHORT_EDGE) {
-			$init($Sides);
-			$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($Sides::TWO_SIDED_SHORT_EDGE)));
-		} else {
-			if (sType == $JobAttributes$SidesType::ONE_SIDED) {
-				$init($Sides);
-				$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($Sides::ONE_SIDED)));
-			}
-		}
+		$nc(this->attributes)->add($cast($DocAttribute, $Sides::TWO_SIDED_LONG_EDGE));
+	} else if (sType == $JobAttributes$SidesType::TWO_SIDED_SHORT_EDGE) {
+		$init($Sides);
+		$nc(this->attributes)->add($cast($DocAttribute, $Sides::TWO_SIDED_SHORT_EDGE));
+	} else if (sType == $JobAttributes$SidesType::ONE_SIDED) {
+		$init($Sides);
+		$nc(this->attributes)->add($cast($DocAttribute, $Sides::ONE_SIDED));
 	}
 	$var($JobAttributes$MultipleDocumentHandlingType, hType, $nc(this->jobAttributes)->getMultipleDocumentHandling());
 	$init($JobAttributes$MultipleDocumentHandlingType);
 	if (hType == $JobAttributes$MultipleDocumentHandlingType::SEPARATE_DOCUMENTS_COLLATED_COPIES) {
 		$init($SheetCollate);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($SheetCollate::COLLATED)));
+		$nc(this->attributes)->add($cast($DocAttribute, $SheetCollate::COLLATED));
 	} else {
 		$init($SheetCollate);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($SheetCollate::UNCOLLATED)));
+		$nc(this->attributes)->add($cast($DocAttribute, $SheetCollate::UNCOLLATED));
 	}
-	$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($Copies, $nc(this->jobAttributes)->getCopies()))));
+	$nc(this->attributes)->add($$cast($PrintRequestAttribute, $new($Copies, $nc(this->jobAttributes)->getCopies())));
 	int32_t var$1 = $nc(this->jobAttributes)->getFromPage();
-	$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($$new($PageRanges, var$1, $nc(this->jobAttributes)->getToPage()))));
+	$nc(this->attributes)->add($$cast($DocAttribute, $new($PageRanges, var$1, this->jobAttributes->getToPage())));
 	$init($PageAttributes$ColorType);
 	if ($nc(this->pageAttributes)->getColor() == $PageAttributes$ColorType::COLOR) {
 		$init($Chromaticity);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($Chromaticity::COLOR)));
+		$nc(this->attributes)->add($cast($DocAttribute, $Chromaticity::COLOR));
 	} else {
 		$init($Chromaticity);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($Chromaticity::MONOCHROME)));
+		$nc(this->attributes)->add($cast($DocAttribute, $Chromaticity::MONOCHROME));
 	}
 	$set(this, pageFormat, $nc(this->printerJob)->defaultPage());
 	$init($PageAttributes$OrientationRequestedType);
 	if ($nc(this->pageAttributes)->getOrientationRequested() == $PageAttributes$OrientationRequestedType::LANDSCAPE) {
 		$nc(this->pageFormat)->setOrientation($PageFormat::LANDSCAPE);
 		$init($OrientationRequested);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($OrientationRequested::LANDSCAPE)));
+		$nc(this->attributes)->add($cast($DocAttribute, $OrientationRequested::LANDSCAPE));
 	} else {
 		$nc(this->pageFormat)->setOrientation($PageFormat::PORTRAIT);
 		$init($OrientationRequested);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($OrientationRequested::PORTRAIT)));
+		$nc(this->attributes)->add($cast($DocAttribute, $OrientationRequested::PORTRAIT));
 	}
 	$var($PageAttributes$MediaType, media, $nc(this->pageAttributes)->getMedia());
 	$var($MediaSizeName, msn, mapMedia(media));
 	if (msn != nullptr) {
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(static_cast<$Media*>(msn))));
+		$nc(this->attributes)->add($cast($DocAttribute, msn));
 	}
 	$var($PageAttributes$PrintQualityType, qType, $nc(this->pageAttributes)->getPrintQuality());
 	$init($PageAttributes$PrintQualityType);
 	if (qType == $PageAttributes$PrintQualityType::DRAFT) {
 		$init($PrintQuality);
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($PrintQuality::DRAFT)));
-	} else {
-		if (qType == $PageAttributes$PrintQualityType::NORMAL) {
-			$init($PrintQuality);
-			$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($PrintQuality::NORMAL)));
-		} else {
-			if (qType == $PageAttributes$PrintQualityType::HIGH) {
-				$init($PrintQuality);
-				$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($PrintQuality::HIGH)));
-			}
-		}
+		$nc(this->attributes)->add($cast($DocAttribute, $PrintQuality::DRAFT));
+	} else if (qType == $PageAttributes$PrintQualityType::NORMAL) {
+		$init($PrintQuality);
+		$nc(this->attributes)->add($cast($DocAttribute, $PrintQuality::NORMAL));
+	} else if (qType == $PageAttributes$PrintQualityType::HIGH) {
+		$init($PrintQuality);
+		$nc(this->attributes)->add($cast($DocAttribute, $PrintQuality::HIGH));
 	}
 }
 
 $Graphics* PrintJob2D::getGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics, printGraphics, nullptr);
 	$synchronized(this) {
 		++this->pageIndex;
@@ -871,13 +759,13 @@ $Graphics* PrintJob2D::getGraphics() {
 	}
 	$set(this, currentGraphics, $nc(this->graphicsToBeDrawn)->pop());
 	if ($instanceOf($PeekGraphics, this->currentGraphics)) {
-		$nc(($cast($PeekGraphics, this->currentGraphics)))->setAWTDrawingOnly();
+		$cast($PeekGraphics, this->currentGraphics)->setAWTDrawingOnly();
 		$nc(this->graphicsDrawn)->append(this->currentGraphics);
 		$set(this, currentGraphics, $nc(this->graphicsToBeDrawn)->pop());
 	}
 	if (this->currentGraphics != nullptr) {
 		double var$0 = $nc(this->pageFormat)->getImageableX();
-		$nc(this->currentGraphics)->translate(var$0, $nc(this->pageFormat)->getImageableY());
+		this->currentGraphics->translate(var$0, this->pageFormat->getImageableY());
 		double awtScale = 72.0 / getPageResolutionInternal();
 		$nc(this->currentGraphics)->scale(awtScale, awtScale);
 		$assign(printGraphics, $new($ProxyPrintGraphics, $($nc(this->currentGraphics)->create()), this));
@@ -890,7 +778,7 @@ $Dimension* PrintJob2D::getPageDimension() {
 	double hgt = 0.0;
 	double scale = 0.0;
 	$init($PageAttributes$OriginType);
-	if (this->pageAttributes != nullptr && $nc(this->pageAttributes)->getOrigin() == $PageAttributes$OriginType::PRINTABLE) {
+	if (this->pageAttributes != nullptr && this->pageAttributes->getOrigin() == $PageAttributes$OriginType::PRINTABLE) {
 		wid = $nc(this->pageFormat)->getImageableWidth();
 		hgt = $nc(this->pageFormat)->getImageableHeight();
 	} else {
@@ -903,7 +791,7 @@ $Dimension* PrintJob2D::getPageDimension() {
 
 double PrintJob2D::getPageResolutionInternal() {
 	if (this->pageAttributes != nullptr) {
-		$var($ints, res, $nc(this->pageAttributes)->getPrinterResolution());
+		$var($ints, res, this->pageAttributes->getPrinterResolution());
 		if ($nc(res)->get(2) == 3) {
 			return (double)res->get(0);
 		} else {
@@ -929,9 +817,9 @@ void PrintJob2D::end() {
 			$nc(this->graphicsDrawn)->append(this->currentGraphics);
 		}
 		$nc(this->graphicsDrawn)->closeWhenEmpty();
-		if (this->printerJobThread != nullptr && $nc(this->printerJobThread)->isAlive()) {
+		if (this->printerJobThread != nullptr && this->printerJobThread->isAlive()) {
 			try {
-				$nc(this->printerJobThread)->join();
+				this->printerJobThread->join();
 			} catch ($InterruptedException& e) {
 			}
 		}
@@ -955,7 +843,7 @@ int32_t PrintJob2D::print($Graphics* graphics, $PageFormat* pageFormat, int32_t 
 
 void PrintJob2D::startPrinterJobThread() {
 	$set(this, printerJobThread, $new($Thread, nullptr, this, "printerJobThread"_s, 0, false));
-	$nc(this->printerJobThread)->start();
+	this->printerJobThread->start();
 }
 
 void PrintJob2D::run() {
@@ -974,10 +862,10 @@ $ints* PrintJob2D::getSize($PageAttributes$MediaType* mType) {
 	$var($ints, dim, $new($ints, 2));
 	dim->set(0, 612);
 	dim->set(1, 792);
-	for (int32_t i = 0; i < $nc(PrintJob2D::SIZES)->length; ++i) {
-		if ($nc(PrintJob2D::SIZES)->get(i) == mType) {
-			dim->set(0, $nc(PrintJob2D::WIDTHS)->get(i));
-			dim->set(1, $nc(PrintJob2D::LENGTHS)->get(i));
+	for (int32_t i = 0; i < PrintJob2D::SIZES->length; ++i) {
+		if (PrintJob2D::SIZES->get(i) == mType) {
+			dim->set(0, PrintJob2D::WIDTHS->get(i));
+			dim->set(1, PrintJob2D::LENGTHS->get(i));
 			break;
 		}
 	}
@@ -986,18 +874,18 @@ $ints* PrintJob2D::getSize($PageAttributes$MediaType* mType) {
 
 $MediaSizeName* PrintJob2D::mapMedia($PageAttributes$MediaType* mType) {
 	$init(PrintJob2D);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MediaSizeName, media, nullptr);
-	int32_t length = $Math::min($nc(PrintJob2D::SIZES)->length, $nc(PrintJob2D::JAVAXSIZES)->length);
+	int32_t length = $Math::min(PrintJob2D::SIZES->length, PrintJob2D::JAVAXSIZES->length);
 	for (int32_t i = 0; i < length; ++i) {
-		if ($nc(PrintJob2D::SIZES)->get(i) == mType) {
-			if (($nc(PrintJob2D::JAVAXSIZES)->get(i) != nullptr) && $MediaSize::getMediaSizeForName($nc(PrintJob2D::JAVAXSIZES)->get(i)) != nullptr) {
-				$assign(media, $nc(PrintJob2D::JAVAXSIZES)->get(i));
+		if (PrintJob2D::SIZES->get(i) == mType) {
+			if ((PrintJob2D::JAVAXSIZES->get(i) != nullptr) && $MediaSize::getMediaSizeForName(PrintJob2D::JAVAXSIZES->get(i)) != nullptr) {
+				$assign(media, PrintJob2D::JAVAXSIZES->get(i));
 				break;
 			} else {
-				$assign(media, $new($CustomMediaSizeName, $($nc($nc(PrintJob2D::SIZES)->get(i))->toString())));
-				float w = (float)$Math::rint($nc(PrintJob2D::WIDTHS)->get(i) / 72.0);
-				float h = (float)$Math::rint($nc(PrintJob2D::LENGTHS)->get(i) / 72.0);
+				$assign(media, $new($CustomMediaSizeName, $($nc(PrintJob2D::SIZES->get(i))->toString())));
+				float w = (float)$Math::rint(PrintJob2D::WIDTHS->get(i) / 72.0);
+				float h = (float)$Math::rint(PrintJob2D::LENGTHS->get(i) / 72.0);
 				if (w > 0.0 && h > 0.0) {
 					$new($MediaSize, w, h, $Size2DSyntax::INCH, media);
 				}
@@ -1011,11 +899,11 @@ $MediaSizeName* PrintJob2D::mapMedia($PageAttributes$MediaType* mType) {
 $PageAttributes$MediaType* PrintJob2D::unMapMedia($MediaSizeName* mSize) {
 	$init(PrintJob2D);
 	$var($PageAttributes$MediaType, media, nullptr);
-	int32_t length = $Math::min($nc(PrintJob2D::SIZES)->length, $nc(PrintJob2D::JAVAXSIZES)->length);
+	int32_t length = $Math::min(PrintJob2D::SIZES->length, PrintJob2D::JAVAXSIZES->length);
 	for (int32_t i = 0; i < length; ++i) {
-		if ($nc(PrintJob2D::JAVAXSIZES)->get(i) == mSize) {
-			if ($nc(PrintJob2D::SIZES)->get(i) != nullptr) {
-				$assign(media, $nc(PrintJob2D::SIZES)->get(i));
+		if (PrintJob2D::JAVAXSIZES->get(i) == mSize) {
+			if (PrintJob2D::SIZES->get(i) != nullptr) {
+				$assign(media, PrintJob2D::SIZES->get(i));
 				break;
 			}
 		}
@@ -1051,7 +939,7 @@ void PrintJob2D::translateInputProps() {
 		$nc(this->jobAttributes)->setCopies($Integer::parseInt(str));
 	}
 	$set(this, options, $nc(this->props)->getProperty(PrintJob2D::OPTIONS_PROP, ""_s));
-	$assign(str, $nc(this->props)->getProperty(PrintJob2D::ORIENT_PROP));
+	$assign(str, this->props->getProperty(PrintJob2D::ORIENT_PROP));
 	if (str != nullptr) {
 		if (str->equals(PrintJob2D::PORTRAIT)) {
 			$init($PageAttributes$OrientationRequestedType);
@@ -1065,22 +953,22 @@ void PrintJob2D::translateInputProps() {
 	if (str != nullptr) {
 		if (str->equals(PrintJob2D::LETTER)) {
 			$init($PageAttributes$MediaType);
-			$nc(this->pageAttributes)->setMedia($nc(PrintJob2D::SIZES)->get($nc($PageAttributes$MediaType::LETTER)->hashCode()));
+			$nc(this->pageAttributes)->setMedia(PrintJob2D::SIZES->get($nc($PageAttributes$MediaType::LETTER)->hashCode()));
 		} else if (str->equals(PrintJob2D::LEGAL)) {
 			$init($PageAttributes$MediaType);
-			$nc(this->pageAttributes)->setMedia($nc(PrintJob2D::SIZES)->get($nc($PageAttributes$MediaType::LEGAL)->hashCode()));
+			$nc(this->pageAttributes)->setMedia(PrintJob2D::SIZES->get($nc($PageAttributes$MediaType::LEGAL)->hashCode()));
 		} else if (str->equals(PrintJob2D::EXECUTIVE)) {
 			$init($PageAttributes$MediaType);
-			$nc(this->pageAttributes)->setMedia($nc(PrintJob2D::SIZES)->get($nc($PageAttributes$MediaType::EXECUTIVE)->hashCode()));
+			$nc(this->pageAttributes)->setMedia(PrintJob2D::SIZES->get($nc($PageAttributes$MediaType::EXECUTIVE)->hashCode()));
 		} else if (str->equals(PrintJob2D::A4)) {
 			$init($PageAttributes$MediaType);
-			$nc(this->pageAttributes)->setMedia($nc(PrintJob2D::SIZES)->get($nc($PageAttributes$MediaType::A4)->hashCode()));
+			$nc(this->pageAttributes)->setMedia(PrintJob2D::SIZES->get($nc($PageAttributes$MediaType::A4)->hashCode()));
 		}
 	}
 }
 
 void PrintJob2D::translateOutputProps() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->props == nullptr) {
 		return;
 	}
@@ -1105,29 +993,23 @@ void PrintJob2D::translateOutputProps() {
 	}
 	$init($PageAttributes$OrientationRequestedType);
 	$nc(this->props)->setProperty(PrintJob2D::ORIENT_PROP, ($nc(this->pageAttributes)->getOrientationRequested() == $PageAttributes$OrientationRequestedType::PORTRAIT) ? PrintJob2D::PORTRAIT : PrintJob2D::LANDSCAPE);
-	$var($PageAttributes$MediaType, media, $nc(PrintJob2D::SIZES)->get($nc($($nc(this->pageAttributes)->getMedia()))->hashCode()));
+	$var($PageAttributes$MediaType, media, PrintJob2D::SIZES->get($$nc($nc(this->pageAttributes)->getMedia())->hashCode()));
 	if (media == $PageAttributes$MediaType::LETTER) {
 		$assign(str, PrintJob2D::LETTER);
+	} else if (media == $PageAttributes$MediaType::LEGAL) {
+		$assign(str, PrintJob2D::LEGAL);
+	} else if (media == $PageAttributes$MediaType::EXECUTIVE) {
+		$assign(str, PrintJob2D::EXECUTIVE);
+	} else if (media == $PageAttributes$MediaType::A4) {
+		$assign(str, PrintJob2D::A4);
 	} else {
-		if (media == $PageAttributes$MediaType::LEGAL) {
-			$assign(str, PrintJob2D::LEGAL);
-		} else {
-			if (media == $PageAttributes$MediaType::EXECUTIVE) {
-				$assign(str, PrintJob2D::EXECUTIVE);
-			} else {
-				if (media == $PageAttributes$MediaType::A4) {
-					$assign(str, PrintJob2D::A4);
-				} else {
-					$assign(str, $nc(media)->toString());
-				}
-			}
-		}
+		$assign(str, $nc(media)->toString());
 	}
 	$nc(this->props)->setProperty(PrintJob2D::PAPERSIZE_PROP, str);
 }
 
 void PrintJob2D::throwPrintToFile() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	$var($FilePermission, printToFilePermission, nullptr);
 	if (security != nullptr) {
@@ -1138,7 +1020,7 @@ void PrintJob2D::throwPrintToFile() {
 	}
 }
 
-void clinit$PrintJob2D($Class* class$) {
+void PrintJob2D::clinit$($Class* clazz) {
 	$assignStatic(PrintJob2D::DEST_PROP, "awt.print.destination"_s);
 	$assignStatic(PrintJob2D::PRINTER, "printer"_s);
 	$assignStatic(PrintJob2D::FILE, "file"_s);
@@ -1234,8 +1116,8 @@ void clinit$PrintJob2D($Class* class$) {
 	}));
 	$init($MediaSizeName);
 	$assignStatic(PrintJob2D::JAVAXSIZES, $new($MediaSizeNameArray, {
-		($MediaSizeName*)nullptr,
-		($MediaSizeName*)nullptr,
+		nullptr,
+		nullptr,
 		$MediaSizeName::ISO_A0,
 		$MediaSizeName::ISO_A1,
 		$MediaSizeName::ISO_A2,
@@ -1276,10 +1158,10 @@ void clinit$PrintJob2D($Class* class$) {
 		$MediaSizeName::ISO_C4,
 		$MediaSizeName::ISO_C5,
 		$MediaSizeName::ISO_C6,
-		($MediaSizeName*)nullptr,
-		($MediaSizeName*)nullptr,
-		($MediaSizeName*)nullptr,
-		($MediaSizeName*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		$MediaSizeName::ISO_DESIGNATED_LONG,
 		$MediaSizeName::EXECUTIVE,
 		$MediaSizeName::FOLIO,
@@ -1305,7 +1187,7 @@ void clinit$PrintJob2D($Class* class$) {
 		$MediaSizeName::NA_NUMBER_11_ENVELOPE,
 		$MediaSizeName::NA_NUMBER_12_ENVELOPE,
 		$MediaSizeName::NA_NUMBER_14_ENVELOPE,
-		($MediaSizeName*)nullptr,
+		nullptr,
 		$MediaSizeName::ITALY_ENVELOPE,
 		$MediaSizeName::MONARCH_ENVELOPE,
 		$MediaSizeName::PERSONAL_ENVELOPE
@@ -1470,7 +1352,93 @@ PrintJob2D::PrintJob2D() {
 }
 
 $Class* PrintJob2D::load$($String* name, bool initialize) {
-	$loadClass(PrintJob2D, name, initialize, &_PrintJob2D_ClassInfo_, clinit$PrintJob2D, allocate$PrintJob2D);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIZES", "[Ljava/awt/PageAttributes$MediaType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, SIZES)},
+		{"JAVAXSIZES", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, JAVAXSIZES)},
+		{"WIDTHS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, WIDTHS)},
+		{"LENGTHS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LENGTHS)},
+		{"frame", "Ljava/awt/Frame;", nullptr, $PRIVATE, $field(PrintJob2D, frame)},
+		{"docTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintJob2D, docTitle)},
+		{"jobAttributes", "Ljava/awt/JobAttributes;", nullptr, $PRIVATE, $field(PrintJob2D, jobAttributes)},
+		{"pageAttributes", "Ljava/awt/PageAttributes;", nullptr, $PRIVATE, $field(PrintJob2D, pageAttributes)},
+		{"attributes", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(PrintJob2D, attributes)},
+		{"printerJob", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE, $field(PrintJob2D, printerJob)},
+		{"pageFormat", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(PrintJob2D, pageFormat)},
+		{"graphicsToBeDrawn", "Lsun/print/PrintJob2D$MessageQ;", nullptr, $PRIVATE, $field(PrintJob2D, graphicsToBeDrawn)},
+		{"graphicsDrawn", "Lsun/print/PrintJob2D$MessageQ;", nullptr, $PRIVATE, $field(PrintJob2D, graphicsDrawn)},
+		{"currentGraphics", "Ljava/awt/Graphics2D;", nullptr, $PRIVATE, $field(PrintJob2D, currentGraphics)},
+		{"pageIndex", "I", nullptr, $PRIVATE, $field(PrintJob2D, pageIndex)},
+		{"DEST_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, DEST_PROP)},
+		{"PRINTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PRINTER)},
+		{"FILE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, FILE)},
+		{"PRINTER_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PRINTER_PROP)},
+		{"FILENAME_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, FILENAME_PROP)},
+		{"NUMCOPIES_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, NUMCOPIES_PROP)},
+		{"OPTIONS_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, OPTIONS_PROP)},
+		{"ORIENT_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, ORIENT_PROP)},
+		{"PORTRAIT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PORTRAIT)},
+		{"LANDSCAPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LANDSCAPE)},
+		{"PAPERSIZE_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, PAPERSIZE_PROP)},
+		{"LETTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LETTER)},
+		{"LEGAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, LEGAL)},
+		{"EXECUTIVE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, EXECUTIVE)},
+		{"A4", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrintJob2D, A4)},
+		{"props", "Ljava/util/Properties;", nullptr, $PRIVATE, $field(PrintJob2D, props)},
+		{"options", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrintJob2D, options)},
+		{"printerJobThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(PrintJob2D, printerJobThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(PrintJob2D, init$, void, $Frame*, $String*, $Properties*)},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)V", nullptr, $PUBLIC, $method(PrintJob2D, init$, void, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
+		{"copyAttributes", "(Ljavax/print/PrintService;)V", nullptr, $PRIVATE, $method(PrintJob2D, copyAttributes, void, $PrintService*)},
+		{"debugPrintAttributes", "(ZZ)V", nullptr, $PRIVATE, $method(PrintJob2D, debugPrintAttributes, void, bool, bool)},
+		{"end", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrintJob2D, end, void)},
+		{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, finalize, void)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, getGraphics, $Graphics*)},
+		{"getPageDimension", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, getPageDimension, $Dimension*)},
+		{"getPageResolution", "()I", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, getPageResolution, int32_t)},
+		{"getPageResolutionInternal", "()D", nullptr, $PRIVATE, $method(PrintJob2D, getPageResolutionInternal, double)},
+		{"getSize", "(Ljava/awt/PageAttributes$MediaType;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintJob2D, getSize, $ints*, $PageAttributes$MediaType*)},
+		{"initPrintJob2D", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)V", nullptr, $PRIVATE, $method(PrintJob2D, initPrintJob2D, void, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
+		{"lastPageFirst", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, lastPageFirst, bool)},
+		{"mapMedia", "(Ljava/awt/PageAttributes$MediaType;)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintJob2D, mapMedia, $MediaSizeName*, $PageAttributes$MediaType*)},
+		{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
+		{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, printDialog, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintJob2D, run, void)},
+		{"startPrinterJobThread", "()V", nullptr, $PRIVATE, $method(PrintJob2D, startPrinterJobThread, void)},
+		{"throwPrintToFile", "()V", nullptr, $PRIVATE, $method(PrintJob2D, throwPrintToFile, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"translateInputProps", "()V", nullptr, $PRIVATE, $method(PrintJob2D, translateInputProps, void)},
+		{"translateOutputProps", "()V", nullptr, $PRIVATE, $method(PrintJob2D, translateOutputProps, void)},
+		{"unMapMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Ljava/awt/PageAttributes$MediaType;", nullptr, $PUBLIC | $STATIC, $staticMethod(PrintJob2D, unMapMedia, $PageAttributes$MediaType*, $MediaSizeName*)},
+		{"updateAttributes", "()V", nullptr, $PRIVATE, $method(PrintJob2D, updateAttributes, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.PrintJob2D$MessageQ", "sun.print.PrintJob2D", "MessageQ", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PrintJob2D",
+		"java.awt.PrintJob",
+		"java.awt.print.Printable,java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.PrintJob2D$MessageQ"
+	};
+	$loadClass(PrintJob2D, name, initialize, &classInfo$$, PrintJob2D::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrintJob2D));
+	});
 	return class$;
 }
 

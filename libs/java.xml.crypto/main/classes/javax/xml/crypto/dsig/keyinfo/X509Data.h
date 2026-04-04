@@ -25,6 +25,7 @@ namespace javax {
 class $export X509Data : public ::javax::xml::crypto::XMLStructure {
 	$interface(X509Data, 0, ::javax::xml::crypto::XMLStructure)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::util::List* getContent() {return nullptr;}
 	static $String* TYPE;
 	static $String* RAW_X509_CERTIFICATE_TYPE;

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
@@ -15,7 +14,6 @@
 
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
-using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLScanner$NameType = ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
@@ -36,42 +34,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 
-$FieldInfo _XML11DTDScannerImpl_FieldInfo_[] = {
-	{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XML11DTDScannerImpl, fStringBuffer)},
-	{}
-};
-
-$MethodInfo _XML11DTDScannerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDScannerImpl, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)V", nullptr, $PUBLIC, $method(XML11DTDScannerImpl, init$, void, $SymbolTable*, $XMLErrorReporter*, $XMLEntityManager*)},
-	{"getVersionNotSupportedKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, getVersionNotSupportedKey, $String*)},
-	{"isInvalid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isInvalid, bool, int32_t)},
-	{"isInvalidLiteral", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isInvalidLiteral, bool, int32_t)},
-	{"isUnchangedByNormalization", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)I", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isUnchangedByNormalization, int32_t, $XMLString*)},
-	{"isValidNCName", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNCName, bool, int32_t)},
-	{"isValidNameChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNameChar, bool, int32_t)},
-	{"isValidNameStartChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNameStartChar, bool, int32_t)},
-	{"isValidNameStartHighSurrogate", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNameStartHighSurrogate, bool, int32_t)},
-	{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, normalizeWhitespace, void, $XMLString*)},
-	{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;I)V", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, normalizeWhitespace, void, $XMLString*, int32_t)},
-	{"scanPubidLiteral", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, scanPubidLiteral, bool, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"versionSupported", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, versionSupported, bool, $String*)},
-	{}
-};
-
-$ClassInfo _XML11DTDScannerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XML11DTDScannerImpl",
-	"com.sun.org.apache.xerces.internal.impl.XMLDTDScannerImpl",
-	nullptr,
-	_XML11DTDScannerImpl_FieldInfo_,
-	_XML11DTDScannerImpl_MethodInfo_
-};
-
-$Object* allocate$XML11DTDScannerImpl($Class* clazz) {
-	return $of($alloc(XML11DTDScannerImpl));
-}
-
 void XML11DTDScannerImpl::init$() {
 	$XMLDTDScannerImpl::init$();
 	$set(this, fStringBuffer, $new($XMLStringBuffer));
@@ -83,7 +45,7 @@ void XML11DTDScannerImpl::init$($SymbolTable* symbolTable, $XMLErrorReporter* er
 }
 
 bool XML11DTDScannerImpl::scanPubidLiteral($XMLString* literal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t quote = $nc(this->fEntityScanner)->scanChar(nullptr);
 	if (quote != u'\'' && quote != u'\"') {
 		reportFatalError("QuoteRequiredInPublicID"_s, nullptr);
@@ -113,14 +75,14 @@ bool XML11DTDScannerImpl::scanPubidLiteral($XMLString* literal) {
 			return false;
 		} else {
 			dataok = false;
-			reportFatalError("InvalidCharInPublicID"_s, $$new($ObjectArray, {$($of($Integer::toHexString(c)))}));
+			reportFatalError("InvalidCharInPublicID"_s, $$new($ObjectArray, {$($Integer::toHexString(c))}));
 		}
 	}
 	return dataok;
 }
 
 void XML11DTDScannerImpl::normalizeWhitespace($XMLString* value) {
-	int32_t end = $nc(value)->offset + value->length;
+	int32_t end = $nc(value)->offset + $nc(value)->length;
 	for (int32_t i = value->offset; i < end; ++i) {
 		int32_t c = $nc(value->ch)->get(i);
 		if ($XMLChar::isSpace(c)) {
@@ -130,7 +92,7 @@ void XML11DTDScannerImpl::normalizeWhitespace($XMLString* value) {
 }
 
 void XML11DTDScannerImpl::normalizeWhitespace($XMLString* value, int32_t fromIndex) {
-	int32_t end = $nc(value)->offset + value->length;
+	int32_t end = $nc(value)->offset + $nc(value)->length;
 	for (int32_t i = value->offset + fromIndex; i < end; ++i) {
 		int32_t c = $nc(value->ch)->get(i);
 		if ($XMLChar::isSpace(c)) {
@@ -140,7 +102,7 @@ void XML11DTDScannerImpl::normalizeWhitespace($XMLString* value, int32_t fromInd
 }
 
 int32_t XML11DTDScannerImpl::isUnchangedByNormalization($XMLString* value) {
-	int32_t end = $nc(value)->offset + value->length;
+	int32_t end = $nc(value)->offset + $nc(value)->length;
 	for (int32_t i = value->offset; i < end; ++i) {
 		int32_t c = $nc(value->ch)->get(i);
 		if ($XMLChar::isSpace(c)) {
@@ -176,7 +138,7 @@ bool XML11DTDScannerImpl::isValidNameStartHighSurrogate(int32_t value) {
 
 bool XML11DTDScannerImpl::versionSupported($String* version) {
 	bool var$0 = $nc(version)->equals("1.1"_s);
-	return var$0 || $nc(version)->equals("1.0"_s);
+	return var$0 || version->equals("1.0"_s);
 }
 
 $String* XML11DTDScannerImpl::getVersionNotSupportedKey() {
@@ -187,7 +149,38 @@ XML11DTDScannerImpl::XML11DTDScannerImpl() {
 }
 
 $Class* XML11DTDScannerImpl::load$($String* name, bool initialize) {
-	$loadClass(XML11DTDScannerImpl, name, initialize, &_XML11DTDScannerImpl_ClassInfo_, allocate$XML11DTDScannerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fStringBuffer", "Lcom/sun/org/apache/xerces/internal/util/XMLStringBuffer;", nullptr, $PRIVATE, $field(XML11DTDScannerImpl, fStringBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDScannerImpl, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;Lcom/sun/org/apache/xerces/internal/impl/XMLEntityManager;)V", nullptr, $PUBLIC, $method(XML11DTDScannerImpl, init$, void, $SymbolTable*, $XMLErrorReporter*, $XMLEntityManager*)},
+		{"getVersionNotSupportedKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, getVersionNotSupportedKey, $String*)},
+		{"isInvalid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isInvalid, bool, int32_t)},
+		{"isInvalidLiteral", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isInvalidLiteral, bool, int32_t)},
+		{"isUnchangedByNormalization", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)I", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isUnchangedByNormalization, int32_t, $XMLString*)},
+		{"isValidNCName", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNCName, bool, int32_t)},
+		{"isValidNameChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNameChar, bool, int32_t)},
+		{"isValidNameStartChar", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNameStartChar, bool, int32_t)},
+		{"isValidNameStartHighSurrogate", "(I)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, isValidNameStartHighSurrogate, bool, int32_t)},
+		{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, normalizeWhitespace, void, $XMLString*)},
+		{"normalizeWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;I)V", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, normalizeWhitespace, void, $XMLString*, int32_t)},
+		{"scanPubidLiteral", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, scanPubidLiteral, bool, $XMLString*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"versionSupported", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(XML11DTDScannerImpl, versionSupported, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XML11DTDScannerImpl",
+		"com.sun.org.apache.xerces.internal.impl.XMLDTDScannerImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XML11DTDScannerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XML11DTDScannerImpl));
+	});
 	return class$;
 }
 

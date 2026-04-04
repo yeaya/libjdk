@@ -31,6 +31,7 @@ class $export HttpServerProvider : public ::java::lang::Object {
 	$class(HttpServerProvider, 0, ::java::lang::Object)
 public:
 	HttpServerProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::net::httpserver::HttpServer* createHttpServer(::java::net::InetSocketAddress* addr, int32_t backlog) {return nullptr;}
 	virtual ::com::sun::net::httpserver::HttpsServer* createHttpsServer(::java::net::InetSocketAddress* addr, int32_t backlog) {return nullptr;}

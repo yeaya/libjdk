@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$DirectoryComboBoxModel.h>
-
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/IOException.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
 #include <javax/swing/AbstractListModel.h>
@@ -25,12 +23,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Vector = ::java::util::Vector;
 using $AbstractListModel = ::javax::swing::AbstractListModel;
-using $JFileChooser = ::javax::swing::JFileChooser;
 using $ListDataListener = ::javax::swing::event::ListDataListener;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $MetalFileChooserUI = ::javax::swing::plaf::metal::MetalFileChooserUI;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $FilePane = ::sun::swing::FilePane;
@@ -39,60 +34,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI$DirectoryComboBoxModel_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$DirectoryComboBoxModel, this$0)},
-	{"directories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, directories)},
-	{"depths", "[I", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, depths)},
-	{"selectedDirectory", "Ljava/io/File;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, selectedDirectory)},
-	{"chooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, chooser)},
-	{"fsv", "Ljavax/swing/filechooser/FileSystemView;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, fsv)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$DirectoryComboBoxModel_MethodInfo_[] = {
-	{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PUBLIC, $method(MetalFileChooserUI$DirectoryComboBoxModel, init$, void, $MetalFileChooserUI*)},
-	{"addItem", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI$DirectoryComboBoxModel, addItem, void, $File*)},
-	{"calculateDepths", "()V", nullptr, $PRIVATE, $method(MetalFileChooserUI$DirectoryComboBoxModel, calculateDepths, void)},
-	{"getDepth", "(I)I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getDepth, int32_t, int32_t)},
-	{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getElementAt, $Object*, int32_t)},
-	{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getSelectedItem, $Object*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getSize, int32_t)},
-	{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, setSelectedItem, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$DirectoryComboBoxModel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$DirectoryComboBoxModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.ComboBoxModel",
-	_MetalFileChooserUI$DirectoryComboBoxModel_FieldInfo_,
-	_MetalFileChooserUI$DirectoryComboBoxModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljava/lang/Object;>;Ljavax/swing/ComboBoxModel<Ljava/lang/Object;>;",
-	nullptr,
-	_MetalFileChooserUI$DirectoryComboBoxModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$DirectoryComboBoxModel($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$DirectoryComboBoxModel));
-}
 
 void MetalFileChooserUI$DirectoryComboBoxModel::addListDataListener($ListDataListener* l) {
 	this->$AbstractListModel::addListDataListener(l);
@@ -123,7 +64,7 @@ void MetalFileChooserUI$DirectoryComboBoxModel::finalize() {
 }
 
 void MetalFileChooserUI$DirectoryComboBoxModel::init$($MetalFileChooserUI* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$AbstractListModel::init$();
 	$set(this, directories, $new($Vector));
@@ -131,14 +72,14 @@ void MetalFileChooserUI$DirectoryComboBoxModel::init$($MetalFileChooserUI* this$
 	$set(this, selectedDirectory, nullptr);
 	$set(this, chooser, this->this$0->getFileChooser());
 	$set(this, fsv, $nc(this->chooser)->getFileSystemView());
-	$var($File, dir, $nc($(this$0->getFileChooser()))->getCurrentDirectory());
+	$var($File, dir, $$nc(this$0->getFileChooser())->getCurrentDirectory());
 	if (dir != nullptr) {
 		addItem(dir);
 	}
 }
 
 void MetalFileChooserUI$DirectoryComboBoxModel::addItem($File* directory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (directory == nullptr) {
 		return;
 	}
@@ -153,7 +94,7 @@ void MetalFileChooserUI$DirectoryComboBoxModel::addItem($File* directory) {
 		$assign(canonical, directory);
 	}
 	try {
-		$var($File, sf, useShellFolder ? static_cast<$File*>($ShellFolder::getShellFolder(canonical)) : canonical);
+		$var($File, sf, useShellFolder ? $cast($File, $ShellFolder::getShellFolder(canonical)) : canonical);
 		$var($File, f, sf);
 		$var($Vector, path, $new($Vector, 10));
 		do {
@@ -163,9 +104,9 @@ void MetalFileChooserUI$DirectoryComboBoxModel::addItem($File* directory) {
 		for (int32_t i = 0; i < pathCount; ++i) {
 			$assign(f, $cast($File, path->get(i)));
 			if ($nc(this->directories)->contains(f)) {
-				int32_t topIndex = $nc(this->directories)->indexOf(f);
+				int32_t topIndex = this->directories->indexOf(f);
 				for (int32_t j = i - 1; j >= 0; --j) {
-					$nc(this->directories)->insertElementAt($cast($File, $(path->get(j))), topIndex + i - j);
+					this->directories->insertElementAt($$cast($File, path->get(j)), topIndex + i - j);
 				}
 				break;
 			}
@@ -178,16 +119,16 @@ void MetalFileChooserUI$DirectoryComboBoxModel::addItem($File* directory) {
 }
 
 void MetalFileChooserUI$DirectoryComboBoxModel::calculateDepths() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, depths, $new($ints, $nc(this->directories)->size()));
-	for (int32_t i = 0; i < $nc(this->depths)->length; ++i) {
-		$var($File, dir, $cast($File, $nc(this->directories)->get(i)));
+	for (int32_t i = 0; i < this->depths->length; ++i) {
+		$var($File, dir, $cast($File, this->directories->get(i)));
 		$var($File, parent, $nc(dir)->getParentFile());
-		$nc(this->depths)->set(i, 0);
+		this->depths->set(i, 0);
 		if (parent != nullptr) {
 			for (int32_t j = i - 1; j >= 0; --j) {
-				if (parent->equals($($nc(this->directories)->get(j)))) {
-					$nc(this->depths)->set(i, $nc(this->depths)->get(j) + 1);
+				if (parent->equals($(this->directories->get(j)))) {
+					this->depths->set(i, this->depths->get(j) + 1);
 					break;
 				}
 			}
@@ -196,7 +137,7 @@ void MetalFileChooserUI$DirectoryComboBoxModel::calculateDepths() {
 }
 
 int32_t MetalFileChooserUI$DirectoryComboBoxModel::getDepth(int32_t i) {
-	return (this->depths != nullptr && i >= 0 && i < $nc(this->depths)->length) ? $nc(this->depths)->get(i) : 0;
+	return (this->depths != nullptr && i >= 0 && i < this->depths->length) ? this->depths->get(i) : 0;
 }
 
 void MetalFileChooserUI$DirectoryComboBoxModel::setSelectedItem(Object$* selectedDirectory) {
@@ -213,14 +154,62 @@ int32_t MetalFileChooserUI$DirectoryComboBoxModel::getSize() {
 }
 
 $Object* MetalFileChooserUI$DirectoryComboBoxModel::getElementAt(int32_t index) {
-	return $of($nc(this->directories)->elementAt(index));
+	return $nc(this->directories)->elementAt(index);
 }
 
 MetalFileChooserUI$DirectoryComboBoxModel::MetalFileChooserUI$DirectoryComboBoxModel() {
 }
 
 $Class* MetalFileChooserUI$DirectoryComboBoxModel::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$DirectoryComboBoxModel, name, initialize, &_MetalFileChooserUI$DirectoryComboBoxModel_ClassInfo_, allocate$MetalFileChooserUI$DirectoryComboBoxModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$DirectoryComboBoxModel, this$0)},
+		{"directories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, directories)},
+		{"depths", "[I", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, depths)},
+		{"selectedDirectory", "Ljava/io/File;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, selectedDirectory)},
+		{"chooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, chooser)},
+		{"fsv", "Ljavax/swing/filechooser/FileSystemView;", nullptr, 0, $field(MetalFileChooserUI$DirectoryComboBoxModel, fsv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PUBLIC, $method(MetalFileChooserUI$DirectoryComboBoxModel, init$, void, $MetalFileChooserUI*)},
+		{"addItem", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI$DirectoryComboBoxModel, addItem, void, $File*)},
+		{"calculateDepths", "()V", nullptr, $PRIVATE, $method(MetalFileChooserUI$DirectoryComboBoxModel, calculateDepths, void)},
+		{"getDepth", "(I)I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getDepth, int32_t, int32_t)},
+		{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getElementAt, $Object*, int32_t)},
+		{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getSelectedItem, $Object*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, getSize, int32_t)},
+		{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$DirectoryComboBoxModel, setSelectedItem, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel", "javax.swing.plaf.metal.MetalFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$DirectoryComboBoxModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.ComboBoxModel",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljava/lang/Object;>;Ljavax/swing/ComboBoxModel<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$DirectoryComboBoxModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$DirectoryComboBoxModel));
+	});
 	return class$;
 }
 

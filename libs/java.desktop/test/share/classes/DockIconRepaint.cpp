@@ -1,5 +1,4 @@
 #include <DockIconRepaint.h>
-
 #include <DockIconRepaint$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -36,7 +35,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -49,7 +47,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JPanel = ::javax::swing::JPanel;
 
 class DockIconRepaint$$Lambda$createUI : public $Runnable {
@@ -60,27 +57,24 @@ public:
 	virtual void run() override {
 		DockIconRepaint::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DockIconRepaint$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DockIconRepaint$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DockIconRepaint$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo DockIconRepaint$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DockIconRepaint$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DockIconRepaint$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(DockIconRepaint$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DockIconRepaint$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DockIconRepaint$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DockIconRepaint$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DockIconRepaint$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* DockIconRepaint$$Lambda$createUI::class$ = nullptr;
@@ -93,27 +87,24 @@ public:
 	virtual void run() override {
 		DockIconRepaint::lambda$test$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DockIconRepaint$$Lambda$lambda$test$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DockIconRepaint$$Lambda$lambda$test$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint$$Lambda$lambda$test$0$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DockIconRepaint$$Lambda$lambda$test$0$1, run, void)},
-	{}
-};
-$ClassInfo DockIconRepaint$$Lambda$lambda$test$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DockIconRepaint$$Lambda$lambda$test$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DockIconRepaint$$Lambda$lambda$test$0$1::load$($String* name, bool initialize) {
-	$loadClass(DockIconRepaint$$Lambda$lambda$test$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint$$Lambda$lambda$test$0$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DockIconRepaint$$Lambda$lambda$test$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DockIconRepaint$$Lambda$lambda$test$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DockIconRepaint$$Lambda$lambda$test$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DockIconRepaint$$Lambda$lambda$test$0$1);
+	});
 	return class$;
 }
 $Class* DockIconRepaint$$Lambda$lambda$test$0$1::class$ = nullptr;
@@ -126,74 +117,27 @@ public:
 	virtual void run() override {
 		DockIconRepaint::lambda$test$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DockIconRepaint$$Lambda$lambda$test$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DockIconRepaint$$Lambda$lambda$test$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint$$Lambda$lambda$test$1$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DockIconRepaint$$Lambda$lambda$test$1$2, run, void)},
-	{}
-};
-$ClassInfo DockIconRepaint$$Lambda$lambda$test$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DockIconRepaint$$Lambda$lambda$test$1$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DockIconRepaint$$Lambda$lambda$test$1$2::load$($String* name, bool initialize) {
-	$loadClass(DockIconRepaint$$Lambda$lambda$test$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint$$Lambda$lambda$test$1$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DockIconRepaint$$Lambda$lambda$test$1$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DockIconRepaint$$Lambda$lambda$test$1$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DockIconRepaint$$Lambda$lambda$test$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DockIconRepaint$$Lambda$lambda$test$1$2);
+	});
 	return class$;
 }
 $Class* DockIconRepaint$$Lambda$lambda$test$1$2::class$ = nullptr;
-
-$FieldInfo _DockIconRepaint_FieldInfo_[] = {
-	{"color", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DockIconRepaint, color)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, frame)},
-	{"jif", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, jif)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, robot)},
-	{"iconLoc", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, iconLoc)},
-	{"iconBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, iconBounds)},
-	{}
-};
-
-$MethodInfo _DockIconRepaint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint, init$, void)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DockIconRepaint, createUI, void)},
-	{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DockIconRepaint, lambda$test$0, void)},
-	{"lambda$test$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DockIconRepaint, lambda$test$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DockIconRepaint, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DockIconRepaint, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _DockIconRepaint_InnerClassesInfo_[] = {
-	{"DockIconRepaint$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DockIconRepaint_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"DockIconRepaint",
-	"java.lang.Object",
-	nullptr,
-	_DockIconRepaint_FieldInfo_,
-	_DockIconRepaint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DockIconRepaint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"DockIconRepaint$1"
-};
-
-$Object* allocate$DockIconRepaint($Class* clazz) {
-	return $of($alloc(DockIconRepaint));
-}
 
 $volatile($Color*) DockIconRepaint::color = nullptr;
 $JFrame* DockIconRepaint::frame = nullptr;
@@ -206,79 +150,77 @@ void DockIconRepaint::init$() {
 }
 
 void DockIconRepaint::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(DockIconRepaint);
 	$assignStatic(DockIconRepaint::robot, $new($Robot));
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(DockIconRepaint$$Lambda$createUI)));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(DockIconRepaint::robot)->waitForIdle();
-			$init($Color);
-			$assignStatic(DockIconRepaint::color, $Color::BLUE);
-			test();
-			$assignStatic(DockIconRepaint::color, $Color::RED);
-			test();
-			$assignStatic(DockIconRepaint::color, $Color::GREEN);
-			test();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(DockIconRepaint::frame)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$EventQueue::invokeAndWait($$new(DockIconRepaint$$Lambda$createUI));
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(DockIconRepaint::robot)->waitForIdle();
+		$init($Color);
+		$assignStatic(DockIconRepaint::color, $Color::BLUE);
+		test();
+		$assignStatic(DockIconRepaint::color, $Color::RED);
+		test();
+		$assignStatic(DockIconRepaint::color, $Color::GREEN);
+		test();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(DockIconRepaint::frame)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void DockIconRepaint::test() {
-	$useLocalCurrentObjectStackCache();
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(DockIconRepaint$$Lambda$lambda$test$0$1)));
+	$useLocalObjectStack();
+	$EventQueue::invokeAndWait($$new(DockIconRepaint$$Lambda$lambda$test$0$1));
 	$init(DockIconRepaint);
 	$nc(DockIconRepaint::robot)->waitForIdle();
 	$Thread::sleep(1000);
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(DockIconRepaint$$Lambda$lambda$test$1$2)));
+	$EventQueue::invokeAndWait($$new(DockIconRepaint$$Lambda$lambda$test$1$2));
 	$nc(DockIconRepaint::robot)->waitForIdle();
 	$Thread::sleep(1000);
 	$var($Color, c, $nc(DockIconRepaint::robot)->getPixelColor($nc(DockIconRepaint::iconLoc)->x + $nc(DockIconRepaint::iconBounds)->width / 2, $nc(DockIconRepaint::iconLoc)->y + $nc(DockIconRepaint::iconBounds)->height / 2));
 	int32_t var$0 = $nc(c)->getRGB();
 	if (var$0 != $nc(DockIconRepaint::color)->getRGB()) {
 		$nc($System::err)->println($$str({"Exp: "_s, $($Integer::toHexString($nc(DockIconRepaint::color)->getRGB()))}));
-		$nc($System::err)->println($$str({"Actual: "_s, $($Integer::toHexString(c->getRGB()))}));
+		$System::err->println($$str({"Actual: "_s, $($Integer::toHexString(c->getRGB()))}));
 		$throwNew($RuntimeException, "Wrong color."_s);
 	}
 }
 
 void DockIconRepaint::createUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(DockIconRepaint);
 	$assignStatic(DockIconRepaint::frame, $new($JFrame));
-	$nc(DockIconRepaint::frame)->setUndecorated(true);
+	DockIconRepaint::frame->setUndecorated(true);
 	$nc(DockIconRepaint::frame)->setSize(300, 300);
 	$nc(DockIconRepaint::frame)->setLocationRelativeTo(nullptr);
 	$var($JDesktopPane, pane, $new($JDesktopPane));
 	$var($JPanel, panel, $new($DockIconRepaint$1));
 	$assignStatic(DockIconRepaint::jif, $new($JInternalFrame));
-	$nc(DockIconRepaint::jif)->add(static_cast<$Component*>(panel));
+	DockIconRepaint::jif->add(panel);
 	$nc(DockIconRepaint::jif)->setVisible(true);
 	$nc(DockIconRepaint::jif)->setSize(300, 300);
-	pane->add(static_cast<$Component*>(DockIconRepaint::jif));
-	$nc(DockIconRepaint::frame)->add(static_cast<$Component*>(pane));
+	pane->add(DockIconRepaint::jif);
+	$nc(DockIconRepaint::frame)->add(pane);
 	$nc(DockIconRepaint::frame)->setVisible(true);
 }
 
 void DockIconRepaint::lambda$test$1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init(DockIconRepaint);
 		$nc(DockIconRepaint::jif)->setIcon(true);
 	} catch ($PropertyVetoException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$init(DockIconRepaint);
-	$assignStatic(DockIconRepaint::iconLoc, $nc($($nc(DockIconRepaint::jif)->getDesktopIcon()))->getLocationOnScreen());
-	$assignStatic(DockIconRepaint::iconBounds, $nc($($nc(DockIconRepaint::jif)->getDesktopIcon()))->getBounds());
+	$assignStatic(DockIconRepaint::iconLoc, $$nc($nc(DockIconRepaint::jif)->getDesktopIcon())->getLocationOnScreen());
+	$assignStatic(DockIconRepaint::iconBounds, $$nc($nc(DockIconRepaint::jif)->getDesktopIcon())->getBounds());
 }
 
 void DockIconRepaint::lambda$test$0() {
@@ -287,7 +229,7 @@ void DockIconRepaint::lambda$test$0() {
 		$nc(DockIconRepaint::jif)->setIcon(false);
 		$nc(DockIconRepaint::jif)->setMaximum(true);
 	} catch ($PropertyVetoException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -296,17 +238,55 @@ DockIconRepaint::DockIconRepaint() {
 
 $Class* DockIconRepaint::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DockIconRepaint$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("DockIconRepaint$$Lambda$createUI")) {
 			return DockIconRepaint$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(DockIconRepaint$$Lambda$lambda$test$0$1::classInfo$.name)) {
+		if (name->equals("DockIconRepaint$$Lambda$lambda$test$0$1")) {
 			return DockIconRepaint$$Lambda$lambda$test$0$1::load$(name, initialize);
 		}
-		if (name->equals(DockIconRepaint$$Lambda$lambda$test$1$2::classInfo$.name)) {
+		if (name->equals("DockIconRepaint$$Lambda$lambda$test$1$2")) {
 			return DockIconRepaint$$Lambda$lambda$test$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(DockIconRepaint, name, initialize, &_DockIconRepaint_ClassInfo_, allocate$DockIconRepaint);
+	$FieldInfo fieldInfos$$[] = {
+		{"color", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(DockIconRepaint, color)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, frame)},
+		{"jif", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, jif)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, robot)},
+		{"iconLoc", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, iconLoc)},
+		{"iconBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(DockIconRepaint, iconBounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DockIconRepaint, init$, void)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DockIconRepaint, createUI, void)},
+		{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DockIconRepaint, lambda$test$0, void)},
+		{"lambda$test$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DockIconRepaint, lambda$test$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DockIconRepaint, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DockIconRepaint, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DockIconRepaint$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"DockIconRepaint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"DockIconRepaint$1"
+	};
+	$loadClass(DockIconRepaint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DockIconRepaint);
+	});
 	return class$;
 }
 

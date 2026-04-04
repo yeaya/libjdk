@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$GraphSolver.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Infer$GraphInferenceSteps.h>
 #include <com/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node.h>
@@ -40,45 +39,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$GraphSolver_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$GraphSolver, this$0)},
-	{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, 0, $field(Infer$GraphSolver, inferenceContext)},
-	{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, 0, $field(Infer$GraphSolver, warn)},
-	{}
-};
-
-$MethodInfo _Infer$GraphSolver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(Infer$GraphSolver, init$, void, $Infer*, $InferenceContext*, $Warner*)},
-	{"solve", "(Lcom/sun/tools/javac/comp/Infer$GraphStrategy;)V", nullptr, 0, $virtualMethod(Infer$GraphSolver, solve, void, $Infer$GraphStrategy*)},
-	{}
-};
-
-$InnerClassInfo _Infer$GraphSolver_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$GraphSolver", "com.sun.tools.javac.comp.Infer", "GraphSolver", 0},
-	{"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph", "com.sun.tools.javac.comp.Infer$GraphSolver", "InferenceGraph", 0},
-	{}
-};
-
-$ClassInfo _Infer$GraphSolver_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$GraphSolver",
-	"java.lang.Object",
-	nullptr,
-	_Infer$GraphSolver_FieldInfo_,
-	_Infer$GraphSolver_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$GraphSolver_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$GraphSolver($Class* clazz) {
-	return $of($alloc(Infer$GraphSolver));
-}
-
 void Infer$GraphSolver::init$($Infer* this$0, $InferenceContext* inferenceContext, $Warner* warn) {
 	$set(this, this$0, this$0);
 	$set(this, inferenceContext, inferenceContext);
@@ -86,7 +46,7 @@ void Infer$GraphSolver::init$($Infer* this$0, $InferenceContext* inferenceContex
 }
 
 void Infer$GraphSolver::solve($Infer$GraphStrategy* sstrategy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->doIncorporation(this->inferenceContext, this->warn);
 	$var($Infer$GraphSolver$InferenceGraph, inferenceGraph, $new($Infer$GraphSolver$InferenceGraph, this));
 	while (!$nc(sstrategy)->done()) {
@@ -101,16 +61,12 @@ void Infer$GraphSolver::solve($Infer$GraphStrategy* sstrategy) {
 			while ($Type::containsAny($($nc(this->inferenceContext)->restvars()), varsToSolve)) {
 				{
 					$var($Infer$GraphInferenceStepsArray, arr$, $Infer$GraphInferenceSteps::values());
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 						$Infer$GraphInferenceSteps* step = arr$->get(i$);
-						{
-							if ($nc($($nc(this->inferenceContext)->solveBasic(varsToSolve, $nc(step)->steps)))->nonEmpty()) {
-								this->this$0->doIncorporation(this->inferenceContext, this->warn);
-								outer$continue = true;
-								break;
-							}
+						if ($$nc($nc(this->inferenceContext)->solveBasic(varsToSolve, $nc(step)->steps))->nonEmpty()) {
+							this->this$0->doIncorporation(this->inferenceContext, this->warn);
+							outer$continue = true;
+							break;
 						}
 					}
 					if (outer$continue) {
@@ -133,7 +89,40 @@ Infer$GraphSolver::Infer$GraphSolver() {
 }
 
 $Class* Infer$GraphSolver::load$($String* name, bool initialize) {
-	$loadClass(Infer$GraphSolver, name, initialize, &_Infer$GraphSolver_ClassInfo_, allocate$Infer$GraphSolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$GraphSolver, this$0)},
+		{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, 0, $field(Infer$GraphSolver, inferenceContext)},
+		{"warn", "Lcom/sun/tools/javac/util/Warner;", nullptr, 0, $field(Infer$GraphSolver, warn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(Infer$GraphSolver, init$, void, $Infer*, $InferenceContext*, $Warner*)},
+		{"solve", "(Lcom/sun/tools/javac/comp/Infer$GraphStrategy;)V", nullptr, 0, $virtualMethod(Infer$GraphSolver, solve, void, $Infer$GraphStrategy*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$GraphSolver", "com.sun.tools.javac.comp.Infer", "GraphSolver", 0},
+		{"com.sun.tools.javac.comp.Infer$GraphSolver$InferenceGraph", "com.sun.tools.javac.comp.Infer$GraphSolver", "InferenceGraph", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$GraphSolver",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$GraphSolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$GraphSolver);
+	});
 	return class$;
 }
 

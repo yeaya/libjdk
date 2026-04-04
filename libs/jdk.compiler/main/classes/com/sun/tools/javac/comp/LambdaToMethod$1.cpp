@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$1.h>
-
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind.h>
 #include <com/sun/tools/javac/comp/LambdaToMethod.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind.h>
@@ -49,157 +48,118 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _LambdaToMethod$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$javax$lang$model$type$TypeKind)},
-	{"$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)},
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)},
-	{}
-};
-
-$EnclosingMethodInfo _LambdaToMethod$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.LambdaToMethod",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _LambdaToMethod$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _LambdaToMethod$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.comp.LambdaToMethod$1",
-	"java.lang.Object",
-	nullptr,
-	_LambdaToMethod$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_LambdaToMethod$1_EnclosingMethodInfo_,
-	_LambdaToMethod$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod"
-};
-
-$Object* allocate$LambdaToMethod$1($Class* clazz) {
-	return $of($alloc(LambdaToMethod$1));
-}
-
 $ints* LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind = nullptr;
 $ints* LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind = nullptr;
 $ints* LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 $ints* LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind = nullptr;
 
-void clinit$LambdaToMethod$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LambdaToMethod$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind, $new($ints, $($TypeKind::values())->length));
 	{
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::INTERSECTION->ordinal(), 1);
+			LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::INTERSECTION->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::UNION->ordinal(), 2);
+			LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::UNION->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::TYPEVAR->ordinal(), 3);
+			LambdaToMethod$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::TYPEVAR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind, $new($ints, $($LambdaToMethod$LambdaSymbolKind::values())->length));
 	{
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)->set($LambdaToMethod$LambdaSymbolKind::CAPTURED_THIS->ordinal(), 1);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind->set($LambdaToMethod$LambdaSymbolKind::CAPTURED_THIS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)->set($LambdaToMethod$LambdaSymbolKind::CAPTURED_VAR->ordinal(), 2);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind->set($LambdaToMethod$LambdaSymbolKind::CAPTURED_VAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)->set($LambdaToMethod$LambdaSymbolKind::CAPTURED_OUTER_THIS->ordinal(), 3);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind->set($LambdaToMethod$LambdaSymbolKind::CAPTURED_OUTER_THIS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)->set($LambdaToMethod$LambdaSymbolKind::LOCAL_VAR->ordinal(), 4);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind->set($LambdaToMethod$LambdaSymbolKind::LOCAL_VAR->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)->set($LambdaToMethod$LambdaSymbolKind::PARAM->ordinal(), 5);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind->set($LambdaToMethod$LambdaSymbolKind::PARAM->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::APPLY->ordinal(), 1);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::APPLY->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NEWCLASS->ordinal(), 2);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NEWCLASS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPECAST->ordinal(), 3);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPECAST->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CLASSDEF->ordinal(), 4);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CLASSDEF->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::VARDEF->ordinal(), 5);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::VARDEF->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::BLOCK->ordinal(), 6);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::BLOCK->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::METHODDEF->ordinal(), 7);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::METHODDEF->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::LAMBDA->ordinal(), 8);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::LAMBDA->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::ASSIGN->ordinal(), 9);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::ASSIGN->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind, $new($ints, $($JCTree$JCMemberReference$ReferenceKind::values())->length));
 	{
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->set($JCTree$JCMemberReference$ReferenceKind::IMPLICIT_INNER->ordinal(), 1);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind->set($JCTree$JCMemberReference$ReferenceKind::IMPLICIT_INNER->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->set($JCTree$JCMemberReference$ReferenceKind::SUPER->ordinal(), 2);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind->set($JCTree$JCMemberReference$ReferenceKind::SUPER->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->set($JCTree$JCMemberReference$ReferenceKind::BOUND->ordinal(), 3);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind->set($JCTree$JCMemberReference$ReferenceKind::BOUND->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->set($JCTree$JCMemberReference$ReferenceKind::UNBOUND->ordinal(), 4);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind->set($JCTree$JCMemberReference$ReferenceKind::UNBOUND->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->set($JCTree$JCMemberReference$ReferenceKind::STATIC->ordinal(), 5);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind->set($JCTree$JCMemberReference$ReferenceKind::STATIC->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->set($JCTree$JCMemberReference$ReferenceKind::TOPLEVEL->ordinal(), 6);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind->set($JCTree$JCMemberReference$ReferenceKind::TOPLEVEL->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->set($JCTree$JCMemberReference$ReferenceKind::ARRAY_CTOR->ordinal(), 7);
+			LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind->set($JCTree$JCMemberReference$ReferenceKind::ARRAY_CTOR->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -209,7 +169,40 @@ LambdaToMethod$1::LambdaToMethod$1() {
 }
 
 $Class* LambdaToMethod$1::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$1, name, initialize, &_LambdaToMethod$1_ClassInfo_, clinit$LambdaToMethod$1, allocate$LambdaToMethod$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$javax$lang$model$type$TypeKind)},
+		{"$SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$com$sun$tools$javac$comp$LambdaToMethod$LambdaSymbolKind)},
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaToMethod$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.LambdaToMethod",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.comp.LambdaToMethod$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod"
+	};
+	$loadClass(LambdaToMethod$1, name, initialize, &classInfo$$, LambdaToMethod$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$1);
+	});
 	return class$;
 }
 

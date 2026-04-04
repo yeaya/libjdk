@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1AsyncReceiver$Http1TubeSubscriber.h>
-
 #include <java/io/EOFException.h>
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
@@ -25,63 +24,13 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $Http1AsyncReceiver = ::jdk::internal::net::http::Http1AsyncReceiver;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
-using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 
 namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Http1AsyncReceiver$Http1TubeSubscriber_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/Http1AsyncReceiver;", nullptr, $FINAL | $SYNTHETIC, $field(Http1AsyncReceiver$Http1TubeSubscriber, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1AsyncReceiver$Http1TubeSubscriber, $assertionsDisabled)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $VOLATILE, $field(Http1AsyncReceiver$Http1TubeSubscriber, subscription)},
-	{"completed", "Z", nullptr, $VOLATILE, $field(Http1AsyncReceiver$Http1TubeSubscriber, completed)},
-	{"dropped", "Z", nullptr, $VOLATILE, $field(Http1AsyncReceiver$Http1TubeSubscriber, dropped)},
-	{}
-};
-
-$MethodInfo _Http1AsyncReceiver$Http1TubeSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, 0, $method(Http1AsyncReceiver$Http1TubeSubscriber, init$, void, $Http1AsyncReceiver*)},
-	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, dropSubscription, void)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(Http1AsyncReceiver$Http1TubeSubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{"requestMore", "()V", nullptr, 0, $method(Http1AsyncReceiver$Http1TubeSubscriber, requestMore, void)},
-	{}
-};
-
-$InnerClassInfo _Http1AsyncReceiver$Http1TubeSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1AsyncReceiver$Http1TubeSubscriber", "jdk.internal.net.http.Http1AsyncReceiver", "Http1TubeSubscriber", $FINAL},
-	{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Http1AsyncReceiver$Http1TubeSubscriber_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.Http1AsyncReceiver$Http1TubeSubscriber",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
-	_Http1AsyncReceiver$Http1TubeSubscriber_FieldInfo_,
-	_Http1AsyncReceiver$Http1TubeSubscriber_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http1AsyncReceiver$Http1TubeSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1AsyncReceiver"
-};
-
-$Object* allocate$Http1AsyncReceiver$Http1TubeSubscriber($Class* clazz) {
-	return $of($alloc(Http1AsyncReceiver$Http1TubeSubscriber));
-}
 
 bool Http1AsyncReceiver$Http1TubeSubscriber::$assertionsDisabled = false;
 
@@ -90,12 +39,12 @@ void Http1AsyncReceiver$Http1TubeSubscriber::init$($Http1AsyncReceiver* this$0) 
 }
 
 void Http1AsyncReceiver$Http1TubeSubscriber::onSubscribe($Flow$Subscription* subscription) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("Received onSubscribed from upstream"_s);
+		this->this$0->debug->log("Received onSubscribed from upstream"_s);
 	}
 	if ($Log::channel()) {
-		$Log::logChannel("HTTP/1 read subscriber got subscription from {0}"_s, $$new($ObjectArray, {$($of(this->this$0->describe()))}));
+		$Log::logChannel("HTTP/1 read subscriber got subscription from {0}"_s, $$new($ObjectArray, {$(this->this$0->describe())}));
 	}
 	if (!Http1AsyncReceiver$Http1TubeSubscriber::$assertionsDisabled && !(this->subscription == nullptr || this->dropped == false)) {
 		$throwNew($AssertionError);
@@ -105,8 +54,8 @@ void Http1AsyncReceiver$Http1TubeSubscriber::onSubscribe($Flow$Subscription* sub
 	$nc(this->this$0->canRequestMore)->set(true);
 	if (this->this$0->delegate != nullptr) {
 		$nc(this->this$0->scheduler)->runOrSchedule(this->this$0->executor);
-	} else if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("onSubscribe: read delegate not present yet"_s);
+	} else if (this->this$0->debug->on()) {
+		this->this$0->debug->log("onSubscribe: read delegate not present yet"_s);
 	}
 }
 
@@ -118,22 +67,22 @@ void Http1AsyncReceiver$Http1TubeSubscriber::requestMore() {
 	if ($nc(this->this$0->canRequestMore)->compareAndSet(true, false)) {
 		if (!this->completed && !this->dropped) {
 			if ($nc(this->this$0->debug)->on()) {
-				$nc(this->this$0->debug)->log("Http1TubeSubscriber: requesting one more from upstream"_s);
+				this->this$0->debug->log("Http1TubeSubscriber: requesting one more from upstream"_s);
 			}
 			$nc(s)->request(1);
 			return;
 		}
 	}
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("Http1TubeSubscriber: no need to request more"_s);
+		this->this$0->debug->log("Http1TubeSubscriber: no need to request more"_s);
 	}
 }
 
 void Http1AsyncReceiver$Http1TubeSubscriber::onNext($List* item) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->this$0->canRequestMore)->set($nc(item)->isEmpty());
 	{
-		$var($Iterator, i$, $nc(item)->iterator());
+		$var($Iterator, i$, item->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ByteBuffer, buffer, $cast($ByteBuffer, i$->next()));
 			{
@@ -155,7 +104,7 @@ void Http1AsyncReceiver$Http1TubeSubscriber::onComplete() {
 
 void Http1AsyncReceiver$Http1TubeSubscriber::dropSubscription() {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("Http1TubeSubscriber: dropSubscription"_s);
+		this->this$0->debug->log("Http1TubeSubscriber: dropSubscription"_s);
 	}
 	this->dropped = true;
 }
@@ -164,7 +113,7 @@ void Http1AsyncReceiver$Http1TubeSubscriber::onNext(Object$* item) {
 	this->onNext($cast($List, item));
 }
 
-void clinit$Http1AsyncReceiver$Http1TubeSubscriber($Class* class$) {
+void Http1AsyncReceiver$Http1TubeSubscriber::clinit$($Class* clazz) {
 	$load($Http1AsyncReceiver);
 	Http1AsyncReceiver$Http1TubeSubscriber::$assertionsDisabled = !$Http1AsyncReceiver::class$->desiredAssertionStatus();
 }
@@ -173,7 +122,48 @@ Http1AsyncReceiver$Http1TubeSubscriber::Http1AsyncReceiver$Http1TubeSubscriber()
 }
 
 $Class* Http1AsyncReceiver$Http1TubeSubscriber::load$($String* name, bool initialize) {
-	$loadClass(Http1AsyncReceiver$Http1TubeSubscriber, name, initialize, &_Http1AsyncReceiver$Http1TubeSubscriber_ClassInfo_, clinit$Http1AsyncReceiver$Http1TubeSubscriber, allocate$Http1AsyncReceiver$Http1TubeSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/Http1AsyncReceiver;", nullptr, $FINAL | $SYNTHETIC, $field(Http1AsyncReceiver$Http1TubeSubscriber, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Http1AsyncReceiver$Http1TubeSubscriber, $assertionsDisabled)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $VOLATILE, $field(Http1AsyncReceiver$Http1TubeSubscriber, subscription)},
+		{"completed", "Z", nullptr, $VOLATILE, $field(Http1AsyncReceiver$Http1TubeSubscriber, completed)},
+		{"dropped", "Z", nullptr, $VOLATILE, $field(Http1AsyncReceiver$Http1TubeSubscriber, dropped)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, 0, $method(Http1AsyncReceiver$Http1TubeSubscriber, init$, void, $Http1AsyncReceiver*)},
+		{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, dropSubscription, void)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(Http1AsyncReceiver$Http1TubeSubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{"requestMore", "()V", nullptr, 0, $method(Http1AsyncReceiver$Http1TubeSubscriber, requestMore, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1AsyncReceiver$Http1TubeSubscriber", "jdk.internal.net.http.Http1AsyncReceiver", "Http1TubeSubscriber", $FINAL},
+		{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.Http1AsyncReceiver$Http1TubeSubscriber",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1AsyncReceiver"
+	};
+	$loadClass(Http1AsyncReceiver$Http1TubeSubscriber, name, initialize, &classInfo$$, Http1AsyncReceiver$Http1TubeSubscriber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1AsyncReceiver$Http1TubeSubscriber);
+	});
 	return class$;
 }
 

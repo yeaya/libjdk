@@ -1,5 +1,4 @@
 #include <org/ietf/jgss/Oid.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <org/ietf/jgss/GSSException.h>
@@ -25,38 +24,6 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 namespace org {
 	namespace ietf {
 		namespace jgss {
-
-$FieldInfo _Oid_FieldInfo_[] = {
-	{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(Oid, oid)},
-	{"derEncoding", "[B", nullptr, $PRIVATE, $field(Oid, derEncoding)},
-	{}
-};
-
-$MethodInfo _Oid_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Oid, init$, void, $String*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Oid, init$, void, $InputStream*), "org.ietf.jgss.GSSException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(Oid, init$, void, $bytes*), "org.ietf.jgss.GSSException"},
-	{"containedIn", "([Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC, $virtualMethod(Oid, containedIn, bool, $OidArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Oid, equals, bool, Object$*)},
-	{"getDER", "()[B", nullptr, $PUBLIC, $virtualMethod(Oid, getDER, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $STATIC, $staticMethod(Oid, getInstance, Oid*, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Oid, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Oid, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Oid_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.ietf.jgss.Oid",
-	"java.lang.Object",
-	nullptr,
-	_Oid_FieldInfo_,
-	_Oid_MethodInfo_
-};
-
-$Object* allocate$Oid($Class* clazz) {
-	return $of($alloc(Oid));
-}
 
 void Oid::init$($String* strOid) {
 	try {
@@ -105,7 +72,7 @@ bool Oid::equals(Object$* other) {
 		return (true);
 	}
 	if ($instanceOf(Oid, other)) {
-		return $nc(this->oid)->equals($nc(($cast(Oid, other)))->oid);
+		return $nc(this->oid)->equals($cast(Oid, other)->oid);
 	} else if ($instanceOf($ObjectIdentifier, other)) {
 		return $nc(this->oid)->equals(other);
 	} else {
@@ -114,7 +81,7 @@ bool Oid::equals(Object$* other) {
 }
 
 $bytes* Oid::getDER() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->derEncoding == nullptr) {
 		$var($DerOutputStream, dout, $new($DerOutputStream));
 		try {
@@ -144,7 +111,34 @@ Oid::Oid() {
 }
 
 $Class* Oid::load$($String* name, bool initialize) {
-	$loadClass(Oid, name, initialize, &_Oid_ClassInfo_, allocate$Oid);
+	$FieldInfo fieldInfos$$[] = {
+		{"oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(Oid, oid)},
+		{"derEncoding", "[B", nullptr, $PRIVATE, $field(Oid, derEncoding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Oid, init$, void, $String*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Oid, init$, void, $InputStream*), "org.ietf.jgss.GSSException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(Oid, init$, void, $bytes*), "org.ietf.jgss.GSSException"},
+		{"containedIn", "([Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC, $virtualMethod(Oid, containedIn, bool, $OidArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Oid, equals, bool, Object$*)},
+		{"getDER", "()[B", nullptr, $PUBLIC, $virtualMethod(Oid, getDER, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getInstance", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $STATIC, $staticMethod(Oid, getInstance, Oid*, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Oid, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Oid, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.ietf.jgss.Oid",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Oid, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Oid);
+	});
 	return class$;
 }
 

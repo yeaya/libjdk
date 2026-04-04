@@ -15,10 +15,13 @@ public:
 	InvalidSearchFilterException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x284877205A985231;
+	static const int64_t serialVersionUID = (int64_t)0x284877205a985231;
 	InvalidSearchFilterException(const InvalidSearchFilterException& e);
 	virtual void throw$() override;
-	inline InvalidSearchFilterException* operator ->() {
+	inline InvalidSearchFilterException* operator ->() const {
+		return (InvalidSearchFilterException*)throwing$;
+	}
+	inline operator InvalidSearchFilterException*() const {
 		return (InvalidSearchFilterException*)throwing$;
 	}
 };

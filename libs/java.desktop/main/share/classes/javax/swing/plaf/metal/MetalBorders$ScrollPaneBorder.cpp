@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$ScrollPaneBorder.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -13,7 +11,6 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -29,43 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalBorders$ScrollPaneBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ScrollPaneBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ScrollPaneBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ScrollPaneBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$ScrollPaneBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder", "javax.swing.plaf.metal.MetalBorders", "ScrollPaneBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$ScrollPaneBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_MetalBorders$ScrollPaneBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$ScrollPaneBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$ScrollPaneBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$ScrollPaneBorder));
-}
 
 int32_t MetalBorders$ScrollPaneBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -92,7 +52,7 @@ void MetalBorders$ScrollPaneBorder::init$() {
 }
 
 void MetalBorders$ScrollPaneBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JScrollPane, c))) {
 		return;
 	}
@@ -128,7 +88,39 @@ MetalBorders$ScrollPaneBorder::MetalBorders$ScrollPaneBorder() {
 }
 
 $Class* MetalBorders$ScrollPaneBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$ScrollPaneBorder, name, initialize, &_MetalBorders$ScrollPaneBorder_ClassInfo_, allocate$MetalBorders$ScrollPaneBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ScrollPaneBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ScrollPaneBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ScrollPaneBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder", "javax.swing.plaf.metal.MetalBorders", "ScrollPaneBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$ScrollPaneBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$ScrollPaneBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$ScrollPaneBorder));
+	});
 	return class$;
 }
 

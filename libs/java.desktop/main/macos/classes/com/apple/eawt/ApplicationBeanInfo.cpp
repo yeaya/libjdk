@@ -1,5 +1,4 @@
 #include <com/apple/eawt/ApplicationBeanInfo.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/beans/SimpleBeanInfo.h>
@@ -15,38 +14,34 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$MethodInfo _ApplicationBeanInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ApplicationBeanInfo, init$, void)},
-	{"getIcon", "(I)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ApplicationBeanInfo, getIcon, $Image*, int32_t)},
-	{}
-};
-
-$ClassInfo _ApplicationBeanInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.eawt.ApplicationBeanInfo",
-	"java.beans.SimpleBeanInfo",
-	nullptr,
-	nullptr,
-	_ApplicationBeanInfo_MethodInfo_
-};
-
-$Object* allocate$ApplicationBeanInfo($Class* clazz) {
-	return $of($alloc(ApplicationBeanInfo));
-}
-
 void ApplicationBeanInfo::init$() {
 	$SimpleBeanInfo::init$();
 }
 
 $Image* ApplicationBeanInfo::getIcon(int32_t iconKind) {
-	return $nc($($Toolkit::getDefaultToolkit()))->getImage("NSImage://NSGenericApplication"_s);
+	return $$nc($Toolkit::getDefaultToolkit())->getImage("NSImage://NSGenericApplication"_s);
 }
 
 ApplicationBeanInfo::ApplicationBeanInfo() {
 }
 
 $Class* ApplicationBeanInfo::load$($String* name, bool initialize) {
-	$loadClass(ApplicationBeanInfo, name, initialize, &_ApplicationBeanInfo_ClassInfo_, allocate$ApplicationBeanInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ApplicationBeanInfo, init$, void)},
+		{"getIcon", "(I)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ApplicationBeanInfo, getIcon, $Image*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.eawt.ApplicationBeanInfo",
+		"java.beans.SimpleBeanInfo",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ApplicationBeanInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ApplicationBeanInfo);
+	});
 	return class$;
 }
 

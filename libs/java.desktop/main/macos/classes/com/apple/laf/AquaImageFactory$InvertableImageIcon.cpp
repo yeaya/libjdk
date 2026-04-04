@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaImageFactory$InvertableImageIcon.h>
-
 #include <com/apple/laf/AquaImageFactory.h>
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Component.h>
@@ -25,51 +24,6 @@ using $IconUIResource = ::javax::swing::plaf::IconUIResource;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaImageFactory$InvertableImageIcon_FieldInfo_[] = {
-	{"invertedImage", "Ljavax/swing/Icon;", nullptr, 0, $field(AquaImageFactory$InvertableImageIcon, invertedImage)},
-	{}
-};
-
-$MethodInfo _AquaImageFactory$InvertableImageIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getIconHeight", "()I", nullptr, $PUBLIC},
-	{"*getIconWidth", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(AquaImageFactory$InvertableImageIcon, init$, void, $Image*)},
-	{"getInvertedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$InvertableImageIcon, getInvertedIcon, $Icon*)},
-	{"*paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaImageFactory$InvertableImageIcon_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaImageFactory$InvertableImageIcon", "com.apple.laf.AquaImageFactory", "InvertableImageIcon", $STATIC},
-	{"com.apple.laf.AquaIcon$InvertableIcon", "com.apple.laf.AquaIcon", "InvertableIcon", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaImageFactory$InvertableImageIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaImageFactory$InvertableImageIcon",
-	"javax.swing.ImageIcon",
-	"com.apple.laf.AquaIcon$InvertableIcon,javax.swing.plaf.UIResource",
-	_AquaImageFactory$InvertableImageIcon_FieldInfo_,
-	_AquaImageFactory$InvertableImageIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaImageFactory$InvertableImageIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaImageFactory"
-};
-
-$Object* allocate$AquaImageFactory$InvertableImageIcon($Class* clazz) {
-	return $of($alloc(AquaImageFactory$InvertableImageIcon));
-}
 
 void AquaImageFactory$InvertableImageIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
 	this->$ImageIcon::paintIcon(c, g, x, y);
@@ -108,7 +62,7 @@ void AquaImageFactory$InvertableImageIcon::init$($Image* image) {
 }
 
 $Icon* AquaImageFactory$InvertableImageIcon::getInvertedIcon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->invertedImage != nullptr) {
 		return this->invertedImage;
 	}
@@ -119,7 +73,46 @@ AquaImageFactory$InvertableImageIcon::AquaImageFactory$InvertableImageIcon() {
 }
 
 $Class* AquaImageFactory$InvertableImageIcon::load$($String* name, bool initialize) {
-	$loadClass(AquaImageFactory$InvertableImageIcon, name, initialize, &_AquaImageFactory$InvertableImageIcon_ClassInfo_, allocate$AquaImageFactory$InvertableImageIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"invertedImage", "Ljavax/swing/Icon;", nullptr, 0, $field(AquaImageFactory$InvertableImageIcon, invertedImage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getIconHeight", "()I", nullptr, $PUBLIC},
+		{"*getIconWidth", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(AquaImageFactory$InvertableImageIcon, init$, void, $Image*)},
+		{"getInvertedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$InvertableImageIcon, getInvertedIcon, $Icon*)},
+		{"*paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaImageFactory$InvertableImageIcon", "com.apple.laf.AquaImageFactory", "InvertableImageIcon", $STATIC},
+		{"com.apple.laf.AquaIcon$InvertableIcon", "com.apple.laf.AquaIcon", "InvertableIcon", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaImageFactory$InvertableImageIcon",
+		"javax.swing.ImageIcon",
+		"com.apple.laf.AquaIcon$InvertableIcon,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaImageFactory"
+	};
+	$loadClass(AquaImageFactory$InvertableImageIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaImageFactory$InvertableImageIcon));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/dnd/peer/DragSourceContextPeer.h>
-
 #include <java/awt/Cursor.h>
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
@@ -18,29 +17,25 @@ namespace java {
 		namespace dnd {
 			namespace peer {
 
-$MethodInfo _DragSourceContextPeer_MethodInfo_[] = {
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, getCursor, $Cursor*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, setCursor, void, $Cursor*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"startDrag", "(Ljava/awt/dnd/DragSourceContext;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, startDrag, void, $DragSourceContext*, $Cursor*, $Image*, $Point*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"transferablesFlavorsChanged", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, transferablesFlavorsChanged, void)},
-	{}
-};
-
-$ClassInfo _DragSourceContextPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.dnd.peer.DragSourceContextPeer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DragSourceContextPeer_MethodInfo_
-};
-
-$Object* allocate$DragSourceContextPeer($Class* clazz) {
-	return $of($alloc(DragSourceContextPeer));
-}
-
 $Class* DragSourceContextPeer::load$($String* name, bool initialize) {
-	$loadClass(DragSourceContextPeer, name, initialize, &_DragSourceContextPeer_ClassInfo_, allocate$DragSourceContextPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, getCursor, $Cursor*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, setCursor, void, $Cursor*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"startDrag", "(Ljava/awt/dnd/DragSourceContext;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, startDrag, void, $DragSourceContext*, $Cursor*, $Image*, $Point*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"transferablesFlavorsChanged", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceContextPeer, transferablesFlavorsChanged, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.dnd.peer.DragSourceContextPeer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DragSourceContextPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DragSourceContextPeer);
+	});
 	return class$;
 }
 

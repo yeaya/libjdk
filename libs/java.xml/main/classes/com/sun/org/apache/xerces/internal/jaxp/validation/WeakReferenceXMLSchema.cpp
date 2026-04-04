@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/WeakReferenceXMLSchema.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/AbstractXMLSchema.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/SoftReferenceGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
@@ -22,31 +21,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _WeakReferenceXMLSchema_FieldInfo_[] = {
-	{"fGrammarPool", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;>;", $PRIVATE, $field(WeakReferenceXMLSchema, fGrammarPool)},
-	{}
-};
-
-$MethodInfo _WeakReferenceXMLSchema_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WeakReferenceXMLSchema, init$, void)},
-	{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakReferenceXMLSchema, getGrammarPool, $XMLGrammarPool*)},
-	{"isFullyComposed", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakReferenceXMLSchema, isFullyComposed, bool)},
-	{}
-};
-
-$ClassInfo _WeakReferenceXMLSchema_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.WeakReferenceXMLSchema",
-	"com.sun.org.apache.xerces.internal.jaxp.validation.AbstractXMLSchema",
-	nullptr,
-	_WeakReferenceXMLSchema_FieldInfo_,
-	_WeakReferenceXMLSchema_MethodInfo_
-};
-
-$Object* allocate$WeakReferenceXMLSchema($Class* clazz) {
-	return $of($alloc(WeakReferenceXMLSchema));
-}
 
 void WeakReferenceXMLSchema::init$() {
 	$AbstractXMLSchema::init$();
@@ -72,7 +46,27 @@ WeakReferenceXMLSchema::WeakReferenceXMLSchema() {
 }
 
 $Class* WeakReferenceXMLSchema::load$($String* name, bool initialize) {
-	$loadClass(WeakReferenceXMLSchema, name, initialize, &_WeakReferenceXMLSchema_ClassInfo_, allocate$WeakReferenceXMLSchema);
+	$FieldInfo fieldInfos$$[] = {
+		{"fGrammarPool", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;>;", $PRIVATE, $field(WeakReferenceXMLSchema, fGrammarPool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WeakReferenceXMLSchema, init$, void)},
+		{"getGrammarPool", "()Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakReferenceXMLSchema, getGrammarPool, $XMLGrammarPool*)},
+		{"isFullyComposed", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakReferenceXMLSchema, isFullyComposed, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.WeakReferenceXMLSchema",
+		"com.sun.org.apache.xerces.internal.jaxp.validation.AbstractXMLSchema",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WeakReferenceXMLSchema, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WeakReferenceXMLSchema));
+	});
 	return class$;
 }
 

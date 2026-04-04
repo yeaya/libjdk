@@ -1,5 +1,4 @@
 #include <sun/awt/X11/Screen.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Depth.h>
 #include <sun/awt/X11/Native.h>
@@ -14,97 +13,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Depth = ::sun::awt::X11::Depth;
 using $Native = ::sun::awt::X11::Native;
 using $Visual = ::sun::awt::X11::Visual;
 using $XExtData = ::sun::awt::X11::XExtData;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _Screen_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(Screen, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(Screen, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(Screen, pData)},
-	{}
-};
-
-$MethodInfo _Screen_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Screen, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Screen, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Screen, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Screen, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Screen, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Screen, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Screen, getSize, int32_t)},
-	{"get_backing_store", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_backing_store, int32_t)},
-	{"get_black_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_black_pixel, int64_t)},
-	{"get_cmap", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_cmap, int64_t)},
-	{"get_default_gc", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_default_gc, int64_t)},
-	{"get_depths", "(I)Lsun/awt/X11/Depth;", nullptr, $PUBLIC, $virtualMethod(Screen, get_depths, $Depth*, int32_t)},
-	{"get_depths", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_depths, int64_t)},
-	{"get_display", "(I)J", nullptr, $PUBLIC, $virtualMethod(Screen, get_display, int64_t, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_display, int64_t)},
-	{"get_ext_data", "(I)Lsun/awt/X11/XExtData;", nullptr, $PUBLIC, $virtualMethod(Screen, get_ext_data, $XExtData*, int32_t)},
-	{"get_ext_data", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_ext_data, int64_t)},
-	{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_height, int32_t)},
-	{"get_max_maps", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_max_maps, int32_t)},
-	{"get_mheight", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_mheight, int32_t)},
-	{"get_min_maps", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_min_maps, int32_t)},
-	{"get_mwidth", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_mwidth, int32_t)},
-	{"get_ndepths", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_ndepths, int32_t)},
-	{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_root, int64_t)},
-	{"get_root_depth", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_depth, int32_t)},
-	{"get_root_input_mask", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_input_mask, int64_t)},
-	{"get_root_visual", "(I)Lsun/awt/X11/Visual;", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_visual, $Visual*, int32_t)},
-	{"get_root_visual", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_visual, int64_t)},
-	{"get_save_unders", "()Z", nullptr, $PUBLIC, $virtualMethod(Screen, get_save_unders, bool)},
-	{"get_white_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_white_pixel, int64_t)},
-	{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_width, int32_t)},
-	{"set_backing_store", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_backing_store, void, int32_t)},
-	{"set_black_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_black_pixel, void, int64_t)},
-	{"set_cmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_cmap, void, int64_t)},
-	{"set_default_gc", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_default_gc, void, int64_t)},
-	{"set_depths", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_depths, void, int64_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_display, void, int64_t)},
-	{"set_ext_data", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_ext_data, void, int64_t)},
-	{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_height, void, int32_t)},
-	{"set_max_maps", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_max_maps, void, int32_t)},
-	{"set_mheight", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_mheight, void, int32_t)},
-	{"set_min_maps", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_min_maps, void, int32_t)},
-	{"set_mwidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_mwidth, void, int32_t)},
-	{"set_ndepths", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_ndepths, void, int32_t)},
-	{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root, void, int64_t)},
-	{"set_root_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root_depth, void, int32_t)},
-	{"set_root_input_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root_input_mask, void, int64_t)},
-	{"set_root_visual", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root_visual, void, int64_t)},
-	{"set_save_unders", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_save_unders, void, bool)},
-	{"set_white_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_white_pixel, void, int64_t)},
-	{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_width, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Screen, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Screen, zero, void)},
-	{}
-};
-
-$ClassInfo _Screen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.Screen",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_Screen_FieldInfo_,
-	_Screen_MethodInfo_
-};
-
-$Object* allocate$Screen($Class* clazz) {
-	return $of($alloc(Screen));
-}
 
 int32_t Screen::getSize() {
 	$init(Screen);
@@ -143,7 +61,7 @@ void Screen::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -443,7 +361,7 @@ $String* Screen::getFieldsAsString() {
 }
 
 $Object* Screen::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void Screen::zero() {
@@ -458,7 +376,81 @@ Screen::Screen() {
 }
 
 $Class* Screen::load$($String* name, bool initialize) {
-	$loadClass(Screen, name, initialize, &_Screen_ClassInfo_, allocate$Screen);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(Screen, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(Screen, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(Screen, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(Screen, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Screen, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Screen, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Screen, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Screen, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Screen, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Screen, getSize, int32_t)},
+		{"get_backing_store", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_backing_store, int32_t)},
+		{"get_black_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_black_pixel, int64_t)},
+		{"get_cmap", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_cmap, int64_t)},
+		{"get_default_gc", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_default_gc, int64_t)},
+		{"get_depths", "(I)Lsun/awt/X11/Depth;", nullptr, $PUBLIC, $virtualMethod(Screen, get_depths, $Depth*, int32_t)},
+		{"get_depths", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_depths, int64_t)},
+		{"get_display", "(I)J", nullptr, $PUBLIC, $virtualMethod(Screen, get_display, int64_t, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_display, int64_t)},
+		{"get_ext_data", "(I)Lsun/awt/X11/XExtData;", nullptr, $PUBLIC, $virtualMethod(Screen, get_ext_data, $XExtData*, int32_t)},
+		{"get_ext_data", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_ext_data, int64_t)},
+		{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_height, int32_t)},
+		{"get_max_maps", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_max_maps, int32_t)},
+		{"get_mheight", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_mheight, int32_t)},
+		{"get_min_maps", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_min_maps, int32_t)},
+		{"get_mwidth", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_mwidth, int32_t)},
+		{"get_ndepths", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_ndepths, int32_t)},
+		{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_root, int64_t)},
+		{"get_root_depth", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_depth, int32_t)},
+		{"get_root_input_mask", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_input_mask, int64_t)},
+		{"get_root_visual", "(I)Lsun/awt/X11/Visual;", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_visual, $Visual*, int32_t)},
+		{"get_root_visual", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_root_visual, int64_t)},
+		{"get_save_unders", "()Z", nullptr, $PUBLIC, $virtualMethod(Screen, get_save_unders, bool)},
+		{"get_white_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(Screen, get_white_pixel, int64_t)},
+		{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(Screen, get_width, int32_t)},
+		{"set_backing_store", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_backing_store, void, int32_t)},
+		{"set_black_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_black_pixel, void, int64_t)},
+		{"set_cmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_cmap, void, int64_t)},
+		{"set_default_gc", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_default_gc, void, int64_t)},
+		{"set_depths", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_depths, void, int64_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_display, void, int64_t)},
+		{"set_ext_data", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_ext_data, void, int64_t)},
+		{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_height, void, int32_t)},
+		{"set_max_maps", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_max_maps, void, int32_t)},
+		{"set_mheight", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_mheight, void, int32_t)},
+		{"set_min_maps", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_min_maps, void, int32_t)},
+		{"set_mwidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_mwidth, void, int32_t)},
+		{"set_ndepths", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_ndepths, void, int32_t)},
+		{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root, void, int64_t)},
+		{"set_root_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root_depth, void, int32_t)},
+		{"set_root_input_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root_input_mask, void, int64_t)},
+		{"set_root_visual", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_root_visual, void, int64_t)},
+		{"set_save_unders", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_save_unders, void, bool)},
+		{"set_white_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_white_pixel, void, int64_t)},
+		{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(Screen, set_width, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Screen, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Screen, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.Screen",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Screen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Screen);
+	});
 	return class$;
 }
 

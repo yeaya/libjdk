@@ -1,5 +1,4 @@
 #include <sun/awt/im/AWTInputMethodPopupMenu.h>
-
 #include <java/awt/CheckboxMenuItem.h>
 #include <java/awt/Component.h>
 #include <java/awt/Menu.h>
@@ -14,7 +13,6 @@ using $Component = ::java::awt::Component;
 using $Menu = ::java::awt::Menu;
 using $MenuItem = ::java::awt::MenuItem;
 using $PopupMenu = ::java::awt::PopupMenu;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -23,37 +21,6 @@ using $InputMethodPopupMenu = ::sun::awt::im::InputMethodPopupMenu;
 namespace sun {
 	namespace awt {
 		namespace im {
-
-$FieldInfo _AWTInputMethodPopupMenu_FieldInfo_[] = {
-	{"delegate", "Ljava/awt/PopupMenu;", nullptr, $STATIC, $staticField(AWTInputMethodPopupMenu, delegate)},
-	{}
-};
-
-$MethodInfo _AWTInputMethodPopupMenu_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AWTInputMethodPopupMenu, init$, void, $String*)},
-	{"add", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, add, void, Object$*)},
-	{"addMenuItem", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addMenuItem, void, $String*, $String*, $String*)},
-	{"addMenuItem", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addMenuItem, void, Object$*, $String*, $String*, $String*)},
-	{"addSeparator", "()V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addSeparator, void)},
-	{"addToComponent", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addToComponent, void, $Component*)},
-	{"createSubmenu", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, createSubmenu, $Object*, $String*)},
-	{"removeAll", "()V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, removeAll, void)},
-	{"show", "(Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, show, void, $Component*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _AWTInputMethodPopupMenu_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.im.AWTInputMethodPopupMenu",
-	"sun.awt.im.InputMethodPopupMenu",
-	nullptr,
-	_AWTInputMethodPopupMenu_FieldInfo_,
-	_AWTInputMethodPopupMenu_MethodInfo_
-};
-
-$Object* allocate$AWTInputMethodPopupMenu($Class* clazz) {
-	return $of($alloc(AWTInputMethodPopupMenu));
-}
 
 $PopupMenu* AWTInputMethodPopupMenu::delegate = nullptr;
 
@@ -104,10 +71,10 @@ void AWTInputMethodPopupMenu::addMenuItem(Object$* targetMenu, $String* label, $
 	$nc(menuItem)->setActionCommand(command);
 	menuItem->addActionListener(this);
 	menuItem->setEnabled(command != nullptr);
-	$nc(($cast($Menu, targetMenu)))->add(menuItem);
+	$nc($cast($Menu, targetMenu))->add(menuItem);
 }
 
-void clinit$AWTInputMethodPopupMenu($Class* class$) {
+void AWTInputMethodPopupMenu::clinit$($Class* clazz) {
 	$assignStatic(AWTInputMethodPopupMenu::delegate, nullptr);
 }
 
@@ -115,7 +82,33 @@ AWTInputMethodPopupMenu::AWTInputMethodPopupMenu() {
 }
 
 $Class* AWTInputMethodPopupMenu::load$($String* name, bool initialize) {
-	$loadClass(AWTInputMethodPopupMenu, name, initialize, &_AWTInputMethodPopupMenu_ClassInfo_, clinit$AWTInputMethodPopupMenu, allocate$AWTInputMethodPopupMenu);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljava/awt/PopupMenu;", nullptr, $STATIC, $staticField(AWTInputMethodPopupMenu, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AWTInputMethodPopupMenu, init$, void, $String*)},
+		{"add", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, add, void, Object$*)},
+		{"addMenuItem", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addMenuItem, void, $String*, $String*, $String*)},
+		{"addMenuItem", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addMenuItem, void, Object$*, $String*, $String*, $String*)},
+		{"addSeparator", "()V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addSeparator, void)},
+		{"addToComponent", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, addToComponent, void, $Component*)},
+		{"createSubmenu", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, createSubmenu, $Object*, $String*)},
+		{"removeAll", "()V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, removeAll, void)},
+		{"show", "(Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(AWTInputMethodPopupMenu, show, void, $Component*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.im.AWTInputMethodPopupMenu",
+		"sun.awt.im.InputMethodPopupMenu",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AWTInputMethodPopupMenu, name, initialize, &classInfo$$, AWTInputMethodPopupMenu::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTInputMethodPopupMenu);
+	});
 	return class$;
 }
 

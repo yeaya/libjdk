@@ -1,5 +1,4 @@
 #include <javax/management/relation/InvalidRoleInfoException.h>
-
 #include <javax/management/relation/RelationException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RelationException = ::javax::management::relation::RelationException;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _InvalidRoleInfoException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidRoleInfoException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidRoleInfoException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRoleInfoException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRoleInfoException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidRoleInfoException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.InvalidRoleInfoException",
-	"javax.management.relation.RelationException",
-	nullptr,
-	_InvalidRoleInfoException_FieldInfo_,
-	_InvalidRoleInfoException_MethodInfo_
-};
-
-$Object* allocate$InvalidRoleInfoException($Class* clazz) {
-	return $of($alloc(InvalidRoleInfoException));
-}
 
 void InvalidRoleInfoException::init$() {
 	$RelationException::init$();
@@ -55,7 +30,26 @@ void InvalidRoleInfoException::throw$() {
 }
 
 $Class* InvalidRoleInfoException::load$($String* name, bool initialize) {
-	$loadClass(InvalidRoleInfoException, name, initialize, &_InvalidRoleInfoException_ClassInfo_, allocate$InvalidRoleInfoException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidRoleInfoException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRoleInfoException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRoleInfoException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.InvalidRoleInfoException",
+		"javax.management.relation.RelationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidRoleInfoException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidRoleInfoException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$Subst.h>
-
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$IntersectionClassType.h>
@@ -37,56 +36,8 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$Subst_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$Subst, this$0)},
-	{"from", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Subst, from)},
-	{"to", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Subst, to)},
-	{}
-};
-
-$MethodInfo _Types$Subst_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(Types$Subst, init$, void, $Types*, $List*, $List*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitClassType, $Type*, $Type$ClassType*, $Void*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitForAll, $Type*, $Type$ForAll*, $Void*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitForAll, $Object*, $Type$ForAll*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitWildcardType, $Type*, $Type$WildcardType*, $Void*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$Subst_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$Subst", "com.sun.tools.javac.code.Types", "Subst", $PRIVATE},
-	{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Types$Subst$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$Subst$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Types$Subst_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$Subst",
-	"com.sun.tools.javac.code.Type$StructuralTypeMapping",
-	nullptr,
-	_Types$Subst_FieldInfo_,
-	_Types$Subst_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Void;>;",
-	nullptr,
-	_Types$Subst_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$Subst($Class* clazz) {
-	return $of($alloc(Types$Subst));
-}
-
 void Types$Subst::init$($Types* this$0, $List* from$renamed, $List* to$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, from, from$renamed);
 	$var($List, to, to$renamed);
 	$set(this, this$0, this$0);
@@ -95,24 +46,24 @@ void Types$Subst::init$($Types* this$0, $List* from$renamed, $List* to$renamed) 
 	int32_t toLength = $nc(to)->length();
 	while (fromLength > toLength) {
 		--fromLength;
-		$assign(from, from->tail);
+		$assign(from, $nc(from)->tail);
 	}
 	while (fromLength < toLength) {
 		--toLength;
-		$assign(to, to->tail);
+		$assign(to, $nc(to)->tail);
 	}
 	$set(this, from, from);
 	$set(this, to, to);
 }
 
 $Type* Types$Subst::visitTypeVar($Type$TypeVar* t, $Void* ignored) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($List, from, this->from);
 		$var($List, to, this->to);
-		for (; $nc(from)->nonEmpty(); $assign(from, $nc(from)->tail), $assign(to, $nc(to)->tail)) {
+		for (; $nc(from)->nonEmpty(); $assign(from, from->tail), $assign(to, $nc(to)->tail)) {
 			if ($nc(t)->equalsIgnoreMetadata($cast($Type, from->head))) {
-				return $nc(($cast($Type, to->head)))->withTypeVar(t);
+				return $nc($cast($Type, $nc(to)->head))->withTypeVar(t);
 			}
 		}
 	}
@@ -120,12 +71,12 @@ $Type* Types$Subst::visitTypeVar($Type$TypeVar* t, $Void* ignored) {
 }
 
 $Type* Types$Subst::visitClassType($Type$ClassType* t, $Void* ignored) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(t)->isCompound()) {
 		return $cast($Type, $Type$StructuralTypeMapping::visitClassType(t, ignored));
 	} else {
 		$var($Type, st, visit($(this->this$0->supertype(t))));
-		$var($List, is, visit($(this->this$0->interfaces(t)), $of(ignored)));
+		$var($List, is, visit($(this->this$0->interfaces(t)), ignored));
 		bool var$0 = st == this->this$0->supertype(t);
 		if (var$0 && is == this->this$0->interfaces(t)) {
 			return t;
@@ -145,15 +96,15 @@ $Type* Types$Subst::visitWildcardType($Type$WildcardType* t, $Void* ignored) {
 }
 
 $Type* Types$Subst::visitForAll($Type$ForAll* t$renamed, $Void* ignored) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$ForAll, t, t$renamed);
 	if ($Type::containsAny(this->to, $nc(t)->tvars)) {
-		$var($List, freevars, this->this$0->newInstances($nc(t)->tvars));
-		$assign(t, $new($Type$ForAll, freevars, $(this->this$0->subst($nc(t)->qtype, t->tvars, freevars))));
+		$var($List, freevars, this->this$0->newInstances(t->tvars));
+		$assign(t, $new($Type$ForAll, freevars, $(this->this$0->subst(t->qtype, t->tvars, freevars))));
 	}
-	$var($List, tvars1, this->this$0->substBounds($nc(t)->tvars, this->from, this->to));
-	$var($Type, qtype1, visit($nc(t)->qtype));
-	if (tvars1 == $nc(t)->tvars && qtype1 == t->qtype) {
+	$var($List, tvars1, this->this$0->substBounds(t->tvars, this->from, this->to));
+	$var($Type, qtype1, visit(t->qtype));
+	if (tvars1 == t->tvars && qtype1 == t->qtype) {
 		return t;
 	} else if (tvars1 == t->tvars) {
 		return $new($Types$Subst$1, this, tvars1, qtype1);
@@ -182,7 +133,49 @@ Types$Subst::Types$Subst() {
 }
 
 $Class* Types$Subst::load$($String* name, bool initialize) {
-	$loadClass(Types$Subst, name, initialize, &_Types$Subst_ClassInfo_, allocate$Types$Subst);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$Subst, this$0)},
+		{"from", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Subst, from)},
+		{"to", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $field(Types$Subst, to)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(Types$Subst, init$, void, $Types*, $List*, $List*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitClassType, $Type*, $Type$ClassType*, $Void*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitForAll, $Type*, $Type$ForAll*, $Void*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$Subst, visitWildcardType, $Type*, $Type$WildcardType*, $Void*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$Subst, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$Subst", "com.sun.tools.javac.code.Types", "Subst", $PRIVATE},
+		{"com.sun.tools.javac.code.Type$StructuralTypeMapping", "com.sun.tools.javac.code.Type", "StructuralTypeMapping", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Types$Subst$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$Subst$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$Subst",
+		"com.sun.tools.javac.code.Type$StructuralTypeMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Type$StructuralTypeMapping<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$Subst, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$Subst));
+	});
 	return class$;
 }
 

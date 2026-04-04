@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifScrollBarUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifScrollBarButton.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -38,30 +37,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifScrollBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifScrollBarUI, init$, void)},
-	{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MotifScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
-	{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MotifScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MotifScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MotifScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{}
-};
-
-$ClassInfo _MotifScrollBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifScrollBarUI",
-	"javax.swing.plaf.basic.BasicScrollBarUI",
-	nullptr,
-	nullptr,
-	_MotifScrollBarUI_MethodInfo_
-};
-
-$Object* allocate$MotifScrollBarUI($Class* clazz) {
-	return $of($alloc(MotifScrollBarUI));
-}
-
 void MotifScrollBarUI::init$() {
 	$BasicScrollBarUI::init$();
 }
@@ -73,7 +48,7 @@ $ComponentUI* MotifScrollBarUI::createUI($JComponent* c) {
 
 $Dimension* MotifScrollBarUI::getPreferredSize($JComponent* c) {
 	$var($Insets, insets, $nc(c)->getInsets());
-	int32_t dx = $nc(insets)->left + insets->right;
+	int32_t dx = $nc(insets)->left + $nc(insets)->right;
 	int32_t dy = insets->top + insets->bottom;
 	return ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) ? $new($Dimension, dx + 11, dy + 33) : $new($Dimension, dx + 33, dy + 11);
 }
@@ -88,7 +63,7 @@ $JButton* MotifScrollBarUI::createIncreaseButton(int32_t orientation) {
 
 void MotifScrollBarUI::paintTrack($Graphics* g, $JComponent* c, $Rectangle* trackBounds) {
 	$nc(g)->setColor(this->trackColor);
-	g->fillRect($nc(trackBounds)->x, trackBounds->y, trackBounds->width, trackBounds->height);
+	g->fillRect($nc(trackBounds)->x, $nc(trackBounds)->y, $nc(trackBounds)->width, $nc(trackBounds)->height);
 }
 
 void MotifScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* thumbBounds) {
@@ -96,7 +71,7 @@ void MotifScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* thum
 	if (var$0 || !$nc(this->scrollbar)->isEnabled()) {
 		return;
 	}
-	int32_t w = $nc(thumbBounds)->width;
+	int32_t w = thumbBounds->width;
 	int32_t h = thumbBounds->height;
 	$nc(g)->translate(thumbBounds->x, thumbBounds->y);
 	g->setColor(this->thumbColor);
@@ -114,7 +89,27 @@ MotifScrollBarUI::MotifScrollBarUI() {
 }
 
 $Class* MotifScrollBarUI::load$($String* name, bool initialize) {
-	$loadClass(MotifScrollBarUI, name, initialize, &_MotifScrollBarUI_ClassInfo_, allocate$MotifScrollBarUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifScrollBarUI, init$, void)},
+		{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MotifScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
+		{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MotifScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MotifScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(MotifScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifScrollBarUI",
+		"javax.swing.plaf.basic.BasicScrollBarUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifScrollBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifScrollBarUI));
+	});
 	return class$;
 }
 

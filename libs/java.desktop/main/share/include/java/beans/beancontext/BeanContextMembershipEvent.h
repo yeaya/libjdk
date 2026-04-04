@@ -34,7 +34,7 @@ public:
 	virtual ::java::util::Iterator* iterator();
 	virtual int32_t size();
 	virtual $ObjectArray* toArray();
-	static const int64_t serialVersionUID = (int64_t)0x30902D1C5E7EFFEF;
+	static const int64_t serialVersionUID = (int64_t)0x30902d1c5e7effef;
 	::java::util::Collection* children = nullptr;
 };
 

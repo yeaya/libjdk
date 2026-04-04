@@ -15,6 +15,7 @@ class $export Insets : public ::java::lang::Cloneable, public ::java::io::Serial
 public:
 	Insets();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t top, int32_t left, int32_t bottom, int32_t right);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
@@ -26,7 +27,7 @@ public:
 	int32_t left = 0;
 	int32_t bottom = 0;
 	int32_t right = 0;
-	static const int64_t serialVersionUID = (int64_t)0xE076333A03E3A303;
+	static const int64_t serialVersionUID = (int64_t)0xe076333a03e3a303;
 };
 
 	} // awt

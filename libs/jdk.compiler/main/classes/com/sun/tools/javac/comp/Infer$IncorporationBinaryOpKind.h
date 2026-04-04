@@ -46,6 +46,7 @@ class $export Infer$IncorporationBinaryOpKind : public ::java::lang::Enum {
 public:
 	Infer$IncorporationBinaryOpKind();
 	static $Array<::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool apply(::com::sun::tools::javac::code::Type* op1, ::com::sun::tools::javac::code::Type* op2, ::com::sun::tools::javac::util::Warner* warn, ::com::sun::tools::javac::code::Types* types) {return false;}
 	static ::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind* valueOf($String* name);

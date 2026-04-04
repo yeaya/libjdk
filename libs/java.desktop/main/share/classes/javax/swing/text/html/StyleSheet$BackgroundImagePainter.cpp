@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet$BackgroundImagePainter.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -25,7 +24,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ImageIcon = ::javax::swing::ImageIcon;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $View = ::javax::swing::text::View;
 using $CSS = ::javax::swing::text::html::CSS;
@@ -39,52 +37,8 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _StyleSheet$BackgroundImagePainter_FieldInfo_[] = {
-	{"backgroundImage", "Ljavax/swing/ImageIcon;", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, backgroundImage)},
-	{"hPosition", "F", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, hPosition)},
-	{"vPosition", "F", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, vPosition)},
-	{"flags", "S", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, flags)},
-	{"paintX", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintX)},
-	{"paintY", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintY)},
-	{"paintMaxX", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintMaxX)},
-	{"paintMaxY", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintMaxY)},
-	{}
-};
-
-$MethodInfo _StyleSheet$BackgroundImagePainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS;Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$BackgroundImagePainter, init$, void, $AttributeSet*, $CSS*, $StyleSheet*)},
-	{"paint", "(Ljava/awt/Graphics;FFFFLjavax/swing/text/View;)V", nullptr, 0, $virtualMethod(StyleSheet$BackgroundImagePainter, paint, void, $Graphics*, float, float, float, float, $View*)},
-	{"updatePaintCoordinates", "(Ljava/awt/Rectangle;II)Z", nullptr, $PRIVATE, $method(StyleSheet$BackgroundImagePainter, updatePaintCoordinates, bool, $Rectangle*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StyleSheet$BackgroundImagePainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$BackgroundImagePainter", "javax.swing.text.html.StyleSheet", "BackgroundImagePainter", $STATIC},
-	{}
-};
-
-$ClassInfo _StyleSheet$BackgroundImagePainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.StyleSheet$BackgroundImagePainter",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_StyleSheet$BackgroundImagePainter_FieldInfo_,
-	_StyleSheet$BackgroundImagePainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleSheet$BackgroundImagePainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet"
-};
-
-$Object* allocate$StyleSheet$BackgroundImagePainter($Class* clazz) {
-	return $of($alloc(StyleSheet$BackgroundImagePainter));
-}
-
 void StyleSheet$BackgroundImagePainter::init$($AttributeSet* a, $CSS* css, $StyleSheet* ss) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, backgroundImage, $nc(ss)->getBackgroundImage(a));
 	$init($CSS$Attribute);
 	$var($CSS$BackgroundPosition, pos, $cast($CSS$BackgroundPosition, $nc(a)->getAttribute($CSS$Attribute::BACKGROUND_POSITION)));
@@ -106,14 +60,10 @@ void StyleSheet$BackgroundImagePainter::init$($AttributeSet* a, $CSS* css, $Styl
 	$init($CSS$Value);
 	if (repeats == nullptr || repeats == $CSS$Value::BACKGROUND_REPEAT) {
 		this->flags |= 3;
-	} else {
-		if (repeats == $CSS$Value::BACKGROUND_REPEAT_X) {
-			this->flags |= 1;
-		} else {
-			if (repeats == $CSS$Value::BACKGROUND_REPEAT_Y) {
-				this->flags |= 2;
-			}
-		}
+	} else if (repeats == $CSS$Value::BACKGROUND_REPEAT_X) {
+		this->flags |= 1;
+	} else if (repeats == $CSS$Value::BACKGROUND_REPEAT_Y) {
+		this->flags |= 2;
 	}
 }
 
@@ -122,20 +72,20 @@ void StyleSheet$BackgroundImagePainter::paint($Graphics* g, float x, float y, fl
 	if (clip != nullptr) {
 		g->clipRect($cast(int32_t, x), $cast(int32_t, y), $cast(int32_t, w), $cast(int32_t, h));
 	}
-	if (((int32_t)(this->flags & (uint32_t)3)) == 0) {
+	if ((this->flags & 3) == 0) {
 		int32_t width = $nc(this->backgroundImage)->getIconWidth();
 		int32_t height = $nc(this->backgroundImage)->getIconWidth();
-		if (((int32_t)(this->flags & (uint32_t)4)) == 4) {
+		if ((this->flags & 4) == 4) {
 			this->paintX = $cast(int32_t, (x + w * this->hPosition - (float)width * this->hPosition));
 		} else {
 			this->paintX = $cast(int32_t, x) + $cast(int32_t, this->hPosition);
 		}
-		if (((int32_t)(this->flags & (uint32_t)8)) == 8) {
+		if ((this->flags & 8) == 8) {
 			this->paintY = $cast(int32_t, (y + h * this->vPosition - (float)height * this->vPosition));
 		} else {
 			this->paintY = $cast(int32_t, y) + $cast(int32_t, this->vPosition);
 		}
-		if (clip == nullptr || !((this->paintX + width <= $nc(clip)->x) || (this->paintY + height <= $nc(clip)->y) || (this->paintX >= $nc(clip)->x + clip->width) || (this->paintY >= $nc(clip)->y + clip->height))) {
+		if (clip == nullptr || !((this->paintX + width <= clip->x) || (this->paintY + height <= clip->y) || (this->paintX >= clip->x + clip->width) || (this->paintY >= clip->y + clip->height))) {
 			$nc(this->backgroundImage)->paintIcon(nullptr, g, this->paintX, this->paintY);
 		}
 	} else {
@@ -164,19 +114,19 @@ void StyleSheet$BackgroundImagePainter::paint($Graphics* g, float x, float y, fl
 }
 
 bool StyleSheet$BackgroundImagePainter::updatePaintCoordinates($Rectangle* clip, int32_t width, int32_t height) {
-	if (((int32_t)(this->flags & (uint32_t)3)) == 1) {
+	if ((this->flags & 3) == 1) {
 		this->paintMaxY = this->paintY + 1;
-	} else if (((int32_t)(this->flags & (uint32_t)3)) == 2) {
+	} else if ((this->flags & 3) == 2) {
 		this->paintMaxX = this->paintX + 1;
 	}
 	if (clip != nullptr) {
-		if (((int32_t)(this->flags & (uint32_t)3)) == 1 && ((this->paintY + height <= clip->y) || (this->paintY > clip->y + clip->height))) {
+		if ((this->flags & 3) == 1 && ((this->paintY + height <= clip->y) || (this->paintY > clip->y + clip->height))) {
 			return false;
 		}
-		if (((int32_t)(this->flags & (uint32_t)3)) == 2 && ((this->paintX + width <= clip->x) || (this->paintX > clip->x + clip->width))) {
+		if ((this->flags & 3) == 2 && ((this->paintX + width <= clip->x) || (this->paintX > clip->x + clip->width))) {
 			return false;
 		}
-		if (((int32_t)(this->flags & (uint32_t)1)) == 1) {
+		if ((this->flags & 1) == 1) {
 			if ((clip->x + clip->width) < this->paintMaxX) {
 				if ($mod((clip->x + clip->width - this->paintX), width) == 0) {
 					this->paintMaxX = clip->x + clip->width;
@@ -188,7 +138,7 @@ bool StyleSheet$BackgroundImagePainter::updatePaintCoordinates($Rectangle* clip,
 				this->paintX = $div((clip->x - this->paintX), width) * width + this->paintX;
 			}
 		}
-		if (((int32_t)(this->flags & (uint32_t)2)) == 2) {
+		if ((this->flags & 2) == 2) {
 			if ((clip->y + clip->height) < this->paintMaxY) {
 				if ($mod((clip->y + clip->height - this->paintY), height) == 0) {
 					this->paintMaxY = clip->y + clip->height;
@@ -208,7 +158,45 @@ StyleSheet$BackgroundImagePainter::StyleSheet$BackgroundImagePainter() {
 }
 
 $Class* StyleSheet$BackgroundImagePainter::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet$BackgroundImagePainter, name, initialize, &_StyleSheet$BackgroundImagePainter_ClassInfo_, allocate$StyleSheet$BackgroundImagePainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"backgroundImage", "Ljavax/swing/ImageIcon;", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, backgroundImage)},
+		{"hPosition", "F", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, hPosition)},
+		{"vPosition", "F", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, vPosition)},
+		{"flags", "S", nullptr, 0, $field(StyleSheet$BackgroundImagePainter, flags)},
+		{"paintX", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintX)},
+		{"paintY", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintY)},
+		{"paintMaxX", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintMaxX)},
+		{"paintMaxY", "I", nullptr, $PRIVATE, $field(StyleSheet$BackgroundImagePainter, paintMaxY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS;Ljavax/swing/text/html/StyleSheet;)V", nullptr, 0, $method(StyleSheet$BackgroundImagePainter, init$, void, $AttributeSet*, $CSS*, $StyleSheet*)},
+		{"paint", "(Ljava/awt/Graphics;FFFFLjavax/swing/text/View;)V", nullptr, 0, $virtualMethod(StyleSheet$BackgroundImagePainter, paint, void, $Graphics*, float, float, float, float, $View*)},
+		{"updatePaintCoordinates", "(Ljava/awt/Rectangle;II)Z", nullptr, $PRIVATE, $method(StyleSheet$BackgroundImagePainter, updatePaintCoordinates, bool, $Rectangle*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$BackgroundImagePainter", "javax.swing.text.html.StyleSheet", "BackgroundImagePainter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.StyleSheet$BackgroundImagePainter",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet"
+	};
+	$loadClass(StyleSheet$BackgroundImagePainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleSheet$BackgroundImagePainter);
+	});
 	return class$;
 }
 

@@ -1,9 +1,7 @@
 #include <Test6462562.h>
-
 #include <Test6462562$1.h>
 #include <Test6462562$TestFormattedTextField.h>
 #include <java/lang/Error.h>
-#include <java/lang/Runnable.h>
 #include <java/text/DateFormat.h>
 #include <java/text/NumberFormat.h>
 #include <java/text/ParseException.h>
@@ -12,7 +10,6 @@
 #include <java/util/Locale.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/text/DateFormatter.h>
-#include <javax/swing/text/InternationalFormatter.h>
 #include <javax/swing/text/NumberFormatter.h>
 #include <jcpp.h>
 
@@ -22,7 +19,6 @@
 
 using $Test6462562$1 = ::Test6462562$1;
 using $Test6462562$TestFormattedTextField = ::Test6462562$TestFormattedTextField;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $Error = ::java::lang::Error;
@@ -30,7 +26,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DateFormat = ::java::text::DateFormat;
 using $NumberFormat = ::java::text::NumberFormat;
@@ -40,54 +35,7 @@ using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DateFormatter = ::javax::swing::text::DateFormatter;
-using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 using $NumberFormatter = ::javax::swing::text::NumberFormatter;
-
-$FieldInfo _Test6462562_FieldInfo_[] = {
-	{"BACKSPACE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Test6462562, BACKSPACE)},
-	{"DELETE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Test6462562, DELETE)},
-	{"failed", "Z", nullptr, 0, $field(Test6462562, failed)},
-	{}
-};
-
-$MethodInfo _Test6462562_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test6462562, init$, void)},
-	{"create", "(Ljava/text/NumberFormat;)LTest6462562$TestFormattedTextField;", nullptr, 0, $virtualMethod(Test6462562, create, $Test6462562$TestFormattedTextField*, $NumberFormat*)},
-	{"create", "(Ljava/text/DateFormat;)LTest6462562$TestFormattedTextField;", nullptr, 0, $virtualMethod(Test6462562, create, $Test6462562$TestFormattedTextField*, $DateFormat*)},
-	{"date", "(Ljava/text/DateFormat;Ljava/lang/String;)Ljava/util/Date;", nullptr, 0, $virtualMethod(Test6462562, date, $Date*, $DateFormat*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6462562, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, 0, $virtualMethod(Test6462562, test, void)},
-	{"testCurrencyFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testCurrencyFormat, void)},
-	{"testDateFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testDateFormat, void)},
-	{"testIntegerFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testIntegerFormat, void)},
-	{"testPercentFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testPercentFormat, void)},
-	{}
-};
-
-$InnerClassInfo _Test6462562_InnerClassesInfo_[] = {
-	{"Test6462562$TestFormattedTextField", "Test6462562", "TestFormattedTextField", 0},
-	{"Test6462562$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test6462562_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6462562",
-	"java.lang.Object",
-	nullptr,
-	_Test6462562_FieldInfo_,
-	_Test6462562_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test6462562_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Test6462562$TestFormattedTextField,Test6462562$1"
-};
-
-$Object* allocate$Test6462562($Class* clazz) {
-	return $of($alloc(Test6462562));
-}
 
 $String* Test6462562::BACKSPACE = nullptr;
 $String* Test6462562::DELETE = nullptr;
@@ -124,7 +72,7 @@ void Test6462562::main($StringArray* args) {
 }
 
 void Test6462562::testPercentFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($NumberFormat, format, $NumberFormat::getPercentInstance($Locale::US));
 	$var($Test6462562$TestFormattedTextField, ftf, create(format));
@@ -168,83 +116,83 @@ void Test6462562::testPercentFormat() {
 }
 
 void Test6462562::testCurrencyFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($NumberFormat, format, $NumberFormat::getCurrencyInstance($Locale::US));
 	$var($Test6462562$TestFormattedTextField, ftf, create(format));
-	$nc(ftf)->setValue($($Long::valueOf((int64_t)56)));
+	$nc(ftf)->setValue($($Long::valueOf(56)));
 	$nc($System::err)->println("Testing NumberFormat.getCurrencyInstance(Locale.US)"_s);
-	ftf->test(1, 0, "1"_s, $($Long::valueOf((int64_t)16)));
-	ftf->test(3, 0, "2"_s, $($Long::valueOf((int64_t)162)));
-	ftf->test(2, 0, "0"_s, $($Long::valueOf((int64_t)102)));
-	ftf->test(1, 0, "1024"_s, $($Long::valueOf((int64_t)1024)));
-	ftf->test(4, 0, "333"_s, $($Long::valueOf((int64_t)10333)));
-	ftf->test(7, 0, "77"_s, $($Long::valueOf((int64_t)1033377)));
-	ftf->test(5, 0, "99"_s, $($Long::valueOf((int64_t)1039977)));
-	ftf->test(7, 0, "00"_s, $($Long::valueOf((int64_t)1039007)));
-	ftf->test(1, 0, "2,2"_s, $($Long::valueOf((int64_t)229007)));
-	ftf->test(3, 0, "2,2"_s, $($Long::valueOf((int64_t)22227)));
-	ftf->test(4, 0, "2,2"_s, $($Long::valueOf((int64_t)2222)));
-	ftf->test(6, 0, "33,33"_s, $($Long::valueOf((int64_t)22223333)));
-	ftf->test(1, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)2223333)));
-	ftf->test(10, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)2223333)));
-	ftf->test(5, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)222333)));
-	ftf->test(5, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)22233)));
-	ftf->test(1, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)22233)));
-	ftf->test(7, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)2223)));
-	ftf->test(4, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)223)));
-	ftf->test(2, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)23)));
-	ftf->test(1, 1, "555"_s, $($Long::valueOf((int64_t)5553)));
-	ftf->test(4, 2, "555"_s, $($Long::valueOf((int64_t)55555)));
-	ftf->test(2, 3, "1"_s, $($Long::valueOf((int64_t)5155)));
-	ftf->test(3, 2, "6"_s, $($Long::valueOf((int64_t)565)));
-	ftf->test(1, 3, "111222333444555"_s, $($Long::valueOf((int64_t)0x00006527F7AD11CB)));
-	ftf->test(1, 2, Test6462562::DELETE, $($Long::valueOf((int64_t)0x0000011C98C031CB)));
-	ftf->test(1, 3, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)0x00000005332D51CB)));
-	ftf->test(13, 2, Test6462562::DELETE, $($Long::valueOf((int64_t)223334445)));
-	ftf->test(10, 2, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)2233344)));
-	ftf->test(4, 4, Test6462562::DELETE, $($Long::valueOf((int64_t)2244)));
-	ftf->test(1, 4, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)4)));
+	ftf->test(1, 0, "1"_s, $($Long::valueOf(16)));
+	ftf->test(3, 0, "2"_s, $($Long::valueOf(162)));
+	ftf->test(2, 0, "0"_s, $($Long::valueOf(102)));
+	ftf->test(1, 0, "1024"_s, $($Long::valueOf(1024)));
+	ftf->test(4, 0, "333"_s, $($Long::valueOf(10333)));
+	ftf->test(7, 0, "77"_s, $($Long::valueOf(1033377)));
+	ftf->test(5, 0, "99"_s, $($Long::valueOf(1039977)));
+	ftf->test(7, 0, "00"_s, $($Long::valueOf(1039007)));
+	ftf->test(1, 0, "2,2"_s, $($Long::valueOf(229007)));
+	ftf->test(3, 0, "2,2"_s, $($Long::valueOf(22227)));
+	ftf->test(4, 0, "2,2"_s, $($Long::valueOf(2222)));
+	ftf->test(6, 0, "33,33"_s, $($Long::valueOf(22223333)));
+	ftf->test(1, 0, Test6462562::DELETE, $($Long::valueOf(2223333)));
+	ftf->test(10, 0, Test6462562::DELETE, $($Long::valueOf(2223333)));
+	ftf->test(5, 0, Test6462562::DELETE, $($Long::valueOf(222333)));
+	ftf->test(5, 0, Test6462562::DELETE, $($Long::valueOf(22233)));
+	ftf->test(1, 0, Test6462562::BACKSPACE, $($Long::valueOf(22233)));
+	ftf->test(7, 0, Test6462562::BACKSPACE, $($Long::valueOf(2223)));
+	ftf->test(4, 0, Test6462562::BACKSPACE, $($Long::valueOf(223)));
+	ftf->test(2, 0, Test6462562::BACKSPACE, $($Long::valueOf(23)));
+	ftf->test(1, 1, "555"_s, $($Long::valueOf(5553)));
+	ftf->test(4, 2, "555"_s, $($Long::valueOf(55555)));
+	ftf->test(2, 3, "1"_s, $($Long::valueOf(5155)));
+	ftf->test(3, 2, "6"_s, $($Long::valueOf(565)));
+	ftf->test(1, 3, "111222333444555"_s, $($Long::valueOf((int64_t)0x00006527f7ad11cb)));
+	ftf->test(1, 2, Test6462562::DELETE, $($Long::valueOf((int64_t)0x0000011c98c031cb)));
+	ftf->test(1, 3, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)0x00000005332d51cb)));
+	ftf->test(13, 2, Test6462562::DELETE, $($Long::valueOf(223334445)));
+	ftf->test(10, 2, Test6462562::BACKSPACE, $($Long::valueOf(2233344)));
+	ftf->test(4, 4, Test6462562::DELETE, $($Long::valueOf(2244)));
+	ftf->test(1, 4, Test6462562::BACKSPACE, $($Long::valueOf(4)));
 }
 
 void Test6462562::testIntegerFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($NumberFormat, format, $NumberFormat::getIntegerInstance($Locale::US));
 	$var($Test6462562$TestFormattedTextField, ftf, create(format));
-	$nc(ftf)->setValue($($Long::valueOf((int64_t)56)));
+	$nc(ftf)->setValue($($Long::valueOf(56)));
 	$nc($System::err)->println("Testing NumberFormat.getIntegerInstance(Locale.US)"_s);
-	ftf->test(0, 0, "1"_s, $($Long::valueOf((int64_t)16)));
-	ftf->test(2, 0, "2"_s, $($Long::valueOf((int64_t)162)));
-	ftf->test(1, 0, "0"_s, $($Long::valueOf((int64_t)102)));
-	ftf->test(0, 0, "1024"_s, $($Long::valueOf((int64_t)1024)));
-	ftf->test(3, 0, "333"_s, $($Long::valueOf((int64_t)10333)));
-	ftf->test(6, 0, "77"_s, $($Long::valueOf((int64_t)1033377)));
-	ftf->test(4, 0, "99"_s, $($Long::valueOf((int64_t)1039977)));
-	ftf->test(6, 0, "00"_s, $($Long::valueOf((int64_t)1039007)));
-	ftf->test(0, 0, "2,2"_s, $($Long::valueOf((int64_t)229007)));
-	ftf->test(2, 0, "2,2"_s, $($Long::valueOf((int64_t)22227)));
-	ftf->test(3, 0, "2,2"_s, $($Long::valueOf((int64_t)2222)));
-	ftf->test(5, 0, "33,33"_s, $($Long::valueOf((int64_t)22223333)));
-	ftf->test(0, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)2223333)));
-	ftf->test(9, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)2223333)));
-	ftf->test(4, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)222333)));
-	ftf->test(4, 0, Test6462562::DELETE, $($Long::valueOf((int64_t)22233)));
-	ftf->test(0, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)22233)));
-	ftf->test(6, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)2223)));
-	ftf->test(2, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)223)));
-	ftf->test(2, 0, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)23)));
-	ftf->test(0, 1, "555"_s, $($Long::valueOf((int64_t)5553)));
-	ftf->test(3, 2, "555"_s, $($Long::valueOf((int64_t)55555)));
-	ftf->test(1, 3, "1"_s, $($Long::valueOf((int64_t)5155)));
-	ftf->test(2, 2, "6"_s, $($Long::valueOf((int64_t)565)));
-	ftf->test(0, 3, "111222333444555"_s, $($Long::valueOf((int64_t)0x00006527F7AD11CB)));
-	ftf->test(0, 2, Test6462562::DELETE, $($Long::valueOf((int64_t)0x0000011C98C031CB)));
-	ftf->test(0, 3, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)0x00000005332D51CB)));
-	ftf->test(12, 2, Test6462562::DELETE, $($Long::valueOf((int64_t)223334445)));
-	ftf->test(9, 2, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)2233344)));
-	ftf->test(3, 4, Test6462562::DELETE, $($Long::valueOf((int64_t)2244)));
-	ftf->test(0, 4, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)4)));
+	ftf->test(0, 0, "1"_s, $($Long::valueOf(16)));
+	ftf->test(2, 0, "2"_s, $($Long::valueOf(162)));
+	ftf->test(1, 0, "0"_s, $($Long::valueOf(102)));
+	ftf->test(0, 0, "1024"_s, $($Long::valueOf(1024)));
+	ftf->test(3, 0, "333"_s, $($Long::valueOf(10333)));
+	ftf->test(6, 0, "77"_s, $($Long::valueOf(1033377)));
+	ftf->test(4, 0, "99"_s, $($Long::valueOf(1039977)));
+	ftf->test(6, 0, "00"_s, $($Long::valueOf(1039007)));
+	ftf->test(0, 0, "2,2"_s, $($Long::valueOf(229007)));
+	ftf->test(2, 0, "2,2"_s, $($Long::valueOf(22227)));
+	ftf->test(3, 0, "2,2"_s, $($Long::valueOf(2222)));
+	ftf->test(5, 0, "33,33"_s, $($Long::valueOf(22223333)));
+	ftf->test(0, 0, Test6462562::DELETE, $($Long::valueOf(2223333)));
+	ftf->test(9, 0, Test6462562::DELETE, $($Long::valueOf(2223333)));
+	ftf->test(4, 0, Test6462562::DELETE, $($Long::valueOf(222333)));
+	ftf->test(4, 0, Test6462562::DELETE, $($Long::valueOf(22233)));
+	ftf->test(0, 0, Test6462562::BACKSPACE, $($Long::valueOf(22233)));
+	ftf->test(6, 0, Test6462562::BACKSPACE, $($Long::valueOf(2223)));
+	ftf->test(2, 0, Test6462562::BACKSPACE, $($Long::valueOf(223)));
+	ftf->test(2, 0, Test6462562::BACKSPACE, $($Long::valueOf(23)));
+	ftf->test(0, 1, "555"_s, $($Long::valueOf(5553)));
+	ftf->test(3, 2, "555"_s, $($Long::valueOf(55555)));
+	ftf->test(1, 3, "1"_s, $($Long::valueOf(5155)));
+	ftf->test(2, 2, "6"_s, $($Long::valueOf(565)));
+	ftf->test(0, 3, "111222333444555"_s, $($Long::valueOf((int64_t)0x00006527f7ad11cb)));
+	ftf->test(0, 2, Test6462562::DELETE, $($Long::valueOf((int64_t)0x0000011c98c031cb)));
+	ftf->test(0, 3, Test6462562::BACKSPACE, $($Long::valueOf((int64_t)0x00000005332d51cb)));
+	ftf->test(12, 2, Test6462562::DELETE, $($Long::valueOf(223334445)));
+	ftf->test(9, 2, Test6462562::BACKSPACE, $($Long::valueOf(2233344)));
+	ftf->test(3, 4, Test6462562::DELETE, $($Long::valueOf(2244)));
+	ftf->test(0, 4, Test6462562::BACKSPACE, $($Long::valueOf(4)));
 }
 
 $Date* Test6462562::date($DateFormat* format, $String* spec) {
@@ -257,7 +205,7 @@ $Date* Test6462562::date($DateFormat* format, $String* spec) {
 }
 
 void Test6462562::testDateFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($DateFormat, format, $new($SimpleDateFormat, "MM/dd/yyyy"_s, $Locale::US));
 	$var($Test6462562$TestFormattedTextField, ftf, create(format));
@@ -290,7 +238,7 @@ void Test6462562::testDateFormat() {
 	ftf->test(8, 1, Test6462562::DELETE, $(date(format, "01/03/0001"_s)));
 }
 
-void clinit$Test6462562($Class* class$) {
+void Test6462562::clinit$($Class* clazz) {
 	$assignStatic(Test6462562::BACKSPACE, $new($String, "backspace"_s));
 	$assignStatic(Test6462562::DELETE, $new($String, "delete"_s));
 }
@@ -299,7 +247,47 @@ Test6462562::Test6462562() {
 }
 
 $Class* Test6462562::load$($String* name, bool initialize) {
-	$loadClass(Test6462562, name, initialize, &_Test6462562_ClassInfo_, clinit$Test6462562, allocate$Test6462562);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKSPACE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Test6462562, BACKSPACE)},
+		{"DELETE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Test6462562, DELETE)},
+		{"failed", "Z", nullptr, 0, $field(Test6462562, failed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test6462562, init$, void)},
+		{"create", "(Ljava/text/NumberFormat;)LTest6462562$TestFormattedTextField;", nullptr, 0, $virtualMethod(Test6462562, create, $Test6462562$TestFormattedTextField*, $NumberFormat*)},
+		{"create", "(Ljava/text/DateFormat;)LTest6462562$TestFormattedTextField;", nullptr, 0, $virtualMethod(Test6462562, create, $Test6462562$TestFormattedTextField*, $DateFormat*)},
+		{"date", "(Ljava/text/DateFormat;Ljava/lang/String;)Ljava/util/Date;", nullptr, 0, $virtualMethod(Test6462562, date, $Date*, $DateFormat*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6462562, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, 0, $virtualMethod(Test6462562, test, void)},
+		{"testCurrencyFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testCurrencyFormat, void)},
+		{"testDateFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testDateFormat, void)},
+		{"testIntegerFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testIntegerFormat, void)},
+		{"testPercentFormat", "()V", nullptr, 0, $virtualMethod(Test6462562, testPercentFormat, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6462562$TestFormattedTextField", "Test6462562", "TestFormattedTextField", 0},
+		{"Test6462562$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6462562",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Test6462562$TestFormattedTextField,Test6462562$1"
+	};
+	$loadClass(Test6462562, name, initialize, &classInfo$$, Test6462562::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6462562);
+	});
 	return class$;
 }
 

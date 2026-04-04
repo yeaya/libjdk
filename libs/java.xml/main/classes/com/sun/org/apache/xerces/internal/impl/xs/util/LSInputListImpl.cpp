@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/LSInputListImpl.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/reflect/Array.h>
 #include <java/util/AbstractList.h>
@@ -48,71 +47,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 								namespace util {
-
-$FieldInfo _LSInputListImpl_FieldInfo_[] = {
-	{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/LSInputListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LSInputListImpl, EMPTY_LIST)},
-	{"fArray", "[Lorg/w3c/dom/ls/LSInput;", nullptr, $PRIVATE | $FINAL, $field(LSInputListImpl, fArray)},
-	{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(LSInputListImpl, fLength)},
-	{}
-};
-
-$MethodInfo _LSInputListImpl_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"<init>", "([Lorg/w3c/dom/ls/LSInput;I)V", nullptr, $PUBLIC, $method(LSInputListImpl, init$, void, $LSInputArray*, int32_t)},
-	{"get", "(I)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, get, $Object*, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, getLength, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"item", "(I)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, item, $LSInput*, int32_t)},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, size, int32_t)},
-	{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(LSInputListImpl, toArray0, void, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LSInputListImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.LSInputListImpl",
-	"java.util.AbstractList",
-	"com.sun.org.apache.xerces.internal.xs.LSInputList",
-	_LSInputListImpl_FieldInfo_,
-	_LSInputListImpl_MethodInfo_,
-	"Ljava/util/AbstractList<Lorg/w3c/dom/ls/LSInput;>;Lcom/sun/org/apache/xerces/internal/xs/LSInputList;"
-};
-
-$Object* allocate$LSInputListImpl($Class* clazz) {
-	return $of($alloc(LSInputListImpl));
-}
 
 bool LSInputListImpl::add(Object$* arg0) {
 	 return this->$AbstractList::add(arg0);
@@ -262,9 +196,9 @@ $LSInput* LSInputListImpl::item(int32_t index) {
 }
 
 $Object* LSInputListImpl::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= 0 && index < this->fLength) {
-		return $of($nc(this->fArray)->get(index));
+		return $nc(this->fArray)->get(index);
 	}
 	$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 }
@@ -283,11 +217,11 @@ $ObjectArray* LSInputListImpl::toArray($ObjectArray* a$renamed) {
 	$var($ObjectArray, a, a$renamed);
 	if ($nc(a)->length < this->fLength) {
 		$Class* arrayClass = $of(a)->getClass();
-		$Class* componentType = $nc(arrayClass)->getComponentType();
+		$Class* componentType = arrayClass->getComponentType();
 		$assign(a, $cast($ObjectArray, $1Array::newInstance(componentType, this->fLength)));
 	}
 	toArray0(a);
-	if ($nc(a)->length > this->fLength) {
+	if (a->length > this->fLength) {
 		a->set(this->fLength, nullptr);
 	}
 	return a;
@@ -299,7 +233,7 @@ void LSInputListImpl::toArray0($ObjectArray* a) {
 	}
 }
 
-void clinit$LSInputListImpl($Class* class$) {
+void LSInputListImpl::clinit$($Class* clazz) {
 	$assignStatic(LSInputListImpl::EMPTY_LIST, $new(LSInputListImpl, $$new($LSInputArray, 0), 0));
 }
 
@@ -307,7 +241,67 @@ LSInputListImpl::LSInputListImpl() {
 }
 
 $Class* LSInputListImpl::load$($String* name, bool initialize) {
-	$loadClass(LSInputListImpl, name, initialize, &_LSInputListImpl_ClassInfo_, clinit$LSInputListImpl, allocate$LSInputListImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_LIST", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/LSInputListImpl;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LSInputListImpl, EMPTY_LIST)},
+		{"fArray", "[Lorg/w3c/dom/ls/LSInput;", nullptr, $PRIVATE | $FINAL, $field(LSInputListImpl, fArray)},
+		{"fLength", "I", nullptr, $PRIVATE | $FINAL, $field(LSInputListImpl, fLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*addAll", "(ILjava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"<init>", "([Lorg/w3c/dom/ls/LSInput;I)V", nullptr, $PUBLIC, $method(LSInputListImpl, init$, void, $LSInputArray*, int32_t)},
+		{"get", "(I)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, get, $Object*, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, getLength, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"item", "(I)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, item, $LSInput*, int32_t)},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+		{"*listIterator", "()Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*listIterator", "(I)Ljava/util/ListIterator;", nullptr, $PUBLIC},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, size, int32_t)},
+		{"*sort", "(Ljava/util/Comparator;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*subList", "(II)Ljava/util/List;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LSInputListImpl, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArray0", "([Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(LSInputListImpl, toArray0, void, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.LSInputListImpl",
+		"java.util.AbstractList",
+		"com.sun.org.apache.xerces.internal.xs.LSInputList",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractList<Lorg/w3c/dom/ls/LSInput;>;Lcom/sun/org/apache/xerces/internal/xs/LSInputList;"
+	};
+	$loadClass(LSInputListImpl, name, initialize, &classInfo$$, LSInputListImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LSInputListImpl));
+	});
 	return class$;
 }
 

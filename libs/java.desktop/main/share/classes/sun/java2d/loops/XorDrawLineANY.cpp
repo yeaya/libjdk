@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XorDrawLineANY.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -24,25 +23,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _XorDrawLineANY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XorDrawLineANY, init$, void)},
-	{"DrawLine", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(XorDrawLineANY, DrawLine$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XorDrawLineANY_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.XorDrawLineANY",
-	"sun.java2d.loops.DrawLine",
-	nullptr,
-	nullptr,
-	_XorDrawLineANY_MethodInfo_
-};
-
-$Object* allocate$XorDrawLineANY($Class* clazz) {
-	return $of($alloc(XorDrawLineANY));
-}
-
 void XorDrawLineANY::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -50,7 +30,7 @@ void XorDrawLineANY::init$() {
 }
 
 void XorDrawLineANY::DrawLine$($SunGraphics2D* sg2d, $SurfaceData* sData, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PixelWriter, pw, $GeneralRenderer::createXorPixelWriter(sg2d, sData));
 	if (y1 >= y2) {
 		$GeneralRenderer::doDrawLine(sData, pw, nullptr, $($nc(sg2d)->getCompClip()), x2, y2, x1, y1);
@@ -63,7 +43,22 @@ XorDrawLineANY::XorDrawLineANY() {
 }
 
 $Class* XorDrawLineANY::load$($String* name, bool initialize) {
-	$loadClass(XorDrawLineANY, name, initialize, &_XorDrawLineANY_ClassInfo_, allocate$XorDrawLineANY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XorDrawLineANY, init$, void)},
+		{"DrawLine", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(XorDrawLineANY, DrawLine$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.XorDrawLineANY",
+		"sun.java2d.loops.DrawLine",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XorDrawLineANY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XorDrawLineANY);
+	});
 	return class$;
 }
 

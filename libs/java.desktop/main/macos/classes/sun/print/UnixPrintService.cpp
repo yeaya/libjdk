@@ -1,5 +1,4 @@
 #include <sun/print/UnixPrintService.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
@@ -13,7 +12,6 @@
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Locale.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
@@ -156,7 +154,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Locale = ::java::util::Locale;
 using $DocFlavor = ::javax::print::DocFlavor;
@@ -216,89 +213,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace print {
 
-$FieldInfo _UnixPrintService_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixPrintService, $assertionsDisabled)},
-	{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, encoding)},
-	{"textByteFlavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, textByteFlavor)},
-	{"supportedDocFlavors", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, supportedDocFlavors)},
-	{"supportedDocFlavorsInit", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, supportedDocFlavorsInit)},
-	{"supportedHostDocFlavors", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, supportedHostDocFlavors)},
-	{"lpcStatusCom", "[Ljava/lang/String;", nullptr, 0, $field(UnixPrintService, lpcStatusCom)},
-	{"lpcQueueCom", "[Ljava/lang/String;", nullptr, 0, $field(UnixPrintService, lpcQueueCom)},
-	{"serviceAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, serviceAttrCats)},
-	{"otherAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, otherAttrCats)},
-	{"MAXCOPIES", "I", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, MAXCOPIES)},
-	{"mediaSizes", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, mediaSizes)},
-	{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintService, printer)},
-	{"name", "Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $field(UnixPrintService, name)},
-	{"isInvalid", "Z", nullptr, $PRIVATE, $field(UnixPrintService, isInvalid)},
-	{"lastSet", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(UnixPrintService, lastSet)},
-	{"notifier", "Lsun/print/ServiceNotifier;", nullptr, $PRIVATE | $TRANSIENT, $field(UnixPrintService, notifier)},
-	{"mpas", "[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, mpas)},
-	{}
-};
-
-$MethodInfo _UnixPrintService_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(UnixPrintService, init$, void, $String*)},
-	{"addPrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, addPrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
-	{"createPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, createPrintJob, $DocPrintJob*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, equals, bool, Object$*)},
-	{"filterPrinterNamesAIX", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(UnixPrintService, filterPrinterNamesAIX, $StringArray*, $StringArray*)},
-	{"getAIXServiceAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(UnixPrintService, getAIXServiceAttributes, $PrintServiceAttributeSet*)},
-	{"getAllPrintableAreas", "()[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $method(UnixPrintService, getAllPrintableAreas, $MediaPrintableAreaArray*)},
-	{"getAttribute", "(Ljava/lang/Class;)Ljavax/print/attribute/PrintServiceAttribute;", "<T::Ljavax/print/attribute/PrintServiceAttribute;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(UnixPrintService, getAttribute, $PrintServiceAttribute*, $Class*)},
-	{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getAttributes, $PrintServiceAttributeSet*)},
-	{"getBSDServiceAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(UnixPrintService, getBSDServiceAttributes, $PrintServiceAttributeSet*)},
-	{"getDefaultAttributeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(UnixPrintService, getDefaultAttributeValue, $Object*, $Class*)},
-	{"getDynamicAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(UnixPrintService, getDynamicAttributes, $PrintServiceAttributeSet*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getName, $String*)},
-	{"getPrinterIsAcceptingJobs", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterIsAcceptingJobs, $PrinterIsAcceptingJobs*)},
-	{"getPrinterIsAcceptingJobsAIX", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterIsAcceptingJobsAIX, $PrinterIsAcceptingJobs*)},
-	{"getPrinterIsAcceptingJobsBSD", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterIsAcceptingJobsBSD, $PrinterIsAcceptingJobs*)},
-	{"getPrinterName", "()Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterName, $PrinterName*)},
-	{"getPrinterState", "()Ljavax/print/attribute/standard/PrinterState;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterState, $PrinterState*)},
-	{"getPrinterStateReasons", "()Ljavax/print/attribute/standard/PrinterStateReasons;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterStateReasons, $PrinterStateReasons*)},
-	{"getQueuedJobCount", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(UnixPrintService, getQueuedJobCount, $QueuedJobCount*)},
-	{"getQueuedJobCountAIX", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(UnixPrintService, getQueuedJobCountAIX, $QueuedJobCount*)},
-	{"getQueuedJobCountBSD", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(UnixPrintService, getQueuedJobCountBSD, $QueuedJobCount*)},
-	{"getServiceUIFactory", "()Ljavax/print/ServiceUIFactory;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getServiceUIFactory, $ServiceUIFactory*)},
-	{"getSupportedAttributeCategories", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(UnixPrintService, getSupportedAttributeCategories, $ClassArray*)},
-	{"getSupportedAttributeValues", "(Ljava/lang/Class;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(UnixPrintService, getSupportedAttributeValues, $Object*, $Class*, $DocFlavor*, $AttributeSet*)},
-	{"getSupportedDocFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getSupportedDocFlavors, $DocFlavorArray*)},
-	{"getUnsupportedAttributes", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getUnsupportedAttributes, $AttributeSet*, $DocFlavor*, $AttributeSet*)},
-	{"getUpdatedAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getUpdatedAttributes, $PrintServiceAttributeSet*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, hashCode, int32_t)},
-	{"initSupportedDocFlavors", "()V", nullptr, $PRIVATE, $method(UnixPrintService, initSupportedDocFlavors, void)},
-	{"invalidateService", "()V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, invalidateService, void)},
-	{"isAttributeCategorySupported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Z", $PUBLIC, $virtualMethod(UnixPrintService, isAttributeCategorySupported, bool, $Class*)},
-	{"isAttributeValueSupported", "(Ljavax/print/attribute/Attribute;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, isAttributeValueSupported, bool, $Attribute*, $DocFlavor*, $AttributeSet*)},
-	{"isAutoSense", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isAutoSense, bool, $DocFlavor*)},
-	{"isDocFlavorSupported", "(Ljavax/print/DocFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, isDocFlavorSupported, bool, $DocFlavor*)},
-	{"isServiceFormattedFlavor", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isServiceFormattedFlavor, bool, $DocFlavor*)},
-	{"isSupportedCopies", "(Ljavax/print/attribute/standard/Copies;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isSupportedCopies, bool, $Copies*)},
-	{"isSupportedMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isSupportedMedia, bool, $MediaSizeName*)},
-	{"removePrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, removePrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, toString, $String*)},
-	{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(UnixPrintService, usesClass, bool, $Class*)},
-	{"wakeNotifier", "()V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, wakeNotifier, void)},
-	{}
-};
-
-$ClassInfo _UnixPrintService_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.UnixPrintService",
-	"java.lang.Object",
-	"javax.print.PrintService,sun.print.AttributeUpdater,sun.print.SunPrinterJobService",
-	_UnixPrintService_FieldInfo_,
-	_UnixPrintService_MethodInfo_
-};
-
-$Object* allocate$UnixPrintService($Class* clazz) {
-	return $of($alloc(UnixPrintService));
-}
-
 $Object* UnixPrintService::clone() {
 	 return this->$PrintService::clone();
 }
@@ -352,7 +266,7 @@ $PrinterName* UnixPrintService::getPrinterName() {
 }
 
 $PrinterIsAcceptingJobs* UnixPrintService::getPrinterIsAcceptingJobsBSD() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PrintServiceLookupProvider);
 	if ($PrintServiceLookupProvider::cmdIndex == $PrintServiceLookupProvider::UNINITIALIZED) {
 		$PrintServiceLookupProvider::cmdIndex = $PrintServiceLookupProvider::getBSDCommandIndex();
@@ -366,13 +280,13 @@ $PrinterIsAcceptingJobs* UnixPrintService::getPrinterIsAcceptingJobsBSD() {
 				return $PrinterIsAcceptingJobs::ACCEPTING_JOBS;
 			}
 		} else {
-			bool var$4 = $($nc(results->get(1))->trim())->startsWith("queuing is enabled"_s);
-			bool var$3 = (var$4 && $($nc(results->get(2))->trim())->startsWith("printing is enabled"_s));
-			if (!var$3) {
-				bool var$5 = results->length >= 4 && $($nc(results->get(2))->trim())->startsWith("queuing is enabled"_s);
-				var$3 = (var$5 && $($nc(results->get(3))->trim())->startsWith("printing is enabled"_s));
+			bool var$1 = $($nc(results->get(1))->trim())->startsWith("queuing is enabled"_s);
+			bool var$0 = var$1 && $($nc(results->get(2))->trim())->startsWith("printing is enabled"_s);
+			if (!var$0) {
+				bool var$2 = results->length >= 4 && $($nc(results->get(2))->trim())->startsWith("queuing is enabled"_s);
+				var$0 = var$2 && $($nc(results->get(3))->trim())->startsWith("printing is enabled"_s);
 			}
-			if (var$3) {
+			if (var$0) {
 				$init($PrinterIsAcceptingJobs);
 				return $PrinterIsAcceptingJobs::ACCEPTING_JOBS;
 			}
@@ -384,7 +298,7 @@ $PrinterIsAcceptingJobs* UnixPrintService::getPrinterIsAcceptingJobsBSD() {
 
 $StringArray* UnixPrintService::filterPrinterNamesAIX($StringArray* posPrinters) {
 	$init(UnixPrintService);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, printers, $new($ArrayList));
 	$var($StringArray, splitPart, nullptr);
 	for (int32_t i = 0; i < $nc(posPrinters)->length; ++i) {
@@ -398,11 +312,11 @@ $StringArray* UnixPrintService::filterPrinterNamesAIX($StringArray* posPrinters)
 			printers->add(posPrinters->get(i));
 		}
 	}
-	return $fcast($StringArray, printers->toArray($$new($StringArray, printers->size())));
+	return $cast($StringArray, printers->toArray($$new($StringArray, printers->size())));
 }
 
 $PrinterIsAcceptingJobs* UnixPrintService::getPrinterIsAcceptingJobsAIX() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, command, $str({"/usr/bin/lpstat -a"_s, this->printer}));
 	$var($StringArray, results, $PrintServiceLookupProvider::execCmd(command));
 	$assign(results, filterPrinterNamesAIX(results));
@@ -452,7 +366,7 @@ $PrinterStateReasons* UnixPrintService::getPrinterStateReasons() {
 }
 
 $QueuedJobCount* UnixPrintService::getQueuedJobCountBSD() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PrintServiceLookupProvider);
 	if ($PrintServiceLookupProvider::cmdIndex == $PrintServiceLookupProvider::UNINITIALIZED) {
 		$PrintServiceLookupProvider::cmdIndex = $PrintServiceLookupProvider::getBSDCommandIndex();
@@ -469,7 +383,7 @@ $QueuedJobCount* UnixPrintService::getQueuedJobCountBSD() {
 			if (queued->startsWith("no"_s)) {
 				return $new($QueuedJobCount, 0);
 			} else {
-				$assign(queued, queued->substring(0, queued->indexOf((int32_t)u' ')));
+				$assign(queued, queued->substring(0, queued->indexOf(u' ')));
 			}
 		}
 		try {
@@ -481,7 +395,7 @@ $QueuedJobCount* UnixPrintService::getQueuedJobCountBSD() {
 }
 
 $QueuedJobCount* UnixPrintService::getQueuedJobCountAIX() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, command, $str({"/usr/bin/lpstat -a"_s, this->printer}));
 	$var($StringArray, results, $PrintServiceLookupProvider::execCmd(command));
 	$assign(results, filterPrinterNamesAIX(results));
@@ -507,7 +421,7 @@ $QueuedJobCount* UnixPrintService::getQueuedJobCount() {
 }
 
 $PrintServiceAttributeSet* UnixPrintService::getBSDServiceAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceAttributeSet, attrs, $new($HashPrintServiceAttributeSet));
 	attrs->add($(getQueuedJobCountBSD()));
 	attrs->add($(getPrinterIsAcceptingJobsBSD()));
@@ -515,7 +429,7 @@ $PrintServiceAttributeSet* UnixPrintService::getBSDServiceAttributes() {
 }
 
 $PrintServiceAttributeSet* UnixPrintService::getAIXServiceAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceAttributeSet, attrs, $new($HashPrintServiceAttributeSet));
 	attrs->add($(getQueuedJobCountAIX()));
 	attrs->add($(getPrinterIsAcceptingJobsAIX()));
@@ -528,8 +442,8 @@ bool UnixPrintService::isSupportedCopies($Copies* copies) {
 }
 
 bool UnixPrintService::isSupportedMedia($MediaSizeName* msn) {
-	for (int32_t i = 0; i < $nc(UnixPrintService::mediaSizes)->length; ++i) {
-		if ($nc(msn)->equals($nc(UnixPrintService::mediaSizes)->get(i))) {
+	for (int32_t i = 0; i < UnixPrintService::mediaSizes->length; ++i) {
+		if ($nc(msn)->equals(UnixPrintService::mediaSizes->get(i))) {
 			return true;
 		}
 	}
@@ -553,7 +467,7 @@ $PrintServiceAttributeSet* UnixPrintService::getDynamicAttributes() {
 }
 
 $PrintServiceAttributeSet* UnixPrintService::getUpdatedAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceAttributeSet, currSet, getDynamicAttributes());
 	if (this->lastSet == nullptr) {
 		$set(this, lastSet, currSet);
@@ -576,7 +490,7 @@ $PrintServiceAttributeSet* UnixPrintService::getUpdatedAttributes() {
 void UnixPrintService::wakeNotifier() {
 	$synchronized(this) {
 		if (this->notifier != nullptr) {
-			$nc(this->notifier)->wake();
+			this->notifier->wake();
 		}
 	}
 }
@@ -616,23 +530,23 @@ $PrintServiceAttribute* UnixPrintService::getAttribute($Class* category) {
 	}
 	$load($PrinterName);
 	if (category == $PrinterName::class$) {
-		return static_cast<$PrintServiceAttribute*>(getPrinterName());
+		return $cast($PrintServiceAttribute, getPrinterName());
 	} else {
 		$load($PrinterState);
 		if (category == $PrinterState::class$) {
-			return static_cast<$PrintServiceAttribute*>(getPrinterState());
+			return $cast($PrintServiceAttribute, getPrinterState());
 		} else {
 			$load($PrinterStateReasons);
 			if (category == $PrinterStateReasons::class$) {
-				return static_cast<$PrintServiceAttribute*>(getPrinterStateReasons());
+				return $cast($PrintServiceAttribute, getPrinterStateReasons());
 			} else {
 				$load($QueuedJobCount);
 				if (category == $QueuedJobCount::class$) {
-					return static_cast<$PrintServiceAttribute*>(getQueuedJobCount());
+					return $cast($PrintServiceAttribute, getQueuedJobCount());
 				} else {
 					$load($PrinterIsAcceptingJobs);
 					if (category == $PrinterIsAcceptingJobs::class$) {
-						return static_cast<$PrintServiceAttribute*>(getPrinterIsAcceptingJobs());
+						return $cast($PrintServiceAttribute, getPrinterIsAcceptingJobs());
 					} else {
 						return nullptr;
 					}
@@ -643,7 +557,7 @@ $PrintServiceAttribute* UnixPrintService::getAttribute($Class* category) {
 }
 
 $PrintServiceAttributeSet* UnixPrintService::getAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceAttributeSet, attrs, $new($HashPrintServiceAttributeSet));
 	attrs->add($(getPrinterName()));
 	attrs->add($(getPrinterIsAcceptingJobs()));
@@ -660,7 +574,7 @@ $PrintServiceAttributeSet* UnixPrintService::getAttributes() {
 }
 
 void UnixPrintService::initSupportedDocFlavors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocFlavor);
 	$init($Locale);
 	$var($String, hostEnc, $nc($DocFlavor::hostEncoding)->toLowerCase($Locale::ENGLISH));
@@ -669,9 +583,9 @@ void UnixPrintService::initSupportedDocFlavors() {
 	bool var$1 = var$2 && !hostEnc->equals("utf-16be"_s);
 	bool var$0 = var$1 && !hostEnc->equals("utf-16le"_s);
 	if (var$0 && !hostEnc->equals("us-ascii"_s)) {
-		int32_t len = $nc(UnixPrintService::supportedDocFlavorsInit)->length;
-		$var($DocFlavorArray, flavors, $new($DocFlavorArray, len + $nc(UnixPrintService::supportedHostDocFlavors)->length));
-		$System::arraycopy(UnixPrintService::supportedHostDocFlavors, 0, flavors, len, $nc(UnixPrintService::supportedHostDocFlavors)->length);
+		int32_t len = UnixPrintService::supportedDocFlavorsInit->length;
+		$var($DocFlavorArray, flavors, $new($DocFlavorArray, len + UnixPrintService::supportedHostDocFlavors->length));
+		$System::arraycopy(UnixPrintService::supportedHostDocFlavors, 0, flavors, len, UnixPrintService::supportedHostDocFlavors->length);
 		$System::arraycopy(UnixPrintService::supportedDocFlavorsInit, 0, flavors, 0, len);
 		$assignStatic(UnixPrintService::supportedDocFlavors, flavors);
 	} else {
@@ -694,7 +608,7 @@ bool UnixPrintService::isDocFlavorSupported($DocFlavor* flavor) {
 		initSupportedDocFlavors();
 	}
 	for (int32_t f = 0; f < $nc(UnixPrintService::supportedDocFlavors)->length; ++f) {
-		if ($nc(flavor)->equals($nc(UnixPrintService::supportedDocFlavors)->get(f))) {
+		if ($nc(flavor)->equals(UnixPrintService::supportedDocFlavors->get(f))) {
 			return true;
 		}
 	}
@@ -702,13 +616,11 @@ bool UnixPrintService::isDocFlavorSupported($DocFlavor* flavor) {
 }
 
 $ClassArray* UnixPrintService::getSupportedAttributeCategories() {
-	$useLocalCurrentObjectStackCache();
-	$var($ArrayList, categList, $new($ArrayList, $nc(UnixPrintService::otherAttrCats)->length));
+	$useLocalObjectStack();
+	$var($ArrayList, categList, $new($ArrayList, UnixPrintService::otherAttrCats->length));
 	{
 		$var($ClassArray, arr$, UnixPrintService::otherAttrCats);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* c = arr$->get(i$);
 			{
 				categList->add(c);
@@ -721,7 +633,7 @@ $ClassArray* UnixPrintService::getSupportedAttributeCategories() {
 		$load($DialogTypeSelection);
 		categList->add($DialogTypeSelection::class$);
 	}
-	return $fcast($ClassArray, categList->toArray($$new($ClassArray, categList->size())));
+	return $cast($ClassArray, categList->toArray($$new($ClassArray, categList->size())));
 }
 
 bool UnixPrintService::isAttributeCategorySupported($Class* category) {
@@ -732,8 +644,8 @@ bool UnixPrintService::isAttributeCategorySupported($Class* category) {
 	if (!($Attribute::class$->isAssignableFrom(category))) {
 		$throwNew($IllegalArgumentException, $$str({category, " is not an Attribute"_s}));
 	}
-	for (int32_t i = 0; i < $nc(UnixPrintService::otherAttrCats)->length; ++i) {
-		if (category == $nc(UnixPrintService::otherAttrCats)->get(i)) {
+	for (int32_t i = 0; i < UnixPrintService::otherAttrCats->length; ++i) {
+		if (category == UnixPrintService::otherAttrCats->get(i)) {
 			return true;
 		}
 	}
@@ -741,7 +653,7 @@ bool UnixPrintService::isAttributeCategorySupported($Class* category) {
 }
 
 $Object* UnixPrintService::getDefaultAttributeValue($Class* category) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (category == nullptr) {
 		$throwNew($NullPointerException, "null category"_s);
 	}
@@ -750,7 +662,7 @@ $Object* UnixPrintService::getDefaultAttributeValue($Class* category) {
 		$throwNew($IllegalArgumentException, $$str({category, " is not an Attribute"_s}));
 	}
 	if (!isAttributeCategorySupported(category)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$load($Copies);
 	if (category == $Copies::class$) {
@@ -769,7 +681,7 @@ $Object* UnixPrintService::getDefaultAttributeValue($Class* category) {
 					try {
 						return $of($new($Destination, $$new($URI, "file:out.ps"_s)));
 					} catch ($URISyntaxException& e) {
-						return $of(nullptr);
+						return nullptr;
 					}
 				}
 			} else {
@@ -789,12 +701,12 @@ $Object* UnixPrintService::getDefaultAttributeValue($Class* category) {
 						} else {
 							$load($Media);
 							if (category == $Media::class$) {
-								$var($String, defaultCountry, $nc($($Locale::getDefault()))->getCountry());
+								$var($String, defaultCountry, $$nc($Locale::getDefault())->getCountry());
 								bool var$0 = defaultCountry != nullptr;
 								if (var$0) {
 									bool var$2 = defaultCountry->isEmpty();
-									bool var$1 = var$2 || $nc(defaultCountry)->equals($($nc($Locale::US)->getCountry()));
-									var$0 = (var$1 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry())));
+									bool var$1 = var$2 || defaultCountry->equals($($nc($Locale::US)->getCountry()));
+									var$0 = var$1 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry()));
 								}
 								if (var$0) {
 									$init($MediaSizeName);
@@ -806,23 +718,23 @@ $Object* UnixPrintService::getDefaultAttributeValue($Class* category) {
 							} else {
 								$load($MediaPrintableArea);
 								if (category == $MediaPrintableArea::class$) {
-									$var($String, defaultCountry, $nc($($Locale::getDefault()))->getCountry());
+									$var($String, defaultCountry, $$nc($Locale::getDefault())->getCountry());
 									float iw = 0.0;
 									float ih = 0.0;
 									bool var$3 = defaultCountry != nullptr;
 									if (var$3) {
 										bool var$5 = defaultCountry->isEmpty();
-										bool var$4 = var$5 || $nc(defaultCountry)->equals($($nc($Locale::US)->getCountry()));
-										var$3 = (var$4 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry())));
+										bool var$4 = var$5 || defaultCountry->equals($($nc($Locale::US)->getCountry()));
+										var$3 = var$4 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry()));
 									}
 									if (var$3) {
 										$init($MediaSize$NA);
 										iw = $nc($MediaSize$NA::LETTER)->getX($Size2DSyntax::INCH) - 0.5f;
-										ih = $nc($MediaSize$NA::LETTER)->getY($Size2DSyntax::INCH) - 0.5f;
+										ih = $MediaSize$NA::LETTER->getY($Size2DSyntax::INCH) - 0.5f;
 									} else {
 										$init($MediaSize$ISO);
 										iw = $nc($MediaSize$ISO::A4)->getX($Size2DSyntax::INCH) - 0.5f;
-										ih = $nc($MediaSize$ISO::A4)->getY($Size2DSyntax::INCH) - 0.5f;
+										ih = $MediaSize$ISO::A4->getY($Size2DSyntax::INCH) - 0.5f;
 									}
 									return $of($new($MediaPrintableArea, 0.25f, 0.25f, iw, ih, $MediaPrintableArea::INCH));
 								} else {
@@ -854,7 +766,7 @@ $Object* UnixPrintService::getDefaultAttributeValue($Class* category) {
 														$init($Sides);
 														return $of($Sides::ONE_SIDED);
 													} else {
-														return $of(nullptr);
+														return nullptr;
 													}
 												}
 											}
@@ -874,9 +786,9 @@ bool UnixPrintService::isAutoSense($DocFlavor* flavor) {
 	$init($DocFlavor$BYTE_ARRAY);
 	bool var$1 = $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::AUTOSENSE);
 	$init($DocFlavor$INPUT_STREAM);
-	bool var$0 = var$1 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::AUTOSENSE);
+	bool var$0 = var$1 || flavor->equals($DocFlavor$INPUT_STREAM::AUTOSENSE);
 	$init($DocFlavor$URL);
-	if (var$0 || $nc(flavor)->equals($DocFlavor$URL::AUTOSENSE)) {
+	if (var$0 || flavor->equals($DocFlavor$URL::AUTOSENSE)) {
 		return true;
 	} else {
 		return false;
@@ -884,7 +796,7 @@ bool UnixPrintService::isAutoSense($DocFlavor* flavor) {
 }
 
 $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (category == nullptr) {
 		$throwNew($NullPointerException, "null category"_s);
 	}
@@ -896,21 +808,20 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 		if (!isDocFlavorSupported(flavor)) {
 			$throwNew($IllegalArgumentException, $$str({flavor, " is an unsupported flavor"_s}));
 		} else if (isAutoSense(flavor)) {
-			return $of(nullptr);
+			return nullptr;
 		}
 	}
 	if (!isAttributeCategorySupported(category)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$load($Chromaticity);
 	if (category == $Chromaticity::class$) {
 		if (flavor == nullptr || isServiceFormattedFlavor(flavor)) {
 			$var($ChromaticityArray, arr, $new($ChromaticityArray, 1));
-			$init($Chromaticity);
 			arr->set(0, $Chromaticity::COLOR);
-			return $of((arr));
+			return (arr);
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	} else {
 		$load($Destination);
@@ -921,7 +832,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 				try {
 					return $of($new($Destination, $$new($URI, "file:out.ps"_s)));
 				} catch ($URISyntaxException& e) {
-					return $of(nullptr);
+					return nullptr;
 				}
 			}
 		} else {
@@ -932,10 +843,9 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 				$load($JobSheets);
 				if (category == $JobSheets::class$) {
 					$var($JobSheetsArray, arr, $new($JobSheetsArray, 2));
-					$init($JobSheets);
 					arr->set(0, $JobSheets::NONE);
 					arr->set(1, $JobSheets::STANDARD);
-					return $of(arr);
+					return arr;
 				} else {
 					$load($RequestingUserName);
 					if (category == $RequestingUserName::class$) {
@@ -950,13 +860,12 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 						if (category == $OrientationRequested::class$) {
 							if (flavor == nullptr || isServiceFormattedFlavor(flavor)) {
 								$var($OrientationRequestedArray, arr, $new($OrientationRequestedArray, 3));
-								$init($OrientationRequested);
 								arr->set(0, $OrientationRequested::PORTRAIT);
 								arr->set(1, $OrientationRequested::LANDSCAPE);
 								arr->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
-								return $of(arr);
+								return arr;
 							} else {
-								return $of(nullptr);
+								return nullptr;
 							}
 						} else {
 							$load($Copies);
@@ -965,36 +874,35 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 								bool var$0 = flavor == nullptr;
 								if (!var$0) {
 									$init($DocFlavor$INPUT_STREAM);
-									bool var$2 = $nc(flavor)->equals($DocFlavor$INPUT_STREAM::POSTSCRIPT);
+									bool var$2 = flavor->equals($DocFlavor$INPUT_STREAM::POSTSCRIPT);
 									$init($DocFlavor$URL);
-									bool var$1 = var$2 || $nc(flavor)->equals($DocFlavor$URL::POSTSCRIPT);
+									bool var$1 = var$2 || flavor->equals($DocFlavor$URL::POSTSCRIPT);
 									$init($DocFlavor$BYTE_ARRAY);
-									var$0 = !(var$1 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::POSTSCRIPT));
+									var$0 = !(var$1 || flavor->equals($DocFlavor$BYTE_ARRAY::POSTSCRIPT));
 								}
 								if (var$0) {
 									return $of($new($CopiesSupported, 1, UnixPrintService::MAXCOPIES));
 								} else {
-									return $of(nullptr);
+									return nullptr;
 								}
 							} else {
 								$load($Media);
 								if (category == $Media::class$) {
-									$var($MediaArray, arr, $new($MediaArray, $nc(UnixPrintService::mediaSizes)->length));
-									$System::arraycopy(UnixPrintService::mediaSizes, 0, arr, 0, $nc(UnixPrintService::mediaSizes)->length);
-									return $of(arr);
+									$var($MediaArray, arr, $new($MediaArray, UnixPrintService::mediaSizes->length));
+									$System::arraycopy(UnixPrintService::mediaSizes, 0, arr, 0, UnixPrintService::mediaSizes->length);
+									return arr;
 								} else {
 									$load($Fidelity);
 									if (category == $Fidelity::class$) {
 										$var($FidelityArray, arr, $new($FidelityArray, 2));
-										$init($Fidelity);
 										arr->set(0, $Fidelity::FIDELITY_FALSE);
 										arr->set(1, $Fidelity::FIDELITY_TRUE);
-										return $of(arr);
+										return arr;
 									} else {
 										$load($MediaPrintableArea);
 										if (category == $MediaPrintableArea::class$) {
 											if (attributes == nullptr) {
-												return $of(getAllPrintableAreas());
+												return getAllPrintableAreas();
 											}
 											$load($MediaSize);
 											$var($MediaSize, mediaSize, $cast($MediaSize, $nc(attributes)->get($MediaSize::class$)));
@@ -1012,11 +920,11 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 														}
 														if (mediaSize == nullptr) {
 															arr->set(0, $$new($MediaPrintableArea, 0.25f, 0.25f, 8.0f, 10.5f, $MediaSize::INCH));
-															return $of(arr);
+															return arr;
 														}
 													}
 												} else {
-													return $of(getAllPrintableAreas());
+													return getAllPrintableAreas();
 												}
 											}
 											if (!UnixPrintService::$assertionsDisabled && !(mediaSize != nullptr)) {
@@ -1024,50 +932,48 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 											}
 											float var$3 = $nc(mediaSize)->getX($MediaSize::INCH) - 0.5f;
 											arr->set(0, $$new($MediaPrintableArea, 0.25f, 0.25f, var$3, mediaSize->getY($MediaSize::INCH) - 0.5f, $MediaSize::INCH));
-											return $of(arr);
+											return arr;
 										} else {
 											$load($PageRanges);
 											if (category == $PageRanges::class$) {
 												$init($DocFlavor$SERVICE_FORMATTED);
-												bool var$4 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-												if (var$4 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+												bool var$4 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+												if (var$4 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 													$var($PageRangesArray, arr, $new($PageRangesArray, 1));
 													arr->set(0, $$new($PageRanges, 1, $Integer::MAX_VALUE));
-													return $of(arr);
+													return arr;
 												} else {
-													return $of(nullptr);
+													return nullptr;
 												}
 											} else {
 												$load($SheetCollate);
 												if (category == $SheetCollate::class$) {
 													$init($DocFlavor$SERVICE_FORMATTED);
-													bool var$5 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-													if (var$5 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+													bool var$5 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+													if (var$5 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 														$var($SheetCollateArray, arr, $new($SheetCollateArray, 2));
-														$init($SheetCollate);
 														arr->set(0, $SheetCollate::UNCOLLATED);
 														arr->set(1, $SheetCollate::COLLATED);
-														return $of(arr);
+														return arr;
 													} else {
-														return $of(nullptr);
+														return nullptr;
 													}
 												} else {
 													$load($Sides);
 													if (category == $Sides::class$) {
 														$init($DocFlavor$SERVICE_FORMATTED);
-														bool var$6 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-														if (var$6 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+														bool var$6 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+														if (var$6 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 															$var($SidesArray, arr, $new($SidesArray, 3));
-															$init($Sides);
 															arr->set(0, $Sides::ONE_SIDED);
 															arr->set(1, $Sides::TWO_SIDED_LONG_EDGE);
 															arr->set(2, $Sides::TWO_SIDED_SHORT_EDGE);
-															return $of(arr);
+															return arr;
 														} else {
-															return $of(nullptr);
+															return nullptr;
 														}
 													} else {
-														return $of(nullptr);
+														return nullptr;
 													}
 												}
 											}
@@ -1084,7 +990,7 @@ $Object* UnixPrintService::getSupportedAttributeValues($Class* category, $DocFla
 }
 
 $MediaPrintableAreaArray* UnixPrintService::getAllPrintableAreas() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (UnixPrintService::mpas == nullptr) {
 		$load($Media);
 		$var($MediaArray, media, $cast($MediaArray, getSupportedAttributeValues($Media::class$, nullptr, nullptr)));
@@ -1094,40 +1000,39 @@ $MediaPrintableAreaArray* UnixPrintService::getAllPrintableAreas() {
 				$var($MediaSizeName, msn, $cast($MediaSizeName, media->get(i)));
 				$var($MediaSize, mediaSize, $MediaSize::getMediaSizeForName(msn));
 				if (mediaSize == nullptr) {
-					$load($MediaPrintableArea);
-					$nc(UnixPrintService::mpas)->set(i, $cast($MediaPrintableArea, $(getDefaultAttributeValue($MediaPrintableArea::class$))));
+					$nc(UnixPrintService::mpas)->set(i, $$cast($MediaPrintableArea, getDefaultAttributeValue($MediaPrintableArea::class$)));
 				} else {
-					float var$0 = $nc(mediaSize)->getX($MediaSize::INCH) - 0.5f;
+					float var$0 = mediaSize->getX($MediaSize::INCH) - 0.5f;
 					$nc(UnixPrintService::mpas)->set(i, $$new($MediaPrintableArea, 0.25f, 0.25f, var$0, mediaSize->getY($MediaSize::INCH) - 0.5f, $MediaSize::INCH));
 				}
 			}
 		}
 	}
 	$var($MediaPrintableAreaArray, mpasCopy, $new($MediaPrintableAreaArray, $nc(UnixPrintService::mpas)->length));
-	$System::arraycopy(UnixPrintService::mpas, 0, mpasCopy, 0, $nc(UnixPrintService::mpas)->length);
+	$System::arraycopy(UnixPrintService::mpas, 0, mpasCopy, 0, UnixPrintService::mpas->length);
 	return mpasCopy;
 }
 
 bool UnixPrintService::isServiceFormattedFlavor($DocFlavor* flavor) {
 	$init($DocFlavor$SERVICE_FORMATTED);
 	bool var$9 = $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-	bool var$8 = var$9 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
+	bool var$8 = var$9 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 	$init($DocFlavor$BYTE_ARRAY);
-	bool var$7 = var$8 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::GIF);
+	bool var$7 = var$8 || flavor->equals($DocFlavor$BYTE_ARRAY::GIF);
 	$init($DocFlavor$INPUT_STREAM);
-	bool var$6 = var$7 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::GIF);
+	bool var$6 = var$7 || flavor->equals($DocFlavor$INPUT_STREAM::GIF);
 	$init($DocFlavor$URL);
-	bool var$5 = var$6 || $nc(flavor)->equals($DocFlavor$URL::GIF);
-	bool var$4 = var$5 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::JPEG);
-	bool var$3 = var$4 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::JPEG);
-	bool var$2 = var$3 || $nc(flavor)->equals($DocFlavor$URL::JPEG);
-	bool var$1 = var$2 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::PNG);
-	bool var$0 = var$1 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::PNG);
-	return var$0 || $nc(flavor)->equals($DocFlavor$URL::PNG);
+	bool var$5 = var$6 || flavor->equals($DocFlavor$URL::GIF);
+	bool var$4 = var$5 || flavor->equals($DocFlavor$BYTE_ARRAY::JPEG);
+	bool var$3 = var$4 || flavor->equals($DocFlavor$INPUT_STREAM::JPEG);
+	bool var$2 = var$3 || flavor->equals($DocFlavor$URL::JPEG);
+	bool var$1 = var$2 || flavor->equals($DocFlavor$BYTE_ARRAY::PNG);
+	bool var$0 = var$1 || flavor->equals($DocFlavor$INPUT_STREAM::PNG);
+	return var$0 || flavor->equals($DocFlavor$URL::PNG);
 }
 
 bool UnixPrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attr == nullptr) {
 		$throwNew($NullPointerException, "null attribute"_s);
 	}
@@ -1156,20 +1061,20 @@ bool UnixPrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* f
 				bool var$1 = flavor == nullptr;
 				if (!var$1) {
 					$init($DocFlavor$INPUT_STREAM);
-					bool var$3 = $nc(flavor)->equals($DocFlavor$INPUT_STREAM::POSTSCRIPT);
+					bool var$3 = flavor->equals($DocFlavor$INPUT_STREAM::POSTSCRIPT);
 					$init($DocFlavor$URL);
-					bool var$2 = var$3 || $nc(flavor)->equals($DocFlavor$URL::POSTSCRIPT);
+					bool var$2 = var$3 || flavor->equals($DocFlavor$URL::POSTSCRIPT);
 					$init($DocFlavor$BYTE_ARRAY);
-					var$1 = !(var$2 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::POSTSCRIPT));
+					var$1 = !(var$2 || flavor->equals($DocFlavor$BYTE_ARRAY::POSTSCRIPT));
 				}
-				bool var$0 = (var$1);
+				bool var$0 = var$1;
 				return var$0 && isSupportedCopies($cast($Copies, attr));
 			} else {
 				$load($Destination);
 				if (attr->getCategory() == $Destination::class$) {
-					$var($URI, uri, $nc(($cast($Destination, attr)))->getURI());
+					$var($URI, uri, $cast($Destination, attr)->getURI());
 					bool var$4 = "file"_s->equals($($nc(uri)->getScheme()));
-					if (var$4 && !$nc($($nc(uri)->getSchemeSpecificPart()))->isEmpty()) {
+					if (var$4 && !$$nc(uri->getSchemeSpecificPart())->isEmpty()) {
 						return true;
 					} else {
 						return false;
@@ -1235,7 +1140,7 @@ bool UnixPrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* f
 											if (owner->getOwner() != nullptr) {
 												return true;
 											} else {
-												return $nc($($Toolkit::getDefaultToolkit()))->isAlwaysOnTopSupported();
+												return $$nc($Toolkit::getDefaultToolkit())->isAlwaysOnTopSupported();
 											}
 										} else {
 											$load($DialogTypeSelection);
@@ -1258,7 +1163,7 @@ bool UnixPrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* f
 }
 
 $AttributeSet* UnixPrintService::getUnsupportedAttributes($DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (flavor != nullptr && !isDocFlavorSupported(flavor)) {
 		$throwNew($IllegalArgumentException, $$str({"flavor "_s, flavor, "is not supported"_s}));
 	}
@@ -1295,13 +1200,13 @@ $String* UnixPrintService::toString() {
 }
 
 bool UnixPrintService::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
-	return ($equals(obj, this) || ($instanceOf(UnixPrintService, obj) && $nc($($nc(($cast(UnixPrintService, obj)))->getName()))->equals($(getName()))));
+	$useLocalObjectStack();
+	return ($equals(obj, this) || ($instanceOf(UnixPrintService, obj) && $$nc($cast(UnixPrintService, obj)->getName())->equals($(getName()))));
 }
 
 int32_t UnixPrintService::hashCode() {
-	int32_t var$0 = $of($of(this)->getClass())->hashCode();
-	return var$0 + $nc($(getName()))->hashCode();
+	int32_t var$0 = $of(this)->getClass()->hashCode();
+	return var$0 + $$nc(getName())->hashCode();
 }
 
 bool UnixPrintService::usesClass($Class* c) {
@@ -1309,7 +1214,7 @@ bool UnixPrintService::usesClass($Class* c) {
 	return (c == $PSPrinterJob::class$);
 }
 
-void clinit$UnixPrintService($Class* class$) {
+void UnixPrintService::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	UnixPrintService::$assertionsDisabled = !UnixPrintService::class$->desiredAssertionStatus();
 	$assignStatic(UnixPrintService::encoding, "ISO8859_1"_s);
@@ -1322,49 +1227,49 @@ void clinit$UnixPrintService($Class* class$) {
 	$init($DocFlavor$STRING);
 	$init($DocFlavor$SERVICE_FORMATTED);
 	$assignStatic(UnixPrintService::supportedDocFlavorsInit, $new($DocFlavorArray, {
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::POSTSCRIPT),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::POSTSCRIPT),
-		static_cast<$DocFlavor*>($DocFlavor$URL::POSTSCRIPT),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::GIF),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::GIF),
-		static_cast<$DocFlavor*>($DocFlavor$URL::GIF),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::JPEG),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::JPEG),
-		static_cast<$DocFlavor*>($DocFlavor$URL::JPEG),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::PNG),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::PNG),
-		static_cast<$DocFlavor*>($DocFlavor$URL::PNG),
-		static_cast<$DocFlavor*>($DocFlavor$CHAR_ARRAY::TEXT_PLAIN),
-		static_cast<$DocFlavor*>($DocFlavor$READER::TEXT_PLAIN),
-		static_cast<$DocFlavor*>($DocFlavor$STRING::TEXT_PLAIN),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_8),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_16),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_16BE),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_16LE),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::TEXT_PLAIN_US_ASCII),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_8),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_16),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_16BE),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_16LE),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::TEXT_PLAIN_US_ASCII),
-		static_cast<$DocFlavor*>($DocFlavor$URL::TEXT_PLAIN_UTF_8),
-		static_cast<$DocFlavor*>($DocFlavor$URL::TEXT_PLAIN_UTF_16),
-		static_cast<$DocFlavor*>($DocFlavor$URL::TEXT_PLAIN_UTF_16BE),
-		static_cast<$DocFlavor*>($DocFlavor$URL::TEXT_PLAIN_UTF_16LE),
-		static_cast<$DocFlavor*>($DocFlavor$URL::TEXT_PLAIN_US_ASCII),
-		static_cast<$DocFlavor*>($DocFlavor$SERVICE_FORMATTED::PAGEABLE),
-		static_cast<$DocFlavor*>($DocFlavor$SERVICE_FORMATTED::PRINTABLE),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::AUTOSENSE),
-		static_cast<$DocFlavor*>($DocFlavor$URL::AUTOSENSE),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::AUTOSENSE)
+		$DocFlavor$BYTE_ARRAY::POSTSCRIPT,
+		$DocFlavor$INPUT_STREAM::POSTSCRIPT,
+		$DocFlavor$URL::POSTSCRIPT,
+		$DocFlavor$BYTE_ARRAY::GIF,
+		$DocFlavor$INPUT_STREAM::GIF,
+		$DocFlavor$URL::GIF,
+		$DocFlavor$BYTE_ARRAY::JPEG,
+		$DocFlavor$INPUT_STREAM::JPEG,
+		$DocFlavor$URL::JPEG,
+		$DocFlavor$BYTE_ARRAY::PNG,
+		$DocFlavor$INPUT_STREAM::PNG,
+		$DocFlavor$URL::PNG,
+		$DocFlavor$CHAR_ARRAY::TEXT_PLAIN,
+		$DocFlavor$READER::TEXT_PLAIN,
+		$DocFlavor$STRING::TEXT_PLAIN,
+		$DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_8,
+		$DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_16,
+		$DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_16BE,
+		$DocFlavor$BYTE_ARRAY::TEXT_PLAIN_UTF_16LE,
+		$DocFlavor$BYTE_ARRAY::TEXT_PLAIN_US_ASCII,
+		$DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_8,
+		$DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_16,
+		$DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_16BE,
+		$DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_16LE,
+		$DocFlavor$INPUT_STREAM::TEXT_PLAIN_US_ASCII,
+		$DocFlavor$URL::TEXT_PLAIN_UTF_8,
+		$DocFlavor$URL::TEXT_PLAIN_UTF_16,
+		$DocFlavor$URL::TEXT_PLAIN_UTF_16BE,
+		$DocFlavor$URL::TEXT_PLAIN_UTF_16LE,
+		$DocFlavor$URL::TEXT_PLAIN_US_ASCII,
+		$DocFlavor$SERVICE_FORMATTED::PAGEABLE,
+		$DocFlavor$SERVICE_FORMATTED::PRINTABLE,
+		$DocFlavor$BYTE_ARRAY::AUTOSENSE,
+		$DocFlavor$URL::AUTOSENSE,
+		$DocFlavor$INPUT_STREAM::AUTOSENSE
 	}));
 	$assignStatic(UnixPrintService::supportedHostDocFlavors, $new($DocFlavorArray, {
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::TEXT_PLAIN_HOST),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::TEXT_PLAIN_HOST),
-		static_cast<$DocFlavor*>($DocFlavor$URL::TEXT_PLAIN_HOST)
+		$DocFlavor$BYTE_ARRAY::TEXT_PLAIN_HOST,
+		$DocFlavor$INPUT_STREAM::TEXT_PLAIN_HOST,
+		$DocFlavor$URL::TEXT_PLAIN_HOST
 	}));
 	{
-		$assignStatic(UnixPrintService::encoding, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "file.encoding"_s)))));
+		$assignStatic(UnixPrintService::encoding, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "file.encoding"_s))));
 	}
 	$load($PrinterName);
 	$load($PrinterIsAcceptingJobs);
@@ -1423,7 +1328,85 @@ UnixPrintService::UnixPrintService() {
 }
 
 $Class* UnixPrintService::load$($String* name, bool initialize) {
-	$loadClass(UnixPrintService, name, initialize, &_UnixPrintService_ClassInfo_, clinit$UnixPrintService, allocate$UnixPrintService);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixPrintService, $assertionsDisabled)},
+		{"encoding", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, encoding)},
+		{"textByteFlavor", "Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, textByteFlavor)},
+		{"supportedDocFlavors", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, supportedDocFlavors)},
+		{"supportedDocFlavorsInit", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, supportedDocFlavorsInit)},
+		{"supportedHostDocFlavors", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, supportedHostDocFlavors)},
+		{"lpcStatusCom", "[Ljava/lang/String;", nullptr, 0, $field(UnixPrintService, lpcStatusCom)},
+		{"lpcQueueCom", "[Ljava/lang/String;", nullptr, 0, $field(UnixPrintService, lpcQueueCom)},
+		{"serviceAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, serviceAttrCats)},
+		{"otherAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, otherAttrCats)},
+		{"MAXCOPIES", "I", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, MAXCOPIES)},
+		{"mediaSizes", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPrintService, mediaSizes)},
+		{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintService, printer)},
+		{"name", "Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $field(UnixPrintService, name)},
+		{"isInvalid", "Z", nullptr, $PRIVATE, $field(UnixPrintService, isInvalid)},
+		{"lastSet", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(UnixPrintService, lastSet)},
+		{"notifier", "Lsun/print/ServiceNotifier;", nullptr, $PRIVATE | $TRANSIENT, $field(UnixPrintService, notifier)},
+		{"mpas", "[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintService, mpas)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(UnixPrintService, init$, void, $String*)},
+		{"addPrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, addPrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
+		{"createPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, createPrintJob, $DocPrintJob*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, equals, bool, Object$*)},
+		{"filterPrinterNamesAIX", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(UnixPrintService, filterPrinterNamesAIX, $StringArray*, $StringArray*)},
+		{"getAIXServiceAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(UnixPrintService, getAIXServiceAttributes, $PrintServiceAttributeSet*)},
+		{"getAllPrintableAreas", "()[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $method(UnixPrintService, getAllPrintableAreas, $MediaPrintableAreaArray*)},
+		{"getAttribute", "(Ljava/lang/Class;)Ljavax/print/attribute/PrintServiceAttribute;", "<T::Ljavax/print/attribute/PrintServiceAttribute;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(UnixPrintService, getAttribute, $PrintServiceAttribute*, $Class*)},
+		{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getAttributes, $PrintServiceAttributeSet*)},
+		{"getBSDServiceAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(UnixPrintService, getBSDServiceAttributes, $PrintServiceAttributeSet*)},
+		{"getDefaultAttributeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(UnixPrintService, getDefaultAttributeValue, $Object*, $Class*)},
+		{"getDynamicAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(UnixPrintService, getDynamicAttributes, $PrintServiceAttributeSet*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getName, $String*)},
+		{"getPrinterIsAcceptingJobs", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterIsAcceptingJobs, $PrinterIsAcceptingJobs*)},
+		{"getPrinterIsAcceptingJobsAIX", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterIsAcceptingJobsAIX, $PrinterIsAcceptingJobs*)},
+		{"getPrinterIsAcceptingJobsBSD", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterIsAcceptingJobsBSD, $PrinterIsAcceptingJobs*)},
+		{"getPrinterName", "()Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterName, $PrinterName*)},
+		{"getPrinterState", "()Ljavax/print/attribute/standard/PrinterState;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterState, $PrinterState*)},
+		{"getPrinterStateReasons", "()Ljavax/print/attribute/standard/PrinterStateReasons;", nullptr, $PRIVATE, $method(UnixPrintService, getPrinterStateReasons, $PrinterStateReasons*)},
+		{"getQueuedJobCount", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(UnixPrintService, getQueuedJobCount, $QueuedJobCount*)},
+		{"getQueuedJobCountAIX", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(UnixPrintService, getQueuedJobCountAIX, $QueuedJobCount*)},
+		{"getQueuedJobCountBSD", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(UnixPrintService, getQueuedJobCountBSD, $QueuedJobCount*)},
+		{"getServiceUIFactory", "()Ljavax/print/ServiceUIFactory;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getServiceUIFactory, $ServiceUIFactory*)},
+		{"getSupportedAttributeCategories", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(UnixPrintService, getSupportedAttributeCategories, $ClassArray*)},
+		{"getSupportedAttributeValues", "(Ljava/lang/Class;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(UnixPrintService, getSupportedAttributeValues, $Object*, $Class*, $DocFlavor*, $AttributeSet*)},
+		{"getSupportedDocFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getSupportedDocFlavors, $DocFlavorArray*)},
+		{"getUnsupportedAttributes", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getUnsupportedAttributes, $AttributeSet*, $DocFlavor*, $AttributeSet*)},
+		{"getUpdatedAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, getUpdatedAttributes, $PrintServiceAttributeSet*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, hashCode, int32_t)},
+		{"initSupportedDocFlavors", "()V", nullptr, $PRIVATE, $method(UnixPrintService, initSupportedDocFlavors, void)},
+		{"invalidateService", "()V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, invalidateService, void)},
+		{"isAttributeCategorySupported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Z", $PUBLIC, $virtualMethod(UnixPrintService, isAttributeCategorySupported, bool, $Class*)},
+		{"isAttributeValueSupported", "(Ljavax/print/attribute/Attribute;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, isAttributeValueSupported, bool, $Attribute*, $DocFlavor*, $AttributeSet*)},
+		{"isAutoSense", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isAutoSense, bool, $DocFlavor*)},
+		{"isDocFlavorSupported", "(Ljavax/print/DocFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, isDocFlavorSupported, bool, $DocFlavor*)},
+		{"isServiceFormattedFlavor", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isServiceFormattedFlavor, bool, $DocFlavor*)},
+		{"isSupportedCopies", "(Ljavax/print/attribute/standard/Copies;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isSupportedCopies, bool, $Copies*)},
+		{"isSupportedMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Z", nullptr, $PRIVATE, $method(UnixPrintService, isSupportedMedia, bool, $MediaSizeName*)},
+		{"removePrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, removePrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, toString, $String*)},
+		{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(UnixPrintService, usesClass, bool, $Class*)},
+		{"wakeNotifier", "()V", nullptr, $PUBLIC, $virtualMethod(UnixPrintService, wakeNotifier, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.UnixPrintService",
+		"java.lang.Object",
+		"javax.print.PrintService,sun.print.AttributeUpdater,sun.print.SunPrinterJobService",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixPrintService, name, initialize, &classInfo$$, UnixPrintService::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnixPrintService));
+	});
 	return class$;
 }
 

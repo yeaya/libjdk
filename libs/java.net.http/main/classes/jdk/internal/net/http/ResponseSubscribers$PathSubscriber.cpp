@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$PathSubscriber.h>
-
 #include <java/io/Closeable.h>
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
@@ -14,9 +13,7 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/nio/channels/Channel.h>
 #include <java/nio/channels/FileChannel.h>
-#include <java/nio/channels/InterruptibleChannel.h>
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
@@ -47,8 +44,6 @@ using $FilePermissionArray = $Array<::java::io::FilePermission>;
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $PermissionArray = $Array<::java::security::Permission>;
-using $Closeable = ::java::io::Closeable;
-using $File = ::java::io::File;
 using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
@@ -62,25 +57,20 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Channel = ::java::nio::channels::Channel;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $InterruptibleChannel = ::java::nio::channels::InterruptibleChannel;
 using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Path = ::java::nio::file::Path;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Stream = ::java::util::stream::Stream;
 using $ResponseSubscribers = ::jdk::internal::net::http::ResponseSubscribers;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 using $Utils = ::jdk::internal::net::http::common::Utils;
@@ -96,29 +86,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(ResponseSubscribers$PathSubscriber::lambda$new$0(x$0));
+		 return ResponseSubscribers$PathSubscriber::lambda$new$0(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::class$ = nullptr;
@@ -132,33 +119,29 @@ public:
 	virtual $Object* run() override {
 		 return $of($nc(inst$)->lambda$onSubscribe$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1>());
-	}
 	ResponseSubscribers$PathSubscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, inst$)},
-	{}
-};
-$MethodInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, init$, void, ResponseSubscribers$PathSubscriber*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, init$, void, ResponseSubscribers$PathSubscriber*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::class$ = nullptr;
@@ -170,109 +153,46 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$close$2());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2>());
+		 return $nc(inst$)->lambda$close$2();
 	}
 	ResponseSubscribers$PathSubscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, inst$)},
-	{}
-};
-$MethodInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, init$, void, ResponseSubscribers$PathSubscriber*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, init$, void, ResponseSubscribers$PathSubscriber*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2);
+	});
 	return class$;
 }
 $Class* ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::class$ = nullptr;
-
-$FieldInfo _ResponseSubscribers$PathSubscriber_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers$PathSubscriber, $assertionsDisabled)},
-	{"EMPTY_FILE_PERMISSIONS", "[Ljava/io/FilePermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$PathSubscriber, EMPTY_FILE_PERMISSIONS)},
-	{"file", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, file)},
-	{"options", "[Ljava/nio/file/OpenOption;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, options)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, acc)},
-	{"filePermissions", "[Ljava/io/FilePermission;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, filePermissions)},
-	{"isDefaultFS", "Z", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, isDefaultFS$)},
-	{"result", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, result)},
-	{"subscribed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, subscribed)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$PathSubscriber, subscription)},
-	{"out", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$PathSubscriber, out)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$PathSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $TRANSIENT, $method(ResponseSubscribers$PathSubscriber, init$, void, $Path*, $List*, $AccessControlContext*, $FilePermissionArray*)},
-	{"close", "()V", nullptr, $PRIVATE, $method(ResponseSubscribers$PathSubscriber, close, void)},
-	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers$PathSubscriber, create, ResponseSubscribers$PathSubscriber*, $Path*, $List*)},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, getBody, $CompletionStage*)},
-	{"isDefaultFS", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResponseSubscribers$PathSubscriber, isDefaultFS, bool, $Path*)},
-	{"lambda$close$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PathSubscriber, lambda$close$2, $Void*)},
-	{"lambda$new$0", "(I)[Ljava/nio/file/OpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers$PathSubscriber, lambda$new$0, $OpenOptionArray*, int32_t)},
-	{"lambda$onSubscribe$1", "()Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PathSubscriber, lambda$onSubscribe$1, $FileChannel*), "java.lang.Exception"},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ResponseSubscribers$PathSubscriber, pathForSecurityCheck, $String*, $Path*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$PathSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$PathSubscriber", "jdk.internal.net.http.ResponseSubscribers", "PathSubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$PathSubscriber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$PathSubscriber",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	_ResponseSubscribers$PathSubscriber_FieldInfo_,
-	_ResponseSubscribers$PathSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<Ljava/nio/file/Path;>;",
-	nullptr,
-	_ResponseSubscribers$PathSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$PathSubscriber($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$PathSubscriber));
-}
 
 bool ResponseSubscribers$PathSubscriber::$assertionsDisabled = false;
 $FilePermissionArray* ResponseSubscribers$PathSubscriber::EMPTY_FILE_PERMISSIONS = nullptr;
 
 $String* ResponseSubscribers$PathSubscriber::pathForSecurityCheck($Path* path) {
 	$init(ResponseSubscribers$PathSubscriber);
-	return $nc($($nc(path)->toFile()))->getPath();
+	return $$nc($nc(path)->toFile())->getPath();
 }
 
 ResponseSubscribers$PathSubscriber* ResponseSubscribers$PathSubscriber::create($Path* file, $List* options) {
 	$init(ResponseSubscribers$PathSubscriber);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	$var($FilePermission, filePermission, nullptr);
 	if (sm != nullptr) {
@@ -284,7 +204,7 @@ ResponseSubscribers$PathSubscriber* ResponseSubscribers$PathSubscriber::create($
 		} catch ($UnsupportedOperationException& ignored) {
 		}
 	}
-	if (!ResponseSubscribers$PathSubscriber::$assertionsDisabled && !(filePermission == nullptr || $nc($($nc(filePermission)->getActions()))->equals("write"_s))) {
+	if (!ResponseSubscribers$PathSubscriber::$assertionsDisabled && !(filePermission == nullptr || $$nc(filePermission->getActions())->equals("write"_s))) {
 		$throwNew($AssertionError);
 	}
 	$var($AccessControlContext, acc, sm != nullptr ? $AccessController::getContext() : ($AccessControlContext*)nullptr);
@@ -292,13 +212,13 @@ ResponseSubscribers$PathSubscriber* ResponseSubscribers$PathSubscriber::create($
 }
 
 void ResponseSubscribers$PathSubscriber::init$($Path* file, $List* options, $AccessControlContext* acc, $FilePermissionArray* filePermissions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, result, $new($MinimalFuture));
 	$set(this, subscribed, $new($AtomicBoolean));
 	$set(this, file, file);
-	$set(this, options, $fcast($OpenOptionArray, $nc($($nc(options)->stream()))->toArray(static_cast<$IntFunction*>($$new(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0)))));
+	$set(this, options, $cast($OpenOptionArray, $$nc($nc(options)->stream())->toArray($$new(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0))));
 	$set(this, acc, acc);
-	$set(this, filePermissions, filePermissions == nullptr || $nc(filePermissions)->get(0) == nullptr ? ResponseSubscribers$PathSubscriber::EMPTY_FILE_PERMISSIONS : filePermissions);
+	$set(this, filePermissions, filePermissions == nullptr || filePermissions->get(0) == nullptr ? ResponseSubscribers$PathSubscriber::EMPTY_FILE_PERMISSIONS : filePermissions);
 	this->isDefaultFS$ = isDefaultFS(file);
 }
 
@@ -314,10 +234,10 @@ bool ResponseSubscribers$PathSubscriber::isDefaultFS($Path* file) {
 }
 
 void ResponseSubscribers$PathSubscriber::onSubscribe($Flow$Subscription* subscription) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(subscription);
-	if (!$nc(this->subscribed)->compareAndSet(false, true)) {
+	if (!this->subscribed->compareAndSet(false, true)) {
 		subscription->cancel();
 		return;
 	}
@@ -326,21 +246,21 @@ void ResponseSubscribers$PathSubscriber::onSubscribe($Flow$Subscription* subscri
 		try {
 			$set(this, out, $FileChannel::open(this->file, this->options));
 		} catch ($IOException& ioe) {
-			$nc(this->result)->completeExceptionally(ioe);
+			this->result->completeExceptionally(ioe);
 			subscription->cancel();
 			return;
 		}
 	} else {
 		try {
-			$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, this)));
-			$set(this, out, this->isDefaultFS$ ? $cast($FileChannel, $AccessController::doPrivileged(pa, this->acc, $fcast($PermissionArray, this->filePermissions))) : $cast($FileChannel, $AccessController::doPrivileged(pa, this->acc)));
+			$var($PrivilegedExceptionAction, pa, $new(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, this));
+			$set(this, out, this->isDefaultFS$ ? $cast($FileChannel, $AccessController::doPrivileged(pa, this->acc, $cast($PermissionArray, this->filePermissions))) : $cast($FileChannel, $AccessController::doPrivileged(pa, this->acc)));
 		} catch ($PrivilegedActionException& pae) {
-			$var($Throwable, t, pae->getCause() != nullptr ? pae->getCause() : static_cast<$Throwable*>(pae));
-			$nc(this->result)->completeExceptionally(t);
+			$var($Throwable, t, pae->getCause() != nullptr ? pae->getCause() : $cast($Throwable, pae));
+			this->result->completeExceptionally(t);
 			subscription->cancel();
 			return;
 		} catch ($Exception& e) {
-			$nc(this->result)->completeExceptionally(e);
+			this->result->completeExceptionally(e);
 			subscription->cancel();
 			return;
 		}
@@ -351,23 +271,23 @@ void ResponseSubscribers$PathSubscriber::onSubscribe($Flow$Subscription* subscri
 void ResponseSubscribers$PathSubscriber::onNext($List* items) {
 	try {
 		$init($Utils);
-		$nc(this->out)->write($fcast($ByteBufferArray, $($nc(items)->toArray($Utils::EMPTY_BB_ARRAY))));
+		$nc(this->out)->write($$cast($ByteBufferArray, $nc(items)->toArray($Utils::EMPTY_BB_ARRAY)));
 	} catch ($IOException& ex) {
 		close();
 		$nc(this->subscription)->cancel();
-		$nc(this->result)->completeExceptionally(ex);
+		this->result->completeExceptionally(ex);
 	}
 	$nc(this->subscription)->request(1);
 }
 
 void ResponseSubscribers$PathSubscriber::onError($Throwable* e) {
-	$nc(this->result)->completeExceptionally(e);
+	this->result->completeExceptionally(e);
 	close();
 }
 
 void ResponseSubscribers$PathSubscriber::onComplete() {
 	close();
-	$nc(this->result)->complete(this->file);
+	this->result->complete(this->file);
 }
 
 $CompletionStage* ResponseSubscribers$PathSubscriber::getBody() {
@@ -375,14 +295,14 @@ $CompletionStage* ResponseSubscribers$PathSubscriber::getBody() {
 }
 
 void ResponseSubscribers$PathSubscriber::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->acc == nullptr) {
-		$Utils::close($$new($CloseableArray, {static_cast<$Closeable*>(static_cast<$Channel*>(static_cast<$InterruptibleChannel*>(static_cast<$AbstractInterruptibleChannel*>(this->out))))}));
+		$Utils::close($$new($CloseableArray, {$cast($AbstractInterruptibleChannel, this->out)}));
 	} else {
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, this)));
+		$var($PrivilegedAction, pa, $new(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, this));
 		if (this->isDefaultFS$) {
-			$AccessController::doPrivileged(pa, this->acc, $fcast($PermissionArray, this->filePermissions));
+			$AccessController::doPrivileged(pa, this->acc, $cast($PermissionArray, this->filePermissions));
 		} else {
 			$AccessController::doPrivileged(pa, this->acc);
 		}
@@ -394,7 +314,7 @@ void ResponseSubscribers$PathSubscriber::onNext(Object$* items) {
 }
 
 $Void* ResponseSubscribers$PathSubscriber::lambda$close$2() {
-	$Utils::close($$new($CloseableArray, {static_cast<$Closeable*>(static_cast<$Channel*>(static_cast<$InterruptibleChannel*>(static_cast<$AbstractInterruptibleChannel*>(this->out))))}));
+	$Utils::close($$new($CloseableArray, {$cast($AbstractInterruptibleChannel, this->out)}));
 	return nullptr;
 }
 
@@ -407,7 +327,7 @@ $OpenOptionArray* ResponseSubscribers$PathSubscriber::lambda$new$0(int32_t x$0) 
 	return $new($OpenOptionArray, x$0);
 }
 
-void clinit$ResponseSubscribers$PathSubscriber($Class* class$) {
+void ResponseSubscribers$PathSubscriber::clinit$($Class* clazz) {
 	$load($ResponseSubscribers);
 	ResponseSubscribers$PathSubscriber::$assertionsDisabled = !$ResponseSubscribers::class$->desiredAssertionStatus();
 	$assignStatic(ResponseSubscribers$PathSubscriber::EMPTY_FILE_PERMISSIONS, $new($FilePermissionArray, 0));
@@ -418,17 +338,70 @@ ResponseSubscribers$PathSubscriber::ResponseSubscribers$PathSubscriber() {
 
 $Class* ResponseSubscribers$PathSubscriber::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0")) {
 			return ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1")) {
 			return ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::load$(name, initialize);
 		}
-		if (name->equals(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2")) {
 			return ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ResponseSubscribers$PathSubscriber, name, initialize, &_ResponseSubscribers$PathSubscriber_ClassInfo_, clinit$ResponseSubscribers$PathSubscriber, allocate$ResponseSubscribers$PathSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseSubscribers$PathSubscriber, $assertionsDisabled)},
+		{"EMPTY_FILE_PERMISSIONS", "[Ljava/io/FilePermission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResponseSubscribers$PathSubscriber, EMPTY_FILE_PERMISSIONS)},
+		{"file", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, file)},
+		{"options", "[Ljava/nio/file/OpenOption;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, options)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, acc)},
+		{"filePermissions", "[Ljava/io/FilePermission;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, filePermissions)},
+		{"isDefaultFS", "Z", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, isDefaultFS$)},
+		{"result", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, result)},
+		{"subscribed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$PathSubscriber, subscribed)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$PathSubscriber, subscription)},
+		{"out", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $VOLATILE, $field(ResponseSubscribers$PathSubscriber, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $TRANSIENT, $method(ResponseSubscribers$PathSubscriber, init$, void, $Path*, $List*, $AccessControlContext*, $FilePermissionArray*)},
+		{"close", "()V", nullptr, $PRIVATE, $method(ResponseSubscribers$PathSubscriber, close, void)},
+		{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers$PathSubscriber, create, ResponseSubscribers$PathSubscriber*, $Path*, $List*)},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, getBody, $CompletionStage*)},
+		{"isDefaultFS", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResponseSubscribers$PathSubscriber, isDefaultFS, bool, $Path*)},
+		{"lambda$close$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PathSubscriber, lambda$close$2, $Void*)},
+		{"lambda$new$0", "(I)[Ljava/nio/file/OpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers$PathSubscriber, lambda$new$0, $OpenOptionArray*, int32_t)},
+		{"lambda$onSubscribe$1", "()Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PathSubscriber, lambda$onSubscribe$1, $FileChannel*), "java.lang.Exception"},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ResponseSubscribers$PathSubscriber, pathForSecurityCheck, $String*, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$PathSubscriber", "jdk.internal.net.http.ResponseSubscribers", "PathSubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$PathSubscriber",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<Ljava/nio/file/Path;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$PathSubscriber, name, initialize, &classInfo$$, ResponseSubscribers$PathSubscriber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$PathSubscriber);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/HttpsServerImpl.h>
-
 #include <com/sun/net/httpserver/HttpContext.h>
 #include <com/sun/net/httpserver/HttpHandler.h>
 #include <com/sun/net/httpserver/HttpServer.h>
@@ -13,7 +12,6 @@
 
 using $HttpContext = ::com::sun::net::httpserver::HttpContext;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
-using $HttpServer = ::com::sun::net::httpserver::HttpServer;
 using $HttpsConfigurator = ::com::sun::net::httpserver::HttpsConfigurator;
 using $HttpsServer = ::com::sun::net::httpserver::HttpsServer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -26,42 +24,6 @@ using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _HttpsServerImpl_FieldInfo_[] = {
-	{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(HttpsServerImpl, server)},
-	{}
-};
-
-$MethodInfo _HttpsServerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HttpsServerImpl, init$, void), "java.io.IOException"},
-	{"<init>", "(Ljava/net/InetSocketAddress;I)V", nullptr, 0, $method(HttpsServerImpl, init$, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
-	{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, bind, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
-	{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, createContext, $HttpContext*, $String*, $HttpHandler*)},
-	{"createContext", "(Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, createContext, $HttpContext*, $String*)},
-	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, getAddress, $InetSocketAddress*)},
-	{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, getExecutor, $Executor*)},
-	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, getHttpsConfigurator, $HttpsConfigurator*)},
-	{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, removeContext, void, $String*), "java.lang.IllegalArgumentException"},
-	{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, removeContext, void, $HttpContext*), "java.lang.IllegalArgumentException"},
-	{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, setExecutor, void, $Executor*)},
-	{"setHttpsConfigurator", "(Lcom/sun/net/httpserver/HttpsConfigurator;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, setHttpsConfigurator, void, $HttpsConfigurator*)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, start, void)},
-	{"stop", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, stop, void, int32_t)},
-	{}
-};
-
-$ClassInfo _HttpsServerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.httpserver.HttpsServerImpl",
-	"com.sun.net.httpserver.HttpsServer",
-	nullptr,
-	_HttpsServerImpl_FieldInfo_,
-	_HttpsServerImpl_MethodInfo_
-};
-
-$Object* allocate$HttpsServerImpl($Class* clazz) {
-	return $of($alloc(HttpsServerImpl));
-}
 
 void HttpsServerImpl::init$() {
 	HttpsServerImpl::init$($$new($InetSocketAddress, 443), 0);
@@ -124,7 +86,38 @@ HttpsServerImpl::HttpsServerImpl() {
 }
 
 $Class* HttpsServerImpl::load$($String* name, bool initialize) {
-	$loadClass(HttpsServerImpl, name, initialize, &_HttpsServerImpl_ClassInfo_, allocate$HttpsServerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(HttpsServerImpl, server)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HttpsServerImpl, init$, void), "java.io.IOException"},
+		{"<init>", "(Ljava/net/InetSocketAddress;I)V", nullptr, 0, $method(HttpsServerImpl, init$, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
+		{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, bind, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
+		{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, createContext, $HttpContext*, $String*, $HttpHandler*)},
+		{"createContext", "(Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, createContext, $HttpContext*, $String*)},
+		{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, getAddress, $InetSocketAddress*)},
+		{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, getExecutor, $Executor*)},
+		{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, getHttpsConfigurator, $HttpsConfigurator*)},
+		{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, removeContext, void, $String*), "java.lang.IllegalArgumentException"},
+		{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, removeContext, void, $HttpContext*), "java.lang.IllegalArgumentException"},
+		{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, setExecutor, void, $Executor*)},
+		{"setHttpsConfigurator", "(Lcom/sun/net/httpserver/HttpsConfigurator;)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, setHttpsConfigurator, void, $HttpsConfigurator*)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, start, void)},
+		{"stop", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsServerImpl, stop, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.httpserver.HttpsServerImpl",
+		"com.sun.net.httpserver.HttpsServer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpsServerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpsServerImpl);
+	});
 	return class$;
 }
 

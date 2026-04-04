@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/DesCbcEType.h>
-
 #include <sun/security/krb5/Confounder.h>
 #include <sun/security/krb5/KrbCryptoException.h>
 #include <sun/security/krb5/internal/Krb5.h>
@@ -26,38 +25,6 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 
-$MethodInfo _DesCbcEType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DesCbcEType, init$, void)},
-	{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, blockSize, int32_t)},
-	{"calculateChecksum", "([BI)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DesCbcEType, calculateChecksum, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"checksumField", "([B)[B", nullptr, $PRIVATE, $method(DesCbcEType, checksumField, $bytes*, $bytes*)},
-	{"copyChecksumField", "([B[B)V", nullptr, $PRIVATE, $method(DesCbcEType, copyChecksumField, void, $bytes*, $bytes*)},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"generateChecksum", "([B)[B", nullptr, $PRIVATE, $method(DesCbcEType, generateChecksum, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
-	{"isChecksumEqual", "([B[B)Z", nullptr, $PRIVATE, $method(DesCbcEType, isChecksumEqual, bool, $bytes*, $bytes*)},
-	{"isChecksumValid", "([B)Z", nullptr, $PROTECTED, $virtualMethod(DesCbcEType, isChecksumValid, bool, $bytes*), "sun.security.krb5.KrbCryptoException"},
-	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, keyType, int32_t)},
-	{"resetChecksumField", "([B)V", nullptr, $PRIVATE, $method(DesCbcEType, resetChecksumField, void, $bytes*)},
-	{}
-};
-
-$ClassInfo _DesCbcEType_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.krb5.internal.crypto.DesCbcEType",
-	"sun.security.krb5.internal.crypto.EType",
-	nullptr,
-	nullptr,
-	_DesCbcEType_MethodInfo_
-};
-
-$Object* allocate$DesCbcEType($Class* clazz) {
-	return $of($alloc(DesCbcEType));
-}
-
 void DesCbcEType::init$() {
 	$EType::init$();
 }
@@ -80,7 +47,7 @@ $bytes* DesCbcEType::encrypt($bytes* data, $bytes* key, int32_t usage) {
 }
 
 $bytes* DesCbcEType::encrypt($bytes* data, $bytes* key, $bytes* ivec, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(key)->length > 8) {
 		$throwNew($KrbCryptoException, "Invalid DES Key!"_s);
 	}
@@ -103,12 +70,10 @@ $bytes* DesCbcEType::encrypt($bytes* data, $bytes* key, $bytes* ivec, int32_t us
 	$var($bytes, conf, $Confounder::bytes(confounderSize()));
 	$System::arraycopy(conf, 0, new_data, 0, confounderSize());
 	$System::arraycopy(data, 0, new_data, startOfData(), data->length);
-	$var($bytes, cksum, calculateChecksum(new_data, $nc(new_data)->length));
-	$var($Object, var$3, $of(cksum));
-	$var($Object, var$4, $of(new_data));
-	int32_t var$5 = startOfChecksum();
-	$System::arraycopy(var$3, 0, var$4, var$5, checksumSize());
-	$var($bytes, cipher, $new($bytes, $nc(new_data)->length));
+	$var($bytes, cksum, calculateChecksum(new_data, new_data->length));
+	int32_t var$3 = startOfChecksum();
+	$System::arraycopy(cksum, 0, new_data, var$3, checksumSize());
+	$var($bytes, cipher, $new($bytes, new_data->length));
 	$Des::cbc_encrypt(new_data, cipher, key, ivec, true);
 	return cipher;
 }
@@ -145,24 +110,21 @@ $bytes* DesCbcEType::checksumField($bytes* data) {
 }
 
 void DesCbcEType::resetChecksumField($bytes* data) {
-	{
-		int32_t i = startOfChecksum();
-		for (;; ++i) {
-			int32_t var$0 = i;
-			int32_t var$2 = startOfChecksum();
-			int32_t var$1 = var$2 + checksumSize();
-			if (!(var$0 < var$1)) {
-				break;
-			}
-			{
-				$nc(data)->set(i, (int8_t)0);
-			}
+	for (int32_t i = startOfChecksum();; ++i) {
+		int32_t var$0 = i;
+		int32_t var$2 = startOfChecksum();
+		int32_t var$1 = var$2 + checksumSize();
+		if (!(var$0 < var$1)) {
+			break;
+		}
+		{
+			$nc(data)->set(i, 0);
 		}
 	}
 }
 
 $bytes* DesCbcEType::generateChecksum($bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, cksum1, checksumField(data));
 	resetChecksumField(data);
 	$var($bytes, cksum2, calculateChecksum(data, $nc(data)->length));
@@ -180,8 +142,8 @@ bool DesCbcEType::isChecksumEqual($bytes* cksum1, $bytes* cksum2) {
 	if ($nc(cksum1)->length != $nc(cksum2)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(cksum1)->length; ++i) {
-		if (cksum1->get(i) != $nc(cksum2)->get(i)) {
+	for (int32_t i = 0; i < cksum1->length; ++i) {
+		if (cksum1->get(i) != cksum2->get(i)) {
 			return false;
 		}
 	}
@@ -189,7 +151,7 @@ bool DesCbcEType::isChecksumEqual($bytes* cksum1, $bytes* cksum2) {
 }
 
 bool DesCbcEType::isChecksumValid($bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, cksum1, checksumField(data));
 	$var($bytes, cksum2, generateChecksum(data));
 	return isChecksumEqual(cksum1, cksum2);
@@ -199,7 +161,35 @@ DesCbcEType::DesCbcEType() {
 }
 
 $Class* DesCbcEType::load$($String* name, bool initialize) {
-	$loadClass(DesCbcEType, name, initialize, &_DesCbcEType_ClassInfo_, allocate$DesCbcEType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DesCbcEType, init$, void)},
+		{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, blockSize, int32_t)},
+		{"calculateChecksum", "([BI)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DesCbcEType, calculateChecksum, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"checksumField", "([B)[B", nullptr, $PRIVATE, $method(DesCbcEType, checksumField, $bytes*, $bytes*)},
+		{"copyChecksumField", "([B[B)V", nullptr, $PRIVATE, $method(DesCbcEType, copyChecksumField, void, $bytes*, $bytes*)},
+		{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"generateChecksum", "([B)[B", nullptr, $PRIVATE, $method(DesCbcEType, generateChecksum, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
+		{"isChecksumEqual", "([B[B)Z", nullptr, $PRIVATE, $method(DesCbcEType, isChecksumEqual, bool, $bytes*, $bytes*)},
+		{"isChecksumValid", "([B)Z", nullptr, $PROTECTED, $virtualMethod(DesCbcEType, isChecksumValid, bool, $bytes*), "sun.security.krb5.KrbCryptoException"},
+		{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, keyType, int32_t)},
+		{"resetChecksumField", "([B)V", nullptr, $PRIVATE, $method(DesCbcEType, resetChecksumField, void, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.krb5.internal.crypto.DesCbcEType",
+		"sun.security.krb5.internal.crypto.EType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DesCbcEType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DesCbcEType);
+	});
 	return class$;
 }
 

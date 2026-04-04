@@ -45,6 +45,7 @@ class Helpers$PolyStack : public ::java::lang::Object {
 	$class(Helpers$PolyStack, 0, ::java::lang::Object)
 public:
 	Helpers$PolyStack();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx, ::sun::java2d::marlin::stats::StatLong* stat_polystack_types, ::sun::java2d::marlin::stats::StatLong* stat_polystack_curves, ::sun::java2d::marlin::stats::Histogram* hist_polystack_curves, ::sun::java2d::marlin::stats::StatLong* stat_array_polystack_curves, ::sun::java2d::marlin::stats::StatLong* stat_array_polystack_curveTypes);
 	void dispose();

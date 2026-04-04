@@ -15,10 +15,13 @@ class ProblemException : public ::java::lang::Exception {
 public:
 	ProblemException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xD0FD1F3E1A3B1CC3;
+	static const int64_t serialVersionUID = (int64_t)0xd0fd1f3e1a3b1cc3;
 	ProblemException(const ProblemException& e);
 	virtual void throw$() override;
-	inline ProblemException* operator ->() {
+	inline ProblemException* operator ->() const {
+		return (ProblemException*)throwing$;
+	}
+	inline operator ProblemException*() const {
 		return (ProblemException*)throwing$;
 	}
 };

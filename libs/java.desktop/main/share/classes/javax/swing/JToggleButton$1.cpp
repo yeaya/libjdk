@@ -1,5 +1,4 @@
 #include <javax/swing/JToggleButton$1.h>
-
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -23,69 +22,33 @@ using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JToggleButton$1_FieldInfo_[] = {
-	{"$SwitchMap$java$awt$event$FocusEvent$Cause", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JToggleButton$1, $SwitchMap$java$awt$event$FocusEvent$Cause)},
-	{}
-};
-
-$EnclosingMethodInfo _JToggleButton$1_EnclosingMethodInfo_ = {
-	"javax.swing.JToggleButton",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JToggleButton$1_InnerClassesInfo_[] = {
-	{"javax.swing.JToggleButton$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JToggleButton$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.swing.JToggleButton$1",
-	"java.lang.Object",
-	nullptr,
-	_JToggleButton$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JToggleButton$1_EnclosingMethodInfo_,
-	_JToggleButton$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JToggleButton"
-};
-
-$Object* allocate$JToggleButton$1($Class* clazz) {
-	return $of($alloc(JToggleButton$1));
-}
-
 $ints* JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause = nullptr;
 
-void clinit$JToggleButton$1($Class* class$) {
+void JToggleButton$1::clinit$($Class* clazz) {
 	$assignStatic(JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause, $new($ints, $($FocusEvent$Cause::values())->length));
 	{
 		try {
-			$nc(JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause)->set($FocusEvent$Cause::ACTIVATION->ordinal(), 1);
+			JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause->set($FocusEvent$Cause::ACTIVATION->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause)->set($FocusEvent$Cause::TRAVERSAL->ordinal(), 2);
+			JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause->set($FocusEvent$Cause::TRAVERSAL->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause)->set($FocusEvent$Cause::TRAVERSAL_UP->ordinal(), 3);
+			JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause->set($FocusEvent$Cause::TRAVERSAL_UP->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause)->set($FocusEvent$Cause::TRAVERSAL_DOWN->ordinal(), 4);
+			JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause->set($FocusEvent$Cause::TRAVERSAL_DOWN->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause)->set($FocusEvent$Cause::TRAVERSAL_FORWARD->ordinal(), 5);
+			JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause->set($FocusEvent$Cause::TRAVERSAL_FORWARD->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause)->set($FocusEvent$Cause::TRAVERSAL_BACKWARD->ordinal(), 6);
+			JToggleButton$1::$SwitchMap$java$awt$event$FocusEvent$Cause->set($FocusEvent$Cause::TRAVERSAL_BACKWARD->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -95,7 +58,37 @@ JToggleButton$1::JToggleButton$1() {
 }
 
 $Class* JToggleButton$1::load$($String* name, bool initialize) {
-	$loadClass(JToggleButton$1, name, initialize, &_JToggleButton$1_ClassInfo_, clinit$JToggleButton$1, allocate$JToggleButton$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$awt$event$FocusEvent$Cause", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JToggleButton$1, $SwitchMap$java$awt$event$FocusEvent$Cause)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JToggleButton",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JToggleButton$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.swing.JToggleButton$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JToggleButton"
+	};
+	$loadClass(JToggleButton$1, name, initialize, &classInfo$$, JToggleButton$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JToggleButton$1);
+	});
 	return class$;
 }
 

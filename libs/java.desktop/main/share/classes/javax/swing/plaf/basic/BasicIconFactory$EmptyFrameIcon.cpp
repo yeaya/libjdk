@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicIconFactory$EmptyFrameIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
@@ -18,50 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicIconFactory$EmptyFrameIcon_FieldInfo_[] = {
-	{"height", "I", nullptr, 0, $field(BasicIconFactory$EmptyFrameIcon, height)},
-	{"width", "I", nullptr, 0, $field(BasicIconFactory$EmptyFrameIcon, width)},
-	{}
-};
-
-$MethodInfo _BasicIconFactory$EmptyFrameIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BasicIconFactory$EmptyFrameIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$EmptyFrameIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$EmptyFrameIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$EmptyFrameIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicIconFactory$EmptyFrameIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicIconFactory$EmptyFrameIcon", "javax.swing.plaf.basic.BasicIconFactory", "EmptyFrameIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicIconFactory$EmptyFrameIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicIconFactory$EmptyFrameIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_BasicIconFactory$EmptyFrameIcon_FieldInfo_,
-	_BasicIconFactory$EmptyFrameIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicIconFactory$EmptyFrameIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicIconFactory"
-};
-
-$Object* allocate$BasicIconFactory$EmptyFrameIcon($Class* clazz) {
-	return $of($alloc(BasicIconFactory$EmptyFrameIcon));
-}
 
 int32_t BasicIconFactory$EmptyFrameIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -103,7 +58,45 @@ BasicIconFactory$EmptyFrameIcon::BasicIconFactory$EmptyFrameIcon() {
 }
 
 $Class* BasicIconFactory$EmptyFrameIcon::load$($String* name, bool initialize) {
-	$loadClass(BasicIconFactory$EmptyFrameIcon, name, initialize, &_BasicIconFactory$EmptyFrameIcon_ClassInfo_, allocate$BasicIconFactory$EmptyFrameIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"height", "I", nullptr, 0, $field(BasicIconFactory$EmptyFrameIcon, height)},
+		{"width", "I", nullptr, 0, $field(BasicIconFactory$EmptyFrameIcon, width)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BasicIconFactory$EmptyFrameIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$EmptyFrameIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$EmptyFrameIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$EmptyFrameIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicIconFactory$EmptyFrameIcon", "javax.swing.plaf.basic.BasicIconFactory", "EmptyFrameIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicIconFactory$EmptyFrameIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicIconFactory"
+	};
+	$loadClass(BasicIconFactory$EmptyFrameIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicIconFactory$EmptyFrameIcon));
+	});
 	return class$;
 }
 

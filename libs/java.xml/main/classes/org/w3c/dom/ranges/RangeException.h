@@ -20,13 +20,16 @@ class $export RangeException : public ::java::lang::RuntimeException {
 public:
 	RangeException();
 	void init$(int16_t code, $String* message);
-	static const int64_t serialVersionUID = (int64_t)0x21B07006846EBD01;
+	static const int64_t serialVersionUID = (int64_t)0x21b07006846ebd01;
 	int16_t code = 0;
 	static const int16_t BAD_BOUNDARYPOINTS_ERR = 1;
 	static const int16_t INVALID_NODE_TYPE_ERR = 2;
 	RangeException(const RangeException& e);
 	virtual void throw$() override;
-	inline RangeException* operator ->() {
+	inline RangeException* operator ->() const {
+		return (RangeException*)throwing$;
+	}
+	inline operator RangeException*() const {
 		return (RangeException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_util_Collections.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/MetaData.h>
 #include <java/beans/PersistenceDelegate.h>
@@ -22,64 +21,12 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_util_Collections_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetaData$java_util_Collections, init$, void)},
-	{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_util_Collections, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_util_Collections, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_util_Collections_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_util_Collections", "java.beans.MetaData", "java_util_Collections", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedSortedMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedSortedMap_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedMap_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedSortedSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedSortedSet_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedSet_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedRandomAccessList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedRandomAccessList_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedList_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedCollection_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$UnmodifiableSortedMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableSortedMap_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$UnmodifiableMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableMap_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$UnmodifiableSortedSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableSortedSet_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$UnmodifiableSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableSet_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$UnmodifiableRandomAccessList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableRandomAccessList_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$UnmodifiableList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableList_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$UnmodifiableCollection_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableCollection_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SingletonMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SingletonMap_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SingletonSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SingletonSet_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$SingletonList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SingletonList_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$EmptyMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptyMap_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$EmptySet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptySet_PersistenceDelegate", $STATIC | $FINAL},
-	{"java.beans.MetaData$java_util_Collections$EmptyList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptyList_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_util_Collections_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.beans.MetaData$java_util_Collections",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_util_Collections_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_util_Collections_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_util_Collections($Class* clazz) {
-	return $of($alloc(MetaData$java_util_Collections));
-}
-
 void MetaData$java_util_Collections::init$() {
 	$PersistenceDelegate::init$();
 }
 
 bool MetaData$java_util_Collections::mutatesTo(Object$* oldInstance, Object$* newInstance) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$PersistenceDelegate::mutatesTo(oldInstance, newInstance)) {
 		return false;
 	}
@@ -89,7 +36,7 @@ bool MetaData$java_util_Collections::mutatesTo(Object$* oldInstance, Object$* ne
 	$var($Collection, oldC, $cast($Collection, oldInstance));
 	$var($Collection, newC, $cast($Collection, newInstance));
 	int32_t var$1 = $nc(oldC)->size();
-	bool var$0 = (var$1 == $nc(newC)->size());
+	bool var$0 = var$1 == $nc(newC)->size();
 	return var$0 && oldC->containsAll(newC);
 }
 
@@ -100,7 +47,54 @@ MetaData$java_util_Collections::MetaData$java_util_Collections() {
 }
 
 $Class* MetaData$java_util_Collections::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_util_Collections, name, initialize, &_MetaData$java_util_Collections_ClassInfo_, allocate$MetaData$java_util_Collections);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetaData$java_util_Collections, init$, void)},
+		{"initialize", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/lang/Object;Ljava/beans/Encoder;)V", $PROTECTED, $virtualMethod(MetaData$java_util_Collections, initialize, void, $Class*, Object$*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_util_Collections, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_util_Collections", "java.beans.MetaData", "java_util_Collections", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedSortedMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedSortedMap_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedMap_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedSortedSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedSortedSet_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedSet_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedRandomAccessList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedRandomAccessList_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedList_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SynchronizedCollection_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SynchronizedCollection_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$UnmodifiableSortedMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableSortedMap_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$UnmodifiableMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableMap_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$UnmodifiableSortedSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableSortedSet_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$UnmodifiableSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableSet_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$UnmodifiableRandomAccessList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableRandomAccessList_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$UnmodifiableList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableList_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$UnmodifiableCollection_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "UnmodifiableCollection_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SingletonMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SingletonMap_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SingletonSet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SingletonSet_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$SingletonList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "SingletonList_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$EmptyMap_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptyMap_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$EmptySet_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptySet_PersistenceDelegate", $STATIC | $FINAL},
+		{"java.beans.MetaData$java_util_Collections$EmptyList_PersistenceDelegate", "java.beans.MetaData$java_util_Collections", "EmptyList_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.beans.MetaData$java_util_Collections",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_util_Collections, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_util_Collections);
+	});
 	return class$;
 }
 

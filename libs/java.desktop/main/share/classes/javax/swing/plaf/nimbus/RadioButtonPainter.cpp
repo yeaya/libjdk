@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/RadioButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
@@ -8,11 +7,9 @@
 #include <java/awt/geom/Ellipse2D$Float.h>
 #include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -41,11 +38,9 @@ using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
 using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -60,152 +55,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _RadioButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, BACKGROUND_ENABLED)},
-	{"ICON_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_DISABLED)},
-	{"ICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_ENABLED)},
-	{"ICON_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_FOCUSED)},
-	{"ICON_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER)},
-	{"ICON_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER_FOCUSED)},
-	{"ICON_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED)},
-	{"ICON_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED_FOCUSED)},
-	{"ICON_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_SELECTED)},
-	{"ICON_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_SELECTED_FOCUSED)},
-	{"ICON_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED_SELECTED)},
-	{"ICON_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED_SELECTED_FOCUSED)},
-	{"ICON_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER_SELECTED)},
-	{"ICON_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER_SELECTED_FOCUSED)},
-	{"ICON_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_DISABLED_SELECTED)},
-	{"state", "I", nullptr, $PRIVATE, $field(RadioButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(RadioButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color37)},
-	{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color38)},
-	{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color39)},
-	{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color40)},
-	{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color41)},
-	{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color42)},
-	{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color43)},
-	{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color44)},
-	{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color45)},
-	{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color46)},
-	{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color47)},
-	{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color48)},
-	{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color49)},
-	{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color50)},
-	{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color51)},
-	{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color52)},
-	{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color53)},
-	{"color54", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color54)},
-	{"color55", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color55)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(RadioButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _RadioButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(RadioButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse1, $Ellipse2D*)},
-	{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse2, $Ellipse2D*)},
-	{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse3, $Ellipse2D*)},
-	{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse4, $Ellipse2D*)},
-	{"decodeEllipse5", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse5, $Ellipse2D*)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient13, $Paint*, $Shape*)},
-	{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient14, $Paint*, $Shape*)},
-	{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient15, $Paint*, $Shape*)},
-	{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient16, $Paint*, $Shape*)},
-	{"decodeGradient17", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient17, $Paint*, $Shape*)},
-	{"decodeGradient18", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient18, $Paint*, $Shape*)},
-	{"decodeGradient19", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient19, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RadioButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(RadioButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"painticonDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonDisabled, void, $Graphics2D*)},
-	{"painticonDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonDisabledAndSelected, void, $Graphics2D*)},
-	{"painticonEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonEnabled, void, $Graphics2D*)},
-	{"painticonFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonFocused, void, $Graphics2D*)},
-	{"painticonMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOver, void, $Graphics2D*)},
-	{"painticonMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOverAndFocused, void, $Graphics2D*)},
-	{"painticonMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOverAndSelected, void, $Graphics2D*)},
-	{"painticonMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
-	{"painticonPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressed, void, $Graphics2D*)},
-	{"painticonPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressedAndFocused, void, $Graphics2D*)},
-	{"painticonPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressedAndSelected, void, $Graphics2D*)},
-	{"painticonPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressedAndSelectedAndFocused, void, $Graphics2D*)},
-	{"painticonSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonSelected, void, $Graphics2D*)},
-	{"painticonSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonSelectedAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _RadioButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.RadioButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_RadioButtonPainter_FieldInfo_,
-	_RadioButtonPainter_MethodInfo_
-};
-
-$Object* allocate$RadioButtonPainter($Class* clazz) {
-	return $of($alloc(RadioButtonPainter));
-}
-
 void RadioButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.06766917f, 0.07843137f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.06413457f, 0.015686274f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.08466425f, 0.16470587f, 0));
@@ -269,75 +124,47 @@ void RadioButtonPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, 
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case RadioButtonPainter::ICON_DISABLED:
-		{
-			painticonDisabled(g);
-			break;
-		}
+		painticonDisabled(g);
+		break;
 	case RadioButtonPainter::ICON_ENABLED:
-		{
-			painticonEnabled(g);
-			break;
-		}
+		painticonEnabled(g);
+		break;
 	case RadioButtonPainter::ICON_FOCUSED:
-		{
-			painticonFocused(g);
-			break;
-		}
+		painticonFocused(g);
+		break;
 	case RadioButtonPainter::ICON_MOUSEOVER:
-		{
-			painticonMouseOver(g);
-			break;
-		}
+		painticonMouseOver(g);
+		break;
 	case RadioButtonPainter::ICON_MOUSEOVER_FOCUSED:
-		{
-			painticonMouseOverAndFocused(g);
-			break;
-		}
+		painticonMouseOverAndFocused(g);
+		break;
 	case RadioButtonPainter::ICON_PRESSED:
-		{
-			painticonPressed(g);
-			break;
-		}
+		painticonPressed(g);
+		break;
 	case RadioButtonPainter::ICON_PRESSED_FOCUSED:
-		{
-			painticonPressedAndFocused(g);
-			break;
-		}
+		painticonPressedAndFocused(g);
+		break;
 	case RadioButtonPainter::ICON_SELECTED:
-		{
-			painticonSelected(g);
-			break;
-		}
+		painticonSelected(g);
+		break;
 	case RadioButtonPainter::ICON_SELECTED_FOCUSED:
-		{
-			painticonSelectedAndFocused(g);
-			break;
-		}
+		painticonSelectedAndFocused(g);
+		break;
 	case RadioButtonPainter::ICON_PRESSED_SELECTED:
-		{
-			painticonPressedAndSelected(g);
-			break;
-		}
+		painticonPressedAndSelected(g);
+		break;
 	case RadioButtonPainter::ICON_PRESSED_SELECTED_FOCUSED:
-		{
-			painticonPressedAndSelectedAndFocused(g);
-			break;
-		}
+		painticonPressedAndSelectedAndFocused(g);
+		break;
 	case RadioButtonPainter::ICON_MOUSEOVER_SELECTED:
-		{
-			painticonMouseOverAndSelected(g);
-			break;
-		}
+		painticonMouseOverAndSelected(g);
+		break;
 	case RadioButtonPainter::ICON_MOUSEOVER_SELECTED_FOCUSED:
-		{
-			painticonMouseOverAndSelectedAndFocused(g);
-			break;
-		}
+		painticonMouseOverAndSelectedAndFocused(g);
+		break;
 	case RadioButtonPainter::ICON_DISABLED_SELECTED:
-		{
-			painticonDisabledAndSelected(g);
-			break;
-		}
+		painticonDisabledAndSelected(g);
+		break;
 	}
 }
 
@@ -346,7 +173,7 @@ $AbstractRegionPainter$PaintContext* RadioButtonPainter::getPaintContext() {
 }
 
 void RadioButtonPainter::painticonDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse1());
 	$nc(g)->setPaint($(decodeGradient1(this->ellipse)));
 	g->fill(this->ellipse);
@@ -356,7 +183,7 @@ void RadioButtonPainter::painticonDisabled($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color7);
 	g->fill(this->ellipse);
@@ -369,7 +196,7 @@ void RadioButtonPainter::painticonEnabled($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -382,7 +209,7 @@ void RadioButtonPainter::painticonFocused($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color7);
 	g->fill(this->ellipse);
@@ -395,7 +222,7 @@ void RadioButtonPainter::painticonMouseOver($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonMouseOverAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -408,7 +235,7 @@ void RadioButtonPainter::painticonMouseOverAndFocused($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color19);
 	g->fill(this->ellipse);
@@ -421,7 +248,7 @@ void RadioButtonPainter::painticonPressed($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonPressedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -434,7 +261,7 @@ void RadioButtonPainter::painticonPressedAndFocused($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color7);
 	g->fill(this->ellipse);
@@ -450,7 +277,7 @@ void RadioButtonPainter::painticonSelected($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -466,7 +293,7 @@ void RadioButtonPainter::painticonSelectedAndFocused($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonPressedAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color19);
 	g->fill(this->ellipse);
@@ -482,7 +309,7 @@ void RadioButtonPainter::painticonPressedAndSelected($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonPressedAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -498,7 +325,7 @@ void RadioButtonPainter::painticonPressedAndSelectedAndFocused($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonMouseOverAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse3());
 	$nc(g)->setPaint(this->color7);
 	g->fill(this->ellipse);
@@ -514,7 +341,7 @@ void RadioButtonPainter::painticonMouseOverAndSelected($Graphics2D* g) {
 }
 
 void RadioButtonPainter::painticonMouseOverAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse4());
 	$nc(g)->setPaint(this->color12);
 	g->fill(this->ellipse);
@@ -530,7 +357,7 @@ void RadioButtonPainter::painticonMouseOverAndSelectedAndFocused($Graphics2D* g)
 }
 
 void RadioButtonPainter::painticonDisabledAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ellipse, decodeEllipse1());
 	$nc(g)->setPaint($(decodeGradient17(this->ellipse)));
 	g->fill(this->ellipse);
@@ -543,57 +370,57 @@ void RadioButtonPainter::painticonDisabledAndSelected($Graphics2D* g) {
 }
 
 $Ellipse2D* RadioButtonPainter::decodeEllipse1() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.4f));
 	return this->ellipse;
 }
 
 $Ellipse2D* RadioButtonPainter::decodeEllipse2() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->ellipse;
 }
 
 $Ellipse2D* RadioButtonPainter::decodeEllipse3() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.6f));
 	return this->ellipse;
 }
 
 $Ellipse2D* RadioButtonPainter::decodeEllipse4() {
-	double var$0 = (double)decodeX(0.120000005f);
-	double var$1 = (double)decodeY(0.120000005f);
+	double var$0 = decodeX(0.120000005f);
+	double var$1 = decodeY(0.120000005f);
 	float var$3 = decodeX(2.8799999f);
-	double var$2 = (double)(var$3 - decodeX(0.120000005f));
+	double var$2 = var$3 - decodeX(0.120000005f);
 	float var$4 = decodeY(2.8799999f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(0.120000005f));
 	return this->ellipse;
 }
 
 $Ellipse2D* RadioButtonPainter::decodeEllipse5() {
-	double var$0 = (double)decodeX(1.125f);
-	double var$1 = (double)decodeY(1.125f);
+	double var$0 = decodeX(1.125f);
+	double var$1 = decodeY(1.125f);
 	float var$3 = decodeX(1.875f);
-	double var$2 = (double)(var$3 - decodeX(1.125f));
+	double var$2 = var$3 - decodeX(1.125f);
 	float var$4 = decodeY(1.875f);
 	$nc(this->ellipse)->setFrame(var$0, var$1, var$2, var$4 - decodeY(1.125f));
 	return this->ellipse;
 }
 
 $Paint* RadioButtonPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -611,7 +438,7 @@ $Paint* RadioButtonPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -641,7 +468,7 @@ $Paint* RadioButtonPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -659,7 +486,7 @@ $Paint* RadioButtonPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -685,7 +512,7 @@ $Paint* RadioButtonPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -703,7 +530,7 @@ $Paint* RadioButtonPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -733,7 +560,7 @@ $Paint* RadioButtonPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -751,7 +578,7 @@ $Paint* RadioButtonPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -777,7 +604,7 @@ $Paint* RadioButtonPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -795,7 +622,7 @@ $Paint* RadioButtonPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -825,7 +652,7 @@ $Paint* RadioButtonPainter::decodeGradient10($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -847,7 +674,7 @@ $Paint* RadioButtonPainter::decodeGradient11($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -865,7 +692,7 @@ $Paint* RadioButtonPainter::decodeGradient12($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient13($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -895,7 +722,7 @@ $Paint* RadioButtonPainter::decodeGradient13($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient14($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -917,7 +744,7 @@ $Paint* RadioButtonPainter::decodeGradient14($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient15($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -935,7 +762,7 @@ $Paint* RadioButtonPainter::decodeGradient15($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient16($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -969,7 +796,7 @@ $Paint* RadioButtonPainter::decodeGradient16($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient17($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -987,7 +814,7 @@ $Paint* RadioButtonPainter::decodeGradient17($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient18($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1009,7 +836,7 @@ $Paint* RadioButtonPainter::decodeGradient18($Shape* s) {
 }
 
 $Paint* RadioButtonPainter::decodeGradient19($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1034,7 +861,142 @@ RadioButtonPainter::RadioButtonPainter() {
 }
 
 $Class* RadioButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(RadioButtonPainter, name, initialize, &_RadioButtonPainter_ClassInfo_, allocate$RadioButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, BACKGROUND_ENABLED)},
+		{"ICON_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_DISABLED)},
+		{"ICON_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_ENABLED)},
+		{"ICON_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_FOCUSED)},
+		{"ICON_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER)},
+		{"ICON_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER_FOCUSED)},
+		{"ICON_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED)},
+		{"ICON_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED_FOCUSED)},
+		{"ICON_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_SELECTED)},
+		{"ICON_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_SELECTED_FOCUSED)},
+		{"ICON_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED_SELECTED)},
+		{"ICON_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_PRESSED_SELECTED_FOCUSED)},
+		{"ICON_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER_SELECTED)},
+		{"ICON_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_MOUSEOVER_SELECTED_FOCUSED)},
+		{"ICON_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(RadioButtonPainter, ICON_DISABLED_SELECTED)},
+		{"state", "I", nullptr, $PRIVATE, $field(RadioButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(RadioButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(RadioButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color37)},
+		{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color38)},
+		{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color39)},
+		{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color40)},
+		{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color41)},
+		{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color42)},
+		{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color43)},
+		{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color44)},
+		{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color45)},
+		{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color46)},
+		{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color47)},
+		{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color48)},
+		{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color49)},
+		{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color50)},
+		{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color51)},
+		{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color52)},
+		{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color53)},
+		{"color54", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color54)},
+		{"color55", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(RadioButtonPainter, color55)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(RadioButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(RadioButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeEllipse1", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse1, $Ellipse2D*)},
+		{"decodeEllipse2", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse2, $Ellipse2D*)},
+		{"decodeEllipse3", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse3, $Ellipse2D*)},
+		{"decodeEllipse4", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse4, $Ellipse2D*)},
+		{"decodeEllipse5", "()Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeEllipse5, $Ellipse2D*)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient13, $Paint*, $Shape*)},
+		{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient14, $Paint*, $Shape*)},
+		{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient15, $Paint*, $Shape*)},
+		{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient16, $Paint*, $Shape*)},
+		{"decodeGradient17", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient17, $Paint*, $Shape*)},
+		{"decodeGradient18", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient18, $Paint*, $Shape*)},
+		{"decodeGradient19", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient19, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(RadioButtonPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RadioButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(RadioButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"painticonDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonDisabled, void, $Graphics2D*)},
+		{"painticonDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonDisabledAndSelected, void, $Graphics2D*)},
+		{"painticonEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonEnabled, void, $Graphics2D*)},
+		{"painticonFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonFocused, void, $Graphics2D*)},
+		{"painticonMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOver, void, $Graphics2D*)},
+		{"painticonMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOverAndFocused, void, $Graphics2D*)},
+		{"painticonMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOverAndSelected, void, $Graphics2D*)},
+		{"painticonMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
+		{"painticonPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressed, void, $Graphics2D*)},
+		{"painticonPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressedAndFocused, void, $Graphics2D*)},
+		{"painticonPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressedAndSelected, void, $Graphics2D*)},
+		{"painticonPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonPressedAndSelectedAndFocused, void, $Graphics2D*)},
+		{"painticonSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonSelected, void, $Graphics2D*)},
+		{"painticonSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(RadioButtonPainter, painticonSelectedAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.RadioButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RadioButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RadioButtonPainter);
+	});
 	return class$;
 }
 

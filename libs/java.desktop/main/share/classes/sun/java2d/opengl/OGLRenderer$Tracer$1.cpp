@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLRenderer$Tracer$1.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
 #include <sun/java2d/opengl/OGLRenderer$Tracer.h>
@@ -20,51 +19,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _OGLRenderer$Tracer$1_FieldInfo_[] = {
-	{"this$1", "Lsun/java2d/opengl/OGLRenderer$Tracer;", nullptr, $FINAL | $SYNTHETIC, $field(OGLRenderer$Tracer$1, this$1)},
-	{"val$realpipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $FINAL | $SYNTHETIC, $field(OGLRenderer$Tracer$1, val$realpipe)},
-	{}
-};
-
-$MethodInfo _OGLRenderer$Tracer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/opengl/OGLRenderer$Tracer;Lsun/java2d/pipe/ParallelogramPipe;)V", "()V", 0, $method(OGLRenderer$Tracer$1, init$, void, $OGLRenderer$Tracer*, $ParallelogramPipe*)},
-	{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLRenderer$Tracer$1, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
-	{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLRenderer$Tracer$1, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
-	{}
-};
-
-$EnclosingMethodInfo _OGLRenderer$Tracer$1_EnclosingMethodInfo_ = {
-	"sun.java2d.opengl.OGLRenderer$Tracer",
-	"getAAParallelogramPipe",
-	"()Lsun/java2d/pipe/ParallelogramPipe;"
-};
-
-$InnerClassInfo _OGLRenderer$Tracer$1_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.OGLRenderer$Tracer", "sun.java2d.opengl.OGLRenderer", "Tracer", $PRIVATE},
-	{"sun.java2d.opengl.OGLRenderer$Tracer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _OGLRenderer$Tracer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLRenderer$Tracer$1",
-	"java.lang.Object",
-	"sun.java2d.pipe.ParallelogramPipe",
-	_OGLRenderer$Tracer$1_FieldInfo_,
-	_OGLRenderer$Tracer$1_MethodInfo_,
-	nullptr,
-	&_OGLRenderer$Tracer$1_EnclosingMethodInfo_,
-	_OGLRenderer$Tracer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.OGLRenderer"
-};
-
-$Object* allocate$OGLRenderer$Tracer$1($Class* clazz) {
-	return $of($alloc(OGLRenderer$Tracer$1));
-}
-
 void OGLRenderer$Tracer$1::init$($OGLRenderer$Tracer* this$1, $ParallelogramPipe* val$realpipe) {
 	$set(this, this$1, this$1);
 	$set(this, val$realpipe, val$realpipe);
@@ -84,7 +38,45 @@ OGLRenderer$Tracer$1::OGLRenderer$Tracer$1() {
 }
 
 $Class* OGLRenderer$Tracer$1::load$($String* name, bool initialize) {
-	$loadClass(OGLRenderer$Tracer$1, name, initialize, &_OGLRenderer$Tracer$1_ClassInfo_, allocate$OGLRenderer$Tracer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/java2d/opengl/OGLRenderer$Tracer;", nullptr, $FINAL | $SYNTHETIC, $field(OGLRenderer$Tracer$1, this$1)},
+		{"val$realpipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $FINAL | $SYNTHETIC, $field(OGLRenderer$Tracer$1, val$realpipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/opengl/OGLRenderer$Tracer;Lsun/java2d/pipe/ParallelogramPipe;)V", "()V", 0, $method(OGLRenderer$Tracer$1, init$, void, $OGLRenderer$Tracer*, $ParallelogramPipe*)},
+		{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLRenderer$Tracer$1, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
+		{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(OGLRenderer$Tracer$1, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.opengl.OGLRenderer$Tracer",
+		"getAAParallelogramPipe",
+		"()Lsun/java2d/pipe/ParallelogramPipe;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.OGLRenderer$Tracer", "sun.java2d.opengl.OGLRenderer", "Tracer", $PRIVATE},
+		{"sun.java2d.opengl.OGLRenderer$Tracer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLRenderer$Tracer$1",
+		"java.lang.Object",
+		"sun.java2d.pipe.ParallelogramPipe",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.OGLRenderer"
+	};
+	$loadClass(OGLRenderer$Tracer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLRenderer$Tracer$1);
+	});
 	return class$;
 }
 

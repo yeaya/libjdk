@@ -41,6 +41,7 @@ class $export RepaintManagerFPUIScaleTest : public ::java::lang::Object {
 	$class(RepaintManagerFPUIScaleTest, 0, ::java::lang::Object)
 public:
 	RepaintManagerFPUIScaleTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::JComponent* createComponent();
 	static ::java::awt::Image* createTestImage(int32_t width, int32_t height, int32_t colorindex);

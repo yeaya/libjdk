@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFJPEGCompressor$JPEGSPIFilter.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFJPEGCompressor.h>
 #include <javax/imageio/spi/ImageReaderSpi.h>
 #include <jcpp.h>
@@ -15,43 +14,11 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$MethodInfo _TIFFJPEGCompressor$JPEGSPIFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TIFFJPEGCompressor$JPEGSPIFilter, init$, void)},
-	{"filter", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFJPEGCompressor$JPEGSPIFilter, filter, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _TIFFJPEGCompressor$JPEGSPIFilter_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.tiff.TIFFJPEGCompressor$JPEGSPIFilter", "com.sun.imageio.plugins.tiff.TIFFJPEGCompressor", "JPEGSPIFilter", $PRIVATE | $STATIC},
-	{"javax.imageio.spi.ServiceRegistry$Filter", "javax.imageio.spi.ServiceRegistry", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TIFFJPEGCompressor$JPEGSPIFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFJPEGCompressor$JPEGSPIFilter",
-	"java.lang.Object",
-	"javax.imageio.spi.ServiceRegistry$Filter",
-	nullptr,
-	_TIFFJPEGCompressor$JPEGSPIFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TIFFJPEGCompressor$JPEGSPIFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.tiff.TIFFJPEGCompressor"
-};
-
-$Object* allocate$TIFFJPEGCompressor$JPEGSPIFilter($Class* clazz) {
-	return $of($alloc(TIFFJPEGCompressor$JPEGSPIFilter));
-}
-
 void TIFFJPEGCompressor$JPEGSPIFilter::init$() {
 }
 
 bool TIFFJPEGCompressor$JPEGSPIFilter::filter(Object$* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageReaderSpi, readerSPI, $cast($ImageReaderSpi, provider));
 	if (readerSPI != nullptr) {
 		$var($String, streamMetadataName, readerSPI->getNativeStreamMetadataFormatName());
@@ -68,7 +35,34 @@ TIFFJPEGCompressor$JPEGSPIFilter::TIFFJPEGCompressor$JPEGSPIFilter() {
 }
 
 $Class* TIFFJPEGCompressor$JPEGSPIFilter::load$($String* name, bool initialize) {
-	$loadClass(TIFFJPEGCompressor$JPEGSPIFilter, name, initialize, &_TIFFJPEGCompressor$JPEGSPIFilter_ClassInfo_, allocate$TIFFJPEGCompressor$JPEGSPIFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TIFFJPEGCompressor$JPEGSPIFilter, init$, void)},
+		{"filter", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFJPEGCompressor$JPEGSPIFilter, filter, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.tiff.TIFFJPEGCompressor$JPEGSPIFilter", "com.sun.imageio.plugins.tiff.TIFFJPEGCompressor", "JPEGSPIFilter", $PRIVATE | $STATIC},
+		{"javax.imageio.spi.ServiceRegistry$Filter", "javax.imageio.spi.ServiceRegistry", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFJPEGCompressor$JPEGSPIFilter",
+		"java.lang.Object",
+		"javax.imageio.spi.ServiceRegistry$Filter",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.tiff.TIFFJPEGCompressor"
+	};
+	$loadClass(TIFFJPEGCompressor$JPEGSPIFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFJPEGCompressor$JPEGSPIFilter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Test6849805.h>
-
 #include <Test6849805$Minimbus.h>
 #include <java/awt/Color.h>
 #include <jcpp.h>
@@ -18,41 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$FieldInfo _Test6849805_FieldInfo_[] = {
-	{"pass", "Z", nullptr, $STATIC, $staticField(Test6849805, pass)},
-	{}
-};
-
-$MethodInfo _Test6849805_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test6849805, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6849805, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _Test6849805_InnerClassesInfo_[] = {
-	{"Test6849805$Minimbus", "Test6849805", "Minimbus", $STATIC},
-	{}
-};
-
-$ClassInfo _Test6849805_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test6849805",
-	"java.lang.Object",
-	nullptr,
-	_Test6849805_FieldInfo_,
-	_Test6849805_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test6849805_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Test6849805$Minimbus"
-};
-
-$Object* allocate$Test6849805($Class* clazz) {
-	return $of($alloc(Test6849805));
-}
-
 bool Test6849805::pass = false;
 
 void Test6849805::init$() {
@@ -60,7 +24,7 @@ void Test6849805::init$() {
 
 void Test6849805::main($StringArray* args) {
 	$init(Test6849805);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Test6849805$Minimbus, laf, $new($Test6849805$Minimbus));
 	$init($Color);
 	laf->test($Color::WHITE, $Color::BLACK, 0.0f);
@@ -82,7 +46,7 @@ void Test6849805::main($StringArray* args) {
 	}
 }
 
-void clinit$Test6849805($Class* class$) {
+void Test6849805::clinit$($Class* clazz) {
 	Test6849805::pass = true;
 }
 
@@ -90,7 +54,36 @@ Test6849805::Test6849805() {
 }
 
 $Class* Test6849805::load$($String* name, bool initialize) {
-	$loadClass(Test6849805, name, initialize, &_Test6849805_ClassInfo_, clinit$Test6849805, allocate$Test6849805);
+	$FieldInfo fieldInfos$$[] = {
+		{"pass", "Z", nullptr, $STATIC, $staticField(Test6849805, pass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test6849805, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test6849805, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6849805$Minimbus", "Test6849805", "Minimbus", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test6849805",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Test6849805$Minimbus"
+	};
+	$loadClass(Test6849805, name, initialize, &classInfo$$, Test6849805::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6849805);
+	});
 	return class$;
 }
 

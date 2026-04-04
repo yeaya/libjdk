@@ -34,6 +34,7 @@ class ChunkedInputStream : public ::sun::net::httpserver::LeftOverInputStream {
 	$class(ChunkedInputStream, 0, ::sun::net::httpserver::LeftOverInputStream)
 public:
 	ChunkedInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ExchangeImpl* t, ::java::io::InputStream* src);
 	virtual int32_t available() override;
 	void consumeCRLF();

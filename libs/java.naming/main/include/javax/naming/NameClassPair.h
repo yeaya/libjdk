@@ -27,7 +27,7 @@ public:
 	$String* className = nullptr;
 	$String* fullName = nullptr;
 	bool isRel = false;
-	static const int64_t serialVersionUID = (int64_t)0x4E01028BFA76686B;
+	static const int64_t serialVersionUID = (int64_t)0x4e01028bfa76686b;
 };
 
 	} // naming

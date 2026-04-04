@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Utility$JavaReader.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Utility.h>
 #include <java/io/FilterReader.h>
 #include <java/io/Reader.h>
@@ -23,54 +22,22 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$MethodInfo _Utility$JavaReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(Utility$JavaReader, init$, void, $Reader*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Utility$JavaReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Utility$JavaReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Utility$JavaReader_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.classfile.Utility$JavaReader", "com.sun.org.apache.bcel.internal.classfile.Utility", "JavaReader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Utility$JavaReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Utility$JavaReader",
-	"java.io.FilterReader",
-	nullptr,
-	nullptr,
-	_Utility$JavaReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Utility$JavaReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.classfile.Utility"
-};
-
-$Object* allocate$Utility$JavaReader($Class* clazz) {
-	return $of($alloc(Utility$JavaReader));
-}
-
 void Utility$JavaReader::init$($Reader* in) {
 	$FilterReader::init$(in);
 }
 
 int32_t Utility$JavaReader::read() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t b = $nc(this->in)->read();
 	if (b != u'$') {
 		return b;
 	}
-	int32_t i = $nc(this->in)->read();
+	int32_t i = this->in->read();
 	if (i < 0) {
 		return -1;
 	}
 	if (((i >= u'0') && (i <= u'9')) || ((i >= u'a') && (i <= u'f'))) {
-		int32_t j = $nc(this->in)->read();
+		int32_t j = this->in->read();
 		if (j < 0) {
 			return -1;
 		}
@@ -96,7 +63,34 @@ Utility$JavaReader::Utility$JavaReader() {
 }
 
 $Class* Utility$JavaReader::load$($String* name, bool initialize) {
-	$loadClass(Utility$JavaReader, name, initialize, &_Utility$JavaReader_ClassInfo_, allocate$Utility$JavaReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(Utility$JavaReader, init$, void, $Reader*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Utility$JavaReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Utility$JavaReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.classfile.Utility$JavaReader", "com.sun.org.apache.bcel.internal.classfile.Utility", "JavaReader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Utility$JavaReader",
+		"java.io.FilterReader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.classfile.Utility"
+	};
+	$loadClass(Utility$JavaReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Utility$JavaReader));
+	});
 	return class$;
 }
 

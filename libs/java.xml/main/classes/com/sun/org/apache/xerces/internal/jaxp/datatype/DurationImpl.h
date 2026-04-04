@@ -62,6 +62,7 @@ public:
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* duration) override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isPositive, ::java::math::BigInteger* years, ::java::math::BigInteger* months, ::java::math::BigInteger* days, ::java::math::BigInteger* hours, ::java::math::BigInteger* minutes, ::java::math::BigDecimal* seconds);
 	void init$(bool isPositive, int32_t years, int32_t months, int32_t days, int32_t hours, int32_t minutes, int32_t seconds);
 	void init$(int64_t durationInMilliSeconds);

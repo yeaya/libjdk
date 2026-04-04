@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/dom3/LSSerializerImpl.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/DOM3Serializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/Encodings.h>
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
@@ -126,7 +125,6 @@ using $ToXMLStream = ::com::sun::org::apache::xml::internal::serializer::ToXMLSt
 using $DOMConstants = ::com::sun::org::apache::xml::internal::serializer::dom3::DOMConstants;
 using $DOMErrorImpl = ::com::sun::org::apache::xml::internal::serializer::dom3::DOMErrorImpl;
 using $DOMStringListImpl = ::com::sun::org::apache::xml::internal::serializer::dom3::DOMStringListImpl;
-using $Messages = ::com::sun::org::apache::xml::internal::serializer::utils::Messages;
 using $MsgKey = ::com::sun::org::apache::xml::internal::serializer::utils::MsgKey;
 using $SystemIDResolver = ::com::sun::org::apache::xml::internal::serializer::utils::SystemIDResolver;
 using $Utils = ::com::sun::org::apache::xml::internal::serializer::utils::Utils;
@@ -159,7 +157,6 @@ using $DOMConfiguration = ::org::w3c::dom::DOMConfiguration;
 using $DOMError = ::org::w3c::dom::DOMError;
 using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;
 using $DOMException = ::org::w3c::dom::DOMException;
-using $DOMImplementation = ::org::w3c::dom::DOMImplementation;
 using $DOMStringList = ::org::w3c::dom::DOMStringList;
 using $Document = ::org::w3c::dom::Document;
 using $Node = ::org::w3c::dom::Node;
@@ -175,81 +172,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 							namespace dom3 {
-
-$FieldInfo _LSSerializerImpl_FieldInfo_[] = {
-	{"fXMLSerializer", "Lcom/sun/org/apache/xml/internal/serializer/Serializer;", nullptr, $PRIVATE, $field(LSSerializerImpl, fXMLSerializer)},
-	{"fFeatures", "I", nullptr, $PROTECTED, $field(LSSerializerImpl, fFeatures)},
-	{"fDOMSerializer", "Lcom/sun/org/apache/xml/internal/serializer/DOM3Serializer;", nullptr, $PRIVATE, $field(LSSerializerImpl, fDOMSerializer)},
-	{"fSerializerFilter", "Lorg/w3c/dom/ls/LSSerializerFilter;", nullptr, $PRIVATE, $field(LSSerializerImpl, fSerializerFilter)},
-	{"fVisitedNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(LSSerializerImpl, fVisitedNode)},
-	{"fEndOfLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LSSerializerImpl, fEndOfLine)},
-	{"fDOMErrorHandler", "Lorg/w3c/dom/DOMErrorHandler;", nullptr, $PRIVATE, $field(LSSerializerImpl, fDOMErrorHandler)},
-	{"fDOMConfigProperties", "Ljava/util/Properties;", nullptr, $PRIVATE, $field(LSSerializerImpl, fDOMConfigProperties)},
-	{"fEncoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LSSerializerImpl, fEncoding)},
-	{"fIsStandalone", "Ljdk/xml/internal/JdkProperty;", "Ljdk/xml/internal/JdkProperty<Ljava/lang/Boolean;>;", $PRIVATE, $field(LSSerializerImpl, fIsStandalone)},
-	{"CANONICAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, CANONICAL)},
-	{"CDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, CDATA)},
-	{"CHARNORMALIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, CHARNORMALIZE)},
-	{"COMMENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, COMMENTS)},
-	{"DTNORMALIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, DTNORMALIZE)},
-	{"ELEM_CONTENT_WHITESPACE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, ELEM_CONTENT_WHITESPACE)},
-	{"ENTITIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, ENTITIES)},
-	{"INFOSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, INFOSET)},
-	{"NAMESPACES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, NAMESPACES)},
-	{"NAMESPACEDECLS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, NAMESPACEDECLS)},
-	{"NORMALIZECHARS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, NORMALIZECHARS)},
-	{"SPLITCDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, SPLITCDATA)},
-	{"VALIDATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, VALIDATE)},
-	{"SCHEMAVALIDATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, SCHEMAVALIDATE)},
-	{"WELLFORMED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, WELLFORMED)},
-	{"DISCARDDEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, DISCARDDEFAULT)},
-	{"PRETTY_PRINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, PRETTY_PRINT)},
-	{"IGNORE_CHAR_DENORMALIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, IGNORE_CHAR_DENORMALIZE)},
-	{"XMLDECL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, XMLDECL)},
-	{"IS_STANDALONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, IS_STANDALONE)},
-	{"fRecognizedParameters", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(LSSerializerImpl, fRecognizedParameters)},
-	{}
-};
-
-$MethodInfo _LSSerializerImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LSSerializerImpl, init$, void)},
-	{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, canSetParameter, bool, $String*, Object$*)},
-	{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getDomConfig, $DOMConfiguration*)},
-	{"getErrorHandler", "()Lorg/w3c/dom/DOMErrorHandler;", nullptr, $PUBLIC, $method(LSSerializerImpl, getErrorHandler, $DOMErrorHandler*)},
-	{"getFilter", "()Lorg/w3c/dom/ls/LSSerializerFilter;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getFilter, $LSSerializerFilter*)},
-	{"getInputEncoding", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED, $method(LSSerializerImpl, getInputEncoding, $String*, $Node*)},
-	{"getNewLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getNewLine, $String*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
-	{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getParameterNames, $DOMStringList*)},
-	{"getXMLEncoding", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED, $method(LSSerializerImpl, getXMLEncoding, $String*, $Node*)},
-	{"getXMLVersion", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED, $method(LSSerializerImpl, getXMLVersion, $String*, $Node*)},
-	{"initializeSerializerProps", "()V", nullptr, $PUBLIC, $method(LSSerializerImpl, initializeSerializerProps, void)},
-	{"setFilter", "(Lorg/w3c/dom/ls/LSSerializerFilter;)V", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, setFilter, void, $LSSerializerFilter*)},
-	{"setNewLine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, setNewLine, void, $String*)},
-	{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/ls/LSOutput;)Z", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, write, bool, $Node*, $LSOutput*), "org.w3c.dom.ls.LSException"},
-	{"writeToString", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, writeToString, $String*, $Node*), "org.w3c.dom.DOMException,org.w3c.dom.ls.LSException"},
-	{"writeToURI", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, writeToURI, bool, $Node*, $String*), "org.w3c.dom.ls.LSException"},
-	{}
-};
-
-$ClassInfo _LSSerializerImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.dom3.LSSerializerImpl",
-	"java.lang.Object",
-	"org.w3c.dom.DOMConfiguration,org.w3c.dom.ls.LSSerializer",
-	_LSSerializerImpl_FieldInfo_,
-	_LSSerializerImpl_MethodInfo_
-};
-
-$Object* allocate$LSSerializerImpl($Class* clazz) {
-	return $of($alloc(LSSerializerImpl));
-}
 
 int32_t LSSerializerImpl::hashCode() {
 	 return this->$DOMConfiguration::hashCode();
@@ -319,45 +241,44 @@ void LSSerializerImpl::init$() {
 	initializeSerializerProps();
 	$var($Properties, configProps, $OutputPropertiesFactory::getDefaultMethodProperties("xml"_s));
 	$set(this, fXMLSerializer, $new($ToXMLStream, nullptr));
-	$nc(this->fXMLSerializer)->setOutputFormat(configProps);
+	this->fXMLSerializer->setOutputFormat(configProps);
 	$nc(this->fXMLSerializer)->setOutputFormat(this->fDOMConfigProperties);
 }
 
 void LSSerializerImpl::initializeSerializerProps() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMConstants);
 	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CANONICAL_FORM}), $DOMConstants::DOM3_DEFAULT_FALSE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CHECK_CHAR_NORMALIZATION}), $DOMConstants::DOM3_DEFAULT_FALSE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_DEFAULT_FALSE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	if (((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::INFOSET)) != 0) {
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_DEFAULT_TRUE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_DEFAULT_TRUE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_DEFAULT_TRUE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_DEFAULT_TRUE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_DEFAULT_TRUE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_DEFAULT_FALSE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_DEFAULT_FALSE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_DEFAULT_FALSE);
-		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_DEFAULT_FALSE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CHECK_CHAR_NORMALIZATION}), $DOMConstants::DOM3_DEFAULT_FALSE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_DEFAULT_FALSE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	if ((this->fFeatures & LSSerializerImpl::INFOSET) != 0) {
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_DEFAULT_TRUE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_DEFAULT_TRUE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_DEFAULT_TRUE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_DEFAULT_TRUE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_DEFAULT_TRUE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_DEFAULT_FALSE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_DEFAULT_FALSE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_DEFAULT_FALSE);
+		this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_DEFAULT_FALSE);
 	}
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_SPLIT_CDATA}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE}), $DOMConstants::DOM3_DEFAULT_FALSE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_DEFAULT_FALSE);
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_INDENT, $DOMConstants::DOM3_DEFAULT_FALSE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_SPLIT_CDATA}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE}), $DOMConstants::DOM3_DEFAULT_FALSE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_DEFAULT_FALSE);
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($DOMConstants::S_XSL_OUTPUT_INDENT, $DOMConstants::DOM3_DEFAULT_FALSE);
 	$init($OutputPropertiesFactory);
-	$nc(this->fDOMConfigProperties)->setProperty($OutputPropertiesFactory::S_KEY_INDENT_AMOUNT, $($Integer::toString(4)));
-	$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DISCARD_DEFAULT_CONTENT}), $DOMConstants::DOM3_DEFAULT_TRUE);
-	$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, "no"_s);
-	$load($Boolean);
+	this->fDOMConfigProperties->setProperty($OutputPropertiesFactory::S_KEY_INDENT_AMOUNT, $($Integer::toString(4)));
+	this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DISCARD_DEFAULT_CONTENT}), $DOMConstants::DOM3_DEFAULT_TRUE);
+	this->fDOMConfigProperties->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, "no"_s);
 	$init($JdkConstants);
-	bool isStandalone = $nc(($cast($Boolean, $($SecuritySupport::getJAXPSystemProperty($Boolean::class$, $JdkConstants::SP_IS_STANDALONE, "false"_s)))))->booleanValue();
+	bool isStandalone = $$sure($Boolean, $SecuritySupport::getJAXPSystemProperty($Boolean::class$, $JdkConstants::SP_IS_STANDALONE, "false"_s))->booleanValue();
 	$init($JdkProperty$ImplPropMap);
 	$init($JdkProperty$State);
 	$set(this, fIsStandalone, $new($JdkProperty, $JdkProperty$ImplPropMap::ISSTANDALONE, $($Boolean::valueOf(isStandalone)), $JdkProperty$State::DEFAULT));
@@ -373,32 +294,30 @@ bool LSSerializerImpl::canSetParameter($String* name, Object$* value) {
 	if ($instanceOf($Boolean, value)) {
 		$init($DOMConstants);
 		bool var$12 = $nc(name)->equalsIgnoreCase($DOMConstants::DOM_CDATA_SECTIONS);
-		bool var$11 = var$12 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_COMMENTS);
-		bool var$10 = var$11 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_ENTITIES);
-		bool var$9 = var$10 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_INFOSET);
-		bool var$8 = var$9 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE);
-		bool var$7 = var$8 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_NAMESPACES);
-		bool var$6 = var$7 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_NAMESPACE_DECLARATIONS);
-		bool var$5 = var$6 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_SPLIT_CDATA);
-		bool var$4 = var$5 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_WELLFORMED);
-		bool var$3 = var$4 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_DISCARD_DEFAULT_CONTENT);
-		bool var$2 = var$3 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_FORMAT_PRETTY_PRINT);
-		bool var$1 = var$2 || $nc(name)->equalsIgnoreCase($DOMConstants::DOM_XMLDECL);
+		bool var$11 = var$12 || name->equalsIgnoreCase($DOMConstants::DOM_COMMENTS);
+		bool var$10 = var$11 || name->equalsIgnoreCase($DOMConstants::DOM_ENTITIES);
+		bool var$9 = var$10 || name->equalsIgnoreCase($DOMConstants::DOM_INFOSET);
+		bool var$8 = var$9 || name->equalsIgnoreCase($DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE);
+		bool var$7 = var$8 || name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACES);
+		bool var$6 = var$7 || name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACE_DECLARATIONS);
+		bool var$5 = var$6 || name->equalsIgnoreCase($DOMConstants::DOM_SPLIT_CDATA);
+		bool var$4 = var$5 || name->equalsIgnoreCase($DOMConstants::DOM_WELLFORMED);
+		bool var$3 = var$4 || name->equalsIgnoreCase($DOMConstants::DOM_DISCARD_DEFAULT_CONTENT);
+		bool var$2 = var$3 || name->equalsIgnoreCase($DOMConstants::DOM_FORMAT_PRETTY_PRINT);
+		bool var$1 = var$2 || name->equalsIgnoreCase($DOMConstants::DOM_XMLDECL);
 		$init($JdkConstants);
-		bool var$0 = var$1 || $nc(name)->equalsIgnoreCase($JdkConstants::FQ_IS_STANDALONE);
-		if (var$0 || $nc(name)->equalsIgnoreCase($JdkConstants::SP_IS_STANDALONE)) {
+		bool var$0 = var$1 || name->equalsIgnoreCase($JdkConstants::FQ_IS_STANDALONE);
+		if (var$0 || name->equalsIgnoreCase($JdkConstants::SP_IS_STANDALONE)) {
 			return true;
 		} else {
-			bool var$20 = name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM);
-			bool var$19 = var$20 || name->equalsIgnoreCase($DOMConstants::DOM_CHECK_CHAR_NORMALIZATION);
-			bool var$18 = var$19 || name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION);
-			bool var$17 = var$18 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA);
-			if (var$17 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE)) {
-				return !$nc(($cast($Boolean, value)))->booleanValue();
-			} else {
-				if (name->equalsIgnoreCase($DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
-					return $nc(($cast($Boolean, value)))->booleanValue();
-				}
+			bool var$16 = name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM);
+			bool var$15 = var$16 || name->equalsIgnoreCase($DOMConstants::DOM_CHECK_CHAR_NORMALIZATION);
+			bool var$14 = var$15 || name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION);
+			bool var$13 = var$14 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA);
+			if (var$13 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE)) {
+				return !$cast($Boolean, value)->booleanValue();
+			} else if (name->equalsIgnoreCase($DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
+				return $cast($Boolean, value)->booleanValue();
 			}
 		}
 	} else {
@@ -411,105 +330,61 @@ bool LSSerializerImpl::canSetParameter($String* name, Object$* value) {
 }
 
 $Object* LSSerializerImpl::getParameter($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMConstants);
 	if ($nc(name)->equalsIgnoreCase($DOMConstants::DOM_NORMALIZE_CHARACTERS)) {
-		return $of(nullptr);
+		return nullptr;
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_COMMENTS)) {
+		return $of(((this->fFeatures & LSSerializerImpl::COMMENTS) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_CDATA_SECTIONS)) {
+		return $of(((this->fFeatures & LSSerializerImpl::CDATA) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_ENTITIES)) {
+		return $of(((this->fFeatures & LSSerializerImpl::ENTITIES) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACES)) {
+		return $of(((this->fFeatures & LSSerializerImpl::NAMESPACES) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACE_DECLARATIONS)) {
+		return $of(((this->fFeatures & LSSerializerImpl::NAMESPACEDECLS) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_SPLIT_CDATA)) {
+		return $of(((this->fFeatures & LSSerializerImpl::SPLITCDATA) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_WELLFORMED)) {
+		return $of(((this->fFeatures & LSSerializerImpl::WELLFORMED) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_DISCARD_DEFAULT_CONTENT)) {
+		return $of(((this->fFeatures & LSSerializerImpl::DISCARDDEFAULT) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_FORMAT_PRETTY_PRINT)) {
+		return $of(((this->fFeatures & LSSerializerImpl::PRETTY_PRINT) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($DOMConstants::DOM_XMLDECL)) {
+		return $of(((this->fFeatures & LSSerializerImpl::XMLDECL) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
 	} else {
-		if (name->equalsIgnoreCase($DOMConstants::DOM_COMMENTS)) {
-			$init($Boolean);
-			return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::COMMENTS)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+		$init($JdkProperty$ImplPropMap);
+		if ($JdkProperty$ImplPropMap::ISSTANDALONE->is(name)) {
+			return $of(((this->fFeatures & LSSerializerImpl::IS_STANDALONE) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
+			return $of(((this->fFeatures & LSSerializerImpl::ELEM_CONTENT_WHITESPACE) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
+			return $of($Boolean::TRUE);
 		} else {
-			if (name->equalsIgnoreCase($DOMConstants::DOM_CDATA_SECTIONS)) {
-				$init($Boolean);
-				return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::CDATA)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+			bool var$3 = name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM);
+			bool var$2 = var$3 || name->equalsIgnoreCase($DOMConstants::DOM_CHECK_CHAR_NORMALIZATION);
+			bool var$1 = var$2 || name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION);
+			bool var$0 = var$1 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE);
+			if (var$0 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA)) {
+				return $of($Boolean::FALSE);
+			} else if (name->equalsIgnoreCase($DOMConstants::DOM_INFOSET)) {
+				if ((this->fFeatures & LSSerializerImpl::ENTITIES) == 0 && (this->fFeatures & LSSerializerImpl::CDATA) == 0 && (this->fFeatures & LSSerializerImpl::ELEM_CONTENT_WHITESPACE) != 0 && (this->fFeatures & LSSerializerImpl::NAMESPACES) != 0 && (this->fFeatures & LSSerializerImpl::NAMESPACEDECLS) != 0 && (this->fFeatures & LSSerializerImpl::WELLFORMED) != 0 && (this->fFeatures & LSSerializerImpl::COMMENTS) != 0) {
+					return $of($Boolean::TRUE);
+				}
+				return $of($Boolean::FALSE);
+			} else if (name->equalsIgnoreCase($DOMConstants::DOM_ERROR_HANDLER)) {
+				return this->fDOMErrorHandler;
 			} else {
-				if (name->equalsIgnoreCase($DOMConstants::DOM_ENTITIES)) {
-					$init($Boolean);
-					return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::ENTITIES)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+				bool var$4 = name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_LOCATION);
+				if (var$4 || name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_TYPE)) {
+					return nullptr;
 				} else {
-					if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACES)) {
-						$init($Boolean);
-						return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::NAMESPACES)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-					} else {
-						if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACE_DECLARATIONS)) {
-							$init($Boolean);
-							return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::NAMESPACEDECLS)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-						} else {
-							if (name->equalsIgnoreCase($DOMConstants::DOM_SPLIT_CDATA)) {
-								$init($Boolean);
-								return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::SPLITCDATA)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-							} else {
-								if (name->equalsIgnoreCase($DOMConstants::DOM_WELLFORMED)) {
-									$init($Boolean);
-									return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::WELLFORMED)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-								} else {
-									if (name->equalsIgnoreCase($DOMConstants::DOM_DISCARD_DEFAULT_CONTENT)) {
-										$init($Boolean);
-										return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::DISCARDDEFAULT)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-									} else {
-										if (name->equalsIgnoreCase($DOMConstants::DOM_FORMAT_PRETTY_PRINT)) {
-											$init($Boolean);
-											return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::PRETTY_PRINT)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-										} else {
-											if (name->equalsIgnoreCase($DOMConstants::DOM_XMLDECL)) {
-												$init($Boolean);
-												return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::XMLDECL)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-											} else {
-												$init($JdkProperty$ImplPropMap);
-												if ($JdkProperty$ImplPropMap::ISSTANDALONE->is(name)) {
-													$init($Boolean);
-													return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::IS_STANDALONE)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-												} else {
-													if (name->equalsIgnoreCase($DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
-														$init($Boolean);
-														return $of((((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::ELEM_CONTENT_WHITESPACE)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
-													} else {
-														if (name->equalsIgnoreCase($DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
-															$init($Boolean);
-															return $of($Boolean::TRUE);
-														} else {
-															bool var$7 = name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM);
-															bool var$6 = var$7 || name->equalsIgnoreCase($DOMConstants::DOM_CHECK_CHAR_NORMALIZATION);
-															bool var$5 = var$6 || name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION);
-															bool var$4 = var$5 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE);
-															if (var$4 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA)) {
-																$init($Boolean);
-																return $of($Boolean::FALSE);
-															} else {
-																if (name->equalsIgnoreCase($DOMConstants::DOM_INFOSET)) {
-																	if (((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::ENTITIES)) == 0 && ((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::CDATA)) == 0 && ((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::ELEM_CONTENT_WHITESPACE)) != 0 && ((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::NAMESPACES)) != 0 && ((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::NAMESPACEDECLS)) != 0 && ((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::WELLFORMED)) != 0 && ((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::COMMENTS)) != 0) {
-																		$init($Boolean);
-																		return $of($Boolean::TRUE);
-																	}
-																	$init($Boolean);
-																	return $of($Boolean::FALSE);
-																} else {
-																	if (name->equalsIgnoreCase($DOMConstants::DOM_ERROR_HANDLER)) {
-																		return $of(this->fDOMErrorHandler);
-																	} else {
-																		bool var$9 = name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_LOCATION);
-																		if (var$9 || name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_TYPE)) {
-																			return $of(nullptr);
-																		} else {
-																			$init($Utils);
-																			$init($MsgKey);
-																			$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_FOUND, $$new($ObjectArray, {$of(name)})));
-																			$throwNew($DOMException, $DOMException::NOT_FOUND_ERR, msg);
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
+					$init($Utils);
+					$init($MsgKey);
+					$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_FOUND, $$new($ObjectArray, {name})));
+					$throwNew($DOMException, $DOMException::NOT_FOUND_ERR, msg);
 				}
 			}
 		}
@@ -521,190 +396,154 @@ $DOMStringList* LSSerializerImpl::getParameterNames() {
 }
 
 void LSSerializerImpl::setParameter($String* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Boolean, value)) {
-		bool bValue = $nc(($cast($Boolean, value)))->booleanValue();
+		bool bValue = $cast($Boolean, value)->booleanValue();
 		$init($DOMConstants);
 		if ($nc(name)->equalsIgnoreCase($DOMConstants::DOM_COMMENTS)) {
-			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::COMMENTS : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::COMMENTS);
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::COMMENTS : this->fFeatures & ~LSSerializerImpl::COMMENTS;
 			if (bValue) {
 				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
 			} else {
 				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_EXPLICIT_FALSE);
 			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_CDATA_SECTIONS)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::CDATA : this->fFeatures & ~LSSerializerImpl::CDATA;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_ENTITIES)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::ENTITIES : this->fFeatures & ~LSSerializerImpl::ENTITIES;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACES)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::NAMESPACES : this->fFeatures & ~LSSerializerImpl::NAMESPACES;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACE_DECLARATIONS)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::NAMESPACEDECLS : this->fFeatures & ~LSSerializerImpl::NAMESPACEDECLS;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_SPLIT_CDATA)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::SPLITCDATA : this->fFeatures & ~LSSerializerImpl::SPLITCDATA;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_SPLIT_CDATA}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_SPLIT_CDATA}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_WELLFORMED)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::WELLFORMED : this->fFeatures & ~LSSerializerImpl::WELLFORMED;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_DISCARD_DEFAULT_CONTENT)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::DISCARDDEFAULT : this->fFeatures & ~LSSerializerImpl::DISCARDDEFAULT;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DISCARD_DEFAULT_CONTENT}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DISCARD_DEFAULT_CONTENT}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_FORMAT_PRETTY_PRINT)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::PRETTY_PRINT : this->fFeatures & ~LSSerializerImpl::PRETTY_PRINT;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_INDENT, $DOMConstants::DOM3_EXPLICIT_TRUE);
+				$init($OutputPropertiesFactory);
+				this->fDOMConfigProperties->setProperty($OutputPropertiesFactory::S_KEY_INDENT_AMOUNT, $($Integer::toString(4)));
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_INDENT, $DOMConstants::DOM3_EXPLICIT_FALSE);
+			}
+		} else if (name->equalsIgnoreCase($DOMConstants::DOM_XMLDECL)) {
+			this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::XMLDECL : this->fFeatures & ~LSSerializerImpl::XMLDECL;
+			if (bValue) {
+				$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, "no"_s);
+			} else {
+				$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, "yes"_s);
+			}
 		} else {
-			if (name->equalsIgnoreCase($DOMConstants::DOM_CDATA_SECTIONS)) {
-				this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::CDATA : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::CDATA);
+			$init($JdkProperty$ImplPropMap);
+			if ($JdkProperty$ImplPropMap::ISSTANDALONE->is(name)) {
+				$init($JdkProperty$State);
+				$nc(this->fIsStandalone)->setValue(name, $($Boolean::valueOf(bValue)), $JdkProperty$State::APIPROPERTY);
+				this->fFeatures = $$sure($Boolean, $nc(this->fIsStandalone)->getValue())->booleanValue() ? this->fFeatures | LSSerializerImpl::IS_STANDALONE : this->fFeatures & ~LSSerializerImpl::IS_STANDALONE;
+				$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::NS_IS_STANDALONE, $$sure($Boolean, $nc(this->fIsStandalone)->getValue())->booleanValue() ? $DOMConstants::DOM3_EXPLICIT_TRUE : $DOMConstants::DOM3_EXPLICIT_FALSE);
+			} else if (name->equalsIgnoreCase($DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
+				this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::ELEM_CONTENT_WHITESPACE : this->fFeatures & ~LSSerializerImpl::ELEM_CONTENT_WHITESPACE;
 				if (bValue) {
-					$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+					$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_EXPLICIT_TRUE);
 				} else {
-					$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+					$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+				}
+			} else if (name->equalsIgnoreCase($DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
+				if (!bValue) {
+					$init($Utils);
+					$init($MsgKey);
+					$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {name})));
+					$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
+				} else {
+					$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
 				}
 			} else {
-				if (name->equalsIgnoreCase($DOMConstants::DOM_ENTITIES)) {
-					this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::ENTITIES : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::ENTITIES);
+				bool var$3 = name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM);
+				bool var$2 = var$3 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA);
+				bool var$1 = var$2 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE);
+				bool var$0 = var$1 || name->equalsIgnoreCase($DOMConstants::DOM_CHECK_CHAR_NORMALIZATION);
+				if (var$0 || name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION)) {
 					if (bValue) {
-						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-					} else {
-						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+						$init($Utils);
+						$init($MsgKey);
+						$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {name})));
+						$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
+					} else if (name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM)) {
+						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CANONICAL_FORM}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+					} else if (name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA)) {
+						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+					} else if (name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE)) {
+						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+					} else if (name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA)) {
+						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::DOM_CHECK_CHAR_NORMALIZATION, $DOMConstants::DOM_CHECK_CHAR_NORMALIZATION}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+					} else if (name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION)) {
+						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_EXPLICIT_FALSE);
 					}
+				} else if (name->equalsIgnoreCase($DOMConstants::DOM_INFOSET)) {
+					if (bValue) {
+						this->fFeatures &= (uint32_t)~LSSerializerImpl::ENTITIES;
+						this->fFeatures &= (uint32_t)~LSSerializerImpl::CDATA;
+						this->fFeatures &= (uint32_t)~LSSerializerImpl::SCHEMAVALIDATE;
+						this->fFeatures &= (uint32_t)~LSSerializerImpl::DTNORMALIZE;
+						this->fFeatures |= LSSerializerImpl::NAMESPACES;
+						this->fFeatures |= LSSerializerImpl::NAMESPACEDECLS;
+						this->fFeatures |= LSSerializerImpl::WELLFORMED;
+						this->fFeatures |= LSSerializerImpl::ELEM_CONTENT_WHITESPACE;
+						this->fFeatures |= LSSerializerImpl::COMMENTS;
+						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_EXPLICIT_TRUE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+						this->fDOMConfigProperties->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_EXPLICIT_FALSE);
+					}
+				} else if (name->equalsIgnoreCase($DOMConstants::DOM_NORMALIZE_CHARACTERS)) {
+					$init($Utils);
+					$init($MsgKey);
+					$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {name})));
+					$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 				} else {
-					if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACES)) {
-						this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::NAMESPACES : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::NAMESPACES);
-						if (bValue) {
-							$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-						} else {
-							$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-						}
-					} else {
-						if (name->equalsIgnoreCase($DOMConstants::DOM_NAMESPACE_DECLARATIONS)) {
-							this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::NAMESPACEDECLS : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::NAMESPACEDECLS);
-							if (bValue) {
-								$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-							} else {
-								$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-							}
-						} else {
-							if (name->equalsIgnoreCase($DOMConstants::DOM_SPLIT_CDATA)) {
-								this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::SPLITCDATA : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::SPLITCDATA);
-								if (bValue) {
-									$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_SPLIT_CDATA}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-								} else {
-									$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_SPLIT_CDATA}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-								}
-							} else {
-								if (name->equalsIgnoreCase($DOMConstants::DOM_WELLFORMED)) {
-									this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::WELLFORMED : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::WELLFORMED);
-									if (bValue) {
-										$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-									} else {
-										$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-									}
-								} else {
-									if (name->equalsIgnoreCase($DOMConstants::DOM_DISCARD_DEFAULT_CONTENT)) {
-										this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::DISCARDDEFAULT : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::DISCARDDEFAULT);
-										if (bValue) {
-											$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DISCARD_DEFAULT_CONTENT}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-										} else {
-											$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DISCARD_DEFAULT_CONTENT}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-										}
-									} else {
-										if (name->equalsIgnoreCase($DOMConstants::DOM_FORMAT_PRETTY_PRINT)) {
-											this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::PRETTY_PRINT : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::PRETTY_PRINT);
-											if (bValue) {
-												$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_INDENT, $DOMConstants::DOM3_EXPLICIT_TRUE);
-												$init($OutputPropertiesFactory);
-												$nc(this->fDOMConfigProperties)->setProperty($OutputPropertiesFactory::S_KEY_INDENT_AMOUNT, $($Integer::toString(4)));
-											} else {
-												$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_INDENT, $DOMConstants::DOM3_EXPLICIT_FALSE);
-											}
-										} else {
-											if (name->equalsIgnoreCase($DOMConstants::DOM_XMLDECL)) {
-												this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::XMLDECL : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::XMLDECL);
-												if (bValue) {
-													$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, "no"_s);
-												} else {
-													$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, "yes"_s);
-												}
-											} else {
-												$init($JdkProperty$ImplPropMap);
-												if ($JdkProperty$ImplPropMap::ISSTANDALONE->is(name)) {
-													$init($JdkProperty$State);
-													$nc(this->fIsStandalone)->setValue(name, $($Boolean::valueOf(bValue)), $JdkProperty$State::APIPROPERTY);
-													this->fFeatures = $nc(($cast($Boolean, $($nc(this->fIsStandalone)->getValue()))))->booleanValue() ? this->fFeatures | LSSerializerImpl::IS_STANDALONE : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::IS_STANDALONE);
-													$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::NS_IS_STANDALONE, $nc(($cast($Boolean, $($nc(this->fIsStandalone)->getValue()))))->booleanValue() ? $DOMConstants::DOM3_EXPLICIT_TRUE : $DOMConstants::DOM3_EXPLICIT_FALSE);
-												} else {
-													if (name->equalsIgnoreCase($DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
-														this->fFeatures = bValue ? this->fFeatures | LSSerializerImpl::ELEM_CONTENT_WHITESPACE : (int32_t)(this->fFeatures & (uint32_t)~LSSerializerImpl::ELEM_CONTENT_WHITESPACE);
-														if (bValue) {
-															$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-														} else {
-															$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-														}
-													} else {
-														if (name->equalsIgnoreCase($DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)) {
-															if (!bValue) {
-																$init($Utils);
-																$init($MsgKey);
-																$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {$of(name)})));
-																$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-															} else {
-																$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-															}
-														} else {
-															bool var$7 = name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM);
-															bool var$6 = var$7 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA);
-															bool var$5 = var$6 || name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE);
-															bool var$4 = var$5 || name->equalsIgnoreCase($DOMConstants::DOM_CHECK_CHAR_NORMALIZATION);
-															if (var$4 || name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION)) {
-																if (bValue) {
-																	$init($Utils);
-																	$init($MsgKey);
-																	$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {$of(name)})));
-																	$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-																} else {
-																	if (name->equalsIgnoreCase($DOMConstants::DOM_CANONICAL_FORM)) {
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CANONICAL_FORM}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																	} else {
-																		if (name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA)) {
-																			$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																		} else {
-																			if (name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE)) {
-																				$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																			} else {
-																				if (name->equalsIgnoreCase($DOMConstants::DOM_VALIDATE_IF_SCHEMA)) {
-																					$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::DOM_CHECK_CHAR_NORMALIZATION, $DOMConstants::DOM_CHECK_CHAR_NORMALIZATION}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																				} else {
-																					if (name->equalsIgnoreCase($DOMConstants::DOM_DATATYPE_NORMALIZATION)) {
-																						$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															} else {
-																if (name->equalsIgnoreCase($DOMConstants::DOM_INFOSET)) {
-																	if (bValue) {
-																		this->fFeatures &= (uint32_t)~LSSerializerImpl::ENTITIES;
-																		this->fFeatures &= (uint32_t)~LSSerializerImpl::CDATA;
-																		this->fFeatures &= (uint32_t)~LSSerializerImpl::SCHEMAVALIDATE;
-																		this->fFeatures &= (uint32_t)~LSSerializerImpl::DTNORMALIZE;
-																		this->fFeatures |= LSSerializerImpl::NAMESPACES;
-																		this->fFeatures |= LSSerializerImpl::NAMESPACEDECLS;
-																		this->fFeatures |= LSSerializerImpl::WELLFORMED;
-																		this->fFeatures |= LSSerializerImpl::ELEM_CONTENT_WHITESPACE;
-																		this->fFeatures |= LSSerializerImpl::COMMENTS;
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACES}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_NAMESPACE_DECLARATIONS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_COMMENTS}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ELEMENT_CONTENT_WHITESPACE}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_WELLFORMED}), $DOMConstants::DOM3_EXPLICIT_TRUE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_ENTITIES}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_CDATA_SECTIONS}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_VALIDATE_IF_SCHEMA}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_DOM3_PROPERTIES_NS, $DOMConstants::DOM_DATATYPE_NORMALIZATION}), $DOMConstants::DOM3_EXPLICIT_FALSE);
-																	}
-																} else {
-																	if (name->equalsIgnoreCase($DOMConstants::DOM_NORMALIZE_CHARACTERS)) {
-																		$init($Utils);
-																		$init($MsgKey);
-																		$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {$of(name)})));
-																		$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
-																	} else {
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
 				}
 			}
 		}
@@ -716,21 +555,21 @@ void LSSerializerImpl::setParameter($String* name, Object$* value) {
 			} else {
 				$init($Utils);
 				$init($MsgKey);
-				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_TYPE_MISMATCH_ERR, $$new($ObjectArray, {$of(name)})));
+				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_TYPE_MISMATCH_ERR, $$new($ObjectArray, {name})));
 				$throwNew($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
 			}
 		} else {
-			bool var$11 = name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_LOCATION);
-			bool var$10 = var$11 || name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_TYPE);
-			if (var$10 || name->equalsIgnoreCase($DOMConstants::DOM_NORMALIZE_CHARACTERS) && value != nullptr) {
+			bool var$5 = name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_LOCATION);
+			bool var$4 = var$5 || name->equalsIgnoreCase($DOMConstants::DOM_SCHEMA_TYPE);
+			if (var$4 || name->equalsIgnoreCase($DOMConstants::DOM_NORMALIZE_CHARACTERS) && value != nullptr) {
 				$init($Utils);
 				$init($MsgKey);
-				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {$of(name)})));
+				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_SUPPORTED, $$new($ObjectArray, {name})));
 				$throwNew($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 			} else {
 				$init($Utils);
 				$init($MsgKey);
-				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_FOUND, $$new($ObjectArray, {$of(name)})));
+				$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_FEATURE_NOT_FOUND, $$new($ObjectArray, {name})));
 				$throwNew($DOMException, $DOMException::NOT_FOUND_ERR, msg);
 			}
 		}
@@ -738,7 +577,7 @@ void LSSerializerImpl::setParameter($String* name, Object$* value) {
 }
 
 $DOMConfiguration* LSSerializerImpl::getDomConfig() {
-	return static_cast<$DOMConfiguration*>(this);
+	return $cast($DOMConfiguration, this);
 }
 
 $LSSerializerFilter* LSSerializerImpl::getFilter() {
@@ -758,13 +597,13 @@ void LSSerializerImpl::setNewLine($String* newLine) {
 }
 
 bool LSSerializerImpl::write($Node* nodeArg, $LSOutput* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (destination == nullptr) {
 		$init($Utils);
 		$init($MsgKey);
 		$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_NO_OUTPUT_SPECIFIED, nullptr));
 		if (this->fDOMErrorHandler != nullptr) {
-			$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_NO_OUTPUT_SPECIFIED));
+			this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_NO_OUTPUT_SPECIFIED));
 		}
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, msg);
 	}
@@ -785,17 +624,17 @@ bool LSSerializerImpl::write($Node* nodeArg, $LSOutput* destination) {
 			$init($MsgKey);
 			$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_UNSUPPORTED_ENCODING, nullptr));
 			if (this->fDOMErrorHandler != nullptr) {
-				$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_UNSUPPORTED_ENCODING));
+				this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_UNSUPPORTED_ENCODING));
 			}
 			$throwNew($LSException, $LSException::SERIALIZE_ERR, msg);
 		}
-		$nc($(serializer->getOutputFormat()))->setProperty("version"_s, xmlVersion);
+		$$nc(serializer->getOutputFormat())->setProperty("version"_s, xmlVersion);
 		$init($DOMConstants);
 		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_XERCES_PROPERTIES_NS, $DOMConstants::S_XML_VERSION}), xmlVersion);
-		$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_ENCODING, this->fEncoding);
+		this->fDOMConfigProperties->setProperty($DOMConstants::S_XSL_OUTPUT_ENCODING, this->fEncoding);
 		bool var$1 = $nc(nodeArg)->getNodeType() != $Node::DOCUMENT_NODE;
-		bool var$0 = var$1 || $nc(nodeArg)->getNodeType() != $Node::ELEMENT_NODE;
-		if ((var$0 || $nc(nodeArg)->getNodeType() != $Node::ENTITY_NODE) && (((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::XMLDECL)) != 0)) {
+		bool var$0 = var$1 || nodeArg->getNodeType() != $Node::ELEMENT_NODE;
+		if ((var$0 || nodeArg->getNodeType() != $Node::ENTITY_NODE) && ((this->fFeatures & LSSerializerImpl::XMLDECL) != 0)) {
 			$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, $DOMConstants::DOM3_DEFAULT_FALSE);
 		}
 		$set(this, fVisitedNode, nodeArg);
@@ -812,7 +651,7 @@ bool LSSerializerImpl::write($Node* nodeArg, $LSOutput* destination) {
 					$init($MsgKey);
 					$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_NO_OUTPUT_SPECIFIED, nullptr));
 					if (this->fDOMErrorHandler != nullptr) {
-						$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_NO_OUTPUT_SPECIFIED));
+						this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_NO_OUTPUT_SPECIFIED));
 					}
 					$throwNew($LSException, $LSException::SERIALIZE_ERR, msg);
 				} else {
@@ -823,8 +662,8 @@ bool LSSerializerImpl::write($Node* nodeArg, $LSOutput* destination) {
 					$var($String, host, url->getHost());
 					bool var$2 = $nc(protocol)->equalsIgnoreCase("file"_s);
 					if (var$2) {
-						bool var$3 = host == nullptr || $nc(host)->length() == 0;
-						var$2 = (var$3 || $nc(host)->equals("localhost"_s));
+						bool var$3 = host == nullptr || host->length() == 0;
+						var$2 = var$3 || host->equals("localhost"_s);
 					}
 					if (var$2) {
 						$assign(urlOutStream, $new($FileOutputStream, $$new($File, $(url->getPath()))));
@@ -864,7 +703,7 @@ bool LSSerializerImpl::write($Node* nodeArg, $LSOutput* destination) {
 		$init($MsgKey);
 		$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_UNSUPPORTED_ENCODING, nullptr));
 		if (this->fDOMErrorHandler != nullptr) {
-			$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_UNSUPPORTED_ENCODING, ue));
+			this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_UNSUPPORTED_ENCODING, ue));
 		}
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, $(ue->getMessage()));
 	} catch ($LSException& lse) {
@@ -874,7 +713,7 @@ bool LSSerializerImpl::write($Node* nodeArg, $LSOutput* destination) {
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, e != nullptr ? $(e->getMessage()) : "NULL Exception"_s);
 	} catch ($Exception& e) {
 		if (this->fDOMErrorHandler != nullptr) {
-			$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, $(e->getMessage()), nullptr, e));
+			this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, $(e->getMessage()), nullptr, e));
 		}
 		e->printStackTrace();
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, $(e->toString()));
@@ -883,7 +722,7 @@ bool LSSerializerImpl::write($Node* nodeArg, $LSOutput* destination) {
 }
 
 $String* LSSerializerImpl::writeToString($Node* nodeArg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nodeArg == nullptr) {
 		return nullptr;
 	}
@@ -891,13 +730,13 @@ $String* LSSerializerImpl::writeToString($Node* nodeArg) {
 	$nc(serializer)->reset();
 	if (nodeArg != this->fVisitedNode) {
 		$var($String, xmlVersion, getXMLVersion(nodeArg));
-		$nc($(serializer->getOutputFormat()))->setProperty("version"_s, xmlVersion);
+		$$nc(serializer->getOutputFormat())->setProperty("version"_s, xmlVersion);
 		$init($DOMConstants);
 		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_XERCES_PROPERTIES_NS, $DOMConstants::S_XML_VERSION}), xmlVersion);
-		$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_ENCODING, "UTF-16"_s);
+		this->fDOMConfigProperties->setProperty($DOMConstants::S_XSL_OUTPUT_ENCODING, "UTF-16"_s);
 		bool var$1 = $nc(nodeArg)->getNodeType() != $Node::DOCUMENT_NODE;
-		bool var$0 = var$1 || $nc(nodeArg)->getNodeType() != $Node::ELEMENT_NODE;
-		if ((var$0 || $nc(nodeArg)->getNodeType() != $Node::ENTITY_NODE) && (((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::XMLDECL)) != 0)) {
+		bool var$0 = var$1 || nodeArg->getNodeType() != $Node::ELEMENT_NODE;
+		if ((var$0 || nodeArg->getNodeType() != $Node::ENTITY_NODE) && ((this->fFeatures & LSSerializerImpl::XMLDECL) != 0)) {
 			$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, $DOMConstants::DOM3_DEFAULT_FALSE);
 		}
 		$set(this, fVisitedNode, nodeArg);
@@ -924,7 +763,7 @@ $String* LSSerializerImpl::writeToString($Node* nodeArg) {
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, $(e->toString()));
 	} catch ($Exception& e) {
 		if (this->fDOMErrorHandler != nullptr) {
-			$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, $(e->getMessage()), nullptr, e));
+			this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, $(e->getMessage()), nullptr, e));
 		}
 		e->printStackTrace();
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, $(e->toString()));
@@ -933,7 +772,7 @@ $String* LSSerializerImpl::writeToString($Node* nodeArg) {
 }
 
 bool LSSerializerImpl::writeToURI($Node* nodeArg, $String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nodeArg == nullptr) {
 		return false;
 	}
@@ -945,13 +784,13 @@ bool LSSerializerImpl::writeToURI($Node* nodeArg, $String* uri) {
 		if (this->fEncoding == nullptr) {
 			$set(this, fEncoding, this->fEncoding != nullptr ? this->fEncoding : getXMLEncoding(nodeArg) == nullptr ? "UTF-8"_s : getXMLEncoding(nodeArg));
 		}
-		$nc($(serializer->getOutputFormat()))->setProperty("version"_s, xmlVersion);
+		$$nc(serializer->getOutputFormat())->setProperty("version"_s, xmlVersion);
 		$init($DOMConstants);
 		$nc(this->fDOMConfigProperties)->setProperty($$str({$DOMConstants::S_XERCES_PROPERTIES_NS, $DOMConstants::S_XML_VERSION}), xmlVersion);
-		$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_ENCODING, this->fEncoding);
+		this->fDOMConfigProperties->setProperty($DOMConstants::S_XSL_OUTPUT_ENCODING, this->fEncoding);
 		bool var$1 = $nc(nodeArg)->getNodeType() != $Node::DOCUMENT_NODE;
-		bool var$0 = var$1 || $nc(nodeArg)->getNodeType() != $Node::ELEMENT_NODE;
-		if ((var$0 || $nc(nodeArg)->getNodeType() != $Node::ENTITY_NODE) && (((int32_t)(this->fFeatures & (uint32_t)LSSerializerImpl::XMLDECL)) != 0)) {
+		bool var$0 = var$1 || nodeArg->getNodeType() != $Node::ELEMENT_NODE;
+		if ((var$0 || nodeArg->getNodeType() != $Node::ENTITY_NODE) && ((this->fFeatures & LSSerializerImpl::XMLDECL) != 0)) {
 			$nc(this->fDOMConfigProperties)->setProperty($DOMConstants::S_XSL_OUTPUT_OMIT_XML_DECL, $DOMConstants::DOM3_DEFAULT_FALSE);
 		}
 		$set(this, fVisitedNode, nodeArg);
@@ -963,7 +802,7 @@ bool LSSerializerImpl::writeToURI($Node* nodeArg, $String* uri) {
 			$init($MsgKey);
 			$var($String, msg, $nc($Utils::messages)->createMessage($MsgKey::ER_NO_OUTPUT_SPECIFIED, nullptr));
 			if (this->fDOMErrorHandler != nullptr) {
-				$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_NO_OUTPUT_SPECIFIED));
+				this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, msg, $MsgKey::ER_NO_OUTPUT_SPECIFIED));
 			}
 			$throwNew($LSException, $LSException::SERIALIZE_ERR, msg);
 		} else {
@@ -974,8 +813,8 @@ bool LSSerializerImpl::writeToURI($Node* nodeArg, $String* uri) {
 			$var($String, host, url->getHost());
 			bool var$2 = $nc(protocol)->equalsIgnoreCase("file"_s);
 			if (var$2) {
-				bool var$3 = host == nullptr || $nc(host)->length() == 0;
-				var$2 = (var$3 || $nc(host)->equals("localhost"_s));
+				bool var$3 = host == nullptr || host->length() == 0;
+				var$2 = var$3 || host->equals("localhost"_s);
 			}
 			if (var$2) {
 				$assign(urlOutStream, $new($FileOutputStream, $$new($File, $(url->getPath()))));
@@ -1011,7 +850,7 @@ bool LSSerializerImpl::writeToURI($Node* nodeArg, $String* uri) {
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, $(e->toString()));
 	} catch ($Exception& e) {
 		if (this->fDOMErrorHandler != nullptr) {
-			$nc(this->fDOMErrorHandler)->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, $(e->getMessage()), nullptr, e));
+			this->fDOMErrorHandler->handleError($$new($DOMErrorImpl, $DOMError::SEVERITY_FATAL_ERROR, $(e->getMessage()), nullptr, e));
 		}
 		e->printStackTrace();
 		$throwNew($LSException, $LSException::SERIALIZE_ERR, $(e->toString()));
@@ -1020,7 +859,7 @@ bool LSSerializerImpl::writeToURI($Node* nodeArg, $String* uri) {
 }
 
 $String* LSSerializerImpl::getXMLVersion($Node* nodeArg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, nullptr);
 	if (nodeArg != nullptr) {
 		if (nodeArg->getNodeType() == $Node::DOCUMENT_NODE) {
@@ -1028,7 +867,7 @@ $String* LSSerializerImpl::getXMLVersion($Node* nodeArg) {
 		} else {
 			$assign(doc, nodeArg->getOwnerDocument());
 		}
-		if (doc != nullptr && $nc($(doc->getImplementation()))->hasFeature("Core"_s, "3.0"_s)) {
+		if (doc != nullptr && $$nc(doc->getImplementation())->hasFeature("Core"_s, "3.0"_s)) {
 			try {
 				return doc->getXmlVersion();
 			} catch ($AbstractMethodError& e) {
@@ -1039,7 +878,7 @@ $String* LSSerializerImpl::getXMLVersion($Node* nodeArg) {
 }
 
 $String* LSSerializerImpl::getXMLEncoding($Node* nodeArg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, nullptr);
 	if (nodeArg != nullptr) {
 		if (nodeArg->getNodeType() == $Node::DOCUMENT_NODE) {
@@ -1047,7 +886,7 @@ $String* LSSerializerImpl::getXMLEncoding($Node* nodeArg) {
 		} else {
 			$assign(doc, nodeArg->getOwnerDocument());
 		}
-		if (doc != nullptr && $nc($(doc->getImplementation()))->hasFeature("Core"_s, "3.0"_s)) {
+		if (doc != nullptr && $$nc(doc->getImplementation())->hasFeature("Core"_s, "3.0"_s)) {
 			return doc->getXmlEncoding();
 		}
 	}
@@ -1055,7 +894,7 @@ $String* LSSerializerImpl::getXMLEncoding($Node* nodeArg) {
 }
 
 $String* LSSerializerImpl::getInputEncoding($Node* nodeArg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, nullptr);
 	if (nodeArg != nullptr) {
 		if (nodeArg->getNodeType() == $Node::DOCUMENT_NODE) {
@@ -1063,7 +902,7 @@ $String* LSSerializerImpl::getInputEncoding($Node* nodeArg) {
 		} else {
 			$assign(doc, nodeArg->getOwnerDocument());
 		}
-		if (doc != nullptr && $nc($(doc->getImplementation()))->hasFeature("Core"_s, "3.0"_s)) {
+		if (doc != nullptr && $$nc(doc->getImplementation())->hasFeature("Core"_s, "3.0"_s)) {
 			return doc->getInputEncoding();
 		}
 	}
@@ -1078,7 +917,77 @@ LSSerializerImpl::LSSerializerImpl() {
 }
 
 $Class* LSSerializerImpl::load$($String* name, bool initialize) {
-	$loadClass(LSSerializerImpl, name, initialize, &_LSSerializerImpl_ClassInfo_, allocate$LSSerializerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fXMLSerializer", "Lcom/sun/org/apache/xml/internal/serializer/Serializer;", nullptr, $PRIVATE, $field(LSSerializerImpl, fXMLSerializer)},
+		{"fFeatures", "I", nullptr, $PROTECTED, $field(LSSerializerImpl, fFeatures)},
+		{"fDOMSerializer", "Lcom/sun/org/apache/xml/internal/serializer/DOM3Serializer;", nullptr, $PRIVATE, $field(LSSerializerImpl, fDOMSerializer)},
+		{"fSerializerFilter", "Lorg/w3c/dom/ls/LSSerializerFilter;", nullptr, $PRIVATE, $field(LSSerializerImpl, fSerializerFilter)},
+		{"fVisitedNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(LSSerializerImpl, fVisitedNode)},
+		{"fEndOfLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LSSerializerImpl, fEndOfLine)},
+		{"fDOMErrorHandler", "Lorg/w3c/dom/DOMErrorHandler;", nullptr, $PRIVATE, $field(LSSerializerImpl, fDOMErrorHandler)},
+		{"fDOMConfigProperties", "Ljava/util/Properties;", nullptr, $PRIVATE, $field(LSSerializerImpl, fDOMConfigProperties)},
+		{"fEncoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LSSerializerImpl, fEncoding)},
+		{"fIsStandalone", "Ljdk/xml/internal/JdkProperty;", "Ljdk/xml/internal/JdkProperty<Ljava/lang/Boolean;>;", $PRIVATE, $field(LSSerializerImpl, fIsStandalone)},
+		{"CANONICAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, CANONICAL)},
+		{"CDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, CDATA)},
+		{"CHARNORMALIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, CHARNORMALIZE)},
+		{"COMMENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, COMMENTS)},
+		{"DTNORMALIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, DTNORMALIZE)},
+		{"ELEM_CONTENT_WHITESPACE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, ELEM_CONTENT_WHITESPACE)},
+		{"ENTITIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, ENTITIES)},
+		{"INFOSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, INFOSET)},
+		{"NAMESPACES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, NAMESPACES)},
+		{"NAMESPACEDECLS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, NAMESPACEDECLS)},
+		{"NORMALIZECHARS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, NORMALIZECHARS)},
+		{"SPLITCDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, SPLITCDATA)},
+		{"VALIDATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, VALIDATE)},
+		{"SCHEMAVALIDATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, SCHEMAVALIDATE)},
+		{"WELLFORMED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, WELLFORMED)},
+		{"DISCARDDEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, DISCARDDEFAULT)},
+		{"PRETTY_PRINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, PRETTY_PRINT)},
+		{"IGNORE_CHAR_DENORMALIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, IGNORE_CHAR_DENORMALIZE)},
+		{"XMLDECL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, XMLDECL)},
+		{"IS_STANDALONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LSSerializerImpl, IS_STANDALONE)},
+		{"fRecognizedParameters", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(LSSerializerImpl, fRecognizedParameters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LSSerializerImpl, init$, void)},
+		{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, canSetParameter, bool, $String*, Object$*)},
+		{"getDomConfig", "()Lorg/w3c/dom/DOMConfiguration;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getDomConfig, $DOMConfiguration*)},
+		{"getErrorHandler", "()Lorg/w3c/dom/DOMErrorHandler;", nullptr, $PUBLIC, $method(LSSerializerImpl, getErrorHandler, $DOMErrorHandler*)},
+		{"getFilter", "()Lorg/w3c/dom/ls/LSSerializerFilter;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getFilter, $LSSerializerFilter*)},
+		{"getInputEncoding", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED, $method(LSSerializerImpl, getInputEncoding, $String*, $Node*)},
+		{"getNewLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getNewLine, $String*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
+		{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, getParameterNames, $DOMStringList*)},
+		{"getXMLEncoding", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED, $method(LSSerializerImpl, getXMLEncoding, $String*, $Node*)},
+		{"getXMLVersion", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PROTECTED, $method(LSSerializerImpl, getXMLVersion, $String*, $Node*)},
+		{"initializeSerializerProps", "()V", nullptr, $PUBLIC, $method(LSSerializerImpl, initializeSerializerProps, void)},
+		{"setFilter", "(Lorg/w3c/dom/ls/LSSerializerFilter;)V", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, setFilter, void, $LSSerializerFilter*)},
+		{"setNewLine", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, setNewLine, void, $String*)},
+		{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"write", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/ls/LSOutput;)Z", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, write, bool, $Node*, $LSOutput*), "org.w3c.dom.ls.LSException"},
+		{"writeToString", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, writeToString, $String*, $Node*), "org.w3c.dom.DOMException,org.w3c.dom.ls.LSException"},
+		{"writeToURI", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(LSSerializerImpl, writeToURI, bool, $Node*, $String*), "org.w3c.dom.ls.LSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.dom3.LSSerializerImpl",
+		"java.lang.Object",
+		"org.w3c.dom.DOMConfiguration,org.w3c.dom.ls.LSSerializer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LSSerializerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LSSerializerImpl));
+	});
 	return class$;
 }
 

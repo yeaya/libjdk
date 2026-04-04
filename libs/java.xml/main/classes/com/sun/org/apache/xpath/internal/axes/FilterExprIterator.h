@@ -65,7 +65,7 @@ public:
 	virtual bool isDocOrdered() override;
 	virtual void setInnerExpression(::com::sun::org::apache::xpath::internal::Expression* expr);
 	virtual void setRoot(int32_t context, Object$* environment) override;
-	static const int64_t serialVersionUID = (int64_t)0x236B26A548A4CE8E;
+	static const int64_t serialVersionUID = (int64_t)0x236b26a548a4ce8e;
 	::com::sun::org::apache::xpath::internal::Expression* m_expr = nullptr;
 	::com::sun::org::apache::xpath::internal::objects::XNodeSet* m_exprObj = nullptr;
 	bool m_mustHardReset = false;

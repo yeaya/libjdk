@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTextUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextUI$MotifCaret.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
@@ -36,41 +35,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifTextUI_FieldInfo_[] = {
-	{"defaultBindings", "[Ljavax/swing/text/JTextComponent$KeyBinding;", nullptr, $STATIC | $FINAL, $staticField(MotifTextUI, defaultBindings)},
-	{}
-};
-
-$MethodInfo _MotifTextUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextUI, createCaret, $Caret*)},
-	{}
-};
-
-$InnerClassInfo _MotifTextUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret", "com.sun.java.swing.plaf.motif.MotifTextUI", "MotifCaret", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifTextUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTextUI",
-	"java.lang.Object",
-	nullptr,
-	_MotifTextUI_FieldInfo_,
-	_MotifTextUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifTextUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret"
-};
-
-$Object* allocate$MotifTextUI($Class* clazz) {
-	return $of($alloc(MotifTextUI));
-}
-
 $JTextComponent$KeyBindingArray* MotifTextUI::defaultBindings = nullptr;
 
 void MotifTextUI::init$() {
@@ -81,8 +45,8 @@ $Caret* MotifTextUI::createCaret() {
 	return $new($MotifTextUI$MotifCaret);
 }
 
-void clinit$MotifTextUI($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MotifTextUI::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($DefaultEditorKit);
 	$assignStatic(MotifTextUI::defaultBindings, $new($JTextComponent$KeyBindingArray, {
 		$$new($JTextComponent$KeyBinding, $($KeyStroke::getKeyStroke($KeyEvent::VK_INSERT, $InputEvent::CTRL_MASK)), $DefaultEditorKit::copyAction),
@@ -97,7 +61,36 @@ MotifTextUI::MotifTextUI() {
 }
 
 $Class* MotifTextUI::load$($String* name, bool initialize) {
-	$loadClass(MotifTextUI, name, initialize, &_MotifTextUI_ClassInfo_, clinit$MotifTextUI, allocate$MotifTextUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultBindings", "[Ljavax/swing/text/JTextComponent$KeyBinding;", nullptr, $STATIC | $FINAL, $staticField(MotifTextUI, defaultBindings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextUI, createCaret, $Caret*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret", "com.sun.java.swing.plaf.motif.MotifTextUI", "MotifCaret", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTextUI",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifTextUI$MotifCaret"
+	};
+	$loadClass(MotifTextUI, name, initialize, &classInfo$$, MotifTextUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifTextUI);
+	});
 	return class$;
 }
 

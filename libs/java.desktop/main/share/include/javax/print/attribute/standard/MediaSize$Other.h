@@ -47,6 +47,7 @@ class $import MediaSize$Other : public ::java::lang::Object {
 	$class(MediaSize$Other, 0, ::java::lang::Object)
 public:
 	MediaSize$Other();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::print::attribute::standard::MediaSize* EXECUTIVE;
 	static ::javax::print::attribute::standard::MediaSize* LEDGER;

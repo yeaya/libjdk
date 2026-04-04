@@ -53,6 +53,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Element* elem);
 	virtual ::javax::swing::text::View* breakView(int32_t axis, float len, ::java::awt::Shape* a);
 	virtual ::javax::swing::SizeRequirements* calculateMinorAxisRequirements(int32_t axis, ::javax::swing::SizeRequirements* r) override;

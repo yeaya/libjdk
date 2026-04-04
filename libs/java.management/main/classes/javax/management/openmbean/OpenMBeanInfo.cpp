@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/OpenMBeanInfo.h>
-
 #include <javax/management/MBeanAttributeInfo.h>
 #include <javax/management/MBeanConstructorInfo.h>
 #include <javax/management/MBeanNotificationInfo.h>
@@ -17,32 +16,6 @@ namespace javax {
 	namespace management {
 		namespace openmbean {
 
-$MethodInfo _OpenMBeanInfo_MethodInfo_[] = {
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getAttributes, $MBeanAttributeInfoArray*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getClassName, $String*)},
-	{"getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getConstructors, $MBeanConstructorInfoArray*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getDescription, $String*)},
-	{"getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getNotifications, $MBeanNotificationInfoArray*)},
-	{"getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getOperations, $MBeanOperationInfoArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _OpenMBeanInfo_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.openmbean.OpenMBeanInfo",
-	nullptr,
-	nullptr,
-	nullptr,
-	_OpenMBeanInfo_MethodInfo_
-};
-
-$Object* allocate$OpenMBeanInfo($Class* clazz) {
-	return $of($alloc(OpenMBeanInfo));
-}
-
 bool OpenMBeanInfo::equals(Object$* obj) {
 	 return this->$Object::equals(obj);
 }
@@ -56,7 +29,29 @@ $String* OpenMBeanInfo::toString() {
 }
 
 $Class* OpenMBeanInfo::load$($String* name, bool initialize) {
-	$loadClass(OpenMBeanInfo, name, initialize, &_OpenMBeanInfo_ClassInfo_, allocate$OpenMBeanInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getAttributes, $MBeanAttributeInfoArray*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getClassName, $String*)},
+		{"getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getConstructors, $MBeanConstructorInfoArray*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getDescription, $String*)},
+		{"getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getNotifications, $MBeanNotificationInfoArray*)},
+		{"getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getOperations, $MBeanOperationInfoArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.openmbean.OpenMBeanInfo",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OpenMBeanInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenMBeanInfo);
+	});
 	return class$;
 }
 

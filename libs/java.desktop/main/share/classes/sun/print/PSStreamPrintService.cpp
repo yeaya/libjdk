@@ -1,5 +1,4 @@
 #include <sun/print/PSStreamPrintService.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/ClassCastException.h>
 #include <java/util/Locale.h>
@@ -139,55 +138,6 @@ using $PSStreamPrinterFactory = ::sun::print::PSStreamPrinterFactory;
 namespace sun {
 	namespace print {
 
-$FieldInfo _PSStreamPrintService_FieldInfo_[] = {
-	{"suppAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PSStreamPrintService, suppAttrCats)},
-	{"MAXCOPIES", "I", nullptr, $PRIVATE | $STATIC, $staticField(PSStreamPrintService, MAXCOPIES)},
-	{"mediaSizes", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSStreamPrintService, mediaSizes)},
-	{}
-};
-
-$MethodInfo _PSStreamPrintService_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(PSStreamPrintService, init$, void, $OutputStream*)},
-	{"addPrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, addPrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
-	{"createPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, createPrintJob, $DocPrintJob*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, equals, bool, Object$*)},
-	{"getAttribute", "(Ljava/lang/Class;)Ljavax/print/attribute/PrintServiceAttribute;", "<T::Ljavax/print/attribute/PrintServiceAttribute;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(PSStreamPrintService, getAttribute, $PrintServiceAttribute*, $Class*)},
-	{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getAttributes, $PrintServiceAttributeSet*)},
-	{"getDefaultAttributeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(PSStreamPrintService, getDefaultAttributeValue, $Object*, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getName, $String*)},
-	{"getOutputFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getOutputFormat, $String*)},
-	{"getServiceUIFactory", "()Ljavax/print/ServiceUIFactory;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getServiceUIFactory, $ServiceUIFactory*)},
-	{"getSupportedAttributeCategories", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(PSStreamPrintService, getSupportedAttributeCategories, $ClassArray*)},
-	{"getSupportedAttributeValues", "(Ljava/lang/Class;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(PSStreamPrintService, getSupportedAttributeValues, $Object*, $Class*, $DocFlavor*, $AttributeSet*)},
-	{"getSupportedDocFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getSupportedDocFlavors, $DocFlavorArray*)},
-	{"getUnsupportedAttributes", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getUnsupportedAttributes, $AttributeSet*, $DocFlavor*, $AttributeSet*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, hashCode, int32_t)},
-	{"isAttributeCategorySupported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Z", $PUBLIC, $virtualMethod(PSStreamPrintService, isAttributeCategorySupported, bool, $Class*)},
-	{"isAttributeValueSupported", "(Ljavax/print/attribute/Attribute;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, isAttributeValueSupported, bool, $Attribute*, $DocFlavor*, $AttributeSet*)},
-	{"isDocFlavorSupported", "(Ljavax/print/DocFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, isDocFlavorSupported, bool, $DocFlavor*)},
-	{"isSupportedCopies", "(Ljavax/print/attribute/standard/Copies;)Z", nullptr, $PRIVATE, $method(PSStreamPrintService, isSupportedCopies, bool, $Copies*)},
-	{"isSupportedMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Z", nullptr, $PRIVATE, $method(PSStreamPrintService, isSupportedMedia, bool, $MediaSizeName*)},
-	{"removePrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, removePrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, toString, $String*)},
-	{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(PSStreamPrintService, usesClass, bool, $Class*)},
-	{}
-};
-
-$ClassInfo _PSStreamPrintService_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PSStreamPrintService",
-	"javax.print.StreamPrintService",
-	"sun.print.SunPrinterJobService",
-	_PSStreamPrintService_FieldInfo_,
-	_PSStreamPrintService_MethodInfo_
-};
-
-$Object* allocate$PSStreamPrintService($Class* clazz) {
-	return $of($alloc(PSStreamPrintService));
-}
-
 $Object* PSStreamPrintService::clone() {
 	 return this->$StreamPrintService::clone();
 }
@@ -245,7 +195,7 @@ $PrintServiceAttribute* PSStreamPrintService::getAttribute($Class* category) {
 	$load($ColorSupported);
 	if (category == $ColorSupported::class$) {
 		$init($ColorSupported);
-		$var($PrintServiceAttribute, tmp, static_cast<$PrintServiceAttribute*>($ColorSupported::SUPPORTED));
+		$var($PrintServiceAttribute, tmp, $cast($PrintServiceAttribute, $ColorSupported::SUPPORTED));
 		return tmp;
 	} else {
 		return nullptr;
@@ -270,7 +220,7 @@ bool PSStreamPrintService::isDocFlavorSupported($DocFlavor* flavor) {
 }
 
 $ClassArray* PSStreamPrintService::getSupportedAttributeCategories() {
-	$var($ClassArray, cats, $new($ClassArray, $nc(PSStreamPrintService::suppAttrCats)->length));
+	$var($ClassArray, cats, $new($ClassArray, PSStreamPrintService::suppAttrCats->length));
 	$System::arraycopy(PSStreamPrintService::suppAttrCats, 0, cats, 0, cats->length);
 	return cats;
 }
@@ -283,8 +233,8 @@ bool PSStreamPrintService::isAttributeCategorySupported($Class* category) {
 	if (!($Attribute::class$->isAssignableFrom(category))) {
 		$throwNew($IllegalArgumentException, $$str({category, " is not an Attribute"_s}));
 	}
-	for (int32_t i = 0; i < $nc(PSStreamPrintService::suppAttrCats)->length; ++i) {
-		if (category == $nc(PSStreamPrintService::suppAttrCats)->get(i)) {
+	for (int32_t i = 0; i < PSStreamPrintService::suppAttrCats->length; ++i) {
+		if (category == PSStreamPrintService::suppAttrCats->get(i)) {
 			return true;
 		}
 	}
@@ -292,7 +242,7 @@ bool PSStreamPrintService::isAttributeCategorySupported($Class* category) {
 }
 
 $Object* PSStreamPrintService::getDefaultAttributeValue($Class* category) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (category == nullptr) {
 		$throwNew($NullPointerException, "null category"_s);
 	}
@@ -301,7 +251,7 @@ $Object* PSStreamPrintService::getDefaultAttributeValue($Class* category) {
 		$throwNew($IllegalArgumentException, $$str({category, " is not an Attribute"_s}));
 	}
 	if (!isAttributeCategorySupported(category)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$load($Copies);
 	if (category == $Copies::class$) {
@@ -319,12 +269,12 @@ $Object* PSStreamPrintService::getDefaultAttributeValue($Class* category) {
 			} else {
 				$load($Media);
 				if (category == $Media::class$) {
-					$var($String, defaultCountry, $nc($($Locale::getDefault()))->getCountry());
+					$var($String, defaultCountry, $$nc($Locale::getDefault())->getCountry());
 					bool var$0 = defaultCountry != nullptr;
 					if (var$0) {
 						bool var$2 = defaultCountry->isEmpty();
-						bool var$1 = var$2 || $nc(defaultCountry)->equals($($nc($Locale::US)->getCountry()));
-						var$0 = (var$1 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry())));
+						bool var$1 = var$2 || defaultCountry->equals($($nc($Locale::US)->getCountry()));
+						var$0 = var$1 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry()));
 					}
 					if (var$0) {
 						$init($MediaSizeName);
@@ -336,24 +286,24 @@ $Object* PSStreamPrintService::getDefaultAttributeValue($Class* category) {
 				} else {
 					$load($MediaPrintableArea);
 					if (category == $MediaPrintableArea::class$) {
-						$var($String, defaultCountry, $nc($($Locale::getDefault()))->getCountry());
+						$var($String, defaultCountry, $$nc($Locale::getDefault())->getCountry());
 						float iw = 0.0;
 						float ih = 0.0;
 						float margin = 0.5f;
 						bool var$3 = defaultCountry != nullptr;
 						if (var$3) {
 							bool var$5 = defaultCountry->isEmpty();
-							bool var$4 = var$5 || $nc(defaultCountry)->equals($($nc($Locale::US)->getCountry()));
-							var$3 = (var$4 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry())));
+							bool var$4 = var$5 || defaultCountry->equals($($nc($Locale::US)->getCountry()));
+							var$3 = var$4 || defaultCountry->equals($($nc($Locale::CANADA)->getCountry()));
 						}
 						if (var$3) {
 							$init($MediaSize$NA);
 							iw = $nc($MediaSize$NA::LETTER)->getX($Size2DSyntax::INCH) - 2 * margin;
-							ih = $nc($MediaSize$NA::LETTER)->getY($Size2DSyntax::INCH) - 2 * margin;
+							ih = $MediaSize$NA::LETTER->getY($Size2DSyntax::INCH) - 2 * margin;
 						} else {
 							$init($MediaSize$ISO);
 							iw = $nc($MediaSize$ISO::A4)->getX($Size2DSyntax::INCH) - 2 * margin;
-							ih = $nc($MediaSize$ISO::A4)->getY($Size2DSyntax::INCH) - 2 * margin;
+							ih = $MediaSize$ISO::A4->getY($Size2DSyntax::INCH) - 2 * margin;
 						}
 						return $of($new($MediaPrintableArea, margin, margin, iw, ih, $MediaPrintableArea::INCH));
 					} else {
@@ -376,7 +326,7 @@ $Object* PSStreamPrintService::getDefaultAttributeValue($Class* category) {
 										$init($Sides);
 										return $of($Sides::ONE_SIDED);
 									} else {
-										return $of(nullptr);
+										return nullptr;
 									}
 								}
 							}
@@ -389,7 +339,7 @@ $Object* PSStreamPrintService::getDefaultAttributeValue($Class* category) {
 }
 
 $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (category == nullptr) {
 		$throwNew($NullPointerException, "null category"_s);
 	}
@@ -401,14 +351,13 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 		$throwNew($IllegalArgumentException, $$str({flavor, " is an unsupported flavor"_s}));
 	}
 	if (!isAttributeCategorySupported(category)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$load($Chromaticity);
 	if (category == $Chromaticity::class$) {
 		$var($ChromaticityArray, arr, $new($ChromaticityArray, 1));
-		$init($Chromaticity);
 		arr->set(0, $Chromaticity::COLOR);
-		return $of((arr));
+		return (arr);
 	} else {
 		$load($JobName);
 		if (category == $JobName::class$) {
@@ -421,28 +370,27 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 				$load($OrientationRequested);
 				if (category == $OrientationRequested::class$) {
 					$init($DocFlavor$SERVICE_FORMATTED);
-					bool var$9 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-					bool var$8 = var$9 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
+					bool var$9 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+					bool var$8 = var$9 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 					$init($DocFlavor$INPUT_STREAM);
-					bool var$7 = var$8 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::GIF);
-					bool var$6 = var$7 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::JPEG);
-					bool var$5 = var$6 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::PNG);
+					bool var$7 = var$8 || flavor->equals($DocFlavor$INPUT_STREAM::GIF);
+					bool var$6 = var$7 || flavor->equals($DocFlavor$INPUT_STREAM::JPEG);
+					bool var$5 = var$6 || flavor->equals($DocFlavor$INPUT_STREAM::PNG);
 					$init($DocFlavor$BYTE_ARRAY);
-					bool var$4 = var$5 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::GIF);
-					bool var$3 = var$4 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::JPEG);
-					bool var$2 = var$3 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::PNG);
+					bool var$4 = var$5 || flavor->equals($DocFlavor$BYTE_ARRAY::GIF);
+					bool var$3 = var$4 || flavor->equals($DocFlavor$BYTE_ARRAY::JPEG);
+					bool var$2 = var$3 || flavor->equals($DocFlavor$BYTE_ARRAY::PNG);
 					$init($DocFlavor$URL);
-					bool var$1 = var$2 || $nc(flavor)->equals($DocFlavor$URL::GIF);
-					bool var$0 = var$1 || $nc(flavor)->equals($DocFlavor$URL::JPEG);
-					if (var$0 || $nc(flavor)->equals($DocFlavor$URL::PNG)) {
+					bool var$1 = var$2 || flavor->equals($DocFlavor$URL::GIF);
+					bool var$0 = var$1 || flavor->equals($DocFlavor$URL::JPEG);
+					if (var$0 || flavor->equals($DocFlavor$URL::PNG)) {
 						$var($OrientationRequestedArray, arr, $new($OrientationRequestedArray, 3));
-						$init($OrientationRequested);
 						arr->set(0, $OrientationRequested::PORTRAIT);
 						arr->set(1, $OrientationRequested::LANDSCAPE);
 						arr->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
-						return $of(arr);
+						return arr;
 					} else {
-						return $of(nullptr);
+						return nullptr;
 					}
 				} else {
 					$load($Copies);
@@ -452,22 +400,21 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 					} else {
 						$load($Media);
 						if (category == $Media::class$) {
-							$var($MediaArray, arr, $new($MediaArray, $nc(PSStreamPrintService::mediaSizes)->length));
-							$System::arraycopy(PSStreamPrintService::mediaSizes, 0, arr, 0, $nc(PSStreamPrintService::mediaSizes)->length);
-							return $of(arr);
+							$var($MediaArray, arr, $new($MediaArray, PSStreamPrintService::mediaSizes->length));
+							$System::arraycopy(PSStreamPrintService::mediaSizes, 0, arr, 0, PSStreamPrintService::mediaSizes->length);
+							return arr;
 						} else {
 							$load($Fidelity);
 							if (category == $Fidelity::class$) {
 								$var($FidelityArray, arr, $new($FidelityArray, 2));
-								$init($Fidelity);
 								arr->set(0, $Fidelity::FIDELITY_FALSE);
 								arr->set(1, $Fidelity::FIDELITY_TRUE);
-								return $of(arr);
+								return arr;
 							} else {
 								$load($MediaPrintableArea);
 								if (category == $MediaPrintableArea::class$) {
 									if (attributes == nullptr) {
-										return $of(nullptr);
+										return nullptr;
 									}
 									$load($MediaSize);
 									$var($MediaSize, mediaSize, $cast($MediaSize, $nc(attributes)->get($MediaSize::class$)));
@@ -479,10 +426,10 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 										}
 									}
 									if (mediaSize == nullptr) {
-										return $of(nullptr);
+										return nullptr;
 									} else {
 										$var($MediaPrintableAreaArray, arr, $new($MediaPrintableAreaArray, 1));
-										float w = $nc(mediaSize)->getX($MediaSize::INCH);
+										float w = mediaSize->getX($MediaSize::INCH);
 										float h = mediaSize->getY($MediaSize::INCH);
 										float xmargin = 0.5f;
 										float ymargin = 0.5f;
@@ -493,54 +440,51 @@ $Object* PSStreamPrintService::getSupportedAttributeValues($Class* category, $Do
 											ymargin = h / 10;
 										}
 										arr->set(0, $$new($MediaPrintableArea, xmargin, ymargin, w - 2 * xmargin, h - 2 * ymargin, $MediaSize::INCH));
-										return $of(arr);
+										return arr;
 									}
 								} else {
 									$load($PageRanges);
 									if (category == $PageRanges::class$) {
 										$init($DocFlavor$SERVICE_FORMATTED);
-										bool var$10 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-										if (var$10 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+										bool var$10 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+										if (var$10 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 											$var($PageRangesArray, arr, $new($PageRangesArray, 1));
 											arr->set(0, $$new($PageRanges, 1, $Integer::MAX_VALUE));
-											return $of(arr);
+											return arr;
 										} else {
-											return $of(nullptr);
+											return nullptr;
 										}
 									} else {
 										$load($SheetCollate);
 										if (category == $SheetCollate::class$) {
 											$init($DocFlavor$SERVICE_FORMATTED);
-											bool var$11 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-											if (var$11 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+											bool var$11 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+											if (var$11 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 												$var($SheetCollateArray, arr, $new($SheetCollateArray, 2));
-												$init($SheetCollate);
 												arr->set(0, $SheetCollate::UNCOLLATED);
 												arr->set(1, $SheetCollate::COLLATED);
-												return $of(arr);
+												return arr;
 											} else {
 												$var($SheetCollateArray, arr, $new($SheetCollateArray, 1));
-												$init($SheetCollate);
 												arr->set(0, $SheetCollate::UNCOLLATED);
-												return $of(arr);
+												return arr;
 											}
 										} else {
 											$load($Sides);
 											if (category == $Sides::class$) {
 												$init($DocFlavor$SERVICE_FORMATTED);
-												bool var$12 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-												if (var$12 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+												bool var$12 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+												if (var$12 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 													$var($SidesArray, arr, $new($SidesArray, 3));
-													$init($Sides);
 													arr->set(0, $Sides::ONE_SIDED);
 													arr->set(1, $Sides::TWO_SIDED_LONG_EDGE);
 													arr->set(2, $Sides::TWO_SIDED_SHORT_EDGE);
-													return $of(arr);
+													return arr;
 												} else {
-													return $of(nullptr);
+													return nullptr;
 												}
 											} else {
-												return $of(nullptr);
+												return nullptr;
 											}
 										}
 									}
@@ -560,8 +504,8 @@ bool PSStreamPrintService::isSupportedCopies($Copies* copies) {
 }
 
 bool PSStreamPrintService::isSupportedMedia($MediaSizeName* msn) {
-	for (int32_t i = 0; i < $nc(PSStreamPrintService::mediaSizes)->length; ++i) {
-		if ($nc(msn)->equals($nc(PSStreamPrintService::mediaSizes)->get(i))) {
+	for (int32_t i = 0; i < PSStreamPrintService::mediaSizes->length; ++i) {
+		if ($nc(msn)->equals(PSStreamPrintService::mediaSizes->get(i))) {
 			return true;
 		}
 	}
@@ -597,7 +541,7 @@ bool PSStreamPrintService::isAttributeValueSupported($Attribute* attr, $DocFlavo
 						$init($OrientationRequested);
 						bool var$0 = $equals(attr, $OrientationRequested::REVERSE_PORTRAIT);
 						if (!var$0) {
-							bool var$1 = (flavor != nullptr);
+							bool var$1 = flavor != nullptr;
 							if (var$1) {
 								$init($DocFlavor$SERVICE_FORMATTED);
 								bool var$2 = flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
@@ -656,7 +600,7 @@ bool PSStreamPrintService::isAttributeValueSupported($Attribute* attr, $DocFlavo
 }
 
 $AttributeSet* PSStreamPrintService::getUnsupportedAttributes($DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (flavor != nullptr && !isDocFlavorSupported(flavor)) {
 		$throwNew($IllegalArgumentException, $$str({"flavor "_s, flavor, "is not supported"_s}));
 	}
@@ -693,16 +637,16 @@ $String* PSStreamPrintService::toString() {
 }
 
 bool PSStreamPrintService::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
-	return ($equals(obj, this) || ($instanceOf(PSStreamPrintService, obj) && $nc($($nc(($cast(PSStreamPrintService, obj)))->getName()))->equals($(getName()))));
+	$useLocalObjectStack();
+	return ($equals(obj, this) || ($instanceOf(PSStreamPrintService, obj) && $$nc($cast(PSStreamPrintService, obj)->getName())->equals($(getName()))));
 }
 
 int32_t PSStreamPrintService::hashCode() {
-	int32_t var$0 = $of($of(this)->getClass())->hashCode();
-	return var$0 + $nc($(getName()))->hashCode();
+	int32_t var$0 = $of(this)->getClass()->hashCode();
+	return var$0 + $$nc(getName())->hashCode();
 }
 
-void clinit$PSStreamPrintService($Class* class$) {
+void PSStreamPrintService::clinit$($Class* clazz) {
 	$load($Chromaticity);
 	$load($Copies);
 	$load($Fidelity);
@@ -747,7 +691,51 @@ PSStreamPrintService::PSStreamPrintService() {
 }
 
 $Class* PSStreamPrintService::load$($String* name, bool initialize) {
-	$loadClass(PSStreamPrintService, name, initialize, &_PSStreamPrintService_ClassInfo_, clinit$PSStreamPrintService, allocate$PSStreamPrintService);
+	$FieldInfo fieldInfos$$[] = {
+		{"suppAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PSStreamPrintService, suppAttrCats)},
+		{"MAXCOPIES", "I", nullptr, $PRIVATE | $STATIC, $staticField(PSStreamPrintService, MAXCOPIES)},
+		{"mediaSizes", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PSStreamPrintService, mediaSizes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(PSStreamPrintService, init$, void, $OutputStream*)},
+		{"addPrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, addPrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
+		{"createPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, createPrintJob, $DocPrintJob*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, equals, bool, Object$*)},
+		{"getAttribute", "(Ljava/lang/Class;)Ljavax/print/attribute/PrintServiceAttribute;", "<T::Ljavax/print/attribute/PrintServiceAttribute;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(PSStreamPrintService, getAttribute, $PrintServiceAttribute*, $Class*)},
+		{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getAttributes, $PrintServiceAttributeSet*)},
+		{"getDefaultAttributeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(PSStreamPrintService, getDefaultAttributeValue, $Object*, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getName, $String*)},
+		{"getOutputFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getOutputFormat, $String*)},
+		{"getServiceUIFactory", "()Ljavax/print/ServiceUIFactory;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getServiceUIFactory, $ServiceUIFactory*)},
+		{"getSupportedAttributeCategories", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(PSStreamPrintService, getSupportedAttributeCategories, $ClassArray*)},
+		{"getSupportedAttributeValues", "(Ljava/lang/Class;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(PSStreamPrintService, getSupportedAttributeValues, $Object*, $Class*, $DocFlavor*, $AttributeSet*)},
+		{"getSupportedDocFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getSupportedDocFlavors, $DocFlavorArray*)},
+		{"getUnsupportedAttributes", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, getUnsupportedAttributes, $AttributeSet*, $DocFlavor*, $AttributeSet*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, hashCode, int32_t)},
+		{"isAttributeCategorySupported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Z", $PUBLIC, $virtualMethod(PSStreamPrintService, isAttributeCategorySupported, bool, $Class*)},
+		{"isAttributeValueSupported", "(Ljavax/print/attribute/Attribute;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, isAttributeValueSupported, bool, $Attribute*, $DocFlavor*, $AttributeSet*)},
+		{"isDocFlavorSupported", "(Ljavax/print/DocFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, isDocFlavorSupported, bool, $DocFlavor*)},
+		{"isSupportedCopies", "(Ljavax/print/attribute/standard/Copies;)Z", nullptr, $PRIVATE, $method(PSStreamPrintService, isSupportedCopies, bool, $Copies*)},
+		{"isSupportedMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Z", nullptr, $PRIVATE, $method(PSStreamPrintService, isSupportedMedia, bool, $MediaSizeName*)},
+		{"removePrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, removePrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSStreamPrintService, toString, $String*)},
+		{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(PSStreamPrintService, usesClass, bool, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PSStreamPrintService",
+		"javax.print.StreamPrintService",
+		"sun.print.SunPrinterJobService",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PSStreamPrintService, name, initialize, &classInfo$$, PSStreamPrintService::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PSStreamPrintService));
+	});
 	return class$;
 }
 

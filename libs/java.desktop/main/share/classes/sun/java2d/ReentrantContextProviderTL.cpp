@@ -1,5 +1,4 @@
 #include <sun/java2d/ReentrantContextProviderTL.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/lang/ref/Reference.h>
 #include <sun/java2d/ReentrantContext.h>
@@ -20,49 +19,10 @@ using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Reference = ::java::lang::ref::Reference;
 using $ReentrantContext = ::sun::java2d::ReentrantContext;
 using $ReentrantContextProvider = ::sun::java2d::ReentrantContextProvider;
-using $ReentrantContextProviderCLQ = ::sun::java2d::ReentrantContextProviderCLQ;
 using $ReentrantContextProviderTL$1 = ::sun::java2d::ReentrantContextProviderTL$1;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _ReentrantContextProviderTL_FieldInfo_[] = {
-	{"ctxTL", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/ref/Reference<TK;>;>;", $PRIVATE | $FINAL, $field(ReentrantContextProviderTL, ctxTL)},
-	{"ctxProviderCLQ", "Lsun/java2d/ReentrantContextProviderCLQ;", "Lsun/java2d/ReentrantContextProviderCLQ<TK;>;", $PRIVATE | $FINAL, $field(ReentrantContextProviderTL, ctxProviderCLQ)},
-	{}
-};
-
-$MethodInfo _ReentrantContextProviderTL_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ReentrantContextProviderTL, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ReentrantContextProviderTL, init$, void, int32_t, int32_t)},
-	{"acquire", "()Lsun/java2d/ReentrantContext;", "()TK;", $PUBLIC | $FINAL, $virtualMethod(ReentrantContextProviderTL, acquire, $ReentrantContext*)},
-	{"release", "(Lsun/java2d/ReentrantContext;)V", "(TK;)V", $PUBLIC | $FINAL, $virtualMethod(ReentrantContextProviderTL, release, void, $ReentrantContext*)},
-	{}
-};
-
-$InnerClassInfo _ReentrantContextProviderTL_InnerClassesInfo_[] = {
-	{"sun.java2d.ReentrantContextProviderTL$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReentrantContextProviderTL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.ReentrantContextProviderTL",
-	"sun.java2d.ReentrantContextProvider",
-	nullptr,
-	_ReentrantContextProviderTL_FieldInfo_,
-	_ReentrantContextProviderTL_MethodInfo_,
-	"<K:Lsun/java2d/ReentrantContext;>Lsun/java2d/ReentrantContextProvider<TK;>;",
-	nullptr,
-	_ReentrantContextProviderTL_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.ReentrantContextProviderTL$1"
-};
-
-$Object* allocate$ReentrantContextProviderTL($Class* clazz) {
-	return $of($alloc(ReentrantContextProviderTL));
-}
 
 void ReentrantContextProviderTL::init$(int32_t refType) {
 	ReentrantContextProviderTL::init$(refType, $ReentrantContextProvider::REF_WEAK);
@@ -76,7 +36,7 @@ void ReentrantContextProviderTL::init$(int32_t refTypeTL, int32_t refTypeCLQ) {
 }
 
 $ReentrantContext* ReentrantContextProviderTL::acquire() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReentrantContext, ctx, nullptr);
 	$var($Reference, ref, $cast($Reference, $nc(this->ctxTL)->get()));
 	if (ref != nullptr) {
@@ -84,7 +44,7 @@ $ReentrantContext* ReentrantContextProviderTL::acquire() {
 	}
 	if (ctx == nullptr) {
 		$assign(ctx, newContext());
-		$nc(this->ctxTL)->set($(getOrCreateReference(ctx)));
+		this->ctxTL->set($(getOrCreateReference(ctx)));
 	}
 	if ($nc(ctx)->usage == $ReentrantContextProvider::USAGE_TL_INACTIVE) {
 		ctx->usage = $ReentrantContextProvider::USAGE_TL_IN_USE;
@@ -106,7 +66,39 @@ ReentrantContextProviderTL::ReentrantContextProviderTL() {
 }
 
 $Class* ReentrantContextProviderTL::load$($String* name, bool initialize) {
-	$loadClass(ReentrantContextProviderTL, name, initialize, &_ReentrantContextProviderTL_ClassInfo_, allocate$ReentrantContextProviderTL);
+	$FieldInfo fieldInfos$$[] = {
+		{"ctxTL", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/ref/Reference<TK;>;>;", $PRIVATE | $FINAL, $field(ReentrantContextProviderTL, ctxTL)},
+		{"ctxProviderCLQ", "Lsun/java2d/ReentrantContextProviderCLQ;", "Lsun/java2d/ReentrantContextProviderCLQ<TK;>;", $PRIVATE | $FINAL, $field(ReentrantContextProviderTL, ctxProviderCLQ)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ReentrantContextProviderTL, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ReentrantContextProviderTL, init$, void, int32_t, int32_t)},
+		{"acquire", "()Lsun/java2d/ReentrantContext;", "()TK;", $PUBLIC | $FINAL, $virtualMethod(ReentrantContextProviderTL, acquire, $ReentrantContext*)},
+		{"release", "(Lsun/java2d/ReentrantContext;)V", "(TK;)V", $PUBLIC | $FINAL, $virtualMethod(ReentrantContextProviderTL, release, void, $ReentrantContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.ReentrantContextProviderTL$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.ReentrantContextProviderTL",
+		"sun.java2d.ReentrantContextProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Lsun/java2d/ReentrantContext;>Lsun/java2d/ReentrantContextProvider<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.ReentrantContextProviderTL$1"
+	};
+	$loadClass(ReentrantContextProviderTL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReentrantContextProviderTL);
+	});
 	return class$;
 }
 

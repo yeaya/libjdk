@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/Modifier$1.h>
-
 #include <javax/lang/model/element/Modifier.h>
 #include <jcpp.h>
 
@@ -14,43 +13,6 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _Modifier$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Modifier$1, init$, void, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modifier$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _Modifier$1_EnclosingMethodInfo_ = {
-	"javax.lang.model.element.Modifier",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Modifier$1_InnerClassesInfo_[] = {
-	{"javax.lang.model.element.Modifier$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Modifier$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"javax.lang.model.element.Modifier$1",
-	"javax.lang.model.element.Modifier",
-	nullptr,
-	nullptr,
-	_Modifier$1_MethodInfo_,
-	nullptr,
-	&_Modifier$1_EnclosingMethodInfo_,
-	_Modifier$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.element.Modifier"
-};
-
-$Object* allocate$Modifier$1($Class* clazz) {
-	return $of($alloc(Modifier$1));
-}
-
 void Modifier$1::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Modifier::init$($enum$name, $enum$ordinal);
 }
@@ -63,7 +25,38 @@ Modifier$1::Modifier$1() {
 }
 
 $Class* Modifier$1::load$($String* name, bool initialize) {
-	$loadClass(Modifier$1, name, initialize, &_Modifier$1_ClassInfo_, allocate$Modifier$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Modifier$1, init$, void, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modifier$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.lang.model.element.Modifier",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.element.Modifier$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"javax.lang.model.element.Modifier$1",
+		"javax.lang.model.element.Modifier",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.element.Modifier"
+	};
+	$loadClass(Modifier$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Modifier$1));
+	});
 	return class$;
 }
 

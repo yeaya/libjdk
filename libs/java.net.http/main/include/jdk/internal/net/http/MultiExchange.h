@@ -104,6 +104,7 @@ class $import MultiExchange : public ::jdk::internal::net::http::common::Cancela
 	$class(MultiExchange, 0, ::jdk::internal::net::http::common::Cancelable)
 public:
 	MultiExchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::http::HttpRequest* userRequest, ::jdk::internal::net::http::HttpRequestImpl* requestImpl, ::jdk::internal::net::http::HttpClientImpl* client, ::java::net::http::HttpResponse$BodyHandler* responseHandler, ::java::net::http::HttpResponse$PushPromiseHandler* pushPromiseHandler, ::java::security::AccessControlContext* acc);
 	bool bodyIsPresent(::jdk::internal::net::http::Response* r);
 	static bool bodyNotPermitted(::jdk::internal::net::http::Response* r);

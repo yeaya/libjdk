@@ -1,5 +1,4 @@
 #include <sun/print/Win32MediaSize.h>
-
 #include <java/util/ArrayList.h>
 #include <javax/print/attribute/EnumSyntax.h>
 #include <javax/print/attribute/standard/MediaSize.h>
@@ -19,40 +18,6 @@ using $MediaSizeName = ::javax::print::attribute::standard::MediaSizeName;
 namespace sun {
 	namespace print {
 
-$FieldInfo _Win32MediaSize_FieldInfo_[] = {
-	{"winStringTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Win32MediaSize, winStringTable)},
-	{"winEnumTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/Win32MediaSize;>;", $PRIVATE | $STATIC, $staticField(Win32MediaSize, winEnumTable)},
-	{"predefMedia", "[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE | $STATIC, $staticField(Win32MediaSize, predefMedia)},
-	{"dmPaperID", "I", nullptr, $PRIVATE, $field(Win32MediaSize, dmPaperID)},
-	{}
-};
-
-$MethodInfo _Win32MediaSize_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(Win32MediaSize, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Win32MediaSize, init$, void, $String*, int32_t)},
-	{"findMediaName", "(Ljava/lang/String;)Lsun/print/Win32MediaSize;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Win32MediaSize, findMediaName, Win32MediaSize*, $String*)},
-	{"getDMPaper", "()I", nullptr, 0, $virtualMethod(Win32MediaSize, getDMPaper, int32_t)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Win32MediaSize, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getPredefMedia", "()[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32MediaSize, getPredefMedia, $MediaSizeArray*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Win32MediaSize, getStringTable, $StringArray*)},
-	{"getSuperEnumTable", "()[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $method(Win32MediaSize, getSuperEnumTable, $MediaSizeNameArray*)},
-	{"nextValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Win32MediaSize, nextValue, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _Win32MediaSize_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.Win32MediaSize",
-	"javax.print.attribute.standard.MediaSizeName",
-	nullptr,
-	_Win32MediaSize_FieldInfo_,
-	_Win32MediaSize_MethodInfo_
-};
-
-$Object* allocate$Win32MediaSize($Class* clazz) {
-	return $of($alloc(Win32MediaSize));
-}
-
 $ArrayList* Win32MediaSize::winStringTable = nullptr;
 $ArrayList* Win32MediaSize::winEnumTable = nullptr;
 $MediaSizeArray* Win32MediaSize::predefMedia = nullptr;
@@ -62,18 +27,16 @@ void Win32MediaSize::init$(int32_t x) {
 }
 
 int32_t Win32MediaSize::nextValue($String* name) {
-	$load(Win32MediaSize);
+	$init(Win32MediaSize);
 	$synchronized(class$) {
-		$init(Win32MediaSize);
 		$nc(Win32MediaSize::winStringTable)->add(name);
-		return ($nc(Win32MediaSize::winStringTable)->size() - 1);
+		return (Win32MediaSize::winStringTable->size() - 1);
 	}
 }
 
 Win32MediaSize* Win32MediaSize::findMediaName($String* name) {
-	$load(Win32MediaSize);
+	$init(Win32MediaSize);
 	$synchronized(class$) {
-		$init(Win32MediaSize);
 		int32_t nameIndex = $nc(Win32MediaSize::winStringTable)->indexOf(name);
 		if (nameIndex != -1) {
 			return $cast(Win32MediaSize, $nc(Win32MediaSize::winEnumTable)->get(nameIndex));
@@ -94,7 +57,7 @@ void Win32MediaSize::init$($String* name, int32_t dmPaper) {
 }
 
 $MediaSizeNameArray* Win32MediaSize::getSuperEnumTable() {
-	return $fcast($MediaSizeNameArray, $MediaSizeName::getEnumValueTable());
+	return $cast($MediaSizeNameArray, $MediaSizeName::getEnumValueTable());
 }
 
 int32_t Win32MediaSize::getDMPaper() {
@@ -103,27 +66,25 @@ int32_t Win32MediaSize::getDMPaper() {
 
 $StringArray* Win32MediaSize::getStringTable() {
 	$var($StringArray, nameTable, $new($StringArray, $nc(Win32MediaSize::winStringTable)->size()));
-	return $fcast($StringArray, $nc(Win32MediaSize::winStringTable)->toArray(nameTable));
+	return $cast($StringArray, Win32MediaSize::winStringTable->toArray(nameTable));
 }
 
 $EnumSyntaxArray* Win32MediaSize::getEnumValueTable() {
 	$var($MediaSizeNameArray, enumTable, $new($MediaSizeNameArray, $nc(Win32MediaSize::winEnumTable)->size()));
-	return $fcast($EnumSyntaxArray, $nc(Win32MediaSize::winEnumTable)->toArray(enumTable));
+	return $cast($EnumSyntaxArray, Win32MediaSize::winEnumTable->toArray(enumTable));
 }
 
-void clinit$Win32MediaSize($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Win32MediaSize::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Win32MediaSize::winStringTable, $new($ArrayList));
 	$assignStatic(Win32MediaSize::winEnumTable, $new($ArrayList));
 	{
-		{
-			$var(Win32MediaSize, winMedia, $new(Win32MediaSize, -1));
-			$var($MediaSizeNameArray, enumMedia, winMedia->getSuperEnumTable());
-			if (enumMedia != nullptr) {
-				$assignStatic(Win32MediaSize::predefMedia, $new($MediaSizeArray, enumMedia->length));
-				for (int32_t i = 0; i < enumMedia->length; ++i) {
-					$nc(Win32MediaSize::predefMedia)->set(i, $($MediaSize::getMediaSizeForName(enumMedia->get(i))));
-				}
+		$var(Win32MediaSize, winMedia, $new(Win32MediaSize, -1));
+		$var($MediaSizeNameArray, enumMedia, winMedia->getSuperEnumTable());
+		if (enumMedia != nullptr) {
+			$assignStatic(Win32MediaSize::predefMedia, $new($MediaSizeArray, enumMedia->length));
+			for (int32_t i = 0; i < enumMedia->length; ++i) {
+				$nc(Win32MediaSize::predefMedia)->set(i, $($MediaSize::getMediaSizeForName(enumMedia->get(i))));
 			}
 		}
 	}
@@ -133,7 +94,36 @@ Win32MediaSize::Win32MediaSize() {
 }
 
 $Class* Win32MediaSize::load$($String* name, bool initialize) {
-	$loadClass(Win32MediaSize, name, initialize, &_Win32MediaSize_ClassInfo_, clinit$Win32MediaSize, allocate$Win32MediaSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"winStringTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Win32MediaSize, winStringTable)},
+		{"winEnumTable", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/print/Win32MediaSize;>;", $PRIVATE | $STATIC, $staticField(Win32MediaSize, winEnumTable)},
+		{"predefMedia", "[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE | $STATIC, $staticField(Win32MediaSize, predefMedia)},
+		{"dmPaperID", "I", nullptr, $PRIVATE, $field(Win32MediaSize, dmPaperID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(Win32MediaSize, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Win32MediaSize, init$, void, $String*, int32_t)},
+		{"findMediaName", "(Ljava/lang/String;)Lsun/print/Win32MediaSize;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Win32MediaSize, findMediaName, Win32MediaSize*, $String*)},
+		{"getDMPaper", "()I", nullptr, 0, $virtualMethod(Win32MediaSize, getDMPaper, int32_t)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(Win32MediaSize, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getPredefMedia", "()[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(Win32MediaSize, getPredefMedia, $MediaSizeArray*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(Win32MediaSize, getStringTable, $StringArray*)},
+		{"getSuperEnumTable", "()[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $method(Win32MediaSize, getSuperEnumTable, $MediaSizeNameArray*)},
+		{"nextValue", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Win32MediaSize, nextValue, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.Win32MediaSize",
+		"javax.print.attribute.standard.MediaSizeName",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Win32MediaSize, name, initialize, &classInfo$$, Win32MediaSize::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32MediaSize));
+	});
 	return class$;
 }
 

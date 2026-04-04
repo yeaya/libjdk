@@ -1,5 +1,4 @@
 #include <javax/sound/midi/MetaEventListener.h>
-
 #include <javax/sound/midi/MetaMessage.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$MethodInfo _MetaEventListener_MethodInfo_[] = {
-	{"meta", "(Ljavax/sound/midi/MetaMessage;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MetaEventListener, meta, void, $MetaMessage*)},
-	{}
-};
-
-$ClassInfo _MetaEventListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sound.midi.MetaEventListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_MetaEventListener_MethodInfo_
-};
-
-$Object* allocate$MetaEventListener($Class* clazz) {
-	return $of($alloc(MetaEventListener));
-}
-
 $Class* MetaEventListener::load$($String* name, bool initialize) {
-	$loadClass(MetaEventListener, name, initialize, &_MetaEventListener_ClassInfo_, allocate$MetaEventListener);
+	$MethodInfo methodInfos$$[] = {
+		{"meta", "(Ljavax/sound/midi/MetaMessage;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MetaEventListener, meta, void, $MetaMessage*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sound.midi.MetaEventListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetaEventListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaEventListener);
+	});
 	return class$;
 }
 

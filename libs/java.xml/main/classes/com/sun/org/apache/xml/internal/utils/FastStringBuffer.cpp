@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
-
 #include <com/sun/org/apache/xml/internal/utils/XMLCharacterRecognizer.h>
 #include <java/lang/StringBuffer.h>
 #include <org/xml/sax/ContentHandler.h>
@@ -31,71 +30,6 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$FieldInfo _FastStringBuffer_FieldInfo_[] = {
-	{"DEBUG_FORCE_INIT_BITS", "I", nullptr, $STATIC | $FINAL, $constField(FastStringBuffer, DEBUG_FORCE_INIT_BITS)},
-	{"DEBUG_FORCE_FIXED_CHUNKSIZE", "Z", nullptr, $STATIC | $FINAL, $constField(FastStringBuffer, DEBUG_FORCE_FIXED_CHUNKSIZE)},
-	{"SUPPRESS_LEADING_WS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FastStringBuffer, SUPPRESS_LEADING_WS)},
-	{"SUPPRESS_TRAILING_WS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FastStringBuffer, SUPPRESS_TRAILING_WS)},
-	{"SUPPRESS_BOTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FastStringBuffer, SUPPRESS_BOTH)},
-	{"CARRY_WS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FastStringBuffer, CARRY_WS)},
-	{"m_chunkBits", "I", nullptr, 0, $field(FastStringBuffer, m_chunkBits)},
-	{"m_maxChunkBits", "I", nullptr, 0, $field(FastStringBuffer, m_maxChunkBits)},
-	{"m_rebundleBits", "I", nullptr, 0, $field(FastStringBuffer, m_rebundleBits)},
-	{"m_chunkSize", "I", nullptr, 0, $field(FastStringBuffer, m_chunkSize)},
-	{"m_chunkMask", "I", nullptr, 0, $field(FastStringBuffer, m_chunkMask)},
-	{"m_array", "[[C", nullptr, 0, $field(FastStringBuffer, m_array)},
-	{"m_lastChunk", "I", nullptr, 0, $field(FastStringBuffer, m_lastChunk)},
-	{"m_firstFree", "I", nullptr, 0, $field(FastStringBuffer, m_firstFree)},
-	{"m_innerFSB", "Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, 0, $field(FastStringBuffer, m_innerFSB)},
-	{"SINGLE_SPACE", "[C", nullptr, $STATIC | $FINAL, $staticField(FastStringBuffer, SINGLE_SPACE)},
-	{}
-};
-
-$MethodInfo _FastStringBuffer_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void, int32_t, int32_t, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void, int32_t, int32_t)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PRIVATE, $method(FastStringBuffer, init$, void, FastStringBuffer*)},
-	{"append", "(C)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, char16_t)},
-	{"append", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, $String*)},
-	{"append", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, $StringBuffer*)},
-	{"append", "([CII)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, $chars*, int32_t, int32_t)},
-	{"append", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, FastStringBuffer*)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, charAt, char16_t, int32_t)},
-	{"getChars", "(II[CI)V", nullptr, $PRIVATE, $method(FastStringBuffer, getChars, void, int32_t, int32_t, $chars*, int32_t)},
-	{"getOneChunkString", "(III)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FastStringBuffer, getOneChunkString, $String*, int32_t, int32_t, int32_t)},
-	{"getString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, getString, $String*, int32_t, int32_t)},
-	{"getString", "(Ljava/lang/StringBuffer;II)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(FastStringBuffer, getString, $StringBuffer*, $StringBuffer*, int32_t, int32_t)},
-	{"getString", "(Ljava/lang/StringBuffer;III)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(FastStringBuffer, getString, $StringBuffer*, $StringBuffer*, int32_t, int32_t, int32_t)},
-	{"isWhitespace", "(II)Z", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, isWhitespace, bool, int32_t, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, length, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, reset, void)},
-	{"sendNormalizedSAXcharacters", "(Lorg/xml/sax/ContentHandler;II)I", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, sendNormalizedSAXcharacters, int32_t, $ContentHandler*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"sendNormalizedSAXcharacters", "([CIILorg/xml/sax/ContentHandler;I)I", nullptr, $STATIC, $staticMethod(FastStringBuffer, sendNormalizedSAXcharacters, int32_t, $chars*, int32_t, int32_t, $ContentHandler*, int32_t), "org.xml.sax.SAXException"},
-	{"sendNormalizedSAXcharacters", "([CIILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FastStringBuffer, sendNormalizedSAXcharacters, void, $chars*, int32_t, int32_t, $ContentHandler*), "org.xml.sax.SAXException"},
-	{"sendSAXComment", "(Lorg/xml/sax/ext/LexicalHandler;II)V", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, sendSAXComment, void, $LexicalHandler*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"sendSAXcharacters", "(Lorg/xml/sax/ContentHandler;II)V", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, sendSAXcharacters, void, $ContentHandler*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"setLength", "(I)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, setLength, void, int32_t)},
-	{"setLength", "(ILcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PRIVATE | $FINAL, $method(FastStringBuffer, setLength, void, int32_t, FastStringBuffer*)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FastStringBuffer, toString, $String*)},
-	{}
-};
-
-$ClassInfo _FastStringBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.FastStringBuffer",
-	"java.lang.Object",
-	nullptr,
-	_FastStringBuffer_FieldInfo_,
-	_FastStringBuffer_MethodInfo_
-};
-
-$Object* allocate$FastStringBuffer($Class* clazz) {
-	return $of($alloc(FastStringBuffer));
-}
-
 $chars* FastStringBuffer::SINGLE_SPACE = nullptr;
 
 void FastStringBuffer::init$(int32_t initChunkBits, int32_t maxChunkBits, int32_t rebundleBits) {
@@ -105,6 +39,7 @@ void FastStringBuffer::init$(int32_t initChunkBits, int32_t maxChunkBits, int32_
 	this->m_lastChunk = 0;
 	this->m_firstFree = 0;
 	$set(this, m_innerFSB, nullptr);
+	;
 	maxChunkBits = initChunkBits;
 	$set(this, m_array, $new($charArray2, 16));
 	if (initChunkBits > maxChunkBits) {
@@ -115,7 +50,7 @@ void FastStringBuffer::init$(int32_t initChunkBits, int32_t maxChunkBits, int32_
 	this->m_rebundleBits = rebundleBits;
 	this->m_chunkSize = $sl(1, initChunkBits);
 	this->m_chunkMask = this->m_chunkSize - 1;
-	$nc(this->m_array)->set(0, $$new($chars, this->m_chunkSize));
+	this->m_array->set(0, $$new($chars, this->m_chunkSize));
 }
 
 void FastStringBuffer::init$(int32_t initChunkBits, int32_t maxChunkBits) {
@@ -139,7 +74,7 @@ int32_t FastStringBuffer::length() {
 }
 
 void FastStringBuffer::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->m_lastChunk = 0;
 	this->m_firstFree = 0;
 	$var(FastStringBuffer, innermost, this);
@@ -151,15 +86,15 @@ void FastStringBuffer::reset() {
 	this->m_chunkMask = innermost->m_chunkMask;
 	$set(this, m_innerFSB, nullptr);
 	$set(this, m_array, $new($charArray2, 16, 0));
-	$nc(this->m_array)->set(0, $$new($chars, this->m_chunkSize));
+	this->m_array->set(0, $$new($chars, this->m_chunkSize));
 }
 
 void FastStringBuffer::setLength(int32_t l) {
 	this->m_lastChunk = $usr(l, this->m_chunkBits);
 	if (this->m_lastChunk == 0 && this->m_innerFSB != nullptr) {
-		$nc(this->m_innerFSB)->setLength(l, this);
+		this->m_innerFSB->setLength(l, this);
 	} else {
-		this->m_firstFree = (int32_t)(l & (uint32_t)this->m_chunkMask);
+		this->m_firstFree = l & this->m_chunkMask;
 		if (this->m_firstFree == 0 && this->m_lastChunk > 0) {
 			--this->m_lastChunk;
 			this->m_firstFree = this->m_chunkSize;
@@ -170,7 +105,7 @@ void FastStringBuffer::setLength(int32_t l) {
 void FastStringBuffer::setLength(int32_t l, FastStringBuffer* rootFSB) {
 	this->m_lastChunk = $usr(l, this->m_chunkBits);
 	if (this->m_lastChunk == 0 && this->m_innerFSB != nullptr) {
-		$nc(this->m_innerFSB)->setLength(l, rootFSB);
+		this->m_innerFSB->setLength(l, rootFSB);
 	} else {
 		$nc(rootFSB)->m_chunkBits = this->m_chunkBits;
 		rootFSB->m_maxChunkBits = this->m_maxChunkBits;
@@ -180,35 +115,35 @@ void FastStringBuffer::setLength(int32_t l, FastStringBuffer* rootFSB) {
 		$set(rootFSB, m_array, this->m_array);
 		$set(rootFSB, m_innerFSB, this->m_innerFSB);
 		rootFSB->m_lastChunk = this->m_lastChunk;
-		rootFSB->m_firstFree = (int32_t)(l & (uint32_t)this->m_chunkMask);
+		rootFSB->m_firstFree = l & this->m_chunkMask;
 	}
 }
 
 $String* FastStringBuffer::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = ($sl(this->m_lastChunk, this->m_chunkBits)) + this->m_firstFree;
-	return $nc($(getString($$new($StringBuffer, length), 0, 0, length)))->toString();
+	return $$nc(getString($$new($StringBuffer, length), 0, 0, length))->toString();
 }
 
 void FastStringBuffer::append(char16_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, chunk, nullptr);
 	bool lastchunk = (this->m_lastChunk + 1 == $nc(this->m_array)->length);
 	if (this->m_firstFree < this->m_chunkSize) {
-		$assign(chunk, $nc(this->m_array)->get(this->m_lastChunk));
+		$assign(chunk, this->m_array->get(this->m_lastChunk));
 	} else {
-		int32_t i = $nc(this->m_array)->length;
+		int32_t i = this->m_array->length;
 		if (this->m_lastChunk + 1 == i) {
 			$var($charArray2, newarray, $new($charArray2, i + 16));
 			$System::arraycopy(this->m_array, 0, newarray, 0, i);
 			$set(this, m_array, newarray);
 		}
-		$assign(chunk, $nc(this->m_array)->get(++this->m_lastChunk));
+		$assign(chunk, this->m_array->get(++this->m_lastChunk));
 		if (chunk == nullptr) {
 			if (this->m_lastChunk == $sl(1, this->m_rebundleBits) && this->m_chunkBits < this->m_maxChunkBits) {
 				$set(this, m_innerFSB, $new(FastStringBuffer, this));
 			}
-			$assign(chunk, ($nc(this->m_array)->set(this->m_lastChunk, $$new($chars, this->m_chunkSize))));
+			$assign(chunk, this->m_array->set(this->m_lastChunk, $$new($chars, this->m_chunkSize)));
 		}
 		this->m_firstFree = 0;
 	}
@@ -216,7 +151,7 @@ void FastStringBuffer::append(char16_t value) {
 }
 
 void FastStringBuffer::append($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return;
 	}
@@ -235,18 +170,18 @@ void FastStringBuffer::append($String* value) {
 		strlen -= available;
 		copyfrom += available;
 		if (strlen > 0) {
-			int32_t i = $nc(this->m_array)->length;
+			int32_t i = this->m_array->length;
 			if (this->m_lastChunk + 1 == i) {
 				$var($charArray2, newarray, $new($charArray2, i + 16));
 				$System::arraycopy(this->m_array, 0, newarray, 0, i);
 				$set(this, m_array, newarray);
 			}
-			$assign(chunk, $nc(this->m_array)->get(++this->m_lastChunk));
+			$assign(chunk, this->m_array->get(++this->m_lastChunk));
 			if (chunk == nullptr) {
 				if (this->m_lastChunk == $sl(1, this->m_rebundleBits) && this->m_chunkBits < this->m_maxChunkBits) {
 					$set(this, m_innerFSB, $new(FastStringBuffer, this));
 				}
-				$assign(chunk, ($nc(this->m_array)->set(this->m_lastChunk, $$new($chars, this->m_chunkSize))));
+				$assign(chunk, this->m_array->set(this->m_lastChunk, $$new($chars, this->m_chunkSize)));
 			}
 			available = this->m_chunkSize;
 			this->m_firstFree = 0;
@@ -256,7 +191,7 @@ void FastStringBuffer::append($String* value) {
 }
 
 void FastStringBuffer::append($StringBuffer* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return;
 	}
@@ -275,18 +210,18 @@ void FastStringBuffer::append($StringBuffer* value) {
 		strlen -= available;
 		copyfrom += available;
 		if (strlen > 0) {
-			int32_t i = $nc(this->m_array)->length;
+			int32_t i = this->m_array->length;
 			if (this->m_lastChunk + 1 == i) {
 				$var($charArray2, newarray, $new($charArray2, i + 16));
 				$System::arraycopy(this->m_array, 0, newarray, 0, i);
 				$set(this, m_array, newarray);
 			}
-			$assign(chunk, $nc(this->m_array)->get(++this->m_lastChunk));
+			$assign(chunk, this->m_array->get(++this->m_lastChunk));
 			if (chunk == nullptr) {
 				if (this->m_lastChunk == $sl(1, this->m_rebundleBits) && this->m_chunkBits < this->m_maxChunkBits) {
 					$set(this, m_innerFSB, $new(FastStringBuffer, this));
 				}
-				$assign(chunk, ($nc(this->m_array)->set(this->m_lastChunk, $$new($chars, this->m_chunkSize))));
+				$assign(chunk, this->m_array->set(this->m_lastChunk, $$new($chars, this->m_chunkSize)));
 			}
 			available = this->m_chunkSize;
 			this->m_firstFree = 0;
@@ -296,7 +231,7 @@ void FastStringBuffer::append($StringBuffer* value) {
 }
 
 void FastStringBuffer::append($chars* chars, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t strlen = length;
 	if (0 == strlen) {
 		return;
@@ -312,18 +247,18 @@ void FastStringBuffer::append($chars* chars, int32_t start, int32_t length) {
 		strlen -= available;
 		copyfrom += available;
 		if (strlen > 0) {
-			int32_t i = $nc(this->m_array)->length;
+			int32_t i = this->m_array->length;
 			if (this->m_lastChunk + 1 == i) {
 				$var($charArray2, newarray, $new($charArray2, i + 16));
 				$System::arraycopy(this->m_array, 0, newarray, 0, i);
 				$set(this, m_array, newarray);
 			}
-			$assign(chunk, $nc(this->m_array)->get(++this->m_lastChunk));
+			$assign(chunk, this->m_array->get(++this->m_lastChunk));
 			if (chunk == nullptr) {
 				if (this->m_lastChunk == $sl(1, this->m_rebundleBits) && this->m_chunkBits < this->m_maxChunkBits) {
 					$set(this, m_innerFSB, $new(FastStringBuffer, this));
 				}
-				$assign(chunk, ($nc(this->m_array)->set(this->m_lastChunk, $$new($chars, this->m_chunkSize))));
+				$assign(chunk, this->m_array->set(this->m_lastChunk, $$new($chars, this->m_chunkSize)));
 			}
 			available = this->m_chunkSize;
 			this->m_firstFree = 0;
@@ -333,7 +268,7 @@ void FastStringBuffer::append($chars* chars, int32_t start, int32_t length) {
 }
 
 void FastStringBuffer::append(FastStringBuffer* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return;
 	}
@@ -349,30 +284,30 @@ void FastStringBuffer::append(FastStringBuffer* value) {
 			available = strlen;
 		}
 		int32_t sourcechunk = $usr(copyfrom + value->m_chunkSize - 1, value->m_chunkBits);
-		int32_t sourcecolumn = (int32_t)(copyfrom & (uint32_t)value->m_chunkMask);
+		int32_t sourcecolumn = copyfrom & value->m_chunkMask;
 		int32_t runlength = value->m_chunkSize - sourcecolumn;
 		if (runlength > available) {
 			runlength = available;
 		}
 		$System::arraycopy($nc(value->m_array)->get(sourcechunk), sourcecolumn, $nc(this->m_array)->get(this->m_lastChunk), this->m_firstFree, runlength);
 		if (runlength != available) {
-			$System::arraycopy($nc(value->m_array)->get(sourcechunk + 1), 0, $nc(this->m_array)->get(this->m_lastChunk), this->m_firstFree + runlength, available - runlength);
+			$System::arraycopy(value->m_array->get(sourcechunk + 1), 0, this->m_array->get(this->m_lastChunk), this->m_firstFree + runlength, available - runlength);
 		}
 		strlen -= available;
 		copyfrom += available;
 		if (strlen > 0) {
-			int32_t i = $nc(this->m_array)->length;
+			int32_t i = this->m_array->length;
 			if (this->m_lastChunk + 1 == i) {
 				$var($charArray2, newarray, $new($charArray2, i + 16));
 				$System::arraycopy(this->m_array, 0, newarray, 0, i);
 				$set(this, m_array, newarray);
 			}
-			$assign(chunk, $nc(this->m_array)->get(++this->m_lastChunk));
+			$assign(chunk, this->m_array->get(++this->m_lastChunk));
 			if (chunk == nullptr) {
 				if (this->m_lastChunk == $sl(1, this->m_rebundleBits) && this->m_chunkBits < this->m_maxChunkBits) {
 					$set(this, m_innerFSB, $new(FastStringBuffer, this));
 				}
-				$assign(chunk, ($nc(this->m_array)->set(this->m_lastChunk, $$new($chars, this->m_chunkSize))));
+				$assign(chunk, this->m_array->set(this->m_lastChunk, $$new($chars, this->m_chunkSize)));
 			}
 			available = this->m_chunkSize;
 			this->m_firstFree = 0;
@@ -383,13 +318,13 @@ void FastStringBuffer::append(FastStringBuffer* value) {
 
 bool FastStringBuffer::isWhitespace(int32_t start, int32_t length) {
 	int32_t sourcechunk = $usr(start, this->m_chunkBits);
-	int32_t sourcecolumn = (int32_t)(start & (uint32_t)this->m_chunkMask);
+	int32_t sourcecolumn = start & this->m_chunkMask;
 	int32_t available = this->m_chunkSize - sourcecolumn;
 	bool chunkOK = false;
 	while (length > 0) {
 		int32_t runlength = (length <= available) ? length : available;
 		if (sourcechunk == 0 && this->m_innerFSB != nullptr) {
-			chunkOK = $nc(this->m_innerFSB)->isWhitespace(sourcecolumn, runlength);
+			chunkOK = this->m_innerFSB->isWhitespace(sourcecolumn, runlength);
 		} else {
 			chunkOK = $XMLCharacterRecognizer::isWhiteSpace($nc(this->m_array)->get(sourcechunk), sourcecolumn, runlength);
 		}
@@ -405,13 +340,13 @@ bool FastStringBuffer::isWhitespace(int32_t start, int32_t length) {
 }
 
 $String* FastStringBuffer::getString(int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
-	int32_t startColumn = (int32_t)(start & (uint32_t)this->m_chunkMask);
+	$useLocalObjectStack();
+	int32_t startColumn = start & this->m_chunkMask;
 	int32_t startChunk = $usr(start, this->m_chunkBits);
 	if (startColumn + length < this->m_chunkMask && this->m_innerFSB == nullptr) {
 		return getOneChunkString(startChunk, startColumn, length);
 	}
-	return $nc($(getString($$new($StringBuffer, length), startChunk, startColumn, length)))->toString();
+	return $$nc(getString($$new($StringBuffer, length), startChunk, startColumn, length))->toString();
 }
 
 $String* FastStringBuffer::getOneChunkString(int32_t startChunk, int32_t startColumn, int32_t length) {
@@ -419,23 +354,23 @@ $String* FastStringBuffer::getOneChunkString(int32_t startChunk, int32_t startCo
 }
 
 $StringBuffer* FastStringBuffer::getString($StringBuffer* sb, int32_t start, int32_t length) {
-	return getString(sb, $usr(start, this->m_chunkBits), (int32_t)(start & (uint32_t)this->m_chunkMask), length);
+	return getString(sb, $usr(start, this->m_chunkBits), start & this->m_chunkMask, length);
 }
 
 $StringBuffer* FastStringBuffer::getString($StringBuffer* sb, int32_t startChunk, int32_t startColumn, int32_t length) {
 	int32_t stop = ($sl(startChunk, this->m_chunkBits)) + startColumn + length;
 	int32_t stopChunk = $usr(stop, this->m_chunkBits);
-	int32_t stopColumn = (int32_t)(stop & (uint32_t)this->m_chunkMask);
+	int32_t stopColumn = stop & this->m_chunkMask;
 	for (int32_t i = startChunk; i < stopChunk; ++i) {
 		if (i == 0 && this->m_innerFSB != nullptr) {
-			$nc(this->m_innerFSB)->getString(sb, startColumn, this->m_chunkSize - startColumn);
+			this->m_innerFSB->getString(sb, startColumn, this->m_chunkSize - startColumn);
 		} else {
 			$nc(sb)->append($nc(this->m_array)->get(i), startColumn, this->m_chunkSize - startColumn);
 		}
 		startColumn = 0;
 	}
 	if (stopChunk == 0 && this->m_innerFSB != nullptr) {
-		$nc(this->m_innerFSB)->getString(sb, startColumn, stopColumn - startColumn);
+		this->m_innerFSB->getString(sb, startColumn, stopColumn - startColumn);
 	} else if (stopColumn > startColumn) {
 		$nc(sb)->append($nc(this->m_array)->get(stopChunk), startColumn, stopColumn - startColumn);
 	}
@@ -445,32 +380,32 @@ $StringBuffer* FastStringBuffer::getString($StringBuffer* sb, int32_t startChunk
 char16_t FastStringBuffer::charAt(int32_t pos) {
 	int32_t startChunk = $usr(pos, this->m_chunkBits);
 	if (startChunk == 0 && this->m_innerFSB != nullptr) {
-		return $nc(this->m_innerFSB)->charAt((int32_t)(pos & (uint32_t)this->m_chunkMask));
+		return this->m_innerFSB->charAt(pos & this->m_chunkMask);
 	} else {
-		return $nc($nc(this->m_array)->get(startChunk))->get((int32_t)(pos & (uint32_t)this->m_chunkMask));
+		return $nc($nc(this->m_array)->get(startChunk))->get(pos & this->m_chunkMask);
 	}
 }
 
 void FastStringBuffer::sendSAXcharacters($ContentHandler* ch, int32_t start, int32_t length) {
 	int32_t startChunk = $usr(start, this->m_chunkBits);
-	int32_t startColumn = (int32_t)(start & (uint32_t)this->m_chunkMask);
+	int32_t startColumn = start & this->m_chunkMask;
 	if (startColumn + length < this->m_chunkMask && this->m_innerFSB == nullptr) {
 		$nc(ch)->characters($nc(this->m_array)->get(startChunk), startColumn, length);
 		return;
 	}
 	int32_t stop = start + length;
 	int32_t stopChunk = $usr(stop, this->m_chunkBits);
-	int32_t stopColumn = (int32_t)(stop & (uint32_t)this->m_chunkMask);
+	int32_t stopColumn = stop & this->m_chunkMask;
 	for (int32_t i = startChunk; i < stopChunk; ++i) {
 		if (i == 0 && this->m_innerFSB != nullptr) {
-			$nc(this->m_innerFSB)->sendSAXcharacters(ch, startColumn, this->m_chunkSize - startColumn);
+			this->m_innerFSB->sendSAXcharacters(ch, startColumn, this->m_chunkSize - startColumn);
 		} else {
 			$nc(ch)->characters($nc(this->m_array)->get(i), startColumn, this->m_chunkSize - startColumn);
 		}
 		startColumn = 0;
 	}
 	if (stopChunk == 0 && this->m_innerFSB != nullptr) {
-		$nc(this->m_innerFSB)->sendSAXcharacters(ch, startColumn, stopColumn - startColumn);
+		this->m_innerFSB->sendSAXcharacters(ch, startColumn, stopColumn - startColumn);
 	} else if (stopColumn > startColumn) {
 		$nc(ch)->characters($nc(this->m_array)->get(stopChunk), startColumn, stopColumn - startColumn);
 	}
@@ -480,19 +415,19 @@ int32_t FastStringBuffer::sendNormalizedSAXcharacters($ContentHandler* ch, int32
 	int32_t stateForNextChunk = FastStringBuffer::SUPPRESS_LEADING_WS;
 	int32_t stop = start + length;
 	int32_t startChunk = $usr(start, this->m_chunkBits);
-	int32_t startColumn = (int32_t)(start & (uint32_t)this->m_chunkMask);
+	int32_t startColumn = start & this->m_chunkMask;
 	int32_t stopChunk = $usr(stop, this->m_chunkBits);
-	int32_t stopColumn = (int32_t)(stop & (uint32_t)this->m_chunkMask);
+	int32_t stopColumn = stop & this->m_chunkMask;
 	for (int32_t i = startChunk; i < stopChunk; ++i) {
 		if (i == 0 && this->m_innerFSB != nullptr) {
-			stateForNextChunk = $nc(this->m_innerFSB)->sendNormalizedSAXcharacters(ch, startColumn, this->m_chunkSize - startColumn);
+			stateForNextChunk = this->m_innerFSB->sendNormalizedSAXcharacters(ch, startColumn, this->m_chunkSize - startColumn);
 		} else {
 			stateForNextChunk = sendNormalizedSAXcharacters($nc(this->m_array)->get(i), startColumn, this->m_chunkSize - startColumn, ch, stateForNextChunk);
 		}
 		startColumn = 0;
 	}
 	if (stopChunk == 0 && this->m_innerFSB != nullptr) {
-		stateForNextChunk = $nc(this->m_innerFSB)->sendNormalizedSAXcharacters(ch, startColumn, stopColumn - startColumn);
+		stateForNextChunk = this->m_innerFSB->sendNormalizedSAXcharacters(ch, startColumn, stopColumn - startColumn);
 	} else if (stopColumn > startColumn) {
 		stateForNextChunk = sendNormalizedSAXcharacters($nc(this->m_array)->get(stopChunk), startColumn, stopColumn - startColumn, ch, stateForNextChunk | FastStringBuffer::SUPPRESS_TRAILING_WS);
 	}
@@ -501,9 +436,9 @@ int32_t FastStringBuffer::sendNormalizedSAXcharacters($ContentHandler* ch, int32
 
 int32_t FastStringBuffer::sendNormalizedSAXcharacters($chars* ch, int32_t start, int32_t length, $ContentHandler* handler, int32_t edgeTreatmentFlags) {
 	$init(FastStringBuffer);
-	bool processingLeadingWhitespace = (((int32_t)(edgeTreatmentFlags & (uint32_t)FastStringBuffer::SUPPRESS_LEADING_WS)) != 0);
-	bool seenWhitespace = (((int32_t)(edgeTreatmentFlags & (uint32_t)FastStringBuffer::CARRY_WS)) != 0);
-	bool suppressTrailingWhitespace = (((int32_t)(edgeTreatmentFlags & (uint32_t)FastStringBuffer::SUPPRESS_TRAILING_WS)) != 0);
+	bool processingLeadingWhitespace = ((edgeTreatmentFlags & FastStringBuffer::SUPPRESS_LEADING_WS) != 0);
+	bool seenWhitespace = ((edgeTreatmentFlags & FastStringBuffer::CARRY_WS) != 0);
+	bool suppressTrailingWhitespace = ((edgeTreatmentFlags & FastStringBuffer::SUPPRESS_TRAILING_WS) != 0);
 	int32_t currPos = start;
 	int32_t limit = start + length;
 	if (processingLeadingWhitespace) {
@@ -531,7 +466,7 @@ int32_t FastStringBuffer::sendNormalizedSAXcharacters($chars* ch, int32_t start,
 			seenWhitespace = true;
 		}
 	}
-	return (seenWhitespace ? FastStringBuffer::CARRY_WS : 0) | ((int32_t)(edgeTreatmentFlags & (uint32_t)FastStringBuffer::SUPPRESS_TRAILING_WS));
+	return (seenWhitespace ? FastStringBuffer::CARRY_WS : 0) | (edgeTreatmentFlags & FastStringBuffer::SUPPRESS_TRAILING_WS);
 }
 
 void FastStringBuffer::sendNormalizedSAXcharacters($chars* ch, int32_t start, int32_t length, $ContentHandler* handler) {
@@ -540,7 +475,7 @@ void FastStringBuffer::sendNormalizedSAXcharacters($chars* ch, int32_t start, in
 }
 
 void FastStringBuffer::sendSAXComment($LexicalHandler* ch, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, comment, getString(start, length));
 	$nc(ch)->comment($($nc(comment)->toCharArray()), 0, length);
 }
@@ -573,7 +508,7 @@ void FastStringBuffer::init$(FastStringBuffer* source) {
 	source->m_chunkMask = source->m_chunkSize - 1;
 }
 
-void clinit$FastStringBuffer($Class* class$) {
+void FastStringBuffer::clinit$($Class* clazz) {
 	$assignStatic(FastStringBuffer::SINGLE_SPACE, $new($chars, {u' '}));
 }
 
@@ -581,7 +516,67 @@ FastStringBuffer::FastStringBuffer() {
 }
 
 $Class* FastStringBuffer::load$($String* name, bool initialize) {
-	$loadClass(FastStringBuffer, name, initialize, &_FastStringBuffer_ClassInfo_, clinit$FastStringBuffer, allocate$FastStringBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG_FORCE_INIT_BITS", "I", nullptr, $STATIC | $FINAL, $constField(FastStringBuffer, DEBUG_FORCE_INIT_BITS)},
+		{"DEBUG_FORCE_FIXED_CHUNKSIZE", "Z", nullptr, $STATIC | $FINAL, $constField(FastStringBuffer, DEBUG_FORCE_FIXED_CHUNKSIZE)},
+		{"SUPPRESS_LEADING_WS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FastStringBuffer, SUPPRESS_LEADING_WS)},
+		{"SUPPRESS_TRAILING_WS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FastStringBuffer, SUPPRESS_TRAILING_WS)},
+		{"SUPPRESS_BOTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FastStringBuffer, SUPPRESS_BOTH)},
+		{"CARRY_WS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FastStringBuffer, CARRY_WS)},
+		{"m_chunkBits", "I", nullptr, 0, $field(FastStringBuffer, m_chunkBits)},
+		{"m_maxChunkBits", "I", nullptr, 0, $field(FastStringBuffer, m_maxChunkBits)},
+		{"m_rebundleBits", "I", nullptr, 0, $field(FastStringBuffer, m_rebundleBits)},
+		{"m_chunkSize", "I", nullptr, 0, $field(FastStringBuffer, m_chunkSize)},
+		{"m_chunkMask", "I", nullptr, 0, $field(FastStringBuffer, m_chunkMask)},
+		{"m_array", "[[C", nullptr, 0, $field(FastStringBuffer, m_array)},
+		{"m_lastChunk", "I", nullptr, 0, $field(FastStringBuffer, m_lastChunk)},
+		{"m_firstFree", "I", nullptr, 0, $field(FastStringBuffer, m_firstFree)},
+		{"m_innerFSB", "Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;", nullptr, 0, $field(FastStringBuffer, m_innerFSB)},
+		{"SINGLE_SPACE", "[C", nullptr, $STATIC | $FINAL, $staticField(FastStringBuffer, SINGLE_SPACE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void, int32_t, int32_t, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void, int32_t, int32_t)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FastStringBuffer, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PRIVATE, $method(FastStringBuffer, init$, void, FastStringBuffer*)},
+		{"append", "(C)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, char16_t)},
+		{"append", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, $String*)},
+		{"append", "(Ljava/lang/StringBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, $StringBuffer*)},
+		{"append", "([CII)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, $chars*, int32_t, int32_t)},
+		{"append", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, append, void, FastStringBuffer*)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, charAt, char16_t, int32_t)},
+		{"getChars", "(II[CI)V", nullptr, $PRIVATE, $method(FastStringBuffer, getChars, void, int32_t, int32_t, $chars*, int32_t)},
+		{"getOneChunkString", "(III)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FastStringBuffer, getOneChunkString, $String*, int32_t, int32_t, int32_t)},
+		{"getString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, getString, $String*, int32_t, int32_t)},
+		{"getString", "(Ljava/lang/StringBuffer;II)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(FastStringBuffer, getString, $StringBuffer*, $StringBuffer*, int32_t, int32_t)},
+		{"getString", "(Ljava/lang/StringBuffer;III)Ljava/lang/StringBuffer;", nullptr, 0, $virtualMethod(FastStringBuffer, getString, $StringBuffer*, $StringBuffer*, int32_t, int32_t, int32_t)},
+		{"isWhitespace", "(II)Z", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, isWhitespace, bool, int32_t, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, length, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, reset, void)},
+		{"sendNormalizedSAXcharacters", "(Lorg/xml/sax/ContentHandler;II)I", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, sendNormalizedSAXcharacters, int32_t, $ContentHandler*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"sendNormalizedSAXcharacters", "([CIILorg/xml/sax/ContentHandler;I)I", nullptr, $STATIC, $staticMethod(FastStringBuffer, sendNormalizedSAXcharacters, int32_t, $chars*, int32_t, int32_t, $ContentHandler*, int32_t), "org.xml.sax.SAXException"},
+		{"sendNormalizedSAXcharacters", "([CIILorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FastStringBuffer, sendNormalizedSAXcharacters, void, $chars*, int32_t, int32_t, $ContentHandler*), "org.xml.sax.SAXException"},
+		{"sendSAXComment", "(Lorg/xml/sax/ext/LexicalHandler;II)V", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, sendSAXComment, void, $LexicalHandler*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"sendSAXcharacters", "(Lorg/xml/sax/ContentHandler;II)V", nullptr, $PUBLIC, $virtualMethod(FastStringBuffer, sendSAXcharacters, void, $ContentHandler*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"setLength", "(I)V", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, setLength, void, int32_t)},
+		{"setLength", "(ILcom/sun/org/apache/xml/internal/utils/FastStringBuffer;)V", nullptr, $PRIVATE | $FINAL, $method(FastStringBuffer, setLength, void, int32_t, FastStringBuffer*)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(FastStringBuffer, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FastStringBuffer, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.FastStringBuffer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FastStringBuffer, name, initialize, &classInfo$$, FastStringBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FastStringBuffer);
+	});
 	return class$;
 }
 

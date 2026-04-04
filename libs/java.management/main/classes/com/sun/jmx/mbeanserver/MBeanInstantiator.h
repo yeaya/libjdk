@@ -51,6 +51,7 @@ class MBeanInstantiator : public ::java::lang::Object {
 	$class(MBeanInstantiator, 0, ::java::lang::Object)
 public:
 	MBeanInstantiator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::jmx::mbeanserver::ModifiableClassLoaderRepository* clr);
 	static void checkMBeanPermission($Class* clazz, $String* member, ::javax::management::ObjectName* objectName, $String* actions);
 	static void checkMBeanPermission($String* classname, $String* member, ::javax::management::ObjectName* objectName, $String* actions);

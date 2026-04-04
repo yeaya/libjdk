@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CAccessibility.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Number.h>
 #include <java/lang/Runnable.h>
@@ -18,14 +16,12 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <java/util/concurrent/Callable.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleAction.h>
-#include <javax/accessibility/AccessibleBundle.h>
 #include <javax/accessibility/AccessibleComponent.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
@@ -95,7 +91,6 @@ using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Point = ::java::awt::Point;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -110,14 +105,12 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $Callable = ::java::util::concurrent::Callable;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleAction = ::javax::accessibility::AccessibleAction;
-using $AccessibleBundle = ::javax::accessibility::AccessibleBundle;
 using $AccessibleComponent = ::javax::accessibility::AccessibleComponent;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
@@ -132,7 +125,6 @@ using $JLabel = ::javax::swing::JLabel;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AccessibleBundleAccessor = ::sun::awt::AWTAccessor$AccessibleBundleAccessor;
 using $CAccessibility$1 = ::sun::lwawt::macosx::CAccessibility$1;
 using $CAccessibility$10 = ::sun::lwawt::macosx::CAccessibility$10;
 using $CAccessibility$11 = ::sun::lwawt::macosx::CAccessibility$11;
@@ -186,174 +178,42 @@ public:
 	virtual $Object* call() override {
 		 return $of(CAccessibility::lambda$getTableInfo$0(a, info));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CAccessibility$$Lambda$lambda$getTableInfo$0>());
-	}
 	$Accessible* a = nullptr;
 	int32_t info = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CAccessibility$$Lambda$lambda$getTableInfo$0::fieldInfos[3] = {
-	{"a", "Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $field(CAccessibility$$Lambda$lambda$getTableInfo$0, a)},
-	{"info", "I", nullptr, $PUBLIC, $field(CAccessibility$$Lambda$lambda$getTableInfo$0, info)},
-	{}
-};
-$MethodInfo CAccessibility$$Lambda$lambda$getTableInfo$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/accessibility/Accessible;I)V", nullptr, $PUBLIC, $method(CAccessibility$$Lambda$lambda$getTableInfo$0, init$, void, $Accessible*, int32_t)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$$Lambda$lambda$getTableInfo$0, call, $Object*)},
-	{}
-};
-$ClassInfo CAccessibility$$Lambda$lambda$getTableInfo$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CAccessibility$$Lambda$lambda$getTableInfo$0",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CAccessibility$$Lambda$lambda$getTableInfo$0::load$($String* name, bool initialize) {
-	$loadClass(CAccessibility$$Lambda$lambda$getTableInfo$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"a", "Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $field(CAccessibility$$Lambda$lambda$getTableInfo$0, a)},
+		{"info", "I", nullptr, $PUBLIC, $field(CAccessibility$$Lambda$lambda$getTableInfo$0, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/accessibility/Accessible;I)V", nullptr, $PUBLIC, $method(CAccessibility$$Lambda$lambda$getTableInfo$0, init$, void, $Accessible*, int32_t)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$$Lambda$lambda$getTableInfo$0, call, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CAccessibility$$Lambda$lambda$getTableInfo$0",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CAccessibility$$Lambda$lambda$getTableInfo$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibility$$Lambda$lambda$getTableInfo$0);
+	});
 	return class$;
 }
 $Class* CAccessibility$$Lambda$lambda$getTableInfo$0::class$ = nullptr;
-
-$FieldInfo _CAccessibility_FieldInfo_[] = {
-	{"ignoredRoles", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(CAccessibility, ignoredRoles)},
-	{"sAccessibility", "Lsun/lwawt/macosx/CAccessibility;", nullptr, $STATIC, $staticField(CAccessibility, sAccessibility)},
-	{"JAVA_AX_ALL_CHILDREN", "I", nullptr, $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_ALL_CHILDREN)},
-	{"JAVA_AX_SELECTED_CHILDREN", "I", nullptr, $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_SELECTED_CHILDREN)},
-	{"JAVA_AX_VISIBLE_CHILDREN", "I", nullptr, $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_VISIBLE_CHILDREN)},
-	{"JAVA_AX_ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_ROWS)},
-	{"JAVA_AX_COLS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_COLS)},
-	{}
-};
-
-$MethodInfo _CAccessibility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CAccessibility, init$, void)},
-	{"_addChildren", "(Ljavax/accessibility/Accessible;IZLjava/util/ArrayList;)V", "(Ljavax/accessibility/Accessible;IZLjava/util/ArrayList<Ljava/lang/Object;>;)V", $PRIVATE | $STATIC, $staticMethod(CAccessibility, _addChildren, void, $Accessible*, int32_t, bool, $ArrayList*)},
-	{"accessibilityHitTest", "(Ljava/awt/Container;FF)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, accessibilityHitTest, $Accessible*, $Container*, float, float)},
-	{"addAccessibleSelection", "(Ljavax/accessibility/AccessibleContext;ILjava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, addAccessibleSelection, void, $AccessibleContext*, int32_t, $Component*)},
-	{"ax_getAccessibleSelection", "(Ljavax/accessibility/AccessibleContext;ILjava/awt/Component;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, ax_getAccessibleSelection, $Accessible*, $AccessibleContext*, int32_t, $Component*)},
-	{"contains", "(Ljavax/accessibility/AccessibleContext;Ljavax/accessibility/AccessibleState;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, contains, bool, $AccessibleContext*, $AccessibleState*, $Component*)},
-	{"doAccessibleAction", "(Ljavax/accessibility/AccessibleAction;ILjava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, doAccessibleAction, void, $AccessibleAction*, int32_t, $Component*)},
-	{"focusChanged", "()V", nullptr, $PRIVATE | $NATIVE, $method(CAccessibility, focusChanged, void)},
-	{"getAWTView", "(Ljavax/accessibility/Accessible;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAWTView, int64_t, $Accessible*)},
-	{"getAcceleratorText", "(Ljavax/accessibility/AccessibleContext;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAcceleratorText, $String*, $AccessibleContext*)},
-	{"getAccessibility", "([Ljava/lang/String;)Lsun/lwawt/macosx/CAccessibility;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(CAccessibility, getAccessibility, CAccessibility*, $StringArray*)},
-	{"getAccessibleAction", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleAction, $AccessibleAction*, $Accessible*, $Component*)},
-	{"getAccessibleActionDescription", "(Ljavax/accessibility/AccessibleAction;ILjava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleActionDescription, $String*, $AccessibleAction*, int32_t, $Component*)},
-	{"getAccessibleComponent", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleComponent, $AccessibleComponent*, $Accessible*, $Component*)},
-	{"getAccessibleContext", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleContext, $AccessibleContext*, $Accessible*, $Component*)},
-	{"getAccessibleDescription", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleDescription, $String*, $Accessible*, $Component*)},
-	{"getAccessibleIndexInParent", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleIndexInParent, int32_t, $Accessible*, $Component*)},
-	{"getAccessibleName", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleName, $String*, $Accessible*, $Component*)},
-	{"getAccessibleParent", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleParent, $Accessible*, $Accessible*, $Component*)},
-	{"getAccessibleRole", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleRole, $String*, $Accessible*, $Component*)},
-	{"getAccessibleRole", "(Ljavax/accessibility/Accessible;)Ljavax/accessibility/AccessibleRole;", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAccessibleRole, $AccessibleRole*, $Accessible*)},
-	{"getAccessibleRoleDisplayString", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleRoleDisplayString, $String*, $Accessible*, $Component*)},
-	{"getAccessibleRoleFor", "(Ljavax/accessibility/Accessible;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibility, getAccessibleRoleFor, $String*, $Accessible*)},
-	{"getAccessibleRoleForLabel", "(Ljavax/swing/JLabel;Ljavax/accessibility/AccessibleRole;)Ljavax/accessibility/AccessibleRole;", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAccessibleRoleForLabel, $AccessibleRole*, $JLabel*, $AccessibleRole*)},
-	{"getAccessibleSelection", "(Ljavax/accessibility/AccessibleContext;Ljava/awt/Component;)Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleSelection, $AccessibleSelection*, $AccessibleContext*, $Component*)},
-	{"getAccessibleStateSet", "(Ljavax/accessibility/AccessibleContext;Ljava/awt/Component;)Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleStateSet, $AccessibleStateSet*, $AccessibleContext*, $Component*)},
-	{"getAccessibleText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleText, $AccessibleText*, $Accessible*, $Component*)},
-	{"getAccessibleValue", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleValue, $AccessibleValue*, $Accessible*, $Component*)},
-	{"getCharCount", "(Ljavax/accessibility/AccessibleText;Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getCharCount, int32_t, $AccessibleText*, $Component*)},
-	{"getChildren", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getChildren, $ObjectArray*, $Accessible*, $Component*)},
-	{"getChildrenAndRoles", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;IZ)[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getChildrenAndRoles, $ObjectArray*, $Accessible*, $Component*, int32_t, bool)},
-	{"getCurrentAccessibleValue", "(Ljavax/accessibility/AccessibleValue;Ljava/awt/Component;)Ljava/lang/Number;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getCurrentAccessibleValue, $Number*, $AccessibleValue*, $Component*)},
-	{"getFocusOwner", "(Ljava/awt/Component;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getFocusOwner, $Accessible*, $Component*)},
-	{"getInitialAttributeStates", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getInitialAttributeStates, $booleans*, $Accessible*, $Component*)},
-	{"getLocationOnScreen", "(Ljavax/accessibility/AccessibleComponent;Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getLocationOnScreen, $Point*, $AccessibleComponent*, $Component*)},
-	{"getMaximumAccessibleValue", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/Number;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getMaximumAccessibleValue, $Number*, $Accessible*, $Component*)},
-	{"getMinimumAccessibleValue", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/Number;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getMinimumAccessibleValue, $Number*, $Accessible*, $Component*)},
-	{"getSize", "(Ljavax/accessibility/AccessibleComponent;Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getSize, $Dimension*, $AccessibleComponent*, $Component*)},
-	{"getTableInfo", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getTableInfo, int32_t, $Accessible*, $Component*, int32_t)},
-	{"invokeAndWait", "(Ljava/util/concurrent/Callable;Ljava/awt/Component;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;Ljava/awt/Component;)TT;", $STATIC, $staticMethod(CAccessibility, invokeAndWait, $Object*, $Callable*, $Component*)},
-	{"invokeAndWait", "(Ljava/util/concurrent/Callable;Ljava/awt/Component;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;Ljava/awt/Component;TT;)TT;", $STATIC, $staticMethod(CAccessibility, invokeAndWait, $Object*, $Callable*, $Component*, Object$*)},
-	{"invokeLater", "(Ljava/lang/Runnable;Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(CAccessibility, invokeLater, void, $Runnable*, $Component*)},
-	{"isAccessibleChildSelected", "(Ljavax/accessibility/Accessible;ILjava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, isAccessibleChildSelected, bool, $Accessible*, int32_t, $Component*)},
-	{"isEnabled", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, isEnabled, bool, $Accessible*, $Component*)},
-	{"isFocusTraversable", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, isFocusTraversable, bool, $Accessible*, $Component*)},
-	{"lambda$getTableInfo$0", "(Ljavax/accessibility/Accessible;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CAccessibility, lambda$getTableInfo$0, $Integer*, $Accessible*, int32_t), "java.lang.Exception"},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(CAccessibility, propertyChange, void, $PropertyChangeEvent*)},
-	{"requestFocus", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, requestFocus, void, $Accessible*, $Component*)},
-	{"requestSelection", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, requestSelection, void, $Accessible*, $Component*)},
-	{"roleKey", "(Ljavax/accessibility/AccessibleRole;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessibility, roleKey, $String*, $AccessibleRole*)},
-	{}
-};
-
-#define _METHOD_INDEX_focusChanged 7
-#define _METHOD_INDEX_roleKey 49
-
-$InnerClassInfo _CAccessibility_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessibility$36", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$35", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$34", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$33", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$32", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$31", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$30", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$29", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$28", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$27", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$26", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$25", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$24", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$23", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$22", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$21", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$20", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$19", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$18", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$17", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$16", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$15", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$14", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$13", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$12", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$11", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$10", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$9", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$8", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$7", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$6", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$5", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$4", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$3", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$2", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibility$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CAccessibility_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessibility",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_CAccessibility_FieldInfo_,
-	_CAccessibility_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CAccessibility_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessibility$36,sun.lwawt.macosx.CAccessibility$35,sun.lwawt.macosx.CAccessibility$34,sun.lwawt.macosx.CAccessibility$33,sun.lwawt.macosx.CAccessibility$32,sun.lwawt.macosx.CAccessibility$31,sun.lwawt.macosx.CAccessibility$30,sun.lwawt.macosx.CAccessibility$29,sun.lwawt.macosx.CAccessibility$28,sun.lwawt.macosx.CAccessibility$27,sun.lwawt.macosx.CAccessibility$26,sun.lwawt.macosx.CAccessibility$25,sun.lwawt.macosx.CAccessibility$24,sun.lwawt.macosx.CAccessibility$23,sun.lwawt.macosx.CAccessibility$22,sun.lwawt.macosx.CAccessibility$21,sun.lwawt.macosx.CAccessibility$20,sun.lwawt.macosx.CAccessibility$19,sun.lwawt.macosx.CAccessibility$18,sun.lwawt.macosx.CAccessibility$17,sun.lwawt.macosx.CAccessibility$16,sun.lwawt.macosx.CAccessibility$15,sun.lwawt.macosx.CAccessibility$14,sun.lwawt.macosx.CAccessibility$13,sun.lwawt.macosx.CAccessibility$12,sun.lwawt.macosx.CAccessibility$11,sun.lwawt.macosx.CAccessibility$10,sun.lwawt.macosx.CAccessibility$9,sun.lwawt.macosx.CAccessibility$8,sun.lwawt.macosx.CAccessibility$7,sun.lwawt.macosx.CAccessibility$6,sun.lwawt.macosx.CAccessibility$5,sun.lwawt.macosx.CAccessibility$4,sun.lwawt.macosx.CAccessibility$3,sun.lwawt.macosx.CAccessibility$2,sun.lwawt.macosx.CAccessibility$1"
-};
-
-$Object* allocate$CAccessibility($Class* clazz) {
-	return $of($alloc(CAccessibility));
-}
 
 $Set* CAccessibility::ignoredRoles = nullptr;
 CAccessibility* CAccessibility::sAccessibility = nullptr;
 
 CAccessibility* CAccessibility::getAccessibility($StringArray* roles) {
-	$load(CAccessibility);
+	$init(CAccessibility);
 	$synchronized(class$) {
-		$init(CAccessibility);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (CAccessibility::sAccessibility != nullptr) {
 			return CAccessibility::sAccessibility;
 		}
@@ -362,11 +222,9 @@ CAccessibility* CAccessibility::getAccessibility($StringArray* roles) {
 			$assignStatic(CAccessibility::ignoredRoles, $new($HashSet, roles->length));
 			{
 				$var($StringArray, arr$, roles);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, role, arr$->get(i$));
-					$nc(CAccessibility::ignoredRoles)->add(role);
+					CAccessibility::ignoredRoles->add(role);
 				}
 			}
 		} else {
@@ -377,17 +235,17 @@ CAccessibility* CAccessibility::getAccessibility($StringArray* roles) {
 }
 
 void CAccessibility::init$() {
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addPropertyChangeListener("focusOwner"_s, this);
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addPropertyChangeListener("focusOwner"_s, this);
 }
 
 void CAccessibility::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, newValue, $nc(evt)->getNewValue());
 	if (newValue == nullptr) {
 		return;
 	}
 	if ($instanceOf($Accessible, newValue)) {
-		$var($AccessibleContext, nvAC, $nc(($cast($Accessible, newValue)))->getAccessibleContext());
+		$var($AccessibleContext, nvAC, $cast($Accessible, newValue)->getAccessibleContext());
 		$var($AccessibleRole, nvRole, $nc(nvAC)->getAccessibleRole());
 		if (!$nc(CAccessibility::ignoredRoles)->contains($(roleKey(nvRole)))) {
 			focusChanged();
@@ -396,7 +254,7 @@ void CAccessibility::propertyChange($PropertyChangeEvent* evt) {
 }
 
 void CAccessibility::focusChanged() {
-	$prepareNative(CAccessibility, focusChanged, void);
+	$prepareNative(focusChanged, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -405,12 +263,12 @@ $Object* CAccessibility::invokeAndWait($Callable* callable, $Component* c) {
 	$init(CAccessibility);
 	if (c != nullptr) {
 		try {
-			return $of($LWCToolkit::invokeAndWait(callable, c));
+			return $LWCToolkit::invokeAndWait(callable, c);
 		} catch ($Exception& e) {
 			e->printStackTrace();
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* CAccessibility::invokeAndWait($Callable* callable, $Component* c, Object$* defValue) {
@@ -423,7 +281,7 @@ $Object* CAccessibility::invokeAndWait($Callable* callable, $Component* c, Objec
 			e->printStackTrace();
 		}
 	}
-	return $of(value != nullptr ? value : $of(defValue));
+	return value != nullptr ? value : $of(defValue);
 }
 
 void CAccessibility::invokeLater($Runnable* runnable, $Component* c) {
@@ -495,13 +353,12 @@ $AccessibleContext* CAccessibility::getAccessibleContext($Accessible* a, $Compon
 
 bool CAccessibility::isAccessibleChildSelected($Accessible* a, int32_t index, $Component* c) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return false;
 	}
-	$var($Callable, var$0, static_cast<$Callable*>($new($CAccessibility$9, a, index)));
-	$var($Component, var$1, c);
-	return $nc(($cast($Boolean, $(invokeAndWait(var$0, var$1, $($Boolean::valueOf(false)))))))->booleanValue();
+	$var($Callable, var$0, $new($CAccessibility$9, a, index));
+	return $$sure($Boolean, invokeAndWait(var$0, c, $($Boolean::valueOf(false))))->booleanValue();
 }
 
 $AccessibleStateSet* CAccessibility::getAccessibleStateSet($AccessibleContext* ac, $Component* c) {
@@ -514,24 +371,23 @@ $AccessibleStateSet* CAccessibility::getAccessibleStateSet($AccessibleContext* a
 
 bool CAccessibility::contains($AccessibleContext* ac, $AccessibleState* as, $Component* c) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ac == nullptr || as == nullptr) {
 		return false;
 	}
-	$var($Callable, var$0, static_cast<$Callable*>($new($CAccessibility$11, ac, as)));
-	$var($Component, var$1, c);
-	return $nc(($cast($Boolean, $(invokeAndWait(var$0, var$1, $($Boolean::valueOf(false)))))))->booleanValue();
+	$var($Callable, var$0, $new($CAccessibility$11, ac, as));
+	return $$sure($Boolean, invokeAndWait(var$0, c, $($Boolean::valueOf(false))))->booleanValue();
 }
 
 $String* CAccessibility::getAccessibleRoleFor($Accessible* a) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, $nc(a)->getAccessibleContext());
 	if (ac == nullptr) {
 		return nullptr;
 	}
 	$var($AccessibleRole, role, $nc(ac)->getAccessibleRole());
-	return $nc($($AWTAccessor::getAccessibleBundleAccessor()))->getKey(role);
+	return $$nc($AWTAccessor::getAccessibleBundleAccessor())->getKey(role);
 }
 
 $String* CAccessibility::getAccessibleRole($Accessible* a, $Component* c) {
@@ -552,13 +408,12 @@ $Point* CAccessibility::getLocationOnScreen($AccessibleComponent* ac, $Component
 
 int32_t CAccessibility::getCharCount($AccessibleText* at, $Component* c) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (at == nullptr) {
 		return 0;
 	}
-	$var($Callable, var$0, static_cast<$Callable*>($new($CAccessibility$14, at)));
-	$var($Component, var$1, c);
-	return $nc(($cast($Integer, $(invokeAndWait(var$0, var$1, $($Integer::valueOf(0)))))))->intValue();
+	$var($Callable, var$0, $new($CAccessibility$14, at));
+	return $$sure($Integer, invokeAndWait(var$0, c, $($Integer::valueOf(0))))->intValue();
 }
 
 $Accessible* CAccessibility::getAccessibleParent($Accessible* a, $Component* c) {
@@ -571,13 +426,12 @@ $Accessible* CAccessibility::getAccessibleParent($Accessible* a, $Component* c) 
 
 int32_t CAccessibility::getAccessibleIndexInParent($Accessible* a, $Component* c) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return -1;
 	}
-	$var($Callable, var$0, static_cast<$Callable*>($new($CAccessibility$16, a)));
-	$var($Component, var$1, c);
-	return $nc(($cast($Integer, $(invokeAndWait(var$0, var$1, $($Integer::valueOf(-1)))))))->intValue();
+	$var($Callable, var$0, $new($CAccessibility$16, a));
+	return $$sure($Integer, invokeAndWait(var$0, c, $($Integer::valueOf(-1))))->intValue();
 }
 
 $AccessibleComponent* CAccessibility::getAccessibleComponent($Accessible* a, $Component* c) {
@@ -614,15 +468,15 @@ $AccessibleText* CAccessibility::getAccessibleText($Accessible* a, $Component* c
 
 $String* CAccessibility::getAcceleratorText($AccessibleContext* ac) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, accText, ""_s);
 	$var($Accessible, parent, $nc(ac)->getAccessibleParent());
 	if (parent != nullptr) {
 		int32_t indexInParent = ac->getAccessibleIndexInParent();
-		$var($Accessible, child, $nc($(parent->getAccessibleContext()))->getAccessibleChild(indexInParent));
+		$var($Accessible, child, $$nc(parent->getAccessibleContext())->getAccessibleChild(indexInParent));
 		if ($instanceOf($JMenuItem, child)) {
 			$var($JMenuItem, menuItem, $cast($JMenuItem, child));
-			$var($KeyStroke, keyStroke, $nc(menuItem)->getAccelerator());
+			$var($KeyStroke, keyStroke, menuItem->getAccelerator());
 			if (keyStroke != nullptr) {
 				int32_t modifiers = keyStroke->getModifiers();
 				if (modifiers > 0) {
@@ -650,13 +504,12 @@ $String* CAccessibility::getAccessibleDescription($Accessible* a, $Component* c)
 
 bool CAccessibility::isFocusTraversable($Accessible* a, $Component* c) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return false;
 	}
-	$var($Callable, var$0, static_cast<$Callable*>($new($CAccessibility$22, a)));
-	$var($Component, var$1, c);
-	return $nc(($cast($Boolean, $(invokeAndWait(var$0, var$1, $($Boolean::valueOf(false)))))))->booleanValue();
+	$var($Callable, var$0, $new($CAccessibility$22, a));
+	return $$sure($Boolean, invokeAndWait(var$0, c, $($Boolean::valueOf(false))))->booleanValue();
 }
 
 $Accessible* CAccessibility::accessibilityHitTest($Container* parent, float hitPointX, float hitPointY) {
@@ -674,13 +527,12 @@ $AccessibleAction* CAccessibility::getAccessibleAction($Accessible* a, $Componen
 
 bool CAccessibility::isEnabled($Accessible* a, $Component* c) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return false;
 	}
-	$var($Callable, var$0, static_cast<$Callable*>($new($CAccessibility$25, a)));
-	$var($Component, var$1, c);
-	return $nc(($cast($Boolean, $(invokeAndWait(var$0, var$1, $($Boolean::valueOf(false)))))))->booleanValue();
+	$var($Callable, var$0, $new($CAccessibility$25, a));
+	return $$sure($Boolean, invokeAndWait(var$0, c, $($Boolean::valueOf(false))))->booleanValue();
 }
 
 void CAccessibility::requestFocus($Accessible* a, $Component* c) {
@@ -738,7 +590,7 @@ $Accessible* CAccessibility::getFocusOwner($Component* c) {
 
 $booleans* CAccessibility::getInitialAttributeStates($Accessible* a, $Component* c) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($booleans, ret, $new($booleans, 7));
 	if (a == nullptr) {
 		return ret;
@@ -756,16 +608,16 @@ $ObjectArray* CAccessibility::getChildrenAndRoles($Accessible* a, $Component* c,
 
 int32_t CAccessibility::getTableInfo($Accessible* a, $Component* c, int32_t info) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return 0;
 	}
-	return $nc(($cast($Integer, $(invokeAndWait(static_cast<$Callable*>($$new(CAccessibility$$Lambda$lambda$getTableInfo$0, a, info)), c)))))->intValue();
+	return $$sure($Integer, invokeAndWait($$new(CAccessibility$$Lambda$lambda$getTableInfo$0, a, info), c))->intValue();
 }
 
 $AccessibleRole* CAccessibility::getAccessibleRoleForLabel($JLabel* l, $AccessibleRole* fallback) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, $nc(l)->getText());
 	if (text != nullptr && text->length() > 0) {
 		return fallback;
@@ -780,7 +632,7 @@ $AccessibleRole* CAccessibility::getAccessibleRoleForLabel($JLabel* l, $Accessib
 
 $AccessibleRole* CAccessibility::getAccessibleRole($Accessible* a) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, $nc(a)->getAccessibleContext());
 	$var($AccessibleRole, role, $nc(ac)->getAccessibleRole());
 	$var($Object, component, $CAccessible::getSwingAccessible(a));
@@ -796,7 +648,7 @@ $AccessibleRole* CAccessibility::getAccessibleRole($Accessible* a) {
 
 void CAccessibility::_addChildren($Accessible* a, int32_t whichChildren, bool allowIgnored, $ArrayList* childrenAndRoles) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return;
 	}
@@ -816,18 +668,18 @@ void CAccessibility::_addChildren($Accessible* a, int32_t whichChildren, bool al
 		}
 		if (whichChildren == CAccessibility::JAVA_AX_VISIBLE_CHILDREN) {
 			$var($AccessibleComponent, acomp, $nc(context)->getAccessibleComponent());
-			if (acomp == nullptr || !$nc(acomp)->isVisible()) {
+			if (acomp == nullptr || !acomp->isVisible()) {
 				continue;
 			}
 		} else if (whichChildren == CAccessibility::JAVA_AX_SELECTED_CHILDREN) {
 			$var($AccessibleSelection, sel, ac->getAccessibleSelection());
-			if (sel == nullptr || !$nc(sel)->isAccessibleChildSelected(i)) {
+			if (sel == nullptr || !sel->isAccessibleChildSelected(i)) {
 				continue;
 			}
 		}
 		if (!allowIgnored) {
 			$var($AccessibleRole, role, $nc(context)->getAccessibleRole());
-			if (role != nullptr && CAccessibility::ignoredRoles != nullptr && $nc(CAccessibility::ignoredRoles)->contains($(roleKey(role)))) {
+			if (role != nullptr && CAccessibility::ignoredRoles != nullptr && CAccessibility::ignoredRoles->contains($(roleKey(role)))) {
 				_addChildren(child, whichChildren, false, childrenAndRoles);
 			} else {
 				$nc(childrenAndRoles)->add(child);
@@ -845,9 +697,8 @@ void CAccessibility::_addChildren($Accessible* a, int32_t whichChildren, bool al
 
 $String* CAccessibility::roleKey($AccessibleRole* aRole) {
 	$init(CAccessibility);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(CAccessibility, roleKey, $String*, $AccessibleRole* aRole);
-	$assign($ret, $invokeNativeStaticObject(aRole));
+	$prepareNativeStatic(roleKey, $String*, $AccessibleRole* aRole);
+	$var($String, $ret, $invokeNativeStaticObject(aRole));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -862,17 +713,17 @@ $ObjectArray* CAccessibility::getChildren($Accessible* a, $Component* c) {
 
 int64_t CAccessibility::getAWTView($Accessible* a) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Accessible, ax, $CAccessible::getSwingAccessible(a));
 	if (!($instanceOf($Component, ax))) {
 		return 0;
 	}
-	return $nc(($cast($Long, $(invokeAndWait($$new($CAccessibility$36, ax), $cast($Component, ax))))))->longValue();
+	return $$sure($Long, invokeAndWait($$new($CAccessibility$36, ax), $cast($Component, ax)))->longValue();
 }
 
 $Integer* CAccessibility::lambda$getTableInfo$0($Accessible* a, int32_t info) {
 	$init(CAccessibility);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, $nc(a)->getAccessibleContext());
 	$var($AccessibleTable, table, $nc(ac)->getAccessibleTable());
 	if (table != nullptr) {
@@ -885,10 +736,10 @@ $Integer* CAccessibility::lambda$getTableInfo$0($Accessible* a, int32_t info) {
 	return $Integer::valueOf(0);
 }
 
-void clinit$CAccessibility($Class* class$) {
+void CAccessibility::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CAccessibility$1)));
+		$AccessController::doPrivileged($$new($CAccessibility$1));
 	}
 }
 
@@ -897,11 +748,129 @@ CAccessibility::CAccessibility() {
 
 $Class* CAccessibility::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CAccessibility$$Lambda$lambda$getTableInfo$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CAccessibility$$Lambda$lambda$getTableInfo$0")) {
 			return CAccessibility$$Lambda$lambda$getTableInfo$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CAccessibility, name, initialize, &_CAccessibility_ClassInfo_, clinit$CAccessibility, allocate$CAccessibility);
+	$FieldInfo fieldInfos$$[] = {
+		{"ignoredRoles", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(CAccessibility, ignoredRoles)},
+		{"sAccessibility", "Lsun/lwawt/macosx/CAccessibility;", nullptr, $STATIC, $staticField(CAccessibility, sAccessibility)},
+		{"JAVA_AX_ALL_CHILDREN", "I", nullptr, $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_ALL_CHILDREN)},
+		{"JAVA_AX_SELECTED_CHILDREN", "I", nullptr, $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_SELECTED_CHILDREN)},
+		{"JAVA_AX_VISIBLE_CHILDREN", "I", nullptr, $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_VISIBLE_CHILDREN)},
+		{"JAVA_AX_ROWS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_ROWS)},
+		{"JAVA_AX_COLS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CAccessibility, JAVA_AX_COLS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CAccessibility, init$, void)},
+		{"_addChildren", "(Ljavax/accessibility/Accessible;IZLjava/util/ArrayList;)V", "(Ljavax/accessibility/Accessible;IZLjava/util/ArrayList<Ljava/lang/Object;>;)V", $PRIVATE | $STATIC, $staticMethod(CAccessibility, _addChildren, void, $Accessible*, int32_t, bool, $ArrayList*)},
+		{"accessibilityHitTest", "(Ljava/awt/Container;FF)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, accessibilityHitTest, $Accessible*, $Container*, float, float)},
+		{"addAccessibleSelection", "(Ljavax/accessibility/AccessibleContext;ILjava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, addAccessibleSelection, void, $AccessibleContext*, int32_t, $Component*)},
+		{"ax_getAccessibleSelection", "(Ljavax/accessibility/AccessibleContext;ILjava/awt/Component;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, ax_getAccessibleSelection, $Accessible*, $AccessibleContext*, int32_t, $Component*)},
+		{"contains", "(Ljavax/accessibility/AccessibleContext;Ljavax/accessibility/AccessibleState;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, contains, bool, $AccessibleContext*, $AccessibleState*, $Component*)},
+		{"doAccessibleAction", "(Ljavax/accessibility/AccessibleAction;ILjava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, doAccessibleAction, void, $AccessibleAction*, int32_t, $Component*)},
+		{"focusChanged", "()V", nullptr, $PRIVATE | $NATIVE, $method(CAccessibility, focusChanged, void)},
+		{"getAWTView", "(Ljavax/accessibility/Accessible;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAWTView, int64_t, $Accessible*)},
+		{"getAcceleratorText", "(Ljavax/accessibility/AccessibleContext;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAcceleratorText, $String*, $AccessibleContext*)},
+		{"getAccessibility", "([Ljava/lang/String;)Lsun/lwawt/macosx/CAccessibility;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(CAccessibility, getAccessibility, CAccessibility*, $StringArray*)},
+		{"getAccessibleAction", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleAction, $AccessibleAction*, $Accessible*, $Component*)},
+		{"getAccessibleActionDescription", "(Ljavax/accessibility/AccessibleAction;ILjava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleActionDescription, $String*, $AccessibleAction*, int32_t, $Component*)},
+		{"getAccessibleComponent", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleComponent, $AccessibleComponent*, $Accessible*, $Component*)},
+		{"getAccessibleContext", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleContext, $AccessibleContext*, $Accessible*, $Component*)},
+		{"getAccessibleDescription", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleDescription, $String*, $Accessible*, $Component*)},
+		{"getAccessibleIndexInParent", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleIndexInParent, int32_t, $Accessible*, $Component*)},
+		{"getAccessibleName", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleName, $String*, $Accessible*, $Component*)},
+		{"getAccessibleParent", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleParent, $Accessible*, $Accessible*, $Component*)},
+		{"getAccessibleRole", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleRole, $String*, $Accessible*, $Component*)},
+		{"getAccessibleRole", "(Ljavax/accessibility/Accessible;)Ljavax/accessibility/AccessibleRole;", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAccessibleRole, $AccessibleRole*, $Accessible*)},
+		{"getAccessibleRoleDisplayString", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleRoleDisplayString, $String*, $Accessible*, $Component*)},
+		{"getAccessibleRoleFor", "(Ljavax/accessibility/Accessible;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibility, getAccessibleRoleFor, $String*, $Accessible*)},
+		{"getAccessibleRoleForLabel", "(Ljavax/swing/JLabel;Ljavax/accessibility/AccessibleRole;)Ljavax/accessibility/AccessibleRole;", nullptr, $PRIVATE | $STATIC, $staticMethod(CAccessibility, getAccessibleRoleForLabel, $AccessibleRole*, $JLabel*, $AccessibleRole*)},
+		{"getAccessibleSelection", "(Ljavax/accessibility/AccessibleContext;Ljava/awt/Component;)Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleSelection, $AccessibleSelection*, $AccessibleContext*, $Component*)},
+		{"getAccessibleStateSet", "(Ljavax/accessibility/AccessibleContext;Ljava/awt/Component;)Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleStateSet, $AccessibleStateSet*, $AccessibleContext*, $Component*)},
+		{"getAccessibleText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleText, $AccessibleText*, $Accessible*, $Component*)},
+		{"getAccessibleValue", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getAccessibleValue, $AccessibleValue*, $Accessible*, $Component*)},
+		{"getCharCount", "(Ljavax/accessibility/AccessibleText;Ljava/awt/Component;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getCharCount, int32_t, $AccessibleText*, $Component*)},
+		{"getChildren", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getChildren, $ObjectArray*, $Accessible*, $Component*)},
+		{"getChildrenAndRoles", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;IZ)[Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getChildrenAndRoles, $ObjectArray*, $Accessible*, $Component*, int32_t, bool)},
+		{"getCurrentAccessibleValue", "(Ljavax/accessibility/AccessibleValue;Ljava/awt/Component;)Ljava/lang/Number;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getCurrentAccessibleValue, $Number*, $AccessibleValue*, $Component*)},
+		{"getFocusOwner", "(Ljava/awt/Component;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getFocusOwner, $Accessible*, $Component*)},
+		{"getInitialAttributeStates", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getInitialAttributeStates, $booleans*, $Accessible*, $Component*)},
+		{"getLocationOnScreen", "(Ljavax/accessibility/AccessibleComponent;Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getLocationOnScreen, $Point*, $AccessibleComponent*, $Component*)},
+		{"getMaximumAccessibleValue", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/Number;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getMaximumAccessibleValue, $Number*, $Accessible*, $Component*)},
+		{"getMinimumAccessibleValue", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/Number;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getMinimumAccessibleValue, $Number*, $Accessible*, $Component*)},
+		{"getSize", "(Ljavax/accessibility/AccessibleComponent;Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getSize, $Dimension*, $AccessibleComponent*, $Component*)},
+		{"getTableInfo", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, getTableInfo, int32_t, $Accessible*, $Component*, int32_t)},
+		{"invokeAndWait", "(Ljava/util/concurrent/Callable;Ljava/awt/Component;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;Ljava/awt/Component;)TT;", $STATIC, $staticMethod(CAccessibility, invokeAndWait, $Object*, $Callable*, $Component*)},
+		{"invokeAndWait", "(Ljava/util/concurrent/Callable;Ljava/awt/Component;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;Ljava/awt/Component;TT;)TT;", $STATIC, $staticMethod(CAccessibility, invokeAndWait, $Object*, $Callable*, $Component*, Object$*)},
+		{"invokeLater", "(Ljava/lang/Runnable;Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(CAccessibility, invokeLater, void, $Runnable*, $Component*)},
+		{"isAccessibleChildSelected", "(Ljavax/accessibility/Accessible;ILjava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, isAccessibleChildSelected, bool, $Accessible*, int32_t, $Component*)},
+		{"isEnabled", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, isEnabled, bool, $Accessible*, $Component*)},
+		{"isFocusTraversable", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, isFocusTraversable, bool, $Accessible*, $Component*)},
+		{"lambda$getTableInfo$0", "(Ljavax/accessibility/Accessible;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CAccessibility, lambda$getTableInfo$0, $Integer*, $Accessible*, int32_t), "java.lang.Exception"},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(CAccessibility, propertyChange, void, $PropertyChangeEvent*)},
+		{"requestFocus", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, requestFocus, void, $Accessible*, $Component*)},
+		{"requestSelection", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CAccessibility, requestSelection, void, $Accessible*, $Component*)},
+		{"roleKey", "(Ljavax/accessibility/AccessibleRole;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CAccessibility, roleKey, $String*, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessibility$36", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$35", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$34", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$33", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$32", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$31", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$30", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$29", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$28", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$27", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$26", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$25", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$24", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$23", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$22", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$21", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$20", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$19", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$18", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$17", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$16", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$15", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$14", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$13", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$12", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$11", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$10", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$9", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$8", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$7", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$6", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$5", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$4", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$3", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$2", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibility$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessibility",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessibility$36,sun.lwawt.macosx.CAccessibility$35,sun.lwawt.macosx.CAccessibility$34,sun.lwawt.macosx.CAccessibility$33,sun.lwawt.macosx.CAccessibility$32,sun.lwawt.macosx.CAccessibility$31,sun.lwawt.macosx.CAccessibility$30,sun.lwawt.macosx.CAccessibility$29,sun.lwawt.macosx.CAccessibility$28,sun.lwawt.macosx.CAccessibility$27,sun.lwawt.macosx.CAccessibility$26,sun.lwawt.macosx.CAccessibility$25,sun.lwawt.macosx.CAccessibility$24,sun.lwawt.macosx.CAccessibility$23,sun.lwawt.macosx.CAccessibility$22,sun.lwawt.macosx.CAccessibility$21,sun.lwawt.macosx.CAccessibility$20,sun.lwawt.macosx.CAccessibility$19,sun.lwawt.macosx.CAccessibility$18,sun.lwawt.macosx.CAccessibility$17,sun.lwawt.macosx.CAccessibility$16,sun.lwawt.macosx.CAccessibility$15,sun.lwawt.macosx.CAccessibility$14,sun.lwawt.macosx.CAccessibility$13,sun.lwawt.macosx.CAccessibility$12,sun.lwawt.macosx.CAccessibility$11,sun.lwawt.macosx.CAccessibility$10,sun.lwawt.macosx.CAccessibility$9,sun.lwawt.macosx.CAccessibility$8,sun.lwawt.macosx.CAccessibility$7,sun.lwawt.macosx.CAccessibility$6,sun.lwawt.macosx.CAccessibility$5,sun.lwawt.macosx.CAccessibility$4,sun.lwawt.macosx.CAccessibility$3,sun.lwawt.macosx.CAccessibility$2,sun.lwawt.macosx.CAccessibility$1"
+	};
+	$loadClass(CAccessibility, name, initialize, &classInfo$$, CAccessibility::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibility);
+	});
 	return class$;
 }
 

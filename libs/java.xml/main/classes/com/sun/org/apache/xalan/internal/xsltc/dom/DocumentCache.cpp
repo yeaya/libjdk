@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument.h>
@@ -47,13 +46,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $ParserConfigurationException = ::javax::xml::parsers::ParserConfigurationException;
-using $SAXParser = ::javax::xml::parsers::SAXParser;
 using $SAXParserFactory = ::javax::xml::parsers::SAXParserFactory;
 using $TransformerException = ::javax::xml::transform::TransformerException;
 using $SAXException = ::org::xml::sax::SAXException;
@@ -67,61 +63,12 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _DocumentCache_FieldInfo_[] = {
-	{"_size", "I", nullptr, $PRIVATE, $field(DocumentCache, _size)},
-	{"_references", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;>;", $PRIVATE, $field(DocumentCache, _references)},
-	{"_URIs", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DocumentCache, _URIs)},
-	{"_count", "I", nullptr, $PRIVATE, $field(DocumentCache, _count)},
-	{"_current", "I", nullptr, $PRIVATE, $field(DocumentCache, _current)},
-	{"_parser", "Ljavax/xml/parsers/SAXParser;", nullptr, $PRIVATE, $field(DocumentCache, _parser)},
-	{"_reader", "Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE, $field(DocumentCache, _reader)},
-	{"_dtmManager", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PRIVATE, $field(DocumentCache, _dtmManager)},
-	{"REFRESH_INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocumentCache, REFRESH_INTERVAL)},
-	{}
-};
-
-$MethodInfo _DocumentCache_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DocumentCache, init$, void, int32_t), "org.xml.sax.SAXException"},
-	{"<init>", "(ILcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;)V", nullptr, $PUBLIC, $method(DocumentCache, init$, void, int32_t, $XSLTCDTMManager*), "org.xml.sax.SAXException"},
-	{"getLastModified", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $FINAL, $method(DocumentCache, getLastModified, int64_t, $String*)},
-	{"getStatistics", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(DocumentCache, getStatistics, void, $PrintWriter*)},
-	{"insertDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DocumentCache, insertDocument, void, $String*, $DocumentCache$CachedDocument*)},
-	{"lookupDocument", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;", nullptr, $PRIVATE, $method(DocumentCache, lookupDocument, $DocumentCache$CachedDocument*, $String*)},
-	{"replaceDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DocumentCache, replaceDocument, void, $String*, $DocumentCache$CachedDocument*)},
-	{"retrieveDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $virtualMethod(DocumentCache, retrieveDocument, $DOM*, $String*, $String*, $Translet*)},
-	{}
-};
-
-$InnerClassInfo _DocumentCache_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache$CachedDocument", "com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache", "CachedDocument", $PUBLIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DocumentCache_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache",
-	"java.lang.Object",
-	"com.sun.org.apache.xalan.internal.xsltc.DOMCache",
-	_DocumentCache_FieldInfo_,
-	_DocumentCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocumentCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache$CachedDocument"
-};
-
-$Object* allocate$DocumentCache($Class* clazz) {
-	return $of($alloc(DocumentCache));
-}
-
 void DocumentCache::init$(int32_t size) {
 	DocumentCache::init$(size, nullptr);
 	try {
 		$set(this, _dtmManager, $XSLTCDTMManager::createNewDTMManagerInstance());
 	} catch ($Exception& e) {
-		$throwNew($SAXException, $cast($Exception, e));
+		$throwNew($SAXException, e);
 	}
 }
 
@@ -149,14 +96,14 @@ void DocumentCache::init$(int32_t size, $XSLTCDTMManager* dtmManager) {
 }
 
 int64_t DocumentCache::getLastModified($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($URL, url, $new($URL, uri));
 		$var($URLConnection, connection, url->openConnection());
 		int64_t timestamp = $nc(connection)->getLastModified();
 		if (timestamp == 0) {
 			if ("file"_s->equals($(url->getProtocol()))) {
-				$var($File, localfile, $nc($($Paths::get($(url->toURI()))))->toFile());
+				$var($File, localfile, $$nc($Paths::get($(url->toURI())))->toFile());
 				timestamp = $nc(localfile)->lastModified();
 			}
 		}
@@ -168,7 +115,7 @@ int64_t DocumentCache::getLastModified($String* uri) {
 }
 
 $DocumentCache$CachedDocument* DocumentCache::lookupDocument($String* uri) {
-	return ($cast($DocumentCache$CachedDocument, $nc(this->_references)->get(uri)));
+	return $cast($DocumentCache$CachedDocument, $nc(this->_references)->get(uri));
 }
 
 void DocumentCache::insertDocument($String* uri, $DocumentCache$CachedDocument* doc) {
@@ -178,7 +125,7 @@ void DocumentCache::insertDocument($String* uri, $DocumentCache$CachedDocument* 
 			this->_current = 0;
 		} else {
 			$nc(this->_references)->remove($nc(this->_URIs)->get(this->_current));
-			$nc(this->_URIs)->set(this->_current, uri);
+			this->_URIs->set(this->_current, uri);
 			if (++this->_current >= this->_size) {
 				this->_current = 0;
 			}
@@ -198,7 +145,7 @@ void DocumentCache::replaceDocument($String* uri, $DocumentCache$CachedDocument*
 }
 
 $DOM* DocumentCache::retrieveDocument($String* baseURI, $String* href, $Translet* trs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DocumentCache$CachedDocument, doc, nullptr);
 	$var($String, uri, href);
 	if (baseURI != nullptr && !baseURI->equals(""_s)) {
@@ -242,15 +189,15 @@ $DOM* DocumentCache::retrieveDocument($String* baseURI, $String* href, $Translet
 }
 
 void DocumentCache::getStatistics($PrintWriter* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->println("<h2>DOM cache statistics</h2><center><table border=\"2\"><tr><td><b>Document URI</b></td><td><center><b>Build time</b></center></td><td><center><b>Access count</b></center></td><td><center><b>Last accessed</b></center></td><td><center><b>Last modified</b></center></td></tr>"_s);
 	for (int32_t i = 0; i < this->_count; ++i) {
 		$var($DocumentCache$CachedDocument, doc, $cast($DocumentCache$CachedDocument, $nc(this->_references)->get($nc(this->_URIs)->get(i))));
-		out->print($$str({"<tr><td><a href=\""_s, $nc(this->_URIs)->get(i), "\"><font size=-1>"_s, $nc(this->_URIs)->get(i), "</font></a></td>"_s}));
+		out->print($$str({"<tr><td><a href=\""_s, this->_URIs->get(i), "\"><font size=-1>"_s, this->_URIs->get(i), "</font></a></td>"_s}));
 		out->print($$str({"<td><center>"_s, $$str($nc(doc)->getLatency()), "ms</center></td>"_s}));
-		out->print($$str({"<td><center>"_s, $$str($nc(doc)->getAccessCount()), "</center></td>"_s}));
-		out->print($$str({"<td><center>"_s, ($$new($Date, $nc(doc)->getLastReferenced())), "</center></td>"_s}));
-		out->print($$str({"<td><center>"_s, ($$new($Date, $nc(doc)->getLastModified())), "</center></td>"_s}));
+		out->print($$str({"<td><center>"_s, $$str(doc->getAccessCount()), "</center></td>"_s}));
+		out->print($$str({"<td><center>"_s, ($$new($Date, doc->getLastReferenced())), "</center></td>"_s}));
+		out->print($$str({"<td><center>"_s, ($$new($Date, doc->getLastModified())), "</center></td>"_s}));
 		out->println("</tr>"_s);
 	}
 	out->println("</table></center>"_s);
@@ -260,7 +207,50 @@ DocumentCache::DocumentCache() {
 }
 
 $Class* DocumentCache::load$($String* name, bool initialize) {
-	$loadClass(DocumentCache, name, initialize, &_DocumentCache_ClassInfo_, allocate$DocumentCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"_size", "I", nullptr, $PRIVATE, $field(DocumentCache, _size)},
+		{"_references", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;>;", $PRIVATE, $field(DocumentCache, _references)},
+		{"_URIs", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(DocumentCache, _URIs)},
+		{"_count", "I", nullptr, $PRIVATE, $field(DocumentCache, _count)},
+		{"_current", "I", nullptr, $PRIVATE, $field(DocumentCache, _current)},
+		{"_parser", "Ljavax/xml/parsers/SAXParser;", nullptr, $PRIVATE, $field(DocumentCache, _parser)},
+		{"_reader", "Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE, $field(DocumentCache, _reader)},
+		{"_dtmManager", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PRIVATE, $field(DocumentCache, _dtmManager)},
+		{"REFRESH_INTERVAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocumentCache, REFRESH_INTERVAL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DocumentCache, init$, void, int32_t), "org.xml.sax.SAXException"},
+		{"<init>", "(ILcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;)V", nullptr, $PUBLIC, $method(DocumentCache, init$, void, int32_t, $XSLTCDTMManager*), "org.xml.sax.SAXException"},
+		{"getLastModified", "(Ljava/lang/String;)J", nullptr, $PRIVATE | $FINAL, $method(DocumentCache, getLastModified, int64_t, $String*)},
+		{"getStatistics", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(DocumentCache, getStatistics, void, $PrintWriter*)},
+		{"insertDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DocumentCache, insertDocument, void, $String*, $DocumentCache$CachedDocument*)},
+		{"lookupDocument", "(Ljava/lang/String;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;", nullptr, $PRIVATE, $method(DocumentCache, lookupDocument, $DocumentCache$CachedDocument*, $String*)},
+		{"replaceDocument", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/dom/DocumentCache$CachedDocument;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DocumentCache, replaceDocument, void, $String*, $DocumentCache$CachedDocument*)},
+		{"retrieveDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC, $virtualMethod(DocumentCache, retrieveDocument, $DOM*, $String*, $String*, $Translet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache$CachedDocument", "com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache", "CachedDocument", $PUBLIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache",
+		"java.lang.Object",
+		"com.sun.org.apache.xalan.internal.xsltc.DOMCache",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.DocumentCache$CachedDocument"
+	};
+	$loadClass(DocumentCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentCache);
+	});
 	return class$;
 }
 

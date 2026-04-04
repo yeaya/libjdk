@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPMetadataFormatResources.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,111 +13,92 @@ namespace com {
 			namespace plugins {
 				namespace bmp {
 
-$MethodInfo _BMPMetadataFormatResources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BMPMetadataFormatResources, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BMPMetadataFormatResources, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _BMPMetadataFormatResources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPMetadataFormatResources",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_BMPMetadataFormatResources_MethodInfo_
-};
-
-$Object* allocate$BMPMetadataFormatResources($Class* clazz) {
-	return $of($alloc(BMPMetadataFormatResources));
-}
-
 void BMPMetadataFormatResources::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* BMPMetadataFormatResources::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("BMPVersion"_s),
-			$of("BMP version string"_s)
+			"BMPVersion"_s,
+			"BMP version string"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Width"_s),
-			$of("The width of the image"_s)
+			"Width"_s,
+			"The width of the image"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Height"_s),
-			$of("The height of the image"_s)
+			"Height"_s,
+			"The height of the image"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BitsPerPixel"_s),
-			$of(""_s)
+			"BitsPerPixel"_s,
+			""_s
 		}),
 		$$new($ObjectArray, {
-			$of("PixelsPerMeter"_s),
-			$of("Resolution in pixels per unit distance"_s)
+			"PixelsPerMeter"_s,
+			"Resolution in pixels per unit distance"_s
 		}),
 		$$new($ObjectArray, {
-			$of("X"_s),
-			$of("Pixels Per Meter along X"_s)
+			"X"_s,
+			"Pixels Per Meter along X"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Y"_s),
-			$of("Pixels Per Meter along Y"_s)
+			"Y"_s,
+			"Pixels Per Meter along Y"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorsUsed"_s),
-			$of("Number of color indexes in the color table actually used"_s)
+			"ColorsUsed"_s,
+			"Number of color indexes in the color table actually used"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorsImportant"_s),
-			$of("Number of color indexes considered important for display"_s)
+			"ColorsImportant"_s,
+			"Number of color indexes considered important for display"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mask"_s),
-			$of("Color masks; present for BI_BITFIELDS compression only"_s)
+			"Mask"_s,
+			"Color masks; present for BI_BITFIELDS compression only"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Intent"_s),
-			$of("Rendering intent"_s)
+			"Intent"_s,
+			"Rendering intent"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Palette"_s),
-			$of("The color palette"_s)
+			"Palette"_s,
+			"The color palette"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Red"_s),
-			$of("Red Mask/Color Palette"_s)
+			"Red"_s,
+			"Red Mask/Color Palette"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Green"_s),
-			$of("Green Mask/Color Palette/Gamma"_s)
+			"Green"_s,
+			"Green Mask/Color Palette/Gamma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Blue"_s),
-			$of("Blue Mask/Color Palette/Gamma"_s)
+			"Blue"_s,
+			"Blue Mask/Color Palette/Gamma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alpha"_s),
-			$of("Alpha Mask/Color Palette/Gamma"_s)
+			"Alpha"_s,
+			"Alpha Mask/Color Palette/Gamma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorSpaceType"_s),
-			$of("Color Space Type"_s)
+			"ColorSpaceType"_s,
+			"Color Space Type"_s
 		}),
 		$$new($ObjectArray, {
-			$of("X"_s),
-			$of("The X coordinate of a point in XYZ color space"_s)
+			"X"_s,
+			"The X coordinate of a point in XYZ color space"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Y"_s),
-			$of("The Y coordinate of a point in XYZ color space"_s)
+			"Y"_s,
+			"The Y coordinate of a point in XYZ color space"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Z"_s),
-			$of("The Z coordinate of a point in XYZ color space"_s)
+			"Z"_s,
+			"The Z coordinate of a point in XYZ color space"_s
 		})
 	});
 }
@@ -127,7 +107,22 @@ BMPMetadataFormatResources::BMPMetadataFormatResources() {
 }
 
 $Class* BMPMetadataFormatResources::load$($String* name, bool initialize) {
-	$loadClass(BMPMetadataFormatResources, name, initialize, &_BMPMetadataFormatResources_ClassInfo_, allocate$BMPMetadataFormatResources);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BMPMetadataFormatResources, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BMPMetadataFormatResources, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPMetadataFormatResources",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BMPMetadataFormatResources, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPMetadataFormatResources);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI$ChangeHandler.h>
 #include <com/sun/java/swing/plaf/motif/MotifRadioButtonMenuItemUI$MouseInputHandler.h>
 #include <javax/swing/AbstractButton.h>
@@ -19,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -31,46 +29,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifRadioButtonMenuItemUI_FieldInfo_[] = {
-	{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(MotifRadioButtonMenuItemUI, changeListener)},
-	{}
-};
-
-$MethodInfo _MotifRadioButtonMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifRadioButtonMenuItemUI, init$, void)},
-	{"createChangeListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, createChangeListener, $ChangeListener*, $JComponent*)},
-	{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, installListeners, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _MotifRadioButtonMenuItemUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "MouseInputHandler", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "ChangeHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifRadioButtonMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI",
-	"javax.swing.plaf.basic.BasicRadioButtonMenuItemUI",
-	nullptr,
-	_MotifRadioButtonMenuItemUI_FieldInfo_,
-	_MotifRadioButtonMenuItemUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifRadioButtonMenuItemUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler,com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler"
-};
-
-$Object* allocate$MotifRadioButtonMenuItemUI($Class* clazz) {
-	return $of($alloc(MotifRadioButtonMenuItemUI));
-}
 
 void MotifRadioButtonMenuItemUI::init$() {
 	$BasicRadioButtonMenuItemUI::init$();
@@ -104,7 +62,41 @@ MotifRadioButtonMenuItemUI::MotifRadioButtonMenuItemUI() {
 }
 
 $Class* MotifRadioButtonMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(MotifRadioButtonMenuItemUI, name, initialize, &_MotifRadioButtonMenuItemUI_ClassInfo_, allocate$MotifRadioButtonMenuItemUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"changeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(MotifRadioButtonMenuItemUI, changeListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifRadioButtonMenuItemUI, init$, void)},
+		{"createChangeListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, createChangeListener, $ChangeListener*, $JComponent*)},
+		{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifRadioButtonMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, installListeners, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifRadioButtonMenuItemUI, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "MouseInputHandler", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler", "com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI", "ChangeHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI",
+		"javax.swing.plaf.basic.BasicRadioButtonMenuItemUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$MouseInputHandler,com.sun.java.swing.plaf.motif.MotifRadioButtonMenuItemUI$ChangeHandler"
+	};
+	$loadClass(MotifRadioButtonMenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifRadioButtonMenuItemUI);
+	});
 	return class$;
 }
 

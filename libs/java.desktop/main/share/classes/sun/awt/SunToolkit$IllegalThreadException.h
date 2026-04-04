@@ -16,7 +16,10 @@ public:
 	void init$();
 	SunToolkit$IllegalThreadException(const SunToolkit$IllegalThreadException& e);
 	virtual void throw$() override;
-	inline SunToolkit$IllegalThreadException* operator ->() {
+	inline SunToolkit$IllegalThreadException* operator ->() const {
+		return (SunToolkit$IllegalThreadException*)throwing$;
+	}
+	inline operator SunToolkit$IllegalThreadException*() const {
 		return (SunToolkit$IllegalThreadException*)throwing$;
 	}
 };

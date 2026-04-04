@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/MS950_HKSCS.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -26,45 +25,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$MethodInfo _MS950_HKSCS_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MS950_HKSCS, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _MS950_HKSCS_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.MS950_HKSCS$Encoder", "sun.nio.cs.ext.MS950_HKSCS", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.ext.MS950_HKSCS$Decoder", "sun.nio.cs.ext.MS950_HKSCS", "Decoder", $STATIC},
-	{}
-};
-
-$ClassInfo _MS950_HKSCS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.MS950_HKSCS",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_MS950_HKSCS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS950_HKSCS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.MS950_HKSCS$Encoder,sun.nio.cs.ext.MS950_HKSCS$Decoder"
-};
-
-$Object* allocate$MS950_HKSCS($Class* clazz) {
-	return $of($alloc(MS950_HKSCS));
-}
 
 int32_t MS950_HKSCS::hashCode() {
 	 return this->$Charset::hashCode();
@@ -95,7 +55,7 @@ $String* MS950_HKSCS::historicalName() {
 }
 
 bool MS950_HKSCS::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf($MS950, cs)) || ($instanceOf(MS950_HKSCS, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf($MS950, cs)) || ($instanceOf(MS950_HKSCS, cs)));
 }
 
 $CharsetDecoder* MS950_HKSCS::newDecoder() {
@@ -110,7 +70,41 @@ MS950_HKSCS::MS950_HKSCS() {
 }
 
 $Class* MS950_HKSCS::load$($String* name, bool initialize) {
-	$loadClass(MS950_HKSCS, name, initialize, &_MS950_HKSCS_ClassInfo_, allocate$MS950_HKSCS);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MS950_HKSCS, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.MS950_HKSCS$Encoder", "sun.nio.cs.ext.MS950_HKSCS", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.ext.MS950_HKSCS$Decoder", "sun.nio.cs.ext.MS950_HKSCS", "Decoder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.MS950_HKSCS",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.MS950_HKSCS$Encoder,sun.nio.cs.ext.MS950_HKSCS$Decoder"
+	};
+	$loadClass(MS950_HKSCS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MS950_HKSCS));
+	});
 	return class$;
 }
 

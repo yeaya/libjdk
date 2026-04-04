@@ -25,6 +25,7 @@ class PangoFonts : public ::java::lang::Object {
 	$class(PangoFonts, 0, ::java::lang::Object)
 public:
 	PangoFonts();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getFontSize($String* pangoName);
 	static ::java::awt::Font* lookupFont($String* pangoName);

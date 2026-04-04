@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Position$LineMap.h>
-
 #include <com/sun/tools/javac/util/Position.h>
 #include <jcpp.h>
 
@@ -13,41 +12,36 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _Position$LineMap_MethodInfo_[] = {
-	{"getColumnNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getColumnNumber, int32_t, int32_t)},
-	{"getLineNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getLineNumber, int32_t, int32_t)},
-	{"getPosition", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getPosition, int32_t, int32_t, int32_t)},
-	{"getStartPosition", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getStartPosition, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Position$LineMap_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Position$LineMap", "com.sun.tools.javac.util.Position", "LineMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Position$LineMap_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.util.Position$LineMap",
-	nullptr,
-	"com.sun.source.tree.LineMap",
-	nullptr,
-	_Position$LineMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Position$LineMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Position"
-};
-
-$Object* allocate$Position$LineMap($Class* clazz) {
-	return $of($alloc(Position$LineMap));
-}
-
 $Class* Position$LineMap::load$($String* name, bool initialize) {
-	$loadClass(Position$LineMap, name, initialize, &_Position$LineMap_ClassInfo_, allocate$Position$LineMap);
+	$MethodInfo methodInfos$$[] = {
+		{"getColumnNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getColumnNumber, int32_t, int32_t)},
+		{"getLineNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getLineNumber, int32_t, int32_t)},
+		{"getPosition", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getPosition, int32_t, int32_t, int32_t)},
+		{"getStartPosition", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getStartPosition, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Position$LineMap", "com.sun.tools.javac.util.Position", "LineMap", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.util.Position$LineMap",
+		nullptr,
+		"com.sun.source.tree.LineMap",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Position"
+	};
+	$loadClass(Position$LineMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Position$LineMap);
+	});
 	return class$;
 }
 

@@ -26,7 +26,7 @@ public:
 	virtual void dispatch(::javax::naming::ldap::UnsolicitedNotificationListener* listener);
 	virtual ::javax::naming::ldap::UnsolicitedNotification* getNotification();
 	::javax::naming::ldap::UnsolicitedNotification* notice = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xDEEF4AD946C73647;
+	static const int64_t serialVersionUID = (int64_t)0xdeef4ad946c73647;
 };
 
 		} // ldap

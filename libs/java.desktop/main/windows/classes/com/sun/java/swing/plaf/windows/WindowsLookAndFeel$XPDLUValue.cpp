@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$XPDLUValue.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$XPValue.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <javax/swing/UIDefaults.h>
@@ -21,60 +20,21 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$XPDLUValue_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$XPDLUValue, this$0)},
-	{"direction", "I", nullptr, $PRIVATE, $field(WindowsLookAndFeel$XPDLUValue, direction)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$XPDLUValue_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;III)V", nullptr, 0, $method(WindowsLookAndFeel$XPDLUValue, init$, void, $WindowsLookAndFeel*, int32_t, int32_t, int32_t)},
-	{"getClassicValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPDLUValue, getClassicValue, $Object*, $UIDefaults*)},
-	{"getXPValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPDLUValue, getXPValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$XPDLUValue_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPDLUValue", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$XPDLUValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue",
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue",
-	nullptr,
-	_WindowsLookAndFeel$XPDLUValue_FieldInfo_,
-	_WindowsLookAndFeel$XPDLUValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$XPDLUValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$XPDLUValue($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$XPDLUValue));
-}
-
 void WindowsLookAndFeel$XPDLUValue::init$($WindowsLookAndFeel* this$0, int32_t xpdlu, int32_t classicdlu, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
-	$var($Object, var$0, $of($Integer::valueOf(xpdlu)));
+	$var($Object, var$0, $Integer::valueOf(xpdlu));
 	$WindowsLookAndFeel$XPValue::init$(var$0, $($Integer::valueOf(classicdlu)));
 	this->direction = direction;
 }
 
 $Object* WindowsLookAndFeel$XPDLUValue::getXPValue($UIDefaults* table) {
-	int32_t px = this->this$0->dluToPixels($nc(($cast($Integer, this->xpValue)))->intValue(), this->direction);
+	int32_t px = this->this$0->dluToPixels($nc($cast($Integer, this->xpValue))->intValue(), this->direction);
 	return $of($Integer::valueOf(px));
 }
 
 $Object* WindowsLookAndFeel$XPDLUValue::getClassicValue($UIDefaults* table) {
-	int32_t px = this->this$0->dluToPixels($nc(($cast($Integer, this->classicValue)))->intValue(), this->direction);
+	int32_t px = this->this$0->dluToPixels($nc($cast($Integer, this->classicValue))->intValue(), this->direction);
 	return $of($Integer::valueOf(px));
 }
 
@@ -82,7 +42,40 @@ WindowsLookAndFeel$XPDLUValue::WindowsLookAndFeel$XPDLUValue() {
 }
 
 $Class* WindowsLookAndFeel$XPDLUValue::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$XPDLUValue, name, initialize, &_WindowsLookAndFeel$XPDLUValue_ClassInfo_, allocate$WindowsLookAndFeel$XPDLUValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$XPDLUValue, this$0)},
+		{"direction", "I", nullptr, $PRIVATE, $field(WindowsLookAndFeel$XPDLUValue, direction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;III)V", nullptr, 0, $method(WindowsLookAndFeel$XPDLUValue, init$, void, $WindowsLookAndFeel*, int32_t, int32_t, int32_t)},
+		{"getClassicValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPDLUValue, getClassicValue, $Object*, $UIDefaults*)},
+		{"getXPValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPDLUValue, getXPValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPDLUValue", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPDLUValue",
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$XPDLUValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$XPDLUValue);
+	});
 	return class$;
 }
 

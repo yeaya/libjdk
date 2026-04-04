@@ -127,6 +127,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::remote::rmi::RMIServer* rmiServer, ::javax::management::remote::JMXServiceURL* address, ::java::util::Map* environment);
 	void init$(::javax::management::remote::JMXServiceURL* url, ::java::util::Map* environment);
 	void init$(::javax::management::remote::rmi::RMIServer* rmiServer, ::java::util::Map* environment);
@@ -165,7 +166,7 @@ public:
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
 	static ::com::sun::jmx::remote::util::ClassLogger* logger;
-	static const int64_t serialVersionUID = (int64_t)0x0B57B6F88224E2E9;
+	static const int64_t serialVersionUID = (int64_t)0x0b57b6f88224e2e9;
 	static $String* rmiServerImplStubClassName;
 	static $Class* rmiServerImplStubClass;
 	static $String* rmiConnectionImplStubClassName;

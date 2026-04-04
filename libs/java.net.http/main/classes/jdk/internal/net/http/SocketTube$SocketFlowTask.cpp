@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$SocketFlowTask.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/locks/Lock.h>
@@ -14,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
 using $SequentialScheduler$DeferredCompleter = ::jdk::internal::net::http::common::SequentialScheduler$DeferredCompleter;
@@ -24,45 +22,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _SocketTube$SocketFlowTask_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$SocketFlowTask, $assertionsDisabled)},
-	{"task", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(SocketTube$SocketFlowTask, task)},
-	{"lock", "Ljava/util/concurrent/locks/Lock;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$SocketFlowTask, lock)},
-	{}
-};
-
-$MethodInfo _SocketTube$SocketFlowTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(SocketTube$SocketFlowTask, init$, void, $Runnable*)},
-	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowTask, run, void, $SequentialScheduler$DeferredCompleter*)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$SocketFlowTask_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$SocketFlowTask", "jdk.internal.net.http.SocketTube", "SocketFlowTask", $PRIVATE | $STATIC},
-	{"jdk.internal.net.http.common.SequentialScheduler$RestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "RestartableTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SocketTube$SocketFlowTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.SocketTube$SocketFlowTask",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.SequentialScheduler$RestartableTask",
-	_SocketTube$SocketFlowTask_FieldInfo_,
-	_SocketTube$SocketFlowTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketTube$SocketFlowTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$SocketFlowTask($Class* clazz) {
-	return $of($alloc(SocketTube$SocketFlowTask));
-}
-
 bool SocketTube$SocketFlowTask::$assertionsDisabled = false;
 
 void SocketTube$SocketFlowTask::init$($Runnable* task) {
@@ -71,41 +30,37 @@ void SocketTube$SocketFlowTask::init$($Runnable* task) {
 }
 
 void SocketTube$SocketFlowTask::run($SequentialScheduler$DeferredCompleter* taskCompleter) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		bool locked = this->lock->tryLock();
+		if (!SocketTube$SocketFlowTask::$assertionsDisabled && !locked) {
+			$throwNew($AssertionError, $of("contention detected in SequentialScheduler"_s));
+		}
+		$var($Throwable, var$1, nullptr);
 		try {
-			bool locked = $nc(this->lock)->tryLock();
-			if (!SocketTube$SocketFlowTask::$assertionsDisabled && !locked) {
-				$throwNew($AssertionError, $of("contention detected in SequentialScheduler"_s));
-			}
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					$nc(this->task)->run();
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					if (locked) {
-						$nc(this->lock)->unlock();
-					}
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+			$nc(this->task)->run();
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			$nc(taskCompleter)->complete();
+			if (locked) {
+				this->lock->unlock();
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$nc(taskCompleter)->complete();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$SocketTube$SocketFlowTask($Class* class$) {
+void SocketTube$SocketFlowTask::clinit$($Class* clazz) {
 	$load($SocketTube);
 	SocketTube$SocketFlowTask::$assertionsDisabled = !$SocketTube::class$->desiredAssertionStatus();
 }
@@ -114,7 +69,40 @@ SocketTube$SocketFlowTask::SocketTube$SocketFlowTask() {
 }
 
 $Class* SocketTube$SocketFlowTask::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$SocketFlowTask, name, initialize, &_SocketTube$SocketFlowTask_ClassInfo_, clinit$SocketTube$SocketFlowTask, allocate$SocketTube$SocketFlowTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketTube$SocketFlowTask, $assertionsDisabled)},
+		{"task", "Ljava/lang/Runnable;", nullptr, $FINAL, $field(SocketTube$SocketFlowTask, task)},
+		{"lock", "Ljava/util/concurrent/locks/Lock;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$SocketFlowTask, lock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(SocketTube$SocketFlowTask, init$, void, $Runnable*)},
+		{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowTask, run, void, $SequentialScheduler$DeferredCompleter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$SocketFlowTask", "jdk.internal.net.http.SocketTube", "SocketFlowTask", $PRIVATE | $STATIC},
+		{"jdk.internal.net.http.common.SequentialScheduler$RestartableTask", "jdk.internal.net.http.common.SequentialScheduler", "RestartableTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.SocketTube$SocketFlowTask",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.SequentialScheduler$RestartableTask",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$SocketFlowTask, name, initialize, &classInfo$$, SocketTube$SocketFlowTask::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$SocketFlowTask);
+	});
 	return class$;
 }
 

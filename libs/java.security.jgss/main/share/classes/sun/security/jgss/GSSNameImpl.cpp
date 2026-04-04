@@ -1,5 +1,4 @@
 #include <sun/security/jgss/GSSNameImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -57,54 +56,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 
-$FieldInfo _GSSNameImpl_FieldInfo_[] = {
-	{"oldHostbasedServiceName", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(GSSNameImpl, oldHostbasedServiceName)},
-	{"gssManager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $PRIVATE, $field(GSSNameImpl, gssManager)},
-	{"appNameStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSNameImpl, appNameStr)},
-	{"appNameBytes", "[B", nullptr, $PRIVATE, $field(GSSNameImpl, appNameBytes)},
-	{"appNameType", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSNameImpl, appNameType)},
-	{"printableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSNameImpl, printableName)},
-	{"printableNameType", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSNameImpl, printableNameType)},
-	{"elements", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lorg/ietf/jgss/Oid;Lsun/security/jgss/spi/GSSNameSpi;>;", $PRIVATE, $field(GSSNameImpl, elements)},
-	{"mechElement", "Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PRIVATE, $field(GSSNameImpl, mechElement)},
-	{}
-};
-
-$MethodInfo _GSSNameImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lsun/security/jgss/spi/GSSNameSpi;)V", nullptr, 0, $method(GSSNameImpl, init$, void, $GSSManagerImpl*, $GSSNameSpi*)},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSNameImpl, init$, void, $GSSManagerImpl*, Object$*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSNameImpl, init$, void, $GSSManagerImpl*, Object$*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"canonicalize", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, canonicalize, $GSSName*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"equals", "(Lorg/ietf/jgss/GSSName;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, equals, bool, $GSSName*), "org.ietf.jgss.GSSException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, equals, bool, Object$*)},
-	{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, export$, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getElement", "(Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GSSNameImpl, getElement, $GSSNameSpi*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/security/jgss/spi/GSSNameSpi;>;", 0, $virtualMethod(GSSNameImpl, getElements, $Set*)},
-	{"getNameTypeStr", "(Lorg/ietf/jgss/Oid;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(GSSNameImpl, getNameTypeStr, $String*, $Oid*)},
-	{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, getStringNameType, $Oid*), "org.ietf.jgss.GSSException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, hashCode, int32_t)},
-	{"importName", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(GSSNameImpl, importName, void, $GSSManagerImpl*, Object$*), "org.ietf.jgss.GSSException"},
-	{"init", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)V", nullptr, $PRIVATE, $method(GSSNameImpl, init, void, $GSSManagerImpl*, Object$*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"isAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, isAnonymous, bool)},
-	{"isMN", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, isMN, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, toString, $String*)},
-	{"wrapElement", "(Lsun/security/jgss/GSSManagerImpl;Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/GSSNameImpl;", nullptr, $STATIC, $staticMethod(GSSNameImpl, wrapElement, GSSNameImpl*, $GSSManagerImpl*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$ClassInfo _GSSNameImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.GSSNameImpl",
-	"java.lang.Object",
-	"org.ietf.jgss.GSSName",
-	_GSSNameImpl_FieldInfo_,
-	_GSSNameImpl_MethodInfo_
-};
-
-$Object* allocate$GSSNameImpl($Class* clazz) {
-	return $of($alloc(GSSNameImpl));
-}
-
 $Oid* GSSNameImpl::oldHostbasedServiceName = nullptr;
 
 GSSNameImpl* GSSNameImpl::wrapElement($GSSManagerImpl* gssManager, $GSSNameSpi* mechElement) {
@@ -122,11 +73,11 @@ void GSSNameImpl::init$($GSSManagerImpl* gssManager, $GSSNameSpi* mechElement) {
 	$set(this, elements, nullptr);
 	$set(this, mechElement, nullptr);
 	$set(this, gssManager, gssManager);
-	$set(this, appNameStr, ($set(this, printableName, $nc(mechElement)->toString())));
-	$set(this, appNameType, ($set(this, printableNameType, mechElement->getStringNameType())));
+	$set(this, appNameStr, $set(this, printableName, $nc(mechElement)->toString()));
+	$set(this, appNameType, $set(this, printableNameType, mechElement->getStringNameType()));
 	$set(this, mechElement, mechElement);
 	$set(this, elements, $new($HashMap, 1));
-	$nc(this->elements)->put($(mechElement->getMechanism()), this->mechElement);
+	this->elements->put($(mechElement->getMechanism()), this->mechElement);
 }
 
 void GSSNameImpl::init$($GSSManagerImpl* gssManager, Object$* appName, $Oid* appNameType) {
@@ -134,7 +85,7 @@ void GSSNameImpl::init$($GSSManagerImpl* gssManager, Object$* appName, $Oid* app
 }
 
 void GSSNameImpl::init$($GSSManagerImpl* gssManager, Object$* appName, $Oid* appNameType$renamed, $Oid* mech$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, mech$renamed);
 	$var($Oid, appNameType, appNameType$renamed);
 	$set(this, gssManager, nullptr);
@@ -185,21 +136,21 @@ void GSSNameImpl::init($GSSManagerImpl* gssManager, Object$* appName, $Oid* appN
 }
 
 void GSSNameImpl::importName($GSSManagerImpl* gssManager, Object$* appName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = 0;
 	$var($bytes, bytes, nullptr);
 	if ($instanceOf($String, appName)) {
 		$init($StandardCharsets);
-		$assign(bytes, $nc(($cast($String, appName)))->getBytes($StandardCharsets::UTF_8));
+		$assign(bytes, $cast($String, appName)->getBytes($StandardCharsets::UTF_8));
 	} else {
 		$assign(bytes, $cast($bytes, appName));
 	}
-	bool var$0 = ($nc(bytes)->get(pos++) != 4);
-	if (var$0 || ($nc(bytes)->get(pos++) != 1)) {
+	bool var$0 = $nc(bytes)->get(pos++) != 4;
+	if (var$0 || (bytes->get(pos++) != 1)) {
 		$throwNew($GSSExceptionImpl, $GSSException::BAD_NAME, "Exported name token id is corrupted!"_s);
 	}
-	int32_t var$1 = (((int32_t)(255 & (uint32_t)(int32_t)$nc(bytes)->get(pos++))) << 8);
-	int32_t oidLen = (var$1 | ((int32_t)(255 & (uint32_t)(int32_t)bytes->get(pos++))));
+	int32_t var$1 = (0xff & bytes->get(pos++)) << 8;
+	int32_t oidLen = (var$1 | (0xff & bytes->get(pos++)));
 	$var($ObjectIdentifier, temp, nullptr);
 	try {
 		$var($DerInputStream, din, $new($DerInputStream, bytes, pos, oidLen));
@@ -209,10 +160,10 @@ void GSSNameImpl::importName($GSSManagerImpl* gssManager, Object$* appName) {
 	}
 	$var($Oid, oid, $new($Oid, $($nc(temp)->toString())));
 	pos += oidLen;
-	int32_t var$4 = (((int32_t)(255 & (uint32_t)(int32_t)bytes->get(pos++))) << 24);
-	int32_t var$3 = var$4 | (((int32_t)(255 & (uint32_t)(int32_t)bytes->get(pos++))) << 16);
-	int32_t var$2 = var$3 | (((int32_t)(255 & (uint32_t)(int32_t)bytes->get(pos++))) << 8);
-	int32_t mechPortionLen = (var$2 | ((int32_t)(255 & (uint32_t)(int32_t)bytes->get(pos++))));
+	int32_t var$4 = (0xff & bytes->get(pos++)) << 24;
+	int32_t var$3 = var$4 | ((0xff & bytes->get(pos++)) << 16);
+	int32_t var$2 = var$3 | ((0xff & bytes->get(pos++)) << 8);
+	int32_t mechPortionLen = (var$2 | (0xff & bytes->get(pos++)));
 	if (mechPortionLen < 0 || pos > bytes->length - mechPortionLen) {
 		$throwNew($GSSExceptionImpl, $GSSException::BAD_NAME, "Exported name mech name is corrupted!"_s);
 	}
@@ -223,7 +174,7 @@ void GSSNameImpl::importName($GSSManagerImpl* gssManager, Object$* appName) {
 }
 
 $GSSName* GSSNameImpl::canonicalize($Oid* mech$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, mech$renamed);
 	if (mech == nullptr) {
 		$init($ProviderList);
@@ -233,7 +184,7 @@ $GSSName* GSSNameImpl::canonicalize($Oid* mech$renamed) {
 }
 
 bool GSSNameImpl::equals($GSSName* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = this->isAnonymous();
 	if (var$0 || $nc(other)->isAnonymous()) {
 		return false;
@@ -257,12 +208,12 @@ bool GSSNameImpl::equals($GSSName* other) {
 		return myElement->equals(element);
 	}
 	if ((this->appNameType != nullptr) && (that->appNameType != nullptr)) {
-		if (!$nc(this->appNameType)->equals(that->appNameType)) {
+		if (!this->appNameType->equals(that->appNameType)) {
 			return false;
 		}
 		$init($StandardCharsets);
-		$var($bytes, myBytes, this->appNameStr != nullptr ? $nc(this->appNameStr)->getBytes($StandardCharsets::UTF_8) : this->appNameBytes);
-		$var($bytes, bytes, that->appNameStr != nullptr ? $nc(that->appNameStr)->getBytes($StandardCharsets::UTF_8) : that->appNameBytes);
+		$var($bytes, myBytes, this->appNameStr != nullptr ? this->appNameStr->getBytes($StandardCharsets::UTF_8) : this->appNameBytes);
+		$var($bytes, bytes, that->appNameStr != nullptr ? that->appNameStr->getBytes($StandardCharsets::UTF_8) : that->appNameBytes);
 		return $Arrays::equals(myBytes, bytes);
 	}
 	return false;
@@ -283,7 +234,7 @@ bool GSSNameImpl::equals(Object$* another) {
 }
 
 $bytes* GSSNameImpl::export$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mechElement == nullptr) {
 		$init($ProviderList);
 		$set(this, mechElement, getElement($ProviderList::DEFAULT_MECH_OID));
@@ -292,7 +243,7 @@ $bytes* GSSNameImpl::export$() {
 	$var($bytes, oidBytes, nullptr);
 	$var($ObjectIdentifier, oid, nullptr);
 	try {
-		$assign(oid, $ObjectIdentifier::of($($nc($($nc(this->mechElement)->getMechanism()))->toString())));
+		$assign(oid, $ObjectIdentifier::of($($$nc($nc(this->mechElement)->getMechanism())->toString())));
 	} catch ($IOException& e) {
 		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, "Invalid OID String "_s);
 	}
@@ -305,8 +256,8 @@ $bytes* GSSNameImpl::export$() {
 	$assign(oidBytes, dout->toByteArray());
 	$var($bytes, retVal, $new($bytes, 2 + 2 + $nc(oidBytes)->length + 4 + $nc(mechPortion)->length));
 	int32_t pos = 0;
-	retVal->set(pos++, (int8_t)4);
-	retVal->set(pos++, (int8_t)1);
+	retVal->set(pos++, 4);
+	retVal->set(pos++, 1);
 	retVal->set(pos++, (int8_t)((int32_t)((uint32_t)oidBytes->length >> 8)));
 	retVal->set(pos++, (int8_t)oidBytes->length);
 	$System::arraycopy(oidBytes, 0, retVal, pos, oidBytes->length);
@@ -368,21 +319,21 @@ $String* GSSNameImpl::getNameTypeStr($Oid* nameTypeOid) {
 	if ($nc(nameTypeOid)->equals($GSSName::NT_USER_NAME)) {
 		return "NT_USER_NAME"_s;
 	}
-	if ($nc(nameTypeOid)->equals($GSSName::NT_HOSTBASED_SERVICE)) {
+	if (nameTypeOid->equals($GSSName::NT_HOSTBASED_SERVICE)) {
 		return "NT_HOSTBASED_SERVICE"_s;
 	}
-	if ($nc(nameTypeOid)->equals($GSSName::NT_EXPORT_NAME)) {
+	if (nameTypeOid->equals($GSSName::NT_EXPORT_NAME)) {
 		return "NT_EXPORT_NAME"_s;
 	}
 	$init($GSSUtil);
-	if ($nc(nameTypeOid)->equals($GSSUtil::NT_GSS_KRB5_PRINCIPAL)) {
+	if (nameTypeOid->equals($GSSUtil::NT_GSS_KRB5_PRINCIPAL)) {
 		return "NT_GSS_KRB5_PRINCIPAL"_s;
 	} else {
 		return "Unknown"_s;
 	}
 }
 
-void clinit$GSSNameImpl($Class* class$) {
+void GSSNameImpl::clinit$($Class* clazz) {
 	{
 		$var($Oid, tmp, nullptr);
 		try {
@@ -397,7 +348,50 @@ GSSNameImpl::GSSNameImpl() {
 }
 
 $Class* GSSNameImpl::load$($String* name, bool initialize) {
-	$loadClass(GSSNameImpl, name, initialize, &_GSSNameImpl_ClassInfo_, clinit$GSSNameImpl, allocate$GSSNameImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"oldHostbasedServiceName", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(GSSNameImpl, oldHostbasedServiceName)},
+		{"gssManager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $PRIVATE, $field(GSSNameImpl, gssManager)},
+		{"appNameStr", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSNameImpl, appNameStr)},
+		{"appNameBytes", "[B", nullptr, $PRIVATE, $field(GSSNameImpl, appNameBytes)},
+		{"appNameType", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSNameImpl, appNameType)},
+		{"printableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GSSNameImpl, printableName)},
+		{"printableNameType", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSNameImpl, printableNameType)},
+		{"elements", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lorg/ietf/jgss/Oid;Lsun/security/jgss/spi/GSSNameSpi;>;", $PRIVATE, $field(GSSNameImpl, elements)},
+		{"mechElement", "Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PRIVATE, $field(GSSNameImpl, mechElement)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lsun/security/jgss/spi/GSSNameSpi;)V", nullptr, 0, $method(GSSNameImpl, init$, void, $GSSManagerImpl*, $GSSNameSpi*)},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSNameImpl, init$, void, $GSSManagerImpl*, Object$*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSNameImpl, init$, void, $GSSManagerImpl*, Object$*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"canonicalize", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, canonicalize, $GSSName*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"equals", "(Lorg/ietf/jgss/GSSName;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, equals, bool, $GSSName*), "org.ietf.jgss.GSSException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, equals, bool, Object$*)},
+		{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, export$, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getElement", "(Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GSSNameImpl, getElement, $GSSNameSpi*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/security/jgss/spi/GSSNameSpi;>;", 0, $virtualMethod(GSSNameImpl, getElements, $Set*)},
+		{"getNameTypeStr", "(Lorg/ietf/jgss/Oid;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(GSSNameImpl, getNameTypeStr, $String*, $Oid*)},
+		{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, getStringNameType, $Oid*), "org.ietf.jgss.GSSException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, hashCode, int32_t)},
+		{"importName", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(GSSNameImpl, importName, void, $GSSManagerImpl*, Object$*), "org.ietf.jgss.GSSException"},
+		{"init", "(Lsun/security/jgss/GSSManagerImpl;Ljava/lang/Object;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/Oid;)V", nullptr, $PRIVATE, $method(GSSNameImpl, init, void, $GSSManagerImpl*, Object$*, $Oid*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"isAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, isAnonymous, bool)},
+		{"isMN", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, isMN, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSNameImpl, toString, $String*)},
+		{"wrapElement", "(Lsun/security/jgss/GSSManagerImpl;Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/GSSNameImpl;", nullptr, $STATIC, $staticMethod(GSSNameImpl, wrapElement, GSSNameImpl*, $GSSManagerImpl*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.GSSNameImpl",
+		"java.lang.Object",
+		"org.ietf.jgss.GSSName",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSNameImpl, name, initialize, &classInfo$$, GSSNameImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSNameImpl);
+	});
 	return class$;
 }
 

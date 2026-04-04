@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/ObjectElementHandler.h>
-
 #include <com/sun/beans/decoder/ElementHandler.h>
 #include <com/sun/beans/decoder/FieldElementHandler.h>
 #include <com/sun/beans/decoder/NewElementHandler.h>
@@ -30,37 +29,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$FieldInfo _ObjectElementHandler_FieldInfo_[] = {
-	{"idref", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, idref)},
-	{"field", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, field)},
-	{"index", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ObjectElementHandler, index)},
-	{"property", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, property)},
-	{"method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, method)},
-	{}
-};
-
-$MethodInfo _ObjectElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ObjectElementHandler, init$, void)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ObjectElementHandler, addAttribute, void, $String*, $String*)},
-	{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", $PROTECTED | $FINAL, $virtualMethod(ObjectElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*), "java.lang.Exception"},
-	{"isArgument", "()Z", nullptr, $PROTECTED, $virtualMethod(ObjectElementHandler, isArgument, bool)},
-	{"startElement", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ObjectElementHandler, startElement, void)},
-	{}
-};
-
-$ClassInfo _ObjectElementHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.beans.decoder.ObjectElementHandler",
-	"com.sun.beans.decoder.NewElementHandler",
-	nullptr,
-	_ObjectElementHandler_FieldInfo_,
-	_ObjectElementHandler_MethodInfo_
-};
-
-$Object* allocate$ObjectElementHandler($Class* clazz) {
-	return $of($alloc(ObjectElementHandler));
-}
 
 void ObjectElementHandler::init$() {
 	$NewElementHandler::init$();
@@ -94,7 +62,7 @@ bool ObjectElementHandler::isArgument() {
 }
 
 $ValueObject* ObjectElementHandler::getValueObject($Class* type, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->field != nullptr) {
 		return $ValueObjectImpl::create($($FieldElementHandler::getFieldValue($(getContextBean()), this->field)));
 	}
@@ -109,13 +77,15 @@ $ValueObject* ObjectElementHandler::getValueObject($Class* type, $ObjectArray* a
 	} else if (this->property != nullptr) {
 		$init($PropertyElementHandler);
 		$assign(name, ($nc(args)->length == 1) ? $PropertyElementHandler::SETTER : $PropertyElementHandler::GETTER);
-		if (0 < $nc(this->property)->length()) {
+		if (0 < this->property->length()) {
+			$var($StringBuilder, var$0, $new($StringBuilder));
 			$init($Locale);
-			$var($String, var$0, $($($nc(this->property)->substring(0, 1))->toUpperCase($Locale::ENGLISH)));
-			$plusAssign(name, $$concat(var$0, $($nc(this->property)->substring(1))));
+			var$0->append($($(this->property->substring(0, 1))->toUpperCase($Locale::ENGLISH)));
+			var$0->append($(this->property->substring(1)));
+			$plusAssign(name, $$str(var$0));
 		}
 	} else {
-		$assign(name, (this->method != nullptr) && (0 < $nc(this->method)->length()) ? this->method : "new"_s);
+		$assign(name, (this->method != nullptr) && (0 < this->method->length()) ? this->method : "new"_s);
 	}
 	$var($Expression, expression, $new($Expression, bean, name, args));
 	return $ValueObjectImpl::create($(expression->getValue()));
@@ -125,7 +95,33 @@ ObjectElementHandler::ObjectElementHandler() {
 }
 
 $Class* ObjectElementHandler::load$($String* name, bool initialize) {
-	$loadClass(ObjectElementHandler, name, initialize, &_ObjectElementHandler_ClassInfo_, allocate$ObjectElementHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"idref", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, idref)},
+		{"field", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, field)},
+		{"index", "Ljava/lang/Integer;", nullptr, $PRIVATE, $field(ObjectElementHandler, index)},
+		{"property", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, property)},
+		{"method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ObjectElementHandler, method)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ObjectElementHandler, init$, void)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ObjectElementHandler, addAttribute, void, $String*, $String*)},
+		{"getValueObject", "(Ljava/lang/Class;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", "(Ljava/lang/Class<*>;[Ljava/lang/Object;)Lcom/sun/beans/decoder/ValueObject;", $PROTECTED | $FINAL, $virtualMethod(ObjectElementHandler, getValueObject, $ValueObject*, $Class*, $ObjectArray*), "java.lang.Exception"},
+		{"isArgument", "()Z", nullptr, $PROTECTED, $virtualMethod(ObjectElementHandler, isArgument, bool)},
+		{"startElement", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ObjectElementHandler, startElement, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.beans.decoder.ObjectElementHandler",
+		"com.sun.beans.decoder.NewElementHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectElementHandler);
+	});
 	return class$;
 }
 

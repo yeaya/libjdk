@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$InsertHRAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -20,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Element = ::javax::swing::text::Element;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
@@ -32,45 +30,13 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _HTMLEditorKit$InsertHRAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HTMLEditorKit$InsertHRAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$InsertHRAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$InsertHRAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$InsertHRAction", "javax.swing.text.html.HTMLEditorKit", "InsertHRAction", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "InsertHTMLTextAction", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$InsertHRAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$InsertHRAction",
-	"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction",
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$InsertHRAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$InsertHRAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$InsertHRAction($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$InsertHRAction));
-}
-
 void HTMLEditorKit$InsertHRAction::init$() {
 	$init($HTML$Tag);
 	$HTMLEditorKit$InsertHTMLTextAction::init$("InsertHR"_s, "<hr>"_s, nullptr, $HTML$Tag::IMPLIED, nullptr, nullptr, false);
 }
 
 void HTMLEditorKit$InsertHRAction::actionPerformed($ActionEvent* ae) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, getEditor(ae));
 	if (editor != nullptr) {
 		$var($HTMLDocument, doc, getHTMLDocument(editor));
@@ -78,7 +44,7 @@ void HTMLEditorKit$InsertHRAction::actionPerformed($ActionEvent* ae) {
 		$var($Element, paragraph, $nc(doc)->getParagraphElement(offset));
 		if ($nc(paragraph)->getParentElement() != nullptr) {
 			$init($StyleConstants);
-			$set(this, parentTag, $cast($HTML$Tag, $nc($($nc($(paragraph->getParentElement()))->getAttributes()))->getAttribute($StyleConstants::NameAttribute)));
+			$set(this, parentTag, $cast($HTML$Tag, $$nc($$nc(paragraph->getParentElement())->getAttributes())->getAttribute($StyleConstants::NameAttribute)));
 			$HTMLEditorKit$InsertHTMLTextAction::actionPerformed(ae);
 		}
 	}
@@ -88,7 +54,34 @@ HTMLEditorKit$InsertHRAction::HTMLEditorKit$InsertHRAction() {
 }
 
 $Class* HTMLEditorKit$InsertHRAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$InsertHRAction, name, initialize, &_HTMLEditorKit$InsertHRAction_ClassInfo_, allocate$HTMLEditorKit$InsertHRAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HTMLEditorKit$InsertHRAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$InsertHRAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$InsertHRAction", "javax.swing.text.html.HTMLEditorKit", "InsertHRAction", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "InsertHTMLTextAction", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$InsertHRAction",
+		"javax.swing.text.html.HTMLEditorKit$InsertHTMLTextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$InsertHRAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit$InsertHRAction));
+	});
 	return class$;
 }
 

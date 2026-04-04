@@ -30,6 +30,7 @@ public:
 	PNGImageWriterSpi();
 	using ::javax::imageio::spi::ImageWriterSpi::canEncodeImage;
 	using ::javax::imageio::spi::ImageWriterSpi::createWriterInstance;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canEncodeImage(::javax::imageio::ImageTypeSpecifier* type) override;
 	virtual ::javax::imageio::ImageWriter* createWriterInstance(Object$* extension) override;

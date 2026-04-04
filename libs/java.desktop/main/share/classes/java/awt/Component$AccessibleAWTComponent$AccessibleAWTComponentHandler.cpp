@@ -1,5 +1,4 @@
 #include <java/awt/Component$AccessibleAWTComponent$AccessibleAWTComponentHandler.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/ComponentEvent.h>
@@ -23,52 +22,6 @@ using $AccessibleState = ::javax::accessibility::AccessibleState;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_FieldInfo_[] = {
-	{"this$1", "Ljava/awt/Component$AccessibleAWTComponent;", nullptr, $FINAL | $SYNTHETIC, $field(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, this$1)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component$AccessibleAWTComponent;)V", nullptr, $PROTECTED, $method(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, init$, void, $Component$AccessibleAWTComponent*)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentShown, void, $ComponentEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_InnerClassesInfo_[] = {
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTComponentHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTComponentHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Component$AccessibleAWTComponent$AccessibleAWTComponentHandler",
-	"java.lang.Object",
-	"java.awt.event.ComponentListener,java.io.Serializable",
-	_Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_FieldInfo_,
-	_Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$AccessibleAWTComponent$AccessibleAWTComponentHandler($Class* clazz) {
-	return $of($alloc(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler));
-}
 
 int32_t Component$AccessibleAWTComponent$AccessibleAWTComponentHandler::hashCode() {
 	 return this->$ComponentListener::hashCode();
@@ -98,7 +51,7 @@ void Component$AccessibleAWTComponent$AccessibleAWTComponentHandler::componentHi
 	if ($nc(this->this$1->this$0)->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$init($AccessibleState);
-		$nc($nc(this->this$1->this$0)->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, $AccessibleState::VISIBLE, nullptr);
+		this->this$1->this$0->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, $AccessibleState::VISIBLE, nullptr);
 	}
 }
 
@@ -106,7 +59,7 @@ void Component$AccessibleAWTComponent$AccessibleAWTComponentHandler::componentSh
 	if ($nc(this->this$1->this$0)->accessibleContext != nullptr) {
 		$init($AccessibleContext);
 		$init($AccessibleState);
-		$nc($nc(this->this$1->this$0)->accessibleContext)->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::VISIBLE);
+		this->this$1->this$0->accessibleContext->firePropertyChange($AccessibleContext::ACCESSIBLE_STATE_PROPERTY, nullptr, $AccessibleState::VISIBLE);
 	}
 }
 
@@ -120,7 +73,47 @@ Component$AccessibleAWTComponent$AccessibleAWTComponentHandler::Component$Access
 }
 
 $Class* Component$AccessibleAWTComponent$AccessibleAWTComponentHandler::load$($String* name, bool initialize) {
-	$loadClass(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, name, initialize, &_Component$AccessibleAWTComponent$AccessibleAWTComponentHandler_ClassInfo_, allocate$Component$AccessibleAWTComponent$AccessibleAWTComponentHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/awt/Component$AccessibleAWTComponent;", nullptr, $FINAL | $SYNTHETIC, $field(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, this$1)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component$AccessibleAWTComponent;)V", nullptr, $PROTECTED, $method(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, init$, void, $Component$AccessibleAWTComponent*)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, componentShown, void, $ComponentEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{"java.awt.Component$AccessibleAWTComponent$AccessibleAWTComponentHandler", "java.awt.Component$AccessibleAWTComponent", "AccessibleAWTComponentHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Component$AccessibleAWTComponent$AccessibleAWTComponentHandler",
+		"java.lang.Object",
+		"java.awt.event.ComponentListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Component$AccessibleAWTComponent$AccessibleAWTComponentHandler));
+	});
 	return class$;
 }
 

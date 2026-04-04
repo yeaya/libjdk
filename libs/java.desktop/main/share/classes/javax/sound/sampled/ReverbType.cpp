@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/ReverbType.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,43 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _ReverbType_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ReverbType, name)},
-	{"earlyReflectionDelay", "I", nullptr, $PRIVATE | $FINAL, $field(ReverbType, earlyReflectionDelay)},
-	{"earlyReflectionIntensity", "F", nullptr, $PRIVATE | $FINAL, $field(ReverbType, earlyReflectionIntensity)},
-	{"lateReflectionDelay", "I", nullptr, $PRIVATE | $FINAL, $field(ReverbType, lateReflectionDelay)},
-	{"lateReflectionIntensity", "F", nullptr, $PRIVATE | $FINAL, $field(ReverbType, lateReflectionIntensity)},
-	{"decayTime", "I", nullptr, $PRIVATE | $FINAL, $field(ReverbType, decayTime)},
-	{}
-};
-
-$MethodInfo _ReverbType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IFIFI)V", nullptr, $PROTECTED, $method(ReverbType, init$, void, $String*, int32_t, float, int32_t, float, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReverbType, equals, bool, Object$*)},
-	{"getDecayTime", "()I", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getDecayTime, int32_t)},
-	{"getEarlyReflectionDelay", "()I", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getEarlyReflectionDelay, int32_t)},
-	{"getEarlyReflectionIntensity", "()F", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getEarlyReflectionIntensity, float)},
-	{"getLateReflectionDelay", "()I", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getLateReflectionDelay, int32_t)},
-	{"getLateReflectionIntensity", "()F", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getLateReflectionIntensity, float)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReverbType, getName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReverbType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReverbType, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ReverbType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.ReverbType",
-	"java.lang.Object",
-	nullptr,
-	_ReverbType_FieldInfo_,
-	_ReverbType_MethodInfo_
-};
-
-$Object* allocate$ReverbType($Class* clazz) {
-	return $of($alloc(ReverbType));
-}
 
 void ReverbType::init$($String* name, int32_t earlyReflectionDelay, float earlyReflectionIntensity, int32_t lateReflectionDelay, float lateReflectionIntensity, int32_t decayTime) {
 	$set(this, name, name);
@@ -91,14 +53,14 @@ int32_t ReverbType::hashCode() {
 }
 
 $String* ReverbType::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s, early reflection delay %d ns, early reflection intensity %s dB, late deflection delay %d ns, late reflection intensity %s dB, decay time %d"_s, $$new($ObjectArray, {
-		$($of(getName())),
-		$($of($Integer::valueOf(this->earlyReflectionDelay))),
-		$($of($Float::valueOf(this->earlyReflectionIntensity))),
-		$($of($Integer::valueOf(this->lateReflectionDelay))),
-		$($of($Float::valueOf(this->lateReflectionIntensity))),
-		$($of($Integer::valueOf(this->decayTime)))
+		$(getName()),
+		$($Integer::valueOf(this->earlyReflectionDelay)),
+		$($Float::valueOf(this->earlyReflectionIntensity)),
+		$($Integer::valueOf(this->lateReflectionDelay)),
+		$($Float::valueOf(this->lateReflectionIntensity)),
+		$($Integer::valueOf(this->decayTime))
 	}));
 }
 
@@ -106,7 +68,39 @@ ReverbType::ReverbType() {
 }
 
 $Class* ReverbType::load$($String* name, bool initialize) {
-	$loadClass(ReverbType, name, initialize, &_ReverbType_ClassInfo_, allocate$ReverbType);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ReverbType, name)},
+		{"earlyReflectionDelay", "I", nullptr, $PRIVATE | $FINAL, $field(ReverbType, earlyReflectionDelay)},
+		{"earlyReflectionIntensity", "F", nullptr, $PRIVATE | $FINAL, $field(ReverbType, earlyReflectionIntensity)},
+		{"lateReflectionDelay", "I", nullptr, $PRIVATE | $FINAL, $field(ReverbType, lateReflectionDelay)},
+		{"lateReflectionIntensity", "F", nullptr, $PRIVATE | $FINAL, $field(ReverbType, lateReflectionIntensity)},
+		{"decayTime", "I", nullptr, $PRIVATE | $FINAL, $field(ReverbType, decayTime)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IFIFI)V", nullptr, $PROTECTED, $method(ReverbType, init$, void, $String*, int32_t, float, int32_t, float, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReverbType, equals, bool, Object$*)},
+		{"getDecayTime", "()I", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getDecayTime, int32_t)},
+		{"getEarlyReflectionDelay", "()I", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getEarlyReflectionDelay, int32_t)},
+		{"getEarlyReflectionIntensity", "()F", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getEarlyReflectionIntensity, float)},
+		{"getLateReflectionDelay", "()I", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getLateReflectionDelay, int32_t)},
+		{"getLateReflectionIntensity", "()F", nullptr, $PUBLIC | $FINAL, $method(ReverbType, getLateReflectionIntensity, float)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReverbType, getName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReverbType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ReverbType, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.ReverbType",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReverbType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReverbType);
+	});
 	return class$;
 }
 

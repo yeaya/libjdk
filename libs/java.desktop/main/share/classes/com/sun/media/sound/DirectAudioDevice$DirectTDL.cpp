@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DirectAudioDevice$DirectTDL.h>
-
 #include <com/sun/media/sound/AbstractDataLine.h>
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL.h>
 #include <com/sun/media/sound/DirectAudioDevice.h>
@@ -33,67 +32,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _DirectAudioDevice$DirectTDL_MethodInfo_[] = {
-	{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"*available", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*drain", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flush", "()V", nullptr, $PUBLIC},
-	{"*getBufferSize", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
-	{"*getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $FINAL},
-	{"*getFramePosition", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*getLevel", "()F", nullptr, $PUBLIC | $FINAL},
-	{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
-	{"*getLongFramePosition", "()J", nullptr, $PUBLIC},
-	{"*getMicrosecondPosition", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Ljavax/sound/sampled/AudioFormat;ILcom/sun/media/sound/DirectAudioDevice;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectTDL, init$, void, $DataLine$Info*, $AudioFormat*, int32_t, $DirectAudioDevice*)},
-	{"*isActive", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*isRunning", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*open", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PUBLIC | $FINAL},
-	{"*open", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC | $FINAL},
-	{"*open", "()V", nullptr, $PUBLIC | $FINAL},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectTDL, read, int32_t, $bytes*, int32_t, int32_t)},
-	{"*start", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*stop", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DirectAudioDevice$DirectTDL_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DirectAudioDevice$DirectTDL", "com.sun.media.sound.DirectAudioDevice", "DirectTDL", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DirectAudioDevice$DirectTDL_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DirectAudioDevice$DirectTDL",
-	"com.sun.media.sound.DirectAudioDevice$DirectDL",
-	"javax.sound.sampled.TargetDataLine",
-	nullptr,
-	_DirectAudioDevice$DirectTDL_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectAudioDevice$DirectTDL_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DirectAudioDevice"
-};
-
-$Object* allocate$DirectAudioDevice$DirectTDL($Class* clazz) {
-	return $of($alloc(DirectAudioDevice$DirectTDL));
-}
 
 int32_t DirectAudioDevice$DirectTDL::available() {
 	 return this->$DirectAudioDevice$DirectDL::available();
@@ -212,17 +150,12 @@ void DirectAudioDevice$DirectTDL::finalize() {
 }
 
 void DirectAudioDevice$DirectTDL::init$($DataLine$Info* info, $AudioFormat* format, int32_t bufferSize, $DirectAudioDevice* mixer) {
-	$useLocalCurrentObjectStackCache();
-	$var($DataLine$Info, var$0, info);
-	$var($DirectAudioDevice, var$1, mixer);
-	$var($AudioFormat, var$2, format);
-	int32_t var$3 = bufferSize;
-	int32_t var$4 = $nc(mixer)->getMixerIndex();
-	$DirectAudioDevice$DirectDL::init$(var$0, var$1, var$2, var$3, var$4, mixer->getDeviceID(), false);
+	int32_t var$0 = $nc(mixer)->getMixerIndex();
+	$DirectAudioDevice$DirectDL::init$(info, mixer, format, bufferSize, var$0, mixer->getDeviceID(), false);
 }
 
 int32_t DirectAudioDevice$DirectTDL::read($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->flushing = false;
 	if (len == 0) {
 		return 0;
@@ -230,8 +163,8 @@ int32_t DirectAudioDevice$DirectTDL::read($bytes* b, int32_t off, int32_t len) {
 	if (len < 0) {
 		$throwNew($IllegalArgumentException, $$str({"illegal len: "_s, $$str(len)}));
 	}
-	if ($mod(len, $nc($(getFormat()))->getFrameSize()) != 0) {
-		$throwNew($IllegalArgumentException, $$str({"illegal request to read non-integral number of frames ("_s, $$str(len), " bytes, frameSize = "_s, $$str($nc($(getFormat()))->getFrameSize()), " bytes)"_s}));
+	if ($mod(len, $$nc(getFormat())->getFrameSize()) != 0) {
+		$throwNew($IllegalArgumentException, $$str({"illegal request to read non-integral number of frames ("_s, $$str(len), " bytes, frameSize = "_s, $$str($$nc(getFormat())->getFrameSize()), " bytes)"_s}));
 	}
 	if (off < 0) {
 		$throwNew($ArrayIndexOutOfBoundsException, off);
@@ -264,7 +197,7 @@ int32_t DirectAudioDevice$DirectTDL::read($bytes* b, int32_t off, int32_t len) {
 			off += thisRead;
 			$synchronized(this->lock) {
 				try {
-					$nc($of(this->lock))->wait(this->waitTime);
+					this->lock->wait(this->waitTime);
 				} catch ($InterruptedException& ie) {
 				}
 			}
@@ -282,7 +215,63 @@ DirectAudioDevice$DirectTDL::DirectAudioDevice$DirectTDL() {
 }
 
 $Class* DirectAudioDevice$DirectTDL::load$($String* name, bool initialize) {
-	$loadClass(DirectAudioDevice$DirectTDL, name, initialize, &_DirectAudioDevice$DirectTDL_ClassInfo_, allocate$DirectAudioDevice$DirectTDL);
+	$MethodInfo methodInfos$$[] = {
+		{"*addLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"*available", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*drain", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flush", "()V", nullptr, $PUBLIC},
+		{"*getBufferSize", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getControl", "(Ljavax/sound/sampled/Control$Type;)Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"*getControls", "()[Ljavax/sound/sampled/Control;", nullptr, $PUBLIC | $FINAL},
+		{"*getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC | $FINAL},
+		{"*getFramePosition", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*getLevel", "()F", nullptr, $PUBLIC | $FINAL},
+		{"*getLineInfo", "()Ljavax/sound/sampled/Line$Info;", nullptr, $PUBLIC | $FINAL},
+		{"*getLongFramePosition", "()J", nullptr, $PUBLIC},
+		{"*getMicrosecondPosition", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/sound/sampled/DataLine$Info;Ljavax/sound/sampled/AudioFormat;ILcom/sun/media/sound/DirectAudioDevice;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectTDL, init$, void, $DataLine$Info*, $AudioFormat*, int32_t, $DirectAudioDevice*)},
+		{"*isActive", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*isControlSupported", "(Ljavax/sound/sampled/Control$Type;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*isRunning", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*open", "(Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PUBLIC | $FINAL},
+		{"*open", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $PUBLIC | $FINAL},
+		{"*open", "()V", nullptr, $PUBLIC | $FINAL},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectTDL, read, int32_t, $bytes*, int32_t, int32_t)},
+		{"*start", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*stop", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*removeLineListener", "(Ljavax/sound/sampled/LineListener;)V", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DirectAudioDevice$DirectTDL", "com.sun.media.sound.DirectAudioDevice", "DirectTDL", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DirectAudioDevice$DirectTDL",
+		"com.sun.media.sound.DirectAudioDevice$DirectDL",
+		"javax.sound.sampled.TargetDataLine",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DirectAudioDevice"
+	};
+	$loadClass(DirectAudioDevice$DirectTDL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectAudioDevice$DirectTDL));
+	});
 	return class$;
 }
 

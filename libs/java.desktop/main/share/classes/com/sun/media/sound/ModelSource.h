@@ -50,6 +50,7 @@ class ModelSource : public ::java::lang::Object {
 	$class(ModelSource, 0, ::java::lang::Object)
 public:
 	ModelSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::media::sound::ModelIdentifier* id);
 	void init$(::com::sun::media::sound::ModelIdentifier* id, bool direction);

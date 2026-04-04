@@ -22,7 +22,7 @@ class TimerAlarmClockNotification : public ::javax::management::Notification {
 public:
 	TimerAlarmClockNotification();
 	void init$(::javax::management::timer::TimerAlarmClock* source);
-	static const int64_t serialVersionUID = (int64_t)0xBCD1186B37930F5F;
+	static const int64_t serialVersionUID = (int64_t)0xbcd1186b37930f5f;
 };
 
 		} // timer

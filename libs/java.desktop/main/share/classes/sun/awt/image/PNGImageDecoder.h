@@ -49,6 +49,7 @@ class PNGImageDecoder : public ::sun::awt::image::ImageDecoder {
 	$class(PNGImageDecoder, 0, ::sun::awt::image::ImageDecoder)
 public:
 	PNGImageDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::image::InputStreamImageSource* src, ::java::io::InputStream* input);
 	static int32_t crc($bytes* buf, int32_t offset, int32_t len);
 	void fill();
@@ -77,20 +78,20 @@ public:
 	static const int32_t PALETTE = 1;
 	static const int32_t COLOR = 2;
 	static const int32_t ALPHA = 4;
-	static const int32_t bKGDChunk = 0x624B4744;
-	static const int32_t cHRMChunk = 0x6348524D;
-	static const int32_t gAMAChunk = 0x67414D41;
+	static const int32_t bKGDChunk = 0x624b4744;
+	static const int32_t cHRMChunk = 0x6348524d;
+	static const int32_t gAMAChunk = 0x67414d41;
 	static const int32_t hISTChunk = 0x68495354;
 	static const int32_t IDATChunk = 0x49444154;
-	static const int32_t IENDChunk = 0x49454E44;
+	static const int32_t IENDChunk = 0x49454e44;
 	static const int32_t IHDRChunk = 0x49484452;
-	static const int32_t PLTEChunk = 0x504C5445;
+	static const int32_t PLTEChunk = 0x504c5445;
 	static const int32_t pHYsChunk = 0x70485973;
 	static const int32_t sBITChunk = 0x73424954;
 	static const int32_t tEXtChunk = 0x74455874;
-	static const int32_t tIMEChunk = 0x74494D45;
-	static const int32_t tRNSChunk = 0x74524E53;
-	static const int32_t zTXtChunk = 0x7A545874;
+	static const int32_t tIMEChunk = 0x74494d45;
+	static const int32_t tRNSChunk = 0x74524e53;
+	static const int32_t zTXtChunk = 0x7a545874;
 	int32_t width = 0;
 	int32_t height = 0;
 	int32_t bitDepth = 0;

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_bas.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,1091 +13,1072 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_bas_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_bas, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_bas, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_bas_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_bas",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_bas_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_bas($Class* clazz) {
-	return $of($alloc(LocaleNames_bas));
-}
-
 void LocaleNames_bas::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_bas::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"Àŋdɔ̂r"_s)
+			"AD"_s,
+			u"Àŋdɔ̂r"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"Àdnà i Bilɔ̀ŋ bi Arābìà"_s)
+			"AE"_s,
+			u"Àdnà i Bilɔ̀ŋ bi Arābìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"Àfgànìstâŋ"_s)
+			"AF"_s,
+			u"Àfgànìstâŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"Àŋtigà ɓɔ Bàrbudà"_s)
+			"AG"_s,
+			u"Àŋtigà ɓɔ Bàrbudà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"Àŋgiyà"_s)
+			"AI"_s,
+			u"Àŋgiyà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"Àlbanìà"_s)
+			"AL"_s,
+			u"Àlbanìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"Àrmenìà"_s)
+			"AM"_s,
+			u"Àrmenìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"Àŋgolà"_s)
+			"AO"_s,
+			u"Àŋgolà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"Àrgàŋtinà"_s)
+			"AR"_s,
+			u"Àrgàŋtinà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"Òstrǐk"_s)
+			"AT"_s,
+			u"Òstrǐk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"Òstralìà"_s)
+			"AU"_s,
+			u"Òstralìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"Àrubà"_s)
+			"AW"_s,
+			u"Àrubà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"Àzɛ̀rbajàŋ"_s)
+			"AZ"_s,
+			u"Àzɛ̀rbajàŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"Bòhnià Ɛrzègòvinà"_s)
+			"BA"_s,
+			u"Bòhnià Ɛrzègòvinà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"Bàrbadò"_s)
+			"BB"_s,
+			u"Bàrbadò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"Bàŋglàdɛ̂s"_s)
+			"BD"_s,
+			u"Bàŋglàdɛ̂s"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"Bɛlgyùm"_s)
+			"BE"_s,
+			u"Bɛlgyùm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"Bùrkìnà Fasò"_s)
+			"BF"_s,
+			u"Bùrkìnà Fasò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"Bùlgarìà"_s)
+			"BG"_s,
+			u"Bùlgarìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"Bàraìn"_s)
+			"BH"_s,
+			u"Bàraìn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"Bùrundì"_s)
+			"BI"_s,
+			u"Bùrundì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"Bènɛ̂ŋ"_s)
+			"BJ"_s,
+			u"Bènɛ̂ŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"Bɛ̀rmudà"_s)
+			"BM"_s,
+			u"Bɛ̀rmudà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of("Brunei"_s)
+			"BN"_s,
+			"Brunei"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"Bòlivìà"_s)
+			"BO"_s,
+			u"Bòlivìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"Bràsîl"_s)
+			"BR"_s,
+			u"Bràsîl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"Bàhamàs"_s)
+			"BS"_s,
+			u"Bàhamàs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"Bùtân"_s)
+			"BT"_s,
+			u"Bùtân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"Bòdsùanà"_s)
+			"BW"_s,
+			u"Bòdsùanà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"Bèlarùs"_s)
+			"BY"_s,
+			u"Bèlarùs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"Bèlîs"_s)
+			"BZ"_s,
+			u"Bèlîs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"Kànadà"_s)
+			"CA"_s,
+			u"Kànadà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"Kòŋgo ìkɛŋi"_s)
+			"CD"_s,
+			u"Kòŋgo ìkɛŋi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"Ŋ̀ɛm Afrīkà"_s)
+			"CF"_s,
+			u"Ŋ̀ɛm Afrīkà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"Kòŋgo"_s)
+			"CG"_s,
+			u"Kòŋgo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"Sùwîs"_s)
+			"CH"_s,
+			u"Sùwîs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"Màŋ mi Njɔ̂k"_s)
+			"CI"_s,
+			u"Màŋ mi Njɔ̂k"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"Bìòn bi Kook"_s)
+			"CK"_s,
+			u"Bìòn bi Kook"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"Kìlî"_s)
+			"CL"_s,
+			u"Kìlî"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"Kàmɛ̀rûn"_s)
+			"CM"_s,
+			u"Kàmɛ̀rûn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"Kinà"_s)
+			"CN"_s,
+			u"Kinà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"Kɔ̀lɔmbìà"_s)
+			"CO"_s,
+			u"Kɔ̀lɔmbìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"Kòstà Rikà"_s)
+			"CR"_s,
+			u"Kòstà Rikà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"Kubà"_s)
+			"CU"_s,
+			u"Kubà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"Kabwɛ᷆r"_s)
+			"CV"_s,
+			u"Kabwɛ᷆r"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"Kiprò"_s)
+			"CY"_s,
+			u"Kiprò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"Jamân"_s)
+			"DE"_s,
+			u"Jamân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"Jìbutì"_s)
+			"DJ"_s,
+			u"Jìbutì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"Dànmârk"_s)
+			"DK"_s,
+			u"Dànmârk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"Dòmnîk"_s)
+			"DM"_s,
+			u"Dòmnîk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"Dòmnikà"_s)
+			"DO"_s,
+			u"Dòmnikà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"Àlgerìà"_s)
+			"DZ"_s,
+			u"Àlgerìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"Èkwàtorìà"_s)
+			"EC"_s,
+			u"Èkwàtorìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"Èstonìà"_s)
+			"EE"_s,
+			u"Èstonìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"Ègîptò"_s)
+			"EG"_s,
+			u"Ègîptò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"Èrìtrěà"_s)
+			"ER"_s,
+			u"Èrìtrěà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"Pànya"_s)
+			"ES"_s,
+			u"Pànya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"Ètìopìà"_s)
+			"ET"_s,
+			u"Ètìopìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"Fìnlând"_s)
+			"FI"_s,
+			u"Fìnlând"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of("Fiji"_s)
+			"FJ"_s,
+			"Fiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"Bìòn bi Falkland"_s)
+			"FK"_s,
+			u"Bìòn bi Falkland"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"Mìkrònesìà"_s)
+			"FM"_s,
+			u"Mìkrònesìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"Pùlàsi / Fɛ̀lɛ̀nsi /"_s)
+			"FR"_s,
+			u"Pùlàsi / Fɛ̀lɛ̀nsi /"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"Gàbɔ̂ŋ"_s)
+			"GA"_s,
+			u"Gàbɔ̂ŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"Àdnà i Lɔ̂ŋ"_s)
+			"GB"_s,
+			u"Àdnà i Lɔ̂ŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"Grènadà"_s)
+			"GD"_s,
+			u"Grènadà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"Gèɔrgìà"_s)
+			"GE"_s,
+			u"Gèɔrgìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"Gùyanà Pùlàsi"_s)
+			"GF"_s,
+			u"Gùyanà Pùlàsi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"Ganà"_s)
+			"GH"_s,
+			u"Ganà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"Gìlbràtâr"_s)
+			"GI"_s,
+			u"Gìlbràtâr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"Grǐnlànd"_s)
+			"GL"_s,
+			u"Grǐnlànd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"Gàmbià"_s)
+			"GM"_s,
+			u"Gàmbià"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"Gìnê"_s)
+			"GN"_s,
+			u"Gìnê"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"Gwàdèlûp"_s)
+			"GP"_s,
+			u"Gwàdèlûp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"Gìne Èkwàtorìà"_s)
+			"GQ"_s,
+			u"Gìne Èkwàtorìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"Grǐkyà"_s)
+			"GR"_s,
+			u"Grǐkyà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"Gwàtèmalà"_s)
+			"GT"_s,
+			u"Gwàtèmalà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"Gùâm"_s)
+			"GU"_s,
+			u"Gùâm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"Gìne Bìsàô"_s)
+			"GW"_s,
+			u"Gìne Bìsàô"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"Gùyanà"_s)
+			"GY"_s,
+			u"Gùyanà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"Ɔ̀ŋduràs"_s)
+			"HN"_s,
+			u"Ɔ̀ŋduràs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"Kròasìà"_s)
+			"HR"_s,
+			u"Kròasìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"Àitì"_s)
+			"HT"_s,
+			u"Àitì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"Ɔ̀ŋgriì"_s)
+			"HU"_s,
+			u"Ɔ̀ŋgriì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"Indònèsià"_s)
+			"ID"_s,
+			u"Indònèsià"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"Ìrlând"_s)
+			"IE"_s,
+			u"Ìrlând"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"Isràɛ̂l"_s)
+			"IL"_s,
+			u"Isràɛ̂l"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"Indìà"_s)
+			"IN"_s,
+			u"Indìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"Bìtèk bi Ŋgisì i Tūyɛ Īndìà"_s)
+			"IO"_s,
+			u"Bìtèk bi Ŋgisì i Tūyɛ Īndìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"Ìrâk"_s)
+			"IQ"_s,
+			u"Ìrâk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"Ìrâŋ"_s)
+			"IR"_s,
+			u"Ìrâŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"Ìslandìà"_s)
+			"IS"_s,
+			u"Ìslandìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"Ìtalìà"_s)
+			"IT"_s,
+			u"Ìtalìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"Jàmàikà"_s)
+			"JM"_s,
+			u"Jàmàikà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"Yɔ̀rdanià"_s)
+			"JO"_s,
+			u"Yɔ̀rdanià"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"Kenìà"_s)
+			"KE"_s,
+			u"Kenìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"Kìrgìzìstàŋ"_s)
+			"KG"_s,
+			u"Kìrgìzìstàŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"Kàmbodìà"_s)
+			"KH"_s,
+			u"Kàmbodìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"Kìrìbatì"_s)
+			"KI"_s,
+			u"Kìrìbatì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"Kɔ̀mɔ̂r"_s)
+			"KM"_s,
+			u"Kɔ̀mɔ̂r"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"Nûmpubi Kîts nì Nevìs"_s)
+			"KN"_s,
+			u"Nûmpubi Kîts nì Nevìs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"Kɔ̀re ì Ŋ̀ɔmbɔk"_s)
+			"KP"_s,
+			u"Kɔ̀re ì Ŋ̀ɔmbɔk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"Kɔ̀re ì Ŋ̀wɛ̀lmbɔk"_s)
+			"KR"_s,
+			u"Kɔ̀re ì Ŋ̀wɛ̀lmbɔk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"Kòwêt"_s)
+			"KW"_s,
+			u"Kòwêt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"Bìòn bi Kaymàn"_s)
+			"KY"_s,
+			u"Bìòn bi Kaymàn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"Kàzàkstâŋ"_s)
+			"KZ"_s,
+			u"Kàzàkstâŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"Làôs"_s)
+			"LA"_s,
+			u"Làôs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"Lèbanòn"_s)
+			"LB"_s,
+			u"Lèbanòn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"Nûmpubi Lusì"_s)
+			"LC"_s,
+			u"Nûmpubi Lusì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"Ligstɛntàn"_s)
+			"LI"_s,
+			u"Ligstɛntàn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"Srìlaŋkà"_s)
+			"LK"_s,
+			u"Srìlaŋkà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"Lìberìà"_s)
+			"LR"_s,
+			u"Lìberìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"Lesòtò"_s)
+			"LS"_s,
+			u"Lesòtò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"Lìtùanìà"_s)
+			"LT"_s,
+			u"Lìtùanìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"Lùgsàmbûr"_s)
+			"LU"_s,
+			u"Lùgsàmbûr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"Làdvià"_s)
+			"LV"_s,
+			u"Làdvià"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"Libìà"_s)
+			"LY"_s,
+			u"Libìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"Màrokò"_s)
+			"MA"_s,
+			u"Màrokò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"Mònakò"_s)
+			"MC"_s,
+			u"Mònakò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"Moldavìà"_s)
+			"MD"_s,
+			u"Moldavìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"Màdàgàskâr"_s)
+			"MG"_s,
+			u"Màdàgàskâr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"Bìòn bi Marcàl"_s)
+			"MH"_s,
+			u"Bìòn bi Marcàl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"Màli"_s)
+			"ML"_s,
+			u"Màli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"Myànmâr"_s)
+			"MM"_s,
+			u"Myànmâr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"Mòŋgolìà"_s)
+			"MN"_s,
+			u"Mòŋgolìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"Bìòn bi Marìanà ŋ̀ɔmbɔk"_s)
+			"MP"_s,
+			u"Bìòn bi Marìanà ŋ̀ɔmbɔk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"Màrtìnîk"_s)
+			"MQ"_s,
+			u"Màrtìnîk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"Mòrìtanìà"_s)
+			"MR"_s,
+			u"Mòrìtanìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"Mɔ̀ŋseràt"_s)
+			"MS"_s,
+			u"Mɔ̀ŋseràt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"Maltà"_s)
+			"MT"_s,
+			u"Maltà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"Mòrîs"_s)
+			"MU"_s,
+			u"Mòrîs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"Màldîf"_s)
+			"MV"_s,
+			u"Màldîf"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"Màlàwi"_s)
+			"MW"_s,
+			u"Màlàwi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"Mɛ̀gsîk"_s)
+			"MX"_s,
+			u"Mɛ̀gsîk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"Màlɛ̀sìà"_s)
+			"MY"_s,
+			u"Màlɛ̀sìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"Mòsàmbîk"_s)
+			"MZ"_s,
+			u"Mòsàmbîk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"Nàmibìà"_s)
+			"NA"_s,
+			u"Nàmibìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"Kàlèdonìà Yɔ̀ndɔ"_s)
+			"NC"_s,
+			u"Kàlèdonìà Yɔ̀ndɔ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"Nìjɛ̂r"_s)
+			"NE"_s,
+			u"Nìjɛ̂r"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"Òn i Nɔrfɔ̂k"_s)
+			"NF"_s,
+			u"Òn i Nɔrfɔ̂k"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"Nìgerìà"_s)
+			"NG"_s,
+			u"Nìgerìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"Nìkàragwà"_s)
+			"NI"_s,
+			u"Nìkàragwà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"Ǹlɛndi"_s)
+			"NL"_s,
+			u"Ǹlɛndi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"Nɔ̀rvegìà"_s)
+			"NO"_s,
+			u"Nɔ̀rvegìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"Nèpâl"_s)
+			"NP"_s,
+			u"Nèpâl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"Nerù"_s)
+			"NR"_s,
+			u"Nerù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"Nìuɛ̀"_s)
+			"NU"_s,
+			u"Nìuɛ̀"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"Sìlând Yɔ̀ndɔ"_s)
+			"NZ"_s,
+			u"Sìlând Yɔ̀ndɔ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"Òmân"_s)
+			"OM"_s,
+			u"Òmân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"Pànàma"_s)
+			"PA"_s,
+			u"Pànàma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"Pèrû"_s)
+			"PE"_s,
+			u"Pèrû"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"Pòlìnesìà Pùlàsi"_s)
+			"PF"_s,
+			u"Pòlìnesìà Pùlàsi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"Gìne ì Pàpu"_s)
+			"PG"_s,
+			u"Gìne ì Pàpu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"Fìlìpîn"_s)
+			"PH"_s,
+			u"Fìlìpîn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"Pàkìstân"_s)
+			"PK"_s,
+			u"Pàkìstân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"Pòlànd"_s)
+			"PL"_s,
+			u"Pòlànd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"Nûmpubi Petrò nì Mikèlôn"_s)
+			"PM"_s,
+			u"Nûmpubi Petrò nì Mikèlôn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"Pìdkaìrn"_s)
+			"PN"_s,
+			u"Pìdkaìrn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"Pɔ̀rtò Rikò"_s)
+			"PR"_s,
+			u"Pɔ̀rtò Rikò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"Pàlɛ̀htinà Hyɔ̀ŋg nì Gazà"_s)
+			"PS"_s,
+			u"Pàlɛ̀htinà Hyɔ̀ŋg nì Gazà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"Pɔ̀tɔkì"_s)
+			"PT"_s,
+			u"Pɔ̀tɔkì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"Pàlaù"_s)
+			"PW"_s,
+			u"Pàlaù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"Pàràgwê"_s)
+			"PY"_s,
+			u"Pàràgwê"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"Kàtâr"_s)
+			"QA"_s,
+			u"Kàtâr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"Rèunyɔ̂ŋ"_s)
+			"RE"_s,
+			u"Rèunyɔ̂ŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"Rùmanìà"_s)
+			"RO"_s,
+			u"Rùmanìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"Ruslànd"_s)
+			"RU"_s,
+			u"Ruslànd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"Rùandà"_s)
+			"RW"_s,
+			u"Rùandà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"Sàudi Àrabìà"_s)
+			"SA"_s,
+			u"Sàudi Àrabìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"Bìòn bi Salōmò"_s)
+			"SB"_s,
+			u"Bìòn bi Salōmò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"Sèsɛ̂l"_s)
+			"SC"_s,
+			u"Sèsɛ̂l"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"Sùdâŋ"_s)
+			"SD"_s,
+			u"Sùdâŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"Swedɛ̀n"_s)
+			"SE"_s,
+			u"Swedɛ̀n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"Sìŋgàpûr"_s)
+			"SG"_s,
+			u"Sìŋgàpûr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"Nûmpubi Ɛlēnà"_s)
+			"SH"_s,
+			u"Nûmpubi Ɛlēnà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"Slòvanìà"_s)
+			"SI"_s,
+			u"Slòvanìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"Slòvakìà"_s)
+			"SK"_s,
+			u"Slòvakìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"Sièra Lèɔ̂n"_s)
+			"SL"_s,
+			u"Sièra Lèɔ̂n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"Nûmpubi Māatìn"_s)
+			"SM"_s,
+			u"Nûmpubi Māatìn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"Sènègâl"_s)
+			"SN"_s,
+			u"Sènègâl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"Sòmalìà"_s)
+			"SO"_s,
+			u"Sòmalìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"Sùrinâm"_s)
+			"SR"_s,
+			u"Sùrinâm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"Sào Tòme ɓɔ Prɛ̀ŋcipè"_s)
+			"ST"_s,
+			u"Sào Tòme ɓɔ Prɛ̀ŋcipè"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"Sàlvàdɔ̂r"_s)
+			"SV"_s,
+			u"Sàlvàdɔ̂r"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"Sirìà"_s)
+			"SY"_s,
+			u"Sirìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"Swàzìlând"_s)
+			"SZ"_s,
+			u"Swàzìlând"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"Bìòn bi Tûrks nì Kalkòs"_s)
+			"TC"_s,
+			u"Bìòn bi Tûrks nì Kalkòs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"Câd"_s)
+			"TD"_s,
+			u"Câd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"Tògo"_s)
+			"TG"_s,
+			u"Tògo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"Taylànd"_s)
+			"TH"_s,
+			u"Taylànd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"Tàjìkìstaŋ"_s)
+			"TJ"_s,
+			u"Tàjìkìstaŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"Tòkèlaò"_s)
+			"TK"_s,
+			u"Tòkèlaò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"Tìmɔ̂r lìkòl"_s)
+			"TL"_s,
+			u"Tìmɔ̂r lìkòl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"Tùrgmènìstân"_s)
+			"TM"_s,
+			u"Tùrgmènìstân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"Tùnisìà"_s)
+			"TN"_s,
+			u"Tùnisìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"Tɔŋgà"_s)
+			"TO"_s,
+			u"Tɔŋgà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"Tùrkây"_s)
+			"TR"_s,
+			u"Tùrkây"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"Trìnidàd ɓɔ Tòbagò"_s)
+			"TT"_s,
+			u"Trìnidàd ɓɔ Tòbagò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(u"Tùvàlù"_s)
+			"TV"_s,
+			u"Tùvàlù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"Tàywân"_s)
+			"TW"_s,
+			u"Tàywân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"Tànzànià"_s)
+			"TZ"_s,
+			u"Tànzànià"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"Ùkrɛ̌n"_s)
+			"UA"_s,
+			u"Ùkrɛ̌n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"Ùgandà"_s)
+			"UG"_s,
+			u"Ùgandà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"Àdnà i Bilɔ̀ŋ bi Amerkà"_s)
+			"US"_s,
+			u"Àdnà i Bilɔ̀ŋ bi Amerkà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"Ùrùgwêy"_s)
+			"UY"_s,
+			u"Ùrùgwêy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"Ùzbèkìstân"_s)
+			"UZ"_s,
+			u"Ùzbèkìstân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"Vàtìkâŋ"_s)
+			"VA"_s,
+			u"Vàtìkâŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"Nûmpubi Vɛ̂ŋsâŋ nì grènàdîn"_s)
+			"VC"_s,
+			u"Nûmpubi Vɛ̂ŋsâŋ nì grènàdîn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"Vènèzùelà"_s)
+			"VE"_s,
+			u"Vènèzùelà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"Bìòn bi kɔnji bi Ŋgisì"_s)
+			"VG"_s,
+			u"Bìòn bi kɔnji bi Ŋgisì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"Bìòn bi kɔnji bi U.S."_s)
+			"VI"_s,
+			u"Bìòn bi kɔnji bi U.S."_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"Vìɛ̀dnâm"_s)
+			"VN"_s,
+			u"Vìɛ̀dnâm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"Vànùatù"_s)
+			"VU"_s,
+			u"Vànùatù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"Wàlîs nì Fùtunà"_s)
+			"WF"_s,
+			u"Wàlîs nì Fùtunà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"Sàmoà"_s)
+			"WS"_s,
+			u"Sàmoà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"Yèmɛ̂n"_s)
+			"YE"_s,
+			u"Yèmɛ̂n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"Màyɔ̂t"_s)
+			"YT"_s,
+			u"Màyɔ̂t"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"Àfrǐkà Sɔ̀"_s)
+			"ZA"_s,
+			u"Àfrǐkà Sɔ̀"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"Zàmbià"_s)
+			"ZM"_s,
+			u"Zàmbià"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"Zìmbàbwê"_s)
+			"ZW"_s,
+			u"Zìmbàbwê"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"Hɔp u akan"_s)
+			"ak"_s,
+			u"Hɔp u akan"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"Hɔp u amhārìk"_s)
+			"am"_s,
+			u"Hɔp u amhārìk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"Hɔp u arâb"_s)
+			"ar"_s,
+			u"Hɔp u arâb"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"Hɔp u bièlòrûs"_s)
+			"be"_s,
+			u"Hɔp u bièlòrûs"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"Hɔp u bûlgâr"_s)
+			"bg"_s,
+			u"Hɔp u bûlgâr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"Hɔp u bɛŋgàli"_s)
+			"bn"_s,
+			u"Hɔp u bɛŋgàli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"Hɔp u cɛ̂k"_s)
+			"cs"_s,
+			u"Hɔp u cɛ̂k"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"Hɔp u jamân"_s)
+			"de"_s,
+			u"Hɔp u jamân"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"Hɔp u gri ᷇kyà"_s)
+			"el"_s,
+			u"Hɔp u gri ᷇kyà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"Hɔp u ŋgisì"_s)
+			"en"_s,
+			u"Hɔp u ŋgisì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"Hɔp u panyā"_s)
+			"es"_s,
+			u"Hɔp u panyā"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"Hɔp u pɛrsìà"_s)
+			"fa"_s,
+			u"Hɔp u pɛrsìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"Hɔp u pulàsi"_s)
+			"fr"_s,
+			u"Hɔp u pulàsi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"Hɔp u ɓausa"_s)
+			"ha"_s,
+			u"Hɔp u ɓausa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"Hɔp u hindì"_s)
+			"hi"_s,
+			u"Hɔp u hindì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"Hɔp u hɔŋgrìi"_s)
+			"hu"_s,
+			u"Hɔp u hɔŋgrìi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"Hɔp u indònesìà"_s)
+			"id"_s,
+			u"Hɔp u indònesìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"Hɔp u iɓò"_s)
+			"ig"_s,
+			u"Hɔp u iɓò"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"Hɔp u italìà"_s)
+			"it"_s,
+			u"Hɔp u italìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"Hɔp u yapàn"_s)
+			"ja"_s,
+			u"Hɔp u yapàn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(u"Hɔp u yavà"_s)
+			"jv"_s,
+			u"Hɔp u yavà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(u"Hɔp u kmɛ̂r"_s)
+			"km"_s,
+			u"Hɔp u kmɛ̂r"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(u"Hɔp u kɔrēà"_s)
+			"ko"_s,
+			u"Hɔp u kɔrēà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"Hɔp u makɛ᷆"_s)
+			"ms"_s,
+			u"Hɔp u makɛ᷆"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"Hɔp u birmàn"_s)
+			"my"_s,
+			u"Hɔp u birmàn"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"Hɔp u nepa᷆l"_s)
+			"ne"_s,
+			u"Hɔp u nepa᷆l"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"Hɔp u nlɛ̀ndi"_s)
+			"nl"_s,
+			u"Hɔp u nlɛ̀ndi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"Hɔp u pɛnjàbi"_s)
+			"pa"_s,
+			u"Hɔp u pɛnjàbi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"Hɔp u pɔlɔ̄nà"_s)
+			"pl"_s,
+			u"Hɔp u pɔlɔ̄nà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"Hɔp u pɔtɔ̄kì"_s)
+			"pt"_s,
+			u"Hɔp u pɔtɔ̄kì"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"Hɔp u rùmanìà"_s)
+			"ro"_s,
+			u"Hɔp u rùmanìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"Hɔp u ruslànd"_s)
+			"ru"_s,
+			u"Hɔp u ruslànd"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"Hɔp u ruāndà"_s)
+			"rw"_s,
+			u"Hɔp u ruāndà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"Hɔp u somàlî"_s)
+			"so"_s,
+			u"Hɔp u somàlî"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"Hɔp u suɛ᷆d"_s)
+			"sv"_s,
+			u"Hɔp u suɛ᷆d"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(u"Hɔp u tamu᷆l"_s)
+			"ta"_s,
+			u"Hɔp u tamu᷆l"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(u"Hɔp u tây"_s)
+			"th"_s,
+			u"Hɔp u tây"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"Hɔp u tûrk"_s)
+			"tr"_s,
+			u"Hɔp u tûrk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"Hɔp u ukrǎnìà"_s)
+			"uk"_s,
+			u"Hɔp u ukrǎnìà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"Hɔp u urdù"_s)
+			"ur"_s,
+			u"Hɔp u urdù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"Hɔp u vyɛ̄dnàm"_s)
+			"vi"_s,
+			u"Hɔp u vyɛ̄dnàm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"Hɔp u yorūbà"_s)
+			"yo"_s,
+			u"Hɔp u yorūbà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"Hɔp u kinà"_s)
+			"zh"_s,
+			u"Hɔp u kinà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"Hɔp u zulù"_s)
+			"zu"_s,
+			u"Hɔp u zulù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"Ɓàsàa"_s)
+			"bas"_s,
+			u"Ɓàsàa"_s
 		})
 	}));
 	return data;
@@ -1108,7 +1088,22 @@ LocaleNames_bas::LocaleNames_bas() {
 }
 
 $Class* LocaleNames_bas::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_bas, name, initialize, &_LocaleNames_bas_ClassInfo_, allocate$LocaleNames_bas);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_bas, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_bas, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_bas",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_bas, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_bas);
+	});
 	return class$;
 }
 

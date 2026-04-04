@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/ImageCache$PixelCountSoftReference.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -23,47 +22,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ImageCache$PixelCountSoftReference_FieldInfo_[] = {
-	{"pixelCount", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, pixelCount)},
-	{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, hash)},
-	{"config", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, config)},
-	{"w", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, w)},
-	{"h", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, h)},
-	{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, args)},
-	{}
-};
-
-$MethodInfo _ImageCache$PixelCountSoftReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue;IILjava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)V", "(Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue<-Ljava/awt/Image;>;IILjava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)V", $PUBLIC, $method(ImageCache$PixelCountSoftReference, init$, void, $Image*, $ReferenceQueue*, int32_t, int32_t, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
-	{"equals", "(Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImageCache$PixelCountSoftReference, equals, bool, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _ImageCache$PixelCountSoftReference_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.ImageCache$PixelCountSoftReference", "javax.swing.plaf.nimbus.ImageCache", "PixelCountSoftReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ImageCache$PixelCountSoftReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.ImageCache$PixelCountSoftReference",
-	"java.lang.ref.SoftReference",
-	nullptr,
-	_ImageCache$PixelCountSoftReference_FieldInfo_,
-	_ImageCache$PixelCountSoftReference_MethodInfo_,
-	"Ljava/lang/ref/SoftReference<Ljava/awt/Image;>;",
-	nullptr,
-	_ImageCache$PixelCountSoftReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.ImageCache"
-};
-
-$Object* allocate$ImageCache$PixelCountSoftReference($Class* clazz) {
-	return $of($alloc(ImageCache$PixelCountSoftReference));
-}
-
 void ImageCache$PixelCountSoftReference::init$($Image* referent, $ReferenceQueue* q, int32_t pixelCount, int32_t hash, $GraphicsConfiguration* config, int32_t w, int32_t h, $ObjectArray* args) {
 	$SoftReference::init$(referent, q);
 	this->pixelCount = pixelCount;
@@ -82,7 +40,42 @@ ImageCache$PixelCountSoftReference::ImageCache$PixelCountSoftReference() {
 }
 
 $Class* ImageCache$PixelCountSoftReference::load$($String* name, bool initialize) {
-	$loadClass(ImageCache$PixelCountSoftReference, name, initialize, &_ImageCache$PixelCountSoftReference_ClassInfo_, allocate$ImageCache$PixelCountSoftReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"pixelCount", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, pixelCount)},
+		{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, hash)},
+		{"config", "Ljava/awt/GraphicsConfiguration;", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, config)},
+		{"w", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, w)},
+		{"h", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, h)},
+		{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ImageCache$PixelCountSoftReference, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue;IILjava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)V", "(Ljava/awt/Image;Ljava/lang/ref/ReferenceQueue<-Ljava/awt/Image;>;IILjava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)V", $PUBLIC, $method(ImageCache$PixelCountSoftReference, init$, void, $Image*, $ReferenceQueue*, int32_t, int32_t, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
+		{"equals", "(Ljava/awt/GraphicsConfiguration;II[Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImageCache$PixelCountSoftReference, equals, bool, $GraphicsConfiguration*, int32_t, int32_t, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.ImageCache$PixelCountSoftReference", "javax.swing.plaf.nimbus.ImageCache", "PixelCountSoftReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.ImageCache$PixelCountSoftReference",
+		"java.lang.ref.SoftReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/SoftReference<Ljava/awt/Image;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.ImageCache"
+	};
+	$loadClass(ImageCache$PixelCountSoftReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageCache$PixelCountSoftReference);
+	});
 	return class$;
 }
 

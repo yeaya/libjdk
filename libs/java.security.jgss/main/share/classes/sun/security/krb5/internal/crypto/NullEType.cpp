@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/NullEType.h>
-
 #include <sun/security/krb5/Checksum.h>
 #include <sun/security/krb5/EncryptedData.h>
 #include <sun/security/krb5/internal/Krb5.h>
@@ -22,36 +21,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace crypto {
-
-$MethodInfo _NullEType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullEType, init$, void)},
-	{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, blockSize, int32_t)},
-	{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, checksumSize, int32_t)},
-	{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, checksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, confounderSize, int32_t)},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException"},
-	{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, eType, int32_t)},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t)},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t)},
-	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, keyType, int32_t)},
-	{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, minimumPadSize, int32_t)},
-	{}
-};
-
-$ClassInfo _NullEType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.NullEType",
-	"sun.security.krb5.internal.crypto.EType",
-	nullptr,
-	nullptr,
-	_NullEType_MethodInfo_
-};
-
-$Object* allocate$NullEType($Class* clazz) {
-	return $of($alloc(NullEType));
-}
 
 void NullEType::init$() {
 	$EType::init$();
@@ -113,7 +82,33 @@ NullEType::NullEType() {
 }
 
 $Class* NullEType::load$($String* name, bool initialize) {
-	$loadClass(NullEType, name, initialize, &_NullEType_ClassInfo_, allocate$NullEType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullEType, init$, void)},
+		{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, blockSize, int32_t)},
+		{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, checksumSize, int32_t)},
+		{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, checksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, confounderSize, int32_t)},
+		{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException"},
+		{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException"},
+		{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, eType, int32_t)},
+		{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t)},
+		{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t)},
+		{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, keyType, int32_t)},
+		{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, minimumPadSize, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.NullEType",
+		"sun.security.krb5.internal.crypto.EType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullEType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullEType);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/print/PrintServiceLookupProvider$RemotePrinterChangeListener.h>
-
 #include <sun/print/PrintServiceLookupProvider.h>
 #include <jcpp.h>
 
@@ -11,42 +10,6 @@ using $PrintServiceLookupProvider = ::sun::print::PrintServiceLookupProvider;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _PrintServiceLookupProvider$RemotePrinterChangeListener_FieldInfo_[] = {
-	{"this$0", "Lsun/print/PrintServiceLookupProvider;", nullptr, $FINAL | $SYNTHETIC, $field(PrintServiceLookupProvider$RemotePrinterChangeListener, this$0)},
-	{}
-};
-
-$MethodInfo _PrintServiceLookupProvider$RemotePrinterChangeListener_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/PrintServiceLookupProvider;)V", nullptr, $PRIVATE, $method(PrintServiceLookupProvider$RemotePrinterChangeListener, init$, void, $PrintServiceLookupProvider*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider$RemotePrinterChangeListener, run, void)},
-	{}
-};
-
-$InnerClassInfo _PrintServiceLookupProvider$RemotePrinterChangeListener_InnerClassesInfo_[] = {
-	{"sun.print.PrintServiceLookupProvider$RemotePrinterChangeListener", "sun.print.PrintServiceLookupProvider", "RemotePrinterChangeListener", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _PrintServiceLookupProvider$RemotePrinterChangeListener_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.print.PrintServiceLookupProvider$RemotePrinterChangeListener",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_PrintServiceLookupProvider$RemotePrinterChangeListener_FieldInfo_,
-	_PrintServiceLookupProvider$RemotePrinterChangeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintServiceLookupProvider$RemotePrinterChangeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.PrintServiceLookupProvider"
-};
-
-$Object* allocate$PrintServiceLookupProvider$RemotePrinterChangeListener($Class* clazz) {
-	return $of($alloc(PrintServiceLookupProvider$RemotePrinterChangeListener));
-}
 
 void PrintServiceLookupProvider$RemotePrinterChangeListener::init$($PrintServiceLookupProvider* this$0) {
 	$set(this, this$0, this$0);
@@ -60,7 +23,37 @@ PrintServiceLookupProvider$RemotePrinterChangeListener::PrintServiceLookupProvid
 }
 
 $Class* PrintServiceLookupProvider$RemotePrinterChangeListener::load$($String* name, bool initialize) {
-	$loadClass(PrintServiceLookupProvider$RemotePrinterChangeListener, name, initialize, &_PrintServiceLookupProvider$RemotePrinterChangeListener_ClassInfo_, allocate$PrintServiceLookupProvider$RemotePrinterChangeListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/PrintServiceLookupProvider;", nullptr, $FINAL | $SYNTHETIC, $field(PrintServiceLookupProvider$RemotePrinterChangeListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/PrintServiceLookupProvider;)V", nullptr, $PRIVATE, $method(PrintServiceLookupProvider$RemotePrinterChangeListener, init$, void, $PrintServiceLookupProvider*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintServiceLookupProvider$RemotePrinterChangeListener, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.PrintServiceLookupProvider$RemotePrinterChangeListener", "sun.print.PrintServiceLookupProvider", "RemotePrinterChangeListener", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.print.PrintServiceLookupProvider$RemotePrinterChangeListener",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.PrintServiceLookupProvider"
+	};
+	$loadClass(PrintServiceLookupProvider$RemotePrinterChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintServiceLookupProvider$RemotePrinterChangeListener);
+	});
 	return class$;
 }
 

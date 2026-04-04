@@ -1,7 +1,5 @@
 #include <javax/swing/text/html/ImageView.h>
-
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
@@ -12,7 +10,6 @@
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/Runnable.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/util/Dictionary.h>
@@ -71,7 +68,6 @@
 
 using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
@@ -79,7 +75,6 @@ using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
-using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -90,7 +85,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $Runnable = ::java::lang::Runnable;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $Dictionary = ::java::util::Dictionary;
@@ -98,7 +92,6 @@ using $GrayFilter = ::javax::swing::GrayFilter;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
@@ -125,108 +118,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _ImageView_FieldInfo_[] = {
-	{"sIsInc", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ImageView, sIsInc)},
-	{"sIncRate", "I", nullptr, $PRIVATE | $STATIC, $staticField(ImageView, sIncRate)},
-	{"PENDING_IMAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageView, PENDING_IMAGE)},
-	{"MISSING_IMAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageView, MISSING_IMAGE)},
-	{"IMAGE_CACHE_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageView, IMAGE_CACHE_PROPERTY)},
-	{"DEFAULT_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, DEFAULT_WIDTH)},
-	{"DEFAULT_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, DEFAULT_HEIGHT)},
-	{"DEFAULT_BORDER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, DEFAULT_BORDER)},
-	{"LOADING_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, LOADING_FLAG)},
-	{"LINK_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, LINK_FLAG)},
-	{"WIDTH_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, WIDTH_FLAG)},
-	{"HEIGHT_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, HEIGHT_FLAG)},
-	{"RELOAD_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, RELOAD_FLAG)},
-	{"RELOAD_IMAGE_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, RELOAD_IMAGE_FLAG)},
-	{"SYNC_LOAD_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, SYNC_LOAD_FLAG)},
-	{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(ImageView, attr)},
-	{"image", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(ImageView, image)},
-	{"disabledImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(ImageView, disabledImage)},
-	{"width", "I", nullptr, $PRIVATE, $field(ImageView, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(ImageView, height)},
-	{"state", "I", nullptr, $PRIVATE, $field(ImageView, state)},
-	{"container", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(ImageView, container)},
-	{"fBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(ImageView, fBounds)},
-	{"borderColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ImageView, borderColor)},
-	{"borderSize", "S", nullptr, $PRIVATE, $field(ImageView, borderSize)},
-	{"leftInset", "S", nullptr, $PRIVATE, $field(ImageView, leftInset)},
-	{"rightInset", "S", nullptr, $PRIVATE, $field(ImageView, rightInset)},
-	{"topInset", "S", nullptr, $PRIVATE, $field(ImageView, topInset)},
-	{"bottomInset", "S", nullptr, $PRIVATE, $field(ImageView, bottomInset)},
-	{"imageObserver", "Ljava/awt/image/ImageObserver;", nullptr, $PRIVATE, $field(ImageView, imageObserver)},
-	{"altView", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(ImageView, altView)},
-	{"vAlign", "F", nullptr, $PRIVATE, $field(ImageView, vAlign)},
-	{}
-};
-
-$MethodInfo _ImageView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ImageView, init$, void, $Element*)},
-	{"adjustWidthHeight", "(II)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(ImageView, adjustWidthHeight, $Dimension*, int32_t, int32_t)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ImageView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ImageView, getAlignment, float, int32_t)},
-	{"getAltText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageView, getAltText, $String*)},
-	{"getAltView", "()Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(ImageView, getAltView, $View*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ImageView, getAttributes, $AttributeSet*)},
-	{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ImageView, getImage, $Image*)},
-	{"getImage", "(Z)Ljava/awt/Image;", nullptr, $PRIVATE, $method(ImageView, getImage, $Image*, bool)},
-	{"getImageURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ImageView, getImageURL, $URL*)},
-	{"getIntAttr", "(Ljavax/swing/text/html/HTML$Attribute;I)I", nullptr, $PRIVATE, $method(ImageView, getIntAttr, int32_t, $HTML$Attribute*, int32_t)},
-	{"getLoadingImageIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(ImageView, getLoadingImageIcon, $Icon*)},
-	{"getLoadsSynchronously", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageView, getLoadsSynchronously, bool)},
-	{"getNoImageIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(ImageView, getNoImageIcon, $Icon*)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ImageView, getPreferredSpan, float, int32_t)},
-	{"getPreferredSpanFromAltView", "(I)F", nullptr, $PRIVATE, $method(ImageView, getPreferredSpanFromAltView, float, int32_t)},
-	{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(ImageView, getStyleSheet, $StyleSheet*)},
-	{"getToolTipText", "(FFLjava/awt/Shape;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageView, getToolTipText, $String*, float, float, $Shape*)},
-	{"hasPixels", "(Ljava/awt/Image;)Z", nullptr, $PRIVATE, $method(ImageView, hasPixels, bool, $Image*)},
-	{"isLink", "()Z", nullptr, $PRIVATE, $method(ImageView, isLink, bool)},
-	{"loadImage", "()V", nullptr, $PRIVATE, $method(ImageView, loadImage, void)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ImageView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ImageView, paint, void, $Graphics*, $Shape*)},
-	{"paintBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(ImageView, paintBorder, void, $Graphics*, $Rectangle*)},
-	{"paintHighlights", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PRIVATE, $method(ImageView, paintHighlights, void, $Graphics*, $Shape*)},
-	{"refreshImage", "()V", nullptr, $PRIVATE, $method(ImageView, refreshImage, void)},
-	{"repaint", "(J)V", nullptr, $PRIVATE, $method(ImageView, repaint, void, int64_t)},
-	{"safePreferenceChanged", "()V", nullptr, $PRIVATE, $method(ImageView, safePreferenceChanged, void)},
-	{"setLoadsSynchronously", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ImageView, setLoadsSynchronously, void, bool)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(ImageView, setParent, void, $View*)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ImageView, setPropertiesFromAttributes, void)},
-	{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(ImageView, setSize, void, float, float)},
-	{"sync", "()V", nullptr, $PRIVATE, $method(ImageView, sync, void)},
-	{"updateAltTextView", "()V", nullptr, $PRIVATE, $method(ImageView, updateAltTextView, void)},
-	{"updateImageSize", "()V", nullptr, $PRIVATE, $method(ImageView, updateImageSize, void)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ImageView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _ImageView_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.ImageView$ImageLabelView", "javax.swing.text.html.ImageView", "ImageLabelView", $PRIVATE},
-	{"javax.swing.text.html.ImageView$ImageHandler", "javax.swing.text.html.ImageView", "ImageHandler", $PRIVATE},
-	{"javax.swing.text.html.ImageView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImageView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.ImageView",
-	"javax.swing.text.View",
-	nullptr,
-	_ImageView_FieldInfo_,
-	_ImageView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.ImageView$ImageLabelView,javax.swing.text.html.ImageView$ImageHandler,javax.swing.text.html.ImageView$1"
-};
-
-$Object* allocate$ImageView($Class* clazz) {
-	return $of($alloc(ImageView));
-}
-
 bool ImageView::sIsInc = false;
 int32_t ImageView::sIncRate = 0;
 $String* ImageView::PENDING_IMAGE = nullptr;
@@ -241,19 +132,19 @@ void ImageView::init$($Element* elem) {
 }
 
 $String* ImageView::getAltText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Attribute);
-	return $cast($String, $nc($($nc($(getElement()))->getAttributes()))->getAttribute($HTML$Attribute::ALT));
+	return $cast($String, $$nc($$nc(getElement())->getAttributes())->getAttribute($HTML$Attribute::ALT));
 }
 
 $URL* ImageView::getImageURL() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Attribute);
-	$var($String, src, $cast($String, $nc($($nc($(getElement()))->getAttributes()))->getAttribute($HTML$Attribute::SRC)));
+	$var($String, src, $cast($String, $$nc($$nc(getElement())->getAttributes())->getAttribute($HTML$Attribute::SRC)));
 	if (src == nullptr) {
 		return nullptr;
 	}
-	$var($URL, reference, $nc(($cast($HTMLDocument, $(getDocument()))))->getBase());
+	$var($URL, reference, $$sure($HTMLDocument, getDocument())->getBase());
 	try {
 		$var($URL, u, $new($URL, reference, src));
 		return u;
@@ -264,11 +155,11 @@ $URL* ImageView::getImageURL() {
 }
 
 $Icon* ImageView::getNoImageIcon() {
-	return $cast($Icon, $nc($($UIManager::getLookAndFeelDefaults()))->get(ImageView::MISSING_IMAGE));
+	return $cast($Icon, $$nc($UIManager::getLookAndFeelDefaults())->get(ImageView::MISSING_IMAGE));
 }
 
 $Icon* ImageView::getLoadingImageIcon() {
-	return $cast($Icon, $nc($($UIManager::getLookAndFeelDefaults()))->get(ImageView::PENDING_IMAGE));
+	return $cast($Icon, $$nc($UIManager::getLookAndFeelDefaults())->get(ImageView::PENDING_IMAGE));
 }
 
 $Image* ImageView::getImage() {
@@ -298,7 +189,7 @@ void ImageView::setLoadsSynchronously(bool newValue) {
 }
 
 bool ImageView::getLoadsSynchronously() {
-	return (((int32_t)(this->state & (uint32_t)ImageView::SYNC_LOAD_FLAG)) != 0);
+	return ((this->state & ImageView::SYNC_LOAD_FLAG) != 0);
 }
 
 $StyleSheet* ImageView::getStyleSheet() {
@@ -316,19 +207,19 @@ $String* ImageView::getToolTipText(float x, float y, $Shape* allocation) {
 }
 
 void ImageView::setPropertiesFromAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, sheet, getStyleSheet());
 	$set(this, attr, $nc(sheet)->getViewAttributes(this));
 	$init($HTML$Attribute);
 	this->borderSize = (int16_t)getIntAttr($HTML$Attribute::BORDER, isLink() ? ImageView::DEFAULT_BORDER : 0);
 	this->leftInset = (this->rightInset = (int16_t)(getIntAttr($HTML$Attribute::HSPACE, 0) + this->borderSize));
 	this->topInset = (this->bottomInset = (int16_t)(getIntAttr($HTML$Attribute::VSPACE, 0) + this->borderSize));
-	$set(this, borderColor, $nc(($cast($StyledDocument, $(getDocument()))))->getForeground($(getAttributes())));
-	$var($AttributeSet, attr, $nc($(getElement()))->getAttributes());
+	$set(this, borderColor, $$sure($StyledDocument, getDocument())->getForeground($(getAttributes())));
+	$var($AttributeSet, attr, $$nc(getElement())->getAttributes());
 	$var($Object, alignment, $nc(attr)->getAttribute($HTML$Attribute::ALIGN));
 	this->vAlign = 1.0f;
 	if (alignment != nullptr) {
-		$assign(alignment, $of(alignment)->toString());
+		$assign(alignment, alignment->toString());
 		if ("top"_s->equals(alignment)) {
 			this->vAlign = 0.0f;
 		} else if ("middle"_s->equals(alignment)) {
@@ -368,7 +259,7 @@ void ImageView::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory* f) {
 }
 
 void ImageView::paint($Graphics* g, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync();
 	$var($Rectangle, rect, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : $nc(a)->getBounds());
 	$var($Rectangle, clip, $nc(g)->getClipBounds());
@@ -376,28 +267,28 @@ void ImageView::paint($Graphics* g, $Shape* a) {
 	paintHighlights(g, a);
 	paintBorder(g, rect);
 	if (clip != nullptr) {
-		g->clipRect($nc(rect)->x + this->leftInset, rect->y + this->topInset, rect->width - this->leftInset - this->rightInset, rect->height - this->topInset - this->bottomInset);
+		g->clipRect($nc(rect)->x + this->leftInset, $nc(rect)->y + this->topInset, $nc(rect)->width - this->leftInset - this->rightInset, $nc(rect)->height - this->topInset - this->bottomInset);
 	}
 	$var($Container, host, getContainer());
-	$var($Image, img, getImage(host == nullptr || $nc(host)->isEnabled()));
+	$var($Image, img, getImage(host == nullptr || host->isEnabled()));
 	if (img != nullptr) {
 		if (!hasPixels(img)) {
 			$var($Icon, icon, getLoadingImageIcon());
 			if (icon != nullptr) {
-				icon->paintIcon(host, g, $nc(rect)->x + this->leftInset, rect->y + this->topInset);
+				icon->paintIcon(host, g, $nc(rect)->x + this->leftInset, $nc(rect)->y + this->topInset);
 			}
 		} else {
-			g->drawImage(img, $nc(rect)->x + this->leftInset, rect->y + this->topInset, this->width, this->height, this->imageObserver);
+			g->drawImage(img, $nc(rect)->x + this->leftInset, $nc(rect)->y + this->topInset, this->width, this->height, this->imageObserver);
 		}
 	} else {
 		$var($Icon, icon, getNoImageIcon());
 		if (icon != nullptr) {
-			icon->paintIcon(host, g, $nc(rect)->x + this->leftInset, rect->y + this->topInset);
+			icon->paintIcon(host, g, $nc(rect)->x + this->leftInset, $nc(rect)->y + this->topInset);
 		}
 		$var($View, view, getAltView());
-		if (view != nullptr && (((int32_t)(this->state & (uint32_t)ImageView::WIDTH_FLAG)) == 0 || this->width > ImageView::DEFAULT_WIDTH)) {
-			$var($Rectangle, altRect, $new($Rectangle, $nc(rect)->x + this->leftInset + ImageView::DEFAULT_WIDTH, rect->y + this->topInset, rect->width - this->leftInset - this->rightInset - ImageView::DEFAULT_WIDTH, rect->height - this->topInset - this->bottomInset));
-			$nc(view)->paint(g, altRect);
+		if (view != nullptr && ((this->state & ImageView::WIDTH_FLAG) == 0 || this->width > ImageView::DEFAULT_WIDTH)) {
+			$var($Rectangle, altRect, $new($Rectangle, $nc(rect)->x + this->leftInset + ImageView::DEFAULT_WIDTH, $nc(rect)->y + this->topInset, $nc(rect)->width - this->leftInset - this->rightInset - ImageView::DEFAULT_WIDTH, $nc(rect)->height - this->topInset - this->bottomInset));
+			view->paint(g, altRect);
 		}
 	}
 	if (clip != nullptr) {
@@ -406,14 +297,13 @@ void ImageView::paint($Graphics* g, $Shape* a) {
 }
 
 void ImageView::paintHighlights($Graphics* g, $Shape* shape) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTextComponent, this->container)) {
 		$var($JTextComponent, tc, $cast($JTextComponent, this->container));
 		$var($Highlighter, h, $nc(tc)->getHighlighter());
 		if ($instanceOf($LayeredHighlighter, h)) {
-			$var($Graphics, var$0, g);
-			int32_t var$1 = getStartOffset();
-			$nc(($cast($LayeredHighlighter, h)))->paintLayeredHighlights(var$0, var$1, getEndOffset(), shape, tc, this);
+			int32_t var$0 = getStartOffset();
+			$cast($LayeredHighlighter, h)->paintLayeredHighlights(g, var$0, getEndOffset(), shape, tc, this);
 		}
 	}
 }
@@ -424,21 +314,21 @@ void ImageView::paintBorder($Graphics* g, $Rectangle* rect) {
 		int32_t xOffset = this->leftInset - this->borderSize;
 		int32_t yOffset = this->topInset - this->borderSize;
 		$nc(g)->setColor(color);
-		int32_t n = (this->image == nullptr) ? (int16_t)1 : this->borderSize;
+		int32_t n = (this->image == nullptr) ? 1 : this->borderSize;
 		for (int32_t counter = 0; counter < n; ++counter) {
-			g->drawRect($nc(rect)->x + xOffset + counter, rect->y + yOffset + counter, rect->width - counter - counter - xOffset - xOffset - 1, rect->height - counter - counter - yOffset - yOffset - 1);
+			g->drawRect($nc(rect)->x + xOffset + counter, $nc(rect)->y + yOffset + counter, $nc(rect)->width - counter - counter - xOffset - xOffset - 1, $nc(rect)->height - counter - counter - yOffset - yOffset - 1);
 		}
 	}
 }
 
 float ImageView::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	sync();
-	if (axis == $View::X_AXIS && ((int32_t)(this->state & (uint32_t)ImageView::WIDTH_FLAG)) == ImageView::WIDTH_FLAG) {
+	if (axis == $View::X_AXIS && (this->state & ImageView::WIDTH_FLAG) == ImageView::WIDTH_FLAG) {
 		getPreferredSpanFromAltView(axis);
 		return (float)(this->width + this->leftInset + this->rightInset);
 	}
-	if (axis == $View::Y_AXIS && ((int32_t)(this->state & (uint32_t)ImageView::HEIGHT_FLAG)) == ImageView::HEIGHT_FLAG) {
+	if (axis == $View::Y_AXIS && (this->state & ImageView::HEIGHT_FLAG) == ImageView::HEIGHT_FLAG) {
 		getPreferredSpanFromAltView(axis);
 		return (float)(this->height + this->topInset + this->bottomInset);
 	}
@@ -446,17 +336,11 @@ float ImageView::getPreferredSpan(int32_t axis) {
 	if (image != nullptr) {
 		switch (axis) {
 		case $View::X_AXIS:
-			{
-				return (float)(this->width + this->leftInset + this->rightInset);
-			}
+			return (float)(this->width + this->leftInset + this->rightInset);
 		case $View::Y_AXIS:
-			{
-				return (float)(this->height + this->topInset + this->bottomInset);
-			}
+			return (float)(this->height + this->topInset + this->bottomInset);
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 		}
 	} else {
 		$var($View, view, getAltView());
@@ -466,17 +350,11 @@ float ImageView::getPreferredSpan(int32_t axis) {
 		}
 		switch (axis) {
 		case $View::X_AXIS:
-			{
-				return retValue + (float)(this->width + this->leftInset + this->rightInset);
-			}
+			return retValue + (float)(this->width + this->leftInset + this->rightInset);
 		case $View::Y_AXIS:
-			{
-				return retValue + (float)(this->height + this->topInset + this->bottomInset);
-			}
+			return retValue + (float)(this->height + this->topInset + this->bottomInset);
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 		}
 	}
 }
@@ -484,13 +362,9 @@ float ImageView::getPreferredSpan(int32_t axis) {
 float ImageView::getAlignment(int32_t axis) {
 	switch (axis) {
 	case $View::Y_AXIS:
-		{
-			return this->vAlign;
-		}
+		return this->vAlign;
 	default:
-		{
-			return $View::getAlignment(axis);
-		}
+		return $View::getAlignment(axis);
 	}
 }
 
@@ -500,7 +374,7 @@ $Shape* ImageView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 	if ((pos >= p0) && (pos <= p1)) {
 		$var($Rectangle, r, $nc(a)->getBounds());
 		if (pos == p1) {
-			$nc(r)->x += r->width;
+			$nc(r)->x += $nc(r)->width;
 		}
 		$nc(r)->width = 0;
 		return r;
@@ -510,7 +384,7 @@ $Shape* ImageView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 
 int32_t ImageView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray* bias) {
 	$var($Rectangle, alloc, $cast($Rectangle, a));
-	if (x < $nc(alloc)->x + alloc->width) {
+	if (x < $nc(alloc)->x + $nc(alloc)->width) {
 		$init($Position$Bias);
 		$nc(bias)->set(0, $Position$Bias::Forward);
 		return getStartOffset();
@@ -532,7 +406,7 @@ void ImageView::setSize(float width, float height) {
 }
 
 bool ImageView::isLink() {
-	return (((int32_t)(this->state & (uint32_t)ImageView::LINK_FLAG)) == ImageView::LINK_FLAG);
+	return ((this->state & ImageView::LINK_FLAG) == ImageView::LINK_FLAG);
 }
 
 bool ImageView::hasPixels($Image* image) {
@@ -552,13 +426,13 @@ float ImageView::getPreferredSpanFromAltView(int32_t axis) {
 
 void ImageView::repaint(int64_t delay) {
 	if (this->container != nullptr && this->fBounds != nullptr) {
-		$nc(this->container)->repaint(delay, $nc(this->fBounds)->x, $nc(this->fBounds)->y, $nc(this->fBounds)->width, $nc(this->fBounds)->height);
+		this->container->repaint(delay, this->fBounds->x, this->fBounds->y, this->fBounds->width, this->fBounds->height);
 	}
 }
 
 int32_t ImageView::getIntAttr($HTML$Attribute* name, int32_t deflt) {
-	$useLocalCurrentObjectStackCache();
-	$var($AttributeSet, attr, $nc($(getElement()))->getAttributes());
+	$useLocalObjectStack();
+	$var($AttributeSet, attr, $$nc(getElement())->getAttributes());
 	if ($nc(attr)->isDefined(name)) {
 		int32_t i = 0;
 		$var($String, val, $cast($String, attr->getAttribute(name)));
@@ -579,11 +453,11 @@ int32_t ImageView::getIntAttr($HTML$Attribute* name, int32_t deflt) {
 
 void ImageView::sync() {
 	int32_t s = this->state;
-	if (((int32_t)(s & (uint32_t)ImageView::RELOAD_IMAGE_FLAG)) != 0) {
+	if ((s & ImageView::RELOAD_IMAGE_FLAG) != 0) {
 		refreshImage();
 	}
 	s = this->state;
-	if (((int32_t)(s & (uint32_t)ImageView::RELOAD_FLAG)) != 0) {
+	if ((s & ImageView::RELOAD_FLAG) != 0) {
 		$synchronized(this) {
 			this->state = (this->state | ImageView::RELOAD_FLAG) ^ ImageView::RELOAD_FLAG;
 		}
@@ -597,34 +471,32 @@ void ImageView::refreshImage() {
 		$set(this, image, nullptr);
 		this->width = (this->height = 0);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			loadImage();
-			updateImageSize();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$synchronized(this) {
-				this->state = (this->state | ImageView::LOADING_FLAG) ^ ImageView::LOADING_FLAG;
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		loadImage();
+		updateImageSize();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$synchronized(this) {
+			this->state = (this->state | ImageView::LOADING_FLAG) ^ ImageView::LOADING_FLAG;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ImageView::loadImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, src, getImageURL());
 	$var($Image, newImage, nullptr);
 	if (src != nullptr) {
-		$var($Dictionary, cache, $cast($Dictionary, $nc($(getDocument()))->getProperty(ImageView::IMAGE_CACHE_PROPERTY)));
+		$var($Dictionary, cache, $cast($Dictionary, $$nc(getDocument())->getProperty(ImageView::IMAGE_CACHE_PROPERTY)));
 		if (cache != nullptr) {
 			$assign(newImage, $cast($Image, cache->get(src)));
 		} else {
-			$assign(newImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(src));
+			$assign(newImage, $$nc($Toolkit::getDefaultToolkit())->createImage(src));
 			if (newImage != nullptr && getLoadsSynchronously()) {
 				$var($ImageIcon, ii, $new($ImageIcon));
 				ii->setImage(newImage);
@@ -635,7 +507,7 @@ void ImageView::loadImage() {
 }
 
 void ImageView::updateImageSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t newWidth = 0;
 	int32_t newHeight = 0;
 	int32_t newState = 0;
@@ -674,26 +546,26 @@ void ImageView::updateImageSize() {
 			newHeight = d->height;
 			newState |= (ImageView::WIDTH_FLAG | ImageView::HEIGHT_FLAG);
 		}
-		if (((int32_t)(newState & (uint32_t)(ImageView::WIDTH_FLAG | ImageView::HEIGHT_FLAG))) != 0) {
-			$nc($($Toolkit::getDefaultToolkit()))->prepareImage(newImage, newWidth, newHeight, this->imageObserver);
+		if ((newState & (ImageView::WIDTH_FLAG | ImageView::HEIGHT_FLAG)) != 0) {
+			$$nc($Toolkit::getDefaultToolkit())->prepareImage(newImage, newWidth, newHeight, this->imageObserver);
 		} else {
-			$nc($($Toolkit::getDefaultToolkit()))->prepareImage(newImage, -1, -1, this->imageObserver);
+			$$nc($Toolkit::getDefaultToolkit())->prepareImage(newImage, -1, -1, this->imageObserver);
 		}
 		bool createText = false;
 		$synchronized(this) {
 			if (this->image != nullptr) {
-				if (((int32_t)(newState & (uint32_t)ImageView::WIDTH_FLAG)) == ImageView::WIDTH_FLAG || this->width == 0) {
+				if ((newState & ImageView::WIDTH_FLAG) == ImageView::WIDTH_FLAG || this->width == 0) {
 					this->width = newWidth;
 				}
-				if (((int32_t)(newState & (uint32_t)ImageView::HEIGHT_FLAG)) == ImageView::HEIGHT_FLAG || this->height == 0) {
+				if ((newState & ImageView::HEIGHT_FLAG) == ImageView::HEIGHT_FLAG || this->height == 0) {
 					this->height = newHeight;
 				}
 			} else {
 				createText = true;
-				if (((int32_t)(newState & (uint32_t)ImageView::WIDTH_FLAG)) == ImageView::WIDTH_FLAG) {
+				if ((newState & ImageView::WIDTH_FLAG) == ImageView::WIDTH_FLAG) {
 					this->width = newWidth;
 				}
-				if (((int32_t)(newState & (uint32_t)ImageView::HEIGHT_FLAG)) == ImageView::HEIGHT_FLAG) {
+				if ((newState & ImageView::HEIGHT_FLAG) == ImageView::HEIGHT_FLAG) {
 					this->height = newHeight;
 				}
 			}
@@ -710,7 +582,7 @@ void ImageView::updateImageSize() {
 }
 
 void ImageView::updateAltTextView() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, getAltText());
 	if (text != nullptr) {
 		$var($ImageView$ImageLabelView, newView, nullptr);
@@ -722,7 +594,7 @@ void ImageView::updateAltTextView() {
 }
 
 $View* ImageView::getAltView() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, view, nullptr);
 	$synchronized(this) {
 		$assign(view, this->altView);
@@ -734,15 +606,15 @@ $View* ImageView::getAltView() {
 }
 
 void ImageView::safePreferenceChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities::isEventDispatchThread()) {
 		$var($Document, doc, getDocument());
 		if ($instanceOf($AbstractDocument, doc)) {
-			$nc(($cast($AbstractDocument, doc)))->readLock();
+			$cast($AbstractDocument, doc)->readLock();
 		}
 		preferenceChanged(nullptr, true, true);
 		if ($instanceOf($AbstractDocument, doc)) {
-			$nc(($cast($AbstractDocument, doc)))->readUnlock();
+			$cast($AbstractDocument, doc)->readUnlock();
 		}
 	} else {
 		$SwingUtilities::invokeLater($$new($ImageView$1, this));
@@ -775,7 +647,7 @@ $Dimension* ImageView::adjustWidthHeight(int32_t newWidth, int32_t newHeight) {
 	return d;
 }
 
-void clinit$ImageView($Class* class$) {
+void ImageView::clinit$($Class* clazz) {
 	$assignStatic(ImageView::PENDING_IMAGE, "html.pendingImage"_s);
 	$assignStatic(ImageView::MISSING_IMAGE, "html.missingImage"_s);
 	$assignStatic(ImageView::IMAGE_CACHE_PROPERTY, "imageCache"_s);
@@ -787,7 +659,103 @@ ImageView::ImageView() {
 }
 
 $Class* ImageView::load$($String* name, bool initialize) {
-	$loadClass(ImageView, name, initialize, &_ImageView_ClassInfo_, clinit$ImageView, allocate$ImageView);
+	$FieldInfo fieldInfos$$[] = {
+		{"sIsInc", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ImageView, sIsInc)},
+		{"sIncRate", "I", nullptr, $PRIVATE | $STATIC, $staticField(ImageView, sIncRate)},
+		{"PENDING_IMAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageView, PENDING_IMAGE)},
+		{"MISSING_IMAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageView, MISSING_IMAGE)},
+		{"IMAGE_CACHE_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageView, IMAGE_CACHE_PROPERTY)},
+		{"DEFAULT_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, DEFAULT_WIDTH)},
+		{"DEFAULT_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, DEFAULT_HEIGHT)},
+		{"DEFAULT_BORDER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, DEFAULT_BORDER)},
+		{"LOADING_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, LOADING_FLAG)},
+		{"LINK_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, LINK_FLAG)},
+		{"WIDTH_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, WIDTH_FLAG)},
+		{"HEIGHT_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, HEIGHT_FLAG)},
+		{"RELOAD_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, RELOAD_FLAG)},
+		{"RELOAD_IMAGE_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, RELOAD_IMAGE_FLAG)},
+		{"SYNC_LOAD_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageView, SYNC_LOAD_FLAG)},
+		{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(ImageView, attr)},
+		{"image", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(ImageView, image)},
+		{"disabledImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(ImageView, disabledImage)},
+		{"width", "I", nullptr, $PRIVATE, $field(ImageView, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(ImageView, height)},
+		{"state", "I", nullptr, $PRIVATE, $field(ImageView, state)},
+		{"container", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(ImageView, container)},
+		{"fBounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(ImageView, fBounds)},
+		{"borderColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ImageView, borderColor)},
+		{"borderSize", "S", nullptr, $PRIVATE, $field(ImageView, borderSize)},
+		{"leftInset", "S", nullptr, $PRIVATE, $field(ImageView, leftInset)},
+		{"rightInset", "S", nullptr, $PRIVATE, $field(ImageView, rightInset)},
+		{"topInset", "S", nullptr, $PRIVATE, $field(ImageView, topInset)},
+		{"bottomInset", "S", nullptr, $PRIVATE, $field(ImageView, bottomInset)},
+		{"imageObserver", "Ljava/awt/image/ImageObserver;", nullptr, $PRIVATE, $field(ImageView, imageObserver)},
+		{"altView", "Ljavax/swing/text/View;", nullptr, $PRIVATE, $field(ImageView, altView)},
+		{"vAlign", "F", nullptr, $PRIVATE, $field(ImageView, vAlign)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ImageView, init$, void, $Element*)},
+		{"adjustWidthHeight", "(II)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(ImageView, adjustWidthHeight, $Dimension*, int32_t, int32_t)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ImageView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ImageView, getAlignment, float, int32_t)},
+		{"getAltText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageView, getAltText, $String*)},
+		{"getAltView", "()Ljavax/swing/text/View;", nullptr, $PRIVATE, $method(ImageView, getAltView, $View*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ImageView, getAttributes, $AttributeSet*)},
+		{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ImageView, getImage, $Image*)},
+		{"getImage", "(Z)Ljava/awt/Image;", nullptr, $PRIVATE, $method(ImageView, getImage, $Image*, bool)},
+		{"getImageURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ImageView, getImageURL, $URL*)},
+		{"getIntAttr", "(Ljavax/swing/text/html/HTML$Attribute;I)I", nullptr, $PRIVATE, $method(ImageView, getIntAttr, int32_t, $HTML$Attribute*, int32_t)},
+		{"getLoadingImageIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(ImageView, getLoadingImageIcon, $Icon*)},
+		{"getLoadsSynchronously", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageView, getLoadsSynchronously, bool)},
+		{"getNoImageIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(ImageView, getNoImageIcon, $Icon*)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(ImageView, getPreferredSpan, float, int32_t)},
+		{"getPreferredSpanFromAltView", "(I)F", nullptr, $PRIVATE, $method(ImageView, getPreferredSpanFromAltView, float, int32_t)},
+		{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(ImageView, getStyleSheet, $StyleSheet*)},
+		{"getToolTipText", "(FFLjava/awt/Shape;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageView, getToolTipText, $String*, float, float, $Shape*)},
+		{"hasPixels", "(Ljava/awt/Image;)Z", nullptr, $PRIVATE, $method(ImageView, hasPixels, bool, $Image*)},
+		{"isLink", "()Z", nullptr, $PRIVATE, $method(ImageView, isLink, bool)},
+		{"loadImage", "()V", nullptr, $PRIVATE, $method(ImageView, loadImage, void)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ImageView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ImageView, paint, void, $Graphics*, $Shape*)},
+		{"paintBorder", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(ImageView, paintBorder, void, $Graphics*, $Rectangle*)},
+		{"paintHighlights", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PRIVATE, $method(ImageView, paintHighlights, void, $Graphics*, $Shape*)},
+		{"refreshImage", "()V", nullptr, $PRIVATE, $method(ImageView, refreshImage, void)},
+		{"repaint", "(J)V", nullptr, $PRIVATE, $method(ImageView, repaint, void, int64_t)},
+		{"safePreferenceChanged", "()V", nullptr, $PRIVATE, $method(ImageView, safePreferenceChanged, void)},
+		{"setLoadsSynchronously", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ImageView, setLoadsSynchronously, void, bool)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(ImageView, setParent, void, $View*)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ImageView, setPropertiesFromAttributes, void)},
+		{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(ImageView, setSize, void, float, float)},
+		{"sync", "()V", nullptr, $PRIVATE, $method(ImageView, sync, void)},
+		{"updateAltTextView", "()V", nullptr, $PRIVATE, $method(ImageView, updateAltTextView, void)},
+		{"updateImageSize", "()V", nullptr, $PRIVATE, $method(ImageView, updateImageSize, void)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ImageView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.ImageView$ImageLabelView", "javax.swing.text.html.ImageView", "ImageLabelView", $PRIVATE},
+		{"javax.swing.text.html.ImageView$ImageHandler", "javax.swing.text.html.ImageView", "ImageHandler", $PRIVATE},
+		{"javax.swing.text.html.ImageView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.ImageView",
+		"javax.swing.text.View",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.ImageView$ImageLabelView,javax.swing.text.html.ImageView$ImageHandler,javax.swing.text.html.ImageView$1"
+	};
+	$loadClass(ImageView, name, initialize, &classInfo$$, ImageView::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageView);
+	});
 	return class$;
 }
 

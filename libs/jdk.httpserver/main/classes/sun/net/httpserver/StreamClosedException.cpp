@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/StreamClosedException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _StreamClosedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamClosedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StreamClosedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StreamClosedException, init$, void)},
-	{}
-};
-
-$ClassInfo _StreamClosedException_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.StreamClosedException",
-	"java.io.IOException",
-	nullptr,
-	_StreamClosedException_FieldInfo_,
-	_StreamClosedException_MethodInfo_
-};
-
-$Object* allocate$StreamClosedException($Class* clazz) {
-	return $of($alloc(StreamClosedException));
-}
 
 void StreamClosedException::init$() {
 	$IOException::init$();
@@ -50,7 +26,25 @@ void StreamClosedException::throw$() {
 }
 
 $Class* StreamClosedException::load$($String* name, bool initialize) {
-	$loadClass(StreamClosedException, name, initialize, &_StreamClosedException_ClassInfo_, allocate$StreamClosedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamClosedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StreamClosedException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.StreamClosedException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamClosedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamClosedException);
+	});
 	return class$;
 }
 

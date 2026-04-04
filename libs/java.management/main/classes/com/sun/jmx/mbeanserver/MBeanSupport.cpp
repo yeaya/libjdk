@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MBeanSupport.h>
-
 #include <com/sun/jmx/mbeanserver/DynamicMBean2.h>
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector.h>
 #include <com/sun/jmx/mbeanserver/PerInterface.h>
@@ -16,7 +15,6 @@
 
 using $DynamicMBean2 = ::com::sun::jmx::mbeanserver::DynamicMBean2;
 using $MBeanIntrospector = ::com::sun::jmx::mbeanserver::MBeanIntrospector;
-using $PerInterface = ::com::sun::jmx::mbeanserver::PerInterface;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -36,57 +34,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _MBeanSupport_FieldInfo_[] = {
-	{"mbeanInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanSupport, mbeanInfo)},
-	{"resource", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(MBeanSupport, resource)},
-	{"perInterface", "Lcom/sun/jmx/mbeanserver/PerInterface;", "Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;", $PRIVATE | $FINAL, $field(MBeanSupport, perInterface)},
-	{}
-};
-
-$MethodInfo _MBeanSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", 0, $method(MBeanSupport, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getAttributes, $AttributeList*, $StringArray*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getClassName, $String*)},
-	{"getCookie", "()Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(MBeanSupport, getCookie, $Object*)},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanSupport, getMBeanInfo, $MBeanInfo*)},
-	{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(MBeanSupport, getMBeanInterface, $Class*)},
-	{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;", $ABSTRACT, $virtualMethod(MBeanSupport, getMBeanIntrospector, $MBeanIntrospector*)},
-	{"getResource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getResource, $Object*)},
-	{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"isMXBean", "()Z", nullptr, $PUBLIC | $FINAL, $method(MBeanSupport, isMXBean, bool)},
-	{"postDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"preRegister2", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, preRegister2, void, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanSupport, register$, void, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"registerFailed", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, registerFailed, void)},
-	{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, setAttributes, $AttributeList*, $AttributeList*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unregister", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanSupport, unregister, void)},
-	{}
-};
-
-$ClassInfo _MBeanSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jmx.mbeanserver.MBeanSupport",
-	"java.lang.Object",
-	"com.sun.jmx.mbeanserver.DynamicMBean2,javax.management.MBeanRegistration",
-	_MBeanSupport_FieldInfo_,
-	_MBeanSupport_MethodInfo_,
-	"<M:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/DynamicMBean2;Ljavax/management/MBeanRegistration;"
-};
-
-$Object* allocate$MBeanSupport($Class* clazz) {
-	return $of($alloc(MBeanSupport));
-}
 
 int32_t MBeanSupport::hashCode() {
 	 return this->$DynamicMBean2::hashCode();
@@ -109,13 +56,17 @@ void MBeanSupport::finalize() {
 }
 
 void MBeanSupport::init$(Object$* resource, $Class* mbeanInterfaceType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (mbeanInterfaceType == nullptr) {
 		$throwNew($NotCompliantMBeanException, "Null MBean interface"_s);
 	}
 	if (!$nc(mbeanInterfaceType)->isInstance(resource)) {
-		$var($String, var$0, $$str({"Resource class "_s, $($nc($of(resource))->getClass()->getName()), " is not an instance of "_s}));
-		$var($String, msg, $concat(var$0, $(mbeanInterfaceType->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Resource class "_s);
+		var$0->append($($nc($of(resource))->getClass()->getName()));
+		var$0->append(" is not an instance of "_s);
+		var$0->append($(mbeanInterfaceType->getName()));
+		$var($String, msg, $str(var$0));
 		$throwNew($NotCompliantMBeanException, msg);
 	}
 	$ReflectUtil::checkPackageAccess(mbeanInterfaceType);
@@ -132,7 +83,7 @@ bool MBeanSupport::isMXBean() {
 $ObjectName* MBeanSupport::preRegister($MBeanServer* server, $ObjectName* name$renamed) {
 	$var($ObjectName, name, name$renamed);
 	if ($instanceOf($MBeanRegistration, this->resource)) {
-		$assign(name, $nc(($cast($MBeanRegistration, this->resource)))->preRegister(server, name));
+		$assign(name, $cast($MBeanRegistration, this->resource)->preRegister(server, name));
 	}
 	return name;
 }
@@ -147,53 +98,47 @@ void MBeanSupport::registerFailed() {
 
 void MBeanSupport::postRegister($Boolean* registrationDone) {
 	if ($instanceOf($MBeanRegistration, this->resource)) {
-		$nc(($cast($MBeanRegistration, this->resource)))->postRegister(registrationDone);
+		$cast($MBeanRegistration, this->resource)->postRegister(registrationDone);
 	}
 }
 
 void MBeanSupport::preDeregister() {
 	if ($instanceOf($MBeanRegistration, this->resource)) {
-		$nc(($cast($MBeanRegistration, this->resource)))->preDeregister();
+		$cast($MBeanRegistration, this->resource)->preDeregister();
 	}
 }
 
 void MBeanSupport::postDeregister() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			unregister();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if ($instanceOf($MBeanRegistration, this->resource)) {
-				$nc(($cast($MBeanRegistration, this->resource)))->postDeregister();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		unregister();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if ($instanceOf($MBeanRegistration, this->resource)) {
+			$cast($MBeanRegistration, this->resource)->postDeregister();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Object* MBeanSupport::getAttribute($String* attribute) {
-	return $of($nc(this->perInterface)->getAttribute(this->resource, attribute, $(getCookie())));
+	return $nc(this->perInterface)->getAttribute(this->resource, attribute, $(getCookie()));
 }
 
 $AttributeList* MBeanSupport::getAttributes($StringArray* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeList, result, $new($AttributeList, $nc(attributes)->length));
 	{
 		$var($StringArray, arr$, attributes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, attrName, arr$->get(i$));
-			{
-				try {
-					$var($Object, attrValue, getAttribute(attrName));
-					result->add($$new($Attribute, attrName, attrValue));
-				} catch ($Exception& e) {
-				}
+			try {
+				$var($Object, attrValue, getAttribute(attrName));
+				result->add($$new($Attribute, attrName, attrValue));
+			} catch ($Exception& e) {
 			}
 		}
 	}
@@ -201,17 +146,17 @@ $AttributeList* MBeanSupport::getAttributes($StringArray* attributes) {
 }
 
 void MBeanSupport::setAttribute($Attribute* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(attribute)->getName());
 	$var($Object, value, attribute->getValue());
 	$nc(this->perInterface)->setAttribute(this->resource, name, value, $(getCookie()));
 }
 
 $AttributeList* MBeanSupport::setAttributes($AttributeList* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeList, result, $new($AttributeList, $nc(attributes)->size()));
 	{
-		$var($Iterator, i$, $nc(attributes)->iterator());
+		$var($Iterator, i$, attributes->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, attrObj, i$->next());
 			{
@@ -229,7 +174,7 @@ $AttributeList* MBeanSupport::setAttributes($AttributeList* attributes) {
 }
 
 $Object* MBeanSupport::invoke($String* operation, $ObjectArray* params, $StringArray* signature) {
-	return $of($nc(this->perInterface)->invoke(this->resource, operation, params, signature, $(getCookie())));
+	return $nc(this->perInterface)->invoke(this->resource, operation, params, signature, $(getCookie()));
 }
 
 $MBeanInfo* MBeanSupport::getMBeanInfo() {
@@ -237,11 +182,11 @@ $MBeanInfo* MBeanSupport::getMBeanInfo() {
 }
 
 $String* MBeanSupport::getClassName() {
-	return $nc($of(this->resource))->getClass()->getName();
+	return $nc(this->resource)->getClass()->getName();
 }
 
 $Object* MBeanSupport::getResource() {
-	return $of(this->resource);
+	return this->resource;
 }
 
 $Class* MBeanSupport::getMBeanInterface() {
@@ -252,7 +197,53 @@ MBeanSupport::MBeanSupport() {
 }
 
 $Class* MBeanSupport::load$($String* name, bool initialize) {
-	$loadClass(MBeanSupport, name, initialize, &_MBeanSupport_ClassInfo_, allocate$MBeanSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"mbeanInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanSupport, mbeanInfo)},
+		{"resource", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(MBeanSupport, resource)},
+		{"perInterface", "Lcom/sun/jmx/mbeanserver/PerInterface;", "Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;", $PRIVATE | $FINAL, $field(MBeanSupport, perInterface)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", 0, $method(MBeanSupport, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getAttributes, $AttributeList*, $StringArray*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getClassName, $String*)},
+		{"getCookie", "()Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(MBeanSupport, getCookie, $Object*)},
+		{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanSupport, getMBeanInfo, $MBeanInfo*)},
+		{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(MBeanSupport, getMBeanInterface, $Class*)},
+		{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;", $ABSTRACT, $virtualMethod(MBeanSupport, getMBeanIntrospector, $MBeanIntrospector*)},
+		{"getResource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, getResource, $Object*)},
+		{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"isMXBean", "()Z", nullptr, $PUBLIC | $FINAL, $method(MBeanSupport, isMXBean, bool)},
+		{"postDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"preRegister2", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, preRegister2, void, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanSupport, register$, void, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"registerFailed", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, registerFailed, void)},
+		{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanSupport, setAttributes, $AttributeList*, $AttributeList*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unregister", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanSupport, unregister, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jmx.mbeanserver.MBeanSupport",
+		"java.lang.Object",
+		"com.sun.jmx.mbeanserver.DynamicMBean2,javax.management.MBeanRegistration",
+		fieldInfos$$,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;>Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/DynamicMBean2;Ljavax/management/MBeanRegistration;"
+	};
+	$loadClass(MBeanSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanSupport));
+	});
 	return class$;
 }
 

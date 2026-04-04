@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultStyledDocument$AbstractChangeHandler.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/util/ArrayList.h>
@@ -30,56 +29,16 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultStyledDocument$AbstractChangeHandler_FieldInfo_[] = {
-	{"queueMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljavax/swing/text/DefaultStyledDocument;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultStyledDocument$AbstractChangeHandler, queueMap)},
-	{"doc", "Ljavax/swing/text/DefaultStyledDocument$AbstractChangeHandler$DocReference;", nullptr, $PRIVATE, $field(DefaultStyledDocument$AbstractChangeHandler, doc)},
-	{}
-};
-
-$MethodInfo _DefaultStyledDocument$AbstractChangeHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;)V", nullptr, 0, $method(DefaultStyledDocument$AbstractChangeHandler, init$, void, $DefaultStyledDocument*)},
-	{"fireStateChanged", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/event/ChangeEvent;)V", nullptr, $ABSTRACT, $virtualMethod(DefaultStyledDocument$AbstractChangeHandler, fireStateChanged, void, $DefaultStyledDocument*, $ChangeEvent*)},
-	{"getStaleListeners", "(Ljavax/swing/event/ChangeListener;)Ljava/util/List;", "(Ljavax/swing/event/ChangeListener;)Ljava/util/List<Ljavax/swing/event/ChangeListener;>;", $STATIC, $staticMethod(DefaultStyledDocument$AbstractChangeHandler, getStaleListeners, $List*, $ChangeListener*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$AbstractChangeHandler, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultStyledDocument$AbstractChangeHandler_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
-	{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler$DocReference", "javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "DocReference", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DefaultStyledDocument$AbstractChangeHandler_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	_DefaultStyledDocument$AbstractChangeHandler_FieldInfo_,
-	_DefaultStyledDocument$AbstractChangeHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument$AbstractChangeHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultStyledDocument"
-};
-
-$Object* allocate$DefaultStyledDocument$AbstractChangeHandler($Class* clazz) {
-	return $of($alloc(DefaultStyledDocument$AbstractChangeHandler));
-}
-
 $Map* DefaultStyledDocument$AbstractChangeHandler::queueMap = nullptr;
 
 void DefaultStyledDocument$AbstractChangeHandler::init$($DefaultStyledDocument* d) {
 	$Class* c = $of(this)->getClass();
 	$var($ReferenceQueue, q, nullptr);
 	$synchronized(DefaultStyledDocument$AbstractChangeHandler::queueMap) {
-		$assign(q, $cast($ReferenceQueue, $nc(DefaultStyledDocument$AbstractChangeHandler::queueMap)->get(c)));
+		$assign(q, $cast($ReferenceQueue, DefaultStyledDocument$AbstractChangeHandler::queueMap->get(c)));
 		if (q == nullptr) {
 			$assign(q, $new($ReferenceQueue));
-			$nc(DefaultStyledDocument$AbstractChangeHandler::queueMap)->put(c, q);
+			DefaultStyledDocument$AbstractChangeHandler::queueMap->put(c, q);
 		}
 	}
 	$set(this, doc, $new($DefaultStyledDocument$AbstractChangeHandler$DocReference, this, d, q));
@@ -87,9 +46,9 @@ void DefaultStyledDocument$AbstractChangeHandler::init$($DefaultStyledDocument* 
 
 $List* DefaultStyledDocument$AbstractChangeHandler::getStaleListeners($ChangeListener* l) {
 	$init(DefaultStyledDocument$AbstractChangeHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, staleListeners, $new($ArrayList));
-	$var($ReferenceQueue, q, $cast($ReferenceQueue, $nc(DefaultStyledDocument$AbstractChangeHandler::queueMap)->get($nc($of(l))->getClass())));
+	$var($ReferenceQueue, q, $cast($ReferenceQueue, DefaultStyledDocument$AbstractChangeHandler::queueMap->get($nc($of(l))->getClass())));
 	if (q != nullptr) {
 		$var($DefaultStyledDocument$AbstractChangeHandler$DocReference, r, nullptr);
 		$synchronized(q) {
@@ -108,7 +67,7 @@ void DefaultStyledDocument$AbstractChangeHandler::stateChanged($ChangeEvent* e) 
 	}
 }
 
-void clinit$DefaultStyledDocument$AbstractChangeHandler($Class* class$) {
+void DefaultStyledDocument$AbstractChangeHandler::clinit$($Class* clazz) {
 	$assignStatic(DefaultStyledDocument$AbstractChangeHandler::queueMap, $new($HashMap));
 }
 
@@ -116,7 +75,41 @@ DefaultStyledDocument$AbstractChangeHandler::DefaultStyledDocument$AbstractChang
 }
 
 $Class* DefaultStyledDocument$AbstractChangeHandler::load$($String* name, bool initialize) {
-	$loadClass(DefaultStyledDocument$AbstractChangeHandler, name, initialize, &_DefaultStyledDocument$AbstractChangeHandler_ClassInfo_, clinit$DefaultStyledDocument$AbstractChangeHandler, allocate$DefaultStyledDocument$AbstractChangeHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"queueMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/ref/ReferenceQueue<Ljavax/swing/text/DefaultStyledDocument;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultStyledDocument$AbstractChangeHandler, queueMap)},
+		{"doc", "Ljavax/swing/text/DefaultStyledDocument$AbstractChangeHandler$DocReference;", nullptr, $PRIVATE, $field(DefaultStyledDocument$AbstractChangeHandler, doc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;)V", nullptr, 0, $method(DefaultStyledDocument$AbstractChangeHandler, init$, void, $DefaultStyledDocument*)},
+		{"fireStateChanged", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/event/ChangeEvent;)V", nullptr, $ABSTRACT, $virtualMethod(DefaultStyledDocument$AbstractChangeHandler, fireStateChanged, void, $DefaultStyledDocument*, $ChangeEvent*)},
+		{"getStaleListeners", "(Ljavax/swing/event/ChangeListener;)Ljava/util/List;", "(Ljavax/swing/event/ChangeListener;)Ljava/util/List<Ljavax/swing/event/ChangeListener;>;", $STATIC, $staticMethod(DefaultStyledDocument$AbstractChangeHandler, getStaleListeners, $List*, $ChangeListener*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$AbstractChangeHandler, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "javax.swing.text.DefaultStyledDocument", "AbstractChangeHandler", $STATIC | $ABSTRACT},
+		{"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler$DocReference", "javax.swing.text.DefaultStyledDocument$AbstractChangeHandler", "DocReference", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.DefaultStyledDocument$AbstractChangeHandler",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultStyledDocument"
+	};
+	$loadClass(DefaultStyledDocument$AbstractChangeHandler, name, initialize, &classInfo$$, DefaultStyledDocument$AbstractChangeHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultStyledDocument$AbstractChangeHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/WaveFloatFileWriter.h>
-
 #include <com/sun/media/sound/RIFFWriter.h>
 #include <com/sun/media/sound/WaveFloatFileWriter$NoCloseOutputStream.h>
 #include <java/io/File.h>
@@ -38,42 +37,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _WaveFloatFileWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFloatFileWriter, init$, void)},
-	{"checkFormat", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PRIVATE, $method(WaveFloatFileWriter, checkFormat, void, $AudioFileFormat$Type*, $AudioInputStream*)},
-	{"getAudioFileTypes", "()[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*)},
-	{"getAudioFileTypes", "(Ljavax/sound/sampled/AudioInputStream;)[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*, $AudioInputStream*)},
-	{"toLittleEndian", "(Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(WaveFloatFileWriter, toLittleEndian, $AudioInputStream*, $AudioInputStream*)},
-	{"write", "(Ljavax/sound/sampled/AudioInputStream;Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PUBLIC, $method(WaveFloatFileWriter, write, void, $AudioInputStream*, $RIFFWriter*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $OutputStream*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $File*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WaveFloatFileWriter_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream", "com.sun.media.sound.WaveFloatFileWriter", "NoCloseOutputStream", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WaveFloatFileWriter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.WaveFloatFileWriter",
-	"javax.sound.sampled.spi.AudioFileWriter",
-	nullptr,
-	nullptr,
-	_WaveFloatFileWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WaveFloatFileWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream"
-};
-
-$Object* allocate$WaveFloatFileWriter($Class* clazz) {
-	return $of($alloc(WaveFloatFileWriter));
-}
-
 void WaveFloatFileWriter::init$() {
 	$AudioFileWriter::init$();
 }
@@ -84,9 +47,9 @@ $AudioFileFormat$TypeArray* WaveFloatFileWriter::getAudioFileTypes() {
 }
 
 $AudioFileFormat$TypeArray* WaveFloatFileWriter::getAudioFileTypes($AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AudioFormat$Encoding);
-	if (!$nc($($nc($($nc(stream)->getFormat()))->getEncoding()))->equals($AudioFormat$Encoding::PCM_FLOAT)) {
+	if (!$$nc($$nc($nc(stream)->getFormat())->getEncoding())->equals($AudioFormat$Encoding::PCM_FLOAT)) {
 		return $new($AudioFileFormat$TypeArray, 0);
 	}
 	$init($AudioFileFormat$Type);
@@ -94,88 +57,84 @@ $AudioFileFormat$TypeArray* WaveFloatFileWriter::getAudioFileTypes($AudioInputSt
 }
 
 void WaveFloatFileWriter::checkFormat($AudioFileFormat$Type* type, $AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AudioFileFormat$Type);
 	if (!$nc($AudioFileFormat$Type::WAVE)->equals(type)) {
 		$throwNew($IllegalArgumentException, $$str({"File type "_s, type, " not supported."_s}));
 	}
 	$init($AudioFormat$Encoding);
-	if (!$nc($($nc($($nc(stream)->getFormat()))->getEncoding()))->equals($AudioFormat$Encoding::PCM_FLOAT)) {
+	if (!$$nc($$nc($nc(stream)->getFormat())->getEncoding())->equals($AudioFormat$Encoding::PCM_FLOAT)) {
 		$throwNew($IllegalArgumentException, $$str({"File format "_s, $(stream->getFormat()), " not supported."_s}));
 	}
 }
 
 void WaveFloatFileWriter::write($AudioInputStream* stream, $RIFFWriter* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($RIFFWriter, fmt_chunk, $nc(writer)->writeChunk("fmt "_s));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($AudioFormat, format, $nc(stream)->getFormat());
-					$nc(fmt_chunk)->writeUnsignedShort(3);
-					fmt_chunk->writeUnsignedShort($nc(format)->getChannels());
-					fmt_chunk->writeUnsignedInt($cast(int32_t, $nc(format)->getSampleRate()));
-					int32_t var$1 = ($cast(int32_t, $nc(format)->getFrameRate()));
-					fmt_chunk->writeUnsignedInt(var$1 * format->getFrameSize());
-					fmt_chunk->writeUnsignedShort($nc(format)->getFrameSize());
-					fmt_chunk->writeUnsignedShort($nc(format)->getSampleSizeInBits());
-				} catch ($Throwable& t$) {
-					if (fmt_chunk != nullptr) {
-						try {
-							fmt_chunk->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
+				$var($AudioFormat, format, $nc(stream)->getFormat());
+				$nc(fmt_chunk)->writeUnsignedShort(3);
+				fmt_chunk->writeUnsignedShort($nc(format)->getChannels());
+				fmt_chunk->writeUnsignedInt($cast(int32_t, format->getSampleRate()));
+				int32_t var$1 = $cast(int32_t, format->getFrameRate());
+				fmt_chunk->writeUnsignedInt(var$1 * format->getFrameSize());
+				fmt_chunk->writeUnsignedShort(format->getFrameSize());
+				fmt_chunk->writeUnsignedShort(format->getSampleSizeInBits());
+			} catch ($Throwable& t$) {
 				if (fmt_chunk != nullptr) {
-					fmt_chunk->close();
+					try {
+						fmt_chunk->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			if (fmt_chunk != nullptr) {
+				fmt_chunk->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	{
-		$var($RIFFWriter, data_chunk, $nc(writer)->writeChunk("data"_s));
-		{
-			$var($Throwable, var$3, nullptr);
+		$var($RIFFWriter, data_chunk, writer->writeChunk("data"_s));
+		$var($Throwable, var$3, nullptr);
+		try {
 			try {
-				try {
-					$nc(stream)->transferTo(data_chunk);
-				} catch ($Throwable& t$) {
-					if (data_chunk != nullptr) {
-						try {
-							data_chunk->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$4) {
-				$assign(var$3, var$4);
-			} /*finally*/ {
+				$nc(stream)->transferTo(data_chunk);
+			} catch ($Throwable& t$) {
 				if (data_chunk != nullptr) {
-					data_chunk->close();
+					try {
+						data_chunk->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
+		} /*finally*/ {
+			if (data_chunk != nullptr) {
+				data_chunk->close();
 			}
+		}
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
 	}
 }
 
 $AudioInputStream* WaveFloatFileWriter::toLittleEndian($AudioInputStream* ais) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFormat, format, $nc(ais)->getFormat());
 	$var($AudioFormat$Encoding, var$0, $nc(format)->getEncoding());
 	float var$1 = format->getSampleRate();
@@ -187,92 +146,88 @@ $AudioInputStream* WaveFloatFileWriter::toLittleEndian($AudioInputStream* ais) {
 }
 
 int32_t WaveFloatFileWriter::write($AudioInputStream* stream$renamed, $AudioFileFormat$Type* fileType, $OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioInputStream, stream, stream$renamed);
 	$Objects::requireNonNull(stream);
 	$Objects::requireNonNull(fileType);
 	$Objects::requireNonNull(out);
 	checkFormat(fileType, stream);
-	if ($nc($(stream->getFormat()))->isBigEndian()) {
+	if ($$nc(stream->getFormat())->isBigEndian()) {
 		$assign(stream, toLittleEndian(stream));
 	}
 	{
-		$var($RIFFWriter, writer, $new($RIFFWriter, static_cast<$OutputStream*>($$new($WaveFloatFileWriter$NoCloseOutputStream, out)), "WAVE"_s));
-		{
-			$var($Throwable, var$0, nullptr);
-			int32_t var$2 = 0;
-			bool return$1 = false;
+		$var($RIFFWriter, writer, $new($RIFFWriter, $$new($WaveFloatFileWriter$NoCloseOutputStream, out), "WAVE"_s));
+		$var($Throwable, var$0, nullptr);
+		int32_t var$2 = 0;
+		bool return$1 = false;
+		try {
 			try {
+				write(stream, writer);
+				var$2 = (int32_t)writer->getFilePointer();
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					write(stream, writer);
-					var$2 = (int32_t)writer->getFilePointer();
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						writer->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					writer->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				writer->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			writer->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 int32_t WaveFloatFileWriter::write($AudioInputStream* stream$renamed, $AudioFileFormat$Type* fileType, $File* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioInputStream, stream, stream$renamed);
 	$Objects::requireNonNull(stream);
 	$Objects::requireNonNull(fileType);
 	$Objects::requireNonNull(out);
 	checkFormat(fileType, stream);
-	if ($nc($(stream->getFormat()))->isBigEndian()) {
+	if ($$nc(stream->getFormat())->isBigEndian()) {
 		$assign(stream, toLittleEndian(stream));
 	}
 	{
 		$var($RIFFWriter, writer, $new($RIFFWriter, out, "WAVE"_s));
-		{
-			$var($Throwable, var$0, nullptr);
-			int32_t var$2 = 0;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		int32_t var$2 = 0;
+		bool return$1 = false;
+		try {
 			try {
+				write(stream, writer);
+				var$2 = (int32_t)writer->getFilePointer();
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					write(stream, writer);
-					var$2 = (int32_t)writer->getFilePointer();
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						writer->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					writer->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				writer->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			writer->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
@@ -282,7 +237,38 @@ WaveFloatFileWriter::WaveFloatFileWriter() {
 }
 
 $Class* WaveFloatFileWriter::load$($String* name, bool initialize) {
-	$loadClass(WaveFloatFileWriter, name, initialize, &_WaveFloatFileWriter_ClassInfo_, allocate$WaveFloatFileWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFloatFileWriter, init$, void)},
+		{"checkFormat", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PRIVATE, $method(WaveFloatFileWriter, checkFormat, void, $AudioFileFormat$Type*, $AudioInputStream*)},
+		{"getAudioFileTypes", "()[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*)},
+		{"getAudioFileTypes", "(Ljavax/sound/sampled/AudioInputStream;)[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*, $AudioInputStream*)},
+		{"toLittleEndian", "(Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(WaveFloatFileWriter, toLittleEndian, $AudioInputStream*, $AudioInputStream*)},
+		{"write", "(Ljavax/sound/sampled/AudioInputStream;Lcom/sun/media/sound/RIFFWriter;)V", nullptr, $PUBLIC, $method(WaveFloatFileWriter, write, void, $AudioInputStream*, $RIFFWriter*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $OutputStream*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $File*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream", "com.sun.media.sound.WaveFloatFileWriter", "NoCloseOutputStream", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.WaveFloatFileWriter",
+		"javax.sound.sampled.spi.AudioFileWriter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream"
+	};
+	$loadClass(WaveFloatFileWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaveFloatFileWriter);
+	});
 	return class$;
 }
 

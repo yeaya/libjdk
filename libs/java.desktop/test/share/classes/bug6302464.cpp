@@ -1,12 +1,10 @@
 #include <bug6302464.h>
-
 #include <bug6302464$CustomLookAndFeel.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
@@ -49,8 +47,6 @@
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $bug6302464$CustomLookAndFeel = ::bug6302464$CustomLookAndFeel;
 using $Color = ::java::awt::Color;
-using $FontMetrics = ::java::awt::FontMetrics;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Toolkit = ::java::awt::Toolkit;
@@ -71,9 +67,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HashSet = ::java::util::HashSet;
 using $Map = ::java::util::Map;
 using $JLabel = ::javax::swing::JLabel;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
@@ -86,78 +80,27 @@ public:
 	virtual void run() override {
 		bug6302464::testAntialiasingProperties();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6302464$$Lambda$testAntialiasingProperties>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6302464$$Lambda$testAntialiasingProperties::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6302464$$Lambda$testAntialiasingProperties, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6302464$$Lambda$testAntialiasingProperties, run, void)},
-	{}
-};
-$ClassInfo bug6302464$$Lambda$testAntialiasingProperties::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6302464$$Lambda$testAntialiasingProperties",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6302464$$Lambda$testAntialiasingProperties::load$($String* name, bool initialize) {
-	$loadClass(bug6302464$$Lambda$testAntialiasingProperties, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6302464$$Lambda$testAntialiasingProperties, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6302464$$Lambda$testAntialiasingProperties, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6302464$$Lambda$testAntialiasingProperties",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6302464$$Lambda$testAntialiasingProperties, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6302464$$Lambda$testAntialiasingProperties);
+	});
 	return class$;
 }
 $Class* bug6302464$$Lambda$testAntialiasingProperties::class$ = nullptr;
-
-$FieldInfo _bug6302464_FieldInfo_[] = {
-	{"ANTIALIASING_HINTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6302464, ANTIALIASING_HINTS)},
-	{"EXCLUDED_LAFS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6302464, EXCLUDED_LAFS)},
-	{}
-};
-
-$MethodInfo _bug6302464_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6302464, init$, void)},
-	{"getAntialiasedColors", "(Ljava/lang/Object;I)Ljava/util/HashSet;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, getAntialiasedColors, $HashSet*, Object$*, int32_t)},
-	{"isExcludedLAF", "(Ljavax/swing/UIManager$LookAndFeelInfo;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, isExcludedLAF, bool, $UIManager$LookAndFeelInfo*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6302464, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, setLookAndFeel, void, $String*)},
-	{"setMetalLookAndFeel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, setMetalLookAndFeel, void)},
-	{"testAntialiasingHints", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testAntialiasingHints, void)},
-	{"testAntialiasingProperties", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testAntialiasingProperties, void)},
-	{"testCustomLAF", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testCustomLAF, void)},
-	{"testCustomLAF", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testCustomLAF, void, bool), "java.lang.Exception"},
-	{"testFontRenderingContext", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testFontRenderingContext, void)},
-	{"testFontRenderingContext", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testFontRenderingContext, void, Object$*)},
-	{"testLAFAAHints", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testLAFAAHints, void)},
-	{"testLAFAAHints", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testLAFAAHints, void, $UIManager$LookAndFeelInfo*)},
-	{}
-};
-
-$InnerClassInfo _bug6302464_InnerClassesInfo_[] = {
-	{"bug6302464$CustomLookAndFeel", "bug6302464", "CustomLookAndFeel", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug6302464_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6302464",
-	"java.lang.Object",
-	nullptr,
-	_bug6302464_FieldInfo_,
-	_bug6302464_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6302464_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6302464$CustomLookAndFeel"
-};
-
-$Object* allocate$bug6302464($Class* clazz) {
-	return $of($alloc(bug6302464));
-}
 
 $ObjectArray* bug6302464::ANTIALIASING_HINTS = nullptr;
 $StringArray* bug6302464::EXCLUDED_LAFS = nullptr;
@@ -167,7 +110,7 @@ void bug6302464::init$() {
 
 void bug6302464::main($StringArray* args) {
 	$init(bug6302464);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6302464$$Lambda$testAntialiasingProperties)));
+	$SwingUtilities::invokeAndWait($$new(bug6302464$$Lambda$testAntialiasingProperties));
 }
 
 void bug6302464::testAntialiasingProperties() {
@@ -184,15 +127,15 @@ void bug6302464::testCustomLAF() {
 		testCustomLAF(false);
 		testCustomLAF(true);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void bug6302464::testCustomLAF(bool useAAHints) {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bug6302464$CustomLookAndFeel, customLAF, $new($bug6302464$CustomLookAndFeel, useAAHints));
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>(customLAF));
+	$UIManager::setLookAndFeel(customLAF);
 	$var($JLabel, label, $new($JLabel));
 	$init($RenderingHints);
 	$var($Object, aaHint, label->getClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING));
@@ -207,27 +150,23 @@ void bug6302464::testCustomLAF(bool useAAHints) {
 
 void bug6302464::testFontRenderingContext() {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ObjectArray, arr$, bug6302464::ANTIALIASING_HINTS);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Object0, aaHint, arr$->get(i$));
-			{
-				testFontRenderingContext(aaHint);
-			}
+	$useLocalObjectStack();
+	$var($ObjectArray, arr$, bug6302464::ANTIALIASING_HINTS);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Object0, aaHint, arr$->get(i$));
+		{
+			testFontRenderingContext(aaHint);
 		}
 	}
 }
 
 void bug6302464::testFontRenderingContext(Object$* aaHint) {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $new($JLabel, "Test"_s));
 	$init($RenderingHints);
 	label->putClientProperty($RenderingHints::KEY_TEXT_ANTIALIASING, aaHint);
-	$var($FontRenderContext, frc, $nc($(label->getFontMetrics($(label->getFont()))))->getFontRenderContext());
+	$var($FontRenderContext, frc, $$nc(label->getFontMetrics($(label->getFont())))->getFontRenderContext());
 	if (!$nc($of(aaHint))->equals($($nc(frc)->getAntiAliasingHint()))) {
 		$throwNew($RuntimeException, "Wrong aa hint in FontRenderContext"_s);
 	}
@@ -235,15 +174,15 @@ void bug6302464::testFontRenderingContext(Object$* aaHint) {
 
 void bug6302464::testAntialiasingHints() {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setMetalLookAndFeel();
 	bool isMacOSX14 = false;
 	bool isMacOSXBigSur = false;
-	if ($nc($($System::getProperty("os.name"_s)))->contains("OS X"_s)) {
+	if ($$nc($System::getProperty("os.name"_s))->contains("OS X"_s)) {
 		$var($String, version, $System::getProperty("os.version"_s, ""_s));
 		if ($nc(version)->startsWith("10."_s)) {
 			$assign(version, version->substring(3));
-			int32_t periodIndex = version->indexOf((int32_t)u'.');
+			int32_t periodIndex = version->indexOf(u'.');
 			if (periodIndex != -1) {
 				$assign(version, version->substring(0, periodIndex));
 			}
@@ -272,14 +211,14 @@ void bug6302464::testAntialiasingHints() {
 	if ($nc(colorsAAOnLCD250)->size() <= 2) {
 		$throwNew($RuntimeException, "Wrong number of antialiased ANTIALIAS_LCD_HRGB_250 colors."_s);
 	}
-	if ($nc(colorsAAOnLCD100)->equals(colorsAAOnLCD250)) {
+	if (colorsAAOnLCD100->equals(colorsAAOnLCD250)) {
 		$throwNew($RuntimeException, "LCD contrast is not used."_s);
 	}
 }
 
 $HashSet* bug6302464::getAntialiasedColors(Object$* aaHint, int32_t lcdContrast) {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $new($JLabel, "ABCD"_s));
 	label->setSize($(label->getPreferredSize()));
 	$init($RenderingHints);
@@ -315,40 +254,30 @@ void bug6302464::setLookAndFeel($String* lafClass) {
 		$UIManager::setLookAndFeel(lafClass);
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void bug6302464::testLAFAAHints() {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, lafInfo, arr$->get(i$));
-			{
-				testLAFAAHints(lafInfo);
-			}
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, lafInfo, arr$->get(i$));
+		{
+			testLAFAAHints(lafInfo);
 		}
 	}
 }
 
 bool bug6302464::isExcludedLAF($UIManager$LookAndFeelInfo* lafInfo) {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, bug6302464::EXCLUDED_LAFS);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, excludedLaf, arr$->get(i$));
-			{
-				if ($nc($($nc(lafInfo)->getName()))->equals(excludedLaf)) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($StringArray, arr$, bug6302464::EXCLUDED_LAFS);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, excludedLaf, arr$->get(i$));
+		if ($$nc($nc(lafInfo)->getName())->equals(excludedLaf)) {
+			return true;
 		}
 	}
 	return false;
@@ -356,22 +285,22 @@ bool bug6302464::isExcludedLAF($UIManager$LookAndFeelInfo* lafInfo) {
 
 void bug6302464::testLAFAAHints($UIManager$LookAndFeelInfo* lafInfo) {
 	$init(bug6302464);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setLookAndFeel($($nc(lafInfo)->getClassName()));
 	$init($RenderingHints);
-	$var($Object, uiAAHint, $nc($($UIManager::getDefaults()))->get($RenderingHints::KEY_TEXT_ANTIALIASING));
-	$var($Object, uiLCDContrastHint, $nc($($UIManager::getDefaults()))->get($RenderingHints::KEY_TEXT_LCD_CONTRAST));
-	$var($Object, aaHints, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("awt.font.desktophints"_s));
+	$var($Object, uiAAHint, $$nc($UIManager::getDefaults())->get($RenderingHints::KEY_TEXT_ANTIALIASING));
+	$var($Object, uiLCDContrastHint, $$nc($UIManager::getDefaults())->get($RenderingHints::KEY_TEXT_LCD_CONTRAST));
+	$var($Object, aaHints, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("awt.font.desktophints"_s));
 	if (isExcludedLAF(lafInfo)) {
 		if (uiAAHint != nullptr || uiLCDContrastHint != nullptr) {
 			$throwNew($RuntimeException, "Rendering hints set for excluded L&F"_s);
 		}
 	} else if ($instanceOf($Map, aaHints)) {
 		$var($Map, map, $cast($Map, aaHints));
-		if (!$equals(uiAAHint, $nc(map)->get($RenderingHints::KEY_TEXT_ANTIALIASING))) {
+		if (!$equals(uiAAHint, map->get($RenderingHints::KEY_TEXT_ANTIALIASING))) {
 			$throwNew($RuntimeException, "UI defaults contains wrong aa hint"_s);
 		}
-		if (!$equals(uiLCDContrastHint, $nc(map)->get($RenderingHints::KEY_TEXT_LCD_CONTRAST))) {
+		if (!$equals(uiLCDContrastHint, map->get($RenderingHints::KEY_TEXT_LCD_CONTRAST))) {
 			$throwNew($RuntimeException, "UI defaults contains wronglcd contrast hint"_s);
 		}
 	} else if (uiAAHint != nullptr || uiLCDContrastHint != nullptr) {
@@ -379,7 +308,7 @@ void bug6302464::testLAFAAHints($UIManager$LookAndFeelInfo* lafInfo) {
 	}
 }
 
-void clinit$bug6302464($Class* class$) {
+void bug6302464::clinit$($Class* clazz) {
 	$init($RenderingHints);
 	$assignStatic(bug6302464::ANTIALIASING_HINTS, $new($ObjectArray, {
 		$RenderingHints::VALUE_TEXT_ANTIALIAS_GASP,
@@ -396,11 +325,53 @@ bug6302464::bug6302464() {
 
 $Class* bug6302464::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6302464$$Lambda$testAntialiasingProperties::classInfo$.name)) {
+		if (name->equals("bug6302464$$Lambda$testAntialiasingProperties")) {
 			return bug6302464$$Lambda$testAntialiasingProperties::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6302464, name, initialize, &_bug6302464_ClassInfo_, clinit$bug6302464, allocate$bug6302464);
+	$FieldInfo fieldInfos$$[] = {
+		{"ANTIALIASING_HINTS", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6302464, ANTIALIASING_HINTS)},
+		{"EXCLUDED_LAFS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug6302464, EXCLUDED_LAFS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6302464, init$, void)},
+		{"getAntialiasedColors", "(Ljava/lang/Object;I)Ljava/util/HashSet;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, getAntialiasedColors, $HashSet*, Object$*, int32_t)},
+		{"isExcludedLAF", "(Ljavax/swing/UIManager$LookAndFeelInfo;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, isExcludedLAF, bool, $UIManager$LookAndFeelInfo*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6302464, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, setLookAndFeel, void, $String*)},
+		{"setMetalLookAndFeel", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, setMetalLookAndFeel, void)},
+		{"testAntialiasingHints", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testAntialiasingHints, void)},
+		{"testAntialiasingProperties", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testAntialiasingProperties, void)},
+		{"testCustomLAF", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testCustomLAF, void)},
+		{"testCustomLAF", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testCustomLAF, void, bool), "java.lang.Exception"},
+		{"testFontRenderingContext", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testFontRenderingContext, void)},
+		{"testFontRenderingContext", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testFontRenderingContext, void, Object$*)},
+		{"testLAFAAHints", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testLAFAAHints, void)},
+		{"testLAFAAHints", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6302464, testLAFAAHints, void, $UIManager$LookAndFeelInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6302464$CustomLookAndFeel", "bug6302464", "CustomLookAndFeel", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6302464",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6302464$CustomLookAndFeel"
+	};
+	$loadClass(bug6302464, name, initialize, &classInfo$$, bug6302464::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6302464);
+	});
 	return class$;
 }
 

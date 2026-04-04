@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/pubapi/PubApiTypeParam.h>
-
 #include <com/sun/tools/sjavac/pubapi/TypeDesc.h>
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
@@ -25,7 +24,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $List = ::java::util::List;
 using $Function = ::java::util::function::Function;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -41,59 +39,27 @@ public:
 	virtual $Object* apply(Object$* td) override {
 		 return $of($TypeDesc::encodeAsString($cast($TypeDesc, td)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PubApiTypeParam$$Lambda$encodeAsString>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PubApiTypeParam$$Lambda$encodeAsString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApiTypeParam$$Lambda$encodeAsString, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam$$Lambda$encodeAsString, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo PubApiTypeParam$$Lambda$encodeAsString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.pubapi.PubApiTypeParam$$Lambda$encodeAsString",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* PubApiTypeParam$$Lambda$encodeAsString::load$($String* name, bool initialize) {
-	$loadClass(PubApiTypeParam$$Lambda$encodeAsString, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PubApiTypeParam$$Lambda$encodeAsString, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam$$Lambda$encodeAsString, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.pubapi.PubApiTypeParam$$Lambda$encodeAsString",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PubApiTypeParam$$Lambda$encodeAsString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PubApiTypeParam$$Lambda$encodeAsString);
+	});
 	return class$;
 }
 $Class* PubApiTypeParam$$Lambda$encodeAsString::class$ = nullptr;
-
-$FieldInfo _PubApiTypeParam_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PubApiTypeParam, serialVersionUID)},
-	{"identifier", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PubApiTypeParam, identifier)},
-	{"bounds", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", $PRIVATE | $FINAL, $field(PubApiTypeParam, bounds)},
-	{}
-};
-
-$MethodInfo _PubApiTypeParam_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(PubApiTypeParam, init$, void, $String*, $List*)},
-	{"asString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, asString, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PubApiTypeParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.pubapi.PubApiTypeParam",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_PubApiTypeParam_FieldInfo_,
-	_PubApiTypeParam_MethodInfo_
-};
-
-$Object* allocate$PubApiTypeParam($Class* clazz) {
-	return $of($alloc(PubApiTypeParam));
-}
 
 void PubApiTypeParam::init$($String* identifier, $List* bounds) {
 	$set(this, identifier, identifier);
@@ -105,8 +71,8 @@ bool PubApiTypeParam::equals(Object$* obj) {
 		return false;
 	}
 	$var(PubApiTypeParam, other, $cast(PubApiTypeParam, obj));
-	bool var$0 = $nc(this->identifier)->equals($nc(other)->identifier);
-	return var$0 && $nc(this->bounds)->equals($nc(other)->bounds);
+	bool var$0 = $nc(this->identifier)->equals(other->identifier);
+	return var$0 && $nc(this->bounds)->equals(other->bounds);
 }
 
 int32_t PubApiTypeParam::hashCode() {
@@ -115,20 +81,20 @@ int32_t PubApiTypeParam::hashCode() {
 }
 
 $String* PubApiTypeParam::asString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->bounds)->isEmpty()) {
 		return this->identifier;
 	}
-	$var($String, boundsStr, $cast($String, $nc($($nc($($nc(this->bounds)->stream()))->map(static_cast<$Function*>($$new(PubApiTypeParam$$Lambda$encodeAsString)))))->collect($($Collectors::joining(" & "_s)))));
+	$var($String, boundsStr, $cast($String, $$nc($$nc(this->bounds->stream())->map($$new(PubApiTypeParam$$Lambda$encodeAsString)))->collect($($Collectors::joining(" & "_s)))));
 	return $str({this->identifier, " extends "_s, boundsStr});
 }
 
 $String* PubApiTypeParam::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s[id: %s, bounds: %s]"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$of(this->identifier),
-		$of(this->bounds)
+		$($of(this)->getClass()->getSimpleName()),
+		this->identifier,
+		this->bounds
 	}));
 }
 
@@ -137,11 +103,35 @@ PubApiTypeParam::PubApiTypeParam() {
 
 $Class* PubApiTypeParam::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PubApiTypeParam$$Lambda$encodeAsString::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.pubapi.PubApiTypeParam$$Lambda$encodeAsString")) {
 			return PubApiTypeParam$$Lambda$encodeAsString::load$(name, initialize);
 		}
 	}
-	$loadClass(PubApiTypeParam, name, initialize, &_PubApiTypeParam_ClassInfo_, allocate$PubApiTypeParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PubApiTypeParam, serialVersionUID)},
+		{"identifier", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PubApiTypeParam, identifier)},
+		{"bounds", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", $PRIVATE | $FINAL, $field(PubApiTypeParam, bounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(PubApiTypeParam, init$, void, $String*, $List*)},
+		{"asString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, asString, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.pubapi.PubApiTypeParam",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PubApiTypeParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PubApiTypeParam);
+	});
 	return class$;
 }
 

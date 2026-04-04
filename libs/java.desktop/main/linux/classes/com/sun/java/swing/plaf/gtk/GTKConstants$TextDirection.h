@@ -25,6 +25,7 @@ class GTKConstants$TextDirection : public ::java::lang::Enum {
 public:
 	GTKConstants$TextDirection();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$TextDirection>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKConstants$TextDirection* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKConstants$TextDirection>* values();

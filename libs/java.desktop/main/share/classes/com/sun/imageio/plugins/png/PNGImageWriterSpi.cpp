@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/PNGImageWriterSpi.h>
-
 #include <com/sun/imageio/plugins/png/PNGImageWriter.h>
 #include <com/sun/imageio/plugins/png/PNGMetadata.h>
 #include <java/awt/image/ColorModel.h>
@@ -32,38 +31,6 @@ namespace com {
 			namespace plugins {
 				namespace png {
 
-$FieldInfo _PNGImageWriterSpi_FieldInfo_[] = {
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, vendorName)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, version)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, names)},
-	{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, suffixes)},
-	{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, MIMETypes)},
-	{"writerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, writerClassName)},
-	{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, readerSpiNames)},
-	{}
-};
-
-$MethodInfo _PNGImageWriterSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PNGImageWriterSpi, init$, void)},
-	{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(PNGImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
-	{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(PNGImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*)},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageWriterSpi, getDescription, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _PNGImageWriterSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.PNGImageWriterSpi",
-	"javax.imageio.spi.ImageWriterSpi",
-	nullptr,
-	_PNGImageWriterSpi_FieldInfo_,
-	_PNGImageWriterSpi_MethodInfo_
-};
-
-$Object* allocate$PNGImageWriterSpi($Class* clazz) {
-	return $of($alloc(PNGImageWriterSpi));
-}
-
 $String* PNGImageWriterSpi::vendorName = nullptr;
 $String* PNGImageWriterSpi::version = nullptr;
 $StringArray* PNGImageWriterSpi::names = nullptr;
@@ -79,7 +46,7 @@ void PNGImageWriterSpi::init$() {
 }
 
 bool PNGImageWriterSpi::canEncodeImage($ImageTypeSpecifier* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, sampleModel, $nc(type)->getSampleModel());
 	$var($ColorModel, colorModel, type->getColorModel());
 	$var($ints, sampleSize, $nc(sampleModel)->getSampleSize());
@@ -117,7 +84,7 @@ $ImageWriter* PNGImageWriterSpi::createWriterInstance(Object$* extension) {
 	return $new($PNGImageWriter, this);
 }
 
-void clinit$PNGImageWriterSpi($Class* class$) {
+void PNGImageWriterSpi::clinit$($Class* clazz) {
 	$assignStatic(PNGImageWriterSpi::vendorName, "Oracle Corporation"_s);
 	$assignStatic(PNGImageWriterSpi::version, "1.0"_s);
 	$assignStatic(PNGImageWriterSpi::writerClassName, "com.sun.imageio.plugins.png.PNGImageWriter"_s);
@@ -137,7 +104,34 @@ PNGImageWriterSpi::PNGImageWriterSpi() {
 }
 
 $Class* PNGImageWriterSpi::load$($String* name, bool initialize) {
-	$loadClass(PNGImageWriterSpi, name, initialize, &_PNGImageWriterSpi_ClassInfo_, clinit$PNGImageWriterSpi, allocate$PNGImageWriterSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, vendorName)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, version)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, names)},
+		{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, suffixes)},
+		{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, MIMETypes)},
+		{"writerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, writerClassName)},
+		{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageWriterSpi, readerSpiNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PNGImageWriterSpi, init$, void)},
+		{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(PNGImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
+		{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(PNGImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*)},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageWriterSpi, getDescription, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.PNGImageWriterSpi",
+		"javax.imageio.spi.ImageWriterSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PNGImageWriterSpi, name, initialize, &classInfo$$, PNGImageWriterSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGImageWriterSpi);
+	});
 	return class$;
 }
 

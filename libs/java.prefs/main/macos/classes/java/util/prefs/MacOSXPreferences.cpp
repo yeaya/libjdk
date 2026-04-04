@@ -1,5 +1,4 @@
 #include <java/util/prefs/MacOSXPreferences.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Objects.h>
 #include <java/util/prefs/AbstractPreferences.h>
@@ -22,52 +21,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$FieldInfo _MacOSXPreferences_FieldInfo_[] = {
-	{"defaultAppName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacOSXPreferences, defaultAppName)},
-	{"isUser", "Z", nullptr, $PRIVATE | $FINAL, $field(MacOSXPreferences, isUser)},
-	{"file", "Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $PRIVATE | $FINAL, $field(MacOSXPreferences, file)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MacOSXPreferences, path)},
-	{"userRoot", "Ljava/util/prefs/MacOSXPreferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MacOSXPreferences, userRoot)},
-	{"systemRoot", "Ljava/util/prefs/MacOSXPreferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MacOSXPreferences, systemRoot)},
-	{}
-};
-
-$MethodInfo _MacOSXPreferences_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, bool)},
-	{"<init>", "(Ljava/util/prefs/MacOSXPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, MacOSXPreferences*, $String*)},
-	{"<init>", "(Ljava/util/prefs/MacOSXPreferences;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, MacOSXPreferences*, $String*, bool)},
-	{"<init>", "(Ljava/util/prefs/MacOSXPreferences;Ljava/lang/String;ZZZ)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, MacOSXPreferences*, $String*, bool, bool, bool)},
-	{"cfFileForNode", "(Z)Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $PRIVATE, $method(MacOSXPreferences, cfFileForNode, $MacOSXPreferencesFile*, bool)},
-	{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, childSpi, $AbstractPreferences*, $String*)},
-	{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, childrenNamesSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferences, flush, void), "java.util.prefs.BackingStoreException"},
-	{"flushSpi", "()V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
-	{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, getSpi, $String*, $String*)},
-	{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(MacOSXPreferences, getSystemRoot, $Preferences*)},
-	{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(MacOSXPreferences, getUserRoot, $Preferences*)},
-	{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, keysSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
-	{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, putSpi, void, $String*, $String*)},
-	{"removeChild", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MacOSXPreferences, removeChild, void, $String*)},
-	{"removeNodeSpi", "()V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
-	{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, removeSpi, void, $String*)},
-	{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferences, sync, void), "java.util.prefs.BackingStoreException"},
-	{"syncSpi", "()V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
-	{}
-};
-
-$ClassInfo _MacOSXPreferences_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.MacOSXPreferences",
-	"java.util.prefs.AbstractPreferences",
-	nullptr,
-	_MacOSXPreferences_FieldInfo_,
-	_MacOSXPreferences_MethodInfo_
-};
-
-$Object* allocate$MacOSXPreferences($Class* clazz) {
-	return $of($alloc(MacOSXPreferences));
-}
-
 $String* MacOSXPreferences::defaultAppName = nullptr;
 $volatile(MacOSXPreferences*) MacOSXPreferences::userRoot = nullptr;
 $volatile(MacOSXPreferences*) MacOSXPreferences::systemRoot = nullptr;
@@ -79,7 +32,7 @@ $Preferences* MacOSXPreferences::getUserRoot() {
 		$synchronized(MacOSXPreferences::class$) {
 			$assign(root, MacOSXPreferences::userRoot);
 			if (root == nullptr) {
-				$assignStatic(MacOSXPreferences::userRoot, ($assign(root, $new(MacOSXPreferences, true))));
+				$assignStatic(MacOSXPreferences::userRoot, $assign(root, $new(MacOSXPreferences, true)));
 			}
 		}
 	}
@@ -93,7 +46,7 @@ $Preferences* MacOSXPreferences::getSystemRoot() {
 		$synchronized(MacOSXPreferences::class$) {
 			$assign(root, MacOSXPreferences::systemRoot);
 			if (root == nullptr) {
-				$assignStatic(MacOSXPreferences::systemRoot, ($assign(root, $new(MacOSXPreferences, false))));
+				$assignStatic(MacOSXPreferences::systemRoot, $assign(root, $new(MacOSXPreferences, false)));
 			}
 		}
 	}
@@ -132,7 +85,7 @@ $MacOSXPreferencesFile* MacOSXPreferences::cfFileForNode(bool isUser) {
 	$var($String, name, this->path);
 	int32_t pos = -1;
 	for (int32_t i = 0; i < 4; ++i) {
-		pos = $nc(name)->indexOf((int32_t)u'/', pos + 1);
+		pos = $nc(name)->indexOf(u'/', pos + 1);
 		if (pos == -1) {
 			break;
 		}
@@ -156,15 +109,15 @@ $String* MacOSXPreferences::getSpi($String* key) {
 }
 
 void MacOSXPreferences::removeSpi($String* key) {
-	$Objects::requireNonNull($of(key), "Specified key cannot be null"_s);
+	$Objects::requireNonNull(key, "Specified key cannot be null"_s);
 	$nc(this->file)->removeKeyFromNode(this->path, key);
 }
 
 void MacOSXPreferences::removeNodeSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($MacOSXPreferencesFile);
 	$synchronized($MacOSXPreferencesFile::class$) {
-		$nc(($cast(MacOSXPreferences, $(parent()))))->removeChild($(name()));
+		$$sure(MacOSXPreferences, parent())->removeChild($(name()));
 		$nc(this->file)->removeNode(this->path);
 	}
 }
@@ -174,7 +127,7 @@ void MacOSXPreferences::removeChild($String* child) {
 }
 
 $StringArray* MacOSXPreferences::childrenNamesSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, result, $nc(this->file)->getChildrenForNode(this->path));
 	if (result == nullptr) {
 		$throwNew($BackingStoreException, $$str({"Couldn\'t get list of children for node \'"_s, this->path, "\'"_s}));
@@ -183,7 +136,7 @@ $StringArray* MacOSXPreferences::childrenNamesSpi() {
 }
 
 $StringArray* MacOSXPreferences::keysSpi() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, result, $nc(this->file)->getKeysForNode(this->path));
 	if (result == nullptr) {
 		$throwNew($BackingStoreException, $$str({"Couldn\'t get list of keys for node \'"_s, this->path, "\'"_s}));
@@ -200,7 +153,7 @@ $AbstractPreferences* MacOSXPreferences::childSpi($String* name) {
 }
 
 void MacOSXPreferences::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (this->isUser) {
 			if (!$MacOSXPreferencesFile::flushUser()) {
@@ -216,7 +169,7 @@ void MacOSXPreferences::flushSpi() {
 }
 
 void MacOSXPreferences::sync() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (isRemoved()) {
 			$throwNew($IllegalStateException, "Node has been removed"_s);
@@ -237,12 +190,53 @@ void MacOSXPreferences::syncSpi() {
 MacOSXPreferences::MacOSXPreferences() {
 }
 
-void clinit$MacOSXPreferences($Class* class$) {
+void MacOSXPreferences::clinit$($Class* clazz) {
 	$assignStatic(MacOSXPreferences::defaultAppName, "com.apple.java.util.prefs"_s);
 }
 
 $Class* MacOSXPreferences::load$($String* name, bool initialize) {
-	$loadClass(MacOSXPreferences, name, initialize, &_MacOSXPreferences_ClassInfo_, clinit$MacOSXPreferences, allocate$MacOSXPreferences);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultAppName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MacOSXPreferences, defaultAppName)},
+		{"isUser", "Z", nullptr, $PRIVATE | $FINAL, $field(MacOSXPreferences, isUser)},
+		{"file", "Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $PRIVATE | $FINAL, $field(MacOSXPreferences, file)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MacOSXPreferences, path)},
+		{"userRoot", "Ljava/util/prefs/MacOSXPreferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MacOSXPreferences, userRoot)},
+		{"systemRoot", "Ljava/util/prefs/MacOSXPreferences;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(MacOSXPreferences, systemRoot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, bool)},
+		{"<init>", "(Ljava/util/prefs/MacOSXPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, MacOSXPreferences*, $String*)},
+		{"<init>", "(Ljava/util/prefs/MacOSXPreferences;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, MacOSXPreferences*, $String*, bool)},
+		{"<init>", "(Ljava/util/prefs/MacOSXPreferences;Ljava/lang/String;ZZZ)V", nullptr, $PRIVATE, $method(MacOSXPreferences, init$, void, MacOSXPreferences*, $String*, bool, bool, bool)},
+		{"cfFileForNode", "(Z)Ljava/util/prefs/MacOSXPreferencesFile;", nullptr, $PRIVATE, $method(MacOSXPreferences, cfFileForNode, $MacOSXPreferencesFile*, bool)},
+		{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, childSpi, $AbstractPreferences*, $String*)},
+		{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, childrenNamesSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferences, flush, void), "java.util.prefs.BackingStoreException"},
+		{"flushSpi", "()V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
+		{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, getSpi, $String*, $String*)},
+		{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(MacOSXPreferences, getSystemRoot, $Preferences*)},
+		{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(MacOSXPreferences, getUserRoot, $Preferences*)},
+		{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, keysSpi, $StringArray*), "java.util.prefs.BackingStoreException"},
+		{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, putSpi, void, $String*, $String*)},
+		{"removeChild", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MacOSXPreferences, removeChild, void, $String*)},
+		{"removeNodeSpi", "()V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
+		{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, removeSpi, void, $String*)},
+		{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferences, sync, void), "java.util.prefs.BackingStoreException"},
+		{"syncSpi", "()V", nullptr, $PROTECTED, $virtualMethod(MacOSXPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.MacOSXPreferences",
+		"java.util.prefs.AbstractPreferences",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MacOSXPreferences, name, initialize, &classInfo$$, MacOSXPreferences::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXPreferences);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/SwingWorker$StateValue.h>
-
 #include <java/lang/Enum.h>
 #include <javax/swing/SwingWorker.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _SwingWorker$StateValue_FieldInfo_[] = {
-	{"PENDING", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingWorker$StateValue, PENDING)},
-	{"STARTED", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingWorker$StateValue, STARTED)},
-	{"DONE", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingWorker$StateValue, DONE)},
-	{"$VALUES", "[Ljavax/swing/SwingWorker$StateValue;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingWorker$StateValue, $VALUES)},
-	{}
-};
-
-$MethodInfo _SwingWorker$StateValue_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/SwingWorker$StateValue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingWorker$StateValue, $values, $SwingWorker$StateValueArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SwingWorker$StateValue, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingWorker$StateValue, valueOf, SwingWorker$StateValue*, $String*)},
-	{"values", "()[Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingWorker$StateValue, values, $SwingWorker$StateValueArray*)},
-	{}
-};
-
-$InnerClassInfo _SwingWorker$StateValue_InnerClassesInfo_[] = {
-	{"javax.swing.SwingWorker$StateValue", "javax.swing.SwingWorker", "StateValue", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SwingWorker$StateValue_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.SwingWorker$StateValue",
-	"java.lang.Enum",
-	nullptr,
-	_SwingWorker$StateValue_FieldInfo_,
-	_SwingWorker$StateValue_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/SwingWorker$StateValue;>;",
-	nullptr,
-	_SwingWorker$StateValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.SwingWorker"
-};
-
-$Object* allocate$SwingWorker$StateValue($Class* clazz) {
-	return $of($alloc(SwingWorker$StateValue));
-}
 
 SwingWorker$StateValue* SwingWorker$StateValue::PENDING = nullptr;
 SwingWorker$StateValue* SwingWorker$StateValue::STARTED = nullptr;
@@ -87,7 +45,7 @@ void SwingWorker$StateValue::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$SwingWorker$StateValue($Class* class$) {
+void SwingWorker$StateValue::clinit$($Class* clazz) {
 	$assignStatic(SwingWorker$StateValue::PENDING, $new(SwingWorker$StateValue, "PENDING"_s, 0));
 	$assignStatic(SwingWorker$StateValue::STARTED, $new(SwingWorker$StateValue, "STARTED"_s, 1));
 	$assignStatic(SwingWorker$StateValue::DONE, $new(SwingWorker$StateValue, "DONE"_s, 2));
@@ -98,7 +56,42 @@ SwingWorker$StateValue::SwingWorker$StateValue() {
 }
 
 $Class* SwingWorker$StateValue::load$($String* name, bool initialize) {
-	$loadClass(SwingWorker$StateValue, name, initialize, &_SwingWorker$StateValue_ClassInfo_, clinit$SwingWorker$StateValue, allocate$SwingWorker$StateValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"PENDING", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingWorker$StateValue, PENDING)},
+		{"STARTED", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingWorker$StateValue, STARTED)},
+		{"DONE", "Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SwingWorker$StateValue, DONE)},
+		{"$VALUES", "[Ljavax/swing/SwingWorker$StateValue;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SwingWorker$StateValue, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/SwingWorker$StateValue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SwingWorker$StateValue, $values, $SwingWorker$StateValueArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SwingWorker$StateValue, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingWorker$StateValue, valueOf, SwingWorker$StateValue*, $String*)},
+		{"values", "()[Ljavax/swing/SwingWorker$StateValue;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingWorker$StateValue, values, $SwingWorker$StateValueArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SwingWorker$StateValue", "javax.swing.SwingWorker", "StateValue", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.SwingWorker$StateValue",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/SwingWorker$StateValue;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.SwingWorker"
+	};
+	$loadClass(SwingWorker$StateValue, name, initialize, &classInfo$$, SwingWorker$StateValue::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SwingWorker$StateValue));
+	});
 	return class$;
 }
 

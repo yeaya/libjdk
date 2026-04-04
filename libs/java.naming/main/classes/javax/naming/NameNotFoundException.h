@@ -14,10 +14,13 @@ public:
 	NameNotFoundException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x90E0DD61CB91DAFB;
+	static const int64_t serialVersionUID = (int64_t)0x90e0dd61cb91dafb;
 	NameNotFoundException(const NameNotFoundException& e);
 	virtual void throw$() override;
-	inline NameNotFoundException* operator ->() {
+	inline NameNotFoundException* operator ->() const {
+		return (NameNotFoundException*)throwing$;
+	}
+	inline operator NameNotFoundException*() const {
 		return (NameNotFoundException*)throwing$;
 	}
 };

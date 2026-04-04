@@ -38,12 +38,15 @@ public:
 	void init$(::com::sun::org::apache::xerces::internal::util::Status* type, $String* identifier, $String* message);
 	virtual $String* getIdentifier();
 	virtual ::com::sun::org::apache::xerces::internal::util::Status* getType();
-	static const int64_t serialVersionUID = (int64_t)0xB48A609593F6433C;
+	static const int64_t serialVersionUID = (int64_t)0xb48a609593f6433c;
 	::com::sun::org::apache::xerces::internal::util::Status* fType = nullptr;
 	$String* fIdentifier = nullptr;
 	XMLConfigurationException(const XMLConfigurationException& e);
 	virtual void throw$() override;
-	inline XMLConfigurationException* operator ->() {
+	inline XMLConfigurationException* operator ->() const {
+		return (XMLConfigurationException*)throwing$;
+	}
+	inline operator XMLConfigurationException*() const {
 		return (XMLConfigurationException*)throwing$;
 	}
 };

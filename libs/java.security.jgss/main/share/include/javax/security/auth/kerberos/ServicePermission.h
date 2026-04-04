@@ -49,7 +49,7 @@ public:
 	virtual ::java::security::PermissionCollection* newPermissionCollection() override;
 	void readObject(::java::io::ObjectInputStream* s);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xEEF6BDEAF2C90259;
+	static const int64_t serialVersionUID = (int64_t)0xeef6bdeaf2c90259;
 	static const int32_t INITIATE = 1;
 	static const int32_t ACCEPT = 2;
 	static const int32_t ALL = 3; // INITIATE | ACCEPT

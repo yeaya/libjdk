@@ -1,9 +1,7 @@
 #include <Test5062055.h>
-
 #include <java/awt/Dimension.h>
 #include <java/lang/Error.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/SwingUtilities.h>
@@ -14,29 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$MethodInfo _Test5062055_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test5062055, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test5062055, main, void, $StringArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test5062055, run, void)},
-	{}
-};
-
-$ClassInfo _Test5062055_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test5062055",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_Test5062055_MethodInfo_
-};
-
-$Object* allocate$Test5062055($Class* clazz) {
-	return $of($alloc(Test5062055));
-}
 
 void Test5062055::init$() {
 }
@@ -52,7 +29,7 @@ void Test5062055::main($StringArray* argv) {
 }
 
 void Test5062055::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, jep, $new($JEditorPane));
 	jep->setContentType("text/html"_s);
 	jep->setEditable(false);
@@ -64,7 +41,23 @@ Test5062055::Test5062055() {
 }
 
 $Class* Test5062055::load$($String* name, bool initialize) {
-	$loadClass(Test5062055, name, initialize, &_Test5062055_ClassInfo_, allocate$Test5062055);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test5062055, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test5062055, main, void, $StringArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test5062055, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test5062055",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test5062055, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test5062055);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/beans/editors/NumberEditor.h>
-
 #include <java/beans/PropertyEditorSupport.h>
 #include <jcpp.h>
 
@@ -12,39 +11,35 @@ namespace com {
 		namespace beans {
 			namespace editors {
 
-$MethodInfo _NumberEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NumberEditor, init$, void)},
-	{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NumberEditor, getJavaInitializationString, $String*)},
-	{}
-};
-
-$ClassInfo _NumberEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.beans.editors.NumberEditor",
-	"java.beans.PropertyEditorSupport",
-	nullptr,
-	nullptr,
-	_NumberEditor_MethodInfo_
-};
-
-$Object* allocate$NumberEditor($Class* clazz) {
-	return $of($alloc(NumberEditor));
-}
-
 void NumberEditor::init$() {
 	$PropertyEditorSupport::init$();
 }
 
 $String* NumberEditor::getJavaInitializationString() {
 	$var($Object, value, getValue());
-	return (value != nullptr) ? $nc($of(value))->toString() : "null"_s;
+	return (value != nullptr) ? value->toString() : "null"_s;
 }
 
 NumberEditor::NumberEditor() {
 }
 
 $Class* NumberEditor::load$($String* name, bool initialize) {
-	$loadClass(NumberEditor, name, initialize, &_NumberEditor_ClassInfo_, allocate$NumberEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NumberEditor, init$, void)},
+		{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NumberEditor, getJavaInitializationString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.beans.editors.NumberEditor",
+		"java.beans.PropertyEditorSupport",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NumberEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NumberEditor);
+	});
 	return class$;
 }
 

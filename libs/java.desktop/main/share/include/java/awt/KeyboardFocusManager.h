@@ -99,6 +99,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void _clearGlobalFocusOwner();
 	virtual void addKeyEventDispatcher(::java::awt::KeyEventDispatcher* dispatcher);

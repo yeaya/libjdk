@@ -18,6 +18,7 @@ class CRC : public ::java::lang::Object {
 	$class(CRC, 0, ::java::lang::Object)
 public:
 	CRC();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t getValue();
 	void reset();

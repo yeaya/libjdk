@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaLookAndFeel.h>
-
 #include <apple/laf/JRSUIUtils$TabbedPane.h>
 #include <apple/laf/JRSUIUtils.h>
 #include <com/apple/laf/AquaButtonBorder.h>
@@ -37,7 +36,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -118,10 +116,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $ActionMap = ::javax::swing::ActionMap;
 using $BorderFactory = ::javax::swing::BorderFactory;
@@ -143,7 +139,6 @@ using $BasicBorders = ::javax::swing::plaf::basic::BasicBorders;
 using $BasicBorders$MarginBorder = ::javax::swing::plaf::basic::BasicBorders$MarginBorder;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$UIDefaultsAccessor = ::sun::swing::SwingAccessor$UIDefaultsAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace com {
@@ -158,27 +153,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$0(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0::class$ = nullptr;
@@ -191,27 +183,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$1(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::class$ = nullptr;
@@ -224,27 +213,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$2(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::class$ = nullptr;
@@ -257,27 +243,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$3(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::class$ = nullptr;
@@ -290,27 +273,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$4(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::class$ = nullptr;
@@ -323,27 +303,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$5(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::class$ = nullptr;
@@ -356,27 +333,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$6(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::class$ = nullptr;
@@ -389,27 +363,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$7(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::class$ = nullptr;
@@ -422,27 +393,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$8(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::class$ = nullptr;
@@ -455,27 +423,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$9(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::class$ = nullptr;
@@ -488,27 +453,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$10(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::class$ = nullptr;
@@ -521,27 +483,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$11(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::class$ = nullptr;
@@ -554,27 +513,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$12(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::class$ = nullptr;
@@ -587,27 +543,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$13(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::class$ = nullptr;
@@ -620,27 +573,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$14(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::class$ = nullptr;
@@ -653,27 +603,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$15(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15::class$ = nullptr;
@@ -686,27 +633,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$16(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16::class$ = nullptr;
@@ -719,27 +663,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$17(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17::class$ = nullptr;
@@ -752,27 +693,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$18(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18::class$ = nullptr;
@@ -785,27 +723,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$19(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19::class$ = nullptr;
@@ -818,27 +753,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$20(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20::class$ = nullptr;
@@ -851,27 +783,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$21(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21::class$ = nullptr;
@@ -884,27 +813,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$23(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::class$ = nullptr;
@@ -917,27 +843,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$24(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23::class$ = nullptr;
@@ -950,27 +873,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$25(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24::class$ = nullptr;
@@ -983,27 +903,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$26(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25::class$ = nullptr;
@@ -1016,27 +933,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$27(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::class$ = nullptr;
@@ -1049,27 +963,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$28(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::class$ = nullptr;
@@ -1082,27 +993,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$29(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::class$ = nullptr;
@@ -1115,27 +1023,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$30(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::class$ = nullptr;
@@ -1148,27 +1053,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$31(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::class$ = nullptr;
@@ -1181,27 +1083,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$32(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31::class$ = nullptr;
@@ -1214,27 +1113,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$35(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::class$ = nullptr;
@@ -1247,27 +1143,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$37(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33::class$ = nullptr;
@@ -1280,27 +1173,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$38(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34::class$ = nullptr;
@@ -1313,27 +1203,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$39(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35::class$ = nullptr;
@@ -1346,27 +1233,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$40(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36::class$ = nullptr;
@@ -1379,27 +1263,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$41(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37::class$ = nullptr;
@@ -1412,27 +1293,24 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$42(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38::class$ = nullptr;
@@ -1445,121 +1323,27 @@ public:
 	virtual $Object* createValue($UIDefaults* t) override {
 		 return AquaLookAndFeel::lambda$initComponentDefaults$43(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, init$, void)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, createValue, $Object*, $UIDefaults*)},
-	{}
-};
-$ClassInfo AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	nullptr,
-	methodInfos
 };
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::load$($String* name, bool initialize) {
-	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, init$, void)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, createValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39);
+	});
 	return class$;
 }
 $Class* AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::class$ = nullptr;
-
-$FieldInfo _AquaLookAndFeel_FieldInfo_[] = {
-	{"sPropertyPrefix", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaLookAndFeel, sPropertyPrefix)},
-	{"PKG_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaLookAndFeel, PKG_PREFIX)},
-	{}
-};
-
-$MethodInfo _AquaLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel, init$, void)},
-	{"getAudioActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, getAudioActionMap, $ActionMap*)},
-	{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getDefaults, $UIDefaults*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getDescription, $String*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getID, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getName, $String*)},
-	{"getSupportsWindowDecorations", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getSupportsWindowDecorations, bool)},
-	{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, initClassDefaults, void, $UIDefaults*)},
-	{"initComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, initComponentDefaults, void, $UIDefaults*)},
-	{"initResourceBundle", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(AquaLookAndFeel, initResourceBundle, void, $UIDefaults*)},
-	{"initSystemColorDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, initSystemColorDefaults, void, $UIDefaults*)},
-	{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, initialize, void)},
-	{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, isNativeLookAndFeel, bool)},
-	{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, isSupportedLookAndFeel, bool)},
-	{"lambda$initComponentDefaults$0", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$0, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$1", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$1, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$10", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$10, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$11", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$11, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$12", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$12, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$13", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$13, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$14", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$14, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$15", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$15, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$16", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$16, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$17", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$17, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$18", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$18, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$19", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$19, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$2", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$2, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$20", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$20, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$21", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$21, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$23", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$23, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$24", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$24, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$25", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$25, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$26", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$26, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$27", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$27, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$28", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$28, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$29", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$29, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$3", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$3, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$30", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$30, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$31", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$31, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$32", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$32, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$35", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$35, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$37", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$37, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$38", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$38, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$39", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$39, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$4", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$4, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$40", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$40, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$41", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$41, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$42", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$42, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$43", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$43, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$5", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$5, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$6", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$6, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$7", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$7, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$8", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$8, $Object*, $UIDefaults*)},
-	{"lambda$initComponentDefaults$9", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$9, $Object*, $UIDefaults*)},
-	{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, uninitialize, void)},
-	{}
-};
-
-$InnerClassInfo _AquaLookAndFeel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaLookAndFeel$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaLookAndFeel$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaLookAndFeel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaLookAndFeel",
-	"javax.swing.plaf.basic.BasicLookAndFeel",
-	nullptr,
-	_AquaLookAndFeel_FieldInfo_,
-	_AquaLookAndFeel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaLookAndFeel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaLookAndFeel$3,com.apple.laf.AquaLookAndFeel$2,com.apple.laf.AquaLookAndFeel$1"
-};
-
-$Object* allocate$AquaLookAndFeel($Class* clazz) {
-	return $of($alloc(AquaLookAndFeel));
-}
 
 $String* AquaLookAndFeel::sPropertyPrefix = nullptr;
 $String* AquaLookAndFeel::PKG_PREFIX = nullptr;
@@ -1593,29 +1377,29 @@ bool AquaLookAndFeel::isSupportedLookAndFeel() {
 }
 
 void AquaLookAndFeel::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AquaLookAndFeel$1, this)));
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AquaLookAndFeel$2, this)));
+	$AccessController::doPrivileged($$new($AquaLookAndFeel$1, this));
+	$AccessController::doPrivileged($$new($AquaLookAndFeel$2, this));
 	$BasicLookAndFeel::initialize();
 	$var($ScreenPopupFactory, spf, $new($ScreenPopupFactory));
 	spf->setActive(true);
 	$PopupFactory::setSharedInstance(spf);
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addKeyEventPostProcessor($($AquaMnemonicHandler::getInstance()));
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addKeyEventPostProcessor($($AquaMnemonicHandler::getInstance()));
 }
 
 void AquaLookAndFeel::uninitialize() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->removeKeyEventPostProcessor($($AquaMnemonicHandler::getInstance()));
+	$useLocalObjectStack();
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->removeKeyEventPostProcessor($($AquaMnemonicHandler::getInstance()));
 	$var($PopupFactory, popupFactory, $PopupFactory::getSharedInstance());
 	if (popupFactory != nullptr && $instanceOf($ScreenPopupFactory, popupFactory)) {
-		$nc(($cast($ScreenPopupFactory, popupFactory)))->setActive(false);
+		$cast($ScreenPopupFactory, popupFactory)->setActive(false);
 	}
 	$BasicLookAndFeel::uninitialize();
 }
 
 $ActionMap* AquaLookAndFeel::getAudioActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, audioActionMap, $cast($ActionMap, $UIManager::get("AuditoryCues.actionMap"_s)));
 	if (audioActionMap != nullptr) {
 		return audioActionMap;
@@ -1627,7 +1411,7 @@ $ActionMap* AquaLookAndFeel::getAudioActionMap() {
 			audioActionMap->put(acList->get(counter), $(createAudioAction(acList->get(counter))));
 		}
 	}
-	$nc($($UIManager::getLookAndFeelDefaults()))->put("AuditoryCues.actionMap"_s, audioActionMap);
+	$$nc($UIManager::getLookAndFeelDefaults())->put("AuditoryCues.actionMap"_s, audioActionMap);
 	return audioActionMap;
 }
 
@@ -1646,10 +1430,10 @@ $UIDefaults* AquaLookAndFeel::getDefaults() {
 }
 
 void AquaLookAndFeel::initResourceBundle($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc(table)->setDefaultLocale($($Locale::getDefault()));
-	$nc($($SwingAccessor::getUIDefaultsAccessor()))->addInternalBundle(table, $$str({AquaLookAndFeel::PKG_PREFIX, "resources.aqua"_s}));
+	$$nc($SwingAccessor::getUIDefaultsAccessor())->addInternalBundle(table, $$str({AquaLookAndFeel::PKG_PREFIX, "resources.aqua"_s}));
 	try {
 		$var($ResourceBundle, aquaProperties, $ResourceBundle::getBundle($$str({AquaLookAndFeel::PKG_PREFIX, "resources.aqua"_s})));
 		$var($Enumeration, propertyKeys, $nc(aquaProperties)->getKeys());
@@ -1662,11 +1446,10 @@ void AquaLookAndFeel::initResourceBundle($UIDefaults* table) {
 }
 
 void AquaLookAndFeel::initComponentDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initResourceBundle(table);
 	$var($InsetsUIResource, zeroInsets, $new($InsetsUIResource, 0, 0, 0, 0));
 	$var($InsetsUIResource, menuItemMargin, zeroInsets);
-	$init($Boolean);
 	$var($Boolean, useOpaqueComponents, $Boolean::TRUE);
 	$var($Boolean, buttonShouldBeOpaque, $Boolean::FALSE);
 	$var($Object, listCellRendererActiveValue, $new($AquaLookAndFeel$3, this));
@@ -1690,15 +1473,15 @@ void AquaLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	$var($ColorUIResource, selectedTabTitleShadowNormalColor, mediumTranslucentBlack);
 	$var($ColorUIResource, nonSelectedTabTitleNormalColor, black);
 	$var($ColorUIResource, toolbarDragHandleColor, $new($ColorUIResource, 140, 140, 140));
-	$var($UIDefaults$LazyValue, marginBorder, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0)));
+	$var($UIDefaults$LazyValue, marginBorder, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0));
 	int32_t zero = 0;
 	$var($Object, editorMargin, zeroInsets);
 	int32_t textCaretBlinkRate = 500;
-	$var($UIDefaults$LazyValue, textFieldBorder, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1)));
+	$var($UIDefaults$LazyValue, textFieldBorder, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1));
 	$var($Object, textAreaBorder, marginBorder);
-	$var($UIDefaults$LazyValue, scollListBorder, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2)));
-	$var($UIDefaults$LazyValue, aquaTitledBorder, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3)));
-	$var($UIDefaults$LazyValue, aquaInsetBorder, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4)));
+	$var($UIDefaults$LazyValue, scollListBorder, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2));
+	$var($UIDefaults$LazyValue, aquaTitledBorder, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3));
+	$var($UIDefaults$LazyValue, aquaInsetBorder, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4));
 	$var($Border, listHeaderBorder, $AquaTableHeaderBorder::getListHeaderBorder());
 	$var($Border, zeroBorder, $new($BorderUIResource$EmptyBorderUIResource, 0, 0, 0, 0));
 	$var($Color, selectionBackground, $AquaImageFactory::getSelectionBackgroundColorUIResource());
@@ -1713,7 +1496,7 @@ void AquaLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	$var($Color, textBackground, white);
 	$var($Color, textInactiveBackground, white);
 	$var($Color, textPasswordFieldCapsLockIconColor, mediumTranslucentBlack);
-	$var($UIDefaults$LazyValue, internalFrameBorder, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5)));
+	$var($UIDefaults$LazyValue, internalFrameBorder, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5));
 	$var($Color, desktopBackgroundColor, $new($ColorUIResource, $$new($Color, 65, 105, 170)));
 	$var($Color, focusRingColor, $AquaImageFactory::getFocusRingColorUIResource());
 	$var($Border, focusCellHighlightBorder, $new($BorderUIResource$LineBorderUIResource, focusRingColor));
@@ -1721,11 +1504,11 @@ void AquaLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	$var($Color, panelBackgroundColor, windowBackgroundColor);
 	$var($Color, tabBackgroundColor, windowBackgroundColor);
 	$var($Color, controlBackgroundColor, windowBackgroundColor);
-	$var($UIDefaults$LazyValue, controlFont, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6)));
-	$var($UIDefaults$LazyValue, controlSmallFont, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7)));
-	$var($UIDefaults$LazyValue, alertHeaderFont, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8)));
-	$var($UIDefaults$LazyValue, menuFont, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9)));
-	$var($UIDefaults$LazyValue, viewFont, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10)));
+	$var($UIDefaults$LazyValue, controlFont, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6));
+	$var($UIDefaults$LazyValue, controlSmallFont, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7));
+	$var($UIDefaults$LazyValue, alertHeaderFont, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8));
+	$var($UIDefaults$LazyValue, menuFont, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9));
+	$var($UIDefaults$LazyValue, viewFont, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10));
 	$var($Color, menuBackgroundColor, $new($ColorUIResource, $Color::white));
 	$var($Color, menuForegroundColor, black);
 	$var($Color, menuSelectedForegroundColor, white);
@@ -1736,916 +1519,916 @@ void AquaLookAndFeel::initComponentDefaults($UIDefaults* table) {
 	$var($Color, menuAccelSelectionForegroundColor, black);
 	$var($Border, menuBorder, $new($AquaMenuBorder));
 	$var($UIDefaults$LazyInputMap, controlFocusInputMap, $new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-		$of("SPACE"_s),
-		$of("pressed"_s),
-		$of("released SPACE"_s),
-		$of("released"_s)
+		"SPACE"_s,
+		"pressed"_s,
+		"released SPACE"_s,
+		"released"_s
 	})));
-	$var($UIDefaults$LazyValue, confirmIcon, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11)));
-	$var($UIDefaults$LazyValue, cautionIcon, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12)));
-	$var($UIDefaults$LazyValue, stopIcon, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13)));
-	$var($UIDefaults$LazyValue, securityIcon, static_cast<$UIDefaults$LazyValue*>($new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14)));
+	$var($UIDefaults$LazyValue, confirmIcon, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11));
+	$var($UIDefaults$LazyValue, cautionIcon, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12));
+	$var($UIDefaults$LazyValue, stopIcon, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13));
+	$var($UIDefaults$LazyValue, securityIcon, $new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14));
 	$var($AquaKeyBindings, aquaKeyBindings, $AquaKeyBindings::instance());
 	$var($ObjectArray, defaults, $new($ObjectArray, {
-		$of("control"_s),
-		$of(windowBackgroundColor),
-		$of("Button.background"_s),
-		$of(controlBackgroundColor),
-		$of("Button.foreground"_s),
-		$of(black),
-		$of("Button.disabledText"_s),
-		$of(disabled),
-		$of("Button.select"_s),
-		$of(selected),
-		$of("Button.border"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15)),
-		$of("Button.font"_s),
-		$of(controlFont),
-		$of("Button.textIconGap"_s),
-		$($of($Integer::valueOf(4))),
-		$of("Button.textShiftOffset"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("Button.focusInputMap"_s),
-		$of(controlFocusInputMap),
-		$of("Button.margin"_s),
-		$of($$new($InsetsUIResource, 0, 2, 0, 2)),
-		$of("Button.opaque"_s),
-		$of(buttonShouldBeOpaque),
-		$of("CheckBox.background"_s),
-		$of(controlBackgroundColor),
-		$of("CheckBox.foreground"_s),
-		$of(black),
-		$of("CheckBox.disabledText"_s),
-		$of(disabled),
-		$of("CheckBox.select"_s),
-		$of(selected),
-		$of("CheckBox.icon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16)),
-		$of("CheckBox.font"_s),
-		$of(controlFont),
-		$of("CheckBox.border"_s),
-		$($of($AquaButtonBorder::getBevelButtonBorder())),
-		$of("CheckBox.margin"_s),
-		$of($$new($InsetsUIResource, 1, 1, 0, 1)),
-		$of("CheckBox.focusInputMap"_s),
-		$of(controlFocusInputMap),
-		$of("CheckBoxMenuItem.font"_s),
-		$of(menuFont),
-		$of("CheckBoxMenuItem.acceleratorFont"_s),
-		$of(menuFont),
-		$of("CheckBoxMenuItem.background"_s),
-		$of(menuBackgroundColor),
-		$of("CheckBoxMenuItem.foreground"_s),
-		$of(menuForegroundColor),
-		$of("CheckBoxMenuItem.selectionBackground"_s),
-		$of(menuSelectedBackgroundColor),
-		$of("CheckBoxMenuItem.selectionForeground"_s),
-		$of(menuSelectedForegroundColor),
-		$of("CheckBoxMenuItem.disabledBackground"_s),
-		$of(menuDisabledBackgroundColor),
-		$of("CheckBoxMenuItem.disabledForeground"_s),
-		$of(menuDisabledForegroundColor),
-		$of("CheckBoxMenuItem.acceleratorForeground"_s),
-		$of(menuAccelForegroundColor),
-		$of("CheckBoxMenuItem.acceleratorSelectionForeground"_s),
-		$of(menuAccelSelectionForegroundColor),
-		$of("CheckBoxMenuItem.acceleratorDelimiter"_s),
-		$of(""_s),
-		$of("CheckBoxMenuItem.border"_s),
-		$of(menuBorder),
-		$of("CheckBoxMenuItem.margin"_s),
-		$of(menuItemMargin),
-		$of("CheckBoxMenuItem.borderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("CheckBoxMenuItem.checkIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17)),
-		$of("CheckBoxMenuItem.dashIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18)),
-		$of("ColorChooser.background"_s),
-		$of(panelBackgroundColor),
-		$of("ComboBox.font"_s),
-		$of(controlFont),
-		$of("ComboBox.background"_s),
-		$of(controlBackgroundColor),
-		$of("ComboBox.foreground"_s),
-		$of(menuForegroundColor),
-		$of("ComboBox.selectionBackground"_s),
-		$of(menuSelectedBackgroundColor),
-		$of("ComboBox.selectionForeground"_s),
-		$of(menuSelectedForegroundColor),
-		$of("ComboBox.disabledBackground"_s),
-		$of(menuDisabledBackgroundColor),
-		$of("ComboBox.disabledForeground"_s),
-		$of(menuDisabledForegroundColor),
-		$of("ComboBox.ancestorInputMap"_s),
-		$($of($nc(aquaKeyBindings)->getComboBoxInputMap())),
-		$of("DesktopIcon.border"_s),
-		$of(internalFrameBorder),
-		$of("DesktopIcon.borderColor"_s),
-		$of(smokyGlass),
-		$of("DesktopIcon.borderRimColor"_s),
-		$of(dockIconRim),
-		$of("DesktopIcon.labelBackground"_s),
-		$of(mediumTranslucentBlack),
-		$of("Desktop.background"_s),
-		$of(desktopBackgroundColor),
-		$of("EditorPane.focusInputMap"_s),
-		$($of(aquaKeyBindings->getMultiLineTextInputMap())),
-		$of("EditorPane.font"_s),
-		$of(controlFont),
-		$of("EditorPane.background"_s),
-		$of(textBackground),
-		$of("EditorPane.foreground"_s),
-		$of(textForeground),
-		$of("EditorPane.selectionBackground"_s),
-		$of(textHighlight),
-		$of("EditorPane.selectionForeground"_s),
-		$of(textHighlightText),
-		$of("EditorPane.caretForeground"_s),
-		$of(textForeground),
-		$of("EditorPane.caretBlinkRate"_s),
-		$($of($Integer::valueOf(textCaretBlinkRate))),
-		$of("EditorPane.inactiveForeground"_s),
-		$of(textInactiveText),
-		$of("EditorPane.inactiveBackground"_s),
-		$of(textInactiveBackground),
-		$of("EditorPane.border"_s),
+		"control"_s,
+		windowBackgroundColor,
+		"Button.background"_s,
+		controlBackgroundColor,
+		"Button.foreground"_s,
+		black,
+		"Button.disabledText"_s,
+		disabled,
+		"Button.select"_s,
+		selected,
+		"Button.border"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15)),
+		"Button.font"_s,
+		controlFont,
+		"Button.textIconGap"_s,
+		$($Integer::valueOf(4)),
+		"Button.textShiftOffset"_s,
+		$($Integer::valueOf(zero)),
+		"Button.focusInputMap"_s,
+		controlFocusInputMap,
+		"Button.margin"_s,
+		$$new($InsetsUIResource, 0, 2, 0, 2),
+		"Button.opaque"_s,
+		buttonShouldBeOpaque,
+		"CheckBox.background"_s,
+		controlBackgroundColor,
+		"CheckBox.foreground"_s,
+		black,
+		"CheckBox.disabledText"_s,
+		disabled,
+		"CheckBox.select"_s,
+		selected,
+		"CheckBox.icon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16)),
+		"CheckBox.font"_s,
+		controlFont,
+		"CheckBox.border"_s,
+		$($AquaButtonBorder::getBevelButtonBorder()),
+		"CheckBox.margin"_s,
+		$$new($InsetsUIResource, 1, 1, 0, 1),
+		"CheckBox.focusInputMap"_s,
+		controlFocusInputMap,
+		"CheckBoxMenuItem.font"_s,
+		menuFont,
+		"CheckBoxMenuItem.acceleratorFont"_s,
+		menuFont,
+		"CheckBoxMenuItem.background"_s,
+		menuBackgroundColor,
+		"CheckBoxMenuItem.foreground"_s,
+		menuForegroundColor,
+		"CheckBoxMenuItem.selectionBackground"_s,
+		menuSelectedBackgroundColor,
+		"CheckBoxMenuItem.selectionForeground"_s,
+		menuSelectedForegroundColor,
+		"CheckBoxMenuItem.disabledBackground"_s,
+		menuDisabledBackgroundColor,
+		"CheckBoxMenuItem.disabledForeground"_s,
+		menuDisabledForegroundColor,
+		"CheckBoxMenuItem.acceleratorForeground"_s,
+		menuAccelForegroundColor,
+		"CheckBoxMenuItem.acceleratorSelectionForeground"_s,
+		menuAccelSelectionForegroundColor,
+		"CheckBoxMenuItem.acceleratorDelimiter"_s,
+		""_s,
+		"CheckBoxMenuItem.border"_s,
+		menuBorder,
+		"CheckBoxMenuItem.margin"_s,
+		menuItemMargin,
+		"CheckBoxMenuItem.borderPainted"_s,
+		$Boolean::TRUE,
+		"CheckBoxMenuItem.checkIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17)),
+		"CheckBoxMenuItem.dashIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18)),
+		"ColorChooser.background"_s,
+		panelBackgroundColor,
+		"ComboBox.font"_s,
+		controlFont,
+		"ComboBox.background"_s,
+		controlBackgroundColor,
+		"ComboBox.foreground"_s,
+		menuForegroundColor,
+		"ComboBox.selectionBackground"_s,
+		menuSelectedBackgroundColor,
+		"ComboBox.selectionForeground"_s,
+		menuSelectedForegroundColor,
+		"ComboBox.disabledBackground"_s,
+		menuDisabledBackgroundColor,
+		"ComboBox.disabledForeground"_s,
+		menuDisabledForegroundColor,
+		"ComboBox.ancestorInputMap"_s,
+		$($nc(aquaKeyBindings)->getComboBoxInputMap()),
+		"DesktopIcon.border"_s,
+		internalFrameBorder,
+		"DesktopIcon.borderColor"_s,
+		smokyGlass,
+		"DesktopIcon.borderRimColor"_s,
+		dockIconRim,
+		"DesktopIcon.labelBackground"_s,
+		mediumTranslucentBlack,
+		"Desktop.background"_s,
+		desktopBackgroundColor,
+		"EditorPane.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getMultiLineTextInputMap()),
+		"EditorPane.font"_s,
+		controlFont,
+		"EditorPane.background"_s,
+		textBackground,
+		"EditorPane.foreground"_s,
+		textForeground,
+		"EditorPane.selectionBackground"_s,
+		textHighlight,
+		"EditorPane.selectionForeground"_s,
+		textHighlightText,
+		"EditorPane.caretForeground"_s,
+		textForeground,
+		"EditorPane.caretBlinkRate"_s,
+		$($Integer::valueOf(textCaretBlinkRate)),
+		"EditorPane.inactiveForeground"_s,
+		textInactiveText,
+		"EditorPane.inactiveBackground"_s,
+		textInactiveBackground,
+		"EditorPane.border"_s,
 		textAreaBorder,
-		$of("EditorPane.margin"_s),
+		"EditorPane.margin"_s,
 		editorMargin,
-		$of("FileChooser.newFolderIcon"_s),
-		$($of($AquaIcon$SystemIcon::getFolderIconUIResource())),
-		$of("FileChooser.upFolderIcon"_s),
-		$($of($AquaIcon$SystemIcon::getFolderIconUIResource())),
-		$of("FileChooser.homeFolderIcon"_s),
-		$($of($AquaIcon$SystemIcon::getDesktopIconUIResource())),
-		$of("FileChooser.detailsViewIcon"_s),
-		$($of($AquaIcon$SystemIcon::getComputerIconUIResource())),
-		$of("FileChooser.listViewIcon"_s),
-		$($of($AquaIcon$SystemIcon::getComputerIconUIResource())),
-		$of("FileView.directoryIcon"_s),
-		$($of($AquaIcon$SystemIcon::getFolderIconUIResource())),
-		$of("FileView.fileIcon"_s),
-		$($of($AquaIcon$SystemIcon::getDocumentIconUIResource())),
-		$of("FileView.computerIcon"_s),
-		$($of($AquaIcon$SystemIcon::getDesktopIconUIResource())),
-		$of("FileView.hardDriveIcon"_s),
-		$($of($AquaIcon$SystemIcon::getHardDriveIconUIResource())),
-		$of("FileView.floppyDriveIcon"_s),
-		$($of($AquaIcon$SystemIcon::getFloppyIconUIResource())),
-		$of("FileChooser.cancelButtonMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.saveButtonMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.openButtonMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.updateButtonMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.helpButtonMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.directoryOpenButtonMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.lookInLabelMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.fileNameLabelMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("FileChooser.filesOfTypeLabelMnemonic"_s),
-		$($of($Integer::valueOf(zero))),
-		$of("Focus.color"_s),
-		$of(focusRingColor),
-		$of("FormattedTextField.focusInputMap"_s),
-		$($of(aquaKeyBindings->getFormattedTextFieldInputMap())),
-		$of("FormattedTextField.font"_s),
-		$of(controlFont),
-		$of("FormattedTextField.background"_s),
-		$of(textBackground),
-		$of("FormattedTextField.foreground"_s),
-		$of(textForeground),
-		$of("FormattedTextField.inactiveForeground"_s),
-		$of(textInactiveText),
-		$of("FormattedTextField.inactiveBackground"_s),
-		$of(textInactiveBackground),
-		$of("FormattedTextField.selectionBackground"_s),
-		$of(textHighlight),
-		$of("FormattedTextField.selectionForeground"_s),
-		$of(textHighlightText),
-		$of("FormattedTextField.caretForeground"_s),
-		$of(textForeground),
-		$of("FormattedTextField.caretBlinkRate"_s),
-		$($of($Integer::valueOf(textCaretBlinkRate))),
-		$of("FormattedTextField.border"_s),
-		$of(textFieldBorder),
-		$of("FormattedTextField.margin"_s),
-		$of(zeroInsets),
-		$of("IconButton.font"_s),
-		$of(controlSmallFont),
-		$of("InternalFrame.titleFont"_s),
-		$of(menuFont),
-		$of("InternalFrame.background"_s),
-		$of(windowBackgroundColor),
-		$of("InternalFrame.borderColor"_s),
-		$of(windowBackgroundColor),
-		$of("InternalFrame.borderShadow"_s),
-		$of($Color::red),
-		$of("InternalFrame.borderDarkShadow"_s),
-		$of($Color::green),
-		$of("InternalFrame.borderHighlight"_s),
-		$of($Color::blue),
-		$of("InternalFrame.borderLight"_s),
-		$of($Color::yellow),
-		$of("InternalFrame.opaque"_s),
-		$of($Boolean::FALSE),
-		$of("InternalFrame.border"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.icon"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.paletteBorder"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.paletteTitleFont"_s),
-		$of(menuFont),
-		$of("InternalFrame.paletteBackground"_s),
-		$of(windowBackgroundColor),
-		$of("InternalFrame.optionDialogBorder"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.optionDialogTitleFont"_s),
-		$of(menuFont),
-		$of("InternalFrame.optionDialogBackground"_s),
-		$of(windowBackgroundColor),
-		$of("InternalFrame.closeIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19)),
-		$of("InternalFrame.maximizeIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20)),
-		$of("InternalFrame.iconifyIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21)),
-		$of("InternalFrame.minimizeIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21)),
-		$of("InternalFrame.closeSound"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.maximizeSound"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.minimizeSound"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.restoreDownSound"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.restoreUpSound"_s),
-		($Object*)nullptr,
-		$of("InternalFrame.activeTitleBackground"_s),
-		$of(windowBackgroundColor),
-		$of("InternalFrame.activeTitleForeground"_s),
-		$of(textForeground),
-		$of("InternalFrame.inactiveTitleBackground"_s),
-		$of(windowBackgroundColor),
-		$of("InternalFrame.inactiveTitleForeground"_s),
-		$of(textInactiveText),
-		$of("InternalFrame.windowBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("shift ESCAPE"_s),
-			$of("showSystemMenu"_s),
-			$of("ctrl SPACE"_s),
-			$of("showSystemMenu"_s),
-			$of("ESCAPE"_s),
-			$of("hideSystemMenu"_s)
-		})),
-		$of("TitledBorder.font"_s),
-		$of(controlFont),
-		$of("TitledBorder.titleColor"_s),
-		$of(black),
-		$of("TitledBorder.aquaVariant"_s),
-		$of(aquaTitledBorder),
-		$of("InsetBorder.aquaVariant"_s),
-		$of(aquaInsetBorder),
-		$of("Label.font"_s),
-		$of(controlFont),
-		$of("Label.background"_s),
-		$of(controlBackgroundColor),
-		$of("Label.foreground"_s),
-		$of(black),
-		$of("Label.disabledForeground"_s),
-		$of(disabled),
-		$of("Label.disabledShadow"_s),
-		$of(disabledShadow),
-		$of("Label.opaque"_s),
-		$of(useOpaqueComponents),
-		$of("Label.border"_s),
-		($Object*)nullptr,
-		$of("List.font"_s),
-		$of(viewFont),
-		$of("List.background"_s),
-		$of(white),
-		$of("List.foreground"_s),
-		$of(black),
-		$of("List.selectionBackground"_s),
-		$of(selectionBackground),
-		$of("List.selectionForeground"_s),
-		$of(selectionForeground),
-		$of("List.selectionInactiveBackground"_s),
-		$of(selectionInactiveBackground),
-		$of("List.selectionInactiveForeground"_s),
-		$of(selectionInactiveForeground),
-		$of("List.focusCellHighlightBorder"_s),
-		$of(focusCellHighlightBorder),
-		$of("List.border"_s),
-		($Object*)nullptr,
-		$of("List.cellRenderer"_s),
+		"FileChooser.newFolderIcon"_s,
+		$($AquaIcon$SystemIcon::getFolderIconUIResource()),
+		"FileChooser.upFolderIcon"_s,
+		$($AquaIcon$SystemIcon::getFolderIconUIResource()),
+		"FileChooser.homeFolderIcon"_s,
+		$($AquaIcon$SystemIcon::getDesktopIconUIResource()),
+		"FileChooser.detailsViewIcon"_s,
+		$($AquaIcon$SystemIcon::getComputerIconUIResource()),
+		"FileChooser.listViewIcon"_s,
+		$($AquaIcon$SystemIcon::getComputerIconUIResource()),
+		"FileView.directoryIcon"_s,
+		$($AquaIcon$SystemIcon::getFolderIconUIResource()),
+		"FileView.fileIcon"_s,
+		$($AquaIcon$SystemIcon::getDocumentIconUIResource()),
+		"FileView.computerIcon"_s,
+		$($AquaIcon$SystemIcon::getDesktopIconUIResource()),
+		"FileView.hardDriveIcon"_s,
+		$($AquaIcon$SystemIcon::getHardDriveIconUIResource()),
+		"FileView.floppyDriveIcon"_s,
+		$($AquaIcon$SystemIcon::getFloppyIconUIResource()),
+		"FileChooser.cancelButtonMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.saveButtonMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.openButtonMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.updateButtonMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.helpButtonMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.directoryOpenButtonMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.lookInLabelMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.fileNameLabelMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"FileChooser.filesOfTypeLabelMnemonic"_s,
+		$($Integer::valueOf(zero)),
+		"Focus.color"_s,
+		focusRingColor,
+		"FormattedTextField.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getFormattedTextFieldInputMap()),
+		"FormattedTextField.font"_s,
+		controlFont,
+		"FormattedTextField.background"_s,
+		textBackground,
+		"FormattedTextField.foreground"_s,
+		textForeground,
+		"FormattedTextField.inactiveForeground"_s,
+		textInactiveText,
+		"FormattedTextField.inactiveBackground"_s,
+		textInactiveBackground,
+		"FormattedTextField.selectionBackground"_s,
+		textHighlight,
+		"FormattedTextField.selectionForeground"_s,
+		textHighlightText,
+		"FormattedTextField.caretForeground"_s,
+		textForeground,
+		"FormattedTextField.caretBlinkRate"_s,
+		$($Integer::valueOf(textCaretBlinkRate)),
+		"FormattedTextField.border"_s,
+		textFieldBorder,
+		"FormattedTextField.margin"_s,
+		zeroInsets,
+		"IconButton.font"_s,
+		controlSmallFont,
+		"InternalFrame.titleFont"_s,
+		menuFont,
+		"InternalFrame.background"_s,
+		windowBackgroundColor,
+		"InternalFrame.borderColor"_s,
+		windowBackgroundColor,
+		"InternalFrame.borderShadow"_s,
+		$Color::red,
+		"InternalFrame.borderDarkShadow"_s,
+		$Color::green,
+		"InternalFrame.borderHighlight"_s,
+		$Color::blue,
+		"InternalFrame.borderLight"_s,
+		$Color::yellow,
+		"InternalFrame.opaque"_s,
+		$Boolean::FALSE,
+		"InternalFrame.border"_s,
+		nullptr,
+		"InternalFrame.icon"_s,
+		nullptr,
+		"InternalFrame.paletteBorder"_s,
+		nullptr,
+		"InternalFrame.paletteTitleFont"_s,
+		menuFont,
+		"InternalFrame.paletteBackground"_s,
+		windowBackgroundColor,
+		"InternalFrame.optionDialogBorder"_s,
+		nullptr,
+		"InternalFrame.optionDialogTitleFont"_s,
+		menuFont,
+		"InternalFrame.optionDialogBackground"_s,
+		windowBackgroundColor,
+		"InternalFrame.closeIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19)),
+		"InternalFrame.maximizeIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20)),
+		"InternalFrame.iconifyIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21)),
+		"InternalFrame.minimizeIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21)),
+		"InternalFrame.closeSound"_s,
+		nullptr,
+		"InternalFrame.maximizeSound"_s,
+		nullptr,
+		"InternalFrame.minimizeSound"_s,
+		nullptr,
+		"InternalFrame.restoreDownSound"_s,
+		nullptr,
+		"InternalFrame.restoreUpSound"_s,
+		nullptr,
+		"InternalFrame.activeTitleBackground"_s,
+		windowBackgroundColor,
+		"InternalFrame.activeTitleForeground"_s,
+		textForeground,
+		"InternalFrame.inactiveTitleBackground"_s,
+		windowBackgroundColor,
+		"InternalFrame.inactiveTitleForeground"_s,
+		textInactiveText,
+		"InternalFrame.windowBindings"_s,
+		$$new($ObjectArray, {
+			"shift ESCAPE"_s,
+			"showSystemMenu"_s,
+			"ctrl SPACE"_s,
+			"showSystemMenu"_s,
+			"ESCAPE"_s,
+			"hideSystemMenu"_s
+		}),
+		"TitledBorder.font"_s,
+		controlFont,
+		"TitledBorder.titleColor"_s,
+		black,
+		"TitledBorder.aquaVariant"_s,
+		aquaTitledBorder,
+		"InsetBorder.aquaVariant"_s,
+		aquaInsetBorder,
+		"Label.font"_s,
+		controlFont,
+		"Label.background"_s,
+		controlBackgroundColor,
+		"Label.foreground"_s,
+		black,
+		"Label.disabledForeground"_s,
+		disabled,
+		"Label.disabledShadow"_s,
+		disabledShadow,
+		"Label.opaque"_s,
+		useOpaqueComponents,
+		"Label.border"_s,
+		nullptr,
+		"List.font"_s,
+		viewFont,
+		"List.background"_s,
+		white,
+		"List.foreground"_s,
+		black,
+		"List.selectionBackground"_s,
+		selectionBackground,
+		"List.selectionForeground"_s,
+		selectionForeground,
+		"List.selectionInactiveBackground"_s,
+		selectionInactiveBackground,
+		"List.selectionInactiveForeground"_s,
+		selectionInactiveForeground,
+		"List.focusCellHighlightBorder"_s,
+		focusCellHighlightBorder,
+		"List.border"_s,
+		nullptr,
+		"List.cellRenderer"_s,
 		listCellRendererActiveValue,
-		$of("List.sourceListBackgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22)),
-		$of("List.sourceListSelectionBackgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23)),
-		$of("List.sourceListFocusedSelectionBackgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24)),
-		$of("List.evenRowBackgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25)),
-		$of("List.oddRowBackgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26)),
-		$of("List.focusInputMap"_s),
-		$($of(aquaKeyBindings->getListInputMap())),
-		$of("Menu.font"_s),
-		$of(menuFont),
-		$of("Menu.acceleratorFont"_s),
-		$of(menuFont),
-		$of("Menu.background"_s),
-		$of(menuBackgroundColor),
-		$of("Menu.foreground"_s),
-		$of(menuForegroundColor),
-		$of("Menu.selectionBackground"_s),
-		$of(menuSelectedBackgroundColor),
-		$of("Menu.selectionForeground"_s),
-		$of(menuSelectedForegroundColor),
-		$of("Menu.disabledBackground"_s),
-		$of(menuDisabledBackgroundColor),
-		$of("Menu.disabledForeground"_s),
-		$of(menuDisabledForegroundColor),
-		$of("Menu.acceleratorForeground"_s),
-		$of(menuAccelForegroundColor),
-		$of("Menu.acceleratorSelectionForeground"_s),
-		$of(menuAccelSelectionForegroundColor),
-		$of("Menu.border"_s),
-		$of(menuBorder),
-		$of("Menu.borderPainted"_s),
-		$of($Boolean::FALSE),
-		$of("Menu.margin"_s),
-		$of(menuItemMargin),
-		$of("Menu.arrowIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27)),
-		$of("Menu.consumesTabs"_s),
-		$of($Boolean::TRUE),
-		$of("Menu.menuPopupOffsetY"_s),
-		$($of($Integer::valueOf(1))),
-		$of("Menu.submenuPopupOffsetY"_s),
-		$($of($Integer::valueOf(-4))),
-		$of("MenuBar.font"_s),
-		$of(menuFont),
-		$of("MenuBar.background"_s),
-		$of(menuBackgroundColor),
-		$of("MenuBar.foreground"_s),
-		$of(menuForegroundColor),
-		$of("MenuBar.border"_s),
-		$of($$new($AquaMenuBarBorder)),
-		$of("MenuBar.margin"_s),
-		$of($$new($InsetsUIResource, 0, 8, 0, 8)),
-		$of("MenuBar.selectionBackground"_s),
-		$of(menuSelectedBackgroundColor),
-		$of("MenuBar.selectionForeground"_s),
-		$of(menuSelectedForegroundColor),
-		$of("MenuBar.disabledBackground"_s),
-		$of(menuDisabledBackgroundColor),
-		$of("MenuBar.disabledForeground"_s),
-		$of(menuDisabledForegroundColor),
-		$of("MenuBar.backgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28)),
-		$of("MenuBar.selectedBackgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29)),
-		$of("MenuItem.font"_s),
-		$of(menuFont),
-		$of("MenuItem.acceleratorFont"_s),
-		$of(menuFont),
-		$of("MenuItem.background"_s),
-		$of(menuBackgroundColor),
-		$of("MenuItem.foreground"_s),
-		$of(menuForegroundColor),
-		$of("MenuItem.selectionBackground"_s),
-		$of(menuSelectedBackgroundColor),
-		$of("MenuItem.selectionForeground"_s),
-		$of(menuSelectedForegroundColor),
-		$of("MenuItem.disabledBackground"_s),
-		$of(menuDisabledBackgroundColor),
-		$of("MenuItem.disabledForeground"_s),
-		$of(menuDisabledForegroundColor),
-		$of("MenuItem.acceleratorForeground"_s),
-		$of(menuAccelForegroundColor),
-		$of("MenuItem.acceleratorSelectionForeground"_s),
-		$of(menuAccelSelectionForegroundColor),
-		$of("MenuItem.acceleratorDelimiter"_s),
-		$of(""_s),
-		$of("MenuItem.border"_s),
-		$of(menuBorder),
-		$of("MenuItem.margin"_s),
-		$of(menuItemMargin),
-		$of("MenuItem.borderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("MenuItem.selectedBackgroundPainter"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30)),
-		$of("OptionPane.font"_s),
-		$of(alertHeaderFont),
-		$of("OptionPane.messageFont"_s),
-		$of(controlFont),
-		$of("OptionPane.buttonFont"_s),
-		$of(controlFont),
-		$of("OptionPane.background"_s),
-		$of(windowBackgroundColor),
-		$of("OptionPane.foreground"_s),
-		$of(black),
-		$of("OptionPane.messageForeground"_s),
-		$of(black),
-		$of("OptionPane.border"_s),
-		$of($$new($BorderUIResource$EmptyBorderUIResource, 12, 21, 17, 21)),
-		$of("OptionPane.messageAreaBorder"_s),
-		$of(zeroBorder),
-		$of("OptionPane.buttonAreaBorder"_s),
-		$of($$new($BorderUIResource$EmptyBorderUIResource, 13, 0, 0, 0)),
-		$of("OptionPane.minimumSize"_s),
-		$of($$new($DimensionUIResource, 262, 90)),
-		$of("OptionPane.errorIcon"_s),
-		$of(stopIcon),
-		$of("OptionPane.informationIcon"_s),
-		$of(confirmIcon),
-		$of("OptionPane.warningIcon"_s),
-		$of(cautionIcon),
-		$of("OptionPane.questionIcon"_s),
-		$of(confirmIcon),
-		$of("_SecurityDecisionIcon"_s),
-		$of(securityIcon),
-		$of("OptionPane.windowBindings"_s),
-		$of($$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("close"_s)
-		})),
-		$of("OptionPane.errorSound"_s),
-		($Object*)nullptr,
-		$of("OptionPane.informationSound"_s),
-		($Object*)nullptr,
-		$of("OptionPane.questionSound"_s),
-		($Object*)nullptr,
-		$of("OptionPane.warningSound"_s),
-		($Object*)nullptr,
-		$of("OptionPane.buttonClickThreshhold"_s),
-		$($of($Integer::valueOf(500))),
-		$of("OptionPane.yesButtonMnemonic"_s),
-		$of(""_s),
-		$of("OptionPane.noButtonMnemonic"_s),
-		$of(""_s),
-		$of("OptionPane.okButtonMnemonic"_s),
-		$of(""_s),
-		$of("OptionPane.cancelButtonMnemonic"_s),
-		$of(""_s),
-		$of("Panel.font"_s),
-		$of(controlFont),
-		$of("Panel.background"_s),
-		$of(panelBackgroundColor),
-		$of("Panel.foreground"_s),
-		$of(black),
-		$of("Panel.opaque"_s),
-		$of(useOpaqueComponents),
-		$of("PasswordField.focusInputMap"_s),
-		$($of(aquaKeyBindings->getPasswordFieldInputMap())),
-		$of("PasswordField.font"_s),
-		$of(controlFont),
-		$of("PasswordField.background"_s),
-		$of(textBackground),
-		$of("PasswordField.foreground"_s),
-		$of(textForeground),
-		$of("PasswordField.inactiveForeground"_s),
-		$of(textInactiveText),
-		$of("PasswordField.inactiveBackground"_s),
-		$of(textInactiveBackground),
-		$of("PasswordField.selectionBackground"_s),
-		$of(textHighlight),
-		$of("PasswordField.selectionForeground"_s),
-		$of(textHighlightText),
-		$of("PasswordField.caretForeground"_s),
-		$of(textForeground),
-		$of("PasswordField.caretBlinkRate"_s),
-		$($of($Integer::valueOf(textCaretBlinkRate))),
-		$of("PasswordField.border"_s),
-		$of(textFieldBorder),
-		$of("PasswordField.margin"_s),
-		$of(zeroInsets),
-		$of("PasswordField.echoChar"_s),
-		$($of($Character::valueOf((char16_t)9679))),
-		$of("PasswordField.capsLockIconColor"_s),
-		$of(textPasswordFieldCapsLockIconColor),
-		$of("PopupMenu.font"_s),
-		$of(menuFont),
-		$of("PopupMenu.background"_s),
-		$of(menuBackgroundColor),
-		$of("PopupMenu.translucentBackground"_s),
-		$of(white),
-		$of("PopupMenu.foreground"_s),
-		$of(menuForegroundColor),
-		$of("PopupMenu.selectionBackground"_s),
-		$of(menuSelectedBackgroundColor),
-		$of("PopupMenu.selectionForeground"_s),
-		$of(menuSelectedForegroundColor),
-		$of("PopupMenu.border"_s),
-		$of(menuBorder),
-		$of("ProgressBar.font"_s),
-		$of(controlFont),
-		$of("ProgressBar.foreground"_s),
-		$of(black),
-		$of("ProgressBar.background"_s),
-		$of(controlBackgroundColor),
-		$of("ProgressBar.selectionForeground"_s),
-		$of(black),
-		$of("ProgressBar.selectionBackground"_s),
-		$of(white),
-		$of("ProgressBar.border"_s),
-		$of($$new($BorderUIResource, $($BorderFactory::createEmptyBorder()))),
-		$of("ProgressBar.repaintInterval"_s),
-		$($of($Integer::valueOf(20))),
-		$of("RadioButton.background"_s),
-		$of(controlBackgroundColor),
-		$of("RadioButton.foreground"_s),
-		$of(black),
-		$of("RadioButton.disabledText"_s),
-		$of(disabled),
-		$of("RadioButton.select"_s),
-		$of(selected),
-		$of("RadioButton.icon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31)),
-		$of("RadioButton.font"_s),
-		$of(controlFont),
-		$of("RadioButton.border"_s),
-		$($of($AquaButtonBorder::getBevelButtonBorder())),
-		$of("RadioButton.margin"_s),
-		$of($$new($InsetsUIResource, 1, 1, 0, 1)),
-		$of("RadioButton.focusInputMap"_s),
-		$of(controlFocusInputMap),
-		$of("RadioButtonMenuItem.font"_s),
-		$of(menuFont),
-		$of("RadioButtonMenuItem.acceleratorFont"_s),
-		$of(menuFont),
-		$of("RadioButtonMenuItem.background"_s),
-		$of(menuBackgroundColor),
-		$of("RadioButtonMenuItem.foreground"_s),
-		$of(menuForegroundColor),
-		$of("RadioButtonMenuItem.selectionBackground"_s),
-		$of(menuSelectedBackgroundColor),
-		$of("RadioButtonMenuItem.selectionForeground"_s),
-		$of(menuSelectedForegroundColor),
-		$of("RadioButtonMenuItem.disabledBackground"_s),
-		$of(menuDisabledBackgroundColor),
-		$of("RadioButtonMenuItem.disabledForeground"_s),
-		$of(menuDisabledForegroundColor),
-		$of("RadioButtonMenuItem.acceleratorForeground"_s),
-		$of(menuAccelForegroundColor),
-		$of("RadioButtonMenuItem.acceleratorSelectionForeground"_s),
-		$of(menuAccelSelectionForegroundColor),
-		$of("RadioButtonMenuItem.acceleratorDelimiter"_s),
-		$of(""_s),
-		$of("RadioButtonMenuItem.border"_s),
-		$of(menuBorder),
-		$of("RadioButtonMenuItem.margin"_s),
-		$of(menuItemMargin),
-		$of("RadioButtonMenuItem.borderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("RadioButtonMenuItem.checkIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17)),
-		$of("RadioButtonMenuItem.dashIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18)),
-		$of("Separator.background"_s),
-		($Object*)nullptr,
-		$of("Separator.foreground"_s),
-		$of($$new($ColorUIResource, 212, 212, 212)),
-		$of("ScrollBar.border"_s),
-		($Object*)nullptr,
-		$of("ScrollBar.focusInputMap"_s),
-		$($of(aquaKeyBindings->getScrollBarInputMap())),
-		$of("ScrollBar.focusInputMap.RightToLeft"_s),
-		$($of(aquaKeyBindings->getScrollBarRightToLeftInputMap())),
-		$of("ScrollBar.width"_s),
-		$($of($Integer::valueOf(16))),
-		$of("ScrollBar.background"_s),
-		$of(white),
-		$of("ScrollBar.foreground"_s),
-		$of(black),
-		$of("ScrollPane.font"_s),
-		$of(controlFont),
-		$of("ScrollPane.background"_s),
-		$of(white),
-		$of("ScrollPane.foreground"_s),
-		$of(black),
-		$of("ScrollPane.border"_s),
-		$of(scollListBorder),
-		$of("ScrollPane.viewportBorder"_s),
-		($Object*)nullptr,
-		$of("ScrollPane.ancestorInputMap"_s),
-		$($of(aquaKeyBindings->getScrollPaneInputMap())),
-		$of("ScrollPane.ancestorInputMap.RightToLeft"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, 0))),
-		$of("Viewport.font"_s),
-		$of(controlFont),
-		$of("Viewport.background"_s),
-		$of(white),
-		$of("Viewport.foreground"_s),
-		$of(black),
-		$of("Slider.foreground"_s),
-		$of(black),
-		$of("Slider.background"_s),
-		$of(controlBackgroundColor),
-		$of("Slider.font"_s),
-		$of(controlSmallFont),
-		$of("Slider.tickColor"_s),
-		$of($$new($ColorUIResource, $Color::GRAY)),
-		$of("Slider.border"_s),
-		($Object*)nullptr,
-		$of("Slider.focusInsets"_s),
-		$of($$new($InsetsUIResource, 2, 2, 2, 2)),
-		$of("Slider.focusInputMap"_s),
-		$($of(aquaKeyBindings->getSliderInputMap())),
-		$of("Slider.focusInputMap.RightToLeft"_s),
-		$($of(aquaKeyBindings->getSliderRightToLeftInputMap())),
-		$of("Spinner.font"_s),
-		$of(controlFont),
-		$of("Spinner.background"_s),
-		$of(controlBackgroundColor),
-		$of("Spinner.foreground"_s),
-		$of(black),
-		$of("Spinner.border"_s),
-		($Object*)nullptr,
-		$of("Spinner.arrowButtonSize"_s),
-		$of($$new($Dimension, 16, 5)),
-		$of("Spinner.ancestorInputMap"_s),
-		$($of(aquaKeyBindings->getSpinnerInputMap())),
-		$of("Spinner.editorBorderPainted"_s),
-		$of($Boolean::TRUE),
-		$of("Spinner.editorAlignment"_s),
-		$($of($Integer::valueOf($SwingConstants::TRAILING))),
-		$of("SplitPane.background"_s),
-		$of(panelBackgroundColor),
-		$of("SplitPane.border"_s),
-		$of(scollListBorder),
-		$of("SplitPane.dividerSize"_s),
-		$($of($Integer::valueOf(9))),
-		$of("SplitPaneDivider.border"_s),
-		($Object*)nullptr,
-		$of("SplitPaneDivider.horizontalGradientVariant"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32)),
-		$of("TabbedPane.font"_s),
-		$of(controlFont),
-		$of("TabbedPane.smallFont"_s),
-		$of(controlSmallFont),
-		$of("TabbedPane.useSmallLayout"_s),
-		$of($Boolean::FALSE),
-		$of("TabbedPane.background"_s),
-		$of(tabBackgroundColor),
-		$of("TabbedPane.foreground"_s),
-		$of(black),
-		$of("TabbedPane.opaque"_s),
-		$of(useOpaqueComponents),
-		$of("TabbedPane.textIconGap"_s),
-		$($of($Integer::valueOf(4))),
-		$of("TabbedPane.tabInsets"_s),
-		$of($$new($InsetsUIResource, 0, 10, 3, 10)),
-		$of("TabbedPane.leftTabInsets"_s),
-		$of($$new($InsetsUIResource, 0, 10, 3, 10)),
-		$of("TabbedPane.rightTabInsets"_s),
-		$of($$new($InsetsUIResource, 0, 10, 3, 10)),
-		$of("TabbedPane.tabAreaInsets"_s),
-		$of($$new($InsetsUIResource, 3, 9, -1, 9)),
-		$of("TabbedPane.contentBorderInsets"_s),
-		$of($$new($InsetsUIResource, 8, 0, 0, 0)),
-		$of("TabbedPane.selectedTabPadInsets"_s),
-		$of($$new($InsetsUIResource, 0, 0, 0, 0)),
-		$of("TabbedPane.tabsOverlapBorder"_s),
-		$of($Boolean::TRUE),
-		$of("TabbedPane.selectedTabTitlePressedColor"_s),
-		$of(selectedTabTitlePressedColor),
-		$of("TabbedPane.selectedTabTitleDisabledColor"_s),
-		$of(selectedTabTitleDisabledColor),
-		$of("TabbedPane.selectedTabTitleNormalColor"_s),
+		"List.sourceListBackgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22)),
+		"List.sourceListSelectionBackgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23)),
+		"List.sourceListFocusedSelectionBackgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24)),
+		"List.evenRowBackgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25)),
+		"List.oddRowBackgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26)),
+		"List.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getListInputMap()),
+		"Menu.font"_s,
+		menuFont,
+		"Menu.acceleratorFont"_s,
+		menuFont,
+		"Menu.background"_s,
+		menuBackgroundColor,
+		"Menu.foreground"_s,
+		menuForegroundColor,
+		"Menu.selectionBackground"_s,
+		menuSelectedBackgroundColor,
+		"Menu.selectionForeground"_s,
+		menuSelectedForegroundColor,
+		"Menu.disabledBackground"_s,
+		menuDisabledBackgroundColor,
+		"Menu.disabledForeground"_s,
+		menuDisabledForegroundColor,
+		"Menu.acceleratorForeground"_s,
+		menuAccelForegroundColor,
+		"Menu.acceleratorSelectionForeground"_s,
+		menuAccelSelectionForegroundColor,
+		"Menu.border"_s,
+		menuBorder,
+		"Menu.borderPainted"_s,
+		$Boolean::FALSE,
+		"Menu.margin"_s,
+		menuItemMargin,
+		"Menu.arrowIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27)),
+		"Menu.consumesTabs"_s,
+		$Boolean::TRUE,
+		"Menu.menuPopupOffsetY"_s,
+		$($Integer::valueOf(1)),
+		"Menu.submenuPopupOffsetY"_s,
+		$($Integer::valueOf(-4)),
+		"MenuBar.font"_s,
+		menuFont,
+		"MenuBar.background"_s,
+		menuBackgroundColor,
+		"MenuBar.foreground"_s,
+		menuForegroundColor,
+		"MenuBar.border"_s,
+		$$new($AquaMenuBarBorder),
+		"MenuBar.margin"_s,
+		$$new($InsetsUIResource, 0, 8, 0, 8),
+		"MenuBar.selectionBackground"_s,
+		menuSelectedBackgroundColor,
+		"MenuBar.selectionForeground"_s,
+		menuSelectedForegroundColor,
+		"MenuBar.disabledBackground"_s,
+		menuDisabledBackgroundColor,
+		"MenuBar.disabledForeground"_s,
+		menuDisabledForegroundColor,
+		"MenuBar.backgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28)),
+		"MenuBar.selectedBackgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29)),
+		"MenuItem.font"_s,
+		menuFont,
+		"MenuItem.acceleratorFont"_s,
+		menuFont,
+		"MenuItem.background"_s,
+		menuBackgroundColor,
+		"MenuItem.foreground"_s,
+		menuForegroundColor,
+		"MenuItem.selectionBackground"_s,
+		menuSelectedBackgroundColor,
+		"MenuItem.selectionForeground"_s,
+		menuSelectedForegroundColor,
+		"MenuItem.disabledBackground"_s,
+		menuDisabledBackgroundColor,
+		"MenuItem.disabledForeground"_s,
+		menuDisabledForegroundColor,
+		"MenuItem.acceleratorForeground"_s,
+		menuAccelForegroundColor,
+		"MenuItem.acceleratorSelectionForeground"_s,
+		menuAccelSelectionForegroundColor,
+		"MenuItem.acceleratorDelimiter"_s,
+		""_s,
+		"MenuItem.border"_s,
+		menuBorder,
+		"MenuItem.margin"_s,
+		menuItemMargin,
+		"MenuItem.borderPainted"_s,
+		$Boolean::TRUE,
+		"MenuItem.selectedBackgroundPainter"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30)),
+		"OptionPane.font"_s,
+		alertHeaderFont,
+		"OptionPane.messageFont"_s,
+		controlFont,
+		"OptionPane.buttonFont"_s,
+		controlFont,
+		"OptionPane.background"_s,
+		windowBackgroundColor,
+		"OptionPane.foreground"_s,
+		black,
+		"OptionPane.messageForeground"_s,
+		black,
+		"OptionPane.border"_s,
+		$$new($BorderUIResource$EmptyBorderUIResource, 12, 21, 17, 21),
+		"OptionPane.messageAreaBorder"_s,
+		zeroBorder,
+		"OptionPane.buttonAreaBorder"_s,
+		$$new($BorderUIResource$EmptyBorderUIResource, 13, 0, 0, 0),
+		"OptionPane.minimumSize"_s,
+		$$new($DimensionUIResource, 262, 90),
+		"OptionPane.errorIcon"_s,
+		stopIcon,
+		"OptionPane.informationIcon"_s,
+		confirmIcon,
+		"OptionPane.warningIcon"_s,
+		cautionIcon,
+		"OptionPane.questionIcon"_s,
+		confirmIcon,
+		"_SecurityDecisionIcon"_s,
+		securityIcon,
+		"OptionPane.windowBindings"_s,
+		$$new($ObjectArray, {
+			"ESCAPE"_s,
+			"close"_s
+		}),
+		"OptionPane.errorSound"_s,
+		nullptr,
+		"OptionPane.informationSound"_s,
+		nullptr,
+		"OptionPane.questionSound"_s,
+		nullptr,
+		"OptionPane.warningSound"_s,
+		nullptr,
+		"OptionPane.buttonClickThreshhold"_s,
+		$($Integer::valueOf(500)),
+		"OptionPane.yesButtonMnemonic"_s,
+		""_s,
+		"OptionPane.noButtonMnemonic"_s,
+		""_s,
+		"OptionPane.okButtonMnemonic"_s,
+		""_s,
+		"OptionPane.cancelButtonMnemonic"_s,
+		""_s,
+		"Panel.font"_s,
+		controlFont,
+		"Panel.background"_s,
+		panelBackgroundColor,
+		"Panel.foreground"_s,
+		black,
+		"Panel.opaque"_s,
+		useOpaqueComponents,
+		"PasswordField.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getPasswordFieldInputMap()),
+		"PasswordField.font"_s,
+		controlFont,
+		"PasswordField.background"_s,
+		textBackground,
+		"PasswordField.foreground"_s,
+		textForeground,
+		"PasswordField.inactiveForeground"_s,
+		textInactiveText,
+		"PasswordField.inactiveBackground"_s,
+		textInactiveBackground,
+		"PasswordField.selectionBackground"_s,
+		textHighlight,
+		"PasswordField.selectionForeground"_s,
+		textHighlightText,
+		"PasswordField.caretForeground"_s,
+		textForeground,
+		"PasswordField.caretBlinkRate"_s,
+		$($Integer::valueOf(textCaretBlinkRate)),
+		"PasswordField.border"_s,
+		textFieldBorder,
+		"PasswordField.margin"_s,
+		zeroInsets,
+		"PasswordField.echoChar"_s,
+		$($Character::valueOf((char16_t)9679)),
+		"PasswordField.capsLockIconColor"_s,
+		textPasswordFieldCapsLockIconColor,
+		"PopupMenu.font"_s,
+		menuFont,
+		"PopupMenu.background"_s,
+		menuBackgroundColor,
+		"PopupMenu.translucentBackground"_s,
+		white,
+		"PopupMenu.foreground"_s,
+		menuForegroundColor,
+		"PopupMenu.selectionBackground"_s,
+		menuSelectedBackgroundColor,
+		"PopupMenu.selectionForeground"_s,
+		menuSelectedForegroundColor,
+		"PopupMenu.border"_s,
+		menuBorder,
+		"ProgressBar.font"_s,
+		controlFont,
+		"ProgressBar.foreground"_s,
+		black,
+		"ProgressBar.background"_s,
+		controlBackgroundColor,
+		"ProgressBar.selectionForeground"_s,
+		black,
+		"ProgressBar.selectionBackground"_s,
+		white,
+		"ProgressBar.border"_s,
+		$$new($BorderUIResource, $($BorderFactory::createEmptyBorder())),
+		"ProgressBar.repaintInterval"_s,
+		$($Integer::valueOf(20)),
+		"RadioButton.background"_s,
+		controlBackgroundColor,
+		"RadioButton.foreground"_s,
+		black,
+		"RadioButton.disabledText"_s,
+		disabled,
+		"RadioButton.select"_s,
+		selected,
+		"RadioButton.icon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31)),
+		"RadioButton.font"_s,
+		controlFont,
+		"RadioButton.border"_s,
+		$($AquaButtonBorder::getBevelButtonBorder()),
+		"RadioButton.margin"_s,
+		$$new($InsetsUIResource, 1, 1, 0, 1),
+		"RadioButton.focusInputMap"_s,
+		controlFocusInputMap,
+		"RadioButtonMenuItem.font"_s,
+		menuFont,
+		"RadioButtonMenuItem.acceleratorFont"_s,
+		menuFont,
+		"RadioButtonMenuItem.background"_s,
+		menuBackgroundColor,
+		"RadioButtonMenuItem.foreground"_s,
+		menuForegroundColor,
+		"RadioButtonMenuItem.selectionBackground"_s,
+		menuSelectedBackgroundColor,
+		"RadioButtonMenuItem.selectionForeground"_s,
+		menuSelectedForegroundColor,
+		"RadioButtonMenuItem.disabledBackground"_s,
+		menuDisabledBackgroundColor,
+		"RadioButtonMenuItem.disabledForeground"_s,
+		menuDisabledForegroundColor,
+		"RadioButtonMenuItem.acceleratorForeground"_s,
+		menuAccelForegroundColor,
+		"RadioButtonMenuItem.acceleratorSelectionForeground"_s,
+		menuAccelSelectionForegroundColor,
+		"RadioButtonMenuItem.acceleratorDelimiter"_s,
+		""_s,
+		"RadioButtonMenuItem.border"_s,
+		menuBorder,
+		"RadioButtonMenuItem.margin"_s,
+		menuItemMargin,
+		"RadioButtonMenuItem.borderPainted"_s,
+		$Boolean::TRUE,
+		"RadioButtonMenuItem.checkIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17)),
+		"RadioButtonMenuItem.dashIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18)),
+		"Separator.background"_s,
+		nullptr,
+		"Separator.foreground"_s,
+		$$new($ColorUIResource, 212, 212, 212),
+		"ScrollBar.border"_s,
+		nullptr,
+		"ScrollBar.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getScrollBarInputMap()),
+		"ScrollBar.focusInputMap.RightToLeft"_s,
+		$($nc(aquaKeyBindings)->getScrollBarRightToLeftInputMap()),
+		"ScrollBar.width"_s,
+		$($Integer::valueOf(16)),
+		"ScrollBar.background"_s,
+		white,
+		"ScrollBar.foreground"_s,
+		black,
+		"ScrollPane.font"_s,
+		controlFont,
+		"ScrollPane.background"_s,
+		white,
+		"ScrollPane.foreground"_s,
+		black,
+		"ScrollPane.border"_s,
+		scollListBorder,
+		"ScrollPane.viewportBorder"_s,
+		nullptr,
+		"ScrollPane.ancestorInputMap"_s,
+		$($nc(aquaKeyBindings)->getScrollPaneInputMap()),
+		"ScrollPane.ancestorInputMap.RightToLeft"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, 0)),
+		"Viewport.font"_s,
+		controlFont,
+		"Viewport.background"_s,
+		white,
+		"Viewport.foreground"_s,
+		black,
+		"Slider.foreground"_s,
+		black,
+		"Slider.background"_s,
+		controlBackgroundColor,
+		"Slider.font"_s,
+		controlSmallFont,
+		"Slider.tickColor"_s,
+		$$new($ColorUIResource, $Color::GRAY),
+		"Slider.border"_s,
+		nullptr,
+		"Slider.focusInsets"_s,
+		$$new($InsetsUIResource, 2, 2, 2, 2),
+		"Slider.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getSliderInputMap()),
+		"Slider.focusInputMap.RightToLeft"_s,
+		$($nc(aquaKeyBindings)->getSliderRightToLeftInputMap()),
+		"Spinner.font"_s,
+		controlFont,
+		"Spinner.background"_s,
+		controlBackgroundColor,
+		"Spinner.foreground"_s,
+		black,
+		"Spinner.border"_s,
+		nullptr,
+		"Spinner.arrowButtonSize"_s,
+		$$new($Dimension, 16, 5),
+		"Spinner.ancestorInputMap"_s,
+		$($nc(aquaKeyBindings)->getSpinnerInputMap()),
+		"Spinner.editorBorderPainted"_s,
+		$Boolean::TRUE,
+		"Spinner.editorAlignment"_s,
+		$($Integer::valueOf($SwingConstants::TRAILING)),
+		"SplitPane.background"_s,
+		panelBackgroundColor,
+		"SplitPane.border"_s,
+		scollListBorder,
+		"SplitPane.dividerSize"_s,
+		$($Integer::valueOf(9)),
+		"SplitPaneDivider.border"_s,
+		nullptr,
+		"SplitPaneDivider.horizontalGradientVariant"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32)),
+		"TabbedPane.font"_s,
+		controlFont,
+		"TabbedPane.smallFont"_s,
+		controlSmallFont,
+		"TabbedPane.useSmallLayout"_s,
+		$Boolean::FALSE,
+		"TabbedPane.background"_s,
+		tabBackgroundColor,
+		"TabbedPane.foreground"_s,
+		black,
+		"TabbedPane.opaque"_s,
+		useOpaqueComponents,
+		"TabbedPane.textIconGap"_s,
+		$($Integer::valueOf(4)),
+		"TabbedPane.tabInsets"_s,
+		$$new($InsetsUIResource, 0, 10, 3, 10),
+		"TabbedPane.leftTabInsets"_s,
+		$$new($InsetsUIResource, 0, 10, 3, 10),
+		"TabbedPane.rightTabInsets"_s,
+		$$new($InsetsUIResource, 0, 10, 3, 10),
+		"TabbedPane.tabAreaInsets"_s,
+		$$new($InsetsUIResource, 3, 9, -1, 9),
+		"TabbedPane.contentBorderInsets"_s,
+		$$new($InsetsUIResource, 8, 0, 0, 0),
+		"TabbedPane.selectedTabPadInsets"_s,
+		$$new($InsetsUIResource, 0, 0, 0, 0),
+		"TabbedPane.tabsOverlapBorder"_s,
+		$Boolean::TRUE,
+		"TabbedPane.selectedTabTitlePressedColor"_s,
+		selectedTabTitlePressedColor,
+		"TabbedPane.selectedTabTitleDisabledColor"_s,
+		selectedTabTitleDisabledColor,
+		"TabbedPane.selectedTabTitleNormalColor"_s,
 		$JRSUIUtils::isMacOSXBigSurOrAbove() ? $of(selectedControlTextColor) : $of(selectedTabTitleNormalColor),
-		$of("TabbedPane.selectedTabTitleShadowDisabledColor"_s),
-		$of(selectedTabTitleShadowDisabledColor),
-		$of("TabbedPane.selectedTabTitleShadowNormalColor"_s),
-		$of(selectedTabTitleShadowNormalColor),
-		$of("TabbedPane.nonSelectedTabTitleNormalColor"_s),
-		$of(nonSelectedTabTitleNormalColor),
-		$of("Table.font"_s),
-		$of(viewFont),
-		$of("Table.foreground"_s),
-		$of(black),
-		$of("Table.background"_s),
-		$of(white),
-		$of("Table.selectionForeground"_s),
-		$of(selectionForeground),
-		$of("Table.selectionBackground"_s),
-		$of(selectionBackground),
-		$of("Table.selectionInactiveBackground"_s),
-		$of(selectionInactiveBackground),
-		$of("Table.selectionInactiveForeground"_s),
-		$of(selectionInactiveForeground),
-		$of("Table.gridColor"_s),
-		$of(white),
-		$of("Table.focusCellBackground"_s),
-		$of(textHighlightText),
-		$of("Table.focusCellForeground"_s),
-		$of(textHighlight),
-		$of("Table.focusCellHighlightBorder"_s),
-		$of(focusCellHighlightBorder),
-		$of("Table.scrollPaneBorder"_s),
-		$of(scollListBorder),
-		$of("Table.ancestorInputMap"_s),
-		$($of(aquaKeyBindings->getTableInputMap())),
-		$of("Table.ancestorInputMap.RightToLeft"_s),
-		$($of(aquaKeyBindings->getTableRightToLeftInputMap())),
-		$of("TableHeader.font"_s),
-		$of(controlSmallFont),
-		$of("TableHeader.foreground"_s),
-		$of(black),
-		$of("TableHeader.background"_s),
-		$of(white),
-		$of("TableHeader.cellBorder"_s),
-		$of(listHeaderBorder),
-		$of("TextArea.focusInputMap"_s),
-		$($of(aquaKeyBindings->getMultiLineTextInputMap())),
-		$of("TextArea.font"_s),
-		$of(controlFont),
-		$of("TextArea.background"_s),
-		$of(textBackground),
-		$of("TextArea.foreground"_s),
-		$of(textForeground),
-		$of("TextArea.inactiveForeground"_s),
-		$of(textInactiveText),
-		$of("TextArea.inactiveBackground"_s),
-		$of(textInactiveBackground),
-		$of("TextArea.selectionBackground"_s),
-		$of(textHighlight),
-		$of("TextArea.selectionForeground"_s),
-		$of(textHighlightText),
-		$of("TextArea.caretForeground"_s),
-		$of(textForeground),
-		$of("TextArea.caretBlinkRate"_s),
-		$($of($Integer::valueOf(textCaretBlinkRate))),
-		$of("TextArea.border"_s),
+		"TabbedPane.selectedTabTitleShadowDisabledColor"_s,
+		selectedTabTitleShadowDisabledColor,
+		"TabbedPane.selectedTabTitleShadowNormalColor"_s,
+		selectedTabTitleShadowNormalColor,
+		"TabbedPane.nonSelectedTabTitleNormalColor"_s,
+		nonSelectedTabTitleNormalColor,
+		"Table.font"_s,
+		viewFont,
+		"Table.foreground"_s,
+		black,
+		"Table.background"_s,
+		white,
+		"Table.selectionForeground"_s,
+		selectionForeground,
+		"Table.selectionBackground"_s,
+		selectionBackground,
+		"Table.selectionInactiveBackground"_s,
+		selectionInactiveBackground,
+		"Table.selectionInactiveForeground"_s,
+		selectionInactiveForeground,
+		"Table.gridColor"_s,
+		white,
+		"Table.focusCellBackground"_s,
+		textHighlightText,
+		"Table.focusCellForeground"_s,
+		textHighlight,
+		"Table.focusCellHighlightBorder"_s,
+		focusCellHighlightBorder,
+		"Table.scrollPaneBorder"_s,
+		scollListBorder,
+		"Table.ancestorInputMap"_s,
+		$($nc(aquaKeyBindings)->getTableInputMap()),
+		"Table.ancestorInputMap.RightToLeft"_s,
+		$($nc(aquaKeyBindings)->getTableRightToLeftInputMap()),
+		"TableHeader.font"_s,
+		controlSmallFont,
+		"TableHeader.foreground"_s,
+		black,
+		"TableHeader.background"_s,
+		white,
+		"TableHeader.cellBorder"_s,
+		listHeaderBorder,
+		"TextArea.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getMultiLineTextInputMap()),
+		"TextArea.font"_s,
+		controlFont,
+		"TextArea.background"_s,
+		textBackground,
+		"TextArea.foreground"_s,
+		textForeground,
+		"TextArea.inactiveForeground"_s,
+		textInactiveText,
+		"TextArea.inactiveBackground"_s,
+		textInactiveBackground,
+		"TextArea.selectionBackground"_s,
+		textHighlight,
+		"TextArea.selectionForeground"_s,
+		textHighlightText,
+		"TextArea.caretForeground"_s,
+		textForeground,
+		"TextArea.caretBlinkRate"_s,
+		$($Integer::valueOf(textCaretBlinkRate)),
+		"TextArea.border"_s,
 		textAreaBorder,
-		$of("TextArea.margin"_s),
-		$of(zeroInsets),
-		$of("TextComponent.selectionBackgroundInactive"_s),
-		$of(textHighlightInactive),
-		$of("TextField.focusInputMap"_s),
-		$($of(aquaKeyBindings->getTextFieldInputMap())),
-		$of("TextField.font"_s),
-		$of(controlFont),
-		$of("TextField.background"_s),
-		$of(textBackground),
-		$of("TextField.foreground"_s),
-		$of(textForeground),
-		$of("TextField.inactiveForeground"_s),
-		$of(textInactiveText),
-		$of("TextField.inactiveBackground"_s),
-		$of(textInactiveBackground),
-		$of("TextField.selectionBackground"_s),
-		$of(textHighlight),
-		$of("TextField.selectionForeground"_s),
-		$of(textHighlightText),
-		$of("TextField.caretForeground"_s),
-		$of(textForeground),
-		$of("TextField.caretBlinkRate"_s),
-		$($of($Integer::valueOf(textCaretBlinkRate))),
-		$of("TextField.border"_s),
-		$of(textFieldBorder),
-		$of("TextField.margin"_s),
-		$of(zeroInsets),
-		$of("TextPane.focusInputMap"_s),
-		$($of(aquaKeyBindings->getMultiLineTextInputMap())),
-		$of("TextPane.font"_s),
-		$of(controlFont),
-		$of("TextPane.background"_s),
-		$of(textBackground),
-		$of("TextPane.foreground"_s),
-		$of(textForeground),
-		$of("TextPane.selectionBackground"_s),
-		$of(textHighlight),
-		$of("TextPane.selectionForeground"_s),
-		$of(textHighlightText),
-		$of("TextPane.caretForeground"_s),
-		$of(textForeground),
-		$of("TextPane.caretBlinkRate"_s),
-		$($of($Integer::valueOf(textCaretBlinkRate))),
-		$of("TextPane.inactiveForeground"_s),
-		$of(textInactiveText),
-		$of("TextPane.inactiveBackground"_s),
-		$of(textInactiveBackground),
-		$of("TextPane.border"_s),
+		"TextArea.margin"_s,
+		zeroInsets,
+		"TextComponent.selectionBackgroundInactive"_s,
+		textHighlightInactive,
+		"TextField.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getTextFieldInputMap()),
+		"TextField.font"_s,
+		controlFont,
+		"TextField.background"_s,
+		textBackground,
+		"TextField.foreground"_s,
+		textForeground,
+		"TextField.inactiveForeground"_s,
+		textInactiveText,
+		"TextField.inactiveBackground"_s,
+		textInactiveBackground,
+		"TextField.selectionBackground"_s,
+		textHighlight,
+		"TextField.selectionForeground"_s,
+		textHighlightText,
+		"TextField.caretForeground"_s,
+		textForeground,
+		"TextField.caretBlinkRate"_s,
+		$($Integer::valueOf(textCaretBlinkRate)),
+		"TextField.border"_s,
+		textFieldBorder,
+		"TextField.margin"_s,
+		zeroInsets,
+		"TextPane.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getMultiLineTextInputMap()),
+		"TextPane.font"_s,
+		controlFont,
+		"TextPane.background"_s,
+		textBackground,
+		"TextPane.foreground"_s,
+		textForeground,
+		"TextPane.selectionBackground"_s,
+		textHighlight,
+		"TextPane.selectionForeground"_s,
+		textHighlightText,
+		"TextPane.caretForeground"_s,
+		textForeground,
+		"TextPane.caretBlinkRate"_s,
+		$($Integer::valueOf(textCaretBlinkRate)),
+		"TextPane.inactiveForeground"_s,
+		textInactiveText,
+		"TextPane.inactiveBackground"_s,
+		textInactiveBackground,
+		"TextPane.border"_s,
 		textAreaBorder,
-		$of("TextPane.margin"_s),
+		"TextPane.margin"_s,
 		editorMargin,
-		$of("ToggleButton.background"_s),
-		$of(controlBackgroundColor),
-		$of("ToggleButton.foreground"_s),
-		$of(black),
-		$of("ToggleButton.disabledText"_s),
-		$of(disabled),
-		$of("ToggleButton.border"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15)),
-		$of("ToggleButton.font"_s),
-		$of(controlFont),
-		$of("ToggleButton.focusInputMap"_s),
-		$of(controlFocusInputMap),
-		$of("ToggleButton.margin"_s),
-		$of($$new($InsetsUIResource, 2, 2, 2, 2)),
-		$of("ToolBar.font"_s),
-		$of(controlFont),
-		$of("ToolBar.background"_s),
-		$of(panelBackgroundColor),
-		$of("ToolBar.foreground"_s),
-		$of($$new($ColorUIResource, $Color::gray)),
-		$of("ToolBar.dockingBackground"_s),
-		$of(panelBackgroundColor),
-		$of("ToolBar.dockingForeground"_s),
-		$of(selectionBackground),
-		$of("ToolBar.floatingBackground"_s),
-		$of(panelBackgroundColor),
-		$of("ToolBar.floatingForeground"_s),
-		$of($$new($ColorUIResource, $Color::darkGray)),
-		$of("ToolBar.border"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33)),
-		$of("ToolBar.borderHandleColor"_s),
-		$of(toolbarDragHandleColor),
-		$of("ToolBar.separatorSize"_s),
-		($Object*)nullptr,
-		$of("ToolBarButton.margin"_s),
-		$of($$new($InsetsUIResource, 3, 3, 3, 3)),
-		$of("ToolBarButton.insets"_s),
-		$of($$new($InsetsUIResource, 1, 1, 1, 1)),
-		$of("ToolTip.font"_s),
-		$of(controlSmallFont),
-		$of("ToolTip.background"_s),
-		$of(toolTipBackground),
-		$of("ToolTip.foreground"_s),
-		$of(black),
-		$of("ToolTip.border"_s),
-		$of(toolTipBorder),
-		$of("Tree.font"_s),
-		$of(viewFont),
-		$of("Tree.background"_s),
-		$of(white),
-		$of("Tree.foreground"_s),
-		$of(black),
-		$of("Tree.hash"_s),
-		$of(white),
-		$of("Tree.line"_s),
-		$of(white),
-		$of("Tree.textForeground"_s),
-		$of(black),
-		$of("Tree.textBackground"_s),
-		$of(white),
-		$of("Tree.selectionForeground"_s),
-		$of(selectionForeground),
-		$of("Tree.selectionBackground"_s),
-		$of(selectionBackground),
-		$of("Tree.selectionInactiveBackground"_s),
-		$of(selectionInactiveBackground),
-		$of("Tree.selectionInactiveForeground"_s),
-		$of(selectionInactiveForeground),
-		$of("Tree.selectionBorderColor"_s),
-		$of(selectionBackground),
-		$of("Tree.editorBorderSelectionColor"_s),
-		($Object*)nullptr,
-		$of("Tree.leftChildIndent"_s),
-		$($of($Integer::valueOf(7))),
-		$of("Tree.rightChildIndent"_s),
-		$($of($Integer::valueOf(13))),
-		$of("Tree.rowHeight"_s),
-		$($of($Integer::valueOf(19))),
-		$of("Tree.scrollsOnExpand"_s),
-		$of($Boolean::FALSE),
-		$of("Tree.openIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34)),
-		$of("Tree.closedIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35)),
-		$of("Tree.leafIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36)),
-		$of("Tree.expandedIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37)),
-		$of("Tree.collapsedIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38)),
-		$of("Tree.rightToLeftCollapsedIcon"_s),
-		static_cast<$UIDefaults$LazyValue*>($$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
-		$of("Tree.changeSelectionWithFocus"_s),
-		$of($Boolean::TRUE),
-		$of("Tree.drawsFocusBorderAroundIcon"_s),
-		$of($Boolean::FALSE),
-		$of("Tree.focusInputMap"_s),
-		$($of(aquaKeyBindings->getTreeInputMap())),
-		$of("Tree.focusInputMap.RightToLeft"_s),
-		$($of(aquaKeyBindings->getTreeRightToLeftInputMap())),
-		$of("Tree.ancestorInputMap"_s),
-		$of($$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
-			$of("ESCAPE"_s),
-			$of("cancel"_s)
-		})))
+		"ToggleButton.background"_s,
+		controlBackgroundColor,
+		"ToggleButton.foreground"_s,
+		black,
+		"ToggleButton.disabledText"_s,
+		disabled,
+		"ToggleButton.border"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15)),
+		"ToggleButton.font"_s,
+		controlFont,
+		"ToggleButton.focusInputMap"_s,
+		controlFocusInputMap,
+		"ToggleButton.margin"_s,
+		$$new($InsetsUIResource, 2, 2, 2, 2),
+		"ToolBar.font"_s,
+		controlFont,
+		"ToolBar.background"_s,
+		panelBackgroundColor,
+		"ToolBar.foreground"_s,
+		$$new($ColorUIResource, $Color::gray),
+		"ToolBar.dockingBackground"_s,
+		panelBackgroundColor,
+		"ToolBar.dockingForeground"_s,
+		selectionBackground,
+		"ToolBar.floatingBackground"_s,
+		panelBackgroundColor,
+		"ToolBar.floatingForeground"_s,
+		$$new($ColorUIResource, $Color::darkGray),
+		"ToolBar.border"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33)),
+		"ToolBar.borderHandleColor"_s,
+		toolbarDragHandleColor,
+		"ToolBar.separatorSize"_s,
+		nullptr,
+		"ToolBarButton.margin"_s,
+		$$new($InsetsUIResource, 3, 3, 3, 3),
+		"ToolBarButton.insets"_s,
+		$$new($InsetsUIResource, 1, 1, 1, 1),
+		"ToolTip.font"_s,
+		controlSmallFont,
+		"ToolTip.background"_s,
+		toolTipBackground,
+		"ToolTip.foreground"_s,
+		black,
+		"ToolTip.border"_s,
+		toolTipBorder,
+		"Tree.font"_s,
+		viewFont,
+		"Tree.background"_s,
+		white,
+		"Tree.foreground"_s,
+		black,
+		"Tree.hash"_s,
+		white,
+		"Tree.line"_s,
+		white,
+		"Tree.textForeground"_s,
+		black,
+		"Tree.textBackground"_s,
+		white,
+		"Tree.selectionForeground"_s,
+		selectionForeground,
+		"Tree.selectionBackground"_s,
+		selectionBackground,
+		"Tree.selectionInactiveBackground"_s,
+		selectionInactiveBackground,
+		"Tree.selectionInactiveForeground"_s,
+		selectionInactiveForeground,
+		"Tree.selectionBorderColor"_s,
+		selectionBackground,
+		"Tree.editorBorderSelectionColor"_s,
+		nullptr,
+		"Tree.leftChildIndent"_s,
+		$($Integer::valueOf(7)),
+		"Tree.rightChildIndent"_s,
+		$($Integer::valueOf(13)),
+		"Tree.rowHeight"_s,
+		$($Integer::valueOf(19)),
+		"Tree.scrollsOnExpand"_s,
+		$Boolean::FALSE,
+		"Tree.openIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34)),
+		"Tree.closedIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35)),
+		"Tree.leafIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36)),
+		"Tree.expandedIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37)),
+		"Tree.collapsedIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38)),
+		"Tree.rightToLeftCollapsedIcon"_s,
+		$cast($UIDefaults$LazyValue, $$new(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39)),
+		"Tree.changeSelectionWithFocus"_s,
+		$Boolean::TRUE,
+		"Tree.drawsFocusBorderAroundIcon"_s,
+		$Boolean::FALSE,
+		"Tree.focusInputMap"_s,
+		$($nc(aquaKeyBindings)->getTreeInputMap()),
+		"Tree.focusInputMap.RightToLeft"_s,
+		$($nc(aquaKeyBindings)->getTreeRightToLeftInputMap()),
+		"Tree.ancestorInputMap"_s,
+		$$new($UIDefaults$LazyInputMap, $$new($ObjectArray, {
+			"ESCAPE"_s,
+			"cancel"_s
+		}))
 	}));
 	$nc(table)->putDefaults(defaults);
 	$SwingUtilities2::putAATextInfo(true, table);
@@ -2655,112 +2438,112 @@ void AquaLookAndFeel::initSystemColorDefaults($UIDefaults* table) {
 }
 
 void AquaLookAndFeel::initClassDefaults($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, basicPackageName, "javax.swing.plaf.basic."_s);
 	$var($ObjectArray, uiDefaults, $new($ObjectArray, {
-		$of("ButtonUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonUI"_s})),
-		$of("CheckBoxUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonCheckBoxUI"_s})),
-		$of("CheckBoxMenuItemUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuItemUI"_s})),
-		$of("LabelUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaLabelUI"_s})),
-		$of("ListUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaListUI"_s})),
-		$of("MenuUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuUI"_s})),
-		$of("MenuItemUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuItemUI"_s})),
-		$of("OptionPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaOptionPaneUI"_s})),
-		$of("PanelUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaPanelUI"_s})),
-		$of("RadioButtonMenuItemUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuItemUI"_s})),
-		$of("RadioButtonUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonRadioUI"_s})),
-		$of("ProgressBarUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaProgressBarUI"_s})),
-		$of("RootPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaRootPaneUI"_s})),
-		$of("SliderUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaSliderUI"_s})),
-		$of("ScrollBarUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaScrollBarUI"_s})),
-		$of("TabbedPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, ($JRSUIUtils$TabbedPane::shouldUseTabbedPaneContrastUI() ? "AquaTabbedPaneContrastUI"_s : "AquaTabbedPaneUI"_s)})),
-		$of("TableUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTableUI"_s})),
-		$of("ToggleButtonUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonToggleUI"_s})),
-		$of("ToolBarUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaToolBarUI"_s})),
-		$of("ToolTipUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaToolTipUI"_s})),
-		$of("TreeUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTreeUI"_s})),
-		$of("InternalFrameUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaInternalFrameUI"_s})),
-		$of("DesktopIconUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaInternalFrameDockIconUI"_s})),
-		$of("DesktopPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaInternalFramePaneUI"_s})),
-		$of("EditorPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaEditorPaneUI"_s})),
-		$of("TextFieldUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextFieldUI"_s})),
-		$of("TextPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextPaneUI"_s})),
-		$of("ComboBoxUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaComboBoxUI"_s})),
-		$of("PopupMenuUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaPopupMenuUI"_s})),
-		$of("TextAreaUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextAreaUI"_s})),
-		$of("MenuBarUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuBarUI"_s})),
-		$of("FileChooserUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaFileChooserUI"_s})),
-		$of("PasswordFieldUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextPasswordFieldUI"_s})),
-		$of("TableHeaderUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTableHeaderUI"_s})),
-		$of("FormattedTextFieldUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextFieldFormattedUI"_s})),
-		$of("SpinnerUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaSpinnerUI"_s})),
-		$of("SplitPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaSplitPaneUI"_s})),
-		$of("ScrollPaneUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaScrollPaneUI"_s})),
-		$of("PopupMenuSeparatorUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaPopupMenuSeparatorUI"_s})),
-		$of("SeparatorUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaPopupMenuSeparatorUI"_s})),
-		$of("ToolBarSeparatorUI"_s),
-		$of($$str({AquaLookAndFeel::PKG_PREFIX, "AquaToolBarSeparatorUI"_s})),
-		$of("ColorChooserUI"_s),
-		$of($$str({basicPackageName, "BasicColorChooserUI"_s})),
-		$of("ViewportUI"_s),
-		$of($$str({basicPackageName, "BasicViewportUI"_s}))
+		"ButtonUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonUI"_s}),
+		"CheckBoxUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonCheckBoxUI"_s}),
+		"CheckBoxMenuItemUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuItemUI"_s}),
+		"LabelUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaLabelUI"_s}),
+		"ListUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaListUI"_s}),
+		"MenuUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuUI"_s}),
+		"MenuItemUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuItemUI"_s}),
+		"OptionPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaOptionPaneUI"_s}),
+		"PanelUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaPanelUI"_s}),
+		"RadioButtonMenuItemUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuItemUI"_s}),
+		"RadioButtonUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonRadioUI"_s}),
+		"ProgressBarUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaProgressBarUI"_s}),
+		"RootPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaRootPaneUI"_s}),
+		"SliderUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaSliderUI"_s}),
+		"ScrollBarUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaScrollBarUI"_s}),
+		"TabbedPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, ($JRSUIUtils$TabbedPane::shouldUseTabbedPaneContrastUI() ? "AquaTabbedPaneContrastUI"_s : "AquaTabbedPaneUI"_s)}),
+		"TableUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTableUI"_s}),
+		"ToggleButtonUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaButtonToggleUI"_s}),
+		"ToolBarUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaToolBarUI"_s}),
+		"ToolTipUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaToolTipUI"_s}),
+		"TreeUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTreeUI"_s}),
+		"InternalFrameUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaInternalFrameUI"_s}),
+		"DesktopIconUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaInternalFrameDockIconUI"_s}),
+		"DesktopPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaInternalFramePaneUI"_s}),
+		"EditorPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaEditorPaneUI"_s}),
+		"TextFieldUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextFieldUI"_s}),
+		"TextPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextPaneUI"_s}),
+		"ComboBoxUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaComboBoxUI"_s}),
+		"PopupMenuUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaPopupMenuUI"_s}),
+		"TextAreaUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextAreaUI"_s}),
+		"MenuBarUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaMenuBarUI"_s}),
+		"FileChooserUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaFileChooserUI"_s}),
+		"PasswordFieldUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextPasswordFieldUI"_s}),
+		"TableHeaderUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTableHeaderUI"_s}),
+		"FormattedTextFieldUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaTextFieldFormattedUI"_s}),
+		"SpinnerUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaSpinnerUI"_s}),
+		"SplitPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaSplitPaneUI"_s}),
+		"ScrollPaneUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaScrollPaneUI"_s}),
+		"PopupMenuSeparatorUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaPopupMenuSeparatorUI"_s}),
+		"SeparatorUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaPopupMenuSeparatorUI"_s}),
+		"ToolBarSeparatorUI"_s,
+		$$str({AquaLookAndFeel::PKG_PREFIX, "AquaToolBarSeparatorUI"_s}),
+		"ColorChooserUI"_s,
+		$$str({basicPackageName, "BasicColorChooserUI"_s}),
+		"ViewportUI"_s,
+		$$str({basicPackageName, "BasicViewportUI"_s})
 	}));
 	$nc(table)->putDefaults(uiDefaults);
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$43($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaImageFactory::getTreeRightToLeftCollapsedIcon());
+	return $AquaImageFactory::getTreeRightToLeftCollapsedIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$42($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaImageFactory::getTreeCollapsedIcon());
+	return $AquaImageFactory::getTreeCollapsedIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$41($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaImageFactory::getTreeExpandedIcon());
+	return $AquaImageFactory::getTreeExpandedIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$40($UIDefaults* t) {
@@ -2780,92 +2563,92 @@ $Object* AquaLookAndFeel::lambda$initComponentDefaults$38($UIDefaults* t) {
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$37($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaToolBarUI::getToolBarBorder());
+	return $AquaToolBarUI::getToolBarBorder();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$35($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaSplitPaneDividerUI::getHorizontalSplitDividerGradientVariant());
+	return $AquaSplitPaneDividerUI::getHorizontalSplitDividerGradientVariant();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$32($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaButtonRadioUI::getSizingRadioButtonIcon());
+	return $AquaButtonRadioUI::getSizingRadioButtonIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$31($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaMenuPainter::getSelectedMenuItemPainter());
+	return $AquaMenuPainter::getSelectedMenuItemPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$30($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaMenuPainter::getSelectedMenuBarItemPainter());
+	return $AquaMenuPainter::getSelectedMenuBarItemPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$29($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaMenuPainter::getMenuBarPainter());
+	return $AquaMenuPainter::getMenuBarPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$28($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaImageFactory::getMenuArrowIcon());
+	return $AquaImageFactory::getMenuArrowIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$27($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaListUI::getListOddBackgroundPainter());
+	return $AquaListUI::getListOddBackgroundPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$26($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaListUI::getListEvenBackgroundPainter());
+	return $AquaListUI::getListEvenBackgroundPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$25($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaListUI::getSourceListFocusedSelectionBackgroundPainter());
+	return $AquaListUI::getSourceListFocusedSelectionBackgroundPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$24($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaListUI::getSourceListSelectionBackgroundPainter());
+	return $AquaListUI::getSourceListSelectionBackgroundPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$23($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaListUI::getSourceListBackgroundPainter());
+	return $AquaListUI::getSourceListBackgroundPainter();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$21($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaInternalFrameUI::exportMinimizeIcon());
+	return $AquaInternalFrameUI::exportMinimizeIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$20($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaInternalFrameUI::exportZoomIcon());
+	return $AquaInternalFrameUI::exportZoomIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$19($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaInternalFrameUI::exportCloseIcon());
+	return $AquaInternalFrameUI::exportCloseIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$18($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaImageFactory::getMenuItemDashIcon());
+	return $AquaImageFactory::getMenuItemDashIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$17($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaImageFactory::getMenuItemCheckIcon());
+	return $AquaImageFactory::getMenuItemCheckIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$16($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaButtonCheckBoxUI::getSizingCheckBoxIcon());
+	return $AquaButtonCheckBoxUI::getSizingCheckBoxIcon();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$15($UIDefaults* t) {
@@ -2920,17 +2703,17 @@ $Object* AquaLookAndFeel::lambda$initComponentDefaults$6($UIDefaults* t) {
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$5($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($BasicBorders::getInternalFrameBorder());
+	return $BasicBorders::getInternalFrameBorder();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$4($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaGroupBorder::getTitlelessBorder());
+	return $AquaGroupBorder::getTitlelessBorder();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$3($UIDefaults* t) {
 	$init(AquaLookAndFeel);
-	return $of($AquaGroupBorder::getBorderForTitledBorder());
+	return $AquaGroupBorder::getBorderForTitledBorder();
 }
 
 $Object* AquaLookAndFeel::lambda$initComponentDefaults$2($UIDefaults* t) {
@@ -2951,135 +2734,220 @@ $Object* AquaLookAndFeel::lambda$initComponentDefaults$0($UIDefaults* t) {
 AquaLookAndFeel::AquaLookAndFeel() {
 }
 
-void clinit$AquaLookAndFeel($Class* class$) {
+void AquaLookAndFeel::clinit$($Class* clazz) {
 	$assignStatic(AquaLookAndFeel::sPropertyPrefix, "apple.laf."_s);
 	$assignStatic(AquaLookAndFeel::PKG_PREFIX, "com.apple.laf."_s);
 }
 
 $Class* AquaLookAndFeel::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$0::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$1$1::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$2$2::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$3$3::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$4$4::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$5$5::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$6$6::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$7$7::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$8$8::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$9$9::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$10$10::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$11$11::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$12$12::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$13$13::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$14$14::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$15$15::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$16$16::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$17$17::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$18$18::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$19$19::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$20$20::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$21$21::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$23$22::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$24$23::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$25$24::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$26$25::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$27$26::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$28$27::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$29$28::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$30$29::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$31$30::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$32$31::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$35$32::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$37$33::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$38$34::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$39$35::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$40$36::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$41$37::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$42$38::load$(name, initialize);
 		}
-		if (name->equals(AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39")) {
 			return AquaLookAndFeel$$Lambda$lambda$initComponentDefaults$43$39::load$(name, initialize);
 		}
 	}
-	$loadClass(AquaLookAndFeel, name, initialize, &_AquaLookAndFeel_ClassInfo_, clinit$AquaLookAndFeel, allocate$AquaLookAndFeel);
+	$FieldInfo fieldInfos$$[] = {
+		{"sPropertyPrefix", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AquaLookAndFeel, sPropertyPrefix)},
+		{"PKG_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaLookAndFeel, PKG_PREFIX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaLookAndFeel, init$, void)},
+		{"getAudioActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, getAudioActionMap, $ActionMap*)},
+		{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getDefaults, $UIDefaults*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getDescription, $String*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getID, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getName, $String*)},
+		{"getSupportsWindowDecorations", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, getSupportsWindowDecorations, bool)},
+		{"initClassDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, initClassDefaults, void, $UIDefaults*)},
+		{"initComponentDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, initComponentDefaults, void, $UIDefaults*)},
+		{"initResourceBundle", "(Ljavax/swing/UIDefaults;)V", nullptr, $PRIVATE, $method(AquaLookAndFeel, initResourceBundle, void, $UIDefaults*)},
+		{"initSystemColorDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, $PROTECTED, $virtualMethod(AquaLookAndFeel, initSystemColorDefaults, void, $UIDefaults*)},
+		{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, initialize, void)},
+		{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, isNativeLookAndFeel, bool)},
+		{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, isSupportedLookAndFeel, bool)},
+		{"lambda$initComponentDefaults$0", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$0, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$1", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$1, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$10", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$10, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$11", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$11, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$12", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$12, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$13", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$13, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$14", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$14, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$15", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$15, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$16", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$16, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$17", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$17, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$18", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$18, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$19", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$19, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$2", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$2, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$20", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$20, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$21", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$21, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$23", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$23, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$24", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$24, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$25", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$25, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$26", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$26, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$27", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$27, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$28", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$28, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$29", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$29, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$3", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$3, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$30", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$30, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$31", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$31, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$32", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$32, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$35", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$35, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$37", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$37, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$38", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$38, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$39", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$39, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$4", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$4, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$40", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$40, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$41", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$41, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$42", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$42, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$43", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$43, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$5", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$5, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$6", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$6, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$7", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$7, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$8", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$8, $Object*, $UIDefaults*)},
+		{"lambda$initComponentDefaults$9", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaLookAndFeel, lambda$initComponentDefaults$9, $Object*, $UIDefaults*)},
+		{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(AquaLookAndFeel, uninitialize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaLookAndFeel$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaLookAndFeel$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaLookAndFeel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaLookAndFeel",
+		"javax.swing.plaf.basic.BasicLookAndFeel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaLookAndFeel$3,com.apple.laf.AquaLookAndFeel$2,com.apple.laf.AquaLookAndFeel$1"
+	};
+	$loadClass(AquaLookAndFeel, name, initialize, &classInfo$$, AquaLookAndFeel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaLookAndFeel));
+	});
 	return class$;
 }
 

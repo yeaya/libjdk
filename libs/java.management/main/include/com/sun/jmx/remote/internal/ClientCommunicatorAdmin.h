@@ -52,6 +52,7 @@ class $import ClientCommunicatorAdmin : public ::java::lang::Object {
 	$class(ClientCommunicatorAdmin, 0, ::java::lang::Object)
 public:
 	ClientCommunicatorAdmin();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t period);
 	virtual void checkConnection() {}
 	virtual void doStart() {}

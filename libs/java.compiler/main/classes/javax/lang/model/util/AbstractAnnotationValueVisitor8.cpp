@@ -1,5 +1,4 @@
 #include <javax/lang/model/util/AbstractAnnotationValueVisitor8.h>
-
 #include <javax/lang/model/util/AbstractAnnotationValueVisitor7.h>
 #include <jcpp.h>
 
@@ -14,38 +13,6 @@ namespace javax {
 		namespace model {
 			namespace util {
 
-$NamedAttribute AbstractAnnotationValueVisitor8_Attribute_var$0[] = {
-	{"value", 'e', "Ljavax/lang/model/SourceVersion; RELEASE_8"},
-	{}
-};
-
-$CompoundAttribute _AbstractAnnotationValueVisitor8_Annotations_[] = {
-	{"Ljavax/annotation/processing/SupportedSourceVersion;", AbstractAnnotationValueVisitor8_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _AbstractAnnotationValueVisitor8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractAnnotationValueVisitor8, init$, void)},
-	{}
-};
-
-$ClassInfo _AbstractAnnotationValueVisitor8_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.lang.model.util.AbstractAnnotationValueVisitor8",
-	"javax.lang.model.util.AbstractAnnotationValueVisitor7",
-	nullptr,
-	nullptr,
-	_AbstractAnnotationValueVisitor8_MethodInfo_,
-	"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljavax/lang/model/util/AbstractAnnotationValueVisitor7<TR;TP;>;",
-	nullptr,
-	nullptr,
-	_AbstractAnnotationValueVisitor8_Annotations_
-};
-
-$Object* allocate$AbstractAnnotationValueVisitor8($Class* clazz) {
-	return $of($alloc(AbstractAnnotationValueVisitor8));
-}
-
 void AbstractAnnotationValueVisitor8::init$() {
 	$AbstractAnnotationValueVisitor7::init$();
 }
@@ -54,7 +21,33 @@ AbstractAnnotationValueVisitor8::AbstractAnnotationValueVisitor8() {
 }
 
 $Class* AbstractAnnotationValueVisitor8::load$($String* name, bool initialize) {
-	$loadClass(AbstractAnnotationValueVisitor8, name, initialize, &_AbstractAnnotationValueVisitor8_ClassInfo_, allocate$AbstractAnnotationValueVisitor8);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractAnnotationValueVisitor8, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljavax/lang/model/SourceVersion; RELEASE_8"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljavax/annotation/processing/SupportedSourceVersion;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.lang.model.util.AbstractAnnotationValueVisitor8",
+		"javax.lang.model.util.AbstractAnnotationValueVisitor7",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljavax/lang/model/util/AbstractAnnotationValueVisitor7<TR;TP;>;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AbstractAnnotationValueVisitor8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractAnnotationValueVisitor8);
+	});
 	return class$;
 }
 

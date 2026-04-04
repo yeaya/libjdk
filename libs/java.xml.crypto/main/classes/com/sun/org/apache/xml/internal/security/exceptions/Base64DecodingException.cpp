@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/exceptions/Base64DecodingException.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <jcpp.h>
 
@@ -18,45 +17,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace exceptions {
-
-$CompoundAttribute _Base64DecodingException_MethodAnnotations_init$4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Base64DecodingException_MethodAnnotations_init$6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Base64DecodingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64DecodingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Base64DecodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Base64DecodingException, init$, void, $String*, $Exception*), nullptr, nullptr, _Base64DecodingException_MethodAnnotations_init$4},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Base64DecodingException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _Base64DecodingException_MethodAnnotations_init$6},
-	{}
-};
-
-$ClassInfo _Base64DecodingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException",
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
-	nullptr,
-	_Base64DecodingException_FieldInfo_,
-	_Base64DecodingException_MethodInfo_
-};
-
-$Object* allocate$Base64DecodingException($Class* clazz) {
-	return $of($alloc(Base64DecodingException));
-}
 
 void Base64DecodingException::init$() {
 	$XMLSecurityException::init$();
@@ -97,7 +57,39 @@ void Base64DecodingException::throw$() {
 }
 
 $Class* Base64DecodingException::load$($String* name, bool initialize) {
-	$loadClass(Base64DecodingException, name, initialize, &_Base64DecodingException_ClassInfo_, allocate$Base64DecodingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64DecodingException, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$4[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$6[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Base64DecodingException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$4},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Base64DecodingException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$6},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException",
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Base64DecodingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Base64DecodingException);
+	});
 	return class$;
 }
 

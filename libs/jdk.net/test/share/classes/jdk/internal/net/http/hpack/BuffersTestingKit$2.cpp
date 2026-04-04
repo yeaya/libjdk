@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/BuffersTestingKit$2.h>
-
 #include <java/lang/Iterable.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Iterator.h>
@@ -16,9 +15,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $Random = ::java::util::Random;
 using $Supplier = ::java::util::function::Supplier;
 using $BuffersTestingKit = ::jdk::internal::net::http::hpack::BuffersTestingKit;
 
@@ -27,53 +24,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace hpack {
-
-$FieldInfo _BuffersTestingKit$2_FieldInfo_[] = {
-	{"val$emptyBufferFactory", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(BuffersTestingKit$2, val$emptyBufferFactory)},
-	{"val$source", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(BuffersTestingKit$2, val$source)},
-	{"it", "Ljava/util/Iterator;", "Ljava/util/Iterator<+Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(BuffersTestingKit$2, it)},
-	{"next", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(BuffersTestingKit$2, next$)},
-	{}
-};
-
-$MethodInfo _BuffersTestingKit$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)V", "()V", 0, $method(BuffersTestingKit$2, init$, void, $Iterable*, $Supplier*)},
-	{"calculateNext", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(BuffersTestingKit$2, calculateNext, $ByteBuffer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$2, hasNext, bool)},
-	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$2, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BuffersTestingKit$2_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.hpack.BuffersTestingKit",
-	"injectEmptyBuffers",
-	"(Ljava/lang/Iterable;Ljava/util/function/Supplier;)Ljava/lang/Iterable;"
-};
-
-$InnerClassInfo _BuffersTestingKit$2_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.BuffersTestingKit$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BuffersTestingKit$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.hpack.BuffersTestingKit$2",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_BuffersTestingKit$2_FieldInfo_,
-	_BuffersTestingKit$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;",
-	&_BuffersTestingKit$2_EnclosingMethodInfo_,
-	_BuffersTestingKit$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.BuffersTestingKit"
-};
-
-$Object* allocate$BuffersTestingKit$2($Class* clazz) {
-	return $of($alloc(BuffersTestingKit$2));
-}
 
 void BuffersTestingKit$2::init$($Iterable* val$source, $Supplier* val$emptyBufferFactory) {
 	$set(this, val$source, val$source);
@@ -87,7 +37,7 @@ $ByteBuffer* BuffersTestingKit$2::calculateNext() {
 	if ($nc($BuffersTestingKit::random)->nextBoolean()) {
 		return $cast($ByteBuffer, $nc(this->val$emptyBufferFactory)->get());
 	} else if ($nc(this->it)->hasNext()) {
-		return $cast($ByteBuffer, $nc(this->it)->next());
+		return $cast($ByteBuffer, this->it->next());
 	} else {
 		return nullptr;
 	}
@@ -110,7 +60,47 @@ BuffersTestingKit$2::BuffersTestingKit$2() {
 }
 
 $Class* BuffersTestingKit$2::load$($String* name, bool initialize) {
-	$loadClass(BuffersTestingKit$2, name, initialize, &_BuffersTestingKit$2_ClassInfo_, allocate$BuffersTestingKit$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$emptyBufferFactory", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(BuffersTestingKit$2, val$emptyBufferFactory)},
+		{"val$source", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(BuffersTestingKit$2, val$source)},
+		{"it", "Ljava/util/Iterator;", "Ljava/util/Iterator<+Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(BuffersTestingKit$2, it)},
+		{"next", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(BuffersTestingKit$2, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)V", "()V", 0, $method(BuffersTestingKit$2, init$, void, $Iterable*, $Supplier*)},
+		{"calculateNext", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(BuffersTestingKit$2, calculateNext, $ByteBuffer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$2, hasNext, bool)},
+		{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$2, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.hpack.BuffersTestingKit",
+		"injectEmptyBuffers",
+		"(Ljava/lang/Iterable;Ljava/util/function/Supplier;)Ljava/lang/Iterable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.BuffersTestingKit$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.hpack.BuffersTestingKit$2",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.BuffersTestingKit"
+	};
+	$loadClass(BuffersTestingKit$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BuffersTestingKit$2);
+	});
 	return class$;
 }
 

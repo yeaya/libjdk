@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_AboutDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_AppEventDispatcher.h>
 #include <com/apple/eawt/_AppEventHandler$_NativeEvent.h>
 #include <com/apple/eawt/_AppEventHandler.h>
@@ -20,45 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace eawt {
-
-$FieldInfo __AppEventHandler$_AboutDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_AboutDispatcher, this$0)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_AboutDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_AboutDispatcher, init$, void, $_AppEventHandler*)},
-	{"performDefaultAction", "(Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_AboutDispatcher, performDefaultAction, void, $_AppEventHandler$_NativeEvent*)},
-	{"performUsing", "(Ljava/awt/desktop/AboutHandler;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_AboutDispatcher, performUsing, void, $AboutHandler*, $_AppEventHandler$_NativeEvent*)},
-	{"performUsing", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_AboutDispatcher, performUsing, void, Object$*, $_AppEventHandler$_NativeEvent*)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_AboutDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_AboutDispatcher", "com.apple.eawt._AppEventHandler", "_AboutDispatcher", 0},
-	{"com.apple.eawt._AppEventHandler$_AppEventDispatcher", "com.apple.eawt._AppEventHandler", "_AppEventDispatcher", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_AboutDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppEventHandler$_AboutDispatcher",
-	"com.apple.eawt._AppEventHandler$_AppEventDispatcher",
-	nullptr,
-	__AppEventHandler$_AboutDispatcher_FieldInfo_,
-	__AppEventHandler$_AboutDispatcher_MethodInfo_,
-	"Lcom/apple/eawt/_AppEventHandler$_AppEventDispatcher<Ljava/awt/desktop/AboutHandler;>;",
-	nullptr,
-	__AppEventHandler$_AboutDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_AboutDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_AboutDispatcher));
-}
 
 void _AppEventHandler$_AboutDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
@@ -81,7 +41,40 @@ _AppEventHandler$_AboutDispatcher::_AppEventHandler$_AboutDispatcher() {
 }
 
 $Class* _AppEventHandler$_AboutDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_AboutDispatcher, name, initialize, &__AppEventHandler$_AboutDispatcher_ClassInfo_, allocate$_AppEventHandler$_AboutDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_AboutDispatcher, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_AboutDispatcher, init$, void, $_AppEventHandler*)},
+		{"performDefaultAction", "(Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_AboutDispatcher, performDefaultAction, void, $_AppEventHandler$_NativeEvent*)},
+		{"performUsing", "(Ljava/awt/desktop/AboutHandler;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_AboutDispatcher, performUsing, void, $AboutHandler*, $_AppEventHandler$_NativeEvent*)},
+		{"performUsing", "(Ljava/lang/Object;Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_AboutDispatcher, performUsing, void, Object$*, $_AppEventHandler$_NativeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_AboutDispatcher", "com.apple.eawt._AppEventHandler", "_AboutDispatcher", 0},
+		{"com.apple.eawt._AppEventHandler$_AppEventDispatcher", "com.apple.eawt._AppEventHandler", "_AppEventDispatcher", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppEventHandler$_AboutDispatcher",
+		"com.apple.eawt._AppEventHandler$_AppEventDispatcher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/eawt/_AppEventHandler$_AppEventDispatcher<Ljava/awt/desktop/AboutHandler;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_AboutDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_AboutDispatcher);
+	});
 	return class$;
 }
 

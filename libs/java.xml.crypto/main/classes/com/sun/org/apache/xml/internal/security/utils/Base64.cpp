@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/Base64.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/Base64DecodingException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/I18n.h>
 #include <com/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream.h>
@@ -54,70 +53,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$CompoundAttribute _Base64_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Base64_FieldInfo_[] = {
-	{"BASE64DEFAULTLENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Base64, BASE64DEFAULTLENGTH)},
-	{"BASELENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, BASELENGTH)},
-	{"LOOKUPLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, LOOKUPLENGTH)},
-	{"TWENTYFOURBITGROUP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, TWENTYFOURBITGROUP)},
-	{"EIGHTBIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, EIGHTBIT)},
-	{"SIXTEENBIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, SIXTEENBIT)},
-	{"FOURBYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, FOURBYTE)},
-	{"SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, SIGN)},
-	{"PAD", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, PAD)},
-	{"base64Alphabet", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, base64Alphabet)},
-	{"lookUpBase64Alphabet", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, lookUpBase64Alphabet)},
-	{}
-};
-
-$MethodInfo _Base64_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Base64, init$, void)},
-	{"decode", "(Lorg/w3c/dom/Element;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
-	{"decode", "([B)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
-	{"decode", "(Ljava/io/BufferedReader;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $BufferedReader*), "java.io.IOException,com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
-	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
-	{"decode", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
-	{"decode", "([BLjava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $bytes*, $OutputStream*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
-	{"decode", "([BLjava/io/OutputStream;I)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $bytes*, $OutputStream*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
-	{"decode", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $InputStream*, $OutputStream*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
-	{"decodeBigIntegerFromElement", "(Lorg/w3c/dom/Element;)Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decodeBigIntegerFromElement, $BigInteger*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
-	{"decodeBigIntegerFromText", "(Lorg/w3c/dom/Text;)Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decodeBigIntegerFromText, $BigInteger*, $Text*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
-	{"decodeInternal", "([BI)[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, decodeInternal, $bytes*, $bytes*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
-	{"encode", "(Ljava/math/BigInteger;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $String*, $BigInteger*)},
-	{"encode", "(Ljava/math/BigInteger;I)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $bytes*, $BigInteger*, int32_t)},
-	{"encode", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $String*, $bytes*)},
-	{"encode", "([BI)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $String*, $bytes*, int32_t)},
-	{"encodeToElement", "(Lorg/w3c/dom/Document;Ljava/lang/String;[B)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encodeToElement, $Element*, $Document*, $String*, $bytes*)},
-	{"fillElementWithBigInteger", "(Lorg/w3c/dom/Element;Ljava/math/BigInteger;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, fillElementWithBigInteger, void, $Element*, $BigInteger*)},
-	{"getBytes", "(Ljava/math/BigInteger;I)[B", nullptr, $STATIC | $FINAL, $staticMethod(Base64, getBytes, $bytes*, $BigInteger*, int32_t)},
-	{"getBytesInternal", "(Ljava/lang/String;[B)I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, getBytesInternal, int32_t, $String*, $bytes*)},
-	{"isPad", "(B)Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, isPad, bool, int8_t)},
-	{"isWhiteSpace", "(B)Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, isWhiteSpace, bool, int8_t)},
-	{"removeWhiteSpace", "([B)I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, removeWhiteSpace, int32_t, $bytes*)},
-	{}
-};
-
-$ClassInfo _Base64_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.Base64",
-	"java.lang.Object",
-	nullptr,
-	_Base64_FieldInfo_,
-	_Base64_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Base64_Annotations_
-};
-
-$Object* allocate$Base64($Class* clazz) {
-	return $of($alloc(Base64));
-}
-
 $bytes* Base64::base64Alphabet = nullptr;
 $chars* Base64::lookUpBase64Alphabet = nullptr;
 
@@ -126,18 +61,18 @@ void Base64::init$() {
 
 $bytes* Base64::getBytes($BigInteger* big, int32_t bitlen) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bitlen = ((bitlen + 7) >> 3) << 3;
 	if (bitlen < $nc(big)->bitLength()) {
 		$throwNew($IllegalArgumentException, $($I18n::translate("utils.Base64.IllegalBitlength"_s)));
 	}
-	$var($bytes, bigBytes, $nc(big)->toByteArray());
+	$var($bytes, bigBytes, big->toByteArray());
 	bool var$0 = big->bitLength() % 8 != 0;
 	if (var$0 && big->bitLength() / 8 + 1 == bitlen / 8) {
 		return bigBytes;
 	}
 	int32_t startSrc = 0;
-	int32_t bigLen = $nc(bigBytes)->length;
+	int32_t bigLen = bigBytes->length;
 	if (big->bitLength() % 8 == 0) {
 		startSrc = 1;
 		--bigLen;
@@ -156,18 +91,18 @@ $String* Base64::encode($BigInteger* big) {
 
 $bytes* Base64::encode($BigInteger* big, int32_t bitlen) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bitlen = ((bitlen + 7) >> 3) << 3;
 	if (bitlen < $nc(big)->bitLength()) {
 		$throwNew($IllegalArgumentException, $($I18n::translate("utils.Base64.IllegalBitlength"_s)));
 	}
-	$var($bytes, bigBytes, $nc(big)->toByteArray());
+	$var($bytes, bigBytes, big->toByteArray());
 	bool var$0 = big->bitLength() % 8 != 0;
 	if (var$0 && big->bitLength() / 8 + 1 == bitlen / 8) {
 		return bigBytes;
 	}
 	int32_t startSrc = 0;
-	int32_t bigLen = $nc(bigBytes)->length;
+	int32_t bigLen = bigBytes->length;
 	if (big->bitLength() % 8 == 0) {
 		startSrc = 1;
 		--bigLen;
@@ -185,13 +120,13 @@ $BigInteger* Base64::decodeBigIntegerFromElement($Element* element) {
 
 $BigInteger* Base64::decodeBigIntegerFromText($Text* text) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($BigInteger, 1, $(Base64::decode($($nc(text)->getData()))));
 }
 
 void Base64::fillElementWithBigInteger($Element* element, $BigInteger* biginteger) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encodedInt, encode(biginteger));
 	bool var$0 = !$XMLUtils::ignoreLineBreaks();
 	if (var$0 && $nc(encodedInt)->length() > Base64::BASE64DEFAULTLENGTH) {
@@ -204,7 +139,7 @@ void Base64::fillElementWithBigInteger($Element* element, $BigInteger* bigintege
 
 $bytes* Base64::decode($Element* element) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, sibling, $nc(element)->getFirstChild());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	while (sibling != nullptr) {
@@ -219,7 +154,7 @@ $bytes* Base64::decode($Element* element) {
 
 $Element* Base64::encodeToElement($Document* doc, $String* localName, $bytes* bytes) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, el, $XMLUtils::createElementInSignatureSpace(doc, localName));
 	$var($Text, text, $nc(doc)->createTextNode($(encode(bytes))));
 	$nc(el)->appendChild(text);
@@ -238,26 +173,24 @@ $String* Base64::encode($bytes* binaryData) {
 
 $bytes* Base64::decode($BufferedReader* reader) {
 	$init(Base64);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, retBytes, nullptr);
 	$var($UnsyncByteArrayOutputStream, baos, $new($UnsyncByteArrayOutputStream));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($String, line, nullptr);
-			while (nullptr != ($assign(line, $nc(reader)->readLine()))) {
-				$var($bytes, bytes, decode(line));
-				baos->write(bytes);
-			}
-			$assign(retBytes, baos->toByteArray());
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			baos->close();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($String, line, nullptr);
+		while (nullptr != ($assign(line, $nc(reader)->readLine()))) {
+			$var($bytes, bytes, decode(line));
+			baos->write(bytes);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$assign(retBytes, baos->toByteArray());
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		baos->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return retBytes;
 }
@@ -281,21 +214,21 @@ $String* Base64::encode($bytes* binaryData, int32_t length) {
 		return nullptr;
 	}
 	int64_t lengthDataBits = ((int64_t)$nc(binaryData)->length) * ((int64_t)Base64::EIGHTBIT);
-	if (lengthDataBits == (int64_t)0) {
+	if (lengthDataBits == 0) {
 		return ""_s;
 	}
 	int64_t fewerThan24bits = $mod(lengthDataBits, (Base64::TWENTYFOURBITGROUP));
 	int32_t numberTriplets = (int32_t)($div(lengthDataBits, Base64::TWENTYFOURBITGROUP));
-	int32_t numberQuartet = fewerThan24bits != (int64_t)0 ? numberTriplets + 1 : numberTriplets;
+	int32_t numberQuartet = fewerThan24bits != 0 ? numberTriplets + 1 : numberTriplets;
 	int32_t quartesPerLine = length / 4;
 	int32_t numberLines = $div((numberQuartet - 1), quartesPerLine);
 	$var($chars, encodedData, nullptr);
 	$assign(encodedData, $new($chars, numberQuartet * 4 + numberLines * 2));
-	int8_t k = (int8_t)0;
-	int8_t l = (int8_t)0;
-	int8_t b1 = (int8_t)0;
-	int8_t b2 = (int8_t)0;
-	int8_t b3 = (int8_t)0;
+	int8_t k = 0;
+	int8_t l = 0;
+	int8_t b1 = 0;
+	int8_t b2 = 0;
+	int8_t b3 = 0;
 	int32_t encodedIndex = 0;
 	int32_t dataIndex = 0;
 	int32_t i = 0;
@@ -304,52 +237,52 @@ $String* Base64::encode($bytes* binaryData, int32_t length) {
 			b1 = binaryData->get(dataIndex++);
 			b2 = binaryData->get(dataIndex++);
 			b3 = binaryData->get(dataIndex++);
-			l = (int8_t)((int32_t)(b2 & (uint32_t)15));
-			k = (int8_t)((int32_t)(b1 & (uint32_t)3));
-			int8_t val1 = (((int32_t)(b1 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 192);
-			int8_t val2 = (((int32_t)(b2 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b2 >> 4) : (int8_t)(((b2) >> 4) ^ 240);
-			int8_t val3 = (((int32_t)(b3 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b3 >> 6) : (int8_t)(((b3) >> 6) ^ 252);
-			encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(val1));
-			encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(val2 | (k << 4)));
-			encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get((l << 2) | val3));
-			encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get((int32_t)(b3 & (uint32_t)63)));
+			l = (int8_t)(b2 & 0x0f);
+			k = (int8_t)(b1 & 3);
+			int8_t val1 = ((b1 & Base64::SIGN) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 0xc0);
+			int8_t val2 = ((b2 & Base64::SIGN) == 0) ? (int8_t)(b2 >> 4) : (int8_t)(((b2) >> 4) ^ 0xf0);
+			int8_t val3 = ((b3 & Base64::SIGN) == 0) ? (int8_t)(b3 >> 6) : (int8_t)(((b3) >> 6) ^ 0xfc);
+			encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(val1));
+			encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(val2 | (k << 4)));
+			encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get((l << 2) | val3));
+			encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(b3 & 0x3f));
 			++i;
 		}
-		encodedData->set(encodedIndex++, (char16_t)13);
-		encodedData->set(encodedIndex++, (char16_t)10);
+		encodedData->set(encodedIndex++, 13);
+		encodedData->set(encodedIndex++, 10);
 	}
 	for (; i < numberTriplets; ++i) {
 		b1 = binaryData->get(dataIndex++);
 		b2 = binaryData->get(dataIndex++);
 		b3 = binaryData->get(dataIndex++);
-		l = (int8_t)((int32_t)(b2 & (uint32_t)15));
-		k = (int8_t)((int32_t)(b1 & (uint32_t)3));
-		int8_t val1 = (((int32_t)(b1 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 192);
-		int8_t val2 = (((int32_t)(b2 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b2 >> 4) : (int8_t)(((b2) >> 4) ^ 240);
-		int8_t val3 = (((int32_t)(b3 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b3 >> 6) : (int8_t)(((b3) >> 6) ^ 252);
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(val1));
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(val2 | (k << 4)));
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get((l << 2) | val3));
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get((int32_t)(b3 & (uint32_t)63)));
+		l = (int8_t)(b2 & 0x0f);
+		k = (int8_t)(b1 & 3);
+		int8_t val1 = ((b1 & Base64::SIGN) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 0xc0);
+		int8_t val2 = ((b2 & Base64::SIGN) == 0) ? (int8_t)(b2 >> 4) : (int8_t)(((b2) >> 4) ^ 0xf0);
+		int8_t val3 = ((b3 & Base64::SIGN) == 0) ? (int8_t)(b3 >> 6) : (int8_t)(((b3) >> 6) ^ 0xfc);
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(val1));
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(val2 | (k << 4)));
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get((l << 2) | val3));
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(b3 & 0x3f));
 	}
 	if (fewerThan24bits == Base64::EIGHTBIT) {
 		b1 = binaryData->get(dataIndex);
-		k = (int8_t)((int32_t)(b1 & (uint32_t)3));
-		int8_t val1 = (((int32_t)(b1 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 192);
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(val1));
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(k << 4));
+		k = (int8_t)(b1 & 3);
+		int8_t val1 = ((b1 & Base64::SIGN) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 0xc0);
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(val1));
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(k << 4));
 		encodedData->set(encodedIndex++, Base64::PAD);
 		encodedData->set(encodedIndex++, Base64::PAD);
 	} else if (fewerThan24bits == Base64::SIXTEENBIT) {
 		b1 = binaryData->get(dataIndex);
 		b2 = binaryData->get(dataIndex + 1);
-		l = (int8_t)((int32_t)(b2 & (uint32_t)15));
-		k = (int8_t)((int32_t)(b1 & (uint32_t)3));
-		int8_t val1 = (((int32_t)(b1 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 192);
-		int8_t val2 = (((int32_t)(b2 & (uint32_t)Base64::SIGN)) == 0) ? (int8_t)(b2 >> 4) : (int8_t)(((b2) >> 4) ^ 240);
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(val1));
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(val2 | (k << 4)));
-		encodedData->set(encodedIndex++, $nc(Base64::lookUpBase64Alphabet)->get(l << 2));
+		l = (int8_t)(b2 & 0x0f);
+		k = (int8_t)(b1 & 3);
+		int8_t val1 = ((b1 & Base64::SIGN) == 0) ? (int8_t)(b1 >> 2) : (int8_t)(((b1) >> 2) ^ 0xc0);
+		int8_t val2 = ((b2 & Base64::SIGN) == 0) ? (int8_t)(b2 >> 4) : (int8_t)(((b2) >> 4) ^ 0xf0);
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(val1));
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(val2 | (k << 4)));
+		encodedData->set(encodedIndex++, Base64::lookUpBase64Alphabet->get(l << 2));
 		encodedData->set(encodedIndex++, Base64::PAD);
 	}
 	return $new($String, encodedData);
@@ -391,41 +324,41 @@ $bytes* Base64::decodeInternal($bytes* base64Data, int32_t len) {
 		return $new($bytes, 0);
 	}
 	$var($bytes, decodedData, nullptr);
-	int8_t b1 = (int8_t)0;
-	int8_t b2 = (int8_t)0;
-	int8_t b3 = (int8_t)0;
-	int8_t b4 = (int8_t)0;
+	int8_t b1 = 0;
+	int8_t b2 = 0;
+	int8_t b3 = 0;
+	int8_t b4 = 0;
 	int32_t i = 0;
 	int32_t encodedIndex = 0;
 	int32_t dataIndex = 0;
 	dataIndex = (numberQuadruple - 1) * 4;
 	encodedIndex = (numberQuadruple - 1) * 3;
-	b1 = $nc(Base64::base64Alphabet)->get($nc(base64Data)->get(dataIndex++));
-	b2 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
+	b1 = Base64::base64Alphabet->get($nc(base64Data)->get(dataIndex++));
+	b2 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
 	if (b1 == -1 || b2 == -1) {
 		$throwNew($Base64DecodingException, "decoding.general"_s);
 	}
 	int8_t d3 = 0;
 	int8_t d4 = 0;
-	b3 = $nc(Base64::base64Alphabet)->get(d3 = base64Data->get(dataIndex++));
-	b4 = $nc(Base64::base64Alphabet)->get(d4 = base64Data->get(dataIndex++));
+	b3 = Base64::base64Alphabet->get(d3 = base64Data->get(dataIndex++));
+	b4 = Base64::base64Alphabet->get(d4 = base64Data->get(dataIndex++));
 	if (b3 == -1 || b4 == -1) {
 		bool var$0 = isPad(d3);
 		if (var$0 && isPad(d4)) {
-			if (((int32_t)(b2 & (uint32_t)15)) != 0) {
+			if ((b2 & 0x0f) != 0) {
 				$throwNew($Base64DecodingException, "decoding.general"_s);
 			}
 			$assign(decodedData, $new($bytes, encodedIndex + 1));
 			decodedData->set(encodedIndex, (int8_t)((b1 << 2) | (b2 >> 4)));
 		} else {
-			bool var$2 = !isPad(d3);
-			if (var$2 && isPad(d4)) {
-				if (((int32_t)(b3 & (uint32_t)3)) != 0) {
+			bool var$1 = !isPad(d3);
+			if (var$1 && isPad(d4)) {
+				if ((b3 & 3) != 0) {
 					$throwNew($Base64DecodingException, "decoding.general"_s);
 				}
 				$assign(decodedData, $new($bytes, encodedIndex + 2));
 				decodedData->set(encodedIndex++, (int8_t)((b1 << 2) | (b2 >> 4)));
-				decodedData->set(encodedIndex, (int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
+				decodedData->set(encodedIndex, (int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
 			} else {
 				$throwNew($Base64DecodingException, "decoding.general"_s);
 			}
@@ -433,21 +366,21 @@ $bytes* Base64::decodeInternal($bytes* base64Data, int32_t len) {
 	} else {
 		$assign(decodedData, $new($bytes, encodedIndex + 3));
 		decodedData->set(encodedIndex++, (int8_t)((b1 << 2) | (b2 >> 4)));
-		decodedData->set(encodedIndex++, (int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
+		decodedData->set(encodedIndex++, (int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
 		decodedData->set(encodedIndex++, (int8_t)((b3 << 6) | b4));
 	}
 	encodedIndex = 0;
 	dataIndex = 0;
 	for (i = numberQuadruple - 1; i > 0; --i) {
-		b1 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
-		b2 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
-		b3 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
-		b4 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
+		b1 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
+		b2 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
+		b3 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
+		b4 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
 		if (b1 == -1 || b2 == -1 || b3 == -1 || b4 == -1) {
 			$throwNew($Base64DecodingException, "decoding.general"_s);
 		}
 		$nc(decodedData)->set(encodedIndex++, (int8_t)((b1 << 2) | (b2 >> 4)));
-		decodedData->set(encodedIndex++, (int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
+		decodedData->set(encodedIndex++, (int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
 		decodedData->set(encodedIndex++, (int8_t)((b3 << 6) | b4));
 	}
 	return decodedData;
@@ -477,65 +410,65 @@ void Base64::decode($bytes* base64Data, $OutputStream* os, int32_t len) {
 	if (numberQuadruple == 0) {
 		return;
 	}
-	int8_t b1 = (int8_t)0;
-	int8_t b2 = (int8_t)0;
-	int8_t b3 = (int8_t)0;
-	int8_t b4 = (int8_t)0;
+	int8_t b1 = 0;
+	int8_t b2 = 0;
+	int8_t b3 = 0;
+	int8_t b4 = 0;
 	int32_t i = 0;
 	int32_t dataIndex = 0;
 	for (i = numberQuadruple - 1; i > 0; --i) {
-		b1 = $nc(Base64::base64Alphabet)->get($nc(base64Data)->get(dataIndex++));
-		b2 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
-		b3 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
-		b4 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
+		b1 = Base64::base64Alphabet->get($nc(base64Data)->get(dataIndex++));
+		b2 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
+		b3 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
+		b4 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
 		if (b1 == -1 || b2 == -1 || b3 == -1 || b4 == -1) {
 			$throwNew($Base64DecodingException, "decoding.general"_s);
 		}
-		$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
-		os->write((int32_t)(int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
-		os->write((int32_t)(int8_t)((b3 << 6) | b4));
+		$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
+		os->write((int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
+		os->write((int8_t)((b3 << 6) | b4));
 	}
-	b1 = $nc(Base64::base64Alphabet)->get($nc(base64Data)->get(dataIndex++));
-	b2 = $nc(Base64::base64Alphabet)->get(base64Data->get(dataIndex++));
+	b1 = Base64::base64Alphabet->get($nc(base64Data)->get(dataIndex++));
+	b2 = Base64::base64Alphabet->get(base64Data->get(dataIndex++));
 	if (b1 == -1 || b2 == -1) {
 		$throwNew($Base64DecodingException, "decoding.general"_s);
 	}
 	int8_t d3 = 0;
 	int8_t d4 = 0;
-	b3 = $nc(Base64::base64Alphabet)->get(d3 = base64Data->get(dataIndex++));
-	b4 = $nc(Base64::base64Alphabet)->get(d4 = base64Data->get(dataIndex++));
+	b3 = Base64::base64Alphabet->get(d3 = base64Data->get(dataIndex++));
+	b4 = Base64::base64Alphabet->get(d4 = base64Data->get(dataIndex++));
 	if (b3 == -1 || b4 == -1) {
 		bool var$0 = isPad(d3);
 		if (var$0 && isPad(d4)) {
-			if (((int32_t)(b2 & (uint32_t)15)) != 0) {
+			if ((b2 & 0x0f) != 0) {
 				$throwNew($Base64DecodingException, "decoding.general"_s);
 			}
-			$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
+			$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
 		} else {
-			bool var$2 = !isPad(d3);
-			if (var$2 && isPad(d4)) {
-				if (((int32_t)(b3 & (uint32_t)3)) != 0) {
+			bool var$1 = !isPad(d3);
+			if (var$1 && isPad(d4)) {
+				if ((b3 & 3) != 0) {
 					$throwNew($Base64DecodingException, "decoding.general"_s);
 				}
-				$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
-				os->write((int32_t)(int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
+				$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
+				os->write((int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
 			} else {
 				$throwNew($Base64DecodingException, "decoding.general"_s);
 			}
 		}
 	} else {
-		$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
-		os->write((int32_t)(int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
-		os->write((int32_t)(int8_t)((b3 << 6) | b4));
+		$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
+		os->write((int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
+		os->write((int8_t)((b3 << 6) | b4));
 	}
 }
 
 void Base64::decode($InputStream* is, $OutputStream* os) {
 	$init(Base64);
-	int8_t b1 = (int8_t)0;
-	int8_t b2 = (int8_t)0;
-	int8_t b3 = (int8_t)0;
-	int8_t b4 = (int8_t)0;
+	int8_t b1 = 0;
+	int8_t b2 = 0;
+	int8_t b3 = 0;
+	int8_t b4 = 0;
 	int32_t index = 0;
 	$var($bytes, data, $new($bytes, 4));
 	int32_t read = 0;
@@ -558,46 +491,46 @@ void Base64::decode($InputStream* is, $OutputStream* os) {
 			continue;
 		}
 		index = 0;
-		b1 = $nc(Base64::base64Alphabet)->get(data->get(0));
-		b2 = $nc(Base64::base64Alphabet)->get(data->get(1));
-		b3 = $nc(Base64::base64Alphabet)->get(data->get(2));
-		b4 = $nc(Base64::base64Alphabet)->get(data->get(3));
-		$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
-		os->write((int32_t)(int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
-		os->write((int32_t)(int8_t)((b3 << 6) | b4));
+		b1 = Base64::base64Alphabet->get(data->get(0));
+		b2 = Base64::base64Alphabet->get(data->get(1));
+		b3 = Base64::base64Alphabet->get(data->get(2));
+		b4 = Base64::base64Alphabet->get(data->get(3));
+		$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
+		os->write((int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
+		os->write((int8_t)((b3 << 6) | b4));
 	}
 	int8_t d1 = data->get(0);
 	int8_t d2 = data->get(1);
 	int8_t d3 = data->get(2);
 	int8_t d4 = data->get(3);
-	b1 = $nc(Base64::base64Alphabet)->get(d1);
-	b2 = $nc(Base64::base64Alphabet)->get(d2);
-	b3 = $nc(Base64::base64Alphabet)->get(d3);
-	b4 = $nc(Base64::base64Alphabet)->get(d4);
+	b1 = Base64::base64Alphabet->get(d1);
+	b2 = Base64::base64Alphabet->get(d2);
+	b3 = Base64::base64Alphabet->get(d3);
+	b4 = Base64::base64Alphabet->get(d4);
 	if (b3 == -1 || b4 == -1) {
 		bool var$0 = isPad(d3);
 		if (var$0 && isPad(d4)) {
-			if (((int32_t)(b2 & (uint32_t)15)) != 0) {
+			if ((b2 & 0x0f) != 0) {
 				$throwNew($Base64DecodingException, "decoding.general"_s);
 			}
-			$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
+			$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
 		} else {
-			bool var$2 = !isPad(d3);
-			if (var$2 && isPad(d4)) {
-				b3 = $nc(Base64::base64Alphabet)->get(d3);
-				if (((int32_t)(b3 & (uint32_t)3)) != 0) {
+			bool var$1 = !isPad(d3);
+			if (var$1 && isPad(d4)) {
+				b3 = Base64::base64Alphabet->get(d3);
+				if ((b3 & 3) != 0) {
 					$throwNew($Base64DecodingException, "decoding.general"_s);
 				}
-				$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
-				os->write((int32_t)(int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
+				$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
+				os->write((int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
 			} else {
 				$throwNew($Base64DecodingException, "decoding.general"_s);
 			}
 		}
 	} else {
-		$nc(os)->write((int32_t)(int8_t)((b1 << 2) | (b2 >> 4)));
-		os->write((int32_t)(int8_t)((((int32_t)(b2 & (uint32_t)15)) << 4) | ((int32_t)((b3 >> 2) & (uint32_t)15))));
-		os->write((int32_t)(int8_t)((b3 << 6) | b4));
+		$nc(os)->write((int8_t)((b1 << 2) | (b2 >> 4)));
+		os->write((int8_t)(((b2 & 0x0f) << 4) | ((b3 >> 2) & 0x0f)));
+		os->write((int8_t)((b3 << 6) | b4));
 	}
 }
 
@@ -617,43 +550,35 @@ int32_t Base64::removeWhiteSpace($bytes* data) {
 	return newSize;
 }
 
-void clinit$Base64($Class* class$) {
+void Base64::clinit$($Class* clazz) {
 	$assignStatic(Base64::base64Alphabet, $new($bytes, Base64::BASELENGTH));
 	$assignStatic(Base64::lookUpBase64Alphabet, $new($chars, Base64::LOOKUPLENGTH));
 	{
 		for (int32_t i = 0; i < Base64::BASELENGTH; ++i) {
-			$nc(Base64::base64Alphabet)->set(i, (int8_t)-1);
+			Base64::base64Alphabet->set(i, -1);
 		}
 		for (int32_t i = u'Z'; i >= u'A'; --i) {
-			$nc(Base64::base64Alphabet)->set(i, (int8_t)(i - u'A'));
+			Base64::base64Alphabet->set(i, (int8_t)(i - u'A'));
 		}
 		for (int32_t i = u'z'; i >= u'a'; --i) {
-			$nc(Base64::base64Alphabet)->set(i, (int8_t)(i - u'a' + 26));
+			Base64::base64Alphabet->set(i, (int8_t)(i - u'a' + 26));
 		}
 		for (int32_t i = u'9'; i >= u'0'; --i) {
-			$nc(Base64::base64Alphabet)->set(i, (int8_t)(i - u'0' + 52));
+			Base64::base64Alphabet->set(i, (int8_t)(i - u'0' + 52));
 		}
-		$nc(Base64::base64Alphabet)->set(u'+', (int8_t)62);
-		$nc(Base64::base64Alphabet)->set(u'/', (int8_t)63);
+		Base64::base64Alphabet->set(u'+', 62);
+		Base64::base64Alphabet->set(u'/', 63);
 		for (int32_t i = 0; i <= 25; ++i) {
-			$nc(Base64::lookUpBase64Alphabet)->set(i, (char16_t)(u'A' + i));
+			Base64::lookUpBase64Alphabet->set(i, (char16_t)(u'A' + i));
 		}
-		{
-			int32_t i = 26;
-			int32_t j = 0;
-			for (; i <= 51; ++i, ++j) {
-				$nc(Base64::lookUpBase64Alphabet)->set(i, (char16_t)(u'a' + j));
-			}
+		for (int32_t i = 26, j = 0; i <= 51; ++i, ++j) {
+			Base64::lookUpBase64Alphabet->set(i, (char16_t)(u'a' + j));
 		}
-		{
-			int32_t i = 52;
-			int32_t j = 0;
-			for (; i <= 61; ++i, ++j) {
-				$nc(Base64::lookUpBase64Alphabet)->set(i, (char16_t)(u'0' + j));
-			}
+		for (int32_t i = 52, j = 0; i <= 61; ++i, ++j) {
+			Base64::lookUpBase64Alphabet->set(i, (char16_t)(u'0' + j));
 		}
-		$nc(Base64::lookUpBase64Alphabet)->set(62, u'+');
-		$nc(Base64::lookUpBase64Alphabet)->set(63, u'/');
+		Base64::lookUpBase64Alphabet->set(62, u'+');
+		Base64::lookUpBase64Alphabet->set(63, u'/');
 	}
 }
 
@@ -661,7 +586,65 @@ Base64::Base64() {
 }
 
 $Class* Base64::load$($String* name, bool initialize) {
-	$loadClass(Base64, name, initialize, &_Base64_ClassInfo_, clinit$Base64, allocate$Base64);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASE64DEFAULTLENGTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Base64, BASE64DEFAULTLENGTH)},
+		{"BASELENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, BASELENGTH)},
+		{"LOOKUPLENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, LOOKUPLENGTH)},
+		{"TWENTYFOURBITGROUP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, TWENTYFOURBITGROUP)},
+		{"EIGHTBIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, EIGHTBIT)},
+		{"SIXTEENBIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, SIXTEENBIT)},
+		{"FOURBYTE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, FOURBYTE)},
+		{"SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, SIGN)},
+		{"PAD", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Base64, PAD)},
+		{"base64Alphabet", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, base64Alphabet)},
+		{"lookUpBase64Alphabet", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Base64, lookUpBase64Alphabet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Base64, init$, void)},
+		{"decode", "(Lorg/w3c/dom/Element;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
+		{"decode", "([B)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
+		{"decode", "(Ljava/io/BufferedReader;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $BufferedReader*), "java.io.IOException,com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
+		{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, $bytes*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
+		{"decode", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
+		{"decode", "([BLjava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $bytes*, $OutputStream*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
+		{"decode", "([BLjava/io/OutputStream;I)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $bytes*, $OutputStream*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
+		{"decode", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decode, void, $InputStream*, $OutputStream*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException,java.io.IOException"},
+		{"decodeBigIntegerFromElement", "(Lorg/w3c/dom/Element;)Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decodeBigIntegerFromElement, $BigInteger*, $Element*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
+		{"decodeBigIntegerFromText", "(Lorg/w3c/dom/Text;)Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, decodeBigIntegerFromText, $BigInteger*, $Text*), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
+		{"decodeInternal", "([BI)[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, decodeInternal, $bytes*, $bytes*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException"},
+		{"encode", "(Ljava/math/BigInteger;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $String*, $BigInteger*)},
+		{"encode", "(Ljava/math/BigInteger;I)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $bytes*, $BigInteger*, int32_t)},
+		{"encode", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $String*, $bytes*)},
+		{"encode", "([BI)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encode, $String*, $bytes*, int32_t)},
+		{"encodeToElement", "(Lorg/w3c/dom/Document;Ljava/lang/String;[B)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, encodeToElement, $Element*, $Document*, $String*, $bytes*)},
+		{"fillElementWithBigInteger", "(Lorg/w3c/dom/Element;Ljava/math/BigInteger;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Base64, fillElementWithBigInteger, void, $Element*, $BigInteger*)},
+		{"getBytes", "(Ljava/math/BigInteger;I)[B", nullptr, $STATIC | $FINAL, $staticMethod(Base64, getBytes, $bytes*, $BigInteger*, int32_t)},
+		{"getBytesInternal", "(Ljava/lang/String;[B)I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, getBytesInternal, int32_t, $String*, $bytes*)},
+		{"isPad", "(B)Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, isPad, bool, int8_t)},
+		{"isWhiteSpace", "(B)Z", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, isWhiteSpace, bool, int8_t)},
+		{"removeWhiteSpace", "([B)I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(Base64, removeWhiteSpace, int32_t, $bytes*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.Base64",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Base64, name, initialize, &classInfo$$, Base64::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Base64);
+	});
 	return class$;
 }
 

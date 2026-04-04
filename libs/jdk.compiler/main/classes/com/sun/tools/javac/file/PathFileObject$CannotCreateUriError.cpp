@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/PathFileObject$CannotCreateUriError.h>
-
 #include <com/sun/tools/javac/file/PathFileObject.h>
 #include <java/lang/Error.h>
 #include <jcpp.h>
@@ -16,41 +15,6 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _PathFileObject$CannotCreateUriError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PathFileObject$CannotCreateUriError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PathFileObject$CannotCreateUriError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(PathFileObject$CannotCreateUriError, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _PathFileObject$CannotCreateUriError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.PathFileObject$CannotCreateUriError", "com.sun.tools.javac.file.PathFileObject", "CannotCreateUriError", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PathFileObject$CannotCreateUriError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.file.PathFileObject$CannotCreateUriError",
-	"java.lang.Error",
-	nullptr,
-	_PathFileObject$CannotCreateUriError_FieldInfo_,
-	_PathFileObject$CannotCreateUriError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PathFileObject$CannotCreateUriError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.PathFileObject"
-};
-
-$Object* allocate$PathFileObject$CannotCreateUriError($Class* clazz) {
-	return $of($alloc(PathFileObject$CannotCreateUriError));
-}
-
 void PathFileObject$CannotCreateUriError::init$($String* value, $Throwable* cause) {
 	$Error::init$(value, cause);
 }
@@ -66,7 +30,36 @@ void PathFileObject$CannotCreateUriError::throw$() {
 }
 
 $Class* PathFileObject$CannotCreateUriError::load$($String* name, bool initialize) {
-	$loadClass(PathFileObject$CannotCreateUriError, name, initialize, &_PathFileObject$CannotCreateUriError_ClassInfo_, allocate$PathFileObject$CannotCreateUriError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PathFileObject$CannotCreateUriError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(PathFileObject$CannotCreateUriError, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.PathFileObject$CannotCreateUriError", "com.sun.tools.javac.file.PathFileObject", "CannotCreateUriError", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.file.PathFileObject$CannotCreateUriError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.PathFileObject"
+	};
+	$loadClass(PathFileObject$CannotCreateUriError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathFileObject$CannotCreateUriError);
+	});
 	return class$;
 }
 

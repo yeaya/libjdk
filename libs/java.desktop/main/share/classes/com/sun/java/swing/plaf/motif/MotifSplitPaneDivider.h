@@ -43,6 +43,7 @@ public:
 	using ::javax::swing::plaf::basic::BasicSplitPaneDivider::add;
 	using ::javax::swing::plaf::basic::BasicSplitPaneDivider::getMousePosition;
 	using ::javax::swing::plaf::basic::BasicSplitPaneDivider::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::plaf::basic::BasicSplitPaneUI* ui);
 	::javax::swing::plaf::basic::BasicSplitPaneDivider$DragController* getDragger();
 	virtual ::java::awt::Dimension* getMinimumSize() override;

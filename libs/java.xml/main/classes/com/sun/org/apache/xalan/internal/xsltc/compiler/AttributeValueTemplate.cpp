@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValueTemplate.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
@@ -72,37 +71,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _AttributeValueTemplate_FieldInfo_[] = {
-	{"OUT_EXPR", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, OUT_EXPR)},
-	{"IN_EXPR", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, IN_EXPR)},
-	{"IN_EXPR_SQUOTES", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, IN_EXPR_SQUOTES)},
-	{"IN_EXPR_DQUOTES", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, IN_EXPR_DQUOTES)},
-	{"DELIMITER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AttributeValueTemplate, DELIMITER)},
-	{}
-};
-
-$MethodInfo _AttributeValueTemplate_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(AttributeValueTemplate, init$, void, $String*, $Parser*, $SyntaxTreeNode*)},
-	{"parseAVTemplate", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PRIVATE, $method(AttributeValueTemplate, parseAVTemplate, void, $String*, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValueTemplate, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(AttributeValueTemplate, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(AttributeValueTemplate, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _AttributeValueTemplate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeValueTemplate",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeValue",
-	nullptr,
-	_AttributeValueTemplate_FieldInfo_,
-	_AttributeValueTemplate_MethodInfo_
-};
-
-$Object* allocate$AttributeValueTemplate($Class* clazz) {
-	return $of($alloc(AttributeValueTemplate));
-}
-
 $String* AttributeValueTemplate::DELIMITER = nullptr;
 
 void AttributeValueTemplate::init$($String* value, $Parser* parser, $SyntaxTreeNode* parent) {
@@ -118,7 +86,7 @@ void AttributeValueTemplate::init$($String* value, $Parser* parser, $SyntaxTreeN
 }
 
 void AttributeValueTemplate::parseAVTemplate($String* text, $Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, text, "{}\"\'"_s, true));
 	$var($String, t, nullptr);
 	$var($String, lookahead, nullptr);
@@ -134,115 +102,78 @@ void AttributeValueTemplate::parseAVTemplate($String* text, $Parser* parser) {
 		if ($nc(t)->length() == 1) {
 			switch (t->charAt(0)) {
 			case u'{':
-				{
-					switch (state) {
-					case AttributeValueTemplate::OUT_EXPR:
-						{
-							$assign(lookahead, tokenizer->nextToken());
-							if ($nc(lookahead)->equals("{"_s)) {
-								buffer->append(lookahead);
-								$assign(lookahead, nullptr);
-							} else {
-								buffer->append(AttributeValueTemplate::DELIMITER);
-								state = AttributeValueTemplate::IN_EXPR;
-							}
-							break;
-						}
-					case AttributeValueTemplate::IN_EXPR:
-						{}
-					case AttributeValueTemplate::IN_EXPR_SQUOTES:
-						{}
-					case AttributeValueTemplate::IN_EXPR_DQUOTES:
-						{
-							$init($ErrorMsg);
-							reportError($(getParent()), parser, $ErrorMsg::ATTR_VAL_TEMPLATE_ERR, text);
-							break;
-						}
+				switch (state) {
+				case AttributeValueTemplate::OUT_EXPR:
+					$assign(lookahead, tokenizer->nextToken());
+					if ($nc(lookahead)->equals("{"_s)) {
+						buffer->append(lookahead);
+						$assign(lookahead, nullptr);
+					} else {
+						buffer->append(AttributeValueTemplate::DELIMITER);
+						state = AttributeValueTemplate::IN_EXPR;
 					}
 					break;
+				case AttributeValueTemplate::IN_EXPR:
+				case AttributeValueTemplate::IN_EXPR_SQUOTES:
+				case AttributeValueTemplate::IN_EXPR_DQUOTES:
+					$init($ErrorMsg);
+					reportError($(getParent()), parser, $ErrorMsg::ATTR_VAL_TEMPLATE_ERR, text);
+					break;
 				}
+				break;
 			case u'}':
-				{
-					switch (state) {
-					case AttributeValueTemplate::OUT_EXPR:
-						{
-							$assign(lookahead, tokenizer->nextToken());
-							if ($nc(lookahead)->equals("}"_s)) {
-								buffer->append(lookahead);
-								$assign(lookahead, nullptr);
-							} else {
-								$init($ErrorMsg);
-								reportError($(getParent()), parser, $ErrorMsg::ATTR_VAL_TEMPLATE_ERR, text);
-							}
-							break;
-						}
-					case AttributeValueTemplate::IN_EXPR:
-						{
-							buffer->append(AttributeValueTemplate::DELIMITER);
-							state = AttributeValueTemplate::OUT_EXPR;
-							break;
-						}
-					case AttributeValueTemplate::IN_EXPR_SQUOTES:
-						{}
-					case AttributeValueTemplate::IN_EXPR_DQUOTES:
-						{
-							buffer->append(t);
-							break;
-						}
+				switch (state) {
+				case AttributeValueTemplate::OUT_EXPR:
+					$assign(lookahead, tokenizer->nextToken());
+					if ($nc(lookahead)->equals("}"_s)) {
+						buffer->append(lookahead);
+						$assign(lookahead, nullptr);
+					} else {
+						$init($ErrorMsg);
+						reportError($(getParent()), parser, $ErrorMsg::ATTR_VAL_TEMPLATE_ERR, text);
 					}
 					break;
+				case AttributeValueTemplate::IN_EXPR:
+					buffer->append(AttributeValueTemplate::DELIMITER);
+					state = AttributeValueTemplate::OUT_EXPR;
+					break;
+				case AttributeValueTemplate::IN_EXPR_SQUOTES:
+				case AttributeValueTemplate::IN_EXPR_DQUOTES:
+					buffer->append(t);
+					break;
 				}
+				break;
 			case u'\'':
-				{
-					switch (state) {
-					case AttributeValueTemplate::IN_EXPR:
-						{
-							state = AttributeValueTemplate::IN_EXPR_SQUOTES;
-							break;
-						}
-					case AttributeValueTemplate::IN_EXPR_SQUOTES:
-						{
-							state = AttributeValueTemplate::IN_EXPR;
-							break;
-						}
-					case AttributeValueTemplate::OUT_EXPR:
-						{}
-					case AttributeValueTemplate::IN_EXPR_DQUOTES:
-						{
-							break;
-						}
-					}
-					buffer->append(t);
+				switch (state) {
+				case AttributeValueTemplate::IN_EXPR:
+					state = AttributeValueTemplate::IN_EXPR_SQUOTES;
+					break;
+				case AttributeValueTemplate::IN_EXPR_SQUOTES:
+					state = AttributeValueTemplate::IN_EXPR;
+					break;
+				case AttributeValueTemplate::OUT_EXPR:
+				case AttributeValueTemplate::IN_EXPR_DQUOTES:
 					break;
 				}
+				buffer->append(t);
+				break;
 			case u'\"':
-				{
-					switch (state) {
-					case AttributeValueTemplate::IN_EXPR:
-						{
-							state = AttributeValueTemplate::IN_EXPR_DQUOTES;
-							break;
-						}
-					case AttributeValueTemplate::IN_EXPR_DQUOTES:
-						{
-							state = AttributeValueTemplate::IN_EXPR;
-							break;
-						}
-					case AttributeValueTemplate::OUT_EXPR:
-						{}
-					case AttributeValueTemplate::IN_EXPR_SQUOTES:
-						{
-							break;
-						}
-					}
-					buffer->append(t);
+				switch (state) {
+				case AttributeValueTemplate::IN_EXPR:
+					state = AttributeValueTemplate::IN_EXPR_DQUOTES;
+					break;
+				case AttributeValueTemplate::IN_EXPR_DQUOTES:
+					state = AttributeValueTemplate::IN_EXPR;
+					break;
+				case AttributeValueTemplate::OUT_EXPR:
+				case AttributeValueTemplate::IN_EXPR_SQUOTES:
 					break;
 				}
+				buffer->append(t);
+				break;
 			default:
-				{
-					buffer->append(t);
-					break;
-				}
+				buffer->append(t);
+				break;
 			}
 		} else {
 			buffer->append(t);
@@ -265,13 +196,13 @@ void AttributeValueTemplate::parseAVTemplate($String* text, $Parser* parser) {
 }
 
 $Type* AttributeValueTemplate::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, contents, getContents());
 	int32_t n = $nc(contents)->size();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Expression, exp, $cast($Expression, contents->get(i)));
 		$init($Type);
-		if (!$nc($($nc(exp)->typeCheck(stable)))->identicalTo($Type::String)) {
+		if (!$$nc($nc(exp)->typeCheck(stable))->identicalTo($Type::String)) {
 			contents->set(i, $$new($CastExpr, exp, $Type::String));
 		}
 	}
@@ -280,11 +211,11 @@ $Type* AttributeValueTemplate::typeCheck($SymbolTable* stable) {
 }
 
 $String* AttributeValueTemplate::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buffer, $new($StringBuilder, "AVT:["_s));
 	int32_t count = elementCount();
 	for (int32_t i = 0; i < count; ++i) {
-		buffer->append($($nc($of($(elementAt(i))))->toString()));
+		buffer->append($($$nc(elementAt(i))->toString()));
 		if (i < count - 1) {
 			buffer->append(u' ');
 		}
@@ -293,7 +224,7 @@ $String* AttributeValueTemplate::toString() {
 }
 
 void AttributeValueTemplate::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (elementCount() == 1) {
 		$var($Expression, exp, $cast($Expression, elementAt(0)));
 		$nc(exp)->translate(classGen, methodGen);
@@ -304,28 +235,54 @@ void AttributeValueTemplate::translate($ClassGenerator* classGen, $MethodGenerat
 		int32_t initBuffer = $nc(cpg)->addMethodref($Constants::STRING_BUFFER_CLASS, "<init>"_s, "()V"_s);
 		$var($Instruction, append, $new($INVOKEVIRTUAL, cpg->addMethodref($Constants::STRING_BUFFER_CLASS, "append"_s, $$str({"("_s, $Constants::STRING_SIG, ")"_s, $Constants::STRING_BUFFER_SIG}))));
 		int32_t toString = cpg->addMethodref($Constants::STRING_BUFFER_CLASS, "toString"_s, $$str({"()"_s, $Constants::STRING_SIG}));
-		$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::STRING_BUFFER_CLASS))));
-		il->append(static_cast<$Instruction*>($Constants::DUP));
-		il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, initBuffer)));
+		$nc(il)->append($$new($NEW, cpg->addClass($Constants::STRING_BUFFER_CLASS)));
+		il->append($Constants::DUP);
+		il->append($$new($INVOKESPECIAL, initBuffer));
 		$var($Iterator, elements, this->elements());
 		while ($nc(elements)->hasNext()) {
 			$var($Expression, exp, $cast($Expression, elements->next()));
 			$nc(exp)->translate(classGen, methodGen);
 			il->append(append);
 		}
-		il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, toString)));
+		il->append($$new($INVOKEVIRTUAL, toString));
 	}
 }
 
 AttributeValueTemplate::AttributeValueTemplate() {
 }
 
-void clinit$AttributeValueTemplate($Class* class$) {
+void AttributeValueTemplate::clinit$($Class* clazz) {
 	$assignStatic(AttributeValueTemplate::DELIMITER, u"\ufffe"_s);
 }
 
 $Class* AttributeValueTemplate::load$($String* name, bool initialize) {
-	$loadClass(AttributeValueTemplate, name, initialize, &_AttributeValueTemplate_ClassInfo_, clinit$AttributeValueTemplate, allocate$AttributeValueTemplate);
+	$FieldInfo fieldInfos$$[] = {
+		{"OUT_EXPR", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, OUT_EXPR)},
+		{"IN_EXPR", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, IN_EXPR)},
+		{"IN_EXPR_SQUOTES", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, IN_EXPR_SQUOTES)},
+		{"IN_EXPR_DQUOTES", "I", nullptr, $STATIC | $FINAL, $constField(AttributeValueTemplate, IN_EXPR_DQUOTES)},
+		{"DELIMITER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AttributeValueTemplate, DELIMITER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(AttributeValueTemplate, init$, void, $String*, $Parser*, $SyntaxTreeNode*)},
+		{"parseAVTemplate", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PRIVATE, $method(AttributeValueTemplate, parseAVTemplate, void, $String*, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValueTemplate, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(AttributeValueTemplate, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(AttributeValueTemplate, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeValueTemplate",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeValueTemplate, name, initialize, &classInfo$$, AttributeValueTemplate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeValueTemplate);
+	});
 	return class$;
 }
 

@@ -1,11 +1,8 @@
 #include <sun/security/krb5/KdcComm.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -32,7 +29,6 @@
 #undef TRY_LESS
 
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -41,11 +37,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Config = ::sun::security::krb5::Config;
 using $KdcComm$1 = ::sun::security::krb5::KdcComm$1;
@@ -60,58 +53,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KdcComm_FieldInfo_[] = {
-	{"defaultKdcRetryLimit", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, defaultKdcRetryLimit)},
-	{"defaultKdcTimeout", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, defaultKdcTimeout)},
-	{"defaultUdpPrefLimit", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, defaultUdpPrefLimit)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KdcComm, DEBUG)},
-	{"tryLessMaxRetries", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, tryLessMaxRetries)},
-	{"tryLessTimeout", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, tryLessTimeout)},
-	{"badPolicy", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, badPolicy)},
-	{"realm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KdcComm, realm)},
-	{}
-};
-
-$MethodInfo _KdcComm_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KdcComm, init$, void, $String*), "sun.security.krb5.KrbException"},
-	{"getRealmSpecificValue", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(KdcComm, getRealmSpecificValue, int32_t, $String*, $String*, int32_t)},
-	{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm, initStatic, void)},
-	{"parsePositiveIntString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(KdcComm, parsePositiveIntString, int32_t, $String*)},
-	{"parseTimeString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(KdcComm, parseTimeString, int32_t, $String*)},
-	{"send", "([B)[B", nullptr, $PUBLIC, $method(KdcComm, send, $bytes*, $bytes*), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"send", "([BZ)[B", nullptr, $PRIVATE, $method(KdcComm, send, $bytes*, $bytes*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"send", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(KdcComm, send, $bytes*, $bytes*, $String*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"sendIfPossible", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(KdcComm, sendIfPossible, $bytes*, $bytes*, $String*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
-	{}
-};
-
-$InnerClassInfo _KdcComm_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KdcComm$KdcAccessibility", "sun.security.krb5.KdcComm", "KdcAccessibility", $STATIC},
-	{"sun.security.krb5.KdcComm$KdcCommunication", "sun.security.krb5.KdcComm", "KdcCommunication", $PRIVATE | $STATIC},
-	{"sun.security.krb5.KdcComm$BpType", "sun.security.krb5.KdcComm", "BpType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"sun.security.krb5.KdcComm$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KdcComm_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.krb5.KdcComm",
-	"java.lang.Object",
-	nullptr,
-	_KdcComm_FieldInfo_,
-	_KdcComm_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KdcComm_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KdcComm$KdcAccessibility,sun.security.krb5.KdcComm$KdcCommunication,sun.security.krb5.KdcComm$BpType,sun.security.krb5.KdcComm$1"
-};
-
-$Object* allocate$KdcComm($Class* clazz) {
-	return $of($alloc(KdcComm));
-}
-
 int32_t KdcComm::defaultKdcRetryLimit = 0;
 int32_t KdcComm::defaultKdcTimeout = 0;
 int32_t KdcComm::defaultUdpPrefLimit = 0;
@@ -122,9 +63,9 @@ $KdcComm$BpType* KdcComm::badPolicy = nullptr;
 
 void KdcComm::initStatic() {
 	$init(KdcComm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, value, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($KdcComm$1)))));
+	$var($String, value, $cast($String, $AccessController::doPrivileged($$new($KdcComm$1))));
 	if (value != nullptr) {
 		$init($Locale);
 		$assign(value, value->toLowerCase($Locale::ENGLISH));
@@ -195,10 +136,10 @@ void KdcComm::initStatic() {
 }
 
 void KdcComm::init$($String* realm$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, realm, realm$renamed);
 	if (realm == nullptr) {
-		$assign(realm, $nc($($Config::getInstance()))->getDefaultRealm());
+		$assign(realm, $$nc($Config::getInstance())->getDefaultRealm());
 		if (realm == nullptr) {
 			$throwNew($KrbException, $Krb5::KRB_ERR_GENERIC, "Cannot find default realm"_s);
 		}
@@ -213,7 +154,7 @@ $bytes* KdcComm::send($bytes* obuf) {
 }
 
 $bytes* KdcComm::send($bytes* obuf, bool useTCP) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obuf == nullptr) {
 		return nullptr;
 	}
@@ -228,18 +169,18 @@ $bytes* KdcComm::send($bytes* obuf, bool useTCP) {
 	if (kdcList == nullptr) {
 		$throwNew($KrbException, $$str({"Cannot get kdc for realm "_s, this->realm}));
 	}
-	$var($Iterator, tempKdc, $nc($($KdcComm$KdcAccessibility::list(kdcList)))->iterator());
+	$var($Iterator, tempKdc, $$nc($KdcComm$KdcAccessibility::list(kdcList))->iterator());
 	if (!$nc(tempKdc)->hasNext()) {
 		$throwNew($KrbException, $$str({"Cannot get kdc for realm "_s, this->realm}));
 	}
 	$var($bytes, ibuf, nullptr);
 	try {
-		$assign(ibuf, sendIfPossible(obuf, $cast($String, $($nc(tempKdc)->next())), useTCP));
+		$assign(ibuf, sendIfPossible(obuf, $$cast($String, tempKdc->next()), useTCP));
 	} catch ($Exception& first) {
 		bool ok = false;
-		while ($nc(tempKdc)->hasNext()) {
+		while (tempKdc->hasNext()) {
 			try {
-				$assign(ibuf, sendIfPossible(obuf, $cast($String, $(tempKdc->next())), useTCP));
+				$assign(ibuf, sendIfPossible(obuf, $$cast($String, tempKdc->next()), useTCP));
 				ok = true;
 				break;
 			} catch ($Exception& ignore) {
@@ -256,7 +197,7 @@ $bytes* KdcComm::send($bytes* obuf, bool useTCP) {
 }
 
 $bytes* KdcComm::sendIfPossible($bytes* obuf, $String* tempKdc, bool useTCP) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, ibuf, send(obuf, tempKdc, useTCP));
 		$var($KRBError, ke, nullptr);
@@ -281,7 +222,7 @@ $bytes* KdcComm::sendIfPossible($bytes* obuf, $String* tempKdc, bool useTCP) {
 }
 
 $bytes* KdcComm::send($bytes* obuf, $String* tempKdc, bool useTCP) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (obuf == nullptr) {
 		return nullptr;
@@ -301,7 +242,7 @@ $bytes* KdcComm::send($bytes* obuf, $String* tempKdc, bool useTCP) {
 	$var($String, kdc, nullptr);
 	$var($String, portStr, nullptr);
 	if ($nc(tempKdc)->charAt(0) == u'[') {
-		int32_t pos = tempKdc->indexOf((int32_t)u']', 1);
+		int32_t pos = tempKdc->indexOf(u']', 1);
 		if (pos == -1) {
 			$throwNew($IOException, $$str({"Illegal KDC: "_s, tempKdc}));
 		}
@@ -313,11 +254,11 @@ $bytes* KdcComm::send($bytes* obuf, $String* tempKdc, bool useTCP) {
 			$assign(portStr, tempKdc->substring(pos + 2));
 		}
 	} else {
-		int32_t colon = tempKdc->indexOf((int32_t)u':');
+		int32_t colon = tempKdc->indexOf(u':');
 		if (colon == -1) {
 			$assign(kdc, tempKdc);
 		} else {
-			int32_t nextColon = tempKdc->indexOf((int32_t)u':', colon + 1);
+			int32_t nextColon = tempKdc->indexOf(u':', colon + 1);
 			if (nextColon > 0) {
 				$assign(kdc, tempKdc);
 			} else {
@@ -337,9 +278,9 @@ $bytes* KdcComm::send($bytes* obuf, $String* tempKdc, bool useTCP) {
 	}
 	$var($KdcComm$KdcCommunication, kdcCommunication, $new($KdcComm$KdcCommunication, kdc, port, useTCP, timeout, retries, obuf));
 	try {
-		$var($bytes, ibuf, $cast($bytes, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>(kdcCommunication))));
+		$var($bytes, ibuf, $cast($bytes, $AccessController::doPrivileged(kdcCommunication)));
 		if (KdcComm::DEBUG) {
-			$nc($System::out)->println($$str({">>> KrbKdcReq send: #bytes read="_s, $$str((ibuf != nullptr ? $nc(ibuf)->length : 0))}));
+			$nc($System::out)->println($$str({">>> KrbKdcReq send: #bytes read="_s, $$str((ibuf != nullptr ? ibuf->length : 0))}));
 		}
 		return ibuf;
 	} catch ($PrivilegedActionException& e) {
@@ -367,14 +308,14 @@ int32_t KdcComm::parseTimeString($String* s) {
 }
 
 int32_t KdcComm::getRealmSpecificValue($String* realm, $String* key, int32_t defValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t v = defValue;
 	if (realm == nullptr) {
 		return v;
 	}
 	int32_t temp = -1;
 	try {
-		$var($String, value, $nc($($Config::getInstance()))->get($$new($StringArray, {
+		$var($String, value, $$nc($Config::getInstance())->get($$new($StringArray, {
 			"realms"_s,
 			realm,
 			key
@@ -409,7 +350,7 @@ int32_t KdcComm::parsePositiveIntString($String* intString) {
 	return -1;
 }
 
-void clinit$KdcComm($Class* class$) {
+void KdcComm::clinit$($Class* clazz) {
 	$init($Krb5);
 	KdcComm::DEBUG = $Krb5::DEBUG;
 	KdcComm::tryLessMaxRetries = 1;
@@ -423,7 +364,53 @@ KdcComm::KdcComm() {
 }
 
 $Class* KdcComm::load$($String* name, bool initialize) {
-	$loadClass(KdcComm, name, initialize, &_KdcComm_ClassInfo_, clinit$KdcComm, allocate$KdcComm);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultKdcRetryLimit", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, defaultKdcRetryLimit)},
+		{"defaultKdcTimeout", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, defaultKdcTimeout)},
+		{"defaultUdpPrefLimit", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, defaultUdpPrefLimit)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KdcComm, DEBUG)},
+		{"tryLessMaxRetries", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, tryLessMaxRetries)},
+		{"tryLessTimeout", "I", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, tryLessTimeout)},
+		{"badPolicy", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC, $staticField(KdcComm, badPolicy)},
+		{"realm", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KdcComm, realm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KdcComm, init$, void, $String*), "sun.security.krb5.KrbException"},
+		{"getRealmSpecificValue", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(KdcComm, getRealmSpecificValue, int32_t, $String*, $String*, int32_t)},
+		{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm, initStatic, void)},
+		{"parsePositiveIntString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(KdcComm, parsePositiveIntString, int32_t, $String*)},
+		{"parseTimeString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(KdcComm, parseTimeString, int32_t, $String*)},
+		{"send", "([B)[B", nullptr, $PUBLIC, $method(KdcComm, send, $bytes*, $bytes*), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"send", "([BZ)[B", nullptr, $PRIVATE, $method(KdcComm, send, $bytes*, $bytes*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"send", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(KdcComm, send, $bytes*, $bytes*, $String*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
+		{"sendIfPossible", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(KdcComm, sendIfPossible, $bytes*, $bytes*, $String*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KdcComm$KdcAccessibility", "sun.security.krb5.KdcComm", "KdcAccessibility", $STATIC},
+		{"sun.security.krb5.KdcComm$KdcCommunication", "sun.security.krb5.KdcComm", "KdcCommunication", $PRIVATE | $STATIC},
+		{"sun.security.krb5.KdcComm$BpType", "sun.security.krb5.KdcComm", "BpType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"sun.security.krb5.KdcComm$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.krb5.KdcComm",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KdcComm$KdcAccessibility,sun.security.krb5.KdcComm$KdcCommunication,sun.security.krb5.KdcComm$BpType,sun.security.krb5.KdcComm$1"
+	};
+	$loadClass(KdcComm, name, initialize, &classInfo$$, KdcComm::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KdcComm);
+	});
 	return class$;
 }
 

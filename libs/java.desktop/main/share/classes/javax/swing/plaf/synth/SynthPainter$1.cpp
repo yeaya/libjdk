@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthPainter$1.h>
-
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <jcpp.h>
 
@@ -14,42 +13,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$MethodInfo _SynthPainter$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SynthPainter$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthPainter$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.synth.SynthPainter",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SynthPainter$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthPainter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthPainter$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthPainter$1",
-	"javax.swing.plaf.synth.SynthPainter",
-	nullptr,
-	nullptr,
-	_SynthPainter$1_MethodInfo_,
-	nullptr,
-	&_SynthPainter$1_EnclosingMethodInfo_,
-	_SynthPainter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthPainter"
-};
-
-$Object* allocate$SynthPainter$1($Class* clazz) {
-	return $of($alloc(SynthPainter$1));
-}
-
 void SynthPainter$1::init$() {
 	$SynthPainter::init$();
 }
@@ -58,7 +21,37 @@ SynthPainter$1::SynthPainter$1() {
 }
 
 $Class* SynthPainter$1::load$($String* name, bool initialize) {
-	$loadClass(SynthPainter$1, name, initialize, &_SynthPainter$1_ClassInfo_, allocate$SynthPainter$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SynthPainter$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.synth.SynthPainter",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthPainter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthPainter$1",
+		"javax.swing.plaf.synth.SynthPainter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthPainter"
+	};
+	$loadClass(SynthPainter$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthPainter$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_yav.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,123 +13,104 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_yav_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_yav, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_yav, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_yav_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_yav",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_yav_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_yav($Class* clazz) {
-	return $of($alloc(CurrencyNames_yav));
-}
-
 void CurrencyNames_yav::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_yav::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of(u"kuansa wu angolá"_s)
+			"aoa"_s,
+			u"kuansa wu angolá"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of(u"toláal wu ostalalí"_s)
+			"aud"_s,
+			u"toláal wu ostalalí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of(u"tináal wu paaléen"_s)
+			"bhd"_s,
+			u"tináal wu paaléen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of(u"faláŋɛ u pulundí"_s)
+			"bif"_s,
+			u"faláŋɛ u pulundí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of(u"pula pu posuána"_s)
+			"bwp"_s,
+			u"pula pu posuána"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"toláal u kanáta"_s)
+			"cad"_s,
+			u"toláal u kanáta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of(u"́faláŋɛ u kongó"_s)
+			"cdf"_s,
+			u"́faláŋɛ u kongó"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of(u"yuan ɛlɛnmimbí"_s)
+			"cny"_s,
+			u"yuan ɛlɛnmimbí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of(u"ɛskúdo u kápfɛ́ɛl"_s)
+			"cve"_s,
+			u"ɛskúdo u kápfɛ́ɛl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of(u"́faláŋɛ u síputí"_s)
+			"djf"_s,
+			u"́faláŋɛ u síputí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of(u"tináal wu alselí"_s)
+			"dzd"_s,
+			u"tináal wu alselí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of(u"lífilɛ wu isípit"_s)
+			"egp"_s,
+			u"lífilɛ wu isípit"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of(u"náfka wu elitilée"_s)
+			"ern"_s,
+			u"náfka wu elitilée"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of(u"píil wu etiopí"_s)
+			"etb"_s,
+			u"píil wu etiopí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of(u"olóo"_s)
+			"eur"_s,
+			u"olóo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of(u"lífilɛ sitelelíiŋ"_s)
+			"gbp"_s,
+			u"lífilɛ sitelelíiŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of(u"setí"_s)
+			"ghc"_s,
+			u"setí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of(u"talasí u kaambí"_s)
+			"gmd"_s,
+			u"talasí u kaambí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of(u"silí u kiiné"_s)
+			"gns"_s,
+			u"silí u kiiné"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of(u"ulupí"_s)
+			"inr"_s,
+			u"ulupí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of(u"yɛ́ɛn u sapɔ́ɔŋ"_s)
+			"jpy"_s,
+			u"yɛ́ɛn u sapɔ́ɔŋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of(u"síliŋ u kénia"_s)
+			"kes"_s,
+			u"síliŋ u kénia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of(u"́faláŋɛ u kɔmɔ́ɔl"_s)
+			"kmf"_s,
+			u"́faláŋɛ u kɔmɔ́ɔl"_s
 		})
 	}));
 	return data;
@@ -140,7 +120,22 @@ CurrencyNames_yav::CurrencyNames_yav() {
 }
 
 $Class* CurrencyNames_yav::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_yav, name, initialize, &_CurrencyNames_yav_ClassInfo_, allocate$CurrencyNames_yav);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_yav, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_yav, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_yav",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_yav, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_yav);
+	});
 	return class$;
 }
 

@@ -44,6 +44,7 @@ class PubAPIs : public ::java::lang::Object {
 	$class(PubAPIs, 0, ::java::lang::Object)
 public:
 	PubAPIs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::java::util::Map* getPubapis(::java::util::Collection* explicitJFOs, bool explicits);
 	static ::com::sun::tools::sjavac::comp::PubAPIs* instance(::com::sun::tools::javac::util::Context* context);

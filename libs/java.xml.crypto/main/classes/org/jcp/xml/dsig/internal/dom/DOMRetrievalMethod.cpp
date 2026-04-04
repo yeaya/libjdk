@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMRetrievalMethod.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/io/ByteArrayInputStream.h>
@@ -9,7 +8,6 @@
 #include <java/net/URISyntaxException.h>
 #include <java/security/Provider.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -42,7 +40,6 @@
 #undef INSTANCE
 #undef XMLNS
 
-using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;
@@ -57,7 +54,6 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $Provider = ::java::security::Provider;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -65,7 +61,6 @@ using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $NodeSetData = ::javax::xml::crypto::NodeSetData;
 using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
-using $URIReference = ::javax::xml::crypto::URIReference;
 using $URIReferenceException = ::javax::xml::crypto::URIReferenceException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
@@ -92,46 +87,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMRetrievalMethod_FieldInfo_[] = {
-	{"transforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PRIVATE | $FINAL, $field(DOMRetrievalMethod, transforms)},
-	{"uri", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMRetrievalMethod, uri)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMRetrievalMethod, type)},
-	{"here", "Lorg/w3c/dom/Attr;", nullptr, $PRIVATE, $field(DOMRetrievalMethod, here)},
-	{}
-};
-
-$MethodInfo _DOMRetrievalMethod_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;)V", $PUBLIC, $method(DOMRetrievalMethod, init$, void, $String*, $String*, $List*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMRetrievalMethod, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, dereference, $Data*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
-	{"dereferenceAsXMLStructure", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/XMLStructure;", nullptr, $PUBLIC, $method(DOMRetrievalMethod, dereferenceAsXMLStructure, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, equals, bool, Object$*)},
-	{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, getHere, $Node*)},
-	{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC, $virtualMethod(DOMRetrievalMethod, getTransforms, $List*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, getType, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, getURI, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMRetrievalMethod_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMRetrievalMethod",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.keyinfo.RetrievalMethod,javax.xml.crypto.dom.DOMURIReference",
-	_DOMRetrievalMethod_FieldInfo_,
-	_DOMRetrievalMethod_MethodInfo_
-};
-
-$Object* allocate$DOMRetrievalMethod($Class* clazz) {
-	return $of($alloc(DOMRetrievalMethod));
-}
-
 bool DOMRetrievalMethod::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -149,22 +104,18 @@ void DOMRetrievalMethod::finalize() {
 }
 
 void DOMRetrievalMethod::init$($String* uri, $String* type, $List* transforms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	if (uri == nullptr) {
 		$throwNew($NullPointerException, "uri cannot be null"_s);
 	}
-	if (transforms == nullptr || $nc(transforms)->isEmpty()) {
+	if (transforms == nullptr || transforms->isEmpty()) {
 		$set(this, transforms, $Collections::emptyList());
 	} else {
-		$set(this, transforms, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(transforms))));
-		{
-			int32_t i = 0;
-			int32_t size = $nc(this->transforms)->size();
-			for (; i < size; ++i) {
-				if (!($instanceOf($Transform, $($nc(this->transforms)->get(i))))) {
-					$throwNew($ClassCastException, $$str({"transforms["_s, $$str(i), "] is not a valid type"_s}));
-				}
+		$set(this, transforms, $Collections::unmodifiableList($$new($ArrayList, transforms)));
+		for (int32_t i = 0, size = $nc(this->transforms)->size(); i < size; ++i) {
+			if (!($instanceOf($Transform, $(this->transforms->get(i))))) {
+				$throwNew($ClassCastException, $$str({"transforms["_s, $$str(i), "] is not a valid type"_s}));
 			}
 		}
 	}
@@ -180,7 +131,7 @@ void DOMRetrievalMethod::init$($String* uri, $String* type, $List* transforms) {
 }
 
 void DOMRetrievalMethod::init$($Element* rmElem, $XMLCryptoContext* context, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$set(this, uri, $DOMUtils::getAttributeValue(rmElem, "URI"_s));
 	$set(this, type, $DOMUtils::getAttributeValue(rmElem, "Type"_s));
@@ -232,7 +183,7 @@ $List* DOMRetrievalMethod::getTransforms() {
 }
 
 void DOMRetrievalMethod::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, rmElem, $DOMUtils::createElement(ownerDoc, "RetrievalMethod"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -242,11 +193,11 @@ void DOMRetrievalMethod::marshal($Node* parent, $String* dsPrefix, $DOMCryptoCon
 		$var($Element, transformsElem, $DOMUtils::createElement(ownerDoc, "Transforms"_s, $XMLSignature::XMLNS, dsPrefix));
 		$nc(rmElem)->appendChild(transformsElem);
 		{
-			$var($Iterator, i$, $nc(this->transforms)->iterator());
+			$var($Iterator, i$, this->transforms->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Transform, transform, $cast($Transform, i$->next()));
 				{
-					$nc(($cast($DOMTransform, transform)))->marshal(transformsElem, dsPrefix, context);
+					$nc($cast($DOMTransform, transform))->marshal(transformsElem, dsPrefix, context);
 				}
 			}
 		}
@@ -260,7 +211,7 @@ $Node* DOMRetrievalMethod::getHere() {
 }
 
 $Data* DOMRetrievalMethod::dereference($XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (context == nullptr) {
 		$throwNew($NullPointerException, "context cannot be null"_s);
 	}
@@ -269,24 +220,22 @@ $Data* DOMRetrievalMethod::dereference($XMLCryptoContext* context) {
 		$init($DOMURIDereferencer);
 		$assign(deref, $DOMURIDereferencer::INSTANCE);
 	}
-	$var($Data, data, $nc(deref)->dereference(static_cast<$URIReference*>(static_cast<$RetrievalMethod*>(this)), context));
+	$var($Data, data, $nc(deref)->dereference($cast($RetrievalMethod, this), context));
 	try {
-		{
-			$var($Iterator, i$, $nc(this->transforms)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Transform, transform, $cast($Transform, i$->next()));
-				{
-					$assign(data, $nc(($cast($DOMTransform, transform)))->transform(data, context));
-				}
+		$var($Iterator, i$, $nc(this->transforms)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Transform, transform, $cast($Transform, i$->next()));
+			{
+				$assign(data, $nc($cast($DOMTransform, transform))->transform(data, context));
 			}
 		}
 	} catch ($Exception& e) {
-		$throwNew($URIReferenceException, static_cast<$Throwable*>(e));
+		$throwNew($URIReferenceException, e);
 	}
 	bool var$0 = $instanceOf($NodeSetData, data) && $Utils::secureValidation(context);
 	if (var$0 && $Policy::restrictRetrievalMethodLoops()) {
 		$var($NodeSetData, nsd, $cast($NodeSetData, data));
-		$var($Iterator, i, $nc(nsd)->iterator());
+		$var($Iterator, i, nsd->iterator());
 		if ($nc(i)->hasNext()) {
 			$var($Node, root, $cast($Node, i->next()));
 			if ("RetrievalMethod"_s->equals($($nc(root)->getLocalName()))) {
@@ -298,58 +247,56 @@ $Data* DOMRetrievalMethod::dereference($XMLCryptoContext* context) {
 }
 
 $XMLStructure* DOMRetrievalMethod::dereferenceAsXMLStructure($XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool secVal = $Utils::secureValidation(context);
 	$var($ApacheData, data, $cast($ApacheData, dereference(context)));
 	try {
-		$var($InputStream, is, $new($ByteArrayInputStream, $($nc($($nc(data)->getXMLSignatureInput()))->getBytes())));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($XMLStructure, var$2, nullptr);
-			bool return$1 = false;
+		$var($InputStream, is, $new($ByteArrayInputStream, $($$nc($nc(data)->getXMLSignatureInput())->getBytes())));
+		$var($Throwable, var$0, nullptr);
+		$var($XMLStructure, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$var($Document, doc, $XMLUtils::read(is, secVal));
-					$var($Element, kiElem, $nc(doc)->getDocumentElement());
-					bool var$3 = "X509Data"_s->equals($($nc(kiElem)->getLocalName()));
-					$init($XMLSignature);
-					if (var$3 && $nc($XMLSignature::XMLNS)->equals($($nc(kiElem)->getNamespaceURI()))) {
-						$assign(var$2, static_cast<$XMLStructure*>(static_cast<$DOMStructure*>($new($DOMX509Data, kiElem))));
-						return$1 = true;
-						goto $finally;
-					} else {
-						$assign(var$2, nullptr);
-						return$1 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& t$) {
-					try {
-						is->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				$var($Document, doc, $XMLUtils::read(is, secVal));
+				$var($Element, kiElem, $nc(doc)->getDocumentElement());
+				bool var$3 = "X509Data"_s->equals($($nc(kiElem)->getLocalName()));
+				$init($XMLSignature);
+				if (var$3 && $nc($XMLSignature::XMLNS)->equals($(kiElem->getNamespaceURI()))) {
+					$assign(var$2, $cast($DOMStructure, $new($DOMX509Data, kiElem)));
+					return$1 = true;
+					goto $finally;
+				} else {
+					$assign(var$2, nullptr);
+					return$1 = true;
+					goto $finally;
 				}
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} $finally: {
-				is->close();
+			} catch ($Throwable& t$) {
+				try {
+					is->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} $finally: {
+			is->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($Exception& e) {
-		$throwNew($URIReferenceException, static_cast<$Throwable*>(e));
+		$throwNew($URIReferenceException, e);
 	}
 	$shouldNotReachHere();
 }
 
 bool DOMRetrievalMethod::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -357,15 +304,15 @@ bool DOMRetrievalMethod::equals(Object$* obj) {
 		return false;
 	}
 	$var($RetrievalMethod, orm, $cast($RetrievalMethod, obj));
-	bool typesEqual = this->type == nullptr ? $nc(orm)->getType() == nullptr : $nc(this->type)->equals($(orm->getType()));
-	bool var$0 = $nc(this->uri)->equals($(orm->getURI()));
+	bool typesEqual = this->type == nullptr ? $nc(orm)->getType() == nullptr : this->type->equals($($nc(orm)->getType()));
+	bool var$0 = $nc(this->uri)->equals($($nc(orm)->getURI()));
 	return var$0 && $nc(this->transforms)->equals($(orm->getTransforms())) && typesEqual;
 }
 
 int32_t DOMRetrievalMethod::hashCode() {
 	int32_t result = 17;
 	if (this->type != nullptr) {
-		result = 31 * result + $nc(this->type)->hashCode();
+		result = 31 * result + this->type->hashCode();
 	}
 	result = 31 * result + $nc(this->uri)->hashCode();
 	result = 31 * result + $nc(this->transforms)->hashCode();
@@ -376,7 +323,42 @@ DOMRetrievalMethod::DOMRetrievalMethod() {
 }
 
 $Class* DOMRetrievalMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMRetrievalMethod, name, initialize, &_DOMRetrievalMethod_ClassInfo_, allocate$DOMRetrievalMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"transforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PRIVATE | $FINAL, $field(DOMRetrievalMethod, transforms)},
+		{"uri", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMRetrievalMethod, uri)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMRetrievalMethod, type)},
+		{"here", "Lorg/w3c/dom/Attr;", nullptr, $PRIVATE, $field(DOMRetrievalMethod, here)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;)V", $PUBLIC, $method(DOMRetrievalMethod, init$, void, $String*, $String*, $List*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMRetrievalMethod, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, dereference, $Data*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
+		{"dereferenceAsXMLStructure", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/XMLStructure;", nullptr, $PUBLIC, $method(DOMRetrievalMethod, dereferenceAsXMLStructure, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, equals, bool, Object$*)},
+		{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, getHere, $Node*)},
+		{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC, $virtualMethod(DOMRetrievalMethod, getTransforms, $List*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, getType, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, getURI, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMRetrievalMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMRetrievalMethod",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.keyinfo.RetrievalMethod,javax.xml.crypto.dom.DOMURIReference",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMRetrievalMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMRetrievalMethod));
+	});
 	return class$;
 }
 

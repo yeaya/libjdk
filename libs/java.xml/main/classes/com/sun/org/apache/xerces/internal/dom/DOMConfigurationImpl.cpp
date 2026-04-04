@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMConfigurationImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMStringListImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
@@ -206,7 +205,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $CatalogFeatures$Feature = ::javax::xml::catalog::CatalogFeatures$Feature;
@@ -224,131 +222,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DOMConfigurationImpl_FieldInfo_[] = {
-	{"XML11_DATATYPE_VALIDATOR_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XML11_DATATYPE_VALIDATOR_FACTORY)},
-	{"XERCES_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XERCES_VALIDATION)},
-	{"XERCES_NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XERCES_NAMESPACES)},
-	{"SCHEMA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA)},
-	{"SCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_FULL_CHECKING)},
-	{"DYNAMIC_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DYNAMIC_VALIDATION)},
-	{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, NORMALIZE_DATA)},
-	{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_ELEMENT_DEFAULT)},
-	{"SEND_PSVI", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SEND_PSVI)},
-	{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, GENERATE_SYNTHETIC_ANNOTATIONS)},
-	{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, VALIDATE_ANNOTATIONS)},
-	{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, HONOUR_ALL_SCHEMALOCATIONS)},
-	{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, USE_GRAMMAR_POOL_ONLY)},
-	{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DISALLOW_DOCTYPE_DECL_FEATURE)},
-	{"BALANCE_SYNTAX_TREES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, BALANCE_SYNTAX_TREES)},
-	{"WARN_ON_DUPLICATE_ATTDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, WARN_ON_DUPLICATE_ATTDEF)},
-	{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, NAMESPACE_GROWTH)},
-	{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, TOLERATE_DUPLICATES)},
-	{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ENTITY_MANAGER)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ERROR_REPORTER)},
-	{"XML_STRING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XML_STRING)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SYMBOL_TABLE)},
-	{"GRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, GRAMMAR_POOL)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ERROR_HANDLER)},
-	{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ENTITY_RESOLVER)},
-	{"JAXP_SCHEMA_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, JAXP_SCHEMA_LANGUAGE)},
-	{"JAXP_SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, JAXP_SCHEMA_SOURCE)},
-	{"DTD_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DTD_VALIDATOR_PROPERTY)},
-	{"DTD_VALIDATOR_FACTORY_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DTD_VALIDATOR_FACTORY_PROPERTY)},
-	{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, VALIDATION_MANAGER)},
-	{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_LOCATION)},
-	{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_NONS_LOCATION)},
-	{"SCHEMA_DV_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_DV_FACTORY)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SECURITY_MANAGER)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XML_SECURITY_PROPERTY_MANAGER)},
-	{"fDocumentHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, 0, $field(DOMConfigurationImpl, fDocumentHandler)},
-	{"features", "S", nullptr, $PROTECTED, $field(DOMConfigurationImpl, features)},
-	{"NAMESPACES", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, NAMESPACES)},
-	{"DTNORMALIZATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, DTNORMALIZATION)},
-	{"ENTITIES", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, ENTITIES)},
-	{"CDATA", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, CDATA)},
-	{"SPLITCDATA", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, SPLITCDATA)},
-	{"COMMENTS", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, COMMENTS)},
-	{"VALIDATE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, VALIDATE)},
-	{"PSVI", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, PSVI)},
-	{"WELLFORMED", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, WELLFORMED)},
-	{"NSDECL", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, NSDECL)},
-	{"INFOSET_TRUE_PARAMS", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, INFOSET_TRUE_PARAMS)},
-	{"INFOSET_FALSE_PARAMS", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, INFOSET_FALSE_PARAMS)},
-	{"INFOSET_MASK", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, INFOSET_MASK)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fSymbolTable)},
-	{"fComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(DOMConfigurationImpl, fComponents)},
-	{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fValidationManager)},
-	{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fLocale)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fErrorReporter)},
-	{"fErrorHandlerWrapper", "Lcom/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper;", nullptr, $PROTECTED | $FINAL, $field(DOMConfigurationImpl, fErrorHandlerWrapper)},
-	{"fCurrentDVFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fCurrentDVFactory)},
-	{"fDatatypeValidatorFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fDatatypeValidatorFactory)},
-	{"fXML11DatatypeFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fXML11DatatypeFactory)},
-	{"fSchemaLocation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMConfigurationImpl, fSchemaLocation)},
-	{"fRecognizedParameters", "Lorg/w3c/dom/DOMStringList;", nullptr, $PRIVATE, $field(DOMConfigurationImpl, fRecognizedParameters)},
-	{}
-};
-
-$MethodInfo _DOMConfigurationImpl_MethodInfo_[] = {
-	{"*addRecognizedFeatures", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*addRecognizedProperties", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $FINAL},
-	{"*getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
-	{"*getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DOMConfigurationImpl, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PROTECTED, $method(DOMConfigurationImpl, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PROTECTED, $method(DOMConfigurationImpl, init$, void, $SymbolTable*, $XMLComponentManager*)},
-	{"addComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, addComponent, void, $XMLComponent*)},
-	{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, canSetParameter, bool, $String*, Object$*)},
-	{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"createValidationManager", "()Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, createValidationManager, $ValidationManager*)},
-	{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
-	{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getDTDHandler, $XMLDTDHandler*)},
-	{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getDocumentHandler, $XMLDocumentHandler*)},
-	{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getEntityResolver, $XMLEntityResolver*)},
-	{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getErrorHandler, $XMLErrorHandler*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getFeature, bool, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getLocale, $Locale*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
-	{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getParameterNames, $DOMStringList*)},
-	{"newFeatureNotFoundError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMConfigurationImpl, newFeatureNotFoundError, $DOMException*, $String*)},
-	{"newFeatureNotSupportedError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMConfigurationImpl, newFeatureNotSupportedError, $DOMException*, $String*)},
-	{"newTypeMismatchError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMConfigurationImpl, newTypeMismatchError, $DOMException*, $String*)},
-	{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, parse, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
-	{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
-	{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setDTDHandler, void, $XMLDTDHandler*)},
-	{"setDTDValidatorFactory", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $method(DOMConfigurationImpl, setDTDValidatorFactory, void, $String*)},
-	{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setDocumentHandler, void, $XMLDocumentHandler*)},
-	{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setEntityResolver, void, $XMLEntityResolver*)},
-	{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setErrorHandler, void, $XMLErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setLocale, void, $Locale*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMConfigurationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DOMConfigurationImpl",
-	"com.sun.org.apache.xerces.internal.util.ParserConfigurationSettings",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLParserConfiguration,org.w3c.dom.DOMConfiguration",
-	_DOMConfigurationImpl_FieldInfo_,
-	_DOMConfigurationImpl_MethodInfo_
-};
-
-$Object* allocate$DOMConfigurationImpl($Class* clazz) {
-	return $of($alloc(DOMConfigurationImpl));
-}
 
 void DOMConfigurationImpl::addRecognizedFeatures($StringArray* featureIds) {
 	this->$ParserConfigurationSettings::addRecognizedFeatures(featureIds);
@@ -443,10 +316,10 @@ void DOMConfigurationImpl::init$($SymbolTable* symbolTable) {
 }
 
 void DOMConfigurationImpl::init$($SymbolTable* symbolTable$renamed, $XMLComponentManager* parentSettings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SymbolTable, symbolTable, symbolTable$renamed);
 	$ParserConfigurationSettings::init$(parentSettings);
-	this->features = (int16_t)0;
+	this->features = 0;
 	$set(this, fErrorHandlerWrapper, $new($DOMErrorHandlerWrapper));
 	$set(this, fSchemaLocation, nullptr);
 	$set(this, fFeatures, $new($HashMap));
@@ -572,9 +445,7 @@ void DOMConfigurationImpl::init$($SymbolTable* symbolTable$renamed, $XMLComponen
 	}
 	{
 		$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$CatalogFeatures$Feature* f = arr$->get(i$);
 			{
 				setProperty($($nc(f)->getPropertyName()), nullptr);
@@ -653,81 +524,59 @@ $Locale* DOMConfigurationImpl::getLocale() {
 }
 
 void DOMConfigurationImpl::setParameter($String* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool found = true;
 	if ($instanceOf($Boolean, value)) {
-		bool state = $nc(($cast($Boolean, value)))->booleanValue();
+		bool state = $cast($Boolean, value)->booleanValue();
 		$init($Constants);
 		if ($nc(name)->equalsIgnoreCase($Constants::DOM_COMMENTS)) {
-			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::COMMENTS : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::COMMENTS));
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::COMMENTS : this->features & ~DOMConfigurationImpl::COMMENTS);
+		} else if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
+			setFeature(DOMConfigurationImpl::NORMALIZE_DATA, state);
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::DTNORMALIZATION : this->features & ~DOMConfigurationImpl::DTNORMALIZATION);
+			if (state) {
+				this->features = (int16_t)(this->features | DOMConfigurationImpl::VALIDATE);
+			}
+		} else if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::NAMESPACES : this->features & ~DOMConfigurationImpl::NAMESPACES);
+		} else if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::CDATA : this->features & ~DOMConfigurationImpl::CDATA);
+		} else if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::ENTITIES : this->features & ~DOMConfigurationImpl::ENTITIES);
+		} else if (name->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA)) {
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::SPLITCDATA : this->features & ~DOMConfigurationImpl::SPLITCDATA);
+		} else if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::VALIDATE : this->features & ~DOMConfigurationImpl::VALIDATE);
+		} else if (name->equalsIgnoreCase($Constants::DOM_WELLFORMED)) {
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::WELLFORMED : this->features & ~DOMConfigurationImpl::WELLFORMED);
+		} else if (name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
+			this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::NSDECL : this->features & ~DOMConfigurationImpl::NSDECL);
+		} else if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
+			if (state) {
+				this->features = (int16_t)(this->features | DOMConfigurationImpl::INFOSET_TRUE_PARAMS);
+				this->features = (int16_t)(this->features & ~DOMConfigurationImpl::INFOSET_FALSE_PARAMS);
+				setFeature(DOMConfigurationImpl::NORMALIZE_DATA, false);
+			}
 		} else {
-			if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
-				setFeature(DOMConfigurationImpl::NORMALIZE_DATA, state);
-				this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::DTNORMALIZATION : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::DTNORMALIZATION));
+			bool var$2 = name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
+			bool var$1 = var$2 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
+			bool var$0 = var$1 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
+			if (var$0 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION)) {
 				if (state) {
-					this->features = (int16_t)(this->features | DOMConfigurationImpl::VALIDATE);
+					$throw($(newFeatureNotSupportedError(name)));
 				}
+			} else if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
+				if (!state) {
+					$throw($(newFeatureNotSupportedError(name)));
+				}
+			} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SEND_PSVI)) {
+				if (!state) {
+					$throw($(newFeatureNotSupportedError(name)));
+				}
+			} else if (name->equalsIgnoreCase($Constants::DOM_PSVI)) {
+				this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::PSVI : this->features & ~DOMConfigurationImpl::PSVI);
 			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
-					this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::NAMESPACES : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::NAMESPACES));
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
-						this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::CDATA : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::CDATA));
-					} else {
-						if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
-							this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::ENTITIES : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::ENTITIES));
-						} else {
-							if (name->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA)) {
-								this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::SPLITCDATA : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::SPLITCDATA));
-							} else {
-								if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
-									this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::VALIDATE : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::VALIDATE));
-								} else {
-									if (name->equalsIgnoreCase($Constants::DOM_WELLFORMED)) {
-										this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::WELLFORMED : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::WELLFORMED));
-									} else {
-										if (name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
-											this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::NSDECL : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::NSDECL));
-										} else {
-											if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
-												if (state) {
-													this->features = (int16_t)(this->features | DOMConfigurationImpl::INFOSET_TRUE_PARAMS);
-													this->features = (int16_t)((int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::INFOSET_FALSE_PARAMS));
-													setFeature(DOMConfigurationImpl::NORMALIZE_DATA, false);
-												}
-											} else {
-												bool var$5 = name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
-												bool var$4 = var$5 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
-												bool var$3 = var$4 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
-												if (var$3 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION)) {
-													if (state) {
-														$throw($(newFeatureNotSupportedError(name)));
-													}
-												} else {
-													if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
-														if (!state) {
-															$throw($(newFeatureNotSupportedError(name)));
-														}
-													} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SEND_PSVI)) {
-														if (!state) {
-															$throw($(newFeatureNotSupportedError(name)));
-														}
-													} else {
-														if (name->equalsIgnoreCase($Constants::DOM_PSVI)) {
-															this->features = (int16_t)(state ? this->features | DOMConfigurationImpl::PSVI : (int32_t)(this->features & (uint32_t)~DOMConfigurationImpl::PSVI));
-														} else {
-															found = false;
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+				found = false;
 			}
 		}
 	}
@@ -741,193 +590,139 @@ void DOMConfigurationImpl::setParameter($String* name, Object$* value) {
 			} else {
 				$throw($(newTypeMismatchError(name)));
 			}
-		} else {
-			if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
-				if ($instanceOf($LSResourceResolver, value) || value == nullptr) {
-					try {
-						setEntityResolver($$new($DOMEntityResolverWrapper, $cast($LSResourceResolver, value)));
-					} catch ($XMLConfigurationException& e) {
-					}
-				} else {
-					$throw($(newTypeMismatchError(name)));
+		} else if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
+			if ($instanceOf($LSResourceResolver, value) || value == nullptr) {
+				try {
+					setEntityResolver($$new($DOMEntityResolverWrapper, $cast($LSResourceResolver, value)));
+				} catch ($XMLConfigurationException& e) {
 				}
 			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
-					if ($instanceOf($String, value) || value == nullptr) {
-						try {
-							if (value == nullptr) {
-								$set(this, fSchemaLocation, nullptr);
-								setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), nullptr);
-							} else {
-								$set(this, fSchemaLocation, $cast($String, value));
-								$var($StringTokenizer, t, $new($StringTokenizer, this->fSchemaLocation, " \n\t\r"_s));
-								if (t->hasMoreTokens()) {
-									$var($List, locations, $new($ArrayList));
-									locations->add($(t->nextToken()));
-									while (t->hasMoreTokens()) {
-										locations->add($(t->nextToken()));
-									}
-									setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), $(locations->toArray($$new($StringArray, locations->size()))));
-								} else {
-									setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), $$new($StringArray, {$cast($String, value)}));
-								}
-							}
-						} catch ($XMLConfigurationException& e) {
-						}
-					} else {
-						$throw($(newTypeMismatchError(name)));
-					}
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
-						if ($instanceOf($String, value) || value == nullptr) {
-							try {
-								if (value == nullptr) {
-									setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), nullptr);
-								} else {
-									if ($nc($of(value))->equals($Constants::NS_XMLSCHEMA)) {
-										setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_XMLSCHEMA);
-									} else {
-										if ($of(value)->equals($Constants::NS_DTD)) {
-											setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_DTD);
-										}
-									}
-								}
-							} catch ($XMLConfigurationException& e) {
-							}
-						} else {
-							$throw($(newTypeMismatchError(name)));
-						}
-					} else if (name->equalsIgnoreCase(DOMConfigurationImpl::ENTITY_RESOLVER)) {
-						if ($instanceOf($XMLEntityResolver, value) || value == nullptr) {
-							try {
-								setEntityResolver($cast($XMLEntityResolver, value));
-							} catch ($XMLConfigurationException& e) {
-							}
-						} else {
-							$throw($(newTypeMismatchError(name)));
-						}
-					} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SYMBOL_TABLE)) {
-						if ($instanceOf($SymbolTable, value)) {
-							setProperty(DOMConfigurationImpl::SYMBOL_TABLE, value);
-						} else {
-							$throw($(newTypeMismatchError(name)));
-						}
-					} else if (name->equalsIgnoreCase(DOMConfigurationImpl::GRAMMAR_POOL)) {
-						if ($instanceOf($XMLGrammarPool, value) || value == nullptr) {
-							setProperty(DOMConfigurationImpl::GRAMMAR_POOL, value);
-						} else {
-							$throw($(newTypeMismatchError(name)));
-						}
-					} else {
-						$throw($(newFeatureNotFoundError(name)));
-					}
-				}
+				$throw($(newTypeMismatchError(name)));
 			}
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
+			if ($instanceOf($String, value) || value == nullptr) {
+				try {
+					if (value == nullptr) {
+						$set(this, fSchemaLocation, nullptr);
+						setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), nullptr);
+					} else {
+						$set(this, fSchemaLocation, $cast($String, value));
+						$var($StringTokenizer, t, $new($StringTokenizer, this->fSchemaLocation, " \n\t\r"_s));
+						if (t->hasMoreTokens()) {
+							$var($List, locations, $new($ArrayList));
+							locations->add($(t->nextToken()));
+							while (t->hasMoreTokens()) {
+								locations->add($(t->nextToken()));
+							}
+							setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), $(locations->toArray($$new($StringArray, locations->size()))));
+						} else {
+							setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_SOURCE}), $$new($StringArray, {$cast($String, value)}));
+						}
+					}
+				} catch ($XMLConfigurationException& e) {
+				}
+			} else {
+				$throw($(newTypeMismatchError(name)));
+			}
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
+			if ($instanceOf($String, value) || value == nullptr) {
+				try {
+					if (value == nullptr) {
+						setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), nullptr);
+					} else if ($of(value)->equals($Constants::NS_XMLSCHEMA)) {
+						setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_XMLSCHEMA);
+					} else if ($of(value)->equals($Constants::NS_DTD)) {
+						setProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}), $Constants::NS_DTD);
+					}
+				} catch ($XMLConfigurationException& e) {
+				}
+			} else {
+				$throw($(newTypeMismatchError(name)));
+			}
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::ENTITY_RESOLVER)) {
+			if ($instanceOf($XMLEntityResolver, value) || value == nullptr) {
+				try {
+					setEntityResolver($cast($XMLEntityResolver, value));
+				} catch ($XMLConfigurationException& e) {
+				}
+			} else {
+				$throw($(newTypeMismatchError(name)));
+			}
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SYMBOL_TABLE)) {
+			if ($instanceOf($SymbolTable, value)) {
+				setProperty(DOMConfigurationImpl::SYMBOL_TABLE, value);
+			} else {
+				$throw($(newTypeMismatchError(name)));
+			}
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::GRAMMAR_POOL)) {
+			if ($instanceOf($XMLGrammarPool, value) || value == nullptr) {
+				setProperty(DOMConfigurationImpl::GRAMMAR_POOL, value);
+			} else {
+				$throw($(newTypeMismatchError(name)));
+			}
+		} else {
+			$throw($(newFeatureNotFoundError(name)));
 		}
 	}
 }
 
 $Object* DOMConfigurationImpl::getParameter($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	if ($nc(name)->equalsIgnoreCase($Constants::DOM_COMMENTS)) {
-		$init($Boolean);
-		return $of((((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::COMMENTS)) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+		return $of(((this->features & DOMConfigurationImpl::COMMENTS) != 0) ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
+		return $of((this->features & DOMConfigurationImpl::NAMESPACES) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
+		return $of((this->features & DOMConfigurationImpl::DTNORMALIZATION) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
+		return $of((this->features & DOMConfigurationImpl::CDATA) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
+		return $of((this->features & DOMConfigurationImpl::ENTITIES) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA)) {
+		return $of((this->features & DOMConfigurationImpl::SPLITCDATA) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
+		return $of((this->features & DOMConfigurationImpl::VALIDATE) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_WELLFORMED)) {
+		return $of((this->features & DOMConfigurationImpl::WELLFORMED) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
+		return $of((this->features & DOMConfigurationImpl::NSDECL) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+	} else if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
+		return $of((this->features & DOMConfigurationImpl::INFOSET_MASK) == DOMConfigurationImpl::INFOSET_TRUE_PARAMS ? $Boolean::TRUE : $Boolean::FALSE);
 	} else {
-		if (name->equalsIgnoreCase($Constants::DOM_NAMESPACES)) {
-			$init($Boolean);
-			return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::NAMESPACES)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-		} else {
-			if (name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION)) {
-				$init($Boolean);
-				return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::DTNORMALIZATION)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS)) {
-					$init($Boolean);
-					return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::CDATA)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_ENTITIES)) {
-						$init($Boolean);
-						return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::ENTITIES)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-					} else {
-						if (name->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA)) {
-							$init($Boolean);
-							return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::SPLITCDATA)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-						} else {
-							if (name->equalsIgnoreCase($Constants::DOM_VALIDATE)) {
-								$init($Boolean);
-								return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::VALIDATE)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-							} else {
-								if (name->equalsIgnoreCase($Constants::DOM_WELLFORMED)) {
-									$init($Boolean);
-									return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::WELLFORMED)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-								} else {
-									if (name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
-										$init($Boolean);
-										return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::NSDECL)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-									} else {
-										if (name->equalsIgnoreCase($Constants::DOM_INFOSET)) {
-											$init($Boolean);
-											return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::INFOSET_MASK)) == DOMConfigurationImpl::INFOSET_TRUE_PARAMS ? $Boolean::TRUE : $Boolean::FALSE);
-										} else {
-											bool var$5 = name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
-											bool var$4 = var$5 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
-											bool var$3 = var$4 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
-											if (var$3 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION)) {
-												$init($Boolean);
-												return $of($Boolean::FALSE);
-											} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SEND_PSVI)) {
-												$init($Boolean);
-												return $of($Boolean::TRUE);
-											} else {
-												if (name->equalsIgnoreCase($Constants::DOM_PSVI)) {
-													$init($Boolean);
-													return $of(((int32_t)(this->features & (uint32_t)(int32_t)DOMConfigurationImpl::PSVI)) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
-												} else {
-													if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
-														$init($Boolean);
-														return $of($Boolean::TRUE);
-													} else {
-														if (name->equalsIgnoreCase($Constants::DOM_ERROR_HANDLER)) {
-															return $of($nc(this->fErrorHandlerWrapper)->getErrorHandler());
-														} else {
-															if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
-																$var($XMLEntityResolver, entityResolver, getEntityResolver());
-																if (entityResolver != nullptr && $instanceOf($DOMEntityResolverWrapper, entityResolver)) {
-																	return $of($nc(($cast($DOMEntityResolverWrapper, entityResolver)))->getEntityResolver());
-																}
-																return $of(nullptr);
-															} else {
-																if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
-																	return $of(getProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE})));
-																} else {
-																	if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
-																		return $of(this->fSchemaLocation);
-																	} else if (name->equalsIgnoreCase(DOMConfigurationImpl::ENTITY_RESOLVER)) {
-																		return $of(getEntityResolver());
-																	} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SYMBOL_TABLE)) {
-																		return $of(getProperty(DOMConfigurationImpl::SYMBOL_TABLE));
-																	} else if (name->equalsIgnoreCase(DOMConfigurationImpl::GRAMMAR_POOL)) {
-																		return $of(getProperty(DOMConfigurationImpl::GRAMMAR_POOL));
-																	} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SECURITY_MANAGER)) {
-																		return $of(getProperty(DOMConfigurationImpl::SECURITY_MANAGER));
-																	} else {
-																		$throw($(newFeatureNotFoundError(name)));
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+		bool var$2 = name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
+		bool var$1 = var$2 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
+		bool var$0 = var$1 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
+		if (var$0 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION)) {
+			return $of($Boolean::FALSE);
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SEND_PSVI)) {
+			return $of($Boolean::TRUE);
+		} else if (name->equalsIgnoreCase($Constants::DOM_PSVI)) {
+			return $of((this->features & DOMConfigurationImpl::PSVI) != 0 ? $Boolean::TRUE : $Boolean::FALSE);
+		} else if (name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE)) {
+			return $of($Boolean::TRUE);
+		} else if (name->equalsIgnoreCase($Constants::DOM_ERROR_HANDLER)) {
+			return $nc(this->fErrorHandlerWrapper)->getErrorHandler();
+		} else if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
+			$var($XMLEntityResolver, entityResolver, getEntityResolver());
+			if (entityResolver != nullptr && $instanceOf($DOMEntityResolverWrapper, entityResolver)) {
+				return $cast($DOMEntityResolverWrapper, entityResolver)->getEntityResolver();
 			}
+			return nullptr;
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
+			return getProperty($$str({$Constants::JAXP_PROPERTY_PREFIX, $Constants::SCHEMA_LANGUAGE}));
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
+			return $of(this->fSchemaLocation);
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::ENTITY_RESOLVER)) {
+			return getEntityResolver();
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SYMBOL_TABLE)) {
+			return getProperty(DOMConfigurationImpl::SYMBOL_TABLE);
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::GRAMMAR_POOL)) {
+			return getProperty(DOMConfigurationImpl::GRAMMAR_POOL);
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SECURITY_MANAGER)) {
+			return getProperty(DOMConfigurationImpl::SECURITY_MANAGER);
+		} else {
+			$throw($(newFeatureNotFoundError(name)));
 		}
 	}
 }
@@ -939,28 +734,26 @@ bool DOMConfigurationImpl::canSetParameter($String* name, Object$* value) {
 	if ($instanceOf($Boolean, value)) {
 		$init($Constants);
 		bool var$8 = $nc(name)->equalsIgnoreCase($Constants::DOM_COMMENTS);
-		bool var$7 = var$8 || $nc(name)->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION);
-		bool var$6 = var$7 || $nc(name)->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS);
-		bool var$5 = var$6 || $nc(name)->equalsIgnoreCase($Constants::DOM_ENTITIES);
-		bool var$4 = var$5 || $nc(name)->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA);
-		bool var$3 = var$4 || $nc(name)->equalsIgnoreCase($Constants::DOM_NAMESPACES);
-		bool var$2 = var$3 || $nc(name)->equalsIgnoreCase($Constants::DOM_VALIDATE);
-		bool var$1 = var$2 || $nc(name)->equalsIgnoreCase($Constants::DOM_WELLFORMED);
-		bool var$0 = var$1 || $nc(name)->equalsIgnoreCase($Constants::DOM_INFOSET);
-		if (var$0 || $nc(name)->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
+		bool var$7 = var$8 || name->equalsIgnoreCase($Constants::DOM_DATATYPE_NORMALIZATION);
+		bool var$6 = var$7 || name->equalsIgnoreCase($Constants::DOM_CDATA_SECTIONS);
+		bool var$5 = var$6 || name->equalsIgnoreCase($Constants::DOM_ENTITIES);
+		bool var$4 = var$5 || name->equalsIgnoreCase($Constants::DOM_SPLIT_CDATA);
+		bool var$3 = var$4 || name->equalsIgnoreCase($Constants::DOM_NAMESPACES);
+		bool var$2 = var$3 || name->equalsIgnoreCase($Constants::DOM_VALIDATE);
+		bool var$1 = var$2 || name->equalsIgnoreCase($Constants::DOM_WELLFORMED);
+		bool var$0 = var$1 || name->equalsIgnoreCase($Constants::DOM_INFOSET);
+		if (var$0 || name->equalsIgnoreCase($Constants::DOM_NAMESPACE_DECLARATIONS)) {
 			return true;
 		} else {
-			bool var$14 = name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
-			bool var$13 = var$14 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
-			bool var$12 = var$13 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
-			if (var$12 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION)) {
-				$init($Boolean);
-				return ($nc($of(value))->equals($Boolean::TRUE)) ? false : true;
+			bool var$11 = name->equalsIgnoreCase($Constants::DOM_NORMALIZE_CHARACTERS);
+			bool var$10 = var$11 || name->equalsIgnoreCase($Constants::DOM_CANONICAL_FORM);
+			bool var$9 = var$10 || name->equalsIgnoreCase($Constants::DOM_VALIDATE_IF_SCHEMA);
+			if (var$9 || name->equalsIgnoreCase($Constants::DOM_CHECK_CHAR_NORMALIZATION)) {
+				return ($of(value)->equals($Boolean::TRUE)) ? false : true;
 			} else {
-				bool var$16 = name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE);
-				if (var$16 || name->equalsIgnoreCase(DOMConfigurationImpl::SEND_PSVI)) {
-					$init($Boolean);
-					return ($nc($of(value))->equals($Boolean::TRUE)) ? true : false;
+				bool var$12 = name->equalsIgnoreCase($Constants::DOM_ELEMENT_CONTENT_WHITESPACE);
+				if (var$12 || name->equalsIgnoreCase(DOMConfigurationImpl::SEND_PSVI)) {
+					return ($of(value)->equals($Boolean::TRUE)) ? true : false;
 				} else {
 					return false;
 				}
@@ -970,31 +763,25 @@ bool DOMConfigurationImpl::canSetParameter($String* name, Object$* value) {
 		$init($Constants);
 		if ($nc(name)->equalsIgnoreCase($Constants::DOM_ERROR_HANDLER)) {
 			return ($instanceOf($DOMErrorHandler, value)) ? true : false;
-		} else {
-			if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
-				return ($instanceOf($LSResourceResolver, value)) ? true : false;
-			} else {
-				if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
-					return ($instanceOf($String, value)) ? true : false;
-				} else {
-					if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
-						bool var$17 = ($instanceOf($String, value));
-						if (var$17) {
-							bool var$18 = $nc($of(value))->equals($Constants::NS_XMLSCHEMA);
-							var$17 = (var$18 || $nc($of(value))->equals($Constants::NS_DTD));
-						}
-						return (var$17) ? true : false;
-					} else if (name->equalsIgnoreCase(DOMConfigurationImpl::ENTITY_RESOLVER)) {
-						return ($instanceOf($XMLEntityResolver, value)) ? true : false;
-					} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SYMBOL_TABLE)) {
-						return ($instanceOf($SymbolTable, value)) ? true : false;
-					} else if (name->equalsIgnoreCase(DOMConfigurationImpl::GRAMMAR_POOL)) {
-						return ($instanceOf($XMLGrammarPool, value)) ? true : false;
-					} else {
-						return false;
-					}
-				}
+		} else if (name->equalsIgnoreCase($Constants::DOM_RESOURCE_RESOLVER)) {
+			return ($instanceOf($LSResourceResolver, value)) ? true : false;
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_LOCATION)) {
+			return ($instanceOf($String, value)) ? true : false;
+		} else if (name->equalsIgnoreCase($Constants::DOM_SCHEMA_TYPE)) {
+			bool var$13 = $instanceOf($String, value);
+			if (var$13) {
+				bool var$14 = $of(value)->equals($Constants::NS_XMLSCHEMA);
+				var$13 = var$14 || $of(value)->equals($Constants::NS_DTD);
 			}
+			return (var$13) ? true : false;
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::ENTITY_RESOLVER)) {
+			return ($instanceOf($XMLEntityResolver, value)) ? true : false;
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::SYMBOL_TABLE)) {
+			return ($instanceOf($SymbolTable, value)) ? true : false;
+		} else if (name->equalsIgnoreCase(DOMConfigurationImpl::GRAMMAR_POOL)) {
+			return ($instanceOf($XMLGrammarPool, value)) ? true : false;
+		} else {
+			return false;
 		}
 	}
 }
@@ -1033,14 +820,14 @@ $DOMStringList* DOMConfigurationImpl::getParameterNames() {
 }
 
 void DOMConfigurationImpl::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fValidationManager != nullptr) {
-		$nc(this->fValidationManager)->reset();
+		this->fValidationManager->reset();
 	}
 	int32_t count = $nc(this->fComponents)->size();
 	for (int32_t i = 0; i < count; ++i) {
 		$var($XMLComponent, c, $cast($XMLComponent, $nc(this->fComponents)->get(i)));
-		$nc(c)->reset(static_cast<$XMLComponentManager*>(static_cast<$ParserConfigurationSettings*>(this)));
+		$nc(c)->reset($cast($ParserConfigurationSettings, this));
 	}
 }
 
@@ -1059,11 +846,11 @@ $PropertyState* DOMConfigurationImpl::checkProperty($String* propertyId) {
 }
 
 void DOMConfigurationImpl::addComponent($XMLComponent* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fComponents)->contains(component)) {
 		return;
 	}
-	$nc(this->fComponents)->add(component);
+	this->fComponents->add(component);
 	$var($StringArray, recognizedFeatures, $nc(component)->getRecognizedFeatures());
 	addRecognizedFeatures(recognizedFeatures);
 	$var($StringArray, recognizedProperties, component->getRecognizedProperties());
@@ -1088,32 +875,32 @@ void DOMConfigurationImpl::setDTDValidatorFactory($String* version) {
 
 $DOMException* DOMConfigurationImpl::newFeatureNotSupportedError($String* name) {
 	$init(DOMConfigurationImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMMessageFormatter);
-	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_SUPPORTED"_s, $$new($ObjectArray, {$of(name)})));
+	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_SUPPORTED"_s, $$new($ObjectArray, {name})));
 	return $new($DOMException, $DOMException::NOT_SUPPORTED_ERR, msg);
 }
 
 $DOMException* DOMConfigurationImpl::newFeatureNotFoundError($String* name) {
 	$init(DOMConfigurationImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMMessageFormatter);
-	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_FOUND"_s, $$new($ObjectArray, {$of(name)})));
+	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "FEATURE_NOT_FOUND"_s, $$new($ObjectArray, {name})));
 	return $new($DOMException, $DOMException::NOT_FOUND_ERR, msg);
 }
 
 $DOMException* DOMConfigurationImpl::newTypeMismatchError($String* name) {
 	$init(DOMConfigurationImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DOMMessageFormatter);
-	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {$of(name)})));
+	$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "TYPE_MISMATCH_ERR"_s, $$new($ObjectArray, {name})));
 	return $new($DOMException, $DOMException::TYPE_MISMATCH_ERR, msg);
 }
 
 DOMConfigurationImpl::DOMConfigurationImpl() {
 }
 
-void clinit$DOMConfigurationImpl($Class* class$) {
+void DOMConfigurationImpl::clinit$($Class* clazz) {
 	$assignStatic(DOMConfigurationImpl::XML11_DATATYPE_VALIDATOR_FACTORY, "com.sun.org.apache.xerces.internal.impl.dv.dtd.XML11DTDDVFactoryImpl"_s);
 	$init($Constants);
 	$assignStatic(DOMConfigurationImpl::XERCES_VALIDATION, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::VALIDATION_FEATURE}));
@@ -1154,7 +941,127 @@ void clinit$DOMConfigurationImpl($Class* class$) {
 }
 
 $Class* DOMConfigurationImpl::load$($String* name, bool initialize) {
-	$loadClass(DOMConfigurationImpl, name, initialize, &_DOMConfigurationImpl_ClassInfo_, clinit$DOMConfigurationImpl, allocate$DOMConfigurationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"XML11_DATATYPE_VALIDATOR_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XML11_DATATYPE_VALIDATOR_FACTORY)},
+		{"XERCES_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XERCES_VALIDATION)},
+		{"XERCES_NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XERCES_NAMESPACES)},
+		{"SCHEMA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA)},
+		{"SCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_FULL_CHECKING)},
+		{"DYNAMIC_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DYNAMIC_VALIDATION)},
+		{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, NORMALIZE_DATA)},
+		{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_ELEMENT_DEFAULT)},
+		{"SEND_PSVI", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SEND_PSVI)},
+		{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, GENERATE_SYNTHETIC_ANNOTATIONS)},
+		{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, VALIDATE_ANNOTATIONS)},
+		{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, HONOUR_ALL_SCHEMALOCATIONS)},
+		{"USE_GRAMMAR_POOL_ONLY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, USE_GRAMMAR_POOL_ONLY)},
+		{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DISALLOW_DOCTYPE_DECL_FEATURE)},
+		{"BALANCE_SYNTAX_TREES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, BALANCE_SYNTAX_TREES)},
+		{"WARN_ON_DUPLICATE_ATTDEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, WARN_ON_DUPLICATE_ATTDEF)},
+		{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, NAMESPACE_GROWTH)},
+		{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, TOLERATE_DUPLICATES)},
+		{"ENTITY_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ENTITY_MANAGER)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ERROR_REPORTER)},
+		{"XML_STRING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XML_STRING)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SYMBOL_TABLE)},
+		{"GRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, GRAMMAR_POOL)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ERROR_HANDLER)},
+		{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, ENTITY_RESOLVER)},
+		{"JAXP_SCHEMA_LANGUAGE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, JAXP_SCHEMA_LANGUAGE)},
+		{"JAXP_SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, JAXP_SCHEMA_SOURCE)},
+		{"DTD_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DTD_VALIDATOR_PROPERTY)},
+		{"DTD_VALIDATOR_FACTORY_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, DTD_VALIDATOR_FACTORY_PROPERTY)},
+		{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, VALIDATION_MANAGER)},
+		{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_LOCATION)},
+		{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_NONS_LOCATION)},
+		{"SCHEMA_DV_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SCHEMA_DV_FACTORY)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, SECURITY_MANAGER)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMConfigurationImpl, XML_SECURITY_PROPERTY_MANAGER)},
+		{"fDocumentHandler", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, 0, $field(DOMConfigurationImpl, fDocumentHandler)},
+		{"features", "S", nullptr, $PROTECTED, $field(DOMConfigurationImpl, features)},
+		{"NAMESPACES", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, NAMESPACES)},
+		{"DTNORMALIZATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, DTNORMALIZATION)},
+		{"ENTITIES", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, ENTITIES)},
+		{"CDATA", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, CDATA)},
+		{"SPLITCDATA", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, SPLITCDATA)},
+		{"COMMENTS", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, COMMENTS)},
+		{"VALIDATE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, VALIDATE)},
+		{"PSVI", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, PSVI)},
+		{"WELLFORMED", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, WELLFORMED)},
+		{"NSDECL", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, NSDECL)},
+		{"INFOSET_TRUE_PARAMS", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, INFOSET_TRUE_PARAMS)},
+		{"INFOSET_FALSE_PARAMS", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, INFOSET_FALSE_PARAMS)},
+		{"INFOSET_MASK", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(DOMConfigurationImpl, INFOSET_MASK)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fSymbolTable)},
+		{"fComponents", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;>;", $PROTECTED, $field(DOMConfigurationImpl, fComponents)},
+		{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fValidationManager)},
+		{"fLocale", "Ljava/util/Locale;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fLocale)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fErrorReporter)},
+		{"fErrorHandlerWrapper", "Lcom/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper;", nullptr, $PROTECTED | $FINAL, $field(DOMConfigurationImpl, fErrorHandlerWrapper)},
+		{"fCurrentDVFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fCurrentDVFactory)},
+		{"fDatatypeValidatorFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fDatatypeValidatorFactory)},
+		{"fXML11DatatypeFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory;", nullptr, $PROTECTED, $field(DOMConfigurationImpl, fXML11DatatypeFactory)},
+		{"fSchemaLocation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMConfigurationImpl, fSchemaLocation)},
+		{"fRecognizedParameters", "Lorg/w3c/dom/DOMStringList;", nullptr, $PRIVATE, $field(DOMConfigurationImpl, fRecognizedParameters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addRecognizedFeatures", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*addRecognizedProperties", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFeature", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $FINAL},
+		{"*getFeatureState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL},
+		{"*getPropertyState", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DOMConfigurationImpl, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PROTECTED, $method(DOMConfigurationImpl, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PROTECTED, $method(DOMConfigurationImpl, init$, void, $SymbolTable*, $XMLComponentManager*)},
+		{"addComponent", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponent;)V", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, addComponent, void, $XMLComponent*)},
+		{"canSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, canSetParameter, bool, $String*, Object$*)},
+		{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"createValidationManager", "()Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, createValidationManager, $ValidationManager*)},
+		{"getDTDContentModelHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getDTDContentModelHandler, $XMLDTDContentModelHandler*)},
+		{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getDTDHandler, $XMLDTDHandler*)},
+		{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getDocumentHandler, $XMLDocumentHandler*)},
+		{"getEntityResolver", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getEntityResolver, $XMLEntityResolver*)},
+		{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getErrorHandler, $XMLErrorHandler*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getFeature, bool, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getLocale, $Locale*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getParameter, $Object*, $String*), "org.w3c.dom.DOMException"},
+		{"getParameterNames", "()Lorg/w3c/dom/DOMStringList;", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, getParameterNames, $DOMStringList*)},
+		{"newFeatureNotFoundError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMConfigurationImpl, newFeatureNotFoundError, $DOMException*, $String*)},
+		{"newFeatureNotSupportedError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMConfigurationImpl, newFeatureNotSupportedError, $DOMException*, $String*)},
+		{"newTypeMismatchError", "(Ljava/lang/String;)Lorg/w3c/dom/DOMException;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMConfigurationImpl, newTypeMismatchError, $DOMException*, $String*)},
+		{"parse", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, parse, void, $XMLInputSource*), "com.sun.org.apache.xerces.internal.xni.XNIException,java.io.IOException"},
+		{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(DOMConfigurationImpl, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setDTDContentModelHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setDTDContentModelHandler, void, $XMLDTDContentModelHandler*)},
+		{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setDTDHandler, void, $XMLDTDHandler*)},
+		{"setDTDValidatorFactory", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $FINAL, $method(DOMConfigurationImpl, setDTDValidatorFactory, void, $String*)},
+		{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setDocumentHandler, void, $XMLDocumentHandler*)},
+		{"setEntityResolver", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setEntityResolver, void, $XMLEntityResolver*)},
+		{"setErrorHandler", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setErrorHandler, void, $XMLErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setFeature, void, $String*, bool), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setLocale, void, $Locale*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setParameter, void, $String*, Object$*), "org.w3c.dom.DOMException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMConfigurationImpl, setProperty, void, $String*, Object$*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DOMConfigurationImpl",
+		"com.sun.org.apache.xerces.internal.util.ParserConfigurationSettings",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLParserConfiguration,org.w3c.dom.DOMConfiguration",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMConfigurationImpl, name, initialize, &classInfo$$, DOMConfigurationImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMConfigurationImpl));
+	});
 	return class$;
 }
 

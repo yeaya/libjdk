@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCLabeledStatement.h>
-
-#include <com/sun/source/tree/LabeledStatementTree.h>
 #include <com/sun/source/tree/StatementTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
@@ -15,7 +13,6 @@
 #undef LABELED_STATEMENT
 #undef LABELLED
 
-using $LabeledStatementTree = ::com::sun::source::tree::LabeledStatementTree;
 using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -34,54 +31,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCLabeledStatement_FieldInfo_[] = {
-	{"label", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCLabeledStatement, label)},
-	{"body", "Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $field(JCTree$JCLabeledStatement, body)},
-	{}
-};
-
-$MethodInfo _JCTree$JCLabeledStatement_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)V", nullptr, $PROTECTED, $method(JCTree$JCLabeledStatement, init$, void, $Name*, $JCTree$JCStatement*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getKind, $Tree$Kind*)},
-	{"getLabel", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getLabel, $1Name*)},
-	{"getStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getStatement, $StatementTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCLabeledStatement_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCLabeledStatement", "com.sun.tools.javac.tree.JCTree", "JCLabeledStatement", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCLabeledStatement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCLabeledStatement",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.LabeledStatementTree",
-	_JCTree$JCLabeledStatement_FieldInfo_,
-	_JCTree$JCLabeledStatement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCLabeledStatement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCLabeledStatement($Class* clazz) {
-	return $of($alloc(JCTree$JCLabeledStatement));
-}
 
 $String* JCTree$JCLabeledStatement::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -127,7 +76,7 @@ $StatementTree* JCTree$JCLabeledStatement::getStatement() {
 }
 
 $Object* JCTree$JCLabeledStatement::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitLabeledStatement(this, d));
+	return $nc(v)->visitLabeledStatement(this, d);
 }
 
 $JCTree$Tag* JCTree$JCLabeledStatement::getTag() {
@@ -139,7 +88,49 @@ JCTree$JCLabeledStatement::JCTree$JCLabeledStatement() {
 }
 
 $Class* JCTree$JCLabeledStatement::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCLabeledStatement, name, initialize, &_JCTree$JCLabeledStatement_ClassInfo_, allocate$JCTree$JCLabeledStatement);
+	$FieldInfo fieldInfos$$[] = {
+		{"label", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(JCTree$JCLabeledStatement, label)},
+		{"body", "Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $field(JCTree$JCLabeledStatement, body)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)V", nullptr, $PROTECTED, $method(JCTree$JCLabeledStatement, init$, void, $Name*, $JCTree$JCStatement*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getKind, $Tree$Kind*)},
+		{"getLabel", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getLabel, $1Name*)},
+		{"getStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getStatement, $StatementTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCLabeledStatement, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCLabeledStatement", "com.sun.tools.javac.tree.JCTree", "JCLabeledStatement", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCLabeledStatement",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.LabeledStatementTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCLabeledStatement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCLabeledStatement));
+	});
 	return class$;
 }
 

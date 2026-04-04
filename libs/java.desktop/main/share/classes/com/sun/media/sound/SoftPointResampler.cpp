@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftPointResampler.h>
-
 #include <com/sun/media/sound/SoftAbstractResampler.h>
 #include <jcpp.h>
 
@@ -11,26 +10,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _SoftPointResampler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftPointResampler, init$, void)},
-	{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftPointResampler, getPadding, int32_t)},
-	{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftPointResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
-	{}
-};
-
-$ClassInfo _SoftPointResampler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftPointResampler",
-	"com.sun.media.sound.SoftAbstractResampler",
-	nullptr,
-	nullptr,
-	_SoftPointResampler_MethodInfo_
-};
-
-$Object* allocate$SoftPointResampler($Class* clazz) {
-	return $of($alloc(SoftPointResampler));
-}
 
 void SoftPointResampler::init$() {
 	$SoftAbstractResampler::init$();
@@ -67,7 +46,23 @@ SoftPointResampler::SoftPointResampler() {
 }
 
 $Class* SoftPointResampler::load$($String* name, bool initialize) {
-	$loadClass(SoftPointResampler, name, initialize, &_SoftPointResampler_ClassInfo_, allocate$SoftPointResampler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftPointResampler, init$, void)},
+		{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftPointResampler, getPadding, int32_t)},
+		{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftPointResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftPointResampler",
+		"com.sun.media.sound.SoftAbstractResampler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftPointResampler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftPointResampler);
+	});
 	return class$;
 }
 

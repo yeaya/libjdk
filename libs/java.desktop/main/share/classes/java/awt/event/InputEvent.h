@@ -68,6 +68,7 @@ class $export InputEvent : public ::java::awt::event::ComponentEvent {
 	$class(InputEvent, 0, ::java::awt::event::ComponentEvent)
 public:
 	InputEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* source, int32_t id, int64_t when, int32_t modifiers);
 	bool canAccessSystemClipboard();
 	virtual void consume() override;
@@ -108,7 +109,7 @@ public:
 	int64_t when = 0;
 	int32_t modifiers = 0;
 	bool canAccessSystemClipboard$ = false;
-	static const int64_t serialVersionUID = (int64_t)0xDD8C4BC5CB31C166;
+	static const int64_t serialVersionUID = (int64_t)0xdd8c4bc5cb31c166;
 };
 
 		} // event

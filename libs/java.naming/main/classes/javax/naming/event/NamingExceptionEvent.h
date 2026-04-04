@@ -32,7 +32,7 @@ public:
 	virtual ::javax::naming::event::EventContext* getEventContext();
 	virtual ::javax::naming::NamingException* getException();
 	::javax::naming::NamingException* exception = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xBC4F019FAB3B5A30;
+	static const int64_t serialVersionUID = (int64_t)0xbc4f019fab3b5a30;
 };
 
 		} // event

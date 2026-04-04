@@ -49,6 +49,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* label);
 	void init$($String* label, bool state);
@@ -75,7 +76,7 @@ public:
 	$volatile(::java::awt::event::ItemListener*) itemListener = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x55E98118F4AF22DB;
+	static const int64_t serialVersionUID = (int64_t)0x55e98118f4af22db;
 	int32_t checkboxMenuItemSerializedDataVersion = 0;
 };
 

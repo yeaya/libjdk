@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifGPSTagSet.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/plugins/tiff/ExifGPSTagSet$GPSAltitude.h>
@@ -133,124 +132,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$FieldInfo _ExifGPSTagSet_FieldInfo_[] = {
-	{"theInstance", "Ljavax/imageio/plugins/tiff/ExifGPSTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(ExifGPSTagSet, theInstance)},
-	{"TAG_GPS_VERSION_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_VERSION_ID)},
-	{"GPS_VERSION_2_2", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, GPS_VERSION_2_2)},
-	{"TAG_GPS_LATITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LATITUDE_REF)},
-	{"TAG_GPS_LATITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LATITUDE)},
-	{"TAG_GPS_LONGITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LONGITUDE_REF)},
-	{"TAG_GPS_LONGITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LONGITUDE)},
-	{"TAG_GPS_ALTITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_ALTITUDE_REF)},
-	{"TAG_GPS_ALTITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_ALTITUDE)},
-	{"TAG_GPS_TIME_STAMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_TIME_STAMP)},
-	{"TAG_GPS_SATELLITES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_SATELLITES)},
-	{"TAG_GPS_STATUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_STATUS)},
-	{"TAG_GPS_MEASURE_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_MEASURE_MODE)},
-	{"TAG_GPS_DOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DOP)},
-	{"TAG_GPS_SPEED_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_SPEED_REF)},
-	{"TAG_GPS_SPEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_SPEED)},
-	{"TAG_GPS_TRACK_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_TRACK_REF)},
-	{"TAG_GPS_TRACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_TRACK)},
-	{"TAG_GPS_IMG_DIRECTION_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_IMG_DIRECTION_REF)},
-	{"TAG_GPS_IMG_DIRECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_IMG_DIRECTION)},
-	{"TAG_GPS_MAP_DATUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_MAP_DATUM)},
-	{"TAG_GPS_DEST_LATITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LATITUDE_REF)},
-	{"TAG_GPS_DEST_LATITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LATITUDE)},
-	{"TAG_GPS_DEST_LONGITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LONGITUDE_REF)},
-	{"TAG_GPS_DEST_LONGITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LONGITUDE)},
-	{"TAG_GPS_DEST_BEARING_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_BEARING_REF)},
-	{"TAG_GPS_DEST_BEARING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_BEARING)},
-	{"TAG_GPS_DEST_DISTANCE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_DISTANCE_REF)},
-	{"TAG_GPS_DEST_DISTANCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_DISTANCE)},
-	{"TAG_GPS_PROCESSING_METHOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_PROCESSING_METHOD)},
-	{"TAG_GPS_AREA_INFORMATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_AREA_INFORMATION)},
-	{"TAG_GPS_DATE_STAMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DATE_STAMP)},
-	{"TAG_GPS_DIFFERENTIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DIFFERENTIAL)},
-	{"LATITUDE_REF_NORTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LATITUDE_REF_NORTH)},
-	{"LATITUDE_REF_SOUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LATITUDE_REF_SOUTH)},
-	{"LONGITUDE_REF_EAST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LONGITUDE_REF_EAST)},
-	{"LONGITUDE_REF_WEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LONGITUDE_REF_WEST)},
-	{"ALTITUDE_REF_SEA_LEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, ALTITUDE_REF_SEA_LEVEL)},
-	{"ALTITUDE_REF_SEA_LEVEL_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, ALTITUDE_REF_SEA_LEVEL_REFERENCE)},
-	{"STATUS_MEASUREMENT_IN_PROGRESS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, STATUS_MEASUREMENT_IN_PROGRESS)},
-	{"STATUS_MEASUREMENT_INTEROPERABILITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, STATUS_MEASUREMENT_INTEROPERABILITY)},
-	{"MEASURE_MODE_2D", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, MEASURE_MODE_2D)},
-	{"MEASURE_MODE_3D", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, MEASURE_MODE_3D)},
-	{"SPEED_REF_KILOMETERS_PER_HOUR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, SPEED_REF_KILOMETERS_PER_HOUR)},
-	{"SPEED_REF_MILES_PER_HOUR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, SPEED_REF_MILES_PER_HOUR)},
-	{"SPEED_REF_KNOTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, SPEED_REF_KNOTS)},
-	{"DIRECTION_REF_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DIRECTION_REF_TRUE)},
-	{"DIRECTION_REF_MAGNETIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DIRECTION_REF_MAGNETIC)},
-	{"DEST_DISTANCE_REF_KILOMETERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DEST_DISTANCE_REF_KILOMETERS)},
-	{"DEST_DISTANCE_REF_MILES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DEST_DISTANCE_REF_MILES)},
-	{"DEST_DISTANCE_REF_KNOTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DEST_DISTANCE_REF_KNOTS)},
-	{"DIFFERENTIAL_CORRECTION_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, DIFFERENTIAL_CORRECTION_NONE)},
-	{"DIFFERENTIAL_CORRECTION_APPLIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, DIFFERENTIAL_CORRECTION_APPLIED)},
-	{}
-};
-
-$MethodInfo _ExifGPSTagSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExifGPSTagSet, init$, void)},
-	{"getInstance", "()Ljavax/imageio/plugins/tiff/ExifGPSTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ExifGPSTagSet, getInstance, ExifGPSTagSet*)},
-	{"initTags", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticMethod(ExifGPSTagSet, initTags, $List*)},
-	{}
-};
-
-$InnerClassInfo _ExifGPSTagSet_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDifferential", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDifferential", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDateStamp", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDateStamp", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAreaInformation", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAreaInformation", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSProcessingMethod", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSProcessingMethod", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistance", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestDistance", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistanceRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestDistanceRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearing", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestBearing", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearingRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestBearingRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLongitude", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLongitudeRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLatitude", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLatitudeRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMapDatum", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSMapDatum", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirection", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSImgDirection", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirectionRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSImgDirectionRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrack", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSTrack", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrackRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSTrackRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeed", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSSpeed", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeedRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSSpeedRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDOP", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDOP", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMeasureMode", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSMeasureMode", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSStatus", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSStatus", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSatellites", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSSatellites", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTimeStamp", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSTimeStamp", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAltitude", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAltitudeRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLongitude", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLongitudeRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLatitude", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLatitudeRef", $STATIC},
-	{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSVersionID", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSVersionID", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifGPSTagSet_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifGPSTagSet",
-	"javax.imageio.plugins.tiff.TIFFTagSet",
-	nullptr,
-	_ExifGPSTagSet_FieldInfo_,
-	_ExifGPSTagSet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifGPSTagSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDifferential,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDateStamp,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAreaInformation,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSProcessingMethod,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistance,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistanceRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearing,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearingRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMapDatum,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirection,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirectionRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrack,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrackRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeed,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeedRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDOP,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMeasureMode,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSStatus,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSatellites,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTimeStamp,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSVersionID"
-};
-
-$Object* allocate$ExifGPSTagSet($Class* clazz) {
-	return $of($alloc(ExifGPSTagSet));
-}
-
 ExifGPSTagSet* ExifGPSTagSet::theInstance = nullptr;
 $String* ExifGPSTagSet::GPS_VERSION_2_2 = nullptr;
 $String* ExifGPSTagSet::LATITUDE_REF_NORTH = nullptr;
@@ -272,7 +153,7 @@ $String* ExifGPSTagSet::DEST_DISTANCE_REF_KNOTS = nullptr;
 
 $List* ExifGPSTagSet::initTags() {
 	$init(ExifGPSTagSet);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, tags, $new($ArrayList, 31));
 	tags->add($$new($ExifGPSTagSet$GPSVersionID));
 	tags->add($$new($ExifGPSTagSet$GPSLatitudeRef));
@@ -313,9 +194,8 @@ void ExifGPSTagSet::init$() {
 }
 
 ExifGPSTagSet* ExifGPSTagSet::getInstance() {
-	$load(ExifGPSTagSet);
+	$init(ExifGPSTagSet);
 	$synchronized(class$) {
-		$init(ExifGPSTagSet);
 		if (ExifGPSTagSet::theInstance == nullptr) {
 			$assignStatic(ExifGPSTagSet::theInstance, $new(ExifGPSTagSet));
 		}
@@ -323,7 +203,7 @@ ExifGPSTagSet* ExifGPSTagSet::getInstance() {
 	}
 }
 
-void clinit$ExifGPSTagSet($Class* class$) {
+void ExifGPSTagSet::clinit$($Class* clazz) {
 	$assignStatic(ExifGPSTagSet::GPS_VERSION_2_2, "2200"_s);
 	$assignStatic(ExifGPSTagSet::LATITUDE_REF_NORTH, "N"_s);
 	$assignStatic(ExifGPSTagSet::LATITUDE_REF_SOUTH, "S"_s);
@@ -348,7 +228,119 @@ ExifGPSTagSet::ExifGPSTagSet() {
 }
 
 $Class* ExifGPSTagSet::load$($String* name, bool initialize) {
-	$loadClass(ExifGPSTagSet, name, initialize, &_ExifGPSTagSet_ClassInfo_, clinit$ExifGPSTagSet, allocate$ExifGPSTagSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Ljavax/imageio/plugins/tiff/ExifGPSTagSet;", nullptr, $PRIVATE | $STATIC, $staticField(ExifGPSTagSet, theInstance)},
+		{"TAG_GPS_VERSION_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_VERSION_ID)},
+		{"GPS_VERSION_2_2", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, GPS_VERSION_2_2)},
+		{"TAG_GPS_LATITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LATITUDE_REF)},
+		{"TAG_GPS_LATITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LATITUDE)},
+		{"TAG_GPS_LONGITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LONGITUDE_REF)},
+		{"TAG_GPS_LONGITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_LONGITUDE)},
+		{"TAG_GPS_ALTITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_ALTITUDE_REF)},
+		{"TAG_GPS_ALTITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_ALTITUDE)},
+		{"TAG_GPS_TIME_STAMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_TIME_STAMP)},
+		{"TAG_GPS_SATELLITES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_SATELLITES)},
+		{"TAG_GPS_STATUS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_STATUS)},
+		{"TAG_GPS_MEASURE_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_MEASURE_MODE)},
+		{"TAG_GPS_DOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DOP)},
+		{"TAG_GPS_SPEED_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_SPEED_REF)},
+		{"TAG_GPS_SPEED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_SPEED)},
+		{"TAG_GPS_TRACK_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_TRACK_REF)},
+		{"TAG_GPS_TRACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_TRACK)},
+		{"TAG_GPS_IMG_DIRECTION_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_IMG_DIRECTION_REF)},
+		{"TAG_GPS_IMG_DIRECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_IMG_DIRECTION)},
+		{"TAG_GPS_MAP_DATUM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_MAP_DATUM)},
+		{"TAG_GPS_DEST_LATITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LATITUDE_REF)},
+		{"TAG_GPS_DEST_LATITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LATITUDE)},
+		{"TAG_GPS_DEST_LONGITUDE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LONGITUDE_REF)},
+		{"TAG_GPS_DEST_LONGITUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_LONGITUDE)},
+		{"TAG_GPS_DEST_BEARING_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_BEARING_REF)},
+		{"TAG_GPS_DEST_BEARING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_BEARING)},
+		{"TAG_GPS_DEST_DISTANCE_REF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_DISTANCE_REF)},
+		{"TAG_GPS_DEST_DISTANCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DEST_DISTANCE)},
+		{"TAG_GPS_PROCESSING_METHOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_PROCESSING_METHOD)},
+		{"TAG_GPS_AREA_INFORMATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_AREA_INFORMATION)},
+		{"TAG_GPS_DATE_STAMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DATE_STAMP)},
+		{"TAG_GPS_DIFFERENTIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, TAG_GPS_DIFFERENTIAL)},
+		{"LATITUDE_REF_NORTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LATITUDE_REF_NORTH)},
+		{"LATITUDE_REF_SOUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LATITUDE_REF_SOUTH)},
+		{"LONGITUDE_REF_EAST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LONGITUDE_REF_EAST)},
+		{"LONGITUDE_REF_WEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, LONGITUDE_REF_WEST)},
+		{"ALTITUDE_REF_SEA_LEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, ALTITUDE_REF_SEA_LEVEL)},
+		{"ALTITUDE_REF_SEA_LEVEL_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, ALTITUDE_REF_SEA_LEVEL_REFERENCE)},
+		{"STATUS_MEASUREMENT_IN_PROGRESS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, STATUS_MEASUREMENT_IN_PROGRESS)},
+		{"STATUS_MEASUREMENT_INTEROPERABILITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, STATUS_MEASUREMENT_INTEROPERABILITY)},
+		{"MEASURE_MODE_2D", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, MEASURE_MODE_2D)},
+		{"MEASURE_MODE_3D", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, MEASURE_MODE_3D)},
+		{"SPEED_REF_KILOMETERS_PER_HOUR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, SPEED_REF_KILOMETERS_PER_HOUR)},
+		{"SPEED_REF_MILES_PER_HOUR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, SPEED_REF_MILES_PER_HOUR)},
+		{"SPEED_REF_KNOTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, SPEED_REF_KNOTS)},
+		{"DIRECTION_REF_TRUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DIRECTION_REF_TRUE)},
+		{"DIRECTION_REF_MAGNETIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DIRECTION_REF_MAGNETIC)},
+		{"DEST_DISTANCE_REF_KILOMETERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DEST_DISTANCE_REF_KILOMETERS)},
+		{"DEST_DISTANCE_REF_MILES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DEST_DISTANCE_REF_MILES)},
+		{"DEST_DISTANCE_REF_KNOTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ExifGPSTagSet, DEST_DISTANCE_REF_KNOTS)},
+		{"DIFFERENTIAL_CORRECTION_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, DIFFERENTIAL_CORRECTION_NONE)},
+		{"DIFFERENTIAL_CORRECTION_APPLIED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ExifGPSTagSet, DIFFERENTIAL_CORRECTION_APPLIED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExifGPSTagSet, init$, void)},
+		{"getInstance", "()Ljavax/imageio/plugins/tiff/ExifGPSTagSet;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ExifGPSTagSet, getInstance, ExifGPSTagSet*)},
+		{"initTags", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTag;>;", $PRIVATE | $STATIC, $staticMethod(ExifGPSTagSet, initTags, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDifferential", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDifferential", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDateStamp", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDateStamp", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAreaInformation", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAreaInformation", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSProcessingMethod", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSProcessingMethod", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistance", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestDistance", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistanceRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestDistanceRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearing", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestBearing", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearingRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestBearingRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLongitude", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLongitudeRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLatitude", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDestLatitudeRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMapDatum", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSMapDatum", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirection", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSImgDirection", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirectionRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSImgDirectionRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrack", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSTrack", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrackRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSTrackRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeed", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSSpeed", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeedRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSSpeedRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDOP", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSDOP", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMeasureMode", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSMeasureMode", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSStatus", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSStatus", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSatellites", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSSatellites", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTimeStamp", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSTimeStamp", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAltitude", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSAltitudeRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLongitude", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLongitudeRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitude", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLatitude", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitudeRef", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSLatitudeRef", $STATIC},
+		{"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSVersionID", "javax.imageio.plugins.tiff.ExifGPSTagSet", "GPSVersionID", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifGPSTagSet",
+		"javax.imageio.plugins.tiff.TIFFTagSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDifferential,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDateStamp,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAreaInformation,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSProcessingMethod,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistance,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestDistanceRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearing,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestBearingRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLongitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDestLatitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMapDatum,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirection,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSImgDirectionRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrack,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTrackRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeed,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSpeedRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSDOP,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSMeasureMode,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSStatus,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSSatellites,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSTimeStamp,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSAltitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLongitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitude,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSLatitudeRef,javax.imageio.plugins.tiff.ExifGPSTagSet$GPSVersionID"
+	};
+	$loadClass(ExifGPSTagSet, name, initialize, &classInfo$$, ExifGPSTagSet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifGPSTagSet);
+	});
 	return class$;
 }
 

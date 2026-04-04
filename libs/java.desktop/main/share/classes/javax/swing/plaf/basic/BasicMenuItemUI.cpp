@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicMenuItemUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -11,8 +10,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
@@ -71,19 +68,14 @@ using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
@@ -124,102 +116,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicMenuItemUI_FieldInfo_[] = {
-	{"menuItem", "Ljavax/swing/JMenuItem;", nullptr, $PROTECTED, $field(BasicMenuItemUI, menuItem)},
-	{"selectionBackground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, selectionBackground)},
-	{"selectionForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, selectionForeground)},
-	{"disabledForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, disabledForeground)},
-	{"acceleratorForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorForeground)},
-	{"acceleratorSelectionForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorSelectionForeground)},
-	{"acceleratorDelimiter", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorDelimiter)},
-	{"defaultTextIconGap", "I", nullptr, $PROTECTED, $field(BasicMenuItemUI, defaultTextIconGap)},
-	{"acceleratorFont", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorFont)},
-	{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, mouseInputListener)},
-	{"menuDragMouseListener", "Ljavax/swing/event/MenuDragMouseListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, menuDragMouseListener)},
-	{"menuKeyListener", "Ljavax/swing/event/MenuKeyListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, menuKeyListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, propertyChangeListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicMenuItemUI$Handler;", nullptr, 0, $field(BasicMenuItemUI, handler)},
-	{"arrowIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicMenuItemUI, arrowIcon)},
-	{"checkIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicMenuItemUI, checkIcon)},
-	{"oldBorderPainted", "Z", nullptr, $PROTECTED, $field(BasicMenuItemUI, oldBorderPainted)},
-	{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicMenuItemUI, TRACE)},
-	{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicMenuItemUI, VERBOSE)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicMenuItemUI, DEBUG)},
-	{}
-};
-
-$MethodInfo _BasicMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicMenuItemUI, init$, void)},
-	{"applyInsets", "(Ljava/awt/Rectangle;Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, applyInsets, void, $Rectangle*, $Insets*)},
-	{"createInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicMenuItemUI, createInputMap, $InputMap*, int32_t)},
-	{"createMenuDragMouseListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MenuDragMouseListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createMenuDragMouseListener, $MenuDragMouseListener*, $JComponent*)},
-	{"createMenuKeyListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MenuKeyListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createMenuKeyListener, $MenuKeyListener*, $JComponent*)},
-	{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JComponent;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createPropertyChangeListener, $PropertyChangeListener*, $JComponent*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doClick", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, doClick, void, $MenuSelectionManager*)},
-	{"doNotCloseOnMouseClick", "()Z", nullptr, 0, $virtualMethod(BasicMenuItemUI, doNotCloseOnMouseClick, bool)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicMenuItemUI$Handler;", nullptr, 0, $virtualMethod(BasicMenuItemUI, getHandler, $BasicMenuItemUI$Handler*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPath", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getPath, $MenuElementArray*)},
-	{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, getPropertyPrefix, $String*)},
-	{"installComponents", "(Ljavax/swing/JMenuItem;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installComponents, void, $JMenuItem*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installKeyboardActions, void)},
-	{"installLazyActionMap", "()V", nullptr, 0, $virtualMethod(BasicMenuItemUI, installLazyActionMap, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, installUI, void, $JComponent*)},
-	{"isInternalFrameSystemMenu", "()Z", nullptr, $PRIVATE, $method(BasicMenuItemUI, isInternalFrameSystemMenu, bool)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicMenuItemUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintAccText", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintAccText, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*)},
-	{"paintArrowIcon", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintArrowIcon, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*, $Color*)},
-	{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
-	{"paintCheckIcon", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintCheckIcon, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*, $Color*, $Color*)},
-	{"paintIcon", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintIcon, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*, $Color*)},
-	{"paintMenuItem", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Color;Ljava/awt/Color;I)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, paintMenuItem, void, $Graphics*, $JComponent*, $Icon*, $Icon*, $Color*, $Color*, int32_t)},
-	{"paintText", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintText, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
-	{"printMenuElementArray", "([Ljavax/swing/MenuElement;Z)V", nullptr, 0, $virtualMethod(BasicMenuItemUI, printMenuElementArray, void, $MenuElementArray*, bool)},
-	{"uninstallComponents", "(Ljavax/swing/JMenuItem;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallComponents, void, $JMenuItem*)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, uninstallUI, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, update, void, $Graphics*, $JComponent*)},
-	{"updateAcceleratorBinding", "()V", nullptr, 0, $virtualMethod(BasicMenuItemUI, updateAcceleratorBinding, void)},
-	{}
-};
-
-$InnerClassInfo _BasicMenuItemUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicMenuItemUI$Handler", "javax.swing.plaf.basic.BasicMenuItemUI", "Handler", 0},
-	{"javax.swing.plaf.basic.BasicMenuItemUI$Actions", "javax.swing.plaf.basic.BasicMenuItemUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicMenuItemUI$MouseInputHandler", "javax.swing.plaf.basic.BasicMenuItemUI", "MouseInputHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicMenuItemUI",
-	"javax.swing.plaf.MenuItemUI",
-	nullptr,
-	_BasicMenuItemUI_FieldInfo_,
-	_BasicMenuItemUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicMenuItemUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicMenuItemUI$Handler,javax.swing.plaf.basic.BasicMenuItemUI$Actions,javax.swing.plaf.basic.BasicMenuItemUI$MouseInputHandler"
-};
-
-$Object* allocate$BasicMenuItemUI($Class* clazz) {
-	return $of($alloc(BasicMenuItemUI));
-}
-
 void BasicMenuItemUI::init$() {
 	$MenuItemUI::init$();
 	$set(this, menuItem, nullptr);
@@ -248,7 +144,7 @@ void BasicMenuItemUI::installUI($JComponent* c) {
 }
 
 void BasicMenuItemUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, getPropertyPrefix());
 	$set(this, acceleratorFont, $UIManager::getFont("MenuItem.acceleratorFont"_s));
 	if (this->acceleratorFont == nullptr) {
@@ -258,11 +154,10 @@ void BasicMenuItemUI::installDefaults() {
 	if (opaque != nullptr) {
 		$LookAndFeel::installProperty(this->menuItem, "opaque"_s, opaque);
 	} else {
-		$init($Boolean);
 		$LookAndFeel::installProperty(this->menuItem, "opaque"_s, $Boolean::TRUE);
 	}
 	bool var$0 = $nc(this->menuItem)->getMargin() == nullptr;
-	if (var$0 || ($instanceOf($UIResource, $($nc(this->menuItem)->getMargin())))) {
+	if (var$0 || ($instanceOf($UIResource, $(this->menuItem->getMargin())))) {
 		$nc(this->menuItem)->setMargin($($UIManager::getInsets($$str({prefix, ".margin"_s}))));
 	}
 	$LookAndFeel::installProperty(this->menuItem, "iconTextGap"_s, $($Integer::valueOf(4)));
@@ -336,7 +231,7 @@ void BasicMenuItemUI::installKeyboardActions() {
 }
 
 void BasicMenuItemUI::installLazyActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LazyActionMap::installLazyActionMap(this->menuItem, BasicMenuItemUI::class$, $$str({$(getPropertyPrefix()), ".actionMap"_s}));
 }
 
@@ -351,7 +246,7 @@ void BasicMenuItemUI::uninstallUI($JComponent* c) {
 }
 
 void BasicMenuItemUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LookAndFeel::uninstallBorder(this->menuItem);
 	$LookAndFeel::installProperty(this->menuItem, "borderPainted"_s, $($Boolean::valueOf(this->oldBorderPainted)));
 	if ($instanceOf($UIResource, $($nc(this->menuItem)->getMargin()))) {
@@ -426,7 +321,7 @@ $InputMap* BasicMenuItemUI::createInputMap(int32_t condition) {
 }
 
 void BasicMenuItemUI::updateAcceleratorBinding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyStroke, accelerator, $nc(this->menuItem)->getAccelerator());
 	$var($InputMap, windowInputMap, $SwingUtilities::getUIInputMap(this->menuItem, $JComponent::WHEN_IN_FOCUSED_WINDOW));
 	if (windowInputMap != nullptr) {
@@ -439,38 +334,34 @@ void BasicMenuItemUI::updateAcceleratorBinding() {
 		}
 		$nc(windowInputMap)->put(accelerator, "doClick"_s);
 		int32_t modifiers = accelerator->getModifiers();
-		if ((((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_DOWN_MASK)) != 0) && (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_GRAPH_DOWN_MASK)) != 0)) {
+		if (((modifiers & $InputEvent::ALT_DOWN_MASK) != 0) && ((modifiers & $InputEvent::ALT_GRAPH_DOWN_MASK) != 0)) {
 			modifiers &= (uint32_t)~$InputEvent::ALT_GRAPH_DOWN_MASK;
 			modifiers &= (uint32_t)~$InputEvent::ALT_GRAPH_MASK;
 			int32_t var$0 = accelerator->getKeyCode();
-			int32_t var$1 = modifiers;
-			$var($KeyStroke, keyStroke, $KeyStroke::getKeyStroke(var$0, var$1, accelerator->isOnKeyRelease()));
+			$var($KeyStroke, keyStroke, $KeyStroke::getKeyStroke(var$0, modifiers, accelerator->isOnKeyRelease()));
 			windowInputMap->put(keyStroke, "doClick"_s);
-		} else if ((((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_DOWN_MASK)) != 0) && (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_GRAPH_DOWN_MASK)) == 0)) {
+		} else if (((modifiers & $InputEvent::ALT_DOWN_MASK) != 0) && ((modifiers & $InputEvent::ALT_GRAPH_DOWN_MASK) == 0)) {
 			modifiers |= $InputEvent::ALT_GRAPH_DOWN_MASK;
-			int32_t var$2 = accelerator->getKeyCode();
-			int32_t var$3 = modifiers;
-			$var($KeyStroke, keyStroke, $KeyStroke::getKeyStroke(var$2, var$3, accelerator->isOnKeyRelease()));
+			int32_t var$1 = accelerator->getKeyCode();
+			$var($KeyStroke, keyStroke, $KeyStroke::getKeyStroke(var$1, modifiers, accelerator->isOnKeyRelease()));
 			windowInputMap->put(keyStroke, "doClick"_s);
-		} else if (((int32_t)(modifiers & (uint32_t)$InputEvent::ALT_GRAPH_DOWN_MASK)) != 0) {
+		} else if ((modifiers & $InputEvent::ALT_GRAPH_DOWN_MASK) != 0) {
 			modifiers &= (uint32_t)~$InputEvent::ALT_GRAPH_DOWN_MASK;
 			modifiers &= (uint32_t)~$InputEvent::ALT_GRAPH_MASK;
 			modifiers |= $InputEvent::ALT_DOWN_MASK;
-			int32_t var$4 = accelerator->getKeyCode();
-			int32_t var$5 = modifiers;
-			$var($KeyStroke, keyStroke, $KeyStroke::getKeyStroke(var$4, var$5, accelerator->isOnKeyRelease()));
+			int32_t var$2 = accelerator->getKeyCode();
+			$var($KeyStroke, keyStroke, $KeyStroke::getKeyStroke(var$2, modifiers, accelerator->isOnKeyRelease()));
 			windowInputMap->put(keyStroke, "doClick"_s);
 			modifiers |= $InputEvent::ALT_GRAPH_DOWN_MASK;
-			int32_t var$6 = accelerator->getKeyCode();
-			int32_t var$7 = modifiers;
-			$assign(keyStroke, $KeyStroke::getKeyStroke(var$6, var$7, accelerator->isOnKeyRelease()));
+			int32_t var$3 = accelerator->getKeyCode();
+			$assign(keyStroke, $KeyStroke::getKeyStroke(var$3, modifiers, accelerator->isOnKeyRelease()));
 			windowInputMap->put(keyStroke, "doClick"_s);
 		}
 	}
 }
 
 $Dimension* BasicMenuItemUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, nullptr);
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -487,7 +378,7 @@ $Dimension* BasicMenuItemUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* BasicMenuItemUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, nullptr);
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -500,41 +391,37 @@ $Dimension* BasicMenuItemUI::getMaximumSize($JComponent* c) {
 }
 
 $Dimension* BasicMenuItemUI::getPreferredMenuItemSize($JComponent* c, $Icon* checkIcon, $Icon* arrowIcon, int32_t defaultTextIconGap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, mi, $cast($JMenuItem, c));
-	$var($JMenuItem, var$0, mi);
-	$var($Icon, var$1, checkIcon);
-	$var($Icon, var$2, arrowIcon);
-	$var($Rectangle, var$3, $MenuItemLayoutHelper::createMaxRect());
-	int32_t var$4 = defaultTextIconGap;
-	$var($String, var$5, this->acceleratorDelimiter);
-	bool var$6 = $BasicGraphicsUtils::isLeftToRight(mi);
-	$var($Font, var$7, $nc(mi)->getFont());
-	$var($Font, var$8, this->acceleratorFont);
-	bool var$9 = $MenuItemLayoutHelper::useCheckAndArrow(this->menuItem);
-	$var($MenuItemLayoutHelper, lh, $new($MenuItemLayoutHelper, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, $(getPropertyPrefix())));
+	$var($Rectangle, var$0, $MenuItemLayoutHelper::createMaxRect());
+	$var($String, var$1, this->acceleratorDelimiter);
+	bool var$2 = $BasicGraphicsUtils::isLeftToRight(mi);
+	$var($Font, var$3, $nc(mi)->getFont());
+	$var($Font, var$4, this->acceleratorFont);
+	bool var$5 = $MenuItemLayoutHelper::useCheckAndArrow(this->menuItem);
+	$var($MenuItemLayoutHelper, lh, $new($MenuItemLayoutHelper, mi, checkIcon, arrowIcon, var$0, defaultTextIconGap, var$1, var$2, var$3, var$4, var$5, $(getPropertyPrefix())));
 	$var($Dimension, result, $new($Dimension));
 	result->width = lh->getLeadingGap();
-	$var($MenuItemLayoutHelper$RectSize, var$10, lh->getCheckSize());
-	$MenuItemLayoutHelper::addMaxWidth(var$10, lh->getAfterCheckIconGap(), result);
-	bool var$12 = (!lh->isTopLevelMenu());
-	bool var$11 = var$12 && (lh->getMinTextOffset() > 0);
-	if (var$11 && (result->width < lh->getMinTextOffset())) {
+	$var($MenuItemLayoutHelper$RectSize, var$6, lh->getCheckSize());
+	$MenuItemLayoutHelper::addMaxWidth(var$6, lh->getAfterCheckIconGap(), result);
+	bool var$8 = !lh->isTopLevelMenu();
+	bool var$7 = var$8 && (lh->getMinTextOffset() > 0);
+	if (var$7 && (result->width < lh->getMinTextOffset())) {
 		result->width = lh->getMinTextOffset();
 	}
-	$var($MenuItemLayoutHelper$RectSize, var$13, lh->getLabelSize());
-	$MenuItemLayoutHelper::addMaxWidth(var$13, lh->getGap(), result);
-	$var($MenuItemLayoutHelper$RectSize, var$14, lh->getAccSize());
-	$MenuItemLayoutHelper::addMaxWidth(var$14, lh->getGap(), result);
-	$var($MenuItemLayoutHelper$RectSize, var$15, lh->getArrowSize());
-	$MenuItemLayoutHelper::addMaxWidth(var$15, lh->getGap(), result);
+	$var($MenuItemLayoutHelper$RectSize, var$9, lh->getLabelSize());
+	$MenuItemLayoutHelper::addMaxWidth(var$9, lh->getGap(), result);
+	$var($MenuItemLayoutHelper$RectSize, var$10, lh->getAccSize());
+	$MenuItemLayoutHelper::addMaxWidth(var$10, lh->getGap(), result);
+	$var($MenuItemLayoutHelper$RectSize, var$11, lh->getArrowSize());
+	$MenuItemLayoutHelper::addMaxWidth(var$11, lh->getGap(), result);
 	result->height = $MenuItemLayoutHelper::max($$new($ints, {
-		$nc($(lh->getCheckSize()))->getHeight(),
-		$nc($(lh->getLabelSize()))->getHeight(),
-		$nc($(lh->getAccSize()))->getHeight(),
-		$nc($(lh->getArrowSize()))->getHeight()
+		$$nc(lh->getCheckSize())->getHeight(),
+		$$nc(lh->getLabelSize())->getHeight(),
+		$$nc(lh->getAccSize())->getHeight(),
+		$$nc(lh->getArrowSize())->getHeight()
 	}));
-	$var($Insets, insets, $nc($(lh->getMenuItem()))->getInsets());
+	$var($Insets, insets, $$nc(lh->getMenuItem())->getInsets());
 	if (insets != nullptr) {
 		result->width += insets->left + insets->right;
 		result->height += insets->top + insets->bottom;
@@ -542,7 +429,6 @@ $Dimension* BasicMenuItemUI::getPreferredMenuItemSize($JComponent* c, $Icon* che
 	if (result->width % 2 == 0) {
 		++result->width;
 	}
-	$init($Boolean);
 	if (result->height % 2 == 0 && !$equals($Boolean::TRUE, $UIManager::get($$str({$(getPropertyPrefix()), ".evenHeight"_s})))) {
 		++result->height;
 	}
@@ -558,25 +444,20 @@ void BasicMenuItemUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void BasicMenuItemUI::paintMenuItem($Graphics* g, $JComponent* c, $Icon* checkIcon, $Icon* arrowIcon, $Color* background, $Color* foreground, int32_t defaultTextIconGap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, holdf, $nc(g)->getFont());
 	$var($Color, holdc, g->getColor());
 	$var($JMenuItem, mi, $cast($JMenuItem, c));
 	g->setFont($($nc(mi)->getFont()));
-	int32_t var$0 = $nc(mi)->getWidth();
+	int32_t var$0 = mi->getWidth();
 	$var($Rectangle, viewRect, $new($Rectangle, 0, 0, var$0, mi->getHeight()));
-	applyInsets(viewRect, $($nc(mi)->getInsets()));
-	$var($JMenuItem, var$1, mi);
-	$var($Icon, var$2, checkIcon);
-	$var($Icon, var$3, arrowIcon);
-	$var($Rectangle, var$4, viewRect);
-	int32_t var$5 = defaultTextIconGap;
-	$var($String, var$6, this->acceleratorDelimiter);
-	bool var$7 = $BasicGraphicsUtils::isLeftToRight(mi);
-	$var($Font, var$8, $nc(mi)->getFont());
-	$var($Font, var$9, this->acceleratorFont);
-	bool var$10 = $MenuItemLayoutHelper::useCheckAndArrow(this->menuItem);
-	$var($MenuItemLayoutHelper, lh, $new($MenuItemLayoutHelper, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, $(getPropertyPrefix())));
+	applyInsets(viewRect, $(mi->getInsets()));
+	$var($String, var$1, this->acceleratorDelimiter);
+	bool var$2 = $BasicGraphicsUtils::isLeftToRight(mi);
+	$var($Font, var$3, mi->getFont());
+	$var($Font, var$4, this->acceleratorFont);
+	bool var$5 = $MenuItemLayoutHelper::useCheckAndArrow(this->menuItem);
+	$var($MenuItemLayoutHelper, lh, $new($MenuItemLayoutHelper, mi, checkIcon, arrowIcon, viewRect, defaultTextIconGap, var$1, var$2, var$3, var$4, var$5, $(getPropertyPrefix())));
 	$var($MenuItemLayoutHelper$LayoutResult, lr, lh->layoutMenuItem());
 	paintBackground(g, mi, background);
 	paintCheckIcon(g, lh, lr, holdc, foreground);
@@ -589,41 +470,40 @@ void BasicMenuItemUI::paintMenuItem($Graphics* g, $JComponent* c, $Icon* checkIc
 }
 
 void BasicMenuItemUI::paintIcon($Graphics* g, $MenuItemLayoutHelper* lh, $MenuItemLayoutHelper$LayoutResult* lr, $Color* holdc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(lh)->getIcon() != nullptr) {
 		$var($Icon, icon, nullptr);
-		$var($ButtonModel, model, $nc($(lh->getMenuItem()))->getModel());
+		$var($ButtonModel, model, $$nc(lh->getMenuItem())->getModel());
 		if (!$nc(model)->isEnabled()) {
-			$assign(icon, $nc($(lh->getMenuItem()))->getDisabledIcon());
+			$assign(icon, $$nc(lh->getMenuItem())->getDisabledIcon());
 		} else {
-			bool var$1 = model->isPressed();
-			if (var$1 && model->isArmed()) {
-				$assign(icon, $nc($(lh->getMenuItem()))->getPressedIcon());
+			bool var$0 = model->isPressed();
+			if (var$0 && model->isArmed()) {
+				$assign(icon, $$nc(lh->getMenuItem())->getPressedIcon());
 				if (icon == nullptr) {
-					$assign(icon, $nc($(lh->getMenuItem()))->getIcon());
+					$assign(icon, $$nc(lh->getMenuItem())->getIcon());
 				}
 			} else {
-				$assign(icon, $nc($(lh->getMenuItem()))->getIcon());
+				$assign(icon, $$nc(lh->getMenuItem())->getIcon());
 			}
 		}
 		if (icon != nullptr) {
-			$var($Component, var$2, static_cast<$Component*>(lh->getMenuItem()));
-			$var($Graphics, var$3, g);
-			int32_t var$4 = $nc($($nc(lr)->getIconRect()))->x;
-			icon->paintIcon(var$2, var$3, var$4, $nc($(lr->getIconRect()))->y);
+			$var($Component, var$1, lh->getMenuItem());
+			int32_t var$2 = $nc($($nc(lr)->getIconRect()))->x;
+			icon->paintIcon(var$1, g, var$2, $nc($(lr->getIconRect()))->y);
 			$nc(g)->setColor(holdc);
 		}
 	}
 }
 
 void BasicMenuItemUI::paintCheckIcon($Graphics* g, $MenuItemLayoutHelper* lh, $MenuItemLayoutHelper$LayoutResult* lr, $Color* holdc, $Color* foreground) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(lh)->getCheckIcon() != nullptr) {
-		$var($ButtonModel, model, $nc($(lh->getMenuItem()))->getModel());
+		$var($ButtonModel, model, $$nc(lh->getMenuItem())->getModel());
 		bool var$0 = $nc(model)->isArmed();
 		if (!var$0) {
 			bool var$1 = $instanceOf($JMenu, $(lh->getMenuItem()));
-			var$0 = (var$1 && $nc(model)->isSelected());
+			var$0 = var$1 && model->isSelected();
 		}
 		if (var$0) {
 			$nc(g)->setColor(foreground);
@@ -631,97 +511,90 @@ void BasicMenuItemUI::paintCheckIcon($Graphics* g, $MenuItemLayoutHelper* lh, $M
 			$nc(g)->setColor(holdc);
 		}
 		if (lh->useCheckAndArrow()) {
-			$var($Component, var$2, static_cast<$Component*>(lh->getMenuItem()));
-			$var($Graphics, var$3, g);
-			int32_t var$4 = $nc($($nc(lr)->getCheckRect()))->x;
-			$nc($(lh->getCheckIcon()))->paintIcon(var$2, var$3, var$4, $nc($(lr->getCheckRect()))->y);
+			$var($Component, var$2, lh->getMenuItem());
+			int32_t var$3 = $nc($($nc(lr)->getCheckRect()))->x;
+			$$nc(lh->getCheckIcon())->paintIcon(var$2, g, var$3, $nc($(lr->getCheckRect()))->y);
 		}
 		$nc(g)->setColor(holdc);
 	}
 }
 
 void BasicMenuItemUI::paintAccText($Graphics* g, $MenuItemLayoutHelper* lh, $MenuItemLayoutHelper$LayoutResult* lr) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(lh)->getAccText()))->isEmpty()) {
-		$var($ButtonModel, model, $nc($(lh->getMenuItem()))->getModel());
-		$nc(g)->setFont($($nc($(lh->getAccFontMetrics()))->getFont()));
+	$useLocalObjectStack();
+	if (!$$nc($nc(lh)->getAccText())->isEmpty()) {
+		$var($ButtonModel, model, $$nc(lh->getMenuItem())->getModel());
+		$nc(g)->setFont($($$nc(lh->getAccFontMetrics())->getFont()));
 		if (!$nc(model)->isEnabled()) {
 			if (this->disabledForeground != nullptr) {
 				g->setColor(this->disabledForeground);
-				$var($JComponent, var$0, static_cast<$JComponent*>(lh->getMenuItem()));
-				$var($Graphics, var$1, g);
-				$var($String, var$2, lh->getAccText());
-				int32_t var$3 = $nc($($nc(lr)->getAccRect()))->x;
-				int32_t var$4 = $nc($(lr->getAccRect()))->y;
-				$SwingUtilities2::drawString(var$0, var$1, var$2, var$3, var$4 + $nc($(lh->getAccFontMetrics()))->getAscent());
+				$var($JComponent, var$0, lh->getMenuItem());
+				$var($String, var$1, lh->getAccText());
+				int32_t var$2 = $nc($($nc(lr)->getAccRect()))->x;
+				int32_t var$3 = $nc($(lr->getAccRect()))->y;
+				$SwingUtilities2::drawString(var$0, g, var$1, var$2, var$3 + $$nc(lh->getAccFontMetrics())->getAscent());
 			} else {
-				g->setColor($($nc($($nc($(lh->getMenuItem()))->getBackground()))->brighter()));
-				$var($JComponent, var$5, static_cast<$JComponent*>(lh->getMenuItem()));
-				$var($Graphics, var$6, g);
-				$var($String, var$7, lh->getAccText());
-				int32_t var$8 = $nc($($nc(lr)->getAccRect()))->x;
-				int32_t var$9 = $nc($(lr->getAccRect()))->y;
-				$SwingUtilities2::drawString(var$5, var$6, var$7, var$8, var$9 + $nc($(lh->getAccFontMetrics()))->getAscent());
-				g->setColor($($nc($($nc($(lh->getMenuItem()))->getBackground()))->darker()));
-				$var($JComponent, var$10, static_cast<$JComponent*>(lh->getMenuItem()));
-				$var($Graphics, var$11, g);
-				$var($String, var$12, lh->getAccText());
-				int32_t var$13 = $nc($($nc(lr)->getAccRect()))->x - 1;
-				int32_t var$14 = $nc($(lr->getAccRect()))->y;
-				$SwingUtilities2::drawString(var$10, var$11, var$12, var$13, var$14 + $nc($(lh->getFontMetrics()))->getAscent() - 1);
+				g->setColor($($$nc($$nc(lh->getMenuItem())->getBackground())->brighter()));
+				$var($JComponent, var$4, lh->getMenuItem());
+				$var($String, var$5, lh->getAccText());
+				int32_t var$6 = $nc($($nc(lr)->getAccRect()))->x;
+				int32_t var$7 = $nc($(lr->getAccRect()))->y;
+				$SwingUtilities2::drawString(var$4, g, var$5, var$6, var$7 + $$nc(lh->getAccFontMetrics())->getAscent());
+				g->setColor($($$nc($$nc(lh->getMenuItem())->getBackground())->darker()));
+				$var($JComponent, var$8, lh->getMenuItem());
+				$var($String, var$9, lh->getAccText());
+				int32_t var$10 = $nc($(lr->getAccRect()))->x - 1;
+				int32_t var$11 = $nc($(lr->getAccRect()))->y;
+				$SwingUtilities2::drawString(var$8, g, var$9, var$10, var$11 + $$nc(lh->getFontMetrics())->getAscent() - 1);
 			}
 		} else {
-			bool var$15 = model->isArmed();
-			if (!var$15) {
-				bool var$16 = $instanceOf($JMenu, $(lh->getMenuItem()));
-				var$15 = (var$16 && model->isSelected());
+			bool var$12 = model->isArmed();
+			if (!var$12) {
+				bool var$13 = $instanceOf($JMenu, $(lh->getMenuItem()));
+				var$12 = var$13 && model->isSelected();
 			}
-			if (var$15) {
+			if (var$12) {
 				g->setColor(this->acceleratorSelectionForeground);
 			} else {
 				g->setColor(this->acceleratorForeground);
 			}
-			$var($JComponent, var$17, static_cast<$JComponent*>(lh->getMenuItem()));
-			$var($Graphics, var$18, g);
-			$var($String, var$19, lh->getAccText());
-			int32_t var$20 = $nc($($nc(lr)->getAccRect()))->x;
-			int32_t var$21 = $nc($(lr->getAccRect()))->y;
-			$SwingUtilities2::drawString(var$17, var$18, var$19, var$20, var$21 + $nc($(lh->getAccFontMetrics()))->getAscent());
+			$var($JComponent, var$14, lh->getMenuItem());
+			$var($String, var$15, lh->getAccText());
+			int32_t var$16 = $nc($($nc(lr)->getAccRect()))->x;
+			int32_t var$17 = $nc($(lr->getAccRect()))->y;
+			$SwingUtilities2::drawString(var$14, g, var$15, var$16, var$17 + $$nc(lh->getAccFontMetrics())->getAscent());
 		}
 	}
 }
 
 void BasicMenuItemUI::paintText($Graphics* g, $MenuItemLayoutHelper* lh, $MenuItemLayoutHelper$LayoutResult* lr) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(lh)->getText()))->isEmpty()) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(lh)->getText())->isEmpty()) {
 		if (lh->getHtmlView() != nullptr) {
-			$nc($(lh->getHtmlView()))->paint(g, $($nc(lr)->getTextRect()));
+			$$nc(lh->getHtmlView())->paint(g, $($nc(lr)->getTextRect()));
 		} else {
-			$var($Graphics, var$0, g);
-			$var($JMenuItem, var$1, lh->getMenuItem());
-			$var($Rectangle, var$2, $nc(lr)->getTextRect());
-			paintText(var$0, var$1, var$2, $(lh->getText()));
+			$var($JMenuItem, var$0, lh->getMenuItem());
+			$var($Rectangle, var$1, $nc(lr)->getTextRect());
+			paintText(g, var$0, var$1, $(lh->getText()));
 		}
 	}
 }
 
 void BasicMenuItemUI::paintArrowIcon($Graphics* g, $MenuItemLayoutHelper* lh, $MenuItemLayoutHelper$LayoutResult* lr, $Color* foreground) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(lh)->getArrowIcon() != nullptr) {
-		$var($ButtonModel, model, $nc($(lh->getMenuItem()))->getModel());
+		$var($ButtonModel, model, $$nc(lh->getMenuItem())->getModel());
 		bool var$0 = $nc(model)->isArmed();
 		if (!var$0) {
 			bool var$1 = $instanceOf($JMenu, $(lh->getMenuItem()));
-			var$0 = (var$1 && $nc(model)->isSelected());
+			var$0 = var$1 && model->isSelected();
 		}
 		if (var$0) {
 			$nc(g)->setColor(foreground);
 		}
 		if (lh->useCheckAndArrow()) {
-			$var($Component, var$2, static_cast<$Component*>(lh->getMenuItem()));
-			$var($Graphics, var$3, g);
-			int32_t var$4 = $nc($($nc(lr)->getArrowRect()))->x;
-			$nc($(lh->getArrowIcon()))->paintIcon(var$2, var$3, var$4, $nc($(lr->getArrowRect()))->y);
+			$var($Component, var$2, lh->getMenuItem());
+			int32_t var$3 = $nc($($nc(lr)->getArrowRect()))->x;
+			$$nc(lh->getArrowIcon())->paintIcon(var$2, g, var$3, $nc($(lr->getArrowRect()))->y);
 		}
 	}
 }
@@ -736,14 +609,14 @@ void BasicMenuItemUI::applyInsets($Rectangle* rect, $Insets* insets) {
 }
 
 void BasicMenuItemUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonModel, model, $nc(menuItem)->getModel());
 	$var($Color, oldColor, $nc(g)->getColor());
 	int32_t menuWidth = menuItem->getWidth();
 	int32_t menuHeight = menuItem->getHeight();
 	if (menuItem->isOpaque()) {
 		bool var$0 = $nc(model)->isArmed();
-		if (var$0 || ($instanceOf($JMenu, menuItem) && $nc(model)->isSelected())) {
+		if (var$0 || ($instanceOf($JMenu, menuItem) && model->isSelected())) {
 			g->setColor(bgColor);
 			g->fillRect(0, 0, menuWidth, menuHeight);
 		} else {
@@ -752,8 +625,8 @@ void BasicMenuItemUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color
 		}
 		g->setColor(oldColor);
 	} else {
-		bool var$2 = $nc(model)->isArmed();
-		if (var$2 || ($instanceOf($JMenu, menuItem) && $nc(model)->isSelected())) {
+		bool var$1 = $nc(model)->isArmed();
+		if (var$1 || ($instanceOf($JMenu, menuItem) && model->isSelected())) {
 			g->setColor(bgColor);
 			g->fillRect(0, 0, menuWidth, menuHeight);
 			g->setColor(oldColor);
@@ -762,31 +635,31 @@ void BasicMenuItemUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Color
 }
 
 void BasicMenuItemUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonModel, model, $nc(menuItem)->getModel());
-	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(menuItem), g));
+	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(menuItem, g));
 	int32_t mnemIndex = menuItem->getDisplayedMnemonicIndex();
 	if (!$nc(model)->isEnabled()) {
 		if ($instanceOf($Color, $($UIManager::get("MenuItem.disabledForeground"_s)))) {
 			$nc(g)->setColor($($UIManager::getColor("MenuItem.disabledForeground"_s)));
-			$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
+			$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
 		} else {
-			$nc(g)->setColor($($nc($(menuItem->getBackground()))->brighter()));
-			$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
-			g->setColor($($nc($(menuItem->getBackground()))->darker()));
-			$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, $nc(textRect)->x - 1, textRect->y + $nc(fm)->getAscent() - 1);
+			$nc(g)->setColor($($$nc(menuItem->getBackground())->brighter()));
+			$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
+			g->setColor($($$nc(menuItem->getBackground())->darker()));
+			$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, textRect->x - 1, textRect->y + fm->getAscent() - 1);
 		}
 	} else {
 		bool var$0 = model->isArmed();
 		if (var$0 || ($instanceOf($JMenu, menuItem) && model->isSelected())) {
 			$nc(g)->setColor(this->selectionForeground);
 		}
-		$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
+		$SwingUtilities2::drawStringUnderlineCharAt(menuItem, g, text, mnemIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
 	}
 }
 
 $MenuElementArray* BasicMenuItemUI::getPath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, m, $MenuSelectionManager::defaultManager());
 	$var($MenuElementArray, oldPath, $nc(m)->getSelectedPath());
 	$var($MenuElementArray, newPath, nullptr);
@@ -814,31 +687,31 @@ $MenuElementArray* BasicMenuItemUI::getPath() {
 }
 
 void BasicMenuItemUI::printMenuElementArray($MenuElementArray* path, bool dumpStack) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Path is("_s);
 	int32_t i = 0;
 	int32_t j = 0;
 	for (i = 0, j = $nc(path)->length; i < j; ++i) {
 		for (int32_t k = 0; k <= i; ++k) {
-			$nc($System::out)->print("  "_s);
+			$System::out->print("  "_s);
 		}
 		$var($MenuElement, me, path->get(i));
 		if ($instanceOf($JMenuItem, me)) {
-			$nc($System::out)->println($$str({$($nc(($cast($JMenuItem, me)))->getText()), ", "_s}));
+			$System::out->println($$str({$($cast($JMenuItem, me)->getText()), ", "_s}));
 		} else if (me == nullptr) {
-			$nc($System::out)->println("NULL , "_s);
+			$System::out->println("NULL , "_s);
 		} else {
-			$nc($System::out)->println($$str({""_s, me, ", "_s}));
+			$System::out->println($$str({""_s, me, ", "_s}));
 		}
 	}
-	$nc($System::out)->println(")"_s);
+	$System::out->println(")"_s);
 	if (dumpStack == true) {
 		$Thread::dumpStack();
 	}
 }
 
 bool BasicMenuItemUI::doNotCloseOnMouseClick() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JCheckBoxMenuItem, this->menuItem)) {
 		$var($String, property, "CheckBoxMenuItem.doNotCloseOnMouseClick"_s);
 		return $SwingUtilities2::getBoolean(this->menuItem, property);
@@ -850,7 +723,7 @@ bool BasicMenuItemUI::doNotCloseOnMouseClick() {
 }
 
 void BasicMenuItemUI::doClick($MenuSelectionManager* msm$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, msm, msm$renamed);
 	if (!isInternalFrameSystemMenu()) {
 		$BasicLookAndFeel::playSound(this->menuItem, $$str({$(getPropertyPrefix()), ".commandSound"_s}));
@@ -877,7 +750,97 @@ BasicMenuItemUI::BasicMenuItemUI() {
 }
 
 $Class* BasicMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(BasicMenuItemUI, name, initialize, &_BasicMenuItemUI_ClassInfo_, allocate$BasicMenuItemUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"menuItem", "Ljavax/swing/JMenuItem;", nullptr, $PROTECTED, $field(BasicMenuItemUI, menuItem)},
+		{"selectionBackground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, selectionBackground)},
+		{"selectionForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, selectionForeground)},
+		{"disabledForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, disabledForeground)},
+		{"acceleratorForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorForeground)},
+		{"acceleratorSelectionForeground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorSelectionForeground)},
+		{"acceleratorDelimiter", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorDelimiter)},
+		{"defaultTextIconGap", "I", nullptr, $PROTECTED, $field(BasicMenuItemUI, defaultTextIconGap)},
+		{"acceleratorFont", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(BasicMenuItemUI, acceleratorFont)},
+		{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, mouseInputListener)},
+		{"menuDragMouseListener", "Ljavax/swing/event/MenuDragMouseListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, menuDragMouseListener)},
+		{"menuKeyListener", "Ljavax/swing/event/MenuKeyListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, menuKeyListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicMenuItemUI, propertyChangeListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicMenuItemUI$Handler;", nullptr, 0, $field(BasicMenuItemUI, handler)},
+		{"arrowIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicMenuItemUI, arrowIcon)},
+		{"checkIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(BasicMenuItemUI, checkIcon)},
+		{"oldBorderPainted", "Z", nullptr, $PROTECTED, $field(BasicMenuItemUI, oldBorderPainted)},
+		{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicMenuItemUI, TRACE)},
+		{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicMenuItemUI, VERBOSE)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicMenuItemUI, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicMenuItemUI, init$, void)},
+		{"applyInsets", "(Ljava/awt/Rectangle;Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, applyInsets, void, $Rectangle*, $Insets*)},
+		{"createInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicMenuItemUI, createInputMap, $InputMap*, int32_t)},
+		{"createMenuDragMouseListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MenuDragMouseListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createMenuDragMouseListener, $MenuDragMouseListener*, $JComponent*)},
+		{"createMenuKeyListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MenuKeyListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createMenuKeyListener, $MenuKeyListener*, $JComponent*)},
+		{"createMouseInputListener", "(Ljavax/swing/JComponent;)Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createMouseInputListener, $MouseInputListener*, $JComponent*)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JComponent;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, createPropertyChangeListener, $PropertyChangeListener*, $JComponent*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doClick", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, doClick, void, $MenuSelectionManager*)},
+		{"doNotCloseOnMouseClick", "()Z", nullptr, 0, $virtualMethod(BasicMenuItemUI, doNotCloseOnMouseClick, bool)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicMenuItemUI$Handler;", nullptr, 0, $virtualMethod(BasicMenuItemUI, getHandler, $BasicMenuItemUI$Handler*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPath", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getPath, $MenuElementArray*)},
+		{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, getPropertyPrefix, $String*)},
+		{"installComponents", "(Ljavax/swing/JMenuItem;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installComponents, void, $JMenuItem*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installKeyboardActions, void)},
+		{"installLazyActionMap", "()V", nullptr, 0, $virtualMethod(BasicMenuItemUI, installLazyActionMap, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, installUI, void, $JComponent*)},
+		{"isInternalFrameSystemMenu", "()Z", nullptr, $PRIVATE, $method(BasicMenuItemUI, isInternalFrameSystemMenu, bool)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicMenuItemUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintAccText", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintAccText, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*)},
+		{"paintArrowIcon", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintArrowIcon, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*, $Color*)},
+		{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
+		{"paintCheckIcon", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintCheckIcon, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*, $Color*, $Color*)},
+		{"paintIcon", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintIcon, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*, $Color*)},
+		{"paintMenuItem", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Color;Ljava/awt/Color;I)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, paintMenuItem, void, $Graphics*, $JComponent*, $Icon*, $Icon*, $Color*, $Color*, int32_t)},
+		{"paintText", "(Ljava/awt/Graphics;Lsun/swing/MenuItemLayoutHelper;Lsun/swing/MenuItemLayoutHelper$LayoutResult;)V", nullptr, $PRIVATE, $method(BasicMenuItemUI, paintText, void, $Graphics*, $MenuItemLayoutHelper*, $MenuItemLayoutHelper$LayoutResult*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
+		{"printMenuElementArray", "([Ljavax/swing/MenuElement;Z)V", nullptr, 0, $virtualMethod(BasicMenuItemUI, printMenuElementArray, void, $MenuElementArray*, bool)},
+		{"uninstallComponents", "(Ljavax/swing/JMenuItem;)V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallComponents, void, $JMenuItem*)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicMenuItemUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, uninstallUI, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuItemUI, update, void, $Graphics*, $JComponent*)},
+		{"updateAcceleratorBinding", "()V", nullptr, 0, $virtualMethod(BasicMenuItemUI, updateAcceleratorBinding, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicMenuItemUI$Handler", "javax.swing.plaf.basic.BasicMenuItemUI", "Handler", 0},
+		{"javax.swing.plaf.basic.BasicMenuItemUI$Actions", "javax.swing.plaf.basic.BasicMenuItemUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicMenuItemUI$MouseInputHandler", "javax.swing.plaf.basic.BasicMenuItemUI", "MouseInputHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicMenuItemUI",
+		"javax.swing.plaf.MenuItemUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicMenuItemUI$Handler,javax.swing.plaf.basic.BasicMenuItemUI$Actions,javax.swing.plaf.basic.BasicMenuItemUI$MouseInputHandler"
+	};
+	$loadClass(BasicMenuItemUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicMenuItemUI);
+	});
 	return class$;
 }
 

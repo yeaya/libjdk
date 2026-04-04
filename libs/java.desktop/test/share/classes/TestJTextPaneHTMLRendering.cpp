@@ -1,5 +1,4 @@
 #include <TestJTextPaneHTMLRendering.h>
-
 #include <TestJTextPaneHTMLRendering$1.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
@@ -47,16 +46,12 @@
 using $TestJTextPaneHTMLRendering$1 = ::TestJTextPaneHTMLRendering$1;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Image = ::java::awt::Image;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -79,7 +74,6 @@ using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JTextPane = ::javax::swing::JTextPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 
 class TestJTextPaneHTMLRendering$$Lambda$createUI : public $Runnable {
@@ -90,27 +84,24 @@ public:
 	virtual void run() override {
 		TestJTextPaneHTMLRendering::createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJTextPaneHTMLRendering$$Lambda$createUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJTextPaneHTMLRendering$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$createUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo TestJTextPaneHTMLRendering$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJTextPaneHTMLRendering$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestJTextPaneHTMLRendering$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(TestJTextPaneHTMLRendering$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$createUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJTextPaneHTMLRendering$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJTextPaneHTMLRendering$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJTextPaneHTMLRendering$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* TestJTextPaneHTMLRendering$$Lambda$createUI::class$ = nullptr;
@@ -124,33 +115,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJTextPaneHTMLRendering$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestJTextPaneHTMLRendering$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestJTextPaneHTMLRendering$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestJTextPaneHTMLRendering$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestJTextPaneHTMLRendering$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJTextPaneHTMLRendering$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestJTextPaneHTMLRendering$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestJTextPaneHTMLRendering$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestJTextPaneHTMLRendering$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJTextPaneHTMLRendering$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestJTextPaneHTMLRendering$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJTextPaneHTMLRendering$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestJTextPaneHTMLRendering$$Lambda$dispose$1::class$ = nullptr;
@@ -163,27 +150,24 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TestJTextPaneHTMLRendering::lambda$createUI$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	methodInfos
 };
 $Class* TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2::load$($String* name, bool initialize) {
-	$loadClass(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2);
+	});
 	return class$;
 }
 $Class* TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2::class$ = nullptr;
@@ -196,27 +180,24 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TestJTextPaneHTMLRendering::lambda$createUI$1(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	methodInfos
 };
 $Class* TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3::load$($String* name, bool initialize) {
-	$loadClass(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3);
+	});
 	return class$;
 }
 $Class* TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3::class$ = nullptr;
@@ -229,76 +210,27 @@ public:
 	virtual void run() override {
 		TestJTextPaneHTMLRendering::runTest();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJTextPaneHTMLRendering$$Lambda$runTest$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJTextPaneHTMLRendering$$Lambda$runTest$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$runTest$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$runTest$4, run, void)},
-	{}
-};
-$ClassInfo TestJTextPaneHTMLRendering$$Lambda$runTest$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJTextPaneHTMLRendering$$Lambda$runTest$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestJTextPaneHTMLRendering$$Lambda$runTest$4::load$($String* name, bool initialize) {
-	$loadClass(TestJTextPaneHTMLRendering$$Lambda$runTest$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering$$Lambda$runTest$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJTextPaneHTMLRendering$$Lambda$runTest$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJTextPaneHTMLRendering$$Lambda$runTest$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJTextPaneHTMLRendering$$Lambda$runTest$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJTextPaneHTMLRendering$$Lambda$runTest$4);
+	});
 	return class$;
 }
 $Class* TestJTextPaneHTMLRendering$$Lambda$runTest$4::class$ = nullptr;
-
-$FieldInfo _TestJTextPaneHTMLRendering_FieldInfo_[] = {
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, mainFrame)},
-	{"cache", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/net/URL;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, cache)},
-	{"textPane", "Ljavax/swing/JTextPane;", nullptr, $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, textPane)},
-	{"urlArrow", "Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, urlArrow)},
-	{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJTextPaneHTMLRendering, testResult)},
-	{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJTextPaneHTMLRendering, countDownLatch)},
-	{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJTextPaneHTMLRendering, INSTRUCTIONS)},
-	{}
-};
-
-$MethodInfo _TestJTextPaneHTMLRendering_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering, init$, void)},
-	{"createTestUI", "(Ljavax/swing/JPanel;)V", nullptr, $STATIC, $staticMethod(TestJTextPaneHTMLRendering, createTestUI, void, $JPanel*)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJTextPaneHTMLRendering, createUI, void)},
-	{"lambda$createUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJTextPaneHTMLRendering, lambda$createUI$0, void, $ActionEvent*)},
-	{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJTextPaneHTMLRendering, lambda$createUI$1, void, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJTextPaneHTMLRendering, main, void, $StringArray*), "java.lang.Exception"},
-	{"runTest", "()V", nullptr, $STATIC, $staticMethod(TestJTextPaneHTMLRendering, runTest, void)},
-	{}
-};
-
-$InnerClassInfo _TestJTextPaneHTMLRendering_InnerClassesInfo_[] = {
-	{"TestJTextPaneHTMLRendering$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestJTextPaneHTMLRendering_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestJTextPaneHTMLRendering",
-	"java.lang.Object",
-	nullptr,
-	_TestJTextPaneHTMLRendering_FieldInfo_,
-	_TestJTextPaneHTMLRendering_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestJTextPaneHTMLRendering_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestJTextPaneHTMLRendering$1"
-};
-
-$Object* allocate$TestJTextPaneHTMLRendering($Class* clazz) {
-	return $of($alloc(TestJTextPaneHTMLRendering));
-}
 
 $JFrame* TestJTextPaneHTMLRendering::mainFrame = nullptr;
 $Dictionary* TestJTextPaneHTMLRendering::cache = nullptr;
@@ -313,13 +245,13 @@ void TestJTextPaneHTMLRendering::init$() {
 
 void TestJTextPaneHTMLRendering::main($StringArray* args) {
 	$init(TestJTextPaneHTMLRendering);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(TestJTextPaneHTMLRendering::urlArrow, $new($URL, "http:\\arrow.png"_s));
 	$assignStatic(TestJTextPaneHTMLRendering::countDownLatch, $new($CountDownLatch, 1));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(TestJTextPaneHTMLRendering$$Lambda$createUI)));
+	$SwingUtilities::invokeLater($$new(TestJTextPaneHTMLRendering$$Lambda$createUI));
 	$init($TimeUnit);
 	$nc(TestJTextPaneHTMLRendering::countDownLatch)->await(15, $TimeUnit::MINUTES);
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(TestJTextPaneHTMLRendering$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestJTextPaneHTMLRendering::mainFrame)))));
+	$SwingUtilities::invokeLater($$new(TestJTextPaneHTMLRendering$$Lambda$dispose$1, $nc(TestJTextPaneHTMLRendering::mainFrame)));
 	if (!TestJTextPaneHTMLRendering::testResult) {
 		$throwNew($RuntimeException, "Test failed!"_s);
 	}
@@ -327,32 +259,31 @@ void TestJTextPaneHTMLRendering::main($StringArray* args) {
 
 void TestJTextPaneHTMLRendering::createUI() {
 	$init(TestJTextPaneHTMLRendering);
-	$useLocalCurrentObjectStackCache();
-	$var($JPanel, mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout, 20, 20))));
-	$var($JPanel, resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($GridBagLayout))));
+	$useLocalObjectStack();
+	$var($JPanel, mainControlPanel, $new($JPanel, $$new($BorderLayout, 20, 20)));
+	$var($JPanel, resultButtonPanel, $new($JPanel, $$new($GridBagLayout)));
 	createTestUI(mainControlPanel);
 	$var($JTextArea, instructionTextArea, $new($JTextArea));
 	instructionTextArea->setText(TestJTextPaneHTMLRendering::INSTRUCTIONS);
 	instructionTextArea->setEditable(false);
 	$init($Color);
 	instructionTextArea->setBackground($Color::white);
-	$init($BorderLayout);
-	mainControlPanel->add(static_cast<$Component*>(instructionTextArea), $of($BorderLayout::NORTH));
+	mainControlPanel->add(instructionTextArea, $BorderLayout::NORTH);
 	$var($JButton, passButton, $new($JButton, "Pass"_s));
 	passButton->setActionCommand("Pass"_s);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2)));
+	passButton->addActionListener($$new(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2));
 	$var($JButton, failButton, $new($JButton, "Fail"_s));
 	failButton->setActionCommand("Fail"_s);
-	failButton->addActionListener(static_cast<$ActionListener*>($$new(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3)));
+	failButton->addActionListener($$new(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(passButton), $of(gbc));
+	resultButtonPanel->add(passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	resultButtonPanel->add(static_cast<$Component*>(failButton), $of(gbc));
-	mainControlPanel->add(static_cast<$Component*>(resultButtonPanel), $of($BorderLayout::SOUTH));
-	$nc(TestJTextPaneHTMLRendering::mainFrame)->add(static_cast<$Component*>(mainControlPanel));
+	resultButtonPanel->add(failButton, gbc);
+	mainControlPanel->add(resultButtonPanel, $BorderLayout::SOUTH);
+	$nc(TestJTextPaneHTMLRendering::mainFrame)->add(mainControlPanel);
 	$nc(TestJTextPaneHTMLRendering::mainFrame)->pack();
 	$nc(TestJTextPaneHTMLRendering::mainFrame)->addWindowListener($$new($TestJTextPaneHTMLRendering$1));
 	$nc(TestJTextPaneHTMLRendering::mainFrame)->setVisible(true);
@@ -360,30 +291,30 @@ void TestJTextPaneHTMLRendering::createUI() {
 
 void TestJTextPaneHTMLRendering::createTestUI($JPanel* panel) {
 	$init(TestJTextPaneHTMLRendering);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(TestJTextPaneHTMLRendering::textPane, $new($JTextPane));
 	$init($BorderLayout);
-	$nc(panel)->add(static_cast<$Component*>(TestJTextPaneHTMLRendering::textPane), $of($BorderLayout::CENTER));
+	$nc(panel)->add(TestJTextPaneHTMLRendering::textPane, $BorderLayout::CENTER);
 	$var($EditorKit, l_kit, $nc(TestJTextPaneHTMLRendering::textPane)->getEditorKitForContentType("text/html"_s));
 	$nc(TestJTextPaneHTMLRendering::textPane)->setEditable(false);
 	$nc(TestJTextPaneHTMLRendering::textPane)->setEditorKit(l_kit);
-	$assignStatic(TestJTextPaneHTMLRendering::cache, $cast($Dictionary, $nc($($nc(TestJTextPaneHTMLRendering::textPane)->getDocument()))->getProperty("imageCache"_s)));
+	$assignStatic(TestJTextPaneHTMLRendering::cache, $cast($Dictionary, $$nc($nc(TestJTextPaneHTMLRendering::textPane)->getDocument())->getProperty("imageCache"_s)));
 	if (TestJTextPaneHTMLRendering::cache == nullptr) {
 		$assignStatic(TestJTextPaneHTMLRendering::cache, $new($Hashtable));
-		$nc($($nc(TestJTextPaneHTMLRendering::textPane)->getDocument()))->putProperty("imageCache"_s, TestJTextPaneHTMLRendering::cache);
+		$$nc($nc(TestJTextPaneHTMLRendering::textPane)->getDocument())->putProperty("imageCache"_s, TestJTextPaneHTMLRendering::cache);
 	}
 	$var($URL, arrowLocationUrl, TestJTextPaneHTMLRendering::class$->getResource("arrow.png"_s));
 	$var($ImageIcon, imageIcon, $new($ImageIcon, arrowLocationUrl));
 	$var($Image, image, imageIcon->getImage());
 	$var($Image, scaledImage, $nc(image)->getScaledInstance(24, 24, $Image::SCALE_SMOOTH));
 	$nc(TestJTextPaneHTMLRendering::cache)->put(TestJTextPaneHTMLRendering::urlArrow, scaledImage);
-	$$new($Thread, static_cast<$Runnable*>($$new(TestJTextPaneHTMLRendering$$Lambda$runTest$4)))->start();
+	$$new($Thread, $$new(TestJTextPaneHTMLRendering$$Lambda$runTest$4))->start();
 }
 
 void TestJTextPaneHTMLRendering::runTest() {
 	$init(TestJTextPaneHTMLRendering);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 10; ++i) {
 		$var($StringBuffer, sb, $new($StringBuffer));
 		sb->append($$str({"<html><body bgcolor=\"#BBBBBB\"><center>Iteration "_s, $$str((i + 1)), " -> <br>"_s}));
@@ -415,7 +346,7 @@ void TestJTextPaneHTMLRendering::lambda$createUI$0($ActionEvent* e) {
 	$nc(TestJTextPaneHTMLRendering::countDownLatch)->countDown();
 }
 
-void clinit$TestJTextPaneHTMLRendering($Class* class$) {
+void TestJTextPaneHTMLRendering::clinit$($Class* clazz) {
 	$assignStatic(TestJTextPaneHTMLRendering::INSTRUCTIONS, "INSTRUCTIONS:\n\nVerify that the JTextPane is filled with blue arrow images.\nThere should be 200 images (10 rows of 20 images each).\nThis test will run for 10 iterations and the current iteration\nis being displayed at top of JTextPane. JTextpane will be\nrepainted each time  and should have same output\nIf yes, Press Pass, Otherwise, Press Fail.\n"_s);
 	$assignStatic(TestJTextPaneHTMLRendering::mainFrame, $new($JFrame));
 	TestJTextPaneHTMLRendering::testResult = false;
@@ -426,23 +357,63 @@ TestJTextPaneHTMLRendering::TestJTextPaneHTMLRendering() {
 
 $Class* TestJTextPaneHTMLRendering::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestJTextPaneHTMLRendering$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("TestJTextPaneHTMLRendering$$Lambda$createUI")) {
 			return TestJTextPaneHTMLRendering$$Lambda$createUI::load$(name, initialize);
 		}
-		if (name->equals(TestJTextPaneHTMLRendering$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestJTextPaneHTMLRendering$$Lambda$dispose$1")) {
 			return TestJTextPaneHTMLRendering$$Lambda$dispose$1::load$(name, initialize);
 		}
-		if (name->equals(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2::classInfo$.name)) {
+		if (name->equals("TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2")) {
 			return TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$0$2::load$(name, initialize);
 		}
-		if (name->equals(TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3::classInfo$.name)) {
+		if (name->equals("TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3")) {
 			return TestJTextPaneHTMLRendering$$Lambda$lambda$createUI$1$3::load$(name, initialize);
 		}
-		if (name->equals(TestJTextPaneHTMLRendering$$Lambda$runTest$4::classInfo$.name)) {
+		if (name->equals("TestJTextPaneHTMLRendering$$Lambda$runTest$4")) {
 			return TestJTextPaneHTMLRendering$$Lambda$runTest$4::load$(name, initialize);
 		}
 	}
-	$loadClass(TestJTextPaneHTMLRendering, name, initialize, &_TestJTextPaneHTMLRendering_ClassInfo_, clinit$TestJTextPaneHTMLRendering, allocate$TestJTextPaneHTMLRendering);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, mainFrame)},
+		{"cache", "Ljava/util/Dictionary;", "Ljava/util/Dictionary<Ljava/net/URL;Ljava/awt/Image;>;", $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, cache)},
+		{"textPane", "Ljavax/swing/JTextPane;", nullptr, $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, textPane)},
+		{"urlArrow", "Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticField(TestJTextPaneHTMLRendering, urlArrow)},
+		{"testResult", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJTextPaneHTMLRendering, testResult)},
+		{"countDownLatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(TestJTextPaneHTMLRendering, countDownLatch)},
+		{"INSTRUCTIONS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJTextPaneHTMLRendering, INSTRUCTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJTextPaneHTMLRendering, init$, void)},
+		{"createTestUI", "(Ljavax/swing/JPanel;)V", nullptr, $STATIC, $staticMethod(TestJTextPaneHTMLRendering, createTestUI, void, $JPanel*)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJTextPaneHTMLRendering, createUI, void)},
+		{"lambda$createUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJTextPaneHTMLRendering, lambda$createUI$0, void, $ActionEvent*)},
+		{"lambda$createUI$1", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJTextPaneHTMLRendering, lambda$createUI$1, void, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJTextPaneHTMLRendering, main, void, $StringArray*), "java.lang.Exception"},
+		{"runTest", "()V", nullptr, $STATIC, $staticMethod(TestJTextPaneHTMLRendering, runTest, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestJTextPaneHTMLRendering$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestJTextPaneHTMLRendering",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestJTextPaneHTMLRendering$1"
+	};
+	$loadClass(TestJTextPaneHTMLRendering, name, initialize, &classInfo$$, TestJTextPaneHTMLRendering::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJTextPaneHTMLRendering);
+	});
 	return class$;
 }
 

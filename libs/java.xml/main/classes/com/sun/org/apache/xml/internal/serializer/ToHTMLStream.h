@@ -62,6 +62,7 @@ public:
 	ToHTMLStream();
 	using ::com::sun::org::apache::xml::internal::serializer::ToStream::characters;
 	using ::com::sun::org::apache::xml::internal::serializer::ToStream::comment;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::xml::transform::ErrorListener* l);
 	virtual void addUniqueAttribute($String* name, $String* value, int32_t flags) override;

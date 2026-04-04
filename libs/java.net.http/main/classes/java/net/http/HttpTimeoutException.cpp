@@ -1,5 +1,4 @@
 #include <java/net/http/HttpTimeoutException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace net {
 		namespace http {
-
-$FieldInfo _HttpTimeoutException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpTimeoutException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _HttpTimeoutException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpTimeoutException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _HttpTimeoutException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.http.HttpTimeoutException",
-	"java.io.IOException",
-	nullptr,
-	_HttpTimeoutException_FieldInfo_,
-	_HttpTimeoutException_MethodInfo_
-};
-
-$Object* allocate$HttpTimeoutException($Class* clazz) {
-	return $of($alloc(HttpTimeoutException));
-}
 
 void HttpTimeoutException::init$($String* message) {
 	$IOException::init$(message);
@@ -50,7 +26,25 @@ void HttpTimeoutException::throw$() {
 }
 
 $Class* HttpTimeoutException::load$($String* name, bool initialize) {
-	$loadClass(HttpTimeoutException, name, initialize, &_HttpTimeoutException_ClassInfo_, allocate$HttpTimeoutException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpTimeoutException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpTimeoutException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.http.HttpTimeoutException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpTimeoutException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpTimeoutException);
+	});
 	return class$;
 }
 

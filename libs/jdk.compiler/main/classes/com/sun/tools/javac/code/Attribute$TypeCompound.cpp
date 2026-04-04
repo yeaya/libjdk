@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
-
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -21,40 +20,8 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Attribute$TypeCompound_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(Attribute$TypeCompound, init$, void, $Attribute$Compound*, $TypeAnnotationPosition*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", $PUBLIC, $method(Attribute$TypeCompound, init$, void, $Type*, $List*, $TypeAnnotationPosition*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$TypeCompound_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$TypeCompound", "com.sun.tools.javac.code.Attribute", "TypeCompound", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Attribute$Compound", "com.sun.tools.javac.code.Attribute", "Compound", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$TypeCompound_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$TypeCompound",
-	"com.sun.tools.javac.code.Attribute$Compound",
-	nullptr,
-	nullptr,
-	_Attribute$TypeCompound_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$TypeCompound_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$TypeCompound($Class* clazz) {
-	return $of($alloc(Attribute$TypeCompound));
-}
-
 void Attribute$TypeCompound::init$($Attribute$Compound* compound, $TypeAnnotationPosition* position) {
-	$Attribute$Compound::init$($nc(compound)->type, compound->values, position);
+	$Attribute$Compound::init$($nc(compound)->type, $nc(compound)->values, position);
 }
 
 void Attribute$TypeCompound::init$($Type* type, $List* values, $TypeAnnotationPosition* position) {
@@ -65,7 +32,34 @@ Attribute$TypeCompound::Attribute$TypeCompound() {
 }
 
 $Class* Attribute$TypeCompound::load$($String* name, bool initialize) {
-	$loadClass(Attribute$TypeCompound, name, initialize, &_Attribute$TypeCompound_ClassInfo_, allocate$Attribute$TypeCompound);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(Attribute$TypeCompound, init$, void, $Attribute$Compound*, $TypeAnnotationPosition*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", $PUBLIC, $method(Attribute$TypeCompound, init$, void, $Type*, $List*, $TypeAnnotationPosition*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$TypeCompound", "com.sun.tools.javac.code.Attribute", "TypeCompound", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Attribute$Compound", "com.sun.tools.javac.code.Attribute", "Compound", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$TypeCompound",
+		"com.sun.tools.javac.code.Attribute$Compound",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$TypeCompound, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Attribute$TypeCompound));
+	});
 	return class$;
 }
 

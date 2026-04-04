@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LocalNameCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
@@ -21,7 +20,6 @@
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $NameBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NameBase;
@@ -41,26 +39,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _LocalNameCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(LocalNameCall, init$, void, $QName*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(LocalNameCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LocalNameCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _LocalNameCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.LocalNameCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.NameBase",
-	nullptr,
-	nullptr,
-	_LocalNameCall_MethodInfo_
-};
-
-$Object* allocate$LocalNameCall($Class* clazz) {
-	return $of($alloc(LocalNameCall));
-}
-
 void LocalNameCall::init$($QName* fname) {
 	$NameBase::init$(fname);
 }
@@ -70,22 +48,38 @@ void LocalNameCall::init$($QName* fname, $List* arguments) {
 }
 
 void LocalNameCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
 	int32_t getNodeName = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, "getNodeName"_s, $$str({"(I)"_s, $Constants::STRING_SIG}));
 	int32_t getLocalName = cpg->addMethodref($Constants::BASIS_LIBRARY_CLASS, "getLocalName"_s, "(Ljava/lang/String;)Ljava/lang/String;"_s);
 	$NameBase::translate(classGen, methodGen);
-	$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getNodeName, 2)));
-	il->append(static_cast<$Instruction*>($$new($INVOKESTATIC, getLocalName)));
+	$nc(il)->append($$new($INVOKEINTERFACE, getNodeName, 2));
+	il->append($$new($INVOKESTATIC, getLocalName));
 }
 
 LocalNameCall::LocalNameCall() {
 }
 
 $Class* LocalNameCall::load$($String* name, bool initialize) {
-	$loadClass(LocalNameCall, name, initialize, &_LocalNameCall_ClassInfo_, allocate$LocalNameCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(LocalNameCall, init$, void, $QName*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(LocalNameCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LocalNameCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.LocalNameCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.NameBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocalNameCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalNameCall);
+	});
 	return class$;
 }
 

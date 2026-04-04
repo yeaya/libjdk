@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$PositionType.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,48 +21,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$PositionType_FieldInfo_[] = {
-	{"LEFT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, LEFT)},
-	{"RIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, RIGHT)},
-	{"TOP", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, TOP)},
-	{"BOTTOM", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, BOTTOM)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$PositionType, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$PositionType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$PositionType, $values, $GTKConstants$PositionTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$PositionType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$PositionType, valueOf, GTKConstants$PositionType*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$PositionType, values, $GTKConstants$PositionTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$PositionType_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$PositionType", "com.sun.java.swing.plaf.gtk.GTKConstants", "PositionType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$PositionType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$PositionType",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$PositionType_FieldInfo_,
-	_GTKConstants$PositionType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;>;",
-	nullptr,
-	_GTKConstants$PositionType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$PositionType($Class* clazz) {
-	return $of($alloc(GTKConstants$PositionType));
-}
 
 GTKConstants$PositionType* GTKConstants$PositionType::LEFT = nullptr;
 GTKConstants$PositionType* GTKConstants$PositionType::RIGHT = nullptr;
@@ -95,7 +52,7 @@ void GTKConstants$PositionType::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$PositionType($Class* class$) {
+void GTKConstants$PositionType::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$PositionType::LEFT, $new(GTKConstants$PositionType, "LEFT"_s, 0));
 	$assignStatic(GTKConstants$PositionType::RIGHT, $new(GTKConstants$PositionType, "RIGHT"_s, 1));
 	$assignStatic(GTKConstants$PositionType::TOP, $new(GTKConstants$PositionType, "TOP"_s, 2));
@@ -107,7 +64,43 @@ GTKConstants$PositionType::GTKConstants$PositionType() {
 }
 
 $Class* GTKConstants$PositionType::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$PositionType, name, initialize, &_GTKConstants$PositionType_ClassInfo_, clinit$GTKConstants$PositionType, allocate$GTKConstants$PositionType);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEFT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, LEFT)},
+		{"RIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, RIGHT)},
+		{"TOP", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, TOP)},
+		{"BOTTOM", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$PositionType, BOTTOM)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$PositionType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$PositionType, $values, $GTKConstants$PositionTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$PositionType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$PositionType, valueOf, GTKConstants$PositionType*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$PositionType, values, $GTKConstants$PositionTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$PositionType", "com.sun.java.swing.plaf.gtk.GTKConstants", "PositionType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$PositionType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$PositionType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$PositionType, name, initialize, &classInfo$$, GTKConstants$PositionType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$PositionType));
+	});
 	return class$;
 }
 

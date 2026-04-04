@@ -48,6 +48,7 @@ class $export DeferredLintHandler : public ::java::lang::Object {
 	$class(DeferredLintHandler, 0, ::java::lang::Object)
 public:
 	DeferredLintHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void flush(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos);
 	virtual ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* immediate();

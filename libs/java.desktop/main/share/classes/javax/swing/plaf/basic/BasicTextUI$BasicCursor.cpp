@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextUI$BasicCursor.h>
-
 #include <java/awt/Cursor.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <jcpp.h>
@@ -13,42 +12,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicTextUI$BasicCursor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(BasicTextUI$BasicCursor, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTextUI$BasicCursor, init$, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTextUI$BasicCursor_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextUI$BasicCursor", "javax.swing.plaf.basic.BasicTextUI", "BasicCursor", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTextUI$BasicCursor_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextUI$BasicCursor",
-	"java.awt.Cursor",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicTextUI$BasicCursor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextUI$BasicCursor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextUI"
-};
-
-$Object* allocate$BasicTextUI$BasicCursor($Class* clazz) {
-	return $of($alloc(BasicTextUI$BasicCursor));
-}
 
 $String* BasicTextUI$BasicCursor::toString() {
 	 return this->$Cursor::toString();
@@ -82,7 +45,38 @@ BasicTextUI$BasicCursor::BasicTextUI$BasicCursor() {
 }
 
 $Class* BasicTextUI$BasicCursor::load$($String* name, bool initialize) {
-	$loadClass(BasicTextUI$BasicCursor, name, initialize, &_BasicTextUI$BasicCursor_ClassInfo_, allocate$BasicTextUI$BasicCursor);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, 0, $method(BasicTextUI$BasicCursor, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicTextUI$BasicCursor, init$, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextUI$BasicCursor", "javax.swing.plaf.basic.BasicTextUI", "BasicCursor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextUI$BasicCursor",
+		"java.awt.Cursor",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextUI"
+	};
+	$loadClass(BasicTextUI$BasicCursor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextUI$BasicCursor));
+	});
 	return class$;
 }
 

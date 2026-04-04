@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XSelectionRequestEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XAtom.h>
@@ -12,71 +11,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XSelectionRequestEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XSelectionRequestEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XSelectionRequestEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XSelectionRequestEvent, pData)},
-	{}
-};
-
-$MethodInfo _XSelectionRequestEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XSelectionRequestEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSelectionRequestEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSelectionRequestEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSelectionRequestEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSelectionRequestEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XSelectionRequestEvent, getSize, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_display, int64_t)},
-	{"get_owner", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_owner, int64_t)},
-	{"get_property", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_property, int64_t)},
-	{"get_requestor", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_requestor, int64_t)},
-	{"get_selection", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_selection, int64_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_serial, int64_t)},
-	{"get_target", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_target, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_type, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_display, void, int64_t)},
-	{"set_owner", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_owner, void, int64_t)},
-	{"set_property", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_property, void, int64_t)},
-	{"set_requestor", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_requestor, void, int64_t)},
-	{"set_selection", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_selection, void, int64_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_serial, void, int64_t)},
-	{"set_target", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_target, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSelectionRequestEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSelectionRequestEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XSelectionRequestEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XSelectionRequestEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XSelectionRequestEvent_FieldInfo_,
-	_XSelectionRequestEvent_MethodInfo_
-};
-
-$Object* allocate$XSelectionRequestEvent($Class* clazz) {
-	return $of($alloc(XSelectionRequestEvent));
-}
 
 int32_t XSelectionRequestEvent::getSize() {
 	$init(XSelectionRequestEvent);
@@ -115,7 +57,7 @@ void XSelectionRequestEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -245,7 +187,7 @@ $String* XSelectionRequestEvent::getName() {
 }
 
 $String* XSelectionRequestEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 400));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -254,15 +196,15 @@ $String* XSelectionRequestEvent::getFieldsAsString() {
 	ret->append("display = "_s)->append(get_display())->append(", "_s);
 	ret->append("owner = "_s)->append(get_owner())->append(", "_s);
 	ret->append("requestor = "_s)->append(get_requestor())->append(", "_s);
-	ret->append("selection = "_s)->append($($of($XAtom::get(get_selection()))))->append(", "_s);
-	ret->append("target = "_s)->append($($of($XAtom::get(get_target()))))->append(", "_s);
-	ret->append("property = "_s)->append($($of($XAtom::get(get_property()))))->append(", "_s);
+	ret->append("selection = "_s)->append($($XAtom::get(get_selection())))->append(", "_s);
+	ret->append("target = "_s)->append($($XAtom::get(get_target())))->append(", "_s);
+	ret->append("property = "_s)->append($($XAtom::get(get_property())))->append(", "_s);
 	ret->append("time = "_s)->append(get_time())->append(", "_s);
 	return ret->toString();
 }
 
 $Object* XSelectionRequestEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XSelectionRequestEvent::zero() {
@@ -277,7 +219,57 @@ XSelectionRequestEvent::XSelectionRequestEvent() {
 }
 
 $Class* XSelectionRequestEvent::load$($String* name, bool initialize) {
-	$loadClass(XSelectionRequestEvent, name, initialize, &_XSelectionRequestEvent_ClassInfo_, allocate$XSelectionRequestEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XSelectionRequestEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XSelectionRequestEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XSelectionRequestEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XSelectionRequestEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSelectionRequestEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSelectionRequestEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSelectionRequestEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XSelectionRequestEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XSelectionRequestEvent, getSize, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_display, int64_t)},
+		{"get_owner", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_owner, int64_t)},
+		{"get_property", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_property, int64_t)},
+		{"get_requestor", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_requestor, int64_t)},
+		{"get_selection", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_selection, int64_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_serial, int64_t)},
+		{"get_target", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_target, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, get_type, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_display, void, int64_t)},
+		{"set_owner", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_owner, void, int64_t)},
+		{"set_property", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_property, void, int64_t)},
+		{"set_requestor", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_requestor, void, int64_t)},
+		{"set_selection", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_selection, void, int64_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_serial, void, int64_t)},
+		{"set_target", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_target, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XSelectionRequestEvent, set_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSelectionRequestEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XSelectionRequestEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XSelectionRequestEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSelectionRequestEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSelectionRequestEvent);
+	});
 	return class$;
 }
 

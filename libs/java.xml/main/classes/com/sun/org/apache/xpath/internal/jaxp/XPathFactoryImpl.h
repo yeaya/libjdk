@@ -37,6 +37,7 @@ class XPathFactoryImpl : public ::javax::xml::xpath::XPathFactory {
 	$class(XPathFactoryImpl, 0, ::javax::xml::xpath::XPathFactory)
 public:
 	XPathFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool getFeature($String* name) override;
 	virtual bool isObjectModelSupported($String* objectModel) override;

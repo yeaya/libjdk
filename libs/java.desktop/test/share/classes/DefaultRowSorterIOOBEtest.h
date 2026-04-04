@@ -23,6 +23,7 @@ class $export DefaultRowSorterIOOBEtest : public ::javax::swing::table::TableRow
 	$class(DefaultRowSorterIOOBEtest, 0, ::javax::swing::table::TableRowSorter)
 public:
 	DefaultRowSorterIOOBEtest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::List* rows;

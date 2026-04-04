@@ -1,5 +1,4 @@
 #include <java/beans/Encoder.h>
-
 #include <com/sun/beans/finder/PersistenceDelegateFinder.h>
 #include <java/beans/ExceptionListener.h>
 #include <java/beans/Expression.h>
@@ -25,52 +24,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $HashMap = ::java::util::HashMap;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _Encoder_FieldInfo_[] = {
-	{"finder", "Lcom/sun/beans/finder/PersistenceDelegateFinder;", nullptr, $PRIVATE | $FINAL, $field(Encoder, finder)},
-	{"bindings", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/beans/Expression;>;", $PRIVATE, $field(Encoder, bindings)},
-	{"exceptionListener", "Ljava/beans/ExceptionListener;", nullptr, $PRIVATE, $field(Encoder, exceptionListener)},
-	{"executeStatements", "Z", nullptr, 0, $field(Encoder, executeStatements)},
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(Encoder, attributes)},
-	{}
-};
-
-$MethodInfo _Encoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Encoder, init$, void)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(Encoder, clear, void)},
-	{"cloneStatement", "(Ljava/beans/Statement;)Ljava/beans/Statement;", nullptr, $PRIVATE, $method(Encoder, cloneStatement, $Statement*, $Statement*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder, get, $Object*, Object$*)},
-	{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(Encoder, getAttribute, $Object*, Object$*)},
-	{"getExceptionListener", "()Ljava/beans/ExceptionListener;", nullptr, $PUBLIC, $virtualMethod(Encoder, getExceptionListener, $ExceptionListener*)},
-	{"getPersistenceDelegate", "(Ljava/lang/Class;)Ljava/beans/PersistenceDelegate;", "(Ljava/lang/Class<*>;)Ljava/beans/PersistenceDelegate;", $PUBLIC, $virtualMethod(Encoder, getPersistenceDelegate, $PersistenceDelegate*, $Class*)},
-	{"getValue", "(Ljava/beans/Expression;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(Encoder, getValue, $Object*, $Expression*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder, remove, $Object*, Object$*)},
-	{"setAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Encoder, setAttribute, void, Object$*, Object$*)},
-	{"setExceptionListener", "(Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, setExceptionListener, void, $ExceptionListener*)},
-	{"setPersistenceDelegate", "(Ljava/lang/Class;Ljava/beans/PersistenceDelegate;)V", "(Ljava/lang/Class<*>;Ljava/beans/PersistenceDelegate;)V", $PUBLIC, $virtualMethod(Encoder, setPersistenceDelegate, void, $Class*, $PersistenceDelegate*)},
-	{"writeExpression", "(Ljava/beans/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, writeExpression, void, $Expression*)},
-	{"writeObject", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(Encoder, writeObject, void, Object$*)},
-	{"writeObject1", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(Encoder, writeObject1, $Object*, Object$*)},
-	{"writeStatement", "(Ljava/beans/Statement;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, writeStatement, void, $Statement*)},
-	{}
-};
-
-$ClassInfo _Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.Encoder",
-	"java.lang.Object",
-	nullptr,
-	_Encoder_FieldInfo_,
-	_Encoder_MethodInfo_
-};
-
-$Object* allocate$Encoder($Class* clazz) {
-	return $of($alloc(Encoder));
-}
 
 void Encoder::init$() {
 	$set(this, finder, $new($PersistenceDelegateFinder));
@@ -82,7 +38,7 @@ void Encoder::writeObject(Object$* o) {
 	if ($equals(o, this)) {
 		return;
 	}
-	$var($PersistenceDelegate, info, getPersistenceDelegate(o == nullptr ? ($Class*)nullptr : $nc($of(o))->getClass()));
+	$var($PersistenceDelegate, info, getPersistenceDelegate(o == nullptr ? ($Class*)nullptr : $of(o)->getClass()));
 	$nc(info)->writeObject(o, this);
 }
 
@@ -96,11 +52,11 @@ $ExceptionListener* Encoder::getExceptionListener() {
 }
 
 $Object* Encoder::getValue($Expression* exp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $of((exp == nullptr) ? ($Object*)nullptr : $nc(exp)->getValue());
+		return (exp == nullptr) ? ($Object*)nullptr : exp->getValue();
 	} catch ($Exception& e) {
-		$nc($(getExceptionListener()))->exceptionThrown(e);
+		$$nc(getExceptionListener())->exceptionThrown(e);
 		$throwNew($RuntimeException, $$str({"failed to evaluate: "_s, $($nc(exp)->toString())}));
 	}
 	$shouldNotReachHere();
@@ -111,7 +67,7 @@ $PersistenceDelegate* Encoder::getPersistenceDelegate($Class* type) {
 	if (pd == nullptr) {
 		$assign(pd, $MetaData::getPersistenceDelegate(type));
 		if (pd != nullptr) {
-			$nc(this->finder)->register$(type, pd);
+			this->finder->register$(type, pd);
 		}
 	}
 	return pd;
@@ -123,15 +79,15 @@ void Encoder::setPersistenceDelegate($Class* type, $PersistenceDelegate* delegat
 
 $Object* Encoder::remove(Object$* oldInstance) {
 	$var($Expression, exp, $cast($Expression, $nc(this->bindings)->remove(oldInstance)));
-	return $of(getValue(exp));
+	return getValue(exp);
 }
 
 $Object* Encoder::get(Object$* oldInstance) {
-	if (oldInstance == nullptr || $equals(oldInstance, this) || $nc($of(oldInstance))->getClass() == $String::class$) {
+	if (oldInstance == nullptr || $equals(oldInstance, this) || $of(oldInstance)->getClass() == $String::class$) {
 		return $of(oldInstance);
 	}
 	$var($Expression, exp, $cast($Expression, $nc(this->bindings)->get(oldInstance)));
-	return $of(getValue(exp));
+	return getValue(exp);
 }
 
 $Object* Encoder::writeObject1(Object$* oldInstance) {
@@ -140,11 +96,11 @@ $Object* Encoder::writeObject1(Object$* oldInstance) {
 		writeObject(oldInstance);
 		$assign(o, get(oldInstance));
 	}
-	return $of(o);
+	return o;
 }
 
 $Statement* Encoder::cloneStatement($Statement* oldExp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, oldTarget, $nc(oldExp)->getTarget());
 	$var($Object, newTarget, writeObject1(oldTarget));
 	$var($ObjectArray, oldArgs, oldExp->getArguments());
@@ -152,30 +108,30 @@ $Statement* Encoder::cloneStatement($Statement* oldExp) {
 	for (int32_t i = 0; i < oldArgs->length; ++i) {
 		newArgs->set(i, $(writeObject1(oldArgs->get(i))));
 	}
-	$var($Statement, newExp, $of($Statement::class$)->equals($of(oldExp)->getClass()) ? $new($Statement, newTarget, $(oldExp->getMethodName()), newArgs) : static_cast<$Statement*>($new($Expression, newTarget, $(oldExp->getMethodName()), newArgs)));
+	$var($Statement, newExp, $Statement::class$->equals($of(oldExp)->getClass()) ? $new($Statement, newTarget, $(oldExp->getMethodName()), newArgs) : $cast($Statement, $new($Expression, newTarget, $(oldExp->getMethodName()), newArgs)));
 	$set($nc(newExp), loader, oldExp->loader);
 	return newExp;
 }
 
 void Encoder::writeStatement($Statement* oldStm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Statement, newStm, cloneStatement(oldStm));
 	if (!$equals($nc(oldStm)->getTarget(), this) && this->executeStatements) {
 		try {
 			$nc(newStm)->execute();
 		} catch ($Exception& e) {
-			$nc($(getExceptionListener()))->exceptionThrown($$new($Exception, $$str({"Encoder: discarding statement "_s, newStm}), e));
+			$$nc(getExceptionListener())->exceptionThrown($$new($Exception, $$str({"Encoder: discarding statement "_s, newStm}), e));
 		}
 	}
 }
 
 void Encoder::writeExpression($Expression* oldExp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, oldValue, getValue(oldExp));
 	if (get(oldValue) != nullptr) {
 		return;
 	}
-	$nc(this->bindings)->put(oldValue, $cast($Expression, $(cloneStatement(oldExp))));
+	$nc(this->bindings)->put(oldValue, $$cast($Expression, cloneStatement(oldExp)));
 	writeObject(oldValue);
 }
 
@@ -192,16 +148,53 @@ void Encoder::setAttribute(Object$* key, Object$* value) {
 
 $Object* Encoder::getAttribute(Object$* key) {
 	if (this->attributes == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(this->attributes)->get(key));
+	return $nc(this->attributes)->get(key);
 }
 
 Encoder::Encoder() {
 }
 
 $Class* Encoder::load$($String* name, bool initialize) {
-	$loadClass(Encoder, name, initialize, &_Encoder_ClassInfo_, allocate$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"finder", "Lcom/sun/beans/finder/PersistenceDelegateFinder;", nullptr, $PRIVATE | $FINAL, $field(Encoder, finder)},
+		{"bindings", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/beans/Expression;>;", $PRIVATE, $field(Encoder, bindings)},
+		{"exceptionListener", "Ljava/beans/ExceptionListener;", nullptr, $PRIVATE, $field(Encoder, exceptionListener)},
+		{"executeStatements", "Z", nullptr, 0, $field(Encoder, executeStatements)},
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(Encoder, attributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Encoder, init$, void)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(Encoder, clear, void)},
+		{"cloneStatement", "(Ljava/beans/Statement;)Ljava/beans/Statement;", nullptr, $PRIVATE, $method(Encoder, cloneStatement, $Statement*, $Statement*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder, get, $Object*, Object$*)},
+		{"getAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(Encoder, getAttribute, $Object*, Object$*)},
+		{"getExceptionListener", "()Ljava/beans/ExceptionListener;", nullptr, $PUBLIC, $virtualMethod(Encoder, getExceptionListener, $ExceptionListener*)},
+		{"getPersistenceDelegate", "(Ljava/lang/Class;)Ljava/beans/PersistenceDelegate;", "(Ljava/lang/Class<*>;)Ljava/beans/PersistenceDelegate;", $PUBLIC, $virtualMethod(Encoder, getPersistenceDelegate, $PersistenceDelegate*, $Class*)},
+		{"getValue", "(Ljava/beans/Expression;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(Encoder, getValue, $Object*, $Expression*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder, remove, $Object*, Object$*)},
+		{"setAttribute", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Encoder, setAttribute, void, Object$*, Object$*)},
+		{"setExceptionListener", "(Ljava/beans/ExceptionListener;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, setExceptionListener, void, $ExceptionListener*)},
+		{"setPersistenceDelegate", "(Ljava/lang/Class;Ljava/beans/PersistenceDelegate;)V", "(Ljava/lang/Class<*>;Ljava/beans/PersistenceDelegate;)V", $PUBLIC, $virtualMethod(Encoder, setPersistenceDelegate, void, $Class*, $PersistenceDelegate*)},
+		{"writeExpression", "(Ljava/beans/Expression;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, writeExpression, void, $Expression*)},
+		{"writeObject", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(Encoder, writeObject, void, Object$*)},
+		{"writeObject1", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(Encoder, writeObject1, $Object*, Object$*)},
+		{"writeStatement", "(Ljava/beans/Statement;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, writeStatement, void, $Statement*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.Encoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder);
+	});
 	return class$;
 }
 

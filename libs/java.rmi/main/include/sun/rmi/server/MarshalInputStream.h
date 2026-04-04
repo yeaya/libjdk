@@ -37,6 +37,7 @@ class $import MarshalInputStream : public ::java::io::ObjectInputStream {
 	$class(MarshalInputStream, 0, ::java::io::ObjectInputStream)
 public:
 	MarshalInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* in);
 	$Class* checkSunClass($String* className, ::java::security::AccessControlException* e);
 	virtual void close() override;

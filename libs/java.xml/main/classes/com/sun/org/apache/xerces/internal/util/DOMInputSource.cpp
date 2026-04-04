@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/DOMInputSource.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <java/lang/NoSuchMethodError.h>
 #include <org/w3c/dom/Node.h>
@@ -20,34 +19,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _DOMInputSource_FieldInfo_[] = {
-	{"fNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMInputSource, fNode)},
-	{}
-};
-
-$MethodInfo _DOMInputSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMInputSource, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMInputSource, init$, void, $Node*)},
-	{"<init>", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMInputSource, init$, void, $Node*, $String*)},
-	{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $method(DOMInputSource, getNode, $Node*)},
-	{"getSystemIdFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMInputSource, getSystemIdFromNode, $String*, $Node*)},
-	{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMInputSource, setNode, void, $Node*)},
-	{}
-};
-
-$ClassInfo _DOMInputSource_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.DOMInputSource",
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLInputSource",
-	nullptr,
-	_DOMInputSource_FieldInfo_,
-	_DOMInputSource_MethodInfo_
-};
-
-$Object* allocate$DOMInputSource($Class* clazz) {
-	return $of($alloc(DOMInputSource));
-}
 
 void DOMInputSource::init$() {
 	DOMInputSource::init$(nullptr);
@@ -89,7 +60,30 @@ DOMInputSource::DOMInputSource() {
 }
 
 $Class* DOMInputSource::load$($String* name, bool initialize) {
-	$loadClass(DOMInputSource, name, initialize, &_DOMInputSource_ClassInfo_, allocate$DOMInputSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"fNode", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMInputSource, fNode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMInputSource, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMInputSource, init$, void, $Node*)},
+		{"<init>", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMInputSource, init$, void, $Node*, $String*)},
+		{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $method(DOMInputSource, getNode, $Node*)},
+		{"getSystemIdFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMInputSource, getSystemIdFromNode, $String*, $Node*)},
+		{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMInputSource, setNode, void, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.DOMInputSource",
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLInputSource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMInputSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMInputSource);
+	});
 	return class$;
 }
 

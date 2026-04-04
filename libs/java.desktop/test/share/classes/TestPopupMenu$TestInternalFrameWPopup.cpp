@@ -1,8 +1,6 @@
 #include <TestPopupMenu$TestInternalFrameWPopup.h>
-
 #include <TestPopupMenu.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GridBagConstraints.h>
@@ -22,13 +20,10 @@
 
 using $TestPopupMenu = ::TestPopupMenu;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,43 +35,6 @@ using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 
-$FieldInfo _TestPopupMenu$TestInternalFrameWPopup_FieldInfo_[] = {
-	{"this$0", "LTestPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(TestPopupMenu$TestInternalFrameWPopup, this$0)},
-	{}
-};
-
-$MethodInfo _TestPopupMenu$TestInternalFrameWPopup_MethodInfo_[] = {
-	{"<init>", "(LTestPopupMenu;)V", nullptr, 0, $method(TestPopupMenu$TestInternalFrameWPopup, init$, void, $TestPopupMenu*)},
-	{"getContainerPanel", "()Ljavax/swing/JPanel;", nullptr, $PRIVATE, $method(TestPopupMenu$TestInternalFrameWPopup, getContainerPanel, $JPanel*)},
-	{"jbInit", "()V", nullptr, $PRIVATE, $method(TestPopupMenu$TestInternalFrameWPopup, jbInit, void)},
-	{}
-};
-
-$InnerClassInfo _TestPopupMenu$TestInternalFrameWPopup_InnerClassesInfo_[] = {
-	{"TestPopupMenu$TestInternalFrameWPopup", "TestPopupMenu", "TestInternalFrameWPopup", 0},
-	{}
-};
-
-$ClassInfo _TestPopupMenu$TestInternalFrameWPopup_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestPopupMenu$TestInternalFrameWPopup",
-	"javax.swing.JInternalFrame",
-	nullptr,
-	_TestPopupMenu$TestInternalFrameWPopup_FieldInfo_,
-	_TestPopupMenu$TestInternalFrameWPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestPopupMenu$TestInternalFrameWPopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestPopupMenu"
-};
-
-$Object* allocate$TestPopupMenu$TestInternalFrameWPopup($Class* clazz) {
-	return $of($alloc(TestPopupMenu$TestInternalFrameWPopup));
-}
-
 void TestPopupMenu$TestInternalFrameWPopup::init$($TestPopupMenu* this$0) {
 	$set(this, this$0, this$0);
 	$JInternalFrame::init$();
@@ -84,7 +42,7 @@ void TestPopupMenu$TestInternalFrameWPopup::init$($TestPopupMenu* this$0) {
 }
 
 void TestPopupMenu$TestInternalFrameWPopup::jbInit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setTitle("Test Internal Frame With Popup"_s);
 	setContentPane($(getContainerPanel()));
 	setMaximizable(true);
@@ -94,7 +52,7 @@ void TestPopupMenu$TestInternalFrameWPopup::jbInit() {
 }
 
 $JPanel* TestPopupMenu$TestInternalFrameWPopup::getContainerPanel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, panel, $new($JPanel));
 	panel->setLayout($$new($GridBagLayout));
 	$set(this->this$0, label, $new($JLabel, "Test Label"_s));
@@ -117,7 +75,7 @@ $JPanel* TestPopupMenu$TestInternalFrameWPopup::getContainerPanel() {
 	$nc(this->this$0->label)->setComponentPopupMenu(popup);
 	$init($Color);
 	popup->setBackground($Color::CYAN);
-	panel->add(static_cast<$Component*>(this->this$0->label), $of($$new($GridBagConstraints, 0, 0, 1, 1, 0.0, 0.0, $GridBagConstraints::CENTER, $GridBagConstraints::NONE, $$new($Insets, 5, 5, 5, 5), 0, 0)));
+	panel->add(this->this$0->label, $$new($GridBagConstraints, 0, 0, 1, 1, 0.0, 0.0, $GridBagConstraints::CENTER, $GridBagConstraints::NONE, $$new($Insets, 5, 5, 5, 5), 0, 0));
 	panel->setBackground($Color::CYAN);
 	return panel;
 }
@@ -126,7 +84,38 @@ TestPopupMenu$TestInternalFrameWPopup::TestPopupMenu$TestInternalFrameWPopup() {
 }
 
 $Class* TestPopupMenu$TestInternalFrameWPopup::load$($String* name, bool initialize) {
-	$loadClass(TestPopupMenu$TestInternalFrameWPopup, name, initialize, &_TestPopupMenu$TestInternalFrameWPopup_ClassInfo_, allocate$TestPopupMenu$TestInternalFrameWPopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTestPopupMenu;", nullptr, $FINAL | $SYNTHETIC, $field(TestPopupMenu$TestInternalFrameWPopup, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestPopupMenu;)V", nullptr, 0, $method(TestPopupMenu$TestInternalFrameWPopup, init$, void, $TestPopupMenu*)},
+		{"getContainerPanel", "()Ljavax/swing/JPanel;", nullptr, $PRIVATE, $method(TestPopupMenu$TestInternalFrameWPopup, getContainerPanel, $JPanel*)},
+		{"jbInit", "()V", nullptr, $PRIVATE, $method(TestPopupMenu$TestInternalFrameWPopup, jbInit, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestPopupMenu$TestInternalFrameWPopup", "TestPopupMenu", "TestInternalFrameWPopup", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestPopupMenu$TestInternalFrameWPopup",
+		"javax.swing.JInternalFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestPopupMenu"
+	};
+	$loadClass(TestPopupMenu$TestInternalFrameWPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestPopupMenu$TestInternalFrameWPopup));
+	});
 	return class$;
 }
 

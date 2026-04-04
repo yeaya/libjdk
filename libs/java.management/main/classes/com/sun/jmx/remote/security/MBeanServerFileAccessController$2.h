@@ -15,6 +15,7 @@ class MBeanServerFileAccessController$2 : public ::java::lang::Object {
 	$class(MBeanServerFileAccessController$2, 0, ::java::lang::Object)
 public:
 	MBeanServerFileAccessController$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$jmx$remote$security$MBeanServerFileAccessController$AccessType;
 };
 

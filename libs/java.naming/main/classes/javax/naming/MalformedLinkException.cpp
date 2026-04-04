@@ -1,5 +1,4 @@
 #include <javax/naming/MalformedLinkException.h>
-
 #include <javax/naming/LinkException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $LinkException = ::javax::naming::LinkException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _MalformedLinkException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedLinkException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MalformedLinkException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedLinkException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedLinkException, init$, void)},
-	{}
-};
-
-$ClassInfo _MalformedLinkException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.MalformedLinkException",
-	"javax.naming.LinkException",
-	nullptr,
-	_MalformedLinkException_FieldInfo_,
-	_MalformedLinkException_MethodInfo_
-};
-
-$Object* allocate$MalformedLinkException($Class* clazz) {
-	return $of($alloc(MalformedLinkException));
-}
 
 void MalformedLinkException::init$($String* explanation) {
 	$LinkException::init$(explanation);
@@ -54,7 +29,26 @@ void MalformedLinkException::throw$() {
 }
 
 $Class* MalformedLinkException::load$($String* name, bool initialize) {
-	$loadClass(MalformedLinkException, name, initialize, &_MalformedLinkException_ClassInfo_, allocate$MalformedLinkException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MalformedLinkException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedLinkException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedLinkException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.MalformedLinkException",
+		"javax.naming.LinkException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MalformedLinkException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MalformedLinkException);
+	});
 	return class$;
 }
 

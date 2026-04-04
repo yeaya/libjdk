@@ -144,6 +144,7 @@ class $import JavacParser : public ::com::sun::tools::javac::parser::Parser {
 	$class(JavacParser, 0, ::com::sun::tools::javac::parser::Parser)
 public:
 	JavacParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::parser::ParserFactory* fac, ::com::sun::tools::javac::parser::Lexer* S, bool keepDocComments, bool keepLineMap, bool keepEndPositions);
 	void init$(::com::sun::tools::javac::parser::ParserFactory* fac, ::com::sun::tools::javac::parser::Lexer* S, bool keepDocComments, bool keepLineMap, bool keepEndPositions, bool parseModuleInfo);
 	virtual void accept(::com::sun::tools::javac::parser::Tokens$TokenKind* tk);

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/MS50220.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -30,41 +29,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$MethodInfo _MS50220_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MS50220, init$, void)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MS50220, init$, void, $String*, $StringArray*)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS50220, contains, bool, $Charset*)},
-	{"doSBKANA", "()Z", nullptr, $PROTECTED, $virtualMethod(MS50220, doSBKANA, bool)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS50220, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS50220, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS50220, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _MS50220_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.MS50220$Holder", "sun.nio.cs.ext.MS50220", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MS50220_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.MS50220",
-	"sun.nio.cs.ext.ISO2022_JP",
-	nullptr,
-	nullptr,
-	_MS50220_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS50220_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.MS50220$Holder"
-};
-
-$Object* allocate$MS50220($Class* clazz) {
-	return $of($alloc(MS50220));
-}
 
 void MS50220::init$() {
 	$ISO2022_JP::init$("x-windows-50220"_s, $($ExtendedCharsets::aliasesFor("x-windows-50220"_s)));
@@ -100,7 +64,37 @@ MS50220::MS50220() {
 }
 
 $Class* MS50220::load$($String* name, bool initialize) {
-	$loadClass(MS50220, name, initialize, &_MS50220_ClassInfo_, allocate$MS50220);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MS50220, init$, void)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MS50220, init$, void, $String*, $StringArray*)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS50220, contains, bool, $Charset*)},
+		{"doSBKANA", "()Z", nullptr, $PROTECTED, $virtualMethod(MS50220, doSBKANA, bool)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS50220, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS50220, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS50220, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.MS50220$Holder", "sun.nio.cs.ext.MS50220", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.MS50220",
+		"sun.nio.cs.ext.ISO2022_JP",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.MS50220$Holder"
+	};
+	$loadClass(MS50220, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MS50220));
+	});
 	return class$;
 }
 

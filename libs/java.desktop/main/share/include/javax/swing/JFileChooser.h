@@ -133,6 +133,7 @@ class $import JFileChooser : public ::javax::swing::JComponent, public ::javax::
 	$class(JFileChooser, 0, ::javax::swing::JComponent, ::javax::accessibility::Accessible)
 public:
 	JFileChooser();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

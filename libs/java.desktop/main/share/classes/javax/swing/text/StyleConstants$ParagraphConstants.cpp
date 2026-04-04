@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleConstants$ParagraphConstants.h>
-
 #include <javax/swing/text/StyleConstants.h>
 #include <jcpp.h>
 
@@ -11,42 +10,6 @@ using $StyleConstants = ::javax::swing::text::StyleConstants;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$MethodInfo _StyleConstants$ParagraphConstants_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(StyleConstants$ParagraphConstants, init$, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StyleConstants$ParagraphConstants_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyleConstants$ParagraphConstants", "javax.swing.text.StyleConstants", "ParagraphConstants", $PUBLIC | $STATIC},
-	{"javax.swing.text.AttributeSet$ParagraphAttribute", "javax.swing.text.AttributeSet", "ParagraphAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyleConstants$ParagraphConstants_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyleConstants$ParagraphConstants",
-	"javax.swing.text.StyleConstants",
-	"javax.swing.text.AttributeSet$ParagraphAttribute",
-	nullptr,
-	_StyleConstants$ParagraphConstants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleConstants$ParagraphConstants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleConstants"
-};
-
-$Object* allocate$StyleConstants$ParagraphConstants($Class* clazz) {
-	return $of($alloc(StyleConstants$ParagraphConstants));
-}
 
 $String* StyleConstants$ParagraphConstants::toString() {
 	 return this->$StyleConstants::toString();
@@ -76,7 +39,38 @@ StyleConstants$ParagraphConstants::StyleConstants$ParagraphConstants() {
 }
 
 $Class* StyleConstants$ParagraphConstants::load$($String* name, bool initialize) {
-	$loadClass(StyleConstants$ParagraphConstants, name, initialize, &_StyleConstants$ParagraphConstants_ClassInfo_, allocate$StyleConstants$ParagraphConstants);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(StyleConstants$ParagraphConstants, init$, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyleConstants$ParagraphConstants", "javax.swing.text.StyleConstants", "ParagraphConstants", $PUBLIC | $STATIC},
+		{"javax.swing.text.AttributeSet$ParagraphAttribute", "javax.swing.text.AttributeSet", "ParagraphAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyleConstants$ParagraphConstants",
+		"javax.swing.text.StyleConstants",
+		"javax.swing.text.AttributeSet$ParagraphAttribute",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleConstants"
+	};
+	$loadClass(StyleConstants$ParagraphConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleConstants$ParagraphConstants));
+	});
 	return class$;
 }
 

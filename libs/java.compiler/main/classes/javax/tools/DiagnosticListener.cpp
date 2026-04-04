@@ -1,5 +1,4 @@
 #include <javax/tools/DiagnosticListener.h>
-
 #include <javax/tools/Diagnostic.h>
 #include <jcpp.h>
 
@@ -10,27 +9,23 @@ using $Diagnostic = ::javax::tools::Diagnostic;
 namespace javax {
 	namespace tools {
 
-$MethodInfo _DiagnosticListener_MethodInfo_[] = {
-	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticListener, report, void, $Diagnostic*)},
-	{}
-};
-
-$ClassInfo _DiagnosticListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.tools.DiagnosticListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DiagnosticListener_MethodInfo_,
-	"<S:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$DiagnosticListener($Class* clazz) {
-	return $of($alloc(DiagnosticListener));
-}
-
 $Class* DiagnosticListener::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticListener, name, initialize, &_DiagnosticListener_ClassInfo_, allocate$DiagnosticListener);
+	$MethodInfo methodInfos$$[] = {
+		{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticListener, report, void, $Diagnostic*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.tools.DiagnosticListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<S:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(DiagnosticListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DiagnosticListener);
+	});
 	return class$;
 }
 

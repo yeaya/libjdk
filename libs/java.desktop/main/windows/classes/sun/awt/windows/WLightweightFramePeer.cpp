@@ -1,8 +1,6 @@
 #include <sun/awt/windows/WLightweightFramePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/MenuBar.h>
@@ -28,7 +26,6 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $MenuBar = ::java::awt::MenuBar;
@@ -42,59 +39,10 @@ using $LightweightFrame = ::sun::awt::LightweightFrame;
 using $WFramePeer = ::sun::awt::windows::WFramePeer;
 using $JLightweightFrame = ::sun::swing::JLightweightFrame;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$JLightweightFrameAccessor = ::sun::swing::SwingAccessor$JLightweightFrameAccessor;
 
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WLightweightFramePeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/LightweightFrame;)V", nullptr, $PUBLIC, $method(WLightweightFramePeer, init$, void, $LightweightFrame*)},
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, addDropTarget, void, $DropTarget*)},
-	{"emulateActivation", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, emulateActivation, void, bool)},
-	{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, getBoundsPrivate, $Rectangle*)},
-	{"getExtendedState", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, getExtendedState, int32_t)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, getGraphics, $Graphics*)},
-	{"getLwTarget", "()Lsun/awt/LightweightFrame;", nullptr, $PRIVATE, $method(WLightweightFramePeer, getLwTarget, $LightweightFrame*)},
-	{"getState", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, getState, int32_t)},
-	{"grab", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, grab, void)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, handleEvent, void, $AWTEvent*)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, hide, void)},
-	{"isLightweightFramePeer", "()Z", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, isLightweightFramePeer, bool)},
-	{"overrideNativeHandle", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(WLightweightFramePeer, overrideNativeHandle, void, int64_t)},
-	{"overrideWindowHandle", "(J)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, overrideWindowHandle, void, int64_t)},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, removeDropTarget, void, $DropTarget*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setExtendedState", "(I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setExtendedState, void, int32_t)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setMenuBar, void, $MenuBar*)},
-	{"setState", "(I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setState, void, int32_t)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, show, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrab", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, ungrab, void)},
-	{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, updateCursorImmediately, void)},
-	{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-#define _METHOD_INDEX_overrideNativeHandle 16
-
-$ClassInfo _WLightweightFramePeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.windows.WLightweightFramePeer",
-	"sun.awt.windows.WFramePeer",
-	"sun.awt.OverrideNativeWindowHandle",
-	nullptr,
-	_WLightweightFramePeer_MethodInfo_
-};
-
-$Object* allocate$WLightweightFramePeer($Class* clazz) {
-	return $of($alloc(WLightweightFramePeer));
-}
 
 $String* WLightweightFramePeer::toString() {
 	 return this->$WFramePeer::toString();
@@ -125,11 +73,11 @@ $LightweightFrame* WLightweightFramePeer::getLwTarget() {
 }
 
 $Graphics* WLightweightFramePeer::getGraphics() {
-	return $nc($(getLwTarget()))->getGraphics();
+	return $$nc(getLwTarget())->getGraphics();
 }
 
 void WLightweightFramePeer::overrideNativeHandle(int64_t hwnd) {
-	$prepareNative(WLightweightFramePeer, overrideNativeHandle, void, int64_t hwnd);
+	$prepareNative(overrideNativeHandle, void, int64_t hwnd);
 	$invokeNative(hwnd);
 	$finishNative();
 }
@@ -139,22 +87,22 @@ void WLightweightFramePeer::overrideWindowHandle(int64_t handle) {
 }
 
 void WLightweightFramePeer::show() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WFramePeer::show();
-	postEvent($$new($ComponentEvent, $cast($Component, $(getTarget())), $ComponentEvent::COMPONENT_SHOWN));
+	postEvent($$new($ComponentEvent, $$cast($Component, getTarget()), $ComponentEvent::COMPONENT_SHOWN));
 }
 
 void WLightweightFramePeer::hide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WFramePeer::hide();
-	postEvent($$new($ComponentEvent, $cast($Component, $(getTarget())), $ComponentEvent::COMPONENT_HIDDEN));
+	postEvent($$new($ComponentEvent, $$cast($Component, getTarget()), $ComponentEvent::COMPONENT_HIDDEN));
 }
 
 void WLightweightFramePeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WFramePeer::reshape(x, y, width, height);
-	postEvent($$new($ComponentEvent, $cast($Component, $(getTarget())), $ComponentEvent::COMPONENT_MOVED));
-	postEvent($$new($ComponentEvent, $cast($Component, $(getTarget())), $ComponentEvent::COMPONENT_RESIZED));
+	postEvent($$new($ComponentEvent, $$cast($Component, getTarget()), $ComponentEvent::COMPONENT_MOVED));
+	postEvent($$new($ComponentEvent, $$cast($Component, getTarget()), $ComponentEvent::COMPONENT_RESIZED));
 }
 
 void WLightweightFramePeer::handleEvent($AWTEvent* e) {
@@ -165,16 +113,16 @@ void WLightweightFramePeer::handleEvent($AWTEvent* e) {
 }
 
 void WLightweightFramePeer::grab() {
-	$nc($(getLwTarget()))->grabFocus();
+	$$nc(getLwTarget())->grabFocus();
 }
 
 void WLightweightFramePeer::ungrab() {
-	$nc($(getLwTarget()))->ungrabFocus();
+	$$nc(getLwTarget())->ungrabFocus();
 }
 
 void WLightweightFramePeer::updateCursorImmediately() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($SwingAccessor::getJLightweightFrameAccessor()))->updateCursor($cast($JLightweightFrame, $(getLwTarget())));
+	$useLocalObjectStack();
+	$$nc($SwingAccessor::getJLightweightFrameAccessor())->updateCursor($$cast($JLightweightFrame, getLwTarget()));
 }
 
 bool WLightweightFramePeer::isLightweightFramePeer() {
@@ -182,11 +130,11 @@ bool WLightweightFramePeer::isLightweightFramePeer() {
 }
 
 void WLightweightFramePeer::addDropTarget($DropTarget* dt) {
-	$nc($(getLwTarget()))->addDropTarget(dt);
+	$$nc(getLwTarget())->addDropTarget(dt);
 }
 
 void WLightweightFramePeer::removeDropTarget($DropTarget* dt) {
-	$nc($(getLwTarget()))->removeDropTarget(dt);
+	$$nc(getLwTarget())->removeDropTarget(dt);
 }
 
 void WLightweightFramePeer::emulateActivation(bool activate) {
@@ -229,7 +177,49 @@ WLightweightFramePeer::WLightweightFramePeer() {
 }
 
 $Class* WLightweightFramePeer::load$($String* name, bool initialize) {
-	$loadClass(WLightweightFramePeer, name, initialize, &_WLightweightFramePeer_ClassInfo_, allocate$WLightweightFramePeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/LightweightFrame;)V", nullptr, $PUBLIC, $method(WLightweightFramePeer, init$, void, $LightweightFrame*)},
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, addDropTarget, void, $DropTarget*)},
+		{"emulateActivation", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, emulateActivation, void, bool)},
+		{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, getBoundsPrivate, $Rectangle*)},
+		{"getExtendedState", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, getExtendedState, int32_t)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, getGraphics, $Graphics*)},
+		{"getLwTarget", "()Lsun/awt/LightweightFrame;", nullptr, $PRIVATE, $method(WLightweightFramePeer, getLwTarget, $LightweightFrame*)},
+		{"getState", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, getState, int32_t)},
+		{"grab", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, grab, void)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, handleEvent, void, $AWTEvent*)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, hide, void)},
+		{"isLightweightFramePeer", "()Z", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, isLightweightFramePeer, bool)},
+		{"overrideNativeHandle", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(WLightweightFramePeer, overrideNativeHandle, void, int64_t)},
+		{"overrideWindowHandle", "(J)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, overrideWindowHandle, void, int64_t)},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, removeDropTarget, void, $DropTarget*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setExtendedState", "(I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setExtendedState, void, int32_t)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setMenuBar, void, $MenuBar*)},
+		{"setState", "(I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, setState, void, int32_t)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, show, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrab", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, ungrab, void)},
+		{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(WLightweightFramePeer, updateCursorImmediately, void)},
+		{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WLightweightFramePeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.windows.WLightweightFramePeer",
+		"sun.awt.windows.WFramePeer",
+		"sun.awt.OverrideNativeWindowHandle",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WLightweightFramePeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WLightweightFramePeer));
+	});
 	return class$;
 }
 

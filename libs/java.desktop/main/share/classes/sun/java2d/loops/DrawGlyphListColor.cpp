@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawGlyphListColor.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -29,46 +28,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawGlyphListColor_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListColor, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListColor, primTypeID)},
-	{}
-};
-
-$MethodInfo _DrawGlyphListColor_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawGlyphListColor, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawGlyphListColor", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor, DrawGlyphListColor$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawGlyphListColor;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGlyphListColor, locate, DrawGlyphListColor*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _DrawGlyphListColor_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawGlyphListColor$TraceDrawGlyphListColor", "sun.java2d.loops.DrawGlyphListColor", "TraceDrawGlyphListColor", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.DrawGlyphListColor$General", "sun.java2d.loops.DrawGlyphListColor", "General", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawGlyphListColor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.DrawGlyphListColor",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_DrawGlyphListColor_FieldInfo_,
-	_DrawGlyphListColor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGlyphListColor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawGlyphListColor$TraceDrawGlyphListColor,sun.java2d.loops.DrawGlyphListColor$General"
-};
-
-$Object* allocate$DrawGlyphListColor($Class* clazz) {
-	return $of($alloc(DrawGlyphListColor));
-}
-
 $String* DrawGlyphListColor::methodSignature = nullptr;
 int32_t DrawGlyphListColor::primTypeID = 0;
 
@@ -92,7 +51,7 @@ $GraphicsPrimitive* DrawGlyphListColor::traceWrap() {
 	return $new($DrawGlyphListColor$TraceDrawGlyphListColor, this);
 }
 
-void clinit$DrawGlyphListColor($Class* class$) {
+void DrawGlyphListColor::clinit$($Class* clazz) {
 	$assignStatic(DrawGlyphListColor::methodSignature, "DrawGlyphListColor(...)"_s->toString());
 	DrawGlyphListColor::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 	{
@@ -104,7 +63,41 @@ DrawGlyphListColor::DrawGlyphListColor() {
 }
 
 $Class* DrawGlyphListColor::load$($String* name, bool initialize) {
-	$loadClass(DrawGlyphListColor, name, initialize, &_DrawGlyphListColor_ClassInfo_, clinit$DrawGlyphListColor, allocate$DrawGlyphListColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListColor, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListColor, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawGlyphListColor, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawGlyphListColor", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor, DrawGlyphListColor$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawGlyphListColor;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGlyphListColor, locate, DrawGlyphListColor*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawGlyphListColor$TraceDrawGlyphListColor", "sun.java2d.loops.DrawGlyphListColor", "TraceDrawGlyphListColor", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.DrawGlyphListColor$General", "sun.java2d.loops.DrawGlyphListColor", "General", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.DrawGlyphListColor",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawGlyphListColor$TraceDrawGlyphListColor,sun.java2d.loops.DrawGlyphListColor$General"
+	};
+	$loadClass(DrawGlyphListColor, name, initialize, &classInfo$$, DrawGlyphListColor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGlyphListColor);
+	});
 	return class$;
 }
 

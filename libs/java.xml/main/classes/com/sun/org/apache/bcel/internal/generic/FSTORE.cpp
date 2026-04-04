@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/FSTORE.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -22,26 +21,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _FSTORE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FSTORE, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(FSTORE, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(FSTORE, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _FSTORE_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.FSTORE",
-	"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
-	nullptr,
-	nullptr,
-	_FSTORE_MethodInfo_
-};
-
-$Object* allocate$FSTORE($Class* clazz) {
-	return $of($alloc(FSTORE));
-}
-
 void FSTORE::init$() {
 	$StoreInstruction::init$($Const::FSTORE, $Const::FSTORE_0);
 }
@@ -59,7 +38,23 @@ FSTORE::FSTORE() {
 }
 
 $Class* FSTORE::load$($String* name, bool initialize) {
-	$loadClass(FSTORE, name, initialize, &_FSTORE_ClassInfo_, allocate$FSTORE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FSTORE, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(FSTORE, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(FSTORE, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.FSTORE",
+		"com.sun.org.apache.bcel.internal.generic.StoreInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FSTORE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FSTORE));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/ImageMediaEntry.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Image.h>
 #include <java/awt/MediaEntry.h>
@@ -16,7 +15,6 @@
 #undef FRAMEBITS
 #undef LOADING
 
-using $Component = ::java::awt::Component;
 using $Image = ::java::awt::Image;
 using $MediaEntry = ::java::awt::MediaEntry;
 using $MediaTracker = ::java::awt::MediaTracker;
@@ -27,43 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _ImageMediaEntry_FieldInfo_[] = {
-	{"image", "Ljava/awt/Image;", nullptr, 0, $field(ImageMediaEntry, image)},
-	{"width", "I", nullptr, 0, $field(ImageMediaEntry, width)},
-	{"height", "I", nullptr, 0, $field(ImageMediaEntry, height)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageMediaEntry, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ImageMediaEntry_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/MediaTracker;Ljava/awt/Image;III)V", nullptr, 0, $method(ImageMediaEntry, init$, void, $MediaTracker*, $Image*, int32_t, int32_t, int32_t)},
-	{"getMedia", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ImageMediaEntry, getMedia, $Object*)},
-	{"getStatus", "(ZZ)I", nullptr, $SYNCHRONIZED, $virtualMethod(ImageMediaEntry, getStatus, int32_t, bool, bool)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(ImageMediaEntry, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"matches", "(Ljava/awt/Image;II)Z", nullptr, 0, $virtualMethod(ImageMediaEntry, matches, bool, $Image*, int32_t, int32_t)},
-	{"parseflags", "(I)I", nullptr, 0, $virtualMethod(ImageMediaEntry, parseflags, int32_t, int32_t)},
-	{"startLoad", "()V", nullptr, 0, $virtualMethod(ImageMediaEntry, startLoad, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ImageMediaEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.ImageMediaEntry",
-	"java.awt.MediaEntry",
-	"java.awt.image.ImageObserver,java.io.Serializable",
-	_ImageMediaEntry_FieldInfo_,
-	_ImageMediaEntry_MethodInfo_
-};
-
-$Object* allocate$ImageMediaEntry($Class* clazz) {
-	return $of($alloc(ImageMediaEntry));
-}
 
 int32_t ImageMediaEntry::hashCode() {
 	 return this->$MediaEntry::hashCode();
@@ -97,7 +58,7 @@ bool ImageMediaEntry::matches($Image* img, int32_t w, int32_t h) {
 }
 
 $Object* ImageMediaEntry::getMedia() {
-	return $of(this->image);
+	return this->image;
 }
 
 int32_t ImageMediaEntry::getStatus(bool doLoad, bool doVerify) {
@@ -106,7 +67,7 @@ int32_t ImageMediaEntry::getStatus(bool doLoad, bool doVerify) {
 			int32_t flags = $nc($nc(this->tracker)->target)->checkImage(this->image, this->width, this->height, nullptr);
 			int32_t s = parseflags(flags);
 			if (s == 0) {
-				if (((int32_t)(this->status & (uint32_t)($MediaEntry::ERRORED | $MediaEntry::COMPLETE))) != 0) {
+				if ((this->status & ($MediaEntry::ERRORED | $MediaEntry::COMPLETE)) != 0) {
 					setStatus($MediaEntry::ABORTED);
 				}
 			} else if (s != this->status) {
@@ -124,11 +85,11 @@ void ImageMediaEntry::startLoad() {
 }
 
 int32_t ImageMediaEntry::parseflags(int32_t infoflags) {
-	if (((int32_t)(infoflags & (uint32_t)$ImageObserver::ERROR)) != 0) {
+	if ((infoflags & $ImageObserver::ERROR) != 0) {
 		return $MediaEntry::ERRORED;
-	} else if (((int32_t)(infoflags & (uint32_t)$ImageObserver::ABORT)) != 0) {
+	} else if ((infoflags & $ImageObserver::ABORT) != 0) {
 		return $MediaEntry::ABORTED;
-	} else if (((int32_t)(infoflags & (uint32_t)($ImageObserver::ALLBITS | $ImageObserver::FRAMEBITS))) != 0) {
+	} else if ((infoflags & ($ImageObserver::ALLBITS | $ImageObserver::FRAMEBITS)) != 0) {
 		return $MediaEntry::COMPLETE;
 	}
 	return 0;
@@ -142,14 +103,46 @@ bool ImageMediaEntry::imageUpdate($Image* img, int32_t infoflags, int32_t x, int
 	if (s != 0 && s != this->status) {
 		setStatus(s);
 	}
-	return (((int32_t)(this->status & (uint32_t)$MediaEntry::LOADING)) != 0);
+	return ((this->status & $MediaEntry::LOADING) != 0);
 }
 
 ImageMediaEntry::ImageMediaEntry() {
 }
 
 $Class* ImageMediaEntry::load$($String* name, bool initialize) {
-	$loadClass(ImageMediaEntry, name, initialize, &_ImageMediaEntry_ClassInfo_, allocate$ImageMediaEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"image", "Ljava/awt/Image;", nullptr, 0, $field(ImageMediaEntry, image)},
+		{"width", "I", nullptr, 0, $field(ImageMediaEntry, width)},
+		{"height", "I", nullptr, 0, $field(ImageMediaEntry, height)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageMediaEntry, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/MediaTracker;Ljava/awt/Image;III)V", nullptr, 0, $method(ImageMediaEntry, init$, void, $MediaTracker*, $Image*, int32_t, int32_t, int32_t)},
+		{"getMedia", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(ImageMediaEntry, getMedia, $Object*)},
+		{"getStatus", "(ZZ)I", nullptr, $SYNCHRONIZED, $virtualMethod(ImageMediaEntry, getStatus, int32_t, bool, bool)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(ImageMediaEntry, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"matches", "(Ljava/awt/Image;II)Z", nullptr, 0, $virtualMethod(ImageMediaEntry, matches, bool, $Image*, int32_t, int32_t)},
+		{"parseflags", "(I)I", nullptr, 0, $virtualMethod(ImageMediaEntry, parseflags, int32_t, int32_t)},
+		{"startLoad", "()V", nullptr, 0, $virtualMethod(ImageMediaEntry, startLoad, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.ImageMediaEntry",
+		"java.awt.MediaEntry",
+		"java.awt.image.ImageObserver,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageMediaEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageMediaEntry));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/SurfaceData$PixelToPgramLoopConverter.h>
-
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/pipe/ParallelogramPipe.h>
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
@@ -15,41 +14,6 @@ using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 
 namespace sun {
 	namespace java2d {
-
-$MethodInfo _SurfaceData$PixelToPgramLoopConverter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/pipe/ShapeDrawPipe;Lsun/java2d/pipe/ParallelogramPipe;DDZ)V", nullptr, $PUBLIC, $method(SurfaceData$PixelToPgramLoopConverter, init$, void, $ShapeDrawPipe*, $ParallelogramPipe*, double, double, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SurfaceData$PixelToPgramLoopConverter_InnerClassesInfo_[] = {
-	{"sun.java2d.SurfaceData$PixelToPgramLoopConverter", "sun.java2d.SurfaceData", "PixelToPgramLoopConverter", $STATIC},
-	{}
-};
-
-$ClassInfo _SurfaceData$PixelToPgramLoopConverter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.SurfaceData$PixelToPgramLoopConverter",
-	"sun.java2d.pipe.PixelToParallelogramConverter",
-	"sun.java2d.pipe.LoopBasedPipe",
-	nullptr,
-	_SurfaceData$PixelToPgramLoopConverter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SurfaceData$PixelToPgramLoopConverter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.SurfaceData"
-};
-
-$Object* allocate$SurfaceData$PixelToPgramLoopConverter($Class* clazz) {
-	return $of($alloc(SurfaceData$PixelToPgramLoopConverter));
-}
 
 int32_t SurfaceData$PixelToPgramLoopConverter::hashCode() {
 	 return this->$PixelToParallelogramConverter::hashCode();
@@ -79,7 +43,37 @@ SurfaceData$PixelToPgramLoopConverter::SurfaceData$PixelToPgramLoopConverter() {
 }
 
 $Class* SurfaceData$PixelToPgramLoopConverter::load$($String* name, bool initialize) {
-	$loadClass(SurfaceData$PixelToPgramLoopConverter, name, initialize, &_SurfaceData$PixelToPgramLoopConverter_ClassInfo_, allocate$SurfaceData$PixelToPgramLoopConverter);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/pipe/ShapeDrawPipe;Lsun/java2d/pipe/ParallelogramPipe;DDZ)V", nullptr, $PUBLIC, $method(SurfaceData$PixelToPgramLoopConverter, init$, void, $ShapeDrawPipe*, $ParallelogramPipe*, double, double, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.SurfaceData$PixelToPgramLoopConverter", "sun.java2d.SurfaceData", "PixelToPgramLoopConverter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.SurfaceData$PixelToPgramLoopConverter",
+		"sun.java2d.pipe.PixelToParallelogramConverter",
+		"sun.java2d.pipe.LoopBasedPipe",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.SurfaceData"
+	};
+	$loadClass(SurfaceData$PixelToPgramLoopConverter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SurfaceData$PixelToPgramLoopConverter));
+	});
 	return class$;
 }
 

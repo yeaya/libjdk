@@ -1,5 +1,4 @@
 #include <java/awt/image/BufferedImageFilter.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/BufferedImageOp.h>
@@ -26,7 +25,6 @@ using $Point = ::java::awt::Point;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $BufferedImageOp = ::java::awt::image::BufferedImageOp;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
@@ -46,42 +44,6 @@ using $Hashtable = ::java::util::Hashtable;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _BufferedImageFilter_FieldInfo_[] = {
-	{"bufferedImageOp", "Ljava/awt/image/BufferedImageOp;", nullptr, 0, $field(BufferedImageFilter, bufferedImageOp)},
-	{"model", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(BufferedImageFilter, model)},
-	{"width", "I", nullptr, 0, $field(BufferedImageFilter, width)},
-	{"height", "I", nullptr, 0, $field(BufferedImageFilter, height)},
-	{"bytePixels", "[B", nullptr, 0, $field(BufferedImageFilter, bytePixels)},
-	{"intPixels", "[I", nullptr, 0, $field(BufferedImageFilter, intPixels)},
-	{}
-};
-
-$MethodInfo _BufferedImageFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/BufferedImageOp;)V", nullptr, $PUBLIC, $method(BufferedImageFilter, init$, void, $BufferedImageOp*)},
-	{"convertToRGB", "()V", nullptr, $PRIVATE, $method(BufferedImageFilter, convertToRGB, void)},
-	{"createDCMraster", "()Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $method(BufferedImageFilter, createDCMraster, $WritableRaster*)},
-	{"getBufferedImageOp", "()Ljava/awt/image/BufferedImageOp;", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, getBufferedImageOp, $BufferedImageOp*)},
-	{"imageComplete", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, imageComplete, void, int32_t)},
-	{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setColorModel, void, $ColorModel*)},
-	{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setDimensions, void, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
-	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _BufferedImageFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.BufferedImageFilter",
-	"java.awt.image.ImageFilter",
-	nullptr,
-	_BufferedImageFilter_FieldInfo_,
-	_BufferedImageFilter_MethodInfo_
-};
-
-$Object* allocate$BufferedImageFilter($Class* clazz) {
-	return $of($alloc(BufferedImageFilter));
-}
 
 void BufferedImageFilter::init$($BufferedImageOp* op) {
 	$ImageFilter::init$();
@@ -113,7 +75,7 @@ void BufferedImageFilter::convertToRGB() {
 	$var($ints, newpixels, $new($ints, size));
 	if (this->bytePixels != nullptr) {
 		for (int32_t i = 0; i < size; ++i) {
-			newpixels->set(i, $nc(this->model)->getRGB((int32_t)($nc(this->bytePixels)->get(i) & (uint32_t)255)));
+			newpixels->set(i, $nc(this->model)->getRGB($nc(this->bytePixels)->get(i) & 0xff));
 		}
 	} else if (this->intPixels != nullptr) {
 		for (int32_t i = 0; i < size; ++i) {
@@ -126,7 +88,7 @@ void BufferedImageFilter::convertToRGB() {
 }
 
 void BufferedImageFilter::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, $ColorModel* model, $bytes* pixels, int32_t off, int32_t scansize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w < 0 || h < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Width ("_s, $$str(w), ") and height ("_s, $$str(h), ") must be > 0"_s}));
 	}
@@ -184,7 +146,7 @@ void BufferedImageFilter::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 		int32_t srcRem = scansize - w;
 		for (int32_t sh = h; sh > 0; --sh) {
 			for (int32_t sw = w; sw > 0; --sw) {
-				$nc(this->intPixels)->set(dstPtr++, $nc(model)->getRGB((int32_t)($nc(pixels)->get(off++) & (uint32_t)255)));
+				$nc(this->intPixels)->set(dstPtr++, $nc(model)->getRGB($nc(pixels)->get(off++) & 0xff));
 			}
 			off += srcRem;
 			dstPtr += dstRem;
@@ -193,7 +155,7 @@ void BufferedImageFilter::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 }
 
 void BufferedImageFilter::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, $ColorModel* model, $ints* pixels, int32_t off, int32_t scansize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w < 0 || h < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Width ("_s, $$str(w), ") and height ("_s, $$str(h), ") must be > 0"_s}));
 	}
@@ -262,78 +224,72 @@ void BufferedImageFilter::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, 
 }
 
 void BufferedImageFilter::imageComplete(int32_t status) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, wr, nullptr);
 	{
-		$var($BufferedImage, bi, nullptr)
-		$var($WritableRaster, r, nullptr)
-		$var($ColorModel, cm, nullptr)
+		$var($BufferedImage, bi, nullptr);
+		$var($WritableRaster, r, nullptr);
+		$var($ColorModel, cm, nullptr);
 		int32_t w = 0;
 		int32_t h = 0;
 		switch (status) {
 		case $ImageConsumer::IMAGEERROR:
-			{}
 		case $ImageConsumer::IMAGEABORTED:
-			{
-				$set(this, model, nullptr);
-				this->width = -1;
-				this->height = -1;
-				$set(this, intPixels, nullptr);
-				$set(this, bytePixels, nullptr);
+			$set(this, model, nullptr);
+			this->width = -1;
+			this->height = -1;
+			$set(this, intPixels, nullptr);
+			$set(this, bytePixels, nullptr);
+			break;
+		case $ImageConsumer::SINGLEFRAMEDONE:
+		case $ImageConsumer::STATICIMAGEDONE:
+			if (this->width <= 0 || this->height <= 0) {
 				break;
 			}
-		case $ImageConsumer::SINGLEFRAMEDONE:
-			{}
-		case $ImageConsumer::STATICIMAGEDONE:
-			{
-				if (this->width <= 0 || this->height <= 0) {
+			if ($instanceOf($DirectColorModel, this->model)) {
+				if (this->intPixels == nullptr) {
 					break;
 				}
-				if ($instanceOf($DirectColorModel, this->model)) {
-					if (this->intPixels == nullptr) {
-						break;
-					}
-					$assign(wr, createDCMraster());
-				} else if ($instanceOf($IndexColorModel, this->model)) {
-					$var($ints, bandOffsets, $new($ints, {0}));
-					if (this->bytePixels == nullptr) {
-						break;
-					}
-					$var($DataBufferByte, db, $new($DataBufferByte, this->bytePixels, this->width * this->height));
-					$assign(wr, $Raster::createInterleavedRaster(static_cast<$DataBuffer*>(db), this->width, this->height, this->width, 1, bandOffsets, ($Point*)nullptr));
-				} else {
-					convertToRGB();
-					if (this->intPixels == nullptr) {
-						break;
-					}
-					$assign(wr, createDCMraster());
+				$assign(wr, createDCMraster());
+			} else if ($instanceOf($IndexColorModel, this->model)) {
+				$var($ints, bandOffsets, $new($ints, {0}));
+				if (this->bytePixels == nullptr) {
+					break;
 				}
-				$assign(bi, $new($BufferedImage, this->model, wr, $nc(this->model)->isAlphaPremultiplied(), ($Hashtable*)nullptr));
-				$assign(bi, $nc(this->bufferedImageOp)->filter(bi, nullptr));
-				$assign(r, $nc(bi)->getRaster());
-				$assign(cm, bi->getColorModel());
-				w = $nc(r)->getWidth();
-				h = r->getHeight();
-				$nc(this->consumer)->setDimensions(w, h);
-				$nc(this->consumer)->setColorModel(cm);
-				if ($instanceOf($DirectColorModel, cm)) {
-					$var($DataBufferInt, db, $cast($DataBufferInt, r->getDataBuffer()));
-					$nc(this->consumer)->setPixels(0, 0, w, h, cm, $($nc(db)->getData()), 0, w);
-				} else if ($instanceOf($IndexColorModel, cm)) {
-					$var($DataBufferByte, db, $cast($DataBufferByte, r->getDataBuffer()));
-					$nc(this->consumer)->setPixels(0, 0, w, h, cm, $($nc(db)->getData()), 0, w);
-				} else {
-					$throwNew($InternalError, $$str({"Unknown color model "_s, cm}));
+				$var($DataBufferByte, db, $new($DataBufferByte, this->bytePixels, this->width * this->height));
+				$assign(wr, $Raster::createInterleavedRaster(db, this->width, this->height, this->width, 1, bandOffsets, nullptr));
+			} else {
+				convertToRGB();
+				if (this->intPixels == nullptr) {
+					break;
 				}
-				break;
+				$assign(wr, createDCMraster());
 			}
+			$assign(bi, $new($BufferedImage, this->model, wr, $nc(this->model)->isAlphaPremultiplied(), nullptr));
+			$assign(bi, $nc(this->bufferedImageOp)->filter(bi, nullptr));
+			$assign(r, $nc(bi)->getRaster());
+			$assign(cm, bi->getColorModel());
+			w = $nc(r)->getWidth();
+			h = r->getHeight();
+			$nc(this->consumer)->setDimensions(w, h);
+			$nc(this->consumer)->setColorModel(cm);
+			if ($instanceOf($DirectColorModel, cm)) {
+				$var($DataBufferInt, db, $cast($DataBufferInt, r->getDataBuffer()));
+				$nc(this->consumer)->setPixels(0, 0, w, h, cm, $($nc(db)->getData()), 0, w);
+			} else if ($instanceOf($IndexColorModel, cm)) {
+				$var($DataBufferByte, db, $cast($DataBufferByte, r->getDataBuffer()));
+				$nc(this->consumer)->setPixels(0, 0, w, h, cm, $($nc(db)->getData()), 0, w);
+			} else {
+				$throwNew($InternalError, $$str({"Unknown color model "_s, cm}));
+			}
+			break;
 		}
 	}
 	$nc(this->consumer)->imageComplete(status);
 }
 
 $WritableRaster* BufferedImageFilter::createDCMraster() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, wr, nullptr);
 	$var($DirectColorModel, dcm, $cast($DirectColorModel, this->model));
 	bool hasAlpha = $nc(this->model)->hasAlpha();
@@ -345,7 +301,7 @@ $WritableRaster* BufferedImageFilter::createDCMraster() {
 		bandMasks->set(3, dcm->getAlphaMask());
 	}
 	$var($DataBufferInt, db, $new($DataBufferInt, this->intPixels, this->width * this->height));
-	$assign(wr, $Raster::createPackedRaster(static_cast<$DataBuffer*>(db), this->width, this->height, this->width, bandMasks, ($Point*)nullptr));
+	$assign(wr, $Raster::createPackedRaster(db, this->width, this->height, this->width, bandMasks, nullptr));
 	return wr;
 }
 
@@ -353,7 +309,38 @@ BufferedImageFilter::BufferedImageFilter() {
 }
 
 $Class* BufferedImageFilter::load$($String* name, bool initialize) {
-	$loadClass(BufferedImageFilter, name, initialize, &_BufferedImageFilter_ClassInfo_, allocate$BufferedImageFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"bufferedImageOp", "Ljava/awt/image/BufferedImageOp;", nullptr, 0, $field(BufferedImageFilter, bufferedImageOp)},
+		{"model", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(BufferedImageFilter, model)},
+		{"width", "I", nullptr, 0, $field(BufferedImageFilter, width)},
+		{"height", "I", nullptr, 0, $field(BufferedImageFilter, height)},
+		{"bytePixels", "[B", nullptr, 0, $field(BufferedImageFilter, bytePixels)},
+		{"intPixels", "[I", nullptr, 0, $field(BufferedImageFilter, intPixels)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/BufferedImageOp;)V", nullptr, $PUBLIC, $method(BufferedImageFilter, init$, void, $BufferedImageOp*)},
+		{"convertToRGB", "()V", nullptr, $PRIVATE, $method(BufferedImageFilter, convertToRGB, void)},
+		{"createDCMraster", "()Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $method(BufferedImageFilter, createDCMraster, $WritableRaster*)},
+		{"getBufferedImageOp", "()Ljava/awt/image/BufferedImageOp;", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, getBufferedImageOp, $BufferedImageOp*)},
+		{"imageComplete", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, imageComplete, void, int32_t)},
+		{"setColorModel", "(Ljava/awt/image/ColorModel;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setColorModel, void, $ColorModel*)},
+		{"setDimensions", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setDimensions, void, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+		{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)V", nullptr, $PUBLIC, $virtualMethod(BufferedImageFilter, setPixels, void, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.BufferedImageFilter",
+		"java.awt.image.ImageFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferedImageFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BufferedImageFilter));
+	});
 	return class$;
 }
 

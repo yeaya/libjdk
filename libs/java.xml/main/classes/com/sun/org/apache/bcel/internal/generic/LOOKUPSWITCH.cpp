@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/LOOKUPSWITCH.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
@@ -15,11 +14,8 @@
 
 using $InstructionHandleArray = $Array<::com::sun::org::apache::bcel::internal::generic::InstructionHandle>;
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $Select = ::com::sun::org::apache::bcel::internal::generic::Select;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $VariableLengthInstruction = ::com::sun::org::apache::bcel::internal::generic::VariableLengthInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -34,28 +30,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _LOOKUPSWITCH_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LOOKUPSWITCH, init$, void)},
-	{"<init>", "([I[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(LOOKUPSWITCH, init$, void, $ints*, $InstructionHandleArray*, $InstructionHandle*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LOOKUPSWITCH, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LOOKUPSWITCH, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(LOOKUPSWITCH, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LOOKUPSWITCH_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.LOOKUPSWITCH",
-	"com.sun.org.apache.bcel.internal.generic.Select",
-	nullptr,
-	nullptr,
-	_LOOKUPSWITCH_MethodInfo_
-};
-
-$Object* allocate$LOOKUPSWITCH($Class* clazz) {
-	return $of($alloc(LOOKUPSWITCH));
-}
-
 void LOOKUPSWITCH::init$() {
 	$Select::init$();
 }
@@ -68,7 +42,7 @@ void LOOKUPSWITCH::init$($ints* match, $InstructionHandleArray* targets, $Instru
 }
 
 void LOOKUPSWITCH::dump($DataOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Select::dump(out);
 	int32_t _match_length = getMatch_length();
 	$nc(out)->writeInt(_match_length);
@@ -79,7 +53,7 @@ void LOOKUPSWITCH::dump($DataOutputStream* out) {
 }
 
 void LOOKUPSWITCH::initFromFile($ByteSequence* bytes, bool wide) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Select::initFromFile(bytes, wide);
 	int32_t _match_length = $nc(bytes)->readInt();
 	setMatch_length(_match_length);
@@ -108,7 +82,25 @@ LOOKUPSWITCH::LOOKUPSWITCH() {
 }
 
 $Class* LOOKUPSWITCH::load$($String* name, bool initialize) {
-	$loadClass(LOOKUPSWITCH, name, initialize, &_LOOKUPSWITCH_ClassInfo_, allocate$LOOKUPSWITCH);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LOOKUPSWITCH, init$, void)},
+		{"<init>", "([I[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(LOOKUPSWITCH, init$, void, $ints*, $InstructionHandleArray*, $InstructionHandle*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LOOKUPSWITCH, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LOOKUPSWITCH, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(LOOKUPSWITCH, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.LOOKUPSWITCH",
+		"com.sun.org.apache.bcel.internal.generic.Select",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LOOKUPSWITCH, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LOOKUPSWITCH));
+	});
 	return class$;
 }
 

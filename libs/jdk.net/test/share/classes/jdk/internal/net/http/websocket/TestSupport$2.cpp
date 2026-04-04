@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TestSupport$2.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
 #include <jdk/internal/net/http/websocket/TestSupport.h>
@@ -19,51 +18,6 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _TestSupport$2_FieldInfo_[] = {
-	{"val$elements", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$2, val$elements)},
-	{"val$maxElements", "I", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$2, val$maxElements)},
-	{"count", "I", nullptr, 0, $field(TestSupport$2, count)},
-	{}
-};
-
-$MethodInfo _TestSupport$2_MethodInfo_[] = {
-	{"<init>", "(ILjava/util/Iterator;)V", nullptr, 0, $method(TestSupport$2, init$, void, int32_t, $Iterator*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$2, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(TestSupport$2, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _TestSupport$2_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.websocket.TestSupport",
-	"limit",
-	"(ILjava/util/Iterator;)Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _TestSupport$2_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TestSupport$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestSupport$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.websocket.TestSupport$2",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_TestSupport$2_FieldInfo_,
-	_TestSupport$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
-	&_TestSupport$2_EnclosingMethodInfo_,
-	_TestSupport$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TestSupport"
-};
-
-$Object* allocate$TestSupport$2($Class* clazz) {
-	return $of($alloc(TestSupport$2));
-}
-
 void TestSupport$2::init$(int32_t val$maxElements, $Iterator* val$elements) {
 	this->val$maxElements = val$maxElements;
 	$set(this, val$elements, val$elements);
@@ -79,14 +33,52 @@ $Object* TestSupport$2::next() {
 		$throwNew($NoSuchElementException);
 	}
 	--this->count;
-	return $of($nc(this->val$elements)->next());
+	return $nc(this->val$elements)->next();
 }
 
 TestSupport$2::TestSupport$2() {
 }
 
 $Class* TestSupport$2::load$($String* name, bool initialize) {
-	$loadClass(TestSupport$2, name, initialize, &_TestSupport$2_ClassInfo_, allocate$TestSupport$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$elements", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$2, val$elements)},
+		{"val$maxElements", "I", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$2, val$maxElements)},
+		{"count", "I", nullptr, 0, $field(TestSupport$2, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/util/Iterator;)V", nullptr, 0, $method(TestSupport$2, init$, void, int32_t, $Iterator*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$2, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(TestSupport$2, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.websocket.TestSupport",
+		"limit",
+		"(ILjava/util/Iterator;)Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TestSupport$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.websocket.TestSupport$2",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TestSupport"
+	};
+	$loadClass(TestSupport$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSupport$2);
+	});
 	return class$;
 }
 

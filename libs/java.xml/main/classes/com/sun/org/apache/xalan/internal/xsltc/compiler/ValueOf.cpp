@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ValueOf.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
@@ -34,16 +32,13 @@
 #undef SWAP
 #undef TRANSLET_CLASS
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
@@ -66,35 +61,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _ValueOf_FieldInfo_[] = {
-	{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ValueOf, _select)},
-	{"_escaping", "Z", nullptr, $PRIVATE, $field(ValueOf, _escaping)},
-	{"_isString", "Z", nullptr, $PRIVATE, $field(ValueOf, _isString)},
-	{}
-};
-
-$MethodInfo _ValueOf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ValueOf, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(ValueOf, display, void, int32_t)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ValueOf, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ValueOf, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ValueOf, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ValueOf_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ValueOf",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_ValueOf_FieldInfo_,
-	_ValueOf_MethodInfo_
-};
-
-$Object* allocate$ValueOf($Class* clazz) {
-	return $of($alloc(ValueOf));
-}
-
 void ValueOf::init$() {
 	$Instruction::init$();
 	this->_escaping = true;
@@ -102,7 +68,7 @@ void ValueOf::init$() {
 }
 
 void ValueOf::display(int32_t indent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->indent(indent);
 	$Util::println("ValueOf"_s);
 	this->indent(indent + $SyntaxTreeNode::IndentIncrement);
@@ -140,34 +106,34 @@ $Type* ValueOf::typeCheck($SymbolTable* stable) {
 }
 
 void ValueOf::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
 	int32_t setEscaping = $nc(cpg)->addInterfaceMethodref($Constants::OUTPUT_HANDLER, "setEscaping"_s, "(Z)Z"_s);
 	if (!this->_escaping) {
 		$nc(il)->append($(methodGen->loadHandler()));
-		il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, false)));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, setEscaping, 2)));
+		il->append($$new($PUSH, cpg, false));
+		il->append($$new($INVOKEINTERFACE, setEscaping, 2));
 	}
 	if (this->_isString) {
 		int32_t characters = cpg->addMethodref($Constants::TRANSLET_CLASS, $Constants::CHARACTERSW, $Constants::CHARACTERSW_SIG);
 		$nc(il)->append($(classGen->loadTranslet()));
 		$nc(this->_select)->translate(classGen, methodGen);
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, characters)));
+		il->append($$new($INVOKEVIRTUAL, characters));
 	} else {
 		int32_t characters = cpg->addInterfaceMethodref($Constants::DOM_INTF, $Constants::CHARACTERS, $Constants::CHARACTERS_SIG);
 		$nc(il)->append($(methodGen->loadDOM()));
 		$nc(this->_select)->translate(classGen, methodGen);
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, characters, 3)));
+		il->append($$new($INVOKEINTERFACE, characters, 3));
 	}
 	if (!this->_escaping) {
 		$nc(il)->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($Constants::SWAP));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, setEscaping, 2)));
-		il->append(static_cast<$1Instruction*>($Constants::POP));
+		il->append($Constants::SWAP);
+		il->append($$new($INVOKEINTERFACE, setEscaping, 2));
+		il->append($Constants::POP);
 	}
 }
 
@@ -175,7 +141,31 @@ ValueOf::ValueOf() {
 }
 
 $Class* ValueOf::load$($String* name, bool initialize) {
-	$loadClass(ValueOf, name, initialize, &_ValueOf_ClassInfo_, allocate$ValueOf);
+	$FieldInfo fieldInfos$$[] = {
+		{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(ValueOf, _select)},
+		{"_escaping", "Z", nullptr, $PRIVATE, $field(ValueOf, _escaping)},
+		{"_isString", "Z", nullptr, $PRIVATE, $field(ValueOf, _isString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ValueOf, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(ValueOf, display, void, int32_t)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ValueOf, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ValueOf, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ValueOf, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ValueOf",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ValueOf, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueOf);
+	});
 	return class$;
 }
 

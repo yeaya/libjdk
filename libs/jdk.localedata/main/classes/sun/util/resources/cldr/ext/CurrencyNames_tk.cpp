@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_tk.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,1227 +13,1208 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_tk_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_tk, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_tk, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_tk_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_tk",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_tk_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_tk($Class* clazz) {
-	return $of($alloc(CurrencyNames_tk));
-}
-
 void CurrencyNames_tk::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_tk::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AED"_s),
-			$of("AED"_s)
+			"AED"_s,
+			"AED"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AFN"_s),
-			$of("AFN"_s)
+			"AFN"_s,
+			"AFN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ALL"_s),
-			$of("ALL"_s)
+			"ALL"_s,
+			"ALL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AMD"_s),
-			$of("AMD"_s)
+			"AMD"_s,
+			"AMD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ANG"_s),
-			$of("ANG"_s)
+			"ANG"_s,
+			"ANG"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AOA"_s),
-			$of("AOA"_s)
+			"AOA"_s,
+			"AOA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ARS"_s),
-			$of("ARS"_s)
+			"ARS"_s,
+			"ARS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWG"_s),
-			$of("AWG"_s)
+			"AWG"_s,
+			"AWG"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZN"_s),
-			$of("AZN"_s)
+			"AZN"_s,
+			"AZN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BAM"_s),
-			$of("BAM"_s)
+			"BAM"_s,
+			"BAM"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BBD"_s),
-			$of("BBD"_s)
+			"BBD"_s,
+			"BBD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BDT"_s),
-			$of("BDT"_s)
+			"BDT"_s,
+			"BDT"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BGN"_s),
-			$of("BGN"_s)
+			"BGN"_s,
+			"BGN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BHD"_s),
-			$of("BHD"_s)
+			"BHD"_s,
+			"BHD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BIF"_s),
-			$of("BIF"_s)
+			"BIF"_s,
+			"BIF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BMD"_s),
-			$of("BMD"_s)
+			"BMD"_s,
+			"BMD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BND"_s),
-			$of("BND"_s)
+			"BND"_s,
+			"BND"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BOB"_s),
-			$of("BOB"_s)
+			"BOB"_s,
+			"BOB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BSD"_s),
-			$of("BSD"_s)
+			"BSD"_s,
+			"BSD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BTN"_s),
-			$of("BTN"_s)
+			"BTN"_s,
+			"BTN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BWP"_s),
-			$of("BWP"_s)
+			"BWP"_s,
+			"BWP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BYN"_s),
-			$of("BYN"_s)
+			"BYN"_s,
+			"BYN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZD"_s),
-			$of("BZD"_s)
+			"BZD"_s,
+			"BZD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CDF"_s),
-			$of("CDF"_s)
+			"CDF"_s,
+			"CDF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CHF"_s),
-			$of("CHF"_s)
+			"CHF"_s,
+			"CHF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CLP"_s),
-			$of("CLP"_s)
+			"CLP"_s,
+			"CLP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CNH"_s),
-			$of("CNH"_s)
+			"CNH"_s,
+			"CNH"_s
 		}),
 		$$new($ObjectArray, {
-			$of("COP"_s),
-			$of("COP"_s)
+			"COP"_s,
+			"COP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CRC"_s),
-			$of("CRC"_s)
+			"CRC"_s,
+			"CRC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CUC"_s),
-			$of("CUC"_s)
+			"CUC"_s,
+			"CUC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CUP"_s),
-			$of("CUP"_s)
+			"CUP"_s,
+			"CUP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CVE"_s),
-			$of("CVE"_s)
+			"CVE"_s,
+			"CVE"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZK"_s),
-			$of("CZK"_s)
+			"CZK"_s,
+			"CZK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJF"_s),
-			$of("DJF"_s)
+			"DJF"_s,
+			"DJF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DKK"_s),
-			$of("DKK"_s)
+			"DKK"_s,
+			"DKK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DOP"_s),
-			$of("DOP"_s)
+			"DOP"_s,
+			"DOP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZD"_s),
-			$of("DZD"_s)
+			"DZD"_s,
+			"DZD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EGP"_s),
-			$of("EGP"_s)
+			"EGP"_s,
+			"EGP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ERN"_s),
-			$of("ERN"_s)
+			"ERN"_s,
+			"ERN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ETB"_s),
-			$of("ETB"_s)
+			"ETB"_s,
+			"ETB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EUR"_s),
-			$of("EUR"_s)
+			"EUR"_s,
+			"EUR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJD"_s),
-			$of("FJD"_s)
+			"FJD"_s,
+			"FJD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FKP"_s),
-			$of("FKP"_s)
+			"FKP"_s,
+			"FKP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GBP"_s),
-			$of("GBP"_s)
+			"GBP"_s,
+			"GBP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GEL"_s),
-			$of("GEL"_s)
+			"GEL"_s,
+			"GEL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GHS"_s),
-			$of("GHS"_s)
+			"GHS"_s,
+			"GHS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GIP"_s),
-			$of("GIP"_s)
+			"GIP"_s,
+			"GIP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GMD"_s),
-			$of("GMD"_s)
+			"GMD"_s,
+			"GMD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GNF"_s),
-			$of("GNF"_s)
+			"GNF"_s,
+			"GNF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTQ"_s),
-			$of("GTQ"_s)
+			"GTQ"_s,
+			"GTQ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GYD"_s),
-			$of("GYD"_s)
+			"GYD"_s,
+			"GYD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HNL"_s),
-			$of("HNL"_s)
+			"HNL"_s,
+			"HNL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HRK"_s),
-			$of("HRK"_s)
+			"HRK"_s,
+			"HRK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HTG"_s),
-			$of("HTG"_s)
+			"HTG"_s,
+			"HTG"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HUF"_s),
-			$of("HUF"_s)
+			"HUF"_s,
+			"HUF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IDR"_s),
-			$of("IDR"_s)
+			"IDR"_s,
+			"IDR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQD"_s),
-			$of("IQD"_s)
+			"IQD"_s,
+			"IQD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IRR"_s),
-			$of("IRR"_s)
+			"IRR"_s,
+			"IRR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ISK"_s),
-			$of("ISK"_s)
+			"ISK"_s,
+			"ISK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JMD"_s),
-			$of("JMD"_s)
+			"JMD"_s,
+			"JMD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JOD"_s),
-			$of("JOD"_s)
+			"JOD"_s,
+			"JOD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KES"_s),
-			$of("KES"_s)
+			"KES"_s,
+			"KES"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KGS"_s),
-			$of("KGS"_s)
+			"KGS"_s,
+			"KGS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KHR"_s),
-			$of("KHR"_s)
+			"KHR"_s,
+			"KHR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KMF"_s),
-			$of("KMF"_s)
+			"KMF"_s,
+			"KMF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KPW"_s),
-			$of("KPW"_s)
+			"KPW"_s,
+			"KPW"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KWD"_s),
-			$of("KWD"_s)
+			"KWD"_s,
+			"KWD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KYD"_s),
-			$of("KYD"_s)
+			"KYD"_s,
+			"KYD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZT"_s),
-			$of("KZT"_s)
+			"KZT"_s,
+			"KZT"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LAK"_s),
-			$of("LAK"_s)
+			"LAK"_s,
+			"LAK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LBP"_s),
-			$of("LBP"_s)
+			"LBP"_s,
+			"LBP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LKR"_s),
-			$of("LKR"_s)
+			"LKR"_s,
+			"LKR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LRD"_s),
-			$of("LRD"_s)
+			"LRD"_s,
+			"LRD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LYD"_s),
-			$of("LYD"_s)
+			"LYD"_s,
+			"LYD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MAD"_s),
-			$of("MAD"_s)
+			"MAD"_s,
+			"MAD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MDL"_s),
-			$of("MDL"_s)
+			"MDL"_s,
+			"MDL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MGA"_s),
-			$of("MGA"_s)
+			"MGA"_s,
+			"MGA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MKD"_s),
-			$of("MKD"_s)
+			"MKD"_s,
+			"MKD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MMK"_s),
-			$of("MMK"_s)
+			"MMK"_s,
+			"MMK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MNT"_s),
-			$of("MNT"_s)
+			"MNT"_s,
+			"MNT"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MOP"_s),
-			$of("MOP"_s)
+			"MOP"_s,
+			"MOP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MRO"_s),
-			$of("MRO"_s)
+			"MRO"_s,
+			"MRO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MRU"_s),
-			$of("MRU"_s)
+			"MRU"_s,
+			"MRU"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MUR"_s),
-			$of("MUR"_s)
+			"MUR"_s,
+			"MUR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MVR"_s),
-			$of("MVR"_s)
+			"MVR"_s,
+			"MVR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MWK"_s),
-			$of("MWK"_s)
+			"MWK"_s,
+			"MWK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MYR"_s),
-			$of("MYR"_s)
+			"MYR"_s,
+			"MYR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZN"_s),
-			$of("MZN"_s)
+			"MZN"_s,
+			"MZN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NAD"_s),
-			$of("NAD"_s)
+			"NAD"_s,
+			"NAD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NGN"_s),
-			$of("NGN"_s)
+			"NGN"_s,
+			"NGN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NIO"_s),
-			$of("NIO"_s)
+			"NIO"_s,
+			"NIO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NOK"_s),
-			$of("NOK"_s)
+			"NOK"_s,
+			"NOK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NPR"_s),
-			$of("NPR"_s)
+			"NPR"_s,
+			"NPR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OMR"_s),
-			$of("OMR"_s)
+			"OMR"_s,
+			"OMR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PAB"_s),
-			$of("PAB"_s)
+			"PAB"_s,
+			"PAB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PEN"_s),
-			$of("PEN"_s)
+			"PEN"_s,
+			"PEN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PGK"_s),
-			$of("PGK"_s)
+			"PGK"_s,
+			"PGK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PHP"_s),
-			$of("PHP"_s)
+			"PHP"_s,
+			"PHP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PKR"_s),
-			$of("PKR"_s)
+			"PKR"_s,
+			"PKR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PLN"_s),
-			$of("PLN"_s)
+			"PLN"_s,
+			"PLN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PYG"_s),
-			$of("PYG"_s)
+			"PYG"_s,
+			"PYG"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QAR"_s),
-			$of("QAR"_s)
+			"QAR"_s,
+			"QAR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RON"_s),
-			$of("RON"_s)
+			"RON"_s,
+			"RON"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RSD"_s),
-			$of("RSD"_s)
+			"RSD"_s,
+			"RSD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RUB"_s),
-			$of("RUB"_s)
+			"RUB"_s,
+			"RUB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RWF"_s),
-			$of("RWF"_s)
+			"RWF"_s,
+			"RWF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SAR"_s),
-			$of("SAR"_s)
+			"SAR"_s,
+			"SAR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SBD"_s),
-			$of("SBD"_s)
+			"SBD"_s,
+			"SBD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SCR"_s),
-			$of("SCR"_s)
+			"SCR"_s,
+			"SCR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SDG"_s),
-			$of("SDG"_s)
+			"SDG"_s,
+			"SDG"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SEK"_s),
-			$of("SEK"_s)
+			"SEK"_s,
+			"SEK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SGD"_s),
-			$of("SGD"_s)
+			"SGD"_s,
+			"SGD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SHP"_s),
-			$of("SHP"_s)
+			"SHP"_s,
+			"SHP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SLL"_s),
-			$of("SLL"_s)
+			"SLL"_s,
+			"SLL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SOS"_s),
-			$of("SOS"_s)
+			"SOS"_s,
+			"SOS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SRD"_s),
-			$of("SRD"_s)
+			"SRD"_s,
+			"SRD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SSP"_s),
-			$of("SSP"_s)
+			"SSP"_s,
+			"SSP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("STN"_s),
-			$of("STN"_s)
+			"STN"_s,
+			"STN"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SYP"_s),
-			$of("SYP"_s)
+			"SYP"_s,
+			"SYP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZL"_s),
-			$of("SZL"_s)
+			"SZL"_s,
+			"SZL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("THB"_s),
-			$of("THB"_s)
+			"THB"_s,
+			"THB"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJS"_s),
-			$of("TJS"_s)
+			"TJS"_s,
+			"TJS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TMT"_s),
-			$of("TMT"_s)
+			"TMT"_s,
+			"TMT"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TND"_s),
-			$of("TND"_s)
+			"TND"_s,
+			"TND"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TOP"_s),
-			$of("TOP"_s)
+			"TOP"_s,
+			"TOP"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TRY"_s),
-			$of("TRY"_s)
+			"TRY"_s,
+			"TRY"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TTD"_s),
-			$of("TTD"_s)
+			"TTD"_s,
+			"TTD"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZS"_s),
-			$of("TZS"_s)
+			"TZS"_s,
+			"TZS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UAH"_s),
-			$of("UAH"_s)
+			"UAH"_s,
+			"UAH"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UGX"_s),
-			$of("UGX"_s)
+			"UGX"_s,
+			"UGX"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UYU"_s),
-			$of("UYU"_s)
+			"UYU"_s,
+			"UYU"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZS"_s),
-			$of("UZS"_s)
+			"UZS"_s,
+			"UZS"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VEF"_s),
-			$of("VEF"_s)
+			"VEF"_s,
+			"VEF"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VES"_s),
-			$of("VES"_s)
+			"VES"_s,
+			"VES"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VUV"_s),
-			$of("VUV"_s)
+			"VUV"_s,
+			"VUV"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WST"_s),
-			$of("WST"_s)
+			"WST"_s,
+			"WST"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YER"_s),
-			$of("YER"_s)
+			"YER"_s,
+			"YER"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZAR"_s),
-			$of("ZAR"_s)
+			"ZAR"_s,
+			"ZAR"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZMW"_s),
-			$of("ZMW"_s)
+			"ZMW"_s,
+			"ZMW"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("BAE dirhemi"_s)
+			"aed"_s,
+			"BAE dirhemi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afn"_s),
-			$of("Owgan afganisi"_s)
+			"afn"_s,
+			"Owgan afganisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("all"_s),
-			$of("Alban leki"_s)
+			"all"_s,
+			"Alban leki"_s
 		}),
 		$$new($ObjectArray, {
-			$of("amd"_s),
-			$of("Ermeni dramy"_s)
+			"amd"_s,
+			"Ermeni dramy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of("Niderland antil guldeni"_s)
+			"ang"_s,
+			"Niderland antil guldeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("Angola kwanzasy"_s)
+			"aoa"_s,
+			"Angola kwanzasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ars"_s),
-			$of("Argentin pesosy"_s)
+			"ars"_s,
+			"Argentin pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of(u"Awstraliýa dollary"_s)
+			"aud"_s,
+			u"Awstraliýa dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awg"_s),
-			$of("Aruba florini"_s)
+			"awg"_s,
+			"Aruba florini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("azn"_s),
-			$of(u"Azerbaýjan manady"_s)
+			"azn"_s,
+			u"Azerbaýjan manady"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bam"_s),
-			$of(u"Konwertirlenýän Bosniýa we Gersegowina markasy"_s)
+			"bam"_s,
+			u"Konwertirlenýän Bosniýa we Gersegowina markasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bbd"_s),
-			$of("Barbados dollary"_s)
+			"bbd"_s,
+			"Barbados dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bdt"_s),
-			$of(u"Bangladeş takasy"_s)
+			"bdt"_s,
+			u"Bangladeş takasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bgn"_s),
-			$of("Bolgar lewi"_s)
+			"bgn"_s,
+			"Bolgar lewi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of(u"Bahreýn dinary"_s)
+			"bhd"_s,
+			u"Bahreýn dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("Burundi franky"_s)
+			"bif"_s,
+			"Burundi franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bmd"_s),
-			$of("Bermuda dollary"_s)
+			"bmd"_s,
+			"Bermuda dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bnd"_s),
-			$of(u"Bruneý dollary"_s)
+			"bnd"_s,
+			u"Bruneý dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bob"_s),
-			$of(u"Boliwiýa boliwianosy"_s)
+			"bob"_s,
+			u"Boliwiýa boliwianosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brl"_s),
-			$of("Brazil realy"_s)
+			"brl"_s,
+			"Brazil realy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bsd"_s),
-			$of("Bagama dollary"_s)
+			"bsd"_s,
+			"Bagama dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("btn"_s),
-			$of("Butan ngultrumy"_s)
+			"btn"_s,
+			"Butan ngultrumy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("Botswana pulasy"_s)
+			"bwp"_s,
+			"Botswana pulasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of("Belarus rubly"_s)
+			"byn"_s,
+			"Belarus rubly"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byr"_s),
-			$of(u"Belorus rubly (2000–2016)"_s)
+			"byr"_s,
+			u"Belorus rubly (2000–2016)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bzd"_s),
-			$of("Beliz dollary"_s)
+			"bzd"_s,
+			"Beliz dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("Kanada dollary"_s)
+			"cad"_s,
+			"Kanada dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("Kongo franky"_s)
+			"cdf"_s,
+			"Kongo franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of(u"Şweýsar franky"_s)
+			"chf"_s,
+			u"Şweýsar franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("clp"_s),
-			$of(u"Çili pesosy"_s)
+			"clp"_s,
+			u"Çili pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cnh"_s),
-			$of(u"Hytaý ýuany (ofşor)"_s)
+			"cnh"_s,
+			u"Hytaý ýuany (ofşor)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of(u"Hytaý ýuany"_s)
+			"cny"_s,
+			u"Hytaý ýuany"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of(u"Kolumbiýa pesosy"_s)
+			"cop"_s,
+			u"Kolumbiýa pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crc"_s),
-			$of("Kosta-Rika kolony"_s)
+			"crc"_s,
+			"Kosta-Rika kolony"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cuc"_s),
-			$of(u"Konwertirlenýän kuba pesosy"_s)
+			"cuc"_s,
+			u"Konwertirlenýän kuba pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cup"_s),
-			$of("Kuba pesosy"_s)
+			"cup"_s,
+			"Kuba pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("Kabo-Werde eskudosy"_s)
+			"cve"_s,
+			"Kabo-Werde eskudosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("czk"_s),
-			$of(u"Çeh kronasy"_s)
+			"czk"_s,
+			u"Çeh kronasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("Jibuti franky"_s)
+			"djf"_s,
+			"Jibuti franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dkk"_s),
-			$of(u"Daniýa kronasy"_s)
+			"dkk"_s,
+			u"Daniýa kronasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dop"_s),
-			$of("Dominikan pesosy"_s)
+			"dop"_s,
+			"Dominikan pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of(u"Alžir dinary"_s)
+			"dzd"_s,
+			u"Alžir dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of(u"Müsür funty"_s)
+			"egp"_s,
+			u"Müsür funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of(u"Eritreýa nakfasy"_s)
+			"ern"_s,
+			u"Eritreýa nakfasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of(u"Efiopiýa byry"_s)
+			"etb"_s,
+			u"Efiopiýa byry"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of(u"Ýewro"_s)
+			"eur"_s,
+			u"Ýewro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fjd"_s),
-			$of("Fiji dollary"_s)
+			"fjd"_s,
+			"Fiji dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fkp"_s),
-			$of(u"Folklend adalarynyň funty"_s)
+			"fkp"_s,
+			u"Folklend adalarynyň funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("Britan funt sterlingi"_s)
+			"gbp"_s,
+			"Britan funt sterlingi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gel"_s),
-			$of("Gruzin larisi"_s)
+			"gel"_s,
+			"Gruzin larisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghs"_s),
-			$of("Gano sedisi"_s)
+			"ghs"_s,
+			"Gano sedisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gip"_s),
-			$of("Gibraltar funty"_s)
+			"gip"_s,
+			"Gibraltar funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of(u"Gambiýa dalasisi"_s)
+			"gmd"_s,
+			u"Gambiýa dalasisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gnf"_s),
-			$of(u"Gwineý franky"_s)
+			"gnf"_s,
+			u"Gwineý franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gtq"_s),
-			$of("Gwatemala ketsaly"_s)
+			"gtq"_s,
+			"Gwatemala ketsaly"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gyd"_s),
-			$of(u"Gaýana dollary"_s)
+			"gyd"_s,
+			u"Gaýana dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hkd"_s),
-			$of("Gonkong dollary"_s)
+			"hkd"_s,
+			"Gonkong dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hnl"_s),
-			$of("Gonduras lempirasy"_s)
+			"hnl"_s,
+			"Gonduras lempirasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hrk"_s),
-			$of("Horwat kunasy"_s)
+			"hrk"_s,
+			"Horwat kunasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("htg"_s),
-			$of("Gaiti gurdy"_s)
+			"htg"_s,
+			"Gaiti gurdy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("huf"_s),
-			$of("Wenger forinti"_s)
+			"huf"_s,
+			"Wenger forinti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("idr"_s),
-			$of(u"Indoneziýa rupiýasy"_s)
+			"idr"_s,
+			u"Indoneziýa rupiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ils"_s),
-			$of(u"Täze Ysraýyl şekeli"_s)
+			"ils"_s,
+			u"Täze Ysraýyl şekeli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of(u"Hindi rupiýasy"_s)
+			"inr"_s,
+			u"Hindi rupiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iqd"_s),
-			$of("Yrak dinary"_s)
+			"iqd"_s,
+			"Yrak dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("irr"_s),
-			$of(u"Eýran rialy"_s)
+			"irr"_s,
+			u"Eýran rialy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("isk"_s),
-			$of(u"Islandiýa kronasy"_s)
+			"isk"_s,
+			u"Islandiýa kronasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmd"_s),
-			$of(u"Ýamaýka dollary"_s)
+			"jmd"_s,
+			u"Ýamaýka dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jod"_s),
-			$of("Iordan dinary"_s)
+			"jod"_s,
+			"Iordan dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of(u"Ýapon ýeni"_s)
+			"jpy"_s,
+			u"Ýapon ýeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of(u"Keniýa şillingi"_s)
+			"kes"_s,
+			u"Keniýa şillingi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kgs"_s),
-			$of("Gyrgyz somy"_s)
+			"kgs"_s,
+			"Gyrgyz somy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khr"_s),
-			$of(u"Kamboja riýeli"_s)
+			"khr"_s,
+			u"Kamboja riýeli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of(u"Komor adalarynyň franky"_s)
+			"kmf"_s,
+			u"Komor adalarynyň franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kpw"_s),
-			$of(u"Demirgazyk Koreý wony"_s)
+			"kpw"_s,
+			u"Demirgazyk Koreý wony"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krw"_s),
-			$of(u"Günorta Koreý wony"_s)
+			"krw"_s,
+			u"Günorta Koreý wony"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kwd"_s),
-			$of(u"Kuweýt dinary"_s)
+			"kwd"_s,
+			u"Kuweýt dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kyd"_s),
-			$of(u"Kaýman adalarynyň dollary"_s)
+			"kyd"_s,
+			u"Kaýman adalarynyň dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kzt"_s),
-			$of(u"Gazak teňňesi"_s)
+			"kzt"_s,
+			u"Gazak teňňesi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lak"_s),
-			$of("Laos kipi"_s)
+			"lak"_s,
+			"Laos kipi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lbp"_s),
-			$of("Liwan funty"_s)
+			"lbp"_s,
+			"Liwan funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lkr"_s),
-			$of(u"Şri-Lanka rupiýasy"_s)
+			"lkr"_s,
+			u"Şri-Lanka rupiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of(u"Liberiýa dollary"_s)
+			"lrd"_s,
+			u"Liberiýa dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of(u"Liwiýa dinary"_s)
+			"lyd"_s,
+			u"Liwiýa dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Marokko dirhamy"_s)
+			"mad"_s,
+			"Marokko dirhamy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdl"_s),
-			$of(u"Moldaw leýi"_s)
+			"mdl"_s,
+			u"Moldaw leýi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"Malagasiý ariarisi"_s)
+			"mga"_s,
+			u"Malagasiý ariarisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mkd"_s),
-			$of("Makedon dinary"_s)
+			"mkd"_s,
+			"Makedon dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mmk"_s),
-			$of(u"Mýanma kýaty"_s)
+			"mmk"_s,
+			u"Mýanma kýaty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mnt"_s),
-			$of("Mongol tugrigi"_s)
+			"mnt"_s,
+			"Mongol tugrigi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mop"_s),
-			$of("Makao patakasy"_s)
+			"mop"_s,
+			"Makao patakasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Mawritan ugiýasy (1973–2017)"_s)
+			"mro"_s,
+			u"Mawritan ugiýasy (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of(u"Mawritan ugiýasy"_s)
+			"mru"_s,
+			u"Mawritan ugiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of(u"Mawrikiý rupiýasy"_s)
+			"mur"_s,
+			u"Mawrikiý rupiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mvr"_s),
-			$of(u"Maldiw rufiýasy"_s)
+			"mvr"_s,
+			u"Maldiw rufiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of(u"Malawi kwaçasy"_s)
+			"mwk"_s,
+			u"Malawi kwaçasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mxn"_s),
-			$of("Meksikan pesosy"_s)
+			"mxn"_s,
+			"Meksikan pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myr"_s),
-			$of(u"Malaýziýa ringgiti"_s)
+			"myr"_s,
+			u"Malaýziýa ringgiti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzn"_s),
-			$of("Mozambik metikaly"_s)
+			"mzn"_s,
+			"Mozambik metikaly"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of(u"Namibiýa dollary"_s)
+			"nad"_s,
+			u"Namibiýa dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of(u"Nigeriýa naýrasy"_s)
+			"ngn"_s,
+			u"Nigeriýa naýrasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nio"_s),
-			$of("Nikaragua kordobasy"_s)
+			"nio"_s,
+			"Nikaragua kordobasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nok"_s),
-			$of(u"Norwegiýa kronasy"_s)
+			"nok"_s,
+			u"Norwegiýa kronasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("npr"_s),
-			$of(u"Nepal rupiýasy"_s)
+			"npr"_s,
+			u"Nepal rupiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzd"_s),
-			$of(u"Täze Zelandiýa dollary"_s)
+			"nzd"_s,
+			u"Täze Zelandiýa dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("omr"_s),
-			$of("Oman rialy"_s)
+			"omr"_s,
+			"Oman rialy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pab"_s),
-			$of("Panama balboasy"_s)
+			"pab"_s,
+			"Panama balboasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pen"_s),
-			$of("Peru soly"_s)
+			"pen"_s,
+			"Peru soly"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pgk"_s),
-			$of(u"Papua - Täze Gwineýa kinasy"_s)
+			"pgk"_s,
+			u"Papua - Täze Gwineýa kinasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("php"_s),
-			$of("Filippin pesosy"_s)
+			"php"_s,
+			"Filippin pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pkr"_s),
-			$of(u"Päkistan rupiýasy"_s)
+			"pkr"_s,
+			u"Päkistan rupiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pln"_s),
-			$of(u"Polýak zlotysy"_s)
+			"pln"_s,
+			u"Polýak zlotysy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pyg"_s),
-			$of(u"Paragwaý guaranisi"_s)
+			"pyg"_s,
+			u"Paragwaý guaranisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qar"_s),
-			$of("Katar rialy"_s)
+			"qar"_s,
+			"Katar rialy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ron"_s),
-			$of(u"Rumyn leýi"_s)
+			"ron"_s,
+			u"Rumyn leýi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rsd"_s),
-			$of("Serb dinary"_s)
+			"rsd"_s,
+			"Serb dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rub"_s),
-			$of("Rus rubly"_s)
+			"rub"_s,
+			"Rus rubly"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("Ruanda franky"_s)
+			"rwf"_s,
+			"Ruanda franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("Saud rialy"_s)
+			"sar"_s,
+			"Saud rialy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbd"_s),
-			$of(u"Solomon adalarynyň dollary"_s)
+			"sbd"_s,
+			u"Solomon adalarynyň dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of(u"Seýşel rupiýasy"_s)
+			"scr"_s,
+			u"Seýşel rupiýasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("Sudan funty"_s)
+			"sdg"_s,
+			"Sudan funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sek"_s),
-			$of(u"Şwed kronasy"_s)
+			"sek"_s,
+			u"Şwed kronasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sgd"_s),
-			$of("Singapur dollary"_s)
+			"sgd"_s,
+			"Singapur dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of(u"Keramatly Ýelena adasynyň funty"_s)
+			"shp"_s,
+			u"Keramatly Ýelena adasynyň funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of(u"Sýerra-Leone leony"_s)
+			"sll"_s,
+			u"Sýerra-Leone leony"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of(u"Somali şillingi"_s)
+			"sos"_s,
+			u"Somali şillingi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srd"_s),
-			$of("Surinam dollary"_s)
+			"srd"_s,
+			"Surinam dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssp"_s),
-			$of(u"Günorta Sudan funty"_s)
+			"ssp"_s,
+			u"Günorta Sudan funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"San-Tome we Prinsipi dobrasy (1977–2017)"_s)
+			"std"_s,
+			u"San-Tome we Prinsipi dobrasy (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("San-Tome we Prinsipi dobrasy"_s)
+			"stn"_s,
+			"San-Tome we Prinsipi dobrasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syp"_s),
-			$of(u"Siriýa funty"_s)
+			"syp"_s,
+			u"Siriýa funty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("Swazi lilangeni"_s)
+			"szl"_s,
+			"Swazi lilangeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("thb"_s),
-			$of(u"Taýland baty"_s)
+			"thb"_s,
+			u"Taýland baty"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tjs"_s),
-			$of(u"Täjik somonisi"_s)
+			"tjs"_s,
+			u"Täjik somonisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tmt"_s),
-			$of(u"Türkmen manady"_s)
+			"tmt"_s,
+			u"Türkmen manady"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("Tunis dinary"_s)
+			"tnd"_s,
+			"Tunis dinary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("top"_s),
-			$of("Tonga paangasy"_s)
+			"top"_s,
+			"Tonga paangasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("try"_s),
-			$of(u"Türk lirasy"_s)
+			"try"_s,
+			u"Türk lirasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ttd"_s),
-			$of("Trininad we Tobago dollary"_s)
+			"ttd"_s,
+			"Trininad we Tobago dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twd"_s),
-			$of(u"Täze Taýwan dollary"_s)
+			"twd"_s,
+			u"Täze Taýwan dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of(u"Tanzaniýa şillingi"_s)
+			"tzs"_s,
+			u"Tanzaniýa şillingi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uah"_s),
-			$of("Ukrain griwnasy"_s)
+			"uah"_s,
+			"Ukrain griwnasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of(u"Uganda şillingi"_s)
+			"ugx"_s,
+			u"Uganda şillingi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of(u"ABŞ dollary"_s)
+			"usd"_s,
+			u"ABŞ dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uyu"_s),
-			$of(u"Urugwaý pesosy"_s)
+			"uyu"_s,
+			u"Urugwaý pesosy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uzs"_s),
-			$of(u"Özbek somy"_s)
+			"uzs"_s,
+			u"Özbek somy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vef"_s),
-			$of(u"Wenesuela boliwary (2008–2018)"_s)
+			"vef"_s,
+			u"Wenesuela boliwary (2008–2018)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ves"_s),
-			$of("Wenesuela boliwary"_s)
+			"ves"_s,
+			"Wenesuela boliwary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vnd"_s),
-			$of(u"Wýetnam dongy"_s)
+			"vnd"_s,
+			u"Wýetnam dongy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vuv"_s),
-			$of("Wanuatu watusy"_s)
+			"vuv"_s,
+			"Wanuatu watusy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wst"_s),
-			$of("Samoa talasy"_s)
+			"wst"_s,
+			"Samoa talasy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("KFA BEAC franky"_s)
+			"xaf"_s,
+			"KFA BEAC franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xcd"_s),
-			$of(u"Gündogar karib dollary"_s)
+			"xcd"_s,
+			u"Gündogar karib dollary"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("KFA BCEAO franky"_s)
+			"xof"_s,
+			"KFA BCEAO franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xpf"_s),
-			$of(u"Fransuz ýuwaş umman franky"_s)
+			"xpf"_s,
+			u"Fransuz ýuwaş umman franky"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xxx"_s),
-			$of(u"Näbelli pul birligi"_s)
+			"xxx"_s,
+			u"Näbelli pul birligi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yer"_s),
-			$of(u"Ýemen rialy"_s)
+			"yer"_s,
+			u"Ýemen rialy"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of(u"Günorta Afrika rendi"_s)
+			"zar"_s,
+			u"Günorta Afrika rendi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of(u"Zambiýa kwaçasy"_s)
+			"zmw"_s,
+			u"Zambiýa kwaçasy"_s
 		})
 	}));
 	return data;
@@ -1244,7 +1224,22 @@ CurrencyNames_tk::CurrencyNames_tk() {
 }
 
 $Class* CurrencyNames_tk::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_tk, name, initialize, &_CurrencyNames_tk_ClassInfo_, allocate$CurrencyNames_tk);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_tk, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_tk, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_tk",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_tk, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_tk);
+	});
 	return class$;
 }
 

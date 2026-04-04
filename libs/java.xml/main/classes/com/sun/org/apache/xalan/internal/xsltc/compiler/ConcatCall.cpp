@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ConcatCall.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
@@ -28,7 +26,6 @@
 #undef STRING_BUFFER_SIG
 #undef STRING_SIG
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
@@ -58,36 +55,16 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _ConcatCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(ConcatCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ConcatCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ConcatCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ConcatCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ConcatCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
-	nullptr,
-	nullptr,
-	_ConcatCall_MethodInfo_
-};
-
-$Object* allocate$ConcatCall($Class* clazz) {
-	return $of($alloc(ConcatCall));
-}
-
 void ConcatCall::init$($QName* fname, $List* arguments) {
 	$FunctionCall::init$(fname, arguments);
 }
 
 $Type* ConcatCall::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < argumentCount(); ++i) {
 		$var($Expression, exp, argument(i));
 		$init($Type);
-		if (!$nc($($nc(exp)->typeCheck(stable)))->identicalTo($Type::String)) {
+		if (!$$nc($nc(exp)->typeCheck(stable))->identicalTo($Type::String)) {
 			setArgument(i, $$new($CastExpr, exp, $Type::String));
 		}
 	}
@@ -96,41 +73,35 @@ $Type* ConcatCall::typeCheck($SymbolTable* stable) {
 }
 
 void ConcatCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	int32_t nArgs = argumentCount();
 	{
 		int32_t initBuffer = 0;
-		$var($Instruction, append, nullptr)
+		$var($Instruction, append, nullptr);
 		int32_t toString = 0;
 		switch (nArgs) {
 		case 0:
-			{
-				$init($Constants);
-				$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $Constants::EMPTYSTRING)));
-				break;
-			}
+			$init($Constants);
+			$nc(il)->append($$new($PUSH, cpg, $Constants::EMPTYSTRING));
+			break;
 		case 1:
-			{
-				$nc($(argument()))->translate(classGen, methodGen);
-				break;
-			}
+			$$nc(argument())->translate(classGen, methodGen);
+			break;
 		default:
-			{
-				$init($Constants);
-				initBuffer = $nc(cpg)->addMethodref($Constants::STRING_BUFFER_CLASS, "<init>"_s, "()V"_s);
-				$assign(append, $new($INVOKEVIRTUAL, cpg->addMethodref($Constants::STRING_BUFFER_CLASS, "append"_s, $$str({"("_s, $Constants::STRING_SIG, ")"_s, $Constants::STRING_BUFFER_SIG}))));
-				toString = cpg->addMethodref($Constants::STRING_BUFFER_CLASS, "toString"_s, $$str({"()"_s, $Constants::STRING_SIG}));
-				$nc(il)->append(static_cast<$Instruction*>($$new($NEW, cpg->addClass($Constants::STRING_BUFFER_CLASS))));
-				$nc(il)->append(static_cast<$Instruction*>($Constants::DUP));
-				$nc(il)->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, initBuffer)));
-				for (int32_t i = 0; i < nArgs; ++i) {
-					$nc($(argument(i)))->translate(classGen, methodGen);
-					$nc(il)->append(append);
-				}
-				$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, toString)));
+			$init($Constants);
+			initBuffer = $nc(cpg)->addMethodref($Constants::STRING_BUFFER_CLASS, "<init>"_s, "()V"_s);
+			$assign(append, $new($INVOKEVIRTUAL, cpg->addMethodref($Constants::STRING_BUFFER_CLASS, "append"_s, $$str({"("_s, $Constants::STRING_SIG, ")"_s, $Constants::STRING_BUFFER_SIG}))));
+			toString = cpg->addMethodref($Constants::STRING_BUFFER_CLASS, "toString"_s, $$str({"()"_s, $Constants::STRING_SIG}));
+			$nc(il)->append($$new($NEW, cpg->addClass($Constants::STRING_BUFFER_CLASS)));
+			il->append($Constants::DUP);
+			il->append($$new($INVOKESPECIAL, initBuffer));
+			for (int32_t i = 0; i < nArgs; ++i) {
+				$$nc(argument(i))->translate(classGen, methodGen);
+				il->append(append);
 			}
+			il->append($$new($INVOKEVIRTUAL, toString));
 		}
 	}
 }
@@ -139,7 +110,23 @@ ConcatCall::ConcatCall() {
 }
 
 $Class* ConcatCall::load$($String* name, bool initialize) {
-	$loadClass(ConcatCall, name, initialize, &_ConcatCall_ClassInfo_, allocate$ConcatCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(ConcatCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ConcatCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ConcatCall, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ConcatCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.FunctionCall",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConcatCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcatCall);
+	});
 	return class$;
 }
 

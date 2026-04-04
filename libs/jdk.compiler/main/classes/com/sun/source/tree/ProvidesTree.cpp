@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ProvidesTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ProvidesTree_MethodInfo_[] = {
-	{"getImplementationNames", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProvidesTree, getImplementationNames, $List*)},
-	{"getServiceName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProvidesTree, getServiceName, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _ProvidesTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ProvidesTree",
-	nullptr,
-	"com.sun.source.tree.DirectiveTree",
-	nullptr,
-	_ProvidesTree_MethodInfo_
-};
-
-$Object* allocate$ProvidesTree($Class* clazz) {
-	return $of($alloc(ProvidesTree));
-}
-
 $Class* ProvidesTree::load$($String* name, bool initialize) {
-	$loadClass(ProvidesTree, name, initialize, &_ProvidesTree_ClassInfo_, allocate$ProvidesTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getImplementationNames", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProvidesTree, getImplementationNames, $List*)},
+		{"getServiceName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProvidesTree, getServiceName, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ProvidesTree",
+		nullptr,
+		"com.sun.source.tree.DirectiveTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProvidesTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProvidesTree);
+	});
 	return class$;
 }
 

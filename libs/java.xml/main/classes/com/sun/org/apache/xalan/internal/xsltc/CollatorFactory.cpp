@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/CollatorFactory.h>
-
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -17,27 +16,23 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 
-$MethodInfo _CollatorFactory_MethodInfo_[] = {
-	{"getCollator", "(Ljava/lang/String;Ljava/lang/String;)Ljava/text/Collator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollatorFactory, getCollator, $Collator*, $String*, $String*)},
-	{"getCollator", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollatorFactory, getCollator, $Collator*, $Locale*)},
-	{}
-};
-
-$ClassInfo _CollatorFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.CollatorFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CollatorFactory_MethodInfo_
-};
-
-$Object* allocate$CollatorFactory($Class* clazz) {
-	return $of($alloc(CollatorFactory));
-}
-
 $Class* CollatorFactory::load$($String* name, bool initialize) {
-	$loadClass(CollatorFactory, name, initialize, &_CollatorFactory_ClassInfo_, allocate$CollatorFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"getCollator", "(Ljava/lang/String;Ljava/lang/String;)Ljava/text/Collator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollatorFactory, getCollator, $Collator*, $String*, $String*)},
+		{"getCollator", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CollatorFactory, getCollator, $Collator*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.CollatorFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CollatorFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CollatorFactory);
+	});
 	return class$;
 }
 

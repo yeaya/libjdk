@@ -1,5 +1,4 @@
 #include <org/reactivestreams/tck/flow/support/Function.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,27 +10,23 @@ namespace org {
 			namespace flow {
 				namespace support {
 
-$MethodInfo _Function_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TIn;)TOut;", $PUBLIC | $ABSTRACT, $virtualMethod(Function, apply, $Object*, Object$*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _Function_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.reactivestreams.tck.flow.support.Function",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Function_MethodInfo_,
-	"<In:Ljava/lang/Object;Out:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$Function($Class* clazz) {
-	return $of($alloc(Function));
-}
-
 $Class* Function::load$($String* name, bool initialize) {
-	$loadClass(Function, name, initialize, &_Function_ClassInfo_, allocate$Function);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TIn;)TOut;", $PUBLIC | $ABSTRACT, $virtualMethod(Function, apply, $Object*, Object$*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.reactivestreams.tck.flow.support.Function",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<In:Ljava/lang/Object;Out:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(Function, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Function);
+	});
 	return class$;
 }
 

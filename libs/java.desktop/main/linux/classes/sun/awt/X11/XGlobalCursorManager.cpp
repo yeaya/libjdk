@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XGlobalCursorManager.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
@@ -49,10 +48,8 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$CursorAccessor = ::sun::awt::AWTAccessor$CursorAccessor;
 using $GlobalCursorManager = ::sun::awt::GlobalCursorManager;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $XAwtState = ::sun::awt::X11::XAwtState;
@@ -66,42 +63,6 @@ using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XGlobalCursorManager_FieldInfo_[] = {
-	{"nativeContainer", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE, $field(XGlobalCursorManager, nativeContainer)},
-	{"manager", "Lsun/awt/X11/XGlobalCursorManager;", nullptr, $PRIVATE | $STATIC, $staticField(XGlobalCursorManager, manager)},
-	{}
-};
-
-$MethodInfo _XGlobalCursorManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XGlobalCursorManager, init$, void)},
-	{"findHeavyweightUnderCursor", "()Ljava/awt/Component;", nullptr, $PROTECTED, $method(XGlobalCursorManager, findHeavyweightUnderCursor, $Component*)},
-	{"findHeavyweightUnderCursor", "(Z)Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, findHeavyweightUnderCursor, $Component*, bool)},
-	{"getCapableCursor", "(Ljava/awt/Component;)Ljava/awt/Cursor;", nullptr, $PRIVATE, $method(XGlobalCursorManager, getCapableCursor, $Cursor*, $Component*)},
-	{"getCursor", "(Ljava/awt/Cursor;)J", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, getCursor, int64_t, $Cursor*)},
-	{"getCursorManager", "()Lsun/awt/GlobalCursorManager;", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, getCursorManager, $GlobalCursorManager*)},
-	{"getCursorPos", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, getCursorPos, void, $Point*)},
-	{"getLocationOnScreen", "(Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, getLocationOnScreen, $Point*, $Component*)},
-	{"nativeUpdateCursor", "(Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, nativeUpdateCursor, void, $Component*)},
-	{"setCursor", "(Ljava/awt/Component;Ljava/awt/Cursor;Z)V", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, setCursor, void, $Component*, $Cursor*, bool)},
-	{"setPData", "(Ljava/awt/Cursor;J)V", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, setPData, void, $Cursor*, int64_t)},
-	{"updateCursorOutOfJava", "()V", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, updateCursorOutOfJava, void)},
-	{"updateGrabbedCursor", "(Ljava/awt/Cursor;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XGlobalCursorManager, updateGrabbedCursor, void, $Cursor*)},
-	{}
-};
-
-$ClassInfo _XGlobalCursorManager_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11.XGlobalCursorManager",
-	"sun.awt.GlobalCursorManager",
-	nullptr,
-	_XGlobalCursorManager_FieldInfo_,
-	_XGlobalCursorManager_MethodInfo_
-};
-
-$Object* allocate$XGlobalCursorManager($Class* clazz) {
-	return $of($alloc(XGlobalCursorManager));
-}
 
 XGlobalCursorManager* XGlobalCursorManager::manager = nullptr;
 
@@ -119,11 +80,11 @@ $GlobalCursorManager* XGlobalCursorManager::getCursorManager() {
 
 void XGlobalCursorManager::nativeUpdateCursor($Component* heavy) {
 	$init(XGlobalCursorManager);
-	$nc($(XGlobalCursorManager::getCursorManager()))->updateCursorLater(heavy);
+	$$nc(XGlobalCursorManager::getCursorManager())->updateCursorLater(heavy);
 }
 
 void XGlobalCursorManager::setCursor($Component* comp, $Cursor* cursor, bool useCache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (comp == nullptr) {
 		return;
 	}
@@ -137,12 +98,12 @@ void XGlobalCursorManager::setCursor($Component* comp, $Cursor* cursor, bool use
 		$assign(nc, $SunToolkit::getHeavyweightComponent(comp));
 	}
 	if (nc != nullptr) {
-		$var($ComponentPeer, nc_peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(nc));
+		$var($ComponentPeer, nc_peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(nc));
 		if ($instanceOf($XComponentPeer, nc_peer)) {
 			$synchronized(this) {
 				$set(this, nativeContainer, $new($WeakReference, nc));
 			}
-			$nc(($cast($XComponentPeer, nc_peer)))->pSetCursor(cur, false);
+			$cast($XComponentPeer, nc_peer)->pSetCursor(cur, false);
 			updateGrabbedCursor(cur);
 		}
 	}
@@ -150,11 +111,11 @@ void XGlobalCursorManager::setCursor($Component* comp, $Cursor* cursor, bool use
 
 void XGlobalCursorManager::updateGrabbedCursor($Cursor* cur) {
 	$init(XGlobalCursorManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XBaseWindow, target, $XAwtState::getGrabWindow());
 	if ($instanceOf($XWindowPeer, target)) {
 		$var($XWindowPeer, grabber, $cast($XWindowPeer, target));
-		$nc(grabber)->pSetCursor(cur);
+		grabber->pSetCursor(cur);
 	}
 }
 
@@ -163,25 +124,23 @@ void XGlobalCursorManager::updateCursorOutOfJava() {
 }
 
 void XGlobalCursorManager::getCursorPos($Point* p) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(($cast($XToolkit, $($Toolkit::getDefaultToolkit()))))->getLastCursorPos(p)) {
+	$useLocalObjectStack();
+	if (!$$sure($XToolkit, $Toolkit::getDefaultToolkit())->getLastCursorPos(p)) {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				int64_t display = $XToolkit::getDisplay();
-				int64_t root_window = $XlibWrapper::RootWindow(display, $XlibWrapper::DefaultScreen(display));
-				$XlibWrapper::XQueryPointer(display, root_window, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5, $XlibWrapper::larg6, $XlibWrapper::larg7);
-				$nc(p)->x = $nc($XlibWrapper::unsafe)->getInt($XlibWrapper::larg3);
-				p->y = $nc($XlibWrapper::unsafe)->getInt($XlibWrapper::larg4);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			int64_t display = $XToolkit::getDisplay();
+			int64_t root_window = $XlibWrapper::RootWindow(display, $XlibWrapper::DefaultScreen(display));
+			$XlibWrapper::XQueryPointer(display, root_window, $XlibWrapper::larg1, $XlibWrapper::larg2, $XlibWrapper::larg3, $XlibWrapper::larg4, $XlibWrapper::larg5, $XlibWrapper::larg6, $XlibWrapper::larg7);
+			$nc(p)->x = $nc($XlibWrapper::unsafe)->getInt($XlibWrapper::larg3);
+			p->y = $XlibWrapper::unsafe->getInt($XlibWrapper::larg4);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -199,7 +158,7 @@ $Component* XGlobalCursorManager::findHeavyweightUnderCursor(bool useCache) {
 }
 
 $Cursor* XGlobalCursorManager::getCapableCursor($Component* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTAccessor$ComponentAccessor, compAccessor, $AWTAccessor::getComponentAccessor());
 	$var($Component, c, comp);
 	while (true) {
@@ -209,14 +168,14 @@ $Cursor* XGlobalCursorManager::getCapableCursor($Component* comp) {
 			break;
 		}
 		{
-			$assign(c, compAccessor->getParent(c));
+			$assign(c, $nc(compAccessor)->getParent(c));
 		}
 	}
 	if ($instanceOf($Window, c)) {
 		bool var$4 = $nc(compAccessor)->isEnabled(c);
 		bool var$3 = var$4 && compAccessor->isVisible(c);
 		bool var$2 = var$3 && compAccessor->isDisplayable(c);
-		return (var$2 && compAccessor->isEnabled(comp)) ? $nc(compAccessor)->getCursor(comp) : $Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR);
+		return (var$2 && compAccessor->isEnabled(comp)) ? compAccessor->getCursor(comp) : $Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR);
 	} else if (c == nullptr) {
 		return nullptr;
 	}
@@ -225,12 +184,12 @@ $Cursor* XGlobalCursorManager::getCapableCursor($Component* comp) {
 
 int64_t XGlobalCursorManager::getCursor($Cursor* c) {
 	$init(XGlobalCursorManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t pData = 0;
 	int32_t type = 0;
 	try {
-		pData = $nc($($AWTAccessor::getCursorAccessor()))->getPData(c);
-		type = $nc($($AWTAccessor::getCursorAccessor()))->getType(c);
+		pData = $$nc($AWTAccessor::getCursorAccessor())->getPData(c);
+		type = $$nc($AWTAccessor::getCursorAccessor())->getType(c);
 	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
@@ -240,89 +199,59 @@ int64_t XGlobalCursorManager::getCursor($Cursor* c) {
 	int32_t cursorType = 0;
 	switch (type) {
 	case $Cursor::DEFAULT_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_left_ptr;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_left_ptr;
+		break;
 	case $Cursor::CROSSHAIR_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_crosshair;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_crosshair;
+		break;
 	case $Cursor::TEXT_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_xterm;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_xterm;
+		break;
 	case $Cursor::WAIT_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_watch;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_watch;
+		break;
 	case $Cursor::SW_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_bottom_left_corner;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_bottom_left_corner;
+		break;
 	case $Cursor::NW_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_top_left_corner;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_top_left_corner;
+		break;
 	case $Cursor::SE_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_bottom_right_corner;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_bottom_right_corner;
+		break;
 	case $Cursor::NE_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_top_right_corner;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_top_right_corner;
+		break;
 	case $Cursor::S_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_bottom_side;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_bottom_side;
+		break;
 	case $Cursor::N_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_top_side;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_top_side;
+		break;
 	case $Cursor::W_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_left_side;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_left_side;
+		break;
 	case $Cursor::E_RESIZE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_right_side;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_right_side;
+		break;
 	case $Cursor::HAND_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_hand2;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_hand2;
+		break;
 	case $Cursor::MOVE_CURSOR:
-		{
-			cursorType = $XCursorFontConstants::XC_fleur;
-			break;
-		}
+		cursorType = $XCursorFontConstants::XC_fleur;
+		break;
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			pData = (int64_t)$XlibWrapper::XCreateFontCursor($XToolkit::getDisplay(), cursorType);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		pData = (int64_t)$XlibWrapper::XCreateFontCursor($XToolkit::getDisplay(), cursorType);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	setPData(c, pData);
 	return pData;
@@ -331,7 +260,7 @@ int64_t XGlobalCursorManager::getCursor($Cursor* c) {
 void XGlobalCursorManager::setPData($Cursor* c, int64_t pData) {
 	$init(XGlobalCursorManager);
 	try {
-		$nc($($AWTAccessor::getCursorAccessor()))->setPData(c, pData);
+		$$nc($AWTAccessor::getCursorAccessor())->setPData(c, pData);
 	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
@@ -341,7 +270,38 @@ XGlobalCursorManager::XGlobalCursorManager() {
 }
 
 $Class* XGlobalCursorManager::load$($String* name, bool initialize) {
-	$loadClass(XGlobalCursorManager, name, initialize, &_XGlobalCursorManager_ClassInfo_, allocate$XGlobalCursorManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"nativeContainer", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE, $field(XGlobalCursorManager, nativeContainer)},
+		{"manager", "Lsun/awt/X11/XGlobalCursorManager;", nullptr, $PRIVATE | $STATIC, $staticField(XGlobalCursorManager, manager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XGlobalCursorManager, init$, void)},
+		{"findHeavyweightUnderCursor", "()Ljava/awt/Component;", nullptr, $PROTECTED, $method(XGlobalCursorManager, findHeavyweightUnderCursor, $Component*)},
+		{"findHeavyweightUnderCursor", "(Z)Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, findHeavyweightUnderCursor, $Component*, bool)},
+		{"getCapableCursor", "(Ljava/awt/Component;)Ljava/awt/Cursor;", nullptr, $PRIVATE, $method(XGlobalCursorManager, getCapableCursor, $Cursor*, $Component*)},
+		{"getCursor", "(Ljava/awt/Cursor;)J", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, getCursor, int64_t, $Cursor*)},
+		{"getCursorManager", "()Lsun/awt/GlobalCursorManager;", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, getCursorManager, $GlobalCursorManager*)},
+		{"getCursorPos", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, getCursorPos, void, $Point*)},
+		{"getLocationOnScreen", "(Ljava/awt/Component;)Ljava/awt/Point;", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, getLocationOnScreen, $Point*, $Component*)},
+		{"nativeUpdateCursor", "(Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, nativeUpdateCursor, void, $Component*)},
+		{"setCursor", "(Ljava/awt/Component;Ljava/awt/Cursor;Z)V", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, setCursor, void, $Component*, $Cursor*, bool)},
+		{"setPData", "(Ljava/awt/Cursor;J)V", nullptr, $STATIC, $staticMethod(XGlobalCursorManager, setPData, void, $Cursor*, int64_t)},
+		{"updateCursorOutOfJava", "()V", nullptr, $PROTECTED, $virtualMethod(XGlobalCursorManager, updateCursorOutOfJava, void)},
+		{"updateGrabbedCursor", "(Ljava/awt/Cursor;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XGlobalCursorManager, updateGrabbedCursor, void, $Cursor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11.XGlobalCursorManager",
+		"sun.awt.GlobalCursorManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XGlobalCursorManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XGlobalCursorManager);
+	});
 	return class$;
 }
 

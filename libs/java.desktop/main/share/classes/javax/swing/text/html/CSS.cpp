@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/io/ObjectInputStream$GetField.h>
@@ -211,112 +210,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS_FieldInfo_[] = {
-	{"attributeMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Attribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, attributeMap)},
-	{"valueMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Value;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, valueMap)},
-	{"htmlAttrToCssAttrMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/text/html/HTML$Attribute;[Ljavax/swing/text/html/CSS$Attribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, htmlAttrToCssAttrMap)},
-	{"styleConstantToCssMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljavax/swing/text/html/CSS$Attribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, styleConstantToCssMap)},
-	{"htmlValueToCssValueMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Value;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, htmlValueToCssValueMap)},
-	{"cssValueToInternalValueMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Value;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, cssValueToInternalValueMap)},
-	{"valueConvertor", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $TRANSIENT, $field(CSS, valueConvertor)},
-	{"baseFontSize", "I", nullptr, $PRIVATE, $field(CSS, baseFontSize)},
-	{"styleSheet", "Ljavax/swing/text/html/StyleSheet;", nullptr, $PRIVATE | $TRANSIENT, $field(CSS, styleSheet)},
-	{"baseFontSizeIndex", "I", nullptr, $STATIC, $staticField(CSS, baseFontSizeIndex)},
-	{}
-};
-
-$MethodInfo _CSS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CSS, init$, void)},
-	{"addInternalCSSValue", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CSS, addInternalCSSValue, void, $MutableAttributeSet*, $CSS$Attribute*, $String*)},
-	{"calculateTiledLayout", "(Ljavax/swing/text/html/CSS$LayoutIterator;I)V", nullptr, $STATIC, $staticMethod(CSS, calculateTiledLayout, void, $CSS$LayoutIterator*, int32_t)},
-	{"calculateTiledRequirements", "(Ljavax/swing/text/html/CSS$LayoutIterator;Ljavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $STATIC, $staticMethod(CSS, calculateTiledRequirements, $SizeRequirements*, $CSS$LayoutIterator*, $SizeRequirements*)},
-	{"colorToHex", "(Ljava/awt/Color;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CSS, colorToHex, $String*, $Color*)},
-	{"cssValueToStyleConstantsValue", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, cssValueToStyleConstantsValue, $Object*, $StyleConstants*, Object$*)},
-	{"getAllAttributeKeys", "()[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(CSS, getAllAttributeKeys, $CSS$AttributeArray*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CSS, getAttribute, $CSS$Attribute*, $String*)},
-	{"getBaseFontSize", "()I", nullptr, 0, $virtualMethod(CSS, getBaseFontSize, int32_t)},
-	{"getColor", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS$Attribute;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(CSS, getColor, $Color*, $AttributeSet*, $CSS$Attribute*)},
-	{"getColorComponent", "(Ljava/lang/String;[I)F", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, getColorComponent, float, $String*, $ints*)},
-	{"getCssAlignAttribute", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE, $method(CSS, getCssAlignAttribute, $CSS$Attribute*, $HTML$Tag*, $AttributeSet*)},
-	{"getCssAttribute", "(Ljavax/swing/text/html/HTML$Attribute;)[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE, $method(CSS, getCssAttribute, $CSS$AttributeArray*, $HTML$Attribute*)},
-	{"getCssValue", "(Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, getCssValue, $Object*, $CSS$Attribute*, $String*)},
-	{"getFont", "(Ljavax/swing/text/StyleContext;Ljavax/swing/text/AttributeSet;ILjavax/swing/text/html/StyleSheet;)Ljava/awt/Font;", nullptr, 0, $virtualMethod(CSS, getFont, $Font*, $StyleContext*, $AttributeSet*, int32_t, $StyleSheet*)},
-	{"getFontSize", "(Ljavax/swing/text/AttributeSet;ILjavax/swing/text/html/StyleSheet;)I", nullptr, $STATIC, $staticMethod(CSS, getFontSize, int32_t, $AttributeSet*, int32_t, $StyleSheet*)},
-	{"getHTMLTag", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/HTML$Tag;", nullptr, $PRIVATE, $method(CSS, getHTMLTag, $HTML$Tag*, $AttributeSet*)},
-	{"getIndexOfSize", "(F[I)I", nullptr, $STATIC, $staticMethod(CSS, getIndexOfSize, int32_t, float, $ints*)},
-	{"getIndexOfSize", "(FLjavax/swing/text/html/StyleSheet;)I", nullptr, $STATIC, $staticMethod(CSS, getIndexOfSize, int32_t, float, $StyleSheet*)},
-	{"getInternalCSSValue", "(Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, getInternalCSSValue, $Object*, $CSS$Attribute*, $String*)},
-	{"getLength", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljavax/swing/text/html/StyleSheet;)F", nullptr, 0, $virtualMethod(CSS, getLength, float, $AttributeSet*, $CSS$Attribute*, $StyleSheet*)},
-	{"getPointSize", "(Ljava/lang/String;Ljavax/swing/text/html/StyleSheet;)F", nullptr, 0, $virtualMethod(CSS, getPointSize, float, $String*, $StyleSheet*)},
-	{"getPointSize", "(ILjavax/swing/text/html/StyleSheet;)F", nullptr, 0, $virtualMethod(CSS, getPointSize, float, int32_t, $StyleSheet*)},
-	{"getStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)Ljavax/swing/text/html/StyleSheet;", nullptr, $PRIVATE, $method(CSS, getStyleSheet, $StyleSheet*, $StyleSheet*)},
-	{"getTableBorder", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, getTableBorder, int32_t, $AttributeSet*)},
-	{"getURL", "(Ljava/net/URL;Ljava/lang/String;)Ljava/net/URL;", nullptr, $STATIC, $staticMethod(CSS, getURL, $URL*, $URL*, $String*)},
-	{"getValue", "(Ljava/lang/String;)Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticMethod(CSS, getValue, $CSS$Value*, $String*)},
-	{"hexToColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticMethod(CSS, hexToColor, $Color*, $String*)},
-	{"isFloater", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CSS, isFloater, bool, $String*)},
-	{"isHTMLFontTag", "(Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, $PRIVATE, $method(CSS, isHTMLFontTag, bool, $HTML$Tag*)},
-	{"parseRGB", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, parseRGB, $Color*, $String*)},
-	{"parseRGBA", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, parseRGBA, $Color*, $String*)},
-	{"parseStrings", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CSS, parseStrings, $StringArray*, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CSS, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"setBaseFontSize", "(I)V", nullptr, 0, $virtualMethod(CSS, setBaseFontSize, void, int32_t)},
-	{"setBaseFontSize", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CSS, setBaseFontSize, void, $String*)},
-	{"stringToColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(CSS, stringToColor, $Color*, $String*)},
-	{"styleConstantsKeyToCSSKey", "(Ljavax/swing/text/StyleConstants;)Ljavax/swing/text/html/CSS$Attribute;", nullptr, 0, $virtualMethod(CSS, styleConstantsKeyToCSSKey, $CSS$Attribute*, $StyleConstants*)},
-	{"styleConstantsValueToCSSValue", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, styleConstantsValueToCSSValue, $Object*, $StyleConstants*, Object$*)},
-	{"translateAttribute", "(Ljavax/swing/text/html/HTML$Attribute;Ljava/lang/String;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PRIVATE, $method(CSS, translateAttribute, void, $HTML$Attribute*, $String*, $MutableAttributeSet*)},
-	{"translateAttributes", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/AttributeSet;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PRIVATE, $method(CSS, translateAttributes, void, $HTML$Tag*, $AttributeSet*, $MutableAttributeSet*)},
-	{"translateEmbeddedAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PRIVATE, $method(CSS, translateEmbeddedAttributes, void, $AttributeSet*, $MutableAttributeSet*)},
-	{"translateHTMLToCSS", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, 0, $virtualMethod(CSS, translateHTMLToCSS, $AttributeSet*, $AttributeSet*)},
-	{"validTextAlignValue", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CSS, validTextAlignValue, bool, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CSS, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CSS_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$LayoutIterator", "javax.swing.text.html.CSS", "LayoutIterator", $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.html.CSS$ShorthandBorderParser", "javax.swing.text.html.CSS", "ShorthandBorderParser", $STATIC},
-	{"javax.swing.text.html.CSS$ShorthandMarginParser", "javax.swing.text.html.CSS", "ShorthandMarginParser", $STATIC},
-	{"javax.swing.text.html.CSS$ShorthandBackgroundParser", "javax.swing.text.html.CSS", "ShorthandBackgroundParser", $STATIC},
-	{"javax.swing.text.html.CSS$ShorthandFontParser", "javax.swing.text.html.CSS", "ShorthandFontParser", $STATIC},
-	{"javax.swing.text.html.CSS$LengthUnit", "javax.swing.text.html.CSS", "LengthUnit", $STATIC},
-	{"javax.swing.text.html.CSS$BackgroundImage", "javax.swing.text.html.CSS", "BackgroundImage", $STATIC},
-	{"javax.swing.text.html.CSS$BackgroundPosition", "javax.swing.text.html.CSS", "BackgroundPosition", $STATIC},
-	{"javax.swing.text.html.CSS$CssValueMapper", "javax.swing.text.html.CSS", "CssValueMapper", $STATIC},
-	{"javax.swing.text.html.CSS$BorderWidthValue", "javax.swing.text.html.CSS", "BorderWidthValue", $STATIC},
-	{"javax.swing.text.html.CSS$LengthValue", "javax.swing.text.html.CSS", "LengthValue", $STATIC},
-	{"javax.swing.text.html.CSS$BorderStyle", "javax.swing.text.html.CSS", "BorderStyle", $STATIC},
-	{"javax.swing.text.html.CSS$ColorValue", "javax.swing.text.html.CSS", "ColorValue", $STATIC},
-	{"javax.swing.text.html.CSS$FontWeight", "javax.swing.text.html.CSS", "FontWeight", $STATIC},
-	{"javax.swing.text.html.CSS$FontFamily", "javax.swing.text.html.CSS", "FontFamily", $STATIC},
-	{"javax.swing.text.html.CSS$FontSize", "javax.swing.text.html.CSS", "FontSize", 0},
-	{"javax.swing.text.html.CSS$StringValue", "javax.swing.text.html.CSS", "StringValue", $STATIC},
-	{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
-	{"javax.swing.text.html.CSS$Value", "javax.swing.text.html.CSS", "Value", $STATIC | $FINAL},
-	{"javax.swing.text.html.CSS$Attribute", "javax.swing.text.html.CSS", "Attribute", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CSS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.CSS",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_CSS_FieldInfo_,
-	_CSS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS$LayoutIterator,javax.swing.text.html.CSS$ShorthandBorderParser,javax.swing.text.html.CSS$ShorthandMarginParser,javax.swing.text.html.CSS$ShorthandBackgroundParser,javax.swing.text.html.CSS$ShorthandFontParser,javax.swing.text.html.CSS$LengthUnit,javax.swing.text.html.CSS$BackgroundImage,javax.swing.text.html.CSS$BackgroundPosition,javax.swing.text.html.CSS$CssValueMapper,javax.swing.text.html.CSS$BorderWidthValue,javax.swing.text.html.CSS$LengthValue,javax.swing.text.html.CSS$BorderStyle,javax.swing.text.html.CSS$ColorValue,javax.swing.text.html.CSS$FontWeight,javax.swing.text.html.CSS$FontFamily,javax.swing.text.html.CSS$FontSize,javax.swing.text.html.CSS$StringValue,javax.swing.text.html.CSS$CssValue,javax.swing.text.html.CSS$Value,javax.swing.text.html.CSS$Attribute"
-};
-
-$Object* allocate$CSS($Class* clazz) {
-	return $of($alloc(CSS));
-}
-
 $Hashtable* CSS::attributeMap = nullptr;
 $Hashtable* CSS::valueMap = nullptr;
 $Hashtable* CSS::htmlAttrToCssAttrMap = nullptr;
@@ -326,66 +219,66 @@ $Hashtable* CSS::cssValueToInternalValueMap = nullptr;
 int32_t CSS::baseFontSizeIndex = 0;
 
 void CSS::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, styleSheet, nullptr);
 	this->baseFontSize = CSS::baseFontSizeIndex + 1;
 	$set(this, valueConvertor, $new($Hashtable));
 	$init($CSS$Attribute);
-	$nc(this->valueConvertor)->put($CSS$Attribute::FONT_SIZE, $$new($CSS$FontSize, this));
-	$nc(this->valueConvertor)->put($CSS$Attribute::FONT_FAMILY, $$new($CSS$FontFamily));
-	$nc(this->valueConvertor)->put($CSS$Attribute::FONT_WEIGHT, $$new($CSS$FontWeight));
+	this->valueConvertor->put($CSS$Attribute::FONT_SIZE, $$new($CSS$FontSize, this));
+	this->valueConvertor->put($CSS$Attribute::FONT_FAMILY, $$new($CSS$FontFamily));
+	this->valueConvertor->put($CSS$Attribute::FONT_WEIGHT, $$new($CSS$FontWeight));
 	$var($Object, bs, $new($CSS$BorderStyle));
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_TOP_STYLE, bs);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_RIGHT_STYLE, bs);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_BOTTOM_STYLE, bs);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_LEFT_STYLE, bs);
+	this->valueConvertor->put($CSS$Attribute::BORDER_TOP_STYLE, bs);
+	this->valueConvertor->put($CSS$Attribute::BORDER_RIGHT_STYLE, bs);
+	this->valueConvertor->put($CSS$Attribute::BORDER_BOTTOM_STYLE, bs);
+	this->valueConvertor->put($CSS$Attribute::BORDER_LEFT_STYLE, bs);
 	$var($Object, cv, $new($CSS$ColorValue));
-	$nc(this->valueConvertor)->put($CSS$Attribute::COLOR, cv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BACKGROUND_COLOR, cv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_TOP_COLOR, cv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_RIGHT_COLOR, cv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_BOTTOM_COLOR, cv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_LEFT_COLOR, cv);
+	this->valueConvertor->put($CSS$Attribute::COLOR, cv);
+	this->valueConvertor->put($CSS$Attribute::BACKGROUND_COLOR, cv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_TOP_COLOR, cv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_RIGHT_COLOR, cv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_BOTTOM_COLOR, cv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_LEFT_COLOR, cv);
 	$var($Object, lv, $new($CSS$LengthValue));
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_TOP, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_BOTTOM, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_LEFT, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_LEFT_LTR, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_LEFT_RTL, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_RIGHT, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_RIGHT_LTR, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::MARGIN_RIGHT_RTL, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::PADDING_TOP, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::PADDING_BOTTOM, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::PADDING_LEFT, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::PADDING_RIGHT, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_TOP, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_BOTTOM, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_LEFT, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_LEFT_LTR, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_LEFT_RTL, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_RIGHT, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_RIGHT_LTR, lv);
+	this->valueConvertor->put($CSS$Attribute::MARGIN_RIGHT_RTL, lv);
+	this->valueConvertor->put($CSS$Attribute::PADDING_TOP, lv);
+	this->valueConvertor->put($CSS$Attribute::PADDING_BOTTOM, lv);
+	this->valueConvertor->put($CSS$Attribute::PADDING_LEFT, lv);
+	this->valueConvertor->put($CSS$Attribute::PADDING_RIGHT, lv);
 	$var($Object, bv, $new($CSS$BorderWidthValue, nullptr, 0));
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_TOP_WIDTH, bv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_BOTTOM_WIDTH, bv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_LEFT_WIDTH, bv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_RIGHT_WIDTH, bv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_TOP_WIDTH, bv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_BOTTOM_WIDTH, bv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_LEFT_WIDTH, bv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_RIGHT_WIDTH, bv);
 	$var($Object, nlv, $new($CSS$LengthValue, true));
-	$nc(this->valueConvertor)->put($CSS$Attribute::TEXT_INDENT, nlv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::WIDTH, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::HEIGHT, lv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BORDER_SPACING, lv);
+	this->valueConvertor->put($CSS$Attribute::TEXT_INDENT, nlv);
+	this->valueConvertor->put($CSS$Attribute::WIDTH, lv);
+	this->valueConvertor->put($CSS$Attribute::HEIGHT, lv);
+	this->valueConvertor->put($CSS$Attribute::BORDER_SPACING, lv);
 	$var($Object, sv, $new($CSS$StringValue));
-	$nc(this->valueConvertor)->put($CSS$Attribute::FONT_STYLE, sv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::TEXT_DECORATION, sv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::TEXT_ALIGN, sv);
-	$nc(this->valueConvertor)->put($CSS$Attribute::VERTICAL_ALIGN, sv);
+	this->valueConvertor->put($CSS$Attribute::FONT_STYLE, sv);
+	this->valueConvertor->put($CSS$Attribute::TEXT_DECORATION, sv);
+	this->valueConvertor->put($CSS$Attribute::TEXT_ALIGN, sv);
+	this->valueConvertor->put($CSS$Attribute::VERTICAL_ALIGN, sv);
 	$var($Object, valueMapper, $new($CSS$CssValueMapper));
-	$nc(this->valueConvertor)->put($CSS$Attribute::LIST_STYLE_TYPE, valueMapper);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BACKGROUND_IMAGE, $$new($CSS$BackgroundImage));
-	$nc(this->valueConvertor)->put($CSS$Attribute::BACKGROUND_POSITION, $$new($CSS$BackgroundPosition));
-	$nc(this->valueConvertor)->put($CSS$Attribute::BACKGROUND_REPEAT, valueMapper);
-	$nc(this->valueConvertor)->put($CSS$Attribute::BACKGROUND_ATTACHMENT, valueMapper);
+	this->valueConvertor->put($CSS$Attribute::LIST_STYLE_TYPE, valueMapper);
+	this->valueConvertor->put($CSS$Attribute::BACKGROUND_IMAGE, $$new($CSS$BackgroundImage));
+	this->valueConvertor->put($CSS$Attribute::BACKGROUND_POSITION, $$new($CSS$BackgroundPosition));
+	this->valueConvertor->put($CSS$Attribute::BACKGROUND_REPEAT, valueMapper);
+	this->valueConvertor->put($CSS$Attribute::BACKGROUND_ATTACHMENT, valueMapper);
 	$var($Object, generic, $new($CSS$CssValue));
 	int32_t n = $nc($CSS$Attribute::allAttributes)->length;
 	for (int32_t i = 0; i < n; ++i) {
-		$var($CSS$Attribute, key, $nc($CSS$Attribute::allAttributes)->get(i));
-		if ($nc(this->valueConvertor)->get(key) == nullptr) {
-			$nc(this->valueConvertor)->put(key, generic);
+		$var($CSS$Attribute, key, $CSS$Attribute::allAttributes->get(i));
+		if (this->valueConvertor->get(key) == nullptr) {
+			this->valueConvertor->put(key, generic);
 		}
 	}
 }
@@ -401,19 +294,19 @@ void CSS::setBaseFontSize(int32_t sz) {
 }
 
 void CSS::setBaseFontSize($String* size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t relSize = 0;
 	int32_t absSize = 0;
 	int32_t diff = 0;
 	if (size != nullptr) {
 		if (size->startsWith("+"_s)) {
-			relSize = $nc($($Integer::valueOf($(size->substring(1)))))->intValue();
+			relSize = $($Integer::valueOf($(size->substring(1))))->intValue();
 			setBaseFontSize(this->baseFontSize + relSize);
 		} else if (size->startsWith("-"_s)) {
-			relSize = -$nc($($Integer::valueOf($(size->substring(1)))))->intValue();
+			relSize = -$($Integer::valueOf($(size->substring(1))))->intValue();
 			setBaseFontSize(this->baseFontSize + relSize);
 		} else {
-			setBaseFontSize($nc($($Integer::valueOf(size)))->intValue());
+			setBaseFontSize($($Integer::valueOf(size))->intValue());
 		}
 	}
 }
@@ -426,72 +319,58 @@ void CSS::addInternalCSSValue($MutableAttributeSet* attr, $CSS$Attribute* key, $
 	$init($CSS$Attribute);
 	if (key == $CSS$Attribute::FONT) {
 		$CSS$ShorthandFontParser::parseShorthandFont(this, value, attr);
+	} else if (key == $CSS$Attribute::BACKGROUND) {
+		$CSS$ShorthandBackgroundParser::parseShorthandBackground(this, value, attr);
+	} else if (key == $CSS$Attribute::MARGIN) {
+		$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_MARGINS);
+	} else if (key == $CSS$Attribute::PADDING) {
+		$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_PADDING);
+	} else if (key == $CSS$Attribute::BORDER_WIDTH) {
+		$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_BORDER_WIDTHS);
+	} else if (key == $CSS$Attribute::BORDER_COLOR) {
+		$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_BORDER_COLORS);
+	} else if (key == $CSS$Attribute::BORDER_STYLE) {
+		$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_BORDER_STYLES);
+	} else if ((key == $CSS$Attribute::BORDER) || (key == $CSS$Attribute::BORDER_TOP) || (key == $CSS$Attribute::BORDER_RIGHT) || (key == $CSS$Attribute::BORDER_BOTTOM) || (key == $CSS$Attribute::BORDER_LEFT)) {
+		$CSS$ShorthandBorderParser::parseShorthandBorder(attr, key, value);
 	} else {
-		if (key == $CSS$Attribute::BACKGROUND) {
-			$CSS$ShorthandBackgroundParser::parseShorthandBackground(this, value, attr);
-		} else {
-			if (key == $CSS$Attribute::MARGIN) {
-				$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_MARGINS);
-			} else {
-				if (key == $CSS$Attribute::PADDING) {
-					$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_PADDING);
-				} else {
-					if (key == $CSS$Attribute::BORDER_WIDTH) {
-						$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_BORDER_WIDTHS);
-					} else {
-						if (key == $CSS$Attribute::BORDER_COLOR) {
-							$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_BORDER_COLORS);
-						} else {
-							if (key == $CSS$Attribute::BORDER_STYLE) {
-								$CSS$ShorthandMarginParser::parseShorthandMargin(this, value, attr, $CSS$Attribute::ALL_BORDER_STYLES);
-							} else {
-								if ((key == $CSS$Attribute::BORDER) || (key == $CSS$Attribute::BORDER_TOP) || (key == $CSS$Attribute::BORDER_RIGHT) || (key == $CSS$Attribute::BORDER_BOTTOM) || (key == $CSS$Attribute::BORDER_LEFT)) {
-									$CSS$ShorthandBorderParser::parseShorthandBorder(attr, key, value);
-								} else {
-									$var($Object, iValue, getInternalCSSValue(key, value));
-									if (iValue != nullptr) {
-										$nc(attr)->addAttribute(key, iValue);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+		$var($Object, iValue, getInternalCSSValue(key, value));
+		if (iValue != nullptr) {
+			$nc(attr)->addAttribute(key, iValue);
 		}
 	}
 }
 
 $Object* CSS::getInternalCSSValue($CSS$Attribute* key, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CSS$CssValue, conv, $cast($CSS$CssValue, $nc(this->valueConvertor)->get(key)));
 	$var($Object, r, $nc(conv)->parseCssValue(value));
-	return $of(r != nullptr ? r : conv->parseCssValue($($nc(key)->getDefaultValue())));
+	return r != nullptr ? r : conv->parseCssValue($($nc(key)->getDefaultValue()));
 }
 
 $CSS$Attribute* CSS::styleConstantsKeyToCSSKey($StyleConstants* sc) {
-	return $cast($CSS$Attribute, $nc(CSS::styleConstantToCssMap)->get(sc));
+	return $cast($CSS$Attribute, CSS::styleConstantToCssMap->get(sc));
 }
 
 $Object* CSS::styleConstantsValueToCSSValue($StyleConstants* sc, Object$* styleValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CSS$Attribute, cssKey, styleConstantsKeyToCSSKey(sc));
 	if (cssKey != nullptr) {
 		$var($CSS$CssValue, conv, $cast($CSS$CssValue, $nc(this->valueConvertor)->get(cssKey)));
-		return $of($nc(conv)->fromStyleConstants(sc, styleValue));
+		return $nc(conv)->fromStyleConstants(sc, styleValue);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* CSS::cssValueToStyleConstantsValue($StyleConstants* key, Object$* value) {
 	if ($instanceOf($CSS$CssValue, value)) {
-		return $of($nc(($cast($CSS$CssValue, value)))->toStyleConstants(key, nullptr));
+		return $cast($CSS$CssValue, value)->toStyleConstants(key, nullptr);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Font* CSS::getFont($StyleContext* sc, $AttributeSet* a, int32_t defaultSize, $StyleSheet* ss$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, ss, ss$renamed);
 	$assign(ss, getStyleSheet(ss));
 	int32_t size = getFontSize(a, defaultSize, ss);
@@ -499,21 +378,21 @@ $Font* CSS::getFont($StyleContext* sc, $AttributeSet* a, int32_t defaultSize, $S
 	$var($CSS$StringValue, vAlignV, $cast($CSS$StringValue, $nc(a)->getAttribute($CSS$Attribute::VERTICAL_ALIGN)));
 	if (vAlignV != nullptr) {
 		$var($String, vAlign, vAlignV->toString());
-		bool var$0 = ($nc(vAlign)->indexOf("sup"_s) >= 0);
-		if (var$0 || ($nc(vAlign)->indexOf("sub"_s) >= 0)) {
+		bool var$0 = $nc(vAlign)->indexOf("sup"_s) >= 0;
+		if (var$0 || (vAlign->indexOf("sub"_s) >= 0)) {
 			size -= 2;
 		}
 	}
 	$var($CSS$FontFamily, familyValue, $cast($CSS$FontFamily, a->getAttribute($CSS$Attribute::FONT_FAMILY)));
 	$init($Font);
-	$var($String, family, (familyValue != nullptr) ? $nc(familyValue)->getValue() : $Font::SANS_SERIF);
+	$var($String, family, (familyValue != nullptr) ? familyValue->getValue() : $Font::SANS_SERIF);
 	int32_t style = $Font::PLAIN;
 	$var($CSS$FontWeight, weightValue, $cast($CSS$FontWeight, a->getAttribute($CSS$Attribute::FONT_WEIGHT)));
 	if ((weightValue != nullptr) && (weightValue->getValue() > 400)) {
 		style |= $Font::BOLD;
 	}
 	$var($Object, fs, a->getAttribute($CSS$Attribute::FONT_STYLE));
-	if ((fs != nullptr) && ($nc($($of(fs)->toString()))->indexOf("italic"_s) >= 0)) {
+	if ((fs != nullptr) && ($$nc(fs->toString())->indexOf("italic"_s) >= 0)) {
 		style |= $Font::ITALIC;
 	}
 	if ($nc(family)->equalsIgnoreCase("monospace"_s)) {
@@ -522,8 +401,8 @@ $Font* CSS::getFont($StyleContext* sc, $AttributeSet* a, int32_t defaultSize, $S
 	$var($Font, f, $nc(sc)->getFont(family, style, size));
 	bool var$1 = f == nullptr;
 	if (!var$1) {
-		bool var$2 = $nc($($nc(f)->getFamily()))->equals($Font::DIALOG);
-		var$1 = (var$2 && !$nc(family)->equalsIgnoreCase($Font::DIALOG));
+		bool var$2 = $$nc(f->getFamily())->equals($Font::DIALOG);
+		var$1 = var$2 && !$nc(family)->equalsIgnoreCase($Font::DIALOG);
 	}
 	if (var$1) {
 		$assign(family, $Font::SANS_SERIF);
@@ -536,7 +415,7 @@ int32_t CSS::getFontSize($AttributeSet* attr, int32_t defaultSize, $StyleSheet* 
 	$init(CSS);
 	$init($CSS$Attribute);
 	$var($CSS$FontSize, sizeValue, $cast($CSS$FontSize, $nc(attr)->getAttribute($CSS$Attribute::FONT_SIZE)));
-	return (sizeValue != nullptr) ? $nc(sizeValue)->getValue(attr, ss) : defaultSize;
+	return (sizeValue != nullptr) ? sizeValue->getValue(attr, ss) : defaultSize;
 }
 
 $Color* CSS::getColor($AttributeSet* a, $CSS$Attribute* key) {
@@ -548,7 +427,7 @@ $Color* CSS::getColor($AttributeSet* a, $CSS$Attribute* key) {
 }
 
 float CSS::getPointSize($String* size, $StyleSheet* ss$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, ss, ss$renamed);
 	int32_t relSize = 0;
 	int32_t absSize = 0;
@@ -557,37 +436,37 @@ float CSS::getPointSize($String* size, $StyleSheet* ss$renamed) {
 	$assign(ss, getStyleSheet(ss));
 	if (size != nullptr) {
 		if (size->startsWith("+"_s)) {
-			relSize = $nc($($Integer::valueOf($(size->substring(1)))))->intValue();
+			relSize = $($Integer::valueOf($(size->substring(1))))->intValue();
 			return getPointSize(this->baseFontSize + relSize, ss);
 		} else if (size->startsWith("-"_s)) {
-			relSize = -$nc($($Integer::valueOf($(size->substring(1)))))->intValue();
+			relSize = -$($Integer::valueOf($(size->substring(1))))->intValue();
 			return getPointSize(this->baseFontSize + relSize, ss);
 		} else {
-			absSize = $nc($($Integer::valueOf(size)))->intValue();
+			absSize = $($Integer::valueOf(size))->intValue();
 			return getPointSize(absSize, ss);
 		}
 	}
-	return (float)0;
+	return 0;
 }
 
 float CSS::getLength($AttributeSet* a, $CSS$Attribute* key, $StyleSheet* ss$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, ss, ss$renamed);
 	$assign(ss, getStyleSheet(ss));
 	$var($CSS$LengthValue, lv, $cast($CSS$LengthValue, $nc(a)->getAttribute(key)));
-	bool isW3CLengthUnits = (ss == nullptr) ? false : $nc(ss)->isW3CLengthUnits();
-	float len = (lv != nullptr) ? $nc(lv)->getValue(isW3CLengthUnits) : (float)0;
+	bool isW3CLengthUnits = (ss == nullptr) ? false : ss->isW3CLengthUnits();
+	float len = (lv != nullptr) ? lv->getValue(isW3CLengthUnits) : 0;
 	return len;
 }
 
 $AttributeSet* CSS::translateHTMLToCSS($AttributeSet* htmlAttrSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MutableAttributeSet, cssAttrSet, $new($SimpleAttributeSet));
 	$var($Element, elem, $cast($Element, htmlAttrSet));
 	$var($HTML$Tag, tag, getHTMLTag(htmlAttrSet));
 	$init($HTML$Tag);
 	if ((tag == $HTML$Tag::TD) || (tag == $HTML$Tag::TH)) {
-		$var($AttributeSet, tableAttr, $nc($($nc($($nc(elem)->getParentElement()))->getParentElement()))->getAttributes());
+		$var($AttributeSet, tableAttr, $$nc($$nc($nc(elem)->getParentElement())->getParentElement())->getAttributes());
 		int32_t borderWidth = getTableBorder(tableAttr);
 		if (borderWidth > 0) {
 			$init($HTML$Attribute);
@@ -598,7 +477,7 @@ $AttributeSet* CSS::translateHTMLToCSS($AttributeSet* htmlAttrSet) {
 		if (pad != nullptr) {
 			$init($CSS$Attribute);
 			$var($CSS$LengthValue, v, $cast($CSS$LengthValue, getInternalCSSValue($CSS$Attribute::PADDING_TOP, pad)));
-			$nc(v)->span = (v->span < 0) ? (float)0 : v->span;
+			$nc(v)->span = ($nc(v)->span < 0) ? 0 : v->span;
 			cssAttrSet->addAttribute($CSS$Attribute::PADDING_TOP, v);
 			cssAttrSet->addAttribute($CSS$Attribute::PADDING_BOTTOM, v);
 			cssAttrSet->addAttribute($CSS$Attribute::PADDING_LEFT, v);
@@ -613,10 +492,10 @@ $AttributeSet* CSS::translateHTMLToCSS($AttributeSet* htmlAttrSet) {
 	if (tag == $HTML$Tag::CAPTION) {
 		$init($HTML$Attribute);
 		$var($Object, v, $nc(htmlAttrSet)->getAttribute($HTML$Attribute::ALIGN));
-		bool var$0 = (v != nullptr);
+		bool var$0 = v != nullptr;
 		if (var$0) {
-			bool var$1 = $of(v)->equals("top"_s);
-			var$0 = (var$1 || $of(v)->equals("bottom"_s));
+			bool var$1 = v->equals("top"_s);
+			var$0 = var$1 || v->equals("bottom"_s);
 		}
 		if (var$0) {
 			$init($CSS$Attribute);
@@ -653,23 +532,23 @@ $CSS$AttributeArray* CSS::getAllAttributeKeys() {
 	$init(CSS);
 	$init($CSS$Attribute);
 	$var($CSS$AttributeArray, keys, $new($CSS$AttributeArray, $nc($CSS$Attribute::allAttributes)->length));
-	$System::arraycopy($CSS$Attribute::allAttributes, 0, keys, 0, $nc($CSS$Attribute::allAttributes)->length);
+	$System::arraycopy($CSS$Attribute::allAttributes, 0, keys, 0, $CSS$Attribute::allAttributes->length);
 	return keys;
 }
 
 $CSS$Attribute* CSS::getAttribute($String* name) {
 	$init(CSS);
-	return $cast($CSS$Attribute, $nc(CSS::attributeMap)->get(name));
+	return $cast($CSS$Attribute, CSS::attributeMap->get(name));
 }
 
 $CSS$Value* CSS::getValue($String* name) {
 	$init(CSS);
-	return $cast($CSS$Value, $nc(CSS::valueMap)->get(name));
+	return $cast($CSS$Value, CSS::valueMap->get(name));
 }
 
 $URL* CSS::getURL($URL* base, $String* cssString$renamed) {
 	$init(CSS);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, cssString, cssString$renamed);
 	if (cssString == nullptr) {
 		return nullptr;
@@ -697,7 +576,7 @@ $URL* CSS::getURL($URL* base, $String* cssString$renamed) {
 
 $String* CSS::colorToHex($Color* color) {
 	$init(CSS);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, colorstr, "#"_s);
 	$var($String, str, $Integer::toHexString($nc(color)->getRed()));
 	if ($nc(str)->length() > 2) {
@@ -707,7 +586,7 @@ $String* CSS::colorToHex($Color* color) {
 	} else {
 		$plusAssign(colorstr, str);
 	}
-	$assign(str, $Integer::toHexString($nc(color)->getGreen()));
+	$assign(str, $Integer::toHexString(color->getGreen()));
 	if ($nc(str)->length() > 2) {
 		$assign(str, str->substring(0, 2));
 	} else if (str->length() < 2) {
@@ -715,7 +594,7 @@ $String* CSS::colorToHex($Color* color) {
 	} else {
 		$plusAssign(colorstr, str);
 	}
-	$assign(str, $Integer::toHexString($nc(color)->getBlue()));
+	$assign(str, $Integer::toHexString(color->getBlue()));
 	if ($nc(str)->length() > 2) {
 		$assign(str, str->substring(0, 2));
 	} else if (str->length() < 2) {
@@ -728,7 +607,7 @@ $String* CSS::colorToHex($Color* color) {
 
 $Color* CSS::hexToColor($String* value) {
 	$init(CSS);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, digits, nullptr);
 	int32_t n = $nc(value)->length();
 	if (value->startsWith("#"_s)) {
@@ -741,12 +620,12 @@ $Color* CSS::hexToColor($String* value) {
 		$var($String, g, digits->substring(1, 2));
 		$var($String, b, digits->substring(2, 3));
 		$assign(digits, $String::format("%s%s%s%s%s%s"_s, $$new($ObjectArray, {
-			$of(r),
-			$of(r),
-			$of(g),
-			$of(g),
-			$of(b),
-			$of(b)
+			r,
+			r,
+			g,
+			g,
+			b,
+			b
 		})));
 	}
 	$var($String, hstr, $str({"0x"_s, digits}));
@@ -872,7 +751,7 @@ float CSS::getColorComponent($String* string, $ints* index) {
 		} catch ($NumberFormatException& nfe) {
 		}
 	}
-	return (float)0;
+	return 0;
 }
 
 int32_t CSS::getIndexOfSize(float pt, $ints* sizeMap) {
@@ -882,32 +761,32 @@ int32_t CSS::getIndexOfSize(float pt, $ints* sizeMap) {
 			return i + 1;
 		}
 	}
-	return $nc(sizeMap)->length;
+	return sizeMap->length;
 }
 
 int32_t CSS::getIndexOfSize(float pt, $StyleSheet* ss) {
 	$init(CSS);
 	$init($StyleSheet);
-	$var($ints, sizeMap, (ss != nullptr) ? $nc(ss)->getSizeMap() : $StyleSheet::sizeMapDefault);
+	$var($ints, sizeMap, (ss != nullptr) ? ss->getSizeMap() : $StyleSheet::sizeMapDefault);
 	return getIndexOfSize(pt, sizeMap);
 }
 
 $StringArray* CSS::parseStrings($String* value) {
 	$init(CSS);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t current = 0;
 	int32_t last = 0;
-	int32_t length = (value == nullptr) ? 0 : $nc(value)->length();
+	int32_t length = (value == nullptr) ? 0 : value->length();
 	$var($Vector, temp, $new($Vector, 4));
 	current = 0;
 	while (current < length) {
-		while (current < length && $Character::isWhitespace(value->charAt(current))) {
+		while (current < length && $Character::isWhitespace($nc(value)->charAt(current))) {
 			++current;
 		}
 		last = current;
 		int32_t inParentheses = 0;
 		char16_t ch = 0;
-		while (current < length && (!$Character::isWhitespace(ch = value->charAt(current)) || inParentheses > 0)) {
+		while (current < length && (!$Character::isWhitespace(ch = $nc(value)->charAt(current)) || inParentheses > 0)) {
 			if (ch == u'(') {
 				++inParentheses;
 			} else if (ch == u')') {
@@ -916,7 +795,7 @@ $StringArray* CSS::parseStrings($String* value) {
 			++current;
 		}
 		if (last != current) {
-			temp->addElement($(value->substring(last, current)));
+			temp->addElement($($nc(value)->substring(last, current)));
 		}
 		++current;
 	}
@@ -926,11 +805,11 @@ $StringArray* CSS::parseStrings($String* value) {
 }
 
 float CSS::getPointSize(int32_t index, $StyleSheet* ss$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, ss, ss$renamed);
 	$assign(ss, getStyleSheet(ss));
 	$init($StyleSheet);
-	$var($ints, sizeMap, (ss != nullptr) ? $nc(ss)->getSizeMap() : $StyleSheet::sizeMapDefault);
+	$var($ints, sizeMap, (ss != nullptr) ? ss->getSizeMap() : $StyleSheet::sizeMapDefault);
 	--index;
 	if (index < 0) {
 		return (float)$nc(sizeMap)->get(0);
@@ -942,7 +821,7 @@ float CSS::getPointSize(int32_t index, $StyleSheet* ss$renamed) {
 }
 
 void CSS::translateEmbeddedAttributes($AttributeSet* htmlAttrSet, $MutableAttributeSet* cssAttrSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, keys, $nc(htmlAttrSet)->getAttributeNames());
 	$init($StyleConstants);
 	$init($HTML$Tag);
@@ -964,7 +843,7 @@ void CSS::translateEmbeddedAttributes($AttributeSet* htmlAttrSet, $MutableAttrib
 }
 
 void CSS::translateAttributes($HTML$Tag* tag, $AttributeSet* htmlAttrSet, $MutableAttributeSet* cssAttrSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, names, $nc(htmlAttrSet)->getAttributeNames());
 	while ($nc(names)->hasMoreElements()) {
 		$var($Object, name, names->nextElement());
@@ -982,18 +861,16 @@ void CSS::translateAttributes($HTML$Tag* tag, $AttributeSet* htmlAttrSet, $Mutab
 						}
 					}
 				}
+			} else if (key == $HTML$Attribute::SIZE && !isHTMLFontTag(tag)) {
 			} else {
-				if (key == $HTML$Attribute::SIZE && !isHTMLFontTag(tag)) {
-				} else {
-					$init($HTML$Tag);
-					if (tag == $HTML$Tag::TABLE && key == $HTML$Attribute::BORDER) {
-						int32_t borderWidth = getTableBorder(htmlAttrSet);
-						if (borderWidth > 0) {
-							translateAttribute($HTML$Attribute::BORDER, $($Integer::toString(borderWidth)), cssAttrSet);
-						}
-					} else {
-						translateAttribute(key, $cast($String, $(htmlAttrSet->getAttribute(key))), cssAttrSet);
+				$init($HTML$Tag);
+				if (tag == $HTML$Tag::TABLE && key == $HTML$Attribute::BORDER) {
+					int32_t borderWidth = getTableBorder(htmlAttrSet);
+					if (borderWidth > 0) {
+						translateAttribute($HTML$Attribute::BORDER, $($Integer::toString(borderWidth)), cssAttrSet);
 					}
+				} else {
+					translateAttribute(key, $$cast($String, htmlAttrSet->getAttribute(key)), cssAttrSet);
 				}
 			}
 		} else if ($instanceOf($CSS$Attribute, name)) {
@@ -1003,16 +880,14 @@ void CSS::translateAttributes($HTML$Tag* tag, $AttributeSet* htmlAttrSet, $Mutab
 }
 
 void CSS::translateAttribute($HTML$Attribute* key, $String* htmlAttrValue, $MutableAttributeSet* cssAttrSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CSS$AttributeArray, cssAttrList, getCssAttribute(key));
 	if (cssAttrList == nullptr || htmlAttrValue == nullptr) {
 		return;
 	}
 	{
 		$var($CSS$AttributeArray, arr$, cssAttrList);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CSS$Attribute, cssAttr, arr$->get(i$));
 			{
 				$var($Object, o, getCssValue(cssAttr, htmlAttrValue));
@@ -1025,14 +900,14 @@ void CSS::translateAttribute($HTML$Attribute* key, $String* htmlAttrValue, $Muta
 }
 
 $Object* CSS::getCssValue($CSS$Attribute* cssAttr, $String* htmlAttrValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CSS$CssValue, value, $cast($CSS$CssValue, $nc(this->valueConvertor)->get(cssAttr)));
 	$var($Object, o, $nc(value)->parseHtmlValue(htmlAttrValue));
-	return $of(o);
+	return o;
 }
 
 $CSS$AttributeArray* CSS::getCssAttribute($HTML$Attribute* hAttr) {
-	return $cast($CSS$AttributeArray, $nc(CSS::htmlAttrToCssAttrMap)->get(hAttr));
+	return $cast($CSS$AttributeArray, CSS::htmlAttrToCssAttrMap->get(hAttr));
 }
 
 $CSS$Attribute* CSS::getCssAlignAttribute($HTML$Tag* tag, $AttributeSet* htmlAttrSet) {
@@ -1041,7 +916,7 @@ $CSS$Attribute* CSS::getCssAlignAttribute($HTML$Tag* tag, $AttributeSet* htmlAtt
 }
 
 $HTML$Tag* CSS::getHTMLTag($AttributeSet* htmlAttrSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StyleConstants);
 	$var($Object, o, $nc(htmlAttrSet)->getAttribute($StyleConstants::NameAttribute));
 	if ($instanceOf($HTML$Tag, o)) {
@@ -1058,7 +933,7 @@ bool CSS::isHTMLFontTag($HTML$Tag* tag) {
 
 bool CSS::isFloater($String* alignValue) {
 	bool var$0 = $nc(alignValue)->equals("left"_s);
-	return (var$0 || $nc(alignValue)->equals("right"_s));
+	return (var$0 || alignValue->equals("right"_s));
 }
 
 bool CSS::validTextAlignValue($String* alignValue) {
@@ -1080,9 +955,9 @@ $SizeRequirements* CSS::calculateTiledRequirements($CSS$LayoutIterator* iter, $S
 		int32_t margin0 = lastMargin;
 		int32_t margin1 = $cast(int32_t, iter->getLeadingCollapseSpan());
 		totalSpacing += $Math::max(margin0, margin1);
-		preferred += $cast(int32_t, iter->getPreferredSpan((float)0));
-		minimum += iter->getMinimumSpan((float)0);
-		maximum += iter->getMaximumSpan((float)0);
+		preferred += $cast(int32_t, iter->getPreferredSpan(0));
+		minimum += iter->getMinimumSpan(0);
+		maximum += iter->getMaximumSpan(0);
 		lastMargin = $cast(int32_t, iter->getTrailingCollapseSpan());
 	}
 	totalSpacing += lastMargin;
@@ -1101,7 +976,7 @@ $SizeRequirements* CSS::calculateTiledRequirements($CSS$LayoutIterator* iter, $S
 
 void CSS::calculateTiledLayout($CSS$LayoutIterator* iter, int32_t targetSpan) {
 	$init(CSS);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t preferred = 0;
 	int64_t currentPreferred = 0;
 	int32_t lastMargin = 0;
@@ -1145,9 +1020,9 @@ void CSS::calculateTiledLayout($CSS$LayoutIterator* iter, int32_t targetSpan) {
 	}
 	float adjustmentFactor = 0.0f;
 	if (adjustmentLevel <= $CSS$LayoutIterator::WorstAdjustmentWeight) {
-		desiredAdjustment -= (adjustmentLevel > 0) ? $nc(adjustmentsArray)->get(adjustmentLevel - 1) : (int64_t)0;
+		desiredAdjustment -= (adjustmentLevel > 0) ? $nc(adjustmentsArray)->get(adjustmentLevel - 1) : 0;
 		if (desiredAdjustment != 0) {
-			float maximumAdjustment = (float)(adjustmentsArray->get(adjustmentLevel) - ((adjustmentLevel > 0) ? adjustmentsArray->get(adjustmentLevel - 1) : (int64_t)0));
+			float maximumAdjustment = (float)($nc(adjustmentsArray)->get(adjustmentLevel) - ((adjustmentLevel > 0) ? $nc(adjustmentsArray)->get(adjustmentLevel - 1) : 0));
 			adjustmentFactor = desiredAdjustment / maximumAdjustment;
 		}
 	}
@@ -1199,10 +1074,10 @@ void CSS::calculateTiledLayout($CSS$LayoutIterator* iter, int32_t targetSpan) {
 }
 
 void CSS::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	$var($Enumeration, keys, $nc(this->valueConvertor)->keys());
-	s->writeInt($nc(this->valueConvertor)->size());
+	s->writeInt(this->valueConvertor->size());
 	if (keys != nullptr) {
 		while (keys->hasMoreElements()) {
 			$var($Object, key, keys->nextElement());
@@ -1221,7 +1096,7 @@ void CSS::writeObject($ObjectOutputStream* s) {
 }
 
 void CSS::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
 	int32_t newBaseFontSize = $nc(f)->get("baseFontSize"_s, 0);
 	setBaseFontSize(newBaseFontSize);
@@ -1251,8 +1126,8 @@ $StyleSheet* CSS::getStyleSheet($StyleSheet* ss) {
 	return this->styleSheet;
 }
 
-void clinit$CSS($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CSS::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(CSS::attributeMap, $new($Hashtable));
 	$assignStatic(CSS::valueMap, $new($Hashtable));
 	$assignStatic(CSS::htmlAttrToCssAttrMap, $new($Hashtable, 20));
@@ -1262,105 +1137,101 @@ void clinit$CSS($Class* class$) {
 	{
 		$init($CSS$Attribute);
 		for (int32_t i = 0; i < $nc($CSS$Attribute::allAttributes)->length; ++i) {
-			$nc(CSS::attributeMap)->put($($nc($nc($CSS$Attribute::allAttributes)->get(i))->toString()), $nc($CSS$Attribute::allAttributes)->get(i));
+			CSS::attributeMap->put($($nc($CSS$Attribute::allAttributes->get(i))->toString()), $CSS$Attribute::allAttributes->get(i));
 		}
 		$init($CSS$Value);
 		for (int32_t i = 0; i < $nc($CSS$Value::allValues)->length; ++i) {
-			$nc(CSS::valueMap)->put($($nc($nc($CSS$Value::allValues)->get(i))->toString()), $nc($CSS$Value::allValues)->get(i));
+			CSS::valueMap->put($($nc($CSS$Value::allValues->get(i))->toString()), $CSS$Value::allValues->get(i));
 		}
 		$init($HTML$Attribute);
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::COLOR, $$new($CSS$AttributeArray, {$CSS$Attribute::COLOR}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::TEXT, $$new($CSS$AttributeArray, {$CSS$Attribute::COLOR}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::CLEAR, $$new($CSS$AttributeArray, {$CSS$Attribute::CLEAR}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::BACKGROUND, $$new($CSS$AttributeArray, {$CSS$Attribute::BACKGROUND_IMAGE}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::BGCOLOR, $$new($CSS$AttributeArray, {$CSS$Attribute::BACKGROUND_COLOR}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::WIDTH, $$new($CSS$AttributeArray, {$CSS$Attribute::WIDTH}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::HEIGHT, $$new($CSS$AttributeArray, {$CSS$Attribute::HEIGHT}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::BORDER, $$new($CSS$AttributeArray, {
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::COLOR, $$new($CSS$AttributeArray, {$CSS$Attribute::COLOR}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::TEXT, $$new($CSS$AttributeArray, {$CSS$Attribute::COLOR}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::CLEAR, $$new($CSS$AttributeArray, {$CSS$Attribute::CLEAR}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::BACKGROUND, $$new($CSS$AttributeArray, {$CSS$Attribute::BACKGROUND_IMAGE}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::BGCOLOR, $$new($CSS$AttributeArray, {$CSS$Attribute::BACKGROUND_COLOR}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::WIDTH, $$new($CSS$AttributeArray, {$CSS$Attribute::WIDTH}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::HEIGHT, $$new($CSS$AttributeArray, {$CSS$Attribute::HEIGHT}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::BORDER, $$new($CSS$AttributeArray, {
 			$CSS$Attribute::BORDER_TOP_WIDTH,
 			$CSS$Attribute::BORDER_RIGHT_WIDTH,
 			$CSS$Attribute::BORDER_BOTTOM_WIDTH,
 			$CSS$Attribute::BORDER_LEFT_WIDTH
 		}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::CELLPADDING, $$new($CSS$AttributeArray, {$CSS$Attribute::PADDING}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::CELLSPACING, $$new($CSS$AttributeArray, {$CSS$Attribute::BORDER_SPACING}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::MARGINWIDTH, $$new($CSS$AttributeArray, {
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::CELLPADDING, $$new($CSS$AttributeArray, {$CSS$Attribute::PADDING}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::CELLSPACING, $$new($CSS$AttributeArray, {$CSS$Attribute::BORDER_SPACING}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::MARGINWIDTH, $$new($CSS$AttributeArray, {
 			$CSS$Attribute::MARGIN_LEFT,
 			$CSS$Attribute::MARGIN_RIGHT
 		}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::MARGINHEIGHT, $$new($CSS$AttributeArray, {
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::MARGINHEIGHT, $$new($CSS$AttributeArray, {
 			$CSS$Attribute::MARGIN_TOP,
 			$CSS$Attribute::MARGIN_BOTTOM
 		}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::HSPACE, $$new($CSS$AttributeArray, {
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::HSPACE, $$new($CSS$AttributeArray, {
 			$CSS$Attribute::PADDING_LEFT,
 			$CSS$Attribute::PADDING_RIGHT
 		}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::VSPACE, $$new($CSS$AttributeArray, {
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::VSPACE, $$new($CSS$AttributeArray, {
 			$CSS$Attribute::PADDING_BOTTOM,
 			$CSS$Attribute::PADDING_TOP
 		}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::FACE, $$new($CSS$AttributeArray, {$CSS$Attribute::FONT_FAMILY}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::SIZE, $$new($CSS$AttributeArray, {$CSS$Attribute::FONT_SIZE}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::VALIGN, $$new($CSS$AttributeArray, {$CSS$Attribute::VERTICAL_ALIGN}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::ALIGN, $$new($CSS$AttributeArray, {
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::FACE, $$new($CSS$AttributeArray, {$CSS$Attribute::FONT_FAMILY}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::SIZE, $$new($CSS$AttributeArray, {$CSS$Attribute::FONT_SIZE}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::VALIGN, $$new($CSS$AttributeArray, {$CSS$Attribute::VERTICAL_ALIGN}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::ALIGN, $$new($CSS$AttributeArray, {
 			$CSS$Attribute::VERTICAL_ALIGN,
 			$CSS$Attribute::TEXT_ALIGN,
 			$CSS$Attribute::FLOAT
 		}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::TYPE, $$new($CSS$AttributeArray, {$CSS$Attribute::LIST_STYLE_TYPE}));
-		$nc(CSS::htmlAttrToCssAttrMap)->put($HTML$Attribute::NOWRAP, $$new($CSS$AttributeArray, {$CSS$Attribute::WHITE_SPACE}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::TYPE, $$new($CSS$AttributeArray, {$CSS$Attribute::LIST_STYLE_TYPE}));
+		CSS::htmlAttrToCssAttrMap->put($HTML$Attribute::NOWRAP, $$new($CSS$AttributeArray, {$CSS$Attribute::WHITE_SPACE}));
 		$init($StyleConstants);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::FontFamily, $CSS$Attribute::FONT_FAMILY);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::FontSize, $CSS$Attribute::FONT_SIZE);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Bold, $CSS$Attribute::FONT_WEIGHT);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Italic, $CSS$Attribute::FONT_STYLE);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Underline, $CSS$Attribute::TEXT_DECORATION);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::StrikeThrough, $CSS$Attribute::TEXT_DECORATION);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Superscript, $CSS$Attribute::VERTICAL_ALIGN);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Subscript, $CSS$Attribute::VERTICAL_ALIGN);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Foreground, $CSS$Attribute::COLOR);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Background, $CSS$Attribute::BACKGROUND_COLOR);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::FirstLineIndent, $CSS$Attribute::TEXT_INDENT);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::LeftIndent, $CSS$Attribute::MARGIN_LEFT);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::RightIndent, $CSS$Attribute::MARGIN_RIGHT);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::SpaceAbove, $CSS$Attribute::MARGIN_TOP);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::SpaceBelow, $CSS$Attribute::MARGIN_BOTTOM);
-		$nc(CSS::styleConstantToCssMap)->put($StyleConstants::Alignment, $CSS$Attribute::TEXT_ALIGN);
-		$nc(CSS::htmlValueToCssValueMap)->put("disc"_s, $CSS$Value::DISC);
-		$nc(CSS::htmlValueToCssValueMap)->put("square"_s, $CSS$Value::SQUARE);
-		$nc(CSS::htmlValueToCssValueMap)->put("circle"_s, $CSS$Value::CIRCLE);
-		$nc(CSS::htmlValueToCssValueMap)->put("1"_s, $CSS$Value::DECIMAL);
-		$nc(CSS::htmlValueToCssValueMap)->put("a"_s, $CSS$Value::LOWER_ALPHA);
-		$nc(CSS::htmlValueToCssValueMap)->put("A"_s, $CSS$Value::UPPER_ALPHA);
-		$nc(CSS::htmlValueToCssValueMap)->put("i"_s, $CSS$Value::LOWER_ROMAN);
-		$nc(CSS::htmlValueToCssValueMap)->put("I"_s, $CSS$Value::UPPER_ROMAN);
-		$nc(CSS::cssValueToInternalValueMap)->put("none"_s, $CSS$Value::NONE);
-		$nc(CSS::cssValueToInternalValueMap)->put("disc"_s, $CSS$Value::DISC);
-		$nc(CSS::cssValueToInternalValueMap)->put("square"_s, $CSS$Value::SQUARE);
-		$nc(CSS::cssValueToInternalValueMap)->put("circle"_s, $CSS$Value::CIRCLE);
-		$nc(CSS::cssValueToInternalValueMap)->put("decimal"_s, $CSS$Value::DECIMAL);
-		$nc(CSS::cssValueToInternalValueMap)->put("lower-roman"_s, $CSS$Value::LOWER_ROMAN);
-		$nc(CSS::cssValueToInternalValueMap)->put("upper-roman"_s, $CSS$Value::UPPER_ROMAN);
-		$nc(CSS::cssValueToInternalValueMap)->put("lower-alpha"_s, $CSS$Value::LOWER_ALPHA);
-		$nc(CSS::cssValueToInternalValueMap)->put("upper-alpha"_s, $CSS$Value::UPPER_ALPHA);
-		$nc(CSS::cssValueToInternalValueMap)->put("repeat"_s, $CSS$Value::BACKGROUND_REPEAT);
-		$nc(CSS::cssValueToInternalValueMap)->put("no-repeat"_s, $CSS$Value::BACKGROUND_NO_REPEAT);
-		$nc(CSS::cssValueToInternalValueMap)->put("repeat-x"_s, $CSS$Value::BACKGROUND_REPEAT_X);
-		$nc(CSS::cssValueToInternalValueMap)->put("repeat-y"_s, $CSS$Value::BACKGROUND_REPEAT_Y);
-		$nc(CSS::cssValueToInternalValueMap)->put("scroll"_s, $CSS$Value::BACKGROUND_SCROLL);
-		$nc(CSS::cssValueToInternalValueMap)->put("fixed"_s, $CSS$Value::BACKGROUND_FIXED);
+		CSS::styleConstantToCssMap->put($StyleConstants::FontFamily, $CSS$Attribute::FONT_FAMILY);
+		CSS::styleConstantToCssMap->put($StyleConstants::FontSize, $CSS$Attribute::FONT_SIZE);
+		CSS::styleConstantToCssMap->put($StyleConstants::Bold, $CSS$Attribute::FONT_WEIGHT);
+		CSS::styleConstantToCssMap->put($StyleConstants::Italic, $CSS$Attribute::FONT_STYLE);
+		CSS::styleConstantToCssMap->put($StyleConstants::Underline, $CSS$Attribute::TEXT_DECORATION);
+		CSS::styleConstantToCssMap->put($StyleConstants::StrikeThrough, $CSS$Attribute::TEXT_DECORATION);
+		CSS::styleConstantToCssMap->put($StyleConstants::Superscript, $CSS$Attribute::VERTICAL_ALIGN);
+		CSS::styleConstantToCssMap->put($StyleConstants::Subscript, $CSS$Attribute::VERTICAL_ALIGN);
+		CSS::styleConstantToCssMap->put($StyleConstants::Foreground, $CSS$Attribute::COLOR);
+		CSS::styleConstantToCssMap->put($StyleConstants::Background, $CSS$Attribute::BACKGROUND_COLOR);
+		CSS::styleConstantToCssMap->put($StyleConstants::FirstLineIndent, $CSS$Attribute::TEXT_INDENT);
+		CSS::styleConstantToCssMap->put($StyleConstants::LeftIndent, $CSS$Attribute::MARGIN_LEFT);
+		CSS::styleConstantToCssMap->put($StyleConstants::RightIndent, $CSS$Attribute::MARGIN_RIGHT);
+		CSS::styleConstantToCssMap->put($StyleConstants::SpaceAbove, $CSS$Attribute::MARGIN_TOP);
+		CSS::styleConstantToCssMap->put($StyleConstants::SpaceBelow, $CSS$Attribute::MARGIN_BOTTOM);
+		CSS::styleConstantToCssMap->put($StyleConstants::Alignment, $CSS$Attribute::TEXT_ALIGN);
+		CSS::htmlValueToCssValueMap->put("disc"_s, $CSS$Value::DISC);
+		CSS::htmlValueToCssValueMap->put("square"_s, $CSS$Value::SQUARE);
+		CSS::htmlValueToCssValueMap->put("circle"_s, $CSS$Value::CIRCLE);
+		CSS::htmlValueToCssValueMap->put("1"_s, $CSS$Value::DECIMAL);
+		CSS::htmlValueToCssValueMap->put("a"_s, $CSS$Value::LOWER_ALPHA);
+		CSS::htmlValueToCssValueMap->put("A"_s, $CSS$Value::UPPER_ALPHA);
+		CSS::htmlValueToCssValueMap->put("i"_s, $CSS$Value::LOWER_ROMAN);
+		CSS::htmlValueToCssValueMap->put("I"_s, $CSS$Value::UPPER_ROMAN);
+		CSS::cssValueToInternalValueMap->put("none"_s, $CSS$Value::NONE);
+		CSS::cssValueToInternalValueMap->put("disc"_s, $CSS$Value::DISC);
+		CSS::cssValueToInternalValueMap->put("square"_s, $CSS$Value::SQUARE);
+		CSS::cssValueToInternalValueMap->put("circle"_s, $CSS$Value::CIRCLE);
+		CSS::cssValueToInternalValueMap->put("decimal"_s, $CSS$Value::DECIMAL);
+		CSS::cssValueToInternalValueMap->put("lower-roman"_s, $CSS$Value::LOWER_ROMAN);
+		CSS::cssValueToInternalValueMap->put("upper-roman"_s, $CSS$Value::UPPER_ROMAN);
+		CSS::cssValueToInternalValueMap->put("lower-alpha"_s, $CSS$Value::LOWER_ALPHA);
+		CSS::cssValueToInternalValueMap->put("upper-alpha"_s, $CSS$Value::UPPER_ALPHA);
+		CSS::cssValueToInternalValueMap->put("repeat"_s, $CSS$Value::BACKGROUND_REPEAT);
+		CSS::cssValueToInternalValueMap->put("no-repeat"_s, $CSS$Value::BACKGROUND_NO_REPEAT);
+		CSS::cssValueToInternalValueMap->put("repeat-x"_s, $CSS$Value::BACKGROUND_REPEAT_X);
+		CSS::cssValueToInternalValueMap->put("repeat-y"_s, $CSS$Value::BACKGROUND_REPEAT_Y);
+		CSS::cssValueToInternalValueMap->put("scroll"_s, $CSS$Value::BACKGROUND_SCROLL);
+		CSS::cssValueToInternalValueMap->put("fixed"_s, $CSS$Value::BACKGROUND_FIXED);
 		$var($ObjectArray, keys, $CSS$Attribute::allAttributes);
 		try {
-			{
-				$var($ObjectArray, arr$, keys);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($Object0, key, arr$->get(i$));
-					{
-						$StyleContext::registerStaticAttributeKey(key);
-					}
+			$var($ObjectArray, arr$, keys);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($Object0, key, arr$->get(i$));
+				{
+					$StyleContext::registerStaticAttributeKey(key);
 				}
 			}
 		} catch ($Throwable& e) {
@@ -1368,15 +1239,11 @@ void clinit$CSS($Class* class$) {
 		}
 		$assign(keys, $CSS$Value::allValues);
 		try {
-			{
-				$var($ObjectArray, arr$, keys);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($Object0, key, arr$->get(i$));
-					{
-						$StyleContext::registerStaticAttributeKey(key);
-					}
+			$var($ObjectArray, arr$, keys);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($Object0, key, arr$->get(i$));
+				{
+					$StyleContext::registerStaticAttributeKey(key);
 				}
 			}
 		} catch ($Throwable& e) {
@@ -1390,7 +1257,107 @@ CSS::CSS() {
 }
 
 $Class* CSS::load$($String* name, bool initialize) {
-	$loadClass(CSS, name, initialize, &_CSS_ClassInfo_, clinit$CSS, allocate$CSS);
+	$FieldInfo fieldInfos$$[] = {
+		{"attributeMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Attribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, attributeMap)},
+		{"valueMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Value;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, valueMap)},
+		{"htmlAttrToCssAttrMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/text/html/HTML$Attribute;[Ljavax/swing/text/html/CSS$Attribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, htmlAttrToCssAttrMap)},
+		{"styleConstantToCssMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljavax/swing/text/html/CSS$Attribute;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, styleConstantToCssMap)},
+		{"htmlValueToCssValueMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Value;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, htmlValueToCssValueMap)},
+		{"cssValueToInternalValueMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/CSS$Value;>;", $PRIVATE | $STATIC | $FINAL, $staticField(CSS, cssValueToInternalValueMap)},
+		{"valueConvertor", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE | $TRANSIENT, $field(CSS, valueConvertor)},
+		{"baseFontSize", "I", nullptr, $PRIVATE, $field(CSS, baseFontSize)},
+		{"styleSheet", "Ljavax/swing/text/html/StyleSheet;", nullptr, $PRIVATE | $TRANSIENT, $field(CSS, styleSheet)},
+		{"baseFontSizeIndex", "I", nullptr, $STATIC, $staticField(CSS, baseFontSizeIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CSS, init$, void)},
+		{"addInternalCSSValue", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CSS, addInternalCSSValue, void, $MutableAttributeSet*, $CSS$Attribute*, $String*)},
+		{"calculateTiledLayout", "(Ljavax/swing/text/html/CSS$LayoutIterator;I)V", nullptr, $STATIC, $staticMethod(CSS, calculateTiledLayout, void, $CSS$LayoutIterator*, int32_t)},
+		{"calculateTiledRequirements", "(Ljavax/swing/text/html/CSS$LayoutIterator;Ljavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $STATIC, $staticMethod(CSS, calculateTiledRequirements, $SizeRequirements*, $CSS$LayoutIterator*, $SizeRequirements*)},
+		{"colorToHex", "(Ljava/awt/Color;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CSS, colorToHex, $String*, $Color*)},
+		{"cssValueToStyleConstantsValue", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, cssValueToStyleConstantsValue, $Object*, $StyleConstants*, Object$*)},
+		{"getAllAttributeKeys", "()[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC, $staticMethod(CSS, getAllAttributeKeys, $CSS$AttributeArray*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CSS, getAttribute, $CSS$Attribute*, $String*)},
+		{"getBaseFontSize", "()I", nullptr, 0, $virtualMethod(CSS, getBaseFontSize, int32_t)},
+		{"getColor", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS$Attribute;)Ljava/awt/Color;", nullptr, 0, $virtualMethod(CSS, getColor, $Color*, $AttributeSet*, $CSS$Attribute*)},
+		{"getColorComponent", "(Ljava/lang/String;[I)F", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, getColorComponent, float, $String*, $ints*)},
+		{"getCssAlignAttribute", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE, $method(CSS, getCssAlignAttribute, $CSS$Attribute*, $HTML$Tag*, $AttributeSet*)},
+		{"getCssAttribute", "(Ljavax/swing/text/html/HTML$Attribute;)[Ljavax/swing/text/html/CSS$Attribute;", nullptr, $PRIVATE, $method(CSS, getCssAttribute, $CSS$AttributeArray*, $HTML$Attribute*)},
+		{"getCssValue", "(Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, getCssValue, $Object*, $CSS$Attribute*, $String*)},
+		{"getFont", "(Ljavax/swing/text/StyleContext;Ljavax/swing/text/AttributeSet;ILjavax/swing/text/html/StyleSheet;)Ljava/awt/Font;", nullptr, 0, $virtualMethod(CSS, getFont, $Font*, $StyleContext*, $AttributeSet*, int32_t, $StyleSheet*)},
+		{"getFontSize", "(Ljavax/swing/text/AttributeSet;ILjavax/swing/text/html/StyleSheet;)I", nullptr, $STATIC, $staticMethod(CSS, getFontSize, int32_t, $AttributeSet*, int32_t, $StyleSheet*)},
+		{"getHTMLTag", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/HTML$Tag;", nullptr, $PRIVATE, $method(CSS, getHTMLTag, $HTML$Tag*, $AttributeSet*)},
+		{"getIndexOfSize", "(F[I)I", nullptr, $STATIC, $staticMethod(CSS, getIndexOfSize, int32_t, float, $ints*)},
+		{"getIndexOfSize", "(FLjavax/swing/text/html/StyleSheet;)I", nullptr, $STATIC, $staticMethod(CSS, getIndexOfSize, int32_t, float, $StyleSheet*)},
+		{"getInternalCSSValue", "(Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, getInternalCSSValue, $Object*, $CSS$Attribute*, $String*)},
+		{"getLength", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljavax/swing/text/html/StyleSheet;)F", nullptr, 0, $virtualMethod(CSS, getLength, float, $AttributeSet*, $CSS$Attribute*, $StyleSheet*)},
+		{"getPointSize", "(Ljava/lang/String;Ljavax/swing/text/html/StyleSheet;)F", nullptr, 0, $virtualMethod(CSS, getPointSize, float, $String*, $StyleSheet*)},
+		{"getPointSize", "(ILjavax/swing/text/html/StyleSheet;)F", nullptr, 0, $virtualMethod(CSS, getPointSize, float, int32_t, $StyleSheet*)},
+		{"getStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)Ljavax/swing/text/html/StyleSheet;", nullptr, $PRIVATE, $method(CSS, getStyleSheet, $StyleSheet*, $StyleSheet*)},
+		{"getTableBorder", "(Ljavax/swing/text/AttributeSet;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, getTableBorder, int32_t, $AttributeSet*)},
+		{"getURL", "(Ljava/net/URL;Ljava/lang/String;)Ljava/net/URL;", nullptr, $STATIC, $staticMethod(CSS, getURL, $URL*, $URL*, $String*)},
+		{"getValue", "(Ljava/lang/String;)Ljavax/swing/text/html/CSS$Value;", nullptr, $STATIC | $FINAL, $staticMethod(CSS, getValue, $CSS$Value*, $String*)},
+		{"hexToColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticMethod(CSS, hexToColor, $Color*, $String*)},
+		{"isFloater", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CSS, isFloater, bool, $String*)},
+		{"isHTMLFontTag", "(Ljavax/swing/text/html/HTML$Tag;)Z", nullptr, $PRIVATE, $method(CSS, isHTMLFontTag, bool, $HTML$Tag*)},
+		{"parseRGB", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, parseRGB, $Color*, $String*)},
+		{"parseRGBA", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(CSS, parseRGBA, $Color*, $String*)},
+		{"parseStrings", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CSS, parseStrings, $StringArray*, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CSS, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"setBaseFontSize", "(I)V", nullptr, 0, $virtualMethod(CSS, setBaseFontSize, void, int32_t)},
+		{"setBaseFontSize", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(CSS, setBaseFontSize, void, $String*)},
+		{"stringToColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(CSS, stringToColor, $Color*, $String*)},
+		{"styleConstantsKeyToCSSKey", "(Ljavax/swing/text/StyleConstants;)Ljavax/swing/text/html/CSS$Attribute;", nullptr, 0, $virtualMethod(CSS, styleConstantsKeyToCSSKey, $CSS$Attribute*, $StyleConstants*)},
+		{"styleConstantsValueToCSSValue", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS, styleConstantsValueToCSSValue, $Object*, $StyleConstants*, Object$*)},
+		{"translateAttribute", "(Ljavax/swing/text/html/HTML$Attribute;Ljava/lang/String;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PRIVATE, $method(CSS, translateAttribute, void, $HTML$Attribute*, $String*, $MutableAttributeSet*)},
+		{"translateAttributes", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/AttributeSet;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PRIVATE, $method(CSS, translateAttributes, void, $HTML$Tag*, $AttributeSet*, $MutableAttributeSet*)},
+		{"translateEmbeddedAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PRIVATE, $method(CSS, translateEmbeddedAttributes, void, $AttributeSet*, $MutableAttributeSet*)},
+		{"translateHTMLToCSS", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, 0, $virtualMethod(CSS, translateHTMLToCSS, $AttributeSet*, $AttributeSet*)},
+		{"validTextAlignValue", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CSS, validTextAlignValue, bool, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CSS, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$LayoutIterator", "javax.swing.text.html.CSS", "LayoutIterator", $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.html.CSS$ShorthandBorderParser", "javax.swing.text.html.CSS", "ShorthandBorderParser", $STATIC},
+		{"javax.swing.text.html.CSS$ShorthandMarginParser", "javax.swing.text.html.CSS", "ShorthandMarginParser", $STATIC},
+		{"javax.swing.text.html.CSS$ShorthandBackgroundParser", "javax.swing.text.html.CSS", "ShorthandBackgroundParser", $STATIC},
+		{"javax.swing.text.html.CSS$ShorthandFontParser", "javax.swing.text.html.CSS", "ShorthandFontParser", $STATIC},
+		{"javax.swing.text.html.CSS$LengthUnit", "javax.swing.text.html.CSS", "LengthUnit", $STATIC},
+		{"javax.swing.text.html.CSS$BackgroundImage", "javax.swing.text.html.CSS", "BackgroundImage", $STATIC},
+		{"javax.swing.text.html.CSS$BackgroundPosition", "javax.swing.text.html.CSS", "BackgroundPosition", $STATIC},
+		{"javax.swing.text.html.CSS$CssValueMapper", "javax.swing.text.html.CSS", "CssValueMapper", $STATIC},
+		{"javax.swing.text.html.CSS$BorderWidthValue", "javax.swing.text.html.CSS", "BorderWidthValue", $STATIC},
+		{"javax.swing.text.html.CSS$LengthValue", "javax.swing.text.html.CSS", "LengthValue", $STATIC},
+		{"javax.swing.text.html.CSS$BorderStyle", "javax.swing.text.html.CSS", "BorderStyle", $STATIC},
+		{"javax.swing.text.html.CSS$ColorValue", "javax.swing.text.html.CSS", "ColorValue", $STATIC},
+		{"javax.swing.text.html.CSS$FontWeight", "javax.swing.text.html.CSS", "FontWeight", $STATIC},
+		{"javax.swing.text.html.CSS$FontFamily", "javax.swing.text.html.CSS", "FontFamily", $STATIC},
+		{"javax.swing.text.html.CSS$FontSize", "javax.swing.text.html.CSS", "FontSize", 0},
+		{"javax.swing.text.html.CSS$StringValue", "javax.swing.text.html.CSS", "StringValue", $STATIC},
+		{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
+		{"javax.swing.text.html.CSS$Value", "javax.swing.text.html.CSS", "Value", $STATIC | $FINAL},
+		{"javax.swing.text.html.CSS$Attribute", "javax.swing.text.html.CSS", "Attribute", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.CSS",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS$LayoutIterator,javax.swing.text.html.CSS$ShorthandBorderParser,javax.swing.text.html.CSS$ShorthandMarginParser,javax.swing.text.html.CSS$ShorthandBackgroundParser,javax.swing.text.html.CSS$ShorthandFontParser,javax.swing.text.html.CSS$LengthUnit,javax.swing.text.html.CSS$BackgroundImage,javax.swing.text.html.CSS$BackgroundPosition,javax.swing.text.html.CSS$CssValueMapper,javax.swing.text.html.CSS$BorderWidthValue,javax.swing.text.html.CSS$LengthValue,javax.swing.text.html.CSS$BorderStyle,javax.swing.text.html.CSS$ColorValue,javax.swing.text.html.CSS$FontWeight,javax.swing.text.html.CSS$FontFamily,javax.swing.text.html.CSS$FontSize,javax.swing.text.html.CSS$StringValue,javax.swing.text.html.CSS$CssValue,javax.swing.text.html.CSS$Value,javax.swing.text.html.CSS$Attribute"
+	};
+	$loadClass(CSS, name, initialize, &classInfo$$, CSS::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS);
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class AquaInternalFrameBorderMetrics : public ::java::lang::Object {
 	$class(AquaInternalFrameBorderMetrics, 0, ::java::lang::Object)
 public:
 	AquaInternalFrameBorderMetrics();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::apple::laf::AquaInternalFrameBorderMetrics* getMetrics(bool isUtility);
 	virtual void initialize() {}

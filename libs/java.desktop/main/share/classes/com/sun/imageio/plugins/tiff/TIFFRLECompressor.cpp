@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFRLECompressor.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFFaxCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFFaxDecompressor.h>
@@ -19,41 +18,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $IIOException = ::javax::imageio::IIOException;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
-using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 
 namespace com {
 	namespace sun {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$MethodInfo _TIFFRLECompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFRLECompressor, init$, void)},
-	{"add1DBits", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, add1DBits, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"add2DBits", "([BI[[II)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, add2DBits, int32_t, $bytes*, int32_t, $intArray2*, int32_t)},
-	{"addEOFB", "([BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, addEOFB, int32_t, $bytes*, int32_t)},
-	{"addEOL", "(ZZZ[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, addEOL, int32_t, bool, bool, bool, $bytes*, int32_t)},
-	{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFRLECompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
-	{"encode1D", "([BIII[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, encode1D, int32_t, $bytes*, int32_t, int32_t, int32_t, $bytes*, int32_t)},
-	{"encodeRLE", "([BIII[B)I", nullptr, $PUBLIC, $virtualMethod(TIFFRLECompressor, encodeRLE, int32_t, $bytes*, int32_t, int32_t, int32_t, $bytes*)},
-	{"initBitBuf", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, initBitBuf, void)},
-	{"nextState", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, nextState, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, setMetadata, void, $IIOMetadata*)},
-	{}
-};
-
-$ClassInfo _TIFFRLECompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFRLECompressor",
-	"com.sun.imageio.plugins.tiff.TIFFFaxCompressor",
-	nullptr,
-	nullptr,
-	_TIFFRLECompressor_MethodInfo_
-};
-
-$Object* allocate$TIFFRLECompressor($Class* clazz) {
-	return $of($alloc(TIFFRLECompressor));
-}
 
 void TIFFRLECompressor::init$() {
 	$TIFFFaxCompressor::init$("CCITT RLE"_s, $BaselineTIFFTagSet::COMPRESSION_CCITT_RLE, true);
@@ -71,14 +41,14 @@ int32_t TIFFRLECompressor::encodeRLE($bytes* data, int32_t rowOffset, int32_t co
 		$init($TIFFFaxDecompressor);
 		$var($bytes, flipTable, $TIFFFaxDecompressor::flipTable);
 		for (int32_t i = 0; i < outIndex; ++i) {
-			$nc(compData)->set(i, $nc(flipTable)->get((int32_t)(compData->get(i) & (uint32_t)255)));
+			$nc(compData)->set(i, $nc(flipTable)->get($nc(compData)->get(i) & 0xff));
 		}
 	}
 	return outIndex;
 }
 
 int32_t TIFFRLECompressor::encode($bytes* b, int32_t off, int32_t width, int32_t height, $ints* bitsPerSample, int32_t scanlineStride) {
-	if ($nc(bitsPerSample)->length != 1 || $nc(bitsPerSample)->get(0) != 1) {
+	if ($nc(bitsPerSample)->length != 1 || bitsPerSample->get(0) != 1) {
 		$throwNew($IIOException, "Bits per sample must be 1 for RLE compression!"_s);
 	}
 	int32_t maxBits = 9 * ((width + 1) / 2) + 2;
@@ -130,7 +100,31 @@ TIFFRLECompressor::TIFFRLECompressor() {
 }
 
 $Class* TIFFRLECompressor::load$($String* name, bool initialize) {
-	$loadClass(TIFFRLECompressor, name, initialize, &_TIFFRLECompressor_ClassInfo_, allocate$TIFFRLECompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFRLECompressor, init$, void)},
+		{"add1DBits", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, add1DBits, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"add2DBits", "([BI[[II)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, add2DBits, int32_t, $bytes*, int32_t, $intArray2*, int32_t)},
+		{"addEOFB", "([BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, addEOFB, int32_t, $bytes*, int32_t)},
+		{"addEOL", "(ZZZ[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, addEOL, int32_t, bool, bool, bool, $bytes*, int32_t)},
+		{"encode", "([BIII[II)I", nullptr, $PUBLIC, $virtualMethod(TIFFRLECompressor, encode, int32_t, $bytes*, int32_t, int32_t, int32_t, $ints*, int32_t), "java.io.IOException"},
+		{"encode1D", "([BIII[BI)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, encode1D, int32_t, $bytes*, int32_t, int32_t, int32_t, $bytes*, int32_t)},
+		{"encodeRLE", "([BIII[B)I", nullptr, $PUBLIC, $virtualMethod(TIFFRLECompressor, encodeRLE, int32_t, $bytes*, int32_t, int32_t, int32_t, $bytes*)},
+		{"initBitBuf", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, initBitBuf, void)},
+		{"nextState", "([BIII)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, nextState, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"setMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TIFFRLECompressor, setMetadata, void, $IIOMetadata*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFRLECompressor",
+		"com.sun.imageio.plugins.tiff.TIFFFaxCompressor",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TIFFRLECompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFRLECompressor);
+	});
 	return class$;
 }
 

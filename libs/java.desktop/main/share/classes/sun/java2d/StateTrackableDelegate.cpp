@@ -1,5 +1,4 @@
 #include <sun/java2d/StateTrackableDelegate.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InternalError.h>
 #include <sun/java2d/StateTrackable$State.h>
@@ -31,53 +30,6 @@ using $StateTracker = ::sun::java2d::StateTracker;
 namespace sun {
 	namespace java2d {
 
-$FieldInfo _StateTrackableDelegate_FieldInfo_[] = {
-	{"UNTRACKABLE_DELEGATE", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTrackableDelegate, UNTRACKABLE_DELEGATE)},
-	{"IMMUTABLE_DELEGATE", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTrackableDelegate, IMMUTABLE_DELEGATE)},
-	{"theState", "Lsun/java2d/StateTrackable$State;", nullptr, $PRIVATE, $field(StateTrackableDelegate, theState)},
-	{"theTracker", "Lsun/java2d/StateTracker;", nullptr, 0, $field(StateTrackableDelegate, theTracker)},
-	{"numDynamicAgents", "I", nullptr, $PRIVATE, $field(StateTrackableDelegate, numDynamicAgents)},
-	{}
-};
-
-$MethodInfo _StateTrackableDelegate_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/StateTrackable$State;)V", nullptr, $PRIVATE, $method(StateTrackableDelegate, init$, void, $StateTrackable$State*)},
-	{"addDynamicAgent", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StateTrackableDelegate, addDynamicAgent, void)},
-	{"createInstance", "(Lsun/java2d/StateTrackable$State;)Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC, $staticMethod(StateTrackableDelegate, createInstance, StateTrackableDelegate*, $StateTrackable$State*)},
-	{"getState", "()Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC, $virtualMethod(StateTrackableDelegate, getState, $StateTrackable$State*)},
-	{"getStateTracker", "()Lsun/java2d/StateTracker;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StateTrackableDelegate, getStateTracker, $StateTracker*)},
-	{"markDirty", "()V", nullptr, $PUBLIC, $method(StateTrackableDelegate, markDirty, void)},
-	{"removeDynamicAgent", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $method(StateTrackableDelegate, removeDynamicAgent, void)},
-	{"setImmutable", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StateTrackableDelegate, setImmutable, void)},
-	{"setUntrackable", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StateTrackableDelegate, setUntrackable, void)},
-	{}
-};
-
-$InnerClassInfo _StateTrackableDelegate_InnerClassesInfo_[] = {
-	{"sun.java2d.StateTrackableDelegate$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.java2d.StateTrackableDelegate$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StateTrackableDelegate_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.StateTrackableDelegate",
-	"java.lang.Object",
-	"sun.java2d.StateTrackable",
-	_StateTrackableDelegate_FieldInfo_,
-	_StateTrackableDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StateTrackableDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.StateTrackableDelegate$2,sun.java2d.StateTrackableDelegate$1"
-};
-
-$Object* allocate$StateTrackableDelegate($Class* clazz) {
-	return $of($alloc(StateTrackableDelegate));
-}
-
 StateTrackableDelegate* StateTrackableDelegate::UNTRACKABLE_DELEGATE = nullptr;
 StateTrackableDelegate* StateTrackableDelegate::IMMUTABLE_DELEGATE = nullptr;
 
@@ -86,27 +38,15 @@ StateTrackableDelegate* StateTrackableDelegate::createInstance($StateTrackable$S
 	$init($StateTrackableDelegate$2);
 	switch ($nc($StateTrackableDelegate$2::$SwitchMap$sun$java2d$StateTrackable$State)->get($nc((state))->ordinal())) {
 	case 1:
-		{
-			return StateTrackableDelegate::UNTRACKABLE_DELEGATE;
-		}
+		return StateTrackableDelegate::UNTRACKABLE_DELEGATE;
 	case 2:
-		{
-			$init($StateTrackable$State);
-			return $new(StateTrackableDelegate, $StateTrackable$State::STABLE);
-		}
+		return $new(StateTrackableDelegate, $StateTrackable$State::STABLE);
 	case 3:
-		{
-			$init($StateTrackable$State);
-			return $new(StateTrackableDelegate, $StateTrackable$State::DYNAMIC);
-		}
+		return $new(StateTrackableDelegate, $StateTrackable$State::DYNAMIC);
 	case 4:
-		{
-			return StateTrackableDelegate::IMMUTABLE_DELEGATE;
-		}
+		return StateTrackableDelegate::IMMUTABLE_DELEGATE;
 	default:
-		{
-			$throwNew($InternalError, "unknown state"_s);
-		}
+		$throwNew($InternalError, "unknown state"_s);
 	}
 }
 
@@ -125,24 +65,17 @@ $StateTracker* StateTrackableDelegate::getStateTracker() {
 			$init($StateTrackableDelegate$2);
 			switch ($nc($StateTrackableDelegate$2::$SwitchMap$sun$java2d$StateTrackable$State)->get($nc((this->theState))->ordinal())) {
 			case 4:
-				{
-					$init($StateTracker);
-					$assign(st, $StateTracker::ALWAYS_CURRENT);
-					break;
-				}
+				$init($StateTracker);
+				$assign(st, $StateTracker::ALWAYS_CURRENT);
+				break;
 			case 2:
-				{
-					$assign(st, $new($StateTrackableDelegate$1, this));
-					break;
-				}
+				$assign(st, $new($StateTrackableDelegate$1, this));
+				break;
 			case 3:
-				{}
 			case 1:
-				{
-					$init($StateTracker);
-					$assign(st, $StateTracker::NEVER_CURRENT);
-					break;
-				}
+				$init($StateTracker);
+				$assign(st, $StateTracker::NEVER_CURRENT);
+				break;
 			}
 			$set(this, theTracker, st);
 		}
@@ -200,7 +133,7 @@ void StateTrackableDelegate::markDirty() {
 	$set(this, theTracker, nullptr);
 }
 
-void clinit$StateTrackableDelegate($Class* class$) {
+void StateTrackableDelegate::clinit$($Class* clazz) {
 	$init($StateTrackable$State);
 	$assignStatic(StateTrackableDelegate::UNTRACKABLE_DELEGATE, $new(StateTrackableDelegate, $StateTrackable$State::UNTRACKABLE));
 	$assignStatic(StateTrackableDelegate::IMMUTABLE_DELEGATE, $new(StateTrackableDelegate, $StateTrackable$State::IMMUTABLE));
@@ -210,7 +143,48 @@ StateTrackableDelegate::StateTrackableDelegate() {
 }
 
 $Class* StateTrackableDelegate::load$($String* name, bool initialize) {
-	$loadClass(StateTrackableDelegate, name, initialize, &_StateTrackableDelegate_ClassInfo_, clinit$StateTrackableDelegate, allocate$StateTrackableDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNTRACKABLE_DELEGATE", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTrackableDelegate, UNTRACKABLE_DELEGATE)},
+		{"IMMUTABLE_DELEGATE", "Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StateTrackableDelegate, IMMUTABLE_DELEGATE)},
+		{"theState", "Lsun/java2d/StateTrackable$State;", nullptr, $PRIVATE, $field(StateTrackableDelegate, theState)},
+		{"theTracker", "Lsun/java2d/StateTracker;", nullptr, 0, $field(StateTrackableDelegate, theTracker)},
+		{"numDynamicAgents", "I", nullptr, $PRIVATE, $field(StateTrackableDelegate, numDynamicAgents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/StateTrackable$State;)V", nullptr, $PRIVATE, $method(StateTrackableDelegate, init$, void, $StateTrackable$State*)},
+		{"addDynamicAgent", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StateTrackableDelegate, addDynamicAgent, void)},
+		{"createInstance", "(Lsun/java2d/StateTrackable$State;)Lsun/java2d/StateTrackableDelegate;", nullptr, $PUBLIC | $STATIC, $staticMethod(StateTrackableDelegate, createInstance, StateTrackableDelegate*, $StateTrackable$State*)},
+		{"getState", "()Lsun/java2d/StateTrackable$State;", nullptr, $PUBLIC, $virtualMethod(StateTrackableDelegate, getState, $StateTrackable$State*)},
+		{"getStateTracker", "()Lsun/java2d/StateTracker;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StateTrackableDelegate, getStateTracker, $StateTracker*)},
+		{"markDirty", "()V", nullptr, $PUBLIC, $method(StateTrackableDelegate, markDirty, void)},
+		{"removeDynamicAgent", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $method(StateTrackableDelegate, removeDynamicAgent, void)},
+		{"setImmutable", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StateTrackableDelegate, setImmutable, void)},
+		{"setUntrackable", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(StateTrackableDelegate, setUntrackable, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.StateTrackableDelegate$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.java2d.StateTrackableDelegate$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.StateTrackableDelegate",
+		"java.lang.Object",
+		"sun.java2d.StateTrackable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.StateTrackableDelegate$2,sun.java2d.StateTrackableDelegate$1"
+	};
+	$loadClass(StateTrackableDelegate, name, initialize, &classInfo$$, StateTrackableDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StateTrackableDelegate);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/StringContent$InsertUndo.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/StringContent.h>
@@ -23,47 +22,6 @@ using $CannotUndoException = ::javax::swing::undo::CannotUndoException;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _StringContent$InsertUndo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/StringContent;", nullptr, $FINAL | $SYNTHETIC, $field(StringContent$InsertUndo, this$0)},
-	{"offset", "I", nullptr, $PROTECTED, $field(StringContent$InsertUndo, offset)},
-	{"length", "I", nullptr, $PROTECTED, $field(StringContent$InsertUndo, length)},
-	{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StringContent$InsertUndo, string)},
-	{"posRefs", "Ljava/util/Vector;", nullptr, $PROTECTED, $field(StringContent$InsertUndo, posRefs)},
-	{}
-};
-
-$MethodInfo _StringContent$InsertUndo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/StringContent;II)V", nullptr, $PROTECTED, $method(StringContent$InsertUndo, init$, void, $StringContent*, int32_t, int32_t)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$InsertUndo, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$InsertUndo, undo, void), "javax.swing.undo.CannotUndoException"},
-	{}
-};
-
-$InnerClassInfo _StringContent$InsertUndo_InnerClassesInfo_[] = {
-	{"javax.swing.text.StringContent$InsertUndo", "javax.swing.text.StringContent", "InsertUndo", 0},
-	{}
-};
-
-$ClassInfo _StringContent$InsertUndo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.StringContent$InsertUndo",
-	"javax.swing.undo.AbstractUndoableEdit",
-	nullptr,
-	_StringContent$InsertUndo_FieldInfo_,
-	_StringContent$InsertUndo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringContent$InsertUndo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StringContent"
-};
-
-$Object* allocate$StringContent$InsertUndo($Class* clazz) {
-	return $of($alloc(StringContent$InsertUndo));
-}
 
 void StringContent$InsertUndo::init$($StringContent* this$0, int32_t offset, int32_t length) {
 	$set(this, this$0, this$0);
@@ -107,7 +65,42 @@ StringContent$InsertUndo::StringContent$InsertUndo() {
 }
 
 $Class* StringContent$InsertUndo::load$($String* name, bool initialize) {
-	$loadClass(StringContent$InsertUndo, name, initialize, &_StringContent$InsertUndo_ClassInfo_, allocate$StringContent$InsertUndo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/StringContent;", nullptr, $FINAL | $SYNTHETIC, $field(StringContent$InsertUndo, this$0)},
+		{"offset", "I", nullptr, $PROTECTED, $field(StringContent$InsertUndo, offset)},
+		{"length", "I", nullptr, $PROTECTED, $field(StringContent$InsertUndo, length)},
+		{"string", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StringContent$InsertUndo, string)},
+		{"posRefs", "Ljava/util/Vector;", nullptr, $PROTECTED, $field(StringContent$InsertUndo, posRefs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/StringContent;II)V", nullptr, $PROTECTED, $method(StringContent$InsertUndo, init$, void, $StringContent*, int32_t, int32_t)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$InsertUndo, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(StringContent$InsertUndo, undo, void), "javax.swing.undo.CannotUndoException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StringContent$InsertUndo", "javax.swing.text.StringContent", "InsertUndo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.StringContent$InsertUndo",
+		"javax.swing.undo.AbstractUndoableEdit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StringContent"
+	};
+	$loadClass(StringContent$InsertUndo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringContent$InsertUndo));
+	});
 	return class$;
 }
 

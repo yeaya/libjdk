@@ -1,5 +1,4 @@
 #include <javax/management/MBeanPermission.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/security/Permission.h>
 #include <javax/management/MalformedObjectNameException.h>
@@ -22,68 +21,6 @@ using $ObjectName = ::javax::management::ObjectName;
 namespace javax {
 	namespace management {
 
-$FieldInfo _MBeanPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, serialVersionUID)},
-	{"AddNotificationListener", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, AddNotificationListener)},
-	{"GetAttribute", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetAttribute)},
-	{"GetClassLoader", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetClassLoader)},
-	{"GetClassLoaderFor", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetClassLoaderFor)},
-	{"GetClassLoaderRepository", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetClassLoaderRepository)},
-	{"GetDomains", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetDomains)},
-	{"GetMBeanInfo", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetMBeanInfo)},
-	{"GetObjectInstance", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetObjectInstance)},
-	{"Instantiate", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, Instantiate)},
-	{"Invoke", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, Invoke)},
-	{"IsInstanceOf", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, IsInstanceOf)},
-	{"QueryMBeans", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, QueryMBeans)},
-	{"QueryNames", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, QueryNames)},
-	{"RegisterMBean", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, RegisterMBean)},
-	{"RemoveNotificationListener", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, RemoveNotificationListener)},
-	{"SetAttribute", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, SetAttribute)},
-	{"UnregisterMBean", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, UnregisterMBean)},
-	{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, NONE)},
-	{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, ALL)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MBeanPermission, actions)},
-	{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, mask)},
-	{"classNamePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, classNamePrefix)},
-	{"classNameExactMatch", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, classNameExactMatch)},
-	{"member", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, member)},
-	{"objectName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, objectName)},
-	{}
-};
-
-$MethodInfo _MBeanPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanPermission, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanPermission, init$, void, $String*, $String*, $ObjectName*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, equals, bool, Object$*)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, getActions, $String*)},
-	{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, getActions, $String*, int32_t)},
-	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, getMask, int32_t, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, implies, bool, $Permission*)},
-	{"initName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(MBeanPermission, initName, void, $String*, $String*, $ObjectName*)},
-	{"makeName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, makeName, $String*, $String*, $String*, $ObjectName*)},
-	{"parseActions", "()V", nullptr, $PRIVATE, $method(MBeanPermission, parseActions, void)},
-	{"parseName", "()V", nullptr, $PRIVATE, $method(MBeanPermission, parseName, void)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanPermission, setClassName, void, $String*)},
-	{"setMember", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanPermission, setMember, void, $String*)},
-	{}
-};
-
-$ClassInfo _MBeanPermission_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanPermission",
-	"java.security.Permission",
-	nullptr,
-	_MBeanPermission_FieldInfo_,
-	_MBeanPermission_MethodInfo_
-};
-
-$Object* allocate$MBeanPermission($Class* clazz) {
-	return $of($alloc(MBeanPermission));
-}
-
 void MBeanPermission::parseActions() {
 	int32_t mask = 0;
 	if (this->actions == nullptr) {
@@ -93,7 +30,7 @@ void MBeanPermission::parseActions() {
 		$throwNew($IllegalArgumentException, "MBeanPermission: actions can\'t be empty"_s);
 	}
 	mask = getMask(this->actions);
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::ALL)) != mask) {
+	if ((mask & MBeanPermission::ALL) != mask) {
 		$throwNew($IllegalArgumentException, "Invalid actions mask"_s);
 	}
 	if (mask == MBeanPermission::NONE) {
@@ -103,7 +40,7 @@ void MBeanPermission::parseActions() {
 }
 
 void MBeanPermission::parseName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getName());
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, "MBeanPermission name cannot be null"_s);
@@ -111,7 +48,7 @@ void MBeanPermission::parseName() {
 	if ($nc(name)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "MBeanPermission name cannot be empty"_s);
 	}
-	int32_t openingBracket = $nc(name)->indexOf((int32_t)u'[');
+	int32_t openingBracket = name->indexOf(u'[');
 	if (openingBracket == -1) {
 		$init($ObjectName);
 		$set(this, objectName, $ObjectName::WILDCARD);
@@ -135,7 +72,7 @@ void MBeanPermission::parseName() {
 		}
 		$assign(name, name->substring(0, openingBracket));
 	}
-	int32_t poundSign = name->indexOf((int32_t)u'#');
+	int32_t poundSign = name->indexOf(u'#');
 	if (poundSign == -1) {
 		setMember("*"_s);
 	} else {
@@ -153,12 +90,12 @@ void MBeanPermission::initName($String* className, $String* member, $ObjectName*
 }
 
 void MBeanPermission::setClassName($String* className) {
-	if (className == nullptr || $nc(className)->equals("-"_s)) {
+	if (className == nullptr || className->equals("-"_s)) {
 		$set(this, classNamePrefix, nullptr);
 		this->classNameExactMatch = false;
 	} else {
-		bool var$1 = className->isEmpty();
-		if (var$1 || className->equals("*"_s)) {
+		bool var$0 = className->isEmpty();
+		if (var$0 || className->equals("*"_s)) {
 			$set(this, classNamePrefix, ""_s);
 			this->classNameExactMatch = false;
 		} else if (className->endsWith(".*"_s)) {
@@ -172,7 +109,7 @@ void MBeanPermission::setClassName($String* className) {
 }
 
 void MBeanPermission::setMember($String* member) {
-	if (member == nullptr || $nc(member)->equals("-"_s)) {
+	if (member == nullptr || member->equals("-"_s)) {
 		$set(this, member, nullptr);
 	} else if (member->isEmpty()) {
 		$set(this, member, "*"_s);
@@ -197,7 +134,7 @@ void MBeanPermission::init$($String* className, $String* member, $ObjectName* ob
 
 $String* MBeanPermission::makeName($String* className$renamed, $String* member$renamed, $ObjectName* objectName) {
 	$init(MBeanPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, member, member$renamed);
 	$var($String, className, className$renamed);
 	$var($StringBuilder, name, $new($StringBuilder));
@@ -212,7 +149,7 @@ $String* MBeanPermission::makeName($String* className$renamed, $String* member$r
 	if (objectName == nullptr) {
 		name->append("[-]"_s);
 	} else {
-		name->append(u'[')->append($($nc(objectName)->getCanonicalName()))->append(u']');
+		name->append(u'[')->append($(objectName->getCanonicalName()))->append(u']');
 	}
 	if (name->length() == 0) {
 		return "*"_s;
@@ -232,11 +169,11 @@ $String* MBeanPermission::getActions(int32_t mask) {
 	$init(MBeanPermission);
 	$var($StringBuilder, sb, $new($StringBuilder));
 	bool comma = false;
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::AddNotificationListener)) == MBeanPermission::AddNotificationListener) {
+	if ((mask & MBeanPermission::AddNotificationListener) == MBeanPermission::AddNotificationListener) {
 		comma = true;
 		sb->append("addNotificationListener"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::GetAttribute)) == MBeanPermission::GetAttribute) {
+	if ((mask & MBeanPermission::GetAttribute) == MBeanPermission::GetAttribute) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -244,7 +181,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("getAttribute"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::GetClassLoader)) == MBeanPermission::GetClassLoader) {
+	if ((mask & MBeanPermission::GetClassLoader) == MBeanPermission::GetClassLoader) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -252,7 +189,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("getClassLoader"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::GetClassLoaderFor)) == MBeanPermission::GetClassLoaderFor) {
+	if ((mask & MBeanPermission::GetClassLoaderFor) == MBeanPermission::GetClassLoaderFor) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -260,7 +197,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("getClassLoaderFor"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::GetClassLoaderRepository)) == MBeanPermission::GetClassLoaderRepository) {
+	if ((mask & MBeanPermission::GetClassLoaderRepository) == MBeanPermission::GetClassLoaderRepository) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -268,7 +205,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("getClassLoaderRepository"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::GetDomains)) == MBeanPermission::GetDomains) {
+	if ((mask & MBeanPermission::GetDomains) == MBeanPermission::GetDomains) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -276,7 +213,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("getDomains"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::GetMBeanInfo)) == MBeanPermission::GetMBeanInfo) {
+	if ((mask & MBeanPermission::GetMBeanInfo) == MBeanPermission::GetMBeanInfo) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -284,7 +221,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("getMBeanInfo"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::GetObjectInstance)) == MBeanPermission::GetObjectInstance) {
+	if ((mask & MBeanPermission::GetObjectInstance) == MBeanPermission::GetObjectInstance) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -292,7 +229,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("getObjectInstance"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::Instantiate)) == MBeanPermission::Instantiate) {
+	if ((mask & MBeanPermission::Instantiate) == MBeanPermission::Instantiate) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -300,7 +237,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("instantiate"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::Invoke)) == MBeanPermission::Invoke) {
+	if ((mask & MBeanPermission::Invoke) == MBeanPermission::Invoke) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -308,7 +245,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("invoke"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::IsInstanceOf)) == MBeanPermission::IsInstanceOf) {
+	if ((mask & MBeanPermission::IsInstanceOf) == MBeanPermission::IsInstanceOf) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -316,7 +253,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("isInstanceOf"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::QueryMBeans)) == MBeanPermission::QueryMBeans) {
+	if ((mask & MBeanPermission::QueryMBeans) == MBeanPermission::QueryMBeans) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -324,7 +261,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("queryMBeans"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::QueryNames)) == MBeanPermission::QueryNames) {
+	if ((mask & MBeanPermission::QueryNames) == MBeanPermission::QueryNames) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -332,7 +269,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("queryNames"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::RegisterMBean)) == MBeanPermission::RegisterMBean) {
+	if ((mask & MBeanPermission::RegisterMBean) == MBeanPermission::RegisterMBean) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -340,7 +277,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("registerMBean"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::RemoveNotificationListener)) == MBeanPermission::RemoveNotificationListener) {
+	if ((mask & MBeanPermission::RemoveNotificationListener) == MBeanPermission::RemoveNotificationListener) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -348,7 +285,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("removeNotificationListener"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::SetAttribute)) == MBeanPermission::SetAttribute) {
+	if ((mask & MBeanPermission::SetAttribute) == MBeanPermission::SetAttribute) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -356,7 +293,7 @@ $String* MBeanPermission::getActions(int32_t mask) {
 		}
 		sb->append("setAttribute"_s);
 	}
-	if (((int32_t)(mask & (uint32_t)MBeanPermission::UnregisterMBean)) == MBeanPermission::UnregisterMBean) {
+	if ((mask & MBeanPermission::UnregisterMBean) == MBeanPermission::UnregisterMBean) {
 		if (comma) {
 			sb->append(u',');
 		} else {
@@ -368,14 +305,14 @@ $String* MBeanPermission::getActions(int32_t mask) {
 }
 
 int32_t MBeanPermission::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($(this->getName()))->hashCode();
-	return var$0 + $nc($(this->getActions()))->hashCode();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc(this->getName())->hashCode();
+	return var$0 + $$nc(this->getActions())->hashCode();
 }
 
 int32_t MBeanPermission::getMask($String* action) {
 	$init(MBeanPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mask = MBeanPermission::NONE;
 	if (action == nullptr) {
 		return mask;
@@ -383,7 +320,7 @@ int32_t MBeanPermission::getMask($String* action) {
 	if ($nc(action)->equals("*"_s)) {
 		return MBeanPermission::ALL;
 	}
-	$var($chars, a, $nc(action)->toCharArray());
+	$var($chars, a, action->toCharArray());
 	int32_t i = a->length - 1;
 	if (i < 0) {
 		return mask;
@@ -391,13 +328,13 @@ int32_t MBeanPermission::getMask($String* action) {
 	while (i != -1) {
 		char16_t c = 0;
 		while (true) {
-			bool var$0 = (i != -1);
+			bool var$0 = i != -1;
 			if (var$0) {
 				bool var$4 = (c = a->get(i)) == u' ';
 				bool var$3 = var$4 || c == u'\r';
 				bool var$2 = var$3 || c == u'\n';
 				bool var$1 = var$2 || c == u'\f';
-				var$0 = (var$1 || c == u'\t');
+				var$0 = var$1 || c == u'\t';
 			}
 			if (!(var$0)) {
 				break;
@@ -465,26 +402,16 @@ int32_t MBeanPermission::getMask($String* action) {
 		while (i >= matchlen && !seencomma) {
 			switch (a->get(i - matchlen)) {
 			case u',':
-				{
-					seencomma = true;
-					break;
-				}
+				seencomma = true;
+				break;
 			case u' ':
-				{}
 			case u'\r':
-				{}
 			case u'\n':
-				{}
 			case u'\f':
-				{}
 			case u'\t':
-				{
-					break;
-				}
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException, $$str({"Invalid permission: "_s, action}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"Invalid permission: "_s, action}));
 			}
 			--i;
 		}
@@ -498,11 +425,11 @@ bool MBeanPermission::implies($Permission* p) {
 		return false;
 	}
 	$var(MBeanPermission, that, $cast(MBeanPermission, p));
-	if (((int32_t)(this->mask & (uint32_t)MBeanPermission::QueryMBeans)) == MBeanPermission::QueryMBeans) {
-		if (((int32_t)((this->mask | MBeanPermission::QueryNames) & (uint32_t)$nc(that)->mask)) != that->mask) {
+	if ((this->mask & MBeanPermission::QueryMBeans) == MBeanPermission::QueryMBeans) {
+		if (((this->mask | MBeanPermission::QueryNames) & $nc(that)->mask) != $nc(that)->mask) {
 			return false;
 		}
-	} else if (((int32_t)(this->mask & (uint32_t)$nc(that)->mask)) != that->mask) {
+	} else if ((this->mask & $nc(that)->mask) != $nc(that)->mask) {
 		return false;
 	}
 	if ($nc(that)->classNamePrefix == nullptr) {
@@ -512,23 +439,23 @@ bool MBeanPermission::implies($Permission* p) {
 		if (!that->classNameExactMatch) {
 			return false;
 		}
-		if (!$nc(that->classNamePrefix)->equals(this->classNamePrefix)) {
+		if (!that->classNamePrefix->equals(this->classNamePrefix)) {
 			return false;
 		}
-	} else if (!$nc(that->classNamePrefix)->startsWith(this->classNamePrefix)) {
+	} else if (!that->classNamePrefix->startsWith(this->classNamePrefix)) {
 		return false;
 	}
-	if ($nc(that)->member == nullptr) {
+	if (that->member == nullptr) {
 	} else if (this->member == nullptr) {
 		return false;
-	} else if ($nc(this->member)->equals("*"_s)) {
-	} else if (!$nc(this->member)->equals(that->member)) {
+	} else if (this->member->equals("*"_s)) {
+	} else if (!this->member->equals(that->member)) {
 		return false;
 	}
-	if ($nc(that)->objectName == nullptr) {
+	if (that->objectName == nullptr) {
 	} else if (this->objectName == nullptr) {
 		return false;
-	} else if (!$nc(this->objectName)->apply(that->objectName)) {
+	} else if (!this->objectName->apply(that->objectName)) {
 		if (!$nc(this->objectName)->equals(that->objectName)) {
 			return false;
 		}
@@ -537,7 +464,7 @@ bool MBeanPermission::implies($Permission* p) {
 }
 
 bool MBeanPermission::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -545,7 +472,7 @@ bool MBeanPermission::equals(Object$* obj) {
 		return false;
 	}
 	$var(MBeanPermission, that, $cast(MBeanPermission, obj));
-	return (this->mask == $nc(that)->mask) && ($nc($(this->getName()))->equals($(that->getName())));
+	return (this->mask == $nc(that)->mask) && ($$nc(this->getName())->equals($(that->getName())));
 }
 
 void MBeanPermission::readObject($ObjectInputStream* in) {
@@ -558,7 +485,64 @@ MBeanPermission::MBeanPermission() {
 }
 
 $Class* MBeanPermission::load$($String* name, bool initialize) {
-	$loadClass(MBeanPermission, name, initialize, &_MBeanPermission_ClassInfo_, allocate$MBeanPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, serialVersionUID)},
+		{"AddNotificationListener", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, AddNotificationListener)},
+		{"GetAttribute", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetAttribute)},
+		{"GetClassLoader", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetClassLoader)},
+		{"GetClassLoaderFor", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetClassLoaderFor)},
+		{"GetClassLoaderRepository", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetClassLoaderRepository)},
+		{"GetDomains", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetDomains)},
+		{"GetMBeanInfo", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetMBeanInfo)},
+		{"GetObjectInstance", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, GetObjectInstance)},
+		{"Instantiate", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, Instantiate)},
+		{"Invoke", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, Invoke)},
+		{"IsInstanceOf", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, IsInstanceOf)},
+		{"QueryMBeans", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, QueryMBeans)},
+		{"QueryNames", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, QueryNames)},
+		{"RegisterMBean", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, RegisterMBean)},
+		{"RemoveNotificationListener", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, RemoveNotificationListener)},
+		{"SetAttribute", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, SetAttribute)},
+		{"UnregisterMBean", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, UnregisterMBean)},
+		{"NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, NONE)},
+		{"ALL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanPermission, ALL)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MBeanPermission, actions)},
+		{"mask", "I", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, mask)},
+		{"classNamePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, classNamePrefix)},
+		{"classNameExactMatch", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, classNameExactMatch)},
+		{"member", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, member)},
+		{"objectName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $TRANSIENT, $field(MBeanPermission, objectName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanPermission, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanPermission, init$, void, $String*, $String*, $ObjectName*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, equals, bool, Object$*)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, getActions, $String*)},
+		{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, getActions, $String*, int32_t)},
+		{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, getMask, int32_t, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, implies, bool, $Permission*)},
+		{"initName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(MBeanPermission, initName, void, $String*, $String*, $ObjectName*)},
+		{"makeName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, makeName, $String*, $String*, $String*, $ObjectName*)},
+		{"parseActions", "()V", nullptr, $PRIVATE, $method(MBeanPermission, parseActions, void)},
+		{"parseName", "()V", nullptr, $PRIVATE, $method(MBeanPermission, parseName, void)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setClassName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanPermission, setClassName, void, $String*)},
+		{"setMember", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanPermission, setMember, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanPermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanPermission));
+	});
 	return class$;
 }
 

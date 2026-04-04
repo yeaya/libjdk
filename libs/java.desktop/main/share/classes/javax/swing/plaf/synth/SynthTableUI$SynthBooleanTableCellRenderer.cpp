@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTableUI$SynthBooleanTableCellRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <javax/swing/AbstractButton.h>
@@ -30,50 +29,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthTableUI$SynthBooleanTableCellRenderer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthTableUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTableUI$SynthBooleanTableCellRenderer, this$0)},
-	{"isRowSelected", "Z", nullptr, $PRIVATE, $field(SynthTableUI$SynthBooleanTableCellRenderer, isRowSelected)},
-	{}
-};
-
-$MethodInfo _SynthTableUI$SynthBooleanTableCellRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthTableUI;)V", nullptr, $PUBLIC, $method(SynthTableUI$SynthBooleanTableCellRenderer, init$, void, $SynthTableUI*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthBooleanTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthBooleanTableCellRenderer, isOpaque, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unwrap", "(Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(SynthTableUI$SynthBooleanTableCellRenderer, unwrap, $Color*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _SynthTableUI$SynthBooleanTableCellRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthBooleanTableCellRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthTableUI$SynthBooleanTableCellRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer",
-	"javax.swing.JCheckBox",
-	"javax.swing.table.TableCellRenderer",
-	_SynthTableUI$SynthBooleanTableCellRenderer_FieldInfo_,
-	_SynthTableUI$SynthBooleanTableCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTableUI$SynthBooleanTableCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTableUI"
-};
-
-$Object* allocate$SynthTableUI$SynthBooleanTableCellRenderer($Class* clazz) {
-	return $of($alloc(SynthTableUI$SynthBooleanTableCellRenderer));
-}
-
 $String* SynthTableUI$SynthBooleanTableCellRenderer::toString() {
 	 return this->$JCheckBox::toString();
 }
@@ -102,22 +57,22 @@ void SynthTableUI$SynthBooleanTableCellRenderer::init$($SynthTableUI* this$0) {
 }
 
 $Component* SynthTableUI$SynthBooleanTableCellRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isRowSelected = isSelected;
 	if (isSelected) {
 		setForeground($(unwrap($($nc(table)->getSelectionForeground()))));
-		setBackground($(unwrap($($nc(table)->getSelectionBackground()))));
+		setBackground($(unwrap($(table->getSelectionBackground()))));
 	} else {
 		setForeground($(unwrap($($nc(table)->getForeground()))));
-		setBackground($(unwrap($($nc(table)->getBackground()))));
+		setBackground($(unwrap($(table->getBackground()))));
 	}
-	setSelected((value != nullptr && $nc(($cast($Boolean, value)))->booleanValue()));
+	setSelected((value != nullptr && $cast($Boolean, value)->booleanValue()));
 	return this;
 }
 
 $Color* SynthTableUI$SynthBooleanTableCellRenderer::unwrap($Color* c) {
 	if ($instanceOf($UIResource, c)) {
-		return $new($Color, $nc(c)->getRGB());
+		return $new($Color, c->getRGB());
 	}
 	return c;
 }
@@ -130,7 +85,45 @@ SynthTableUI$SynthBooleanTableCellRenderer::SynthTableUI$SynthBooleanTableCellRe
 }
 
 $Class* SynthTableUI$SynthBooleanTableCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(SynthTableUI$SynthBooleanTableCellRenderer, name, initialize, &_SynthTableUI$SynthBooleanTableCellRenderer_ClassInfo_, allocate$SynthTableUI$SynthBooleanTableCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthTableUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTableUI$SynthBooleanTableCellRenderer, this$0)},
+		{"isRowSelected", "Z", nullptr, $PRIVATE, $field(SynthTableUI$SynthBooleanTableCellRenderer, isRowSelected)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthTableUI;)V", nullptr, $PUBLIC, $method(SynthTableUI$SynthBooleanTableCellRenderer, init$, void, $SynthTableUI*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthBooleanTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"isOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SynthTableUI$SynthBooleanTableCellRenderer, isOpaque, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unwrap", "(Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE, $method(SynthTableUI$SynthBooleanTableCellRenderer, unwrap, $Color*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer", "javax.swing.plaf.synth.SynthTableUI", "SynthBooleanTableCellRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTableUI$SynthBooleanTableCellRenderer",
+		"javax.swing.JCheckBox",
+		"javax.swing.table.TableCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTableUI"
+	};
+	$loadClass(SynthTableUI$SynthBooleanTableCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTableUI$SynthBooleanTableCellRenderer));
+	});
 	return class$;
 }
 
